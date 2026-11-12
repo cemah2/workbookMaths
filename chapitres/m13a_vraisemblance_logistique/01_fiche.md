@@ -116,7 +116,7 @@ La figure de gauche montre une chose de plus : avec dix fois plus de données da
 
 ⚠️ **Erreur classique.** Oublier qu'une log-vraisemblance est une **somme**. Sa valeur dépend de $n$ : pour comparer deux ajustements sur des datasets de tailles différentes, on regarde la moyenne $\frac{1}{n}\ell$, pas $\ell$.
 
-💻 **Aujourd'hui en pratique.** `scipy.stats.norm.fit(x)` rend $(\hat{\mu}, \hat{\sigma})$ par maximum de vraisemblance (attention : l'écart-type, pas la variance), et chaque loi de `scipy.stats` a sa méthode `fit`. Quand le maximum n'a pas de formule, on minimise $-\ell$ numériquement (Newton, M05a ; descente de gradient, M05b) : 🏆 M13a.31 le fait pour un mélange de deux lois.
+💻 **Aujourd'hui en pratique** — `scipy.stats.norm.fit(x)` rend $(\hat{\mu}, \hat{\sigma})$ par maximum de vraisemblance (attention : l'écart-type, pas la variance), et chaque loi de `scipy.stats` a sa méthode `fit`. Quand le maximum n'a pas de formule, on minimise $-\ell$ numériquement (Newton, M05a ; descente de gradient, M05b) : 🏆 M13a.31 le fait pour un mélange de deux lois.
 
 ### En machine learning
 
@@ -158,7 +158,7 @@ La figure montre une autre raison, pratique : en bits, la log-loss d'un exemple 
 
 ⚠️ **Erreur classique.** Mélanger les bases : la log-loss des bibliothèques est en nats (logarithme népérien) ; diviser par $\ln 2 \approx 0{,}693$ la convertit en bits. Et ne pas confondre $-\ln \hat{p}$ (le label est 1) et $-\ln(1 - \hat{p})$ (le label est 0).
 
-💻 **Aujourd'hui en pratique.** `sklearn.metrics.log_loss(y, p)` calcule la log-loss moyenne en nats, à partir des probabilités (il les écrête près de 0 et de 1). Les frameworks d'apprentissage profond préfèrent une fonction qui prend les **scores** (en PyTorch, `BCEWithLogitsLoss`) : c'est plus précis, pour la raison du §3.
+💻 **Aujourd'hui en pratique** — `sklearn.metrics.log_loss(y, p)` calcule la log-loss moyenne en nats, à partir des probabilités (il les écrête près de 0 et de 1). Les frameworks d'apprentissage profond préfèrent une fonction qui prend les **scores** (en PyTorch, `BCEWithLogitsLoss`) : c'est plus précis, pour la raison du §3.
 
 ### En machine learning
 
@@ -215,7 +215,7 @@ L'idée de la démonstration (∂ M13a.15) : une fonction de plusieurs variables
 
 ### En machine learning
 
-La softplus est aussi une fonction d'activation, une version lisse de la ReLU $\max(z, 0)$ (M17). Et la convexité de LSE dit que la cross-entropy multiclasse est, elle aussi, convexe en les scores : M17 y reviendra avec la softmax.
+La softplus est aussi une fonction d'activation, une version lisse de la ReLU $\max(z, 0)$ (R7 ; M17 étudie les points anguleux des fonctions affines par morceaux). Et la convexité de LSE dit que la cross-entropy multiclasse est, elle aussi, convexe en les scores : workbookIA 17 y reviendra avec la softmax (M17 en donne les outils).
 
 ---
 
@@ -253,7 +253,7 @@ $$J(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \big[s(z_i) - y_i\,z_i\big], \qquad
 
 ⚠️ **Erreur classique.** Lire un poids comme l'effet de la feature sur la **probabilité** : $w_j$ est l'effet sur la **log-cote**. Autre piège : comparer les poids de features d'unités différentes (des mètres et des grammes) ; un poids dépend de l'unité de sa feature, et l'on standardise d'abord quand on veut les comparer (M02c).
 
-💻 **Aujourd'hui en pratique.** `sklearn.linear_model.LogisticRegression` minimise la log-loss **avec** une pénalité sur $\lVert \mathbf{w} \rVert^2$ par défaut, et rend $\mathbf{w}$ dans `coef_`, $b$ dans `intercept_`, les probabilités par `predict_proba`. Le paramètre `C` règle l'inverse de la force de la pénalité.
+💻 **Aujourd'hui en pratique** — `sklearn.linear_model.LogisticRegression` minimise la log-loss **avec** une pénalité sur $\lVert \mathbf{w} \rVert^2$ par défaut, et rend $\mathbf{w}$ dans `coef_`, $b$ dans `intercept_`, les probabilités par `predict_proba`. Le paramètre `C` règle l'inverse de la force de la pénalité.
 
 ### Une sonde linéaire
 
@@ -261,7 +261,7 @@ Une **sonde linéaire** (*linear probe*) est une régression logistique entraîn
 
 ### En machine learning
 
-La régression logistique est le premier modèle à essayer sur une classification tabulaire : peu de paramètres ($p + 1$), une loss convexe, des probabilités directement lisibles. Avec $K$ classes, la sigmoïde devient la softmax, et la log-loss la cross-entropy multiclasse (M17). Et un réseau de neurones dont la dernière couche est une régression logistique se lit comme une régression logistique sur des features apprises.
+La régression logistique est le premier modèle à essayer sur une classification tabulaire : peu de paramètres ($p + 1$), une loss convexe, des probabilités directement lisibles. Avec $K$ classes, la sigmoïde devient la softmax, et la log-loss la cross-entropy multiclasse (workbookIA 17 ; M17 en donne les outils). Et un réseau de neurones dont la dernière couche est une régression logistique se lit comme une régression logistique sur des features apprises.
 
 ---
 
@@ -294,7 +294,7 @@ Chaque morceau s'estime par le maximum de vraisemblance du §1, classe par class
 
 Pour décider, on additionne des **log-probabilités** : $\ln\hat{\pi}_k + \sum_j \ln p(x_j \mid Y = k)$ pour chaque classe ; le produit de dizaines de petites probabilités tomberait à 0. La classe prédite est celle du plus grand total, et les probabilités a posteriori s'obtiennent en normalisant par log-somme-exp (M04 §7).
 
-💻 **Aujourd'hui en pratique.** scikit-learn propose `GaussianNB` (features réelles), `MultinomialNB` (comptages, avec le paramètre de lissage `alpha`), `BernoulliNB` et `CategoricalNB`. Les fonctions `categorical_mle` et `gaussian_mle` de ta librairie sont les briques de leurs méthodes `fit`.
+💻 **Aujourd'hui en pratique** — scikit-learn propose `GaussianNB` (features réelles), `MultinomialNB` (comptages, avec le paramètre de lissage `alpha`), `BernoulliNB` et `CategoricalNB`. Les fonctions `categorical_mle` et `gaussian_mle` de ta librairie sont les briques de leurs méthodes `fit`.
 
 ### Deux classes gaussiennes de même variance : un a posteriori logistique
 
@@ -403,7 +403,7 @@ Un arbre de régression choisit, à chaque nœud, la coupe qui fait le plus bais
 
 ## Et maintenant
 
-**Dans ce dépôt** : M13b optimise sous contraintes (multiplicateurs de Lagrange, KKT) : elle refera l'ACP par cette voie, puis construira les SVM ; M14 étudie les ensembles de modèles ; M17 dérive la sigmoïde, la softmax et leurs jacobiennes ; M18 calcule les gradients par la règle de la chaîne ; M25b reprend le maximum de vraisemblance avec des variables latentes.
+**Dans ce dépôt** : M13b optimise sous contraintes (multiplicateurs de Lagrange, KKT) : elle refera l'ACP par cette voie, puis construira les SVM ; M14 étudie les ensembles de modèles ; M17 dérive les fonctions à valeurs vectorielles (la jacobienne), l'outil dont workbookIA 17 se sert pour la sigmoïde et la softmax ; M18 calcule les gradients par la règle de la chaîne ; M25b reprend le maximum de vraisemblance avec des variables latentes.
 
 **Dans workbookIA** : le chapitre 13 compare plusieurs classifieurs. Tu y retrouveras la régression logistique entraînée par descente de gradient, Naïve Bayes gaussien et multinomial, les arbres de décision et leurs critères d'impureté : tu sais maintenant d'où vient chaque loss, chaque estimation et chaque critère.
 
@@ -412,4 +412,4 @@ Un arbre de régression choisit, à chaque nœud, la coupe qui fait le plus bais
 - MML §8.3 (et §6.6.3 pour la sigmoïde vue depuis la famille exponentielle).
 - J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.) : les chapitres sur les lois usuelles et l'indépendance conditionnelle.
 - D. J. C. MacKay, *Information Theory, Inference, and Learning Algorithms* : le chapitre sur l'entropie et l'information mutuelle, et celui sur l'inférence par maximum de vraisemblance.
-- `annexes/symboles.md` (lire $\hat{\boldsymbol{\theta}}$, $\operatorname{argmax}$ et $\propto$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
+- `annexes/symboles.md` (lire $\hat{\boldsymbol{\theta}}$, $\arg\max$ et $\propto$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

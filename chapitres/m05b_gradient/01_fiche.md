@@ -254,7 +254,7 @@ $$g''(0) = f_{xx}\,u_1^2 + 2\,f_{xy}\,u_1 u_2 + f_{yy}\,u_2^2,$$
 
 les dérivées secondes étant prises en $\mathbf{p}$. C'est la **courbure** de la surface dans la direction $\mathbf{u}$, au sens de ce chapitre (la dérivée seconde de la tranche ; la courbure géométrique d'une courbe est une notion voisine, mais différente) : positive, la tranche tourne vers le haut (M05a §1) ; négative, vers le bas. Dans l'exemple, en $(1, 2)$ : dans la direction $(1, 0)$, $g''(0) = 12$ ; dans la direction $(0, 1)$, 4 ; dans la direction $\frac{(1, -1)}{\sqrt{2}}$, $\frac{12 - 2 \times 3 + 4}{2} = 5$. La courbure dépend de la direction.
 
-On range les dérivées secondes dans la **matrice hessienne** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$, symétrique grâce à Schwarz ; la courbure dans la direction $\mathbf{u}$ s'écrit alors $\mathbf{u}^\top H\,\mathbf{u}$. Les matrices et ce produit viendront en M09a, puis la hessienne elle-même en M19 ; ici, on garde la formule développée.
+On range les dérivées secondes dans la **matrice hessienne** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$, symétrique grâce à Schwarz ; la courbure dans la direction $\mathbf{u}$ s'écrit alors $\mathbf{u}^\top H\,\mathbf{u}$. Les matrices et ce produit viendront en M09a, puis la hessienne elle-même en M12c (définition) et M19 ; ici, on garde la formule développée.
 
 ⚠️ **Erreur classique.** Oublier le facteur 2 du terme croisé dans la courbure, ou prendre $f_{xy}$ pour le produit $f_x \times f_y$ : c'est la dérivée de $f_x$ par rapport à $y$.
 

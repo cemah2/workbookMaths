@@ -57,7 +57,7 @@ Vocabulaire anglais de ce chapitre : *array*, *tensor*, *axis* (pluriel *axes*),
 6. **Einstein** : un indice répété est sommé. `einsum("ij,jk->ik", A, B)` est le produit matriciel ; une lettre absente du résultat est sommée ; le coût est le produit des longueurs de toutes les lettres.
 7. La **matrice de centrage** $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ est la **projection orthogonale** sur l'hyperplan $\{\mathbf{v} : \sum_i v_i = 0\}$, de dimension $m - 1$ : d'où le $m - 1$ de la variance non biaisée.
 8. La **standardisation** $\mathbf{z} = (\mathbf{x} - \bar x\mathbf{1})/s$ ne change pas si l'on remplace $\mathbf{x}$ par $a\mathbf{x} + b\mathbf{1}$ avec $a > 0$ : elle ne voit ni l'origine ni l'unité.
-9. **Horvitz-Thompson** : chaque unité $i$ entre dans l'échantillon avec la probabilité $\pi_i > 0$ ; $\hat Y = \sum_{i \in S} y_i/\pi_i$ est **sans biais** pour le total $\sum_i y_i$, et, si les tirages sont indépendants, $\operatorname{Var}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
+9. **Horvitz-Thompson** : chaque unité $i$ entre dans l'échantillon avec la probabilité $\pi_i > 0$ ; $\hat Y = \sum_{i \in S} y_i/\pi_i$ est **sans biais** pour le total $\sum_i y_i$, et, si les tirages sont indépendants, $\mathbb{V}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
 10. Un pas d'Euler $\mathbf{x} \mapsto \mathbf{x} + h\,F(\mathbf{x})$ a pour jacobienne $\mathbf{I} + h\mathbf{J}_F$, de valeurs singulières entre $1 - h\lVert\mathbf{J}_F\rVert$ et $1 + h\lVert\mathbf{J}_F\rVert$ ; le produit de $L$ telles jacobiennes reste entre $(1 - hK)^L$ et $e^{hKL}$ ; à horizon $T = hL$ fixé, il reste donc entre deux constantes $> 0$ qui ne dépendent pas de $L$ ; $(1 + \lambda T/L)^L \to e^{\lambda T}$.
 
 ## §1 · Tableaux à k dimensions : forme, axes, remodelage
@@ -245,7 +245,7 @@ $$\hat Y = \sum_{i \in S} \frac{y_i}{\pi_i} = \sum_{i=1}^N I_i\,\frac{y_i}{\pi_i
 Le nombre $1/\pi_i$ est le **poids de sondage** de l'unité $i$. Seules les valeurs des unités tirées servent : les autres sont inconnues.
 
 > **Horvitz-Thompson.** Si tous les $\pi_i$ sont $> 0$, $\mathbb{E}[\hat Y] = Y$ : l'estimateur est **sans biais**, quelles que soient les probabilités. Si de plus les tirages sont indépendants (tirage de Poisson),
-> $$\operatorname{Var}(\hat Y) = \sum_{i=1}^N y_i^2\,\frac{1 - \pi_i}{\pi_i}.$$
+> $$\mathbb{V}(\hat Y) = \sum_{i=1}^N y_i^2\,\frac{1 - \pi_i}{\pi_i}.$$
 
 L'espérance se voit terme à terme : $\mathbb{E}[I_i\,y_i/\pi_i] = \pi_i\,y_i/\pi_i = y_i$, et l'espérance d'une somme est la somme des espérances, même si les tirages ne sont pas indépendants. La variance demande l'indépendance (le ∂ M20.7 fait les deux preuves). Le terme de l'unité $i$ est nul si $\pi_i = 1$ (elle est toujours tirée : on la recense), et il est grand quand $y_i$ est grand et $\pi_i$ petit.
 
@@ -280,17 +280,17 @@ $$\mathbf{x}_{k+1} = \Phi_h(\mathbf{x}_k), \qquad \Phi_h(\mathbf{x}) = \mathbf{x
 Pour $h$ petit, $\Phi_h$ est **proche de l'identité** : elle bouge peu chaque point. Sa jacobienne (M17) est
 $$\mathbf{J}_{\Phi_h}(\mathbf{x}) = \mathbf{I} + h\,\mathbf{J}_F(\mathbf{x}).$$
 Notons $\lVert\mathbf{J}\rVert$ la plus grande valeur singulière de $\mathbf{J}$ (sa norme, M12d) : $\lVert\mathbf{J}\mathbf{v}\rVert \le \lVert\mathbf{J}\rVert\,\lVert\mathbf{v}\rVert$. Pour un vecteur $\mathbf{v}$ unitaire, $\lVert(\mathbf{I} + h\mathbf{J})\mathbf{v}\rVert$ est entre $1 - h\lVert\mathbf{J}\rVert$ et $1 + h\lVert\mathbf{J}\rVert$ (inégalité triangulaire) ; comme la plus grande et la plus petite valeur singulière sont le maximum et le minimum de cette longueur sur les vecteurs unitaires (M12d),
-$$1 - h\lVert\mathbf{J}\rVert \ \le\ \sigma_{\min}(\mathbf{I} + h\mathbf{J}) \ \le\ \sigma_{\max}(\mathbf{I} + h\mathbf{J}) \ \le\ 1 + h\lVert\mathbf{J}\rVert .$$
+$$1 - h\lVert\mathbf{J}\rVert \ \le\ s_{\min}(\mathbf{I} + h\mathbf{J}) \ \le\ s_{\max}(\mathbf{I} + h\mathbf{J}) \ \le\ 1 + h\lVert\mathbf{J}\rVert .$$
 Un pas proche de l'identité n'étire ni ne comprime beaucoup, dans aucune direction.
 
 ### L pas : un produit de L jacobiennes
 
 Après $L$ pas, $\mathbf{x}_L = \Phi_h(\Phi_h(\cdots\Phi_h(\mathbf{x}_0)))$. Par la règle de la chaîne (M17), la jacobienne de $\mathbf{x}_0 \mapsto \mathbf{x}_L$ est le **produit** des jacobiennes des pas, le dernier à gauche :
 $$\mathbf{J}_L = \big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_{L-1})\big)\cdots\big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_1)\big)\big(\mathbf{I} + h\mathbf{J}_F(\mathbf{x}_0)\big).$$
-Or les valeurs singulières d'un produit vérifient $\sigma_{\max}(\mathbf{A}\mathbf{B}) \le \sigma_{\max}(\mathbf{A})\,\sigma_{\max}(\mathbf{B})$ et $\sigma_{\min}(\mathbf{A}\mathbf{B}) \ge \sigma_{\min}(\mathbf{A})\,\sigma_{\min}(\mathbf{B})$ (on applique les bornes de M12d deux fois). Si $\lVert\mathbf{J}_F\rVert \le K$ le long du chemin et $hK < 1$, avec $1 + u \le e^u$ :
-$$(1 - hK)^L \ \le\ \sigma_{\min}(\mathbf{J}_L) \ \le\ \sigma_{\max}(\mathbf{J}_L) \ \le\ (1 + hK)^L \ \le\ e^{hKL}.$$
+Or les valeurs singulières d'un produit vérifient $s_{\max}(\mathbf{A}\mathbf{B}) \le s_{\max}(\mathbf{A})\,s_{\max}(\mathbf{B})$ et $s_{\min}(\mathbf{A}\mathbf{B}) \ge s_{\min}(\mathbf{A})\,s_{\min}(\mathbf{B})$ (on applique les bornes de M12d deux fois). Si $\lVert\mathbf{J}_F\rVert \le K$ le long du chemin et $hK < 1$, avec $1 + u \le e^u$ :
+$$(1 - hK)^L \ \le\ s_{\min}(\mathbf{J}_L) \ \le\ s_{\max}(\mathbf{J}_L) \ \le\ (1 + hK)^L \ \le\ e^{hKL}.$$
 À **horizon fixé** $T = hL$, la borne de droite vaut $e^{KT}$ quel que soit $L$. Celle de gauche, $(1 - KT/L)^L$, dépend de $L$, mais elle croît avec $L$ (vers $e^{-KT}$), et, comme $\ln(1 - u) \ge -2u$ pour $0 \le u \le \frac12$, elle dépasse $e^{-2KT}$ dès que $hK \le \frac12$ : pour tout $L \ge 2KT$,
-$$e^{-2KT} \ \le\ \sigma_{\min}(\mathbf{J}_L) \ \le\ \sigma_{\max}(\mathbf{J}_L) \ \le\ e^{KT},$$
+$$e^{-2KT} \ \le\ s_{\min}(\mathbf{J}_L) \ \le\ s_{\max}(\mathbf{J}_L) \ \le\ e^{KT},$$
 **deux constantes qui ne dépendent pas de $L$**. Un produit d'un très grand nombre de facteurs proches de l'identité ne tend ni vers 0 ni vers l'infini, tant que $hL$ reste fixé. À pas $h$ fixé, en revanche, $e^{hKL}$ grandit et $(1 - hK)^L$ tend vers 0 quand $L$ grandit : les bornes ne disent plus rien.
 
 ### Le cas linéaire : (1 + λT/L)ᴸ et l'exponentielle

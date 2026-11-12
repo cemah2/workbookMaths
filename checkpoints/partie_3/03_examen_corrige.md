@@ -52,7 +52,7 @@ f) L'image est l'orthogonal de $\ker\mathbf{A}^\top$ (M12b) : $\mathbf{b}$ est a
 g) Pour $P = a + bX + cX^2$ : $P(2) = a + 2b + 4c$ et $P(-1) = a - b + c$, donc $P \in V \iff 3b + 3c = 0 \iff b = -c$. Dans $W$, en plus, $P(0) = a = 0$ : $W = \{c\,(X^2 - X)\}$, de dimension 1. **[0,25]**
 h) $P = 7 - 2X + 2X^2$ a $b = -2 = -c$ : il est dans $V$, et $P = 7 \times 1 + 2\,(X^2 - X)$. **[0,25]**
 
-Sur ta copie : le **théorème du rang** ($\dim\ker\mathbf{A} + \mathrm{rg}\,\mathbf{A} = $ nombre de colonnes) ; pour f), l'image est un plan de $\mathbb{R}^3$ (rang 2) et $\mathbf{z}$ est orthogonal à ce plan : $2b_1 - b_2 - b_3 = 0$ est son équation ; $V = \{a + c\,(X^2 - X)\}$ est engendré par $1$ et $X^2 - X$, qui sont libres (de degrés différents) : c'est une base, et $\dim V = 2$ (on le retrouve par le théorème du rang : $P \mapsto P(2) - P(-1)$ est une forme linéaire non nulle sur $\mathbb{R}_2[X]$, de dimension 3).
+Sur ta copie : le **théorème du rang** ($\dim\ker\mathbf{A} + \operatorname{rg}\mathbf{A} = $ nombre de colonnes) ; pour f), l'image est un plan de $\mathbb{R}^3$ (rang 2) et $\mathbf{z}$ est orthogonal à ce plan : $2b_1 - b_2 - b_3 = 0$ est son équation ; $V = \{a + c\,(X^2 - X)\}$ est engendré par $1$ et $X^2 - X$, qui sont libres (de degrés différents) : c'est une base, et $\dim V = 2$ (on le retrouve par le théorème du rang : $P \mapsto P(2) - P(-1)$ est une forme linéaire non nulle sur $\mathbb{R}_2[X]$, de dimension 3).
 
 **Erreurs fréquentes** : en a), répondre 3 parce qu'il y a trois lignes ; en b), retrancher le rang du nombre de lignes ; en c), un signe faux (la vérification sur la troisième ligne l'attrape) ; en d), inverser l'ordre des coordonnées ; en e), un vecteur orthogonal à une seule colonne, ou oublier de fixer $z_1 = 2$ ; en f), conclure sans tester $\mathbf{z} \cdot \mathbf{b}$ ; en g), oublier que $W$ ajoute une condition à $V$ ; en h), lire $-2X$ comme le coefficient de $X^2 - X$.
 **Remédiation** : M12a.3, M12a.4, M12a.5, M12a.9, M12a.10, M12a.13, M12a.17, M12b.16.
@@ -79,7 +79,7 @@ Sur ta copie : $\mathbf{X}\hat{\mathbf{x}} = -\mathbf{v}_1 + 2\mathbf{v}_2 = (-1
 
 **Réponses** : a) `[2, 36]` · b) `[0.5145, 0.8575]` · c) `0.5` · d) `1` · e) `[[3, 0, 0], [1, 2, 0], [-2, 1, 2]]` · f) `144` · g) `5` · h) `"]-4 ; 4["`.
 
-a) $\mathrm{tr}\,\mathbf{S} = 38$ et $\det\mathbf{S} = 297 - 225 = 72$ : $\lambda^2 - 38\lambda + 72 = (\lambda - 2)(\lambda - 36)$. **[0,25]**
+a) $\operatorname{tr}\mathbf{S} = 38$ et $\det\mathbf{S} = 297 - 225 = 72$ : $\lambda^2 - 38\lambda + 72 = (\lambda - 2)(\lambda - 36)$. **[0,25]**
 b) $\mathbf{S} - 36\,\mathbf{I} = \begin{pmatrix} -25 & 15 \\ 15 & -9 \end{pmatrix}$ : $-25x + 15y = 0$ donne la direction $(3, 5)$, de norme $\sqrt{34}$, d'où $\frac{(3, 5)}{\sqrt{34}} \approx (0{,}5145 ;\ 0{,}8575)$. **[0,25]**
 c) $\mathbf{S}^{-1}$ a les mêmes vecteurs propres et les valeurs propres inverses, $\frac{1}{2}$ et $\frac{1}{36}$ : la plus grande vaut $0{,}5$ (elle vient de la **plus petite** valeur propre de $\mathbf{S}$). **[0,25]**
 d) $\mathbf{S} - 2\,\mathbf{I} = \begin{pmatrix} 9 & 15 \\ 15 & 25 \end{pmatrix}$ : déterminant $225 - 225 = 0$, mais la matrice n'est pas nulle, donc de rang 1. Ses deux lignes sont des multiples de $(3, 5)$ : son image est la droite propre de 36 (en fait $\mathbf{S} - 2\,\mathbf{I} = 34\,\mathbf{u}\mathbf{u}^\top$ avec le $\mathbf{u}$ de b)). **[0,25]**

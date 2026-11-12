@@ -153,7 +153,7 @@ Dans ta copie : calcule d) de deux façons, par cofacteurs sur une ligne et par 
 
 ### Ex M12c.2 — Le déterminant d'une matrice 4 × 4 par élimination ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un déterminant $4 \times 4$ par élimination, en suivant le signe des échanges, et utiliser les propriétés du déterminant.
-**Prérequis :** fiche §1 ; M09a §5 · **Parcours :** C
+**Prérequis :** fiche §1 ; M09a §6 · **Parcours :** C
 
 $\mathbf{F} = \begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 1 & 0 & 2 \\ 2 & 4 & 3 & 1 \\ -1 & 0 & 2 & 2 \end{pmatrix}$. On échange d'abord les lignes 1 et 2, puis on élimine sous chaque pivot sans autre échange.
 
@@ -304,7 +304,7 @@ Dans ta copie : sans la convention de signe, que ferait $\mathbf{x}_k$ d'un pas 
 
 ### Ex M12c.10 — Définie positive ? Par les valeurs propres, les mineurs et la forme quadratique ; une hessienne qui prouve la convexité ✏️ ★★ ⏱️ 20 min
 **Objectif :** tester qu'une matrice est définie positive par plusieurs critères, et s'en servir pour prouver qu'une fonction est convexe.
-**Prérequis :** fiche §7 ; M05b §5 ; M10 · **Parcours :** C, E
+**Prérequis :** fiche §7 ; M05b §6 et §7 ; M10 · **Parcours :** C, E
 
 $\mathbf{H}_1 = \begin{pmatrix} 4 & -2 & 0 \\ -2 & 3 & 1 \\ 0 & 1 & 2 \end{pmatrix}$, $\mathbf{H}_2 = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 3 & 1 \\ 0 & 1 & 4 \end{pmatrix}$ et $f(x, y) = x^2 + 2xy + 3y^2 + e^x$.
 
@@ -519,7 +519,7 @@ Lis MML §4.3 et §4.4. Réponds dans ta copie, avec tes mots.
 **Prérequis :** fiche §1 · **Parcours :** C
 
 Ordres de grandeur seulement ; une machine fait environ $10^9$ opérations par seconde.
-1. Développer récursivement un déterminant $n \times n$ par cofacteurs demande environ $n!$ produits. Estime $20!$ (une puissance de 10 suffit ; la formule de Stirling, ou des regroupements, aident).
+1. Développer récursivement un déterminant $n \times n$ par cofacteurs demande environ $n!$ produits. Estime $20!$ (une puissance de 10 suffit) : par des regroupements, ou par la formule de Stirling, $n! \approx \sqrt{2\pi n}\,(n/e)^n$, qu'on admet.
 2. Combien de temps pour un déterminant $20 \times 20$ par cofacteurs ? Exprime-le en années. Et pour un déterminant $30 \times 30$ ($30! \approx 2{,}7 \times 10^{32}$) ? Compare les deux à l'âge de l'Univers (environ $1{,}4 \times 10^{10}$ ans).
 3. L'élimination demande environ $\frac{2}{3}n^3$ opérations. Combien pour $n = 20$, et combien de temps ?
 4. Et pour $n = 1\,000$ ?

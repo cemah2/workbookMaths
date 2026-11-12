@@ -308,7 +308,7 @@ e) $\mathbf{A}^{10} = \mathbf{P}\begin{pmatrix} 2^{10} & 0 \\ 0 & 1 \end{pmatrix
 
 <details><summary>Indice 1</summary>
 
-Relis « Multiplicités, et des valeurs propres complexes » (fiche §3).
+Relis « Multiplicités, et des valeurs propres complexes » et « Le strict minimum sur les nombres complexes » (fiche §3).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -474,7 +474,7 @@ Relis « Le déterminant et l'inversibilité » (fiche §1).
 
 <details><summary>Indice 1</summary>
 
-Relis « Le théorème spectral » (fiche §6).
+Relis « Le théorème spectral » (fiche §6) ; pour la question 3, « Le strict minimum sur les nombres complexes » (fiche §3).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -864,7 +864,7 @@ Relis « Les formes quadratiques » (fiche §7) et la figure.
 
 <details><summary>Indice 1</summary>
 
-Relis les ⚠️ des §1, §3 et §7, et le 💻 du §7.
+Relis le ⚠️ du §1, la définition du §3 (le vecteur nul est exclu), et, au §7, le théorème de Cholesky (une matrice **symétrique**) et le 💻.
 
 </details>
 <details><summary>Indice 2</summary>

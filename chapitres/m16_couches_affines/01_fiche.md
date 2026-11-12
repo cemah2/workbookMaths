@@ -116,7 +116,7 @@ Donc $(f_2 \circ f_1)(x, y) = (3x + 6y - 1,\ 3y + 3)$. Vérification sur le poin
 
 **Inverser.** Si $\mathbf{W}$ est carrée et inversible, $f$ est bijective (M12a §8), et la matrice homogène de $f^{-1}$ est $\mathbf{H}^{-1}$ : $[\mathbf{x}, 1]\,\mathbf{H}\mathbf{H}^{-1} = [\mathbf{x}, 1]$. Pour l'exemple, $(\mathbf{H}_1\mathbf{H}_2)^{-1} = \begin{pmatrix} 1/3 & 0 & 0 \\ -2/3 & 1/3 & 0 \\ 7/3 & -1 & 1 \end{pmatrix}$, et $[8, 6, 1]$ revient bien sur $[1, 1, 1]$.
 
-💻 **Aujourd'hui en pratique.** Les logiciels de dessin, les moteurs de jeu et la robotique composent des dizaines de rotations, homothéties et translations ainsi : des matrices $3 \times 3$ pour le plan, $4 \times 4$ pour l'espace, multipliées une fois pour toutes. La plupart (OpenGL, les bibliothèques de robotique) rangent les points **en colonnes** : leur matrice est la transposée, avec la translation dans la **dernière colonne**.
+💻 **Aujourd'hui en pratique** — les logiciels de dessin, les moteurs de jeu et la robotique composent des dizaines de rotations, homothéties et translations ainsi : des matrices $3 \times 3$ pour le plan, $4 \times 4$ pour l'espace, multipliées une fois pour toutes. La plupart (OpenGL, les bibliothèques de robotique) rangent les points **en colonnes** : leur matrice est la transposée, avec la translation dans la **dernière colonne**.
 
 ⚠️ **Erreur classique.** Mélanger les deux rangements : écrire la matrice homogène d'une bibliothèque en colonnes (translation à droite) et l'appliquer à des lignes. La translation disparaît, et la dernière coordonnée ne vaut plus 1 (🐛 M16.18).
 
@@ -245,7 +245,7 @@ La figure, à gauche, montre cette fenêtre : $\gamma^L$ reste entre $\frac12$ e
 
 Un amplificateur réel ajoute aussi son propre bruit : $Z_{k+1} = gZ_k + N_k$, où le bruit $N_k$, centré, de variance $s^2$, est indépendant de $Z_k$. Ici $g$ multiplie l'**amplitude** $Z_k$ ; la variance, elle, est multipliée par $g^2$, qui joue le rôle du $\gamma$ du paragraphe précédent. Selon les textes, le mot « gain » désigne l'un ou l'autre facteur : vérifie toujours s'il multiplie l'amplitude ou la variance. Les variances vérifient
 $$v_{k+1} = g^2v_k + s^2,$$
-une suite **arithmético-géométrique** (R5). Si $\lvert g \rvert < 1$, elle tend vers le point fixe $v^* = \frac{s^2}{1 - g^2}$, qui résout $v = g^2v + s^2$. Avec $g = 0{,}7$ et $s^2 = 1$, $v^* = \frac{1}{0{,}51} \approx 1{,}96$ : le bruit s'accumule, mais chaque étage atténue l'ancien, et la variance se stabilise (figure, à droite). Si $\lvert g \rvert \ge 1$ (et $s^2 > 0$), elle grandit sans limite.
+une suite **arithmético-géométrique** (la récurrence affine de R5). Si $\lvert g \rvert < 1$, elle tend vers le point fixe $v^* = \frac{s^2}{1 - g^2}$, qui résout $v = g^2v + s^2$. Avec $g = 0{,}7$ et $s^2 = 1$, $v^* = \frac{1}{0{,}51} \approx 1{,}96$ : le bruit s'accumule, mais chaque étage atténue l'ancien, et la variance se stabilise (figure, à droite). Si $\lvert g \rvert \ge 1$ (et $s^2 > 0$), elle grandit sans limite.
 
 🔗 **Dans workbookIA** — le chapitre 16 suit l'échelle des nombres qui traversent les couches d'un réseau ; tu sais maintenant ce qu'un facteur par étage fait sur beaucoup d'étages.
 

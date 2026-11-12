@@ -641,7 +641,7 @@ with checked("M13b.25d"):
     base_25 = A_25.T @ np.linalg.solve(A_25 @ A_25.T, B_25)                    # one feasible point
     along_25 = np.eye(4) - A_25.T @ np.linalg.solve(A_25 @ A_25.T, A_25)      # the projection on A v = 0
     tries_25 = base_25 + np.random.default_rng(4225).normal(0.0, 1.0, size=(1000, 4)) @ along_25
-    f_tries_25 = 0.5 * np.einsum("ij,jk,ik->i", tries_25, Q_25, tries_25) + tries_25 @ C_25
+    f_tries_25 = 0.5 * np.sum((tries_25 @ Q_25) * tries_25, axis=1) + tries_25 @ C_25
     wbm.check("M13b.25d", bool(np.max(np.abs(A_25 @ x_25 - B_25)) <= 1e-10
                                and np.all(f_tries_25 >= 0.5 * x_25 @ Q_25 @ x_25 + C_25 @ x_25 - 1e-12)), computed=True)
 with checked("M13b.25e"):
@@ -655,7 +655,7 @@ print("c) résidu de la stationnarité :", float(np.max(np.abs(Q_25 @ x_25 + C_2
 base_25 = A_25.T @ np.linalg.solve(A_25 @ A_25.T, B_25)
 along_25 = np.eye(4) - A_25.T @ np.linalg.solve(A_25 @ A_25.T, A_25)
 tries_25 = base_25 + np.random.default_rng(4225).normal(0.0, 1.0, size=(1000, 4)) @ along_25
-f_tries_25 = 0.5 * np.einsum("ij,jk,ik->i", tries_25, Q_25, tries_25) + tries_25 @ C_25
+f_tries_25 = 0.5 * np.sum((tries_25 @ Q_25) * tries_25, axis=1) + tries_25 @ C_25
 f_25 = 0.5 * x_25 @ Q_25 @ x_25 + C_25 @ x_25
 print("d) f(x) =", round(float(f_25), 6), " ; le meilleur des 1 000 points :", round(float(f_tries_25.min()), 6),
       " ; e)", raised(lagrange_equality_qp, Q_25, C_25, TWICE_25, [5, 5]))
@@ -913,7 +913,7 @@ M13B_28 = Ex(
     "scikit-learn, lire leurs paramètres par défaut, et comparer avec ta librairie.",
     "fiche §2 et §8 ; Ex M13b.25 à M13b.27", tracks="C, E", given=GIVEN_28,
     body=r"""En pratique, ces calculs sont tout faits :
-- `minimize(fun, x0, jac=grad, method="SLSQP", constraints=[{"type": "eq", "fun": h, "jac": dh}], tol=1e-12)` (SciPy) part de `x0` et cherche le minimum de `fun` sous la contrainte $h(\mathbf{x}) = \mathbf{0}$ (`h` rend un vecteur, une coordonnée par contrainte ; `grad` et `dh` rendent le gradient de `fun` et la jacobienne de `h`) ; elle rend un objet `res` : `res.x` est le point trouvé, `res.fun` la valeur de `fun` en ce point, `res.nit` le nombre d'itérations ;
+- `minimize(fun, x0, jac=grad, method="SLSQP", constraints=[{"type": "eq", "fun": h, "jac": dh}], tol=1e-12)` (SciPy) part de `x0` et cherche le minimum de `fun` sous la contrainte $h(\mathbf{x}) = \mathbf{0}$ (`h` rend un vecteur, une coordonnée par contrainte ; `grad` et `dh` rendent le gradient de `fun` et la jacobienne de `h`, la matrice dont les lignes sont les gradients des coordonnées de `h` ; M17 l'étudiera) ; elle rend un objet `res` : `res.x` est le point trouvé, `res.fun` la valeur de `fun` en ce point, `res.nit` le nombre d'itérations ;
 - `rbf_kernel(X, Z, gamma=g)` (scikit-learn) rend la matrice des $e^{-g\lVert\mathbf{x}_i - \mathbf{z}_j\rVert^2}$ ; sans `gamma`, elle prend $g = 1/p$, avec $p$ le nombre de features ;
 - `polynomial_kernel(X, Z, degree=d, gamma=g, coef0=r)` rend la matrice des $(g\,\mathbf{x}_i \cdot \mathbf{z}_j + r)^d$ ; sans paramètres, $d = 3$, $g = 1/p$ et $r = 1$ ;
 - `hinge_loss(y, s)` rend la hinge **moyenne** des scores `s` pour les labels `y` : les labels **d'abord**, à l'inverse de ta fonction.

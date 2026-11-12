@@ -32,7 +32,7 @@ Les §1 à §5 forment un bloc (la jacobienne et la règle de la chaîne) ; le �
 
 Parcours essentiel : tout sauf M17.Q5, M17.R3, M17.4, M17.9, M17.11, M17.12, M17.E1, M17.16, M17.19, M17.22 et M17.23.
 
-## Lecture conseillée
+## Guide de lecture de MML
 
 **MML §5.3** (*Gradients of Vector-Valued Functions*) : lis-le **après le §1** de cette fiche et **avant le §3**. Il définit la jacobienne dans la même disposition qu'ici (une ligne par sortie), parle de son déterminant comme d'un facteur de changement d'aire, et dérive ses premières composées ; le 📖 M17.12 te guide. Les exercices de MML sur cette section sont conseillés, pas obligatoires. Si un rappel te manque : MML §5.2 (dérivées partielles et gradient, lu en M05b).
 
@@ -47,20 +47,20 @@ Vocabulaire anglais de ce chapitre : *Jacobian*, *Jacobian determinant*, *vector
 - **passer** du gradient en ligne de MML au gradient de la forme de la variable de NumPy ;
 - **calculer** un produit jacobienne-vecteur ou vecteur-jacobienne sans former la jacobienne, et dire lequel coûte le moins ;
 - **dériver** une fonction définie par morceaux (à gauche, à droite), et **suivre** la dérivée d'une longue composition ;
-- **calculer** une loi de Boltzmann et ses limites en température, et la covariance $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ d'un vecteur one-hot.
+- **calculer** une loi de Boltzmann et ses limites en température, et la covariance $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ d'un vecteur one-hot.
 
 ## L'essentiel en 10 lignes
 
 1. La **jacobienne** de $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^m$ en $\mathbf{x}$ est la matrice $(m, n)$ de coefficients $J_{ij} = \frac{\partial f_i}{\partial x_j}$ : une **ligne par sortie** (le gradient de $f_i$), une **colonne par entrée** (comment toutes les sorties bougent quand $x_j$ bouge).
 2. **Approximation linéaire** : $\mathbf{f}(\mathbf{x} + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}) + \mathbf{J}\,\mathbf{h}$ pour $\mathbf{h}$ petit. Pour $n = m$, $\lvert\det\mathbf{J}\rvert$ est le facteur local de changement d'aire ou de volume.
 3. Une application **linéaire** $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ a pour jacobienne $\mathbf{A}$, partout ; en lignes, $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ a pour jacobienne $\mathbf{W}^\top$.
-4. Une fonction $g$ appliquée **coordonnée par coordonnée** a une jacobienne **diagonale**, $\mathrm{diag}(g'(x_1), \ldots, g'(x_n))$, et $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$.
+4. Une fonction $g$ appliquée **coordonnée par coordonnée** a une jacobienne **diagonale**, $\operatorname{diag}(g'(x_1), \ldots, g'(x_n))$, et $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$.
 5. **Règle de la chaîne** : $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, de formes $(m, p) \times (p, n)$ : la dernière appliquée à **gauche**, évaluée au point **intermédiaire** ; coefficient par coefficient, une somme sur les variables intermédiaires.
 6. Le gradient d'une fonction $L$ à valeurs réelles est une **ligne** chez MML ($\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\;\mathbf{J}_{\mathbf{f}}$) et a **la forme de la variable** dans NumPy ($\nabla_{\mathbf{x}} = \mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$) : mêmes nombres, autre rangement.
 7. $\mathbf{J}\mathbf{v}$ (**jacobienne-vecteur**) est la dérivée de toutes les sorties dans la direction $\mathbf{v}$ : deux évaluations de $\mathbf{f}$ par différences, contre $2n$ pour la matrice entière. $\mathbf{u}^\top\mathbf{J}$ (**vecteur-jacobienne**) est le gradient de $\mathbf{u} \cdot \mathbf{f}$.
 8. En un point anguleux, une fonction a une dérivée **à gauche** et une dérivée **à droite** ; une fonction qui **sature** a une dérivée qui tend vers 0 loin de l'origine ($\arctan'(t) = \frac{1}{1 + t^2}$).
 9. La dérivée d'une composée de $L$ fonctions d'une variable est le **produit** de $L$ dérivées : près d'un point fixe $x^*$, elle se comporte comme $\lvert\varphi'(x^*)\rvert^L$, et s'éteint ou explose.
-10. **Boltzmann** : la population du niveau d'énergie $E_i$ à la température $T$ est $p_i = \frac{e^{-E_i/T}}{\sum_j e^{-E_j/T}}$ ; l'origine des énergies est arbitraire, et $T$ règle la concentration de la loi sur les niveaux bas ; un vecteur one-hot de loi $\mathbf{p}$ a pour covariance $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, qui annule $\mathbf{1}$.
+10. **Boltzmann** : la population du niveau d'énergie $E_i$ à la température $T$ est $p_i = \frac{e^{-E_i/T}}{\sum_j e^{-E_j/T}}$ ; l'origine des énergies est arbitraire, et $T$ règle la concentration de la loi sur les niveaux bas ; un vecteur one-hot de loi $\mathbf{p}$ a pour covariance $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, symétrique, semi-définie positive, qui annule $\mathbf{1}$.
 
 ## §1 · La jacobienne d'une application de ℝⁿ dans ℝᵐ
 
@@ -111,16 +111,16 @@ avec une erreur en $O(h^2)$, où $\mathbf{e}_j$ est le $j$-ième vecteur de la b
 ### Une sortie ne dépend que de son entrée
 
 Une fonction $g$ d'une variable, appliquée **coordonnée par coordonnée** (*elementwise*), définit $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$, une application de $\mathbb{R}^n$ dans $\mathbb{R}^n$ ; NumPy l'écrit `np.sin(x)` ou `x ** 3`. La sortie $i$ ne dépend que de $x_i$ : $\frac{\partial f_i}{\partial x_j} = 0$ pour $j \ne i$, et $\frac{\partial f_i}{\partial x_i} = g'(x_i)$. La jacobienne est **diagonale** :
-$$\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \mathrm{diag}\big(g'(x_1), \ldots, g'(x_n)\big), \qquad \mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v},$$
+$$\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \operatorname{diag}\big(g'(x_1), \ldots, g'(x_n)\big), \qquad \mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v},$$
 où $\odot$ est le produit de Hadamard (case par case, M09a) et $g'(\mathbf{x})$ le vecteur des dérivées. En pratique, on ne stocke donc pas cette matrice (sauf pour la comparer à une autre jacobienne, comme le fait `diagonal_jacobian` du notebook) : ses $n$ coefficients utiles tiennent dans un vecteur, et son produit par un vecteur coûte $n$ multiplications au lieu de $n^2$ (∂ M17.9).
 
-**Exemple.** $\mathbf{f}(\mathbf{x}) = \sin(\mathbf{x})$ en $\mathbf{x} = (0,\ \frac{\pi}{3},\ \frac{\pi}{2})$ : $\mathbf{J} = \mathrm{diag}(\cos 0, \cos\frac{\pi}{3}, \cos\frac{\pi}{2}) = \mathrm{diag}(1 ;\ 0{,}5 ;\ 0)$, et pour $\mathbf{v} = (2, 4, 6)$, $\mathbf{J}\mathbf{v} = (2, 2, 0)$.
+**Exemple.** $\mathbf{f}(\mathbf{x}) = \sin(\mathbf{x})$ en $\mathbf{x} = (0,\ \frac{\pi}{3},\ \frac{\pi}{2})$ : $\mathbf{J} = \operatorname{diag}(\cos 0, \cos\frac{\pi}{3}, \cos\frac{\pi}{2}) = \operatorname{diag}(1 ;\ 0{,}5 ;\ 0)$, et pour $\mathbf{v} = (2, 4, 6)$, $\mathbf{J}\mathbf{v} = (2, 2, 0)$.
 
 ### Une seule paire d'évaluations
 
 Puisque chaque sortie ne dépend que de son entrée, on peut **bouger toutes les entrées à la fois** : la coordonnée $i$ de $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{1}) - \mathbf{f}(\mathbf{x} - h\mathbf{1})}{2h}$ ne voit que le déplacement de $x_i$, et vaut à peu près $g'(x_i)$. Deux évaluations de $\mathbf{f}$ donnent toute la diagonale, au lieu de $2n$ pour la jacobienne entière (🔨 M17.15).
 
-⚠️ **Erreur classique.** Appliquer ce raccourci à une application qui n'est **pas** coordonnée par coordonnée. Pour $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, bouger toutes les entrées de $h$ ajoute $h$ fois la somme des colonnes : le « raccourci » rend $\mathrm{diag}(\mathbf{A}\mathbf{1})$, qui n'a rien à voir avec la jacobienne $\mathbf{A}$. Une application comme $\mathbf{x} \mapsto (x_1x_2,\ x_2x_3,\ x_3x_1)$, ou $\mathbf{x} \mapsto \mathbf{x}/\lVert\mathbf{x}\rVert$, a une jacobienne pleine : chaque sortie dépend de plusieurs entrées.
+⚠️ **Erreur classique.** Appliquer ce raccourci à une application qui n'est **pas** coordonnée par coordonnée. Pour $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, bouger toutes les entrées de $h$ ajoute $h$ fois la somme des colonnes : le « raccourci » rend $\operatorname{diag}(\mathbf{A}\mathbf{1})$, qui n'a rien à voir avec la jacobienne $\mathbf{A}$. Une application comme $\mathbf{x} \mapsto (x_1x_2,\ x_2x_3,\ x_3x_1)$, ou $\mathbf{x} \mapsto \mathbf{x}/\lVert\mathbf{x}\rVert$, a une jacobienne pleine : chaque sortie dépend de plusieurs entrées.
 
 🔗 **Dans workbookIA** — le chapitre 17 applique des fonctions coordonnée par coordonnée à des tableaux entiers, et ne garde de leur jacobienne que la diagonale.
 
@@ -204,9 +204,9 @@ Pour une composée $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$, l'ordre des produits 
 - $\mathbf{u}^\top\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$, calculé **de gauche à droite**, ne fait que des produits ligne-matrice : $3 \times 10^6$ multiplications ;
 - former d'abord $\mathbf{J}_3\mathbf{J}_2\mathbf{J}_1$ demande deux produits de matrices, $2 \times 10^9$ multiplications (M09a §3), près de 700 fois plus.
 
-C'est pourquoi on évite de former les jacobiennes : on fait passer un vecteur à travers elles, de droite à gauche (*forward mode*, des produits jacobienne-vecteur) ou de gauche à droite (*reverse mode*, des produits vecteur-jacobienne).
+C'est pourquoi on évite de former les jacobiennes : on fait passer un vecteur à travers elles, de droite à gauche (**mode direct**, *forward mode* : des produits jacobienne-vecteur) ou de gauche à droite (**mode inverse**, *reverse mode* : des produits vecteur-jacobienne).
 
-🔗 **Plus loin dans ce dépôt** — en M18, la rétropropagation est le *reverse mode* : un gradient complet pour le prix de quelques évaluations, quel que soit le nombre de paramètres.
+🔗 **Plus loin dans ce dépôt** — en M18, la rétropropagation est le mode inverse (*reverse mode*) : un gradient complet pour le prix de quelques évaluations, quel que soit le nombre de paramètres.
 
 ## §6 · Fonctions définies par morceaux et longues compositions
 
@@ -265,15 +265,15 @@ Entre les deux, l'énergie moyenne croît avec la température (figure). Le **re
 ### La covariance d'un vecteur one-hot
 
 Tirons un état $I$ selon une loi $\mathbf{p} = (p_1, \ldots, p_K)$ (une loi de Boltzmann, ou n'importe quelle loi catégorielle de M02b), et codons-le par le vecteur **one-hot** $\mathbf{Y} = \mathbf{e}_I$ (M07) : $Y_i = 1$ si $I = i$, 0 sinon. Chaque $Y_i$ est une variable de Bernoulli de paramètre $p_i$, donc $\mathbb{E}[\mathbf{Y}] = \mathbf{p}$. Deux coordonnées distinctes ne valent jamais 1 ensemble : $Y_iY_j = 0$ pour $i \ne j$. Avec $\mathbf{p}$ écrit en **ligne**, la matrice de covariance (M02c) est
-$$\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}, \qquad \text{de coefficients } p_i(1 - p_i) \text{ sur la diagonale et } -p_ip_j \text{ ailleurs}$$
+$$\operatorname{Cov}(\mathbf{Y}) = \operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}, \qquad \text{de coefficients } p_i(1 - p_i) \text{ sur la diagonale et } -p_ip_j \text{ ailleurs}$$
 ($\mathbf{p}^\top\mathbf{p}$, une colonne fois une ligne, est la matrice des produits $p_ip_j$ ; avec des colonnes, on l'écrirait $\mathbf{p}\,\mathbf{p}^\top$, comme $\mathbf{u}\mathbf{u}^\top$ en ✏️ M17.4 : dans les deux conventions, une colonne fois une ligne donne une matrice, une ligne fois une colonne un nombre). Ses propriétés viennent toutes de ce qu'elle est une covariance (∂ M17.10) :
 - elle est **symétrique** ;
-- elle est **semi-définie positive** : pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\mathrm{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) ;
+- elle est **semi-définie positive** : pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\operatorname{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) ;
 - elle **annule le vecteur $\mathbf{1}$** : $\sum_iY_i = 1$ est constant, de variance nulle, donc chaque ligne de la matrice a une somme nulle ; elle n'est jamais inversible ;
 - quand tous les $p_i$ sont $> 0$, son rang est $K - 1$ (admis) : $\mathbf{1}$ est, à un facteur près, le seul vecteur qu'elle annule.
 
 **Exemple.** Pour $\mathbf{p} = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ :
-$$\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p} = \begin{pmatrix} 0{,}25 & -0{,}15 & -0{,}10 \\ -0{,}15 & 0{,}21 & -0{,}06 \\ -0{,}10 & -0{,}06 & 0{,}16 \end{pmatrix} :$$
+$$\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p} = \begin{pmatrix} 0{,}25 & -0{,}15 & -0{,}10 \\ -0{,}15 & 0{,}21 & -0{,}06 \\ -0{,}10 & -0{,}06 & 0{,}16 \end{pmatrix} :$$
 chaque ligne a une somme nulle, et la diagonale est faite des variances de Bernoulli $p_i(1 - p_i)$. Ses valeurs propres sont $0$, environ $0{,}232$ et environ $0{,}388$ (M12c) : positives ou nulles, et une seule nulle.
 
 🔗 **Dans workbookIA** — le chapitre 17 retrouve une matrice de cette forme en dérivant une fonction qu'il étudie ; ici, tu la connais déjà comme une covariance, avec ses propriétés.
@@ -300,4 +300,4 @@ chaque ligne a une somme nulle, et la diagonale est faite des variances de Berno
 ## Pour aller plus loin
 
 - MML §5.3 (le 📖 M17.12), puis le début de MML §5.4 pour les gradients par rapport à des matrices (préparés en M18).
-- `annexes/symboles.md` (lire $\mathbf{J}_{\mathbf{f}}$, $\frac{\partial f_i}{\partial x_j}$, $\odot$, $\mathbf{u}^\top\mathbf{J}$ et $\mathrm{diag}(\mathbf{p})$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
+- `annexes/symboles.md` (lire $\mathbf{J}_{\mathbf{f}}$, $\frac{\partial f_i}{\partial x_j}$, $\odot$, $\mathbf{u}^\top\mathbf{J}$ et $\operatorname{diag}(\mathbf{p})$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

@@ -217,7 +217,7 @@ On minimise $f(x, y) = x^2 + 2y^2 - 4x - 8y$ sous $2x + y \le c$, c'est-à-dire 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | vrai ou faux : pour $c = 3$, le minimum libre de $f$ est admissible | True ou False |
+| a | vrai ou faux : pour $c = 3$, le minimum libre de $f$ est admissible | `True` ou `False` |
 | b | pour $c = 3$, le multiplicateur $\mu$ | une fraction |
 | c | pour $c = 3$, le point du minimum | une liste de 2 fractions |
 | d | pour $c = 3$, le minimum $f^*$ | un nombre |

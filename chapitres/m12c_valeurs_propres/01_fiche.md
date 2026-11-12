@@ -44,7 +44,7 @@ Ces sections ne parlent pas de la méthode de la puissance, et peu des formes qu
 
 📐 **Notations.** La fiche écrit $\det\mathbf{A}$ (MML : $\det(\mathbf{A})$ ou $|\mathbf{A}|$), $\operatorname{tr}\mathbf{A}$, $\lambda$ une valeur propre et $\mathbf{v}$ un vecteur propre ; $p_{\mathbf{A}}(\lambda) = \det(\mathbf{A} - \lambda\mathbf{I})$ le polynôme caractéristique (MML aussi) ; $E_\lambda$ l'espace propre ; $\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}$ une diagonalisation ($\mathbf{D}$ diagonale, MML aussi) et, pour une matrice symétrique, $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ avec $\mathbf{Q}$ orthogonale et $\boldsymbol{\Lambda}$ diagonale ; $\mathbf{L}$ le facteur de Cholesky ; $\boldsymbol{\Sigma}$ une matrice de covariance et $\boldsymbol{\Sigma}^{1/2}$ sa racine carrée. Les valeurs propres d'une matrice symétrique se rangent en général par ordre **décroissant**, $\lambda_1 \ge \lambda_2 \ge \cdots$ (NumPy, `np.linalg.eigh`, les rend dans l'ordre **croissant**).
 
-Vocabulaire anglais de ce chapitre : *determinant*, *Laplace expansion*, *minor*, *cofactor*, *triangular matrix*, *volume*, *orientation*, *trace*, *eigenvalue*, *eigenvector*, *eigenspace*, *characteristic polynomial*, *algebraic multiplicity*, *geometric multiplicity*, *defective matrix*, *spectrum*, *similar matrices*, *diagonalizable*, *eigendecomposition*, *power iteration*, *deflation*, *spectral theorem*, *Rayleigh quotient*, *positive definite*, *positive semidefinite*, *indefinite*, *quadratic form*, *Cholesky decomposition*, *Cholesky factor*, *covariance matrix*, *whitening*, *matrix square root*.
+Vocabulaire anglais de ce chapitre : *determinant*, *Laplace expansion*, *minor*, *cofactor*, *triangular matrix*, *volume*, *orientation*, *trace*, *eigenvalue*, *eigenvector*, *eigenspace*, *characteristic polynomial*, *algebraic multiplicity*, *geometric multiplicity*, *defective matrix*, *complex number*, *complex conjugate*, *modulus*, *spectrum*, *similar matrices*, *diagonalizable*, *eigendecomposition*, *power iteration*, *deflation*, *spectral theorem*, *Rayleigh quotient*, *positive definite*, *positive semidefinite*, *indefinite*, *quadratic form*, *Hessian*, *Cholesky decomposition*, *Cholesky factor*, *covariance matrix*, *whitening*, *matrix square root*.
 
 ## Objectifs d'apprentissage
 
@@ -95,7 +95,7 @@ Le déterminant est entièrement fixé par trois propriétés de ses colonnes (o
 - le déterminant d'une matrice **triangulaire** (ou diagonale) est le **produit de sa diagonale** ;
 - $\det(\mathbf{A}\mathbf{B}) = \det\mathbf{A}\,\det\mathbf{B}$ : faire $\mathbf{B}$ puis $\mathbf{A}$ multiplie les volumes par les deux facteurs (admis ; MML §4.1) ; d'où $\det(\mathbf{A}^{-1}) = 1/\det\mathbf{A}$ et $\det(\mathbf{S}^{-1}\mathbf{A}\mathbf{S}) = \det\mathbf{A}$ : le déterminant ne dépend pas de la base dans laquelle on écrit l'application (M12a §5).
 
-> ⚠️ **Erreur classique.** $\det(\mathbf{A} + \mathbf{B}) \ne \det\mathbf{A} + \det\mathbf{B}$, et $\det(2\mathbf{A}) = 2^n\det\mathbf{A}$, pas $2\det\mathbf{A}$. Le déterminant est multiplicatif, pas additif. Avec $\mathbf{A}$ et $\mathbf{B} = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$ : $\det(\mathbf{A}\mathbf{B}) = \det\begin{pmatrix} 2 & 3 \\ 2 & 5 \end{pmatrix} = 4 = (-4) \times (-1)$.
+⚠️ **Erreur classique.** $\det(\mathbf{A} + \mathbf{B}) \ne \det\mathbf{A} + \det\mathbf{B}$, et $\det(2\mathbf{A}) = 2^n\det\mathbf{A}$, pas $2\det\mathbf{A}$. Le déterminant est multiplicatif, pas additif. Avec $\mathbf{A}$ et $\mathbf{B} = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$ : $\det(\mathbf{A}\mathbf{B}) = \det\begin{pmatrix} 2 & 3 \\ 2 & 5 \end{pmatrix} = 4 = (-4) \times (-1)$.
 
 ### Le déterminant et l'inversibilité
 
@@ -113,7 +113,7 @@ Le déterminant est entièrement fixé par trois propriétés de ses colonnes (o
 
 **Le pivot partiel.** À la main, on prend le pivot qui arrange. Une machine, elle, choisit dans chaque colonne la ligne dont l'élément a la **plus grande valeur absolue** et la remonte (un échange, donc un signe) : diviser par un pivot minuscule ferait exploser les erreurs d'arrondi. C'est ce que demande `det` dans `eigen.py` (M12c.26), et c'est ce que fait LAPACK.
 
-💻 **Aujourd'hui en pratique.** `np.linalg.det` calcule une factorisation LU (l'élimination avec pivot partiel, rangée dans deux matrices triangulaires) et multiplie la diagonale. En grande dimension, un déterminant dépasse vite les flottants (un produit de 1 000 nombres voisins de 10) : on calcule plutôt son logarithme, `np.linalg.slogdet`, qui rend le signe et $\ln|\det\mathbf{A}|$. Et l'on ne teste jamais l'inversibilité par « $\det\mathbf{A} == 0$ » : $\det(0{,}1\,\mathbf{I}_{50}) = 10^{-50}$ pour une matrice parfaitement inversible ; le bon outil est le rang ou le conditionnement (M12d).
+💻 **Aujourd'hui en pratique** — `np.linalg.det` calcule une factorisation LU (l'élimination avec pivot partiel, rangée dans deux matrices triangulaires) et multiplie la diagonale. En grande dimension, un déterminant dépasse vite les flottants (un produit de 1 000 nombres voisins de 10) : on calcule plutôt son logarithme, `np.linalg.slogdet`, qui rend le signe et $\ln|\det\mathbf{A}|$. Et l'on ne teste jamais l'inversibilité par « $\det\mathbf{A} == 0$ » : $\det(0{,}1\,\mathbf{I}_{50}) = 10^{-50}$ pour une matrice parfaitement inversible ; le bon outil est le rang ou le conditionnement (M12d).
 
 ### En machine learning
 
@@ -158,7 +158,7 @@ En général, $\mathbf{A}\mathbf{x}$ n'est pas sur la même droite que $\mathbf{
 
 **Définition.** Un vecteur **non nul** $\mathbf{v}$ est un **vecteur propre** (*eigenvector*) de $\mathbf{A}$, de **valeur propre** (*eigenvalue*) $\lambda$, si
 $$\mathbf{A}\mathbf{v} = \lambda\mathbf{v}.$$
-Le vecteur nul est exclu (il vérifierait l'égalité pour tout $\lambda$) ; la valeur propre, elle, peut être nulle, négative, ou même complexe. Tout multiple non nul d'un vecteur propre est un vecteur propre de même valeur propre : c'est une **direction** qui compte, pas un vecteur.
+Le vecteur nul est exclu (il vérifierait l'égalité pour tout $\lambda$) ; la valeur propre, elle, peut être nulle, négative, ou même complexe (fin de la section). Tout multiple non nul d'un vecteur propre est un vecteur propre de même valeur propre : c'est une **direction** qui compte, pas un vecteur.
 
 **Exemple.** Avec $\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}$ : $\mathbf{A}\begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 8 \\ 12 \end{pmatrix} = 4\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ et $\mathbf{A}\begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix} = -1 \cdot \begin{pmatrix} 1 \\ -1 \end{pmatrix}$. La direction $(2, 3)$ est étirée par 4 ; la direction $(1, -1)$ est retournée, sans changer de longueur. Mais $\mathbf{A}\mathbf{e}_1 = (1, 3)$ n'est pas sur la droite de $\mathbf{e}_1$.
 
@@ -179,19 +179,29 @@ $$p_{\mathbf{A}}(\lambda) = \lambda^2 - (\operatorname{tr}\mathbf{A})\,\lambda +
 
 ### Ce qu'on lit sans calculer
 
-- **Trace et déterminant.** En développant $p_{\mathbf{A}}(\lambda) = (\lambda_1 - \lambda)\cdots(\lambda_n - \lambda)$ (racines complexes comprises, comptées avec leur multiplicité), on trouve $\sum_i \lambda_i = \operatorname{tr}\mathbf{A}$ et $\prod_i \lambda_i = \det\mathbf{A}$ (démonstration : M12c.16). En particulier, $0$ est valeur propre si et seulement si $\mathbf{A}$ n'est pas inversible.
+- **Trace et déterminant.** En développant $p_{\mathbf{A}}(\lambda) = (\lambda_1 - \lambda)\cdots(\lambda_n - \lambda)$ (racines complexes comprises, comptées avec leur multiplicité ; voir la fin de la section), on trouve $\sum_i \lambda_i = \operatorname{tr}\mathbf{A}$ et $\prod_i \lambda_i = \det\mathbf{A}$ (démonstration : M12c.16). En particulier, $0$ est valeur propre si et seulement si $\mathbf{A}$ n'est pas inversible.
 - **Matrice triangulaire.** Ses valeurs propres sont ses éléments diagonaux : $\mathbf{A} - \lambda\mathbf{I}$ est triangulaire, de déterminant $\prod_i (a_{ii} - \lambda)$.
 - **Puissances, inverse, décalage.** Si $\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$, alors $\mathbf{A}^k\mathbf{v} = \lambda^k\mathbf{v}$, $(\mathbf{A} + c\mathbf{I})\mathbf{v} = (\lambda + c)\mathbf{v}$ et, si $\mathbf{A}$ est inversible, $\mathbf{A}^{-1}\mathbf{v} = \frac{1}{\lambda}\mathbf{v}$ : mêmes vecteurs propres, valeurs propres transformées.
 
-> ⚠️ **Erreur classique.** Les valeurs propres de $\mathbf{A} + \mathbf{B}$ ne sont pas, en général, les sommes de celles de $\mathbf{A}$ et de $\mathbf{B}$ (elles n'ont pas les mêmes vecteurs propres), et celles de $\mathbf{A}$ ne se lisent pas sur sa diagonale si elle n'est pas triangulaire : la diagonale de $\mathbf{A}$ vaut $1, 2$, ses valeurs propres $4, -1$. Seules leur somme et la trace coïncident.
+⚠️ **Erreur classique.** Les valeurs propres de $\mathbf{A} + \mathbf{B}$ ne sont pas, en général, les sommes de celles de $\mathbf{A}$ et de $\mathbf{B}$ (elles n'ont pas les mêmes vecteurs propres), et celles de $\mathbf{A}$ ne se lisent pas sur sa diagonale si elle n'est pas triangulaire : la diagonale de $\mathbf{A}$ vaut $1, 2$, ses valeurs propres $4, -1$. Seules leur somme et la trace coïncident.
 
 ### Multiplicités, et des valeurs propres complexes
 
 - La **multiplicité algébrique** (*algebraic multiplicity*) de $\lambda$ est sa multiplicité comme racine de $p_{\mathbf{A}}$ ; la **multiplicité géométrique** (*geometric multiplicity*) est $\dim E_\lambda$. On a toujours $1 \le \dim E_\lambda \le$ multiplicité algébrique.
 - **Un cisaillement** : $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$ est triangulaire, de valeur propre double 3 ; mais $\mathbf{A} - 3\mathbf{I} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ a pour noyau la seule droite $\operatorname{Vect}(\mathbf{e}_1)$ : multiplicité géométrique 1. Il manque une direction propre.
-- **Une rotation** d'angle $\theta$, $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$, fait tourner toutes les directions : pour $0 < \theta < \pi$, elle n'a **aucune** valeur propre réelle. En effet $p(\lambda) = \lambda^2 - 2\cos\theta\,\lambda + 1$ a pour discriminant $4\cos^2\theta - 4 < 0$. Ses valeurs propres sont complexes, $\cos\theta \pm i\sin\theta$ : une matrice réelle a toujours $n$ valeurs propres dans $\mathbb{C}$, comptées avec leur multiplicité, et les complexes vont par paires conjuguées.
+- **Une rotation** d'angle $\theta$, $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$, fait tourner toutes les directions : pour $0 < \theta < \pi$, elle n'a **aucune** valeur propre réelle. En effet $p(\lambda) = \lambda^2 - 2\cos\theta\,\lambda + 1$ a pour discriminant $4\cos^2\theta - 4 < 0$. Avec les nombres complexes ci-dessous, elle en a deux : $\cos\theta \pm i\sin\theta$.
 
-💻 **Aujourd'hui en pratique.** Personne ne calcule les valeurs propres d'une grande matrice par les racines du polynôme caractéristique : les racines d'un polynôme sont extrêmement sensibles à ses coefficients. `np.linalg.eig` (n'importe quelle matrice carrée) et `np.linalg.eigh` (matrices symétriques) appellent des routines de LAPACK qui ramènent la matrice, par des transformations orthogonales, à une forme presque triangulaire, puis itèrent. Elles rendent les valeurs propres et une matrice dont les **colonnes** sont des vecteurs propres unitaires ; `eig` peut rendre des nombres complexes.
+### Le strict minimum sur les nombres complexes
+
+Pour que tout polynôme caractéristique ait des racines, on ajoute aux réels un nombre $i$ tel que $i^2 = -1$. Un **nombre complexe** (*complex number*) s'écrit $z = a + ib$, avec $a$ et $b$ réels (sa partie réelle et sa partie imaginaire) ; leur ensemble se note $\mathbb{C}$. On calcule comme avec un polynôme en $i$, en remplaçant $i^2$ par $-1$ : $(1 + 2i)(3 - i) = 3 - i + 6i - 2i^2 = 5 + 5i$.
+- Le **conjugué** (*complex conjugate*) de $z = a + ib$ est $\bar z = a - ib$. Le conjugué d'une somme ou d'un produit est la somme ou le produit des conjugués, et un nombre est réel si et seulement s'il est égal à son conjugué.
+- Le **module** (*modulus*) est $\lvert z\rvert = \sqrt{a^2 + b^2}$, la longueur du vecteur $(a, b)$ du plan (pour un réel, c'est sa valeur absolue) ; $z\bar z = a^2 + b^2 = \lvert z\rvert^2$ est un réel positif, nul seulement si $z = 0$.
+- **Les racines d'un trinôme réel de discriminant négatif.** Si $\Delta = t^2 - 4d < 0$, $\lambda^2 - t\lambda + d$ a les deux racines **conjuguées** $\frac{t}{2} \pm i\,\frac{\sqrt{-\Delta}}{2}$ (vérifie en développant). Pour la rotation, $t = 2\cos\theta$ et $\Delta = -4\sin^2\theta$ : on retrouve $\cos\theta \pm i\sin\theta$, de module 1.
+- **Les vecteurs complexes.** Un vecteur $\mathbf{z}$ de $\mathbb{C}^n$ a $n$ coordonnées complexes, et une matrice réelle le multiplie avec les mêmes règles. Son conjugué $\bar{\mathbf{z}}$ conjugue chaque coordonnée, et $\bar{\mathbf{z}}^\top\mathbf{z} = \sum_i \bar z_iz_i = \sum_i \lvert z_i\rvert^2$ est un réel positif, nul seulement si $\mathbf{z} = \mathbf{0}$ : il joue le rôle de $\mathbf{x}^\top\mathbf{x}$ (M12c.15).
+
+Avec les complexes, une matrice réelle $n \times n$ a toujours $n$ valeurs propres, comptées avec leur multiplicité (on l'admet : c'est le théorème fondamental de l'algèbre), et celles qui ne sont pas réelles vont par paires conjuguées. Ce chapitre ne s'en sert que pour la rotation (M12c.6) et pour une démonstration (M12c.15) ; M19 s'en sert pour les récurrences d'ordre 2 (module d'un produit, forme trigonométrique), et M22 reprend les valeurs propres complexes.
+
+💻 **Aujourd'hui en pratique** — personne ne calcule les valeurs propres d'une grande matrice par les racines du polynôme caractéristique : les racines d'un polynôme sont extrêmement sensibles à ses coefficients. `np.linalg.eig` (n'importe quelle matrice carrée) et `np.linalg.eigh` (matrices symétriques) appellent des routines de LAPACK qui ramènent la matrice, par des transformations orthogonales, à une forme presque triangulaire, puis itèrent. Elles rendent les valeurs propres et une matrice dont les **colonnes** sont des vecteurs propres unitaires ; `eig` peut rendre des nombres complexes.
 
 ### En machine learning
 
@@ -256,7 +266,7 @@ et chaque $(\lambda_i/\lambda_1)^k$ tend vers 0. Normaliser à chaque pas ne cha
 - **Les échecs.** Deux valeurs propres de même module (par exemple $3$ et $-3$, ou deux complexes conjuguées) : $\mathbf{x}_k$ ne converge pas, il tourne ou oscille sans fin ; d'où un nombre maximal d'itérations.
 - **La valeur propre**, estimée par le quotient de Rayleigh, converge à la même vitesse que le vecteur en général, et **deux fois plus vite** (en $|\lambda_2/\lambda_1|^{2k}$) pour une matrice symétrique (§6).
 
-💻 **Aujourd'hui en pratique.** La méthode de la puissance, et ses descendantes (itération inverse, méthode de Lanczos), servent quand la matrice est trop grande pour être stockée mais qu'on sait calculer $\mathbf{A}\mathbf{x}$ : un graphe du Web, une matrice creuse de millions de lignes, une hessienne de réseau de neurones accessible seulement par des produits. `scipy.sparse.linalg.eigsh` trouve ainsi les quelques plus grandes valeurs propres d'une grande matrice symétrique.
+💻 **Aujourd'hui en pratique** — la méthode de la puissance, et ses descendantes (itération inverse, méthode de Lanczos), servent quand la matrice est trop grande pour être stockée mais qu'on sait calculer $\mathbf{A}\mathbf{x}$ : un graphe du Web, une matrice creuse de millions de lignes, une hessienne de réseau de neurones accessible seulement par des produits. `scipy.sparse.linalg.eigsh` trouve ainsi les quelques plus grandes valeurs propres d'une grande matrice symétrique.
 
 ### En machine learning
 
@@ -286,7 +296,7 @@ $$\mathbf{Q} = \frac{1}{\sqrt{10}}\begin{pmatrix} 1 & 3 \\ 3 & -1 \end{pmatrix},
 
 ![Le cercle unité et son image par S, une ellipse d'axes q₁ ∝ (1, 3) et q₂ ∝ (3, −1), de demi-axes 11 et 1](figures/spectral.png)
 
-> ⚠️ **Erreur classique.** Ce n'est vrai que pour une matrice **symétrique**. La matrice $\mathbf{A}$ du §3 a des vecteurs propres $(2, 3)$ et $(1, -1)$ qui ne sont pas orthogonaux ($2 - 3 \ne 0$), et l'image du cercle par $\mathbf{A}$ est une ellipse dont les axes ne sont **pas** ses vecteurs propres (ce sont ses vecteurs singuliers, M12d).
+⚠️ **Erreur classique.** Ce n'est vrai que pour une matrice **symétrique**. La matrice $\mathbf{A}$ du §3 a des vecteurs propres $(2, 3)$ et $(1, -1)$ qui ne sont pas orthogonaux ($2 - 3 \ne 0$), et l'image du cercle par $\mathbf{A}$ est une ellipse dont les axes ne sont **pas** ses vecteurs propres (ce sont ses vecteurs singuliers, M12d).
 
 ### Le quotient de Rayleigh
 
@@ -351,11 +361,13 @@ Pour $\mathbf{S}$, $q = 11y_1^2 + y_2^2$ : la ligne $q = 1$ est une ellipse de d
 
 ### La hessienne et la convexité
 
-En M05b, la hessienne d'une fonction de deux variables classait un point critique ; en M10, une fonction convexe était au-dessous de ses cordes. Les deux se rejoignent :
+En M05b, la hessienne d'une fonction de deux variables classait un point critique ; en M10, une fonction convexe était au-dessous de ses cordes. Les deux se rejoignent.
+
+Pour $f : \mathbb{R}^n \to \mathbb{R}$ deux fois dérivable, la **hessienne** (*Hessian*) $\nabla^2 f(\mathbf{x})$ est la matrice $n \times n$ des dérivées secondes : son terme $(i, j)$ vaut $\frac{\partial^2 f}{\partial x_i\,\partial x_j}(\mathbf{x})$. Si ces dérivées secondes sont continues, elle est symétrique (Schwarz, M05b §6) ; en dimension 2, c'est la matrice $H$ de M05b §6. Comme en M05b, la dérivée seconde de $t \mapsto f(\mathbf{x} + t\mathbf{u})$ en 0, pour un vecteur unitaire $\mathbf{u}$, vaut $\mathbf{u}^\top\nabla^2 f(\mathbf{x})\,\mathbf{u}$ : une forme quadratique. M19 l'étudie en détail.
 
 **Théorème** (admis). Une fonction $f : \mathbb{R}^n \to \mathbb{R}$ deux fois dérivable est **convexe** si et seulement si sa hessienne $\nabla^2 f(\mathbf{x})$ est **semi-définie positive en tout point** $\mathbf{x}$. Si la hessienne est définie positive partout, $f$ est strictement convexe (la réciproque est fausse : $x^4$ est strictement convexe, de dérivée seconde nulle en 0).
 
-L'intuition vient de Taylor (M05b) : près de $\mathbf{x}$, $f(\mathbf{x} + \mathbf{h}) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\mathbf{h} + \frac{1}{2}\mathbf{h}^\top\nabla^2 f(\mathbf{x})\,\mathbf{h}$ ; si le dernier terme n'est jamais négatif, $f$ reste au-dessus de ses tangentes.
+L'intuition vient de Taylor (M05b §7 en dimension 2, écrit ici avec des vecteurs ; M19 le justifie) : près de $\mathbf{x}$, $f(\mathbf{x} + \mathbf{h}) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\mathbf{h} + \frac{1}{2}\mathbf{h}^\top\nabla^2 f(\mathbf{x})\,\mathbf{h}$ ; si le dernier terme n'est jamais négatif, $f$ reste au-dessus de ses tangentes. En un point critique, $\nabla f(\mathbf{x}) = \mathbf{0}$ et il ne reste que ce terme : une hessienne définie positive en un point critique y donne un minimum local (le test du second ordre en dimension $n$, M19 §2).
 
 **Exemple.** $f(x, y) = x^2 + 3xy + 5y^2$ a pour hessienne, constante, $\begin{pmatrix} 2 & 3 \\ 3 & 10 \end{pmatrix} = \mathbf{S}$, définie positive : $f$ est strictement convexe, et son unique minimum est en $(0, 0)$. En fait $f(\mathbf{x}) = \frac{1}{2}\mathbf{x}^\top\mathbf{S}\mathbf{x}$ : ses lignes de niveau sont les ellipses de la figure.
 
@@ -380,7 +392,7 @@ D'où $\mathbf{L} = \begin{pmatrix} 2 & 0 & 0 \\ 1 & 3 & 0 \\ -1 & 2 & 3 \end{pm
 
 **Résoudre avec Cholesky.** $\mathbf{A}\mathbf{x} = \mathbf{b}$ devient deux systèmes triangulaires : $\mathbf{L}\mathbf{z} = \mathbf{b}$ (en descendant), puis $\mathbf{L}^\top\mathbf{x} = \mathbf{z}$ (en remontant, comme en M12b §7). Avec $\mathbf{b} = (6, 12, 3)$ : $z_1 = 6/2 = 3$, $z_2 = (12 - 3)/3 = 3$, $z_3 = (3 + 3 - 2 \times 3)/3 = 0$ ; puis $x_3 = 0$, $x_2 = (3 - 2 \times 0)/3 = 1$, $x_1 = (3 - 1 + 0)/2 = 1$. Donc $\mathbf{x} = (1, 1, 0)$ : c'est aussi le minimum de $\frac{1}{2}\mathbf{x}^\top\mathbf{A}\mathbf{x} - \mathbf{b}^\top\mathbf{x}$.
 
-💻 **Aujourd'hui en pratique.** Cholesky coûte environ deux fois moins d'opérations que l'élimination générale et n'a jamais besoin d'échanger des lignes : c'est la méthode de choix pour une matrice définie positive (`np.linalg.cholesky`, `scipy.linalg.cho_factor` et `cho_solve`). En pratique, « est-elle définie positive ? » se teste en essayant Cholesky (`is_positive_definite`, M12c.28), et une matrice presque singulière se répare en ajoutant un petit multiple de $\mathbf{I}$ à sa diagonale.
+💻 **Aujourd'hui en pratique** — Cholesky coûte environ deux fois moins d'opérations que l'élimination générale et n'a jamais besoin d'échanger des lignes : c'est la méthode de choix pour une matrice définie positive (`np.linalg.cholesky`, `scipy.linalg.cho_factor` et `cho_solve`). En pratique, « est-elle définie positive ? » se teste en essayant Cholesky (`is_positive_definite`, M12c.28), et une matrice presque singulière se répare en ajoutant un petit multiple de $\mathbf{I}$ à sa diagonale.
 
 ### En machine learning
 
@@ -426,7 +438,7 @@ On vérifie $\mathbf{A}^{1/2}\mathbf{A}^{1/2} = \mathbf{Q}\boldsymbol{\Lambda}^{
 $$\boldsymbol{\Sigma}^{1/2} = \frac{4}{5}\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix} + \frac{1}{5}\begin{pmatrix} 4 & -2 \\ -2 & 1 \end{pmatrix} = \frac{1}{5}\begin{pmatrix} 8 & 6 \\ 6 & 17 \end{pmatrix},$$
 et l'on vérifie que son carré vaut $\frac{1}{25}\begin{pmatrix} 100 & 150 \\ 150 & 325 \end{pmatrix} = \boldsymbol{\Sigma}$. Le facteur de Cholesky de $\boldsymbol{\Sigma}$, lui, est $\mathbf{L} = \begin{pmatrix} 2 & 0 \\ 3 & 2 \end{pmatrix}$ : il vérifie aussi $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$, mais il n'est pas symétrique. Une matrice définie positive a beaucoup de « racines » $\mathbf{R}$ avec $\mathbf{R}\mathbf{R}^\top = \boldsymbol{\Sigma}$ ; une seule est symétrique positive.
 
-> ⚠️ **Erreur classique.** La racine carrée d'une matrice n'est **pas** la matrice des racines de ses éléments : $\begin{pmatrix} 2 & \sqrt{6} \\ \sqrt{6} & \sqrt{13} \end{pmatrix}$ au carré ne redonne pas $\boldsymbol{\Sigma}$. Cela ne marche que pour une matrice diagonale.
+⚠️ **Erreur classique.** La racine carrée d'une matrice n'est **pas** la matrice des racines de ses éléments : $\begin{pmatrix} 2 & \sqrt{6} \\ \sqrt{6} & \sqrt{13} \end{pmatrix}$ au carré ne redonne pas $\boldsymbol{\Sigma}$. Cela ne marche que pour une matrice diagonale.
 
 ### Le blanchiment
 
@@ -450,7 +462,7 @@ Deux blanchiments diffèrent toujours d'une matrice orthogonale : si $\mathbf{W}
 
 **Le chemin inverse.** Pour **fabriquer** des données de covariance $\boldsymbol{\Sigma}$ à partir de tirages $\mathbf{u}$ indépendants de variance 1, on fait $\mathbf{x} = \mathbf{L}\mathbf{u}$ (ou $\boldsymbol{\Sigma}^{1/2}\mathbf{u}$) : sa covariance est $\mathbf{L}\mathbf{I}\mathbf{L}^\top = \boldsymbol{\Sigma}$. C'est ainsi que la figure ci-dessus a été tirée, et que M25a échantillonnera une loi normale multivariée.
 
-> ⚠️ **Prudence.** Blanchir divise la coordonnée sur chaque axe propre par $\sqrt{\lambda_i}$ : avec $\lambda_i = 10^{-4}$, elle est multipliée par 100. Si cette direction ne contenait que des erreurs de mesure, ou venait de deux features presque identiques, ces erreurs pèsent maintenant autant que le reste. Et standardiser (diviser chaque feature par son écart-type, workbookIA 12) n'est **pas** blanchir : cela met les variances à 1, mais laisse les corrélations en place, puisqu'il n'y a qu'une matrice diagonale.
+⚠️ **Erreur classique.** Blanchir sans regarder les petites valeurs propres : diviser la coordonnée sur chaque axe propre par $\sqrt{\lambda_i}$ la multiplie par 100 si $\lambda_i = 10^{-4}$. Si cette direction ne contenait que des erreurs de mesure, ou venait de deux features presque identiques, ces erreurs pèsent maintenant autant que le reste. Et standardiser (diviser chaque feature par son écart-type, workbookIA 12) n'est **pas** blanchir : cela met les variances à 1, mais laisse les corrélations en place, puisqu'il n'y a qu'une matrice diagonale.
 
 ### En machine learning
 

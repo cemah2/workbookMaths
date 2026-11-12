@@ -503,15 +503,15 @@ CHAPTERS = [
                     "fonctions de courbure bornée (valeurs propres de la hessienne dans [μ, L]) : le pas sous 2/L "
                     "(énoncé)",
                     "récurrence linéaire d'ordre 2 : polynôme caractéristique, matrice compagnon",
-                    "nombres complexes : module, conjugué, racines complexes d'un trinôme réel, somme et produit des "
-                    "racines (strict minimum)",
+                    "nombres complexes (rappel de M12c §3) : module d'un produit, forme trigonométrique, somme et produit "
+                    "des racines complexes d'un trinôme réel",
                     "convergence d'une récurrence d'ordre 2 : |q| < 1 et |p| < 1 + q",
                     "gradient sur un échantillon : estimateur sans biais, variance en 1/B",
                     "projection sur une boule (direction gardée) et sur un pavé (direction changée)"],
         "requires": [("dérivées partielles secondes, points critiques en dimension 2", "M05b"),
                      ("Taylor en une variable, choix du pas des différences finies", "M05a"),
                      ("valeurs propres, théorème spectral, formes quadratiques, définie positive, hessienne et "
-                      "convexité", "M12c"),
+                      "convexité, le strict minimum sur les nombres complexes", "M12c"),
                      ("conditionnement", "M12d"),
                      ("suites géométriques, récurrences d'ordre 1, moyenne exponentielle", "R5"),
                      ("trinôme du second degré, discriminant, racines, factorisation", "R3"),
@@ -540,8 +540,9 @@ CHAPTERS = [
                  "x ← x + ω(b − A x) + β(x − x₋₁), qui est le momentum ; le défi M19.28 est une récurrence de la "
                  "mécanique (le schéma saute-mouton), dont les racines sont de module 1. Le pont M19.14 énonce sans "
                  "calcul (hors parcours essentiel), et M19.Q4 se lit sur des matrices 2 × 2, sans les quatre "
-                 "comportements en dimension 1 (∂ 19.7.1, 19.Q5). Le strict minimum sur les nombres complexes (module, conjugué, racines complexes d'un "
-                 "trinôme réel, produit des racines) est ici ; M22 fait le reste (valeurs propres complexes, rayon "
+                 "comportements en dimension 1 (∂ 19.7.1, 19.Q5). Le strict minimum sur les nombres complexes (i, module, conjugué, racines d'un trinôme réel) "
+                 "est en M12c §3 (audit de la session 55) ; M19 le rappelle et ajoute le module d'un produit, la "
+                 "forme trigonométrique et le produit des racines ; M22 fait le reste (valeurs propres complexes, rayon "
                  "spectral). Le gradient estimé sur un échantillon est étudié comme un estimateur (sans biais, "
                  "variance en 1/B), sur une pente de moindres carrés, sans compter epochs ni mises à jour. La "
                  "projection sur une boule et sur un pavé est faite en géométrie (M07, M12b), sans norme globale de "
@@ -668,7 +669,8 @@ CHAPTERS = [
                     "estimateur de Horvitz-Thompson : espérance et variance d'une observation divisée par sa "
                     "probabilité d'inclusion",
                     "application proche de l'identité x ↦ x + hF(x) : jacobienne I + hJ_F, produit de L facteurs, "
-                    "(1 + hλ)ᴸ"],
+                    "(1 + hλ)ᴸ",
+                    "méthode d'Euler pour x′ = F(x), exponentielle de matrice comme limite de (I + TJ/L)ᴸ (aperçu)"],
         "requires": [("NumPy : arrays, formes, axis, broadcasting", "IA:0A"),
                      ("moyenne, variance, ddof, z-score, standardisation", "M02c"),
                      ("loi de Bernoulli, espérance, variance d'une somme de variables indépendantes", "M02b"),

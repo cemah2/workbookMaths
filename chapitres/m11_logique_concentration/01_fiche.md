@@ -304,7 +304,7 @@ C'est indispensable dès qu'on **choisit** après avoir regardé : l'accuracy du
 
 Elle ne suppose ni loi normale, ni $n$ grand, ni variance connue : c'est sa force. Sa faiblesse : elle ignore la variance, et quand celle-ci est très petite (une proportion proche de 0), Tchebychev peut faire mieux (M11.21).
 
-💻 **Aujourd'hui en pratique** — Pour rapporter l'incertitude d'une accuracy, on utilise plutôt un intervalle de Wilson ou le bootstrap (M08, M02c), plus étroits. Hoeffding sert quand on veut une **garantie** sans hypothèse sur la loi, et c'est la brique de base de la théorie de l'apprentissage : les bornes de généralisation et les bornes de confiance du §7 en sont faites.
+💻 **Aujourd'hui en pratique** — pour rapporter l'incertitude d'une accuracy, on utilise plutôt un intervalle de Wilson ou le bootstrap (M08, M02c), plus étroits. Hoeffding sert quand on veut une **garantie** sans hypothèse sur la loi, et c'est la brique de base de la théorie de l'apprentissage : les bornes de généralisation et les bornes de confiance du §7 en sont faites.
 
 🔗 **Dans workbookIA** — la taille d'un jeu de test et la fiabilité d'une accuracy reviennent à chaque évaluation de modèle (chapitre 8 et suivants) ; le bonus des bornes supérieures de confiance du chapitre 11 vient de ce paragraphe (§7).
 

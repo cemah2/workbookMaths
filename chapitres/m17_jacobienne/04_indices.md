@@ -165,12 +165,12 @@ M02c §8.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \sum_{i,j}v_iv_j\,\mathrm{Cov}(X_i, X_j)$.
+$\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \sum_{i,j}v_iv_j\,\operatorname{Cov}(X_i, X_j)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4 : les coordonnées de $\boldsymbol{\Sigma}(1, 1)^\top$ sont $\mathrm{Cov}(X_i, X_1 + X_2)$.
+4 : les coordonnées de $\boldsymbol{\Sigma}(1, 1)^\top$ sont $\operatorname{Cov}(X_i, X_1 + X_2)$.
 
 </details>
 
@@ -371,12 +371,12 @@ Chaque $Y_i$ est une variable de Bernoulli ; deux coordonnées distinctes ne val
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathrm{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ ; pour la semi-définie positivité, pense à $\mathbb{V}(\mathbf{v} \cdot \mathbf{Y})$.
+$\operatorname{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ ; pour la semi-définie positivité, pense à $\mathbb{V}(\mathbf{v} \cdot \mathbf{Y})$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4 : la somme de la ligne $i$ est $\mathrm{Cov}\big(Y_i, \sum_jY_j\big)$.
+4 : la somme de la ligne $i$ est $\operatorname{Cov}\big(Y_i, \sum_jY_j\big)$.
 
 </details>
 

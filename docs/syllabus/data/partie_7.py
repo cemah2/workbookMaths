@@ -54,7 +54,7 @@ CHAPTERS = [
                     "produits cumulés et plannings de bruit (linéaire, cosinus)", "rapport signal sur bruit",
                     "ELBO d'une chaîne de variables latentes (principe)", "loss de prédiction du bruit (idée)",
                     "DDPM et DDIM : ce qui change mathématiquement", "guidance sans classifieur (combinaison affine)",
-                    "équations différentielles, méthode d'Euler", "flow matching (initiation)"],
+                    "équations différentielles, méthode d'Euler (premier contact en M20 §6)", "flow matching (initiation)"],
         "after": ["M25a", "M25b", "M26"],
         "mymath": {"module": "diffusion.py",
                    "functions": ["cumulative_alpha", "combine_gaussians", "gaussian_product_1d", "euler_ode"]},

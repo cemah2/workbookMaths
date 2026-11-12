@@ -26,7 +26,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 16 · Réseaux feed-forward | M16 | (§2.8, §6.4) |
 | 17 · Fonctions d'activation | M17 | §5.3 |
 | 18 · Rétropropagation | M18 | §5.4–5.6 |
-| 19 · Optimiseurs | M19 | §5.7–5.8, §7.1, §7.3 |
+| 19 · Optimiseurs | M19 | §5.7–5.8, §7.1 |
 | 20 · Deep learning et premiers pas en PyTorch | M20 | — |
 | 21 · Réseaux convolutifs (CNN) | M21 | — |
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2) |
@@ -45,6 +45,8 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | B6 · Explicabilité, équité et éthique | MB6 | — |
 | B7 · Du notebook à la production | — (rien de nouveau) | — |
 | B8 · RL moderne : DQN, gradient de politique, PPO et RLHF | MB8 | — |
+
+Entre parenthèses, dans la dernière colonne : pas de lecture nouvelle, mais des sections déjà lues pour un chapitre précédent, à relire, ou ce que le chapitre prépare (« prérequis de §6.2 ») ; « — » : pas de lecture de MML pour ce chapitre.
 
 ## 2. Pour chaque section de MML, le chapitre qui la couvre
 
@@ -72,7 +74,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §6.7 Changement de variable | M02b, M25b |
 | §7.1 Descente de gradient | M19 |
 | §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b |
-| §7.3 Optimisation convexe | M13b, M19 |
+| §7.3 Optimisation convexe | M13b |
 | §8.1–8.2 Données, modèles, minimisation du risque empirique | M09b |
 | §8.3 Estimation des paramètres (maximum de vraisemblance, MAP) | M04, M13a |
 | §8.4–8.5 Modélisation probabiliste, modèles graphiques orientés | M25b |

@@ -242,6 +242,8 @@ COVERAGE = {
     "15": {
         "PolynomialFeatures": "M09b",
         "classes déséquilibrées : class_weight, rééchantillonnage": "M03",
+        "seuil de décision": "M03",
+        "predict_proba": "R6,M13a",
         "silhouette": "M07",
     },
     "16": {
@@ -259,7 +261,7 @@ COVERAGE = {
     "17": {
         "rôle de la non-linéarité": "M12a,M16",
         "activations linéaires par morceaux (ReLU et variantes, maxout)": "M13b,M17",
-        "activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU)": "R6,M02b,M17",
+        "activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU)": "R6,M02b,M13a,M17",
         "dérivées des activations": "R7,M17",
         "saturation et neurones morts": "M17",
         "softmax, log-softmax, température": "M05a,M17",
@@ -273,7 +275,7 @@ COVERAGE = {
         "delta d'un neurone": "M17,M18",
         "règle de la chaîne multivariée": "M17,M18",
         "forme matricielle des gradients": "M18",
-        "losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax)": "M13a,M14",
+        "losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax)": "M05a,M09b,M13a,M14",
         "vérification du gradient": "M05a,M18",
         "mini-batches": "M18",
         "différentiation automatique en mode inverse": "M18",

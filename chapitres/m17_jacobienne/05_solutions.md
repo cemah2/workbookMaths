@@ -17,8 +17,8 @@
 6. Vrai : près de $\mathbf{x}$, les aires sont multipliées par $\lvert\det\mathbf{J}\rvert = 0{,}5$.
 
 ### M17.Q2 — Diagonale ou pleine ?
-1. Diagonale, $\mathrm{diag}(e^{x_i})$.
-2. Diagonale, $\mathrm{diag}(2x_i)$.
+1. Diagonale, $\operatorname{diag}(e^{x_i})$.
+2. Diagonale, $\operatorname{diag}(2x_i)$.
 3. Triangulaire (inférieure) : la sortie $i$ dépend de $x_1, \ldots, x_i$ ; la ligne $i$ a des 1 dans les colonnes 1 à $i$.
 4. Pleine en un point quelconque : chaque sortie dépend de toutes les entrées par $\lVert\mathbf{x}\rVert$ (✏️ M17.4) ; en des points particuliers (sur les axes), certains coefficients s'annulent.
 5. Diagonale, et constante : $\mathbf{D}$.
@@ -78,8 +78,8 @@
 1. $4 + 2 + 2 \times (-1) = 4$ ; $4 + 2 - 2 \times (-1) = 8$.
 2. $\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \mathbf{v}\,\boldsymbol{\Sigma}\,\mathbf{v}^\top$.
 3. Parce que $\mathbf{v}\,\boldsymbol{\Sigma}\,\mathbf{v}^\top$ est une variance, donc $\ge 0$, pour tout $\mathbf{v}$.
-4. Le vecteur nul : les coordonnées de $\boldsymbol{\Sigma}'(1, 1)^\top$ sont $\mathrm{Cov}(X_i, X_1 + X_2)$, nulles puisque $X_1 + X_2$ est constant. Ce n'est pas possible pour $\boldsymbol{\Sigma}$ : $\boldsymbol{\Sigma}(1, 1)^\top = (3, 1)$, et $\mathbb{V}(X_1 + X_2) = 4 \ne 0$.
-5. Toujours symétrique ($\mathrm{Cov}(X_i, X_j) = \mathrm{Cov}(X_j, X_i)$) ; pas toujours inversible (la matrice $\boldsymbol{\Sigma}'$ de la question 4).
+4. Le vecteur nul : les coordonnées de $\boldsymbol{\Sigma}'(1, 1)^\top$ sont $\operatorname{Cov}(X_i, X_1 + X_2)$, nulles puisque $X_1 + X_2$ est constant. Ce n'est pas possible pour $\boldsymbol{\Sigma}$ : $\boldsymbol{\Sigma}(1, 1)^\top = (3, 1)$, et $\mathbb{V}(X_1 + X_2) = 4 \ne 0$.
+5. Toujours symétrique ($\operatorname{Cov}(X_i, X_j) = \operatorname{Cov}(X_j, X_i)$) ; pas toujours inversible (la matrice $\boldsymbol{\Sigma}'$ de la question 4).
 
 <a id="papier"></a>
 
@@ -131,7 +131,7 @@ Dans ta copie : $\frac{\partial}{\partial x_j}\frac{x_i}{\lVert\mathbf{x}\rVert}
 
 **Erreurs fréquentes.** Oublier la division par $\lVert\mathbf{x}\rVert$ (on obtient la projection seule). Écrire $\mathbf{u}^\top\mathbf{u}$ (un nombre, 1) au lieu de $\mathbf{u}\mathbf{u}^\top$ (une matrice). Croire que $\mathbf{J}\mathbf{x} = \mathbf{u}$.
 
-**Variante.** En $\mathbf{x} = (0, 0, 2)$ : $\mathbf{J} = \frac12\,\mathrm{diag}(1, 1, 0)$, et $\mathbf{J}(1, 1, 1) = (0{,}5 ;\ 0{,}5 ;\ 0)$.
+**Variante.** En $\mathbf{x} = (0, 0, 2)$ : $\mathbf{J} = \frac12\,\operatorname{diag}(1, 1, 0)$, et $\mathbf{J}(1, 1, 1) = (0{,}5 ;\ 0{,}5 ;\ 0)$.
 
 ### Ex M17.5 — Le gradient d'une fonction scalaire d'une composée, dans les deux conventions
 
@@ -209,15 +209,15 @@ Dans ta copie : à $T = 1$, les poids $e^{-\ell}$ valent $e^{-38}$ fois $e^{-3}$
 
 **Grille de relecture.** Les deux cas $j \ne i$ et $j = i$ sont traités. Le produit est écrit coordonnée par coordonnée. L'argument du point 4 dit **pourquoi** les autres déplacements n'interviennent pas, et justifie la limite du quotient centré. Le calcul sur $\mathbf{A}$ est fait.
 
-**Variante.** Pour $\mathbf{f}(\mathbf{x}) = \mathbf{x} \odot \mathbf{a}$ ($\mathbf{a}$ fixe), $\mathbf{J} = \mathrm{diag}(\mathbf{a})$, constante.
+**Variante.** Pour $\mathbf{f}(\mathbf{x}) = \mathbf{x} \odot \mathbf{a}$ ($\mathbf{a}$ fixe), $\mathbf{J} = \operatorname{diag}(\mathbf{a})$, constante.
 
 ### Ex M17.10 — diag(p) − pᵀp est la covariance d'un vecteur one-hot
 
 **Démonstration.**
 1. $Y_i$ vaut 1 si $I = i$, avec la probabilité $p_i$, et 0 sinon : $\mathbb{E}[Y_i] = p_i$. $Y_i^2 = Y_i$, donc $\mathbb{E}[Y_i^2] = p_i$. Pour $i \ne j$, $Y_iY_j = 0$ toujours (un seul état à la fois), donc $\mathbb{E}[Y_iY_j] = 0$.
-2. $\mathrm{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ vaut $p_i - p_i^2$ si $i = j$ et $-p_ip_j$ sinon : c'est le coefficient $(i, j)$ de $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ (avec $\mathbf{p}$ en ligne, $(\mathbf{p}^\top\mathbf{p})_{ij} = p_ip_j$).
-3. $\mathrm{Cov}(Y_i, Y_j) = \mathrm{Cov}(Y_j, Y_i)$ : symétrique. Pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\mathrm{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \sum_{i,j}v_iv_j\,\mathrm{Cov}(Y_i, Y_j) = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) : semi-définie positive.
-4. $\sum_jY_j = 1$, une constante. La somme de la ligne $i$ est $\sum_j\mathrm{Cov}(Y_i, Y_j) = \mathrm{Cov}\big(Y_i, \sum_jY_j\big) = \mathrm{Cov}(Y_i, 1) = 0$. La matrice annule $\mathbf{1}^\top$, qui n'est pas nul : elle n'est pas inversible.
+2. $\operatorname{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ vaut $p_i - p_i^2$ si $i = j$ et $-p_ip_j$ sinon : c'est le coefficient $(i, j)$ de $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ (avec $\mathbf{p}$ en ligne, $(\mathbf{p}^\top\mathbf{p})_{ij} = p_ip_j$).
+3. $\operatorname{Cov}(Y_i, Y_j) = \operatorname{Cov}(Y_j, Y_i)$ : symétrique. Pour toute ligne $\mathbf{v}$, $\mathbf{v}\,\operatorname{Cov}(\mathbf{Y})\,\mathbf{v}^\top = \sum_{i,j}v_iv_j\,\operatorname{Cov}(Y_i, Y_j) = \mathbb{V}(\mathbf{v} \cdot \mathbf{Y}) \ge 0$ (M02c) : semi-définie positive.
+4. $\sum_jY_j = 1$, une constante. La somme de la ligne $i$ est $\sum_j\operatorname{Cov}(Y_i, Y_j) = \operatorname{Cov}\big(Y_i, \sum_jY_j\big) = \operatorname{Cov}(Y_i, 1) = 0$. La matrice annule $\mathbf{1}^\top$, qui n'est pas nul : elle n'est pas inversible.
 5. Pour $\mathbf{p} = (\frac13, \frac13, \frac13)$ : $\frac29$ sur la diagonale ($\frac13 \times \frac23$) et $-\frac19$ ailleurs, soit $\frac13\mathbf{I} - \frac19\mathbf{1}^\top\mathbf{1}$ (la matrice $\mathbf{1}^\top\mathbf{1}$ est pleine de 1). Elle envoie $\mathbf{1}^\top$ sur $\frac13\mathbf{1}^\top - \frac39\mathbf{1}^\top = \mathbf{0}$ : valeur propre 0. Pour $\mathbf{v}$ orthogonal à $\mathbf{1}$, $\mathbf{1}^\top\mathbf{1}\,\mathbf{v}^\top = \mathbf{0}$, donc la matrice envoie $\mathbf{v}^\top$ sur $\frac13\mathbf{v}^\top$ : valeur propre $\frac13$, sur un plan. Valeurs propres : $0$, $\frac13$, $\frac13$.
 
 **Grille de relecture.** $Y_iY_j = 0$ pour $i \ne j$ est justifié (un seul état). La semi-définie positivité passe par une **variance**, pas par un calcul de valeurs propres. La somme des lignes se déduit de $\sum_jY_j$ constant, sans développer la matrice. Au point 5, les vecteurs propres sont trouvés sans polynôme caractéristique.

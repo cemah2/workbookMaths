@@ -240,6 +240,7 @@ Le regret grandit comme $\sqrt{T}$, donc le **regret moyen** $\frac{R_T}{T}$ ten
 
 Sur $n$ exemples d'entraînement, un modèle produit un **vecteur de prédictions** $\mathbf{F} = (F_1, \ldots, F_n)$, une prédiction par exemple. La loss totale ne dépend que de lui :
 $$\mathcal{L}(\mathbf{F}) = \sum_{i=1}^n \ell(y_i, F_i).$$
+(On l'écrit $\mathcal{L}$, et non $L$ comme ailleurs, parce que $L_t[k]$ désigne déjà les losses cumulées de Hedge au §4 ; rien à voir avec le lagrangien $\mathcal{L}$ de M13b.)
 Chaque terme ne dépend que d'une coordonnée de $\mathbf{F}$ : la coordonnée $i$ du gradient (M05b) est la dérivée d'une fonction d'une variable,
 $$\big(\nabla_{\mathbf{F}}\mathcal{L}\big)_i = \frac{\partial\ell}{\partial F}(y_i, F_i).$$
 Sa coordonnée $i$ est la pente de la loss de l'exemple $i$ en sa prédiction : au premier ordre, déplacer $F_i$ de $\varepsilon$ change la loss de $\varepsilon\,(\nabla_{\mathbf{F}}\mathcal{L})_i$.

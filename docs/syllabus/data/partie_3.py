@@ -291,8 +291,10 @@ CHAPTERS = [
                      ("§7", "Matrices définies positives, formes quadratiques et Cholesky"),
                      ("§8", "La matrice de covariance, le blanchiment et la racine carrée d'une matrice")],
         "teaches": ["déterminant", "trace", "polynôme caractéristique", "valeurs et vecteurs propres",
+                    "le strict minimum sur les nombres complexes (i, conjugué, module, racines conjuguées d'un trinôme réel, vecteurs de ℂⁿ et z̄ᵀz)",
                     "méthode de la puissance", "diagonalisation", "théorème spectral", "quotient de Rayleigh",
                     "matrices définies positives", "décomposition de Cholesky", "formes quadratiques",
+                    "hessienne d'une fonction de n variables (définition ; Taylor d'ordre 2 et son étude : M19)",
                     "convexité à plusieurs variables par la hessienne semi-définie positive (la définition par les "
                     "cordes : M10)", "matrice de Gram XᵀX (semi-définie positive)",
                     "matrice de covariance symétrique positive", "covariance d'une transformation affine",
@@ -322,7 +324,10 @@ CHAPTERS = [
                  "elle décrit le blanchiment de l'ACP (Λ^(−1/2)Qᵀ, celui de scikit-learn et de la PCA de `mylearn` en "
                  "12.27) et le blanchiment ZCA (Σ^(−1/2)), et M12c.13 calcule les deux en disant la convention ; "
                  "`whitening_matrix` n'écrit que ZCA et Cholesky. `eigen` : NumPy permis, `np.linalg.eigh` seulement "
-                 "dans `sqrtm_psd` et `whitening_matrix`. Deux sessions de génération : §1 à §5, puis §6 à §8.",
+                 "dans `sqrtm_psd` et `whitening_matrix`. Deux sessions de génération : §1 à §5, puis §6 à §8. Audit "
+                 "(session 55) : la fiche enseigne le strict minimum sur les nombres complexes (§3 ; M12c.6, M12c.15.3 "
+                 "et M12c.16.2 s'en servent ; M19 le rappelle) et définit la hessienne d'une fonction de n variables "
+                 "(§7).",
         "exercises": [
             ("M12c.Q1", "🧠", 1, 4, "Ce que mesure un déterminant", "§1", "E"),
             ("M12c.Q2", "🧠", 1, 4, "Les propriétés du déterminant et de la trace : vrai ou faux", "§1 §2", "E"),
@@ -425,6 +430,7 @@ CHAPTERS = [
                      ("§7", "Variance expliquée, erreur de reconstruction, grande dimension"),
                      ("§8", "Au-delà du linéaire : t-SNE et UMAP (aperçu)")],
         "teaches": ["décomposition en valeurs singulières", "interprétation géométrique",
+                    "normes de Frobenius et spectrale d'une matrice",
                     "approximation de rang faible (Eckart-Young)", "pseudo-inverse", "conditionnement",
                     "axes principaux : maximiser uᵀCu sur la sphère (quotient de Rayleigh)", "ACP : projection",
                     "variance expliquée", "ACP en grande dimension", "erreur de reconstruction d'une projection",

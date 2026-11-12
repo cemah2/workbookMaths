@@ -167,7 +167,7 @@ Ce sont les **équations normales** (*normal equations*) : un système carré $p
 
 **Quand la solution est-elle unique ?** Quand $\mathbf{X}^\top\mathbf{X}$ est inversible, c'est-à-dire quand les colonnes de $\mathbf{X}$ sont indépendantes ($\mathbf{X}$ de rang $p$, M09a §8 et M09b.14). Si une colonne combine les autres (une feature en double, une colonne de 1 avec un one-hot complet, plus de features que d'exemples), il y a une infinité de solutions, qui donnent toutes les mêmes prédictions $\hat{\mathbf{y}}$. Mais il y en a **toujours au moins une** : le point des prédictions possibles le plus proche de $\mathbf{y}$ existe toujours (c'est le pied d'une perpendiculaire, voir plus bas ; M12b le démontre), et il annule le gradient. Seule l'unicité peut manquer.
 
-💻 **Aujourd'hui en pratique** — On ne calcule pas $(\mathbf{X}^\top\mathbf{X})^{-1}$ (M09a §7). `np.linalg.solve` résout les équations normales ; `np.linalg.lstsq(X, y)` fait mieux encore, sans former $\mathbf{X}^\top\mathbf{X}$ : former ce produit rend le calcul plus sensible aux arrondis quand des colonnes sont presque dépendantes (M09b.32, et M12d pour le **conditionnement**).
+💻 **Aujourd'hui en pratique** — on ne calcule pas $(\mathbf{X}^\top\mathbf{X})^{-1}$ (M09a §7). `np.linalg.solve` résout les équations normales ; `np.linalg.lstsq(X, y)` fait mieux encore, sans former $\mathbf{X}^\top\mathbf{X}$ : former ce produit rend le calcul plus sensible aux arrondis quand des colonnes sont presque dépendantes (M09b.32, et M12d pour le **conditionnement**).
 
 ### Le résidu est orthogonal aux colonnes
 

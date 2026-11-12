@@ -117,9 +117,9 @@ Les valeurs propres de $\mathbf{A}$ elle-même sont $\pm\sqrt{40} \approx \pm 6{
 - Pour une matrice **symétrique semi-définie positive**, la SVD est la décomposition spectrale ($\mathbf{U} = \mathbf{V} = \mathbf{Q}$, $s_i = \lambda_i$). Pour une matrice symétrique quelconque, $s_i = |\lambda_i|$ : le signe passe dans $\mathbf{u}_i = \pm\mathbf{v}_i$.
 - Pour une matrice carrée, $|\det\mathbf{A}| = s_1s_2\cdots s_n$ ($\det\mathbf{U}$ et $\det\mathbf{V}$ valent $\pm 1$). Ici : $|{-40}| = 8 \times 5$.
 
-> ⚠️ **Erreur classique.** Les valeurs singulières ne sont **pas** les valeurs propres, sauf pour une matrice symétrique semi-définie positive : elles sont toujours positives, existent même pour une matrice rectangulaire, et se lisent sur $\mathbf{A}^\top\mathbf{A}$, pas sur $\mathbf{A}$. Et une valeur singulière est la **racine** d'une valeur propre de $\mathbf{A}^\top\mathbf{A}$ : oublier la racine est l'erreur la plus fréquente.
+⚠️ **Erreur classique.** Les valeurs singulières ne sont **pas** les valeurs propres, sauf pour une matrice symétrique semi-définie positive : elles sont toujours positives, existent même pour une matrice rectangulaire, et se lisent sur $\mathbf{A}^\top\mathbf{A}$, pas sur $\mathbf{A}$. Et une valeur singulière est la **racine** d'une valeur propre de $\mathbf{A}^\top\mathbf{A}$ : oublier la racine est l'erreur la plus fréquente.
 
-> 💻 **Aujourd'hui en pratique.** `U, s, Vt = np.linalg.svd(A, full_matrices=False)` donne la SVD **réduite** (*thin SVD*), qui garde $\min(m, n)$ valeurs singulières, nulles comprises : on en tire la compacte en coupant sous un seuil (les **lignes** de `Vt` sont les $\mathbf{v}_i$), par un algorithme de LAPACK qui ne forme jamais $\mathbf{A}^\top\mathbf{A}$ : passer par $\mathbf{A}^\top\mathbf{A}$ perd de la précision sur les petites valeurs singulières (§4, et 🔬 M12d.33). Ta fonction `svd` le fait quand même, parce que c'est simple et que cela relie la SVD à M12c ; sa docstring dit ce que cela coûte. Les signes rendus par NumPy sont arbitraires.
+💻 **Aujourd'hui en pratique** — `U, s, Vt = np.linalg.svd(A, full_matrices=False)` donne la SVD **réduite** (*thin SVD*), qui garde $\min(m, n)$ valeurs singulières, nulles comprises : on en tire la compacte en coupant sous un seuil (les **lignes** de `Vt` sont les $\mathbf{v}_i$), par un algorithme de LAPACK qui ne forme jamais $\mathbf{A}^\top\mathbf{A}$ : passer par $\mathbf{A}^\top\mathbf{A}$ perd de la précision sur les petites valeurs singulières (§4, et 🔬 M12d.33). Ta fonction `svd` le fait quand même, parce que c'est simple et que cela relie la SVD à M12c ; sa docstring dit ce que cela coûte. Les signes rendus par NumPy sont arbitraires.
 
 ### En machine learning
 
@@ -139,7 +139,7 @@ Lis $\mathbf{A}\mathbf{x} = \mathbf{U}\big(\mathbf{S}(\mathbf{V}^\top\mathbf{x})
 
 Une application linéaire quelconque n'est donc rien de plus qu'un changement de repère orthonormé, des étirements le long des axes, et un autre changement de repère orthonormé.
 
-![La SVD de A = [[6, 4], [1, −6]] en trois étapes : le cercle unité et v₁, v₂ ; Vᵀ les envoie sur e₁, e₂ (une symétrie, det V = −1) ; S étire les axes de 8 et de 5 ; U tourne l'ellipse, de demi-axes 8 u₁ et 5 u₂. Les couleurs suivent chaque point du cercle](figures/svd_geometrie.png)
+![La SVD de A, de lignes (6, 4) et (1, −6), en trois étapes : le cercle unité et v₁, v₂ ; Vᵀ les envoie sur e₁, e₂ (une symétrie, det V = −1) ; S étire les axes de 8 et de 5 ; U tourne l'ellipse, de demi-axes 8 u₁ et 5 u₂. Les couleurs suivent chaque point du cercle](figures/svd_geometrie.png)
 
 ### L'image de la sphère unité
 
@@ -149,7 +149,7 @@ Le cercle unité a pour image une **ellipse** de demi-axes $s_1\mathbf{u}_1$ et 
 $$s_n\,\lVert \mathbf{x} \rVert \le \lVert \mathbf{A}\mathbf{x} \rVert \le s_1\,\lVert \mathbf{x} \rVert \qquad (\text{à gauche, pour } n \le m ;\ s_n \text{ peut être nulle}),$$
 avec égalité en $\mathbf{v}_1$ à droite et en $\mathbf{v}_n$ à gauche. L'idée : $\lVert \mathbf{A}\mathbf{x} \rVert^2 = \mathbf{x}^\top(\mathbf{A}^\top\mathbf{A})\mathbf{x}$, et le quotient de Rayleigh de $\mathbf{A}^\top\mathbf{A}$ est compris entre sa plus petite et sa plus grande valeur propre, $s_n^2$ et $s_1^2$ (M12c §6 ; ∂ M12d.15). Le plus grand étirement $s_1$ s'appelle la **norme spectrale** (*spectral norm*) de $\mathbf{A}$, notée $\lVert \mathbf{A} \rVert_2$. Pour une matrice orthogonale, toutes les valeurs singulières valent 1 : elle n'étire rien.
 
-> ⚠️ **Erreur classique.** Croire que la plus grande valeur propre (en module) mesure le plus grand étirement. C'est vrai pour une matrice symétrique, pas en général : la matrice de cisaillement $\begin{pmatrix} 1 & 10 \\ 0 & 1 \end{pmatrix}$ n'a que la valeur propre 1, mais elle envoie $(0, 1)$ sur $(10, 1)$, de norme $\sqrt{101}$ ; sa norme spectrale est $s_1 \approx 10{,}1$.
+⚠️ **Erreur classique.** Croire que la plus grande valeur propre (en module) mesure le plus grand étirement. C'est vrai pour une matrice symétrique, pas en général : la matrice de cisaillement $\begin{pmatrix} 1 & 10 \\ 0 & 1 \end{pmatrix}$ n'a que la valeur propre 1, mais elle envoie $(0, 1)$ sur $(10, 1)$, de norme $\sqrt{101}$ ; sa norme spectrale est $s_1 \approx 10{,}1$.
 
 ### En machine learning
 
@@ -182,9 +182,9 @@ Stocker $\mathbf{A}_k$ demande $k$ vecteurs $\mathbf{u}_i$ ($m$ nombres chacun),
 
 ![Une image synthétique de 120 × 160 pixels et ses approximations de rang 1, 5 et 20 ; en dessous, ses valeurs singulières (échelle logarithmique) et la part d'énergie gardée selon le rang. Le niveau de gris moyen est retiré avant la SVD, puis rajouté pour l'affichage](figures/rang_faible.png)
 
-> ⚠️ **Prudence.** L'énergie d'une image brute est dominée par son niveau de gris moyen, que la première couche suffit à rendre : sans le retirer, la même image a déjà 95 % de son énergie au rang 1, ce qui ne dit rien de sa qualité. On centre d'abord (en retirant la moyenne), et l'on regarde aussi l'image : la norme de Frobenius n'est pas la perception.
+⚠️ **Erreur classique.** Juger une compression par l'énergie gardée sans avoir centré. L'énergie d'une image brute est dominée par son niveau de gris moyen, que la première couche suffit à rendre : sans le retirer, la même image a déjà 95 % de son énergie au rang 1, ce qui ne dit rien de sa qualité. On centre d'abord (en retirant la moyenne), et l'on regarde aussi l'image : la norme de Frobenius n'est pas la perception.
 
-> 💻 **Aujourd'hui en pratique.** Pour une grande matrice dont on ne veut que les $k$ premières valeurs singulières, on ne calcule pas la SVD entière : `scipy.sparse.linalg.svds` ou la SVD aléatoire de scikit-learn (`sklearn.utils.extmath.randomized_svd`) ne cherchent que ces $k$ couches, en quelques produits de matrices.
+💻 **Aujourd'hui en pratique** — pour une grande matrice dont on ne veut que les $k$ premières valeurs singulières, on ne calcule pas la SVD entière : `scipy.sparse.linalg.svds` ou la SVD aléatoire de scikit-learn (`sklearn.utils.extmath.randomized_svd`) ne cherchent que ces $k$ couches, en quelques produits de matrices.
 
 ### En machine learning
 
@@ -237,9 +237,9 @@ $\delta\mathbf{x} = \mathbf{A}^{-1}\delta\mathbf{b}$, et $\mathbf{A}^{-1}$ a pou
 $$\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa(\mathbf{A})^2.$$
 Former $\mathbf{A}^\top\mathbf{A}$ double le nombre de chiffres perdus : avec $\kappa(\mathbf{A}) = 10^6$, les équations normales travaillent avec $\kappa = 10^{12}$, et il ne reste que 4 chiffres sur les 16 d'un flottant. C'est pourquoi on résout les moindres carrés par QR (M12b) ou par la SVD, sans former $\mathbf{A}^\top\mathbf{A}$, et c'est aussi la limite de ta fonction `svd`, qui passe par $\mathbf{A}^\top\mathbf{A}$ (🔬 M12d.33).
 
-> ⚠️ **Erreur classique.** Juger le conditionnement par le déterminant. $\mathbf{M}$ ci-dessus a un déterminant de 1 et $\kappa \approx 223$ ; $0{,}1\,\mathbf{I}_9$ a un déterminant de $10^{-9}$ et $\kappa = 1$ (M12c §1). Le déterminant mesure un volume, le conditionnement un aplatissement.
+⚠️ **Erreur classique.** Juger le conditionnement par le déterminant. $\mathbf{M}$ ci-dessus a un déterminant de 1 et $\kappa \approx 223$ ; $0{,}1\,\mathbf{I}_9$ a un déterminant de $10^{-9}$ et $\kappa = 1$ (M12c §1). Le déterminant mesure un volume, le conditionnement un aplatissement.
 
-> 💻 **Aujourd'hui en pratique.** `np.linalg.cond(A)` (le rapport des valeurs singulières), `np.linalg.pinv(A)` (avec un seuil relatif sur les petites valeurs singulières), `np.linalg.lstsq(A, b)` (les moindres carrés de plus petite norme, par la SVD) et `np.linalg.matrix_rank(A)` (le nombre de valeurs singulières au-dessus d'un seuil) font tous une SVD.
+💻 **Aujourd'hui en pratique** — `np.linalg.cond(A)` (le rapport des valeurs singulières), `np.linalg.pinv(A)` (avec un seuil relatif sur les petites valeurs singulières), `np.linalg.lstsq(A, b)` (les moindres carrés de plus petite norme, par la SVD) et `np.linalg.matrix_rank(A)` (le nombre de valeurs singulières au-dessus d'un seuil) font tous une SVD.
 
 ### En machine learning
 
@@ -278,7 +278,7 @@ Les variances le long des axes sont $\lambda_1 = 15$, $\lambda_2 = 8$, $\lambda_
 
 ![À gauche, un nuage de 400 points de ℝ³ tiré avec la covariance C de l'exemple, et ses trois axes principaux, de longueur ± 2√λ ; à droite, les coordonnées des points sur u₁ et u₂ : des variances égales aux deux premières valeurs propres, et aucune corrélation](figures/axes_principaux.png)
 
-> ⚠️ **Erreur classique.** `np.linalg.eigh(C)` rend les valeurs propres par ordre **croissant**, et les vecteurs propres en **colonnes** : le premier axe principal est la **dernière** colonne. Lire une ligne au lieu d'une colonne, ou prendre la première colonne, donne une direction qui n'a rien de principal.
+⚠️ **Erreur classique.** `np.linalg.eigh(C)` rend les valeurs propres par ordre **croissant**, et les vecteurs propres en **colonnes** : le premier axe principal est la **dernière** colonne. Lire une ligne au lieu d'une colonne, ou prendre la première colonne, donne une direction qui n'a rien de principal.
 
 ### Dans MML : la même réponse par Lagrange
 
@@ -323,9 +323,9 @@ les axes principaux sont les vecteurs singuliers à droite $\mathbf{v}_j$, les v
 
 **Les unités comptent.** Changer l'unité de chaque feature multiplie $\mathbf{X}_c$ à droite par une matrice diagonale $\mathbf{D}$, et la covariance devient $\mathbf{D}\mathbf{C}\mathbf{D}$ (M12c §8) : les variances et les axes changent. Sur l'exemple, si la troisième mesure est exprimée dans une unité deux fois plus petite (ses valeurs doublent), sa variance passe de 8 à 32, et elle devient le **premier** axe, avec $\mathbf{u}_1 = (0, 0, 1)$ : l'unité a décidé à la place des données. Quand les features n'ont pas la même unité, on les **standardise** d'abord (M02c) : la covariance des données standardisées est la matrice de corrélation, qui ne dépend plus des unités (🔗 M12d.21). Quand elles ont la même unité et mesurent des grandeurs du même genre (des capteurs identiques, des mesures d'un même objet), on centre sans réduire : leurs écarts de variance sont alors de l'information, que la standardisation effacerait.
 
-> ⚠️ **Erreur classique.** Oublier de centrer, mélanger $n$ et $n - 1$ entre la covariance et les variances rapportées, ou lire les axes en lignes au lieu de colonnes (ou l'inverse : les axes sont les **colonnes** de $\mathbf{V}$, donc les **lignes** de `Vt`). Ces trois erreurs donnent des résultats plausibles : seule une vérification ($\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, des scores de moyenne nulle) les détecte (🐛 M12d.35).
+⚠️ **Erreur classique.** Oublier de centrer, mélanger $n$ et $n - 1$ entre la covariance et les variances rapportées, ou lire les axes en lignes au lieu de colonnes (ou l'inverse : les axes sont les **colonnes** de $\mathbf{V}$, donc les **lignes** de `Vt`). Ces trois erreurs donnent des résultats plausibles : seule une vérification ($\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, des scores de moyenne nulle) les détecte (🐛 M12d.35).
 
-> 💻 **Aujourd'hui en pratique.** `sklearn.decomposition.PCA` centre, fait la SVD de $\mathbf{X}_c$ (ou, quand $n \gg p$ avec $p$ petit, diagonalise la covariance ; `svd_solver="full"` impose la SVD exacte) et range les axes en **lignes** de `components_`, les variances dans `explained_variance_` (avec $n - 1$) et leurs parts dans `explained_variance_ratio_` ; `transform` donne les scores et `inverse_transform` la reconstruction. Ta fonction `principal_axes` prend la matrice de covariance, pas les données : centrer et former $\mathbf{C}$ restent ton travail.
+💻 **Aujourd'hui en pratique** — `sklearn.decomposition.PCA` centre, fait la SVD de $\mathbf{X}_c$ (ou, quand $n \gg p$ avec $p$ petit, diagonalise la covariance ; `svd_solver="full"` impose la SVD exacte) et range les axes en **lignes** de `components_`, les variances dans `explained_variance_` (avec $n - 1$) et leurs parts dans `explained_variance_ratio_` ; `transform` donne les scores et `inverse_transform` la reconstruction. Ta fonction `principal_axes` prend la matrice de covariance, pas les données : centrer et former $\mathbf{C}$ restent ton travail.
 
 ### En machine learning
 
@@ -367,7 +367,7 @@ Quand il y a moins d'exemples que de features ($n < p$ : des images, des gènes,
 
 Ordre de grandeur : avec $p = 10^4$ features et $n = 500$ exemples, diagonaliser la matrice $p \times p$ coûte de l'ordre de $p^3 = 10^{12}$ opérations, former et diagonaliser la matrice $n \times n$ de l'ordre de $n^2p + n^3 \approx 2{,}6 \times 10^9$. La SVD de $\mathbf{X}_c$ s'adapte d'elle-même à la plus petite des deux dimensions, et pour de très grandes matrices, une SVD tronquée ou aléatoire (§3, 💻) ne calcule que les $k$ premiers axes.
 
-> ⚠️ **Erreur classique.** Juger l'erreur de reconstruction, ou choisir $k$, sur les seules données qui ont servi à calculer les axes : sur elles, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young), et l'erreur y est optimiste, puisque les axes ont été ajustés à cet échantillon-là. Sur des données nouvelles, la même projection fait **en moyenne** moins bien (un échantillon particulier peut faire mieux) : on mesure l'erreur, et l'on choisit $k$, sur d'autres données.
+⚠️ **Erreur classique.** Juger l'erreur de reconstruction, ou choisir $k$, sur les seules données qui ont servi à calculer les axes : sur elles, les $k$ premiers axes sont par construction le meilleur sous-espace (Eckart-Young), et l'erreur y est optimiste, puisque les axes ont été ajustés à cet échantillon-là. Sur des données nouvelles, la même projection fait **en moyenne** moins bien (un échantillon particulier peut faire mieux) : on mesure l'erreur, et l'on choisit $k$, sur d'autres données.
 
 ### En machine learning
 
@@ -388,7 +388,7 @@ L'ACP projette sur un sous-espace : elle garde les **grandes** distances et les 
 $$p_{j \mid i} = \frac{\exp\!\big(-\lVert \mathbf{x}_i - \mathbf{x}_j \rVert^2/(2\sigma_i^2)\big)}{\sum_{l \ne i}\exp\!\big(-\lVert \mathbf{x}_i - \mathbf{x}_l \rVert^2/(2\sigma_i^2)\big)}.$$
 La largeur $\sigma_i$ est choisie pour chaque point, de sorte que la **perplexité** $2^{H(P_i)}$, avec $H(P_i) = -\sum_j p_{j \mid i}\log_2 p_{j \mid i}$ l'entropie en bits (M06), égale une valeur fixée : un nombre effectif de voisins. Si $p_{j \mid i}$ est uniforme sur $m$ voisins, $H = \log_2 m$ et la perplexité vaut $m$ ; avec les probabilités $\big(\frac{1}{2}, \frac{1}{4}, \frac{1}{4}\big)$, $H = 1{,}5$ bit et la perplexité vaut $2^{1{,}5} \approx 2{,}83$. Une petite $\sigma_i$ concentre la probabilité sur les plus proches voisins (petite perplexité), une grande l'étale. Comme la perplexité croît avec $\sigma_i$, on trouve la bonne largeur par dichotomie (R7). On symétrise ensuite : $p_{ij} = \frac{p_{j \mid i} + p_{i \mid j}}{2n}$.
 2. **Des probabilités sur la carte.** On place des points $\mathbf{y}_i$ en 2D et l'on mesure leurs voisinages avec une loi à queue plus lourde : $q_{ij}$ proportionnel à $\big(1 + \lVert \mathbf{y}_i - \mathbf{y}_j \rVert^2\big)^{-1}$ (une loi de Student), normalisé sur tous les couples.
-3. **Rapprocher les deux.** On déplace les $\mathbf{y}_i$ par descente de gradient pour rendre petite la divergence $\mathrm{KL}(P \,\Vert\, Q) = \sum_{i \ne j} p_{ij}\log\frac{p_{ij}}{q_{ij}}$ (M06). Elle n'est pas symétrique : placer loin deux points proches ($p_{ij}$ grand, $q_{ij}$ petit) coûte cher, rapprocher deux points lointains coûte peu. La carte garde donc les voisinages, pas les grandes distances.
+3. **Rapprocher les deux.** On déplace les $\mathbf{y}_i$ par descente de gradient pour rendre petite la divergence $\mathrm{KL}(P \,\Vert\, Q) = \sum_{i \ne j} p_{ij}\ln\frac{p_{ij}}{q_{ij}}$ (M06). Elle n'est pas symétrique : placer loin deux points proches ($p_{ij}$ grand, $q_{ij}$ petit) coûte cher, rapprocher deux points lointains coûte peu. La carte garde donc les voisinages, pas les grandes distances.
 
 Pourquoi une queue lourde ? En 2D, il n'y a pas assez de place pour garder toutes les distances moyennes d'un nuage de grande dimension ; la loi de Student laisse les points modérément éloignés s'écarter davantage sur la carte, ce qui sépare les groupes.
 

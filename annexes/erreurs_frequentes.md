@@ -509,6 +509,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Faire confiance à `np.linalg.cholesky` sur une matrice non symétrique | `np.linalg.cholesky([[9, 3], [-6, 5]])` rend un facteur, sans erreur | elle ne lit que le triangle inférieur : vérifier la symétrie avant |
 | Prendre la racine carrée d'une matrice élément par élément | `np.sqrt(Sigma)` comme $\boldsymbol{\Sigma}^{1/2}$ | $\mathbf{Q}\,\operatorname{diag}(\sqrt{\lambda_i})\,\mathbf{Q}^\top$ (`eigh`), ou `scipy.linalg.sqrtm` |
 | Oublier les covariances dans la variance d'une somme | « $\mathbb{V}(x_1 + x_2) = \mathbb{V}(x_1) + \mathbb{V}(x_2)$ » pour des features corrélées | $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ : ajouter $2\operatorname{Cov}(x_1, x_2)$ |
+| Blanchir sans regarder les petites valeurs propres | $\lambda_i = 10^{-4}$ : la coordonnée sur cet axe est multipliée par 100, et le bruit de mesure pèse autant que le reste | regarder le spectre avant de blanchir ; une valeur propre minuscule signale du bruit ou des features presque identiques |
 | Confondre les blanchiments | $\mathbf{W} = \mathbf{L}$, ou $\mathbf{L}^{-\top}$, ou $\boldsymbol{\Sigma}^{1/2}$ | vérifier $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ : $\mathbf{L}^{-1}$, $\boldsymbol{\Sigma}^{-1/2}$ ou $\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$ |
 
 ## SVD et analyse en composantes principales (M12d)
@@ -620,7 +621,7 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | Donner une seule dérivée en un point anguleux | « la dérivée de l'impôt en 30 k€ vaut 0,3 » | deux dérivées latérales, 0,2 et 0,4 ; des sous-gradients seulement pour une fonction convexe |
 | Évaluer toutes les dérivées d'une longue composition au départ | $\frac{\mathrm{d}x_L}{\mathrm{d}x_0} = \varphi'(x_0)^L$ | $\prod_k\varphi'(x_k)$, le long de la trajectoire |
 | Oublier la normalisation d'une loi de Boltzmann | $p_i = e^{-E_i/T}$ | diviser par $Z = \sum_je^{-E_j/T}$ ; seuls les rapports se passent de $Z$ |
-| Confondre $\mathbf{p}^\top\mathbf{p}$ et $\mathbf{p}\,\mathbf{p}^\top$ pour une ligne $\mathbf{p}$ | $\mathrm{diag}(\mathbf{p}) - \sum_ip_i^2$ | $\mathbf{p}^\top\mathbf{p}$ est la matrice $K \times K$ des produits $p_ip_j$ |
+| Confondre $\mathbf{p}^\top\mathbf{p}$ et $\mathbf{p}\,\mathbf{p}^\top$ pour une ligne $\mathbf{p}$ | $\operatorname{diag}(\mathbf{p}) - \sum_ip_i^2$ | $\mathbf{p}^\top\mathbf{p}$ est la matrice $K \times K$ des produits $p_ip_j$ |
 
 ## Différentiation automatique et calcul matriciel (M18)
 

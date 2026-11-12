@@ -22,7 +22,7 @@ CHAPTERS = [
                    "qu'il faut pour le rayon spectral, les normes de matrices, les produits de jacobiennes de la "
                    "rétropropagation dans le temps, le gradient évanescent ou explosif, et le clipping.",
         "teaches": ["suites récurrentes vectorielles", "puissances d'une matrice",
-                    "nombres complexes : module, forme exponentielle, rotations (premier contact)",
+                    "nombres complexes : module, forme exponentielle, rotations (après M12c §3 et M19 §6)",
                     "valeurs propres complexes, rayon spectral", "normes de matrices, norme d'opérateur = σmax",
                     "produits de jacobiennes (BPTT)", "gradient évanescent ou explosif", "clipping",
                     "produits de Hadamard par des facteurs dans [0, 1] : ce qui reste après n étapes"],

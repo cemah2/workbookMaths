@@ -33,7 +33,7 @@ Les §1 à §5 forment un premier bloc (dériver un calcul : le graphe, les chem
 
 Parcours essentiel : tout sauf M18.Q7, M18.R3, M18.8, M18.10, M18.13, M18.14, M18.16, M18.17, M18.18, M18.E1, M18.E2, M18.21, M18.23, M18.25, M18.26, M18.28 et M18.29.
 
-## Lecture conseillée
+## Guide de lecture de MML
 
 **MML §5.6** (*Backpropagation and Automatic Differentiation*) : lis-le **après le §2** de cette fiche et **avant le §4**. Son premier passage (§5.6.1, les gradients dans un réseau profond) applique la règle de la chaîne à un réseau de neurones : workbookIA 18 le fera en détail, tu peux le survoler ; le second (§5.6.2) présente la différentiation automatique, ses variables intermédiaires, et les deux modes ; le 📖 M18.18 te guide.
 
@@ -229,7 +229,7 @@ $$f(\mathbf{X} + \mathbf{H}) \approx f(\mathbf{X}) + \sum_{i,j}G_{ij}H_{ij}.$$
 $$\nabla_{\mathbf{X}}\det\mathbf{X} = \begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}.$$
 Pour $\mathbf{X} = \begin{pmatrix} 3 & 1 \\ 2 & 4 \end{pmatrix}$ ($\det\mathbf{X} = 10$), le gradient vaut $\begin{pmatrix} 4 & -2 \\ -1 & 3 \end{pmatrix}$ : augmenter $x_{11}$ de $h$ fait passer le déterminant à $(3 + h) \times 4 - 2 = 10 + 4h$. Géométriquement, $\lvert\det\mathbf{X}\rvert$ est l'aire du parallélogramme construit sur les colonnes $\mathbf{c}_1$, $\mathbf{c}_2$ (M12c), et la première colonne du gradient, $(4 ;\ -1)$, est $\mathbf{c}_2 = (1 ;\ 4)$ tournée d'un quart de tour : déplacer $\mathbf{c}_1$ perpendiculairement à $\mathbf{c}_2$ change la hauteur du parallélogramme, donc son aire, au taux $\lVert\mathbf{c}_2\rVert$, la longueur de la base.
 
-![Le parallélogramme des colonnes de X = [[3, 1], [2, 4]], d'aire 10, et le gradient du déterminant par rapport à chaque colonne : l'autre colonne tournée d'un quart de tour](figures/gradient_determinant.png)
+![Le parallélogramme des colonnes (3, 2) et (1, 4) de X, d'aire 10, et le gradient du déterminant par rapport à chaque colonne : l'autre colonne tournée d'un quart de tour](figures/gradient_determinant.png)
 
 ### Lire le gradient dans l'approximation linéaire
 

@@ -1,6 +1,6 @@
 # Réviser avec Anki : importer les flashcards de workbookMaths
 
-Chaque chapitre publié a son fichier `flashcards.csv` (15 à 30 cartes). L'outil `tools/export_flashcards.py` les rassemble en **un deck « workbookMaths »**, distinct de celui de workbookIA, rangé en **sous-paquets** par partie et par chapitre, dans l'ordre d'étude :
+Chaque chapitre publié a son fichier `flashcards.csv` (15 à 30 cartes, environ la moitié pour un chapitre court). L'outil `tools/export_flashcards.py` les rassemble en **un deck « workbookMaths »**, distinct de celui de workbookIA, rangé en **sous-paquets** par partie et par chapitre, dans l'ordre d'étude :
 
 ```
 workbookMaths

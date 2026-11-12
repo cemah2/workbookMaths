@@ -102,7 +102,7 @@ Relis le §5 : « Le meilleur pas, et le prix du conditionnement » et « Ce qui
 
 <details><summary>Indice 1</summary>
 
-Relis « Le strict minimum sur les nombres complexes » (fiche §6).
+Relis « Les nombres complexes : rappel de M12c, et compléments » (fiche §6).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -196,7 +196,7 @@ R5 §3 et §5 : $u_k = u_0\,m^k$ ; une suite $v_{k+1} = m\,v_k + c$ se ramène �
 
 <details><summary>Indice 1</summary>
 
-M12d §4 : $\kappa = \sigma_{\max}/\sigma_{\min}$.
+M12d §4 : $\kappa = s_{\max}/s_{\min}$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -326,7 +326,7 @@ d) $u_{10} = 2 \times 0{,}5^{10} + 0{,}2^{10}$. f) Pour que $v_k \to 0$, le coef
 
 <details><summary>Indice 1</summary>
 
-Relis « Le strict minimum sur les nombres complexes » et l'exemple qui le suit (fiche §6).
+Relis « Les nombres complexes : rappel de M12c, et compléments » et l'exemple qui le suit (fiche §6).
 
 </details>
 <details><summary>Indice 2</summary>

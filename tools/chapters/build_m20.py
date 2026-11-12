@@ -459,7 +459,7 @@ NOTE_15 = (r"$K = \lVert\mathbf{J}\rVert_2 \approx 1{,}7401$, $KT \approx 3{,}48
            r"32{,}5$, et la borne basse croît avec $L$ vers $e^{-KT} \approx 0{,}031$. a) $e^{T\mathbf{J}}$ a pour "
            r"valeurs singulières $0{,}6165$ et $0{,}4420$ (ses deux valeurs propres, de module $e^{-0{,}65} \approx "
            r"0{,}522$, ne sont pas ses valeurs singulières : $\mathbf{J}$ n'est pas symétrique). b) Pour $L = 1\,024$, "
-           r"$\sigma_{\max} \approx 0{,}6181$, à $2 \cdot 10^{-3}$ de la limite. c) Pour $L = 16$, $hK = \frac{KT}{16} "
+           r"$s_{\max} \approx 0{,}6181$, à $2 \cdot 10^{-3}$ de la limite. c) Pour $L = 16$, $hK = \frac{KT}{16} "
            r"\approx 0{,}2175$ et $(1 - hK)^{16} \approx 0{,}0198$ ; la borne basse n'existe que pour $hK < 1$, ici "
            r"dès $L = 4$. Pour $L = 1$ et $2$, les pas sont si grands que le produit étire : $\lVert\mathbf{I} + "
            r"2\mathbf{J}\rVert \approx 3{,}42$, puis $2{,}64$ ; dès $L = 8$, les deux courbes sont proches de leur "
@@ -1100,10 +1100,10 @@ if filled(answer_M20_15a, answer_M20_15b):
     identity = np.eye(len(J))
     values = np.array([np.linalg.svd(np.linalg.matrix_power(identity + (T / L) * J, L), compute_uv=False) for L in Ls])
     limit = np.linalg.svd(scipy.linalg.expm(T * J), compute_uv=False)
-    ax.plot(Ls, values[:, 0], "o-", color="C0", label="σmax du produit")
-    ax.plot(Ls, values[:, -1], "s-", color="C1", label="σmin du produit")
-    ax.axhline(limit[0], color="C0", lw=0.8, label="σmax de exp(TJ)")
-    ax.axhline(limit[-1], color="C1", lw=0.8, label="σmin de exp(TJ)")
+    ax.plot(Ls, values[:, 0], "o-", color="C0", label="$s_{\\\\max}$ du produit")
+    ax.plot(Ls, values[:, -1], "s-", color="C1", label="$s_{\\\\min}$ du produit")
+    ax.axhline(limit[0], color="C0", lw=0.8, label="$s_{\\\\max}$ de exp(TJ)")
+    ax.axhline(limit[-1], color="C1", lw=0.8, label="$s_{\\\\min}$ de exp(TJ)")
     ax.axhline(math.exp(K * T), color="C3", ls="--", label="borne e^(KT)")
     lower = [(L, (1 - T / L * K) ** L) for L in Ls if T / L * K < 1]
     ax.plot([L for L, _ in lower], [v for _, v in lower], "--", color="C2", marker=".", label="borne (1 − hK)^L")
@@ -1181,8 +1181,8 @@ def euler_product_15(L, horizon=4.0, start=(1.2, 0.0)):
 
 values_n15 = np.array([np.linalg.svd(euler_product_15(L), compute_uv=False) for L in LS_15])
 fig, ax = plt.subplots(figsize=(7.0, 4.2))
-ax.plot(LS_15, values_n15[:, 0], "o-", label="σmax du produit")
-ax.plot(LS_15, values_n15[:, 1], "s-", label="σmin du produit")
+ax.plot(LS_15, values_n15[:, 0], "o-", label="$s_{\\\\max}$ du produit")
+ax.plot(LS_15, values_n15[:, 1], "s-", label="$s_{\\\\min}$ du produit")
 ax.set_xscale("log", base=2)
 ax.set_yscale("log")
 ax.set_xlabel("nombre de pas L (échelle log)")
@@ -1863,7 +1863,7 @@ def objectives_cell() -> list:
                r"est sommée ; coût, le produit des longueurs de toutes les lettres. $\mathbf{C} = \mathbf{I} - "
                r"\frac1m\mathbf{1}\mathbf{1}^\top$, projection orthogonale de trace $m - 1$ ; la standardisation de "
                r"$a\mathbf{x} + b\mathbf{1}$, $a > 0$, est celle de $\mathbf{x}$. Horvitz-Thompson : $\hat Y = \sum_{i "
-               r"\in S} y_i/\pi_i$, sans biais ; $\operatorname{Var}(\hat Y) = \sum_i y_i^2\frac{1 - \pi_i}{\pi_i}$ en "
+               r"\in S} y_i/\pi_i$, sans biais ; $\mathbb{V}(\hat Y) = \sum_i y_i^2\frac{1 - \pi_i}{\pi_i}$ en "
                r"tirage de Poisson. Euler : $\mathbf{I} + h\mathbf{J}$ ; $L$ pas à horizon $T = hL$ fixé restent "
                r"entre $(1 - hK)^L$ et $e^{KT}$, et $(\mathbf{I} + \frac TL\mathbf{J})^L \to e^{T\mathbf{J}}$.")]
 

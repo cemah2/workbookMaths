@@ -237,7 +237,7 @@ Dans ta copie : f) et g) gardent-ils la même information ? Lequel serait, à to
 
 ### Ex M12d.6 — La pseudo-inverse d'une matrice non inversible et la solution de norme minimale ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer la pseudo-inverse d'une matrice de rang 1, la solution de norme minimale d'un système qui en a une infinité, et la solution des moindres carrés d'un système qui n'en a pas.
-**Prérequis :** fiche §4 ; M09b §2 ; M12b §5 · **Parcours :** C, E
+**Prérequis :** fiche §4 ; M09b §3 ; M12b §5 · **Parcours :** C, E
 
 $\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \\ 5 & -20 & 40 \end{pmatrix}$, $\mathbf{y} = (18, 45)$, $\mathbf{y}' = (1, 0)$.
 
@@ -369,7 +369,7 @@ Dans ta copie : vérifie que $(1, 0, -1)$, $(1, -2, 1)$ et $(1, 1, 1)$ sont des 
 
 ### Ex M12d.13 — Les probabilités de voisinage de t-SNE sur quatre points, et leur perplexité 2^H ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des probabilités de voisinage de t-SNE, leur entropie en bits et leur perplexité, puis les symétriser.
-**Prérequis :** fiche §8 ; M06 §1 · **Parcours :** C, E
+**Prérequis :** fiche §8 ; M06 §2 et §8 · **Parcours :** C, E
 
 Quatre points de $\mathbb{R}^3$ : $\mathbf{x}_1 = (0, 0, 0)$, $\mathbf{x}_2 = (1, 0, 0)$, $\mathbf{x}_3 = (1, 1, 0)$, $\mathbf{x}_4 = (1, 1, 1)$. Tous les points ont la même largeur $\sigma$, choisie pour que $2\sigma^2 = \frac{1}{\ln 2}$ (soit $\sigma \approx 0{,}85$) : alors $\exp\big(-\frac{d^2}{2\sigma^2}\big) = 2^{-d^2}$.
 
@@ -426,7 +426,7 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A}_
 
 ### Ex M12d.17 — La pseudo-inverse donne la solution des moindres carrés de plus petite norme ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer, par un changement de base orthonormée, que $\mathbf{A}^+\mathbf{b}$ minimise $\lVert \mathbf{A}\mathbf{x} - \mathbf{b} \rVert$, et qu'il est, parmi les minimiseurs, de plus petite norme.
-**Prérequis :** fiche §4 ; M09b §2 ; M12b §2 · **Parcours :** C
+**Prérequis :** fiche §4 ; M09b §3 ; M12b §2 · **Parcours :** C
 
 $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ (SVD complète) est de forme $(m, n)$ et de rang $r$ ; $\mathbf{b} \in \mathbb{R}^m$.
 1. On pose $\mathbf{y} = \mathbf{V}^\top\mathbf{x}$ et $\mathbf{c} = \mathbf{U}^\top\mathbf{b}$. Montre que $\lVert \mathbf{A}\mathbf{x} - \mathbf{b} \rVert^2 = \lVert \mathbf{S}\mathbf{y} - \mathbf{c} \rVert^2 = \sum_{i \le r}(s_iy_i - c_i)^2 + \sum_{i > r} c_i^2$, et $\lVert \mathbf{x} \rVert = \lVert \mathbf{y} \rVert$.

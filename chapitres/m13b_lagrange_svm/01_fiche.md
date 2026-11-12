@@ -141,7 +141,7 @@ $$\mathbf{Q}\mathbf{x} + \mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda} = \mat
 **Exemple.** Le problème du §1 s'écrit ainsi avec $\mathbf{Q} = \begin{pmatrix} 2 & 0 \\ 0 & 6 \end{pmatrix}$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (1 \ \ 1)$, $b = 8$ :
 $$\begin{pmatrix} 2 & 0 & 1 \\ 0 & 6 & 1 \\ 1 & 1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y \\ \lambda \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 8 \end{pmatrix}, \qquad (x, y, \lambda) = (6, 2, -12).$$
 
-💻 **Aujourd'hui en pratique.** Les solveurs de programmes quadratiques (ceux de `scipy.optimize`, les bibliothèques d'optimisation convexe) résolvent ce système par blocs, ou une version qui tient compte des inégalités (§3) ; personne n'élimine les variables à la main.
+💻 **Aujourd'hui en pratique** — les solveurs de programmes quadratiques (ceux de `scipy.optimize`, les bibliothèques d'optimisation convexe) résolvent ce système par blocs, ou une version qui tient compte des inégalités (§3) ; personne n'élimine les variables à la main.
 
 ### L'ACP relue par Lagrange
 
@@ -336,7 +336,7 @@ On remplace le gradient par un sous-gradient : $(\mathbf{w}, b) \leftarrow (\mat
 
 ![J(w_t, b_t) − J* le long d'une descente de sous-gradient de pas 0,02/√t, sur 120 points synthétiques : la courbe remonte souvent, le meilleur écart vu ne fait que baisser](figures/sous_gradient.png)
 
-💻 **Aujourd'hui en pratique.** Les SVM linéaires sur de gros datasets s'entraînent par des variantes stochastiques de cette descente, un exemple ou un mini-batch à la fois ; les SVM à noyau, par des solveurs du dual (§8), qui optimisent quelques $\alpha_i$ à la fois (🏆 M13b.34 compare ta descente à l'un d'eux).
+💻 **Aujourd'hui en pratique** — les SVM linéaires sur de gros datasets s'entraînent par des variantes stochastiques de cette descente, un exemple ou un mini-batch à la fois ; les SVM à noyau, par des solveurs du dual (§8), qui optimisent quelques $\alpha_i$ à la fois (🏆 M13b.34 compare ta descente à l'un d'eux).
 
 ## §8 · Le problème dual, les vecteurs de support et les noyaux
 
@@ -438,4 +438,4 @@ Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n
 
 - MML §7.2, §7.3 et ch. 12 (voir le guide de lecture) ; et MML §10.2 pour l'ACP par Lagrange.
 - S. Boyd et L. Vandenberghe, *Convex Optimization*, Cambridge University Press, 2004 : mis en ligne gratuitement par les auteurs, avec l'accord de l'éditeur (page du livre sur le site de S. Boyd, à Stanford ; vérifié le 2026-11-11). Les chapitres 4 (problèmes convexes) et 5 (dualité, conditions KKT, sensibilité) prolongent les §3 à §5.
-- `annexes/symboles.md` (lire $\nabla$, $\partial$, $\operatorname{argmin}$ et $\sum_{i,j}$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
+- `annexes/symboles.md` (lire $\nabla$, $\partial$, $\arg\min$ et $\sum_{i,j}$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

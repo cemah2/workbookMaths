@@ -1,6 +1,6 @@
 # Glossaire français ↔ anglais
 
-Les termes mathématiques sont en français dans les fiches, avec l'anglais en glose à leur première apparition : c'est l'anglais que tu liras dans MML. Les termes du machine learning gardent l'usage de workbookIA (loss, learning rate, batch, feature… restent en anglais). Chaque chapitre ajoute ses termes ; la colonne « Chapitre » renvoie à celui qui le définit. Quelques entrées renvoient déjà à un chapitre à venir (M12a, M12c, M17…) : elles servent à reconnaître le mot dans MML ou dans workbookIA, et ce chapitre le définira.
+Les termes mathématiques sont en français dans les fiches, avec l'anglais en glose à leur première apparition : c'est l'anglais que tu liras dans MML. Les termes du machine learning gardent l'usage de workbookIA (loss, learning rate, batch, feature… restent en anglais). Chaque chapitre ajoute ses termes ; la colonne « Chapitre » renvoie à celui qui le définit.
 
 | Français | Anglais | Définition courte | Chapitre |
 |---|---|---|---|
@@ -61,7 +61,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | borne, intervalle | bound, interval | ensemble des réels compris entre deux bornes, incluses (crochet fermé) ou non (crochet ouvert) ; une borne peut être infinie | R2 |
 | boule unité | unit ball | les vecteurs de norme au plus 1 ; dans le plan, un losange pour L1, un disque pour L2, un carré pour L∞ ; toujours convexe | M07 |
 | bras | arm | une option d'un problème de bandit : chaque choix donne une récompense aléatoire, de moyenne inconnue | M11 |
-| broadcasting | broadcasting | NumPy répète un tableau le long des axes qui lui manquent : `X - X.mean(axis=0)` retire le vecteur des moyennes à chaque ligne ; la règle : aligner les formes à droite, longueurs égales ou 1 ; piège : $(n,)$ moins $(n, 1)$ donne $(n, n)$ (M20) | M09a, M20 |
+| broadcasting, diffusion | broadcasting | NumPy répète un tableau le long des axes qui lui manquent : `X - X.mean(axis=0)` retire le vecteur des moyennes à chaque ligne ; la règle : aligner les formes à droite, longueurs égales ou 1 ; piège : $(n,)$ moins $(n, 1)$ donne $(n, n)$ (M20) | M09a, M16, M20 |
 | calcul symbolique | symbolic computation | calcul exact sur des expressions avec des lettres (SymPy), sans valeurs approchées | R0 |
 | calibration | calibration | un modèle est calibré si $P(Y = 1 \mid \text{score} = p) = p$ : ses probabilités sont honnêtes | M03 |
 | cardinal | cardinality | le nombre d'éléments d'un ensemble fini, noté $\lvert A \rvert$ | R4 |
@@ -102,7 +102,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | condition nécessaire, suffisante | necessary, sufficient condition | dans $P \Rightarrow Q$, P est suffisante pour Q et Q nécessaire pour P | R4 |
 | conditionnement | condition number | $\kappa(\mathbf{A}) = s_{\max}/s_{\min} \ge 1$ (infini si $\mathbf{A}$ n'est pas de rang plein) : l'amplification maximale d'une erreur relative, $\frac{\lVert \delta\mathbf{x} \rVert}{\lVert \mathbf{x} \rVert} \le \kappa\,\frac{\lVert \delta\mathbf{b} \rVert}{\lVert \mathbf{b} \rVert}$ ; on perd environ $\log_{10}\kappa$ chiffres ; $\kappa(\mathbf{A}^\top\mathbf{A}) = \kappa^2$ ; le déterminant ne le mesure pas ; pour une matrice symétrique définie positive, $\lambda_{\max}/\lambda_{\min}$, qui fixe le nombre d'itérations des méthodes itératives (M19) | M12d, M19 |
 | conditions KKT | Karush-Kuhn-Tucker conditions | pour $\min f$ sous $g_i \le 0$ et $h_j = 0$ : admissibilité, stationnarité du lagrangien, $\mu_i \ge 0$ et complémentarité ; nécessaires sous qualification, suffisantes pour un problème convexe | M13b |
-| conjugué (d'un nombre complexe) | complex conjugate | $\overline{a + ib} = a - ib$ ; $z\bar z = \lvert z\rvert^2$ ; les racines non réelles d'un trinôme réel sont conjuguées | M19 |
+| conjugué (d'un nombre complexe) | complex conjugate | $\overline{a + ib} = a - ib$ ; $z\bar z = \lvert z\rvert^2$ ; les racines non réelles d'un trinôme réel sont conjuguées | M12c, M19 |
 | conservateur (test) | conservative test | un test dont le risque de type I réel est plus petit que le seuil annoncé, comme un test à statistique discrète | M08 |
 | continuité | continuity | $f$ est continue en $a$ si $\lim_{x \to a} f(x) = f(a)$ : pas de saut | R7 |
 | contraction (d'indices) | contraction | sommer un produit de tableaux sur des indices communs : $A_{ij}B_{jk}$ (somme sur $j$) ; calculée par des boucles, elle coûte le produit des longueurs de toutes les lettres | M20 |
@@ -113,9 +113,9 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | convergent (estimateur) | consistent estimator | estimateur dont l'erreur tend vers 0 quand la taille de l'échantillon grandit | M02c |
 | converger, diverger (suite) | converge, diverge | une suite converge si elle a une limite finie ; sinon elle diverge (vers $\pm\infty$, ou sans limite) | R5 |
 | convexe | convex | un ensemble l'est s'il contient le segment entre deux quelconques de ses points ; une fonction l'est si chaque corde est au-dessus de sa courbe (c'est-à-dire si son épigraphe est un ensemble convexe) | M05a, M10 |
-| coordonnée par coordonnée (fonction appliquée) | elementwise | $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$ pour une fonction $g$ d'une variable (`np.sin(x)`) ; sa jacobienne est diagonale, $\mathrm{diag}(g'(x_i))$, et $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ | M17 |
+| coordonnée par coordonnée, élément par élément (fonction appliquée) | elementwise | $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$ pour une fonction $g$ d'une variable (`np.sin(x)`) ; sa jacobienne est diagonale, $\operatorname{diag}(g'(x_i))$, et $\mathbf{J}\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ | M09a, M17 |
 | coordonnées dans une base | coordinates, coordinate vector | les coefficients $(c_1, \ldots, c_n)$ de l'écriture unique $\mathbf{v} = c_1\mathbf{b}_1 + \cdots + c_n\mathbf{b}_n$ : la solution de $\mathbf{B}\mathbf{c} = \mathbf{v}$ | M12a |
-| coordonnées homogènes, matrice homogène | homogeneous coordinates, augmented matrix | on ajoute une coordonnée 1 au point : en lignes, $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ ; une application affine devient un produit, et composer devient multiplier les matrices homogènes | M16 |
+| coordonnées homogènes, matrice homogène | homogeneous coordinates, augmented matrix | on ajoute une coordonnée 1 au point : en lignes, $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$ ; une application affine devient un produit, et composer devient multiplier les matrices homogènes (en anglais aussi *augmented matrix* : à ne pas confondre avec la matrice augmentée $[\mathbf{A} \mid \mathbf{b}]$ de M09a) | M16 |
 | coordonnées polaires | polar coordinates | repérer un point du plan par sa distance $r$ à l'origine et son angle $\theta$ ; dans une intégrale double, $dx\,dy$ devient $r\,dr\,d\theta$ | M02b |
 | coordonnées, repère orthonormé | coordinates, orthonormal frame | un repère a une origine et deux axes perpendiculaires de même unité ; un point y est repéré par $(x ; y)$ | R9 |
 | corrélation (coefficient de) | correlation coefficient (Pearson) | $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}$, entre $-1$ et 1 : la force d'une relation **linéaire** ; le cosinus de l'angle entre les vecteurs d'écarts | M02c |
@@ -200,6 +200,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | empreinte | hash | code calculé à partir d'une donnée, d'où l'on ne peut pas la retrouver ; sert à comparer sans stocker | R0 |
 | ensemble | set | collection d'éléments distincts | R4 |
 | ensemble (de modèles) | ensemble (of models) | un prédicteur qui en combine plusieurs : il les fait voter, moyenne leurs prédictions, pondère leurs avis, ou les ajoute l'un après l'autre | M14 |
+| ensemble admissible | feasible set | les points qui vérifient toutes les contraintes d'un problème d'optimisation ; le minimum sans contrainte n'y est en général pas | M13b |
 | ensemble de définition | domain | l'ensemble des $x$ pour lesquels $f(x)$ a un sens | R3 |
 | ensemble des événements | event space | $\mathcal{A}$, les parties de l'univers auxquelles on donne une probabilité | M02b |
 | ensemble des solutions | solution set | l'ensemble de toutes les valeurs qui rendent une équation (ou une inéquation) vraie | R2 |
@@ -224,6 +225,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | erreur type | standard error (SE) | l'écart-type d'un estimateur ; pour une moyenne, $\frac{s}{\sqrt{n}}$ ; pour une proportion, $\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$ | M02c |
 | espace d'arrivée | target space | l'ensemble des valeurs que peut prendre une variable aléatoire ($\mathcal{T}$ dans MML) : $\mathbb{R}$, un ensemble de classes ou de vecteurs | M02b |
 | espace des colonnes, espace des lignes | column space, row space | le sous-espace engendré par les colonnes de $\mathbf{A}$ (son image), ou par ses lignes ; tous deux ont pour dimension le rang | M12a |
+| espace préhilbertien, espace euclidien | inner product space, Euclidean vector space | un espace vectoriel muni d'un produit scalaire ; euclidien s'il est de dimension finie | M12b |
 | espace probabilisé | probability space | le triplet (univers, événements, probabilité) d'une expérience aléatoire | M02b |
 | espace propre | eigenspace | $\ker(\mathbf{A} - \lambda\mathbf{I})$ : les vecteurs propres de $\lambda$ et le vecteur nul ; sa dimension est la multiplicité géométrique de $\lambda$ | M12c |
 | espace vectoriel | vector space | un ensemble où l'on additionne des vecteurs et où on les multiplie par des réels, avec les règles de calcul habituelles : $\mathbb{R}^n$, les polynômes, les matrices d'une forme donnée | M12a |
@@ -270,10 +272,12 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | fonction duale | dual function | $D(\boldsymbol{\mu}, \boldsymbol{\lambda}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda})$ pour $\boldsymbol{\mu} \ge \mathbf{0}$ : toujours concave, elle minore le minimum du problème | M13b |
 | fonction quantile | quantile function | la réciproque $F^{-1}$ de la fonction de répartition : $F^{-1}(u) = q_u$ | M02a, M02b |
 | fonction signe | sign function | $\operatorname{sign}(x)$ vaut $-1$, 0 ou 1 selon que $x$ est négatif, nul ou positif | R2 |
-| forme (d'un tableau) | shape | le $k$-uplet $(n_0, \ldots, n_{k-1})$ des longueurs des axes (`x.shape`) ; le tableau a $n_0 n_1 \cdots n_{k-1}$ éléments | M20 |
+| forêt aléatoire | random forest | un bagging d'arbres de décision rendus moins semblables (chaque nœud ne regarde qu'une partie des features), ce qui baisse leur corrélation (workbookIA 14) | M14 |
+| forme (d'un tableau) | shape | le $k$-uplet $(n_0, \ldots, n_{k-1})$ des longueurs des axes (`x.shape`) ; le tableau a $n_0 n_1 \cdots n_{k-1}$ éléments ; voir aussi « forme d'une matrice » | M20 |
+| forme bilinéaire | bilinear form | une fonction de deux vecteurs, linéaire en chacun, comme $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ ; un produit scalaire en est une, symétrique et définie positive ; $\mathbf{a}^\top\mathbf{X}\mathbf{b}$ a pour gradient $\mathbf{a}\mathbf{b}^\top$ par rapport à $\mathbf{X}$ (M18) | M12b, M18 |
 | forme canonique | vertex form, completed-square form | $a(x - \alpha)^2 + \beta$, qui montre le sommet d'une parabole | R3 |
 | forme canonique (d'un séparateur) | canonical form | un séparateur dont la plus petite marge fonctionnelle vaut 1 ; sa marge géométrique est alors $\frac{1}{\lVert \mathbf{w} \rVert}$ | M10 |
-| forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features | M09a |
+| forme d'une matrice | shape | le couple (nombre de lignes, nombre de colonnes), lignes d'abord : $(n, p)$ pour un dataset de $n$ exemples à $p$ features ; voir aussi « forme (d'un tableau) » | M09a |
 | forme échelonnée, forme échelonnée réduite | row echelon form, reduced row echelon form | un escalier : les lignes nulles en bas, chaque pivot à droite de celui du dessus ; réduite : chaque pivot vaut 1 et est seul dans sa colonne (elle est unique) | M09a |
 | forme indéterminée | indeterminate form | $\infty - \infty$, $\frac{\infty}{\infty}$, $0 \times \infty$, $\frac{0}{0}$ : une limite qui ne se décide pas d'avance | R7 |
 | forme quadratique | quadratic form | $\mathbf{w}^\top\mathbf{A}\mathbf{w} = \sum_{i,j} a_{ij}w_iw_j$, de gradient $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ ; on l'écrit avec une matrice symétrique, et dans la base de ses vecteurs propres elle devient $\sum_i \lambda_iy_i^2$ : ses lignes de niveau sont des ellipses quand $\mathbf{A}$ est définie positive | M09b, M12c |
@@ -294,7 +298,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | gradient estimé sur un échantillon | stochastic gradient estimate | $\frac1B\sum_j\nabla f_{K_j}$, avec $B$ indices tirés au hasard parmi les $N$ termes d'une moyenne : sans biais, de variance $\sigma^2/B$ (le gradient d'un mini-batch) | M19 |
 | gradient fonctionnel | functional gradient | le gradient d'une loss par rapport au vecteur $\mathbf{F}$ des prédictions sur les exemples (une coordonnée par exemple) ; ajouter à l'ensemble $\alpha\,h$, avec $\mathbf{h}$ d'angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$ et $\alpha$ petit, fait baisser la loss au premier ordre | M14 |
 | gradient par rapport à une matrice | gradient with respect to a matrix | le tableau des $\frac{\partial f}{\partial X_{ij}}$, de la forme de $\mathbf{X}$ (NumPy, workbookIA) ; $f(\mathbf{X} + \mathbf{H}) \approx f(\mathbf{X}) + \sum_{ij}G_{ij}H_{ij}$ | M18 |
-| graine | seed | la tangente donnée aux entrées au départ d'une passe directe ($\dot{x}_i = 1$, les autres 0), ou l'adjoint donné à la sortie au départ d'une passe arrière ($\bar{y} = 1$) | M18 |
+| graine (en différentiation automatique) | seed | la tangente donnée aux entrées au départ d'une passe directe ($\dot{x}_i = 1$, les autres 0), ou l'adjoint donné à la sortie au départ d'une passe arrière ($\bar{y} = 1$) | M18 |
 | Gram-Schmidt (procédé de) | Gram-Schmidt orthogonalization | retirer de chaque vecteur ses projections sur les vecteurs déjà construits, puis normer : une base orthonormée du même sous-espace ; classique ou modifié selon que l'on projette le vecteur d'origine ou le vecteur courant | M12b |
 | grand O | big O | $f = O(g)$ : $f$ ne croît pas plus vite que $g$, à une constante près ; mesure le coût d'un algorithme | R7 |
 | graphe de calcul | computation graph | un nœud par entrée et par résultat d'opération élémentaire, une arête $u \to w$ quand l'opération qui calcule $w$ utilise $u$ ; il est sans cycle | M18 |
@@ -428,6 +432,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | MCC (coefficient de Matthews) | Matthews correlation coefficient | la corrélation entre la vérité et la prédiction codées 0 et 1, entre $-1$ et 1 | M03 |
 | médiane | median | la valeur du milieu d'une série triée (la moyenne des deux du milieu si $n$ est pair) ; robuste aux valeurs extrêmes | M02c |
 | médiane géométrique | geometric median | le point qui minimise la somme des distances euclidiennes (non au carré) à des points ; sans formule, l'algorithme de Weiszfeld la calcule | M07 |
+| meilleur pas (de Richardson), pas optimal | optimal step size | $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$, qui donne le facteur $\frac{\kappa - 1}{\kappa + 1}$ par itération | M19 |
 | mesures appariées | paired measurements | deux mesures de la même unité (avant et après) : on travaille sur leurs différences, et la variabilité entre unités disparaît | M08 |
 | méthode de Chernoff | Chernoff method | appliquer Markov à $e^{\lambda X}$, puis choisir le meilleur $\lambda$ : d'où les bornes exponentielles, comme celle de Hoeffding | M11 |
 | méthode de la puissance | power iteration, power method | $\mathbf{x}_{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x}_k \rVert$ : converge vers le vecteur propre de la valeur propre de plus grand module, l'écart étant multiplié par $\lvert\lambda_2/\lambda_1\rvert$ à chaque pas ; seulement des produits matrice-vecteur | M12c |
@@ -442,9 +447,10 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | mode | mode | la valeur la plus fréquente d'une série, ou le maximum d'une densité | M02c |
 | mode direct, mode inverse | forward mode, reverse mode | deux façons de faire passer un vecteur à travers une suite de jacobiennes sans les multiplier entre elles : de droite à gauche par des produits jacobienne-vecteur, de gauche à droite par des produits vecteur-jacobienne (la rétropropagation, M18) ; sur un graphe de calcul, le mode direct pousse des tangentes des entrées vers la sortie, le mode inverse des adjoints de la sortie vers les entrées | M17, M18 |
 | modèle linéaire généralisé | generalized linear model (GLM) | une combinaison linéaire des features suivie d'une fonction fixée, $\varphi(\boldsymbol{\theta}^\top\mathbf{x})$, avec une loi de la cible adaptée : la régression linéaire (bruit gaussien) et la régression logistique (labels de Bernoulli) en sont | M13a |
-| module (d'un nombre complexe) | modulus | $\lvert a + ib\rvert = \sqrt{a^2 + b^2}$ ; multiplicatif, $\lvert z^k\rvert = \lvert z\rvert^k$ ; les racines complexes de $r^2 - pr + q$ ont pour module $\sqrt q$ | M19 |
+| module (d'un nombre complexe) | modulus | $\lvert a + ib\rvert = \sqrt{a^2 + b^2}$ ; multiplicatif, $\lvert z^k\rvert = \lvert z\rvert^k$ ; les racines complexes de $r^2 - pr + q$ ont pour module $\sqrt q$ | M12c, M19 |
 | modus ponens, modus tollens | modus ponens, modus tollens | les formes valides « $P \Rightarrow Q$ ; $P$ ; donc $Q$ » et « $P \Rightarrow Q$ ; non $Q$ ; donc non $P$ » | M11 |
 | moindres carrés | least squares | choisir les poids qui minimisent la somme des carrés des résidus, $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ : la solution des équations normales, et le maximum de vraisemblance d'un bruit gaussien | M09b |
+| moment d'ordre 2 | second moment | $\mathbb{E}[X^2] = \mathbb{V}(X) + \mathbb{E}[X]^2$ ; c'est la variance si $X$ est centrée | M16 |
 | monôme | monomial | un produit de puissances de variables, $x_1^{k_1}\cdots x_p^{k_p}$, de degré $k_1 + \cdots + k_p$ | M09b |
 | moyenne (arithmétique) | mean | $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$ : la somme des valeurs divisée par leur nombre | R1, M02c |
 | moyenne exponentielle | exponential moving average (EMA) | $v_t = \beta\,v_{t-1} + (1 - \beta)\,x_t$ : une moyenne qui oublie le passé progressivement | R5 |
@@ -459,7 +465,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | négation | negation | la proposition « non P », vraie quand P est fausse | R4 |
 | nier l'antécédent | denying the antecedent | le sophisme formel « $P \Rightarrow Q$ ; non $P$ ; donc non $Q$ » : non valide | M11 |
 | nilpotente (matrice) | nilpotent matrix | une matrice carrée dont une puissance est nulle ; une matrice strictement triangulaire $n \times n$ vérifie $\mathbf{N}^n = \mathbf{0}$ ; ses valeurs propres sont toutes nulles | M16 |
-| nombre complexe | complex number | $z = a + ib$ avec $i^2 = -1$ ; $a$ et $b$ sont ses parties réelle et imaginaire | M19 |
+| nombre complexe | complex number | $z = a + ib$ avec $i^2 = -1$ ; $a$ et $b$ sont ses parties réelle et imaginaire ; une matrice réelle $n \times n$ a $n$ valeurs propres complexes, comptées avec leur multiplicité ; les non réelles vont par paires conjuguées | M12c, M19 |
 | nombre décimal | decimal number, terminating decimal | nombre qui s'écrit avec un nombre fini de chiffres après la virgule (ensemble 𝔻) | R1 |
 | nombre dérivé | derivative at a point | $f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$, la pente de la tangente en $a$ | R7 |
 | nombre dual | dual number | $a + b\varepsilon$ avec $\varepsilon^2 = 0$ ; $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$ : le mode direct de la différentiation automatique | M18 |
@@ -478,6 +484,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | noyau RBF, gaussien | RBF kernel, Gaussian kernel | $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, dans $]0, 1]$, fonction décroissante de la distance ; $1/\sqrt{\gamma}$ fixe son échelle de longueur ; son $\varphi$ a une infinité de coordonnées | M13b |
 | numérateur, dénominateur | numerator, denominator | le nombre du haut et celui du bas d'une fraction | R1 |
 | octet | byte | 8 bits ; 1 ko = $10^3$ octets, 1 Mo = $10^6$, 1 Go = $10^9$ | R1 |
+| opération élémentaire (d'un calcul) | elementary operation | une somme, un produit ou une fonction usuelle appliqués à des nombres déjà calculés : un nœud du graphe de calcul (à ne pas confondre avec les opérations élémentaires sur les lignes, M09a) | M18 |
 | opérations élémentaires sur les lignes | elementary row operations | échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre : elles ne changent pas les solutions | M09a |
 | optimisme face à l'incertitude | optimism in the face of uncertainty | agir comme si chaque option valait le haut de son intervalle de confiance : le principe des stratégies UCB | M11 |
 | oracle (d'un test) | test oracle | bibliothèque de confiance à laquelle un test compare ta fonction | R0 |
@@ -496,7 +503,6 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | partie entière, plancher, plafond | floor, ceiling | $\lfloor x \rfloor$, le plus grand entier $\le x$ ; $\lceil x \rceil$, le plus petit entier $\ge x$ | R1 |
 | partition (de l'univers) | partition | des événements deux à deux incompatibles dont la réunion est l'univers entier | M03 |
 | pas critique | critical step size | $2/\lambda_{\max}$ : le plus grand pas pour lequel Richardson converge vers la solution depuis tout départ | M19 |
-| pas optimal (de Richardson) | optimal step size | $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$, qui donne le facteur $\frac{\kappa - 1}{\kappa + 1}$ par itération | M19 |
 | passe avant, passe arrière | forward pass, backward pass | en mode inverse : le calcul des valeurs, qu'on garde, puis celui des adjoints, de la sortie vers les entrées | M18 |
 | pavé | box | un produit d'intervalles $[l_1, u_1] \times \cdots \times [l_n, u_n]$ ; projeter dessus, c'est couper chaque coordonnée (`np.clip`), ce qui change la direction en général | M19 |
 | pente, ordonnée à l'origine | slope, intercept | dans $mx + c$, $m$ est la variation pour $x + 1$, et $c = f(0)$ | R3 |
@@ -530,6 +536,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | prédicat | predicate | une phrase qui dépend d'une variable, comme « $x > 3$ » | R4 |
 | prévalence | prevalence, base rate | $P(Y = 1)$ : la proportion de positifs dans la population ; voir aussi « taux de base » | M03 |
 | primitive | antiderivative | une fonction $F$ telle que $F' = f$ ; deux primitives sur un intervalle diffèrent d'une constante | M02a |
+| principe des tiroirs | pigeonhole principle | $n + 1$ objets rangés dans $n$ tiroirs : l'un en reçoit au moins deux | M16 |
 | principe multiplicatif | rule of product | $a$ choix puis $b$ choix donnent $a \times b$ possibilités | R8 |
 | probabilité conditionnelle | conditional probability | $P(A \mid B)$ : la probabilité de $A$ sachant que $B$ s'est réalisé | R8, M03 |
 | probabilité d'inclusion | inclusion probability | $\pi_i$, la probabilité que l'unité $i$ de la population entre dans l'échantillon | M20 |

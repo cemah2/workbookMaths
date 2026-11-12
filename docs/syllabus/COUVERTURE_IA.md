@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 341 notions mathématiques couvertes, 217 notions non mathématiques.
+**Bilan** : 343 notions mathématiques couvertes, 215 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -307,9 +307,11 @@ Non mathématiques : ensemble · ExtraTrees · souche · early stopping (boostin
 |---|---|
 | PolynomialFeatures | M09b |
 | classes déséquilibrées : class_weight, rééchantillonnage | M03 |
+| seuil de décision | M03 |
+| predict_proba | R6, M13a |
 | silhouette | M07 |
 
-Non mathématiques : API scikit-learn · get_params/set_params/clone · decision_function · predict_proba · cross_validate · StratifiedKFold · GridSearchCV · RandomizedSearchCV · cv_results_ · Pipeline · ColumnTransformer · set_output · DecisionBoundaryDisplay · seuil de décision · persistance joblib · lecture de dépréciations
+Non mathématiques : API scikit-learn · get_params/set_params/clone · decision_function · cross_validate · StratifiedKFold · GridSearchCV · RandomizedSearchCV · cv_results_ · Pipeline · ColumnTransformer · set_output · DecisionBoundaryDisplay · persistance joblib · lecture de dépréciations
 
 ## workbookIA 16 · Réseaux feed-forward
 
@@ -334,7 +336,7 @@ Non mathématiques : flux synchrone et asynchrone
 |---|---|
 | rôle de la non-linéarité | M12a, M16 |
 | activations linéaires par morceaux (ReLU et variantes, maxout) | M13b, M17 |
-| activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU) | R6, M02b, M17 |
+| activations lisses (softplus, ELU, sigmoïde, tanh, SiLU, GELU) | R6, M02b, M13a, M17 |
 | dérivées des activations | R7, M17 |
 | saturation et neurones morts | M17 |
 | softmax, log-softmax, température | M05a, M17 |
@@ -353,7 +355,7 @@ Non mathématiques : tests paramétrés pytest
 | delta d'un neurone | M17, M18 |
 | règle de la chaîne multivariée | M17, M18 |
 | forme matricielle des gradients | M18 |
-| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M13a, M14 |
+| losses et leurs gradients (MSE, BCE sur logits, cross-entropy softmax) | M05a, M09b, M13a, M14 |
 | vérification du gradient | M05a, M18 |
 | mini-batches | M18 |
 | différentiation automatique en mode inverse | M18 |

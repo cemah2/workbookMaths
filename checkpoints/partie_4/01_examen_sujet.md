@@ -67,9 +67,9 @@ j) Si $\operatorname{Cov}(X, Y) = 0$, alors $X^2$ et $Y^2$ sont décorrélées.
 | e | (2) le plus petit entier $k \ge 1$ tel que $\mathbf{A}^k = \mathbf{0}$ | un entier |
 | f | (2) la somme des poids de **tous** les chemins du sommet 5 au sommet 1 | un nombre |
 | g | (3) le volume moyen $\mathbb{E}[V]$, en m³ | un nombre |
-| h | (3) la variance du volume, $\operatorname{Var}(V)$ | un nombre (4 décimales) |
+| h | (3) la variance du volume, $\mathbb{V}(V)$ | un nombre (4 décimales) |
 
-Sur ta copie : pour c), vérifie que la réciproque renvoie l'image de b) sur $P$ ; pour f), le coefficient de quelle matrice donne cette somme ; pour h), compare avec $\operatorname{Var} D \cdot \operatorname{Var} T$.
+Sur ta copie : pour c), vérifie que la réciproque renvoie l'image de b) sur $P$ ; pour f), le coefficient de quelle matrice donne cette somme ; pour h), compare avec $\mathbb{V}(D)\,\mathbb{V}(T)$.
 
 ### CP4.2 — Jacobienne d'une composée et produit vecteur-jacobienne ✏️ ★★ ⏱️ 10 min · 2 points
 
@@ -176,7 +176,7 @@ Sur ta copie : la solution $\mathbf{x}^\star$ ; le terme général de $(R_1)$ et
 | c | (1) `T.var(axis=1, ddof=1)` | une liste de 2 listes de 3 nombres |
 | d | (1) `np.einsum("ijk,k->ij", T, w)`, avec `w = [1, -1, 2]` | une liste de 2 listes de 2 nombres |
 | e | (2) l'estimation $\hat Y$ quand l'échantillon tiré est $S = \{1, 3, 5\}$ | un nombre |
-| f | (2) la variance $\operatorname{Var}(\hat Y)$ | un nombre |
+| f | (2) la variance $\mathbb{V}(\hat Y)$ | un nombre |
 
 Sur ta copie : pour c), pourquoi la variance de deux valeurs $a$ et $b$, avec `ddof=1`, vaut-elle $\frac{(a - b)^2}{2}$ ? Pour la situation 2, $\mathbb{E}[\hat Y]$, et quel rucher apporte la plus grande part de la variance, et pourquoi.
 
@@ -190,17 +190,17 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 3. $\mathbf{M}$ et $\mathbf{N}$ sont symétriques et raccourcissent les vecteurs. Montre que $\mathbf{M}\mathbf{N}$ raccourcit les vecteurs. Avec $\mathbf{M} = \begin{pmatrix} 0{,}8 & 0 \\ 0 & 0{,}2 \end{pmatrix}$ et $\mathbf{N} = \begin{pmatrix} 0{,}5 & 0{,}4 \\ 0{,}4 & 0{,}5 \end{pmatrix}$, calcule $\mathbf{M}\mathbf{N}$ : est-elle symétrique ? Que dit la question 1 de ses valeurs propres réelles ? **[0,5]**
 4. Sans symétrie, la réciproque est fausse : pour $\mathbf{B} = \begin{pmatrix} 0{,}2 & 0 \\ 1{,}5 & 0{,}2 \end{pmatrix}$, donne les valeurs propres et un vecteur que $\mathbf{B}$ allonge. Calcule $\mathbf{B}^\top\mathbf{B}$, et dis quelle égalité de la question 2 n'est plus vraie. **[0,5]**
 
-**Sujet B — La variance d'un produit dépasse le produit des variances.** $X$ et $Y$ sont deux variables aléatoires **indépendantes**, qui ont des moments d'ordre 2 ; on note $\mu_X = \mathbb{E}[X]$, $\sigma_X^2 = \operatorname{Var} X$, de même pour $Y$, et $U = X - \mu_X$, $V = Y - \mu_Y$. On démontre $\operatorname{Var}(XY) \ge \operatorname{Var} X \cdot \operatorname{Var} Y$ en découpant le produit en trois morceaux.
+**Sujet B — La variance d'un produit dépasse le produit des variances.** $X$ et $Y$ sont deux variables aléatoires **indépendantes**, qui ont des moments d'ordre 2 ; on note $\mu_X = \mathbb{E}[X]$, $\sigma_X^2 = \mathbb{V}(X)$, de même pour $Y$, et $U = X - \mu_X$, $V = Y - \mu_Y$. On démontre $\mathbb{V}(XY) \ge \mathbb{V}(X)\,\mathbb{V}(Y)$ en découpant le produit en trois morceaux.
 1. Montre que $XY - \mu_X\mu_Y = UV + \mu_Y\,U + \mu_X\,V$, et que les trois termes de droite sont d'espérance nulle. **[0,5]**
-2. Montre que ces trois termes sont deux à deux décorrélés (calcule $\mathbb{E}[UV \cdot U]$, $\mathbb{E}[UV \cdot V]$ et $\mathbb{E}[U \cdot V]$), et que $\operatorname{Var}(UV) = \sigma_X^2\sigma_Y^2$ ; dis où sert l'indépendance. **[0,5]**
-3. Déduis-en $\operatorname{Var}(XY) = \sigma_X^2\sigma_Y^2 + \mu_Y^2\sigma_X^2 + \mu_X^2\sigma_Y^2$ (cite la règle de M16 que tu utilises), puis $\operatorname{Var}(XY) \ge \operatorname{Var} X \cdot \operatorname{Var} Y$, et trouve tous les cas d'égalité (des conditions sur $\mu_X$, $\mu_Y$, $\sigma_X$ et $\sigma_Y$). **[0,5]**
-4. L'indépendance ne peut pas être retirée : $X$ suit la loi uniforme sur $\{1, 2\}$ et $Y = 2/X$. Calcule $\operatorname{Var} X$, $\operatorname{Var} Y$ et $\operatorname{Var}(XY)$, et conclus. Dis quelle étape de la démonstration ne tient plus. **[0,5]**
+2. Montre que ces trois termes sont deux à deux décorrélés (calcule $\mathbb{E}[UV \cdot U]$, $\mathbb{E}[UV \cdot V]$ et $\mathbb{E}[U \cdot V]$), et que $\mathbb{V}(UV) = \sigma_X^2\sigma_Y^2$ ; dis où sert l'indépendance. **[0,5]**
+3. Déduis-en $\mathbb{V}(XY) = \sigma_X^2\sigma_Y^2 + \mu_Y^2\sigma_X^2 + \mu_X^2\sigma_Y^2$ (cite la règle de M16 que tu utilises), puis $\mathbb{V}(XY) \ge \mathbb{V}(X)\,\mathbb{V}(Y)$, et trouve tous les cas d'égalité (des conditions sur $\mu_X$, $\mu_Y$, $\sigma_X$ et $\sigma_Y$). **[0,5]**
+4. L'indépendance ne peut pas être retirée : $X$ suit la loi uniforme sur $\{1, 2\}$ et $Y = 2/X$. Calcule $\mathbb{V}(X)$, $\mathbb{V}(Y)$ et $\mathbb{V}(XY)$, et conclus. Dis quelle étape de la démonstration ne tient plus. **[0,5]**
 
 ### CP4.9 — Corriger une copie : cinq erreurs 🐛 ★★ ⏱️ 8 min · 1,25 point
 
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
-- **(A)** $X$ et $Y$ sont indépendantes, avec $\mathbb{E}[X] = 2$, $\operatorname{Var} X = 1$ et $\mathbb{E}[Y] = 3$ : $\mathbb{E}[X^2Y] = \mathbb{E}[X]^2\,\mathbb{E}[Y] = 12$.
+- **(A)** $X$ et $Y$ sont indépendantes, avec $\mathbb{E}[X] = 2$, $\mathbb{V}(X) = 1$ et $\mathbb{E}[Y] = 3$ : $\mathbb{E}[X^2Y] = \mathbb{E}[X]^2\,\mathbb{E}[Y] = 12$.
 - **(B)** En coordonnées homogènes (points en lignes), la translation de vecteur $(3, -2)$ du plan a pour matrice $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 3 & -2 & 1 \end{pmatrix}$ ; son carré est la matrice homogène de la translation de vecteur $(6, -4)$.
 - **(C)** Pour $\mathbf{f} : \mathbb{R}^3 \to \mathbb{R}^2$, le produit vecteur-jacobienne $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{p})$ prend un vecteur $\mathbf{u}$ de $\mathbb{R}^3$ et rend un vecteur de $\mathbb{R}^2$.
 - **(D)** Le gradient de $\lVert \mathbf{X} \rVert_F^2 = \operatorname{tr}(\mathbf{X}^\top\mathbf{X})$ par rapport à $\mathbf{X}$ est $\mathbf{X}$.

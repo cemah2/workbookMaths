@@ -1,6 +1,6 @@
 # Lire une formule : les symboles
 
-Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **comment le lire à voix haute**, ce qu'il veut dire, un petit exemple, et le chapitre qui l'enseigne. Garde-le ouvert les premières semaines, et chaque fois que MML (en anglais) emploie une notation nouvelle. La colonne « en anglais » donne la lecture que tu entendras dans les vidéos et les cours. Les trois symboles dont le chapitre est M12c ($\det$, $\operatorname{tr}$, $\lambda$ valeur propre) arrivent avec la partie III ; ils sont là pour que tu les reconnaisses en lisant MML.
+Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **comment le lire à voix haute**, ce qu'il veut dire, un petit exemple, et le chapitre qui l'enseigne. Garde-le ouvert les premières semaines, et chaque fois que MML (en anglais) emploie une notation nouvelle. La colonne « en anglais » donne la lecture que tu entendras dans les vidéos et les cours.
 
 ## Nombres et opérations
 
@@ -21,9 +21,10 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $n!$ | « factorielle n » | n factorial | $1 \times 2 \times \dots \times n$ | $4! = 24$ | R8 |
 | $\binom{n}{k}$ | « k parmi n » | n choose k | nombre de façons de choisir $k$ objets parmi $n$ | $\binom{4}{2} = 6$ | R8 |
 | $\infty$ | « l'infini » | infinity | plus grand que tout nombre (pas un nombre) | $[2 ; +\infty[$, $x \to +\infty$ | R2, R5 |
-| $i$ (nombre complexe) | « i » | imaginary unit | le nombre tel que $i^2 = -1$ ; $z = a + ib$ | $(2 + 3i)(1 - i) = 5 + i$ | M19 |
-| $\bar z$ | « z barre », « conjugué de z » | complex conjugate | $\overline{a + ib} = a - ib$ (à ne pas confondre avec une moyenne ni un adjoint) | $z\bar z = \lvert z\rvert^2$ | M19 |
-| $\lvert z\rvert$ (nombre complexe) | « module de z » | modulus | $\sqrt{a^2 + b^2}$ pour $z = a + ib$ ; $\lvert zw\rvert = \lvert z\rvert\lvert w\rvert$ | $\lvert 0{,}3 + 0{,}4i\rvert = 0{,}5$ | M19 |
+| $i$ (nombre complexe) | « i » | imaginary unit | le nombre tel que $i^2 = -1$ ; $z = a + ib$ | $(2 + 3i)(1 - i) = 5 + i$ | M12c, M19 |
+| $\bar z$ | « z barre », « conjugué de z » | complex conjugate | $\overline{a + ib} = a - ib$ (à ne pas confondre avec une moyenne ni un adjoint) | $z\bar z = \lvert z\rvert^2$ | M12c, M19 |
+| $\lvert z\rvert$ (nombre complexe) | « module de z » | modulus | $\sqrt{a^2 + b^2}$ pour $z = a + ib$ ; $\lvert zw\rvert = \lvert z\rvert\lvert w\rvert$ | $\lvert 0{,}3 + 0{,}4i\rvert = 0{,}5$ | M12c, M19 |
+| $\mathbb{C}$, $\mathbb{C}^n$ | « C », « C n » | complex numbers | les nombres $a + ib$ ; les vecteurs à $n$ coordonnées complexes, pour lesquels $\bar{\mathbf{z}}^\top\mathbf{z} = \sum_i\lvert z_i\rvert^2$ | $\mathbf{z} = (1, i)$ : $\bar{\mathbf{z}}^\top\mathbf{z} = 2$ | M12c |
 
 ## Sommes, produits, ensembles et logique
 
@@ -125,7 +126,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbf{A} = \mathbf{Q}\mathbf{R}$ | « décomposition QR de A » | QR decomposition | $\mathbf{Q}$ à colonnes orthonormées, $\mathbf{R}$ triangulaire supérieure | $\begin{pmatrix} 5 \\ 12 \end{pmatrix} = \frac{1}{13}\begin{pmatrix} 5 \\ 12 \end{pmatrix}(13)$ | M12b |
 | $\lVert \mathbf{x} \rVert_p$ | « norme p de x » | p-norm of x | $\big(\sum_i \lvert x_i \rvert^p\big)^{1/p}$, une norme pour $p \ge 1$ | $\lVert (1, -1) \rVert_4 = 2^{1/4}$ | M07 |
 | $\mathbf{e}_i$ | « e i » | i-th standard basis vector | le vecteur de $\mathbb{R}^n$ qui a un 1 à la place $i$ et des 0 ailleurs | $\mathbf{e}_2 = (0, 1, 0)$ dans $\mathbb{R}^3$ | M07 |
-| $\mathbf{0}$, $\mathbf{1}$ | « vecteur nul », « vecteur des uns » | zero vector, all-ones vector | le vecteur dont toutes les coordonnées valent 0, ou 1 | $\lVert \mathbf{1} \rVert = \sqrt{n}$ dans $\mathbb{R}^n$ | M07 |
+| $\mathbf{0}$, $\mathbf{1}$ | « vecteur nul », « vecteur des uns » | zero vector, all-ones vector | le vecteur dont toutes les coordonnées valent 0, ou 1 ; $\mathbf{1}^\top\mathbf{x} = \sum_i x_i$ | $\lVert \mathbf{1} \rVert = \sqrt{n}$ dans $\mathbb{R}^n$ ; $\bar x = \frac1m\mathbf{1}^\top\mathbf{x}$ | M07, M16, M20 |
 | $\mathbf{x}^\top \mathbf{y}$ | « x transposé y » | x transpose y | le produit scalaire $\mathbf{x} \cdot \mathbf{y}$, écrit comme un produit de matrices (la notation de MML) | $(1, 2)^\top (3, 4) = 11$ | M07, M09a |
 | $\bar{\mathbf{x}}$ | « x barre » (en gras) | centroid, mean vector | le barycentre d'un nuage de points, la moyenne coordonnée par coordonnée | le barycentre de $(0, 0)$ et $(2, 4)$ est $(1, 2)$ | M07 |
 | $d(\mathbf{x}, H)$ | « distance de x à H » | distance from x to H | la distance d'un point à un hyperplan : $\frac{\lvert \mathbf{w} \cdot \mathbf{x} + b \rvert}{\lVert \mathbf{w} \rVert}$ | $d(\mathbf{0}, H) = \frac{\lvert b \rvert}{\lVert \mathbf{w} \rVert}$ | M07 |
@@ -185,16 +186,15 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, $\frac{\partial\mathbf{f}}{\partial\mathbf{x}}$ | « jacobienne de f en x » | Jacobian of f at x | la matrice $(m, n)$ des $\frac{\partial f_i}{\partial x_j}$, une ligne par sortie, une colonne par entrée ; MML note aussi $\nabla_{\mathbf{x}}\mathbf{f}$ | $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ : $\mathbf{J} = \mathbf{A}$ | M17 |
 | $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | « jacobienne de g en f de x, fois jacobienne de f en x » | chain rule | la jacobienne de $\mathbf{g} \circ \mathbf{f}$ : la dernière appliquée à gauche, évaluée au point intermédiaire | $(m, p) \times (p, n) \to (m, n)$ | M17 |
 | $\mathbf{J}\mathbf{v}$, $\mathbf{u}^\top\mathbf{J}$ | « J v », « u transposé J » | Jacobian-vector product, vector-Jacobian product | la dérivée de toutes les sorties dans la direction $\mathbf{v}$ ; le gradient de $\mathbf{u} \cdot \mathbf{f}$ | $\mathbf{f}(\mathbf{x}) = (\mathbf{a} \cdot \mathbf{x})\mathbf{x}$ : $\mathbf{J}\mathbf{v} = (\mathbf{a} \cdot \mathbf{v})\mathbf{x} + (\mathbf{a} \cdot \mathbf{x})\mathbf{v}$ | M17 |
-| $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ | « diag de p moins p transposé p » | covariance of a one-hot vector | pour $\mathbf{p}$ en ligne : $p_i(1 - p_i)$ sur la diagonale, $-p_ip_j$ ailleurs ; symétrique, semi-définie positive, lignes de somme nulle | $\mathbf{p} = (0{,}8 ;\ 0{,}2)$ : $\begin{pmatrix} 0{,}16 & -0{,}16 \\ -0{,}16 & 0{,}16 \end{pmatrix}$ | M17 |
+| $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ | « diag de p moins p transposé p » | covariance of a one-hot vector | pour $\mathbf{p}$ en ligne : $p_i(1 - p_i)$ sur la diagonale, $-p_ip_j$ ailleurs ; symétrique, semi-définie positive, lignes de somme nulle | $\mathbf{p} = (0{,}8 ;\ 0{,}2)$ : $\begin{pmatrix} 0{,}16 & -0{,}16 \\ -0{,}16 & 0{,}16 \end{pmatrix}$ | M17 |
 | $\nabla_{\mathbf{X}}f$ | « gradient de f par rapport à X » | gradient with respect to a matrix | le tableau des $\frac{\partial f}{\partial X_{ij}}$, de la forme de $\mathbf{X}$ | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{A}\mathbf{X}) = \mathbf{A}^\top$ | M18 |
 | $\mathrm{d}f = \operatorname{tr}(\mathbf{G}^\top\mathrm{d}\mathbf{X})$ | « d f égale trace de G transposé d X » | differential | le changement de $f$ au premier ordre quand $\mathbf{X}$ bouge de $\mathrm{d}\mathbf{X}$ ; $\mathbf{G}$ est le gradient | $\mathrm{d}\lVert\mathbf{X}\rVert_F^2 = 2\operatorname{tr}(\mathbf{X}^\top\mathrm{d}\mathbf{X})$ | M18 |
 | $\mathbf{X}^{-\top}$ | « X moins T », « inverse transposée de X » | inverse transpose | $(\mathbf{X}^{-1})^\top$, égale à $(\mathbf{X}^\top)^{-1}$ | $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ | M18 |
 | $\operatorname{com}(\mathbf{X})$ | « comatrice de X » | cofactor matrix | la matrice des cofacteurs ; $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$, et $\nabla\det\mathbf{X} = \operatorname{com}(\mathbf{X})$ | $\operatorname{com}\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -c \\ -b & a \end{pmatrix}$ | M18 |
-| $\nabla^2 f(\mathbf{x})$ | « hessienne de f en x », « nabla deux f » | Hessian | la matrice $n \times n$ des dérivées secondes $\frac{\partial^2 f}{\partial x_i\partial x_j}$ ; MML écrit aussi $\mathbf{H}$ | $\nabla^2(\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x}) = \mathbf{A}$ | M19 |
+| $\nabla^2 f(\mathbf{x})$ | « hessienne de f en x », « nabla deux f » | Hessian | la matrice $n \times n$ des dérivées secondes $\frac{\partial^2 f}{\partial x_i\partial x_j}$ ; MML écrit aussi $\mathbf{H}$ | $\nabla^2(\frac12\mathbf{x}^\top\mathbf{A}\mathbf{x}) = \mathbf{A}$ | M12c, M19 |
 | $\rho(\mathbf{M})$ | « rhô de M », « rayon spectral de M » | spectral radius | $\max_i\lvert\lambda_i\rvert$ ; pour $\mathbf{M}$ symétrique, $\lVert\mathbf{M}^k\mathbf{e}\rVert \le \rho^k\lVert\mathbf{e}\rVert$ | valeurs propres $0{,}5$ et $-0{,}9$ : $\rho = 0{,}9$ | M19 |
 | $\omega$, $\omega_c$, $\omega^\star$ | « oméga », « oméga c », « oméga étoile » | step size | le pas de Richardson, le pas critique $2/\lambda_{\max}$, le meilleur pas $\frac{2}{\lambda_{\min} + \lambda_{\max}}$ | valeurs propres 1 et 6 : $\omega_c = \frac13$, $\omega^\star = \frac27$ | M19 |
 | $P_C(\mathbf{x})$ | « projection de x sur C » | projection onto C | le point de $C$ le plus proche de $\mathbf{x}$ | boule de rayon $r$ : $\mathbf{x}\min(1, r/\lVert\mathbf{x}\rVert)$ | M19 |
-| $\mathbf{1}$ | « le vecteur un », « vecteur de uns » | vector of ones | le vecteur dont toutes les coordonnées valent 1 ; $\mathbf{1}^\top\mathbf{x} = \sum_i x_i$ | $\bar x = \frac1m\mathbf{1}^\top\mathbf{x}$ | M16, M20 |
 | $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ | « C », « matrice de centrage » | centering matrix | la projection orthogonale sur les vecteurs de somme nulle : $\mathbf{C}\mathbf{x} = \mathbf{x} - \bar x\mathbf{1}$ | $\operatorname{tr}\mathbf{C} = m - 1$ | M20 |
 | $A_{ij}B_{jk}$ (Einstein) | « A i j B j k », « somme sur j » | Einstein summation | un indice répété est sommé ; `np.einsum("ij,jk->ik", A, B)` | $u_iv_i = \mathbf{u}^\top\mathbf{v}$, $A_{ii} = \operatorname{tr}\mathbf{A}$ | M20 |
 | $e^{T\mathbf{J}}$ | « exponentielle de T J » | matrix exponential | $\lim_{L}(\mathbf{I} + \frac TL\mathbf{J})^L$ ; la solution de $\mathbf{x}' = \mathbf{J}\mathbf{x}$ au temps $T$ | $\mathbf{J} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ : la rotation d'angle $T$ | M20 |
@@ -222,7 +222,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $F(x)$, $F_X(x)$ | « F de x », « fonction de répartition en x » | cdf at x | $P(X \le x)$, l'aire à gauche de $x$ sous la densité | $F(\text{médiane}) = \frac{1}{2}$ | M02a |
 | $q_p$ | « quantile d'ordre p » | p-quantile | le plus petit $x$ tel que $F(x) \ge p$ ; $q_{0{,}5}$ est la médiane | percentile 90 : $q_{0{,}9}$ | M02a |
 | $\mathbb{E}[X]$ | « espérance de X » | expected value of X | la moyenne théorique, pondérée par les probabilités | somme de deux dés à 4 faces : $\mathbb{E}[S] = 5$ | R8, M02b |
-| $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
+| $\mathbb{V}(X)$, $\operatorname{Var}(X)$ | « variance de X » | variance | dispersion autour de l'espérance ; ce dépôt écrit $\mathbb{V}$, workbookIA et beaucoup de livres $\operatorname{Var}$ | $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ | R8, M02b |
 | $\sigma(X)$ | « sigma de X », « écart-type de X » | standard deviation | la racine carrée de la variance, dans l'unité de $X$ | $\mathbb{V}(X) = 9$ donne $\sigma(X) = 3$ | R8 |
 | $\operatorname{Cov}(X, Y)$ | « covariance de X et Y » | covariance | $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ : tendance à varier ensemble ; nulle pour des variables indépendantes | | M02b, M02c |
 | $\hat{\theta}$ | « théta chapeau » | theta hat | une estimation de $\theta$ calculée sur des données (et $\hat{y}$, une prédiction) | $\hat{p} = \frac{360}{400}$, une accuracy | M02c |
@@ -234,7 +234,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\rho(X, Y)$, $r$ | « rhô de X et Y », « r » | correlation | la corrélation de deux variables, ou de deux séries (coefficient de Pearson) | entre $-1$ et 1 | M02c |
 | $\boldsymbol{\Sigma}$, $\Sigma_{ij}$ | « grand sigma (gras) », « sigma i j » | covariance matrix | la matrice de covariance, et sa case $(i, j)$ : $\operatorname{Cov}(X_i, X_j)$ | $\Sigma_{ii} = \mathbb{V}(X_i)$ | M02c |
 | $\theta$ | « thêta » | theta | les paramètres d'un modèle | | M04 |
-| $L(\theta)$, $\mathcal{L}(\theta)$ | « L de thêta », « vraisemblance » | likelihood | la probabilité des données observées, vue comme une fonction des paramètres | $L(\theta) = \theta^2(1 - \theta)^{10}$ | M04, M13a |
+| $L(\theta)$ | « L de thêta », « vraisemblance » | likelihood | la probabilité des données observées, vue comme une fonction des paramètres ; attention, MML note $L$ ou $\mathcal{L}$ **moins** la log-vraisemblance (M13a) | $L(\theta) = \theta^2(1 - \theta)^{10}$ | M04, M13a |
 | $\ell(\theta)$ | « petit l de thêta », « log-vraisemblance » | log-likelihood | $\ln L(\theta)$ : même maximum que $L$, et une somme au lieu d'un produit | $\ell(\theta) = 2\ln\theta + 10\ln(1 - \theta)$ | M04, M13a |
 | $\hat{\theta}_{\text{MAP}}$ | « thêta chapeau MAP » | MAP estimate | le maximum de l'a posteriori, $\arg\max_\theta f(\theta \mid \text{données})$ | $\frac{3}{20}$ pour $\mathrm{Beta}(4, 18)$ | M04 |
 | $G(\mathbf{p})$ | « Gini de p » | Gini impurity of p | l'indice de Gini $1 - \sum_k p_k^2$ d'une loi sur $K$ classes | $G(1, 0) = 0$ | M13a |
@@ -264,7 +264,7 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $N_k(T)$ | « N k de T » | number of pulls of arm k | le nombre de fois que l'option $k$ a été choisie en $T$ pas | $\sum_k N_k(T) = T$ | M11 |
 | $R_T$ | « R T », « regret après T pas » | regret | $\sum_k \Delta_k\,\mathbb{E}[N_k(T)]$ | linéaire en $T$ pour ε-greedy à ε fixé | M11 |
 | $\mathrm{KL}(a \Vert p)$ | « KL de a à p » | KL divergence between two Bernoulli distributions | $a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$, en nats ; d'abord la proportion de l'événement, puis le paramètre de la loi | $\mathrm{KL}(0{,}4 \Vert 0{,}25) \approx 0{,}0541$ | M14 |
-| $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ | « w transposé sigma w » | quadratic form | la variance de la moyenne pondérée $\sum_i w_iX_i$, pour la matrice de covariance $\boldsymbol{\Sigma}$ des $X_i$ | $\mathbf{w} = (\frac12, \frac12)$ : $\frac{\Sigma_{11} + \Sigma_{22} + 2\Sigma_{12}}{4}$ | M14 |
+| $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ | « w transposé sigma w » | quadratic form | la variance de la moyenne pondérée $\sum_i w_iX_i$, pour la matrice de covariance $\boldsymbol{\Sigma}$ des $X_i$ | $\mathbf{w} = (\frac12, \frac12)$ : $\frac{\Sigma_{11} + \Sigma_{22} + 2\Sigma_{12}}{4}$ | M12c, M14 |
 | $L_t[k]$, $\mathbf{w}_t$, $\eta$ | « L t de k », « w t », « êta » | cumulative loss, weights, learning rate | la loss cumulée de l'expert $k$ avant le tour $t$, les poids de Hedge à ce tour ($w_t[k] \propto e^{-\eta L_t[k]}$), et son learning rate | $L_1[k] = 0$ : poids uniformes | M14 |
 | $c_X$ | « c de X », « coefficient de variation de X » | coefficient of variation | l'écart-type relatif $\frac{\sigma_X}{\lvert\mathbb{E}[X]\rvert}$ | $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$ pour $X$, $Y$ indépendantes | M16 |
 | $\varepsilon_i$ (signe aléatoire) | « epsilon i » | random sign, Rademacher variable | $\pm 1$ avec la probabilité $\frac12$ chacun, ou un multiplicateur centré ; indépendants entre eux et des $x_i$ : $\mathbb{V}\big(\sum_i\varepsilon_ix_i\big) = \sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ | $\mathbb{V}(\varepsilon x) = \mathbb{E}[x^2]$ | M16 |
@@ -287,6 +287,6 @@ Une formule se lit comme une phrase. Ce tableau donne, pour chaque symbole, **co
 | $\mu$ | | mu | une moyenne, une espérance ; le multiplicateur d'une contrainte d'inégalité |
 | $\pi$ | $\Pi$ | pi | 3,14… ; une politique en RL ; une probabilité d'inclusion $\pi_i$ (M20) ; $\Pi$ : un produit |
 | $\rho$ | | rhô | une corrélation, le rayon spectral, la marge d'une SVM |
-| $\sigma$ | $\Sigma$ | sigma | un écart-type, la sigmoïde ; $\Sigma$ : une somme ou une matrice de covariance |
+| $\sigma$ | $\Sigma$ | sigma | un écart-type, la sigmoïde, une valeur singulière chez MML (la fiche M12d écrit $s_i$) ; $\Sigma$ : une somme ou une matrice de covariance |
 | $\phi$ ou $\varphi$ | $\Phi$ | phi | une transformation des features ; $\Phi$ : la fonction de répartition de la loi normale |
 | $\omega$ | $\Omega$ | oméga | un résultat d'une expérience, le pas de Richardson (M19) ; $\Omega$ : l'univers, une pulsation (M19) |

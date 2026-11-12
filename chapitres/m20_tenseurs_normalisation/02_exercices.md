@@ -185,7 +185,7 @@ Un institut veut le chiffre d'affaires total de 6 entreprises, qu'il ne connaît
 | c | l'estimation de Horvitz-Thompson du total, sur $S$ | un nombre (3 décimales) |
 | d | l'estimation naïve $N\,\bar y_S$ (6 fois la moyenne des valeurs tirées) | un nombre |
 | e | $\mathbb{E}[\hat Y]$ | un nombre |
-| f | $\operatorname{Var}(\hat Y)$ | un nombre (3 décimales) |
+| f | $\mathbb{V}(\hat Y)$ | un nombre (3 décimales) |
 | g | l'écart type de $\hat Y$ | un nombre (3 décimales) |
 | h | la probabilité de tirer exactement l'échantillon $S$ | un nombre (7 décimales) |
 | i | la probabilité que l'échantillon soit vide | un nombre (6 décimales) |
@@ -245,9 +245,9 @@ Soit $m \ge 2$, $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ et 
 Une population de $N$ unités de valeurs $y_1, \ldots, y_N$, de total $Y$ ; l'unité $i$ entre dans l'échantillon avec la probabilité $\pi_i$ ; $I_i$ est son indicatrice et $\hat Y = \sum_i I_i\,y_i/\pi_i$.
 
 1. On suppose seulement $\mathbb{P}(I_i = 1) = \pi_i > 0$ pour tout $i$, sans hypothèse sur la dépendance entre les tirages. Montre que $\mathbb{E}[\hat Y] = Y$.
-2. On suppose maintenant les $I_i$ indépendantes. Montre que $\operatorname{Var}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
-3. Montre que $\hat V = \sum_{i \in S} y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ est un estimateur sans biais de $\operatorname{Var}(\hat Y)$. Pourquoi ne peut-on pas simplement calculer la formule de la question 2 ?
-4. Les $y_i$ sont $> 0$, et l'on prend $\pi_i = c\,y_i \le 1$ pour toutes les unités. Que vaut chaque terme $y_i/\pi_i$ d'une unité tirée ? Écris $\operatorname{Var}(\hat Y)$ en fonction de $Y$, $c$ et $\sum_i y_i^2$. Pourquoi n'est-elle pas nulle avec un tirage de Poisson ?
+2. On suppose maintenant les $I_i$ indépendantes. Montre que $\mathbb{V}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
+3. Montre que $\hat V = \sum_{i \in S} y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ est un estimateur sans biais de $\mathbb{V}(\hat Y)$. Pourquoi ne peut-on pas simplement calculer la formule de la question 2 ?
+4. Les $y_i$ sont $> 0$, et l'on prend $\pi_i = c\,y_i \le 1$ pour toutes les unités. Que vaut chaque terme $y_i/\pi_i$ d'une unité tirée ? Écris $\mathbb{V}(\hat Y)$ en fonction de $Y$, $c$ et $\sum_i y_i^2$. Pourquoi n'est-elle pas nulle avec un tirage de Poisson ?
 5. Une unité $j$ a $\pi_j = 0$ (les autres $\pi_i > 0$) ; on garde $\hat Y = \sum_{i \in S} y_i/\pi_i$, l'unité $j$ n'étant jamais dans $S$. Que vaut $\mathbb{E}[\hat Y]$ ? À quelle condition sur $y_j$ l'estimateur reste-t-il sans biais ?
 
 <a id="reflexion"></a>

@@ -81,7 +81,7 @@ Un système a trois niveaux d'énergies $0$, $1$ et $3$.
 3. Vers quoi tend l'énergie moyenne quand $T \to 0$ ? Quand $T \to \infty$ ?
 4. À quelle température le niveau d'énergie 3 est-il 100 fois moins peuplé que le niveau d'énergie 0 ?
 5. On ajoute un quatrième état, d'énergie 1 lui aussi : vrai ou faux, il a toujours la même population que l'autre état d'énergie 1.
-6. Vrai ou faux : $\mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ est inversible.
+6. Vrai ou faux : $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$ est inversible.
 
 <a id="rappels"></a>
 
@@ -292,7 +292,7 @@ On dit que $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ est **différentiable** 
 
 $g : \mathbb{R} \to \mathbb{R}$ est dérivable, et $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$.
 
-1. Calcule $\frac{\partial f_i}{\partial x_j}$ pour $j \ne i$, puis pour $j = i$, et conclus : $\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \mathrm{diag}\big(g'(x_1), \ldots, g'(x_n)\big)$.
+1. Calcule $\frac{\partial f_i}{\partial x_j}$ pour $j \ne i$, puis pour $j = i$, et conclus : $\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \operatorname{diag}\big(g'(x_1), \ldots, g'(x_n)\big)$.
 2. Montre que $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ et que $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = (\mathbf{u} \odot g'(\mathbf{x}))^\top$.
 3. Combien de multiplications coûtent ces produits, contre un produit par une matrice pleine $n \times n$ ?
 4. Montre que la coordonnée $i$ de $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{1}) - \mathbf{f}(\mathbf{x} - h\mathbf{1})}{2h}$ tend vers $g'(x_i)$ quand $h \to 0$ : deux évaluations donnent toute la diagonale.
@@ -305,7 +305,7 @@ $g : \mathbb{R} \to \mathbb{R}$ est dérivable, et $\mathbf{f}(\mathbf{x}) = (g(
 $I$ suit une loi $\mathbf{p} = (p_1, \ldots, p_K)$ sur $\{1, \ldots, K\}$ (une ligne, $p_i \ge 0$, $\sum_ip_i = 1$), et $\mathbf{Y} = \mathbf{e}_I$ est son vecteur one-hot.
 
 1. Montre que $\mathbb{E}[Y_i] = p_i$, et que $\mathbb{E}[Y_iY_j] = p_i$ si $i = j$ et 0 sinon.
-2. Déduis-en $\mathrm{Cov}(\mathbf{Y}) = \mathrm{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, coefficient par coefficient.
+2. Déduis-en $\operatorname{Cov}(\mathbf{Y}) = \operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, coefficient par coefficient.
 3. Montre que cette matrice est symétrique et semi-définie positive, par un argument de variance.
 4. Montre que $\sum_jY_j$ est constant, et déduis-en que chaque ligne de la matrice a une somme nulle, sans calculer la matrice ; conclus qu'elle n'est pas inversible.
 5. Pour la loi uniforme sur $K = 3$ états, écris la matrice, vérifie qu'elle s'écrit $\frac13\mathbf{I} - \frac19\mathbf{1}^\top\mathbf{1}$, et trouve ses valeurs propres (cherche des vecteurs propres orthogonaux à $\mathbf{1}$).

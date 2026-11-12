@@ -641,7 +641,7 @@ M14_13 = Ex(
     "simuler la moyenne de modèles dont les erreurs ont une part commune par groupe, retrouver sa variance par "
     "$\\mathbf{a}^\\top\\boldsymbol{\\Sigma}\\mathbf{a}$, et mesurer le plancher que laissent les covariances.",
     "fiche §2 ; Ex M14.9 et M14.11", tracks="C, E", given=GIVEN_13,
-    body=r"""On moyenne $2m$ modèles de régression de deux groupes, comme en 🔗 M14.9, mais avec d'autres nombres. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : les parts communes $(Z_A, Z_B)$ suivent une loi normale centrée de matrice de covariance `COV_Z_13` $= \begin{pmatrix} 0{,}6 & 0{,}5 \\ 0{,}5 & 1{,}4 \end{pmatrix}$, et les parts propres $E_i$ sont normales, centrées, de variance $2{,}2$, indépendantes entre elles et de $(Z_A, Z_B)$. Écris :
+    body=r"""On moyenne $2m$ modèles de régression de deux groupes, comme en 🔗 M14.9, mais avec d'autres nombres. Pour un exemple donné, l'erreur d'un modèle du groupe A vaut $Z_A + E_i$, celle d'un modèle du groupe B, $Z_B + E_i$ : les parts communes $(Z_A, Z_B)$ suivent une loi normale centrée (un couple gaussien, que M25a étudiera ; ici, seule sa covariance compte, comme au §8 de M12c) de matrice de covariance `COV_Z_13` $= \begin{pmatrix} 0{,}6 & 0{,}5 \\ 0{,}5 & 1{,}4 \end{pmatrix}$, et les parts propres $E_i$ sont normales, centrées, de variance $2{,}2$, indépendantes entre elles et de $(Z_A, Z_B)$. Écris :
 - `simulate_mean_variance(m, n_draws, rng)` : `n_draws` tirages ; chacun tire **une** paire $(Z_A, Z_B)$ (`rng.multivariate_normal`) et les $2m$ parts propres (`rng.normal`), forme les erreurs des $m$ modèles du groupe A puis des $m$ modèles du groupe B, et en fait la moyenne ; la fonction rend la variance empirique (`np.var`) des `n_draws` moyennes, un `float` ;
 - `models_covariance(m)` : la matrice de covariance $2m \times 2m$ des erreurs des $2m$ modèles ($m$ du groupe A, puis $m$ du groupe B).
 
@@ -692,7 +692,8 @@ with checked("M14.13 figure"):
 
 def models_covariance(m):
     """The (2m, 2m) covariance matrix of the errors of the 2m models: m of group A, then m of group B."""
-    common = np.kron(COV_Z_13, np.ones((m, m)))      # Cov(Z_g, Z_h) between a model of g and a model of h
+    common = np.kron(COV_Z_13, np.ones((m, m)))      # Cov(Z_g, Z_h) between a model of g and a model of h:
+    #                                                  each entry of COV_Z_13 repeated in an m × m block
     return common + OWN_13 * np.eye(2 * m)          # the own parts: on the diagonal only
 
 
