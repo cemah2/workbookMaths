@@ -56,12 +56,12 @@ Vocabulaire anglais de ce chapitre : *convolution*, *kernel*, *flipped kernel*, 
 2. **Corrélation croisée** (celle des bibliothèques) : $(\mathbf{w} \star \mathbf{x})_i = \sum_u w_u\,x_{i+u}$, sans retournement ; c'est la convolution par le **noyau retourné** $\tilde{\mathbf{w}}$, en mode valide. On dit toujours laquelle on calcule.
 3. **Modes** : plein ($n + k - 1$ valeurs), valide ($n - k + 1$), même taille ($n$, à partir de l'indice $\lfloor\frac{k-1}{2}\rfloor$ de la pleine chez NumPy) ; pour un noyau de longueur paire, le « même taille » de NumPy et celui de PyTorch sont décalés d'une case.
 4. **Pochoirs** : $(-1, 1)/h$, $(-1, 0, 1)/(2h)$ et $(1, -2, 1)/h^2$ dérivent un signal échantillonné ; le laplacien discret à 5 points en est la version 2D.
-5. **Toeplitz** : $\mathbf{x} \mapsto \mathbf{x} * \mathbf{w}$ a pour matrice $T_{ij} = w_{i-j}$, constante sur chaque diagonale, avec $nk$ coefficients non nuls : une **matrice creuse**. Sa transposée (mode valide) est la matrice de la convolution pleine par $\tilde{\mathbf{w}}$.
+5. **Toeplitz** : $\mathbf{x} \mapsto \mathbf{x} * \mathbf{w}$ a pour matrice $T_{ij} = w_{i-j}$, constante sur chaque diagonale, avec au plus $nk$ coefficients non nuls : une **matrice creuse**. Sa transposée (mode valide) est la matrice de la convolution pleine par $\tilde{\mathbf{w}}$.
 6. **Équivariance** : décaler puis filtrer = filtrer puis décaler, aux bords près ; avec un pas $s$, seulement pour les décalages multiples de $s$. Sur des signaux périodiques, une application linéaire commute avec le décalage si et seulement si c'est une **convolution circulaire**, et $\operatorname{circ}(\mathbf{h})^\top = \operatorname{circ}(\check{\mathbf{h}})$ avec $\check{\mathbf{h}} = (h_0, h_{n-1}, \ldots, h_1)$.
 7. **Positions** : $\big\lfloor\frac{n + 2p - d(k-1) - 1}{s}\big\rfloor + 1$ quand la fenêtre tient ; « même taille » avec un pas : $\lceil n/s\rceil$. **Convolution transposée** : insérer $s - 1$ zéros puis convoluer en mode plein, $(m - 1)s - 2p + d(k - 1) + 1 + p_{\text{out}}$ valeurs.
 8. **Canaux** : $C_{\text{out}}\big(\frac{C_{\text{in}}}{g}k_hk_w + 1\big)$ paramètres, $H_{\text{out}}W_{\text{out}}\,C_{\text{out}}\frac{C_{\text{in}}}{g}k_hk_w$ multiplications-additions ; un noyau de **rang 1** se sépare en deux passes 1D ($k_h + k_w$ au lieu de $k_hk_w$ par valeur).
 9. **Composition** : deux sommes glissantes d'affilée font une seule somme glissante, de noyau $\mathbf{w}_1 * \mathbf{w}_2$ ; **champ récepteur** $r = 1 + \sum_\ell d_\ell(k_\ell - 1)\,s_1\cdots s_{\ell-1}$, pas total $S = s_1\cdots s_L$.
-10. **Pire cas** : $\max_{\lVert\boldsymbol{\delta}\rVert_\infty \le \varepsilon}\mathbf{g} \cdot \boldsymbol{\delta} = \varepsilon\lVert\mathbf{g}\rVert_1$, atteint en $\varepsilon\operatorname{signe}(\mathbf{g})$ ; sur la boule L2, $\varepsilon\lVert\mathbf{g}\rVert_2$ ; et $\lVert\varepsilon\operatorname{signe}(\mathbf{g})\rVert_2 = \varepsilon\sqrt{n}$.
+10. **Pire cas** : $\max_{\lVert\boldsymbol{\delta}\rVert_\infty \le \varepsilon}\mathbf{g} \cdot \boldsymbol{\delta} = \varepsilon\lVert\mathbf{g}\rVert_1$, atteint en $\varepsilon\operatorname{signe}(\mathbf{g})$ ; sur la boule L2, $\varepsilon\lVert\mathbf{g}\rVert_2$ ; et $\lVert\varepsilon\operatorname{signe}(\mathbf{g})\rVert_2 = \varepsilon\sqrt{n}$ (si aucun $g_i$ n'est nul).
 
 ## §1 · La convolution de deux suites : polynômes, dés et moyennes mobiles
 
@@ -97,7 +97,7 @@ Une moyenne **pondérée** dit quel poids donner à la valeur d'il y a $j$ pas :
 > - **Commutative** : $\mathbf{a} * \mathbf{b} = \mathbf{b} * \mathbf{a}$.
 > - **Associative** : $(\mathbf{a} * \mathbf{b}) * \mathbf{c} = \mathbf{a} * (\mathbf{b} * \mathbf{c})$.
 > - **Linéaire** par rapport à chacune des deux suites : $(\lambda\mathbf{a} + \mu\mathbf{a}') * \mathbf{b} = \lambda\,(\mathbf{a} * \mathbf{b}) + \mu\,(\mathbf{a}' * \mathbf{b})$.
-> - **Élément neutre** : la suite $\boldsymbol{\delta} = (1)$, $\mathbf{a} * \boldsymbol{\delta} = \mathbf{a}$ ; et la suite $(0, \ldots, 0, 1)$ à $t$ zéros **retarde** de $t$ : $(\mathbf{a} * (0, \ldots, 0, 1))_m = a_{m-t}$.
+> - **Élément neutre** : la suite $(1)$, $\mathbf{a} * (1) = \mathbf{a}$ ; et la suite $(0, \ldots, 0, 1)$ à $t$ zéros **retarde** de $t$ : $(\mathbf{a} * (0, \ldots, 0, 1))_m = a_{m-t}$.
 > - **Sommes** : $\sum_m (\mathbf{a} * \mathbf{b})_m = \big(\sum_i a_i\big)\big(\sum_j b_j\big)$.
 
 Le point de vue des polynômes les rend naturelles : le produit de polynômes est commutatif, associatif et distributif, et évaluer en $X = 1$ donne la propriété des sommes ($3 - 5 + 10 + 4 = 12 = 3 \times 4$). Pour les dés, la somme d'une loi vaut 1, et $1 \times 1 = 1$ : la convolution de deux lois est une loi.
@@ -112,7 +112,7 @@ Le point de vue des polynômes les rend naturelles : le produit de polynômes es
 
 Les bibliothèques d'apprentissage (et workbookIA) calculent autre chose : elles posent le noyau sur une **fenêtre** du signal, multiplient case par case, additionnent, puis font glisser la fenêtre d'un cran, **sans retourner** le noyau.
 
-> **Définition.** La **corrélation croisée** (*cross-correlation*) d'un signal $\mathbf{x}$ de longueur $n$ par un noyau $\mathbf{w}$ de longueur $k \le n$, en mode valide, est
+> **Définition.** La **corrélation croisée** (*cross-correlation*) d'un signal $\mathbf{x}$ de longueur $n$ par un noyau $\mathbf{w}$ de longueur $k \le n$, en mode valide (les seules fenêtres entières ; les autres modes viennent plus bas), est
 > $$(\mathbf{w} \star \mathbf{x})_i = \sum_{u=0}^{k-1} w_u\,x_{i+u}, \qquad i = 0, 1, \ldots, n - k.$$
 > La fenêtre numéro $i$ est repérée par sa **première case** : elle couvre $x_i, \ldots, x_{i+k-1}$.
 
@@ -139,20 +139,20 @@ Deux cas particuliers : si le noyau est **symétrique** ($\tilde{\mathbf{w}} = \
 - la **convolution** des mathématiciens, $\mathbf{x} * \mathbf{w}$, retourne le noyau : c'est celle des polynômes, des lois de probabilité, de `np.convolve` et de la fonction `convolve` de `mymath` (M21.19), et c'est celle que M22 retrouvera dans les récurrences ;
 - la **corrélation croisée**, $\mathbf{w} \star \mathbf{x}$, ne le retourne pas : c'est celle de `np.correlate` et des couches de convolution des bibliothèques (PyTorch, Keras), que workbookIA 21 utilise. Ces bibliothèques l'appellent pourtant « convolution » : comme leurs noyaux sont appris, les retourner ne changerait rien à ce qu'elles peuvent calculer.
 
-Indices à partir de 0 ; $\mathbf{x}$ un signal de longueur $n$, $\mathbf{w}$ (ou $\mathbf{h}$) un noyau de longueur $k$, $\tilde{\mathbf{w}}$ le noyau retourné. Certains livres **centrent** la fenêtre (noyau numéroté de $-r$ à $r$ pour $k = 2r + 1$) : c'est le mode « même taille » ci-dessous.
+Indices à partir de 0 ; $\mathbf{x}$ un signal de longueur $n$, $\mathbf{w}$ (ou $\mathbf{h}$) un noyau de longueur $k$, $\tilde{\mathbf{w}}$ le noyau retourné. Certains livres **centrent** la fenêtre (noyau numéroté de $-r$ à $r$ pour $k = 2r + 1$) : la sortie $i$ est alors associée à la case $i$, comme dans le mode « même taille » ci-dessous (pour $k$ impair).
 
 ### Trois modes
 
 On peut garder plus ou moins de valeurs selon ce qu'on fait des bords :
 - **plein** (*full*) : toutes les positions où le noyau touche le signal, en complétant par des zéros ; $n + k - 1$ valeurs ;
 - **valide** (*valid*) : seulement les fenêtres entièrement dans le signal ; $n - k + 1$ valeurs (en général $\max(n, k) - \min(n, k) + 1$, la plus courte des deux suites glissant dans la plus longue) ;
-- **même taille** (*same*) : autant de valeurs que le signal, $\max(n, k)$. NumPy les prend dans la convolution pleine **à partir de l'indice** $\big\lfloor\frac{\min(n, k) - 1}{2}\big\rfloor$.
+- **même taille** (*same*) : autant de valeurs que la plus longue des deux suites, $\max(n, k)$ (le signal, quand $n \ge k$). NumPy les prend dans la convolution pleine **à partir de l'indice** $\big\lfloor\frac{\min(n, k) - 1}{2}\big\rfloor$.
 
 Sur l'exemple, $\mathbf{x} * \mathbf{w}$ vaut, en mode plein, $(6, 17, -2, -2, 5, 6, 4, -8)$ ; en mode valide, $(-2, -2, 5, 6)$ (les indices 2 à 5 de la pleine) ; en mode même taille, $(17, -2, -2, 5, 6, 4)$ (les indices 1 à 6). Vu comme une corrélation par $\tilde{\mathbf{w}}$, le mode plein ajoute $k - 1$ zéros de chaque côté du signal, le mode valide aucun ; pour $k$ impair, le mode même taille en ajoute $\frac{k-1}{2}$ de chaque côté, et le coefficient du **milieu** du noyau tombe sur $x_i$ : la fenêtre est centrée.
 
 **Un noyau de longueur paire.** Le mode même taille demande alors $k - 1$ zéros en tout, un nombre impair : un côté en reçoit un de plus. Vu comme une corrélation par $\tilde{\mathbf{w}}$, `np.convolve` (et donc `convolve`) met le zéro en trop **à gauche** ; PyTorch, avec `padding="same"`, le met **à droite**. Avec $\mathbf{x} = (2, 6, 1, 5)$ et la corrélation de poids $(1, 3)$ : PyTorch calcule $y_i = x_i + 3x_{i+1}$, avec un zéro à droite, soit $(20, 9, 16, 5)$ ; `np.convolve(x, [3, 1], "same")` donne $(6, 20, 9, 16)$, les mêmes nombres **décalés d'une case**.
 
-⚠️ **Erreur classique.** Passer à `np.convolve` les poids d'une corrélation, sans les retourner : pour un noyau antisymétrique (une dérivée), le résultat change de signe ; pour un noyau quelconque, il est faux. Ou comparer un « même taille » de NumPy et un « même taille » de PyTorch avec un noyau de longueur paire : ils diffèrent d'une case.
+⚠️ **Erreur classique.** Passer à `np.convolve` les poids d'une corrélation, sans les retourner : pour un noyau antisymétrique (une dérivée), le résultat change de signe ; pour un noyau quelconque, il est faux.
 
 ### Les pochoirs de différences finies
 
@@ -180,18 +180,18 @@ $$T_{ij} = w_{i-j} \quad (\text{et } 0 \text{ quand } i - j \notin \{0, \ldots, 
 $$\mathbf{T} = \begin{pmatrix} 3 & 0 & 0 & 0 \\ -1 & 3 & 0 & 0 \\ 2 & -1 & 3 & 0 \\ 0 & 2 & -1 & 3 \\ 0 & 0 & 2 & -1 \\ 0 & 0 & 0 & 2 \end{pmatrix}, \qquad \mathbf{T}\begin{pmatrix} 2 \\ -1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 6 \\ -5 \\ 5 \\ 1 \\ -1 \\ 2 \end{pmatrix} = (2, -1, 0, 1) * \mathbf{w}.$$
 Chaque **diagonale** est constante : le coefficient $(i, j)$ ne dépend que de $i - j$. Une telle matrice s'appelle une **matrice de Toeplitz** (*Toeplitz matrix*). Le mode valide garde les lignes $k - 1$ à $n - 1$ (ici les lignes 2 et 3), soit $\begin{pmatrix} 2 & -1 & 3 & 0 \\ 0 & 2 & -1 & 3 \end{pmatrix}$, de forme $(n - k + 1, n)$ ; le mode même taille garde $n$ lignes à partir de la ligne $\lfloor\frac{k-1}{2}\rfloor$ (ici les lignes 1 à 4). C'est ce que calcule `toeplitz_matrix` (M21.20).
 
-![À gauche, la matrice de Toeplitz de x ↦ x * w pour w = (3, −1, 2) et n = 6, de forme (8, 6), chaque diagonale constante, les lignes 2 à 5 du mode valide encadrées ; à droite, la matrice circulante 6 × 6 du même noyau, où les coefficients qui sortaient en bas reviennent en haut à droite](figures/toeplitz_circulante.png)
+![À gauche, la matrice de Toeplitz de x ↦ x * w pour w = (3, −1, 2) et n = 6, de forme (8, 6), chaque diagonale constante, les lignes 2 à 5 du mode valide encadrées ; à droite, la matrice circulante 6 × 6 du même noyau, où les coefficients qui sortaient en bas reviennent en haut à droite (§4)](figures/toeplitz_circulante.png)
 
 ### Une matrice creuse
 
-Sur ses $(n + k - 1)\,n$ coefficients, $\mathbf{T}$ n'en a que $nk$ non nuls ($k$ par colonne) : 12 sur 24 dans l'exemple, et, en mode valide, $(n - k + 1)k = 6$ sur 8. Pour un vrai signal, la proportion s'effondre : pour un son de $n = 10\,000$ échantillons et un noyau de $k = 5$ coefficients, $\mathbf{T}$ a $10\,004 \times 10\,000 \approx 10^8$ coefficients, dont $50\,000$ non nuls, soit $0{,}05$ %. Une matrice dont presque tous les coefficients sont nuls est dite **creuse** (*sparse matrix*) ; on ne stocke que ses coefficients non nuls, avec leur position, et un produit $\mathbf{T}\mathbf{x}$ coûte alors une multiplication-addition **par coefficient non nul** : $5 \times 10^4$ au lieu des $10^8$ d'un produit dense (M09a). C'est le coût d'une convolution pleine : $nk$ multiplications. Comme ses coefficients non nuls sont tous près de la diagonale, on dit aussi une **matrice bande** (*banded matrix*).
+Sur ses $(n + k - 1)\,n$ coefficients, $\mathbf{T}$ en a au plus $nk$ non nuls ($k$ par colonne, exactement quand aucun coefficient de $\mathbf{w}$ n'est nul ; le pochoir $(-1, 0, 1)$ n'en met que 2 par colonne) : 12 sur 24 dans l'exemple, et, en mode valide, $(n - k + 1)k = 6$ sur 8. Pour un vrai signal, la proportion s'effondre : pour un son de $n = 10\,000$ échantillons et un noyau de $k = 5$ coefficients, $\mathbf{T}$ a $10\,004 \times 10\,000 \approx 10^8$ coefficients, dont $50\,000$ non nuls, soit $0{,}05$ %. Une matrice dont presque tous les coefficients sont nuls est dite **creuse** (*sparse matrix*) ; on ne stocke que ses coefficients non nuls, avec leur position, et un produit $\mathbf{T}\mathbf{x}$ coûte alors une multiplication-addition **par coefficient non nul** : $5 \times 10^4$ au lieu des $10^8$ d'un produit dense (M09a). C'est le coût d'une convolution pleine : $nk$ multiplications. Comme ses coefficients non nuls sont tous près de la diagonale, on dit aussi une **matrice bande** (*banded matrix*).
 
 ### Rang et noyau
 
 Le mot **noyau** a ici deux sens : le noyau $\mathbf{w}$ d'une convolution, et le noyau $\ker\mathbf{T}$ d'une application linéaire (M12a), l'ensemble des signaux qu'elle envoie sur $\mathbf{0}$. Le contexte tranche ; la fiche écrit $\ker$ pour le second.
 
 - **Mode plein.** Sur l'exemple, les 4 colonnes de $\mathbf{T}$ sont indépendantes : $\operatorname{rg}\mathbf{T} = 4 = n$, et $\ker\mathbf{T} = \{\mathbf{0}\}$. On admet que c'est vrai pour tout noyau non nul : une convolution pleine ne perd aucune information.
-- **Mode valide.** La matrice a $n - k + 1 < n$ lignes, donc un rang au plus $n - k + 1$, et, par le théorème du rang, $\dim\ker \ge k - 1$ : il y a des signaux non nuls que le filtre **ne voit pas**. La différence $(-1, 1)$ efface les signaux constants ($\dim\ker = 1$) ; la dérivée seconde $(1, -2, 1)$ efface les signaux affines $a + bi$, comme $(4, 1, -2, -5, -8)$ ($\dim\ker = 2$). La moyenne mobile sur 3 valeurs, en mode valide sur $n = 6$ valeurs, a une matrice $4 \times 6$ de rang 4 : son noyau, de dimension 2, est engendré par $(1, -1, 0, 1, -1, 0)$ et $(0, 1, -1, 0, 1, -1)$. Toute oscillation de période 3 et de somme nulle sur une période est effacée. Pour $\mathbf{w} = (3, -1, 2)$ et $n = 4$, le rang vaut 2 et le noyau est de dimension 2.
+- **Mode valide.** La matrice a $n - k + 1 < n$ lignes, donc un rang au plus $n - k + 1$, et, par le théorème du rang, $\dim\ker \ge k - 1$ : pour $k \ge 2$, il y a des signaux non nuls que le filtre **ne voit pas**. La différence $(-1, 1)$ efface les signaux constants ($\dim\ker = 1$) ; la dérivée seconde $(1, -2, 1)$ efface les signaux affines $a + bi$, comme $(4, 1, -2, -5, -8)$ ($\dim\ker = 2$). La moyenne mobile sur 3 valeurs, en mode valide sur $n = 6$ valeurs, a une matrice $4 \times 6$ de rang 4 : son noyau, de dimension 2, est engendré par $(1, -1, 0, 1, -1, 0)$ et $(0, 1, -1, 0, 1, -1)$. Toute oscillation de période 3 et de somme nulle sur une période est effacée. Pour $\mathbf{w} = (3, -1, 2)$ et $n = 4$, le rang vaut 2 et le noyau est de dimension 2.
 
 ### La matrice des fenêtres
 
@@ -208,7 +208,7 @@ Avec le signal du §2 : $\begin{pmatrix} 2 & 5 & -1 \\ 5 & -1 & 3 \\ -1 & 3 & 0 
 
 **Exemple.** Pour $\mathbf{w} = (3, -1, 2)$ et $n = 4$, la transposée de la matrice valide est $\begin{pmatrix} 2 & 0 \\ -1 & 2 \\ 3 & -1 \\ 0 & 3 \end{pmatrix}$ : ses colonnes sont $(2, -1, 3)$ descendu de 0 puis de 1 ligne, c'est la matrice de $\mathbf{y} \mapsto \mathbf{y} * (2, -1, 3)$ en mode plein, pour $\mathbf{y} \in \mathbb{R}^2$.
 
-Comment la lire : $\mathbf{T}$ calcule chaque sortie à partir de $k$ entrées ; $\mathbf{T}^\top$ renvoie chaque valeur de sortie sur les $k$ entrées qui l'ont produite, avec les mêmes coefficients. Le §5 en tire la convolution transposée.
+Comment la lire : les lignes de $\mathbf{T}^\top$ sont les colonnes de $\mathbf{T}$, le noyau descendu ligne après ligne. Le §5 en tire la convolution transposée.
 
 💻 **Aujourd'hui en pratique** — personne ne construit la matrice de Toeplitz d'une convolution : elle demande $n^2$ cases pour $nk$ nombres utiles. Les bibliothèques font des boucles optimisées, passent par la matrice des fenêtres, ou, pour les longs noyaux, par la transformée de Fourier (§4). La matrice sert à **raisonner** : linéarité, rang, transposée. Quand une matrice creuse doit être stockée (les grands systèmes de M19), `scipy.sparse` ne garde que ses coefficients non nuls.
 
@@ -228,7 +228,7 @@ En effet, $((\tau_t\mathbf{x}) * \mathbf{w})_m = \sum_i x_{i-t}\,w_{m-i} = \sum_
 
 **Les bords.** Sur un signal fini, un décalage fait sortir des valeurs par un bout et entrer des zéros par l'autre : l'équivariance ne vaut que tant que le motif reste loin des bords. Décalé de 4 cases, l'événement devient $(0, 0, 0, 0, 0, 0, 3, 1)$ et donne $(0, 0, 0, 0, 3, -5)$ : les deux dernières valeurs de la réponse, $1$ et $1$, sont perdues, faute de positions. Avec du padding (§5), les valeurs près du bord sont calculées avec des zéros qui ne sont pas des mesures.
 
-**Le pas.** Avec un pas $s$ (§5), on ne calcule qu'une position sur $s$ : $y_i = \sum_u w_u\,x_{si+u}$. Un décalage de $t$ cases, avec $t$ multiple de $s$, décale la sortie de $\frac ts$ ; sinon, les positions calculées tombent ailleurs sur le signal, et la nouvelle sortie n'est pas un décalage de l'ancienne. Avec le même pochoir et un pas de 2 : l'événement donne $(3, 1, 0)$ ; décalé de 2 cases, $(0, 3, 1)$, décalé d'une case de sortie ; décalé d'une seule case, $(0, -5, 1)$, qui n'est ni $(3, 1, 0)$ ni un décalage de $(3, 1, 0)$.
+**Le pas.** Avec un pas $s$ (§5), on ne calcule qu'une position sur $s$ : $y_i = \sum_u w_u\,x_{si+u}$. Un décalage de $t$ cases, avec $t$ multiple de $s$, décale la sortie de $\frac ts$ ; sinon, les positions calculées tombent ailleurs sur le signal, et la nouvelle sortie n'est pas, en général, un décalage de l'ancienne. Avec le même pochoir et un pas de 2 : l'événement donne $(3, 1, 0)$ ; décalé de 2 cases, $(0, 3, 1)$, décalé d'une case de sortie ; décalé d'une seule case, $(0, -5, 1)$, qui n'est ni $(3, 1, 0)$ ni un décalage de $(3, 1, 0)$.
 
 ![Un événement x et le même décalé de 2 cases ; filtrés par (1, −2, 1) avec un pas de 1, les deux réponses sont les mêmes, décalées de 2 ; avec un pas de 2, décaler de 2 décale la sortie de 1, mais décaler de 1 donne une sortie différente](figures/equivariance.png)
 
@@ -243,7 +243,7 @@ $$\mathbf{P} = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \
 
 **Exemple.** $\mathbf{h} = (4, 1, 0, 2)$ :
 $$\operatorname{circ}(\mathbf{h}) = \begin{pmatrix} 4 & 2 & 0 & 1 \\ 1 & 4 & 2 & 0 \\ 0 & 1 & 4 & 2 \\ 2 & 0 & 1 & 4 \end{pmatrix}, \qquad \mathbf{a} = (1, 0, 3, 2) : \quad \mathbf{a} \circledast \mathbf{h} = \operatorname{circ}(\mathbf{h})\,\mathbf{a} = (6, 7, 16, 13).$$
-Elle est commutative, comme la convolution ordinaire, et `circular_convolve` la calcule (M21.21). Le lien avec la convolution ordinaire : $\mathbf{a} * \mathbf{h} = (4, 1, 12, 13, 2, 6, 4)$, et en **repliant** ses termes modulo 4 (on ajoute le terme $m + 4$ au terme $m$), $(4 + 2, 1 + 6, 12 + 4, 13) = (6, 7, 16, 13)$. Donc, si l'on complète les deux suites par des zéros jusqu'à une longueur au moins $n + k - 1$, rien ne se replie, et la convolution circulaire donne la convolution pleine.
+Elle est commutative, comme la convolution ordinaire, et `circular_convolve` la calcule (M21.21). Le lien avec la convolution ordinaire : $\mathbf{a} * \mathbf{h} = (4, 1, 12, 13, 2, 6, 4)$, et en **repliant** ses termes modulo 4 (on ajoute le terme $m + 4$ au terme $m$), $(4 + 2, 1 + 6, 12 + 4, 13) = (6, 7, 16, 13)$. Donc, si l'on complète deux suites de longueurs $n$ et $k$ par des zéros jusqu'à une même longueur $N \ge n + k - 1$, rien ne se replie, et leur convolution circulaire de période $N$ donne leur convolution pleine.
 
 Le décalage $\mathbf{P}$ est lui-même la convolution circulaire par $(0, 1, 0, \ldots, 0)$, et deux convolutions circulaires commutent : $\operatorname{circ}(\mathbf{h})\,\mathbf{P} = \mathbf{P}\operatorname{circ}(\mathbf{h})$, l'équivariance du cas périodique, cette fois sans bords. La réciproque est vraie :
 
@@ -254,7 +254,7 @@ L'idée de la première partie : les vecteurs de la base canonique sont tous des
 
 ⚠️ **Erreur classique.** Retourner un noyau circulaire en renversant simplement la suite : le renversement de $(4, 1, 0, 2)$ est $(2, 0, 1, 4)$, alors que $\check{\mathbf{h}} = (4, 2, 0, 1)$ garde $h_0$ à sa place, puisque l'indice $-0$ est $0$. Le renversement simple, $(h_{n-1}, \ldots, h_0)$, ne coïncide avec $\check{\mathbf{h}}$ qu'à un décalage circulaire près.
 
-💻 **Aujourd'hui en pratique** — toutes les matrices circulantes de taille $n$ ont les **mêmes vecteurs propres** (des suites de nombres complexes) ; dans cette base commune, une convolution circulaire devient un simple produit coordonnée par coordonnée. Ce changement de base est la **transformée de Fourier discrète**, et la **transformée de Fourier rapide** (FFT, *fast Fourier transform*) le fait en environ $n\log_2 n$ opérations au lieu de $n^2$. `scipy.signal.fftconvolve` s'en sert : compléter par des zéros (pour que rien ne se replie), passer dans la base de Fourier, multiplier, revenir. C'est rentable pour de longs noyaux ; pour $k = 3$ ou $5$, le calcul direct reste plus rapide. Ce chapitre n'enseigne pas la transformée de Fourier : retiens qu'elle existe, et pourquoi elle accélère les convolutions.
+💻 **Aujourd'hui en pratique** — toutes les matrices circulantes de taille $n$ ont les **mêmes vecteurs propres** (des suites de nombres complexes) : dans cette base commune, la **transformée de Fourier discrète**, une convolution circulaire devient un produit coordonnée par coordonnée, et la **transformée de Fourier rapide** (FFT, *fast Fourier transform*) fait ce changement de base en environ $n\log_2 n$ opérations au lieu de $n^2$. `scipy.signal.fftconvolve` s'en sert, après un padding de zéros pour que rien ne se replie : c'est rentable pour de longs noyaux, pas pour $k = 3$ ou $5$. Ce chapitre n'enseigne pas la transformée de Fourier.
 
 ### Le pooling
 
@@ -264,9 +264,9 @@ Le **pooling** de largeur $k$ et de pas $k$ remplace chaque bloc de $k$ valeurs 
 
 **Décaler.** Décalé de 2 cases (un bloc), le signal devient $(0, 0, 2, 7, 1, 1, 4, 0)$, et ses maximums $(0, 7, 1, 4)$ : décalés d'un bloc, l'équivariance avec un pas. Décalé d'une seule case, $(0, 2, 7, 1, 1, 4, 0, 5)$, il donne les maximums $(2, 7, 4, 5)$ et les moyennes $(1 ;\ 4 ;\ 2{,}5 ;\ 2{,}5)$. Les maximums des deux derniers blocs n'ont pas bougé : quand le décalage laisse le maximum dans son bloc, le max ne voit rien. C'est une **invariance locale**, approchée, qui vaut pour certains petits décalages. Les moyennes, elles, ont toutes changé.
 
-**Le pooling global** prend le maximum (ou la moyenne) de tout le signal : il est **invariant** par tout décalage qui garde le signal entier (7 avant comme après le décalage). Des étapes équivariantes suivies d'une étape qui oublie la position donnent ainsi une invariance.
+**Le pooling global** prend le maximum (ou la moyenne) de tout le signal : il est **invariant** par tout décalage qui garde le signal entier (un signal périodique, ou entouré d'assez de zéros). Sur l'exemple, le maximum reste 7 après les deux décalages, parce que le 7 n'est pas sorti du signal ; la moyenne, elle, passe de 23/8 à 20/8, car une valeur est sortie.
 
-🔗 **Dans workbookIA** — le chapitre 21 applique les mêmes poids à toutes les positions d'une image, et alterne ses convolutions avec des étapes de pooling ; ce paragraphe dit ce que chacune fait aux décalages.
+🔗 **Dans workbookIA** — le chapitre 21 applique les mêmes poids à toutes les positions d'une image, et alterne ses convolutions avec des étapes de pooling.
 
 ## §5 · Pas, dilatation, padding : compter les positions, et la convolution transposée
 
@@ -292,36 +292,37 @@ L'idée : une position existe quand la **dernière case** de sa fenêtre reste d
 **Exemples.**
 - $n = 50$, $k = 4$, $s = 3$, $p = 1$ : $\big\lfloor\frac{50 + 2 - 3 - 1}{3}\big\rfloor + 1 = \lfloor 16\rfloor + 1 = 17$. Avec en plus $d = 2$ (étendue 7) : $\big\lfloor\frac{45}{3}\big\rfloor + 1 = 16$.
 - Une seconde de son à 8 000 Hz, $k = 6$, $s = 4$, $p = 1$ : $\big\lfloor\frac{8\,000 + 2 - 5 - 1}{4}\big\rfloor + 1 = \lfloor 1\,999\rfloor + 1 = 2\,000$.
-- **La fenêtre incomplète est perdue.** $n = 14$, $k = 4$, $s = 3$, $p = 0$ : $\big\lfloor\frac{10}{3}\big\rfloor + 1 = 4$ fenêtres, qui commencent en 0, 3, 6 et 9 ; la dernière couvre les cases 9 à 12, et la case 13 n'est **jamais lue**.
-- **Plusieurs tailles d'entrée, une taille de sortie.** Avec $k = 4$, $s = 3$, $p = 0$ : $n = 13$, $14$ et $15$ donnent tous trois 4 positions, et $n = 16$ en donne 5. La partie entière confond $s$ tailles d'entrée consécutives.
+- **La fenêtre incomplète est perdue.** $n = 20$, $k = 4$, $s = 3$, $p = 0$ : $\big\lfloor\frac{16}{3}\big\rfloor + 1 = 6$ fenêtres, qui commencent en 0, 3, …, 15 ; la dernière couvre les cases 15 à 18, et la case 19 n'est **jamais lue**.
+- **Plusieurs tailles d'entrée, une taille de sortie.** Avec $k = 4$, $s = 3$, $p = 0$ : $n = 19$, $20$ et $21$ donnent tous trois 6 positions, et $n = 22$ en donne 7. La partie entière confond $s$ tailles d'entrée consécutives.
+- **À l'envers.** La somme glissante a $q$ positions si et seulement si $(q - 1)s \le n + 2p - d(k - 1) - 1 \le qs - 1$ : un encadrement qui donne toutes les tailles $n$ possibles. Ici, $q = 6$ donne $15 \le n - 4 \le 17$, soit $n = 19$, 20 ou 21.
 
-⚠️ **Erreur classique.** Arrondir **vers le haut** : la fenêtre incomplète n'existe pas, c'est $\lfloor\cdot\rfloor$. Oublier le « $+ 1$ » (la position 0 compte), le 2 de $2p$ (le padding est de chaque côté), ou remplacer $k$ par l'étendue $d(k - 1) + 1$ dans un sens et pas dans l'autre.
+⚠️ **Erreur classique.** Arrondir **vers le haut** : la fenêtre incomplète n'existe pas, c'est $\lfloor\cdot\rfloor$. Oublier le « $+ 1$ » (la position 0 compte), le 2 de $2p$ (le padding est de chaque côté), ou, avec une dilatation, garder $k - 1$ au lieu de $d(k - 1)$.
 
 ### « Même taille »
 
-**Avec un pas de 1**, on veut $n_{\text{out}} = n$ : il faut $d(k - 1)$ zéros en tout. Pour $k$ impair (et $d = 1$), $p = \frac{k-1}{2}$ de chaque côté ($k = 9$ : $p = 4$). Pour $k$ pair, $k - 1$ est impair et le partage est inégal : PyTorch met le zéro en trop à la fin, `np.convolve` (vu comme une corrélation par $\tilde{\mathbf{w}}$) au début, d'où le décalage d'une case du §2.
+**Avec un pas de 1**, on veut $n_{\text{out}} = n$ : il faut $d(k - 1)$ zéros en tout. Pour $k$ impair (et $d = 1$), $p = \frac{k-1}{2}$ de chaque côté ($k = 9$ : $p = 4$). Pour $k$ pair, le partage est inégal (le décalage d'une case du §2).
 
 **Avec un pas $s$**, la règle « même taille » de TensorFlow et de Keras (`padding="same"`) donne
-$$n_{\text{out}} = \left\lceil\frac{n}{s}\right\rceil, \qquad P = \max\big((n_{\text{out}} - 1)\,s + d(k - 1) + 1 - n,\ 0\big) \text{ zéros en tout},$$
-$\lfloor\frac P2\rfloor$ au début et le reste à la fin : une sortie par bloc de $s$ entrées, le dernier bloc pouvant être incomplet, et juste assez de zéros pour que la dernière fenêtre tienne. **Exemple** : $n = 50$, $k = 5$, $s = 3$ : $n_{\text{out}} = \lceil 16{,}67\rceil = 17$ et $P = 16 \times 3 + 5 - 50 = 3$, soit **1 zéro au début et 2 à la fin**. Vérification par la formule des positions, avec $p_{\text{début}} + p_{\text{fin}} = 3$ à la place de $2p$ : $\big\lfloor\frac{50 + 3 - 4 - 1}{3}\big\rfloor + 1 = 17$. Avec $n = 49$, $P = 4$ : 2 et 2.
+$$n_{\text{out}} = \left\lceil\frac{n}{s}\right\rceil, \qquad P_{\text{tot}} = \max\big((n_{\text{out}} - 1)\,s + d(k - 1) + 1 - n,\ 0\big) \text{ zéros en tout},$$
+$\lfloor\frac{P_{\text{tot}}}{2}\rfloor$ au début et le reste à la fin : une sortie par bloc de $s$ entrées, le dernier bloc pouvant être incomplet, et juste assez de zéros pour que la dernière fenêtre tienne. **Exemple** : $n = 50$, $k = 5$, $s = 3$ : $n_{\text{out}} = \lceil 16{,}67\rceil = 17$ et $P_{\text{tot}} = 16 \times 3 + 5 - 50 = 3$, soit **1 zéro au début et 2 à la fin**. Avec $n = 49$, $P_{\text{tot}} = 4$ : 2 et 2.
 
 ### Sous-échantillonner, insérer des zéros
 
 Le **sous-échantillonnage** (*downsampling*) de pas $s$ garde une valeur sur $s$ : $(\mathbf{D}_s\mathbf{x})_i = x_{si}$. Pour 5 valeurs et $s = 2$ :
 $$\mathbf{D}_2 = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 \end{pmatrix}, \qquad \mathbf{D}_2\,(4, 9, 1, 6, 2) = (4, 1, 2), \qquad \mathbf{D}_2^\top(4, 1, 2) = (4, 0, 1, 0, 2).$$
-Sa transposée remet chaque valeur à sa place et **insère $s - 1$ zéros** entre deux valeurs : sous-échantillonner et insérer des zéros sont deux applications transposées l'une de l'autre. Une somme glissante avec un pas $s$ est la somme glissante avec un pas de 1, suivie de $\mathbf{D}_s$ : sa matrice est $\mathbf{C} = \mathbf{D}_s\mathbf{K}$, où $\mathbf{K}$ est la matrice de la corrélation valide par $\mathbf{w}$, c'est-à-dire de la convolution valide par $\tilde{\mathbf{w}}$ (§2). Le pooling moyen du §4 en est un exemple.
+Sa transposée remet chaque valeur à sa place et **insère $s - 1$ zéros** entre deux valeurs : sous-échantillonner et insérer des zéros sont deux applications transposées l'une de l'autre. Une somme glissante avec un pas $s$ est la somme glissante avec un pas de 1, suivie de $\mathbf{D}_s$ : sa matrice est $\mathbf{C} = \mathbf{D}_s\mathbf{C}_1$, où $\mathbf{C}_1$ est la matrice de la corrélation valide par $\mathbf{w}$, c'est-à-dire de la convolution valide par $\tilde{\mathbf{w}}$ (§2). Le pooling moyen du §4 en est un exemple.
 
 ### La convolution transposée
 
-> **Définition.** La **convolution transposée** (*transposed convolution*) associée à un noyau $\mathbf{w}$, un pas $s$ et un padding $p$ est l'application linéaire de matrice $\mathbf{C}^\top$, où $\mathbf{C}$ est la matrice de la somme glissante de mêmes réglages.
+> **Définition.** La **convolution transposée** (*transposed convolution*) associée à un noyau $\mathbf{w}$, un pas $s$, un padding $p$ (et une dilatation $d$) est l'application linéaire de matrice $\mathbf{C}^\top$, où $\mathbf{C}$ est la matrice de la somme glissante de mêmes réglages sur des signaux d'une longueur $n$ choisie (le padding de sortie, plus bas, dit laquelle).
 
-Pour $p = 0$ : $\mathbf{C}^\top = \mathbf{K}^\top\mathbf{D}_s^\top$, et, par l'énoncé du §3, $\mathbf{K}^\top$ est la matrice de la convolution **pleine** par $\mathbf{w}$ (le retourné du retourné). D'où la recette : **insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$** (pour une bibliothèque, faire une corrélation par $\tilde{\mathbf{w}}$). Autre lecture, celle d'un **tampon** : chaque valeur $y_i$ imprime une copie de $y_i\,\mathbf{w}$ à partir de la case $s\,i$, et les tampons s'additionnent là où ils se recouvrent.
+Pour $p = 0$ : $\mathbf{C}^\top = \mathbf{C}_1^\top\mathbf{D}_s^\top$, et, par l'énoncé du §3, $\mathbf{C}_1^\top$ est la matrice de la convolution **pleine** par $\mathbf{w}$ (le retourné du retourné). D'où la recette : **insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$** (pour une bibliothèque, faire une corrélation par $\tilde{\mathbf{w}}$). Autre lecture, celle d'un **tampon** : chaque valeur $y_i$ imprime une copie de $y_i\,\mathbf{w}$ à partir de la case $s\,i$, et les tampons s'additionnent là où ils se recouvrent.
 
 **Exemple.** $\mathbf{y} = (2, -1, 3)$, $\mathbf{w} = (1, 3, 3, 1)$, $s = 3$. Avec les zéros insérés, $(2, 0, 0, -1, 0, 0, 3)$, puis la convolution pleine par $\mathbf{w}$ : $(2, 6, 6, 1, -3, -3, 2, 9, 9, 3)$, 10 valeurs. En tampons : $2\mathbf{w}$ sur les cases 0 à 3, $-\mathbf{w}$ sur les cases 3 à 6, $3\mathbf{w}$ sur les cases 6 à 9 ; les cases 3 et 6 reçoivent deux tampons, $2 - 1 = 1$ et $-1 + 3 = 2$.
 
 **Sa taille.** $m$ valeurs d'entrée, $m - 1$ intervalles de $s$ cases, plus l'étendue du noyau : $(m - 1)s + k$ valeurs pour $p = 0$ et $d = 1$. En général,
 $$n = (m - 1)\,s - 2p + d(k - 1) + 1 + p_{\text{out}}.$$
-Le $-2p$ retire les cases du padding à chaque bout. Le **padding de sortie** $p_{\text{out}} \in \{0, \ldots, s - 1\}$ choisit parmi les $s$ tailles d'entrée que la somme glissante confond : elle ne peut pas deviner laquelle on veut. Exemple : $m = 5$, $k = 4$, $s = 3$, $p = 0$ donne 16, 17 ou 18 valeurs pour $p_{\text{out}} = 0$, 1 ou 2 ; réciproquement, 16, 17 et 18 cases donnent 5 positions, et 19 en donnent 6.
+Le $-2p$ retire les cases du padding à chaque bout. Le **padding de sortie** $p_{\text{out}} \in \{0, \ldots, s - 1\}$ choisit parmi les $s$ tailles d'entrée que la somme glissante confond : la convolution transposée ne peut pas deviner laquelle on veut. Exemple : $m = 5$, $k = 4$, $s = 3$, $p = 0$ donne 16, 17 ou 18 valeurs pour $p_{\text{out}} = 0$, 1 ou 2 ; réciproquement, 16, 17 et 18 cases donnent 5 positions, et 19 en donnent 6.
 
 **Les recouvrements.** La case $j$ reçoit un tampon de chaque $i$ tel que $0 \le j - s\,i \le k - 1$. Pour $k = 4$ et $s = 3$, les cases reçoivent $(1, 1, 1, 2, 1, 1, 2, 1, 1, 1)$ tampons : c'est irrégulier. Pour $k = 6$ et $s = 3$, toutes les cases intérieures en reçoivent 2. La règle : le nombre de tampons est le même sur toutes les cases intérieures (il vaut alors $\frac ks$) si et seulement si **$s$ divise $k$**. Sinon, certaines cases en reçoivent un de plus, périodiquement ; en deux dimensions, cela dessine un **damier** de cases fortes et faibles (*checkerboard artifact*), que le 🎨 M21.26 te fait voir.
 
@@ -341,7 +342,7 @@ Une grille de mesures $\mathbf{X}$, de forme $(H, W)$ (des altitudes, des tempé
 $$Y_{i,j} = \sum_{u=0}^{k_h-1}\sum_{v=0}^{k_w-1} K_{u,v}\,X_{i+u,\,j+v}, \qquad \mathbf{Y} \text{ de forme } (H - k_h + 1,\ W - k_w + 1) \text{ en mode valide}.$$
 Chaque axe se compte comme au §5, avec son propre padding, son propre pas, sa propre dilatation. La convolution 2D retourne le noyau **selon les deux axes** (une rotation d'un demi-tour).
 
-**Exemple.** Les altitudes d'un terrain (en dizaines de mètres), sur une grille $4 \times 5$, filtrées par le laplacien discret du §2 (symétrique : corrélation et convolution coïncident) :
+**Exemple.** Les altitudes d'un terrain (en dizaines de mètres), sur une grille $4 \times 5$, filtrées par le pochoir du laplacien discret du §2, avec $h = 1$ (une case) (symétrique : corrélation et convolution coïncident) :
 $$\mathbf{Z} = \begin{pmatrix} 12 & 14 & 15 & 13 & 11 \\ 13 & 19 & 16 & 12 & 10 \\ 11 & 15 & 14 & 8 & 9 \\ 10 & 12 & 11 & 9 & 7 \end{pmatrix} \longmapsto \begin{pmatrix} -18 & -4 & -1 \\ -4 & -6 & 12 \end{pmatrix}.$$
 La sortie $(0, 0)$ correspond à la case $(1, 1)$ de $\mathbf{Z}$, centre de sa fenêtre : $14 + 15 + 13 + 16 - 4 \times 19 = 58 - 76 = -18$, un **sommet** (19 domine ses voisines). La sortie $(1, 2)$, centrée sur la case $(2, 3)$ d'altitude 8 entourée de 12, 9, 14 et 9 : $44 - 32 = 12$, un **creux**.
 
@@ -349,19 +350,19 @@ La sortie $(0, 0)$ correspond à la case $(1, 1)$ de $\mathbf{Z}$, centre de sa 
 
 Un noyau **séparable** (*separable kernel*) est un produit extérieur, $\mathbf{K} = \mathbf{a}\,\mathbf{b}^\top$, c'est-à-dire $K_{u,v} = a_u\,b_v$ : une matrice de **rang 1** (M12d). Alors
 $$Y_{i,j} = \sum_u a_u\Big(\sum_v b_v\,X_{i+u,\,j+v}\Big) :$$
-on filtre chaque ligne par $\mathbf{b}$ (une passe horizontale), puis chaque colonne du résultat par $\mathbf{a}$ (une passe verticale), ou l'inverse. Par valeur de sortie, on fait $k_h + k_w$ multiplications au lieu de $k_hk_w$ : pour un noyau $13 \times 13$, 26 au lieu de 169 (le 🔬 M21.25 le mesure).
+on filtre chaque ligne par $\mathbf{b}$ (une passe horizontale), puis chaque colonne du résultat par $\mathbf{a}$ (une passe verticale), ou l'inverse. Par valeur de sortie, on fait environ $k_h + k_w$ multiplications au lieu de $k_hk_w$ : pour un noyau $13 \times 13$, 26 au lieu de 169 (le 🔬 M21.25 le mesure).
 
 **Exemple.** Le lissage $\mathbf{K} = \frac1{36}\begin{pmatrix} 1 & 4 & 1 \\ 4 & 16 & 4 \\ 1 & 4 & 1 \end{pmatrix} = \mathbf{a}\,\mathbf{a}^\top$, avec $\mathbf{a} = \frac16(1, 4, 1)$, appliqué aux altitudes. Directement, la valeur $(0, 0)$ demande 9 produits : $\frac{588}{36} \approx 16{,}33$. En deux passes : la passe verticale sur les trois premières colonnes des lignes 0 à 2 donne $\frac{12 + 52 + 11}{6} = 12{,}5$, puis $17{,}5$ et $15{,}5$ ; la passe horizontale, $\frac{12{,}5 + 70 + 15{,}5}{6} = \frac{98}{6} \approx 16{,}33$. Toute la sortie : $\begin{pmatrix} 16{,}33 & 15{,}17 & 11{,}92 \\ 14{,}28 & 13{,}22 & 9{,}67 \end{pmatrix}$.
 
-**Reconnaître un noyau séparable** : toutes ses lignes sont proportionnelles à une même ligne. $\begin{pmatrix} 2 & 6 & 4 \\ 1 & 3 & 2 \\ 3 & 9 & 6 \end{pmatrix} = (2, 1, 3)^\top(1, 3, 2)$ l'est ; le laplacien, de rang 2, ne l'est pas, mais il est la **somme** de deux noyaux séparables, $(0, 1, 0)^\top(1, -2, 1) + (1, -2, 1)^\top(0, 1, 0)$, les dérivées secondes le long des deux axes. Pour un noyau quelconque, la décomposition en valeurs singulières (M12d), $\mathbf{K} = \sum_i s_i\,\mathbf{u}_i\mathbf{v}_i^\top$, tranche : il est séparable si et seulement si $s_2 = 0$ (en pratique, $s_2$ minuscule devant $s_1$), et alors $\mathbf{K} = s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ ; sinon, $s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ est son **meilleur approximant de rang 1** (Eckart-Young). C'est ce que fait `separable_factors` (M21.22).
+**Reconnaître un noyau séparable** : toutes ses lignes sont proportionnelles à une même ligne. $\begin{pmatrix} 2 & 6 & 4 \\ 1 & 3 & 2 \\ 3 & 9 & 6 \end{pmatrix} = \mathbf{a}\mathbf{b}^\top$, avec $\mathbf{a} = (2, 1, 3)$ et $\mathbf{b} = (1, 3, 2)$, l'est ; le laplacien, de rang 2, ne l'est pas, mais il est la **somme** de deux noyaux séparables, $\mathbf{e}_1\mathbf{c}^\top + \mathbf{c}\,\mathbf{e}_1^\top$, avec $\mathbf{e}_1 = (0, 1, 0)$ et $\mathbf{c} = (1, -2, 1)$, les dérivées secondes le long des deux axes. Pour un noyau quelconque, la décomposition en valeurs singulières (M12d), de valeurs singulières $s_1 \ge s_2 \ge \cdots$ (à ne pas confondre avec les pas), $\mathbf{K} = \sum_i s_i\,\mathbf{u}_i\mathbf{v}_i^\top$, tranche : il est séparable si et seulement si $s_2 = 0$ (en pratique, $s_2$ minuscule devant $s_1$), et alors $\mathbf{K} = s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ ; sinon, $s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ est son **meilleur approximant de rang 1** (Eckart-Young). C'est ce que fait `separable_factors` (M21.22).
 
 ⚠️ **Erreur classique — deux sens de « séparable ».** Ici, un **noyau séparable** est un noyau de rang 1 : un filtrage 2D qui se fait en deux filtrages 1D, le long des deux axes de la grille. Dans workbookIA 21 (et dans les réseaux de la famille MobileNet), une **convolution séparable** (*depthwise separable convolution*) est autre chose : un filtrage canal par canal, suivi d'une convolution $1 \times 1$ qui mélange les canaux ; elle sépare les canaux, pas les deux axes. Et « séparer » un noyau de rang 2 en prenant sa première ligne et sa première colonne donne un résultat faux, sans message d'erreur (🐛 M21.27).
 
 ### Plusieurs canaux
 
-Une grille peut porter plusieurs mesures par case : un modèle météo donne, en chaque case, la température, la pression, l'humidité et le vent. On range ces **canaux** (*channels*) en premier, comme les bibliothèques : $\mathbf{X}$ de forme $(C_{\text{in}}, H, W)$, ici $(4, H, W)$. Un filtrage à $C_{\text{out}}$ sorties a des poids $\mathbf{W}$ de forme $(C_{\text{out}}, C_{\text{in}}, k_h, k_w)$ et un biais $\mathbf{b}$ de longueur $C_{\text{out}}$ :
+Une grille peut porter plusieurs mesures par case : un modèle météo donne, en chaque case, la température, la pression, l'humidité et le vent. On range ces **canaux** (*channels*) en premier, comme PyTorch (et workbookIA) : $\mathbf{X}$ de forme $(C_{\text{in}}, H, W)$, ici $(4, H, W)$. Un filtrage à $C_{\text{out}}$ sorties a des poids $\mathbf{W}$ de forme $(C_{\text{out}}, C_{\text{in}}, k_h, k_w)$ et un biais $\mathbf{b}$ de longueur $C_{\text{out}}$ :
 $$Y_{o,i,j} = b_o + \sum_{c=0}^{C_{\text{in}}-1}\ \sum_{u=0}^{k_h-1}\sum_{v=0}^{k_w-1} W_{o,c,u,v}\,X_{c,\,i+u,\,j+v}.$$
-Chaque sortie $o$ additionne les contributions de **tous** les canaux d'entrée : elle a son propre noyau à trois axes, $\mathbf{W}_o$, de forme $(C_{\text{in}}, k_h, k_w)$. Le résultat a la forme $(C_{\text{out}}, H_{\text{out}}, W_{\text{out}})$. Avec les fenêtres rangées dans un tableau $F$ de forme $(H_{\text{out}}, W_{\text{out}}, C_{\text{in}}, k_h, k_w)$, c'est une seule contraction d'Einstein (M20), `np.einsum("ocuv,ijcuv->oij", W, F)`, plus le biais.
+Chaque sortie $o$ additionne les contributions de **tous** les canaux d'entrée : elle a son propre noyau à trois axes, $\mathbf{W}_o$, de forme $(C_{\text{in}}, k_h, k_w)$. Le résultat a la forme $(C_{\text{out}}, H_{\text{out}}, W_{\text{out}})$. Avec les fenêtres rangées dans un tableau $\mathbf{F}$ de forme $(H_{\text{out}}, W_{\text{out}}, C_{\text{in}}, k_h, k_w)$, c'est une seule contraction d'Einstein (M20), `np.einsum("ocuv,ijcuv->oij", W, F)`, plus le biais.
 
 Trois cas particuliers :
 - la **convolution 1 × 1** ($k_h = k_w = 1$) : $Y_{o,i,j} = b_o + \sum_c W_{o,c}\,X_{c,i,j}$, la même application affine $\mathbb{R}^{C_{\text{in}}} \to \mathbb{R}^{C_{\text{out}}}$ (M16) en chaque case ; elle mélange les canaux et ne voit aucune case voisine ;
@@ -370,21 +371,21 @@ Trois cas particuliers :
 
 ### Paramètres, coût, mémoire
 
-> **Comptes** (pour une sortie de taille $H_{\text{out}} \times W_{\text{out}}$, $g$ groupes) :
+> **Comptes** (pour une sortie de taille $H_{\text{out}} \times W_{\text{out}}$, $g$ groupes ; en 1D, $k_hk_w$ devient $k$ et $H_{\text{out}}W_{\text{out}}$ devient $n_{\text{out}}$) :
 > - paramètres : $C_{\text{out}}\Big(\dfrac{C_{\text{in}}}{g}\,k_hk_w + 1\Big)$ (le $+1$ est le biais) ;
 > - coût : une **multiplication-addition** (*multiply-accumulate*, MAC) par poids et par position de sortie, soit $H_{\text{out}}W_{\text{out}}\;C_{\text{out}}\,\dfrac{C_{\text{in}}}{g}\,k_hk_w$ ;
 > - mémoire de la sortie : $C_{\text{out}}H_{\text{out}}W_{\text{out}}$ valeurs (4 octets chacune en `float32`).
 
-**Exemple.** Une grille météo de $100 \times 150$ cases, $C_{\text{in}} = 4$ variables, $C_{\text{out}} = 8$ sorties, des noyaux $3 \times 3$ avec $p = 1$ (même taille) : $H_{\text{out}}W_{\text{out}} = 15\,000$ positions.
+**Exemple.** Une grille météo de $100 \times 150$ cases, $C_{\text{in}} = 4$ variables, $C_{\text{out}} = 10$ sorties, des noyaux $3 \times 3$ avec $p = 1$ (même taille) : $H_{\text{out}}W_{\text{out}} = 15\,000$ positions.
 
 | Filtrage | Paramètres | Multiplications-additions |
 |---|---|---|
-| standard | $8 \times (4 \times 9 + 1) = 296$ | $15\,000 \times 8 \times 4 \times 9 = 4\,320\,000$ |
-| groupé, $g = 2$ | $8 \times (2 \times 9 + 1) = 152$ | $2\,160\,000$ |
+| standard | $10 \times (4 \times 9 + 1) = 370$ | $15\,000 \times 10 \times 4 \times 9 = 5\,400\,000$ |
+| groupé, $g = 2$ | $10 \times (2 \times 9 + 1) = 190$ | $2\,700\,000$ |
 | par canal (4 sorties) | $4 \times (9 + 1) = 40$ | $540\,000$ |
-| $1 \times 1$, de 4 vers 8 | $8 \times (4 + 1) = 40$ | $480\,000$ |
+| $1 \times 1$, de 4 vers 10 | $10 \times (4 + 1) = 50$ | $600\,000$ |
 
-La sortie du filtrage standard occupe $8 \times 15\,000 = 120\,000$ valeurs, soit $480\,000$ octets. Le nombre de paramètres **ne dépend pas** de la taille de la grille ; le coût, si : il est **proportionnel à l'aire**. Sur une grille de $50 \times 75$, quatre fois moins de cases, le filtrage standard coûte $1\,080\,000$ multiplications-additions, pour les mêmes 296 paramètres.
+La sortie du filtrage standard occupe $10 \times 15\,000 = 150\,000$ valeurs, soit $600\,000$ octets. Le nombre de paramètres **ne dépend pas** de la taille de la grille ; le coût, si : il est **proportionnel à l'aire**. Sur une grille de $50 \times 75$, quatre fois moins de cases, le filtrage standard coûte $1\,350\,000$ multiplications-additions, pour les mêmes 370 paramètres.
 
 🔗 **Dans workbookIA** — le chapitre 21 compte les paramètres et les opérations de ses couches de convolution avec ces formules ; le 🔗 M21.17 fait le pont entre les formes de ce paragraphe et celles des bibliothèques.
 
@@ -410,7 +411,7 @@ Pour $L$ étages, on recommence : $\mathbf{K} \leftarrow \mathbf{K} * (\mathbf{w
 
 ### Le champ récepteur
 
-Le **champ récepteur** (*receptive field*) d'une sortie est l'ensemble des cases du signal d'origine dont elle dépend. Pour la sortie $z_j$ de la pile, ce sont les cases $Sj$ à $Sj + r - 1$, où $r$ est la longueur du noyau équivalent.
+Le **champ récepteur** (*receptive field*) d'une sortie est la plage des cases du signal d'origine que lisent ses calculs, de la première à la dernière, trous compris : une dilatation ou un coefficient nul peut laisser dans la plage des cases sans effet. Pour la sortie $z_j$ de la pile, ce sont les cases $Sj$ à $Sj + r - 1$, où $r$ est la longueur du noyau équivalent.
 
 > **Théorème** (∂ M21.15). Pour une pile de $L$ sommes glissantes de noyaux de longueurs $k_\ell$, de pas $s_\ell$ et de dilatations $d_\ell$, posons $r_0 = 1$ et $J_0 = 1$, puis
 > $$r_\ell = r_{\ell-1} + d_\ell(k_\ell - 1)\,J_{\ell-1}, \qquad J_\ell = J_{\ell-1}\,s_\ell .$$
@@ -457,8 +458,8 @@ Pour tout $\mathbf{g} \in \mathbb{R}^n$, $\lVert\mathbf{g}\rVert_2 \le \lVert\ma
 
 - **Convolution ou corrélation.** La convolution retourne le noyau (`np.convolve`), la corrélation des bibliothèques non ; pour un noyau antisymétrique, elles sont opposées. Dis laquelle tu calcules.
 - **Les modes.** Plein $n + k - 1$, valide $n - k + 1$, même taille $n$ ; pour un noyau de longueur paire, NumPy et PyTorch sont décalés d'une case.
-- **Deux sens de « noyau ».** Le noyau $\mathbf{w}$ d'un filtre, le noyau $\ker$ d'une application linéaire : une convolution valide a toujours un $\ker$ non nul.
-- **Équivariant n'est pas invariant.** La sortie se déplace avec l'entrée, exactement loin des bords et, avec un pas $s$, pour les décalages multiples de $s$. Le pooling global est invariant ; le pooling max ne l'est que pour de petits décalages.
+- **Deux sens de « noyau ».** Le noyau $\mathbf{w}$ d'un filtre, le noyau $\ker$ d'une application linéaire : une convolution valide a toujours un $\ker$ non nul (pour $k \ge 2$).
+- **Équivariant n'est pas invariant.** La sortie se déplace avec l'entrée, exactement loin des bords et, avec un pas $s$, pour les décalages multiples de $s$. Le pooling global est invariant ; le pooling max ne l'est que pour certains petits décalages.
 - **Le retourné circulaire.** $\check{\mathbf{h}} = (h_0, h_{n-1}, \ldots, h_1)$, pas le renversement simple.
 - **Compter les positions.** Partie entière **inférieure**, $+1$, padding des deux côtés, étendue $d(k - 1) + 1$, et la fenêtre doit tenir.
 - **La convolution transposée.** Des zéros entre les entrées, puis une convolution pleine ; plusieurs tailles possibles ($p_{\text{out}}$) ; un damier quand $s$ ne divise pas $k$ ; pas un inverse.

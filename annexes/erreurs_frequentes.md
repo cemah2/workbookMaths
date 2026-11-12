@@ -674,3 +674,30 @@ Les erreurs classiques, celles que tout le monde fait un jour. Chaque chapitre d
 | La moyenne naïve avec des probabilités inégales | `N * y[S].mean()` quand les grandes unités sont tirées plus souvent : biaisée | $\sum_{i \in S} y_i/\pi_i$ |
 | Multiplier les jacobiennes dans le mauvais ordre | $\mathbf{J}(\mathbf{x}_0)\,\mathbf{J}(\mathbf{x}_1)$ pour deux pas | $\mathbf{J}(\mathbf{x}_1)\,\mathbf{J}(\mathbf{x}_0)$ : le dernier pas à gauche |
 
+## Convolution, matrices de Toeplitz et équivariance (M21)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Passer à `np.convolve` les poids d'une corrélation | `np.convolve(x, [-1, 0, 1], "valid")` pour la différence centrée $f_{i+1} - f_{i-1}$ : le signe est inversé | retourner les poids, `np.convolve(x, w[::-1], "valid")`, ou `np.correlate(x, w, "valid")` ; et dire laquelle des deux opérations on calcule |
+| Écrire la convolution avec $b_{m+i}$ | $\sum_i a_i\,b_{m+i}$ « pour la convolution » | c'est la corrélation ; la convolution est $\sum_i a_i\,b_{m-i}$ (les indices ont une somme constante) |
+| Se tromper de longueur | $(1, -2, 4) * (3, 1)$ « a 3 termes, comme la plus longue suite » | $n + k - 1 = 4$ termes : $(3, -5, 10, 4)$ ; additionner **toute** chaque anti-diagonale du tableau des produits |
+| Comparer deux « même taille » avec un noyau pair | `np.convolve(x, [3, 1], "same")` « égal » à la corrélation de poids $(1, 3)$ avec `padding="same"` de PyTorch | elles sont décalées d'une case : $(6, 20, 9, 16)$ contre $(20, 9, 16, 5)$ pour $\mathbf{x} = (2, 6, 1, 5)$ |
+| Croire qu'un filtrage valide ne perd rien | « la différence $(-1, 1)$ en mode valide est injective » | une convolution valide a un $\ker$ de dimension au moins $k - 1$ : la différence efface les signaux constants, $(1, -2, 1)$ les signaux affines |
+| Dire « invariante » pour « équivariante » | « une convolution est invariante par translation » | sa sortie se **déplace** avec l'entrée : elle est équivariante ; seul le pooling global est invariant |
+| Oublier le pas dans l'équivariance | avec un pas de 2, décaler l'entrée d'une case « décale la sortie d'une demi-case » | seuls les décalages multiples de $s$ décalent la sortie (de $\frac ts$) ; un autre décalage donne une autre sortie : $(3, 1, 0)$ devient $(0, -5, 1)$ |
+| Traiter le pooling max comme linéaire | « le max d'une somme est la somme des max » | $\max(1, 0) + \max(0, 1) = 2$, mais le maximum de $(1, 1)$ vaut 1 ; seul le pooling moyen est linéaire |
+| Retourner un noyau circulaire en le renversant | $\mathbf{h} = (4, 1, 0, 2)$ : « $\check{\mathbf{h}} = (2, 0, 1, 4)$ » | $\check{\mathbf{h}} = (h_0, h_{n-1}, \ldots, h_1) = (4, 2, 0, 1)$ : $h_0$ reste en tête |
+| Arrondir vers le haut le nombre de positions | $n = 20$, $k = 4$, $s = 3$ : « $\lceil\frac{16}{3}\rceil + 1 = 7$ positions » | $\lfloor\frac{16}{3}\rfloor + 1 = 6$ : la fenêtre incomplète n'existe pas, la case 19 n'est jamais lue |
+| Oublier le $+1$, le 2 de $2p$ ou la dilatation | $n = 50$, $k = 4$, $s = 3$, $p = 1$ : « $\lfloor\frac{50 + 1 - 3 - 1}{3}\rfloor = 15$ » | $\lfloor\frac{50 + 2 - 3 - 1}{3}\rfloor + 1 = 17$ ; avec $d = 2$, remplacer $k - 1$ par $d(k - 1)$ : 16 ; et vérifier d'abord que la fenêtre tient, $n + 2p \ge d(k - 1) + 1$ |
+| Confondre dilatation et convolution transposée | « la dilatation insère des zéros entre les valeurs du signal » | la dilatation espace les **poids** (la fenêtre lit une case sur $d$) ; la convolution transposée insère $s - 1$ zéros entre les valeurs d'**entrée** |
+| Donner une seule taille à une convolution transposée | $m = 5$, $k = 4$, $s = 3$, $p = 0$ : « 16 valeurs » | 16, 17 ou 18 selon $p_{\text{out}} \in \{0, 1, 2\}$ : sans $p_{\text{out}}$, on n'obtient que la plus petite |
+| Prendre la convolution transposée pour un inverse | la transposée de la moyenne de 2 valeurs avec un pas de 2 « retrouve » $(6, 2, 5, 9)$ à partir de $(4, 7)$ | elle donne $(2 ;\ 2 ;\ 3{,}5 ;\ 3{,}5)$ : $\mathbf{C}$ n'a pas d'inverse, et $\mathbf{C}^\top$ n'en est pas un |
+| Attendre des recouvrements réguliers | une convolution transposée avec $(k, s) = (4, 3)$ « couvre chaque case autant de fois » | les cases reçoivent $(1, 1, 1, 2, 1, 1, 2, 1, 1, 1)$ tampons : réguliers seulement si $s$ divise $k$, sinon un damier en 2D |
+| Mêler les deux sens de « séparable » | appeler « noyau séparable » une convolution par canal suivie d'une $1 \times 1$ | un noyau séparable est de rang 1 (il sépare les deux **axes**) ; la « convolution séparable » de workbookIA 21 sépare les **canaux** |
+| Séparer un noyau qui n'est pas de rang 1 | prendre la première ligne et la première colonne du laplacien comme facteurs | vérifier le rang (SVD : $s_2 = 0$) ; le laplacien, de rang 2, est une **somme** de deux noyaux séparables |
+| Oublier le biais ou les groupes | $10 \times 4 \times 9 = 360$ paramètres pour 4 → 10 canaux, noyaux $3 \times 3$ | $10 \times (4 \times 9 + 1) = 370$ ; avec $g$ groupes, $\frac{C_{\text{in}}}{g}$ au lieu de $C_{\text{in}}$ |
+| Lier les paramètres à la taille de la grille | « une grille quatre fois plus petite a quatre fois moins de paramètres » | les paramètres ne dépendent pas de la grille ; le **coût** est proportionnel à l'aire de la sortie (1 080 000 contre 4 320 000) |
+| Additionner les noyaux pour le champ récepteur | $(k, s, d) = (4, 2, 1), (3, 2, 1), (3, 1, 2)$ : « $1 + 3 + 2 + 4 = 10$ cases » | chaque étage ajoute $d_\ell(k_\ell - 1)$ fois le produit des pas **précédents** : $1 + 3 + 2 \times 2 + 4 \times 4 = 24$ |
+| Associer la boule L∞ à la norme L∞ | pire cas « $\varepsilon\lVert\mathbf{g}\rVert_\infty$ » quand chaque erreur est bornée par $\varepsilon$ | $\varepsilon\lVert\mathbf{g}\rVert_1$ (la norme duale) ; $\varepsilon\lVert\mathbf{g}\rVert_\infty$ est le pire cas sur la boule L1 |
+| Prendre $\varepsilon\,\mathbf{g}$ pour le pire cas L∞ | $\boldsymbol{\delta} = 0{,}05\,(3, -1, 2, -2)$ | une coordonnée vaut $0{,}15 > \varepsilon$ : il sort de la boule ; le pire cas est $\varepsilon\operatorname{signe}(\mathbf{g})$, qui ne regarde que les signes |
+

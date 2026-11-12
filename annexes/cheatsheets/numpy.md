@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, calcul numérique.
 
 ```python
 import numpy as np
@@ -57,6 +57,22 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | Cholesky | `np.linalg.cholesky(A)` | $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, `LinAlgError` si $\mathbf{A}$ n'est pas définie positive ; ne vérifie **pas** la symétrie (elle ne lit que le triangle inférieur) |
 | la racine carrée d'une matrice | `scipy.linalg.sqrtm(A)` ; symétrique positive : `Q * np.sqrt(values) @ Q.T` avec `values, Q = np.linalg.eigh(A)` | jamais `np.sqrt(A)`, qui prend la racine des éléments |
 | comparer deux résultats approchés | `np.allclose(a, b)` | jamais `==` entre flottants |
+
+## Convolutions et signaux (M21)
+
+| Je veux… | Code |
+|---|---|
+| la convolution de deux suites (un produit de polynômes, la loi d'une somme) | `np.convolve(a, b)` : mode plein, $n + k - 1$ valeurs ; `np.convolve(a, b, "valid")`, `np.convolve(a, b, "same")` ; le noyau est **retourné** |
+| la corrélation croisée, sans retournement (celle des bibliothèques) | `np.correlate(x, w, "valid")`, le signal d'abord (`np.correlate(w, x, "valid")` rend le résultat à l'envers) ; c'est `np.convolve(x, w[::-1], "valid")` |
+| retourner un noyau | `w[::-1]` ou `np.flip(w)` ; en 2D, `np.flip(K)` retourne les deux axes, comme `K[::-1, ::-1]` ; le retourné circulaire $\check{\mathbf{h}}$ : `np.roll(h[::-1], 1)` |
+| décaler un signal périodique | `np.roll(x, 1)` calcule $\mathbf{P}\mathbf{x}$ (la dernière valeur revient en tête) ; `np.roll(x, t)` décale de $t$ cases |
+| compléter par des zéros, sous-échantillonner, insérer des zéros | `np.pad(x, p)` ($p$ zéros de chaque côté) ; `x[::s]` ; `z = np.zeros((m - 1) * s + 1)` puis `z[::s] = y` |
+| la matrice des fenêtres | `F = np.lib.stride_tricks.sliding_window_view(x, k)`, de forme $(n - k + 1, k)$ : `F @ w` est la corrélation valide, `F[::s] @ w` la même avec un pas $s$ ; pour une grille $(C, H, W)$ : `sliding_window_view(X, (kh, kw), axis=(1, 2))`, de forme $(C, H_{\text{out}}, W_{\text{out}}, k_h, k_w)$, puis `np.einsum("ocuv,cijuv->oij", W, F)` |
+| la matrice d'une convolution | `scipy.linalg.convolution_matrix(w, n)` : la matrice de Toeplitz $(n + k - 1, n)$ de `x` ↦ `np.convolve(x, w)` (`mode="valid"` et `mode="same"` aussi) ; `scipy.linalg.toeplitz(c, r)` (première colonne, première ligne) ; `scipy.linalg.circulant(h)` (première colonne `h`) |
+| filtrer une grille | `scipy.signal.correlate2d(X, K, mode="valid")`, sans retournement ; `scipy.signal.convolve2d` retourne les deux axes |
+| une longue convolution | `scipy.signal.fftconvolve(a, b)` : le résultat de `np.convolve(a, b)`, par la FFT, plus rapide pour de longs noyaux |
+| un produit extérieur, un noyau séparable | `np.outer(u, v)`, ou `u[:, None] * v[None, :]` ; `K` est de rang 1 si `np.linalg.svd(K, compute_uv=False)[1]` est négligeable devant la première valeur |
+| le pire cas d'une perturbation bornée | boule L∞ : `eps * np.sign(g)`, qui donne `eps * np.linalg.norm(g, 1)` ; boule L2 : `eps * g / np.linalg.norm(g)`, qui donne `eps * np.linalg.norm(g)` |
 
 ## Calcul numérique
 

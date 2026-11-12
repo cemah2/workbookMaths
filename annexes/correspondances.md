@@ -28,7 +28,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 18 · Rétropropagation | M18 | §5.4–5.6 |
 | 19 · Optimiseurs | M19 | §5.7–5.8, §7.1 |
 | 20 · Deep learning et premiers pas en PyTorch | M20 | — |
-| 21 · Réseaux convolutifs (CNN) | M21 | — |
+| 21 · Réseaux convolutifs (CNN) | M21 | — (Dumoulin et Visin ; Gray) |
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
@@ -94,5 +94,5 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Logique, inégalités de concentration, bandits | M11 | Hammack, Blitzstein et Hwang, Lattimore et Szepesvári |
 | Théorie de l'information | M06 | MacKay |
 | Chaînes de Markov | M26 | Blitzstein et Hwang |
-| Convolution | M21 | (fiche) |
+| Convolution, matrices de Toeplitz et circulantes | M21 | Dumoulin et Visin, Gray, documentations de NumPy et de SciPy |
 | Démonstrations | R4 et suite | Hammack, *Book of Proof* |

@@ -17,6 +17,7 @@ import numpy as np
 | une surface 3D | `ax = plt.figure().add_subplot(projection="3d")` ; `ax.plot_surface(X, Y, Z)` |
 | une échelle logarithmique | `ax.set_yscale("log")` |
 | plusieurs graphiques | `fig, axes = plt.subplots(1, 3, figsize=(12, 3.5))` |
+| une matrice ou une grille en couleurs | `im = ax.imshow(M)` ; `fig.colorbar(im, ax=ax)` ; la ligne 0 est en haut, comme une matrice s'écrit ; pour des valeurs des deux signes, `cmap="RdBu_r", vmin=-a, vmax=a` centre les couleurs sur 0 |
 | du LaTeX dans un titre | `ax.set_title(r"$f(x) = e^{-x^2}$")` (le `r` devant la chaîne) |
 
 `wbm.setup()` règle le style des graphiques (taille, couleurs lisibles par les daltoniens) ; termine chaque cellule graphique par `plt.show()`.
