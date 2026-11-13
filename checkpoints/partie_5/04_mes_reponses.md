@@ -27,26 +27,24 @@
 - e) np.convolve(x, w, "same") =
 - f) T (6 × 3) =
 - g) coefficients non nuls pour n = 40 :
-- h) ligne 1 de V =
-- b) la valeur de X, et b) à partir de P et Q ; e) l'indice de départ ; h) pourquoi le noyau est retourné :
+- b) la valeur de X, et b) à partir de P et Q ; e) l'indice de départ ; f) pourquoi une ligne de T lit le noyau retourné :
 
 ## CP5.2 — Positions d'une fenêtre, pas, dilatation, et la convolution transposée d'un signal
 
 - a) positions avec s = 4 :
 - b) positions avec s = 4, p = 5, d = 3 :
-- c) échantillons jamais lus :
-- d) longueurs k qui donnent 110 positions :
-- e) [positions, zéros au début, zéros à la fin] =
-- f) convolution transposée =
-- g) taille :
-- h) nombres de tampons :
-- c) les cases de la dernière fenêtre ; e) le nombre total de zéros, et pourquoi un de moins ne suffirait pas ; f) les quatre tampons :
+- c) longueurs k qui donnent 110 positions (dans n'importe quel ordre) :
+- d) [positions, zéros au début, zéros à la fin] =
+- e) convolution transposée =
+- f) taille :
+- g) nombres de tampons (dans n'importe quel ordre) :
+- d) le nombre total de zéros, et pourquoi un de moins ne suffirait pas ; e) les quatre tampons :
 
 ## CP5.3 — Une grille filtrée par un noyau séparable : paramètres, coût et champ récepteur
 
 - a) [a, b] =
 - b) Y =
-- c) multiplications [passe horizontale d'abord, passe verticale d'abord] =
+- c) multiplications en deux passes, la passe horizontale d'abord :
 - d) forme (C, H, W) de la sortie =
 - e) paramètres :
 - f) multiplications-additions :
@@ -68,25 +66,25 @@
 
 - a) x₂ =
 - b) x₃ =
-- c) valeurs propres de A =
+- c) valeurs propres de A (dans n'importe quel ordre) =
 - d) h₀, h₁, h₂, h₃ =
-- e) h₁₅ =
+- e) [α, β] =
 - f) part de y₃ due à la perfusion :
 - g) x⋆ =
 - h) facteur horaire de la quantité totale :
-- Un vecteur propre par valeur propre, et B sur ces vecteurs ; formule de hₖ ; les sommes des colonnes de A :
+- e) les deux équations qui donnent α et β ; h) les sommes des colonnes de A :
 
 ## CP5.6 — Valeurs propres complexes, rayon spectral, normes et croissance transitoire
 
 - a) λ =
 - b) ρ(M) =
-- c) argument de λ :
+- c) argument principal de λ :
 - d) M³ =
 - e) M⁶ =
 - f) [‖M‖₁, ‖M‖∞] =
 - g) ‖M‖₂ =
 - h) comportements [M, (2/√3) M] (1, 2 ou 3) :
-- Un vecteur que M allonge ; M est-elle normale :
+- Un vecteur que M allonge :
 
 ## CP5.7 — Produits de jacobiennes le long d'une trajectoire, et sensibilité à un paramètre utilisé à chaque pas
 
@@ -96,7 +94,7 @@
 - d) les trois termes de s₃ =
 - e) s₃ =
 - f) changement de x₃ au premier ordre :
-- x₁, x₂, x₃, les Jₜ et les bₜ ; ∂x₃/∂x₀, puis le changement de x₃ quand x₀ passe de 36 à 37, au premier ordre et exactement :
+- x₁, x₂, x₃, les Jₜ et les bₜ ; ∂x₃/∂x₀, et le changement de x₃ au premier ordre quand x₀ passe de 36 à 37 :
 
 ## CP5.8 — Une démonstration au choix (sujet A ou B)
 
@@ -109,7 +107,7 @@ Sujet choisi :
 
 ## CP5.9 — Corriger une copie : cinq erreurs
 
-- a) lettres des lignes fausses :
+- a) lettres des lignes fausses (dans n'importe quel ordre) :
 - b) corrections :
   -
   -
@@ -124,7 +122,7 @@ Sujet choisi :
 - c) ρ(A) =
 - d) [‖A‖₁, ‖A‖∞, ‖A‖₂] =
 - e) plus petit K :
-- f) plus grande valeur de |zₜ| pour K = 6 :
+- f) plus grande valeur de |zₜ| pour K = 5 :
 - g) limite de yₜ :
 - Valeurs propres de A ; pourquoi pas ‖·‖₁ ni ‖·‖∞ :
 

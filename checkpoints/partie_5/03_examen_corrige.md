@@ -7,15 +7,16 @@
 - **Le barème.** Chaque question vaut autant de points que de minutes prévues par le sujet, 112 points en tout, et ses points sont partagés également entre ses sous-questions. **Ta note sur 20 est ton total divisé par 5,6** : chaque question pèse dans la note exactement en proportion de sa durée.
 - **Le poids de chaque sous-question.**
   - 1 point par affirmation du quiz (0,4 pour le verdict, 0,6 pour la justification).
-  - 1,25 point par sous-question de CP5.1, CP5.2, CP5.3, CP5.5 et CP5.6.
+  - $\frac{10}{7} \approx 1{,}43$ point par sous-question de CP5.1 et CP5.2 (7 sous-questions chacune).
+  - 1,25 point par sous-question de CP5.3, CP5.5 et CP5.6.
   - 1,5 point par sous-question de CP5.4 et CP5.7.
   - 3 points par étape de CP5.8.
   - 4 points pour chacune des deux parties de CP5.9 (0,8 par ligne corrigée en b).
   - 2 points par sous-question de CP5.10.
 - **Sur ta copie.** Une justification demandée « sur ta copie » compte dans la sous-question à laquelle elle se rattache.
-- **Crédit partiel** sur une sous-question de calcul : 40 % de ses points (0,5 sur 1,25 ; 0,6 sur 1,5 ; 0,8 sur 2) pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul.
+- **Crédit partiel** sur une sous-question de calcul : 40 % de ses points ($\frac47 \approx 0{,}57$ sur $\frac{10}{7}$ ; 0,5 sur 1,25 ; 0,6 sur 1,5 ; 0,8 sur 2) pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul.
 - **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois (par exemple une réponse impulsionnelle fausse en CP5.10 a, réutilisée en b) et f), ou une trajectoire fausse en CP5.7 a, réutilisée en b) et c)).
-- **Arrondis** : une décimale de moins coûte au plus 0,25 point par question ; un arrondi fait trop tôt, qui change la dernière décimale demandée, aussi. Des décimales en plus ne coûtent rien (le notebook les accepte).
+- **Arrondis** : une valeur arrondie là où l'énoncé demande la valeur exacte, ou une décimale de moins que le nombre demandé, coûte au plus 0,25 point par question ; un arrondi fait trop tôt, qui change la dernière décimale demandée, aussi. Des décimales en plus ne coûtent rien (le notebook les accepte).
 - **Questions rédigées** (CP5.Q1, CP5.8, CP5.9 b, les phrases demandées « sur ta copie ») : les critères sont listés ; une idée juste formulée autrement compte autant.
 - **Conventions** : celles du sujet.
   - La convolution $*$ retourne le noyau, la corrélation croisée $\star$ ne le retourne pas.
@@ -73,9 +74,9 @@
 - i) M22.3, M22.25 ;
 - j) M21.R3, M22.11, M22.12.
 
-## CP5.1 — Convolution de deux suites, corrélation croisée et matrice de Toeplitz ✏️ · 10 points (1,25 par sous-question)
+## CP5.1 — Convolution de deux suites, corrélation croisée et matrice de Toeplitz ✏️ · 10 points ($\frac{10}{7} \approx 1{,}43$ par sous-question)
 
-**Réponses** : a) `[2, 3, -5, -4, 5, -1]` · b) `4` · c) `[2, -8, 11]` · d) `[9, -6, 6, 10, -10, -1, 1, 2, -1]` · e) `[-6, 6, 10, -10, -1, 1]` · f) `[[3, 0, 0], [0, 3, 0], [-2, 0, 3], [1, -2, 0], [0, 1, -2], [0, 0, 1]]` · g) `120` · h) `[0, 1, -2, 0, 3, 0]`.
+**Réponses** : a) `[2, 3, -5, -4, 5, -1]` · b) `4` · c) `[2, -8, 11]` · d) `[9, -6, 6, 10, -10, -1, 1, 2, -1]` · e) `[-6, 6, 10, -10, -1, 1]` · f) `[[3, 0, 0], [0, 3, 0], [-2, 0, 3], [1, -2, 0], [0, 1, -2], [0, 0, 1]]` · g) `120`.
 
 a) Le tableau des produits $a_ib_j$ (lignes $i$, colonnes $j$) : $(2, 0, -4, 2)$, $(3, 0, -6, 3)$, $(-1, 0, 2, -1)$. Le long des anti-diagonales : $2$ ; $0 + 3 = 3$ ; $-4 + 0 - 1 = -5$ ; $2 - 6 + 0 = -4$ ; $3 + 2 = 5$ ; $-1$.
 b) $\sum_m (-1)^m c_m = 2 - 3 - 5 + 4 + 5 + 1 = 4$.
@@ -84,59 +85,56 @@ d) $(\mathbf{x} * \mathbf{w})_m = \sum_i x_i\,w_{m-i}$ : $9$ ; $-6$ ; $-6 + 12 =
 e) Le mode même taille de NumPy garde $n = 6$ valeurs de d), à partir de l'indice $\big\lfloor\frac{4 - 1}{2}\big\rfloor = 1$.
 f) La colonne $j$ de $\mathbf{T}$ est le noyau descendu de $j$ lignes, $T_{ij} = w_{i-j}$ ; forme $(3 + 4 - 1, 3) = (6, 3)$.
 g) Chaque colonne contient une copie du noyau, dont 3 coefficients sont non nuls (le 0 de $w_1$ ne donne rien) : $3 \times 40 = 120$, sur $43 \times 40 = 1\,720$ coefficients.
-h) Le mode valide garde les lignes $k - 1 = 3$ à $n - 1 = 5$ de la matrice pleine ; la ligne 1 de $\mathbf{V}$ est la ligne 4, de coefficients $V_{1,j} = w_{4-j}$ : $(w_4, w_3, w_2, w_1, w_0, w_{-1}) = (0, 1, -2, 0, 3, 0)$.
 
-Sur ta copie : b) est la valeur de $PQ$ en $X = -1$, donc $P(-1)\,Q(-1) = (2 - 3 - 1)(1 - 2 - 1) = (-2)(-2) = 4$, sans calculer a) ; e) commence à l'indice 1 de d) ; dans une ligne, $T_{ij} = w_{i-j}$ et l'indice du noyau **décroît** quand $j$ croît : une ligne lit le noyau retourné, comme la convolution retourne le noyau. (Pour aller plus loin, non noté : c) n'est pas la partie valide de d), $(10, -10, -1)$, parce que la corrélation ne retourne pas le noyau ; c'est la convolution valide par $\tilde{\mathbf{w}} = (1, -2, 0, 3)$, et $\mathbf{V}\mathbf{x} = (10, -10, -1)$.)
+Sur ta copie : b) est la valeur de $PQ$ en $X = -1$, donc $P(-1)\,Q(-1) = (2 - 3 - 1)(1 - 2 - 1) = (-2)(-2) = 4$, sans calculer a) ; e) commence à l'indice 1 de d) ; f) dans une ligne, $T_{ij} = w_{i-j}$ et l'indice du noyau **décroît** quand $j$ croît : une ligne lit le noyau retourné (la ligne 3 de $\mathbf{T}$ est $(w_3, w_2, w_1) = (1, -2, 0)$), comme la convolution retourne le noyau. (Pour aller plus loin, non noté : c) n'est pas la partie valide de d), $(10, -10, -1)$, parce que la corrélation ne retourne pas le noyau ; c'est la convolution valide par $\tilde{\mathbf{w}} = (1, -2, 0, 3)$ ; et la matrice $\mathbf{V}$ du mode valide, les lignes 3 à 5 de la matrice pleine pour $n = 6$, donne $\mathbf{V}\mathbf{x} = (10, -10, -1)$.)
 
-**Erreurs fréquentes** : en a), faire glisser $\mathbf{b}$ sans le retourner (une corrélation) ; en b), évaluer en $X = 1$ (la somme des termes vaut $4 \times 0 = 0$) ; en c), retourner le noyau (on obtient la partie valide de d)) ; en d), ne pas le retourner ; en e), commencer à l'indice 0 ou 2 de d) ; en f), donner la matrice transposée, ou mettre le noyau retourné dans les colonnes ; en g), compter les $nk = 160$ places du noyau, zéro compris ; en h), lire le noyau dans l'ordre, $(0, 3, 0, -2, 1, 0)$.
+**Erreurs fréquentes** : en a), faire glisser $\mathbf{b}$ sans le retourner (une corrélation) ; en b), évaluer en $X = 1$ (la somme des termes vaut $4 \times 0 = 0$) ; en c), retourner le noyau (on obtient la partie valide de d)) ; en d), ne pas le retourner ; en e), commencer à l'indice 0 ou 2 de d) ; en f), donner la matrice transposée, ou mettre le noyau retourné dans les colonnes ; en g), compter les $nk = 160$ places du noyau, zéro compris.
 **Remédiation** : M21.1, M21.2, M21.4, M21.Q1, M21.Q2, M21.Q3, M21.19, M21.20.
 
-## CP5.2 — Positions d'une fenêtre, pas, dilatation, et la convolution transposée d'un signal ✏️ · 10 points (1,25 par sous-question)
+## CP5.2 — Positions d'une fenêtre, pas, dilatation, et la convolution transposée d'un signal ✏️ · 10 points ($\frac{10}{7} \approx 1{,}43$ par sous-question)
 
-**Réponses** : a) `116` · b) `115` · c) `3` · d) `[33, 34, 35, 36]` · e) `[118, 2, 3]` · f) `[3, -2, -4, 4, 5, -6, 12, -4, 4]` · g) `149` · h) `[3, 4]`.
+**Réponses** : a) `116` · b) `115` · c) `[33, 34, 35, 36]` (dans n'importe quel ordre) · d) `[118, 2, 3]` · e) `[3, -2, -4, 4, 5, -6, 12, -4, 4]` · f) `149` · g) `[3, 4]` (dans n'importe quel ordre).
 
 a) $\big\lfloor\frac{472 - 8 - 1}{4}\big\rfloor + 1 = \lfloor 115{,}75\rfloor + 1 = 116$.
 b) L'étendue de la fenêtre vaut $3 \times 8 + 1 = 25$ : $\big\lfloor\frac{472 + 10 - 24 - 1}{4}\big\rfloor + 1 = \lfloor 114{,}25\rfloor + 1 = 115$.
-c) La dernière fenêtre (numéro 115) commence à la case $4 \times 115 = 460$ et lit les cases 460 à 468 ; les cases 469, 470 et 471 ne sont jamais lues : 3.
-d) $\big\lfloor\frac{472 - k}{4}\big\rfloor + 1 = 110$ équivaut à $436 \le 472 - k \le 439$, soit $33 \le k \le 36$ : quatre longueurs, autant que le pas.
-e) $n_{\text{out}} = \big\lceil\frac{472}{4}\big\rceil = 118$ et $P_{\text{tot}} = (118 - 1) \times 4 + 8 + 1 - 472 = 5$ zéros en tout : $\lfloor\frac52\rfloor = 2$ au début, 3 à la fin.
-f) Les zéros insérés donnent $(1, 0, -2, 0, 3, 0, 2)$, puis la convolution pleine par $\mathbf{w}$, de $7 + 3 - 1 = 9$ valeurs. En tampons : $1 \cdot \mathbf{w} = (3, -2, 2)$ sur les cases 0 à 2, $-2\mathbf{w} = (-6, 4, -4)$ sur les cases 2 à 4, $3\mathbf{w} = (9, -6, 6)$ sur les cases 4 à 6, $2\mathbf{w} = (6, -4, 4)$ sur les cases 6 à 8 ; les cases 2, 4 et 6 en reçoivent deux : $2 - 6 = -4$, $-4 + 9 = 5$, $6 + 6 = 12$.
-g) $(m - 1)s - 2p + d(k - 1) + 1 + p_{\text{out}} = 147 - 4 + 4 + 1 + 1 = 149$.
-h) La case $j$ reçoit un tampon de chaque $i$ tel que $0 \le j - 3i \le 9$ : autant que de multiples de 3 parmi les 10 entiers consécutifs $j - 9, \ldots, j$, soit 3 ou 4 selon le reste de $j$ modulo 3 (le motif $4, 3, 3$ se répète) : 3 ne divise pas 10, le nombre n'est pas constant.
+c) $\big\lfloor\frac{472 - k}{4}\big\rfloor + 1 = 110$ équivaut à $436 \le 472 - k \le 439$, soit $33 \le k \le 36$ : quatre longueurs, autant que le pas.
+d) $n_{\text{out}} = \big\lceil\frac{472}{4}\big\rceil = 118$ et $P_{\text{tot}} = (118 - 1) \times 4 + 8 + 1 - 472 = 5$ zéros en tout : $\lfloor\frac52\rfloor = 2$ au début, 3 à la fin.
+e) Les zéros insérés donnent $(1, 0, -2, 0, 3, 0, 2)$, puis la convolution pleine par $\mathbf{w}$, de $7 + 3 - 1 = 9$ valeurs. En tampons : $1 \cdot \mathbf{w} = (3, -2, 2)$ sur les cases 0 à 2, $-2\mathbf{w} = (-6, 4, -4)$ sur les cases 2 à 4, $3\mathbf{w} = (9, -6, 6)$ sur les cases 4 à 6, $2\mathbf{w} = (6, -4, 4)$ sur les cases 6 à 8 ; les cases 2, 4 et 6 en reçoivent deux : $2 - 6 = -4$, $-4 + 9 = 5$, $6 + 6 = 12$.
+f) $(m - 1)s - 2p + d(k - 1) + 1 + p_{\text{out}} = 147 - 4 + 4 + 1 + 1 = 149$.
+g) La case $j$ reçoit un tampon de chaque $i$ tel que $0 \le j - 3i \le 9$ : autant que de multiples de 3 parmi les 10 entiers consécutifs $j - 9, \ldots, j$, soit 3 ou 4 selon le reste de $j$ modulo 3 (le motif $4, 3, 3$ se répète) : 3 ne divise pas 10, le nombre n'est pas constant.
 
-Sur ta copie : c) la dernière fenêtre lit les cases 460 à 468 ; e) il faut 5 zéros en tout : $\big\lfloor\frac{472 + 5 - 8 - 1}{4}\big\rfloor + 1 = 117 + 1 = 118$, alors qu'avec 4 zéros, $\big\lfloor\frac{467}{4}\big\rfloor + 1 = 117$ positions seulement ; f) les quatre tampons ci-dessus, les cases 2, 4 et 6 recevant chacune deux tampons (le pas 2 ne divise pas $k = 3$).
+Sur ta copie : d) il faut 5 zéros en tout : $\big\lfloor\frac{472 + 5 - 8 - 1}{4}\big\rfloor + 1 = 117 + 1 = 118$, alors qu'avec 4 zéros, $\big\lfloor\frac{467}{4}\big\rfloor + 1 = 117$ positions seulement ; e) les quatre tampons ci-dessus, les cases 2, 4 et 6 recevant chacune deux tampons (le pas 2 ne divise pas $k = 3$).
 
 **Erreurs fréquentes** :
 - en a), oublier le $+1$ (115) ou arrondir vers le haut (117) ;
 - en b), oublier la dilatation (119), ou bien obtenir 114 : en comptant le padding une seule fois, en prenant $dk$ pour l'étendue, ou en oubliant le $+1$ ;
-- en c), faire finir la dernière fenêtre en $si + k$ ;
-- en d), oublier le $+1$ ($[29, \ldots, 32]$), ou écrire $n - k + 1$ au numérateur ($[34, \ldots, 37]$) ;
-- en e), garder la règle du pas 1, 4 zéros de chaque côté, ou mettre le zéro en trop au début ;
-- en f), convoluer par le noyau retourné (on obtient $(2, -2, -1, 4, 0, -6, 13, -4, 6)$), ou écraser au lieu d'additionner là où deux tampons se recouvrent ;
-- en g), oublier $p_{\text{out}}$ (148) ou ajouter le padding au lieu de le retirer (157) ;
-- en h), ne donner que $\lfloor\frac{10}{3}\rfloor = 3$ ou $\lceil\frac{10}{3}\rceil = 4$.
+- en c), oublier le $+1$ ($[29, \ldots, 32]$), ou écrire $n - k + 1$ au numérateur ($[34, \ldots, 37]$) ;
+- en d), garder la règle du pas 1, 4 zéros de chaque côté, ou mettre le zéro en trop au début ;
+- en e), convoluer par le noyau retourné (on obtient $(2, -2, -1, 4, 0, -6, 13, -4, 6)$), ou écraser au lieu d'additionner là où deux tampons se recouvrent ;
+- en f), oublier $p_{\text{out}}$ (148) ou ajouter le padding au lieu de le retirer (157) ;
+- en g), ne donner que $\lfloor\frac{10}{3}\rfloor = 3$ ou $\lceil\frac{10}{3}\rceil = 4$.
 
 **Remédiation** : M21.6, M21.7, M21.14, M21.26, M21.Q5.
 
 ## CP5.3 — Une grille filtrée par un noyau séparable : paramètres, coût et champ récepteur ✏️ · 10 points (1,25 par sous-question)
 
-**Réponses** : a) `[[2, 1, -1], [1, -1, 3]]` · b) `[[-4, 16, 17], [16, -6, 17]]` · c) `[54, 48]` · d) `[12, 48, 72]` · e) `912` · f) `3110400` · g) `152` · h) `[20, 12]`.
+**Réponses** : a) `[[2, 1, -1], [1, -1, 3]]` · b) `[[-4, 16, 17], [16, -6, 17]]` · c) `54` · d) `[12, 48, 72]` · e) `912` · f) `3110400` · g) `152` · h) `[20, 12]`.
 
 a) La ligne 0 de $\mathbf{K}$ est $a_0\mathbf{b}^\top$ : avec $b_0 = 1$, $a_0 = K_{0,0} = 2$ et $\mathbf{b} = \frac12(2, -2, 6) = (1, -1, 3)$ ; la colonne 0 est $b_0\,\mathbf{a} = (2, 1, -1)$.
 b) En deux passes. La passe horizontale par $\mathbf{b}$, $H_{i,j} = G_{i,j} - G_{i,j+1} + 3G_{i,j+2}$, donne les lignes $(2, 7, 10)$, $(3, 2, 5)$, $(11, 0, 8)$ et $(1, 10, 1)$ ; la passe verticale par $\mathbf{a}$, $Y_{i,j} = 2H_{i,j} + H_{i+1,j} - H_{i+2,j}$ : $4 + 3 - 11 = -4$, $14 + 2 - 0 = 16$, $20 + 5 - 8 = 17$ ; $6 + 11 - 1 = 16$, $4 + 0 - 10 = -6$, $10 + 8 - 1 = 17$.
-c) En commençant par la passe horizontale : $4 \times 3$ valeurs de 3 produits (36), puis la passe verticale, $2 \times 3$ valeurs de 3 produits (18) : 54. En commençant par la passe verticale : $2 \times 5$ valeurs de 3 produits (30), puis 18 : 48. L'ordre compte, parce que la première passe doit fournir à la seconde toutes les valeurs qu'elle lit.
+c) La passe horizontale calcule $4 \times 3$ valeurs de 3 produits (36), puis la passe verticale $2 \times 3$ valeurs de 3 produits (18) : 54, en comptant toutes les multiplications, même par 1 ou par $-1$. La première passe doit fournir à la seconde toutes les valeurs qu'elle lit, donc les 4 lignes de $\mathbf{G}$.
 d) $H_{\text{out}} = \big\lfloor\frac{96 + 2 - 3}{2}\big\rfloor + 1 = 48$ et $W_{\text{out}} = \big\lfloor\frac{144 + 4 - 5}{2}\big\rfloor + 1 = 72$ : $(12, 48, 72)$.
 e) $C_{\text{out}}(C_{\text{in}}k_hk_w + 1) = 12 \times (5 \times 15 + 1) = 912$.
 f) Une multiplication-addition par poids et par position : $48 \times 72 \times 12 \times 5 \times 15 = 3\,456 \times 900 = 3\,110\,400$.
 g) Par canal : $5 \times (15 + 1) = 80$ ; $1 \times 1$ : $12 \times (5 + 1) = 72$ ; en tout 152, six fois moins que e).
-h) $r_\ell = r_{\ell-1} + d_\ell(k_\ell - 1)J_{\ell-1}$, $J_\ell = J_{\ell-1}s_\ell$ : $r = 1 + 1 = 2$ ($J = 1$), puis $2 + 3 = 5$ ($J = 3$), puis $5 + 3 \times 1 \times 3 = 14$ ($J = 3$), puis $14 + 2 \times 3 = 20$ ($J = 12$) : champ récepteur 20, pas total 12.
+h) Avec $S_\ell = s_1\cdots s_\ell$ le pas cumulé des étages 1 à $\ell$ ($S_0 = 1$) : $r_\ell = r_{\ell-1} + d_\ell(k_\ell - 1)\,S_{\ell-1}$. D'où $r = 1 + 1 = 2$ ($S_1 = 1$), puis $2 + 3 = 5$ ($S_2 = 3$), puis $5 + 3 \times 1 \times 3 = 14$ ($S_3 = 3$), puis $14 + 2 \times 3 = 20$ ($S_4 = 12$) : champ récepteur 20, pas total 12.
 
-Sur ta copie : les trois lignes de $\mathbf{K}$ sont proportionnelles à $(1, -1, 3)$ (coefficients 2, 1 et $-1$) : $\mathbf{K}$ est un produit extérieur, de rang 1 ; la passe horizontale vaut $\begin{pmatrix} 2 & 7 & 10 \\ 3 & 2 & 5 \\ 11 & 0 & 8 \\ 1 & 10 & 1 \end{pmatrix}$ ; le calcul direct fait 6 valeurs de 9 produits, 54.
+Sur ta copie : les trois lignes de $\mathbf{K}$ sont proportionnelles à $(1, -1, 3)$ (coefficients 2, 1 et $-1$) : $\mathbf{K}$ est un produit extérieur, de rang 1 ; la passe horizontale vaut $\begin{pmatrix} 2 & 7 & 10 \\ 3 & 2 & 5 \\ 11 & 0 & 8 \\ 1 & 10 & 1 \end{pmatrix}$ ; le calcul direct fait 6 valeurs de 9 produits, 54 aussi : commencer par la passe horizontale ne fait rien gagner ici, parce qu'elle doit couvrir les 4 lignes de $\mathbf{G}$. (Pour aller plus loin, non noté : en commençant par la passe verticale, $2 \times 5 \times 3 + 18 = 48$ multiplications.)
 
 **Erreurs fréquentes** :
 - en a), échanger $\mathbf{a}$ et $\mathbf{b}$ ($\mathbf{a}$ donne les lignes), ou normaliser $a_0$ au lieu de $b_0$ ;
 - en b), retourner le noyau, ou appliquer $\mathbf{a}$ le long des lignes ;
-- en c), échanger les deux ordres, ou ne faire la première passe que sur les lignes ou les colonnes de la sortie (36 et 36) ;
+- en c), commencer par la passe verticale (48), ne faire la passe horizontale que sur les 2 lignes de la sortie (36), ou ne pas compter les multiplications par $\pm 1$ (18) ;
 - en d), oublier le pas ($(12, 96, 144)$), le padding ($(12, 47, 70)$), ou donner les canaux d'entrée ;
 - en e), oublier les biais (900), ou mettre un biais par canal d'entrée (905) ;
 - en f), oublier le pas (12 441 600) ou le padding (2 961 000) ;
@@ -170,50 +168,50 @@ Sur ta copie : c) se lit sur a), par l'équivariance du cas périodique (décale
 
 ## CP5.5 — Une récurrence avec entrée : solution et réponse impulsionnelle ✏️ · 10 points (1,25 par sous-question)
 
-**Réponses** : a) `[9.08, 11.08]` · b) `[7.648, 10.48]` · c) `[0.4, 0.8]` · d) `[0, 0.3, 0.36, 0.336]` · e) `0.0264` · f) `2.16` · g) `[10, 10]` · h) `0.8`.
+**Réponses** : a) `[9.08, 11.08]` · b) `[7.648, 10.48]` · c) `[0.4, 0.8]` (dans n'importe quel ordre) · d) `[0, 0.3, 0.36, 0.336]` · e) `[0.75, -0.75]` · f) `2.16` · g) `[10, 10]` · h) `0.8`.
 
 a) $\mathbf{x}_1 = \mathbf{A}\mathbf{x}_0 + \mathbf{B}u_0 = (10 + 0{,}4 + 6 ;\ 6 + 2{,}8) = (16{,}4 ;\ 8{,}8)$, puis $\mathbf{x}_2 = \mathbf{A}\mathbf{x}_1 = (8{,}2 + 0{,}88 ;\ 4{,}92 + 6{,}16) = (9{,}08 ;\ 11{,}08)$.
 b) $\mathbf{x}_3 = \mathbf{A}\mathbf{x}_2 + (2, 0) = (4{,}54 + 1{,}108 + 2 ;\ 2{,}724 + 7{,}756) = (7{,}648 ;\ 10{,}48)$.
 c) Trace $1{,}2$, déterminant $0{,}35 - 0{,}03 = 0{,}32$ : $\lambda^2 - 1{,}2\lambda + 0{,}32 = 0$, de racines $0{,}4$ et $0{,}8$.
 d) $h_0 = \mathbf{C}\mathbf{B} = 0$ ; $\mathbf{A}\mathbf{B} = (0{,}5 ;\ 0{,}3)$, $\mathbf{A}^2\mathbf{B} = (0{,}28 ;\ 0{,}36)$, $\mathbf{A}^3\mathbf{B} = (0{,}176 ;\ 0{,}336)$ : $(0 ;\ 0{,}3 ;\ 0{,}36 ;\ 0{,}336)$.
-e) $\mathbf{B} = \frac14(1, 3) + \frac34(1, -1)$, donc $\mathbf{A}^k\mathbf{B} = \frac14\,0{,}8^k(1, 3) + \frac34\,0{,}4^k(1, -1)$ et $h_k = \frac34\big(0{,}8^k - 0{,}4^k\big)$ ; $h_{15} = 0{,}75 \times (0{,}0351844 - 0{,}0000011) \approx 0{,}0264$.
+e) Avec $\lambda_1 = 0{,}4$ et $\lambda_2 = 0{,}8$, la formule en $k = 0$ et en $k = 1$ donne $\alpha + \beta = h_0 = 0$ et $0{,}8\,\alpha + 0{,}4\,\beta = h_1 = 0{,}3$, d'où $0{,}4\,\alpha = 0{,}3$ : $\alpha = 0{,}75$ et $\beta = -0{,}75$, soit $h_k = 0{,}75\,(0{,}8^k - 0{,}4^k)$ ; on vérifie $h_2 = 0{,}75 \times (0{,}64 - 0{,}16) = 0{,}36$.
 f) La réponse forcée de $\mathbf{x}_3$ est $\mathbf{A}^2\mathbf{B}u_0 + \mathbf{A}\mathbf{B}u_1 + \mathbf{B}u_2$, et sa sortie $h_2u_0 + h_1u_1 + h_0u_2 = 0{,}36 \times 6 + 0 + 0 = 2{,}16$.
 g) $(\mathbf{I} - \mathbf{A})\mathbf{x}^\star = (4, 0)$ : $0{,}5x_1 - 0{,}1x_2 = 4$ et $-0{,}3x_1 + 0{,}3x_2 = 0$, d'où $x_1 = x_2 = 10$ mg.
 h) Les deux colonnes de $\mathbf{A}$ ont pour somme $0{,}8$ : $(1, 1)\,\mathbf{A} = 0{,}8\,(1, 1)$, donc $x_{t+1,1} + x_{t+1,2} = 0{,}8\,(x_{t,1} + x_{t,2})$ sans perfusion.
 
-Sur ta copie : les vecteurs propres se vérifient, $\mathbf{A}(1, 3) = (0{,}8 ;\ 2{,}4)$ et $\mathbf{A}(1, -1) = (0{,}4 ;\ -0{,}4)$ ; $\mathbf{B} = \frac14(1, 3) + \frac34(1, -1)$ et $h_k = \frac34(0{,}8^k - 0{,}4^k)$ ; une colonne de $\mathbf{A}$ dit où va le médicament d'un compartiment (gardé, passé à l'autre) : sa somme est la part qui n'est pas éliminée, 80 % pour les deux. (Pour aller plus loin, non noté : la réponse libre de $y_3$ vaut $8{,}32$ et $y_3 = 10{,}48 = 8{,}32 + 2{,}16$ ; la quantité totale à l'équilibre, 20 mg, vérifie $20 = 0{,}8 \times 20 + 4$.)
+Sur ta copie : e) les deux équations $\alpha + \beta = 0$ et $0{,}8\,\alpha + 0{,}4\,\beta = 0{,}3$ ; h) une colonne de $\mathbf{A}$ dit où va le médicament d'un compartiment (gardé, passé à l'autre) : sa somme est la part qui n'est pas éliminée, 80 % pour les deux. (Pour aller plus loin, non noté : la même formule s'obtient en écrivant $\mathbf{B} = \frac14(1, 3) + \frac34(1, -1)$ sur les vecteurs propres $(1, 3)$ et $(1, -1)$, et donne par exemple $h_{15} \approx 0{,}0264$ ; la réponse libre de $y_3$ vaut $8{,}32$ et $y_3 = 10{,}48 = 8{,}32 + 2{,}16$ ; la quantité totale à l'équilibre, 20 mg, vérifie $20 = 0{,}8 \times 20 + 4$.)
 
 **Erreurs fréquentes** :
 - en a), multiplier par $\mathbf{A}^\top$ (on obtient $(10{,}04 ;\ 5{,}08)$), ou oublier la perfusion $u_0$ ;
 - en b), oublier $u_2$ ;
 - en c), prendre les coefficients diagonaux (0,5 et 0,7), ou se tromper de signe dans le polynôme caractéristique ($-0{,}8$ et $-0{,}4$) ;
 - en d), commencer à $h_1$, ou lire le coefficient $(1, 2)$ de $\mathbf{A}^k$ (une perfusion dans les tissus mesurée dans le sang) ;
-- en e), un décalage d'indice ($h_{14}$ ou $h_{16}$), ou oublier le facteur $\frac34$ ;
-- en f), donner la réponse libre (8,32) ou $y_3$ tout entier (10,48), ou porter $u_0$ par $h_3$ ;
+- en e), échanger $\alpha$ et $\beta$, ou faire commencer la formule à $k = 1$ (on obtient $\alpha = 0{,}6$ et $\beta = -0{,}3$) ;
+- en f), donner la réponse libre (8,32) ou $y_3$ tout entier (10,48), ou oublier le pas de décalage et porter $u_0$ par $h_3$ (2,616) ;
 - en g), le système transposé, ou la quantité totale à l'équilibre recopiée dans chaque compartiment ;
-- en h), donner la plus petite valeur propre.
+- en h), donner la plus petite valeur propre, ou croire que la quantité totale se conserve (1).
 
 **Remédiation** : M22.1, M22.2, M22.7, M22.19, M22.Q1, M22.R1.
 
 ## CP5.6 — Valeurs propres complexes, rayon spectral, normes et croissance transitoire ✏️ · 10 points (1,25 par sous-question)
 
-**Réponses** : a) `[0.75, 0.4330]` · b) `0.8660` · c) `"pi/6"` · d) `[[-1.125, -1.5], [1.125, 1.125]]` · e) `[[-0.421875, 0], [0, -0.421875]]` · f) `[2.5, 2.25]` · g) `1.9128` · h) `[1, 2]`.
+**Réponses** : a) `[0.75, 0.4330]` · b) `0.8660` · c) `"pi/6"` (l'argument principal) · d) `[[-1.125, -1.5], [1.125, 1.125]]` · e) `[[-0.421875, 0], [0, -0.421875]]` · f) `[2.5, 2.25]` · g) `1.9128` · h) `[1, 2]`.
 
 a) Trace 1,5, déterminant $0 + 0{,}75 = 0{,}75$ : $\lambda^2 - 1{,}5\lambda + 0{,}75 = 0$, de discriminant $2{,}25 - 3 = -0{,}75$, d'où $\lambda = 0{,}75 \pm i\,\frac{\sqrt{0{,}75}}{2} \approx 0{,}75 \pm 0{,}4330\,i$.
 b) $\lvert\lambda\rvert = \sqrt{\det\mathbf{M}} = \sqrt{0{,}75} \approx 0{,}8660$.
-c) $\cos\theta = \frac{0{,}75}{\sqrt{0{,}75}} = \sqrt{0{,}75} = \frac{\sqrt3}{2}$ et $\sin\theta > 0$ : $\theta = \frac\pi6$.
+c) $\cos\theta = \frac{0{,}75}{\sqrt{0{,}75}} = \sqrt{0{,}75} = \frac{\sqrt3}{2}$ et $\sin\theta > 0$ : $\theta = \frac\pi6$, dans $]-\pi, \pi]$.
 d) $\mathbf{M}^2 = \begin{pmatrix} -0{,}75 & -1{,}5 \\ 1{,}125 & 1{,}5 \end{pmatrix}$, puis $\mathbf{M}^3 = \mathbf{M}^2\mathbf{M} = \begin{pmatrix} -1{,}125 & 0{,}75 - 2{,}25 \\ 1{,}125 & -1{,}125 + 2{,}25 \end{pmatrix} = \begin{pmatrix} -1{,}125 & -1{,}5 \\ 1{,}125 & 1{,}125 \end{pmatrix}$.
 e) $\mathbf{M}^6 = (\mathbf{M}^3)^2 = \begin{pmatrix} -0{,}421875 & 0 \\ 0 & -0{,}421875 \end{pmatrix}$ : $\mathbf{M}$ est semblable à $\sqrt{0{,}75}\,\mathbf{R}_{\pi/6}$, et six pas font un demi-tour ($\mathbf{R}_\pi = -\mathbf{I}$) et un facteur $0{,}75^3 = 0{,}421875$.
 f) Colonnes : $0 + 0{,}75 = 0{,}75$ et $1 + 1{,}5 = 2{,}5$ ; lignes : $1$ et $0{,}75 + 1{,}5 = 2{,}25$.
 g) $\mathbf{M}^\top\mathbf{M} = \begin{pmatrix} 0{,}5625 & 1{,}125 \\ 1{,}125 & 3{,}25 \end{pmatrix}$, de trace $3{,}8125$ et de déterminant $0{,}5625$ : $\lambda_{\max} = \frac{3{,}8125 + \sqrt{3{,}8125^2 - 2{,}25}}{2} \approx 3{,}658759$, et $\lVert\mathbf{M}\rVert_2 \approx 1{,}9128$.
 h) $\rho(\mathbf{M}) < 1$ : les puissances tendent vers $\mathbf{0}$ (1). $\frac{2}{\sqrt3}\,\mathbf{M}$ a des valeurs propres distinctes de module 1, et $\big(\frac{2}{\sqrt3}\,\mathbf{M}\big)^6 = \frac{64}{27}\,\mathbf{M}^6 = -\mathbf{I}$ : ses puissances reviennent à $\mathbf{I}$ tous les 12 pas, bornées sans tendre vers $\mathbf{0}$ (2).
 
-Sur ta copie : $\mathbf{M}\,(0, 1) = (-1 ;\ 1{,}5)$, de norme $\sqrt{3{,}25} \approx 1{,}803 > 1$ : un pas peut allonger, alors que $\rho < 1$ ; $\mathbf{M}$ n'est pas normale : $\mathbf{M}\mathbf{M}^\top = \begin{pmatrix} 1 & -1{,}5 \\ -1{,}5 & 2{,}8125 \end{pmatrix} \ne \mathbf{M}^\top\mathbf{M}$. (Pour aller plus loin, non noté : $\lVert\mathbf{M}^t\rVert_2$ vaut $1{,}913$ ; $2{,}506$ ; $2{,}453$ ; $1{,}879$ ; $1{,}076$ ; $0{,}422$ pour $t = 1$ à 6 : elle monte pendant deux pas avant de décroître, une croissance transitoire.)
+Sur ta copie : $\mathbf{M}\,(0, 1) = (-1 ;\ 1{,}5)$, de norme $\sqrt{3{,}25} \approx 1{,}803 > 1$ : un pas peut allonger, alors que $\rho < 1$. (Pour aller plus loin, non noté : $\mathbf{M}$ n'est pas normale, $\mathbf{M}\mathbf{M}^\top = \begin{pmatrix} 1 & -1{,}5 \\ -1{,}5 & 2{,}8125 \end{pmatrix} \ne \mathbf{M}^\top\mathbf{M}$ ; $\lVert\mathbf{M}^t\rVert_2$ vaut $1{,}913$ ; $2{,}506$ ; $2{,}453$ ; $1{,}879$ ; $1{,}076$ ; $0{,}422$ pour $t = 1$ à 6 : elle monte pendant deux pas avant de décroître, une croissance transitoire.)
 
 **Erreurs fréquentes** :
 - en a), la valeur propre de partie imaginaire négative ;
 - en b), prendre la partie réelle $\frac{\operatorname{tr}}{2} = 0{,}75$, ou $\det\mathbf{M} = 0{,}75$ sans la racine ;
-- en c), $-\frac\pi6$, ou $\frac\pi3$ en confondant cosinus et sinus ;
+- en c), $-\frac\pi6$, $\frac\pi3$ en confondant cosinus et sinus, ou un angle égal à $2\pi$ près, hors de $]-\pi, \pi]$ ;
 - en d), élever chaque coefficient au cube, ou s'arrêter à $\mathbf{M}^2$ ;
 - en e), oublier le signe ($\mathbf{R}_\pi = -\mathbf{I}$) ;
 - en f), additionner les coefficients avec leurs signes, ou échanger les deux normes ;
@@ -233,9 +231,9 @@ d) Avec $\beta = 2$ : $x_1 = 36 - 12 + 1 = 25$, $x_2 = 16$, $x_3 = 9$. $J_t = 1 
 e) $s_3 = -3{,}6 - 3{,}75 - 4 = -11{,}35$.
 f) $0{,}1 \times (-11{,}35) = -1{,}135$ cm.
 
-Sur ta copie : $x_1 = 25$, $x_2 = 16$, $x_3 = 9$, les $J_t$ et les $b_t$ de d) ; $\frac{\partial x_3}{\partial x_0} = J_2J_1J_0 = \frac34 \times \frac45 \times \frac56 = 0{,}5$, donc, au premier ordre, $x_3$ monte de $0{,}5$ cm quand $x_0$ passe de 36 à 37 ; exactement, $x_1 \approx 25{,}8345$, $x_2 \approx 16{,}6689$, $x_3 \approx 9{,}5034$, soit $+0{,}5034$ cm. Le niveau de départ s'oublie à moitié en trois pas, alors que $\beta$, qui sert à chaque pas, s'accumule.
+Sur ta copie : $x_1 = 25$, $x_2 = 16$, $x_3 = 9$, les $J_t$ et les $b_t$ de d) ; $\frac{\partial x_3}{\partial x_0} = J_2J_1J_0 = \frac34 \times \frac45 \times \frac56 = 0{,}5$, donc, au premier ordre, $x_3$ monte de $0{,}5$ cm quand $x_0$ passe de 36 à 37. Le niveau de départ s'oublie à moitié en trois pas, alors que $\beta$, qui sert à chaque pas, s'accumule. (Pour aller plus loin, non noté : exactement, $x_3 \approx 9{,}5034$ pour $x_0 = 37$, soit $+0{,}5034$ cm ; et, pour $\beta = 2{,}1$, $x_3 \approx 7{,}8862$, soit $-1{,}114$ cm au lieu de $-1{,}135$ au premier ordre.)
 
-**Erreurs fréquentes** : en a), s'arrêter à $\mathbf{p}_1$ ; en b), multiplier dans l'ordre du temps (on obtient $\begin{pmatrix} 2{,}25 & 0{,}5 \\ 0 & 3{,}25 \end{pmatrix}$), ou évaluer les jacobiennes aux mauvais points ; en c), prendre les sommes de colonnes, ou la norme du produit dans le mauvais ordre (3,25) ; en d), oublier les jacobiennes des pas suivants ($-6$, $-5$, $-4$), ou ranger les termes dans l'autre ordre ; en e), la somme des $b_t$ ($-15$), ou le seul dernier terme ; en f), oublier de multiplier par $\Delta\beta$, ou se tromper de signe.
+**Erreurs fréquentes** : en a), s'arrêter à $\mathbf{p}_1$ ; en b), multiplier dans l'ordre du temps (on obtient $\begin{pmatrix} 2{,}25 & 0{,}5 \\ 0 & 3{,}25 \end{pmatrix}$), ou évaluer les jacobiennes aux mauvais points ; en c), prendre les sommes de colonnes, ou la norme du produit dans le mauvais ordre (3,25) ; en d), oublier les jacobiennes des pas suivants ($-6$, $-5$, $-4$), ou ranger les termes dans l'autre ordre ; en e), la somme des $b_t$ ($-15$), ou le seul dernier terme ; en f), oublier de multiplier par $\Delta\beta$, se tromper de signe, ou donner le changement exact ($-1{,}114$) au lieu du premier ordre.
 **Remédiation** : M22.8, M22.9, M22.15, M22.21, M22.Q6, M22.Q7, M22.R3.
 
 ## CP5.8 — Une démonstration au choix ∂ · 12 points (3 par étape)
@@ -313,18 +311,18 @@ Les lignes justes :
 
 ## CP5.10 — Problème de synthèse : un filtre récursif et un filtre à réponse finie, du signal à la stabilité 🔗 · 14 points (2 par sous-question)
 
-**Réponses** : a) `[0, 0.4, 0.48, 0.352, 0.1536]` · b) `[0, 1.6, 1.12, 0.448, 1.1104]` · c) `0.7483` · d) `[1.1, 1.1, 0.8]` · e) `28` · f) `1.3984` · g) `"10/9"`.
+**Réponses** : a) `[0, 0.4, 0.48, 0.352, 0.1536]` · b) `[0, 1.6, 1.12, 0.448, 1.1104]` · c) `0.7483` · d) `[1.1, 1.1, 0.8]` · e) `28` · f) `1.3856` · g) `"10/9"`.
 
 a) $h_k$ est la seconde coordonnée de $\mathbf{A}^k\mathbf{B}$ : $\mathbf{B} = (1, 0)$, $\mathbf{A}\mathbf{B} = (0{,}6 ;\ 0{,}4)$, $\mathbf{A}^2\mathbf{B} = (0{,}16 ;\ 0{,}48)$, $\mathbf{A}^3\mathbf{B} = (-0{,}144 ;\ 0{,}352)$, $\mathbf{A}^4\mathbf{B} = (-0{,}2624 ;\ 0{,}1536)$.
 b) $y_{t+1} = \sum_{k \le t}h_{t-k}u_k$ : $y_1 = 0$ ; $y_2 = 0{,}4 \times 4 = 1{,}6$ ; $y_3 = 0{,}48 \times 4 + 0{,}4 \times (-2) = 1{,}12$ ; $y_4 = 0{,}352 \times 4 + 0{,}48 \times (-2) + 0 = 0{,}448$ ; $y_5 = 0{,}1536 \times 4 + 0{,}352 \times (-2) + 0 + 0{,}4 \times 3 = 1{,}1104$.
 c) Trace $1{,}2$, déterminant $0{,}36 + 0{,}2 = 0{,}56$, discriminant $1{,}44 - 2{,}24 < 0$ : $\lambda = 0{,}6 \pm i\sqrt{0{,}2}$, de module $\sqrt{0{,}56} \approx 0{,}7483$.
 d) Colonnes : $1$ et $1{,}1$ ; lignes : $1{,}1$ et $1$. $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 0{,}52 & -0{,}06 \\ -0{,}06 & 0{,}61 \end{pmatrix}$, de trace $1{,}13$ et de déterminant $0{,}3136$ : valeurs propres $\frac{1{,}13 \pm 0{,}15}{2}$, soit $0{,}64$ et $0{,}49$, et $\lVert\mathbf{A}\rVert_2 = \sqrt{0{,}64} = 0{,}8$.
 e) $\lvert y_t - z_t\rvert = \big\lvert\sum_{k \ge K}h_ku_{t-1-k}\big\rvert \le \sum_{k \ge K}\lvert h_k\rvert \le \sum_{k \ge K}0{,}8^k = \frac{0{,}8^K}{0{,}2}$ (une série géométrique). Il faut $0{,}8^K \le 0{,}002$, soit $K \ge \frac{\ln 500}{\ln 1{,}25} \approx 27{,}85$ : $K = 28$.
-f) $z_t = \sum_{k=0}^{5}g_k\,u_{t-1-k}$ est une forme linéaire en les entrées, de poids $\mathbf{g}$ ; sur la boule L∞ de rayon 1, son maximum vaut $\lVert\mathbf{g}\rVert_1$ (M21 §8). $h_5 = -0{,}0128$ (la seconde coordonnée de $\mathbf{A}^5\mathbf{B} = (-0{,}23424 ;\ -0{,}0128)$), donc $\lVert\mathbf{g}\rVert_1 = 0 + 0{,}4 + 0{,}48 + 0{,}352 + 0{,}1536 + 0{,}0128 = 1{,}3984$.
+f) $z_t = \sum_{k=0}^{4}g_k\,u_{t-1-k}$ est une forme linéaire en les entrées, de poids $\mathbf{g} = (h_0, \ldots, h_4)$ ; sur la boule L∞ de rayon 1, son maximum vaut $\lVert\mathbf{g}\rVert_1$ (M21 §8) : $0 + 0{,}4 + 0{,}48 + 0{,}352 + 0{,}1536 = 1{,}3856$, atteint quand les cinq dernières entrées valent 1 (les cinq poids sont positifs ou nuls).
 g) À l'équilibre, $\mathbf{x}^\star = (\mathbf{I} - \mathbf{A})^{-1}\mathbf{B}$, et $y_t \to \mathbf{C}\mathbf{x}^\star$ puisque $\rho(\mathbf{A}) < 1$. $\mathbf{I} - \mathbf{A} = \begin{pmatrix} 0{,}4 & 0{,}5 \\ -0{,}4 & 0{,}4 \end{pmatrix}$, de déterminant $0{,}36$ : $\mathbf{x}^\star = \frac{1}{0{,}36}(0{,}4 ;\ 0{,}4)$, et $y_t \to \frac{0{,}4}{0{,}36} = \frac{10}{9}$ (c'est aussi $\sum_k h_k$).
 
 Sur ta copie :
-- Les valeurs propres de $\mathbf{A}$ : $0{,}6 \pm 0{,}4472\,i$ ; la réponse impulsionnelle oscille en s'amortissant ($h_5 < 0$).
+- Les valeurs propres de $\mathbf{A}$ : $0{,}6 \pm 0{,}4472\,i$ ; la réponse impulsionnelle oscille en s'amortissant (le terme suivant, $h_5 = -0{,}0128$, est négatif : pour $K = 6$, il faudrait prendre sa valeur absolue).
 - $\lVert\mathbf{A}\rVert_1 = \lVert\mathbf{A}\rVert_\infty > 1$ : la majoration $\lvert h_k\rvert \le \lVert\mathbf{A}\rVert_1^k$ grandit avec $k$ et ne borne aucune queue ; il faut une norme induite plus petite que 1, ici $\lVert\cdot\rVert_2$.
 - Pour aller plus loin (non noté) : la vraie queue $\sum_{k \ge 28}\lvert h_k\rvert$ vaut environ $0{,}0006$, quinze fois moins que la borne. La norme 2 ($0{,}8$) majore chaque pas, alors que le rythme réel à long terme est $\rho \approx 0{,}748$. Le filtre récursif coûte, par sortie, les 4 multiplications de $\mathbf{A}\mathbf{x}_t$ et garde 2 nombres en mémoire ; le filtre à réponse finie de e) coûte 28 multiplications et garde 28 entrées.
 
@@ -334,7 +332,7 @@ Sur ta copie :
 - en c), donner la partie réelle (0,6) ou le déterminant (0,56) ;
 - en d), oublier la racine carrée (0,64), ou donner $\rho$ pour $\lVert\mathbf{A}\rVert_2$ ;
 - en e), arrondir vers le bas (27), utiliser $\rho$ (ce n'est pas une majoration de chaque pas), ou oublier le facteur $\frac{1}{1 - \lVert\mathbf{A}\rVert}$ de la queue (21) ;
-- en f), additionner les poids avec leurs signes (1,3728), ou ne garder que 4 termes ;
+- en f), ne garder que 4 termes (1,232), ou en prendre 6 (1,3984) ;
 - en g), inverser $\mathbf{I} - \mathbf{A}^\top$, ou ne sommer que quelques termes de $\mathbf{h}$.
 
 **Remédiation** : M21.11, M21.16, M22.2, M22.4, M22.6, M22.11, M22.19, M22.Q3, M22.R2.
