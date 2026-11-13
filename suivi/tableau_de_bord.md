@@ -1907,3 +1907,20 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M22.28 🏆 Défi : une matrice 3 × 3 à coefficients dans [−3, 3], de rayon spectral 0,85, dont une puissance a une norme ‖·‖₂ supérieure à 100 ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M22 -->
+
+<!-- wbm:section CP5 -->
+## CP5 · Examen blanc de la partie V ⏱️ 3,1 h
+
+- [ ] CP5.Q1 🧠 Dix affirmations sur la partie V : vrai ou faux ★ 10 min
+- [ ] CP5.1 ✏️ Convolution de deux suites, corrélation croisée et matrice de Toeplitz ★★ 10 min
+- [ ] CP5.2 ✏️ Positions d'une fenêtre, pas, dilatation, et la convolution transposée d'un signal ★★ 10 min
+- [ ] CP5.3 ✏️ Une grille filtrée par un noyau séparable : paramètres, coût et champ récepteur ★★ 10 min
+- [ ] CP5.4 ✏️ Équivariance, matrice circulante et le pire cas d'une perturbation bornée ★★ 9 min
+- [ ] CP5.5 ✏️ Une récurrence avec entrée : solution et réponse impulsionnelle ★★ 10 min
+- [ ] CP5.6 ✏️ Valeurs propres complexes, rayon spectral, normes et croissance transitoire ★★ 10 min
+- [ ] CP5.7 ✏️ Produits de jacobiennes le long d'une trajectoire, et sensibilité à un paramètre utilisé à chaque pas ★★ 9 min
+- [ ] CP5.8 ∂ Une démonstration au choix : une convolution pleine est injective, ou la série I + A + A² + … quand ‖A‖ < 1 ★★★ 12 min
+- [ ] CP5.9 🐛 Corriger une copie : cinq erreurs ★★ 8 min
+- [ ] CP5.10 🔗 Problème de synthèse : un filtre récursif et un filtre à réponse finie, du signal à la stabilité ★★ 14 min
+- [ ] CP5.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP5 -->

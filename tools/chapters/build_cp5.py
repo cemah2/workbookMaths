@@ -13,25 +13,36 @@ its last step, nor another sub-question. The solutions notebook records the answ
 numbers of the statement, with NumPy (convolutions, matrix powers, eigenvalues, norms) and exact fractions (the
 recurrences, the jacobians, the limits and bounds), cross-checked by asserts (brute force on the windows, the stamps,
 the receptive field, the vertices of the cube, finite differences); the cells are tagged `answer` and read by
-build_answers.py. 60 checks: CP5.1 to CP5.7, the letters of CP5.9 a) and CP5.10 a) to g). Not in the notebook: the
-true/false quiz CP5.Q1, the proof CP5.8 and the corrections of CP5.9 b) (only its letters are checked).
+build_answers.py. 58 checks: CP5.1 to CP5.7, the letters of CP5.9 a) and CP5.10 a) to g). Not in the notebook: the
+true/false quiz CP5.Q1, the proof CP5.8, the corrections of CP5.9 b) and the justifications « sur ta copie ».
+
+Decimals, as the column « Réponse attendue » of the statement says: « valeur exacte » (a decimal with few decimals) is
+recorded with decimals=6, the convention of the repository for an exact value, so that the value is accepted as it is
+and a rounded value is told « donne la valeur exacte », never « l'énoncé en demande 4 »; « 4 décimales » (CP5.6 a, b,
+g, CP5.10 c) and « 3 décimales » (CP5.4 f) are recorded with those decimals. The wrong values that a learner types
+rounded (an irrational wrong value inside a list of exact values) are recorded both exact and rounded.
 
 Accepted forms: a tuple for a list, a fraction or a decimal for a number (a fraction typed between quotes is read),
-a complex number a + bj for the list [a, b] of CP5.6 a) (converted in the check cell), the window lengths of CP5.2 d)
-and the values of CP5.2 h) in any order (sets); the behaviour of powers is a code 1, 2 or 3 (a word would refuse
-correct synonyms), the argument of CP5.6 c) an exact angle (degrees are recognised and refused with a message), the
-limit of CP5.10 g) an irreducible fraction, as the statement asks; M⁶ of CP5.6 e) is exact with 6 decimals and is
-checked on 4, so that its value rounded to 4 decimals passes too.
+a complex number a + bj for the list [a, b] of CP5.6 a) (converted in the check cell). The lists that the statement
+asks « dans n'importe quel ordre » are sets: CP5.2 c) and g), CP5.5 c) (and CP5.9 a), whose letters are read in any
+order); elsewhere the order counts. The behaviour of powers is a code 1, 2 or 3 (a word would refuse correct
+synonyms), the argument of CP5.6 c) the principal one, as an exact angle (degrees, and the same angle up to 2π, get
+a message), the limit of CP5.10 g) an irreducible fraction, as the statement asks. CP5.6 a) asks for 4 decimals: a
+list written in exact form (["3/4", "sqrt(3)/4"]) gets, in the check cell, the message that wbm gives a single number
+written so (CP5.6 b). Each answer cell recalls that a decimal comma (0,0264) stops the cell, which then stops
+« Run all »: a decimal point, or the text between quotes.
 
-The data are those of 01_examen_sujet.md, version 2 of session 59, after the two reviews (sharing rule, exam taken
-blind): w = (3, 0, −2, 1) in CP5.1; the window lengths k that give 110 positions (CP5.2 d) and k = 10, s = 3
-(CP5.2 h); in CP5.3, the two orders of the two passes (c), kernels 3 × 5 with a padding of 1 in height and 2 in width
-(d to g) and the stack (2, 1, 1), (4, 3, 1), (2, 1, 3), (3, 4, 1) (h); strain gauges on the five blades of a rotor
-with h = (1, −4, 2, 3, −2) and the largest INCREASE of z₁ (CP5.4); a drug between blood and tissues, same numbers,
-the eigenvalues in c) (CP5.5); M = [[0, −1], [0.75, 1.5]], M³, M⁶ and (2/√3) M (CP5.6); new lines in CP5.9, same
-letters; no γ-stability in CP5.10 (h and i removed). The data were chosen and checked against both repositories by
-the author of the statement: none comes from M21, M22, CP0 to CP4, chapters 21 to 24 of workbookIA, its checkpoint V
-or its mini-project V. No seed: no random draw.
+The data are those of 01_examen_sujet.md, version 3 of session 59 (after the two reviews and the simulated
+candidate, the exam lightened): w = (3, 0, −2, 1) in CP5.1 (h, the row of V, removed); in CP5.2, c) removed and d) to
+h) renamed c) to g), the window lengths k that give 110 positions (c) and k = 10, s = 3 (g); in CP5.3, c) a single
+count, the horizontal pass first, every multiplication counted, kernels 3 × 5 with a padding of 1 in height and 2 in
+width (d to g) and the stack (2, 1, 1), (4, 3, 1), (2, 1, 3), (3, 4, 1) (h); strain gauges on the five blades of a
+rotor with h = (1, −4, 2, 3, −2) and the largest INCREASE of z₁ (CP5.4); a drug between blood and tissues, same
+numbers, the eigenvalues in c) and the coefficients [α, β] of h_k = α λ₂ᵏ + β λ₁ᵏ in e) (CP5.5);
+M = [[0, −1], [0.75, 1.5]], M³, M⁶ and (2/√3) M (CP5.6); new lines in CP5.9, same letters; K = 5 in CP5.10 f) and no
+γ-stability (h and i removed). The data were chosen and checked against both repositories by the author of the
+statement: none comes from M21, M22, CP0 to CP4, chapters 21 to 24 of workbookIA, its checkpoint V or its
+mini-project V. No seed: no random draw.
 """
 
 from __future__ import annotations
@@ -209,8 +220,7 @@ NNZ_1 = int(np.count_nonzero(T40_1))
 T6_1 = toeplitz(W_1, N_1)
 V_1 = T6_1[K_1 - 1:N_1]                                    # valid mode: the rows of the complete windows
 assert (V_1 @ X_1).tolist() == VALID_1.tolist()
-V_ORDER_1 = np.zeros(N_1)
-V_ORDER_1[1:1 + K_1] = W_1                                 # row 1 with the kernel in order
+
 
 
 # CP5.2 (1): the windows of k = 9 weights on n = 472 samples
@@ -235,13 +245,6 @@ B_SLIPS_2 = {(N_2 + 5 - 3 * (K_2 - 1) - 1) // S_2 + 1,      # the padding counte
              (N_2 + 10 - 3 * (K_2 - 1) - 1) // S_2}        # the + 1 forgotten
 B_UP_2 = {-(-(N_2 + 10 - 3 * (K_2 - 1) - 1) // S_2) + 1, POS_A_2}   # rounded up, or neither p nor d
 NOPAD_B_2 = positions(N_2, K_2, S_2, d=3)
-LAST_2 = S_2 * (POS_A_2 - 1) + K_2 - 1                     # the last case read by the last window
-UNREAD_2 = N_2 - 1 - LAST_2
-assert positions(LAST_2 + 1, K_2, S_2) == POS_A_2 and all(
-    positions(n, K_2, S_2) == POS_A_2 for n in range(LAST_2 + 1, N_2 + 1))
-UNREAD_LONG_2 = N_2 - 1 - (S_2 * (POS_A_2 - 1) + K_2)      # a window that ends at s i + k
-UNREAD_SHORT_2 = N_2 - 1 - (S_2 * (POS_A_2 - 1) + K_2 - 2)
-UNREAD_STEP_2 = N_2 - S_2 * POS_A_2                        # counted from the start of a window that does not exist
 WINDOWS_2 = [k for k in range(1, N_2 + 1) if positions(N_2, k, S_2) == 110]       # the window lengths k
 assert all(positions_counted(N_2, k, S_2) == 110 for k in WINDOWS_2)
 NO_ONE_2 = [k for k in range(1, N_2 + 1) if (N_2 - k) // S_2 == 110]             # the + 1 forgotten
@@ -302,9 +305,11 @@ assert (correlate2d(HORIZONTAL_3, A_3[:, None]) == Y_3).all() and (correlate2d(V
 CONV_3 = correlate2d(G_3, K_3[::-1, ::-1])                 # the 2D convolution: a half-turn of the kernel
 TRANSPOSED_3 = correlate2d(G_3, K_3.T)
 DIRECT_3 = Y_3.size * K_3.size                             # for the copy: one product per weight and per output
-H_FIRST_3 = HORIZONTAL_3.size * len(B_3) + Y_3.size * len(A_3)
-V_FIRST_3 = VERTICAL_3.size * len(A_3) + Y_3.size * len(B_3)
-NARROW_3 = Y_3.size * len(B_3) + Y_3.size * len(A_3)       # the first pass on the rows or columns of the output only
+H_FIRST_3 = HORIZONTAL_3.size * len(B_3) + Y_3.size * len(A_3)   # the horizontal pass first, then the vertical one
+V_FIRST_3 = VERTICAL_3.size * len(A_3) + Y_3.size * len(B_3)     # the other order
+NARROW_3 = Y_3.size * len(B_3) + Y_3.size * len(A_3)       # the first pass on the rows of the output only
+NOT_ONE_3 = int(HORIZONTAL_3.size * sum(abs(b) != 1 for b in B_3)
+                + Y_3.size * sum(abs(a) != 1 for a in A_3))   # the multiplications by 1 or −1 skipped
 
 # CP5.3 (2): the thermal camera, (5, 96, 144) -> 12 channels, kernels 3 x 5, bias, padding 1 in height and 2 in
 # width, stride 2 along both axes
@@ -432,8 +437,15 @@ assert np.allclose(floats(H_5), [sum(b * float(lam) ** k * float(VEC_5[lam][1]) 
                                  for k in range(20)])      # h_k = Σ (coefficient of B) λ^k (C v)
 H12_5 = [fpow(A_5, k)[0][1] for k in range(20)]           # the coefficient (1, 2) of A^k
 FIRST_5 = [fmatvec(fpow(A_5, k), B_5)[0] for k in range(20)]          # C = (1 0): the other coordinate
-GEOM_5 = LAM_5[1] ** 15 - LAM_5[0] ** 15                   # B taken with coefficients 1 on the eigenvectors
+L1_5, L2_5 = LAM_5                                         # λ1 < λ2
+BETA_5 = (H_5[1] - L2_5 * H_5[0]) / (L1_5 - L2_5)           # α + β = h_0 and α λ2 + β λ1 = h_1
+ALPHA_5 = H_5[0] - BETA_5
+assert all(ALPHA_5 * L2_5 ** k + BETA_5 * L1_5 ** k == H_5[k] for k in range(20))
+LATE_5 = [ALPHA_5 * L2_5, BETA_5 * L1_5]                    # the formula started at k = 1
+B_ON_5 = [Fraction(COEF_B_5[1]).limit_denominator(100), Fraction(COEF_B_5[0]).limit_denominator(100)]
+assert B_ON_5[0] * VEC_5[L2_5][1] == ALPHA_5 and B_ON_5[1] * VEC_5[L1_5][1] == BETA_5   # times what C reads
 FORCED_5 = sum(H_5[2 - k] * U_5[k] for k in range(3))      # y_3 = (h * u)_2 + C A^3 x_0
+NO_SHIFT_5 = sum(H_5[3 - k] * U_5[k] for k in range(3))    # y_3 read as (h * u)_3: the shift forgotten
 FREE_Y3_5 = sum(c * v for c, v in zip(C_5, fmatvec(fpow(A_5, 3), X0_5)))
 assert FORCED_5 + FREE_Y3_5 == XS_5[3][1]
 CARRIED_5 = H_5[3] * U_5[0]                                # u_0 carried by A^3 instead of A^2
@@ -572,11 +584,10 @@ NO_FACTOR_10 = next(K for K in range(1, 500) if NORM2_10 ** K <= TARGET_10)
 WITH_RHO_10 = next(K for K in range(1, 500) if RHO_10 ** K / (1 - RHO_10) <= 0.01)
 assert NO_FACTOR_10 == WITH_RHO_10                         # two mistakes, one value: one message
 RHO_ONLY_10 = next(K for K in range(1, 500) if RHO_10 ** K <= 0.01)
-G6_10 = H_10[:6]
-WORST_10 = sum(abs(h) for h in G6_10)
-assert max(abs(sum(g * u for g, u in zip(G6_10, signs))) for signs in product((-1, 1), repeat=6)) == WORST_10
-WORST_SLIPS_10 = {"signs": sum(G6_10), "four": sum(abs(h) for h in H_10[:4]), "five": sum(abs(h) for h in H_10[:5]),
-                  "seven": sum(abs(h) for h in H_10[:7])}
+G5_10 = H_10[:5]                                           # K = 5: h_0, ..., h_4
+WORST_10 = sum(abs(h) for h in G5_10)
+assert max(abs(sum(g * u for g, u in zip(G5_10, signs))) for signs in product((-1, 1), repeat=5)) == WORST_10
+WORST_SLIPS_10 = {"four": sum(abs(h) for h in H_10[:4]), "six": sum(abs(h) for h in H_10[:6])}
 I_MINUS_10 = [[int(i == j) - A_10[i][j] for j in range(2)] for i in range(2)]
 LIMIT_10 = sum(c * v for c, v in zip(C_10, fmatvec(finv2(I_MINUS_10), B_10)))
 assert abs(float(sum(H_10)) - float(LIMIT_10)) < 1e-8      # also the sum of the impulse response
@@ -611,11 +622,6 @@ PAPER = [
         ("g", "an integer", "NNZ_1",
          'mistakes={"un coefficient nul du noyau ne donne aucun coefficient non nul dans la matrice": K_1 * 40, '
          '"la question compte les coefficients non nuls, pas tous les coefficients de la matrice": int(T40_1.size)}'),
-        ("h", "a list of 6 integers", "ints(V_1[1])",
-         'mistakes={"dans une ligne, Tᵢⱼ = w_(i−j) : quand j croît, l\'indice du noyau décroît": ints(V_ORDER_1), '
-         '"V ne garde que les lignes des fenêtres complètes : sa ligne 1 n\'est pas la ligne 1 de la matrice '
-         'pleine": ints(T6_1[1]), "les lignes sont numérotées à partir de 0 : la ligne 1 est la deuxième": '
-         'ints(V_1[0])}'),
     ]),
     Paper("CP5.2", "Positions d'une fenêtre, pas, dilatation, et la convolution transposée d'un signal", [
         ("a", "an integer", "POS_A_2",
@@ -629,32 +635,27 @@ PAPER = [
          '"la partie entière est inférieure, et la formule tient compte du padding et de la dilatation de la '
          'question": B_UP_2, "le padding p ajoute p zéros de chaque côté du signal avant de compter les positions": '
          'NOPAD_B_2}'),
-        ("c", "an integer", "UNREAD_2",
-         'mistakes={"la fenêtre numéro i lit les cases si à si + k − 1 : où finit la dernière ?": UNREAD_LONG_2, '
-         '"une fenêtre lit k cases, sa première case comprise": UNREAD_SHORT_2, "compte à partir de la dernière '
-         'case lue par la dernière fenêtre, pas à partir du début d\'une fenêtre suivante, qui n\'existe pas": '
-         'UNREAD_STEP_2}'),
-        ("d", "the window lengths k, as a list of integers", "WINDOWS_2",
+        ("c", "the window lengths k, as a list of integers (any order)", "WINDOWS_2",
          'ordered=False, mistakes={"le nombre de positions est la partie entière plus 1": NO_ONE_2, '
          '"une position existe quand la dernière case de sa fenêtre, si + k − 1, reste dans le signal : vérifie le '
          '− 1 de la formule": NO_MINUS_2, "la question demande la liste de toutes les longueurs, pas seulement les '
          'deux bornes": [WINDOWS_2[0], WINDOWS_2[-1]], "la partie entière confond plusieurs longueurs : donne-les '
          'toutes": [WINDOWS_2[0]], "plusieurs longueurs donnent ce nombre de positions : la question les demande '
          'toutes": [WINDOWS_2[-1]]}'),
-        ("e", "a list of 3 integers", "SAME_2",
+        ("d", "a list of 3 integers", "SAME_2",
          'mistakes={"TensorFlow et Keras mettent le zéro en trop à la fin": [OUT_2, SAME_2[2], SAME_2[1]], '
          '"avec un pas, le padding « même taille » ne vaut pas k − 1 zéros : il en faut juste assez pour que la '
          'dernière fenêtre tienne": [OUT_2, (K_2 - 1) // 2, (K_2 - 1) // 2], "un nombre de zéros est entier : '
          'quand le total est impair, un côté en reçoit un de plus": [OUT_2, TOTAL_2 / 2, TOTAL_2 / 2]}'),
-        ("f", "a list of 9 integers", "ints(TRANS_2)",
+        ("e", "a list of 9 integers", "ints(TRANS_2)",
          'mistakes={"chaque entrée yᵢ dépose le tampon yᵢ w, le noyau dans l\'ordre, à partir de la case s·i": '
          'ints(REVERSED_2), "là où deux tampons se recouvrent, leurs valeurs s\'additionnent": ints(OVERWRITTEN_2)}'),
-        ("g", "an integer", "SIZE_2",
+        ("f", "an integer", "SIZE_2",
          'mistakes={"le padding de sortie ajoute p_out valeurs à la fin": SIZE_SLIPS_2["no p_out"], '
          '"dans une convolution transposée, le padding p retire des valeurs au lieu d\'en ajouter": '
          'SIZE_SLIPS_2["p added"], "le padding p retire p valeurs à chaque bout": SIZE_SLIPS_2["p once"], '
          '"le padding change aussi la taille d\'une convolution transposée": SIZE_SLIPS_2["p ignored"]}'),
-        ("h", "the different values, as a list of integers", "COUNTS_2",
+        ("g", "the different values, as a list of integers (any order)", "COUNTS_2",
          'ordered=False, mistakes={"quand s ne divise pas k, les cases intérieures ne reçoivent pas toutes le même '
          'nombre de tampons : donne toutes les valeurs": [COUNTS_2[0]], "les cases intérieures ne reçoivent pas '
          'toutes le même nombre de tampons quand s ne divise pas k : donne chacune des valeurs": [COUNTS_2[-1]]}'),
@@ -667,14 +668,11 @@ PAPER = [
          'mistakes={"une corrélation croisée ne retourne pas le noyau : Y_(i,j) = Σ K_(u,v) G_(i+u, j+v)": '
          'ints(CONV_3), "u est l\'indice de ligne : K_(u,v) multiplie la case située u lignes plus bas et v '
          'colonnes plus à droite": ints(TRANSPOSED_3)}'),
-        ("c", "a list of 2 integers", "[H_FIRST_3, V_FIRST_3]",
-         'mistakes={"vérifie l\'ordre de ta liste : d\'abord le calcul qui commence par la passe horizontale": '
-         '[V_FIRST_3, H_FIRST_3], "la première passe doit fournir à la seconde toutes les valeurs qu\'elle lit, pas '
-         'seulement celles des lignes ou des colonnes de la sortie": [NARROW_3, NARROW_3], "quand la passe verticale '
-         'vient en premier, elle doit fournir toutes les colonnes que lit la passe horizontale": '
-         '[H_FIRST_3, NARROW_3], "quand la passe horizontale vient en premier, elle doit fournir toutes les lignes '
-         'que lit la passe verticale": [NARROW_3, V_FIRST_3], "compte les valeurs que calcule chaque passe, dans '
-         'chacun des deux ordres : les deux calculs ne coûtent pas autant": [DIRECT_3, DIRECT_3]}'),
+        ("c", "an integer", "H_FIRST_3",
+         'mistakes={"la question demande le calcul qui commence par la passe horizontale, sur chaque ligne de G": '
+         'V_FIRST_3, "la première passe doit fournir à la seconde toutes les valeurs qu\'elle lit, pas seulement '
+         'celles des lignes de la sortie": NARROW_3, "compte toutes les multiplications, même par 1 ou par −1": '
+         'NOT_ONE_3}'),
         ("d", "a list of 3 integers", "SHAPE_3",
          'mistakes={"avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions": '
          'SHAPE_SLIPS_3["stride"], "le padding (1 en hauteur, 2 en largeur) s\'ajoute de chaque côté avant de compter '
@@ -720,62 +718,67 @@ PAPER = [
          'mistakes={"décaler l\'entrée d\'une convolution circulaire laisse-t-il sa sortie à sa place ?": ints(Z_4), '
          '"(Px)ᵢ = x_((i−1) mod n) : P pousse les valeurs vers les indices croissants": ints(BACK_4), '
          '"P² décale deux fois": ints(ONCE_4)}'),
-        ("d", "a list of 5 numbers", "floats(DELTA_4)",
-         'decimals=2, mistakes={"le changement de z₁ est le produit scalaire de δ avec la ligne 1 de circ(h) (les '
+        ("d", "a list of 5 numbers (exact values)", "floats(DELTA_4)",
+         'decimals=6, mistakes={"le changement de z₁ est le produit scalaire de δ avec la ligne 1 de circ(h) (les '
          'lignes sont numérotées à partir de 0), pas avec h": floats(H_SIGNS_4), "on cherche le changement le plus '
          'grand vers le haut : z₁ doit augmenter": floats([-d for d in DELTA_4]), "chaque |δᵢ| doit rester au plus '
          '0,2 : ce δ sort des tolérances": floats(SCALED_4)}'),
-        ("e", "a number", "float(WORST_INF_4)",
-         'decimals=4, mistakes={"chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, pas '
+        ("e", "a number (exact value)", "float(WORST_INF_4)",
+         'decimals=6, mistakes={"chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, pas '
          'seulement le plus grand": MAX_H_4, "aucun terme ne doit en compenser un autre : le signe de chaque δᵢ se '
          'choisit séparément": SIGNED_SUM_4, "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce '
-         'n\'est pas la boule L2": {L2_4, round(L2_4, 3)}, "une augmentation est positive : δ = 0 donne déjà un '
-         'changement nul": -float(WORST_INF_4)}'),
+         'n\'est pas la boule L2": {L2_4, round(L2_4, 3), round(L2_4, 4)}, "une augmentation est positive : δ = 0 '
+         'donne déjà un changement nul": -float(WORST_INF_4)}'),
         ("f", "a number (3 decimals)", "WORST_TWO_4",
          'decimals=3, mistakes={"la contrainte porte cette fois sur ‖δ‖₂ : δ ne peut plus prendre ±0,2 sur chaque '
          'coordonnée à la fois": float(WORST_INF_4), "la norme L2 est la racine carrée de la somme des carrés": '
          'float(EPS_4) * float(ROW_4 @ ROW_4), "sur une boule L2, tous les poids comptent, pas seulement le plus '
-         'grand": float(EPS_4) * float(np.abs(ROW_4).max())}'),
+         'grand": float(EPS_4) * float(np.abs(ROW_4).max()), "le rayon de la boule est ε = 0,2, pas 1 : le pire cas est '
+         'proportionnel à ε": float(np.linalg.norm(ROW_4))}'),
     ]),
     Paper("CP5.5", "Une récurrence avec entrée : solution et réponse impulsionnelle", [
-        ("a", "a list of 2 numbers", "floats(XS_5[2])",
-         'decimals=4, mistakes={"en convention colonne, la ligne i de A donne la coordonnée i de A xₜ": '
+        ("a", "a list of 2 numbers (exact values)", "floats(XS_5[2])",
+         'decimals=6, mistakes={"en convention colonne, la ligne i de A donne la coordonnée i de A xₜ": '
          'floats(XS_T_5[2]), "la perfusion u₀ entre dans x₁ = A x₀ + B u₀": floats(XS_NO_U0_5[2]), "l\'entrée uₜ '
          'sert à calculer xₜ₊₁, pas xₜ": floats(XS_LATE_5[2]), "la question demande x₂ : deux pas depuis '
          'x₀": floats(XS_5[1])}'),
-        ("b", "a list of 2 numbers", "floats(XS_5[3])",
-         'decimals=4, mistakes={"chaque pas ajoute B uₜ, pour chaque entrée reçue": floats(fmatvec(A_5, XS_5[2])), '
+        ("b", "a list of 2 numbers (exact values)", "floats(XS_5[3])",
+         'decimals=6, mistakes={"chaque pas ajoute B uₜ, pour chaque entrée reçue": floats(fmatvec(A_5, XS_5[2])), '
          '"en convention colonne, la ligne i de A donne la coordonnée i de A xₜ": floats(XS_T_5[3]), '
          '"l\'entrée uₜ sert à calculer xₜ₊₁, pas xₜ": floats(XS_LATE_5[3])}'),
-        ("c", "a list of 2 numbers, in increasing order", "floats(LAM_5)",
-         'decimals=4, mistakes={"les valeurs propres d\'une matrice non triangulaire ne sont pas ses coefficients '
-         'diagonaux : résous λ² − tr(A) λ + det(A) = 0": floats(DIAG_5), "vérifie les signes du polynôme '
-         'caractéristique λ² − tr(A) λ + det(A)": floats(NEG_5), "la question demande l\'ordre croissant": '
-         'floats(LAM_5[::-1])}'),
-        ("d", "a list of 4 numbers", "floats(H_5[:4])",
-         'decimals=4, mistakes={"la réponse impulsionnelle commence à h₀ = C B": floats(H_5[1:5]), '
+        ("c", "a list of 2 numbers (exact values, any order)", "floats(LAM_5)",
+         'ordered=False, decimals=6, mistakes={"les valeurs propres d\'une matrice non triangulaire ne sont pas ses '
+         'coefficients diagonaux : résous λ² − tr(A) λ + det(A) = 0": floats(DIAG_5), "vérifie les signes du '
+         'polynôme caractéristique λ² − tr(A) λ + det(A)": floats(NEG_5)}'),
+        ("d", "a list of 4 numbers (exact values)", "floats(H_5[:4])",
+         'decimals=6, mistakes={"la réponse impulsionnelle commence à h₀ = C B": floats(H_5[1:5]), '
          '"dans hₖ = C Aᵏ B, B choisit une colonne de Aᵏ et C une ligne : vérifie lesquelles": floats(H12_5[:4]), '
          '"hₖ est une sortie : relis quelle coordonnée de l\'état C lit": floats(FIRST_5[:4])}'),
-        ("e", "a number (4 decimals)", "float(H_5[15])",
-         'decimals=4, mistakes={"vérifie l\'indice : h₁₅ = C A¹⁵ B": {float(H_5[14]), float(H_5[16])}, '
-         '"écris B sur les vecteurs propres de A : ses coefficients sur ces vecteurs ne valent pas 1": '
-         'float(GEOM_5)}'),
-        ("f", "a number", "float(FORCED_5)",
-         'decimals=4, mistakes={"la part due à la perfusion est la réponse forcée ; la réponse libre vient de x₀": '
+        ("e", "[alpha, beta], a list of 2 numbers (exact values)", "floats([ALPHA_5, BETA_5])",
+         'decimals=6, mistakes={"α multiplie les puissances de la plus grande valeur propre, λ₂": '
+         'floats([BETA_5, ALPHA_5]), "la formule vaut dès k = 0 : écris-la pour h₀ et pour h₁": floats(LATE_5), '
+         '"hₖ = C Aᵏ B : les coefficients de B sur les vecteurs propres ne suffisent pas, C lit encore une coordonnée '
+         'de chaque vecteur propre": floats(B_ON_5)}'),
+        ("f", "a number (exact value)", "float(FORCED_5)",
+         'decimals=6, mistakes={"la part due à la perfusion est la réponse forcée ; la réponse libre vient de x₀": '
          'float(FREE_Y3_5), "y₃ contient aussi la réponse libre : la question n\'en demande qu\'une part": '
-         'float(XS_5[3][1]), "l\'entrée uₖ est portée par A^(t−1−k) jusqu\'à xₜ": float(CARRIED_5)}'),
-        ("g", "a list of 2 numbers", "floats(EQ_5)",
-         'decimals=4, mistakes={"l\'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système est I − A, pas sa '
-         'transposée": floats(EQ_T_5), "ta réponse donne-t-elle à chaque compartiment la quantité totale ? Résous '
-         '(I − A) x⋆ = B u coordonnée par coordonnée": floats([TOTAL_EQ_5, TOTAL_EQ_5])}'),
-        ("h", "a number", "float(FACTOR_5)",
-         'decimals=4, mistakes={"ce facteur vaut pour tout xₜ : lis-le sur les sommes des colonnes de A": '
+         'float(XS_5[3][1]), "l\'entrée uₖ est portée par A^(t−1−k) jusqu\'à xₜ": float(CARRIED_5), "y₃ = C x₃, et '
+         'y_(t+1) = (h * u)_t : un pas de décalage entre la sortie et la convolution": float(NO_SHIFT_5)}'),
+        ("g", "a list of 2 numbers (exact values)", "floats(EQ_5)",
+         'decimals=6, mistakes={"l\'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système est I − A, pas sa '
+         'transposée": floats(EQ_T_5), "l\'équilibre vérifie x⋆ = A x⋆ + B u, et la matrice du système est I − A, '
+         'pas sa transposée": [float(EQ_T_5[0]), round(float(EQ_T_5[1]), 4)], "ta réponse donne-t-elle à chaque '
+         'compartiment la quantité totale ? Résous (I − A) x⋆ = B u coordonnée par coordonnée": '
+         'floats([TOTAL_EQ_5, TOTAL_EQ_5])}'),
+        ("h", "a number (exact value)", "float(FACTOR_5)",
+         'decimals=6, mistakes={"ce facteur vaut pour tout xₜ : lis-le sur les sommes des colonnes de A": '
          'float(min(LAM_5)), "la trace est la somme des valeurs propres, pas le facteur appliqué à la quantité '
          'totale": float(A_5[0][0] + A_5[1][1]), "le facteur multiplie la quantité qui reste : la part éliminée '
-         'n\'en est que le complément": float(1 - FACTOR_5)}'),
+         'n\'en est que le complément": float(1 - FACTOR_5), "le médicament éliminé par chaque compartiment quitte le '
+         'système : la quantité totale ne se conserve pas": 1}'),
     ]),
     Paper("CP5.6", "Valeurs propres complexes, rayon spectral, normes et croissance transitoire", [
-        ("a", COMPLEX + " (4 decimals)", "[LAM_6.real, LAM_6.imag]",
+        ("a", COMPLEX + ", 4 decimals", "[LAM_6.real, LAM_6.imag]",
          'decimals=4, mistakes={"la question demande la valeur propre de partie imaginaire positive": '
          '[LAM_6.real, -LAM_6.imag], "λ = (tr ± √Δ)/2 : vérifie la division par 2": [2 * LAM_6.real, '
          '2 * LAM_6.imag]}'),
@@ -787,15 +790,17 @@ PAPER = [
          'dans ]0, π[": as_pi(-THETA_6), "cos θ = Re(λ)/|λ| et sin θ = Im(λ)/|λ| : vérifie lequel tu as utilisé": '
          'as_pi(math.pi / 2 - THETA_6), "ton angle est celui de la valeur propre conjuguée : l\'argument de λ, de '
          'partie imaginaire positive, est dans ]0, π[": as_pi(2 * math.pi - THETA_6), "le cosinus de l\'argument a '
-         'le signe de la partie réelle": as_pi(math.pi - THETA_6)}'),
-        ("d", MATRIX, "floats(M3_6)",
-         'decimals=4, mistakes={"M³ est le produit matriciel M × M × M, pas le cube de chaque coefficient": '
+         'le signe de la partie réelle": as_pi(math.pi - THETA_6), "c\'est le même angle à 2π près : donne '
+         'l\'argument principal, dans ]−π, π]": as_pi(THETA_6 + 2 * math.pi), "même angle, à 2π près : l\'argument '
+         'principal est celui qui tombe dans ]−π, π]": as_pi(THETA_6 - 2 * math.pi)}'),
+        ("d", MATRIX + " (exact values)", "floats(M3_6)",
+         'decimals=6, mistakes={"M³ est le produit matriciel M × M × M, pas le cube de chaque coefficient": '
          'floats(CUBED_6), "M³ a trois facteurs : multiplie encore une fois par M": floats(M2_6)}'),
-        ("e", MATRIX, "floats(M6_6)",
-         'decimals=4, mistakes={"vérifie les signes : fais chaque produit ligne par colonne": '
+        ("e", MATRIX + " (exact values)", "floats(M6_6)",
+         'decimals=6, mistakes={"vérifie les signes : fais chaque produit ligne par colonne": '
          'floats([[-x for x in row] for row in M6_6])}'),
-        ("f", "a list of 2 numbers", "[N1_6, NINF_6]",
-         'decimals=4, mistakes={"les normes ‖·‖₁ et ‖·‖∞ additionnent les valeurs absolues des coefficients, pas les '
+        ("f", "a list of 2 numbers (exact values)", "[N1_6, NINF_6]",
+         'decimals=6, mistakes={"les normes ‖·‖₁ et ‖·‖∞ additionnent les valeurs absolues des coefficients, pas les '
          'coefficients avec leurs signes": SIGNED_6, "‖·‖₁ prend les sommes de colonnes, ‖·‖∞ les sommes de lignes": '
          '[NINF_6, N1_6], "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes, colonne par colonne ou ligne par ligne": '
          'SMALLEST_6}'),
@@ -813,65 +818,66 @@ PAPER = [
     ]),
     Paper("CP5.7", "Produits de jacobiennes le long d'une trajectoire, et sensibilité à un paramètre utilisé à "
                    "chaque pas", [
-        ("a", "a list of 2 numbers", "floats(PS_7[2])",
-         'decimals=4, mistakes={"la question demande p₂ : f s\'applique deux fois": floats(PS_7[1])}'),
-        ("b", MATRIX, "floats(D2_7)",
-         'decimals=4, mistakes={"un produit de jacobiennes se range le dernier pas à gauche": '
+        ("a", "a list of 2 numbers (exact values)", "floats(PS_7[2])",
+         'decimals=6, mistakes={"la question demande p₂ : f s\'applique deux fois": floats(PS_7[1])}'),
+        ("b", MATRIX + " (exact values)", "floats(D2_7)",
+         'decimals=6, mistakes={"un produit de jacobiennes se range le dernier pas à gauche": '
          'floats(fmatmul(J0_7, J1_7)), "chaque jacobienne s\'évalue en son propre point : le second pas part de '
          'p₁": floats(fmatmul(J0_7, J0_7)), "la jacobienne du pas t s\'évalue au point de départ de ce pas, pₜ": '
          'floats(fmatmul(J2_7, J1_7)), "une jacobienne a une ligne par coordonnée de sortie": '
          'floats(ftranspose(D2_7)), "le premier pas part de p₀ : sa jacobienne s\'évalue en p₀": '
          'floats(fmatmul(J1_7, J1_7))}'),
-        ("c", "a list of 2 numbers", "NORMS_7",
-         'decimals=4, mistakes={"‖·‖∞ prend la plus grande somme des valeurs absolues d\'une ligne, sur le produit '
+        ("c", "a list of 2 numbers (exact values)", "NORMS_7",
+         'decimals=6, mistakes={"‖·‖∞ prend la plus grande somme des valeurs absolues d\'une ligne, sur le produit '
          'rangé le dernier pas à gauche": SLIPS_C_7["columns"], "l\'ordre demandé : le produit des normes, puis la '
          'norme du produit": NORMS_7[::-1]}'),
-        ("d", "a list of 3 numbers", "floats(TERMS_7)",
-         'decimals=4, mistakes={"chaque effet de β est ensuite porté jusqu\'à x₃ par les jacobiennes des pas '
+        ("d", "a list of 3 numbers (exact values)", "floats(TERMS_7)",
+         'decimals=6, mistakes={"chaque effet de β est ensuite porté jusqu\'à x₃ par les jacobiennes des pas '
          'suivants": floats(BT_7), "range les termes du pas 0 au pas 2": floats(TERMS_7[::-1]), "la jacobienne du '
          'pas où β sert ne porte pas son propre effet : seules celles des pas suivants le portent": floats(OWN_7)}'),
-        ("e", "a number", "float(S3_7)",
-         'decimals=4, mistakes={"chaque effet de β est porté jusqu\'à x₃ par les jacobiennes des pas suivants": '
+        ("e", "a number (exact value)", "float(S3_7)",
+         'decimals=6, mistakes={"chaque effet de β est porté jusqu\'à x₃ par les jacobiennes des pas suivants": '
          'float(sum(BT_7)), "s₃ additionne les effets de β à tous les pas où il sert": float(BT_7[-1]), '
          '"la jacobienne du pas où β sert ne porte pas son propre effet : seules celles des pas suivants le '
          'portent": float(sum(OWN_7))}'),
-        ("f", "a number", "float(DX3_7)",
-         'decimals=4, mistakes={"ta réponse est-elle un changement de hauteur, en cm, pour la variation de β '
+        ("f", "a number (exact value)", "float(DX3_7)",
+         'decimals=6, mistakes={"ta réponse est-elle un changement de hauteur, en cm, pour la variation de β '
          'donnée ?": float(S3_7), "un orifice qui laisse sortir plus d\'eau fait-il monter ou baisser le niveau ? '
-         'Vérifie le signe": -float(DX3_7), "c\'est le changement exact ; la question demande l\'approximation au '
-         'premier ordre, par la sensibilité": {EXACT_7, round(EXACT_7, 3)}}'),
+         'Vérifie le signe": -float(DX3_7), "c\'est la variation exacte ; la question demande l\'approximation au '
+         'premier ordre": {EXACT_7, *(round(EXACT_7, d) for d in (2, 3, 4, 5)), math.trunc(EXACT_7 * 1e4) / 1e4}}'),
     ]),
     Paper("CP5.9", "Corriger une copie : cinq erreurs (les lettres seulement)", [
-        ("a", 'the letters, as text (like "ABCDE")', '"ABDEG"', f"mistakes={LETTERS}"),
+        ("a", 'the letters, as text, in any order (like "ABCDE")', '"ABDEG"', f"mistakes={LETTERS}"),
     ]),
     Paper("CP5.10", "Problème de synthèse : un filtre récursif et un filtre à réponse finie, du signal à la stabilité", [
-        ("a", "a list of 5 numbers", "floats(H_10[:5])",
-         'decimals=4, mistakes={"dans hₖ = C Aᵏ B, B choisit une colonne de Aᵏ et C une ligne : vérifie lesquelles":'
+        ("a", "a list of 5 numbers (exact values)", "floats(H_10[:5])",
+         'decimals=6, mistakes={"dans hₖ = C Aᵏ B, B choisit une colonne de Aᵏ et C une ligne : vérifie lesquelles":'
          ' floats(H12_10), "la réponse impulsionnelle commence à h₀ = C B": floats(H_10[1:6]), "hₖ est une sortie : '
          'relis quelle coordonnée de l\'état C lit": floats(FIRST_10)}'),
-        ("b", "a list of 5 numbers", "floats(OUT_10[1:6])",
-         'decimals=4, mistakes={"yₜ₊₁ = (h * u)ₜ : un pas de décalage entre la sortie et la convolution": '
+        ("b", "a list of 5 numbers (exact values)", "floats(OUT_10[1:6])",
+         'decimals=6, mistakes={"yₜ₊₁ = (h * u)ₜ : un pas de décalage entre la sortie et la convolution": '
          'CONV_10[1:6].tolist()}'),
         ("c", "a number (4 decimals)", "RHO_10",
          'decimals=4, mistakes={"le module d\'une valeur propre complexe tient compte de sa partie imaginaire": '
          'float(TR_10 / 2), "un module est une racine carrée : |λ|² = λ λ̄": float(DET_10)}'),
-        ("d", "a list of 3 numbers", "NORMS_10",
-         'decimals=4, mistakes={"‖A‖₂ est une valeur singulière : la racine carrée d\'une valeur propre de AᵀA": '
+        ("d", "a list of 3 numbers (exact values)", "NORMS_10",
+         'decimals=6, mistakes={"‖A‖₂ est une valeur singulière : la racine carrée d\'une valeur propre de AᵀA": '
          'NORMS_10[:2] + [float(NORM2_10 ** 2)], "ta troisième valeur est-elle le plus grand facteur d\'allongement '
-         '‖A x‖₂/‖x‖₂ ?": NORMS_10[:2] + [RHO_10], "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes des valeurs '
-         'absolues, colonne par colonne ou ligne par ligne": SIGNED_10 + NORMS_10[2:], "la norme de Frobenius '
-         'n\'est pas la norme induite ‖·‖₂": NORMS_10[:2] + [FROB_10]}'),
+         '‖A x‖₂/‖x‖₂ ?": NORMS_10[:2] + [RHO_10], "ta troisième valeur est-elle bien le plus grand facteur '
+         'd\'allongement ‖A x‖₂/‖x‖₂ ?": NORMS_10[:2] + [round(RHO_10, 4)], "‖·‖₁ et ‖·‖∞ prennent la plus grande '
+         'des sommes des valeurs absolues, colonne par colonne ou ligne par ligne": SIGNED_10 + NORMS_10[2:], '
+         '"la norme de Frobenius n\'est pas la norme induite ‖·‖₂": NORMS_10[:2] + [FROB_10], "la norme de Frobenius '
+         'n\'est pas la norme induite ‖·‖₂ : relis sa définition": NORMS_10[:2] + [round(FROB_10, 4)]}'),
         ("e", "an integer", "K_10",
          'fractional="K est un nombre de termes : arrondis à l\'entier qui garantit l\'inégalité.", '
          'mistakes={"le plus petit K qui convient doit vérifier l\'inégalité : arrondis vers le haut": K_10 - 1, '
          '"la majoration porte sur toute la queue, ‖A‖ᴷ/(1 − ‖A‖), avec une norme induite : le rayon spectral ne '
          'majore pas chaque pas": NO_FACTOR_10, "le rayon spectral ne majore pas chaque |hₖ| : la majoration se fait '
          'avec une norme induite, sur toute la queue": RHO_ONLY_10}'),
-        ("f", "a number", "float(WORST_10)",
-         'decimals=4, mistakes={"sur la boule L∞, le pire cas prend chaque poids en valeur absolue": '
-         'float(WORST_SLIPS_10["signs"]), "avec K = 6, le filtre garde six termes de la réponse impulsionnelle": '
-         'float(WORST_SLIPS_10["four"]), "g = (h₀, …, h_(K−1)) : compte les termes, h₀ compris": '
-         '{float(WORST_SLIPS_10["five"]), float(WORST_SLIPS_10["seven"])}}'),
+        ("f", "a number (exact value)", "float(WORST_10)",
+         'decimals=6, mistakes={"avec K = 5, le filtre garde cinq termes de la réponse impulsionnelle, h₀ à h₄": '
+         'float(WORST_SLIPS_10["four"]), "avec K = 5, le filtre garde les cinq premiers termes seulement": '
+         'float(WORST_SLIPS_10["six"])}'),
         ("g", FRACTION, "str(LIMIT_10)",
          'kind="fraction", simplified=True, mistakes={"l\'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système '
          'est I − A, pas sa transposée": str(LIMIT_T_10), "la limite fait intervenir toute la réponse '
@@ -900,11 +906,49 @@ def exam_over():
     return True
 
 
+ROUNDED_LISTS = {"CP5.6a": 4}   # the lists whose statement asks for a number of decimals (not exact values)
+
+
 def as_written(answer):
     """A complex number typed as such (0.5 + 2j) is read as the list [a, b] that the statement asks for."""
     if isinstance(answer, complex):
         return [answer.real, answer.imag]
-    return answer'''
+    return answer
+
+
+def exact_texts(answer):
+    """The numbers of a list written in exact form as texts (["3/4", "sqrt(3)/4"]), or None: none written so."""
+    import re
+    import sympy
+
+    if not isinstance(answer, (list, tuple)) or not any(
+            isinstance(v, str) and re.search(r"sqrt|√|pi|π", v, re.IGNORECASE) for v in answer):
+        return None
+    try:
+        return [float(sympy.sympify(re.sub(r"√\s*(\d+(?:\.\d+)?)", r"sqrt(\1)", str(v)).replace("√", "sqrt")
+                                    .replace("π", "pi"))) for v in answer]
+    except (TypeError, ValueError, SyntaxError, sympy.SympifyError):
+        return []
+
+
+def check_answer(sub_id, answer):
+    """wbm.check, once the form is read: a complex number as [a, b]; a list written in exact form where the
+    statement asks for decimals gets the message that a single number written so gets."""
+    answer = as_written(answer)
+    decimals = ROUNDED_LISTS.get(sub_id)
+    values = exact_texts(answer) if decimals else None
+    if values is None:
+        return wbm.check(sub_id, answer)
+    from wbm.checker import CheckResult
+
+    if values and wbm.check(sub_id, values, quiet=True):
+        message = (f"tes valeurs exactes sont les bonnes, mais l'énoncé demande des valeurs décimales, arrondies à "
+                   f"{decimals} décimales : calcule-les et donne ces nombres.")
+    else:
+        message = (f"j'attends des valeurs décimales, arrondies à {decimals} décimales, pas des formes exactes : "
+                   "calcule-les, puis arrondis-les comme le demande l'énoncé.")
+    print(f"❌ Ex {sub_id} : {message}")
+    return CheckResult(sub_id, False, "type", message)'''
 
 SUMMARY = r'''# Summary of the automatic checks
 import re
@@ -940,8 +984,9 @@ INTRO = r'''## Après l'examen : vérification automatique
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
 3. Si une cellule s'arrête sur une erreur, « Tout exécuter » s'arrête avec elle : corrige-la, puis relance cette cellule et les suivantes, jusqu'au bilan.
-4. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme la liste de ses lignes (`[[1, -2], [0.5, 3]]`), un nombre complexe $a + ib$ comme la liste `[a, b]` (ou `a + bj`, à la manière de Python) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un angle exact (`"pi/5"`) ; un code de comportement (1, 2 ou 3) s'écrit sans guillemets.
-5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
+4. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; entre guillemets, une virgule est lue (`"0,027"`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme la liste de ses lignes (`[[1, -2], [0.5, 3]]`), un nombre complexe $a + ib$ comme la liste `[a, b]` (ou `a + bj`, à la manière de Python) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un angle exact (`"pi/5"`) ; un code de comportement (1, 2 ou 3) s'écrit sans guillemets.
+5. Les décimales : quand l'énoncé dit « valeur exacte », donne toutes les décimales de ta valeur (elle n'en a que quelques-unes) ; quand il dit « 4 décimales » (ou 3), arrondis à ce nombre, à la fin du calcul seulement. Quand il dit « dans n'importe quel ordre », l'ordre de ta liste ne compte pas ; ailleurs, il compte.
+6. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
 
 
 def paper_cell(kind: str, paper: Paper) -> list:
@@ -949,12 +994,13 @@ def paper_cell(kind: str, paper: Paper) -> list:
     cells = [md(f"**{paper.id} — {paper.title}**")]
     stem = f"answer_{paper.id.replace('.', '_')}"
     if kind == "exercise":
-        lines = [f"# {paper.id}: the values written on your answer sheet"]
+        lines = [f"# {paper.id}: the values written on your answer sheet",
+                 '# a decimal point (0.0264), or a comma between quotes ("0,0264"): 0,0264 alone stops the cell']
         lines += [f"{stem}{letter} = ...  # {letter}) {hint}" for letter, hint, *_ in paper.subs]
         names = ", ".join(f"{stem}{letter}" for letter, *_ in paper.subs)
         lines += ["", "if exam_over():",
                   f"    for letter, answer in zip(\"{paper.letters}\", [{names}]):",
-                  f"        RESULTS[f\"{paper.id}{{letter}}\"] = wbm.check(f\"{paper.id}{{letter}}\", as_written(answer))"]
+                  f"        RESULTS[f\"{paper.id}{{letter}}\"] = check_answer(f\"{paper.id}{{letter}}\", answer)"]
         cells.append(code("\n".join(lines)))
     else:
         lines = []
