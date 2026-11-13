@@ -237,7 +237,7 @@ CHAPTERS = [
              "gaussiennes ne suffisent pas", "§2", "E"),
             ("M25a.Q3", "🧠", 1, 4, "Ellipses de niveau et masse : quel axe, quel demi-axe, quelle proportion, en dimension "
              "2 et au-delà", "§3", "E"),
-            ("M25a.Q4", "🧠", 1, 4, "Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, "
+            ("M25a.Q4", "🧠", 1, 6, "Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, "
              "quelle variance ?", "§4", "E"),
             ("M25a.Q5", "🧠", 1, 4, "Fusionner des mesures et mettre à jour un a priori gaussien : précisions, moyennes "
              "pondérées et prédictive", "§5", "E"),
@@ -251,42 +251,42 @@ CHAPTERS = [
              "E"),
             ("M25a.R2", "🔁", 1, 6, "Le théorème spectral, Cholesky et la covariance AΣAᵀ (M12c)", "§2 §3", "E"),
             ("M25a.R3", "🔁", 1, 6, "Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18)", "§6", ""),
-            ("M25a.1", "✏️", 1, 20, "La densité d'un couple gaussien (température et humidité d'une serre) en deux points : "
+            ("M25a.1", "✏️", 1, 25, "La densité d'un couple gaussien (température et humidité d'une serre) en deux points : "
              "distance de Mahalanobis contre distance euclidienne", "§1", "E"),
-            ("M25a.2", "✏️", 2, 25, "Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un "
+            ("M25a.2", "✏️", 2, 30, "Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un "
              "tirage μ + Lε par Cholesky et sa covariance", "§2", "E"),
-            ("M25a.3", "✏️", 2, 25, "Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, "
+            ("M25a.3", "✏️", 2, 30, "Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, "
              "aire, et la part des relevés dans l'ellipse de niveau c", "§3", "E"),
-            ("M25a.4", "✏️", 2, 30, "Un capteur en panne estimé par ses deux voisins : complément de Schur, loi "
+            ("M25a.4", "✏️", 2, 35, "Un capteur en panne estimé par ses deux voisins : complément de Schur, loi "
              "conditionnelle en dimension 3, et l'écart-type gagné", "§4", "E"),
             ("M25a.5", "✏️", 1, 20, "Fusionner trois mesures d'une même distance : le produit de densités gaussiennes, des "
              "précisions qui s'additionnent, un ordre sans importance", "§5", "E"),
-            ("M25a.6", "✏️", 2, 30, "Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, "
+            ("M25a.6", "✏️", 2, 40, "Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, "
              "évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage", "§5", ""),
             ("M25a.7", "✏️", 2, 25, "La divergence KL continue entre deux lois exponentielles et entre deux lois "
              "uniformes : les deux sens, une KL infinie, et deux durées de vie indépendantes", "§7", "E"),
-            ("M25a.8", "✏️", 2, 25, "Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs "
+            ("M25a.8", "✏️", 2, 30, "Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs "
              "de position : la KL dans les deux sens, et le cas de même covariance", "§7", "E"),
-            ("M25a.9", "✏️", 2, 25, "La route orthodromique entre deux villes : angle au centre, point au tiers du trajet "
+            ("M25a.9", "✏️", 2, 30, "La route orthodromique entre deux villes : angle au centre, point au tiers du trajet "
              "par le slerp, et profondeur du milieu de la corde", "§8", "E"),
-            ("M25a.10", "∂", 2, 25, "Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), "
+            ("M25a.10", "∂", 2, 30, "Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), "
              "et AX + b reste gaussien pour A inversible", "§1 §2", "E"),
-            ("M25a.11", "∂", 2, 25, "La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité "
+            ("M25a.11", "∂", 2, 30, "La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité "
              "de la norme en dimension d, et son mode √(d − 1)", "§3", "E"),
-            ("M25a.12", "∂", 2, 30, "Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par "
+            ("M25a.12", "∂", 2, 40, "Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par "
              "les gradients de ln det et de la trace", "§6", ""),
-            ("M25a.13", "∂", 2, 25, "L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et "
+            ("M25a.13", "∂", 2, 35, "L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et "
              "l'additivité de la KL sur des lois produits", "§7", "E"),
-            ("M25a.14", "∂", 3, 35, "La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; "
+            ("M25a.14", "∂", 3, 45, "La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; "
              "l'entropie différentielle de N(μ, Σ)", "§7", "E"),
-            ("M25a.15", "∂", 2, 20, "Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle "
+            ("M25a.15", "∂", 2, 25, "Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle "
              "constant ; sa limite quand l'angle tend vers 0", "§8", "E"),
-            ("M25a.16", "🔗", 1, 20, "Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n "
+            ("M25a.16", "🔗", 1, 25, "Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n "
              "points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée", "§1 §2", "E"),
-            ("M25a.17", "📖", 2, 35, "MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, "
+            ("M25a.17", "📖", 2, 45, "MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, "
              "sommes et transformations, échantillonnage et changement de variable multivarié, en anglais",
              "§1 §2 §4 §5", ""),
-            ("M25a.18", "📖", 2, 35, "MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, "
+            ("M25a.18", "📖", 2, 45, "MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, "
              "vraisemblance marginale, en anglais", "§5", ""),
             ("M25a.19", "🗣️", 1, 10, "Expliquer avec deux thermomètres voisins pourquoi lire l'un resserre l'estimation de "
              "l'autre, et pourquoi la valeur lue ne change pas cette incertitude", "§4", "E"),

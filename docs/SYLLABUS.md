@@ -61,7 +61,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M21](#m21) | Convolution, matrices de Toeplitz et équivariance | 21 | — | 14,8 h | ✅ exercices | 1 |
 | [M22](#m22) | Récurrences vectorielles, rayon spectral et normes de matrices | 22 | (§4.2) | 15,6 h | ✅ exercices | 1 |
 | [CP5](#cp5) | Examen blanc de la partie V | — | — | 3,1 h | ✅ exercices | 1 |
-| [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 17,4 h | ✅ exercices | 2 |
+| [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 19,2 h | ✅ exercices | 2 |
 | [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 16,8 h | ✅ exercices | 2 |
 | [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 14,6 h | ✅ exercices | 1 |
 | [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,4 h | ✅ exercices | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 76,1 h | 59,3 h |
+| VI · Génératif et RL | 6 | 203 | 78,0 h | 60,5 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3431,7 +3431,7 @@ Le bilan de la partie V (M21 et M22), juste avant le checkpoint V de workbookIA 
 
 La loi normale multivariée : sa densité (le déterminant et la distance de Mahalanobis), les transformations affines et le changement de variable multivarié (la loi de μ + Lε et l'échantillonnage par Cholesky), la géométrie (ellipses de niveau, masse d'une ellipse, loi de la norme), les matrices par blocs et le complément de Schur (lois marginales et conditionnelles, matrice de précision), Bayes avec des gaussiennes (produit de densités, modèle linéaire gaussien, régression linéaire bayésienne), le maximum de vraisemblance de μ et Σ, la divergence KL continue (Jensen, positivité, additivité, KL entre deux gaussiennes), et l'interpolation sphérique. workbookIA 25 s'en sert pour le prior et l'encodeur probabiliste du VAE, son terme KL et l'interpolation entre deux codes.
 
-**Temps** : 17,4 h en parcours complet, 13,2 h en parcours essentiel (lecture 185 min, 24 flashcards).
+**Temps** : 19,2 h en parcours complet, 14,4 h en parcours essentiel (lecture 185 min, 24 flashcards).
 
 **Objectifs**
 
@@ -3468,7 +3468,7 @@ La loi normale multivariée : sa densité (le déterminant et la distance de Mah
 | M25a.Q1 | 🧠 | Lire une densité gaussienne multivariée : det Σ, distance de Mahalanobis et point le plus probable | ★ | 4 | §1 | C, E | manuel | — |
 | M25a.Q2 | 🧠 | Ce qui reste gaussien : images affines, sommes, produits et normes ; deux marginales gaussiennes ne suffisent pas | ★ | 4 | §2 | C, E | manuel | — |
 | M25a.Q3 | 🧠 | Ellipses de niveau et masse : quel axe, quel demi-axe, quelle proportion, en dimension 2 et au-delà | ★ | 4 | §3 | C, E | manuel | — |
-| M25a.Q4 | 🧠 | Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? | ★ | 4 | §4 | C, E | manuel | — |
+| M25a.Q4 | 🧠 | Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? | ★ | 6 | §4 | C, E | manuel | — |
 | M25a.Q5 | 🧠 | Fusionner des mesures et mettre à jour un a priori gaussien : précisions, moyennes pondérées et prédictive | ★ | 4 | §5 | C, E | manuel | — |
 | M25a.Q6 | 🧠 | Le maximum de vraisemblance de μ et Σ : diviser par n, et une covariance singulière quand n ≤ d | ★ | 4 | §6 | C | manuel | — |
 | M25a.Q7 | 🧠 | La divergence KL continue en situations : deux supports qui ne se couvrent pas, deux lois exponentielles, une loi produit, et les deux sens | ★ | 4 | §7 | C, E | manuel | — |
@@ -3476,24 +3476,24 @@ La loi normale multivariée : sa densité (le déterminant et la distance de Mah
 | M25a.R1 | 🔁 | Le changement de variable en dimension 1 et les coordonnées polaires (M02b) | ★ | 6 | §2 §3 | C, E | manuel | — |
 | M25a.R2 | 🔁 | Le théorème spectral, Cholesky et la covariance AΣAᵀ (M12c) | ★ | 6 | §2 §3 | C, E | manuel | — |
 | M25a.R3 | 🔁 | Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18) | ★ | 6 | §6 | C | manuel | — |
-| M25a.1 | ✏️ | La densité d'un couple gaussien (température et humidité d'une serre) en deux points : distance de Mahalanobis contre distance euclidienne | ★ | 20 | §1 | C, E | wbm | — |
-| M25a.2 | ✏️ | Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un tirage μ + Lε par Cholesky et sa covariance | ★★ | 25 | §2 | C, E | wbm | — |
-| M25a.3 | ✏️ | Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, aire, et la part des relevés dans l'ellipse de niveau c | ★★ | 25 | §3 | C, E | wbm | — |
-| M25a.4 | ✏️ | Un capteur en panne estimé par ses deux voisins : complément de Schur, loi conditionnelle en dimension 3, et l'écart-type gagné | ★★ | 30 | §4 | C, E | wbm | — |
+| M25a.1 | ✏️ | La densité d'un couple gaussien (température et humidité d'une serre) en deux points : distance de Mahalanobis contre distance euclidienne | ★ | 25 | §1 | C, E | wbm | — |
+| M25a.2 | ✏️ | Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un tirage μ + Lε par Cholesky et sa covariance | ★★ | 30 | §2 | C, E | wbm | — |
+| M25a.3 | ✏️ | Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, aire, et la part des relevés dans l'ellipse de niveau c | ★★ | 30 | §3 | C, E | wbm | — |
+| M25a.4 | ✏️ | Un capteur en panne estimé par ses deux voisins : complément de Schur, loi conditionnelle en dimension 3, et l'écart-type gagné | ★★ | 35 | §4 | C, E | wbm | — |
 | M25a.5 | ✏️ | Fusionner trois mesures d'une même distance : le produit de densités gaussiennes, des précisions qui s'additionnent, un ordre sans importance | ★ | 20 | §5 | C, E | wbm | — |
-| M25a.6 | ✏️ | Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage | ★★ | 30 | §5 | C | wbm | — |
+| M25a.6 | ✏️ | Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage | ★★ | 40 | §5 | C | wbm | — |
 | M25a.7 | ✏️ | La divergence KL continue entre deux lois exponentielles et entre deux lois uniformes : les deux sens, une KL infinie, et deux durées de vie indépendantes | ★★ | 25 | §7 | C, E | wbm | — |
-| M25a.8 | ✏️ | Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs de position : la KL dans les deux sens, et le cas de même covariance | ★★ | 25 | §7 | C, E | wbm | — |
-| M25a.9 | ✏️ | La route orthodromique entre deux villes : angle au centre, point au tiers du trajet par le slerp, et profondeur du milieu de la corde | ★★ | 25 | §8 | C, E | wbm | — |
-| M25a.10 | ∂ | Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), et AX + b reste gaussien pour A inversible | ★★ | 25 | §1 §2 | C, E | manuel | — |
-| M25a.11 | ∂ | La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) | ★★ | 25 | §3 | C, E | manuel | — |
-| M25a.12 | ∂ | Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par les gradients de ln det et de la trace | ★★ | 30 | §6 | C | manuel | — |
-| M25a.13 | ∂ | L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et l'additivité de la KL sur des lois produits | ★★ | 25 | §7 | C, E | manuel | — |
-| M25a.14 | ∂ | La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ) | ★★★ | 35 | §7 | C, E | manuel | — |
-| M25a.15 | ∂ | Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle constant ; sa limite quand l'angle tend vers 0 | ★★ | 20 | §8 | C, E | manuel | — |
-| M25a.16 | 🔗 | Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée | ★ | 20 | §1 §2 | C, E | wbm | — |
-| M25a.17 | 📖 | MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, sommes et transformations, échantillonnage et changement de variable multivarié, en anglais | ★★ | 35 | §1 §2 §4 §5 | C | manuel | — |
-| M25a.18 | 📖 | MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, vraisemblance marginale, en anglais | ★★ | 35 | §5 | C | manuel | — |
+| M25a.8 | ✏️ | Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs de position : la KL dans les deux sens, et le cas de même covariance | ★★ | 30 | §7 | C, E | wbm | — |
+| M25a.9 | ✏️ | La route orthodromique entre deux villes : angle au centre, point au tiers du trajet par le slerp, et profondeur du milieu de la corde | ★★ | 30 | §8 | C, E | wbm | — |
+| M25a.10 | ∂ | Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), et AX + b reste gaussien pour A inversible | ★★ | 30 | §1 §2 | C, E | manuel | — |
+| M25a.11 | ∂ | La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) | ★★ | 30 | §3 | C, E | manuel | — |
+| M25a.12 | ∂ | Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par les gradients de ln det et de la trace | ★★ | 40 | §6 | C | manuel | — |
+| M25a.13 | ∂ | L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et l'additivité de la KL sur des lois produits | ★★ | 35 | §7 | C, E | manuel | — |
+| M25a.14 | ∂ | La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ) | ★★★ | 45 | §7 | C, E | manuel | — |
+| M25a.15 | ∂ | Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle constant ; sa limite quand l'angle tend vers 0 | ★★ | 25 | §8 | C, E | manuel | — |
+| M25a.16 | 🔗 | Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée | ★ | 25 | §1 §2 | C, E | wbm | — |
+| M25a.17 | 📖 | MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, sommes et transformations, échantillonnage et changement de variable multivarié, en anglais | ★★ | 45 | §1 §2 §4 §5 | C | manuel | — |
+| M25a.18 | 📖 | MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, vraisemblance marginale, en anglais | ★★ | 45 | §5 | C | manuel | — |
 | M25a.19 | 🗣️ | Expliquer avec deux thermomètres voisins pourquoi lire l'un resserre l'estimation de l'autre, et pourquoi la valeur lue ne change pas cette incertitude | ★ | 10 | §4 | C, E | manuel | — |
 | M25a.E1 | 💼 | « Comment tirer un vecteur gaussien de covariance donnée à partir de tirages indépendants, et pourquoi Cholesky ? » | ★ | 10 | §2 | C | manuel | — |
 | M25a.20 | 🔨 | La log-densité d'une loi normale multivariée, par Cholesky · `mvn_logpdf` | ★★ | 30 | §1 | C, E | pytest | — |
