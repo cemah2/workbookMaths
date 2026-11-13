@@ -40,7 +40,7 @@ Un produit multiplie les modules et additionne les arguments. Pour une matrice r
 </details>
 <details><summary>Indice 3</summary>
 
-2. $-3 + 3i$ est dans le deuxième quadrant. 3. Le carré double l'argument : $\frac{3\pi}{2}$. 6. Compare $\sqrt{1{,}21}$ à 1.
+2. $-3 + 3i$ est dans le deuxième quadrant. 3. Le carré double l'argument : $\frac{3\pi}{2}$. 6. Compare $\sqrt{1{,}96}$ à 1.
 
 </details>
 
@@ -94,7 +94,7 @@ Ce qui reste : $(1 - \varepsilon)^n$ ; l'approximation $e^{-n\varepsilon}$ ; la 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Compare $1 - \varepsilon$ et $e^{-\varepsilon}$. 5. $\frac12(\ln 1{,}8 + \ln 0{,}4) = \frac12\ln 0{,}72$. 6. Le produit de matrices diagonales est diagonal.
+2. Compare $1 - \varepsilon$ et $e^{-\varepsilon}$, pour $\varepsilon \ne 0$. 4. Chaque facteur mensuel est compris entre 0,94 et 0,965. 5. $\frac12(\ln 2{,}2 + \ln 0{,}4) = \frac12\ln 0{,}88$. 6. Le produit de matrices diagonales est diagonal.
 
 </details>
 
@@ -130,7 +130,7 @@ $s_T = \sum_{k=0}^{T-1}J_{T-1}\cdots J_{k+1}\,b_k$ : le terme $k$ est porté par
 </details>
 <details><summary>Indice 3</summary>
 
-3. Dérive $1{,}4\,(1 - \beta)\,x + 20$ par rapport à $x$. 5. Au premier ordre, $\Delta x_3 \approx s_3\,\Delta\beta$. 6. C'est la récurrence $s_{t+1} = J_ts_t + b_t$.
+3. Dérive $1{,}4\,(1 - \beta)\,x + 20$ par rapport à $x$. 5. Au premier ordre, $\Delta x_3 \approx s_3\,\Delta\beta$, avec $\Delta\beta = 0{,}02$. 6. C'est la récurrence $s_{t+1} = J_ts_t + b_t$.
 
 </details>
 
@@ -148,7 +148,7 @@ La norme globale : $\sqrt{\sum_k\lVert\mathbf{w}_k\rVert^2}$. Le tout : un seul 
 </details>
 <details><summary>Indice 3</summary>
 
-3. Le bloc de norme 1 est déjà sous le seuil. 5. $p$ blocs de norme au plus $c'$ donnent une norme globale au plus $c'\sqrt p$.
+3. Le bloc de norme 4 est déjà sous le seuil. 5. $p$ blocs de norme au plus $c'$ donnent une norme globale au plus $c'\sqrt p$.
 
 </details>
 
@@ -228,7 +228,7 @@ Un pas : $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u}_t$, o
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{A}\mathbf{x}_0 = (1{,}2 \times 20 + 0{,}8 \times 30 ;\ 0{,}4 \times 40 ;\ 0{,}6 \times 20)$. d) $\mathbf{B}$ choisit les colonnes 0 et 2 de $\mathbf{A}^2$. e) Calcule $\mathbf{A}^2$, puis $\mathbf{A}^3 = \mathbf{A}\mathbf{A}^2$, ou applique $\mathbf{A}$ trois fois à $\mathbf{x}_0$.
+a) $\mathbf{A}\mathbf{x}_0 = (1{,}2 \times 20 + 0{,}8 \times 30 ;\ 0{,}4 \times 40 ;\ 0{,}6 \times 20)$. d) $\mathbf{A}^2\mathbf{B}$ est formée de la première et de la troisième colonne de $\mathbf{A}^2$. e) Calcule $\mathbf{A}^2$, puis $\mathbf{A}^3 = \mathbf{A}\mathbf{A}^2$, ou applique $\mathbf{A}$ trois fois à $\mathbf{x}_0$. h) Dans $\mathbf{x}_3 = $ e) $+$ f), quelle partie double avec $\mathbf{x}_0$ ?
 
 </details>
 
@@ -300,7 +300,7 @@ Pour la récurrence, calcule $\mathbf{T}^{t+1} = \mathbf{T}^t\mathbf{T}$ : le co
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{c_{t+1}}{c_t} = \frac{t+1}{t}\cdot\frac23$ : compare-le à 1 pour $t = 1, 2, 3$. e) Calcule $c_9$ et $c_{10}$. g) Les valeurs propres de $\mathbf{B}$ sont distinctes : $\sigma_t = \frac{(2/3)^t - (1/3)^t}{1/3}$.
+c) $\frac{c_{t+1}}{c_t} = \frac{t+1}{t}\cdot\frac23$ : compare-le à 1 pour $t = 1, 2, 3$. e) Calcule $c_9$ et $c_{10}$. f) $\mathbf{A}^6\mathbf{e}_2$ est la seconde colonne de $\mathbf{A}^6$. g) Les valeurs propres de $\mathbf{B}$ sont distinctes : $\sigma_t = \frac{(2/3)^t - (1/3)^t}{1/3}$.
 
 </details>
 
@@ -372,7 +372,7 @@ $J_t = \frac{\partial f}{\partial x} = 1 + \beta$ et $b_t = \frac{\partial f}{\p
 </details>
 <details><summary>Indice 3</summary>
 
-d) Le terme de l'année 0 est $1{,}03^3 \times 2\,000$. f) $\Delta\beta = 0{,}002$. g) Recalcule $x_4$ avec $\beta = 0{,}032$.
+d) Le terme de l'année 0 est $1{,}035^3 \times 2\,500$. f) $\Delta\beta = 0{,}002$. g) Recalcule $x_4$ avec $\beta = 0{,}037$.
 
 </details>
 
@@ -484,7 +484,7 @@ Relis « Une récurrence pour la dérivée » (§7), puis le théorème du §1 e
 </details>
 <details><summary>Indice 3</summary>
 
-4. Pars de $\mathbf{s}_0 \ne \mathbf{0}$ et suis la récurrence : quel terme contient $\mathbf{s}_0$ ? 6. $J_t = 0{,}84$, $b_t = -1{,}4\,x_t$, avec $x_0 = 50$, $x_1 = 62$, $x_2 = 72{,}08$.
+4. Pars de $\mathbf{s}_0 \ne \mathbf{0}$ et suis la récurrence : quel terme contient $\mathbf{s}_0$ ? 6. $J_t = 0{,}84$, $b_t = -1{,}4\,x_t$, avec $x_0 = 40$, $x_1 = 53{,}6$, $x_2 = 65{,}024$.
 
 </details>
 
@@ -730,7 +730,7 @@ La fiche : le ⚠️ du §4 (la plus grande valeur propre n'est pas le plus gran
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `np.sqrt(np.linalg.eigvalsh(A.T @ A)[-1])`. (2) `P = jac(x) @ P`. (3) `norm = np.linalg.norm(V)` (toutes les coordonnées) ; si `norm <= c`, rends `V.copy()` (un tableau nul compris) ; sinon `V * (c / norm)`. b) Les états : $(4, 2)$, puis $f(4, 2)$, puis $f(f(4, 2))$.
+(1) `np.sqrt(np.linalg.eigvalsh(A.T @ A)[-1])`. (2) `P = jac(x) @ P`. (3) Calcule d'abord l'énergie de toute la flotte, puis un seul facteur $\sqrt{\min(1, E/E_{\text{flotte}})}$ pour tout le tableau ; rends une copie quand l'énergie est nulle. b) Les états : $(4, 2)$, puis $f(4, 2)$, puis $f(f(4, 2))$.
 
 </details>
 
