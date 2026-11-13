@@ -78941,7 +78941,8 @@
       "kind": "array",
       "mistakes": {
         "326fd2a3751dacb5929259998d9090519ea40a10ab096c21b529259dea9c3c19": "les demi-axes valent c√λ, avec c et non c²",
-        "b371517e083aec8bdd61e9ebf1448aa020b62e7859c49b3f59ea2105a43e0249": "les demi-axes valent c√λ, pas cλ",
+        "b371517e083aec8bdd61e9ebf1448aa020b62e7859c49b3f59ea2105a43e0249": "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni cλᵢ, ni c²λᵢ)",
+        "ba0162a06b963e822ea00eef107d2b16ffab36c0423cf3be34b80ba795ff6a19": "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni c²λᵢ, ni cλᵢ)",
         "d1ae6b63d1f90746f329b851ccfd468bec0a3545feb41548c2f25e2f5d15d083": "les demi-axes de l'ellipse Δ = c suivent √λ, pour les valeurs propres de Σ"
       },
       "shape": [
@@ -78978,8 +78979,9 @@
       "hash": "6126f2c768c0bb7aeb0c3662969170ceb0cf9b8ac6224ed3c813a328b652bf7c",
       "kind": "array",
       "mistakes": {
-        "00aff07b915a735703da95bb7512f102d8a78a153562a29d7fd0d3dccff0404e": "les demi-axes valent c√λ, pas cλ",
-        "3b765716fd3fcc4892424942e67b1cbe10f44c3bc9ee73d76e51ba086ce28dc7": "les demi-axes valent c√λ, avec c et non c²"
+        "00aff07b915a735703da95bb7512f102d8a78a153562a29d7fd0d3dccff0404e": "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni cλᵢ, ni c²λᵢ)",
+        "3b765716fd3fcc4892424942e67b1cbe10f44c3bc9ee73d76e51ba086ce28dc7": "les demi-axes valent c√λ, avec c et non c²",
+        "a79fd1d39bbed515ecb6846ba0fb129cdf78e46056ab1867e3b31328e443496b": "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni c²λᵢ, ni cλᵢ)"
       },
       "shape": [
         2
@@ -79305,6 +79307,7 @@
       "hash": "7084c748f01e03d463f05e3c3c38aa90e91aa435255923df60b2ac8b9472e339",
       "kind": "array",
       "mistakes": {
+        "8dff6c49789eadc2929b94f0d0a43da0f09e39e5a193780fa5bbed162d741717": "en fusionnant, ce sont les précisions 1/σ² qui s'additionnent, pas les variances",
         "920fc4e0fce12deb46ff07960db30f41812694dadb9cad6b1d764297cac0aa08": "on additionne les précisions (les inverses des variances), pas les variances",
         "9aff55d7869d2c7a4322232a48314edd6afea2e7ea21a072fe69269ceed511dc": "les poids sont les précisions 1/σ², pas 1/σ",
         "a19a1c20aa8a2e79066bc1cc04792f88dd7a4b60bce8c0bbaeec71a8a6233bb8": "la moyenne fusionnée est pondérée par les précisions"
@@ -80143,23 +80146,21 @@
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
     },
     "M25a.9d": {
-      "decimals": 0,
-      "hash": "f06956b43d410e04d6e8752fc8470273ae273536ce5100b13ca4010855f90dfd",
-      "kind": "float",
+      "hash": "c589e1cfcd24e555ebd86c4b760b8ed3a1d14a288fc4c847d7a6fe368daeca87",
+      "kind": "int",
       "magnitude": 3,
       "mistakes": {
-        "6b97f7d1329a8b0ef92301eff2bd3ca7e1739ef005939d122a54ea2c31efb632": "la longueur d'un arc est R Ω, avec Ω en radians"
+        "8f2109c239a992cb7c5b9c215aafacaa133598644c253a48bef0bfcdaa5b8071": "la longueur d'un arc est R Ω, avec Ω en radians"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
     },
     "M25a.9e": {
-      "decimals": 0,
-      "hash": "c5e6b95b050410903b84aad1efa0e8a3e68387ac9e986ebacaffd64db70db9dd",
-      "kind": "float",
+      "hash": "c31f7dd35b2bc28fc336db549266c2ac8c3b757e89bfbd4b78e1dbecddb0e515",
+      "kind": "int",
       "magnitude": 3,
       "mistakes": {
-        "7f63d1b81a282f0832d206ebc4764b915dcbe91b7740290158a2ffc368fe9e2a": "la corde fait intervenir le demi-angle au centre (fiche §8, « Arc et corde »)"
+        "ff0871f4e934bd27dcbcad5a04380abbb0cd6678fa8ae9a8e2bc4a0ef80b7030": "la corde fait intervenir le demi-angle au centre (fiche §8, « Arc et corde »)"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
@@ -80243,13 +80244,12 @@
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
     },
     "M25a.9h": {
-      "decimals": 0,
-      "hash": "093eb84d1f64ecdf12e12cc335938ece7bff2227d06f6eee8d6be6d277c422c2",
-      "kind": "float",
+      "hash": "05e5dacad2ec538d7559f1babb4ee6dda03960b3ea2d822943d322f79b3e06dd",
+      "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "0563234f9338d59f354e50f6e585ffa1be02402df54ef961b6c34af6f2b7a85b": "le milieu de la corde est à l'angle Ω/2 de chaque ville",
-        "ed558320f83eadec78bd4f2bba8a74050aac11bd9d7affa0faf79941c7d05737": "la profondeur sous la surface est R moins la distance du milieu au centre"
+        "5e73f42cce2d5dd9b9f9b91bf40a91607c86f60ca4332c80ffe0244eb96eb4bd": "la profondeur sous la surface est R moins la distance du milieu au centre",
+        "739d923faf44de95de48b59152c4fb173dab16f37e699eaa09fb9634d165081c": "le milieu de la corde est à l'angle Ω/2 de chaque ville"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
@@ -81498,7 +81498,8 @@
       "hash": "f67bba6ab4c67d2c92bedc307b63b5f36fc4e8dc0383bd8ee6229068a451fee3",
       "kind": "array",
       "mistakes": {
-        "8738078ccaf1c5e64dccd7c7f10a6de68c5516de8dca8dc7b8675e60bb753016": "l'erreur type d'un coefficient de covariance contient aussi Σ_jk²"
+        "8738078ccaf1c5e64dccd7c7f10a6de68c5516de8dca8dc7b8675e60bb753016": "l'erreur type d'un coefficient de covariance contient aussi Σ_jk²",
+        "ddb465dad25fa95cc393ce777e642641359fc56fe153132b96f1b6b66ae10869": "np.cov divise par n − 1 sans bias=True : prends la covariance du test"
       },
       "shape": [
         2

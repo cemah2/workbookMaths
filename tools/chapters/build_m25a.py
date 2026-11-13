@@ -174,13 +174,19 @@ PAPER = [
                      "on demande les niveaux c², pas c": floats(np.sqrt(C2_3))}'''),
         ("d", "a list of 2 numbers (4 decimals)", "floats(np.sqrt(C2_3[0] * LAMBDAS_F_3))",
          '''decimals=4,
-           mistakes={"les demi-axes valent c√λ, pas cλ": floats(math.sqrt(C2_3[0]) * LAMBDAS_F_3),
+           mistakes={"un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni c²λᵢ, ni cλᵢ)":
+                         floats(C2_3[0] * LAMBDAS_F_3),
+                     "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni cλᵢ, ni c²λᵢ)":
+                         floats(math.sqrt(C2_3[0]) * LAMBDAS_F_3),
                      "les demi-axes valent c√λ, avec c et non c²": floats(C2_3[0] * np.sqrt(LAMBDAS_F_3)),
                      "les demi-axes de l'ellipse Δ = c suivent √λ, pour les valeurs propres de Σ":
                          floats(math.sqrt(C2_3[0]) / np.sqrt(LAMBDAS_F_3[::-1]))}'''),
         ("e", "a list of 2 numbers (4 decimals)", "floats(np.sqrt(C2_3[1] * LAMBDAS_F_3))",
          '''decimals=4,
-           mistakes={"les demi-axes valent c√λ, pas cλ": floats(math.sqrt(C2_3[1]) * LAMBDAS_F_3),
+           mistakes={"un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni c²λᵢ, ni cλᵢ)":
+                         floats(C2_3[1] * LAMBDAS_F_3),
+                     "un demi-axe est une longueur, en m/s : relis la propriété des ellipses de niveau (ni cλᵢ, ni c²λᵢ)":
+                         floats(math.sqrt(C2_3[1]) * LAMBDAS_F_3),
                      "les demi-axes valent c√λ, avec c et non c²": floats(C2_3[1] * np.sqrt(LAMBDAS_F_3))}'''),
         ("f", "a list of 2 numbers (2 decimals)", "floats(math.pi * np.array(C2_3) * math.sqrt(DET_3))",
          '''decimals=2,
@@ -256,7 +262,9 @@ PAPER = [
                          floats([(X_5[0] + X_5[1]) / 2, V_5[0] + V_5[1]]),
                      "les poids sont les précisions 1/σ², pas 1/σ":
                          floats([(X_5[0] / SD_5[0] + X_5[1] / SD_5[1]) / (1 / SD_5[0] + 1 / SD_5[1]), FUSE_TL_5[1]]),
-                     "la moyenne fusionnée est pondérée par les précisions": floats([(X_5[0] + X_5[1]) / 2, FUSE_TL_5[1]])}'''),
+                     "la moyenne fusionnée est pondérée par les précisions": floats([(X_5[0] + X_5[1]) / 2, FUSE_TL_5[1]]),
+                     "en fusionnant, ce sont les précisions 1/σ² qui s'additionnent, pas les variances":
+                         floats([FUSE_TL_5[0], V_5[0] + V_5[1]])}'''),
         ("b", "a list of 2 numbers (4 decimals)", "floats(FUSE_ALL_5)",
          '''decimals=4,
            mistakes={"on additionne les précisions, pas les variances": floats([FUSE_ALL_5[0], sum(V_5)]),
@@ -402,11 +410,11 @@ PAPER = [
          '''decimals=4,
            mistakes={"on demande l'angle en radians": math.degrees(OMEGA_9),
                      "Ω est l'arc cosinus du produit scalaire": float(U_9 @ V_9)}'''),
-        ("d", "an integer", "R_9 * OMEGA_9",
-         '''decimals=0, mistakes={"la longueur d'un arc est R Ω, avec Ω en radians": R_9 * math.degrees(OMEGA_9)}'''),
-        ("e", "an integer", "2 * R_9 * math.sin(OMEGA_9 / 2)",
-         '''decimals=0, mistakes={"la corde fait intervenir le demi-angle au centre (fiche §8, « Arc et corde »)":
-                                     2 * R_9 * math.sin(OMEGA_9)}'''),
+        ("d", "an integer", "int(round(R_9 * OMEGA_9))",
+         '''mistakes={"la longueur d'un arc est R Ω, avec Ω en radians": int(round(R_9 * math.degrees(OMEGA_9)))}'''),
+        ("e", "an integer", "int(round(2 * R_9 * math.sin(OMEGA_9 / 2)))",
+         '''mistakes={"la corde fait intervenir le demi-angle au centre (fiche §8, « Arc et corde »)":
+                         int(round(2 * R_9 * math.sin(OMEGA_9)))}'''),
         ("f", "a list of 3 numbers (4 decimals)", "floats(THIRD_9)",
          '''decimals=4,
            mistakes={"ramener sur la sphère un point de la corde ne donne pas le point du slerp":
@@ -416,11 +424,11 @@ PAPER = [
          '''decimals=2,
            mistakes={"une longitude ouest est négative": floats([LAT_LON_9[0], -LAT_LON_9[1]]),
                      "la latitude d'abord": floats(LAT_LON_9[::-1])}'''),
-        ("h", "an integer", "R_9 * (1 - math.cos(OMEGA_9 / 2))",
-         '''decimals=0,
-           mistakes={"la profondeur sous la surface est R moins la distance du milieu au centre":
-                         R_9 * math.cos(OMEGA_9 / 2),
-                     "le milieu de la corde est à l'angle Ω/2 de chaque ville": R_9 * (1 - math.cos(OMEGA_9))}'''),
+        ("h", "an integer", "int(round(R_9 * (1 - math.cos(OMEGA_9 / 2))))",
+         '''mistakes={"la profondeur sous la surface est R moins la distance du milieu au centre":
+                         int(round(R_9 * math.cos(OMEGA_9 / 2))),
+                     "le milieu de la corde est à l'angle Ω/2 de chaque ville":
+                         int(round(R_9 * (1 - math.cos(OMEGA_9))))}'''),
         ("i", BOOL, "bool(abs(math.acos(float(U_9 @ CHORD_THIRD_9) / np.linalg.norm(CHORD_THIRD_9)) - OMEGA_9 / 3) < 1e-9)",
          '''mistakes={"seul le slerp avance d'un angle proportionnel à t": True}'''),
     ]),
@@ -725,7 +733,18 @@ def has_points(ax, points):
         offsets = np.asarray(collection.get_offsets(), dtype=float)
         if offsets.ndim == 2 and offsets.shape[1] == 2:
             found += [tuple(p) for p in offsets]
-    return all(any(abs(fx - px) < 1e-9 and abs(fy - py) < 1e-9 for fx, fy in found) for px, py in points)'''
+    return all(any(abs(fx - px) < 1e-9 and abs(fy - py) < 1e-9 for fx, fy in found) for px, py in points)
+
+
+def matches(got, want, rtol=1e-9, atol=1e-12):
+    """True when got is an array of numbers of the shape of want and equal to it up to rounding (no error for an odd
+    got): to recognize a classic wrong result before the comparison by same."""
+    try:
+        arr = np.asarray(got, dtype=float)
+    except (TypeError, ValueError):
+        return False
+    want = np.asarray(want, dtype=float)
+    return arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))'''
 
 LOAD_LEARNER = ('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M25a")  '
                 '# reload your saved file')
@@ -776,7 +795,7 @@ NOTE_20 = (r"`L = np.linalg.cholesky(cov)`, les écarts en lignes, `y = np.linal
            r"10^{-24{,}5}$, que son logarithme, une somme de $d$ termes, calcule sans peine.")
 
 M25A_20 = Ex(
-    "M25a.20", "🔨", 2, 30, "La log-densité d'une loi normale multivariée, par Cholesky · `mvn_logpdf`",
+    "M25a.20", "🔨", 2, 40, "La log-densité d'une loi normale multivariée, par Cholesky · `mvn_logpdf`",
     "programmer la log-densité d'une loi normale multivariée par le facteur de Cholesky, puis voir qu'en grande "
     "dimension la densité sort des flottants et son logarithme non.",
     "fiche §1 ; M12c ; Ex M25a.1 et M25a.16", tracks="C, E", mymath="gaussian.py", given=GIVEN_20, note=NOTE_20,
@@ -889,8 +908,11 @@ with wbm.attempt("M25a.21"):          # if you call sample_mvn here: ⏳ while i
     if filled(cov_21):
         E_c21 = np.random.default_rng(5921).standard_normal((20000, 3))
         draws_c21 = MU_ROAD_21 + E_c21 @ np.linalg.cholesky(COV_ROAD_21).T
-        same("M25a.21", "cov_21, la covariance empirique de tes 20 000 tirages", cov_21,
-             np.cov(draws_c21, rowvar=False, bias=True))
+        want_c21 = np.cov(draws_c21, rowvar=False, bias=True)
+        if matches(cov_21, want_c21 * 20000 / 19999):
+            print("❌ Ex M25a.21 : cov_21 est n/(n − 1) fois trop grande : sans bias=True, np.cov divise par n − 1.")
+        else:
+            same("M25a.21", "cov_21, la covariance empirique de tes 20 000 tirages", cov_21, want_c21)
     else:
         print("⏳ Ex M25a.21 : la comparaison attend ta covariance cov_21.")
 for letter, answer in zip("abcd", [answer_M25a_21a, answer_M25a_21b, answer_M25a_21c, answer_M25a_21d]):
@@ -951,7 +973,7 @@ NOTE_22 = (r"a) Moyenne $\frac{53}{3} \approx 17{,}6667$, variance $\frac43 \app
            r"avec `idx[j]`.")
 
 M25A_22 = Ex(
-    "M25a.22", "🔨", 2, 35, "Le complément de Schur d'un bloc, et la loi conditionnelle d'un vecteur gaussien · "
+    "M25a.22", "🔨", 2, 40, "Le complément de Schur d'un bloc, et la loi conditionnelle d'un vecteur gaussien · "
     "`schur_complement`, `condition_gaussian`",
     "programmer le complément de Schur et la loi conditionnelle d'un vecteur gaussien, puis vérifier leurs "
     "propriétés sur le capteur en panne.",
@@ -1087,7 +1109,7 @@ NOTE_23 = (r"La précision a posteriori $\mathbf{S}_0^{-1} + \sigma^{-2}\boldsym
            r"$0{,}47$ à 200 °C et $0{,}59$ à 250 °C : la bande s'ouvre en extrapolation.")
 
 M25A_23 = Ex(
-    "M25a.23", "🔨", 2, 25, "Le posterior d'une régression linéaire bayésienne · `linreg_posterior`",
+    "M25a.23", "🔨", 2, 35, "Le posterior d'une régression linéaire bayésienne · `linreg_posterior`",
     "programmer la loi a posteriori d'une régression linéaire bayésienne, puis l'appliquer au thermomètre : données "
     "une à une, lien avec ridge, et prédictive près et loin des points d'étalonnage.",
     "fiche §5 ; M09b ; Ex M25a.6", tracks="C", mymath="gaussian.py", given=GIVEN_23, note=NOTE_23,
@@ -1211,7 +1233,7 @@ NOTE_24 = (r"a) Vrai : un écart maximal de l'ordre de $10^{-14}$. b) $\hat{\bol
            r"$0{,}0030$ : la formule est à moins d'une erreur type.")
 
 M25A_24 = Ex(
-    "M25a.24", "📦", 1, 25, "`scipy.stats.multivariate_normal`, `np.cov` et `scipy.integrate` : tes log-densités, le "
+    "M25a.24", "📦", 1, 30, "`scipy.stats.multivariate_normal`, `np.cov` et `scipy.integrate` : tes log-densités, le "
     "maximum de vraisemblance, et la KL de M25a.8 par une intégrale double",
     "comparer ta librairie à SciPy, retrouver le maximum de vraisemblance avec `np.cov`, et calculer une KL entre "
     "deux gaussiennes de trois façons.",
@@ -1348,7 +1370,7 @@ M25A_25 = Ex(
     "fiche §3 ; Ex M25a.3 et M25a.21", tracks="C, E", hypothesis=True, given=GIVEN_25, note=NOTE_25,
     body=r"""On garde le niveau de l'ellipse à 90 % du plan, $c^2 = 2\ln 10$ (`LEVEL_25`), et l'on regarde, en dimension $d$, la part des tirages de $\mathcal{N}(\mathbf{0}, \boldsymbol{\Sigma}_d)$ tels que $\Delta^2 \le c^2$, avec $(\boldsymbol{\Sigma}_d)_{ij} = 0{,}6^{\lvert i - j\rvert}$ (`ar_cov_25(d)`). **Avant d'exécuter quoi que ce soit**, prédis :
 - a) en dimension 10, cette part est : (A) encore de l'ordre de 90 % ; (B) nettement plus petite ; (C) nettement plus grande (une lettre) ;
-- b) la première dimension où elle passe sous 50 % : (A) 3 ; (B) entre 5 et 7 ; (C) au-delà de 10 (une lettre) ;
+- b) la première dimension où elle passe sous 50 % : (A) 3 ou 4 ; (B) entre 5 et 7 ; (C) 8 ou plus (une lettre) ;
 - c) vrai ou faux : pour une dimension donnée, cette part dépend de la matrice $\boldsymbol{\Sigma}_d$ choisie.
 
 Puis, une fois tes prédictions écrites et vérifiées, mesure, pour $d = 2, \ldots, 10$, la part sur 100 000 tirages (`sample_mvn(np.zeros(d), ar_cov_25(d), 100000, seed=5925)`, $\Delta^2$ par `np.linalg.solve`), compare-la à `scipy.stats.chi2(d).cdf(LEVEL_25)`, et relève :
@@ -1368,7 +1390,7 @@ wbm.record("M25a.25a", "A" if abs(chi_25r[10] - 0.9) < 0.05 else ("B" if chi_25r
            mistakes={"en dimension d, Δ² est une somme de d carrés : sa moyenne vaut d et grandit avec la dimension": "A",
                      "à niveau fixé, une boule de Mahalanobis de rayon fixe contient de moins en moins quand la masse "
                      "s'éloigne du centre": "C"})
-wbm.record("M25a.25b", "A" if first_chi_25r == 3 else ("B" if 5 <= first_chi_25r <= 7 else "C"), prediction=True,
+wbm.record("M25a.25b", "A" if first_chi_25r <= 4 else ("B" if first_chi_25r <= 7 else "C"), prediction=True,
            mistakes={"la part baisse progressivement : compare le niveau c² ≈ 4,6 à la moyenne d de Δ²": "A",
                      "la moyenne de Δ² vaut d : regarde quand d dépasse le niveau c² ≈ 4,6": "C"})
 wbm.record("M25a.25c", False, prediction=True,
@@ -1432,6 +1454,12 @@ CHECK_26 = '''with checked("M25a.26"):
         kept_c26 = draws_c26[np.abs(draws_c26[:, 0] - T_READ_26) < h_c26, 1]
         want_c26.append([len(kept_c26), kept_c26.mean(), kept_c26.var()])
     want_c26 = np.array(want_c26)
+    ddof_c26 = want_c26.copy()
+    ddof_c26[:, 2] *= want_c26[:, 0] / (want_c26[:, 0] - 1)      # the variances of np.var(..., ddof=1)
+    if matches(table_26, ddof_c26):
+        print("❌ Ex M25a.26 : les variances de table_26 sont n/(n − 1) fois trop grandes : np.var divise par n ; "
+              "ddof=1 divise par n − 1.")
+        raise StopCheck
     results_26.append(same("M25a.26", "table_26, une ligne [nombre, moyenne, variance] par demi-largeur", table_26,
                            want_c26))
     if not results_26[-1]:
@@ -1575,7 +1603,7 @@ def cov_27(rho):
     return np.array([[s1 ** 2, rho * s1 * s2], [rho * s1 * s2, s2 ** 2]])'''
 
 CHECK_27 = '''def look_27(ax_joint, ax_cut, mean, cov, x1_value):
-    """What is missing in a drawing of draw_gaussian_27: a list of French phrases, empty when all is there."""
+    """What is wrong in a drawing of draw_gaussian_27: a list of French phrases, empty when all is there."""
     mean, cov = np.asarray(mean, dtype=float), np.asarray(cov, dtype=float)
     L, missing = np.linalg.cholesky(cov), []
     for level in LEVELS_27:
@@ -1589,17 +1617,19 @@ CHECK_27 = '''def look_27(ax_joint, ax_cut, mean, cov, x1_value):
                 angles = np.sort(np.arctan2(white[:, 1], white[:, 0]))
                 found = found or np.diff(np.concatenate([angles, [angles[0] + 2 * np.pi]])).max() < 0.5
         if not found:
-            missing.append(f"l'ellipse à {round(100 * level)} % (des points de Δ² = c², tout autour du centre)")
+            mass = f"{level:g}".replace(".", ",")
+            missing.append(f"aucune courbe fermée n'est au niveau de l'ellipse à {round(100 * level)} % (Δ² = c² pour "
+                           f"la masse {mass}) : une ellipse au mauvais niveau ne compte pas")
     if not any(line_points(line)[0].size >= 2 and np.allclose(line_points(line)[0], x1_value, rtol=0, atol=1e-9)
                for line in ax_joint.lines):
-        missing.append(f"la droite verticale x₁ = {fr(x1_value, 2)} (ax.axvline)")
+        missing.append(f"il manque la droite verticale x₁ = {fr(x1_value, 2)} (ax.axvline)")
     slope = cov[0, 1] / cov[0, 0]
     if not any(np.ptp(line_points(line)[0]) > 0 and np.allclose(
             line_points(line)[1], mean[1] + slope * (line_points(line)[0] - mean[0]), rtol=0, atol=1e-9)
                for line in ax_joint.lines):
-        missing.append("la droite des moyennes conditionnelles de x₂ sachant x₁")
+        missing.append("il manque la droite des moyennes conditionnelles de x₂ sachant x₁")
     if ax_joint.get_aspect() not in ("equal", 1.0):
-        missing.append("la même échelle sur les deux axes du panneau du haut (set_aspect(\\"equal\\"))")
+        missing.append("il manque la même échelle sur les deux axes du panneau du haut (set_aspect(\\"equal\\"))")
     gain = cov[1, 0] / cov[0, 0]
     laws = {"la densité de la loi marginale de x₂": (mean[1], cov[1, 1]),
             "la densité de la loi conditionnelle de x₂ sachant x₁": (mean[1] + gain * (x1_value - mean[0]),
@@ -1608,9 +1638,9 @@ CHECK_27 = '''def look_27(ax_joint, ax_cut, mean, cov, x1_value):
         if not any(line_points(line)[0].size >= 20 and np.allclose(
                 line_points(line)[1], stats.norm(m, math.sqrt(v)).pdf(line_points(line)[0]), rtol=1e-6, atol=1e-12)
                    for line in ax_cut.lines):
-            missing.append(name + " (panneau du bas)")
+            missing.append("il manque " + name + " (panneau du bas)")
     if ax_cut.get_legend() is None:
-        missing.append("la légende du panneau du bas")
+        missing.append("il manque la légende du panneau du bas")
     return missing
 
 
@@ -1626,7 +1656,7 @@ with checked("M25a.27"):
                       f"{name_27} : draw_gaussian_27 doit dessiner dans les deux axes reçus, sans ouvrir de figure")
             missing_27 = look_27(axes_27[0, column_27], axes_27[1, column_27], MU_27, cov_27(rho_27), X1_27)
             report_27(not missing_27, f"{name_27} : les deux ellipses, la verticale, la droite des moyennes "
-                      "conditionnelles et les deux densités sont là", f"{name_27} : il manque " + " ; ".join(missing_27))
+                      "conditionnelles et les deux densités sont là", f"{name_27} : " + " ; ".join(missing_27))
         rng_c27 = np.random.default_rng(5917)
         sds_c27, rho_c27 = rng_c27.uniform(0.6, 2.5, size=2), -0.7
         cov_c27 = np.array([[sds_c27[0] ** 2, rho_c27 * sds_c27[0] * sds_c27[1]],
@@ -1641,7 +1671,7 @@ with checked("M25a.27"):
             plt.close(fig_c27)
         report_27(not opened_c27 and not missing_c27, "un cas que tu ne vois pas (une autre moyenne, une corrélation "
                   "négative, une autre tranche) est dessiné juste aussi", "un cas que tu ne vois pas (une autre moyenne, "
-                  "une corrélation négative, une autre tranche) : il manque " + " ; ".join(missing_c27 or ["…"]))
+                  "une corrélation négative, une autre tranche) : " + " ; ".join(missing_c27 or ["draw_gaussian_27 doit dessiner dans les axes reçus, sans ouvrir de figure"]))
     except StopCheck:
         fig_27.tight_layout()
         plt.show()
@@ -1659,7 +1689,7 @@ NOTE_27 = (r"Pour $\rho = 0$, $0{,}5$ et $0{,}9$, la tranche $x_1 = 1{,}5$ donne
            r"le centre et par les points de tangence verticale des ellipses.")
 
 M25A_27 = Ex(
-    "M25a.27", "🎨", 1, 20, "Les ellipses de niveau d'une gaussienne en dimension 2, une tranche (la loi "
+    "M25a.27", "🎨", 1, 25, "Les ellipses de niveau d'une gaussienne en dimension 2, une tranche (la loi "
     "conditionnelle) et une projection (la loi marginale), selon la corrélation",
     "voir, selon la corrélation, que la tranche d'une gaussienne du plan est une loi normale décalée et plus étroite, "
     "et sa projection une loi normale de même variance.",
@@ -1890,7 +1920,7 @@ NOTE_28 = (r"(1) `E @ L` donne la covariance $\mathbf{L}^\top\mathbf{L}$ : il fa
            r"les voisins lisent leur moyenne. e) $(17{,}3226 ;\ 1{,}5484)$ ; f) $(17{,}6667 ;\ 1{,}3333)$.")
 
 M25A_28 = Ex(
-    "M25a.28", "🐛", 1, 20, "Chasse à l'erreur : un tirage par E L au lieu de E Lᵀ, ln det Σ sans le facteur 2, et "
+    "M25a.28", "🐛", 1, 25, "Chasse à l'erreur : un tirage par E L au lieu de E Lᵀ, ln det Σ sans le facteur 2, et "
     "une covariance conditionnelle qui dépend de la valeur observée",
     "reconnaître trois erreurs classiques qui ne lèvent aucune erreur Python et passent une vérification mal choisie, "
     "puis les corriger.", "fiche §1, §2 et §4 ; Ex M25a.1, M25a.3 et M25a.4", tracks="C, E", given=GIVEN_28, note=NOTE_28,
@@ -2129,14 +2159,14 @@ NOTE_29 = (r"a) $k = \Phi^{-1}(1 - 0{,}001) \approx 3{,}0902$ (chaque comparaiso
            r"`sampler_inflated`.")
 
 M25A_29 = Ex(
-    "M25a.29", "🛠️", 1, 20, "Un test de propriété : la moyenne et la covariance empiriques de tes tirages, à une "
+    "M25a.29", "🛠️", 2, 30, "Un test de propriété : la moyenne et la covariance empiriques de tes tirages, à une "
     "tolérance fixée par l'erreur type",
     "écrire un test statistique dont la tolérance est fixée par l'erreur type et un risque d'échec annoncé, puis "
     "mesurer ce risque et la puissance du test.", "fiche §2 ; M02c ; Ex M25a.21", tracks="C", given=GIVEN_29, note=NOTE_29,
     body=r"""Écris `moment_test_29(sampler, mean, cov, n, seed, k)`, qui tire `X = sampler(mean, cov, n, seed)` et vérifie, par des `assert`, que chaque moyenne empirique est à moins de $k$ erreurs types de $\mu_j$, l'erreur type valant $\sqrt{\Sigma_{jj}/n}$, et que chaque coefficient de la covariance empirique (`bias=True`) est à moins de $k$ erreurs types de $\Sigma_{jk}$, l'erreur type valant $\sqrt{(\Sigma_{jj}\Sigma_{kk} + \Sigma_{jk}^2)/n}$ ; un échec lève `AssertionError`, avec un message qui dit **d'abord** ce qui était attendu (il commence par « expected »), **puis** le coefficient fautif. On prend la loi du vent de M25a.3 (`MU_WIND_29`, `COV_WIND_29`) et $n = 2\,000$ (`N_29`).
 - a) Choisis $k$ pour que la probabilité qu'une fonction juste échoue soit au plus 1 % : en dimension 2, le test fait 5 comparaisons (2 moyennes et 3 coefficients de covariance) ; partage les 1 % entre elles (une borne de la réunion) et lis $k$ dans `scipy.stats.norm.ppf` (4 décimales dans ta copie).
-- b) Lance ton test sur ta `sample_mvn` pour les 300 graines `SEEDS_29` (tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)`) : le nombre d'échecs, à comparer à ce que garantit a) (un entier).
-- c) Sur ces 300 répétitions, mesure l'écart-type (`np.std`) du coefficient $(0, 1)$ de la covariance empirique, et compare-le à la formule de l'erreur type (une liste de 2 nombres ; 4 décimales chacun dans ta copie).
+- b) Lance ton test sur ta `sample_mvn` pour les 300 graines `SEEDS_29` (tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)`) : le nombre d'échecs (un entier), à comparer à ce que garantit a) (sur 300 répétitions, une proportion fluctue d'environ ± 0,6 %).
+- c) Sur ces 300 répétitions, mesure l'écart-type (`np.std`) du coefficient $(0, 1)$ de la covariance empirique (`bias=True`, comme dans le test), et compare-le à la formule de l'erreur type (une liste de 2 nombres ; 4 décimales chacun dans ta copie).
 - d) La cellule fournie donne quatre versions fausses : `sampler_EL` (qui rend `mean + E @ L`), `sampler_sigma` (`mean + E @ cov`), `sampler_diag` (qui ignore les covariances : chaque coordonnée a la bonne variance, sans corrélation) et `sampler_inflated` (qui tire $\mathcal{N}(\boldsymbol{\mu}, 1{,}02\,\boldsymbol{\Sigma})$) ; lance ton test sur chacune avec la graine 5929 et $n = 2\,000$ : lesquelles attrape-t-il ? (une liste de 4 booléens, dans cet ordre : `True` quand ton test l'attrape).
 - e) Combien de tirages faudrait-il pour qu'un écart de 2 % sur une variance dépasse $k$ erreurs types (l'erreur type d'une variance empirique vaut $\Sigma_{jj}\sqrt{2/n}$) ? Le plus petit entier $n$ (avec $k$ non arrondi). Vérifie que ton test attrape `sampler_inflated` avec $n = 300\,000$.
 
@@ -2153,7 +2183,7 @@ answer_M25a_29a = answer_M25a_29b = answer_M25a_29c = answer_M25a_29d = answer_M
 with wbm.attempt("M25a.29"):          # your sample_mvn and your test: ⏳ while they are not written
     answer_M25a_29a = ...  # a) a number, as computed: k (scipy.stats.norm.ppf)
     answer_M25a_29b = ...  # b) an integer: the number of failures (AssertionError) of your test on your sample_mvn, the wind, n = N_29, the 300 SEEDS_29
-    answer_M25a_29c = ...  # c) a list of 2 numbers, as computed: the standard deviation (np.std) of the coefficient (0, 1) of the empirical covariance over the 300 draws, then the formula
+    answer_M25a_29c = ...  # c) a list of 2 numbers, as computed: the standard deviation (np.std) of np.cov(X, rowvar=False, bias=True)[0, 1] over the 300 draws, then the formula
     answer_M25a_29d = ...  # d) a list of 4 True or False, in the order sampler_EL, sampler_sigma, sampler_diag, sampler_inflated: True when your test catches it (seed 5929, n = N_29)
     answer_M25a_29e = ...  # e) an integer: the smallest n for which a gap of 2 % on a variance exceeds k standard errors''',
     check='''for letter, answer in zip("abcde", [answer_M25a_29a, answer_M25a_29b, answer_M25a_29c, answer_M25a_29d,
@@ -2234,7 +2264,10 @@ wbm.record("M25a.29b", fails_29r, mistakes={m: v for m, v in variants_29r.items(
 sd_29r = float(np.std([np.cov(X, rowvar=False, bias=True)[0, 1] for X in draws_29r]))
 wbm.record("M25a.29c", [sd_29r, math.sqrt((14.0 * 6.0 + 3.0 ** 2) / 2000)], decimals=4,
            mistakes={"l'erreur type d'un coefficient de covariance contient aussi Σ_jk²":
-                         [sd_29r, math.sqrt(14.0 * 6.0 / 2000)]})
+                         [sd_29r, math.sqrt(14.0 * 6.0 / 2000)],
+                     "np.cov divise par n − 1 sans bias=True : prends la covariance du test":
+                         [float(np.std([np.cov(X, rowvar=False)[0, 1] for X in draws_29r])),
+                          math.sqrt((14.0 * 6.0 + 3.0 ** 2) / 2000)]})
 E_29r = np.random.default_rng(5929).standard_normal((2000, 2))
 wrong_29r = [mu_29r + E_29r @ L_29r, mu_29r + E_29r @ cov_29r, mu_29r + E_29r * np.sqrt(np.diag(cov_29r)),
              mu_29r + E_29r @ np.linalg.cholesky(1.02 * cov_29r).T]
@@ -2307,6 +2340,37 @@ with checked("M25a.30"):
             f"critère pas encore atteint : erreur quadratique moyenne {fr(rmse_c30)} °C > 1,0 °C.")
     reconstructed_30 = (means_c30, sds_c30)
 
+    def law_c30(noise_var, mean=MEAN_30, everywhere=False):
+        """The moments of the conditional law for a noise variance on the measured positions (or everywhere)."""
+        C = K_30 + noise_var * np.diag([1.0 if everywhere or i not in MISS_30 else 0.0 for i in range(31)])
+        gain = np.linalg.solve(C[np.ix_(OBS_30, OBS_30)], C[np.ix_(OBS_30, MISS_30)]).T
+        return (mean[MISS_30] + gain @ (Y_OBS_30 - mean[OBS_30]),
+                np.sqrt(np.diag(C[np.ix_(MISS_30, MISS_30)] - gain @ C[np.ix_(OBS_30, MISS_30)])))
+
+    def same_law_c30(law):
+        return np.allclose(means_c30, law[0], atol=1e-8) and np.allclose(sds_c30, law[1], atol=1e-8)
+
+    exact_c30 = law_c30(NOISE_SD_30 ** 2)
+    lead_c30 = "le critère est atteint, mais " if rmse_c30 <= 1.0 else "de plus, "
+    if same_law_c30(exact_c30):
+        print("✅ Ex M25a.30 : tes moyennes et tes écarts-types sont ceux de la loi conditionnelle exacte du modèle.")
+    elif same_law_c30(law_c30(0.0)):
+        print(f"❌ Ex M25a.30 : {lead_c30}tes moyennes et tes écarts-types sont ceux de mesures sans erreur : les 19 "
+              "mesures sont les vraies températures plus un bruit, et leur covariance doit en tenir compte.")
+    elif same_law_c30(law_c30(NOISE_SD_30)):
+        print(f"❌ Ex M25a.30 : {lead_c30}le bruit n'a pas la bonne taille : sur la diagonale de la covariance, on "
+              "ajoute la variance de l'erreur de mesure, le carré de son écart-type.")
+    elif same_law_c30(law_c30(NOISE_SD_30 ** 2, everywhere=True)):
+        print(f"❌ Ex M25a.30 : {lead_c30}tes écarts-types comptent le bruit aux positions en panne : on reconstruit "
+              "les vraies températures, et le bruit ne touche que les positions mesurées.")
+    elif np.allclose(sds_c30, exact_c30[1], atol=1e-8):
+        print(f"❌ Ex M25a.30 : {lead_c30}tes écarts-types sont justes, pas tes moyennes : la moyenne a priori est "
+              "m(s), qui dépend de la position, aux positions en panne comme aux positions mesurées.")
+    else:
+        print(f"❌ Ex M25a.30 : {lead_c30}tes moyennes ou tes écarts-types ne sont pas ceux de la loi conditionnelle "
+              "du modèle : moyenne m(s), covariance K, et la variance du bruit (0,4², pas 0,4) sur la diagonale des "
+              "positions mesurées, et seulement là.")
+
 with checked("M25a.30"):
     if reconstructed_30 is None:
         print("⏳ Ex M25a.30 : la figure attend une reconstruction qui passe la vérification ci-dessus.")
@@ -2319,6 +2383,10 @@ with checked("M25a.30"):
         raise
     if opened_30:
         print("❌ Ex M25a.30 : draw_road_30 doit dessiner dans l'axe reçu, sans ouvrir de figure.")
+    else:
+        print("✅ Ex M25a.30 : draw_road_30 dessine dans l'axe reçu.")
+    verdict("M25a.30", has_points(ax_30, list(zip(S_30[OBS_30], Y_OBS_30))), "les 19 mesures sont tracées.",
+            "il manque des mesures : un point (s, y) pour chacune des 19 positions mesurées.")
     plt.show()'''
 
 NOTE_30 = (r"La covariance du vecteur (vraies températures aux positions en panne, mesures aux autres) est $\mathbf{K}$, plus "
@@ -2330,7 +2398,7 @@ NOTE_30 = (r"La covariance du vecteur (vraies températures aux positions en pan
            r"($\approx -35{,}99$ ; $-36{,}02$ à 6 km), sur une courbe plate entre 4 et 8 km.")
 
 M25A_30 = Ex(
-    "M25a.30", "🏆", 3, 30, "Défi : reconstruire les températures manquantes le long d'une route par la loi "
+    "M25a.30", "🏆", 3, 35, "Défi : reconstruire les températures manquantes le long d'une route par la loi "
     "conditionnelle d'une gaussienne, sous une erreur quadratique moyenne fixée",
     "reconstruire des valeurs manquantes par la loi conditionnelle d'une gaussienne, en construisant soi-même la "
     "covariance qui tient compte du bruit de mesure.",
@@ -2339,7 +2407,7 @@ M25A_30 = Ex(
 
 Écris `fill_missing_30(s, y_obs, obs, miss)`, qui rend les moyennes et les écarts-types de la loi conditionnelle des vraies températures aux positions `miss` sachant les mesures aux positions `obs` (deux tableaux de 12 nombres). Le bruit ne touche que les positions mesurées : à toi de construire la covariance du vecteur formé des vraies températures aux positions en panne et des mesures aux autres positions (ta `condition_gaussian` peut faire le reste). Écris aussi `draw_road_30(ax, s, y_obs, obs, miss, means, sds)`, qui trace dans l'axe reçu les mesures, tes moyennes avec leur bande à deux écarts-types, la moyenne $m(s)$ et l'interpolation linéaire `np.interp(s, s[obs], y_obs)`.
 
-**Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C. Puis relève, dans ta copie : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes (affiché aussi).
+**Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C ; elle compare ensuite tes moyennes et tes écarts-types à ceux de la loi conditionnelle exacte du modèle, puis regarde si ta figure trace les mesures. Puis relève, dans ta copie : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes (affiché aussi).
 
 Pour aller plus loin : la longueur 6 km de la covariance est supposée connue ; trace, en fonction de cette longueur, le logarithme de l'évidence des 19 mesures (ta `mvn_logpdf`), et regarde où il est maximal.""",
     todo='''def fill_missing_30(s, y_obs, obs, miss):

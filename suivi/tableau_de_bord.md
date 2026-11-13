@@ -1924,3 +1924,51 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP5.10 🔗 Problème de synthèse : un filtre récursif et un filtre à réponse finie, du signal à la stabilité ★★ 14 min
 - [ ] CP5.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP5 -->
+
+<!-- wbm:section M25a -->
+## M25a · Gaussienne multivariée, conditionnement et divergence KL ⏱️ 20,3 h
+
+- [ ] M25a.Q1 🧠 Lire une densité gaussienne multivariée : det Σ, distance de Mahalanobis et point le plus probable ★ 4 min
+- [ ] M25a.Q2 🧠 Ce qui reste gaussien : images affines, sommes, produits et normes ; deux marginales gaussiennes ne suffisent pas ★ 4 min
+- [ ] M25a.Q3 🧠 Ellipses de niveau et masse : quel axe, quel demi-axe, quelle proportion, en dimension 2 et au-delà ★ 4 min
+- [ ] M25a.Q4 🧠 Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? ★ 6 min
+- [ ] M25a.Q5 🧠 Fusionner des mesures et mettre à jour un a priori gaussien : précisions, moyennes pondérées et prédictive ★ 4 min
+- [ ] M25a.Q6 🧠 Le maximum de vraisemblance de μ et Σ : diviser par n, et une covariance singulière quand n ≤ d ★ 4 min (complet)
+- [ ] M25a.Q7 🧠 La divergence KL continue en situations : deux supports qui ne se couvrent pas, deux lois exponentielles, une loi produit, et les deux sens ★ 4 min
+- [ ] M25a.Q8 🧠 Ligne droite ou arc de grand cercle : extrémités, norme et angle parcouru ★ 4 min
+- [ ] M25a.R1 🔁 Le changement de variable en dimension 1 et les coordonnées polaires (M02b) ★ 6 min
+- [ ] M25a.R2 🔁 Le théorème spectral, Cholesky et la covariance AΣAᵀ (M12c) ★ 6 min
+- [ ] M25a.R3 🔁 Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18) ★ 6 min (complet)
+- [ ] M25a.1 ✏️ La densité d'un couple gaussien (température et humidité d'une serre) en deux points : distance de Mahalanobis contre distance euclidienne ★ 25 min
+- [ ] M25a.2 ✏️ Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un tirage μ + Lε par Cholesky et sa covariance ★★ 35 min
+- [ ] M25a.3 ✏️ Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, aire, et la part des relevés dans l'ellipse de niveau c ★★ 30 min
+- [ ] M25a.4 ✏️ Un capteur en panne estimé par ses deux voisins : complément de Schur, loi conditionnelle en dimension 3, et l'écart-type gagné ★★ 35 min
+- [ ] M25a.5 ✏️ Fusionner trois mesures d'une même distance : le produit de densités gaussiennes, des précisions qui s'additionnent, un ordre sans importance ★ 20 min
+- [ ] M25a.6 ✏️ Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage ★★ 45 min (complet)
+- [ ] M25a.7 ✏️ La divergence KL continue entre deux lois exponentielles et entre deux lois uniformes : les deux sens, une KL infinie, et deux durées de vie indépendantes ★★ 25 min
+- [ ] M25a.8 ✏️ Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs de position : la KL dans les deux sens, et le cas de même covariance ★★ 30 min
+- [ ] M25a.9 ✏️ La route orthodromique entre deux villes : angle au centre, point au tiers du trajet par le slerp, et profondeur du milieu de la corde ★★ 30 min
+- [ ] M25a.10 ∂ Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), et AX + b reste gaussien pour A inversible ★★ 30 min
+- [ ] M25a.11 ∂ La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) ★★ 30 min
+- [ ] M25a.12 ∂ Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par les gradients de ln det et de la trace ★★ 40 min (complet)
+- [ ] M25a.13 ∂ L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et l'additivité de la KL sur des lois produits ★★ 35 min
+- [ ] M25a.14 ∂ La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ) ★★★ 45 min
+- [ ] M25a.15 ∂ Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle constant ; sa limite quand l'angle tend vers 0 ★★ 25 min
+- [ ] M25a.16 🔗 Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée ★ 25 min
+- [ ] M25a.17 📖 MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, sommes et transformations, échantillonnage et changement de variable multivarié, en anglais ★★ 45 min (complet)
+- [ ] M25a.18 📖 MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, vraisemblance marginale, en anglais ★★ 45 min (complet)
+- [ ] M25a.19 🗣️ Expliquer avec deux thermomètres voisins pourquoi lire l'un resserre l'estimation de l'autre, et pourquoi la valeur lue ne change pas cette incertitude ★ 10 min
+- [ ] M25a.E1 💼 « Comment tirer un vecteur gaussien de covariance donnée à partir de tirages indépendants, et pourquoi Cholesky ? » ★ 10 min (complet)
+- [ ] M25a.20 🔨 La log-densité d'une loi normale multivariée, par Cholesky ★★ 40 min
+- [ ] M25a.21 🔨 Tirer des vecteurs de loi N(μ, Σ) par Cholesky ★ 20 min
+- [ ] M25a.22 🔨 Le complément de Schur d'un bloc, et la loi conditionnelle d'un vecteur gaussien ★★ 40 min
+- [ ] M25a.23 🔨 Le posterior d'une régression linéaire bayésienne ★★ 35 min (complet)
+- [ ] M25a.24 📦 `scipy.stats.multivariate_normal`, `np.cov` et `scipy.integrate` : tes log-densités, le maximum de vraisemblance, et la KL de M25a.8 par une intégrale double ★ 30 min
+- [ ] M25a.25 🔮 Prédire la part des tirages dans l'ellipsoïde de Mahalanobis de même niveau quand la dimension passe de 2 à 10, puis mesurer ★ 15 min
+- [ ] M25a.26 🔬 Conditionner par simulation : garder les tirages dont une mesure tombe près d'une valeur, et comparer à la loi conditionnelle exacte ★★ 25 min (complet)
+- [ ] M25a.27 🎨 Les ellipses de niveau d'une gaussienne en dimension 2, une tranche (la loi conditionnelle) et une projection (la loi marginale), selon la corrélation ★ 25 min
+- [ ] M25a.28 🐛 Chasse à l'erreur : un tirage par E L au lieu de E Lᵀ, ln det Σ sans le facteur 2, et une covariance conditionnelle qui dépend de la valeur observée ★ 25 min
+- [ ] M25a.29 🛠️ Un test de propriété : la moyenne et la covariance empiriques de tes tirages, à une tolérance fixée par l'erreur type ★★ 30 min (complet)
+- [ ] M25a.30 🏆 Défi : reconstruire les températures manquantes le long d'une route par la loi conditionnelle d'une gaussienne, sous une erreur quadratique moyenne fixée ★★★ 35 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (24 cartes)
+<!-- wbm:end M25a -->
