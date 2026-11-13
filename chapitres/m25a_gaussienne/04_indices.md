@@ -107,12 +107,12 @@ Relis « Les estimations », « Diviser par n » et « Quand n ≤ d » (§6), e
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{S}$ est une somme de $n$ matrices de rang 1 dont les vecteurs ont une somme nulle : son rang est au plus $n - 1$. $\mathbb{E}[\hat{\boldsymbol{\Sigma}}] = \frac{n - 1}{n}\boldsymbol{\Sigma}$.
+$\mathbf{S}$ est une somme de $n$ matrices de rang 1 dont les vecteurs ont une somme nulle : son rang est au plus $n - 1$ ; c'est aussi une matrice $d \times d$. $\mathbb{E}[\hat{\boldsymbol{\Sigma}}] = \frac{n - 1}{n}\boldsymbol{\Sigma}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. Les trois points sont-ils alignés ? 4. Sans argument, `np.cov` prend chaque ligne pour une variable. 7. $\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S} = n\,\hat{\boldsymbol{\Sigma}}^{-1}\hat{\boldsymbol{\Sigma}}$.
+3. Les trois points sont-ils alignés ? 4. Sans argument, `np.cov` prend chaque ligne pour une variable et chaque colonne pour une observation. 7. $\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S} = n\,\hat{\boldsymbol{\Sigma}}^{-1}\hat{\boldsymbol{\Sigma}}$.
 
 </details>
 
@@ -148,7 +148,7 @@ Le milieu de la ligne droite entre deux vecteurs unitaires a pour norme $\cos\fr
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\cos 50°$. 3. $0{,}3 \times 100°$. 6. Que vaut $\sin\Omega$ pour deux vecteurs opposés ? 7. Regarde la figure du §8, panneau de droite.
+2. $\cos 50°$. 3. $0{,}3 \times 100°$. 6. Entre $t = 0{,}2$ et $t = 0{,}7$, le point tourne de $(0{,}7 - 0{,}2)\,\Omega$ ; convertis en radians. 7. Regarde la figure du §8, panneau de droite.
 
 </details>
 
@@ -188,7 +188,7 @@ $l_{11} = \sqrt{\Sigma_{11}}$, $l_{21} = \frac{\Sigma_{21}}{l_{11}}$, $l_{22} = 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $l_{11} = 3$. 3. $\lambda^2 - 15\lambda + 50 = 0$. 5. Pense à $\mathbf{x} = (z, 2z)$.
+1. $l_{11} = 5$. 3. $\lambda^2 - 15\lambda + 50 = 0$. 5. Pense à $\mathbf{x} = (z, 2z)$. 6. Écris $\mathbf{z}^\top\mathbf{L}\mathbf{L}^\top\mathbf{z}$ comme le carré d'une norme.
 
 </details>
 
@@ -246,7 +246,7 @@ Colonne par colonne : $l_{11} = \sqrt{\Sigma_{11}}$, $l_{i1} = \frac{\Sigma_{i1}
 </details>
 <details><summary>Indice 3</summary>
 
-a) $l_{11} = 2$, $l_{21} = 3$, $l_{31} = -1$, $l_{22} = \sqrt{13 - 9}$. c) $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_iw_i^2\Sigma_{ii} + 2\sum_{i<j}w_iw_j\Sigma_{ij}$. e) $\operatorname{Cov}(c, \delta) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{v}$ avec $\mathbf{v} = (-1, 1, 0)$. g) La covariance de $\mathbf{M}\boldsymbol{\varepsilon}$ est $\mathbf{M}\mathbf{M}^\top$ ; ici $\mathbf{M} = \mathbf{L}^\top$.
+a) $l_{11} = 3$, $l_{21} = 1$, $l_{31} = -3$, $l_{22} = \sqrt{10 - 1}$. c) $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_iw_i^2\Sigma_{ii} + 2\sum_{i<j}w_iw_j\Sigma_{ij}$. e) $\operatorname{Cov}(c, \delta) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{v}$ avec $\mathbf{v} = (-1, 1, 0)$. g) La covariance de $\mathbf{M}\boldsymbol{\varepsilon}$ est $\mathbf{M}\mathbf{M}^\top$ ; ici $\mathbf{M} = \mathbf{L}^\top$.
 
 </details>
 
@@ -412,7 +412,7 @@ Après blanchiment, l'ellipse devient un disque ; en polaires, l'intégrande dev
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\int_0^{2\pi}\mathrm{d}\theta = 2\pi$, puis une primitive de $r\,e^{-r^2/2}$. 4. $\frac{4\pi}{(2\pi)^{3/2}} = \sqrt{\frac2\pi}$ ; par parties, $u = r$ et $v' = r\,e^{-r^2/2}$. 5. $\frac{\mathrm{d}}{\mathrm{d}r}\ln f_d = \frac{d - 1}{r} - r$.
+2. $\int_0^{2\pi}\mathrm{d}\theta = 2\pi$, puis une primitive de $r\,e^{-r^2/2}$. 4. $\frac{4\pi}{(2\pi)^{3/2}} = \sqrt{\frac2\pi}$ ; par parties, $u = r$ et $v' = r\,e^{-r^2/2}$. 5. $\frac{\mathrm{d}}{\mathrm{d}r}\ln f_d = \frac{d - 1}{r} - r$. 6. Dans le rapport $\frac{f_{17}(4)}{f_{17}(1)}$, la constante $C_{17}$ se simplifie.
 
 </details>
 
@@ -430,7 +430,7 @@ Fiche §6 : la log-vraisemblance et les idées de la démonstration ; M18 §7 po
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\nabla_{\boldsymbol{\mu}}(\mathbf{x}_i - \boldsymbol{\mu})^\top\boldsymbol{\Lambda}(\mathbf{x}_i - \boldsymbol{\mu}) = -2\boldsymbol{\Lambda}(\mathbf{x}_i - \boldsymbol{\mu})$. 3. Le gradient est $\frac n2\boldsymbol{\Lambda}^{-1} - \frac12\mathbf{S}$. 4. $\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{C}\mathbf{C}^\top) = \operatorname{tr}(\mathbf{C}^\top\boldsymbol{\Sigma}^{-1}\mathbf{C})$ et $\det\mathbf{B} = \frac{\det\hat{\boldsymbol{\Sigma}}}{\det\boldsymbol{\Sigma}}$. 6. $\bar{\mathbf{x}} = (1, 2)$.
+1. $\nabla_{\boldsymbol{\mu}}(\mathbf{x}_i - \boldsymbol{\mu})^\top\boldsymbol{\Lambda}(\mathbf{x}_i - \boldsymbol{\mu}) = -2\boldsymbol{\Lambda}(\mathbf{x}_i - \boldsymbol{\mu})$. 3. Le gradient est $\frac n2\boldsymbol{\Lambda}^{-1} - \frac12\mathbf{S}$. 4. $\operatorname{tr}(\boldsymbol{\Sigma}^{-1}\mathbf{C}\mathbf{C}^\top) = \operatorname{tr}(\mathbf{C}^\top\boldsymbol{\Sigma}^{-1}\mathbf{C})$ et $\det\mathbf{B} = \frac{\det\hat{\boldsymbol{\Sigma}}}{\det\boldsymbol{\Sigma}}$. 6. $\bar{\mathbf{x}} = (1, 2)$, et $\det\hat{\boldsymbol{\Sigma}} = \frac{131}{16}$.
 
 </details>
 
@@ -448,7 +448,7 @@ $f(x) \ge f(m) + f'(m)(x - m)$, puis l'espérance. Pour la KL, $\mathrm{KL} = -\
 </details>
 <details><summary>Indice 3</summary>
 
-3. $\mathbb{E}_p\big[\frac qp\big] = \int_{p > 0}q$. 5. $\iint p_1(\mathbf{x})p_2(\mathbf{y})h(\mathbf{x})\,\mathrm{d}\mathbf{x}\,\mathrm{d}\mathbf{y} = \int p_1h$. 6. $\int_0^1(2y - 1)\,\mathrm{d}y = 0$ ; pour la KL, utilise la question 4. 7. $\int_1^3\ln x\,\mathrm{d}x = [x\ln x - x]_1^3$.
+3. $\mathbb{E}_p\big[\frac qp\big] = \int_{p > 0}q$. 5. $\iint p_1(\mathbf{x})p_2(\mathbf{y})h(\mathbf{x})\,\mathrm{d}\mathbf{x}\,\mathrm{d}\mathbf{y} = \int p_1h$. 6. $\int_0^1(2y - 1)\,\mathrm{d}y = 0$ ; pour la KL, utilise la question 4.
 
 </details>
 
@@ -484,7 +484,7 @@ $\mathbf{e}_1 = \frac{\mathbf{u}}{R}$, $\mathbf{w} = \mathbf{v} - (\mathbf{v}^\t
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\lVert\mathbf{w}\rVert = R\sin\Omega$. 2. Le coefficient de $\mathbf{e}_1$ est $\frac{R}{\sin\Omega}\big(\sin((1 - t)\Omega) + \sin(t\Omega)\cos\Omega\big)$ : développe le premier sinus. 4. Écris $\frac{\sin(t\Omega)}{\sin\Omega} = t\cdot\frac{\sin(t\Omega)}{t\Omega}\cdot\frac{\Omega}{\sin\Omega}$. 5. $1 + \cos\Omega = 2\cos^2\frac\Omega2$.
+1. $\lVert\mathbf{w}\rVert = R\sin\Omega$. 2. Le coefficient de $\mathbf{e}_1$ est $\frac{R}{\sin\Omega}\big(\sin((1 - t)\Omega) + \sin(t\Omega)\cos\Omega\big)$ : développe le premier sinus. 4. Écris $\frac{\sin(t\Omega)}{\sin\Omega} = t\cdot\frac{\sin(t\Omega)}{t\Omega}\cdot\frac{\Omega}{\sin\Omega}$. 5. $1 + \cos\Omega = 2\cos^2\frac\Omega2$. 6. $\sin\Omega = 2\sin\frac\Omega2\cos\frac\Omega2$.
 
 </details>
 
@@ -506,7 +506,7 @@ La ligne $i$ de $\mathbf{X}$ est $\boldsymbol{\mu}^\top + \boldsymbol{\varepsilo
 </details>
 <details><summary>Indice 3</summary>
 
-b) $(1, 0)\mathbf{L}^\top = (2, -1)$, puis ajoute $(5, 3)$ ; fais de même pour les deux autres lignes. c) $\Delta^2 = \lVert\boldsymbol{\varepsilon}_i\rVert^2$. d) $\det\boldsymbol{\Sigma} = 36$. e) Divise la somme par $3 \times 2$.
+b) $(1, 0)\mathbf{L}^\top = (2, -1)$, puis ajoute $(7, 4)$ ; fais de même pour les deux autres lignes. c) $\Delta^2 = \lVert\boldsymbol{\varepsilon}_i\rVert^2$. d) $\det\boldsymbol{\Sigma} = 36$. e) Divise la somme par $3 \times 2$.
 
 </details>
 
@@ -542,7 +542,7 @@ Pour 3, ne garde que les termes qui dépendent de $\boldsymbol{\theta}$, et rang
 </details>
 <details><summary>Indice 3</summary>
 
-7. Relis le §2 de la fiche, « Ce qui ne reste pas gaussien ». 8. Écris la loss minimisée dans (9.32), puis multiplie la log-vraisemblance par $-2\sigma^2$. 10. Moyenne $\mathbf{X}m_0$, covariance $s_0^2\mathbf{X}\mathbf{X}^\top + \sigma^2\mathbf{I}$, puis la log-densité de dimension 2.
+7. Relis le §2 de la fiche, « Ce qui ne reste pas gaussien ». 8. Écris la loss minimisée dans (9.32), puis multiplie la log-vraisemblance par $-2\sigma^2$. 9. Moyenne $\mathbf{X}m_0$, covariance $s_0^2\mathbf{X}\mathbf{X}^\top + \sigma^2\mathbf{I}$, puis la log-densité de dimension 2.
 
 </details>
 
@@ -707,7 +707,7 @@ Fiche §4 : la loi conditionnelle, et le 💻 qui parle de conditionner par simu
 </details>
 <details><summary>Indice 2</summary>
 
-a) `mymath.gaussian.condition_gaussian(mean, cov, [0], [24.0])` (la température est la coordonnée 0). Pour chaque $h$, un masque `keep = np.abs(X[:, 0] - 24) < h`, puis `X[keep, 1]`.
+a) `mymath.gaussian.condition_gaussian(mean, cov, [0], [23.0])` (la température est la coordonnée 0). Pour chaque $h$, un masque `keep = np.abs(X[:, 0] - 23) < h`, puis `X[keep, 1]`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -725,7 +725,7 @@ Fiche §3 (le 💻 sur le tracé d'une ellipse) et §4 (« En dimension 2, avec 
 </details>
 <details><summary>Indice 2</summary>
 
-Une ellipse de niveau $c$ : `t = np.linspace(0, 2 * np.pi, 200)`, `circle = c * np.vstack([np.cos(t), np.sin(t)])`, puis `points = mean[:, None] + L @ circle`. Les niveaux à 50 % et à 90 % : $c^2 = 2\ln 2$ et $2\ln 10$.
+Une ellipse de niveau $c$ : `t = np.linspace(0, 2 * np.pi, 200)`, `circle = c * np.vstack([np.cos(t), np.sin(t)])`, puis `points = mean[:, None] + L @ circle`. Les niveaux à 75 % et à 90 % : $c^2 = 2\ln 4$ et $2\ln 10$.
 
 </details>
 <details><summary>Indice 3</summary>

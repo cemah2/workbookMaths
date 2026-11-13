@@ -264,7 +264,6 @@
 4. 
 5. 
 6. 
-7. 
 
 ### Ex M25a.14 — La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ)
 
@@ -320,8 +319,6 @@
 7. 
 8. 
 9. 
-10. 
-11. 
 
 ### Ex M25a.19 — Expliquer avec deux thermomètres voisins pourquoi lire l'un resserre l'estimation de l'autre, et pourquoi la valeur lue ne change pas cette incertitude
 

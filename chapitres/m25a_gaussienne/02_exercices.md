@@ -13,7 +13,7 @@ Dans tout le chapitre, comme dans la fiche : les vecteurs sont des **colonnes** 
 
 ## 🧠 Quiz
 
-Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
+Sans la fiche, en 4 minutes chacun (6 pour M25a.Q4). Réponds vite, puis vérifie dans `05_solutions.md`.
 
 ### M25a.Q1 — Lire une densité gaussienne multivariée : det Σ, distance de Mahalanobis et point le plus probable 🧠 ★ ⏱️ 4 min
 *Fiche §1 · parcours C, E*
@@ -50,7 +50,7 @@ $\boldsymbol{\Sigma} = \begin{pmatrix} 14{,}5 & 10{,}5 \\ 10{,}5 & 14{,}5 \end{p
 6. Vrai ou faux : si l'on multiplie $\boldsymbol{\Sigma}$ par 4, l'ellipse de niveau $c = \sqrt{2\ln 4}$ (pour la nouvelle loi) contient toujours la même part des tirages.
 7. En dimension 10, le mode de la norme d'un tirage de $\mathcal{N}(\mathbf{0}, \mathbf{I}_{10})$ ?
 
-### M25a.Q4 — Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? 🧠 ★ ⏱️ 4 min
+### M25a.Q4 — Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? 🧠 ★ ⏱️ 6 min
 *Fiche §4 · parcours C, E*
 
 $\mathbf{x} = (x_1, x_2, x_3) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec $\boldsymbol{\mu} = (1, 2, 3)$ et $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & 0 \\ 2 & 3 & 1 \\ 0 & 1 & 2 \end{pmatrix}$.
@@ -69,7 +69,7 @@ $\mathbf{x} = (x_1, x_2, x_3) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Si
 1. Deux mesures indépendantes d'une même longueur : 10 cm (erreur de variance 4 cm²) et 14 cm (variance 12 cm²). La longueur fusionnée et sa variance ?
 2. Vrai ou faux : la variance fusionnée est plus petite que chacune des deux variances.
 3. On ajoute une troisième mesure, de variance infinie. Que change-t-elle ?
-4. $x \sim \mathcal{N}(2, 9)$ et $y = 3x + w$, avec $w \sim \mathcal{N}(0, 4)$ indépendant de $x$ : la loi de $y$, et $\operatorname{Cov}(x, y)$ ?
+4. $x \sim \mathcal{N}(4, 2)$ et $y = 3x + w$, avec $w \sim \mathcal{N}(0, 7)$ indépendant de $x$ : la loi de $y$, et $\operatorname{Cov}(x, y)$ ?
 5. Vrai ou faux : dans une régression linéaire bayésienne, la variance de la prédictive tend vers 0 quand le nombre de données tend vers l'infini.
 6. $\mathbf{m}_0 = \mathbf{0}$, $\mathbf{S}_0 = 2\,\mathbf{I}$ et $\sigma^2 = 0{,}5$ : de quelle régression ridge (quelle pénalité) $\mathbf{m}_N$ est-il la solution ?
 
@@ -91,7 +91,7 @@ $\mathbf{x} = (x_1, x_2, x_3) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Si
 2. La durée de vie d'un composant suit $p$, exponentielle de moyenne 1 000 h ; on la modélise par $q$, exponentielle de moyenne 800 h. $\mathrm{KL}(p \,\|\, q)$ est-elle finie ?
 3. Même $p$, mais $q$ est maintenant la loi uniforme sur $[0, 5\,000]$ h. $\mathrm{KL}(p \,\|\, q)$ est-elle finie ? Et $\mathrm{KL}(q \,\|\, p)$ ?
 4. Une station mesure une température et une pression, indépendantes sous $p$ comme sous $q$. Sur la température seule, la KL de $p$ à $q$ vaut $0{,}12$ nat ; sur la pression seule, $0{,}05$ nat. Et sur le couple ?
-5. Vrai ou faux : si, sous $q$, la température et la pression sont corrélées, la réponse précédente reste juste.
+5. Vrai ou faux : si, sous $q$, la température et la pression sont corrélées, la réponse précédente reste toujours juste.
 6. Vrai ou faux : la fonction qu'on intègre, $p\ln\frac pq$, est positive en tout point.
 7. Vrai ou faux : quand $\mathrm{KL}(p \,\|\, q)$ est finie, $\mathrm{KL}(q \,\|\, p)$ l'est aussi.
 
@@ -105,7 +105,7 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs unitaires d'angle $\Omega = 100�
 3. L'angle entre $\mathbf{u}$ et $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; 0{,}3)$ ?
 4. La norme de $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; 0{,}3)$ ?
 5. Vrai ou faux : entre deux vecteurs de normes 2 et 5, le slerp garde une norme constante.
-6. Que donne la formule du slerp entre $\mathbf{u}$ et $-\mathbf{u}$ ?
+6. Sur la sphère unité, quelle longueur d'arc le point $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; t)$ parcourt-il quand $t$ passe de 0,2 à 0,7 ?
 7. Vrai ou faux : si l'on ramène sur la sphère chaque point de la ligne droite (en le divisant par sa norme), on parcourt le même arc que le slerp, mais pas à vitesse angulaire constante.
 
 <a id="rappels"></a>
@@ -125,12 +125,12 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs unitaires d'angle $\Omega = 100�
 ### M25a.R2 — Le théorème spectral, Cholesky et la covariance AΣAᵀ (M12c) 🔁 ★ ⏱️ 6 min
 *Fiche §2 et §3 · parcours C, E*
 
-1. Le facteur de Cholesky de $\boldsymbol{\Sigma} = \begin{pmatrix} 9 & 6 \\ 6 & 5 \end{pmatrix}$ ?
+1. Le facteur de Cholesky de $\boldsymbol{\Sigma} = \begin{pmatrix} 25 & 10 \\ 10 & 5 \end{pmatrix}$ ?
 2. $\det\boldsymbol{\Sigma}$, à partir de $\mathbf{L}$ ?
 3. Les valeurs propres de $\begin{pmatrix} 6 & 2 \\ 2 & 9 \end{pmatrix}$, et un vecteur propre pour chacune ?
 4. $\mathbf{x}$ a pour covariance la matrice $\boldsymbol{\Sigma}$ de la question 1 : la variance de $x_1 - x_2$ ?
 5. Vrai ou faux : toute matrice de covariance est définie positive.
-6. La covariance de $\mathbf{L}^{-1}(\mathbf{x} - \boldsymbol{\mu})$, quand $\mathbf{x}$ a pour moyenne $\boldsymbol{\mu}$ et pour covariance $\mathbf{L}\mathbf{L}^\top$ ?
+6. Pourquoi $\mathbf{L}\mathbf{L}^\top$ est-elle symétrique et définie positive quand $\mathbf{L}$ est une matrice carrée inversible ?
 
 ### M25a.R3 — Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18) 🔁 ★ ⏱️ 6 min
 *Fiche §6 · parcours C*
@@ -158,18 +158,18 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex M25a.1 — La densité d'un couple gaussien (température et humidité d'une serre) en deux points : distance de Mahalanobis contre distance euclidienne ✏️ ★ ⏱️ 20 min
+### Ex M25a.1 — La densité d'un couple gaussien (température et humidité d'une serre) en deux points : distance de Mahalanobis contre distance euclidienne ✏️ ★ ⏱️ 25 min
 **Objectif :** évaluer une densité gaussienne de dimension 2 et sa log-densité par Cholesky, et voir que la distance de Mahalanobis, pas la distance euclidienne, décide de la densité.
 **Prérequis :** fiche §1 ; M12c · **Parcours :** C, E
 
 Dans une serre, la température $T$ (en °C) et l'humidité relative $H$ (en %) relevées à midi forment un vecteur $\mathbf{x} = (T, H) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 22 \\ 65 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -6 \\ -6 & 34 \end{pmatrix}.$$
-Deux relevés : $\mathbf{x}_P = (24, 68)$ (chaud et humide) et $\mathbf{x}_Q = (24, 60)$ (chaud et sec).
+$$\boldsymbol{\mu} = \begin{pmatrix} 21 \\ 65 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -6 \\ -6 & 34 \end{pmatrix}.$$
+Deux relevés : $\mathbf{x}_P = (23, 68)$ (chaud et humide) et $\mathbf{x}_Q = (23, 60)$ (chaud et sec).
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\det\boldsymbol{\Sigma}$ | un entier |
-| b | $\boldsymbol{\Sigma}^{-1}$ | une matrice (valeurs exactes) |
+| b | $\boldsymbol{\Sigma}^{-1}$ | une matrice (ses coefficients sont des décimaux exacts) |
 | c | le facteur de Cholesky $\mathbf{L}$ | une matrice |
 | d | $\Delta^2(\mathbf{x}_P)$ et $\Delta^2(\mathbf{x}_Q)$, dans cet ordre | une liste de 2 nombres |
 | e | la densité au point le plus probable, $p(\boldsymbol{\mu})$ | une valeur exacte, entre guillemets |
@@ -180,12 +180,12 @@ Deux relevés : $\mathbf{x}_P = (24, 68)$ (chaud et humide) et $\mathbf{x}_Q = (
 
 Dans ta copie : calcule la corrélation de $T$ et $H$ et dis ce qu'elle veut dire dans la serre. Calcule $\Delta^2$ deux fois, par $\boldsymbol{\Sigma}^{-1}$ et par le système triangulaire $\mathbf{L}\mathbf{y} = \mathbf{x} - \boldsymbol{\mu}$. Pourquoi la distance euclidienne entre deux relevés n'a-t-elle pas de sens physique ici ? Explique, sans formule, pourquoi le relevé sec est plus typique que le relevé humide à la même température.
 
-### Ex M25a.2 — Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un tirage μ + Lε par Cholesky et sa covariance ✏️ ★★ ⏱️ 25 min
+### Ex M25a.2 — Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un tirage μ + Lε par Cholesky et sa covariance ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer la loi d'images linéaires d'un vecteur gaussien, tirer un vecteur par Cholesky, et voir ce que donne une matrice mal transposée.
 **Prérequis :** fiche §2 ; M12c · **Parcours :** C, E
 
 Une machine pose un revêtement de route en trois couches. Leurs épaisseurs $\mathbf{x} = (x_1, x_2, x_3)$, en millimètres, varient d'un mètre de route à l'autre et suivent $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 40 \\ 60 \\ 30 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & 6 & -2 \\ 6 & 13 & -1 \\ -2 & -1 & 3 \end{pmatrix}.$$
+$$\boldsymbol{\mu} = \begin{pmatrix} 40 \\ 60 \\ 30 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 9 & 3 & -9 \\ 3 & 10 & 0 \\ -9 & 0 & 11 \end{pmatrix}.$$
 La pose coûte 2 €, 1 € et 3 € par millimètre et par mètre carré pour les couches 1, 2 et 3 : le coût est $c = 2x_1 + x_2 + 3x_3$, en euros par mètre carré. On note $\delta = x_2 - x_1$ l'écart d'épaisseur entre les deux premières couches.
 
 | | Question | Réponse attendue |
@@ -195,13 +195,13 @@ La pose coûte 2 €, 1 € et 3 € par millimètre et par mètre carré pour l
 | c | la moyenne et la variance de $c$ | une liste de 2 nombres |
 | d | la moyenne et la variance de $\delta$ | une liste de 2 nombres |
 | e | la matrice de covariance du couple $(c, \delta)$ | une matrice $2 \times 2$ |
-| f | le tirage $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ pour $\boldsymbol{\varepsilon} = (0{,}5 ;\ -1 ;\ 2)$ | une liste de 3 nombres |
+| f | le tirage $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ pour $\boldsymbol{\varepsilon} = (1 ;\ -0{,}5 ;\ 1{,}5)$ | une liste de 3 nombres |
 | g | un collègue tire $\boldsymbol{\mu} + \mathbf{L}^\top\boldsymbol{\varepsilon}$ : la covariance de ses tirages | une matrice $3 \times 3$ |
 | h | vrai ou faux : $c$ et $\delta$ sont indépendants | `True` ou `False` |
 
 Dans ta copie : vérifie $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$. Écris $(c, \delta)$ sous la forme $\mathbf{A}\mathbf{x}$ avec une matrice $\mathbf{A}$ de forme $(2, 3)$, et retrouve c), d) et e) d'un seul calcul $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$. Calcule la corrélation de $c$ et $\delta$, et la probabilité que le coût dépasse 245 € par mètre carré (table de la loi normale, M02b). Pourquoi le tirage de f) a-t-il la bonne loi, et pas celui du collègue ?
 
-### Ex M25a.3 — Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, aire, et la part des relevés dans l'ellipse de niveau c ✏️ ★★ ⏱️ 25 min
+### Ex M25a.3 — Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, aire, et la part des relevés dans l'ellipse de niveau c ✏️ ★★ ⏱️ 30 min
 **Objectif :** tracer les ellipses de niveau d'une gaussienne de covariance pleine et calculer leur masse.
 **Prérequis :** fiche §3 ; M12c · **Parcours :** C, E
 
@@ -223,7 +223,7 @@ On appelle « ellipse à 90 % » l'ellipse $\Delta(\mathbf{x}) \le c$ qui contie
 
 Dans ta copie : donne les deux vecteurs propres unitaires et l'angle du grand axe avec l'est, en degrés. Esquisse les deux ellipses autour de $\boldsymbol{\mu}$. Pourquoi l'aire fait-elle intervenir $\sqrt{\det\boldsymbol{\Sigma}}$, et pas $\det\boldsymbol{\Sigma}$ ? Le relevé de h) est à $\sqrt{37} \approx 6{,}08$ m/s de $\boldsymbol{\mu}$, plus que le petit demi-axe de l'ellipse à 90 % : comment peut-il être dedans ? Calcule ses coordonnées dans la base des vecteurs propres.
 
-### Ex M25a.4 — Un capteur en panne estimé par ses deux voisins : complément de Schur, loi conditionnelle en dimension 3, et l'écart-type gagné ✏️ ★★ ⏱️ 30 min
+### Ex M25a.4 — Un capteur en panne estimé par ses deux voisins : complément de Schur, loi conditionnelle en dimension 3, et l'écart-type gagné ✏️ ★★ ⏱️ 35 min
 **Objectif :** calculer une loi conditionnelle sachant deux coordonnées corrélées entre elles, par le complément de Schur, et lire ce que la mesure apporte.
 **Prérequis :** fiche §4 ; M09a · **Parcours :** C, E
 
@@ -243,7 +243,7 @@ Le capteur 2 tombe en panne ; ses voisins lisent $x_1 = 19{,}5$ et $x_3 = 14$. O
 | h | la précision $\Lambda_{22}$, le coefficient $(2, 2)$ de $\boldsymbol{\Sigma}^{-1}$ | une fraction irréductible, entre guillemets |
 | i | vrai ou faux : si $x_3$ avait lu 16 °C, la variance de $x_2$ sachant $x_1$ et $x_3$ aurait été différente | `True` ou `False` |
 
-Dans ta copie : vérifie $\det\boldsymbol{\Sigma} = \det\boldsymbol{\Sigma}_{bb} \times (\boldsymbol{\Sigma}/\boldsymbol{\Sigma}_{bb})$. Pourquoi le capteur 1 pèse-t-il deux fois plus que le capteur 3 ? Si l'on ignorait la corrélation des deux voisins entre eux ($\Sigma_{13} = 0$), quels poids et quelle variance trouverait-on, et pourquoi est-ce trop optimiste ? Retrouve la moyenne conditionnelle par la ligne 2 de $\boldsymbol{\Lambda}$ (fiche §4). Donne un intervalle qui contient $x_2$ avec la probabilité 0,95.
+Dans ta copie : vérifie $\det\boldsymbol{\Sigma} = \det\boldsymbol{\Sigma}_{bb} \times (\boldsymbol{\Sigma}/\boldsymbol{\Sigma}_{bb})$. Pourquoi le capteur 1 pèse-t-il deux fois plus que le capteur 3 ? Si l'on ignorait la corrélation des deux voisins entre eux ($\Sigma_{13} = 0$), quels poids et quelle variance trouverait-on, et pourquoi est-ce trop optimiste ? Donne un intervalle qui contient $x_2$ avec la probabilité 0,95.
 
 ### Ex M25a.5 — Fusionner trois mesures d'une même distance : le produit de densités gaussiennes, des précisions qui s'additionnent, un ordre sans importance ✏️ ★ ⏱️ 20 min
 **Objectif :** fusionner des mesures gaussiennes par le produit de leurs densités, et vérifier que l'ordre des fusions ne change rien.
@@ -263,7 +263,7 @@ On mesure la distance entre deux bornes, d'environ 48 m, avec trois instruments.
 
 Dans ta copie : écris le produit des deux premières densités comme $\kappa\,\mathcal{N}(x \mid \mu_3, \sigma_3^2)$ et calcule $\kappa$ ; que dit-il de l'accord des deux instruments ? Écris la formule qui fusionne les trois mesures d'un coup, et explique avec elle pourquoi l'ordre ne compte pas. Que deviendrait la moyenne finale si l'on faisait la moyenne simple des trois lectures ?
 
-### Ex M25a.6 — Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage ✏️ ★★ ⏱️ 30 min
+### Ex M25a.6 — Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage ✏️ ★★ ⏱️ 40 min
 **Objectif :** dérouler une régression linéaire bayésienne à deux paramètres : loi jointe, évidence, loi a posteriori et prédictives.
 **Prérequis :** fiche §5 ; M09b · **Parcours :** C
 
@@ -283,7 +283,7 @@ où $a$ est le décalage, $b$ l'erreur de pente sur 100 °C et $w$ le bruit de l
 | h | la corrélation a posteriori de $a$ et $b$ | un nombre (4 décimales) |
 | i | vrai ou faux : à 200 °C, la variance de la prédictive après l'étalonnage est plus petite que celle d'avant | `True` ou `False` |
 
-Dans ta copie : écris la loi jointe de $(a, b, e_1, e_2)$, une gaussienne de dimension 4, puis retrouve $\mathbf{m}_N$ et $\mathbf{S}_N$ par la loi conditionnelle du §4 (le modèle linéaire gaussien). Pourquoi $a$ et $b$, indépendants a priori, sont-ils corrélés négativement après l'étalonnage ? Pour quelle température la variance prédictive est-elle la plus petite, et pourquoi n'est-ce pas exactement au milieu des deux bains ?
+Dans ta copie : écris la loi jointe de $(a, b, e_1, e_2)$, une gaussienne de dimension 4. Quels blocs de cette matrice as-tu déjà calculés en a) et b) ? Pourquoi $a$ et $b$, indépendants a priori, sont-ils corrélés négativement après l'étalonnage ? Pour quelle température la variance prédictive est-elle la plus petite, et pourquoi n'est-ce pas exactement au milieu des deux bains ?
 
 ### Ex M25a.7 — La divergence KL continue entre deux lois exponentielles et entre deux lois uniformes : les deux sens, une KL infinie, et deux durées de vie indépendantes ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer des KL continues par leur définition, dans les deux sens, repérer une KL infinie et appliquer l'additivité.
@@ -300,11 +300,11 @@ La loi exponentielle de paramètre $\lambda > 0$ a pour densité $\lambda e^{-\l
 | e | vrai ou faux : $\mathrm{KL}(q' \,\|\, p')$ est finie | `True` ou `False` |
 | f | le moteur du même appareil dure, en années, une loi exponentielle de moyenne 6 ans ($p_2$) ; la fiche technique annonce une moyenne de 10 ans ($q_2$) : $\mathrm{KL}(p_2 \,\|\, q_2)$ | un nombre (3 décimales) |
 | g | la batterie et le moteur sont indépendants sous la loi réelle comme sous la fiche technique : la KL de la loi réelle du couple (batterie, moteur) à celle de la fiche | un nombre (3 décimales) |
-| h | vrai ou faux : si, d'après la fiche technique, les deux durées de vie dépendaient l'une de l'autre, g) serait encore la somme de b) et de f) | `True` ou `False` |
+| h | vrai ou faux : si, d'après la fiche technique, les deux durées de vie dépendaient l'une de l'autre, g) serait toujours égal à la somme de b) et de f) | `True` ou `False` |
 
 Dans ta copie : établis a) par la définition, avec $\mathbb{E}_p[x] = \frac1a$ ; vérifie que a) est positive ou nulle, avec $\ln u \le u - 1$, et nulle seulement pour $a = b$. Pour e), dis sur quelle région la loi de la première place pèse sans que celle de la seconde place la couvre. Pourquoi b) et c) diffèrent-ils ?
 
-### Ex M25a.8 — Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs de position : la KL dans les deux sens, et le cas de même covariance ✏️ ★★ ⏱️ 25 min
+### Ex M25a.8 — Deux réglages d'une machine de découpe, deux gaussiennes en dimension 2 des erreurs de position : la KL dans les deux sens, et le cas de même covariance ✏️ ★★ ⏱️ 30 min
 **Objectif :** appliquer la formule de la KL entre deux gaussiennes de covariances pleines, dans les deux sens, et lire ses trois termes.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
@@ -326,7 +326,7 @@ On note $\boldsymbol{\delta} = \boldsymbol{\mu}_1 - \boldsymbol{\mu}_0$.
 
 Dans ta copie : pour d) et g), écris les trois termes de la formule et dis ce que chacun compare. Vérifie que la KL de h) est la même dans les deux sens. Lequel des deux réglages a l'erreur la plus dispersée, au sens de l'entropie ? Retrouve i) par la formule de l'entropie différentielle de la fiche §7.
 
-### Ex M25a.9 — La route orthodromique entre deux villes : angle au centre, point au tiers du trajet par le slerp, et profondeur du milieu de la corde ✏️ ★★ ⏱️ 25 min
+### Ex M25a.9 — La route orthodromique entre deux villes : angle au centre, point au tiers du trajet par le slerp, et profondeur du milieu de la corde ✏️ ★★ ⏱️ 30 min
 **Objectif :** appliquer le slerp à un trajet sur la sphère terrestre : passer des coordonnées géographiques aux vecteurs, puis calculer l'angle, l'arc, la corde et un point du trajet.
 **Prérequis :** fiche §8 ; R9, M07 · **Parcours :** C, E
 
@@ -352,7 +352,7 @@ Dans ta copie : vérifie que f) est de norme 1 et fait l'angle $\frac\Omega3$ av
 
 Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque étape et ce qui la justifie, ce que tu conclus. `05_solutions.md` donne une grille de relecture.
 
-### Ex M25a.10 — Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), et AX + b reste gaussien pour A inversible ∂ ★★ ⏱️ 25 min
+### Ex M25a.10 — Le changement de variable multivarié : la densité de μ + Lε est celle de N(μ, LLᵀ), et AX + b reste gaussien pour A inversible ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer, par le théorème du changement de variable, la densité d'une image affine inversible d'un vecteur gaussien.
 **Prérequis :** fiche §1 et §2 ; M12c, M17 · **Parcours :** C, E
 
@@ -364,7 +364,7 @@ $\boldsymbol{\varepsilon}$ suit $\mathcal{N}(\mathbf{0}, \mathbf{I}_d)$, de dens
 4. Pour $\mathbf{A}$ de forme $(k, d)$ avec $k < d$, pourquoi ce théorème ne s'applique-t-il pas tel quel ? Par quel autre chemin la fiche (§2) obtient-elle quand même la loi de $\mathbf{A}\mathbf{x} + \mathbf{b}$ ?
 5. Avec tes propres nombres : $d = 2$, $\mathbf{L} = \begin{pmatrix} 3 & 0 \\ -1 & 2 \end{pmatrix}$, $\boldsymbol{\mu} = (1, 0)$. Calcule la densité de $\mathbf{x} = \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ au point $(4, 1)$ par l'antécédent de ce point (question 2), puis par la densité de $\mathcal{N}(\boldsymbol{\mu}, \mathbf{L}\mathbf{L}^\top)$, et compare.
 
-### Ex M25a.11 — La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) ∂ ★★ ⏱️ 25 min
+### Ex M25a.11 — La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer la masse d'une ellipse de niveau en dimension 2, en déduire la loi de la norme d'un tirage, et étudier cette loi en dimension $d$.
 **Prérequis :** fiche §3 ; M02a, M02b · **Parcours :** C, E
 
@@ -373,9 +373,9 @@ $\boldsymbol{\varepsilon}$ suit $\mathcal{N}(\mathbf{0}, \mathbf{I}_d)$, de dens
 3. Déduis de 2 la densité de $r = \lVert\boldsymbol{\varepsilon}\rVert$ en dimension 2.
 4. En dimension 3, on admet que $P(\lVert\boldsymbol{\varepsilon}\rVert \le \rho) = \int_0^\rho 4\pi r^2\,(2\pi)^{-3/2}e^{-r^2/2}\,\mathrm{d}r$ (la densité de $\boldsymbol{\varepsilon}$, constante sur chaque sphère de rayon $r$, multipliée par l'aire $4\pi r^2$ de cette sphère). Déduis-en la densité $f_3$ de la norme, et vérifie que son intégrale vaut 1, avec $\int_0^{+\infty}r^2e^{-r^2/2}\,\mathrm{d}r = \sqrt{\pi/2}$, que tu démontreras par une intégration par parties (M02a §3) et l'intégrale de Gauss.
 5. En dimension $d \ge 2$, on admet que la densité de la norme est $f_d(r) = C_d\,r^{d-1}e^{-r^2/2}$ sur $[0, +\infty[$, pour une constante $C_d > 0$. Montre que $f_d$ est maximale en $r = \sqrt{d - 1}$, sans connaître $C_d$.
-6. En dimension 17 : le mode de la norme, et le rapport entre la densité de $\boldsymbol{\varepsilon}$ au centre et sa densité en un point de norme égale à ce mode. Explique en deux phrases pourquoi « la densité est maximale au centre » et « les tirages sont loin du centre » ne se contredisent pas.
+6. En dimension 17 : le mode de la norme ; le rapport $\frac{f_{17}(4)}{f_{17}(1)}$ entre la densité de la norme en $r = 4$ et en $r = 1$ ; et le rapport entre la densité de $\boldsymbol{\varepsilon}$ en un point de norme 1 et en un point de norme 4. Explique en deux phrases pourquoi les deux rapports vont en sens contraires.
 
-### Ex M25a.12 — Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par les gradients de ln det et de la trace ∂ ★★ ⏱️ 30 min
+### Ex M25a.12 — Le maximum de vraisemblance d'une gaussienne multivariée : μ̂ = x̄ et Σ̂ = S/n, par les gradients de ln det et de la trace ∂ ★★ ⏱️ 40 min
 **Objectif :** démontrer les estimateurs du maximum de vraisemblance de $\boldsymbol{\mu}$ et $\boldsymbol{\Sigma}$, et justifier qu'il s'agit d'un maximum.
 **Prérequis :** fiche §6 ; M05a, M09b, M12c, M18 · **Parcours :** C
 
@@ -386,9 +386,9 @@ $\mathbf{x}_1, \ldots, \mathbf{x}_n$ sont $n$ vecteurs de $\mathbb{R}^d$, $\bar{
 3. Écris $\ell(\bar{\mathbf{x}}, \boldsymbol{\Sigma})$ en fonction de la précision $\boldsymbol{\Lambda} = \boldsymbol{\Sigma}^{-1}$, sous la forme $\text{constante} + \frac n2\ln\det\boldsymbol{\Lambda} - \frac12\operatorname{tr}(\boldsymbol{\Lambda}\mathbf{S})$. Calcule son gradient par rapport à $\boldsymbol{\Lambda}$ avec les formules de M18 (rappelées au §6 de la fiche), et montre qu'il s'annule seulement en $\boldsymbol{\Lambda}^{-1} = \frac{\mathbf{S}}{n}$.
 4. Montre que c'est un maximum. Avec $\hat{\boldsymbol{\Sigma}} = \frac{\mathbf{S}}{n} = \mathbf{C}\mathbf{C}^\top$ (Cholesky) et, pour une autre $\boldsymbol{\Sigma}$ définie positive, $\mathbf{B} = \mathbf{C}^\top\boldsymbol{\Sigma}^{-1}\mathbf{C}$, de valeurs propres $b_1, \ldots, b_d$ : montre que $\mathbf{B}$ est symétrique définie positive, que $\ell(\bar{\mathbf{x}}, \boldsymbol{\Sigma}) - \ell(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}}) = \frac n2\sum_j(\ln b_j - b_j + 1)$, puis conclus avec $\ln b \le b - 1$ (M05a), égalité seulement pour $b = 1$.
 5. Donne la valeur de $\ell$ au maximum.
-6. Avec tes propres nombres : quatre relevés de deux grandeurs, $(-1, 2)$, $(0, 0)$, $(3, 1)$ et $(2, 5)$. Calcule $\bar{\mathbf{x}}$, $\mathbf{S}$, $\hat{\boldsymbol{\Sigma}}$, $\det\hat{\boldsymbol{\Sigma}}$ et $\ell(\hat{\boldsymbol{\mu}}, \hat{\boldsymbol{\Sigma}})$. Que devient $\hat{\boldsymbol{\Sigma}}$ avec les deux premiers relevés seulement, et que devient l'argument de 4 ?
+6. Avec tes propres nombres : quatre relevés de deux grandeurs, $(-1, 2)$, $(0, 0)$, $(3, 1)$ et $(2, 5)$. Calcule $\bar{\mathbf{x}}$, $\mathbf{S}$, $\hat{\boldsymbol{\Sigma}}$ et $\ell(\hat{\boldsymbol{\mu}}, \hat{\boldsymbol{\Sigma}})$. Avec la formule de 2, calcule ce que perd la log-vraisemblance si l'on garde $\hat{\boldsymbol{\Sigma}}$ mais qu'on prend $\boldsymbol{\mu} = \mathbf{0}$ (un appareil supposé sans biais), puis vérifie-le en calculant $\ell(\mathbf{0}, \hat{\boldsymbol{\Sigma}})$ directement.
 
-### Ex M25a.13 — L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et l'additivité de la KL sur des lois produits ∂ ★★ ⏱️ 25 min
+### Ex M25a.13 — L'inégalité de Jensen pour une variable continue, la positivité de la KL continue, et l'additivité de la KL sur des lois produits ∂ ★★ ⏱️ 35 min
 **Objectif :** démontrer Jensen par une tangente, en déduire la positivité de la KL continue, et démontrer son additivité.
 **Prérequis :** fiche §7 ; M05a, M06 · **Parcours :** C, E
 
@@ -398,9 +398,8 @@ $\mathbf{x}_1, \ldots, \mathbf{x}_n$ sont $n$ vecteurs de $\mathbb{R}^d$, $\bar{
 4. Montre que $\mathrm{KL}(p \,\|\, q) = 0$ entraîne $p = q$ (sauf sur une région de volume nul), avec 2.
 5. $p(\mathbf{x}, \mathbf{y}) = p_1(\mathbf{x})\,p_2(\mathbf{y})$ et $q(\mathbf{x}, \mathbf{y}) = q_1(\mathbf{x})\,q_2(\mathbf{y})$. Démontre $\mathrm{KL}(p \,\|\, q) = \mathrm{KL}(p_1 \,\|\, q_1) + \mathrm{KL}(p_2 \,\|\, q_2)$.
 6. Sur le carré $[0, 1]^2$, $p$ est la loi uniforme et $q$ la loi de densité $q(x, y) = 1 + c\,(2x - 1)(2y - 1)$, avec $0 < \lvert c\rvert < 1$. Montre que $q$ est bien une densité, que ses deux marginales sont uniformes sur $[0, 1]$, puis que $\mathrm{KL}(p \,\|\, q) > \mathrm{KL}(p_1 \,\|\, q_1) + \mathrm{KL}(p_2 \,\|\, q_2)$. Quelle hypothèse de 5 manque ?
-7. Exemple : $X$ suit la loi uniforme sur $[1, 3]$. Compare $\mathbb{E}[\ln X]$ et $\ln\mathbb{E}[X]$, et dis quelle forme de Jensen tu viens de vérifier.
 
-### Ex M25a.14 — La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ) ∂ ★★★ ⏱️ 35 min
+### Ex M25a.14 — La KL entre N(μ₀, Σ₀) et N(μ₁, Σ₁) en dimension d, par le lemme de la trace ; l'entropie différentielle de N(μ, Σ) ∂ ★★★ ⏱️ 45 min
 **Objectif :** démontrer le lemme de la trace, la formule de la KL entre deux gaussiennes générales et l'entropie différentielle d'une gaussienne.
 **Prérequis :** fiche §1 et §7 ; M12c · **Parcours :** C, E
 
@@ -414,7 +413,7 @@ $p_0 = \mathcal{N}(\boldsymbol{\mu}_0, \boldsymbol{\Sigma}_0)$ et $p_1 = \mathca
 6. Montre que la formule donne 0 quand $\boldsymbol{\mu}_0 = \boldsymbol{\mu}_1$ et $\boldsymbol{\Sigma}_0 = \boldsymbol{\Sigma}_1$.
 7. Sans passer par Jensen, montre que $\operatorname{tr}(\mathbf{M}) - d - \ln\det\mathbf{M} \ge 0$ pour $\mathbf{M} = \boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0$, avec égalité seulement si $\boldsymbol{\Sigma}_0 = \boldsymbol{\Sigma}_1$ (écris $\boldsymbol{\Sigma}_1 = \mathbf{L}_1\mathbf{L}_1^\top$, regarde la matrice symétrique $\mathbf{L}_1^{-1}\boldsymbol{\Sigma}_0\mathbf{L}_1^{-\top}$, et sers-toi de $\ln b \le b - 1$). Déduis-en, à partir de la formule, que la KL entre deux gaussiennes est positive ou nulle.
 
-### Ex M25a.15 — Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle constant ; sa limite quand l'angle tend vers 0 ∂ ★★ ⏱️ 20 min
+### Ex M25a.15 — Le slerp entre deux vecteurs de même norme reste sur la sphère et avance d'un angle constant ; sa limite quand l'angle tend vers 0 ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer les quatre propriétés du slerp de la fiche §8.
 **Prérequis :** fiche §8 ; R7, R9, M12b, M22 · **Parcours :** C, E
 
@@ -425,18 +424,18 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs de $\mathbb{R}^n$ de même norme
 3. Déduis-en les propriétés 1, 2 et 3 de la fiche : les extrémités, la norme $R$ pour tout $t$, et l'angle $t\Omega$ entre $\mathbf{u}$ et $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; t)$, pour $t \in [0, 1]$.
 4. Démontre la propriété 4 : la limite des deux coefficients quand $\Omega \to 0$, $t$ fixé.
 5. Montre que le milieu de la corde, $\frac12(\mathbf{u} + \mathbf{v})$, est à la distance $R\cos\frac\Omega2$ du centre, et que la corde mesure $2R\sin\frac\Omega2$.
-6. Montre, sur un exemple de ton choix, que la norme de $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; \frac12)$ n'est ni $\lVert\mathbf{u}\rVert$ ni $\lVert\mathbf{v}\rVert$ quand ces normes diffèrent. Où la démonstration de 2 utilise-t-elle l'égalité des normes ?
+6. Pour deux vecteurs non nuls $\mathbf{u}$ et $\mathbf{v}$ de normes $a$ et $b$, d'angle $\Omega \in\, ]0, \pi[$, montre que $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; \frac12) = \frac{\mathbf{u} + \mathbf{v}}{2\cos(\Omega/2)}$, puis que le carré de sa norme vaut $ab + \frac{(a - b)^2}{2(1 + \cos\Omega)}$. Retrouve la propriété 2 pour $a = b$. Où la démonstration de 2 utilise-t-elle l'égalité des normes ?
 
 <a id="reflexion"></a>
 
 ## 🔗 📖 🗣️ Pont, lecture et explication
 
-### Ex M25a.16 — Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée 🔗 ★ ⏱️ 20 min
+### Ex M25a.16 — Pont : des vecteurs rangés en lignes (n, d) comme dans les bibliothèques : tirer n points d'un coup par E Lᵀ + μ, la log-densité de chaque ligne, et la moyenne en nats par coordonnée 🔗 ★ ⏱️ 25 min
 **Objectif :** passer des vecteurs colonnes de la fiche aux tableaux de lignes des bibliothèques, pour tirer et évaluer plusieurs points d'un coup.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
 Les bibliothèques rangent $n$ vecteurs de $\mathbb{R}^d$ dans les **lignes** d'un tableau de forme $(n, d)$. On prend
-$$\boldsymbol{\mu} = \begin{pmatrix} 5 \\ 3 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -2 \\ -2 & 10 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 2 & 0 \\ -1 & 3 \end{pmatrix}, \qquad \mathbf{E} = \begin{pmatrix} 1 & 0 \\ 0{,}5 & -1 \\ -1 & 2 \end{pmatrix},$$
+$$\boldsymbol{\mu} = \begin{pmatrix} 7 \\ 4 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -2 \\ -2 & 10 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 2 & 0 \\ -1 & 3 \end{pmatrix}, \qquad \mathbf{E} = \begin{pmatrix} 1 & 0 \\ 0{,}5 & -1 \\ -1 & 2 \end{pmatrix},$$
 où chaque ligne de $\mathbf{E}$ est un tirage de $\mathcal{N}(\mathbf{0}, \mathbf{I}_2)$, et $\mathbf{X} = \mathbf{1}\boldsymbol{\mu}^\top + \mathbf{E}\mathbf{L}^\top$ (fiche §2, 📐).
 
 | | Question | Réponse attendue |
@@ -451,7 +450,7 @@ où chaque ligne de $\mathbf{E}$ est un tirage de $\mathcal{N}(\mathbf{0}, \math
 
 Dans ta copie : écris la ligne $i$ de $\mathbf{X}$ en fonction de la ligne $i$ de $\mathbf{E}$ et justifie $\mathbf{L}^\top$. Calcule c) sans former $\boldsymbol{\Sigma}^{-1}$ (que valent les lignes de $\mathbf{L}^{-1}$ appliqué aux écarts ?). Quels coefficients de $\mathbf{D}\boldsymbol{\Sigma}^{-1}\mathbf{D}^\top$ sont les $\Delta^2$, et pourquoi ne forme-t-on pas cette matrice quand $n$ vaut un million ? Que donnerait `E @ L` au lieu de `E @ L.T` pour la première ligne ? Pourquoi diviser par $nd$ pour comparer des lois de dimensions différentes ?
 
-### Ex M25a.17 — MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, sommes et transformations, échantillonnage et changement de variable multivarié, en anglais 📖 ★★ ⏱️ 35 min
+### Ex M25a.17 — MML §6.5 et la fin de §6.7.2 : densité, marginales et conditionnelles, produit, sommes et transformations, échantillonnage et changement de variable multivarié, en anglais 📖 ★★ ⏱️ 45 min
 **Objectif :** relire MML §6.5 et la fin de §6.7.2 avec les outils du chapitre : notations, formules admises par le livre, et refaire l'Exemple 6.17 avec ses propres nombres.
 **Prérequis :** fiche §1, §2, §4 et §5 · **Parcours :** C
 
@@ -465,7 +464,7 @@ Lis MML §6.5 (*Gaussian Distribution*) en entier, puis la fin de §6.7.2 (*Chan
 7. Refais l'Exemple 6.17 avec tes propres nombres : choisis une matrice $\mathbf{A}$ inversible de **déterminant négatif** et un point $\mathbf{y}$, calcule l'antécédent $\mathbf{A}^{-1}\mathbf{y}$, la densité de $\mathbf{y} = \mathbf{A}\mathbf{x}$ en ce point par (6.151b), puis la densité de $\mathcal{N}(\mathbf{0}, \mathbf{A}\mathbf{A}^\top)$ au même point, et compare.
 8. Relève six expressions anglaises des deux passages et leur traduction dans la fiche.
 
-### Ex M25a.18 — MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, vraisemblance marginale, en anglais 📖 ★★ ⏱️ 35 min
+### Ex M25a.18 — MML §9.3 : régression linéaire bayésienne, prédictions a priori et a posteriori, vraisemblance marginale, en anglais 📖 ★★ ⏱️ 45 min
 **Objectif :** relire MML §9.3 avec la fiche : refaire la complétion du carré du Théorème 9.1, comparer prédictive et vraisemblance marginale, et repérer deux pièges de notation.
 **Prérequis :** fiche §5 ; M09b · **Parcours :** C
 
@@ -478,9 +477,7 @@ Lis MML §9.3 en entier (§9.3.1 à §9.3.5), en suivant le guide de lecture de 
 6. La remarque qui rapproche vraisemblance marginale et prédictive a posteriori cite deux différences : lesquelles ?
 7. Au point 1 de §9.3.5, le livre dit que le produit de deux variables aléatoires gaussiennes est une gaussienne non normalisée : qu'aurait-il fallu écrire, et pourquoi la phrase, prise à la lettre, est-elle fausse (fiche §2) ? Quelle lettre §9.3.5 emploie-t-il pour la matrice $\boldsymbol{\Phi}$ ?
 8. (9.33) et (9.34) relient ridge au MAP avec deux valeurs de $\lambda$ : $\frac{1}{2b^2}$, puis $\frac{\sigma^2}{b^2}$. Explique l'écart (la loss contient-elle un facteur $\frac12$, est-elle divisée par $\sigma^2$ ?), et relie la seconde à la pénalité $\frac{\sigma^2}{\tau^2}$ de la fiche.
-9. La figure 9.11 montre une incertitude qui grandit aux bords. Explique-le avec la variance $\boldsymbol{\phi}_\star^\top\mathbf{S}_N\boldsymbol{\phi}_\star$ de la prédictive.
-10. Applique (9.64b) avec tes propres nombres : un modèle à un seul poids, $y = \theta x + w$, deux points, un a priori $\mathcal{N}(m_0, s_0^2)$ et un bruit $\sigma^2$ de ton choix. Donne la moyenne et la covariance de l'évidence, puis son logarithme.
-11. Relève six expressions anglaises de la section et leur traduction dans la fiche.
+9. Applique (9.64b) avec tes propres nombres : un modèle à un seul poids, $y = \theta x + w$, deux points, un a priori $\mathcal{N}(m_0, s_0^2)$ et un bruit $\sigma^2$ de ton choix. Donne la moyenne et la covariance de l'évidence, puis son logarithme.
 
 ### Ex M25a.19 — Expliquer avec deux thermomètres voisins pourquoi lire l'un resserre l'estimation de l'autre, et pourquoi la valeur lue ne change pas cette incertitude 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer sans formule ce que fait le conditionnement gaussien : la moyenne bouge avec la mesure, l'incertitude ne dépend que de la corrélation.
@@ -537,9 +534,9 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M25a.25 · 🔮 Prédire la part des tirages dans l'ellipsoïde de Mahalanobis de même niveau quand la dimension passe de 2 à 10, puis mesurer.** On garde le niveau de l'ellipse à 90 % du plan, $c^2 = 2\ln 10$, et l'on regarde, en dimension $d$, la part des tirages de $\mathcal{N}(\mathbf{0}, \boldsymbol{\Sigma}_d)$ tels que $\Delta^2 \le c^2$, avec $(\boldsymbol{\Sigma}_d)_{ij} = 0{,}6^{\lvert i - j\rvert}$. **Avant d'exécuter**, prédis : a) en dimension 10, cette part est (A) encore de l'ordre de 90 % ; (B) nettement plus petite ; (C) nettement plus grande ; b) la première dimension où elle passe sous 50 % : (A) 3 ; (B) entre 5 et 7 ; (C) au-delà de 10 ; c) vrai ou faux : pour une dimension donnée, cette part dépend de la matrice $\boldsymbol{\Sigma}_d$ choisie. Puis mesure, pour $d = 2, \ldots, 10$, la part sur 100 000 tirages (`sample_mvn(np.zeros(d), Sigma_d, 100000, seed=5925)`, $\Delta^2$ par `np.linalg.solve`), compare-la à `scipy.stats.chi2(d).cdf(2 * np.log(10))`, et relève : d) la part mesurée en dimension 10 (3 décimales) ; e) la première dimension où la part mesurée passe sous 50 %. Ce qu'il faut observer : $\Delta^2$ suit la loi du khi-deux à $d$ degrés quelle que soit $\boldsymbol{\Sigma}_d$ ; à niveau fixé, la masse de l'ellipsoïde dépend seulement de la dimension.
 
-**M25a.26 · 🔬 Conditionner par simulation.** Pour la serre de M25a.1, on cherche la loi de l'humidité $H$ sachant que la température vaut $T = 24$ °C. a) Calcule-la exactement avec ta `condition_gaussian` (la moyenne et la variance). Puis tire 200 000 relevés (`sample_mvn(mean, cov, 200000, seed=5926)`) et, pour chaque demi-largeur $h = 2$, 1, 0,5, 0,2 et 0,05 °C, garde ceux où $\lvert T - 24\rvert < h$ : relève leur nombre, et la moyenne et la variance empiriques de leur humidité. Trace la moyenne et la variance empiriques contre $h$ (abscisse logarithmique), avec les valeurs exactes. Relève : b) le nombre de relevés gardés pour $h = 0{,}05$ ; c) la moyenne empirique de l'humidité pour $h = 2$ (2 décimales) ; d) vrai ou faux : pour $h = 2$, la variance empirique dépasse la variance exacte de plus de 1. Ce qu'il faut conclure : une fenêtre large garde beaucoup de relevés mais biaise la moyenne et gonfle la variance (elle mélange des températures différentes) ; une fenêtre étroite est presque sans biais mais garde peu de relevés (leur nombre est à peu près proportionnel à $h$) ; la loi conditionnelle exacte évite ce compromis.
+**M25a.26 · 🔬 Conditionner par simulation.** Pour la serre de M25a.1, on cherche la loi de l'humidité $H$ sachant que la température vaut $T = 23$ °C. a) Calcule-la exactement avec ta `condition_gaussian` (la moyenne et la variance). Puis tire 200 000 relevés (`sample_mvn(mean, cov, 200000, seed=5926)`) et, pour chaque demi-largeur $h = 2$, 1, 0,5, 0,2 et 0,05 °C, garde ceux où $\lvert T - 23\rvert < h$ : relève leur nombre, et la moyenne et la variance empiriques de leur humidité. Trace la moyenne et la variance empiriques contre $h$ (abscisse logarithmique), avec les valeurs exactes. Relève : b) le nombre de relevés gardés pour $h = 0{,}05$ ; c) la moyenne empirique de l'humidité pour $h = 2$ (2 décimales) ; d) vrai ou faux : pour $h = 2$, la variance empirique dépasse la variance exacte de plus de 1. Ce qu'il faut conclure : une fenêtre large garde beaucoup de relevés mais biaise la moyenne et gonfle la variance (elle mélange des températures différentes) ; une fenêtre étroite est presque sans biais mais garde peu de relevés (leur nombre est à peu près proportionnel à $h$) ; la loi conditionnelle exacte évite ce compromis.
 
-**M25a.27 · 🎨 Les ellipses de niveau, une tranche et une projection, selon la corrélation.** Écris `draw_gaussian_27(ax_joint, ax_cut, mean, cov, x1_value)`, qui dessine sur les **axes reçus** (sans ouvrir de figure) : dans `ax_joint`, les ellipses à 50 % et à 90 % de la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ du plan, obtenues en appliquant $\boldsymbol{\varepsilon} \mapsto \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ au cercle de rayon $c$ (fiche §3, 💻), la droite verticale $x_1 = $ `x1_value` et la droite des moyennes conditionnelles de $x_2$ sachant $x_1$ ; dans `ax_cut`, la densité de la loi marginale de $x_2$ et celle de la loi conditionnelle de $x_2$ sachant $x_1 = $ `x1_value` (par ta `condition_gaussian`), avec une légende. Appelle-la pour $\boldsymbol{\mu} = (0, 1)$, des écarts-types 1 et 2, des corrélations $\rho = 0$, $0{,}5$ et $0{,}9$, et $x_1 = 1{,}5$ : trois colonnes de deux panneaux, avec des axes à la même échelle dans les panneaux du haut. Ce qu'il faut observer : la tranche est une loi normale décalée de $\rho\frac{\sigma_2}{\sigma_1}(x_1 - \mu_1)$ et plus étroite (variance multipliée par $1 - \rho^2$), la projection garde la variance $\sigma_2^2$ ; pour $\rho = 0$, les deux courbes se confondent.
+**M25a.27 · 🎨 Les ellipses de niveau, une tranche et une projection, selon la corrélation.** Écris `draw_gaussian_27(ax_joint, ax_cut, mean, cov, x1_value)`, qui dessine sur les **axes reçus** (sans ouvrir de figure) : dans `ax_joint`, les ellipses à 75 % et à 90 % de la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ du plan, obtenues en appliquant $\boldsymbol{\varepsilon} \mapsto \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ au cercle de rayon $c$ (fiche §3, 💻), la droite verticale $x_1 = $ `x1_value` et la droite des moyennes conditionnelles de $x_2$ sachant $x_1$ ; dans `ax_cut`, la densité de la loi marginale de $x_2$ et celle de la loi conditionnelle de $x_2$ sachant $x_1 = $ `x1_value` (par ta `condition_gaussian`), avec une légende. Appelle-la pour $\boldsymbol{\mu} = (0, 1)$, des écarts-types 1 et 2, des corrélations $\rho = 0$, $0{,}5$ et $0{,}9$, et $x_1 = 1{,}5$ : trois colonnes de deux panneaux, avec des axes à la même échelle dans les panneaux du haut. Ce qu'il faut observer : la tranche est une loi normale décalée de $\rho\frac{\sigma_2}{\sigma_1}(x_1 - \mu_1)$ et plus étroite (variance multipliée par $1 - \rho^2$), la projection garde la variance $\sigma_2^2$ ; pour $\rho = 0$, les deux courbes se confondent.
 
 **M25a.28 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe.
 - (1) `draw_correlated(mean, cov, n, seed)` doit rendre $n$ tirages de $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ rangés en lignes ; elle calcule `L = np.linalg.cholesky(cov)` et `E = np.random.default_rng(seed).standard_normal((n, d))`, puis rend `mean + E @ L`. Il l'a vérifiée sur la loi de moyenne nulle et de covariance $\operatorname{diag}(4, 9)$ : la covariance empirique de 50 000 tirages est bien proche de $\boldsymbol{\Sigma}$. Il l'applique au vent de M25a.3.
@@ -548,6 +545,6 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 Trouve et corrige chaque erreur (les fonctions corrigées s'appellent `draw_correlated_fixed`, `log_density_fixed` et `conditional_law_fixed`, avec les mêmes arguments), puis réponds : a) la covariance théorique des tirages que rend la version fausse de `draw_correlated` pour le vent (4 décimales) ; b) vrai ou faux : la covariance empirique de 50 000 tirages de la version corrigée (`seed=5928`) est à moins de 0,3 de $\boldsymbol{\Sigma}$, coefficient par coefficient ; c) la valeur que rend la version fausse de `log_density` en $\mathbf{x}_P$ (4 décimales) ; d) celle de la version corrigée (4 décimales) ; e) la moyenne et la variance conditionnelles que rend la version fausse de `conditional_law` (4 décimales) ; f) celles de la version corrigée (4 décimales). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
 
-**M25a.29 · 🛠️ Un test de propriété.** Écris une fonction `moment_test_29(sampler, mean, cov, n, seed, k)` qui tire `X = sampler(mean, cov, n, seed)` et vérifie que chaque moyenne empirique est à moins de $k$ erreurs types de $\mu_j$, l'erreur type valant $\sqrt{\Sigma_{jj}/n}$, et que chaque coefficient de la covariance empirique (`bias=True`) est à moins de $k$ erreurs types de $\Sigma_{jk}$, l'erreur type valant $\sqrt{(\Sigma_{jj}\Sigma_{kk} + \Sigma_{jk}^2)/n}$ ; un échec lève `AssertionError` avec un message qui dit d'abord ce qui était attendu, puis le coefficient fautif. On prend la loi du vent de M25a.3 et $n = 2\,000$. a) Choisis $k$ pour que la probabilité qu'une fonction juste échoue soit au plus 1 % : en dimension 2, le test fait 5 comparaisons (2 moyennes et 3 coefficients de covariance) ; partage les 1 % entre elles (une borne de la réunion) et lis $k$ dans `scipy.stats.norm.ppf` (4 décimales). b) Lance ton test sur ta `sample_mvn` pour 300 graines tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)` : le nombre d'échecs, à comparer à ce que garantit a). c) Sur ces 300 répétitions, mesure l'écart-type du coefficient $(0, 1)$ de la covariance empirique, et compare-le à la formule de l'erreur type (4 décimales chacun). d) Le notebook fournit quatre versions fausses : `sampler_EL` (qui rend `mean + E @ L`), `sampler_sigma` (`mean + E @ cov`), `sampler_diag` (qui ignore les covariances : chaque coordonnée a la bonne variance, sans corrélation) et `sampler_inflated` (qui tire $\mathcal{N}(\boldsymbol{\mu}, 1{,}02\,\boldsymbol{\Sigma})$) ; lance ton test sur chacune avec la graine 5929 : lesquelles attrape-t-il ? e) Combien de tirages faudrait-il pour qu'un écart de 2 % sur une variance dépasse $k$ erreurs types (l'erreur type d'une variance empirique vaut $\Sigma_{jj}\sqrt{2/n}$) ? Vérifie que ton test attrape `sampler_inflated` avec $n = 200\,000$. Ce qu'il faut retenir : la tolérance d'un test statistique se choisit par l'erreur type et un risque d'échec annoncé, pas au hasard ; un tel test attrape les erreurs grossières à petit $n$, et une erreur fine seulement si $n$ est assez grand pour elle.
+**M25a.29 · 🛠️ Un test de propriété.** Écris une fonction `moment_test_29(sampler, mean, cov, n, seed, k)` qui tire `X = sampler(mean, cov, n, seed)` et vérifie que chaque moyenne empirique est à moins de $k$ erreurs types de $\mu_j$, l'erreur type valant $\sqrt{\Sigma_{jj}/n}$, et que chaque coefficient de la covariance empirique (`bias=True`) est à moins de $k$ erreurs types de $\Sigma_{jk}$, l'erreur type valant $\sqrt{(\Sigma_{jj}\Sigma_{kk} + \Sigma_{jk}^2)/n}$ ; un échec lève `AssertionError` avec un message qui dit d'abord ce qui était attendu, puis le coefficient fautif. On prend la loi du vent de M25a.3 et $n = 2\,000$. a) Choisis $k$ pour que la probabilité qu'une fonction juste échoue soit au plus 1 % : en dimension 2, le test fait 5 comparaisons (2 moyennes et 3 coefficients de covariance) ; partage les 1 % entre elles (une borne de la réunion) et lis $k$ dans `scipy.stats.norm.ppf` (4 décimales). b) Lance ton test sur ta `sample_mvn` pour 300 graines tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)` : le nombre d'échecs, à comparer à ce que garantit a). c) Sur ces 300 répétitions, mesure l'écart-type du coefficient $(0, 1)$ de la covariance empirique, et compare-le à la formule de l'erreur type (4 décimales chacun). d) Le notebook fournit quatre versions fausses : `sampler_EL` (qui rend `mean + E @ L`), `sampler_sigma` (`mean + E @ cov`), `sampler_diag` (qui ignore les covariances : chaque coordonnée a la bonne variance, sans corrélation) et `sampler_inflated` (qui tire $\mathcal{N}(\boldsymbol{\mu}, 1{,}02\,\boldsymbol{\Sigma})$) ; lance ton test sur chacune avec la graine 5929 : lesquelles attrape-t-il ? e) Combien de tirages faudrait-il pour qu'un écart de 2 % sur une variance dépasse $k$ erreurs types (l'erreur type d'une variance empirique vaut $\Sigma_{jj}\sqrt{2/n}$) ? Vérifie que ton test attrape `sampler_inflated` avec $n = 300\,000$. Ce qu'il faut retenir : la tolérance d'un test statistique se choisit par l'erreur type et un risque d'échec annoncé, pas au hasard ; un tel test attrape les erreurs grossières à petit $n$, et une erreur fine seulement si $n$ est assez grand pour elle.
 
 **M25a.30 · 🏆 Défi : reconstruire les températures manquantes le long d'une route.** Une route est équipée d'un capteur de température par kilomètre, aux positions $s = 0, 1, \ldots, 30$ km. Les vraies températures (en °C) suivent une loi normale de moyenne $m(s) = 14 - 0{,}15\,s$ (la route monte) et de covariance $K_{ij} = 4\exp\big(-\frac{\lvert s_i - s_j\rvert}{6}\big)$, exponentielle de la distance. Douze capteurs sont en panne, aux positions 0, 1, 2, 13 à 17, et 27 à 30 ; les 19 autres mesurent la vraie température avec une erreur gaussienne indépendante d'écart-type 0,4 °C. La cellule de données tire les vraies températures et les mesures avec `rng = np.random.default_rng(5930)` (les vraies températures $m + \mathbf{L}\,$`rng.standard_normal(31)`, $\mathbf{L}$ étant le facteur de Cholesky de $\mathbf{K}$, puis les 19 mesures, vraies températures plus $0{,}4\,$`rng.standard_normal(19)`) ; elle ne te donne que les mesures, et la cellule de vérification garde les vraies températures des positions en panne. Écris `fill_missing_30(s, y_obs, obs, miss)`, qui rend les moyennes et les écarts-types de la loi conditionnelle des vraies températures aux positions `miss` sachant les mesures aux positions `obs`. Le bruit ne touche que les positions mesurées : à toi de construire la covariance du vecteur formé des vraies températures aux positions en panne et des mesures aux autres positions. **Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C. Puis relève : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes. Trace les mesures, tes moyennes avec leur bande à deux écarts-types, la moyenne $m(s)$ et l'interpolation linéaire. Pour aller plus loin : la longueur 6 km de la covariance est supposée connue ; trace, en fonction de cette longueur, le logarithme de l'évidence des 19 mesures (ta `mvn_logpdf`), et regarde où il est maximal.
