@@ -72951,7 +72951,7 @@
       "kind": "array",
       "mistakes": {
         "818200a1aac45fb0a48699fe414ea345698035fc449f327962bd86686687b922": "x₁ = A x₀ + B u₀ : les lâchers de l'année 0 comptent aussi",
-        "f627efab1445244b89f9c1ff4d92bb02778ed2c5a8c581a9522386eacc919520": "relis les lignes de B : la seconde entrée va dans la dernière classe, celle des oiseaux de deux ans"
+        "f627efab1445244b89f9c1ff4d92bb02778ed2c5a8c581a9522386eacc919520": "B range la première entrée parmi les jeunes, la seconde parmi les oiseaux de deux ans"
       },
       "shape": [
         3
@@ -73180,7 +73180,7 @@
       "hash": "9838058f7455df28ae45a0c652ba3f5e12b4be88a9dcb9baaa0d7caa6d4d8cbf",
       "kind": "bool",
       "mistakes": {
-        "1fd431f7c9a09b57300aff7a17a776e5cd83d81e19344805b103e51ea0b11bdf": "BA est défini quand le nombre de colonnes de B égale le nombre de lignes de A : compare-les"
+        "1fd431f7c9a09b57300aff7a17a776e5cd83d81e19344805b103e51ea0b11bdf": "avec des entrées, seule la réponse libre est proportionnelle à x₀"
       },
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
@@ -73339,7 +73339,7 @@
       "magnitude": 0,
       "mistakes": {
         "be61ba0fc0429a43cebeac9a1d4dfdd4421fd8174120404bf6336133e3c9d13f": "dans y_t, u₃ est porté par h_(t−1−3) : regarde à partir de quel t ce coefficient est non nul",
-        "d0c39afc3a5908e6b630ee0d7d0bdc297f396ac1f4c627ae3b527ec901898da2": "la pluie du jour 3 entre dans l'état du jour 4 : elle ne peut pas apparaître plus tôt dans la sortie"
+        "d0c39afc3a5908e6b630ee0d7d0bdc297f396ac1f4c627ae3b527ec901898da2": "une pluie du jour 3 entre dans x₄, au bassin 1 : quand atteint-elle le bassin 2 ?"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -73534,7 +73534,7 @@
       "hash": "3113445c91b7e575f30572969f67314b97d98beb48539177525948c4e623481c",
       "kind": "array",
       "mistakes": {
-        "e72a7c24da89db4eb13290f3b6b9e93d87e3b80761d623173b2aa26010b4fef0": "ramène 4θ dans ]−π, π] avant de prendre le cosinus et le sinus"
+        "e72a7c24da89db4eb13290f3b6b9e93d87e3b80761d623173b2aa26010b4fef0": "μ⁴ a pour argument 4θ, avec θ l'argument de μ (partie imaginaire positive) : vérifie θ, puis le signe de sin 4θ"
       },
       "shape": [
         2
@@ -73571,6 +73571,7 @@
       "hash": "4fcb16612f33f3a578f510c7179bae5b0bdafd840be01d60c81a21f657a524cf",
       "kind": "exact",
       "mistakes": {
+        "82dd95c42c129093d4e8d903955a166481e888691bc08ec4e4de68958701cbee": "cinq pas de θ chacun : vérifie θ (le signe de son cosinus)",
         "9012d3652c13bfe4f91412503dc509b08ae3c3ec4fb2d1efa34670b08b2e0e76": "cinq pas, d'un angle θ chacun",
         "e751a6f19a9c853ca38d8719d6093b1e902815b62658e6d886cfc7a4260be187": "ramène l'angle dans [0, 2π["
       },
@@ -73794,8 +73795,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "26b4b0ea67bb358a29a314d52aaec68bbbe58cfadf61f7146cabf4bc7ce03440": "pour la troisième matrice, compare son rayon spectral à 1",
-        "cd3751d457b0258940abfd1549ec3fd9ade9847d6830cb08c72e968bf56d00d9": "pour la deuxième matrice, relis d) et e) : des puissances qui reviennent périodiquement restent bornées"
+        "26b4b0ea67bb358a29a314d52aaec68bbbe58cfadf61f7146cabf4bc7ce03440": "compare à 1 le module des valeurs propres de C",
+        "cd3751d457b0258940abfd1549ec3fd9ade9847d6830cb08c72e968bf56d00d9": "relis d) et e) : que deviennent les puissances de B après un tour complet ?"
       },
       "shape": [
         3
@@ -73876,7 +73877,7 @@
       "hash": "85e8be7bf184aa7ee6e8f2ef3bd718d27cc32be45cd50eca8071996dc444ad08",
       "kind": "array",
       "mistakes": {
-        "14a989060f9ac41f368b8b623f59287cc6f369d9409e7b22957f3861e4e1ddb4": "vérifie ta formule sur c₁, qui se lit directement sur A",
+        "14a989060f9ac41f368b8b623f59287cc6f369d9409e7b22957f3861e4e1ddb4": "vérifie l'exposant de ta formule de c_t sur c₁",
         "faaa694caeb09ad9e9dbc15594007ac9dd808756a91758f3c333a53a53931f6c": "c_t est le coefficient en haut à droite, pas un coefficient diagonal"
       },
       "shape": [
@@ -73894,8 +73895,8 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "bd54bb42597b46c05a607e5f8b05e8cf265187d0fda5d6a9215f8bf3cb2c94ea": "le maximum peut être atteint à plusieurs pas : compare c₃ à ses voisins",
-        "cbeeaceaa2125a621d54aa3afa6ebd55f6800fc4ab2ae91fee274a65114c024c": "le maximum peut être atteint à plusieurs pas : compare c₂ à ses voisins"
+        "bd54bb42597b46c05a607e5f8b05e8cf265187d0fda5d6a9215f8bf3cb2c94ea": "le maximum peut être atteint en plusieurs pas : calcule en fractions exactes les c_t voisins de ton maximum",
+        "cbeeaceaa2125a621d54aa3afa6ebd55f6800fc4ab2ae91fee274a65114c024c": "le maximum peut être atteint en plusieurs pas : calcule les c_t voisins de ton maximum en fractions exactes"
       },
       "shape": [
         2
@@ -73919,7 +73920,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "05e8f3290777e805d0f18c79182c6c7610faaa26768ce70ef74a341ec14e0e97": "vérifie l'exposant de ta formule sur c₁ et c₂"
+        "05e8f3290777e805d0f18c79182c6c7610faaa26768ce70ef74a341ec14e0e97": "vérifie l'exposant de ta formule de c_t sur c₁"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -73929,8 +73930,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "bc0d223d5a8c0c23b997ce8c0bf49a725fe02353dedf8b1d226a02b52ffb26c1": "c₉ est-il déjà sous 1 ? Calcule-le",
-        "c85e0fe40cc1f3f1fc9b520352e75f1676ead89da72455e3146d575e5f38a6ff": "vérifie l'exposant de ta formule de c_t sur c₁ et c₂"
+        "bc0d223d5a8c0c23b997ce8c0bf49a725fe02353dedf8b1d226a02b52ffb26c1": "calcule c₉ : est-il déjà sous 1 ?",
+        "c85e0fe40cc1f3f1fc9b520352e75f1676ead89da72455e3146d575e5f38a6ff": "vérifie l'exposant de ta formule de c_t"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -73939,31 +73940,32 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "2b5aa7fdd6473d00ae51cf17d170c4c51d84c59ce41c90f393bd1372d09b7951"
+          "f269cbc3152c5b35c700402914edc8188927ec590fa40e276d8cdfaccd470a31"
         ],
         [
-          "14fc8cae405cd2f34ffed26c8c3a176fe709e1051a29781598bf8b53176544ce"
+          "c2ca69bc111eff8afc5051dc27fad29b5e96ba1ba0d55e1f2c46ab5422fcdfb3"
         ]
       ],
       "element_coarse_any": [
         [
-          "3beba845b5c649f88a09b9bb9c5d16eca3e4d621eeeb2f796baae91e4ff14240",
-          "4524d03d663e7c0ffe6276e45e3c54dd8761c4e560f4b43f46fff9fbfa2d7073",
-          "1a3dc9d436fed712f713080a3f3b1f0e1be453797a46fb285a5bffbc1b4a5062"
+          "74305d4d7a5450806cfb18f1f7cea47920fcdddf87479b05c8f02c617d523393",
+          "0bef2b7891f31201250aa17b800f8417d99fca31335f7ef96bccfc088395edf4",
+          "fba05b5b339ee3287f6acd77e9064dd3dc058236c4f600603f9bda7900d673ae"
         ],
         [
-          "16b7932781b0398b7c8392e5bad204840773356fad2c30cbf20823d62ec64894",
-          "f77c81b196f5f03ea931833ecf5cc34e7f1b096d09031b2698d733eb5c8f0b33"
+          "7f1095aa431e268896d75997323e546edecdc07cc6970df8d6f5ea995d7f84bd",
+          "7801a24a7a2c2ee4a56b5c71bc9f6c18dd46460472bb3bf71a13026d0dad561d"
         ]
       ],
       "element_hashes": [
-        "9020b3bf9ec5e80f3844def7bb3232d7f5022a2f1fbaa64e1066fea70a363d5a",
-        "20f4d8c45a824199be0c1da95c861a6ab6505a1e5159f53c57f5a374462a4081"
+        "905cd84412481888e504beab91ddb4983d58ed180205e33075bfe60354514caa",
+        "1bee6083c0ade6842c4dd95aa90db87faaa509bdcc547b094ce4d77e385d513e"
       ],
-      "hash": "4c2c1e30fa656c2888277a738c80f20999548e3374695b544019803cd666f1c4",
+      "hash": "130e218ff08be1fafaffb749bd4e6aec84d8ca5758784610ec4edb727f9d6889",
       "kind": "array",
       "mistakes": {
-        "7567ac01357cc2ca8783d0a34603f91aa6a1c2cd407738bb0bd80aa63b854312": "A³e₂ est la seconde colonne de A³, dans l'ordre de ses lignes"
+        "b23debe13d27d2697d0bc51f47e7574fc9a73634d5c76473cb0300a0cadbf0ae": "A⁶e₂ est la seconde colonne de A⁶, dans l'ordre de ses lignes",
+        "d64275c26b942ef3285271be7dde1fde728a493a2a07554025523a988d96a969": "vérifie l'exposant de ta formule de c_t sur c₁"
       },
       "shape": [
         2
@@ -74008,7 +74010,7 @@
       "hash": "faf14aa009951bebd2c163f240c36e3482964923646efb39e226fa4b721ab5df",
       "kind": "array",
       "mistakes": {
-        "4b48161dbadad97d660135f848ba6fdf1acc4b62513082923d304a2cd4319853": "le coefficient γ au-dessus de la diagonale multiplie toute la formule",
+        "4b48161dbadad97d660135f848ba6fdf1acc4b62513082923d304a2cd4319853": "la formule est γ (λ₁ᵗ − λ₂ᵗ)/(λ₁ − λ₂) : vérifie γ et le dénominateur",
         "944fae56c38bb235b22b06814a471441ab9c1dba647c8cc563308b2d4a7abdba": "les valeurs propres de B sont distinctes : la formule n'est pas t λ^(t−1)"
       },
       "shape": [
@@ -74392,7 +74394,7 @@
       "hash": "4ebf0e641bb39c3d903f807e859ba5d7fdc173d493938f703c45026bfb6ab44a",
       "kind": "array",
       "mistakes": {
-        "2cd17e59e3800f25f73c35f40e575a50dacd9642e803dc2066727ea5bf107ed3": "le même logarithme au numérateur et au dénominateur",
+        "2cd17e59e3800f25f73c35f40e575a50dacd9642e803dc2066727ea5bf107ed3": "ln 2 est le logarithme népérien de 2 (≈ 0,693), comme au dénominateur",
         "7500b338dedf92e4be84d8aedfe77d96ff2d502aeed64ce69ddd99a8455e3b60": "c'est l'approximation ln 2/ε ; la demi-vie exacte résout (1 − ε)ᵗ = 1/2"
       },
       "shape": [
@@ -74741,7 +74743,7 @@
       "magnitude": -2,
       "mistakes": {
         "8da6efcc7250329b2cd0ee8010ff1da3121188549a667c677edb82ce3373d1b0": "le déterminant d'un produit est le produit des déterminants",
-        "cd0188916cd175e56b3056a3744479bac66a469a6e64e39d583041aa0e8d3adf": "regarde le signe : le déterminant d'un produit de trois matrices est le produit de leurs trois déterminants"
+        "cd0188916cd175e56b3056a3744479bac66a469a6e64e39d583041aa0e8d3adf": "calcule det J_f(x, y) : dépend-il du point ? Regarde le signe d'un produit de trois facteurs"
       },
       "sign": -1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -74842,45 +74844,17 @@
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
     "M22.9a": {
-      "decimals": 2,
-      "element_coarse": [
-        [
-          "77e033fcc4b0d34474e2a9ec5cacb18a4bb33de5925e4b7ec1d503f781b26456"
-        ],
-        [
-          "3254c6c4a96a0f4abc3306b1a5ee9ba172ab6ddd26582baf5f672fdd34679cf6"
-        ],
-        [
-          "6bca515f0be376cbefe56528c1c910289fb0beda18ee433705b3e4de313a52e5"
-        ],
-        [
-          "72d06ddebd26bf7666f8d069a5ec9b07736ab4a008316cd3ef7a0ee7339f6416"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "d3fe609830d6d7ec3596c3e85ee2e31117ad0d0188fe0d43b7b3e7f059a0ba3e"
-        ],
-        [
-          "f22699c63942cd98911f7c03381d0a2e97a1babd6af050b7b15d964403cc8936"
-        ],
-        [
-          "7a5fc9f22e6664e4fd6bb4c4ccd794dfa1c09aca580f2aaa56bb82d72389382f"
-        ],
-        [
-          "1a99985491c381c21e905f0640c796910fc1ae175cf575e2ee77b5fc2acac991"
-        ]
-      ],
+      "decimals": 1,
       "element_hashes": [
-        "a332e5dfed3984f6ac683aed24108edf46db7f514fdb0c859341cc931d5bed7e",
-        "00f874556ca49c4fdd346628fb9713a2d636c6a1557e0ebfc7c65b4dd0fc89ed",
-        "94eaea80004650cf7a67be9920616d6d53d1e67f4895737b933d2d3afe21a871",
-        "8d80a0a3c3b6fb7a7d4ab28084f6c4f7e9193d56bf7422242eedd1f241c13855"
+        "8de34567a95f14cf977d91f775a0d6f7fec72bcffa70f86983af45767ff69300",
+        "4e9ec65b478b44ba5f90e1e7f90f240358f3efed0bfcd416debbe34364efd8ad",
+        "063e3a1716aaf42851c6dd750cdab08bbe29aa57c3879485c9c3b50d3c234eed",
+        "0949b15d95f924d4c3d1d4c52908b5ebcf14cf08404e99f35edd7c966f52c6b8"
       ],
-      "hash": "d74344b1e68cc6ee021599337fdb65b27088be47f31f493ff81617542995aebe",
+      "hash": "2247aae5ea01a5689637bb4edc45e418c7a39ca7e53d215f31e57981be28f656",
       "kind": "array",
       "mistakes": {
-        "32b6bafad99fa885bbbba862f0bd274d38af7c09002d7ff62d7aa0bf9b7c04eb": "le versement s'ajoute en fin d'année, après les intérêts"
+        "43a95005e802ba2e924f133a430a253c8da4b951ced384a6705a2e2becaf8134": "le versement s'ajoute en fin d'année, après les intérêts"
       },
       "shape": [
         4
@@ -74898,60 +74872,33 @@
           "ba94c2c1da291754d1f33a4928ea962e4aabd91b15cc33f72853c571acb052a7"
         ],
         "2": [
-          "aaa1eec20306925adb552b9312e98a758c8bbfe58a0915b3c14271f4c4869eea"
+          "aaa1eec20306925adb552b9312e98a758c8bbfe58a0915b3c14271f4c4869eea",
+          "90b91f7b021509d4e46a405ad445d7097c39f200850babd56cfab13c076454e8"
         ]
       },
       "decimals": 4,
-      "hash": "59b7caa7d4433669ecb9d7d1d7ec3b35011cf26f7c2efda7fa1fa018d2fb3e1b",
-      "hash_coarse": "86997e7989a154d4419df437d9d9417daab47b991ab5486ba216f113a8d37ad8",
+      "hash": "637ab78d11c5ca78313339e159cd0801d2cddfb2a7376012783f6ac6c392a125",
+      "hash_coarse": "fb27a8bdc77a0658df9a920fee7ef2f5f6c01b9b1db65123f782f5eedc6a1634",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "e232ec636ff8c5041570f8ad3528adc4fb717d23f1f1ef807f1487f15b713308": "J_t dérive f par rapport à x, pas par rapport à β"
+        "44760d25e0a37ac862456367436c941a035a6d986bcf9f50e00bea42be947044": "J_t dérive f par rapport à x, pas par rapport à β"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
     "M22.9c": {
-      "decimals": 2,
-      "element_coarse": [
-        [
-          "d6c5438eb3482cc8706fc43becc60accf0fb73f0d5052c1bafd420717ec9b58e"
-        ],
-        [
-          "c29fb288b835e9e1d01dc86028a44c57a2de325cb760827d9f24269ae18e9b63"
-        ],
-        [
-          "2c02a23b2ad53831a24b48d12b5ba7cfe8f9a4f3e65440fe317335ce4a622a08"
-        ],
-        [
-          "bf520d194c8418dbd311504ae514d65bc3efb6e31bb2528dc84517f4dcc07456"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "a545904dfb8f1e64e2f1d1640503405d9860b266b1369fabdabe0960a014d65c"
-        ],
-        [
-          "511c20ff7c5310337a61d71b366054ba160502a644f71bd05f60fa36f995ba9a"
-        ],
-        [
-          "02ab4dfdc3ee1caa8950ae53f041fd487044180a658ae77a60f01a107451f54e"
-        ],
-        [
-          "24c72821faecc9f08947b0f874cf1a7c64987fe9c910362c308101cf8d69cf81"
-        ]
-      ],
+      "decimals": 1,
       "element_hashes": [
-        "f27d03e5b577e998f25f231957675a407d880d3925116d704211cd3536faf103",
-        "75a0fbed54b3f69ed3ea011e5cc199ebc4560e62520033afbbd5cf4ed2993713",
-        "bfd1fb979cc21117658a491e80c49553710e6fbe326e5b79c1b48f59406b68c7",
-        "ea9b5403b10880821d46ceae225809d5e3555d68dc087c340b6a3c4f30d85803"
+        "73ce59b80d3ce910e0e545f3f3bc95fb086dfe6153d8925ded6708976c697f47",
+        "4d6b6d58661d1c99a29e97136734ad9cd3e0a951173094176a121a58dab3a6b8",
+        "6e36988eb346eeeadaed4900773cccb5b47a3c78ac3d2f2cad854b4b1e978d6f",
+        "2936506b65611e5de68ea00d43b417488a6e0642c55ee82328e312c2410925f7"
       ],
-      "hash": "d549614a0a27efe68761c7e396e098dbcad5691db524371d5516bf8f756190c1",
+      "hash": "f4a285195cc6b6951fa20bfdc939e569337f21984c35432b90b9191cb056035e",
       "kind": "array",
       "mistakes": {
-        "d688131269536173b3b062ad65e44e8b727a6bdc03915719d15b7e3327bd4e40": "b_t est évalué au point x_t de l'année t"
+        "7f7c1787eeb3d60b2c26db83bd109c37d9af9516522c4a89a29628884e392582": "b_t est évalué au point x_t de l'année t"
       },
       "shape": [
         4
@@ -74959,46 +74906,18 @@
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
     "M22.9d": {
-      "decimals": 2,
-      "element_coarse": [
-        [
-          "8ceb8531c2157daa08ee28ee6f2ec037f6445ea747f2b204071c631782369ce2"
-        ],
-        [
-          "d5b7e5a178161c912ac936d7fe6ea578b25b946bc559f2cbaf1d956190cab37f"
-        ],
-        [
-          "baa5a6f257f89a65d8c3f5837c20934a00919a1b0b44d3c404a0de6ee019db9e"
-        ],
-        [
-          "728eb6a1a90becf445f4b765940905f476bc6bec81805a377a73000e8764d1c9"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "0452373c94a26bc70c24371dc6c79d9d1efa7daf34607ffcc04c1aa9ed45180f"
-        ],
-        [
-          "5d154eaf2cd0a20b77d6d0809d02bf0ba0f805e055d069afa2ce996d3e5f5081"
-        ],
-        [
-          "04ecda71f291e234fc4b485b972ec79d9909d5a673565d3f6a0e97007d37e923"
-        ],
-        [
-          "bc652ac0ee215cb24e416152ef18d19d29f690d0a4a4c1ce0b11dfab030e7854"
-        ]
-      ],
+      "decimals": 1,
       "element_hashes": [
-        "5c87ea79eaf486f577c428799764808163ee66dc735a23dbbe8fafed3d03019a",
-        "536ec9098016a8649816fe540e378665422d7cbc0dd4f4413d6c443cf510a051",
-        "c8a453988cbade7d7e07dd556167c1c4a618201bb8972160cf5995c83d69fe9b",
-        "bccb80b2ddc21720ecb8bde06753e8c11b7eef7ba6157db7c7c3e4e9cccb5a2c"
+        "abd140e34ff9356422b47b908893ae681c45a9097fafc3dd9c88b32aa63df3db",
+        "138e25158193cf93297c8523c9471395efbf6e7fd785bbe7d3cdff79d53aade3",
+        "4759cb2a6c31ffcf01c44b6a4e1311fe30171bedcd75eb372045bd9153c0cc64",
+        "eebbcf0a47d23e65d80f45f3d3d8324ac62edc629a6273a5dd70df218f24e8ef"
       ],
-      "hash": "4235a0aa97d9ee5a68c2c20988eb24d5e6c4acbbe3c268c38c2fad743a6f6cdb",
+      "hash": "1e6de1a299f4d52a7e51213cf6015e1050f6c8ee2fb13da82482e945c085fba9",
       "kind": "array",
       "mistakes": {
-        "6e90cb3d7e6e78b70295e7ebe19b842fdf037aff931526d461441c966e972d4a": "dans l'ordre : de l'année 0 à l'année 3",
-        "be8fa40634536bc656205fb46785d3379f629d43c01b0c8608592b4951d6fde2": "le terme de l'année k n'est porté que par les jacobiennes des années suivantes"
+        "06fac9f4545d2afeae54a503c33bebec8e121e0263cc49463261047929cf3a18": "le terme de l'année k n'est porté que par les jacobiennes des années suivantes",
+        "815b601e2e5d89af21aad2e98e26603750bc2948ed386dbeb50eb7f8fa2de734": "dans l'ordre : de l'année 0 à l'année 3"
       },
       "shape": [
         4
@@ -75008,37 +74927,34 @@
     "M22.9e": {
       "coarse_any": {
         "0": [
-          "002b2c565eed92dd7a3a88c91a5fe51637078118e689ac3ed0d8720664c651da"
+          "775df36a3cfe9c94996daea3478659dc4f90caee33905c848777271e278d9489"
         ]
       },
       "decimals": 2,
-      "hash": "01836a76bd58ef2e28378f39a4cb124e770dd92345bd2d07c07cef6b50fa1810",
-      "hash_coarse": "e91653a4f9074d07f5d449da96880e5ffa81665079e5867795877e1034f8119c",
+      "hash": "a58a54e759889601c4e3d540e2a72e1edb7056e27deab6cc8a1152c784d430c6",
+      "hash_coarse": "5236c248ad54ea91b5849f0b0eeed52395fe4a2e84ccdefed58c403907bb025e",
       "kind": "float",
       "magnitude": 4,
       "mistakes": {
-        "2271a6510d5304d6ad62d1238063d942796d2c983103f6387f6b26a66270627e": "le terme de l'année k n'est porté que par les années suivantes",
-        "febec6396446d9ae091658db42b7076410fd934d031104b7ad1227364f60e85a": "la sensibilité a deux chemins : directement, et à travers x_t"
+        "174250a40ef7d88b9926d99fb9dfd2564fa84c1fcf238adbc7044f569ade79b4": "le terme de l'année k n'est porté que par les années suivantes",
+        "d8026608bcae7854a77e460c3db1e4e6ec90cd4d604cb185a5e7bbd2b8c070e6": "la sensibilité a deux chemins : directement, et à travers x_t"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
     "M22.9f": {
-      "alt_hashes": [
-        "eb9d8ea371e4e32abb63b202d2b7908a5ffd21bc23cfa9846f582acf5acbe26e"
-      ],
       "coarse_any": {
         "0": [
-          "63d8cf54a07c74e173f7101d4975e54d0e7c07ba83237ddfa82c69f8bdf708d5"
+          "ecbd51f4f23cf57d0c8176681a787e82979e58d9ea5c0c8c254dfe1f37454a62"
         ]
       },
       "decimals": 2,
-      "hash": "e8724ede897742d0ab2491cd5a1fe7a2a7a7d244c81e96c2bd1753dbee74dd2f",
-      "hash_coarse": "e8e588a52cb8512de10b5ba8f89a53a69285746992bac353c4f4f4964ab014df",
+      "hash": "d33fd8adc000ececd8ed9dc33417c01f091b1926fa4487c496b0a596948f347c",
+      "hash_coarse": "49c039c3fe117c648ec901e90da9eb937d366aea395689cda27a1343319ec09c",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "2b5940cf486e832a9b9373f6112bd04aa91a391c988604e66d17383b3f971542": "3 % → 3,2 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre"
+        "0d232526eb55f9895fd8bed98cbc3d176c5ad06df03bce473aef78b021accd12": "3,5 % → 3,7 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -75046,17 +74962,16 @@
     "M22.9g": {
       "coarse_any": {
         "0": [
-          "8c24df4feee36bf095718b4427702c1ad5a32da7a3532a1ec997c9bba20f4a5a"
+          "f5d75a744b87bb3e2fda025645a2f0e4c49367c63066d242825e809bdd958f62"
         ]
       },
       "decimals": 2,
-      "hash": "2e54ce53c56c1a8d4ba6a2de62694d4118ab8213b205be8fbf78d7e11af4333a",
-      "hash_coarse": "2314da697c542c12b433d99d16cb9a0af3c36f817642c4cddb6caa5717c50122",
+      "hash": "c7e8a914e321cd47ba0a807f4fd9914da22574dfb6377c4273db756efaec6cb4",
+      "hash_coarse": "741282e09237033138a0037063c9748825e9562e60dfff3dc73256c9e62c4eb3",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "84d297b37f9f1768fb3dba8cb6d5ba4a81a7734b9c0cd8be426d66edd4e20e08": "le changement exact se calcule en recalculant x₄ avec le nouveau taux",
-        "eaabf0fc19c5342d952b53205ec9a2b49a5c086b52563aeec7704ac8b982733e": "le changement exact se calcule en recalculant x₄ avec le nouveau taux"
+        "453a73e146287fbf7d6e82d5750f4a4b0e3059bb07104904e2d76b3cdba8a929": "le changement exact se calcule en recalculant x₄ avec le nouveau taux"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -75578,7 +75493,7 @@
       "hash": "7f3687bd6f617c2cca5bae9f0a4a216499f5b478d7950f9a9d8357295faa3cd6",
       "kind": "array",
       "mistakes": {
-        "e7b122f74c5926e3266d7d6f15d4f97c93d633e312af54d9c3478fe8ca59c5ca": "une ligne par coordonnée de sortie : relis e)"
+        "e7b122f74c5926e3266d7d6f15d4f97c93d633e312af54d9c3478fe8ca59c5ca": "∂x₃/∂x₀ est le produit de trois jacobiennes de x ↦ x A (ta réponse e)), pas la puissance A³"
       },
       "shape": [
         2,
@@ -76384,25 +76299,25 @@
     "M22.26c": {
       "coarse_any": {
         "0": [
-          "d020c3e09a238f6c5897d0b9311ddbe9cb92ffcb63b35f45b1f40014ca352437"
+          "32b8697de294e5dc3b19bfd21b062e4036c0a2be5d74a0467bdfd3fdc56f4079"
         ]
       },
       "coarser": {
         "1": [
-          "a02c116da6db3416445a0e22d788ffc76727118cf6124a4ded5e2e4a97716900"
+          "aa5ae9737c71def6f41d53542f74326e6c688afe97c8bb4832aa0225c232eec5"
         ],
         "2": [
-          "856ef9fd7b8dbc79fa0fd94fde4aa937ebb1e3920989c61c92c7420384c3fded"
+          "b64e400b9e8a958e7ee198cc2a375b7db4e2ec4afd06bb3b1b0179d6b4340353"
         ]
       },
       "decimals": 4,
-      "hash": "dd62151b763c47584fbf6de7233a10fbc990dd1627701b206accef522c56b2ac",
-      "hash_coarse": "72860e3b609f5835e6ec1ae667bc5909f0a94af50bd16a01f1cf741a771ac21b",
+      "hash": "175baec1b6054ec81800210ae0c8df5112472b4697b88ce3d9b1ee187658a9a5",
+      "hash_coarse": "26fed5dbe74488e38e65b7acfb83b653d74ba7e0934f5d2eab6bec827e0f8ea6",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "466af4f91b2eb7e38a226601d0922235240d28c924e35b8face496be78a514b2": "la version fausse ramène chaque ligne qui dépasse c : calcule la norme globale de ce qu'elle rend",
-        "f0c1cdfd74a6ac4e8959020f8e625cf83fc0579f6f335d49ed45f50485e2011b": "c) demande la norme globale de ce que rend la version FAUSSE"
+        "36d6433cadaa5a6fa17188086d9b21fbaf572292a98d1943d8393b77de430f77": "c) demande l'énergie de ce que rend la version FAUSSE",
+        "8fc01588def46dcc157157ae3bf87343bcd6f6bd05db68a005468a5e242f5628": "la version fausse ramène chaque drone qui dépasse E : calcule l'énergie de la flotte qu'elle rend"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -76410,24 +76325,24 @@
     "M22.26d": {
       "coarse_any": {
         "0": [
-          "8fa0b9f5b895a1face9e525d05871d9ba377090a61bd347794e0492b502a2f22"
+          "52ee4ddf848392d86d59c3152872c2cec53c09a5f5ef29d5d022947564b4062b"
         ]
       },
       "coarser": {
         "1": [
-          "1df1b3e3fb0aaa30ca8650d8567be4c739277d8fb8362615e56c88c3acc1d9c7"
+          "82643354ab5c865169661147750b01fc4c173e6fd203208fec474f5bcc13715f"
         ],
         "2": [
-          "4e4351999408453ae82a9fa67339509bc11a200a11d6ed8ba223831c8c0bf39a"
+          "219b8f57e064aea9c873e8c29149e81d3ecf7ed9da029e1a65004f68d599649d"
         ]
       },
       "decimals": 4,
-      "hash": "8f3665c431049edb54e635f8006dfc8379d1d11be7bfdafc21daa55edf9b1580",
-      "hash_coarse": "719064ba24942df74f3f110b1e72d47fec79713e5e4d4871e7e2170d07cb5d99",
+      "hash": "244387f2aebb53be74d3bac879becaf9e4caa70c39fd67ae2f2b5a23f1486acc",
+      "hash_coarse": "43008348fd4f5f0d1317ef1759ff614ed1c13bad9ac22995ade72f6454c66116",
       "kind": "float",
-      "magnitude": 0,
+      "magnitude": 1,
       "mistakes": {
-        "f701242bac0862ee3b97e92040ed81f5abf1d2de10e8703d9644211a7d4802f6": "d) demande la norme globale de ce que rend ta version CORRIGÉE"
+        "0137988377dbd862623ba22153cd242d3d5f0f41a8c9b6c7e39cf45b7d35a84a": "d) demande l'énergie de ce que rend ta version CORRIGÉE"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -76436,41 +76351,42 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "2151f246da33cafc832aabcaaf2f88d5afaa2226318ab6c6ed625229bbb0541f"
+          "d862362d515b2378efcfc0b16b60c71b0b7ece84e03952f529077e7719d3260c"
         ],
         [
-          "a703603a1cf6ffccf578e100220ed7967e16aef0f2a27723f56b3ba3d146fee7"
+          "ab515fd302e9eecdd6b7936b269d876770d8728fa955988b5eb8447d9c06b51f"
         ],
         [
-          "813900f805a9ae29a08a9c62e14d5cb6860723bb21af1b5eef8b47d13a60f052"
+          "860c3e2ee813802596c29c3edae73064e49894d4d5b20665b6c4c0376777bc6f"
         ]
       ],
       "element_coarse_any": [
         [
           "308fccb5939e8f8c37d67b705f5515b1302c7aabd370bfeb646d79055ca298ae",
-          "cef36e27ab6a4766d493e3f9bba2ea16793da00842a4d2cda495e157c304e27c",
-          "5521b7b21a75c2891f7a22217a30f81917eee446d3e37e38f0b8f6daf57904fc"
+          "a7fa2cfa53d42dd3b1a87a8c8730bb6af3fb249bbf445500f687d278b95e2327",
+          "81d580c391087c0c67d9c1d40c294d05e8808b2a6022b2f48de33bcfc4ede644"
         ],
         [
           "af99f3a15df183ce7b4198e9093700095e1dfd25b434b33ff3e727dd9a9a629c",
-          "3b79c6abadc5c7d78bf97f845aff46689843f8dec566f356448b3a446f324625",
-          "df4fb405da8de78af3b3f8d43563d002d0e98a774da35f7eb1017568f448eec7"
+          "bbdae3a5eb5d6471cab738c0cd5362e30fe16354d6da6fa4c06dd901baa3bd5f",
+          "890e9838aefb29fb18fd4e957a62b13347083c43a3ae82dcbfb063645d5e60f3"
         ],
         [
           "a4c4b3d74788e3202f7e0c3d4354ef57809b96a8b2a4954e7216d902d7e7cef2",
-          "ffaa2b082e8dd195d4ff332f64b682e3aad67fdf5fc74c61bf84f49121a283b0",
-          "1d888017c816cb35d293fb06177e687a0fb2243c9f2d65ca12f1985285b9d5e5"
+          "4028a2af48948d61c8106c8ff8768b4497a7d0b565a8d2b163e4e0c6f8826cea",
+          "85d02440f6b6f8b097a99cd8258f0656884384f76aad758813e3a72b99eb2e72"
         ]
       ],
       "element_hashes": [
-        "381d419f5668e4f33c1e271952cd9cd83055be2173e82a45a5b4169a6a981f70",
-        "3a9652effd50e4bf179576c9f9b8ccf732fe18a7f7c11f4f388d47a34ad513d9",
-        "22f04aad246b2911f2af61cf151a1e78764dea6d90272f3790459867b40c9c3e"
+        "ad965253bbc9b8c276b10eff476d3b226bbb243c210da1768cd06f29188145c6",
+        "9be81377cc088fc4482d5ffa9a6b249e2c85c935955e4bea8d4d9e7d4beb8c2b",
+        "d0719880416ee582d9c06a54200122bfd33a0c67e34424a650b9e25124a3acc0"
       ],
-      "hash": "161d4fa742cd00aec4170bdfe8acc442668fd89e71db492d681bdf5379e1451b",
+      "hash": "107283404ecf9702f239b5d457cd39c0df62f0e1bfa9aaecba1180fdb28882c9",
       "kind": "array",
       "mistakes": {
-        "552171a1592467e905d2ea4e22d76754d454d0a71ca0f073d4fa52ba11c516eb": "la version corrigée multiplie TOUTES les lignes par le même facteur, même celles qui sont déjà sous c"
+        "552171a1592467e905d2ea4e22d76754d454d0a71ca0f073d4fa52ba11c516eb": "la version corrigée multiplie TOUTES les lignes par le même facteur, même celles dont l'énergie est déjà sous E",
+        "a7fc8f1f1d036750713d0eb195b27a3d552b29a404ce3be3e7d588e2e0aa6b5e": "l'énergie est proportionnelle au CARRÉ des vitesses : le facteur des vitesses est la racine de E/E_flotte"
       },
       "shape": [
         3

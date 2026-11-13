@@ -18,8 +18,9 @@ M22.8 from (0, 0) over 30 steps, and twelve matrices diag(0.985, 0.93, 0.65) of 
 matrices, seed 5722 (M22.22); [[−1.2, 2], [−2, 2.8]] (M22.23); the two stages G = [[0.2, 3], [0.6, 0.4]] and
 M = [[0.2, 0.4], [0.2, 0.2]], 20 000 years drawn with the seed 5724, five more sequences with the seeds 5731 to 5735
 (M22.24); [[0, −1], [1, 0.6]] times r = 0.6, 0.93, 1, 1.04 from (1, 0), 60 steps (M22.25); the colleague's checks
-[[2, 1], [1, 2]], [[0.6, 0.2], [0.1, 0.3]] and one drone (4, −4, 2) with c = 5, applied to [[2, 3], [−1, −2]], the
-prey–predator map (1.3 x − 0.1 x y, 0.8 y + 0.1 x y) from (4, 2) and the fleet of four drones (M22.26); 300 random
+[[2, 1], [1, 2]], [[0.6, 0.2], [0.1, 0.3]] and one drone of 1 kg at (5, −4, 2) m/s with E = 20 J, applied to
+[[2, 3], [−1, −2]], the prey–predator map (1.3 x − 0.1 x y, 0.8 y + 0.1 x y) from (4, 2) and the fleet
+[[−2, 1, 2], [5, −4, 2], [6, 2, −3], [0, 0, 2]] of masses (2, 1, 1, 4) kg with E = 20 J (M22.26); 300 random
 cases drawn by the learner with the seed 5727, and two wrong norms built on the reference (M22.27); the learner's own
 3 × 3 matrix (M22.28).
 Seeds 5711 to 5739 only (the tests use 5610 to 5700): 5722 (M22.22), 5724 and 5731 to 5735 (M22.24), 5727 (M22.27,
@@ -31,16 +32,17 @@ tests/test_m22_recurrence.py, nor the examples of the docstrings of the stub (no
 cursus [[0.2, 0], [0.6, 0.1]], no [[1, −1], [1, 1]] nor [[1, −1], [0.8, 0.2]] (nor its factors 0.96 and 1.03), no
 [[0.75, 6], [0, 0.6]], no [[2, 1], [−2, 4]], no N = [[0, 3], [0, 0]], no diag(2, 0) and diag(0, 2), no polluants
 (0.97 ; 0.92 ; 0.6), no plante (2.5 ; 0.3), no z² − 0.24, no pêcherie, no chariot and drones (−2), (4, 4, −2),
-(−4, 7, 4) with c = 4.4 (see the report: the drone (4, −4, 2) of M22.26, written in the statement, is a sign variant).
+(−4, 7, 4) with c = 4.4.
 
 Nothing of workbookIA 22 is used (the notes of M22 in the syllabus and the list « Évités »): no cell, gate, sigmoid,
 tanh, loss, gradient, network nor PyTorch; none of the powers 0.7²⁰, 1.2²⁰, 0.95¹⁰⁰, 1.05¹⁰⁰, 0.9⁵⁰, 1.1⁵⁰, 0.5²⁰,
 0.99¹⁰⁰ nor their values; no factor 0.5, 0.7, 0.73, 0.9, 0.95 or 0.99; no T = 80, H = 32, no distances 10, 40, 79;
 no vector (3, 4), no thresholds 1 or 0.25; no sunspots, Holmes, Verne, sine of period 24. The bug (1) of M22.26
 takes ρ(A) for ‖A‖₂ on a non-symmetric matrix, (2) multiplies the jacobians of a prey–predator map in the order of
-time, (3) caps each drone instead of the whole fleet: no RNN, no clipping of gradients (the corrected
-cap_speeds_fixed(V, c) takes one array of speeds and returns one array: neither clip_grad_norm(grads, max_norm, eps)
-of the mylearn of workbookIA 19 nor clip_by_global_norm(grads, max_norm) of its checkpoint IV). The property test of
+time, (3) brings the kinetic energy of each drone under E instead of that of the whole fleet: no RNN, no clipping of
+gradients (the corrected cap_energy_fixed(V, masses, E) scales one array of speeds by sqrt(min(1, E / E_fleet)):
+neither clip_grad_norm(grads, max_norm, eps) of the mylearn of workbookIA 19 nor clip_by_global_norm(grads,
+max_norm) of its checkpoint IV). The property test of
 M22.27 is run on the reference and on two wrong norms built on it (Frobenius for ord = 2, rows and columns swapped).
 M22.28 asks for the matrix of the syllabus (coefficients in [−3, 3], ρ = 0.85, a power of norm > 100).
 """
@@ -74,8 +76,8 @@ PAPER = [
         ("a", "a list of 3 numbers", "floats(X_1[1])",
          '''decimals=2,
            mistakes={"x₁ = A x₀ + B u₀ : les lâchers de l'année 0 comptent aussi": floats(A_1 @ X0_1),
-                     "relis les lignes de B : la seconde entrée va dans la dernière classe, celle des oiseaux de deux "
-                     "ans": floats(A_1 @ X0_1 + B_SWAP_1 @ U_1[0])}'''),
+                     "B range la première entrée parmi les jeunes, la seconde parmi les oiseaux de deux ans":
+                         floats(A_1 @ X0_1 + B_SWAP_1 @ U_1[0])}'''),
         ("b", "a list of 3 numbers", "floats(X_1[2])",
          '''decimals=2,
            mistakes={"chaque pas ajoute B uₜ, même quand une seule des deux entrées est non nulle":
@@ -98,9 +100,8 @@ PAPER = [
         ("g", "an integer", "sum(1 for k in range(10) if 10 - 1 - k >= 0)",
          '''mistakes={"un terme par entrée reçue avant le pas 10, u₀ compris": 9,
                      "u₁₀ sert à calculer x₁₁, pas x₁₀": 11}'''),
-        ("h", BOOL, "B_1.shape[1] == A_1.shape[0]",
-         '''mistakes={"BA est défini quand le nombre de colonnes de B égale le nombre de lignes de A : compare-les":
-                         True}'''),
+        ("h", BOOL, "bool(np.allclose(DOUBLED_X3_1, 2 * X_1[3]))",
+         '''mistakes={"avec des entrées, seule la réponse libre est proportionnelle à x₀": True}'''),
     ]),
 
     Paper("M22.2", "La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme convolution de "
@@ -113,8 +114,7 @@ PAPER = [
          '''decimals=4, mistakes={"x₃ = A x₂ + B u₂ : la pluie du jour 2 entre dans x₃": floats(A_2 @ X_2[2])}'''),
         ("d", "an integer", "next(t for t in range(4, 40) if H_2[t - 1 - 3] != 0)",
          '''mistakes={"dans y_t, u₃ est porté par h_(t−1−3) : regarde à partir de quel t ce coefficient est non nul": 4,
-                     "la pluie du jour 3 entre dans l'état du jour 4 : elle ne peut pas apparaître plus tôt dans "
-                     "la sortie": 3}'''),
+                     "une pluie du jour 3 entre dans x₄, au bassin 1 : quand atteint-elle le bassin 2 ?": 3}'''),
         ("e", FRACTION, "str(TOTAL_2)",
          '''kind="fraction", simplified=True,
            mistakes={"h_k a un facteur constant devant (0,4ᵏ − 0,3ᵏ) : il multiplie aussi la somme":
@@ -147,15 +147,17 @@ PAPER = [
          '''decimals=4, mistakes={"trois fois l'angle θ : combien de tours ?": floats(-power(M_3, 3))}'''),
         ("e", COMPLEX + " (4 decimals)", "[(MU_3 ** 4).real, (MU_3 ** 4).imag]",
          '''decimals=4,
-           mistakes={"ramène 4θ dans ]−π, π] avant de prendre le cosinus et le sinus":
-                         [(MU_3 ** 4).real, -(MU_3 ** 4).imag]}'''),
+           mistakes={"μ⁴ a pour argument 4θ, avec θ l'argument de μ (partie imaginaire positive) : vérifie θ, puis "
+                     "le signe de sin 4θ": [(MU_3 ** 4).real, -(MU_3 ** 4).imag]}'''),
         ("f", "a number (5 decimals)", "float(np.linalg.norm(X5_3))",
          '''decimals=5,
            mistakes={"la distance est multipliée par r à chaque pas, à partir de ‖x₀‖": abs(MU_3) ** 5}'''),
         ("g", "an exact angle in [0, 2π[, as text", "as_pi(math.atan2(X5_3[1], X5_3[0]) % (2 * math.pi))",
          '''kind="exact", angle=True,
            mistakes={"ramène l'angle dans [0, 2π[": as_pi(5 * THETA_3),
-                     "cinq pas, d'un angle θ chacun": as_pi(THETA_3)}'''),
+                     "cinq pas, d'un angle θ chacun": as_pi(THETA_3),
+                     "cinq pas de θ chacun : vérifie θ (le signe de son cosinus)":
+                         as_pi(5 * (math.pi - THETA_3) % (2 * math.pi))}'''),
         ("h", BOOL, "bool(np.allclose(M_3.T @ M_3, np.eye(2)))",
          '''mistakes={"orthogonale veut dire MᵀM = I : calcule MᵀM": True}'''),
         ("i", BOOL, "bool(np.allclose(M_3.T @ M_3, M_3 @ M_3.T))",
@@ -185,10 +187,9 @@ PAPER = [
            mistakes={"C⁴ = (C²)² : vérifie le signe d'un carré": floats(-power(C_4, 4)),
                      "C⁴ demande quatre produits par C, pas deux": floats(-power(C_4, 2))}'''),
         ("g", "a list of 3 integers (codes 1, 2 or 3)", "[behaviour_4(M) for M in (A_4, B_4, C_4)]",
-         '''mistakes={"pour la deuxième matrice, relis d) et e) : des puissances qui reviennent périodiquement restent "
-                     "bornées": [behaviour_4(A_4), 3, behaviour_4(C_4)],
-                     "pour la troisième matrice, compare son rayon spectral à 1":
-                         [behaviour_4(A_4), behaviour_4(B_4), 2]}'''),
+         '''mistakes={"relis d) et e) : que deviennent les puissances de B après un tour complet ?":
+                         [behaviour_4(A_4), 3, behaviour_4(C_4)],
+                     "compare à 1 le module des valeurs propres de C": [behaviour_4(A_4), behaviour_4(B_4), 2]}'''),
         ("h", BOOL, "np.linalg.norm(B_4, np.inf) > 1 and behaviour_4(B_4) == 3",
          '''mistakes={"une norme plus grande que 1 ne dit rien du long terme : seul le rayon spectral le dit": True}'''),
     ]),
@@ -200,29 +201,33 @@ PAPER = [
            mistakes={"le rayon spectral se lit sur la diagonale d'une matrice triangulaire": str(A_5[0][1])}'''),
         ("b", "a list of 5 numbers (4 decimals)", "floats([C_5[t] for t in range(1, 6)])",
          '''decimals=4,
-           mistakes={"vérifie ta formule sur c₁, qui se lit directement sur A":
+           mistakes={"vérifie l'exposant de ta formule de c_t sur c₁":
                          floats([3 * t * Fraction(2, 3) ** t for t in range(1, 6)]),
                      "c_t est le coefficient en haut à droite, pas un coefficient diagonal":
                          floats([Fraction(2, 3) ** t for t in range(1, 6)])}'''),
         ("c", "a list of integers, in increasing order", "[t for t in sorted(C_5) if C_5[t] == max(C_5.values())]",
-         '''mistakes={"le maximum peut être atteint à plusieurs pas : compare c₂ à ses voisins": [2],
-                     "le maximum peut être atteint à plusieurs pas : compare c₃ à ses voisins": [3]}'''),
+         '''mistakes={"le maximum peut être atteint en plusieurs pas : calcule les c_t voisins de ton maximum en "
+                     "fractions exactes": [2],
+                     "le maximum peut être atteint en plusieurs pas : calcule en fractions exactes les c_t voisins de "
+                     "ton maximum": [3]}'''),
         ("d", "a number (4 decimals)", "float(C_5[15])",
          '''decimals=4,
-           mistakes={"vérifie l'exposant de ta formule sur c₁ et c₂": float(3 * 15 * Fraction(2, 3) ** 15)}'''),
+           mistakes={"vérifie l'exposant de ta formule de c_t sur c₁": float(3 * 15 * Fraction(2, 3) ** 15)}'''),
         ("e", "an integer", "next(t for t in sorted(C_5) if C_5[t] < 1)",
-         '''mistakes={"c₉ est-il déjà sous 1 ? Calcule-le": 9,
-                     "vérifie l'exposant de ta formule de c_t sur c₁ et c₂":
+         '''mistakes={"calcule c₉ : est-il déjà sous 1 ?": 9,
+                     "vérifie l'exposant de ta formule de c_t":
                          next(t for t in range(1, 41) if 3 * t * Fraction(2, 3) ** t < 1)}'''),
-        ("f", "a list of 2 numbers (4 decimals)", "floats([fpow(A_5, 3)[0][1], fpow(A_5, 3)[1][1]])",
+        ("f", "a list of 2 numbers (4 decimals)", "floats([fpow(A_5, 6)[0][1], fpow(A_5, 6)[1][1]])",
          '''decimals=4,
-           mistakes={"A³e₂ est la seconde colonne de A³, dans l'ordre de ses lignes":
-                         floats([fpow(A_5, 3)[1][1], fpow(A_5, 3)[0][1]])}'''),
+           mistakes={"A⁶e₂ est la seconde colonne de A⁶, dans l'ordre de ses lignes":
+                         floats([fpow(A_5, 6)[1][1], fpow(A_5, 6)[0][1]]),
+                     "vérifie l'exposant de ta formule de c_t sur c₁":
+                         floats([3 * 6 * Fraction(2, 3) ** 6, fpow(A_5, 6)[1][1]])}'''),
         ("g", "a list of 3 numbers (4 decimals)", "floats([fpow(B_5, t)[0][1] for t in (1, 2, 3)])",
          '''decimals=4,
            mistakes={"les valeurs propres de B sont distinctes : la formule n'est pas t λ^(t−1)":
                          floats([C_5[t] for t in (1, 2, 3)]),
-                     "le coefficient γ au-dessus de la diagonale multiplie toute la formule":
+                     "la formule est γ (λ₁ᵗ − λ₂ᵗ)/(λ₁ − λ₂) : vérifie γ et le dénominateur":
                          floats([fpow(B_5, t)[0][1] / B_5[0][1] for t in (1, 2, 3)])}'''),
         ("h", BOOL, "fmul(transpose(A_5), A_5) == fmul(A_5, transpose(A_5))",
          '''mistakes={"calcule AᵀA et AAᵀ, et compare-les": True}'''),
@@ -273,7 +278,8 @@ PAPER = [
          '''decimals=2,
            mistakes={"c'est l'approximation ln 2/ε ; la demi-vie exacte résout (1 − ε)ᵗ = 1/2":
                          (math.log(2) / EPS_7).tolist(),
-                     "le même logarithme au numérateur et au dénominateur": (math.log10(2) / -np.log(A_7)).tolist()}'''),
+                     "ln 2 est le logarithme népérien de 2 (≈ 0,693), comme au dénominateur":
+                         (math.log10(2) / -np.log(A_7)).tolist()}'''),
         ("d", "a list of 3 numbers (2 decimals)", "(math.log(2) / EPS_7).tolist()",
          '''decimals=2, mistakes={"l'approximation divise ln 2 par ε": (math.log(2) / -np.log(A_7)).tolist()}'''),
         ("e", "a list of 3 numbers (4 decimals)", "X2_7.tolist()",
@@ -301,8 +307,8 @@ PAPER = [
                      "de x₀ à x₃, trois pas : trois jacobiennes": floats(J_8[2] @ J_8[1])}'''),
         ("e", "a number", "float(np.linalg.det(D_8))",
          '''decimals=4,
-           mistakes={"regarde le signe : le déterminant d'un produit de trois matrices est le produit de leurs trois "
-                     "déterminants": -float(np.linalg.det(D_8)),
+           mistakes={"calcule det J_f(x, y) : dépend-il du point ? Regarde le signe d'un produit de trois facteurs":
+                         -float(np.linalg.det(D_8)),
                      "le déterminant d'un produit est le produit des déterminants": float(np.linalg.det(J_8[0]))}'''),
         ("f", "a list of 4 numbers", "[float(np.abs(M).sum(axis=1).max()) for M in J_8 + [D_8]]",
          '''decimals=4,
@@ -319,15 +325,15 @@ PAPER = [
 
     Paper("M22.9", "Un capital placé à taux fixe avec des versements : la dérivée du capital final par rapport au taux, "
                    "une somme sur les années", [
-        ("a", "a list of 4 numbers (2 decimals)", "floats(X_9[1:])",
-         '''decimals=2,
+        ("a", "a list of 4 numbers (1 decimal)", "floats(X_9[1:])",
+         '''decimals=1,
            mistakes={"le versement s'ajoute en fin d'année, après les intérêts": floats(EARLY_9[1:])}'''),
         ("b", "a number", "float(J_9)",
          '''decimals=4, mistakes={"J_t dérive f par rapport à x, pas par rapport à β": float(BETA_9)}'''),
-        ("c", "a list of 4 numbers (2 decimals)", "floats(B_9)",
-         '''decimals=2, mistakes={"b_t est évalué au point x_t de l'année t": floats(X_9[1:])}'''),
-        ("d", "a list of 4 numbers (2 decimals)", "floats(TERMS_9)",
-         '''decimals=2,
+        ("c", "a list of 4 numbers (1 decimal)", "floats(B_9)",
+         '''decimals=1, mistakes={"b_t est évalué au point x_t de l'année t": floats(X_9[1:])}'''),
+        ("d", "a list of 4 numbers (1 decimal)", "floats(TERMS_9)",
+         '''decimals=1,
            mistakes={"le terme de l'année k n'est porté que par les jacobiennes des années suivantes":
                          floats([J_9 ** (4 - k) * B_9[k] for k in range(4)]),
                      "dans l'ordre : de l'année 0 à l'année 3": floats(TERMS_9[::-1])}'''),
@@ -338,9 +344,9 @@ PAPER = [
                          float(sum(J_9 ** (4 - k) * B_9[k] for k in range(4)))}'''),
         ("f", "a number (2 decimals)", "float(Fraction(2, 1000) * S_9)",
          '''decimals=2,
-           mistakes={"3 % → 3,2 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre":
+           mistakes={"3,5 % → 3,7 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre":
                          float(Fraction(2, 100) * S_9)}'''),
-        ("g", "a number (2 decimals)", "float(x4_9(Fraction(32, 1000)) - x4_9(BETA_9))",
+        ("g", "a number (2 decimals)", "float(x4_9(Fraction(37, 1000)) - x4_9(BETA_9))",
          '''decimals=2,
            mistakes={"le changement exact se calcule en recalculant x₄ avec le nouveau taux":
                          float(Fraction(2, 1000) * S_9)}'''),
@@ -392,7 +398,8 @@ PAPER = [
            mistakes={"écris (x A)_j et dérive-le par rapport à x_i : une ligne par coordonnée de sortie":
                          floats(A_16)}'''),
         ("f", "a 2 × 2 matrix (4 decimals)", "floats(power(JAC_16, 3))",
-         '''decimals=4, mistakes={"une ligne par coordonnée de sortie : relis e)": floats(power(A_16, 3))}'''),
+         '''decimals=4, mistakes={"∂x₃/∂x₀ est le produit de trois jacobiennes de x ↦ x A (ta réponse e)), pas la puissance A³":
+                                     floats(power(A_16, 3))}'''),
         ("g", BOOL, "ROW_FORMULA_16",
          '''mistakes={"déroule la récurrence ligne sur deux pas, comme au §1": False}'''),
     ]),
@@ -467,6 +474,9 @@ for u in U_1:
 FREE_1 = power(A_1, 3) @ X0_1                                                             # the free response
 FORCED_1 = sum(power(A_1, 3 - 1 - k) @ B_1 @ U_1[k] for k in range(3))                   # the forced response
 assert np.allclose(FREE_1 + FORCED_1, X_1[3])
+DOUBLED_X3_1 = 2 * X0_1
+for u in U_1:
+    DOUBLED_X3_1 = A_1 @ DOUBLED_X3_1 + B_1 @ u                                              # x0 doubled, same releases
 LATE_1 = sum(power(A_1, 3 - k) @ B_1 @ U_1[k] for k in range(3))                         # A^(t−k): one power too many
 B_SWAP_1 = np.array([[1.0, 0.0], [0.0, 1.0], [0.0, 0.0]])                                  # the second input misplaced
 A_2, B_2, C_2 = np.array([[0.4, 0.0], [0.4, 0.3]]), np.array([1.0, 0.0]), np.array([0.0, 0.6])   # M22.2
@@ -557,23 +567,23 @@ DELTA_8 = np.array([0.01, 0.0])
 MOVED_8 = DELTA_8
 for _ in range(3):
     MOVED_8 = henon_8(MOVED_8)                                                              # the true x₃ from (0.01, 0)
-BETA_9 = Fraction(3, 100)                                                                  # M22.9
+BETA_9, X0_9, PAY_9 = Fraction(35, 1000), Fraction(2500), 400                             # M22.9
 
 
 def x4_9(beta):
     """x_4 for the rate beta, step by step (exact)."""
-    x = Fraction(2000)
+    x = X0_9
     for _ in range(4):
-        x = (1 + beta) * x + 600
+        x = (1 + beta) * x + PAY_9
     return x
 
 
-X_9 = [Fraction(2000)]
+X_9 = [X0_9]
 for _ in range(4):
-    X_9.append((1 + BETA_9) * X_9[-1] + 600)
-EARLY_9 = [Fraction(2000)]
+    X_9.append((1 + BETA_9) * X_9[-1] + PAY_9)
+EARLY_9 = [X0_9]
 for _ in range(4):
-    EARLY_9.append((1 + BETA_9) * (EARLY_9[-1] + 600))                                     # the payment before the interest
+    EARLY_9.append((1 + BETA_9) * (EARLY_9[-1] + PAY_9))                                     # the payment before the interest
 J_9 = 1 + BETA_9                                                                           # ∂f/∂x
 B_9 = X_9[:4]                                                                              # ∂f/∂β at x_t
 TERMS_9 = [J_9 ** (3 - k) * B_9[k] for k in range(4)]
@@ -1590,7 +1600,7 @@ M22_25 = Ex(
 - `spiral_25(r)` : la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ pour $t = 0, \ldots, 60$, un état par ligne (un tableau de forme $(61, 2)$), avec ta `linear_system_states` (une entrée nulle : `B = np.zeros((2, 1))` et `inputs = np.zeros((60, 1))`) ;
 - `draw_spirals_25(fig, axes, trajectories)`, qui reçoit cinq axes côte à côte et les quatre trajectoires, dans l'ordre de `RS_25`, et dessine, sans ouvrir d'autre figure : dans chacun des quatre premiers axes, une trajectoire (les points reliés, dans l'ordre), avec la même échelle sur les deux axes (`ax.set_aspect("equal")`) et un titre qui donne $r$ et le module des valeurs propres ; dans le cinquième, $\lVert\mathbf{x}_t\rVert_2$ contre $t$ pour les quatre trajectoires, avec les courbes $r^t$ aux mêmes $t$, en échelle logarithmique, avec une légende.
 
-La vérification compare `spiral_25` aux puissances de $r\mathbf{A}$, puis appelle `draw_spirals_25` et regarde le dessin, en s'arrêtant au premier ❌. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 73°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et $\lVert\mathbf{x}_t\rVert$ suit $r^t$ en oscillant autour, parce que la trajectoire est une ellipse et non un cercle.""",
+La vérification compare `spiral_25` aux puissances de $r\mathbf{A}$, puis appelle `draw_spirals_25` et regarde le dessin, en s'arrêtant au premier ❌. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et $\lVert\mathbf{x}_t\rVert$ suit $r^t$ en oscillant autour, parce que la trajectoire est une ellipse et non un cercle.""",
     todo='''def spiral_25(r):
     """The trajectory x_t = (r A_25)^t X0_25 for t = 0, ..., T_25, one state per row (an array (T_25 + 1, 2)), with
     your linear_system_states and zero inputs."""
@@ -1665,12 +1675,15 @@ NOTE_26 = (r"(1) Le rayon spectral n'est pas le plus grand facteur d'allongement
            r"il faut `P = jac(x) @ P`. La vérification portait sur une application linéaire, dont toutes les "
            r"jacobiennes sont égales. b) $\begin{pmatrix} 0{,}8418 & -1{,}6035 \\ 0{,}9692 & 1{,}4795 \end{pmatrix}$ "
            r"(la version fausse rend $\begin{pmatrix} 0{,}7809 & -1{,}7401 \\ 0{,}9178 & 1{,}5398 \end{pmatrix}$) ; les "
-           r"états sont $(4, 2)$, $(4{,}4 ;\ 2{,}4)$ et $(4{,}664 ;\ 2{,}976)$. (3) Ramener chaque ligne sous $c$ ne "
-           r"borne pas la norme globale et change la direction ; il faut multiplier tout le tableau par "
-           r"$\min\big(1, \frac{c}{\lVert\mathbf{V}\rVert}\big)$, et rendre une copie quand $\lVert\mathbf{V}\rVert "
-           r"\le c$ (le tableau nul compris). La vérification portait sur un seul drone : avec un seul bloc, les deux "
-           r"règles coïncident. c) $\sqrt{63} \approx 7{,}9373$. d) 5. e) $\frac{5}{7\sqrt2}(-2, 1, 2) \approx "
-           r"(-1{,}0102 ;\ 0{,}5051 ;\ 1{,}0102)$.")
+           r"états sont $(4, 2)$, $(4{,}4 ;\ 2{,}4)$ et $(4{,}664 ;\ 2{,}976)$. (3) Ramener l'énergie de chaque drone "
+           r"sous $E$ ne borne pas l'énergie de la flotte et change la direction ; il faut calculer l'énergie de toute "
+           r"la flotte, $E_{\text{flotte}} = \frac12\sum_i m_i\lVert\mathbf{v}_i\rVert_2^2$, puis multiplier tout le "
+           r"tableau par un seul facteur, $\sqrt{\min(1, E/E_{\text{flotte}})}$, et rendre une copie quand "
+           r"$E_{\text{flotte}} \le E$ (l'énergie nulle comprise). La vérification portait sur un seul drone : avec un "
+           r"seul bloc, les deux règles coïncident. Les énergies des drones valent 9, 22,5, 24,5 et 8 J, soit 64 J. "
+           r"c) 57 J : la version fausse ramène le deuxième et le troisième drone à 20 J chacun. d) 20 J. e) "
+           r"$\sqrt{\frac{20}{64}}(-2, 1, 2) = \frac{\sqrt5}{4}(-2, 1, 2) \approx (-1{,}1180 ;\ 0{,}5590 ;\ "
+           r"1{,}1180)$.")
 
 NOTE_27 = (r"La sous-multiplicativité et $\rho \le \lVert\cdot\rVert$ passent sur `operator_norm`, mais aussi sur les "
            r"deux versions fausses : la norme de Frobenius est sous-multiplicative et au moins égale à $s_{\max} \ge "
@@ -1684,8 +1697,9 @@ NOTE_27 = (r"La sous-multiplicativité et $\rho \le \lVert\cdot\rVert$ passent s
 GIVEN_C = 'ref_rec = wbm.load_mymath("ref", alias="mymath_ref").recurrence   # the reference: the check of M22.27'
 
 GIVEN_26 = '''STRETCH_26 = np.array([[2.0, 3.0], [-1.0, -2.0]])
-FLEET_26 = np.array([[-2.0, 1.0, 2.0], [4.0, -4.0, 2.0], [6.0, 2.0, -3.0], [0.0, 0.0, 2.0]])   # one row per drone
-C_26 = 5.0
+FLEET_26 = np.array([[-2.0, 1.0, 2.0], [5.0, -4.0, 2.0], [6.0, 2.0, -3.0], [0.0, 0.0, 2.0]])   # m/s, one row per drone
+MASSES_26 = np.array([2.0, 1.0, 1.0, 4.0])                    # kg
+E_26 = 20.0                                                   # J
 
 
 def prey_predator_26(p):
@@ -1719,12 +1733,14 @@ def trajectory_jacobian(jac, states):
     return P
 
 
-def cap_speeds(V, c):
-    """A new array of speeds (one row per drone) whose global norm is at most c, the direction of the whole kept."""
+def cap_energy(V, masses, E):
+    """A new array of speeds (one row per drone, m/s) whose kinetic energy ½ Σ m_i ‖v_i‖² is at most E (J), the
+    direction of the whole kept."""
     V = np.array(V, dtype=float)
     for i, row in enumerate(V):
-        if np.linalg.norm(row) > c:
-            V[i] = row * (c / np.linalg.norm(row))
+        energy = 0.5 * masses[i] * float(row @ row)
+        if energy > E:
+            V[i] = row * np.sqrt(E / energy)
     return V
 
 
@@ -1733,9 +1749,9 @@ print("(1) max_stretch([[2, 1], [1, 2]]) =", max_stretch(np.array([[2.0, 1.0], [
 LINEAR_26 = np.array([[0.6, 0.2], [0.1, 0.3]])
 print("(2) x ↦ L x sur 3 pas :", bool(np.allclose(trajectory_jacobian(lambda x: LINEAR_26, [np.ones(2)] * 3),
                                                    np.linalg.matrix_power(LINEAR_26, 3))), "(attendu True)")
-one_drone_26 = cap_speeds(np.array([[4.0, -4.0, 2.0]]), 5.0)
-print("(3) un seul drone (4, −4, 2), c = 5 :", np.round(one_drone_26, 4).tolist(), "; norme",
-      round(float(np.linalg.norm(one_drone_26)), 4), "(attendu 5, la même direction)")'''
+one_drone_26 = cap_energy(np.array([[5.0, -4.0, 2.0]]), [1.0], 20.0)
+print("(3) un seul drone de 1 kg, (5, −4, 2) m/s, E = 20 J :", np.round(one_drone_26, 4).tolist(), "; énergie",
+      round(0.5 * float(np.sum(one_drone_26 ** 2)), 4), "J (attendu 20, la même direction)")'''
 
 CHECK_26 = '''results_26, parts_26 = [], []
 
@@ -1795,26 +1811,28 @@ with checked("M22.26"):                                       # (2) trajectory_j
               "ne commutent pas", "(2) trajectory_jacobian_fixed : " + " ; ".join(wrong_26[:2]))
     parts_26.append(2)
 
-with checked("M22.26"):                                       # (3) cap_speeds_fixed
+with checked("M22.26"):                                       # (3) cap_energy_fixed
     wrong_26 = []
-    fleets_c26 = [(rng_c26.normal(size=(5, 3)) * 4, 3.0), (rng_c26.normal(size=(2, 3)) * 0.2, 4.0),
-                  (np.zeros((3, 3)), 2.0), (rng_c26.normal(size=(1, 3)) * 5, 1.5)]
-    for V_c26, c_c26 in fleets_c26:
-        kept_c26 = V_c26.copy()
-        size_c26 = float(np.sqrt(np.sum(V_c26 ** 2)))
-        want_c26 = V_c26 * (min(1.0, c_c26 / size_c26) if size_c26 > 0 else 1.0)
-        got_c26 = call_26(3, "cap_speeds_fixed", cap_speeds_fixed, V_c26, c_c26)
-        what_c26 = (f"une flotte de {len(V_c26)} drone(s), de norme globale {size_c26:.3g}, c = {c_c26:g}"
-                    if size_c26 > 0 else f"une flotte immobile, c = {c_c26:g}").replace(".", ",")
+    fleets_c26 = [(rng_c26.normal(size=(5, 3)) * 4, rng_c26.uniform(0.5, 3, size=5), 30.0),
+                  (rng_c26.normal(size=(2, 3)) * 0.2, rng_c26.uniform(0.5, 3, size=2), 15.0),
+                  (np.zeros((3, 3)), np.array([1.5, 2.5, 0.5]), 12.0),
+                  (rng_c26.normal(size=(1, 3)) * 5, np.array([3.0]), 7.5)]
+    for V_c26, m_c26, E_c26 in fleets_c26:
+        kept_c26, masses_kept_c26 = V_c26.copy(), m_c26.copy()
+        energy_c26 = 0.5 * float(np.sum(m_c26 * np.sum(V_c26 ** 2, axis=1)))
+        want_c26 = V_c26 * (math.sqrt(E_c26 / energy_c26) if energy_c26 > E_c26 else 1.0)
+        got_c26 = call_26(3, "cap_energy_fixed", cap_energy_fixed, V_c26, m_c26, E_c26)
+        what_c26 = (f"une flotte de {len(V_c26)} drone(s), d'énergie {energy_c26:.3g} J, E = {E_c26:g} J"
+                    if energy_c26 > 0 else f"une flotte immobile, E = {E_c26:g} J").replace(".", ",")
         if got_c26 is None or np.shape(got_c26) != V_c26.shape or not np.allclose(got_c26, want_c26, rtol=1e-9,
                                                                                   atol=1e-12):
             wrong_26.append(f"{what_c26} : attendu {np.round(want_c26, 3).tolist()}, reçu {shown(got_c26, 3)}"[:240])
-        elif not np.array_equal(V_c26, kept_c26):
-            wrong_26.append(f"{what_c26} : ta fonction modifie le tableau reçu ; rends un nouveau tableau")
+        elif not (np.array_equal(V_c26, kept_c26) and np.array_equal(m_c26, masses_kept_c26)):
+            wrong_26.append(f"{what_c26} : ta fonction modifie un tableau reçu ; rends un nouveau tableau")
         elif np.shares_memory(np.asarray(got_c26), V_c26):
             wrong_26.append(f"{what_c26} : ta fonction rend le tableau reçu lui-même ; rends une copie")
-    report_26(not wrong_26, "(3) cap_speeds_fixed : des flottes au-dessus et au-dessous du seuil, et une flotte "
-              "immobile (sans division par 0)", "(3) cap_speeds_fixed : " + " ; ".join(wrong_26[:2]))
+    report_26(not wrong_26, "(3) cap_energy_fixed : des flottes au-dessus et au-dessous du seuil d'énergie, et une "
+              "flotte immobile (sans division par 0)", "(3) cap_energy_fixed : " + " ; ".join(wrong_26[:2]))
     parts_26.append(3)
 
 if len(set(parts_26)) == 3:
@@ -1829,16 +1847,16 @@ M22_26 = Ex(
     body=r"""Un collègue a écrit trois fonctions (cellule fournie) ; chacune a l'erreur que nomme le titre, aucune ne lève d'erreur Python, et chacune a passé la vérification qu'il a faite :
 1. `max_stretch(A)` doit rendre le plus grand facteur par lequel $\mathbf{A}$ peut allonger un vecteur, en norme 2 ; elle renvoie `np.abs(np.linalg.eigvals(A)).max()`. Il l'a vérifiée sur $\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$, pour laquelle elle rend 3, et l'applique à $\begin{pmatrix} 2 & 3 \\ -1 & -2 \end{pmatrix}$ (`STRETCH_26`).
 2. `trajectory_jacobian(jac, states)` doit rendre $\frac{\partial\mathbf{x}_T}{\partial\mathbf{x}_0} = \mathbf{J}_f(\mathbf{x}_{T-1})\cdots\mathbf{J}_f(\mathbf{x}_0)$ à partir de la fonction jacobienne `jac` et des états `states` $= [\mathbf{x}_0, \ldots, \mathbf{x}_{T-1}]$ ; elle part de $\mathbf{P} = \mathbf{I}$ et fait `P = P @ jac(x)` pour chaque état, dans l'ordre. Il l'a vérifiée sur l'application linéaire $\mathbf{x} \mapsto \begin{pmatrix} 0{,}6 & 0{,}2 \\ 0{,}1 & 0{,}3 \end{pmatrix}\mathbf{x}$, et l'applique au modèle proie-prédateur $f(x, y) = (1{,}3\,x - 0{,}1\,xy,\ 0{,}8\,y + 0{,}1\,xy)$ ($x$ les proies, $y$ les prédateurs, en milliers ; `prey_predator_26`, sa jacobienne `prey_predator_jacobian_26`), sur trois pas depuis $(4, 2)$ (les états $\mathbf{x}_0, \mathbf{x}_1, \mathbf{x}_2$ sont dans `STATES_26`).
-3. `cap_speeds(V, c)` reçoit les vitesses d'une flotte de drones, une ligne par drone (un tableau de forme $(p, 3)$), et doit rendre un **nouveau** tableau dont la norme globale est au plus $c$, sans changer la direction de l'ensemble ; elle multiplie chaque ligne de norme supérieure à $c$ par $\frac{c}{\lVert\text{ligne}\rVert}$. Il l'a vérifiée sur un seul drone, $\mathbf{V} = \begin{pmatrix} 4 & -4 & 2 \end{pmatrix}$ et $c = 5$, et l'applique à la flotte $\mathbf{V} = \begin{pmatrix} -2 & 1 & 2 \\ 4 & -4 & 2 \\ 6 & 2 & -3 \\ 0 & 0 & 2 \end{pmatrix}$ (`FLEET_26`), avec $c = 5$ (`C_26`).
+3. `cap_energy(V, masses, E)` reçoit les vitesses d'une flotte de drones, une ligne par drone (un tableau de forme $(p, 3)$, en m/s), et leurs masses $m_i$ (en kg), et doit rendre un **nouveau** tableau dont l'énergie cinétique de la flotte, $\frac12\sum_i m_i\lVert\mathbf{v}_i\rVert_2^2$, est au plus $E$ (en joules), sans changer la direction de l'ensemble ; elle multiplie chaque ligne dont l'énergie $\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2$ dépasse $E$ par $\sqrt{E / \big(\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2\big)}$. Il l'a vérifiée sur un seul drone de 1 kg, $\mathbf{V} = \begin{pmatrix} 5 & -4 & 2 \end{pmatrix}$, avec $E = 20$ J, et l'applique à la flotte $\mathbf{V} = \begin{pmatrix} -2 & 1 & 2 \\ 5 & -4 & 2 \\ 6 & 2 & -3 \\ 0 & 0 & 2 \end{pmatrix}$ (`FLEET_26`), de masses $(2, 1, 1, 4)$ kg (`MASSES_26`), avec $E = 20$ J (`E_26`).
 
-À faire : écris `max_stretch_fixed(A)`, `trajectory_jacobian_fixed(jac, states)` et `cap_speeds_fixed(V, c)` (qui doit rendre un tableau nul inchangé, sans division par 0, et ne jamais modifier le tableau reçu), puis réponds :
+À faire : écris `max_stretch_fixed(A)`, `trajectory_jacobian_fixed(jac, states)` et `cap_energy_fixed(V, masses, E)` (qui doit rendre une copie inchangée d'une flotte immobile, d'énergie nulle, sans division par 0, et ne jamais modifier les tableaux reçus), puis réponds :
 - a) `max_stretch_fixed` pour `STRETCH_26` (la valeur que donne le calcul ; 4 décimales dans ta copie) ;
 - b) `trajectory_jacobian_fixed` pour le modèle proie-prédateur, sur ses trois pas (une matrice, la valeur que donne le calcul) ;
-- c) la norme globale de la flotte rendue par la version fausse, `cap_speeds(FLEET_26, C_26)` ;
-- d) la norme globale de la flotte rendue par ta version corrigée ;
-- e) la première ligne rendue par ta version corrigée (une liste de 3 nombres).
+- c) l'énergie de la flotte rendue par la version fausse, `cap_energy(FLEET_26, MASSES_26, E_26)`, en joules ;
+- d) l'énergie de la flotte rendue par ta version corrigée, en joules ;
+- e) la première ligne rendue par ta version corrigée (une liste de 3 nombres ; 4 décimales dans ta copie).
 
-Pour chacune des trois erreurs, dis aussi, dans ta copie, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas que tu ne vois pas : des matrices non symétriques (dont une nilpotente), des jacobiennes qui ne commutent pas, des flottes au-dessus et au-dessous du seuil, et une flotte immobile.""",
+Pour chacune des trois erreurs, dis aussi, dans ta copie, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas que tu ne vois pas : des matrices non symétriques (dont une nilpotente), des jacobiennes qui ne commutent pas, des flottes au-dessus et au-dessous du seuil d'énergie, et une flotte immobile.""",
     todo='''def max_stretch_fixed(A):
     """The largest factor by which A can stretch a vector, in the norm 2: a float."""
     raise NotImplementedError("max_stretch_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
@@ -1849,19 +1867,20 @@ def trajectory_jacobian_fixed(jac, states):
     raise NotImplementedError("trajectory_jacobian_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
-def cap_speeds_fixed(V, c):
-    """A NEW array of speeds (one row per drone) whose global norm is at most c, the direction of the whole kept;
-    a zero array is returned unchanged (a copy), without a division by 0. V is never modified."""
-    raise NotImplementedError("cap_speeds_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+def cap_energy_fixed(V, masses, E):
+    """A NEW array of speeds (one row per drone, m/s) whose kinetic energy ½ Σ m_i ‖v_i‖² is at most E (J), the
+    direction of the whole kept; a fleet at rest (energy 0) is returned unchanged (a copy), without a division by 0.
+    V and masses are never modified."""
+    raise NotImplementedError("cap_energy_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
 answer_M22_26a = answer_M22_26b = answer_M22_26c = answer_M22_26d = answer_M22_26e = ...
 with wbm.attempt("M22.26"):          # your three functions: ⏳ while they are not written
     answer_M22_26a = ...  # a) a number, as computed: max_stretch_fixed(STRETCH_26)
     answer_M22_26b = ...  # b) a 2 × 2 matrix, as computed: trajectory_jacobian_fixed for the prey–predator map, 3 steps
-    answer_M22_26c = ...  # c) a number, as computed: the global norm of cap_speeds(FLEET_26, C_26), the wrong version
-    answer_M22_26d = ...  # d) a number, as computed: the global norm of cap_speeds_fixed(FLEET_26, C_26)
-    answer_M22_26e = ...  # e) a list of 3 numbers, as computed: the first row of cap_speeds_fixed(FLEET_26, C_26)''',
+    answer_M22_26c = ...  # c) a number, as computed: the energy (J) of cap_energy(FLEET_26, MASSES_26, E_26), the wrong version
+    answer_M22_26d = ...  # d) a number, as computed: the energy (J) of cap_energy_fixed(FLEET_26, MASSES_26, E_26)
+    answer_M22_26e = ...  # e) a list of 3 numbers, as computed: the first row of cap_energy_fixed(FLEET_26, MASSES_26, E_26)''',
     check='''for letter, answer in zip("abcde", [answer_M22_26a, answer_M22_26b, answer_M22_26c, answer_M22_26d,
                                        answer_M22_26e]):
     wbm.check(f"M22.26{letter}", answer, computed=True)
@@ -1880,26 +1899,34 @@ def trajectory_jacobian_fixed(jac, states):
     return P
 
 
-def cap_speeds_fixed(V, c):
-    """A NEW array of speeds (one row per drone) whose global norm is at most c, the direction of the whole kept;
-    a zero array is returned unchanged (a copy), without a division by 0. V is never modified."""
-    V = np.array(V, dtype=float)                 # a copy
-    size = float(np.sqrt(np.sum(V ** 2)))        # the global norm of all the rows together
-    return V * (c / size) if size > c else V     # the same factor for every drone, and no division when size <= c
+def cap_energy_fixed(V, masses, E):
+    """A NEW array of speeds (one row per drone, m/s) whose kinetic energy ½ Σ m_i ‖v_i‖² is at most E (J), the
+    direction of the whole kept; a fleet at rest (energy 0) is returned unchanged (a copy), without a division by 0.
+    V and masses are never modified."""
+    V = np.array(V, dtype=float)                                         # a copy
+    energy = 0.5 * float(np.sum(np.asarray(masses, dtype=float) * np.sum(V ** 2, axis=1)))   # the whole fleet
+    return V * np.sqrt(E / energy) if energy > E else V                  # ONE factor, no division when energy <= E
+
+
+def energy_26(V, masses):
+    """The kinetic energy ½ Σ m_i ‖v_i‖² of a fleet, in joules."""
+    return 0.5 * float(np.sum(np.asarray(masses) * np.sum(np.asarray(V) ** 2, axis=1)))
 
 
 answer_M22_26a = max_stretch_fixed(STRETCH_26)
 answer_M22_26b = trajectory_jacobian_fixed(prey_predator_jacobian_26, STATES_26).tolist()
-answer_M22_26c = float(np.linalg.norm(cap_speeds(FLEET_26, C_26)))
-capped_26 = cap_speeds_fixed(FLEET_26, C_26)
-answer_M22_26d = float(np.linalg.norm(capped_26))
+answer_M22_26c = energy_26(cap_energy(FLEET_26, MASSES_26, E_26), MASSES_26)
+capped_26 = cap_energy_fixed(FLEET_26, MASSES_26, E_26)
+answer_M22_26d = energy_26(capped_26, MASSES_26)
 answer_M22_26e = capped_26[0].tolist()
 print("a)", round(answer_M22_26a, 6), "; le collègue :", max_stretch(STRETCH_26))
 print("b)", np.round(answer_M22_26b, 6).tolist(), "; le collègue :",
       np.round(trajectory_jacobian(prey_predator_jacobian_26, STATES_26), 6).tolist())
 print("   états :", [np.round(x, 4).tolist() for x in STATES_26])
+print("énergies des drones :", (0.5 * MASSES_26 * np.sum(FLEET_26 ** 2, axis=1)).tolist(), "J ; flotte :",
+      energy_26(FLEET_26, MASSES_26), "J")
 print("c)", round(answer_M22_26c, 6), " d)", round(answer_M22_26d, 6), " e)", np.round(answer_M22_26e, 6).tolist())
-print("   la version fausse :", np.round(cap_speeds(FLEET_26, C_26), 4).tolist())
+print("   la version fausse :", np.round(cap_energy(FLEET_26, MASSES_26, E_26), 4).tolist())
 
 
 ''' + CHECK_26,
@@ -1921,20 +1948,23 @@ for _ in range(2):
 J_26r = [jacobian_26r(p) for p in path_26r]
 wbm.record("M22.26b", (J_26r[2] @ J_26r[1] @ J_26r[0]).tolist(), decimals=4,
            mistakes={"la jacobienne du dernier pas multiplie à gauche": (J_26r[0] @ J_26r[1] @ J_26r[2]).tolist()})
-fleet_26r = np.array([[-2.0, 1.0, 2.0], [4.0, -4.0, 2.0], [6.0, 2.0, -3.0], [0.0, 0.0, 2.0]])
-rows_26r = np.sqrt((fleet_26r ** 2).sum(axis=1))
-global_26r = float(np.sqrt((fleet_26r ** 2).sum()))
-wrong_26r = fleet_26r * np.minimum(1.0, 5.0 / rows_26r)[:, None]          # each drone capped alone
-wbm.record("M22.26c", float(np.sqrt((wrong_26r ** 2).sum())), decimals=4,
-           mistakes={"c) demande la norme globale de ce que rend la version FAUSSE": 5.0,
-                     "la version fausse ramène chaque ligne qui dépasse c : calcule la norme globale de ce qu'elle "
-                     "rend": global_26r})
-wbm.record("M22.26d", float(np.sqrt(((fleet_26r * min(1.0, 5.0 / global_26r)) ** 2).sum())), decimals=4,
-           mistakes={"d) demande la norme globale de ce que rend ta version CORRIGÉE":
-                         float(np.sqrt((wrong_26r ** 2).sum()))})
-wbm.record("M22.26e", (fleet_26r[0] * min(1.0, 5.0 / global_26r)).tolist(), decimals=4,
-           mistakes={"la version corrigée multiplie TOUTES les lignes par le même facteur, même celles qui sont déjà "
-                     "sous c": fleet_26r[0].tolist()})''',
+fleet_26r = np.array([[-2.0, 1.0, 2.0], [5.0, -4.0, 2.0], [6.0, 2.0, -3.0], [0.0, 0.0, 2.0]])
+masses_26r, limit_26r = [2.0, 1.0, 1.0, 4.0], 20.0
+drone_energies_26r = [0.5 * m * sum(v * v for v in row) for m, row in zip(masses_26r, fleet_26r.tolist())]
+fleet_energy_26r = sum(drone_energies_26r)                                 # 9 + 22.5 + 24.5 + 8 J
+wrong_energies_26r = [min(e, limit_26r) for e in drone_energies_26r]        # each drone brought back to E alone
+factor_26r = math.sqrt(min(1.0, limit_26r / fleet_energy_26r))              # one factor for the whole fleet
+wbm.record("M22.26c", sum(wrong_energies_26r), decimals=4,
+           mistakes={"c) demande l'énergie de ce que rend la version FAUSSE": limit_26r,
+                     "la version fausse ramène chaque drone qui dépasse E : calcule l'énergie de la flotte qu'elle "
+                     "rend": fleet_energy_26r})
+wbm.record("M22.26d", factor_26r ** 2 * fleet_energy_26r, decimals=4,
+           mistakes={"d) demande l'énergie de ce que rend ta version CORRIGÉE": sum(wrong_energies_26r)})
+wbm.record("M22.26e", (fleet_26r[0] * factor_26r).tolist(), decimals=4,
+           mistakes={"la version corrigée multiplie TOUTES les lignes par le même facteur, même celles dont "
+                     "l'énergie est déjà sous E": fleet_26r[0].tolist(),
+                     "l'énergie est proportionnelle au CARRÉ des vitesses : le facteur des vitesses est la racine de "
+                     "E/E_flotte": (fleet_26r[0] * factor_26r ** 2).tolist()})''',
     after=[
         ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue "
                "ne la voyait-elle pas (une matrice symétrique, une application linéaire, un seul drone), et quelle "
