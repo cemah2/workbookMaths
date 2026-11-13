@@ -20,6 +20,8 @@ import numpy as np
 | une matrice ou une grille en couleurs | `im = ax.imshow(M)` ; `fig.colorbar(im, ax=ax)` ; la ligne 0 est en haut, comme une matrice s'écrit ; pour des valeurs des deux signes, `cmap="RdBu_r", vmin=-a, vmax=a` centre les couleurs sur 0 |
 | une trajectoire du plan | `ax.plot(X[:, 0], X[:, 1], "o-")` (un état par ligne de `X`) ; `ax.set_aspect("equal")` pour voir les cercles ronds |
 | des valeurs propres dans le plan complexe | `ax.scatter(lam.real, lam.imag)` ; `ax.add_patch(plt.Circle((0, 0), 1, fill=False))` : les puissances de la matrice tendent vers 0 si tous les points sont strictement à l'intérieur du cercle |
+| une ellipse de niveau d'une gaussienne | `th = np.linspace(0, 2 * np.pi, 200)` ; `P = mu + c * np.column_stack([np.cos(th), np.sin(th)]) @ L.T` (le cercle de rayon $c$, envoyé par $\boldsymbol{\varepsilon} \mapsto \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$, avec `L = np.linalg.cholesky(S)`) ; `ax.plot(P[:, 0], P[:, 1])` ; `ax.set_aspect("equal")` (M25a) |
+| les lignes de niveau d'une densité du plan | `X1, X2 = np.meshgrid(x1, x2)` ; `ax.contour(X1, X2, multivariate_normal(mu, S).pdf(np.dstack([X1, X2])))` : la dernière dimension porte les deux coordonnées (M25a) |
 | du LaTeX dans un titre | `ax.set_title(r"$f(x) = e^{-x^2}$")` (le `r` devant la chaîne) |
 
 `wbm.setup()` règle le style des graphiques (taille, couleurs lisibles par les daltoniens) ; termine chaque cellule graphique par `plt.show()`.

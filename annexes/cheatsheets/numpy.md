@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, calcul numérique.
 
 ```python
 import numpy as np
@@ -54,7 +54,7 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | les moindres carrés | `np.linalg.lstsq(X, y, rcond=None)[0]` | par la SVD : la solution de plus petite norme si les colonnes sont liées |
 | une ACP | `from sklearn.decomposition import PCA` ; `pca = PCA(n_components=k).fit(X)` | centre, puis SVD (ou, si $n \gg p$, diagonalise la covariance ; `svd_solver="full"` impose la SVD) ; axes en **lignes** de `pca.components_`, variances `explained_variance_` (en $n - 1$), parts `explained_variance_ratio_`, scores `pca.transform(X)`, reconstruction `pca.inverse_transform(Z)` |
 | la décomposition QR | `Q, R = np.linalg.qr(A)` | forme réduite par défaut ; les signes des colonnes de `Q` (et des lignes de `R`) peuvent différer de ceux de Gram-Schmidt (M12b) |
-| Cholesky | `np.linalg.cholesky(A)` | $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, `LinAlgError` si $\mathbf{A}$ n'est pas définie positive ; ne vérifie **pas** la symétrie (elle ne lit que le triangle inférieur) |
+| Cholesky | `np.linalg.cholesky(A)` ; le facteur supérieur $\mathbf{L}^\top$ : `np.linalg.cholesky(A, upper=True)` (M25a) | $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, `LinAlgError` si $\mathbf{A}$ n'est pas définie positive ; ne vérifie **pas** la symétrie (elle ne lit que le triangle inférieur) ; `scipy.linalg.cholesky(A)`, elle, rend par défaut le facteur **supérieur** (M25a) |
 | la racine carrée d'une matrice | `scipy.linalg.sqrtm(A)` ; symétrique positive : `Q * np.sqrt(values) @ Q.T` avec `values, Q = np.linalg.eigh(A)` | jamais `np.sqrt(A)`, qui prend la racine des éléments |
 | comparer deux résultats approchés | `np.allclose(a, b)` | jamais `==` entre flottants |
 
@@ -94,6 +94,29 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | la norme globale d'un vecteur fait de blocs, le ramener sous un seuil | `g = np.sqrt(sum(np.sum(w ** 2) for w in blocks))`, ou `np.linalg.norm(np.concatenate([w.ravel() for w in blocks]))` ; `factor = min(1.0, c / g)` ; `[w * factor for w in blocks]` |
 
 Dans `mymath/recurrence.py`, la docstring du module dit ce qui est permis : de `np.linalg`, seulement `eigvalsh` (dans `operator_norm`) et `norm` (dans `product_norms`), et pas de SciPy.
+
+## Lois gaussiennes (M25a)
+
+Une covariance `S` de forme $(d, d)$, une moyenne `mu` de forme $(d,)$, des points rangés en lignes dans `X`, de forme $(n, d)$.
+
+| Je veux… | Code |
+|---|---|
+| le facteur de Cholesky d'une covariance | `L = np.linalg.cholesky(S)` (triangulaire inférieure, $\boldsymbol{\Sigma} = \mathbf{L}\mathbf{L}^\top$) ; `np.allclose(L @ L.T, S)` ; attention, `scipy.linalg.cholesky(S)` rend par défaut le facteur **supérieur** $\mathbf{L}^\top$ (`lower=True` pour $\mathbf{L}$) |
+| résoudre $\mathbf{L}\mathbf{y} = \mathbf{x} - \boldsymbol{\mu}$ (une descente) | `from scipy.linalg import solve_triangular` (de SciPy : NumPy n'en a pas) ; `y = solve_triangular(L, x - mu, lower=True)` ; **sans `lower=True`, elle lit le triangle supérieur**, sans message ; plusieurs points : `solve_triangular(L, (X - mu).T, lower=True)`, une colonne par point ; `np.linalg.solve(L, x - mu)` donne le même résultat, sans profiter de la forme triangulaire |
+| $\ln\det\boldsymbol{\Sigma}$ sans former le déterminant | `2 * np.log(np.diag(L)).sum()` ; ou `sign, logdet = np.linalg.slogdet(S)` (un couple : le signe, 1 pour une covariance définie positive, puis $\ln\lvert\det\rvert$) |
+| la densité, la log-densité, l'entropie de $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ | `from scipy.stats import multivariate_normal` ; `mvn = multivariate_normal(mean=mu, cov=S)` ; `mvn.logpdf(X)` (une valeur par ligne de `X`), `mvn.pdf(x)`, `mvn.entropy()` (en nats) ; en grande dimension, `mvn.logpdf(x)`, jamais `np.log(mvn.pdf(x))` (qui rend `-inf`) ; en dimension 1, `scipy.stats.norm(m, s)` attend l'**écart-type** |
+| tirer $n$ vecteurs de $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, un par ligne | `E = rng.standard_normal((n, d))` ($n$ tirages de $\mathcal{N}(\mathbf{0}, \mathbf{I})$) ; `X = mu + E @ L.T` (jamais `E @ L`) ; contrôle : `X.mean(axis=0)` et `np.cov(X, rowvar=False)` sont proches de `mu` et de `S` |
+| la même chose en un appel | `rng.multivariate_normal(mu, S, size=n)` : par défaut `method="svd"` ; avec `method="cholesky"` (la plus rapide) et la même graine, exactement les tirages `mu + rng.standard_normal((n, d)) @ L.T` ; ou `multivariate_normal(mu, S).rvs(size=n, random_state=rng)` |
+| le niveau de l'ellipsoïde de masse $1 - \beta$, la masse d'un niveau | `from scipy.stats import chi2` ; `c2 = chi2(d).ppf(1 - beta)` (le niveau $c^2$) ; `chi2(d).cdf(c**2)` (la masse de $\Delta \le c$) ; en dimension 2, `-2 * np.log(beta)` et `1 - np.exp(-c**2 / 2)` ; en dimension 1, `2 * scipy.stats.norm.cdf(c) - 1` |
+| les axes d'une ellipse de niveau | `lam, Q = np.linalg.eigh(S)` (valeurs propres **croissantes**) : demi-axes `c * np.sqrt(lam)`, le long des colonnes de `Q` ; le grand axe est la dernière colonne, `Q[:, -1]` |
+| la loi de la norme d'un tirage de $\mathcal{N}(\mathbf{0}, \mathbf{I}_d)$ | `scipy.stats.chi(d)` : `.pdf(r)`, `.mean()` ; `chi(2)` est la loi de Rayleigh (`scipy.stats.rayleigh`), `chi(3)` celle de Maxwell (`scipy.stats.maxwell`) ; sur des tirages : `np.linalg.norm(E, axis=1)` |
+| des blocs | `a, b = [0, 2], [1]` ; `S_aa, S_ab, S_bb = S[np.ix_(a, a)], S[np.ix_(a, b)], S[np.ix_(b, b)]` ; un produit par $\boldsymbol{\Sigma}_{bb}^{-1}$ se fait par `np.linalg.solve(S_bb, …)`, jamais par `np.linalg.inv(S)` (les formules sont dans la fiche, §4 ; les coder est le 🔨 M25a.22) |
+| une régression linéaire bayésienne | scikit-learn, qui choisit en plus $\sigma^2$ et $\tau^2$ : `reg = BayesianRidge(fit_intercept=False).fit(Phi, y)` (de `sklearn.linear_model`), `reg.coef_` ($\mathbf{m}_N$), `reg.sigma_` ($\mathbf{S}_N$), `reg.predict(Phi_new, return_std=True)` ; $\sigma^2$ = `1 / reg.alpha_`, $\tau^2$ = `1 / reg.lambda_` ; le calcul à la main est le 🔨 M25a.23 |
+| $\hat{\boldsymbol{\mu}}$ et $\hat{\boldsymbol{\Sigma}}$ du maximum de vraisemblance | `xbar = X.mean(axis=0)` ; `np.cov(X, rowvar=False, bias=True)` (ou `ddof=0`), c'est-à-dire `(X - xbar).T @ (X - xbar) / len(X)` ; **sans `bias=True`, division par $n - 1$** ; $n$ petit devant $d$ : `sklearn.covariance.LedoitWolf().fit(X).covariance_` |
+| une divergence KL entre deux lois continues | SciPy n'en a pas ; en dimension 1, `scipy.integrate.quad(lambda t: p.pdf(t) * (p.logpdf(t) - q.logpdf(t)), lo, hi)[0]`, sur le support de `p` ; en dimension 2, `scipy.integrate.dblquad(f, x0, x1, y0, y1)[0]`, avec **`f(y, x)`**, la variable intérieure d'abord ; par des tirages `Xp` de $p$ : `np.mean(p.logpdf(Xp) - q.logpdf(Xp))` ; `scipy.stats.entropy(pk, qk)` est la KL **discrète** de M06 |
+| une entropie différentielle | `multivariate_normal(mu, S).entropy()`, `scipy.stats.norm(m, s).entropy()`, en nats ; c'est $\frac12[d\ln(2\pi e) + \ln\det\boldsymbol{\Sigma}]$ |
+
+Dans `mymath/gaussian.py`, la docstring du module dit ce qui est permis : de `np.linalg`, seulement `cholesky` et `solve` (et `LinAlgError`) ; ni `multivariate_normal` (ni celle de NumPy, ni la méthode d'un `Generator`, qui, avec `method="cholesky"`, rendrait les tirages de `sample_mvn` à ta place), ni SciPy : les tests comparent tes résultats aux leurs. La fiche fait le slerp sur papier : ni `mymath` ni le notebook n'en ont de fonction.
 
 ## Calcul numérique
 

@@ -32,7 +32,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2, figure 4.4) (Trefethen et Embree ; Horn et Johnson) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
-| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, §6.7, §9.3 ; §8.4–8.5, §10.7, ch. 11 |
+| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5, §10.7, ch. 11 (dont le Théorème 11.2, que M25a cite pour l'estimation de $\boldsymbol{\Sigma}$) |
 | 26 · Apprentissage par renforcement | M26 | — (Blitzstein et Hwang) |
 | 27 · Réseaux antagonistes génératifs (GAN) | M27 | §7.2 (relu) |
 | 28 · Applications créatives | M28 | — |
@@ -68,10 +68,10 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §5.7–5.8 Dérivées d'ordre supérieur, Taylor multivariée | M19 |
 | §6.1–6.2 Espace probabilisé, lois discrètes et continues | M02a (la partie continue de §6.2), M02b |
 | §6.3 Règles de la somme et du produit, Bayes | M03, M04 |
-| §6.4 Statistiques résumées et indépendance | M02b, M02c, M16 |
-| §6.5 Loi gaussienne | M25a (et la loi normale en 1D : M02b) |
+| §6.4 Statistiques résumées et indépendance | M02b, M02c, M16 ; la remarque qui nomme la divergence KL, à la fin de §6.4.6 : M25a |
+| §6.5 Loi gaussienne | M25a, sauf le Théorème 6.12 et la loi de la variance totale (§6.5.3), lus en M25b (et la loi normale en 1D : M02b) |
 | §6.6 Conjugaison et famille exponentielle | M04 |
-| §6.7 Changement de variable | M02b, M25a |
+| §6.7 Changement de variable | M02b (sauf la fin de §6.7.2), M25a (la fin de §6.7.2 : Théorème 6.16, Exemple 6.17) |
 | §7.1 Descente de gradient | M19 |
 | §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b, M27 (l'inégalité minimax) |
 | §7.3 Optimisation convexe | M13b |
@@ -81,7 +81,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §8.6 Sélection de modèle | M08 |
 | ch. 9 Régression linéaire | M09b (§9.1–9.2), M25a (§9.3), M12b (§9.4) |
 | ch. 10 Analyse en composantes principales | M12d (§10.1–10.6), M25b (§10.7) |
-| ch. 11 Mélanges de gaussiennes | M25b |
+| ch. 11 Mélanges de gaussiennes | M25b (M25a cite le Théorème 11.2, §11.2.3, pour l'estimation de $\boldsymbol{\Sigma}$) |
 | ch. 12 Machines à vecteurs de support | M10 (§12.1), M13b |
 
 ## 3. Les notions que MML ne couvre pas
@@ -96,4 +96,5 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Chaînes de Markov | M26 | Blitzstein et Hwang |
 | Convolution, matrices de Toeplitz et circulantes | M21 | Dumoulin et Visin, Gray, documentations de NumPy et de SciPy |
 | Récurrences linéaires avec entrée, rayon spectral d'une matrice quelconque, croissance transitoire, normes induites, produits de matrices différentes | M22 | Trefethen et Embree, Horn et Johnson, Furstenberg et Kesten, documentations de NumPy et de SciPy |
+| Masse d'une ellipse et loi de la norme d'un vecteur gaussien (khi-deux, khi), divergence KL continue, Jensen pour une variable à densité, entropie différentielle, interpolation sphérique (slerp) | M25a | Cover et Thomas (ch. 2 et 8), documentation de SciPy (`scipy.stats.chi2`, `scipy.stats.chi`, `scipy.spatial.transform.Slerp`) |
 | Démonstrations | R4 et suite | Hammack, *Book of Proof* |
