@@ -78454,7 +78454,7 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "f6e9817c5bba1f3de1da9eeadf4601d6435ab7cac07dac2a08d43964465c46b4"
+          "036c118db1d5895d3eef9ba1fdd4230fd7f1fbeaa8ad48bc99cb733ca6e03957"
         ],
         [
           "7c3ff683b4ce94583ffbfea53a3de6553866db14882a65c937f079e2d1b7ef1b"
@@ -78463,16 +78463,16 @@
           "b39ae13ea259ead46c0958213065c2e5ce81b1870ce54ff0b9ad9f77b0d84f40"
         ],
         [
-          "216e5be281855eb405dc5c6041f1681162a4970a9917465210cf93d8a2dc26ad"
+          "8925181a7d1bc82d747e8039ff006682e3a793d0500f3d77d33d922a82deb82b"
         ],
         [
-          "b223c56800bfe714db7981fb74ac618f92d81f38576063d385f09c5ac9bea7e3"
+          "77c51cea1bf73dfb009fd7da0fa5737a7a25fe0236dda9268fc48999cc808aed"
         ],
         [
           "2e17e719a09999630e33e42f42653189b99dcadb4200b4c829f4a4688537ec27"
         ],
         [
-          "b2bc5d38a7ac04b45358406d4b102998d65c1b4a5295f476ff06da2ccdbab88c"
+          "8423c8485853ba18265554b3780c687410d490fa3aaf592e212013be81e2f9ac"
         ],
         [
           "51400e8bfd1f3e1eb188471162d302c7d0676ab6f872cc9f78a12eec1f0107e9"
@@ -78483,27 +78483,27 @@
       ],
       "element_coarse_any": [
         [
-          "b150a6c4aac937d939ebf933278c108c7d11da1c73ee0b5deee98b90117b5a94",
-          "5f557c9da9db04bf74f63c47b4195f70094a6e048e62c99928306bb80b49e63d",
-          "fddc0be8db0efb9fd4365421f809439cc696be0505c52ccb1ae03bdbc5d9bd61"
+          "4693ee3e833cfbbe4cebf52f5c502937885361941de8ee8ca2f48bbef93e6f10",
+          "f703982873619f8d0faa6f4491962da161ed5ff6071af6314fd4f41d816367f3",
+          "5a6d630c04367675bce988111915d743bda4cdd4e74526ba9afe1d540b93e8ec"
         ],
         [],
         [],
         [
-          "7530c1cbba85fec712caaf66382e99cb60d19745dd7c92951bf5af84f6e9fccc",
-          "2d02eff6a24c352bb907dcf7aa3b69653541c616ad2583a5c37c2369bd5ce8c8",
-          "ea6b608cfe617c57dda44fbbb5eca7e8373833ed3b499211d8a596047e4516ca"
+          "9d25f8ed49d46ce4dcd1465aff6c4302ffbf2099ec470824a6cb11e4abd20c42",
+          "97ba4433ba1e8fffb88ef164344a7b3bae58ffc25abcfd66071233f59d26a607",
+          "c547b9b1f9c9e1aaa6482d39a255759c01a5650d5bdecffdf7e2cb5f5f91c658"
         ],
         [
-          "7f3541f732e90c3ea1e3c6ee49cd52c7882885763b4a0f05d8c4063c11f1898f",
-          "362bc44f5669b2e51f570640fd4c4dd341272060bf2f7e363312655d992e3327",
-          "923e9a2a03af0acc7eec18772a696da583d5d9f9388bf7671f6b3b2df5b35e6c"
+          "607da5cf0008ce4dca744bef6daf79b44977ed63f3f6da86348f8d178865ec1b",
+          "a70d828d4d208d3e880ed5611e2ba19e8f66b4845a6ec778ca31c0aee159294e",
+          "a3367e99950af51d1ff4ae483a4b52e01a366e71b85a1e8312e56152fbdff327"
         ],
         [],
         [
-          "3ed460988e8efbbeda5c5bce39385d4a56171e06258333bd5b858c356b925e98",
-          "0560b50b400bd294ca62563715243574d8b6d8c2680f9293edc57f136b7bd748",
-          "3862dd38e96dc5e1804809032df6f52f14d515c48a4e8432290371c1514feeac"
+          "9fb8146b568d562798cc976aa405a80f125f317aa6457d6b562090223ac1fcba",
+          "a3f691c201548271822a194ac77fe0089d2aa2e02971657e2fdaa7afa72a1fb3",
+          "d8286f645d33563552057614784fce9e9580120ecb971612e01491a5876da879"
         ],
         [
           "915d2a5291bbdb008e7818b6cedb2d6bfa82115d13f3ceb004882a7f5bb64b35",
@@ -78517,21 +78517,21 @@
         ]
       ],
       "element_hashes": [
-        "f2f80f48010dac11621fa4f43f4181b59345b2500857a9da707553f278426669",
+        "7c68675017ed17f94025e9d4102898b89f48a07af4ab79ab45689508fde4cfb5",
         "13a30cc1a41a2befc886c9ef50ccb8b8affbdbda4ec5a2a35f2f075053e6c5c2",
         "b9029c711e3ecbb4b05c6966c67210102a087e9ac4440bd3b051ad2b94484d67",
-        "412cbec82e89727f9e7c3699dce4087e9d7496b74d8a6057daa34bf1bd00ee0c",
-        "af99629836b97c84b414b7c5c536acf039e21661cf320e3f92ded823e87d12fe",
+        "c089694bfc22fa5289a828dc1b7598b385a07e249797a896b5dfdcd87d3a3a62",
+        "d65702de7332370cf39e66169fd0b23a32cbfe6b731d0c8ccf97ac745d3babea",
         "a043727398baf6be28ac93b53ab82096bd10e5d04fbf1484d0ae5be4e26b21ac",
-        "125ad04b410685547667287a9509d0334beb3d81f60cdb9ff36c83198d0b8162",
+        "65c80898d3c2bbf634b064ee875f3cbba60e12c49dc17aef868a841ed0e3d40a",
         "2e1947ecf7d532487845df967cecd424c52ca33703e8078b7ff76936c7c08367",
         "13db943a8be28528c58faa46f1803115eb3ace2d5fa208438d18d2e417047c43"
       ],
-      "hash": "a106d2c9e72e449b4c176b7c3fc5961fa9aee7543537867d4ce37ce1e92da7ed",
+      "hash": "ce0a2a7ce62880195bf93bc204752f6366a687382e3c02b02cd3300438e48895",
       "kind": "array",
       "mistakes": {
-        "17fe633645c29fb2396cf63aa8a0502b1fee7447eb0c49b9094804b40ac12469": "l₃₂ = (Σ₃₂ − l₃₁ l₂₁) / l₂₂",
-        "75ef8c91e064cbb52c7a38581b7a62c521ad4445af9720e33fae9603b428fd7c": "le facteur de Cholesky est triangulaire inférieur : Σ = L Lᵀ"
+        "52458dffe27a40fae2c610d8f195c84e6e9e578e4ac0d79aafbc2814804b1557": "le facteur de Cholesky est triangulaire inférieur : Σ = L Lᵀ",
+        "c60deedae22244a1572d3aee408d9bc21e9c35ac4e8e8db86d717bba416eddc4": "l₃₂ = (Σ₃₂ − l₃₁ l₂₁) / l₂₂"
       },
       "shape": [
         3,
@@ -78540,11 +78540,11 @@
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
     },
     "M25a.2b": {
-      "hash": "a529a38a9b12697625b6d33212e65737936b726f0482107e2124d486316c38ed",
+      "hash": "e7f46d463b99dc1c0b6184c640d8afe78fb2e617568794e5deaaf4c86b9dac7b",
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "193ebe47a2967448202f8d0fa9e7b27330e5fb245aa75f193a94a576710d16c7": "det Σ = (det L)²"
+        "c6cdf70534a2aef2ec55022c822cf151c39549023aa2a5dd1cb04bf2cdaa155d": "tu as donné det L : quel lien la fiche (§1) fait-elle entre det Σ et la diagonale de L ?"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
@@ -78556,7 +78556,7 @@
           "a7c9ef37e4ddfddf0b89c4a1dfea5c26091de296718cb739a63d7e3a9f2204ea"
         ],
         [
-          "8bc8c85232f2dd0c819c8259dbd01dd66f4ac73ebd427528d85d9472d4b1382c"
+          "034e964e7d98e8092d93e0d15fd5977f3559409cd8c81109eff6c2484f7ae625"
         ]
       ],
       "element_coarse_any": [
@@ -78566,20 +78566,20 @@
           "6cf7eefbc30b0bedf87b6f67a84b1d5e69b64f656a96fe11b59245899ce764a9"
         ],
         [
-          "c51ef2233a58a6874dd6ddd17deb7beb7f2aeb1e54cad660a6aeb9dd1fc9e372",
-          "bf10199e09cf2263942e815a8c527eb86ec18f838738927c505bfbcdfdacbe43",
-          "dd3defc6ddcf4abc197ea3c5723f87d294af92574acdaf9d06b11fb3bfa507f5"
+          "ab31b36b95e67477bb2b3fc5c286e40a45fd3e3edd7ee06f558bb21e43b1c414",
+          "169acf349545b1a5a897176a237f7947764001c5e031ceef4a2e19284c1b87f4",
+          "98dfa9dde02515d1da205d324d3aa6e7c7ba0af659ba123dafdbf49aef5a3c9f"
         ]
       ],
       "element_hashes": [
         "c35ed5d79e8ef1506d60196e627251577b6205d77272fdc037faf2e9c1dcbb51",
-        "2a70e75b5caf59eadc1a2c3a0839c3ecd2cfbdeba4d03e75c5e279298a343765"
+        "da0f4f22cc5c9b181d022ee5169ec00796129976dfaf5c750bda5493a544243c"
       ],
-      "hash": "3993396faa743824a71465764819cb722fc565f4840128b8fae7bed56899e292",
+      "hash": "4a31d134cad01edfa48561f7c559b6ec4e0b08c22989edf2faa6ad98de299621",
       "kind": "array",
       "mistakes": {
-        "03755d565209469c6b660c77200226f43a8e370dc2bb061b1167cf561b2388ad": "les poids interviennent au carré dans une variance",
-        "7bfa55864fe3db3881644b1ade0426e859a5030b05052bb8a9eee1b2e7e08c91": "la variance de wᵀx contient les covariances : c'est wᵀΣw"
+        "0cdc20e032b1b2444eba54beac59fa6c1bc39b89834a8be5fff78cddb4bb13d7": "les poids interviennent au carré dans une variance",
+        "dfbcad7ed376a4e45886faf0d1a50288062a215753a13a2bb6a1f04f09a6da7c": "la variance de wᵀx contient les covariances : c'est wᵀΣw"
       },
       "shape": [
         2
@@ -78593,7 +78593,7 @@
           "fcaf664e28be6727e64441254ddd7fcdc85bc56406f0d3a82a67f231cef7209c"
         ],
         [
-          "c5d8eb3e4d566f7f08621f3fb055153b08108f637f1dfae627c2ab4e479eb257"
+          "89aea2362fa4cdf12d59ecd3ceb864b22cacdf0fbc4ed5d3fb3aff31f1ced610"
         ]
       ],
       "element_coarse_any": [
@@ -78603,20 +78603,20 @@
           "f7ae09978c806368d4aa9411a33bf8f0a8dd2d530bc38afb2e6bd9f890e3f3ee"
         ],
         [
-          "3f1bc11f5a6b37101ba9b1ffce60b1fe9d4dcf65fab6a58ccdf3092b24ef4375",
-          "1bc32752953be6af143dc0bb3f8e5833ab6405dcc994aef73d4742e458c49795",
-          "b90ec3f27646756c17c0d402a5780e8b43a4b2fd08005c92befa985f87e6a854"
+          "d24f4316a94cbfd9b9c08c05943ede286e8301bea4bc7c0d2da5f7d38e715187",
+          "501f072a631233a144a1ed443f7f86129c1cd03b195f59eee25728e1994a0235",
+          "0da872d8eb186555de0452f71f2476ee1ccd4f4daf7cfd61da0614928d89f6bd"
         ]
       ],
       "element_hashes": [
         "1a2cbc7d4a2917f50f3063e3488b3e1542b5a87cde0ebbb414a6bb200f4aeb27",
-        "9593e024b14385b90c3dd55321420429335fbebce6691fc0f0113013095ab7de"
+        "38ec917816bafbb9671bc68a3c01690dc06789c9a32e5069e88922f963fb16a7"
       ],
-      "hash": "5435ba7845fddb8b96b32cb8daae524a7a382e0f810258742094a044bd8a25fb",
+      "hash": "f99f19d4c602b18af576f6a4b49359faf5a2a07f2a75572f4ec82c5fefdc17b0",
       "kind": "array",
       "mistakes": {
-        "03327b505d10af719ab4112d5387861a716bdb087736cbe84c0dac80090bf205": "Var(x₂ − x₁) = Var(x₁) + Var(x₂) − 2 Cov(x₁, x₂)",
-        "93b08a1b04c6affe07072e0ac34767b708c4c59364db2dc269814f0c9809ef07": "vérifie le signe du terme de covariance : −2 Cov(x₁, x₂)"
+        "6b63797c811b02875ff1d5b3912274b3d62d43f2111fee59aac4f004208c9ded": "Var(x₂ − x₁) = Var(x₁) + Var(x₂) − 2 Cov(x₁, x₂)",
+        "fc766b534fa4d5b479c69cd5aa968fe6492140902732dccbeeac93aa99fc675d": "vérifie le signe du terme de covariance : −2 Cov(x₁, x₂)"
       },
       "shape": [
         2
@@ -78627,51 +78627,51 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "1703b8de8863ddae08e7d02222b880e1e47923922b3ece96f72607a5fc58b58e"
+          "bcc1cb9e67bffaf154e5996217c3102a6b95dd3ca7f87f86bc62d41d6fbabb99"
         ],
         [
-          "ca74c08bfb85e75a266a76fcd7d39216fd343dbce7e4ef9c3b9411163be08cbd"
+          "037862c4322621712ae58c7d5d34b961d0548d3d1451cefec4f7f3516113b097"
         ],
         [
-          "dd4b445e3c64a728b2af9d63c58fa2ffad359a709de684bd46d3d62223d4577c"
+          "081b711a9714529098f75125e026cafb39f10877183ffbe9c85ae43c537ca194"
         ],
         [
-          "fd0b8649b817ccfc0861bd0a1af567bee3ec33956cba510bcd7a4c2f672f9120"
+          "3d81715ea5df415ac4befc5492b424181a45d7c2ac0f0a45b44d9a654c2f8da2"
         ]
       ],
       "element_coarse_any": [
         [
-          "99d6621c3d282970041352b69f92986381f5c8979f3790b78faae93587b882aa",
-          "4b9d2224e412f82caeb0b35f031691528771b3dcc7cd43b59a4adde4dd3db41f",
-          "a1c0e77ec8d4e0af9aec514a0ae27377ab1e6a01cd7b969df717046608db154c"
+          "792c8f81834a494bdfb4bbb9df9a32e6227da40f841a97bc57057e1875b1299f",
+          "798514f152938c3a51ba03602b7bc8fe4f69c74fda0492d71a661e3206fc4121",
+          "0c7bae270a4912ff13891ed56b9444f54cc0961d9a6608181bf46dc1fe3ad193"
         ],
         [
-          "fc11a196ad34f95afb0b81d5c36699383c506ff9b384b560969d25afc3800d05",
-          "bef523a111f75a38767dbb5530e1aa5ed728fb9d2bca7038b69d559d44022a71",
-          "2b05b4c8601b893eb475ad07be1cf0115cc3ce9323768030765e4d8901c03aa7"
+          "87aecea429a8a6b105316b12420532f8c6be68245c80e6e16512e35951a3483b",
+          "eaae726d870c9b9e01a1a94d29253209045b0fc01f000eda127868126e5041ae",
+          "01a4cbae148b9b314a80ef03d3b66090d16dea321598528df91aaf4611366b9d"
         ],
         [
-          "88be0081ef0022f338e7e4c79159829b1a84a557e41c279e16c1fd564a3db4c1",
-          "5faef9de5917a0c4e59a46da312b9738528c33f75e1e47edb5688c65fe53073b",
-          "3b18535e2986095f578df131b95e8cc7727434ec4030aede9f4b97581fc70539"
+          "cf8fabb90b79f5d12a8bbeb9463202c2507431c520b88dd2b0b9ccc79f198643",
+          "f8ec9474c8fd8d9f736e2631cf5a0f0dfda0b2ab4f81a1ca2e027afed5654b80",
+          "c87e7b63fc85eaea50aa85f30a78410fe09f172034aeafe1c5c13feb1ab255f8"
         ],
         [
-          "53091d235db23a71b9b3ce0b14ce3cf98167ce816ef0a6d955876623c30f6a92",
-          "716e290aaa13c5135deb9dc9865dcce2e0ddcb7a929b36dfd18c1b02ff706173",
-          "b2e842b4a5bc6c401b0bd6c0274dc6c055b4c578910da83252a4a61903d3ba81"
+          "ae4b64d8795a3423f42f0ce3c8aa9c12bf3955d6b79cc128ad78eae04438c80e",
+          "7dbc07b23cb46779e2c1c6eeaefef446677be9c0c5c1f1909a3ee21d1410200f",
+          "3ca029b0bd67cb6935466de7cb6c7a3089cd5ec98488737cb734623d7b207683"
         ]
       ],
       "element_hashes": [
-        "0af73f9c312f15b519e4755aa3bc5a3cee5a196c948fd39b18258a64f73be559",
-        "5e317b41ad8cd5a58fbf9e91d40f566dc693c2ad7adf1d8e76d82bd84bc83a26",
-        "8dc996ad004feaf833c647f83bf495847fb24a638cc0d1875a95a486c2cd24ee",
-        "a77e294c18e48a6b287fb91f845a8d43fd7ae2be712ca275ccf81190b19dd7f3"
+        "26544e78f0d5a5e774c1383bd7962042b419e825f1da914448dd9dc72fb0ead9",
+        "3370c9db80cde3973a1be07d6c078fabbf83c7930d519930e6441091c191dd98",
+        "24c8cc1b9fe425dbf660dd10bfe65d756d2cd4d1f6999c8523067ec1b7cb9c8d",
+        "9d6972fbc23aff7da2db78b96dca2131de1f2a501bbc958d3b596efbac5b1a64"
       ],
-      "hash": "f769d29bcd74b39405aa96a97b94557570229da7bec95e2edc7900c78fe15af3",
+      "hash": "95d3840bf3a1f7808f7ce9a582b1f209db14b349658fe8b649f87881091f1d02",
       "kind": "array",
       "mistakes": {
-        "7676574e0df5f9b862f618cb41bde6151dddd0bf00958c5120e05d9f0bf90ef2": "vérifie le signe de wᵀΣv, avec v = (−1, 1, 0)",
-        "8d1ba8da52bba0f7b6b0a88c46630e4558ee87dce7df8869001638d5a4af4975": "le coût et l'écart sont corrélés : calcule wᵀΣv hors de la diagonale"
+        "4155b3ca9df65a672289ffb79c550300fa47b7e943a6751b2dc5b3917094ebaa": "vérifie le signe de wᵀΣv, avec v = (−1, 1, 0)",
+        "4c49a43597102304681de8111f32edb194ed3055e1a2233cab507b491009d88f": "le coût et l'écart sont corrélés : calcule wᵀΣv hors de la diagonale"
       },
       "shape": [
         2,
@@ -78683,20 +78683,20 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "b005aff8dffa1b6d7222ab2eaa1e13bd5e355af2cf88775424a3ae0175895c3d"
+          "3d76ac76212e60ab6a56fe5118d7598c81ec389637a9dde3fca7794251d4e0ee"
         ],
         [
           "74e8c7b82b62cd8cdf5062c09e2c5c3d93cdc2b252f24c9571b5b23d784a37dd"
         ],
         [
-          "860ef457f351b25ad87fdbdaf70c97670ee24c37e4942a3b5c2a8dcc7d7b37d3"
+          "167770597adc90c697d11f98a6e16547421c66c5d7c9e76608f7710bf2d892aa"
         ]
       ],
       "element_coarse_any": [
         [
-          "d6b0593023aa2c5e96d6080baf99587954197b07b15996df106c23c2c8057565",
-          "cced55f57a633c53dad8e4213898004e1fa86e23738ed0540033bd83d0786926",
-          "0b108e8739f00fd2a8ce076fdf1589798b50cf2921819496110aaa94c92b5b3b"
+          "ce23a3d8aa90bb1fe8f0baf5f306c9961f2979e8f6c6a22917f657ae07d2d7b6",
+          "4871926253b45d72b52373a56a40dfa0824d8ed6b21082948f2926257505c078",
+          "b9c2cb8bcea9934b2b9d5d10bfc77e70f540413157225b101d9d5722a448c991"
         ],
         [
           "0c64c11e5927fb485c1a4eb8357aaf1860a70a493de6ca5600fe86eb6529e9d6",
@@ -78704,23 +78704,22 @@
           "9230ec9fe15504bfd4ff902bfb0e85c5acb19d116cecb782fc30d6c05165cce6"
         ],
         [
-          "68199770485e2a9540ee1d5ca46f5a8b4a6b6844013deceafecf79ededf12a25",
-          "a4859619d9b5b78c8dc134f90dac9a82491a090434a8a635dd656feb30606c45",
-          "3f1fd61023798199272c0241b64e7456a4c44c7bd7981d5119302ee2a4b33f2a",
-          "47155e4bd993c2d7671b21d35325a982ecd01d9f6168e7d8805ac914c06b28bd"
+          "d1b654d358af7b2dd269a879fc2ec4e79a73628fea3fe27e36e4d849dd21d2f2",
+          "f263fcc95994624eea13894574705dfd3d09529f8f47b5dec6bb35a2c7e34b46",
+          "c607c6c744d900d5a12d4a87fde84ec5ddf23f93340f984028a70b50bfdfe46d"
         ]
       ],
       "element_hashes": [
-        "55c1a82bb58545a539cf81d0e6d3009a35f8125f724fb483b34e433b1424b143",
+        "d4af6f103bcb4b533da7a93a2e15bf7eab2f011fe64c1ef35bd0989c1a22f683",
         "c37712f5d4746fb8db54af4cda4133112a005b879e991a82f96e561f850a2919",
-        "29c72ecc9252c053f4b3dedb47757320f421a2d281fe15e7e09a23f509e354c0"
+        "e15359255ff36d37b70fdc23e1621862b1bd778bb0ad74e310e024b9abcf678e"
       ],
-      "hash": "7668449bda423c55429cfa7ebd8ca6e554864a81fc52e0589d884dfa26fff5bf",
+      "hash": "1be30740763115544fa494577af0e8a446d3d0f5f0f9ac3831a4d086a23128cd",
       "kind": "array",
       "mistakes": {
-        "1cd3910559c61d02970b5191262821e24e9279b589f2fbb5f04077ac0ca2519e": "on multiplie ε par L, pas par Σ",
-        "5f710b9bcb8ecaa38bb956531e4de0bc6f3372938d7899bf64e35b8b26a9c6b3": "n'oublie pas d'ajouter μ",
-        "620455127191006fe815b0298f463a61866d3f080147ea0930f39a01e12f2500": "le tirage est μ + Lε, avec le facteur triangulaire inférieur L, pas Lᵀ"
+        "19b2800a9b2f2a50dcf3e905aeb7aa75e9afbb2c4721f07aa7f445cc5da4aed2": "n'oublie pas d'ajouter μ",
+        "9554fa286367b33fa8846d0a4ebb944633165879cfef04fd5b9dc82e04a32c47": "on multiplie ε par L, pas par Σ",
+        "f0622a9b391570d1d88ffa37fbe594cbe5994b1d88f176bc343069384cebc200": "le tirage est μ + Lε, avec le facteur triangulaire inférieur L, pas Lᵀ"
       },
       "shape": [
         3
@@ -78731,25 +78730,25 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "46f7bb06cdfc7b75a7af9f4d83dbb17e25bcca9ac1262e3f5f0ce5e373198a0e"
+          "a1be799753a27032eaf54d2e8ddc04e6f1d23e500c9736dcdf2d412c3577e70f"
         ],
         [
-          "2d2417868065425cd10189aaf072f6690d9c9e038ce5adce05b63a181bc12d9e"
+          "c3c4e13a1daec11b561ec5e31381a35bf24b469b50f262a1f6c773125f8b50f9"
         ],
         [
-          "9ea541ee9300bc4b3e3822b5f551770c4ba00c61b3559faaf8d0e702bc2cb102"
+          "a59eb6cd55a12a4d35a2bac718093bea6bda9d41b84d3f05774615a3421d35dd"
         ],
         [
-          "4f789087e61e2a686b62f90aaa581c7a090dcfed57f325efa067ff478c1eb1f5"
+          "a7f25ae192a39499a5f64483b1d87c5c78346da0ba57546916a6224d4ff1b46c"
         ],
         [
-          "9082050ee3c7af72b061dbb30ba9981c479de9adf5a10fd2e8c031a9eeb1ef08"
+          "0682ddde71c2878ac4739d10b102585090bc4f42caa4f417b921d9e0fab23e78"
         ],
         [
           "b32d9696764644b2c840bdff882938f9b888955bf4cc6a87acfa9a4b02b678c0"
         ],
         [
-          "50c4fdc51ad81a0b6acdc83c2815b931748d8344a93fa37104c084f1e5b5bbb6"
+          "1d5561a26d4524874aa3881f7c34b6c22561920b62817508d44cf6c70f61342a"
         ],
         [
           "2fc54d0cd92d4cde8b786ec64e7e3da3d0016a0e38c4b8096bf1b3d9b3109ba9"
@@ -78760,29 +78759,21 @@
       ],
       "element_coarse_any": [
         [
-          "e01f78413f4e14b576c6a3c5d3b3f6c90571f018a64557e7f82b855143c7bb2a",
-          "459f7ce1b82abc0202b92c1f47500f8c6c5af5579376cda6bcd5fc7f829f6f9a",
-          "ddce386c93ca1081efb35a01b4975f12f7ba0f0d3b0477707bed01f9ef2ebcb6"
+          "c2503a92a94e54bbfedcabed0f6c8bc333b4cdfb46f1e926c6899861918be895",
+          "ec7f0261dc108d2c9f4208a94388d73713041198b7c5f4a680a2c9cbab1d394f",
+          "edbd64da1a35daeab38f6f466fda3fa44d7fe49a2fcb3a91eaafa8248003246c"
         ],
+        [],
         [
-          "74e6b43c9742c5d775d84467342ce46a2b7bc2aeb0f7cb5848eb5c9e1fc2f332",
-          "c925603b1d45903487556ab9f956788da457b637c555747c0b852d7486ebf1af",
-          "c05d8c8ea9fb57578502d360a0d3ec051449095b7f649978bdf75c117ad1fd78"
+          "8d6a1e63a999591efa3423db05526ad686ae78a90a32555b1ad4f7c2b50394e2",
+          "9251c67f1925b14dd90024e32b1f9496378d01f913475c3ee34d34032516cb93",
+          "f4235ec2e1a3f17c38b09dd6c3f1337fe3cc67ecc8ac8bd08e2cc44ab1624d80"
         ],
+        [],
         [
-          "1623abbce108799ca118e083c9f759b1352b75aafbb5bd050fa3cf358e755b13",
-          "e0cf44c40144de39ff0a190f54e6db6ca9df9ecaeb35aabe71b9874ab6eb4bae",
-          "7a0e7b7e670e456dfe9a71647f498102cb9945e55eeee769f39a89a9734e6dde"
-        ],
-        [
-          "7ad7c360288fb13e096b153e370babd7f02f86b002592a45b9b7e683011f7151",
-          "115e35918c70a53669763bf17402d377358fee7fbf0170a335f87fa68f4091c7",
-          "efbf54274b55344fa1fc7e3667b8462259adce52473a6fb63925c42d2d3b6fdc"
-        ],
-        [
-          "31409f6355a0fe178cf2e2043f689356c9de310386255d4a5aed13e78e796668",
-          "db45fd7c8d1c54fefe09c641a52a6d5a2124b7fd5aaa8a6318261eef00254c04",
-          "6ff2a718e5806a46040c620724295d1c286fafe2230a9cdbc36a09b32748e59b"
+          "a62d652d2b151bc3e7c5aadafd8bfab361c2f7b3a3b1a902a6c79a3010eef8e1",
+          "8a1c59f7b1258d340bb6bde36410ddfa3365890d90f217cfb8f8eb845a5e3efe",
+          "115f99ac641012424a857700030fc8342f7c9c81aacb49bc86048d90659b3800"
         ],
         [
           "7e6ddcc562309e247181a245746193db32139bdde0401b83fffe6e90b85ec2f1",
@@ -78790,9 +78781,9 @@
           "3c1dc3e42708ef69ee70f60fd8956eabc60d25f7b93b6357052a920f2bf44bd1"
         ],
         [
-          "1a1d2152a4d996fd28b9a9f55d1c82bae8683762b1dbcd5050c15fa2f8e5c370",
-          "fd5878cd00559c7eff39d1446bdfa6853993e9f8325a1c8d05526f83d020c54e",
-          "d7b404f635279bf2be5e7e64f97fd3cb237bb08ff0d1b808b27e5634efecb2b9"
+          "142e76e0371b96783dd8e9c0e0037506c41b69aef58a3313fbb4b8a0f9870648",
+          "87fc0ad3d3228f00032c3838c65a17bfdf49622653c8e1d02ea89ce418f4de69",
+          "f4bf572b0b75524e4f19bfe90c1a4c043fadae7e72fe58347d7b293b858854c4"
         ],
         [
           "e160bdeed75897b3e65d3d74eb66e0b5b95a95ec9059f7ab65c773325ec2501d",
@@ -78806,20 +78797,20 @@
         ]
       ],
       "element_hashes": [
-        "86a5991bb2b2cbaffbc99b420e151637281d063c1f0bf7b69698c7556f4399b5",
-        "f4d15474756905267b049f2b66976e638a85c6f64bb8d5cfb481a57dae12825c",
-        "c85bfd6fb47ad5a271c49d2f8335055850ce7bfb271a3b29634592c12c7d9724",
-        "91358a57f55da6e825810235164fd0a85d008621500e0c0291d57dba50907bbf",
-        "e6886fbd5844f606df43cab44473dc1dfc05a51c556c696136c926138c5fef46",
+        "a160dcad7c36f42006e754353f5332a8f43844dbd04cae3e7c660f8c391c93d1",
+        "5e8fde5b4c78657470423f5ec6d89839833c4eb97347b34a3a7faa2fb4e2fe79",
+        "a777a93ac430233dc05782f625dcc929509796eb0fbe9f04131df77fd0a17ac7",
+        "92e4cefd1d1ae383aa1b7ec2490e04b2c4195e590340c637c02963cd7cbf76e5",
+        "3ea9ca77f648a0a23c7aad668d7dd88ee65c8c3ac82218c4f0a8a847dfb1a730",
         "c72c73259c27650a2f9aa21080f7ca937a7e819596e04c71ac4d58c113f09f52",
-        "fd36b0d4a53816e219da883b700a9160b82d81214fc7680f5d38c68046bfa232",
+        "39885f8b5a02c4e8242b36b5647e310052d31515271a4e1b8d4b643a0b01faa3",
         "fc9e57f64d30b3444c1a819d34603f5ed8a81847efefae2399db4549e37e7833",
         "8059fcfab6fd44cc6d924ad13dbccaddfebaa8775220e64406bed15da6500d77"
       ],
-      "hash": "14bf4b64e3b9650f0cfea1625dcbcdaaea100c6f19387890cfc041fcd7dfc52f",
+      "hash": "831e3ac0c56a0c93b41444079dc493589eec21a5769ec8557df07c974b004df2",
       "kind": "array",
       "mistakes": {
-        "c60931c29f6b934ea168df210617ba20bcc8992842ec021eddb82ae8b19c8aa7": "la covariance de Mε est M Mᵀ, avec M la matrice qui multiplie ε : chez le collègue, ce n'est pas L"
+        "0602b44fb235ecfe7d6614049678efa2319131bbe603f459b256651e25ee3a1e": "le collègue multiplie ε par une autre matrice que L : quelle est la covariance de Mε pour une matrice M ?"
       },
       "shape": [
         3,
@@ -79166,7 +79157,7 @@
       "hash": "90ceed3615fa2257894b0dd259d14edd0c5df7e69394baa381c318f104c6b577",
       "kind": "fraction",
       "mistakes": {
-        "0324734a02d12d93ba8a399ba11b42b9c3823d64652fae9faa4ff93b98ad5313": "la variance conditionnelle est Σ₂₂ − Σ_ab Σ_bb⁻¹ Σ_ba, avec le bloc Σ_bb entier : les deux voisins sont corrélés entre eux",
+        "0324734a02d12d93ba8a399ba11b42b9c3823d64652fae9faa4ff93b98ad5313": "la variance conditionnelle est Σ₂₂ − Σ_ab Σ_bb⁻¹ Σ_ba, calculée avec le bloc Σ_bb entier : les deux voisins sont corrélés entre eux",
         "58566ebf8a9dfeb7aed4087da68d6aeca3affdaa21f1a537e42ff0055d911e2f": "une variance est positive : Σ_bb doit être inversée",
         "918eef80716e80964179514873108623926a280c0fc80141f64d751ab80991dd": "sachant les voisins, la variance diminue : retire Σ_ab Σ_bb⁻¹ Σ_ba"
       },
@@ -80283,68 +80274,68 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "ead808033c0d27ea11dd6f81288d9c8470853dab09aa2acfe31119e98d912ae5"
+          "58718ad5365d0ca0f240a2f36ef24697e1bc514ffcd2569e01a4efa3cb979440"
         ],
         [
-          "d3a8acacb7dcc610e43e27061f66a9dbd968a57132fa975d97bfca7da8b19506"
+          "a01d008976e6b16db2fa0ac35f500a1507c4f154222fc5a07e422779b733312e"
         ],
         [
-          "59f7549ec63ac10456af3ea2002e64afb67e6cc31362985134879dadafd7e883"
+          "c6642c20b6b60b07a230383160209b586349f80ca7ffd2644cc898c0edfcec2d"
         ],
         [
-          "4fb378396380c447195d23af96e0fc1a10759a1fadd1aabca5a1b83e565c453e"
+          "fc4049f1273bd12c2a14b1b7b8801e1e1c6db043d2fc58a19ca2e1e305f8a5e9"
         ],
         [
-          "6f542572c69e838d8cc4ca8ace2c86055829cb77814be0df0ddcd17c1f2ab0ac"
+          "f81c7883a858e828e85159cdb423a4c6fa49e319d7e8f8375e3e9e9dc5316386"
         ],
         [
-          "ff35bcfdcf2c8f9529b29971930dfb37d1596059ae02fe0e297a5359fba7092e"
+          "9524aeee05a0afdbf36f5b1f4471a94e2f1ba4cdf5c15acd2b3ffc99191235c4"
         ]
       ],
       "element_coarse_any": [
         [
-          "0ea9d1f6930096d824883e1b767b46ad6f041cd28c06c11833daf14174e6b35b",
-          "12dcc12d4df65fe6fa45732468934f02fb0328289f845271ac6d27d9843dc6de",
-          "96a7b7d64aefe36a333a09162549ba448f51a6475f9e492bb72cf972303c0fe3"
+          "bcceb1ba01c46ff78aef1aa3d04abd29b3c821be647e1ecb3e36c08090566292",
+          "b623d616176184df53197dbf56a2cb07dcb2ffb045ac9e2d3a0bccb789bd8355",
+          "72109bfae300218629bead5cbf4aa0acdc83fd6fe190b60eda27dcd259802036"
         ],
         [
-          "bf918c512527c2109d2fbe00eb34abb007f0662a46aaf8fa5cb85f51d9667b1b",
-          "99bf2c7e1423a936a36e688181c98ec322e98b62ad617b5164ebf7d5e3391491",
-          "dc429f9cd3a2216de9b4ae24cd536469355b391def83d1f28b7b49ff44910be1"
+          "f03589300165be4948a018f360e46cbc03fee3a227b8d64bff6ce362dbde273b",
+          "e672c29c2b5876cf8486926f7c58265c9fcd756cff36a5283d0812aca169ede0",
+          "048944a6432b88b1f8f2bfd030e1bd35a9f255e353018859542cb07eed7ba432"
         ],
         [
-          "00ebedb503d05af9645cef068f0b9398de65e7246d1c8b418f6a9d4d3f7f391e",
-          "93ecebc59b16040a31a10a5cb53d6eebf9aa67562935b22cf7d200018609041b",
-          "6edf6ac78dcfb333cecd120527f7f68b0f48f0f69043725baf3d3ef5a8058ecd"
+          "ffcc1150a5d964b17c695fde3d60e2a7a157af770bb660d73a80e23e167f1192",
+          "cabdf386f2d90b82b4aee6738e1b7bbdac306fa32781fd5cf141cc342ad15ac3",
+          "845cfbd822c34be2f82098090143e7daeb682b48021a4a16ede926c959ef06a2"
         ],
         [
-          "e7772157c39fb8e44608fafc4cd4f04e63d3dcb702b6cf7f61442a4a0fa9eb49",
-          "30ed116931f1b57ae78fbb9bd769acfcc3b4037dd7772ad11087d83225eeb5a1"
+          "7e6e03ce3ccf8333b5033b85696df38bd15a54943d6deb701516d9d449e8f0a9",
+          "ea84fe2ab67e93cccbc3972dd586ab8c8ac0a3b265a99dcd2649e183b75beba2"
         ],
         [
-          "dca71a35964cff88ea9a7b0fb87919a02595b3bdf31c4ac878cc89b547576d11",
-          "4c922ca95270f849dadf106e44831f74202141ee88ba9b8c79635b85ffc2a8cf",
-          "14594973ac60b603090548431c441118bc219515e4864a7ee2ab6d9820abab96"
+          "f57df5669d9f137d4c214845899429c6c72832680a6e62d918e5d2ada9c02b36",
+          "d4f406dae771d74a5991a2b3640824f12dbf80c425556140fe605270425ef596",
+          "efc755fcca0b13eccb8f7be434606b475db876080360561c1ae945e8a9dce79d"
         ],
         [
-          "a5be4b99bbbbd633f42ab242abff7e5c5410d67be1c606c179317b8b7feea81b",
-          "f4b618be8662058a3986a13278fae23367480c9917c2de55e4f19603104c9c39",
-          "2b1e47a88e1e7210feb9bf48587445d9a1dc53d54f9de428788349bda6e6b620"
+          "3deff385a4ad8536826b6a5dcbe2694f65ab05aa8c296e61802c3afb0ced5cf3",
+          "3e6940c0ff961dd36c36d99f160223674f53f54846a2b2faf89e473283fd0316",
+          "724ba17b97f32092a39fa745e0ac741ffe5513b8b8e0fa60df0ab4a834fade74"
         ]
       ],
       "element_hashes": [
-        "c4eeb6dae8027dc2e221bcd3b5c4045da59a5a4158be2ecb9d2c5bd7907f889b",
-        "1ddf387a74655037477c628c03dc0c28057ce23d8429d749b966ef392122e99c",
-        "33344b116111e00d1a6ef8990e9419feacdd0c43173114fd0e59af498c858645",
-        "3bd12d3eb4c7823a5b50023e0d5a05fd77d6bec77be023993c5ebe6f73b42150",
-        "3678d6c045894bbc44736acab5350d4876db7d83983b47dfacd7456bc5fa03c8",
-        "b1e28c47402131c9e9f73cfc9ed5defe226706061e660adb690ab0251e42311d"
+        "34261fda27e1c4f4eeb61e8a269aa2fa7a945af01d441e7e73546641b70c942c",
+        "00941762d911b93d5ee9dcc22a6684c3a675d0182d0812e49aa22b1a416f82b8",
+        "523add3fe2c5fb96815c2cbcd6af68ca1a362c9c752eea38b0f271a820a0d4d1",
+        "b6e69d483d61f1391bb2d723c7e8f7ebe3a08ea9bfccd9550ef5b5a8d86337bd",
+        "27739c02b59b8f47108f4b3f0e44bad3133e8e053c07e1e58ab4172985ac4ab4",
+        "69a177c74f34c206104ea7acd30a00656b366c6e98dca117d208e747895e2b00"
       ],
-      "hash": "1b474f710f5ad243c4df5780d83d5abf71472c8ec605face070d59b7fbd57bc8",
+      "hash": "8fc4cfaa568a2a494d8a87999b881a607269b0fca4beb2e1acbc16b77ac65947",
       "kind": "array",
       "mistakes": {
         "1b4860982cdbc9eaeb8a1d93f3f479d778a3b98b0061ff1d9898f92451b9feca": "ajoute μ à chaque ligne",
-        "9bb76e8b97a865caebfe2485ddc20f1c455ae8c87f339b3ba5fc5d6a7df0a30c": "chaque ligne est μᵀ + εᵢᵀ Lᵀ : on multiplie à droite par Lᵀ"
+        "78a88cf263eb8eaa298d63f57234b7864ccb462f1757b8e573e55a9017cc35c1": "chaque ligne est μᵀ + εᵢᵀ Lᵀ : on multiplie à droite par Lᵀ"
       },
       "shape": [
         3,
@@ -80615,13 +80606,13 @@
       "decimals": 3,
       "element_coarse": [
         [
-          "0d9c872d4f35255232768094c6752b78863f08a859a051b326790efde606fdbb"
+          "368ea73e400444cc0a2fe9040f880e861e9f80ccb36834ee70d2749c2ba17811"
         ],
         [
-          "b060b13188ac8823d8c6d4098c15c305379e9e7f42494f1adb57d849f0f70838"
+          "673ccb346c2e741d6840e92f1c950e106357525948ea2bbf3fc1d37ac95ac4ae"
         ],
         [
-          "9ab2ed2f60ccffd2125821d06e3e35e8d4b5424559c877ef5f2259ba90700474"
+          "61e9843f9cba7d9b7fbed4f23cda3d0dbc8c645230005c9f0d77a451d0ff29ce"
         ]
       ],
       "element_coarse_any": [
@@ -80639,14 +80630,14 @@
         ]
       ],
       "element_hashes": [
-        "4b0694354979792a4de4879482067050f82e628b7c26d8e25aa3df4e43943fbf",
-        "b25f0bae870d098938085b19c13d4ebc3a17838348d83ba8651dc3ae1715a323",
-        "4c94e178beef701cbedcf8a8dc679da0b2dcfb0118c29422dfaed87784e5a70e"
+        "2890c09de7841571149e0a9d07cf4ef4447cc4f0175b1f448e52a5fef532f24c",
+        "258c7fc10ce1d5d53f879aad619830ad673f72c556bc1db1fe34fd0ee416f0b1",
+        "8f909e3de1d08051ba4b8df95a9d0f22d24b55b4fcf21549fdc7d012a5094760"
       ],
-      "hash": "fb1d799c25b88ee2f0afaab1d6f16abfc75a3f9e993495d97c4473f81e28a103",
+      "hash": "3fd50815fadecced1dfb53da76e328ba32ac4fd1a8b4e917a4972410c83c105c",
       "kind": "array",
       "mistakes": {
-        "b70d97a026a040363c1e80e8dca7202e176769321256dbf2c81d075c1b7aecb8": "sample_mvn(..., seed=5921) : la graine fixe les tirages"
+        "e61a04e16b4a8229088e4f9033478b41eeb1f33a0d66484b9a9eefa556357f15": "sample_mvn(..., seed=5921) : la graine fixe les tirages"
       },
       "shape": [
         3
@@ -80657,10 +80648,10 @@
       "decimals": 2,
       "element_coarse": [
         [
-          "a7983912c1b7e3bdc1613540fa615465a66e213a33984f1a1de111ddd73033c8"
+          "78b0b21fe87ed22253b94dce6c0501de79d1a45708d5233dd992d64f94fa0fe1"
         ],
         [
-          "edc9a68f1c8af6477329df678fb3d30c87e6fcb6447e617352bbbdc640e1160a"
+          "67834e3902105cdae02ede8c100c5d1c4c573a43fa4abe095fdd330efef8d431"
         ]
       ],
       "element_coarse_any": [
@@ -80672,14 +80663,14 @@
         ]
       ],
       "element_hashes": [
-        "67ba66ebbfa9dcf609a1831cf25a75cca8800083f02a825680c9a8fb469c662f",
-        "61af420810f253d436109e2cdb6dc8462e031024232d90f49de73387db09d301"
+        "f530c008a52eaf247e1d95ba6bc42f862511f3c332531bdf62aaee3647f30c8b",
+        "0bb10b47de8386b058b7e8192574d7fd74e1fa9e48345f823a5ccf3c59eb94ba"
       ],
-      "hash": "056e8b37dc12fd1498d3180ae632c7dcac5d8df50adcf781481cd83c610900c3",
+      "hash": "5e68aec8ea66a89d74bfcbd776136b876b31bce0638f30f65811ad21be71e19b",
       "kind": "array",
       "mistakes": {
-        "065c21da268584dc986b9bc1a449da649d9d2e45d10bb98597944f8458eec0cc": "sample_mvn(..., seed=5921) : la graine fixe les tirages",
-        "d5fbd594a125f724e7285e13135e2076721f5b1e504e47a12ea9807cc943c5ad": "tes tirages n'ont pas la covariance Σ : la ligne i est μ + L εᵢ, soit mean + E @ L.T"
+        "11e3dea70b53bec47cbc1e8964c3b15efd948627498c85084375ef49b017631e": "tes tirages n'ont pas la covariance Σ : la ligne i est μ + L εᵢ, soit mean + E @ L.T",
+        "263b8959af0ab7285fbcdc131f1c7e7e30771e6cecec5a551e34abdcac8212b6": "sample_mvn(..., seed=5921) : la graine fixe les tirages"
       },
       "shape": [
         2
@@ -80751,8 +80742,8 @@
       "hash": "508bbb4609e3ff80334eb9616185d4daaa0fdf79775b7e8b82d584bc27e5ed01",
       "kind": "array",
       "mistakes": {
-        "aac34cd711aafd9f4fe322fbe0ec698eec3fbe0bea2507eec4eebedb9128b8bc": "on blanchit par L⁻¹, pas par Σ⁻¹",
-        "e17b6fd8a06528733c0fd313f9de13442cc2aabaa5f57faa7115d9ec383a0500": "blanchir, c'est résoudre L y = x − μ, avec le facteur L lui-même (pas Lᵀ)"
+        "16f43fc45e49f0a27880fcaa4956ed19b3c744a04ee5cd2059360ec369136f47": "blanchir, c'est résoudre L y = x − μ, avec le facteur L lui-même (pas Lᵀ)",
+        "30e4d9378397455337202cf231c0914e99bfd8221c404cf4dfc11fc24140f40d": "on blanchit par L⁻¹, pas par Σ⁻¹"
       },
       "shape": [
         3,
@@ -81227,8 +81218,8 @@
       "kind": "int",
       "magnitude": 3,
       "mistakes": {
-        "8afcd06e02455b2c083a0f627b76105931354acec3dc9e9a941a2730d4d1bae0": "h est une demi-largeur : garde les relevés où |T − 24| < h",
-        "a94dd9dd3aa2dd3965170430080d82710005ecc9097bdc1728bbd60fb02c4bd5": "garde les relevés proches de la température lue, |T − 24| < h, pas de la moyenne de T"
+        "8afcd06e02455b2c083a0f627b76105931354acec3dc9e9a941a2730d4d1bae0": "h est une demi-largeur : garde les relevés où |T − 23| < h",
+        "a94dd9dd3aa2dd3965170430080d82710005ecc9097bdc1728bbd60fb02c4bd5": "garde les relevés proches de la température lue, |T − 23| < h, pas de la moyenne de T"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
@@ -81245,7 +81236,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "9b75d799974b72e260509e53c5499ab4cabce96e0f8f42d7fb009d480989ecea": "on demande la moyenne de l'humidité H des relevés gardés, pas celle de T"
+        "3a9b4ea493c144a69de5137e8715d22e44012d3859472c8991da6b05e431eab0": "on demande la moyenne de l'humidité H des relevés gardés, pas celle de T"
       },
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"

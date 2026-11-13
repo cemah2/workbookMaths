@@ -658,7 +658,7 @@ Fiche §5 : le théorème de MML (Théorème 9.1) sous la forme « précisions �
 </details>
 <details><summary>Indice 3</summary>
 
-Refuse `noise_var` booléen, non fini ou $\le 0$ ; contrôle que $\mathbf{S}_0$ est symétrique et définie positive (Cholesky). Ensuite : b) une boucle sur les deux lignes de `Phi`, chaque loi a posteriori servant d'a priori, avec `Phi[i:i + 1]` et `e[i:i + 1]` ; d) pour le tracé, dans l'axe reçu : `ts = np.linspace(-0.5, 2.5, 301)`, `F = np.column_stack([np.ones_like(ts), ts])`, la moyenne `F @ m_N`, la variance `np.einsum("ij,jk,ik->i", F, S_N, F) + 0.04`, puis `ax.fill_between(100 * ts, …)` et `ax.plot`.
+Refuse `noise_var` booléen, non fini ou $\le 0$ ; contrôle que $\mathbf{S}_0$ est symétrique et définie positive (Cholesky). Ensuite : b) une boucle sur les deux lignes de `Phi`, chaque loi a posteriori servant d'a priori, avec `Phi[i:i + 1]` et `e[i:i + 1]` ; d) pour le tracé, dans l'axe reçu, sur les températures `TS_23` du notebook (de −50 à 250 °C) : `ts = TS_23 / 100`, `F = np.column_stack([np.ones_like(ts), ts])`, la moyenne `F @ m_N`, la variance `np.einsum("ij,jk,ik->i", F, S_N, F) + 0.04`, puis `ax.fill_between(100 * ts, …)` et `ax.plot`.
 
 </details>
 
