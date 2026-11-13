@@ -197,7 +197,7 @@ Sur ta copie : les vecteurs propres se vérifient, $\mathbf{A}(1, 3) = (0{,}8 ;\
 
 ## CP5.6 — Valeurs propres complexes, rayon spectral, normes et croissance transitoire ✏️ · 10 points (1,25 par sous-question)
 
-**Réponses** : a) `[0.75, 0.433]` · b) `0.866` · c) `"pi/6"` · d) `[[-1.125, -1.5], [1.125, 1.125]]` · e) `[[-0.421875, 0], [0, -0.421875]]` · f) `[2.5, 2.25]` · g) `1.9128` · h) `[1, 2]`.
+**Réponses** : a) `[0.75, 0.4330]` · b) `0.8660` · c) `"pi/6"` · d) `[[-1.125, -1.5], [1.125, 1.125]]` · e) `[[-0.421875, 0], [0, -0.421875]]` · f) `[2.5, 2.25]` · g) `1.9128` · h) `[1, 2]`.
 
 a) Trace 1,5, déterminant $0 + 0{,}75 = 0{,}75$ : $\lambda^2 - 1{,}5\lambda + 0{,}75 = 0$, de discriminant $2{,}25 - 3 = -0{,}75$, d'où $\lambda = 0{,}75 \pm i\,\frac{\sqrt{0{,}75}}{2} \approx 0{,}75 \pm 0{,}4330\,i$.
 b) $\lvert\lambda\rvert = \sqrt{\det\mathbf{M}} = \sqrt{0{,}75} \approx 0{,}8660$.
