@@ -48,10 +48,10 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) |
 | CP5 · checkpoint de la partie V | **CP5** · Examen blanc de la partie V |
-| 25 · Autoencodeurs et VAE | **M25a** · Gaussienne multivariée<br>**M25b** · Variables latentes et ELBO |
+| 25 · Autoencodeurs et VAE | **M25a** · Gaussienne multivariée, conditionnement et divergence KL<br>**M25b** · Variables latentes et ELBO |
 | 26 · Apprentissage par renforcement | **M26** · Chaînes de Markov et équation de Bellman |
 | 27 · Réseaux antagonistes génératifs (GAN) | **M27** · Jeux et distances entre lois |
-| 28 · Applications créatives | **M28** · Matrice de Gram et échantillonnage |
+| 28 · Applications créatives | **M28** · Matrice de Gram, montée sur l'entrée et lois tronquées |
 | 29 · Datasets et préparation du projet final | — (rien de nouveau) |
 | CP6 · checkpoint de la partie VI | **CP6** · Examen blanc de la partie VI |
 | B1 · Transfer learning et modèles pré-entraînés | — (rien de nouveau) |
@@ -67,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 648 h pour le parcours complet (environ 457 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 665 h pour le parcours complet (environ 473 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

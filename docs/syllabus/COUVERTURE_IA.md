@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 347 notions mathématiques couvertes, 211 notions non mathématiques.
+**Bilan** : 348 notions mathématiques couvertes, 210 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -451,12 +451,12 @@ Non mathématiques : démarche expérimentale et journal d'expériences · estim
 | détection d'anomalies par reconstruction | M12d |
 | espace latent | M25b |
 | PSNR | R6 |
-| autoencodeur linéaire et ACP | M12d |
-| VAE | M25b |
-| astuce de reparamétrisation | M02b, M25a |
+| autoencodeur linéaire et ACP | M12d, M25b |
+| VAE | M25a, M25b |
+| astuce de reparamétrisation | M25a, M25b |
 | divergence KL entre gaussiennes | M06, M25a |
 | ELBO | M25b |
-| β-VAE | M25b |
+| β-VAE | M13b, M25b |
 | interpolation sphérique (slerp) | M25a |
 
 Non mathématiques : autoencodeur convolutif · autoencodeur débruiteur
@@ -467,7 +467,7 @@ Non mathématiques : autoencodeur convolutif · autoencodeur débruiteur
 |---|---|
 | politique | M26 |
 | retour actualisé et facteur γ | R5, M26 |
-| Q-learning tabulaire | M26 |
+| Q-learning tabulaire | M11, M26 |
 | SARSA | M26 |
 | ε-greedy et softmax (Boltzmann) | M11, M17 |
 | équation de Bellman | M26 |
@@ -480,10 +480,10 @@ Non mathématiques : boucle agent-environnement · API gymnasium (reset, step, t
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | GAN : générateur et discriminateur | M27 |
-| loss minimax et loss non saturante | M27 |
-| discriminateur optimal | M27 |
+| loss minimax et loss non saturante | M06, M13a, M17, M27 |
+| discriminateur optimal | M04, M27 |
 | distance de Wasserstein 1D | M27 |
-| distance de Fréchet (FID) | M27 |
+| distance de Fréchet (FID) | M12c, M27 |
 | équilibre de Nash (idée) | M27 |
 
 Non mathématiques : boucle d'entraînement alternée (detach, deux optimiseurs) · DCGAN · GAN conditionnel · effondrement de mode
@@ -492,19 +492,20 @@ Non mathématiques : boucle d'entraînement alternée (detach, deux optimiseurs)
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| maximisation d'activation | M28 |
-| montée de gradient sur l'entrée | M28 |
-| matrice de Gram | M28 |
-| losses de contenu, de style et de variation totale | M28 |
-| stratégies de décodage (glouton, température, top-k, top-p) | M28 |
+| maximisation d'activation | M12c, M21, M28 |
+| montée de gradient sur l'entrée | M05b, M18, M19, M28 |
+| deep dream | M28 |
+| matrice de Gram | M12c, M13b, M28 |
+| losses de contenu, de style et de variation totale | M09b, M12d, M18, M28 |
+| stratégies de décodage (glouton, température, top-k, top-p) | M02b, M17, M28 |
 
-Non mathématiques : hooks PyTorch · deep dream · transfert de style neuronal · génération de texte mot à mot · documentation de provenance et de licences
+Non mathématiques : hooks PyTorch · transfert de style neuronal · génération de texte mot à mot · documentation de provenance et de licences
 
 ## workbookIA 29 · Datasets et préparation du projet final
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| décalage de distribution | M27 |
+| décalage de distribution | M02c, M03 |
 
 Non mathématiques : sources de datasets (HF Hub, Kaggle, OpenML, UCI) · API scikit-learn / torchvision / Hugging Face datasets · licences et retraits de datasets · audit de qualité · doublons et fuites entre découpages · data card / datasheet · téléchargement reproductible (révision, SHA-256)
 
@@ -592,7 +593,7 @@ Non mathématiques : tests de santé des explications · atténuation des biais 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | mesure de latence | M02c |
-| surveillance de la dérive | M27 |
+| surveillance de la dérive | M06, M27 |
 
 Non mathématiques : structure d'un projet Python · argparse et logging · configuration typée · reproductibilité · suivi d'expériences · tests pour le ML · intégration continue · artefact de modèle · API de prédiction · torch.export · Dockerfile
 
@@ -600,7 +601,7 @@ Non mathématiques : structure d'un projet Python · argparse et logging · conf
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| DQN et ses stabilisateurs | M26 |
+| DQN et ses stabilisateurs | M02c, M26 |
 | Double DQN | M26 |
 | théorème du gradient de politique | MB8 |
 | REINFORCE avec baseline | MB8 |

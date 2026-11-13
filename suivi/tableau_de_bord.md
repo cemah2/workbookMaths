@@ -97,14 +97,14 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] 🤖 workbookIA **24** · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN
 - [ ] 📐 **CP5** · Examen blanc de la partie V
 - [ ] 🤖 workbookIA **CP5** · checkpoint (examen blanc, synthèse, mini-projet)
-- [ ] 📐 **M25a** · Gaussienne multivariée
+- [ ] 📐 **M25a** · Gaussienne multivariée, conditionnement et divergence KL
 - [ ] 📐 **M25b** · Variables latentes et ELBO
 - [ ] 🤖 workbookIA **25** · Autoencodeurs et VAE
 - [ ] 📐 **M26** · Chaînes de Markov et équation de Bellman
 - [ ] 🤖 workbookIA **26** · Apprentissage par renforcement
 - [ ] 📐 **M27** · Jeux et distances entre lois
 - [ ] 🤖 workbookIA **27** · Réseaux antagonistes génératifs (GAN)
-- [ ] 📐 **M28** · Matrice de Gram et échantillonnage
+- [ ] 📐 **M28** · Matrice de Gram, montée sur l'entrée et lois tronquées
 - [ ] 🤖 workbookIA **28** · Applications créatives
 - [ ] 🤖 workbookIA **29** · Datasets et préparation du projet final
 - [ ] 📐 **CP6** · Examen blanc de la partie VI

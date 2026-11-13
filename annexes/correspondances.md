@@ -32,9 +32,9 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2, figure 4.4) (Trefethen et Embree ; Horn et Johnson) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
-| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, §9.3 ; §6.7, §8.4–8.5, §10.7, ch. 11 |
+| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, §6.7, §9.3 ; §8.4–8.5, §10.7, ch. 11 |
 | 26 · Apprentissage par renforcement | M26 | — (Blitzstein et Hwang) |
-| 27 · Réseaux antagonistes génératifs (GAN) | M27 | — |
+| 27 · Réseaux antagonistes génératifs (GAN) | M27 | §7.2 (relu) |
 | 28 · Applications créatives | M28 | — |
 | 29 · Datasets et préparation du projet final | — (rien de nouveau) | — |
 | B1 · Transfer learning et modèles pré-entraînés | — (rien de nouveau) | — |
@@ -71,9 +71,9 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §6.4 Statistiques résumées et indépendance | M02b, M02c, M16 |
 | §6.5 Loi gaussienne | M25a (et la loi normale en 1D : M02b) |
 | §6.6 Conjugaison et famille exponentielle | M04 |
-| §6.7 Changement de variable | M02b, M25b |
+| §6.7 Changement de variable | M02b, M25a |
 | §7.1 Descente de gradient | M19 |
-| §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b |
+| §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b, M27 (l'inégalité minimax) |
 | §7.3 Optimisation convexe | M13b |
 | §8.1–8.2 Données, modèles, minimisation du risque empirique | M09b |
 | §8.3 Estimation des paramètres (maximum de vraisemblance, MAP) | M04, M13a |

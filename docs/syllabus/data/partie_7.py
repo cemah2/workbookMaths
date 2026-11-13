@@ -50,7 +50,7 @@ CHAPTERS = [
         "summary": "Les outils de la diffusion : sommes de gaussiennes indépendantes, produit de deux densités "
                    "gaussiennes, produits cumulés de coefficients, rapport signal sur bruit, l'ELBO d'une chaîne de "
                    "variables latentes, puis les équations différentielles et la méthode d'Euler (flow matching).",
-        "teaches": ["sommes de gaussiennes indépendantes", "produit de deux densités gaussiennes en dimension 1",
+        "teaches": ["sommes de gaussiennes indépendantes (rappel de M25a)", "produit de deux densités gaussiennes en dimension 1 (rappel de M25a)",
                     "produits cumulés et plannings de bruit (linéaire, cosinus)", "rapport signal sur bruit",
                     "ELBO d'une chaîne de variables latentes (principe)", "loss de prédiction du bruit (idée)",
                     "DDPM et DDIM : ce qui change mathématiquement", "guidance sans classifieur (combinaison affine)",
