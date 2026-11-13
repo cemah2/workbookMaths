@@ -13,18 +13,25 @@ its last step, nor another sub-question. The solutions notebook records the answ
 numbers of the statement, with NumPy (convolutions, matrix powers, eigenvalues, norms) and exact fractions (the
 recurrences, the jacobians, the limits and bounds), cross-checked by asserts (brute force on the windows, the stamps,
 the receptive field, the vertices of the cube, finite differences); the cells are tagged `answer` and read by
-build_answers.py. Not in the notebook: the true/false quiz CP5.Q1, the proof CP5.8 and the corrections of CP5.9 b)
-(only its letters are checked).
+build_answers.py. 60 checks: CP5.1 to CP5.7, the letters of CP5.9 a) and CP5.10 a) to g). Not in the notebook: the
+true/false quiz CP5.Q1, the proof CP5.8 and the corrections of CP5.9 b) (only its letters are checked).
 
 Accepted forms: a tuple for a list, a fraction or a decimal for a number (a fraction typed between quotes is read),
-a complex number a + bj for the list [a, b] of CP5.6 a) (converted in the check cell), the lengths of CP5.2 d) and
-the values of CP5.2 h) in any order (sets); the behaviour of powers is a code 1, 2 or 3 (a word would refuse correct
-synonyms), the argument of CP5.6 c) an exact angle (degrees are recognised and refused with a message), the limits of
-CP5.10 g) and h) irreducible fractions, as the statement asks.
+a complex number a + bj for the list [a, b] of CP5.6 a) (converted in the check cell), the window lengths of CP5.2 d)
+and the values of CP5.2 h) in any order (sets); the behaviour of powers is a code 1, 2 or 3 (a word would refuse
+correct synonyms), the argument of CP5.6 c) an exact angle (degrees are recognised and refused with a message), the
+limit of CP5.10 g) an irreducible fraction, as the statement asks; M⁶ of CP5.6 e) is exact with 6 decimals and is
+checked on 4, so that its value rounded to 4 decimals passes too.
 
-The data are those of 01_examen_sujet.md (chosen and checked against both repositories by the author of the
-statement): none comes from M21, M22, CP0 to CP4, chapters 21 to 24 of workbookIA, its checkpoint V or its
-mini-project V. No seed: no random draw.
+The data are those of 01_examen_sujet.md, version 2 of session 59, after the two reviews (sharing rule, exam taken
+blind): w = (3, 0, −2, 1) in CP5.1; the window lengths k that give 110 positions (CP5.2 d) and k = 10, s = 3
+(CP5.2 h); in CP5.3, the two orders of the two passes (c), kernels 3 × 5 with a padding of 1 in height and 2 in width
+(d to g) and the stack (2, 1, 1), (4, 3, 1), (2, 1, 3), (3, 4, 1) (h); strain gauges on the five blades of a rotor
+with h = (1, −4, 2, 3, −2) and the largest INCREASE of z₁ (CP5.4); a drug between blood and tissues, same numbers,
+the eigenvalues in c) (CP5.5); M = [[0, −1], [0.75, 1.5]], M³, M⁶ and (2/√3) M (CP5.6); new lines in CP5.9, same
+letters; no γ-stability in CP5.10 (h and i removed). The data were chosen and checked against both repositories by
+the author of the statement: none comes from M21, M22, CP0 to CP4, chapters 21 to 24 of workbookIA, its checkpoint V
+or its mini-project V. No seed: no random draw.
 """
 
 from __future__ import annotations
@@ -44,9 +51,8 @@ MINUTES = 112                       # the sum of the durations of CP5.Q1 to CP5.
 
 MATRIX = "a matrix, as a list of rows"
 COMPLEX = "a list [a, b] for a + ib"
-ANGLE = 'an exact angle in radians, as text (like "pi/6")'
+ANGLE = 'an exact angle in radians, as text (like "pi/5")'
 FRACTION = 'an irreducible fraction, as text (like "3/8")'
-CODE = "an integer: 1, 2 or 3"
 
 
 def _letter_sets():
@@ -184,7 +190,7 @@ assert ALT_1 == P_1 * Q_1                                  # the value of PQ at 
 SUM_1 = int(AB_1.sum())                                    # PQ at X = 1, no alternation
 
 # CP5.1 (2): the signal x and the kernel w
-X_1, W_1 = np.array([3, -2, 4, 1, 0, -1]), np.array([2, 0, -1, 1])
+X_1, W_1 = np.array([3, -2, 4, 1, 0, -1]), np.array([3, 0, -2, 1])
 N_1, K_1 = len(X_1), len(W_1)
 CORR_1 = np.correlate(X_1, W_1, "valid")                   # (w ⋆ x)_i = Σ_u w_u x_(i+u)
 assert CORR_1.tolist() == [sum(W_1[u] * X_1[i + u] for u in range(K_1)) for i in range(N_1 - K_1 + 1)]
@@ -236,9 +242,10 @@ assert positions(LAST_2 + 1, K_2, S_2) == POS_A_2 and all(
 UNREAD_LONG_2 = N_2 - 1 - (S_2 * (POS_A_2 - 1) + K_2)      # a window that ends at s i + k
 UNREAD_SHORT_2 = N_2 - 1 - (S_2 * (POS_A_2 - 1) + K_2 - 2)
 UNREAD_STEP_2 = N_2 - S_2 * POS_A_2                        # counted from the start of a window that does not exist
-LENGTHS_2 = [n for n in range(K_2, 400) if positions(n, K_2, S_2) == 25]
-NO_ONE_2 = [n for n in range(K_2, 400) if (n - K_2) // S_2 == 25]          # the + 1 forgotten
-NO_MINUS_2 = [n for n in range(K_2, 400) if (n - K_2 + 1) // S_2 + 1 == 25]   # the - 1 forgotten
+WINDOWS_2 = [k for k in range(1, N_2 + 1) if positions(N_2, k, S_2) == 110]       # the window lengths k
+assert all(positions_counted(N_2, k, S_2) == 110 for k in WINDOWS_2)
+NO_ONE_2 = [k for k in range(1, N_2 + 1) if (N_2 - k) // S_2 == 110]             # the + 1 forgotten
+NO_MINUS_2 = [k for k in range(1, N_2 + 1) if (N_2 - k + 1) // S_2 + 1 == 110]   # the − 1 forgotten: n − k + 1
 OUT_2 = -(-N_2 // S_2)                                     # TensorFlow and Keras: ceil(n / s)
 TOTAL_2 = max((OUT_2 - 1) * S_2 + K_2 - N_2, 0)            # d = 1: (n_out − 1) s + d(k − 1) + 1 − n zeros
 SAME_2 = [OUT_2, TOTAL_2 // 2, TOTAL_2 - TOTAL_2 // 2]
@@ -268,8 +275,9 @@ SIZE_2 = transposed_size(50, 5, 3, p=2, p_out=1)
 assert positions(SIZE_2, 5, 3, p=2) == 50                  # the sliding sum of the same settings gives back 50
 SIZE_SLIPS_2 = {"no p_out": transposed_size(50, 5, 3, p=2), "p added": 49 * 3 + 2 * 2 + 4 + 1 + 1,
                 "p once": transposed_size(50, 5, 3, p=1, p_out=1), "p ignored": transposed_size(50, 5, 3, p_out=1)}
-STAMPS_COUNT_2 = [sum(1 for i in range(20) if 0 <= j - 4 * i <= 10 - 1) for j in range(19 * 4 + 10)]
-COUNTS_2 = sorted(set(STAMPS_COUNT_2[10:19 * 4]))          # the interior cases, far from both edges
+KH_2, SH_2, MH_2 = 10, 3, 30                               # k = 10, s = 3, on 30 input values
+STAMPS_COUNT_2 = [sum(1 for i in range(MH_2) if 0 <= j - SH_2 * i <= KH_2 - 1) for j in range((MH_2 - 1) * SH_2 + KH_2)]
+COUNTS_2 = sorted(set(STAMPS_COUNT_2[KH_2:(MH_2 - 1) * SH_2]))   # the interior cases, far from both edges
 
 # CP5.3 (1): the grid G and the kernel K, a cross-correlation in valid mode
 G_3 = np.array([[3, 1, 0, 2, 4], [1, 4, 2, 0, 1], [2, 0, 3, 1, 2], [0, 2, 1, 3, 1]])
@@ -288,37 +296,51 @@ def correlate2d(g, k):
 
 
 Y_3 = correlate2d(G_3, K_3)
+HORIZONTAL_3 = correlate2d(G_3, B_3[None, :])              # the horizontal pass by b, on every row of G
 VERTICAL_3 = correlate2d(G_3, A_3[:, None])                # the vertical pass by a, on every column of G
-assert (correlate2d(VERTICAL_3, B_3[None, :]) == Y_3).all()
+assert (correlate2d(HORIZONTAL_3, A_3[:, None]) == Y_3).all() and (correlate2d(VERTICAL_3, B_3[None, :]) == Y_3).all()
 CONV_3 = correlate2d(G_3, K_3[::-1, ::-1])                 # the 2D convolution: a half-turn of the kernel
 TRANSPOSED_3 = correlate2d(G_3, K_3.T)
-DIRECT_3 = Y_3.size * K_3.size
-PASSES_3 = VERTICAL_3.size * len(A_3) + Y_3.size * len(B_3)
-NARROW_3 = Y_3.size * len(A_3) + Y_3.size * len(B_3)      # the vertical pass on the columns of the output only
-ONE_AXIS_3 = {int(correlate2d(G_3, K_3[::-1, :])[0, 0]), int(correlate2d(G_3, K_3[:, ::-1])[0, 0])}
+DIRECT_3 = Y_3.size * K_3.size                             # for the copy: one product per weight and per output
+H_FIRST_3 = HORIZONTAL_3.size * len(B_3) + Y_3.size * len(A_3)
+V_FIRST_3 = VERTICAL_3.size * len(A_3) + Y_3.size * len(B_3)
+NARROW_3 = Y_3.size * len(B_3) + Y_3.size * len(A_3)       # the first pass on the rows or columns of the output only
 
-# CP5.3 (2): the thermal camera, (5, 96, 144) -> 12 channels, 3 x 3, bias, p = 1, s = 2
-C_IN_3, C_OUT_3, H_3, W_3, KS_3 = 5, 12, 96, 144, 3
-PARAMS_3 = C_OUT_3 * (C_IN_3 * KS_3 * KS_3 + 1)
-SHAPE_3 = (C_OUT_3, positions(H_3, KS_3, 2, p=1), positions(W_3, KS_3, 2, p=1))
+# CP5.3 (2): the thermal camera, (5, 96, 144) -> 12 channels, kernels 3 x 5, bias, padding 1 in height and 2 in
+# width, stride 2 along both axes
+C_IN_3, C_OUT_3, H_3, W_3, KH_3, KW_3, PH_3, PW_3, S_3 = 5, 12, 96, 144, 3, 5, 1, 2, 2
+PARAMS_3 = C_OUT_3 * (C_IN_3 * KH_3 * KW_3 + 1)
+
+
+def out_shape(stride=S_3, ph=PH_3, pw=PW_3, kh=KH_3, kw=KW_3, c=C_OUT_3):
+    """The shape (C, H, W) of the output, each axis counted with its own kernel size and padding."""
+    return [c, positions(H_3, kh, stride, p=ph), positions(W_3, kw, stride, p=pw)]
+
+
+SHAPE_3 = out_shape()
+assert SHAPE_3[1:] == [positions_counted(H_3, KH_3, S_3, p=PH_3), positions_counted(W_3, KW_3, S_3, p=PW_3)]
+SHAPE_SLIPS_3 = {"stride": out_shape(stride=1), "padding": out_shape(ph=0, pw=0), "channels": out_shape(c=C_IN_3),
+                 "one side": [C_OUT_3, (H_3 + PH_3 - KH_3) // S_3 + 1, (W_3 + PW_3 - KW_3) // S_3 + 1],
+                 "padding swapped": out_shape(ph=PW_3, pw=PH_3), "kernel swapped": out_shape(kh=KW_3, kw=KH_3),
+                 "order": SHAPE_3[1:] + SHAPE_3[:1]}
 
 
 def macs(rows, cols, c_out=C_OUT_3, c_in=C_IN_3):
     """One multiplication-addition per weight and per output position."""
-    return rows * cols * c_out * c_in * KS_3 * KS_3
+    return rows * cols * c_out * c_in * KH_3 * KW_3
 
 
 MACS_3 = macs(*SHAPE_3[1:])
-NOSTRIDE_3 = macs(positions(H_3, KS_3, 1, p=1), positions(W_3, KS_3, 1, p=1))
-NOPAD_3 = macs(positions(H_3, KS_3, 2), positions(W_3, KS_3, 2))
+NOSTRIDE_3 = macs(*SHAPE_SLIPS_3["stride"][1:])
+NOPAD_3 = macs(*SHAPE_SLIPS_3["padding"][1:])
 NO_CIN_3 = macs(*SHAPE_3[1:], c_in=1)
 WITH_BIAS_3 = SHAPE_3[1] * SHAPE_3[2] * PARAMS_3
-DEPTH_3, POINT_3 = C_IN_3 * (KS_3 * KS_3 + 1), C_OUT_3 * (C_IN_3 + 1)
+DEPTH_3, POINT_3 = C_IN_3 * (KH_3 * KW_3 + 1), C_OUT_3 * (C_IN_3 + 1)
 SEP_3 = DEPTH_3 + POINT_3
 NO_BIAS_3 = {DEPTH_3 - C_IN_3 + POINT_3, DEPTH_3 + POINT_3 - C_OUT_3, DEPTH_3 - C_IN_3 + POINT_3 - C_OUT_3}
 
 # CP5.3 (3): the stack (k, s, d) of four sliding sums
-STACK_3 = [(3, 1, 1), (2, 2, 1), (3, 1, 2), (3, 2, 1)]
+STACK_3 = [(2, 1, 1), (4, 3, 1), (2, 1, 3), (3, 4, 1)]
 
 
 def field(stack, dilation=True, own_stride=False):
@@ -346,9 +368,11 @@ RF_3 = field(STACK_3)
 assert max(read_cases(STACK_3)) - min(read_cases(STACK_3)) + 1 == RF_3 and min(read_cases(STACK_3, 1)) == STRIDE_3
 KSUM_3 = sum(k for k, _, _ in STACK_3)                     # the sizes of the kernels added
 SPANS_3 = sum(d * (k - 1) + 1 for k, _, d in STACK_3)      # the spans of the windows added
+NOJUMP_3 = 1 + sum(d * (k - 1) for k, _, d in STACK_3)     # the strides of the previous layers forgotten
+NOJUMP_NODIL_3 = 1 + sum(k - 1 for k, _, _ in STACK_3)     # the strides and the dilations forgotten
 
-# CP5.4: five sensors around a pipe, indices modulo 5
-X_4, H_4, EPS_4 = np.array([1, 3, -2, 0, 2]), np.array([3, -1, 2, -2, 1]), Fraction("0.2")
+# CP5.4: five strain gauges on the five blades of a rotor, indices modulo 5; the largest INCREASE of z_1
+X_4, H_4, EPS_4 = np.array([1, 3, -2, 0, 2]), np.array([1, -4, 2, 3, -2]), Fraction("0.2")
 N_4 = len(X_4)
 CIRC_4 = np.array([[H_4[(i - j) % N_4] for j in range(N_4)] for i in range(N_4)])
 Z_4 = CIRC_4 @ X_4
@@ -372,13 +396,13 @@ assert sum(v == max(VERTICES_4)[0] for v, _ in VERTICES_4) == 1   # a unique ver
 WORST_TWO_4 = float(EPS_4) * float(np.linalg.norm(ROW_4))
 H_SIGNS_4 = [EPS_4 * int(np.sign(h)) for h in H_4]
 ROW0_SIGNS_4 = [EPS_4 * int(np.sign(r)) for r in CIRC_4[0]]
+assert H_SIGNS_4 == ROW0_SIGNS_4                           # two mistakes, one value: one message
 SCALED_4 = [EPS_4 * int(r) for r in ROW_4]                 # ε r: out of the cube
 L2_4 = float(EPS_4) * float(np.linalg.norm(ROW_4))
-MAX_H_4 = float(EPS_4 * int(np.abs(H_4).max()))
-SIGNED_SUM_4 = float(EPS_4 * int(H_4.sum()))
-assert MAX_H_4 == SIGNED_SUM_4                             # two mistakes, one value: one message
+MAX_H_4 = float(EPS_4 * int(np.abs(H_4).max()))           # the largest weight only
+SIGNED_SUM_4 = float(EPS_4 * int(H_4.sum()))               # the weights with their signs
 
-# CP5.5: two lakes, x_(t+1) = A x_t + B u_t, y_t = C x_t
+# CP5.5: a drug between blood and tissues, x_(t+1) = A x_t + B u_t, y_t = C x_t
 A_5, B_5, C_5 = fmat([["0.5", "0.1"], ["0.3", "0.7"]]), [1, 0], [0, 1]
 X0_5, U_5 = [Fraction(20), Fraction(4)], [6, 0, 2]
 
@@ -399,16 +423,13 @@ XS_LATE_5 = run_5(inputs=U_5[1:])                          # u_(t+1) used for x_
 LAM_5 = eig2(A_5)                                          # 2/5 and 4/5
 VEC_5 = {lam: [1, (lam - A_5[0][0]) / A_5[0][1]] for lam in LAM_5}   # (1, v): the first row of (A − λI) v = 0
 assert all(fmatvec(A_5, v) == [lam * c for c in v] for lam, v in VEC_5.items())
-COEF_5 = np.linalg.solve(np.array([floats(VEC_5[lam]) for lam in LAM_5]).T, floats(X0_5))
-FREE10_5 = np.linalg.matrix_power(np.array(floats(A_5)), 10) @ floats(X0_5)
-assert np.allclose(FREE10_5, floats(fmatvec(fpow(A_5, 10), X0_5)))
-assert np.allclose(FREE10_5, sum(c * float(lam) ** 10 * np.array(floats(VEC_5[lam])) for c, lam in zip(COEF_5, LAM_5)))
-LAM_MAX_5 = max(LAM_5)
-SCALED_5 = [float(LAM_MAX_5) ** 10 * float(x) for x in X0_5]          # x_0 taken for an eigenvector
-DOMINANT_5 = COEF_5[1] * float(LAM_MAX_5) ** 10 * np.array(floats(VEC_5[LAM_MAX_5]))
-X10_5 = floats(run_5(steps=10)[10])                        # x_10, the inputs included
-FREE9_5 = floats(fmatvec(fpow(A_5, 9), X0_5))
+assert np.allclose(sorted(np.linalg.eigvals(np.array(floats(A_5))).real), floats(LAM_5))
+DIAG_5 = sorted([A_5[0][0], A_5[1][1]])                    # the diagonal coefficients
+NEG_5 = sorted(-lam for lam in LAM_5)                      # the roots of λ² + tr λ + det
+COEF_B_5 = np.linalg.solve(np.array([floats(VEC_5[lam]) for lam in LAM_5]).T, floats(B_5))   # B on the eigenvectors
 H_5 = [sum(c * v for c, v in zip(C_5, fmatvec(fpow(A_5, k), B_5))) for k in range(20)]
+assert np.allclose(floats(H_5), [sum(b * float(lam) ** k * float(VEC_5[lam][1]) for b, lam in zip(COEF_B_5, LAM_5))
+                                 for k in range(20)])      # h_k = Σ (coefficient of B) λ^k (C v)
 H12_5 = [fpow(A_5, k)[0][1] for k in range(20)]           # the coefficient (1, 2) of A^k
 FIRST_5 = [fmatvec(fpow(A_5, k), B_5)[0] for k in range(20)]          # C = (1 0): the other coordinate
 GEOM_5 = LAM_5[1] ** 15 - LAM_5[0] ** 15                   # B taken with coefficients 1 on the eigenvectors
@@ -425,28 +446,31 @@ assert len(set(COLUMNS_5)) == 1                            # (1, 1) A = c (1, 1)
 FACTOR_5 = COLUMNS_5[0]
 TOTAL_EQ_5 = 4 / (1 - FACTOR_5)                            # the total at equilibrium
 
-# CP5.6: M, of trace 1 and determinant 1/2
-M_6 = np.array([[0.5, -1], [0.25, 0.5]])
-MF_6 = fmat([["0.5", "-1"], ["0.25", "0.5"]])
+# CP5.6: M, of trace 3/2 and determinant 3/4
+M_6 = np.array([[0, -1], [0.75, 1.5]])
+MF_6 = fmat([["0", "-1"], ["0.75", "1.5"]])
 EIG_6 = np.linalg.eigvals(M_6)
 LAM_6 = complex(EIG_6[np.argmax(EIG_6.imag)])
 RHO_6 = float(np.abs(EIG_6).max())
 assert abs(RHO_6 ** 2 - np.linalg.det(M_6)) < 1e-12        # two conjugate eigenvalues: |λ|² = λ λ̄ = det
 THETA_6 = float(np.angle(LAM_6))
-M2_6, M4_6 = fpow(MF_6, 2), fpow(MF_6, 4)
-assert fpow(MF_6, 8) == [[Fraction(1, 16), 0], [0, Fraction(1, 16)]]   # (√2 M)^8 = 16 M^8 = I
-SQUARED_6 = [[x * x for x in row] for row in MF_6]         # each coefficient squared
-SQUARED2_6 = [[x * x for x in row] for row in M2_6]
+DET_6 = MF_6[0][0] * MF_6[1][1] - MF_6[0][1] * MF_6[1][0]
+TR_6 = MF_6[0][0] + MF_6[1][1]
+assert abs(LAM_6.real - float(TR_6 / 2)) < 1e-12
+M2_6, M3_6, M6_6 = fpow(MF_6, 2), fpow(MF_6, 3), fpow(MF_6, 6)
+assert M6_6 == [[-DET_6 ** 3, 0], [0, -DET_6 ** 3]]        # six steps of π/6: a half-turn, and a factor |λ|⁶
+assert fpow(MF_6, 12) == [[DET_6 ** 6, 0], [0, DET_6 ** 6]]   # ((2/√3) M)^12 = (4/3)^6 M^12 = I: bounded powers
+CUBED_6 = [[x ** 3 for x in row] for row in MF_6]          # each coefficient cubed
 N1_6, NINF_6, N2_6 = (float(np.linalg.norm(M_6, o)) for o in (1, np.inf, 2))
 assert N1_6 == float(norm_1(MF_6)) and NINF_6 == float(norm_inf(MF_6))
-SIGNED_6 = [max(float(sum(c)) for c in zip(*MF_6)), max(float(sum(r)) for r in MF_6)]
+SIGNED_6 = [max(float(sum(c)) for c in zip(*MF_6)), max(float(sum(r)) for r in MF_6)]   # the signs kept
 SMALLEST_6 = [min(float(sum(abs(x) for x in c)) for c in zip(*MF_6)), min(float(sum(abs(x) for x in r)) for r in MF_6)]
-assert SIGNED_6 == SMALLEST_6                              # two mistakes, one value: one message
 SV_6 = np.linalg.svd(M_6, compute_uv=False)
 assert abs(SV_6[0] - N2_6) < 1e-12
 GRAM_MAX_6 = float(np.linalg.eigvalsh(M_6.T @ M_6)[-1])
 FROB_6 = float(np.linalg.norm(M_6))
-CODES_6 = [behaviour(M_6), behaviour(math.sqrt(2) * M_6)]
+SCALE_6 = 2 / math.sqrt(3)
+CODES_6 = [behaviour(M_6), behaviour(SCALE_6 * M_6)]
 
 # CP5.7 (1): f(x, y) = (0.5 x + y², x − 0.5 y) from p_0 = (2, 1)
 HALF_7 = Fraction(1, 2)
@@ -557,29 +581,7 @@ I_MINUS_10 = [[int(i == j) - A_10[i][j] for j in range(2)] for i in range(2)]
 LIMIT_10 = sum(c * v for c, v in zip(C_10, fmatvec(finv2(I_MINUS_10), B_10)))
 assert abs(float(sum(H_10)) - float(LIMIT_10)) < 1e-8      # also the sum of the impulse response
 LIMIT_T_10 = sum(c * v for c, v in zip(C_10, fmatvec(finv2(ftranspose(I_MINUS_10)), B_10)))
-PARTIAL_10 = sum(H_10[:5])
-# A(γ) = [[γ, b], [c, d]]: det = d γ − b c, tr = γ + d; |det| < 1 and |tr| < 1 + det (M19 §6)
-(_, BB_10), (CC_10, DD_10) = A_10
-GAMMA_DET_10 = (1 + BB_10 * CC_10) / DD_10                 # d γ − b c < 1
-GAMMA_TR_10 = (1 - DD_10 - BB_10 * CC_10) / (1 - DD_10)    # γ + d < 1 + d γ − b c
-GAMMA_10 = min(GAMMA_DET_10, GAMMA_TR_10)
-
-
-def a_gamma(gamma):
-    return [[gamma, BB_10], [CC_10, DD_10]]
-
-
-assert rho(a_gamma(GAMMA_10 - Fraction(1, 10 ** 6))) < 1 < rho(a_gamma(GAMMA_10 + Fraction(1, 10 ** 6)))
-assert all(rho(a_gamma(g)) < 1 for g in np.linspace(float(GAMMA_10) - 2, float(GAMMA_10) - 1e-6, 400)
-           if g > -1.125 + 1e-6)
-GAMMA_SLIPS_10 = {"trace only": GAMMA_TR_10, "real part": 2 - DD_10, "bc forgotten": 1 / DD_10,
-                  "bc sign": (1 - BB_10 * CC_10) / DD_10}
-A_EDGE_10 = a_gamma(GAMMA_10)
-DET_EDGE_10 = A_EDGE_10[0][0] * A_EDGE_10[1][1] - A_EDGE_10[0][1] * A_EDGE_10[1][0]
-TR_EDGE_10 = A_EDGE_10[0][0] + A_EDGE_10[1][1]
-assert DET_EDGE_10 == 1 and TR_EDGE_10 ** 2 < 4               # two distinct conjugate eigenvalues of modulus 1
-CODE_10 = behaviour(A_EDGE_10)
-assert CODE_10 == 2'''
+PARTIAL_10 = sum(H_10[:5])'''
 
 PAPER = [
     Paper("CP5.1", "Convolution de deux suites, corrélation croisée et matrice de Toeplitz", [
@@ -632,13 +634,13 @@ PAPER = [
          '"une fenêtre lit k cases, sa première case comprise": UNREAD_SHORT_2, "compte à partir de la dernière '
          'case lue par la dernière fenêtre, pas à partir du début d\'une fenêtre suivante, qui n\'existe pas": '
          'UNREAD_STEP_2}'),
-        ("d", "the lengths, as a list of integers", "LENGTHS_2",
+        ("d", "the window lengths k, as a list of integers", "WINDOWS_2",
          'ordered=False, mistakes={"le nombre de positions est la partie entière plus 1": NO_ONE_2, '
          '"une position existe quand la dernière case de sa fenêtre, si + k − 1, reste dans le signal : vérifie le '
          '− 1 de la formule": NO_MINUS_2, "la question demande la liste de toutes les longueurs, pas seulement les '
-         'deux bornes": [LENGTHS_2[0], LENGTHS_2[-1]], "la partie entière confond plusieurs longueurs : donne-les '
-         'toutes": [LENGTHS_2[0]], "plusieurs longueurs donnent ce nombre de positions : la question les demande '
-         'toutes": [LENGTHS_2[-1]]}'),
+         'deux bornes": [WINDOWS_2[0], WINDOWS_2[-1]], "la partie entière confond plusieurs longueurs : donne-les '
+         'toutes": [WINDOWS_2[0]], "plusieurs longueurs donnent ce nombre de positions : la question les demande '
+         'toutes": [WINDOWS_2[-1]]}'),
         ("e", "a list of 3 integers", "SAME_2",
          'mistakes={"TensorFlow et Keras mettent le zéro en trop à la fin": [OUT_2, SAME_2[2], SAME_2[1]], '
          '"avec un pas, le padding « même taille » ne vaut pas k − 1 zéros : il en faut juste assez pour que la '
@@ -655,9 +657,7 @@ PAPER = [
         ("h", "the different values, as a list of integers", "COUNTS_2",
          'ordered=False, mistakes={"quand s ne divise pas k, les cases intérieures ne reçoivent pas toutes le même '
          'nombre de tampons : donne toutes les valeurs": [COUNTS_2[0]], "les cases intérieures ne reçoivent pas '
-         'toutes le même nombre de tampons quand s ne divise pas k : donne chacune des valeurs": [COUNTS_2[-1]], '
-         '"k/s n\'est un nombre de tampons que quand s divise k : compte les tampons qui couvrent une case": '
-         '[10 / 4]}'),
+         'toutes le même nombre de tampons quand s ne divise pas k : donne chacune des valeurs": [COUNTS_2[-1]]}'),
     ]),
     Paper("CP5.3", "Une grille filtrée par un noyau séparable : paramètres, coût et champ récepteur", [
         ("a", "[a, b], a list of 2 lists", "[ints(A_3), ints(B_3)]",
@@ -667,33 +667,44 @@ PAPER = [
          'mistakes={"une corrélation croisée ne retourne pas le noyau : Y_(i,j) = Σ K_(u,v) G_(i+u, j+v)": '
          'ints(CONV_3), "u est l\'indice de ligne : K_(u,v) multiplie la case située u lignes plus bas et v '
          'colonnes plus à droite": ints(TRANSPOSED_3)}'),
-        ("c", "a list of 2 integers", "[DIRECT_3, PASSES_3]",
-         'mistakes={"la passe verticale doit fournir à la passe horizontale toutes les colonnes qu\'elle lit, pas '
-         'seulement celles de la sortie": [DIRECT_3, NARROW_3], "la question demande le total pour toute la sortie, '
-         'pas le nombre par valeur": [K_3.size, len(A_3) + len(B_3)], "l\'ordre demandé : en direct, puis en deux '
-         'passes": [PASSES_3, DIRECT_3]}'),
-        ("d", "an integer", "int(CONV_3[0, 0])",
-         'mistakes={"la convolution 2D retourne le noyau, contrairement à la corrélation croisée": int(Y_3[0, 0]), '
-         '"la convolution 2D retourne le noyau selon les deux axes : un demi-tour": ONE_AXIS_3}'),
+        ("c", "a list of 2 integers", "[H_FIRST_3, V_FIRST_3]",
+         'mistakes={"vérifie l\'ordre de ta liste : d\'abord le calcul qui commence par la passe horizontale": '
+         '[V_FIRST_3, H_FIRST_3], "la première passe doit fournir à la seconde toutes les valeurs qu\'elle lit, pas '
+         'seulement celles des lignes ou des colonnes de la sortie": [NARROW_3, NARROW_3], "quand la passe verticale '
+         'vient en premier, elle doit fournir toutes les colonnes que lit la passe horizontale": '
+         '[H_FIRST_3, NARROW_3], "quand la passe horizontale vient en premier, elle doit fournir toutes les lignes '
+         'que lit la passe verticale": [NARROW_3, V_FIRST_3], "compte les valeurs que calcule chaque passe, dans '
+         'chacun des deux ordres : les deux calculs ne coûtent pas autant": [DIRECT_3, DIRECT_3]}'),
+        ("d", "a list of 3 integers", "SHAPE_3",
+         'mistakes={"avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions": '
+         'SHAPE_SLIPS_3["stride"], "le padding (1 en hauteur, 2 en largeur) s\'ajoute de chaque côté avant de compter '
+         'les positions": SHAPE_SLIPS_3["padding"], "la sortie a un canal par filtre": SHAPE_SLIPS_3["channels"], '
+         '"le padding s\'ajoute des deux côtés de chaque axe : en haut et en bas, à gauche et à droite": '
+         'SHAPE_SLIPS_3["one side"], "le padding vaut 1 en hauteur (le long des lignes) et 2 en largeur (le long des '
+         'colonnes)": SHAPE_SLIPS_3["padding swapped"], "un noyau 3 × 5 a 3 lignes et 5 colonnes : 3 en hauteur, 5 en '
+         'largeur": SHAPE_SLIPS_3["kernel swapped"], "la forme demandée est (C, H, W) : les canaux d\'abord": '
+         'SHAPE_SLIPS_3["order"]}'),
         ("e", "an integer", "PARAMS_3",
          'mistakes={"chaque canal de sortie a un biais": PARAMS_3 - C_OUT_3, '
          '"un biais par canal de sortie, pas par canal d\'entrée": PARAMS_3 - C_OUT_3 + C_IN_3}'),
         ("f", "an integer", "MACS_3",
          'mistakes={"avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions": NOSTRIDE_3, '
-         '"le padding p = 1 ajoute une ligne et une colonne de zéros de chaque côté avant de compter les '
-         'positions": NOPAD_3, "chaque noyau de sortie a C_in × k_h × k_w poids, un par canal d\'entrée": NO_CIN_3, '
-         '"un biais s\'ajoute sans multiplication : le coût compte une multiplication-addition par poids": '
-         'WITH_BIAS_3}'),
+         '"le padding s\'ajoute de chaque côté avant de compter les positions de sortie": NOPAD_3, "chaque noyau de '
+         'sortie a C_in × k_h × k_w poids, un par canal d\'entrée": NO_CIN_3, "un biais s\'ajoute sans '
+         'multiplication : le coût compte une multiplication-addition par poids": WITH_BIAS_3}'),
         ("g", "an integer", "SEP_3",
          'mistakes={"chacune des deux convolutions a un biais par canal de sortie": NO_BIAS_3}'),
         ("h", "a list of 2 integers", "[RF_3, STRIDE_3]",
-         'mistakes={"un étage dilaté ajoute d(k − 1) cases de son entrée, pas k − 1": '
-         '[field(STACK_3, dilation=False), STRIDE_3], "additionner les tailles des noyaux oublie les pas : les pas '
-         'des étages précédents multiplient ce qu\'ajoute chaque étage": [KSUM_3, STRIDE_3], "additionner les '
-         'étendues des fenêtres oublie les pas, et chaque étage n\'ajoute que d(k − 1) cases de son entrée": '
-         '[SPANS_3, STRIDE_3], "le pas total est le produit des pas, pas leur somme": '
-         '[RF_3, sum(s for _, s, _ in STACK_3)], "un pas ne change pas la contribution de son propre étage : seuls '
-         'les pas des étages précédents la multiplient": [field(STACK_3, own_stride=True), STRIDE_3]}'),
+         'mistakes={"un étage dilaté ajoute d(k − 1) fois le produit des pas précédents, pas k − 1 fois": '
+         '[field(STACK_3, dilation=False), STRIDE_3], "chaque étage ajoute d(k − 1) cases de son entrée, et une case '
+         'de son entrée vaut le produit des pas précédents en cases du signal d\'origine": [NOJUMP_NODIL_3, STRIDE_3], '
+         '"une case de l\'entrée d\'un étage vaut le produit des pas précédents en cases du signal d\'origine": '
+         '[NOJUMP_3, STRIDE_3], "additionner les tailles des noyaux oublie les pas : les pas des étages précédents '
+         'multiplient ce qu\'ajoute chaque étage": [KSUM_3, STRIDE_3], "additionner les étendues des fenêtres oublie '
+         'les pas, et chaque étage n\'ajoute que d(k − 1) cases de son entrée": [SPANS_3, STRIDE_3], "le pas total '
+         'est le produit des pas, pas leur somme": [RF_3, sum(s for _, s, _ in STACK_3)], "un pas ne change pas la '
+         'contribution de son propre étage : seuls les pas des étages précédents la multiplient": '
+         '[field(STACK_3, own_stride=True), STRIDE_3]}'),
     ]),
     Paper("CP5.4", "Équivariance, matrice circulante et le pire cas d'une perturbation bornée", [
         ("a", "a list of 5 integers", "ints(Z_4)",
@@ -706,20 +717,20 @@ PAPER = [
          '"le coefficient (0, j) vaut h_((0−j) mod n) : le retourné circulaire n\'est pas le simple renversement": '
          'ints(H_4[::-1])}'),
         ("c", "a list of 5 integers", "ints(ZP2_4)",
-         'mistakes={"décaler l\'entrée d\'une convolution circulaire décale sa sortie d\'autant : c\'est '
-         'l\'équivariance": ints(Z_4), "(Px)ᵢ = x_((i−1) mod n) : P pousse les valeurs vers les indices '
-         'croissants": ints(BACK_4), "P² décale deux fois": ints(ONCE_4)}'),
+         'mistakes={"décaler l\'entrée d\'une convolution circulaire laisse-t-il sa sortie à sa place ?": ints(Z_4), '
+         '"(Px)ᵢ = x_((i−1) mod n) : P pousse les valeurs vers les indices croissants": ints(BACK_4), '
+         '"P² décale deux fois": ints(ONCE_4)}'),
         ("d", "a list of 5 numbers", "floats(DELTA_4)",
-         'decimals=2, mistakes={"l\'écart sur z₁ est le produit scalaire de δ avec une ligne de circ(h), pas avec h":'
-         ' floats(H_SIGNS_4), "la sortie z₁ vient de la ligne 1 de circ(h) : les lignes sont numérotées à partir de '
-         '0": floats(ROW0_SIGNS_4), "ce δ rend l\'écart le plus négatif possible : la question cherche le plus grand '
-         'écart z₁(x + δ) − z₁(x)": floats([-d for d in DELTA_4]), "chaque |δᵢ| doit rester au plus 0,2 : ce δ sort '
-         'des tolérances": floats(SCALED_4)}'),
+         'decimals=2, mistakes={"le changement de z₁ est le produit scalaire de δ avec la ligne 1 de circ(h) (les '
+         'lignes sont numérotées à partir de 0), pas avec h": floats(H_SIGNS_4), "on cherche le changement le plus '
+         'grand vers le haut : z₁ doit augmenter": floats([-d for d in DELTA_4]), "chaque |δᵢ| doit rester au plus '
+         '0,2 : ce δ sort des tolérances": floats(SCALED_4)}'),
         ("e", "a number", "float(WORST_INF_4)",
-         'decimals=4, mistakes={"chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, et aucun '
-         'terme n\'en compense un autre": MAX_H_4, "ici chaque coordonnée de δ est bornée séparément '
-         '(|δᵢ| ≤ 0,2) : ce n\'est pas la boule L2": {L2_4, round(L2_4, 3)}, "le plus grand écart est positif : '
-         'δ = 0 donne déjà un écart nul": -float(WORST_INF_4)}'),
+         'decimals=4, mistakes={"chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, pas '
+         'seulement le plus grand": MAX_H_4, "aucun terme ne doit en compenser un autre : le signe de chaque δᵢ se '
+         'choisit séparément": SIGNED_SUM_4, "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce '
+         'n\'est pas la boule L2": {L2_4, round(L2_4, 3)}, "une augmentation est positive : δ = 0 donne déjà un '
+         'changement nul": -float(WORST_INF_4)}'),
         ("f", "a number (3 decimals)", "WORST_TWO_4",
          'decimals=3, mistakes={"la contrainte porte cette fois sur ‖δ‖₂ : δ ne peut plus prendre ±0,2 sur chaque '
          'coordonnée à la fois": float(WORST_INF_4), "la norme L2 est la racine carrée de la somme des carrés": '
@@ -729,18 +740,18 @@ PAPER = [
     Paper("CP5.5", "Une récurrence avec entrée : solution et réponse impulsionnelle", [
         ("a", "a list of 2 numbers", "floats(XS_5[2])",
          'decimals=4, mistakes={"en convention colonne, la ligne i de A donne la coordonnée i de A xₜ": '
-         'floats(XS_T_5[2]), "le rejet u₀ entre dans x₁ = A x₀ + B u₀": floats(XS_NO_U0_5[2]), "l\'entrée uₜ sert '
-         'à calculer xₜ₊₁, pas xₜ": floats(XS_LATE_5[2]), "la question demande x₂ : deux pas depuis '
+         'floats(XS_T_5[2]), "la perfusion u₀ entre dans x₁ = A x₀ + B u₀": floats(XS_NO_U0_5[2]), "l\'entrée uₜ '
+         'sert à calculer xₜ₊₁, pas xₜ": floats(XS_LATE_5[2]), "la question demande x₂ : deux pas depuis '
          'x₀": floats(XS_5[1])}'),
         ("b", "a list of 2 numbers", "floats(XS_5[3])",
          'decimals=4, mistakes={"chaque pas ajoute B uₜ, pour chaque entrée reçue": floats(fmatvec(A_5, XS_5[2])), '
          '"en convention colonne, la ligne i de A donne la coordonnée i de A xₜ": floats(XS_T_5[3]), '
          '"l\'entrée uₜ sert à calculer xₜ₊₁, pas xₜ": floats(XS_LATE_5[3])}'),
-        ("c", "a list of 2 numbers (3 decimals)", "FREE10_5.tolist()",
-         'decimals=3, mistakes={"x₀ n\'est pas un vecteur propre de A : écris-le sur les vecteurs propres avant '
-         'd\'élever à la puissance": SCALED_5, "les deux composantes propres comptent : la plus petite est faible, '
-         'mais pas négligeable à 3 décimales": DOMINANT_5.tolist(), "la réponse libre ne contient pas les rejets : '
-         'seulement Aᵗx₀": X10_5, "A¹⁰x₀ demande dix produits par A": FREE9_5}'),
+        ("c", "a list of 2 numbers, in increasing order", "floats(LAM_5)",
+         'decimals=4, mistakes={"les valeurs propres d\'une matrice non triangulaire ne sont pas ses coefficients '
+         'diagonaux : résous λ² − tr(A) λ + det(A) = 0": floats(DIAG_5), "vérifie les signes du polynôme '
+         'caractéristique λ² − tr(A) λ + det(A)": floats(NEG_5), "la question demande l\'ordre croissant": '
+         'floats(LAM_5[::-1])}'),
         ("d", "a list of 4 numbers", "floats(H_5[:4])",
          'decimals=4, mistakes={"la réponse impulsionnelle commence à h₀ = C B": floats(H_5[1:5]), '
          '"dans hₖ = C Aᵏ B, B choisit une colonne de Aᵏ et C une ligne : vérifie lesquelles": floats(H12_5[:4]), '
@@ -750,13 +761,13 @@ PAPER = [
          '"écris B sur les vecteurs propres de A : ses coefficients sur ces vecteurs ne valent pas 1": '
          'float(GEOM_5)}'),
         ("f", "a number", "float(FORCED_5)",
-         'decimals=4, mistakes={"la part due aux rejets est la réponse forcée ; la réponse libre vient de x₀": '
+         'decimals=4, mistakes={"la part due à la perfusion est la réponse forcée ; la réponse libre vient de x₀": '
          'float(FREE_Y3_5), "y₃ contient aussi la réponse libre : la question n\'en demande qu\'une part": '
          'float(XS_5[3][1]), "l\'entrée uₖ est portée par A^(t−1−k) jusqu\'à xₜ": float(CARRIED_5)}'),
         ("g", "a list of 2 numbers", "floats(EQ_5)",
          'decimals=4, mistakes={"l\'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système est I − A, pas sa '
-         'transposée": floats(EQ_T_5), "x⋆ donne la quantité dans chaque lac : vérifie x⋆ = A x⋆ + B u, coordonnée '
-         'par coordonnée": floats([TOTAL_EQ_5, TOTAL_EQ_5])}'),
+         'transposée": floats(EQ_T_5), "ta réponse donne-t-elle à chaque compartiment la quantité totale ? Résous '
+         '(I − A) x⋆ = B u coordonnée par coordonnée": floats([TOTAL_EQ_5, TOTAL_EQ_5])}'),
         ("h", "a number", "float(FACTOR_5)",
          'decimals=4, mistakes={"ce facteur vaut pour tout xₜ : lis-le sur les sommes des colonnes de A": '
          'float(min(LAM_5)), "la trace est la somme des valeurs propres, pas le facteur appliqué à la quantité '
@@ -764,39 +775,41 @@ PAPER = [
          'n\'en est que le complément": float(1 - FACTOR_5)}'),
     ]),
     Paper("CP5.6", "Valeurs propres complexes, rayon spectral, normes et croissance transitoire", [
-        ("a", COMPLEX, "[LAM_6.real, LAM_6.imag]",
+        ("a", COMPLEX + " (4 decimals)", "[LAM_6.real, LAM_6.imag]",
          'decimals=4, mistakes={"la question demande la valeur propre de partie imaginaire positive": '
          '[LAM_6.real, -LAM_6.imag], "λ = (tr ± √Δ)/2 : vérifie la division par 2": [2 * LAM_6.real, '
          '2 * LAM_6.imag]}'),
         ("b", "a number (4 decimals)", "RHO_6",
          'decimals=4, mistakes={"le module de a + ib est √(a² + b²) : il tient compte de la partie imaginaire, et '
-         'c\'est une racine carrée": {LAM_6.real, float(np.linalg.det(M_6))}}'),
+         'c\'est une racine carrée": {float(TR_6 / 2), float(DET_6)}}'),
         ("c", ANGLE, "as_pi(THETA_6)",
-         'kind="exact", angle=True, mistakes={"la question demande l\'argument de la valeur propre de partie '
-         'imaginaire positive : il est dans ]0, π[": as_pi(-THETA_6), "ton angle est celui de la valeur propre '
-         'conjuguée : l\'argument de λ, de partie imaginaire positive, est dans ]0, π[": '
-         'as_pi(2 * math.pi - THETA_6), "le cosinus de l\'argument a le signe de la partie réelle": '
-         'as_pi(math.pi - THETA_6)}'),
-        ("d", MATRIX, "floats(M2_6)",
-         'decimals=4, mistakes={"M² est le produit matriciel M × M, pas le carré de chaque coefficient": '
-         'floats(SQUARED_6)}'),
-        ("e", MATRIX, "floats(M4_6)",
+         'kind="exact", angle=True, mistakes={"l\'argument d\'une valeur propre de partie imaginaire positive est '
+         'dans ]0, π[": as_pi(-THETA_6), "cos θ = Re(λ)/|λ| et sin θ = Im(λ)/|λ| : vérifie lequel tu as utilisé": '
+         'as_pi(math.pi / 2 - THETA_6), "ton angle est celui de la valeur propre conjuguée : l\'argument de λ, de '
+         'partie imaginaire positive, est dans ]0, π[": as_pi(2 * math.pi - THETA_6), "le cosinus de l\'argument a '
+         'le signe de la partie réelle": as_pi(math.pi - THETA_6)}'),
+        ("d", MATRIX, "floats(M3_6)",
+         'decimals=4, mistakes={"M³ est le produit matriciel M × M × M, pas le cube de chaque coefficient": '
+         'floats(CUBED_6), "M³ a trois facteurs : multiplie encore une fois par M": floats(M2_6)}'),
+        ("e", MATRIX, "floats(M6_6)",
          'decimals=4, mistakes={"vérifie les signes : fais chaque produit ligne par colonne": '
-         'floats([[-x for x in row] for row in M4_6]), "M⁴ = M² × M² : un produit matriciel, pas un carré '
-         'coefficient par coefficient": floats(SQUARED2_6)}'),
+         'floats([[-x for x in row] for row in M6_6])}'),
         ("f", "a list of 2 numbers", "[N1_6, NINF_6]",
-         'decimals=4, mistakes={"‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes des valeurs absolues, colonne par '
-         'colonne ou ligne par ligne": SIGNED_6}'),
+         'decimals=4, mistakes={"les normes ‖·‖₁ et ‖·‖∞ additionnent les valeurs absolues des coefficients, pas les '
+         'coefficients avec leurs signes": SIGNED_6, "‖·‖₁ prend les sommes de colonnes, ‖·‖∞ les sommes de lignes": '
+         '[NINF_6, N1_6], "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes, colonne par colonne ou ligne par ligne": '
+         'SMALLEST_6}'),
         ("g", "a number (4 decimals)", "N2_6",
          'decimals=4, mistakes={"‖M‖₂ est une valeur singulière : la racine carrée d\'une valeur propre de MᵀM": '
-         'GRAM_MAX_6, "le rayon spectral n\'est pas une norme : ρ(M) ≤ ‖M‖₂, avec égalité pour une matrice '
-         'normale": RHO_6, "la norme de Frobenius n\'est pas la norme induite ‖·‖₂": FROB_6, "‖M‖₂ est la PLUS '
-         'GRANDE valeur singulière": float(SV_6[-1])}'),
+         'GRAM_MAX_6, "le nombre que tu donnes est-il le plus grand facteur d\'allongement ‖M x‖/‖x‖ ? Essaie '
+         'quelques vecteurs": RHO_6, "la norme de Frobenius n\'est pas la norme induite ‖·‖₂": FROB_6, "‖M‖₂ est la '
+         'PLUS GRANDE valeur singulière": float(SV_6[-1])}'),
         ("h", "a list of 2 codes (1, 2 or 3)", "CODES_6",
-         'mistakes={"multiplier une matrice par √2 multiplie le module de ses valeurs propres par √2 : compare le '
-         'nouveau module à 1": [CODES_6[0], 1], "les puissances ne sont pas bornées quand ρ > 1 ; avec ρ = 1 et des '
-         'valeurs propres distinctes, elles restent bornées": [CODES_6[0], 3], "Aᵗ → 0 si et seulement si ρ(A) < 1, même quand une norme de A dépasse 1": '
-         '[2, CODES_6[1]], "le comportement des puissances se lit sur le rayon spectral, pas sur une norme": [2, 3]}'),
+         'mistakes={"multiplier une matrice par 2/√3 multiplie ses valeurs propres par 2/√3 : regarde leur nouveau '
+         'module": [CODES_6[0], 1], "que deviennent les puissances d\'une matrice diagonalisable dont les valeurs '
+         'propres ont un module égal à 1 ?": [CODES_6[0], 3], "Aᵗ → 0 si et seulement si ρ(A) < 1, même quand une '
+         'norme de A dépasse 1": [2, CODES_6[1]], "le comportement des puissances se lit sur le rayon spectral, pas '
+         'sur une norme": [2, 3]}'),
     ]),
     Paper("CP5.7", "Produits de jacobiennes le long d'une trajectoire, et sensibilité à un paramètre utilisé à "
                    "chaque pas", [
@@ -823,10 +836,10 @@ PAPER = [
          '"la jacobienne du pas où β sert ne porte pas son propre effet : seules celles des pas suivants le '
          'portent": float(sum(OWN_7))}'),
         ("f", "a number", "float(DX3_7)",
-         'decimals=4, mistakes={"la question demande un changement de x₃, pas sa dérivée par rapport à β": '
-         'float(S3_7), "un orifice qui laisse sortir plus d\'eau fait-il monter ou baisser le niveau ? Vérifie le '
-         'signe": -float(DX3_7), "c\'est le changement exact ; la question demande l\'approximation au premier '
-         'ordre, par la sensibilité": {EXACT_7, round(EXACT_7, 3)}}'),
+         'decimals=4, mistakes={"ta réponse est-elle un changement de hauteur, en cm, pour la variation de β '
+         'donnée ?": float(S3_7), "un orifice qui laisse sortir plus d\'eau fait-il monter ou baisser le niveau ? '
+         'Vérifie le signe": -float(DX3_7), "c\'est le changement exact ; la question demande l\'approximation au '
+         'premier ordre, par la sensibilité": {EXACT_7, round(EXACT_7, 3)}}'),
     ]),
     Paper("CP5.9", "Corriger une copie : cinq erreurs (les lettres seulement)", [
         ("a", 'the letters, as text (like "ABCDE")', '"ABDEG"', f"mistakes={LETTERS}"),
@@ -844,10 +857,10 @@ PAPER = [
          'float(TR_10 / 2), "un module est une racine carrée : |λ|² = λ λ̄": float(DET_10)}'),
         ("d", "a list of 3 numbers", "NORMS_10",
          'decimals=4, mistakes={"‖A‖₂ est une valeur singulière : la racine carrée d\'une valeur propre de AᵀA": '
-         'NORMS_10[:2] + [float(NORM2_10 ** 2)], "le rayon spectral n\'est pas une norme : ρ(A) ≤ ‖A‖₂, avec '
-         'égalité pour une matrice normale": NORMS_10[:2] + [RHO_10], "‖·‖₁ et ‖·‖∞ prennent la plus grande des '
-         'sommes des valeurs absolues, colonne par colonne ou ligne par ligne": SIGNED_10 + NORMS_10[2:], '
-         '"la norme de Frobenius n\'est pas la norme induite ‖·‖₂": NORMS_10[:2] + [FROB_10]}'),
+         'NORMS_10[:2] + [float(NORM2_10 ** 2)], "ta troisième valeur est-elle le plus grand facteur d\'allongement '
+         '‖A x‖₂/‖x‖₂ ?": NORMS_10[:2] + [RHO_10], "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes des valeurs '
+         'absolues, colonne par colonne ou ligne par ligne": SIGNED_10 + NORMS_10[2:], "la norme de Frobenius '
+         'n\'est pas la norme induite ‖·‖₂": NORMS_10[:2] + [FROB_10]}'),
         ("e", "an integer", "K_10",
          'fractional="K est un nombre de termes : arrondis à l\'entier qui garantit l\'inégalité.", '
          'mistakes={"le plus petit K qui convient doit vérifier l\'inégalité : arrondis vers le haut": K_10 - 1, '
@@ -863,16 +876,6 @@ PAPER = [
          'kind="fraction", simplified=True, mistakes={"l\'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système '
          'est I − A, pas sa transposée": str(LIMIT_T_10), "la limite fait intervenir toute la réponse '
          'impulsionnelle, pas seulement ses premiers termes": str(PARTIAL_10)}'),
-        ("h", FRACTION, "str(GAMMA_10)",
-         'kind="fraction", simplified=True, mistakes={"les deux conditions doivent tenir à la fois : la borne est la '
-         'plus petite de celles qu\'elles donnent": str(GAMMA_SLIPS_10["trace only"]), "le module d\'une valeur '
-         'propre complexe dépend aussi de sa partie imaginaire : la partie réelle ne suffit pas": '
-         'str(GAMMA_SLIPS_10["real part"]), "det = ad − bc : n\'oublie pas le produit des coefficients hors de la '
-         'diagonale": str(GAMMA_SLIPS_10["bc forgotten"]), "det = ad − bc : vérifie le signe du produit des '
-         'coefficients hors de la diagonale": str(GAMMA_SLIPS_10["bc sign"])}'),
-        ("i", CODE, "CODE_10",
-         'choices=[1, 2, 3], mistakes={"à la borne de l\'ensemble des γ stables, ρ = 1 : les puissances ne tendent '
-         'pas vers 0": 1, "des valeurs propres distinctes de module 1 donnent des puissances bornées": 3}'),
     ]),
 ]
 
@@ -937,7 +940,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Reporte chaque réponse de ta feuille : **la valeur** que tu as écrite, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une question que tu n'as pas faite.
 3. Si une cellule s'arrête sur une erreur, « Tout exécuter » s'arrête avec elle : corrige-la, puis relance cette cellule et les suivantes, jusqu'au bilan.
-4. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme la liste de ses lignes (`[[1, -2], [0.5, 3]]`), un nombre complexe $a + ib$ comme la liste `[a, b]` (ou `a + bj`, à la manière de Python) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un angle exact (`"pi/6"`) ; un code de comportement (1, 2 ou 3) s'écrit sans guillemets.
+4. Les formes d'écriture : en Python, le séparateur décimal est un **point** (`2.75`) : une virgule arrête toute la cellule (`0,027`), et aucune réponse de la question n'est vérifiée, ou donne un couple de nombres (`0,75`) ; une liste s'écrit entre crochets (`[-1.5, 4]`), une matrice comme la liste de ses lignes (`[[1, -2], [0.5, 3]]`), un nombre complexe $a + ib$ comme la liste `[a, b]` (ou `a + bj`, à la manière de Python) ; un texte entre guillemets (`"XYZ"`), comme une fraction (`"3/8"`) ou un angle exact (`"pi/5"`) ; un code de comportement (1, 2 ou 3) s'écrit sans guillemets.
 5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
 
 

@@ -6050,15 +6050,15 @@
     "CP5.1c": {
       "decimals": 0,
       "element_hashes": [
-        "bcd9db61d78be40c0c18acec8d1433ead0f19c779931b6ec24dff8eb69d5f62c",
-        "cf9f7b4f1a5c7a7355cbd9436b3e5d3e3aa302686aa04cbfc449b4c4637660b4",
-        "c9782a3a3fb8cee641c05d630c6465d27b491b769221f34fd554958656c96a9b"
+        "364acb3286eebdcc62e8a3ab6ee7cd030d27b9de17c8aed8ff431f5e3cc9a1f6",
+        "3e985ffa85e445f17cf8bc8988cccbaccd6cb7c7f9cd1aa781de98f74c2e8db8",
+        "c8ee3d89d5e4a78eb02daf5fcc4dd6f67ff70959ad4262dc62bb0f5012722723"
       ],
-      "hash": "cf7b6bdabab237496c3a5373c08bd3a51df607f608212711fdba77d896866f02",
+      "hash": "fbff688cbe302d86c2bc934a6496f0ac32d0e03355b2aba8b441d09ee1215323",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "747b4703a89cdb5534e05050b7dc70f490845fd9481fb119625ccb56ab64d946": "la corrélation croisée ne retourne pas le noyau : la fenêtre i calcule Σᵤ wᵤ x_(i+u)"
+        "541e6a17dc0806fdcb8a663e81b482c9344f282edc4afed4d504076fe3fa94ba": "la corrélation croisée ne retourne pas le noyau : la fenêtre i calcule Σᵤ wᵤ x_(i+u)"
       },
       "shape": [
         3
@@ -6068,22 +6068,22 @@
     "CP5.1d": {
       "decimals": 0,
       "element_hashes": [
-        "794677fa171810f1d1f7cece205f9a29048373ccf10992cdd05bbb6e02a6e8aa",
-        "7729ace643a1e327b8ecd589faae2c99cb419e5d2ecdbe3cbf96dec22f382370",
-        "947af30ea53c150191536916427331e9388a0a8c25067b43c9fbb6785baa165b",
-        "eb0f506a4a9827f1a6600f888b629aa4b615ca3554ce2bcf2518285691f4ad34",
-        "85bfeae5f7bd56bd66db1022a37aa47aadd87fa5d24d2bd5b810ff80da637842",
-        "7cc373d3a2053dbbb4d435c5fff169b072fd84e82a58e76647bf30a24cba517e",
+        "03109dbcae6950781148360a6168aff80c29ecbc6ba114ac1a9bc991af527ae0",
+        "143d3acaeeeff102027e17a1f737662539ea657e11c5749bf579583da1d03744",
+        "7f4ef94d986f13703c961bc08e97ce4923421e3b5ceba74e6377556881a55a42",
+        "12083665de578748930ce9468e8aadc431040d4e5f78ae30ee2ea9f9dfc06246",
+        "b20841af19039ad1c71ac554fd1c6c54344a158c6c33cf54d16af2e9ebb540a2",
+        "15b1ba246d5e49bfcbf05c62d38ac2ff6e4624aa2ee9d535d5cd764810e33c59",
         "58ce912238e8843b794e250d8fc938b918a5727e80243db6f57b8e2a08f90b72",
-        "6556018f3100f4b307934fb19466809cc82c1faf6efbb57423e3bff530b6e664",
+        "7acab3906b016b743431b6bf10f5b81656d677c75dba31164c005e4b57915b19",
         "53390808e68b3b9693c035c184712c0c485b98b1819384f0109cfb5a8a09565a"
       ],
-      "hash": "e149024c01a476e8aef3d0a84e540b806b3d6dc94c48317bed4811584ab66d3d",
+      "hash": "d9140fc986d70f068d7bdd92f2f53ad34684a7663841cf40f6545611ebe00d7f",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "973c71bbd71c1060699b49e532c200150a801fb5f7de076f6a05012b0b56fc43": "le mode plein garde toutes les positions où le noyau touche le signal, pas seulement les fenêtres complètes",
-        "f0afa368874ddf5bb3563ecb9c1e1f07300c643ca353f7cfec36d14cfe2d8824": "la convolution retourne le noyau : (x * w)ₘ = Σᵢ xᵢ w_(m−i)"
+        "988076d101f9d2ea3bdacdcfbb07641c801500662d1b8bfc40ab0161f7c378f7": "le mode plein garde toutes les positions où le noyau touche le signal, pas seulement les fenêtres complètes",
+        "c604ba40e0a1f464f74a5a9c16bdcfbea04ceb0a6389cd6132527df0c2b5be54": "la convolution retourne le noyau : (x * w)ₘ = Σᵢ xᵢ w_(m−i)"
       },
       "shape": [
         9
@@ -6093,19 +6093,19 @@
     "CP5.1e": {
       "decimals": 0,
       "element_hashes": [
-        "2c36bc70753a59c96c968d43df176879cef170cf46a68b12a378957592381cf1",
-        "af01dc382879f792ad4199f69b851a92f18cb9f59c84f437fcf8d3b3746a6b47",
-        "9ef3910e9edfbaf0eb2bf32fa19465dbe914f2dee2d0b371e528067b1d1de991",
-        "eeb4353f0a02c9a31b3e3dd7002d7f625c5df0c543314ae1eab7baf1ff64cd73",
-        "1d4b87a954535c0e8f3b2085d9277fc84865e50e97583c2c8fa553b24d381d4d",
+        "13bf9d1666261c91efd2af2257cb1c22a1810c44af025ee001c979b536bfd353",
+        "aeb413cfee309567b40342a8d2809f0dbe29180b0b498a8e1f07b6a005418a34",
+        "7e8640840ee428b4078635ab104581f48285af945ca6e310abbb5f21f49fbee1",
+        "cec869702276f97ff1ce084a4f97dd78f24f88b296d00fd4c58f34d7add24fdf",
+        "8d6eca98d446722fa31e66399afcd78884c30bd59f07c54b087d58d716234f20",
         "124f0904ba55bcccde0e9bb393de454fd1af18f43a6b7b49e292ec081c256941"
       ],
-      "hash": "453e6ff6a86b874fb8fc31ea86aaaebaaed9ddffa48049622648b0196161b03c",
+      "hash": "38659e48fe5f6ea1e896463061a8acf9483a64c12300bc0681737d33447d7c78",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "31e7f382d78109a1ab913c4b2a34f76572b2fc1c03c393496213ee8219d26fd8": "le mode \"same\" de NumPy ne commence pas au début de la convolution pleine : relis la règle de son indice de départ",
-        "6aef85e2992f814defc29bd98c1ec1e7171b1d9f7fc088a541396f4b11240253": "pour un noyau de longueur paire, NumPy enlève une valeur de moins au début qu'à la fin"
+        "a9124e020d61d17e13cd012b20ca7d5a5598080352fe3d894d67bd3039d8e6e3": "le mode \"same\" de NumPy ne commence pas au début de la convolution pleine : relis la règle de son indice de départ",
+        "f7130869097ab0b153b7339002acedb9c484486f8c8c0c39ba379eebba431bca": "pour un noyau de longueur paire, NumPy enlève une valeur de moins au début qu'à la fin"
       },
       "shape": [
         6
@@ -6115,31 +6115,31 @@
     "CP5.1f": {
       "decimals": 0,
       "element_hashes": [
-        "d682277842ddc6a4f8f088d423ff08f851d3c88640ba0974557030bac8e4d6ca",
+        "70472bc4925a8208bb14f6315dddf6f06e201e5fde81a909c970e568001314c2",
         "ca6174d13a6840a34ae2843548519842c15e803bbda498beae1ddfecb971479b",
         "c9b69bb45c53e1cdaf019ccaf0fb8513e5b5dc89575a5049ce3e62543b1bb114",
         "ff74ff1307da3f3484487c880923a621137d633f824393b184150417c4384354",
-        "c4cb259bc188f2dc7ebc25762af08ac054bfaab844d2a5acb06420c4b371ab01",
+        "4fd21ef3ff31c2fd560a7735d72519060c0aa0f5f0e56cabe752effad66b9344",
         "459c4901dd86b9c389d08aab31fee27e9b506671fd862401979e1dbe6572d4aa",
-        "7a697c7db24f743fedf8f62cb24b36262c0072413c97300f15f78457250676b2",
+        "e5d6ccfcf94c3b73c0ac2137cbd08a337e0b0f669b62dec115202254fc684cd3",
         "90397592ad628ce9e8fbc4c5d17a9ebd99ba8de4dd75094003e72b4c9e85756e",
-        "a0b517b2ce834be15d6d9817763ccc274b58cf9719e7de06cc70783847b4bb7c",
+        "13f80979854e2c945dc4f7d4dddd4647fddc4aba6eb82b9c8b606d357af922d0",
         "8610c3eb8c4b9bcf29a04b1e33cf9c2dc0c88893fcda2a23271eeb3e772dbf72",
-        "c3f2f1f3b07c92e9476b578465deb9c7d94790f7f8abcea9c607f06849f16152",
+        "74159efa0011b10063b4eb3a96660c53a5654cd86a9baba2847f62d50efce664",
         "346cb35e05da470d0ac3a9e02ce59b4839f655cc8af204ee5cb9661506832780",
         "c19877c9317169f1ad3e877e62b9d62796e76f655f8861acfbab48c6d1541272",
         "bbbfef5d93802dc38eefc21a6953c8bc5638bebaca1da6bf0cd290eeaa267991",
-        "32df24bc74167eade3be0ec2b2d94d8f665878c206ca64bf67996081cf1c71a9",
+        "2fe309c424a05b049fccd852d7e14ee0360f18bc137506b1bc5631d07fafedef",
         "1e6c40052dd1f15e4904fb96c1e4ac332d49b8e934c3dae51da2ac42e7810292",
         "ebe5906994160c2c4bab8c010263da7f27791ff6330d4839bf235f47d7cf6bb7",
         "255204577845ce89a16f5ad2de68a07b26ae75ec00c1abd97241a2b4bf7aada1"
       ],
-      "hash": "693e245f639f75038bb99936e1bccdbd0481a63efd9c227f822ba58fc50675f9",
+      "hash": "865798068a18522e451db1d51f080f250c018a67934c2b49d2cc4e950db83777",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "3b893f761ddfa8220cf7ba42c1be93205846ce6625827b3fd7fa87f9d94f819a": "la matrice a une ligne par valeur de la sortie et une colonne par valeur de l'entrée",
-        "a8242f2a16ca08311c698748cf07b88ae1721a9fb84891341d5435145a69c19d": "Tᵢⱼ = w_(i−j) : dans une colonne, l'indice du noyau croît avec l'indice de ligne"
+        "745165d98ff33ac66a52acac11ffe45a2a92f5f0e27c14103cc4ad47867df84c": "Tᵢⱼ = w_(i−j) : dans une colonne, l'indice du noyau croît avec l'indice de ligne",
+        "87e5b05f9e3ffb55abd0db5eadf5e22a57b5455320292be0604423c8686bfd38": "la matrice a une ligne par valeur de la sortie et une colonne par valeur de l'entrée"
       },
       "shape": [
         6,
@@ -6163,18 +6163,18 @@
       "element_hashes": [
         "06a77b243187303469601d306a7bdce699e1c58dd601bbdc7f8d36979f034d09",
         "49686d2a1c1297732a3cb0c7f6a282e6cfe6efb7e97fea670af1f73fff74e821",
-        "69b3b4224461843c1a73dee383a77d5c1c661a2ad0df97a04691041a06644906",
+        "be7990f904bfef08b888d384f4be70523aa91cfd2357908fa28f3134eb64add8",
         "e51a4b3fc145f788eeeeb699ac222d38de2b40accc3c819b811b48d568dc4db0",
-        "d98fb4230f047bfa228b38bb12a44893bcb28a0e0e63c598530de916bec11290",
+        "5d62fad7f0715fa6d12e849ab4d820380b5427511ab990c3454afb9a325d4817",
         "efb1853a2b8e15a8bd80b2706bf4d619552416ceb9130e4034e14d790a0ed183"
       ],
-      "hash": "e02c866b8e1ee5f92c8e5b9770e84a2e86a4a1891ae290b9d99a88d993b2e300",
+      "hash": "cbe98033538e4ab1a433b8c6993de3ce04c99ba65769b6430f284b4df957aa44",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "10abcbc4f34d0ddb9281fbc693c0981a175945f02a65e2dbd286c5f205233832": "les lignes sont numérotées à partir de 0 : la ligne 1 est la deuxième",
-        "f1369175b3755eb6f119ffff11024dc3e7df19d727b315fa9784953a6d2d5d3a": "dans une ligne, Tᵢⱼ = w_(i−j) : quand j croît, l'indice du noyau décroît",
-        "f2de3e59679d28bad9526ce6aa1862e7151c60dd3b879cf203e41b04497218a7": "V ne garde que les lignes des fenêtres complètes : sa ligne 1 n'est pas la ligne 1 de la matrice pleine"
+        "57c6b7a98f164c076550a58ffe868d3ec22e51282b2ffaa45fba1d31229be101": "dans une ligne, Tᵢⱼ = w_(i−j) : quand j croît, l'indice du noyau décroît",
+        "b627d16facf3430b5ba31e82c847b42e47eb0a927ab5a098f2a8f5d8ff14d3d3": "les lignes sont numérotées à partir de 0 : la ligne 1 est la deuxième",
+        "bf679d1575b847a06a037c743bf30bf7f1bf8d91fc75652a69f69379a1b9839b": "V ne garde que les lignes des fenêtres complètes : sa ligne 1 n'est pas la ligne 1 de la matrice pleine"
       },
       "shape": [
         6
@@ -6218,14 +6218,14 @@
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.2d": {
-      "hash": "754d8d90c0cb4ae8ff210ea72935b79e70a9baaf54a111a8a9099ce9a81cd9c4",
+      "hash": "702f27d846eddd1944b523d58db95d4304d74b9a0a91a7633e41255cd20a2681",
       "kind": "set",
       "mistakes": {
-        "c53484433718ccfbc4f4e80269cd3c1686f85eb48b8d4572d7e83e6d04624b3f": "la partie entière confond plusieurs longueurs : donne-les toutes",
-        "c68e2303db93e7830385dd9360ea9d6808f70085b893410cad7c480785c0c226": "le nombre de positions est la partie entière plus 1",
-        "d38539e274fa40d2224d037f965541edf5e67e092b8a9d5a59752041dd7a6017": "la question demande la liste de toutes les longueurs, pas seulement les deux bornes",
-        "e81244fc0f7562fdd8c1a08ff425588736c0d4c5b7cece1e99ff14c9b30e0d4d": "une position existe quand la dernière case de sa fenêtre, si + k − 1, reste dans le signal : vérifie le − 1 de la formule",
-        "eaf505c73096a13e6ed7a886555fd178f6b0e3399c28042f8ce639cc90eb584a": "plusieurs longueurs donnent ce nombre de positions : la question les demande toutes"
+        "00a83bc9109ba113cf303973450e8d6a8f71765e27ae493afa89908f358dac30": "la partie entière confond plusieurs longueurs : donne-les toutes",
+        "252c9fc057c59d196e092a038c9449a102014db089d49157f2759caccac83eff": "le nombre de positions est la partie entière plus 1",
+        "491ed565b948ee903a98beb46f847b952df05310a071271ae9d2286009cc7a23": "la question demande la liste de toutes les longueurs, pas seulement les deux bornes",
+        "64452596e9b67e541a7e32f529f5f9736ad41f3a680af52f631279c31e220bc3": "plusieurs longueurs donnent ce nombre de positions : la question les demande toutes",
+        "ce3e1a2f8e5042b5307e563e27d42c1570558e3a420b9e9e20371ae9f64f9c32": "une position existe quand la dernière case de sa fenêtre, si + k − 1, reste dans le signal : vérifie le − 1 de la formule"
       },
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
@@ -6289,12 +6289,11 @@
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.2h": {
-      "hash": "e826d4096f6c3d57e4acb71923e7a2b41360a6572881be00fdf2e276ac44d855",
+      "hash": "66f375471be93508bd1501d77b9a387499e9bb5b17fc9faa0c79c980c116f4fd",
       "kind": "set",
       "mistakes": {
-        "31eb590e82a09953f153300be1539b90551fde18c0cb7627471f82759162ed50": "quand s ne divise pas k, les cases intérieures ne reçoivent pas toutes le même nombre de tampons : donne toutes les valeurs",
-        "32d8e201f11595c8d161921886a6aeda1ab648f7695799b007baac71d6f37d71": "les cases intérieures ne reçoivent pas toutes le même nombre de tampons quand s ne divise pas k : donne chacune des valeurs",
-        "57d7b65fb684a574e00b0c17383981659e01f749db93f1a0a8edd5a2a8abcfd9": "k/s n'est un nombre de tampons que quand s divise k : compte les tampons qui couvrent une case"
+        "32d8e201f11595c8d161921886a6aeda1ab648f7695799b007baac71d6f37d71": "quand s ne divise pas k, les cases intérieures ne reçoivent pas toutes le même nombre de tampons : donne toutes les valeurs",
+        "32e79b7ab8e108f0e84a078ff4f4f82f9335e37e068ab5ba05bc38c81d9ce8d6": "les cases intérieures ne reçoivent pas toutes le même nombre de tampons quand s ne divise pas k : donne chacune des valeurs"
       },
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
@@ -6355,9 +6354,11 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "37855759cc03e689676f675039179275d6e883d6334899d388c41848377e9bb0": "la passe verticale doit fournir à la passe horizontale toutes les colonnes qu'elle lit, pas seulement celles de la sortie",
-        "5f18d627f8c4f880ce30f8b8e1cd7ee59924759ca9c634936cea63e993f4f5bf": "l'ordre demandé : en direct, puis en deux passes",
-        "dd66bddcc2f3d91e8c319bc063dcf02013404b34d0f659309dbf5cf99280d1a7": "la question demande le total pour toute la sortie, pas le nombre par valeur"
+        "37855759cc03e689676f675039179275d6e883d6334899d388c41848377e9bb0": "quand la passe verticale vient en premier, elle doit fournir toutes les colonnes que lit la passe horizontale",
+        "47e325cf8260c9ab3fb02e3c79b3c93bc8c5d61136863b9ecbfe5ce8d8f0f013": "la première passe doit fournir à la seconde toutes les valeurs qu'elle lit, pas seulement celles des lignes ou des colonnes de la sortie",
+        "5f18d627f8c4f880ce30f8b8e1cd7ee59924759ca9c634936cea63e993f4f5bf": "vérifie l'ordre de ta liste : d'abord le calcul qui commence par la passe horizontale",
+        "e5da3d4e61c2e0b7b5cec27fb26683a2110a217e177a9da761b60397df92a78a": "compte les valeurs que calcule chaque passe, dans chacun des deux ordres : les deux calculs ne coûtent pas autant",
+        "ee837061a0f5de755f6c823598c306ed90a8bd50f85985315fcb23348581db23": "quand la passe horizontale vient en premier, elle doit fournir toutes les lignes que lit la passe verticale"
       },
       "shape": [
         2
@@ -6365,49 +6366,61 @@
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.3d": {
-      "hash": "407aa68ce46911e67ea949f91472d5364ebc4d628cf6dd9964c0380c3f65763b",
-      "kind": "int",
-      "magnitude": 1,
+      "decimals": 0,
+      "element_hashes": [
+        "2c54de4d948df73c85722dd0f64f693efc39a3ad03648f291abefeafb1640cba",
+        "8df6677817564d170aa62cb50c2cc1dbfd66d7d2b4a975f6fac3852ce4939fe5",
+        "afa81d71c35124e0a3476df56fa604d93a7ee1b7df1a9f34e3800e897cf08a13"
+      ],
+      "hash": "f1eeac7f7c0fb847dc8b6169791c3fdc4c3da6fe29926e235cb03050916b5fae",
+      "integer": true,
+      "kind": "array",
       "mistakes": {
-        "611119ed69a605f2ab60196c3e9a7b0c500ddb62e02f46e7c5121aa1d26c77cb": "la convolution 2D retourne le noyau, contrairement à la corrélation croisée",
-        "91786e316bb96646cc80a401cefc80555a8d687b1c9c4b9b08211cd51d7dd8ca": "la convolution 2D retourne le noyau selon les deux axes : un demi-tour",
-        "b38f60de269abf59927e7068500dcd2486ccdfb7cfc3e1958818336bead3449d": "la convolution 2D retourne le noyau selon les deux axes : un demi-tour"
+        "0db49f239926f2d4eb271b72dc76ef2ea0b28dd1e64b6be9734323c4b5128904": "le padding (1 en hauteur, 2 en largeur) s'ajoute de chaque côté avant de compter les positions",
+        "3a6e51f1609a0a683c6d3d34dadfdf9327b498ac517cbc698cd050e452d05d3c": "un noyau 3 × 5 a 3 lignes et 5 colonnes : 3 en hauteur, 5 en largeur",
+        "494b808d3ed4d63f2b6a37c398db660b25be57eab85c80dfa07fe18f3f794efa": "la sortie a un canal par filtre",
+        "6176e20df822b02d00fbb5b8022482eb290cf3bfc08fd7facbcd5804018419d7": "le padding vaut 1 en hauteur (le long des lignes) et 2 en largeur (le long des colonnes)",
+        "7efcb89da3a51f2a8ce78a482abce3cf4d1ed0973c546d5d1a5f2e829f33a6e4": "le padding s'ajoute des deux côtés de chaque axe : en haut et en bas, à gauche et à droite",
+        "849a82cdabc0ebf7a6283ed55e74a94ebd0892a3d23f9d82626c2a5cae14332c": "la forme demandée est (C, H, W) : les canaux d'abord",
+        "ba5a553cf735ce8ea5e9c90dd382824f0d6739d441924d02ea0cd9bad367a081": "avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions"
       },
-      "sign": 1,
+      "shape": [
+        3
+      ],
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.3e": {
-      "hash": "608ed2d4f98788b23135479ecfe8d607fee6a00a4ea63e6aeda4ed2f74285ccf",
+      "hash": "15f4004d733b27f27de9eec3a9354765ca2d1bf7fd11d23903469a3260a2a2e2",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "7cffda794752a947a1ed1d186f3f78637283f07e9bf17b7ae45510582472523d": "un biais par canal de sortie, pas par canal d'entrée",
-        "fdce2847dbd2da7237a36e5b577207b54217bd17475ad08bf0b758724903ea13": "chaque canal de sortie a un biais"
+        "1d8b5fa040ae22969e937819e4791739eecae235a2a651c074170d98e60bf17d": "un biais par canal de sortie, pas par canal d'entrée",
+        "9e4ce1c2e0296bbdf570625cf16305755039671270ac4821d03bf4df0c5eaf2b": "chaque canal de sortie a un biais"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.3f": {
-      "hash": "5d99acd7f2a24fcae50dea59c0f48e255ddf7e6563d157f0054e1daf1f0f456c",
+      "hash": "1079d7691a690bc08171dccaae93917c04031a06664ffc56922768a8675a4171",
       "kind": "int",
       "magnitude": 6,
       "mistakes": {
-        "60ff79371816030482d3dadf08c3b4cf8d6679e2865311071038af263756e4c6": "le padding p = 1 ajoute une ligne et une colonne de zéros de chaque côté avant de compter les positions",
-        "7a6325cadb63d1a23f54d4158707085b76c77d861351b4ebed42073af1e1ce6f": "un biais s'ajoute sans multiplication : le coût compte une multiplication-addition par poids",
-        "ca917333c60e4a19bf5ed6ed7210ff865f5248cb246312dd7d16e46f5aaa0f9b": "avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions",
-        "f96eae1ab34c964235d6a7966f21e3191e16995ca456e428eb046b514305849e": "chaque noyau de sortie a C_in × k_h × k_w poids, un par canal d'entrée"
+        "0b924f30fa99c842f918fdc5531a49a8ae8dcae9e0007b6a489f4903236ac670": "avec un pas, la sortie a moins de lignes et de colonnes : compte ses positions",
+        "40cf980c94e3033254c595f144528ec048282492eb8060a6cb9c656b28a38f45": "le padding s'ajoute de chaque côté avant de compter les positions de sortie",
+        "6ef4855fd397b079a84d9c7f013266125f98f425a01b4315f6090fac4339dc25": "chaque noyau de sortie a C_in × k_h × k_w poids, un par canal d'entrée",
+        "96103a9dece9871a806bb13cd883f0b56c312cc5d498994c87762660254518cb": "un biais s'ajoute sans multiplication : le coût compte une multiplication-addition par poids"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.3g": {
-      "hash": "fc7cec6dad8a3a919793420fb3d789ccbab4db0c22714ca26e176fe4ca925583",
+      "hash": "af56e4f78d0f8acf27330c84854caeb7df74a31b3e8d1678075c408655f47c30",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "243160419343792797185de0cc400099d4debcc2bceb629780ad10daef84b7d9": "chacune des deux convolutions a un biais par canal de sortie",
-        "84c0d6e610e59772f279c37530634fb3d300d763dd592fa63eb7ad8606203ab3": "chacune des deux convolutions a un biais par canal de sortie",
-        "9cfbe6cbcda4745dd69d62aa0425ec3a7f52861794a9d83c73e1bd6aafcb1e27": "chacune des deux convolutions a un biais par canal de sortie"
+        "56cfa9e1e1cb27649b4681c13959ba78ca7726ecede7a61943e9fbca93e94c40": "chacune des deux convolutions a un biais par canal de sortie",
+        "c1da5ec1db7fc67fa30c790886b5a1a6bf63037504093885650981350eae5f38": "chacune des deux convolutions a un biais par canal de sortie",
+        "c70f05a7a6afc0d8f57870dc0357403e169b4196df2d068bdf5dba64fea81c2f": "chacune des deux convolutions a un biais par canal de sortie"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
@@ -6415,18 +6428,20 @@
     "CP5.3h": {
       "decimals": 0,
       "element_hashes": [
-        "a9c0dc0fd6e9b5513a1fa23a8ec03dd4aeb995aba280a4294a7cb726bf2bb511",
-        "8f3e5c17d7c71236a1fdaa87e65d710f9aba07fdf0593a9245016acc1edd5892"
+        "5a03aff3dd75db7c4a35179c73c52af4d3a3551da72e745e7df5453df961988b",
+        "ec4154e2ff34caa0a78a4815db2942041be305ddf256d0053c3fbfe996e936c6"
       ],
-      "hash": "39bf46798f96ace3bdc21307dd020aa858d6062e18d099681f6ab4ed17422512",
+      "hash": "fd8dce97c81768230bb09ad9b60127f8a1161125583b0e9c97a041efe4278564",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "002152e39830f197be9a8fc5f53abed5a4981dd7c5d4be2d10c926ddd384850b": "un pas ne change pas la contribution de son propre étage : seuls les pas des étages précédents la multiplient",
-        "20156ec0b0298a9280b48d68b918cc11200d1a3314ae2bd85d8bb4df53f85da7": "un étage dilaté ajoute d(k − 1) cases de son entrée, pas k − 1",
-        "219d448ae8e5b337c4046e2c8bc24f9bdbfbb54076b430c65139a529c040ce66": "additionner les étendues des fenêtres oublie les pas, et chaque étage n'ajoute que d(k − 1) cases de son entrée",
-        "2afa8285f66a2b390f15ecc4d9da4f74194e2acb0f6426baf03599ed1dce3eaf": "le pas total est le produit des pas, pas leur somme",
-        "c782d8043b891c2911d97fe93e4d476098cb1b63ddbd0fb993f472af23869804": "additionner les tailles des noyaux oublie les pas : les pas des étages précédents multiplient ce qu'ajoute chaque étage"
+        "35070b586448eed0f98fa7b775849364c4b1f5bbe2dd66fec9a0de4f6b3b46fe": "additionner les étendues des fenêtres oublie les pas, et chaque étage n'ajoute que d(k − 1) cases de son entrée",
+        "52367692e19dfecb217dfd82e0421f104c4399847221b18781b1b4d315c22039": "une case de l'entrée d'un étage vaut le produit des pas précédents en cases du signal d'origine",
+        "a7422044dec15e89ea063080e57fa9f0c53779c5f8ba0bee5ae6ae43dc51703e": "le pas total est le produit des pas, pas leur somme",
+        "ba99bb1da900867b6fb232f6e73d0ee10a25665367cde28e77c1831ab9c8242b": "un étage dilaté ajoute d(k − 1) fois le produit des pas précédents, pas k − 1 fois",
+        "be38263acd42f0ffbf47186e9501e77a2e62b5dfd2a511cc7559eff6e4980a96": "un pas ne change pas la contribution de son propre étage : seuls les pas des étages précédents la multiplient",
+        "d7606bd0e3f793c321dd2ada99346b1f23dc3d81bb992f3e1102cebe391168c6": "chaque étage ajoute d(k − 1) cases de son entrée, et une case de son entrée vaut le produit des pas précédents en cases du signal d'origine",
+        "e5ee54031a49f74433aa34184c5fe5ee8be73c1849bdf837f37b4c0f70261df6": "additionner les tailles des noyaux oublie les pas : les pas des étages précédents multiplient ce qu'ajoute chaque étage"
       },
       "shape": [
         2
@@ -6436,19 +6451,19 @@
     "CP5.4a": {
       "decimals": 0,
       "element_hashes": [
-        "91beed9f640c31a2a6434827aa33cbacb98bdbd7cf14454a1e61531c0d4499d9",
-        "8ad5828c8aa2474f6d1c6696147c812c5c03be4b9983b190e83c2ded4accd5df",
-        "8b466d33e6415f9395c5f506e47caeefb117987697f656cc8a5fc347964b8798",
-        "d5d4547d5afeb35270ad98cbdde9fc5d41d50cc9b9d0019a94e6aff1c081e5a2",
-        "cf75930dc941a8cfc00adcb09c670a5e81c2398ec4d00838b3a186a6539f6d8a"
+        "76dc2e38c1f297a4df2f511d20f2e724e01f3c85a1af4075d18d3317f7bd93c5",
+        "38bb097af6f7b5dd240963414be28bd18e7d6e2474458d66ae1cb2abcfffb12a",
+        "240476c35233b9ec4b784457764d5d3e740a428cfe7862522fcdf413c6b1182c",
+        "72ce73c3e1f2836f3517729036a2119a1a3883a54c8b204806c2778e259e31f6",
+        "6d152b8470a6b0205c9eae8edd16507fbaf515b32c658f4f4d19b090770ca9c3"
       ],
-      "hash": "c065c641a8e1cdcec56e820cd5bf87b1ae7588cd4c49a81c925bac2249266fe2",
+      "hash": "b04cf577d2db944a463098714badcf4fa358238a664f0df252dff38aec31fe5f",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "f14d9d9093707fb3a8c71e70107b773da2ad15302d594e8fbd5063a759911262": "l'indice de h est (m − i) mod n, pas (m + i) mod n : la convolution retourne le noyau",
-        "f99270dd142777b74330889d6d3bce48f0efb11ac7cceec2b0670fc3ae64644b": "la convolution circulaire retourne aussi le noyau : (x ⊛ h)ₘ = Σᵢ xᵢ h_((m−i) mod n)",
-        "fe260262d0ec318e6068f116a40a867168feaec9b07345a37f5daf3d33e89563": "dans une convolution circulaire, les indices se lisent modulo n : les termes qui dépassent n − 1 reviennent au début"
+        "2ef70a750e54ce08e017d0a5d278f01cf41f0f28078a2459cd62db5293893883": "la convolution circulaire retourne aussi le noyau : (x ⊛ h)ₘ = Σᵢ xᵢ h_((m−i) mod n)",
+        "5d548d3d6c48e3b6cdb5035ce68c37d6fa2d20d9fe2131149d986420b4e87eab": "l'indice de h est (m − i) mod n, pas (m + i) mod n : la convolution retourne le noyau",
+        "a1c80e5410bb92d6b43e4de5a1fde7643e1518762f4db9ed72f2dc4cfd92bb22": "dans une convolution circulaire, les indices se lisent modulo n : les termes qui dépassent n − 1 reviennent au début"
       },
       "shape": [
         5
@@ -6458,18 +6473,18 @@
     "CP5.4b": {
       "decimals": 0,
       "element_hashes": [
-        "f4ea4fa824f183962b8ce47f4ad606fa9dca7742bd85689a59b0cc0244fdb892",
-        "9b0d44ef5952cf2d3d1120fcb5a2479a4a9223b16177b4210a33fd4422a56f17",
-        "10c4571d804ff0fbdbb58873d74b561743e25fc824f8d5a19284b06eaa6341d7",
+        "42479cb558b84fb5c87b07256942523176f8bd233e76584efe402dddff311c56",
+        "ce2b5dd57d14decd8eca1580c23c1a17e5f1355837273e260b85bd10df8fc407",
+        "a9b8febc3deafd15d26cf9f3efd3e78a4b9040d299de2961e3ef1109d3aeb727",
         "c659007052521a0b97fe72a775c5067cc75505fa8c7f2b12f33534c960218711",
-        "58808d72dfd36e33f08dab7e02f9d1f890aa8f003954003b0664f25249cf366b"
+        "668e08b3744c7ee4fc43855554e2710c847842a82415581442854da2c40ba584"
       ],
-      "hash": "3638a2053670a114e7aee7c0be6e7a125763a0d2b71049a322694a8e810ca9d0",
+      "hash": "6b414cee48d872daf5b28bcc2e9896cf106a54d8dba1fbd62751b44de0149004",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "b82728b8c0829c9729c41be17977517b3985700ca86d12ac39b5b56a43ce9104": "h est la première colonne de circ(h) ; la question demande la première ligne",
-        "fb590b6147b2dfefd9e749659945ad2a5189184fa2409d7d6e5ea8393fc5c2ce": "le coefficient (0, j) vaut h_((0−j) mod n) : le retourné circulaire n'est pas le simple renversement"
+        "2638e080b8dc671f79d1c6a03d9d8606f4898fb120a534a857e9900318782b7e": "le coefficient (0, j) vaut h_((0−j) mod n) : le retourné circulaire n'est pas le simple renversement",
+        "861ee1c7df8aa5dee9f1f416021912552758412f2caecacbd755572d159ed09c": "h est la première colonne de circ(h) ; la question demande la première ligne"
       },
       "shape": [
         5
@@ -6479,19 +6494,19 @@
     "CP5.4c": {
       "decimals": 0,
       "element_hashes": [
-        "9394369ca8957ee2e467545c7fe3eab685a4d937ce590c32ba4139d104d979ea",
-        "d68b330cb86fce0ccfc7258ab192c77ed7e6d0b3526fe7e5bef57807494562f6",
-        "ed2fc44efa6497692cbf341b8c8d564336e8759bd6e630cce902d29741fa41d4",
-        "de4cbc9c990e0c7a454db8e50e64c9e502d69875829c3b433d0d4756ed333952",
-        "a968eb2a2e3f6658c08816e1cb4b2515e43de9f927d8915c28aacfd31e18d12e"
+        "ed601470a125a22c85e555b1c4a8fc4a4d63dbfb33f54614a8914d219b1f9892",
+        "d4a2f78f2eb82477de4eff49c34f27996c9fdb4e5c806fd4514f8fd22b0fad10",
+        "9397198fd188d74668967924d46c16e28ec7d2cf900f2ed86dae133e8301ee62",
+        "679d2220d3dda1c9f73e2625c8455dfe595d02960572b03c38892a8c1934cca2",
+        "0307e36e59e200b4d42392ed53c4f5b9a22bd076b96cf69f83b842dd22326493"
       ],
-      "hash": "d9657c81e1884efeeeaa95552dd0ecfb40f1fa5f47c7ba9f7db3b584f2b451ea",
+      "hash": "44443e59984730a3e0312d046261fd37bd73f332c7264b54e4bfe5fa7a5a40ab",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "16dc3ee15d904fad20e5abd78036d7c6d133cd6c2145fbd8d76722d931b98c40": "(Px)ᵢ = x_((i−1) mod n) : P pousse les valeurs vers les indices croissants",
-        "7c2c0d38e8f4c265e4c11ff66f52c542182d627c4e587c27d87d032babfea484": "décaler l'entrée d'une convolution circulaire décale sa sortie d'autant : c'est l'équivariance",
-        "f6267243b83bdbcb7b9117825ed87ca81cf0367d435e3ddd91213d9c4d18ed6e": "P² décale deux fois"
+        "53c3afd0d871d84c71f3cc04e5af5328cafcc5314d26e07f3e1efed187d5097f": "(Px)ᵢ = x_((i−1) mod n) : P pousse les valeurs vers les indices croissants",
+        "ce55219ffb9cb18ba24adf15e20ab6cb3ae5c53ab70ceb74ee24728466d03b22": "P² décale deux fois",
+        "fd40c49bef327951e3df551c233ca6f2b3087ce20c18ec98679baf2a99a00688": "décaler l'entrée d'une convolution circulaire laisse-t-il sa sortie à sa place ?"
       },
       "shape": [
         5
@@ -6508,10 +6523,10 @@
           "37e91ac3f47ead3b30ede5c71b319722dbe84dc0955b6c1d8762c2c6024d96cf"
         ],
         [
-          "b1c387d1f3c7f5649551990b5bf6ab01b3b93dc2539c2da60ac711ba13397bd9"
+          "1ed46195ea29a2113f4a351381e791079e61df5a351f89502e382c3e096c0aec"
         ],
         [
-          "eca9243cd51bd0ff6658fbc25db09f6cb9a894b33290765889f8904a574cffe8"
+          "f6fdb23158c896c3eb2140c4219649d7d304a26746a05529d0844c34ad1dfafc"
         ],
         [
           "2baf88469e67d6619417a2211d1c9cccafe1089d94ba46e4c43ebaf9ff63cb1a"
@@ -6527,17 +6542,16 @@
       "element_hashes": [
         "7dcc6a28711b7af17225aa1099ed0e7ee266b260f0556f8e30e2818a8eb75a96",
         "eae41a75d8c25377b76773d661b013798c0d57540477bb83cbe57620ab4ba5c9",
-        "06fafd66ab31b735f439b4de0da964252aee46c43f60d0373e8d027e069b9460",
-        "680c916c458cefb2c95e20fcf508356e4fa56e6e5755b7b9abb88c42ef0a42b1",
+        "0555e013de940407d61f90d986431eaf8d410a384c1a21b7c075b8f8544aa428",
+        "e9b20ea8b8e7c432db7d0d394c4c92e429931bb91251b25d999953afcbf79b17",
         "0d6a3e492303c4ba55c8ec3beafdef431c419b8be96dc1c2f55b03e4c3f7273e"
       ],
-      "hash": "62b53afa3ec4cf57d1665b16f14dc194c57a01bfdef68eb66ef646f5c9c66d0f",
+      "hash": "a3059d1927bce6fdb529fd1a6511f2e6d1a5e272bfd6525aff9b1ff48267d6ba",
       "kind": "array",
       "mistakes": {
-        "3c974f71251758aa55667a2d11eb1caa33ef06d435c8182d1fea4f9f7ab9abc8": "ce δ rend l'écart le plus négatif possible : la question cherche le plus grand écart z₁(x + δ) − z₁(x)",
-        "6f60cd6f517864b774b1ded4cb229cb0b614565abf0d1c5b0454f8dd6d165eb2": "l'écart sur z₁ est le produit scalaire de δ avec une ligne de circ(h), pas avec h",
-        "7bb0c42444582742d2ff1378c6f6df9c6ff91f663b8c9d95ad4c2e2135f59839": "chaque |δᵢ| doit rester au plus 0,2 : ce δ sort des tolérances",
-        "8eaa14f48799d899be01b80c026d723a02345198635b691fb265df911c321dec": "la sortie z₁ vient de la ligne 1 de circ(h) : les lignes sont numérotées à partir de 0"
+        "60f529662e3caf07dc7f147e346a7512feac2d3b13cd0c917357ee95c4180d86": "le changement de z₁ est le produit scalaire de δ avec la ligne 1 de circ(h) (les lignes sont numérotées à partir de 0), pas avec h",
+        "80d4d4fa8c41d47da20691fe74e382019b1887ca2581c5ec06f737f29f0895c3": "on cherche le changement le plus grand vers le haut : z₁ doit augmenter",
+        "b78e7a1d305ed03f2d2b4057a57636beabd5a264f3706313670705517770f21f": "chaque |δᵢ| doit rester au plus 0,2 : ce δ sort des tolérances"
       },
       "shape": [
         5
@@ -6552,22 +6566,23 @@
       },
       "coarser": {
         "1": [
-          "b2dd68b27bbe1b2c48266ac4b12a1ed0a64284e7b1aade3f8ea054f6a576f69e"
+          "62ac8ea87dd09380940911078e33f8f73ebe8cb615bf4e692dcd82334a4197b7"
         ],
         "2": [
-          "043fc8b77823a23555ead1ede08b8bec821fff032527fa790c2c5b2300f6b1ff"
+          "d3213641f00f1365ed3c9b5c78117030977e756966af15f2d3456077e0c2dafb"
         ]
       },
       "decimals": 4,
-      "hash": "958031b57606114eb453fca27d744dff6f64c682f364e71223d935844a6d46bb",
-      "hash_coarse": "49318d6bcc39a4812e716a9c16224f01f102503c2f67ee1971193128d4f00ce0",
+      "hash": "3f0d895dd72cb4a33df881a24ad950e2a66d345349157fc81bb10de9475dfe29",
+      "hash_coarse": "dc43c77cef0bb703b429800fd01487fe9a34c2db98a34b9de8093836a0f14e89",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "39e8f88c391b79d3c2ce5275741182dfdf5e7e5ea171da5fb35e14afbcae8536": "le plus grand écart est positif : δ = 0 donne déjà un écart nul",
-        "72375d027e3e4c6c50d31c1e2f550e1a4f266fdf7d8850d9c9ef9b88e404913a": "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce n'est pas la boule L2",
-        "a2783bc8098edd3f03f9a7aafda0e2fcc19eea17df99971b15209192bf67f28f": "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce n'est pas la boule L2",
-        "b4beda66c48f25a50268ccf53d6bb6c218b1da42d78cb7ce63bfed689bba00c6": "chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, et aucun terme n'en compense un autre"
+        "06c1acf4377110341cc1c8cacf2620205f4f845984f0c8586a168bfd1ce76daa": "chaque δᵢ se choisit indépendamment des autres : tous les poids comptent, pas seulement le plus grand",
+        "3a3cdb48bb23530bccd93f4918b4cc11ec715bb510bdae1da680791d55a03638": "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce n'est pas la boule L2",
+        "7f2ed7f111916f4bd162e68a87199f752f99fb45229e9003a223f8f7c5b5b9c1": "ici chaque coordonnée de δ est bornée séparément (|δᵢ| ≤ 0,2) : ce n'est pas la boule L2",
+        "8c66dcae919a7d2f19ac3e5e4d12f4396306e7d1f0fc956d5b4ce53e3f3b2871": "aucun terme ne doit en compenser un autre : le signe de chaque δᵢ se choisit séparément",
+        "e0c0e66787440c179a6c0cd533a35e69c1a683f461ac10c8de2d2fb9ccec6614": "une augmentation est positive : δ = 0 donne déjà un changement nul"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
@@ -6576,20 +6591,22 @@
       "coarse_any": {
         "0": [
           "8450911aadafba4f5476f298b3c51d4b704aad847698671538dacd6fe9fc5775"
-        ],
+        ]
+      },
+      "coarser": {
         "1": [
-          "8dd3b530cca2060f9f885ad6eb14482476aeb0974fee9ab8705f457adc770797"
+          "89b7cf2ff29c1c624146c530367da9122c952234e4dc0d3b1c21400b6be082b0"
         ]
       },
       "decimals": 3,
-      "hash": "9c73939919dcac67b4efa668b0208100a3583566bf516c2dc5890922e89a904d",
-      "hash_coarse": "10bde73fdc526b7ec512ffcafb7ed50c3d841c59d84b6b20940dbb39943430ce",
+      "hash": "ef146da0f8808e9d9302709a9bea4d47953d94a2a42e94149849377f60eefdfb",
+      "hash_coarse": "7317d088e659e052c2a116276c510669b4f67f9bc7539482226a70cae285914b",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": 0,
       "mistakes": {
-        "44b6af168f87c7e1a70bc14efcf4cc9e70cfe43e322baba2f6602c0eb2c03f0b": "la contrainte porte cette fois sur ‖δ‖₂ : δ ne peut plus prendre ±0,2 sur chaque coordonnée à la fois",
-        "e439a26e6aa155638c040a1cc0a1d317068bc929770b7c6121d11763ce1fa864": "la norme L2 est la racine carrée de la somme des carrés",
-        "e7691bbcef10587ab6af77210fdfc3dbf84b26044710158541472665155c877f": "sur une boule L2, tous les poids comptent, pas seulement le plus grand"
+        "34c860769f1cf4ce7808819e0b8e6aef21e3379782918fb293261cce1a4cd5fa": "la norme L2 est la racine carrée de la somme des carrés",
+        "4517922298513287e65139b0d795ac151d45f660e4391dc1695d9a1cbbea6f9a": "la contrainte porte cette fois sur ‖δ‖₂ : δ ne peut plus prendre ±0,2 sur chaque coordonnée à la fois",
+        "79de4d6e4dcec0eb8f7d31cae080a7c62f84517141bf860ccb2e715d5ed29060": "sur une boule L2, tous les poids comptent, pas seulement le plus grand"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
@@ -6626,7 +6643,7 @@
         "3c79f9f5c76b0cf9501470f25ebea6e65fc06d81aa342fbb30027c11027f1c34": "la question demande x₂ : deux pas depuis x₀",
         "4576b6f2440bb978abae642d680ac1a4dec86fb4659e381bb75e63e7bcbdca97": "l'entrée uₜ sert à calculer xₜ₊₁, pas xₜ",
         "7df016afddfe050082cbd90342b3de91db5390cdbce124e54661c883b17d3857": "en convention colonne, la ligne i de A donne la coordonnée i de A xₜ",
-        "e41fe877ddb089a9b0550e8bcc1e48e0d8f7f9db1135912143bd8abcd4e0fa4f": "le rejet u₀ entre dans x₁ = A x₀ + B u₀"
+        "e41fe877ddb089a9b0550e8bcc1e48e0d8f7f9db1135912143bd8abcd4e0fa4f": "la perfusion u₀ entre dans x₁ = A x₀ + B u₀"
       },
       "shape": [
         2
@@ -6672,36 +6689,36 @@
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.5c": {
-      "decimals": 3,
+      "decimals": 4,
       "element_coarse": [
         [
-          "3f39ce507b0ef682e131be657d6f4745ae433629b87e94b7b790919ee4753701"
+          "7a491a3d36ac8ef4fe4a5841aea43ca6a064b0bb88edad1372f0d0653d9a5b5b"
         ],
         [
-          "288917b04c0f68c5c31ede07fbae51286278270e6084af58987dddd44a8f0c19"
+          "c10bf2ae5a0e86a257520c6385d3df76dbfef58f1e38ac0817bca50968d6fcdc"
         ]
       ],
       "element_coarse_any": [
         [
-          "84ebf647bad8bc373802e03980a494df1e60efd9ea1e8516aebb3b0f181ac711",
-          "510da2884edf6743227cdf64ed17ea290eef126e02d95917f76abf1508e27e42"
+          "8666e9a8e73700f0890418777358e961304973d329eba08fa92eccc27c6009b5",
+          "b0ba548190d17fcbd0d5cfa982e4cfef92c1e995ff442ae5d76df29a954a815e"
         ],
         [
-          "d077450dc5ce36114853f56647c82f7e0e1ca0d59d72380791aed61f74d7fd0a",
-          "9fc60181cd142faa736b2e9cb6bfe2da3ac485b898fffd40a4ff29abc886648e"
+          "54db30077543ad2858e53bbd7058edd7a1da1f0488758f7bbf171b5639fb50c1",
+          "3bb3195b06eceff521eeca17f4decf68159a1f3ad1fc3e5fd2dfd64e9de9ada8",
+          "fe385520dd90acf078319cd34dec091634d479a5da179a071a962d2dd7af616d"
         ]
       ],
       "element_hashes": [
-        "3d4d2db1565d249bb7d2b92708d02527b684f364358aaef7da8b3fba91f9a686",
-        "8551315ded0fa0da507c9d87be46c1735a73da3afc5a09071fc935982af2d90c"
+        "5bdb3de1aaee223177fc54a8037c611fba566b4773b738d65dccc60e47650ab2",
+        "8a50689de3e3bfa863c63d4075bbbee5151ce9ad61a586cc2f99bae44664728c"
       ],
-      "hash": "306f630d1914db416c4559160ad44e3d8d8f5d66853d17178c5f491ba793be1a",
+      "hash": "f02fa65e402458931cd0138f4e93df83c2f0b4360343e077913a14977abdeecc",
       "kind": "array",
       "mistakes": {
-        "88235209e82c336e7b23a9166ea4cdffe96f51a1d70ee0655bdee6bf5caf8091": "A¹⁰x₀ demande dix produits par A",
-        "9fb5e7f4cb7b7dd774c57904dec1b32d60e972bd25827768a3bdc723ef4acf33": "les deux composantes propres comptent : la plus petite est faible, mais pas négligeable à 3 décimales",
-        "a50403fa81f7d107c13fc7273c30709bef5c0ce21f7ecba6076cc1e49e9c4957": "la réponse libre ne contient pas les rejets : seulement Aᵗx₀",
-        "b35c045cb611d5412b329e513686526640d263b66da7db1a2a0d80668e716324": "x₀ n'est pas un vecteur propre de A : écris-le sur les vecteurs propres avant d'élever à la puissance"
+        "15c53ed1557abbe1b6fc0a0e4212544f2385d81e5765a4ebe9316f5b0f1da2b5": "les valeurs propres d'une matrice non triangulaire ne sont pas ses coefficients diagonaux : résous λ² − tr(A) λ + det(A) = 0",
+        "4739dca37f320e0609e6f26544ba7b04a2a58c219becd60b6a6af0e2ac805c33": "la question demande l'ordre croissant",
+        "b0df2c227f8c128c5f84d92e5525f5df0bbbf13debf67510a82ac94568bb649b": "vérifie les signes du polynôme caractéristique λ² − tr(A) λ + det(A)"
       },
       "shape": [
         2
@@ -6796,7 +6813,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "052f91264c2fc0bf5784d21d285454ca1cb36df9084f21cf7372a1a57aafc50e": "la part due aux rejets est la réponse forcée ; la réponse libre vient de x₀",
+        "052f91264c2fc0bf5784d21d285454ca1cb36df9084f21cf7372a1a57aafc50e": "la part due à la perfusion est la réponse forcée ; la réponse libre vient de x₀",
         "159ecaa003a61852b4896ed1aa2ac38e46dc3882e2f87be6f6e4741c39184605": "l'entrée uₖ est portée par A^(t−1−k) jusqu'à xₜ",
         "738a0e51e4bd5c2fa6903f70433d57538ec2cad97dcdbb45c2f90615b0c152a7": "y₃ contient aussi la réponse libre : la question n'en demande qu'une part"
       },
@@ -6833,7 +6850,7 @@
       "kind": "array",
       "mistakes": {
         "9b8df7a0c0aaf54a5acd0a583b4babb08daaa1c07e59d79a6c9d748c772a4e97": "l'équilibre vérifie x⋆ = A x⋆ + B u : la matrice du système est I − A, pas sa transposée",
-        "b460bd09de488cc6166030bc071805b73891cd2e5d975065868be49434cb54a2": "x⋆ donne la quantité dans chaque lac : vérifie x⋆ = A x⋆ + B u, coordonnée par coordonnée"
+        "b460bd09de488cc6166030bc071805b73891cd2e5d975065868be49434cb54a2": "ta réponse donne-t-elle à chaque compartiment la quantité totale ? Résous (I − A) x⋆ = B u coordonnée par coordonnée"
       },
       "shape": [
         2
@@ -6871,31 +6888,32 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "6a0a0737ea0377745bf957212ad871c80a98ed63b53b452391a11128119bbd23"
+          "f5f299bdb7126708701d66f5007306350582f91edcda9e10554aa065316e72eb"
         ],
         [
-          "7f780d57de1fcda6b1f4cfbf34a8a6c044fa148e42539332fb8a261983900512"
+          "0fb6262659ed5f3a121395bcebd18590e1c12d42b66c857711883563789f4d85"
         ]
       ],
       "element_coarse_any": [
         [
-          "6f0fb0d79c625f815e3e700720be65bbad8fbaee2c39b4283f58decffb5cfd7f",
-          "f3776a497cee52a6db9169536672cc8690002b63af3b84cb04ec39f3e1813b94"
+          "f09e57040fd2641c5ff745b19013bf843508a4ec535657b2be76ddc97eb2d697",
+          "1bdf9468b555fd8368d843f592526b4778fd072ca5523e51a0c2b2624997aa90",
+          "81ed98dcc2c7d032a23954e334142081bf3be3fac1de6dc7219eabe4e9fbad8b"
         ],
         [
-          "9ef2767a92ad2a3697ce778c67663f4411fc05b02cf9bb7482291705e1775d5a",
-          "50604c6bffea4caec5986ba33f06d091b65ee0a6218bc18e8dca250cfd6f074b"
+          "2e5d785ada87bc160a4a6cbd85353fa3b115ba1280bba00921316f6b80e184a2",
+          "e56593111263ba5fb25e3789ae6f24e0ff92584adda88d913b53008aac12d713"
         ]
       ],
       "element_hashes": [
-        "0f26d82e7e5e0820ed54eb43f47c8a69dc5c3b4615e86e84299984f4bcdb9419",
-        "91b7a747a16c5bdede6632cac88bec42b37ecca2859abefff630ce61167c13dc"
+        "62f544ee0e8636b9986f39ce4be4580e07d4ffe856a1c151c79ef8d7969db044",
+        "e8d40eb88149667126784ae7d2a842b4278385bab294c207f49d0a6f4aa3036d"
       ],
-      "hash": "b2f22bc5abde0a769830c4b836e0aeb7b7b3cd984a419e9cd63b36834e22d715",
+      "hash": "399d369200c0a2ee81d6a031c381dc95b4f187309fa27cb9c98f05982eed3900",
       "kind": "array",
       "mistakes": {
-        "7df46a4314c4fbc147ffca966b6734fa40c0d4d76acb04c0fe7c300d78348690": "la question demande la valeur propre de partie imaginaire positive",
-        "f441dbe056021277f09a025203b7e72cff6b7dab57f9f5f04d2917b1809b5f4a": "λ = (tr ± √Δ)/2 : vérifie la division par 2"
+        "412ba87622a03d9bcd3493b7a1bcf48258d8b4fc1ee3e266bdf0810e61276ee6": "λ = (tr ± √Δ)/2 : vérifie la division par 2",
+        "6e81f773a4b19c4ce6ac1032c0e474ca3ca5401b2e3a91b78cb7b7931d81b90e": "la question demande la valeur propre de partie imaginaire positive"
       },
       "shape": [
         2
@@ -6908,43 +6926,44 @@
           "34eae223d7f8906f5af964a10d8e3ea23355ddcf843aa9ad1ef307d7092786e0"
         ],
         "1": [
-          "3fc2801eec112fb33401803b27a12f8fefcf7fc10f10dd8e3c9c5b68e7c3a5f6"
+          "9856703578cc52ba5ee817dc59012f9d765d132aea0b830026c4bf5ce42de118"
         ]
       },
       "coarser": {
         "2": [
-          "0816e25fb0df20da704dc023c8980426eef961af1aac28801912876164ee9a9d"
+          "7364bfc53b21d15b7c47c269e46a843b8097034fdf13bb23dcad2c911cb6485e"
         ]
       },
       "decimals": 4,
-      "hash": "74b10a77320e3b53d46dd4e51a6efc95215c9f808cef5669d5e212ca1abaa25d",
-      "hash_coarse": "f16f2f8c2a1b838667445b80f32874d79547af2e0ad7db04c735eddea47f153a",
+      "hash": "d5fbaeb172b366dc916a45b93b04ae83c1c13c3eef70b0f1c1c908c2bb5b48be",
+      "hash_coarse": "97af7e87d3ff6ec93ab93faaf41b22139e63d1e49b42727dc305a99763ffd977",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "8a56936f52b0e3ae153619d0193e3cb6a2515ea16b77e891a3a369f169aa97cb": "le module de a + ib est √(a² + b²) : il tient compte de la partie imaginaire, et c'est une racine carrée"
+        "15014fee587e17049453c02dff85d74ea25bb3bee7cf1caee5726f85ab8bac26": "le module de a + ib est √(a² + b²) : il tient compte de la partie imaginaire, et c'est une racine carrée"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "CP5.6c": {
       "angle": true,
-      "hash": "0e3c016a18f90f1cfe6d711ec099b0af1e920c6d41ab556912ba7f94c8819564",
+      "hash": "494150178026c0d05ce3d4ed8906e1a9e8541dd687fb6b0ffa33e06a519a603e",
       "kind": "exact",
       "mistakes": {
-        "4b596edc7745d176260ff2218bb90006f34ef28dc459860a82fd112643847374": "la question demande l'argument de la valeur propre de partie imaginaire positive : il est dans ]0, π[",
-        "9a155956c6005d57ec9bb9fb80030068ea8c754cb80072dbe1d266fff3d635dd": "le cosinus de l'argument a le signe de la partie réelle",
-        "e538b5368ff2550a13a21fbfde90105548a166e9d98175bf570db62c76aeadbb": "ton angle est celui de la valeur propre conjuguée : l'argument de λ, de partie imaginaire positive, est dans ]0, π["
+        "08d5d013efca926dad55471581648fd0ba310c27d70523e5449c77d942759e2d": "l'argument d'une valeur propre de partie imaginaire positive est dans ]0, π[",
+        "81c0d1630cc6bdb6ebdb9d16691a978d6603453b23927c88a9eb7264358b4787": "cos θ = Re(λ)/|λ| et sin θ = Im(λ)/|λ| : vérifie lequel tu as utilisé",
+        "d39b2a83e23b334aa2e569cf1caac234f04c38af244e8fb94316b1c52c0a611a": "ton angle est celui de la valeur propre conjuguée : l'argument de λ, de partie imaginaire positive, est dans ]0, π[",
+        "ea57e61fc557eef2d44d0dc491eb5ff53e1749fdfe781c3ca7db1603bf87bb0a": "le cosinus de l'argument a le signe de la partie réelle"
       },
       "rounded": {
-        "1": "5b1610babfd2ed4e55bd5715a35b1334975a2cb044b74a27969af58db2505fc2",
-        "2": "e965e99fe17c9f1a6c486c57f0ace95a0f50f268cb0c00620659d16f75de3da7",
-        "3": "caac78efbc8e800627746119dd4f339f3d06dd3757433f829a5e7479c8dfc165",
-        "4": "f73d0d6e425be937e695a50b188974d49da1d3a5aceff82809746081a9dfd608",
-        "5": "898ea1f3be2aeb677a8e068484d96d0f72ac335766fad5f2fa851309dd49eb0c",
-        "6": "8a6407be4bc87397bfe7d9120a5a6399b957c2232032d80f87e81235914c0458",
-        "7": "0f58a0315b94d4b6d32ac7f2edaa606e212e29a915bd8a97d333b96d58cccb9d",
-        "8": "3f54e9b407578f9526eb5002ea927a87682dadaae236ad9bf118a2101adecb9f"
+        "1": "1d5ad502953045aea7ddc6f95f38be3c1eed36cf2161b3b31cc1b72a91de53a3",
+        "2": "64b7f3c07d8b312d65cf3ae0990e78720e3ad4b2b131e4be1434ad4da9e268ce",
+        "3": "c89c57254be8918df1730eb8cc84c37c7c1125a6162760ae05d15fe62da5b82c",
+        "4": "b2382428171a0fb6b477ba378863cf1535e9b1e4083c829036d1136ef36251f3",
+        "5": "aff30fa84a8ac6efc9f5783b5309eb626e5da6711816b3d0de6fba67ab99029f",
+        "6": "e9e164723bfc024cacc9f78247897db12e68eac667ef95aa48abac6af984009a",
+        "7": "b01dc9edace04b4df90f31ca09c176d61e7636f7ed8162c5bb22daea5fd68cdf",
+        "8": "d303cf1d270434c59d975d755d4c7ee87c10532661e43506f46ea16a6caf30b9"
       },
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
@@ -6952,42 +6971,54 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "cd98009fce363e21b7d61edb82957ff950577094f9d5b078b3248810e98082dd"
+          "368ce777a8fa6cfb85a81b1fb98f2c7d55133f1e3bbbdbf616ba7903e524fe32"
         ],
         [
-          "be7a686781fe7b035b45bdc3e34695d0524417a616fb2ca5d2422fb40a088855"
+          "b86aecf8677b100222b2da27d21ba6112515e107b1b0af225038fa66cd55e50c"
         ],
         [
-          "80dea9cab4373705c85a507411d6753eb31e70c32d7aa93b77071ac739b9b502"
+          "b4587c448d77a1e8d07fde951ad6bdff383bae252703f5d1d91ecafc814e3b2f"
         ],
         [
-          "ddd73f0481342a3fd0478b01655de7a68f7e5ed72a34549c6581f5e34dc29e6d"
+          "de1d53c5a8b2ea1b927eb4097671e9f37190435508bce6d17fa3cd995b5b66c6"
         ]
       ],
       "element_coarse_any": [
-        [],
         [
-          "ea86a9624461d6867cf349470864ca805854ac0301ff97c148d62f2ec301e782",
-          "a4b2888ff727c37649e48911d9970ce4c87f2ebce9b3ded4299bd2a38b2bff63",
-          "cd35e2264e5ee64ae9c21c04071b01ec98e08f6f5a951be6629bd31cd2dda6bc"
+          "60d2b7ab2ddd2b7d274c9caa86386590b39d350e9893fd3d132449f898aecf3b",
+          "ad1732e960fa4f13b0f87e0a541643ede649aab794881e59e0ec5383a34dd775",
+          "42a8a29a36e8a73e403eb13dfdc51dec7dd473030a248cbe5ad310b0e296e655",
+          "dbe7f8ef773098e6a60968288b077c7277204d777ed9a77f8b87b010f739b595"
         ],
         [
-          "382a6335e68e7fc81ae2b1c57f0d6298c9f080b197d004f74e19baa958e99671",
-          "b59d3e5e38ab237d31fb4c5068838d0fd79cf1c1dac3ccb2fe8c29565aeee558",
-          "80fcf557ce5d609587a79fc7edade256f6c5d4d78cbebd69a9c336d1678e3a14"
+          "177441a1a891742609981ecdbbe4b1d4a698b4742cc8b55deee3cdee7f6b5022",
+          "5932ff5adbd26793e7bcca01d474d37e95046ad7ad0a3b57a86e71326df423c8",
+          "ec9a81696835aa40c48441b48293aad23060dbb6da5e3807bd79ee013f41c0cf"
         ],
-        []
+        [
+          "58b768248276196fcba240e5927adf5f17cf4ae0178cf6d2195d1e4edc33078b",
+          "52cb4911b5b76119ca45175bb65140be6be3fe76ebc5189d19c669a86426480b",
+          "f2e5cde96aa78b5836327969b1808f917cdcac14406c54a9d5189cc03af9b201",
+          "9340b32c62d910abdf3d3b4d47289b608cd9b5d8229b26dce3fa909bfea3e1f7"
+        ],
+        [
+          "8424a628f28cc678aa6bf354bec27707ee8b63bb6588956dbe6eb55281f64e03",
+          "7e60c3f69e06f0e0ad37429abb9adfed5058dbdf86bf7586ae59578bb9563d70",
+          "eb79dff2ecc330c5db81dd29008f0d51bcad0bb9c2ae6dfe01a3720d94d5e2fd",
+          "3eb1b81f51face943108f4180136cc617da2544fefb1d573f94f15f6eda13a79"
+        ]
       ],
       "element_hashes": [
-        "0e39fa44709dafbe7c505583635aa89796fee372ac1e4f65d7bb5ae5555eeec4",
-        "7f278b3b4166d6850d0ca3eccf3b0d2c4f87002ac1e4d8730a714a955f62db76",
-        "401cdcacd1c07d527e28d1e246f41adf2b1fe8ed5af0878fa29fb9a156e27248",
-        "3ba7614585b5419aa8f3146226799b41b7a1c909ad3f65d3d652342590f63054"
+        "311cc6ee3a05940b80b3b82dd7b25618fcf67cc337a481d22ff5477abd6549a9",
+        "e23b90531086ef7f64e056d1a693d6d1a3fa562e44d4232959c03f7610146f4f",
+        "9e7f978c4d5fd5dd82dfcf65b3fc3a13c0735c8d5a47445e5839766d36656203",
+        "8d6326f86616bd22048486d9be2151fbca38ef09103f11016c33119c3143344c"
       ],
-      "hash": "2609efbe5fe3f42648d08f25086d3864cad346ef1959debe6fa053b42644782d",
+      "hash": "f4cdf5473bafff1a56153aba7ff9f832827e955eea8bc94085212e8a1e1ac253",
       "kind": "array",
       "mistakes": {
-        "14995c22296823e2428586dc64866ac285729c00db2e488d212a62ce081eb07a": "M² est le produit matriciel M × M, pas le carré de chaque coefficient"
+        "0a5e9d74cbbde465c3e72e6cbf83dda302f050c6b7b06a07dc96b1653a9d0c7c": "M³ a trois facteurs : multiplie encore une fois par M",
+        "cf8909d6ff33f1c303ce22d31460a1acb0c8f90832e788992ddfe4e87492ef78": "M³ est le produit matriciel M × M × M, pas le cube de chaque coefficient"
       },
       "shape": [
         2,
@@ -6999,7 +7030,7 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "3c6bfbcb4495c08a19b57267465d20d2180635bf6e3c548918ecc49c1740f188"
+          "c8c38c1365af05b0051b01c120c651a3ad3320bde181c198ffc56fdfa7c3bd7b"
         ],
         [
           "41f6707cf58c4ca7b84dafda3bb02ad67809967cc03fa731e067b75f4220804c"
@@ -7008,34 +7039,31 @@
           "5c155c59d769341ec38e452c5c46a8fd74af00ce34efecdbe8ef8886c301611a"
         ],
         [
-          "0f5f29b26b1e67851d9762aa894b98e1d200eea61ca3b1a37aaeb8fbcdfb7044"
+          "cd9687fc18d0c77b8a296a2da0b7220e4a340df83531cf4276f318fcc99aea32"
         ]
       ],
       "element_coarse_any": [
         [
-          "89ace15ba52ba2d0e8574f36d730eef6f92cb1006575c1676b6677e6c9eaafb3",
-          "4ca4b5aedcf9fae9f7c9d5ee22d35f383c74363b7d1107f2461c980fc2975eb3",
-          "3195ba5a925e1463c94cc743a0fe762268d2d14ac33eb6f676c86be89f9eadc7"
+          "d643414edbb12942b802244de76ac3e1692775bb5f6ca114b421642f038cde04",
+          "52b13d4ba5a5d573324d8c6e3daa5a03202629b867b4c7105c1e53ab12cf7599"
         ],
         [],
         [],
         [
-          "81ac887ee3483bc146f9c8cbf1ac4d21d877ecbd679dc426a4e1be69dd9836b0",
-          "4c6df2e10efcc3703655b7fb9daafab4e98796df677c9a33189c2656cd14f5aa",
-          "530c47f78ddd04cd2a9db4bee8aa6cedf536f6b64c644997011e464786e30728"
+          "253ac59036405cd3b166686491d4c4f2f95025ff43505bb95f136ab8df0077dd",
+          "f0812010afba3bf7d4039331c64528a5a22218fe17333cc175517ec677060e29"
         ]
       ],
       "element_hashes": [
-        "dd30d4393572c317ad51dc4d4069e0150666145a57a85fcca02b29af70f489f8",
+        "8ac9cf17a2bc294433afea19e7ae26690a9546c86a0ac6db427c91bc5335bf61",
         "cf9403dd4dc82f8968ee436d48a8a48addb07fc61ad190a7f03c1aed5a637374",
         "cddaa5b63798aaad866a888aab3affa3cfef81454d36419d71ea6adf08bc733c",
-        "86b1a6fc6a70ce043692b2d6c59976c3ac695d2de4708f9a4fb906d2942fceff"
+        "11c9ed3e6ff161ecf4af5429245778978f3d2cabe45d52c7bab61d52054297ab"
       ],
-      "hash": "f65ef3205c262b122fb50312119d03bc1a53b74734928d7c76f0be426934e7ef",
+      "hash": "8077b74dbb9dda12b5ed3736d9942ee6830cd03a18e6d490664b68e6229355ff",
       "kind": "array",
       "mistakes": {
-        "1a9a51ada792fcde54d8aa890d18db34145b65e8210dadeb8af8d3b8d97452cb": "vérifie les signes : fais chaque produit ligne par colonne",
-        "6893883c53193774fc39968a30fb6e1e73b730ffb233d5f9d82d64b4d94701ed": "M⁴ = M² × M² : un produit matriciel, pas un carré coefficient par coefficient"
+        "5633fc714e2a901af822f8215b9c945c5add5943d340b7fcd1db202ee88ccd06": "vérifie les signes : fais chaque produit ligne par colonne"
       },
       "shape": [
         2,
@@ -7047,32 +7075,36 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "406212d149dc814e67a1d25932f3594e6c72b3c78aa0f4f862206345e1d4a8bf"
+          "c61f6873bc26e2548fa346840f59861bd5aa27fda39b1aef1beed7e5e8cbcd4d"
         ],
         [
-          "005dd76d8162c1da59a050431b508ea60c0aa5e9f83ae028cbf138c7595d5d4e"
+          "3a260b7e886c73c2e57e936a3da86bf5b18cf5858a9f596f7a189e6e4df17def"
         ]
       ],
       "element_coarse_any": [
         [
           "b05f71ad7dc6bcb737cff679e2367fbe3d46288cd9e85d16b7a22f7997a3f9d4",
-          "74a498e8d65eabbb204ecb111c554acfe65aec4f374f7cd7efaf61a716dbedb2",
-          "fb5e49aae82931b95e84cb954bc00abc6cf9e879ef554ea0a1eb7ac3dae4755b"
+          "bf320d30121fb560b1704858a48c1d50b6b9bfa9e2314cccbf8806078072b928",
+          "7d97b39bd59d5b4e300ce116cff24746abc298e6a0aa82bcfc4022af2f18b123",
+          "da09563a1a65f2368d72b1243c5bd29b192817281c6d5da7c46d31d8234a4fb5"
         ],
         [
           "81a68da1025dc1247ec3ec87e9f17c72b42e4245a5a2092097dc37d1a154cb27",
-          "22fa9570ccec9b662708c9c76f20f1643d6782d7fc3e762ede37b0fd687c53e8",
-          "020803d2e46d542c7295516b607633f2e0f1578d5557c5a4116b154b7b6bf6ce"
+          "b6bacb9a6391e020ba0625192074b8062735a31402cbbabedd07aacc6eeec172",
+          "219094e8dd6adfb9b94c69cfb651015670d1ce495b965f685fc173785be88c45",
+          "5637729e0904b1ea5a593482f30b46dc19ef33adb121169f21dd28a44b563d2a"
         ]
       ],
       "element_hashes": [
-        "77a8c9e0c3039e97b008a06cf17a948428f0cc986c1a099d6fd4a67a296d8b9a",
-        "d2f77076c824afd33fb81c9ba3542c58642e0a19ec719d8a5fca3570f3f73681"
+        "bc1136a0a3c25562f1ff4112d12ea0aec4d8247863692186509c8ad5d90ec250",
+        "b3bb02a1763e0a85a2430592dabc37a5afde20e1a5020f1c7bc2a2707aaa93f2"
       ],
-      "hash": "e99779416a2a635e54e777db9be17d23b18eb1448734828f48f7cbfa1ab1ef4c",
+      "hash": "c6384c65bd15314d0db6e1ce74a0b28cd55ca9042d6d26a7e50d6ad703c4ca3a",
       "kind": "array",
       "mistakes": {
-        "2bb2fd78e38300a5d16c084c33d569a4454ce965998cf39a108127b87b85f683": "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes des valeurs absolues, colonne par colonne ou ligne par ligne"
+        "799f829f6385bf76632461afff28881db7ad8aec12ad35ffbe42fcd9b405b576": "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes, colonne par colonne ou ligne par ligne",
+        "c7e32bcbdaa26b9ecfd017aa70bbd9e941e5b80ac19f32339cdb3242032bbcde": "‖·‖₁ prend les sommes de colonnes, ‖·‖∞ les sommes de lignes",
+        "cfefe0d6f401a0ccb0f99cab1eff774d03af1fad7ded86d1b3555571795d4c09": "les normes ‖·‖₁ et ‖·‖∞ additionnent les valeurs absolues des coefficients, pas les coefficients avec leurs signes"
       },
       "shape": [
         2
@@ -7082,27 +7114,27 @@
     "CP5.6g": {
       "coarse_any": {
         "0": [
-          "895ed4b59b867e565671005fbe2141967db66a56eb2a1da12baa35e74660ff04"
+          "a18e372118b9cd1c931fe5c76f26dffef6c21cb8f08627658ed021e89daa8c98"
         ]
       },
       "coarser": {
         "1": [
-          "ce82d61efba929771836936b6ff96644dc20a4bc60e00a34a8ae1635aa5bf00b"
+          "ffbf3932472f0898f555ae0261991c815006b1e4bd8ec9ad3a83784a81de7c08"
         ],
         "2": [
-          "013782027302d499e3135d51910146b00a89d13e0dc1a005677e9dd13d28eda5"
+          "c7526ebc23e56fd38d036ab613b2b4676e265771c06f16f3cc5a6416bf932253"
         ]
       },
       "decimals": 4,
-      "hash": "38ea561240d4d2cb018580d311658648e0f759d9026a4f922231814413b737b6",
-      "hash_coarse": "132557d1560a6d9e1a25402ead66478b8f71a67511b8bd4bfd79e4ae8c6ef18a",
+      "hash": "9a7594c7957fca1252d661d8106c1c3bc3f5b39273780ea5a904a7d291484130",
+      "hash_coarse": "791542d92f8827b7260527b207134c64aeb315074acd4caab398b484c39665da",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "50995785c61723dda598558dc9d110df1300b78f2b982b20f4e91de98b0ab6b6": "‖M‖₂ est une valeur singulière : la racine carrée d'une valeur propre de MᵀM",
-        "75941d012771fd476ff32ccb3669a1be1a107aa66aba0d4c560eee9e0c948f62": "‖M‖₂ est la PLUS GRANDE valeur singulière",
-        "b122bc764637bbfe0ac03e850bfda9b07db7dc828d8f36b0dd0e6a273ca17c2c": "la norme de Frobenius n'est pas la norme induite ‖·‖₂",
-        "e2700c9abae6bde4524ae84ab850fffa2f8f76e925da6bb130c79ac0606f138f": "le rayon spectral n'est pas une norme : ρ(M) ≤ ‖M‖₂, avec égalité pour une matrice normale"
+        "203d6b56876fda434df95a26aeece6ba4b8138f3f9790f7ab32bccd1fce1c7cf": "la norme de Frobenius n'est pas la norme induite ‖·‖₂",
+        "88f1adb89e5dd05448d9b9b207e987354e2db5285db2ea2c01261107f40dbf31": "‖M‖₂ est une valeur singulière : la racine carrée d'une valeur propre de MᵀM",
+        "d0d744f29b64e446b55e62515ddb0eac7f5b456f64872f3b397d0ade8e0c320c": "le nombre que tu donnes est-il le plus grand facteur d'allongement ‖M x‖/‖x‖ ? Essaie quelques vecteurs",
+        "f1ba72e3a22570477d27d9eee0a2a0774937b769364caeccc5c40b45a06d3fa3": "‖M‖₂ est la PLUS GRANDE valeur singulière"
       },
       "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
@@ -7119,8 +7151,8 @@
       "mistakes": {
         "024da941a0b0115e657487ea7280964577e4089b39901279720e109dd8862a78": "le comportement des puissances se lit sur le rayon spectral, pas sur une norme",
         "4f4b5f264fadb7547d06197a737859cba0d60b12e9c546849623969ffcdd3c93": "Aᵗ → 0 si et seulement si ρ(A) < 1, même quand une norme de A dépasse 1",
-        "8b183b7842201daa44edf9808b98f5d9b735b16d7ea793d23aa79a8591e103c8": "les puissances ne sont pas bornées quand ρ > 1 ; avec ρ = 1 et des valeurs propres distinctes, elles restent bornées",
-        "dd311b9c21af2c08a8d3449c8bd3df21ca69cb36dab27046760f7e8754fb5f66": "multiplier une matrice par √2 multiplie le module de ses valeurs propres par √2 : compare le nouveau module à 1"
+        "8b183b7842201daa44edf9808b98f5d9b735b16d7ea793d23aa79a8591e103c8": "que deviennent les puissances d'une matrice diagonalisable dont les valeurs propres ont un module égal à 1 ?",
+        "dd311b9c21af2c08a8d3449c8bd3df21ca69cb36dab27046760f7e8754fb5f66": "multiplier une matrice par 2/√3 multiplie ses valeurs propres par 2/√3 : regarde leur nouveau module"
       },
       "shape": [
         2
@@ -7354,7 +7386,7 @@
       "magnitude": 0,
       "mistakes": {
         "2ebcb00688949fbc0690dc31baf0c86567b0c0837305bdc51a99bb8d0dd7fa4c": "c'est le changement exact ; la question demande l'approximation au premier ordre, par la sensibilité",
-        "4e40cb2a08e4f24c91c6bbab425820dc7729e6b6f4c276b03ad814fb1b7d0e57": "la question demande un changement de x₃, pas sa dérivée par rapport à β",
+        "4e40cb2a08e4f24c91c6bbab425820dc7729e6b6f4c276b03ad814fb1b7d0e57": "ta réponse est-elle un changement de hauteur, en cm, pour la variation de β donnée ?",
         "b7217f59567a21b203f3f2f7c8200f3e9097cb59c3317760905a265e2082445a": "un orifice qui laisse sortir plus d'eau fait-il monter ou baisser le niveau ? Vérifie le signe",
         "d3c7f27007bf2e85fccd4a8ec2e517b64b6f90ad4cf6ecf1f00a34f6e160dd51": "c'est le changement exact ; la question demande l'approximation au premier ordre, par la sensibilité"
       },
@@ -7574,7 +7606,7 @@
         "17e41228f0add9ef9d709d5df977d1f1fca1f8b2c76795b18fbf27395167c57a": "‖A‖₂ est une valeur singulière : la racine carrée d'une valeur propre de AᵀA",
         "1de75e394a33b385df4fdd71aa97d15f9c29227bf33f8b3e2177347281b383fc": "la norme de Frobenius n'est pas la norme induite ‖·‖₂",
         "4fd9fbfd353ec320a11c8a60a70dc8636d8ba619e8a7d9b00e99daafe299545b": "‖·‖₁ et ‖·‖∞ prennent la plus grande des sommes des valeurs absolues, colonne par colonne ou ligne par ligne",
-        "d577d34c1376b39fd6bea0a6af2a10c2549574adeb9a6a9fc9def29fb44af443": "le rayon spectral n'est pas une norme : ρ(A) ≤ ‖A‖₂, avec égalité pour une matrice normale"
+        "d577d34c1376b39fd6bea0a6af2a10c2549574adeb9a6a9fc9def29fb44af443": "ta troisième valeur est-elle le plus grand facteur d'allongement ‖A x‖₂/‖x‖₂ ?"
       },
       "shape": [
         3
@@ -7631,35 +7663,6 @@
       },
       "sign": 1,
       "simplified": true,
-      "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
-    },
-    "CP5.10h": {
-      "hash": "bbb4edb730d955509ed7f21b82c13912406ac1d4bc9a00264bde7c7942017852",
-      "kind": "fraction",
-      "mistakes": {
-        "4c0c8ded80cf7409181ccbd6ec35de8a548996797b9cf43cabe94e1f05d6b255": "det = ad − bc : n'oublie pas le produit des coefficients hors de la diagonale",
-        "73bf9463a6bdeff50884d0771f0832a9395877e75d8136086eac82094042983c": "det = ad − bc : vérifie le signe du produit des coefficients hors de la diagonale",
-        "d45ade6c90801b7436b34afa1e0c936baf3b53d6bef3e6749eb599027fcfb196": "le module d'une valeur propre complexe dépend aussi de sa partie imaginaire : la partie réelle ne suffit pas",
-        "f3bcf02785412e11ae7fb433b636559f23ffa7f7686c3d9978c89063742a74dd": "les deux conditions doivent tenir à la fois : la borne est la plus petite de celles qu'elles donnent"
-      },
-      "sign": 1,
-      "simplified": true,
-      "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
-    },
-    "CP5.10i": {
-      "choices": [
-        "1",
-        "2",
-        "3"
-      ],
-      "hash": "83da5895f9a934e04db56b6b451b28686c1080bbdfcdf3b28a47676f3202d12d",
-      "kind": "int",
-      "magnitude": 0,
-      "mistakes": {
-        "8dfe38a4f27bbd1ae294397088caacaf73d6e92625026488d4698852da171fd6": "à la borne de l'ensemble des γ stables, ρ = 1 : les puissances ne tendent pas vers 0",
-        "aa7041fc9686870c8f1c1a8467fac89e7cbea73494cc18c1d3701855bc77f4f1": "des valeurs propres distinctes de module 1 donnent des puissances bornées"
-      },
-      "sign": 1,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
     "DEMO.1": {
