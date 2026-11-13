@@ -177,13 +177,13 @@ Le ∂ M25a.10 applique le théorème à $U(\boldsymbol{\varepsilon}) = \boldsym
 2. tirer $d$ nombres indépendants de loi $\mathcal{N}(0, 1)$ : un vecteur $\boldsymbol{\varepsilon}$ ;
 3. rendre $\mathbf{x} = \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$.
 
-Sa moyenne est $\boldsymbol{\mu}$, sa covariance $\mathbf{L}\mathbf{I}\mathbf{L}^\top = \boldsymbol{\Sigma}$ (le « chemin inverse » de M12c §8), et sa loi est gaussienne. Pour le GPS, $\boldsymbol{\varepsilon} = (1{,}2 ;\ -0{,}5)$ donne $\mathbf{L}\boldsymbol{\varepsilon} = (4 \times 1{,}2 ;\ 1{,}2 - 3 \times 0{,}5) = (4{,}8 ;\ -0{,}3)$, et l'erreur $\mathbf{x} = (6{,}8 ;\ -4{,}3)$. Dans l'autre sens, $\boldsymbol{\varepsilon} = \mathbf{L}^{-1}(\mathbf{x} - \boldsymbol{\mu})$ **blanchit** (*whitening*, M12c §8 ; la figure du §1, à droite).
+Sa moyenne est $\boldsymbol{\mu}$, sa covariance $\mathbf{L}\mathbf{I}\mathbf{L}^\top = \boldsymbol{\Sigma}$ (le « chemin inverse » de M12c §8), et sa loi est gaussienne. Pour le GPS, $\boldsymbol{\varepsilon} = (1{,}5 ;\ -1)$ donne $\mathbf{L}\boldsymbol{\varepsilon} = (4 \times 1{,}5 ;\ 1{,}5 - 3 \times 1) = (6 ;\ -1{,}5)$, et l'erreur $\mathbf{x} = (8 ;\ -5{,}5)$. Dans l'autre sens, $\boldsymbol{\varepsilon} = \mathbf{L}^{-1}(\mathbf{x} - \boldsymbol{\mu})$ **blanchit** (*whitening*, M12c §8 ; la figure du §1, à droite).
 
 **Pourquoi Cholesky ?** N'importe quelle matrice $\mathbf{T}$ telle que $\mathbf{T}\mathbf{T}^\top = \boldsymbol{\Sigma}$ convient : $\boldsymbol{\Sigma}^{1/2}$, ou $\mathbf{Q}\operatorname{diag}(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_d})$ (M12c §8). Deux choix donnent des tirages différents pour un même $\boldsymbol{\varepsilon}$, mais la même loi. Cholesky est le moins cher (de l'ordre de $d^3/3$ opérations, sans valeurs propres), stable pour une matrice définie positive ; il donne $\ln\det\boldsymbol{\Sigma}$ au passage (§1), et son échec signale une $\boldsymbol{\Sigma}$ qui n'est pas définie positive.
 
 📐 **Notations.** Avec des vecteurs **en lignes**, comme dans NumPy et `mymath` : on tire d'un coup un tableau $\mathbf{E}$ de forme $(n, d)$, dont chaque ligne est un $\boldsymbol{\varepsilon}^\top$. La ligne $i$ du résultat doit être $(\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}_i)^\top = \boldsymbol{\mu}^\top + \boldsymbol{\varepsilon}_i^\top\mathbf{L}^\top$, donc
 $$\mathbf{X} = \mathbf{1}\boldsymbol{\mu}^\top + \mathbf{E}\mathbf{L}^\top \qquad (\texttt{mean + E @ L.T}),$$
-où $\mathbf{1}$ est une colonne de $n$ uns (NumPy l'écrit par diffusion, M20). Avec les lignes $(1{,}2 ;\ -0{,}5)$ et $(0, 1)$, les lignes de $\mathbf{X}$ sont $(6{,}8 ;\ -4{,}3)$ et $(2, -1)$. Le 🔗 M25a.16 fait passer d'une convention à l'autre.
+où $\mathbf{1}$ est une colonne de $n$ uns (NumPy l'écrit par diffusion, M20). Avec les lignes $(1{,}5 ;\ -1)$ et $(0, 1)$, les lignes de $\mathbf{X}$ sont $(8 ;\ -5{,}5)$ et $(2, -1)$. Le 🔗 M25a.16 fait passer d'une convention à l'autre.
 
 ### Sommes de vecteurs gaussiens indépendants
 
