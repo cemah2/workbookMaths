@@ -658,7 +658,7 @@ Fiche §5 : le théorème de MML (Théorème 9.1) sous la forme « précisions �
 </details>
 <details><summary>Indice 3</summary>
 
-Refuse `noise_var` booléen, non fini ou $\le 0$ ; contrôle que $\mathbf{S}_0$ est symétrique et définie positive (Cholesky). Ensuite : b) une boucle sur les deux lignes de `Phi`, chaque loi a posteriori servant d'a priori, avec `Phi[i:i + 1]` et `e[i:i + 1]` ; d) pour le tracé, dans l'axe reçu, sur les températures `TS_23` du notebook (de −50 à 250 °C) : `ts = TS_23 / 100`, `F = np.column_stack([np.ones_like(ts), ts])`, la moyenne `F @ m_N`, la variance `np.einsum("ij,jk,ik->i", F, S_N, F) + 0.04`, puis `ax.fill_between(100 * ts, …)` et `ax.plot`.
+Refuse `noise_var` booléen, non fini ou $\le 0$ ; contrôle que $\mathbf{S}_0$ est symétrique et définie positive (Cholesky). Ensuite : b) une boucle sur les deux lignes de `Phi`, chaque loi a posteriori servant d'a priori, avec `Phi[i:i + 1]` et `e[i:i + 1]` ; d) `-100 * S_N[0, 1] / S_N[1, 1]`. Pour `pred_means_23` et `pred_sds_23` : `F = np.column_stack([np.ones_like(TS_23), TS_23 / 100])`, puis `F @ m_N` et `np.sqrt(np.einsum("ij,jk,ik->i", F, S_N, F) + NOISE_23)` (le bruit compris). Dans `draw_predictive_23(ax, ts, means, sds)`, qui reçoit ces tableaux tout faits : `ax.plot(ts, means)`, `ax.fill_between(ts, means - 2 * sds, means + 2 * sds, alpha=0.3)` et les deux points d'étalonnage, `ax.plot([0, 100], [0.3, -0.6], "o")`.
 
 </details>
 

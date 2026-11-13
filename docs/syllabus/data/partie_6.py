@@ -15,7 +15,7 @@ of workbookIA.
 
 CHAPTERS = [
     {
-        "id": "M25a", "dir": "m25a_gaussienne", "hours": 17.4, "generation_sessions": 2,
+        "id": "M25a", "dir": "m25a_gaussienne", "hours": 20.3, "generation_sessions": 2,
         "mml": ["§6.5", "§6.7", "§9.3"],
         "summary": "La loi normale multivariée : sa densité (le déterminant et la distance de Mahalanobis), les "
                    "transformations affines et le changement de variable multivarié (la loi de μ + Lε et l'échantillonnage "
@@ -253,7 +253,7 @@ CHAPTERS = [
             ("M25a.R3", "🔁", 1, 6, "Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18)", "§6", ""),
             ("M25a.1", "✏️", 1, 25, "La densité d'un couple gaussien (température et humidité d'une serre) en deux points : "
              "distance de Mahalanobis contre distance euclidienne", "§1", "E"),
-            ("M25a.2", "✏️", 2, 30, "Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un "
+            ("M25a.2", "✏️", 2, 35, "Trois mesures corrélées : la loi d'une somme pondérée et d'une différence, puis un "
              "tirage μ + Lε par Cholesky et sa covariance", "§2", "E"),
             ("M25a.3", "✏️", 2, 30, "Les ellipses à 90 % et à 95 % des composantes du vent sur un site : axes, demi-axes, "
              "aire, et la part des relevés dans l'ellipse de niveau c", "§3", "E"),
@@ -261,7 +261,7 @@ CHAPTERS = [
              "conditionnelle en dimension 3, et l'écart-type gagné", "§4", "E"),
             ("M25a.5", "✏️", 1, 20, "Fusionner trois mesures d'une même distance : le produit de densités gaussiennes, des "
              "précisions qui s'additionnent, un ordre sans importance", "§5", "E"),
-            ("M25a.6", "✏️", 2, 40, "Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, "
+            ("M25a.6", "✏️", 2, 45, "Étalonner un thermomètre par la régression linéaire bayésienne : loi jointe, "
              "évidence, posterior de (a, b), et prédictive près et loin des points d'étalonnage", "§5", ""),
             ("M25a.7", "✏️", 2, 25, "La divergence KL continue entre deux lois exponentielles et entre deux lois "
              "uniformes : les deux sens, une KL infinie, et deux durées de vie indépendantes", "§7", "E"),
@@ -292,26 +292,26 @@ CHAPTERS = [
              "l'autre, et pourquoi la valeur lue ne change pas cette incertitude", "§4", "E"),
             ("M25a.E1", "💼", 1, 10, "« Comment tirer un vecteur gaussien de covariance donnée à partir de tirages "
              "indépendants, et pourquoi Cholesky ? »", "§2", ""),
-            ("M25a.20", "🔨", 2, 30, "La log-densité d'une loi normale multivariée, par Cholesky", "§1",
+            ("M25a.20", "🔨", 2, 40, "La log-densité d'une loi normale multivariée, par Cholesky", "§1",
              "E m:mvn_logpdf"),
             ("M25a.21", "🔨", 1, 20, "Tirer des vecteurs de loi N(μ, Σ) par Cholesky", "§2", "E m:sample_mvn"),
-            ("M25a.22", "🔨", 2, 35, "Le complément de Schur d'un bloc, et la loi conditionnelle d'un vecteur gaussien",
+            ("M25a.22", "🔨", 2, 40, "Le complément de Schur d'un bloc, et la loi conditionnelle d'un vecteur gaussien",
              "§4", "E m:schur_complement,condition_gaussian"),
-            ("M25a.23", "🔨", 2, 25, "Le posterior d'une régression linéaire bayésienne", "§5", "m:linreg_posterior"),
-            ("M25a.24", "📦", 1, 25, "`scipy.stats.multivariate_normal`, `np.cov` et `scipy.integrate` : tes "
+            ("M25a.23", "🔨", 2, 35, "Le posterior d'une régression linéaire bayésienne", "§5", "m:linreg_posterior"),
+            ("M25a.24", "📦", 1, 30, "`scipy.stats.multivariate_normal`, `np.cov` et `scipy.integrate` : tes "
              "log-densités, le maximum de vraisemblance, et la KL de M25a.8 par une intégrale double", "§1 §6 §7",
              "E p:M25a.20,M25a.8"),
             ("M25a.25", "🔮", 1, 15, "Prédire la part des tirages dans l'ellipsoïde de Mahalanobis de même niveau quand la "
              "dimension passe de 2 à 10, puis mesurer", "§3", "E p:M25a.21"),
             ("M25a.26", "🔬", 2, 25, "Conditionner par simulation : garder les tirages dont une mesure tombe près d'une "
              "valeur, et comparer à la loi conditionnelle exacte", "§4", "p:M25a.21,M25a.22"),
-            ("M25a.27", "🎨", 1, 20, "Les ellipses de niveau d'une gaussienne en dimension 2, une tranche (la loi "
+            ("M25a.27", "🎨", 1, 25, "Les ellipses de niveau d'une gaussienne en dimension 2, une tranche (la loi "
              "conditionnelle) et une projection (la loi marginale), selon la corrélation", "§3 §4", "E p:M25a.22"),
-            ("M25a.28", "🐛", 1, 20, "Chasse à l'erreur : un tirage par E L au lieu de E Lᵀ, ln det Σ sans le facteur 2, et "
+            ("M25a.28", "🐛", 1, 25, "Chasse à l'erreur : un tirage par E L au lieu de E Lᵀ, ln det Σ sans le facteur 2, et "
              "une covariance conditionnelle qui dépend de la valeur observée", "§1 §2 §4", "E"),
-            ("M25a.29", "🛠️", 1, 20, "Un test de propriété : la moyenne et la covariance empiriques de tes tirages, à une "
+            ("M25a.29", "🛠️", 2, 30, "Un test de propriété : la moyenne et la covariance empiriques de tes tirages, à une "
              "tolérance fixée par l'erreur type", "§2", "p:M25a.21"),
-            ("M25a.30", "🏆", 3, 30, "Défi : reconstruire les températures manquantes le long d'une route par la loi "
+            ("M25a.30", "🏆", 3, 35, "Défi : reconstruire les températures manquantes le long d'une route par la loi "
              "conditionnelle d'une gaussienne, sous une erreur quadratique moyenne fixée", "§4", "p:M25a.22"),
         ],
     },
