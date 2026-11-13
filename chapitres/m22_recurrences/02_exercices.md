@@ -110,7 +110,7 @@ Un vecteur $\mathbf{w}$ est fait de trois blocs, de normes (L2) 4, 8 et 8.
 
 ## 🔁 Rappels
 
-### M22.R1 — La diagonalisation et les puissances d'une matrice (M12c) 🔁 ★ ⏱️ 5 min
+### M22.R1 — La diagonalisation et les puissances d'une matrice (M12c) 🔁 ★ ⏱️ 8 min
 *Fiche §2 · parcours C, E*
 
 $\mathbf{A} = \begin{pmatrix} 5 & 2 \\ 1 & 4 \end{pmatrix}$.
@@ -160,7 +160,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex M22.1 — Une population à trois classes d'âge, avec des arrivées : trois pas à la main, et la solution écrite avec les puissances ✏️ ★★ ⏱️ 20 min
+### Ex M22.1 — Une population à trois classes d'âge, avec des arrivées : trois pas à la main, et la solution écrite avec les puissances ✏️ ★★ ⏱️ 25 min
 **Objectif :** dérouler une récurrence linéaire avec entrée, puis retrouver le résultat par la formule de la solution, réponse libre et réponse forcée.
 **Prérequis :** fiche §1 ; M09a · **Parcours :** C, E
 
@@ -181,7 +181,7 @@ avec $\mathbf{x}_0 = (40, 20, 30)$, $\mathbf{u}_0 = (20, 10)$, $\mathbf{u}_1 = (
 
 Dans ta copie : écris la formule $\mathbf{x}_3 = \mathbf{A}^3\mathbf{x}_0 + \mathbf{A}^2\mathbf{B}\mathbf{u}_0 + \mathbf{A}\mathbf{B}\mathbf{u}_1 + \mathbf{B}\mathbf{u}_2$ et vérifie que e) + f) redonne c). Pourquoi $\mathbf{u}_2$ n'est-il multiplié par aucune puissance de $\mathbf{A}$ ? Que dit la première colonne de d) sur le devenir, deux ans plus tard, de 1 jeune relâché ? Calcule la population totale au printemps 3.
 
-### Ex M22.2 — La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme convolution de l'entrée ✏️ ★★ ⏱️ 20 min
+### Ex M22.2 — La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme convolution de l'entrée ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer une réponse impulsionnelle, la sortie par une convolution, et ce que devient toute la pluie reçue.
 **Prérequis :** fiche §1 et §2 ; M21, R5 · **Parcours :** C, E
 
@@ -242,7 +242,7 @@ $$\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}4 \\ 0{,}6 & 0 \end{pmatrix}, \qquad 
 
 Dans ta copie : les valeurs propres de chaque matrice, par la trace et le déterminant ; pour $\mathbf{B}$, leur forme exponentielle. Calcule $\mathbf{B}^2$ puis $\mathbf{B}^3$. Pour $\mathbf{C}$, calcule $\mathbf{C}^2$ et décris ce que fait $\mathbf{C}$ à chaque pas. Pour $\mathbf{A}$, que devient $\mathbf{A}^t\mathbf{x}$ quand $t$ grandit : quelle composante s'éteint le plus vite, et laquelle change de signe à chaque pas ?
 
-### Ex M22.5 — Une matrice triangulaire de rayon spectral < 1 dont les puissances grandissent d'abord : Aᵗ en formule ✏️ ★★ ⏱️ 20 min
+### Ex M22.5 — Une matrice triangulaire de rayon spectral < 1 dont les puissances grandissent d'abord : Aᵗ en formule ✏️ ★★ ⏱️ 30 min
 **Objectif :** démontrer la formule des puissances d'une matrice triangulaire $2 \times 2$, et suivre la croissance transitoire qu'elle produit.
 **Prérequis :** fiche §3 ; R4, R5 · **Parcours :** C, E
 
@@ -264,7 +264,7 @@ On note $c_t = (\mathbf{A}^t)_{12}$, le coefficient en haut à droite de $\mathb
 
 Dans ta copie : pour c), étudie le rapport $\frac{c_{t+1}}{c_t}$ et dis pour quels $t$ il dépasse 1. Compare $\mathbf{A}$ à $\operatorname{diag}(\frac23, \frac23)$, de mêmes valeurs propres, et $\mathbf{A}$ à $\mathbf{B}$ : laquelle grandit le plus longtemps, et pourquoi ? Vérifie $\mathbf{A}^2$ par un produit.
 
-### Ex M22.6 — Les normes ‖·‖₁, ‖·‖∞ et ‖·‖₂ d'une matrice 2 × 2, et trois majorations de ‖A⁵x‖ ✏️ ★★ ⏱️ 20 min
+### Ex M22.6 — Les normes ‖·‖₁, ‖·‖∞ et ‖·‖₂ d'une matrice 2 × 2, et trois majorations de ‖A⁵x‖ ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer les trois normes induites, et majorer une puissance appliquée à un vecteur sans calculer la puissance.
 **Prérequis :** fiche §4 ; M07, M12d · **Parcours :** C, E
 
@@ -327,7 +327,7 @@ $$f(x, y) = (1 - 1{,}4\,x^2 + y,\ \ 0{,}3\,x), \qquad \mathbf{x}_{t+1} = f(\math
 
 Dans ta copie : écris $\mathbf{J}_f(x, y)$. Pourquoi son déterminant vaut-il $-0{,}3$ en tout point, et que vaut alors e), sans calcul ? Compare le produit des trois normes de f) à la norme de d). Calcule le vrai $\mathbf{x}_3$ partant de $(0{,}01 ;\ 0)$ et compare son déplacement à g).
 
-### Ex M22.9 — Un capital placé à taux fixe avec des versements : la dérivée du capital final par rapport au taux, une somme sur les années ✏️ ★★ ⏱️ 20 min
+### Ex M22.9 — Un capital placé à taux fixe avec des versements : la dérivée du capital final par rapport au taux, une somme sur les années ✏️ ★★ ⏱️ 25 min
 **Objectif :** écrire la sensibilité d'un état final à un paramètre utilisé à chaque pas comme une somme sur le temps, et la vérifier.
 **Prérequis :** fiche §7 ; R5, M17 · **Parcours :** C, E
 
@@ -372,7 +372,7 @@ Dans ta copie : pourquoi la norme globale n'est-elle pas la somme des normes des
 
 Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque étape et ce qui la justifie, ce que tu conclus. `05_solutions.md` donne une grille de relecture.
 
-### Ex M22.11 — Sous-multiplicativité, ‖Aᵀ‖₂ = ‖A‖₂, ‖diag(d)‖₂ = max |dᵢ| et ρ(A) ≤ ‖A‖ ∂ ★★ ⏱️ 25 min
+### Ex M22.11 — Sous-multiplicativité, ‖Aᵀ‖₂ = ‖A‖₂, ‖diag(d)‖₂ = max |dᵢ| et ρ(A) ≤ ‖A‖ ∂ ★★ ⏱️ 35 min
 **Objectif :** démontrer les propriétés des normes induites que le chapitre utilise, y compris pour un vecteur propre complexe.
 **Prérequis :** fiche §4 ; M12c §3, M12d · **Parcours :** C, E
 
@@ -397,7 +397,7 @@ $\mathbf{A}$ est une matrice réelle de forme $(m, n)$, non nulle, et $L = \max_
 4. Pour $\mathbf{A} = \begin{pmatrix} 2 & 0 & -5 \\ 1 & -3 & 1 \end{pmatrix}$ : calcule $\lVert\mathbf{A}\rVert_\infty$, et trouve **tous** les vecteurs $\mathbf{x}$ tels que $\lVert\mathbf{x}\rVert_\infty = 1$ et $(\mathbf{A}\mathbf{x})_0 = \lVert\mathbf{A}\rVert_\infty$ (la première ligne est la ligne 0). Pourquoi y en a-t-il une infinité ?
 5. $\mathbf{S} = \begin{pmatrix} 0{,}2 & 0{,}3 & 0{,}1 \\ 0{,}1 & 0{,}2 & 0{,}3 \\ 0{,}4 & 0 & 0{,}2 \end{pmatrix}$ a des coefficients positifs ou nuls. Montre que $\lVert\mathbf{S}^t\rVert_\infty = 0{,}6^t$ exactement (pense au vecteur $(1, 1, 1)$), que chaque coefficient de $\mathbf{S}^t$ est au plus $0{,}6^t$, et que $\rho(\mathbf{S}) = 0{,}6$.
 
-### Ex M22.13 — Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ ∂ ★★ ⏱️ 20 min
+### Ex M22.13 — Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer le théorème du §3 dans le cas diagonalisable, avec une constante explicite, et voir où l'hypothèse sert.
 **Prérequis :** fiche §2 et §3 ; M12c §4 · **Parcours :** C, E
 
@@ -410,7 +410,7 @@ $\mathbf{A}$ est une matrice carrée réelle, diagonalisable sur $\mathbb{C}$ : 
 5. Pour la matrice $\mathbf{B} = \begin{pmatrix} 2 & -3 \\ 1 & -1 \end{pmatrix}$ de M22.4 : explique avec la question 3 pourquoi $\mathbf{B}^t$ ne tend pas vers $\mathbf{0}$, et avec les questions 1 et 2 pourquoi ses puissances restent bornées.
 6. Où la démonstration de la question 2 utilise-t-elle l'hypothèse « diagonalisable » ? Pour le bloc de Jordan $\begin{pmatrix} \lambda & \gamma \\ 0 & \lambda \end{pmatrix}$ de la fiche, avec $\lvert\lambda\rvert < 1$ et $\gamma \ne 0$, qu'est-ce qui change, et pourquoi la conclusion tient-elle encore ?
 
-### Ex M22.14 — Une application contractante oublie son point de départ : l'écart entre deux trajectoires décroît géométriquement ∂ ★★ ⏱️ 15 min
+### Ex M22.14 — Une application contractante oublie son point de départ : l'écart entre deux trajectoires décroît géométriquement ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer la propriété des contractions du §6, puis la tester sur une application affine et sur un contre-exemple.
 **Prérequis :** fiche §4 et §6 ; R4, R5 · **Parcours :** C
 
@@ -422,7 +422,7 @@ $f$ envoie une partie $\mathcal{D}$ de $\mathbb{R}^n$ dans elle-même, et il exi
 4. $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{c}$ sur $\mathcal{D} = \mathbb{R}^2$, avec $\mathbf{A} = \begin{pmatrix} 0{,}3 & -0{,}3 \\ 0{,}1 & 0{,}3 \end{pmatrix}$ et $\mathbf{c} = (1, 2)$. Montre que $f$ est contractante de facteur $0{,}6$ pour $\lVert\cdot\rVert_1$. Trouve son point fixe, en résolvant un système linéaire. Deux trajectoires partent de $(5, -3)$ et de $(-1, 4)$ : majore leur écart en norme 1 après 10 pas.
 5. $g(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $\mathbf{J} = \begin{pmatrix} 0{,}2 & 3 \\ 0 & 0{,}2 \end{pmatrix}$ : $\rho(\mathbf{J}) = 0{,}2$, et toutes les trajectoires tendent vers $\mathbf{0}$. Montre que $g$ n'est pas contractante pour $\lVert\cdot\rVert_2$, en exhibant deux points. Montre ensuite que $g \circ g$ ne l'est pas non plus, mais que $g \circ g \circ g$ l'est.
 
-### Ex M22.15 — La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une récurrence avec entrée : sa solution est une somme sur le temps ∂ ★★ ⏱️ 20 min
+### Ex M22.15 — La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une récurrence avec entrée : sa solution est une somme sur le temps ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la récurrence de la sensibilité et sa solution, la propriété du §7.
 **Prérequis :** fiche §5 et §7 ; M17, M18 · **Parcours :** C
 
@@ -439,7 +439,7 @@ $f : \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}^n$ est dérivable, $\mathbf{x
 
 ## 🔗 📖 🗣️ Pont, lecture et explication
 
-### Ex M22.16 — Pont : la convention ligne x_{t+1} = x_t A + u_t B, ses formes, et la jacobienne Aᵀ 🔗 ★ ⏱️ 15 min
+### Ex M22.16 — Pont : la convention ligne x_{t+1} = x_t A + u_t B, ses formes, et la jacobienne Aᵀ 🔗 ★ ⏱️ 20 min
 **Objectif :** passer de la convention colonne de ce chapitre à la convention ligne des bibliothèques, avec les formes, la solution et la jacobienne.
 **Prérequis :** fiche §1 et §6 ; M17 · **Parcours :** C, E
 
@@ -460,7 +460,7 @@ $$\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}6 \\ -0{,}4 & 0{,}3 \end{pmatrix}, \q
 
 Dans ta copie : transpose la récurrence ligne pour retrouver une récurrence de ce chapitre. Pourquoi la jacobienne de $\mathbf{x} \mapsto \mathbf{x}\mathbf{A}$ est-elle $\mathbf{A}^\top$ (écris $(\mathbf{x}\mathbf{A})_j$) ? Le long d'une trajectoire, les bibliothèques multiplient donc des transposées : que valent $\big\lVert(\mathbf{A}^\top)^t\big\rVert_2$ et $\rho(\mathbf{A}^\top)$, comparés à ceux de $\mathbf{A}^t$ et de $\mathbf{A}$ (∂ M22.11) ?
 
-### Ex M22.17 — MML §4.2 relu : les cinq applications du plan de la figure 4.4, leurs valeurs propres, et le comportement de leurs puissances 📖 ★★ ⏱️ 30 min
+### Ex M22.17 — MML §4.2 relu : les cinq applications du plan de la figure 4.4, leurs valeurs propres, et le comportement de leurs puissances 📖 ★★ ⏱️ 40 min
 **Objectif :** relire une section de MML avec les outils du chapitre : valeurs propres complexes, rayon spectral, matrices normales et puissances.
 **Prérequis :** fiche §2 et §3 ; M12c · **Parcours :** C
 
@@ -510,22 +510,22 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| M22.19 | Les états d'une récurrence linéaire avec entrée · `linear_system_states` | 🔨 | ★ | 20 | C, E |
+| M22.19 | Les états d'une récurrence linéaire avec entrée · `linear_system_states` | 🔨 | ★ | 25 | C, E |
 | M22.20 | Les normes induites ‖·‖₁, ‖·‖∞ et ‖·‖₂ · `operator_norm` | 🔨 | ★★ | 30 | C, E |
-| M22.21 | Les normes des produits cumulés, et leur majoration · `product_norms` | 🔨 | ★ | 20 | C, E |
+| M22.21 | Les normes des produits cumulés, et leur majoration · `product_norms` | 🔨 | ★ | 25 | C, E |
 | M22.22 | `np.linalg.eigvals` et `np.linalg.norm` : rayon spectral et normes de matrices tirées au hasard, et ρ ≤ ‖A‖ | 📦 | ★ | 15 | C |
-| M22.23 | Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer | 🔮 | ★ | 15 | C, E |
-| M22.24 | Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖ | 🔬 | ★★ | 20 | C |
-| M22.25 | Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module | 🎨 | ★ | 15 | C, E |
-| M22.26 | Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais ordre, un seuil appliqué bloc par bloc | 🐛 | ★ | 20 | C, E |
-| M22.27 | Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au hasard | 🛠️ | ★ | 15 | C |
+| M22.23 | Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer | 🔮 | ★ | 20 | C, E |
+| M22.24 | Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖ | 🔬 | ★★ | 25 | C |
+| M22.25 | Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module | 🎨 | ★ | 20 | C, E |
+| M22.26 | Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais ordre, un seuil appliqué bloc par bloc | 🐛 | ★ | 25 | C, E |
+| M22.27 | Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au hasard | 🛠️ | ★ | 30 | C |
 | M22.28 | Défi : une matrice 3 × 3 à coefficients dans [−3, 3], de rayon spectral 0,85, dont une puissance a une norme ‖·‖₂ supérieure à 100 | 🏆 | ★★★ | 25 | C |
 
 Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le notebook). Les trois 🔨 complètent ta copie `mon_travail/mymath/recurrence.py` (**mymath :** `recurrence.py`), dont la docstring du module dit ce qui est permis : NumPy, mais, de `np.linalg`, seulement `eigvalsh` (dans `operator_norm`) et `norm` (dans `product_norms`), et aucune fonction de SciPy. Chaque 🔨 lance ensuite le groupe de tests de sa fonction dans `tests/test_m22_recurrence.py`, puis s'en sert. Dans les exercices suivants, le rayon spectral se calcule par `np.abs(np.linalg.eigvals(A)).max()`, et une puissance $\mathbf{A}^t$ par $t$ produits successifs (ou `np.linalg.matrix_power`), hors de `mymath`.
 
-**M22.19 · 🔨 `linear_system_states(A, B, x0, inputs)`.** Écris les états $\mathbf{x}_0, \ldots, \mathbf{x}_T$ de $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u}_t$, rangés en lignes dans un tableau $(T + 1, n)$ (la docstring fixe les formes et les refus), une multiplication par $\mathbf{A}$ par pas, sans jamais calculer $\mathbf{A}^t$ ; puis lance le groupe de tests `linear_system_states`. Ensuite, avec ta fonction : a) $\mathbf{x}_3$ pour la population de M22.1 (ses trois entrées), à comparer à ta réponse c) ; b) la même population, partie de $\mathbf{x}_0 = (40, 20, 30)$, avec les mêmes lâchers $\mathbf{u}_t = (20, 10)$ chaque année pendant $T = 60$ ans : la population totale (la somme des trois classes) au printemps 60 (2 décimales) ; c) l'équilibre $\mathbf{x}^\star$, solution de $(\mathbf{I} - \mathbf{A})\mathbf{x}^\star = \mathbf{B}\mathbf{u}$ (`np.linalg.solve`), et sa population totale (dans le notebook, une liste de 4 nombres : les trois coordonnées de $\mathbf{x}^\star$, puis leur somme) ; d) vrai ou faux : les trois coordonnées de $\mathbf{x}_{60}$ sont à moins de 0,01 de celles de $\mathbf{x}^\star$ ; e) pour les bassins de M22.2 : la réponse impulsionnelle $h_0, \ldots, h_6$, obtenue en simulant une impulsion ($u_0 = 1$, puis des pluies nulles) avec ta fonction et en lisant $y_{t+1} = h_t$ ; puis les rejets $y_1, \ldots, y_7$ pour les pluies $(10, 0, 20, 5, 0, 0, 0)$, calculés à partir des états ($y_t = \mathbf{C}\mathbf{x}_t$) : vrai ou faux, ils sont égaux, à $10^{-12}$ près, aux sept premières valeurs de `np.convolve(h, u)` ; f) $y_6$ et $y_7$ (4 décimales). Ce qu'il faut observer : partie d'un autre état, la population oublie son départ et rejoint l'équilibre, au rythme de $\rho(\mathbf{A}) \approx 0{,}84$ par an ; et la sortie d'un système linéaire parti de $\mathbf{0}$ est la convolution de son entrée par sa réponse impulsionnelle.
+**M22.19 · 🔨 `linear_system_states(A, B, x0, inputs)`.** Écris les états $\mathbf{x}_0, \ldots, \mathbf{x}_T$ de $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u}_t$, rangés en lignes dans un tableau $(T + 1, n)$ (la docstring fixe les formes et les refus), une multiplication par $\mathbf{A}$ par pas, sans jamais calculer $\mathbf{A}^t$ ; puis lance le groupe de tests `linear_system_states`. Ensuite, avec ta fonction : a) $\mathbf{x}_3$ pour la population de M22.1 (ses trois entrées), à comparer à ta réponse c) ; b) la même population, partie de $\mathbf{x}_0 = (40, 20, 30)$, avec les mêmes lâchers $\mathbf{u}_t = (20, 10)$ chaque année pendant $T = 60$ ans : la population totale (la somme des trois classes) au printemps 15, encore loin de l'équilibre (2 décimales) ; c) l'équilibre $\mathbf{x}^\star$, solution de $(\mathbf{I} - \mathbf{A})\mathbf{x}^\star = \mathbf{B}\mathbf{u}$ (`np.linalg.solve`), et sa population totale (dans le notebook, une liste de 4 nombres : les trois coordonnées de $\mathbf{x}^\star$, puis leur somme) ; d) vrai ou faux : les trois coordonnées de $\mathbf{x}_{60}$ sont à moins de 0,01 de celles de $\mathbf{x}^\star$ ; e) pour les bassins de M22.2 : la réponse impulsionnelle $h_0, \ldots, h_6$, obtenue en simulant une impulsion ($u_0 = 1$, puis des pluies nulles) avec ta fonction et en lisant $y_{t+1} = h_t$ ; puis les rejets $y_1, \ldots, y_7$ pour les pluies $(10, 0, 20, 5, 0, 0, 0)$, calculés à partir des états ($y_t = \mathbf{C}\mathbf{x}_t$) : vrai ou faux, ils sont égaux, à $10^{-12}$ près, aux sept premières valeurs de `np.convolve(h, u)` ; f) $y_6$ et $y_7$ (4 décimales). Ce qu'il faut observer : partie d'un autre état, la population oublie son départ et rejoint l'équilibre, au rythme de $\rho(\mathbf{A}) \approx 0{,}84$ par an ; et la sortie d'un système linéaire parti de $\mathbf{0}$ est la convolution de son entrée par sa réponse impulsionnelle.
 
-**M22.20 · 🔨 `operator_norm(A, ord=2)`.** Écris les trois normes induites : la plus grande somme des valeurs absolues d'une colonne (`ord=1`), d'une ligne (`ord=np.inf`), et $s_{\max}$, la racine de la plus grande valeur propre de $\mathbf{A}^\top\mathbf{A}$ (`np.linalg.eigvalsh`, valeur ramenée à 0 si l'arrondi la rend négative) ; la docstring fixe les refus (dont `"fro"`). Lance le groupe de tests `operator_norm`. Ensuite : a) les trois normes de la matrice de M22.6, dans l'ordre 1, 2, $\infty$ ; b) pour cette matrice, $\lVert\mathbf{A}^t\rVert_2^{1/t}$ pour $t = 1$, 10 et 50 (4 décimales), à comparer à $\rho(\mathbf{A})$ (M22.6 e)) ; c) `operator_norm(np.eye(5), ord)` pour `ord` = 1, 2 et `np.inf`, puis `np.linalg.norm(np.eye(5))` (4 décimales) ; d) pour la matrice $\mathbf{A}$ de M22.5, le pas $t$ (de 1 à 10) où $\lVert\mathbf{A}^t\rVert_2$ est le plus grand ; e) vrai ou faux : pour cette matrice, $\lVert\mathbf{A}^t\rVert_2 \ge (\mathbf{A}^t)_{12}$ pour $t = 1, \ldots, 30$. Ce qu'il faut observer : $\lVert\mathbf{A}^t\rVert^{1/t}$ descend lentement vers $\rho(\mathbf{A})$ (la formule de Gelfand) ; la norme de Frobenius de $\mathbf{I}_5$ n'est pas 1, elle n'est pas induite ; et le maximum de la norme n'est pas toujours au même pas que celui d'un coefficient (d) contre M22.5 c)).
+**M22.20 · 🔨 `operator_norm(A, ord=2)`.** Écris les trois normes induites : la plus grande somme des valeurs absolues d'une colonne (`ord=1`), d'une ligne (`ord=np.inf`), et $s_{\max}$, la racine de la plus grande valeur propre de $\mathbf{A}^\top\mathbf{A}$ (`np.linalg.eigvalsh`, valeur ramenée à 0 si l'arrondi la rend négative) ; la docstring fixe les refus (dont `"fro"`). Lance le groupe de tests `operator_norm`. Ensuite : a) les trois normes de la matrice de M22.6, dans l'ordre 1, 2, $\infty$ ; b) pour cette matrice, $\lVert\mathbf{A}^t\rVert_2^{1/t}$ pour $t = 1$, 10 et 50 (4 décimales), à comparer à $\rho(\mathbf{A})$ (M22.6 e)) ; c) `operator_norm(np.eye(5), ord)` pour `ord` = 1, 2 et `np.inf`, puis `np.linalg.norm(np.eye(5))` (4 décimales) ; d) pour la matrice $\mathbf{A}$ de M22.5, le pas $t$ (de 1 à 10) où $\lVert\mathbf{A}^t\rVert_2$ est le plus grand ; e) vrai ou faux : pour cette matrice, $\lVert\mathbf{A}^t\rVert_2 \ge (\mathbf{A}^t)_{12}$ pour $t = 1, \ldots, 30$. Ce qu'il faut observer : $\lVert\mathbf{A}^t\rVert^{1/t}$ descend lentement vers $\rho(\mathbf{A})$ (la formule de Gelfand) ; la norme de Frobenius de $\mathbf{I}_5$ n'est pas 1, elle n'est pas induite ; et, là où le coefficient en haut à droite est maximal à deux pas ex æquo (M22.5 c)), la norme les départage (d).
 
 **M22.21 · 🔨 `product_norms(matrices, ord=2)`.** Écris les normes des produits cumulés $\mathbf{P}_t = \mathbf{A}_t\cdots\mathbf{A}_1$ (le nouveau facteur à gauche) et leurs majorations $\lVert\mathbf{A}_t\rVert\cdots\lVert\mathbf{A}_1\rVert$, avec `np.linalg.norm` ; lance le groupe de tests `product_norms`. Ensuite : a) la trajectoire de l'application de Hénon de M22.8, partie de $(0, 0)$, sur 30 pas ; avec les jacobiennes $\mathbf{J}_f(\mathbf{x}_0), \ldots, \mathbf{J}_f(\mathbf{x}_{29})$ données dans cet ordre, la troisième norme rendue, $\lVert\mathbf{P}_3\rVert_2$, qui est la norme de ta réponse d) de M22.8 (3 décimales) ; b) le rapport de la majoration à la norme pour $t = 30$, arrondi à l'entier ; c) le taux $\frac{1}{30}\ln\lVert\mathbf{P}_{30}\rVert_2$ (2 décimales) ; d) les douze matrices $\operatorname{diag}(0{,}985 ;\ 0{,}93 ;\ 0{,}65)$ des équipements de M22.7 : vrai ou faux, les normes et les majorations sont égales à $10^{-12}$ près (en valeur relative) ; e) trace, en échelle logarithmique, les normes et les majorations de a) contre $t$. Ce qu'il faut observer : la majoration par les normes grossit beaucoup plus vite que le produit quand les jacobiennes tournent les vecteurs dans des directions différentes (un facteur de l'ordre de mille après 30 pas) ; elle est exacte pour des matrices diagonales égales.
 
@@ -535,7 +535,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M22.24 · 🔬 Des produits de matrices aléatoires : le taux de croissance.** Une plante vivace a deux stades, les graines dans le sol et les plantes en fleur : $\mathbf{x}_t = (\text{graines},\ \text{plantes})$. Une bonne année applique $\mathbf{G} = \begin{pmatrix} 0{,}2 & 3 \\ 0{,}6 & 0{,}4 \end{pmatrix}$, une mauvaise $\mathbf{M} = \begin{pmatrix} 0{,}2 & 0{,}4 \\ 0{,}2 & 0{,}2 \end{pmatrix}$, à pile ou face, indépendamment ; $n$ compte les années, c'est-à-dire les facteurs du produit $\mathbf{P}_n = \mathbf{A}_n\cdots\mathbf{A}_1$. Les années sont tirées par `rng = np.random.default_rng(5724)` puis `years = rng.integers(0, 2, size=20000)` (0 = bonne, 1 = mauvaise ; `years[k - 1]` donne $\mathbf{A}_k$). Mesure : a) $\ln\rho(\mathbb{E}[\mathbf{A}])$, avec $\mathbb{E}[\mathbf{A}] = \frac12(\mathbf{G} + \mathbf{M})$ (3 décimales) : $\mathbb{E}[\mathbf{P}_n] = \mathbb{E}[\mathbf{A}]^n$, la population **moyenne**, grandit à ce taux ; b) avec ta `product_norms`, sur les 200 premières années, $\frac{1}{200}\ln\lVert\mathbf{P}_{200}\rVert_2$ (3 décimales) ; c) sur les 20 000 années, en renormalisant à chaque pas (partir de $\mathbf{x} = \frac{1}{\sqrt2}(1, 1)$, puis, chaque année, $\mathbf{x} \leftarrow \mathbf{A}_k\mathbf{x}$, ajouter $\ln\lVert\mathbf{x}\rVert_2$ à un cumul, et diviser $\mathbf{x}$ par sa norme), le taux $\frac{1}{n}\sum\ln\lVert\mathbf{x}\rVert$ pour $n = 20\,000$ (3 décimales) ; d) la majoration par les normes, $\mathbb{E}[\ln\lVert\mathbf{A}\rVert_2] = \frac12(\ln\lVert\mathbf{G}\rVert_2 + \ln\lVert\mathbf{M}\rVert_2)$ (3 décimales) ; e) le taux c) pour cinq autres suites d'années, tirées de la même façon avec les graines 5731 à 5735 (une liste de 5 nombres, 2 décimales) ; f) vrai ou faux : une trajectoire typique s'éteint, alors que la population moyenne grandit. Trace $\frac1n\ln\lVert\mathbf{P}_n\mathbf{x}_0\rVert$ contre $n$ (abscisse logarithmique) pour les six suites, avec les droites horizontales a) et d). Pourquoi ne pas utiliser `product_norms` sur les 20 000 années ? (Regarde l'ordre de grandeur de $\lVert\mathbf{P}_n\rVert$.) Ce qu'il faut conclure : le taux converge vers le même nombre négatif pour toutes les suites (Furstenberg et Kesten, fiche §5) ; la population typique s'éteint, alors que la moyenne grandit, tirée par de rares suites très chanceuses ; et ni $\ln\rho(\mathbb{E}[\mathbf{A}])$, ni la majoration par les normes ne donnent ce taux : c'est la version matricielle de la plante du §5.
 
-**M22.25 · 🎨 Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module.** $\mathbf{A} = \begin{pmatrix} 0 & -1 \\ 1 & 0{,}6 \end{pmatrix}$ a pour déterminant 1 et pour valeurs propres $e^{\pm i\theta}$, avec $\cos\theta = 0{,}3$. Pour $r = 0{,}6$, $0{,}93$, $1$ et $1{,}04$, calcule la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ depuis $\mathbf{x}_0 = (1, 0)$, pour $t = 0$ à 60, avec ta `linear_system_states` (une entrée nulle), et dessine les quatre trajectoires dans quatre panneaux côte à côte, avec des axes à la même échelle dans chaque panneau, les points reliés, et un titre qui donne $r$ et le module des valeurs propres. Dans un cinquième panneau, trace $\lVert\mathbf{x}_t\rVert_2$ contre $t$ en échelle logarithmique pour les quatre valeurs de $r$, avec les droites $r^t$. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et $\lVert\mathbf{x}_t\rVert$ suit $r^t$ en oscillant autour, parce que la trajectoire est une ellipse et non un cercle.
+**M22.25 · 🎨 Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module.** $\mathbf{A} = \begin{pmatrix} 0 & -1 \\ 1 & 0{,}6 \end{pmatrix}$ a pour déterminant 1 et pour valeurs propres $e^{\pm i\theta}$, avec $\cos\theta = 0{,}3$. Pour $r = 0{,}6$, $0{,}93$, $1$ et $1{,}04$, calcule la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ depuis $\mathbf{x}_0 = (1, 0)$, pour $t = 0$ à 60, avec ta `linear_system_states` (une entrée nulle), et dessine les quatre trajectoires dans quatre panneaux côte à côte, avec des axes à la même échelle dans chaque panneau, les points reliés, et un titre qui donne $r$ et le module des valeurs propres. Dans un cinquième panneau, trace le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ contre $t$ pour les quatre valeurs de $r$, en échelle linéaire. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ reste borné et oscille au rythme de la rotation : $\lVert\mathbf{x}_t\rVert$ suit $r^t$ à un facteur près, qui oscille parce que la trajectoire est une ellipse et non un cercle. Pourquoi ne voit-on qu'une seule courbe dans le cinquième panneau ?
 
 **M22.26 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe.
 - (1) `max_stretch(A)` doit rendre le plus grand facteur par lequel $\mathbf{A}$ peut allonger un vecteur, en norme 2 ; elle renvoie `np.abs(np.linalg.eigvals(A)).max()`, et il l'a vérifiée sur $\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$, pour laquelle elle rend 3. Il l'applique à $\begin{pmatrix} 2 & 3 \\ -1 & -2 \end{pmatrix}$.

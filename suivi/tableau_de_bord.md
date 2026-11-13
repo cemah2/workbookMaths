@@ -1860,3 +1860,50 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M21.29 🏆 Défi : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée bruitée, par les moindres carrés ★★★ 25 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (22 cartes)
 <!-- wbm:end M21 -->
+
+<!-- wbm:section M22 -->
+## M22 · Récurrences vectorielles, rayon spectral et normes de matrices ⏱️ 15,6 h
+
+- [ ] M22.Q1 🧠 La solution d'une récurrence avec entrée : quelles puissances, quels termes ? ★ 4 min
+- [ ] M22.Q2 🧠 Valeurs propres complexes, module, forme exponentielle et rotation : vrai ou faux ★ 4 min
+- [ ] M22.Q3 🧠 Le rayon spectral décide-t-il de tout ? Le long terme et les premiers pas ★ 4 min
+- [ ] M22.Q4 🧠 Normes induites : laquelle se calcule à la main, laquelle borne quoi ? ★ 4 min
+- [ ] M22.Q5 🧠 Un produit de facteurs dans [0, 1] : ce qui reste après n étapes ★ 4 min
+- [ ] M22.Q6 🧠 Contraction et point fixe : lire une jacobienne ★ 4 min
+- [ ] M22.Q7 🧠 Une somme sur le temps, sur un modèle de pêche chiffré : vrai ou faux ★ 4 min (complet)
+- [ ] M22.Q8 🧠 Ramener un vecteur sous un seuil : le tout ou chaque bloc ? ★ 4 min (complet)
+- [ ] M22.R1 🔁 La diagonalisation et les puissances d'une matrice (M12c) ★ 8 min
+- [ ] M22.R2 🔁 Valeurs singulières et norme spectrale (M12d) ★ 5 min
+- [ ] M22.R3 🔁 La règle de la chaîne comme produit de jacobiennes (M17) ★ 5 min
+- [ ] M22.1 ✏️ Une population à trois classes d'âge, avec des arrivées : trois pas à la main, et la solution écrite avec les puissances ★★ 25 min
+- [ ] M22.2 ✏️ La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme convolution de l'entrée ★★ 25 min
+- [ ] M22.3 ✏️ Une matrice de rotation et d'homothétie : valeurs propres complexes, forme exponentielle, puissances ★★ 20 min
+- [ ] M22.4 ✏️ Le rayon spectral de trois matrices 2 × 2 non symétriques, et le comportement de leurs puissances ★★ 20 min
+- [ ] M22.5 ✏️ Une matrice triangulaire de rayon spectral < 1 dont les puissances grandissent d'abord : Aᵗ en formule ★★ 30 min
+- [ ] M22.6 ✏️ Les normes ‖·‖₁, ‖·‖∞ et ‖·‖₂ d'une matrice 2 × 2, et trois majorations de ‖A⁵x‖ ★★ 25 min
+- [ ] M22.7 ✏️ Trois équipements qui s'usent à des rythmes différents : une récurrence diagonale, ce qui reste, et la demi-vie ★ 15 min
+- [ ] M22.8 ✏️ Les jacobiennes d'une application du plan en trois points d'une trajectoire, et leur produit ★★ 20 min
+- [ ] M22.9 ✏️ Un capital placé à taux fixe avec des versements : la dérivée du capital final par rapport au taux, une somme sur les années ★★ 25 min
+- [ ] M22.10 ✏️ La norme globale de trois blocs, et deux façons de les ramener sous un seuil ★ 15 min
+- [ ] M22.11 ∂ Sous-multiplicativité, ‖Aᵀ‖₂ = ‖A‖₂, ‖diag(d)‖₂ = max |dᵢ| et ρ(A) ≤ ‖A‖ ★★ 35 min
+- [ ] M22.12 ∂ La norme induite ‖·‖∞ est le maximum des sommes de lignes ★★ 20 min (complet)
+- [ ] M22.13 ∂ Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ ★★ 30 min
+- [ ] M22.14 ∂ Une application contractante oublie son point de départ : l'écart entre deux trajectoires décroît géométriquement ★★ 20 min (complet)
+- [ ] M22.15 ∂ La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une récurrence avec entrée : sa solution est une somme sur le temps ★★ 25 min (complet)
+- [ ] M22.16 🔗 Pont : la convention ligne x_{t+1} = x_t A + u_t B, ses formes, et la jacobienne Aᵀ ★ 20 min
+- [ ] M22.17 📖 MML §4.2 relu : les cinq applications du plan de la figure 4.4, leurs valeurs propres, et le comportement de leurs puissances ★★ 40 min (complet)
+- [ ] M22.18 🗣️ Expliquer avec une image non mathématique pourquoi un système linéaire oublie son passé au rythme de ρ(A) ★ 10 min
+- [ ] M22.E1 💼 « Quelle différence entre le rayon spectral et la norme d'une matrice ? » ★ 10 min (complet)
+- [ ] M22.E2 💼 « Pourquoi Aⁿ peut-il grandir longtemps alors que toutes les valeurs propres de A sont de module < 1 ? » ★ 10 min (complet)
+- [ ] M22.19 🔨 Les états d'une récurrence linéaire avec entrée ★ 25 min
+- [ ] M22.20 🔨 Les normes induites ‖·‖₁, ‖·‖∞ et ‖·‖₂ ★★ 30 min
+- [ ] M22.21 🔨 Les normes des produits cumulés, et leur majoration ★ 25 min
+- [ ] M22.22 📦 `np.linalg.eigvals` et `np.linalg.norm` : rayon spectral et normes de matrices tirées au hasard, et ρ ≤ ‖A‖ ★ 15 min (complet)
+- [ ] M22.23 🔮 Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer ★ 20 min
+- [ ] M22.24 🔬 Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖ ★★ 25 min (complet)
+- [ ] M22.25 🎨 Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module ★ 20 min
+- [ ] M22.26 🐛 Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais ordre, un seuil appliqué bloc par bloc ★ 25 min
+- [ ] M22.27 🛠️ Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au hasard ★ 30 min (complet)
+- [ ] M22.28 🏆 Défi : une matrice 3 × 3 à coefficients dans [−3, 3], de rayon spectral 0,85, dont une puissance a une norme ‖·‖₂ supérieure à 100 ★★★ 25 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (22 cartes)
+<!-- wbm:end M22 -->

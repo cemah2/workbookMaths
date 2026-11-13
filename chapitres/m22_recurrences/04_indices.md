@@ -604,7 +604,7 @@ Convertis avec `np.asarray(…, dtype=float)`, contrôle `A.ndim == 2` et `A.sha
 </details>
 <details><summary>Indice 3</summary>
 
-Ne fais jamais `x[:] = …` sur `x0` : `x = A @ x + B @ u` crée un nouveau tableau. Pour $T = 0$, `inputs` a la forme `(0, m)` et la boucle ne tourne pas. Ensuite, b) `linear_system_states(A, B, x0, np.tile([20.0, 10.0], (60, 1)))[-1].sum()` ; e) une impulsion `np.array([[1.0]] + [[0.0]] * 6)` (7 entrées), et `y = states @ C`.
+Ne fais jamais `x[:] = …` sur `x0` : `x = A @ x + B @ u` crée un nouveau tableau. Pour $T = 0$, `inputs` a la forme `(0, m)` et la boucle ne tourne pas. Dans le notebook, appelle ta fonction par `mymath.recurrence.linear_system_states(…)`. Ensuite, b) `states = mymath.recurrence.linear_system_states(A, B, x0, np.tile([20.0, 10.0], (60, 1)))` rend 61 lignes, de $\mathbf{x}_0$ à $\mathbf{x}_{60}$ : le printemps 15 est la ligne `states[15]`, dont tu fais la somme ; e) une impulsion `np.array([[1.0]] + [[0.0]] * 6)` (7 entrées), et `y = states @ C`.
 
 </details>
 
@@ -622,7 +622,7 @@ Fiche §4 : les trois formules. La docstring dit les refus : un tableau qui n'es
 </details>
 <details><summary>Indice 3</summary>
 
-Teste `ord` avant tout calcul, et refuse `True` (`isinstance(ord, bool)`), car `True == 1`. L'arrondi peut rendre la plus grande valeur propre très légèrement négative pour une matrice nulle : `max(…, 0.0)` avant la racine. Rends `float(…)`. Ensuite, b) `operator_norm(np.linalg.matrix_power(A, t), 2) ** (1 / t)`.
+Teste `ord` avant tout calcul, et refuse `True` (`isinstance(ord, bool)`), car `True == 1`. L'arrondi peut rendre la plus grande valeur propre très légèrement négative pour une matrice nulle : `max(…, 0.0)` avant la racine. Rends `float(…)`. Ensuite, b) `mymath.recurrence.operator_norm(np.linalg.matrix_power(A, t), 2) ** (1 / t)` (ou la puissance par produits successifs).
 
 </details>
 
@@ -676,7 +676,7 @@ Trace et déterminant de $\mathbf{A}$ donnent ses valeurs propres. Une matrice d
 </details>
 <details><summary>Indice 3</summary>
 
-Le maximum de $t \times 0{,}8^{t-1}$ est vers $t = -\frac{1}{\ln 0{,}8} \approx 4{,}5$. Pour le tracé : `plt.semilogy(range(41), norms)` et `plt.semilogy(range(41), 0.8 ** np.arange(41))`.
+Le maximum de $t \times 0{,}8^{t-1}$ est vers $t = -\frac{1}{\ln 0{,}8} \approx 4{,}5$. Pour le tracé, dans l'axe reçu : `ts = np.asarray(ts)`, `ax.plot(ts, norms, "o-", label=…)`, `ax.plot(ts, 0.8 ** ts, "--", label=…)`, `ax.set_yscale("log")` et `ax.legend()`.
 
 </details>
 
@@ -689,7 +689,7 @@ Fiche §5 : « Des facteurs au hasard : la moyenne géométrique », le théorè
 </details>
 <details><summary>Indice 2</summary>
 
-`mats = [G if c == 0 else M for c in years]`. b) `norms, _ = product_norms(mats[:200])`, puis `np.log(norms[-1]) / 200`. c) `x = np.ones(2) / np.sqrt(2)` ; pour chaque matrice : `x = A @ x`, `r = np.linalg.norm(x)`, `total += np.log(r)`, `x = x / r`.
+`mats = [G if c == 0 else M for c in years]`. b) `norms, _ = mymath.recurrence.product_norms(mats[:200])`, puis `np.log(norms[-1]) / 200`. c) `x = np.ones(2) / np.sqrt(2)` ; pour chaque matrice : `x = A @ x`, `r = np.linalg.norm(x)`, `total += np.log(r)`, `x = x / r`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -707,12 +707,12 @@ Fiche §2 : « Une matrice réelle 2 × 2 à valeurs propres complexes », et sa
 </details>
 <details><summary>Indice 2</summary>
 
-`linear_system_states(r * A, np.zeros((2, 1)), [1.0, 0.0], np.zeros((60, 1)))` rend les 61 points. `fig, axes = plt.subplots(1, 5, figsize=…)`, et `ax.set_aspect("equal")` dans les quatre premiers.
+`mymath.recurrence.linear_system_states(r * A_25, np.zeros((2, 1)), X0_25, np.zeros((60, 1)))` rend les 61 points. Pour le dessin, n'ouvre pas de figure : la vérification te donne `fig` et les cinq axes ; dessine dans `axes[0]` à `axes[3]`, avec `ax.set_aspect("equal")` dans chacun, puis dans `axes[4]`.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Les points : `ax.plot(X[:, 0], X[:, 1], "o-", ms=3)`. Le cinquième panneau : `np.linalg.norm(X, axis=1)` contre $t$, en `semilogy`, avec `r ** np.arange(61)` en pointillés.
+Les points : `ax.plot(X[:, 0], X[:, 1], "o-", ms=3)`. Le cinquième panneau : `t = np.arange(61)`, puis, pour chaque trajectoire `X` et son `r`, `axes[4].plot(t, np.linalg.norm(X, axis=1) / r ** t, label=…)`, en échelle linéaire (ne change pas l'échelle), et `axes[4].legend()`.
 
 </details>
 

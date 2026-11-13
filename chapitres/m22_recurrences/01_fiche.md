@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 13,5 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 05, 22 flashcards ≈ 45 min (parcours essentiel ≈ 10,4 h) |
+| **Temps total estimé** | ≈ 15,6 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 12 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 11,8 h) |
 | **Prérequis** | R4 (récurrence, notations $\Sigma$ et $\Pi$) ; R5 (suites géométriques, récurrence affine) ; R6 (exponentielle, ln, demi-vie) ; M12c (valeurs propres, diagonalisation, puissances, le strict minimum sur les nombres complexes) ; M19 (itérations linéaires et rayon spectral d'une matrice symétrique, module des racines et forme trigonométrique, projection sur une boule) ; M12d (valeurs singulières, normes spectrale et de Frobenius) ; M07 (normes L1, L2 et L∞) ; M09a (produit de Hadamard) ; M12b (matrices orthogonales) ; M17 (jacobienne, règle de la chaîne) ; M18 (somme sur les chemins) ; M20 (produits de jacobiennes proches de l'identité) ; M21 (convolution de deux suites) ; M02c (loi des grands nombres) ; M06 (inégalité de Jensen) ; M14 ($(1 + x/n)^n \to e^x$) ; M16 (espérance d'un produit, variances multipliées d'étage en étage) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `recurrence.py` : `linear_system_states`, `operator_norm`, `product_norms` |

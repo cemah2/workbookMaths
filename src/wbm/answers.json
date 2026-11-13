@@ -73571,6 +73571,7 @@
       "hash": "4fcb16612f33f3a578f510c7179bae5b0bdafd840be01d60c81a21f657a524cf",
       "kind": "exact",
       "mistakes": {
+        "07488b3113dc6e9384870219f6b5aae4f1ccfaa870a3e9fbfa9b54628deff7bb": "ton angle est juste à 2π près : ramène-le dans [0, 2π[",
         "82dd95c42c129093d4e8d903955a166481e888691bc08ec4e4de68958701cbee": "cinq pas de θ chacun : vérifie θ (le signe de son cosinus)",
         "9012d3652c13bfe4f91412503dc509b08ae3c3ec4fb2d1efa34670b08b2e0e76": "cinq pas, d'un angle θ chacun",
         "e751a6f19a9c853ca38d8719d6093b1e902815b62658e6d886cfc7a4260be187": "ramène l'angle dans [0, 2π["
@@ -74954,7 +74955,8 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "0d232526eb55f9895fd8bed98cbc3d176c5ad06df03bce473aef78b021accd12": "3,5 % → 3,7 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre"
+        "0d232526eb55f9895fd8bed98cbc3d176c5ad06df03bce473aef78b021accd12": "3,5 % → 3,7 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre",
+        "a552ba71e38d0707d57abcefb71179aeec98f87553ebdb192dc12a60f78290dc": "c'est le changement exact (g) ; f) est l'approximation au premier ordre, par la sensibilité s₄"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -75557,14 +75559,20 @@
     "M22.19b": {
       "coarse_any": {
         "0": [
-          "a9e3b276d8166f3ecb0ba20713eb4db58dd4cf98d7b856d922b35ff93df2ae63"
+          "24a2f8cba43be0bf9a71070ace1f4076663776e83811d38fe1785479de891c5e"
         ]
       },
       "decimals": 2,
-      "hash": "427ba77126a62540e35447d46b6447ce642772f9debb78d0c01c23659f6bce1f",
-      "hash_coarse": "ace86bf266b1c969353a661871ad44cc0c97749297244a0267aa1fa1e6c82c6c",
+      "hash": "79a875635cde933cd0cbc3d830da0848716fea39beaddc78e9e9dec87def26ac",
+      "hash_coarse": "a97255529c37c3ef9ca36a1f29848d8a43196a56ff3bb9877d0f31776467c99c",
       "kind": "float",
       "magnitude": 2,
+      "mistakes": {
+        "427ba77126a62540e35447d46b6447ce642772f9debb78d0c01c23659f6bce1f": "c'est le total à l'équilibre : au printemps 15, la population ne l'a pas encore rejoint",
+        "95905c8cc013d0692997dcb9c3f0fa7660fdaca158e24a9b842f49e465a4d513": "le printemps 15 est l'état x₁₅, la ligne 15 du tableau (la ligne 0 est x₀)",
+        "d3eaa61ad14143a4d2732112d75a6eeaed02dc8ed7037e1aefde00eb74f50714": "le printemps 15 est l'état x₁₅, la ligne 15 du tableau (la ligne 0 est x₀)",
+        "ee3e6e0104c94bf3e5c0cfb1207f59ca35540bb387893eef11dc536ca331ed81": "le printemps 15 est l'état x₁₅, la ligne 15 du tableau (la ligne 0 est x₀)"
+      },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
@@ -75824,7 +75832,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "d06d2025fb7b30e17bf3520f0ead98828346621c2b2ac9b49f046b8b64205e9b": "les pas commencent à t = 1, les indices d'une liste Python à 0"
+        "30111c43e21157c9a2fa83b16ddbdbce9681bbcc315a475d90df19121f4665f0": "l'indice de la liste est-il le pas t ? (ici, les pas vont de 1 à 10)",
+        "d06d2025fb7b30e17bf3520f0ead98828346621c2b2ac9b49f046b8b64205e9b": "l'indice de la liste est-il le pas t ? (ici, les pas vont de 1 à 10)"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -75854,6 +75863,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "5ea642e15b0de5700b2b716101367b12730197a9e76c3432eb6f4713e0eae030": "le dernier pas à gauche : donne J(x₀), …, J(x₂₉) dans cet ordre",
         "b26c019d86bd67fe47d47da05eb636a8a02509e61b4ed4b6e2faf397a30e54c5": "P₃ = J(x₂) J(x₁) J(x₀) : le nouveau facteur à gauche",
         "f65d07f44006f2f63ca21e8d68424217f1d61d6d9d087d7b07a8b6f30e7d3da8": "la troisième norme rendue est celle de P₃, à l'indice 2"
       },
@@ -76067,7 +76077,8 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "1f1476175003f7c63913d19e7e7169510b1f1ea79a8e7b8ae92a6d63eb8f5336": "la liste commence-t-elle à t = 0 ? L'indice d'une norme doit être son pas t"
+        "1f1476175003f7c63913d19e7e7169510b1f1ea79a8e7b8ae92a6d63eb8f5336": "l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)",
+        "822a376fb309a8da1ca3225f091adc220e1df2f6bda259a084c1ad32ea5f4f68": "l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
@@ -76094,7 +76105,8 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
-        "9be94ed499927c94dd61d3ceb2c7a4f27c790e48b9ebef13fa7767b16536db87": "la liste commence-t-elle à t = 0 ? L'indice d'une norme doit être son pas t"
+        "9be94ed499927c94dd61d3ceb2c7a4f27c790e48b9ebef13fa7767b16536db87": "l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)",
+        "e6ba718a0fddf51bf4b555407c7969eb5bc070b7a9565ca44988656d357a46b3": "l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)"
       },
       "sign": 1,
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"

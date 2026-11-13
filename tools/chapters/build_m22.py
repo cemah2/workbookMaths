@@ -157,7 +157,8 @@ PAPER = [
            mistakes={"ramène l'angle dans [0, 2π[": as_pi(5 * THETA_3),
                      "cinq pas, d'un angle θ chacun": as_pi(THETA_3),
                      "cinq pas de θ chacun : vérifie θ (le signe de son cosinus)":
-                         as_pi(5 * (math.pi - THETA_3) % (2 * math.pi))}'''),
+                         as_pi(5 * (math.pi - THETA_3) % (2 * math.pi)),
+                     "ton angle est juste à 2π près : ramène-le dans [0, 2π[": as_pi(math.atan2(X5_3[1], X5_3[0]))}'''),
         ("h", BOOL, "bool(np.allclose(M_3.T @ M_3, np.eye(2)))",
          '''mistakes={"orthogonale veut dire MᵀM = I : calcule MᵀM": True}'''),
         ("i", BOOL, "bool(np.allclose(M_3.T @ M_3, M_3 @ M_3.T))",
@@ -345,7 +346,9 @@ PAPER = [
         ("f", "a number (2 decimals)", "float(Fraction(2, 1000) * S_9)",
          '''decimals=2,
            mistakes={"3,5 % → 3,7 % : un écart de 0,2 point de pourcentage ; écris-le comme un nombre":
-                         float(Fraction(2, 100) * S_9)}'''),
+                         float(Fraction(2, 100) * S_9),
+                     "c'est le changement exact (g) ; f) est l'approximation au premier ordre, par la sensibilité s₄":
+                         float(x4_9(Fraction(37, 1000)) - x4_9(BETA_9))}'''),
         ("g", "a number (2 decimals)", "float(x4_9(Fraction(37, 1000)) - x4_9(BETA_9))",
          '''decimals=2,
            mistakes={"le changement exact se calcule en recalculant x₄ avec le nouveau taux":
@@ -633,6 +636,7 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M22.1 à M
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to D)
 import math
+import numbers
 import re
 import warnings
 
@@ -694,7 +698,10 @@ LOAD_REF = 'mymath = wbm.load_mymath("ref")'
 HOWTO = ("> **Mode d'emploi `mymath`** (comme en M03). Ouvre ta copie `mon_travail/mymath/recurrence.py`, lis la "
          "docstring du module puis celle de la fonction, remplace chaque `raise NotImplementedError(...)` par ton "
          "code, **enregistre** le fichier, puis exécute les cellules ci-dessous : la première recharge ta librairie. "
-         "⚠️ Le squelette n'importe rien : ajoute `import numpy as np` en tête du fichier (et `import numbers` si tu "
+         "Dans le notebook, appelle tes fonctions par `mymath.recurrence.<nom>` (par exemple "
+         "`mymath.recurrence.linear_system_states(A, B, x0, inputs)`), ou donne-leur un nom court "
+         "(`linear_system_states = mymath.recurrence.linear_system_states`) dans une cellule exécutée après le "
+         "rechargement. ⚠️ Le squelette n'importe rien : ajoute `import numpy as np` en tête du fichier (et `import numbers` si tu "
          "t'en sers). NumPy est permis, mais, de `np.linalg`, seulement `eigvalsh` (dans `operator_norm`) et `norm` "
          "(dans `product_norms`), et aucune fonction de SciPy : les tests comparent tes résultats à ceux de "
          "`np.linalg.norm`, `matrix_norm`, `svdvals` et `matrix_power`, et un test lit ton module. Les nombres se "
@@ -713,8 +720,9 @@ def tests_cells(keyword: str) -> list:
 
 
 NOTE_19 = (r"Une boucle `x = A @ x + B @ u`, chaque état rangé dans une ligne d'un tableau neuf. a) $\mathbf{x}_3 = "
-           r"(78{,}32 ;\ 14{,}72 ;\ 16{,}32)$, comme M22.1 c). b) La population totale au printemps 60 vaut "
-           r"$149{,}998$, soit $150{,}00$ à 2 décimales. c) $\mathbf{x}^\star = \big(\frac{3\,500}{41}, "
+           r"(78{,}32 ;\ 14{,}72 ;\ 16{,}32)$, comme M22.1 c). b) La population totale au printemps 15 (la "
+           r"ligne 15 du tableau) vaut $145{,}5618$, soit $145{,}56$ à 2 décimales, encore à plus de 4 de son total "
+           r"d'équilibre. c) $\mathbf{x}^\star = \big(\frac{3\,500}{41}, "
            r"\frac{1\,400}{41}, \frac{1\,250}{41}\big) \approx (85{,}366 ;\ 34{,}146 ;\ 30{,}488)$, de total exactement "
            r"150. d) Vrai : le plus grand écart vaut environ $0{,}001$ ; l'écart $\mathbf{x}_t - \mathbf{x}^\star = "
            r"\mathbf{A}^t(\mathbf{x}_0 - \mathbf{x}^\star)$ est une réponse libre, qui décroît comme $\rho(\mathbf{A})^t "
@@ -728,7 +736,8 @@ NOTE_20 = (r"`np.abs(A).sum(axis=0).max()` pour `ord=1`, `axis=1` pour `np.inf`,
            r"$2{,}0206$ pour $t = 1$, 10 et 50 : il descend vers $\rho(\mathbf{A}) = 2$, lentement (Gelfand). c) "
            r"$[1, 1, 1 ;\ 2{,}2361]$ : $\lVert\mathbf{I}_5\rVert_F = \sqrt5$, la norme de Frobenius n'est pas "
            r"induite. d) $t = 2$ : $\lVert\mathbf{A}^2\rVert_2 \approx 4{,}049$ dépasse $\lVert\mathbf{A}^3\rVert_2 "
-           r"\approx 4{,}022$, alors que le coefficient vaut 4 aux deux pas. e) Vrai : une norme induite est au moins "
+           r"\approx 4{,}022$, alors que le coefficient vaut 4 aux deux pas : la norme départage l'ex æquo, parce que les termes "
+           r"diagonaux $(2/3)^t$, plus grands au pas 2, comptent aussi. e) Vrai : une norme induite est au moins "
            r"égale à chaque coefficient en valeur absolue, $\lvert a_{ij}\rvert = \lvert\mathbf{e}_i \cdot "
            r"\mathbf{A}\mathbf{e}_j\rvert \le \lVert\mathbf{A}\mathbf{e}_j\rVert_2 \le \lVert\mathbf{A}\rVert_2$.")
 
@@ -760,7 +769,7 @@ C_BASIN_19 = np.array([0.0, 0.6])                                       # y_t = 
 RAIN_19 = np.array([10.0, 0.0, 20.0, 5.0, 0.0, 0.0, 0.0])               # the rains of the days 0 to 6 (mm)'''
 
 M22_19 = Ex(
-    "M22.19", "🔨", 1, 20, "Les états d'une récurrence linéaire avec entrée · `linear_system_states`",
+    "M22.19", "🔨", 1, 25, "Les états d'une récurrence linéaire avec entrée · `linear_system_states`",
     "programmer les états d'une récurrence linéaire avec entrée, puis s'en servir pour une population qui rejoint son "
     "équilibre et pour la sortie de deux bassins, une convolution.",
     "fiche §1 ; Ex M22.1 et M22.2", tracks="C, E", mymath="recurrence.py", given=GIVEN_19, note=NOTE_19,
@@ -770,7 +779,7 @@ M22_19 = Ex(
 
 **L'usage.** La cellule fournie donne la population de M22.1 (`A_POP_19`, `B_POP_19`, `X0_POP_19`, et ses trois entrées `U_POP_19`, une par ligne) et les deux bassins de M22.2 (`A_BASIN_19`, `B_BASIN_19`, `C_BASIN_19`). Avec ta fonction :
 - a) $\mathbf{x}_3$ pour la population de M22.1, à comparer à ta réponse c) de M22.1 (une liste de 3 nombres) ;
-- b) la même population, partie de $\mathbf{x}_0 = (40, 20, 30)$, avec les mêmes lâchers $\mathbf{u}_t = (20, 10)$ chaque année (`U_CONST_19`) pendant $T = 60$ ans : la population totale (la somme des trois classes) au printemps 60 (2 décimales dans ta copie) ;
+- b) la même population, partie de $\mathbf{x}_0 = (40, 20, 30)$, avec les mêmes lâchers $\mathbf{u}_t = (20, 10)$ chaque année (`U_CONST_19`) pendant $T = 60$ ans : la population totale (la somme des trois classes) au printemps 15, encore loin de l'équilibre (2 décimales dans ta copie) ;
 - c) l'équilibre $\mathbf{x}^\star$, solution de $(\mathbf{I} - \mathbf{A})\mathbf{x}^\star = \mathbf{B}\mathbf{u}$ (`np.linalg.solve`), et sa population totale : une liste de 4 nombres, les trois coordonnées de $\mathbf{x}^\star$ puis leur somme ;
 - d) vrai ou faux : les trois coordonnées de $\mathbf{x}_{60}$ sont à moins de 0,01 de celles de $\mathbf{x}^\star$ ;
 - `h_19` : pour les bassins de M22.2, la réponse impulsionnelle $h_0, \ldots, h_6$, obtenue en simulant une impulsion ($u_0 = 1$, puis six pluies nulles, depuis $\mathbf{x}_0 = \mathbf{0}$) avec ta fonction, et en lisant $y_{t+1} = h_t$, avec $y_t = \mathbf{C}\mathbf{x}_t$ (7 nombres) ;
@@ -787,7 +796,7 @@ La vérification compare aussi `h_19` à $\mathbf{C}\mathbf{A}^k\mathbf{B}$, cal
 h_19 = ...
 with wbm.attempt("M22.19"):          # if you call linear_system_states here: ⏳ while it is not written
     answer_M22_19a = ...  # a) a list of 3 numbers, as computed: x_3 of the population of M22.1
-    answer_M22_19b = ...  # b) a number, as computed (not rounded): the total population at spring 60, u_t = U_CONST_19
+    answer_M22_19b = ...  # b) a number, as computed (not rounded): the total population at spring 15, u_t = U_CONST_19
     answer_M22_19c = ...  # c) a list of 4 numbers: x* (np.linalg.solve), then its total population
     answer_M22_19d = ...  # d) True or False: the 3 coordinates of x_60 are within 0.01 of those of x*
     h_19 = ...            # the impulse response h_0, ..., h_6 of the basins, read on y_(t+1) = h_t (7 numbers)
@@ -806,7 +815,7 @@ for letter, answer in zip("abcdef", [answer_M22_19a, answer_M22_19b, answer_M22_
 states_a19 = linear_system_states(A_POP_19, B_POP_19, X0_POP_19, U_POP_19)
 answer_M22_19a = states_a19[3].tolist()
 states_b19 = linear_system_states(A_POP_19, B_POP_19, X0_POP_19, np.tile(U_CONST_19, (60, 1)))   # 61 rows
-answer_M22_19b = float(states_b19[60].sum())
+answer_M22_19b = float(states_b19[15].sum())                 # the row 15 is x_15 (the row 0 is x_0)
 x_star_19 = np.linalg.solve(np.eye(3) - A_POP_19, B_POP_19 @ U_CONST_19)
 answer_M22_19c = x_star_19.tolist() + [float(x_star_19.sum())]
 answer_M22_19d = bool(np.all(np.abs(states_b19[60] - x_star_19) < 0.01))
@@ -838,7 +847,10 @@ wbm.record("M22.19a", closed_form_19r(3, u_19r).tolist(), decimals=4,
            mistakes={"dans la formule, uₖ est porté par A^(t−1−k), pas par A^(t−k)":
                          closed_form_19r(3, u_19r, early=True).tolist()})
 constant_19r = [np.array([20.0, 10.0])] * 60
-wbm.record("M22.19b", float(closed_form_19r(60, constant_19r).sum()), decimals=2)
+wbm.record("M22.19b", float(closed_form_19r(15, constant_19r).sum()), decimals=2,
+           mistakes={"le printemps 15 est l'état x₁₅, la ligne 15 du tableau (la ligne 0 est x₀)":
+                         {float(closed_form_19r(14, constant_19r).sum()), float(closed_form_19r(16, constant_19r).sum())},
+                     "c'est le total à l'équilibre : au printemps 15, la population ne l'a pas encore rejoint": 150.0})
 star_19r = np.linalg.solve(np.eye(3) - a_19r, b_19r @ np.array([20.0, 10.0]))
 wbm.record("M22.19c", star_19r.tolist() + [float(star_19r.sum())], decimals=4,
            mistakes={"l'équilibre vérifie x* = A x* + B u, soit (I − A) x* = B u : vérifie le signe":
@@ -869,14 +881,14 @@ M22_20 = Ex(
 
 Écris `operator_norm(A, ord=2)` (fiche §4), en suivant sa docstring : la norme de $\mathbf{A}$ induite par la norme de vecteurs `ord`, la plus grande somme des valeurs absolues d'une **colonne** (`ord=1`), d'une **ligne** (`ord=np.inf`), ou $s_{\max}$, la racine de la plus grande valeur propre de $\mathbf{A}^\top\mathbf{A}$ (`ord=2`, avec `np.linalg.eigvalsh`, la valeur ramenée à 0 si l'arrondi la rend négative). Un `float` de Python ; $\mathbf{A}$ peut être rectangulaire ; `ValueError` pour un $\mathbf{A}$ qui n'est pas à deux dimensions ou qui est vide, ou un `ord` qui n'est pas 1, 2 ou `np.inf` (un booléen est refusé, et `"fro"` aussi : la norme de Frobenius n'est pas induite).
 
-**L'usage.** La cellule fournie donne la matrice de M22.6 (`A6_20`) et la matrice $\mathbf{A}$ de M22.5 (`A5_20`). Avec ta fonction (et des produits successifs pour les puissances) :
+**L'usage.** La cellule fournie donne la matrice de M22.6 (`A6_20`) et la matrice $\mathbf{A}$ de M22.5 (`A5_20`). Avec ta fonction (et, pour les puissances, des produits successifs ou `np.linalg.matrix_power`) :
 - a) les trois normes de `A6_20`, dans l'ordre 1, 2, $\infty$ (une liste de 3 nombres) ;
 - b) pour cette matrice, $\lVert\mathbf{A}^t\rVert_2^{1/t}$ pour $t = 1$, 10 et 50 (une liste de 3 nombres ; 4 décimales dans ta copie), à comparer à $\rho(\mathbf{A})$ (M22.6 e) ;
 - c) `operator_norm(np.eye(5), ord)` pour `ord` = 1, 2 et `np.inf`, puis `np.linalg.norm(np.eye(5))` (une liste de 4 nombres) ;
 - d) pour `A5_20`, le pas $t$ (de 1 à 10) où $\lVert\mathbf{A}^t\rVert_2$ est le plus grand (un entier) ;
 - e) vrai ou faux : pour cette matrice, $\lVert\mathbf{A}^t\rVert_2 \ge (\mathbf{A}^t)_{12}$ pour $t = 1, \ldots, 30$ ($(\mathbf{A}^t)_{12}$, le coefficient en haut à droite, s'écrit `[0, 1]` en Python).
 
-Ce qu'il faut observer : $\lVert\mathbf{A}^t\rVert^{1/t}$ descend lentement vers $\rho(\mathbf{A})$ (la formule de Gelfand) ; la norme de Frobenius de $\mathbf{I}_5$ n'est pas 1 : elle n'est pas induite ; et le maximum de la norme n'est pas toujours au même pas que celui d'un coefficient (d) contre M22.5 c). Dans ta copie : pourquoi une norme induite est-elle au moins égale à chaque coefficient en valeur absolue ?""",
+Ce qu'il faut observer : $\lVert\mathbf{A}^t\rVert^{1/t}$ descend lentement vers $\rho(\mathbf{A})$ (la formule de Gelfand) ; la norme de Frobenius de $\mathbf{I}_5$ n'est pas 1 : elle n'est pas induite ; et, là où le coefficient en haut à droite est maximal à deux pas ex æquo (M22.5 c)), la norme les départage (d). Dans ta copie : pourquoi une norme induite est-elle au moins égale à chaque coefficient en valeur absolue ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("test_operator_norm_") + [
@@ -937,8 +949,9 @@ wbm.record("M22.20c", induced_20r + [float(np.sqrt((identity_20r ** 2).sum()))],
                      "somme des carrés des coefficients": induced_20r + [induced_20r[1]]})
 a5_20r = np.array([[2 / 3, 3.0], [0.0, 2 / 3]])
 norms5_20r = [float(np.linalg.svdvals(np.linalg.matrix_power(a5_20r, t))[0]) for t in range(1, 31)]
-wbm.record("M22.20d", 1 + int(np.argmax(norms5_20r[:10])),
-           mistakes={"les pas commencent à t = 1, les indices d'une liste Python à 0": int(np.argmax(norms5_20r[:10]))})
+peak_20r = 1 + int(np.argmax(norms5_20r[:10]))
+wbm.record("M22.20d", peak_20r,
+           mistakes={"l'indice de la liste est-il le pas t ? (ici, les pas vont de 1 à 10)": {peak_20r - 1, peak_20r + 1}})
 wbm.record("M22.20e", bool(all(n >= np.linalg.matrix_power(a5_20r, t)[0, 1] for t, n in enumerate(norms5_20r, 1))),
            mistakes={"une norme induite est au moins égale à chaque coefficient en valeur absolue (prends x = e_j)":
                          False})'''),
@@ -990,7 +1003,7 @@ CHECK_21 = '''with checked("M22.21"):
     verdict("M22.21", all(results_21), "les normes des produits et leurs majorations sont dessinées.", "")'''
 
 M22_21 = Ex(
-    "M22.21", "🔨", 1, 20, "Les normes des produits cumulés, et leur majoration · `product_norms`",
+    "M22.21", "🔨", 1, 25, "Les normes des produits cumulés, et leur majoration · `product_norms`",
     "programmer les normes des produits cumulés d'une suite de matrices et leurs majorations, puis les suivre le long "
     "d'une trajectoire de Hénon.",
     "fiche §5 et §6 ; Ex M22.7 et M22.8", tracks="C, E", mymath="recurrence.py", given=GIVEN_21, note=NOTE_21,
@@ -1072,12 +1085,18 @@ for J in jacobians_21r:
     bound_21r *= float(np.linalg.svdvals(J)[0])
     norms_21r.append(float(np.linalg.svdvals(P_21r)[0]))
     bounds_21r.append(bound_21r)
+P_21r, product_norms_reversed_21r = np.eye(2), []
+for J in jacobians_21r[::-1]:                              # the list given in the reverse order
+    P_21r = J @ P_21r
+    product_norms_reversed_21r.append(float(np.linalg.svdvals(P_21r)[0]))
 Q_21r = np.eye(2)
 for J in jacobians_21r[:3]:
     Q_21r = Q_21r @ J                                      # the order of time: the first jacobian on the left
 wbm.record("M22.21a", norms_21r[2], decimals=3,
            mistakes={"P₃ = J(x₂) J(x₁) J(x₀) : le nouveau facteur à gauche": float(np.linalg.svdvals(Q_21r)[0]),
-                     "la troisième norme rendue est celle de P₃, à l'indice 2": norms_21r[3]})
+                     "la troisième norme rendue est celle de P₃, à l'indice 2": norms_21r[3],
+                     "le dernier pas à gauche : donne J(x₀), …, J(x₂₉) dans cet ordre":
+                         product_norms_reversed_21r[2]})
 wbm.record("M22.21b", bounds_21r[29] / norms_21r[29], decimals=0,
            mistakes={"le rapport de la majoration à la norme, pas l'inverse": norms_21r[29] / bounds_21r[29]})
 wbm.record("M22.21c", math.log(norms_21r[29]) / 30, decimals=2,
@@ -1202,8 +1221,11 @@ NOTE_25 = (r"$\theta = \arccos 0{,}3 \approx 1{,}266$ rad, environ 72,5° par pa
            r"pas par tour. Pour $r = 0{,}6$, la spirale tombe sur l'origine en quelques tours ($\lVert\mathbf{x}_{60}"
            r"\rVert \approx 4 \times 10^{-14}$) ; pour $r = 0{,}93$, elle rentre lentement ($\approx 0{,}011$ après 60 "
            r"pas) ; pour $r = 1$, les points restent sur une ellipse ($\lVert\mathbf{x}_{60}\rVert \approx 0{,}88$) ; "
-           r"pour $r = 1{,}04$, la spirale sort ($\approx 9{,}2$). Sur le cinquième panneau, $\lVert\mathbf{x}_t\rVert$ "
-           r"suit $r^t$ en oscillant, avec une période d'environ 2,5 pas (une demi-ellipse).")
+           r"pour $r = 1{,}04$, la spirale sort ($\approx 9{,}2$). Sur le cinquième panneau, les quatre courbes se "
+           r"superposent : $(r\mathbf{A})^t\mathbf{x}_0 = r^t\mathbf{A}^t\mathbf{x}_0$, donc $\lVert\mathbf{x}_t\rVert_2 "
+           r"/ r^t = \lVert\mathbf{A}^t\mathbf{x}_0\rVert_2$ ne dépend pas de $r$. Ce rapport reste entre $0{,}88$ et "
+           r"$1{,}20$ : il reprend les mêmes valeurs à chaque demi-tour de l'ellipse (environ 2,5 pas), vu aux pas "
+           r"entiers.")
 
 GIVEN_23 = '''A_23 = np.array([[-1.2, 2.0], [-2.0, 2.8]])'''
 
@@ -1244,7 +1266,7 @@ CHECK_23 = '''for letter, answer in zip("efg", [answer_M22_23e, answer_M22_23f, 
 ''' + FIGURE_23
 
 M22_23 = Ex(
-    "M22.23", "🔮", 1, 15, "Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer",
+    "M22.23", "🔮", 1, 20, "Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer",
     "prévoir la croissance transitoire d'une matrice non normale de rayon spectral < 1, puis la mesurer et la tracer.",
     "fiche §3 et §4 ; Ex M22.20", tracks="C, E", hypothesis=True, given=GIVEN_23, note=NOTE_23,
     body=r"""$\mathbf{A} = \begin{pmatrix} -1{,}2 & 2 \\ -2 & 2{,}8 \end{pmatrix}$ (`A_23`). **Avant d'exécuter quoi que ce soit**, calcule à la main ses valeurs propres, $\mathbf{A}^\top\mathbf{A}$ et $\mathbf{A}\mathbf{A}^\top$, puis prédis :
@@ -1253,7 +1275,7 @@ M22_23 = Ex(
 - c) vrai ou faux : $\lVert\mathbf{A}^{10}\rVert_2 > 1$ ;
 - d) vrai ou faux : $\lVert\mathbf{A}^t\rVert_2 \ge 0{,}8^t$ pour tout $t$.
 
-Puis, une fois tes prédictions écrites et vérifiées : calcule $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0, \ldots, 40$ avec ta `operator_norm` (des produits successifs pour les puissances, $\mathbf{A}^0 = \mathbf{I}$), écris `draw_norms_23(ax, ts, norms)`, qui trace dans l'axe reçu (sans en ouvrir d'autre), en échelle logarithmique, les normes contre $t$ (des points reliés) et la courbe $0{,}8^t$ aux mêmes $t$, avec une légende ; et relève :
+Puis, une fois tes prédictions écrites et vérifiées : calcule $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0, \ldots, 40$ avec ta `operator_norm` (pour les puissances, des produits successifs ou `np.linalg.matrix_power`, $\mathbf{A}^0 = \mathbf{I}$), écris `draw_norms_23(ax, ts, norms)`, qui trace dans l'axe reçu (sans en ouvrir d'autre), en échelle logarithmique, les normes contre $t$ (des points reliés) et la courbe $0{,}8^t$ aux mêmes $t$, avec une légende ; et relève :
 - e) le pas $t$ du maximum (un entier) ;
 - f) la valeur du maximum (2 décimales dans ta copie) ;
 - g) le premier pas $t$ où $\lVert\mathbf{A}^t\rVert_2 < 1$ (un entier).
@@ -1333,12 +1355,12 @@ print("e)", answer_M22_23e, " f)", round(answer_M22_23f, 6), " g)", answer_M22_2
 
 ''' + FIGURE_23),
         ("record", '''wbm.record("M22.23e", peak_23r,
-           mistakes={"la liste commence-t-elle à t = 0 ? L'indice d'une norme doit être son pas t": peak_23r - 1})
+           mistakes={"l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)": {peak_23r - 1, peak_23r + 1}})
 wbm.record("M22.23f", norms_23r[peak_23r], decimals=2,
            mistakes={"c'est la norme au pas 1 : relis ta liste, le maximum vient plus tard": norms_23r[1]})
 first_23r = next(t for t, n in enumerate(norms_23r) if n < 1)
 wbm.record("M22.23g", first_23r,
-           mistakes={"la liste commence-t-elle à t = 0 ? L'indice d'une norme doit être son pas t": first_23r - 1})'''),
+           mistakes={"l'indice de la liste est-il le pas t ? (la liste commence à t = 0, A⁰ = I)": {first_23r - 1, first_23r + 1}})'''),
         ("md", "**Après l'expérience**, dans ta copie : pourquoi la norme monte-t-elle d'abord, alors que les deux "
                "valeurs propres valent 0,8 ? Quel terme de la formule de Aᵗ d'un bloc de Jordan (fiche §3) le "
                "montre ? Que deviendrait l'expérience avec une matrice symétrique de mêmes valeurs propres ?"),
@@ -1404,7 +1426,7 @@ CHECK_24 = '''with checked("M22.24"):
     verdict("M22.24", all(results_24), "tes taux sont justes, et dessinés avec les deux droites.", "")'''
 
 M22_24 = Ex(
-    "M22.24", "🔬", 2, 20, "Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖",
+    "M22.24", "🔬", 2, 25, "Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖",
     "mesurer le taux de croissance d'un produit de matrices aléatoires, et le comparer au taux de la population "
     "moyenne et à la majoration par les normes.",
     "fiche §5 ; M02c, M06 ; Ex M22.21", tracks="C", given=GIVEN_24, note=NOTE_24,
@@ -1575,13 +1597,20 @@ CHECK_25 = '''with checked("M22.25"):
             report_25(any(abs(n - r_c25) < 1e-9 for n in numbers_c25), "… et un titre qui donne r",
                       f"le titre de l'axe de r = {name_c25} doit donner r et le module des valeurs propres")
         steps_c25 = np.arange(T_25 + 1)
-        report_25(axes_25[4].get_yscale() == "log", "le cinquième panneau est en échelle logarithmique",
-                  "mets le cinquième panneau en échelle logarithmique (ax.set_yscale(\\"log\\"))")
-        report_25(all(through(axes_25[4], steps_c25, np.linalg.norm(path, axis=1)) for path in paths_c25),
-                  "les quatre normes ‖xₜ‖₂ sont tracées contre t",
-                  "il manque, dans le cinquième panneau, une des quatre courbes ‖xₜ‖₂ contre t = 0, …, 60")
-        report_25(all(through(axes_25[4], steps_c25, r ** steps_c25.astype(float)) for r in RS_25),
-                  "… avec les quatre courbes rᵗ", "il manque, dans le cinquième panneau, une des quatre courbes rᵗ")
+        ratios_c25 = [np.linalg.norm(path, axis=1) / r ** steps_c25.astype(float) for r, path in zip(RS_25, paths_c25)]
+        report_25(axes_25[4].get_yscale() == "linear", "le cinquième panneau est en échelle linéaire",
+                  "laisse le cinquième panneau en échelle linéaire : le rapport ‖xₜ‖₂ / rᵗ reste du même ordre")
+        lines_c25 = 0
+        for line_c25 in axes_25[4].lines:
+            x_c25 = np.asarray(line_c25.get_xdata(), dtype=float)
+            y_c25 = np.asarray(line_c25.get_ydata(), dtype=float)
+            lines_c25 += any(x_c25.shape == steps_c25.shape and y_c25.shape == ratio.shape
+                             and np.allclose(x_c25, steps_c25, rtol=1e-9, atol=1e-12)
+                             and np.allclose(y_c25, ratio, rtol=1e-9, atol=0) for ratio in ratios_c25)
+        report_25(lines_c25 >= 4, "les quatre rapports ‖xₜ‖₂ / rᵗ sont tracés contre t",
+                  f"le cinquième panneau doit montrer quatre courbes ‖xₜ‖₂ / rᵗ contre t = 0, …, 60, une par "
+                  f"trajectoire, la norme de chaque état divisée par rᵗ : j'en trouve {lines_c25} (trace-les toutes, "
+                  "même si elles se recouvrent)")
     except StopCheck:
         plt.show()
         raise
@@ -1589,18 +1618,18 @@ CHECK_25 = '''with checked("M22.25"):
         plt.close(fig_25)
         raise
     plt.show()
-    verdict("M22.25", all(results_25), "les quatre trajectoires et leurs normes sont dessinées.", "")'''
+    verdict("M22.25", all(results_25), "les quatre trajectoires et leurs rapports ‖xₜ‖₂ / rᵗ sont dessinés.", "")'''
 
 M22_25 = Ex(
-    "M22.25", "🎨", 1, 15, "Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module",
+    "M22.25", "🎨", 1, 20, "Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module",
     "voir qu'une récurrence 2 × 2 à valeurs propres complexes tourne dans un repère oblique, et que le module des "
     "valeurs propres décide seul si elle rentre, tourne en rond ou sort.",
     "fiche §2 ; Ex M22.3 et M22.19", tracks="C, E", given=GIVEN_25, note=NOTE_25,
     body=r"""$\mathbf{A} = \begin{pmatrix} 0 & -1 \\ 1 & 0{,}6 \end{pmatrix}$ (`A_25`) a pour déterminant 1 et pour valeurs propres $e^{\pm i\theta}$, avec $\cos\theta = 0{,}3$ ; les valeurs propres de $r\mathbf{A}$ sont de module $r$. La cellule fournie donne les quatre valeurs $r = 0{,}6$, $0{,}93$, $1$ et $1{,}04$ (`RS_25`), $\mathbf{x}_0 = (1, 0)$ (`X0_25`) et $T = 60$ (`T_25`). Écris :
 - `spiral_25(r)` : la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ pour $t = 0, \ldots, 60$, un état par ligne (un tableau de forme $(61, 2)$), avec ta `linear_system_states` (une entrée nulle : `B = np.zeros((2, 1))` et `inputs = np.zeros((60, 1))`) ;
-- `draw_spirals_25(fig, axes, trajectories)`, qui reçoit cinq axes côte à côte et les quatre trajectoires, dans l'ordre de `RS_25`, et dessine, sans ouvrir d'autre figure : dans chacun des quatre premiers axes, une trajectoire (les points reliés, dans l'ordre), avec la même échelle sur les deux axes (`ax.set_aspect("equal")`) et un titre qui donne $r$ et le module des valeurs propres ; dans le cinquième, $\lVert\mathbf{x}_t\rVert_2$ contre $t$ pour les quatre trajectoires, avec les courbes $r^t$ aux mêmes $t$, en échelle logarithmique, avec une légende.
+- `draw_spirals_25(fig, axes, trajectories)`, qui reçoit cinq axes côte à côte et les quatre trajectoires, dans l'ordre de `RS_25`, et dessine, sans ouvrir d'autre figure : dans chacun des quatre premiers axes, une trajectoire (les points reliés, dans l'ordre), avec la même échelle sur les deux axes (`ax.set_aspect("equal")`) et un titre qui donne $r$ et le module des valeurs propres ; dans le cinquième, le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ contre $t$ pour chacune des quatre trajectoires (quatre courbes), en échelle linéaire, avec une légende.
 
-La vérification compare `spiral_25` aux puissances de $r\mathbf{A}$, puis appelle `draw_spirals_25` et regarde le dessin, en s'arrêtant au premier ❌. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et $\lVert\mathbf{x}_t\rVert$ suit $r^t$ en oscillant autour, parce que la trajectoire est une ellipse et non un cercle.""",
+La vérification compare `spiral_25` aux puissances de $r\mathbf{A}$, puis appelle `draw_spirals_25` et regarde le dessin, en s'arrêtant au premier ❌. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ reste borné et oscille au rythme de la rotation : $\lVert\mathbf{x}_t\rVert$ suit $r^t$ à un facteur près, qui oscille parce que la trajectoire est une ellipse et non un cercle. Dans ta copie : pourquoi ne voit-on qu'une seule courbe dans le cinquième panneau ?""",
     todo='''def spiral_25(r):
     """The trajectory x_t = (r A_25)^t X0_25 for t = 0, ..., T_25, one state per row (an array (T_25 + 1, 2)), with
     your linear_system_states and zero inputs."""
@@ -1610,8 +1639,8 @@ La vérification compare `spiral_25` aux puissances de $r\mathbf{A}$, puis appel
 def draw_spirals_25(fig, axes, trajectories):
     """axes: 5 axes side by side; trajectories: the 4 trajectories, in the order of RS_25. In axes[i] (i < 4): the
     trajectory i (points joined, in order), equal scales on both axes, a title that gives r and the modulus of the
-    eigenvalues; in axes[4]: ‖x_t‖₂ against t for the 4 trajectories and the curves r^t, the y scale logarithmic, a
-    legend. No other figure."""
+    eigenvalues; in axes[4]: the ratio ‖x_t‖₂ / r^t against t for each of the 4 trajectories (4 curves), the y scale
+    linear, a legend. No other figure."""
     raise NotImplementedError("draw_spirals_25 n'est pas encore écrite (04_indices.md si tu bloques)")''',
     check=CHECK_25,
     solution='''linear_system_states = mymath.recurrence.linear_system_states
@@ -1626,8 +1655,8 @@ def spiral_25(r):
 def draw_spirals_25(fig, axes, trajectories):
     """axes: 5 axes side by side; trajectories: the 4 trajectories, in the order of RS_25. In axes[i] (i < 4): the
     trajectory i (points joined, in order), equal scales on both axes, a title that gives r and the modulus of the
-    eigenvalues; in axes[4]: ‖x_t‖₂ against t for the 4 trajectories and the curves r^t, the y scale logarithmic, a
-    legend. No other figure."""
+    eigenvalues; in axes[4]: the ratio ‖x_t‖₂ / r^t against t for each of the 4 trajectories (4 curves), the y scale
+    linear, a legend. No other figure."""
     steps = np.arange(T_25 + 1)
     for i, (ax, r, path) in enumerate(zip(axes, RS_25, trajectories)):
         modulus = float(np.abs(np.linalg.eigvals(r * A_25)).max())
@@ -1636,12 +1665,11 @@ def draw_spirals_25(fig, axes, trajectories):
         ax.set_aspect("equal")
         ax.set_title(f"r = {r:g} : |λ| = {modulus:.2f}".replace(".", ","), fontsize=10)
         ax.grid(True, alpha=0.3)
-        axes[4].plot(steps, np.linalg.norm(path, axis=1), color=f"C{i}", linewidth=1, label=f"‖xₜ‖₂, r = {r:g}")
-        axes[4].plot(steps, r ** steps.astype(float), "--", color=f"C{i}", linewidth=0.8, alpha=0.7)
-    axes[4].set_yscale("log")
+        axes[4].plot(steps, np.linalg.norm(path, axis=1) / r ** steps.astype(float), "o-", color=f"C{i}",
+                     markersize=7 - 1.5 * i, linewidth=0.8, label=f"r = {r:g}".replace(".", ","))
     axes[4].set_xlabel("t")
-    axes[4].set_title("‖xₜ‖₂ et rᵗ (tirets), échelle log", fontsize=10)
-    axes[4].grid(True, which="both", alpha=0.3)
+    axes[4].set_title("‖xₜ‖₂ / rᵗ (échelle linéaire)", fontsize=10)
+    axes[4].grid(True, alpha=0.3)
     axes[4].legend(fontsize=7)
 
 
@@ -1650,6 +1678,9 @@ theta_25 = math.acos(0.3)
 print("θ =", round(theta_25, 6), "rad, soit", round(math.degrees(theta_25), 2), "° par pas ;", round(2 * math.pi / theta_25, 3),
       "pas par tour")
 print("‖x₆₀‖₂ :", {r: float(f"{np.linalg.norm(path[-1]):.4g}") for r, path in zip(RS_25, trajectories_25)})
+ratios_25 = [np.linalg.norm(path, axis=1) / r ** np.arange(T_25 + 1.0) for r, path in zip(RS_25, trajectories_25)]
+print("‖xₜ‖₂ / rᵗ entre", round(float(ratios_25[0].min()), 4), "et", round(float(ratios_25[0].max()), 4),
+      "; plus grand écart entre les quatre rapports :", f"{max(np.max(np.abs(q - ratios_25[2])) for q in ratios_25):.1e}")
 
 ''' + CHECK_25,
     after=[
@@ -1840,7 +1871,7 @@ if len(set(parts_26)) == 3:
             "relis les lignes ❌ ci-dessus.")'''
 
 M22_26 = Ex(
-    "M22.26", "🐛", 1, 20, "Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais ordre, "
+    "M22.26", "🐛", 1, 25, "Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais ordre, "
     "un seuil appliqué bloc par bloc",
     "reconnaître trois erreurs classiques qui ne lèvent aucune erreur Python et passent une vérification mal choisie, "
     "puis les corriger.", "fiche §3, §4, §6 et §8 ; Ex M22.8 et M22.10", tracks="C, E", given=GIVEN_26, note=NOTE_26,
@@ -2026,10 +2057,11 @@ CHECK_27 = r'''with checked("M22.27"):
         print(f"❌ Ex M22.27 : property_test_27 échoue sur la référence, qui est juste : {str(exc)[:300]}")
         raise StopCheck from None
     ords_27 = {o for _, o in calls_27}
-    report_27(isinstance(cases_27, int) and cases_27 >= 300 and len(calls_27) >= 3 * 300,
+    whole_27 = isinstance(cases_27, numbers.Integral) and not isinstance(cases_27, (bool, np.bool_))
+    report_27(whole_27 and cases_27 >= 300 and len(calls_27) >= 3 * 300,
               f"sur la référence, property_test_27 passe : {cases_27} cas, {len(calls_27)} appels de la norme",
               f"sur la référence, property_test_27 rend {cases_27!r} et fait {len(calls_27)} appels de la norme : "
-              "300 cas tirés, chacun dans les trois ordres, et le nombre de cas rendu")
+              "300 cas tirés, chacun dans les trois ordres, et le nombre de cas rendu (un entier, pas un booléen)")
     report_27(ords_27 == {1, 2, np.inf} and any(s[0] != s[1] for s, _ in calls_27 if len(s) == 2),
               "les trois ordres sont testés, sur des matrices rectangulaires aussi",
               "ton test doit appeler la norme avec ord = 1, 2 et np.inf, et sur des matrices (m, k) et (k, n) "
@@ -2070,7 +2102,7 @@ CHECK_27 = r'''with checked("M22.27"):
             "relis les lignes ❌ ci-dessus.")'''
 
 M22_27 = Ex(
-    "M22.27", "🛠️", 1, 15, "Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au hasard",
+    "M22.27", "🛠️", 1, 30, "Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au hasard",
     "écrire un test de propriété pour une norme de matrices, voir qu'il laisse passer deux versions fausses "
     "plausibles, puis le compléter pour qu'il les attrape.", "fiche §4 ; Ex M22.20", tracks="C", given=GIVEN_27,
     note=NOTE_27,

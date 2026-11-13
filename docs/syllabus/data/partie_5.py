@@ -211,7 +211,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M22", "dir": "m22_recurrences", "hours": 13.5, "generation_sessions": 1, "mml": ["(§4.2)"],
+        "id": "M22", "dir": "m22_recurrences", "hours": 15.6, "generation_sessions": 1, "mml": ["(§4.2)"],
         "summary": "Les récurrences vectorielles et les produits de matrices : une récurrence linéaire avec entrée, sa "
                    "solution par les puissances de la matrice et sa réponse impulsionnelle (la sortie est une "
                    "convolution de l'entrée) ; les puissances d'une matrice, ses valeurs propres complexes, la forme "
@@ -277,7 +277,7 @@ CHAPTERS = [
                      ("produits de jacobiennes proches de l'identité, exponentielle de matrice", "M20"),
                      ("convolution de deux suites", "M21")],
         "frontieres": ["22.1", "22.2", "22.3", "22.4", "22.5", "22.8", "22.9", "22.11", "22.19", "22.24", "22.26",
-                       "22.Q6", "22.Q7", "22.Q8", "22.Q9", "22.R2", "22.E2", "24.6"],
+                       "22.Q6", "22.Q7", "22.Q8", "22.Q9", "22.R2", "22.E2", "24.6", "19.19"],
         "mymath": {"module": "recurrence.py",
                    "functions": ["linear_system_states", "operator_norm", "product_norms"]},
         "reading_minutes": 160,
@@ -347,41 +347,41 @@ CHAPTERS = [
             ("M22.Q6", "🧠", 1, 4, "Contraction et point fixe : lire une jacobienne", "§6", "E"),
             ("M22.Q7", "🧠", 1, 4, "Une somme sur le temps, sur un modèle de pêche chiffré : vrai ou faux", "§7", ""),
             ("M22.Q8", "🧠", 1, 4, "Ramener un vecteur sous un seuil : le tout ou chaque bloc ?", "§8", ""),
-            ("M22.R1", "🔁", 1, 5, "La diagonalisation et les puissances d'une matrice (M12c)", "§2", "E"),
+            ("M22.R1", "🔁", 1, 8, "La diagonalisation et les puissances d'une matrice (M12c)", "§2", "E"),
             ("M22.R2", "🔁", 1, 5, "Valeurs singulières et norme spectrale (M12d)", "§4", "E"),
             ("M22.R3", "🔁", 1, 5, "La règle de la chaîne comme produit de jacobiennes (M17)", "§6", "E"),
-            ("M22.1", "✏️", 2, 20, "Une population à trois classes d'âge, avec des arrivées : trois pas à la main, et "
+            ("M22.1", "✏️", 2, 25, "Une population à trois classes d'âge, avec des arrivées : trois pas à la main, et "
              "la solution écrite avec les puissances", "§1", "E"),
-            ("M22.2", "✏️", 2, 20, "La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme "
+            ("M22.2", "✏️", 2, 25, "La réponse impulsionnelle de deux réservoirs en cascade, et la sortie comme "
              "convolution de l'entrée", "§1", "E"),
             ("M22.3", "✏️", 2, 20, "Une matrice de rotation et d'homothétie : valeurs propres complexes, forme "
              "exponentielle, puissances", "§2", "E"),
             ("M22.4", "✏️", 2, 20, "Le rayon spectral de trois matrices 2 × 2 non symétriques, et le comportement de "
              "leurs puissances", "§3", "E"),
-            ("M22.5", "✏️", 2, 20, "Une matrice triangulaire de rayon spectral < 1 dont les puissances grandissent "
+            ("M22.5", "✏️", 2, 30, "Une matrice triangulaire de rayon spectral < 1 dont les puissances grandissent "
              "d'abord : Aᵗ en formule", "§3", "E"),
-            ("M22.6", "✏️", 2, 20, "Les normes ‖·‖₁, ‖·‖∞ et ‖·‖₂ d'une matrice 2 × 2, et trois majorations de "
+            ("M22.6", "✏️", 2, 25, "Les normes ‖·‖₁, ‖·‖∞ et ‖·‖₂ d'une matrice 2 × 2, et trois majorations de "
              "‖A⁵x‖", "§4", "E"),
             ("M22.7", "✏️", 1, 15, "Trois équipements qui s'usent à des rythmes différents : une récurrence "
              "diagonale, ce qui reste, et la demi-vie", "§5", "E"),
             ("M22.8", "✏️", 2, 20, "Les jacobiennes d'une application du plan en trois points d'une trajectoire, et "
              "leur produit", "§6", "E"),
-            ("M22.9", "✏️", 2, 20, "Un capital placé à taux fixe avec des versements : la dérivée du capital final "
+            ("M22.9", "✏️", 2, 25, "Un capital placé à taux fixe avec des versements : la dérivée du capital final "
              "par rapport au taux, une somme sur les années", "§7", "E"),
             ("M22.10", "✏️", 1, 15, "La norme globale de trois blocs, et deux façons de les ramener sous un seuil",
              "§8", "E"),
-            ("M22.11", "∂", 2, 25, "Sous-multiplicativité, ‖Aᵀ‖₂ = ‖A‖₂, ‖diag(d)‖₂ = max |dᵢ| et ρ(A) ≤ ‖A‖",
+            ("M22.11", "∂", 2, 35, "Sous-multiplicativité, ‖Aᵀ‖₂ = ‖A‖₂, ‖diag(d)‖₂ = max |dᵢ| et ρ(A) ≤ ‖A‖",
              "§4", "E"),
             ("M22.12", "∂", 2, 20, "La norme induite ‖·‖∞ est le maximum des sommes de lignes", "§4", ""),
-            ("M22.13", "∂", 2, 20, "Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ", "§3",
+            ("M22.13", "∂", 2, 30, "Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ", "§3",
              "E"),
-            ("M22.14", "∂", 2, 15, "Une application contractante oublie son point de départ : l'écart entre deux "
+            ("M22.14", "∂", 2, 20, "Une application contractante oublie son point de départ : l'écart entre deux "
              "trajectoires décroît géométriquement", "§6", ""),
-            ("M22.15", "∂", 2, 20, "La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une "
+            ("M22.15", "∂", 2, 25, "La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une "
              "récurrence avec entrée : sa solution est une somme sur le temps", "§7", ""),
-            ("M22.16", "🔗", 1, 15, "Pont : la convention ligne x_{t+1} = x_t A + u_t B, ses formes, et la jacobienne "
+            ("M22.16", "🔗", 1, 20, "Pont : la convention ligne x_{t+1} = x_t A + u_t B, ses formes, et la jacobienne "
              "Aᵀ", "§1 §6", "E"),
-            ("M22.17", "📖", 2, 30, "MML §4.2 relu : les cinq applications du plan de la figure 4.4, leurs valeurs "
+            ("M22.17", "📖", 2, 40, "MML §4.2 relu : les cinq applications du plan de la figure 4.4, leurs valeurs "
              "propres, et le comportement de leurs puissances", "§2 §3", ""),
             ("M22.18", "🗣️", 1, 10, "Expliquer avec une image non mathématique pourquoi un système linéaire oublie "
              "son passé au rythme de ρ(A)", "§3", "E"),
@@ -389,21 +389,21 @@ CHAPTERS = [
              "§3 §4", ""),
             ("M22.E2", "💼", 1, 10, "« Pourquoi Aⁿ peut-il grandir longtemps alors que toutes les valeurs propres de "
              "A sont de module < 1 ? »", "§3", ""),
-            ("M22.19", "🔨", 1, 20, "Les états d'une récurrence linéaire avec entrée", "§1",
+            ("M22.19", "🔨", 1, 25, "Les états d'une récurrence linéaire avec entrée", "§1",
              "E m:linear_system_states"),
             ("M22.20", "🔨", 2, 30, "Les normes induites ‖·‖₁, ‖·‖∞ et ‖·‖₂", "§4", "E m:operator_norm"),
-            ("M22.21", "🔨", 1, 20, "Les normes des produits cumulés, et leur majoration", "§5 §6", "E m:product_norms"),
+            ("M22.21", "🔨", 1, 25, "Les normes des produits cumulés, et leur majoration", "§5 §6", "E m:product_norms"),
             ("M22.22", "📦", 1, 15, "`np.linalg.eigvals` et `np.linalg.norm` : rayon spectral et normes de matrices "
              "tirées au hasard, et ρ ≤ ‖A‖", "§3 §4", ""),
-            ("M22.23", "🔮", 1, 15, "Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, "
+            ("M22.23", "🔮", 1, 20, "Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, "
              "puis tracer", "§3", "E p:M22.20"),
-            ("M22.24", "🔬", 2, 20, "Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖",
+            ("M22.24", "🔬", 2, 25, "Des produits de matrices aléatoires : le taux de croissance (1/n) ln ‖Aₙ ⋯ A₁‖",
              "§5", "p:M22.21"),
-            ("M22.25", "🎨", 1, 15, "Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur "
+            ("M22.25", "🎨", 1, 20, "Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur "
              "module", "§2", "E"),
-            ("M22.26", "🐛", 1, 20, "Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais "
+            ("M22.26", "🐛", 1, 25, "Chasse à l'erreur : ρ(A) pris pour ‖A‖, un produit de jacobiennes dans le mauvais "
              "ordre, un seuil appliqué bloc par bloc", "§3 §6 §8", "E"),
-            ("M22.27", "🛠️", 1, 15, "Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au "
+            ("M22.27", "🛠️", 1, 30, "Un test de propriété : ‖AB‖ ≤ ‖A‖ ‖B‖ et ρ(A) ≤ ‖A‖ sur des matrices tirées au "
              "hasard", "§4", "p:M22.20"),
             ("M22.28", "🏆", 3, 25, "Défi : une matrice 3 × 3 à coefficients dans [−3, 3], de rayon spectral 0,85, dont "
              "une puissance a une norme ‖·‖₂ supérieure à 100", "§3", "p:M22.20"),

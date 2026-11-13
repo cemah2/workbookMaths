@@ -192,7 +192,8 @@ def test_module_uses_eigvalsh_only_in_operator_norm_norm_only_in_product_norms_a
 
 # --- linear_system_states -------------------------------------------------------------------------------------------
 
-STATES_HINT = "x_{t+1} = A x_t + B u_t, with u_t the row t of inputs (column convention: A @ x, not x @ A)"
+STATES_HINT = ("x_{t+1} = A x_t + B u_t, not A (x_t + B u_t): u_t, the row t of inputs, enters at the step from "
+               "x_t to x_{t+1}; column convention: A @ x, not x @ A")
 
 
 def _states_by_loop(A, B, x0, inputs):
