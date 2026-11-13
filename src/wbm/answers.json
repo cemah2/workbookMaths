@@ -78206,6 +78206,3344 @@
       ],
       "source": "chapitres/m22_recurrences/05_solutions.ipynb"
     },
+    "M25a.1a": {
+      "hash": "4af544548c2bb1f77d361c0ade003d5fd2f5858d39109111cde55f442c17d4e0",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "19d4f54d52f61e3bf5b6fd3b4b98132b49ba6681a43c71aa77c11ee8536faba7": "le déterminant d'une matrice 2 × 2 est ad − bc"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "ab2885b6637e5682b53b7464489bd3fb5a73b8283c33c928563210c3ff5c8f4b"
+        ],
+        [
+          "790f8573aaf3978567428dbfb22532d3de5888fe0e2611d09f8dc6affad47650"
+        ],
+        [
+          "6ae9b7e5c2e67f971a46820e45b158c23f10d0610799c906ecf0834d8296b9e5"
+        ],
+        [
+          "e299c4608987f633bd1a1b5178c3cc3646e6bcc71238d4a1bd6cd7c98fb0c722"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "91db20fd2fcc4edb183a267e8a27aa464309569451936e5225e5d75a21e92a71",
+        "fd708dea8a2b0a66f45ddb622eb1622ef4262d3369d9414de301e21c79853f9a",
+        "482a3dec2aae3196223a8e4513ea34b10264bed190222e054fd5e212b062bd49",
+        "50fccdb7dacda9b057012c309e46606024f3beb94bd20763e6b2f6888ffcda68"
+      ],
+      "hash": "4c406fbc6355ffa3a2ef47ceef2ccabb81e87708c6eb06dc10bf25691eb3d881",
+      "kind": "array",
+      "mistakes": {
+        "9496d496079092f00a5355d105631487ccbe62eb11480a66b2fe1be62ce509f9": "l'inverse divise la comatrice par le déterminant",
+        "aed8cc2f92bc63805b3f1f2f0aaa5bb202c5ee87af67cd3517bcddd3935ec9b6": "dans l'inverse d'une matrice 2 × 2, les deux coefficients diagonaux s'échangent",
+        "ff8c244de8dc92ee72ae2900c365bf1d5c6194f901a1340fd6eebbc948f4c091": "dans l'inverse d'une matrice 2 × 2, les coefficients hors diagonale changent de signe : vérifie le signe de départ"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "736b0b28d180f651355126d14b05e5a43486a96bd34c2fe093a39e2b8afa8655"
+        ],
+        [
+          "9db4a03a2ffa345797d10fc1eed1c9146ab6e5409f1a98f67b5946524f6d527a"
+        ],
+        [
+          "142b5d678453c85419c09cc05c3a7cb7a47da80b068b55978ef38ea9f6436182"
+        ],
+        [
+          "802e8923d0e8ac4a6ff10bddaf35781cd37aca7ecd106442c9ee96fbe4cdb37e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fce937b8f445d69b7c826ed0c739e0af4316bd43ed4c33c32658ce2fe050e276",
+          "9047990fd6158a0203e59e310887136b0cc1dbccfa44e0f03e0effc4e2ad1ce7",
+          "47f664f5b13ced1dacc664b9f4a83df215241e31740598d5dd54bb4983a05814"
+        ],
+        [],
+        [
+          "b45580710b5967821bafd3aeb6dd6d9c9b1466170b2bdb4921332f3d11da1855",
+          "1ec5673d01c59d40b821879d855bb90532d80bc780a87bc17f0fd9a3c9aa58dd",
+          "916e596e352a54bdbd90aafc50d95df49523c487b030375b03f3a654c9674d16"
+        ],
+        [
+          "e7f9cd0ff0c78b3c0fef85fc270d9b50107bc5571ec0a5514825d0dda4f26826",
+          "cfad631fea924ae064ed5764b77e7b8202dc41d69ec95633589311798217159d",
+          "dcd244a015ddcd290440a2dae574a8e304a828143b83d76ee805006d8f522953"
+        ]
+      ],
+      "element_hashes": [
+        "69b33450b57964b1017359472b5eed6838229b4e3eb6d1760488c3cc2a40b159",
+        "fbf11043b3e66d75d963fcaad9cf4344c2073a1581ad41455c39a3f8370cd9a4",
+        "fe252a8649c5ebcd8e7a4d5cbe92a7a167a9b2802b0740c064dd3ef64f615615",
+        "dd2afcbe34d0e9e06e6983160ba6af573a232c26bde8bee31a34a9b305fadc28"
+      ],
+      "hash": "77b05672dd1484532d74d9dba36fc4e725af9dd38f8b41f2d6e4e8f02bed1573",
+      "kind": "array",
+      "mistakes": {
+        "296c19050bec5c0a6bfcb81f6211ec7907af790d2157705c7da06dc91af21eaf": "l₂₂ est la racine de Σ₂₂ − l₂₁²",
+        "3a0fae32a20c8e79dc97e221349f70c052d9e07e0d313c32708240bd22583d32": "le facteur de Cholesky est triangulaire inférieur : Σ = L Lᵀ",
+        "8fcfc67ffb61961937d3e69f63b7e14abc48f36ee18172b4ae9a238b057bdc17": "l₂₁ = Σ₂₁ / l₁₁ garde le signe de Σ₂₁"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "f09d97cd6143882c58000c6912a4c5fe755cf93f5d6478a5d0fc955e45379349"
+        ],
+        [
+          "663b2ede85c4a7582d23f6e4c01070ee4bcfce5fb2ce0de8ae6b1db4c7769cdb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "04ea00402498551cae8c0ab74d480d665525d20f46485842808808f4c024b26b"
+        ],
+        [
+          "f1b5a0e53699d543844e42fbac30fa6ccbc9085f10400ba78e2faf967045451e"
+        ]
+      ],
+      "element_hashes": [
+        "1a84de3fe5056c66273fe33cbb0df684645d014ba0e5f85ab8b8a4dfb749a76f",
+        "548661853267eff06f461bbc3d010dcb230113a33b20c1672180fb97e6084a5c"
+      ],
+      "hash": "c1028b91308683f51a7105a49bcd37e491e2dfdbbb83dc3982fa6ae6a95fef97",
+      "kind": "array",
+      "mistakes": {
+        "292df071edc837b071f09b20c73b337a09957f90556d1756084cde9bab1f54bb": "la covariance de T et H compte : Δ² n'est pas la somme des écarts au carré divisés par les variances",
+        "5ab5e684ee71c62cf481a33bfced56023e910875c44414472d43ab507ae53dad": "la distance de Mahalanobis utilise Σ⁻¹, pas Σ",
+        "af75de76024ae85ebbfce6ae4a17a874fe4ca1ab853336bf352bc3cfe559ae60": "donne les deux valeurs dans l'ordre des relevés de l'énoncé"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1e": {
+      "hash": "ccfbbea9323a247f9c1e55f67416f9aaa65d4ef3484d08b22c402c463d7b6118",
+      "kind": "exact",
+      "mistakes": {
+        "00d5e4322c23006abed9793f86d0ea0888a94e6e353b27e8c0d2477d4bf76d1c": "en dimension d, le facteur contient (2π) à la puissance d/2",
+        "ece3bd752a77edb297b07bfa6f8ce580b5d7b8d62175c6564a5b6cd18c383e19": "le facteur de la densité contient la racine de det Σ"
+      },
+      "rounded": {
+        "1": "bb26dc779c52060eaacc4763b0c3d53c5b6f3c6cadeff88e0c1d04bc35a98258",
+        "2": "ac8acafefacdf004a88a0524b45861ffb0e6059df4251f21175596037f460ad7",
+        "3": "4e876fc4044301d067a9e56131b61b5df6b9b4ab4b97ae4ba5d3c9847c3eb10d",
+        "4": "f051a046180d306030da57639f0261a3f5135c07de237231790af5a2b398e409",
+        "5": "b0f13a04e7215ca8f4c0ddd46c00c689d364b4d0044ffa8601fb3faa6d1bcd64",
+        "6": "066d6c4ac2aadfa86f9f845c1f3deff95c8a9263a4a383b827800b0daf495653",
+        "7": "502178ea1fdd58f451790c37f33583174a6483547ebddef171ff266f2d6bfe89",
+        "8": "676c0bc052c385d4d379997930e74b444ca7b4a7949377147e6460a6fc1413fb"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "3c8ae932be8a27534c649a759f99715a444135d230ed593d690606d6673f8070"
+        ],
+        [
+          "faf7c19f741aed8d8e4908219bfed9b88877a32d6f16ec8225b1eb28d87b00a9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ed7086f40fdd5c2c1a9e11edb41c7e0c1d8ef678e79a7943a53f7d8cff733fd4"
+        ],
+        [
+          "558a6b1ad6d1c6c12dcffa8b922431d8d6519dd1ca8a01d07a51a77295a66a09"
+        ]
+      ],
+      "element_hashes": [
+        "7cdf76a3e8e9d093734daeffe25d46ce6930c04ecbaf973ec589e5eacd77e37b",
+        "d8369bcec71f8b0739b8474b7dd803686728cab6e69547216dac78ebe2e2b6c6"
+      ],
+      "hash": "af37f9c2b630b08787836a73306610665cca484af2e530c44da76d27947ebb70",
+      "kind": "array",
+      "mistakes": {
+        "50128dc0fdc0436f59e2dabf69055cb4a25babe47e1fe72d00f08bb6e323046e": "la log-densité contient −½ ln det Σ, pas −ln det Σ",
+        "80aa23541dca20daa1febbb40428cd98c8fa76fb43b554e7d0201c0ff09a9a1c": "le terme de distance de la log-densité est −½ Δ²",
+        "fb4921dfd5c6650a8ee5a5cfabf2db08c81500b77f474b4ffc48b99db955dd90": "le terme constant de la log-densité est −(d/2) ln(2π)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1g": {
+      "coarse_any": {
+        "0": [
+          "fc9d79040a9a90ba1dfb9996913f31ce0d8e55c1904bb7015ed1d5df8be5d8bc"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "351c5c4dabf75251743e0da2b72190e3bcbc3e20fcef030e019d80e296b3df9d"
+        ],
+        "2": [
+          "fa0163aadd566273b14f9caff18a39cd7923edd8df3cb34293253128e2679be7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e64228daed1610b4c6e0b745df5fd5500e0341fbeb397d8a95122714626430fb",
+      "hash_coarse": "10b0790aa2000b324f744a40ab2642eb9c64bbfe2b68ee923046527066c63303",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "97524fdb62278de7540afd933f4652fddd6a48122d5b37543eb22ab91ee815a5": "le rapport demandé a la densité de x_Q au numérateur",
+        "aa7dbf3b1db0d368f402b8f5863d964c65182dffbcfff096422b8e21c2e99588": "une densité contient exp(−Δ²/2) : n'oublie pas le ½"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1h": {
+      "hash": "3580d9745b37b113949181117e9e55b9d494e9cbd354dd20d632ad828f0221ca",
+      "kind": "exact",
+      "mistakes": {
+        "d30d07d8a43344b9fb7ede96e4436da53772ddfcaa353ba48a5b86add008f0ca": "la distance demandée est celle de x_Q",
+        "d36c58e4d0292cbc066e9e1d2ee69c81cc6e305badcf6c7e2114d093ccb10b2e": "une distance est la racine de la somme des carrés"
+      },
+      "rounded": {
+        "1": "b45fe4f2644f701533cca150ca6c645d4396b02730a90ac87df9de4309f569e1",
+        "2": "af6b7f9c961879d88d80cd6a4041b714b17f23866d84593fa70df48b648169b6",
+        "3": "a08376a55abd800c426035b81de53d70f629190c16f0c7678eac144ca92c39df",
+        "4": "153afa1c1c34623efe9a028caa0aea891b80ba8893c9807bc29b5af2edf390f3",
+        "5": "ef7385c2a3cd4a220f832a019403b0c33be05628df2fbc3afa9f941ba4298715",
+        "6": "2421e308c69f921da711eb5d236f7ef0bdcf2951e7800d2b749254b98b02619c",
+        "7": "932fedbbedaa1409a42352f8c120a77bf509694115cff949773d01a55b211002",
+        "8": "bc2b81867a54b4bf9dd98592733b98a41a531bab6c9e1dca1f99f840b41a1a93"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.1i": {
+      "hash": "39cf1c8a677b76f7194be6f31c740bd62a09054619d94a6d619dc92e627a8523",
+      "kind": "bool",
+      "mistakes": {
+        "4066ccae7b86bfa445bc03c7f1df21d839c84619617a142a6649e69c6416b4f6": "compare les densités (ou les distances de Mahalanobis), pas les distances euclidiennes"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f6e9817c5bba1f3de1da9eeadf4601d6435ab7cac07dac2a08d43964465c46b4"
+        ],
+        [
+          "7c3ff683b4ce94583ffbfea53a3de6553866db14882a65c937f079e2d1b7ef1b"
+        ],
+        [
+          "b39ae13ea259ead46c0958213065c2e5ce81b1870ce54ff0b9ad9f77b0d84f40"
+        ],
+        [
+          "216e5be281855eb405dc5c6041f1681162a4970a9917465210cf93d8a2dc26ad"
+        ],
+        [
+          "b223c56800bfe714db7981fb74ac618f92d81f38576063d385f09c5ac9bea7e3"
+        ],
+        [
+          "2e17e719a09999630e33e42f42653189b99dcadb4200b4c829f4a4688537ec27"
+        ],
+        [
+          "b2bc5d38a7ac04b45358406d4b102998d65c1b4a5295f476ff06da2ccdbab88c"
+        ],
+        [
+          "51400e8bfd1f3e1eb188471162d302c7d0676ab6f872cc9f78a12eec1f0107e9"
+        ],
+        [
+          "0cfe1df007231866b6e9b2d420791b600587a7db0b63b9ffe1d741a4c43a3f2b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b150a6c4aac937d939ebf933278c108c7d11da1c73ee0b5deee98b90117b5a94",
+          "5f557c9da9db04bf74f63c47b4195f70094a6e048e62c99928306bb80b49e63d",
+          "fddc0be8db0efb9fd4365421f809439cc696be0505c52ccb1ae03bdbc5d9bd61"
+        ],
+        [],
+        [],
+        [
+          "7530c1cbba85fec712caaf66382e99cb60d19745dd7c92951bf5af84f6e9fccc",
+          "2d02eff6a24c352bb907dcf7aa3b69653541c616ad2583a5c37c2369bd5ce8c8",
+          "ea6b608cfe617c57dda44fbbb5eca7e8373833ed3b499211d8a596047e4516ca"
+        ],
+        [
+          "7f3541f732e90c3ea1e3c6ee49cd52c7882885763b4a0f05d8c4063c11f1898f",
+          "362bc44f5669b2e51f570640fd4c4dd341272060bf2f7e363312655d992e3327",
+          "923e9a2a03af0acc7eec18772a696da583d5d9f9388bf7671f6b3b2df5b35e6c"
+        ],
+        [],
+        [
+          "3ed460988e8efbbeda5c5bce39385d4a56171e06258333bd5b858c356b925e98",
+          "0560b50b400bd294ca62563715243574d8b6d8c2680f9293edc57f136b7bd748",
+          "3862dd38e96dc5e1804809032df6f52f14d515c48a4e8432290371c1514feeac"
+        ],
+        [
+          "915d2a5291bbdb008e7818b6cedb2d6bfa82115d13f3ceb004882a7f5bb64b35",
+          "7bc982921d331804c67933866879be981e7986daa66ccc0181c711be45f65027",
+          "ef628d354d64b9b54cd3725d95672c1b1008c25d5a9c337f70ea802f90c0db07"
+        ],
+        [
+          "74457d7c5db6b267b2c0156a043be3391b6371bb2f833120ba5e7dc3582d01d3",
+          "2abc763f29b07e266cce8d2b7e8302bdd7a617542a9b6e91394fa06132cf6569",
+          "31d74ec7563d1f738d5de01448b8b313ed1e96d131305041ef7d0420954d4b7a"
+        ]
+      ],
+      "element_hashes": [
+        "f2f80f48010dac11621fa4f43f4181b59345b2500857a9da707553f278426669",
+        "13a30cc1a41a2befc886c9ef50ccb8b8affbdbda4ec5a2a35f2f075053e6c5c2",
+        "b9029c711e3ecbb4b05c6966c67210102a087e9ac4440bd3b051ad2b94484d67",
+        "412cbec82e89727f9e7c3699dce4087e9d7496b74d8a6057daa34bf1bd00ee0c",
+        "af99629836b97c84b414b7c5c536acf039e21661cf320e3f92ded823e87d12fe",
+        "a043727398baf6be28ac93b53ab82096bd10e5d04fbf1484d0ae5be4e26b21ac",
+        "125ad04b410685547667287a9509d0334beb3d81f60cdb9ff36c83198d0b8162",
+        "2e1947ecf7d532487845df967cecd424c52ca33703e8078b7ff76936c7c08367",
+        "13db943a8be28528c58faa46f1803115eb3ace2d5fa208438d18d2e417047c43"
+      ],
+      "hash": "a106d2c9e72e449b4c176b7c3fc5961fa9aee7543537867d4ce37ce1e92da7ed",
+      "kind": "array",
+      "mistakes": {
+        "17fe633645c29fb2396cf63aa8a0502b1fee7447eb0c49b9094804b40ac12469": "l₃₂ = (Σ₃₂ − l₃₁ l₂₁) / l₂₂",
+        "75ef8c91e064cbb52c7a38581b7a62c521ad4445af9720e33fae9603b428fd7c": "le facteur de Cholesky est triangulaire inférieur : Σ = L Lᵀ"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2b": {
+      "hash": "a529a38a9b12697625b6d33212e65737936b726f0482107e2124d486316c38ed",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "193ebe47a2967448202f8d0fa9e7b27330e5fb245aa75f193a94a576710d16c7": "det Σ = (det L)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a7c9ef37e4ddfddf0b89c4a1dfea5c26091de296718cb739a63d7e3a9f2204ea"
+        ],
+        [
+          "8bc8c85232f2dd0c819c8259dbd01dd66f4ac73ebd427528d85d9472d4b1382c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a72ea098fc4ca431417d0da10b6aca0eb8480572cc83273ac1748801e252564c",
+          "54fcd33269c9ab9d4c847932bb9ca5a3bc4eebfbc55c699f9bf023c2d6f59a35",
+          "6cf7eefbc30b0bedf87b6f67a84b1d5e69b64f656a96fe11b59245899ce764a9"
+        ],
+        [
+          "c51ef2233a58a6874dd6ddd17deb7beb7f2aeb1e54cad660a6aeb9dd1fc9e372",
+          "bf10199e09cf2263942e815a8c527eb86ec18f838738927c505bfbcdfdacbe43",
+          "dd3defc6ddcf4abc197ea3c5723f87d294af92574acdaf9d06b11fb3bfa507f5"
+        ]
+      ],
+      "element_hashes": [
+        "c35ed5d79e8ef1506d60196e627251577b6205d77272fdc037faf2e9c1dcbb51",
+        "2a70e75b5caf59eadc1a2c3a0839c3ecd2cfbdeba4d03e75c5e279298a343765"
+      ],
+      "hash": "3993396faa743824a71465764819cb722fc565f4840128b8fae7bed56899e292",
+      "kind": "array",
+      "mistakes": {
+        "03755d565209469c6b660c77200226f43a8e370dc2bb061b1167cf561b2388ad": "les poids interviennent au carré dans une variance",
+        "7bfa55864fe3db3881644b1ade0426e859a5030b05052bb8a9eee1b2e7e08c91": "la variance de wᵀx contient les covariances : c'est wᵀΣw"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "fcaf664e28be6727e64441254ddd7fcdc85bc56406f0d3a82a67f231cef7209c"
+        ],
+        [
+          "c5d8eb3e4d566f7f08621f3fb055153b08108f637f1dfae627c2ab4e479eb257"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "edb2db90dc1cc5ba637ae96160e0661f9d13e5a5de73fff755511eadf1680f6b",
+          "56a6151752570d41cd066d844f275cc7dd8b6e0e6476e96c6d6b7f93e48563a7",
+          "f7ae09978c806368d4aa9411a33bf8f0a8dd2d530bc38afb2e6bd9f890e3f3ee"
+        ],
+        [
+          "3f1bc11f5a6b37101ba9b1ffce60b1fe9d4dcf65fab6a58ccdf3092b24ef4375",
+          "1bc32752953be6af143dc0bb3f8e5833ab6405dcc994aef73d4742e458c49795",
+          "b90ec3f27646756c17c0d402a5780e8b43a4b2fd08005c92befa985f87e6a854"
+        ]
+      ],
+      "element_hashes": [
+        "1a2cbc7d4a2917f50f3063e3488b3e1542b5a87cde0ebbb414a6bb200f4aeb27",
+        "9593e024b14385b90c3dd55321420429335fbebce6691fc0f0113013095ab7de"
+      ],
+      "hash": "5435ba7845fddb8b96b32cb8daae524a7a382e0f810258742094a044bd8a25fb",
+      "kind": "array",
+      "mistakes": {
+        "03327b505d10af719ab4112d5387861a716bdb087736cbe84c0dac80090bf205": "Var(x₂ − x₁) = Var(x₁) + Var(x₂) − 2 Cov(x₁, x₂)",
+        "93b08a1b04c6affe07072e0ac34767b708c4c59364db2dc269814f0c9809ef07": "vérifie le signe du terme de covariance : −2 Cov(x₁, x₂)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1703b8de8863ddae08e7d02222b880e1e47923922b3ece96f72607a5fc58b58e"
+        ],
+        [
+          "ca74c08bfb85e75a266a76fcd7d39216fd343dbce7e4ef9c3b9411163be08cbd"
+        ],
+        [
+          "dd4b445e3c64a728b2af9d63c58fa2ffad359a709de684bd46d3d62223d4577c"
+        ],
+        [
+          "fd0b8649b817ccfc0861bd0a1af567bee3ec33956cba510bcd7a4c2f672f9120"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "99d6621c3d282970041352b69f92986381f5c8979f3790b78faae93587b882aa",
+          "4b9d2224e412f82caeb0b35f031691528771b3dcc7cd43b59a4adde4dd3db41f",
+          "a1c0e77ec8d4e0af9aec514a0ae27377ab1e6a01cd7b969df717046608db154c"
+        ],
+        [
+          "fc11a196ad34f95afb0b81d5c36699383c506ff9b384b560969d25afc3800d05",
+          "bef523a111f75a38767dbb5530e1aa5ed728fb9d2bca7038b69d559d44022a71",
+          "2b05b4c8601b893eb475ad07be1cf0115cc3ce9323768030765e4d8901c03aa7"
+        ],
+        [
+          "88be0081ef0022f338e7e4c79159829b1a84a557e41c279e16c1fd564a3db4c1",
+          "5faef9de5917a0c4e59a46da312b9738528c33f75e1e47edb5688c65fe53073b",
+          "3b18535e2986095f578df131b95e8cc7727434ec4030aede9f4b97581fc70539"
+        ],
+        [
+          "53091d235db23a71b9b3ce0b14ce3cf98167ce816ef0a6d955876623c30f6a92",
+          "716e290aaa13c5135deb9dc9865dcce2e0ddcb7a929b36dfd18c1b02ff706173",
+          "b2e842b4a5bc6c401b0bd6c0274dc6c055b4c578910da83252a4a61903d3ba81"
+        ]
+      ],
+      "element_hashes": [
+        "0af73f9c312f15b519e4755aa3bc5a3cee5a196c948fd39b18258a64f73be559",
+        "5e317b41ad8cd5a58fbf9e91d40f566dc693c2ad7adf1d8e76d82bd84bc83a26",
+        "8dc996ad004feaf833c647f83bf495847fb24a638cc0d1875a95a486c2cd24ee",
+        "a77e294c18e48a6b287fb91f845a8d43fd7ae2be712ca275ccf81190b19dd7f3"
+      ],
+      "hash": "f769d29bcd74b39405aa96a97b94557570229da7bec95e2edc7900c78fe15af3",
+      "kind": "array",
+      "mistakes": {
+        "7676574e0df5f9b862f618cb41bde6151dddd0bf00958c5120e05d9f0bf90ef2": "vérifie le signe de wᵀΣv, avec v = (−1, 1, 0)",
+        "8d1ba8da52bba0f7b6b0a88c46630e4558ee87dce7df8869001638d5a4af4975": "le coût et l'écart sont corrélés : calcule wᵀΣv hors de la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b005aff8dffa1b6d7222ab2eaa1e13bd5e355af2cf88775424a3ae0175895c3d"
+        ],
+        [
+          "74e8c7b82b62cd8cdf5062c09e2c5c3d93cdc2b252f24c9571b5b23d784a37dd"
+        ],
+        [
+          "860ef457f351b25ad87fdbdaf70c97670ee24c37e4942a3b5c2a8dcc7d7b37d3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d6b0593023aa2c5e96d6080baf99587954197b07b15996df106c23c2c8057565",
+          "cced55f57a633c53dad8e4213898004e1fa86e23738ed0540033bd83d0786926",
+          "0b108e8739f00fd2a8ce076fdf1589798b50cf2921819496110aaa94c92b5b3b"
+        ],
+        [
+          "0c64c11e5927fb485c1a4eb8357aaf1860a70a493de6ca5600fe86eb6529e9d6",
+          "5118511323cdff59168bdf4771b34e40aba6d33d7fc8c16d2dafa8646dc1af32",
+          "9230ec9fe15504bfd4ff902bfb0e85c5acb19d116cecb782fc30d6c05165cce6"
+        ],
+        [
+          "68199770485e2a9540ee1d5ca46f5a8b4a6b6844013deceafecf79ededf12a25",
+          "a4859619d9b5b78c8dc134f90dac9a82491a090434a8a635dd656feb30606c45",
+          "3f1fd61023798199272c0241b64e7456a4c44c7bd7981d5119302ee2a4b33f2a",
+          "47155e4bd993c2d7671b21d35325a982ecd01d9f6168e7d8805ac914c06b28bd"
+        ]
+      ],
+      "element_hashes": [
+        "55c1a82bb58545a539cf81d0e6d3009a35f8125f724fb483b34e433b1424b143",
+        "c37712f5d4746fb8db54af4cda4133112a005b879e991a82f96e561f850a2919",
+        "29c72ecc9252c053f4b3dedb47757320f421a2d281fe15e7e09a23f509e354c0"
+      ],
+      "hash": "7668449bda423c55429cfa7ebd8ca6e554864a81fc52e0589d884dfa26fff5bf",
+      "kind": "array",
+      "mistakes": {
+        "1cd3910559c61d02970b5191262821e24e9279b589f2fbb5f04077ac0ca2519e": "on multiplie ε par L, pas par Σ",
+        "5f710b9bcb8ecaa38bb956531e4de0bc6f3372938d7899bf64e35b8b26a9c6b3": "n'oublie pas d'ajouter μ",
+        "620455127191006fe815b0298f463a61866d3f080147ea0930f39a01e12f2500": "le tirage est μ + Lε, avec le facteur triangulaire inférieur L, pas Lᵀ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "46f7bb06cdfc7b75a7af9f4d83dbb17e25bcca9ac1262e3f5f0ce5e373198a0e"
+        ],
+        [
+          "2d2417868065425cd10189aaf072f6690d9c9e038ce5adce05b63a181bc12d9e"
+        ],
+        [
+          "9ea541ee9300bc4b3e3822b5f551770c4ba00c61b3559faaf8d0e702bc2cb102"
+        ],
+        [
+          "4f789087e61e2a686b62f90aaa581c7a090dcfed57f325efa067ff478c1eb1f5"
+        ],
+        [
+          "9082050ee3c7af72b061dbb30ba9981c479de9adf5a10fd2e8c031a9eeb1ef08"
+        ],
+        [
+          "b32d9696764644b2c840bdff882938f9b888955bf4cc6a87acfa9a4b02b678c0"
+        ],
+        [
+          "50c4fdc51ad81a0b6acdc83c2815b931748d8344a93fa37104c084f1e5b5bbb6"
+        ],
+        [
+          "2fc54d0cd92d4cde8b786ec64e7e3da3d0016a0e38c4b8096bf1b3d9b3109ba9"
+        ],
+        [
+          "e7cc3d36a2b0d310940b6ed361f9018ea439cae8ceab134e6ccb4d63ba5c22f8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e01f78413f4e14b576c6a3c5d3b3f6c90571f018a64557e7f82b855143c7bb2a",
+          "459f7ce1b82abc0202b92c1f47500f8c6c5af5579376cda6bcd5fc7f829f6f9a",
+          "ddce386c93ca1081efb35a01b4975f12f7ba0f0d3b0477707bed01f9ef2ebcb6"
+        ],
+        [
+          "74e6b43c9742c5d775d84467342ce46a2b7bc2aeb0f7cb5848eb5c9e1fc2f332",
+          "c925603b1d45903487556ab9f956788da457b637c555747c0b852d7486ebf1af",
+          "c05d8c8ea9fb57578502d360a0d3ec051449095b7f649978bdf75c117ad1fd78"
+        ],
+        [
+          "1623abbce108799ca118e083c9f759b1352b75aafbb5bd050fa3cf358e755b13",
+          "e0cf44c40144de39ff0a190f54e6db6ca9df9ecaeb35aabe71b9874ab6eb4bae",
+          "7a0e7b7e670e456dfe9a71647f498102cb9945e55eeee769f39a89a9734e6dde"
+        ],
+        [
+          "7ad7c360288fb13e096b153e370babd7f02f86b002592a45b9b7e683011f7151",
+          "115e35918c70a53669763bf17402d377358fee7fbf0170a335f87fa68f4091c7",
+          "efbf54274b55344fa1fc7e3667b8462259adce52473a6fb63925c42d2d3b6fdc"
+        ],
+        [
+          "31409f6355a0fe178cf2e2043f689356c9de310386255d4a5aed13e78e796668",
+          "db45fd7c8d1c54fefe09c641a52a6d5a2124b7fd5aaa8a6318261eef00254c04",
+          "6ff2a718e5806a46040c620724295d1c286fafe2230a9cdbc36a09b32748e59b"
+        ],
+        [
+          "7e6ddcc562309e247181a245746193db32139bdde0401b83fffe6e90b85ec2f1",
+          "ac1a58894e4bd018941d9037aba26804cc6bce0574c4694a4c8a551f836fe0ad",
+          "3c1dc3e42708ef69ee70f60fd8956eabc60d25f7b93b6357052a920f2bf44bd1"
+        ],
+        [
+          "1a1d2152a4d996fd28b9a9f55d1c82bae8683762b1dbcd5050c15fa2f8e5c370",
+          "fd5878cd00559c7eff39d1446bdfa6853993e9f8325a1c8d05526f83d020c54e",
+          "d7b404f635279bf2be5e7e64f97fd3cb237bb08ff0d1b808b27e5634efecb2b9"
+        ],
+        [
+          "e160bdeed75897b3e65d3d74eb66e0b5b95a95ec9059f7ab65c773325ec2501d",
+          "aa10497af042b048570db34de39f62bf5ac6a734dcd50a487cc66cc543a32756",
+          "54e3fd23bac84ee80450e20ea15331d49c5969b640126cd8d3069387304d3f7e"
+        ],
+        [
+          "faeb426fee6e2d0da1d1f19325c0502d454a7fedfa3f344a98f866a9052e2d62",
+          "15feddd7274687ebfa5ab4d52342e961ce8ad38e5ae5d488db66cc32f74e2c48",
+          "0b284747696600e9f5526c02fad8e4bf4d65dc8eeef77b1a5227498c8aa7db9d"
+        ]
+      ],
+      "element_hashes": [
+        "86a5991bb2b2cbaffbc99b420e151637281d063c1f0bf7b69698c7556f4399b5",
+        "f4d15474756905267b049f2b66976e638a85c6f64bb8d5cfb481a57dae12825c",
+        "c85bfd6fb47ad5a271c49d2f8335055850ce7bfb271a3b29634592c12c7d9724",
+        "91358a57f55da6e825810235164fd0a85d008621500e0c0291d57dba50907bbf",
+        "e6886fbd5844f606df43cab44473dc1dfc05a51c556c696136c926138c5fef46",
+        "c72c73259c27650a2f9aa21080f7ca937a7e819596e04c71ac4d58c113f09f52",
+        "fd36b0d4a53816e219da883b700a9160b82d81214fc7680f5d38c68046bfa232",
+        "fc9e57f64d30b3444c1a819d34603f5ed8a81847efefae2399db4549e37e7833",
+        "8059fcfab6fd44cc6d924ad13dbccaddfebaa8775220e64406bed15da6500d77"
+      ],
+      "hash": "14bf4b64e3b9650f0cfea1625dcbcdaaea100c6f19387890cfc041fcd7dfc52f",
+      "kind": "array",
+      "mistakes": {
+        "c60931c29f6b934ea168df210617ba20bcc8992842ec021eddb82ae8b19c8aa7": "la covariance de Mε est M Mᵀ, avec M la matrice qui multiplie ε : chez le collègue, ce n'est pas L"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.2h": {
+      "hash": "4472e63fbe83eb2e2572e0e5d0d4456b1179844895b684df7db3180bd3521472",
+      "kind": "bool",
+      "mistakes": {
+        "411d59b441ff1feeefc10057f47ba4413f4df5c774e70d607419cf19e0fafd95": "deux coordonnées d'un vecteur gaussien sont indépendantes seulement si leur covariance est nulle"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ab15a5d41df15c1bbc8ce9b9ab0b9558e0e5c52d52021c6a80a3211f4efb841e"
+        ],
+        [
+          "bfb338f655065adfa54bb73d6305bcccaf9b0b9de5b82e92330ee22d26b44b54"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4d05fb3410d08c1e2b93c9b2a7d24ff9c914b95263cfc15ca074c96a65ec4783",
+          "68b201493a88e608c463d39a7bf3bb882ba79c6b76a97e6d1f27da1f82f9ff4a",
+          "5df05151060a97dd689f6a56805cdcc0b0587fc1f61706597ab10cc9b278e709"
+        ],
+        [
+          "c8651bdc55d69aa39dc17e80466290a1effa53207e8da435b72048cede51a7a3",
+          "4af1ef9bf6293f25f3bfff2a4bc84edb29969bed95fd90406a4a043ec8be45ad",
+          "0a253cb03daaaba2e271def1d7fcd6fd91719438f01028afffbe89ab17906efe"
+        ]
+      ],
+      "element_hashes": [
+        "3e01a78965b550152c196c0dd4f50f03e78845a8be2f2030d078be2b65cf5ab6",
+        "642dd067031e8de1addb90dd8217472072e14b59f374237c6325a119a8affcc0"
+      ],
+      "hash": "ef1f9c5e46112c804086e4cb5f89cf0064a52af890c820b142b441029d07e03e",
+      "kind": "array",
+      "mistakes": {
+        "8d7902e675942603e556ccd30aa006472fd8a813b9edb38420a84e6f03f1c806": "ce sont les valeurs propres de Σ, pas celles de Σ⁻¹",
+        "c01a494653e90305b1bed78acd4d1ff2a9d12bde795e462e6a27342e1b7418bd": "de la plus grande à la plus petite"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3b": {
+      "hash": "2be79d8c5970efd351ad5c0e1767a8ff528efeab9ec8a9404bf8272a72169024",
+      "kind": "fraction",
+      "mistakes": {
+        "0e046d3ef9c13567c9d969ad4ce23b556d357eb727ed58067f67a1bd25dbccff": "la pente est v/u, la composante nord sur la composante est",
+        "d674a2300e22127c4c4262033364b5cf3dd5f9f9f5c794563438717c3fd06bb6": "le grand axe suit le vecteur propre de la plus grande valeur propre"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ba0f1cc374b854f78a3e49dabaebc71056a850ec8e33cbaaec9a8e44ea49369a"
+        ],
+        [
+          "6548f2677b205ab1ab46181c6fb2ed5ccf71b0fa5d59dd36dd775d6bf134004d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "405ddff421c1c42d0a44a4172d5ab04371ae2c84bf781d0ca916891b4aadc64b",
+          "badb6eecbc896bf9711dc0db08f758ebd945f12100f5e4f84d019f74662ce892",
+          "ad373b575b4987a8a3ded5315907ab2f6d54ad42fea490abcd1a2ace40bf2a31"
+        ],
+        [
+          "52dd5edfb66daed7a67970076ac6cff799a7c6db04f9944210f52b97dcee15c2",
+          "90d3718e0c83b940a13f3a25a6ec60b6051ca8f2e65d0f821b4562392ec9afc6",
+          "ede0504b134c517705ad55ed191516fcf3259105e58a32bba2c27dc12c2e8d71"
+        ]
+      ],
+      "element_hashes": [
+        "05c49607ba65d4348ce628313730ec540a8766af40af4306aed2b05f1cb1aa1f",
+        "9ba54873cc08cd05279225ab15e8a7069a60626d1e95a22c9a383bd8761b745d"
+      ],
+      "hash": "b656396a93408c8e4a05176a959f3016ac6ea374a4ac33031590b2c49c90d885",
+      "kind": "array",
+      "mistakes": {
+        "9f796d72071a1040488650436660ca315be79cdb4d330ab45d8163c5993d09e0": "on demande les niveaux c², pas c",
+        "d12fe579dfa3198fc25191ab7d0b9156b31ed2172ac73bc57573b2a6d0de99b8": "la masse 1 − β a pour niveau c² = −2 ln β : β est la part des relevés hors de l'ellipse"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c93119fd88fb636aeea9574dab039934707fad6cd477e1cbf834e45cc0ff1dab"
+        ],
+        [
+          "8b4f4ba1b1cb00928e720d98aab49bba7f1946d318212fb37511e29b077e5604"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "25e68bfb2e7040cb5980368dcfcc16b3ec7cb9c6cd06711ec445116e005a431e",
+          "adc22afd5973b501061b4b038a634a9e8afdadd14d59bbe35e8d17f0f1511291",
+          "f0daba5579cc0c7229be58fd01ff063f0cf4bec77351ec4606a0c1456bdd210d"
+        ],
+        [
+          "17feaa85f67db281573218409a82c23d31573d87c962f94f6d71ee9cc4d63337",
+          "905fd15cb475f3a8628559c32a66cbd08b84a1d55ce9a8d6eaecff3db5639b32",
+          "dce842d6fadda82feef61390c97b23efbb97167383b38122d97dde5cbf1e7113"
+        ]
+      ],
+      "element_hashes": [
+        "d3e2c3243f7918f880ab76a238a61f516811768c6b5e1f9a54ec998730aa61c9",
+        "163c7bad807e5e658197c4f9a939f8c6c40983b2709a0344c789a27cf6df34c2"
+      ],
+      "hash": "e9fb825e5a98b09c7419d0f13ec5560746363ce50924fc0cfddd5df387c3b81c",
+      "kind": "array",
+      "mistakes": {
+        "326fd2a3751dacb5929259998d9090519ea40a10ab096c21b529259dea9c3c19": "les demi-axes valent c√λ, avec c et non c²",
+        "b371517e083aec8bdd61e9ebf1448aa020b62e7859c49b3f59ea2105a43e0249": "les demi-axes valent c√λ, pas cλ",
+        "d1ae6b63d1f90746f329b851ccfd468bec0a3545feb41548c2f25e2f5d15d083": "les demi-axes de l'ellipse Δ = c suivent √λ, pour les valeurs propres de Σ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c93eaf8dd37bb2d29344d1776c4fa7766f3ab579a48a88b2d666b8fca8526d0e"
+        ],
+        [
+          "89d4701cc7ac8c378e7f5afe2fe4d508d4f82a5a1cba5313fa0f0d5e3a600535"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1f36c53c41389b8f4a5248547c7d336907667ac3fc30002e4fa770467db0b058",
+          "0997e401dc5849b05b8c90a3c53eb8213a5eb33d2864a2525d4ecc70f4dcdefd",
+          "85b5654b5af51a40eba6404d8c7eebc36472fd97eb2b116e49619c014dc50657"
+        ],
+        [
+          "5d29b7afd60685cef3651f5c711c525c743db2c59c12a3fff1c46c0b92393ff1",
+          "01224e1efadc8f1f12d3a0c6643a7fcf83cf44621e58c032c1ed92a88cceb772",
+          "4d869fd446227926929bf1c340e57f86e013f915506bd6ed936b0b6c6f456696"
+        ]
+      ],
+      "element_hashes": [
+        "09e67447f15079bd0037c223eb36352de6f9638c7bbb06aba38b5ebabcf63550",
+        "f56d4d3097be9c1d781d6afcaf2d946839c493772bfd8b64b7fecd5c8590d99e"
+      ],
+      "hash": "6126f2c768c0bb7aeb0c3662969170ceb0cf9b8ac6224ed3c813a328b652bf7c",
+      "kind": "array",
+      "mistakes": {
+        "00aff07b915a735703da95bb7512f102d8a78a153562a29d7fd0d3dccff0404e": "les demi-axes valent c√λ, pas cλ",
+        "3b765716fd3fcc4892424942e67b1cbe10f44c3bc9ee73d76e51ba086ce28dc7": "les demi-axes valent c√λ, avec c et non c²"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "2485130623a63825f117c4e406d7c779ead177de0560c7b17604084d456a4a91"
+        ],
+        [
+          "43265a7240fbd2ca92eccc0b3b14a3b426597788cf7e0232562fbb72679b7f07"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "034d9f21ea7ad4c3b986e0fbc63bc746d3e0dc0276bfcc0ea71dffea128af06f"
+        ],
+        [
+          "4d1e60f1f9cd0033a0a32f6dedd571a581a4f761ab137a79132f2bb9c1952a87"
+        ]
+      ],
+      "element_hashes": [
+        "8f8df1279982895a6e6338bf4d6a1200d75229a5643fcabd4122c9f2b985fe09",
+        "31b42bcb18c2b264770ccfec38e1c7894adfbd0c1ad1d89fce257360c8fb9fbd"
+      ],
+      "hash": "7d37de54da22d4402dc37a46d75c6c45d3d4ccd795d0000815e318c6e0617456",
+      "kind": "array",
+      "mistakes": {
+        "44604cfb7aa2b3f010dcf6c0d364066493e25922a1750309c954f56e3c9bca15": "l'aire fait intervenir √(det Σ), pas det Σ",
+        "ae9c7be016cebc7f6e51fbd2b2e533af8b01e39f60c24896664961eb71d0b823": "l'aire de l'ellipse de niveau c est π c² √(det Σ) : c au carré"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3g": {
+      "coarse_any": {
+        "0": [
+          "30cfe7343da8adcbc816624d9d8a1c58ebb1a3441dc7bf7b9780e6462adda022"
+        ],
+        "1": [
+          "7fc1140d7129288b29531abb20e2c2382097e5b41cbb3f27a2eb251880048b02"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f33ab4dc57d7be8263f9f97006b4b5a29e5e76ad141797f6cdb6bd280df7799e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "702eb06b2ac24106be135f9be5289a8e34db5e97c92aa1d362537f4775dcce2f",
+      "hash_coarse": "7aec981910bfc15abff6dc84d86e02d83e87354a22a83b1824c16dde41d668ac",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1a3f564ab97f1efdb1ac9b3f0d412b6635f24f0207c70f7475b4457a69fdcfc4": "le niveau c est au carré dans l'exponentielle",
+        "af6fd8468de2c5660082fe265bee852c130a113c07583df72984423a2599ca8e": "en dimension 2, la masse d'une ellipse de niveau c n'est pas celle d'un intervalle de la droite"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3h": {
+      "hash": "2399d81b4209a3c6812a4ed9d8e3608e3c98ab6409019225d8859014a41d4d9e",
+      "kind": "fraction",
+      "mistakes": {
+        "11c75f35ba1624442ace0816149d37303611c3977085ba3bba55fd00cc1ec8f6": "Δ² mesure l'écart à la moyenne μ",
+        "1258d8295303d650d3613230a61521b471c734dcdebe1de0a4f2bc1aefebdd9a": "Δ² utilise Σ⁻¹, pas Σ",
+        "77c24f22f2ea8d8532b41fe71a0443961a85971ee8072f688b5054a7f1a1de8c": "la covariance des deux composantes compte : utilise toute la matrice Σ⁻¹"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.3i": {
+      "hash": "b773675ea6131722ffbcd1b953d55b95ef2ab1185217f81811b2780e00d32302",
+      "kind": "bool",
+      "mistakes": {
+        "a7aa9408e43e8a9e266e4dcf9f468883e676e8aad670d1d59166fde746a722b0": "compare Δ² au niveau c² de l'ellipse à 90 %"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d4d2832f35754ddc4d8ab3953d9f74e587f4dcf69024a057fc10edbb5ab99f7d"
+        ],
+        [
+          "517ed3e0574ded284b421c82875b64c1b2eb2d8aeb8ca2d66d25ae53891dfcb8"
+        ],
+        [
+          "3d4a9e5697001a4eec1defcd4765e5870087c9184ff665358237c153c14a793c"
+        ],
+        [
+          "fe4f6eab9838835fad6cb4eecdb91b1891b90d34a34868ca9a350312a4945074"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5d7413ca180381188d190af9364527e5b03ac574cec0b184151d878bbd3418db",
+          "1126b77374e755f52fe02c39a4d30f60e283948ff827765fe205354146134d67"
+        ],
+        [
+          "5b49bbb64979a0a3b3bad4190671f8d3823f9a52b1f7bcbdcc986d4815340616",
+          "527dad5732549a630487c2c0515ef1eebd722e2ac0bd84415bbe5592c1c019e3"
+        ],
+        [
+          "f3ce52c115f7dd0a8d6ada283cde41d5088f5c9711cf96c07ab47cd7ebc1a075",
+          "2f239e7dea3e1da36c776434000e73d5da5648e497f5a52ad79a6ef32a5fb076"
+        ],
+        [
+          "59d9c9dc6ad9a3df4f6e4a96ff1672fc89034c3d9c275df057ec387444dc5dbc",
+          "15b688e45a12c6150af8e4a741159446a9d61b795fdf1a3f18a3c91abd33eddf"
+        ]
+      ],
+      "element_hashes": [
+        "0cf2fc5c5ed61832e85f65be5683ddd3e5d60b8b3522a07333ce9f3ebe2efa2b",
+        "dbc765ef02e7e516bb86c611fb9c9b880702d15f127de569d88c580d6e23b935",
+        "fcf73726d839909536ce84d71dc5b147428f6d65d58353fdb54f08f91db7ba7e",
+        "0448e9a8c68c28f168116f1b4c37077d7adab19706465e2cce09f878bdbdc42b"
+      ],
+      "hash": "2f9f9c6781dc2c152d83f8f1f25f11f1605eaf6d184468dc532c5d13432ec086",
+      "kind": "array",
+      "mistakes": {
+        "9dda0c8c50f4aac5b4f43360a506feb2bf4c34cfae5bdc2cdea1e50aadf43276": "les deux voisins sont corrélés : Σ_bb n'est pas diagonale",
+        "ff1563983644c9c87cc4c54e5167360f211ddffcfede1c8dd0337c4400d0c147": "on demande l'inverse du bloc"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "94466559538c7b09eb02a95843aec0293d935595af0fa9305e085ae9641d9c0b"
+        ],
+        [
+          "58bcf89a72a6868e0ea02703a7f9b643b275c6d21499be131879e20eccb4e8b7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "03cec9d31f8605f9098ee5063f563e4df1a26044fd337070140e7a664e8ebafd",
+          "f09c15d9c4cd61e2c220f970ed7d48d0cab312501a7c53a37265919a89df7f57",
+          "a88478a7542d380e1681ad3a15cbaf5dfb64ae23546c6c18ba89176516a7d185"
+        ],
+        [
+          "7570978fd210ffd683c0d3e83121c6f4b359519a1209efe95ab04adf856688d3",
+          "ac5315296290f4d5d4e0c3fcbe2d1289490b9658864f1c42415b57b956f96eab"
+        ]
+      ],
+      "element_hashes": [
+        "7c2d821048eed96d05d59f2700bb41861e6fa042b5fce3ff9f9e1d20726df99e",
+        "7045996253c809b3ba69c168678bdc5de33687ef1bbf8d3e2247975d56c99b25"
+      ],
+      "hash": "b109fe616d213f9859d2504ae0eba11c6b822d7bf6799eef01f6dbce6ade76bc",
+      "kind": "array",
+      "mistakes": {
+        "69f55b7108b5e55099f350a00c47de779fdd31a6d7958e623c191406c15d2079": "les poids sont Σ_ab Σ_bb⁻¹, pas Σ_ab Σ_bb",
+        "f6cab21c8673addd83a94361f51f251db6d01293771f572be5396b8c3b3c91bf": "les poids utilisent Σ_bb⁻¹ entière, avec la covariance des deux voisins"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4c": {
+      "hash": "90ceed3615fa2257894b0dd259d14edd0c5df7e69394baa381c318f104c6b577",
+      "kind": "fraction",
+      "mistakes": {
+        "0324734a02d12d93ba8a399ba11b42b9c3823d64652fae9faa4ff93b98ad5313": "la variance conditionnelle est Σ₂₂ − Σ_ab Σ_bb⁻¹ Σ_ba, avec le bloc Σ_bb entier : les deux voisins sont corrélés entre eux",
+        "58566ebf8a9dfeb7aed4087da68d6aeca3affdaa21f1a537e42ff0055d911e2f": "une variance est positive : Σ_bb doit être inversée",
+        "918eef80716e80964179514873108623926a280c0fc80141f64d751ab80991dd": "sachant les voisins, la variance diminue : retire Σ_ab Σ_bb⁻¹ Σ_ba"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4d": {
+      "coarse_any": {
+        "0": [
+          "ae24b3b9121060859a8aae414fefb59d5f04eb6c4f828ef4dd5bd6fbc74d8538"
+        ]
+      },
+      "decimals": 2,
+      "hash": "90132f29d6f08d8260f8b3c759bc36876852099d901ac54c2cd9736c5fde25fa",
+      "hash_coarse": "ae1ff1d88357ffe9803feb0140a2336b845a0ecb89a65b5aaf565a7a7f93cd2a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2bcac275474987632f7d061c7e08662c36880099898df229d079e092fa426a27": "la moyenne conditionnelle ajoute Σ_ab Σ_bb⁻¹ (x_b − μ_b) : vérifie le signe",
+        "4a20c4c75590c4618235583d65620ed98ec369d2ede1dad6d18c49d63e91c488": "la moyenne se corrige de l'écart x_b − μ_b, pas de x_b",
+        "6e8c20eda36cd0b4cd99c5af035d907cab42724bb9328ce5b3699ef88e635ee4": "les deux voisins sont corrélés entre eux : Σ_bb n'est pas diagonale",
+        "cd3fdb31c1d286f028fadf28525ee5645d9730e920f7b9599cd774ae7e003d64": "les deux voisins sont corrélés entre eux : Σ_bb n'est pas diagonale"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4e": {
+      "coarse_any": {
+        "0": [
+          "6df9477f062252ca4f9ce4083be4ad43cfd4a68df82bb8ecce6d7a8d6fc1c81e"
+        ],
+        "1": [
+          "187a2b4050b398d030d1d15a27cbc9ef923d407e484dd8a8a53e584422f23e87"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "20dd383df629e5bdbc768f3dfdd0d22e614af2eba9fd0c3e9d0d73bb22210130"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5b6d86172536efeaa948194d8a22033c9551b272a249b80c74baa06459c82a6a",
+      "hash_coarse": "c8ddeb0f4df599437a9b26eb6f572d50dc1362cf2be3ea8ee352cbf2c5ac7b0b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1f64b55e088337d18dec3556212fb5bcdc2bc74ea94b1d3c054a89b5ebed783d": "on demande la différence entre l'écart-type avant et après la lecture",
+        "4f55d1e8a1501cb8626657739c15815264b7a3e64929df1dbf38fcb8eda927b6": "on demande l'écart des écarts-types, pas des variances"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4f": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "73af29b52b08371b2ec94af25bd7fc94d02d5176e1d9218374daf4e93c31b556",
+          "cbda6303f93cf3d3e241f2a882456378470f18f2cf4b88f0a28671b698fec304"
+        ],
+        [
+          "4d6226ca593e2d0ee53a36b10f131b701fbb1a5f98cd8595a49b26cd44e9a6c4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2afa73bae923b3b77922ebac89d0ef458e107a273d3c00df30aea41438b4b4bc",
+          "ac12f44060f5a9cfc96975d4b0037153417a53b8cb30f28b44c6757816353c69"
+        ],
+        [
+          "41a3387ce4322abd0b9ab62ba77ba51d8bcfffb033beb3c2ee5071c38bceb4b6",
+          "85e0931db12ac1cc638b137e0d697d1ad1f79995c7e3bfa8f2c2a4b32510c848"
+        ]
+      ],
+      "element_hashes": [
+        "882091123554172ca92e188ddf5b3058f8c6d18d41a2e4aa1cfc66ec0135b8c2",
+        "ecd70a5c6f804402718cd564f3d64e26e9d5118b2020d7062f75866e90dfa525"
+      ],
+      "hash": "bcae644ede98ff55c7836c8b78e6e383d5c2b4a6e0873adc80dac644ce061314",
+      "kind": "array",
+      "mistakes": {
+        "4397ec59ba445e7d0c324d316884e7af9fd1f9e97d074fadeb7a2878c6482ea3": "la variance conditionnelle diminue de Σ₂₁² / Σ₁₁",
+        "88993b3e41f08342beb306f204a56bab6f1a29160b94855377f86954a13dffce": "avec un seul voisin, le poids est Σ₂₁ / Σ₁₁"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4g": {
+      "hash": "f7e1df677fd7c00cbfd77f16c7c27f6679e302abc11d025bf1b7e70a3efdbf64",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "a32e64693bf1d61d0fd42f92e306cbb07ff51ab6fd1e397bf54bac658d62d0dd": "det Σ = det Σ_bb × det(complément de Schur)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4h": {
+      "hash": "f21325243c8ec02f4542d525ffe65649ac0f2a6cfe75c587368787b5da6b220b",
+      "kind": "fraction",
+      "mistakes": {
+        "0e671c611a106c30f18b62f7e1b07cace5e5beb5365cd3aa29a89fda862e3284": "Λ₂₂ est le coefficient (2, 2) de l'inverse de Σ : calcule-le par la comatrice et le déterminant",
+        "79ef857ce209319d6551652d436b917588a1ed5712527b0a91bdce7bde2de676": "le coefficient de l'inverse n'est pas l'inverse du coefficient"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.4i": {
+      "hash": "f9c11475f1639b5297ce2ccdd32377df50458542c6e875fa4fc9d3782721fddc",
+      "kind": "bool",
+      "mistakes": {
+        "9a3872680d3ebfb274be6d45dee4970c75e0c49e1b9272f33e1116ccdfc760f9": "la covariance conditionnelle ne dépend pas des valeurs lues"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d0d7103e6425cf2ea12ec926cdf8893e65c4834e3f2e9f7c9768567775fbd727"
+        ],
+        [
+          "121a75c7f6b9937145ef7d016eb14a9bec335bb8acd5d131b82991ca15783b89"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f897ca2930da77e14e1994851248d643e34b2290ac4f93d548995c9efda581ae",
+          "65c4075e088933ceb93965837b3d505e1929e3b25db2c6f99cd6a9da1bc8541f",
+          "df4fda5c1238f0c41acc9e480a2c31ac5bdce512006a7bcc5e5b752ad3336276"
+        ],
+        [
+          "8c3e9191d27536be41ab17f0e882e89e8901871ede4e8656ca5c1872d96fc1a9",
+          "fd0cbe984757d266acc61a7ca58a985e764a82e4ae842395f9cfcf08faa48f4e",
+          "0b2d195834cd0e8816b3d1363fc8bd0c4c611b841910c5d436f1d19933691832"
+        ]
+      ],
+      "element_hashes": [
+        "07d516973a001215842aa67e1a2ab64cc349af6d0b1ba3ee65fdf08e2f85b040",
+        "d191f7d11dd4958f4b44fa617bab9d165edb6084ec1db8426f22ae0deaaf8b72"
+      ],
+      "hash": "7084c748f01e03d463f05e3c3c38aa90e91aa435255923df60b2ac8b9472e339",
+      "kind": "array",
+      "mistakes": {
+        "920fc4e0fce12deb46ff07960db30f41812694dadb9cad6b1d764297cac0aa08": "on additionne les précisions (les inverses des variances), pas les variances",
+        "9aff55d7869d2c7a4322232a48314edd6afea2e7ea21a072fe69269ceed511dc": "les poids sont les précisions 1/σ², pas 1/σ",
+        "a19a1c20aa8a2e79066bc1cc04792f88dd7a4b60bce8c0bbaeec71a8a6233bb8": "la moyenne fusionnée est pondérée par les précisions"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "82989279dc947babf560d24ade30883ef06eace9be25e57b300f8fe02dac2dde"
+        ],
+        [
+          "50d893ac18e5209680d763994303756b780a1fe87c8b655bd35579d06842a131"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "53bf577b54f41661b91d084d9773c783af8c72820ff54d282854f77920acd7d6",
+          "ffcffdd433c03ff028ebd8bcab12f8b7cbe1c19d71c44b9b566848a5fa27bcc3",
+          "fe964d12fba21119f66db0d8dd39afdaa1d774e58e97b492404e36ed1eaf225a"
+        ],
+        [
+          "50572b77c34363bff34c255265d3daf6ad8c9e4ff0a5a8ff8738e4482e03035d",
+          "468a64dff13585e3ab87c4d155907ec442856c7c9e1ad6dfff922a28394a6fe5",
+          "7e0410876985c0b9a053735dbe899c3d548055c48e6564a9eebf28a100712bb6"
+        ]
+      ],
+      "element_hashes": [
+        "6b148e562ed85bfff0d430cee2a3cb8b9da7a94f0dc9e322a7461d6250385677",
+        "5d459e6977e0e8c4e87f72d56e2c845ade97e8206ef158c837975556419b47d4"
+      ],
+      "hash": "19fd3a662ebe55f17ff458576be6f26332c2744e130b28da016156c7083b2f57",
+      "kind": "array",
+      "mistakes": {
+        "057c17827edc1b4f3752589547595c7b77321fabc0860f96ff24ece8b59a866b": "on additionne les précisions, pas les variances",
+        "3622e70cf035bae87e092583eb46049f108b173351c8015d7d6d1d3ea8cc40e0": "la moyenne fusionnée est pondérée par les précisions"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "ecd1aa26776d3858b2889f81c6d7dd8d17483a6615c52a7b8a009ba3ceeb9e2c"
+        ],
+        [
+          "8d31f7db79ca2c279e0536f71e3b456eb42df821b69e580f787f5fcfaa7e2ef6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f66fb3866e455a6967f81cf0210e280c649cb2706a288de4ceb4590b7af5e722"
+        ],
+        [
+          "209b289d922d1dca811f0c481a221917d1a20d6bd94a97baf4afae3a0917a5da"
+        ]
+      ],
+      "element_hashes": [
+        "83ba4db76f43da7bec103d550ee429c0545f3e18f24b39ced3e3bfe27dd68178",
+        "02a6b9fe980681fd5a69cb7c8cb339ac084ffcad4f991c2825c894a3d92e4e35"
+      ],
+      "hash": "ddd3c9d04bae1099b165803d0e12310db2917251fa495ae460fd523162bc3855",
+      "kind": "array",
+      "mistakes": {
+        "da2f4fb36e2dd1fd97c310ac0277fa305b9d6a0d906fd22dfd1604d7ea85540c": "on additionne les précisions, et la moyenne est pondérée par elles"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5d": {
+      "hash": "435cd6d6ffe7fba56a7eb231b08000fdb2a394180b56eabe62d0af3e7c63ddac",
+      "kind": "bool",
+      "mistakes": {
+        "2a02c553c237af7e5969f8171767eb18298848f2436ba5d8d01d183c24340738": "fusionner revient à additionner des précisions : l'ordre ne compte pas"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5e": {
+      "hash": "63158d7822cbf800a069f4e9a793d5c1de04128eb73cbad65026bb00399da946",
+      "kind": "fraction",
+      "mistakes": {
+        "3dbf31b766938740eb02122d12aa373f5a33e936dff102686011a79874f5a342": "le poids d'une mesure est sa précision divisée par la somme des précisions",
+        "806d9f366225e77c4c4d48157b34c49863727bfe1869ac10384f263d103188df": "les poids ne sont pas égaux : chaque mesure pèse selon sa précision"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5f": {
+      "coarse_any": {
+        "0": [
+          "81047637b851ad185fb176c2d828470829dcb26076ea6bf97226df4974548d85"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "96470414d8558ccb6013f047ec2bb260154eefa75ac66a73281043cc2d6de251"
+        ],
+        "2": [
+          "4e7c0adc7b89e3aeac82b76ff4c603f8fc5237f2de80b4a085cfdb66a38e8fdc"
+        ]
+      },
+      "decimals": 4,
+      "hash": "82a3a31b94d172ec793afe0dbf08c6944013e8c6b1129c2f87fd586df12b1aa0",
+      "hash_coarse": "143aaf71f92f95c224ae9eaad3d1cddce6ebd9b4af511f966081fd56e2581959",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2091644dab15eb3f7a78f94bcac4ab7ee7385a08fda1f434042cefe7b299be3f": "on demande l'écart-type, la racine de la variance"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.5g": {
+      "hash": "fb4697e6db5190c44f15a8b1e7ab543bd009d66ab442295cfceb899d056f9f08",
+      "kind": "bool",
+      "mistakes": {
+        "9d0252c8a459c1837bf5e921f594bc3bf9713f5aaf6a863246a22295bcb7d54f": "une mesure de plus ajoute sa précision, même petite"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "c4b8b2cd35167aa7e1ab009273cef0ea9d0fcc2706edac0364dd2e9f280979d7"
+        ],
+        [
+          "d87e6a10f932ff390bbd9a4f83f32c1aed9e29cbb2275e9769caeef3f8e8fc3a",
+          "76642c7094596249e34403ac0bfd80cb55a7aa61ade0061e18738a254e02b192"
+        ],
+        [
+          "d9d6605b99e48fae295c5141363cc21713adaa277a7e4278a08dad661b6867d3",
+          "095632989929f993ab2ffb234b6047ccf9dbd21e4d6324d8f5b8fdda58d45b1d"
+        ],
+        [
+          "f89b7d4dde3bf76e3e45efb79781ba848edf21565b6eea873d107f7c9ec75bb5"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        [
+          "aac8c2308e30aec27e6f50882f4f43f7dad69671ce3d221f2cea9a2b182b74c7"
+        ]
+      ],
+      "element_hashes": [
+        "26a072a333bbf58f26cef77c705777d19e2ba57e390c417f6a90dec537fb74c2",
+        "45563e17bcacb095c99fcc5f762cba71b4b734e13c59ed9c661159717014d595",
+        "ffe370b23b772274f58883adddcf20174aca0bfd4a415ee4c10ac3d8a8514bb6",
+        "20e13150bdaed5adefa0942d1e3e5b98e16189d04677c4397e766113433e9c31"
+      ],
+      "hash": "1f94cae5f75226352ce7a6691fa572840b7767abab8cac7df847d1d938032023",
+      "kind": "array",
+      "mistakes": {
+        "5ea3ebfb60322c426fd804fe65b4400e39f0b04457c98a966361701bd58fca56": "la covariance des erreurs est Φ S₀ Φᵀ + σ² I, avec Φ à gauche",
+        "915359dda8d79af9def9e9b759969a4b60cc00e048233a8445f30635a7f63f7a": "les erreurs mesurées contiennent aussi le bruit de lecture σ²"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "d2c1035765e237c25fa1558809818e2627e39dcbaf4362d17f1e6bc4717890a1",
+          "e2336a6114851a752fc8ccdc5b706f22375f01e32c898474ca6fdd4645b351f6"
+        ],
+        [
+          "594d1b348c68d4752131720ab31d878e682667d9d6a75deef3bd4b6aa1e003eb",
+          "d4af8cc7d1093cc40ca3ffe371c87f3885848423b2a424bf116c8de195c68f07"
+        ],
+        [
+          "e272c6a01222c11df908cb3088953dc475f78e3a14d18ca6bb9f0ca36bd77fad"
+        ],
+        [
+          "9d42cd19403cdb6b1e7836c462ec4f7e9b788528c50172ae701dfa63e4108d3b"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [],
+        [
+          "85b3ed9fc41e5aac22d8032595df0e578d8d897d1e4539656e8eaa098a2ae4e4"
+        ]
+      ],
+      "element_hashes": [
+        "368910e695a1904810a9f26a5878cfbfce234bfb894499be12fe20bdea20068b",
+        "0bc35c46f442579b9bdad41b3bab03868afffe5a8b4bf85b4b348ef18246c055",
+        "d9df1387ee9b4c8601316d3ede31f02dd06e67487aff6768a800c668c9e42911",
+        "9ba26f8e3d1923dd3084e005cf425db0c4718c2fdf00402d14f7c78b1a748a7f"
+      ],
+      "hash": "87471e6170247d5d6c9fbcf7f6f8a262604b738becc9739fd89ad5eb323e914a",
+      "kind": "array",
+      "mistakes": {
+        "ff3fddbdbec16fed3a60a67d7b2417cc1cecef03d6f7786a3f7e9150f149f654": "Cov(θ, Φθ + w) = S₀ Φᵀ : une ligne par paramètre, une colonne par bain"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6c": {
+      "coarse_any": {
+        "0": [
+          "c857d2f96da75f608b6d1161f5138702fd8c155a9fdc4a432e75f4b379a98de3"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6bab6387f3cebfbfda4c6ec0a2a23e2d9bbd3e6d9e06f467d78626f0e6ed4f62"
+        ],
+        "2": [
+          "4fa2ba8c359bd28d14dc4a6865879e031c2ecf05c07deab76b0ef9db44eff8fd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8122a33ad6235fdc6aa6440e044d3b622e667d53a1bacbf6f10c801d78490f02",
+      "hash_coarse": "faaa9336cf4854b763110a4bf15dc3ce00504325ce12b1e45181bedf987ea15f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "35a0f9b1b3161975803a8e0086adadfebdcbd48ad50150aead5ac9c40a7d2f59": "l'évidence contient le bruit de lecture σ²",
+        "9504823ea44f3cf30231df64b8c05354a132eaa5aa0e7aa1cd2363a08e67abd8": "les deux erreurs sont corrélées par le décalage commun : garde toute la covariance"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3ad998829d2abefc811f7c8a0027ed57ad90bbffbf11983c5682699e0a6f2e8c"
+        ],
+        [
+          "5b689a8d5e988b8b79bac720df024eb29b991fe8803dd6c7259b4a648337a78f"
+        ],
+        [
+          "af08cb54b59c43dcc280329926f56f56bcecef32956f5090237c99cc7d6c2531"
+        ],
+        [
+          "9481d05ac03238a69c827295282b09e61ce6039b05d31301a862fb9d4638ae7e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e4d6b62d4dca67b7e05d49a64636befc5c3c32552a7128fa73d02e000654fa2a"
+        ],
+        [
+          "28fa0e9df7608824089dfdd42ffb6063ec4e56f15d3a2340d4bbdf704e556a10"
+        ],
+        [
+          "354d12c46aa8ffcf68221268d7ec49a19a95689a2651fdae0a78e955080af2e9"
+        ],
+        [
+          "4e0a2b51550a3360453914ad09f6422a7e57d964dc950307a8060ce6760ea740",
+          "ff113c5274e333321c4a55ec47d50324ee57548bddc60491003b4dc55fd025f6"
+        ]
+      ],
+      "element_hashes": [
+        "649270d7f1498a596a0a446240406f89643b3b432dfe2b5f87d7041851fa182b",
+        "7d0cc2329b3bf9e91c7bd2b013211b299f0db5bccd6e6b1034bf5f924031c924",
+        "1d670b3a131a1739f932fe0e217cfe39a4a2273d897a12e2c9f8e67c07c59902",
+        "64515accca05e3b4c0a966e4a58aefa85a5eb7f4c2e6f026c45eedbe1ca873e1"
+      ],
+      "hash": "6deb51382a5a8a78b5309c51b8507ec383f6aea5ea69895983f4452808489484",
+      "kind": "array",
+      "mistakes": {
+        "5221b61505aa8342eaae02630db5b29268ad298d877021578459af71c9331299": "la précision apportée par les données est σ⁻² ΦᵀΦ : on divise par σ²",
+        "e3ddb8758daeb470e29e20948753f584adcc7430514aa69635a7f6d57581631e": "a posteriori, ce sont les précisions qui s'additionnent"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0a1d105b16972ebd6dd884e8c46dbd411eeeb20f715efee6f97c44224430ca42"
+        ],
+        [
+          "1d76efb52a34728b0bc67d97917493f080773eb78c76383856fc3edb94060f87"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0f52673f88001d64bd8fd2d48e81369f2f5714a1de87cb7130a05c32d1bb3355",
+          "2ea287b91056c6ca066ebbb002f525085c26c7504281cf2b587f178e19723c90"
+        ],
+        [
+          "ce8fcc1d1f75e56dca1008dcdda79eb46c8ad0523a0a5a73a31cfcde9288c7a8",
+          "c5165b2304491db5211cd36a46f7ac2857d77320e7c4fad0cb044d15739342db",
+          "3139ad59d6c401f3621c24bca88eaa6cae4d82802ecd44c3b6e954556d3499a2"
+        ]
+      ],
+      "element_hashes": [
+        "79310944bae1adcf08eece2514c4991497c2c22d8662acfaf8dd2a4038c81fbb",
+        "e6cfd4be9613f8edc18d95324fc77ce37fda773feeec56519bbed29783211505"
+      ],
+      "hash": "78fbab71a83d3e3c997ce05d29975a2bac2a7331ead34e63c01b32f8051556f9",
+      "kind": "array",
+      "mistakes": {
+        "2e796aa245b54b5094a3bf72993cfcacac95e34da28b76b1b12acc6d7db991ae": "l'a priori tire aussi les paramètres vers sa moyenne : ce ne sont pas les moindres carrés"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "eb48b52813ff4429ee92db64dc7d178fd8c1ebeaf6e72e418b1fe4d9530e023c"
+        ],
+        [
+          "8479c3db9fa8d5ca6f8339da2cc677fbdb43c97b7175e5519f509d016c30c7af"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7611a92eaa10680b4aa5066ec3d226977c1ba75e2dc4d0aec475d4777b0c8c46",
+          "33cbc88b80d14ccc044af79ff721f522327b5ea0a9acf36019ad747a565bbee5"
+        ],
+        [
+          "f0a06cff6dca57f94696b65f025ae0923b7518e5dd973765a4bf3381f0e4b33f",
+          "20437bd7823d0bf1f10f5d7e7868bd45dc205e32188e504bd8856816b3886114"
+        ]
+      ],
+      "element_hashes": [
+        "969ce57d71f9593496ec9eec10dd62d563607bacbadc98b1b9087b1d168b56cd",
+        "3bd56de26885ef27923e5e4937a552b58865df00a99a6e46800c9f1206b2cc43"
+      ],
+      "hash": "cbd91e0edb196fd771e3e6c1461d60c69abb38b9aae85749b63b10aaa4c12f81",
+      "kind": "array",
+      "mistakes": {
+        "2639c60fe6172f88f5461be4d209e03695c053f57cb8735030341c61daa43844": "la prédictive d'une lecture contient le bruit σ²",
+        "abcf08c80bb6ea5740e554a559db7dd70c390d4bb336b79ee21451a0136967f7": "après l'étalonnage, la prédictive utilise m_N et S_N"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2e42229a4a10fecd0d84371ff00ffe6c8d03c503135ce85d8c56a2625a3e2375"
+        ],
+        [
+          "0e953c98c669fac43ffd181d954b2db3a2764d66f005aacd0233d29d3c511f02"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "54e78110a4f48e25b1d96cd0856b1a1fbaf2dbbf71ef70ad4215f632a974da33",
+          "a964dd44c545fdd8245df3369a92726a4526a477cc3388a9fe371cfdd11fb979",
+          "1f947977809c672d31c21bbf9f400f6d261369f09b77822e4959866997072d58"
+        ],
+        [
+          "7c30f0358cd2a3b8f8c1ff8d7bd2d454918b84e4977811c35777d4012012675b",
+          "8ac885b9de6cbf5c58422682645ce0fe4ab757792ef75927eaad260cef60f757"
+        ]
+      ],
+      "element_hashes": [
+        "79b50ee6e5ca9a0e4d90792220ef969ec4ffdbfa4ecff3cb81f52c9121de39f5",
+        "a7f6f6e11e39ec1b2ee58ffc5842f60048a792e6b42254e6e1466502caa8a86b"
+      ],
+      "hash": "e28a15f76903be3400e1acda4fe72985d1ea83ffefbd44915408c45c6bf91138",
+      "kind": "array",
+      "mistakes": {
+        "685b1dd9b01f0be0ab0b7a83c2df0af1409aab8c97e45c2b989b71b33bc89bfa": "la prédictive d'une lecture contient le bruit σ²",
+        "a9fb3bef36eb89fb3138241d56f60599f771ba99137ca7ab0df5ba944f950469": "après l'étalonnage, la prédictive utilise m_N et S_N"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6h": {
+      "coarse_any": {
+        "0": [
+          "fd234f584d60b2164541af51de53b26205b19156cf72d4bf8850722feefa5b8d"
+        ],
+        "1": [
+          "59e84a104669df3ca9284a288b5aa8bf505107027c00dac772139d98f757e8e1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "53943ccfdf79cff34467f45cdee3693e21a8b89176e229021e89a58aec00453a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "9840ae2de959d78a6d5427f26add3582a5db3886382ffe9865c1d21f83dcf3a3",
+      "hash_coarse": "437e2bc35ec0bc757b4247b214490a939a0dd1ed7575bad18fa912eeca255c9d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2ec84db2c914005fbbb512e54fd02994fc7ef27d89e696e9e0b997ad28d1cbf9": "une corrélation divise la covariance par le produit des écarts-types",
+        "985cfc062f805f271f3689920de8e96db9eb728b1c7aeaca70860f59303bbb6c": "vérifie le signe de la covariance a posteriori"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.6i": {
+      "hash": "0be9b5aa85646db4482e0bfdfcd9acf3d6fc5f6886ace9bf4f6620d6ede548a2",
+      "kind": "bool",
+      "mistakes": {
+        "d7fec3320f6184b7be74ce28d27d17148ec8ff9265ae9ce22ef95e2d79aee75b": "les mesures réduisent l'incertitude sur les paramètres, donc partout"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7a": {
+      "hash": "41a8a9ee19fa19d121b53e621765edd593fb7cbc257c3369a5b73b2998e718a5",
+      "kind": "expr",
+      "mistakes": {
+        "2593628dee3c3b1892a7a43f22d3a9f17103c2568346496a007af229d5a50c5f": "n'oublie pas le terme constant",
+        "943238b6a507b181ff267e42e8299390d956f6b389ec32b8fea2626de2c809ca": "l'espérance est prise sous la première loi, de moyenne 1/a"
+      },
+      "points": [
+        [
+          "5/7",
+          "9/4"
+        ],
+        [
+          "9/4",
+          "13/6"
+        ],
+        [
+          "3/11",
+          "5/7"
+        ],
+        [
+          "13/6",
+          "6/5"
+        ]
+      ],
+      "variables": [
+        "a",
+        "b"
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7b": {
+      "coarse_any": {
+        "1": [
+          "4a46f54f871ae82eb453e92f873d5314a1182379ebfd2d814329a6d8adb0172b"
+        ]
+      },
+      "decimals": 3,
+      "hash": "cd4fd21d7f042597187815008f28677bed50c052a87fc1cb15e16fc1aed6a8f9",
+      "hash_coarse": "70075431b6c2c7c2772add1ba77132657799478529268f5394b94e6584f130dd",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "296bd221e0de559975f2da6e216204c43f6067cefcab9fbff96d67162d886194": "le paramètre d'une loi exponentielle est l'inverse de sa moyenne, et l'espérance se prend sous la première loi",
+        "77156c025609ee3011c1c1fc766141b96d76f4804b8116cbf66dc8263b36b4e4": "la KL se compte en nats, avec le logarithme népérien"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7c": {
+      "coarse_any": {
+        "0": [
+          "1d974e45dcd55def21e36d9d33964fe6a811b5a1d2b0cb071e43a591a61662be"
+        ],
+        "1": [
+          "cbf9ecba36c18ba4690c72ad7bd3945a349c1c7f6e2f27cefdf6f5c9d2d0c5bc"
+        ]
+      },
+      "decimals": 3,
+      "hash": "53f9a2b4c9159e31166990d84007c647c933ad21b91f15983ae9b61ae0150845",
+      "hash_coarse": "a12e64d02cd8990229bb9e916343dc69a66f2082cbf0e30c318a03752a0029b7",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "b55e980b7b760847b460cd6b8fb73271b3d237866da827f89477266592390831": "KL(q ‖ p) prend l'espérance sous q, la première loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7d": {
+      "coarse_any": {
+        "0": [
+          "f4196ebad54d2339c8690cf169dc7cc8c1060ad7f9f1bc272d3b98ef9b512ce5"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ca7eff78d48cfbd3a7bd8e7761bfdef434faa30b83b079ca4e96a6b0cfdfdc75"
+        ]
+      },
+      "decimals": 3,
+      "hash": "3da2cb63e46c0513cb9de0a7322b68946c8cf7bdda46f27ed5855ecfa010480c",
+      "hash_coarse": "5435a941ad736e4a38263cbccc4f905ea35dbf29be423e50906d50230ac2d145",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "a8a8935b6e50190482d4131ba8e5175b408b853d3224d3e21229ce6c10125120": "la KL fait intervenir le rapport des densités, pas l'écart des longueurs",
+        "c4339874f2355f3d92b51923c282984e656f1baad7f3f4b83cac68d844450d43": "une KL n'est jamais négative : c'est l'espérance de ln(p'/q') sous p'"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7e": {
+      "hash": "4f1ff3750a0d08197c0bc4e1ffa3dcb5c5a2b1f234f10cb7fbef46bb1d1b20b3",
+      "kind": "bool",
+      "mistakes": {
+        "bad4843c28364dce0c42db67964e8c6986f3bbff51559617f147383d6809bc2b": "quand la première loi pèse sur une région où la seconde est nulle, la KL est infinie"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7f": {
+      "coarse_any": {
+        "1": [
+          "23664f619754d28f6c0053122e1256fdff7d52424e923c852d2e1e2cfd43037c"
+        ]
+      },
+      "decimals": 3,
+      "hash": "578f0ddbec194161380047ba96f7cc225257d17ede7a78793417e7234a1ae4e1",
+      "hash_coarse": "dae3ab8ebdb12ce64fea9548972c78cacff990190bbc1f98517a1c385594b8f1",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "62aee04e1f76a1e435362efc0132f0372ef43ca3d416d12e3d71c17e6861d30c": "l'espérance est prise sous la loi réelle, la première"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7g": {
+      "coarse_any": {
+        "1": [
+          "e5528d20b9ef16d56d315f3a95c85870b890cc92bec9c03267b399fe885597e3"
+        ]
+      },
+      "decimals": 3,
+      "hash": "fb9657100fc6322b7e8349edbc0ed543143f66c393ff8392fddfa504a531a4e9",
+      "hash_coarse": "5f3a7fbb77d307a734d3ea683eabd940e7992ad729942bc3f2cd1b02b3e90ba7",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "dff37e3a1bad751b100a348fd6349c972075bc6dce8f3fa943813735762f9afa": "le logarithme d'un produit de densités est une somme : la KL d'une loi produit ne se multiplie pas"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.7h": {
+      "hash": "e55c5657d039c8724bf3f642c8e963227687613072781a792e624c6ce246af83",
+      "kind": "bool",
+      "mistakes": {
+        "6cf970e746297b6234e9051786adbb164a4e8de66fae82d150516c5f4fe9c2a6": "l'additivité demande des lois produits des deux côtés"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8a": {
+      "hash": "1b379704c624292a0d56fb4d31102e9b5ffe1b88eef835b6766df61872b06e73",
+      "kind": "fraction",
+      "mistakes": {
+        "5dc4663042d18088f2d180d2d7f1037f26b3251424ff82e8cd89ebd46a6cb471": "la trace demandée multiplie Σ₀ à gauche par l'inverse de Σ₁"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8b": {
+      "hash": "9ca07053a82831c6e6f00bc2d9d55c4ef90e1d4e738f8e658f925ca193a254e1",
+      "kind": "fraction",
+      "mistakes": {
+        "b1f1fd62e96cb311df54189a73e3b0a0c6b9f09325de028ebca79700d7d96af8": "le décalage des moyennes se mesure avec l'inverse de la covariance de la seconde loi"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8c": {
+      "hash": "8973c170b390a4f14d9a84d3a75332c702058df548ef2e70757bee537506e7ab",
+      "kind": "exact",
+      "mistakes": {
+        "cf9138cf51b2ed4545dcf11eb08863cc20095ce5d486fcf323c4847519effb84": "vérifie le sens du rapport : det Σ₁ au numérateur",
+        "d241172c243dbc0ad1060cb6f57fce326c97bb602343c00a34731bd49bb42bbf": "on demande le logarithme du rapport"
+      },
+      "rounded": {
+        "1": "6c3bec65a4bc9e8b451e964de22d663b64821405174be4e8f9602f0d9733a7c5",
+        "2": "a4dd2277607972a5e0e8c9a277c7b877fd96a64439de4a9954eca1a8e10cac3b",
+        "3": "7d0d960d0ff75e2a18bb31dd0f34e3160193b92a7bfd5a0ab82d88cd32cdd8c8",
+        "4": "3960f03a0e4d533faf5db0002ff5534d9dfda0f22cadf73b028fa05742400d7f",
+        "5": "7abe004762e999b87ee24316045ee44c08ac5bc1f657393370c6b90787e44207",
+        "6": "0ebefd87db8ad7161e1a3bfa82b0ca877c94400f87ba17f06540502f4bb34475",
+        "7": "d10c867497d0f75cf7b6d4e934c14091166e4965eb677a439998fb9dc42b527f",
+        "8": "923e41bca11254ca5072c4fb563124f801b90e273755c7251122137e827e3282"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8d": {
+      "coarse_any": {
+        "0": [
+          "314d17efa894e147f3c86442542fdb734827ce90d81b28f8360b3cd461a4ec33"
+        ],
+        "1": [
+          "0539dd39068049797455451eb58b513a87491ec6ad4f935df4a1783748adf4ee"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7e9c47e422f794b3127c4918c43942b12ef73e8f75171b6a621cfd2866ab6ab7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c26315b8f10ea60db213e2b269b56b38d7a88b158d6aebe57ba7c471e70202c9",
+      "hash_coarse": "14c66685d6f02606f363cfe55646cb9a1accc95d69a66791fa1542b41333d107",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "451025422a10bcd91d8a43329ba95d77fe740f9dee8b5682a6dcbe05124b5183": "le logarithme est ln(det Σ₁ / det Σ₀), dans le même sens que la trace",
+        "7ce4e60a6e27a251dfc0bf2426f9f4452edf82a2c9dc26ae989d8ab029c714ca": "n'oublie pas le −d",
+        "a9745716a9bfeb0b5496b5283a0e5096dfb368b1947dbd3b3b48cbef74a1dd62": "la formule a un facteur ½"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8e": {
+      "hash": "c317171dfeb8bec0c5e7ac95436b8721be1e6b691ba00cd29dbe94788062b317",
+      "kind": "fraction",
+      "mistakes": {
+        "73d8a2598002a79539eec1060edf2e5d4c21467616ba1231c1237251989df887": "dans KL(p₁ ‖ p₀), la trace multiplie Σ₁ à gauche par l'inverse de Σ₀"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8f": {
+      "hash": "8748d8f21a05e6dd91cd30e1a8adfe57a81d670ea3b9617074a0e8dc0388c025",
+      "kind": "fraction",
+      "mistakes": {
+        "1923c3d8789a724acffeba70c09c03d37ecb0e792b18383bceb866cf270dec98": "dans ce sens, le décalage se mesure avec l'inverse de Σ₀"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8g": {
+      "coarse_any": {
+        "0": [
+          "180b581076743c1d465bb786d655cc9744793aa6860814ad6d5df009d0f8f7f0"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "354d2c59f2de414b8e0f15790672e2a9e81b322028f1d14d96c59abd7a6d4024"
+        ],
+        "2": [
+          "32b33235be31dcf89f7051b98755a485aa7a730b78a067d2fcb18dcba310f024"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2279d671eae7399be54a41b93c52072a0fdca2b578f7bb02360450de87241414",
+      "hash_coarse": "48ff1c6ad05b41ee84be7bed7186132401741b75b5dc46d3607153b418e54741",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "7aba94a2d37b1fa7d6aff255f61cba0b60e6be33d8d44248fded976b7d8ee698": "la formule a un facteur ½",
+        "7c7a6d2a442ec88a627289a0527ab37d24e1a148eea54cca46278e692e52db38": "n'oublie pas le −d",
+        "f7559e1de4f3a2e618f234d15efc5271fadb9c76a5dce41756b43f64a9eeec9e": "dans ce sens, le logarithme est ln(det Σ₀ / det Σ₁)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8h": {
+      "hash": "41fca6fa74f8b2460785eed55108366230b420c6f7569ca1191e2fc7a53b6dbf",
+      "kind": "fraction",
+      "mistakes": {
+        "2d6fe72c6505ab7134dd1a15b7b3355af54dd87f44d39a5d8e6ffb540c6c92c7": "la covariance commune est celle du réglage A",
+        "6658cb90873482715af97978630803910edf2bc504e2fcfb756091a7ddcaed3b": "relis la formule de la KL quand les deux covariances sont égales : un facteur manque"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.8i": {
+      "coarse_any": {
+        "1": [
+          "7f30bf6d985085fed7a391e7404af645b333887c10bda908f8c6ee14c2f67e67"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ece5126db82dc89bd12cf01bb721593e5bbd67b11bbcf2f03ab581fcb23e9529"
+        ]
+      },
+      "decimals": 4,
+      "hash": "5389e1c701d669c2e1c7eb21526cc3d40ce6e5fffa5b26d880ddbb31796a23cc",
+      "hash_coarse": "fbde8a178c654b03b432ddd8c72065b2224caad498b23f0e2a6ea34e6fcc4f33",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3af5994ea5828e944831acb0d8eb03ed2cc76e4d10c42281485712da84c24ee3": "on demande une différence de logarithmes",
+        "ddd821f216676bc5c6c5e4dffa44e4959f428afca4890875128410c1fa1c2c54": "l'entropie différentielle contient ½ ln det Σ, pas ln det Σ"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "528ea8b71df4b521711080cf2c8e148a1d26d91b0d9d9558a32779fb0110e717"
+        ],
+        [
+          "6496425b0f045ccf13b8f860cc13e9c5034704ad3eb9b067db617a8cba03c49b"
+        ],
+        [
+          "1050bd7375eee9bbdbf6940925eddf355347f44c71568244df303e6d78aa63d3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c2e1ca62e15fb053e9edc48e0b0303f078550f26deb026d90a4175688f44cc2f",
+          "12173a1e1402f48e60129418f4c97207a398383a91b72b8b4292edd086afacc6",
+          "08de9e9c12f6443d4483452a3453d6739f834b5ed855222cf53ebb6baa10df89"
+        ],
+        [
+          "6d2a7be7e7a6958704e689dceac9f3d70817191359f00e2f945a71e2fbe4c3bf",
+          "d81ec23243a84e92a81b0d8554f6ee45fe62168153345d6210148050b82a9a3d"
+        ],
+        [
+          "97ce093a96c30012869477b4ab7c193b58bc3d397e78037b67ff778fa4aedfe6",
+          "7a07111f3a5e267619fc13f73cd1cd6486015820b3bdeacca06d093d8dc5ea60",
+          "4897bce0294e0fdedc326517868f10b351be7777ef3fb60af426e6e574319134"
+        ]
+      ],
+      "element_hashes": [
+        "6564e8c646b0741690359a60ecd45a177900ecc620344b98196128ba9fe017f5",
+        "ffb597edc0dcb31a40af2f832306e3137d2d8885b0768e55d2f768b6096b939d",
+        "05e69681004032a0ebd0b4bf8910bdcc7af94587863198fba5d5719fda389328"
+      ],
+      "hash": "fc06bc647076f0b4ac969fe497e5cac3b2198b6f6f4d0ab6f39196f53907374a",
+      "kind": "array",
+      "mistakes": {
+        "5562ef4ebc425c7e8215296397ab6baec9d469f0b5a2d210086b7e950515fd8c": "une longitude ouest est négative",
+        "d939a8cc3ea72a9f3a0c4973b38f3400fa66a1dede3275c73708b0c7980d5dcb": "les fonctions trigonométriques de NumPy prennent des radians : convertis les degrés",
+        "f98d198499db5acfe23d49693535f2981a8123fbb21fbae63bc52fb7fcd9d860": "le vecteur est (cos φ cos λ, cos φ sin λ, sin φ), avec φ la latitude"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1277566f7c12722aa7c534bbd8f438c28179da65b146372636aa00b78e97167a"
+        ],
+        [
+          "06b46aca3f5de26f031e46b2a9da94b1b82fb9e05b0278f1787df7568154e1bc"
+        ],
+        [
+          "8390695e759edae2a7e528a60c5c34c3b1a7a57c286ebfc18c9a51326799103a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7d335876d1fe1971b12cbf4f8e6ca25dea3df10dfe6535a09e38521240bb5982",
+          "2bdf4a73d7c779b5516b40ee49c8ce23419a2a5142cc58b7465c40875c9e4af6"
+        ],
+        [
+          "d931856174d65246e178de93b906808ddb8b3057ac21aae2ed3fe884aeb7b1b7",
+          "39229bd75433864aa6a0bfeceac1b21dd488fb40aa3e1ad62153de38036ccb44",
+          "1b5fc895a1b3e63208c01ef383d6516281343c2e5063d3d59ff6fb6cbe4c06e7"
+        ],
+        [
+          "9813d14380db12ff278adfd15160fe53247378b471896538618cd98f0b7b4add",
+          "4202466e77f6bed7915b4be4b92e9b8086549e8276a4057822d91451c4a85cf9",
+          "ba47997cbbf900f574b53538c609dd5135327699b812b2e2e069128eb86a2097"
+        ]
+      ],
+      "element_hashes": [
+        "c83109e57302224a920ef33681a8b2ea618727c2a72b7bb46796fc3cf9dafc0d",
+        "d6c4fea56f5d9e71666282b14a18b25cf7e22dce4ce74d9e1ac95a7cff85453e",
+        "a8f8424b6db93396bb89b8237faca6c9ba7a3df7bde34698efec29974479a82d"
+      ],
+      "hash": "fa6c73f8a269b1b7441dff2cb5cd9db63ace616521d9c637edf716ba2ab8baff",
+      "kind": "array",
+      "mistakes": {
+        "0da02e2dd4fff7979f71d121cda92b1e080f60834b098258457d792fb3fcfc27": "une longitude ouest est négative"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9c": {
+      "coarse_any": {
+        "0": [
+          "9f5ec0b5a6d3b0d32d1dd0d086af5206a3d2c52f60912be431f513e02f9689f0"
+        ],
+        "1": [
+          "9fb3fdcdaf7f17216299c54a5d474ac9df22b673e49b092c24c2caba39a6639e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c33886d4e2e5b0890dac03ab78f03b2530cdd1691c3854799b5ae0b0950f6a48"
+        ]
+      },
+      "decimals": 4,
+      "hash": "932ff11b27ae758458959180e6acdadf350eb4a9f5a21251d363e85b45a98d45",
+      "hash_coarse": "c811133c6c023e4462e7efd1a4d5d270be380710ed99797200f79d0ef33b826c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6fc4ea513f61f88ac2b190b25e680d40c459963ded8e93a34751949bec4c78a5": "on demande l'angle en radians",
+        "8cf6a5a9b350ad5b58b27717447b2c0963ed14265e17471eebfc4b6a22af458f": "Ω est l'arc cosinus du produit scalaire"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9d": {
+      "decimals": 0,
+      "hash": "f06956b43d410e04d6e8752fc8470273ae273536ce5100b13ca4010855f90dfd",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "6b97f7d1329a8b0ef92301eff2bd3ca7e1739ef005939d122a54ea2c31efb632": "la longueur d'un arc est R Ω, avec Ω en radians"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9e": {
+      "decimals": 0,
+      "hash": "c5e6b95b050410903b84aad1efa0e8a3e68387ac9e986ebacaffd64db70db9dd",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "7f63d1b81a282f0832d206ebc4764b915dcbe91b7740290158a2ffc368fe9e2a": "la corde fait intervenir le demi-angle au centre (fiche §8, « Arc et corde »)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "bdbe7d3b25ce7bdaa76dbdefe9ca549fef724141121e46041ed289c28781645a"
+        ],
+        [
+          "ebbccbe639f5c17df042dcb907f2f5573bfb22ad03b69ff082b3c113a149c28e"
+        ],
+        [
+          "2999bb9da5e688c7d030ff85ace958f9f379e96ae9d470021e3b7638648d00c7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "08bfee6973aea156a9166d22f131e4ec0c7be2517a17f4bf4f1e1209116c9400",
+          "e2e1d8ac23c3d44d91f62f4004a5c1ec1134ee3278dc803f92d999c2e580b447",
+          "205344550b2963e203420b5763ac124ad9afe14e0a87117b23f5560bcb2576dc"
+        ],
+        [
+          "47f68ccd489b641d998fc3ba8a7cece568d9f3d8b8c732331d836d11348fe008",
+          "df1756c9ced08d7d34ef992bd15a443c6fb464926c2c4a3b7c8ebc616a375460"
+        ],
+        [
+          "32e7a0428e892c8c5eb66cc89f5b2b23d006de847a512e54e43273c0c49ae45e",
+          "6dc17231088db54072d424277b2db5c6da610620814001c228504d3e23f57da6",
+          "40e33875489e35abc568207288f9d7a7a13ea02b7084df3e0a1b15208adf2a0d"
+        ]
+      ],
+      "element_hashes": [
+        "bc5f903bf96f0419f7a0cc88ae5a9d3cee8aa62cd4485b2c8f02556653852cc9",
+        "cbcff255f3ed199f2c3df390c1e6b25fb41c79862027623affdc239c9096f3e2",
+        "c3414dcb07c20f8dfff7a6aa84f6675afb1163854435bc7dc067af40cf2933a2"
+      ],
+      "hash": "65704cd6e7db6e380a4f0cc1552042c2c83359c129e8288d955094810f99dd75",
+      "kind": "array",
+      "mistakes": {
+        "2aa5819c40bdd94fa9cc9c1aed0ddcf0dbaa99bc76a84514f23a77b343f5b2b5": "le coefficient de u est sin((1 − t)Ω) / sin Ω",
+        "df381e3ef43b955480b98420b9831266b0cf8213b5aea27013ea323a74c24073": "ramener sur la sphère un point de la corde ne donne pas le point du slerp"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9g": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "1118459ecdfad7a782944f7be730d21bd2f96abb438dff4892df0c7150234b10"
+        ],
+        [
+          "6fec3c094b8a53f1b259356ab34ffce717bbb80cac6092e0a932c7fd572aab5f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c69131d668f50b1c98a382cba3ca511e445c04fd2a07888c44afd2be2b0a88c8"
+        ],
+        [
+          "27f9c6def4607a639e5d9f9e1e52e86590ad880d7143c3727ca9db521d0ffdf7"
+        ]
+      ],
+      "element_hashes": [
+        "cf548f4640dc309c37029f581681c4a25e189d0b7926ebfe138c95117250fc5c",
+        "af1ca15df9e815353dd0f7fdad89f19c9055b386802e449012f3e1ae51ce8eb1"
+      ],
+      "hash": "38e1f7d3c1162722d31f838dca92447ac33f06fdca0163e9a70605c401e7bb48",
+      "kind": "array",
+      "mistakes": {
+        "6a157f7f23787a6abfa5bf438f0d691bb7333eb03c76d71a7d9095c06f34ad43": "la latitude d'abord",
+        "78de35d64ce2d7875f11a3ded253488a8bede5acc22d0c9e22421475b9d2bbe1": "une longitude ouest est négative"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9h": {
+      "decimals": 0,
+      "hash": "093eb84d1f64ecdf12e12cc335938ece7bff2227d06f6eee8d6be6d277c422c2",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "0563234f9338d59f354e50f6e585ffa1be02402df54ef961b6c34af6f2b7a85b": "le milieu de la corde est à l'angle Ω/2 de chaque ville",
+        "ed558320f83eadec78bd4f2bba8a74050aac11bd9d7affa0faf79941c7d05737": "la profondeur sous la surface est R moins la distance du milieu au centre"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.9i": {
+      "hash": "38233b4e76944a6a2a95c7d2433bd26a2f21d8b3195e88e8d11cc8ffaffe9d84",
+      "kind": "bool",
+      "mistakes": {
+        "c196e1bc35b387d8eae354f265a09736fc9999c6f46e2288843132a23d7043cb": "seul le slerp avance d'un angle proportionnel à t"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16a": {
+      "hash": "1147710d34c705b435ebead52eb30617486215ceada11a86d0a1b1dde7f8c1d1",
+      "kind": "str",
+      "mistakes": {
+        "e544f8a22cffc6516c427a9f329f955b2750a62e42356a2155e1c014aba90875": "une ligne par tirage : E a la forme (n, d)"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ead808033c0d27ea11dd6f81288d9c8470853dab09aa2acfe31119e98d912ae5"
+        ],
+        [
+          "d3a8acacb7dcc610e43e27061f66a9dbd968a57132fa975d97bfca7da8b19506"
+        ],
+        [
+          "59f7549ec63ac10456af3ea2002e64afb67e6cc31362985134879dadafd7e883"
+        ],
+        [
+          "4fb378396380c447195d23af96e0fc1a10759a1fadd1aabca5a1b83e565c453e"
+        ],
+        [
+          "6f542572c69e838d8cc4ca8ace2c86055829cb77814be0df0ddcd17c1f2ab0ac"
+        ],
+        [
+          "ff35bcfdcf2c8f9529b29971930dfb37d1596059ae02fe0e297a5359fba7092e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0ea9d1f6930096d824883e1b767b46ad6f041cd28c06c11833daf14174e6b35b",
+          "12dcc12d4df65fe6fa45732468934f02fb0328289f845271ac6d27d9843dc6de",
+          "96a7b7d64aefe36a333a09162549ba448f51a6475f9e492bb72cf972303c0fe3"
+        ],
+        [
+          "bf918c512527c2109d2fbe00eb34abb007f0662a46aaf8fa5cb85f51d9667b1b",
+          "99bf2c7e1423a936a36e688181c98ec322e98b62ad617b5164ebf7d5e3391491",
+          "dc429f9cd3a2216de9b4ae24cd536469355b391def83d1f28b7b49ff44910be1"
+        ],
+        [
+          "00ebedb503d05af9645cef068f0b9398de65e7246d1c8b418f6a9d4d3f7f391e",
+          "93ecebc59b16040a31a10a5cb53d6eebf9aa67562935b22cf7d200018609041b",
+          "6edf6ac78dcfb333cecd120527f7f68b0f48f0f69043725baf3d3ef5a8058ecd"
+        ],
+        [
+          "e7772157c39fb8e44608fafc4cd4f04e63d3dcb702b6cf7f61442a4a0fa9eb49",
+          "30ed116931f1b57ae78fbb9bd769acfcc3b4037dd7772ad11087d83225eeb5a1"
+        ],
+        [
+          "dca71a35964cff88ea9a7b0fb87919a02595b3bdf31c4ac878cc89b547576d11",
+          "4c922ca95270f849dadf106e44831f74202141ee88ba9b8c79635b85ffc2a8cf",
+          "14594973ac60b603090548431c441118bc219515e4864a7ee2ab6d9820abab96"
+        ],
+        [
+          "a5be4b99bbbbd633f42ab242abff7e5c5410d67be1c606c179317b8b7feea81b",
+          "f4b618be8662058a3986a13278fae23367480c9917c2de55e4f19603104c9c39",
+          "2b1e47a88e1e7210feb9bf48587445d9a1dc53d54f9de428788349bda6e6b620"
+        ]
+      ],
+      "element_hashes": [
+        "c4eeb6dae8027dc2e221bcd3b5c4045da59a5a4158be2ecb9d2c5bd7907f889b",
+        "1ddf387a74655037477c628c03dc0c28057ce23d8429d749b966ef392122e99c",
+        "33344b116111e00d1a6ef8990e9419feacdd0c43173114fd0e59af498c858645",
+        "3bd12d3eb4c7823a5b50023e0d5a05fd77d6bec77be023993c5ebe6f73b42150",
+        "3678d6c045894bbc44736acab5350d4876db7d83983b47dfacd7456bc5fa03c8",
+        "b1e28c47402131c9e9f73cfc9ed5defe226706061e660adb690ab0251e42311d"
+      ],
+      "hash": "1b474f710f5ad243c4df5780d83d5abf71472c8ec605face070d59b7fbd57bc8",
+      "kind": "array",
+      "mistakes": {
+        "1b4860982cdbc9eaeb8a1d93f3f479d778a3b98b0061ff1d9898f92451b9feca": "ajoute μ à chaque ligne",
+        "9bb76e8b97a865caebfe2485ddc20f1c455ae8c87f339b3ba5fc5d6a7df0a30c": "chaque ligne est μᵀ + εᵢᵀ Lᵀ : on multiplie à droite par Lᵀ"
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9e2333b8814c5f919e820d5cb6485a64559a34e2d854844deb5d64cd3ae77112"
+        ],
+        [
+          "22270797d4447a4829ea7f815d190a4f5c92495f08e98700b0e70de7f32a4b1b"
+        ],
+        [
+          "80eb14415a42690b3c1979a4080e7cb54a01cd9366f861a7d7c9f40b63d2b78e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "51a9d19b4485a484e9bbf67ded0ea74bacc9e9f08fca5e422acbcccc87fa682b",
+          "5a305dbeabbfc371aa01d76ea7b36d4f3a4e6d9bce7aeaa8180563dedf670307",
+          "ed8c832ceaf95d6029612de167c726f28f53d98b1a49b95726656f589bc30f28"
+        ],
+        [
+          "4289e6d9d39cf923f1476525cfd77f824aee3f94ca2a1bcc9807153fd5a3afd8",
+          "03d194b4fa14435143530723253c1ee66625652bf3f92797f6525f3f0a2980fe",
+          "38aeadb0b8a6eb1d553ceaf132bca9d1a86bcdc1f9b9ecc84faad167f294ab6b",
+          "908476d71c8e93557a5d45ce51a36eebc54ee79d47a5d72fb886f9efc6a0e7fe"
+        ],
+        [
+          "cf2d0ab5ee0e77ad9acc61882e870f3449a4262d0f4e9fc1137477c1a5c9f060",
+          "2bd2b7cc0dde3b2080bf1c8abb94118628d1d195073c65887103cab3d8a19193",
+          "34cf3c16212b1d931ca03bdd814377f75f1f6b8cc07e62f57c3daec3d81002d4"
+        ]
+      ],
+      "element_hashes": [
+        "08de54e8a1a24cc608a5760f2ed92a3acc9e0a1ad6e3ebb5895804a621504211",
+        "6c98118e491d19ab5b38b7a611a151739e710e78d0c94962246ca02d2ee7bf6d",
+        "de0d46e6586b8f396d704e1eae5bfbfe7a0bc5c8c66f9b9b4d3b6c36d6619f75"
+      ],
+      "hash": "7d73f3c337136746806e32363cb7792448f914ef9fce3c77c5ecdb5385808825",
+      "kind": "array",
+      "mistakes": {
+        "228d74e17de2106cb2e8c6bb0eb6288f34ad537cf52b5201e3c5a53435d09815": "Δ² utilise Σ⁻¹, pas Σ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "45fbbd338ba561cb91ed5d743e783229745163b60797a51e026ce072ba778403"
+        ],
+        [
+          "6f9b43064a214921520a4ef2ff04b2122db69581551bd03f4328e2c46e5a685a"
+        ],
+        [
+          "7119f7080de2f9cb091db2683b0f4548e56e2382f39c32aacf86f0adc1b6ad91"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8715cf9efe315e5ba663801a03c2e811e8615a1894bb5ee9354f989bc8ff5d1b",
+          "d3e11674f7a6d473dab99104317c3850cc40d14a6c0271400ff05e20650f8f8b",
+          "af67dafde37945c60001ee401ec9664de87367ae23b0d2f08de560a3b0b7d35e"
+        ],
+        [
+          "760f4ef78bd01fb3056ee616225b3e6d71ae50598d019b36a1cf85cca48e3ef5",
+          "6791384a72e3830ea74304a7c0c22f95ba518082900fb80afc1c351254ecc7a7",
+          "de973e717f3ef20151d6599d7b75308f7052442e1051ada1d0b797c151a9c5fe"
+        ],
+        [
+          "6d192d92fc5e442b130f50b70d590bdb541e37aafce88bc60d29855bbedc8775",
+          "e77cf2b60a7ee2902fd7d597f266aba8d856b27108fa1bf451c9d504e5725b36",
+          "3280ec028bb0ed70d7eebf6aef49192327091636e9bbf6032c8891f28c70db74"
+        ]
+      ],
+      "element_hashes": [
+        "18270f342e2741b4c512ab41bc04fb015a0fdbf7ba3e9880d4408bd470d4e5eb",
+        "548dfef42327fb292e0cb64722f8cf3d137472ac29baf970d9332579460e1188",
+        "054f6f1da20f704d9b5dc36e8d4caa5e9dc4c7bbf1139bc93aa6e24db1a8e350"
+      ],
+      "hash": "ce3e26f82eedf29b78811113042ce1c34de9f2ef5915def724321e44f4ad9a61",
+      "kind": "array",
+      "mistakes": {
+        "054ced2439e2a229b83c40402e5d549ebca7f46d1b784121b10c843c27b992cc": "la log-densité contient −½ ln det Σ",
+        "a4185bf9dca77e0a3ed3b49083eb3dd37ee877c4d71b517883ec3c61e3abe006": "le terme du déterminant est −½ ln det Σ, pas −ln det Σ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16e": {
+      "coarse_any": {
+        "0": [
+          "1ed8d8906313de552a6d678f520091979c66d4d7b818ebb98e5075c8de1e69fe"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "4fdb7a301ee882a405020214cd44dbbf8a69e703f6ec26f0f1be70c043f55387"
+        ],
+        "2": [
+          "401616402eda53ef306571ae797ea56c9222326d0c8aee2e1d1f187672f5724c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "098c8c7d488cd8e35d41179f173194e918b9c55ec1351e4ec95b57ad4c9262bd",
+      "hash_coarse": "b8034c94c03a3f5d0d392ea7f508624f1a77c80cca8b7323c0715d24950ed710",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "249350832dc857ea2ec7c6d4afee54ffa68104363c3a4bad63741b81e39f2a03": "on divise par n d, le nombre total de coordonnées",
+        "a6cef41eb105c6b0de4c1946a60547a24ce94336e6c54a84a9dd0ca25ac11844": "on demande une moyenne, pas une somme"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16f": {
+      "hash": "8d11c1787f5a7effb87ac271be327890a6cb8728c8360a1d9a6e9235083ed8ea",
+      "kind": "str",
+      "mistakes": {
+        "d7c5e3e38c98f5fdc2f3cd1c078f651ad97beb50f410a72e8ac42b445c37e7ce": "D a une ligne par point"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.16g": {
+      "hash": "2898cb32935974d16410890d9c492c3aeff93227d2a0b295c65b15bb4be08245",
+      "kind": "bool",
+      "mistakes": {
+        "dd19f1fe73d6b6e7bc4b59a51847ffb09513416363d019a67f791aaf4f96c649": "la transposée d'un produit renverse l'ordre des facteurs"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.20a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "00c1653bd0388aae0c7fcaffa745366ef307136087e54fe9fd602ad6b6082e89"
+        ],
+        [
+          "4cc7b208673e6d6c1d93bc223f7756a2fd27009749bf24a7d83f07f12f58eb79"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "080a4280f26ecede7859bd8a87b09e5f5679210e25ab1ce754b2387e1ceb2c38",
+          "beda6e3a9e87edbfb662e374c5a761e259c85c5eca0d63f96b73990d8108f232",
+          "b353226c2a869829ec837d78dc9aea748634a94c2e95015ce713774c626fd709"
+        ],
+        [
+          "3fd0b5d4f05bb6fe28c99671505424d302feda26f457b80cf33d436f3e68c338",
+          "aabff2f15742dcc0df1c4feb6047bcc7550e1ee065d51448e7e77e3db782da2f",
+          "12899b8fc7445505e18b66c6237c430b9bf686e9461559ccac2edf850a3fbc68"
+        ]
+      ],
+      "element_hashes": [
+        "e066d5cf8ee7ef03a5e3fc1416565f85c05aabd5a2353f3433fa1d0f4b16237a",
+        "3d710e4f4f87b23237e83e17792a6b61e4422ed630203b30706641155350c62b"
+      ],
+      "hash": "0672a20165a9bdc9d6cd97afed9ef69c88c71c43afdd783a02668e1bc90f0ce1",
+      "kind": "array",
+      "mistakes": {
+        "b930d78152be0ff1590154cfdb4e8e4c5be2dd6dce3743a6389647c579afeb6b": "ln det Σ = 2 Σ ln L_ii : le facteur 2"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.20b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e922d9dcc4c512f62a429ceefd1e858dc7201deeaf79efc7c91983ebaeba19a3"
+        ],
+        [
+          "934824b06489bc1fcde749a6ca69c7eb27861379f3720d716ce7224021321aa9"
+        ],
+        [
+          "1ae12dac3a97a51e3b267c1ab3a431b4d8bc4fae547a02c12edff0800d324793"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9ea9cc5ef49a6844c839782ad4cd772ef9115ec25a7e695550ae029ebc84d368",
+          "87c86178bae2c2f0d2c20ca6157fa16417246ae09767d04a3747c34d7b68eb3c",
+          "be30da37308a449d8da32d43df870204212436c73f4b1cbff88001bdf04c4f82"
+        ],
+        [
+          "77a60c5280e01e5a5034624fded2b35f198d280a83c0ee93b05c1b76465e7457",
+          "8edb4a6ff28396f344cd3398ff67178ef92d024948805083bc697850dbde50dc",
+          "4caa0d56c5059d6d042dec3beeb095153a6b8ab2770ae17ed448ccc555e537ef"
+        ],
+        [
+          "f0995981a05cad18a05e4ec14b7777da7c1647467d62494085a10401dd88bb5b",
+          "1f11e991d74e37f541e93a4e568cfe85845f7155f1e9bd5fad5cb97e2bd65766",
+          "95c891da8cb9913966bd422075e642a6bb33d91774aa71348ff2f6b05c10a5ae"
+        ]
+      ],
+      "element_hashes": [
+        "c6ceb471f7c6a9228ad71db23673924944cb6068dc07a41656316097ef973aea",
+        "8350ca8e9198378017c81021fa60a28a6609125f57ac18de93da052448d6c1e2",
+        "4c6c880ab706034d3f26cfa8332282e9fbbf84c4f14191e5db984d61a3b9af22"
+      ],
+      "hash": "c4d9ff4ed136cd9b1073fa33df9a05e7c8d32dec7fe88c121e1807be26522bdd",
+      "kind": "array",
+      "mistakes": {
+        "256f13febfa885d66096c86b50429576eefcf07a90758ccb562baa8f7b367660": "ln det Σ = 2 Σ ln L_ii : le facteur 2",
+        "903efd8c514e3f2b6680acc0ccfa147710c0a3073ab3d9325e7174708343744a": "chaque ligne de X est μᵀ + εᵢᵀ Lᵀ : mean + E @ L.T"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.20c": {
+      "coarse_any": {
+        "0": [
+          "37bed02a2f84bd24d9fa5a097ec8d84505bb16f35b46f9baa36ce06ad05e3048"
+        ]
+      },
+      "decimals": 2,
+      "hash": "26e930f6964abcd2e8441547de6edc819d7893cea58e8421d487e41c423d5b2b",
+      "hash_coarse": "4c7e28e36287e5194266d925cac545146ea71ec7aaab21be7846a4e2b51efe43",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "89845d3e09bb219efdfb1be6184f99236b770e1f0c8cbafc8717dc5edb674946": "ln det Σ = 2 Σ ln L_ii : le facteur 2",
+        "d4795c93459f0cd936e820a23632e184ec32f778aafa7c525253eb1383898d5e": "la log-densité contient −(d/2) ln(2π), avec d = 600"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.20d": {
+      "hash": "1d945a9ba8d38ebb79f3a79fe0c01c3e91a38fdb994e8d25e18013f04548e612",
+      "kind": "bool",
+      "mistakes": {
+        "a74e06d349f56227ac554a516ac07cc362bd0d5b0cf3368e794f8266559d1266": "le plus petit flottant positif est de l'ordre de 1e-324 : compare son logarithme à c)"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.20e": {
+      "coarse_any": {
+        "0": [
+          "ab4324c54533d37698d6d4dae2a672340b2224c6dc5bbb2eb929147528ec1b18"
+        ]
+      },
+      "decimals": 2,
+      "hash": "cccc8cf9c2029cd2749d4037a953a70ce3d806f8f72a94f75fd3f94eadb60548",
+      "hash_coarse": "79e94db730f540fcd129dc6a97461f2eafe71ff487d209eda54427eb3a9c0eb5",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "25c49cb31333bf66475dca2260240d53e2426b6d97cff111208e43b4db96debe": "ln det Σ = 2 Σ ln L_ii : le facteur 2"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.21a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "0d9c872d4f35255232768094c6752b78863f08a859a051b326790efde606fdbb"
+        ],
+        [
+          "b060b13188ac8823d8c6d4098c15c305379e9e7f42494f1adb57d849f0f70838"
+        ],
+        [
+          "9ab2ed2f60ccffd2125821d06e3e35e8d4b5424559c877ef5f2259ba90700474"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "aa2068ba48a57d20ff1daeb471a089812fccdde9e600251218c01f47cef3832e",
+          "4ca7bc7eda7772693a28cb2f911947e28e7eba71e6c5f01795257d048a08961f"
+        ],
+        [
+          "88137eb89fb9b96c8f23d057bdfa2f3205f86589b7abeb7960f2ecb2c017900c",
+          "35da281670add2049ab2446f153043aedc9b63068eeca533678d4efd40edea8c"
+        ],
+        [
+          "eecd2d7bde7c33a8d6da93b376b06166f1de95687f97b284f4a3e65349aefb91",
+          "85640329f3bbcfb27fe37b2a0f9a6fc2859d31ea23cd742d95584495a7b3a3af"
+        ]
+      ],
+      "element_hashes": [
+        "4b0694354979792a4de4879482067050f82e628b7c26d8e25aa3df4e43943fbf",
+        "b25f0bae870d098938085b19c13d4ebc3a17838348d83ba8651dc3ae1715a323",
+        "4c94e178beef701cbedcf8a8dc679da0b2dcfb0118c29422dfaed87784e5a70e"
+      ],
+      "hash": "fb1d799c25b88ee2f0afaab1d6f16abfc75a3f9e993495d97c4473f81e28a103",
+      "kind": "array",
+      "mistakes": {
+        "b70d97a026a040363c1e80e8dca7202e176769321256dbf2c81d075c1b7aecb8": "sample_mvn(..., seed=5921) : la graine fixe les tirages"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.21b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "a7983912c1b7e3bdc1613540fa615465a66e213a33984f1a1de111ddd73033c8"
+        ],
+        [
+          "edc9a68f1c8af6477329df678fb3d30c87e6fcb6447e617352bbbdc640e1160a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "203949143e42eb909cfd1d86f47ba61ad32c3c1b877a9b2c3a65c96d7450742c"
+        ],
+        [
+          "212bb3a98cb8fe75fd9fccb24c73e62c44761bb0323c4efe471ff4f2b00d59c4"
+        ]
+      ],
+      "element_hashes": [
+        "67ba66ebbfa9dcf609a1831cf25a75cca8800083f02a825680c9a8fb469c662f",
+        "61af420810f253d436109e2cdb6dc8462e031024232d90f49de73387db09d301"
+      ],
+      "hash": "056e8b37dc12fd1498d3180ae632c7dcac5d8df50adcf781481cd83c610900c3",
+      "kind": "array",
+      "mistakes": {
+        "065c21da268584dc986b9bc1a449da649d9d2e45d10bb98597944f8458eec0cc": "sample_mvn(..., seed=5921) : la graine fixe les tirages",
+        "d5fbd594a125f724e7285e13135e2076721f5b1e504e47a12ea9807cc943c5ad": "tes tirages n'ont pas la covariance Σ : la ligne i est μ + L εᵢ, soit mean + E @ L.T"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.21c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "816786411ab8ebdb9206b2156f62766ab2f8657e12203f31eae33417d0e28c91"
+        ],
+        [
+          "f3df952fab773be218f2161e77231869f8a47e2358bcde19398dbe81db165900"
+        ],
+        [
+          "1b06e9a07711d4d6d02e9e301968a1e8d3e3b66fe6c3087cd740f121e4acac98"
+        ],
+        [
+          "9892e5a394561a56481a1f035ebafec27fb074375a91b104a004a8870c6f4c95"
+        ],
+        [
+          "abf9e5ab08ba0f596abaa4f2d68b5c00a42ee85dce273b83b461f28009f58628"
+        ],
+        [
+          "cb9c9a166e7e1e8ff84b6b9eb59fae11b3e8aa1bed6a6262d716538eb4fdd5be"
+        ],
+        [
+          "0436a004a28af666a0c7cb4b1c4bd449c9b3f5a5e5fac26d74718dabb008f757"
+        ],
+        [
+          "512092a49ae76704d7ff0c710c3db4e27c2ff50089feac253c2030edd8c57eb8"
+        ],
+        [
+          "aae886291fdbb90e24b71f5c3f51ef5e4f2a169244f18350f19739052b43d50e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9af60edf8555a21552bad7cc4ae19df7a5571def1e9d143156f3657dcaa94c58",
+          "a200445be73dd0aba1383b91e3afdb1c8b4256df3af6f542c929bab11149dcfd"
+        ],
+        [],
+        [],
+        [],
+        [
+          "d6531edf17eeb06e3e33dee59c206bac4bd95abc4f6b6134144f49391b901b6e",
+          "50c8a4de5471e8befd04418cd37d181396b28e6a79347b2ea5830ca411a1ec53"
+        ],
+        [],
+        [],
+        [],
+        [
+          "24504ac5ed588a9539cf3888816ce3a3f949fb804337de14b7426d0817fdccca",
+          "07f98e3028f553c5354cad4484c1909b5f0a750629b61a4fffd03f24f6ac76d0"
+        ]
+      ],
+      "element_hashes": [
+        "b1ab5a70eba94f9fff9577a6787bb49424d258edc9e9709969e552b07975881f",
+        "aea254fc1c68b829fa72444d368f35958cc431dfd99290a2831a9e9e91f9da6b",
+        "665b30434f380467918fa64d98501c023bd13790eab172df89aed8f95e19d280",
+        "8503bb6c5406a5b2bdeabe439b253f6818284be4ed2776c7da4122d63a7989f5",
+        "0e2114c533ce6b368fd046652064a21eb1b59709b25cd625afc3cd49ab115639",
+        "e8e28fa4717f30768f9c2a89ae63680923cdc4b2cd4f38e61cd33228f1db7e0c",
+        "9e3de5af84cb3a70df6278ef0a519f860ca7faa00e3104a6051a972ce3e65694",
+        "ca01ecf8a2c33396439f56edc8e4ffc662d302b09d227041489c67b0d6b203d7",
+        "0df523e2f55f6cc5e74ea1b76443928553d2fe3c634db8d442b68c51b5ffd3e3"
+      ],
+      "hash": "508bbb4609e3ff80334eb9616185d4daaa0fdf79775b7e8b82d584bc27e5ed01",
+      "kind": "array",
+      "mistakes": {
+        "aac34cd711aafd9f4fe322fbe0ec698eec3fbe0bea2507eec4eebedb9128b8bc": "on blanchit par L⁻¹, pas par Σ⁻¹",
+        "e17b6fd8a06528733c0fd313f9de13442cc2aabaa5f57faa7115d9ec383a0500": "blanchir, c'est résoudre L y = x − μ, avec le facteur L lui-même (pas Lᵀ)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.21d": {
+      "hash": "f40db68f91c94489b0f70444f917734ce47ff81fa0e65cf618ac788f926474c8",
+      "kind": "bool",
+      "mistakes": {
+        "5ff89c2d3d6dcc5979999d58cca6572f35c946e678c409343fe5b75c51286634": "la docstring fixe le tirage : un seul appel standard_normal((n, d)), puis mean + E @ L.T"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b75767e48d641fc95d736851983fc1fd174ca41e8db2536a436875c8945c33ce"
+        ],
+        [
+          "8f08f87767603115ced010ba907b8bd21cf3fbb0e8c831f595d6a3ea35eff1d9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ed54af72b257abd52d40a131e9869a93a227769209e05998cc0d259adb486866",
+          "6a92ded64cfcc576cffefa2cd91ab92cbf2e2b7d4f11e72ea4abb757bfd34854",
+          "ebd97ef1a2c90f99d39b1970c40732f11e5765dcde6f89feda99eaee3a2887fd"
+        ],
+        [
+          "161a7a5ff2c9c9d5822132085dc22f2996f4376c688204bed1facd0a8f8f611c",
+          "30f3a036fbef4b84a62781032a0f9bcc93a32dd47a7731aac433c8acd9ed9baa",
+          "77058cd125e833ae600f475a9aac0f5b6a1312a9194bdef5e2e2b0dc617966da"
+        ]
+      ],
+      "element_hashes": [
+        "86b925a88fe2e671608e263da6708f0d9b887e35aa6fc1637e64c85b34cea057",
+        "32a1220998060be22f25eb9992e222f6537f2e3a8b57353a40dd09b6cdd22cf9"
+      ],
+      "hash": "ae93fac6ddee14ff50501500780560c0294b366cc24aea80ddd67603b5ef826e",
+      "kind": "array",
+      "mistakes": {
+        "088463e9d523098ab30736b4f5bf43670a86d8dc44e9079fc4653d827c94b665": "les deux voisins sont corrélés entre eux : Σ_bb n'est pas diagonale",
+        "9db714a0dd951020340b085d5607e0e7e3568f1f5095cbd40fe7120e44e0bde8": "on demande la variance conditionnelle, pas son écart-type",
+        "9e5fd4990ed3dda5d56a2eb1f0caef9b4334fbdce02a5c49cec97c63d8785e6a": "c'est la loi marginale : la lecture des voisins la change"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22b": {
+      "hash": "3160aec4945a50213b12745ef10b6282f175340d7e6db98bdceb483d47b278c7",
+      "kind": "bool",
+      "mistakes": {
+        "42e2bc6639eb4ab95c1ba8979e20c5e5674556da689685c28af4e8bc3ffcda4c": "relis le théorème du §4 : la covariance conditionnelle est le complément de Schur de Σ_bb"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22c": {
+      "hash": "0d2498038c586735df39db73de37be6ceebc2e4915b7461debc1936640639c71",
+      "kind": "bool",
+      "mistakes": {
+        "99bd459f3918164f1568ed4dbf999a31183f66172e3cfda2b6de092fdfc1f191": "det M = det M_bb · det(M/M_bb) (fiche §4) : compare les deux nombres à 1e-12 près"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22d": {
+      "hash": "784510046b03d14166bf2c7de686a0290db064e90d810463bddd0575627f1518",
+      "kind": "bool",
+      "mistakes": {
+        "0d8d418a5743cfff16d0b0e7dc0cc75b514bb1cc448ac323f27bc1fac5ca1295": "sachant toutes les autres coordonnées, x_i a la variance 1/Λ_ii (fiche §4)"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ecb30281085d467ed1854588b72f67acf6eb23996056ba933d24ee2ef7c892c0"
+        ],
+        [
+          "4b0f90d85441d8426842a540925d0f887c11dec7ef98b89fde48d875150e4fd3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8f33b6c8efa18ff22fac0f80269f44e1838645cccb8abc03843e3d9c305fbded",
+          "e9cdd4a7e6b3a17de6a303797bbe189859b78a6bf28c6c65a6fc9fae5219dc66",
+          "ca67f43552333d4ab5da4bc4e7a57f072c7bfdef325b2b33e84fb91e2d8651e9"
+        ],
+        [
+          "0db6b823cb97886d9fb0f33b68437284a00ccdfbfee8ee3d31252564c428a298",
+          "7f92db3b6e2d1054a689f6f6a2ccfd5799c61d878ca8b4aa86dcfd059a70fbf5",
+          "4633267e64c4b82143e444df4769121937c02bf636a4fc2f992a045321e2a498"
+        ]
+      ],
+      "element_hashes": [
+        "19a7f61f8e0b14f0d1eef88175bbdfa78488beb8c1c0165795bc6c968e112abe",
+        "006043c4e2bacabeb64a52007b8edabbc7bad2df9f8ca85b7de177e521346ab6"
+      ],
+      "hash": "5c1cd9312d407941cb5d84604820363cf8d80b076df4f91c62b0bf47c2a80628",
+      "kind": "array",
+      "mistakes": {
+        "6769e4a00c939e0a6fc6b846006fd832be5b65d5f4cec8b140d4442014181549": "la covariance conditionnelle ne dépend pas des valeurs lues",
+        "8840586b0398caccefff0663942c0045d5d315c7d149c60c1d71f775f67a7234": "la moyenne conditionnelle suit les valeurs lues : refais-la avec les nouvelles lectures"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.22f": {
+      "hash": "1cecbcff64763beb3209b067111c44092a53203b86ed6ebb24577210f280c180",
+      "kind": "bool",
+      "mistakes": {
+        "b1307e8fc9bf5a2ab36b5c285dbe26939e8f179272ec1bc62498cf053fa22224": "values[j] va avec idx[j] : l'ordre des valeurs suit celui des indices"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.23a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9badb1ab6bf26bd6efb1c00794a9e93c62a227cb25fc00fe7d3ebcf11023b71d"
+        ],
+        [
+          "633bb53a1027c1e643a26fb51e386b7cf772721e661edb09848e51072f1ce7b6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "645bf4a54dc283ae5597fb1d33e6b5834d0666a784e6e2ef5af260de38a1d6c1",
+          "0d28b226a7fd67701ffca07c558043d8700c7d7e152a0794cbc99c1e1de7f5d7"
+        ],
+        [
+          "ca68828f20a745e5b0cd3224a4a25c35a373e8158047cd4943af949722115ec4",
+          "5ed3b2db2b44e96de4723954aaec3b5760f10bf78dd9588d79a8d687cc925542",
+          "3148b137aa141a45fe0a00a56caa82a2355059c9cd9913b2adc29baf72e73cd3"
+        ]
+      ],
+      "element_hashes": [
+        "793ed02952b5032be2c7a70ff5362b5f9cc19cbeb2b0979b406df6806527fbdb",
+        "b6466b0ab4f621ef0ec89d88f9e48fe7c0ba7914078d9b0894ba29b1cfe12932"
+      ],
+      "hash": "e3496573c9267b86b3ce8c8326d693fdd7d540432afd3b1b82f9e84a23a7f2e6",
+      "kind": "array",
+      "mistakes": {
+        "b272d11026db8ecbff7f112f6f8b51bd249ad377872c0f94d73f303f166548d3": "l'a priori tire aussi les poids vers sa moyenne : ce ne sont pas les moindres carrés",
+        "ba664310d1b704c0c51d027bb15da93436f46afb8e0c63b921cdef124e8f632e": "noise_var est une variance σ², pas un écart-type"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.23b": {
+      "hash": "79afdf7f1b6021cf0e05e4e67da38c5e1626f09ec18800b369e2be7278085573",
+      "kind": "bool",
+      "mistakes": {
+        "84110c258c2dd5e843373afec5d5a790adfaa8387f5a5f90a0aba80d2cd2a79e": "les précisions s'additionnent dans n'importe quel ordre : compare m_N et S_N à 1e-12 près"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.23c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "61755db420a179003931fe02080fda872270b24fda31ef4bb8bb2e6b46657481"
+        ],
+        [
+          "84b47ce92628187ee477988a470ce908687abc68786c105f084744bb7cbaa675"
+        ],
+        [
+          "2582dd105b7d548a501b98d89ba97e591490dd151c9cb6f884a3d55ab90e9bcc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7e5d59bec01f9dbc9a6d72adfe3ea71dc11ab0472a6d554ce2f4f04187f6a990",
+          "8fbfea4715d96e5583a7a31537e838e6d23f54cdddafc367f70179140c42e160"
+        ],
+        [
+          "80dd67251779d5d9017747eac185498d2fbd69801642eb1f09e835f10e206e68",
+          "3fc283bf44c4971b2bf54cc9794ce6b90bef4623154fa46a3b1dd10b57971008",
+          "8d7d09440a16caaf43764d958e86eb7636d7a8b3e0703c35fd4f31321e736cdb"
+        ],
+        [
+          "64d5e94c4ae109382d8dd633c3c4a0e754b43939395d684ce98ec99da6fb1891",
+          "63112d111bc90d6dc17cc948af72880687f7fb040c70c27cbaf5e230e0f5c6e9",
+          "c2f16dc5b6748142bdd83ef7242e64e504198cb8ce48862ac36745c86b8a8973"
+        ]
+      ],
+      "element_hashes": [
+        "2deec42c9ada9bb7ee34eff0830e125121c6eee339c4d1b8a5bb7493b6b795e4",
+        "e78382789e3b61347cc32146d7c9cace0391b863a6a137ab44bb465314ddc4bf",
+        "b1416bf06a69c5552facf201a979feb84a28cfbc5a33be12bbb4cf4c4c8901cc"
+      ],
+      "hash": "4706253056829c590c5da941213ede24a5fe22285f7093a057117e8cdeaafcc4",
+      "kind": "array",
+      "mistakes": {
+        "3b088eabf8051f59b15aad594f72b04e395c8965b6726e64ea245387eb5970c6": "avec m₀ = 0 et S₀ = τ²I, la moyenne a posteriori est la solution ridge de pénalité σ²/τ²",
+        "7c2d62d7d24005fb9afa63157cb84d57007e23ba4022f9e3fe31079650755120": "c) change l'a priori : S₀ = 0,5 I"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.23d": {
+      "decimals": 1,
+      "hash": "afd5b3b0d81ac21d3495b72a1e434c960c6283e5a628079cf00aed253daad737",
+      "hash_coarse": "015b36173d231dc5c33bb4377c4e631c447ef71c012d5a9c7f2f16ad50fa0b17",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "946ba88e081317cfdc3eade13e895db9c0b4c4cb4fd261896e13cc3b09c2e242": "(S_N)₂₂ est le coefficient S_N[1, 1], en bas à droite",
+        "c5551374c2846f612a12d85fff6a61b84eb0e106219a7a67b0054c8a8a7e3985": "vérifie le signe de la formule"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.24a": {
+      "hash": "261901bb1886213a0cad2de19d9cccb159c101056ad362ce8304194bac9c4600",
+      "kind": "bool",
+      "mistakes": {
+        "e4a53d03cdd39c57bd6b6237cb3e0e142514b9dc7f67ba510cfb61aa399898cc": "les deux calculs sont justes : compare l'écart maximal, np.max(np.abs(...)), à 1e-10"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.24b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "4d0c77a40c3ce5177150aef10938a3226e1c399619cc4e7518c7fe347e228c98"
+        ],
+        [
+          "461238352ed025682bc03e67564b33cde628b5b9fb36fd55c6ec7cc1b1fb3491"
+        ],
+        [
+          "8db843cb5f97d0d1eff263a19857fc3f1ed3ef6adc3c8abaf77ff398f9be5588"
+        ],
+        [
+          "027e1448f26f83a45376789c9317dc801c21b7cf42597255456dfccbf528d58d"
+        ],
+        [
+          "81f91e15322b5c7fce0dd4a7691956a4187acab969db1a9f2c1fb53668b8a92c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "647cb1697e526b4de6f1fc7db2e6476712ef4cfb2dbd3f7fd5d8f31c9bf5e9e1",
+          "4891c6dab00f6b8d190725043f3018ceecaa48dbcb662ed428ec642b907d29fd"
+        ],
+        [
+          "c2652c4aaf2bea8f3d344bb67d219155792f61da8007e559bdc560448bb245cf",
+          "877458b12f3314c7acea3b0d5b0938db18ca3c796aba50335a0e037750e15aad"
+        ],
+        [
+          "9d505f37083389e55a5285c00dfefc815e63c5247191a7e9d15e81169ad21881",
+          "1b2b5c4a8ad95363f3b1fde0e4c8f318ef25bc164fd6b5cf580a9feb9e43f0d8"
+        ],
+        [
+          "259b9bb77d034cbb3c29dda268b8e440db2502849b5c75514ec2a3d502d5c430",
+          "d16fa7e17980d31befd4d2fa146f9afde8202e7e6677644a656d44d89eab9651"
+        ],
+        [
+          "114443a7a3c67839831846dbc2ae02b9dbfb70c4694924ad63de91f007ad1858",
+          "17b8db4e6fc1f576ee85af8d1eb645c664806390892a8ab8114be2cc7e465704"
+        ]
+      ],
+      "element_hashes": [
+        "8c9fbb95d44452f8d068430a66d7d08aac05bb49dd1efcc180ab82122ef3b2b7",
+        "e0bc834feba2435dd061f4b54a4f33ad128654f117bd0dcfdc5f673c677f9905",
+        "c94314cdca0e1080a9776c05aee7e4a6668d554b1b181672f710d18e7fb89782",
+        "def0f1de784f99f31133a6dbdd82cbd3cb9c47587c597368bf04f6bc3471112b",
+        "cdf10de726e9a4d9db364433418518279d23b383840ab52426731f210ae82ddb"
+      ],
+      "hash": "6883cd7eb570694b189764cbfd5a578abd5b0790261f4c365d3db870c8568a39",
+      "kind": "array",
+      "mistakes": {
+        "3a8b34a20c79cc3e82fa93c83b1958e9ad62991a1860d5d15a8e843805b1c019": "Σ̂ du maximum de vraisemblance est exactement np.cov(X, rowvar=False, bias=True)",
+        "da3ebae8751e01697520d69d56d8b3d29fa1a147b35a8bc5c006a38b60191f86": "le maximum de vraisemblance divise par n, comme np.cov avec bias=True"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.24c": {
+      "coarse_any": {
+        "0": [
+          "417a398538bba4bfb204a2c85cdbc4fbaa502d7f5d262a973f19ae379a1dc6f1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "50906b91afc154a8f5a7db899938f3381dda30e53212785a9ef5784f994325e4"
+        ],
+        "2": [
+          "b20b7224b0f8bf912df3f2e071ce9d33f21f17090a99a3f63c977391da8d6628"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f1aff8ddbc243d8b906965399badbdb647e05ad79c124534f5726714689b2a8c",
+      "hash_coarse": "895f7d14bb1dc0cdfbe66b69e1baec163ba7365d881f74379bb29b13ab1e13a1",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6742790ec62f0bba2084215fea41243e3963b7613621ce5fc93264447be2fa4c": "le rapport demandé a np.cov sans bias au numérateur"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.24d": {
+      "coarse_any": {
+        "0": [
+          "3889c0d58c8263bffb230f7df31a45cd80a7d0408c9af6293e03d5f73855f920"
+        ],
+        "1": [
+          "50295cd0d5220a572b397307018d7012ed8dea233830f15f512536b6fdae4643"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "b79483d1fe033b9aeaabad4c8138aaea44a225b96a3c53dd307a11239eb375bc"
+        ]
+      },
+      "decimals": 4,
+      "hash": "eafdf96cf85fee8d7b6ca22f44375db59d79de6ad7f0a5670479324508cb4482",
+      "hash_coarse": "7441ee7ed2d1adc70e5a6416f730b9a9be5ce0de48f53c9aef6c80a9f18f78eb",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "51f4c1aa37b081c6aaf91a2566984c0197a26f93505373341e99cfaf4817d571": "on intègre p₀ ln(p₀/p₁) : l'espérance se prend sous p₀, la première loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.24e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f3339e3c3445238195d59bdc2b72638af385d789909413d26cb6b17fa48e955b"
+        ],
+        [
+          "0dacfdfec40db73b9eec59df15f8a1eff2c40d04ba0d05b7020095465d874fef"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "08f8cdfeaefd95efe577d3642b64798d7ae486d9f1dfd863861847a3a39a9e1e",
+          "b0b29f528e9a573efbcdfc7898398c2cf189cc7d0ca9b5ec202748e585f66cd2",
+          "1e84040fbce7bd3565e998e01ac176ebd9fb409ba0c9103c3dd25c73816ce242"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "7906ac1df1c91cc155dcc863f3ac3ebd7f75fc945aa07abdb5c8f4febbaca599",
+        "a7bc869931bfd981962f39efe3ad310e75b6e30e25b5b4d080a121d2105a5794"
+      ],
+      "hash": "9abf8571700234ab6fdb122505ffb202ecfb4ffca2494df6e064c3abb5c8a558",
+      "kind": "array",
+      "mistakes": {
+        "1747cd5e3a2ce35e2f28c9c6943f55d45bd6611cdef7b77d71f56b0637516aab": "l'erreur type divise par √n, pas par n",
+        "9cc6652f1e326d10d61582be9eee388f3ae5fd3d9405c4e716e86135d9ded721": "l'erreur type de la moyenne divise l'écart-type des termes par √n"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.25a": {
+      "hash": "1bdd2a0e5585d1e6b161664ad2a19fbf759d175b9abb1b6807fa3c1672b6f6cc",
+      "kind": "str",
+      "mistakes": {
+        "8255929cd4335f4ccd20e69e191c764e680af9929c9a9d2529a67684fefa724b": "en dimension d, Δ² est une somme de d carrés : sa moyenne vaut d et grandit avec la dimension",
+        "a768eabfd2b094c4e691d23ff6b9ad7925b294bdc7e9f821b0e1de5f548f9fa0": "à niveau fixé, une boule de Mahalanobis de rayon fixe contient de moins en moins quand la masse s'éloigne du centre"
+      },
+      "prediction": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.25b": {
+      "hash": "781753163f2e1eece67db3b81bbe9666c2d201afbd3db09cc5281cd4e141602d",
+      "kind": "str",
+      "mistakes": {
+        "4b899d7d18a6f9ae68e01fc78feaf05f0a522738edfd1d7bdb402aa1b1e60ce5": "la part baisse progressivement : compare le niveau c² ≈ 4,6 à la moyenne d de Δ²",
+        "9a8a50e8aa943e719485dd8e1677af56ce80162d2bb93de82186e95c20a40dfb": "la moyenne de Δ² vaut d : regarde quand d dépasse le niveau c² ≈ 4,6"
+      },
+      "prediction": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.25c": {
+      "hash": "ea4915bf53874f9854b7420633290d453e62d033ea85f03f50fd30c49b695087",
+      "kind": "bool",
+      "mistakes": {
+        "2c1a726c588056ed53e3e4a0c3bc612d3720cf4e6ce62c93c961dae15d76f10e": "Δ² = ‖L⁻¹(x − μ)‖² est la norme au carré d'un tirage de N(0, I_d), quelle que soit Σ_d"
+      },
+      "prediction": true,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.25d": {
+      "coarse_any": {
+        "1": [
+          "67e8447a60afce5a4e1fbc2efe8b1c0e31789d5866c840feebf6544a3c4c77a8"
+        ]
+      },
+      "decimals": 3,
+      "hash": "b88361beda82ce92f9934dde30c11042c1251584ad4d93ca5b1d266bd793cc9a",
+      "hash_coarse": "ab64b50fa0caa868dba1aaa79cadf41ee7f626264a9a86f04125685bd82a9fe4",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "3ede650355f1cda48303d884c14d7f2d4966c695b7dd479a8230d9e93592a24b": "Δ² se compare au niveau c², pas à c"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.25e": {
+      "hash": "eb775633f6a4b5725a60454f30391c6c762e39024ea43c684353b036dee0d6cb",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "2200f38fa41bb50927ab1c12cee0e1edb1385df2cc4333df0395bcac97c91b39": "les dimensions commencent à d = 2 : l'indice de ta liste n'est pas la dimension",
+        "70d33275ad031d254f29677dfb09be66597703f8dd62db30a4d95c8ccc97bf36": "les dimensions commencent à d = 2 : l'indice de ta liste n'est pas la dimension"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.26a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "36ed9b9df2b214af8f87cb9af801280c0623b352e1bec2856ba650cc2eb0b97a"
+        ],
+        [
+          "51d7bfc17dc2fe526c161e19102abfff8923f84218c266dc880bc3aeafbf3393"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3fa23c6bb74c075dd4d75dd242bf17f36b6ad338060078403f30b9b26c92a59d",
+          "6eb2b6257476f1a82dfdf6a2721513dbe3e292c6c0b4a421bf08b8427c0b6acf",
+          "d93d9c5151e675a6f691721bd82d3f93c939e14195d33d0ec5240b795738bb2f"
+        ],
+        [
+          "fe35ccf4c1ae5014ffe8e1aaa62557081c85f626f0a3c96fae588296b5aa124d",
+          "41667ddb4cf04bc5e29ff18595ee584b3169c0cdd1d17f6ac5087217cd6fa7c9",
+          "7480bb43d00a3fc462fe744d523bc3b3e02d836600fdf4bfc92094f7632af1a5"
+        ]
+      ],
+      "element_hashes": [
+        "42d0f0b6fa8c5a5350b9fb7c460362c48a0c3e4623c65d9c753f8c936e7660a0",
+        "924daaf942279dbaf33527989503a492d78c800a96675344c0741eda65ada69b"
+      ],
+      "hash": "0c43e011076ab21ca26092c7fc226827cdda9cc11f3087d4ada7fb4310c196f8",
+      "kind": "array",
+      "mistakes": {
+        "565668523c73e4b554ac0f5e3c106998f37bd1d4e4a6d1236f3a76f5010c8f23": "sachant T, la variance de H diminue : retire Σ_HT Σ_TT⁻¹ Σ_TH",
+        "abd561151afbb702988c330ca91f1118f239455fe0d845dad5c9698d761066c9": "c'est la loi marginale de H : la lecture de T la change",
+        "e444e1669f624e5cbb99d555bb0815fdb9dfe425616f748c1b3c0ada150251a6": "on demande la variance, pas l'écart-type"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.26b": {
+      "hash": "551ccc45e36ddc1397828670b22dbe326498ceb2e351942e2bdc1c88edae1ed8",
+      "kind": "int",
+      "magnitude": 3,
+      "mistakes": {
+        "8afcd06e02455b2c083a0f627b76105931354acec3dc9e9a941a2730d4d1bae0": "h est une demi-largeur : garde les relevés où |T − 24| < h",
+        "a94dd9dd3aa2dd3965170430080d82710005ecc9097bdc1728bbd60fb02c4bd5": "garde les relevés proches de la température lue, |T − 24| < h, pas de la moyenne de T"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.26c": {
+      "coarse_any": {
+        "0": [
+          "b06e098a3b45e4b4ee6a82b7d56d3eba60b799d88b19ba809923254055d1881f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "de6aff6aa27a11ff0753795b69cfc6e98fd77acb86fd2cab579ffe50e344f087",
+      "hash_coarse": "f7f11c8a8274529eef703fedf7f8f2d9920cb96cd004245aef1c389e197dd8a6",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "9b75d799974b72e260509e53c5499ab4cabce96e0f8f42d7fb009d480989ecea": "on demande la moyenne de l'humidité H des relevés gardés, pas celle de T"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.26d": {
+      "hash": "c45443d10b731f867dd2df9ec9cd09fbb79fef42ff98c051c072bbc924107ae7",
+      "kind": "bool",
+      "mistakes": {
+        "85ce3244e2586959cfd591a34abb32ad8d4be0803bdcce121b4103a60b4f2c1c": "une fenêtre large mélange des températures différentes : la dispersion de la moyenne conditionnelle dans la fenêtre s'ajoute à la variance"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "748bca7ca290778f56825198858ab66635867088d13b557100a8248e1e3d6a8e"
+        ],
+        [
+          "a9057340048d5c78bb7e4408b5f1c229662fcfb9d556f27e709241b3507e925d"
+        ],
+        [
+          "b7bf7f4d52bbc48994fa96b2b9c628a7dfbf7860ed6dd99284f969bc83178e7e"
+        ],
+        [
+          "8532796728b6eb89b09541ff01e651f53dbcb0eec6d3c36c7e6c0344be26b8a3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e391c581e456cfeb000f4c9eb1fe60890adccb23f4c31e0bfd0c534b9f6f21a1",
+          "966802bbcc132001bafddfbbe83eeaa0ee154906e312e6ec6d469385fb30bb15",
+          "34a6aa9784b7a2d4a25c1dcfa4400157037b831f7bad654394b1286e5c1a6caa"
+        ],
+        [
+          "2d81a7b4572d2402106bf3ee512d4685ca709863e9cf7bd9757d6d188954bc5d",
+          "852342c89291b0945d1114a519773e2e0301b6f18ecb1c8bf6249c99ea8afbf4",
+          "2da58afc7608bc866ede1e7e93a34a64781c87c6bc7325a6980dab664fdff798"
+        ],
+        [
+          "876999001be4dad0a140fe417e309d522a107ccf18ea94e72d1876cb3bdb03c9",
+          "5a28b87891ad158b535da0ab305111d8eec2517c176518d3e230446ad6e82a30",
+          "a23c168920549fd88cd2b617182effd35c97ea557f1fb43a2df86a191aab6c14"
+        ],
+        [
+          "5446e1d92cf96ec13ba06ec217678c349b1ebba5d3c66ea44b5ec77b588a19d2",
+          "670940efac09dd3b407e649a67ef23bd3dc56c38bc9db02c3bda3a2786c222ce",
+          "36c69bb781bf873c6e4c483ad53dd12a14b2ed620b5c61517f66236694db8a25"
+        ]
+      ],
+      "element_hashes": [
+        "e9c1640e0bd7a7704e5d42e0143a8f715cee8695c86ac97df56e1b7f17d63929",
+        "c44dca4a9eb26ca2979db1c87761fd6468da94cae2c184d8516c3dc73062ec30",
+        "596e05b66d8d190882c203de84f8b43857c5e3daefe47869143fcc42ce12805c",
+        "90b401ea53b7e204fa03ccc1e638cdeede2db5103ddd7a71c06865a6b3d66444"
+      ],
+      "hash": "a21c327460061bd7431eaa90e7f70cb6f44b4d5e77293714a6639a9304713525",
+      "kind": "array",
+      "mistakes": {
+        "f10b6d8c468a5def3bfa1e7eec9e66484a096d3df107fa1bfa1a1f09c960758e": "la version fausse ne tire pas selon Σ : calcule la covariance des lignes de E @ L"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28b": {
+      "hash": "c0fbbeee0a50f194d87d6bb9d78303abbcd3c7a1ab97a4b8187a1089f97d4154",
+      "kind": "bool",
+      "mistakes": {
+        "a02ed87eb8cd2054d8bf8e3da1d182c5daaf9977dd3084dca37218e8e4564b2b": "compare chaque coefficient de la covariance empirique de la version corrigée à celui de Σ"
+      },
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28c": {
+      "coarse_any": {
+        "0": [
+          "e0ed7ab0b110db81d7e9c08c4db85b1c725d94685be6a0ecc691b26065fffe4c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "fecc2ea1babb290d1398686d354f179452e38af9be5d96021041aced2a82c579"
+        ],
+        "2": [
+          "1ea26a78242055f6028ad15bf1acf320223a3f66ecdb61d0a42fc463f9331776"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fb0cb0332e4589767ece6def9d6244cfcc7e00bd6b5c5bca80859fcf11745c8b",
+      "hash_coarse": "965caa2d31d75ec3506204186f6d67c32bf1c15277283d61acf9b3bcd251b228",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "6bfb5cf247277fa679b6bda0624cadabe73f40f9d7066388583c6c62c4736af5": "c) demande la valeur que rend la version FAUSSE"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28d": {
+      "coarse_any": {
+        "0": [
+          "8d4bfc20c59cac807a5f68245ede6f0e610fed3110bf3a3063379d3e2d2a2648"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6cfd721c59c07a68b38cc5be6895f425697d5ce523b4c5440bec89e9c1f8716a"
+        ],
+        "2": [
+          "5fb1b1012e3d2e60140acdaf479cb926ba80ededf3bc63048131d05cd25c22e6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ff44d386f72336d297244d51e87cdc8a236ade96496ba5c044367726ab6411a3",
+      "hash_coarse": "05c9b966ff182af2c145af719b4a6859db66a3df90a78fae27c1691fc7edf73e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9fe5265209df0e3d6f4b9bb58f1d48eb997b1c19ece734604431e6296bafdf9b": "d) demande la valeur que rend ta version CORRIGÉE"
+      },
+      "sign": -1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "cda4ef9dd8ac3db36a38f51764ed93ed2b42d1808411d9425ec9e1a9df7b4c8b"
+        ],
+        [
+          "9415959b1c50767504f9a7530929334b52b65e3457745df6e2f67554390418b3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "65f40db8c193960aa02e8e6a0d4ed6b93cfe42f783f2eb58ebb26fa69aeb1fa5",
+          "42a9cf5a1a6e51b23fa7ebe4b98471241376355cef0c9183789984d41727829b",
+          "f1c40872c0b598b44892741673c8d2a0296dc6eb71cf1d83d4b30c1298b960fb"
+        ],
+        [
+          "1f72069a955f10e093937bc76b7942deb11c53d2525a4a53158e4383ac518856",
+          "0c4833f3bf5e4656912a6dad2977e6c1f10d83dc11873f499d11423ae94da82e",
+          "be3a4fdf9625573ba7b15c98c66ce34573834801041550a8a355efcb53782071"
+        ]
+      ],
+      "element_hashes": [
+        "d70058d43a28f121b550479e399d24b76901e463e7eb265b42291cf04863575a",
+        "149a6ffa4cdf1b9de320a6b447ea97d19c5808522862565c61f10f38a19928bb"
+      ],
+      "hash": "8e04286f8f44584e107c2eb3f793d8e832b1205acb01a48a58e4b748f8b04e71",
+      "kind": "array",
+      "mistakes": {
+        "8f06893ccfc408261a0265aa43c9741a90eefe3ea515c3085f51d9d14c2f2f77": "e) demande ce que rend la version FAUSSE"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.28f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "bff50fd16d5001ff7aca8d8c29259cf21e217c0116d5b294ed0d4de6b9e1f8fb"
+        ],
+        [
+          "3e31b05994ea59db656acc863ae6d1ff840f3992044d87b35f58c4313d154323"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "60f4862a9ff10db3435b4c5ea686193f33691ec8269ad621fd296220aa9d9bbb",
+          "088d5525eb66683fe3b0ae6e24517639fd3679f838a70b1a7f30ef71089c3a44",
+          "226241964d4499cbd082391896ebdb706683bdd5a82a6d42059414d2d7f39313"
+        ],
+        [
+          "1f8a378b5420a4f556a43cb64bc7e7528948c0c69a41536f00b09102681bb679",
+          "704e70d9cc5782f5729e469496874dbaa268b5847399e8f828db28fdcf8535d7",
+          "05301998611b2dd71e6ce7acaa57492de4d2002fca5b3e81600ea2a61faed339"
+        ]
+      ],
+      "element_hashes": [
+        "ee1d43c189cb33c76190b88bb51cfe2eb2a00fc0ad9e42ebd07137d4bd3a6db3",
+        "f7f0a1bd044b4ff7224c99fb80e69dbea87f4bc8fdebd831c77b59595d50b898"
+      ],
+      "hash": "c6d57d2dacc5c1a056c81deb3fa7a53775d428f1209157e697d7501bf2f4d576",
+      "kind": "array",
+      "mistakes": {
+        "3ef2e9e33499d1fcaa2134d5a9ba9d40743621bc3f3623711590f9cbe40c0ab9": "f) demande ce que rend ta version CORRIGÉE"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.29a": {
+      "coarse_any": {
+        "0": [
+          "364f0aa33d799111753f7fed590ddc3567202cef2122ebbaa0903c996d37e886"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "45a58f907ea46e82ee099e0e894b9820541a83905f8b30c9df545313a90ff39b"
+        ],
+        "2": [
+          "8257bf8a3d2aca04cee388a54e6f3a742aa2d4b8e6a4ed01b52b438d8b67218a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a059df11d3937c64f093906b41605abd9604daf92eae2d43d91000450436b24f",
+      "hash_coarse": "98c90a7f0aee9d83f09ab743daed9a683fd3f02cdbba46322b3ddfd6aa8c74af",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "58a3ff6015b6a1583b0c7baab808a416775395fef28fb5624199ecdb6b343106": "chaque comparaison peut échouer des deux côtés : la moitié de son risque de chaque côté",
+        "faa0aaa640afa1b8273b938044b5352bdd5af1e29ef74aebc6ca0292e1cbe568": "partage les 1 % entre les 5 comparaisons (une borne de la réunion)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.29b": {
+      "hash": "03d9add16c55dafe6b63725d3934fcbe9a2d14e54dbacb25c236df6b8dd7d560",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "21360c3238de9462786004a59d359bd93abd984747ea9cd96815ecc12fbf778a": "l'erreur type d'un coefficient de covariance contient aussi Σ_jk²",
+        "fe8b3f041834e94c482df27e3555cd382793d930dcd840f9fbd9d42e4a3a22c5": "la tolérance est k de a), avec le risque partagé entre les 5 comparaisons, des deux côtés"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.29c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "421cf6c7b35aa1a5642a7a2a96ee84e4f4cbafb78b46498fe5173eafbed35d9f"
+        ],
+        [
+          "650a65ea25548949e1f329e6c8243bfe3154788b3ce3733b49e892f602fe0fef"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9b4f0f641892996669fc4798651529d913ae84f58c66c771411234fe11c390c2",
+          "74af39b4fe9f64e275ff64a4e49ef371a9a3ddb6ae4e39a97f530e1aefc7c4b3"
+        ],
+        [
+          "28344a70a23fcd01e3068a70434a60c27644746abd9fead2ab01e2b7379a2bd3",
+          "f8a6f2e4d40449c231a29b83ec9cb1fe71a0903ca2a4b556d15a2913286f7ba2"
+        ]
+      ],
+      "element_hashes": [
+        "8ad43b3689ca9c07423d0fb8c66b828812d89768a21d3773715f480bfa2d2c52",
+        "afcb06f5aab23bbcc8da573689217775986ff39b4a18cf629715e47e597b61f7"
+      ],
+      "hash": "f67bba6ab4c67d2c92bedc307b63b5f36fc4e8dc0383bd8ee6229068a451fee3",
+      "kind": "array",
+      "mistakes": {
+        "8738078ccaf1c5e64dccd7c7f10a6de68c5516de8dca8dc7b8675e60bb753016": "l'erreur type d'un coefficient de covariance contient aussi Σ_jk²"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.29d": {
+      "decimals": 0,
+      "element_hashes": [
+        "1cf9e225c671377c7fdcfc048ac0ec8393458afc20cea31fa7fa873511b3b5d7",
+        "ece09121898c80eb6a6236d612c717438d3fb73f09d4df507bb2ee0964bef870",
+        "41a01b4d36f1f228f7d6bceb47a3ce57aa8428ee2951c97c3c0adc8fe3a2866e",
+        "1c3a73e4116ac4a0470dfe99b1eb5907302e83139b84ba0763e6f1235ece316b"
+      ],
+      "hash": "910eba5443d8c5050671fbcdadb8f97a4c00ad621a9020568bdbae87494ebe10",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "029dfebc1e7fa235f3bbd71519997bf9dfb9c7cc99ef089dc2fca70d82fe3b00": "sampler_diag a les bonnes variances, mais pas la covariance : ton test doit comparer le coefficient (0, 1) aussi",
+        "462a313ffc6e28494f185a01fd65cbedce815015f6d7be028dc5f962a02ea25a": "à n = 2 000, l'erreur type d'une variance est encore grande devant un écart de 2 %"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
+    "M25a.29e": {
+      "hash": "20460a257b64f7595c4d02397cc6c4794c2ef8039036f522f564cefbf7b992cb",
+      "kind": "int",
+      "magnitude": 4,
+      "mistakes": {
+        "44d4bfd860878f5db38b99e273b9bf797637bb97998e22d5327e3c69f723f1c3": "le plus petit entier n qui convient : arrondis vers le haut, avec k non arrondi"
+      },
+      "sign": 1,
+      "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
