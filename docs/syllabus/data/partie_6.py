@@ -15,7 +15,7 @@ of workbookIA.
 
 CHAPTERS = [
     {
-        "id": "M25a", "dir": "m25a_gaussienne", "hours": 17.2, "generation_sessions": 2,
+        "id": "M25a", "dir": "m25a_gaussienne", "hours": 17.4, "generation_sessions": 2,
         "mml": ["§6.5", "§6.7", "§9.3"],
         "summary": "La loi normale multivariée : sa densité (le déterminant et la distance de Mahalanobis), les "
                    "transformations affines et le changement de variable multivarié (la loi de μ + Lε et l'échantillonnage "
@@ -74,7 +74,7 @@ CHAPTERS = [
                     "de la diagonale veut dire l'indépendance conditionnelle sachant les autres coordonnées",
                     "produit de deux densités gaussiennes : une densité gaussienne à un facteur près (les précisions "
                     "s'additionnent, la moyenne est pondérée par les précisions) ; fusion de mesures",
-                    "modèle linéaire gaussien x ~ N(m, P), y = Ax + b + w : loi jointe, loi marginale de y, loi de x "
+                    "modèle linéaire gaussien x ~ N(m, V), y = Ax + b + w : loi jointe, loi marginale de y, loi de x "
                     "sachant y",
                     "régression linéaire bayésienne (MML §9.3) : posterior N(m_N, S_N), prédictive, vraisemblance "
                     "marginale (évidence) ; avec m₀ = 0 et S₀ = τ²I, la moyenne a posteriori est la solution ridge de "
@@ -89,7 +89,7 @@ CHAPTERS = [
                     "KL entre deux gaussiennes multivariées N(μ₀, Σ₀) et N(μ₁, Σ₁), par le lemme "
                     "E[(x − m)ᵀA(x − m)] = tr(AΣ) + (μ − m)ᵀA(μ − m) ; même covariance : la moitié du carré d'une "
                     "distance de Mahalanobis",
-                    "formule sin(a − b) = sin a cos b − cos a sin b, déduite de la forme exponentielle de M22",
+                    "formules de soustraction sin(γ − ψ) et cos(γ − ψ), déduites de la forme exponentielle de M22",
                     "interpolation sphérique (slerp) : formule, extrémités, norme conservée entre deux vecteurs de même "
                     "norme, angle parcouru proportionnel à t, limite linéaire quand l'angle tend vers 0 ; arc et corde"],
         "requires": [("cosinus, sinus, radians", "R9"),
@@ -97,6 +97,7 @@ CHAPTERS = [
                      ("loi normale, changement de variable en dimension 1, théorème de transfert, intégrale double et "
                       "coordonnées polaires", "M02b"),
                      ("matrice de covariance empirique, estimateur biaisé en 1/n", "M02c"),
+                     ("convexité : une fonction convexe est au-dessus de ses tangentes", "M05a"),
                      ("formule de Bayes : a priori, vraisemblance, évidence, a posteriori", "M04"),
                      ("divergence KL discrète, inégalité de Jensen discrète, entropie", "M06"),
                      ("produit scalaire, angle, norme d'un vecteur gaussien en grande dimension", "M07"),
@@ -113,7 +114,7 @@ CHAPTERS = [
         "mymath": {"module": "gaussian.py",
                    "functions": ["mvn_logpdf", "sample_mvn", "schur_complement", "condition_gaussian",
                                  "linreg_posterior"]},
-        "reading_minutes": 175,
+        "reading_minutes": 185,
         "flashcards": 24,
         "notes": "Frontières : le ∂ 25.5 (les dérivées de z = μ + σε par rapport à μ et à s = ln σ², ε fixé, et E[z²] "
                  "dérivée avant ou après l'espérance), le ∂ 25.7 (KL(N(μ, σ²) ‖ N(0, 1)) par E[(z − μ)²] et E[z²], puis "
@@ -158,7 +159,7 @@ CHAPTERS = [
                  "blocs, det M = det D · det(A − BD⁻¹C) et la loi conditionnelle par un résidu indépendant de la mesure "
                  "sont démontrés dans la fiche (§4, dans un bloc `<details>`), sans exercice ∂ ; ✏️ M25a.4, le quiz "
                  "M25a.Q4 et le 🔨 M25a.22 s'en servent. **Le slerp** est démontré "
-                 "(∂ M25a.15 : base orthonormée du plan par Gram-Schmidt, formule de sin(a − b) tirée de "
+                 "(∂ M25a.15 : base orthonormée du plan par Gram-Schmidt, formule de sin(γ − ψ) tirée de "
                  "e^{ia} e^{ib} = e^{i(a + b)}, M22 ; MB3 la reprendra) et appliqué à une route orthodromique (✏️ M25a.9 : "
                  "deux villes, vecteurs unitaires de ℝ³, angle au centre, point au tiers du trajet, profondeur du milieu "
                  "de la corde R(1 − cos(Ω/2)), avec un angle Ω différent de 90°) ; la limite quand Ω tend vers 0 est un "

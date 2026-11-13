@@ -5,13 +5,14 @@
 
 Writes small PNG files into chapitres/m25a_gaussienne/figures/: the error of a GPS receiver, N(μ, Σ) with
 μ = (2, −4) and Σ = [[16, 4], [4, 10]] (Cholesky factor L = [[4, 0], [1, 3]], eigenvalues 18 and 8), drawn as
-μ + Lε, with its 80 % and 99 % ellipses, two points at the same Euclidean distance, and the same draws whitened;
+μ + Lε, with its 80 % and 98 % ellipses, two points at the same Euclidean distance, and the same draws whitened;
 the mass of a Mahalanobis ellipse, 1 − e^(−c²/2), against the 1-D mass, and the density of the norm of a draw of
 N(0, I_d) for d = 2, 5, 26; the delays of a bus at three stops (μ = (2, 3, 5), Σ = [[1, 1, 1], [1, 2, 2], [1, 2, 4]]):
 the joint law of the 2nd and 3rd delays, the slice x₂ = 5 and the conditional law N(7, 2) against the marginal
 N(5, 4); the Bayesian regression of the stretch of a spring, y = θ F + w, prior N(2, 1), σ² = 0,25, after 0, 1, 3
 and 12 measurements; the KL divergence between N(6, 4) and N(8, 9) in both directions, and an exponential law
-against N(1, 1); the slerp between two unit vectors 120° apart against the straight line.
+against N(1, 1); the slerp of the camera of §8 (u = (1, 1, 0)/√2, v = (0, 1, 1)/√2, Ω = 60°) on the unit
+sphere against the straight line, and the norm and the angle of the point for Ω = 60° and 120°.
 The numbers are those of the fiche; none comes from workbookIA 25, B5 or its checkpoint VI (no encoder, no latent
 code, no prior N(0, I) of a VAE, no 25xx seed). Randomness: the draws of the first figure (seed 5901) and the nine
 extra measurements of the spring (seed 5902).
@@ -43,7 +44,7 @@ BOX = dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85)   # lab
 
 GPS_MU = np.array([2.0, -4.0])                     # §1–§3: the error of a GPS receiver, in metres
 GPS_COV = np.array([[16.0, 4.0], [4.0, 10.0]])     # Cholesky [[4, 0], [1, 3]], eigenvalues 18 and 8
-LEVELS = [(0.80, 2 * math.log(5)), (0.99, 2 * math.log(100))]   # mass and c² of the two ellipses
+LEVELS = [(0.80, 2 * math.log(5)), (0.98, 2 * math.log(50))]    # mass and c² of the two ellipses
 BUS_MU = np.array([2.0, 3.0, 5.0])                 # §4: delays (min) of a bus at three stops
 BUS_COV = np.array([[1.0, 1.0, 1.0], [1.0, 2.0, 2.0], [1.0, 2.0, 4.0]])
 BUS_SEEN = 5.0                                     # §4: delay read at the second stop
@@ -53,7 +54,9 @@ SPRING_PRIOR = (2.0, 1.0)                          # §5: θ ~ N(2, 1) cm/kg
 SPRING_NOISE = 0.25                                # §5: σ² (cm²)
 KL_P = (6.0, 4.0)                                  # §7: p = N(6, 4)
 KL_Q = (8.0, 9.0)                                  # §7: q = N(8, 9)
-SLERP_ANGLES = (20.0, 140.0)                       # §8: directions of u and v, in degrees (Ω = 120°)
+CAMERA_U = np.array([1.0, 1.0, 0.0]) / math.sqrt(2)  # §8: the camera turns from u to v (Ω = 60°)
+CAMERA_V = np.array([0.0, 1.0, 1.0]) / math.sqrt(2)
+SLERP_OMEGAS = (60.0, 120.0)                       # §8: angles of the norm and angle panels, in degrees
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -81,7 +84,7 @@ def ellipse(mu, cov, c2, n=300):
 
 # --------------------------------------------------------------------------------------------------------- §1–§3
 def gps_ellipses() -> None:
-    """§1–§3: draws μ + Lε, the 80 % and 99 % ellipses, the axes, two points; the same draws whitened."""
+    """§1–§3: draws μ + Lε, the 80 % and 98 % ellipses, the axes, two points; the same draws whitened."""
     rng = np.random.default_rng(5901)
     L = np.linalg.cholesky(GPS_COV)
     eps = rng.standard_normal((1500, 2))
@@ -97,7 +100,7 @@ def gps_ellipses() -> None:
     q1 = np.array([2.0, 1.0]) / math.sqrt(5)
     q2 = np.array([1.0, -2.0]) / math.sqrt(5)
     c80 = math.sqrt(LEVELS[0][1])
-    for q, lam, name in ((q1, 18.0, "c√18 le long de q₁"), (q2, 8.0, "c√8 le long de q₂")):
+    for q, lam, name in ((q1, 18.0, "c₈₀√18 le long de q₁"), (q2, 8.0, "c₈₀√8 le long de q₂")):
         tip = GPS_MU + c80 * math.sqrt(lam) * q
         ax.annotate("", tip, GPS_MU, arrowprops=dict(arrowstyle="->", color="0.15", lw=1.4))
         ax.annotate(name, tip, textcoords="offset points", xytext=(8, -14 if q is q2 else 4), fontsize=9.5,
@@ -105,9 +108,10 @@ def gps_ellipses() -> None:
     circle = np.linspace(0, 2 * np.pi, 200)
     ax.plot(GPS_MU[0] + math.sqrt(20) * np.cos(circle), GPS_MU[1] + math.sqrt(20) * np.sin(circle), ":",
             color="0.35", lw=1.2, label="cercle de rayon √20 autour de μ")
-    for P, name, d2, off in ((A, "A", "10/9", (-92, 10)), (B, "B", "5/2", (-86, -10))):
+    for P, name, d2, off in ((A, r"$\mathbf{x}_A$", "10/9", (-78, 30)), (B, r"$\mathbf{x}_B$", "5/2", (22, -6))):
         ax.plot(*P, "o", color=C[7], ms=7, zorder=4)
-        ax.annotate(f"{name} : Δ² = {d2}", P, textcoords="offset points", xytext=off, fontsize=10, bbox=BOX)
+        ax.annotate(f"{name} : Δ² = {d2}", P, textcoords="offset points", xytext=off, fontsize=10, bbox=BOX,
+                    arrowprops=dict(arrowstyle="-", color="0.25", lw=0.9))
     ax.plot(*GPS_MU, "k+", ms=12, mew=2)
     ax.annotate("μ", GPS_MU, textcoords="offset points", xytext=(-14, 6), fontsize=11)
     ax.set(xlim=(-14, 18), ylim=(-17, 9), aspect="equal", xlabel="erreur vers l'est x₁ (m)",
@@ -119,8 +123,8 @@ def gps_ellipses() -> None:
     ax.scatter(eps[:, 0], eps[:, 1], s=4, color=C[0], alpha=0.35, label="les mêmes tirages ε = L⁻¹(x − μ)")
     for (mass, c2), col in zip(LEVELS, (C[1], C[6])):
         ax.plot(math.sqrt(c2) * np.cos(circle), math.sqrt(c2) * np.sin(circle), color=col, lw=2,
-                label=f"cercle de rayon c = {french_number(round(math.sqrt(c2), 2))} ({int(round(100 * mass))} %)")
-    for P, name in ((A, "L⁻¹(A − μ)"), (B, "L⁻¹(B − μ)")):
+                label=f"cercle de rayon c = {math.sqrt(c2):.2f} ({int(round(100 * mass))} %)".replace(".", ","))
+    for P, name in ((A, r"L⁻¹($\mathbf{x}_A$ − μ)"), (B, r"L⁻¹($\mathbf{x}_B$ − μ)")):
         w = np.linalg.solve(L, P - GPS_MU)
         ax.plot(*w, "o", color=C[7], ms=7, zorder=4)
         ax.annotate(f"{name}, de norme {french_number(round(float(np.linalg.norm(w)), 3))}", w,
@@ -136,11 +140,11 @@ def gps_ellipses() -> None:
 
 
 def ellipse_mass() -> None:
-    """§3: 1 − e^(−c²/2) against 2Φ(c) − 1, and the density of ‖ε‖ for d = 2, 5, 26."""
+    """§3: 1 − e^(−c²/2) against P(|Z| ≤ c), and the density of ‖ε‖ for d = 2, 5, 26."""
     fig, axes = plt.subplots(1, 2, figsize=(13.0, 4.6))
     ax = axes[0]
     c = np.linspace(0, 4, 400)
-    ax.plot(c, 2 * stats.norm.cdf(c) - 1, color=C[0], lw=2, label="d = 1 : P(|Z| ≤ c) = 2Φ(c) − 1")
+    ax.plot(c, 2 * stats.norm.cdf(c) - 1, color=C[0], lw=2, label="d = 1 : P(|Z| ≤ c), Z ~ N(0, 1)")
     ax.plot(c, 1 - np.exp(-c ** 2 / 2), color=C[1], lw=2, label="d = 2 : P(Δ ≤ c) = 1 − e^(−c²/2)")
     ax.plot([1.5, 1.5], [0, 2 * stats.norm.cdf(1.5) - 1], ":", color="0.4")
     for val, col in ((2 * stats.norm.cdf(1.5) - 1, C[0]), (1 - math.exp(-1.125), C[1])):
@@ -235,7 +239,7 @@ def bayes_regression() -> None:
         if n:
             ax.plot(F, y, "o", color=C[1], ms=6, zorder=4, label="mesures")
         title = "a priori : θ ~ N(2, 1)" if n == 0 else f"après {n} mesure{'s' if n > 1 else ''}"
-        ax.set(title=f"{title}\nm = {french_number(round(mN, 3))}, s = {french_number(round(SN, 4))}",
+        ax.set(title=f"{title}\n$m_N$ = {french_number(round(mN, 3))}, $S_N$ = {french_number(round(SN, 4))}",
                xlabel="masse F (kg)", xlim=(0, 5), ylim=(-5, 22))
         ax.grid(alpha=0.25)
     axes[0].set_ylabel("allongement y (cm)")
@@ -291,47 +295,57 @@ def kl_both_ways() -> None:
 
 # --------------------------------------------------------------------------------------------------------- §8
 def slerp_figure() -> None:
-    """§8: slerp against the straight line between two unit vectors 120° apart, t = k/8."""
-    a0, a1 = (math.radians(a) for a in SLERP_ANGLES)
-    u = np.array([math.cos(a0), math.sin(a0)])
-    v = np.array([math.cos(a1), math.sin(a1)])
-    Om = math.acos(float(u @ v))
-    ts = np.arange(9) / 8
+    """§8: the camera of the fiche on the unit sphere (t = 0, ¼, ½, ¾, 1); norm and angle for Ω = 60° and 120°."""
+    u, v = CAMERA_U, CAMERA_V
+    Om = math.acos(float(u @ v))                                       # 60°
+    ts = np.arange(5) / 4
     sl = np.array([(math.sin((1 - t) * Om) * u + math.sin(t * Om) * v) / math.sin(Om) for t in ts])
     li = np.array([(1 - t) * u + t * v for t in ts])
-    fig, axes = plt.subplots(1, 3, figsize=(15.0, 4.8), gridspec_kw={"width_ratios": [1.1, 1, 1]})
-    ax = axes[0]
-    s = np.linspace(0, 2 * np.pi, 300)
-    ax.plot(np.cos(s), np.sin(s), color="0.75", lw=1)
+    arc = np.array([(math.sin((1 - t) * Om) * u + math.sin(t * Om) * v) / math.sin(Om)
+                    for t in np.linspace(0, 1, 100)])
+    fig = plt.figure(figsize=(15.5, 5.0))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.3, 1, 1])
+    ax = fig.add_subplot(gs[0], projection="3d")
+    a, b = np.meshgrid(np.linspace(0, 2 * np.pi, 37), np.linspace(0, np.pi, 19))
+    ax.plot_wireframe(np.cos(a) * np.sin(b), np.sin(a) * np.sin(b), np.cos(b), color="0.82", lw=0.5)
     for P in sl:
-        ax.plot([0, P[0]], [0, P[1]], color=C[0], lw=0.6, alpha=0.5)
-    ax.plot(sl[:, 0], sl[:, 1], "o", color=C[0], ms=6, label="slerp, t = 0, 1/8, …, 1")
-    ax.plot(li[:, 0], li[:, 1], "s", color=C[1], ms=5, label="(1 − t) u + t v")
-    ax.plot([u[0], v[0]], [u[1], v[1]], color=C[1], lw=1)
+        ax.plot([0, P[0]], [0, P[1]], [0, P[2]], color=C[0], lw=0.7, alpha=0.6)
+    ax.plot(*arc.T, color=C[0], lw=1.8)
+    ax.plot(*sl.T, "o", color=C[0], ms=7, label="slerp, t = 0, ¼, ½, ¾, 1 : sur l'arc")
+    ax.plot(*np.vstack([u, v]).T, color=C[1], lw=1.2)
+    ax.plot(*li.T, "s", color=C[1], ms=6, label="(1 − t) u + t v : sur la corde")
     for P, name in ((u, "u"), (v, "v")):
-        ax.annotate(name, P, textcoords="offset points", xytext=(6, 4), fontsize=12)
-    ax.plot(0, 0, "k+", ms=10)
-    ax.set(xlim=(-1.25, 1.25), ylim=(-0.45, 1.25), aspect="equal", title="Ω = 120° : l'arc et la corde")
-    ax.legend(fontsize=9, loc="lower center")
-    ax.grid(alpha=0.25)
+        ax.text(*(1.12 * P), name, fontsize=13)
+    ax.plot([0], [0], [0], "k+", ms=9)
+    ax.view_init(elev=math.degrees(math.asin(1 / math.sqrt(3))) - 8, azim=-45)   # almost along u × v
+    ax.set_box_aspect((1, 1, 1), zoom=1.3)
+    ax.set(xlim=(-1, 1), ylim=(-1, 1), zlim=(-1, 1))
+    ax.set_axis_off()
+    ax.set_title("la caméra du §8 : Ω = 60°, sur la sphère unité", fontsize=11)
+    ax.legend(fontsize=9, loc="lower center", bbox_to_anchor=(0.5, -0.06))
 
-    ax = axes[1]
     tt = np.linspace(0, 1, 200)
-    ax.plot(tt, np.ones_like(tt), color=C[0], lw=2, label="slerp : 1")
-    ax.plot(tt, np.sqrt((1 - tt) ** 2 + tt ** 2 + 2 * tt * (1 - tt) * math.cos(Om)), color=C[1], lw=2,
-            label="ligne droite : cos(Ω/2) = 0,5 au milieu")
-    ax.set(xlabel="t", ylabel="norme", ylim=(0, 1.1), title="la norme du point")
-    ax.legend(fontsize=9, loc="lower center")
-    ax.grid(alpha=0.25)
-
-    ax = axes[2]
-    lin = np.array([(1 - t) * u + t * v for t in tt])
-    ang = np.degrees(np.arccos(np.clip(lin @ u / np.linalg.norm(lin, axis=1), -1, 1)))
-    ax.plot(tt, np.degrees(tt * Om), color=C[0], lw=2, label="slerp : tΩ, vitesse constante")
-    ax.plot(tt, ang, color=C[1], lw=2, label="ligne droite : lente aux bouts")
-    ax.set(xlabel="t", ylabel="angle avec u (degrés)", ylim=(0, 125), title="l'angle parcouru")
-    ax.legend(fontsize=9, loc="upper left")
-    ax.grid(alpha=0.25)
+    ax_n = fig.add_subplot(gs[1])
+    ax_a = fig.add_subplot(gs[2])
+    ax_n.plot(tt, np.ones_like(tt), color=C[0], lw=2, label="slerp : 1")
+    for deg, ls in zip(SLERP_OMEGAS, ("-", "--")):
+        om = math.radians(deg)
+        norm = np.sqrt((1 - tt) ** 2 + tt ** 2 + 2 * tt * (1 - tt) * math.cos(om))
+        mid = french_number(round(math.cos(om / 2), 3))
+        ax_n.plot(tt, norm, color=C[1], lw=2, ls=ls, label=f"ligne droite, Ω = {deg:g}° : {mid} au milieu")
+        uu = np.array([1.0, 0.0])
+        vv = np.array([math.cos(om), math.sin(om)])
+        lin = (1 - tt)[:, None] * uu + tt[:, None] * vv
+        ang = np.degrees(np.arctan2(lin[:, 1], lin[:, 0]))
+        ax_a.plot(tt, deg * tt, color=C[0], lw=2, ls=ls, label=f"slerp, Ω = {deg:g}° : tΩ")
+        ax_a.plot(tt, ang, color=C[1], lw=2, ls=ls, label=f"ligne droite, Ω = {deg:g}°")
+    ax_n.set(xlabel="t", ylabel="norme", ylim=(0, 1.1), title="la norme du point")
+    ax_n.legend(fontsize=9, loc="lower center")
+    ax_n.grid(alpha=0.25)
+    ax_a.set(xlabel="t", ylabel="angle avec u (degrés)", ylim=(0, 125),
+             title="l'angle parcouru : la ligne droite est lente aux bouts")
+    ax_a.legend(fontsize=8.6, loc="upper left")
+    ax_a.grid(alpha=0.25)
     save(fig, "slerp.png")
 
 
