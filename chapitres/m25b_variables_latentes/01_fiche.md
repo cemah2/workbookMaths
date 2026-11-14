@@ -326,7 +326,7 @@ la valeur que donne la dérivée directe $\frac{\mathcal{N}(8 \mid 11, 4) - \mat
 
 💻 **Aujourd'hui en pratique** — Pyro et NumPyro maximisent une ELBO estimée sur des tirages de $q$ (`Trace_ELBO`) ; le §7 dit comment la dériver. Tu écris `gmm_elbo` en 🔨 M25b.22.
 
-⚠️ **Erreur classique.** Oublier l'entropie de $q$ (🐛 M25b.28) : la « borne » n'en est plus une. Écrire l'écart $\mathrm{KL}(p(\mathbf{z} \mid \mathbf{x}) \,\|\, q)$ : c'est $\mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$, $q$ en premier. Croire que l'ELBO est une vraisemblance : elle n'égale $\ln p(\mathbf{x})$ qu'au posterior.
+⚠️ **Erreur classique.** Oublier l'entropie de $q$ (🐛 M25b.28) : pour un latent discret, l'entropie est positive ou nulle, donc ce qui reste est encore sous $\ln p(\mathbf{x})$, mais la borne n'est plus atteinte au posterior ; pour un latent continu, l'entropie différentielle peut être négative, et ce n'est même plus une borne. Écrire l'écart $\mathrm{KL}(p(\mathbf{z} \mid \mathbf{x}) \,\|\, q)$ : c'est $\mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$, $q$ en premier. Croire que l'ELBO est une vraisemblance : elle n'égale $\ln p(\mathbf{x})$ qu'au posterior.
 
 🔗 **Dans workbookIA** — le chapitre 25 maximise l'ELBO d'un autoencodeur variationnel (VAE), écrite « reconstruction moins KL au prior », et en affirme la borne : tu l'as démontrée ici, pour n'importe quel modèle.
 
