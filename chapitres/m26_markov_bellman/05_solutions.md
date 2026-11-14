@@ -192,7 +192,7 @@ Dans ta copie : g) majore bien b), sans être serrée. $\mathbf{P}$ est stochast
 
 Dans ta copie : sur $[3\,000, 4\,000]$, la solution, $4\,040{,}27$ €, sort de l'intervalle ; sur $[4\,000, 5\,000]$, $4\,061{,}22$ € y tombe, et le point fixe de $\varphi$ est unique (fiche §7).
 
-**Erreurs fréquentes.** Oublier $\gamma$ (on trouve 6 750 €) ou le coût $c$ (4 163 €). Garder la solution de $[3\,000, 4\,000]$ sans vérifier l'intervalle. Accepter 4 000 €. Donner $\mathbb{E}[X]$ ou $C^\star$ en d). Évaluer en e) la règle « seulement 7 000 € » (3 562,50 €).
+**Erreurs fréquentes.** Oublier $\gamma$ (on trouve 6 750 €) ou le coût $c$ (4 163 €). Garder la solution de $[3\,000, 4\,000]$ sans vérifier l'intervalle. Accepter 4 000 €. Donner $\mathbb{E}[X]$ ou $C^\star$ en d). Évaluer en e) la règle qui accepte toute offre (3 775 €).
 
 **Variante.** Si la meilleure offre vaut 8 000 € au lieu de 7 000 €, $C^\star \approx 4\,408$ € : elle accepte toujours 5 000 et 8 000 €.
 

@@ -84746,7 +84746,7 @@
       "magnitude": 2,
       "mistakes": {
         "eb42f9d9bd5f636413756e43132ce43deb22c6af28ca416f47b06bbed9ecb206": "le coût de ce soir dépend de la station de ce soir : il y a un pas de la chaîne entre ce matin et ce soir",
-        "f9cebce92895b8d21559003d1083bfa3b736080b5d178bdcca9a0c5b4f294ea3": "pondère les coûts moyens Pf par la répartition des vélos ce matin"
+        "f9cebce92895b8d21559003d1083bfa3b736080b5d178bdcca9a0c5b4f294ea3": "les 200 vélos ne sont pas répartis également entre A, B et C ce matin"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
@@ -85014,7 +85014,7 @@
       "kind": "array",
       "mistakes": {
         "067e1d9d9425f1b2ab0d539eac555c88a341f6a0be2cb43bba4f6ba8d7923778": "la limite dépend du départ : elle ne met pas la moitié de la masse dans chaque classe",
-        "ba05a64bf4ce76cbcd5f2ed9549b9051bddce4c96bfa017c47019b64ca204383": "chaque classe garde la masse qui y arrive : pondère chaque loi stationnaire par la probabilité d'arriver dans sa classe"
+        "ba05a64bf4ce76cbcd5f2ed9549b9051bddce4c96bfa017c47019b64ca204383": "chaque classe garde la masse qui y arrive : vérifie quelle version reçoit 60 % des visiteurs"
       },
       "shape": [
         4
@@ -85062,7 +85062,7 @@
       "hash": "6a8cfff3a0b7f7840b6ca7243df8d3bdaddee8b416ae476392ae6793b82436f0",
       "kind": "array",
       "mistakes": {
-        "3d3d0f9c67c461193fe7f81a3f1a3c0b035674ed51f13c31f242103958820a08": "dans le bloc fermé, la masse va surtout à l'état qu'on quitte le moins : compare 0,1 et 0,4"
+        "3d3d0f9c67c461193fe7f81a3f1a3c0b035674ed51f13c31f242103958820a08": "dans le bloc fermé {1, 2}, écris l'équilibre des flux entre les deux états (ce qui passe de 1 à 2 égale ce qui passe de 2 à 1), puis normalise"
       },
       "shape": [
         3
@@ -85299,7 +85299,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "c1866faf779f1b9ae03e8e6dc015dd5ed673e600ea34f26978c5d07581babdac": "le mois offert est le premier, qui était payé avec certitude : son retrait enlève toute sa valeur"
+        "c1866faf779f1b9ae03e8e6dc015dd5ed673e600ea34f26978c5d07581babdac": "le mois offert est le mois 0, que tous les abonnés paient : il ne pèse pas 0,7 dans la somme"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
@@ -85475,27 +85475,38 @@
     "M26.6e": {
       "coarse_any": {
         "0": [
-          "21834dff032b3c4f941c4fd20bb404d16a93f4df9fdf5922d472f396370e6e70"
+          "e818cea078a6f1bfa70c8713bb474d9b711fadfa109d136f5ac4b7b8b89b8757"
         ]
       },
       "decimals": 2,
-      "hash": "5b2d0a98bde8f5c6a97e0fa524638463d4dc3597def1a4e26f562568fa2b077c",
-      "hash_coarse": "d0c468587e38e592ddc6f3f33ac35a41d28ec9569789576dbbf7b981db265521",
+      "hash": "dd0339a4ef670b4c67193e2509a38cac476a028f73f75b567d21069fb5624753",
+      "hash_coarse": "9ed10d89d3c148707d820cf820b9d0e8e60560916cfb9b8d79257ed09f018596",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "460ba73cce7b3fea30b8af8b75b9c677f0973776c72907e53d51e88b949a4af8": "Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la transition est celle de l'action a (continuer)",
-        "a1dca340f0689d7ae984a672a3281d2ad080b5179776d25f1910763afad86e12": "Q^π(s, a) suit l'action a une fois, puis π : on prend les valeurs V^{π_B}, pas V^{π_A}"
+        "15bd414a8aec62efc287f61234bd3c4e6271d9552cae11227ed69d1df2f7f0b3": "l'entretien coûte 4 k€ le mois où on le fait : r(usée, entretenir) n'est pas 6",
+        "6884de0b2ebf72f41a24156fe6f26a8da78011a25a9c19297b854af1594ef11a": "les valeurs des mois suivants sont actualisées : γ multiplie la somme Σ P V",
+        "856c5865707f0c9a458d8eb6f508b2269bd8156912d4bdcf816c53a04b0ce0b4": "Q^π(s, a) suit l'action a une fois, puis π : on prend les valeurs V^{π_B}, pas V^{π_A}"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.6f": {
-      "hash": "90ee63fbb5c58d227d5f9c963e43efd1a22ca5cba5ad719cb046508a66d4f798",
-      "kind": "bool",
-      "mistakes": {
-        "608e461b921b0b550de8c395bfdefac73d398816fbf6a694502b6d68e87982be": "calcule Q^{π_B}(1, entretenir) avec la ligne de l'entretien, et compare-la à ta réponse d)"
+      "coarse_any": {
+        "0": [
+          "c60d7674f30bbbc09bb6ba164547b9edee3bd716fa3d612988c4cb0dfd78b9e0"
+        ]
       },
+      "decimals": 2,
+      "hash": "f9e33f79208005f75dd8bbd1261c292bb6ce36c139eafc8be546960b5d2c8401",
+      "hash_coarse": "0e6edbcfd08b8ed6382d5db9e36a899634b766be4d114275ce2e783d75069ec0",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "17041f9f8b2c8c4775ee3dac659c445720e212f72e5de74b222971b9980f29a9": "la part des mois suivants est actualisée : γ multiplie la somme Σ P V",
+        "229f36a6a30324875aa90eee1247b87300ab701c1ea4517c763343cde877a619": "après le premier mois, on suit π_B : les valeurs sont celles de π_B"
+      },
+      "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.7a": {
@@ -85769,7 +85780,7 @@
       "magnitude": 3,
       "mistakes": {
         "2fcbf9057d66a65cc97535c8fd2c889f9fff5991d740dc6f2c716f63e3bb8cfd": "la règle « dès 4 000 € » refuse les offres de 3 000 € : après un refus, elle attend l'offre suivante",
-        "cbfa83a428cde0e16ee332e01dd9f14c0687df7c854301fa234f5dfa9fbf6f31": "une règle fixée s'évalue par une équation linéaire : C = c + γ E[gain de la règle], sans maximum"
+        "cbfa83a428cde0e16ee332e01dd9f14c0687df7c854301fa234f5dfa9fbf6f31": "la règle « dès 4 000 € » n'est pas la règle optimale de c) : elle accepte aussi 4 000 €, et s'évalue par une équation linéaire, sans maximum"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
@@ -85865,7 +85876,7 @@
       "kind": "float",
       "magnitude": 3,
       "mistakes": {
-        "42a6a2c7889224eae485717b10bf802497594abcaf8a5fcb9fde8c9cfd58e038": "B est choisi avec la probabilité c), A avec le reste",
+        "42a6a2c7889224eae485717b10bf802497594abcaf8a5fcb9fde8c9cfd58e038": "vérifie quel fournisseur est choisi avec la probabilité c)",
         "b38adff9a727944108c8e488e1da4da3b45ab4d18a5ddf4891cb495ffc2b88b8": "l'option choisie n'est pas toujours la meilleure"
       },
       "sign": 1,
@@ -86074,17 +86085,17 @@
     "M26.14f": {
       "coarse_any": {
         "0": [
-          "5be887888291bd9075033cc9b6204758ef8d634ed16b46a574942a4f357dd742"
+          "193e7267e215ddbfd17663170da511bfacc5e919a09dd140817d9867b96cd97e"
         ]
       },
       "decimals": 2,
-      "hash": "d6d2a21ab259fc5c4fbef95d029b3671288a002081c156aefa3abc5c1c76e917",
-      "hash_coarse": "f31263a3c3f481e1ea3c7c311db00edf65a6edca7063950d98dd4fcb0aa703c1",
+      "hash": "4ab69ad04e8ff40c61a783e8e1706f18c2f7423c9b1bb5a01e267ce74a48c6d4",
+      "hash_coarse": "2197f9d7601120b78747e3d590e9aaaf0fca5bd664ee7021cd85714efb02bc74",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "4ab69ad04e8ff40c61a783e8e1706f18c2f7423c9b1bb5a01e267ce74a48c6d4": "Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la récompense et la transition sont celles de la remise",
-        "ed4e3006180f1ac037b621afc6e3e35b88a4c641edb21b5ee2a089ee05c55f79": "la récompense moyenne d'une remise à un fidèle est r(fidèle, remise), pas la cotisation pleine"
+        "5a38d45b15902eaa01017f7511d0c98fe539d481320148bbde4ad8ac1a09e4e0": "les valeurs des mois suivants sont actualisées : γ multiplie la somme Σ P V",
+        "ed4e3006180f1ac037b621afc6e3e35b88a4c641edb21b5ee2a089ee05c55f79": "Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la transition est celle de l'action « rien »"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
