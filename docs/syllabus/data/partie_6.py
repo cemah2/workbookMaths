@@ -687,7 +687,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M26", "dir": "m26_markov_bellman", "hours": 14.7, "generation_sessions": 1, "mml": [],
+        "id": "M26", "dir": "m26_markov_bellman", "hours": 17.9, "generation_sessions": 1, "mml": [],
         "summary": "Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de transition, la loi après n "
                    "pas (en convention ligne) et la loi stationnaire (existence, unicité, convergence, vitesse, et le "
                    "PageRank) ; l'espérance conditionnelle et l'analyse au premier pas (la probabilité d'être absorbé, la "
@@ -901,7 +901,7 @@ CHAPTERS = [
                  "les matrices de M12c §4 et §5, la population à pile ou face de M22 §5. "
                  "Pas de MML (le livre ne traite pas les chaînes de Markov), donc pas de 📖 ; références libres : "
                  "Blitzstein et Hwang, ch. 11 (chaînes de Markov) ; pour Bellman, Sutton et Barto (2ᵉ éd.), §3.5-3.6 et "
-                 "§4.1-4.4, cités par sections. 14,6 h au lieu des 12 h prévues : la propriété de la tour et "
+                 "§4.1-4.4, cités par sections. 17,9 h au lieu des 12 h prévues (14,6 h au syllabus de la session 60 ; lecture 170 min et durées des exercices recalées après les vérifications de la session 65) : la propriété de la tour et "
                  "l'analyse au premier pas, le cas d'une fin possible (γ = 1 quand la fin est sûre), l'arrêt optimal, "
                  "l'erreur TD et le biais du maximum, que workbookIA 26 suppose ou que MB8 rappellera ; la loi "
                  "stationnaire reste courte, Banach et la convergence d'une chaîne irréductible apériodique sont "

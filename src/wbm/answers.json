@@ -84582,52 +84582,81 @@
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },
     "M26.1a": {
-      "decimals": 2,
-      "hash": "3a590873324e8fdca199c80efb3b738a1f50744bcc697cd73b50f088cf590617",
-      "hash_coarse": "f9fd6af3121c09f5f5855f391fcd50196c1cc6154c7722ad9269421a2853374d",
+      "coarse_any": {
+        "1": [
+          "f9fd6af3121c09f5f5855f391fcd50196c1cc6154c7722ad9269421a2853374d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "3a590873324e8fdca199c80efb3b738a1f50744bcc697cd73b50f088cf590617"
+        ],
+        "3": [
+          "61f580462516ee8e62f6f36325e49b15ad908de0467c119762f11e70c397b248"
+        ],
+        "4": [
+          "3382aa7201655c6d4d317b3a017a44ba0b2663ebfb9009192953b950c905a399"
+        ]
+      },
+      "decimals": 6,
+      "hash": "b9b0816bdf7af2784c558f17190b0cc6ec20d800febfd82a3e37cde67d1e2430",
+      "hash_coarse": "b6406282af7c79a6cf2d5840c5ec3577a095743f8a61a5cd1eb3da83fb78b869",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "393a2cce2c6d2ee5481dcceba646cc13f63c470a45ef216db505536b385e0e9b": "la puissance d'une matrice n'est pas la puissance de chaque coefficient : (P²)_BC est une somme sur les chemins de B à C",
-        "e9eccbf58e6a00beaaa07566b8bfae767e01fcc2af074bf6ca54ad77c9f0ec4b": "la ligne est la station de départ, la colonne celle d'arrivée"
+        "66e1279227e5f876ac65a035631c9ea2297020bea0ea9deee3d9c51e21258f63": "la ligne est la station de départ, la colonne celle d'arrivée",
+        "ce14af45be8d0cf35647f3c24c7b94a5354a0c18a05a88b6e959ee2d249fb329": "la puissance d'une matrice n'est pas la puissance de chaque coefficient : (P²)_BC est une somme sur les chemins de B à C"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.1b": {
-      "decimals": 3,
+      "array_rounded": {
+        "1": "ee4703682a1a8debd43e307d79947408a07ab0863425582e3fc15c384ce49fb1",
+        "2": "a3137786a4f739234cc19ac27a2aba1482233642cfa5ac553a13d1569e6f227b"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "3f3462023daff60b45f6b3b475497be0325a219987d12527bb80e459a7fd355a"
+          "8a361ba3d1d868bbca4bd02be620085bd7adfdba6a29b94179595d877307d233"
         ],
         [
-          "597eeb938a2939345833c9b12f6b97f0f9d88b202c19162489db4538cbe97b30"
+          "30a2e386efc6cb8476329d5f50558087157a6b5417ffa810ee44ada9114228ed"
         ],
         [
-          "7082528491a1191eaed727d38325579efbf5182b4127364b1c171dca21c6d1c2"
+          "cad2ce3b7cf6f117a106ca2549193c93e97ac53b6c19a9e2dd0a83a17caf1efd"
         ]
       ],
       "element_coarse_any": [
         [
-          "1ee1691050bc0413fe87a00c51161113560341438f5db38dbdafe989a0443568"
+          "1ee1691050bc0413fe87a00c51161113560341438f5db38dbdafe989a0443568",
+          "3f3462023daff60b45f6b3b475497be0325a219987d12527bb80e459a7fd355a",
+          "79ac9daf685f005f3e70f8613ec1e7d0205f678dc2db630a6940bffdd8b73eee",
+          "a9872faf5aca8e75bba71d35dd86592292f9eb35d3017840484c4bbb920c92b9"
         ],
         [
-          "5ebcad2a407f050396592fa6274e4add5bb6c8c8fba462d952560f896548cbab"
+          "5ebcad2a407f050396592fa6274e4add5bb6c8c8fba462d952560f896548cbab",
+          "597eeb938a2939345833c9b12f6b97f0f9d88b202c19162489db4538cbe97b30",
+          "b0e8311010424f8c309e528a977b053fea35dfd89fc6e05192e9b2e8b8b966a9",
+          "f4b47aed63b1ee580765a8f418c9b9b94d484b0aad198d7c7ee2cbc58728f829"
         ],
         [
-          "84af37c2ee28ba58e7c69e6fc24a086476d433a75401711e9ae2235a579f91d3"
+          "84af37c2ee28ba58e7c69e6fc24a086476d433a75401711e9ae2235a579f91d3",
+          "7082528491a1191eaed727d38325579efbf5182b4127364b1c171dca21c6d1c2",
+          "c9ce4d19ced375ea3580b83a0e64c4cc8c1e9fbaa885d5a6c7019d1155cbb333",
+          "ac5858e71195c692c5349f33abc0e4e80752f3060c164aa933e2cd046d5dc013"
         ]
       ],
       "element_hashes": [
-        "79ac9daf685f005f3e70f8613ec1e7d0205f678dc2db630a6940bffdd8b73eee",
-        "b0e8311010424f8c309e528a977b053fea35dfd89fc6e05192e9b2e8b8b966a9",
-        "c9ce4d19ced375ea3580b83a0e64c4cc8c1e9fbaa885d5a6c7019d1155cbb333"
+        "be316fa33372a94fdfc9e194af0717b7c6e0d02a1c451fbd6b6997cf5e49f7b1",
+        "9819fd606b42b9abb82522320dd193c7f9f1b369c54987ff93e53147eae0af4f",
+        "408478f474dc9201f6239d1ec261aa09403d8663ec20087b8b00c364bfcc7265"
       ],
-      "hash": "b40bb8dd91e762e48f966700ee8fe5c219cbbc0b9190c111b5c5a0e62fd4e99b",
+      "hash": "dfce22d9db184961a4becd5a9d81990967f94d49f7f79ca3783d3abc8091a393",
       "kind": "array",
       "mistakes": {
-        "72a127417bd43cfb0cb3cf7791a4e4607d54e46102387280da1d8e24e8a1dc53": "deux jours font deux pas : μ₂ = μ₀P²",
-        "949d53f513f16cd62d48cbef02697d759d4f01e56816ab7c27f38063ebd750d6": "une loi est une ligne : elle avance par μP, pas par Pμ"
+        "c9fcabdafe7bb96ed2a125bb1be6eb597cd8ee4f991a85c928ee33c1e7303a50": "une loi est une ligne : elle avance par μP, pas par Pμ",
+        "d9eb5fc8e76ebaceff6969905894842a98955eb93fedc7f4dd00763b9beed005": "deux jours font deux pas : μ₂ = μ₀P²"
       },
       "shape": [
         3
@@ -84635,42 +84664,53 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.1c": {
-      "decimals": 4,
+      "array_rounded": {
+        "1": "4f735623249eb773cae7c6e9b77ee843f3a4f431514ee80d1595ecab60bcdb1c",
+        "2": "568b581488a80e591131d368ea26e80617e007700a3d3acb3b2707712e62cd96",
+        "3": "f1fc7d56a3bbac7473bab4788a3fa1a0525f9f3bc26035ac2e829208bcce2872"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "33b529a3cd5f8fc2011fecf0d9e9006ccabc40613137e38737c8e041cc2b5e75"
+          "98f77e725d730bc95e55b2808a18c08e7fce305151ce1bbdb5d0a94edf98387c"
         ],
         [
-          "a9145cbb09e8e9da8d9a52d2cf6a6a8e5fd3046de76e93249a1738cde2821591"
+          "f0fd08d35f45e8b72b52c880868db89088b13140384fdcd92d234a194507f573"
         ],
         [
-          "8a4aaffffb86bb3cd49551e9b23afbc9c7430cde7c6f437a947b12a1aea417e3"
+          "5f71eafd1a29ceeeba5eabd5cb3e74b3968306da20b69d63b531070de9997a6a"
         ]
       ],
       "element_coarse_any": [
         [
           "aa709439f28ae5fc6621bef0bf76bc559b73e878af55460da094469ba429c6c8",
-          "1ff2f88c0d17a3f3648a67370b03824f48988fecabccebfee09f0b7f30dff17f"
+          "1ff2f88c0d17a3f3648a67370b03824f48988fecabccebfee09f0b7f30dff17f",
+          "33b529a3cd5f8fc2011fecf0d9e9006ccabc40613137e38737c8e041cc2b5e75",
+          "700ad1cf63a72fc5455ba188beb950e5cff0e98cef00593fc9f2c113b67f3a27"
         ],
         [
           "4846ecff90aa55e6ac00ed5466a8066f8a80a26e90b1c203458cf0fe51894caa",
-          "e5fc8daac1f63bb77e021fbbe7f55ba630cbff6ffeaa702b4aeeb1ea642286c3"
+          "e5fc8daac1f63bb77e021fbbe7f55ba630cbff6ffeaa702b4aeeb1ea642286c3",
+          "a9145cbb09e8e9da8d9a52d2cf6a6a8e5fd3046de76e93249a1738cde2821591",
+          "600dc29a8382f0e0811f2c25cdafc71246d968b15ec4272fbba83185b428bce7"
         ],
         [
           "ff5eef0ab60a9c6ab2aaafcd840cb45d9644e2ff64f91939946ba0057e82a768",
-          "47fa001c634b5aa72ed7a7336fc33b4f664d2172b719a1b70f7c1a4fa8de193d"
+          "47fa001c634b5aa72ed7a7336fc33b4f664d2172b719a1b70f7c1a4fa8de193d",
+          "8a4aaffffb86bb3cd49551e9b23afbc9c7430cde7c6f437a947b12a1aea417e3",
+          "fea5fe9608c5e93a4e4a737f4581b24c1ea72617e15db81d0fdf557e739ab8ed"
         ]
       ],
       "element_hashes": [
-        "700ad1cf63a72fc5455ba188beb950e5cff0e98cef00593fc9f2c113b67f3a27",
-        "600dc29a8382f0e0811f2c25cdafc71246d968b15ec4272fbba83185b428bce7",
-        "fea5fe9608c5e93a4e4a737f4581b24c1ea72617e15db81d0fdf557e739ab8ed"
+        "32ccac9f3c4a9d67b76244e30afbdb01603a80af3ce7df1d991336243856359c",
+        "e076b68d3bbae3374c2ba6b23474296a48707cb2a6bdeea0003eaf0feea938d7",
+        "cdcea9d6dd81ed0f4f653f43eda5eea873fe09e5ba2d88625f7cc0c11eab80e9"
       ],
-      "hash": "436f3f2d04f4e92db50f2880f7cb5ba4df7e0eacd2bba8bf2a1cbff014a179c4",
+      "hash": "546fab945a2d258a30dfa355827b93d0dbe52d3fb138358743461f66a0b22c47",
       "kind": "array",
       "mistakes": {
-        "c1dc951cd30e16668c2de2f409f866621d7486584a1b12098610e406c8b19ec3": "trois jours font trois pas à partir de μ₀, pas quatre",
-        "f0c96864bd6acc59ad77da0cd7ded4453f451cf2a11e0a49e6d82cf165e2013b": "une loi est une ligne : elle avance par μP, pas par Pμ (et la somme doit rester 1)"
+        "04344b1724ceb4c7de3a8682cf52cd4666f1be7bbdf57891fd36c3ecdf9be80d": "une loi est une ligne : elle avance par μP, pas par Pμ (et la somme doit rester 1)",
+        "bc4371dc0e5e227bec846555d5118dde8348d5c31b670ae9bfe620dc47dee34c": "trois jours font trois pas à partir de μ₀, pas quatre"
       },
       "shape": [
         3
@@ -84683,50 +84723,79 @@
           "6879eb9ede0ec79db6dbb7ab968aa2d3301475938796b5a26387c438eada043a"
         ]
       },
-      "decimals": 2,
-      "hash": "5cb1232a102afafb6cb70eb22ba0f87db4b12ff0eaf592b58f0ba620d418296a",
-      "hash_coarse": "25f193ab02f751c5f54f9e1a6edbba933d46f938fd8bf6ae594c65fec490520a",
+      "coarser": {
+        "1": [
+          "25f193ab02f751c5f54f9e1a6edbba933d46f938fd8bf6ae594c65fec490520a"
+        ],
+        "2": [
+          "5cb1232a102afafb6cb70eb22ba0f87db4b12ff0eaf592b58f0ba620d418296a"
+        ],
+        "3": [
+          "ac2bd76183a3b81e39b31ae046ffb3a9e3285990c9fca45888633db18cad062a"
+        ],
+        "4": [
+          "60d573df5f7b9a47482bd49bd27017a812d4c3b6adf830983c264e599790b12e"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4cd7198e00a869f564a5c1fbe9f8608048662a7a754f46c76d145611f1e7289a",
+      "hash_coarse": "281ddb7c2f1c20e8bac4654ec16a0ac0d5b93bd309268689e70675a777dcee84",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "d8a192469fb6e30ea8cf9980eb9805edbb938f2e5b83a77516b54a5df59917e1": "le nombre moyen est 200 fois la probabilité d'être en C au troisième jour, pas au deuxième"
+        "5e02d24faf61372d3e7e2242454576f262593d03a4fdf31fe285f8d6570425a9": "le nombre moyen est 200 fois la probabilité d'être en C au troisième jour, pas au deuxième"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.1e": {
-      "decimals": 2,
+      "array_rounded": {
+        "1": "e4c4f865bc2cd8a6a218939dcd6e24f515d0a91dd7d5c39133f0c9052f146945"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "da87adc25253ffac6efa497c4c25b8ef4442b985d859a8ef909ced9392efe079"
+          "20b7ba5fe90e7bc74dc5b5703181eb73fe12bfe41c886efb083d502add4dcc09"
         ],
         [
-          "8973026e746bbbe1194b65e0a94257d3c6dd71304d44fcca6c06a12c2cd74434"
+          "a217a9398d97833ffe689337f91554843cad815d45b4421e87de190dd9f4d68d"
         ],
         [
-          "20cd2f633c60c3634e7aa22401e5d9fc5d0a6d910a655904526b7146862e05ed"
+          "fb726b721fcdc7c1abf619580cd75d118fe7ee1a32dcc1c8f5f23b13c82870e3"
         ]
       ],
       "element_coarse_any": [
         [
-          "daf0397366a5ec7433b40eab701467486c90dadd1a4560a9e7d1d3659427374a"
+          "daf0397366a5ec7433b40eab701467486c90dadd1a4560a9e7d1d3659427374a",
+          "da87adc25253ffac6efa497c4c25b8ef4442b985d859a8ef909ced9392efe079",
+          "badc08f647844dbe69ad1991c8848946533893a5d2985d3925f90b0ab58e6ceb",
+          "7b04ed3b83b5923a34d6bf2f9a098aa3b578b676beb8ecb16e3ac26283608181",
+          "76f0cc871ee93b0f6e26e4ed03db74b800b211109d605031e320541524848188"
         ],
         [
-          "c939c17df69d43961f2dd45846884f07e0c7ee9db268687210172208decb4e90"
+          "c939c17df69d43961f2dd45846884f07e0c7ee9db268687210172208decb4e90",
+          "8973026e746bbbe1194b65e0a94257d3c6dd71304d44fcca6c06a12c2cd74434",
+          "46865c5f8202209e9c2c2420f9c61f23529f73e22b4781f4785419b42ce9a020",
+          "9c773b93e0073bc16e2b2056526322d1ece456bdd8f30cee82738025cd8b03bd",
+          "c7ef1f108c3e496891127691b733b217545160ba7b9d17e4b623bf3d2e810f8a"
         ],
         [
-          "530f116bba777a404c08c49d103e6d041d3eec36ac812d92fe3e79ec2008fe42"
+          "530f116bba777a404c08c49d103e6d041d3eec36ac812d92fe3e79ec2008fe42",
+          "20cd2f633c60c3634e7aa22401e5d9fc5d0a6d910a655904526b7146862e05ed",
+          "f4d6a16a48cfc618769bfc5e693f30df6b8fc4fc5d28b3e3bf479aba2cc0de63",
+          "2a043dfa2e775fccfc29845ba256f78af47a9515118a15b280b23098a480fd2f",
+          "18471910edeeb47683c26e6b895b25e2c5ed754a7f36ae2aab52887f7e6e0333"
         ]
       ],
       "element_hashes": [
-        "badc08f647844dbe69ad1991c8848946533893a5d2985d3925f90b0ab58e6ceb",
-        "46865c5f8202209e9c2c2420f9c61f23529f73e22b4781f4785419b42ce9a020",
-        "f4d6a16a48cfc618769bfc5e693f30df6b8fc4fc5d28b3e3bf479aba2cc0de63"
+        "9135770d299bbf9d7b7ccde0314894dabc3a110dd818fbf4f264d961a8db4689",
+        "dc6cafb4ba3b15218b2d28659a5f990f6f595ea323be81b0dc67c6f331ac2fdf",
+        "dd442342340be510ac759c604385cfa5b9fb68c0f7e0d564fb45a69e2b8d8ef0"
       ],
-      "hash": "1f649feb04856702b7fc56cd7876928a283afabf4376692708ade6d0fcaade6e",
+      "hash": "1bd633eedbf1332a804b67b243a761965ef48ee99742df51803db40fa391fb4c",
       "kind": "array",
       "mistakes": {
-        "214ba6b74965493779b38b8798ae0d2d18bed720cf980f34b1dd7a6e78917bd2": "une fonction des états est une colonne : (Pf)_i = Σ_j p_ij f(j), une moyenne sur la ligne de départ"
+        "5fc6fefdd703d042c0ccf81443ea240849d52d2b3dd7a726cb7b634bacb71f62": "une fonction des états est une colonne : (Pf)_i = Σ_j p_ij f(j), une moyenne sur la ligne de départ"
       },
       "shape": [
         3
@@ -84739,14 +84808,28 @@
           "babf547baeca25f46c2bbe57cc0e9430c847d3d3ea8ea41914cf407292e460b2"
         ]
       },
-      "decimals": 2,
-      "hash": "6bfcb08594127405f97aa0afacb017efcacbc202b9848deeac18d8f157a6a126",
-      "hash_coarse": "0bea4960f79c916c62128fd377ef4e533c30c36e81f987e790f9d738016bd46d",
+      "coarser": {
+        "1": [
+          "0bea4960f79c916c62128fd377ef4e533c30c36e81f987e790f9d738016bd46d"
+        ],
+        "2": [
+          "6bfcb08594127405f97aa0afacb017efcacbc202b9848deeac18d8f157a6a126"
+        ],
+        "3": [
+          "a24e43c413fd97f3d9f56aad8f90f8636e7bc68559e501e7aee1187b64e793ea"
+        ],
+        "4": [
+          "3c5a28f4c9580b82d30dccc99dd514dba5fb7435c0e757845b047419a90f48c2"
+        ]
+      },
+      "decimals": 6,
+      "hash": "8260edde1a6bc5f5dd05a83132bc3ce74bc26a8e788673823eb8c421ceaf00ab",
+      "hash_coarse": "60b75fa09a607edd242bbb80b120e7d5ae94cfbcf0ef4a6c5f2c8db8fd991e7c",
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "eb42f9d9bd5f636413756e43132ce43deb22c6af28ca416f47b06bbed9ecb206": "le coût de ce soir dépend de la station de ce soir : il y a un pas de la chaîne entre ce matin et ce soir",
-        "f9cebce92895b8d21559003d1083bfa3b736080b5d178bdcca9a0c5b4f294ea3": "les 200 vélos ne sont pas répartis également entre A, B et C ce matin"
+        "38ad8ae65ab009fa78a9aec7b075414bbceb99f265e4a62853e13477b2bc4c8a": "le coût de ce soir dépend de la station de ce soir : il y a un pas de la chaîne entre ce matin et ce soir",
+        "81e444e97cebd820b8f8c7f01b94f74a50fde60f5a7acd8dc6dc116acb165bf5": "les 200 vélos ne sont pas répartis également entre A, B et C ce matin"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
@@ -84786,7 +84869,9 @@
       "hash": "7ad4db7d997efabb5de7b170f837848f90e1986987f75df573253495de68f62f",
       "kind": "array",
       "mistakes": {
+        "201a5f8cfc4b5cc2296177fae4890c8c7e486814027e52788ed44f675b6fc6c7": "ta loi est proportionnelle à la bonne : divise-la par sa somme",
         "4e0092d4b219dbd9e0203ef3020f233a8517c6b1b25f57d8d17d92f7ae848e4f": "π est un vecteur propre à gauche : πP = π, c'est-à-dire Pᵀπᵀ = πᵀ ; à droite, P a le vecteur 1, qui ne dit rien",
+        "828b5832a65a740a7535984775d0bb892eedb08d79c04cce2302fe2c6cff8a03": "ta loi est proportionnelle à la bonne : une loi a des coordonnées de somme 1",
         "ffd163ee0038856fb1fda3dd4bc680f4605f2460553dfcf68b383a7aa9f27102": "une loi stationnaire est une loi : ses coordonnées ont pour somme 1"
       },
       "shape": [
@@ -84805,41 +84890,51 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.2c": {
-      "decimals": 4,
+      "array_rounded": {
+        "1": "d0c95cad81f9d46ddece35ad39ac4d80d819e1baafef3784a1b666baf8508831",
+        "2": "3515369759f6219fd46785fbf2d72de359ca5e37aaf000640f5b2eef79517675"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "670c29b635c4bb05c275b6e901dd1cd5e8d68c079f1efc3d612b56427dc8bf54"
+          "a8bbae1f85d47132807b17942d3f08c3e9215388e1a8f882f68fce0048b219d0"
         ],
         [
-          "2f586d49a1fd53aa93e720f753ad6f2d04ac25bac2c444fec8fb1578f2324753"
+          "95168c6403b197643ac6036b3ff05704b3905f8c91f9fa14904356fe0a6b5b51"
         ],
         [
-          "3b4c05160b87731fb6849d526ed061894b6e696d1c3888b9d35ec918070d2c04"
+          "22a49ac0de8d734fcdb157d1227cfd6a8e53296eb4bb5e87f72a2ab297422543"
         ]
       ],
       "element_coarse_any": [
         [
           "8c96d51047734a8bdde9e9baaa0666823b9a0bb3b6ae3fd623939bc4669ea780",
-          "b512d814018c5dc75dfdb491f7ee999c6879eaaa1c4a1a6cf919888d55987064"
+          "b512d814018c5dc75dfdb491f7ee999c6879eaaa1c4a1a6cf919888d55987064",
+          "670c29b635c4bb05c275b6e901dd1cd5e8d68c079f1efc3d612b56427dc8bf54",
+          "bdbb2f45fbb43926b72d1b529e36490681fb4ab11253d8c7017e735036f3f7c3"
         ],
         [
           "23f3f0a31c26c6f353a228b3025dd89125bf530a57f4e9bd8f253cf54e795915",
-          "7ff0dfeb95fa56e06e4b32e6fe55531c6d5b738f1c520ab9c60997a99b7ec392"
+          "7ff0dfeb95fa56e06e4b32e6fe55531c6d5b738f1c520ab9c60997a99b7ec392",
+          "2f586d49a1fd53aa93e720f753ad6f2d04ac25bac2c444fec8fb1578f2324753",
+          "9c8d9ae3f6bfdda74e334ec3af8b6d09306046385d336c1ac8cdaf46819d9636"
         ],
         [
           "31c8b3b15eb2630b3e8b5c9a7c708249d83dc1482740a73fb13483feda045705",
-          "13924c6de97a10b48ce86778e28d9388620b51b6c6c6c4d6a2872e5462730b8c"
+          "13924c6de97a10b48ce86778e28d9388620b51b6c6c6c4d6a2872e5462730b8c",
+          "3b4c05160b87731fb6849d526ed061894b6e696d1c3888b9d35ec918070d2c04",
+          "5811bac7e21024b5b5dd09633719d10551e822421ed2fb1032961006404938d9"
         ]
       ],
       "element_hashes": [
-        "bdbb2f45fbb43926b72d1b529e36490681fb4ab11253d8c7017e735036f3f7c3",
-        "9c8d9ae3f6bfdda74e334ec3af8b6d09306046385d336c1ac8cdaf46819d9636",
-        "5811bac7e21024b5b5dd09633719d10551e822421ed2fb1032961006404938d9"
+        "cf1b037a803db9dd63e5f6999bae7be30b2de44fb9ff695c36c9210d10c476a9",
+        "2f3a1877965880284af22e000e288fb791b09f96368855e23a1c27d3f7eee800",
+        "ee4064a5379f95bf8776024f6dec861854ea28dc7bf60ee06a4d540b5e83d1cc"
       ],
-      "hash": "fc64d3e92543bd6034ca7136974998ff7d6575140a9191402bd9bee687f84a25",
+      "hash": "58da638e2956987288aa49490f0d8fc579d46b1d0e56b7051d80cd94fcd1a342",
       "kind": "array",
       "mistakes": {
-        "76c72a1b82ae2631fcf0112a34c9b2db60a0097fe08182d61cf5c5b9ea1a946c": "une loi avance par μP (la ligne à gauche), pas par Pμ"
+        "897be4e69347c73f4345bbf83b7689049b84496b91003e3ce662ee996c8246c4": "une loi avance par μP (la ligne à gauche), pas par Pμ"
       },
       "shape": [
         3
@@ -85030,16 +85125,16 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.3f": {
-      "decimals": 4,
+      "decimals": 6,
       "element_coarse": [
         [
-          "797bd27f8da080e65cab607024986d4539295384a1a4931e96a78d41e859e0f0"
+          "a562b9f7fcfcf8e4af4212e2c8b285a2edd1fd0ca7930c72ed31b6353f10f169"
         ],
         [
-          "8dad23b710b75b9d12f599d9ad466f5d009d4153785524907869411073a9f5ae"
+          "282582eff4e1f9a344626760c5fb3e376a846f3f6cb0171a146655a0843e0684"
         ],
         [
-          "c2cf654b1bd232768ca5ec9cece8dc184f1bf2b5468c22ff57fe607fbf22cc1a"
+          "119c14c6cc57b51a9ab97ca43f5790daefacd9242c35b06f7c14b65a2e410fb8"
         ]
       ],
       "element_coarse_any": [
@@ -85047,22 +85142,26 @@
         [
           "a2d6bf3c5171f25931ce7a121ac5da971e3b8a438521bd1da55eb4ca992cc478",
           "3788d27f4a7481b01a94d1307a933d901a5706ec6ccf1af5545c82ba87dc747a",
-          "0414e5becfaaf1514455c12bcd5bec050b28b1437f4864b011a2b4a6fa640ff5"
+          "0414e5becfaaf1514455c12bcd5bec050b28b1437f4864b011a2b4a6fa640ff5",
+          "8dad23b710b75b9d12f599d9ad466f5d009d4153785524907869411073a9f5ae",
+          "3b3aac8952eaedc1a4fae332ea70d1a9f9c49926bc9725d49d7d870d9b68e3f5"
         ],
         [
           "c13d8f0b16f5154dc3fd0367020650f1c466cd98d225e5f71cc939eac0f58490",
-          "c89246ea3d08184634220fc5ef283b0996cf9ef62574b3f9d5ed4e15df25476b"
+          "c89246ea3d08184634220fc5ef283b0996cf9ef62574b3f9d5ed4e15df25476b",
+          "c2cf654b1bd232768ca5ec9cece8dc184f1bf2b5468c22ff57fe607fbf22cc1a",
+          "efcfb9a830566cb0bca78599b94a3c65212e2acf5254015612840464282c8c7c"
         ]
       ],
       "element_hashes": [
-        "a336d7810f86d5e1e595bbfd2b1e5dfb9b07f3185f59f9867f3e1b3405063128",
-        "3b3aac8952eaedc1a4fae332ea70d1a9f9c49926bc9725d49d7d870d9b68e3f5",
-        "efcfb9a830566cb0bca78599b94a3c65212e2acf5254015612840464282c8c7c"
+        "2d297e1dfe27d9fdbfaf7cd993b6fd972fc65134d752c634e4b5e9fdd11aac73",
+        "aaf4d99b93394eede45076252d8698234372554c141e74710f7976a231cc9b4c",
+        "a1c18f3a5f0964c0a6b85622f9991e388c40199ca0f8dc4e4c1c5c4e4b260e5b"
       ],
-      "hash": "6a8cfff3a0b7f7840b6ca7243df8d3bdaddee8b416ae476392ae6793b82436f0",
+      "hash": "d61f7601eb1679b578e0734de2312e90d48073893a902f0562333e30fdd3b867",
       "kind": "array",
       "mistakes": {
-        "3d3d0f9c67c461193fe7f81a3f1a3c0b035674ed51f13c31f242103958820a08": "dans le bloc fermé {1, 2}, écris l'équilibre des flux entre les deux états (ce qui passe de 1 à 2 égale ce qui passe de 2 à 1), puis normalise"
+        "a6bc7654f4e9dc2182d9d6da11090260a7b7ec849b72eeeafbc1ccae8ebaa375": "dans le bloc fermé {1, 2}, écris l'équilibre des flux entre les deux états (ce qui passe de 1 à 2 égale ce qui passe de 2 à 1), puis normalise"
       },
       "shape": [
         3
@@ -85310,81 +85409,125 @@
           "b4c5179ebcaa6fcf545065388e93ad4d5c348c9032b5430ddf77a761812a1b7e"
         ]
       },
-      "decimals": 2,
-      "hash": "5fc59c2c6ca6d9b55558d448f5ed3d49597c2402dbba354da1f8ae646fc84b58",
-      "hash_coarse": "5f687f0784d28b391863b3b4ef8d257d906792e518a673c6c4f1905cbd258258",
+      "coarser": {
+        "1": [
+          "5f687f0784d28b391863b3b4ef8d257d906792e518a673c6c4f1905cbd258258"
+        ],
+        "2": [
+          "5fc59c2c6ca6d9b55558d448f5ed3d49597c2402dbba354da1f8ae646fc84b58"
+        ],
+        "3": [
+          "a667ae91963754eb72e2e15841f3e76a1cfb0bde18f263f10cb5c3af5ef2be95"
+        ],
+        "4": [
+          "ef52422aa6bb09b79293cbe15b3ff79f8dfdcd69af6133c1d887d9fc6503ffab"
+        ]
+      },
+      "decimals": 6,
+      "hash": "dd64c11f6e5d7a3cc8dad450615d29c00ed6230eb67412f302992b4b5b1ec330",
+      "hash_coarse": "658411dc121a09a68f1f5a482f266623f4ca130d85fc1abc2da1e0e91a810aaf",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "b5b4f4c9fbf638c4519b28c292ac4f5bfcae186443958c0e01ae2bb19e28735a": "r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : pondère par les probabilités de transition, pas à parts égales"
+        "41b293ea51da2a7c05c80a09ee3816e86dd6f3ed5148215e121ee537567b0b69": "r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : pondère par les probabilités de transition, pas à parts égales"
       },
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.6b": {
-      "decimals": 2,
+      "array_rounded": {
+        "1": "77ce3ff6d4f4c55fb09f5623c74cb5d5de97371a331a6cbcf34a2b021292aff5"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "a3ec6e101a8e0c5da1d5ed6081fa0b2d790b1cb92f444b0987b91db5f12026b0"
+          "b90cd5fc0b1609eaec7b9f58c76367c0851e549b6bdace457dfe15c2858f20ad"
         ],
         [
-          "ec79930980cf13a602c5b40b7dedf1b33583e2e23988107b7bc388ab18c1faf1"
+          "5e66c2cbf119ca83046cbfcdfce141b2d42df4c78f3b1ecf97bc7c6b7b619918"
         ],
         [
-          "f7396d40f7f8e7cdd69e435e2560610d5a3b6da04b956cc8ec731bfe89b39785"
+          "42779597d7c2d57c4c337b54f6bebc2b6372736feb28eab9cffcdc7160706756"
         ],
         [
-          "a00d32eaa13ebd3505c11657cfe676fc9b13ef7e851afa547bb8881dc48ba64b",
-          "9f36248f179392770f529b5bf36e4c830b191698f2afd076aa5b79c697e685a0"
+          "2dac0b16c34bfff464214d1da8169e07cc808b92f22b242e829023ba989b41f9"
         ],
         [
-          "97372e35f1570720321710c2d213144c72399557d58d0b46755f7b860b8a0902"
+          "6f374b250a7c8052f4304dda998a6630825351c07097d2227a986291a7df5791"
         ],
         [
-          "3a9496221c28ac3ac5ee044429307a7aad14019fd87bed4251f6db04a7ccbb0b"
+          "9085c34e315f8290f23813d940ec7d2a664ab62f6b28f87f8dfab1cec0198f47"
         ],
         [
-          "d0839354c991a93e2d7de1bc4a97c140236ccfacb274c2939019da260200bbf2"
+          "e7176274ad0ab7ee4c104c0c024e5b658f1b90ccb655f2688e732606ee1214c5"
         ],
         [
-          "de23db14f05eb4383a1b18e93f7a5b772dc5f24866e1851e8a3bbfb08c75fbd4"
+          "371a07ac5cf7480aadbd8d88d72f071b38283e0ee6b832a7378ecf0d1ce3e99d"
         ],
         [
-          "adde23fd5b28833beaec620157f57837708f5c3811ec4f2948cc40a0b2a8e373"
+          "ea11b677f46aeeac4d7dd5bb64dec8e1ad8197dfd3a32e440d262503b78fde14"
         ]
       ],
       "element_coarse_any": [
         [
-          "738e01310f95d8fe989c30fe543dd69ed227b475a5156aed2245f844cc77460f"
+          "738e01310f95d8fe989c30fe543dd69ed227b475a5156aed2245f844cc77460f",
+          "a3ec6e101a8e0c5da1d5ed6081fa0b2d790b1cb92f444b0987b91db5f12026b0",
+          "cb078bb71ac7ef18837687ddb86ed623c8c8116556158eae84ecf66bb1a77c64",
+          "e9aac66675772dcbe5eeb56f3092998a4a561b99895be73adc1bfc2d1a4da70f",
+          "fbba7b50a0853b85664d0c4daedd2b9bb2648a29ee04107fc88e8aa2aa9ccdce"
         ],
-        [],
+        [
+          "ec79930980cf13a602c5b40b7dedf1b33583e2e23988107b7bc388ab18c1faf1",
+          "7af1ac305639f6b3fc422336d10909aad12b5a03fbc9ebcd256839a57752e625",
+          "35b1ef315600f0836e8974d500d2f1a9c35c94023e8e4af0c833513dd204a9f6",
+          "7aec46c235e1dc0f67251b8785ac557afd58480e5821dd04214cc2eea32992bf"
+        ],
         [],
         [
-          "a892fee7c65654f1a174fbb59b8b2e8d0096be8b8cd03528caf63468ec9ca65c"
+          "a892fee7c65654f1a174fbb59b8b2e8d0096be8b8cd03528caf63468ec9ca65c",
+          "a00d32eaa13ebd3505c11657cfe676fc9b13ef7e851afa547bb8881dc48ba64b",
+          "9f36248f179392770f529b5bf36e4c830b191698f2afd076aa5b79c697e685a0",
+          "b53ccab06b8093f0cd34cd25f61c3a42db3246855da9b53bd0ee03fd8a2ba773",
+          "df084d6254055219687953f227031f955345ec49ef8006be77ebf941fa547404",
+          "60417ff774e8dffb5cbcb117c6c1c744a7d3e379875c6c3d343ff32358873257"
         ],
-        [],
         [],
         [
-          "32b49797ffde703f9780dfc1936c8b18b8dc67effcdce0c02d0f7718c56c4f76"
+          "3a9496221c28ac3ac5ee044429307a7aad14019fd87bed4251f6db04a7ccbb0b",
+          "09c94511f1bdaaeab7f1d9937e7dfb56f725ee127176418fe483b1242bd220ae",
+          "6e2896349941ea161681386f035591bdfd07439369cf36935de3829ca973ac42",
+          "a919a3bb18062addbf91cef9f1bee9056e42e058a8f4ec2cf7fe35d2d5086e7c"
+        ],
+        [
+          "32b49797ffde703f9780dfc1936c8b18b8dc67effcdce0c02d0f7718c56c4f76",
+          "d0839354c991a93e2d7de1bc4a97c140236ccfacb274c2939019da260200bbf2",
+          "4c06ffb7e3f994011824859610eb33f34745dad94e8808478f74e6a3a3259d23",
+          "a22399fab30b1bc47b485b3e9431553716a87e44f34a5b709f1975c686ec27b9",
+          "30d336b3fe967008428021f44d8e1d71adb7876bd816fe363709013e6ec1029d"
         ],
         [],
-        []
+        [
+          "adde23fd5b28833beaec620157f57837708f5c3811ec4f2948cc40a0b2a8e373",
+          "964abd4300f9ba53c2d63fda567c0c3627d0704611b60692f18cff83aef2e56c",
+          "9b87557458fc0e180358faf1c10a4daa902953bc2e86df1fc2100259aa59af3b",
+          "3b88d73031443f7cc9395a9e8a7b44a6f6bf82d7c05b576b6ec0c26354d40436"
+        ]
       ],
       "element_hashes": [
-        "cb078bb71ac7ef18837687ddb86ed623c8c8116556158eae84ecf66bb1a77c64",
-        "7af1ac305639f6b3fc422336d10909aad12b5a03fbc9ebcd256839a57752e625",
-        "439ec1d829782352ea1f3838dd8e1dcf61e50371bf9a55cbb71f200c8268dc7b",
-        "b53ccab06b8093f0cd34cd25f61c3a42db3246855da9b53bd0ee03fd8a2ba773",
-        "2e5ea32d01d5e00ce58e4e8171738e2c06d39f31a09628cdc9d242aef35af704",
-        "09c94511f1bdaaeab7f1d9937e7dfb56f725ee127176418fe483b1242bd220ae",
-        "4c06ffb7e3f994011824859610eb33f34745dad94e8808478f74e6a3a3259d23",
-        "b04abe356cd1da019c57563397d20bf5083430bd6b69d39b32570d8191345254",
-        "964abd4300f9ba53c2d63fda567c0c3627d0704611b60692f18cff83aef2e56c"
+        "188c6e88cfeeffc84f1b4d47fddf8bf336d640d65eed3bb42cda4c72e311d4e9",
+        "2433992838c0c9233123f3a670d6fb69a15d75d2dcdb9351761f354490b247bb",
+        "8aead552bdb0f75c6640682e4725feca9333b060331b58d0c759ac9afb525e19",
+        "4e46055af1f6fceabf0ed3a381aa8b4a1778a5d0771410b23c0592683ad7e606",
+        "d9e61e2ed585f60569b4275ebc611fcee587dbf49c9da4f1bf955f083e02473a",
+        "36e703d5b82933dd913a633926d390a30c2243b0685d6149bbb1553337acc34a",
+        "1b8a4c017487f6ecb5d0758459ed48d30be7a14fc26cb73f9ad4ef8c7925f753",
+        "b6225a59d52942953e0af5f6c75cc5dae4199c559b74d88b10df7bb3a8a00e79",
+        "5c556eb5555b1fc00c1bc50d2ace44c496df7e3035286e21ecc32c8cb5c85bfe"
       ],
-      "hash": "7f44139c6f76f9f50c3678dfd920853fb2d03cecc994c994b964ea7f95631382",
+      "hash": "655fe8b9aee5500393b5d6bd5739f9703dc77c472f5ae0246ffbd03dcfc09d80",
       "kind": "array",
       "mistakes": {
-        "21768e601dd5dc67777740336e936479bbcc83c297d2ab0a3629a90df3d5a59f": "sous π_B, la ligne de la machine usée vient de l'action « entretenir »"
+        "d795363041249ff2168e9e4fb00d187c506c2596977c584bd1e46ed3c5e4c411": "sous π_B, la ligne de la machine usée vient de l'action « entretenir »"
       },
       "shape": [
         3,
@@ -85918,55 +86061,71 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.14b": {
-      "decimals": 2,
+      "decimals": 6,
       "element_coarse": [
         [
-          "573a0d7e35153d480687b899f82d15d446b66f5c833775246a4af18e045479e5"
+          "7099b7da19c93fb088c0d5dfddc517afc15c13d7a48e7a84b8266f3af243e1ec"
         ],
         [
-          "ebcb1c97a4225f6f7baa6402b2b27f428b5b2864a54bd617b53d2bea8ca3b02f"
+          "3eb49929fd9542f52de7c510eefc133b379e047ba380f80c13fb421b493c1849"
         ],
         [
-          "a83b7aed3efc3891c514ad79589c82d0416f543fcb158f683d026beadcd31fb2"
+          "d90dea9619378bc7294dac2267b1c4fa08e454b1cd012d7b7d7dc6f8a43b58d6"
         ],
         [
-          "8834c1fb595dd0380a3af2d52a1b576bbd3424a6e6e32adbf0f26a501bfb6bdd"
+          "11904001f1450f7f064677c69b64d386a4935322c041317268bc5796fd104d1a"
         ],
         [
-          "d99175cfde529988e7e3a5c35fa8c91fa862c321f2940a446469e45117707969"
+          "f2f402f3fd041a92ef8a7aa017f0e45a5338687edf468d2c92c154c97df114b9"
         ],
         [
-          "9fdd5b5513c7d515b55f1c364b6f61b0a6d410960307e3c1a49f1c2ce7463af1"
+          "9048b4d9c7d04d43f652edd9bbafa981d92fa949a214a7c2119daf86ca6f9e50"
         ]
       ],
       "element_coarse_any": [
         [
-          "6d6790d7e1bfc8cf46eee4d61810a0d9c0d8aff50adfb3f04c77ef6cdbe02c91"
+          "6d6790d7e1bfc8cf46eee4d61810a0d9c0d8aff50adfb3f04c77ef6cdbe02c91",
+          "573a0d7e35153d480687b899f82d15d446b66f5c833775246a4af18e045479e5",
+          "776af1f4b34c7786de67d5a2b50b3d439dc8652ee8181132ba1278efa1c96d09",
+          "86a479fdb1064de868914fdd36eb69d74b1f8a72a7df40ceccba25612f405c04",
+          "8a6631be18729b7c6455715207f4365cfb22570db2b324631ad16084c147cb68"
         ],
         [
-          "6627380739b5c3221ed5021d5e00f43e77eb93b9709e68d07b162bd40c937ec7"
+          "6627380739b5c3221ed5021d5e00f43e77eb93b9709e68d07b162bd40c937ec7",
+          "ebcb1c97a4225f6f7baa6402b2b27f428b5b2864a54bd617b53d2bea8ca3b02f",
+          "6cbfbd3a716a3be330c9a3053fb9d466822e9c5069143201b6cad4b7d4ecb22b",
+          "5b7b7e006fca0d7079f2ea591f98bc69ad39851a0038f24521725a7e5dc1a0f8",
+          "a82fbe3b6c6cfb05b0c71764717ce5b28b9ae5fa60b9ac4ed7e5f18ceeba3ebf"
         ],
         [],
         [
-          "f03220f107c09b3d45049e1f2579ed91b325334ab1733a0b9aadf695ffa2649b"
+          "f03220f107c09b3d45049e1f2579ed91b325334ab1733a0b9aadf695ffa2649b",
+          "8834c1fb595dd0380a3af2d52a1b576bbd3424a6e6e32adbf0f26a501bfb6bdd",
+          "fadd25f6e8d88867dad28f96ee3eb95e574ee26c12fc263517eaaaab212df83c",
+          "99152bfeb2f05e4c33ff3a4c531bce149ed519ca91b80ca36556f02dd29637a4",
+          "2ccf790331481cfe55bf6b2cc237e915f47d7a63a7ea649029956a68007accfc"
         ],
         [
-          "191698dee2672ca5de1a90c360348568f9e2031757feb553b4ca9e9e06afc4fb"
+          "191698dee2672ca5de1a90c360348568f9e2031757feb553b4ca9e9e06afc4fb",
+          "d99175cfde529988e7e3a5c35fa8c91fa862c321f2940a446469e45117707969",
+          "c22d1e4821dfc1ab7e4b4519b30b68bee9750509d68ee9227becfa216afe12de",
+          "128c5a6b6c817be2337a3b95af2a654be7151ae2865fdf0e4a19d6fe5cbf9a77",
+          "2e0ffbf8c33da805dfeeed8aefde28713002f909363735139c60c9ce38823f4f"
         ],
         []
       ],
       "element_hashes": [
-        "776af1f4b34c7786de67d5a2b50b3d439dc8652ee8181132ba1278efa1c96d09",
-        "6cbfbd3a716a3be330c9a3053fb9d466822e9c5069143201b6cad4b7d4ecb22b",
-        "e5ac4dd6c7da4d5aeaab549f5dae68129b0fb825fe84c7bfa47a67fb5bf467e9",
-        "fadd25f6e8d88867dad28f96ee3eb95e574ee26c12fc263517eaaaab212df83c",
-        "c22d1e4821dfc1ab7e4b4519b30b68bee9750509d68ee9227becfa216afe12de",
-        "86aa8e497a03072843bf0860f4b75cde1a6eb2d102ecf3ff29e7068bd2b8c8e5"
+        "047715946e0c2c424a66ad067b2229a4cc76733a8f59306a0d419b368ebae828",
+        "d35b874d0ca653df7836727f24f661de0341f9a6abc346e100254dd38a0ea090",
+        "31a504077d5dead62747cecd822ed65db821951612ae00b81b6ff65489134448",
+        "fcffcb4d22e58eebc41dfe8546337fe642e8f99a18852978f84bed214a511e73",
+        "772ab033c4d04fc36f8b7d9ac0d4f87ddafac018713b69582e46169b798a8b06",
+        "3e041a65d9bbde55d54a83de73531299fe32593b4804049c7e16481bc74240c9"
       ],
-      "hash": "9eb03c298b1c81c2ee603bf8f130d5f84ef83342d010b3ee0e46950cc8a657d5",
+      "hash": "abe4b47d5ff57994f57ddee6b8af1c0d0d9ac5b4258d64419495002502aa6000",
       "kind": "array",
       "mistakes": {
-        "1bf74dae002f9952ba4ae152e9c8569974c633b5720f30c030e462b6248871d9": "r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : la cotisation n'est perçue que si l'adhérent reste"
+        "4e6e07eaa087b82d1d2d67614b618bb619b16b50fa786e1b8a680d8be692c225": "r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : la cotisation n'est perçue que si l'adhérent reste"
       },
       "shape": [
         2,
@@ -85975,36 +86134,47 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.14c": {
-      "decimals": 2,
+      "array_rounded": {
+        "1": "e19c320a6a85a51e2fbad97e5a010f7c522f3af7908a43ae9331803903e9d885"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "b0896ab93853287b1644a3ea519c9de120af5325d9772725e7ff9d58c1dd8191"
+          "3260ba7eb998fa6ca38658837fd2f4bcc04cc4709ccc10bd6737f9f578ae8901"
         ],
         [
-          "b234e18ccc53907293d8d56218a237f73feca72e7bd5873624deb813c4d39297"
+          "395181fd9e5e5c28adc3f6c6ebafaff114cd6418314784a2edafe8730459af28"
         ],
         [
-          "9f3eea64a2cb069c7949a51c6c882d7a86a07fbba48beeb7712e070688205e33"
+          "51f40aad26ec6eeabdc9ff2dae8da2a3db20d081329dde0bd0670fec44edbe4b"
         ]
       ],
       "element_coarse_any": [
         [
-          "5082e6b3d4131846d0f0c6877e5818c1cf6e9274d6e8a58730b1fadda264a2ae"
+          "5082e6b3d4131846d0f0c6877e5818c1cf6e9274d6e8a58730b1fadda264a2ae",
+          "b0896ab93853287b1644a3ea519c9de120af5325d9772725e7ff9d58c1dd8191",
+          "8b7f788010010560225711e276d8f1f2f600d7485a285ddc7e8ba98b5646f699",
+          "18738ad9a809d12d48c07a4dee0829e36b3ff74f32a2224c50411d2eca4bdf18",
+          "053e62a41567fa87f4349f1d0415947edbe80faa4fe695bf1a270f4cdf9b16ed"
         ],
         [
-          "89bda06543ceb8d373fb8cbca46f88125b7b9bd56e96e36e518987331ef83ff6"
+          "89bda06543ceb8d373fb8cbca46f88125b7b9bd56e96e36e518987331ef83ff6",
+          "b234e18ccc53907293d8d56218a237f73feca72e7bd5873624deb813c4d39297",
+          "cc1ff96072f7786cba0aed26807b938b18e3a6ea38ab2f70762a22ececde488a",
+          "0237e2227a083d635812df83d2c62876b39189f1bbb171071a8bcbb2110d69ba",
+          "bffcd901e9329907d702ec0f4c6a40c84e05b1f52e3a6c1d21ebed84e7933479"
         ],
         []
       ],
       "element_hashes": [
-        "8b7f788010010560225711e276d8f1f2f600d7485a285ddc7e8ba98b5646f699",
-        "cc1ff96072f7786cba0aed26807b938b18e3a6ea38ab2f70762a22ececde488a",
-        "58e116c78e255b533a7cab78b51e2d3e52fe2c62a709df1eb0a9cb2a3a8442c7"
+        "533d3d3d3c9b9371edbe08346acddf92a6865d4c211c09b80726027eb0c7762c",
+        "74998f2780eb96a5da8f487e12c1a5a91003db8c73f6ad3ff0206eadd14b50b5",
+        "e0d59ac4d1728191baec0ab42194041b10140f8800a67cc93aad996f0834ef8a"
       ],
-      "hash": "2070737d52d947b929e1bbf0e8d2bd64cd7e118898e9638bd810b04a1e7eaecf",
+      "hash": "2d4c8763ccaf818a5967ad90d5f4d9693ac9f87ffa6266f7593c2cc3d578c79b",
       "kind": "array",
       "mistakes": {
-        "14e360847958383da5d996bb4faf0ac35d4a9dc1a3e3efc772c2aa76b0c789d8": "r_π(s) = Σ_a π(a | s) r(s, a) : pour un hésitant, 0,6 pour « rien » et 0,4 pour « remise »"
+        "83faddcde78a57c4f6b2b0532d4aaef22c920bb1695854309198ff671ec56df9": "r_π(s) = Σ_a π(a | s) r(s, a) : pour un hésitant, 0,6 pour « rien » et 0,4 pour « remise »"
       },
       "shape": [
         3
@@ -86012,32 +86182,50 @@
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
     "M26.14d": {
-      "decimals": 2,
+      "array_rounded": {
+        "1": "95b030969ad39337b2ade0fbaea2d4f7bea9c6f601e5c0075fafacef80768338"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "94ad3e81284eb46e2de038cdfd2b80f9c9d22b3a514bac415c9cc5b746dfe743"
+          "4ccd899a7a3c0a8ce8d0aaf3fb7af4786249bfeead60e7c551f5792f842047b8"
         ],
         [
-          "1c314c76e9cd6fbdb2f7cca6a1d3c278251a6a8bd5424a4b6036f2b1decc0d88"
+          "d7f79af1db581db7564f49c155a8593a7fd3391f1f9e5fb0e828d72f9463e15d"
         ],
         [
-          "cf97c51a9362035989054b2c8dcdc60dc3eab307baf2e15f4d19b4f06af811d3"
+          "89fd4777f7dbbfa4dcfb5b7781a4d7bd260d853b308b81a430c524cba621d8cb"
         ]
       ],
       "element_coarse_any": [
-        [],
-        [],
-        []
+        [
+          "94ad3e81284eb46e2de038cdfd2b80f9c9d22b3a514bac415c9cc5b746dfe743",
+          "83911ad5476fdf0f69549b468fd14ca59f661b0d9adbd8d1280d67ccf6623467",
+          "f3c4c14328c8a5e9bd4beddf2698bff64c72bcc35148fb2827f614ba5c1688c2",
+          "cdeb2929e342c1adc76b6c2b2a5e833e25ff7773db5a485dcc16d2540a70028d"
+        ],
+        [
+          "1c314c76e9cd6fbdb2f7cca6a1d3c278251a6a8bd5424a4b6036f2b1decc0d88",
+          "3374cc636061221cb6bf3e7a6ba7b80801711c011ba4e4cd41dc252f90a45b08",
+          "0ca729746b23f2f6f4f3878ce493c09f8caad28962414e5958dffc613a6bbd38",
+          "84e7e77bb8e61de1de3d051abf8e313eaa1e7d0a560d7add8ef4099a226ad1a1"
+        ],
+        [
+          "cf97c51a9362035989054b2c8dcdc60dc3eab307baf2e15f4d19b4f06af811d3",
+          "6843f59d361642022c67351d8843874f7216ee1896329e651bdeea75a2329af9",
+          "4076f7133f3f59bd42b343f646e019909de614a57c4ec3b0d41502c9e7b96a65",
+          "cbee24837ae8fb3a6d621aaebb6b135943e2b4c875afa7937d6ea8ef949e6d08"
+        ]
       ],
       "element_hashes": [
-        "83911ad5476fdf0f69549b468fd14ca59f661b0d9adbd8d1280d67ccf6623467",
-        "3374cc636061221cb6bf3e7a6ba7b80801711c011ba4e4cd41dc252f90a45b08",
-        "6843f59d361642022c67351d8843874f7216ee1896329e651bdeea75a2329af9"
+        "1da3968c979d4c85b5890fef4977cdedac3da6d8cd568466021fd2b180dd9683",
+        "81d686e755f2e7114f2ad07ed2b3c876049e14b5cbebfa64c3bc061b89d9b1d8",
+        "0d9577bdb75601d47d862e463d36b961713793ba33ec4823aa25de66ebd1ea20"
       ],
-      "hash": "7390f567b36b2747d98ce275d3b10ea3031609ce55b8e0d4243f621fa525bd8e",
+      "hash": "d79d868ba88de4665ba900796f11b0bb6a55b285219bfb1dab523d060b537eb5",
       "kind": "array",
       "mistakes": {
-        "67a3b474d51c79a668eb322a83c786d7d81130e5ecdb07516ba4c4e0e501b916": "P_π(s, ·) = Σ_a π(a | s) P_a(s, ·) : 0,6 pour « rien » et 0,4 pour « remise »"
+        "89f031b2b914ae1392e9fc64546c501951de90760cfced44c78158838d89e3e6": "P_π(s, ·) = Σ_a π(a | s) P_a(s, ·) : 0,6 pour « rien » et 0,4 pour « remise »"
       },
       "shape": [
         3
@@ -86351,6 +86539,7 @@
       "hash": "88c9b0c8c82a123632f4baff8d23ec61d6723eb5a66055ac72fd8179f63a66a2",
       "kind": "array",
       "mistakes": {
+        "59d02e3ff1c9803c920981cab8451f1753e8d7b5f860cc24e75eaa4b7b88c02f": "donne les valeurs que rend le calcul, sans les arrondir",
         "f0a341ea8f1259e45f3de90fa2a22671335758106ec4dc4d57611d879e66c147": "le système porte sur Pᵀ − I : (P − I) x = 0 a pour solution le vecteur 1, qui ne dit rien"
       },
       "shape": [
@@ -86416,7 +86605,8 @@
       "hash": "5f8931ffb7f7b24c157234f877ad44d199a9b8e1cc8f159c9743fb239755c36d",
       "kind": "array",
       "mistakes": {
-        "4153b352816af61d99d93d62ed072b54d13efc8fa4f58199dd21cb95f8f9270d": "le système porte sur Pᵀ − I : (P − I) x = 0 a pour solution le vecteur 1, qui ne dit rien"
+        "4153b352816af61d99d93d62ed072b54d13efc8fa4f58199dd21cb95f8f9270d": "le système porte sur Pᵀ − I : (P − I) x = 0 a pour solution le vecteur 1, qui ne dit rien",
+        "e9b0321349d6b48393b92f1f51f2d011610ae53a92cbb6d6f02a6c3e8c120885": "donne les valeurs que rend le calcul, sans les arrondir"
       },
       "shape": [
         4
@@ -86909,7 +87099,7 @@
       "mistakes": {
         "021253a5161b8215fe9d37531ff53e7f535076d31a0e70fd295755d3aaae0ba3": "la ligne k du tableau est V_k : la ligne 0 est V0, et k compte les pas",
         "58015617886bdcf34fe1a383a0bfd85138797566f37cc236de92aa92240ba752": "c'est ce que garantit la borne a priori : compte les itérations jusqu'à ce que l'erreur vraie, ‖V_k − V‖∞, passe sous 1e-3",
-        "a825376df9cf55a326b369d38f867a108c1fc3c49705f18a778cf532719b5549": "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f), pas sous ε"
+        "a825376df9cf55a326b369d38f867a108c1fc3c49705f18a778cf532719b5549": "soit tu compares ‖V_k − V_{k−1}‖∞ à ε au lieu du seuil ε(1 − γ)/γ de M26.7 f), soit ton indice est décalé : l'élément j de np.diff(its, axis=0) est V_{j+1} − V_j, donc k = j + 1"
       },
       "shape": [
         3
@@ -87088,7 +87278,7 @@
       "kind": "array",
       "mistakes": {
         "80d704143d06cd06c1b23281eba80461bca353fb08cc2a46c5108f7150b3973f": "compte chaque produit x ← xP, le dernier compris : un de trop ici",
-        "b35d5339e9fa550ceb034cd767ff47872bbbc041988463dd17bf89305a5de007": "la borne de la fiche est 2 dᵏ : n'oublie pas le facteur 2",
+        "b35d5339e9fa550ceb034cd767ff47872bbbc041988463dd17bf89305a5de007": "deux lois sont à distance au plus 2 en norme 1 : la borne est 2 dᵏ, n'oublie pas le facteur 2",
         "ca87b575dc691d207f403532be54981915c456b95698e4fca4763f28bb1e213a": "le plus petit entier k tel que 2 dᵏ ≤ 1e-12 : arrondis vers le haut",
         "ea6c2d5bd24f7c7f043b0458e8159f5c1cf43baa7c02095cfe1118d73c096e7c": "compte chaque produit x ← xP, le dernier compris (celui après lequel l'écart passe sous tol) : un de moins ici"
       },
@@ -87815,6 +88005,7 @@
       "kind": "array",
       "mistakes": {
         "044474e6303376b0081d22b595422016b9000827b56e7ec47753f84a3cbcbc93": "les frais de résiliation se paient une fois, sur la transition vers « résilié » : ils ne disparaissent pas",
+        "0bca3c7450aae6970e84d4ce109710f5019b786bdd784da3fe23186e994b0889": "un essai qui part est aussi une résiliation : les frais entrent dans r(0) avec la probabilité p_02",
         "21c8dd73560e6a31a1b995c3d12a588baf8c595ca63d924dd85154c2af8a8c08": "c) demande d'abord les valeurs de ta version CORRIGÉE"
       },
       "shape": [
@@ -87877,6 +88068,7 @@
       "kind": "array",
       "mistakes": {
         "54087865abbe1ab7d45e7d522351ef961908a71110d266101282cd3287162d09": "2π vérifie encore πP = π : l'invariance ne voit pas la normalisation",
+        "da8596588aaadc9f0153fd0c8cb317cf57dfeea555eebd3fa1ca9be2eadea93c": "ton test ne vérifie pas que π est une loi (coordonnées ≥ −tol, somme à tol près de 1)",
         "ee41c567e03bc26e69daf9d21971f09a07537e9787f864076fff4a2818e6d7b2": "un essai où stationary lève une ValueError (plusieurs classes fermées) se saute : il ne compte pas"
       },
       "shape": [

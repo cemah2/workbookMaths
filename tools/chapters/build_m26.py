@@ -38,6 +38,8 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import pprint
+import re
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -62,29 +64,29 @@ PAPER = [
     Paper("M26.1", "Des vélos en libre-service entre trois stations : loi après deux et trois jours, et coût moyen du "
           "lendemain", [
               ("a", "a number", "floats(P2_1[1][2])",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"la puissance d'une matrice n'est pas la puissance de chaque coefficient : (P²)_BC est une somme "
                      "sur les chemins de B à C": floats(P_1[1][2] ** 2),
                      "la ligne est la station de départ, la colonne celle d'arrivée": floats(P2_1[2][1])}'''),
               ("b", "a list of 3 numbers (exact values)", "floats(MU_1[2])",
-               '''decimals=3,
+               '''decimals=6,
            mistakes={"deux jours font deux pas : μ₂ = μ₀P²": floats(MU_1[1]),
                      "une loi est une ligne : elle avance par μP, pas par Pμ": floats(COLUMN_1[2])}'''),
               ("c", "a list of 3 numbers (exact values)", "floats(MU_1[3])",
-               '''decimals=4,
+               '''decimals=6,
            mistakes={"une loi est une ligne : elle avance par μP, pas par Pμ (et la somme doit rester 1)":
                          floats(COLUMN_1[3]),
                      "trois jours font trois pas à partir de μ₀, pas quatre": floats(MU_1[4])}'''),
               ("d", "a number", "floats(200 * MU_1[3][2])",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"le nombre moyen est 200 fois la probabilité d'être en C au troisième jour, pas au deuxième":
                          floats(200 * MU_1[2][2])}'''),
               ("e", "a list of 3 numbers", "floats(PF_1)",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"une fonction des états est une colonne : (Pf)_i = Σ_j p_ij f(j), une moyenne sur la ligne de "
                      "départ": floats(matvec(transpose(P_1), F_1))}'''),
               ("f", "a number", "floats(200 * dot(MU0_1, PF_1))",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"le coût de ce soir dépend de la station de ce soir : il y a un pas de la chaîne entre ce matin et "
                      "ce soir": floats(200 * dot(MU0_1, F_1)),
                      "les 200 vélos ne sont pas répartis également entre A, B et C ce matin": floats(200 * sum(PF_1) / 3)}'''),
@@ -96,13 +98,16 @@ PAPER = [
            mistakes={"π est un vecteur propre à gauche : πP = π, c'est-à-dire Pᵀπᵀ = πᵀ ; à droite, P a le vecteur 1, qui "
                      "ne dit rien": floats(stationary(transpose(P_2))),
                      "une loi stationnaire est une loi : ses coordonnées ont pour somme 1":
-                         floats([x / PI_2[0] for x in PI_2])}'''),
+                         floats([x / PI_2[0] for x in PI_2]),
+                     "ta loi est proportionnelle à la bonne : divise-la par sa somme": floats([x / PI_2[2] for x in PI_2]),
+                     "ta loi est proportionnelle à la bonne : une loi a des coordonnées de somme 1":
+                         floats([x / PI_2[1] for x in PI_2])}'''),
         ("b", FRACTION, "str(PI_2[2])",
          '''kind="fraction", simplified=True,
            mistakes={"π est un vecteur propre à gauche (πP = π), normalisé : ce n'est pas la loi uniforme":
                          str(stationary(transpose(P_2))[2])}'''),
         ("c", "a list of 3 numbers (exact values)", "floats(vecmat(SHARES_2, P_2))",
-         '''decimals=4,
+         '''decimals=6,
            mistakes={"une loi avance par μP (la ligne à gauche), pas par Pμ": floats(matvec(P_2, SHARES_2))}'''),
         ("d", FRACTION, "str(PI_2[2] * P_2[2][0] / PI_2[0])",
          '''kind="fraction", simplified=True,
@@ -138,7 +143,7 @@ PAPER = [
         ("e", BOOL, "bool(vecmat(mix_3(F(1, 2), F(1, 2)), P_SITE_3) == mix_3(F(1, 2), F(1, 2)))",
          '''mistakes={"calcule ½(π_FR + π_EN)P en utilisant la linéarité de π ↦ πP": False}'''),
         ("f", "a list of 3 numbers (exact values)", "floats([F(0)] + CLOSED_3)",
-         '''decimals=4,
+         '''decimals=6,
            mistakes={"dans le bloc fermé {1, 2}, écris l'équilibre des flux entre les deux états (ce qui passe de 1 à 2 "
                      "égale ce qui passe de 2 à 1), puis normalise": floats([F(0)] + CLOSED_3[::-1])}'''),
     ]),
@@ -203,11 +208,11 @@ PAPER = [
     Paper("M26.6", "Une machine qui s'use, deux politiques d'entretien : deux systèmes de Bellman et la valeur d'une "
           "action", [
               ("a", "a number", "floats(R_CONT_6)",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : pondère par les probabilités de transition, pas à parts "
                      "égales": floats(F(6 + 3, 2))}'''),
               ("b", "a 3 × 3 matrix", "floats(PB_6)",
-               '''decimals=2,
+               '''decimals=6,
            mistakes={"sous π_B, la ligne de la machine usée vient de l'action « entretenir »": floats(PA_6)}'''),
               ("c", "a list of 3 numbers (2 decimals)", "floats(VA_6)",
                '''decimals=2,
@@ -333,15 +338,15 @@ PAPER = [
          '''mistakes={"(P * R).sum(axis=2) somme sur le dernier axe, s′ : il reste les axes (actions, états)":
                          shape_of(np.zeros((2, 3, 3)).sum(axis=0))}'''),
         ("b", "a 2 × 3 matrix", "floats(RSA_14)",
-         '''decimals=2,
+         '''decimals=6,
            mistakes={"r(s, a) = Σ_s′ P_a(s, s′) r(s, a, s′) : la cotisation n'est perçue que si l'adhérent reste":
                          floats([[R_14[a][s][0] for s in range(3)] for a in range(2)])}'''),
         ("c", "a list of 3 numbers", "floats(RPI_14)",
-         '''decimals=2,
+         '''decimals=6,
            mistakes={"r_π(s) = Σ_a π(a | s) r(s, a) : pour un hésitant, 0,6 pour « rien » et 0,4 pour « remise »":
                          floats(induced_14(SWAPPED_14)[1])}'''),
         ("d", "a list of 3 numbers", "floats(PPI_14[1])",
-         '''decimals=2,
+         '''decimals=6,
            mistakes={"P_π(s, ·) = Σ_a π(a | s) P_a(s, ·) : 0,6 pour « rien » et 0,4 pour « remise »":
                          floats(induced_14(SWAPPED_14)[0][1])}'''),
         ("e", "a list of 3 numbers (2 decimals)", "floats(V_14)",
@@ -582,6 +587,32 @@ def induced_14(policy):
 PPI_14, RPI_14 = induced_14(PI_14)
 V_14 = bellman(PPI_14, RPI_14, G_14)'''
 
+PAPER_FRACTIONS = sorted(f"{paper.id}{letter}" for paper in PAPER for letter, hint, _, _ in paper.subs if hint == FRACTION)
+
+PAPER_LEARNER_CONTEXT = ('''# Part 0: a fraction asked as a text "p/q" must be a text (a float such as 1/6 is only close to it)
+FRACTIONS_0 = ''' + repr(PAPER_FRACTIONS) + '''
+
+
+def check_paper_0(ex_id, answer):
+    """wbm.check(ex_id, answer); for a fraction asked as a text "p/q", a number is refused (❌)."""
+    if ex_id in FRACTIONS_0 and answer is not ... and answer is not None and not isinstance(answer, str):
+        print(f"❌ Ex {ex_id} : la question demande une fraction irréductible entre guillemets, comme \\"3/7\\" ; reçu "
+              f"{answer!r} ({type(answer).__name__}) : écris la fraction exacte, en texte.")
+        return None
+    return wbm.check(ex_id, answer)''')
+
+
+def paper_part(kind: str) -> list:
+    """The cells of Part 0: in the exercise notebook, the answers are checked by check_paper_0 (PAPER_LEARNER_CONTEXT)."""
+    cells = paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
+                        learner_context=PAPER_LEARNER_CONTEXT if kind == "exercise" else None)
+    if kind == "exercise":
+        for cell in cells:
+            if cell.cell_type == "code" and "    wbm.check(f\"M26." in cell.source:
+                cell.source = cell.source.replace("    wbm.check(f\"M26.", "    check_paper_0(f\"M26.")
+    return cells
+
+
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ M26.1 à M26.9 ; 🔗 M26.14)\n\n"
                "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
                "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
@@ -767,7 +798,7 @@ NOTE_16 = (r"`mu = np.array(mu0, dtype=float)`, puis `n` fois `mu = mu @ P` (apr
            r"(0 ;\ 0 ;\ 0{,}5759 ;\ 0{,}4241)$ ; vrai. c) Vrai.")
 
 M26_16 = Ex(
-    "M26.16", "🔨", 1, 20, "La loi d'une chaîne après n pas, en convention ligne · `n_step_distribution`",
+    "M26.16", "🔨", 1, 25, "La loi d'une chaîne après n pas, en convention ligne · `n_step_distribution`",
     "programmer la loi après n pas μ₀Pⁿ en convention ligne, puis voir une loi se fixer en quelques pas et une autre "
     "alterner sans fin.", "fiche §1 ; M03, M12c ; Ex M26.1 et M26.3", tracks="C, E", mymath="markov.py", note=NOTE_16,
     body=HOWTO + r"""
@@ -880,10 +911,13 @@ print("c)", answer_M26_17c, " d)", np.round(trial_17, 6).tolist(), answer_M26_17
 P_operators_17r = np.array([[0.9, 0.05, 0.05], [0.05, 0.85, 0.1], [0.2, 0.15, 0.65]])
 P_ferry_17r = np.array([[0, 0, 0.7, 0.3], [0, 0, 0.35, 0.65], [0.9, 0.1, 0, 0], [0.3, 0.7, 0, 0]])
 right_17r = "le système porte sur Pᵀ − I : (P − I) x = 0 a pour solution le vecteur 1, qui ne dit rien"
+rounded_17r = "donne les valeurs que rend le calcul, sans les arrondir"
 wbm.record("M26.17a", stationary_17r(P_operators_17r).tolist(), decimals=6,
-           mistakes={right_17r: stationary_17r(P_operators_17r.T).tolist()})
+           mistakes={right_17r: stationary_17r(P_operators_17r.T).tolist(),
+                     rounded_17r: np.round(stationary_17r(P_operators_17r), 4).tolist()})
 wbm.record("M26.17b", stationary_17r(P_ferry_17r).tolist(), decimals=6,
-           mistakes={right_17r: stationary_17r(P_ferry_17r.T).tolist()})
+           mistakes={right_17r: stationary_17r(P_ferry_17r.T).tolist(),
+                     rounded_17r: np.round(stationary_17r(P_ferry_17r), 4).tolist()})
 wbm.record("M26.17c", True,
            mistakes={"le site bilingue a deux classes fermées : le système carré est singulier (matrix_rank < m), et ta "
                      "fonction doit le refuser par une ValueError": False})
@@ -901,7 +935,7 @@ NOTE_18 = (r"`M = np.eye(m) - gamma * P` ; si `gamma == 1` et `np.linalg.matrix_
            r"qui finit avec la probabilité 0,3 et une actualisation par 0,7 donnent la même valeur.")
 
 M26_18 = Ex(
-    "M26.18", "🔨", 2, 25, "Le système de Bellman d'une politique fixée, avec une fin possible (matrice "
+    "M26.18", "🔨", 2, 30, "Le système de Bellman d'une politique fixée, avec une fin possible (matrice "
     "sous-stochastique) et γ = 1 quand la fin est sûre · `bellman_linear_solve`",
     "programmer la résolution du système de Bellman d'une politique fixée, et voir qu'une ligne qui finit joue le rôle "
     "de γ.", "fiche §3 et §5 ; M09a ; Ex M26.4, M26.5 et M26.6", tracks="C, E", mymath="markov.py", note=NOTE_18,
@@ -981,40 +1015,28 @@ wbm.record("M26.18d", [9 / (1 - 0.7), 9 / (1 - 0.7)], decimals=6,
 
 GIVEN_19 = '''EPS_19 = 1e-3                                              # the accuracy of M26.7 e) and f)'''
 
-CHECK_19 = '''def gauss_seidel_c19(P, r, gamma, V0, n):
-    """The in-place sweeps in matrix form: (I − γ L) W_{k+1} = r + γ U W_k, L the strict lower part of P, U the rest."""
-    P, r = np.asarray(P, dtype=float), np.asarray(r, dtype=float)
-    lower, upper = np.tril(P, -1), np.triu(P)
-    W = [np.asarray(V0, dtype=float)]
-    for _ in range(n):
-        W.append(linalg.solve_triangular(np.eye(len(r)) - gamma * lower, r + gamma * upper @ W[-1], lower=True))
-    return np.array(W)
-
+CHECK_19 = '''CASES_C19 = __CASES_C19__   # two chains you do not see: their data, the sweeps expected, two classic wrong results
 
 with checked("M26.19"):
     results_19 = []
     report_19 = reporter(results_19)
-    rng_c19 = np.random.default_rng(6201)
-    for m_c19, gamma_c19, ends_c19 in ((4, 0.85, False), (5, 0.7, True)):
-        P_c19 = rng_c19.random((m_c19, m_c19)) * (rng_c19.random((m_c19, m_c19)) < 0.7) + np.eye(m_c19) * 0.1
-        P_c19 = P_c19 / P_c19.sum(axis=1, keepdims=True) * (rng_c19.uniform(0.6, 0.95, (m_c19, 1)) if ends_c19 else 1)
-        r_c19, V0_c19 = rng_c19.normal(0, 3, m_c19), rng_c19.normal(0, 5, m_c19)
-        want_c19 = gauss_seidel_c19(P_c19, r_c19, gamma_c19, V0_c19, 6)
-        got_c19 = in_place_sweeps_19(P_c19.copy(), r_c19.copy(), gamma_c19, V0_c19.copy(), 6)
+    for case_c19 in CASES_C19:
+        P_c19, r_c19, V0_c19 = (np.array(case_c19[key]) for key in ("P", "r", "V0"))
+        want_c19 = np.array(case_c19["want"])
+        got_c19 = in_place_sweeps_19(P_c19.copy(), r_c19.copy(), case_c19["gamma"], V0_c19.copy(), 6)
         if matches(got_c19, want_c19, rtol=1e-10, atol=1e-10):
             continue
-        sync_c19 = ref_markov.bellman_fixed_point_iterates(P_c19, r_c19, gamma_c19, V0_c19, 6)
-        reverse_c19 = gauss_seidel_c19(P_c19[::-1, ::-1], r_c19[::-1], gamma_c19, V0_c19[::-1], 6)[:, ::-1]
-        if matches(got_c19, sync_c19, rtol=1e-10, atol=1e-10):
+        if matches(got_c19, case_c19["synchronous"], rtol=1e-10, atol=1e-10):
             why_c19 = "ce sont les itérés synchrones : en place, chaque nouvelle valeur sert aussitôt aux états suivants"
-        elif matches(got_c19, reverse_c19, rtol=1e-10, atol=1e-10):
+        elif matches(got_c19, case_c19["reversed"], rtol=1e-10, atol=1e-10):
             why_c19 = "tu balaies les états du dernier au premier : l'ordre est 0, 1, …, m − 1"
         elif matches(got_c19, want_c19[1:], rtol=1e-10, atol=1e-10):
             why_c19 = "il manque la ligne 0, V0 : le tableau a n_sweeps + 1 lignes"
         else:
-            why_c19 = f"attendu un tableau de forme {want_c19.shape} de dernière ligne {shown(want_c19[-1])}, reçu {shown(got_c19)[:160]}"
-        report_19(False, "", f"in_place_sweeps_19, une chaîne que tu ne vois pas ({m_c19} états, γ = {fr(gamma_c19, 2)}, "
-                  f"V0 non nul, 6 balayages) : {why_c19}")
+            why_c19 = (f"attendu un tableau de forme {want_c19.shape} de dernière ligne {shown(want_c19[-1])}, reçu "
+                       f"{shown(got_c19)[:160]}")
+        report_19(False, "", f"in_place_sweeps_19, une chaîne que tu ne vois pas ({len(r_c19)} états, "
+                  f"γ = {fr(case_c19['gamma'], 2)}, V0 non nul, 6 balayages) : {why_c19}")
     report_19(True, "in_place_sweeps_19 : deux chaînes que tu ne vois pas (une stochastique, une qui peut finir), "
               "depuis un V0 non nul", "")
     got0_c19 = in_place_sweeps_19(np.array([[0.2, 0.8], [0.5, 0.5]]), np.array([1.0, -1.0]), 0.6, np.array([3.0, 4.0]), 0)
@@ -1027,7 +1049,7 @@ NOTE_19 = (r"`out = np.empty((n_steps + 1, m))`, `out[0] = V`, puis `V = r + gam
            r"balayages suffisent.")
 
 M26_19 = Ex(
-    "M26.19", "🔨", 1, 20, "Les itérés de l'opérateur de Bellman d'une politique fixée (Richardson de pas 1) · "
+    "M26.19", "🔨", 1, 25, "Les itérés de l'opérateur de Bellman d'une politique fixée (Richardson de pas 1) · "
     "`bellman_fixed_point_iterates`",
     "programmer les itérés synchrones de l'opérateur de Bellman, puis compter les itérations qu'il faut vraiment et "
     "comparer aux balayages en place.", "fiche §6 ; M19, M22 ; Ex M26.6 et M26.7", tracks="C, E", mymath="markov.py",
@@ -1104,12 +1126,18 @@ k_19r = int(np.argmax(errors_19r <= 1e-3))
 changes_19r = np.array([np.abs(closed_19r[k] - closed_19r[k - 1]).max() for k in range(1, 61)])
 post_19r = int(np.argmax(changes_19r <= 1e-3 * 0.4 / 0.6)) + 1
 eps_19r = int(np.argmax(changes_19r <= 1e-3)) + 1                  # (wrong) the threshold ε itself
+threshold_or_shift_19r = ("soit tu compares ‖V_k − V_{k−1}‖∞ à ε au lieu du seuil ε(1 − γ)/γ de M26.7 f), soit ton indice "
+                          "est décalé : l'élément j de np.diff(its, axis=0) est V_{j+1} − V_j, donc k = j + 1")
+shifted_19r = [k_19r, post_19r - 1, bool(errors_19r[post_19r - 1] <= 1e-3)]          # (wrong) np.argmax(...) without + 1
+eps_value_19r = [k_19r, eps_19r, bool(errors_19r[eps_19r] <= 1e-3)]
 wbm.record("M26.19b", [k_19r, post_19r, True],
            mistakes={"c'est ce que garantit la borne a priori : compte les itérations jusqu'à ce que l'erreur vraie, "
                      "‖V_k − V‖∞, passe sous 1e-3": [k_19r + 1, post_19r, True],
                      "la ligne k du tableau est V_k : la ligne 0 est V0, et k compte les pas": [k_19r + 1, post_19r + 1, True],
-                     "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f), "
-                     "pas sous ε": [k_19r, eps_19r, bool(errors_19r[eps_19r] <= 1e-3)]})
+                     **({threshold_or_shift_19r: shifted_19r} if shifted_19r == eps_value_19r else
+                        {threshold_or_shift_19r: shifted_19r,
+                         "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de "
+                         "M26.7 f), pas sous ε": eps_value_19r})})
 W_19r = [np.zeros(3)]
 for _ in range(60):
     W = W_19r[-1].copy()
@@ -1126,35 +1154,28 @@ wbm.record("M26.19c", W_19r[3].tolist() + [sweeps_19r], decimals=6,
 GIVEN_20 = '''LINKS_20 = {1: [2, 3], 2: [4], 3: [1, 4, 5], 4: [1, 3], 5: [4, 6], 6: []}   # page -> the pages it links to
 D_20 = 0.85                                                # the damping factor'''
 
-CHECK_20 = '''with checked("M26.20"):
-    L_c20 = np.zeros((6, 6))                                  # the reference matrix of the surfer
-    for page_c20, targets_c20 in LINKS_20.items():
-        L_c20[page_c20 - 1] = np.full(6, 1 / 6) if not targets_c20 else np.isin(np.arange(1, 7), targets_c20) / len(targets_c20)
+CHECK_20 = '''P_D_C20 = __P_D_C20__   # the matrix of the surfer with jumps, (6, 6)
+P_C20 = __P_C20__   # a chain you do not see
+LAW_C20, STEPS_C20 = __POWER_C20__   # what the power method of the statement gives on it, with tol = 1e-10
+
+with checked("M26.20"):
     if filled(P_D_20):
-        same("M26.20", "P_D_20, la matrice du surfeur avec sauts", P_D_20, D_20 * L_c20 + (1 - D_20) / 6)
+        same("M26.20", "P_D_20, la matrice du surfeur avec sauts", P_D_20, P_D_C20)
     else:
         print("⏳ Ex M26.20 : la comparaison attend ta matrice P_D_20.")
-    rng_c20 = np.random.default_rng(6202)
-    P_c20 = rng_c20.random((5, 5)) + 0.05
-    P_c20 = P_c20 / P_c20.sum(axis=1, keepdims=True)
-    x_c20, steps_c20 = np.full(5, 0.2), 0                     # the power method of the statement, step by step
-    while True:
-        y_c20, steps_c20 = x_c20 @ P_c20, steps_c20 + 1
-        if np.abs(y_c20 - x_c20).sum() < 1e-10:
-            break
-        x_c20 = y_c20
-    law_c20, n_c20 = pair("M26.20", "power_stationary_20", power_stationary_20(P_c20.copy(), 1e-10), names=("law", "steps"))
+    law_c20, n_c20 = pair("M26.20", "power_stationary_20", power_stationary_20(np.array(P_C20), 1e-10),
+                          names=("law", "steps"))
     if not same("M26.20", "power_stationary_20, une chaîne que tu ne vois pas (tol = 1e-10) : la loi", law_c20,
-                y_c20, rtol=0, atol=1e-9):
+                LAW_C20, rtol=0, atol=1e-9):
         raise StopCheck
     if isinstance(n_c20, (bool, np.bool_)) or not isinstance(n_c20, (int, np.integer)):
         verdict("M26.20", False, "", f"power_stationary_20 doit rendre le nombre de pas comme un entier, reçu {n_c20!r}")
-    elif n_c20 in (steps_c20 - 1, steps_c20 + 1):
-        verdict("M26.20", False, "", f"power_stationary_20 compte {int(n_c20)} pas au lieu de {steps_c20} : compte chaque "
+    elif n_c20 in (STEPS_C20 - 1, STEPS_C20 + 1):
+        verdict("M26.20", False, "", f"power_stationary_20 compte {int(n_c20)} pas au lieu de {STEPS_C20} : compte chaque "
                 "produit x ← xP, le dernier compris (celui après lequel l'écart passe sous tol)")
     else:
-        verdict("M26.20", int(n_c20) == steps_c20, f"power_stationary_20 : {steps_c20} pas sur une chaîne que tu ne vois pas, "
-                "comme attendu", f"power_stationary_20 : attendu {steps_c20} pas, reçu {int(n_c20)}")'''
+        verdict("M26.20", int(n_c20) == STEPS_C20, f"power_stationary_20 : {STEPS_C20} pas sur une chaîne que tu ne vois "
+                "pas, comme attendu", f"power_stationary_20 : attendu {STEPS_C20} pas, reçu {int(n_c20)}")'''
 
 NOTE_20 = (r"a) $\boldsymbol{\pi} \approx (0{,}2091 ;\ 0{,}1252 ;\ 0{,}2322 ;\ 0{,}2518 ;\ 0{,}1021 ;\ 0{,}0797)$. b) Vrai "
            r"(`null_space` rend une seule colonne). c) 41 pas ; la borne $2\,d^k \le 10^{-12}$ en demande 175. d) "
@@ -1162,7 +1183,7 @@ NOTE_20 = (r"a) $\boldsymbol{\pi} \approx (0{,}2091 ;\ 0{,}1252 ;\ 0{,}2322 ;\ 0
            r"multipliées par $d$. e) $[4, 3, 1, 2, 5, 6]$ : la page 4, que pointent trois pages, passe devant la page 3.")
 
 M26_20 = Ex(
-    "M26.20", "📦", 1, 20, "La loi stationnaire de trois façons, `np.linalg.eig` sur Pᵀ, `scipy.linalg.null_space` et la "
+    "M26.20", "📦", 1, 30, "La loi stationnaire de trois façons, `np.linalg.eig` sur Pᵀ, `scipy.linalg.null_space` et la "
     "méthode de la puissance, sur le surfeur aléatoire d'un web de six pages",
     "calculer une loi stationnaire par trois méthodes de bibliothèque et par la méthode de la puissance, et relier la "
     "vitesse de celle-ci à la deuxième valeur propre.", "fiche §2 ; M12c ; Ex M26.17", tracks="C", given=GIVEN_20,
@@ -1175,7 +1196,7 @@ M26_20 = Ex(
 Relève :
 - a) le PageRank des six pages, par ta `stationary_distribution` (une liste de 6 nombres ; 4 décimales dans ta copie) ;
 - b) vrai ou faux : les trois calculs et ta `stationary_distribution` coïncident à $10^{-10}$ près ;
-- c) le nombre de pas de `power_stationary_20(P_D_20, 1e-12)`, puis le plus petit nombre de pas $k$ pour lequel la borne $\lVert\mathbf{x}_k - \boldsymbol{\pi}\rVert_1 \le 2\,d^k$ de la fiche garantit $10^{-12}$ (une liste de 2 entiers) ;
+- c) le nombre de pas de `power_stationary_20(P_D_20, 1e-12)`, puis le plus petit nombre de pas $k$ pour lequel la borne $\lVert\mathbf{x}_k - \boldsymbol{\pi}\rVert_1 \le d^k\lVert\mathbf{x}_0 - \boldsymbol{\pi}\rVert_1 \le 2\,d^k$ (fiche §2 ; deux lois sont à distance au plus 2 en norme 1) garantit $10^{-12}$ (une liste de 2 entiers) ;
 - d) $\lvert\lambda_2(\mathbf{P}_d)\rvert$ et $d\,\lvert\lambda_2(\mathbf{L})\rvert$, par `np.linalg.eigvals` ($\lambda_2$ : la deuxième plus grande valeur propre en module) (une liste de 2 nombres ; 4 décimales dans ta copie) ;
 - e) les numéros des pages (de 1 à 6), du plus grand PageRank au plus petit (une liste de 6 entiers).
 
@@ -1192,7 +1213,7 @@ with wbm.attempt("M26.20"):          # your stationary_distribution and power_st
     P_D_20 = ...           # P_d = d L + (1 − d)/6 1 1ᵀ, d = D_20
     answer_M26_20a = ...  # a) a list of 6 numbers, as computed: the PageRank of the six pages (your stationary_distribution)
     answer_M26_20b = ...  # b) True or False: eig, null_space, the power method and your stationary_distribution agree to 1e-10
-    answer_M26_20c = ...  # c) a list of 2 integers: the steps of power_stationary_20(P_D_20, 1e-12), then the smallest k with 2 d^k ≤ 1e-12
+    answer_M26_20c = ...  # c) a list of 2 integers: the steps of power_stationary_20(P_D_20, 1e-12), then the smallest k with 2 d^k ≤ 1e-12 (‖x_k − π‖₁ ≤ d^k ‖x_0 − π‖₁ ≤ 2 d^k)
     answer_M26_20d = ...  # d) a list of 2 numbers, as computed: |λ2(P_d)| and d |λ2(L)|
     answer_M26_20e = ...  # e) a list of 6 integers: the pages (1 to 6), from the largest PageRank to the smallest''',
     check=answers_check("M26.20", "abcde") + "\n\n" + CHECK_20,
@@ -1268,7 +1289,7 @@ wbm.record("M26.20c", [k_20r, bound_20r],
            mistakes={"compte chaque produit x ← xP, le dernier compris (celui après lequel l'écart passe sous tol) : un de "
                      "moins ici": [k_20r - 1, bound_20r],
                      "compte chaque produit x ← xP, le dernier compris : un de trop ici": [k_20r + 1, bound_20r],
-                     "la borne de la fiche est 2 dᵏ : n'oublie pas le facteur 2":
+                     "deux lois sont à distance au plus 2 en norme 1 : la borne est 2 dᵏ, n'oublie pas le facteur 2":
                          [k_20r, math.ceil(math.log(1e-12) / math.log(0.85))],
                      "le plus petit entier k tel que 2 dᵏ ≤ 1e-12 : arrondis vers le haut":
                          [k_20r, math.floor(math.log(1e-12 / 2) / math.log(0.85))]})
@@ -1304,7 +1325,7 @@ P_SYMBOLIC_21 = sp.Matrix([[sp.Rational(9, 10), sp.Rational(1, 20), sp.Rational(
                            [sp.Rational(1, 5), sp.Rational(3, 20), sp.Rational(13, 20)]])'''
 
 CHECK_21 = '''with checked("M26.21"):
-    if not filled(matrices_21):
+    if not filled(matrices_21) or (isinstance(matrices_21, (list, tuple)) and not matrices_21):
         print("⏳ Ex M26.21 : la vérification attend tes quatre matrices matrices_21.")
         raise StopCheck
     if not isinstance(matrices_21, (list, tuple)) or len(matrices_21) != 4:
@@ -1355,7 +1376,7 @@ NOTE_21 = (r"Prédictions attendues : a) (A) ; b) (B) ; c) (A). d) De l'ordre de
            r"ligne tend vers $\big(\frac12, \frac13, \frac16\big)$. g) La matrice identité.")
 
 M26_21 = Ex(
-    "M26.21", "🔮", 1, 15, "Prédire la somme des lignes de (1 − γ)(I − γP)⁻¹, puis leur limite quand γ tend vers 1, et "
+    "M26.21", "🔮", 1, 20, "Prédire la somme des lignes de (1 − γ)(I − γP)⁻¹, puis leur limite quand γ tend vers 1, et "
     "vérifier",
     "prévoir, puis vérifier, que la loi d'occupation actualisée est une loi pour tout γ, qu'elle oublie le départ quand "
     "γ tend vers 1, et qu'elle reste sur le départ quand γ tend vers 0.", "fiche §2 et §5 ; Ex M26.2, M26.17 et M26.18",
@@ -1449,22 +1470,14 @@ MU_22 = 1000.0                                             # the true mean life 
 KS_22, NS_22 = (2, 3, 5, 10), (4, 16, 64)                  # the numbers of suppliers and of batteries per supplier
 N_REP_22 = 20000                                           # the number of simulated experiments'''
 
-HINTS_22 = '''def max_bias_c22(k, n, delta, n_rep, rng):
-    """The procedure of the statement, by the check (never your code)."""
-    means = np.full(k, MU_22)
-    means[0] += delta
-    first = rng.normal(means, SIGMA0_22, size=(n_rep, n, k)).mean(axis=1)
-    chosen = np.argmax(first, axis=1)
-    second = rng.normal(means[chosen][:, None], SIGMA0_22, size=(n_rep, n)).mean(axis=1)
-    best = MU_22 + max(delta, 0.0)
-    return float(first.max(axis=1).mean() - best), float(second.mean() - best)
+HINTS_22 = '''HIDDEN_C22 = __HIDDEN_C22__   # max_bias_22(3, 8, 4.0, 3000, np.random.default_rng(6223)): (naive, double)
+TABLE_C22 = __TABLE_C22__   # the table of the naive biases expected in a), rounded to 0.1 h (the figure, a hint)
 
 
 def table_hint_22(value):
-    """a): a table close to the right one, not equal: the order of the draws."""
-    want = [[max_bias_c22(k, n, 0.0, 2000, np.random.default_rng(6223))[0] for n in (4, 16)] for k in (2, 3)]
+    \"\"\"a): a table close to the expected one (within 0.3 h), not equal to it: the order of the draws.\"\"\"
     got = np.asarray(value, dtype=float)
-    if got.shape == (4, 3) and np.all(np.abs(got[:2, :2] - np.asarray(want)) < 2.0):
+    if got.shape == (4, 3) and np.all(np.abs(got - np.array(TABLE_C22)) < 0.3):
         return ("tes biais ont le bon ordre de grandeur : les valeurs exactes demandent les tirages dans l'ordre de "
                 "l'énoncé (k, puis n, puis le dernier appel), avec le même rng, rng.normal de forme (n_rep, n, k) puis "
                 "(n_rep, n)")
@@ -1473,26 +1486,23 @@ def table_hint_22(value):
 CHECK_22 = '''with checked("M26.22"):
     results_22 = []
     report_22 = reporter(results_22)
-    want_c22 = max_bias_c22(3, 8, 4.0, 3000, np.random.default_rng(6223))
     got_c22 = pair("M26.22", "max_bias_22", max_bias_22(3, 8, 4.0, 3000, np.random.default_rng(6223)),
                    names=("naive", "double"))
-    if not matches(got_c22, want_c22, rtol=1e-9, atol=1e-9):
-        shifted_c22 = (want_c22[0] + 4.0, want_c22[1] + 4.0)
-        report_22(False, "", "max_bias_22(3, 8, 4.0, 3000, default_rng(6223)) : attendu " + shown(want_c22) + ", reçu "
+    if not matches(got_c22, HIDDEN_C22, rtol=1e-9, atol=1e-9):
+        shifted_c22 = (HIDDEN_C22[0] + 4.0, HIDDEN_C22[1] + 4.0)
+        report_22(False, "", "max_bias_22(3, 8, 4.0, 3000, default_rng(6223)) : attendu " + shown(HIDDEN_C22) + ", reçu "
                   + shown(got_c22) + (" : les biais se mesurent par rapport à la meilleure moyenne vraie, 1 000 + max(δ, 0)"
                                       if matches(got_c22, shifted_c22, rtol=1e-9, atol=1e-9) else
                                       " : tire les mesures dans l'ordre de l'énoncé, (n_rep, n, k) puis (n_rep, n)"))
     report_22(True, "max_bias_22 : un cas que tu ne vois pas (k = 3, n = 8, δ = 4, 3 000 expériences), comme attendu", "")
-    rng_c22 = np.random.default_rng(6222)                     # one rng for the whole table, as in the statement
-    table_c22 = [[max_bias_c22(k, n, 0.0, N_REP_22, rng_c22)[0] for n in NS_22] for k in KS_22]
     fig_22, ax_22 = plt.subplots(figsize=(6.5, 4))
     try:
-        opened_22 = drawn(draw_bias_22, ax_22, list(KS_22), list(NS_22), np.array(table_c22))
+        opened_22 = drawn(draw_bias_22, ax_22, list(KS_22), list(NS_22), np.array(TABLE_C22))
         report_22(not opened_22, "draw_bias_22 dessine dans l'axe reçu", "draw_bias_22 doit dessiner dans l'axe reçu, "
                   "sans ouvrir de figure")
         missing_22 = [f"n = {n}" for j, n in enumerate(NS_22)
-                      if not through(ax_22, KS_22, np.array(table_c22)[:, j], rtol=1e-9)]
-        report_22(not missing_22, "une courbe du biais naïf contre k pour chaque n",
+                      if not through(ax_22, KS_22, np.array(TABLE_C22)[:, j], rtol=1e-9)]
+        report_22(not missing_22, "une courbe du biais naïf contre k pour chaque n (le tableau attendu, arrondi à 0,1 h)",
                   "il manque la courbe du biais naïf contre k pour " + ", ".join(missing_22))
         report_22(ax_22.get_legend() is not None and ax_22.get_xlabel() != "" and ax_22.get_ylabel() != "",
                   "des noms d'axes et une légende", "draw_bias_22 doit nommer les axes et mettre une légende (un label "
@@ -1514,7 +1524,7 @@ NOTE_22 = (r"a) Biais naïfs (h), $n = 4$, 16, 64 : $k = 2$ : 8,40 ; 4,18 ; 2,07
            r": le naïf reste optimiste, le double devient pessimiste (il choisit parfois un fournisseur moins bon).")
 
 M26_22 = Ex(
-    "M26.22", "🔬", 2, 20, "Le biais du maximum par simulation : k fournisseurs de même qualité, n mesures chacun, le "
+    "M26.22", "🔬", 2, 30, "Le biais du maximum par simulation : k fournisseurs de même qualité, n mesures chacun, le "
     "meilleur mesuré contre l'estimateur double",
     "mesurer par simulation le biais du maximum de k moyennes bruitées, sa croissance avec k et sa décroissance en "
     "1/√n, et voir l'estimateur double rester sans biais, puis devenir pessimiste.", "fiche §8 ; M02c ; Ex M26.9",
@@ -1701,7 +1711,7 @@ NOTE_23 = (r"a) $\lvert\lambda_2\rvert = 0{,}7 + \sqrt{0{,}015} \approx 0{,}8225
            r"$\ln 0{,}8225$ à $10^{-8}$ près. c) $n = 73$.")
 
 M26_23 = Ex(
-    "M26.23", "🎨", 1, 15, "La loi d'une chaîne au fil des pas depuis trois départs, et ‖μ_n − π‖₁ en échelle "
+    "M26.23", "🎨", 1, 20, "La loi d'une chaîne au fil des pas depuis trois départs, et ‖μ_n − π‖₁ en échelle "
     "logarithmique contre |λ₂|ⁿ",
     "voir la loi d'une chaîne oublier son départ, et lire sur une échelle logarithmique que l'écart décroît comme "
     "|λ₂|ⁿ.", "fiche §1 et §2 ; M12c ; Ex M26.2, M26.16 et M26.17", tracks="C", given=GIVEN_23, note=NOTE_23,
@@ -1819,7 +1829,8 @@ def market_shares(P):
 
 def subscription_value(P, monthly_fee, closing_fee, gamma):
     """The values of a subscription: trial (0), paying (1) who pays monthly_fee each month, cancelled (2, absorbing);
-    a cancellation costs closing_fee once to the subscriber."""
+    every move to cancelled, from the trial as from the paying state, brings closing_fee once (fees paid by the
+    subscriber; the values are what the subscription brings)."""
     r = np.array([0.0, monthly_fee, closing_fee])
     return np.linalg.solve(np.eye(3) - gamma * np.asarray(P, dtype=float), r)
 
@@ -1844,7 +1855,9 @@ print("(4) le cursus : les durées moyennes :",
       bool(np.allclose(total_takings(Q_CURSUS, np.ones(3)), np.linalg.solve(np.eye(3) - Q_CURSUS, np.ones(3)))),
       "(attendu True)")'''
 
-CHECK_24 = '''results_24, parts_24 = [], []
+CHECK_24 = '''CASES_C24 = __CASES_C24__   # the cases you do not see, with what each corrected function must give
+
+results_24, parts_24 = [], []
 
 
 def report_24(ok, success, failure):
@@ -1853,8 +1866,8 @@ def report_24(ok, success, failure):
 
 
 def call_24(part, name, function, *args):
-    """function(*args); an error of the learner's code becomes one ❌ line that names the function (the check of this
-    part stops there, the final verdict stays)."""
+    \"\"\"function(*args); an error of the learner's code becomes one ❌ line that names the function (the check of this
+    part stops there, the final verdict stays).\"\"\"
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", RuntimeWarning)
@@ -1867,92 +1880,82 @@ def call_24(part, name, function, *args):
         raise StopCheck from None
 
 
-rng_c24 = np.random.default_rng(6204)
-
-
-def chain_c24(m, sparse=0.0):
-    """A random stochastic chain of m states (positive entries, a few zeros when sparse > 0)."""
-    W = rng_c24.random((m, m)) * (rng_c24.random((m, m)) >= sparse) + 0.02 * np.eye(m)
-    return W / W.sum(axis=1, keepdims=True)
+def vector_c24(value):
+    \"\"\"value as a 1-D float array, or None.\"\"\"
+    try:
+        arr = np.asarray(value, dtype=float)
+    except (TypeError, ValueError):
+        return None
+    return arr if arr.ndim == 1 else None
 
 
 with checked("M26.24"):                                       # (1) bikes_after_fixed
     wrong_24 = []
-    for m_c24, n_c24 in ((4, 0), (4, 7), (5, 3)):
-        P_c24, mu_c24 = chain_c24(m_c24, 0.3), rng_c24.dirichlet(np.ones(m_c24))
-        want_c24 = mu_c24 @ np.linalg.matrix_power(P_c24, n_c24)
-        got_c24 = call_24(1, "bikes_after_fixed", bikes_after_fixed, P_c24.copy(), mu_c24.copy(), n_c24)
-        if matches(got_c24, want_c24):
+    for case_c24 in CASES_C24["bikes"]:
+        P_c24, mu_c24 = np.array(case_c24["P"]), np.array(case_c24["mu"])
+        got_c24 = call_24(1, "bikes_after_fixed", bikes_after_fixed, P_c24.copy(), mu_c24.copy(), case_c24["n"])
+        if matches(got_c24, case_c24["want"]):
             continue
-        if matches(got_c24, np.linalg.matrix_power(P_c24, n_c24) @ mu_c24):
+        if matches(got_c24, case_c24["column"]):
             wrong_24.append("tu fais encore avancer la loi par P @ mu : une loi est une ligne, mu @ P")
         else:
-            wrong_24.append(f"{m_c24} états, {n_c24} jours : attendu {shown(want_c24)}, reçu {shown(got_c24)[:120]}")
+            wrong_24.append(f"{len(mu_c24)} états, {case_c24['n']} jours : attendu {shown(case_c24['want'])}, reçu "
+                            f"{shown(got_c24)[:120]}")
     report_24(not wrong_24, "(1) bikes_after_fixed : des chaînes que tu ne vois pas, non symétriques, 0, 3 et 7 jours",
               "(1) bikes_after_fixed : " + " ; ".join(list(dict.fromkeys(wrong_24))[:2]))
     parts_24.append(1)
 
 with checked("M26.24"):                                       # (2) market_shares_fixed
     wrong_24 = []
-    for m_c24 in (4, 5, 6):
-        P_c24 = chain_c24(m_c24)
-        v_c24 = linalg.null_space(P_c24.T - np.eye(m_c24))[:, 0]
-        want_c24 = v_c24 / v_c24.sum()
+    for case_c24 in CASES_C24["shares"]:
+        P_c24, want_c24 = np.array(case_c24["P"]), np.array(case_c24["want"])
         got_c24 = call_24(2, "market_shares_fixed", market_shares_fixed, P_c24.copy())
         if matches(got_c24, want_c24):
             continue
-        try:
-            arr_c24 = np.asarray(got_c24, dtype=float)
-            proportional_c24 = arr_c24.shape == want_c24.shape and matches(arr_c24 / arr_c24.sum(), want_c24)
-        except (TypeError, ValueError, ZeroDivisionError):
-            proportional_c24 = False
-        if proportional_c24:
-            wrong_24.append("ta loi est proportionnelle à la bonne : divise le vecteur propre par sa somme (son signe est "
-                            "arbitraire, la division le corrige)")
+        arr_c24 = vector_c24(got_c24)
+        ratio_c24 = arr_c24 / want_c24 if arr_c24 is not None and arr_c24.shape == want_c24.shape else None
+        if ratio_c24 is not None and np.all(np.isfinite(ratio_c24)) and np.ptp(ratio_c24) <= 1e-9 * np.abs(ratio_c24).max():
+            wrong_24.append("ta loi est proportionnelle à la bonne : une loi a des coordonnées de somme 1 (le signe d'un "
+                            "vecteur propre est arbitraire)")
         else:
-            wrong_24.append(f"{m_c24} états : attendu {shown(want_c24)}, reçu {shown(got_c24)[:120]}")
+            wrong_24.append(f"{len(want_c24)} états : attendu {shown(want_c24)}, reçu {shown(got_c24)[:120]}")
     report_24(not wrong_24, "(2) market_shares_fixed : des chaînes que tu ne vois pas, de 4 à 6 états",
               "(2) market_shares_fixed : " + " ; ".join(list(dict.fromkeys(wrong_24))[:2]))
     parts_24.append(2)
 
 with checked("M26.24"):                                       # (3) subscription_value_fixed
     wrong_24 = []
-    for p_paid_c24, p_stay_c24, monthly_c24, closing_c24, gamma_c24 in ((0.7, 0.85, 20.0, 30.0, 0.85),
-                                                                         (0.4, 0.95, 8.0, 5.0, 0.96)):
-        P_c24 = np.array([[0, p_paid_c24, 1 - p_paid_c24], [0, p_stay_c24, 1 - p_stay_c24], [0, 0, 1.0]])
-        r_c24 = np.array([closing_c24 * P_c24[0, 2], monthly_c24 + closing_c24 * P_c24[1, 2], 0.0])
-        want_c24 = np.linalg.solve(np.eye(3) - gamma_c24 * P_c24, r_c24)
-        got_c24 = call_24(3, "subscription_value_fixed", subscription_value_fixed, P_c24.copy(), monthly_c24, closing_c24,
-                          gamma_c24)
-        if matches(got_c24, want_c24):
+    for case_c24 in CASES_C24["subscriptions"]:
+        P_c24 = np.array(case_c24["P"])
+        got_c24 = call_24(3, "subscription_value_fixed", subscription_value_fixed, P_c24.copy(), case_c24["monthly"],
+                          case_c24["closing"], case_c24["gamma"])
+        if matches(got_c24, case_c24["want"]):
             continue
-        try:
-            got_arr_c24 = np.asarray(got_c24, dtype=float)
-        except (TypeError, ValueError):
-            got_arr_c24 = None
-        if got_arr_c24 is not None and got_arr_c24.shape == (3,) and abs(got_arr_c24[2]) > 1e-9:
+        arr_c24 = vector_c24(got_c24)
+        if arr_c24 is not None and arr_c24.shape == (3,) and abs(arr_c24[2]) > 1e-9:
             wrong_24.append("l'état résilié rapporte encore : un état absorbant reçoit une récompense nulle, sinon il la "
                             "rapporte à chaque mois, pour toujours")
-        elif matches(got_c24, np.linalg.solve(np.eye(3) - gamma_c24 * P_c24, [0.0, monthly_c24, 0.0])):
+        elif matches(got_c24, case_c24["no_fee"]):
             wrong_24.append("les frais de résiliation ont disparu : ils se paient une fois, sur la transition vers « résilié »")
+        elif matches(got_c24, case_c24["trial_free"]):
+            wrong_24.append("un essai qui part est aussi une résiliation : les frais entrent dans r(0) avec la probabilité "
+                            "p_02")
         else:
-            wrong_24.append(f"un autre abonnement (γ = {fr(gamma_c24, 2)}) : attendu {shown(want_c24)}, reçu {shown(got_c24)}")
+            wrong_24.append(f"un autre abonnement (γ = {fr(case_c24['gamma'], 2)}) : attendu {shown(case_c24['want'])}, "
+                            f"reçu {shown(got_c24)}")
     report_24(not wrong_24, "(3) subscription_value_fixed : deux abonnements que tu ne vois pas",
               "(3) subscription_value_fixed : " + " ; ".join(list(dict.fromkeys(wrong_24))[:2]))
     parts_24.append(3)
 
 with checked("M26.24"):                                       # (4) total_takings_fixed
     wrong_24 = []
-    ends_c24 = chain_c24(4, 0.2) * np.array([[0.9], [0.8], [0.95], [0.7]])     # every row ends: a sure end
-    r_c24 = rng_c24.uniform(0.5, 2.0, 4)
-    got_c24 = call_24(4, "total_takings_fixed", total_takings_fixed, ends_c24.copy(), r_c24.copy())
-    if not matches(got_c24, np.linalg.solve(np.eye(4) - ends_c24, r_c24)):
-        wrong_24.append(f"une chaîne qui finit avec certitude : attendu {shown(np.linalg.solve(np.eye(4) - ends_c24, r_c24))}, "
-                        f"reçu {shown(got_c24)}")
-    kept_c24 = np.zeros((4, 4))                               # an absorbing end kept as a state: I − P singular
-    kept_c24[:3, :3], kept_c24[:3, 3], kept_c24[3, 3] = ends_c24[:3, :3], 1 - ends_c24[:3, :3].sum(axis=1), 1.0
-    for label_c24, P_c24 in (("une chaîne stochastique, sans fin", chain_c24(5)),
-                             ("une fin gardée comme état absorbant", kept_c24)):
+    ends_c24 = CASES_C24["ends"]
+    got_c24 = call_24(4, "total_takings_fixed", total_takings_fixed, np.array(ends_c24["P"]), np.array(ends_c24["r"]))
+    if not matches(got_c24, ends_c24["want"]):
+        wrong_24.append(f"une chaîne qui finit avec certitude : attendu {shown(ends_c24['want'])}, reçu {shown(got_c24)}")
+    for label_c24, key_c24 in (("une chaîne stochastique, sans fin", "stochastic"),
+                               ("une fin gardée comme état absorbant", "kept")):
+        P_c24 = np.array(CASES_C24[key_c24])
         try:
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore", RuntimeWarning)
@@ -1986,7 +1989,7 @@ NOTE_24 = (r"(1) `bikes_after` fait avancer la loi en convention colonne (`P @ m
            r"`LinAlgError` ou des nombres absurdes ; le cursus de la vérification avait une fin sûre. d) Vrai.")
 
 M26_24 = Ex(
-    "M26.24", "🐛", 1, 25, "Chasse à l'erreur : une matrice lue dans la mauvaise convention, une loi stationnaire non "
+    "M26.24", "🐛", 1, 30, "Chasse à l'erreur : une matrice lue dans la mauvaise convention, une loi stationnaire non "
     "normalisée, un état final qui rapporte encore, γ = 1 sans fin",
     "reconnaître quatre erreurs classiques sur les chaînes de Markov et le système de Bellman, qui passent une "
     "vérification mal choisie, puis les corriger.", "fiche §1, §2 et §5 ; Ex M26.1, M26.2, M26.4 et M26.16 à M26.18",
@@ -1994,7 +1997,7 @@ M26_24 = Ex(
     body=r"""Un collègue a écrit quatre fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
 1. `bikes_after(P, mu0, n)` doit rendre la loi d'un vélo après `n` jours ; elle répète `n` fois `mu = P @ mu`. Il l'a vérifiée sur la matrice $\mathbf{S}$ (`S_24`), depuis la station 0, sur 5 jours : le résultat a pour somme 1 et égale la ligne 0 de `np.linalg.matrix_power(S, 5)`. Il l'applique aux vélos de M26.1.
 2. `market_shares(P)` doit rendre la loi stationnaire ; elle calcule `w, v = np.linalg.eig(P.T)`, prend la colonne de `v` dont la valeur propre est la plus proche de 1, et rend sa partie réelle. Il l'a vérifiée sur les trois opérateurs de M26.2 : `np.allclose(pi @ P, pi)` vaut `True`.
-3. `subscription_value(P, monthly_fee, closing_fee, gamma)` doit rendre les valeurs d'un abonnement à trois états, essai (0), payant (1) et résilié (2, absorbant), où un abonné payant verse `monthly_fee` chaque mois et où une résiliation coûte une fois `closing_fee` à l'abonné ; elle construit $\mathbf{r} = (0,\ \text{monthly\_fee},\ \text{closing\_fee})$ et rend `np.linalg.solve(np.eye(3) - gamma * P, r)`. Il l'a vérifiée avec `P_SUBSCRIPTION_24`, 12 € par mois, 15 € de frais et $\gamma = 0{,}96$ : le résidu $\lVert\mathbf{V} - (\mathbf{r} + \gamma\mathbf{P}\mathbf{V})\rVert_\infty$ est inférieur à $10^{-9}$.
+3. `subscription_value(P, monthly_fee, closing_fee, gamma)` doit rendre les valeurs d'un abonnement à trois états, essai (0), payant (1) et résilié (2, absorbant), où un abonné payant verse `monthly_fee` chaque mois et où tout passage vers « résilié », depuis l'essai comme depuis l'état payant, rapporte une fois `closing_fee` (des frais payés par l'abonné ; les valeurs sont ce que l'abonnement rapporte) ; elle construit $\mathbf{r} = (0,\ \text{monthly\_fee},\ \text{closing\_fee})$ et rend `np.linalg.solve(np.eye(3) - gamma * P, r)`. Il l'a vérifiée avec `P_SUBSCRIPTION_24`, 12 € par mois, 15 € de frais et $\gamma = 0{,}96$ : le résidu $\lVert\mathbf{V} - (\mathbf{r} + \gamma\mathbf{P}\mathbf{V})\rVert_\infty$ est inférieur à $10^{-9}$.
 4. `total_takings(P, r)` doit rendre la recette totale moyenne jusqu'à la fin, depuis chaque état ; elle rend `np.linalg.solve(np.eye(m) - P, r)`. Il l'a vérifiée sur le cursus de M26.4 (`P` = les trois années, `r` = des 1) : elle redonne les durées moyennes. Il l'applique ensuite aux vélos, avec une matrice estimée sur 100 trajets par station (`P_ESTIMATED_24`, de lignes $(61, 29, 10)/100$, $(33, 41, 26)/100$ et $(38, 23, 39)/100$), et les recettes journalières $(1{,}5 ;\ 1 ;\ 0{,}5)$ € (`TAKINGS_24`).
 
 À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `bikes_after_fixed`, `market_shares_fixed`, `subscription_value_fixed` et `total_takings_fixed`, avec les mêmes arguments (`total_takings_fixed` lève une `ValueError` quand le processus ne finit pas avec certitude, testé par `np.linalg.matrix_rank`). Puis réponds :
@@ -2016,7 +2019,8 @@ def market_shares_fixed(P):
 
 def subscription_value_fixed(P, monthly_fee, closing_fee, gamma):
     """The values of a subscription: trial (0), paying (1) who pays monthly_fee each month, cancelled (2, absorbing);
-    a cancellation costs closing_fee once to the subscriber."""
+    every move to cancelled, from the trial as from the paying state, brings closing_fee once (fees paid by the
+    subscriber; the values are what the subscription brings)."""
     raise NotImplementedError("subscription_value_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
@@ -2049,7 +2053,8 @@ def market_shares_fixed(P):
 
 def subscription_value_fixed(P, monthly_fee, closing_fee, gamma):
     """The values of a subscription: trial (0), paying (1) who pays monthly_fee each month, cancelled (2, absorbing);
-    a cancellation costs closing_fee once to the subscriber."""
+    every move to cancelled, from the trial as from the paying state, brings closing_fee once (fees paid by the
+    subscriber; the values are what the subscription brings)."""
     P = np.asarray(P, dtype=float)
     r = np.array([0.0, monthly_fee, 0.0]) + closing_fee * P[:, 2]   # the fee on the transition to « cancelled »...
     r[2] = 0.0                                                     # ... and nothing in the absorbing state
@@ -2106,7 +2111,9 @@ fixed_24r, wrong_24r = value_24r([15 * 0.45, 12 + 15 * 0.1, 0]), value_24r([0, 1
 wbm.record("M26.24c", fixed_24r.tolist() + [float(wrong_24r[2])], decimals=6,
            mistakes={"c) demande d'abord les valeurs de ta version CORRIGÉE": wrong_24r.tolist() + [float(wrong_24r[2])],
                      "les frais de résiliation se paient une fois, sur la transition vers « résilié » : ils ne disparaissent "
-                     "pas": value_24r([0, 12, 0]).tolist() + [float(wrong_24r[2])]})
+                     "pas": value_24r([0, 12, 0]).tolist() + [float(wrong_24r[2])],
+                     "un essai qui part est aussi une résiliation : les frais entrent dans r(0) avec la probabilité p_02":
+                         value_24r([0, 12 + 15 * 0.1, 0]).tolist() + [float(wrong_24r[2])]})
 wbm.record("M26.24d", True,
            mistakes={"la chaîne des vélos est stochastique : sans fin, I − P est singulière (son rang est < 3), et "
                      "total_takings_fixed doit lever une ValueError": False})''',
@@ -2203,41 +2210,90 @@ SOLUTION_25 = '''def markov_property_test_25(n_trials, rng, stationary=None, ite
 HIDDEN_STARTS_25 = (6241, 6242)
 HIDDEN_TRIALS_25 = 40
 
+WRONG_C25 = """def stationary_uniform_c25(P):
+    \"\"\"WRONG: the uniform law, a law but not invariant (the chains of random_chain_25 are never doubly stochastic).\"\"\"
+    return np.full(len(P), 1 / len(P))
+
+
+def unnormalized_c25(P):
+    \"\"\"WRONG: an eigenvector of Pᵀ for 1, of euclidean norm 1, never divided by its sum.\"\"\"
+    return np.abs(linalg.null_space(np.asarray(P, dtype=float).T - np.eye(len(P)))[:, 0])
+
+
+def iterates_without_r_c25(P, r, gamma, V0=None, n_steps=10):
+    \"\"\"WRONG: the iterates of the operator V ↦ γPV (the rewards forgotten).\"\"\"
+    return ref_markov.bellman_fixed_point_iterates(P, np.zeros(len(r)), gamma, V0, n_steps)"""
+
+# The wrong versions of the check: (label, key of the reference counters, keyword argument, function name); the last
+# two replace mymath.markov.<name> for a moment (first hidden start only), to see that the test looks it up at the call.
+WRONG_PASSED_25 = (("stationary_times_two", "times_two", "stationary", "stationary_times_two"),
+                   ("une loi uniforme, qui n'est pas invariante", "uniform", "stationary", "stationary_uniform_c25"),
+                   ("iterates_in_place", "in_place", "iterates", "iterates_in_place"),
+                   ("iterates_without_gamma", "without_gamma", "iterates", "iterates_without_gamma"))
+WRONG_PATCHED_25 = (("une loi stationnaire qui ne se normalise pas", "unnormalized", "stationary_distribution",
+                     "unnormalized_c25"),
+                    ("des itérés qui oublient r", "without_r", "bellman_fixed_point_iterates", "iterates_without_r_c25"))
+
 
 def reference_counts_25() -> dict:
     """The counters of the property test on the two hidden starts, by the reference implementation: the same source
-    (GIVEN_25 and SOLUTION_25) run at build time, so that the check cell holds numbers, never the test itself."""
+    (GIVEN_25, WRONG_C25 and SOLUTION_25) run at build time, so that the check cell holds numbers, never the test."""
     import numpy as np
+    from scipy import linalg
 
     spec = importlib.util.spec_from_file_location("markov_ref_m26", ROOT / "solutions" / "mymath_ref" / "markov.py")
     ref = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(ref)
-    namespace = {"np": np, "ref_markov": ref, "mymath": SimpleNamespace(markov=ref)}
+    namespace = {"np": np, "linalg": linalg, "ref_markov": ref, "mymath": SimpleNamespace(markov=ref)}
     exec(GIVEN_25, namespace)
+    exec(WRONG_C25, namespace)
     exec(SOLUTION_25, namespace)
     test = namespace["markov_property_test_25"]
     counts = {}
     with np.errstate(over="ignore", invalid="ignore"):
-        for seed in HIDDEN_STARTS_25:
-            counts[seed] = {
-                "ref": test(HIDDEN_TRIALS_25, np.random.default_rng(seed)),
-                "times_two": test(HIDDEN_TRIALS_25, np.random.default_rng(seed),
-                                  stationary=namespace["stationary_times_two"]),
-                "in_place": test(HIDDEN_TRIALS_25, np.random.default_rng(seed), iterates=namespace["iterates_in_place"]),
-                "without_gamma": test(HIDDEN_TRIALS_25, np.random.default_rng(seed),
-                                      iterates=namespace["iterates_without_gamma"]),
-            }
+        for i, seed in enumerate(HIDDEN_STARTS_25):
+            counts[seed] = {"ref": test(HIDDEN_TRIALS_25, np.random.default_rng(seed))}
+            versions = WRONG_PASSED_25 + (WRONG_PATCHED_25 if i == 0 else ())
+            for _, key, _, function in versions:
+                argument = "stationary" if "stationary" in function or function == "unnormalized_c25" else "iterates"
+                counts[seed][key] = test(HIDDEN_TRIALS_25, np.random.default_rng(seed),
+                                         **{argument: namespace[function]})
+    for key in ("times_two", "uniform", "in_place", "without_gamma", "unnormalized", "without_r"):
+        witness = counts[HIDDEN_STARTS_25[0]][key]
+        assert any(witness[k] > 0 for k in ("law", "invariance", "recurrence", "a_priori", "a_posteriori",
+                                            "fixed_point")), key
+    first = counts[HIDDEN_STARTS_25[0]]
+    for prop, keys in (("law", ("times_two", "unnormalized")), ("invariance", ("uniform",)),
+                       ("recurrence", ("in_place", "without_gamma", "without_r")),
+                       ("a_priori", ("without_gamma", "without_r")), ("a_posteriori", ("without_gamma", "without_r")),
+                       ("fixed_point", ("without_gamma", "without_r"))):
+        assert all(first[key][prop] > 0 for key in keys), (prop, {key: first[key][prop] for key in keys})
     return counts
 
 
 def check_25(counts: dict) -> str:
     """The check cell of M26.25, with the reference counters of the hidden starts written in it."""
     literal = json.dumps({str(seed): value for seed, value in counts.items()}, indent=None)
-    return r'''with checked("M26.25"):
+    passed = ",\n                   ".join(f"({label!r}, {key!r}, {argument!r}, {function})"
+                                           for label, key, argument, function in WRONG_PASSED_25)
+    patched = ",\n                    ".join(f"({label!r}, {key!r}, {name!r}, {function})"
+                                             for label, key, name, function in WRONG_PATCHED_25)
+    return WRONG_C25 + r'''
+
+
+with checked("M26.25"):
     results_25 = []
     report_25 = reporter(results_25, stop=False)
     COUNTERS_25 = ("law", "invariance", "recurrence", "a_priori", "a_posteriori", "fixed_point")
     EXPECTED_C25 = ''' + literal + r'''   # the reference, per hidden start
+    PROPERTIES_C25 = {
+        "law": "que π est une loi (coordonnées ≥ −tol, somme à tol près de 1)",
+        "invariance": "l'invariance de π (‖πP − π‖∞ ≤ tol)",
+        "recurrence": "la récurrence ligne par ligne (V_{k+1} = r + γPV_k à tol * scale près)",
+        "a_priori": "la borne a priori (‖V_k − V‖∞ ≤ γᵏ‖V₀ − V‖∞ + tol * scale, pour tout k)",
+        "a_posteriori": "la borne a posteriori (‖V_k − V‖∞ ≤ γ/(1 − γ)‖V_k − V_{k−1}‖∞ + tol * scale, pour tout k ≥ 1)",
+        "fixed_point": "que la dernière ligne est un point fixe (V_600 = r + γPV_600 à tol * scale près)",
+    }
 
     def run_c25(label, seed, **kwargs):
         """Your markov_property_test_25 on the hidden start seed (''' + str(HIDDEN_TRIALS_25) + r''' trials): its dictionary."""
@@ -2272,6 +2328,23 @@ def check_25(counts: dict) -> str:
             raise StopCheck from None
         return {key: (int(v) if key != "worst_ratio" else v) for key, v in counts.items()}
 
+    def compare_c25(label, got, want):
+        """One ✅ when the six counters equal the reference's; else one ❌ per counter, naming the property."""
+        wrong = [k for k in COUNTERS_25 if got[k] != want[k]]
+        if not wrong:
+            seen = [f"\"{k}\" {want[k]}" for k in COUNTERS_25 if want[k]]
+            report_25(True, f"{label} : les six compteurs valent ceux de la référence"
+                      + (" (" + ", ".join(seen) + ", les autres nuls)" if seen else " (0)"), "")
+        for k in wrong:
+            if got[k] == 0:
+                why = f"ton test ne vérifie pas {PROPERTIES_C25[k]}"
+            elif want[k] == 0:
+                why = ("cette version ne fausse pas cette propriété : ton contrôle compte trop (sa tolérance, tol ou "
+                       "tol * scale, ou ce qu'il compare)")
+            else:
+                why = "un essai compte une fois s'il échoue, au-delà de la tolérance de l'énoncé"
+            report_25(False, "", f"{label} : \"{k}\" = {got[k]}, la référence {want[k]} : {why}")
+
     for seed_c25 in ''' + repr(HIDDEN_STARTS_25) + r''':
         expected_c25 = EXPECTED_C25[str(seed_c25)]
         mine_c25 = run_c25(f"départ caché {seed_c25}", seed_c25)
@@ -2285,23 +2358,11 @@ def check_25(counts: dict) -> str:
                   f"départ caché {seed_c25} : le pire rapport vaut celui de la référence ({fr(ratio_c25, 6)})",
                   f"départ caché {seed_c25} : pire rapport {fr(mine_c25['worst_ratio'], 6)}, la référence {fr(ratio_c25, 6)} : "
                   "le rapport ‖V_k − V‖∞ / (γᵏ‖V₀ − V‖∞), sur les essais et les k où le dénominateur dépasse 1e-6 * scale")
-        for label_c25, key_c25, kwargs_c25, focus_c25, zeros_c25 in (
-                ("stationary_times_two", "times_two", {"stationary": stationary_times_two}, "law", ("invariance",)),
-                ("iterates_in_place", "in_place", {"iterates": iterates_in_place}, "recurrence",
-                 ("a_priori", "a_posteriori")),
-                ("iterates_without_gamma", "without_gamma", {"iterates": iterates_without_gamma}, "a_priori", ())):
-            got_c25 = run_c25(f"{label_c25}, départ caché {seed_c25}", seed_c25, **kwargs_c25)
-            want_c25 = expected_c25[key_c25]
-            report_25(got_c25[focus_c25] == want_c25[focus_c25] and all(got_c25[z] == 0 for z in zeros_c25),
-                      f"{label_c25}, départ caché {seed_c25} : \"{focus_c25}\" compte exactement {want_c25[focus_c25]} essais"
-                      + (", et " + ", ".join(f"\"{z}\"" for z in zeros_c25)
-                         + (" restent nuls" if len(zeros_c25) > 1 else " reste nul") if zeros_c25 else ""),
-                      f"{label_c25}, départ caché {seed_c25} : \"{focus_c25}\" = {got_c25[focus_c25]}, la référence "
-                      f"{want_c25[focus_c25]}" + "".join(f" ; \"{z}\" = {got_c25[z]}, attendu 0" for z in zeros_c25
-                                                         if got_c25[z] != 0)
-                      + " : un essai compte une fois s'il échoue, au-delà de la tolérance de l'énoncé")
+        for label_c25, key_c25, argument_c25, function_c25 in (''' + passed + r'''):
+            got_c25 = run_c25(f"{label_c25}, départ caché {seed_c25}", seed_c25, **{argument_c25: function_c25})
+            compare_c25(f"{label_c25}, départ caché {seed_c25}", got_c25, expected_c25[key_c25])
 
-    def patched_c25(name, replacement, label, key):
+    def patched_c25(label, key, name, replacement):
         """Your test on the first hidden start while mymath.markov.<name> (and every name of the notebook bound to it) is
         replaced by a wrong function; everything is put back afterwards."""
         original = getattr(mymath.markov, name)
@@ -2326,19 +2387,10 @@ def check_25(counts: dict) -> str:
                       f"{'stationary' if 'stationary' in name else 'iterates'}=None, il doit prendre mymath.markov.{name} au "
                       "moment de l'appel, sans en garder une copie")
         else:
-            report_25(counts[key] >= 1, f"{label} à la place de ton {name} : ton compteur \"{key}\" le voit ({counts[key]})",
-                      f"{label} à la place de ton {name} : ton compteur \"{key}\" reste à 0")
+            compare_c25(f"{label} à la place de ton {name}", counts, EXPECTED_C25["''' + str(HIDDEN_STARTS_25[0]) + r'''"][key])
 
-    def unnormalized_c25(P):
-        """WRONG: an eigenvector of Pᵀ for 1, of euclidean norm 1, never divided by its sum."""
-        return np.abs(linalg.null_space(np.asarray(P, dtype=float).T - np.eye(len(P)))[:, 0])
-
-    def iterates_without_r_c25(P, r, gamma, V0=None, n_steps=10):
-        """WRONG: the iterates of the operator V ↦ γPV (the rewards forgotten)."""
-        return ref_markov.bellman_fixed_point_iterates(P, np.zeros(len(r)), gamma, V0, n_steps)
-
-    patched_c25("stationary_distribution", unnormalized_c25, "une loi stationnaire qui ne se normalise pas", "law")
-    patched_c25("bellman_fixed_point_iterates", iterates_without_r_c25, "des itérés qui oublient r", "recurrence")
+    for label_c25, key_c25, name_c25, function_c25 in (''' + patched + r'''):
+        patched_c25(label_c25, key_c25, name_c25, function_c25)
     verdict("M26.25", all(results_25), "ton test compte juste sur la référence et sur les versions fausses, et prend tes "
             "fonctions au moment de l'appel.", "relis les lignes ❌ ci-dessus.")'''
 
@@ -2351,7 +2403,7 @@ NOTE_25 = (r"a) Les quantités sont d'ordre 1 à 100 et passent par quelques cen
            r"292 ; vrai, vrai : un balayage en place est aussi une γ-contraction (∂ M26.12). e) Vrai.")
 
 M26_25 = Ex(
-    "M26.25", "🛠️", 1, 20, "Un test de propriété : πP = π, et pour `bellman_fixed_point_iterates`, V_k − V tenu par "
+    "M26.25", "🛠️", 1, 30, "Un test de propriété : πP = π, et pour `bellman_fixed_point_iterates`, V_k − V tenu par "
     "γᵏ‖V₀ − V‖∞ et V = r + γPV pour la limite, sur des chaînes tirées au hasard",
     "écrire un test de propriété qui compte ses échecs sur beaucoup de chaînes tirées au hasard, avec une tolérance "
     "justifiée, et voir qu'une propriété nécessaire ne suffit pas.", "fiche §2 et §6 ; Ex M26.17 à M26.19",
@@ -2374,7 +2426,7 @@ Puis :
 - d) avec `iterates=iterates_in_place` : le compteur `"recurrence"`, et deux vrai ou faux : `"a_priori"` reste nul, `"a_posteriori"` reste nul (une liste : l'entier, puis les deux booléens) ;
 - e) avec `iterates=iterates_without_gamma` : vrai ou faux, `"a_priori"` compte les 300 essais.
 
-La vérification lance ton test sur deux départs que tu ne vois pas (40 essais chacun) : avec tes fonctions, où ses six compteurs doivent valoir ceux de la référence (0) et son pire rapport le sien ; avec les trois versions fausses, où il doit compter **exactement** les essais de la référence. Elle remplace aussi un instant `mymath.markov.stationary_distribution` par une version qui ne normalise pas, puis `mymath.markov.bellman_fixed_point_iterates` par des itérés qui oublient $\mathbf{r}$ : tes compteurs `"law"`, puis `"recurrence"`, doivent alors compter. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : une propriété nécessaire ne suffit pas ($2\boldsymbol{\pi}$ vérifie encore $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$ ; un balayage en place vérifie encore les deux bornes) ; un bon test combine des propriétés qui, ensemble, caractérisent le résultat.""",
+La vérification lance ton test sur deux départs que tu ne vois pas (40 essais chacun) : avec tes fonctions, où ses six compteurs doivent valoir ceux de la référence (0) et son pire rapport le sien ; avec les trois versions fausses et une quatrième, une loi uniforme qui n'est pas invariante, où ses six compteurs doivent valoir **exactement** ceux de la référence. Elle remplace aussi un instant `mymath.markov.stationary_distribution` par une version qui ne normalise pas, puis `mymath.markov.bellman_fixed_point_iterates` par des itérés qui oublient $\mathbf{r}$ : là encore, les six compteurs doivent valoir ceux de la référence. Chacune des six propriétés est ainsi exigée par au moins une version fausse. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : une propriété nécessaire ne suffit pas ($2\boldsymbol{\pi}$ vérifie encore $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$ ; un balayage en place vérifie encore les deux bornes) ; un bon test combine des propriétés qui, ensemble, caractérisent le résultat.""",
     todo='''def markov_property_test_25(n_trials, rng, stationary=None, iterates=None, tol=1e-9):
     """n_trials random chains (random_chain_25, then V0 = rng.normal(0, 10, size=m)); stationary and iterates default
     to mymath.markov.stationary_distribution and bellman_fixed_point_iterates, looked up at the call; V by
@@ -2442,7 +2494,8 @@ wbm.record("M26.25b", [True, float(mine_25["worst_ratio"])], decimals=4,
 wbm.record("M26.25c", [unique_25r, True],
            mistakes={"un essai où stationary lève une ValueError (plusieurs classes fermées) se saute : il ne compte pas":
                          [stochastic_25r, True],
-                     "2π vérifie encore πP = π : l'invariance ne voit pas la normalisation": [unique_25r, False]})
+                     "2π vérifie encore πP = π : l'invariance ne voit pas la normalisation": [unique_25r, False],
+                     "ton test ne vérifie pas que π est une loi (coordonnées ≥ −tol, somme à tol près de 1)": [0, True]})
 wbm.record("M26.25d", [moved_25r, True, True],
            mistakes={"un balayage en place est aussi une γ-contraction (∂ M26.12) : il passe les deux bornes":
                          [moved_25r, False, False],
@@ -2478,17 +2531,12 @@ GAMMA_26 = 0.7                                             # after each page, th
 BUDGET_26 = 600_000                                        # the budget of simulated steps (pages viewed), per estimate
 SEEDS_26 = range(6230, 6240)                               # the ten seeds of the criterion'''
 
-CHECK_26 = '''def total_sd_c26(P, r, gamma, s0):
-    """The exact standard deviation of the undiscounted total of a visit stopped geometrically (continue with γ):
-    T = r(S0) + B T′, B ~ Bernoulli(γ), so E[T²] = r² + 2γ r (PV) + γ P E[T²]."""
-    P, r = np.asarray(P, dtype=float), np.asarray(r, dtype=float)
-    V = np.linalg.solve(np.eye(len(r)) - gamma * P, r)
-    second = np.linalg.solve(np.eye(len(r)) - gamma * P, r ** 2 + 2 * gamma * r * (P @ V))
-    return float(math.sqrt(second[s0] - V[s0] ** 2)), float(V[s0])
+CHECK_26 = '''VAR_C26 = __VAR_C26__   # the variance of the total of a visit from page 1 (the reference, at build time)
+HIDDEN_C26 = __HIDDEN_C26__   # two chains you do not see: data, exact values and variances of the total of a visit
 
 
 def triple_c26(result, budget):
-    """(estimate, n_visits, n_steps) as a float and two integers, n_steps within the budget; else ❌ and StopCheck."""
+    \"\"\"(estimate, n_visits, n_steps) as a float and two integers, n_steps within the budget; else ❌ and StopCheck.\"\"\"
     estimate, n_visits, n_steps = pair("M26.26", "estimate_value_26", result, names=("estimate", "n_visits", "n_steps"))
     try:
         estimate = float(estimate)
@@ -2507,7 +2555,7 @@ def triple_c26(result, budget):
 
 
 with checked("M26.26"):
-    sd_c26, exact_c26 = total_sd_c26(P_WEB_26, REVENUE_26, GAMMA_26, 0)
+    exact_c26 = float(ref_markov.bellman_linear_solve(P_WEB_26, REVENUE_26, GAMMA_26)[0])
     runs_c26 = []
     for seed_c26 in SEEDS_26:
         with own_code("M26.26", "estimate_value_26", REF_MARKOV):
@@ -2515,29 +2563,33 @@ with checked("M26.26"):
                                            np.random.default_rng(seed_c26))
         runs_c26.append(triple_c26(result_c26, BUDGET_26))
     estimates_c26 = np.array([run[0] for run in runs_c26])
+    if not (np.ptp(estimates_c26) > 1e-12 and all(run[2] >= run[1] >= 1 for run in runs_c26)):
+        verdict("M26.26", False, "", "tes estimations doivent venir de simulations : elles varient d'une graine à l'autre, et "
+                "chaque visite compte au moins un pas (n_steps ≥ n_visits ≥ 1)")
+        raise StopCheck
     hits_c26 = int(np.sum(np.abs(estimates_c26 - exact_c26) < 0.01))
-    print("tes dix estimations :", " ; ".join(fr(e, 4) for e in estimates_c26), f"(valeur exacte {fr(exact_c26, 4)})")
+    print("tes dix estimations :", " ; ".join(fr(e, 4) for e in estimates_c26))
     print("visites :", [run[1] for run in runs_c26][:3], "… ; pas simulés :", [run[2] for run in runs_c26][:3], "…")
-    verdict("M26.26", hits_c26 >= 8, f"critère atteint : {hits_c26} estimations sur 10 à moins de 0,01, sans dépasser le "
-            "budget.", f"critère pas encore atteint : {hits_c26} estimations sur 10 à moins de 0,01 (il en faut 8).")
-    se_mean_c26 = math.sqrt(sum(sd_c26 ** 2 / run[1] for run in runs_c26)) / len(runs_c26)
+    verdict("M26.26", hits_c26 >= 8, f"critère atteint : {hits_c26} estimations sur 10 à moins de 0,01 de la valeur exacte, "
+            "sans dépasser le budget.", f"critère pas encore atteint : {hits_c26} estimations sur 10 à moins de 0,01 de la "
+            "valeur exacte (il en faut 8).")
+    se_mean_c26 = math.sqrt(sum(VAR_C26 / run[1] for run in runs_c26)) / len(runs_c26)
     gap_c26 = float(estimates_c26.mean() - exact_c26)
     verdict("M26.26", abs(gap_c26) <= 4 * se_mean_c26,
-            f"la moyenne de tes dix estimations est à {fr(abs(gap_c26), 4)} de la valeur exacte du modèle, moins de 4 erreurs "
-            f"types ({fr(4 * se_mean_c26, 4)}) : pas de biais visible.",
-            f"la moyenne de tes dix estimations s'écarte de {fr(gap_c26, 4)} de la valeur exacte du modèle, plus de 4 erreurs "
-            f"types ({fr(4 * se_mean_c26, 4)}) : ton estimateur a un biais (relis les deux cas cachés ci-dessous).")
+            f"la moyenne de tes dix estimations est à moins de 4 erreurs types ({fr(4 * se_mean_c26, 4)}) de la valeur exacte "
+            "du modèle : pas de biais visible.",
+            f"la moyenne de tes dix estimations s'écarte de la valeur exacte du modèle de plus de 4 erreurs types "
+            f"({fr(4 * se_mean_c26, 4)}) : ton estimateur a un biais (relis les deux cas cachés ci-dessous).")
 
 with checked("M26.26"):
-    hidden_c26 = np.array([[0.1, 0.5, 0.2, 0.2, 0.0], [0.3, 0.1, 0.3, 0.0, 0.3], [0.0, 0.4, 0.2, 0.2, 0.2],
-                           [0.25, 0.25, 0.0, 0.25, 0.25], [0.2, 0.0, 0.5, 0.1, 0.2]])
-    gamma_a_c26 = 0.96                                        # a hidden chain where every page brings 1
+    chain_a_c26, chain_b_c26 = HIDDEN_C26
+    P_a_c26, gamma_a_c26 = np.array(chain_a_c26["P"]), chain_a_c26["gamma"]      # every page brings 1, γ = 0.96
     with own_code("M26.26", "estimate_value_26", REF_MARKOV):
-        result_a_c26 = estimate_value_26(hidden_c26.copy(), np.ones(5), gamma_a_c26, 2, BUDGET_26,
+        result_a_c26 = estimate_value_26(P_a_c26.copy(), np.ones(len(P_a_c26)), gamma_a_c26, chain_a_c26["s0"], BUDGET_26,
                                          np.random.default_rng(6243))
     est_a_c26, visits_a_c26, steps_a_c26 = triple_c26(result_a_c26, BUDGET_26)
-    sd_a_c26, mean_a_c26 = total_sd_c26(hidden_c26, np.ones(5), gamma_a_c26, 2)          # 25 and √γ/(1 − γ)
-    se_a_c26 = sd_a_c26 / math.sqrt(max(visits_a_c26, 1))
+    mean_a_c26 = 1 / (1 - gamma_a_c26)                                        # 25
+    se_a_c26 = math.sqrt(chain_a_c26["variance"] / max(visits_a_c26, 1))
     counted_c26 = abs(est_a_c26 * visits_a_c26 - steps_a_c26) <= 1e-6 * max(steps_a_c26, 1)
     if abs(est_a_c26 - 1 / (1 - gamma_a_c26 ** 2)) <= 4 * se_a_c26 + 0.3:
         why_c26 = ("tu actualises en plus de l'arrêt géométrique : l'arrêt avec la probabilité 1 − γ tient déjà lieu "
@@ -2559,17 +2611,16 @@ with checked("M26.26"):
     verdict("M26.26", not why_c26, f"une chaîne cachée où chaque page rapporte 1 (γ = 0,96) : {fr(est_a_c26, 3)}, à moins de 4 "
             f"erreurs types de 1/(1 − γ) = 25, et estimate × n_visits = n_steps ({steps_a_c26} pas).",
             f"une chaîne cachée où chaque page rapporte 1 (γ = 0,96, attendu 25) : {why_c26}.")
-    rewards_b_c26 = np.array([1.5, -1.0, 0.5, 2.5, 1.0])
+    P_b_c26, rewards_b_c26 = np.array(chain_b_c26["P"]), np.array(chain_b_c26["r"])
     with own_code("M26.26", "estimate_value_26", REF_MARKOV):
-        result_b_c26 = estimate_value_26(hidden_c26.copy(), rewards_b_c26.copy(), 0.6, 4, BUDGET_26,
-                                         np.random.default_rng(6245))
+        result_b_c26 = estimate_value_26(P_b_c26.copy(), rewards_b_c26.copy(), chain_b_c26["gamma"], chain_b_c26["s0"],
+                                         BUDGET_26, np.random.default_rng(6245))
     est_b_c26, visits_b_c26, _ = triple_c26(result_b_c26, BUDGET_26)
-    sd_b_c26, mean_b_c26 = total_sd_c26(hidden_c26, rewards_b_c26, 0.6, 4)
-    se_b_c26 = sd_b_c26 / math.sqrt(max(visits_b_c26, 1))
-    verdict("M26.26", abs(est_b_c26 - mean_b_c26) <= 4 * se_b_c26,
+    se_b_c26 = math.sqrt(chain_b_c26["variance"] / max(visits_b_c26, 1))
+    verdict("M26.26", abs(est_b_c26 - chain_b_c26["value"]) <= 4 * se_b_c26,
             f"une autre chaîne cachée (γ = 0,6, des recettes négatives) : {fr(est_b_c26, 4)}, à moins de 4 erreurs types de "
             "la valeur exacte.", f"une autre chaîne cachée (γ = 0,6, des recettes négatives) : {fr(est_b_c26, 4)}, à plus "
-            f"de 4 erreurs types ({fr(4 * se_b_c26, 4)}) de la valeur exacte {fr(mean_b_c26, 4)}.")
+            f"de 4 erreurs types ({fr(4 * se_b_c26, 4)}) de la valeur exacte {fr(chain_b_c26['value'], 4)}.")
 
 with checked("M26.26"):
     if not filled(answer_M26_26b):
@@ -2581,9 +2632,10 @@ with checked("M26.26"):
         print("❌ Ex M26.26b : attendu une liste de 2 nombres : l'écart-type de la simulation pilote, puis le nombre de "
               "visites.")
         raise StopCheck from None
+    sd_c26 = math.sqrt(VAR_C26)
     if abs(pilot_sd_c26 - sd_c26) <= 0.03 * sd_c26:
         print(f"✅ Ex M26.26b : écart-type pilote {fr(pilot_sd_c26, 3)}, à moins de 3 % de l'écart-type exact du modèle.")
-    elif abs(pilot_sd_c26 - sd_c26 ** 2) <= 0.06 * sd_c26 ** 2:
+    elif abs(pilot_sd_c26 - VAR_C26) <= 0.06 * VAR_C26:
         print("❌ Ex M26.26b : c'est une variance : b) demande l'écart-type (np.std), sa racine.")
     elif pilot_sd_c26 < 0.5 * sd_c26:
         print("❌ Ex M26.26b : ton écart-type est bien trop petit : b) demande celui de la recette totale d'une visite, "
@@ -2608,16 +2660,16 @@ NOTE_26 = (r"a) $V \approx 1{,}8787$ €. b) Un écart-type $\approx 1{,}84$ €
            r"tout biais par une variance bien plus grande.")
 
 M26_26 = Ex(
-    "M26.26", "🏆", 3, 30, "Défi : estimer la valeur d'un état à 0,01 près en simulant l'arrêt géométrique (continuer "
+    "M26.26", "🏆", 3, 40, "Défi : estimer la valeur d'un état à 0,01 près en simulant l'arrêt géométrique (continuer "
     "avec la probabilité γ) et en sommant les récompenses sans actualisation, sous un budget de pas simulés",
     "estimer une valeur actualisée par une simulation sans biais, l'arrêt géométrique, et dimensionner la simulation "
     "par son écart-type et un budget.", "fiche §4 et §8 ; M02b, M02c ; Ex M26.5, M26.18 et M26.20", tracks="C",
     given=GIVEN_26, note=NOTE_26,
     body=r"""Le petit web de M26.20 ($\mathbf{P}_d$, $d = 0{,}85$ : `P_WEB_26`) rapporte une recette publicitaire par page vue : 0,40 €, 1,20 €, 0,20 €, 0,80 €, 0 € et 1,60 € pour les pages 1 à 6 (`REVENUE_26`). Après chaque page, le visiteur continue avec la probabilité $\gamma = 0{,}7$ et quitte le site avec 0,3. D'après la fiche (§4), la recette totale moyenne d'une visite qui commence en page 1, sans actualisation, est la valeur $V$ de la page 1 pour $\gamma = 0{,}7$.
 
-Écris `estimate_value_26(P, r, gamma, s0, budget, rng)`, qui simule des visites depuis l'état `s0` : à chaque page vue, la visite encaisse `r` de cette page, puis continue avec la probabilité `gamma` (sinon elle s'arrête) et passe à la page suivante selon la ligne de `P` ; elle somme les recettes **sans actualisation**. Chaque page vue est un pas simulé ; le nombre total de pas, toutes visites comprises, ne doit jamais dépasser `budget`, et toute visite simulée est menée à son terme et comptée (choisis donc le nombre de visites avec une marge). La fonction rend `(estimate, n_visits, n_steps)` : la moyenne des recettes totales, le nombre de visites et le nombre de pas simulés.
+Écris `estimate_value_26(P, r, gamma, s0, budget, rng)`, qui simule des visites depuis l'état `s0` : à chaque page vue, la visite encaisse `r` de cette page, puis continue avec la probabilité `gamma` (sinon elle s'arrête) et passe à la page suivante selon la ligne de `P` ; elle somme les recettes **sans actualisation**. Chaque page vue est un pas simulé ; le nombre total de pas, toutes visites comprises, ne doit jamais dépasser `budget`, et toute visite simulée est menée à son terme et comptée (choisis donc le nombre de visites avec une marge). La fonction rend `(estimate, n_visits, n_steps)` : la moyenne des recettes totales, le nombre de visites et le nombre de pas simulés. Simule les visites en parallèle (des tableaux de visites en cours, un pas pour toutes à la fois) : une boucle Python pas à pas sur les 7 millions de pas de la vérification dépasserait la minute.
 
-**Critère de réussite :** avec `budget = 600_000` (`BUDGET_26`), pour chacune des dix graines 6230 à 6239 (`SEEDS_26`, `rng = np.random.default_rng(seed)`), `n_steps <= budget`, et l'estimation tombe à moins de 0,01 de la valeur exacte (par `bellman_linear_solve`) au moins 8 fois sur 10. La vérification compare ensuite la moyenne de tes dix estimations à la valeur exacte du modèle (à moins de 4 erreurs types, avec tes nombres de visites) ; elle contrôle, sur une chaîne cachée où chaque page rapporte 1 avec $\gamma = 0{,}96$, que `estimate * n_visits` égale `n_steps` (chaque pas compté, aucune actualisation ajoutée) et que l'estimation est à moins de 4 erreurs types de $\frac{1}{1 - 0{,}96} = 25$ (l'arrêt géométrique, sans troncature) ; et, sur une autre chaîne cachée avec $\gamma = 0{,}6$, que l'estimation est à moins de 4 erreurs types de la valeur exacte. Relève :
+**Critère de réussite :** avec `budget = 600_000` (`BUDGET_26`), pour chacune des dix graines 6230 à 6239 (`SEEDS_26`, `rng = np.random.default_rng(seed)`), `n_steps <= budget`, et l'estimation tombe à moins de 0,01 de la valeur exacte (par `bellman_linear_solve`) au moins 8 fois sur 10. La vérification contrôle d'abord que tes estimations viennent de simulations (elles varient d'une graine à l'autre, et chaque visite compte au moins un pas), puis compare la moyenne de tes dix estimations à la valeur exacte du modèle (à moins de 4 erreurs types, avec tes nombres de visites) ; elle contrôle, sur une chaîne cachée où chaque page rapporte 1 avec $\gamma = 0{,}96$, que `estimate * n_visits` égale `n_steps` (chaque pas compté, aucune actualisation ajoutée) et que l'estimation est à moins de 4 erreurs types de $\frac{1}{1 - 0{,}96} = 25$ (l'arrêt géométrique, sans troncature) ; et, sur une autre chaîne cachée avec $\gamma = 0{,}6$, que l'estimation est à moins de 4 erreurs types de la valeur exacte. Relève :
 - a) la valeur exacte $V$ de la page 1, par ta `bellman_linear_solve` (un nombre ; 4 décimales dans ta copie) ;
 - b) l'écart-type de la recette totale d'une visite, estimé sur une simulation pilote de 20 000 visites (la graine que tu veux), et le nombre de visites qu'il faudrait pour une erreur type de 0,004 (une liste de 2 nombres ; 2 décimales et un entier dans ta copie) : la vérification l'accepte à 3 % près de l'écart-type exact du modèle ;
 - c) dans ta copie : tes dix estimations et ton nombre de succès (affichés par la vérification).
@@ -2781,17 +2833,200 @@ def build(kind: str) -> list:
     cells = header_cells(kind)
     cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
     cells += objectives_cell()
-    cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO)
+    cells += paper_part(kind)
     for part in PARTS:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)
     return cells
 
 
-def main() -> int:
+# ---------------------------------------------------------------------------
+# Build-time literals: the expected values of the checks, computed here (reference implementation and private
+# functions of this script), so that no check cell holds the code that solves an exercise
+# ---------------------------------------------------------------------------
+def load_reference_markov():
+    """solutions/mymath_ref/markov.py, loaded as a module of its own."""
+    spec = importlib.util.spec_from_file_location("markov_ref_m26", ROOT / "solutions" / "mymath_ref" / "markov.py")
+    ref = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ref)
+    return ref
+
+
+def literal(value) -> str:
+    """A Python literal of value (floats by repr: exact), wrapped for reading."""
+    return pprint.pformat(value, width=112, compact=True, sort_dicts=False)
+
+
+def _sweeps_19(np, P, r, gamma, V0, n):
+    """The in-place sweeps (states 0, 1, ..., m − 1, each new value used at once): the (n + 1, m) array."""
+    V = np.array(V0, dtype=float)
+    rows = [V.copy()]
+    for _ in range(n):
+        for i in range(len(r)):
+            V[i] = r[i] + gamma * (P[i] @ V)
+        rows.append(V.copy())
+    return np.array(rows)
+
+
+def _max_bias_22(np, k, n, delta, n_rep, rng, mu=1000.0, sigma=30.0):
+    """The procedure of M26.22: (naive, double)."""
+    means = np.full(k, mu)
+    means[0] += delta
+    first = rng.normal(means, sigma, size=(n_rep, n, k)).mean(axis=1)
+    second = rng.normal(means[np.argmax(first, axis=1)][:, None], sigma, size=(n_rep, n)).mean(axis=1)
+    best = mu + max(delta, 0.0)
+    return float(first.max(axis=1).mean() - best), float(second.mean() - best)
+
+
+def _visit_moments_26(np, P, r, gamma, s0):
+    """The mean and the variance of the undiscounted total of a visit stopped geometrically (continue with γ):
+    T = r(S0) + B T′, B ~ Bernoulli(γ), so E[T²] = r² + 2γ r (PV) + γ P E[T²]."""
+    P, r = np.asarray(P, dtype=float), np.asarray(r, dtype=float)
+    A = np.eye(len(r)) - gamma * P
+    V = np.linalg.solve(A, r)
+    second = np.linalg.solve(A, r ** 2 + 2 * gamma * r * (P @ V))
+    return float(V[s0]), float(second[s0] - V[s0] ** 2)
+
+
+def build_constants() -> dict:
+    """The literals written in the check cells, by placeholder."""
+    import numpy as np
+
+    ref = load_reference_markov()
+    out = {}
+
+    # M26.19: two hidden chains, the in-place sweeps expected, and two classic wrong results
+    rng = np.random.default_rng(6201)
+    cases = []
+    for m, gamma, ends in ((4, 0.85, False), (5, 0.7, True)):
+        P = rng.random((m, m)) * (rng.random((m, m)) < 0.7) + np.eye(m) * 0.1
+        P = P / P.sum(axis=1, keepdims=True) * (rng.uniform(0.6, 0.95, (m, 1)) if ends else 1)
+        r, V0 = rng.normal(0, 3, m), rng.normal(0, 5, m)
+        cases.append({"P": P.tolist(), "r": r.tolist(), "gamma": gamma, "V0": V0.tolist(),
+                      "want": _sweeps_19(np, P, r, gamma, V0, 6).tolist(),
+                      "synchronous": ref.bellman_fixed_point_iterates(P, r, gamma, V0, 6).tolist(),
+                      "reversed": _sweeps_19(np, P[::-1, ::-1], r[::-1], gamma, V0[::-1], 6)[:, ::-1].tolist()})
+    out["__CASES_C19__"] = literal(cases)
+
+    # M26.20: the matrix of the surfer, and the power method on a hidden chain
+    namespace = {"np": np}
+    exec(GIVEN_20, namespace)
+    L = np.zeros((6, 6))
+    for page, targets in namespace["LINKS_20"].items():
+        L[page - 1] = np.full(6, 1 / 6) if not targets else np.isin(np.arange(1, 7), targets) / len(targets)
+    d = namespace["D_20"]
+    out["__P_D_C20__"] = literal((d * L + (1 - d) / 6).tolist())
+    P = np.random.default_rng(6202).random((5, 5)) + 0.05
+    P = P / P.sum(axis=1, keepdims=True)
+    x, steps = np.full(5, 1 / 5), 0
+    while True:
+        y, steps = x @ P, steps + 1
+        if np.abs(y - x).sum() < 1e-10:
+            break
+        x = y
+    out["__P_C20__"] = literal(P.tolist())
+    out["__POWER_C20__"] = literal((y.tolist(), steps))
+
+    # M26.22: a hidden case, and the table of a) rounded to 0.1 h (the figure, and a hint)
+    out["__HIDDEN_C22__"] = literal(_max_bias_22(np, 3, 8, 4.0, 3000, np.random.default_rng(6223)))
+    namespace = {}
+    exec(GIVEN_22, namespace)
+    rng = np.random.default_rng(6222)
+    table = [[round(_max_bias_22(np, k, n, 0.0, namespace["N_REP_22"], rng)[0], 1) for n in namespace["NS_22"]]
+             for k in namespace["KS_22"]]
+    out["__TABLE_C22__"] = literal(table)
+
+    # M26.24: the hidden cases of the four corrected functions
+    rng = np.random.default_rng(6204)
+
+    def chain(m, sparse=0.0):
+        """A random stochastic chain of m states (positive entries, a few zeros when sparse > 0)."""
+        W = rng.random((m, m)) * (rng.random((m, m)) >= sparse) + 0.02 * np.eye(m)
+        return W / W.sum(axis=1, keepdims=True)
+
+    bikes = []
+    for m, n in ((4, 0), (4, 7), (5, 3)):
+        P, mu = chain(m, 0.3), rng.dirichlet(np.ones(m))
+        bikes.append({"P": P.tolist(), "mu": mu.tolist(), "n": n,
+                      "want": (mu @ np.linalg.matrix_power(P, n)).tolist(),
+                      "column": (np.linalg.matrix_power(P, n) @ mu).tolist()})
+    shares = []
+    for m in (4, 5, 6):
+        P = chain(m)
+        shares.append({"P": P.tolist(), "want": ref.stationary_distribution(P).tolist()})
+    subscriptions = []
+    for p_paid, p_stay, monthly, closing, gamma in ((0.7, 0.85, 20.0, 30.0, 0.85), (0.4, 0.95, 8.0, 5.0, 0.96)):
+        P = np.array([[0, p_paid, 1 - p_paid], [0, p_stay, 1 - p_stay], [0, 0, 1.0]])
+        value = lambda r: ref.bellman_linear_solve(P, np.array(r, dtype=float), gamma).tolist()  # noqa: E731
+        subscriptions.append({"P": P.tolist(), "monthly": monthly, "closing": closing, "gamma": gamma,
+                              "want": value([closing * P[0, 2], monthly + closing * P[1, 2], 0.0]),
+                              "no_fee": value([0.0, monthly, 0.0]),
+                              "trial_free": value([0.0, monthly + closing * P[1, 2], 0.0])})
+    ends = chain(4, 0.2) * np.array([[0.9], [0.8], [0.95], [0.7]])     # every row ends: a sure end
+    r = rng.uniform(0.5, 2.0, 4)
+    stochastic = chain(5)
+    kept = np.zeros((4, 4))                                          # an absorbing end kept as a state
+    kept[:3, :3], kept[:3, 3], kept[3, 3] = ends[:3, :3], 1 - ends[:3, :3].sum(axis=1), 1.0
+    assert np.linalg.matrix_rank(np.eye(5) - stochastic) < 5 and np.linalg.matrix_rank(np.eye(4) - kept) < 4
+    out["__CASES_C24__"] = literal({"bikes": bikes, "shares": shares, "subscriptions": subscriptions,
+                                    "ends": {"P": ends.tolist(), "r": r.tolist(),
+                                             "want": np.linalg.solve(np.eye(4) - ends, r).tolist()},
+                                    "stochastic": stochastic.tolist(), "kept": kept.tolist()})
+
+    # M26.26: the variance of the total of a visit from page 1, and two hidden chains
+    namespace = {"np": np}
+    exec(GIVEN_26, namespace)
+    _, variance = _visit_moments_26(np, namespace["P_WEB_26"], namespace["REVENUE_26"], namespace["GAMMA_26"], 0)
+    out["__VAR_C26__"] = literal(variance)
+    hidden = [[0.1, 0.5, 0.2, 0.2, 0.0], [0.3, 0.1, 0.3, 0.0, 0.3], [0.0, 0.4, 0.2, 0.2, 0.2],
+              [0.25, 0.25, 0.0, 0.25, 0.25], [0.2, 0.0, 0.5, 0.1, 0.2]]
+    mean_a, variance_a = _visit_moments_26(np, hidden, np.ones(5), 0.96, 2)
+    assert abs(mean_a - 25) < 1e-9
+    rewards_b = [1.5, -1.0, 0.5, 2.5, 1.0]
+    value_b, variance_b = _visit_moments_26(np, hidden, rewards_b, 0.6, 4)
+    out["__HIDDEN_C26__"] = literal(({"P": hidden, "gamma": 0.96, "s0": 2, "variance": variance_a},
+                                     {"P": hidden, "r": rewards_b, "gamma": 0.6, "s0": 4, "value": value_b,
+                                      "variance": variance_b}))
+    return out
+
+
+PREPARED = []
+
+
+def prepare() -> dict:
+    """Write the build-time literals in every cell text (placeholders __NAME__), and the check of M26.25 with its
+    reference counters. Idempotent; returns the counters of M26.25."""
+    if PREPARED:
+        return PREPARED[0]
+    constants = build_constants()
+
+    def fill(text):
+        for key, value in constants.items():
+            text = text.replace(key, value)
+        return text
+
+    for name in ("CHECK_19", "CHECK_20", "HINTS_22", "CHECK_22", "CHECK_24", "CHECK_26"):
+        globals()[name] = fill(globals()[name])
+    for part in PARTS:
+        part.given = fill(part.given)
+        for ex in part.exercises:
+            for field_name in ("body", "todo", "check", "solution", "record", "given", "note"):
+                setattr(ex, field_name, fill(getattr(ex, field_name)))
+            ex.after = [(kind, fill(text)) for kind, text in ex.after]
     counts = reference_counts_25()
     M26_25.check = answers_check("M26.25", "bcde") + "\n\n" + check_25(counts)
     M26_25.solution = M26_25.solution.rstrip("\n") + "\n\n\n" + check_25(counts)
+    left = {match for part in PARTS for ex in part.exercises
+            for text in (ex.body, ex.todo, ex.check, ex.solution, ex.record, ex.given,
+                         *(t for _, t in ex.after))
+            for match in re.findall(r"__[A-Z][A-Z0-9_]*__", text)}
+    assert not left, f"placeholders left: {sorted(left)}"
+    PREPARED.append(counts)
+    return counts
+
+
+def main() -> int:
+    counts = prepare()
     for paper in PAPER:
         lines = [f'wbm.record("{paper.id}{letter}", {expr}{", " + options if options else ""})'
                  for letter, _, expr, options in paper.subs]
