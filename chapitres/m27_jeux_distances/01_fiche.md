@@ -312,7 +312,7 @@ Rappel de M06 : pour deux lois $p$ et $q$ et leur mélange $m = \frac{p + q}{2}$
 $$\mathrm{JS}(p, q) = \tfrac12\,\mathrm{KL}(p \,\|\, m) + \tfrac12\,\mathrm{KL}(q \,\|\, m),$$
 symétrique, toujours finie, nulle seulement si $p = q$. M06 la calculait en bits ; ici, en nats, avec $\ln$. Le **support** (*support*) d'une loi est l'ensemble des issues de probabilité (ou de densité) positive.
 
-> **Propriétés** (∂ M27.13). $0 \le \mathrm{JS}(p, q) \le \ln 2$, et $\mathrm{JS}(p, q) = \ln 2$ si et seulement si $p$ et $q$ ont des supports disjoints.
+> **Propriétés** (∂ M27.13). $0 \le \mathrm{JS}(p, q) \le \ln 2$, et $\mathrm{JS}(p, q) = \ln 2$ si et seulement si $p$ et $q$ ont des supports disjoints (pour des densités : disjoints à un ensemble de longueur nulle près ; deux intervalles qui se touchent en un point ne se recouvrent pas).
 
 L'idée : M06 a montré que $m \ge \frac{p}{2}$ ; le ∂ M27.13 en tire la borne et étudie le cas d'égalité. En bits, la borne vaut 1 bit.
 
