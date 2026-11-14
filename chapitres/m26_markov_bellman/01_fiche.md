@@ -40,7 +40,7 @@ Parcours essentiel : tout sauf M26.3, M26.9, M26.10, M26.13, M26.E1, M26.20, M26
 - Au §3, $\mathbf{Q}$ (en gras) est le bloc des états transitoires et $\mathbf{t}$ (en gras) le vecteur des durées moyennes ; au §4, $Q^\pi(s, a)$ est la valeur d'une action, et $t$ (en italique) reste un instant.
 - $\gamma \in [0, 1]$ est le facteur d'actualisation, $G$ un retour, $\mathcal{T}$ l'opérateur de Bellman ; $\lVert\mathbf{x}\rVert_\infty = \max_i\lvert x_i\rvert$, $\lVert\cdot\rVert_1$, $\lVert\mathbf{A}\rVert_\infty$ (la plus grande somme des $\lvert a_{ij}\rvert$ d'une ligne) et le rayon spectral $\rho$ sont ceux de M22.
 
-Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *state*, *transition matrix*, *stochastic matrix*, *substochastic matrix*, *transition graph*, *n-step transition probability*, *Chapman-Kolmogorov equations*, *stationary distribution*, *Perron-Frobenius theorem*, *irreducible*, *period*, *aperiodic*, *ergodic theorem*, *spectral gap*, *PageRank*, *random surfer*, *damping factor*, *dangling node*, *conditional expectation*, *law of total expectation*, *tower property*, *absorbing state*, *transient state*, *first-step analysis*, *absorption probability*, *expected hitting time*, *fundamental matrix*, *reward*, *discounted return*, *discount factor*, *value function*, *Markov decision process (MDP)*, *action*, *policy*, *deterministic policy*, *stochastic policy*, *action value*, *Bellman equation*, *policy evaluation*, *Neumann series*, *discounted state-visitation distribution*, *terminal state*, *Bellman operator*, *contraction*, *fixed point*, *Banach fixed-point theorem*, *synchronous update*, *in-place update*, *Gauss-Seidel*, *a priori bound*, *a posteriori bound*, *stopping criterion*, *optimal stopping*, *continuation value*, *threshold rule*, *Bellman optimality equation*, *value iteration*, *greedy policy*, *Monte Carlo estimate*, *step size*, *Robbins-Monro conditions*, *stochastic approximation*, *temporal-difference (TD) error*, *Bellman residual*, *telescoping sum*, *reward shaping*, *maximization bias*, *winner's curse*, *double estimator*.
+Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *transition matrix*, *stochastic matrix*, *substochastic matrix*, *transition graph*, *Chapman-Kolmogorov equations*, *stationary distribution*, *Perron-Frobenius theorem*, *irreducible*, *aperiodic*, *ergodic theorem*, *spectral gap*, *random surfer*, *damping factor*, *tower property*, *absorbing state*, *transient state*, *first-step analysis*, *fundamental matrix*, *discounted return*, *discount factor*, *value function*, *Markov decision process (MDP)*, *policy*, *action value*, *Bellman equation*, *policy evaluation*, *Neumann series*, *discounted state-visitation distribution*, *terminal state*, *Bellman operator*, *contraction*, *Banach fixed-point theorem*, *synchronous update*, *in-place update*, *stopping criterion*, *optimal stopping*, *continuation value*, *threshold rule*, *Bellman optimality equation*, *value iteration*, *greedy policy*, *step size*, *Robbins-Monro conditions*, *stochastic approximation*, *temporal-difference (TD) error*, *Bellman residual*, *reward shaping*, *maximization bias*, *winner's curse*, *double estimator*.
 
 ## Objectifs d'apprentissage
 
@@ -72,7 +72,7 @@ Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *state*,
 ### Demain ne dépend que d'aujourd'hui
 
 Une boutique vend un article dont son étagère tient au plus deux exemplaires. Chaque samedi soir, on compte ceux qui restent : $S_t \in \{0, 1, 2\}$ à la fin de la semaine $t$. La demande d'une semaine, notée $Y$, vaut 0, 1 ou 2 articles avec les probabilités 0,3, 0,5 et 0,2, indépendamment d'une semaine à l'autre, et la boutique vend ce qu'elle peut. Sa règle : quand l'étagère est vide le samedi soir, elle commande deux articles, livrés le samedi suivant après la fermeture ; pendant cette semaine-là, elle ne vend rien. D'un samedi au suivant :
-- depuis 0, la semaine passe sans article, puis la livraison arrive : $S_{t+1} = 2$ à coup sûr ;
+- depuis 0, la semaine passe sans article, puis la livraison arrive : $S_{t+1} = 2$ avec certitude ;
 - depuis 1, l'article part si la demande vaut au moins 1 (probabilité 0,7), sinon il reste (0,3) ;
 - depuis 2, il en reste 2, 1 ou 0 avec les probabilités 0,3, 0,5 et 0,2.
 
@@ -83,7 +83,7 @@ Une boutique vend un article dont son étagère tient au plus deux exemplaires. 
 Pour la boutique, ligne $i$ = l'état du samedi, colonne $j$ = celui du samedi suivant :
 $$\mathbf{P} = \begin{pmatrix} 0 & 0 & 1 \\ 0{,}7 & 0{,}3 & 0 \\ 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}.$$
 
-La propriété de Markov est une **hypothèse de modélisation**. Elle tient ici parce que la demande d'une semaine ne dépend pas des précédentes et que la règle ne regarde que le stock du samedi. Si la boutique ne commandait qu'après deux samedis vides de suite, le stock seul ne suffirait plus : il faudrait mettre dans l'état le samedi précédent aussi.
+La propriété de Markov est une hypothèse de modélisation. Elle tient ici parce que la demande d'une semaine ne dépend pas des précédentes et que la règle ne regarde que le stock du samedi. Si la boutique ne commandait qu'après deux samedis vides de suite, le stock seul ne suffirait plus : il faudrait mettre dans l'état le samedi précédent aussi.
 
 **Le graphe de transition** (*transition graph*) dessine la chaîne : un nœud par état, une flèche de $i$ vers $j$ pour chaque $p_{ij} > 0$, qui porte la probabilité $p_{ij}$ ; c'est un graphe orienté pondéré (M16), avec des boucles quand $p_{ii} > 0$. Les flèches qui partent d'un nœud ont des poids de somme 1.
 
@@ -91,12 +91,12 @@ La propriété de Markov est une **hypothèse de modélisation**. Elle tient ici
 
 ### La loi après n pas
 
-Notons $\boldsymbol{\mu}_t = \big(P(S_t = 0), \ldots, P(S_t = m - 1)\big)$ la **loi** de $S_t$, une ligne. Par les probabilités totales (M03), en conditionnant sur l'état du pas $t$,
+Notons $\boldsymbol{\mu}_t = \big(P(S_t = 0), \ldots, P(S_t = m - 1)\big)$ la **loi** (*distribution*) de $S_t$, une ligne. Par les probabilités totales (M03), en conditionnant sur l'état du pas $t$,
 $$P(S_{t+1} = j) = \sum_i P(S_t = i)\,p_{ij}, \qquad \text{c'est-à-dire} \qquad \boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}, \qquad \text{donc} \qquad \boldsymbol{\mu}_n = \boldsymbol{\mu}_0\mathbf{P}^n .$$
 
 **Exemple.** L'étagère est pleine ce samedi : $\boldsymbol{\mu}_0 = (0, 0, 1)$. Alors $\boldsymbol{\mu}_1 = (0{,}2 ;\ 0{,}5 ;\ 0{,}3)$, la troisième ligne de $\mathbf{P}$. Puis
 $$\boldsymbol{\mu}_2 = \boldsymbol{\mu}_1\mathbf{P} = \big(0{,}5 \times 0{,}7 + 0{,}3 \times 0{,}2 ;\ \ 0{,}5 \times 0{,}3 + 0{,}3 \times 0{,}5 ;\ \ 0{,}2 \times 1 + 0{,}3 \times 0{,}3\big) = (0{,}41 ;\ 0{,}3 ;\ 0{,}29),$$
-et $\boldsymbol{\mu}_3 = (0{,}268 ;\ 0{,}235 ;\ 0{,}497)$. Dans deux semaines, l'étagère sera vide avec la probabilité 0,41.
+et dans deux semaines, l'étagère sera vide avec la probabilité 0,41.
 
 > **Équations de Chapman-Kolmogorov** (*Chapman-Kolmogorov equations*). $(\mathbf{P}^n)_{ij} = P(S_n = j \mid S_0 = i)$, et $\mathbf{P}^{m+n} = \mathbf{P}^m\mathbf{P}^n$ : pour aller de $i$ à $j$ en $m + n$ pas, on passe par un état $k$ au pas $m$, $(\mathbf{P}^{m+n})_{ij} = \sum_k(\mathbf{P}^m)_{ik}(\mathbf{P}^n)_{kj}$.
 
@@ -104,11 +104,11 @@ Comme en M16, $(\mathbf{P}^n)_{ij}$ est la somme, sur les chemins de longueur $n
 
 ### Une loi à gauche, une fonction à droite
 
-Une **fonction des états** $f$ s'écrit comme une colonne $\mathbf{f} = (f(0), \ldots, f(m - 1))^\top$. Alors
+Une fonction des états $f$ s'écrit comme une colonne $\mathbf{f} = (f(0), \ldots, f(m - 1))^\top$. Alors
 $$\mathbb{E}[f(S_{t+1}) \mid S_t = i] = \sum_j p_{ij}\,f(j) = (\mathbf{P}\mathbf{f})_i, \qquad \mathbb{E}[f(S_t)] = \boldsymbol{\mu}_t\mathbf{f}, \qquad \mathbb{E}[f(S_n)] = \boldsymbol{\mu}_0\mathbf{P}^n\mathbf{f} .$$
 Placée à gauche de $\mathbf{P}$, une loi avance d'un pas ($\boldsymbol{\mu}\mathbf{P}$) ; placée à droite, une fonction est moyennée sur le pas suivant ($\mathbf{P}\mathbf{f}$). Le produit $\boldsymbol{\mu}_0\mathbf{P}^n\mathbf{f}$ se calcule dans l'ordre qu'on veut : $(\boldsymbol{\mu}_0\mathbf{P}^n)\mathbf{f}$ ou $\boldsymbol{\mu}_0(\mathbf{P}^n\mathbf{f})$.
 
-**Exemple.** Avec $f(s) = s$, le nombre d'articles restants : $\mathbf{P}\mathbf{f} = (2 ;\ 0{,}3 ;\ 1{,}1)$. Depuis une étagère vide, il y aura 2 articles samedi prochain à coup sûr ; depuis une étagère pleine, $0{,}5 \times 1 + 0{,}3 \times 2 = 1{,}1$ en moyenne.
+**Exemple.** Avec $f(s) = s$, le nombre d'articles restants : $\mathbf{P}\mathbf{f} = (2 ;\ 0{,}3 ;\ 1{,}1)$. Depuis une étagère vide, il y aura 2 articles samedi prochain avec certitude ; depuis une étagère pleine, $0{,}5 \times 1 + 0{,}3 \times 2 = 1{,}1$ en moyenne.
 
 📐 **Notations.** Les lois sont des **lignes**, comme chez les probabilistes et dans `markov.py` : $\boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}$. M22 écrivait les états en **colonnes**, $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t$ : en transposant, $\boldsymbol{\mu}_{t+1}^\top = \mathbf{P}^\top\boldsymbol{\mu}_t^\top$, la récurrence de M22 pour $\mathbf{A} = \mathbf{P}^\top$, sans entrée (`linear_system_states`). Les fonctions, et plus loin les récompenses et les valeurs, restent des colonnes : $\mathbf{P}\mathbf{f}$. Une matrice stochastique a des **lignes** de somme 1 ; c'est $\mathbf{P}^\top$, aux colonnes de somme 1, qui agit sur des lois écrites en colonnes. Certains livres rangent $\mathbf{P}$ dans l'autre sens ($p_{ij}$ de $j$ vers $i$) : vérifie toujours quelles sommes valent 1.
 
@@ -126,7 +126,7 @@ Placée à gauche de $\mathbf{P}$, une loi avance d'un pas ($\boldsymbol{\mu}\ma
 > $$\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}, \qquad \pi_j \ge 0, \qquad \sum_j\pi_j = 1 .$$
 > Si $S_0$ suit $\boldsymbol{\pi}$, chaque $S_t$ suit $\boldsymbol{\pi}$.
 
-Transposée, l'égalité devient $\mathbf{P}^\top\boldsymbol{\pi}^\top = \boldsymbol{\pi}^\top$ : $\boldsymbol{\pi}^\top$ est un **vecteur propre de $\mathbf{P}^\top$** de valeur propre 1 (M12c), positif et de somme 1. Le vecteur propre **à droite** de $\mathbf{P}$ pour la valeur propre 1 est $\mathbf{1}$, qui ne dit rien.
+Transposée, l'égalité devient $\mathbf{P}^\top\boldsymbol{\pi}^\top = \boldsymbol{\pi}^\top$ : $\boldsymbol{\pi}^\top$ est un **vecteur propre de $\mathbf{P}^\top$** de valeur propre 1 (M12c), positif et de somme 1.
 
 > **Théorème** (existence ; Perron-Frobenius admis). Une matrice stochastique a pour rayon spectral $\rho(\mathbf{P}) = 1$, et au moins une loi stationnaire.
 
@@ -147,9 +147,9 @@ Deux contre-exemples montrent ce qui peut manquer.
 
 > **Définitions.** Une chaîne est **irréductible** (*irreducible*) si, de chaque état, un chemin du graphe mène à chaque autre. La **période** (*period*) d'un état $i$ est le plus grand diviseur commun des longueurs des chemins de $i$ à $i$ ; tous les états d'une chaîne irréductible ont la même période, et la chaîne est **apériodique** (*aperiodic*) si elle vaut 1. Une boucle $p_{ii} > 0$ dans une chaîne irréductible suffit.
 >
-> **Théorème** (admis). Si la chaîne est irréductible, sa loi stationnaire est unique et $\pi_j > 0$ pour tout $j$ ; quel que soit le départ, la **fréquence des visites** à $j$, $\frac1n\#\{t < n : S_t = j\}$, tend vers $\pi_j$ avec la probabilité 1 (le **théorème ergodique**, *ergodic theorem*). Si elle est de plus apériodique, $\boldsymbol{\mu}_0\mathbf{P}^n \to \boldsymbol{\pi}$ pour toute loi initiale, et 1 est la seule valeur propre de $\mathbf{P}$ de module 1.
+> **Théorème** (admis). Si la chaîne est irréductible, sa loi stationnaire est unique et $\pi_j > 0$ pour tout $j$ ; quel que soit le départ, la **fréquence des visites** (*visit frequency*) à $j$, $\frac1n\#\{t < n : S_t = j\}$, tend vers $\pi_j$ avec la probabilité 1 (le **théorème ergodique**, *ergodic theorem*). Si elle est de plus apériodique, $\boldsymbol{\mu}_0\mathbf{P}^n \to \boldsymbol{\pi}$ pour toute loi initiale, et 1 est la seule valeur propre de $\mathbf{P}$ de module 1.
 
-La boutique est irréductible ($0 \to 2 \to 1 \to 0$) et apériodique (une boucle en 1) ; la chaîne qui tourne est irréductible mais de période 3 ; la chaîne à deux classes n'est pas irréductible.
+La boutique est irréductible ($0 \to 2 \to 1 \to 0$) et apériodique (une boucle en 1) ; la chaîne qui tourne est de période 3.
 
 ### La vitesse : la deuxième valeur propre
 
@@ -164,7 +164,7 @@ C'est la diagonalisation de M12c, regroupée par valeur propre.
 
 ![À gauche, la probabilité que la machine soit en marche au jour n, depuis une machine en marche (1, puis 0,88, 0,808…) et depuis une machine en panne (0, puis 0,28, 0,448…) : les deux suites se rapprochent de 0,7, de part et d'autre, avec un écart multiplié par 0,6 chaque jour ; en pointillés, les enveloppes 0,7 + 0,3 × 0,6ⁿ et 0,7 − 0,7 × 0,6ⁿ. À droite, la chaîne qui tourne sur trois états, depuis l'état 0 : la probabilité d'être en 0 vaut 1, 0, 0, 1, 0, 0… et ne converge jamais vers 1/3](figures/oubli_depart.png)
 
-**En général.** Si $\mathbf{P}$ est diagonalisable, de valeurs propres $1 = \lambda_1$, $\lvert\lambda_2\rvert \ge \lvert\lambda_3\rvert \ge \cdots$, avec $\lvert\lambda_2\rvert < 1$, alors $\boldsymbol{\mu}_n - \boldsymbol{\pi}$ est une combinaison des $\lambda_i^n$, $i \ge 2$, et l'écart décroît comme $\lvert\lambda_2\rvert^n$ : c'est la promesse de M12c §4. L'écart $1 - \lvert\lambda_2\rvert$ s'appelle le **trou spectral** (*spectral gap*) : plus il est grand, plus la chaîne oublie vite son départ. Pour la boutique, le polynôme caractéristique est $(\lambda - 1)(\lambda^2 + 0{,}4\,\lambda + 0{,}29)$, de racines $1$ et $-0{,}2 \pm 0{,}5\,i$ : $\lvert\lambda_2\rvert = \sqrt{0{,}29} \approx 0{,}539$, et ces valeurs propres complexes font tourner l'écart (M22 §2) : depuis l'étagère pleine, $P(S_n = 2)$ vaut $0{,}3$ ; $0{,}29$ ; $0{,}497$ ; $0{,}417$… autour de $0{,}414$.
+**En général.** Si $\mathbf{P}$ est diagonalisable, de valeurs propres $1 = \lambda_1$, $\lvert\lambda_2\rvert \ge \lvert\lambda_3\rvert \ge \cdots$, avec $\lvert\lambda_2\rvert < 1$, alors $\boldsymbol{\mu}_n - \boldsymbol{\pi}$ est une combinaison des $\lambda_i^n$, $i \ge 2$ : l'écart décroît comme $\lvert\lambda_2\rvert^n$ (la promesse de M12c §4). Plus le **trou spectral** (*spectral gap*) $1 - \lvert\lambda_2\rvert$ est grand, plus la chaîne oublie vite son départ. Pour la boutique, le polynôme caractéristique est $(\lambda - 1)(\lambda^2 + 0{,}4\,\lambda + 0{,}29)$, de racines $1$ et $-0{,}2 \pm 0{,}5\,i$ : $\lvert\lambda_2\rvert = \sqrt{0{,}29} \approx 0{,}539$, et ces valeurs propres complexes font tourner l'écart (M22 §2) : depuis l'étagère pleine, $P(S_n = 2)$ vaut $0{,}3$ ; $0{,}29$ ; $0{,}497$ ; $0{,}417$… autour de $0{,}414$.
 
 ### Pourquoi ce paragraphe
 
@@ -172,19 +172,19 @@ workbookIA 26 n'utilise pas la loi stationnaire, mais elle sert ailleurs. Le th�
 
 ### Le PageRank
 
-Un internaute clique au hasard : sur une page, il choisit un des liens au hasard, uniformément ; sur une page sans lien (*dangling node*), il va sur une page quelconque. Cela fait une chaîne de matrice $\mathbf{L}$ sur les $m$ pages. Ce **surfeur aléatoire** (*random surfer*) peut rester piégé dans un groupe de pages ; on le fait donc **sauter** : à chaque pas, avec la probabilité $1 - d$, il va sur une page tirée uniformément. Sa matrice est
+Un internaute choisit au hasard, uniformément, un des liens de sa page ; sur une page sans lien (*dangling node*), il va sur une page quelconque : une chaîne de matrice $\mathbf{L}$ sur les $m$ pages. Ce **surfeur aléatoire** (*random surfer*) peut rester piégé dans un groupe de pages ; on le fait donc **sauter** : à chaque pas, avec la probabilité $1 - d$, il va sur une page tirée uniformément. Sa matrice est
 $$\mathbf{P}_d = d\,\mathbf{L} + \frac{1 - d}{m}\,\mathbf{1}\mathbf{1}^\top,$$
 avec un **facteur d'amortissement** (*damping factor*) $d$, souvent $0{,}85$ (S. Brin et L. Page, 1998). Tous ses coefficients sont strictement positifs : la chaîne est irréductible et apériodique, sa loi stationnaire est unique, et c'est le **PageRank** des pages. On admet que les valeurs propres de $\mathbf{P}_d$ autres que 1 sont celles de $\mathbf{L}$ multipliées par $d$ : la méthode de la puissance converge au moins comme $d^k$.
 
-**Exemple : un web de quatre pages.** Les liens : $1 \to 2$, $1 \to 3$, $2 \to 3$, $3 \to 1$, $4 \to 1$, $4 \to 3$ ; aucune page ne pointe vers la page 4. Avec $d = 0{,}85$, chaque coefficient de $\mathbf{P}_d$ vaut $0{,}85\,\ell_{ij} + 0{,}0375$. La méthode de la puissance part de la loi uniforme : $\boldsymbol{x}_1 = \frac14\mathbf{1}^\top\mathbf{P}_d$ est le quart des sommes des colonnes, $0{,}0375 + 0{,}2125 \times (1{,}5 ;\ 0{,}5 ;\ 2 ;\ 0)$, soit $(0{,}35625 ;\ 0{,}14375 ;\ 0{,}4625 ;\ 0{,}0375)$. Puis $\boldsymbol{x}_2 \approx (0{,}447 ;\ 0{,}189 ;\ 0{,}327 ;\ 0{,}0375)$, …, $\boldsymbol{x}_{10} \approx (0{,}381 ;\ 0{,}199 ;\ 0{,}383 ;\ 0{,}0375)$, vers
+**Exemple : un web de quatre pages.** Les liens : $1 \to 2$, $1 \to 3$, $2 \to 3$, $3 \to 1$, $4 \to 1$, $4 \to 3$ ; aucune page ne pointe vers la page 4. Avec $d = 0{,}85$, chaque coefficient de $\mathbf{P}_d$ vaut $0{,}85\,\ell_{ij} + 0{,}0375$. La méthode de la puissance part de la loi uniforme : $\boldsymbol{x}_1 = \frac14\mathbf{1}^\top\mathbf{P}_d$ est le quart des sommes des colonnes, $0{,}0375 + 0{,}2125 \times (1{,}5 ;\ 0{,}5 ;\ 2 ;\ 0)$, soit $(0{,}35625 ;\ 0{,}14375 ;\ 0{,}4625 ;\ 0{,}0375)$ ; puis, après dix pas, $\boldsymbol{x}_{10} \approx (0{,}381 ;\ 0{,}199 ;\ 0{,}383 ;\ 0{,}0375)$, et la limite
 $$\boldsymbol{\pi} \approx (0{,}380 ;\ 0{,}199 ;\ 0{,}384 ;\ 0{,}0375).$$
-La page 4 ne reçoit que les sauts : $\frac{1 - d}{4} = 0{,}0375$. La page 3, pointée par trois pages, devance de peu la page 1, pointée par deux seulement, mais dont l'une, la page 3, lui donne tout ce qu'elle reçoit. Les valeurs propres de $\mathbf{L}$ autres que 1 sont $0$ et $-0{,}5 \pm 0{,}5\,i$, de module au plus $0{,}707$ ; celles de $\mathbf{P}_d$ ont donc un module au plus $0{,}85 \times 0{,}707 \approx 0{,}60$ : chaque pas divise l'écart par 1,7 environ.
+La page 4 ne reçoit que les sauts : $\frac{1 - d}{4} = 0{,}0375$. La page 3, pointée trois fois, devance à peine la page 1, qui reçoit tout ce que donne la page 3. Les valeurs propres de $\mathbf{L}$ autres que 1 sont $0$ et $-0{,}5 \pm 0{,}5\,i$, de module au plus $0{,}707$ ; celles de $\mathbf{P}_d$ ont donc un module au plus $0{,}85 \times 0{,}707 \approx 0{,}60$.
 
 ![Le web de quatre pages : chaque nœud a une aire proportionnelle à son PageRank, environ 0,380 pour la page 1, 0,199 pour la page 2, 0,384 pour la page 3 et 0,0375 pour la page 4, que personne ne pointe ; les flèches sont les six liens](figures/pagerank.png)
 
-💻 **Aujourd'hui en pratique** — un moteur de recherche ne résout pas le système : il itère la méthode de la puissance avec des produits creux, sans jamais écrire $\mathbf{P}_d$ (dont la partie $\frac{1-d}{m}\mathbf{1}\mathbf{1}^\top$ est pleine). `networkx.pagerank(G, alpha=0.85)` le fait sur un graphe ; le 📦 M26.20 compare trois méthodes.
+💻 **Aujourd'hui en pratique** — un moteur de recherche itère la méthode de la puissance avec des produits creux, sans jamais écrire $\mathbf{P}_d$, dont la partie $\frac{1-d}{m}\mathbf{1}\mathbf{1}^\top$ est pleine ; `networkx.pagerank(G, alpha=0.85)` le fait sur un graphe.
 
-⚠️ **Erreur classique.** Croire qu'une loi stationnaire n'existe que pour les chaînes bien faites (elle existe toujours) ; ou qu'elle est toujours unique, ou que la loi de la chaîne y converge toujours (la chaîne périodique). Chercher le vecteur propre de $\mathbf{P}$ au lieu de celui de $\mathbf{P}^\top$. Oublier de normaliser $\boldsymbol{\pi}$ (🐛 M26.24).
+⚠️ **Erreur classique.** Croire qu'une loi stationnaire n'existe que pour les chaînes bien faites (elle existe toujours) ; ou qu'elle est toujours unique, ou que la loi de la chaîne y converge toujours (la chaîne périodique). Chercher le vecteur propre de $\mathbf{P}$ au lieu de celui de $\mathbf{P}^\top$ (à droite, pour la valeur propre 1, $\mathbf{P}$ a $\mathbf{1}$, qui ne dit rien). Oublier de normaliser $\boldsymbol{\pi}$ (🐛 M26.24).
 
 🔗 **Dans workbookIA** — le chapitre 26 estime des valeurs à partir d'épisodes simulés et demande que chaque état soit visité souvent ; la fréquence des visites à long terme est celle du théorème ergodique.
 
@@ -194,7 +194,7 @@ La page 4 ne reçoit que les sauts : $\frac{1 - d}{4} = 0{,}0375$. La page 3, po
 
 Pour une variable discrète $Y$ et une valeur $y$ telle que $P(Y = y) > 0$, l'**espérance conditionnelle** (*conditional expectation*) $\mathbb{E}[X \mid Y = y]$ est l'espérance de $X$ sous la loi conditionnelle $P(\cdot \mid Y = y)$. Elle définit une fonction $m(y)$, et $\mathbb{E}[X \mid Y] = m(Y)$ est une **variable aléatoire**. M25b a démontré la **formule de l'espérance totale** (*law of total expectation*) :
 $$\mathbb{E}[X] = \mathbb{E}\big[\mathbb{E}[X \mid Y]\big] = \sum_y P(Y = y)\,\mathbb{E}[X \mid Y = y].$$
-Dans une chaîne, $\mathbb{E}[f(S_1) \mid S_0 = i] = (\mathbf{P}\mathbf{f})_i$ (§1), et $\mathbb{E}[f(S_1)] = \boldsymbol{\mu}_0\mathbf{P}\mathbf{f}$ en est la moyenne sous la loi de $S_0$. Pour la boutique, avec $S_0$ de loi $\boldsymbol{\pi}$ et $f(s) = s$ : $\boldsymbol{\pi}(\mathbf{P}\mathbf{f}) = \frac{49 \times 2 + 50 \times 0{,}3 + 70 \times 1{,}1}{169} = \frac{190}{169} \approx 1{,}124$ article, la même chose que $\boldsymbol{\pi}\mathbf{f} = \frac{50 + 140}{169}$, puisque $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$.
+Dans une chaîne, $\mathbb{E}[f(S_1) \mid S_0 = i] = (\mathbf{P}\mathbf{f})_i$ (§1), et $\mathbb{E}[f(S_1)] = \boldsymbol{\mu}_0\mathbf{P}\mathbf{f}$ en est la moyenne sous la loi de $S_0$.
 
 ### La propriété de la tour
 
@@ -208,7 +208,7 @@ et le membre de droite est l'espérance de $\mathbb{E}[X \mid Y, Z]$ sachant $Y 
 
 **Dans une chaîne.** Avec la propriété de Markov, la tour fait avancer d'un pas à la fois :
 $$\mathbb{E}[f(S_2) \mid S_0 = i] = \sum_j p_{ij}\,\mathbb{E}[f(S_2) \mid S_0 = i, S_1 = j] = \sum_j p_{ij}\,\mathbb{E}[f(S_2) \mid S_1 = j] = \sum_j p_{ij}(\mathbf{P}\mathbf{f})_j = (\mathbf{P}^2\mathbf{f})_i .$$
-La deuxième égalité est la propriété de Markov : sachant $S_1 = j$, l'état $S_0$ n'apporte plus rien. Pour la boutique, $\mathbb{E}[S_2 \mid S_0 = 2] = 0{,}2 \times 2 + 0{,}5 \times 0{,}3 + 0{,}3 \times 1{,}1 = 0{,}88$, ce que redonne $\boldsymbol{\mu}_2\mathbf{f} = 0{,}3 + 2 \times 0{,}29$. Cette idée, **conditionner sur le premier pas**, porte la suite du chapitre.
+La deuxième égalité est la propriété de Markov : sachant $S_1 = j$, l'état $S_0$ n'apporte plus rien. Pour la boutique, $\mathbb{E}[S_2 \mid S_0 = 2] = 0{,}2 \times 2 + 0{,}5 \times 0{,}3 + 0{,}3 \times 1{,}1 = 0{,}88$, ce que redonne $\boldsymbol{\mu}_2\mathbf{f} = 0{,}3 + 2 \times 0{,}29$. Cette idée, **conditionner sur le premier pas** (*first-step analysis*), porte la suite du chapitre.
 
 ### États absorbants et états transitoires
 
@@ -244,7 +244,7 @@ La série est la même série géométrique de matrices qu'au §5 (∂ M26.11 la
 $$\mathbf{N} = \frac{1}{37}\begin{pmatrix} 46 & 30 & 12 \\ 15 & 50 & 20 \\ 3 & 10 & 41 \end{pmatrix} :$$
 depuis l'accueil, $\frac{46}{37} \approx 1{,}24$ passages par l'accueil (l'arrivée comprise), $0{,}81$ par une fiche produit et $0{,}32$ par le panier ; leur somme redonne $t_1 = \frac{88}{37}$, et $0{,}7 \times \frac{12}{37} = \frac{42}{185} = h_1$.
 
-![Le site marchand : trois pages transitoires (accueil, fiche produit, panier) et deux états absorbants (achat, départ), avec les probabilités des flèches ; sous chaque page, la probabilité d'achat h et le nombre moyen de pages vues t : accueil h ≈ 0,227 et t ≈ 2,38, fiche produit h ≈ 0,378 et t ≈ 2,30, panier h ≈ 0,776 et t ≈ 1,46](figures/site_absorption.png)
+![Le site marchand : trois pages transitoires (accueil, fiche produit, panier) et deux états absorbants (achat, départ), avec les probabilités des flèches ; au-dessus de chaque page, la probabilité d'achat h et le nombre moyen de pages vues t : accueil h ≈ 0,227 et t ≈ 2,38, fiche produit h ≈ 0,378 et t ≈ 2,30, panier h ≈ 0,776 et t ≈ 1,46](figures/site_absorption.png)
 
 💻 **Aujourd'hui en pratique** — les sites marchands analysent ainsi les parcours de leurs visiteurs (les « entonnoirs de conversion ») ; on résout $(\mathbf{I} - \mathbf{Q})\mathbf{h} = \mathbf{b}$ par `np.linalg.solve`, sans calculer l'inverse. Le §5 montrera que c'est un système de Bellman avec $\gamma = 1$.
 
@@ -284,7 +284,7 @@ Jusqu'ici, la boutique suivait une règle fixe. Elle pourrait en changer.
 
 > **Définition.** Un **processus de décision markovien** (*Markov decision process*, MDP) se donne par des états, des **actions** (*actions*) $a \in \mathcal{A}$, pour chaque action une matrice stochastique $\mathbf{P}_a$, avec $\mathbf{P}_a(s, s') = P(S_{t+1} = s' \mid S_t = s, A_t = a)$, et des récompenses $r(s, a, s')$, de moyenne
 > $$r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s') .$$
-> Une **politique** (*policy*) $\pi$ donne, dans chaque état, une loi sur les actions, $\pi(a \mid s)$. Elle est **déterministe** (*deterministic policy*) si elle choisit une action à coup sûr, notée $\pi(s)$, et **stochastique** (*stochastic policy*) sinon ; la règle ε-greedy de M11 est stochastique.
+> Une **politique** (*policy*) $\pi$ donne, dans chaque état, une loi sur les actions, $\pi(a \mid s)$. Elle est **déterministe** (*deterministic policy*) si elle choisit une action avec certitude, notée $\pi(s)$, et **stochastique** (*stochastic policy*) sinon ; la règle ε-greedy de M11 est stochastique.
 
 **La boutique.** Le samedi soir, deux actions. « Commander » (cmd) : l'étagère est complétée à deux articles après les ventes de la semaine, pour 5 € ; donc $\mathbf{P}_{\text{cmd}}$ a toutes ses lignes égales à $(0, 0, 1)$, et $r(s, \text{cmd}) = 10\,\mathbb{E}[\min(s, Y)] - 5$, soit $-5$, $2$ et $4$ pour $s = 0, 1, 2$. « Attendre » (att) : $r(s, \text{att}, s') = 10\,(s - s')$, et
 $$\mathbf{P}_{\text{att}} = \begin{pmatrix} 1 & 0 & 0 \\ 0{,}7 & 0{,}3 & 0 \\ 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}, \qquad r(s, \text{att}) = 0,\ 7,\ 9 .$$
@@ -300,7 +300,7 @@ Pour la règle du §1, la ligne 0 vient de $\mathbf{P}_{\text{cmd}}$ et les deux
 
 > **Définition.** La **valeur d'une action** (*action value*) $a$ dans l'état $s$, sous la politique $\pi$, est
 > $$Q^\pi(s, a) = r(s, a) + \gamma\sum_{s'}\mathbf{P}_a(s, s')\,V^\pi(s') :$$
-> ce que rapporte en moyenne l'action $a$ jouée une fois en $s$, puis la politique $\pi$ ensuite. On a $V^\pi(s) = \sum_a\pi(a \mid s)\,Q^\pi(s, a)$.
+> ce que rapporte en moyenne l'action $a$ choisie une fois en $s$, puis la politique $\pi$ ensuite. On a $V^\pi(s) = \sum_a\pi(a \mid s)\,Q^\pi(s, a)$.
 
 Le §5 en donne un exemple chiffré, une fois $V^\pi$ calculée.
 
@@ -422,7 +422,7 @@ M22 §6 en avait l'unicité et la convergence ; l'existence est la partie admise
 $$\max_i x_i = x_{i^\star} = y_{i^\star} + (x_{i^\star} - y_{i^\star}) \le \max_i y_i + \lVert\mathbf{x} - \mathbf{y}\rVert_\infty .$$
 En échangeant les rôles de $\mathbf{x}$ et $\mathbf{y}$, $\max_i y_i \le \max_i x_i + \lVert\mathbf{x} - \mathbf{y}\rVert_\infty$. Les deux inégalités ensemble donnent le lemme. $\square$
 
-Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$.
+Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** (*1-Lipschitz*) pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$.
 
 ### L'arrêt optimal
 
@@ -455,7 +455,7 @@ La racine $\approx 1{,}398$ sort de $[0, 1]$, où la formule de l'espérance a �
 
 Pour un MDP quelconque (§4), on cherche la meilleure politique.
 
-> **Énoncés** (admis). La **valeur optimale** $\mathbf{V}^\star$ est l'unique solution de l'**équation d'optimalité de Bellman** (*Bellman optimality equation*)
+> **Énoncés** (admis). La **valeur optimale** (*optimal value*) $\mathbf{V}^\star$ est l'unique solution de l'**équation d'optimalité de Bellman** (*Bellman optimality equation*)
 > $$V^\star(s) = \max_{a}\Big[r(s, a) + \gamma\sum_{s'}\mathbf{P}_a(s, s')\,V^\star(s')\Big] ;$$
 > l'opérateur de droite est une γ-contraction pour $\lVert\cdot\rVert_\infty$, et l'**itération sur les valeurs** (*value iteration*) $\mathbf{V}_{k+1} = $ (membre de droite appliqué à $\mathbf{V}_k$) converge vers $\mathbf{V}^\star$ ; la **politique gloutonne** (*greedy policy*) pour $\mathbf{V}^\star$, qui choisit dans chaque état une action réalisant le maximum, est optimale.
 
@@ -520,7 +520,7 @@ On estime plusieurs options avec du bruit, on garde la meilleure estimée, et l'
 
 Donc deux options de **même** moyenne $\mu$, estimées indépendamment avec un écart-type $s$ chacune (et des erreurs gaussiennes), donnent une meilleure estimation de moyenne $\mu + \frac{s}{\sqrt\pi}$ : c'est la **malédiction du vainqueur** (*winner's curse*) des enchères, où celui qui gagne est souvent celui qui a le plus surestimé. Avec plus d'options, le biais grandit.
 
-**Exemple : deux réglages d'un modèle.** Deux réglages ont la même précision réelle, 72 %, et chacun est mesuré sur ses propres 400 exemples de validation : l'écart-type de chaque mesure vaut $\sqrt{0{,}72 \times 0{,}28/400} \approx 2{,}24$ points (M02c). Le meilleur score mesuré vaut en moyenne $72 + \frac{2{,}24}{\sqrt\pi} \approx 73{,}27$ % : 1,27 point d'optimisme, sans aucune différence réelle. (Mesurés sur les mêmes exemples, les deux scores seraient corrélés, et le biais plus petit.)
+**Exemple : deux réglages d'un modèle.** Deux réglages ont la même précision réelle, 72 %, et chacun est mesuré sur ses propres 400 exemples de validation : l'écart-type de chaque mesure vaut $s = \sqrt{0{,}72 \times 0{,}28/400} \approx 2{,}245$ points (M02c). Le meilleur score mesuré vaut en moyenne $72 + \frac{s}{\sqrt\pi} \approx 72 + 1{,}27 = 73{,}27$ % : 1,27 point d'optimisme, sans aucune différence réelle. (Mesurés sur les mêmes exemples, les deux scores seraient corrélés, et le biais plus petit.)
 
 > **L'estimateur double** (*double estimator*). Choisir l'option $\hat\imath$ avec un premier échantillon, puis mesurer **cette** option sur un second, indépendant : sa moyenne est $\mathbb{E}[\mu_{\hat\imath}] \le \max_i\mu_i$ ; pas de biais vers le haut.
 
@@ -528,9 +528,9 @@ Donc deux options de **même** moyenne $\mu$, estimées indépendamment avec un 
 
 Quand toutes les options se valent, elle est sans biais ; sinon, elle est même un peu pessimiste, parce qu'elle choisit parfois une option moins bonne. C'est pourquoi un modèle **choisi** sur la validation s'évalue sur un ensemble de test **séparé** : son score de validation est optimiste.
 
-![À gauche, l'histogramme de 20 000 expériences simulées : pour deux réglages de même précision réelle 72 %, mesurés chacun sur 400 exemples, l'écart entre le meilleur score mesuré et 72 % (moyenne ≈ +1,27 point, la valeur 2,24/√π), et celui de l'estimateur double, qui remesure le réglage choisi sur 400 nouveaux exemples (moyenne ≈ 0). À droite, la densité de max(Z₁, Z₂) comparée à celle de la loi normale centrée réduite, avec les moyennes 1/√π ≈ 0,564 et 0](figures/biais_maximum.png)
+![À gauche, l'histogramme de 20 000 expériences simulées : pour deux réglages de même précision réelle 72 %, mesurés chacun sur 400 exemples, l'écart entre le meilleur score mesuré et 72 % (moyenne ≈ +1,28 point, proche de s/√π ≈ 1,27), et celui de l'estimateur double, qui remesure le réglage choisi sur 400 nouveaux exemples (moyenne ≈ 0). À droite, la densité de max(Z₁, Z₂) comparée à celle de la loi normale centrée réduite, avec les moyennes 1/√π ≈ 0,564 et 0](figures/biais_maximum.png)
 
-💻 **Aujourd'hui en pratique** — séparer la validation (pour choisir) et le test (pour mesurer) est la parade standard ; la validation croisée imbriquée en est la version soignée. En recherche, comparer beaucoup de réglages sur un même ensemble de test fait apparaître le même optimisme.
+💻 **Aujourd'hui en pratique** — séparer la validation (pour choisir) et le test (pour mesurer) est la parade standard ; la validation croisée imbriquée en est la version soignée.
 
 ⚠️ **Erreur classique.** Annoncer le meilleur score de validation comme une estimation sans biais. Croire qu'un pas constant converge vers la moyenne. Prendre une erreur TD isolée pour le résidu de Bellman (c'est sa **moyenne** qui l'est). Tronquer les retours trop tôt sans tenir compte de $\gamma^T\lVert\mathbf{V}\rVert_\infty$.
 
