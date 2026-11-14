@@ -969,10 +969,13 @@ wbm.record("M27.19a", pure_19r(market_19r), decimals=6,
            mistakes={"le minimum de chaque ligne se prend le long des colonnes (axis=1), le maximum de chaque colonne le "
                      "long des lignes (axis=0)": pure_19r([list(col) for col in zip(*market_19r)]),
                      "row et col sont les plus petits indices où le maximin et le minimax sont atteints":
-                         pure_19r(market_19r)[:3] + [3]})
+                         pure_19r(market_19r)[:3] + [3],
+                     "dans le code, les indices partent de 0 : la ligne A1 est la ligne 0":
+                         pure_19r(market_19r)[:2] + [i + 1 for i in pure_19r(market_19r)[2:]]})
 wbm.record("M27.19b", pure_19r(seen_by_B_19r), decimals=6,
            mistakes={"B maximise ce que A perd : ses gains sont −G, pas G": pure_19r([list(col) for col in zip(*market_19r)]),
-                     "les lignes de -G.T sont les stratégies de B : transpose aussi −G": pure_19r([[-g for g in row] for row in market_19r])})
+                     "les lignes de -G.T sont les stratégies de B (transpose aussi −G) ; si tu as bien passé -G.T, ce sont les "
+                     "axes de tes minimums et de tes maximums qui sont échangés": pure_19r([[-g for g in row] for row in market_19r])})
 wbm.record("M27.19c", pure_19r(penalty_19r) + [False], decimals=6,
            mistakes={"(row, col) n'est un point selle que si le maximin égale le minimax": pure_19r(penalty_19r) + [True]})'''),
     ],
@@ -991,7 +994,7 @@ M27_20 = Ex(
     note=NOTE_20,
     body=REMINDER + r"""
 
-Écris `mixed_strategy_value_2x2(G)` (fiche §2), en suivant sa docstring : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0` et `0.0` sinon, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche, $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, en `float` Python.
+Écris `mixed_strategy_value_2x2(G)` (fiche §2), en suivant sa docstring : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0`, sinon `p = 0.0`, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche, $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, en `float` Python.
 
 **L'usage.** Avec ta fonction :
 - a) les tirs au but de M27.2 (`G_PENALTY`) (un tuple de 3, tel que rendu), à comparer à tes réponses a) à c) ;
@@ -1094,7 +1097,7 @@ M27_21 = Ex(
     mymath="distances.py", given=GIVEN_21, note=NOTE_21,
     body=REMINDER + r"""
 
-Écris `descent_ascent_iterates(A, x0, y0, eta, n_steps=10, alternating=False)` (fiche §4), en suivant sa docstring : les itérés de la descente-montée sur $f(\mathbf{x}, \mathbf{y}) = \mathbf{x}^\top\mathbf{A}\mathbf{y}$, où le joueur $\mathbf{x}$ (les lignes de $\mathbf{A}$) **minimise**, comme dans MML (7.23). Contrôle `A` (2-D, non vide, de nombres finis), `x0` et `y0` (des tableaux **1-D** de $n$ et de $m$ coordonnées : `np.array([1.0])`, pas `[[1.0]]`), `eta` (un nombre fini $> 0$, pas un booléen) et `n_steps` (un entier $\ge 0$, ni un booléen ni un flottant) ; prépare deux tableaux de formes $(N + 1, n)$ et $(N + 1, m)$, de lignes 0 les départs ; à chaque pas, calcule le nouveau $\mathbf{x}$ à partir de l'ancien $\mathbf{y}$, puis le nouveau $\mathbf{y}$ à partir de l'ancien $\mathbf{x}$ (simultané) ou du nouveau (alterné) ; rends `(xs, ys)`.
+Écris `descent_ascent_iterates(A, x0, y0, eta, n_steps=10, alternating=False)` (fiche §4), en suivant sa docstring : les itérés de la descente-montée sur $f(\mathbf{x}, \mathbf{y}) = \mathbf{x}^\top\mathbf{A}\mathbf{y}$, où le joueur $\mathbf{x}$ (les lignes de $\mathbf{A}$) **minimise**, comme dans MML (7.23). Contrôle `A` (2-D, non vide, de nombres finis), `x0` et `y0` (des tableaux **1-D** de $n$ et de $m$ coordonnées : `np.array([1.0])`, pas `np.array([[1.0]])`), `eta` (un nombre fini $> 0$, pas un booléen) et `n_steps` (un entier $\ge 0$, ni un booléen ni un flottant) ; prépare deux tableaux de formes $(N + 1, n)$ et $(N + 1, m)$, de lignes 0 les départs ; à chaque pas, calcule le nouveau $\mathbf{x}$ à partir de l'ancien $\mathbf{y}$, puis le nouveau $\mathbf{y}$ à partir de l'ancien $\mathbf{x}$ (simultané) ou du nouveau (alterné) ; rends `(xs, ys)`.
 
 **L'usage.** Sur $xy$ (`A = [[1.0]]`, depuis $x_0 = 1$ et $y_0 = 0$, avec $\eta = 0{,}6$), avec ta fonction :
 - a) en simultané, la distance à l'équilibre $\sqrt{x_k^2 + y_k^2}$ après 4 pas, puis après 5 pas (une liste de 2 nombres), à comparer à ta réponse c) de M27.4 ;
@@ -2148,7 +2151,9 @@ wbm.record("M27.27b", [f(*s) for s in settings_27r for f in (right_27r, squares_
            mistakes={"w2_settings_fixed met encore des variances : la formule soustrait les écarts-types":
                          [squares_27r(*s) for s in settings_27r for _ in range(2)],
                      "la deuxième et la quatrième valeurs sont celles de la version FAUSSE, w2_settings":
-                         [right_27r(*s) for s in settings_27r for _ in range(2)]})
+                         [right_27r(*s) for s in settings_27r for _ in range(2)],
+                     "w2_settings_fixed doit rendre W₂, pas son carré":
+                         [v for s in settings_27r for v in (right_27r(*s) ** 2, squares_27r(*s))]})
 shafts_27r, sleeves_27r = [20.03, 19.98, 20.01, 19.96, 20.05], [20.10, 20.04, 20.13, 20.07, 20.06]
 total_27r = lambda partner: sum((sleeves_27r[j] - x) ** 2 for x, j in zip(shafts_27r, partner))   # noqa: E731
 best_27r = list(min(permutations(range(5)), key=total_27r))              # the oracle: the 120 pairings
@@ -2450,7 +2455,9 @@ wbm.record("M27.28b", True,
 wbm.record("M27.28c", table_28r,
            mistakes={"les deux dernières propriétés ne portent que sur les jeux sans point selle":
                          [variant_28r(6428, f, all_games=True) for f in versions_28r],
-                     "tire dans l'ordre de l'énoncé : G, puis c, puis k": [variant_28r(6428, f, order="kc") for f in versions_28r]})
+                     "tire dans l'ordre de l'énoncé : G, puis c, puis k": [variant_28r(6428, f, order="kc") for f in versions_28r],
+                     "ton test ne compte encore ni \\"transpose\\" ni \\"swap_rows\\" : les deux dernières propriétés, sur les "
+                     "jeux sans point selle": [row[:3] + [0, 0] for row in table_28r]})
 passing_28r = {name for name, row in zip(("swapped_pq", "formulas_always", "maximin_as_value", "rounded_value"), table_28r)
                if row[0] == row[1] == row[2] == 0}
 missing_28r = sorted(passing_28r)
@@ -2545,8 +2552,9 @@ NOTE_29 = (r"a) $(2{,}000 ;\ 1{,}806 ;\ 0{,}858)$ (plus précisément $\sigma \a
            r"$\int_0^1(\Phi^{-1})^2 = 1$ ; la meilleure approximation de $F^{-1}$ par $\mu + \sigma\Phi^{-1}$ est sa "
            r"projection : $\mu = \int_0^1F^{-1} = \mathbb{E}[X]$, $\sigma = \int_0^1F^{-1}\Phi^{-1}$ (positif, puisque "
            r"$F^{-1}$ et $\Phi^{-1}$ croissent toutes deux), et $W_2^2 = \mathbb{V}(X) - \sigma^2$ ; trois intégrales par "
-           r"`scipy.integrate.quad`. Une somme au point milieu sur 1 000 valeurs de $u$, $\frac{1}{1000}\sum F^{-1}(u_i)"
-           r"\Phi^{-1}(u_i)$, donne $\sigma \approx 1{,}8022$, à $4 \times 10^{-3}$ : trop loin (les queues).")
+           r"`scipy.integrate.quad`. Sur 1 000 points milieux de $u$, la moyenne de $F^{-1}\Phi^{-1}$ donne $\sigma \approx "
+           r"1{,}8022$, et les moindres carrés $\approx 1{,}8046$ : à $4 \times 10^{-3}$ et $1{,}8 \times 10^{-3}$, trop loin "
+           r"(les queues).")
 
 M27_29 = Ex(
     "M27.29", "🏆", 3, 30, "Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette distance, "
@@ -2591,8 +2599,10 @@ print(f"a) {answer_M27_29a} en {time.perf_counter() - start_29:.3f} s")
 answer_M27_29b = bool(abs(answer_M27_29a[0] - 2.0) < 1e-6)
 answer_M27_29c = 100 * answer_M27_29a[2] ** 2 / VARIANCE_29
 midpoints_29 = (np.arange(1000) + 0.5) / 1000                                    # the coarse way, for comparison
-print("b)", answer_M27_29b, " c)", round(answer_M27_29c, 4), "; σ par une somme au point milieu sur 1 000 valeurs de u :",
-      round(float(np.mean(counter_quantile_29(midpoints_29) * stats.norm.ppf(midpoints_29))), 5))
+x_29, z_29 = counter_quantile_29(midpoints_29), stats.norm.ppf(midpoints_29)
+print("b)", answer_M27_29b, " c)", round(answer_M27_29c, 4))
+print("   σ sur 1 000 points milieux de u : la moyenne de F⁻¹Φ⁻¹", round(float(np.mean(x_29 * z_29)), 5),
+      "; les moindres carrés", round(float(np.sum((x_29 - x_29.mean()) * z_29) / np.sum(z_29 ** 2)), 5))
 
 ''' + CHECK_29,
     record='''def projection_29r(quantile):
@@ -2784,11 +2794,11 @@ def build_constants() -> dict:
 
     # M27.23: hidden masses for the north-west rule, and a hidden cost matrix for the linear program
     nw_cases = []
-    for a, b in (([3.0, 5.0, 2.0, 6.0], [4.0, 4.0, 8.0]), ([0.25, 0.25, 0.5], [0.5, 0.125, 0.375])):
+    for a, b in (([3.0, 5.0, 2.0, 6.0], [4.0, 4.0, 8.0]), ([7.0, 1.0, 4.0], [5.0, 2.0, 5.0])):
         nw_cases.append({"a": a, "b": b, "want": _northwest(np, a, b).tolist()})
     out["__NW_C23__"] = literal(nw_cases)
     C = np.round(np.random.default_rng(6423).uniform(0, 10, size=(3, 4)), 1)
-    a, b = np.array([0.2, 0.5, 0.3]), np.array([0.1, 0.4, 0.3, 0.2])
+    a, b = np.array([0.15, 0.6, 0.25]), np.array([0.35, 0.1, 0.3, 0.25])
     m, n = C.shape
     margins = np.vstack([np.kron(np.eye(m), np.ones(n)), np.kron(np.ones(m), np.eye(n))])
     lp = optimize.linprog(C.ravel(), A_eq=margins, b_eq=np.concatenate([a, b]), bounds=(0, None), method="highs")

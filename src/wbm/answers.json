@@ -89571,6 +89571,7 @@
       "kind": "array",
       "mistakes": {
         "9acdb4ec346b5c181549af8a1195e99b6676173f3f2eb5651334c4e33eb4d020": "le minimum de chaque ligne se prend le long des colonnes (axis=1), le maximum de chaque colonne le long des lignes (axis=0)",
+        "a7c004476f98230893ec979d07681fcd2ddcbc5f5245c02abf6126938a1b4dea": "dans le code, les indices partent de 0 : la ligne A1 est la ligne 0",
         "cde82eebdc111ee82be97d6f35e04a2429225923fd7921eaa989aa0d31b67ff9": "row et col sont les plus petits indices où le maximin et le minimax sont atteints"
       },
       "shape": [
@@ -89634,7 +89635,7 @@
       "kind": "array",
       "mistakes": {
         "6cf99387e2097c1d3d65f955a7f5ec322c16cd09386411ce359731399587df15": "B maximise ce que A perd : ses gains sont −G, pas G",
-        "754129ae6e9a2adf7ec92e7c9edfb00c7d1a599ef55a4b425c76d2443a8f0db1": "les lignes de -G.T sont les stratégies de B : transpose aussi −G"
+        "754129ae6e9a2adf7ec92e7c9edfb00c7d1a599ef55a4b425c76d2443a8f0db1": "les lignes de -G.T sont les stratégies de B (transpose aussi −G) ; si tu as bien passé -G.T, ce sont les axes de tes minimums et de tes maximums qui sont échangés"
       },
       "shape": [
         4
@@ -90774,6 +90775,7 @@
       "hash": "3a85bde883a56344df5b04ca3375ee68bf163f7c08279dad252c1d35b64cf320",
       "kind": "array",
       "mistakes": {
+        "67c7a523a3fae390ded77e8208da58e1e6d3292330dc068309b34022bb7657a4": "w2_settings_fixed doit rendre W₂, pas son carré",
         "cf57d9eb204e3922578545c872fbc168b06e79b5861ac771f79c557347c7706e": "la deuxième et la quatrième valeurs sont celles de la version FAUSSE, w2_settings",
         "d257f5fb98a5e0b7d9eea01c34a7665b485084135441851f27e4986e2b36a659": "w2_settings_fixed met encore des variances : la formule soustrait les écarts-types"
       },
@@ -90910,6 +90912,7 @@
       "kind": "array",
       "mistakes": {
         "22974698a879d8f750046199428c0a4a6847df4636616106cda08005d92bb847": "tire dans l'ordre de l'énoncé : G, puis c, puis k",
+        "2d65a46a17461bf5360b58a9bf139a0b251b6e2ab5f13ecceb9c2a9e34fcf37e": "ton test ne compte encore ni \"transpose\" ni \"swap_rows\" : les deux dernières propriétés, sur les jeux sans point selle",
         "96b014fb472ea82688a1527803dc9b3f22dcdac07b7d694f646f5d680f1c9184": "les deux dernières propriétés ne portent que sur les jeux sans point selle"
       },
       "shape": [
