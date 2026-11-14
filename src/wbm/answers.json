@@ -83002,36 +83002,46 @@
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },
     "M25b.13a": {
-      "decimals": 4,
+      "array_rounded": {
+        "1": "5a5f4e6321c03dafcf4a8907a16b262e26df47f5bcf7e8453a7980eea09e6517",
+        "2": "d8bbeb1243a310a05303aaf5a556c35f6c66b287b02e7d88d80e1ca0ee07069c"
+      },
+      "decimals": 6,
       "element_coarse": [
         [
-          "138b8c65d5f08ee3b4e610a6562fa982603a486a1f901ddeaba7aa33d3eaa3fd"
+          "bd55c74d60a1d9aa045e1918d212b9d2274b38f9eb2f997ae354006e9d30321c"
         ],
         [
-          "3ab76afcc0c58069cf68df30734dbc8fa8b79f4a58564bd01e014cbd1f2b25db"
+          "4c0a07c7c14dc01f3e759681416b1d65e8a9b1e6819964078591cfbd4d3a5fef"
         ]
       ],
       "element_coarse_any": [
         [
           "64b9cd665d218be6691023ac4d6ab82b1157000b2829b83588855449ca3af818",
           "e23388ff962ba278ed6cc60666da7b2a0bcc268055d4357e49405382d8b377b4",
-          "0fe9955d736a15be73c0f548dd6687be0156ffd320113937161dacd7a859f3a3"
+          "0fe9955d736a15be73c0f548dd6687be0156ffd320113937161dacd7a859f3a3",
+          "138b8c65d5f08ee3b4e610a6562fa982603a486a1f901ddeaba7aa33d3eaa3fd",
+          "3bf6493ed88166abac93cffcd05ee01eaaeeec4cbc5767cf7bc9bc831812f452"
         ],
         [
           "812bab60be2ffd4864d9b927179ecea39c43c80204d512709ba01446d2f43f0e",
           "0c94792030a532ce0c9c25ad08582376cc17cef3dc5bac31fc05bd95553e51c2",
-          "c1f43f138f4de4598eeda3add9801585ca2958293bfb86107dc43090cf1ce65f"
+          "c1f43f138f4de4598eeda3add9801585ca2958293bfb86107dc43090cf1ce65f",
+          "3ab76afcc0c58069cf68df30734dbc8fa8b79f4a58564bd01e014cbd1f2b25db",
+          "849871c95cc082472130df52d7663e16471bfd747c7c501bec74cf0be1491bfc"
         ]
       ],
       "element_hashes": [
-        "3bf6493ed88166abac93cffcd05ee01eaaeeec4cbc5767cf7bc9bc831812f452",
-        "849871c95cc082472130df52d7663e16471bfd747c7c501bec74cf0be1491bfc"
+        "e2ad63fb3d588576814fe664f22002b1fd3b8c568d548a755d7102cee782473f",
+        "99e0cdf294f08f9f233db07a6ddd1b398611faf3c050a7f0b2d09ae774822eca"
       ],
-      "hash": "3f35d1381d8738a5b88b326601778b84067f7daca39bf444a4ca02210a5342db",
+      "hash": "0dff728fcc4846f58fd3c1c676f58791bad471604870b48ea6632448a1b470e2",
       "kind": "array",
       "mistakes": {
-        "36a3ac5dd51d4b6bad1fa3b25db31a9420f96bd2636cc471d1f77411da60fb7c": "la variance d'un mélange ne se réduit pas à la moyenne des variances des composantes",
-        "93722cb3402c7a7be208178abd23e3518689abe278ec314a220ac0ff0a31794e": "la moyenne du mélange pondère par les proportions des itinéraires"
+        "2b15365d2a7c7957b883bd61785f8afbc9292b31f6e3ff2b0b87c7197ad91df5": "la question demande la variance, pas l'écart-type",
+        "49d2c8cf33dc7ee9f4b5ea3b530f56ec8d45d67813c3a5c618eb6d653c8d3a2a": "la variance d'un mélange ne se réduit pas à la moyenne des variances des composantes",
+        "740528eb47fd0bc4dbb5393aa1d1ca3776fdf34224c2c2e1b271282940f8f8d5": "la question demande la variance (une valeur exacte), pas l'écart-type",
+        "95c9bcf8b7de22b78bba87cfbbeb6eb4dcf42d430450d165ad17ce7e88ba53b0": "la moyenne du mélange pondère par les proportions des itinéraires"
       },
       "shape": [
         2
@@ -83277,6 +83287,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "b37b8c662ad0ebb6b8494c029cbd9c9b8c01d890ca87c77579b026621b2f6acb": "en nats : ln, pas log₂",
         "d5ebf99523505bf5984abd19b4da65cc595c96a013eaec9a1165adf28abcd695": "l'information mutuelle compare q(z | x) à la marge q(z), pas au prior",
         "fa3f95d45c4db3e2a1a0e2001d87037029e087a141cb2684fb4e6646f5fce070": "I(X ; Z) pondère chaque terme par la probabilité jointe p(x) q(z | x)"
       },
@@ -84017,7 +84028,7 @@
       "hash": "876ac9d22a487c7d762229e137c9c9bfb0551c3551f7b624805746f54f4b1e9e",
       "kind": "bool",
       "mistakes": {
-        "783b77b261b8979ce19d839283704094998363101c49f7668988dd85caaac412": "les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés comme le dit l'énoncé"
+        "783b77b261b8979ce19d839283704094998363101c49f7668988dd85caaac412": "les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés à des valeurs singulières recalculées exactement (ou par np.linalg.svd), pas arrondies : à 1e-12 près, un arrondi suffit à rendre la comparaison fausse"
       },
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },

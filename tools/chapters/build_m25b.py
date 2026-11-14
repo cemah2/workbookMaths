@@ -299,11 +299,14 @@ PAPER = [
     ]),
 
     Paper("M25b.13", "Une seule gaussienne pour les temps de trajet par deux itinéraires : les deux sens de la KL", [
-        ("a", "a list of 2 numbers", "[MEAN_13, VAR_13]",
-         '''decimals=4,
+        ("a", "a list of 2 numbers (exact values)", "[MEAN_13, VAR_13]",
+         '''decimals=6,                                                       # exact decimals: no rounding asked
            mistakes={"la variance d'un mélange ne se réduit pas à la moyenne des variances des composantes":
                          [MEAN_13, float(W_13 @ V_13)],
-                     "la moyenne du mélange pondère par les proportions des itinéraires": [float(M_13.mean()), VAR_13]}'''),
+                     "la moyenne du mélange pondère par les proportions des itinéraires": [float(M_13.mean()), VAR_13],
+                     "la question demande la variance, pas l'écart-type": [MEAN_13, math.sqrt(VAR_13)],
+                     "la question demande la variance (une valeur exacte), pas l'écart-type":
+                         [MEAN_13, round(math.sqrt(VAR_13), 4)]}'''),
         ("b", "a number (2 decimals)", "Q_STAR_AT_13 / P_AT_13",
          '''decimals=2, mistakes={"le rapport demandé met q⋆ au numérateur": P_AT_13 / Q_STAR_AT_13}'''),
         ("c", EXACT, 'f"ln({1 / Fraction(7, 10)})"',
@@ -344,7 +347,8 @@ PAPER = [
                '''decimals=4,
            mistakes={"l'information mutuelle compare q(z | x) à la marge q(z), pas au prior": AVERAGE_14,
                      "I(X ; Z) pondère chaque terme par la probabilité jointe p(x) q(z | x)":
-                         sum(kl_14(Q_14[i], QZ_14) for i in range(3))}'''),
+                         sum(kl_14(Q_14[i], QZ_14) for i in range(3)),
+                     "en nats : ln, pas log₂": INFO_14 / math.log(2)}'''),
               ("e", "a number (4 decimals)", "kl_14(QZ_14, PZ_14)",
                '''decimals=4,
            mistakes={"la KL du posterior agrégé au prior met q(z) en premier": kl_14(PZ_14, QZ_14)}'''),
@@ -623,6 +627,30 @@ def shown(value, digits=4):
         return repr(value)[:120]
 
 
+def check_answer(ex_id, value, hint=None):
+    """wbm.check(ex_id, value, computed=True). For a list that holds True or False, the message gives only how many
+    elements are right, not the place of the first wrong one (it would let you guess the booleans one by one).
+    hint(value), when given, may return a targeted « Piste » for a wrong answer (None otherwise)."""
+    holds_bool = isinstance(value, (list, tuple)) and any(isinstance(v, (bool, np.bool_)) for v in value)
+    if not holds_bool and hint is None:
+        return wbm.check(ex_id, value, computed=True)
+    result = wbm.check(ex_id, value, computed=True, quiet=True)
+    message = result.message
+    if holds_bool:
+        for cut in (" Le premier faux est le ", " Premier élément faux à l'indice "):
+            message = message.split(cut)[0]
+    if hint is not None and result.status not in ("correct", "pending", "unknown"):
+        try:
+            extra = hint(value)
+        except Exception:  # noqa: BLE001 - an odd answer: no targeted hint
+            extra = None
+        if extra:
+            message = f"{message} Piste : {extra}"
+    icon = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result.status, "❌")
+    print(f"{icon} Ex {ex_id} : {message}")
+    return result
+
+
 def reporter(results, stop=True):
     """A function report(ok, success, failure) that prints one ✅ or ❌ line, keeps the verdict in results, and (stop)
     ends the check at the first ❌ (StopCheck, caught by checked)."""
@@ -742,12 +770,17 @@ def tests_cells(keyword: str) -> list:
             ("solution", f'run_pytest_group(TEST_M25B, "{keyword}", impl="ref")')]
 
 
-def answers_check(ex_id: str, letters: str, computed: bool = True) -> str:
-    """The check cell of the answers a), b)... of a notebook exercise: one wbm.check each."""
+def answers_check(ex_id: str, letters: str, hints: dict | None = None) -> str:
+    """The check cell of the answers a), b)... of a notebook exercise: one check_answer each (TOOLS: wbm.check with
+    computed=True, without the place of the first wrong element in a list that holds booleans). ``hints`` maps a
+    letter to the code of a function value -> targeted hint (or None), written in the cell."""
     names = ", ".join(f"answer_{ex_id.replace('.', '_')}{letter}" for letter in letters)
-    flag = ", computed=True" if computed else ""
-    return (f'for letter, answer in zip("{letters}", [{names}]):\n'
-            f'    wbm.check(f"{ex_id}{{letter}}", answer{flag})')
+    if not hints:
+        return (f'for letter, answer in zip("{letters}", [{names}]):\n'
+                f'    check_answer(f"{ex_id}{{letter}}", answer)')
+    tag = ex_id.replace(".", "_")
+    return "\n".join(f'check_answer("{ex_id}{letter}", answer_{tag}{letter}'
+                     + (f", hint={hints[letter]})" if letter in hints else ")") for letter in letters)
 
 
 GIVEN_20 = '''X_RES_20 = np.array([[46.0], [48.0], [49.4], [52.1]])    # the four resistors of M25b.3 (Ω): an array (4, 1)
@@ -767,7 +800,7 @@ NOTE_20 = (r"`a = np.log(weights) + np.column_stack([mvn_logpdf(X, means[k], cov
            r"$(0{,}542 ;\ 0{,}001 ;\ 0{,}457)$, comme M25b.1 c) : `covs` reçoit les variances 1, 1 et 4.")
 
 M25B_20 = Ex(
-    "M25b.20", "🔨", 2, 30, "Les responsabilités d'un mélange de gaussiennes, calculées en log (le pas E) · `gmm_e_step`",
+    "M25b.20", "🔨", 2, 35, "Les responsabilités d'un mélange de gaussiennes, calculées en log (le pas E) · `gmm_e_step`",
     "programmer le pas E d'un mélange de gaussiennes en log, puis voir que loin de toutes les composantes il ne donne "
     "jamais 0/0.",
     "fiche §3 ; M05a, M25a ; Ex M25b.1 et M25b.3", tracks="C, E", mymath="latent.py", given=GIVEN_20, note=NOTE_20,
@@ -938,7 +971,7 @@ NOTE_22 = (r"`gmm_log_likelihood` : la somme des log-sum-exp des lignes de $a$ ;
            r"posterior.")
 
 M25B_22 = Ex(
-    "M25b.22", "🔨", 2, 25, "La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des responsabilités "
+    "M25b.22", "🔨", 2, 30, "La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des responsabilités "
     "quelconques · `gmm_log_likelihood`, `gmm_elbo`",
     "programmer la log-vraisemblance d'un mélange et son ELBO pour des lois q quelconques, puis voir l'ELBO sous la "
     "log-vraisemblance, qu'elle touche au posterior.",
@@ -1046,14 +1079,14 @@ NOTE_24 = (r"a) Un seul : la section *Returns* annonce un tableau de forme `(min
            r"($-6{,}6332$ sous les vrais paramètres). d) $(0{,}9167 ;\ 0{,}25)$, comme M25b.9 d).")
 
 M25B_24 = Ex(
-    "M25b.24", "📦", 1, 20, "`scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de M25b.10, et "
+    "M25b.24", "📦", 1, 30, "`scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de M25b.10, et "
     "l'ACP probabiliste de mesures par leurs valeurs propres, contre la vraisemblance de `mvn_logpdf`",
     "vérifier des angles principaux avec SciPy, puis ajuster une ACP probabiliste par les valeurs propres d'une "
     "covariance et comparer des vraisemblances.",
     "fiche §6 ; M12d, M25a ; Ex M25b.9 et M25b.10", tracks="C, E", given=GIVEN_24, note=NOTE_24,
     body=r"""La cellule fournie donne les deux plans de M25b.10 par leurs bases **non orthonormées** (`A_24` a pour colonnes $\mathbf{a}_1$ et $\mathbf{a}_2$, `B_24` a pour colonnes $\mathbf{b}_1$ et $\mathbf{b}_2$), les deux droites (`U_24`, `V_24`, des colonnes), et le modèle de M25b.9 (`W_24`, `MU_24`, `NOISE_24`, la covariance marginale `C_24`).
 - a) Lis la section *Returns* de la documentation de `scipy.linalg.subspace_angles` (`help(linalg.subspace_angles)` ou la page en ligne) : combien d'angles rend-elle pour un plan et une droite de $\mathbb{R}^4$ ? (un entier)
-- b) Applique-la aux deux plans (`angles_24`, le tableau rendu tel quel), puis aux deux droites : vrai ou faux : les cosinus des angles rendus, rangés par ordre décroissant (`np.sort(np.cos(angles))[::-1]`), sont égaux à tes valeurs singulières de M25b.10 d) à $10^{-12}$ près (et, pour les droites, au cosinus de ta réponse f) de M25b.10).
+- b) Applique-la aux deux plans (`angles_24`, le tableau rendu tel quel), puis aux deux droites : vrai ou faux : les cosinus des angles rendus, rangés par ordre décroissant (`np.sort(np.cos(angles))[::-1]`), sont égaux à tes valeurs singulières de M25b.10 d), recalculées exactement (ou par `np.linalg.svd` de ta $\mathbf{Q}_A^\top\mathbf{Q}_B$), à $10^{-12}$ près (et, pour les droites, au cosinus de ta réponse f) de M25b.10, recalculé de même) : des valeurs arrondies à 4 décimales ne le sont pas à $10^{-12}$ près.
 - c) On tire 500 candidats du modèle de M25b.9 : `X = sample_mvn(MU_24, C_24, 500, seed=6054)` (ta `mymath.gaussian.sample_mvn`). Avec la covariance du maximum de vraisemblance $\hat{\boldsymbol{\Sigma}}$ (`np.cov(X, rowvar=False, bias=True)`) et ses valeurs et vecteurs propres par `np.linalg.eigh` (rangés par ordre **croissant** : retourne-les), ajuste l'ACP probabiliste à $k = 1$ par Tipping et Bishop (fiche §6) : $\hat\sigma^2$ et $\lVert\hat{\mathbf{w}}\rVert^2$, puis la log-vraisemblance moyenne par candidat sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\mathbf{w}}\hat{\mathbf{w}}^\top + \hat\sigma^2\mathbf{I})$, par ta `mvn_logpdf` ; et trois vrai ou faux : elle est plus petite que sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}})$ ; elle baisse si l'on remplace $\hat\sigma^2$ par $1{,}1\,\hat\sigma^2$ (même $\hat{\mathbf{w}}$) ; elle est plus grande que sous les vrais paramètres $\mathcal{N}(\boldsymbol{\mu}, \mathbf{C})$ (une liste de 6 : les trois nombres, puis les trois booléens ; 2, 2 et 4 décimales dans ta copie).
 - d) Le posterior du candidat noté $(15, 12, 15)$ (`CANDIDATE_24`), dans le vrai modèle, comme loi conditionnelle de la loi jointe de $(z, \mathbf{x})$ en dimension 4, par ta `condition_gaussian` : moyenne $(0, \boldsymbol{\mu})$, covariance par blocs $\begin{pmatrix} 1 & \mathbf{w}^\top \\ \mathbf{w} & \mathbf{C} \end{pmatrix}$, indices `[1, 2, 3]` ; la moyenne et la variance a posteriori (une liste de 2 nombres ; 4 décimales dans ta copie), à comparer à ta réponse d) de M25b.9.
 
@@ -1062,7 +1095,7 @@ La vérification compare aussi `angles_24` au tableau que rend SciPy. Ce qu'il f
 angles_24 = answer_M25b_24b = answer_M25b_24c = answer_M25b_24d = ...
 with wbm.attempt("M25b.24"):          # your sample_mvn, mvn_logpdf and condition_gaussian: ⏳ while they are not written
     angles_24 = ...        # the array that linalg.subspace_angles returns for the two planes (A_24, B_24), as returned
-    answer_M25b_24b = ...  # b) True or False: the cosines of the angles (planes, then lines), in decreasing order, equal your singular values of M25b.10 d) to 1e-12
+    answer_M25b_24b = ...  # b) True or False: the cosines of the angles (planes, then lines), in decreasing order, equal your singular values of M25b.10 d), recomputed exactly (or by np.linalg.svd of your Q_Aᵀ Q_B), to 1e-12
     answer_M25b_24c = ...  # c) a list of 6: σ̂², ‖ŵ‖², the mean log-likelihood per candidate (3 numbers, as computed), then 3 True or False: smaller than under N(x̄, Σ̂); lower with 1.1 σ̂²; larger than under N(μ, C)
     answer_M25b_24d = ...  # d) a list of 2 numbers, as computed: the posterior mean and variance of CANDIDATE_24 (condition_gaussian in dimension 4)''',
     check='''wbm.check("M25b.24a", answer_M25b_24a)
@@ -1072,7 +1105,16 @@ with checked("M25b.24"):
              linalg.subspace_angles(A_24, B_24))
     else:
         print("⏳ Ex M25b.24 : la comparaison attend tes angles angles_24.")
-''' + answers_check("M25b.24", "bcd"),
+
+
+def eigh_hint_24(value):
+    """c): a negative (or nan) ‖ŵ‖² betrays eigenvalues of np.linalg.eigh left in increasing order."""
+    if float(value[1]) >= 0:
+        return None
+    return "np.linalg.eigh range les valeurs propres par ordre croissant : retourne-les (un ‖ŵ‖² négatif ou nan le trahit)."
+
+
+''' + answers_check("M25b.24", "bcd", hints={"c": "eigh_hint_24"}),
     solution='''sample_mvn, mvn_logpdf = mymath.gaussian.sample_mvn, mymath.gaussian.mvn_logpdf
 condition_gaussian = mymath.gaussian.condition_gaussian
 answer_M25b_24a = len(linalg.subspace_angles(A_24, B_24[:, :1]))   # a plane and a line of R⁴: shape (min(N, K),)
@@ -1114,8 +1156,9 @@ print("d)", np.round(answer_M25b_24d, 6).tolist())''',
                      "N et K comptent les colonnes des deux matrices (les vecteurs de base), pas la dimension de l'espace":
                          {3, 4}})
 wbm.record("M25b.24b", True,
-           mistakes={"les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés comme le dit "
-                     "l'énoncé": False})
+           mistakes={"les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés à des valeurs "
+                     "singulières recalculées exactement (ou par np.linalg.svd), pas arrondies : à 1e-12 près, un arrondi "
+                     "suffit à rendre la comparaison fausse": False})
 mu_24r, w_24r = np.array([12.0, 11.0, 13.0]), np.array([2.0, 1.0, 2.0])
 cov_24r = np.outer(w_24r, w_24r) + 3.0 * np.eye(3)
 X_24r = mu_24r + np.random.default_rng(6054).standard_normal((500, 3)) @ np.linalg.cholesky(cov_24r).T
@@ -1330,6 +1373,12 @@ CHECK_26 = '''with checked("M25b.26"):
     got_c26 = pair("M25b.26", "em_trace_26", short_c26, names=("ll", "elbo"))
     if not (matches(got_c26[0], short_want_c26[0], rtol=1e-8) and matches(got_c26[1], short_want_c26[1], rtol=1e-8)):
         swapped_c26 = matches(got_c26[0], short_want_c26[1], rtol=1e-8) and matches(got_c26[1], short_want_c26[0], rtol=1e-8)
+        touching_c26 = short_want_c26[1].copy()
+        touching_c26[1::2] = short_want_c26[0][1::2]          # an ELBO after the M step with the NEW responsibilities
+        if matches(got_c26[0], short_want_c26[0], rtol=1e-8) and matches(got_c26[1], touching_c26, rtol=1e-8):
+            report_26(False, "", "em_trace_26, 3 itérations depuis le premier départ : ta courbe elbo touche ℓ aussi "
+                      "après chaque pas M ; après un pas M, l'ELBO se calcule avec les ANCIENNES responsabilités et les "
+                      "nouveaux paramètres (le pas E vient après)")
         report_26(False, "", "em_trace_26, 3 itérations depuis le premier départ : attendu ll = "
                   f"{shown(short_want_c26[0])} et elbo = {shown(short_want_c26[1])}, reçu {shown(got_c26[0])} et "
                   f"{shown(got_c26[1])}" + (" (ll et elbo échangés)" if swapped_c26 else " : 2 n_iter + 1 valeurs, "
@@ -1361,16 +1410,22 @@ CHECK_26 = '''with checked("M25b.26"):
     report_26(True, "les dix essais de runs_26 suivent l'EM attendu", "")
     finals_c26 = np.array([ll[-1] for ll, _ in want_c26]) / 300
     best_c26, worst_c26 = int(np.argmax(finals_c26)), int(np.argmin(finals_c26))
-    fig_26, axes_26 = plt.subplots(1, 2, figsize=(12, 4))
+    fig_26, axes_26 = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
     try:
         for ax_c26, j_c26, name_c26 in ((axes_26[0], best_c26, "le meilleur essai"), (axes_26[1], worst_c26, "un autre essai")):
-            opened_c26 = drawn(draw_trace_26, ax_c26, *want_c26[j_c26], f"{name_c26} (essai {j_c26 + 1})")
+            ll30_c26, elbo30_c26 = want_c26[j_c26][0][:31], want_c26[j_c26][1][:31]   # the first 30 half steps
+            title_c26 = f"{name_c26} (essai {j_c26 + 1}) : les 30 premiers demi-pas"
+            opened_c26 = drawn(draw_trace_26, ax_c26, ll30_c26.copy(), elbo30_c26.copy(), title_c26)
             report_26(not opened_c26, f"{name_c26} : draw_trace_26 dessine dans l'axe reçu",
                       f"{name_c26} : draw_trace_26 doit dessiner dans l'axe reçu, sans ouvrir de figure")
-            steps_c26 = np.arange(len(want_c26[j_c26][0]))
-            report_26(through(ax_c26, steps_c26, want_c26[j_c26][0]) and through(ax_c26, steps_c26, want_c26[j_c26][1]),
+            steps_c26 = np.arange(len(ll30_c26))
+            report_26(through(ax_c26, steps_c26, ll30_c26) and through(ax_c26, steps_c26, elbo30_c26),
                       f"{name_c26} : ll et elbo sont tracées contre le demi-pas",
                       f"{name_c26} : il manque une courbe, ll ou elbo, contre le demi-pas 0, 1, …, {len(steps_c26) - 1}")
+            report_26(title_c26 in ax_c26.get_title() and ax_c26.get_legend() is not None,
+                      f"{name_c26} : le titre reçu et une légende",
+                      f"{name_c26} : draw_trace_26 doit mettre le titre reçu (ax.set_title(title)) et une légende "
+                      "(ax.legend(), avec un label par courbe)")
     except StopCheck:
         fig_26.tight_layout()
         plt.show()
@@ -1389,7 +1444,7 @@ NOTE_26 = (r"a) Vrai (la plus forte baisse relative est de l'ordre de $10^{-16}$
            r"0{,}226)$.")
 
 M25B_26 = Ex(
-    "M25b.26", "🔬", 2, 25, "L'EM sur des longueurs de poissons de trois cohortes : la log-vraisemblance et l'ELBO après "
+    "M25b.26", "🔬", 2, 30, "L'EM sur des longueurs de poissons de trois cohortes : la log-vraisemblance et l'ELBO après "
     "chaque demi-pas, sans régularisation, plusieurs initialisations et des maxima locaux",
     "suivre l'EM demi-pas par demi-pas, voir l'ELBO monter et toucher la log-vraisemblance, et comparer plusieurs "
     "initialisations.",
@@ -1406,7 +1461,7 @@ Lance `em_trace_26` depuis dix initialisations : `rng = np.random.default_rng(60
 - e) la valeur finale par poisson des autres essais (elles sont égales à 2 décimales près ; donne l'une d'elles ; 2 décimales dans ta copie) ;
 - f) les trois moyennes du meilleur essai, dans l'ordre croissant (une liste de 3 nombres ; 1 décimale dans ta copie).
 
-La vérification essaie `em_trace_26` sur 3 itérations, compare tes dix essais à ceux de l'EM attendu, puis appelle `draw_trace_26` pour le meilleur essai et un des autres. Ce qu'il faut conclure : la log-vraisemblance monte en escalier et l'ELBO la touche après chaque pas E ; certaines initialisations restent longtemps près d'un moins bon point, où deux composantes se partagent les cohortes du haut : on relance depuis plusieurs initialisations.""",
+La vérification essaie `em_trace_26` sur 3 itérations, compare tes dix essais à ceux de l'EM attendu, puis appelle `draw_trace_26` sur les 30 premiers demi-pas (les 31 premières valeurs) du meilleur essai et d'un des autres, dans deux panneaux de même échelle verticale, et regarde le titre et la légende. Ce qu'il faut conclure : la log-vraisemblance monte en escalier et l'ELBO la touche après chaque pas E ; certaines initialisations restent longtemps près d'un moins bon point, où deux composantes se partagent les cohortes du haut : on relance depuis plusieurs initialisations.""",
     todo='''def em_trace_26(X, weights, means, covs, n_iter):
     """n_iter iterations of EM without regularization (your mymath.latent); returns two arrays ll and elbo of length
     2 * n_iter + 1: the log-likelihood and the ELBO after the first E step (the posterior of the starting parameters),
@@ -1454,13 +1509,11 @@ def draw_trace_26(ax, ll, elbo, title):
     """In ax: ll and elbo against the half step 0, 1, ..., len(ll) - 1 (two curves), the title, labels and a legend.
     No other axes."""
     steps = np.arange(len(ll))
-    ax.plot(steps, ll, color="C0", label="log-vraisemblance ℓ")
-    ax.plot(steps, elbo, color="C3", linestyle="--", label="ELBO")
-    ax.set_xlim(-0.5, 40.5)                                         # the first 40 half steps: the staircase
-    ax.set_ylim(min(ll[2], elbo[2]) - 5, ll[-1] + 5)
+    ax.plot(steps, ll, color="C0", marker=".", label="log-vraisemblance ℓ")
+    ax.plot(steps, elbo, color="C3", linestyle="--", marker=".", label="ELBO")
     ax.set_xlabel("demi-pas (pairs : après un pas E ; impairs : après un pas M)")
     ax.set_ylabel("nats")
-    ax.set_title(title + " : les 40 premiers demi-pas", fontsize=10)
+    ax.set_title(title, fontsize=10)
     ax.legend(fontsize=8)
 
 
@@ -1592,9 +1645,14 @@ def look_27(ax_density, ax_kl, weights, means, variances):
     if ax_density.get_legend() is None:
         missing.append("il manque la légende du panneau des densités")
     reverse, forward = curves_c27(weights, means, variances)
+    lost = any(line_points(line)[0].shape == MS_27.shape and not np.all(np.isfinite(line_points(line)[1]))
+               for line in ax_kl.lines)
+    if lost:
+        missing.append("une courbe de KL contient des nan ou des inf : loin des bosses, p sort des flottants (p = 0, "
+                       "ln p = −inf, puis 0 × inf) ; calcule ln p directement par un log-sum-exp, sans passer par p")
     for name, curve in (("la KL inverse m ↦ KL(N(m, variances[0]) ‖ p)", reverse),
                         ("la KL directe m ↦ KL(p ‖ N(m, V_p))", forward)):
-        if not through(ax_kl, MS_27, curve, rtol=1e-6, atol=1e-7):
+        if not lost and not through(ax_kl, MS_27, curve, rtol=1e-6, atol=1e-7):
             missing.append(f"il manque {name} contre MS_27 (np.trapezoid sur XS_KL_27, ln p par un log-sum-exp)")
     return missing
 
@@ -1609,15 +1667,17 @@ with checked("M25b.27"):
                   "draw_kl_fits_27 doit dessiner dans les deux axes reçus, sans ouvrir de figure")
         missing_27 = look_27(density_27, kl_27, WEIGHTS_27, MEANS_27, VARIANCES_27)
         report_27(not missing_27, "les quatre densités et les deux courbes de KL sont là", " ; ".join(missing_27))
-        hidden_27 = (np.array([0.6, 0.4]), np.array([18.0, 37.0]), np.array([4.0, 6.25]))   # a mixture you do not see
+        hidden_27 = (np.array([0.6, 0.4]), np.array([18.0, 37.0]), np.array([0.25, 0.36]))  # narrow bumps you do not see
         fig_c27, (density_c27, kl_c27) = plt.subplots(1, 2)
         try:
-            opened_c27 = drawn(draw_kl_fits_27, density_c27, kl_c27, *(v.copy() for v in hidden_27))
+            with np.errstate(divide="ignore", invalid="ignore", under="ignore"):    # ln 0 is reported below, once
+                opened_c27 = drawn(draw_kl_fits_27, density_c27, kl_c27, *(v.copy() for v in hidden_27))
             missing_c27 = look_27(density_c27, kl_c27, *hidden_27)
         finally:
             plt.close(fig_c27)
-        report_27(not opened_c27 and not missing_c27, "un mélange que tu ne vois pas (d'autres poids, d'autres moyennes) "
-                  "est dessiné juste aussi", "un mélange que tu ne vois pas (d'autres poids, d'autres moyennes) : "
+        report_27(not opened_c27 and not missing_c27, "un mélange que tu ne vois pas (d'autres poids, d'autres moyennes, "
+                  "des bosses étroites) est dessiné juste aussi", "un mélange que tu ne vois pas (d'autres poids, d'autres "
+                  "moyennes, des bosses étroites) : "
                   + " ; ".join(missing_c27 or ["draw_kl_fits_27 doit dessiner dans les axes reçus, sans ouvrir de figure"]))
     except StopCheck:
         fig_27.tight_layout()
@@ -1631,27 +1691,28 @@ with checked("M25b.27"):
     verdict("M25b.27", all(results_27), "les densités et les deux sens de la KL sont dessinés.", "")'''
 
 NOTE_27 = (r"a) 22,0 et 40,0. b) 0,357 et 1,247 (avec la variance 4, la gaussienne posée sur le centre-ville est trop "
-           r"étroite pour sa bosse). c) $0{,}7724$. d) $2{,}41$. e) Vrai. Les minima en $(m, s^2)$ : "
-           r"$(22{,}00 ;\ 4{,}00)$, de valeur $0{,}3566$, et $(40{,}00 ;\ 6{,}27)$, de valeur $1{,}2038$, à moins de "
-           r"$10^{-4}$ de $\ln\frac{10}{7}$ et à $2 \times 10^{-4}$ de $\ln\frac{10}{3}$ (M25b.13 c) et d)).")
+           r"étroite pour sa bosse). c) $0{,}7724$. d) $2{,}41$. e) Vrai. Les minima en $(m, s)$ par L-BFGS-B : "
+           r"$(22{,}00 ;\ 2{,}00)$, de valeur $0{,}3566$, et $(40{,}00 ;\ 2{,}50)$ ($s^2 \approx 6{,}27$), de valeur "
+           r"$1{,}2038$, à moins de $10^{-4}$ de $\ln\frac{10}{7}$ et à $2 \times 10^{-4}$ de $\ln\frac{10}{3}$ "
+           r"(M25b.13 c) et d)).")
 
 M25B_27 = Ex(
-    "M25b.27", "🎨", 1, 20, "Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p) : les deux "
+    "M25b.27", "🎨", 1, 30, "Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p) : les deux "
     "courbes, et les deux minima de la KL inverse",
     "voir, sur un mélange bimodal, que la KL directe apparie les moments et que la KL inverse se pose sur une bosse.",
     "fiche §7 ; M25a ; Ex M25b.13", tracks="C", given=GIVEN_27, note=NOTE_27,
     body=r"""Écris `draw_kl_fits_27(ax_density, ax_kl, weights, means, variances)`, qui dessine sur les **axes reçus** (sans ouvrir de figure) :
 - dans `ax_density`, sur $[0, 60]$ min (au moins 50 points), la densité $p$ du mélange (les temps de trajet de M25b.13 : `WEIGHTS_27`, `MEANS_27`, `VARIANCES_27`), la gaussienne $q_\star$ des moments, et les gaussiennes $q_1$ et $q_2$ des deux composantes, avec une légende ;
-- dans `ax_kl`, pour $m$ de 10 à 55 par pas de 0,25 (`MS_27`), la KL inverse $m \mapsto \mathrm{KL}(\mathcal{N}(m, 4) \,\|\, p)$ (4 est la variance `variances[0]` de $q_1$) et la KL directe $m \mapsto \mathrm{KL}(p \,\|\, \mathcal{N}(m, \mathbb{V}_p(X)))$, calculées sur la grille de $x$ de $-30$ à 100 (260 001 points, `XS_KL_27`) par `np.trapezoid`, avec $\ln p$ par un log-sum-exp (les densités elles-mêmes sortiraient des flottants loin des bosses).
+- dans `ax_kl`, pour $m$ de 10 à 55 par pas de 0,25 (`MS_27`), la KL inverse $m \mapsto \mathrm{KL}(\mathcal{N}(m, 4) \,\|\, p)$ (4 est la variance `variances[0]` de $q_1$) et la KL directe $m \mapsto \mathrm{KL}(p \,\|\, \mathcal{N}(m, \mathbb{V}_p(X)))$, calculées sur la grille de $x$ de $-30$ à 100 (260 001 points, `XS_KL_27`) par `np.trapezoid`, avec $\ln p$ par un log-sum-exp (sur cette grille, $p$ reste représentable, mais une bosse plus étroite ou une grille plus large la feraient sortir des flottants).
 
-Appelle-la sur une figure de deux panneaux. Relève :
+La vérification l'appelle sur une figure de deux panneaux et l'affiche ; tes propres calculs (les mêmes fonctions, appelées dans la cellule de réponses) servent à relever a) à e). Relève :
 - a) les abscisses des minima locaux de la KL inverse sur la grille `MS_27` (une liste de 2 nombres ; 1 décimale dans ta copie) ;
 - b) leurs valeurs (une liste de 2 nombres ; 3 décimales dans ta copie) ;
 - c) $\mathrm{KL}(p \,\|\, q_\star)$ (4 décimales dans ta copie) ;
 - d) $\mathrm{KL}(q_\star \,\|\, p)$ (2 décimales dans ta copie) ;
 - e) vrai ou faux : $\mathrm{KL}(q_\star \,\|\, p)$ dépasse les deux minima de a).
 
-Puis minimise $\mathrm{KL}(\mathcal{N}(m, s^2) \,\|\, p)$ en $(m, \ln s^2)$ par `scipy.optimize.minimize`, depuis $(22, \ln 4)$ et depuis $(40, \ln 6{,}25)$, et compare les deux minima à tes réponses c) et d) de M25b.13 (dans ta copie). La vérification appelle ta fonction pour les temps de trajet, puis pour un mélange que tu ne vois pas, et regarde chaque dessin. Ce qu'il faut observer : la KL inverse a un minimum par itinéraire, le plus bas sur la bosse la plus lourde ; la KL directe n'en a qu'un, entre les bosses, là où $p$ est presque nulle.""",
+Puis minimise $\mathrm{KL}(\mathcal{N}(m, s^2) \,\|\, p)$ en $(m, s)$ par `scipy.optimize.minimize` avec la borne $s \ge 0{,}1$ (`method="L-BFGS-B"`, `bounds=[(None, None), (0.1, None)]`), depuis $(22, 2)$ et depuis $(40 ;\ 2{,}5)$, et compare les deux minima à tes réponses c) et d) de M25b.13 (dans ta copie). La vérification appelle ta fonction pour les temps de trajet, puis pour un mélange que tu ne vois pas, aux bosses étroites (là, sans log-sum-exp, $p$ vaut 0 loin des bosses et $\ln p = -\infty$), et regarde chaque dessin. Ce qu'il faut observer : la KL inverse a un minimum par itinéraire, le plus bas sur la bosse la plus lourde ; la KL directe n'en a qu'un, entre les bosses, là où $p$ est presque nulle.""",
     todo='''def draw_kl_fits_27(ax_density, ax_kl, weights, means, variances):
     """In ax_density, on [0, 60] (at least 50 points): the density p of the mixture, the Gaussian q* of its moments, and
     the Gaussians q1 and q2 of its components, with a legend; in ax_kl, against MS_27: the reverse KL
@@ -1728,11 +1789,7 @@ def draw_kl_fits_27(ax_density, ax_kl, weights, means, variances):
     ax_kl.legend(fontsize=8)
 
 
-fig_27s, axes_27s = plt.subplots(1, 2, figsize=(13, 4.5))
-draw_kl_fits_27(axes_27s[0], axes_27s[1], WEIGHTS_27, MEANS_27, VARIANCES_27)
-fig_27s.tight_layout()
-plt.show()
-reverse_27, forward_27 = kl_curves_27(WEIGHTS_27, MEANS_27, VARIANCES_27)
+reverse_27, forward_27 = kl_curves_27(WEIGHTS_27, MEANS_27, VARIANCES_27)     # the figure: drawn by the check below
 minima_27 = [i for i in range(1, len(MS_27) - 1) if reverse_27[i] < reverse_27[i - 1] and reverse_27[i] < reverse_27[i + 1]]
 answer_M25b_27a = [float(MS_27[i]) for i in minima_27]
 answer_M25b_27b = [float(reverse_27[i]) for i in minima_27]
@@ -1743,10 +1800,11 @@ answer_M25b_27d = kl_q_p_27(mean_star_27, var_star_27, log_p_27)
 answer_M25b_27e = bool(answer_M25b_27d > max(answer_M25b_27b))
 print("a)", answer_M25b_27a, " b)", np.round(answer_M25b_27b, 5).tolist(), " c)", round(answer_M25b_27c, 6),
       " d)", round(answer_M25b_27d, 5), " e)", answer_M25b_27e)
-for start_27 in ((22.0, math.log(4.0)), (40.0, math.log(6.25))):
-    fit_27 = optimize.minimize(lambda t: kl_q_p_27(t[0], math.exp(t[1]), log_p_27), start_27, method="Nelder-Mead",
-                               options={"xatol": 1e-8, "fatol": 1e-11})
-    print(f"depuis {start_27[0]:g} : m = {fit_27.x[0]:.4f}, s² = {math.exp(fit_27.x[1]):.4f}, KL = {fit_27.fun:.5f}".replace(".", ","))
+for start_27 in ((22.0, 2.0), (40.0, 2.5)):                       # (m, s), with s ≥ 0.1
+    fit_27 = optimize.minimize(lambda t: kl_q_p_27(t[0], t[1] ** 2, log_p_27), start_27, method="L-BFGS-B",
+                               bounds=[(None, None), (0.1, None)])
+    print(f"depuis ({start_27[0]:g} ; {start_27[1]:g}) : m = {fit_27.x[0]:.4f}, s = {fit_27.x[1]:.4f} "
+          f"(s² = {fit_27.x[1] ** 2:.4f}), KL = {fit_27.fun:.5f}".replace(".", ","))
 print("ln(10/7) ≈", round(math.log(10 / 7), 5), "; ln(10/3) ≈", round(math.log(10 / 3), 5))
 
 ''' + CHECK_27,
@@ -1860,7 +1918,10 @@ def call_28(part, name, function, *args):
     except (NotImplementedError, MymathMissingError):
         raise
     except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
-        hint = " (un 0/0 ou un ln 0 : calcule en log, et compte 0 ln 0 pour 0)" if isinstance(exc, RuntimeWarning) else ""
+        hints = {1: " (un 0/0 ou un ln 0 : calcule en log, et retire le maximum de chaque ligne avant np.exp)",
+                 2: " (une division par zéro ?)",
+                 3: " (un ln 0 : compte 0 ln 0 pour 0, sans jamais calculer ln 0)"}
+        hint = hints[part] if isinstance(exc, RuntimeWarning) else ""
         report_28(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:200]}{hint}")
         parts_28.append(part)
         raise StopCheck from None
@@ -1958,7 +2019,7 @@ NOTE_28 = (r"(1) Les densités sortent des flottants pour 120 Ω ($e^{-2664}$ et
            r"$\approx -0{,}8538$, l'opposé de la somme des entropies des quatre lignes du posterior.")
 
 M25B_28 = Ex(
-    "M25b.28", "🐛", 1, 20, "Chasse à l'erreur : des responsabilités sans log qui donnent 0/0, un pas M qui divise par n "
+    "M25b.28", "🐛", 1, 25, "Chasse à l'erreur : des responsabilités sans log qui donnent 0/0, un pas M qui divise par n "
     "au lieu de N_k, et une ELBO sans l'entropie de q",
     "reconnaître trois erreurs classiques des mélanges qui passent une vérification mal choisie, puis les corriger.",
     "fiche §3, §4 et §5 ; Ex M25b.3, M25b.20 à M25b.22", tracks="C, E", given=GIVEN_28, note=NOTE_28,
@@ -1995,7 +2056,15 @@ with wbm.attempt("M25b.28"):          # your three functions: ⏳ while they are
     answer_M25b_28b = ...  # b) a list of 2 numbers, as computed: that row by machine_shares_fixed
     answer_M25b_28c = ...  # c) a list of 2 numbers, as computed: the variances of the WRONG refit_machines for X_RES_28, with the responsibilities of machine_shares_fixed
     answer_M25b_28d = ...  # d) a number, as computed: the WRONG bound_of_evidence at the posterior minus the log-likelihood, for X_RES_28''',
-    check=answers_check("M25b.28", "abcd") + "\n\n" + CHECK_28,
+    check='''def row_hint_28(value):
+    """b): a row with inf or nan comes from a log-sum-exp computed without the maximum (ln 0 = −inf)."""
+    if np.all(np.isfinite(np.asarray(value, dtype=float))):
+        return None
+    return ("ta ligne contient inf ou nan : sans retirer le maximum de la ligne, la somme des exponentielles vaut 0 et "
+            "son ln vaut −inf ; retire le maximum de chaque ligne avant np.exp.")
+
+
+''' + answers_check("M25b.28", "abcd", hints={"b": "row_hint_28"}) + "\n\n" + CHECK_28,
     solution='''def machine_shares_fixed(x, weights, means, sds):
     """The responsibilities (n, K) of a mixture of normal laws in dimension 1 (x 1-D, sds the standard deviations)."""
     x = np.asarray(x, dtype=float)[:, None]
@@ -2114,41 +2183,97 @@ CHECK_29 = r'''with checked("M25b.29"):
                           start_at_truth=True),
                  case_c29(rng_c29, [0.55, 0.45], [[5.0, 0.5, 3.0], [1.0, 4.0, 6.0]],
                           [np.diag([0.3, 0.2, 0.25]) + 0.05, np.diag([0.2, 0.35, 0.15]) + 0.03])]
+    overlap_c29 = case_c29(rng_c29, [0.7, 0.3], [[0.0, 0.0], [1.0, 0.5]], [np.eye(2), np.eye(2)])   # two close bumps
+
+    def counts_c29(case, m_step, label):
+        """Your em_property_test_29 on one mixture (30 iterations, tol = 1e-9): its dictionary of integers."""
+        try:
+            counts = em_property_test_29(*(np.copy(v) for v in case), m_step, 30, 1e-9, np.random.default_rng(6081))
+        except (NotImplementedError, MymathMissingError):
+            raise
+        except AssertionError as exc:
+            print(f"❌ Ex M25b.29 : em_property_test_29 ({label}) lève AssertionError ({str(exc)[:120]}) : il doit "
+                  "compter les échecs et rendre le dictionnaire, sans assert.")
+            raise StopCheck from None
+        except Exception as exc:  # noqa: BLE001 - the learner's error
+            print(f"❌ Ex M25b.29 : em_property_test_29 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}")
+            raise StopCheck from None
+        if not isinstance(counts, dict) or set(counts) != {"bound", "gap", "descent"}:
+            print(f"❌ Ex M25b.29 : em_property_test_29 doit rendre un dictionnaire de clés \"bound\", \"gap\" et "
+                  f"\"descent\", reçu {shown(counts)[:120]}")
+            raise StopCheck
+        for key, value in counts.items():
+            if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)):
+                print(f"❌ Ex M25b.29 : le compteur \"{key}\" doit être un nombre entier de cas, reçu "
+                      f"{type(value).__name__} {value!r}")
+                raise StopCheck
+        return {key: int(value) for key, value in counts.items()}
 
     def totals_29(m_step, label):
-        """The counters of em_property_test_29 summed over the two hidden mixtures (30 iterations, tol = 1e-9)."""
+        """The counters of em_property_test_29 summed over the two hidden mixtures."""
         totals = {"bound": 0, "gap": 0, "descent": 0}
         for case in cases_c29:
-            try:
-                counts = em_property_test_29(*(np.copy(v) for v in case), m_step, 30, 1e-9, np.random.default_rng(6081))
-            except (NotImplementedError, MymathMissingError):
-                raise
-            except AssertionError as exc:
-                print(f"❌ Ex M25b.29 : em_property_test_29 ({label}) lève AssertionError ({str(exc)[:120]}) : il doit "
-                      "compter les échecs et rendre le dictionnaire, sans assert.")
-                raise StopCheck from None
-            except Exception as exc:  # noqa: BLE001 - the learner's error
-                print(f"❌ Ex M25b.29 : em_property_test_29 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}")
-                raise StopCheck from None
-            if not isinstance(counts, dict) or set(counts) != set(totals):
-                print(f"❌ Ex M25b.29 : em_property_test_29 doit rendre un dictionnaire de clés \"bound\", \"gap\" et "
-                      f"\"descent\", reçu {shown(counts)[:120]}")
-                raise StopCheck
-            for key, value in counts.items():
-                if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)):
-                    print(f"❌ Ex M25b.29 : le compteur \"{key}\" doit être un nombre entier de cas, reçu "
-                          f"{type(value).__name__} {value!r}")
-                    raise StopCheck
-                totals[key] += int(value)
+            for key, value in counts_c29(case, m_step, label).items():
+                totals[key] += value
         return totals
+
+    def descents_c29(X, weights, means, covs, m_step, n_iter=30, tol=1e-9):
+        """By the reference: the half steps where the ELBO goes down, and the iterations where ℓ goes down."""
+        resp = ref_latent.gmm_e_step(X, weights, means, covs)
+        ll, elbo = [ref_latent.gmm_log_likelihood(X, weights, means, covs)], [ref_latent.gmm_elbo(X, resp, weights, means, covs)]
+        for _ in range(n_iter):
+            weights, means, covs = m_step(X, resp)
+            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
+            resp = ref_latent.gmm_e_step(X, weights, means, covs)
+            ll.append(ref_latent.gmm_log_likelihood(X, weights, means, covs))
+            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
+        ll, elbo = np.array(ll), np.array(elbo)
+        return (int(np.sum(np.diff(elbo) < -tol * (1 + np.abs(elbo[:-1])))),
+                int(np.sum(np.diff(ll) < -tol * (1 + np.abs(ll[:-1])))))
+
+    def patched_c29(name, replacement, label):
+        """Your test on the third hidden mixture while your mymath.latent.<name> (and every name of the notebook bound
+        to it) is replaced by a wrong function; everything is put back afterwards. Returns the counts and the number of
+        calls to the wrong function."""
+        original = getattr(mymath.latent, name)
+        aliases = [alias for alias, value in list(globals().items()) if value is original]
+        calls = [0]
+
+        def wrong(*args, **kwargs):
+            calls[0] += 1
+            return replacement(*args, **kwargs)
+
+        setattr(mymath.latent, name, wrong)
+        for alias in aliases:
+            globals()[alias] = wrong
+        try:
+            return counts_c29(overlap_c29, ref_latent.gmm_m_step, label), calls[0]
+        finally:
+            setattr(mymath.latent, name, original)
+            for alias in aliases:
+                globals()[alias] = original
 
     totals_c29 = totals_29(ref_latent.gmm_m_step, "pas M de la référence")
     report_29(all(v == 0 for v in totals_c29.values()), "avec le pas M de la référence, sur deux mélanges que tu ne vois "
               "pas, tes trois compteurs restent nuls", f"avec le pas M de la référence, tes compteurs valent "
               f"{totals_c29} au lieu de 0 : vérifie ton test (les tolérances relatives, l'ordre des demi-pas), puis tes "
               "fonctions de M25b.20 à M25b.22 (leurs tests)")
-    wrong_c29 = (("le pas M faux de l'énoncé (m_step_means_over_n)", m_step_means_over_n),
-                 ("un pas M faux que tu ne vois pas (des covariances deux fois trop grandes)",
+    want_c29 = [descents_c29(*case, m_step_means_over_n) for case in cases_c29]
+    want_descent_c29, ll_descent_c29 = sum(w[0] for w in want_c29), sum(w[1] for w in want_c29)
+    found_c29 = totals_29(m_step_means_over_n, "m_step_means_over_n")["descent"]
+    if found_c29 == ll_descent_c29:
+        why_c29 = ("tu comptes les itérations où ℓ baisse : \"descent\" compte les demi-pas, après chaque pas M et après "
+                   "chaque pas E, où l'ELBO baisse")
+    elif found_c29 < want_descent_c29:
+        why_c29 = ("il en manque : compare l'ELBO après chaque demi-pas (après le pas M, avec les anciennes "
+                   "responsabilités ; après le pas E, avec les nouvelles) à celle du demi-pas d'avant")
+    else:
+        why_c29 = ("il y en a trop : une baisse compte si elle dépasse tol * (1 + |ELBO|), avec l'ELBO du demi-pas "
+                   "d'avant, et une seule fois par demi-pas")
+    report_29(found_c29 == want_descent_c29, f"avec m_step_means_over_n, ton test compte exactement les descentes de la "
+              f"référence ({want_descent_c29})", f"avec m_step_means_over_n, sur les deux mélanges, ton test compte "
+              f"{found_c29} descentes, la référence {want_descent_c29} : {why_c29}")
+    wrong_c29 = (("un pas M faux que tu ne vois pas (des covariances deux fois trop grandes)",
                   lambda X, r: tuple(v * f for v, f in zip(ref_latent.gmm_m_step(X, r), (1.0, 1.0, 2.0)))),
                  ("le pas M de la référence avec reg = 0.2", lambda X, r: ref_latent.gmm_m_step(X, r, reg=0.2)))
     for label_c29, step_c29 in wrong_c29:
@@ -2156,14 +2281,38 @@ CHECK_29 = r'''with checked("M25b.29"):
         report_29(found_c29["descent"] >= 1, f"ton test compte des descentes avec {label_c29} ({found_c29['descent']})",
                   f"ton test ne compte aucune descente avec {label_c29} : compare l'ELBO après chaque demi-pas à "
                   "celle d'avant")
+
+    def e_step_without_prior_c29(X, weights, means, covs):
+        """A WRONG E step: the responsibilities without ln π_k."""
+        return special.softmax(scipy_log_joint(X, weights, means, covs) - np.log(weights), axis=1)
+
+    def elbo_entropy_twice_c29(X, resp, weights, means, covs):
+        """A WRONG ELBO: the entropy of q counted twice."""
+        resp = np.asarray(resp, dtype=float)
+        return float(np.sum(resp * scipy_log_joint(X, weights, means, covs)) + 2 * np.sum(special.entr(resp)))
+
+    for name_c29, wrong_step_c29, what_c29, key_c29, how_c29 in (
+            ("gmm_e_step", e_step_without_prior_c29, "un pas E faux (sans ln π_k)", "gap",
+             "à chaque itération, compare à ℓ l'ELBO des responsabilités que rend le pas E"),
+            ("gmm_elbo", elbo_entropy_twice_c29, "une ELBO qui compte deux fois l'entropie", "bound",
+             "à chaque itération, compare à ℓ l'ELBO (par gmm_elbo) d'un tableau rng.dirichlet(np.ones(K), size=n)")):
+        counts_p29, calls_p29 = patched_c29(name_c29, wrong_step_c29, f"{what_c29} à la place de ton {name_c29}")
+        if calls_p29 == 0:
+            report_29(False, "", f"{what_c29} remplace un instant ton {name_c29}, mais ton test ne l'appelle jamais : "
+                      f"il doit appeler mymath.latent.{name_c29} à chaque appel (ou un nom court défini dans le notebook "
+                      "après le dernier rechargement de ta librairie), sans en garder une copie ni le recalculer lui-même")
+        else:
+            report_29(counts_p29[key_c29] >= 1, f"{what_c29} à la place de ton {name_c29} : ton compteur \"{key_c29}\" le "
+                      f"voit ({counts_p29[key_c29]})", f"{what_c29} à la place de ton {name_c29} : ton compteur "
+                      f"\"{key_c29}\" reste à 0 ; {how_c29}, avec la tolérance tol * (1 + |ℓ|)")
     try:
         mine_c29 = totals_29(mymath.latent.gmm_m_step, "ta librairie")
         print("✅ ta librairie (gmm_m_step) passe ton test" if all(v == 0 for v in mine_c29.values()) else
               f"❌ ta librairie : avec ton gmm_m_step, tes compteurs valent {mine_c29} (lance aussi ses tests, M25b.21)")
     except StopCheck:
         pass
-    verdict("M25b.29", all(results_29), "ton test reste muet sur la référence et attrape les pas M faux.",
-            "relis les lignes ❌ ci-dessus.")'''
+    verdict("M25b.29", all(results_29), "ton test reste muet sur la référence, compte juste les descentes, et attrape "
+            "les pas faux.", "relis les lignes ❌ ci-dessus.")'''
 
 NOTE_29 = (r"a) Une somme de quelques centaines de termes d'ordre 1 à 10 accumule des erreurs relatives de l'ordre de "
            r"$10^{-14}$ à $10^{-13}$ ; `1e-9` laisse une large marge sans masquer une vraie baisse (celles des pas faux "
@@ -2173,7 +2322,7 @@ NOTE_29 = (r"a) Une somme de quelques centaines de termes d'ordre 1 à 10 accumu
            r"détection d'un pas faux et le contraste avec la régularisation.")
 
 M25B_29 = Ex(
-    "M25b.29", "🛠️", 1, 15, "Un test de propriété : sur des mélanges tirés au hasard, ELBO ≤ log-vraisemblance, égalité "
+    "M25b.29", "🛠️", 1, 30, "Un test de propriété : sur des mélanges tirés au hasard, ELBO ≤ log-vraisemblance, égalité "
     "après le pas E, et un EM sans régularisation (reg = 0) qui ne descend jamais (à une tolérance près)",
     "écrire un test de propriété qui compte ses échecs sur beaucoup de cas tirés au hasard, avec une tolérance "
     "justifiée, et qui échoue sur un pas faux.",
@@ -2189,13 +2338,14 @@ La cellule fournie donne `random_mixture_29(rng)`, qui tire un mélange (dimensi
 - c) Vrai ou faux : sur les mêmes 40 mélanges (un nouveau `default_rng(6061)`), avec `m_step_means_over_n`, ton test compte au moins une descente.
 - d) Vrai ou faux : de même, avec `lambda X, r: gmm_m_step(X, r, reg=0.2)`, ton test compte au moins une descente.
 
-La vérification lance ton test sur deux mélanges que tu ne vois pas : avec le pas M de la référence (`ref_latent`), où ses compteurs doivent rester nuls, puis avec des pas M faux (celui de l'énoncé, un autre que tu ne vois pas, et `reg = 0.2`), où il doit compter des descentes ; un entier NumPy convient pour un compteur. Ce qu'il faut retenir : un test de propriété compte ses échecs sur beaucoup de cas tirés au hasard, avec une tolérance justifiée, et doit échouer sur un pas faux ; avec `reg > 0`, la monotonie n'est plus garantie.""",
+La vérification lance ton test sur deux mélanges que tu ne vois pas : avec le pas M de la référence (`ref_latent`), où ses compteurs doivent rester nuls ; avec `m_step_means_over_n`, où il doit compter exactement les descentes de la référence ; avec deux autres pas M faux (un que tu ne vois pas, et `reg = 0.2`), où il doit compter des descentes. Elle remplace aussi un instant ton `gmm_e_step` par un pas E faux (sans $\ln\pi_k$), puis ton `gmm_elbo` par une ELBO qui compte deux fois l'entropie, sur un troisième mélange : tes compteurs `"gap"`, puis `"bound"`, doivent alors compter. Ton test appelle donc `mymath.latent.gmm_e_step` et `mymath.latent.gmm_elbo` au moment de l'appel (ou des noms courts définis dans le notebook après le rechargement de ta librairie). Un entier NumPy convient pour un compteur. Ce qu'il faut retenir : un test de propriété compte ses échecs sur beaucoup de cas tirés au hasard, avec une tolérance justifiée, et doit échouer sur un pas faux ; avec `reg > 0`, la monotonie n'est plus garantie.""",
     todo='''def em_property_test_29(X, weights, means, covs, m_step, n_iter, tol, rng):
     """n_iter iterations of EM from the given parameters: the E step of your gmm_e_step, then the M step m_step(X, resp).
     Returns {"bound": ..., "gap": ..., "descent": ...}: the number of iterations where the ELBO of a random table
     rng.dirichlet(np.ones(K), size=n) exceeds the log-likelihood by more than tol * (1 + |ℓ|); the number of iterations
     where the ELBO at the posterior differs from the log-likelihood by more than tol * (1 + |ℓ|); the number of half steps
-    where the ELBO goes down by more than tol * (1 + |ELBO|)."""
+    where the ELBO goes down by more than tol * (1 + |ELBO|). Call mymath.latent.gmm_e_step, gmm_log_likelihood and
+    gmm_elbo inside the function (the check replaces two of them for a moment)."""
     raise NotImplementedError("em_property_test_29 n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
@@ -2205,8 +2355,7 @@ with wbm.attempt("M25b.29"):          # your test and your library: ⏳ while th
     answer_M25b_29c = ...  # c) True or False: with m_step_means_over_n, your test counts at least one descent
     answer_M25b_29d = ...  # d) True or False: with lambda X, r: gmm_m_step(X, r, reg=0.2), your test counts at least one descent''',
     check=answers_check("M25b.29", "bcd") + "\n\n" + CHECK_29,
-    solution='''gmm_e_step, gmm_m_step = mymath.latent.gmm_e_step, mymath.latent.gmm_m_step
-gmm_log_likelihood, gmm_elbo = mymath.latent.gmm_log_likelihood, mymath.latent.gmm_elbo
+    solution='''gmm_m_step = mymath.latent.gmm_m_step
 
 
 def em_property_test_29(X, weights, means, covs, m_step, n_iter, tol, rng):
@@ -2215,6 +2364,8 @@ def em_property_test_29(X, weights, means, covs, m_step, n_iter, tol, rng):
     rng.dirichlet(np.ones(K), size=n) exceeds the log-likelihood by more than tol * (1 + |ℓ|); the number of iterations
     where the ELBO at the posterior differs from the log-likelihood by more than tol * (1 + |ℓ|); the number of half steps
     where the ELBO goes down by more than tol * (1 + |ELBO|)."""
+    gmm_e_step, gmm_elbo = mymath.latent.gmm_e_step, mymath.latent.gmm_elbo   # looked up at each call: the check
+    gmm_log_likelihood = mymath.latent.gmm_log_likelihood                     # replaces them for a moment
     counts = {"bound": 0, "gap": 0, "descent": 0}
     n, K = len(X), len(weights)
     resp = gmm_e_step(X, weights, means, covs)
@@ -2393,6 +2544,8 @@ with checked("M25b.30"):
     fitted_30 = fit_c30
 
 with checked("M25b.30"):
+    if fitted_30 is None:
+        raise StopCheck                                       # the block above has already said what is missing
     hidden_c30 = (np.array([0.35, 0.4, 0.25]), np.array([[2.0, 3.0], [6.0, 7.5], [8.5, 3.5]]),
                   np.array([[[0.5, 0.2], [0.2, 0.4]], [[0.8, -0.2], [-0.2, 0.5]], [[0.6, 0.0], [0.0, 1.2]]]))
     z_c30 = np.random.default_rng(6075).choice(3, size=600, p=hidden_c30[0])
@@ -2408,6 +2561,27 @@ with checked("M25b.30"):
             "un mélange que tu ne vois pas (trois autres régimes) est retrouvé aussi.",
             f"un mélange que tu ne vois pas (trois autres régimes) n'est pas retrouvé : poids à {fr(dw_c30, 3)}, moyennes à "
             f"{fr(dm_c30, 2)}, covariances à {fr(dC_c30, 2)} (tolérances 0,05, 0,3 et 0,4).")
+    # a set where the starts diverge: four components for the three regimes, five starts drawn with the seed 6051
+    STARTS_C30 = (-3.2530486767, -3.2521749095, -3.2457625715, -3.2478923380, -3.2478923248)  # the reference, per start:
+    with own_code("M25b.30", "fit_gmm_30", REF_LATENT):                                       # mean training log-likelihood
+        diverge_c30 = valid_c30(fit_gmm_30(X_TRAIN_30.copy(), 4, n_init=5, n_iter=300, reg=1e-6, seed=6051), 4)
+    train_c30 = scipy_log_likelihood(X_TRAIN_30, *diverge_c30) / len(X_TRAIN_30)
+    best_start_c30 = max(STARTS_C30)
+    if abs(train_c30 - STARTS_C30[-1]) <= 1e-6:
+        why_c30 = "c'est celle du dernier départ : garde l'essai de meilleure log-vraisemblance d'entraînement, pas le dernier"
+    elif abs(train_c30 - STARTS_C30[0]) <= 1e-6:
+        why_c30 = ("c'est celle du premier départ (le moins bon ici) : fais les n_init départs, tirés par un seul rng, et "
+                   "garde celui de meilleure log-vraisemblance d'entraînement")
+    elif any(abs(train_c30 - start) <= 1e-6 for start in STARTS_C30):
+        why_c30 = "c'est celle d'un autre départ que le meilleur : compare les log-vraisemblances d'entraînement finales"
+    else:
+        why_c30 = ("aucun départ de la référence ne finit là : relis le tirage des départs (rng = np.random.default_rng(seed), "
+                   "puis X[rng.choice(n, K, replace=False)] pour chacun), la covariance de départ, reg et l'arrêt")
+    verdict("M25b.30", abs(train_c30 - best_start_c30) <= 1e-6,
+            "sur un jeu où les départs divergent (K = 4, seed = 6051), tu gardes le meilleur des cinq essais.",
+            f"sur un jeu où les départs divergent, fit_gmm_30(X_TRAIN_30, 4, n_init=5, n_iter=300, reg=1e-6, seed=6051) "
+            f"finit à une log-vraisemblance moyenne d'entraînement de {fr(train_c30, 6)}, et le meilleur des cinq essais de "
+            f"la référence à {fr(best_start_c30, 6)} (à 1e-6 près) : {why_c30}.")
 
 with checked("M25b.30"):
     if fitted_30 is None:
@@ -2431,10 +2605,12 @@ NOTE_30 = (r"Avec `n_init=5`, `n_iter=300`, `reg=1e-6`, `seed=6080` : a) $\appro
            r"$\approx -3{,}4741$ à $K = 2$ (sous le seuil : deux régimes fusionnés) et $\approx -3{,}3977$ à $K = 6$ (des "
            r"composantes qui se spécialisent sur des points d'entraînement). L'ajustement à $K = 3$ a des poids à "
            r"0,024 près, des moyennes à 0,14 près et des covariances à 0,15 près du modèle exact. Avec `reg=0.05`, la "
-           r"log-vraisemblance de test vaut $\approx -3{,}3632$ et passe aussi le critère.")
+           r"log-vraisemblance de test vaut $\approx -3{,}3632$ et passe aussi le critère. Sur le jeu où les départs divergent "
+           r"($K = 4$, `seed=6051`), les cinq essais finissent à $-3{,}2530$, $-3{,}2522$, $-3{,}2458$, $-3{,}2479$ et "
+           r"$-3{,}2479$ par mesure : garder le dernier, ou un seul départ, ne donne pas le meilleur.")
 
 M25B_30 = Ex(
-    "M25b.30", "🏆", 3, 25, "Défi : retrouver trois populations de mesures en dimension 2 par l'EM, sous un seuil de "
+    "M25b.30", "🏆", 3, 35, "Défi : retrouver trois populations de mesures en dimension 2 par l'EM, sous un seuil de "
     "log-vraisemblance moyenne sur des mesures de test",
     "écrire un EM complet (initialisations, régularisation, arrêt, meilleur essai) avec ta librairie, et le juger sur "
     "des données de test.", "fiche §3, §4 et §5 ; M25a §3 ; Ex M25b.20 à M25b.22 et M25b.26", tracks="C",
@@ -2443,7 +2619,7 @@ M25B_30 = Ex(
 
 Écris `fit_gmm_30(X, K, n_init, n_iter, reg, seed)`, qui rend `(weights, means, covs)` à partir de tes fonctions `mymath.latent` : `n_init` initialisations (`rng = np.random.default_rng(seed)`, puis, pour chacune, les moyennes sur $K$ mesures distinctes `X[rng.choice(n, K, replace=False)]`, chaque covariance égale à la covariance globale `np.cov(X, rowvar=False, bias=True)` plus `reg` fois l'identité, des poids égaux), au plus `n_iter` itérations de l'EM avec la régularisation `reg`, un arrêt quand la log-vraisemblance bouge de moins de $10^{-8}\lvert\ell\rvert$, et l'essai de meilleure log-vraisemblance d'entraînement. Écris aussi `draw_fit_30(ax, X, weights, means, covs)`, qui trace dans l'axe reçu les mesures, colorées par la composante de plus grande responsabilité, et l'ellipse à 90 % de chaque composante (l'image du cercle de rayon $c$, $c^2 = 2\ln 10$, par $\boldsymbol{\varepsilon} \mapsto \boldsymbol{\mu}_k + \mathbf{L}_k\boldsymbol{\varepsilon}$, au moins 50 points ; M25a §3).
 
-**Critère de réussite :** la vérification appelle `fit_gmm_30(X_TRAIN_30, 3, **SETTINGS_30)` (`n_init=5`, `n_iter=300`, `reg=1e-6`, `seed=6080`) et réussit si la log-vraisemblance moyenne des mesures de test, `gmm_log_likelihood(X_TEST_30, …) / 400`, est au moins $-3{,}38$ (`THRESHOLD_30`). Elle compare ensuite ton ajustement au modèle exact : après la meilleure renumérotation des composantes, des poids à 0,05 près, des moyennes à 0,3 près et des covariances à 0,4 près, coordonnée par coordonnée, et une log-vraisemblance de test à 0,02 près de celle du modèle exact ; puis elle ajuste un mélange que tu ne vois pas, et regarde ta figure. Relève, dans ta copie : a) ta log-vraisemblance moyenne de test (affichée par la vérification) ; b) celle du modèle exact (affichée aussi) ; c) celles de tes ajustements à $K = 2$ et $K = 6$ (affichées aussi).
+**Critère de réussite :** la vérification appelle `fit_gmm_30(X_TRAIN_30, 3, **SETTINGS_30)` (`n_init=5`, `n_iter=300`, `reg=1e-6`, `seed=6080`) et réussit si la log-vraisemblance moyenne des mesures de test, `gmm_log_likelihood(X_TEST_30, …) / 400`, est au moins $-3{,}38$ (`THRESHOLD_30`). Elle compare ensuite ton ajustement au modèle exact : après la meilleure renumérotation des composantes, des poids à 0,05 près, des moyennes à 0,3 près et des covariances à 0,4 près, coordonnée par coordonnée, et une log-vraisemblance de test à 0,02 près de celle du modèle exact ; puis elle ajuste un mélange que tu ne vois pas ; enfin, sur un jeu où les départs divergent (`fit_gmm_30(X_TRAIN_30, 4, n_init=5, n_iter=300, reg=1e-6, seed=6051)` : quatre composantes pour trois régimes), la log-vraisemblance moyenne d'entraînement de ton ajustement doit égaler, à $10^{-6}$ près, celle du meilleur des cinq essais de la référence (le premier et le dernier départ n'y sont pas les meilleurs) ; et elle regarde ta figure. Relève, dans ta copie : a) ta log-vraisemblance moyenne de test (affichée par la vérification) ; b) celle du modèle exact (affichée aussi) ; c) celles de tes ajustements à $K = 2$ et $K = 6$ (affichées aussi).
 
 Pour aller plus loin : trace la log-vraisemblance moyenne d'entraînement et de test en fonction de $K$, de 1 à 6 ; où l'écart entre les deux grandit-il ?""",
     todo='''def fit_gmm_30(X, K, n_init, n_iter, reg, seed):
