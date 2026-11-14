@@ -1553,7 +1553,7 @@ with checked("M27.25"):
                         "L Lᵀ = Σ"),
         ("norm", "la moyenne porte sur ‖x̄₁ − x̄₂‖², le carré de la norme")) if math.isclose(value_c25, h_c25[key],
                                                                                           rel_tol=1e-9)),
-                   f"attendu {h_c25['want']:.6g}, reçu {shown(got_c25)}")
+                   f"attendu {h_c25['want']:.6g}, reçu {shown(got_c25, 6)}")
     report_25(math.isclose(value_c25, h_c25["want"], rel_tol=1e-9),
               "distance_bias_25 : un cas caché de ta fonction (deux moyennes différentes, n1 = 7, n2 = 3), comme attendu",
               f"distance_bias_25, un cas caché de ta fonction (n1 = 7, n2 = 3, default_rng({h_c25['seed']})) : {why_c25}")
@@ -2137,7 +2137,9 @@ wbm.record("M27.27a", [float(p_27r), float(q_27r)], decimals=6,
            mistakes={"penalty_kick_mix_fixed rend encore la probabilité qui rend le joueur des lignes indifférent":
                          [float(q_27r), float(q_27r)],
                      "la seconde valeur est ce que rend la version FAUSSE, penalty_kick_mix": [float(p_27r), float(p_27r)],
-                     "p* est la probabilité de la première ligne": [float(1 - p_27r), float(q_27r)]})
+                     "p* est la probabilité de la première ligne": [float(1 - p_27r), float(q_27r)],
+                     "tu rends 1 − q* : p* est la probabilité de la première ligne, qui rend le joueur des colonnes "
+                     "indifférent": [float(1 - q_27r), float(q_27r)]})
 right_27r = lambda m1, s1, m2, s2: math.hypot(m1 - m2, s1 - s2)           # noqa: E731
 squares_27r = lambda m1, s1, m2, s2: math.hypot(m1 - m2, s1 ** 2 - s2 ** 2)   # noqa: E731
 settings_27r = [(50.30, 0.12, 50.02, 0.05), (100, 5, 100, 2)]
@@ -2350,7 +2352,8 @@ with checked("M27.28"):
                        f"({PROPERTIES_C28[k]}), ou il ne tire pas G, puis c, puis k")
             else:
                 why = ("un essai compte une fois s'il échoue ; les deux dernières propriétés ne portent que sur les jeux "
-                       "sans point selle ; vérifie aussi l'ordre des tirages (G, puis c, puis k)")
+                       "sans point selle ; vérifie aussi l'ordre des tirages (G, puis c, puis k) et que ton test se sert "
+                       "de tol")
             report_28(False, "", f"{label} : \"{k}\" = {got[k]}, la référence {want[k]} : {why}")
 
     for seed_c28 in ''' + repr(HIDDEN_STARTS_28) + r''':
@@ -2676,18 +2679,31 @@ print("   σ sur 1 000 points milieux de u : la moyenne de F⁻¹Φ⁻¹", round
 
 mu_29r, sigma_29r, w2_29r = projection_29r(lambda u: -2.0 * math.log1p(-u))
 moment_29r = math.sqrt(4 + 4 - 2 * 2 * sigma_29r)                    # W₂ with σ = the standard deviation of the law
+grid_sigma_29r = round(sigma_29r, 2)                                 # σ searched on a grid of step 0.01
+u_29r = (np.arange(1000) + 0.5) / 1000                               # a sum on 1 000 midpoints of u
+x_29r, z_29r = -2.0 * np.log1p(-u_29r), stats.norm.ppf(u_29r)
+coarse_29r = [float(np.mean(x_29r)), float(np.mean(x_29r * z_29r))]
+coarse_29r.append(math.sqrt(float(np.mean((x_29r - coarse_29r[0] - coarse_29r[1] * z_29r) ** 2))))
 wbm.record("M27.29a", [mu_29r, sigma_29r, w2_29r], decimals=3,
            mistakes={"sigma est un écart-type, pas une variance": [mu_29r, sigma_29r ** 2, w2_29r],
                      "w2 est la distance W₂, pas son carré": [mu_29r, sigma_29r, w2_29r ** 2],
                      "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ":
-                         [mu_29r, 2.0, moment_29r]})
+                         [mu_29r, 2.0, moment_29r],
+                     "σ cherché sur une grille de pas 0,01 : trop lâche pour 10⁻³ (resserre la recherche, ou trouve le σ "
+                     "qui annule la dérivée de W₂²(μ, σ))":
+                         [mu_29r, grid_sigma_29r, math.sqrt(w2_29r ** 2 + (grid_sigma_29r - sigma_29r) ** 2)],
+                     "une somme sur 1 000 points milieux de u converge trop lentement à cause des queues "
+                     "(scipy.integrate.quad, ou une grille resserrée vers 0 et 1)": coarse_29r})
 wbm.record("M27.29b", bool(abs(mu_29r - 2.0) < 1e-9),
            mistakes={"la dérivée de W₂²(μ, σ) en μ s'annule quand ∫₀¹ (F⁻¹(u) − μ − σΦ⁻¹(u)) du = 0, et ∫₀¹ Φ⁻¹ = 0": False})
 wbm.record("M27.29c", 100 * w2_29r ** 2 / 4, decimals=1,
            mistakes={"la part se lit sur W₂², une variance, pas sur W₂": 100 * w2_29r / 4,
                      "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type": 100 * w2_29r ** 2 / 2,
                      "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)":
-                         100 * (1 - w2_29r ** 2 / 4)})''',
+                         100 * (1 - w2_29r ** 2 / 4),
+                     "le meilleur σ n'est pas l'écart-type de la loi : ton W₂ de a) est trop grand": 100 * moment_29r ** 2 / 4,
+                     "une somme sur 1 000 points milieux de u converge trop lentement à cause des queues : reprends a)":
+                         100 * coarse_29r[2] ** 2 / 4})''',
     after=[
         ("todo_md", "**Dans ta copie** : a) avec 3 décimales, et ta méthode ; pourquoi la meilleure gaussienne ne peut-elle "
                     "pas rendre toute la variance de la loi exponentielle ?"),

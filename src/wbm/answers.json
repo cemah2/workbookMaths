@@ -90625,6 +90625,7 @@
       "kind": "array",
       "mistakes": {
         "40adc789fa076f10b4c2e7abff765b25540654a0e34abc2ab72615e47449849c": "penalty_kick_mix_fixed rend encore la probabilité qui rend le joueur des lignes indifférent",
+        "41a9a3c76b528eb9b8b8ea424d872e5def8f2ecc3c75c1e0058c738bd7100fdd": "tu rends 1 − q* : p* est la probabilité de la première ligne, qui rend le joueur des colonnes indifférent",
         "e4f6efef3239943813abfce4f49d729be1be5913a705cf2ad63148c71b738447": "p* est la probabilité de la première ligne",
         "e57aaf146e8a8e51365530904e565922d65c2c0e9340f6c02f3b5394f854cc3c": "la seconde valeur est ce que rend la version FAUSSE, penalty_kick_mix"
       },
@@ -90886,6 +90887,8 @@
       "hash": "91f00f55496faf19efbb38e36a9bd4bc025642c51572dc946893678434d57139",
       "kind": "array",
       "mistakes": {
+        "263f8c88c7b36c92cd6a830e7b0653ec239c17cc36b09bc5649b73c414ce0987": "σ cherché sur une grille de pas 0,01 : trop lâche pour 10⁻³ (resserre la recherche, ou trouve le σ qui annule la dérivée de W₂²(μ, σ))",
+        "83c80d27d39133fdbec2a5c1f1cf7484189fdabdc03b7808a69c07c4057ec20e": "une somme sur 1 000 points milieux de u converge trop lentement à cause des queues (scipy.integrate.quad, ou une grille resserrée vers 0 et 1)",
         "c2572221ac99fc0ccba7cd11af32002e56d6483ffaaee1a88b14f6d7649c86d0": "sigma est un écart-type, pas une variance",
         "da5e8c6e2d239eb058c40c860ccdfd77bd3ad9d9dcf22cf99350e1537f60b83f": "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ",
         "e6eefbbb8e90656d1b18c4b2c90938b8a4d80f3d0f5bdd691fb5ac2ba848abba": "w2 est la distance W₂, pas son carré"
@@ -90912,7 +90915,9 @@
       "mistakes": {
         "172c7cd2531c20c98dc61f540bfda5b7ad2bb06449ebc48bddc519e9abc92b06": "la part se lit sur W₂², une variance, pas sur W₂",
         "29805a32091f5be2e91287ceb70b54943c3727a8d16f6a9ef5f216ff5b7fa775": "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)",
-        "e8e8b7aaeb8ca0bcc46ff9a6701581bbaaea57ed8254ad32ad807ddb7dd87066": "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type"
+        "9ef650d745a4792ab407f6aae4ec60d8dddd60c98451cefd9d12ee86f572d5b7": "le meilleur σ n'est pas l'écart-type de la loi : ton W₂ de a) est trop grand",
+        "e8e8b7aaeb8ca0bcc46ff9a6701581bbaaea57ed8254ad32ad807ddb7dd87066": "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type",
+        "f408d031c039b43eef21d44019f5ed85cb27f5e5238ec6554c55a959f42656aa": "une somme sur 1 000 points milieux de u converge trop lentement à cause des queues : reprends a)"
       },
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
