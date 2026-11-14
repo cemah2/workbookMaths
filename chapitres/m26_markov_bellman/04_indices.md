@@ -586,7 +586,7 @@ La docstring et le TODO de `bellman_fixed_point_iterates` ; la fiche §6.
 </details>
 <details><summary>Indice 3</summary>
 
-`for k in range(1, n_steps + 1): V = r + gamma * (P @ V); out[k] = V`. b) `err = np.abs(its - V_exact).max(axis=1)` puis `np.argmax(err <= 1e-3)`. c) Dans `in_place_sweeps_19`, une boucle sur les états à l'intérieur de la boucle des balayages : `W[i] = r[i] + gamma * P[i] @ W`, puis une copie de `W` par ligne.
+`for k in range(1, n_steps + 1): V = r + gamma * (P @ V); out[k] = V`. b) `err = np.abs(its - V_exact).max(axis=1)` puis `np.argmax(err <= 1e-3)`. Pour le critère a posteriori : `d = np.abs(np.diff(its, axis=0)).max(axis=1)` (l'élément `j` est ‖V_{j+1} − V_j‖∞), puis `k = np.argmax(d <= s) + 1`, avec le seuil `s` de M26.7 f). c) Dans `in_place_sweeps_19`, une boucle sur les états à l'intérieur de la boucle des balayages : `W[i] = r[i] + gamma * P[i] @ W`, puis une copie de `W` par ligne.
 
 </details>
 

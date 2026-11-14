@@ -933,19 +933,19 @@ CHAPTERS = [
              "après deux et trois jours, et coût moyen du lendemain (Pf)", "§1 §3", "E"),
             ("M26.2", "✏️", 2, 30, "Trois opérateurs et leurs parts de marché : la loi stationnaire par un système "
              "linéaire, puis vérifier πP = π", "§2", "E"),
-            ("M26.3", "✏️", 2, 35, "Trois chaînes qui posent problème, périodique, à deux classes et avec un état "
+            ("M26.3", "✏️", 2, 40, "Trois chaînes qui posent problème, périodique, à deux classes et avec un état "
              "transitoire : lois stationnaires et comportement de Pⁿ", "§2", ""),
-            ("M26.4", "✏️", 2, 40, "Un cursus en trois années, avec redoublement et abandon : la probabilité d'être "
+            ("M26.4", "✏️", 2, 45, "Un cursus en trois années, avec redoublement et abandon : la probabilité d'être "
              "diplômé et la durée moyenne des études, par l'analyse au premier pas", "§3", "E"),
             ("M26.5", "✏️", 1, 20, "Un abonné qui peut résilier chaque mois : durée géométrique, revenu total moyen, et "
              "le même nombre comme revenu actualisé", "§4", "E"),
-            ("M26.6", "✏️", 2, 45, "Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de "
+            ("M26.6", "✏️", 2, 50, "Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de "
              "Bellman 3 × 3, et la valeur d'une action", "§4 §5", "E"),
-            ("M26.7", "✏️", 2, 35, "Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, "
+            ("M26.7", "✏️", 2, 40, "Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, "
              "comparés à la solution, et le nombre d'itérations qui garantit 10⁻³", "§6", "E p:M26.6"),
             ("M26.8", "✏️", 2, 30, "Vendre une voiture d'occasion : offres au hasard, coût d'attente, valeur de "
              "continuation et règle à seuil", "§7", "E"),
-            ("M26.9", "✏️", 2, 30, "Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, "
+            ("M26.9", "✏️", 2, 35, "Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, "
              "l'estimateur double non", "§8", ""),
             ("M26.10", "∂", 2, 35, "L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible "
              "dès que la fin est possible depuis chaque état", "§3", ""),
@@ -962,29 +962,29 @@ CHAPTERS = [
              "son état de départ", "§2", "E"),
             ("M26.E1", "💼", 1, 10, "« Pourquoi I − γP est-elle inversible quand P est stochastique et γ < 1, et que "
              "se passe-t-il pour γ = 1 ? »", "§5", ""),
-            ("M26.16", "🔨", 1, 20, "La loi d'une chaîne après n pas, en convention ligne", "§1",
+            ("M26.16", "🔨", 1, 25, "La loi d'une chaîne après n pas, en convention ligne", "§1",
              "E m:n_step_distribution"),
             ("M26.17", "🔨", 2, 25, "La loi stationnaire par un système linéaire, et le refus d'une chaîne qui en a "
              "plusieurs", "§2", "E m:stationary_distribution"),
-            ("M26.18", "🔨", 2, 25, "Le système de Bellman d'une politique fixée, avec une fin possible (matrice "
+            ("M26.18", "🔨", 2, 30, "Le système de Bellman d'une politique fixée, avec une fin possible (matrice "
              "sous-stochastique) et γ = 1 quand la fin est sûre", "§5", "E m:bellman_linear_solve"),
-            ("M26.19", "🔨", 1, 20, "Les itérés de l'opérateur de Bellman d'une politique fixée (Richardson de pas 1)",
+            ("M26.19", "🔨", 1, 25, "Les itérés de l'opérateur de Bellman d'une politique fixée (Richardson de pas 1)",
              "§6", "E m:bellman_fixed_point_iterates"),
-            ("M26.20", "📦", 1, 20, "La loi stationnaire de trois façons, `np.linalg.eig` sur Pᵀ, "
+            ("M26.20", "📦", 1, 30, "La loi stationnaire de trois façons, `np.linalg.eig` sur Pᵀ, "
              "`scipy.linalg.null_space` et la méthode de la puissance, sur le surfeur aléatoire d'un web de six pages",
              "§2", ""),
-            ("M26.21", "🔮", 1, 15, "Prédire la somme des lignes de (1 − γ)(I − γP)⁻¹, puis leur limite quand γ tend "
+            ("M26.21", "🔮", 1, 20, "Prédire la somme des lignes de (1 − γ)(I − γP)⁻¹, puis leur limite quand γ tend "
              "vers 1, et vérifier", "§2 §5", "E p:M26.17,M26.18"),
-            ("M26.22", "🔬", 2, 20, "Le biais du maximum par simulation : k fournisseurs de même qualité, n mesures "
+            ("M26.22", "🔬", 2, 30, "Le biais du maximum par simulation : k fournisseurs de même qualité, n mesures "
              "chacun, le meilleur mesuré contre l'estimateur double", "§8", ""),
-            ("M26.23", "🎨", 1, 15, "La loi d'une chaîne au fil des pas depuis trois départs, et ‖μ_n − π‖₁ en échelle "
+            ("M26.23", "🎨", 1, 20, "La loi d'une chaîne au fil des pas depuis trois départs, et ‖μ_n − π‖₁ en échelle "
              "logarithmique contre |λ₂|ⁿ", "§1 §2", "p:M26.16,M26.17"),
-            ("M26.24", "🐛", 1, 25, "Chasse à l'erreur : une matrice lue dans la mauvaise convention, une loi "
+            ("M26.24", "🐛", 1, 30, "Chasse à l'erreur : une matrice lue dans la mauvaise convention, une loi "
              "stationnaire non normalisée, un état final qui rapporte encore, γ = 1 sans fin", "§1 §2 §5", "E"),
-            ("M26.25", "🛠️", 1, 20, "Un test de propriété : πP = π, et pour `bellman_fixed_point_iterates`, V_k − V tenu "
+            ("M26.25", "🛠️", 1, 30, "Un test de propriété : πP = π, et pour `bellman_fixed_point_iterates`, V_k − V tenu "
              "par γᵏ‖V₀ − V‖∞ et V = r + γPV pour la limite, sur des chaînes tirées au hasard", "§2 §6",
              "p:M26.17,M26.18,M26.19"),
-            ("M26.26", "🏆", 3, 30, "Défi : estimer la valeur d'un état à 0,01 près en simulant l'arrêt géométrique "
+            ("M26.26", "🏆", 3, 40, "Défi : estimer la valeur d'un état à 0,01 près en simulant l'arrêt géométrique "
              "(continuer avec la probabilité γ) et en sommant les récompenses sans actualisation, sous un budget de "
              "pas simulés", "§4 §8", "p:M26.18"),
         ],
