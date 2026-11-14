@@ -22,7 +22,7 @@ Maximin : le plus grand des minimums des lignes. Minimax : le plus petit des max
 </details>
 <details><summary>Indice 3</summary>
 
-1. Minimums des lignes : 1 et 5 ; maximums des colonnes : 6, 8, 7. 4. Relie l'avantage du second à l'inégalité maximin $\le$ minimax. 5. Relis la définition d'un point selle : le plus petit de quoi, le plus grand de quoi ?
+1. Minimums des lignes : 1 et 5 ; maximums des colonnes : 6, 9, 7. 4. Relie l'avantage du second à l'inégalité maximin $\le$ minimax. 5. Relis la définition d'un point selle : le plus petit de quoi, le plus grand de quoi ?
 
 </details>
 
@@ -372,7 +372,7 @@ $\mathrm{PSI} = \sum_k(p_k - q_k)\ln\frac{p_k}{q_k}$ ; pour JS, $m = \frac{p + q
 </details>
 <details><summary>Indice 3</summary>
 
-d) Parcours les dix valeurs triées ensemble ; à chaque valeur, la fonction de répartition de son mois monte de 0,2 ; note l'écart après chaque valeur. e) La moyenne des écarts absolus entre la $k$-ième valeur de janvier et la $k$-ième de février, une fois triées. f) Que fait $C \mapsto 1{,}8\,C + 32$ à l'écart entre deux valeurs, et à leur ordre ?
+d) Parcours les dix valeurs triées ensemble ; à chaque valeur, la fonction de répartition de son mois monte de 0,2 ; note l'écart après chaque valeur. e) La moyenne des écarts absolus entre la $k$-ième valeur de janvier et la $k$-ième de février, une fois triées.
 
 </details>
 
@@ -448,7 +448,7 @@ Fiche §8 : « L'appariement trié » et son idée, l'argument d'échange.
 </details>
 <details><summary>Indice 3</summary>
 
-3. Si $\sigma$ n'est pas l'identité, il existe un $i$ avec $\sigma(i) > \sigma(i + 1)$ ; échange ces deux valeurs et applique 1 et 2 aux deux paires concernées. 4. Essaie deux $x$ tous les deux à gauche des deux $y$.
+3. Pour un croisement $(i, j)$, applique 1 et 2 aux quatre nombres $x_i < x_j$ et $y_{\sigma(j)} < y_{\sigma(i)}$. Pour compter les croisements avant et après l'échange, range les autres positions $l$ en trois groupes : avant $i$, après $j$, entre $i$ et $j$. 4. Essaie deux $x$ tous les deux à gauche des deux $y$.
 
 </details>
 
@@ -564,7 +564,7 @@ Le biais $\operatorname{tr}\boldsymbol{\Sigma}\,\big(\frac{1}{n_1} + \frac{1}{n_
 </details>
 <details><summary>Indice 3</summary>
 
-Trois remèdes : comparer à tailles égales, retirer une estimation du biais, et comparer à la distance entre deux moitiés de la référence ; un test donne une p-valeur.
+Deux remèdes : comparer à tailles égales, ou retirer une estimation du biais ; un test donne une p-valeur.
 
 </details>
 

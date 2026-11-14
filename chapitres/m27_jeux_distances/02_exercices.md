@@ -13,18 +13,18 @@ Dans tout le chapitre, comme dans la fiche : $\mathbf{G} = (g_{ij})$ est la matr
 
 ## 🧠 Quiz
 
-Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
+Sans la fiche, en 4 ou 5 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
 
-### M27.Q1 — Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ? 🧠 ★ ⏱️ 4 min
+### M27.Q1 — Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ? 🧠 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-1. Pour $\mathbf{G} = \begin{pmatrix} 3 & 8 & 1 \\ 6 & 5 & 7 \end{pmatrix}$, que valent le maximin et le minimax ?
+1. Pour $\mathbf{G} = \begin{pmatrix} 2 & 9 & 1 \\ 6 & 5 & 7 \end{pmatrix}$, que valent le maximin et le minimax ?
 2. Le joueur des lignes doit annoncer sa ligne avant que l'autre choisisse : quelle ligne joue-t-il, et quel gain s'assure-t-il ?
 3. C'est au contraire le joueur des colonnes qui annonce d'abord : quelle colonne joue-t-il, et combien paie-t-il ?
 4. Vrai ou faux : dans tout jeu à somme nulle, un joueur qui annonce son coup en second ne fait jamais moins bien que s'il l'annonçait en premier.
 5. Vrai ou faux : une case qui est la plus grande de sa ligne et la plus petite de sa colonne est un point selle.
 
-### M27.Q2 — Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux 🧠 ★ ⏱️ 4 min
+### M27.Q2 — Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux 🧠 ★ ⏱️ 5 min
 *Fiche §2 · parcours C, E*
 
 1. Vrai ou faux : contre une stratégie mixte fixée de l'adversaire, il existe toujours une meilleure réponse pure.
@@ -42,7 +42,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 4. Vrai ou faux : sur $f(x, y) = xy$, la descente-montée simultanée converge vers $(0, 0)$ si le pas $\eta$ est assez petit.
 5. Vrai ou faux : sur $f(x, y) = xy$, avec un pas $0 < \eta < 2$, les itérés alternés partis d'un point autre que $(0, 0)$ restent bornés mais ne convergent pas vers $(0, 0)$.
 
-### M27.Q4 — La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se séparent 🧠 ★ ⏱️ 4 min
+### M27.Q4 — La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se séparent 🧠 ★ ⏱️ 5 min
 *Fiche §5 et §6 · parcours C, E*
 
 1. Une machine fabrique 20 % des pièces d'un atelier (la classe 1), une autre les 80 % restants (la classe 0). Pour la mesure $x$ d'une pièce, $p_1(x) = 0{,}5$ et $p_0(x) = 0{,}1$. Que vaut $t^\star(x)$ ?
@@ -51,7 +51,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 4. Deux lois $p$ et $q$ ont des supports disjoints. Que valent $\mathrm{JS}(p, q)$, en nats puis en bits, et $\mathrm{KL}(p \,\|\, q)$ ?
 5. Vrai ou faux : si l'on éloigne encore l'une de l'autre deux lois dont les supports sont déjà disjoints, JS augmente.
 
-### M27.Q5 — Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂ 🧠 ★ ⏱️ 4 min
+### M27.Q5 — Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂ 🧠 ★ ⏱️ 5 min
 *Fiche §7 et §8 · parcours C, E*
 
 1. Vrai ou faux : $\boldsymbol{\Gamma} = \begin{pmatrix} 0{,}2 & 0{,}3 \\ 0{,}1 & 0{,}4 \end{pmatrix}$ est un couplage de $\mathbf{a} = (0{,}5 ;\ 0{,}5)$ et $\mathbf{b} = (0{,}4 ;\ 0{,}6)$.
@@ -69,14 +69,14 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 4. Deux échantillons indépendants de 30 points chacun suivent une même loi de $\mathbb{R}^d$, de covariance $\boldsymbol{\Sigma}$ avec $\operatorname{tr}\boldsymbol{\Sigma} = 12$. Que vaut $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2$ ?
 5. Vrai ou faux : doubler la taille des deux échantillons de la question 4 divise ce nombre par deux.
 
-### M27.Q7 — Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas 🧠 ★ ⏱️ 4 min
+### M27.Q7 — Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas 🧠 ★ ⏱️ 5 min
 *Fiche §10 · parcours C, E*
 
 1. On convertit des températures de degrés Celsius en degrés Fahrenheit ($F = 1{,}8\,C + 32$) dans les deux périodes comparées. Que deviennent KS et $W_1$ ?
 2. Vrai ou faux : le PSI convient à une variable sans ordre (un mode de paiement), alors que KS et $W_1$ n'y ont pas de sens.
 3. Une loi vit dans $[0 ; 1]$, l'autre est sa translatée de 5. Que valent KS et $W_1$ ?
 4. Deux lois vivent dans $[-5 ; 25]$, et leur KS vaut 0,15. Quelle majoration de $W_1$ en tires-tu ?
-5. Vrai ou faux : si le PSI entre deux périodes est nul, la variable a la même loi dans les deux périodes.
+5. Vrai ou faux : si le PSI entre deux périodes d'une variable numérique, découpée en classes, est nul, la variable a la même loi dans les deux périodes.
 
 <a id="rappels"></a>
 
@@ -85,13 +85,13 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M27.R1 — Le maximum de vraisemblance d'une loi de Bernoulli (des comptes entiers), et la log-loss quand la probabilité prédite tend vers 0 (M04, M13a) 🔁 ★ ⏱️ 8 min
 *Fiche §5 · parcours C, E*
 
-Sur $n = 40$ essais indépendants d'une même loi de Bernoulli, $k = 14$ réussissent.
+Sur $n = 50$ essais indépendants d'une même loi de Bernoulli, $k = 23$ réussissent.
 1. Écris la log-vraisemblance $\ell(p) = k\ln p + (n - k)\ln(1 - p)$, et donne le $p$ qui la maximise (∂ M04.12).
-2. Vrai ou faux : la constante $t$ qui minimise la log-loss moyenne de ces 40 observations est le $p$ de la question 1.
+2. Vrai ou faux : la constante $t$ qui minimise la log-loss moyenne de ces 50 observations est le $p$ de la question 1.
 3. Un prédicteur annonce la probabilité $t = 10^{-5}$ pour une observation qui vaut 1. Que vaut sa log-loss sur cette observation ? Que devient-elle quand $t$ tend vers 0 ?
-4. Ce même prédicteur a une log-loss presque nulle sur les 39 autres observations. Quelle borne inférieure peux-tu donner à sa log-loss moyenne sur les 40 ?
+4. Ce même prédicteur a une log-loss presque nulle sur les 49 autres observations. Quelle borne inférieure peux-tu donner à sa log-loss moyenne sur les 50 ?
 
-### M27.R2 — Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances (M22) 🔁 ★ ⏱️ 5 min
+### M27.R2 — Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances (M22) 🔁 ★ ⏱️ 7 min
 *Fiche §4 · parcours C, E*
 
 $\mathbf{A} = \begin{pmatrix} 1 & -3 \\ 1 & 1 \end{pmatrix}$.
@@ -100,7 +100,7 @@ $\mathbf{A} = \begin{pmatrix} 1 & -3 \\ 1 & 1 \end{pmatrix}$.
 3. Que vaut $\mathbf{A}^6$ ?
 4. Vrai ou faux : $\lVert\mathbf{A}^k\mathbf{x}\rVert = 2^k\lVert\mathbf{x}\rVert$ pour tout vecteur $\mathbf{x}$ et tout entier $k$.
 
-### M27.R3 — La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs propres (M12c) 🔁 ★ ⏱️ 5 min
+### M27.R3 — La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs propres (M12c) 🔁 ★ ⏱️ 6 min
 *Fiche §9 · parcours C, E*
 
 $\mathbf{R} = \begin{pmatrix} 5 & 1 \\ 1 & 3 \end{pmatrix}$ et $\mathbf{S} = \mathbf{R}^2$.
@@ -123,7 +123,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 « Valeur exacte » veut dire : tous les chiffres, sans arrondir (ces calculs tombent juste). Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex M27.1 — Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, trouver ses deux points selles et vérifier qu'ils ont la même valeur, et ce que la réduction ne change pas (maximin, minimax) ✏️ ★ ⏱️ 20 min
+### Ex M27.1 — Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, trouver ses deux points selles et vérifier qu'ils ont la même valeur, et ce que la réduction ne change pas (maximin, minimax) ✏️ ★ ⏱️ 30 min
 **Objectif :** lire le maximin, le minimax et les points selles d'une matrice de gains, réduire le jeu par dominances successives, et justifier ce que la réduction conserve.
 **Prérequis :** fiche §1 · **Parcours :** C, E
 
@@ -144,7 +144,7 @@ Deux enseignes, A et B, se partagent les clients d'une ville. Pour la saison, A 
 
 Dans ta copie : écris les minimums des lignes et les maximums des colonnes ; donne l'ordre des éliminations, en disant chaque fois par quelle stratégie la ligne ou la colonne rayée est dominée ; justifie, pour une matrice quelconque, que rayer une ligne strictement dominée ne change ni le maximin ni le minimax, puis de même pour une colonne ; vérifie que les deux points selles ont la même valeur.
 
-### Ex M27.2 — Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien et la valeur du jeu ✏️ ★★ ⏱️ 20 min
+### Ex M27.2 — Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien et la valeur du jeu ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer les stratégies optimales et la valeur d'un jeu $2 \times 2$ sans point selle, puis ce que rapporte une stratégie qui s'en écarte.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
@@ -167,7 +167,7 @@ Le tireur maximise, le gardien minimise ; $p$ est la probabilité de tirer à ga
 
 Dans ta copie : vérifie qu'il n'y a pas de point selle ; écris, en fonction de $p$, les deux droites que le tireur obtient contre chaque plongeon, et dessine leur minimum ; dis quel tir pur est le meilleur en d), et retrouve d) par l'identité $E(p, q) = v + \kappa\,(p - p^\star)(q - q^\star)$.
 
-### Ex M27.3 — Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et mixte), puis la valeur d'un jeu d'allumettes par induction arrière ✏️ ★★ ⏱️ 25 min
+### Ex M27.3 — Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et mixte), puis la valeur d'un jeu d'allumettes par induction arrière ✏️ ★★ ⏱️ 30 min
 **Objectif :** trouver les équilibres de Nash de deux jeux à somme non nulle, dont un équilibre mixte asymétrique, et résoudre un petit jeu par induction arrière.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
@@ -187,7 +187,7 @@ Dans ta copie : vérifie qu'il n'y a pas de point selle ; écris, en fonction de
 
 Dans ta copie : montre que B domine strictement M pour chaque boulangerie ; écris les deux équilibres purs de la coordination, puis, pour l'équilibre mixte, la probabilité que les deux équipes tombent d'accord, et compare les gains moyens à ceux des deux équilibres purs ; pour les allumettes, fais l'induction arrière de 1 à 12 (perdante ou gagnante, pour le joueur qui doit jouer ; avec 1 allumette, il doit prendre la dernière), et énonce la règle qui apparaît.
 
-### Ex M27.4 — Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs valeurs propres et leurs modules, et deux pas différents pour x et y ✏️ ★★ ⏱️ 25 min
+### Ex M27.4 — Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs valeurs propres et leurs modules, et deux pas différents pour x et y ✏️ ★★ ⏱️ 30 min
 **Objectif :** prévoir par les valeurs propres d'un pas ce que fait la descente-montée sur $xy$, et montrer que des pas différents pour les deux joueurs n'y changent rien d'essentiel.
 **Prérequis :** fiche §4 ; M22 · **Parcours :** C, E
 
@@ -198,13 +198,13 @@ On joue la descente-montée sur $f(x, y) = xy$ : le joueur $x$ minimise, le joue
 | a | $\eta = 0{,}6$, pas simultané : le module des valeurs propres de $\mathbf{M}_s$ | un nombre (4 décimales) |
 | b | $\eta = 0{,}6$ : l'angle dont un pas simultané fait tourner le vecteur $(x, y)$, en degrés | un nombre (1 décimale) |
 | c | $\eta = 0{,}6$ : le plus petit nombre de pas simultanés après lequel la distance à l'équilibre a au moins doublé | un entier |
-| d | $\eta = 0{,}6$, pas alterné : l'argument des valeurs propres de $\mathbf{M}_a$, en degrés (l'angle de rotation par pas de la fiche) | un nombre (1 décimale) |
+| d | $\eta = 0{,}6$, pas alterné : l'argument des valeurs propres de $\mathbf{M}_a$, en degrés (en moyenne, l'angle dont les itérés tournent autour de l'équilibre à chaque pas) | un nombre (1 décimale) |
 | e | $a = 1{,}5$ et $b = 0{,}6$ : le module des valeurs propres du pas simultané, puis celui des valeurs propres du pas alterné | une liste de 2 nombres (4 décimales) |
 | f | $a = 4$ et $b = 1{,}5$, pas alterné : le rayon spectral (la plus grande valeur absolue d'une valeur propre) | un nombre (2 décimales) |
 
-Dans ta copie : écris $\mathbf{M}_s$ et $\mathbf{M}_a$ pour $\eta = 0{,}6$ ; pour deux pas $a$ et $b$, écris les matrices d'un pas simultané et d'un pas alterné, et montre que leurs déterminants valent $1 + ab$ et $1$, et que la trace du pas alterné vaut $2 - ab$ ; conclus que des pas différents ne font jamais converger le pas simultané, et que le pas alterné reste borné quand $ab < 4$ et ne l'est plus quand $ab > 4$.
+Dans ta copie : écris $\mathbf{M}_s$ et $\mathbf{M}_a$ pour $\eta = 0{,}6$ ; pour deux pas $a$ et $b$, écris les matrices d'un pas simultané et d'un pas alterné, et montre que leurs déterminants valent $1 + ab$ et $1$, et que la trace du pas alterné vaut $2 - ab$ ; conclus que des pas différents ne font jamais converger le pas simultané, et que le pas alterné reste borné quand $ab < 4$ et ne l'est plus quand $ab > 4$ (sauf pour un départ sur la droite propre de la valeur propre de valeur absolue $< 1$).
 
-### Ex M27.5 — Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui) ✏️ ★★ ⏱️ 25 min
+### Ex M27.5 — Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui) ✏️ ★★ ⏱️ 35 min
 **Objectif :** calculer une probabilité a posteriori à priors inégaux, et comparer par leur log-loss espérée trois façons de prédire.
 **Prérequis :** fiche §5 ; M04, M13a · **Parcours :** C, E
 
@@ -220,7 +220,7 @@ Une usine achète une même pièce à deux fournisseurs : A en livre 68 %, B 32 
 
 Dans ta copie : le tableau des probabilités jointes $P(X = x, Y = y)$ ; vérifie que le prédicteur trop sûr de lui est, à chaque niveau, plus loin de ½ que $t^\star$, et du même côté ; range les trois log-loss, et dis ce que montre ce classement.
 
-### Ex M27.6 — Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, et ce que le décalage lui-même mesure ✏️ ★★ ⏱️ 20 min
+### Ex M27.6 — Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, et ce que le décalage lui-même mesure ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer JS entre deux lois continues qui se recouvrent en partie, voir sa pente disparaître quand elles se séparent, et la comparer à $W_1$.
 **Prérequis :** fiche §6 et §8 (« Une translation ») ; M06, M25a · **Parcours :** C, E
 
@@ -236,7 +236,7 @@ Un bus passe à un arrêt à une heure uniforme dans une fenêtre de 5 minutes :
 
 Dans ta copie : pour $0 < \theta < 5$, découpe l'axe en trois morceaux, écris $m = \frac{p + q}{2}$ sur chacun, calcule $\mathrm{KL}(p \,\|\, m)$ et $\mathrm{KL}(q \,\|\, m)$, et déduis-en $\mathrm{JS}$ en fonction de $\theta$ ; fais de même pour $\theta \ge 5$ ; trace $\mathrm{JS}$ et $W_1$ en fonction de $\theta$ sur $[0 ; 12]$, et dis ce que le décalage lui-même mesure.
 
-### Ex M27.7 — Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur coût, le couplage indépendant et le plan monotone (coin nord-ouest) ✏️ ★★ ⏱️ 25 min
+### Ex M27.7 — Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur coût, le couplage indépendant et le plan monotone (coin nord-ouest) ✏️ ★★ ⏱️ 30 min
 **Objectif :** reconnaître un plan de transport par ses marges, calculer son coût, et construire le plan monotone par la règle du coin nord-ouest.
 **Prérequis :** fiche §7 et §8 · **Parcours :** C, E
 
@@ -247,13 +247,13 @@ $$\boldsymbol{\Gamma}_2 = \begin{pmatrix} 10 & 10 & 0 \\ 30 & 20 & 0 \\ 0 & 5 & 
 |---|---|---|
 | a | vrai ou faux : $\boldsymbol{\Gamma}_3$ est un plan de transport | `True` ou `False` |
 | b | le coût de $\boldsymbol{\Gamma}_2$ (t·km) | un nombre |
-| c | le coût du couplage indépendant (t·km) | un nombre |
+| c | le coût du couplage indépendant, où chaque dépôt répartit son stock entre les magasins au prorata de leurs commandes (t·km) | un nombre |
 | d | le plan du coin nord-ouest | une matrice $3 \times 3$ |
 | e | $W_1$ entre la loi des stocks et celle des commandes, chacune ramenée à une masse totale de 1 (km) | un nombre (2 décimales) |
 
 Dans ta copie : la matrice des distances $\lvert x_i - y_j\rvert$ ; la marge que $\boldsymbol{\Gamma}_3$ ne respecte pas ; la matrice du couplage indépendant ; les étapes du coin nord-ouest ; vérifie e) par l'aire entre les fonctions de répartition des deux lois (fiche §8).
 
-### Ex M27.8 — W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type) ✏️ ★★ ⏱️ 25 min
+### Ex M27.8 — W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type) ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer $W_1$ de deux façons et $W_2$ par les quantiles, sur deux lois uniformes, puis appliquer la formule de deux gaussiennes.
 **Prérequis :** fiche §8 ; M02a · **Parcours :** C, E
 
@@ -268,7 +268,7 @@ Deux machines coupent des barres. L'excès de longueur d'une barre, en mm, suit 
 
 Dans ta copie : $F$ et $G$, et l'aire entre elles, morceau par morceau (le signe de $F - G$ change une fois) ; $F^{-1}$ et $G^{-1}$, puis $\int_0^1\lvert F^{-1} - G^{-1}\rvert$, qui doit redonner a) ; vérifie $W_1 \le W_2$, et compare $W_1$ à l'écart des moyennes ; pour d), dis pourquoi $W_1$ et $W_2$ y sont égaux.
 
-### Ex M27.9 — La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis tournées ensemble : la part des moyennes et celle des covariances ✏️ ★★ ⏱️ 20 min
+### Ex M27.9 — La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis tournées ensemble : la part des moyennes et celle des covariances ✏️ ★★ ⏱️ 30 min
 **Objectif :** reconnaître deux covariances diagonales dans une même base tournée, et calculer leur distance de Fréchet par la formule et par le cas commutatif.
 **Prérequis :** fiche §9 ; M12c · **Parcours :** C, E
 
@@ -285,7 +285,7 @@ $$\boldsymbol{\Sigma}_1 = \begin{pmatrix} 52 & 36 \\ 36 & 73 \end{pmatrix}, \qqu
 
 Dans ta copie : un vecteur propre pour chaque valeur propre ; vérifie que $\boldsymbol{\Sigma}_1$ et $\boldsymbol{\Sigma}_2$ ont les mêmes vecteurs propres, et donne les écarts-types de chaque loi le long de ces deux axes ; montre que $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1$ ; retrouve c) par la formule du cas commutatif ; écris $\boldsymbol{\Sigma}_1$ et $\boldsymbol{\Sigma}_2$ après la rotation qui amène le premier vecteur propre sur l'axe des abscisses, et dis ce que devient $W_2$.
 
-### Ex M27.10 — Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys (le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre deux petits échantillons de températures de même taille ✏️ ★★ ⏱️ 25 min
+### Ex M27.10 — Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys (le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre deux petits échantillons de températures de même taille ✏️ ★★ ⏱️ 30 min
 **Objectif :** mesurer une dérive d'une variable à catégories par le PSI, JS et leur approximation, puis celle d'une variable numérique par KS et $W_1$, avec leurs unités.
 **Prérequis :** fiche §6, §8 et §10 ; M05a · **Parcours :** C, E
 
@@ -298,7 +298,6 @@ Un site de vente propose trois modes de livraison : à domicile, en point relais
 | c | l'approximation $\sum_k(p_k - q_k)^2/q_k$ | un nombre (4 décimales) |
 | d | KS entre les deux échantillons de températures | un nombre (2 décimales) |
 | e | $W_1$ entre les deux échantillons (°C) | un nombre (2 décimales) |
-| f | $W_1$ (en °F) et KS, si les mêmes températures avaient été relevées en degrés Fahrenheit ($F = 1{,}8\,C + 32$) | une liste de 2 nombres (3 décimales) |
 
 Dans ta copie : dis pourquoi KS et $W_1$ n'auraient pas de sens pour le mode de livraison ; dessine les deux fonctions de répartition empiriques sur un même graphique et marque l'endroit où leur écart est le plus grand ; écris l'appariement trié qui donne $W_1$ ; vérifie $W_1 \le (b - a)\,\mathrm{KS}$, avec $[a ; b]$ le plus petit intervalle qui contient les dix valeurs ; dis pourquoi $W_1$ dépasse ici l'écart des moyennes.
 
@@ -318,7 +317,7 @@ $\mathbf{G}$ est une matrice $m \times n$ quelconque ; $i_0$ est une ligne où l
 3. Réciproquement, on suppose maximin $=$ minimax. Montre que $(i_0, j_0)$ est un point selle.
 4. Soit $(i, j)$ et $(k, l)$ deux points selles. Montre que $g_{ij} = g_{kl}$, puis que $(i, l)$ et $(k, j)$ sont aussi des points selles.
 
-### Ex M27.12 — La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par l'inégalité de Gibbs ∂ ★★ ⏱️ 20 min
+### Ex M27.12 — La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par l'inégalité de Gibbs ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer le théorème du §5, sans aucune dérivée, en écrivant l'écart à l'optimum comme une moyenne de divergences KL.
 **Prérequis :** fiche §5 ; M04, M06 · **Parcours :** C, E
 
@@ -328,7 +327,7 @@ $Y$ vaut 1 avec la probabilité $\pi_1 \in\ ]0, 1[$ et 0 avec $\pi_0 = 1 - \pi_1
 3. Conclus avec l'inégalité de Gibbs (M06) : $R(t) \ge R(t^\star)$, avec égalité si et seulement si $t(x) = t^\star(x)$ pour chaque valeur $x$.
 4. Un prédicteur sans observation est une constante $t$. Montre que la meilleure constante est $\pi_1$.
 
-### Ex M27.13 — 0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports disjoints ∂ ★★ ⏱️ 20 min
+### Ex M27.13 — 0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports disjoints ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer les bornes de Jensen-Shannon et caractériser le cas où elle atteint $\ln 2$.
 **Prérequis :** fiche §6 ; M06 · **Parcours :** C
 
@@ -338,7 +337,7 @@ $p$ et $q$ sont deux lois sur un ensemble fini, $m = \frac{p + q}{2}$, $\mathrm{
 3. Montre que $\mathrm{KL}(p \,\|\, m) \le \ln 2$, avec égalité si et seulement si $q_k = 0$ pour tout $k$ tel que $p_k > 0$.
 4. Conclus : $\mathrm{JS}(p, q) \le \ln 2$, avec égalité si et seulement si $p$ et $q$ ont des supports disjoints (démontre les deux sens).
 
-### Ex M27.14 — L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n paires, pour les coûts |x − y| et (x − y)² ∂ ★★ ⏱️ 25 min
+### Ex M27.14 — L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n paires, pour les coûts |x − y| et (x − y)² ∂ ★★ ⏱️ 40 min
 **Objectif :** démontrer par un argument d'échange que trier les deux échantillons, puis apparier dans l'ordre, minimise le coût de transport sur la droite.
 **Prérequis :** fiche §8 ; R4 (récurrence) · **Parcours :** C
 
@@ -347,7 +346,7 @@ $p$ et $q$ sont deux lois sur un ensemble fini, $m = \frac{p + q}{2}$, $\mathrm{
 3. Soit $x_1 < \cdots < x_n$ et $y_1 < \cdots < y_n$, et $\sigma$ une permutation de $\{1, \ldots, n\}$ ; on appelle **croisement** une paire $i < j$ avec $\sigma(i) > \sigma(j)$. Montre qu'échanger $\sigma(i)$ et $\sigma(j)$ pour un croisement n'augmente ni $\sum_k\lvert x_k - y_{\sigma(k)}\rvert$ ni $\sum_k(x_k - y_{\sigma(k)})^2$, et diminue le nombre de croisements. Conclus : l'appariement trié ($\sigma$ l'identité) minimise les deux coûts.
 4. Trouve $x_1 < x_2$ et $y_1 < y_2$ pour lesquels l'appariement croisé coûte autant que l'appariement trié pour le coût $\lvert x - y\rvert$. Montre que, pour le coût $(x - y)^2$, l'appariement trié est strictement meilleur dès que $x_1 < x_2$ et $y_1 < y_2$.
 
-### Ex M27.15 — E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux échantillons est biaisée vers le haut ∂ ★★ ⏱️ 20 min
+### Ex M27.15 — E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux échantillons est biaisée vers le haut ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la formule du biais du §9 et en tirer une correction.
 **Prérequis :** fiche §9 ; M02c · **Parcours :** C, E
 
@@ -373,11 +372,11 @@ Une machine tourne des axes. Avant un réglage, le diamètre d'un axe suit $\mat
 | b | $W_2$ (mm) | un nombre (4 décimales) |
 | c | la part de la moyenne dans $W_2^2$ (en %) | un nombre (1 décimale) |
 | d | le terme $\operatorname{tr}\big(\boldsymbol{\Sigma}_1 + \boldsymbol{\Sigma}_2 - 2(\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2)^{1/2}\big)$, avec les matrices $1 \times 1$ de covariance (mm², valeur exacte) | un nombre |
-| e | ce que rend une fonction qui attend des matrices de covariance quand on lui passe, par erreur, les écarts-types $[[0{,}12]]$ et $[[0{,}05]]$ (« mm² ») | un nombre (4 décimales) |
+| e | ce que rend une fonction qui attend les moyennes et les matrices de covariance quand on lui passe les bonnes moyennes, mais, par erreur, les écarts-types $[[0{,}12]]$ et $[[0{,}05]]$ à la place des covariances (« mm² ») | un nombre (4 décimales) |
 
 Dans ta copie : vérifie que d) est la part de l'écart-type, $(\sigma_1 - \sigma_2)^2$ ; dis ce que le réglage a surtout corrigé ; explique pourquoi on compare une tolérance en mm à $W_2$, et pas à $W_2^2$ ; dis enfin ce qu'il faut regarder avant d'appeler une fonction de distance d'une bibliothèque (ce qu'elle prend, ce qu'elle rend).
 
-### Ex M27.17 — MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue comme un jeu, et l'inégalité vérifiée sur une matrice de gains choisie 📖 ★★ ⏱️ 25 min
+### Ex M27.17 — MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue comme un jeu, et l'inégalité vérifiée sur une matrice de gains choisie 📖 ★★ ⏱️ 35 min
 **Objectif :** relire en anglais l'inégalité minimax et la dualité faible de MML, en pensant aux jeux du §1, et les vérifier sur tes propres nombres.
 **Prérequis :** fiche §1 ; M13b · **Parcours :** C
 
@@ -388,7 +387,7 @@ Relis MML §7.2, en suivant le guide de lecture de la fiche : la remarque qui su
 4. Le livre part de (7.26) et en tire (7.27). On veut minimiser $f(x) = (x - 2)^2$ sous la contrainte $x \le -1$. Écris le lagrangien. Si $x$ annonce d'abord, que vaut $\max_{\lambda \ge 0}\mathcal{L}(x, \lambda)$ pour $x = -2$, puis pour $x = 0$ ? Si $\lambda$ annonce d'abord, calcule $D(\lambda) = \min_x\mathcal{L}(x, \lambda)$ et son maximum sur $\lambda \ge 0$. Compare au minimum de $f$ sous la contrainte, et dis quel joueur annonce en second dans chacun des deux problèmes.
 5. Relève quatre expressions anglaises du passage et leur traduction dans la fiche.
 
-### Ex M27.18 — Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la meilleure stratégie, et ce que le hasard garantit 🗣️ ★ ⏱️ 10 min
+### Ex M27.18 — Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la meilleure stratégie, et ce que le hasard garantit 🗣️ ★ ⏱️ 15 min
 **Objectif :** expliquer sans formule l'idée d'une stratégie mixte, de l'indifférence et de la garantie qu'elle donne.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
@@ -414,7 +413,7 @@ Ta réponse doit dire ce que vaut JS pour deux lois de supports disjoints ($\ln 
 
 « Deux échantillons de la même loi donnent une distance non nulle : pourquoi, et comment comparer deux mesures ? »
 
-Ta réponse doit dire d'où vient la distance non nulle (le hasard de l'échantillonnage), de combien elle est biaisée pour une distance entre moyennes ($\operatorname{tr}\boldsymbol{\Sigma}\,(\frac{1}{n_1} + \frac{1}{n_2})$), pourquoi deux distances estimées ne se comparent qu'à tailles égales, deux façons de s'en sortir (retirer une estimation du biais ; comparer à la distance entre deux moitiés de la référence elle-même), et quel outil donne une p-valeur (un test, comme celui de Kolmogorov-Smirnov ou un test par permutation, M08).
+Ta réponse doit dire d'où vient la distance non nulle (le hasard de l'échantillonnage), de combien elle est biaisée pour une distance entre moyennes ($\operatorname{tr}\boldsymbol{\Sigma}\,(\frac{1}{n_1} + \frac{1}{n_2})$), pourquoi deux distances estimées ne se comparent qu'à tailles égales, une façon de s'en sortir quand les tailles diffèrent (retirer une estimation du biais), et quel outil donne une p-valeur (un test, comme celui de Kolmogorov-Smirnov ou un test par permutation, M08).
 
 <a id="notebook"></a>
 
@@ -440,9 +439,9 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M27.19 · 🔨 `pure_strategy_values(G)`.** Écris la fonction : contrôle `G` (un tableau 2-D, non vide, de nombres finis ; sinon une `ValueError`) ; calcule le minimum de chaque ligne (`axis=1`) et le maximum de chaque colonne (`axis=0`), puis le maximin, le minimax, et les plus petits indices `row` et `col` où ils sont atteints (`np.argmax` et `np.argmin` rendent le premier en cas d'égalité) ; rends `(maximin, minimax, row, col)`, deux `float` et deux `int` Python ; lance le groupe de tests. Ensuite : a) le marché de M27.1, à comparer à tes réponses a) et b) (les indices partent de 0) ; b) le même jeu vu par l'enseigne B, `-G.T` (ses lignes sont les stratégies de B, qui maximise ce que A perd) : le résultat, et pourquoi le maximin de `-G.T` est l'opposé du minimax de `G` ; c) les tirs au but de M27.2, et vrai ou faux : `(row, col)` y est un point selle. Ce qu'il faut observer : la fonction rend un point selle quand il en existe un ; sans point selle, `row` et `col` ne sont que des coups prudents, que l'adversaire exploite s'il les connaît.
 
-**M27.20 · 🔨 `mixed_strategy_value_2x2(G)`.** Écris la fonction : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0` et `0.0` sinon, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche ; lance le groupe de tests. Ensuite : a) les tirs au but de M27.2, à comparer à tes réponses a) à c) ; b) pour $\mathbf{G} = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ : ce que donneraient les formules de $p^\star$ et de $q^\star$, et ce que rend ta fonction ; c) pour les tirs au but, le plus petit gain espéré de $p^\star$ contre les deux plongeons, $\min_j(\mathbf{p}^{\star\top}\mathbf{G})_j$, et le plus grand de $q^\star$ contre les deux tirs, $\max_i(\mathbf{G}\mathbf{q}^\star)_i$. Ce qu'il faut observer : avec un point selle, les formules d'indifférence sortent de $[0, 1]$ ; sans point selle, $p^\star$ et $q^\star$ garantissent la même valeur, chacun de son côté.
+**M27.20 · 🔨 `mixed_strategy_value_2x2(G)`.** Écris la fonction : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0` et `p = 0.0` sinon, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche ; lance le groupe de tests. Ensuite : a) les tirs au but de M27.2, à comparer à tes réponses a) à c) ; b) pour $\mathbf{G} = \begin{pmatrix} 4 & 7 \\ 1 & 3 \end{pmatrix}$ : ce que donneraient les formules de $p^\star$ et de $q^\star$, et ce que rend ta fonction ; c) pour les tirs au but, le plus petit gain espéré de $p^\star$ contre les deux plongeons, $\min_j(\mathbf{p}^{\star\top}\mathbf{G})_j$, et le plus grand de $q^\star$ contre les deux tirs, $\max_i(\mathbf{G}\mathbf{q}^\star)_i$. Ce qu'il faut observer : avec un point selle, les formules d'indifférence sortent de $[0, 1]$ ; sans point selle, $p^\star$ et $q^\star$ garantissent la même valeur, chacun de son côté.
 
-**M27.21 · 🔨 `descent_ascent_iterates(A, x0, y0, eta, n_steps=10, alternating=False)`.** Écris les itérés de la descente-montée sur $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ : le joueur $\mathbf{x}$ (les lignes de $\mathbf{A}$) minimise, comme dans MML (7.23). Contrôle `A` (2-D, non vide, de nombres finis), `x0` et `y0` (des tableaux **1-D** de $n$ et de $m$ coordonnées : `np.array([1.0])`, pas `[[1.0]]`), `eta` (un nombre fini $> 0$, pas un booléen) et `n_steps` (un entier $\ge 0$, ni un booléen ni un flottant) ; prépare deux tableaux de formes $(N + 1, n)$ et $(N + 1, m)$, de lignes 0 les départs ; à chaque pas, calcule le nouveau $\mathbf{x}$ à partir de l'ancien $\mathbf{y}$, puis le nouveau $\mathbf{y}$ à partir de l'ancien $\mathbf{x}$ (simultané) ou du nouveau (alterné) ; lance le groupe de tests. Ensuite, sur $xy$ (`A = [[1.0]]`, depuis $x_0 = 1$ et $y_0 = 0$, avec $\eta = 0{,}6$) : a) en simultané, la distance à l'équilibre après 4 pas et après 5 pas, à comparer à ta réponse c) de M27.4 ; b) en alterné, sur 200 pas : le plus grand écart $\lvert Q(x_k, y_k) - Q(x_0, y_0)\rvert$, avec $Q(x, y) = x^2 + y^2 - \eta xy$, et vrai ou faux, la distance à l'équilibre ne dépasse jamais $1/\sqrt{0{,}7}$, le demi-grand axe de l'ellipse $Q = 1$. Enfin c) sur le jeu de matrice $\mathbf{A} = \begin{pmatrix} 1 & -2 & 0 \\ 0{,}5 & 1 & -1 \end{pmatrix}$ ($\mathbf{x} \in \mathbb{R}^2$, $\mathbf{y} \in \mathbb{R}^3$), avec $\eta = 0{,}3$, depuis $\mathbf{x}_0 = (1, 0)$ et $\mathbf{y}_0 = (0, 1, 0)$ : vrai ou faux, en simultané, $\lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2$ ne diminue jamais sur 50 pas ; et, en alterné, le plus grand écart de $\lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2 - \eta\,\mathbf{x}_k^\top\mathbf{A}\mathbf{y}_k$ à sa valeur de départ sur 100 pas. Ce qu'il faut observer : les deux propriétés de la fiche, vérifiées aux arrondis près, l'une qui éloigne de l'équilibre, l'autre qui garde une quantité constante.
+**M27.21 · 🔨 `descent_ascent_iterates(A, x0, y0, eta, n_steps=10, alternating=False)`.** Écris les itérés de la descente-montée sur $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ : le joueur $\mathbf{x}$ (les lignes de $\mathbf{A}$) minimise, comme dans MML (7.23). Contrôle `A` (2-D, non vide, de nombres finis), `x0` et `y0` (des tableaux **1-D** de $n$ et de $m$ coordonnées : `np.array([1.0])`, pas `np.array([[1.0]])`), `eta` (un nombre fini $> 0$, pas un booléen) et `n_steps` (un entier $\ge 0$, ni un booléen ni un flottant) ; prépare deux tableaux de formes $(N + 1, n)$ et $(N + 1, m)$, de lignes 0 les départs ; à chaque pas, calcule le nouveau $\mathbf{x}$ à partir de l'ancien $\mathbf{y}$, puis le nouveau $\mathbf{y}$ à partir de l'ancien $\mathbf{x}$ (simultané) ou du nouveau (alterné) ; lance le groupe de tests. Ensuite, sur $xy$ (`A = [[1.0]]`, depuis $x_0 = 1$ et $y_0 = 0$, avec $\eta = 0{,}6$) : a) en simultané, la distance à l'équilibre après 4 pas et après 5 pas, à comparer à ta réponse c) de M27.4 ; b) en alterné, sur 200 pas : le plus grand écart $\lvert Q(x_k, y_k) - Q(x_0, y_0)\rvert$, avec $Q(x, y) = x^2 + y^2 - \eta xy$, et vrai ou faux, la distance à l'équilibre ne dépasse jamais $1/\sqrt{0{,}7}$, le demi-grand axe de l'ellipse $Q = 1$. Enfin c) sur le jeu de matrice $\mathbf{A} = \begin{pmatrix} 1 & -2 & 0 \\ 0{,}5 & 1 & -1 \end{pmatrix}$ ($\mathbf{x} \in \mathbb{R}^2$, $\mathbf{y} \in \mathbb{R}^3$), avec $\eta = 0{,}3$, depuis $\mathbf{x}_0 = (1, 0)$ et $\mathbf{y}_0 = (0, 1, 0)$ : vrai ou faux, en simultané, $\lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2$ ne diminue jamais sur 50 pas ; et, en alterné, le plus grand écart de $\lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2 - \eta\,\mathbf{x}_k^\top\mathbf{A}\mathbf{y}_k$ à sa valeur de départ sur 100 pas. Ce qu'il faut observer : les deux propriétés de la fiche, vérifiées aux arrondis près, l'une qui éloigne de l'équilibre, l'autre qui garde une quantité constante.
 
 **M27.22 · 🔨 `w2_gaussians_1d(mu1, sigma1, mu2, sigma2)`.** Écris $W_2$ entre $\mathcal{N}(\mu_1, \sigma_1^2)$ et $\mathcal{N}(\mu_2, \sigma_2^2)$ à partir des **écarts-types** : contrôle les quatre nombres (des réels finis, pas des booléens) et le signe des écarts-types (un écart-type nul est permis : la loi est alors une masse ponctuelle) ; rends $W_2$, pas son carré, en `float` Python (`math.hypot`) ; lance le groupe de tests. Ensuite : a) les sachets de M27.8, à comparer à ta réponse c) ; b) la machine du 🔗 M27.16, à comparer à ta réponse b) ; c) $\mathcal{N}(10 ;\ 3^2)$ contre $\mathcal{N}(10 ;\ 1^2)$. Ce qu'il faut observer : $W_2$ est la distance euclidienne entre les points (moyenne, écart-type).
 

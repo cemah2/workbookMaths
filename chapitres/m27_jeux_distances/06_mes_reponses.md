@@ -176,7 +176,6 @@
 - c :
 - d :
 - e :
-- f :
 - dans ta copie :
 
 ## ∂ Démonstrations
