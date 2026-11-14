@@ -687,7 +687,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M26", "dir": "m26_markov_bellman", "hours": 14.6, "generation_sessions": 1, "mml": [],
+        "id": "M26", "dir": "m26_markov_bellman", "hours": 14.7, "generation_sessions": 1, "mml": [],
         "summary": "Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de transition, la loi après n "
                    "pas (en convention ligne) et la loi stationnaire (existence, unicité, convergence, vitesse, et le "
                    "PageRank) ; l'espérance conditionnelle et l'analyse au premier pas (la probabilité d'être absorbé, la "
@@ -774,7 +774,7 @@ CHAPTERS = [
         "mymath": {"module": "markov.py",
                    "functions": ["n_step_distribution", "stationary_distribution", "bellman_linear_solve",
                                  "bellman_fixed_point_iterates"]},
-        "reading_minutes": 160,
+        "reading_minutes": 170,
         "flashcards": 22,
         "notes": "Frontières : les ∂ 26.7 (la somme géométrique (1 − γⁿ)/(1 − γ), la borne r_max/(1 − γ), les horizons "
                  "2, 10 et 100, la demi-vie ln 2/(−ln γ), 0,2⁴ et 0,2⁶) et 26.8 (l'équation d'optimalité sur le MDP A, B, "
@@ -808,7 +808,7 @@ CHAPTERS = [
                  "solution du système) ; l'existence du point fixe d'une contraction non linéaire (Banach) est énoncée "
                  "et admise, comme en M22. Le §7 démontre le lemme |max x − max y| ≤ max |x − y| sur des vecteurs "
                  "quelconques (l'indication que donne ∂ 26.8.3) et s'en sert sur un problème d'arrêt optimal à offres "
-                 "indépendantes (une seule équation pour la valeur de continuation, une règle à seuil) ; que l'opérateur "
+                 "indépendantes (une seule équation pour la valeur de continuation, une règle à seuil) ; ∂ M26.12 démontre alors les bornes en entier, la contraction du balayage en place (que la fiche admet) et l'extension du lemme à la k-ième plus grande coordonnée et au sup d'une famille (décision de la session 65) ; que l'opérateur "
                  "d'arrêt V ↦ max(g, c + γPV) est une γ-contraction est **énoncé**, sans démonstration : combiner le "
                  "lemme et le §6 est ce que ∂ 26.8.3 fait pour l'opérateur d'optimalité : ni la grille de ∂ M26.12, ni "
                  "la fiche, ni un quiz n'écrivent la chaîne |max(g, c + γPV) − max(g, c + γPW)| ≤ … ; M26.Q7 "
