@@ -89160,7 +89160,8 @@
       "kind": "array",
       "mistakes": {
         "05ab8fb0b014990647596909f738895bf8be1779728bdec95328dcaaa1630f3c": "les valeurs propres de Σ sont des variances : ne prends pas leurs racines",
-        "68dceb5a1e9922dd5aad0720a1ebb7adab34d93bacc4a6f423fe00927cdb3840": "les valeurs propres annulent det(Σ − λI) = λ² − (tr Σ)λ + det Σ ; ce ne sont pas les coefficients de la diagonale"
+        "68dceb5a1e9922dd5aad0720a1ebb7adab34d93bacc4a6f423fe00927cdb3840": "les valeurs propres annulent det(Σ − λI) = λ² − (tr Σ)λ + det Σ ; ce ne sont pas les coefficients de la diagonale",
+        "8e90839b5a3887e51369aa5ca6a460295abb95ed417351d19868b470f60f2dbe": "chaque liste dans l'ordre décroissant : la plus grande valeur propre d'abord"
       },
       "shape": [
         2,
@@ -90122,54 +90123,6 @@
       ],
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
-    "M27.23c": {
-      "array_rounded": {
-        "1": "623286f36607fa0c0f4885476757f00933e68eac63880c0941cb05457c543677",
-        "2": "2c169aa79d89daa1ac0b8d16216f504e48b51f81aa76bb8484ae8bbe1ef5c45e",
-        "3": "6d049ef7e72b8f415093bd75660a792189a50f9559b1046d8e3fb12242b5a95a",
-        "4": "dbe400221b364eca932c2fdc6e0cbfab34324cf00ea27a5d84a427b80096bd42",
-        "5": "fbd72d2c5bd7c899f6a4caf5ac85ab777de6df05fcc5240dfb6f9b370074182d"
-      },
-      "decimals": 6,
-      "element_coarse": [
-        [
-          "1d6bb488f6a4d45b11606364770d079262166e7cabbe176aea3c5d0f70a38091"
-        ],
-        [
-          "f055d94d47357cee9e068bb70aee37e4df9ca7c2bacb4fb31419d3a3a4cd4a87"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "93f9dc47d9f2215f0059bfd31cf768851764b8c65b324d9ef7259736116fcb25",
-          "41eb2b9e250693ddbe95a922b9bfad060bb44b82fe0e8f6c061f5ecd1d54b35b",
-          "0e4ad42bf90162b5258b8972c94a3b03b5434f3b25d7a9c3629f9b8985e2c1f3",
-          "815f77e290d8ec534f09118ef667db0fe77da721d62b4a67a2bd8da63469ebb7",
-          "ac0a008e55989b8d0ded6046ea385f464b5bd18b2317239d160da849d9917c6c"
-        ],
-        [
-          "d7b0707cd2d6158bffe6d09956fa2cfc2f77d0d6cc44e813ff13f97b9fe3ce61",
-          "75d9c711158b23c7b625099eb58fcc16ec00077ca7fe2d8cbf411418ec395afa",
-          "93fb947adf14f4ad56009943b5a77c6a9baf78cc9b4a1d6c5a8fc18e98305d55",
-          "677c0290c7bc2cc545a64403c1b441eedd731d8b56bae7131a544cfb19d19b17",
-          "4d666d9bd3417b5c2ed9d75c5eb7027531a45deab5779147b27f6c161b3740d5"
-        ]
-      ],
-      "element_hashes": [
-        "cfe30b2e15ff81db65480776d194fccd88a29b1ee36aba8826d079bd0af3591b",
-        "c3d59a879a78549c46aa588c148ec25a74b995ced63bdd391ca152a393d24b77"
-      ],
-      "hash": "86626264acb67b02b4d94625e9e3cc6c747297abffe269c85cfdbd96b390ed82",
-      "kind": "array",
-      "mistakes": {
-        "62aa936ba3e9f85420aebdb879d271cfdec8ea87dc7f09f51e0b81aa74a395e8": "le coût est la distance ‖xᵢ − yⱼ‖, pas son carré",
-        "f73fc83b24ffb7b274d0f46763dbd7a1725b6693a378d736e34b940c8b385d68": "le coût optimal d'abord, puis celui du coin nord-ouest"
-      },
-      "shape": [
-        2
-      ],
-      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
-    },
     "M27.24a": {
       "hash": "97ec83768181d4c975db5533db0e1f2fac63575474ea48426fb6a60eb2217a7f",
       "kind": "str",
@@ -90751,36 +90704,42 @@
     },
     "M27.27c": {
       "array_rounded": {
-        "1": "4ef50a5c0650970dc1055010e0c57de0cd90e3b4b43d34352c7284beb961fdb1",
-        "2": "a59f0a88edf4155f1087f4e77717263add6e8db75d56766f835190790f645ee4",
-        "3": "0f8254af4e73a0250f6afb163e3e9e37f34f84866a0a72a6b6569f55984e4a47"
+        "1": "73bd409dafa2e789b514aae8a2292eef47e3ddb09ee7f215028381ac8ba6bb8a",
+        "2": "dc1bae9a3e0511f0dbfe53dd9c78feb308630a9d8956afbb12d26076080a44b3",
+        "3": "7b03068cbd6c4288bc3fabce30da58117f16b38a8b5b94ec80ec9fe753a35bb2"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "c6a36e8e2af022bd87abfca1fac9d510cb69684573a9442752b7f869481856ce"
+          "f7706ea623e37a86fae1360d59593f579fbe2cda18facdb86a48ea765be3a63e"
         ],
         [
           "01944eaff8cfa35baa6312f594e1cf764466d7963927b0c47bf16741d273ea65"
         ],
         [
-          "9cd6dd6c20a632eecff5aee0f9106fc0596b1cf99047e2c5127d551898ead97a"
+          "47a8624778f591e44e885d697496fabf58f604805845a5ef732aa9c2724bf8ab"
         ],
         [
           "805ab3bf860822ca07dd97bfd85485a0c8f3fa979ffd762e5d7b57ee3b1026d0"
         ],
         [
-          "4592f48e8e49b24f3142b6d8c594a79f6944435f68a36f25df08b2f2084eae2c"
+          "ee00dde216143a59b65ed88d6f09644a16d04d26db30476823423caf2488f7d3"
         ],
         [
           "3bc4029f0b4d65156893f0ad5fbbdd069a7e57e1348c06e1a4ff70adb869a416"
         ],
         [
-          "7ab2eb91382e77f2df6655ff66e9566282f19c6cba62afe2922f3cf5efe24d01"
+          "5d353df59f37ef8f75b427aae0b7d20ed8a5405a2ac5100de04fe4a38789bc90"
         ]
       ],
       "element_coarse_any": [
-        [],
+        [
+          "cdc794aebe991746961b27fb3b2d36cccf1840efa742619a266fe9dbe07a8188",
+          "6d6382a675e3dafac0025b95a69514b1ac04d60b096561d4fbf7b0ad78950370",
+          "b817e7bd56f184ff719d06a57a2c25580dcc4aada04c3784176b5ad11754ea6c",
+          "0aa5a178722b019e8c4707435042f0c7791223d7a1ced25e0ffb32c7762ea1c2",
+          "88bf1e73237fa871e756a0dc1424cda5472f781108576a3bee4d9cf481570fbd"
+        ],
         [
           "9314cdd2b080a2609c35d1d0a0029f39e596af7c814ba88eaed2acf2b999c1db",
           "2c3b1b149d10de4954d29994d3c9591f7d6245c0428048bbac4918c381f258bd",
@@ -90789,11 +90748,11 @@
           "023ff6534819afa79f2a5000b34810552b6e41f368670d8264e13f9e27426991"
         ],
         [
-          "8478e3592277a7e6c4f04fbc3fb4c1b2199686357d38f864143a18de9d6e0679",
-          "7c691b2057717528a33c4ee8537d4e00681fc2e3480d5132ad0cd8eb0a7245ef",
-          "001bd5b26c0fbdd9a423d00b556785445f9d8a1d701422b3d85c8d8fac71fc38",
-          "7768c07b63408cb2699e8cb71704eac92d9e2e12eca0d60126b13f3768d47bff",
-          "51e478cca10b77bd986e2c55fff7082c222060278533bc1001ff61bcaaeb7842"
+          "d82cf95b6979ef14a3da9be10758e07b38ea44211b7fa7c7356ecea2fc38dc8a",
+          "bb085183a9ea1f5e124b01cfecb36f35ef1ae14c3f2505f79874f21803fc793f",
+          "1dbae842bfb060f5f0c2c542d73229bdd8b9be5282ffbfbb4ec1712232874714",
+          "adb9cf5f901a3bcd45c0be4e233568663f9fee6fa58501ac65c897dc2f09fbde",
+          "32d06da7483e27838b6616c1fe5e36b3870160a6ad90cc0476c74674deac5ceb"
         ],
         [
           "854a1f962d5e5fcb769ef8cc62a8b609e502e0dafe4e6a33eb8770ec9d772953",
@@ -90802,13 +90761,7 @@
           "8d29c9003a1d88790d7e3608d05a46ed05d1a3e1bcb3f97f3ae4a6c964b54208",
           "91537c70c19259f827fa8962e4dd68bbf56dc5438613bda9e0f17837600b9383"
         ],
-        [
-          "59f11d4432e3dfde16f18a79c16f7e24ad63af3a3dd386c672eadfcf35535fca",
-          "f51bb048140a53758a0a74ce1261df879ee77a2e5c0182573ae4ef8274036a78",
-          "94a9227182ba8645a71ee8fd3b17d2517fd0685aaf7b6cb13a0ce212b99beed4",
-          "c32463efd185dddc9e9593f2ab986ae654b9eeed15ae9c43730c41e140cb510e",
-          "0d3214fabeadda42f17941239be7736489e96da8a6998f97a82cc600620aacdc"
-        ],
+        [],
         [
           "cd3481a7e4f6a1059e8e7c5f2c71ec9f54de549e5abdf01eff5a97c3052bb7fa",
           "3c26e9905960cced2b5035cdd2ffc127b2844b513fa253d75db22080a5c92d6b",
@@ -90816,24 +90769,25 @@
         ],
         [
           "bfc6193367256b7abce115442b48037143fafc22d2848c90651a5c869a43d446",
-          "475d83deb434277182e5c25eea5299ee4e44ee69311885b0b5dde1ed43eea988",
-          "9fd5af5d1a135fb24b5889fc8548bcd850317a1682a73f15edd5cc76e238b77c"
+          "372e054f4195b4de8600bd0226aec0aaddf854206443c478f797e2102a9ca049",
+          "d9fcd9eb58c98c8bf4966af187aa9ce3108c64c0926edd4fce21eed906612f53"
         ]
       ],
       "element_hashes": [
-        "f67ce35fff63140ac345604edd2cda4090d2d5cea479d7d10cb8d8509e6a56ae",
+        "30d47b556bd213d6c64d5f5d4f283f9edc3eed188248be28bf6285ed339fba03",
         "c35223dd92dd6409a3bf8fbb27c5bb24bb78dee99098155488e0510853114e95",
-        "262cb31c9d9b85ad5279a4bfc8f2cbab283cc74717f6c68518bbcb8a42913e55",
+        "d19f807ad8b063f883323b5458906c4e79167168957871f174687701ade2b9d5",
         "72c4a99df14e10f88e059e8678c37adfa73c8f293def5320786d63c3a1e29f4b",
-        "c0d5b86ccfcc034d617c1fa9fd4ff12ccd8a1fbe8b6985bd1c240d32f9b5411b",
+        "57facece8463a454ba3d9e71e8858d47dd81a32197abae881394338ed5a3378d",
         "0dd0745ad5ffcb3ab3238539fe901e36fa99dc3c2a09e9327025ff1dc2db8fa3",
-        "4e5ba8f29b8fe5d4eaf2c09841f6df1b544ca12dd1673f836aae6162862c3385"
+        "67b07a3805df2bd1c3454954edc7e460552ef97561bbd963b13e005b183626b3"
       ],
-      "hash": "2ada716964e21bf3e7ecf45fd579f02c9eb705eed3a4781ab1da60b631e8225d",
+      "hash": "bf3f6dc1ff3bc5a4713bae7f2119a8bb060f539ebc0b7816990961833c64ff57",
       "kind": "array",
       "mistakes": {
-        "34f8cbddb5eba5b8e4945a5dddb10f071f9fcc1261bd15e57600b7ac5ae27ada": "la somme de ton appariement d'abord, puis celle du collègue",
-        "9f7d33332aa587bfbe79c7ae86113e2b9a26d6eb1f5bf5ef6b28071143d7f183": "pair_parts_fixed ne range encore que les bagues : les axes aussi arrivent dans le désordre"
+        "6a20137ecb765189aecc5901930ec0e93edd665993329e4a31b6c30e045cc26f": "la somme de ton appariement d'abord, puis celle du collègue",
+        "b0268d85d06a59750ccae8a28f9e32cbf7d4a3ffcd8878c16afecedad6aeb5f1": "partner[i] est la bague de l'axe i : la k-ième plus petite bague va sur l'axe de rang k (l'indice argsort(shafts)[k]), pas sur l'axe d'indice k",
+        "ba24a8aa80df9ed0cfcaf15dfde3ca7642a89938b7f456ab7660563ac7729bed": "pair_parts_fixed ne range encore que les bagues : les axes aussi arrivent dans le désordre"
       },
       "shape": [
         7
@@ -90898,40 +90852,43 @@
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
     "M27.29a": {
-      "decimals": 2,
+      "decimals": 3,
       "element_coarse": [
         [
-          "72ed0baad3ed728071153ee2be3fd12747f3b5fb5743db2e98ccc7a1b9c54e79"
+          "1ffe0f7f4b5195162214f9347e8c5549833459ab4198a0b25994cc1f7410634b"
         ],
         [
-          "377e0e79ef3c26826f30c033f07e7e57ed600877dd7e4f1df89e2f330925608a"
+          "b56ef3e01214dad9fd92e6b251a9bb6288479659e12692b28d770f404a6cdace"
         ],
         [
-          "13dbd261ceab4d88e6a7884f46a9c7a76d48d63bce8839e88cc6893f1f5aaf2b"
+          "24a9e2bf6ab22ae6fbe9beff0660badc6cd8594213dfd1a10693fe6ef7a7315d"
         ]
       ],
       "element_coarse_any": [
         [
-          "b2f385e52878e16a1d2714348cbfcfdce28ca4fd0f6d276a2ce22c9341c3893a"
+          "b2f385e52878e16a1d2714348cbfcfdce28ca4fd0f6d276a2ce22c9341c3893a",
+          "72ed0baad3ed728071153ee2be3fd12747f3b5fb5743db2e98ccc7a1b9c54e79"
         ],
         [
-          "a005f066de07e539906e4fa98a8f615167cf59f94b0ce7767de6a1ea0f56fcae"
+          "a005f066de07e539906e4fa98a8f615167cf59f94b0ce7767de6a1ea0f56fcae",
+          "377e0e79ef3c26826f30c033f07e7e57ed600877dd7e4f1df89e2f330925608a"
         ],
         [
-          "4a6eafde12940c64a3f621b4768a58b4fc2b3dcf1513f206a5198c7bf0481e69"
+          "4a6eafde12940c64a3f621b4768a58b4fc2b3dcf1513f206a5198c7bf0481e69",
+          "13dbd261ceab4d88e6a7884f46a9c7a76d48d63bce8839e88cc6893f1f5aaf2b"
         ]
       ],
       "element_hashes": [
-        "1ffe0f7f4b5195162214f9347e8c5549833459ab4198a0b25994cc1f7410634b",
-        "b56ef3e01214dad9fd92e6b251a9bb6288479659e12692b28d770f404a6cdace",
-        "24a9e2bf6ab22ae6fbe9beff0660badc6cd8594213dfd1a10693fe6ef7a7315d"
+        "911bc75a991baa1ac28c3673d541897bd32169efcdbddb83e3d61edf76984cd6",
+        "f8b827478e191c73025438497c2bc88fddc1285587781369e1fcd3144a38af30",
+        "3ab7ccda87c3160834055a90cdc441e9a00d789865cf15bdface3130cfd3ac41"
       ],
-      "hash": "c3c5317863a473aecba68c112a4fc2722ed3555c8ce4c5abaf848ed427778496",
+      "hash": "91f00f55496faf19efbb38e36a9bd4bc025642c51572dc946893678434d57139",
       "kind": "array",
       "mistakes": {
-        "6ebb64f879045d07aac7440ce10c173c809ae1c498710c3033a7aa8672c3f180": "w2 est la distance W₂, pas son carré",
-        "dfb4350e6ad930022b049d7d64fbfcb651b10023eec7c6fe9f8e3e1a11f8e828": "sigma est un écart-type, pas une variance",
-        "ea678220dbacb7fce4395432e19d9f84341a698b7da0af79abb95b1dcaac78b2": "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ"
+        "c2572221ac99fc0ccba7cd11af32002e56d6483ffaaee1a88b14f6d7649c86d0": "sigma est un écart-type, pas une variance",
+        "da5e8c6e2d239eb058c40c860ccdfd77bd3ad9d9dcf22cf99350e1537f60b83f": "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ",
+        "e6eefbbb8e90656d1b18c4b2c90938b8a4d80f3d0f5bdd691fb5ac2ba848abba": "w2 est la distance W₂, pas son carré"
       },
       "shape": [
         3
@@ -90947,14 +90904,15 @@
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
     "M27.29c": {
-      "decimals": 0,
-      "hash": "b38df27e81d8c6e63fdc9ecbba9a2b2ec0a5bf7b77055b5a1a7e16ea7dde4368",
+      "decimals": 1,
+      "hash": "8fad0858751e3d969cfb7d38f3017884483501d24304103e54ab49119adb9af2",
+      "hash_coarse": "b38df27e81d8c6e63fdc9ecbba9a2b2ec0a5bf7b77055b5a1a7e16ea7dde4368",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "8610b5a91b6dc1c30603f40055492ce51752d43b8f26e20a23212b03d393c197": "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type",
-        "952a2d5ed7f644e3fce0a63263a6c31f188a70b1b45f4064df504268dfcd85bf": "la part se lit sur W₂², une variance, pas sur W₂",
-        "f7bd270aad3c9bf56309f3e6c4b7bfb385a800ac2666b9e306b0aed9d1384145": "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)"
+        "172c7cd2531c20c98dc61f540bfda5b7ad2bb06449ebc48bddc519e9abc92b06": "la part se lit sur W₂², une variance, pas sur W₂",
+        "29805a32091f5be2e91287ceb70b54943c3727a8d16f6a9ef5f216ff5b7fa775": "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)",
+        "e8e8b7aaeb8ca0bcc46ff9a6701581bbaaea57ed8254ad32ad807ddb7dd87066": "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type"
       },
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"

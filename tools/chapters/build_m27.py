@@ -285,7 +285,9 @@ PAPER = [
                      "de la diagonale": floats([sorted([S1_9[0][0], S1_9[1][1]], reverse=True),
                                                sorted([S2_9[0][0], S2_9[1][1]], reverse=True)]),
                      "les valeurs propres de Σ sont des variances : ne prends pas leurs racines":
-                         [[math.sqrt(x) for x in eigen_desc(S)] for S in (S1_9, S2_9)]}'''),
+                         [[math.sqrt(x) for x in eigen_desc(S)] for S in (S1_9, S2_9)],
+                     "chaque liste dans l'ordre décroissant : la plus grande valeur propre d'abord":
+                         floats([sorted(eigen_desc(S1_9)), sorted(eigen_desc(S2_9))])}'''),
         ("b", "a number", "ROOTS_9",
          '''decimals=6,
            mistakes={"Σ₁Σ₂ a pour valeurs propres les produits des valeurs propres de Σ₁ et de Σ₂ associées au même "
@@ -912,7 +914,7 @@ NOTE_19 = (r"`G = np.array(G, dtype=float)`, les contrôles, `G.min(axis=1)`, `G
            r"$\max_j\min_i(-g_{ij}) = -\min_j\max_i g_{ij}$. c) `(60.0, 85.0, 1, 0)` ; faux ($60 < 85$).")
 
 M27_19 = Ex(
-    "M27.19", "🔨", 1, 15, "Les valeurs d'un jeu en stratégies pures : maximin, minimax et coups prudents, points selles "
+    "M27.19", "🔨", 1, 25, "Les valeurs d'un jeu en stratégies pures : maximin, minimax et coups prudents, points selles "
     "compris · `pure_strategy_values`",
     "programmer le maximin, le minimax et les coups qui les donnent, puis voir qu'ils forment un point selle quand il en "
     "existe un, et seulement alors.", "fiche §1 ; Ex M27.1 et M27.2", tracks="C, E", mymath="distances.py", note=NOTE_19,
@@ -975,7 +977,7 @@ NOTE_20 = (r"La forme, puis `pure_strategy_values` ; si `maximin == minimax`, le
            r"rend `(1.0, 1.0, 4.0)`, le point selle (0, 0). c) $73{,}4615$ et $73{,}4615$.")
 
 M27_20 = Ex(
-    "M27.20", "🔨", 2, 20, "Les stratégies optimales et la valeur d'un jeu 2 × 2, avec ou sans point selle · "
+    "M27.20", "🔨", 2, 25, "Les stratégies optimales et la valeur d'un jeu 2 × 2, avec ou sans point selle · "
     "`mixed_strategy_value_2x2`",
     "programmer les stratégies optimales d'un jeu 2 × 2, pures s'il y a un point selle, d'indifférence sinon, et voir "
     "que p* et q* garantissent la même valeur.", "fiche §2 ; Ex M27.2 et M27.19", tracks="C, E", mymath="distances.py",
@@ -1078,7 +1080,7 @@ NOTE_21 = (r"`xs = np.empty((n_steps + 1, n))`, `ys = np.empty((n_steps + 1, m))
            r"$10^{-15}$, puisque $\eta\lVert\mathbf{A}\rVert_2 < 2$.")
 
 M27_21 = Ex(
-    "M27.21", "🔨", 2, 20, "Les itérés de la descente-montée simultanée ou alternée sur un jeu bilinéaire xᵀAy · "
+    "M27.21", "🔨", 2, 35, "Les itérés de la descente-montée simultanée ou alternée sur un jeu bilinéaire xᵀAy · "
     "`descent_ascent_iterates`",
     "programmer les deux descentes-montées, puis vérifier aux arrondis près les deux propriétés de la fiche : l'une "
     "éloigne de l'équilibre, l'autre garde une quantité constante.", "fiche §4 ; M22 ; Ex M27.4", tracks="C",
@@ -1137,7 +1139,7 @@ NOTE_22 = (r"Les contrôles (`numbers.Real`, ni `bool` ni `np.bool_`, `math.isfi
            r"`float(math.hypot(mu1 - mu2, sigma1 - sigma2))`. a) 1,3. b) $\approx 0{,}2886$. c) 2.")
 
 M27_22 = Ex(
-    "M27.22", "🔨", 1, 10, "W₂ de deux gaussiennes en dimension 1, à partir des moyennes et des écarts-types · "
+    "M27.22", "🔨", 1, 15, "W₂ de deux gaussiennes en dimension 1, à partir des moyennes et des écarts-types · "
     "`w2_gaussians_1d`",
     "programmer W₂ de deux gaussiennes de la droite, avec des écarts-types et sans élever au carré, et le lire comme une "
     "distance euclidienne.", "fiche §8 ; Ex M27.8 et M27.16", tracks="C, E", mymath="distances.py", note=NOTE_22,
@@ -1183,11 +1185,8 @@ for letter_22r, (m1_22r, s1_22r, m2_22r, s2_22r) in zip("abc", [(20.0, 1.5, 21.2
     ],
 )
 
-GIVEN_23 = '''DEPOTS_MAP = np.array([[1.0, 0.0], [4.0, 3.0], [6.0, -2.0]])    # c): the depots on a map (km)
-STORES_MAP = np.array([[2.0, -3.0], [3.0, 4.0], [8.0, 1.0]])    # the stores on the map (km)'''
-
-CHECK_23 = '''NW_C23 = __NW_C23__   # masses you do not see, and the north-west plans expected
-LP_C23 = __LP_C23__   # a cost matrix you do not see, its masses, and the optimal cost
+CHECK_23 = '''NW_C23 = __NW_C23__   # hidden cases of northwest_23: masses, and the north-west plans expected
+LP_C23 = __LP_C23__   # a hidden case of transport_lp_23: a cost matrix, its masses, and the optimal cost
 
 with checked("M27.23"):
     results_23 = []
@@ -1205,9 +1204,9 @@ with checked("M27.23"):
                        "vide, va à droite quand la colonne est pleine")
         else:
             why_c23 = f"attendu {shown(case_c23['want'])}, reçu {shown(got_c23)[:160]}"
-        report_23(False, "", f"northwest_23, des masses que tu ne vois pas (a = {case_c23['a']}, b = {case_c23['b']}) : "
+        report_23(False, "", f"northwest_23, un cas caché de ta fonction (a = {case_c23['a']}, b = {case_c23['b']}) : "
                   f"{why_c23}")
-    report_23(True, "northwest_23 : des masses que tu ne vois pas, dont une ligne et une colonne qui se vident ensemble", "")
+    report_23(True, "northwest_23 : deux cas cachés de ta fonction, dont une ligne et une colonne qui se vident ensemble", "")
     C_c23, a_c23, b_c23 = (np.array(LP_C23[key]) for key in ("C", "a", "b"))
     plan_c23, cost_c23 = pair("M27.23", "transport_lp_23", transport_lp_23(C_c23.copy(), a_c23.copy(), b_c23.copy()),
                               names=("plan", "cost"))
@@ -1221,31 +1220,28 @@ with checked("M27.23"):
     report_23(abs(float(cost_c23) - float((plan_c23 * C_c23).sum())) <= 1e-7,
               "le coût rendu est celui du plan rendu", "transport_lp_23 : cost doit être le coût du plan rendu, Σ γᵢⱼ cᵢⱼ")
     report_23(abs(float(cost_c23) - LP_C23["optimum"]) <= 1e-7,
-              f"une matrice de coûts que tu ne vois pas (3 × 4) : le coût optimal, {fr(LP_C23['optimum'], 4)}",
-              f"une matrice de coûts que tu ne vois pas : attendu le coût optimal {fr(LP_C23['optimum'], 4)}, reçu "
+              f"un cas caché de ta fonction (une matrice de coûts 3 × 4) : le coût optimal, {fr(LP_C23['optimum'], 4)}",
+              f"un cas caché de ta fonction (une matrice de coûts 3 × 4) : attendu le coût optimal {fr(LP_C23['optimum'], 4)}, reçu "
               f"{fr(float(cost_c23), 4)} (le programme minimise Σ γᵢⱼ cᵢⱼ)")
     verdict("M27.23", all(results_23), "tes deux fonctions passent les cas cachés.", "")'''
 
 NOTE_23 = (r"a) 155 t·km, $W_1 = 1{,}55$ km ; vrai. `linprog` peut rendre un autre plan optimal : pour le coût "
            r"$\lvert x - y\rvert$, l'optimum n'est pas unique (un trajet de 4 à 3 puis de 6 à 2 coûte autant qu'un trajet "
            r"de 4 à 2 puis de 6 à 3). b) 275 t·km², $W_2 = \sqrt{2{,}75} \approx 1{,}6583$ km ; vrai : pour un coût "
-           r"strictement convexe, le plan optimal est unique, et c'est le plan monotone. c) $\approx 298{,}34$ t·km pour "
-           r"`linprog`, $\approx 355{,}84$ pour le coin nord-ouest dans l'ordre des abscisses.")
+           r"strictement convexe, le plan optimal est unique, et c'est le plan monotone.")
 
 M27_23 = Ex(
-    "M27.23", "📦", 2, 25, "`scipy.optimize.linprog` : le transport optimal entre deux lois discrètes de la droite comme "
+    "M27.23", "📦", 2, 35, "`scipy.optimize.linprog` : le transport optimal entre deux lois discrètes de la droite comme "
     "programme linéaire, comparé au plan monotone et à l'aire entre les fonctions de répartition",
     "écrire le transport optimal comme un programme linéaire, le résoudre par une bibliothèque, et voir que sur la droite "
-    "le plan monotone suffit, pas dans le plan.", "fiche §7 et §8 ; M10 ; Ex M27.7", tracks="C", given=GIVEN_23,
-    note=NOTE_23,
-    body=r"""Écris `transport_lp_23(C, a, b)`, qui résout le programme linéaire du transport (fiche §7) par `scipy.optimize.linprog(..., method="highs")` : les $mn$ inconnues $\gamma_{ij}$ rangées ligne par ligne ($\gamma_{ij}$ est l'inconnue $i\,n + j$), le coût $\sum\gamma_{ij}c_{ij}$, les $m + n$ contraintes d'égalité des marges (l'une est redondante : `linprog` s'en accommode) et $\gamma_{ij} \ge 0$ ; elle rend `(plan, cost)`, le plan de forme $(m, n)$ et son coût. Écris aussi `northwest_23(a, b)`, qui rend le plan du coin nord-ouest (fiche §8) pour deux tableaux de masses de même somme, les points étant supposés rangés dans l'ordre croissant.
+    "le plan monotone suffit.", "fiche §7 et §8 ; M10 ; Ex M27.7", tracks="C", note=NOTE_23,
+    body=r"""Écris `transport_lp_23(C, a, b)`, qui résout le programme linéaire du transport (fiche §7) par `scipy.optimize.linprog(..., method="highs")` : les $mn$ inconnues $\gamma_{ij}$ rangées ligne par ligne ($\gamma_{ij}$ est l'inconnue $i\,n + j$), le coût $\sum\gamma_{ij}c_{ij}$, les $m + n$ contraintes d'égalité des marges (l'une est redondante : `linprog` s'en accommode) et $\gamma_{ij} \ge 0$ ; elle rend `(plan, cost)`, le plan de forme $(m, n)$ et son coût. Écris aussi `northwest_23(a, b)`, qui rend le plan du coin nord-ouest (fiche §8) pour deux tableaux de masses de même somme, les points étant supposés rangés dans l'ordre croissant ; la vérification essaie les deux fonctions sur des cas cachés.
 
 Avec les dépôts et les magasins de M27.7 (la cellule de données de la partie A : `DEPOTS_KM`, `DEPOTS_T`, `STORES_KM`, `STORES_T`, masses en tonnes) :
-- a) pour le coût $c_{ij} = \lvert x_i - y_j\rvert$ : le coût optimal (t·km), $W_1$ (km), et vrai ou faux, le plan du coin nord-ouest a le même coût, à $10^{-9}$ près (une liste de 3 : les deux nombres, puis le booléen) ;
-- b) pour le coût $(x_i - y_j)^2$ : le coût optimal (t·km²), $W_2$ (km), et vrai ou faux, le plan de `linprog` est le plan du coin nord-ouest, à $10^{-6}$ près (une liste de 3 : les deux nombres, puis le booléen) ;
-- c) on quitte la route : les dépôts sont aux points $(1, 0)$, $(4, 3)$ et $(6, -2)$ d'une carte, les magasins aux points $(2, -3)$, $(3, 4)$ et $(8, 1)$ (en km ; `DEPOTS_MAP`, `STORES_MAP`), avec les mêmes masses et le coût $\lVert\mathbf{x}_i - \mathbf{y}_j\rVert$ : le coût optimal, puis le coût du plan du coin nord-ouest pris dans l'ordre des abscisses (une liste de 2 nombres, t·km ; 2 décimales dans ta copie).
+- a) pour le coût $c_{ij} = \lvert x_i - y_j\rvert$ : le coût optimal (t·km), $W_1$ (km, pour les deux lois ramenées à une masse totale de 1), et vrai ou faux, le plan du coin nord-ouest a le même coût (à $10^{-9}$ près) (une liste de 3 : les deux nombres, puis le booléen) ;
+- b) pour le coût $(x_i - y_j)^2$ : le coût optimal (t·km²), $W_2$ (km, pour les mêmes lois ramenées à 1), et vrai ou faux, le plan de `linprog` est le plan du coin nord-ouest (à $10^{-6}$ près, case par case) (une liste de 3 : les deux nombres, puis le booléen).
 
-Compare enfin a) à ton $W_1$ de M27.7, obtenu aussi par l'aire entre les fonctions de répartition. La vérification essaie aussi `northwest_23` et `transport_lp_23` sur des cas que tu ne vois pas. Ce qu'il faut observer : sur la droite, le plan monotone est optimal pour les deux coûts, et l'aire entre les fonctions de répartition donne $W_1$ sans programme linéaire ; pour le coût $\lvert x - y\rvert$, l'optimum n'est pas toujours unique, et `linprog` peut rendre un autre plan de même coût ; dans le plan, l'ordre ne veut plus rien dire, et il faut le programme linéaire.""",
+Compare enfin a) à ton $W_1$ de M27.7, obtenu aussi par l'aire entre les fonctions de répartition. Ce qu'il faut observer : sur la droite, le plan monotone est optimal pour les deux coûts, et l'aire entre les fonctions de répartition donne $W_1$ sans programme linéaire ; pour le coût $\lvert x - y\rvert$, l'optimum n'est pas toujours unique, et `linprog` peut rendre un autre plan de même coût ; hors de la droite, où l'ordre ne veut plus rien dire, seul le programme linéaire reste.""",
     todo='''def transport_lp_23(C, a, b):
     """The optimal transport plan by scipy.optimize.linprog(..., method="highs"): the m n unknowns γ_ij row by row (γ_ij is
     the unknown i n + j), the cost Σ γ_ij c_ij, the m + n equalities of the margins, γ_ij >= 0. Returns (plan, cost): the
@@ -1259,12 +1255,11 @@ def northwest_23(a, b):
     raise NotImplementedError("northwest_23 n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
-answer_M27_23a = answer_M27_23b = answer_M27_23c = ...
+answer_M27_23a = answer_M27_23b = ...
 with wbm.attempt("M27.23"):          # your two functions: ⏳ while they are not written
-    answer_M27_23a = ...  # a) a list of 3: the optimal cost for |x − y| (t·km), W1 (km), then True or False: the north-west plan has the same cost (to 1e-9)
-    answer_M27_23b = ...  # b) a list of 3: the optimal cost for (x − y)² (t·km²), W2 (km), then True or False: the plan of linprog is the north-west plan (to 1e-6)
-    answer_M27_23c = ...  # c) a list of 2 numbers, as computed: on the map, the optimal cost, then the cost of the north-west plan in the order of the abscissas (t·km)''',
-    check=answers_check("M27.23", "abc") + "\n\n" + CHECK_23,
+    answer_M27_23a = ...  # a) a list of 3: the optimal cost for |x − y| (t·km), W1 (km, the two laws brought to a total mass of 1), then True or False: the north-west plan has the same cost (to 1e-9)
+    answer_M27_23b = ...  # b) a list of 3: the optimal cost for (x − y)² (t·km²), W2 (km, the same laws brought to 1), then True or False: the plan of linprog is the north-west plan (to 1e-6, cell by cell)''',
+    check=answers_check("M27.23", "ab") + "\n\n" + CHECK_23,
     solution='''def transport_lp_23(C, a, b):
     """The optimal transport plan by scipy.optimize.linprog(..., method="highs"): the m n unknowns γ_ij row by row (γ_ij is
     the unknown i n + j), the cost Σ γ_ij c_ij, the m + n equalities of the margins, γ_ij >= 0. Returns (plan, cost): the
@@ -1299,11 +1294,7 @@ answer_M27_23a = [cost1_23, float(cost1_23 / total_23), bool(abs((nw_23 * C1_23)
 C2_23 = C1_23 ** 2
 plan2_23, cost2_23 = transport_lp_23(C2_23, DEPOTS_T, STORES_T)
 answer_M27_23b = [cost2_23, math.sqrt(cost2_23 / total_23), bool(np.allclose(plan2_23, nw_23, rtol=0, atol=1e-6))]
-C3_23 = np.linalg.norm(DEPOTS_MAP[:, None, :] - STORES_MAP[None, :, :], axis=2)
-order_d_23, order_s_23 = np.argsort(DEPOTS_MAP[:, 0]), np.argsort(STORES_MAP[:, 0])
-nw3_23 = northwest_23(DEPOTS_T[order_d_23], STORES_T[order_s_23])
-answer_M27_23c = [transport_lp_23(C3_23, DEPOTS_T, STORES_T)[1], float((nw3_23 * C3_23[order_d_23][:, order_s_23]).sum())]
-print("a)", answer_M27_23a, " b)", answer_M27_23b, " c)", np.round(answer_M27_23c, 4).tolist())
+print("a)", answer_M27_23a, " b)", answer_M27_23b)
 print("le plan de linprog pour |x − y| :", np.round(plan1_23, 6).tolist(), "; le coin nord-ouest :", nw_23.tolist())
 
 ''' + CHECK_23,
@@ -1333,19 +1324,11 @@ wbm.record("M27.23b", [c2_23r, math.sqrt(c2_23r / 100), True], decimals=6,
            mistakes={"W₂ est la racine du coût minimal par tonne (W₂² est le coût minimal)": [c2_23r, c2_23r / 100, True],
                      "divise par la masse totale avant de prendre la racine": [c2_23r, math.sqrt(c2_23r), True],
                      "pour le coût (x − y)², strictement convexe, le plan optimal est unique : compare les deux plans "
-                     "coefficient par coefficient": [c2_23r, math.sqrt(c2_23r / 100), False]})
-xm_23r, ym_23r = np.array([[1.0, 0], [4, 3], [6, -2]]), np.array([[2.0, -3], [3, 4], [8, 1]])
-d_23r = np.linalg.norm(xm_23r[:, None, :] - ym_23r[None, :, :], axis=2)
-nw_23r = np.array([[20.0, 0, 0], [20, 30, 0], [0, 5, 25]])              # the abscissas are already in increasing order
-wbm.record("M27.23c", [assignment_23r(d_23r, a_23r, b_23r), float((nw_23r * d_23r).sum())], decimals=6,
-           mistakes={"le coût optimal d'abord, puis celui du coin nord-ouest":
-                         [float((nw_23r * d_23r).sum()), assignment_23r(d_23r, a_23r, b_23r)],
-                     "le coût est la distance ‖xᵢ − yⱼ‖, pas son carré":
-                         [assignment_23r(d_23r ** 2, a_23r, b_23r), float((nw_23r * d_23r ** 2).sum())]})''',
+                     "coefficient par coefficient": [c2_23r, math.sqrt(c2_23r / 100), False]})''',
     after=[
         ("md", "**Après la vérification**, dans ta copie : pourquoi le plan du coin nord-ouest est-il optimal sur la route, "
                "pour les deux coûts ? Pourquoi `linprog` peut-il rendre un autre plan pour $\\lvert x - y\\rvert$, et pas "
-               "pour $(x - y)^2$ ? Que perd-on sur la carte en rangeant les points par abscisse ?"),
+               "pour $(x - y)^2$ ?"),
     ],
 )
 
@@ -1359,23 +1342,30 @@ PART_A = Part("A", "Ta librairie : les valeurs d'un jeu, ses stratégies optimal
 # ---------------------------------------------------------------------------
 # Notebook exercises: predict, measure, draw (M27.24 to M27.26)
 # ---------------------------------------------------------------------------
-CHECK_24 = '''PATHS_C24 = __PATHS_C24__   # the iterates expected, [xs, ys], for each call of the check
+CHECK_24 = '''PATHS_C24 = {key: [arr[:, 0].tolist() for arr in ref_distances.descent_ascent_iterates(
+                 [[1.0]], [1.0], [0.0], eta, n_steps=n, alternating=alt)]
+             for key, (eta, n, alt) in {"0.3-s": (0.3, 40, False), "0.3-a": (0.3, 40, True),
+                                        "2.5-a": (2.5, 40, True), "hidden": (0.45, 12, True)}.items()}   # the iterates expected, [xs, ys], computed by the reference (no value written here)
 
 
 def look_24(ax, eta, n_steps, alternating, key):
     """What is missing in a drawing of draw_paths_24 (French phrases)."""
     xs, ys = PATHS_C24[key]
     missing = []
-    if not through(ax, xs, ys, rtol=1e-9, atol=1e-12):
-        missing.append(f"les {n_steps + 1} itérés depuis (1, 0), reliés dans l'ordre (x en abscisse, y en ordonnée)")
+    joined = [line for line in ax.lines if str(line.get_linestyle()) not in ("None", "none", "", " ")]
+    if not any(np.shape(line.get_xdata()) == np.shape(xs) and np.allclose(line.get_xdata(), xs, rtol=1e-9, atol=1e-12)
+               and np.allclose(line.get_ydata(), ys, rtol=1e-9, atol=1e-12) for line in joined):
+        missing.append(f"les {n_steps + 1} itérés depuis (1, 0), reliés dans l'ordre par un trait (x en abscisse, y en "
+                       "ordonnée ; dessine avec ax.plot, pas plt.plot, qui dessine dans le dernier axe créé)")
     if not points_at(ax, [0.0], [0.0], marker_only=True):
         missing.append("l'équilibre (0, 0), marqué par un point")
     if ax.get_aspect() != 1.0:
         missing.append('des axes de même échelle (ax.set_aspect("equal"))')
     title = ax.get_title().lower()
     eta_texts = (f"{eta:g}", f"{eta:g}".replace(".", ","))
-    if not any(text in title for text in eta_texts) or ("altern" if alternating else "simultan") not in title:
-        missing.append(f"un titre qui donne η ({eta_texts[1]}) et le mode ({'alterné' if alternating else 'simultané'})")
+    mode, other = ("altern", "simultan") if alternating else ("simultan", "altern")
+    if not any(text in title for text in eta_texts) or mode not in title or other in title:
+        missing.append(f"un titre qui donne η ({eta_texts[1]}) et son seul mode ({'alterné' if alternating else 'simultané'})")
     if not ax.get_xlabel() or not ax.get_ylabel():
         missing.append("des noms d'axes")
     return missing
@@ -1402,8 +1392,8 @@ with checked("M27.24"):
             mode_24 = "alterné" if alternating_24 else "simultané"
             report_24(not missing_24, f"η = {fr(eta_24, 1)}, {mode_24} : les 41 itérés, l'équilibre, l'échelle, le titre et "
                       "les axes sont là", f"η = {fr(eta_24, 1)}, {mode_24} : il manque " + " ; ".join(missing_24))
-        report_24(not missing_c24, "un appel que tu ne vois pas (un autre pas, 12 pas alternés) est dessiné juste aussi",
-                  "un appel que tu ne vois pas (un autre pas, 12 pas alternés) : il manque " + " ; ".join(missing_c24))
+        report_24(not missing_c24, "un appel caché de ta fonction (un autre pas, 12 pas alternés) est dessiné juste aussi",
+                  "un appel caché de ta fonction (η = 0,45, 12 pas alternés) : il manque " + " ; ".join(missing_c24))
         report_24(not opened_24, "draw_paths_24 dessine dans l'axe reçu",
                   "draw_paths_24 doit dessiner dans l'axe reçu, sans ouvrir de figure")
     except BaseException:
@@ -1419,22 +1409,22 @@ NOTE_24 = (r"Prédictions attendues : a) (C) ; b) (B) ; c) (B). d) $1{,}09^{20} 
            r"changeant de côté.")
 
 M27_24 = Ex(
-    "M27.24", "🔮", 1, 15, "Prédire la trajectoire de la descente-montée simultanée puis alternée sur xy, puis la tracer : "
+    "M27.24", "🔮", 1, 25, "Prédire la trajectoire de la descente-montée simultanée puis alternée sur xy, puis la tracer : "
     "spirale qui s'éloigne ou courbe fermée ?",
     "prévoir par le module et l'argument des valeurs propres d'un pas la trajectoire de la descente-montée, puis la "
-    "tracer, et voir le pas alterné quitter sa courbe fermée pour η > 2.", "fiche §4 ; M22 ; Ex M27.4 et M27.21",
+    "tracer, et voir ce que devient le pas alterné quand le pas grandit.", "fiche §4 ; M22 ; Ex M27.4 et M27.21",
     tracks="C", hypothesis=True, note=NOTE_24,
     body=r"""On joue la descente-montée sur $f(x, y) = xy$ depuis $(x_0, y_0) = (1, 0)$, pendant 40 pas. **Avant d'exécuter quoi que ce soit**, prédis :
 - a) avec $\eta = 0{,}3$, en simultané, la distance à l'équilibre après 40 pas vaut environ : (A) 1 ; (B) 1,5 ; (C) 5,6 ; (D) 40 (une lettre) ;
 - b) avec $\eta = 0{,}3$, en simultané, le nombre de tours que font les itérés autour de l'équilibre en 40 pas : (A) moins d'un ; (B) entre 1 et 2 ; (C) entre 3 et 4 ; (D) aucun, ils partent en ligne droite (une lettre) ;
 - c) avec $\eta = 2{,}5$, en alterné : (A) une courbe fermée ; (B) des itérés qui s'éloignent ; (C) des itérés qui convergent vers $(0, 0)$ (une lettre).
 
-Puis, une fois tes prédictions écrites et vérifiées, écris `draw_paths_24(ax, eta, n_steps, alternating)`, qui dessine sur l'**axe reçu** (sans ouvrir de figure), avec ta `descent_ascent_iterates` (M27.21), les itérés depuis $(1, 0)$ reliés dans l'ordre ($x$ en abscisse, $y$ en ordonnée), l'équilibre marqué par un point, des axes de même échelle (`ax.set_aspect("equal")`), un titre qui donne $\eta$ et le mode (« simultané » ou « alterné »), et des noms d'axes. La vérification l'appelle pour $\eta = 0{,}3$ (simultané, puis alterné) et pour $\eta = 2{,}5$ (alterné), et affiche la figure ; elle l'appelle aussi avec un autre pas, que tu ne vois pas. Relève :
+Puis, une fois tes prédictions écrites et vérifiées, écris `draw_paths_24(ax, eta, n_steps, alternating)`, qui dessine sur l'**axe reçu** (sans ouvrir de figure), avec ta `descent_ascent_iterates` (M27.21), les itérés depuis $(1, 0)$ reliés dans l'ordre par un trait ($x$ en abscisse, $y$ en ordonnée), l'équilibre marqué par un point, des axes de même échelle (`ax.set_aspect("equal")`), un titre qui donne $\eta$ et le mode (« simultané » ou « alterné », pas les deux), et des noms d'axes. La vérification l'appelle pour $\eta = 0{,}3$ (simultané, puis alterné) et pour $\eta = 2{,}5$ (alterné), et affiche la figure ; elle l'appelle aussi avec un autre pas (un appel caché). Relève :
 - d) la distance à l'équilibre après 40 pas simultanés avec $\eta = 0{,}3$ (un nombre ; 4 décimales dans ta copie) ;
 - e) le nombre de tours de ces 40 pas : l'angle total parcouru, `np.unwrap(np.arctan2(y, x))` du premier au dernier itéré, divisé par $2\pi$ (un nombre ; 4 décimales dans ta copie) ;
 - f) $\log_{10}$ de la distance à l'équilibre après 40 pas alternés avec $\eta = 2{,}5$ (un nombre ; 2 décimales dans ta copie).
 
-La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut observer : la spirale est réglée par le module et l'argument de $1 \pm i\eta$ ; le pas alterné ne reste sur une courbe fermée que pour $\eta < 2$.""",
+La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut observer : la spirale est réglée par le module et l'argument de $1 \pm i\eta$ ; le pas alterné ne reste pas sur une courbe fermée pour tout pas : M27.4 dit à partir de quand.""",
     todo='''prediction_M27_24a = ...  # a) "A", "B", "C" or "D", written BEFORE the experiment: η = 0.3, simultaneous, the distance after 40 steps is about...
 prediction_M27_24b = ...  # b) "A", "B", "C" or "D": the number of turns of these 40 steps
 prediction_M27_24c = ...  # c) "A", "B" or "C": η = 2.5, alternating''',
@@ -1533,19 +1523,19 @@ SIZES_25 = [(5, 5), (20, 20), (80, 80), (5, 80), (80, 5)]  # (n1, n2): two serie
 SHIFT_25 = np.array([0.05, 0.0, 0.0])                     # a true shift of the first dimension (mm)
 N_REP_25 = 4000                                           # the number of simulated pairs of series'''
 
-HINTS_25 = '''MEANS_C25 = __MEANS_C25__   # the means of a) for (5, 5), (20, 20), (80, 80), rounded to 4 decimals (the figure, a hint)
+HINTS_25 = '''MEANS_C25 = [2 * 0.14 / n for n in (5, 20, 80)]   # the theoretical means 2 tr Σ / n of the equal sizes (the figure, a hint)
 
 
 def means_hint_25(value):
     """a): means close to the expected ones (within 10 %), not equal to them: the order of the draws."""
     got = np.asarray(value, dtype=float)
     if got.shape == (3, 5) and np.all(np.abs(got[0, :3] / np.array(MEANS_C25) - 1) < 0.1):
-        return ("tes moyennes ont le bon ordre de grandeur : les valeurs exactes demandent les tirages dans l'ordre de "
-                "l'énoncé (à chaque appel, la série 1 puis la série 2 ; les appels dans l'ordre de SIZES_25), avec le "
-                "même rng")
+        return ("tes moyennes ont le bon ordre de grandeur : les valeurs exactes demandent les tirages de l'énoncé, "
+                "dans son ordre (à chaque appel, la série 1 puis la série 2 ; les appels dans l'ordre de SIZES_25 ; le "
+                "même rng) et transformés comme lui, mu + z @ L.T avec L = np.linalg.cholesky(Sigma)")
     return None'''
 
-CHECK_25 = '''HIDDEN_C25 = __HIDDEN_C25__   # a case you do not see: its data, the value expected, three classic wrong values
+CHECK_25 = '''HIDDEN_C25 = __HIDDEN_C25__   # a hidden case of distance_bias_25: its data, the value expected, three classic wrong values
 
 with checked("M27.25"):
     results_25 = []
@@ -1565,8 +1555,8 @@ with checked("M27.25"):
                                                                                           rel_tol=1e-9)),
                    f"attendu {h_c25['want']:.6g}, reçu {shown(got_c25)}")
     report_25(math.isclose(value_c25, h_c25["want"], rel_tol=1e-9),
-              "distance_bias_25 : un cas que tu ne vois pas (deux moyennes différentes, n1 = 7, n2 = 3), comme attendu",
-              f"distance_bias_25, un cas que tu ne vois pas (n1 = 7, n2 = 3, default_rng({h_c25['seed']})) : {why_c25}")
+              "distance_bias_25 : un cas caché de ta fonction (deux moyennes différentes, n1 = 7, n2 = 3), comme attendu",
+              f"distance_bias_25, un cas caché de ta fonction (n1 = 7, n2 = 3, default_rng({h_c25['seed']})) : {why_c25}")
     fig_c25, ax_c25 = plt.subplots()
     try:
         opened_c25 = drawn(draw_bias_25, ax_c25, [3, 9, 27, 81], [0.4, 0.12, 0.035, 0.013], 0.5)
@@ -1588,8 +1578,8 @@ with checked("M27.25"):
                   "les deux échelles doivent être logarithmiques (ax.set_xscale(\\"log\\"), ax.set_yscale(\\"log\\"))")
         report_25(ax_25.get_legend() is not None and ax_25.get_xlabel() != "" and ax_25.get_ylabel() != "",
                   "des noms d'axes et une légende", "draw_bias_25 doit nommer les axes et mettre une légende")
-        report_25(hidden_ok_c25, "un appel que tu ne vois pas (d'autres tailles, une autre trace) est dessiné juste aussi",
-                  "un appel que tu ne vois pas (ns = [3, 9, 27, 81], trace = 0,5) : il manque les points ou la courbe "
+        report_25(hidden_ok_c25, "un appel caché de draw_bias_25 (d'autres tailles, une autre trace) est dessiné juste aussi",
+                  "un appel caché de draw_bias_25 (ns = [3, 9, 27, 81], trace = 0,5) : il manque les points ou la courbe "
                   "2 trace / n")
     except BaseException:
         plt.close(fig_25)
@@ -1605,7 +1595,7 @@ NOTE_25 = (r"a) Moyennes $\approx 0{,}0560$ ; $0{,}0138$ ; $0{,}0036$ ; $0{,}029
            r"\boldsymbol{\Sigma}/n$, de pente $-1$ en échelles logarithmiques.")
 
 M27_25 = Ex(
-    "M27.25", "🔬", 2, 20, "Le biais d'une distance estimée : ‖x̄₁ − x̄₂‖² entre deux échantillons d'une même loi de ℝ³, "
+    "M27.25", "🔬", 2, 30, "Le biais d'une distance estimée : ‖x̄₁ − x̄₂‖² entre deux échantillons d'une même loi de ℝ³, "
     "selon leurs tailles, contre tr Σ₁/n₁ + tr Σ₂/n₂",
     "mesurer par simulation le biais d'une distance estimée entre deux moyennes, le comparer à tr Σ (1/n₁ + 1/n₂), et "
     "voir un petit décalage réel s'y noyer.", "fiche §9 ; M02c ; Ex M27.15", tracks="C", given=GIVEN_25, note=NOTE_25,
@@ -1619,7 +1609,7 @@ Avec `rng = np.random.default_rng(6425)`, `n_rep = 4000` (`N_REP_25`) et ce mêm
 - c) avec le décalage, les deux moyennes, puis les mêmes moins $\operatorname{tr}\boldsymbol{\Sigma}\,(\frac{1}{n_1} + \frac{1}{n_2})$, à comparer à $\lVert\boldsymbol{\delta}\rVert^2 = 0{,}0025$ (une liste de 4 nombres) ;
 - d) vrai ou faux : avec 5 cales par série, la distance estimée moyenne dépasse vingt fois la vraie distance $\lVert\boldsymbol{\delta}\rVert^2$.
 
-La vérification essaie `distance_bias_25` sur un cas que tu ne vois pas, puis appelle `draw_bias_25` sur les trois tailles égales (avec les moyennes attendues, arrondies) et affiche la figure. Ce qu'il faut conclure : la distance estimée entre deux séries d'une même machine n'est pas nulle, elle suit $\operatorname{tr}\boldsymbol{\Sigma}\,(\frac{1}{n_1} + \frac{1}{n_2})$ ; un petit décalage réel se noie dans ce biais sur de petites séries ; deux distances estimées ne se comparent qu'à tailles égales, ou après avoir retiré le biais.""",
+La vérification essaie `distance_bias_25` sur un cas caché, puis appelle `draw_bias_25` sur les trois tailles égales (avec, pour moyennes, les valeurs théoriques $2\operatorname{tr}\boldsymbol{\Sigma}/n$) et affiche la figure ; elle l'appelle aussi sur d'autres tailles (un appel caché). Ce qu'il faut conclure : la distance estimée entre deux séries d'une même machine n'est pas nulle, elle suit $\operatorname{tr}\boldsymbol{\Sigma}\,(\frac{1}{n_1} + \frac{1}{n_2})$ ; un petit décalage réel se noie dans ce biais sur de petites séries ; deux distances estimées ne se comparent qu'à tailles égales, ou après avoir retiré le biais.""",
     todo='''def distance_bias_25(mu1, mu2, Sigma, n1, n2, n_rep, rng):
     """n_rep pairs of independent series at once: L = np.linalg.cholesky(Sigma), then the series 1,
     mu1 + rng.standard_normal((n_rep, n1, 3)) @ L.T, then the series 2, mu2 + rng.standard_normal((n_rep, n2, 3)) @ L.T;
@@ -1724,8 +1714,8 @@ WAIT_A_26, WAIT_B_26 = stats.expon(scale=2).cdf, stats.expon(scale=5).cdf
 GRID_F_26 = 1.8 * GRID_C_26 + 32                           # the same translation in °F
 ROOM_A_F_26, ROOM_B_F_26 = stats.norm(68, 3.6).cdf, stats.norm(70.16, 3.6).cdf'''
 
-CHECK_26 = '''CASES_C26 = __CASES_C26__   # for each call: (w1, ks) expected, and the abscissa of the largest gap on the grid
-HIDDEN_C26 = __HIDDEN_C26__   # a call you do not see: (w1, ks) expected and the abscissa of the largest gap
+CHECK_26 = '''X_STAR_C26 = __X_STAR_C26__   # for each call, the abscissa of the largest gap on the grid ((w1, ks) are checked like a) to c))
+HIDDEN_C26 = __HIDDEN_C26__   # a hidden call: (w1, ks) expected, the abscissa of the largest gap, and the largest F − G without absolute value
 
 
 def vertical_at(ax, x, low, high, tol):
@@ -1762,15 +1752,28 @@ def look_26(ax, cdf_a, cdf_b, grid, label_a, label_b, unit, x_star):
 
 
 def returned_26(label, result, want):
-    """The (w1, ks) returned compared with want: '' when right, else the reason."""
+    """The (w1, ks) returned compared with want (a letter: compared like that answer; else a list): '' when right,
+    else the reason."""
     try:
         w1, ks = (float(v) for v in result)
     except (TypeError, ValueError):
         return f"draw_cdf_gaps_26 doit rendre le couple (w1, ks), reçu {shown(result)}"
+    if isinstance(want, str):                 # a), b) or c): compared like the answer, by wbm.check
+        def as_answer(pair_26):
+            return wbm.check(f"M27.26{want}", list(pair_26), computed=True, quiet=True).passed
+        if as_answer((w1, ks)):
+            return ""
+        if as_answer((ks, w1)):
+            return "tu rends (ks, w1) : rends (w1, ks), dans cet ordre"
+        return ("(w1, ks) ne sont pas ceux attendus : W₁ est l'aire entre les deux courbes (np.trapezoid sur grid), "
+                "KS le plus grand |F − G| sur grid")
     if math.isclose(w1, want[1], abs_tol=1e-6) and math.isclose(ks, want[0], abs_tol=1e-6):
         return "tu rends (ks, w1) : rends (w1, ks), dans cet ordre"
     if not math.isclose(w1, want[0], abs_tol=1e-6):
         return f"W₁ attendu {want[0]:.6f}, reçu {w1:.6f} (l'aire entre les deux courbes, np.trapezoid sur grid)"
+    if math.isclose(ks, want[3], abs_tol=1e-6):
+        return ("KS est le plus grand écart en valeur absolue, |F − G| : ici la seconde courbe passe aussi au-dessus de "
+                "la première")
     if not math.isclose(ks, want[1], abs_tol=1e-6):
         return f"KS attendu {want[1]:.6f}, reçu {ks:.6f} (le plus grand |F − G| sur grid)"
     return ""
@@ -1779,7 +1782,7 @@ def returned_26(label, result, want):
 with checked("M27.26"):
     results_26 = []
     report_26 = reporter(results_26, stop=False)
-    hidden_a_c26, hidden_b_c26 = stats.uniform(0, 4).cdf, stats.triang(0.5, loc=1, scale=2).cdf
+    hidden_a_c26, hidden_b_c26 = stats.uniform(0, 4).cdf, stats.triang(0.25, loc=1, scale=2).cdf
     hidden_grid_c26 = np.linspace(-1, 5, 3001)
     fig_c26, ax_c26 = plt.subplots()
     try:
@@ -1796,18 +1799,18 @@ with checked("M27.26"):
     fig_26, axes_26 = plt.subplots(1, 3, figsize=(16, 4.4))
     try:
         opened_26 = list(opened_c26)
-        for ax_26, (label_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26), case_26 in zip(axes_26, calls_26,
-                                                                                                    CASES_C26):
+        for ax_26, (label_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26), (letter_26, x_star_26) in zip(
+                axes_26, calls_26, zip("abc", X_STAR_C26)):
             result_26 = []
             opened_26 += drawn(lambda: result_26.append(draw_cdf_gaps_26(ax_26, cdf_a_26, cdf_b_26, grid_26.copy(), la_26,
                                                                           lb_26, unit_26)))
-            why_26 = returned_26(label_26, result_26[0], case_26)
+            why_26 = returned_26(label_26, result_26[0], letter_26)
             report_26(not why_26, f"{label_26} : (w1, ks) rendus comme attendu", f"{label_26} : {why_26}")
-            missing_26 = look_26(ax_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26, case_26[2])
+            missing_26 = look_26(ax_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26, x_star_26)
             report_26(not missing_26, f"{label_26} : les deux courbes, l'aire, le segment, le titre et la légende sont là",
                       f"{label_26} : il manque " + " ; ".join(missing_26))
-        report_26(not why_c26 and not missing_c26, "un appel que tu ne vois pas (deux autres lois, une autre grille) est "
-                  "juste aussi", "un appel que tu ne vois pas (deux autres lois, unité « m ») : "
+        report_26(not why_c26 and not missing_c26, "un appel caché de ta fonction (deux autres lois, une autre grille) est "
+                  "juste aussi", "un appel caché de ta fonction (deux autres lois, unité « m ») : "
                   + " ; ".join(([why_c26] if why_c26 else []) + (["il manque " + " ; ".join(missing_c26)] if missing_c26 else [])))
         report_26(not opened_26, "draw_cdf_gaps_26 dessine dans l'axe reçu",
                   "draw_cdf_gaps_26 doit dessiner dans l'axe reçu, sans ouvrir de figure")
@@ -1824,14 +1827,14 @@ NOTE_26 = (r"a) $(1{,}200 ;\ 0{,}236)$ : $W_1$ est le décalage, et $\mathrm{KS}
            r"c) $(2{,}160 ;\ 0{,}236)$.")
 
 M27_26 = Ex(
-    "M27.26", "🎨", 1, 20, "Deux fonctions de répartition sur une même figure : l'aire entre elles (W₁) et leur plus grand "
+    "M27.26", "🎨", 1, 25, "Deux fonctions de répartition sur une même figure : l'aire entre elles (W₁) et leur plus grand "
     "écart vertical (KS), pour une translation puis une dilatation",
     "dessiner deux fonctions de répartition, l'aire entre elles et leur plus grand écart, et voir ce que W₁ et KS "
     "mesurent et ce qu'un changement d'unité leur fait.", "fiche §8 et §10 ; Ex M27.8 et M27.10", tracks="C, E",
     given=GIVEN_26, note=NOTE_26,
     body=r"""Écris `draw_cdf_gaps_26(ax, cdf_a, cdf_b, grid, label_a, label_b, unit)`, qui dessine sur l'**axe reçu** (sans ouvrir de figure) les deux fonctions de répartition `cdf_a` et `cdf_b` évaluées sur `grid` (une courbe chacune, de labels `label_a` et `label_b`, avec une légende), colore l'aire entre elles (`ax.fill_between`), trace un segment vertical d'une courbe à l'autre là où leur écart $\lvert F - G\rvert$ est le plus grand sur la grille, et met en titre les deux nombres $W_1$ (l'aire entre les courbes, par la méthode des trapèzes, `np.trapezoid`), avec son unité `unit`, et KS (le plus grand écart sur la grille) ; elle rend `(w1, ks)`.
 
-La vérification l'appelle trois fois et affiche les figures : une **translation**, la température d'un local, $\mathcal{N}(20 ;\ 2^2)$ contre $\mathcal{N}(21{,}2 ;\ 2^2)$ en °C, sur `np.linspace(10, 32, 4401)` (`ROOM_A_26`, `ROOM_B_26`, `GRID_C_26`) ; une **dilatation**, une attente à un guichet, la loi exponentielle de moyenne 2 contre celle de moyenne 5, en minutes, sur `np.linspace(0, 80, 16001)` (`WAIT_A_26`, `WAIT_B_26`, `GRID_MIN_26` ; `scipy.stats.expon(scale=2).cdf`) ; la même translation en °F, $\mathcal{N}(68 ;\ 3{,}6^2)$ contre $\mathcal{N}(70{,}16 ;\ 3{,}6^2)$, sur la grille $1{,}8 \times$ `grid` $+ 32$ (`ROOM_A_F_26`, `ROOM_B_F_26`, `GRID_F_26`) ; elle l'appelle aussi sur deux autres lois, que tu ne vois pas. Relève, avec ta fonction (appelle-la sur l'axe d'une figure que tu fermes aussitôt, `fig, ax = plt.subplots()` puis `plt.close(fig)`, pour ne pas afficher la figure deux fois) :
+La vérification l'appelle trois fois et affiche les figures : une **translation**, la température d'un local, $\mathcal{N}(20 ;\ 2^2)$ contre $\mathcal{N}(21{,}2 ;\ 2^2)$ en °C, sur `np.linspace(10, 32, 4401)` (`ROOM_A_26`, `ROOM_B_26`, `GRID_C_26`) ; une **dilatation**, une attente à un guichet, la loi exponentielle de moyenne 2 contre celle de moyenne 5, en minutes, sur `np.linspace(0, 80, 16001)` (`WAIT_A_26`, `WAIT_B_26`, `GRID_MIN_26` ; `scipy.stats.expon(scale=2).cdf`) ; la même translation en °F, $\mathcal{N}(68 ;\ 3{,}6^2)$ contre $\mathcal{N}(70{,}16 ;\ 3{,}6^2)$, sur la grille $1{,}8 \times$ `grid` $+ 32$ (`ROOM_A_F_26`, `ROOM_B_F_26`, `GRID_F_26`) ; elle l'appelle aussi sur deux autres lois (un appel caché). Relève, avec ta fonction (appelle-la sur l'axe d'une figure que tu fermes aussitôt, `fig, ax = plt.subplots()` puis `plt.close(fig)`, pour ne pas afficher la figure deux fois) :
 - a) `(w1, ks)` pour la translation (une liste de 2 nombres ; 3 décimales dans ta copie) ;
 - b) `(w1, ks)` pour la dilatation (une liste de 2 nombres ; 3 décimales dans ta copie) ;
 - c) `(w1, ks)` en °F (une liste de 2 nombres ; 3 décimales dans ta copie).
@@ -1913,7 +1916,7 @@ PART_B = Part("B", "Prédire, mesurer, dessiner",
 # ---------------------------------------------------------------------------
 # Notebook exercises: debug and test (M27.27, M27.28)
 # ---------------------------------------------------------------------------
-GIVEN_27 = '''SHAFTS_27 = np.array([20.03, 19.98, 20.01, 19.96, 20.05])   # c): the diameters of five shafts (mm)
+GIVEN_27 = '''SHAFTS_27 = np.array([20.01, 19.98, 20.05, 19.96, 20.03])   # c): the diameters of five shafts (mm)
 SLEEVES_27 = np.array([20.10, 20.04, 20.13, 20.07, 20.06])  # and of five sleeves (mm)
 
 
@@ -1944,7 +1947,7 @@ partner_check_27 = pair_parts(shafts_check_27, sleeves_check_27)
 print("(3)", partner_check_27.tolist() == [1, 0, 2], "; jeux :",
       np.round(sleeves_check_27[partner_check_27] - shafts_check_27, 2).tolist(), "(attendu True ; [0.06, 0.07, 0.06])")'''
 
-CHECK_27 = '''CASES_C27 = __CASES_C27__   # the cases you do not see, with what each corrected function must give
+CHECK_27 = '''CASES_C27 = __CASES_C27__   # the hidden cases of the three corrected functions, with what each must give
 
 results_27, parts_27 = [], []
 
@@ -1982,9 +1985,12 @@ with checked("M27.27"):                                       # (1) penalty_kick
                             "l'adversaire indifférent (ce que coûtent les deux colonnes)")
         elif math.isclose(value_c27, 1 - case_c27["want"], rel_tol=1e-9):
             wrong_27.append("p* est la probabilité de la première ligne, pas de la seconde")
+        elif math.isclose(value_c27, 1 - case_c27["q"], rel_tol=1e-9):
+            wrong_27.append("tu rends 1 − q* : p* est la probabilité de la première ligne, qui rend le joueur des colonnes "
+                            "indifférent")
         else:
             wrong_27.append(f"un jeu sans symétrie : attendu {case_c27['want']:.6f}, reçu {shown(got_c27)}")
-    report_27(not wrong_27, "(1) penalty_kick_mix_fixed : trois jeux que tu ne vois pas, sans symétrie",
+    report_27(not wrong_27, "(1) penalty_kick_mix_fixed : trois jeux cachés, sans symétrie",
               "(1) penalty_kick_mix_fixed : " + " ; ".join(list(dict.fromkeys(wrong_27))[:2]))
     parts_27.append(1)
 
@@ -2005,7 +2011,7 @@ with checked("M27.27"):                                       # (2) w2_settings_
         else:
             wrong_27.append(f"(moyenne, écart-type) = {case_c27['args'][:2]} et {case_c27['args'][2:]} : attendu "
                             f"{case_c27['want']:.6f}, reçu {shown(got_c27)}")
-    report_27(not wrong_27, "(2) w2_settings_fixed : trois réglages que tu ne vois pas, aux écarts-types différents",
+    report_27(not wrong_27, "(2) w2_settings_fixed : trois réglages cachés, aux écarts-types différents",
               "(2) w2_settings_fixed : " + " ; ".join(list(dict.fromkeys(wrong_27))[:2]))
     parts_27.append(2)
 
@@ -2035,7 +2041,7 @@ with checked("M27.27"):                                       # (3) pair_parts_f
         else:
             wrong_27.append(f"{n_c27} axes dans le désordre : ta somme des carrés vaut {total_c27:.6f}, la plus petite "
                             f"{case_c27['best']:.6f}")
-    report_27(not wrong_27, "(3) pair_parts_fixed : des axes dans le désordre, et des diamètres égaux",
+    report_27(not wrong_27, "(3) pair_parts_fixed : des cas cachés, des axes dans le désordre et des diamètres égaux",
               "(3) pair_parts_fixed : " + " ; ".join(list(dict.fromkeys(wrong_27))[:2]))
     parts_27.append(3)
 
@@ -2050,10 +2056,10 @@ NOTE_27 = (r"(1) `penalty_kick_mix` calcule `(d - b) / κ`, la formule de $q^\st
            r"$\sigma^2 = \sigma$. b) $0{,}2886$ contre $0{,}2803$ pour la machine ; 3 contre 21. (3) `pair_parts` ne trie que "
            r"les bagues : juste seulement si les axes arrivent déjà triés, comme dans la vérification. Correction : "
            r"`partner = np.empty(n, dtype=int)` puis `partner[np.argsort(shafts)] = np.argsort(sleeves)`. c) "
-           r"`[0, 4, 3, 1, 2]` ; 0,0277 mm² contre 0,0361 mm².")
+           r"`[3, 4, 2, 1, 0]` ; 0,0277 mm² contre 0,0373 mm².")
 
 M27_27 = Ex(
-    "M27.27", "🐛", 1, 25, "Chasse à l'erreur : une stratégie d'indifférence calculée sur ses propres gains, W₂ de deux "
+    "M27.27", "🐛", 1, 35, "Chasse à l'erreur : une stratégie d'indifférence calculée sur ses propres gains, W₂ de deux "
     "gaussiennes avec des variances, des échantillons appariés sans être triés",
     "reconnaître trois erreurs classiques sur l'indifférence, W₂ et l'appariement trié, qui passent une vérification mal "
     "choisie, puis les corriger.", "fiche §2 et §8 ; Ex M27.2, M27.14, M27.16 et M27.20", tracks="C", given=GIVEN_27,
@@ -2066,9 +2072,9 @@ M27_27 = Ex(
 À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `penalty_kick_mix_fixed`, `w2_settings_fixed` et `pair_parts_fixed`, avec les mêmes arguments (`pair_parts_fixed` rend aussi un tableau NumPy d'entiers). Puis réponds :
 - a) $p^\star$ pour les tirs au but (`G_PENALTY`) par `penalty_kick_mix_fixed`, puis ce que rend `penalty_kick_mix` (une liste de 2 nombres) ;
 - b) $W_2$ par `w2_settings_fixed` puis par `w2_settings`, pour la machine du 🔗 M27.16 (`SHAFTS_BEFORE`, `SHAFTS_AFTER`), puis de même pour $\mathcal{N}(100 ;\ 5^2)$ contre $\mathcal{N}(100 ;\ 2^2)$ (une liste de 4 nombres) ;
-- c) pour les axes `[20.03, 19.98, 20.01, 19.96, 20.05]` et les bagues `[20.10, 20.04, 20.13, 20.07, 20.06]` (`SHAFTS_27`, `SLEEVES_27`) : ce que rend `pair_parts_fixed`, puis $\sum_i(\text{bague} - \text{axe})^2$ (mm²) pour l'appariement corrigé, puis pour celui du collègue (une liste de 7 : les 5 indices, puis les deux sommes).
+- c) pour les axes `[20.01, 19.98, 20.05, 19.96, 20.03]` et les bagues `[20.10, 20.04, 20.13, 20.07, 20.06]` (`SHAFTS_27`, `SLEEVES_27`) : ce que rend `pair_parts_fixed`, puis $\sum_i(\text{bague} - \text{axe})^2$ (mm²) pour l'appariement corrigé, puis pour celui du collègue (une liste de 7 : les 5 indices, puis les deux sommes).
 
-Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas que tu ne vois pas : des jeux sans symétrie, des écarts-types différents, des axes dans le désordre et des diamètres égaux.""",
+Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas cachés : des jeux sans symétrie, des écarts-types différents, des axes dans le désordre et des diamètres égaux.""",
     todo='''def penalty_kick_mix_fixed(G):
     """p*, the optimal probability of the first row of a 2 × 2 game without a saddle point."""
     raise NotImplementedError("penalty_kick_mix_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
@@ -2142,19 +2148,22 @@ wbm.record("M27.27b", [f(*s) for s in settings_27r for f in (right_27r, squares_
                          [right_27r(*s) for s in settings_27r for _ in range(2)],
                      "w2_settings_fixed doit rendre W₂, pas son carré":
                          [v for s in settings_27r for v in (right_27r(*s) ** 2, squares_27r(*s))]})
-shafts_27r, sleeves_27r = [20.03, 19.98, 20.01, 19.96, 20.05], [20.10, 20.04, 20.13, 20.07, 20.06]
+shafts_27r, sleeves_27r = [20.01, 19.98, 20.05, 19.96, 20.03], [20.10, 20.04, 20.13, 20.07, 20.06]
 total_27r = lambda partner: sum((sleeves_27r[j] - x) ** 2 for x, j in zip(shafts_27r, partner))   # noqa: E731
 best_27r = list(min(permutations(range(5)), key=total_27r))              # the oracle: the 120 pairings
 colleague_27r = sorted(range(5), key=lambda j: sleeves_27r[j])
+composed_27r = [colleague_27r[i] for i in sorted(range(5), key=lambda i: shafts_27r[i])]   # argsort(sleeves)[argsort(shafts)]
 wbm.record("M27.27c", best_27r + [total_27r(best_27r), total_27r(colleague_27r)], decimals=6,
            mistakes={"pair_parts_fixed ne range encore que les bagues : les axes aussi arrivent dans le désordre":
                          colleague_27r + [total_27r(colleague_27r), total_27r(colleague_27r)],
                      "la somme de ton appariement d'abord, puis celle du collègue":
-                         best_27r + [total_27r(colleague_27r), total_27r(best_27r)]})''',
+                         best_27r + [total_27r(colleague_27r), total_27r(best_27r)],
+                     "partner[i] est la bague de l'axe i : la k-ième plus petite bague va sur l'axe de rang k (l'indice "
+                     "argsort(shafts)[k]), pas sur l'axe d'indice k":
+                         composed_27r + [total_27r(composed_27r), total_27r(colleague_27r)]})''',
     after=[
         ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue ne la "
-               "voyait-elle pas (un jeu symétrique, des écarts-types égaux ou valant 0 et 1, des axes déjà triés), et "
-               "quelle vérification l'aurait vue ?"),
+               "voyait-elle pas, et quelle vérification l'aurait vue ?"),
     ],
 )
 
@@ -2215,6 +2224,8 @@ HIDDEN_TRIALS_28 = 150
 COUNTERS_28 = ("bounds", "shift", "scale", "transpose", "swap_rows")
 WRONG_NAMES_28 = ("swapped_pq", "formulas_always", "maximin_as_value", "rounded_value")
 
+HIDDEN_WRONG_28 = ("smoothed_p_c28", "clipped_q_c28")
+
 WRONG_C28 = """def absolute_kappa_c28(G):
     \"\"\"WRONG: without a saddle point, the value (ad − bc)/|κ| (the sign of κ lost).\"\"\"
     p, q, v = ref_distances.mixed_strategy_value_2x2(G)
@@ -2222,7 +2233,29 @@ WRONG_C28 = """def absolute_kappa_c28(G):
     if maximin == minimax:
         return p, q, v
     (a, b), (c, d) = np.asarray(G, dtype=float).tolist()
-    return p, q, (a * d - b * c) / abs(a - b - c + d)"""
+    return p, q, (a * d - b * c) / abs(a - b - c + d)
+
+
+def smoothed_p_c28(G):
+    \"\"\"WRONG: without a saddle point, p = (d − c + s)/(κ + 2s), s the sign of κ (a smoothing): p moves with k G.\"\"\"
+    p, q, v = ref_distances.mixed_strategy_value_2x2(G)
+    maximin, minimax, _, _ = ref_distances.pure_strategy_values(G)
+    if maximin == minimax:
+        return p, q, v
+    (a, b), (c, d) = np.asarray(G, dtype=float).tolist()
+    s = 1.0 if a - b - c + d > 0 else -1.0
+    return (d - c + s) / (a - b - c + d + 2 * s), q, v
+
+
+def clipped_q_c28(G):
+    \"\"\"WRONG: q computed on max(G, 0) (the negative gains set to 0) when both games lack a saddle point: q moves with
+    G + c.\"\"\"
+    p, q, v = ref_distances.mixed_strategy_value_2x2(G)
+    H = np.maximum(np.asarray(G, dtype=float), 0.0)
+    if (ref_distances.pure_strategy_values(G)[0] == ref_distances.pure_strategy_values(G)[1]
+            or ref_distances.pure_strategy_values(H)[0] == ref_distances.pure_strategy_values(H)[1]):
+        return p, q, v
+    return p, ref_distances.mixed_strategy_value_2x2(H)[1], v"""
 
 
 def reference_counts_28() -> dict:
@@ -2239,12 +2272,19 @@ def reference_counts_28() -> dict:
     counts = {}
     for i, seed in enumerate(HIDDEN_STARTS_28):
         counts[seed] = {"ref": test(HIDDEN_TRIALS_28, np.random.default_rng(seed))}
-        for name in WRONG_NAMES_28 + (("absolute_kappa_c28",) if i == 0 else ()):
+        for name in WRONG_NAMES_28 + HIDDEN_WRONG_28 + (("absolute_kappa_c28",) if i == 0 else ()):
             counts[seed][name] = test(HIDDEN_TRIALS_28, np.random.default_rng(seed), solver=namespace[name])
+        if i == 0:     # a call with tol = 1.5 (with 0.5, rounded_value counts as with 1e-9: its gaps are integers)
+            counts[seed]["rounded_value_tol"] = test(HIDDEN_TRIALS_28, np.random.default_rng(seed),
+                                                     solver=namespace["rounded_value"], tol=1.5)
     first = counts[HIDDEN_STARTS_28[0]]
-    assert all(v == 0 for v in first["ref"].values())
+    for seed in HIDDEN_STARTS_28:
+        assert all(v == 0 for v in counts[seed]["ref"].values())
     for prop in COUNTERS_28:                                     # each property is demanded by at least one wrong version
-        assert any(first[name][prop] > 0 for name in WRONG_NAMES_28 + ("absolute_kappa_c28",)), prop
+        assert any(first[name][prop] > 0 for name in WRONG_NAMES_28 + HIDDEN_WRONG_28 + ("absolute_kappa_c28",)), prop
+    assert first["rounded_value_tol"] != first["rounded_value"]  # a test that ignores tol is seen
+    for name, props in (("smoothed_p_c28", ("scale", "transpose")), ("clipped_q_c28", ("shift",))):
+        assert all(first[name][prop] > 0 for prop in props), name     # p or q alone moves: "v only" is seen
     return counts
 
 
@@ -2305,9 +2345,12 @@ with checked("M27.28"):
             elif want[k] == 0:
                 why = ("cette version ne fausse pas cette propriété : ton contrôle compte trop (sa tolérance, ce qu'il "
                        "compare, ou les jeux sur lesquels il porte)")
+            elif got[k] < want[k]:
+                why = (f"ton test en compte moins que la référence : il ne vérifie qu'une partie de la propriété "
+                       f"({PROPERTIES_C28[k]}), ou il ne tire pas G, puis c, puis k")
             else:
                 why = ("un essai compte une fois s'il échoue ; les deux dernières propriétés ne portent que sur les jeux "
-                       "sans point selle")
+                       "sans point selle ; vérifie aussi l'ordre des tirages (G, puis c, puis k)")
             report_28(False, "", f"{label} : \"{k}\" = {got[k]}, la référence {want[k]} : {why}")
 
     for seed_c28 in ''' + repr(HIDDEN_STARTS_28) + r''':
@@ -2322,6 +2365,13 @@ with checked("M27.28"):
                                        ("maximin_as_value", maximin_as_value), ("rounded_value", rounded_value)):
             got_c28 = run_c28(f"{name_c28}, départ caché {seed_c28}", seed_c28, solver=function_c28)
             compare_c28(f"{name_c28}, départ caché {seed_c28}", got_c28, expected_c28[name_c28])
+        for number_c28, (name_c28, function_c28) in enumerate((("smoothed_p_c28", smoothed_p_c28),
+                                                                ("clipped_q_c28", clipped_q_c28)), start=1):
+            label_c28 = f"une version fausse de vérification (n° {number_c28}), départ caché {seed_c28}"
+            compare_c28(label_c28, run_c28(label_c28, seed_c28, solver=function_c28), expected_c28[name_c28])
+    compare_c28("rounded_value avec tol = 1,5, départ caché ''' + str(HIDDEN_STARTS_28[0]) + r'''",
+                run_c28("rounded_value avec tol = 1,5", ''' + str(HIDDEN_STARTS_28[0]) + r''', solver=rounded_value, tol=1.5),
+                EXPECTED_C28["''' + str(HIDDEN_STARTS_28[0]) + r'''"]["rounded_value_tol"])
 
     original_c28 = mymath.distances.mixed_strategy_value_2x2
     aliases_c28 = [alias for alias, value in list(globals().items()) if value is original_c28]
@@ -2362,7 +2412,7 @@ NOTE_28 = (r"a) Avec des entiers, les calculs sont exacts ou presque : la détec
            r"`swapped_pq` et `maximin_as_value`.")
 
 M27_28 = Ex(
-    "M27.28", "🛠️", 1, 20, "Un test de propriété : la valeur d'un jeu 2 × 2 tiré au hasard est entre maximin et minimax, "
+    "M27.28", "🛠️", 1, 40, "Un test de propriété : la valeur d'un jeu 2 × 2 tiré au hasard est entre maximin et minimax, "
     "et devient v + c pour G + c et k v pour k G (k > 0)",
     "écrire un test de propriété qui compte ses échecs sur des jeux tirés au hasard, voir que les propriétés du titre "
     "laissent passer des versions fausses, et en ajouter deux qui les attrapent.", "fiche §2 ; Ex M27.20", tracks="C",
@@ -2381,7 +2431,7 @@ Puis :
 - c) avec le même départ (un nouveau `default_rng(6428)` chaque fois, 400 essais) et chacune des quatre versions fausses, dans l'ordre `swapped_pq`, `formulas_always`, `maximin_as_value`, `rounded_value` : les cinq compteurs, dans l'ordre `"bounds"`, `"shift"`, `"scale"`, `"transpose"`, `"swap_rows"` (une liste de 4 listes de 5 entiers) ;
 - d) les noms des versions fausses qui passent les trois propriétés du titre (`"bounds"`, `"shift"` et `"scale"` nuls) (une liste de noms, dans n'importe quel ordre, comme `["formulas_always"]`).
 
-La vérification lance ton test sur deux départs que tu ne vois pas (150 essais chacun) : avec ta fonction, où ses cinq compteurs doivent valoir ceux de la référence (0), puis avec chacune des quatre versions fausses, où ils doivent valoir **exactement** ceux de la référence. Elle remplace aussi un instant `mymath.distances.mixed_strategy_value_2x2` par une version fausse (une valeur calculée avec $\lvert\kappa\rvert$) : tes compteurs doivent alors compter, comme ceux de la référence. Chacune des cinq propriétés est ainsi exigée par au moins une version fausse. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : les propriétés du titre, déjà vérifiées par `tests/test_m27_distances.py`, laissent passer des versions fausses ; l'échange des rôles et l'échange des lignes, qui ne valent que si les stratégies optimales sont uniques, les attrapent ; un test se juge aux erreurs qu'il attrape.""",
+La vérification lance ton test sur deux départs cachés (150 essais chacun) : avec ta fonction, où ses cinq compteurs doivent valoir ceux de la référence (0), puis avec chacune des quatre versions fausses et avec deux autres versions fausses, écrites dans la cellule de vérification, où ils doivent valoir **exactement** ceux de la référence ; elle le lance aussi une fois avec `rounded_value` et `tol = 1.5` (ton test doit se servir de `tol`). Elle remplace aussi un instant `mymath.distances.mixed_strategy_value_2x2` par une version fausse (une valeur calculée avec $\lvert\kappa\rvert$) : tes compteurs doivent alors compter, comme ceux de la référence. Chacune des cinq propriétés est ainsi exigée par au moins une version fausse. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : les propriétés du titre, déjà vérifiées par `tests/test_m27_distances.py`, laissent passer des versions fausses ; l'échange des rôles et l'échange des lignes, qui ne valent que si les stratégies optimales sont uniques, les attrapent ; un test se juge aux erreurs qu'il attrape.""",
     todo='''def game_property_test_28(n_trials, rng, solver=None, tol=1e-9):
     """n_trials random games: G = rng.integers(-9, 10, size=(2, 2)).astype(float), then c = float(rng.integers(-5, 6)),
     then k = float(rng.integers(2, 6)); solver defaults to mymath.distances.mixed_strategy_value_2x2, looked up at the
@@ -2460,8 +2510,8 @@ wbm.record("M27.28d", passing_28r,
     after=[
         ("todo_md", "**Dans ta copie** : a) pourquoi des gains entiers, et des $c$ et $k$ entiers ; pourquoi les deux "
                     "dernières propriétés seulement sans point selle."),
-        ("md", "**Après la vérification**, dans ta copie : pourquoi `swapped_pq` et `maximin_as_value` passent-elles les "
-               "trois propriétés du titre ? Quelles propriétés, prises ensemble, caractérisent la solution d'un jeu "
+        ("md", "**Après la vérification**, dans ta copie : pourquoi les versions fausses de ta réponse d) passent-elles "
+               "les trois propriétés du titre ? Quelles propriétés, prises ensemble, caractérisent la solution d'un jeu "
                "$2 \\times 2$ sans point selle ?"),
     ],
 )
@@ -2482,16 +2532,32 @@ GIVEN_29 = '''def counter_quantile_29(u):
 
 VARIANCE_29 = 4.0                                          # the variance of this law (min²)'''
 
-CHECK_29 = '''LAWS_C29 = __LAWS_C29__   # per law: the exact (mu, sigma, w2), and the standard deviation of the law
+CHECK_29 = '''HIDDEN_C29 = __HIDDEN_C29__   # the two hidden laws before a random change of scale and origin: the exact (mu, sigma, w2), and the standard deviation
+rng_c29 = np.random.default_rng()   # a new change of scale and origin at each run: no table of values can pass
+s_c29, t_c29 = float(rng_c29.uniform(0.5, 3.0)), float(rng_c29.uniform(-5.0, 5.0))
+
+
+def moved_c29(quantile):
+    \"\"\"The quantile function of s X + t (s > 0): u ↦ s F⁻¹(u) + t.\"\"\"
+    return lambda u: t_c29 + s_c29 * np.asarray(quantile(u), dtype=float)
+
+
+def moved_law_c29(entry):
+    \"\"\"(mu, sigma, w2) and the standard deviation of s X + t: s mu + t, s sigma, s w2 (W₂ follows the scale), s sd.\"\"\"
+    (mu, sigma, w2), sd = entry
+    return [t_c29 + s_c29 * mu, s_c29 * sigma, s_c29 * w2], s_c29 * sd
+
 
 with checked("M27.29"):
     results_29 = []
     report_29 = reporter(results_29, stop=False)
-    laws_29 = (("l'attente au guichet", counter_quantile_29),
-               ("une loi uniforme que tu ne vois pas", lambda u: 1.0 + 3.0 * np.asarray(u, dtype=float)),
-               ("une loi Gamma que tu ne vois pas", stats.gamma(2, scale=1.5).ppf))
+    tol_29 = 1e-3 * max(1.0, s_c29)                          # 10⁻³, at the scale of the moved laws
+    laws_29 = (("l'attente au guichet", counter_quantile_29, None),
+               ("une loi uniforme cachée", moved_c29(lambda u: 1.0 + 3.0 * np.asarray(u, dtype=float)),
+                moved_law_c29(HIDDEN_C29[0])),
+               ("une loi Gamma cachée", moved_c29(stats.gamma(2, scale=1.5).ppf), moved_law_c29(HIDDEN_C29[1])))
     runs_29 = []
-    for (label_29, quantile_29), law_29 in zip(laws_29, LAWS_C29):
+    for label_29, quantile_29, law_29 in laws_29:
         start_29 = time.perf_counter()
         result_29 = closest_gaussian_29(quantile_29)
         elapsed_29 = time.perf_counter() - start_29
@@ -2507,27 +2573,33 @@ with checked("M27.29"):
                 "calculer à partir de la fonction quantile reçue")
         raise StopCheck
     for k_29, (label_29, (mu_29, sigma_29, w2_29), elapsed_29, law_29) in enumerate(runs_29):
+        if law_29 is None:                   # the wait at the counter: compared like the answer a) (answers.json)
+            result_c29 = wbm.check("M27.29a", (mu_29, sigma_29, w2_29), computed=True, quiet=True)
+            report_29(result_c29.passed and elapsed_29 < 10, f"{label_29} : (mu, sigma, w2) comme attendu, en "
+                      f"{fr(elapsed_29, 2)} s", f"{label_29} : " + (result_c29.message if not result_c29.passed
+                                                                   else f"trop lent ({fr(elapsed_29, 1)} s, il faut moins de 10 s)"))
+            continue
         (mu_e29, sigma_e29, w2_e29), sd_29 = law_29
-        close_29 = [abs(got - want) < 1e-3 for got, want in ((mu_29, mu_e29), (sigma_29, sigma_e29), (w2_29, w2_e29))]
+        close_29 = [abs(got - want) < tol_29 for got, want in ((mu_29, mu_e29), (sigma_29, sigma_e29), (w2_29, w2_e29))]
         if all(close_29):
             why_29 = ""
         elif k_29 > 0 and all(abs(a - b) < 1e-9 for a, b in zip((mu_29, sigma_29, w2_29), runs_29[0][1])):
             why_29 = "tu rends les nombres de l'attente au guichet : calcule-les à partir de la fonction quantile reçue"
-        elif abs(sigma_29 - sigma_e29 ** 2) < 1e-3 * max(1.0, sigma_e29 ** 2):
+        elif abs(sigma_29 - sigma_e29 ** 2) < tol_29 * max(1.0, sigma_e29 ** 2):
             why_29 = "sigma est un écart-type, pas une variance"
-        elif close_29[0] and close_29[1] and abs(w2_29 - w2_e29 ** 2) < 1e-3:
+        elif close_29[0] and close_29[1] and abs(w2_29 - w2_e29 ** 2) < tol_29 * max(1.0, w2_e29):
             why_29 = "w2 est la distance W₂, pas son carré"
-        elif abs(sigma_29 - sd_29) < 1e-3:
+        elif abs(sigma_29 - sd_29) < tol_29:
             why_29 = ("ton sigma est l'écart-type de la loi : il ne minimise pas W₂ ; écris W₂²(μ, σ) et annule sa dérivée "
                       "en σ")
-        elif all(abs(got - want) < 1e-2 for got, want in ((mu_29, mu_e29), (sigma_29, sigma_e29), (w2_29, w2_e29))):
-            why_29 = ("à plus de 10⁻³ des valeurs exactes, mais à moins de 10⁻² : une somme sur une grille régulière de u "
-                      "converge trop lentement à cause des queues (scipy.integrate.quad, ou une grille resserrée vers 0 et 1)")
+        elif all(abs(got - want) < 10 * tol_29 for got, want in ((mu_29, mu_e29), (sigma_29, sigma_e29), (w2_29, w2_e29))):
+            why_29 = ("à plus de 10⁻³ des valeurs exactes, mais à moins de 10⁻² : un calcul trop grossier, soit une somme sur "
+                      "une grille régulière de u (qui converge lentement à cause des queues : scipy.integrate.quad, ou une "
+                      "grille resserrée vers 0 et 1), soit une recherche de μ ou de σ sur une grille trop lâche")
         else:
             names_29 = [name for name, ok in zip(("mu", "sigma", "w2"), close_29) if not ok]
-            why_29 = ", ".join(names_29) + " à plus de 10⁻³ de la valeur exacte"
-            if k_29 > 0:
-                why_29 += f" (attendu ≈ ({mu_e29:.4f}, {sigma_e29:.4f}, {w2_e29:.4f}), reçu ({mu_29:.4f}, {sigma_29:.4f}, {w2_29:.4f}))"
+            why_29 = (", ".join(names_29) + " à plus de 10⁻³ de la valeur exacte"
+                      + f" (attendu ≈ ({mu_e29:.4f}, {sigma_e29:.4f}, {w2_e29:.4f}), reçu ({mu_29:.4f}, {sigma_29:.4f}, {w2_29:.4f}))")
         report_29(not why_29 and elapsed_29 < 10, f"{label_29} : (mu, sigma, w2) à moins de 10⁻³ des valeurs exactes, en "
                   f"{fr(elapsed_29, 2)} s", f"{label_29} : " + (why_29 or f"trop lent ({fr(elapsed_29, 1)} s, il faut moins de "
                                                                        "10 s)"))
@@ -2545,7 +2617,7 @@ NOTE_29 = (r"a) $(2{,}000 ;\ 1{,}806 ;\ 0{,}858)$ (plus précisément $\sigma \a
            r"(les queues).")
 
 M27_29 = Ex(
-    "M27.29", "🏆", 3, 30, "Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette distance, "
+    "M27.29", "🏆", 3, 45, "Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette distance, "
     "à 10⁻³ près",
     "trouver la loi normale la plus proche d'une loi donnée par sa fonction quantile, au sens de W₂, et la distance qui "
     "reste, à 10⁻³ près.", "fiche §8 ; M02a, M02b ; Ex M27.8 et M27.22", tracks="C", given=GIVEN_29, note=NOTE_29,
@@ -2553,7 +2625,7 @@ M27_29 = Ex(
 
 Écris `closest_gaussian_29(quantile)`, qui reçoit la fonction quantile d'une loi de moment d'ordre 2 fini (une fonction NumPy de $u \in\ ]0, 1[$, qui accepte un tableau) et rend `(mu, sigma, w2)`. Tout NumPy et SciPy sont permis (`scipy.integrate.quad`, `scipy.optimize`, `scipy.stats.norm.ppf`), mais la fonction ne reçoit que la fonction quantile : aucune formule propre à la loi exponentielle.
 
-**Critère de réussite :** `mu`, `sigma` et `w2` à moins de $10^{-3}$ des valeurs exactes pour l'attente au guichet, et pour deux lois de la vérification que tu ne vois pas, en moins de 10 secondes par loi. La vérification refuse une fonction qui rend les mêmes nombres pour trois lois différentes, et reconnaît une variance à la place d'un écart-type, un carré à la place de $W_2$, l'écart-type de la loi à la place du meilleur $\sigma$, et une intégrale trop grossière. Relève :
+**Critère de réussite :** `mu`, `sigma` et `w2` à moins de $10^{-3}$ des valeurs exactes pour l'attente au guichet (comparés comme ta réponse a), à 3 décimales), et pour deux lois cachées de la vérification, en moins de 10 secondes par loi ; ces deux lois changent d'échelle et d'origine à chaque exécution (la tolérance suit l'échelle). La vérification refuse une fonction qui rend les mêmes nombres pour trois lois différentes, et reconnaît une variance à la place d'un écart-type, un carré à la place de $W_2$, l'écart-type de la loi à la place du meilleur $\sigma$, et une intégrale trop grossière. Relève :
 - a) `(mu, sigma, w2)` pour l'attente au guichet (un tuple de 3, tel que rendu ; 3 décimales dans ta copie) ;
 - b) vrai ou faux : $\mu$ est la moyenne de la loi exponentielle ;
 - c) $W_2^2$ divisé par la variance de la loi exponentielle (4) : la part de la variance que la meilleure gaussienne ne peut pas rendre (un nombre, en %, tel que calculé ; 1 décimale dans ta copie).
@@ -2604,14 +2676,14 @@ print("   σ sur 1 000 points milieux de u : la moyenne de F⁻¹Φ⁻¹", round
 
 mu_29r, sigma_29r, w2_29r = projection_29r(lambda u: -2.0 * math.log1p(-u))
 moment_29r = math.sqrt(4 + 4 - 2 * 2 * sigma_29r)                    # W₂ with σ = the standard deviation of the law
-wbm.record("M27.29a", [mu_29r, sigma_29r, w2_29r], decimals=2,
+wbm.record("M27.29a", [mu_29r, sigma_29r, w2_29r], decimals=3,
            mistakes={"sigma est un écart-type, pas une variance": [mu_29r, sigma_29r ** 2, w2_29r],
                      "w2 est la distance W₂, pas son carré": [mu_29r, sigma_29r, w2_29r ** 2],
                      "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ":
                          [mu_29r, 2.0, moment_29r]})
 wbm.record("M27.29b", bool(abs(mu_29r - 2.0) < 1e-9),
            mistakes={"la dérivée de W₂²(μ, σ) en μ s'annule quand ∫₀¹ (F⁻¹(u) − μ − σΦ⁻¹(u)) du = 0, et ∫₀¹ Φ⁻¹ = 0": False})
-wbm.record("M27.29c", 100 * w2_29r ** 2 / 4, decimals=0,
+wbm.record("M27.29c", 100 * w2_29r ** 2 / 4, decimals=1,
            mistakes={"la part se lit sur W₂², une variance, pas sur W₂": 100 * w2_29r / 4,
                      "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type": 100 * w2_29r ** 2 / 2,
                      "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)":
@@ -2775,7 +2847,9 @@ def build_constants() -> dict:
 
     sim_b, plus_b = deviations([[1.0]], [1.0], [0.0], 0.6, 200)
     sim_c, plus_c = deviations([[1.0, -2.0, 0.0], [0.5, 1.0, -1.0]], [1.0, 0.0], [0.0, 1.0, 0.0], 0.3, 100)
-    simultaneous = "c'est l'écart des itérés simultanés : la quantité n'est constante que pour le pas alterné (alternating=True)"
+    simultaneous = ("c'est l'écart des itérés simultanés : la quantité n'est constante que pour le pas alterné "
+                    "(alternating=True) ; si tu l'as passé, c'est ta descent_ascent_iterates qui calcule le nouveau y avec "
+                    "l'ancien x (relance ses tests)")
     sign = "Q = ‖x‖² + ‖y‖² − η xᵀAy : le signe du terme croisé compte"
     out["__WRONG_C21B__"] = literal([(simultaneous, sim_b), (sign, plus_b)])
     out["__WRONG_C21C__"] = literal([(simultaneous, sim_c), (sign, plus_c)])
@@ -2792,21 +2866,8 @@ def build_constants() -> dict:
     lp = optimize.linprog(C.ravel(), A_eq=margins, b_eq=np.concatenate([a, b]), bounds=(0, None), method="highs")
     out["__LP_C23__"] = literal({"C": C.tolist(), "a": a.tolist(), "b": b.tolist(), "optimum": float(lp.fun)})
 
-    # M27.24: the iterates of the four calls of the check
-    paths = {}
-    for key, (eta, steps, alternating) in {"0.3-s": (0.3, 40, False), "0.3-a": (0.3, 40, True),
-                                           "2.5-a": (2.5, 40, True), "hidden": (0.45, 12, True)}.items():
-        xs, ys = ref.descent_ascent_iterates([[1.0]], [1.0], [0.0], eta, steps, alternating=alternating)
-        paths[key] = [xs[:, 0].tolist(), ys[:, 0].tolist()]
-    out["__PATHS_C24__"] = literal(paths)
 
-    # M27.25: the means of a) for the equal sizes, rounded to 4 decimals (the figure), and a hidden case
-    namespace = {"np": np}
-    exec(GIVEN_25, namespace)
-    rng = np.random.default_rng(6425)
-    means = [_bias_25(np, namespace["MU_25"], namespace["MU_25"], namespace["SIGMA_25"], n1, n2, namespace["N_REP_25"], rng)
-             for n1, n2 in namespace["SIZES_25"]]
-    out["__MEANS_C25__"] = literal([round(x, 4) for x in means[:3]])
+    # M27.25: a hidden case of distance_bias_25
     hidden = {"mu1": [1.0, 2.0, 3.0], "mu2": [1.1, 2.0, 2.9], "Sigma": [[0.5, 0.1, 0.0], [0.1, 0.3, 0.0], [0.0, 0.0, 0.2]],
               "n1": 7, "n2": 3, "n_rep": 500, "seed": 6426}
     args = [np.array(hidden[k]) for k in ("mu1", "mu2", "Sigma")] + [hidden["n1"], hidden["n2"], hidden["n_rep"]]
@@ -2814,23 +2875,28 @@ def build_constants() -> dict:
         hidden[key] = _bias_25(np, *args, np.random.default_rng(hidden["seed"]), variant=variant)
     out["__HIDDEN_C25__"] = literal(hidden)
 
-    # M27.26: (w1, ks, x*) of the three calls, and of a hidden call (U[0, 4] against a triangular law on [1, 3])
+    # M27.26: x* of the three calls, and (w1, ks, x*, max(F − G)) of a hidden call (U[0, 4] against a triangular law on
+    # [1, 3] whose curve crosses the first: the largest gap without absolute value differs from KS)
     namespace = {"np": np, "stats": stats}
     exec(GIVEN_26, namespace)
     ns = namespace
-    out["__CASES_C26__"] = literal([_gaps_26(np, ns["ROOM_A_26"], ns["ROOM_B_26"], ns["GRID_C_26"]),
-                                    _gaps_26(np, ns["WAIT_A_26"], ns["WAIT_B_26"], ns["GRID_MIN_26"]),
-                                    _gaps_26(np, ns["ROOM_A_F_26"], ns["ROOM_B_F_26"], ns["GRID_F_26"])])
-    out["__HIDDEN_C26__"] = literal(_gaps_26(np, stats.uniform(0, 4).cdf, stats.triang(0.5, loc=1, scale=2).cdf,
-                                             np.linspace(-1, 5, 3001)))
+    out["__X_STAR_C26__"] = literal([_gaps_26(np, ns["ROOM_A_26"], ns["ROOM_B_26"], ns["GRID_C_26"])[2],
+                                     _gaps_26(np, ns["WAIT_A_26"], ns["WAIT_B_26"], ns["GRID_MIN_26"])[2],
+                                     _gaps_26(np, ns["ROOM_A_F_26"], ns["ROOM_B_F_26"], ns["GRID_F_26"])[2]])
+    cdf_a, cdf_b, grid = stats.uniform(0, 4).cdf, stats.triang(0.25, loc=1, scale=2).cdf, np.linspace(-1, 5, 3001)
+    hidden = _gaps_26(np, cdf_a, cdf_b, grid) + [float((cdf_a(grid) - cdf_b(grid)).max())]
+    assert hidden[3] > 0.05 and abs(hidden[3] - hidden[1]) > 1e-3 and float((cdf_b(grid) - cdf_a(grid)).max()) == hidden[1]
+    out["__HIDDEN_C26__"] = literal(hidden)
 
     # M27.27: hidden cases of the three corrected functions
     kicks = []
-    for G in ([[2.0, 7.0], [6.0, 3.0]], [[9.0, 0.0], [2.0, 5.0]], [[-4.0, 5.0], [3.0, -1.0]]):
+    for G in ([[2.0, 7.0], [5.0, 3.0]], [[9.0, 0.0], [2.0, 5.0]], [[-4.0, 5.0], [3.0, -1.0]]):
         (ga, gb), (gc, gd) = G
         kappa = ga - gb - gc + gd
         assert ref.pure_strategy_values(G)[0] < ref.pure_strategy_values(G)[1]      # no saddle point
         kicks.append({"G": G, "want": (gd - gc) / kappa, "q": (gd - gb) / kappa})
+        values = [(gd - gc) / kappa, (gd - gb) / kappa, 1 - (gd - gc) / kappa, 1 - (gd - gb) / kappa]
+        assert min(abs(u - w) for k, u in enumerate(values) for w in values[k + 1:]) > 1e-3   # p*, q*, 1 − p*, 1 − q* apart
     settings = []
     for args in ((5.0, 0.3, 5.4, 0.8), (-2.0, 4.0, 1.0, 1.5), (0.0, 0.5, 0.0, 2.5)):
         m1, s1, m2, s2 = args
@@ -2859,7 +2925,8 @@ def build_constants() -> dict:
                   "sleeves_only": np.argsort(tie_sleeves).tolist(), "composed": np.argsort(tie_sleeves)[np.argsort(tie_shafts)].tolist()})
     out["__CASES_C27__"] = literal({"kicks": kicks, "settings": settings, "parts": parts})
 
-    # M27.29: the exact (mu, sigma, w2) of the three laws, and their standard deviations
+    # M27.29: the exact (mu, sigma, w2) of the two hidden laws, before the change of scale and origin drawn at each run,
+    # and their standard deviations (the wait at the counter is compared like the answer a), by wbm.check)
     def projection(quantile):
         f = lambda u: float(quantile(u))                                       # noqa: E731
         mu = integrate.quad(f, 0, 1, limit=400, epsabs=1e-13)[0]
@@ -2867,10 +2934,9 @@ def build_constants() -> dict:
         w2sq = integrate.quad(lambda u: (f(u) - mu - sigma * stats.norm.ppf(u)) ** 2, 0, 1, limit=400, epsabs=1e-13)[0]
         return [mu, sigma, math.sqrt(w2sq)]
 
-    laws = [(projection(lambda u: -2.0 * math.log1p(-u)), 2.0),
-            (projection(lambda u: 1.0 + 3.0 * u), 3.0 / math.sqrt(12)),
+    laws = [(projection(lambda u: 1.0 + 3.0 * u), 3.0 / math.sqrt(12)),
             (projection(stats.gamma(2, scale=1.5).ppf), 1.5 * math.sqrt(2))]
-    out["__LAWS_C29__"] = literal(laws)
+    out["__HIDDEN_C29__"] = literal(laws)
     return out
 
 
