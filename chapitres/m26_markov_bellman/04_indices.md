@@ -318,7 +318,7 @@ $r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$. Chaque ligne de $\mathbf{
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $\pi_A$ : $0{,}58\,V_0 - 0{,}18\,V_1 = 10$, $0{,}61\,V_1 - 0{,}21\,V_2 = 4{,}95$, $-0{,}48\,V_0 + 0{,}88\,V_2 = -8$. e) $4{,}95 + 0{,}6\,\big(0{,}65\,V^{\pi_B}(1) + 0{,}35\,V^{\pi_B}(2)\big)$. f) Le second terme de l'expression de e).
+Pour $\pi_A$ : $0{,}58\,V_0 - 0{,}18\,V_1 = 10$, $0{,}61\,V_1 - 0{,}21\,V_2 = 4{,}95$, $-0{,}48\,V_0 + 0{,}88\,V_2 = -8$. e) $2 + 0{,}6\,\big(0{,}95\,V^{\pi_B}(0) + 0{,}05\,V^{\pi_B}(2)\big)$ ; pour le « pourquoi », écris $V^{\pi_B}(1)$ comme une moyenne des $Q^{\pi_B}(1, a)$. f) Le second terme de l'expression de e).
 
 </details>
 

@@ -87,7 +87,7 @@ PAPER = [
                '''decimals=2,
            mistakes={"le coût de ce soir dépend de la station de ce soir : il y a un pas de la chaîne entre ce matin et "
                      "ce soir": floats(200 * dot(MU0_1, F_1)),
-                     "pondère les coûts moyens Pf par la répartition des vélos ce matin": floats(200 * sum(PF_1) / 3)}'''),
+                     "les 200 vélos ne sont pas répartis également entre A, B et C ce matin": floats(200 * sum(PF_1) / 3)}'''),
           ]),
 
     Paper("M26.2", "Trois opérateurs et leurs parts de marché : la loi stationnaire par un système linéaire", [
@@ -131,16 +131,16 @@ PAPER = [
          '''mistakes={"regarde sur quelle rive peut être le bac aux pas pairs, puis aux pas impairs": True}'''),
         ("d", "a list of 4 numbers (4 decimals)", "floats(mix_3(F(3, 5), F(2, 5)))",
          '''decimals=4,
-           mistakes={"chaque classe garde la masse qui y arrive : pondère chaque loi stationnaire par la probabilité "
-                     "d'arriver dans sa classe": floats(mix_3(F(2, 5), F(3, 5))),
+           mistakes={"chaque classe garde la masse qui y arrive : vérifie quelle version reçoit 60 % des visiteurs":
+                         floats(mix_3(F(2, 5), F(3, 5))),
                      "la limite dépend du départ : elle ne met pas la moitié de la masse dans chaque classe":
                          floats(mix_3(F(1, 2), F(1, 2)))}'''),
         ("e", BOOL, "bool(vecmat(mix_3(F(1, 2), F(1, 2)), P_SITE_3) == mix_3(F(1, 2), F(1, 2)))",
          '''mistakes={"calcule ½(π_FR + π_EN)P en utilisant la linéarité de π ↦ πP": False}'''),
         ("f", "a list of 3 numbers (exact values)", "floats([F(0)] + CLOSED_3)",
          '''decimals=4,
-           mistakes={"dans le bloc fermé, la masse va surtout à l'état qu'on quitte le moins : compare 0,1 et 0,4":
-                         floats([F(0)] + CLOSED_3[::-1])}'''),
+           mistakes={"dans le bloc fermé {1, 2}, écris l'équilibre des flux entre les deux états (ce qui passe de 1 à 2 "
+                     "égale ce qui passe de 2 à 1), puis normalise": floats([F(0)] + CLOSED_3[::-1])}'''),
     ]),
 
     Paper("M26.4", "Un cursus en trois années : la probabilité d'être diplômé et la durée moyenne des études", [
@@ -196,7 +196,7 @@ PAPER = [
                          floats(below_5(strict=False))}'''),
         ("f", "a number", "floats(FEE_5 / (1 - G_5) - FEE_5)",
          '''decimals=2,
-           mistakes={"le mois offert est le premier, qui était payé avec certitude : son retrait enlève toute sa valeur":
+           mistakes={"le mois offert est le mois 0, que tous les abonnés paient : il ne pèse pas 0,7 dans la somme":
                          floats(FEE_5 / (1 - G_5) - FEE_5 * G_5)}'''),
     ]),
 
@@ -286,8 +286,8 @@ PAPER = [
          '''decimals=0,
            mistakes={"la règle « dès 4 000 € » refuse les offres de 3 000 € : après un refus, elle attend l'offre suivante":
                          floats(rule_8(OFFERS_8)),
-                     "une règle fixée s'évalue par une équation linéaire : C = c + γ E[gain de la règle], sans maximum":
-                         floats(CSTAR_8)}'''),
+                     "la règle « dès 4 000 € » n'est pas la règle optimale de c) : elle accepte aussi 4 000 €, et "
+                     "s'évalue par une équation linéaire, sans maximum": floats(CSTAR_8)}'''),
         ("f", "a number (rounded to the euro)", "floats(CSTAR_8 - rule_8([4000, 5000, 7000]))",
          '''decimals=0,
            mistakes={"C* est la meilleure valeur de continuation : la différence est positive":
@@ -311,7 +311,7 @@ PAPER = [
         ("d", "a number (2 decimals)", "chosen_9(phi_9(-DELTA_9 / SD_9))",
          '''decimals=2,
            mistakes={"l'option choisie n'est pas toujours la meilleure": MEAN_A_9,
-                     "B est choisi avec la probabilité c), A avec le reste": chosen_9(1 - phi_9(-DELTA_9 / SD_9))}'''),
+                     "vérifie quel fournisseur est choisi avec la probabilité c)": chosen_9(1 - phi_9(-DELTA_9 / SD_9))}'''),
         ("e", BOOL, "bool(chosen_9(phi_9(-DELTA_9 / SD_9)) < MEAN_A_9)",
          '''mistakes={"sachant le fournisseur choisi, quelle est l'espérance de la remesure ? Moyenne-la ensuite sur le "
                      "choix": False}'''),
@@ -344,11 +344,11 @@ PAPER = [
            mistakes={"γ multiplie PV, pas r : V = r + γPV": floats(bellman(PPI_14, [G_14 * r for r in RPI_14], G_14)),
                      "la récompense de la chaîne induite est r_π, la moyenne sur les transitions et sur la politique":
                          floats(bellman(PPI_14, [F(30), F(30), F(0)], G_14))}'''),
-        ("f", "a number (2 decimals)", "floats(RSA_14[1][0] + G_14 * dot(P_14[1][0], V_14))",
+        ("f", "a number (2 decimals)", "floats(RSA_14[0][0] + G_14 * dot(P_14[0][0], V_14))",
          '''decimals=2,
-           mistakes={"Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la récompense et la transition sont celles de la "
-                     "remise": floats(V_14[0]),
-                     "la récompense moyenne d'une remise à un fidèle est r(fidèle, remise), pas la cotisation pleine":
+           mistakes={"les valeurs des mois suivants sont actualisées : γ multiplie la somme Σ P V":
+                         floats(RSA_14[0][0] + dot(P_14[0][0], V_14)),
+                     "Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la transition est celle de l'action « rien »":
                          floats(30 + G_14 * dot(P_14[1][0], V_14))}'''),
         ("g", BOOL, "bool(all(sum(row[:2]) <= 1 for row in PPI_14[:2]) and any(sum(row[:2]) < 1 for row in PPI_14[:2]) "
                     "and bellman([row[:2] for row in PPI_14[:2]], RPI_14[:2], G_14) == V_14[:2])",

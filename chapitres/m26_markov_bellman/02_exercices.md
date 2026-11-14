@@ -245,10 +245,10 @@ La politique $\pi_A$ n'entretient jamais la machine ; la politique $\pi_B$ entre
 | b | la matrice $\mathbf{P}_{\pi_B}$ | une matrice $3 \times 3$ |
 | c | $\mathbf{V}^{\pi_A}$ (neuve, usée, en panne) | une liste de 3 nombres (2 décimales) |
 | d | $\mathbf{V}^{\pi_B}$ (neuve, usée, en panne) | une liste de 3 nombres (2 décimales) |
-| e | $Q^{\pi_B}(1, \text{continuer})$ | un nombre (2 décimales) |
-| f | la part de e) qui vient des mois suivants, $\gamma\sum_{s'}\mathbf{P}_{\text{continuer}}(1, s')\,V^{\pi_B}(s')$ | un nombre (2 décimales) |
+| e | $Q^{\pi_B}(1, \text{entretenir})$, par sa formule $r(1, \text{entretenir}) + \gamma\sum_{s'}\mathbf{P}_{\text{entretenir}}(1, s')\,V^{\pi_B}(s')$ | un nombre (2 décimales) |
+| f | la part de e) qui vient des mois suivants, $\gamma\sum_{s'}\mathbf{P}_{\text{entretenir}}(1, s')\,V^{\pi_B}(s')$ | un nombre (2 décimales) |
 
-Dans ta copie : écris $\mathbf{P}_{\pi_A}$, $\mathbf{r}_{\pi_A}$ et $\mathbf{r}_{\pi_B}$, puis les deux systèmes $(\mathbf{I} - \gamma\mathbf{P})\mathbf{V} = \mathbf{r}$, et résous-les (exprime $V(2)$ en fonction de $V(0)$, puis $V(1)$, puis trouve $V(0)$). Dis en une phrase ce que mesure le nombre de e).
+Dans ta copie : écris $\mathbf{P}_{\pi_A}$, $\mathbf{r}_{\pi_A}$ et $\mathbf{r}_{\pi_B}$, puis les deux systèmes $(\mathbf{I} - \gamma\mathbf{P})\mathbf{V} = \mathbf{r}$, et résous-les (exprime $V(2)$ en fonction de $V(0)$, puis $V(1)$, puis trouve $V(0)$). Vérifie que e) égale $V^{\pi_B}(1)$ de d), et dis pourquoi ($\pi_B$ choisit « entretenir » avec certitude dans l'état usé).
 
 ### Ex M26.7 — Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, comparés à la solution, et le nombre d'itérations qui garantit 10⁻³ ✏️ ★★ ⏱️ 35 min
 **Objectif :** itérer l'opérateur de Bellman à la main, synchrone puis en place, mesurer l'erreur, et choisir un nombre d'itérations par les bornes a priori et a posteriori.
