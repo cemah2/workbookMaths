@@ -426,8 +426,9 @@ CHAPTERS = [
                     "KL(p(x, z) ‖ p(x)p(z)), entropie différentielle conditionnelle (suite de M06 et de M25a) ; "
                     "celle d'une mesure gaussienne bruitée ½ ln(1 + s²/v), distorsion s² e^{−2I} ; le code s'éteint "
                     "quand β est assez grand"],
-        "requires": [("espérance d'une variable continue, théorème de transfert, loi normale, fonction de "
-                      "répartition Φ", "M02b"),
+        "requires": [("intégration par parties", "M02a"),
+                     ("espérance d'une variable continue, théorème de transfert, loi normale, fonction de "
+                      "répartition Φ, loi exponentielle", "M02b"),
                      ("formule de Bayes, probabilités totales, logarithme d'une somme", "M04"),
                      ("log-sum-exp stable (`logsumexp`)", "M05a"),
                      ("entropie, divergence KL discrète, information mutuelle, inégalité de Jensen discrète", "M06"),
@@ -438,6 +439,7 @@ CHAPTERS = [
                      ("maximum de vraisemblance, log-vraisemblance, proportion d'un mélange à composantes connues",
                       "M13a"),
                      ("multiplicateurs de Lagrange, KKT", "M13b"),
+                     ("graphes orientés sans cycle, numérotation des nœuds où chaque parent précède ses enfants", "M16"),
                      ("gradient par rapport à une matrice : ∇ ln det X et ∇ tr(AX)", "M18"),
                      ("estimateur de Monte-Carlo sans biais d'un gradient, variance d'un estimateur", "M19"),
                      ("densité et log-densité de N(μ, Σ) (`mvn_logpdf`), modèle linéaire gaussien, loi "

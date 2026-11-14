@@ -10,8 +10,8 @@ cross near 8.3 °C and again near 26.5 °C; the EM of the same model on five mor
 the mean μ₁ free, started at 7 °C: the log-likelihood, the bound μ₁ ↦ ELBO(q_t, μ₁) of the first three iterations and
 the gap, a sum of KL divergences; probabilistic PCA of the yields of two plots (w = (3, 2), σ² = 2, C = [[11, 6],
 [6, 6]], M = 15), a season x − μ = (3, 3), its orthogonal projection and its posterior reconstruction, and the
-posterior of z for three seasons; the principal angle between the line spanned by (1, 2, 0) and the plane spanned by
-(1, 0, 0) and (0, 1, 1) (≈ 39.2°); the pathwise derivative of E[min(θξ, 3)], ξ ~ Exp(1), at θ = 2 (≈ 0.442), with
+posterior of z for three seasons; the principal angle between the line spanned by (1, 4, 0) and the plane spanned by
+(1, 0, 0) and (0, 1, 1) (≈ 43.3°); the pathwise derivative of E[min(θξ, 3)], ξ ~ Exp(1), at θ = 2 (≈ 0.442), with
 eight draws and 20 000 one-draw estimates.
 The numbers are those of the fiche; none comes from workbookIA 25, B5 or its checkpoint VI (no encoder, no image, no
 prior N(0, I) of a VAE, no 25xx seed). Seeds 6041, 6042, 6044 and 6046.
@@ -52,7 +52,7 @@ MU1_START = 7.0                        # §5: start of the one-parameter EM of t
 PPCA_W = np.array([3.0, 2.0])          # §6: two plots, one latent factor
 PPCA_S2 = 2.0
 PPCA_X = np.array([3.0, 3.0])          # §6: a season, x − μ
-LINE_A = np.array([1.0, 2.0, 0.0])     # §6: principal angle between a line and a plane of R³
+LINE_A = np.array([1.0, 4.0, 0.0])     # §6: principal angle between a line and a plane of R³
 PLANE_B = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 1.0]])
 VIEW = (18, -35)                          # §6: elevation and azimuth of the 3-D figure
 LAMP_T = 3.0                           # §7: replacement after T years
@@ -219,7 +219,7 @@ def em_bound() -> None:
     ax.plot(mus[3], loglik(mus[3])[0], "o", color="0.1", ms=6, zorder=4)
     ax.set(xlabel="moyenne μ₁ de la composante « couvert » (°C)", ylabel="nats", ylim=(ll.max() - 9, ll.max() + 0.8),
            xlim=(4, 16), title="L'EM monte la borne, puis la recolle : ℓ ne baisse jamais")
-    ax.legend(fontsize=9, loc="lower center")
+    ax.legend(fontsize=9, loc="lower right")
     ax.grid(alpha=0.25)
 
     ax = axes[1]
@@ -257,8 +257,7 @@ def ppca() -> None:
     proj = (w @ PPCA_X) / (w @ w) * w
     rec = w * (w @ PPCA_X) / M
     ax.plot(*PPCA_X, "o", color=C[7], ms=8, zorder=5, label="une saison : x − μ = (3, 3)")
-    ax.plot(*proj, "s", color="0.1", ms=7, zorder=5,
-            label=f"projection orthogonale ({fr(proj[0], 2)} ; {fr(proj[1], 2)})")
+    ax.plot(*proj, "s", color="0.1", ms=7, zorder=5, label="projection orthogonale (45/13 ; 30/13)")
     ax.plot(*rec, "D", color=C[2], ms=7, zorder=5, label="reconstruction μ + w E[z | x] = (3, 2)")
     ax.plot([PPCA_X[0], proj[0]], [PPCA_X[1], proj[1]], ":", color="0.3", lw=1)
     ax.plot(0, 0, "k+", ms=12, mew=2)
@@ -284,7 +283,7 @@ def ppca() -> None:
 
 
 def principal_angle() -> None:
-    """§6: the line spanned by (1, 2, 0), the plane spanned by (1, 0, 0) and (0, 1, 1), the projection, the angle."""
+    """§6: the line spanned by (1, 4, 0), the plane spanned by (1, 0, 0) and (0, 1, 1), the projection, the angle."""
     QB = np.linalg.qr(PLANE_B.T)[0]
     u = LINE_A / np.linalg.norm(LINE_A)
     p = QB @ (QB.T @ u)
@@ -294,7 +293,7 @@ def principal_angle() -> None:
     a, b = np.meshgrid(np.linspace(-1.2, 1.2, 9), np.linspace(-1.2, 1.2, 9))
     pts = a[..., None] * PLANE_B[0] + b[..., None] * PLANE_B[1] / math.sqrt(2)
     ax.plot_surface(pts[..., 0], pts[..., 1], pts[..., 2], color=C[0], alpha=0.18, edgecolor=C[0], lw=0.3)
-    ax.plot(*np.vstack([-1.3 * u, 1.3 * u]).T, color=C[1], lw=2.4, label="droite A, dirigée par (1, 2, 0)")
+    ax.plot(*np.vstack([-1.3 * u, 1.3 * u]).T, color=C[1], lw=2.4, label="droite A, dirigée par (1, 4, 0)")
     ax.plot(*np.vstack([0 * p, 1.3 * p / np.linalg.norm(p)]).T, color="0.15", lw=1.8, ls="--",
             label="sa projection orthogonale sur B")
     tip = 1.25 * u
@@ -357,7 +356,7 @@ def pathwise() -> None:
     zero = float(np.mean(est == 0))
     ax.hist(est[est > 0], bins=45, range=(0, u), density=False, color=C[0], alpha=0.75,
             label="estimations ξ 1{ξ < 1,5} non nulles")
-    ax.bar([0.0], [np.sum(est == 0)], width=0.06, color=C[1], label=f"estimations nulles ({fr(100 * zero, 0)} %)")
+    ax.bar([0.0], [np.sum(est == 0)], width=0.06, color=C[1], label=f"estimations nulles ({fr(100 * zero, 0)} % ; e^(−1,5) en théorie)")
     ax.axvline(est.mean(), color=C[7], lw=2, ls="--", label=f"moyenne {fr(est.mean(), 3)} (J′(2) ≈ {fr(dJ, 3)})")
     ax.set(xlabel="estimation à un tirage de J′(2)", ylabel="nombre (sur 20 000)",
            title=f"Sans biais, mais dispersée : écart-type ≈ {fr(est.std(), 2)}")
