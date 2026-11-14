@@ -32,7 +32,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2, figure 4.4) (Trefethen et Embree ; Horn et Johnson) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
-| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5, §10.7, ch. 11 (dont le Théorème 11.2, que M25a cite pour l'estimation de $\boldsymbol{\Sigma}$) |
+| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5 (8.5.2 en survol), §6.5.3 (Théorème 6.12), ch. 11 (§11.1–11.4 ; M25a en cite le Théorème 11.2 pour l'estimation de $\boldsymbol{\Sigma}$), §10.7 (10.7.1–10.7.3 ; §10.8 cité pour Tipping et Bishop) (MacKay ch. 22 et 33 ; Bishop ; Tipping et Bishop ; Mohamed et al. ; Cover et Thomas) |
 | 26 · Apprentissage par renforcement | M26 | — (Blitzstein et Hwang) |
 | 27 · Réseaux antagonistes génératifs (GAN) | M27 | §7.2 (relu) |
 | 28 · Applications créatives | M28 | — |
@@ -77,11 +77,11 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §7.3 Optimisation convexe | M13b |
 | §8.1–8.2 Données, modèles, minimisation du risque empirique | M09b |
 | §8.3 Estimation des paramètres (maximum de vraisemblance, MAP) | M04, M13a |
-| §8.4–8.5 Modélisation probabiliste, modèles graphiques orientés | M25b |
+| §8.4–8.5 Modélisation probabiliste, modèles graphiques orientés | M25b (8.4.1–8.4.3 et 8.5.1 ; la d-séparation de 8.5.2 en survol) |
 | §8.6 Sélection de modèle | M08 |
 | ch. 9 Régression linéaire | M09b (§9.1–9.2), M25a (§9.3), M12b (§9.4) |
-| ch. 10 Analyse en composantes principales | M12d (§10.1–10.6), M25b (§10.7) |
-| ch. 11 Mélanges de gaussiennes | M25b (M25a cite le Théorème 11.2, §11.2.3, pour l'estimation de $\boldsymbol{\Sigma}$) |
+| ch. 10 Analyse en composantes principales | M12d (§10.1–10.6), M25b (§10.7 ; le maximum de vraisemblance de Tipping et Bishop, (10.77)–(10.79), cité d'après le §10.8, *Further Reading*) |
+| ch. 11 Mélanges de gaussiennes | M25b (§11.1–11.4 ; le §11.5, *Further Reading*, pour les singularités) (M25a cite le Théorème 11.2, §11.2.3, pour l'estimation de $\boldsymbol{\Sigma}$) |
 | ch. 12 Machines à vecteurs de support | M10 (§12.1), M13b |
 
 ## 3. Les notions que MML ne couvre pas
@@ -97,4 +97,5 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Convolution, matrices de Toeplitz et circulantes | M21 | Dumoulin et Visin, Gray, documentations de NumPy et de SciPy |
 | Récurrences linéaires avec entrée, rayon spectral d'une matrice quelconque, croissance transitoire, normes induites, produits de matrices différentes | M22 | Trefethen et Embree, Horn et Johnson, Furstenberg et Kesten, documentations de NumPy et de SciPy |
 | Masse d'une ellipse et loi de la norme d'un vecteur gaussien (khi-deux, khi), divergence KL continue, Jensen pour une variable à densité, entropie différentielle, interpolation sphérique (slerp) | M25a | Cover et Thomas (ch. 2 et 8), documentation de SciPy (`scipy.stats.chi2`, `scipy.stats.chi`, `scipy.spatial.transform.Slerp`) |
+| ELBO démontrée en général et EM comme montée par coordonnées (MML s'arrête à $Q(\boldsymbol{\theta} \mid \boldsymbol{\theta}^{(t)})$), angles principaux entre deux sous-espaces, sens de la KL et inférence amortie, dérivée par le chemin (et la méthode du score, nommée), β comme multiplicateur d'un budget d'information, posterior agrégé, information mutuelle continue et débit-distorsion | M25b | MacKay (ch. 22 et 33), Bishop (ch. 9, §10.1, §12.2), Tipping et Bishop, Mohamed et al., Cover et Thomas (ch. 8 et 10), documentations de SciPy et de scikit-learn (`scipy.linalg.subspace_angles`, `sklearn.mixture.GaussianMixture`) |
 | Démonstrations | R4 et suite | Hammack, *Book of Proof* |

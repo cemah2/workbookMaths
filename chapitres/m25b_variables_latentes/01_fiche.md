@@ -363,7 +363,7 @@ Les valeurs propres de $\mathbf{C}$ sont 15 (dans la direction de $\mathbf{w}$) 
 
 Le bruit est la variance moyenne des directions écartées ; dans chaque direction gardée, de variance $\lambda_j$, le facteur explique $\lambda_j - \hat\sigma^2$ et le bruit le reste. Par exemple, des mesures en dimension 4 de valeurs propres 27, 18, 3 et 1, avec $k = 2$ : $\hat\sigma^2 = \frac{3 + 1}{2} = 2$ et $\hat{\mathbf{W}} = \mathbf{U}_2\operatorname{diag}(5, 4)\,\mathbf{R}$. La covariance du modèle, $\hat{\mathbf{W}}\hat{\mathbf{W}}^\top + \hat\sigma^2\mathbf{I}$, a pour valeurs propres 27, 18, 2 et 2 : elle garde exactement les deux grandes et remplace les deux petites par leur moyenne. Quand $\sigma^2 \to 0$, $\hat{\mathbf{W}} = \mathbf{U}_k\mathbf{D}_k^{1/2}\mathbf{R}$ : on retrouve l'ACP de M12d.
 
-**Les directions éteintes.** Si le bruit est **connu** et fixé à $\sigma^2$ au lieu d'être estimé, le maximum de vraisemblance est $\hat{\mathbf{W}} = \mathbf{U}_k\operatorname{diag}\big(\max(\lambda_j - \sigma^2, 0)\big)^{1/2}\mathbf{R}$ (admis) : avant la rotation $\mathbf{R}$, la colonne de la direction $j$ a pour carré de norme $\max(\lambda_j - \sigma^2, 0)$, et une direction où les données ne varient pas plus que le bruit, $\lambda_j \le \sigma^2$, reçoit une colonne nulle. Le facteur correspondant ne sert plus : la direction est **éteinte** (✏️ M25b.9).
+**Les directions éteintes.** Si le bruit est **connu** et fixé à $\sigma^2$ au lieu d'être estimé, le maximum de vraisemblance est $\hat{\mathbf{W}} = \mathbf{U}_k\operatorname{diag}\big(\max(\lambda_j - \sigma^2, 0)\big)^{1/2}\mathbf{R}$ (admis) : avant la rotation $\mathbf{R}$, la colonne de la direction $j$ a pour carré de norme $\max(\lambda_j - \sigma^2, 0)$, et une direction où les données ne varient pas plus que le bruit, $\lambda_j \le \sigma^2$, reçoit une colonne nulle. Le facteur correspondant ne sert plus : la direction est **éteinte** (on dit parfois *pruned* ou *switched off* ; ✏️ M25b.9).
 
 ### La rotation : seul le sous-espace est déterminé
 
@@ -400,8 +400,8 @@ sans jamais calculer $p(\mathbf{x})$ ni le posterior. C'est l'**inférence varia
 ### Le sens de la KL
 
 La KL n'est pas symétrique (M25a §7), et le sens choisi change la loi trouvée.
-- **$\mathrm{KL}(q \,\|\, p) = \mathbb{E}_q[\ln q - \ln p]$** (celle de l'inférence variationnelle) : $\ln\frac{q}{p}$ est énorme là où $q$ met de la masse et $p$ presque pas, donc la meilleure $q$ **évite** les régions où $p$ est faible ; si $p$ a deux bosses séparées et $q$ une seule, $q$ se pose sur l'une d'elles (*mode-seeking*), et chaque bosse donne un minimum local.
-- **$\mathrm{KL}(p \,\|\, q) = \mathbb{E}_p[\ln p - \ln q]$** : la pénalité est énorme là où $p$ a de la masse et $q$ presque pas. La meilleure $q$ **couvre** toute la masse de $p$ (*mass-covering*), quitte à en mettre entre les bosses.
+- **$\mathrm{KL}(q \,\|\, p) = \mathbb{E}_q[\ln q - \ln p]$**, la KL **inverse** (*reverse KL*), celle de l'inférence variationnelle : $\ln\frac{q}{p}$ est énorme là où $q$ met de la masse et $p$ presque pas, donc la meilleure $q$ **évite** les régions où $p$ est faible ; si $p$ a deux bosses séparées et $q$ une seule, $q$ se pose sur l'une d'elles (*mode-seeking*), et chaque bosse donne un minimum local.
+- **$\mathrm{KL}(p \,\|\, q) = \mathbb{E}_p[\ln p - \ln q]$**, la KL **directe** (*forward KL*) : la pénalité est énorme là où $p$ a de la masse et $q$ presque pas. La meilleure $q$ **couvre** toute la masse de $p$ (*mass-covering*), quitte à en mettre entre les bosses.
 
 > **Propriété.** Si $p$ est une densité de variance finie, parmi les lois $q = \mathcal{N}(m, s^2)$, $\mathrm{KL}(p \,\|\, q)$ est minimale quand $m$ et $s^2$ sont la moyenne et la variance de $p$ (*moment matching*). En dimension $d$, de même avec la moyenne et la covariance.
 

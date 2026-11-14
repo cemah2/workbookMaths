@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, calcul numérique.
 
 ```python
 import numpy as np
@@ -117,6 +117,23 @@ Une covariance `S` de forme $(d, d)$, une moyenne `mu` de forme $(d,)$, des poin
 | une entropie différentielle | `multivariate_normal(mu, S).entropy()`, `scipy.stats.norm(m, s).entropy()`, en nats ; c'est $\frac12[d\ln(2\pi e) + \ln\det\boldsymbol{\Sigma}]$ |
 
 Dans `mymath/gaussian.py`, la docstring du module dit ce qui est permis : de `np.linalg`, seulement `cholesky` et `solve` (et `LinAlgError`) ; ni `multivariate_normal` (ni celle de NumPy, ni la méthode d'un `Generator`, qui, avec `method="cholesky"`, rendrait les tirages de `sample_mvn` à ta place), ni SciPy : les tests comparent tes résultats aux leurs. La fiche fait le slerp sur papier : ni `mymath` ni le notebook n'en ont de fonction.
+
+## Mélanges, ACP probabiliste et angles principaux (M25b)
+
+Des données `X` de forme $(n, d)$, une par ligne (des mesures en dimension 1 forment une colonne : `x.reshape(-1, 1)`) ; un tableau `a` de forme $(n, K)$, une ligne par donnée.
+
+| Je veux… | Code |
+|---|---|
+| le log-sum-exp de chaque ligne de `a` | `from scipy.special import logsumexp` ; `logsumexp(a, axis=1)`, de forme $(n,)$ ; avec `keepdims=True`, de forme $(n, 1)$, qui se diffuse sur les colonnes ; **sans `axis`, un seul nombre pour tout le tableau** ; la formule factorisée par le maximum, en NumPy : `m = a.max(axis=1, keepdims=True)`, puis `m + np.log(np.exp(a - m).sum(axis=1, keepdims=True))` ; jamais `np.log(np.exp(a).sum(axis=1))`, qui rend `-inf` dès que les `a` sont très négatifs |
+| ajuster un mélange de gaussiennes | `from sklearn.mixture import GaussianMixture` ; `gm = GaussianMixture(n_components=K, n_init=5, random_state=0).fit(X)` (`X` à deux dimensions : un tableau 1-D est refusé) ; `gm.weights_` $(K,)$, `gm.means_` $(K, d)$, `gm.covariances_` $(K, d, d)$ ; `reg_covar` (par défaut `1e-6`) est ajouté à la diagonale de chaque covariance ; `n_init` relance l'EM depuis plusieurs initialisations (par défaut une seule, tirée d'un k-means) et garde la meilleure ; l'ordre des composantes est arbitraire : trier, par exemple `np.argsort(gm.means_[:, 0])`, avant de comparer deux ajustements |
+| les responsabilités et les log-densités du mélange ajusté | `gm.predict_proba(X)` : les $r_{ik}$, de forme $(n, K)$, chaque ligne de somme 1 (la documentation dit « density » : ce sont bien les probabilités a posteriori) ; `gm.predict(X)` : le numéro de la plus grande, une affectation dure ; `gm.score_samples(X)` : les $\ln p(\mathbf{x}_i)$, de forme $(n,)$ ; `gm.score(X)` : leur **moyenne**, en nats par donnée ; `gm.lower_bound_` : la même moyenne, calculée au dernier pas E, avant le dernier pas M (un peu sous `gm.score(X)`) |
+| les valeurs propres dans l'ordre de l'ACP probabiliste | `S = np.cov(X, rowvar=False, bias=True)` (la covariance du maximum de vraisemblance, en $n$) ; `lam, U = np.linalg.eigh(S)` : valeurs **croissantes**, vecteurs propres en colonnes ; `lam, U = lam[::-1], U[:, ::-1]` pour $\lambda_1 \ge \cdots \ge \lambda_d$ |
+| le maximum de vraisemblance de l'ACP probabiliste (Tipping et Bishop) | après le tri : `s2 = lam[k:].mean()` ($\hat\sigma^2$) ; `W = U[:, :k] * np.sqrt(lam[:k] - s2)` ($\hat{\mathbf{W}}$ pour $\mathbf{R} = \mathbf{I}$) ; `C = W @ W.T + s2 * np.eye(d)` : ses valeurs propres sont $\lambda_1, \ldots, \lambda_k$, puis $\hat\sigma^2$ ; avec scikit-learn : `pca = PCA(n_components=k).fit(X)` (de `sklearn.decomposition`), `pca.noise_variance_`, `pca.get_covariance()`, `pca.score_samples(X)` (les $\ln p(\mathbf{x}_i)$ du modèle), mais **en $n - 1$** : `noise_variance_` vaut $\frac{n}{n - 1}\hat\sigma^2$, et `get_covariance()` vaut $\frac{n}{n - 1}$ `C` |
+| les angles principaux | `scipy.linalg.subspace_angles(A, B)` : les angles principaux entre les sous-espaces engendrés par les colonnes de `A` et de `B`, qu'il orthonormalise lui-même (📦 M25b.24) ; leurs cosinus par la définition de la fiche : `QA = np.linalg.qr(A)[0]`, `QB = np.linalg.qr(B)[0]` (des bases orthonormées, si les colonnes sont indépendantes), puis `np.linalg.svd(QA.T @ QB, compute_uv=False)` |
+| la densité, la fonction de répartition de $\mathcal{N}(\mu, \sigma^2)$ | `from scipy.stats import norm` ; `norm.pdf(c, mu, sigma)`, c'est $\mathcal{N}(c \mid \mu, \sigma^2)$ (le troisième argument est l'**écart-type**) ; `norm.logpdf(c, mu, sigma)` ; `norm.cdf(c, mu, sigma)`, $P(X \le c)$ ; `norm.sf(c, mu, sigma)`, $P(X > c)$, précise même minuscule (`1 - norm.cdf(10)` rend 0, `norm.sf(10)` environ $7{,}6 \times 10^{-24}$) ; une loi figée : `law = norm(mu, sigma)`, puis `law.pdf(c)`, `law.cdf(c)` |
+| une information mutuelle continue, estimée sur des tirages | `from sklearn.feature_selection import mutual_info_regression` ; `mutual_info_regression(X, y)` : une valeur par colonne de `X`, en nats, estimée par les plus proches voisins (une estimation, avec son erreur, ramenée à 0 si elle sort négative) |
+
+Dans `mymath/latent.py`, la docstring du module dit ce qui est permis : NumPy, et de `np.linalg` seulement `cholesky` et `solve` ; ni `np.cov` ni `np.average` (les tests comparent ton pas M avec eux), aucune SciPy (ni `logsumexp`, ni `multivariate_normal`) et pas de scikit-learn (ni `GaussianMixture`) : les tests comparent tes résultats aux leurs. Le log-sum-exp s'importe de ton `approx.py` (M05a ; il prend une séquence à la fois) ou s'écrit par la formule factorisée ci-dessus ; `mvn_logpdf` s'importe de ton `gaussian.py` (M25a). Les formules des pas E et M, de la log-vraisemblance et de l'ELBO d'un mélange sont dans la fiche (§3 à §5) et dans le formulaire ; les coder est le travail des 🔨 M25b.20 à M25b.22.
 
 ## Calcul numérique
 
