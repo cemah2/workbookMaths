@@ -14,7 +14,7 @@ posterior of z for three seasons; the principal angle between the line spanned b
 (1, 0, 0) and (0, 1, 1) (≈ 39.2°); the pathwise derivative of E[min(θξ, 3)], ξ ~ Exp(1), at θ = 2 (≈ 0.442), with
 eight draws and 20 000 one-draw estimates.
 The numbers are those of the fiche; none comes from workbookIA 25, B5 or its checkpoint VI (no encoder, no image, no
-prior N(0, I) of a VAE, no 25xx seed). Seeds 6041 to 6044.
+prior N(0, I) of a VAE, no 25xx seed). Seeds 6041, 6042, 6044 and 6046.
 """
 
 from __future__ import annotations
@@ -176,7 +176,7 @@ def mixture_responsibilities() -> None:
         ax.annotate(f"{fr(x0, 1)} °C", (x0, 0.5), textcoords="offset points", xytext=(5, 6), fontsize=9.5, color="0.3")
     ax.set(xlabel="température x (°C)", ylabel="responsabilité", ylim=(-0.03, 1.03), xlim=(-8, 34),
            title="Les responsabilités se croisent deux fois : loin à droite, la composante large reprend le dessus")
-    ax.legend(fontsize=9.2, loc="center", bbox_to_anchor=(0.55, 0.45))
+    ax.legend(fontsize=9.2, loc="center", bbox_to_anchor=(0.66, 0.5))
     ax.grid(alpha=0.25)
     save(fig, "melange_responsabilites.png")
 
@@ -326,7 +326,7 @@ def principal_angle() -> None:
 # --------------------------------------------------------------------------------------------------------- §7
 def pathwise() -> None:
     """§7: θ ↦ min(θξ_j, T) for eight draws, their mean, J(θ) and its tangent at θ = 2; one-draw estimates."""
-    rng = np.random.default_rng(6043)
+    rng = np.random.default_rng(6046)
     xi = rng.exponential(1.0, size=8)
     th = np.linspace(0.2, 6.0, 400)
     J = th * (1 - np.exp(-LAMP_T / th))
@@ -337,7 +337,7 @@ def pathwise() -> None:
     ax = axes[0]
     for j, x in enumerate(xi):
         ax.plot(th, np.minimum(th * x, LAMP_T), color=C[0], lw=1, alpha=0.55,
-                label="min(θξ_j, 3) pour huit tirages ξ_j" if j == 0 else None)
+                label="min(θξⱼ, 3) pour huit tirages ξⱼ" if j == 0 else None)
     ax.plot(th, np.minimum(th[:, None] * xi, LAMP_T).mean(axis=1), color=C[0], lw=2.2,
             label="leur moyenne (huit tirages)")
     ax.plot(th, J, color="0.1", lw=2.4, label="J(θ) = θ(1 − e^(−3/θ)), exacte")
