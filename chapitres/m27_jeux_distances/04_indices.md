@@ -658,7 +658,7 @@ Avec les inconnues rangées ligne par ligne (`plan.ravel()`), la contrainte « l
 </details>
 <details><summary>Indice 3</summary>
 
-`res = linprog(C.ravel(), A_eq=A_eq, b_eq=np.concatenate([a, b]), bounds=(0, None), method="highs")`, puis `res.x.reshape(m, n)` et `res.fun`. Le coin nord-ouest : deux indices `i`, `j`, des copies des masses, `t = min(a[i], b[j])`, et l'on avance `i` si le dépôt est vide, `j` sinon. c) `C = np.linalg.norm(X[:, None, :] - Y[None, :, :], axis=2)`.
+`res = linprog(C.ravel(), A_eq=A_eq, b_eq=np.concatenate([a, b]), bounds=(0, None), method="highs")`, puis `res.x.reshape(m, n)` et `res.fun`. Le coin nord-ouest : deux indices `i`, `j`, des copies des masses, `t = min(a[i], b[j])`, et l'on avance `i` si le dépôt est vide, `j` sinon.
 
 </details>
 

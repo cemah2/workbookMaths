@@ -990,7 +990,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M27", "dir": "m27_jeux_distances", "hours": 14.7, "generation_sessions": 1, "mml": ["§7.2"],
+        "id": "M27", "dir": "m27_jeux_distances", "hours": 18.7, "generation_sessions": 1, "mml": ["§7.2"],
         "summary": "Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme nulle : la matrice des "
                    "gains, le maximin et le minimax (l'inégalité minimax de MML §7.2), les points selles et les "
                    "stratégies dominées ; les stratégies mixtes, la stratégie d'indifférence d'un jeu 2 × 2 et le "
@@ -1215,7 +1215,8 @@ CHAPTERS = [
                  "et 3. 14,4 h au lieu des 10 h prévues : la décision commune ajoute au plan les stratégies mixtes et "
                  "von Neumann, les couplages et W_p, l'appariement trié, le biais d'une distance estimée, la dynamique "
                  "d'un jeu bilinéaire et le § de la dérive (B7) ; la composition est au bas des fourchettes du §13 "
-                 "(15 ✏️/∂, 5 🔨/📦, un seul 🔬 et un seul 🔮) et les durées suivent les recalages de M21 et M22.",
+                 "(15 ✏️/∂, 5 🔨/📦, un seul 🔬 et un seul 🔮) et les durées suivent les recalages de M21 et M22. "
+                 "**Durée** (session 66) : 18,7 h au lieu de 14,7 h (essentiel 12,8 h ; lecture de la fiche 165 min ; M27.10 f) et 📦 M27.23 c) retirées, 34 durées recalées après la re-résolution à l'aveugle, l'auteur des exercices et l'apprenant simulé).",
         "exercises": [
             ("M27.Q1", "🧠", 1, 5, "Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ?",
              "§1", "E"),
@@ -1245,7 +1246,7 @@ CHAPTERS = [
              "mixte), puis la valeur d'un jeu d'allumettes par induction arrière", "§3", "E"),
             ("M27.4", "✏️", 2, 30, "Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs "
              "valeurs propres et leurs modules, et deux pas différents pour x et y", "§4", "E"),
-            ("M27.5", "✏️", 2, 35, "Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, "
+            ("M27.5", "✏️", 2, 40, "Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, "
              "et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui)", "§5", "E"),
             ("M27.6", "✏️", 2, 25, "Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, "
              "et ce que le décalage lui-même mesure", "§6", "E"),
@@ -1255,7 +1256,7 @@ CHAPTERS = [
              "lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type)", "§8", "E"),
             ("M27.9", "✏️", 2, 30, "La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis "
              "tournées ensemble : la part des moyennes et celle des covariances", "§9", "E"),
-            ("M27.10", "✏️", 2, 30, "Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys "
+            ("M27.10", "✏️", 2, 35, "Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys "
              "(le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre "
              "deux petits échantillons de températures de même taille", "§10", "E"),
             ("M27.11", "∂", 2, 20, "Le maximin est au plus le minimax ; ils sont égaux si et seulement si le jeu a un "
@@ -1280,28 +1281,28 @@ CHAPTERS = [
              "recouvrent pas, et pas Jensen-Shannon ? »", "§6 §8", "E"),
             ("M27.E2", "💼", 1, 10, "« Deux échantillons de la même loi donnent une distance non nulle : pourquoi, et "
              "comment comparer deux mesures ? »", "§9 §10", ""),
-            ("M27.19", "🔨", 1, 15, "Les valeurs d'un jeu en stratégies pures : maximin, minimax et coups prudents, points "
+            ("M27.19", "🔨", 1, 25, "Les valeurs d'un jeu en stratégies pures : maximin, minimax et coups prudents, points "
              "selles compris", "§1", "E m:pure_strategy_values"),
-            ("M27.20", "🔨", 2, 20, "Les stratégies optimales et la valeur d'un jeu 2 × 2, avec ou sans point selle", "§2",
+            ("M27.20", "🔨", 2, 25, "Les stratégies optimales et la valeur d'un jeu 2 × 2, avec ou sans point selle", "§2",
              "E m:mixed_strategy_value_2x2 p:M27.19"),
-            ("M27.21", "🔨", 2, 20, "Les itérés de la descente-montée simultanée ou alternée sur un jeu bilinéaire xᵀAy",
+            ("M27.21", "🔨", 2, 35, "Les itérés de la descente-montée simultanée ou alternée sur un jeu bilinéaire xᵀAy",
              "§4", "m:descent_ascent_iterates"),
-            ("M27.22", "🔨", 1, 10, "W₂ de deux gaussiennes en dimension 1, à partir des moyennes et des écarts-types",
+            ("M27.22", "🔨", 1, 15, "W₂ de deux gaussiennes en dimension 1, à partir des moyennes et des écarts-types",
              "§8", "E m:w2_gaussians_1d"),
-            ("M27.23", "📦", 2, 25, "`scipy.optimize.linprog` : le transport optimal entre deux lois discrètes de la droite "
+            ("M27.23", "📦", 2, 35, "`scipy.optimize.linprog` : le transport optimal entre deux lois discrètes de la droite "
              "comme programme linéaire, comparé au plan monotone et à l'aire entre les fonctions de répartition",
              "§7 §8", ""),
-            ("M27.24", "🔮", 1, 15, "Prédire la trajectoire de la descente-montée simultanée puis alternée sur xy, puis la "
+            ("M27.24", "🔮", 1, 25, "Prédire la trajectoire de la descente-montée simultanée puis alternée sur xy, puis la "
              "tracer : spirale qui s'éloigne ou courbe fermée ?", "§4", "p:M27.21"),
-            ("M27.25", "🔬", 2, 20, "Le biais d'une distance estimée : ‖x̄₁ − x̄₂‖² entre deux échantillons d'une même loi "
+            ("M27.25", "🔬", 2, 30, "Le biais d'une distance estimée : ‖x̄₁ − x̄₂‖² entre deux échantillons d'une même loi "
              "de ℝ³, selon leurs tailles, contre tr Σ₁/n₁ + tr Σ₂/n₂", "§9", ""),
-            ("M27.26", "🎨", 1, 20, "Deux fonctions de répartition sur une même figure : l'aire entre elles (W₁) et leur "
+            ("M27.26", "🎨", 1, 25, "Deux fonctions de répartition sur une même figure : l'aire entre elles (W₁) et leur "
              "plus grand écart vertical (KS), pour une translation puis une dilatation", "§8 §10", "E"),
-            ("M27.27", "🐛", 1, 25, "Chasse à l'erreur : une stratégie d'indifférence calculée sur ses propres gains, W₂ de "
+            ("M27.27", "🐛", 1, 35, "Chasse à l'erreur : une stratégie d'indifférence calculée sur ses propres gains, W₂ de "
              "deux gaussiennes avec des variances, des échantillons appariés sans être triés", "§2 §8", ""),
-            ("M27.28", "🛠️", 1, 20, "Un test de propriété : la valeur d'un jeu 2 × 2 tiré au hasard est entre maximin et "
+            ("M27.28", "🛠️", 1, 40, "Un test de propriété : la valeur d'un jeu 2 × 2 tiré au hasard est entre maximin et "
              "minimax, et devient v + c pour G + c et k v pour k G (k > 0)", "§2", "p:M27.20"),
-            ("M27.29", "🏆", 3, 30, "Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette "
+            ("M27.29", "🏆", 3, 45, "Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette "
              "distance, à 10⁻³ près", "§8", ""),
         ],
     },
