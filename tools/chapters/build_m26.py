@@ -219,14 +219,19 @@ PAPER = [
            mistakes={"γ multiplie PV, pas r : V = r + γPV, pour π_B aussi": floats(bellman(PB_6, [G_6 * r for r in RB_6], G_6)),
                      "sous π_B, entretenir coûte 4 k€ le mois de l'entretien : la machine usée rapporte 2, pas 6":
                          floats(bellman(PB_6, [F(10), F(6), F(-8)], G_6))}'''),
-              ("e", "a number (2 decimals)", "floats(q_6(ROW_CONT_6, R_CONT_6, VB_6))",
+              ("e", "a number (2 decimals)", "floats(q_6(ROW_MAINT_6, F(2), VB_6))",
                '''decimals=2,
-           mistakes={"Q^π(s, a) suit l'action a une fois, puis π : on prend les valeurs V^{π_B}, pas V^{π_A}":
-                         floats(q_6(ROW_CONT_6, R_CONT_6, VA_6)),
-                     "Q^π(s, a) = r(s, a) + γ Σ P_a(s, s′) V^π(s′) : la transition est celle de l'action a (continuer)":
-                         floats(q_6(ROW_MAINT_6, R_CONT_6, VB_6))}'''),
-              ("f", BOOL, "bool(q_6(ROW_MAINT_6, F(2), VB_6) == VB_6[1])",
-               '''mistakes={"calcule Q^{π_B}(1, entretenir) avec la ligne de l'entretien, et compare-la à ta réponse d)": False}'''),
+           mistakes={"les valeurs des mois suivants sont actualisées : γ multiplie la somme Σ P V":
+                         floats(F(2) + dot(ROW_MAINT_6, VB_6)),
+                     "Q^π(s, a) suit l'action a une fois, puis π : on prend les valeurs V^{π_B}, pas V^{π_A}":
+                         floats(q_6(ROW_MAINT_6, F(2), VA_6)),
+                     "l'entretien coûte 4 k€ le mois où on le fait : r(usée, entretenir) n'est pas 6":
+                         floats(q_6(ROW_MAINT_6, F(6), VB_6))}'''),
+              ("f", "a number (2 decimals)", "floats(G_6 * dot(ROW_MAINT_6, VB_6))",
+               '''decimals=2,
+           mistakes={"la part des mois suivants est actualisée : γ multiplie la somme Σ P V": floats(dot(ROW_MAINT_6, VB_6)),
+                     "après le premier mois, on suit π_B : les valeurs sont celles de π_B":
+                         floats(G_6 * dot(ROW_MAINT_6, VA_6))}'''),
           ]),
 
     Paper("M26.7", "Les itérés de Bellman de la machine : synchrones, en place, et le nombre d'itérations", [
