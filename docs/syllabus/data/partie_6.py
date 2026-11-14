@@ -1077,6 +1077,7 @@ CHAPTERS = [
                      ("biais d'un estimateur, variance d'une moyenne, matrice de covariance", "M02c"),
                      ("formule de Bayes, a priori et a posteriori ; le maximum de vraisemblance d'une loi de Bernoulli "
                       "est la fréquence", "M04"),
+                     ("approximation affine, ln(1 + x) ≈ x", "M05a"),
                      ("point selle d'une fonction de deux variables, descente et montée de gradient", "M05b"),
                      ("divergence KL, inégalités de Jensen et de Gibbs, divergence de Jensen-Shannon", "M06"),
                      ("p-valeur d'un test", "M08"),

@@ -11,13 +11,13 @@ Writes small PNG files into chapitres/m27_jeux_distances/figures/:
 - gradient descent-ascent on the mixed strategies of the volleyball game (step 0.4 on probabilities, the bilinear
   game κ(p − p*)(q − q*) with κ = −0.5): simultaneous steps spiral out, alternating steps stay on an ellipse;
 - Jensen-Shannon against the shift θ, for two point masses and for N(0, 1) against N(θ, 1), next to W₁ = θ;
-- Monge's sand on a road (piles at km 0, 2, 3 with masses 0.5, 0.3, 0.2; holes at km 1, 4 with 0.6, 0.4): the
+- Monge's earth on a road (piles at km 0, 2, 3 with masses 0.5, 0.3, 0.2; holes at km 1, 4 with 0.6, 0.4): the
   optimal plan and the independent one;
 - the same laws: the area between the distribution functions and between the quantile functions (W₁ = 1.2);
 - covariance ellipses of the two Fréchet examples (diag(3, 2) against [[5, 1], [1, 5]]; a commuting pair with
   eigenvalues 25, 1 and 9, 16 along the diagonals, means (0, 0) and (3, 3));
 - the PSI of a drift of orders (items per order, January q = (0.42, 0.33, 0.16, 0.09), June p = (0.37, 0.32,
-  0.19, 0.12)) and its approximation Σ(p − q)²/q along the path q + s (p − q) / 0.2, s from 0 to 1.6.
+  0.19, 0.12)) and its approximation Σ(p − q)²/q along the path q + t (p − q), t from 0 to 8 (June: t = 1).
 The numbers are those of the fiche; none comes from workbookIA 27, B7 or its checkpoint VI (no network, image,
 generator, learning rate, no 27xx seed). Everything is deterministic: the seeds 6391 to 6399 reserved for these
 figures are not needed.
@@ -53,7 +53,7 @@ G_HAND = np.array([[5, 3, 7], [4, 2, 1], [6, 4, 5]], dtype=float)
 G_VOLLEY = np.array([[40, 75], [60, 45]], dtype=float)
 # §4: descent-ascent on the volleyball probabilities
 ETA_GAME, N_STEPS, START = 0.4, 60, (0.38, 0.6)
-# §7, §8: Monge's sand
+# §7, §8: Monge's earth (déblais and remblais)
 X_PILES, A_PILES = np.array([0.0, 2.0, 3.0]), np.array([0.5, 0.3, 0.2])
 Y_HOLES, B_HOLES = np.array([1.0, 4.0]), np.array([0.6, 0.4])
 PLAN_STAR = np.array([[0.5, 0.0], [0.1, 0.2], [0.0, 0.2]])
@@ -235,17 +235,17 @@ def js_plateau() -> None:
     th = np.linspace(0, 6, 241)
     js_g = np.array([js_gauss(t) for t in th])
     fig, ax = plt.subplots(figsize=(8.6, 4.6))
-    h_d, = ax.plot(th[1:], np.full(len(th) - 1, math.log(2)), color=C[0], lw=2, label="JS(δ₀, δ_θ)")
-    ax.plot([0], [0], "o", color=C[0], ms=6)
+    h_d, = ax.plot(th[1:], np.full(len(th) - 1, math.log(2)), color=C[0], lw=2, label="JS(δ₀, δθ)")
+    ax.plot([0], [0], "o", color=C[0], ms=7, zorder=6, clip_on=False)
     ax.plot([0], [math.log(2)], "o", mfc="white", mec=C[0], ms=6)
     h_g, = ax.plot(th, js_g, color=C[1], lw=2, label="JS(N(0, 1), N(θ, 1))")
     ax.axhline(math.log(2), color="0.35", lw=1, ls=":")
     ax.text(0.15, math.log(2) + 0.02, "ln 2 ≈ 0,693", fontsize=9.5, color="0.3")
-    ax.set(xlabel="décalage θ", ylabel="Jensen-Shannon (nats)", ylim=(0, 0.85), xlim=(-0.05, 6))
+    ax.set(xlabel="décalage θ", ylabel="Jensen-Shannon (nats)", ylim=(-0.03, 0.85), xlim=(-0.1, 6))
     ax2 = ax.twinx()
     h_w, = ax2.plot(th, th, color=C[2], lw=1.6, ls="--", label="W₁ = θ (les deux familles)")
     ax2.set_ylabel("W₁", color=C[2])
-    ax2.set_ylim(0, 6)
+    ax2.set_ylim(-0.03 * 6 / 0.85, 6)
     ax2.grid(False)
     ax2.yaxis.set_major_formatter(FuncFormatter(french_number))
     ax.legend([h_d, h_g, h_w], [h.get_label() for h in (h_d, h_g, h_w)], fontsize=9.5, loc="center right")
@@ -257,7 +257,7 @@ def js_plateau() -> None:
 
 # --------------------------------------------------------------------------------------------------------- §7
 def plan() -> None:
-    """§7: the sand of the road, the optimal plan as arrows, and the two plans as matrices."""
+    """§7: the earth of the road, the optimal plan as arrows, and the two plans as matrices."""
     cost = np.abs(X_PILES[:, None] - Y_HOLES[None, :])
     indep = np.outer(A_PILES, B_HOLES)
     fig = plt.figure(figsize=(12.5, 4.2))
@@ -394,28 +394,30 @@ def psi(p, q):
 
 
 def psi_curve() -> None:
-    """§10: the PSI and its small-shift approximation along a growing drift."""
-    s = np.linspace(0, 1.6, 161)
+    """§10: the PSI and its small-shift approximation along a growing drift p(t) = q + t (p_June − q), t from 0 to 8."""
+    ts = np.linspace(0, 8, 321)
     psis, approx = [], []
-    for t in s:
-        p = Q_JAN + t * (P_JUN - Q_JAN) / 0.2
+    for t in ts:
+        p = Q_JAN + t * (P_JUN - Q_JAN)
         psis.append(psi(p, Q_JAN))
         approx.append(float(np.sum((p - Q_JAN) ** 2 / Q_JAN)))
     psis, approx = np.array(psis), np.array(approx)
+    cross = ts[1:][np.diff(np.sign(approx - psis))[0:] != 0]
     fig, ax = plt.subplots(figsize=(8.4, 4.5))
-    ax.plot(s, psis, color=C[0], lw=2.2, label="PSI = KL(p ‖ q) + KL(q ‖ p)")
-    ax.plot(s, approx, color=C[1], lw=1.8, ls="--", label="approximation Σ(p_k − q_k)²/q_k")
-    ax.plot([0.2], [psi(P_JUN, Q_JAN)], "o", color="black", ms=6)
-    ax.annotate("juin : 0,0204 et 0,0219", (0.2, psi(P_JUN, Q_JAN)), textcoords="offset points", xytext=(12, 18),
-                fontsize=9.5, arrowprops={"arrowstyle": "-", "color": "0.4"})
-    ax.set(xlabel="s (la dérive de juin vaut s = 0,2)", ylabel="nats",
-           title="Le PSI et son approximation, le long d'une dérive qui grandit", xlim=(0, 1.6))
+    ax.plot(ts, psis, color=C[0], lw=2.2, label="PSI = KL(p ‖ q) + KL(q ‖ p)")
+    ax.plot(ts, approx, color=C[1], lw=1.8, ls="--", label="approximation Σ(pₖ − qₖ)²/qₖ")
+    ax.plot([1.0], [psi(P_JUN, Q_JAN)], "o", color="black", ms=6, zorder=5)
+    ax.annotate("juin (t = 1) : 0,0204 et 0,0219", (1.0, psi(P_JUN, Q_JAN)), textcoords="offset points",
+                xytext=(10, 62), fontsize=9.5, arrowprops={"arrowstyle": "-", "color": "0.4"},
+                bbox={"boxstyle": "round,pad=0.2", "fc": "white", "ec": "none"})
+    ax.set(xlabel="t (juin vaut t = 1)", ylabel="nats",
+           title="Le PSI et son approximation, le long d'une dérive qui grandit", xlim=(0, 8))
     ax.legend(fontsize=9.5, loc="upper left")
     ax.grid(alpha=0.25)
     save(fig, "psi_approximation.png")
-    p_end = Q_JAN + 1.6 * (P_JUN - Q_JAN) / 0.2
+    p_end = Q_JAN + 8 * (P_JUN - Q_JAN)
     print(f"    end of path p = {np.round(p_end, 3)}, PSI {psis[-1]:.4f}, approx {approx[-1]:.4f}; "
-          f"s=1: {psis[100]:.4f} {approx[100]:.4f}")
+          f"curves cross near t = {cross[1:] if len(cross) > 1 else cross}")
 
 
 def main() -> int:
