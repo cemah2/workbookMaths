@@ -170,7 +170,7 @@ Le polynôme caractéristique d'une matrice $2 \times 2$ est $\lambda^2 - \opera
 </details>
 <details><summary>Indice 3</summary>
 
-$\operatorname{tr} = 7$, $\det = 6$. Pour 2, calcule $\mathbf{A}^2$ puis $\mathbf{A}^2\mathbf{A}$.
+$\operatorname{tr} = 12$, $\det = 11$. Pour 2, calcule $\mathbf{A}^2$ puis $\mathbf{A}^2\mathbf{A}$.
 
 </details>
 
@@ -318,7 +318,7 @@ $r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$. Chaque ligne de $\mathbf{
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $\pi_A$ : $0{,}58\,V_0 - 0{,}18\,V_1 = 10$, $0{,}61\,V_1 - 0{,}21\,V_2 = 4{,}95$, $-0{,}48\,V_0 + 0{,}88\,V_2 = -8$. e) $4{,}95 + 0{,}6\,\big(0{,}65\,V^{\pi_B}(1) + 0{,}35\,V^{\pi_B}(2)\big)$.
+Pour $\pi_A$ : $0{,}58\,V_0 - 0{,}18\,V_1 = 10$, $0{,}61\,V_1 - 0{,}21\,V_2 = 4{,}95$, $-0{,}48\,V_0 + 0{,}88\,V_2 = -8$. e) $4{,}95 + 0{,}6\,\big(0{,}65\,V^{\pi_B}(1) + 0{,}35\,V^{\pi_B}(2)\big)$. f) Le second terme de l'expression de e).
 
 </details>
 
@@ -448,7 +448,7 @@ Fiche §8 : « Le télescopage » et l'idée commune.
 </details>
 <details><summary>Indice 3</summary>
 
-La somme en $V$ vaut $\gamma^{T-t}V(S_T) - V(S_t)$. Pour 3, $\Phi(S_0) = \Phi(s)$ sachant $S_0 = s$, et la linéarité de l'espérance.
+Après le décalage d'indice, les termes en $V$ se compensent deux à deux, sauf le premier et le dernier. Pour 3, $\Phi(S_0) = \Phi(s)$ sachant $S_0 = s$, et la linéarité de l'espérance.
 
 </details>
 
@@ -470,7 +470,7 @@ Fiche §4 (MDP, chaîne induite, valeur d'une action) ; M20 (axes, réductions, 
 </details>
 <details><summary>Indice 3</summary>
 
-`r_sa` $= \begin{pmatrix} 30 & 21 & 0 \\ 21 & ? & 0 \end{pmatrix}$. e) $0{,}235\,V_0 - 0{,}085\,V_1 = 30$ et $-0{,}34\,V_0 + 0{,}677\,V_1 = r_\pi(1)$.
+`r_sa` $= \begin{pmatrix} 30 & 21 & 0 \\ 21 & ? & 0 \end{pmatrix}$. e) $0{,}235\,V_0 - 0{,}085\,V_1 = 30$ et $-0{,}34\,V_0 + 0{,}677\,V_1 = r_\pi(1)$. f) $r(0, \text{rien}) + \gamma\sum_{s'}\mathbf{P}_{\text{rien}}(0, s')\,V^\pi(s')$ ; pour le « pourquoi », écris $V^\pi(0)$ comme une moyenne des $Q^\pi(0, a)$.
 
 </details>
 

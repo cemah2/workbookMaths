@@ -13,7 +13,7 @@ Dans tout le chapitre, comme dans la fiche : les états sont numérotés $0, \ld
 
 ## 🧠 Quiz
 
-Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
+Sans la fiche, en 4 ou 5 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
 
 ### M26.Q1 — Matrice stochastique, convention ligne, loi à n pas et chemins du graphe : vrai ou faux 🧠 ★ ⏱️ 4 min
 *Fiche §1 · parcours C, E*
@@ -52,7 +52,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Vrai ou faux : si l'on simule cet arrêt, il faut encore multiplier la récompense du pas $t$ par $\gamma^t$ pour estimer la valeur.
 3. Vrai ou faux : le gain total sans actualisation jusqu'à cet arrêt a la même loi que le retour actualisé.
 4. Vrai ou faux : la valeur d'un état est définie sans préciser de politique.
-5. Dans un état $s$, une politique choisit l'action $a$ avec la probabilité 0,3 et l'action $b$ avec 0,7 ; $r(s, a) = 4$ et $r(s, b) = 10$. Que vaut $r_\pi(s)$ ?
+5. Dans un état $s$, une politique choisit l'action $a$ avec la probabilité 0,2 et l'action $b$ avec 0,8 ; $r(s, a) = 4$ et $r(s, b) = 10$. Que vaut $r_\pi(s)$ ?
 6. Vrai ou faux : la règle ε-greedy de M11 est une politique stochastique.
 
 ### M26.Q5 — Le système de Bellman d'une politique fixée : quelles matrices, pourquoi il est inversible, quand γ = 1 est permis 🧠 ★ ⏱️ 4 min
@@ -65,7 +65,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 5. Un état absorbant rapporte 1,2 à chaque pas, et $\gamma = 0{,}6$. Que vaut sa valeur ?
 6. Vrai ou faux : pour $\gamma < 1$, coder une fin par un état absorbant de récompense nulle ou par une ligne sous-stochastique donne les mêmes valeurs.
 
-### M26.Q6 — Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai ou faux 🧠 ★ ⏱️ 4 min
+### M26.Q6 — Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai ou faux 🧠 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
 
 1. Vrai ou faux : $\mathcal{T}(\mathbf{V}) = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$ est une γ-contraction pour $\lVert\cdot\rVert_\infty$ ($\gamma < 1$).
@@ -85,28 +85,28 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 5. Offres indépendantes : la valeur de continuation est $C^\star = 640$ € et l'offre de la semaine vaut 600 €. Que dit la règle à seuil ?
 6. Vrai ou faux : dans $C = c + \gamma\,\mathbb{E}[\max(X, C)]$, la valeur de continuation $C$ ne dépend pas de l'offre du moment.
 
-### M26.Q8 — Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, biais du maximum 🧠 ★ ⏱️ 4 min
+### M26.Q8 — Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, biais du maximum 🧠 ★ ⏱️ 5 min
 *Fiche §8 · parcours C, E*
 
 1. Vrai ou faux : avec le pas $\alpha_n = \frac1n$, $m_n$ est la moyenne de $x_1, \ldots, x_n$.
 2. Vrai ou faux : avec un pas constant, $m_n$ converge vers l'espérance des mesures.
 3. Parmi les pas $\frac1n$, $0{,}1$, $\frac{1}{n^2}$ et $\frac{1}{\sqrt n}$, lesquels vérifient les deux conditions de Robbins-Monro ?
 4. Vrai ou faux : quand $\mathbf{W} = \mathbf{V}$, chaque erreur TD est nulle.
-5. Trois fournisseurs ont la même qualité réelle ; on annonce le meilleur score mesuré. Vrai ou faux : cette annonce est trop belle en moyenne.
+5. Cinq fournisseurs ont la même qualité réelle ; on annonce le meilleur score mesuré. Vrai ou faux : cette annonce est trop belle en moyenne.
 6. On tronque les retours après $T = 20$ pas, avec $\gamma = 0{,}7$ et $\lVert\mathbf{V}\rVert_\infty = 50$. Quelle borne la fiche donne-t-elle sur le biais ?
 
 <a id="rappels"></a>
 
 ## 🔁 Rappels
 
-### M26.R1 — Puissances d'une matrice diagonalisable et méthode de la puissance (M12c) 🔁 ★ ⏱️ 5 min
+### M26.R1 — Puissances d'une matrice diagonalisable et méthode de la puissance (M12c) 🔁 ★ ⏱️ 8 min
 *Fiche §1 et §2 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 5 & 2 \\ 2 & 2 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 3 & 4 \\ 4 & 9 \end{pmatrix}$.
 1. Les valeurs propres de $\mathbf{A}$, et un vecteur propre pour chacune ?
 2. $(\mathbf{A}^3)_{01}$, par la diagonalisation ou par le calcul direct ?
 3. La méthode de la puissance part de $(1, 0)$ : vers quelle direction tend $\mathbf{A}^k\mathbf{x}_0 / \lVert\mathbf{A}^k\mathbf{x}_0\rVert$, et par combien la composante parasite est-elle multipliée à chaque pas, relativement ?
-4. Vrai ou faux : la méthode de la puissance trouve la valeur propre de plus grand module.
+4. Vrai ou faux : quand une seule valeur propre a le plus grand module, la méthode de la puissance la trouve depuis tout départ qui a une composante sur son vecteur propre.
 
 ### M26.R2 — La norme ‖·‖∞ d'une matrice, ρ(A) ≤ ‖A‖ et Aᵗ → 0 quand ρ(A) < 1 (M22), et la somme d'une série géométrique (R5) 🔁 ★ ⏱️ 8 min
 *Fiche §5 et §6 · parcours C, E*
@@ -141,11 +141,11 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 « Valeurs exactes » veut dire : tous les chiffres, sans arrondir (ces calculs tombent juste). Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex M26.1 — Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi après deux et trois jours, et coût moyen du lendemain (Pf) ✏️ ★ ⏱️ 25 min
+### Ex M26.1 — Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi après deux et trois jours, et coût moyen du lendemain (Pf) ✏️ ★ ⏱️ 30 min
 **Objectif :** écrire une matrice de transition et son graphe, faire avancer une loi en convention ligne, lire un coefficient de $\mathbf{P}^2$ sur les chemins, et moyenner un coût sur le pas suivant.
 **Prérequis :** fiche §1 et §3 ; M03, M16 · **Parcours :** C, E
 
-Une ville a trois stations de vélos : A (la gare), B (le centre) et C (en haut d'une colline), numérotées 0, 1 et 2. On suit un vélo d'un matin au suivant. Un vélo qui est à A le matin finit la journée à A avec la probabilité 0,6, à B avec 0,3, à C avec 0,1 ; un vélo de B finit à A, B ou C avec 0,3, 0,4 et 0,3 ; un vélo de C, avec 0,4, 0,2 et 0,4. Ce matin, les 200 vélos sont répartis ainsi : 80 à A, 80 à B, 40 à C ; chacun se déplace indépendamment des autres. Chaque soir, l'opérateur paie pour chaque vélo une recharge qui dépend de la station où il se trouve : 0,40 € à A, 0,80 € à B et 2 € à C (il faut monter la colline) ; on note $\mathbf{f} = (0{,}4 ;\ 0{,}8 ;\ 2)^\top$.
+Une ville a trois stations de vélos : A (la gare), B (le centre) et C (en haut d'une colline), numérotées 0, 1 et 2. On suit un vélo d'un matin au suivant. Un vélo qui est à A le matin finit la journée à A avec la probabilité 0,6, à B avec 0,3, à C avec 0,1 ; un vélo de B finit à A, B ou C avec 0,3, 0,4 et 0,3 ; un vélo de C, avec 0,4, 0,2 et 0,4. Ce matin, les 200 vélos sont répartis ainsi : 80 à A, 80 à B, 40 à C ; chacun se déplace indépendamment des autres. Chaque soir, l'opérateur paie pour chaque vélo une recharge qui dépend de la station où il se trouve : 0,40 € à A, 0,80 € à B et 2 € à C (il faut monter la colline) ; on note $\mathbf{f} = (0{,}4 ;\ 0{,}8 ;\ 2)^\top$. Le coût « du lendemain » d'un vélo est celui de ce soir : il dépend de la station où il finit la journée, $S_1$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -158,7 +158,7 @@ Une ville a trois stations de vélos : A (la gare), B (le centre) et C (en haut 
 
 Dans ta copie : écris $\mathbf{P}$ et dessine son graphe ; pour a), écris les trois chemins et leurs probabilités ; vérifie que chaque $\boldsymbol{\mu}_n$ a pour somme 1. Pourquoi f) vaut-il aussi $200\,\boldsymbol{\mu}_1\mathbf{f}$ ?
 
-### Ex M26.2 — Trois opérateurs et leurs parts de marché : la loi stationnaire par un système linéaire, puis vérifier πP = π ✏️ ★★ ⏱️ 25 min
+### Ex M26.2 — Trois opérateurs et leurs parts de marché : la loi stationnaire par un système linéaire, puis vérifier πP = π ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer une loi stationnaire par le système carré de la fiche (une équation remplacée par $\sum_j\pi_j = 1$), la vérifier et l'interpréter.
 **Prérequis :** fiche §2 ; M03, M09a · **Parcours :** C, E
 
@@ -176,7 +176,7 @@ Chaque mois, les clients de trois opérateurs de téléphonie, Azur, Boréal et 
 
 Dans ta copie : écris le système et les étapes du pivot ; vérifie $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$ coordonnée par coordonnée, y compris pour l'équation que tu as retirée.
 
-### Ex M26.3 — Trois chaînes qui posent problème, périodique, à deux classes et avec un état transitoire : lois stationnaires et comportement de Pⁿ ✏️ ★★ ⏱️ 25 min
+### Ex M26.3 — Trois chaînes qui posent problème, périodique, à deux classes et avec un état transitoire : lois stationnaires et comportement de Pⁿ ✏️ ★★ ⏱️ 35 min
 **Objectif :** reconnaître, sur trois chaînes, ce qui empêche la convergence ou l'unicité, et calculer ce qui existe quand même.
 **Prérequis :** fiche §2 ; ✏️ M26.2 · **Parcours :** C
 
@@ -195,7 +195,7 @@ Dans ta copie : écris le système et les étapes du pivot ; vérifie $\boldsymb
 
 Dans ta copie : pour chaque chaîne, dis ce qui manque (l'irréductibilité ou l'apériodicité) ; montre que la loi stationnaire du bac met la moitié de sa masse au nord ; explique pourquoi $\pi_0 = 0$ pour l'essai, à partir de la première colonne de $\mathbf{P}$.
 
-### Ex M26.4 — Un cursus en trois années, avec redoublement et abandon : la probabilité d'être diplômé et la durée moyenne des études, par l'analyse au premier pas ✏️ ★★ ⏱️ 30 min
+### Ex M26.4 — Un cursus en trois années, avec redoublement et abandon : la probabilité d'être diplômé et la durée moyenne des études, par l'analyse au premier pas ✏️ ★★ ⏱️ 40 min
 **Objectif :** calculer des probabilités d'absorption, des durées moyennes et des nombres de visites par l'analyse au premier pas et la matrice fondamentale.
 **Prérequis :** fiche §3 ; M09a · **Parcours :** C, E
 
@@ -228,7 +228,7 @@ Un service de streaming facture 9 € chaque mois commencé, le premier mois com
 
 Dans ta copie : écris c) comme $\sum_{t \ge 0}9\,P(N \ge t)$ et d) comme $\sum_{t \ge 0}9\,\gamma^t$ : pourquoi est-ce la même somme ? Pourquoi la majorité des abonnés rapporte-t-elle moins que la moyenne ?
 
-### Ex M26.6 — Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de Bellman 3 × 3, et la valeur d'une action ✏️ ★★ ⏱️ 35 min
+### Ex M26.6 — Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de Bellman 3 × 3, et la valeur d'une action ✏️ ★★ ⏱️ 45 min
 **Objectif :** construire la chaîne et les récompenses induites par une politique, résoudre deux systèmes de Bellman $3 \times 3$, et calculer la valeur d'une action.
 **Prérequis :** fiche §4 et §5 ; M09a · **Parcours :** C, E
 
@@ -246,11 +246,11 @@ La politique $\pi_A$ n'entretient jamais la machine ; la politique $\pi_B$ entre
 | c | $\mathbf{V}^{\pi_A}$ (neuve, usée, en panne) | une liste de 3 nombres (2 décimales) |
 | d | $\mathbf{V}^{\pi_B}$ (neuve, usée, en panne) | une liste de 3 nombres (2 décimales) |
 | e | $Q^{\pi_B}(1, \text{continuer})$ | un nombre (2 décimales) |
-| f | vrai ou faux : $Q^{\pi_B}(1, \text{entretenir}) = V^{\pi_B}(1)$ | `True` ou `False` |
+| f | la part de e) qui vient des mois suivants, $\gamma\sum_{s'}\mathbf{P}_{\text{continuer}}(1, s')\,V^{\pi_B}(s')$ | un nombre (2 décimales) |
 
 Dans ta copie : écris $\mathbf{P}_{\pi_A}$, $\mathbf{r}_{\pi_A}$ et $\mathbf{r}_{\pi_B}$, puis les deux systèmes $(\mathbf{I} - \gamma\mathbf{P})\mathbf{V} = \mathbf{r}$, et résous-les (exprime $V(2)$ en fonction de $V(0)$, puis $V(1)$, puis trouve $V(0)$). Dis en une phrase ce que mesure le nombre de e).
 
-### Ex M26.7 — Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, comparés à la solution, et le nombre d'itérations qui garantit 10⁻³ ✏️ ★★ ⏱️ 30 min
+### Ex M26.7 — Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, comparés à la solution, et le nombre d'itérations qui garantit 10⁻³ ✏️ ★★ ⏱️ 35 min
 **Objectif :** itérer l'opérateur de Bellman à la main, synchrone puis en place, mesurer l'erreur, et choisir un nombre d'itérations par les bornes a priori et a posteriori.
 **Prérequis :** fiche §6 ; ✏️ M26.6, R6 · **Parcours :** C, E
 
@@ -283,9 +283,9 @@ Une personne vend sa voiture. Chaque semaine, elle reçoit une offre $X$, indép
 | e | la valeur de continuation de la règle fixée « accepter toute offre d'au moins 4 000 € » (€) | un nombre (arrondi à l'euro) |
 | f | ce que coûte cette règle en moyenne : $C^\star$ moins la valeur de e) (€) | un nombre (arrondi à l'euro) |
 
-Dans ta copie : écris $\mathbb{E}[\max(X, C)]$ quand $C$ est entre 3 000 et 4 000 €, puis entre 4 000 et 5 000 € ; résous l'équation dans chaque cas, et dis pourquoi une seule solution convient. Compare la solution rejetée à e).
+Dans ta copie : écris $\mathbb{E}[\max(X, C)]$ quand $C$ est entre 3 000 et 4 000 €, puis entre 4 000 et 5 000 € ; résous l'équation dans chaque cas, et dis pourquoi une seule solution convient.
 
-### Ex M26.9 — Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, l'estimateur double non ✏️ ★★ ⏱️ 25 min
+### Ex M26.9 — Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, l'estimateur double non ✏️ ★★ ⏱️ 30 min
 **Objectif :** mesurer le biais du maximum avec des écarts-types différents puis des moyennes inégales, et voir l'estimateur double devenir pessimiste.
 **Prérequis :** fiche §8 ; M02b, M02c · **Parcours :** C
 
@@ -308,7 +308,7 @@ Dans ta copie : adapte la démonstration de $\mathbb{E}[\max(Z_1, Z_2)] = \frac{
 
 Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque étape et ce qui la justifie, ce que tu conclus. `05_solutions.md` donne une grille de relecture.
 
-### Ex M26.10 — L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible dès que la fin est possible depuis chaque état ∂ ★★ ⏱️ 25 min
+### Ex M26.10 — L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible dès que la fin est possible depuis chaque état ∂ ★★ ⏱️ 35 min
 **Objectif :** démontrer le théorème du §3, de l'estimation des puissances de $\mathbf{Q}$ jusqu'aux deux systèmes.
 **Prérequis :** fiche §3 ; M22 · **Parcours :** C
 
@@ -318,7 +318,7 @@ Une chaîne a des états transitoires $1, \ldots, m$ et des états absorbants ; 
 3. En conditionnant sur $S_1$, démontre $t_i = 1 + \sum_j q_{ij}\,t_j$ ; dis où sert la propriété de Markov.
 4. Démontre de même $h_i = b_i + \sum_j q_{ij}\,h_j$, et conclus : $\mathbf{t}$ et $\mathbf{h}$ sont les uniques solutions de leurs systèmes.
 
-### Ex M26.11 — V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série de Neumann démontrée pour γP, et (1 − γ)(I − γP)⁻¹ stochastique ∂ ★★ ⏱️ 25 min
+### Ex M26.11 — V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série de Neumann démontrée pour γP, et (1 − γ)(I − γP)⁻¹ stochastique ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer en entier le théorème et la propriété du §5 : l'inversibilité, la série de Neumann et la loi d'occupation actualisée.
 **Prérequis :** fiche §4 et §5 ; M22 · **Parcours :** C, E
 
@@ -328,7 +328,7 @@ $\mathbf{P}$ est une matrice $m \times m$ stochastique ou sous-stochastique (coe
 3. Montre que $\mathbf{S}_n$ converge coefficient par coefficient vers une matrice $\mathbf{S}$, et que $\mathbf{S}(\mathbf{I} - \gamma\mathbf{P}) = (\mathbf{I} - \gamma\mathbf{P})\mathbf{S} = \mathbf{I}$ : $\mathbf{I} - \gamma\mathbf{P}$ est inversible, d'inverse $\sum_{t \ge 0}\gamma^t\mathbf{P}^t$. Déduis-en que $\mathbf{V} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t\mathbf{r}$ est l'unique solution de $\mathbf{V} = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$.
 4. Pour $\mathbf{P}$ stochastique, montre que $\mathbf{M} = (1 - \gamma)(\mathbf{I} - \gamma\mathbf{P})^{-1}$ est stochastique : ses coefficients sont positifs ou nuls (par la série), et $\mathbf{M}\mathbf{1} = \mathbf{1}$ (calcule d'abord $(\mathbf{I} - \gamma\mathbf{P})\mathbf{1}$). Que peut-on dire de $\mathbf{M}\mathbf{1}$ si $\mathbf{P}$ est seulement sous-stochastique ?
 
-### Ex M26.12 — L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; bornes a priori et a posteriori ; le maximum est 1-lipschitzien ∂ ★★ ⏱️ 25 min
+### Ex M26.12 — L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; bornes a priori et a posteriori ; le maximum est 1-lipschitzien ∂ ★★ ⏱️ 40 min
 **Objectif :** démontrer les bornes d'erreur de l'itération de Bellman, la contraction d'un balayage en place, et deux extensions du lemme du maximum de la fiche.
 **Prérequis :** fiche §6 et §7 ; M22 · **Parcours :** C, E
 
@@ -352,7 +352,7 @@ Un épisode d'une chaîne finit au pas $T$ : on observe $S_0, R_0, S_1, R_1, \ld
 
 ## 🗣️ 🔗 Explication et pont
 
-### Ex M26.14 — Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) P_a et r_π avec des tableaux à trois axes (actions, états, états), puis Q^π(s, a) et r(s, a, s′) 🔗 ★★ ⏱️ 25 min
+### Ex M26.14 — Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) P_a et r_π avec des tableaux à trois axes (actions, états, états), puis Q^π(s, a) et r(s, a, s′) 🔗 ★★ ⏱️ 35 min
 **Objectif :** passer des sommes $\sum_{s'}P(s' \mid s, a)\,[\ldots]$ des livres d'apprentissage par renforcement à des opérations sur des tableaux à trois axes, et calculer la chaîne induite, sa valeur et la valeur d'une action.
 **Prérequis :** fiche §4 et §5 ; M20 · **Parcours :** C, E
 
@@ -367,10 +367,10 @@ La cotisation du mois suivant n'est perçue que si l'adhérent ne part pas : dep
 | c | $\mathbf{r}_\pi$ (fidèle, hésitant, parti) | une liste de 3 nombres |
 | d | la ligne « hésitant » de $\mathbf{P}_\pi$ | une liste de 3 nombres |
 | e | $\mathbf{V}^\pi$ (fidèle, hésitant, parti) | une liste de 3 nombres (2 décimales) |
-| f | $Q^\pi(0, \text{remise})$ | un nombre (2 décimales) |
+| f | $Q^\pi(0, \text{rien})$, calculée par sa formule à partir de tes valeurs de e) | un nombre (2 décimales) |
 | g | vrai ou faux : sans l'état « parti », la matrice $\mathbf{P}_\pi$ restreinte à fidèle et hésitant est sous-stochastique, et donne les mêmes valeurs pour ces deux états | `True` ou `False` |
 
-Dans ta copie : écris $r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$ comme une somme, puis comme une opération sur `P` et `R` ; écris $\mathbf{P}_\pi$ et $\mathbf{r}_\pi$ avec `np.einsum` (indices `s`, `a`, `t`) ; résous le système de e). Dis en une phrase ce que mesure f).
+Dans ta copie : écris $r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$ comme une somme, puis comme une opération sur `P` et `R` ; écris $\mathbf{P}_\pi$ et $\mathbf{r}_\pi$ avec `np.einsum` (indices `s`, `a`, `t`) ; résous le système de e). Vérifie que f) égale $V^\pi(0)$, et dis pourquoi.
 
 ### Ex M26.15 — Expliquer avec une image hors informatique pourquoi une chaîne qui mélange oublie son état de départ 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer sans formule l'oubli du départ, la loi stationnaire et ce qui peut les empêcher.

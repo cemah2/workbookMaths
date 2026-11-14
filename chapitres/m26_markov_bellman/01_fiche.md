@@ -327,7 +327,7 @@ $$V(s) = r(s) + \gamma\sum_{s'}p_{ss'}\,V(s') .$$
 > **Théorème** (∂ M26.11). Si $\mathbf{P}$ est stochastique ou sous-stochastique et $0 \le \gamma < 1$, $\mathbf{I} - \gamma\mathbf{P}$ est inversible, son inverse est la **série de Neumann** (*Neumann series*) $(\mathbf{I} - \gamma\mathbf{P})^{-1} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t$, et le système a pour unique solution
 > $$\mathbf{V} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t\mathbf{r} .$$
 
-L'idée : $\lVert\gamma\mathbf{P}\rVert_\infty = \gamma < 1$ (M22), donc $\rho(\gamma\mathbf{P}) < 1$ et la série géométrique de matrices converge ; le ∂ M26.11 rédige la preuve. La série se lit aussi directement : par la tour, comme au §3, $\mathbb{E}[R_t \mid S_0 = s] = (\mathbf{P}^t\mathbf{r})(s)$, et $V(s) = \sum_t\gamma^t\,\mathbb{E}[R_t \mid S_0 = s]$. Calculer la valeur d'une politique fixée s'appelle l'**évaluation d'une politique** (*policy evaluation*).
+L'idée : $\lVert\gamma\mathbf{P}\rVert_\infty \le \gamma < 1$ (M22 ; l'égalité pour $\mathbf{P}$ stochastique), donc $\rho(\gamma\mathbf{P}) < 1$ et la série géométrique de matrices converge ; le ∂ M26.11 rédige la preuve. La série se lit aussi directement : par la tour, comme au §3, $\mathbb{E}[R_t \mid S_0 = s] = (\mathbf{P}^t\mathbf{r})(s)$, et $V(s) = \sum_t\gamma^t\,\mathbb{E}[R_t \mid S_0 = s]$. Calculer la valeur d'une politique fixée s'appelle l'**évaluation d'une politique** (*policy evaluation*).
 
 **Exemple : la boutique, avec $\gamma = 0{,}85$.**
 $$V(0) = -5 + 0{,}85\,V(2), \qquad V(1) = 7 + 0{,}85\,\big(0{,}7\,V(0) + 0{,}3\,V(1)\big), \qquad V(2) = 9 + 0{,}85\,\big(0{,}2\,V(0) + 0{,}5\,V(1) + 0{,}3\,V(2)\big).$$

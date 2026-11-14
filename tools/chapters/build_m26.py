@@ -1098,12 +1098,13 @@ errors_19r = np.array([np.abs(v - V_19r).max() for v in closed_19r])
 k_19r = int(np.argmax(errors_19r <= 1e-3))
 changes_19r = np.array([np.abs(closed_19r[k] - closed_19r[k - 1]).max() for k in range(1, 61)])
 post_19r = int(np.argmax(changes_19r <= 1e-3 * 0.4 / 0.6)) + 1
+eps_19r = int(np.argmax(changes_19r <= 1e-3)) + 1                  # (wrong) the threshold ε itself
 wbm.record("M26.19b", [k_19r, post_19r, True],
            mistakes={"c'est ce que garantit la borne a priori : compte les itérations jusqu'à ce que l'erreur vraie, "
                      "‖V_k − V‖∞, passe sous 1e-3": [k_19r + 1, post_19r, True],
                      "la ligne k du tableau est V_k : la ligne 0 est V0, et k compte les pas": [k_19r + 1, post_19r + 1, True],
-                     "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f)":
-                         [k_19r, int(np.argmax(changes_19r <= 1e-3)) + 1, True]})
+                     "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f), "
+                     "pas sous ε": [k_19r, eps_19r, bool(errors_19r[eps_19r] <= 1e-3)]})
 W_19r = [np.zeros(3)]
 for _ in range(60):
     W = W_19r[-1].copy()
@@ -1631,19 +1632,21 @@ CHECK_23 = '''def look_23(ax_law, ax_dist, P, starts, n_max):
     pi = ref_markov.stationary_distribution(P)
     steps = np.arange(n_max + 1)
     lam2 = np.sort(np.abs(np.linalg.eigvals(P)))[::-1][1]
-    missing = []
+    missing, column = [], False
     for s in starts:
         laws = np.array([ref_markov.n_step_distribution(P, np.eye(len(P))[s], n) for n in steps])
         columns = np.array([np.linalg.matrix_power(P, n)[:, s] for n in steps])   # (wrong) P^n e_s, the column convention
-        if not through(ax_law, steps, laws[:, 0]):
-            missing.append(f"la probabilité d'être dans l'état 0 depuis l'état {s}, contre n = 0, …, {n_max}"
-                           + (" (tu traces la convention colonne, Pⁿ e_s : une loi avance par mu @ P)"
-                              if through(ax_law, steps, columns[:, 0]) else ""))
         dist = np.abs(laws - pi).sum(axis=1)
+        if not through(ax_law, steps, laws[:, 0]):
+            column = column or through(ax_law, steps, columns[:, 0])
+            missing.append(f"la probabilité d'être dans l'état 0 depuis l'état {s}, contre n = 0, …, {n_max}")
         if not through(ax_dist, steps, dist):
-            wrong = np.abs(columns - pi).sum(axis=1)
-            missing.append(f"‖μ_n − π‖₁ depuis l'état {s}" + (" (tes courbes ne tendent pas vers 0 : c'est la convention "
-                           "colonne, Pⁿ e_s ; une loi avance par mu @ P)" if through(ax_dist, steps, wrong) else ""))
+            column = column or through(ax_dist, steps, np.abs(columns - pi).sum(axis=1))
+            missing.append(f"‖μ_n − π‖₁ depuis l'état {s}")
+    if column:                                                # one reason for all the curves of the starts
+        missing = [m for m in missing if not m.startswith(("la probabilité d'être", "‖μ_n − π‖₁ depuis"))]
+        missing.insert(0, "des courbes justes pour les départs : tu traces la convention colonne, Pⁿ e_s, dont les "
+                          "écarts à π ne tendent pas vers 0 ; une loi avance par mu @ P (ta n_step_distribution)")
     if not horizontal_at(ax_law, pi[0]):
         missing.append("la droite horizontale π₀ dans le panneau de gauche")
     if not through(ax_dist, steps, lam2 ** steps, dashed=True):
@@ -1918,8 +1921,11 @@ with checked("M26.24"):                                       # (3) subscription
                           gamma_c24)
         if matches(got_c24, want_c24):
             continue
-        got_arr_c24 = np.asarray(got_c24, dtype=float) if matches(got_c24, np.zeros(3), rtol=np.inf, atol=np.inf) else None
-        if got_arr_c24 is not None and abs(got_arr_c24[2]) > 1e-9:
+        try:
+            got_arr_c24 = np.asarray(got_c24, dtype=float)
+        except (TypeError, ValueError):
+            got_arr_c24 = None
+        if got_arr_c24 is not None and got_arr_c24.shape == (3,) and abs(got_arr_c24[2]) > 1e-9:
             wrong_24.append("l'état résilié rapporte encore : un état absorbant reçoit une récompense nulle, sinon il la "
                             "rapporte à chaque mois, pour toujours")
         elif matches(got_c24, np.linalg.solve(np.eye(3) - gamma_c24 * P_c24, [0.0, monthly_c24, 0.0])):
@@ -2086,7 +2092,9 @@ unit_sum_24r = float(np.sum(pi_24r) / np.linalg.norm(pi_24r))      # the sum of 
 wbm.record("M26.24b", pi_24r.tolist() + [unit_sum_24r], decimals=6,
            mistakes={"la question demande la valeur absolue de la somme : le signe d'un vecteur propre est arbitraire":
                          pi_24r.tolist() + [-unit_sum_24r],
-                     "la somme demandée est celle de ce que rend la version FAUSSE, market_shares": pi_24r.tolist() + [1.0]})
+                     "la somme demandée est celle de ce que rend la version FAUSSE, market_shares": pi_24r.tolist() + [1.0],
+                     "market_shares_fixed doit rendre une loi : divise le vecteur propre par sa somme, pas par sa norme":
+                         (pi_24r / np.linalg.norm(pi_24r)).tolist() + [unit_sum_24r]})
 P_sub_24r = np.array([[0, 0.55, 0.45], [0, 0.9, 0.1], [0, 0, 1.0]])
 value_24r = lambda r: np.linalg.solve(np.eye(3) - 0.96 * P_sub_24r, np.asarray(r, dtype=float))
 fixed_24r, wrong_24r = value_24r([15 * 0.45, 12 + 15 * 0.1, 0]), value_24r([0, 12, 15])

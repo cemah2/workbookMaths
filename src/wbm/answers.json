@@ -86897,8 +86897,8 @@
       "kind": "array",
       "mistakes": {
         "021253a5161b8215fe9d37531ff53e7f535076d31a0e70fd295755d3aaae0ba3": "la ligne k du tableau est V_k : la ligne 0 est V0, et k compte les pas",
-        "539abf6e58c6dbc71635284ae7672b8c7e1f67500ae2b55eb32b3b2e1b6f6d1a": "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f)",
-        "58015617886bdcf34fe1a383a0bfd85138797566f37cc236de92aa92240ba752": "c'est ce que garantit la borne a priori : compte les itérations jusqu'à ce que l'erreur vraie, ‖V_k − V‖∞, passe sous 1e-3"
+        "58015617886bdcf34fe1a383a0bfd85138797566f37cc236de92aa92240ba752": "c'est ce que garantit la borne a priori : compte les itérations jusqu'à ce que l'erreur vraie, ‖V_k − V‖∞, passe sous 1e-3",
+        "a825376df9cf55a326b369d38f867a108c1fc3c49705f18a778cf532719b5549": "le critère a posteriori s'arrête quand ‖V_k − V_{k−1}‖∞ passe sous le seuil ε(1 − γ)/γ de M26.7 f), pas sous ε"
       },
       "shape": [
         3
@@ -87739,6 +87739,7 @@
       "kind": "array",
       "mistakes": {
         "15b0706fdf1a6f7d759dba4370c008e1536c65f1838c300289d2255f3559cf41": "la somme demandée est celle de ce que rend la version FAUSSE, market_shares",
+        "a2b5c71d14408b6650153647cf13ed61e7540f3f89c5d76b0d2cab1a503c6367": "market_shares_fixed doit rendre une loi : divise le vecteur propre par sa somme, pas par sa norme",
         "c2d606bfc3c2b48a1a5fb307db2b479ec38e300fb5033058f86ef62bfefb2038": "la question demande la valeur absolue de la somme : le signe d'un vecteur propre est arbitraire"
       },
       "shape": [
