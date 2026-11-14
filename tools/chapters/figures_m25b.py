@@ -54,7 +54,7 @@ PPCA_S2 = 2.0
 PPCA_X = np.array([3.0, 3.0])          # §6: a season, x − μ
 LINE_A = np.array([1.0, 2.0, 0.0])     # §6: principal angle between a line and a plane of R³
 PLANE_B = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 1.0]])
-VIEW = (8, 40)                          # §6: elevation and azimuth of the 3-D figure
+VIEW = (18, -35)                          # §6: elevation and azimuth of the 3-D figure
 LAMP_T = 3.0                           # §7: replacement after T years
 LAMP_THETA = 2.0                       # §7: mean lifetime (years)
 
@@ -305,7 +305,8 @@ def principal_angle() -> None:
     arc = np.array([math.cos(t) * p / np.linalg.norm(p) + math.sin(t) * (u - p) / np.linalg.norm(u - p)
                     for t in np.linspace(0, math.radians(phi), 30)]) * 0.55
     ax.plot(*arc.T, color=C[7], lw=2)
-    ax.text(*(0.62 * (u + p / np.linalg.norm(p)) / 2 * 1.4), f"φ₁ ≈ {fr(phi, 1)}°", fontsize=12, color=C[7])
+    ax.text(*(0.75 * u + 0.15 * p / np.linalg.norm(p) - np.array([0.0, 0.0, 0.32])), f"φ₁ ≈ {fr(phi, 1)}°",
+            fontsize=12, color=C[7])
     for v, name in ((PLANE_B[0], "(1, 0, 0)"), (PLANE_B[1] / math.sqrt(2), "(0, 1, 1)/√2")):
         ax.quiver(0, 0, 0, *v, color=C[0], lw=1.6, arrow_length_ratio=0.12)
         ax.text(*(1.08 * v), name, fontsize=10, color=C[0])
