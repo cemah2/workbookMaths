@@ -64,7 +64,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 20,3 h | ✅ exercices | 2 |
 | [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 21,1 h | ✅ exercices | 2 |
 | [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 17,9 h | ✅ exercices | 1 |
-| [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,7 h | ✅ exercices | 1 |
+| [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 16,6 h | ✅ exercices | 1 |
 | [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 9,8 h | ✅ exercices | 1 |
 | [CP6](#cp6) | Examen blanc de la partie VI | — | — | 3,1 h | ✅ exercices | 1 |
 | [MB2](#mb2) | Cooccurrences, PMI et embeddings | B2 | — | ≈ 8 h (estimé) | plan | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 86,8 h | 66,1 h |
+| VI · Génératif et RL | 6 | 203 | 88,8 h | 67,6 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3685,7 +3685,7 @@ Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de tran
 
 Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme nulle : la matrice des gains, le maximin et le minimax (l'inégalité minimax de MML §7.2), les points selles et les stratégies dominées ; les stratégies mixtes, la stratégie d'indifférence d'un jeu 2 × 2 et le théorème minimax de von Neumann ; l'équilibre de Nash d'un jeu quelconque et l'induction arrière sur un arbre de jeu ; la descente-montée de gradient sur un jeu bilinéaire, qui tourne autour de l'équilibre ou s'en éloigne. Puis les lois : la probabilité a posteriori est le meilleur prédicteur pour la log-loss ; la divergence de Jensen-Shannon plafonne à ln 2 quand les supports se séparent ; les couplages et les distances de Wasserstein, calculées en dimension 1 par les fonctions de répartition et les quantiles, dont W₂ de deux gaussiennes ; la distance de Fréchet entre gaussiennes et le biais d'une distance estimée sur des échantillons ; enfin trois mesures d'une dérive (PSI, Kolmogorov-Smirnov, W₁). workbookIA 27 applique ces outils aux GAN, et workbookIA B7 à la surveillance d'un modèle en production.
 
-**Temps** : 14,7 h en parcours complet, 10,8 h en parcours essentiel (lecture 165 min, 20 flashcards).
+**Temps** : 16,6 h en parcours complet, 12,2 h en parcours essentiel (lecture 165 min, 20 flashcards).
 
 **Objectifs**
 
@@ -3723,34 +3723,34 @@ Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme 
 
 | ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
 |---|---|---|---|---|---|---|---|---|
-| M27.Q1 | 🧠 | Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ? | ★ | 4 | §1 | C, E | manuel | — |
-| M27.Q2 | 🧠 | Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux | ★ | 4 | §2 | C, E | manuel | — |
+| M27.Q1 | 🧠 | Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ? | ★ | 5 | §1 | C, E | manuel | — |
+| M27.Q2 | 🧠 | Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux | ★ | 5 | §2 | C, E | manuel | — |
 | M27.Q3 | 🧠 | Équilibres de Nash, arbres de jeu et descente-montée : unique ou non, le meilleur pour tous ou non, converger ou tourner ? | ★ | 4 | §3 §4 | C, E | manuel | — |
-| M27.Q4 | 🧠 | La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se séparent | ★ | 4 | §5 §6 | C, E | manuel | — |
-| M27.Q5 | 🧠 | Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂ | ★ | 4 | §7 §8 | C, E | manuel | — |
+| M27.Q4 | 🧠 | La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se séparent | ★ | 5 | §5 §6 | C, E | manuel | — |
+| M27.Q5 | 🧠 | Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂ | ★ | 5 | §7 §8 | C, E | manuel | — |
 | M27.Q6 | 🧠 | La distance de Fréchet et son estimation : rotation commune, covariances, taille des échantillons | ★ | 4 | §9 | C, E | manuel | — |
-| M27.Q7 | 🧠 | Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas | ★ | 4 | §10 | C, E | manuel | — |
+| M27.Q7 | 🧠 | Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas | ★ | 5 | §10 | C, E | manuel | — |
 | M27.R1 | 🔁 | Le maximum de vraisemblance d'une loi de Bernoulli (des comptes entiers), et la log-loss quand la probabilité prédite tend vers 0 (M04, M13a) | ★ | 8 | §5 | C, E | manuel | — |
-| M27.R2 | 🔁 | Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances (M22) | ★ | 5 | §4 | C, E | manuel | — |
-| M27.R3 | 🔁 | La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs propres (M12c) | ★ | 5 | §9 | C, E | manuel | — |
-| M27.1 | ✏️ | Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, trouver ses deux points selles et vérifier qu'ils ont la même valeur, et ce que la réduction ne change pas (maximin, minimax) | ★ | 20 | §1 | C, E | wbm | — |
-| M27.2 | ✏️ | Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien et la valeur du jeu | ★★ | 20 | §2 | C, E | wbm | — |
-| M27.3 | ✏️ | Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et mixte), puis la valeur d'un jeu d'allumettes par induction arrière | ★★ | 25 | §3 | C, E | wbm | — |
-| M27.4 | ✏️ | Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs valeurs propres et leurs modules, et deux pas différents pour x et y | ★★ | 25 | §4 | C, E | wbm | — |
-| M27.5 | ✏️ | Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui) | ★★ | 25 | §5 | C, E | wbm | — |
-| M27.6 | ✏️ | Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, et ce que le décalage lui-même mesure | ★★ | 20 | §6 | C, E | wbm | — |
-| M27.7 | ✏️ | Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur coût, le couplage indépendant et le plan monotone (coin nord-ouest) | ★★ | 25 | §7 | C, E | wbm | — |
-| M27.8 | ✏️ | W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type) | ★★ | 25 | §8 | C, E | wbm | — |
-| M27.9 | ✏️ | La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis tournées ensemble : la part des moyennes et celle des covariances | ★★ | 20 | §9 | C, E | wbm | — |
-| M27.10 | ✏️ | Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys (le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre deux petits échantillons de températures de même taille | ★★ | 25 | §10 | C, E | wbm | — |
+| M27.R2 | 🔁 | Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances (M22) | ★ | 7 | §4 | C, E | manuel | — |
+| M27.R3 | 🔁 | La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs propres (M12c) | ★ | 6 | §9 | C, E | manuel | — |
+| M27.1 | ✏️ | Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, trouver ses deux points selles et vérifier qu'ils ont la même valeur, et ce que la réduction ne change pas (maximin, minimax) | ★ | 30 | §1 | C, E | wbm | — |
+| M27.2 | ✏️ | Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien et la valeur du jeu | ★★ | 25 | §2 | C, E | wbm | — |
+| M27.3 | ✏️ | Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et mixte), puis la valeur d'un jeu d'allumettes par induction arrière | ★★ | 30 | §3 | C, E | wbm | — |
+| M27.4 | ✏️ | Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs valeurs propres et leurs modules, et deux pas différents pour x et y | ★★ | 30 | §4 | C, E | wbm | — |
+| M27.5 | ✏️ | Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui) | ★★ | 35 | §5 | C, E | wbm | — |
+| M27.6 | ✏️ | Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, et ce que le décalage lui-même mesure | ★★ | 25 | §6 | C, E | wbm | — |
+| M27.7 | ✏️ | Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur coût, le couplage indépendant et le plan monotone (coin nord-ouest) | ★★ | 30 | §7 | C, E | wbm | — |
+| M27.8 | ✏️ | W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type) | ★★ | 30 | §8 | C, E | wbm | — |
+| M27.9 | ✏️ | La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis tournées ensemble : la part des moyennes et celle des covariances | ★★ | 30 | §9 | C, E | wbm | — |
+| M27.10 | ✏️ | Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys (le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre deux petits échantillons de températures de même taille | ★★ | 30 | §10 | C, E | wbm | — |
 | M27.11 | ∂ | Le maximin est au plus le minimax ; ils sont égaux si et seulement si le jeu a un point selle, et deux points selles ont la même valeur | ★★ | 20 | §1 | C, E | manuel | — |
-| M27.12 | ∂ | La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par l'inégalité de Gibbs | ★★ | 20 | §5 | C, E | manuel | — |
-| M27.13 | ∂ | 0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports disjoints | ★★ | 20 | §6 | C | manuel | — |
-| M27.14 | ∂ | L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n paires, pour les coûts |x − y| et (x − y)² | ★★ | 25 | §8 | C | manuel | — |
-| M27.15 | ∂ | E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux échantillons est biaisée vers le haut | ★★ | 20 | §9 | C, E | manuel | — |
+| M27.12 | ∂ | La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par l'inégalité de Gibbs | ★★ | 25 | §5 | C, E | manuel | — |
+| M27.13 | ∂ | 0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports disjoints | ★★ | 25 | §6 | C | manuel | — |
+| M27.14 | ∂ | L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n paires, pour les coûts |x − y| et (x − y)² | ★★ | 40 | §8 | C | manuel | — |
+| M27.15 | ∂ | E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux échantillons est biaisée vers le haut | ★★ | 25 | §9 | C, E | manuel | — |
 | M27.16 | 🔗 | Pont : la distance de Fréchet en dimension 1, W₂² = (Δμ)² + (Δσ)², entre deux lois résumées par leur moyenne et leur écart-type (deux séries d'une machine, avant et après réglage) : la part de la moyenne et celle de l'écart-type, et pourquoi workbookIA 27 l'écrit avec des covariances et en rend le carré | ★ | 20 | §8 §9 | C, E | wbm | — |
-| M27.17 | 📖 | MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue comme un jeu, et l'inégalité vérifiée sur une matrice de gains choisie | ★★ | 25 | §1 | C | manuel | — |
-| M27.18 | 🗣️ | Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la meilleure stratégie, et ce que le hasard garantit | ★ | 10 | §2 | C, E | manuel | — |
+| M27.17 | 📖 | MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue comme un jeu, et l'inégalité vérifiée sur une matrice de gains choisie | ★★ | 35 | §1 | C | manuel | — |
+| M27.18 | 🗣️ | Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la meilleure stratégie, et ce que le hasard garantit | ★ | 15 | §2 | C, E | manuel | — |
 | M27.E1 | 💼 | « Pourquoi une distance de Wasserstein reste-t-elle informative quand deux lois ne se recouvrent pas, et pas Jensen-Shannon ? » | ★ | 10 | §6 §8 | C, E | manuel | — |
 | M27.E2 | 💼 | « Deux échantillons de la même loi donnent une distance non nulle : pourquoi, et comment comparer deux mesures ? » | ★ | 10 | §9 §10 | C | manuel | — |
 | M27.19 | 🔨 | Les valeurs d'un jeu en stratégies pures : maximin, minimax et coups prudents, points selles compris · `pure_strategy_values` | ★ | 15 | §1 | C, E | pytest | — |

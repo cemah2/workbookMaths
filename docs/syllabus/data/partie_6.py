@@ -1217,64 +1217,64 @@ CHAPTERS = [
                  "d'un jeu bilinéaire et le § de la dérive (B7) ; la composition est au bas des fourchettes du §13 "
                  "(15 ✏️/∂, 5 🔨/📦, un seul 🔬 et un seul 🔮) et les durées suivent les recalages de M21 et M22.",
         "exercises": [
-            ("M27.Q1", "🧠", 1, 4, "Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ?",
+            ("M27.Q1", "🧠", 1, 5, "Maximin, minimax et point selle : qui annonce son coup en premier, et qui y gagne ?",
              "§1", "E"),
-            ("M27.Q2", "🧠", 1, 4, "Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux", "§2", "E"),
+            ("M27.Q2", "🧠", 1, 5, "Stratégies mixtes, gain espéré et valeur d'un jeu : vrai ou faux", "§2", "E"),
             ("M27.Q3", "🧠", 1, 4, "Équilibres de Nash, arbres de jeu et descente-montée : unique ou non, le meilleur pour "
              "tous ou non, converger ou tourner ?", "§3 §4", "E"),
-            ("M27.Q4", "🧠", 1, 4, "La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se "
+            ("M27.Q4", "🧠", 1, 5, "La probabilité a posteriori et la log-loss ; Jensen-Shannon et KL quand les supports se "
              "séparent", "§5 §6", "E"),
-            ("M27.Q5", "🧠", 1, 4, "Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂",
+            ("M27.Q5", "🧠", 1, 5, "Couplages et distances de Wasserstein : marges, translation, dilatation, et W₁ ≤ W₂",
              "§7 §8", "E"),
             ("M27.Q6", "🧠", 1, 4, "La distance de Fréchet et son estimation : rotation commune, covariances, taille des "
              "échantillons", "§9", "E"),
-            ("M27.Q7", "🧠", 1, 4, "Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas", "§10",
+            ("M27.Q7", "🧠", 1, 5, "Mesurer une dérive : PSI, KS ou W₁, leurs unités, et ce que chacun ne voit pas", "§10",
              "E"),
             ("M27.R1", "🔁", 1, 8, "Le maximum de vraisemblance d'une loi de Bernoulli (des comptes entiers), et la log-loss "
              "quand la probabilité prédite tend vers 0 (M04, M13a)", "§5", "E"),
-            ("M27.R2", "🔁", 1, 5, "Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances "
+            ("M27.R2", "🔁", 1, 7, "Les valeurs propres complexes d'une matrice réelle 2 × 2, leur module et les puissances "
              "(M22)", "§4", "E"),
-            ("M27.R3", "🔁", 1, 5, "La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs "
+            ("M27.R3", "🔁", 1, 6, "La racine carrée d'une matrice symétrique positive, et la trace comme somme des valeurs "
              "propres (M12c)", "§9", "E"),
-            ("M27.1", "✏️", 1, 20, "Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, "
+            ("M27.1", "✏️", 1, 30, "Deux enseignes se partagent un marché : réduire une matrice 3 × 4 par dominance, "
              "trouver ses deux points selles et vérifier qu'ils ont la même valeur, et ce que la réduction ne change "
              "pas (maximin, minimax)", "§1", "E"),
-            ("M27.2", "✏️", 2, 20, "Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien "
+            ("M27.2", "✏️", 2, 25, "Tirs au but : la probabilité de tirer à gauche par indifférence, la réponse du gardien "
              "et la valeur du jeu", "§2", "E"),
-            ("M27.3", "✏️", 2, 25, "Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et "
+            ("M27.3", "✏️", 2, 30, "Les équilibres de Nash d'un dilemme du prisonnier et d'un jeu de coordination (purs et "
              "mixte), puis la valeur d'un jeu d'allumettes par induction arrière", "§3", "E"),
-            ("M27.4", "✏️", 2, 25, "Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs "
+            ("M27.4", "✏️", 2, 30, "Descente-montée sur f(x, y) = xy : la matrice d'un pas simultané puis alterné, leurs "
              "valeurs propres et leurs modules, et deux pas différents pour x et y", "§4", "E"),
-            ("M27.5", "✏️", 2, 25, "Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, "
+            ("M27.5", "✏️", 2, 35, "Deux fournisseurs et un défaut noté sur quatre niveaux : la probabilité a posteriori, "
              "et la log-loss moyenne de trois prédicteurs (a priori, a posteriori, trop sûr de lui)", "§5", "E"),
-            ("M27.6", "✏️", 2, 20, "Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, "
+            ("M27.6", "✏️", 2, 25, "Deux lois uniformes de même largeur, translatées : JS en fonction du décalage, la KL, "
              "et ce que le décalage lui-même mesure", "§6", "E"),
-            ("M27.7", "✏️", 2, 25, "Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur "
+            ("M27.7", "✏️", 2, 30, "Trois dépôts et trois magasins le long d'une route : vérifier des couplages, leur "
              "coût, le couplage indépendant et le plan monotone (coin nord-ouest)", "§7", "E"),
-            ("M27.8", "✏️", 2, 25, "W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux "
+            ("M27.8", "✏️", 2, 30, "W₁ et W₂ par l'aire entre les fonctions de répartition et par les quantiles : deux "
              "lois uniformes, puis W₂ de deux gaussiennes (et W₁ quand elles ont le même écart-type)", "§8", "E"),
-            ("M27.9", "✏️", 2, 20, "La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis "
+            ("M27.9", "✏️", 2, 30, "La distance de Fréchet de deux gaussiennes du plan à covariances diagonales, puis "
              "tournées ensemble : la part des moyennes et celle des covariances", "§9", "E"),
-            ("M27.10", "✏️", 2, 25, "Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys "
+            ("M27.10", "✏️", 2, 30, "Une dérive en deux mois d'une variable à trois catégories : la divergence de Jeffreys "
              "(le PSI) et JS, puis l'approximation Σ(p_k − q_k)²/q_k d'un petit décalage ; enfin KS et W₁ entre "
              "deux petits échantillons de températures de même taille", "§10", "E"),
             ("M27.11", "∂", 2, 20, "Le maximin est au plus le minimax ; ils sont égaux si et seulement si le jeu a un "
              "point selle, et deux points selles ont la même valeur", "§1", "E"),
-            ("M27.12", "∂", 2, 20, "La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par "
+            ("M27.12", "∂", 2, 25, "La log-loss espérée est minimale pour la probabilité a posteriori : une preuve par "
              "l'inégalité de Gibbs", "§5", "E"),
-            ("M27.13", "∂", 2, 20, "0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports "
+            ("M27.13", "∂", 2, 25, "0 ≤ JS ≤ ln 2, et JS = ln 2 si et seulement si les deux lois ont des supports "
              "disjoints", "§6", ""),
-            ("M27.14", "∂", 2, 25, "L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n "
+            ("M27.14", "∂", 2, 40, "L'appariement trié est optimal : un argument d'échange sur deux paires, puis sur n "
              "paires, pour les coûts |x − y| et (x − y)²", "§8", ""),
-            ("M27.15", "∂", 2, 20, "E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux "
+            ("M27.15", "∂", 2, 25, "E‖x̄₁ − x̄₂‖² = ‖μ₁ − μ₂‖² + tr Σ₁/n₁ + tr Σ₂/n₂ : une distance estimée sur deux "
              "échantillons est biaisée vers le haut", "§9", "E"),
             ("M27.16", "🔗", 1, 20, "Pont : la distance de Fréchet en dimension 1, W₂² = (Δμ)² + (Δσ)², entre deux lois "
              "résumées par leur moyenne et leur écart-type (deux séries d'une machine, avant et après réglage) : la "
              "part de la moyenne et celle de l'écart-type, et pourquoi workbookIA 27 l'écrit avec des covariances et "
              "en rend le carré", "§8 §9", "E"),
-            ("M27.17", "📖", 2, 25, "MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue "
+            ("M27.17", "📖", 2, 35, "MML §7.2 relu : l'inégalité minimax (7.23) et sa preuve, la dualité faible (7.27) lue "
              "comme un jeu, et l'inégalité vérifiée sur une matrice de gains choisie", "§1", ""),
-            ("M27.18", "🗣️", 1, 10, "Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la "
+            ("M27.18", "🗣️", 1, 15, "Expliquer avec une partie de cache-cache pourquoi jouer au hasard peut être la "
              "meilleure stratégie, et ce que le hasard garantit", "§2", "E"),
             ("M27.E1", "💼", 1, 10, "« Pourquoi une distance de Wasserstein reste-t-elle informative quand deux lois ne se "
              "recouvrent pas, et pas Jensen-Shannon ? »", "§6 §8", "E"),
