@@ -88197,7 +88197,7 @@
       "hash": "ddae2931bc0fd70af9a517aeb780b1e3c1407ddaee2e29739686736e5b4466e6",
       "kind": "bool",
       "mistakes": {
-        "85106e5396f615e71fe63e581c98ed0e05888bd5896dfa5a579113532a431b8d": "une colonne est strictement dominée si elle coûte plus qu'une autre sur toutes les lignes de G, y compris celles qu'on n'a pas encore rayées"
+        "85106e5396f615e71fe63e581c98ed0e05888bd5896dfa5a579113532a431b8d": "dans G, on n'a encore rien rayé : une colonne n'y est strictement dominée que si elle coûte plus qu'une même autre colonne sur les trois lignes"
       },
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
@@ -88502,7 +88502,7 @@
       "kind": "int",
       "magnitude": 0,
       "mistakes": {
-        "04018ec2d53d56616ed339f624ff3119be33b62a5c8a8a2580ff7fc0e3f47571": "la distance est multipliée par √(1 + η²) à chaque pas, pas par 1 + η²",
+        "04018ec2d53d56616ed339f624ff3119be33b62a5c8a8a2580ff7fc0e3f47571": "la distance est multipliée à chaque pas par le module de a), pas par son carré",
         "f650f81428e79826497197ecd09ac1872f8de5b9eceaf8a0f1235e88d8e08f3b": "il faut au moins doubler : arrondis à l'entier supérieur"
       },
       "sign": 1,
@@ -88516,7 +88516,7 @@
       "magnitude": 1,
       "mistakes": {
         "3d713362fe2e51fbc5e2cd2a2d9981a796513e2c39f7c89fe434d846ebc154a6": "l'angle est demandé en degrés, pour le pas alterné aussi",
-        "75a8f0cebd2e7a5216976f618cf935dec060832042c072a59536a59a21d688c1": "pour le pas alterné, cos θ = tr(M_a)/2 : ce n'est pas l'angle du pas simultané"
+        "75a8f0cebd2e7a5216976f618cf935dec060832042c072a59536a59a21d688c1": "le pas alterné n'a pas la matrice du pas simultané : cherche les valeurs propres de M_a"
       },
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
@@ -88900,7 +88900,7 @@
       "kind": "float",
       "magnitude": 2,
       "mistakes": {
-        "54e2929ee8ca265dc84206a6cf7e6dd8ad355afa2b2e14b111fc7498c54331c6": "avec des masses en tonnes, le couplage indépendant est γᵢⱼ = aᵢbⱼ divisé par la masse totale"
+        "54e2929ee8ca265dc84206a6cf7e6dd8ad355afa2b2e14b111fc7498c54331c6": "un couplage doit avoir les marges a et b : vérifie les sommes des lignes de ton plan"
       },
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
@@ -89312,8 +89312,8 @@
       "kind": "float",
       "magnitude": -3,
       "mistakes": {
-        "d033249819a3a9032feba0c90d42373c296c37366f94da158d097bc42482837a": "le logarithme est népérien (nats)",
-        "da36c4c3178c861455573460d983a1e97a01412bcce573d335f55577800b28a7": "JS compare chaque loi au mélange m = (p + q)/2, pas à l'autre loi"
+        "2d10227b1d548be5a84aba1fccd3b612ee4270aedefd90621a92816d4ab1bf42": "JS = ½ KL(p ‖ m) + ½ KL(q ‖ m) : n'oublie pas les facteurs ½",
+        "d033249819a3a9032feba0c90d42373c296c37366f94da158d097bc42482837a": "le logarithme est népérien (nats)"
       },
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
@@ -89369,41 +89369,6 @@
         "d3784b50f1f7f71cb7d20bda34f79a8a42b499c178dc01c201217f41a035e5f4": "W₁ apparie les valeurs triées : la plus petite avec la plus petite"
       },
       "sign": 1,
-      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
-    },
-    "M27.10f": {
-      "decimals": 3,
-      "element_coarse": [
-        [
-          "c271216b65073571a532854a4df42baf40f0c2d1ca799f4f56eb7106fd3b5cc4"
-        ],
-        [
-          "cf37f7c5f8325ba43e0335b34927763cfecd22a977a2af017f90f98cc79208aa"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "a1ecf5271c223053b758d5c8bfefc9ddfbf25fdca9ccf9fc896498bc153a9b74",
-          "717b56e15750f97a9bc5a1b58d441fdee1e7734594e3991c80053074e39ec8e5"
-        ],
-        [
-          "9de93211fff65483e3f73aa5cd5b525db35a9b7a8f61f4678edd6f0b0683cd2a",
-          "75b44d1593bf8293873c8cdc1cca032ebfc6a88fd01bf2f71bb160e43f02d355"
-        ]
-      ],
-      "element_hashes": [
-        "2edce7d99ffb04910f57598de9d7cf8a59da64387b126d78644bb8e70a767f94",
-        "128fa6bc8a6eabe3423acdf00af9ac205c0a0bacf15e76a20737aa6e6d3125d3"
-      ],
-      "hash": "9d3a28752a643339e22e576ec6fade6a64f676d6694f4fb7483794329515b4a3",
-      "kind": "array",
-      "mistakes": {
-        "a39d7a6dbc4431d06e652d806276a0954e31653c3f5e75f609457d0e2aac69e4": "une translation commune des deux échantillons ne change pas la distance entre eux",
-        "ae1fe0081d763723e5d3c4d0a3d9eb79f613f67056857f7144f01082833b9a59": "KS compare des probabilités cumulées : regarde ce qu'un changement d'unité fait à l'ordre des valeurs"
-      },
-      "shape": [
-        2
-      ],
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
     "M27.16a": {
@@ -89766,10 +89731,10 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "003ffd46aae221fe62f646b8539b5cf2b5c3c9b465f015332e207f974df78f73"
+          "7a6058ef575f89a21a29097ce8c872b57c9a0ebbe584900c20e3b9c44bedb74b"
         ],
         [
-          "855e9ab79e4048e9ec4f6f926af5a666670f3ea8e26b8ad4980d24d558934dee"
+          "2a21a1689f743ea783b1b176a3693790a7215b4027958dfb7c7ee36c46e96697"
         ],
         [
           "e16913100dc575da526e1369eb27679cf54da9c5f189c6595bdc7871a6718dfa"
@@ -89778,23 +89743,23 @@
           "cfe30ad42f1be5b044fe1d73813b9cee1eba6e9c1cc7f969cd2731259b731c0e"
         ],
         [
-          "cd4eaa18359e4ba5130951da9dd09e8bc0b3015421cfbbc9228be08799bcf354"
+          "19a396dbbccefb7f6f41f2dcd3cda7d3a7644659f67b7d5c960f3f06433988b7"
         ]
       ],
       "element_coarse_any": [
         [
-          "073796c97db4755c407f245e6df7472acd4416965e56c4836f7c0067872cde9c",
-          "7aff52cf7bea714e1da9b33417f80edf007997dc7497a54044e25ea2939a7eb7",
-          "3e00829d26d47e916aa8e36581cfab8d02e9e93e7e2520c1d0803a7e35d02923",
-          "3173c6d99eef6a0c75410f7bc877d93ca180e502183d022a092c3c48d582c1c9",
-          "bcb06405b13899441b17f67d8ce155c359855ce27f3b1f39cf75f8037bae9615"
+          "2657ca7584239ecac3ee8a5b6ee4b83c2907a2851757153b8c42076d49097112",
+          "a522fd5b9742282d2a0e73e4b500335fdcb93c33b2e519e0e9a269419d6865fb",
+          "924454ca45239833991c7172a48938bdb135dc4b3add9e098aaafc4d18fd64db",
+          "72029a5ecee93fafa91f11f334ade33197aff2ab5ee2e37d8666ce197d784785",
+          "dbfa1edc92f8f6982d28b7a2d96c5c55216c8235fe71bb3bf7297c3e68c0db08"
         ],
         [
-          "c2a33d96d425ffb7ccd6ba75e8fd7d9431d8d10c595b69a7b49a670bf2cf0866",
-          "0cd81dfb95ae8c99db7f8210fce28d5dc1393aadb6859ede740715673bbb9928",
-          "63bf9d66b45fb9a0291851cc2d972e22630d3687be96bd70659302b8e78a9ae8",
-          "1c80883d22f43e9b10424aed029f550a7b351c416d9dd277a98525fec876efd6",
-          "7d50f8d37fa02b3c40d01612b7fe85eb55b9dff4b4a1de08ff83b3f0d68fc608"
+          "78c7778e79086d05a63f6202f9664ebea86fe4f1473cbc7cc2a68179674ebe64",
+          "71cf6d1b65d41547991374a3075c4c3bcc7920acda343720ded4b1c96c5764d8",
+          "a93f34e8efbc756a657296b77619dc9afc145910fbb4a0c7f43a163d31dc6a10",
+          "a7c21549d724d382ae497c0dadf318a6504caf718b916aeca163d32e1ccea9f5",
+          "e00a69eb68417919f0a9bcc05e6cd2204c6a244aa4981aefc90664c41a6f5cb6"
         ],
         [
           "9766f10bb621caeb376886d6a2cc1f7401aa31a1ac881cc6195ad96552d6c858",
@@ -89811,25 +89776,25 @@
           "9df0d7dba35fba6553c3b331856f039946150b1e80fe75e8d63518ef0ed8d85a"
         ],
         [
-          "6d2b111d81b5dc386de7b9ef1572dae9c794c55d3019a4f5f893f2025d21e458",
-          "0fd1f94ffd33a26865396ffbbda723467998d0f4f13c10ab0212d0a608a6cfa1",
-          "113364bed02fa89b0334fcd86296ae80ad220634c3d2f426a6310adc8eed6d2f",
-          "a879c939f7e02d06ea44883f9f6529546d2441bee4d7f3822cbbe1a00e65275e",
-          "f140be1d2d0f6d266f0f9f4585a8a7648f583b74a765b7f30a3876deaa026b6f"
+          "0e5ee405551c8e178cbba0a5419930d81918430a2d2dbbfb6b65f46e54139475",
+          "67df80af07729457be69998a2d18d3bef058a2a99343995fc7234ba243a5abd4",
+          "5a0c11116b79df7db7e19e995ef04e1f580ff9aeea73ce3d8a2b87cfe4aceb8b",
+          "d0910aed47cb743fa98437fcf5eb002b9d5840817cc26add9704945a407a708d",
+          "f68ad3e1f710652e233ace9e8b8a84907b831527b4113314dd8dda5791f54628"
         ]
       ],
       "element_hashes": [
-        "61baca4f8bf54d8ee1beb45e5534e1e0f9108766b43deadd653f3c64dc2a4bf5",
-        "ba7e6d313c6f93d0dca75cdaf019ff3c6220a6f4277819553cb518b57ac9d844",
+        "38ed6e1e7e823b80d0d1936c36bf5555d5b14b6ac872012ae9d973b310b72d59",
+        "1238726487a76a31ca608bf6794276d87a0489a4bd5132909bc02ffce39cd5d2",
         "bfe337b16f5dd851220fe4f1fcd4c01c26a537131f4a4a1f66da6c5cc022edae",
         "682ffc6450e31c35b8af9392c9654ac08bffec0daab2e7be3196123d7ed94abe",
-        "1c35633855929f84b0fab5eddf5e763fbe029b6c1d3b55c50bce10f6cd67cc5e"
+        "dda4634fe051de5aeb1368038efaafd04dec1bf0a0acf05624ce66abf43297b2"
       ],
-      "hash": "0d9e4eb7802a6548995bf2df853f7ca921797eba00d49efd62cee4ee304b9f4e",
+      "hash": "33a4b8ad52183bda02f864b0862cf3219757df4bbd568064146b6089e153c007",
       "kind": "array",
       "mistakes": {
-        "18afafcf9070dca3dfca0b310a7aa025f484d099ed18f95f52042ae9d4df9ccd": "avec un point selle, ta fonction rend les stratégies pures de pure_strategy_values, pas les formules",
-        "358aaa5830c474bdbf1997950667983c2eba07c464b162314e2b6019b450b97f": "p* = (d − c)/κ et q* = (d − b)/κ, avec κ = a − b − c + d"
+        "50d8f9bd71e47190c4e2222ec02e8dbbfeb3189388c20377a73144184e21d2be": "avec un point selle, ta fonction rend les stratégies pures de pure_strategy_values, pas les formules",
+        "f6a2cfcb77042509f0a431d7af9b37c5c1745fc14cc9ad4a0872e0dd6b7c3996": "p* = (d − c)/κ et q* = (d − b)/κ, avec κ = a − b − c + d"
       },
       "shape": [
         5

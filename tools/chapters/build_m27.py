@@ -72,8 +72,8 @@ PAPER = [
                          [[i - 1, j - 1] for i, j in saddles(G_1)],
                      "range les points selles dans l'ordre des lignes, puis des colonnes": saddles(G_1)[::-1]}'''),
         ("c", BOOL, "dominated_column(G_1, 0)",
-         '''mistakes={"une colonne est strictement dominée si elle coûte plus qu'une autre sur toutes les lignes de G, y "
-                     "compris celles qu'on n'a pas encore rayées": True}'''),
+         '''mistakes={"dans G, on n'a encore rien rayé : une colonne n'y est strictement dominée que si elle coûte plus "
+                     "qu'une même autre colonne sur les trois lignes": True}'''),
         ("d", "a matrix, as the list of its rows", "floats(reduce_dominated(G_1))",
          '''decimals=6,
            mistakes={"les dominances s'enchaînent : après chaque stratégie rayée, compare de nouveau toutes les lignes et "
@@ -155,13 +155,13 @@ PAPER = [
            mistakes={"l'angle est demandé en degrés": math.atan(ETA_4),
                      "l'argument de 1 + iη est arctan η, pas η": math.degrees(ETA_4)}'''),
         ("c", "an integer", "math.ceil(math.log(2) / math.log(math.sqrt(1 + ETA_4 ** 2)))",
-         '''mistakes={"la distance est multipliée par √(1 + η²) à chaque pas, pas par 1 + η²":
+         '''mistakes={"la distance est multipliée à chaque pas par le module de a), pas par son carré":
                          math.ceil(math.log(2) / math.log(1 + ETA_4 ** 2)),
                      "il faut au moins doubler : arrondis à l'entier supérieur":
                          math.floor(math.log(2) / math.log(math.sqrt(1 + ETA_4 ** 2)))}'''),
         ("d", "a number (1 decimal)", "math.degrees(math.acos((2 - ETA_4 ** 2) / 2))",
          '''decimals=1,
-           mistakes={"pour le pas alterné, cos θ = tr(M_a)/2 : ce n'est pas l'angle du pas simultané":
+           mistakes={"le pas alterné n'a pas la matrice du pas simultané : cherche les valeurs propres de M_a":
                          math.degrees(math.atan(ETA_4)),
                      "l'angle est demandé en degrés, pour le pas alterné aussi": math.acos((2 - ETA_4 ** 2) / 2)}'''),
         ("e", "a list of 2 numbers (4 decimals)", "[radius(step_matrix(1.5, 0.6)), radius(step_matrix(1.5, 0.6, True))]",
@@ -240,7 +240,7 @@ PAPER = [
                      "chaque masse est multipliée par la distance de son trajet": floats(sum(map(sum, GAMMA2_7)))}'''),
         ("c", "a number", "floats(cost(INDEPENDENT_7, D_7))",
          '''decimals=6,
-           mistakes={"avec des masses en tonnes, le couplage indépendant est γᵢⱼ = aᵢbⱼ divisé par la masse totale":
+           mistakes={"un couplage doit avoir les marges a et b : vérifie les sommes des lignes de ton plan":
                          floats(cost([[a * b for b in B_7] for a in A_7], D_7))}'''),
         ("d", "a 3 × 3 matrix", "floats(northwest(A_7, B_7))",
          '''decimals=6,
@@ -319,8 +319,7 @@ PAPER = [
         ("b", "a number (5 decimals)", "js(P_10, Q_10)",
          '''decimals=5,
            mistakes={"le logarithme est népérien (nats)": js(P_10, Q_10, log=math.log2),
-                     "JS compare chaque loi au mélange m = (p + q)/2, pas à l'autre loi":
-                         (kl(P_10, Q_10) + kl(Q_10, P_10)) / 2}'''),
+                     "JS = ½ KL(p ‖ m) + ½ KL(q ‖ m) : n'oublie pas les facteurs ½": 2 * js(P_10, Q_10)}'''),
         ("c", "a number (4 decimals)", "sum((p - q) ** 2 / q for p, q in zip(P_10, Q_10))",
          '''decimals=4,
            mistakes={"on divise par q_k, la proportion de la référence": sum((p - q) ** 2 / p for p, q in zip(P_10, Q_10)),
@@ -334,13 +333,6 @@ PAPER = [
            mistakes={"W₁ apparie les valeurs triées : la plus petite avec la plus petite":
                          sum(abs(a - b) for a, b in zip(JAN_10, FEB_10)) / len(JAN_10),
                      "l'écart des moyennes ne fait que minorer W₁": abs(sum(FEB_10) - sum(JAN_10)) / len(JAN_10)}'''),
-        ("f", "a list of 2 numbers (3 decimals)",
-         "[w1_samples(fahrenheit(JAN_10), fahrenheit(FEB_10)), ks_samples(fahrenheit(JAN_10), fahrenheit(FEB_10))]",
-         '''decimals=3,
-           mistakes={"une translation commune des deux échantillons ne change pas la distance entre eux":
-                         [w1_samples(fahrenheit(JAN_10), fahrenheit(FEB_10)) + 32, ks_samples(JAN_10, FEB_10)],
-                     "KS compare des probabilités cumulées : regarde ce qu'un changement d'unité fait à l'ordre des "
-                     "valeurs": [w1_samples(fahrenheit(JAN_10), fahrenheit(FEB_10)), 1.8 * ks_samples(JAN_10, FEB_10)]}'''),
     ]),
 
     Paper("M27.16", "Pont : la distance de Fréchet en dimension 1, avec des écarts-types ou des covariances", [
@@ -658,10 +650,6 @@ def ks_samples(x, y):
 def w1_samples(x, y):
     """W₁ of two samples of the same size: the mean gap of the sorted values."""
     return sum(abs(a - b) for a, b in zip(sorted(x), sorted(y))) / len(x)
-
-
-def fahrenheit(x):
-    return [1.8 * v + 32 for v in x]
 
 
 M1_16, S1_16 = F("50.30"), F("0.12")                                   # M27.16: before (mm)
@@ -983,8 +971,8 @@ wbm.record("M27.19c", pure_19r(penalty_19r) + [False], decimals=6,
 
 NOTE_20 = (r"La forme, puis `pure_strategy_values` ; si `maximin == minimax`, les stratégies pures ; sinon "
            r"`(a, b), (c, d) = G.tolist()` et les trois formules. a) $\big(\frac{5}{13}, \frac{7}{13}, \frac{955}{13}\big) "
-           r"\approx (0{,}3846 ;\ 0{,}5385 ;\ 73{,}4615)$. b) Les formules donneraient $p = -1$ et $q = 3$ ; la fonction "
-           r"rend `(1.0, 1.0, 3.0)`, le point selle (0, 0). c) $73{,}4615$ et $73{,}4615$.")
+           r"\approx (0{,}3846 ;\ 0{,}5385 ;\ 73{,}4615)$. b) Les formules donneraient $p = -2$ et $q = 4$ ; la fonction "
+           r"rend `(1.0, 1.0, 4.0)`, le point selle (0, 0). c) $73{,}4615$ et $73{,}4615$.")
 
 M27_20 = Ex(
     "M27.20", "🔨", 2, 20, "Les stratégies optimales et la valeur d'un jeu 2 × 2, avec ou sans point selle · "
@@ -994,11 +982,11 @@ M27_20 = Ex(
     note=NOTE_20,
     body=REMINDER + r"""
 
-Écris `mixed_strategy_value_2x2(G)` (fiche §2), en suivant sa docstring : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0`, sinon `p = 0.0`, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche, $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, en `float` Python.
+Écris `mixed_strategy_value_2x2(G)` (fiche §2), en suivant sa docstring : contrôle la forme $(2, 2)$, puis appelle ta `pure_strategy_values` ; s'il y a un point selle (`maximin == minimax`, une comparaison exacte), rends les stratégies pures, `p = 1.0` si `row == 0` et `p = 0.0` sinon, de même pour `q` avec `col`, et `value = maximin` ; sinon, rends les trois formules d'indifférence de la fiche, $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, en `float` Python.
 
 **L'usage.** Avec ta fonction :
 - a) les tirs au but de M27.2 (`G_PENALTY`) (un tuple de 3, tel que rendu), à comparer à tes réponses a) à c) ;
-- b) pour $\mathbf{G} = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ : ce que donneraient les formules de $p^\star$ et de $q^\star$, puis ce que rend ta fonction (une liste de 5 nombres : $p$ et $q$ par les formules, puis les trois nombres rendus) ;
+- b) pour $\mathbf{G} = \begin{pmatrix} 4 & 7 \\ 1 & 3 \end{pmatrix}$ : ce que donneraient les formules de $p^\star$ et de $q^\star$, puis ce que rend ta fonction (une liste de 5 nombres : $p$ et $q$ par les formules, puis les trois nombres rendus) ;
 - c) pour les tirs au but, le plus petit gain espéré de $p^\star$ contre les deux plongeons, $\min_j(\mathbf{p}^{\star\top}\mathbf{G})_j$, puis le plus grand de $q^\star$ contre les deux tirs, $\max_i(\mathbf{G}\mathbf{q}^\star)_i$, avec $\mathbf{p}^\star = (p^\star, 1 - p^\star)$ et $\mathbf{q}^\star = (q^\star, 1 - q^\star)$ (une liste de 2 nombres).
 
 Ce qu'il faut observer : avec un point selle, les formules d'indifférence sortent de $[0, 1]$ ; sans point selle, $p^\star$ et $q^\star$ garantissent la même valeur, chacun de son côté.""",
@@ -1006,14 +994,14 @@ Ce qu'il faut observer : avec un point selle, les formules d'indifférence sorte
     solution=LOAD_REF,
     after=tests_cells("test_mixed_strategy_value_2x2_") + [
         ("md", "**L'usage** : les tirs au but, un jeu à point selle, et les deux garanties."),
-        ("todo", '''G_SADDLE_20 = np.array([[3.0, 5.0], [1.0, 2.0]])
+        ("todo", '''G_SADDLE_20 = np.array([[4.0, 7.0], [1.0, 3.0]])
 answer_M27_20a = answer_M27_20b = answer_M27_20c = ...
 with wbm.attempt("M27.20"):          # if you call mixed_strategy_value_2x2 here: ⏳ while it is not written
     answer_M27_20a = ...  # a) a tuple of 3, as returned: (p, q, value) for G_PENALTY
     answer_M27_20b = ...  # b) a list of 5 numbers: p and q by the indifference formulas for G_SADDLE_20, then the 3 numbers your function returns
     answer_M27_20c = ...  # c) a list of 2 numbers, as computed: min_j (p*ᵀ G)_j, then max_i (G q*)_i, for G_PENALTY'''),
         ("check", answers_check("M27.20", "abc")),
-        ("solution", '''G_SADDLE_20 = np.array([[3.0, 5.0], [1.0, 2.0]])
+        ("solution", '''G_SADDLE_20 = np.array([[4.0, 7.0], [1.0, 3.0]])
 mixed_strategy_value_2x2 = mymath.distances.mixed_strategy_value_2x2
 answer_M27_20a = mixed_strategy_value_2x2(G_PENALTY)
 (a_20, b_20), (c_20, d_20) = G_SADDLE_20.tolist()
@@ -1044,11 +1032,11 @@ wbm.record("M27.20a", [p_20r, q_20r, v_20r], decimals=6,
                          [1 - p_20r, 1 - q_20r, v_20r],
                      "sans point selle, la valeur est le gain espéré des stratégies d'indifférence, pas le maximin":
                          [p_20r, q_20r, 60.0]})
-formulas_20r = [float(F_20r(2 - 1, 3 - 5 - 1 + 2)), float(F_20r(2 - 5, 3 - 5 - 1 + 2))]
-saddle_20r = strategies_20r([[3, 5], [1, 2]])
+formulas_20r = [float(F_20r(3 - 1, 4 - 7 - 1 + 3)), float(F_20r(3 - 7, 4 - 7 - 1 + 3))]
+saddle_20r = strategies_20r([[4, 7], [1, 3]])
 wbm.record("M27.20b", formulas_20r + saddle_20r, decimals=6,
            mistakes={"avec un point selle, ta fonction rend les stratégies pures de pure_strategy_values, pas les formules":
-                         formulas_20r + formulas_20r + [float(F_20r(3 * 2 - 5 * 1, 3 - 5 - 1 + 2))],
+                         formulas_20r + formulas_20r + [float(F_20r(4 * 3 - 7 * 1, 4 - 7 - 1 + 3))],
                      "p* = (d − c)/κ et q* = (d − b)/κ, avec κ = a − b − c + d": formulas_20r[::-1] + saddle_20r})
 G_20r = np.array([[55.0, 95.0], [85.0, 60.0]])
 wbm.record("M27.20c", [float((np.array([p_20r, 1 - p_20r]) @ G_20r).min()), float((G_20r @ np.array([q_20r, 1 - q_20r])).max())],
