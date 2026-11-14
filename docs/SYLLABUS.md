@@ -64,7 +64,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 20,3 h | ✅ exercices | 2 |
 | [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 21,1 h | ✅ exercices | 2 |
 | [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 17,9 h | ✅ exercices | 1 |
-| [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,4 h | ✅ exercices | 1 |
+| [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,7 h | ✅ exercices | 1 |
 | [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 9,8 h | ✅ exercices | 1 |
 | [CP6](#cp6) | Examen blanc de la partie VI | — | — | 3,1 h | ✅ exercices | 1 |
 | [MB2](#mb2) | Cooccurrences, PMI et embeddings | B2 | — | ≈ 8 h (estimé) | plan | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 86,6 h | 65,8 h |
+| VI · Génératif et RL | 6 | 203 | 86,8 h | 66,1 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3685,7 +3685,7 @@ Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de tran
 
 Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme nulle : la matrice des gains, le maximin et le minimax (l'inégalité minimax de MML §7.2), les points selles et les stratégies dominées ; les stratégies mixtes, la stratégie d'indifférence d'un jeu 2 × 2 et le théorème minimax de von Neumann ; l'équilibre de Nash d'un jeu quelconque et l'induction arrière sur un arbre de jeu ; la descente-montée de gradient sur un jeu bilinéaire, qui tourne autour de l'équilibre ou s'en éloigne. Puis les lois : la probabilité a posteriori est le meilleur prédicteur pour la log-loss ; la divergence de Jensen-Shannon plafonne à ln 2 quand les supports se séparent ; les couplages et les distances de Wasserstein, calculées en dimension 1 par les fonctions de répartition et les quantiles, dont W₂ de deux gaussiennes ; la distance de Fréchet entre gaussiennes et le biais d'une distance estimée sur des échantillons ; enfin trois mesures d'une dérive (PSI, Kolmogorov-Smirnov, W₁). workbookIA 27 applique ces outils aux GAN, et workbookIA B7 à la surveillance d'un modèle en production.
 
-**Temps** : 14,4 h en parcours complet, 10,5 h en parcours essentiel (lecture 150 min, 20 flashcards).
+**Temps** : 14,7 h en parcours complet, 10,8 h en parcours essentiel (lecture 165 min, 20 flashcards).
 
 **Objectifs**
 

@@ -990,7 +990,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M27", "dir": "m27_jeux_distances", "hours": 14.4, "generation_sessions": 1, "mml": ["§7.2"],
+        "id": "M27", "dir": "m27_jeux_distances", "hours": 14.7, "generation_sessions": 1, "mml": ["§7.2"],
         "summary": "Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme nulle : la matrice des "
                    "gains, le maximin et le minimax (l'inégalité minimax de MML §7.2), les points selles et les "
                    "stratégies dominées ; les stratégies mixtes, la stratégie d'indifférence d'un jeu 2 × 2 et le "
@@ -1093,7 +1093,7 @@ CHAPTERS = [
         "mymath": {"module": "distances.py",
                    "functions": ["pure_strategy_values", "mixed_strategy_value_2x2", "descent_ascent_iterates",
                                  "w2_gaussians_1d"]},
-        "reading_minutes": 150,
+        "reading_minutes": 165,
         "flashcards": 20,
         "notes": "Frontières : les ∂ 27.5 (D* = p_data/(p_data + p_g) par le maximum de a ln y + b ln(1 − y), dérivée "
                  "nulle puis dérivée seconde, l'intégrale maximisée point par point, V(D*, G) = −ln 4 + 2 JS, son minimum "
