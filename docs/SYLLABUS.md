@@ -63,7 +63,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [CP5](#cp5) | Examen blanc de la partie V | — | — | 3,1 h | ✅ exercices | 1 |
 | [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 20,3 h | ✅ exercices | 2 |
 | [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 21,1 h | ✅ exercices | 2 |
-| [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 14,7 h | ✅ exercices | 1 |
+| [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 16,3 h | ✅ exercices | 1 |
 | [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,4 h | ✅ exercices | 1 |
 | [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 9,8 h | ✅ exercices | 1 |
 | [CP6](#cp6) | Examen blanc de la partie VI | — | — | 3,1 h | ✅ exercices | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 83,4 h | 64,0 h |
+| VI · Génératif et RL | 6 | 203 | 85,0 h | 65,2 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3603,7 +3603,7 @@ Les variables latentes : un modèle génératif écrit comme un graphe orienté 
 
 Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de transition, la loi après n pas (en convention ligne) et la loi stationnaire (existence, unicité, convergence, vitesse, et le PageRank) ; l'espérance conditionnelle et l'analyse au premier pas (la probabilité d'être absorbé, la durée moyenne avant la fin) ; le retour actualisé comme variable aléatoire, le facteur γ vu comme une probabilité de continuer, les décisions et les politiques ; l'équation de Bellman d'une politique fixée, un système linéaire (I − γP)V = r, résolu exactement ou par l'itération d'une contraction ; un opérateur avec un maximum, sur un problème d'arrêt optimal ; enfin ce que deviennent ces équations quand on n'a que des échantillons : la moyenne de retours simulés, l'erreur TD et le biais du maximum. workbookIA 26 applique ces outils à l'apprentissage par renforcement.
 
-**Temps** : 14,7 h en parcours complet, 11,2 h en parcours essentiel (lecture 170 min, 22 flashcards).
+**Temps** : 16,3 h en parcours complet, 12,4 h en parcours essentiel (lecture 170 min, 22 flashcards).
 
 **Objectifs**
 
@@ -3642,26 +3642,26 @@ Les chaînes de Markov finies et ce qu'on calcule sur elles : la matrice de tran
 | M26.Q3 | 🧠 | Espérance conditionnelle, propriété de la tour et analyse au premier pas : quelle équation pour quel nombre ? | ★ | 4 | §3 | C, E | manuel | — |
 | M26.Q4 | 🧠 | Le facteur γ : une actualisation, ou une probabilité de continuer ? Valeur d'un état et politique | ★ | 4 | §4 | C, E | manuel | — |
 | M26.Q5 | 🧠 | Le système de Bellman d'une politique fixée : quelles matrices, pourquoi il est inversible, quand γ = 1 est permis | ★ | 4 | §5 | C, E | manuel | — |
-| M26.Q6 | 🧠 | Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai ou faux | ★ | 4 | §6 | C, E | manuel | — |
+| M26.Q6 | 🧠 | Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai ou faux | ★ | 5 | §6 | C, E | manuel | — |
 | M26.Q7 | 🧠 | Un maximum dans l'opérateur : ce qui reste (contraction, point fixe unique), ce qui se perd (le système linéaire) | ★ | 4 | §7 | C, E | manuel | — |
-| M26.Q8 | 🧠 | Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, biais du maximum | ★ | 4 | §8 | C, E | manuel | — |
-| M26.R1 | 🔁 | Puissances d'une matrice diagonalisable et méthode de la puissance (M12c) | ★ | 5 | §1 §2 | C, E | manuel | — |
+| M26.Q8 | 🧠 | Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, biais du maximum | ★ | 5 | §8 | C, E | manuel | — |
+| M26.R1 | 🔁 | Puissances d'une matrice diagonalisable et méthode de la puissance (M12c) | ★ | 8 | §1 §2 | C, E | manuel | — |
 | M26.R2 | 🔁 | La norme ‖·‖∞ d'une matrice, ρ(A) ≤ ‖A‖ et Aᵗ → 0 quand ρ(A) < 1 (M22), et la somme d'une série géométrique (R5) | ★ | 8 | §5 §6 | C, E | manuel | — |
 | M26.R3 | 🔁 | Probabilités totales et espérance d'une loi géométrique (M03, M02b) | ★ | 5 | §3 §4 | C, E | manuel | — |
-| M26.1 | ✏️ | Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi après deux et trois jours, et coût moyen du lendemain (Pf) | ★ | 25 | §1 §3 | C, E | wbm | — |
-| M26.2 | ✏️ | Trois opérateurs et leurs parts de marché : la loi stationnaire par un système linéaire, puis vérifier πP = π | ★★ | 25 | §2 | C, E | wbm | — |
-| M26.3 | ✏️ | Trois chaînes qui posent problème, périodique, à deux classes et avec un état transitoire : lois stationnaires et comportement de Pⁿ | ★★ | 25 | §2 | C | wbm | — |
-| M26.4 | ✏️ | Un cursus en trois années, avec redoublement et abandon : la probabilité d'être diplômé et la durée moyenne des études, par l'analyse au premier pas | ★★ | 30 | §3 | C, E | wbm | — |
+| M26.1 | ✏️ | Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi après deux et trois jours, et coût moyen du lendemain (Pf) | ★ | 30 | §1 §3 | C, E | wbm | — |
+| M26.2 | ✏️ | Trois opérateurs et leurs parts de marché : la loi stationnaire par un système linéaire, puis vérifier πP = π | ★★ | 30 | §2 | C, E | wbm | — |
+| M26.3 | ✏️ | Trois chaînes qui posent problème, périodique, à deux classes et avec un état transitoire : lois stationnaires et comportement de Pⁿ | ★★ | 35 | §2 | C | wbm | — |
+| M26.4 | ✏️ | Un cursus en trois années, avec redoublement et abandon : la probabilité d'être diplômé et la durée moyenne des études, par l'analyse au premier pas | ★★ | 40 | §3 | C, E | wbm | — |
 | M26.5 | ✏️ | Un abonné qui peut résilier chaque mois : durée géométrique, revenu total moyen, et le même nombre comme revenu actualisé | ★ | 20 | §4 | C, E | wbm | — |
-| M26.6 | ✏️ | Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de Bellman 3 × 3, et la valeur d'une action | ★★ | 35 | §4 §5 | C, E | wbm | — |
-| M26.7 | ✏️ | Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, comparés à la solution, et le nombre d'itérations qui garantit 10⁻³ | ★★ | 30 | §6 | C, E | wbm | M26.6 |
+| M26.6 | ✏️ | Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de Bellman 3 × 3, et la valeur d'une action | ★★ | 45 | §4 §5 | C, E | wbm | — |
+| M26.7 | ✏️ | Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, comparés à la solution, et le nombre d'itérations qui garantit 10⁻³ | ★★ | 35 | §6 | C, E | wbm | M26.6 |
 | M26.8 | ✏️ | Vendre une voiture d'occasion : offres au hasard, coût d'attente, valeur de continuation et règle à seuil | ★★ | 30 | §7 | C, E | wbm | — |
-| M26.9 | ✏️ | Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, l'estimateur double non | ★★ | 25 | §8 | C | wbm | — |
-| M26.10 | ∂ | L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible dès que la fin est possible depuis chaque état | ★★ | 25 | §3 | C | manuel | — |
-| M26.11 | ∂ | V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série de Neumann démontrée pour γP, et (1 − γ)(I − γP)⁻¹ stochastique | ★★ | 25 | §4 §5 | C, E | manuel | — |
-| M26.12 | ∂ | L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; bornes a priori et a posteriori ; le maximum est 1-lipschitzien | ★★ | 25 | §6 §7 | C, E | manuel | — |
+| M26.9 | ✏️ | Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, l'estimateur double non | ★★ | 30 | §8 | C | wbm | — |
+| M26.10 | ∂ | L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible dès que la fin est possible depuis chaque état | ★★ | 35 | §3 | C | manuel | — |
+| M26.11 | ∂ | V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série de Neumann démontrée pour γP, et (1 − γ)(I − γP)⁻¹ stochastique | ★★ | 30 | §4 §5 | C, E | manuel | — |
+| M26.12 | ∂ | L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; bornes a priori et a posteriori ; le maximum est 1-lipschitzien | ★★ | 40 | §6 §7 | C, E | manuel | — |
 | M26.13 | ∂ | L'erreur TD se télescope : Σ γᵏ δ_{t+k} = G_t − V(S_t) ; une récompense ajoutée γΦ(s′) − Φ(s) décale chaque valeur de −Φ(s) | ★★ | 20 | §8 | C | manuel | — |
-| M26.14 | 🔗 | Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) P_a et r_π avec des tableaux à trois axes (actions, états, états), puis Q^π(s, a) et r(s, a, s′) | ★★ | 25 | §4 §5 | C, E | wbm | — |
+| M26.14 | 🔗 | Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) P_a et r_π avec des tableaux à trois axes (actions, états, états), puis Q^π(s, a) et r(s, a, s′) | ★★ | 35 | §4 §5 | C, E | wbm | — |
 | M26.15 | 🗣️ | Expliquer avec une image hors informatique pourquoi une chaîne qui mélange oublie son état de départ | ★ | 10 | §2 | C, E | manuel | — |
 | M26.E1 | 💼 | « Pourquoi I − γP est-elle inversible quand P est stochastique et γ < 1, et que se passe-t-il pour γ = 1 ? » | ★ | 10 | §5 | C | manuel | — |
 | M26.16 | 🔨 | La loi d'une chaîne après n pas, en convention ligne · `n_step_distribution` | ★ | 20 | §1 | C, E | pytest | — |

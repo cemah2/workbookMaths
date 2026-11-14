@@ -917,45 +917,45 @@ CHAPTERS = [
              "et politique", "§4", "E"),
             ("M26.Q5", "🧠", 1, 4, "Le système de Bellman d'une politique fixée : quelles matrices, pourquoi il est "
              "inversible, quand γ = 1 est permis", "§5", "E"),
-            ("M26.Q6", "🧠", 1, 4, "Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai "
+            ("M26.Q6", "🧠", 1, 5, "Contraction, bornes a priori et a posteriori, itérations synchrones ou en place : vrai "
              "ou faux", "§6", "E"),
             ("M26.Q7", "🧠", 1, 4, "Un maximum dans l'opérateur : ce qui reste (contraction, point fixe unique), ce qui "
              "se perd (le système linéaire)", "§7", "E"),
-            ("M26.Q8", "🧠", 1, 4, "Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, "
+            ("M26.Q8", "🧠", 1, 5, "Des échantillons au lieu de P : moyenne de retours, pas 1/n ou constant, erreur TD, "
              "biais du maximum", "§8", "E"),
-            ("M26.R1", "🔁", 1, 5, "Puissances d'une matrice diagonalisable et méthode de la puissance (M12c)", "§1 §2",
+            ("M26.R1", "🔁", 1, 8, "Puissances d'une matrice diagonalisable et méthode de la puissance (M12c)", "§1 §2",
              "E"),
             ("M26.R2", "🔁", 1, 8, "La norme ‖·‖∞ d'une matrice, ρ(A) ≤ ‖A‖ et Aᵗ → 0 quand ρ(A) < 1 (M22), et la "
              "somme d'une série géométrique (R5)",
              "§5 §6", "E"),
             ("M26.R3", "🔁", 1, 5, "Probabilités totales et espérance d'une loi géométrique (M03, M02b)", "§3 §4", "E"),
-            ("M26.1", "✏️", 1, 25, "Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi "
+            ("M26.1", "✏️", 1, 30, "Des vélos en libre-service entre trois stations : matrice de transition, graphe, loi "
              "après deux et trois jours, et coût moyen du lendemain (Pf)", "§1 §3", "E"),
-            ("M26.2", "✏️", 2, 25, "Trois opérateurs et leurs parts de marché : la loi stationnaire par un système "
+            ("M26.2", "✏️", 2, 30, "Trois opérateurs et leurs parts de marché : la loi stationnaire par un système "
              "linéaire, puis vérifier πP = π", "§2", "E"),
-            ("M26.3", "✏️", 2, 25, "Trois chaînes qui posent problème, périodique, à deux classes et avec un état "
+            ("M26.3", "✏️", 2, 35, "Trois chaînes qui posent problème, périodique, à deux classes et avec un état "
              "transitoire : lois stationnaires et comportement de Pⁿ", "§2", ""),
-            ("M26.4", "✏️", 2, 30, "Un cursus en trois années, avec redoublement et abandon : la probabilité d'être "
+            ("M26.4", "✏️", 2, 40, "Un cursus en trois années, avec redoublement et abandon : la probabilité d'être "
              "diplômé et la durée moyenne des études, par l'analyse au premier pas", "§3", "E"),
             ("M26.5", "✏️", 1, 20, "Un abonné qui peut résilier chaque mois : durée géométrique, revenu total moyen, et "
              "le même nombre comme revenu actualisé", "§4", "E"),
-            ("M26.6", "✏️", 2, 35, "Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de "
+            ("M26.6", "✏️", 2, 45, "Une machine qui s'use, deux politiques d'entretien : P_π et r_π, deux systèmes de "
              "Bellman 3 × 3, et la valeur d'une action", "§4 §5", "E"),
-            ("M26.7", "✏️", 2, 30, "Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, "
+            ("M26.7", "✏️", 2, 35, "Les itérés de Bellman de la machine de M26.6 : trois pas synchrones puis en place, "
              "comparés à la solution, et le nombre d'itérations qui garantit 10⁻³", "§6", "E p:M26.6"),
             ("M26.8", "✏️", 2, 30, "Vendre une voiture d'occasion : offres au hasard, coût d'attente, valeur de "
              "continuation et règle à seuil", "§7", "E"),
-            ("M26.9", "✏️", 2, 25, "Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, "
+            ("M26.9", "✏️", 2, 30, "Le meilleur de deux fournisseurs sur des mesures bruitées : le maximum surestime, "
              "l'estimateur double non", "§8", ""),
-            ("M26.10", "∂", 2, 25, "L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible "
+            ("M26.10", "∂", 2, 35, "L'analyse au premier pas démontrée : t = 1 + Qt et h = Qh + b, et I − Q inversible "
              "dès que la fin est possible depuis chaque état", "§3", ""),
-            ("M26.11", "∂", 2, 25, "V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série "
+            ("M26.11", "∂", 2, 30, "V = Σ γᵗPᵗr est l'unique solution du système de Bellman : I − γP inversible, série "
              "de Neumann démontrée pour γP, et (1 − γ)(I − γP)⁻¹ stochastique", "§4 §5", "E"),
-            ("M26.12", "∂", 2, 25, "L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; "
+            ("M26.12", "∂", 2, 40, "L'opérateur de Bellman d'une politique fixée est une γ-contraction pour ‖·‖∞ ; "
              "bornes a priori et a posteriori ; le maximum est 1-lipschitzien", "§6 §7", "E"),
             ("M26.13", "∂", 2, 20, "L'erreur TD se télescope : Σ γᵏ δ_{t+k} = G_t − V(S_t) ; une récompense ajoutée "
              "γΦ(s′) − Φ(s) décale chaque valeur de −Φ(s)", "§8", ""),
-            ("M26.14", "🔗", 2, 25, "Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) "
+            ("M26.14", "🔗", 2, 35, "Pont : d'une politique stochastique à la chaîne qu'elle induit, P_π = Σ_a π(a | s) "
              "P_a et r_π avec des tableaux à trois axes (actions, états, états), puis Q^π(s, a) et r(s, a, s′)",
              "§4 §5", "E"),
             ("M26.15", "🗣️", 1, 10, "Expliquer avec une image hors informatique pourquoi une chaîne qui mélange oublie "
