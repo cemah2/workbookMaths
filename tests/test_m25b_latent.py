@@ -716,7 +716,7 @@ def test_gmm_m_step_maximizes_the_weighted_log_likelihood(lat):
         for factor in (0.95, 1.05):
             scaled = sym.copy()
             scaled[k] = factor * sym[k]
-            moves.append((w, m, scaled, f"covariance {k} times {factor}"))
+            moves.append((w, m, scaled, f"covariance of component {k} multiplied by {factor}"))
         tilted = sym.copy()
         tilted[k] = sym[k] + 0.02 * np.array([[0.0, 1.0], [1.0, 0.0]])
         moves.append((w, m, tilted, f"covariance {k} with its off-diagonal entries + 0.02"))
@@ -935,7 +935,7 @@ def _ll_hint(got, X, w, mu, S):
                                                                  "ln Σ_k π_k N(x_i | μ_k, Σ_k)"),
         (float(np.sum(a)), "the sum over k of the logarithms: take the logsumexp of each row instead"),
         (float(np.sum(special.logsumexp(no_weights, axis=1))), "the weights π_k are missing: a[i, k] = ln π_k + …"),
-        (float(np.sum(special.logsumexp(a, axis=0))), "the logsumexp is taken along each row (over the components), "
+        (float(np.sum(special.logsumexp(a, axis=0))), "take the logsumexp along each row (axis=1, over the components), "
                                                        "not along each column"),
     ]
     text = _first_match(got, want, candidates, rtol=1e-9, atol=1e-9)
@@ -1094,7 +1094,7 @@ def _elbo_hint(got, X, R, w, mu, S):
     want = expected_log_joint + entropy
     no_weights = a - np.log(np.asarray(w, dtype=float))
     candidates = [
-        (expected_log_joint, "the entropy of q is missing: - Σ_k r[i, k] ln r[i, k] is added for each point"),
+        (expected_log_joint, "the entropy of q is missing: add - Σ_k r[i, k] ln r[i, k] for each point"),
         (expected_log_joint - entropy, "the entropy has the wrong sign: - r ln r ≥ 0 is added (ELBO = Σ r (a - ln r))"),
         (want / X.shape[0], "the ELBO is a sum over the points, not a mean (no division by n)"),
         (float(np.sum(np.where(R > 0, R * no_weights, 0.0))) + entropy, "ln π_k is missing from a[i, k]"),

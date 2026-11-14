@@ -730,7 +730,7 @@ Sur la grille `x = np.linspace(-30, 100, 260001)`, $\ln p(x)$ = `scipy.special.l
 </details>
 <details><summary>Indice 3</summary>
 
-Les minima locaux d'une courbe `y` sur la grille `ms` : les indices `i` où `y[i] < y[i - 1]` et `y[i] < y[i + 1]`. Dessine sur les axes reçus (`ax_density.plot(…)`, `ax_kl.plot(…)`, `ax_density.legend()`), sans `plt.figure` ni `plt.subplots` dans la fonction : la cellule d'appel crée `fig, (ax1, ax2) = plt.subplots(1, 2)`. Pour `scipy.optimize.minimize`, optimise $(m, \ln s^2)$ pour que la variance reste positive.
+Les minima locaux d'une courbe `y` sur la grille `ms` : les indices `i` où `y[i] < y[i - 1]` et `y[i] < y[i + 1]`. Dessine sur les axes reçus (`ax_density.plot(…)`, `ax_kl.plot(…)`, `ax_density.legend()`), sans `plt.figure` ni `plt.subplots` dans la fonction : la cellule d'appel crée `fig, (ax1, ax2) = plt.subplots(1, 2)`. Pour `scipy.optimize.minimize`, optimise $(m, s)$ avec `method="L-BFGS-B"` et `bounds=[(None, None), (0.1, None)]`, pour que l'écart-type reste positif.
 
 </details>
 
@@ -748,7 +748,7 @@ Les trois ⚠️ des §3, §4 et §5 de la fiche. Pour chaque vérification, dem
 </details>
 <details><summary>Indice 3</summary>
 
-(1) Passe en log : `a = np.log(weights) - np.log(sds * np.sqrt(2 * np.pi)) - (x[:, None] - means) ** 2 / (2 * sds ** 2)`, puis un log-sum-exp par ligne. (2) Divise les variances par `N` au lieu de `n`. (3) Ajoute `- resp * np.log(resp)`, avec la convention $0\ln 0 = 0$. d) est l'opposé de la somme des entropies des lignes du posterior.
+(1) Passe en log : `a = np.log(weights) - np.log(sds * np.sqrt(2 * np.pi)) - (x[:, None] - means) ** 2 / (2 * sds ** 2)`, puis un log-sum-exp par ligne, qui retire le maximum de chaque ligne avant `np.exp` (sinon un $\ln 0$ apparaît). (2) Divise les variances par `N` au lieu de `n`. (3) Ajoute `- resp * np.log(resp)`, avec la convention $0\ln 0 = 0$. d) est l'opposé de la somme des entropies des lignes du posterior.
 
 </details>
 

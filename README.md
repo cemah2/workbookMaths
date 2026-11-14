@@ -67,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 668 h pour le parcours complet (environ 475 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 672 h pour le parcours complet (environ 478 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

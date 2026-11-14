@@ -316,7 +316,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M25b", "dir": "m25b_variables_latentes", "hours": 17.1, "generation_sessions": 2,
+        "id": "M25b", "dir": "m25b_variables_latentes", "hours": 21.1, "generation_sessions": 2,
         "mml": ["§8.4", "§8.5", "§10.7", "ch. 11"],
         "summary": "Les variables latentes : un modèle génératif écrit comme un graphe orienté (loi jointe, tirage "
                    "ancestral), la vraisemblance marginale et le posterior d'un latent, les moments d'un mélange ; les "
@@ -583,7 +583,7 @@ CHAPTERS = [
                  "`gaussian` (Σ = [[2, 3], [3, 9]], "
                  "[[5, 2, 2], [2, 4, 0], [2, 0, 4]], Φ = [[1, 0], [1, 1], [1, 2]]) et `approx` ; MNIST, "
                  "Fashion-MNIST, Frey Face, CIFAR-10 contre SVHN, l'anomalie MNIST contre Fashion-MNIST, le tigre. "
-                 "**Durée** : 17,1 h au lieu des 14 h prévues (essentiel 14,0 h ; lecture de la fiche 165 min au lieu de 150 après la session 63) : l'ELBO démontrée en général, la "
+                 "**Durée** : 21,1 h au lieu des 14 h prévues (essentiel 16,5 h ; lecture de la fiche 165 min au lieu de 150 après la session 63, durées des exercices recalées après les vérifications de la session 64) : l'ELBO démontrée en général, la "
                  "dérivée d'une espérance, les angles principaux, β, le posterior agrégé et l'inférence amortie, que "
                  "la planification ne comptait pas, et quatre blocs de MML (≈ 35 pages, trois 📖 au lieu de 1–2). "
                  "COMPOSITION : trois 📖 (quatre blocs de MML de sujets distincts).",
@@ -615,7 +615,7 @@ CHAPTERS = [
             ("M25b.2", "✏️", 2, 25, "Deux variétés de grains de café (longueur, largeur) : moyenne et covariance du "
              "mélange par la variance totale, part de la variance entre variétés, et une corrélation qu'aucune "
              "variété n'a", "§2", "E"),
-            ("M25b.3", "✏️", 2, 50, "Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un "
+            ("M25b.3", "✏️", 2, 55, "Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un "
              "pas M (proportion, moyennes, variances), et la log-vraisemblance qui monte (suite de M13a, composantes "
              "inconnues)", "§3 §4", "E"),
             ("M25b.4", "∂", 2, 40, "Le pas M d'un mélange de gaussiennes : les poids N_k/n par un multiplicateur de "
@@ -632,14 +632,14 @@ CHAPTERS = [
             ("M25b.9", "✏️", 2, 35, "Trois épreuves d'un concours expliquées par une aptitude cachée : covariance "
              "marginale, posterior d'un candidat (une règle affine des notes), et maximum de vraisemblance à partir de "
              "valeurs propres données, dont une direction éteinte", "§6 §7", "E"),
-            ("M25b.10", "✏️", 2, 35, "Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases "
+            ("M25b.10", "✏️", 2, 40, "Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases "
              "orthonormées, SVD de Q_Aᵀ Q_B, et pourquoi le résultat ne dépend pas des bases choisies", "§6", "E"),
             ("M25b.11", "∂", 3, 40, "Dériver une espérance par rapport à un paramètre de la loi : l'échange de la dérivée et de "
              "l'espérance sous une hypothèse de domination (démontré), la variance de l'estimateur à un tirage de "
              "∂_σ E[e^X], et une indicatrice 1{X > c} pour laquelle l'échange échoue", "§7", "E"),
-            ("M25b.12", "✏️", 3, 40, "Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et "
+            ("M25b.12", "✏️", 3, 45, "Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et "
              "en σ par le chemin, puis par la formule fermée", "§7", ""),
-            ("M25b.13", "✏️", 2, 30, "Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : "
+            ("M25b.13", "✏️", 2, 35, "Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : "
              "KL(p ‖ q) apparie les moments, KL(q ‖ p) choisit un itinéraire", "§7", "E"),
             ("M25b.14", "✏️", 2, 30, "Un code stochastique d'une source à trois symboles : posterior agrégé, information "
              "mutuelle, KL moyenne au prior décomposée en I(X ; Z) + KL(q(z) ‖ p(z)), puis le code qui s'effondre",
@@ -656,33 +656,33 @@ CHAPTERS = [
              "réestimer, recommencer, sans jamais reculer", "§4", "E"),
             ("M25b.E1", "💼", 1, 10, "« Pourquoi l'algorithme EM ne fait-il jamais baisser la vraisemblance, et vers quoi "
              "converge-t-il ? »", "§4 §5", "E"),
-            ("M25b.20", "🔨", 2, 30, "Les responsabilités d'un mélange de gaussiennes, calculées en log (le pas E)", "§3",
+            ("M25b.20", "🔨", 2, 35, "Les responsabilités d'un mélange de gaussiennes, calculées en log (le pas E)", "§3",
              "E m:gmm_e_step"),
             ("M25b.21", "🔨", 2, 30, "Le pas M d'un mélange de gaussiennes : poids, moyennes et covariances pondérées, "
              "avec une régularisation", "§4", "E m:gmm_m_step"),
-            ("M25b.22", "🔨", 2, 25, "La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des "
+            ("M25b.22", "🔨", 2, 30, "La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des "
              "responsabilités quelconques", "§3 §5", "E m:gmm_log_likelihood,gmm_elbo"),
             ("M25b.23", "🔗", 1, 30, "Pont : l'ELBO de n mesures rangées en lignes, écrite « reconstruction moins KL "
              "au prior » E_q[ln p(x | z)] − KL(q ‖ π), en nats par mesure, et ce que gagne chaque terme quand q "
              "devient le posterior", "§5", "E p:M25b.22"),
-            ("M25b.24", "📦", 1, 20, "`scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de "
+            ("M25b.24", "📦", 1, 30, "`scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de "
              "M25b.10, et l'ACP probabiliste de mesures par leurs valeurs propres, contre la vraisemblance de "
              "`mvn_logpdf`", "§6", "E p:M25b.10"),
             ("M25b.25", "🔮", 1, 15, "Prédire ce que devient la log-vraisemblance quand une composante centrée sur un "
              "point se resserre (σ_k = 10⁻¹, 10⁻³, 10⁻⁶), puis avec une régularisation, et mesurer", "§3 §4",
              "p:M25b.20,M25b.21,M25b.22"),
-            ("M25b.26", "🔬", 2, 25, "L'EM sur des longueurs de poissons de trois cohortes : la log-vraisemblance et "
+            ("M25b.26", "🔬", 2, 30, "L'EM sur des longueurs de poissons de trois cohortes : la log-vraisemblance et "
              "l'ELBO après chaque demi-pas, sans régularisation, plusieurs initialisations et des maxima locaux", "§4 §5",
              "E p:M25b.20,M25b.21,M25b.22"),
-            ("M25b.27", "🎨", 1, 20, "Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p) : les "
+            ("M25b.27", "🎨", 1, 30, "Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p) : les "
              "deux courbes, et les deux minima de la KL inverse", "§7", "p:M25b.13"),
-            ("M25b.28", "🐛", 1, 20, "Chasse à l'erreur : des responsabilités sans log qui donnent 0/0, un pas M qui divise "
+            ("M25b.28", "🐛", 1, 25, "Chasse à l'erreur : des responsabilités sans log qui donnent 0/0, un pas M qui divise "
              "par n au lieu de N_k, et une ELBO sans l'entropie de q", "§3 §4 §5", "E"),
-            ("M25b.29", "🛠️", 1, 15, "Un test de propriété : sur des mélanges tirés au hasard, ELBO ≤ log-vraisemblance, "
+            ("M25b.29", "🛠️", 1, 30, "Un test de propriété : sur des mélanges tirés au hasard, ELBO ≤ log-vraisemblance, "
              "égalité après le pas E, et un EM sans régularisation (reg = 0) qui ne descend jamais (à une "
              "tolérance près)", "§4 §5",
              "p:M25b.20,M25b.21,M25b.22"),
-            ("M25b.30", "🏆", 3, 25, "Défi : retrouver trois populations de mesures en dimension 2 par l'EM, sous un seuil "
+            ("M25b.30", "🏆", 3, 35, "Défi : retrouver trois populations de mesures en dimension 2 par l'EM, sous un seuil "
              "de log-vraisemblance moyenne sur des mesures de test", "§4", "p:M25b.20,M25b.21,M25b.22"),
         ],
     },
