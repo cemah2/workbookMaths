@@ -277,7 +277,6 @@
 3. 
 4. 
 5. 
-6. 
 
 ### Ex M25b.18 — MML §10.7 : l'ACP probabiliste, processus génératif, vraisemblance, loi jointe et posterior, en anglais
 
@@ -331,7 +330,7 @@
 
 ### Ex M25b.24 — scipy.linalg.subspace_angles et np.linalg.eigh : les angles principaux de M25b.10, et l'ACP probabiliste de mesures par leurs valeurs propres, contre la vraisemblance de mvn_logpdf
 
-- l'unité et l'ordre lus dans la documentation ; σ̂², ŵ et les comparaisons de log-vraisemblances :
+- ce que dit la section *Returns* ; σ̂², ŵ et les comparaisons de log-vraisemblances :
 
 ### Ex M25b.25 — Prédire ce que devient la log-vraisemblance quand une composante centrée sur un point se resserre (σ_k = 10⁻¹, 10⁻³, 10⁻⁶), puis avec une régularisation, et mesurer
 

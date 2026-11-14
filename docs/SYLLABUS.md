@@ -62,7 +62,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M22](#m22) | Récurrences vectorielles, rayon spectral et normes de matrices | 22 | (§4.2) | 15,6 h | ✅ exercices | 1 |
 | [CP5](#cp5) | Examen blanc de la partie V | — | — | 3,1 h | ✅ exercices | 1 |
 | [M25a](#m25a) | Gaussienne multivariée, conditionnement et divergence KL | 25 | §6.5, §6.7, §9.3 | 20,3 h | ✅ exercices | 2 |
-| [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 17,1 h | ✅ exercices | 2 |
+| [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 19,6 h | ✅ exercices | 2 |
 | [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 14,6 h | ✅ exercices | 1 |
 | [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 14,4 h | ✅ exercices | 1 |
 | [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 9,8 h | ✅ exercices | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 79,3 h | 61,4 h |
+| VI · Génératif et RL | 6 | 203 | 81,8 h | 63,1 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3517,7 +3517,7 @@ La loi normale multivariée : sa densité (le déterminant et la distance de Mah
 
 Les variables latentes : un modèle génératif écrit comme un graphe orienté (loi jointe, tirage ancestral), la vraisemblance marginale et le posterior d'un latent, les moments d'un mélange ; les mélanges de gaussiennes (responsabilités en log, singularités) et l'algorithme EM ; la borne inférieure de l'évidence (ELBO), démontrée en général, dont l'EM est une montée par coordonnées ; l'ACP probabiliste (posterior exact, rotation, angles principaux, directions éteintes) ; l'inférence approchée (sens de la KL, inférence amortie, dériver une espérance par rapport à un paramètre de la loi) ; et β, le multiplicateur d'une contrainte d'information, avec le posterior agrégé et l'effondrement du code. workbookIA 25 s'en sert pour l'espace latent, l'ELBO et la loss du VAE, la reparamétrisation, le β-VAE et le lien entre autoencodeur linéaire et ACP.
 
-**Temps** : 17,1 h en parcours complet, 14,0 h en parcours essentiel (lecture 165 min, 22 flashcards).
+**Temps** : 19,6 h en parcours complet, 15,7 h en parcours essentiel (lecture 165 min, 22 flashcards).
 
 **Objectifs**
 
@@ -3556,36 +3556,36 @@ Les variables latentes : un modèle génératif écrit comme un graphe orienté 
 | M25b.Q3 | 🧠 | Un mélange de gaussiennes : responsabilités, logarithme d'une somme, vraisemblance infinie et composantes renumérotées | ★ | 4 | §3 | C, E | manuel | — |
 | M25b.Q4 | 🧠 | L'EM : ce que font le pas E et le pas M, ce qui ne baisse jamais, ce qui n'est pas garanti, et k-means comme limite | ★ | 4 | §4 | C, E | manuel | — |
 | M25b.Q5 | 🧠 | L'ELBO : une borne de quoi, une égalité quand, un écart égal à quelle KL ? | ★ | 4 | §5 | C, E | manuel | — |
-| M25b.Q6 | 🧠 | L'ACP probabiliste : covariance marginale, rotation de W, angles principaux et directions éteintes | ★ | 4 | §6 | C, E | manuel | — |
-| M25b.Q7 | 🧠 | KL directe ou inverse, inférence amortie et écart d'amortissement, et dériver sous l'espérance : quand le peut-on ? | ★ | 4 | §7 | C, E | manuel | — |
+| M25b.Q6 | 🧠 | L'ACP probabiliste : covariance marginale, rotation de W, angles principaux et directions éteintes | ★ | 5 | §6 | C, E | manuel | — |
+| M25b.Q7 | 🧠 | KL directe ou inverse, inférence amortie et écart d'amortissement, et dériver sous l'espérance : quand le peut-on ? | ★ | 5 | §7 | C, E | manuel | — |
 | M25b.Q8 | 🧠 | Pondérer la KL : multiplicateur, information mutuelle, posterior agrégé et code effondré | ★ | 4 | §8 | C, E | manuel | — |
 | M25b.R1 | 🔁 | Bayes sur une variable cachée et log-sum-exp : probabilités totales, posterior, et une somme d'exponentielles sans dépassement (M04, M05a) | ★ | 6 | §2 §3 | C, E | manuel | — |
 | M25b.R2 | 🔁 | L'inégalité de Jensen, la KL continue et l'information mutuelle (M06, M25a) | ★ | 6 | §5 §8 | C, E | manuel | — |
-| M25b.R3 | 🔁 | La SVD, l'ACP et la projection orthogonale sur un sous-espace (M12b, M12d) | ★ | 6 | §6 | C, E | manuel | — |
-| M25b.1 | ✏️ | Trois machines produisent des pièces de longueurs gaussiennes : le graphe, la loi jointe, un tirage ancestral à la main, la vraisemblance marginale d'une longueur et le posterior de la machine | ★★ | 20 | §1 §2 | C, E | wbm | — |
+| M25b.R3 | 🔁 | La SVD, l'ACP et la projection orthogonale sur un sous-espace (M12b, M12d) | ★ | 8 | §6 | C, E | manuel | — |
+| M25b.1 | ✏️ | Trois machines produisent des pièces de longueurs gaussiennes : le graphe, la loi jointe, un tirage ancestral à la main, la vraisemblance marginale d'une longueur et le posterior de la machine | ★★ | 25 | §1 §2 | C, E | wbm | — |
 | M25b.2 | ✏️ | Deux variétés de grains de café (longueur, largeur) : moyenne et covariance du mélange par la variance totale, part de la variance entre variétés, et une corrélation qu'aucune variété n'a | ★★ | 25 | §2 | C, E | wbm | — |
-| M25b.3 | ✏️ | Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un pas M (proportion, moyennes, variances), et la log-vraisemblance qui monte (suite de M13a, composantes inconnues) | ★★ | 35 | §3 §4 | C, E | wbm | — |
-| M25b.4 | ∂ | Le pas M d'un mélange de gaussiennes : les poids N_k/n par un multiplicateur de Lagrange, les moyennes et les covariances comme maximum de vraisemblance pondéré | ★★ | 30 | §4 | C, E | manuel | — |
-| M25b.5 | ∂ | L'ELBO en général : ln p(x) = ELBO(q) + KL(q ‖ p(z | x)) pour un latent discret ou continu, la borne retrouvée par Jensen, et la forme E_q[ln p(x | z)] − KL(q ‖ p(z)) | ★★★ | 30 | §5 | C, E | manuel | — |
+| M25b.3 | ✏️ | Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un pas M (proportion, moyennes, variances), et la log-vraisemblance qui monte (suite de M13a, composantes inconnues) | ★★ | 50 | §3 §4 | C, E | wbm | — |
+| M25b.4 | ∂ | Le pas M d'un mélange de gaussiennes : les poids N_k/n par un multiplicateur de Lagrange, les moyennes et les covariances comme maximum de vraisemblance pondéré | ★★ | 40 | §4 | C, E | manuel | — |
+| M25b.5 | ∂ | L'ELBO en général : ln p(x) = ELBO(q) + KL(q ‖ p(z | x)) pour un latent discret ou continu, la borne retrouvée par Jensen, et la forme E_q[ln p(x | z)] − KL(q ‖ p(z)) | ★★★ | 35 | §5 | C, E | manuel | — |
 | M25b.6 | ✏️ | Une sonde de qualité de l'eau, un état caché à deux valeurs et une mesure gaussienne : ln p(x), l'ELBO pour trois lois q, et l'écart égal à la KL au posterior | ★★ | 25 | §5 | C, E | wbm | — |
-| M25b.7 | ∂ | L'EM comme montée par coordonnées de l'ELBO : le pas E maximise en q, le pas M en θ, d'où la monotonie ; et ∇ ln p(x) = E_{p(z | x)}[∇ ln p(x, z)] pour la moyenne d'une composante | ★★★ | 30 | §4 §5 | C, E | manuel | — |
-| M25b.8 | ∂ | L'ACP probabiliste : la loi marginale N(μ, WWᵀ + σ²I), le posterior de z par le modèle linéaire gaussien, et W ou WR donnent la même loi | ★★ | 30 | §6 | C, E | manuel | — |
-| M25b.9 | ✏️ | Trois épreuves d'un concours expliquées par une aptitude cachée : covariance marginale, posterior d'un candidat (une règle affine des notes), et maximum de vraisemblance à partir de valeurs propres données, dont une direction éteinte | ★★ | 30 | §6 §7 | C, E | wbm | — |
-| M25b.10 | ✏️ | Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases orthonormées, SVD de Q_Aᵀ Q_B, et pourquoi le résultat ne dépend pas des bases choisies | ★★ | 25 | §6 | C, E | wbm | — |
-| M25b.11 | ∂ | Dériver une espérance par rapport à un paramètre de la loi : l'échange de la dérivée et de l'espérance sous une hypothèse de domination (démontré), la variance de l'estimateur à un tirage de ∂_σ E[e^X], et une indicatrice 1{X > c} pour laquelle l'échange échoue | ★★★ | 25 | §7 | C, E | manuel | — |
-| M25b.12 | ✏️ | Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et en σ par le chemin, puis par la formule fermée | ★★★ | 30 | §7 | C | wbm | — |
-| M25b.13 | ✏️ | Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : KL(p ‖ q) apparie les moments, KL(q ‖ p) choisit un itinéraire | ★★ | 25 | §7 | C, E | wbm | — |
+| M25b.7 | ∂ | L'EM comme montée par coordonnées de l'ELBO : le pas E maximise en q, le pas M en θ, d'où la monotonie ; et ∇ ln p(x) = E_{p(z | x)}[∇ ln p(x, z)] pour la moyenne d'une composante | ★★★ | 40 | §4 §5 | C, E | manuel | — |
+| M25b.8 | ∂ | L'ACP probabiliste : la loi marginale N(μ, WWᵀ + σ²I), le posterior de z par le modèle linéaire gaussien, et W ou WR donnent la même loi | ★★ | 35 | §6 | C, E | manuel | — |
+| M25b.9 | ✏️ | Trois épreuves d'un concours expliquées par une aptitude cachée : covariance marginale, posterior d'un candidat (une règle affine des notes), et maximum de vraisemblance à partir de valeurs propres données, dont une direction éteinte | ★★ | 35 | §6 §7 | C, E | wbm | — |
+| M25b.10 | ✏️ | Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases orthonormées, SVD de Q_Aᵀ Q_B, et pourquoi le résultat ne dépend pas des bases choisies | ★★ | 35 | §6 | C, E | wbm | — |
+| M25b.11 | ∂ | Dériver une espérance par rapport à un paramètre de la loi : l'échange de la dérivée et de l'espérance sous une hypothèse de domination (démontré), la variance de l'estimateur à un tirage de ∂_σ E[e^X], et une indicatrice 1{X > c} pour laquelle l'échange échoue | ★★★ | 40 | §7 | C, E | manuel | — |
+| M25b.12 | ✏️ | Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et en σ par le chemin, puis par la formule fermée | ★★★ | 40 | §7 | C | wbm | — |
+| M25b.13 | ✏️ | Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : KL(p ‖ q) apparie les moments, KL(q ‖ p) choisit un itinéraire | ★★ | 30 | §7 | C, E | wbm | — |
 | M25b.14 | ✏️ | Un code stochastique d'une source à trois symboles : posterior agrégé, information mutuelle, KL moyenne au prior décomposée en I(X ; Z) + KL(q(z) ‖ p(z)), puis le code qui s'effondre | ★★ | 30 | §8 | C, E | wbm | — |
-| M25b.15 | ∂ | β comme multiplicateur de Lagrange : une mesure gaussienne codée avec du bruit, distorsion s² e^{−2I}, le lagrangien D + βI, et le code qui s'éteint quand β dépasse 2s² | ★★★ | 30 | §8 | C, E | manuel | — |
-| M25b.16 | 📖 | MML §8.4 et §8.5 : modèles probabilistes, inférence bayésienne, modèles à variables latentes, graphes orientés et d-séparation (survol), en anglais | ★★ | 25 | §1 §2 | C | manuel | — |
-| M25b.17 | 📖 | MML ch. 11 : mélange de gaussiennes, responsabilités, mises à jour, EM et point de vue latent, en anglais ; refaire l'Exemple 11.1 avec ses propres données | ★★ | 35 | §3 §4 §5 | C | manuel | — |
-| M25b.18 | 📖 | MML §10.7 : l'ACP probabiliste, processus génératif, vraisemblance, loi jointe et posterior, en anglais | ★★ | 20 | §6 | C | manuel | — |
+| M25b.15 | ∂ | β comme multiplicateur de Lagrange : une mesure gaussienne codée avec du bruit, distorsion s² e^{−2I}, le lagrangien D + βI, et le code qui s'éteint quand β dépasse 2s² | ★★★ | 35 | §8 | C, E | manuel | — |
+| M25b.16 | 📖 | MML §8.4 et §8.5 : modèles probabilistes, inférence bayésienne, modèles à variables latentes, graphes orientés et d-séparation (survol), en anglais | ★★ | 40 | §1 §2 | C | manuel | — |
+| M25b.17 | 📖 | MML ch. 11 : mélange de gaussiennes, responsabilités, mises à jour, EM et point de vue latent, en anglais ; refaire l'Exemple 11.1 avec ses propres données | ★★ | 50 | §3 §4 §5 | C | manuel | — |
+| M25b.18 | 📖 | MML §10.7 : l'ACP probabiliste, processus génératif, vraisemblance, loi jointe et posterior, en anglais | ★★ | 30 | §6 | C | manuel | — |
 | M25b.19 | 🗣️ | Expliquer l'EM avec un bac de pièces venues de deux machines inconnues : deviner, réestimer, recommencer, sans jamais reculer | ★ | 10 | §4 | C, E | manuel | — |
 | M25b.E1 | 💼 | « Pourquoi l'algorithme EM ne fait-il jamais baisser la vraisemblance, et vers quoi converge-t-il ? » | ★ | 10 | §4 §5 | C, E | manuel | — |
 | M25b.20 | 🔨 | Les responsabilités d'un mélange de gaussiennes, calculées en log (le pas E) · `gmm_e_step` | ★★ | 30 | §3 | C, E | pytest | — |
 | M25b.21 | 🔨 | Le pas M d'un mélange de gaussiennes : poids, moyennes et covariances pondérées, avec une régularisation · `gmm_m_step` | ★★ | 30 | §4 | C, E | pytest | — |
 | M25b.22 | 🔨 | La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des responsabilités quelconques · `gmm_log_likelihood, gmm_elbo` | ★★ | 25 | §3 §5 | C, E | pytest | — |
-| M25b.23 | 🔗 | Pont : l'ELBO de n mesures rangées en lignes, écrite « reconstruction moins KL au prior » E_q[ln p(x | z)] − KL(q ‖ π), en nats par mesure, et ce que gagne chaque terme quand q devient le posterior | ★ | 20 | §5 | C, E | wbm | M25b.22 |
+| M25b.23 | 🔗 | Pont : l'ELBO de n mesures rangées en lignes, écrite « reconstruction moins KL au prior » E_q[ln p(x | z)] − KL(q ‖ π), en nats par mesure, et ce que gagne chaque terme quand q devient le posterior | ★ | 30 | §5 | C, E | wbm | M25b.22 |
 | M25b.24 | 📦 | `scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de M25b.10, et l'ACP probabiliste de mesures par leurs valeurs propres, contre la vraisemblance de `mvn_logpdf` | ★ | 20 | §6 | C, E | wbm | M25b.10 |
 | M25b.25 | 🔮 | Prédire ce que devient la log-vraisemblance quand une composante centrée sur un point se resserre (σ_k = 10⁻¹, 10⁻³, 10⁻⁶), puis avec une régularisation, et mesurer | ★ | 15 | §3 §4 | C | wbm | M25b.20, M25b.21, M25b.22 |
 | M25b.26 | 🔬 | L'EM sur des longueurs de poissons de trois cohortes : la log-vraisemblance et l'ELBO après chaque demi-pas, sans régularisation, plusieurs initialisations et des maxima locaux | ★★ | 25 | §4 §5 | C, E | wbm | M25b.20, M25b.21, M25b.22 |

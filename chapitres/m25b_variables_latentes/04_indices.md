@@ -40,7 +40,7 @@ $\mathbb{V}(X)$ = la variance moyenne dans les groupes + la variance des moyenne
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac12 \times 4 + \frac12 \times 10 = 7$. Pour 2 : dans les groupes, 2 ; entre les groupes, chaque moyenne est à 3 de 7. Pour 6, pense à l'erreur classique du §2 : une somme pondérée de variables n'est pas un mélange.
+1. $\frac12 \times 3 + \frac12 \times 11 = 7$. Pour 2 : dans les groupes, 2 ; entre les groupes, chaque moyenne est à 4 de 7. Pour 6, pense à l'erreur classique du §2 : une somme pondérée de variables n'est pas un mélange.
 
 </details>
 
@@ -112,7 +112,7 @@ $\mathbf{C} = \mathbf{w}\mathbf{w}^\top + \sigma^2\mathbf{I}$ : $\mathbf{w}$ est
 </details>
 <details><summary>Indice 3</summary>
 
-1. $C_{11} = w_1^2 + \sigma^2$ et $C_{23} = w_2w_3$. 2. $\mathbf{C}\mathbf{w} = (\lVert\mathbf{w}\rVert^2 + \sigma^2)\mathbf{w}$. 4. Que vaut l'angle principal entre deux sous-espaces qui ont une droite commune ?
+1. $C_{11} = w_1^2 + \sigma^2$ et $C_{23} = w_2w_3$. 2. $\mathbf{C}\mathbf{w} = (\lVert\mathbf{w}\rVert^2 + \sigma^2)\mathbf{w}$. 4. Combien d'angles principaux entre une droite et un plan, et que dit la propriété « tous nuls » ?
 
 </details>
 
@@ -170,7 +170,7 @@ $P(D) = \sum_\ell P(\ell)\,P(D \mid \ell)$ et $P(\ell \mid D) = \frac{P(\ell)\,P
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0{,}45 \times 0{,}02 + 0{,}35 \times 0{,}03 + 0{,}20 \times 0{,}06$. 3. Avec $m = -800$ : $-800 + \ln(1 + e^{-2})$. 6. La somme contient le plus grand terme, et au plus $K$ termes qui ne le dépassent pas.
+1. $0{,}55 \times 0{,}02 + 0{,}30 \times 0{,}03 + 0{,}15 \times 0{,}06$. 3. Avec $m = -800$ : $-800 + \ln(1 + e^{-2})$. 6. La somme contient le plus grand terme, et au plus $K$ termes qui ne le dépassent pas.
 
 </details>
 
@@ -188,7 +188,7 @@ Pour une fonction concave $f$, $f(\mathbb{E}[X]) \ge \mathbb{E}[f(X)]$. Entre de
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbb{E}[X] = 5$ et $\mathbb{E}[\ln X] = \frac12\ln 9$. 2. $\frac{3^2}{2 \times 3}$. 5. Pour des variables indépendantes, $p(x, y) = p(x)\,p(y)$.
+1. $\mathbb{E}[X] = 17$ et $\mathbb{E}[\ln X] = \frac12\ln 64$. 2. $\frac{3^2}{2 \times 3}$. 3. Écris $-\mathrm{KL}(p \,\|\, q)$ comme $\mathbb{E}_p\big[\ln\frac qp\big]$. 4. Calcule $h$ d'une gaussienne de très petite variance. 5. Pour des variables indépendantes, $p(x, y) = p(x)\,p(y)$.
 
 </details>
 
@@ -246,7 +246,7 @@ $\boldsymbol{\Sigma} = \sum_k\pi_k\boldsymbol{\Sigma}_k + \sum_k\pi_k(\boldsymbo
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}6(10, 7) + 0{,}4(12, 8)$. c) Les écarts à la moyenne du mélange sont $(-0{,}8 ;\ -0{,}4)$ et $(1{,}2 ;\ 0{,}6)$ : pondère leurs produits $\boldsymbol{\delta}\boldsymbol{\delta}^\top$ par 0,6 et 0,4. e) Le coefficient $(1, 1)$ de c) divisé par celui de d).
+a) $0{,}6(11, 7) + 0{,}4(13, 8)$. c) Les écarts à la moyenne du mélange sont $(-0{,}8 ;\ -0{,}4)$ et $(1{,}2 ;\ 0{,}6)$ : pondère leurs produits $\boldsymbol{\delta}\boldsymbol{\delta}^\top$ par 0,6 et 0,4. e) Le coefficient $(1, 1)$ de c) divisé par celui de d).
 
 </details>
 
@@ -384,17 +384,17 @@ a) $q(z = 1) = 0{,}5 \times 0{,}85 + 0{,}3 \times 0{,}35 + 0{,}2 \times 0{,}15$.
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 : le théorème du pas M et son idée ; M13b (Lagrange), M18 ($\nabla\ln\det$, $\nabla\operatorname{tr}$), ∂ M25a.12 (le maximum de vraisemblance non pondéré).
+Fiche §4 : le théorème du pas M et son idée ; M13b (Lagrange), M18 ($\nabla\ln\det$, $\nabla\operatorname{tr}$) ; M25a §6 (le maximum de vraisemblance non pondéré, démontré en ∂ M25a.12 si tu l'as fait).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Développe $Q$ : la somme sur $i$ de $r_{ik}\ln\pi_k$ donne $N_k\ln\pi_k$. Dans $Q_k$, chaque donnée compte pour $r_{ik}$ : refais ∂ M25a.12 avec des poids, et $n$ devient $N_k$.
+Développe $Q$ : la somme sur $i$ de $r_{ik}\ln\pi_k$ donne $N_k\ln\pi_k$. Dans $Q_k$, chaque donnée compte pour $r_{ik}$ : c'est le maximum de vraisemblance d'une gaussienne avec des poids, et $n$ devient $N_k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Les dérivées du lagrangien sont $\frac{N_k}{\pi_k} - \lambda$ ; somme les égalités $N_k = \lambda\pi_k$ sur $k$. Pour le maximum, compare $\sum N_k\ln\pi_k$ à sa valeur en $\hat\pi_k = \frac{N_k}{n}$ : la différence est $-n$ fois une KL. 3. Écris $\mathbf{x}_i - \boldsymbol{\mu} = (\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k) + (\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})$ et montre que les termes croisés sont nuls.
+2. Les dérivées du lagrangien sont $\frac{N_k}{\pi_k} - \lambda$ ; somme les égalités $N_k = \lambda\pi_k$ sur $k$. Pour le maximum, compare $\sum N_k\ln\pi_k$ à sa valeur en $\hat\pi_k = \frac{N_k}{n}$ : la différence est $-n$ fois une KL. 3. Écris $\mathbf{x}_i - \boldsymbol{\mu} = (\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k) + (\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})$ et montre que les termes croisés sont nuls. 4. Pour le maximum, avec $\frac{\mathbf{S}_k}{N_k} = \mathbf{C}\mathbf{C}^\top$ et $\mathbf{B} = \mathbf{C}^\top\boldsymbol{\Lambda}_k\mathbf{C}$ de valeurs propres $b_j$ : $Q_k$ vaut une constante plus $\frac{N_k}{2}\sum_j(\ln b_j - b_j)$.
 
 </details>
 
@@ -412,7 +412,7 @@ Pour tout $\mathbf{z}$ où $q(\mathbf{z}) > 0$ : $\ln p(\mathbf{x}) = \ln p(\mat
 </details>
 <details><summary>Indice 3</summary>
 
-4. $\operatorname{ELBO}(q) = \mathbb{E}_q\big[\ln\frac{p(\mathbf{x}, \mathbf{Z})}{q(\mathbf{Z})}\big] \le \ln\mathbb{E}_q\big[\frac{p(\mathbf{x}, \mathbf{Z})}{q(\mathbf{Z})}\big]$, et cette espérance vaut au plus $p(\mathbf{x})$ (elle intègre $p(\mathbf{x}, \cdot)$ sur le support de $q$). Pour l'égalité : quand une variable a une image par une fonction strictement concave d'espérance égale à l'image de l'espérance, elle est constante.
+4. $\operatorname{ELBO}(q) = \mathbb{E}_q\big[\ln\frac{p(\mathbf{x}, \mathbf{Z})}{q(\mathbf{Z})}\big] \le \ln\mathbb{E}_q\big[\frac{p(\mathbf{x}, \mathbf{Z})}{q(\mathbf{Z})}\big]$, et cette espérance vaut au plus $p(\mathbf{x})$ (elle intègre $p(\mathbf{x}, \cdot)$ sur le support de $q$). Pour l'égalité, il faut que les **deux** inégalités en soient : quand une variable a une image par une fonction strictement concave d'espérance égale à l'image de l'espérance, elle est constante ; et la seconde demande que $q$ couvre tout le support de $p(\mathbf{x}, \cdot)$.
 
 </details>
 
@@ -456,7 +456,7 @@ $(\mathbf{z}, \mathbf{x})$ est une image affine de $(\mathbf{z}, \boldsymbol{\va
 
 <details><summary>Indice 1</summary>
 
-Fiche §7 : le théorème, son idée et le contre-exemple discret ; M19 §7 pour la variance d'une moyenne de tirages.
+Fiche §7 : le théorème, son idée et le contre-exemple discret ; M19 §7 pour la variance d'un estimateur sans biais à un tirage.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -466,7 +466,7 @@ Le taux d'accroissement est $\frac1t\int_\theta^{\theta + t}\partial_\theta\psi(
 </details>
 <details><summary>Indice 3</summary>
 
-2. $G(\varepsilon) = \lvert\varepsilon\rvert\,e^{\lvert\mu\rvert + s_0\lvert\varepsilon\rvert}$ convient. Après la complétion du carré, $\mathbb{E}[\varepsilon\,e^{t\varepsilon}] = e^{t^2/2}$ fois la moyenne de $\mathcal{N}(t, 1)$. 3. Même calcul avec le moment d'ordre 2 de $\mathcal{N}(t, 1)$, et $t = 2\sigma$ pour $\hat g^2$. 4. Où se trouve le saut de $\mu \mapsto \mathbb{1}\{\mu + \sigma\varepsilon > c\}$ ?
+2. $G(\varepsilon) = \lvert\varepsilon\rvert\,e^{\lvert\mu\rvert + s_0\lvert\varepsilon\rvert}$ convient. Après la complétion du carré, $\mathbb{E}[\varepsilon\,e^{t\varepsilon}] = e^{t^2/2}$ fois la moyenne de $\mathcal{N}(t, 1)$. 3. Même calcul avec le moment d'ordre 2 de $\mathcal{N}(t, 1)$, et $t = 2\sigma$ pour $\hat g^2$. 4. Où se trouve le saut de $\mu \mapsto \mathbb{1}\{\mu + \sigma\varepsilon > c\}$ ? Pour la vraie dérivée, dérive $1 - \Phi\big(\frac{c - \mu}{\sigma}\big)$ en $\mu$ ; puis cherche l'étape de 1 qui suppose que $\psi(\cdot, \xi)$ ne saute pas.
 
 </details>
 
@@ -519,12 +519,12 @@ Le guide de lecture de la fiche (avant le §3) ; la fiche §3 à §5 ouverte à 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 3, regarde de quoi dépendent les $r_{nk}$ dans (11.17). Pour 4, relis « Ce qui est garanti » et « Avec une régularisation » (fiche §4). Pour 6, choisis des mesures assez proches pour que les responsabilités ne soient pas toutes 0 ou 1.
+Pour 3, regarde de quoi dépendent les $r_{nk}$ dans (11.17). Pour 4, relis « Ce qui est garanti » et « Avec une régularisation » (fiche §4). Pour 5, choisis des mesures assez proches pour que les responsabilités ne soient pas toutes 0 ou 1.
 
 </details>
 <details><summary>Indice 3</summary>
 
-6. Avec une variance commune et des poids égaux, la constante $\ln\frac12 - \frac12\ln(2\pi\sigma^2)$ se simplifie dans les responsabilités : seuls comptent les carrés des écarts aux moyennes. Garde les variances et les poids, remplace seulement les moyennes par les moyennes pondérées, et recalcule les quatre log-sum-exp.
+5. Avec une variance commune et des poids égaux, la constante $\ln\frac12 - \frac12\ln(2\pi\sigma^2)$ se simplifie dans les responsabilités : seuls comptent les carrés des écarts aux moyennes. Garde les variances et les poids, remplace seulement les moyennes par les moyennes pondérées, et recalcule les quatre log-sum-exp.
 
 </details>
 
@@ -666,7 +666,7 @@ Le même tableau `a` que dans `gmm_e_step` ; `gmm_log_likelihood` rend la somme 
 
 <details><summary>Indice 1</summary>
 
-`help(scipy.linalg.subspace_angles)` : lis la section *Returns* et regarde comment les exemples affichent les angles. Fiche §6 pour Tipping et Bishop.
+`help(scipy.linalg.subspace_angles)` : lis la section *Returns*. Fiche §6 pour Tipping et Bishop.
 
 </details>
 <details><summary>Indice 2</summary>

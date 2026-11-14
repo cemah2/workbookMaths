@@ -1914,7 +1914,7 @@ with checked("M25b.28"):                                      # (2) refit_machin
             wrong_28.append(f"{K_c28} composantes, des responsabilités quelconques : attendu "
                             f"{shown(tuple(want_c28))[:160]}, reçu {shown(tuple(got_c28))[:160]}")
     report_28(not wrong_28, "(2) refit_machines_fixed : 2 et 3 composantes, des responsabilités quelconques",
-              "(2) refit_machines_fixed : " + " ; ".join(wrong_28[:2]))
+              "(2) refit_machines_fixed : " + " ; ".join(list(dict.fromkeys(wrong_28))[:2]))
     parts_28.append(2)
 
 with checked("M25b.28"):                                      # (3) bound_of_evidence_fixed
@@ -1944,7 +1944,7 @@ with checked("M25b.28"):                                      # (3) bound_of_evi
             wrong_28.append(f"{K_c28} composantes, des lignes avec des zéros : attendu {want_c28:.6f}, reçu "
                             f"{got_value_c28:.6f}")
     report_28(not wrong_28, "(3) bound_of_evidence_fixed : 2 et 3 composantes, des lignes avec des zéros",
-              "(3) bound_of_evidence_fixed : " + " ; ".join(wrong_28[:2]))
+              "(3) bound_of_evidence_fixed : " + " ; ".join(list(dict.fromkeys(wrong_28))[:2]))
     parts_28.append(3)
 
 if len(set(parts_28)) == 3:
@@ -2363,7 +2363,7 @@ with checked("M25b.30"):
               f"{fr(dw_c30, 3)}, moyennes à {fr(dm_c30, 2)}, covariances à {fr(dC_c30, 2)}, log-vraisemblance de test à "
               f"{fr(dll_c30, 4)}).")
     else:
-        reasons_c30 = []
+        reasons_c30 = []                                      # first the classic constructions, then the gaps
         if np.allclose(w_c30, 1 / 3, rtol=0, atol=1e-9):
             reasons_c30.append("tes poids sont restés égaux : le pas M met π_k = N_k / n")
         if np.allclose(C_c30[:, 0, 1], 0, rtol=0, atol=1e-12):
@@ -2372,14 +2372,19 @@ with checked("M25b.30"):
         ratio_c30 = np.trace(C_c30, axis1=1, axis2=2) / np.trace(TRUE_C30[2], axis1=1, axis2=2)
         if np.all(ratio_c30 < 0.75) and dC_c30 > 0.4:
             reasons_c30.append("tes covariances sont trop petites : le pas M divise par N_k, pas par n")
-        if dw_c30 > 0.05:
+        gaps_c30 = (f"écarts au modèle : poids {fr(dw_c30, 3)}, moyennes {fr(dm_c30, 2)}, covariances {fr(dC_c30, 2)}, "
+                    f"log-vraisemblance de test {fr(dll_c30, 4)} (tolérances 0,05, 0,3, 0,4 et 0,02)")
+        if reasons_c30:
+            reasons_c30.append(gaps_c30)
+        specific_c30 = bool(reasons_c30)                      # a classic construction found: the gaps in one line
+        if not specific_c30 and dw_c30 > 0.05:
             reasons_c30.append(f"tes poids s'écartent de ceux du modèle de {fr(dw_c30, 3)} (plus de 0,05)")
-        if dm_c30 > 0.3:
+        if not specific_c30 and dm_c30 > 0.3:
             reasons_c30.append(f"tes moyennes s'écartent de celles du modèle de {fr(dm_c30, 2)} (plus de 0,3) : un moins bon "
                                "maximum local ? garde l'essai de meilleure log-vraisemblance d'entraînement")
-        if dC_c30 > 0.4:
+        if not specific_c30 and dC_c30 > 0.4:
             reasons_c30.append(f"tes covariances s'écartent de celles du modèle de {fr(dC_c30, 2)} (plus de 0,4)")
-        if dll_c30 > 0.02:
+        if not specific_c30 and dll_c30 > 0.02:
             reasons_c30.append(f"ta log-vraisemblance de test s'écarte de {fr(dll_c30, 4)} de celle du modèle exact (plus "
                                "de 0,02)")
         print(f"❌ Ex M25b.30 : {lead_c30}ton ajustement n'est pas celui du modèle exact, après la meilleure "

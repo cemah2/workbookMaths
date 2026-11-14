@@ -597,9 +597,9 @@ CHAPTERS = [
             ("M25b.Q4", "🧠", 1, 4, "L'EM : ce que font le pas E et le pas M, ce qui ne baisse jamais, ce qui n'est pas "
              "garanti, et k-means comme limite", "§4", "E"),
             ("M25b.Q5", "🧠", 1, 4, "L'ELBO : une borne de quoi, une égalité quand, un écart égal à quelle KL ?", "§5", "E"),
-            ("M25b.Q6", "🧠", 1, 4, "L'ACP probabiliste : covariance marginale, rotation de W, angles principaux et "
+            ("M25b.Q6", "🧠", 1, 5, "L'ACP probabiliste : covariance marginale, rotation de W, angles principaux et "
              "directions éteintes", "§6", "E"),
-            ("M25b.Q7", "🧠", 1, 4, "KL directe ou inverse, inférence amortie et écart d'amortissement, et dériver sous "
+            ("M25b.Q7", "🧠", 1, 5, "KL directe ou inverse, inférence amortie et écart d'amortissement, et dériver sous "
              "l'espérance : quand le peut-on ?", "§7", "E"),
             ("M25b.Q8", "🧠", 1, 4, "Pondérer la KL : multiplicateur, information mutuelle, posterior agrégé et code "
              "effondré", "§8", "E"),
@@ -607,50 +607,50 @@ CHAPTERS = [
              "une somme d'exponentielles sans dépassement (M04, M05a)", "§2 §3", "E"),
             ("M25b.R2", "🔁", 1, 6, "L'inégalité de Jensen, la KL continue et l'information mutuelle (M06, M25a)",
              "§5 §8", "E"),
-            ("M25b.R3", "🔁", 1, 6, "La SVD, l'ACP et la projection orthogonale sur un sous-espace (M12b, M12d)", "§6",
+            ("M25b.R3", "🔁", 1, 8, "La SVD, l'ACP et la projection orthogonale sur un sous-espace (M12b, M12d)", "§6",
              "E"),
-            ("M25b.1", "✏️", 2, 20, "Trois machines produisent des pièces de longueurs gaussiennes : le graphe, la loi "
+            ("M25b.1", "✏️", 2, 25, "Trois machines produisent des pièces de longueurs gaussiennes : le graphe, la loi "
              "jointe, un tirage ancestral à la main, la vraisemblance marginale d'une longueur et le posterior de la "
              "machine", "§1 §2", "E"),
             ("M25b.2", "✏️", 2, 25, "Deux variétés de grains de café (longueur, largeur) : moyenne et covariance du "
              "mélange par la variance totale, part de la variance entre variétés, et une corrélation qu'aucune "
              "variété n'a", "§2", "E"),
-            ("M25b.3", "✏️", 2, 35, "Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un "
+            ("M25b.3", "✏️", 2, 50, "Deux séries de résistances mélangées : les responsabilités de quatre mesures en log, un "
              "pas M (proportion, moyennes, variances), et la log-vraisemblance qui monte (suite de M13a, composantes "
              "inconnues)", "§3 §4", "E"),
-            ("M25b.4", "∂", 2, 30, "Le pas M d'un mélange de gaussiennes : les poids N_k/n par un multiplicateur de "
+            ("M25b.4", "∂", 2, 40, "Le pas M d'un mélange de gaussiennes : les poids N_k/n par un multiplicateur de "
              "Lagrange, les moyennes et les covariances comme maximum de vraisemblance pondéré", "§4", "E"),
-            ("M25b.5", "∂", 3, 30, "L'ELBO en général : ln p(x) = ELBO(q) + KL(q ‖ p(z | x)) pour un latent discret ou "
+            ("M25b.5", "∂", 3, 35, "L'ELBO en général : ln p(x) = ELBO(q) + KL(q ‖ p(z | x)) pour un latent discret ou "
              "continu, la borne retrouvée par Jensen, et la forme E_q[ln p(x | z)] − KL(q ‖ p(z))", "§5", "E"),
             ("M25b.6", "✏️", 2, 25, "Une sonde de qualité de l'eau, un état caché à deux valeurs et une mesure "
              "gaussienne : ln p(x), l'ELBO pour trois lois q, et l'écart égal à la KL au posterior", "§5", "E"),
-            ("M25b.7", "∂", 3, 30, "L'EM comme montée par coordonnées de l'ELBO : le pas E maximise en q, le pas M en θ, "
+            ("M25b.7", "∂", 3, 40, "L'EM comme montée par coordonnées de l'ELBO : le pas E maximise en q, le pas M en θ, "
              "d'où la monotonie ; et ∇ ln p(x) = E_{p(z | x)}[∇ ln p(x, z)] pour la moyenne d'une composante",
              "§4 §5", "E"),
-            ("M25b.8", "∂", 2, 30, "L'ACP probabiliste : la loi marginale N(μ, WWᵀ + σ²I), le posterior de z par le "
+            ("M25b.8", "∂", 2, 35, "L'ACP probabiliste : la loi marginale N(μ, WWᵀ + σ²I), le posterior de z par le "
              "modèle linéaire gaussien, et W ou WR donnent la même loi", "§6", "E"),
-            ("M25b.9", "✏️", 2, 30, "Trois épreuves d'un concours expliquées par une aptitude cachée : covariance "
+            ("M25b.9", "✏️", 2, 35, "Trois épreuves d'un concours expliquées par une aptitude cachée : covariance "
              "marginale, posterior d'un candidat (une règle affine des notes), et maximum de vraisemblance à partir de "
              "valeurs propres données, dont une direction éteinte", "§6 §7", "E"),
-            ("M25b.10", "✏️", 2, 25, "Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases "
+            ("M25b.10", "✏️", 2, 35, "Les angles principaux entre deux plans de ℝ⁴ et entre deux droites de ℝ³ : bases "
              "orthonormées, SVD de Q_Aᵀ Q_B, et pourquoi le résultat ne dépend pas des bases choisies", "§6", "E"),
-            ("M25b.11", "∂", 3, 25, "Dériver une espérance par rapport à un paramètre de la loi : l'échange de la dérivée et de "
+            ("M25b.11", "∂", 3, 40, "Dériver une espérance par rapport à un paramètre de la loi : l'échange de la dérivée et de "
              "l'espérance sous une hypothèse de domination (démontré), la variance de l'estimateur à un tirage de "
              "∂_σ E[e^X], et une indicatrice 1{X > c} pour laquelle l'échange échoue", "§7", "E"),
-            ("M25b.12", "✏️", 3, 30, "Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et "
+            ("M25b.12", "✏️", 3, 40, "Le coût d'un stock c face à une demande gaussienne : E[(D − c)⁺], ses dérivées en μ et "
              "en σ par le chemin, puis par la formule fermée", "§7", ""),
-            ("M25b.13", "✏️", 2, 25, "Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : "
+            ("M25b.13", "✏️", 2, 30, "Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : "
              "KL(p ‖ q) apparie les moments, KL(q ‖ p) choisit un itinéraire", "§7", "E"),
             ("M25b.14", "✏️", 2, 30, "Un code stochastique d'une source à trois symboles : posterior agrégé, information "
              "mutuelle, KL moyenne au prior décomposée en I(X ; Z) + KL(q(z) ‖ p(z)), puis le code qui s'effondre",
              "§8", "E"),
-            ("M25b.15", "∂", 3, 30, "β comme multiplicateur de Lagrange : une mesure gaussienne codée avec du bruit, "
+            ("M25b.15", "∂", 3, 35, "β comme multiplicateur de Lagrange : une mesure gaussienne codée avec du bruit, "
              "distorsion s² e^{−2I}, le lagrangien D + βI, et le code qui s'éteint quand β dépasse 2s²", "§8", "E"),
-            ("M25b.16", "📖", 2, 25, "MML §8.4 et §8.5 : modèles probabilistes, inférence bayésienne, modèles à variables "
+            ("M25b.16", "📖", 2, 40, "MML §8.4 et §8.5 : modèles probabilistes, inférence bayésienne, modèles à variables "
              "latentes, graphes orientés et d-séparation (survol), en anglais", "§1 §2", ""),
-            ("M25b.17", "📖", 2, 35, "MML ch. 11 : mélange de gaussiennes, responsabilités, mises à jour, EM et point de "
+            ("M25b.17", "📖", 2, 50, "MML ch. 11 : mélange de gaussiennes, responsabilités, mises à jour, EM et point de "
              "vue latent, en anglais ; refaire l'Exemple 11.1 avec ses propres données", "§3 §4 §5", ""),
-            ("M25b.18", "📖", 2, 20, "MML §10.7 : l'ACP probabiliste, processus génératif, vraisemblance, loi jointe et "
+            ("M25b.18", "📖", 2, 30, "MML §10.7 : l'ACP probabiliste, processus génératif, vraisemblance, loi jointe et "
              "posterior, en anglais", "§6", ""),
             ("M25b.19", "🗣️", 1, 10, "Expliquer l'EM avec un bac de pièces venues de deux machines inconnues : deviner, "
              "réestimer, recommencer, sans jamais reculer", "§4", "E"),
@@ -662,7 +662,7 @@ CHAPTERS = [
              "avec une régularisation", "§4", "E m:gmm_m_step"),
             ("M25b.22", "🔨", 2, 25, "La log-vraisemblance d'un mélange de gaussiennes, et son ELBO pour des "
              "responsabilités quelconques", "§3 §5", "E m:gmm_log_likelihood,gmm_elbo"),
-            ("M25b.23", "🔗", 1, 20, "Pont : l'ELBO de n mesures rangées en lignes, écrite « reconstruction moins KL "
+            ("M25b.23", "🔗", 1, 30, "Pont : l'ELBO de n mesures rangées en lignes, écrite « reconstruction moins KL "
              "au prior » E_q[ln p(x | z)] − KL(q ‖ π), en nats par mesure, et ce que gagne chaque terme quand q "
              "devient le posterior", "§5", "E p:M25b.22"),
             ("M25b.24", "📦", 1, 20, "`scipy.linalg.subspace_angles` et `np.linalg.eigh` : les angles principaux de "
