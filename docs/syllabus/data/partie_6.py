@@ -316,7 +316,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M25b", "dir": "m25b_variables_latentes", "hours": 16.8, "generation_sessions": 2,
+        "id": "M25b", "dir": "m25b_variables_latentes", "hours": 17.1, "generation_sessions": 2,
         "mml": ["§8.4", "§8.5", "§10.7", "ch. 11"],
         "summary": "Les variables latentes : un modèle génératif écrit comme un graphe orienté (loi jointe, tirage "
                    "ancestral), la vraisemblance marginale et le posterior d'un latent, les moments d'un mélange ; les "
@@ -380,7 +380,7 @@ CHAPTERS = [
                     "multiplicateur de Lagrange, moyennes et covariances pondérées : le maximum de vraisemblance de "
                     "M25a, pondéré) ; monotonie, maxima locaux, initialisations ; une proportion de mélange et des "
                     "composantes inconnues (suite de M13a)",
-                    "k-means comme limite de l'EM : covariances communes εI, ε → 0, responsabilités dures",
+                    "k-means comme limite de l'EM : covariances communes γI, γ → 0, responsabilités dures",
                     "borne inférieure de l'évidence (ELBO), démontrée en général pour un latent discret ou continu : "
                     "ln p(x) = E_q[ln p(x, z) − ln q(z)] + KL(q ‖ p(z | x)) ; ELBO ≤ ln p(x), égalité si et seulement "
                     "si q est le posterior ; la même borne par Jensen ; la forme E_q[ln p(x | z)] − KL(q ‖ p(z)) "
@@ -395,11 +395,11 @@ CHAPTERS = [
                     "égale par Wᵀ(WWᵀ + σ²I)⁻¹ = (WᵀW + σ²I)⁻¹Wᵀ ; sa moyenne est une règle affine de x, sa "
                     "covariance n'en dépend pas",
                     "maximum de vraisemblance de l'ACP probabiliste (Tipping et Bishop, énoncé) : σ² = moyenne des "
-                    "valeurs propres écartées, W = U_k (Λ_k − σ²I)^{1/2} R ; la limite σ² → 0 retrouve l'ACP de M12d ; "
+                    "valeurs propres écartées, W = U_k (D_k − σ²I)^{1/2} R, D_k = diag(λ₁, …, λ_k) ; la limite σ² → 0 retrouve l'ACP de M12d ; "
                     "quand σ² est fixé (connu), une direction de valeur propre λ ≤ σ² est éteinte (colonne de W nulle)",
                     "non-identifiabilité par rotation : W et WR (R orthogonale) donnent la même loi ; seul le "
                     "sous-espace engendré par W est déterminé",
-                    "angles principaux entre deux sous-espaces : cos θ_i = valeurs singulières de Q_Aᵀ Q_B pour des "
+                    "angles principaux entre deux sous-espaces : cos φ_i = valeurs singulières de Q_Aᵀ Q_B pour des "
                     "bases orthonormées Q_A et Q_B (M12b, M12d), min(k_A, k_B) angles ; ils ne dépendent pas des "
                     "bases ; deux sous-espaces de même dimension sont égaux si et seulement si tous leurs angles sont "
                     "nuls (en général, tous nuls si et seulement si le plus petit est contenu dans l'autre)",
@@ -414,7 +414,7 @@ CHAPTERS = [
                     "convergence dominée admise), d/dθ E[f(g_θ(ε))] = E[f′(g_θ(ε)) ∂_θ g_θ(ε)] ; estimateur de "
                     "Monte-Carlo sans biais à un tirage (M19) et sa variance ; une fonction dérivable presque partout, "
                     "et une indicatrice 1{X > c} pour laquelle l'échange échoue (dérivée nulle presque partout, alors "
-                    "que d/dμ P(X > c) = φ((c − μ)/σ)/σ) ; la méthode du score seulement nommée (MB8)",
+                    "que d/dμ P(X > c) = N(c | μ, σ²), la densité en c) ; la méthode du score seulement nommée (MB8)",
                     "pondérer une KL : maximiser une vraisemblance de reconstruction sous un budget d'information, le "
                     "lagrangien (M13b), β comme multiplicateur et pente de la meilleure valeur en fonction du budget ; "
                     "avec un bruit gaussien de variance σ², changer σ² revient à changer β",
@@ -447,7 +447,7 @@ CHAPTERS = [
                        "25.Q9", "25.Q12", "25.R3", "25.E1", "25.E2", "25.E3"],
         "mymath": {"module": "latent.py",
                    "functions": ["gmm_e_step", "gmm_m_step", "gmm_log_likelihood", "gmm_elbo"]},
-        "reading_minutes": 150,
+        "reading_minutes": 165,
         "flashcards": 22,
         "notes": "Frontières : le ∂ 25.5 (les dérivées de z = μ + σε par rapport à μ et à s = ln σ², ε fixé, E[z²] dérivée "
                  "avant ou après l'espérance, l'estimateur à un tirage du VAE), le ∂ 25.7 (KL(N(μ, σ²) ‖ N(0, 1)), en "
@@ -490,7 +490,7 @@ CHAPTERS = [
                  "reparamétrisation ; la moitié « loi » est en M25a) se fait sur des coûts : ∂ M25b.11 démontre "
                  "l'échange sous une hypothèse de domination, calcule la variance de l'estimateur à un tirage de "
                  "∂_σ E[e^X] et montre une indicatrice 1{X > c} pour laquelle l'échange échoue ; ✏️ M25b.12 dérive "
-                 "E[(D − c)⁺] pour un stock c (dérivées P(D > c) et φ((c − μ)/σ), par le chemin puis par la formule "
+                 "E[(D − c)⁺] pour un stock c (dérivées P(D > c) et σ N(c | μ, σ²), par le chemin puis par la formule "
                  "fermée), avec θ = μ ou σ directement ; aucune comparaison « dériver avant ou après l'espérance » "
                  "sur une fonction lisse (∂ 25.5.5) : la vérification par la formule fermée se fait sur le stock, "
                  "une fonction seulement continue ; jamais z², ½(z − y)², s = ln σ², une log-variance, σ ⊙ ε, ni « un "
@@ -581,7 +581,7 @@ CHAPTERS = [
                  "`gaussian` (Σ = [[2, 3], [3, 9]], "
                  "[[5, 2, 2], [2, 4, 0], [2, 0, 4]], Φ = [[1, 0], [1, 1], [1, 2]]) et `approx` ; MNIST, "
                  "Fashion-MNIST, Frey Face, CIFAR-10 contre SVHN, l'anomalie MNIST contre Fashion-MNIST, le tigre. "
-                 "**Durée** : 16,8 h au lieu des 14 h prévues (essentiel 13,7 h) : l'ELBO démontrée en général, la "
+                 "**Durée** : 17,1 h au lieu des 14 h prévues (essentiel 14,0 h ; lecture de la fiche 165 min au lieu de 150 après la session 63) : l'ELBO démontrée en général, la "
                  "dérivée d'une espérance, les angles principaux, β, le posterior agrégé et l'inférence amortie, que "
                  "la planification ne comptait pas, et quatre blocs de MML (≈ 35 pages, trois 📖 au lieu de 1–2). "
                  "COMPOSITION : trois 📖 (quatre blocs de MML de sujets distincts).",
