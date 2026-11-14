@@ -23,6 +23,7 @@ import numpy as np
 | une ellipse de niveau d'une gaussienne | `th = np.linspace(0, 2 * np.pi, 200)` ; `P = mu + c * np.column_stack([np.cos(th), np.sin(th)]) @ L.T` (le cercle de rayon $c$, envoyé par $\boldsymbol{\varepsilon} \mapsto \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$, avec `L = np.linalg.cholesky(S)`) ; `ax.plot(P[:, 0], P[:, 1])` ; `ax.set_aspect("equal")` (M25a) |
 | les lignes de niveau d'une densité du plan | `X1, X2 = np.meshgrid(x1, x2)` ; `ax.contour(X1, X2, multivariate_normal(mu, S).pdf(np.dstack([X1, X2])))` : la dernière dimension porte les deux coordonnées (M25a) |
 | des points colorés par une probabilité | `sc = ax.scatter(X[:, 0], X[:, 1], c=p, cmap="coolwarm", vmin=0, vmax=1)` ; `fig.colorbar(sc, ax=ax)` : par exemple, `p = R[:, 0]`, la responsabilité d'une composante pour chaque point (M25b) |
+| une fonction de répartition empirique, en escalier | `xs = np.sort(x)` ; `n = len(xs)` ; `ax.step(np.r_[xs[0] - 1, xs, xs[-1] + 1], np.r_[0, np.arange(1, n + 1) / n, 1], where="post")` : la valeur $\frac{k}{n}$ à partir de la $k$-ième valeur triée, 0 avant la première et 1 après la dernière ; `where="post"` garde chaque marche jusqu'au point suivant (M27) |
 | du LaTeX dans un titre | `ax.set_title(r"$f(x) = e^{-x^2}$")` (le `r` devant la chaîne) |
 
 `wbm.setup()` règle le style des graphiques (taille, couleurs lisibles par les daltoniens) ; termine chaque cellule graphique par `plt.show()`.

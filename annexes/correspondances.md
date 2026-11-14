@@ -34,7 +34,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
 | 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5 (8.5.2 en survol), §6.5.3 (Théorème 6.12), ch. 11 (§11.1–11.4 ; M25a en cite le Théorème 11.2 pour l'estimation de $\boldsymbol{\Sigma}$), §10.7 (10.7.1–10.7.3 ; §10.8 cité pour Tipping et Bishop) (MacKay ch. 22 et 33 ; Bishop ; Tipping et Bishop ; Mohamed et al. ; Cover et Thomas) |
 | 26 · Apprentissage par renforcement | M26 | — : pas de MML, le livre ne traite pas les chaînes de Markov (Blitzstein et Hwang, ch. 9 et 11 ; Sutton et Barto, §3.5–3.6 et §4.1–4.4 ; Norris ; Levin et Peres ; Ferguson) |
-| 27 · Réseaux antagonistes génératifs (GAN) | M27 | §7.2 (relu) |
+| 27 · Réseaux antagonistes génératifs (GAN) | M27 | (§7.2, relu : l'inégalité minimax (7.23) et sa preuve (7.24), la dualité faible (7.27) lue comme un jeu ; §7.3.1 en option, le dual d'un programme linéaire) (Ferguson ; Peyré et Cuturi, ch. 2 et 3) |
 | 28 · Applications créatives | M28 | — |
 | 29 · Datasets et préparation du projet final | — (rien de nouveau) | — |
 | B1 · Transfer learning et modèles pré-entraînés | — (rien de nouveau) | — |
@@ -43,7 +43,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | B4 · LLM en pratique : Hugging Face, prompting, RAG et LoRA | MB4 | (§4.6) |
 | B5 · Modèles de diffusion : un DDPM minimal | MB5 | (§6.5) |
 | B6 · Explicabilité, équité et éthique | MB6 | — |
-| B7 · Du notebook à la production | — (rien de nouveau) | — |
+| B7 · Du notebook à la production | — (rien de nouveau : la mesure d'une dérive, le PSI et la statistique de Kolmogorov-Smirnov sont dans M27 §10, fait avant le ch. 27) | — |
 | B8 · RL moderne : DQN, gradient de politique, PPO et RLHF | MB8 | — |
 
 Entre parenthèses, dans la dernière colonne : pas de lecture nouvelle, mais des sections déjà lues pour un chapitre précédent, à relire, ou ce que le chapitre prépare (« prérequis de §6.2 ») ; « — » : pas de lecture de MML pour ce chapitre.
@@ -73,8 +73,8 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | §6.6 Conjugaison et famille exponentielle | M04 |
 | §6.7 Changement de variable | M02b (sauf la fin de §6.7.2), M25a (la fin de §6.7.2 : Théorème 6.16, Exemple 6.17) |
 | §7.1 Descente de gradient | M19 |
-| §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b, M27 (l'inégalité minimax) |
-| §7.3 Optimisation convexe | M13b |
+| §7.2 Optimisation sous contraintes, multiplicateurs de Lagrange | M13b, M27 (relu : l'inégalité minimax (7.23) et sa preuve (7.24), la dualité faible (7.25)–(7.27) lue comme un jeu) |
+| §7.3 Optimisation convexe | M13b (M27 relit le §7.3.1, *Linear Programming*, en option : le dual d'un programme linéaire, (7.39) à (7.43)) |
 | §8.1–8.2 Données, modèles, minimisation du risque empirique | M09b |
 | §8.3 Estimation des paramètres (maximum de vraisemblance, MAP) | M04, M13a |
 | §8.4–8.5 Modélisation probabiliste, modèles graphiques orientés | M25b (8.4.1–8.4.3 et 8.5.1 ; la d-séparation de 8.5.2 en survol) |
@@ -98,4 +98,5 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Récurrences linéaires avec entrée, rayon spectral d'une matrice quelconque, croissance transitoire, normes induites, produits de matrices différentes | M22 | Trefethen et Embree, Horn et Johnson, Furstenberg et Kesten, documentations de NumPy et de SciPy |
 | Masse d'une ellipse et loi de la norme d'un vecteur gaussien (khi-deux, khi), divergence KL continue, Jensen pour une variable à densité, entropie différentielle, interpolation sphérique (slerp) | M25a | Cover et Thomas (ch. 2 et 8), documentation de SciPy (`scipy.stats.chi2`, `scipy.stats.chi`, `scipy.spatial.transform.Slerp`) |
 | ELBO démontrée en général et EM comme montée par coordonnées (MML s'arrête à $Q(\boldsymbol{\theta} \mid \boldsymbol{\theta}^{(t)})$), angles principaux entre deux sous-espaces, sens de la KL et inférence amortie, dérivée par le chemin (et la méthode du score, nommée), β comme multiplicateur d'un budget d'information, posterior agrégé, information mutuelle continue et débit-distorsion | M25b | MacKay (ch. 22 et 33), Bishop (ch. 9, §10.1, §12.2), Tipping et Bishop, Mohamed et al., Cover et Thomas (ch. 8 et 10), documentations de SciPy et de scikit-learn (`scipy.linalg.subspace_angles`, `sklearn.mixture.GaussianMixture`) |
+| Jeux à deux joueurs (stratégies mixtes, principe d'indifférence, théorème minimax de von Neumann, équilibre de Nash, induction arrière), descente-montée sur un jeu bilinéaire, couplages et transport optimal, distances de Wasserstein (dimension 1, couplage des quantiles, gaussiennes, distance de Fréchet), biais d'une distance estimée, mesures d'une dérive (PSI, Kolmogorov-Smirnov) | M27 | Ferguson (*Game Theory*, parties I à III), Peyré et Cuturi (ch. 2 et 3), documentations de SciPy et de NumPy (`scipy.optimize.linprog`, `scipy.stats.ks_2samp`, `scipy.special.rel_entr`, `scipy.stats.norm`, `numpy.searchsorted`, `numpy.quantile`) |
 | Démonstrations | R4 et suite | Hammack, *Book of Proof* |
