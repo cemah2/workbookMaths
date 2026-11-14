@@ -81536,6 +81536,3038 @@
       "sign": 1,
       "source": "chapitres/m25a_gaussienne/05_solutions.ipynb"
     },
+    "M25b.1a": {
+      "decimals": 1,
+      "element_hashes": [
+        "19a929990ca2c525b36d6cc56789728f48da0e9282110aa12530269ed0c87730",
+        "bf489814012a8cd74a5847717582d2cf171efd79b2f92571d224d5f1c5596f1a"
+      ],
+      "hash": "1b7fed10538352e7f95ce5cec3b7d03cebcf654c0f1e35a2fc1e22879b507b02",
+      "kind": "array",
+      "mistakes": {
+        "1c7f508f562f643af817503562631b35d99053a03a9f3cfbceff97bc5306bf08": "la machine se lit sur les probabilités cumulées 0,5 ; 0,8 ; 1, dans l'ordre des machines",
+        "f9b5c00c9614f385fb1b051ab18b59be62a990c023f377c6ce3dbb1d67d9d185": "une longueur tirée vaut μ_z + σ_z ε : ε est négatif ici"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.1b": {
+      "coarse_any": {
+        "1": [
+          "db3deddd988df7defcbf452535e8e90116f02d9dad19c0707b0852d591ad8273"
+        ],
+        "2": [
+          "8f6ab48bd40b3906a24662d54fc2c997b4827cd6f63f94a201dc426d814e6b46"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2949d0281f5a7fc8d40efb1c98ef8709380e619cddc683386149eb1b7321a76e",
+      "hash_coarse": "ddede772a0b23ec2965a2bdfbb41b65f9d897f60b17af9c3f52d3fc6f8c61cb9",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "95fc28438670774a2f88addf50a5a3880f0f2dc7037bf2f7a64cbb6d95821aa5": "la densité de N(μ, σ²) divise par σ√(2π), avec l'écart-type de chaque machine",
+        "9ae2e45c34b6883ad37dde6ae23b0d13ed9e66eee6a02ca9e4eb89e0be066c08": "la vraisemblance marginale pondère chaque densité par la proportion de sa machine",
+        "f32df1424c6ec2c95b9f04ef9a7f1a73b2856fd276d93da813fbd3b1c38713c9": "p(x) est la somme des trois termes π_k N(x | μ_k, σ_k²), pas le plus grand"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.1c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "3d3261a086f2a6003f29b5efc8d9ecff6aff54029f77d4db5e48da124430fe8b"
+        ],
+        [
+          "a99fb424cbe0f21c4128829546b8b8c220bb310bfa63c129580c538e7181f4c6"
+        ],
+        [
+          "7a557bba58fb648d0cc12cb46b847a93ec6987839249f59cab784777f6ccf376"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7086a475e31d41d25cea4a30ac77480cd2a1fdbce1ddc7e3bd1fc277f2efc842",
+          "3a3ab8e270abd4dfe6270e2486fca8f95c538d19991cc49d37fe2d43d11c394b"
+        ],
+        [],
+        [
+          "8cd56595a3429642e4dc317a17e76b783244f53d288a0f90efb8a8e04b70bff7"
+        ]
+      ],
+      "element_hashes": [
+        "c7dde86575931e336a6559584814d19ea2c3f03fb68345a01c626e26eb013b80",
+        "b1ca1156371d13d6707d327272a7c20da7fe51cd8fc78f14f6c1ca4cfe5e02b5",
+        "e42ecb8fd7839aa056b53f3e9c438d9c982891bcb9f9782b750bb8393d6e5b57"
+      ],
+      "hash": "67d6b357446b69cfde5ceda84e3fb95b4408ee082039266522b94e4b6bcb8e31",
+      "kind": "array",
+      "mistakes": {
+        "dbda4fbd32d9b33f0edb97af0290ce7a17f3ca3d0079b780c2e35997e7065507": "une densité gaussienne contient (x − μ)²/(2σ²), avec le carré de l'écart-type",
+        "dfb6fa5792aa1f8853c416b7593eaecaa97bd639d4e7a849fb895e191e062bd1": "un posterior est une loi : ses trois probabilités ont pour somme 1",
+        "e4b241716bd7c608d2c77ceacbece83e92f1b6411373d0d4d1291848a66c4dc7": "le posterior multiplie chaque densité par la proportion de sa machine avant de normaliser"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.1d": {
+      "hash": "2ff43d1709c521faea842f558dfbf521e4bd235965bf35a5235042eb4649df37",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5902e7ec95f38063c1265cf24e6b7796557f4ad072c5c31ce8c47cc27a876bdb": "la machine la plus probable est celle de plus grande probabilité a posteriori, pas celle de la moyenne la plus proche"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.1e": {
+      "hash": "a602382b90ed7f4c430e2e187cb34be23fce7d609ccfc2d73051e2200f5b62fb",
+      "kind": "bool",
+      "mistakes": {
+        "2e7c21964737ff01cc4470aa14585086d6acaa88525a4d516289a196f2696299": "compare les probabilités a posteriori, pas les distances aux moyennes"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.1f": {
+      "coarse_any": {
+        "0": [
+          "cb7de9ed75d846242f91bbed5799153c17806431c4b1450b743ac7f9452126c7"
+        ],
+        "1": [
+          "7c37763599b910d7339691c5df169e55840224df5e4cedabd38db0e1b0c910e1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "661669f87eb881d9a5454513e8692f99aa7cecff7e2c24a86727f452375188a4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "63cceb8011bd1e55c067d144712cefc6f30cb2ddd9e5cfbadc6498a2909a628f",
+      "hash_coarse": "f2d27a8c05ae5a401a646099a1901ff18fc649bc7ef8f348538d5bc4fbe78143",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "636ba5e2c3ac41fabf382b30dd9d10d01a8d4d0728fc754b8867eef9cc24447a": "avec des proportions égales, le posterior ne dépend plus que des densités",
+        "dc7f80c448ab175fd461a6574488caf6e94fdd118d03912962b90e98c233cf20": "un posterior est une probabilité : les trois valeurs doivent avoir pour somme 1"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e63beeaa759f05f08d8ecc0a2f90f1e033c4bb7613a30b18e8838e66d19df09d"
+        ],
+        [
+          "49b4178eb462b0088087f174aeaa95d09801c9c63673fc77bf18ba1d8d3338ce"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ce59469a7004d103eb1afc58f8a8288ea91a19f4b6ce8fabd45da18e502d36f5",
+          "73767171e7dc047885e147d11643a87de5af36da3951a42f2ef57c4915342849",
+          "7939145e491369010297c121b60ed5e6352da1721bd624b67f5f2b27b9b4747b"
+        ],
+        [
+          "eed426f544ad119da115b1802a16a14c68ba8d2b1666c18c006c52ce43c4c5f2",
+          "c2ca71a0f42e4ddff2278749fabf61ef975b0006226a1768452422cd27712e60",
+          "887065fa5b57cdc73bed58eacf788bd594eb58987d410474f88a87f9de44c727"
+        ]
+      ],
+      "element_hashes": [
+        "5b3b38e43644bba16155dc417b68507bdd7ddec0de193237ab1c62dd851c4699",
+        "166a3b9a3eab5461b7c472d2ec0eb74e9dc53f22122d4ff106cae1709e5a13ef"
+      ],
+      "hash": "013eaac83d1f7ad7e7244210885f41c46547004574466110da14f7f7844e8e49",
+      "kind": "array",
+      "mistakes": {
+        "cdcc02a187cafeeabeead06c3095284ab55405ddf48dda51e727bd965e1d3811": "la moyenne d'un mélange pondère chaque moyenne par la proportion de sa variété"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "25bcec0645fca4da6e2e327bae76f44c1203a37c387978d6be2e64b741c93da3"
+        ],
+        [
+          "2c833acc9c355855a0a10379fc11248c6b79a3680ee949794f7ffa534ccce827"
+        ],
+        [
+          "581982a5d784fc68a92319ab43e346e014b0e8d259be56105a6b7373dffb3074"
+        ],
+        [
+          "321c120323b2f0b1dc673b4c7171ff328fd921a5c794187bd9dbd13d2924bc75"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "edcec2d6967acf1c9569d84fbc069322aa5217673c4ee36ceb5c1105c303bade",
+          "278cb5082f946d9f7815d1a105272959397e8abe19b68f6288420c68d2cb95b9",
+          "c98e6138ee916c15fdd25adc04a2196a75cad902a70f2280fe69e7a2b8f8b41f"
+        ],
+        [],
+        [],
+        [
+          "8b351099d1100bfe53fe88b7d9d95d6023e4290bbed56b52108640f9a8570d90",
+          "0b771021892267e10929bb3378d4b23c356e271fa021e5f5d02abae26d80a67b"
+        ]
+      ],
+      "element_hashes": [
+        "52a1b6fa3986863a769b6b431a0a2e68b157466922467dab769350889e58067d",
+        "e195a493125d71037e2ccced700f35605e9efed37b4b4edb5b42d46c86d12014",
+        "7c7d2a0d464b6f9fbacadf39047f7cfd4343a4aa293a87215d8a2e3f9249fd16",
+        "2274d19fc219116040f8fc2d5169cafae3edb8f884a334ccf041e1358ea30f62"
+      ],
+      "hash": "c9e1353048656f1e6f8be143deb9e5552379be68dd6683b68ac0e68058a209e1",
+      "kind": "array",
+      "mistakes": {
+        "8b49efb352fe0f14fef722254b3c324e2aa854329b04d70e1161174641bde085": "la covariance moyenne dans les variétés pondère chaque Σ_k par π_k"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "55e150d8d6e2613132f9b0ea89ffd9a98951ce4559e3179448bb91e0c9500eba"
+        ],
+        [
+          "6efe6af35f19af27fb442b701311955e6d81925fda626d4d36bc6ab55747e2a1"
+        ],
+        [
+          "a873154ea97dacc60a7f5c9991bf5cd6bea9706f82328f17debf6f7b66fa882a"
+        ],
+        [
+          "e01ca1a8ee8c09216eb9b61e0925e8b06e130dcb98c6abc9241ab62008f3a1f7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e230fb3ad6f39fd5eb91e193f5fd41ab7cbeb5ba12356579e363a143f2d8f018",
+          "2fa8691538927d25da9ccd873f32d63dda186a5322cdf2386abc744725a8415b",
+          "ee2949ccd89268658cf9adb04a50c7998ed6a9d75a0521c19e97ce5ccf12ca65"
+        ],
+        [
+          "f6f64ed48d033191f0d5e6047a7d9386bba739df50f4d3fc96d452494d87bf00",
+          "3badc802a9f591f42aef94a02239c498064d14e3abe41fb1048ce42b9e7a96e6"
+        ],
+        [
+          "17d6e90b2363d5724344dc4d7847ea76adadb0f86ee4abb527510f0fd30c3182",
+          "e1b7406340cbe92d791d6594628a8afe1822549e2da643c5275bab5689ced7c3"
+        ],
+        [
+          "ea1689adb529e9e422491e28786ff128ebc10c7379cd1efe6483cd3211ea5a90",
+          "5fe44692b8be692cc0afe4d7340c9b2efbf39c4d84a3c6287d77aeee9427ac68"
+        ]
+      ],
+      "element_hashes": [
+        "b75039d6561100efc47a33bb8996813ca070e16dbdf846c72da9185c6c6a4bd2",
+        "ab983b390f136f11a92b50365fc6255eae4593d8cd2254f9a6e884dd6fe95e22",
+        "3f55dd8419ce71b9c770b9354f039cf6ee035050de39b888ef00ade607b2e125",
+        "80f2011e4847bf9569415ae74daf874e047edc46776fc28e4fae1ad589d45dd0"
+      ],
+      "hash": "8570f54a849c180b5ea18d300e8f400c8e5a609e025f92063695fe4ccc5f34ac",
+      "kind": "array",
+      "mistakes": {
+        "5805903d006c7bfef94b849842cf643875e203748c57183d58ceca54c2637596": "la variance entre groupes mesure les écarts des moyennes à la moyenne du mélange, pondérés",
+        "70a1b06da7ddf79153f2ddd249c5bd2231988c57ceceebc3e2c143e9110f440d": "chaque terme de la variance entre groupes est pondéré par π_k, pas par π_k²"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8da45ed033122e46b70a3dbaca3156727c84e74d9772c47a99bcceca1de9cf09"
+        ],
+        [
+          "3b42b7a2819df08e2ece0553f82c5699db9ce2ff15358d3e59e43ded075492a4"
+        ],
+        [
+          "531963cd59f03cfefdcdae0494515f473bdb5e9f151d8a6103ab944ed8d49f5e"
+        ],
+        [
+          "c91aab731d62e63f567ca555b9b7d3b7508d745c417e7bc426dab89f8d242ff3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "31e406ab52b06a4763483fd2d00d3bc01c533738d01af9c7b40686ceaabd3ec7",
+          "a1ca581c1f69256da85a34914b03c5937d578e0f68e821d0183d073288fc9813",
+          "f150c4f4c6462002154d3419862e2699a9a8ca929c1b86af5aea7c9f41032fef"
+        ],
+        [
+          "fa1b87ab9ec2dd67c40b067eb10ef94491c86973d48080866febc5e8c43d9fa1",
+          "818bc8106e3023339d1b8763ed68bd9e23b5c7c77a1bf1f9473fca1efd64b4c8"
+        ],
+        [
+          "7698278492ff99ff737f57e426d88a2d822760851791effb2ec160bdb90b329b",
+          "07d50a490e1276773a5ed59d42a8998dd3557c16d8f67acedff85de106c8cb34"
+        ],
+        [
+          "dfb3aedb184e7480df8ff6abb95fce77cd40754df74e5a8ab986bdefe9f3ca30",
+          "67073bf9c1f71f824ce69daba964cee3b3c925aeb6e47e77b477520c5e379c18",
+          "da75e0b2a44e3605a4666528b7346ede320a3bb520a16fb643b2ab9f86fae16a"
+        ]
+      ],
+      "element_hashes": [
+        "cfbd6105883ff088178880503e487afb1b5ffbe9d50c30497c60f44018263d98",
+        "923ccf4573097cf54dc5de8f605e18494dd5488f47e8ab7a5b22a76aa6e4147f",
+        "1d9b803608e3028146815098af4da4bf7aecb0755b0eeb71eaab9de09c6d2bff",
+        "4ccc39a367ec42f8927ff0aa359de8f5579bd73f7b3894b63edd7ddbad7d2270"
+      ],
+      "hash": "1d94259b129eccd53362454637522421b0819ebdb6d10b71487924a5451a08c1",
+      "kind": "array",
+      "mistakes": {
+        "46721767b8e4341a4cac2be751797b2d3a8c2aaa9908021e966018931c700b1f": "Σ π_k(Σ_k + μ_k μ_kᵀ) est un moment d'ordre 2 autour de 0, pas une covariance",
+        "e458e2e7f7e14ea92a1b7866552c1e06dd98ee97c9f306270bd15c4e3ee9f80c": "la covariance d'un mélange ne se réduit pas à la moyenne des covariances des composantes (fiche §2)"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2e": {
+      "hash": "346a862993598655f469bd30134f4cef121f9fcc8880b767ea56fcfb7a3eeff2",
+      "kind": "fraction",
+      "mistakes": {
+        "a1bb00ef6c0673c09abd1b71652a14575b24466c59f2e93bf5f85da4622a84f1": "la part se rapporte à la variance totale de la longueur",
+        "df7d8d1e1e66e91105b09da6c4b31d0709918c3e50715c6f3d1bb7d702245bc9": "la part demandée est celle de la variance entre les variétés"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2f": {
+      "coarse_any": {
+        "1": [
+          "2e58e015bb909e339285c918111cf6bdf2afcc1b321bbcc6ccfa77ede906cb7e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d33bcf756ea625602d819b3fab61a960529463455eef6c09ef9e23c5a9616758"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d23e1874600aa019edd07be4bc24a31a21b06beabfcaaa3d340857ebdf0a78e1",
+      "hash_coarse": "9b3c7fcf771f287af8f62f0159919191a58dbb76acfd31da215ee85b7a4dcf55",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0b1a763f2e5ef58fe6cdebd21f12098bda68d5022ea8c3e753a6a27e6e51b9c3": "la corrélation du sac se lit sur la covariance du mélange, pas sur celles des variétés",
+        "ab973a8f9ffc4374e48ca9a2ec51d6d35fae9de5a3e87e61361ca165a7e1d498": "une corrélation divise la covariance par le produit des deux écarts-types"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.2g": {
+      "hash": "3c79e2bb023ff1adc62cc62c74e1402c8a90782ffc8cc88b3c391d543db70525",
+      "kind": "bool",
+      "mistakes": {
+        "25073eacd120aa7c09916306baf37dad1832bd35cbe40be72faa3ec880c9014f": "compare les coefficients hors diagonale de Σ₁, de Σ₂ et de la covariance du mélange"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8b581abce546ed1627cb6c5b6a7e91d54cb3a082736b605b1ae15953ea58145f"
+        ],
+        [
+          "94cd01a3d6ec1b9a7e0f8908f95d946d453aa850ad6b2649b2a775dd71510367"
+        ],
+        [
+          "2448af11b99c61e52ce0d8a4340832226322603bbb270477717714a3361b6b31"
+        ],
+        [
+          "29163b12509c91632179b195b6358e8bb25e982ddbb45f187539716d17b32018"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8862bcc33b809bdb70617a636504b17c806a6838d27a8ebaf2335911ae13b3e6",
+          "a268c4fdebc39f48de35c3b683796f540d60c94b947acf42438fe6e1938e3b09",
+          "3c44b233a04b05a48febab465d219b678ed9af85479f05a6a0f1dc42583cc60b"
+        ],
+        [
+          "deac693e9a744f3ce4865798b4255d9f637aa86e1ba0a2f348353a904ab00fb2",
+          "983954f4ae987f98ccd77a66be1cb8a3f3d5d80525616af54a371a9bb7d21690",
+          "4f9eb3c0066ee9bf9e061b86cadc3e619f377a1f50373897498199309de4ff67"
+        ],
+        [
+          "b071f4193114583399e7ab4fd52b43bc98200aded36aaaf737d5f04336a9562f",
+          "c34602572be26ab61f6e5a9fddb929b61a768459076ae86d1f8f485555e2d6d5"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "68ba32d2ad49e5a73b7fb5e6e9af4c5d344bea9fb7396af596624571a15c2815",
+        "f6654006ff5f0492581572adf703aee13d34fff8cbe4527cf008f8b720cad9fa",
+        "e508fc75b1d3b6793159eaf274e133138268ca2824160d2fea68e6ae0f52eee0",
+        "0a003e706b5565ad267652e857640063b9cb81e6b22d72454b625df1190a800b"
+      ],
+      "hash": "22ad31a39e861b02ef483edc8272b5d1ab8a34fe6b778056bd3c669d4667526b",
+      "kind": "array",
+      "mistakes": {
+        "0a2d6d4bce4a540a32d595c0e4c1c59f5461d68417a1582c3ee663e3c1f8cbc9": "a_ik contient ln π_k : la proportion compte dans la responsabilité",
+        "1d1a7a358f2d4d5e489fb1ac67a6caf8d1bb1ed298f640d2254095b3924f4509": "donne la responsabilité de la série 1 (moyenne 47 Ω), pas celle de la série 2",
+        "48ab46f271523d8bd2bc7e4c038cc5ccb074154120e05d320b5fea0565d444f6": "N(x | μ, σ²) se calcule avec la variance σ² de chaque série, pas avec l'écart-type σ"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2761de75a0519420ef2f9baf9aa150d054c1e7d85635b561a89bbeb466ee436a"
+        ],
+        [
+          "feffef331367bbc765db9729f4b3d1ee2ab26f31af7293a39a3dc6297ba9c3e4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cf75c875a351e76c3fc01ee5320b92b4df1a80f47b0730d4848970e132b5cb71",
+          "2c0b59a3522ed19f2842dd66bdb525e530fb9ad5de7f688d44085896ca341628"
+        ],
+        [
+          "4da8ea3a3f0004898f796ff53fcc9b1345621c0af54e2fbe7dd3938b5634d649",
+          "28431ef9ba6b4ee3e04200e401f47167a7591984830bbbf5fc9fc07860ea5a06",
+          "435678c984aa7aeb5dacf01b6e29398b643d5ce86556e87be0b2f4b58508e852"
+        ]
+      ],
+      "element_hashes": [
+        "1429a7945da6e863bcac6ab5ecad5a2aedb0c502ad5b9ccf049d2e8e9725eca3",
+        "7991c5d9e8ee549149982701a4591372d352bbb36ecda7098ce662c0e761e3e9"
+      ],
+      "hash": "c9243fae3fa64b2dd0b4621c9b6faa0879a6fc33fd72314fa04cca8959f81442",
+      "kind": "array",
+      "mistakes": {
+        "2fbee34c85e092efc21f9bd990a84e688f8da397894a8eaa0b94a5cd2621c16d": "un poids est une proportion : les deux poids ont pour somme 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "2b5d1f6f1f03227063a1701e308222a107a3c5aadf715cda1b3083f90dd34f95"
+        ],
+        [
+          "7df680c1101f26799b5985030bd98f12e14961962bea1605da294b5859eb5dc4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "46bf0ab92270a9814c6e3113372c7419a711e25a3e69e2c72f552e58017b0526",
+          "28c669de303b862c3c94b009a262ab34b98cb1c477834a06bf8e61a7e9922566"
+        ],
+        [
+          "97a677ae42fa01d4b99362c3265ebf5a2cebfd6caea0790e7a23bff1d4b340eb",
+          "99dba1e9fe2010f4d3af58661a21896ae8d85e6c322f81badd2c230c6a47ff88"
+        ]
+      ],
+      "element_hashes": [
+        "55780d335f7e74fa1f3b418d1ea67bdcd7023391359d743ef75426a3bb25db63",
+        "0b09746f256b604c14d3548986feb3c3dfd2ec3f908038d70b58a6ba3ae6d9a6"
+      ],
+      "hash": "a41c1a5d09d2768f0dfe7897c3e76ffc471e59c42faa50e260d2a34c9ab84416",
+      "kind": "array",
+      "mistakes": {
+        "270211e3133e92a7d68f5ecf4c965a689dc76de7d5c2b34ec6df4393af37aec1": "la moyenne pondérée divise par N_k, pas par n"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3d": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "5402309bb92b161df34b9d69b444bb34809a4952793e537016eda501aba604a4"
+        ],
+        [
+          "3612150a65449bdb7e15e2caa7fc6e8b154e6a7e4aea774efd04530c3b222758"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0f5ee0e35dc88c1ffd3e18665175dc028553ce5f9865c083957cfb0ee0b93865",
+          "87e50fd288a9be4b80f91965f316af48f9160b677902ab77e6ea515b0d9eec84"
+        ],
+        [
+          "7302fd33a7cbe9bde400fdd2765fa8a74b6b3600c0d87c53a0fc3a7d45cd1af9",
+          "8ff8554a66904a4fc1d99795d45899817d22ba1dd3b95fb9ce31fd2a9d61cc42"
+        ]
+      ],
+      "element_hashes": [
+        "8562c6df0095a0676d28bf448e754ad38554209b5d35763adbb9b271ad64974c",
+        "a23ba82e97b54088f442e765c6ecbfe311343c02297fd691ea77c38ee317c910"
+      ],
+      "hash": "2a9c34f894d5d6991d2586b2d26eafe9f211d1cc712b1c960275c60037e469c3",
+      "kind": "array",
+      "mistakes": {
+        "297c2bae8ab8a2d37a0d6a78620025bddd313219f236850313c0a3329af4558d": "le pas M divise par N_k (maximum de vraisemblance), pas par N_k − 1",
+        "d1157c209eacacdf0540ba6babf01f15b2f0ed024907d12471328f379b1debe3": "la variance pondérée divise par N_k, pas par n",
+        "e1930a1fe464d17390a410116aaa654d10c91249a27af0183652313de439cbbe": "la variance du pas M se calcule avec la nouvelle moyenne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3e": {
+      "coarse_any": {
+        "0": [
+          "b86cc668dd085a1dde09ca45e792e7e1669e65e701b9fb41996c47244d1c89bb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "09fb9c0cfe644c2f2d4f86c972bb6ad9b4a68bae6b37c3cb74d2192bc1912044"
+        ],
+        "2": [
+          "d29fb63aa15a90d202e14eb76e8d1a573849d2241977b08de351848c5f448498"
+        ]
+      },
+      "decimals": 4,
+      "hash": "43b5c2a3ae50087fe494bc2b14239414c2c898aa9bf013cb687eda28269ee8af",
+      "hash_coarse": "0807879022e0dc45ef589c947bea5264ba8fe8a1eb0ff52b833921e766d5b410",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4e1b198f1d971aff93fb66d7a2f4b673ca2343a733ae051065876f8e35142d96": "la log-vraisemblance garde toute la somme sur les composantes (log-sum-exp), pas le plus grand terme",
+        "f0ad7b065112777ddf35519feab89277d807771d645dd4b9dab5406475b6f1ec": "le logarithme d'une somme n'est pas la somme des logarithmes"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3f": {
+      "coarse_any": {
+        "0": [
+          "699f9080325afbba6d2f8a38fa32a67c61160083be0e9990b3cbbaac9b8ac06b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b1e0e8ab58e8594d94977551ebf0149c106c73bfe7cf49d3f8ad9dcf0757347a"
+        ],
+        "2": [
+          "83eff487e5564e2235df744a04a4d00032a7107148a385de576482b00c075244"
+        ]
+      },
+      "decimals": 4,
+      "hash": "573824100849b288964a4256bbbff714fb14cea1a9079e31b00145b11f1c7758",
+      "hash_coarse": "23ba1082d875f28c0ae270993da084dd5eefa68324a9ddffc11b095dbb0c47ed",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "c36c1d68840d7b198fafcfe0613af9d395b0a6c054fa0c6b838d226d3b71bef9": "après le pas M, tous les paramètres changent, y compris les poids"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.3g": {
+      "hash": "3e58bdc9af12a43d6b1feb0683d880652d5a9fa1df5e16871705c099aab10ffa",
+      "kind": "bool",
+      "mistakes": {
+        "5d3b17048d765642e4916e93e34c7bade4619a859753a17401f0d553f873eb03": "compare tes deux log-vraisemblances, e) et f)"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6a": {
+      "coarse_any": {
+        "0": [
+          "ec51b7bdbe737d2a284a566ac3efd83759c6a20afdb1f8a84a48b8a69ab959ee"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c37675dfb2543065d66f07e0eccca205d4f6ef7f9acd3db11d71398ad01baaf5"
+        ],
+        "2": [
+          "0128b782e04ff15aaa576ac79a5abb85a01beeca8f11bcb73d29293b4a6a6c48"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4babe5ad8b802bb62f9641e57bbc926dfe55ffae66f4993cc314e50fe7b10a71",
+      "hash_coarse": "fc2d0f07b5f96d63284e08d6c991aa113aabe4fb96a7e44eaddee860e992ab67",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "636ef209c9c3da653252b8cac1872fb6c278e46d3689e535d7c4440d7b6e40bc": "p(x) somme les deux termes π_k N(x | μ_k, σ_k²), pas le plus grand",
+        "65676c6ccdf16ed3b968db630384fa78da11b631934c78a2be0d5673bab253cb": "p(x) pondère chaque densité par la probabilité a priori de l'état",
+        "d27579a2ead4ae5830ed85e48c6be68f011181be22ed8ca90b86c310b99a86f2": "le second paramètre de N(1 ; 0,25) est la variance σ², pas l'écart-type σ",
+        "e9abf379b8d9a8d1e339cdfc643ba16ec6db1ca4b4f39335dce292b914dd2794": "p(x) somme les deux termes π_k N(x | μ_k, σ_k²), pas le plus grand"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6b": {
+      "coarse_any": {
+        "1": [
+          "cc915e40050da56b18b48a1bd10db8ea6a63aadacf7b63a263ddf1b0ba298155"
+        ]
+      },
+      "decimals": 3,
+      "hash": "45a58742e02b2ed2d882db3d7504e70c89623b5655a8c4d5be41b5983d7964b3",
+      "hash_coarse": "aebe5e3bf2ada96091f4c96eba21e02a141d575cc2ed1d18dd134721923ce0ea",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4e70ae2a039ce95c8ebe391e198f9eb3de4588c0c150cf773cccb5389649cbfb": "la question demande la probabilité de l'état pollué (z = 2)",
+        "7690072cffb37c3c19547d6edeaadc6b09b6d8a6a65e9b2b9042df0051de620d": "le posterior multiplie la densité par la probabilité a priori de l'état"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6c": {
+      "coarse_any": {
+        "0": [
+          "14dbf187afb0cfb30f7601dfdbacb87180a2ca8749e8b85743f73a6d834b9b78"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "30afad3eb8c725ba173f56a9692ecdd45772a8e615a1e278914f3675a72f03be"
+        ],
+        "2": [
+          "0747399fd4c1aef85a0d8859278b634a68b0740c5dcb7f054513108d3f5f0b59"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8ecea7ba7ed1bbcbd90b27bb162b5a23f2f6b4d8609e28b9d7a2143a5dcb9e0c",
+      "hash_coarse": "b5645051d8bf632af1c326697a488bf9d60b74e88322e7fa9dff399ca50344b7",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "210a10f39c6b07f2dcecd5f48d8082c62d557c9ccd36e89c45c97129cc47ee56": "l'ELBO retranche E_q[ln q] : n'oublie pas ce terme",
+        "dcbad9e9501539065a566f65d2e0fc4218937d349b453418603a66cf592a1431": "l'ELBO retranche E_q[ln q], elle ne l'ajoute pas"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6d": {
+      "coarse_any": {
+        "0": [
+          "47149a0e9cb04d658b14385598caedd05b78b52e0dada1138051ef802da6a98f"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5a961a0a6af3498233eb9ccc6aa82dcf831e3bd92268ee5fd914d4dc54f4fb4d"
+        ],
+        "2": [
+          "7b5b5f61e338cf018b92922130219929525151b2464f5718acd31f1e7a89848a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7272ae1303d526799e4aa75c16c03153a4efd139ef04ea5cbb96b97c5087629d",
+      "hash_coarse": "f3373048a42ec7f304bd5bdfd3e99d2d2ed65a6a6f223b2f674d77b3244937f6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0b0bb6f5c7be58d9b6a44736e0378cc81ee4794b91392c642dee172e931d806a": "q(z = 1) = 0,6 multiplie le terme de l'état conforme",
+        "71a9a40f01c11546b65e6c5c08a8b02a391c42dd973c504f79a7a67266dc3da4": "l'ELBO retranche E_q[ln q] : n'oublie pas ce terme"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6e": {
+      "coarse_any": {
+        "0": [
+          "fbab4d418f4aef213b1a73f8a58640ebebe9da4e9a7204f07617fbdb0a233708"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "65af2ff29cc5ad897109121a6b8cd3a28c397d53829174e8a748787ea9273f65"
+        ],
+        "2": [
+          "33d9c6189e711f0fbde377a4efde1f615185589f718b70a401d054f83b22f677"
+        ]
+      },
+      "decimals": 4,
+      "hash": "51b950d87ceafd29290fbdbd9486138ab8eee74d4a6a829f03a74a7da4d1085f",
+      "hash_coarse": "65fb0f0f5a2558b8282d3081da4428e266c5b6de5467ba12bbd3f011660cb6f9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "96996d4f50abd3af5c06c22b540baae6d01c9300dab7d7bd1f0baccaecf24348": "au posterior aussi, l'ELBO retranche E_q[ln q]"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6f": {
+      "coarse_any": {
+        "1": [
+          "5f7170e27920a79e5d2a769f7edc3d0ec8bf61b9e0c4b887fec4a5689ef75f23"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c7c27c710eb954c171806ba2742881727c67970e20f5ac730846d5a9ca7a9720"
+        ]
+      },
+      "decimals": 4,
+      "hash": "e27a9b5175a9af1f0f806112370690b14d17cbeec44771e729525c099f358fe1",
+      "hash_coarse": "9daf41d9028814badee2ef3e7321c439bce5a63ef959c5119e4e728aad49ee78",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "34e164e2d50b0623950dadd813aed323bcaa1970f2e8e4c3551df65fd7133c39": "l'écart est KL(q ‖ p(z | x)), q en premier",
+        "ba80fe15a274d4d00283469a65c2ac41ba0c621db64736f8ecb463adbb0a159f": "l'écart compare q au posterior, pas au prior",
+        "e0e85311dc1b74bbf0039a02690ecaf9f1aab734716b96f9c8d5d7561c1d360b": "l'écart est KL(q ‖ p(z | x)), q en premier"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.6g": {
+      "hash": "36bec6b29b55c26fb60dcb9ee3d09cb12dea7501138a0c8823cea07ebcd596d1",
+      "kind": "bool",
+      "mistakes": {
+        "dbd0e01a688c14a0e402d03919f869b1739818f33bd10fe804f8efdb6d178c55": "vérifie avec tes valeurs non arrondies"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "581d414736a34595c827193d164b95f997a21f8ecb79b8d2c9e6c35bf6a9c5b1"
+        ],
+        [
+          "ef5bff162979288555b571514ac2d231d83e2e7db4779c113d55873a1db4ef5f"
+        ],
+        [
+          "5430911127867c2e23baa4b00ea41271667be08f203712bbfc6facb5281979aa"
+        ],
+        [
+          "6538165a74560da96c05522b9c1338dad2fa9beed7d09f38aa2faa5c4894d5bf"
+        ],
+        [
+          "a3e4cb66d4833c47ca2d385020f305932210ac80bace268e75ecf0d05d59511e"
+        ],
+        [
+          "690b159e9dd9138dade1f51cf45a891c1b1c059cda8fd258c1f0174558afda89"
+        ],
+        [
+          "a74aadc6530277deabab49760dcdec1daf92c4acc75e90c60830c9794f5db480"
+        ],
+        [
+          "c9359968b60bd029e16e6921dc42bd501332f6cd8d333641388d58e742e935a2"
+        ],
+        [
+          "4e44124d9b08bacc1957213612136764037bd3d4ecce7b424224dcf378705daf"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "df273c969bc7fc3eed0156ed0bd08eec1374a5e096f28e9777896661705e9a5e",
+          "3505ab2170364e5c6421ba2a63e6138ec982ab52dc6d21542cd5a4322e429b31",
+          "c57be17ed19011f99cccceb4c2271fdb78577f41db026f1fa350b56644f31b31"
+        ],
+        [
+          "50a89922525f6af7c946b50aa3c8b59a7f83de87297a89418f89953add091b06",
+          "2f74b6400f55cd95231459bb6cfe73e2d9afdedccd89ed8431f1249da0f5738a",
+          "84ca827601465c74c3f492e60e9f6e443ffbdb93b257e8540c4deae726d2d5a5"
+        ],
+        [
+          "aa05dd586ce1828064fb3ee374c60ed5213879efabbb07f8162d0d649d556124",
+          "f2cecac98164ea176eefd39a8490403ccef7b07c1b5d5c95b5d2dfda38a1b95e",
+          "59b2010379048f110eb39a0b69a66a2ce0e6377908f9aed9215fb060ad8447dd"
+        ],
+        [
+          "8193649259a76936da6c8572b1eda4bff7c61a2d00bfab0cd221bbdac08351bb",
+          "bd19eb3fcd46f41938732d497d15e48cedc5c90de94d60a599a160addd2740be",
+          "0b378a8b381996053696446c8e62d86d52f818a9e4b3b200e2401bbfa3fdcaea"
+        ],
+        [
+          "ae66615e88cecd78197888761db6fefc35ff12585d381def4c3ba7e7b312269f",
+          "f0ab88cc17105eea40abb8417ae635382a8717cd842771d0730f146b447f8cf8",
+          "5be099de6104343d0774dfecce24a014ee42bbe0e0d5877fd25757d4dadd4848"
+        ],
+        [
+          "be88f3eb8d2a5b6dea650204fd108a4289a29ea6a63a4a10e30734ff5857b537",
+          "c098fb4abca45d5150df858837cbcdf271e13ad6c7103e0c19e5eb16e519ed39",
+          "c2a8b8fe6eafac5753906cd85b02ab0063ac659f06b4fa78a9262ac037cde5b9"
+        ],
+        [
+          "f4e6ab892854b521b599771ef5802b04b6b803d4b52778d878122734d86e1dd6",
+          "060e555e03ec116fb1ca46b595016c7722e6edf23be1fad32b353dddaafe96e2",
+          "bc36b4cee3e38dfe564dd4198a7b265da95ff4588daebee5f74968b221ad33ab"
+        ],
+        [
+          "98e38aa011cdc2d855d159bf1d1a7025b5f5ab0b83e3d4db606df6360d78781b",
+          "b6f8352f4e6f532fda788b019894e7d2375faaab7ae26a8996dd360d265020ae",
+          "400ce89b1be98022d1c704ff099fff67c9cdd890d029d28a6417ef8bf60abe14"
+        ],
+        [
+          "1d75d65d347ae8f2480ff297a587488659dbeb6b369d63853f3b2563ac91ac86",
+          "7906180e6c5508ad2943d05836660c97533998b2029b20b29d75e33dfd45ff39",
+          "97cacd17ebc1bcb0ddf0fdb0d5d73e03464017d5f1f5131efa40be05e801fb85"
+        ]
+      ],
+      "element_hashes": [
+        "efa72c757c3b09e6481100a7687a03ba3c0c5714ce94860c4f50b6c0691a5933",
+        "591087722eaa95f6f8c0b57c3b22de68f29a87b66b308132c6ad0d11da7d20f4",
+        "1dd0dcf0b607a3d828933aa637a9f70c8722cd70a598d0c7eafa81448293da07",
+        "d84d4e61a89525ad223f12b00926ee3745138a6ab9e7ed2d13eeeeda8a209400",
+        "534c6f18a577fc3fb29c5d6f44401758e709ffd0ebef99be2b5c591469c9cbe5",
+        "3d80d74cfadeb34781bdce91a7a744d2ab24e63077c3bf28dc9fa98b65912eb4",
+        "cec34e028ec691eaaa9a91c9e701f120ca71bd70beaa74e863529c9efecb5e1a",
+        "2b3182499dc04cd96c2ca96a0abf0503e7f3b5d8e1f97add1fdbf42d13cbca98",
+        "4cd539167f3bbf4c51543f6a601d69496a4cc7fc3166b8187e965bb03beae8cd"
+      ],
+      "hash": "365357c47ed04f53766c066598a104af93fa28f212268d8ee53decc4b22ea486",
+      "kind": "array",
+      "mistakes": {
+        "d79f6664e99379a1bd66f3a6dd10012e6aecccf9108808bb0743e599f06ddb55": "le bruit ε ajoute sa covariance à celle de wz",
+        "ffcc4d8e80ea238ee8b093ef94759ea9db50352ec20f56e7396bc40d909d6d58": "le bruit est indépendant d'une épreuve à l'autre : sa covariance est σ²I"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9b": {
+      "coarse_any": {
+        "0": [
+          "c0e5710c5c25b8bf983d04817cea62e20c00060f866c28b7f6b9dda2fbfdafed"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e87a24f062c25559ad971873dda256779543a9a80043c9a1e99d464333942249"
+        ],
+        "2": [
+          "90a6ec043e4c8f2d63e6de84be1e1ec2046bccae36900af21d620710bd8a2921"
+        ]
+      },
+      "decimals": 4,
+      "hash": "4d9aecb2c4f9276882d7bcc0a2bf931095703102bbf858e51d60e020fa2f9982",
+      "hash_coarse": "a11a3f0cdb2c8963b4d1ad784d35f024aaf710de78be1f100665d2ddb221d37e",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0d3dcd06568b559554bc23c6d6547ca5a0b49664ec963d91ec1a4f3a60e6ca38": "M contient aussi le bruit σ²"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ca950685f8cf36165385b2f8384d062d6c43bcb74660014fb3803f749b48123f"
+        ],
+        [
+          "272437ef4d4cc460b44ffcce2e6b898bb56cde82e6fe7ecf0fb8d0b7268d52df"
+        ],
+        [
+          "bc1708be525f8ad80a001789489b37239f7a1c24e7f9e0b982402694a2c81d04"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6c44a8a9dcec0b9504d084a1f6d38d225654b4ab7a44737112ee90cb2d14d2a2",
+          "71bceba8482bba3ac2b131bb4cab9258d1d37d60f4f622806ba52852b4647cf6"
+        ],
+        [
+          "fa9cda6d59c22b63ba6d2d6ffffd9fb50e07fb8db527f19527764ffe9b3ffb9d",
+          "b7ba1afc56287b7fef379f5fbdd37359c4330d971338eae98c9848b5246c53ae"
+        ],
+        [
+          "1cda3ea5bdc44d1360966e8225a50e180fba32109e02f683e12ccc14050d6296",
+          "1957032a094fefc653ffc0f906ea25743babf8dd49e748e17c21fbf0fcffe8fa"
+        ]
+      ],
+      "element_hashes": [
+        "c40142c3e8c472188ba28b6f2256691021a2b99fdee84860d3547071cdec91bb",
+        "f896c2d3ed35497aeb1ce3aec24b079e80b8deb88dd95f37cca29b4af89f2fc7",
+        "364f67a3e2556776e9ab12fb798c938fc085494c0526839f3d80f526537af516"
+      ],
+      "hash": "f5d7e3c14cbc59c29767e2410a9f71ee00f516e74a1f2c5037732c28ae772e68",
+      "kind": "array",
+      "mistakes": {
+        "7600b06c3320940b42255ddcce15ec61f4dbdac27384686bcec2baedf93849dd": "l'a priori tire z vers 0 : la règle n'est pas la projection orthogonale de M12d"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3fb9c12e01ac85cca541b4667212c5e7d32d98b72d6efd9ad3149cbf46d683e1"
+        ],
+        [
+          "c95834625ee624f5405eafd52f159bf67278a2851f45cc30a74504d593ca92ac"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "20f1a0aec56935f1e78e425f24cdee38a7473fb2312a7817205076213bd9317c",
+          "ca63dccc75a2b30fdd40b7a996aa9971e1e9701b9e4bd6c85bd30142dafe28d7",
+          "2333e65f5356caf075817274d3cc415e6fabbaa6b5fc0f12ab44637fe9a9827e"
+        ],
+        [
+          "ecac1bddaa2a0457e3adfc820da2b87528f57c0b34a0d5fc2dedd5fc6430b57b",
+          "787b81de81497d59ef952886fbc503768518339aa087c7253d9ac19d4a388351",
+          "9963d3730365b9f796cf999a22cc3da10649fab373a3d9a18f985f465e83972e"
+        ]
+      ],
+      "element_hashes": [
+        "a3538df2ceb4e6c2dfbb8eaaf73beec0e2ed8108174029cd099f84dc121df5cb",
+        "8dabc5ac0fb2e70607fa1aabc3737aa8a35bdaf6953029226adda421b1f681fb"
+      ],
+      "hash": "516aa6050719ab51832dee2a2de8651811f755fe1700ec7feb458110e61751fa",
+      "kind": "array",
+      "mistakes": {
+        "2d21d8c62196400374719f4f2addd409813e4fb341941d4961c8d235e08e130d": "la variance a posteriori contient le bruit σ²",
+        "8ac6fa46b5303c3a73f46935edb682e47090daecbaf49de65685362c46e4b423": "l'a priori tire z vers 0 : la moyenne a posteriori est plus petite que la coordonnée de la projection orthogonale",
+        "e32703c27081f8fb3934e8f3b0fecc2a20a97bc52ac41b9c49f03c38feb19174": "la règle affine s'applique à x − μ, pas aux notes brutes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9e": {
+      "hash": "269d29cce86db0e8fff29d25fc9f26ad111bc14996167386276fd4a296d34b3c",
+      "kind": "bool",
+      "mistakes": {
+        "394acb4aa0bdce86936fe10d9e1863a714810fd64e66d7dc291b6c128b21dc94": "regarde de quoi dépend la covariance a posteriori"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9f": {
+      "coarse_any": {
+        "0": [
+          "f2f4d9ce950b6b7732192847b7c8ed780e52a044a124c733f470fc714ebe88df"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a66bc1d8f24186e92cda3124b17255a042ac96dfc1ad95d4001efe4f826160a3"
+        ],
+        "2": [
+          "3bbdd8eb8057883c532e9a0dc6884d82bb07ecce90aa72acb018632f41df5818"
+        ]
+      },
+      "decimals": 4,
+      "hash": "aa3eb99bf32ea1b759108d25e6b4055237bcdb44512c37a6aaf3ccd6fcfd2d84",
+      "hash_coarse": "1010287e5970753482b11481ef51b0e2e638688a3183a516bf060aa63167fdad",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "75f2172a8222f21ccf4d236b3c1ed92db4f7b897beafe171f44c825f1dbf60ba": "σ̂² est la moyenne des valeurs propres écartées seulement",
+        "7faec95972657d5a74b4aa76a6e36374617597a8f73b24d0259e26975f38d14b": "σ̂² est la moyenne des d − k valeurs propres écartées, pas la plus petite"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9g": {
+      "coarse_any": {
+        "0": [
+          "cff739ac2965d69de0f23b5a7866595f4508788f848bc29efe8d12d526df6f15",
+          "59cf07ccfea1ec88ac1a7cd130da6c571e7899a566fdffb0b7fa60a496362412"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5ac433aecfb9ac9a9a2edc7318422fd9527c83ac8ff360d650c3430746fcd5d5"
+        ],
+        "2": [
+          "d19c7635d536dad5a65d9a56f8b4ad98393fb76a4de1df9dfac03b607121792a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2facedc2b6d0641405d2b0ddd50543b28ac122f1f39f3118ebfeb3729e78acc7",
+      "hash_coarse": "1fc3eb895de3b7b2de1bb6b3f2ade3773369963c2e35f2c5ac2bf95fb5fb68a3",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "6806394cbc070da6ba4e63f1dce0dcd2bde7c93e67210ad5b4ef84e0aeeb122c": "dans la direction gardée, une part de la variance revient au bruit"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9h": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "fca1878938f769bd5ccbad0788c24bc40741851afbc60cd702a0c945aaf8c09e"
+        ],
+        [
+          "38f08e74ae5035895003107327985a24087adbbfdb49cca660bbb4118404a8ea"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5e2e63509c23cbd0bd4a663382496f9826280bdfed150c7acf98b2bc40a661c7",
+          "7c2c6a2178c6540b1cbf5ff735f750c303e301ce5b1c0649b2090990523688bf",
+          "9c89253d4d7818cdb7bdb98070901ddcd8b58b0e94122b995005e35e4c19010a"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "57fcb0a564f2473eab1783a83fe12ed87bb55f118e57c51fe7e907e333a0f7f9",
+        "d4a422bc6280ccf737d9a3864a45462ba4566f7fde11a56b3c0b8bae9087156d"
+      ],
+      "hash": "5cfc16b9c15358c628bea08d91b83d304debb7ff5b3e573af9b23069bebec744",
+      "kind": "array",
+      "mistakes": {
+        "27fb33e4784aa1380e0726fc5aece3300e129763cabb8c4e08aa32139c845857": "un carré de norme n'est jamais négatif",
+        "5baae1ea68d8cbad9c368710abce37427544c4d556910329cc866c698d43a784": "le bruit connu prend sa part de chaque valeur propre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.9i": {
+      "hash": "c88a47d7a7feb3d634f7789609da6ebeb3013f64779da0a91c383259bd7fdae4",
+      "kind": "bool",
+      "mistakes": {
+        "2e824bc02f755b420d8a3fa6994ad737aa6e93d560427a9a9a74ac5ecaa8f10c": "compare λ₂ et le bruit connu σ²"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b950210a6ca3cd4d6d3b148a904bfc5d7487b4c28677c75e9a0e14b1e1a94b66"
+        ],
+        [
+          "e22b01e2ffe7dc4d8307acd9285d6db74994e597cc1e91152e94cdbf5755ce5f"
+        ],
+        [
+          "be8a6f0a5679f39d5bf81c91a4ebb7148db469ab9d48b3181a446f31d3b0ce67"
+        ],
+        [
+          "4bf72404b15a5cbea531e0cc905803fa8872096ac815803c2caacb725073a455"
+        ],
+        [
+          "74d2b3671fe8bd7a575b2ff540f8904bc35e7d2a6794682e3dc2143bf8292835"
+        ],
+        [
+          "56efd9bfaa8ccbc792db4e44c6a1e82a91d582314284c93b5e66a78b7524ae6e"
+        ],
+        [
+          "ce4928edf5d478cb2ce255a10fed4025961f72a5dce072cac30edaf507b44fae"
+        ],
+        [
+          "e1351bfe0e425d3747d6e20aaa16b91ad694d64518850384e314033d30212708"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "01d4dd97250bfddd4a2e0f416b4ea998dc493e17edae88758efdc86a81850ceb",
+          "c17283c6d7ee3c7d929c6bcdcdae708c8c033140ed3d2ca818edc557e7702fa7"
+        ],
+        [
+          "3f087e7a2e96a843a048d4ee465f79c2424ff9e22549a23cf0fc130cbff55157",
+          "dd2d6fdf06f7ed8118a37c0651649ddadd26a82aac533e435f5a00c26b7fe266",
+          "e413eebce1c1b1525ed43badd7912c928e67f4e65f2a6102ebc4d72c0d6bcf85"
+        ],
+        [
+          "2ffdfe78249e7ebe5460d40644d569156e6689d1b32e3d3b2f5ded2165d35f7c",
+          "07291234e9cd95775f86b2cde14894283614156f770bc2eb6c94e5b1525c4b6f",
+          "705b75372cc64ddd2c15be20ca991cf3614d1fe0398046e7a9a9c451bc3fd477"
+        ],
+        [
+          "b4d119c827d10c6e501895fe6f02f1a20cf0c097e1654d9b08a9e5bc57bfe4e6",
+          "20c65d21f7e0b24f131d2fec11bd2d78006587b72fb12cc3f18b996180fd1308"
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "81268b82d1c6e231644c8a4c17574a8124d29586fe1fb187624f547d1b832958",
+        "3886c9aa219ab754966e9881196d7346b2d6bd6b95dede707bd17e04f30136de",
+        "47c3a7739d991fda89d7c22f3a37047b4d564b4cfc5d775a8cc3a9e6256fd4c8",
+        "7c0455ba48ff70630961a3f9368286fb18c8b8fd55a0f2397ebb2735c0ec9359",
+        "4fa80973a6b848b00112132cc841f20570010d42c2e81c66be8214b6ca476959",
+        "3996258b1b220340ae9dc2563468d7b37bd685c050108100dc3dd461768bd919",
+        "bf65c5c9d5a9f8f33db2d4c43b1cbe2340c48f63d2c17a5b2d89e0de036a6c7b",
+        "579dbd9a645c80290fc7316c1ca062001fee5361016e5e917362ce164ac0ce60"
+      ],
+      "hash": "8bcaad37290e6a3446d225caa3dbdd884c888177dfd78fde2bf5f546b0f6b414",
+      "kind": "array",
+      "mistakes": {
+        "b042c52d41b948c883570de98059ae683dda49498588e3fb576c400548dcf15e": "Gram-Schmidt retire de a₂ sa projection sur q₁ avant de normaliser"
+      },
+      "shape": [
+        4,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1e0f845da790365165f7e4a8dc36363ccbd03834735f913ba9d7e6c05ace16da"
+        ],
+        [
+          "0be25bb02dacf8a7898556cda1688ab88ea12749b7f078629508763a73d4449d"
+        ],
+        [
+          "85d749511101ae32116c30c4c780d28d8d083cce8cca952cf44432f0a5526fc8"
+        ],
+        [
+          "8e84750522e3eda2a7091c0d8311db16093ce5921b063d74abe8d9e8700ec902"
+        ],
+        [
+          "d2a1af3e111fa8c47e46250b5890de2ead17138be48d30df67e74725b3d55ec8"
+        ],
+        [
+          "14a2b13e6299fd9a469a90242503503d30245d06623ada835699e0555ed6221a"
+        ],
+        [
+          "c1973991057bfd074453f7c3ff666515be9e21cd841520cfd2dc2b0ed135f199"
+        ],
+        [
+          "303c7acf7e430b323b3185131d85df7243d7301baffff11b6f41f87bf7bd6d13"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a9e3d221fdff65a7d32c8f33808e44c64c2b60cb1d32739c222dd78bf79dd1b2",
+          "6ffe2cd016a7d9e5cba54e191143c945c174080dbb9a74433c5b30644a434f56",
+          "3b7eed0734e0fbefd4781e07ef632e4229354f75d5f6763a25f65463d4c480ae"
+        ],
+        [],
+        [],
+        [
+          "df0aa0fc1cd1e37bf51b06ecc89502692358c667852270a239ed1dadf921af9b",
+          "14fed7586cca0898e0523fa8ca10e9dd3d52f3a0c89dadd1f14d77c1c51a258d"
+        ],
+        [
+          "6957a2e3fd19c766fc46fac0792de14d8d2cdf9fcb8e8a478aef8e05e51227a5",
+          "984b45959de298d5cd2b46eb4b11d8d6b52a75142424ff1fedf3e8961d0e9bd0"
+        ],
+        [],
+        [],
+        [
+          "55b91f649f394a4128dbaa4242ca579c653ece0e43608347aa8376a4ec5b38f1",
+          "117fb7945375848d3e52b055aeb480ced5552d7224eaedb181ac3da64171a959",
+          "8ae5edac6c1aa08219d1acdf9bd414c1e9f65b67b2c2f82becb732ff21d5be64"
+        ]
+      ],
+      "element_hashes": [
+        "0da897eb87d516a62f58fd36bba54621c23d10df0cabfedfbc27ecc1fa8f9bf2",
+        "75e5264f5e2669970fe88c0944e6ea9e0f4a93c6726b495b81911f026f56e66b",
+        "5fd4a1109f0085434e520d45979237f3cd57b7585f7b3b2be17c69dfdf43fe58",
+        "808371f7c17090f91535b0847e8d689ddb19d8205bbd2a245b09b610c5d94947",
+        "d7008622710735425dca362c1730826453f797c136f692e525b1d3e28d4d378f",
+        "7d1a79fbd0f2b08f4f5d6f3dcd5f93ed801b088c2e003a4913710a34971dd500",
+        "f5cb0adc460254f784159bf7a351af78c9dbfc2bd43b564bfc361bc8dabfaf22",
+        "8926c9cfcf9e622589db103fbcf1ac77ebc3356988aee77d096dc02e66122607"
+      ],
+      "hash": "ad73fc699303e991a2c65553673bc241a8c0e326c9479078f81cd52a5be439e6",
+      "kind": "array",
+      "mistakes": {
+        "0eedef0e65d0a4e80dee327944a7cf4b83963ddb26792bb2649c5dfb5fe9acf3": "les colonnes de Q_B forment une base orthonormée : vérifie leur produit scalaire"
+      },
+      "shape": [
+        4,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0eca246add821ad8344d2bba7713439bf53a675230471c7970ce7335e3670963"
+        ],
+        [
+          "721719b8cd35bae17e158989b85c05fe4ceee0847fc0d526f6d1193009b3f5c5"
+        ],
+        [
+          "61202d5b718e5662d8b6ed5cef56f59f4c082f980e266130ffbc4f7fab67f6f0"
+        ],
+        [
+          "17042a1efc47ca8127490998e6e31552daef028d06c1743236673ecf697759e6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "55eab30f4b01ed3984e0e01ce84cfbf64f478a92f71abbc41637d0d7fcb7a2cd",
+          "b613887b027914a2334faed414bdd84d7ca5e917afee50c55e4d5b99c988a941"
+        ],
+        [
+          "a88b2a5c29363a027728eb0d12a93b9d2512ec2e24a1c4bc98d9da02978893dc",
+          "dfcd885b611cc96ada9cc4989db8c7e2c8369115f024547e4bab94244b15e85b"
+        ],
+        [
+          "712c05a9816a995c4573f7712a29bcde786f5f6bd8b18f28b11b735ee00a1904",
+          "895b24b0878a62d07c48f482974db31f808fdaaa0802c6b1239cb08bcdd2a2c6",
+          "d48db662b696e3082fb615a7419b3642f1724bab01594ba92e5db9c2cd23636f"
+        ],
+        [
+          "cece692c548cb9bda6b1b7ff000d1572eeea1e1185c1a1b3b17bb39a948f5360",
+          "751b291afdbdddbb2e213aa3feb7698b81a428af7be20278682d056ffa437ee0"
+        ]
+      ],
+      "element_hashes": [
+        "9a852aa79a31831d03555c11d7a31822e80b70b8228e626d4273d69d67b76fec",
+        "68015fdefa0342f909adb4a96f5c0f679393180b8aa1cc2dfd2d70f6c8d9a0ef",
+        "6832b7549008220bbce6b480e5fe9df7e483ab8847254283ce4cfb9db6882d9a",
+        "caa7758643ca7e177901280fac35974120d411b33888f941065a7b4a84382a35"
+      ],
+      "hash": "a6e1fd212a849f12e955760c4cd4a93061ba03aaf670245b7501d5a0a4f588cd",
+      "kind": "array",
+      "mistakes": {
+        "c3d2d3ca70a8f9bee9ac40fd2f870550d7d0ecacc005f7da84420bb64bb1dd72": "l'ordre compte : la ligne i de Q_Aᵀ Q_B correspond à la colonne i de Q_A"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "145fd39f1caf7a33d04d4e762ce01a7d235ee7f59376feff6c0b868497323089"
+        ],
+        [
+          "a5aad257560b65aec741fbb517dfb48bfc56254d11048bb2c8501f6cd6ba8915"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ec5282c13d00e0c0e2f3642d7a679f388646f618571ae28af6ee821d6fa6c25f",
+          "aa35583f7f7b769e3d8870c36df3ec38387f50ce9eac46d6a53ff5f1a4c9e6ef",
+          "e8710df39d92ff7d108a8d66c8f4388666acf90b7ef4ae82a916dc55acc22044"
+        ],
+        [
+          "4d2ce6afac59a55e4c77a7d96d1a3f4e81fc506889860b16852f93e308d63d3b",
+          "9e2197642448c605ce0142c4d9e93f4158bf5466454f61a9d1ca98602b21961f"
+        ]
+      ],
+      "element_hashes": [
+        "fabc6a4ed00f550af76dec34c3acb05d6974e7e590bd363ea26e5a7d6d27f8e7",
+        "91f3c4b1787d1a088736738acf3be0ffacbbf028009c99c513a4039a320926ed"
+      ],
+      "hash": "28faa2616fe0b63aa9eeeef7335f280110b19420d5332c086c5b91bcc01a9dc7",
+      "kind": "array",
+      "mistakes": {
+        "03fadfc5cf8cd0d74dfd4bc1bfce2f851e8f0d457194110fdf99e26d3b1828e3": "les valeurs singulières de M sont des longueurs, pas leurs carrés"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "d517cb3ba2f56f493ede9db6a297f1bb7f14eb981a7cc676de0f8921aab0afd2"
+        ],
+        [
+          "6c5d9f8e89efaee1010b812d4f2e96b3c5c93d0caf68a8cd791482f2eb5929dd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cd7358a5d33c1bfa37afea51e979a40255b03ca3c1cd0125e8339b402568cd5a"
+        ],
+        [
+          "cd014e58b4f0832224950fc667f3abc7dc6a768a944a977b5a6ab8ff80c68390"
+        ]
+      ],
+      "element_hashes": [
+        "35d16cc8243e7b5fbfd13c8306701a382d759379ad5de4530b4af419a8605735",
+        "120e87320478af4bc7692930a6d302db339288cd8a5f8c71731d77bdecdbd89c"
+      ],
+      "hash": "c5a45da1f8ec33233247d0f6319199d42aa6f93e7964ab32782db268adff60e4",
+      "kind": "array",
+      "mistakes": {
+        "534c4bce23259408239b8558e88b33d935092165db5547063dc78ee1b2139427": "les angles se rangent du plus petit au plus grand, φ₁ ≤ φ₂",
+        "774589599f1421f7b5fd1c7fe897602fd19152eac06980f20b2b828db6c31eae": "la question demande des degrés"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10f": {
+      "coarse_any": {
+        "0": [
+          "aff398881331675d0ab0fc17e23bbb64fd5e775cb8a7f43d8b0799bd28a6de51"
+        ]
+      },
+      "decimals": 2,
+      "hash": "1ddce6c0f983a2d7d3f895e6b464b7bf2512eb5e5a923310e6425aab9e3f9107",
+      "hash_coarse": "e231ee0e1d0df27e5d78b60fcb93eba514edf6102a70ee958f99973b6aec6135",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "02e74c8cff43fd4d79b671aad5b8994b0ac39dcc9796b8dd813fd491d24c5a77": "la question demande des degrés",
+        "7ccc9c2b8cdcb117e739003b47e5a80986c360d645f80e34b09f09bcc7f6d918": "un angle principal est dans [0°, 90°] : une droite n'a pas de sens de parcours"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.10g": {
+      "hash": "79d1c7975e34ac97bcba345e59852c0cae5afad767c2cd3bb4a90f3d6498b9a4",
+      "kind": "bool",
+      "mistakes": {
+        "6ffc93ab58e84c50171d99ff5f998c9a41676a3a154fa450851fd3978ec23804": "des vecteurs seulement normés ne forment une base orthonormée que s'ils sont orthogonaux"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12a": {
+      "coarse_any": {
+        "0": [
+          "3aeea4cfcecd9d3242a6005458bce244680e92b0f75753041c69d5010c1b0e74"
+        ]
+      },
+      "decimals": 2,
+      "hash": "2a8f648438b851d9f3d50e9eda959acff05956e0d50aeb1de672d7e60996a514",
+      "hash_coarse": "f2740006606ba9b1673e8d7383722ef8dd559ac1a2a18ae01cf9c5976656e645",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "04cc3421b0f183278eae9f53de24b756a46c6afac917af0362a6482c917c850f": "sur {D > c}, D − c = σ(ε − z) : vérifie le signe du terme en z",
+        "4d2088b87497ecef162a90d995f918ee004fd4041a816614f39f44c3c7d9a028": "le changement de variable d = μ + σε fait sortir l'écart-type σ, pas la variance",
+        "c867063370f5317d7aaac75a592eb14200f83e38e0040cd4c1f41a3bfad95d5c": "(D − c)⁺ = max(D − c, 0) : la partie où D < c compte pour 0, pas pour D − c"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12b": {
+      "coarse_any": {
+        "1": [
+          "3ce300758c79a1c8590f1efbcce13dafd71f281494ac01b023825223e06b21ba"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "38443aed40ac21ede45c50580509b241fc1d681355fd0b43e278e88aafd0dbff"
+        ]
+      },
+      "decimals": 4,
+      "hash": "cb6f441fb8157f91541341b559da1f643fb15c91b45d046b925957333e69346c",
+      "hash_coarse": "f9cb3e2d1adb453166738c48632b7d984827bb150dd8b7390b9898baaaa82016",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "9bc9028f4c55f76c8542c3785ae54e11eb30948948169b96f532db4fda80489d": "la demande non servie ne bouge avec μ que si la demande dépasse le stock : c'est la queue de droite"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12c": {
+      "coarse_any": {
+        "1": [
+          "ed7a8076743131d4f84cbac5ac31a47e6cf5074e1d11243c6baf7f2554627a04"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "93a1f1c96969e61b8595a4c6ba2c623255d24427a71fbac963471b5a0a95d73b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0c56176d3800af75040a14d3c842c485dbb2af045cf082d6dcaf98dfd940951f",
+      "hash_coarse": "f4e7ffa47304152fc641a6390d03e03efd1baf885ae06a6f8399efefd9fad64a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "686771d22dcc1fc43b5f05188ead4b735dbb11b4b6a137b0aae474ece72cb70b": "N(c | μ, σ²) contient déjà le facteur 1/σ : vérifie ce que tu multiplies par σ",
+        "9b5316decc398941a78bc054f4c7364281ff2e3f7e19aadace5d7d9d3872de2e": "en σ, le chemin μ + σε se dérive en ε : l'estimateur n'est pas celui de la dérivée en μ"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12d": {
+      "decimals": 1,
+      "element_hashes": [
+        "b408b5d4ba938349ec71f5a37fc376bfc9daa4d70439562a9969e2a7ad630164",
+        "e7741cb4b8cfa6b4efa86427ab2c54ceb129f036b18c611292f5f7f315493248"
+      ],
+      "hash": "4cb7a9fb89bfe91a17cdeea9539b7000f2a9d1e86241414145f7f35bd7774440",
+      "kind": "array",
+      "mistakes": {
+        "619da15c86394d66803e9e7a060bd75186bc93ac8bdad635a94ae455da1a9628": "l'estimateur de la dérivée en σ multiplie l'indicatrice par ε",
+        "799d5f1e26f5ef5a32a5c868e0a06310562878077adf4002f8d3aa0d6f98e357": "compare la demande μ + σε au stock c pour ce tirage"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12e": {
+      "decimals": 1,
+      "element_hashes": [
+        "52fa5dc3d2db2a76b890e4ffa20452283368221943a37074d8438d5e72027c3d",
+        "590984f61c39533d2be777ff3a1a9bb750754e9d3bd96024358a2440a0184a0f"
+      ],
+      "hash": "c74e494f0e63d44f547c0cf2a2993f0c86fbc5828ba4022e50145ffa6638a2d5",
+      "kind": "array",
+      "mistakes": {
+        "93c646897d8479ec5a607dc72876187e303ef7a88c422a08a03f0f261830abe9": "compare la demande μ + σε au stock c pour ce tirage"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12f": {
+      "coarse_any": {
+        "1": [
+          "13daeab8e5bfda7e68be03e4329a51739f5d34cbaf74ac2dd964c9b1de487045"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "98785c9bca500220fc409de46e43a058d16d63224aa1ab607fdfc0cea3f21d85"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fa946d6f5a6214fe281d53201d02e33f6fdd8956ded467698f5b2956c2c0b337",
+      "hash_coarse": "6178cddc4df90c70165e7f8c89e09b543c587db67099c0405e939611600d2df4",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "637a4be59b7c574923cbaddd479ac01cfdd0c8c478546ee579b3d5ec5014b370": "une variance retranche le carré de l'espérance",
+        "a698aa8eaba2833dcd188c9e90f3d7049dc828afb41535d8b115dc51541a69ee": "(E[ĝ])² n'est qu'une partie de la variance : il manque E[ĝ²]"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.12g": {
+      "coarse_any": {
+        "1": [
+          "5ba5e286cc46c3160c39384cb7d6c0b86a0205994250cec7facdb4ca683adaf7"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f52ea31c159d69555470d7d89279f3744a6a94a6c6c4e4b7b0d46ef301e42e8f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8d2db2ccc99f26d2e0fa1cc2ce95bfdf1c35ab1df2df6e25876c5e87a3b0b7be",
+      "hash_coarse": "cfc6d5b5fc1d69940612cd4f43dfab579fce4540f13abe0c6879d8de52bd9ee5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2dbecdb7ffc6785b6916fce57cfc901ef96c107466928bcfabcd2fce04c36660": "un stock plus grand fait baisser la demande non servie"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "138b8c65d5f08ee3b4e610a6562fa982603a486a1f901ddeaba7aa33d3eaa3fd"
+        ],
+        [
+          "3ab76afcc0c58069cf68df30734dbc8fa8b79f4a58564bd01e014cbd1f2b25db"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "64b9cd665d218be6691023ac4d6ab82b1157000b2829b83588855449ca3af818",
+          "e23388ff962ba278ed6cc60666da7b2a0bcc268055d4357e49405382d8b377b4",
+          "0fe9955d736a15be73c0f548dd6687be0156ffd320113937161dacd7a859f3a3"
+        ],
+        [
+          "812bab60be2ffd4864d9b927179ecea39c43c80204d512709ba01446d2f43f0e",
+          "0c94792030a532ce0c9c25ad08582376cc17cef3dc5bac31fc05bd95553e51c2",
+          "c1f43f138f4de4598eeda3add9801585ca2958293bfb86107dc43090cf1ce65f"
+        ]
+      ],
+      "element_hashes": [
+        "3bf6493ed88166abac93cffcd05ee01eaaeeec4cbc5767cf7bc9bc831812f452",
+        "849871c95cc082472130df52d7663e16471bfd747c7c501bec74cf0be1491bfc"
+      ],
+      "hash": "3f35d1381d8738a5b88b326601778b84067f7daca39bf444a4ca02210a5342db",
+      "kind": "array",
+      "mistakes": {
+        "36a3ac5dd51d4b6bad1fa3b25db31a9420f96bd2636cc471d1f77411da60fb7c": "la variance d'un mélange ne se réduit pas à la moyenne des variances des composantes",
+        "93722cb3402c7a7be208178abd23e3518689abe278ec314a220ac0ff0a31794e": "la moyenne du mélange pondère par les proportions des itinéraires"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13b": {
+      "coarse_any": {
+        "0": [
+          "323850e46bf6a434407181d2d7b097d08e26883d7f07ab4211bc7d05bb936b63"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5820266574384b4d106aa00a798686a73c47728e4d613c58d38b250d38647b06",
+      "hash_coarse": "379c4f0aa886519c33de333080ade569106e8872c8f0244b3efe956b45ac3aee",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "229001992b3ebcd9646d1c005d3edc9c09cb71b0e2b6e98ccb76de1bf639b5a3": "le rapport demandé met q⋆ au numérateur"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13c": {
+      "hash": "77cc375a79b2ad23995d5986a55ac3798d82b8ccf2cd0445b0644be216b1a65c",
+      "kind": "exact",
+      "mistakes": {
+        "40b68266848526a83a94b5c136cb018e638461d976a4691565b07b85d7465c6c": "une KL est positive ou nulle",
+        "bd640f31db7b5259d6f52bc52e8546e324edb3d9320ef61792a3251311922506": "q₁ est la gaussienne de la rocade, q₂ celle du centre-ville : vérifie l'itinéraire"
+      },
+      "rounded": {
+        "1": "9ff68e57dce5f61a43924f8123ab7fbcc9c0ca02060aa13f96e455608985acd8",
+        "2": "3fda3acefb490f1bf65079982545828af96c3916598d4489d76c80fc9926289c",
+        "3": "b66655586a3da1dfa44a542feafc8b1361395a5510e7e56c2a89502973747dd3",
+        "4": "d29fc58dda46d6c9ca240485a2b43eb683ef79d6d979aba5a1838b29a0364a29",
+        "5": "93837cf307ea99ef70f62a68d9c42a4a94d6d119eed8c7739487ee27e278172f",
+        "6": "5a9bc42cdd4b9fe67ef78a69dab3d53448d3c4e2d58c9d02a9e9f02ae099def7",
+        "7": "1e12715c04b76becb3edbf9d2e29115f43c52933051deeec1423e53027bf7be7",
+        "8": "79c769085529045a390a5140d4d851ebda296f49069ccfd197346b503f28e006"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13d": {
+      "hash": "91ac4a621d28b942b3e8c8c7db19d6a9d8c33b1d9e659b8c49716a82889ccc73",
+      "kind": "exact",
+      "mistakes": {
+        "0a6f96d7b1a8616b137ad72b400b276e988c58bc6e6413b8247824d111a2c68a": "une KL est positive ou nulle"
+      },
+      "rounded": {
+        "1": "87c542644523a615587ba2eca1f4003a602b2575b0cf417f4bf7265317958530",
+        "2": "2056675c0788bb3480687115329d6c621dc80bc71f744d22af065551731c58c3",
+        "3": "aded820f2e4cacef75017fe571893391d51db60e439e24e255d8490045a68883",
+        "4": "47e6700008f046d3b52e7e60f229b3a3f2a8389f06679c4711f71914ae9be53e",
+        "5": "48fa3c6d5b2f54379cb92c02560812c732eb683be48721f38f2b999d780727f8",
+        "6": "f19f1e0c826ca77d305bbb2fdd4e18aeac8467d151ddd39d61504512dc386b3f",
+        "7": "2e8d48a0563663192a547110a9563e7626e9554940a472006114abe3d59b5c7f",
+        "8": "cd1358c5f793c9bbf5c24f1c884c00ef9ee2e92a1f1d926a8c6f7a23d72954fe"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13e": {
+      "hash": "c6a41861989f3ce5f53e5de4ada8057e0ad83532aba23bef025289075e47879e",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "13377ed2f45cb3fbe610473f2698d80d39af2f0e7fe0ca13b8fac4ead40192de": "le minimum global est le plus bas des minima locaux"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13f": {
+      "coarse_any": {
+        "0": [
+          "fbf22325473c68ac74cffb81eb487eb7a4266c25f15d93f64e492205ea6ecd59"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e7611fbcf53c210829d69035478bfb3496e0c4db132e7faa6cfee12d13e5e582"
+        ],
+        "2": [
+          "4a15bb97475266d926a2d03bcf73e01e0c726406e87128f4ec990b8191a28fe9"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7f05dcb257e0b064c08b521a9d024f320a82974176340505d85941be6ab48c4f",
+      "hash_coarse": "0120cca75beca3269cddf1e03fb061d7c948354296aa8afe003bdec08dbcf602",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "12572754060f1466df692e5f8fcf73a7a6272ae624288033b0cec6c7a80dea8b": "E_p[(X − 22)²] = variance de p + (moyenne de p − 22)²",
+        "d2764fcb43d6f2f0e42639e35fd28681bc5934732ded2c0c2ae3c409e2e5d03e": "−ln q₁(x) contient ½ ln(2π · 4), avec la variance de q₁"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13g": {
+      "coarse_any": {
+        "0": [
+          "ad8b37dd510970742e227fdf3e816af2735d5ec20b70372eed8b40a958913170"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1f1379ac6248e2f189bda16981b8e5e752eafe35311212125401a4a316c71026"
+        ],
+        "2": [
+          "b10b6da7dbffa83f36f0dbcf6db14597833ec5fa4697a3b68caec345e3ecf1da"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c6e91137466c3e5f8732d39257fa9b00aa0215296f72157360c09f1fc7ce8bc8",
+      "hash_coarse": "714352241ea23384ff7c5c4177af9f4e201f15df81990085b0a8b7b6f132f545",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "fc542560cc91607ba93636adae0569ac4ed5a0103831ac9e18d4cbde1ed221b8": "−ln q⋆(x) contient aussi (x − m)²/(2s²), dont l'espérance sous p n'est pas nulle"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.13h": {
+      "hash": "6168406f4a118359ad5dfa357e5bf2245a55fff5fd42c9cbed56c4a8cc80c4e1",
+      "kind": "bool",
+      "mistakes": {
+        "50ad275452ab0d817b2afba507920d371fa4e4a168c2d1f1ea6a67b455ffc2fa": "KL(p ‖ q) = −h(p) − E_p[ln q], et h(p) ne dépend pas de q"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "86403715c145fa177cbe1ffd1474656b4577443922ff2f0bc70e49f1d4e63ffa"
+        ],
+        [
+          "6982a7973128b0f36c0e98f21b8517163c268b1072d1b77f913d559efe2966c4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d8f434a3a1c8e8645c321d769e453559dca162d8c070884c0397d9ba6b787a69",
+          "fce801e348cc3f35375dca48eaef8842dbfb1841ca0dfb9dfa60632dfb1ce9f1",
+          "da17715edcfbc00435a446e9781c1de9799a6013c31d734b76e5bb3fe221d9a0"
+        ],
+        [
+          "69b8e3351e7dfdab0622a3d066255fa93f2d445ef8a3a7814cbd8a09ee12cc6e",
+          "cf76a7eb9d2a56f3a332dc86ed68b0d1d5daea0ec6e891d7d943a4cb15167aed"
+        ]
+      ],
+      "element_hashes": [
+        "fd366da8d64c70f4ca4a1e30939e5cc3a6194e3ad761f804d1695074ee69abc8",
+        "48767c0fd80e7ce9cdc9d73647823c15111f5795cbe330351bf23f92906f7897"
+      ],
+      "hash": "49056365bee845cfeffb85ed5e978508ae02314a189683903cf52bf5366fffdc",
+      "kind": "array",
+      "mistakes": {
+        "ca90d6e6b87b3e31ec79bbd3bb21626b8fadb88c19d76df2b3797e5da7dbf12d": "le posterior agrégé pondère chaque ligne q(z | x) par p(x)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2efd9f30041e12a972220c96c70a5d704473cbc5b94b8353bb96f4491923b125"
+        ],
+        [
+          "805b72b8a01198ec3456ace43864f9af25e438936862c0deb3fe30d7576baad2"
+        ],
+        [
+          "c21e0ee2a6d96bdf5981c517aec765c5b8df6f3dde7ee469e4b03909ca623ce5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c92d9eb74372ca20d49dc998a209f139958d737a40ed817d71ae741817dbe0cc"
+        ],
+        [
+          "5cbb5d6608e2f948b04d526f34d17c4d5f4c04b2186265679b9dbb405e0ef44c",
+          "749d0fe86632d188d7f8444bddf836d0329fcb2466ef34564050c5585ad97a32"
+        ],
+        [
+          "6f2ac260868ac9bad916cf57e168f0e94f65b0498fdbef15fab3a407d19106fb",
+          "63de9c123767aa6e722d945b3d92c7300e9846e910da5117c17c70385a841ad3",
+          "c4c1f465a6041023b987b47f6f186eef3f20bd2b7a8459f69358eb5d994367a5"
+        ]
+      ],
+      "element_hashes": [
+        "a92e4e94f05a4b65d7e9e2eb3a7a510f9061e6d630b44af395ef349410a0069f",
+        "9b703cb7792472309fee6c27ed951c3fb25f4c7b229033039f243c4be1968e91",
+        "69201f5837b718765e7b1ea90ad9be9269156db53ae215d6bf354f6ca1770c48"
+      ],
+      "hash": "780e2db5e494b880f11aa583c59a7005bc8149628081744b59bcf03ae44d1365",
+      "kind": "array",
+      "mistakes": {
+        "8ecad57adebc897a4b246a9e5b4c88de4008eee918b2895a75cdd0139195ebe8": "la KL au prior met q(· | x) en premier : KL(q(· | x) ‖ p(z))"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14c": {
+      "coarse_any": {
+        "1": [
+          "249f23121cf4467cd1281917dfe3a6e10b4318f5e699ec527592ccef72ea362c"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ba7e9cef67625031ebd9015ebbd31651dae93f54fdd2e8b6ed93a1e766c2fbbd"
+        ]
+      },
+      "decimals": 4,
+      "hash": "54441e7a19e8c5e2dc530eff3e5350ec308774ec21c531b6a9ad40e866888866",
+      "hash_coarse": "6879527c228ba5c7b3134c57ec29b218c942ca25ef774ccb22b5c7e7c855c0b6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "c6b93722b96b37c51684d4e670e069f19ad809ddac2120570eca89bd3e1214ec": "la moyenne sur les symboles est pondérée par p(x)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14d": {
+      "coarse_any": {
+        "1": [
+          "2b7756c9c88b2e53d7028a12ae4b06076930d21bf7075eca6f454e584d3854b5"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "49cf2450263124682721b1d336ee67cb5af73707521d82b917d802a63a5d7b8f"
+        ]
+      },
+      "decimals": 4,
+      "hash": "293433e06148c8baa10739d7ec794d0f4dcce5317ed71a8fa4cabc20ab81ffc6",
+      "hash_coarse": "589455976b9e02651850b69921407e95178bb97810bd3c08bd9e3fc0edc3ef49",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "d5ebf99523505bf5984abd19b4da65cc595c96a013eaec9a1165adf28abcd695": "l'information mutuelle compare q(z | x) à la marge q(z), pas au prior",
+        "fa3f95d45c4db3e2a1a0e2001d87037029e087a141cb2684fb4e6646f5fce070": "I(X ; Z) pondère chaque terme par la probabilité jointe p(x) q(z | x)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14e": {
+      "coarse_any": {
+        "1": [
+          "15b9048ff4d59e3cd209d98387efd061f50a5006ec06523b4abaf78d444c494d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1ab5dc2a72da3ef96b174623103c4dbb68e8e42c86ae75e4d5d8a853ac0e5bef"
+        ]
+      },
+      "decimals": 4,
+      "hash": "85a42c94850c68263a6223f90e49f8f3d35d7a0aff0e1c5d1a9fa559c7a10c96",
+      "hash_coarse": "f6496a84bae0906b1d56574bc2e9a415909076088d812385ae1a817b5bd55b7b",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "01f7207c7b044bf37616b05a6652caf1e7045260f56db46836ddb7545e213928": "la KL du posterior agrégé au prior met q(z) en premier",
+        "c8194a2adaadd509b4621da7163f78ced463c515d4e95970ac6bc1ba21690a6c": "la KL du posterior agrégé au prior met q(z) en premier"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14f": {
+      "hash": "af411e1e32431eddf529aba2f836df23310cefba5f20abbb35d48f05890703c4",
+      "kind": "bool",
+      "mistakes": {
+        "d9fd0fafd6f930239f7a53a203a603dacb8b2a4d1070fac1e4e16b6fedd2a4b6": "vérifie c) = d) + e) avec tes valeurs non arrondies"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14g": {
+      "decimals": 0,
+      "element_hashes": [
+        "c0fd08bf52d43d0e0adff6ff48eb3de4469452652d17282cf4ce6b034fd7bdbf",
+        "e686763c5e8e45c9201a71d0b6b24a40abd8091127dbcadeb8817a04b45d128c"
+      ],
+      "hash": "2e417d5e9e66396754960c4283febe9a6e31513428500c0139ca0aca5596c230",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "c42bef4cfe9199cb1dc0ac6a773efdcb9d82ce95abfd1f0c48a72958b6e67a56": "si q(z | x) ne dépend pas de x, le code ne transmet aucune information sur la source"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.14h": {
+      "hash": "7310678dd00a28654ad941aaeda63285e0a4444bc0394145439f163dff8fb6c3",
+      "kind": "bool",
+      "mistakes": {
+        "07eea68f271d427b42971f43a08b798e10ba9540e0f05c449375819e32c3bba4": "relis la propriété du posterior agrégé (fiche §8)"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.20a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "33d3a7386b507c9fe9dcaaa94051c2e4fe70522fcc216a25ba97f6b08ec18d1a"
+        ],
+        [
+          "5d9040b230531c259428bcfb0d140162fe9a9c80bb43585d9d5083fbcf7ee4f4"
+        ],
+        [
+          "f4544b3a944851d3ce3fd8e0ef33c3104609dadcac68fc16753387501bb2dcbe"
+        ],
+        [
+          "a3477051e837d32adfeb5875f67ad7ee7dcf81e73b246b19fa6c461237b8ca1a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b5b151071a954c4034897f2670e81d35cf7b5c5930b94ea0442f6e923c96d9b6",
+          "4bf4efbbc9421f15478ec39f9880de2f87f6b9a58f523bd58e819417ec9aaf21",
+          "fbd8dbf06020cd063a28751e919f2f23ac305d8e03fc3851564856fbd4064b90"
+        ],
+        [
+          "df0cad2855528c1a2bee01dbe85e51d1c67afcbc3355f1e32b8fd42016f0fce0",
+          "8407f04c6d6a38d8e0535c58b3e6aa04de90c76325a9f221759cedda97ad6fdc",
+          "093e3add8d3c055698df79874c907345fdf1cbb26e1c00f5684ba766946811ad"
+        ],
+        [
+          "a6bf46809d8b49400db09768905f63df1ef4cc245cde3edb483e1cd79a251eee",
+          "bd08a592250b7055b44b905fe4a3c39f4411a9678f352b7116e1b37cf21cfa09"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "f7be5aed1134c4dd5e80045ab79e0ce6b0135bce0656a8645ee77236224811cf",
+        "af6b5b5a4e93ef595a9c8296e1747b466927022a379d84024bb3d4cfc83b8a22",
+        "00cef1ca16b79de07602666db6f8a5051ca01092f570d5a269fe5e4500ee7981",
+        "c6d13edfdf89bcde13a4344901b8cef9feac9a87de14e23768ea6243e99b31da"
+      ],
+      "hash": "2e6deca76678ea8011e1506b059921c00ce416aea26b57f5884a7e94a682f1c1",
+      "kind": "array",
+      "mistakes": {
+        "061593f00de209b8a41c3c4557bbd5278774c3dea6866db064ca00c78219481c": "a_ik contient ln π_k : la proportion compte dans la responsabilité",
+        "42f8a860e0ed98fc0eb9e39dbd75f8bcf8c4ec8428874c516868553205dd425f": "covs contient les variances : 2,5 Ω² pour la série 2, pas son écart-type",
+        "7841c592525fe9d49b14a447aaa7346e187e273fd98dff90cf24c76572b87181": "r_i1 est la colonne de la série 1 (moyenne 47 Ω), la première"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.20b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "edfea3e589d961aaff9984592eb637416b1b79c39b4ff31ec4ab1dd073789747"
+        ],
+        [
+          "62a8881bd4ae82be71fef83fc28ec78d7c1797ca9dddd720173eb1991d82e4d0"
+        ],
+        [
+          "cb34d245f4074fae79c073e78ea24e309c78d27b9d17bf83fd5f0e9ca9143602"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "04f4daa50b4baf87d99c3f4ca7d528e3327673fe69c1255e9af8ca967d214641",
+          "78ee172b2424f2f376316db59ad6ef991931388e649928d39f4b498ed1a85e04",
+          "b2545921a25b6f47792f86c916485e41955409a290b8cd7f59965af44c97a412"
+        ],
+        [
+          "f083c88f6b4868a2103544f24f0bc2b6d1eb499d2e929ce270312c7c30a4568a",
+          "40386f7ebde5a43e8d50f19b9c8a063cbc6cd72bcb20c8558d24d55441118607",
+          "6fad8a9ad14de3979e86e78c441da1b49b9db75296d90fb6d442b230f191101a"
+        ]
+      ],
+      "element_hashes": [
+        "f60821d6aa7fcb3d9b50088d730d1740abe8df6aa79bde1f09e26cd3fabaf299",
+        "3ebeec74d651754e9bc7646b8433145527ffa46555c8ee58567965394efb7758",
+        "76365e010ed4c49ef97fc3b7e354a1a7bdd3343ffd1531b099ce5f1b4b6f8e34"
+      ],
+      "hash": "a02be64b4bd68ead586e37ebacecdede8d41349df7c2d236ec6c67b85840764a",
+      "kind": "array",
+      "mistakes": {
+        "3967a017d17fc968d78ea65683ee83839195184fa828232aff37ec2a6604a10a": "la ligne donne r_i1 puis r_i2, dans l'ordre des séries",
+        "b318fa08cb1872d3317cf5e8f566b38a2eb1216a2735b7022370eabc9f75963a": "calculé en log, le tableau ne contient aucun 0/0 : np.isnan(R).any() le dit"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.20c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "37acc47834562508f617e3cd673e26c2252f9c0f3a8c73997af7dd783ba3d62f"
+        ],
+        [
+          "119424071c21e984ea396b4ad1acff5564f4f5d1200757730ced5e04165aaa77"
+        ],
+        [
+          "38a16a0e55fe8603713450b94376cd2e86ec1acb33924304ba339c53cbda3db9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4d99b881f9853c1823e0de2c2b545ebd9133f976eab96b711a0613008ad1d9a6",
+          "dbc4c121b648d2634b39c66fd9fe273b233f2e53fde55116a0affdb310ad6177",
+          "bf61521812be08db664538df16390fce3ef9b65d63607e7368a0acb79ddc37b6"
+        ],
+        [],
+        [
+          "8a133467687233dea9f96c1c09e6dd549f430cc31286a3479a6f0765ab4229c4",
+          "5e315e6c486247ba24fa6023745f174c816b4d26226f155c613c8030a9f25946"
+        ]
+      ],
+      "element_hashes": [
+        "1576aa90fb632ad820f4b87c48ef3fc36dc6100a9f4790d4bad2aed8839246a8",
+        "130ed7955ad80e668200731f397d05d2460f6c277abfd36af2e3962144b401a3",
+        "5cc96bd49b8131ce7cf9cbb1312e6545834863ae5a3bfe520813f7edb56257f9"
+      ],
+      "hash": "927d3913ab9f1a67f13a7cb7df215c0d2c1844129ceab60ebc5e43bdcbc18a0a",
+      "kind": "array",
+      "mistakes": {
+        "10d4dc06f679bb1158564f55e4ef84991e11aa20904cba4776497032ebd72696": "a_ik contient ln π_k : la proportion de chaque machine compte",
+        "23e321dee79b0a356e34e1c058cd0cb34e547966228d2c5b1cba01b30ac2a74d": "covs contient les variances σ² des machines, pas leurs écarts-types"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.21a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0f75f8594bc71dc174541968f9adeccd9f994b9ad439a849f9ddb5362a61bf44"
+        ],
+        [
+          "1117d5472d663e2520b46c6199f2be2b297d2e1aa2298bddc0d311ad539145df"
+        ],
+        [
+          "1222a2be202215da02269dfd65bbc3d67e0ddcbf74acd99d0a4416119d626274"
+        ],
+        [
+          "8765a69e84968dab06113bc1d5e64b12a5e6a04bd90691fb5d3eb1dd6d80376e"
+        ],
+        [
+          "53a880ecda39448bd91511608bfaa3ffc4ded68c83cd8d37f56d77516b75746c"
+        ],
+        [
+          "378920953f8464ac389dcfdb72f609934d81ad03e887532a929be1add97858b8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "29150c1fdea2efe3059326d599cdccbfb0aec6ba488ac46992bc4df594a4aae2",
+          "2dec1d57dab5596c706516e881982b7c0e11e7fcb1b3f65eb53f0efba42192e9"
+        ],
+        [
+          "7a95c9cc1eca83cbb07f5435416b6c4edba77a8dae6009256787ef4e04979cc1",
+          "f404c587388f3716586e79b3f8d53810ae4661341ff6ff603bf98df0b52bfc81",
+          "a0cafe9fd973243487c93e56f261e4c82e5daa6af9a84472bb8275c282e59e4d"
+        ],
+        [
+          "7a78469df2ce90fe70b5616a9b65f9ee56e702b0c82554b4d6e1fd48db08d916",
+          "f4ff98a115e9b51be4338da5f36f2674bde644ab01c564e16bd83753be914806",
+          "ebf2c5434869c9c53402288f604be785638fbde9cf6bdf78cddfd177c7225ce2"
+        ],
+        [
+          "7c653796a9bd5fae40f054e61c5698541c23bff57d45eac6299c0a21ef971eef",
+          "011c536d5242efbf8b5e851dfa52de4cd13b6f709aec9a8e2db7a1379dcab01c",
+          "d366a18f0777665f7e71eb63236686a52e0b8a4d07a804373781bd0f3c67dbc2"
+        ],
+        [
+          "8a23e66ce4d1f137c009dd3c7dd6f15820504ce70cb702f33b592f6ccd77eab4",
+          "95421913c74ec0e7f016b00d154943c9124c624dab3ca356e4d43251b062bd9d",
+          "6b794d8887ef71b589bf9ab6f6781cd832a7ba11d6cc3dd79f622d7525f29659"
+        ],
+        [
+          "9c87c96ab6457070809d47c0d01c010ea98945b7e71014713e42f30435131568",
+          "f44579b8775443a6b55090facb505bd792fb3dee31d8fe4cd099e2ea32bcaa8d",
+          "20fa96ef0e1d111cfd74528824079d6affd3b1ef8445a41aae55a34f7e071e91"
+        ]
+      ],
+      "element_hashes": [
+        "c2f8973934209e9c1792fe44a9aa19c0b10295161ffe5057df94952849bb8ef2",
+        "8819d0f032a44b051c9335389adac43e971ed415dcad413a73ef90e060ebc844",
+        "bbefb1a1392cd396f6b5116a7d25bf101e84f4edecb3c4d5f3dc3187c8cdf74f",
+        "ddb4b24b0f25cf7f5c9630f558150ce2361d2670fda18faa0f5c75f6b84677eb",
+        "a87f065a61065e33bfdf28b52d4a56c65d7d0c1a2bfaeb87fbe323acebb242f4",
+        "5ff40a4d9d2425646f8e378db5aa690d7313b56695745111fb640198658d1563"
+      ],
+      "hash": "16f0de181a267f51f1023d9d5714ec4e38cac37abf8c61278a90440f9510f047",
+      "kind": "array",
+      "mistakes": {
+        "7d1175ca7a8729abdd67565ace7a008c1822b0b16f73113b5d74de034993dbab": "la covariance pondérée divise par N_k, pas par n",
+        "7d739ab778093566883c8f49f8900c63ef2fd5dae97a347af0dc4a80df00d856": "en dimension 1, les covariances du pas M sont des variances, pas des écarts-types",
+        "e7a0f75da98efcefb0f3a070956e9964ef7a9fe90b3a250ecfa4d2f4929e94e1": "le pas M divise par N_k (maximum de vraisemblance), pas par N_k − 1"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.21b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "95d906dc3e694cbdd204715fd5c3a366220e21f9ee6b11b085d5e018ed4b9f36"
+        ],
+        [
+          "546f2e888088ae799830ac234000641f4da4f1ca4138f8e7fe134f2026417e0e"
+        ],
+        [
+          "d78ab9c75e0389f06453e86b2766b42e328813a57b649027c97326b787371225"
+        ],
+        [
+          "e6bd63e242feb13dc570c686a2a7673b132c098011dbf712b5ea26109688799a"
+        ],
+        [
+          "a862b315933af43b8cf2f0d0f05b5dd05e2001999fd211ed5ea7e47990193427"
+        ],
+        [
+          "1b6631da011e2ae0009ca902205b189373e84ca0ace5a883f9bebd88c60733dc"
+        ],
+        [
+          "d46401aac04484987351f2e52245725a0d2e13cfe620fc506ec4da8bae92a1db"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "84765274ffbd8730f95a1713da2025359ecd48887f14ecfee30da4a7f9768f7a",
+          "cda7ed2951d7960c24f03f16d054e320be312b038b574fd1b9ac7c2c3291420f"
+        ],
+        [
+          "4ec911388d544ccac54e319bcc6c5bdbeb34395d75eecb7084b2119fe3c737f6",
+          "6072f52bcbff1ba4b38535386bf6300be0605a0118312d1b768a2df7a69b575f"
+        ],
+        [
+          "b227ce7d0627d685c6eff988c27a3a9127b77360d97c8e0767bbcbaccb16ebdf",
+          "e3cacd8dbdf7f1db7d3b4b638c8ce0e332c174eead585bc27451664532f7c0c8",
+          "5ef3a6604556bfd49c7cf21b1f18950831e56600ba4bd38f4c006d22d75e3be5"
+        ],
+        [
+          "8e341a50570d8783b4bb00faa3716c9f591343d5e286be60ccd8452710f46ee4",
+          "5ed2322881af6ee961d6dcd96a890569c443ee2395438015e8cc4d940afaa98a",
+          "9ba69ea1cf3ffead728c3caa777287a489f3c680fee3b57bcbff08ef2593328f"
+        ],
+        [
+          "4d071862d2102df732f886c8f9de18e4cc8fd4c78092d0bcb509e8c3b2618f88",
+          "0323eb833095d78ec2f793b3197de4ea049e60bb5e487d8993697d5073766deb",
+          "4243781a99dc3ecb3feeb368136a6555630edcd96face2b85bbd743a7f25d878"
+        ],
+        [
+          "ac72a2550cef358f8343668f5a4053701d8e162fb0dc0b9bfd9dcd5c5c8e834e",
+          "4f92599a8fe60bba8ab9490e5c85eb4e96b70dd747e97f466ae9226196e233de",
+          "3f16404ab6779810749a6af3bfb9eb1d9fe4a2397e8eda0fab127fa0594680dc"
+        ],
+        [
+          "1c62a90b932e2da8f21c73cb49d603443b85b1bfea4a4eb657c52af570099d32",
+          "31fdf103d365610476d22c3838ad116a40eeb57dfe1264939ccf341297f40a2a",
+          "2a15894cdede565bdbcdc9300bd828330a2d3d1c87437cdad489b4eb705e7ad5"
+        ]
+      ],
+      "element_hashes": [
+        "05457fa24fd1254b7bd0296875baf9830ce5113e9be26c6278a100c7aa0729a0",
+        "8b08ee9c950feb407b8d2369be501ca7a9f5b65100cb2305902a9581d30fdfe6",
+        "a5e5fd3ecff7d9e9ccf17e159e37e4037265849ae3aea02cf2eaa5709da27c72",
+        "0e57aee98243b20568a12c0b31935a86194e9630c19251f42514339e044c72f5",
+        "3a0909b3388cd532613099394778f067ce0f7d2bbb228e8f2e2e2d7231d074f4",
+        "d012590dbe5a99cde4a0b6fd84bf51c93665fc8593f2ffcaf7102145ecbaabdf",
+        "fd45eea50b586a957cf1260f9666cc8c511f33dc8da066d9e77ce2765253b42b"
+      ],
+      "hash": "c81c2e6b00c63c196815322582e5fcba290316e54d6aa8e4ec2f975f3a93936a",
+      "kind": "array",
+      "mistakes": {
+        "55954c05ca1a368eb892d449529aeae0592ab8e05db6d80920e905936ec5c561": "np.var divise par n (ddof=0), comme le pas M par N_k ; np.cov et ddof=1 divisent par n − 1",
+        "924cb7c05e40a50e75faa6ffbbcb3fdea39b4ca2d6c63492f618f451b7fd4d4c": "le pas M divise par N_k, pas par N_k − 1 : avec des responsabilités 0 ou 1, c'est la variance de chaque groupe, divisée par son effectif"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.21c": {
+      "hash": "e65186042501af5acc3aa57d386bb99b6c3476d8f56cb73baa66f2235189b820",
+      "kind": "bool",
+      "mistakes": {
+        "657cc34f4982e104fc35dd40a289a093481a4d641732d9d14ecdc17cbec6147a": "reg s'ajoute à la diagonale de chaque covariance et ne change rien d'autre"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.21d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "521f92ba13f62a238ecf860a4dd2c8560372f86ed806d525ec1ba35c1730e840"
+        ],
+        [
+          "517944cfa1cf0298b88b262dfe98271545f6f0d380ce2d47dc2b1fcca5629801"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "bc294395606dcac7f35979cc1f15a59e7777f5ffe54c849cf8c8a059c1666437",
+          "8198dae45230cb3011fcfc69e72b9f2662de39f231c67275857989b42e510839",
+          "c8a87b086a7715076d500c19a154cf645a812799d437f695822cb5d0e853c81a"
+        ]
+      ],
+      "element_hashes": [
+        "fafe163d71177ddbde09f29520aadf65c627cc2e31595ae068cefa51d1cd6db7",
+        "907372d29a8d088fb5d5babe3373c1878d24e4d2e91a70fef396fcfa40e06bbf"
+      ],
+      "hash": "1cf3fb83c79552fc4224950ee3c2b028b8cd7bc135670a841463069f74e322d2",
+      "kind": "array",
+      "mistakes": {
+        "51f75bade3e2a04cf77a4958f3145cdabbf6b3ffce2b2bbbbcbfe9f198654902": "d) se fait sans régularisation (reg = 0)",
+        "793325e3ca88c02deb9103a0bb79a27dcfd1c460053603c0598aef88b8c03acc": "une variance nulle n'est pas définie positive : sa factorisation de Cholesky échoue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.22a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "57f5b30d1d175621998b2176093e0016a1543c9edd01fbe51c98626d8361727c"
+        ],
+        [
+          "bafb85217060b1ecbb6827bd94cc935d7a874633d86418db3150959b34043189"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "408217262e59921aec1252abd01026ea111ab1055077d54982bb9dddf710ff2b",
+          "001ffaa2f7c86533f2556cae7d76fa3ac656b9c6d63b1411521eb14305339d11",
+          "2e4ce0125e5fdcb2563452103eb8aa9f0793c0e88ac51c9764cd604a1bd01d01"
+        ],
+        [
+          "a1aea72c437b344cfe8742c84c8d6cffb9159a5cd560fb54d312af77bac74bfd",
+          "4b0a851775baff06259ed350016a29f6982b4620d350ba25ce14da279f3305e1",
+          "f7a1c3d9f2617edc2376bd448ac54f74bf6714b2095eb8c63b3793a9ffcf5b13"
+        ]
+      ],
+      "element_hashes": [
+        "a2ff1027f5facbd2530edf3437a9794a16404746a3217b82877d7e1b42013b20",
+        "cfb81ba3ba2e6c4b85b4c4817aabe6f1dc4bdcab74c3f6a932cba75c3acc4ff4"
+      ],
+      "hash": "3390d668b1295c3c4558c36774a356ea08f382041882e19cc4061d05a90d326c",
+      "kind": "array",
+      "mistakes": {
+        "85b41653f7080b1d4a5bfd83b7b2438338193ef7afc4dbd5b69d5e3be5e2efe1": "on demande la log-vraisemblance totale, la somme sur les mesures (pas la moyenne)",
+        "cf01a1d6a5e32c3562799539db1176ebc961cddc3cfdec0f9c7b4a5fa794444a": "après le pas M, tous les paramètres changent, y compris les poids"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.22b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "15dfc28acd888e2108497bf2dbaca1944f1a0ab975c53728fc9e0b1e172d0014"
+        ],
+        [
+          "9696468c5961055740b0e83ea5053af0a8b86af5b95ac6661cbee2d517726941"
+        ],
+        [
+          "e82648764097b8653f2349714a1a042020dcaf3ac8340d771386192ff9209440"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fbb4e4e71a7d16325c630b8ef49763cbae4abd43fe3b2aaf580ccfc3694620cf",
+          "dc2d08603894d2834b095a47291cfb424f0cc817eb2deddde124825fd4f95842",
+          "6b6d743cffe631ecb259dda2dec88fc65ceba31b6a4d1390900b778bdadee20d"
+        ],
+        [
+          "f5398f098c38e651f6581f9751c48bee438dd463776543260ab0e6784deaec0f",
+          "2a18c1275dfcd4d4f9636a52bcd0d3f9a04182943032518f9328525507f8cb9e",
+          "83cb79afa7577204ba326f61a99cf67151cc0c93298a370eaede592a43a2f340"
+        ],
+        [
+          "4e0591995b1bf72a4b622ef780d5d19aed7bd7355268620fd852a5cc95f1efbc",
+          "15c1713350a14264ee340f44863f9f2cfdf7ee7b8365e76a4a127122b134ab2b",
+          "4fd27e54ab6879352412e68a1fa268d982007c5daa61b6c45bdcee1f5c0161df"
+        ]
+      ],
+      "element_hashes": [
+        "d59c58413400d190069a74a7e26a92509baea2ddcd594be7bab5236148c2dffc",
+        "6fa9daa35e4987eb0728f78909edadee00a7dffdb87c1b5a31062023040b6e3d",
+        "6f778eab44ea04730802db97e87040167a306ee27b9318150cd3961b2bb824a7"
+      ],
+      "hash": "6a043650a9c4dc30ae70758589049abab2906bc346846568e382ecc8801f6e3f",
+      "kind": "array",
+      "mistakes": {
+        "1a366e524eca16602603b0cbdcf56f38b3a6dee627da0dd32c610a7387714070": "au posterior, l'ELBO égale la log-vraisemblance (fiche §5) : compare à 1e-12 près",
+        "68d7416ee17ed093e13f07b63a18f784f430f582e6a7043c1bcebc97b3838310": "par mesure : divise l'ELBO par n = 3"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.22c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "589bcb88873ea61f46fa70b4c55397580269fbd19efdcdf8d53762e02ed6d455"
+        ],
+        [
+          "5d1a7e497e88cdb0ece9bc0426ed1c8a33468b2e3363ac9b13e355bd950260b0"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8954ad7b54a77627ecb7ddccaaf3b395f08e38c105d6b5003ff4f884c1449627",
+          "e0fdf4a4fd074b8c2f8240e1ff62d6a3d1ecc59ea2d59034b710ec05e7350b48",
+          "7266fc2eefd24934da3ff1d1f21e91f921f6feb2ebd7816cd5d5e9acc0120963"
+        ],
+        [
+          "a5256a44b3d1eb2148a5dcbf5a3c297c299799b018c3070b6f94ac75f4eac04e",
+          "2de264b9fc1a04017ec86d32e98d233b175a09f49c45ecd29b5583bb4edfd271",
+          "ca8a38480da17c36bd7e65353783e3ecddab0cf4bfb0756d0f8542b8d1e3b641"
+        ]
+      ],
+      "element_hashes": [
+        "9e30d59c448b43a046a6f17dfd65faaf9bce83209babcceaab8488b0908ff2dd",
+        "fdc6c2405e921b5c5cd7d8ff937bdd0c169b3da30f45efbacd0b22a555be3a3d"
+      ],
+      "hash": "613ec7230e89fd4ea7b6a56fe3927577a87222f294cb60c22660839be19fe243",
+      "kind": "array",
+      "mistakes": {
+        "40bb47321cb2b94da6b642e6668f2df12503f252cd5489ca7e9c67612514329f": "en log, une mesure lointaine donne une log-densité très négative, mais finie",
+        "6c4ebbe8e03649e8097e76da94127b5cfcaf4dbe6dd7fb0b75c4d129a652b09c": "on demande la log-vraisemblance totale, la somme sur les mesures (pas la moyenne)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.22d": {
+      "coarse_any": {
+        "1": [
+          "bfd48bbe087897375520d6dee0482740026088f2736807fa98f80c60c1bd053e"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "eff70f635ba2fb82d554024eb55da4fb1795af5eb57ed6c6221db01cd4732db7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "2e58e4c8e9d1af7ed14b9871efce99daa3d07de47415c8e85c12f1579246f2eb",
+      "hash_coarse": "5117d9679fde00cfd383d45d8fcf941f272b42a8d338a837a938bb9513ace336",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8fecb51dd9d26f7c170de7fe688f95383029f506e55ef2b0aeec08d98ca2238c": "l'écart demandé est ℓ − ELBO, positif ou nul"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23a": {
+      "hash": "2852ce1b21b0f418c97796dc78e21bd6090c1b9b794808e9548b6b7e9a02baa9",
+      "kind": "str",
+      "mistakes": {
+        "465da516a3514104cca58d79c7f0b59acbe85718171e8ee7b5088cbd202a46c5": "dans les bibliothèques, les mesures sont les lignes"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23b": {
+      "coarse_any": {
+        "0": [
+          "bde0134da8d76f565efcf8e7aa6750dd0487ecb0b79719bdb21679a7d08c82d4"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "57b797eb4f26e4882d5575d260281d678f5241260322c18a876b03d50578eb32"
+        ],
+        "2": [
+          "c78d229c0587dc75074f85455142266b02846069b1fa85f9113e61408206f44c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "39b325c653c7987b7ff70eaba32980b41f1d08e02dc79bfce276c9ae175ea8b9",
+      "hash_coarse": "c28c440ab8f22a300e607274bd25e48049c2558a0627df6ddc698538961918b0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "92c8862d7d6ce331840ef806caf798906baf7d65b98bc1b42e6ef14890ebec05": "en nats par mesure : divise la somme par n",
+        "bfdc272a6d8eab849042edb829828459e5d69ae26964b7458e3f287be67600dd": "la reconstruction est une moyenne sous q_i (les lignes de R), pas sous le prior"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23c": {
+      "coarse_any": {
+        "1": [
+          "5efffeb58dfb48644e1ec22899d9345d8cadcc34eba645499df30c624e4098ef"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1c06e051b5229553a509b8c8df8f30ccc6a1c0278d53bfc85e2df2af83652551"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dd6142f29f50986b82baaa871564875ccfa79609e122d5f977c897fd35e71e6e",
+      "hash_coarse": "c76298e82d915e1f920a0969aea2d5ee33f96c5487585dc370a45434f42717af",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2e242d6c07e84f5df731c718c915f599540c210da10dc25061eaa2016e122762": "en nats par mesure : divise la somme par n",
+        "3919489a15a2c387a33aa344fb528109b3fc3194725986352bb3f8ea4a9bcdcb": "la KL au prior met q_i en premier : KL(q_i ‖ π)"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23d": {
+      "coarse_any": {
+        "0": [
+          "cc97470c4a42bddc1ff8fd1c77143428635d465b4bd96ff2a0d9c69fc6726fc2"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b1d5e8177f2778e3c14798eb0deb7dd3d7936ced9b740e85682beb8e81bedb20"
+        ],
+        "2": [
+          "aa5ae42d69f6d6e321cd03613ec4f333a21ad949777480c58301ef3712382908"
+        ]
+      },
+      "decimals": 4,
+      "hash": "d34f670c071d259d95704e11228ff6d6da4d5b15cbb7a3afd0c9b2619298d0b3",
+      "hash_coarse": "70b7f0dce957c00f7f3080db2792223cd1a3267a28e2e2235e0b1c29e36d6bfb",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "536e18b0d1985a4862c0ae572eb30266c67032220a6c1b5a0fbbc3bb52b5a830": "par mesure : divise par n (le nombre de lignes) seulement",
+        "c95176dd4d53ea7b15c334c2a9baf622ae06bf562bac69e6ddb63bd28c5e5c5a": "l'ELBO retranche la KL au prior"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "a6b9f8d90815a92312fcbad242a859d518a978bb656557a8dafbe9e8277c5cfe"
+        ],
+        [
+          "674db957fa6e99469e1f642240c05d781c2981add220f543021dbefd2cf68867"
+        ],
+        [
+          "d38f1833a85852983ffccb28f85f5e114af3d1b1a7df3137e36bf8092e98e26b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fc7e1064ffa1bb22965372cac1130249151eb0e8dceef7bbf36f613b6aeb14e7",
+          "3011325232d1f2a2541621a526e017bc5277eea4e0d43b65eacde12c2be98fdd"
+        ],
+        [
+          "1a0f2e50be42a6602c59e3453fd57938de853717474b210ff59d02aeaf32645e",
+          "9ff604bd44973779d9d7f78a58da6c9018cad968a64414fd8e862527a1d063e9"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "b2079885c89cae88bd25c4c184603a9ee51e92f2acdc8248ed8c1e2f6b5fd1cd",
+        "264d0fd11088ae0832507fb48a0f1de42e72ee2e62cc498a1d320fc21c766351",
+        "aad844d6a7d271ebb6ce14d4de11c256080d78c58cc7543a1d3e8fc727aefcf6"
+      ],
+      "hash": "d67b078dd39b6b29a8f7d6d5f944a28d738e6a137566413b1e067cb047af40d9",
+      "kind": "array",
+      "mistakes": {
+        "49591f2c8d5cd7ee762db656bc528584d0ea934d17ff568bc7548d84751426f0": "la responsabilité contient le poids π_k"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "18dbf4852004a97dd7f88ab650ab53d3d94ccbd6e39500ac04f5106bf737d94d"
+        ],
+        [
+          "71b757623465643768b55f55b80056f270671984945fe1b04047d5bcb19ccc0c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cf9d0a22e8525a7b83a519557fbe7d9cb9578736eea1966227eb576aeb5fa165",
+          "a89d4a1c0a3e55d69dad8882eccbb6f3d78458b395ca1ab2fc72a96b56ea19c1",
+          "fea5119761d56d785b9918ec8c7cc581d3b1f1a523bda38483bc3d4b57a5a0e1"
+        ],
+        [
+          "535554ec685f9cb8926ca47f74058c3986bc5020d5ed26ecad4c27adc15eaee6",
+          "bb2a370b78b9988bb8656ddaf95a366c9567dd479f7e2897354d3e5c17d7b758",
+          "a474dcea9b1742b05da2280735e7609d740fb4c614cf323acff735f41b0363b8"
+        ]
+      ],
+      "element_hashes": [
+        "cf6c38c278be8bf29cc3be54e533a0b84359bfc19589b364980d9cae7f7881ca",
+        "b753e6856ccc1d663d28ecdcdc1beb6cb07d7f9f04cf3ea170767e36895548a4"
+      ],
+      "hash": "5f9e8f94458b99f487f45cf8c57445f5cdf882231827b1061962ad2721d3bab6",
+      "kind": "array",
+      "mistakes": {
+        "32853e9416b8d1c170ecd8ac3c7512d1fe69ab54e6c8cb4ac4ef2392ddeac0f8": "en nats par mesure : divise par n"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23g": {
+      "coarse_any": {
+        "0": [
+          "3f0c66459bdc6841800f574a7455559e7a40d77a1003e27a7be77fb46cefb41c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3e764a40083f13361f69e1458a62ec3282775ace2d7616143ba90b6cba682c28"
+        ],
+        "2": [
+          "8b667199662630b3e07f2902fa6e35a5b977b547700441fb4cfb1bfc910a6501"
+        ]
+      },
+      "decimals": 4,
+      "hash": "6dea1e4dfb78f35bf1a34424c391132f504c16a647ac373f8e9c1c3d7336c1f5",
+      "hash_coarse": "066b3430b83a39c805b2bca142b0d22c356842a03d7bee8cc7982c2a7064fa5e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "38bd25812239ff4bcadafb706fb6358820aef92f61d02cc509e407ca2e5e8940": "en nats par mesure : divise par n"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.23h": {
+      "hash": "b3dff7e0369155f34c31fdb6be7920ed7d8c4f22d7d571ac25d6ffc312a4314a",
+      "kind": "bool",
+      "mistakes": {
+        "8775996cab21f5b8f62ab926b8236a6db0849df1657c5c670517581c6c8098b1": "compare f) à b) et à c), terme par terme"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.24a": {
+      "hash": "194565508c998095c91782170b8e8d00ceaeaf7e67b014b90344a726e95583a2",
+      "kind": "str",
+      "mistakes": {
+        "479452ce621f2576ed87682d7ed30251ee49e72ab2614881e9dfa0dd9c6650ed": "regarde ce que font les exemples de la documentation avec les angles rendus",
+        "77feec48cef4878b84ad3b8f041eec73b9f7f64c39f28bc357504075b51d17af": "regarde ce que font les exemples de la documentation avec les angles rendus",
+        "ef9514d7736a7b1f13b51defbcf5a93c15b18918048ce95440a85290fb52bc23": "relis la phrase de la documentation sur l'ordre des angles rendus (Returns)"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.24b": {
+      "hash": "876ac9d22a487c7d762229e137c9c9bfb0551c3551f7b624805746f54f4b1e9e",
+      "kind": "bool",
+      "mistakes": {
+        "783b77b261b8979ce19d839283704094998363101c49f7668988dd85caaac412": "les angles principaux ne dépendent pas des bases : range les cosinus du plus grand au plus petit avant de comparer"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.24c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "718cfaea552a70303d962a4777544987fbc74f75f22769d4a70ff36811217efb"
+        ],
+        [
+          "37a92d768164b0a7dfe99c6a7f47df45ddef7c0e301a5872d0f5a252cbd6edef"
+        ],
+        [
+          "0865b8293009483645241e25f223d0ee85675086dd42d6a459979167e6d06210"
+        ],
+        [
+          "3f1289519c93646d813597f3d037d012ccc84742ec2ef01e18f02507b058da46"
+        ],
+        [
+          "9c41d260dd85bec2676097f1deb1df7b48c4b795309b9800d164b45632d382f2"
+        ],
+        [
+          "8b242a71586ff615d6d8d42147ae841a608d8c73bbf3468b4bc8bf7015b59090"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f62eb3a93964ce8fd0e2a36ca323af62593c5f0146e2f7ce698392c5fb662468",
+          "14ec422a8405c2a80ce82cccce39217b8a75697a73bfa3f4889001d49f4fdd73",
+          "de52c4058292aa7e9fbf7db4676b1f579b199a345d3cf4275126bb9d71fb89e5"
+        ],
+        [
+          "ad2d736148934987433c9eb13939b92506279c2025c63f9de123e66c8395a5dc",
+          "7245fdb1e9f099266d84b9451e6f232fc2537c280c9eeaf9ea5a79c777baed8f",
+          "10c7ca10579f5bb74a687aad533f22be372e0ab460b821bd9e24dfa7cb63c3a3"
+        ],
+        [
+          "89991cb7e8f003c6ff0f80de81defac06df81d06f74e76395b378aba22f03d0a",
+          "3a0a5cc3762382a1b511c86b64b8be471b5cb4fa649b8944702798e4bae8206c",
+          "49023ffeb4ea02fe85b2d7c19245d4ac2027324045ae344d48d428c30bbc9023"
+        ],
+        [
+          "f9ac0c817c2ed0233786b54a268ea29a37b5d38866e89cc823c48c63f08e8278",
+          "342534de5d165e0fd0e6025bf9dfc04ebfafd024143a89ff1037de1ddf272da4",
+          "23763ff6498991481c30dc0000d1f89a0ba4bcc74b873b841859102653145430"
+        ],
+        [
+          "6de17bfc2fc1065a308ec0bf39a05690444b480f13bce71a08249805d2b4718e",
+          "7b761e8304c08b1fe06f093daea9079b94157bc3f140f16399ea62c0c891aea7",
+          "40d901dcd7ff2be10bc51d683a5bf081fbfef54119b26c73ecd5c4079328c7a9"
+        ],
+        [
+          "4ccc6902451fe49bf242859530807771fc93f05c686b20c44083ad0245af36c4",
+          "9ce9a9c55f889e189ca6f414356991bfaf84d94a69ed01ae72bd61c3d55b3af0",
+          "f24f5eada70ec9cbbcf609652acaa28d78c4d8eb3a2db89e9be09966d74d0524"
+        ]
+      ],
+      "element_hashes": [
+        "79c95a882b409c5875197db10dccc91f1cb47527acb267c0cb5248e13c0f0ca0",
+        "c77df21e3589b56559f482e551a8b89655cb2c0e9bb76cbddb43fc7f1eebcdef",
+        "7396eb844522eb4ccaca24608403bb7d1a8064bdb5fc72c15e3f1edda73fad0b",
+        "153e2ad98de13b4810781a5582d2a10dc32dd2e48b9ed5f7547ff346ac6351f7",
+        "976c48d5043e2898dee220cf0fe80dd8adbc48650a4434ac2a256faf42eebfc4",
+        "03409b11a8732976e499fc616e113d917e4fac9544abc60fd13534ec3926e148"
+      ],
+      "hash": "5369d96b00e68e97371aedafc6ed7916bad5684ad96a0c386dc0bd8a35ebc14a",
+      "kind": "array",
+      "mistakes": {
+        "03a6ab9530d64c233e94859319c06eef6195f2f82cea4f2a53a687c158ee951e": "sur leurs propres données, les paramètres estimés font mieux que les vrais",
+        "28a1f9ee19f98d284113bb800e10e472ad41d5523d9dde21c291b6f9d8cb996c": "le maximum de vraisemblance divise par n : np.cov(X, rowvar=False, bias=True) ; sans bias, np.cov divise par n − 1",
+        "a2e685dc6e5d64dae2b9113b6cf55f9a9801f10203e23a88fb2f83480e1051bb": "par candidat : divise la somme des log-densités par 500",
+        "b91b02c7761daf67d4e0b75539b4b6743b873f6622f99b389b343cbc860a0cc5": "σ̂² est le maximum de vraisemblance du bruit : le changer fait baisser la log-vraisemblance",
+        "c8e8d9b5617bf7b50f62835804f2b255748f625d1d6cdc0b03141c12701db17f": "dans la direction gardée, le bruit σ̂² prend aussi sa part de la variance λ₁",
+        "cff35986ad34b4bb70380f553767e9710e91b272190822a0deebd3856a46f0b3": "le modèle complet N(x̄, Σ̂) a plus de paramètres : sur ses propres données, il fait au moins aussi bien"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.24d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "6185c406e1c584e780030c0e026d4474c6988069227ed52d9a1f2cc92f8711d4"
+        ],
+        [
+          "b87c63c7090f076b69288de9df8e8e78cd038c186a32c7416a12843668722be6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "59946306286e37a0f5163f14afd67995ef843b34ecf6d8819562cd7a0f8ecff0",
+          "a22f643f626bb0f9feb7c42052ed3905725e0978d6b9fdd12766cf57322e10c5",
+          "bd10e55479cf29acd8a1458584df8bcd8dae7bdba90fe8b7508343c22076f8e9"
+        ],
+        [
+          "495d0508cf41e9828ee4b1c342f79ba3b021c3c95ce4a4ed5d510e318945bdf7",
+          "16c3e0e4638951a87077824e9ec455770e60f4b776aea97a7eb65383b9338198",
+          "92e26e82096c88289e0b234343fc897274e298829333a5b8e78f71eedd13e75d"
+        ]
+      ],
+      "element_hashes": [
+        "f1387d017fefde512253faabea703ada2d165d5818661f2d2ddd028212f2925c",
+        "8d7aa868aee688cffd06713d86784929507306f84048a2a814d0487311049fae"
+      ],
+      "hash": "f1669c6cd9cc0f278b001a5e71e27c222854d4e9441c310e20d561a2fd6b4bfe",
+      "kind": "array",
+      "mistakes": {
+        "76aaa58ef1f75799e6cfa48a7be31c892b68af6f02253517e6ae41159ff694c8": "la moyenne de la loi jointe est (0, μ) : les notes ont la moyenne μ",
+        "82bffa565091a747079f0b40bf91912f1ff8ac4f1f5c887d8e6e01a750be89d6": "on demande la variance a posteriori, pas l'écart-type"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.25a": {
+      "hash": "1fdcd7590dd80c4c27db3fe9b61e6327b5c058bc4750c0f5bac23cd7c93a9a01",
+      "kind": "str",
+      "mistakes": {
+        "02ee02054bf9096fdaea929bef73953c9928d535e0830910ea8913f0242615a7": "au centre de la composante 1, la densité π₁ / (σ₁√(2π)) grandit quand σ₁ diminue : regarde de combien son logarithme change quand σ₁ est divisé par 100",
+        "639d01893cb1948a948601535bd87a4ea0507b9112ebc3dd5a5dd6758d2c7b2b": "au centre de la composante 1, la densité π₁ / (σ₁√(2π)) grandit quand σ₁ diminue : regarde de combien son logarithme change quand σ₁ est divisé par 100",
+        "cde618b51fb4861c6d3c0b437df51bd9f7cf00367444c8d33437a87ee5c5fb68": "une log-densité au centre vaut −ln σ₁ à une constante près : diviser σ₁ par 100 ajoute un logarithme, pas un facteur"
+      },
+      "prediction": true,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.25b": {
+      "hash": "78300f9dbcaf87a65b082fa3026900e05ed09b6607f7648e0f4fec49aa8d41ac",
+      "kind": "str",
+      "mistakes": {
+        "8e49e78edc66b3ce40f9d582e60fb4d98dbca67de9be6c7d21f66fdf7947e9dc": "de 10⁻³ à 10⁻⁶, σ₁ est divisé par 1000, pas par 100",
+        "efa6cbaa01e2cb1b19dea9463b258af79b12bcdf81293095274c1a1220dfc538": "en log, une densité énorme reste un nombre ordinaire : −ln σ₁ est fini pour σ₁ > 0"
+      },
+      "prediction": true,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.25c": {
+      "hash": "df43325c6497b06365d40413fdde76d7bb25ca05536608648d56a9ade65488a9",
+      "kind": "str",
+      "mistakes": {
+        "819c669cb09fe558cec27be4aa82d275e34286b87ab2caa8064e30d4e32c08dd": "σ₁² + reg diminue quand σ₁ diminue : la densité au centre ne peut pas baisser",
+        "f05ca0df3c24da94ec9b16177a67533bbc51a9bbe8e6b5a364dbeeb280636837": "avec reg, la variance de la composante 1 vaut σ₁² + reg : elle ne descend jamais sous reg"
+      },
+      "prediction": true,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.25d": {
+      "coarse_any": {
+        "0": [
+          "bca67f066754744b597f7c5dcb1543dbb99d075839320900bba8dce43aab8a4d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3ec82bed841001cc71650f2cd9eae909e952db2cd6f089e15c06cf1d1d26396a"
+        ],
+        "2": [
+          "34c64c1b3ba9194ea12517f38a858ce6d0c033896fb6f3c25f5b118a9996adea"
+        ]
+      },
+      "decimals": 4,
+      "hash": "bff4dbd8dc5fe6ce0c4a07915ab27848abe9bc9ba32d8054a33a4d885b58ccd4",
+      "hash_coarse": "92150ef4490835ce7dec94c02307909bf163989f62f14f5a183109e5be6a531d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "25a274df79af3aed5bac4f4fa4603c3bc9c23be20026c23df15bd56ab859a422": "covs contient la variance σ₁², pas l'écart-type σ₁",
+        "7f4297faaa2f6e8e50d560602a2a0485359fffb193b6890fe999fb25ea94346d": "covs contient la variance σ₁², pas l'écart-type σ₁"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.25e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "69e10e9c5ed7f606ca1ae55cf8fddc18bec04e53520debdcf37222491daec1cc"
+        ],
+        [
+          "6ae09d6a8f1e9317ebcaf1b293795eb61e6bc52475ef0a0bdd3e0c858efa00e7"
+        ],
+        [
+          "1c8e744828756c10e0803e08cdc0975bfc77c84a5b21b4b853942c05d1aeef4e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "446e1a144eb5e32bfd80a81696f9f604ff5d8155f0f7df6e12fe4185ad49d073",
+          "4ec06e2e19476cce200ce3779f0a44a5ce7282277dc9455b94874ab57893f1e4",
+          "b083ac1cf83b2870f9a9d0dda438192cd9b3ee98d9f91b0e38faef3117026d39"
+        ],
+        [
+          "78e7f0634eeae4c8ae3748aba3d86795788be65c344635fbce27332b79d791f7",
+          "e64ee35ed039fd5c955ec63e5ff26ec468e20b2334029054677d30c6a19ae9ca",
+          "6ee725643e46390760abd639f4452a235ec9aba7db0d82cccfa52d7496a54f5e"
+        ],
+        [
+          "08ebaf12484541130933a63b162858043b1117350c55b0cf0cd26b82b8908678",
+          "84fcd9815f66c9b1216fa550f632a28667fe3db27e23cae791bbae5a77d5a070",
+          "15d02246a832cdc887e006f98e88997d7c37b48134d997ecbca6c89d28332819"
+        ]
+      ],
+      "element_hashes": [
+        "47ef9086520bcaac79118e3fbd7704a22a9600fcd38fb82eb6eaa113bb5640be",
+        "7ba374cb5171e9ac67dd281a442052c197aab1af84895c2aaaba626c66c0e0e7",
+        "8019686526f74e6361be0761457d9bcd27afb79d15286bafc9555adb1cbc7694"
+      ],
+      "hash": "41b7e00c10df0c8e5506317c7b3b79ab088329f3a62fc14a288d3809350b97e5",
+      "kind": "array",
+      "mistakes": {
+        "51f6f7b9f9679c72b9b0e2ca9b9a2a4407468863bf35c6fac1ade06b1949c86a": "l'énoncé ajoute reg à la variance de la seule composante 1",
+        "a580d8c6478cd6478ff4875818050226be33ba63ae2c3c3eae02d150be297885": "covs contient la variance : σ₁² + reg, pas σ₁ + reg",
+        "e3575b288c9e0ef19d502f676b1313082655b0dcb06db14114bfc740fa5cdd95": "reg s'ajoute à la variance σ₁², pas à l'écart-type σ₁"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26a": {
+      "hash": "2138692c27c2fac6cacd376cde1849afd9f0bd1294cd02b0237cfd03db6771d3",
+      "kind": "bool",
+      "mistakes": {
+        "026826568646ef864076013a94c647e3dc5a88525e2036995e78ae8652d52a40": "sans régularisation, aucun demi-pas ne fait baisser l'ELBO : une « baisse » de l'ordre de l'arrondi reste sous la tolérance"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26b": {
+      "hash": "3e7799926ceff1efa33e22f2278d015dbe74f16aa36738b3e547a0026075b532",
+      "kind": "bool",
+      "mistakes": {
+        "9dc412049b837dc5dd561cb73c1ab14e1e88722c923ed522185e5b087343b9cb": "après le pas E, q est le posterior : l'ELBO égale la log-vraisemblance, à l'arrondi près"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26c": {
+      "coarse_any": {
+        "0": [
+          "4057d535a3b4ec0a45f3662e55d7dc5ec250b255ffccbdec83da3d59194a3570"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5ef87f4f40968891980f2053d2a208f04e505b4a333315ebe5e3a025b341387b"
+        ],
+        "2": [
+          "06597e46b19a1b10ff6b0f62492f51ce08293df7ead6e964047495bd230ee44e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "3864f10fe9891da5db62d1f0088b8bcb6837650aa61892598f63ac12befdb2c5",
+      "hash_coarse": "e5a1d3cc22077b0f39c73eb0fb2cd980b7a6a1ecbafebdc51935b04151368253",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "88ae42e7691dd1411399dc23491bfe13e6768087a91b2d46d71a45a6318356ac": "la meilleure valeur est la plus grande log-vraisemblance, la moins négative",
+        "89e4ee9056e127e3b00dbdb580e279f086196fa5edb78d4dead985bf12d1ef57": "par poisson : divise la log-vraisemblance par n = 300"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26d": {
+      "hash": "c19197f0225e18aa9df6aa4e06b978d8e66e31c8b950db6e4381b95611c03f26",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "ceeef06bc6cbc903f664e6c83aeb86e240eaae26c59f19d76c35faeeb34d1a4c": "compte tous les essais proches de la meilleure valeur, le meilleur compris",
+        "df52b3a8626895beb3cdc70434b79e3b3aa900a01bec58bdeb95b710a496c9df": "compte les essais proches de la meilleure valeur, pas les autres"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26e": {
+      "coarse_any": {
+        "0": [
+          "e3185f682eba633fd70968d9211077263c1f6c88e21664515428ab3b6b1d2132"
+        ]
+      },
+      "decimals": 2,
+      "hash": "92b11762c95a55c418796a82003eeeb30437cca9f32e1a98026533f320e1c31c",
+      "hash_coarse": "14771516bdfcbfd0250bf51d48218a606233da842468007ae934dd9bddfae1e4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1d2bdcc5b921aec5ed0834b8ba51ab6d96765a32442400389c158799a350caaf": "par poisson : divise la log-vraisemblance par n = 300",
+        "8f0f1044089a700bff3b174c46a4bbd122b80d911f376e8edb6ee275546454d9": "e) demande la valeur des autres essais, pas celle du meilleur"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.26f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "312267f7af8427dfcee2703cebb1f816f716d34bbd2426d8f4d722e2c504b991"
+        ],
+        [
+          "75961750dba78a4c1805ced1a7e61eb63ce45802dec1d0a516d7c1e99d7d09ea"
+        ],
+        [
+          "3f415a6295b15b179d4c72cbae8cddcc34abd8350853bb9cc346d0bef6991470"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ece173c484f1e6f3679227cf53461254e2dbccc2bf7af08d31c695cbee4231e3"
+        ],
+        [
+          "97d8ee7828f70325aaaead3c748d73ef6170d6bb7b00e92fd324b20b8c5652a8"
+        ],
+        [
+          "74b7351c939a6afd50975fa464d9f51f689b85f5840f7b80110cf97cc4b99a4a"
+        ]
+      ],
+      "element_hashes": [
+        "ad812d15b2d696de512dec409402f686f7bbe61f83a490308f67a70ad210a764",
+        "9cbc60e61723cef926e1594d407af0b3942ec64adb9315da243152c17d5cfe2f",
+        "abab18253313b05d768a1c6c904856d97f73ed9412858b5a73079320b4bf5f70"
+      ],
+      "hash": "0cf590519ec21cb32ad0274d784c40bdd6bd5d3ebb60fd74f69243dabbca4900",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.27a": {
+      "decimals": 1,
+      "element_hashes": [
+        "2c3ca5c411694a21aa2513746f317e8aaa5fbc23bde8968b7b7ff977e9dbd4ad",
+        "16ff519dde5d3db61a56dfee72f39f90b286a2e462a2feb277fdd213a7806004"
+      ],
+      "hash": "94693ff1eadd8dc54d9265721ee89f1f2ba8fdf00b36f94b34cea97de26ca581",
+      "kind": "array",
+      "mistakes": {
+        "eb0f3cb58714ac2bea13f10bace09093df4800a3db8c9843062bc1a2e905555c": "les minima demandés sont ceux de la KL inverse, KL(N(m, 4) ‖ p) : un par bosse"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.27b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "5ee19ba8f3d85094740d81a92825022a2d1f02f1d3639de897755f13f6ee6480"
+        ],
+        [
+          "d28e22d0d6817e153497acfd0f2f3ea60ce68a9a38af5e5c2215e51a350838fc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "52ef7d486b4ee7eb1bd3077c67d80218015d49a718f99ce7c851fa7ee61b3b09"
+        ],
+        [
+          "17f88619f2fad8f523ce8cdca157c0a7ed6ef4e7b80fd24e919a092ea73dab1d",
+          "4b3032d6d038f9b61224b51dc680d1b0f99254fa10290be0482fcaf93fab96a3"
+        ]
+      ],
+      "element_hashes": [
+        "5efb44bd29aac7730d5bc142b7135273814c1019cc16fd306feeff3137e26741",
+        "34a5087dee5daee6162e2d555d94c060eef33e7869e9da198ad7cbd682365735"
+      ],
+      "hash": "2e536ca0b09c1e7db28b5d85f52673892eb22b527c7e38822e54ab93e57f9363",
+      "kind": "array",
+      "mistakes": {
+        "9f07c1f2959e370042dce1822f24b03355cb0118f525261947be8e269f2ad8f0": "les KL se comptent en nats, avec le logarithme népérien"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.27c": {
+      "coarse_any": {
+        "0": [
+          "aa732a1590d01141dc77c23b5b6c539626582c0363d77184d92078c2659f57b9"
+        ],
+        "1": [
+          "076320295b3d5ce0712ec287d86d84a6587c41ffa4b94b8eefb1020d6bef778f"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "dcdab5e591ab7f482a77aa18037e4623b2018b424b34d03a816ed60cc91b6fdf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "a9ceb93e909cd8b91fcbfc5f8e2360ad2c7c94b2071b3f430799c5d667e9c0e5",
+      "hash_coarse": "1bf790cc82fba4185d6d3c79a76f1c8ddb68ac5d15d0bf333390e12c77278894",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "198a3b0321be3bd66025dd459e789869812177cc32694232c60f613706dee785": "q⋆ a la variance du mélange (M25b.13 a)), pas la moyenne des variances des composantes",
+        "1ed421adc59b1ba75a4f65bed48d3719ff8c66ca80015de13c84192bef7e217a": "KL(p ‖ q⋆) prend l'espérance sous p, la première loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.27d": {
+      "coarse_any": {
+        "0": [
+          "be3dffc1abdd35b981dd7aa09e8d3e1ea1c00244166825f2fcfd01305c7f8081"
+        ]
+      },
+      "decimals": 2,
+      "hash": "e1d1816a556b3e8618632699a62855682b05a105ee81213affa4dde24514fd72",
+      "hash_coarse": "dddbdfe13a562a0f2f9836b85818ed270b2f2e6a801014b7df83d4c13b45ee34",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f302e0cffc3ebbf029ca66386fcab9e2a00466f08d01639bdc6ca212db14a809": "KL(q⋆ ‖ p) prend l'espérance sous q⋆, la première loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.27e": {
+      "hash": "f7214a2eec926002bd0101f220ff7fc369705a513d37c1876bc6fbb7fcf84859",
+      "kind": "bool",
+      "mistakes": {
+        "2bf0c4a154612152bca3d4012ea4aa6feec790a0e5edf92cd99c4ab6b2b23abb": "compare KL(q⋆ ‖ p) aux deux minima de a), en nats"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.28a": {
+      "hash": "2b7e13dfef0a9e50c3e1f305453898d4dd3f50c771e1675e5f94d05ff43c7355",
+      "kind": "bool",
+      "mistakes": {
+        "4f99db22a81bd037f84852e2104a702aaf57b5ec7b9db38b81d34ed822a93ca5": "en flottants, une densité trop petite vaut exactement 0, et 0/0 donne nan"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.28b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2064a1c8925f180e642e65627d5904fd29a977ebfa40ffcc14618d920cfb7952"
+        ],
+        [
+          "c71d75acd3147430e9a500cbb0f657b46779ceac44f6349e0796a7552ddd2b3b"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "cfee13bb422947496b10fa58ac7007e8e2ee3693cef2640862cecf96b2da8d49",
+          "97a79cbc0d7a4fdacac9c1df7bf8af2f29a5c68f9f25f57de8d63bf08b3ab2df",
+          "5df0cb61ba2ee7a1e8aebb6648ae90d805e34c2319268c92c9e9f0068b25202f"
+        ]
+      ],
+      "element_hashes": [
+        "370b57ceb906e338446e57ced59096211993a80a8983500d96793b177c80bc17",
+        "96118a57f65fafac84d688b9f27e46f39b6b2dc5cd607b0c93220c1eb07edd3a"
+      ],
+      "hash": "cad5873078bca4925ebc58e50dd3045959dd00a3898f5771b3ce644eeed6f380",
+      "kind": "array",
+      "mistakes": {
+        "bc66eadaf8c8564063003c2aaeaf633110e0c3f4da1164b9a5469ce43adc0412": "la ligne donne r_i1 puis r_i2, dans l'ordre des séries"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.28c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "d417462da43c6b7fae8da16bfa33697fc86fc3a34eff9c39e8e16628a10b70d3"
+        ],
+        [
+          "94d7ad8747823e3856fc8cbfcbc64a5e5409ba355a5c4e090a07192a5faab897"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6da4ec70713d30ba6744d46f6f93820b35398e00fbfef11f29bd2a40ebd685a3",
+          "db52a6b128f15671cd1988af1f49c6493e1ccd7484f4f446a5c66bb96239101f"
+        ],
+        [
+          "a8577eb7e763786a0a11da59c3047284da7a8bd06fffbf1654c28d70745ee1de",
+          "cf48df8503f91571b2a28cfc9b5116394caa3ce95a11fbdf7b62a673f3224b9e"
+        ]
+      ],
+      "element_hashes": [
+        "afed4b96a37062b015e4f7d31029d8f928fe875ab1c94f8c2650ea436f94e4a9",
+        "9e35917d8396062003b6f68044cd764aef05b559b0b5cac1f0c8ea6ede07bb38"
+      ],
+      "hash": "2924d5deaf28102ee910c589ccbdc07e2f2307fd0a9c74bfbcf0bf6ff9928cad",
+      "kind": "array",
+      "mistakes": {
+        "aea35d8f022d6a2339d029e9a3b891628e77b504bc929bf80ccba705ff4afda6": "c) demande ce que rend la version FAUSSE de refit_machines"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.28d": {
+      "coarse_any": {
+        "0": [
+          "4b4133a5c8ad9d92d1518317ce6ad699693227aeb6cd70bb5d411cd402fb2987"
+        ],
+        "1": [
+          "bf9885aee1f0d444e7bc4fa949b0eec4993fdd9d174679e034af78993b83bc49"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "d67178f6b883762884e4d9781d5550b5f57125e04e3704522d227bc3e067ccd7"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b2e5cfadd2ce962cb3c6ed04637ad525a48efb7c58ffeff4a2a92b53bac6d38e",
+      "hash_coarse": "c5593e4c1d16db385cf2b2a6d6de1b1ab1728610a07222924cc63e8b848548d7",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2b242f5d8fedb08ab6f872f2fb33a505e0df3ccb8432959739457551debdb142": "d) demande ce que rend la version FAUSSE de bound_of_evidence",
+        "c6854eecced4c913af40628ea4e2369af9ed0aa3ed6d0f87b0279e9494758c75": "on demande bound_of_evidence moins la log-vraisemblance"
+      },
+      "sign": -1,
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.29b": {
+      "hash": "0cbf9a57062569b525e725ebbce374f014cac0dea86bc59d9c29eac6e3cd92aa",
+      "kind": "bool",
+      "mistakes": {
+        "5ca617982199d8d4858af97ddf2b93d535df34e3898898e12e97248269f0ae9d": "sans régularisation, l'EM ne descend jamais et l'ELBO touche ℓ après chaque pas E : un compteur non nul vient de ton test (ses tolérances) ou de tes fonctions"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.29c": {
+      "hash": "dab41f9338a9d4707036bdf6ce59db46bcc65de9af835943872549a930c8b638",
+      "kind": "bool",
+      "mistakes": {
+        "107e52e12ad1b454b6771f9d4466c864aad2ee1b0661e1cf61e8a91b2eda94e6": "un pas M faux ne maximise plus Q : compare l'ELBO après le pas M à celle d'avant, pour chaque itération"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
+    "M25b.29d": {
+      "hash": "06ec9ca61d75ec9ddc235f8aa379882278b15416d67165effe29ac28e2e5bfaa",
+      "kind": "bool",
+      "mistakes": {
+        "48482a9c929e121a4674212b1db0dd2c2bd64c99ed67fda04c3880c92490e434": "avec reg > 0, le pas M ne maximise plus Q : la monotonie n'est plus garantie (fiche §4)"
+      },
+      "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
