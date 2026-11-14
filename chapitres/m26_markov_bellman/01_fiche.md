@@ -5,8 +5,8 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 14,6 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 11 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 11,1 h) |
-| **Prérequis** | R5 (suites géométriques et leur somme, actualisation, moyennes mobile et exponentielle) ; R6 (logarithmes : résoudre $\gamma^k \le \varepsilon$) ; M02b (loi géométrique et son espérance, loi normale, linéarité de l'espérance) ; M02c (loi des grands nombres, erreur type d'une moyenne) ; M03 (probabilité conditionnelle, probabilités totales) ; M06 (inégalité de Jensen) ; M09a (systèmes linéaires, inverse d'une matrice) ; M11 (moyenne incrémentale, ε-greedy) ; M12c (valeurs propres, diagonalisation et puissances, méthode de la puissance) ; M16 (puissances d'une matrice d'adjacence : sommes sur les chemins d'un graphe) ; M19 (itérations linéaires, point fixe, itération de Richardson) ; M20 (tableaux à plusieurs axes) ; M22 (normes induites $\lVert\cdot\rVert_1$ et $\lVert\cdot\rVert_\infty$, $\rho(\mathbf{A}) \le \lVert\mathbf{A}\rVert$, $\mathbf{A}^t \to \mathbf{0}$ si $\rho(\mathbf{A}) < 1$, applications contractantes et oubli du départ) ; M25b (espérance conditionnelle sachant une variable discrète, espérance et variance totales) |
+| **Temps total estimé** | ≈ 14,7 h : lecture et calculs de la fiche ≈ 2 h 50, exercices ≈ 11 h 10, 22 flashcards ≈ 45 min (parcours essentiel ≈ 11,2 h) |
+| **Prérequis** | R5 (suites géométriques et leur somme, actualisation, moyennes mobile et exponentielle) ; R6 (logarithmes : résoudre $\gamma^k \le \varepsilon$) ; M02b (loi géométrique et son espérance, loi normale, linéarité de l'espérance) ; M02c (loi des grands nombres, erreur type d'une moyenne) ; M03 (probabilité conditionnelle, probabilités totales) ; M06 (inégalité de Jensen) ; M09a (systèmes linéaires, inverse d'une matrice) ; M11 (ε-greedy, une politique stochastique) ; workbookIA 11 (moyenne incrémentale, ∂ 11.2) ; M12c (valeurs propres, diagonalisation et puissances, méthode de la puissance) ; M16 (puissances d'une matrice d'adjacence : sommes sur les chemins d'un graphe) ; M19 (itérations linéaires, point fixe, itération de Richardson) ; M20 (tableaux à plusieurs axes) ; M22 (normes induites $\lVert\cdot\rVert_1$ et $\lVert\cdot\rVert_\infty$, $\rho(\mathbf{A}) \le \lVert\mathbf{A}\rVert$, $\mathbf{A}^t \to \mathbf{0}$ si $\rho(\mathbf{A}) < 1$, applications contractantes et oubli du départ) ; M25b (espérance conditionnelle sachant une variable discrète, espérance et variance totales) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `markov.py` : `n_step_distribution`, `stationary_distribution`, `bellman_linear_solve`, `bellman_fixed_point_iterates` |
 | **Références** | pas de MML (le livre ne traite pas les chaînes de Markov) ; J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), ch. 11 ; R. S. Sutton et A. G. Barto, *Reinforcement Learning: An Introduction* (2ᵉ éd.), §3.5-3.6 et §4.1-4.4 |
@@ -18,7 +18,7 @@
 2. Section par section : lis **crayon en main** et refais chaque calcul, puis fais les exercices de la section, quiz 🧠 d'abord. Ce chapitre n'a pas de lecture de MML ; les références de « Pour aller plus loin » sont facultatives.
 3. Les exercices ✏️ et 🔗 se font sur papier, dans ta copie de `06_mes_reponses.md`, puis se vérifient dans la **partie 0** du notebook. Les démonstrations ∂ se rédigent dans ta copie et se jugent avec la grille de relecture de `05_solutions.md`.
 
-Les §1 et §2 étudient une chaîne seule ; le §3 apporte l'outil de tout le chapitre, conditionner sur le premier pas, et ne demande que le §1. Les §4 à §6 forment le cœur : la valeur d'un état, l'équation de Bellman, son itération. Les §7 et §8 sont deux prolongements, un maximum dans l'opérateur et des échantillons à la place des probabilités ; le §8 s'appuie sur les §5 et §6.
+Les §1 et §2 étudient une chaîne seule ; le §3 apporte l'outil de tout le chapitre, conditionner sur le premier pas, et ne demande que le §1. Les §4 à §6 forment le cœur : la valeur d'un état, l'équation de Bellman, son itération. Les §7 et §8 sont deux prolongements, un maximum dans l'opérateur et des échantillons à la place des probabilités ; le §8 s'appuie sur les §4 à §6.
 
 | Section | Quiz 🧠 et rappels 🔁 | Papier et réflexion | Notebook |
 |---|---|---|---|
@@ -34,13 +34,13 @@ Les §1 et §2 étudient une chaîne seule ; le §3 apporte l'outil de tout le c
 Parcours essentiel : tout sauf M26.3, M26.9, M26.10, M26.13, M26.E1, M26.20, M26.22, M26.23, M26.25 et M26.26.
 
 📐 **Notations.**
-- Les états d'une chaîne sont numérotés $0, \ldots, m - 1$, comme dans `markov.py` ; $S_t$ est l'état au pas $t$. $\mathbf{P}$ (en gras) est une matrice de transition et $P(\cdot)$ une probabilité ; $\mathbf{1}$ est le vecteur dont toutes les coordonnées valent 1 et $\mathbb{1}\{\cdot\}$ une indicatrice.
+- Les états d'une chaîne sont numérotés $0, \ldots, m - 1$, comme dans `markov.py` (le web du §2 et le site du §3 numérotent leurs pages à partir de 1, comme on les nomme) ; $S_t$ est l'état au pas $t$. $\mathbf{P}$ (en gras) est une matrice de transition et $P(\cdot)$ une probabilité ; $\mathbf{1}$ est le vecteur dont toutes les coordonnées valent 1 et $\mathbb{1}\{\cdot\}$ une indicatrice.
 - Une **loi** sur les états est une **ligne** ($\boldsymbol{\mu}_n$, $\boldsymbol{\pi}$) ; une fonction des états, une récompense ou une valeur est une **colonne** ($\mathbf{f}$, $\mathbf{r}$, $\mathbf{V}$). $\mathbf{V}$ reste une majuscule, comme dans les livres d'apprentissage par renforcement et dans `markov.py`, bien que ce soit un vecteur ; $V(s)$ est sa coordonnée $s$. Le §1 relie cette convention à celle de M22.
 - Aux §1 à §3, $\boldsymbol{\pi}$ (en gras) est une loi stationnaire ; à partir du §4, $\pi(a \mid s)$ est une politique, et la loi stationnaire de la chaîne qu'elle induit s'écrit $\mathbf{d}_\pi$. Le nombre $\pi \approx 3{,}14159$ n'apparaît qu'au §8, dans $1/\sqrt{\pi}$.
-- Au §3, $\mathbf{Q}$ (en gras) est le bloc des états transitoires et $\mathbf{t}$ (en gras) le vecteur des durées moyennes ; au §4, $Q^\pi(s, a)$ est la valeur d'une action, et $t$ (en italique) reste un instant.
+- Au §3, $\mathbf{Q}$ (en gras) est le bloc des états transitoires et $\mathbf{t}$ (en gras) le vecteur des durées moyennes ; au §4, $Q^\pi(s, a)$ est la valeur d'une action, et $t$ (en italique) reste un instant ; au §4, $N$ (en italique) est la dernière semaine d'une saison, à ne pas confondre avec la matrice fondamentale $\mathbf{N}$ du §3.
 - $\gamma \in [0, 1]$ est le facteur d'actualisation, $G$ un retour, $\mathcal{T}$ l'opérateur de Bellman ; $\lVert\mathbf{x}\rVert_\infty = \max_i\lvert x_i\rvert$, $\lVert\cdot\rVert_1$, $\lVert\mathbf{A}\rVert_\infty$ (la plus grande somme des $\lvert a_{ij}\rvert$ d'une ligne) et le rayon spectral $\rho$ sont ceux de M22.
 
-Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *transition matrix*, *stochastic matrix*, *substochastic matrix*, *transition graph*, *Chapman-Kolmogorov equations*, *stationary distribution*, *Perron-Frobenius theorem*, *irreducible*, *aperiodic*, *ergodic theorem*, *spectral gap*, *random surfer*, *damping factor*, *tower property*, *absorbing state*, *transient state*, *first-step analysis*, *fundamental matrix*, *discounted return*, *discount factor*, *value function*, *Markov decision process (MDP)*, *policy*, *action value*, *Bellman equation*, *policy evaluation*, *Neumann series*, *discounted state-visitation distribution*, *terminal state*, *Bellman operator*, *contraction*, *Banach fixed-point theorem*, *synchronous update*, *in-place update*, *stopping criterion*, *optimal stopping*, *continuation value*, *threshold rule*, *Bellman optimality equation*, *value iteration*, *greedy policy*, *step size*, *Robbins-Monro conditions*, *stochastic approximation*, *temporal-difference (TD) error*, *Bellman residual*, *reward shaping*, *maximization bias*, *winner's curse*, *double estimator*.
+Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *transition matrix*, *stochastic matrix*, *substochastic matrix*, *transition graph*, *Chapman-Kolmogorov equations*, *stationary distribution*, *Perron-Frobenius theorem*, *irreducible*, *aperiodic*, *ergodic theorem*, *spectral gap*, *random surfer*, *damping factor*, *tower property*, *absorbing state*, *transient state*, *first-step analysis*, *fundamental matrix*, *discounted return*, *discount factor*, *value*, *Markov decision process (MDP)*, *policy*, *action value*, *Bellman equation*, *policy evaluation*, *Neumann series*, *discounted state-visitation distribution*, *terminal state*, *Bellman operator*, *contraction*, *Banach fixed-point theorem*, *synchronous update*, *in-place update*, *stopping criterion*, *optimal stopping*, *continuation value*, *threshold rule*, *Bellman optimality equation*, *value iteration*, *greedy policy*, *step size*, *Robbins-Monro conditions*, *stochastic approximation*, *temporal-difference (TD) error*, *Bellman residual*, *reward shaping*, *maximization bias*, *winner's curse*, *double estimator*.
 
 ## Objectifs d'apprentissage
 
@@ -98,7 +98,7 @@ $$P(S_{t+1} = j) = \sum_i P(S_t = i)\,p_{ij}, \qquad \text{c'est-à-dire} \qquad
 $$\boldsymbol{\mu}_2 = \boldsymbol{\mu}_1\mathbf{P} = \big(0{,}5 \times 0{,}7 + 0{,}3 \times 0{,}2 ;\ \ 0{,}5 \times 0{,}3 + 0{,}3 \times 0{,}5 ;\ \ 0{,}2 \times 1 + 0{,}3 \times 0{,}3\big) = (0{,}41 ;\ 0{,}3 ;\ 0{,}29),$$
 et dans deux semaines, l'étagère sera vide avec la probabilité 0,41.
 
-> **Équations de Chapman-Kolmogorov** (*Chapman-Kolmogorov equations*). $(\mathbf{P}^n)_{ij} = P(S_n = j \mid S_0 = i)$, et $\mathbf{P}^{m+n} = \mathbf{P}^m\mathbf{P}^n$ : pour aller de $i$ à $j$ en $m + n$ pas, on passe par un état $k$ au pas $m$, $(\mathbf{P}^{m+n})_{ij} = \sum_k(\mathbf{P}^m)_{ik}(\mathbf{P}^n)_{kj}$.
+> **Équations de Chapman-Kolmogorov** (*Chapman-Kolmogorov equations*). $(\mathbf{P}^n)_{ij} = P(S_n = j \mid S_0 = i)$, et $\mathbf{P}^{n_1+n_2} = \mathbf{P}^{n_1}\mathbf{P}^{n_2}$ : pour aller de $i$ à $j$ en $n_1 + n_2$ pas, on passe par un état $k$ au pas $n_1$, $(\mathbf{P}^{n_1+n_2})_{ij} = \sum_k(\mathbf{P}^{n_1})_{ik}(\mathbf{P}^{n_2})_{kj}$.
 
 Comme en M16, $(\mathbf{P}^n)_{ij}$ est la somme, sur les chemins de longueur $n$ de $i$ à $j$ dans le graphe, des produits des probabilités de leurs flèches. Par exemple, $(\mathbf{P}^2)_{20} = p_{20}p_{00} + p_{21}p_{10} + p_{22}p_{20} = 0 + 0{,}5 \times 0{,}7 + 0{,}3 \times 0{,}2 = 0{,}41$ : les chemins $2 \to 1 \to 0$ et $2 \to 2 \to 0$ (le chemin $2 \to 0 \to 0$ n'existe pas, $p_{00} = 0$). C'est la première coordonnée de $\boldsymbol{\mu}_2$ ci-dessus, puisque $\boldsymbol{\mu}_0$ était la loi concentrée en 2.
 
@@ -112,7 +112,7 @@ Placée à gauche de $\mathbf{P}$, une loi avance d'un pas ($\boldsymbol{\mu}\ma
 
 📐 **Notations.** Les lois sont des **lignes**, comme chez les probabilistes et dans `markov.py` : $\boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}$. M22 écrivait les états en **colonnes**, $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t$ : en transposant, $\boldsymbol{\mu}_{t+1}^\top = \mathbf{P}^\top\boldsymbol{\mu}_t^\top$, la récurrence de M22 pour $\mathbf{A} = \mathbf{P}^\top$, sans entrée (`linear_system_states`). Les fonctions, et plus loin les récompenses et les valeurs, restent des colonnes : $\mathbf{P}\mathbf{f}$. Une matrice stochastique a des **lignes** de somme 1 ; c'est $\mathbf{P}^\top$, aux colonnes de somme 1, qui agit sur des lois écrites en colonnes. Certains livres rangent $\mathbf{P}$ dans l'autre sens ($p_{ij}$ de $j$ vers $i$) : vérifie toujours quelles sommes valent 1.
 
-💻 **Aujourd'hui en pratique** — on ne calcule pas $\mathbf{P}^n$ pour avoir une loi : $n$ produits $\boldsymbol{\mu} \leftarrow \boldsymbol{\mu}\mathbf{P}$ suffisent (`n_step_distribution`, 🔨 M26.16), et pour un très grand $n$, on élève au carré ($\mathbf{P}^2$, $\mathbf{P}^4$, $\mathbf{P}^8$…, environ $\log_2 n$ produits). Une chaîne de millions d'états a une matrice **creuse**, presque toute nulle, rangée par `scipy.sparse`.
+💻 **Aujourd'hui en pratique** — on ne calcule pas $\mathbf{P}^n$ pour avoir une loi : $n$ produits $\boldsymbol{\mu} \leftarrow \boldsymbol{\mu}\mathbf{P}$ suffisent (`n_step_distribution`, 🔨 M26.16), et pour un très grand $n$, on élève au carré ($\mathbf{P}^2$, $\mathbf{P}^4$, $\mathbf{P}^8$…, environ $\log_2 n$ produits). Une chaîne de millions d'états a une matrice **creuse** (*sparse*), presque toute nulle, rangée par `scipy.sparse`.
 
 ⚠️ **Erreur classique.** Lire $\mathbf{P}$ en colonnes ; écrire $\mathbf{P}\boldsymbol{\mu}$ au lieu de $\boldsymbol{\mu}\mathbf{P}$ ; ou construire une matrice dont une ligne n'a pas pour somme 1 (🐛 M26.24). Croire que la propriété de Markov dit que le passé ne compte pas : il compte, mais tout ce qu'il apporte est déjà dans l'état présent.
 
@@ -162,7 +162,7 @@ $$\mathbf{P}^n = \mathbf{1}\boldsymbol{\pi} + \lambda_2^n(\mathbf{I} - \mathbf{1
 C'est la diagonalisation de M12c, regroupée par valeur propre.
 - **L'oubli du départ.** Depuis une machine en panne, $P(S_n = 0) = 0{,}7 - 0{,}7 \times 0{,}6^n$ ; depuis une machine en marche, $0{,}7 + 0{,}3 \times 0{,}6^n$. L'écart à la loi stationnaire est multiplié par $\lambda_2 = 0{,}6$ chaque jour. Pour qu'il passe sous 0,01 depuis le pire départ, il faut $0{,}7 \times 0{,}6^n \le 0{,}01$, soit $n \ge \frac{\ln 70}{\ln(1/0{,}6)} \approx 8{,}3$ (R6) : 9 jours.
 
-![À gauche, la probabilité que la machine soit en marche au jour n, depuis une machine en marche (1, puis 0,88, 0,808…) et depuis une machine en panne (0, puis 0,28, 0,448…) : les deux suites se rapprochent de 0,7, de part et d'autre, avec un écart multiplié par 0,6 chaque jour ; en pointillés, les enveloppes 0,7 + 0,3 × 0,6ⁿ et 0,7 − 0,7 × 0,6ⁿ. À droite, la chaîne qui tourne sur trois états, depuis l'état 0 : la probabilité d'être en 0 vaut 1, 0, 0, 1, 0, 0… et ne converge jamais vers 1/3](figures/oubli_depart.png)
+![À gauche, la probabilité que la machine soit en marche au jour n, depuis une machine en marche (1, puis 0,88, 0,808…) et depuis une machine en panne (0, puis 0,28, 0,448…) : les deux suites se rapprochent de 0,7, de part et d'autre, avec un écart multiplié par 0,6 chaque jour ; en pointillés, les courbes 0,7 + 0,3 × 0,6ⁿ et 0,7 − 0,7 × 0,6ⁿ, sur lesquelles tombent les points. À droite, la chaîne qui tourne sur trois états, depuis l'état 0 : la probabilité d'être en 0 vaut 1, 0, 0, 1, 0, 0… et ne converge jamais vers 1/3](figures/oubli_depart.png)
 
 **En général.** Si $\mathbf{P}$ est diagonalisable, de valeurs propres $1 = \lambda_1$, $\lvert\lambda_2\rvert \ge \lvert\lambda_3\rvert \ge \cdots$, avec $\lvert\lambda_2\rvert < 1$, alors $\boldsymbol{\mu}_n - \boldsymbol{\pi}$ est une combinaison des $\lambda_i^n$, $i \ge 2$ : l'écart décroît comme $\lvert\lambda_2\rvert^n$ (la promesse de M12c §4). Plus le **trou spectral** (*spectral gap*) $1 - \lvert\lambda_2\rvert$ est grand, plus la chaîne oublie vite son départ. Pour la boutique, le polynôme caractéristique est $(\lambda - 1)(\lambda^2 + 0{,}4\,\lambda + 0{,}29)$, de racines $1$ et $-0{,}2 \pm 0{,}5\,i$ : $\lvert\lambda_2\rvert = \sqrt{0{,}29} \approx 0{,}539$, et ces valeurs propres complexes font tourner l'écart (M22 §2) : depuis l'étagère pleine, $P(S_n = 2)$ vaut $0{,}3$ ; $0{,}29$ ; $0{,}497$ ; $0{,}417$… autour de $0{,}414$.
 
@@ -174,13 +174,13 @@ workbookIA 26 n'utilise pas la loi stationnaire, mais elle sert ailleurs. Le th�
 
 Un internaute choisit au hasard, uniformément, un des liens de sa page ; sur une page sans lien (*dangling node*), il va sur une page quelconque : une chaîne de matrice $\mathbf{L}$ sur les $m$ pages. Ce **surfeur aléatoire** (*random surfer*) peut rester piégé dans un groupe de pages ; on le fait donc **sauter** : à chaque pas, avec la probabilité $1 - d$, il va sur une page tirée uniformément. Sa matrice est
 $$\mathbf{P}_d = d\,\mathbf{L} + \frac{1 - d}{m}\,\mathbf{1}\mathbf{1}^\top,$$
-avec un **facteur d'amortissement** (*damping factor*) $d$, souvent $0{,}85$ (S. Brin et L. Page, 1998). Tous ses coefficients sont strictement positifs : la chaîne est irréductible et apériodique, sa loi stationnaire est unique, et c'est le **PageRank** des pages. On admet que les valeurs propres de $\mathbf{P}_d$ autres que 1 sont celles de $\mathbf{L}$ multipliées par $d$ : la méthode de la puissance converge au moins comme $d^k$.
+avec un **facteur d'amortissement** (*damping factor*) $d$, souvent $0{,}85$ (S. Brin et L. Page, 1998). Tous ses coefficients sont strictement positifs : la chaîne est irréductible et apériodique, sa loi stationnaire est unique, et c'est le **PageRank** des pages. Pour deux lois $\mathbf{x}$ et $\boldsymbol{\pi}$, $(\mathbf{x} - \boldsymbol{\pi})\mathbf{1} = 0$, donc $(\mathbf{x} - \boldsymbol{\pi})\mathbf{P}_d = d\,(\mathbf{x} - \boldsymbol{\pi})\mathbf{L}$ ; comme $\mathbf{L}$ est stochastique, $\lVert\mathbf{y}\mathbf{L}\rVert_1 \le \lVert\mathbf{y}\rVert_1$ (M22) : l'écart en norme 1 est multiplié par au plus $d$ à chaque pas. On admet de plus que les valeurs propres de $\mathbf{P}_d$ autres que 1 sont celles de $\mathbf{L}$ multipliées par $d$.
 
-**Exemple : un web de quatre pages.** Les liens : $1 \to 2$, $1 \to 3$, $2 \to 3$, $3 \to 1$, $4 \to 1$, $4 \to 3$ ; aucune page ne pointe vers la page 4. Avec $d = 0{,}85$, chaque coefficient de $\mathbf{P}_d$ vaut $0{,}85\,\ell_{ij} + 0{,}0375$. La méthode de la puissance part de la loi uniforme : $\boldsymbol{x}_1 = \frac14\mathbf{1}^\top\mathbf{P}_d$ est le quart des sommes des colonnes, $0{,}0375 + 0{,}2125 \times (1{,}5 ;\ 0{,}5 ;\ 2 ;\ 0)$, soit $(0{,}35625 ;\ 0{,}14375 ;\ 0{,}4625 ;\ 0{,}0375)$ ; puis, après dix pas, $\boldsymbol{x}_{10} \approx (0{,}381 ;\ 0{,}199 ;\ 0{,}383 ;\ 0{,}0375)$, et la limite
+**Exemple : un web de quatre pages.** Les liens : $1 \to 2$, $1 \to 3$, $2 \to 3$, $3 \to 1$, $4 \to 1$, $4 \to 3$ ; aucune page ne pointe vers la page 4. Avec $d = 0{,}85$, chaque coefficient de $\mathbf{P}_d$ vaut $0{,}85\,\ell_{ij} + 0{,}0375$. La méthode de la puissance part de la loi uniforme : $\mathbf{x}_1 = \frac14\mathbf{1}^\top\mathbf{P}_d$ est le quart des sommes des colonnes, $0{,}0375 + 0{,}2125 \times (1{,}5 ;\ 0{,}5 ;\ 2 ;\ 0)$, soit $(0{,}35625 ;\ 0{,}14375 ;\ 0{,}4625 ;\ 0{,}0375)$, et la limite
 $$\boldsymbol{\pi} \approx (0{,}380 ;\ 0{,}199 ;\ 0{,}384 ;\ 0{,}0375).$$
 La page 4 ne reçoit que les sauts : $\frac{1 - d}{4} = 0{,}0375$. La page 3, pointée trois fois, devance à peine la page 1, qui reçoit tout ce que donne la page 3. Les valeurs propres de $\mathbf{L}$ autres que 1 sont $0$ et $-0{,}5 \pm 0{,}5\,i$, de module au plus $0{,}707$ ; celles de $\mathbf{P}_d$ ont donc un module au plus $0{,}85 \times 0{,}707 \approx 0{,}60$.
 
-![Le web de quatre pages : chaque nœud a une aire proportionnelle à son PageRank, environ 0,380 pour la page 1, 0,199 pour la page 2, 0,384 pour la page 3 et 0,0375 pour la page 4, que personne ne pointe ; les flèches sont les six liens](figures/pagerank.png)
+![Le web de quatre pages : chaque nœud est d'autant plus grand que son PageRank est élevé, environ 0,380 pour la page 1, 0,199 pour la page 2, 0,384 pour la page 3 et 0,0375 pour la page 4, que personne ne pointe ; les flèches sont les six liens](figures/pagerank.png)
 
 💻 **Aujourd'hui en pratique** — un moteur de recherche itère la méthode de la puissance avec des produits creux, sans jamais écrire $\mathbf{P}_d$, dont la partie $\frac{1-d}{m}\mathbf{1}\mathbf{1}^\top$ est pleine ; `networkx.pagerank(G, alpha=0.85)` le fait sur un graphe.
 
@@ -192,7 +192,7 @@ La page 4 ne reçoit que les sauts : $\frac{1 - d}{4} = 0{,}0375$. La page 3, po
 
 ### L'espérance conditionnelle (rappel de M25b)
 
-Pour une variable discrète $Y$ et une valeur $y$ telle que $P(Y = y) > 0$, l'**espérance conditionnelle** (*conditional expectation*) $\mathbb{E}[X \mid Y = y]$ est l'espérance de $X$ sous la loi conditionnelle $P(\cdot \mid Y = y)$. Elle définit une fonction $m(y)$, et $\mathbb{E}[X \mid Y] = m(Y)$ est une **variable aléatoire**. M25b a démontré la **formule de l'espérance totale** (*law of total expectation*) :
+Pour une variable discrète $Y$ et une valeur $y$ telle que $P(Y = y) > 0$, l'**espérance conditionnelle** (*conditional expectation*) $\mathbb{E}[X \mid Y = y]$ est l'espérance de $X$ sous la loi conditionnelle $P(\cdot \mid Y = y)$. Elle définit une fonction $m(y)$, et $\mathbb{E}[X \mid Y] = m(Y)$ est une **variable aléatoire**. M25b a démontré la **loi de l'espérance totale** (*law of total expectation*) :
 $$\mathbb{E}[X] = \mathbb{E}\big[\mathbb{E}[X \mid Y]\big] = \sum_y P(Y = y)\,\mathbb{E}[X \mid Y = y].$$
 Dans une chaîne, $\mathbb{E}[f(S_1) \mid S_0 = i] = (\mathbf{P}\mathbf{f})_i$ (§1), et $\mathbb{E}[f(S_1)] = \boldsymbol{\mu}_0\mathbf{P}\mathbf{f}$ en est la moyenne sous la loi de $S_0$.
 
@@ -202,7 +202,7 @@ Dans une chaîne, $\mathbb{E}[f(S_1) \mid S_0 = i] = (\mathbf{P}\mathbf{f})_i$ (
 > $$\mathbb{E}\big[\,\mathbb{E}[X \mid Y, Z] \;\big|\; Y\big] = \mathbb{E}[X \mid Y] .$$
 > Conditionner d'abord sur plus d'information, puis moyenner ce surplus, revient à conditionner sur moins. L'espérance totale en est le cas où l'on ne garde rien.
 
-*Démonstration.* Fixons $y$. Sous la loi conditionnelle $P(\cdot \mid Y = y)$, qui est une loi de probabilité, la formule de l'espérance totale, appliquée avec la variable $Z$, donne
+*Démonstration.* Fixons $y$. Sous la loi conditionnelle $P(\cdot \mid Y = y)$, qui est une loi de probabilité, la loi de l'espérance totale, appliquée avec la variable $Z$, donne
 $$\mathbb{E}[X \mid Y = y] = \sum_z P(Z = z \mid Y = y)\,\mathbb{E}[X \mid Y = y, Z = z],$$
 et le membre de droite est l'espérance de $\mathbb{E}[X \mid Y, Z]$ sachant $Y = y$. $\square$
 
@@ -212,7 +212,7 @@ La deuxième égalité est la propriété de Markov : sachant $S_1 = j$, l'état
 
 ### États absorbants et états transitoires
 
-Un état $i$ est **absorbant** (*absorbing state*) si $p_{ii} = 1$ : une fois là, on y reste. Un état non absorbant d'où l'on peut atteindre un état absorbant est **transitoire** (*transient state*) : la chaîne finit par le quitter pour toujours. En rangeant les états transitoires d'abord,
+Un état $i$ est **absorbant** (*absorbing state*) si $p_{ii} = 1$ : une fois là, on y reste. Un état est **transitoire** (*transient state*) si la chaîne, partie de lui, finit avec la probabilité 1 par le quitter pour toujours ; c'est le cas d'un état non absorbant d'où l'on peut atteindre un état absorbant. En rangeant les états transitoires d'abord,
 $$\mathbf{P} = \begin{pmatrix} \mathbf{Q} & \mathbf{B} \\ \mathbf{0} & \mathbf{I} \end{pmatrix},$$
 où $\mathbf{Q}$ (transitoires vers transitoires) est **sous-stochastique** (*substochastic*) : des lignes de somme au plus 1, la masse manquante partant vers les états absorbants.
 
@@ -232,7 +232,7 @@ On cherche $h_i$, la **probabilité d'absorption** (*absorption probability*) pa
 > **Théorème** (∂ M26.10). Si, depuis chaque état transitoire, un état absorbant est accessible, la matrice $\mathbf{I} - \mathbf{Q}$ est inversible, et les vecteurs $\mathbf{h}$ et $\mathbf{t}$ sont les uniques solutions de
 > $$\mathbf{h} = \mathbf{Q}\mathbf{h} + \mathbf{b}, \qquad \mathbf{t} = \mathbf{1} + \mathbf{Q}\mathbf{t} .$$
 
-L'idée de l'inversibilité : si la fin est possible depuis chaque état, elle a lieu en au plus $m$ pas avec une probabilité au moins $\varepsilon > 0$ ; donc $\lVert\mathbf{Q}^m\rVert_\infty \le 1 - \varepsilon < 1$, et $\mathbf{Q}^t \to \mathbf{0}$ (M22). Le ∂ M26.10 rédige le tout.
+L'idée de l'inversibilité : si la fin est possible depuis chaque état, une puissance de $\mathbf{Q}$ a des lignes de somme $< 1$, et $\mathbf{Q}^t \to \mathbf{0}$ (M22). Le ∂ M26.10 rédige le tout.
 
 **Sur le site.** $h_1 = 0{,}6\,h_2$, $h_2 = 0{,}3\,h_1 + 0{,}4\,h_3$, $h_3 = 0{,}7 + 0{,}2\,h_2$. En remplaçant $h_1$ et $h_3$ dans la deuxième : $h_2 = 0{,}18\,h_2 + 0{,}28 + 0{,}08\,h_2$, donc $h_2 = \frac{0{,}28}{0{,}74} = \frac{14}{37} \approx 0{,}378$, puis $h_1 = \frac{42}{185} \approx 0{,}227$ et $h_3 = \frac{287}{370} \approx 0{,}776$. De même, $t_2 = 1 + 0{,}3(1 + 0{,}6\,t_2) + 0{,}4(1 + 0{,}2\,t_2) = 1{,}7 + 0{,}26\,t_2$, donc $t_2 = \frac{85}{37} \approx 2{,}30$, puis $t_1 = \frac{88}{37} \approx 2{,}38$ et $t_3 = \frac{54}{37} \approx 1{,}46$. Un visiteur qui arrive sur l'accueil achète avec la probabilité 0,227, après 2,38 pages en moyenne ; une fois au panier, la probabilité monte à 0,776. La fin étant sûre, il part sans acheter avec la probabilité $1 - h_i$.
 
@@ -242,11 +242,11 @@ L'idée de l'inversibilité : si la fin est possible depuis chaque état, elle a
 
 La série est la même série géométrique de matrices qu'au §5 (∂ M26.11 la démontre pour $\gamma\mathbf{P}$ ; ici, $\mathbf{Q}^t \to \mathbf{0}$ parce que la fin est possible). Pour les visites : le nombre de visites à $j$ est $\sum_t\mathbb{1}\{S_t = j\}$, d'espérance $\sum_t P(S_t = j \mid S_0 = i)$, et un chemin qui reste parmi les états transitoires n'utilise que des coefficients de $\mathbf{Q}$, donc $P(S_t = j \mid S_0 = i) = (\mathbf{Q}^t)_{ij}$. Le temps avant la fin est la somme des visites à tous les états transitoires ($\mathbf{t} = \mathbf{N}\mathbf{1}$), et chaque visite au panier mène à l'achat avec la probabilité 0,7 ($\mathbf{h} = \mathbf{N}\mathbf{b}$). Ici,
 $$\mathbf{N} = \frac{1}{37}\begin{pmatrix} 46 & 30 & 12 \\ 15 & 50 & 20 \\ 3 & 10 & 41 \end{pmatrix} :$$
-depuis l'accueil, $\frac{46}{37} \approx 1{,}24$ passages par l'accueil (l'arrivée comprise), $0{,}81$ par une fiche produit et $0{,}32$ par le panier ; leur somme redonne $t_1 = \frac{88}{37}$, et $0{,}7 \times \frac{12}{37} = \frac{42}{185} = h_1$.
+depuis l'accueil, $\frac{46}{37} \approx 1{,}24$ passages par l'accueil (l'arrivée comprise), $\frac{30}{37} \approx 0{,}811$ par une fiche produit et $0{,}32$ par le panier ; leur somme redonne $t_1 = \frac{88}{37}$, et $0{,}7 \times \frac{12}{37} = \frac{42}{185} = h_1$.
 
 ![Le site marchand : trois pages transitoires (accueil, fiche produit, panier) et deux états absorbants (achat, départ), avec les probabilités des flèches ; au-dessus de chaque page, la probabilité d'achat h et le nombre moyen de pages vues t : accueil h ≈ 0,227 et t ≈ 2,38, fiche produit h ≈ 0,378 et t ≈ 2,30, panier h ≈ 0,776 et t ≈ 1,46](figures/site_absorption.png)
 
-💻 **Aujourd'hui en pratique** — les sites marchands analysent ainsi les parcours de leurs visiteurs (les « entonnoirs de conversion ») ; on résout $(\mathbf{I} - \mathbf{Q})\mathbf{h} = \mathbf{b}$ par `np.linalg.solve`, sans calculer l'inverse. Le §5 montrera que c'est un système de Bellman avec $\gamma = 1$.
+💻 **Aujourd'hui en pratique** — les sites marchands analysent ainsi les parcours de leurs visiteurs (les « entonnoirs de conversion ») ; on résout $(\mathbf{I} - \mathbf{Q})\mathbf{h} = \mathbf{b}$ par `np.linalg.solve`, sans calculer l'inverse.
 
 ⚠️ **Erreur classique.** Oublier le 1 de $\mathbf{t} = \mathbf{1} + \mathbf{Q}\mathbf{t}$ (la page qu'on vient de voir) ; écrire $\mathbf{h} = \mathbf{Q}\mathbf{h}$ sans $\mathbf{b}$ (on trouve $\mathbf{h} = \mathbf{0}$) ; laisser les états absorbants dans $\mathbf{Q}$ ; compter l'état absorbant dans la durée.
 
@@ -302,7 +302,7 @@ Pour la règle du §1, la ligne 0 vient de $\mathbf{P}_{\text{cmd}}$ et les deux
 > $$Q^\pi(s, a) = r(s, a) + \gamma\sum_{s'}\mathbf{P}_a(s, s')\,V^\pi(s') :$$
 > ce que rapporte en moyenne l'action $a$ choisie une fois en $s$, puis la politique $\pi$ ensuite. On a $V^\pi(s) = \sum_a\pi(a \mid s)\,Q^\pi(s, a)$.
 
-Le §5 en donne un exemple chiffré, une fois $V^\pi$ calculée.
+Le §5 la vérifie sur un exemple chiffré, une fois $V^\pi$ calculée.
 
 📐 **Notations.** À partir d'ici, $\pi(a \mid s)$ est une **politique**, comme dans workbookIA 26 ; la loi stationnaire de la chaîne induite $\mathbf{P}_\pi$ s'écrit $\mathbf{d}_\pi$ (la docstring de `stationary_distribution` garde $\boldsymbol{\pi}$, car elle ne parle que d'une chaîne). Quand la politique est fixée et qu'aucune confusion n'est possible, on écrit $\mathbf{P}$, $\mathbf{r}$ et $\mathbf{V}$ pour $\mathbf{P}_\pi$, $\mathbf{r}_\pi$ et $\mathbf{V}^\pi$.
 
@@ -324,7 +324,7 @@ $$V(s) = r(s) + \gamma\sum_{s'}p_{ss'}\,V(s') .$$
 > **Équation de Bellman d'une politique fixée** (*Bellman equation*). $\mathbf{V} = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$, c'est-à-dire le système linéaire
 > $$(\mathbf{I} - \gamma\mathbf{P})\,\mathbf{V} = \mathbf{r} .$$
 >
-> **Théorème** (∂ M26.11). Si $\mathbf{P}$ est stochastique et $0 \le \gamma < 1$, $\mathbf{I} - \gamma\mathbf{P}$ est inversible, son inverse est la **série de Neumann** (*Neumann series*) $(\mathbf{I} - \gamma\mathbf{P})^{-1} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t$, et le système a pour unique solution
+> **Théorème** (∂ M26.11). Si $\mathbf{P}$ est stochastique ou sous-stochastique et $0 \le \gamma < 1$, $\mathbf{I} - \gamma\mathbf{P}$ est inversible, son inverse est la **série de Neumann** (*Neumann series*) $(\mathbf{I} - \gamma\mathbf{P})^{-1} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t$, et le système a pour unique solution
 > $$\mathbf{V} = \sum_{t \ge 0}\gamma^t\mathbf{P}^t\mathbf{r} .$$
 
 L'idée : $\lVert\gamma\mathbf{P}\rVert_\infty = \gamma < 1$ (M22), donc $\rho(\gamma\mathbf{P}) < 1$ et la série géométrique de matrices converge ; le ∂ M26.11 rédige la preuve. La série se lit aussi directement : par la tour, comme au §3, $\mathbb{E}[R_t \mid S_0 = s] = (\mathbf{P}^t\mathbf{r})(s)$, et $V(s) = \sum_t\gamma^t\,\mathbb{E}[R_t \mid S_0 = s]$. Calculer la valeur d'une politique fixée s'appelle l'**évaluation d'une politique** (*policy evaluation*).
@@ -337,7 +337,7 @@ de déterminant $0{,}23242875$, d'où $V(1) \approx 28{,}13$ et $V(2) \approx 33
 $$\mathbf{V} \approx (23{,}46 ;\ 28{,}13 ;\ 33{,}48).$$
 Avec une étagère pleine, la saison rapporte en moyenne 33,48 € (§4) ; avec une étagère vide, 10 € de moins : la semaine sans vente et la livraison.
 
-**Une valeur d'action.** $Q^\pi(1, \text{cmd}) = r(1, \text{cmd}) + \gamma\,V(2) = 2 + 0{,}85 \times 33{,}48 \approx 30{,}46$ € : ce que rapporte une commande passée dès qu'il ne reste qu'un article, une seule fois, avant de revenir à la règle. On ne s'en sert pas ici pour changer de règle : le §7 énonce, sans la résoudre, l'équation que vérifie la meilleure.
+**Une valeur d'action.** Pour l'action que la règle choisit, $Q^\pi(s, \pi(s)) = V^\pi(s)$ : par exemple $Q^\pi(1, \text{att}) = r(1, \text{att}) + \gamma\big(0{,}7\,V(0) + 0{,}3\,V(1)\big) = 7 + 0{,}85\,(0{,}7 \times 23{,}46 + 0{,}3 \times 28{,}13) \approx 28{,}13$, la valeur $V(1)$ : c'est la deuxième équation du système. Pour une autre action $a$, la formule est la même, avec la ligne de $\mathbf{P}_a$ et la récompense $r(s, a)$.
 
 ### Une fin possible
 
@@ -349,14 +349,14 @@ $\gamma\mathbf{P}$ est elle-même sous-stochastique, de lignes de somme $\gamma$
 
 **Le site du §3 est un système de Bellman.** Sur les trois pages transitoires, $\mathbf{P} = \mathbf{Q}$ est sous-stochastique et la fin est sûre. Avec $\gamma = 1$ et une récompense 1 par page vue, $\mathbf{V} = \mathbf{1} + \mathbf{Q}\mathbf{V}$ : c'est $\mathbf{t}$. Avec une récompense 1 au passage vers l'achat, dont la moyenne depuis la page $i$ est $b_i$, $\mathbf{V} = \mathbf{b} + \mathbf{Q}\mathbf{V}$ : c'est $\mathbf{h}$. Les équations du §3 étaient des équations de Bellman sans actualisation. Avec $\gamma = 1$, les états absorbants doivent être codés par des lignes qui finissent : gardés comme états, ils rendent $\mathbf{I} - \mathbf{P}$ singulière (sur un état absorbant, l'équation se réduit à $V = V$).
 
-**Sans fin, $\gamma = 1$ ne marche pas.** Si $\mathbf{P}$ est stochastique, $(\mathbf{I} - \mathbf{P})\mathbf{1} = \mathbf{0}$ : la matrice est singulière, et les sommes de récompenses grandissent sans fin (🐛 M26.24, 💼 M26.E1).
+**Sans fin, $\gamma = 1$ ne marche pas.** Si $\mathbf{P}$ est stochastique, $(\mathbf{I} - \mathbf{P})\mathbf{1} = \mathbf{0}$ : la matrice est singulière, et la somme des récompenses ne converge pas en général : elle grandit comme $n$ fois la récompense moyenne sous la loi stationnaire, quand celle-ci n'est pas nulle (🐛 M26.24, 💼 M26.E1).
 
 ### La loi d'occupation actualisée
 
 > **Propriété** (∂ M26.11). La matrice $(1 - \gamma)(\mathbf{I} - \gamma\mathbf{P})^{-1} = \sum_{t \ge 0}(1 - \gamma)\gamma^t\,\mathbf{P}^t$ est stochastique. Sa ligne $s$, notée $\boldsymbol{\nu}_s$, est la **loi d'occupation actualisée** (*discounted state-visitation distribution*) depuis $s$, et
 > $$V(s) = \frac{\boldsymbol{\nu}_s\,\mathbf{r}}{1 - \gamma} .$$
 
-**Sa lecture.** Avec l'arrêt du §4, la dernière semaine $N$ vaut $t$ avec la probabilité $P(N = t) = (1 - \gamma)\gamma^t$. Donc $\nu_s(s') = \sum_t P(N = t)\,P(S_t = s' \mid S_0 = s) = P(S_N = s' \mid S_0 = s)$ : c'est la loi de l'état où l'on est **quand la saison s'arrête**. La valeur est la durée moyenne $\frac{1}{1-\gamma}$ fois la récompense moyenne sous cette loi. Pour la boutique, depuis l'étagère pleine, $\boldsymbol{\nu}_2 \approx (0{,}245 ;\ 0{,}274 ;\ 0{,}481)$ ; $\boldsymbol{\nu}_2\mathbf{r} \approx -1{,}22 + 1{,}92 + 4{,}33 = 5{,}02$ €, et $\frac{5{,}02}{0{,}15} \approx 33{,}5$ €, la valeur trouvée plus haut. Depuis l'étagère vide, $\boldsymbol{\nu}_0 \approx (0{,}358 ;\ 0{,}233 ;\ 0{,}409)$ : la loi dépend du départ.
+**Sa lecture.** Avec l'arrêt du §4, la dernière semaine $N$ vaut $t$ avec la probabilité $P(N = t) = (1 - \gamma)\gamma^t$. Donc $\nu_s(s') = \sum_t P(N = t)\,P(S_t = s' \mid S_0 = s) = P(S_N = s' \mid S_0 = s)$ : c'est la loi de l'état où l'on est **quand la saison s'arrête**. La valeur est la durée moyenne $\frac{1}{1-\gamma}$ fois la récompense moyenne sous cette loi. Pour la boutique, depuis l'étagère pleine, $\boldsymbol{\nu}_2 \approx (0{,}245 ;\ 0{,}274 ;\ 0{,}481)$ ; $\boldsymbol{\nu}_2\mathbf{r} \approx -1{,}225 + 1{,}920 + 4{,}327 \approx 5{,}02$ €, et $\frac{5{,}02}{0{,}15} \approx 33{,}5$ €, la valeur trouvée plus haut. Depuis l'étagère vide, $\boldsymbol{\nu}_0 \approx (0{,}36 ;\ 0{,}23 ;\ 0{,}41)$ : la loi dépend du départ.
 
 💻 **Aujourd'hui en pratique** — pour quelques milliers d'états, `np.linalg.solve(np.eye(m) - gamma * P, r)` résout le système exactement, sans former l'inverse : c'est `bellman_linear_solve` (🔨 M26.18). Au-delà, on itère (§6) ou l'on simule (§8).
 
@@ -375,7 +375,7 @@ $\gamma\mathbf{P}$ est elle-même sous-stochastique, de lignes de somme $\gamma$
 
 *Démonstration.* Le terme $\mathbf{r}$ disparaît dans la différence : $\mathcal{T}(\mathbf{V}) - \mathcal{T}(\mathbf{W}) = \gamma\mathbf{P}(\mathbf{V} - \mathbf{W})$. Pour la norme induite (M22 §4), $\lVert\gamma\mathbf{P}(\mathbf{V} - \mathbf{W})\rVert_\infty \le \gamma\,\lVert\mathbf{P}\rVert_\infty\,\lVert\mathbf{V} - \mathbf{W}\rVert_\infty$, et $\lVert\mathbf{P}\rVert_\infty \le 1$ : chaque ligne a des coefficients positifs de somme au plus 1. $\square$
 
-En mots : chaque coordonnée de $\mathbf{P}(\mathbf{V} - \mathbf{W})$ est une moyenne (pondérée, de poids de somme au plus 1) des écarts, donc au plus le plus grand écart ; $\gamma$ le réduit. Par M22 §6, les itérés $\mathbf{V}_{k+1} = \mathcal{T}(\mathbf{V}_k)$ oublient leur départ et convergent vers l'unique point fixe ; ici, ce point fixe existe sans autre argument, puisque c'est la solution du système du §5.
+En mots : chaque coordonnée de $\mathbf{P}(\mathbf{V} - \mathbf{W})$ combine les écarts avec des poids positifs de somme au plus 1, et ne dépasse donc pas, en valeur absolue, le plus grand. Par M22 §6, les itérés $\mathbf{V}_{k+1} = \mathcal{T}(\mathbf{V}_k)$ oublient leur départ et convergent vers l'unique point fixe ; ici, ce point fixe existe sans autre argument, puisque c'est la solution du système du §5.
 
 > **Bornes d'erreur** (∂ M26.12). Pour tout départ $\mathbf{V}_0$ et tout $k \ge 1$ :
 > $$\lVert\mathbf{V}_k - \mathbf{V}\rVert_\infty \le \gamma^k\,\lVert\mathbf{V}_0 - \mathbf{V}\rVert_\infty \quad (\textbf{a priori}), \qquad \lVert\mathbf{V}_k - \mathbf{V}\rVert_\infty \le \frac{\gamma}{1 - \gamma}\,\lVert\mathbf{V}_k - \mathbf{V}_{k-1}\rVert_\infty \quad (\textbf{a posteriori}).$$
@@ -385,13 +385,13 @@ L'idée : la borne **a priori** (*a priori bound*) applique $k$ fois la contract
 ### Itérations synchrones et itérations en place
 
 - **Synchrones** (*synchronous update*) : toutes les nouvelles valeurs se calculent à partir des anciennes, $\mathbf{V}_{k+1} = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}_k$. C'est l'itération de Richardson de M19, de pas 1, pour $(\mathbf{I} - \gamma\mathbf{P})\mathbf{V} = \mathbf{r}$ : $\mathbf{V} + \big(\mathbf{r} - (\mathbf{I} - \gamma\mathbf{P})\mathbf{V}\big) = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$. C'est ce que rend `bellman_fixed_point_iterates` (🔨 M26.19).
-- **En place** (*in-place update*, ou **Gauss-Seidel**) : on balaie les états dans l'ordre, et chaque nouvelle valeur remplace aussitôt l'ancienne et sert au calcul des suivantes. Un balayage complet est encore une contraction de facteur au plus $\gamma$ pour $\lVert\cdot\rVert_\infty$ (admis) ; il converge souvent plus vite, pas toujours.
+- **En place** (*in-place update*, ou **Gauss-Seidel**) : on balaie les états dans l'ordre, et chaque nouvelle valeur remplace aussitôt l'ancienne et sert au calcul des suivantes. Un balayage complet est encore une contraction de facteur au plus $\gamma$ pour $\lVert\cdot\rVert_\infty$ (∂ M26.12) ; il converge souvent plus vite, pas toujours.
 
 **Exemple : la boutique, $\gamma = 0{,}85$, depuis $\mathbf{V}_0 = \mathbf{0}$.**
 - Synchrones : $\mathbf{V}_1 = \mathbf{r} = (-5 ;\ 7 ;\ 9)$. Puis $\mathbf{P}\mathbf{V}_1 = (9 ;\ -1{,}4 ;\ 5{,}2)$, donc $\mathbf{V}_2 = \mathbf{r} + 0{,}85\,\mathbf{P}\mathbf{V}_1 = (2{,}65 ;\ 5{,}81 ;\ 13{,}42)$, et $\mathbf{V}_3 \approx (6{,}41 ;\ 10{,}06 ;\ 15{,}34)$.
-- En place, premier balayage : $V(0) = -5$ ; puis $V(1) = 7 + 0{,}85\,(0{,}7 \times (-5) + 0{,}3 \times 0) = 4{,}025$, avec la valeur de $V(0)$ qu'on vient de calculer ; puis $V(2) = 9 + 0{,}85\,(0{,}2 \times (-5) + 0{,}5 \times 4{,}025) \approx 9{,}861$. Second balayage : $(3{,}38 ;\ 10{,}04 ;\ 16{,}36)$.
+- En place, premier balayage : $V(0) = -5$ ; puis $V(1) = 7 + 0{,}85\,(0{,}7 \times (-5) + 0{,}3 \times 0) = 4{,}025$, avec la valeur de $V(0)$ qu'on vient de calculer ; puis $V(2) = 9 + 0{,}85\,(0{,}2 \times (-5) + 0{,}5 \times 4{,}025) \approx 9{,}861$.
 
-Après deux pas, l'erreur $\lVert\cdot - \mathbf{V}\rVert_\infty$ vaut $22{,}32$ en synchrone et $20{,}08$ en place ; la borne a priori, $0{,}85^2 \times 33{,}48 \approx 24{,}19$, les couvre. Après trois pas synchrones, $\lVert\mathbf{V}_3 - \mathbf{V}_2\rVert_\infty \approx 4{,}25$, et la borne a posteriori donne $\frac{0{,}85}{0{,}15} \times 4{,}25 \approx 24{,}1$, pour une erreur vraie de $18{,}14$.
+Après trois pas synchrones, $\lVert\mathbf{V}_3 - \mathbf{V}_2\rVert_\infty \approx 4{,}25$, et la borne a posteriori donne $\frac{0{,}85}{0{,}15} \times 4{,}25 \approx 24{,}1$, pour une erreur vraie de $18{,}14$.
 
 **Combien d'itérations pour un centime ?** Depuis $\mathbf{V}_0 = \mathbf{0}$, $\lVert\mathbf{V}_0 - \mathbf{V}\rVert_\infty = 33{,}48$ ; la borne a priori garantit $0{,}01$ dès que $0{,}85^k \times 33{,}48 \le 0{,}01$, soit $k \ge \frac{\ln(0{,}01/33{,}48)}{\ln 0{,}85} \approx 49{,}9$ (R6) : 50 itérations. Ici, la borne est presque atteinte : l'écart $\mathbf{V} - \mathbf{V}_k = \gamma^k\mathbf{P}^k\mathbf{V}$ garde une composante le long de $\mathbf{1}$, que $\gamma\mathbf{P}$ multiplie exactement par $\gamma$ ($\mathbf{P}\mathbf{1} = \mathbf{1}$), et il faut bien 50 itérations synchrones. En place, 27 balayages suffisent.
 
@@ -405,9 +405,9 @@ Pour un opérateur affine, le point fixe est la solution d'un système. Au §7, 
 
 M22 §6 en avait l'unicité et la convergence ; l'existence est la partie admise.
 
-💻 **Aujourd'hui en pratique** — l'itération coûte un produit $\mathbf{P}\mathbf{V}$ par pas, ce qui est peu pour une grande matrice creuse ; on l'arrête par le critère a posteriori. Elle ralentit quand $\gamma$ s'approche de 1 : avec $\gamma = 0{,}96$, la même boutique demanderait environ 230 itérations synchrones pour un centime. Pour un petit problème, `np.linalg.solve` reste le plus simple.
+💻 **Aujourd'hui en pratique** — l'itération coûte un produit $\mathbf{P}\mathbf{V}$ par pas, ce qui est peu pour une grande matrice creuse ; on l'arrête par le critère a posteriori. Pour un petit problème, `np.linalg.solve` reste le plus simple.
 
-⚠️ **Erreur classique.** Arrêter dès que $\lVert\mathbf{V}_k - \mathbf{V}_{k-1}\rVert_\infty < \varepsilon$ en croyant l'erreur sous $\varepsilon$ : elle peut être $\frac{\gamma}{1-\gamma}$ fois plus grande (5,7 fois pour $\gamma = 0{,}85$). Mettre à jour en place quand on voulait des itérations synchrones : les deux convergent, mais leurs itérés diffèrent. Chercher la contraction en norme 2 : c'est en norme $\infty$ qu'elle est simple.
+⚠️ **Erreur classique.** Arrêter dès que $\lVert\mathbf{V}_k - \mathbf{V}_{k-1}\rVert_\infty < \varepsilon$ en croyant l'erreur sous $\varepsilon$ : elle peut être $\frac{\gamma}{1-\gamma}$ fois plus grande (5,7 fois pour $\gamma = 0{,}85$). Confondre les deux balayages : `bellman_fixed_point_iterates` (🔨 M26.19) rend les itérés synchrones, que l'itération en place ne redonne pas. Chercher la contraction en norme 2 : c'est en norme $\infty$ qu'elle est simple.
 
 🔗 **Dans workbookIA** — le chapitre 26 arrête ses balayages quand le plus grand changement d'une valeur passe sous un seuil ; la borne a posteriori dit ce que ce seuil garantit.
 
@@ -422,7 +422,7 @@ M22 §6 en avait l'unicité et la convergence ; l'existence est la partie admise
 $$\max_i x_i = x_{i^\star} = y_{i^\star} + (x_{i^\star} - y_{i^\star}) \le \max_i y_i + \lVert\mathbf{x} - \mathbf{y}\rVert_\infty .$$
 En échangeant les rôles de $\mathbf{x}$ et $\mathbf{y}$, $\max_i y_i \le \max_i x_i + \lVert\mathbf{x} - \mathbf{y}\rVert_\infty$. Les deux inégalités ensemble donnent le lemme. $\square$
 
-Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** (*1-Lipschitz*) pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$.
+Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** (*1-Lipschitz*) pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$. Le ∂ M26.12 étend le lemme à la $k$-ième plus grande coordonnée et au supremum d'une famille.
 
 ### L'arrêt optimal
 
@@ -465,7 +465,7 @@ L'arrêt optimal en est le cas de deux actions : s'arrêter (gain $g$, puis la f
 
 ⚠️ **Erreur classique.** Écrire $\max\mathbf{x} - \max\mathbf{y} = \max(\mathbf{x} - \mathbf{y})$ (faux : $\mathbf{x} = (0, 5)$ et $\mathbf{y} = (3, 1)$ donnent 2 et 4). Croire que le maximum laisse le système linéaire : il faut itérer, ou raisonner comme sur les offres. Oublier le coût d'attente ou l'actualisation dans la valeur de continuation.
 
-🔗 **Dans workbookIA** — le chapitre 26 écrit l'équation d'optimalité avec un maximum sur les actions et l'itère ; ce paragraphe dit pourquoi l'itération converge et montre, sur un arrêt optimal, un cas où tout se calcule.
+🔗 **Dans workbookIA** — le chapitre 26 écrit l'équation d'optimalité avec un maximum sur les actions et l'itère ; ce paragraphe en énonce les propriétés (une contraction, un point fixe unique) et montre, sur un arrêt optimal, un cas où tout se calcule.
 
 ## §8 · Des échantillons au lieu de P : moyenne de retours, erreur TD et biais du maximum
 
@@ -479,10 +479,10 @@ Quand $\mathbf{P}$ est inconnue ou immense, mais qu'on sait simuler des transiti
 
 Une estimation se met à jour à chaque nouvelle mesure $x_n$ :
 $$m_n = m_{n-1} + \alpha_n\,(x_n - m_{n-1}), \qquad \alpha_n \text{ le } \textbf{pas} \ (\textit{step size}).$$
-- **Pas $\alpha_n = \frac1n$** : $m_n$ est exactement la moyenne de $x_1, \ldots, x_n$ (la moyenne incrémentale de M11, que ∂ 11.2 de workbookIA démontre). Elle converge vers l'espérance (la loi des grands nombres), avec une erreur type $\sigma/\sqrt{n}$.
+- **Pas $\alpha_n = \frac1n$** : $m_n$ est exactement la moyenne de $x_1, \ldots, x_n$ (la moyenne incrémentale de workbookIA 11, que son ∂ 11.2 démontre). Elle converge vers l'espérance (la loi des grands nombres), avec une erreur type $\sigma/\sqrt{n}$.
 - **Pas constant $\alpha$** : $m_n$ est la moyenne exponentielle de R5, qui donne le poids $\alpha(1 - \alpha)^{n-k}$ à $x_k$ (∂ 19.8 de workbookIA en étudie la mémoire). Elle suit une moyenne qui change, mais ne se fixe jamais : pour des mesures indépendantes de variance $\sigma^2$, sa variance tend vers $\sigma^2\sum_{j \ge 0}\alpha^2(1 - \alpha)^{2j} = \frac{\alpha\,\sigma^2}{2 - \alpha}$.
 
-**Exemple.** La demande hebdomadaire de la boutique a pour moyenne 0,9 et pour écart-type 0,7. Avec $\alpha = 0{,}1$, l'estimation garde un écart-type d'environ $0{,}7\sqrt{0{,}1/1{,}9} \approx 0{,}16$ article, quel que soit le nombre de semaines ; avec le pas $\frac1n$, après 100 semaines, l'erreur type vaut $0{,}07$ et continue de baisser.
+**Exemple.** La demande hebdomadaire de la boutique a pour moyenne 0,9 et pour écart-type 0,7. Avec $\alpha = 0{,}1$, l'estimation garde à la longue un écart-type d'environ $0{,}7\sqrt{0{,}1/1{,}9} \approx 0{,}16$ article, qui ne baisse plus ; avec le pas $\frac1n$, après 100 semaines, l'erreur type vaut $0{,}07$ et continue de baisser.
 
 > **Conditions de Robbins-Monro** (*Robbins-Monro conditions*, énoncées). Quand les $x_n$ sont des mesures bruitées d'une même cible, une **approximation stochastique** (*stochastic approximation*) de la forme ci-dessus converge vers la cible, avec la probabilité 1 et sous des hypothèses de régularité, si
 > $$\sum_n\alpha_n = \infty \qquad \text{et} \qquad \sum_n\alpha_n^2 < \infty .$$
@@ -498,9 +498,9 @@ $$\delta_t = R_t + \gamma\,W(S_{t+1}) - W(S_t) .$$
 
 *Démonstration.* Par linéarité, $\mathbb{E}[R_t \mid S_t = s] = r(s)$ et $\mathbb{E}[W(S_{t+1}) \mid S_t = s] = (\mathbf{P}\mathbf{W})(s)$ (§1). Le résidu est nul si et seulement si $\mathbf{W}$ est un point fixe de $\mathcal{T}$, et le seul est $\mathbf{V}$ (§6). $\square$
 
-**Exemple : la boutique, avec les vraies valeurs.** Depuis l'étagère pleine, trois transitions sont possibles. Rien n'est vendu : $\delta = 0 + 0{,}85 \times 33{,}48 - 33{,}48 \approx -5{,}02$. Un article : $\delta = 10 + 0{,}85 \times 28{,}13 - 33{,}48 \approx 0{,}43$. Deux : $\delta = 20 + 0{,}85 \times 23{,}46 - 33{,}48 \approx 6{,}46$. Aucune erreur n'est nulle, mais leur moyenne $0{,}3 \times (-5{,}02) + 0{,}5 \times 0{,}43 + 0{,}2 \times 6{,}46$ l'est (aux arrondis près). Avec l'estimation grossière $\mathbf{W} = \mathbf{V}_1 = \mathbf{r}$ du §6, l'erreur TD moyenne est $\mathcal{T}(\mathbf{W}) - \mathbf{W} = \mathbf{V}_2 - \mathbf{V}_1 = (7{,}65 ;\ -1{,}19 ;\ 4{,}42)$ : ce qu'ajouterait une itération. Moyenner des erreurs TD estime donc le résidu sans connaître $\mathbf{P}$ : c'est l'idée des méthodes de workbookIA 26.
+**Exemple : la boutique, avec les vraies valeurs.** Depuis l'étagère pleine, trois transitions sont possibles. Rien n'est vendu : $\delta = 0 + 0{,}85 \times 33{,}48 - 33{,}48 \approx -5{,}02$. Un article : $\delta = 10 + 0{,}85 \times 28{,}13 - 33{,}48 \approx 0{,}43$. Deux : $\delta = 20 + 0{,}85 \times 23{,}46 - 33{,}48 \approx 6{,}46$. Aucune erreur n'est nulle, mais leur moyenne $0{,}3 \times (-5{,}02) + 0{,}5 \times 0{,}43 + 0{,}2 \times 6{,}46$ l'est (aux arrondis près). Avec l'estimation grossière $\mathbf{W} = \mathbf{V}_1 = \mathbf{r}$ du §6, l'erreur TD moyenne est $\mathcal{T}(\mathbf{W}) - \mathbf{W} = \mathbf{V}_2 - \mathbf{V}_1 = (7{,}65 ;\ -1{,}19 ;\ 4{,}42)$ : ce qu'ajouterait une itération. Moyenner des erreurs TD estime donc le résidu sans connaître $\mathbf{P}$.
 
-> **Le télescopage** (∂ M26.13). Sur un épisode qui finit au pas $T$, avec la valeur 0 à la fin, et $\delta_t = R_t + \gamma V(S_{t+1}) - V(S_t)$ pour la vraie valeur :
+> **Le télescopage** (∂ M26.13). Sur un épisode qui finit au pas $T$, avec la valeur 0 à la fin, et $\delta_t = R_t + \gamma V(S_{t+1}) - V(S_t)$ pour une fonction $V$ des états qui vaut 0 à la fin :
 > $$\sum_{k=0}^{T-t-1}\gamma^k\,\delta_{t+k} = G_t - V(S_t), \qquad G_t = \sum_{k=0}^{T-t-1}\gamma^k R_{t+k} .$$
 > **Une récompense ajoutée** (*reward shaping*, ∂ M26.13). Ajouter $\gamma\,\Phi(s') - \Phi(s)$ à chaque récompense, pour une fonction $\Phi$ des états nulle à la fin, décale chaque valeur de $-\Phi(s)$.
 
@@ -508,27 +508,27 @@ L'idée commune : dans la somme pondérée par $\gamma^k$, les termes en $V$ (ou
 
 ### Le biais du maximum
 
-On estime plusieurs options avec du bruit, on garde la meilleure estimée, et l'on annonce son estimation : elle est trop belle.
+On estime plusieurs options avec du bruit, on garde la meilleure estimée, et l'on annonce son estimation : elle est trop belle. C'est le **biais du maximum** (*maximization bias*).
 
 > **Propriété.** Pour des estimations $\hat{X}_1, \ldots, \hat{X}_k$, $\mathbb{E}\big[\max_i\hat{X}_i\big] \ge \max_i\mathbb{E}[\hat{X}_i]$.
 
-*Démonstration.* Pour chaque $i$, $\max_j\hat{X}_j \ge \hat{X}_i$, donc $\mathbb{E}[\max_j\hat{X}_j] \ge \mathbb{E}[\hat{X}_i]$ ; c'est vrai pour tout $i$, donc pour le plus grand. (C'est aussi l'inégalité de Jensen de M06, le maximum étant convexe.) $\square$
+*Démonstration.* Pour chaque $i$, $\max_j\hat{X}_j \ge \hat{X}_i$, donc $\mathbb{E}[\max_j\hat{X}_j] \ge \mathbb{E}[\hat{X}_i]$ ; c'est vrai pour tout $i$, donc pour le plus grand. (C'est aussi l'inégalité de Jensen de M06, étendue aux fonctions convexes de plusieurs variables : le maximum en est une.) $\square$
 
 > **Propriété.** Si $Z_1$ et $Z_2$ sont indépendantes de loi $\mathcal{N}(0, 1)$, $\mathbb{E}[\max(Z_1, Z_2)] = \frac{1}{\sqrt\pi} \approx 0{,}564$.
 
-*Démonstration.* $\max(u, v) = \frac{u + v}{2} + \frac{\lvert u - v\rvert}{2}$. D'une part $\mathbb{E}[Z_1 + Z_2] = 0$. D'autre part $W = Z_1 - Z_2$ suit $\mathcal{N}(0, 2)$ (M25a), et pour $W \sim \mathcal{N}(0, s^2)$, $\mathbb{E}\lvert W\rvert = 2\int_0^\infty w\,\frac{e^{-w^2/(2s^2)}}{s\sqrt{2\pi}}\,\mathrm{d}w = \frac{2s^2}{s\sqrt{2\pi}} = s\sqrt{\frac{2}{\pi}}$. Avec $s = \sqrt2$ : $\mathbb{E}\lvert Z_1 - Z_2\rvert = \frac{2}{\sqrt\pi}$, et $\mathbb{E}[\max(Z_1, Z_2)] = \frac12 \times \frac{2}{\sqrt\pi} = \frac{1}{\sqrt\pi}$. $\square$
+*Démonstration.* $\max(u, v) = \frac{u + v}{2} + \frac{\lvert u - v\rvert}{2}$. D'une part $\mathbb{E}[Z_1 + Z_2] = 0$. D'autre part $D = Z_1 - Z_2$ suit $\mathcal{N}(0, 2)$ (M02b §6), et pour $D \sim \mathcal{N}(0, \sigma^2)$, $\mathbb{E}\lvert D\rvert = 2\int_0^\infty w\,\frac{e^{-w^2/(2\sigma^2)}}{\sigma\sqrt{2\pi}}\,\mathrm{d}w = \frac{2\sigma^2}{\sigma\sqrt{2\pi}} = \sigma\sqrt{\frac{2}{\pi}}$. Avec $\sigma = \sqrt2$ : $\mathbb{E}\lvert Z_1 - Z_2\rvert = \frac{2}{\sqrt\pi}$, et $\mathbb{E}[\max(Z_1, Z_2)] = \frac12 \times \frac{2}{\sqrt\pi} = \frac{1}{\sqrt\pi}$. $\square$
 
-Donc deux options de **même** moyenne $\mu$, estimées indépendamment avec un écart-type $s$ chacune (et des erreurs gaussiennes), donnent une meilleure estimation de moyenne $\mu + \frac{s}{\sqrt\pi}$ : c'est la **malédiction du vainqueur** (*winner's curse*) des enchères, où celui qui gagne est souvent celui qui a le plus surestimé. Avec plus d'options, le biais grandit.
+Donc deux options de **même** moyenne $\mu$, estimées indépendamment avec un écart-type $\sigma$ chacune (et des erreurs gaussiennes), donnent une meilleure estimation de moyenne $\mu + \frac{\sigma}{\sqrt\pi}$ : c'est la **malédiction du vainqueur** (*winner's curse*) des enchères, où celui qui gagne est souvent celui qui a le plus surestimé. Avec plus d'options, le biais grandit.
 
-**Exemple : deux réglages d'un modèle.** Deux réglages ont la même précision réelle, 72 %, et chacun est mesuré sur ses propres 400 exemples de validation : l'écart-type de chaque mesure vaut $s = \sqrt{0{,}72 \times 0{,}28/400} \approx 2{,}245$ points (M02c). Le meilleur score mesuré vaut en moyenne $72 + \frac{s}{\sqrt\pi} \approx 72 + 1{,}27 = 73{,}27$ % : 1,27 point d'optimisme, sans aucune différence réelle. (Mesurés sur les mêmes exemples, les deux scores seraient corrélés, et le biais plus petit.)
+**Exemple : deux réglages d'un modèle.** Deux réglages ont la même accuracy réelle, 72 %, et chacun est mesuré sur ses propres 400 exemples de validation : l'écart-type de chaque mesure vaut $\sigma = \sqrt{0{,}72 \times 0{,}28/400} \approx 2{,}245$ points (M02c). Le meilleur score mesuré vaut en moyenne $72 + \frac{\sigma}{\sqrt\pi} \approx 72 + 1{,}27 = 73{,}27$ % : 1,27 point d'optimisme, sans aucune différence réelle. (Mesurés sur les mêmes exemples, les deux scores seraient corrélés, et le biais plus petit.)
 
 > **L'estimateur double** (*double estimator*). Choisir l'option $\hat\imath$ avec un premier échantillon, puis mesurer **cette** option sur un second, indépendant : sa moyenne est $\mathbb{E}[\mu_{\hat\imath}] \le \max_i\mu_i$ ; pas de biais vers le haut.
 
 *Démonstration.* $\hat\imath$ ne dépend que du premier échantillon ; sachant $\hat\imath = i$, la mesure sur le second a pour espérance $\mu_i$. Par l'espérance totale, sa moyenne est $\mathbb{E}[\mu_{\hat\imath}]$, une moyenne de $\mu_i$, donc au plus $\max_i\mu_i$. $\square$
 
-Quand toutes les options se valent, elle est sans biais ; sinon, elle est même un peu pessimiste, parce qu'elle choisit parfois une option moins bonne. C'est pourquoi un modèle **choisi** sur la validation s'évalue sur un ensemble de test **séparé** : son score de validation est optimiste.
+Quand toutes les options se valent, elle est sans biais ; sinon, elle est même un peu pessimiste, parce qu'elle choisit parfois une option moins bonne. C'est pourquoi un modèle **choisi** sur la validation s'évalue sur un jeu de test **séparé** : son score de validation est optimiste.
 
-![À gauche, l'histogramme de 20 000 expériences simulées : pour deux réglages de même précision réelle 72 %, mesurés chacun sur 400 exemples, l'écart entre le meilleur score mesuré et 72 % (moyenne ≈ +1,28 point, proche de s/√π ≈ 1,27), et celui de l'estimateur double, qui remesure le réglage choisi sur 400 nouveaux exemples (moyenne ≈ 0). À droite, la densité de max(Z₁, Z₂) comparée à celle de la loi normale centrée réduite, avec les moyennes 1/√π ≈ 0,564 et 0](figures/biais_maximum.png)
+![À gauche, l'histogramme de 20 000 expériences simulées : pour deux réglages de même accuracy réelle 72 %, mesurés chacun sur 400 exemples, l'écart entre le meilleur score mesuré et 72 % (moyenne ≈ +1,28 point, proche de σ/√π ≈ 1,27), et celui de l'estimateur double, qui remesure le réglage choisi sur 400 nouveaux exemples (moyenne ≈ 0). À droite, la densité de max(Z₁, Z₂) comparée à celle de la loi normale centrée réduite, avec les moyennes 1/√π ≈ 0,564 et 0](figures/biais_maximum.png)
 
 💻 **Aujourd'hui en pratique** — séparer la validation (pour choisir) et le test (pour mesurer) est la parade standard ; la validation croisée imbriquée en est la version soignée.
 
@@ -545,11 +545,11 @@ Quand toutes les options se valent, elle est sans biais ; sinon, elle est même 
 - **Bellman** : $\gamma$ devant $\mathbf{P}$, jamais devant $\mathbf{r}$ ; un état terminal ne rapporte rien ; $\gamma = 1$ seulement si la fin est sûre ; on résout, on n'inverse pas.
 - **L'itération** : une contraction en norme $\infty$ ; le dernier changement n'est pas l'erreur (facteur $\frac{\gamma}{1-\gamma}$) ; synchrone et en place ne donnent pas les mêmes itérés.
 - **Le maximum** : $\max\mathbf{x} - \max\mathbf{y} \ne \max(\mathbf{x} - \mathbf{y})$ ; avec un maximum, plus de système linéaire.
-- **Les échantillons** : le pas constant ne se fixe pas ; une erreur TD isolée n'est pas le résidu ; le maximum d'estimations bruitées surestime, l'estimateur double non.
+- **Les échantillons** : le pas constant ne se fixe pas ; une erreur TD isolée n'est pas le résidu ; la meilleure de plusieurs mesures bruitées est trop belle en moyenne, la même option remesurée sur un échantillon neuf ne l'est pas.
 
 ## Et maintenant
 
-**Dans ce dépôt** : M27 passe aux jeux à deux joueurs et aux distances entre lois ; M28 tire des échantillons d'une loi donnée ; MB5 fera converger une chaîne de Markov vers sa loi stationnaire pour fabriquer des données ; MB8 dérivera la valeur d'une politique par rapport à ses paramètres, avec la loi d'occupation actualisée du §5 et le télescopage du §8.
+**Dans ce dépôt** : M27 passe aux jeux à deux joueurs et aux distances entre lois ; M28 passe à la matrice de Gram, à la montée sur l'entrée et aux lois catégorielles modifiées (température, top-k, top-p) ; MB5 fera converger une chaîne de Markov vers sa loi stationnaire pour fabriquer des données ; MB8 dérivera la valeur d'une politique par rapport à ses paramètres, avec la loi d'occupation actualisée du §5 et le télescopage du §8.
 
 **Dans workbookIA** : le chapitre 26 traite l'apprentissage par renforcement. Tu y reconnaîtras un MDP et ses probabilités $P(s' \mid s, a)$, des politiques déterministes et stochastiques, le retour actualisé et son facteur $\gamma$, la valeur d'un état et celle d'une action, l'équation d'optimalité de Bellman et son itération, des états terminaux de valeur nulle, des estimations mises à jour par une erreur TD avec un pas, et la surestimation due au maximum.
 
@@ -558,6 +558,6 @@ Quand toutes les options se valent, elle est sans biais ; sinon, elle est même 
 - J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd., en ligne gratuitement, `annexes/ressources.md`) : ch. 9 (l'espérance conditionnelle et la propriété de la tour, qu'ils appellent *Adam's law*) et ch. 11 (les chaînes de Markov : classification des états, loi stationnaire, chaînes réversibles).
 - R. S. Sutton et A. G. Barto, *Reinforcement Learning: An Introduction*, 2ᵉ éd., MIT Press, 2018 (version en ligne gratuite mise à disposition par les auteurs) : §3.5 et §3.6 (politiques, valeurs, équations de Bellman), §4.1 à §4.4 (évaluation d'une politique par itérations synchrones et en place, amélioration, itération sur les valeurs).
 - J. R. Norris, *Markov Chains*, Cambridge University Press, 1997 : ch. 1 (analyse au premier pas, convergence vers la loi stationnaire, avec les démonstrations admises ici).
-- D. A. Levin, Y. Peres et E. L. Wilmer, *Markov Chains and Mixing Times*, 2ᵉ éd., American Mathematical Society, 2017 : la vitesse de convergence, le trou spectral.
-- T. S. Ferguson, *Optimal Stopping and Applications*, notes de cours (UCLA) : les problèmes d'arrêt optimal, dont la vente d'un bien face à des offres indépendantes.
+- D. A. Levin, Y. Peres et E. L. Wilmer, *Markov Chains and Mixing Times*, 2ᵉ éd., American Mathematical Society, 2017 : ch. 4 (la distance à la loi stationnaire et le temps de mélange) et ch. 12 (les valeurs propres et le trou spectral).
+- T. S. Ferguson, *Optimal Stopping and Applications*, notes de cours (UCLA) : ch. 3 (§3.2, le principe d'optimalité et l'équation d'optimalité) et ch. 4 (§4.1, la vente d'un bien face à des offres indépendantes, avec ou sans rappel).
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

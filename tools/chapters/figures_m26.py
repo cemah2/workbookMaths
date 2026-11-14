@@ -201,7 +201,7 @@ def pagerank_values() -> np.ndarray:
 
 
 def pagerank() -> None:
-    """§2: the web of four pages, node areas proportional to the PageRank."""
+    """§2: the web of four pages, node sizes increasing with the PageRank."""
     pr = pagerank_values()
     pos = {0: (0.0, 0.0), 1: (2.6, 1.3), 2: (2.6, -1.3), 3: (-2.4, -1.3)}
     fig, ax = plt.subplots(figsize=(7.4, 4.4))
@@ -380,7 +380,7 @@ def max_bias() -> None:
     ax.axvline(100 * s / math.sqrt(math.pi), color=C[1], lw=2, ls="--")
     ax.axvline(0, color=C[0], lw=2, ls="--")
     ax.set(xlabel="score annoncé − 72 (points)", ylabel=f"nombre (sur {N_EXPERIMENTS // 1000} 000 expériences)",
-           title=f"Deux réglages à 72 % : +s/√π ≈ +{fr(100 * s / math.sqrt(math.pi), 2)} point (s ≈ {fr(100 * s, 3)})")
+           title=f"Deux réglages à 72 % : +σ/√π ≈ +{fr(100 * s / math.sqrt(math.pi), 2)} point (σ ≈ {fr(100 * s, 3)})")
     ax.set_ylim(0, 1.32 * ax.get_ylim()[1])
     ax.legend(fontsize=9.2, loc="upper left")
     ax.grid(alpha=0.25)

@@ -761,7 +761,7 @@ CHAPTERS = [
                      ("probabilité conditionnelle, probabilités totales", "M03"),
                      ("inégalité de Jensen", "M06"),
                      ("systèmes linéaires, inverse d'une matrice", "M09a"),
-                     ("moyenne incrémentale, ε-greedy (une politique stochastique)", "M11"),
+                     ("ε-greedy (une politique stochastique) ; la moyenne incrémentale est celle de workbookIA 11, démontrée par son ∂ 11.2", "M11"),
                      ("valeurs propres, diagonalisation et puissances, méthode de la puissance", "M12c"),
                      ("puissances d'une matrice d'adjacence : sommes sur les chemins d'un graphe", "M16"),
                      ("itérations linéaires, point fixe, itération de Richardson", "M19"),
