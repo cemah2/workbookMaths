@@ -81663,7 +81663,7 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "e63beeaa759f05f08d8ecc0a2f90f1e033c4bb7613a30b18e8838e66d19df09d"
+          "77bcb52c7e18fbe4ce29d4bd11b0bd6ff5bed162b91ac0ecaac2d39ae2dd3fd2"
         ],
         [
           "49b4178eb462b0088087f174aeaa95d09801c9c63673fc77bf18ba1d8d3338ce"
@@ -81671,9 +81671,9 @@
       ],
       "element_coarse_any": [
         [
-          "ce59469a7004d103eb1afc58f8a8288ea91a19f4b6ce8fabd45da18e502d36f5",
-          "73767171e7dc047885e147d11643a87de5af36da3951a42f2ef57c4915342849",
-          "7939145e491369010297c121b60ed5e6352da1721bd624b67f5f2b27b9b4747b"
+          "501336120a66990192ab97a0153059d3c852dac2270bb15444c7ce497380d0b9",
+          "a55d03af46dccb850e226d6c4ab30d645d8274de78f6a0ad960df83f85b0f75f",
+          "0d7f01c44d321bfb9ef511c3e397ae600d1a589f2cc3de73c16ad5212451d8ac"
         ],
         [
           "eed426f544ad119da115b1802a16a14c68ba8d2b1666c18c006c52ce43c4c5f2",
@@ -81682,13 +81682,13 @@
         ]
       ],
       "element_hashes": [
-        "5b3b38e43644bba16155dc417b68507bdd7ddec0de193237ab1c62dd851c4699",
+        "a1ed1261501d1c1d78a9f838659b0c7bccb1f1efc5ca674e66fe3a38ff8edf68",
         "166a3b9a3eab5461b7c472d2ec0eb74e9dc53f22122d4ff106cae1709e5a13ef"
       ],
-      "hash": "013eaac83d1f7ad7e7244210885f41c46547004574466110da14f7f7844e8e49",
+      "hash": "cdf89b76ec0227dfcb829b5a7aa7f250ea6fca2fa547f0e91bcd3005e9d47877",
       "kind": "array",
       "mistakes": {
-        "cdcc02a187cafeeabeead06c3095284ab55405ddf48dda51e727bd965e1d3811": "la moyenne d'un mélange pondère chaque moyenne par la proportion de sa variété"
+        "53c2c3d15a890dc25d25213510b72d28dfd52f305c8c5cd6b42dc98aa533d077": "la moyenne d'un mélange pondère chaque moyenne par la proportion de sa variété"
       },
       "shape": [
         2
@@ -81839,7 +81839,7 @@
       "hash": "1d94259b129eccd53362454637522421b0819ebdb6d10b71487924a5451a08c1",
       "kind": "array",
       "mistakes": {
-        "46721767b8e4341a4cac2be751797b2d3a8c2aaa9908021e966018931c700b1f": "Σ π_k(Σ_k + μ_k μ_kᵀ) est un moment d'ordre 2 autour de 0, pas une covariance",
+        "b1957fb1a9b33b0971a7a3eeb54fe908e16a42fe7da1b5cc2cd66365e505f552": "Σ π_k(Σ_k + μ_k μ_kᵀ) est un moment d'ordre 2 autour de 0, pas une covariance",
         "e458e2e7f7e14ea92a1b7866552c1e06dd98ee97c9f306270bd15c4e3ee9f80c": "la covariance d'un mélange ne se réduit pas à la moyenne des covariances des composantes (fiche §2)"
       },
       "shape": [
@@ -81934,7 +81934,7 @@
       "mistakes": {
         "0a2d6d4bce4a540a32d595c0e4c1c59f5461d68417a1582c3ee663e3c1f8cbc9": "a_ik contient ln π_k : la proportion compte dans la responsabilité",
         "1d1a7a358f2d4d5e489fb1ac67a6caf8d1bb1ed298f640d2254095b3924f4509": "donne la responsabilité de la série 1 (moyenne 47 Ω), pas celle de la série 2",
-        "48ab46f271523d8bd2bc7e4c038cc5ccb074154120e05d320b5fea0565d444f6": "N(x | μ, σ²) se calcule avec la variance σ² de chaque série, pas avec l'écart-type σ"
+        "c08968c55345f31d62d843887e16f7cccecc2126c95f4c333ba78f038ad931e1": "le second paramètre de N(μ, σ²) est une variance : 2,5 n'est pas un écart-type"
       },
       "shape": [
         4
@@ -82066,8 +82066,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "4e1b198f1d971aff93fb66d7a2f4b673ca2343a733ae051065876f8e35142d96": "la log-vraisemblance garde toute la somme sur les composantes (log-sum-exp), pas le plus grand terme",
-        "f0ad7b065112777ddf35519feab89277d807771d645dd4b9dab5406475b6f1ec": "le logarithme d'une somme n'est pas la somme des logarithmes"
+        "06b1f1c16042053cf9198e893d896358560a18ddb6d8298bf6bf00237907a879": "le logarithme d'une somme pondérée n'est pas la somme pondérée des logarithmes : ln Σ_k π_k N ≠ Σ_k π_k ln N",
+        "4e1b198f1d971aff93fb66d7a2f4b673ca2343a733ae051065876f8e35142d96": "la log-vraisemblance garde toute la somme sur les composantes (log-sum-exp), pas le plus grand terme"
       },
       "sign": -1,
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
@@ -82127,7 +82127,7 @@
       "mistakes": {
         "636ef209c9c3da653252b8cac1872fb6c278e46d3689e535d7c4440d7b6e40bc": "p(x) somme les deux termes π_k N(x | μ_k, σ_k²), pas le plus grand",
         "65676c6ccdf16ed3b968db630384fa78da11b631934c78a2be0d5673bab253cb": "p(x) pondère chaque densité par la probabilité a priori de l'état",
-        "d27579a2ead4ae5830ed85e48c6be68f011181be22ed8ca90b86c310b99a86f2": "le second paramètre de N(1 ; 0,25) est la variance σ², pas l'écart-type σ",
+        "a18ab4ac7ff75e09594d7efd3b8b01ac34d0ae568bb5f7cade276d4f0c066ff6": "le second paramètre de N(1 ; 0,25) est une variance",
         "e9abf379b8d9a8d1e339cdfc643ba16ec6db1ca4b4f39335dce292b914dd2794": "p(x) somme les deux termes π_k N(x | μ_k, σ_k²), pas le plus grand"
       },
       "sign": -1,
@@ -83325,7 +83325,7 @@
       "kind": "array",
       "mistake_decimals": 2,
       "mistakes": {
-        "c42bef4cfe9199cb1dc0ac6a773efdcb9d82ce95abfd1f0c48a72958b6e67a56": "si q(z | x) ne dépend pas de x, le code ne transmet aucune information sur la source"
+        "c42bef4cfe9199cb1dc0ac6a773efdcb9d82ce95abfd1f0c48a72958b6e67a56": "recalcule I(X ; Z) avec la loi jointe du code effondré : ce n'est plus celle de d)"
       },
       "shape": [
         2
@@ -84002,20 +84002,22 @@
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },
     "M25b.24a": {
-      "hash": "194565508c998095c91782170b8e8d00ceaeaf7e67b014b90344a726e95583a2",
-      "kind": "str",
+      "hash": "40fcd90594cd7e5cc1323a12062ce6a356bc98f78b1f567e8870bb8fb483ff20",
+      "kind": "int",
+      "magnitude": 0,
       "mistakes": {
-        "479452ce621f2576ed87682d7ed30251ee49e72ab2614881e9dfa0dd9c6650ed": "regarde ce que font les exemples de la documentation avec les angles rendus",
-        "77feec48cef4878b84ad3b8f041eec73b9f7f64c39f28bc357504075b51d17af": "regarde ce que font les exemples de la documentation avec les angles rendus",
-        "ef9514d7736a7b1f13b51defbcf5a93c15b18918048ce95440a85290fb52bc23": "relis la phrase de la documentation sur l'ordre des angles rendus (Returns)"
+        "0d5377d0bb8eb9abbd69b12f0ae39905be3706a3af29bff09a849d5be5f42b77": "N et K comptent les colonnes des deux matrices (les vecteurs de base), pas la dimension de l'espace",
+        "eb87134b19de5406bd7daf099e4545abc41df161cd22d011ac5a5782e8fe9afa": "N et K comptent les colonnes des deux matrices (les vecteurs de base), pas la dimension de l'espace",
+        "fae7fe901c0f0660ec5980ed3cf894e5231a443def7f0d360bd1fa5190b90cfd": "la forme annoncée dans Returns dépend des deux sous-espaces : N et K sont leurs nombres de colonnes"
       },
+      "sign": 1,
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },
     "M25b.24b": {
       "hash": "876ac9d22a487c7d762229e137c9c9bfb0551c3551f7b624805746f54f4b1e9e",
       "kind": "bool",
       "mistakes": {
-        "783b77b261b8979ce19d839283704094998363101c49f7668988dd85caaac412": "les angles principaux ne dépendent pas des bases : range les cosinus du plus grand au plus petit avant de comparer"
+        "783b77b261b8979ce19d839283704094998363101c49f7668988dd85caaac412": "les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés comme le dit l'énoncé"
       },
       "source": "chapitres/m25b_variables_latentes/05_solutions.ipynb"
     },

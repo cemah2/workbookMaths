@@ -34,7 +34,7 @@ corrected functions of M25b.28), 6069 and 6081 (the mixtures and the draws of th
 0.4 N(37, 6.25) for M25b.27, another mixture of three regimes for M25b.30), never the test cases of
 tests/test_m25b_latent.py nor the examples of the docstrings of the stubs latent, gaussian and approx (no measurements
 (0.5, 2, 3.5, 6) with the weights (0.4, 0.6), the means 1 and 5 and the variances 1 and 2, no point 1000, no points
-(0, 0), (1, 0), (0, 2), (4, 4), (5, 3), no reg = 0.1 on them), nor the examples of the fiche (no station π = (1/4, 3/4),
+(0, 0), (1, 0), (0, 2), (4, 4), (5, 3), no reg = 0.1, the example of gmm_m_step), nor the examples of the fiche (no station π = (1/4, 3/4),
 N(11, 4), N(3, 9), x = 8 or 250 °C, no mornings 2, 5, 8, 12, 13 °C, no boiler, no plots w = (3, 2), σ² = 2, no
 eigenvalues 27, 18, 3, 1, no line (1, 4, 0), no bulb, no binary code (0.7, 0.3)), nor those of M25a.
 
@@ -45,7 +45,7 @@ the numbers of its exercises. The bug (1) of M25b.28 computes the responsibiliti
 (2) divides the variances of the M step by n, (3) forgets the entropy of q in the ELBO: three functions in dimension 1
 (x, weights, means, sds), never a network. The property test of M25b.29 counts its failures and is run on the M step of
 the reference, on the wrong M step of the statement (the means divided by n) and on hidden wrong ones (covariances twice
-too large, reg = 0.1). The check of M25b.30 compares the fit to the exact model, then fits another mixture.
+too large, reg = 0.2). The check of M25b.30 compares the fit to the exact model, then fits another mixture.
 """
 
 from __future__ import annotations
@@ -143,7 +143,7 @@ PAPER = [
         ("a", "a list of 4 numbers (4 decimals)", "R_3[:, 0].tolist()",
          '''decimals=4,
            mistakes={"a_ik contient ln π_k : la proportion compte dans la responsabilité": NO_WEIGHTS_3[:, 0].tolist(),
-                     "N(x | μ, σ²) se calcule avec la variance σ² de chaque série, pas avec l'écart-type σ":
+                     "le second paramètre de N(μ, σ²) est une variance : 2,5 n'est pas un écart-type":
                          WITH_SD_3[:, 0].tolist(),
                      "donne la responsabilité de la série 1 (moyenne 47 Ω), pas celle de la série 2": R_3[:, 1].tolist()}'''),
         ("b", "a list of 2 numbers (4 decimals)", "W1_3.tolist()",
@@ -159,7 +159,8 @@ PAPER = [
                      "la variance pondérée divise par N_k, pas par n": weighted_ss_3(M1_3) / len(X_3)}'''),
         ("e", "a number (4 decimals)", "LL0_3",
          '''decimals=4,
-           mistakes={"le logarithme d'une somme n'est pas la somme des logarithmes": float(A_3.sum()),
+           mistakes={"le logarithme d'une somme pondérée n'est pas la somme pondérée des logarithmes : "
+                     "ln Σ_k π_k N ≠ Σ_k π_k ln N": float(np.sum(PI_3 * log_normal(X_3[:, None], MU_3, VAR_3))),
                      "la log-vraisemblance garde toute la somme sur les composantes (log-sum-exp), pas le plus grand "
                      "terme": float(A_3.max(axis=1).sum())}'''),
         ("f", "a number (4 decimals)", "LL1_3",
@@ -176,8 +177,8 @@ PAPER = [
            mistakes={"p(x) somme les deux termes π_k N(x | μ_k, σ_k²), pas le plus grand": float(A_6.max()),
                      "p(x) pondère chaque densité par la probabilité a priori de l'état":
                          float(np.log(np.exp(log_normal(X_6, MU_6, VAR_6)).sum())),
-                     "le second paramètre de N(1 ; 0,25) est la variance σ², pas l'écart-type σ":
-                         float(lse(np.log(PRIOR_6) + log_normal(X_6, MU_6, np.sqrt(VAR_6))))}'''),
+                     "le second paramètre de N(1 ; 0,25) est une variance":
+                         float(lse(np.log(PRIOR_6) + log_normal(X_6, MU_6, VAR_6 ** 2)))}'''),
         ("b", "a number (3 decimals)", "float(POST_6[1])",
          '''decimals=3,
            mistakes={"le posterior multiplie la densité par la probabilité a priori de l'état":
@@ -251,14 +252,14 @@ PAPER = [
         ("d", "a list of 2 numbers (4 decimals)", "floats(SV_10)",
          '''decimals=4,
            mistakes={"les valeurs singulières de M sont des longueurs, pas leurs carrés": floats(SV_10 ** 2)}'''),
-        ("e", "a list of 2 numbers (2 decimals)", "floats(np.degrees(np.arccos(SV_10)))",
+        ("e", "a list of 2 numbers (2 decimals)", "floats((np.arccos(SV_10) * 180 / np.pi))",
          '''decimals=2,
            mistakes={"la question demande des degrés": floats(np.arccos(SV_10)),
-                     "les angles se rangent du plus petit au plus grand, φ₁ ≤ φ₂": floats(np.degrees(np.arccos(SV_10))[::-1])}'''),
-        ("f", "a number (2 decimals)", "math.degrees(math.acos(abs(COS_LINES_10)))",
+                     "les angles se rangent du plus petit au plus grand, φ₁ ≤ φ₂": floats((np.arccos(SV_10) * 180 / np.pi)[::-1])}'''),
+        ("f", "a number (2 decimals)", "math.acos(abs(COS_LINES_10)) * 180 / math.pi",
          '''decimals=2,
            mistakes={"un angle principal est dans [0°, 90°] : une droite n'a pas de sens de parcours":
-                         math.degrees(math.acos(COS_LINES_10)),
+                         math.acos(COS_LINES_10) * 180 / math.pi,
                      "la question demande des degrés": math.acos(abs(COS_LINES_10))}'''),
         ("g", BOOL, "bool(np.allclose(np.linalg.svd(QA_10.T @ NORMED_B_10, compute_uv=False), SV_10))",
          '''mistakes={"des vecteurs seulement normés ne forment une base orthonormée que s'ils sont orthogonaux": True}'''),
@@ -350,7 +351,7 @@ PAPER = [
               ("f", BOOL, "bool(abs(AVERAGE_14 - INFO_14 - kl_14(QZ_14, PZ_14)) < 1e-12)",
                '''mistakes={"vérifie c) = d) + e) avec tes valeurs non arrondies": False}'''),
               ("g", "a list of 2 numbers", "[0, 0]",
-               '''mistakes={"si q(z | x) ne dépend pas de x, le code ne transmet aucune information sur la source":
+               '''mistakes={"recalcule I(X ; Z) avec la loi jointe du code effondré : ce n'est plus celle de d)":
                          [0, INFO_14]}'''),
               ("h", BOOL, "True",
                '''mistakes={"relis la propriété du posterior agrégé (fiche §8)": False}'''),
@@ -447,7 +448,7 @@ P_1 = float(JOINT_1.sum())
 POST_1 = JOINT_1 / P_1
 EQUAL_1 = DENS_1 / DENS_1.sum()                               # equal proportions: the densities alone
 P_2 = [Fraction(3, 5), Fraction(2, 5)]                        # M25b.2
-M_2 = [[Fraction(10), Fraction(7)], [Fraction(12), Fraction(8)]]
+M_2 = [[Fraction(11), Fraction(7)], [Fraction(13), Fraction(8)]]
 S_2 = [[[Fraction(1), Fraction(0)], [Fraction(0), Fraction(2, 5)]],
        [[Fraction(3, 2), Fraction(0)], [Fraction(0), Fraction(3, 10)]]]
 MEAN_2 = [sum(P_2[k] * M_2[k][i] for k in range(2)) for i in range(2)]
@@ -470,8 +471,8 @@ A_3 = np.log(PI_3) + log_normal(X_3[:, None], MU_3, VAR_3)    # a_ik, an (4, 2) 
 LSE_3 = row_lse(A_3)
 R_3 = np.exp(A_3 - LSE_3[:, None])
 NO_WEIGHTS_3 = np.exp(log_normal(X_3[:, None], MU_3, VAR_3) - row_lse(log_normal(X_3[:, None], MU_3, VAR_3))[:, None])
-WITH_SD_3 = np.exp((np.log(PI_3) + log_normal(X_3[:, None], MU_3, np.sqrt(VAR_3)))
-                   - row_lse(np.log(PI_3) + log_normal(X_3[:, None], MU_3, np.sqrt(VAR_3)))[:, None])
+WITH_SD_3 = np.exp((np.log(PI_3) + log_normal(X_3[:, None], MU_3, VAR_3 ** 2))         # 2.5 read as σ: σ² = 6.25
+                   - row_lse(np.log(PI_3) + log_normal(X_3[:, None], MU_3, VAR_3 ** 2))[:, None])
 N_3 = R_3.sum(axis=0)
 W1_3 = N_3 / len(X_3)
 M1_3 = (R_3 * X_3[:, None]).sum(axis=0) / N_3
@@ -1037,8 +1038,8 @@ NOISE_24 = 3.0                                             # σ²
 C_24 = np.outer(W_24, W_24) + NOISE_24 * np.eye(3)         # the marginal covariance w wᵀ + σ² I
 CANDIDATE_24 = np.array([15.0, 12.0, 15.0])'''
 
-NOTE_24 = (r"a) (B) : la documentation dit *in descending order*, et ses exemples convertissent en degrés par "
-           r"`np.rad2deg`. b) Vrai, pour les plans et pour les droites ($\cos = \frac{28}{81}$) : la fonction "
+NOTE_24 = (r"a) Un seul : la section *Returns* annonce un tableau de forme `(min(N, K),)`, les $\min(k_A, k_B)$ angles "
+           r"de la fiche (§6). b) Vrai, pour les plans et pour les droites ($\cos = \frac{28}{81}$) : la fonction "
            r"orthonormalise elle-même les bases, et ne dépend pas de leur choix. c) $\hat\sigma^2 \approx 3{,}09$ et "
            r"$\lVert\hat{\mathbf{w}}\rVert^2 \approx 8{,}95$ (le modèle avait 3 et 9), log-vraisemblance moyenne "
            r"$\approx -6{,}6280$ ; vrai ($-6{,}6267$ sous $\hat{\boldsymbol{\Sigma}}$), vrai ($-6{,}6325$), vrai "
@@ -1051,41 +1052,36 @@ M25B_24 = Ex(
     "covariance et comparer des vraisemblances.",
     "fiche §6 ; M12d, M25a ; Ex M25b.9 et M25b.10", tracks="C, E", given=GIVEN_24, note=NOTE_24,
     body=r"""La cellule fournie donne les deux plans de M25b.10 par leurs bases **non orthonormées** (`A_24` a pour colonnes $\mathbf{a}_1$ et $\mathbf{a}_2$, `B_24` a pour colonnes $\mathbf{b}_1$ et $\mathbf{b}_2$), les deux droites (`U_24`, `V_24`, des colonnes), et le modèle de M25b.9 (`W_24`, `MU_24`, `NOISE_24`, la covariance marginale `C_24`).
-- a) Lis la documentation de `scipy.linalg.subspace_angles` (`help(linalg.subspace_angles)` ou la page en ligne) : dans quelle unité et dans quel ordre rend-elle les angles ? (A) radians, croissants ; (B) radians, décroissants ; (C) degrés, croissants ; (D) degrés, décroissants (une lettre).
-- b) Applique-la aux deux plans (`angles_24`, le tableau rendu tel quel), puis aux deux droites : vrai ou faux, `np.cos` des angles rendus, rangés comme tes valeurs singulières de M25b.10 d), leur est égal à $10^{-12}$ près (et, pour les droites, au cosinus de ta réponse f) de M25b.10).
+- a) Lis la section *Returns* de la documentation de `scipy.linalg.subspace_angles` (`help(linalg.subspace_angles)` ou la page en ligne) : combien d'angles rend-elle pour un plan et une droite de $\mathbb{R}^4$ ? (un entier)
+- b) Applique-la aux deux plans (`angles_24`, le tableau rendu tel quel), puis aux deux droites : vrai ou faux : les cosinus des angles rendus, rangés par ordre décroissant (`np.sort(np.cos(angles))[::-1]`), sont égaux à tes valeurs singulières de M25b.10 d) à $10^{-12}$ près (et, pour les droites, au cosinus de ta réponse f) de M25b.10).
 - c) On tire 500 candidats du modèle de M25b.9 : `X = sample_mvn(MU_24, C_24, 500, seed=6054)` (ta `mymath.gaussian.sample_mvn`). Avec la covariance du maximum de vraisemblance $\hat{\boldsymbol{\Sigma}}$ (`np.cov(X, rowvar=False, bias=True)`) et ses valeurs et vecteurs propres par `np.linalg.eigh` (rangés par ordre **croissant** : retourne-les), ajuste l'ACP probabiliste à $k = 1$ par Tipping et Bishop (fiche §6) : $\hat\sigma^2$ et $\lVert\hat{\mathbf{w}}\rVert^2$, puis la log-vraisemblance moyenne par candidat sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\mathbf{w}}\hat{\mathbf{w}}^\top + \hat\sigma^2\mathbf{I})$, par ta `mvn_logpdf` ; et trois vrai ou faux : elle est plus petite que sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}})$ ; elle baisse si l'on remplace $\hat\sigma^2$ par $1{,}1\,\hat\sigma^2$ (même $\hat{\mathbf{w}}$) ; elle est plus grande que sous les vrais paramètres $\mathcal{N}(\boldsymbol{\mu}, \mathbf{C})$ (une liste de 6 : les trois nombres, puis les trois booléens ; 2, 2 et 4 décimales dans ta copie).
 - d) Le posterior du candidat noté $(15, 12, 15)$ (`CANDIDATE_24`), dans le vrai modèle, comme loi conditionnelle de la loi jointe de $(z, \mathbf{x})$ en dimension 4, par ta `condition_gaussian` : moyenne $(0, \boldsymbol{\mu})$, covariance par blocs $\begin{pmatrix} 1 & \mathbf{w}^\top \\ \mathbf{w} & \mathbf{C} \end{pmatrix}$, indices `[1, 2, 3]` ; la moyenne et la variance a posteriori (une liste de 2 nombres ; 4 décimales dans ta copie), à comparer à ta réponse d) de M25b.9.
 
 La vérification compare aussi `angles_24` au tableau que rend SciPy. Ce qu'il faut observer : la formule de Tipping et Bishop donne le maximum de vraisemblance parmi les modèles à un facteur ; le modèle complet a plus de paramètres et fait mieux sur ses propres données, comme l'estimation fait mieux que la vérité.""",
-    todo='''answer_M25b_24a = ...  # a) "A", "B", "C" or "D": the unit and the order of the angles of subspace_angles (read its documentation)
+    todo='''answer_M25b_24a = ...  # a) an integer: the number of angles that subspace_angles returns for a plane and a line of R⁴ (its section Returns)
 angles_24 = answer_M25b_24b = answer_M25b_24c = answer_M25b_24d = ...
 with wbm.attempt("M25b.24"):          # your sample_mvn, mvn_logpdf and condition_gaussian: ⏳ while they are not written
     angles_24 = ...        # the array that linalg.subspace_angles returns for the two planes (A_24, B_24), as returned
-    answer_M25b_24b = ...  # b) True or False: np.cos of the angles (planes, then lines), ordered like your singular values of M25b.10 d), equals them to 1e-12
+    answer_M25b_24b = ...  # b) True or False: the cosines of the angles (planes, then lines), in decreasing order, equal your singular values of M25b.10 d) to 1e-12
     answer_M25b_24c = ...  # c) a list of 6: σ̂², ‖ŵ‖², the mean log-likelihood per candidate (3 numbers, as computed), then 3 True or False: smaller than under N(x̄, Σ̂); lower with 1.1 σ̂²; larger than under N(μ, C)
     answer_M25b_24d = ...  # d) a list of 2 numbers, as computed: the posterior mean and variance of CANDIDATE_24 (condition_gaussian in dimension 4)''',
     check='''wbm.check("M25b.24a", answer_M25b_24a)
 with checked("M25b.24"):
     if filled(angles_24):
-        want_c24 = linalg.subspace_angles(A_24, B_24)
-        if matches(angles_24, np.degrees(want_c24)) or matches(angles_24, np.sort(want_c24)) or matches(
-                angles_24, np.degrees(np.sort(want_c24))):
-            print("❌ Ex M25b.24 : angles_24 doit être le tableau que rend subspace_angles, tel quel (sans conversion "
-                  "ni tri).")
-        else:
-            same("M25b.24", "angles_24, les angles rendus pour les deux plans", angles_24, want_c24)
+        same("M25b.24", "angles_24, le tableau que rend subspace_angles pour les deux plans, tel quel", angles_24,
+             linalg.subspace_angles(A_24, B_24))
     else:
         print("⏳ Ex M25b.24 : la comparaison attend tes angles angles_24.")
 ''' + answers_check("M25b.24", "bcd"),
     solution='''sample_mvn, mvn_logpdf = mymath.gaussian.sample_mvn, mymath.gaussian.mvn_logpdf
 condition_gaussian = mymath.gaussian.condition_gaussian
-print(linalg.subspace_angles.__doc__.split("Returns")[1].split("See Also")[0].strip())   # a) the documentation says
-answer_M25b_24a = "B"                                           # radians (its examples use np.rad2deg), descending
+answer_M25b_24a = len(linalg.subspace_angles(A_24, B_24[:, :1]))   # a plane and a line of R⁴: shape (min(N, K),)
 angles_24 = linalg.subspace_angles(A_24, B_24)
-sv_24 = np.linalg.svd(np.linalg.qr(A_24)[0].T @ np.linalg.qr(B_24)[0], compute_uv=False)   # descending
+sv_24 = np.linalg.svd(np.linalg.qr(A_24)[0].T @ np.linalg.qr(B_24)[0], compute_uv=False)   # decreasing
 cos_lines_24 = abs(float(U_24[:, 0] @ V_24[:, 0])) / (np.linalg.norm(U_24) * np.linalg.norm(V_24))
-answer_M25b_24b = bool(np.allclose(np.cos(angles_24)[::-1], sv_24, rtol=0, atol=1e-12)
+answer_M25b_24b = bool(np.allclose(np.sort(np.cos(angles_24))[::-1], sv_24, rtol=0, atol=1e-12)
                        and np.allclose(np.cos(linalg.subspace_angles(U_24, V_24)), cos_lines_24, rtol=0, atol=1e-12))
+print("a)", answer_M25b_24a, "angle pour un plan et une droite de R⁴")
 X_24 = sample_mvn(MU_24, C_24, 500, seed=6054)
 xbar_24 = X_24.mean(axis=0)
 S_24 = np.cov(X_24, rowvar=False, bias=True)                   # the maximum likelihood: divided by n
@@ -1108,17 +1104,18 @@ joint_mean_24 = np.concatenate([[0.0], MU_24])
 joint_cov_24 = np.block([[np.ones((1, 1)), W_24[None, :]], [W_24[:, None], C_24]])
 post_mean_24, post_cov_24 = condition_gaussian(joint_mean_24, joint_cov_24, [1, 2, 3], CANDIDATE_24)
 answer_M25b_24d = [float(post_mean_24[0]), float(post_cov_24[0, 0])]
-print("b)", np.round(angles_24, 6).tolist(), "rad ; cosinus", np.round(np.cos(angles_24), 6).tolist(), "→", answer_M25b_24b)
+print("b) cosinus triés", np.round(np.sort(np.cos(angles_24))[::-1], 6).tolist(), "→", answer_M25b_24b)
 print("c) valeurs propres", np.round(lam_24, 4).tolist(), "; σ̂² =", round(sigma2_24, 4), "; ‖ŵ‖² =",
       round(answer_M25b_24c[1], 4), "; par candidat :", round(ll_ppca_24, 6), "contre", round(mean_ll_24(xbar_24, S_24), 6),
       "(Σ̂) et", round(mean_ll_24(MU_24, C_24), 6), "(vrais paramètres)", answer_M25b_24c[3:])
 print("d)", np.round(answer_M25b_24d, 6).tolist())''',
-    record='''wbm.record("M25b.24a", "B",
-           mistakes={"relis la phrase de la documentation sur l'ordre des angles rendus (Returns)": "A",
-                     "regarde ce que font les exemples de la documentation avec les angles rendus": {"C", "D"}})
+    record='''wbm.record("M25b.24a", min(2, 1),                                # (min(N, K),): N and K columns of A and B
+           mistakes={"la forme annoncée dans Returns dépend des deux sous-espaces : N et K sont leurs nombres de colonnes": 2,
+                     "N et K comptent les colonnes des deux matrices (les vecteurs de base), pas la dimension de l'espace":
+                         {3, 4}})
 wbm.record("M25b.24b", True,
-           mistakes={"les angles principaux ne dépendent pas des bases : range les cosinus du plus grand au plus petit "
-                     "avant de comparer": False})
+           mistakes={"les angles principaux ne dépendent pas des bases choisies : compare les cosinus triés comme le dit "
+                     "l'énoncé": False})
 mu_24r, w_24r = np.array([12.0, 11.0, 13.0]), np.array([2.0, 1.0, 2.0])
 cov_24r = np.outer(w_24r, w_24r) + 3.0 * np.eye(3)
 X_24r = mu_24r + np.random.default_rng(6054).standard_normal((500, 3)) @ np.linalg.cholesky(cov_24r).T
@@ -2153,7 +2150,7 @@ CHECK_29 = r'''with checked("M25b.29"):
     wrong_c29 = (("le pas M faux de l'énoncé (m_step_means_over_n)", m_step_means_over_n),
                  ("un pas M faux que tu ne vois pas (des covariances deux fois trop grandes)",
                   lambda X, r: tuple(v * f for v, f in zip(ref_latent.gmm_m_step(X, r), (1.0, 1.0, 2.0)))),
-                 ("le pas M de la référence avec reg = 0.1", lambda X, r: ref_latent.gmm_m_step(X, r, reg=0.1)))
+                 ("le pas M de la référence avec reg = 0.2", lambda X, r: ref_latent.gmm_m_step(X, r, reg=0.2)))
     for label_c29, step_c29 in wrong_c29:
         found_c29 = totals_29(step_c29, label_c29)
         report_29(found_c29["descent"] >= 1, f"ton test compte des descentes avec {label_c29} ({found_c29['descent']})",
@@ -2190,9 +2187,9 @@ La cellule fournie donne `random_mixture_29(rng)`, qui tire un mélange (dimensi
 - a) Dans ta copie : justifie `tol = 1e-9` : de quel ordre sont les erreurs d'arrondi sur une somme de quelques centaines de termes ?
 - b) Sur 40 mélanges (`rng = np.random.default_rng(6061)`, puis `random_mixture_29(rng)` pour chacun, et ce même `rng` pour ton test), avec `gmm_m_step` sans régularisation et `n_iter = 30` : vrai ou faux, les trois compteurs restent nuls (un mélange où `gmm_e_step` lève une `ValueError`, une composante effondrée, se compte à part et se saute).
 - c) Vrai ou faux : sur les mêmes 40 mélanges (un nouveau `default_rng(6061)`), avec `m_step_means_over_n`, ton test compte au moins une descente.
-- d) Vrai ou faux : de même, avec `lambda X, r: gmm_m_step(X, r, reg=0.1)`, ton test compte au moins une descente.
+- d) Vrai ou faux : de même, avec `lambda X, r: gmm_m_step(X, r, reg=0.2)`, ton test compte au moins une descente.
 
-La vérification lance ton test sur deux mélanges que tu ne vois pas : avec le pas M de la référence (`ref_latent`), où ses compteurs doivent rester nuls, puis avec des pas M faux (celui de l'énoncé, un autre que tu ne vois pas, et `reg = 0.1`), où il doit compter des descentes ; un entier NumPy convient pour un compteur. Ce qu'il faut retenir : un test de propriété compte ses échecs sur beaucoup de cas tirés au hasard, avec une tolérance justifiée, et doit échouer sur un pas faux ; avec `reg > 0`, la monotonie n'est plus garantie.""",
+La vérification lance ton test sur deux mélanges que tu ne vois pas : avec le pas M de la référence (`ref_latent`), où ses compteurs doivent rester nuls, puis avec des pas M faux (celui de l'énoncé, un autre que tu ne vois pas, et `reg = 0.2`), où il doit compter des descentes ; un entier NumPy convient pour un compteur. Ce qu'il faut retenir : un test de propriété compte ses échecs sur beaucoup de cas tirés au hasard, avec une tolérance justifiée, et doit échouer sur un pas faux ; avec `reg > 0`, la monotonie n'est plus garantie.""",
     todo='''def em_property_test_29(X, weights, means, covs, m_step, n_iter, tol, rng):
     """n_iter iterations of EM from the given parameters: the E step of your gmm_e_step, then the M step m_step(X, resp).
     Returns {"bound": ..., "gap": ..., "descent": ...}: the number of iterations where the ELBO of a random table
@@ -2206,7 +2203,7 @@ answer_M25b_29b = answer_M25b_29c = answer_M25b_29d = ...
 with wbm.attempt("M25b.29"):          # your test and your library: ⏳ while they are not written
     answer_M25b_29b = ...  # b) True or False: on 40 mixtures (rng = np.random.default_rng(6061)), gmm_m_step, n_iter = 30, tol = 1e-9: the three counters stay at 0 (a mixture where gmm_e_step raises ValueError is skipped)
     answer_M25b_29c = ...  # c) True or False: with m_step_means_over_n, your test counts at least one descent
-    answer_M25b_29d = ...  # d) True or False: with lambda X, r: gmm_m_step(X, r, reg=0.1), your test counts at least one descent''',
+    answer_M25b_29d = ...  # d) True or False: with lambda X, r: gmm_m_step(X, r, reg=0.2), your test counts at least one descent''',
     check=answers_check("M25b.29", "bcd") + "\n\n" + CHECK_29,
     solution='''gmm_e_step, gmm_m_step = mymath.latent.gmm_e_step, mymath.latent.gmm_m_step
 gmm_log_likelihood, gmm_elbo = mymath.latent.gmm_log_likelihood, mymath.latent.gmm_elbo
@@ -2260,7 +2257,7 @@ with warnings.catch_warnings():
     warnings.simplefilter("ignore", RuntimeWarning)                   # a collapsing mixture divides 0 by 0
     totals_29, skipped_29, _ = run_40_29(gmm_m_step)
     over_n_29, skipped_n_29, cases_n_29 = run_40_29(m_step_means_over_n)
-    reg_29, skipped_reg_29, cases_reg_29 = run_40_29(lambda X, r: gmm_m_step(X, r, reg=0.1))
+    reg_29, skipped_reg_29, cases_reg_29 = run_40_29(lambda X, r: gmm_m_step(X, r, reg=0.2))
 answer_M25b_29b = all(v == 0 for v in totals_29.values())
 answer_M25b_29c = over_n_29["descent"] >= 1
 answer_M25b_29d = reg_29["descent"] >= 1
@@ -2280,7 +2277,7 @@ wbm.record("M25b.29d", True,
            mistakes={"avec reg > 0, le pas M ne maximise plus Q : la monotonie n'est plus garantie (fiche §4)": False})''',
     after=[
         ("todo_md", "**Dans ta copie** : a) la justification de `tol = 1e-9`."),
-        ("md", "**Après la vérification**, dans ta copie : pourquoi `m_step_means_over_n` et `reg = 0.1` font-ils "
+        ("md", "**Après la vérification**, dans ta copie : pourquoi `m_step_means_over_n` et `reg = 0.2` font-ils "
                "descendre l'ELBO, alors que le pas E ne la fait jamais baisser ? Que testerait en plus un test qui "
                "partirait d'un tableau `q` quelconque, avec un pas M d'abord ?"),
     ],
@@ -2433,8 +2430,8 @@ with checked("M25b.30"):
 NOTE_30 = (r"Avec `n_init=5`, `n_iter=300`, `reg=1e-6`, `seed=6080` : a) $\approx -3{,}3661$ ; b) $-3{,}3604$ ; c) "
            r"$\approx -3{,}4741$ à $K = 2$ (sous le seuil : deux régimes fusionnés) et $\approx -3{,}3977$ à $K = 6$ (des "
            r"composantes qui se spécialisent sur des points d'entraînement). L'ajustement à $K = 3$ a des poids à "
-           r"0,024 près, des moyennes à 0,14 près et des covariances à 0,15 près du modèle exact. Avec `reg=0.1`, la "
-           r"log-vraisemblance de test vaut encore $-3{,}3727$ et passe le critère.")
+           r"0,024 près, des moyennes à 0,14 près et des covariances à 0,15 près du modèle exact. Avec `reg=0.05`, la "
+           r"log-vraisemblance de test vaut $\approx -3{,}3632$ et passe aussi le critère.")
 
 M25B_30 = Ex(
     "M25b.30", "🏆", 3, 25, "Défi : retrouver trois populations de mesures en dimension 2 par l'EM, sous un seuil de "
@@ -2524,6 +2521,8 @@ for K_30 in range(1, 7):
     fit_K_30 = fit_gmm_30(X_TRAIN_30, K_30, **SETTINGS_30)
     train_30.append(gmm_log_likelihood(X_TRAIN_30, *fit_K_30) / 600)
     test_30.append(gmm_log_likelihood(X_TEST_30, *fit_K_30) / 400)
+reg_fit_30 = fit_gmm_30(X_TRAIN_30, 3, n_init=5, n_iter=300, reg=0.05, seed=6080)
+print("avec reg = 0.05 : log-vraisemblance moyenne de test", round(gmm_log_likelihood(X_TEST_30, *reg_fit_30) / 400, 4))
 print("entraînement :", np.round(train_30, 4).tolist())
 print("test         :", np.round(test_30, 4).tolist())
 fig_k30, ax_k30 = plt.subplots(figsize=(6.5, 3.6))
