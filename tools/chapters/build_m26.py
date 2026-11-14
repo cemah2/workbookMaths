@@ -19,7 +19,7 @@ with the advertising revenues of M26.26, and their own random draws. Seeds 6201 
 criterion of M26.26), 6226 and 6227 (the pilot simulations of the solution of M26.26: any seed suits the learner); and,
 for the hidden cases of the check cells, 6201 (the chains of in_place_sweeps_19), 6202 (the chain of
 power_stationary_20), 6204 (the cases of the corrected functions of M26.24), 6223 (max_bias_22), 6241 and 6242 (the two
-hidden starts of the property test of M26.25), 6243 to 6246 (the hidden chains and the draws of M26.26). γ is taken
+hidden starts of the property test of M26.25), 6243 and 6245 (the draws on the two hidden chains of M26.26). γ is taken
 among 0.6, 0.7, 0.85 and 0.96 only (and γ = 1 for a sure end). The check cells use their own chains (handwritten or drawn
 with these seeds), never the test cases of tests/test_m26_markov.py, the examples of the docstrings of the stub markov
 ([[0.5, 0.5, 0], [0.25, 0.5, 0.25], [0, 0.5, 0.5]], [[0.6, 0.4], [0.2, 0.8]], [[0.5, 0.5], [0, 1]] with r = (1, 2) and
@@ -2554,7 +2554,7 @@ with checked("M26.26"):
     verdict("M26.26", not why_c26, f"une chaîne cachée où chaque page rapporte 1 (γ = 0,96) : {fr(est_a_c26, 3)}, à moins de 4 "
             f"erreurs types de 1/(1 − γ) = 25, et estimate × n_visits = n_steps ({steps_a_c26} pas).",
             f"une chaîne cachée où chaque page rapporte 1 (γ = 0,96, attendu 25) : {why_c26}.")
-    rewards_b_c26 = np.array([2.0, -1.0, 0.5, 3.0, 1.0])
+    rewards_b_c26 = np.array([1.5, -1.0, 0.5, 2.5, 1.0])
     with own_code("M26.26", "estimate_value_26", REF_MARKOV):
         result_b_c26 = estimate_value_26(hidden_c26.copy(), rewards_b_c26.copy(), 0.6, 4, BUDGET_26,
                                          np.random.default_rng(6245))
