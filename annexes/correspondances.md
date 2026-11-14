@@ -33,7 +33,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
 | 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5 (8.5.2 en survol), §6.5.3 (Théorème 6.12), ch. 11 (§11.1–11.4 ; M25a en cite le Théorème 11.2 pour l'estimation de $\boldsymbol{\Sigma}$), §10.7 (10.7.1–10.7.3 ; §10.8 cité pour Tipping et Bishop) (MacKay ch. 22 et 33 ; Bishop ; Tipping et Bishop ; Mohamed et al. ; Cover et Thomas) |
-| 26 · Apprentissage par renforcement | M26 | — (Blitzstein et Hwang) |
+| 26 · Apprentissage par renforcement | M26 | — : pas de MML, le livre ne traite pas les chaînes de Markov (Blitzstein et Hwang, ch. 9 et 11 ; Sutton et Barto, §3.5–3.6 et §4.1–4.4 ; Norris ; Levin et Peres ; Ferguson) |
 | 27 · Réseaux antagonistes génératifs (GAN) | M27 | §7.2 (relu) |
 | 28 · Applications créatives | M28 | — |
 | 29 · Datasets et préparation du projet final | — (rien de nouveau) | — |
@@ -93,7 +93,7 @@ Le livre se lit dans l'ordre de workbookIA, donc dans le désordre : cette table
 | Théorèmes limites, estimation, tests | M02c, M08 | Blitzstein et Hwang, OpenIntro Statistics |
 | Logique, inégalités de concentration, bandits | M11 | Hammack, Blitzstein et Hwang, Lattimore et Szepesvári |
 | Théorie de l'information | M06 | MacKay |
-| Chaînes de Markov | M26 | Blitzstein et Hwang |
+| Chaînes de Markov (matrice de transition, loi à $n$ pas, loi stationnaire, PageRank), propriété de la tour et analyse au premier pas, retour actualisé et équation de Bellman d'une politique fixée, contraction et itérations, arrêt optimal, erreur TD et biais du maximum | M26 | Blitzstein et Hwang (ch. 9 et 11), Norris (ch. 1), Levin et Peres (ch. 4 et 12), Sutton et Barto (§3.5–3.6, §4.1–4.4), Ferguson (ch. 3 et 4), documentations de NumPy et de SciPy (`numpy.random.Generator.choice`, `numpy.random.Generator.geometric`, `numpy.linalg.eig`, `scipy.linalg.null_space`) |
 | Convolution, matrices de Toeplitz et circulantes | M21 | Dumoulin et Visin, Gray, documentations de NumPy et de SciPy |
 | Récurrences linéaires avec entrée, rayon spectral d'une matrice quelconque, croissance transitoire, normes induites, produits de matrices différentes | M22 | Trefethen et Embree, Horn et Johnson, Furstenberg et Kesten, documentations de NumPy et de SciPy |
 | Masse d'une ellipse et loi de la norme d'un vecteur gaussien (khi-deux, khi), divergence KL continue, Jensen pour une variable à densité, entropie différentielle, interpolation sphérique (slerp) | M25a | Cover et Thomas (ch. 2 et 8), documentation de SciPy (`scipy.stats.chi2`, `scipy.stats.chi`, `scipy.spatial.transform.Slerp`) |

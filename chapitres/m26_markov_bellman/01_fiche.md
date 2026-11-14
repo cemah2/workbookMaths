@@ -555,9 +555,9 @@ Quand toutes les options se valent, elle est sans biais ; sinon, elle est même 
 
 ## Pour aller plus loin
 
-- J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd., en ligne gratuitement, `annexes/ressources.md`) : ch. 9 (l'espérance conditionnelle et la propriété de la tour, qu'ils appellent *Adam's law*) et ch. 11 (les chaînes de Markov : classification des états, loi stationnaire, chaînes réversibles).
+- J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd., en ligne gratuitement, `annexes/ressources.md`) : ch. 9 (l'espérance conditionnelle, l'espérance totale, qu'ils appellent *Adam's law*, et la propriété de la tour) et ch. 11 (les chaînes de Markov : classification des états, loi stationnaire, chaînes réversibles).
 - R. S. Sutton et A. G. Barto, *Reinforcement Learning: An Introduction*, 2ᵉ éd., MIT Press, 2018 (version en ligne gratuite mise à disposition par les auteurs) : §3.5 et §3.6 (politiques, valeurs, équations de Bellman), §4.1 à §4.4 (évaluation d'une politique par itérations synchrones et en place, amélioration, itération sur les valeurs).
 - J. R. Norris, *Markov Chains*, Cambridge University Press, 1997 : ch. 1 (analyse au premier pas, convergence vers la loi stationnaire, avec les démonstrations admises ici).
-- D. A. Levin, Y. Peres et E. L. Wilmer, *Markov Chains and Mixing Times*, 2ᵉ éd., American Mathematical Society, 2017 : ch. 4 (la distance à la loi stationnaire et le temps de mélange) et ch. 12 (les valeurs propres et le trou spectral).
+- D. A. Levin et Y. Peres, avec des contributions d'E. L. Wilmer, *Markov Chains and Mixing Times*, 2ᵉ éd., American Mathematical Society, 2017 : ch. 4 (la distance à la loi stationnaire et le temps de mélange) et ch. 12 (les valeurs propres et le trou spectral).
 - T. S. Ferguson, *Optimal Stopping and Applications*, notes de cours (UCLA) : ch. 3 (§3.2, le principe d'optimalité et l'équation d'optimalité) et ch. 4 (§4.1, la vente d'un bien face à des offres indépendantes, avec ou sans rappel).
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, calcul numérique.
 
 ```python
 import numpy as np
@@ -134,6 +134,25 @@ Des données `X` de forme $(n, d)$, une par ligne (des mesures en dimension 1 fo
 | une information mutuelle continue, estimée sur des tirages | `from sklearn.feature_selection import mutual_info_regression` ; `mutual_info_regression(X, y)` : une valeur par colonne de `X`, en nats, estimée par les plus proches voisins (une estimation, avec son erreur, ramenée à 0 si elle sort négative) |
 
 Dans `mymath/latent.py`, la docstring du module dit ce qui est permis : NumPy, et de `np.linalg` seulement `cholesky` et `solve` ; ni `np.cov` ni `np.average` (les tests comparent ton pas M avec eux), aucune SciPy (ni `logsumexp`, ni `multivariate_normal`) et pas de scikit-learn (ni `GaussianMixture`) : les tests comparent tes résultats aux leurs. Le log-sum-exp s'importe de ton `approx.py` (M05a ; il prend une séquence à la fois) ou s'écrit par la formule factorisée ci-dessus ; `mvn_logpdf` s'importe de ton `gaussian.py` (M25a). Les formules des pas E et M, de la log-vraisemblance et de l'ELBO d'un mélange sont dans la fiche (§3 à §5) et dans le formulaire ; les coder est le travail des 🔨 M25b.20 à M25b.22.
+
+## Chaînes de Markov (M26)
+
+Une matrice de transition `P` de forme $(m, m)$ : une loi est une ligne (`mu @ P` avance d'un pas), une valeur par état une colonne (`P @ V` moyenne sur le pas suivant), comme dans `mymath/markov.py`.
+
+| Je veux… | Code |
+|---|---|
+| vérifier qu'une matrice est stochastique, ou sous-stochastique | `np.all(P >= 0) and np.allclose(P.sum(axis=1), 1)` : ce sont les **lignes** (`axis=1`) qui ont pour somme 1 ; `np.isclose(P.sum(axis=1), 1)` dit, ligne par ligne, lesquelles ; sous-stochastique : `np.all(P.sum(axis=1) <= 1 + 1e-9)`, et `1 - P.sum(axis=1)` est la probabilité de finir après chaque état |
+| une puissance de la matrice de transition | `np.linalg.matrix_power(P, n)` (M22) ; jamais `P ** n`, qui élève chaque coefficient (ses lignes n'ont plus pour somme 1) |
+| les modules des valeurs propres, du plus grand au plus petit | `lam = np.linalg.eigvals(P)` (des complexes possibles, dans un ordre quelconque) ; `np.sort(np.abs(lam))[::-1]` : 1 d'abord pour une matrice stochastique, puis $\lvert\lambda_2\rvert$ ; pour une chaîne qui tourne sur trois états, trois modules égaux à 1 |
+| les vecteurs propres d'une matrice quelconque | `vals, vecs = np.linalg.eig(A)` : `vecs[:, k]` (une **colonne**) va avec `vals[k]`, et `A @ vecs[:, k]` vaut `vals[k] * vecs[:, k]` (vecteurs propres **à droite**) ; l'ordre est quelconque, chaque vecteur a une norme 2 égale à 1 et un signe arbitraire, et tout devient complexe dès qu'une valeur propre l'est ; pour une loi stationnaire, c'est à `P.T` qu'on l'applique (M26 §2) |
+| une base du noyau d'une matrice | `from scipy.linalg import null_space` ; `null_space(A)` : une base orthonormée du noyau, une colonne par vecteur (aucune colonne si le noyau est réduit à $\{\mathbf{0}\}$) ; chaque colonne a une norme 2 égale à 1, pas une somme 1, et un signe arbitraire ; `A @ null_space(A)` est proche de 0 |
+| simuler un pas, une trajectoire | `rng.choice(m, p=P[s])` tire l'état qui suit `s` (la ligne doit avoir pour somme 1, à l'arrondi près, sinon `ValueError`) ; une trajectoire : `S = [s0]`, puis `for t in range(T): S.append(rng.choice(m, p=P[S[-1]]))` |
+| compter les visites | `np.bincount(S, minlength=m)` : le nombre de visites à chaque état, les états jamais visités compris ; divisé par `len(S)`, la fréquence des visites, qui s'approche de $\boldsymbol{\pi}$ sur une longue trajectoire d'une chaîne irréductible (théorème ergodique) |
+| une durée géométrique | `rng.geometric(p, size=n)` : le nombre d'essais jusqu'au premier succès, dans $\{1, 2, \ldots\}$, de moyenne $\frac1p$ ; un processus qui continue à chaque pas avec la probabilité `gamma` dure `rng.geometric(1 - gamma)` pas : le paramètre est la probabilité de **s'arrêter** |
+| extraire des blocs (états transitoires, états absorbants) | `T, A = [0, 1, 2], [3, 4]` ; `Q = P[np.ix_(T, T)]`, `B = P[np.ix_(T, A)]` ; `P[T][:, T]` donne le même bloc ; jamais `P[T, T]`, qui rend la diagonale `[P[0, 0], P[1, 1], P[2, 2]]` |
+| un maximum coordonnée par coordonnée, l'indice d'un maximum | `np.maximum(a, b)` compare `a` et `b` case par case et rend un tableau ; `np.max(a)` rend le plus grand coefficient de `a` (un nombre), `np.max(X, axis=1)` celui de chaque ligne ; `np.argmax(a)` rend l'indice du premier maximum |
+
+Dans `mymath/markov.py`, la docstring du module dit ce qui est permis : NumPy, et de `np.linalg` seulement `solve` et `matrix_rank` (dans `stationary_distribution` et `bellman_linear_solve`) ; ni `matrix_power`, `eig`, `eigvals`, `inv`, ni SciPy : les tests comparent tes résultats aux leurs. Les formules de la loi à $n$ pas, de la loi stationnaire, du système de Bellman et de ses itérés sont dans la fiche (§1, §2, §5 et §6) et dans le formulaire ; les coder est le travail des 🔨 M26.16 à M26.19.
 
 ## Calcul numérique
 
