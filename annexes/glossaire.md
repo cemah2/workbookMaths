@@ -522,7 +522,7 @@ Les termes mathématiques sont en français dans les fiches, avec l'anglais en g
 | méthode de Newton | Newton's method, Newton-Raphson | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$ : suivre la tangente jusqu'à l'axe pour approcher une racine | M05a |
 | méthode de Simpson | Simpson's rule | intégration numérique par des paraboles : $\frac{h}{3}(f_0 + 4f_1 + 2f_2 + \cdots + 4f_{n-1} + f_n)$, $n$ pair ; erreur en $h^4$ | M02a |
 | méthode des trapèzes | trapezoidal rule | intégration numérique par des segments : $h\big(\frac{f_0}{2} + f_1 + \cdots + \frac{f_n}{2}\big)$ ; erreur en $h^2$ | M02a |
-| méthode du score | score function method (likelihood-ratio method) | l'autre façon de dériver une espérance par rapport à un paramètre de la loi, par le gradient de $\ln p_\theta$, sans écrire de chemin : elle s'applique aussi à une fonction qui saute ou à une loi discrète ; seulement nommée en M25b, traitée en MB8 | M25b |
+| méthode du score | score function method (likelihood-ratio method) | l'autre façon de dériver une espérance par rapport à un paramètre de la loi, par le gradient de $\ln p_\theta$, sans écrire de chemin : elle s'applique aussi à une fonction qui saute ; seulement nommée en M25b, traitée en MB8 | M25b |
 | milieu (d'un segment) | midpoint | le point dont les coordonnées sont les moyennes de celles des extrémités | R9 |
 | mineurs principaux (critère de Sylvester) | leading principal minors (Sylvester's criterion) | les déterminants des sous-matrices en haut à gauche, $1 \times 1$ à $n \times n$ ; une matrice symétrique est définie positive si et seulement si ils sont tous strictement positifs | M12c |
 | mise à jour séquentielle | sequential updating | l'a posteriori d'une observation devient l'a priori de la suivante | M04 |
