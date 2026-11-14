@@ -88129,6 +88129,2868 @@
       "sign": 1,
       "source": "chapitres/m26_markov_bellman/05_solutions.ipynb"
     },
+    "M27.1a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4fbc9ab8375f378abcf54bb5e753a70bd9cba0a90c220e51e9ac939db75a5b1d"
+        ],
+        [
+          "f9ab6ac03da6a622c2453901c4be9a7dca04117d5383798c721c0d1a61ccc2c3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "af6da385e94ff60bfaec7c5f92cf438ae5082cf0baf4fd4c1f88fc0ad968099b",
+          "c50a12840c5522c12ef549bd06855603363c846d443bb9c24ae9d4f152fda04a",
+          "b28786b44616443305d96ec5f31e30be442ae3fdeaf9b7afc1c16a39d6c3f6e8",
+          "a1d3493a94cb821dc0e7ab2e483f5d1ccf453e0a716f50df6bc11057aece58d7",
+          "86e61e1df378b4ac420acde552f9f5c12d4563e8355427d0735225c0d7342293"
+        ],
+        [
+          "7af948f04e9b5d21177f2686b316c5887ab24ccc841830531719290703afc9a4",
+          "f0462efe82e50763acae8852535cc17a16ecdba3a70fca5afa80f65a6a42dfd9",
+          "4e794544dc9e0213bc9a4b7b21c93866709a8c71192754f17501b9c1011e356b",
+          "af91e5e84ce0142f8a656d79dbc88cadb67f3f75024872b5d3e08fd291ba9913",
+          "9dbd64863dfb5d4dfe813076da0abb2fb42926cf7a0417f1eafd8d6044889984"
+        ]
+      ],
+      "element_hashes": [
+        "f64d1cb13e0cb32a4f9b123f782fa392d69b2c8fe1e6e92fa3f4df3afed86c42",
+        "319f2bfb40e0a905402e29d06ce0bc9b31448edafbb60941e7d81c7e356c9060"
+      ],
+      "hash": "30dc29e51b5f9a6fc088b8c0ee38efb0fe0292da24dbb118a2f8e772841610f2",
+      "kind": "array",
+      "mistakes": {
+        "69c03b9acc6285135e32539971ffb3c2fac99fcb487d8ee971a84181214f722c": "le minimax se lit sur les maximums des colonnes (le pire, pour le joueur qui paie), pas sur leurs minimums",
+        "dbe4c473c1f8ce2f0d82cf2bd9270b4568cc53cc5b9d79de32edd8a368fb5fe8": "le maximin se lit sur les minimums des lignes (ce que chaque ligne garantit), pas sur leurs maximums"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.1b": {
+      "decimals": 0,
+      "element_hashes": [
+        "96498ee86124755baa15a2ae4e461b24eedd150d2e0eff0458e8ef210bb1e921",
+        "37910aa1f03cce83341ca53d4c6e5d659e825ec9e64726a63efc2c33acfa276e",
+        "22a493385de37d1617754494fd6960ace1863d86189dc26f874fb3e056f98851",
+        "c3d5fdb353bc3d2f7b5d2134f826627f6adb2014ebe045a6ce71771fc9a2a5f7"
+      ],
+      "hash": "a3e27cfdec448cad14ee0c17fbfd876f401b0843dbe46d3eb2c01df3177db5fe",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "10a3efe89704903d1582a0de956c4a04c2b1d6675e6878ae6076fb1878ee258e": "range les points selles dans l'ordre des lignes, puis des colonnes",
+        "8290fff75a499b8b6dd5277ef7caa1112d4f2bb8573f43074ac5b9ee069773c5": "un point selle est le plus petit de sa ligne et le plus grand de sa colonne, pas l'inverse",
+        "8ca0162a0676b1a3c2e74ae4b845609216548b7c4cbc2df2ce4d7d96ec4f7fbe": "dans ta réponse, les lignes et les colonnes se numérotent à partir de 1",
+        "e13c9ad4385e7686f6fccf1872445d8b1bd2d5ad7dd993c970dec8d9a56bc70c": "un minimum de ligne peut être atteint dans plusieurs cases : examine chacune"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.1c": {
+      "hash": "ddae2931bc0fd70af9a517aeb780b1e3c1407ddaee2e29739686736e5b4466e6",
+      "kind": "bool",
+      "mistakes": {
+        "85106e5396f615e71fe63e581c98ed0e05888bd5896dfa5a579113532a431b8d": "une colonne est strictement dominée si elle coûte plus qu'une autre sur toutes les lignes de G, y compris celles qu'on n'a pas encore rayées"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.1d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d1dcdb26165c4972b3c735ecd37a3e4c8f5ba86cea75e2afca3c88c41adc79da"
+        ],
+        [
+          "9f363ea6e909e307515b61d0c85217f7fe29ac0a5964e55b9a24251562ada679"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a407b2b42a5c3355ff018aca20af911885ed02385779407e0c1b4f1d799f3029",
+          "8c79303cada30661ce9532e3a47e56346bacbe5cbc529eb36c1955692034067e",
+          "c6abccc60cd9284a7ab0bd48e4f3d221af6775873997b1f555f096731e037942",
+          "78c20e3c6709b1043180035ea0eb65c2b85ef445d2d118a7bad084751da5d536",
+          "4f615923c7df0a45771f5299573a098b437f4045ad2458a512d17a5c0a2ad1d5"
+        ],
+        [
+          "7dbbda9a418614ec19e0e542c89f1450b21ec2ef88a9e5373d800ee68a35fc4f",
+          "eefe5a0da65dd5388dc4cf289de8f2b9b8a2b8fa5c780af2a6411281e6af4738",
+          "14a3316413995de9a3565d9d578637c486dc558b458b2cf4023118ae43f060f7",
+          "dd2cd0a497d301597158cabb47288f098bb9776e42b2f85bf3329cceaea59212",
+          "01401132ef7405e35d4e97536a964cbbf4b9a9dac295adba0a54cc1d650c789b"
+        ]
+      ],
+      "element_hashes": [
+        "7a9a97ecd2bc31b9ac6dd3a71efa40cb451cf965298bf46f0d8f319452265b5a",
+        "67f505e8f73f43e44ad8b1d042e5fe5db31bbd7fb0c5515f1f0458a60848ad3c"
+      ],
+      "hash": "bcdd472ede2ef733dd62a873673defbe4935f961ac5893f926412814a24bcda8",
+      "kind": "array",
+      "mistakes": {
+        "32fa645faa019d81f421f0cebc7257632229264d6a257904b34a31758076d6f5": "les dominances s'enchaînent : après chaque stratégie rayée, compare de nouveau toutes les lignes et toutes les colonnes",
+        "561e29b7900e1c206d6cafa15be680be4bc35d5737b18dbc9b144382b86186e8": "la dominance stricte demande une inégalité stricte sur chaque ligne : une égalité ne suffit pas pour rayer une colonne"
+      },
+      "shape": [
+        1,
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.2a": {
+      "hash": "95a010d4edc2404507f8e2bd083553bd3336e5e39d005c2c309292bf163e4afc",
+      "kind": "fraction",
+      "mistakes": {
+        "1ba1a3bacaa67e7fdaf3c2d8a35925b51f6400dccd8bd40ab342ffb62643b70b": "p* rend l'adversaire (le gardien) indifférent : il se calcule avec les colonnes de G",
+        "e98495d338cac80df2864c574a3fe86cf846a400860a139f2d1778a33f2df40c": "p est la probabilité de la première ligne (tirer à gauche)"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.2b": {
+      "hash": "a661a010ce02c2244e883954d84eb652deec1be57bd35434cecf99e44ba4b574",
+      "kind": "fraction",
+      "mistakes": {
+        "3a0efabc1b5fb58aa79568fad6fdd77e7cc93032d7fab5bd654d91c525ef19a2": "q est la probabilité de la première colonne (plonger à gauche)",
+        "fda2deeb9f6befa8433e56dd366bc298c09a1ab3da528808c79dd183faaa8c4b": "q* rend le tireur indifférent : il se calcule avec les lignes de G"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.2c": {
+      "coarse_any": {
+        "0": [
+          "6e834496cfc9f2db0494540859e0d08d1609f631b680130c743350c778f4ca3b"
+        ]
+      },
+      "decimals": 2,
+      "hash": "034e5430c2a82593f098358010dcb704e13aac71f079c0398bb51848de38ebb6",
+      "hash_coarse": "89ffda87fd69a34f83cf0bef899b9ae4c3b0ba52934e581cdcabe7d8cd0927d5",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "3063871f6138db5fd7636d1b6c2c8ac6dc036bfe18bbd7defaf3d712df9c449e": "la valeur n'est pas le milieu du maximin et du minimax : c'est le gain espéré quand chacun joue sa stratégie optimale",
+        "c65425ed01305032b6970b266e2c18ae09d18f52ef2997b9e1945a8407863669": "le gain espéré se calcule avec p* pour les lignes et q* pour les colonnes"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.2d": {
+      "alt_coarse": [
+        "5cadb76d02a7db659e4c0d899da8bdc164242d0daa55ff79f7891d507c4a21f3"
+      ],
+      "coarse_any": {
+        "0": [
+          "badb09965b5a649392450b2ddda4fabce379bcafb5ef59fc034ecc0da5d45bb2"
+        ]
+      },
+      "decimals": 2,
+      "hash": "a1a3d039990493e487562d8f384a0ae77faa97fd3f0a1df03ace28abfd70320d",
+      "hash_coarse": "4a69afb74f801be0a0509f53966a988e694e85b4c50ff0917b4c144973dd7679",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "5c471b24ecb41a04a1cbeca5ba4f619b422a1df6c767786241b78059729dfd9a": "0,65 est la probabilité de plonger à gauche : elle pondère la première colonne",
+        "ce6bece6ca857e5f722b49055dd194da6d38476876157b2bc3b37d8e0e6fd58a": "contre une stratégie fixée du gardien, compare les gains espérés des deux tirs purs et garde le plus grand"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.2e": {
+      "coarse_any": {
+        "0": [
+          "9cd805b1c08efe836f2811a6cc9ae235a0e9f1e29b4436a74635fee8b824d2ed",
+          "b165fd027421356a8b090936e692413207f033325f11938a73c2d46115c02fe8"
+        ]
+      },
+      "decimals": 2,
+      "hash": "af5e854523b31481f08f0be7f5450b6561a6f574d87cd3c2243ac50637ca97cb",
+      "hash_coarse": "a386263ba74d831ccf0f875c3ddb2fd60e7fb6866825e8d172ff2b10bbbc5df2",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "6da450920d286fe799f137e384caf4c89a500fd95baf001d4f65a2e7d13dae12": "0,55 est la probabilité de la première ligne (tirer à gauche)",
+        "ca7b8758971f1ad00574131582f3d97ca1d024388d29fa302ceb5b0f764c25db": "ce que s'assure le tireur est son plus petit gain espéré sur les choix du gardien"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4a8d87dabdc24567d2726b834b1cce4f6f693beed1ff7f0f638b67086a457783"
+        ],
+        [
+          "9b7a7bfbaf07570a013545155c3eede93cff1e4a6557b399a49299d0e570d929"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "de7dbd05a716a9bd859de7ec792fbe0047d38fb3e3c5cf4a22ec0ee8806f6ff3",
+          "66926759e52453d6f959bb5dd50f6a8da39cbe774f37238d6b855d12dddffe5b",
+          "5fb12b199e69439fe9f73528f50c18df4d8af4875d029ab1790d2819d7b35b5c",
+          "0af6c9de16b72847d77b23042bc1d3201c9368e00f602e857648fe452addd60c",
+          "538044048913053de7fb0e3a4a28b842462918629cad67d19e13262d07a340da"
+        ],
+        [
+          "a21e61010d71bb27f84af5f14f8879a3e01ce57f0f2a09e74f9dfd5cf72d1ff7",
+          "1d4ecaf1c217b6b1a90259bff090c0dbb3cdca50ba16d4cf174d4857b6b40cda",
+          "5f60b3ef720f25046bef6ac193d7a2e16ea7938304d84521834c9ea0348fb0a2",
+          "0c5069703c5e9967b4e15fe631a64784812782ce88f2f502c17442f589bc2ab8",
+          "9e05a6ce27613b594af0a8edf4f965a838655747f95936296b3b31a45ecac8a6"
+        ]
+      ],
+      "element_hashes": [
+        "aa0756e9d43b6b40c2c1e49c4452f1476baacdb6112e05bba5db412fc3e2f088",
+        "08c48e1918456cc84271dfbdadd49de253c8024bd6af56266acf3b760c3bdcaf"
+      ],
+      "hash": "4f22f5487281d646017b738a6abf874d74a0c8db4a852cad44abb1e4672635ed",
+      "kind": "array",
+      "mistakes": {
+        "18fd191099878740e1e2730b3216d91e35bf7256a951fa215f0b134b4acbb188": "un équilibre de Nash n'est pas l'issue la meilleure pour les deux : vérifie que chaque stratégie est une meilleure réponse à l'autre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3b": {
+      "hash": "fde421cf5c31789cc91272690139952f608addb4d071b05d0da3c390820476ef",
+      "kind": "bool",
+      "mistakes": {
+        "050fee6fed3d187333a99e83f66d8c2b5160de61f2a091d00f0631db9c90f2eb": "contre M, l'autre boulangerie a-t-elle intérêt à rester sur M ?"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3c": {
+      "hash": "844446f8cede835e102e456c4f9c9f94127d66342927b41bed51080a9ef2e397",
+      "kind": "fraction",
+      "mistakes": {
+        "22b128b34e0297a1357404751db56830bee4237d43b3d2c2df157232faf9244a": "x rend l'autre équipe indifférente : il se calcule avec les gains de l'équipe des colonnes",
+        "8f063a7cdb105f82c6d12f647f1a8c6ed60c459864bc630e647a3df3f05d6400": "x est la probabilité de X, pas celle de Y"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3d": {
+      "hash": "a0c58d35c7f75a400cba1c38342f5b584e857b5ee9b0f6339b8a271df95fe696",
+      "kind": "fraction",
+      "mistakes": {
+        "72ebd1ea659b76cc2aba0b0ceb546e7bbc2189d90ca3e53c8f6c5e5f508d8148": "y rend l'équipe des lignes indifférente : il se calcule avec les gains de l'équipe des lignes",
+        "d50e266eae57b99174afa5cf80f9a9fec663cf4f9a0f9aa464b32a00aa2ad44f": "y est la probabilité de X, pas celle de Y"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "f5710218ae620f96d33b2eff7bb286081be26edb79ba4506716b381a58d1f824"
+        ],
+        [
+          "67d7bbdeb0597f1d2a68b16ba5aa0efdedb6fba8ec0297f48bb90172be172e4d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cba41bfb1ed8ea25970c5f1cc0c30128447d206e097079111322f9ea2f652c91",
+          "2f31722fe7066cb25ebd48e0163c08293ff99477f85225be8a0812d840cf228c"
+        ],
+        [
+          "965bb9451dd3b4755a18f80ab8529a4455c7b90fa1cfdb6b088c0b42b4befad7",
+          "d555f21f154fecc3e94acbaabf743a0dd68003b423aa651013e6cbcfe3837937"
+        ]
+      ],
+      "element_hashes": [
+        "012aaffd796145d79a771a787d510beb9c134cd02ddcc3a54dfaf1f9f36b7b28",
+        "33ab43055369698908bbfa15995630ed192fea06174030c969a7a03f153f3a69"
+      ],
+      "hash": "38e70de1bf0ca8911b349bf03b0f557ee25c21b673ce930ecb5c48a3b77993cb",
+      "kind": "array",
+      "mistakes": {
+        "09afca45fd85f97a1169a22cadbbede0dabd9bea9e8c47a481fbc0d87e18b9ad": "le gain moyen d'une équipe dépend de la stratégie de l'autre, pas de sa propre probabilité",
+        "2041cc43f005b501b4a0876e21fbc0b7c8ff545b1ecbf7ee33b7ddce10bf17fa": "le premier nombre est le gain de l'équipe des lignes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3f": {
+      "decimals": 0,
+      "element_hashes": [
+        "27fd7b20820044bc70c3e7ecb7db3f5ce5db6f0a6ebd585c16dfc5fc0adffa68",
+        "2acc3a232b78c4af88429360ed23eed398f2125dd4f687442458f23ea83f83ef",
+        "b5b035a48f143bae6d54c856960b9cfb6664e6a1aa424181c96762c64c03b71c",
+        "ed26c82f828c10af8c97decf28606b22ec0897d36cd67a59caedd42a5661b79f"
+      ],
+      "hash": "f90fba6c9f9d919d6b6b61e2dafc814e4c50b430844d099ba6c59c5fb04fd0b0",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "69a869328df8b68d8cc38ab72a5628dab652231435e0654e6de7ddd7abe9ac6d": "on retire 1 ou 2 allumettes, pas 3",
+        "f7f2d2a838aec0e9c14c15da9fa4ad23b92ceb3cdd383f9ad94bae6d3ab45a8c": "ici, celui qui prend la dernière allumette perd : avec 1 allumette, on est obligé de la prendre"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.3g": {
+      "hash": "f967b0c1f777d2a4663cda11a75d829e409b4b39638ee530f6ddcdfbf49373f5",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "5b1dfac184da99bb5166e4a1b8fa282a736c2370ec2ad8faedcff61d0e930f07": "dans ce jeu, celui qui prend la dernière allumette perd : laisse à l'adversaire une position perdante de ce jeu-là"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4a": {
+      "coarse_any": {
+        "0": [
+          "5c35e340907f19a9fcb1228c59867899f1d338e8a5e998b366dcc84c74db719c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2b9cc2c7e18a7084a953faab2afc59b1679e33e0724e756eced2f6dfece4ebd6"
+        ],
+        "2": [
+          "90ffb305c8d6c2e80cfb879ee48cbb63f26cfec9de73bccd517e748e2165952a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "c5198af2b4943a0ae0b45f46b8af007785f99a24152ccc23a157084d372510a1",
+      "hash_coarse": "4af66be211537c0a9f4c500999c4063bffad1d55397a7c2d180ab63773c27533",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "cedee336e7a402017461b41503460c2b96d140009d208125177e5c2e3199d31e": "le module de 1 ± iη est √(1 + η²), pas 1 + η",
+        "f4e5de66a7523c5c6a630cbe13c0cc49a8d369c905461dceeeae24f5508c18d0": "le module de 1 ± iη est √(1 + η²), pas 1 + η²"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4b": {
+      "decimals": 1,
+      "hash": "140ee32c03904ed527000dadfb506dfcd57087518e425a8df8ae2961b3b5f3f8",
+      "hash_coarse": "3c475e955ed800d1dc6251a1a4b1b57aab59a23f87818377dc41967aa6eb74dd",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "76f1eb4fc09c80e7dab71e9b1cfb0697967cc0a3e359eac8f1bc786d4943684b": "l'angle est demandé en degrés",
+        "e0faacaa6fbe85e11ad99bc05c72be1272e2bd168e055fff8eba6bdf6540ea34": "l'argument de 1 + iη est arctan η, pas η"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4c": {
+      "hash": "89aab201ab55086942e0c4d979d774c36e7e3e15eb39b65b2ea035a9dd4a1e06",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "04018ec2d53d56616ed339f624ff3119be33b62a5c8a8a2580ff7fc0e3f47571": "la distance est multipliée par √(1 + η²) à chaque pas, pas par 1 + η²",
+        "f650f81428e79826497197ecd09ac1872f8de5b9eceaf8a0f1235e88d8e08f3b": "il faut au moins doubler : arrondis à l'entier supérieur"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4d": {
+      "decimals": 1,
+      "hash": "5eaa7a692b3d4f22b95413207d70de60fc485d5e28e73dc0302f8ecd66a1f093",
+      "hash_coarse": "b42c2e6dbfc2da1ab64a3586d7e8b8913b64cd4e49023be1e5c87100bbef3b8b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "3d713362fe2e51fbc5e2cd2a2d9981a796513e2c39f7c89fe434d846ebc154a6": "l'angle est demandé en degrés, pour le pas alterné aussi",
+        "75a8f0cebd2e7a5216976f618cf935dec060832042c072a59536a59a21d688c1": "pour le pas alterné, cos θ = tr(M_a)/2 : ce n'est pas l'angle du pas simultané"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2469173a922d4711791a827d1af4a7ad5e84cffdd76631c81cec745922fa8b03"
+        ],
+        [
+          "35bfc2bc4b890ffe8b9dbc84ec826e04a94c3f2c66226e4d57ce641f42eb0aae"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "71095b44113050a5a53132e3e77feccc7360a129078df8361a3ca631a514a0d1",
+          "463ce4781178ae1fbdd69cf17c18ec1726b96a476ec2c2db85e2ad4237b82e0b",
+          "d7b3c6f64393d29e2f3f3ccbe2945e4168506dc657a7cbe94b12d72d5ecc7401"
+        ],
+        [
+          "cf0fd7b934e294e3c8f1c6c94ecf7f4281566965435fa0fbb2572fc13a7d29df",
+          "1803235d867429a00f53ec607255e7e3647c90030d5fd1e49af50f07e2c63a16",
+          "4be3bcc56659375b433ba2dab0055151b7e5cfbf13e6d47c19ff5865e8ae1d0b"
+        ]
+      ],
+      "element_hashes": [
+        "cec5113a2a4c4123c6d000690df4eac3454854ddbffc80a2b7230fa2981a7160",
+        "518d142a59e273c07da19777f046571c1f71198ffc9d77fe7346ce491da9a253"
+      ],
+      "hash": "3cef9033135aef82bd3645d457e394a00ba24152a2f438d68894b80c645920cb",
+      "kind": "array",
+      "mistakes": {
+        "1b2b09ad10e2f119d99bf1dfeed683f5ccb39e9cbba359a63fb1d0b8410441b3": "en alterné, le déterminant reste 1 quels que soient les pas",
+        "c420fa5154c63a3ed19bf67a48dec965218cd224c103674223a448de79782baf": "en simultané, le déterminant vaut 1 + ab : les deux pas comptent"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.4f": {
+      "coarse_any": {
+        "0": [
+          "d7f757f679dc9b0f0cc8ec2345e2bbdfb7c9b5cd618567c59914809f4c391db8"
+        ]
+      },
+      "decimals": 2,
+      "hash": "3d3859ca8f2ced3b1a9eeee5a27e9811bdec49762fe3c2a36e6e8a053181a897",
+      "hash_coarse": "c9ff340021d44d7e91bae5b5c9a894c21abbee3fda9d21ea9cee4a5cdae143c6",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f9ecd97973990a521af05706387c1eec3aeab46327d970f99c7864a0a3997ff7": "avec ab > 4, les deux valeurs propres sont réelles, de produit 1 : le rayon spectral est la plus grande en valeur absolue, pas la racine du déterminant",
+        "fd167525a1bce00b47e6ba3793182b333a9aa42655e2f944877f6291eac32efe": "la trace du pas alterné vaut 2 − ab, pas 2 − a − b"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.5a": {
+      "coarse_any": {
+        "1": [
+          "1fa795f67df7d19a3098961b43d71b0adb16b8e076e66f0c1aca067033f606ed"
+        ]
+      },
+      "decimals": 3,
+      "hash": "e487b4970bcda59f22279210322ebdd2dbe46ceb02a3fc90750c22228f1983fe",
+      "hash_coarse": "c77f8d156ec0545d84b6dc8be6830ef51ccb504db6bf9dd2ebb23839fabf9161",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4ee8ece543bb6b29ffd5be1ab80aab854838f885ea3fafc72d67bffafd160b6f": "les pièces des deux fournisseurs peuvent avoir le niveau 0",
+        "90f310ba9ad0dd7d53211a483ea904ec337bcd8361e82cf7a47d0bfa1173e19e": "P(X = 0) pondère chaque fournisseur par sa part des pièces"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.5b": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "02f3875a2182259b6e2ed99e9f17731368d60b6ebc1e681d821ec9120cf7caa7"
+        ],
+        [
+          "b408cb1d9f7522ce93ba823940c145729050c585f04ecbe4cf63b186205148fd"
+        ],
+        [
+          "37d0fd9c33ef09be0eca173485b360aa64725c70b87bf3e23c165572677db9b9"
+        ],
+        [
+          "53530d4f3a7bd6eeb3720b63ea81f80962b2a5c83349d81022bb9156de655c72"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "751793c3723d0689fd6130316554d57eaa6b9c3a01236917dd40d60c3aba58b3"
+        ],
+        [
+          "ba94d650032cdf69053710f427ffee46927d0df7225bfbe83191e5fe2f799b9f"
+        ],
+        [
+          "0f3f8c92588638fcdc7a83cacb96023987266d4561a9e3a04917b7497642af5c",
+          "2becabd2258169abc0d1cb2df2809c33bf560c2976cdb27378a29cf4454ac482"
+        ]
+      ],
+      "element_hashes": [
+        "7d25802e820245afccfe1041a6e2572570a417e52bbfe66e4ad342042e1c6436",
+        "a15654245eaa0ee27764b5159935a2cabdbf57760c711ee509de07bc34455f67",
+        "72d632db349c8783a7abd2fae58eacf9a4d1b1603bee77635bbbc7dd29c1adba",
+        "d6691f9182222c49ebec82f18868eb7abf90a5c57fbe10872c0ceb7384aa713d"
+      ],
+      "hash": "8e82b507262bfcdfccf38f2324a3f7c1fbddc5b16e68436a676ea4ff7db1d47d",
+      "kind": "array",
+      "mistakes": {
+        "94c70493285bfb1c348783b14b2d24fbffb57630b614c09eadaa767b8f1ab944": "t*(x) est la probabilité du fournisseur B sachant le niveau, pas celle du niveau sachant B",
+        "d7a69f770931d421cbfe54d46caa49cc677d964a9912eb76f0cf00babe38e81e": "t*(x) est la probabilité du fournisseur B (Y = 1), pas celle du fournisseur A"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.5c": {
+      "coarse_any": {
+        "0": [
+          "fbf534c3d977f4a6ed8a4cedb2e9f41d92e84c3194d1057dc278d53fea8d08f8"
+        ],
+        "1": [
+          "c4eb2b0469534e6fe6c64211dd4f588f71ead0551137c1a6044bfd7b2fb8ddd1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "598ab7862e730479d517a129fa5664c294c727d880744717617bd25f25104dc2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "60d22f48ef01368d09d36f7e2b753a80cb18080e14e1cf36bb065755bf5f8602",
+      "hash_coarse": "faefdff1b9f3064d688823993ce4f5c2ecb7d1014c4df2c7af636ccd56e70621",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "195000c5335c885724a3cccfc4ac08487660a912c1569e282d900b4e1e16c6d2": "la log-loss se calcule avec le logarithme népérien (nats)",
+        "2266ebae8302328d206e629b3e482f6a234f038c6655c783e2b84176642c9d98": "−ln t est pondéré par P(Y = 1), et −ln(1 − t) par P(Y = 0)"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.5d": {
+      "coarse_any": {
+        "1": [
+          "7a558c167203afda694abbb8636c913bae81f72f5f1aa5d9623a301b1a88695b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "ac8a8517b95534fdb764bf68fd2141be037362438923e986082577af487b9b1a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "da51feae1fea15be054ff6914b60068f5eaeb5e1b058e69803c381a26b203d79",
+      "hash_coarse": "8a98e5434ed2026f7b419e0624b6ac1f1e1875902bf3e7b9df9fed2c627f4f16",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "e33814735418be574091f83b286b59053ee00f095fc89f5c6b7512a1b43a9150": "la moyenne porte sur les quatre niveaux pondérés par P(X = x), pas à parts égales",
+        "f840ae774fb15ff16ff8f3bb67ccc6ff42f276436f7692eaae29b3a51f47a1e2": "la log-loss se calcule avec le logarithme népérien (nats), pour t* aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.5e": {
+      "coarse_any": {
+        "0": [
+          "85b5a34ed54458b14b437bc0c619821a5bd4896d846e4791acf0d3f4ebed2a86"
+        ],
+        "1": [
+          "d43b1be2ce3c0e7f1f2b3db548877fe1e567f07d9af3a49f093c414256b3c850"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "419b4e2f6acd8a3b745454ba982fb82674923c545dc87e3c3144dca24ac696ce"
+        ]
+      },
+      "decimals": 4,
+      "hash": "007ba9328cc57812b9d1ee286170473336576b00b85b31b5c18f84423bf111ae",
+      "hash_coarse": "aaa7c17fc9bb5f589b7e4496e953db9ee1d7517861a116d34778e9b6e4c5a95c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "ab5adac6bbcf6f7e3be54ec9bbff77efafc425ea6948b160fd9de3bb59f31601": "−ln t(x) est pondéré par P(X = x, Y = 1), et −ln(1 − t(x)) par P(X = x, Y = 0)",
+        "b0a5a912de7c5810416b1ff146a3cacf223955ba4315f1fb0dde79b7543922c6": "la log-loss se calcule avec le logarithme népérien (nats), pour ce prédicteur aussi"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.6a": {
+      "coarse_any": {
+        "1": [
+          "811e65cc60a20329ac14f6eb79f8fd4b786e234494ae9f30eeeff7bcafacc38c"
+        ]
+      },
+      "decimals": 3,
+      "hash": "6154043475b5c14f238f22ae4c28c175a1e2c3f4278a966dde5cf03a994cd6d5",
+      "hash_coarse": "4be3e7ebe86899a42e91a9a0822b6a87f287223d0d557d6f8e47882630cd724e",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0e5ca2181ad5fa642bc16c14863e7804fa551d834726c388d59a0de099970edc": "JS = ½ KL(p ‖ m) + ½ KL(q ‖ m) : n'oublie pas les facteurs ½",
+        "10e06c1eeb38c91b1559ef0bebee23b91ec94e84122062f8bd7ab76f8e776e24": "JS se calcule avec le logarithme népérien (nats)"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.6b": {
+      "coarse_any": {
+        "1": [
+          "24959e659e0bb25f17b0e5e897470c3b7af612baeab34b524222aa6ae42d2710"
+        ]
+      },
+      "decimals": 3,
+      "hash": "027acef50ed34e70a6b709e2f259ca943c5bda255490938e43233e82835d28fd",
+      "hash_coarse": "e4f903f4ef44c87b822835a20071ee9a1b29dcc5ef8abea84742fc04d91d7b0a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1482bb82a652eda2c813c127a6fd9f2d964d43ef710344ba76ede50e19f34cbf": "JS se calcule avec le logarithme népérien (nats), à θ = 3 aussi",
+        "9ad4fd441870ba18bc3a1c5a4a2561ec0a77d7c5c165b66780cf701920c93b3e": "n'oublie pas les facteurs ½ de la définition (et JS ≤ ln 2)"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.6c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "dec037941458e75a1cee7f589fad5e091a22a1ed56845064977a795eae5167f9"
+        ],
+        [
+          "9a9ad1a93ab738cb05350ee61aee954cc7820d6b2c61545d6d0a94ff6cebe5ce"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b8d5678b8554af4e37aff267df1dfdd1e4da18de8113c2fea50cd7ea1b58d8fd",
+          "b4948f65d1a24f76f184459402162f9e1068d707a470dd55314b5e1e008cd6cb"
+        ],
+        [
+          "d2262d64625440e888d6ef154f92dcbd92457f892b62c559487038afcac3c72d",
+          "9b1ce272edad0afc31f3009cb1074e48aaf69ca10a9d922c40f56f2cd34208b1"
+        ]
+      ],
+      "element_hashes": [
+        "f732781b4a018c17ded513d7c1d1c9aeb996b11c402822ee2656c2e34494b2f8",
+        "ff412a299afedb759253f06d9a90f0eb1fbb103b39b95045cc7514963e73d899"
+      ],
+      "hash": "c91304a2e5895fa66bc2531e2e0cb13c0d48e08abba6c8824b8fb3b42e6294c3",
+      "kind": "array",
+      "mistakes": {
+        "00a59f9b2ab84b9d6b04390f1ba65882551d684bda99583ede4a393ea90bbc54": "à θ = 8, les supports ne se recouvrent plus : refais le calcul de m sur chaque morceau",
+        "7ade5edb7d84d894c2cc767913e2f6a77f81ec807501075a5d2ffd593634f5a5": "JS se calcule avec le logarithme népérien (nats), pour des supports disjoints aussi"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.6d": {
+      "hash": "83e52d625b5b244a4431fcddbc89fa25691bf7b9c8b0841a8c7764a013a23b50",
+      "kind": "bool",
+      "mistakes": {
+        "427501535a0e81f3b6e004d0dd906e69cc72b4a3ff5dd9b03c537e5b1b106ce1": "regarde s'il existe une zone où p est positive et q nulle"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.6e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a982b59e4aef85482bf15c1732a99e326d8b8eb5c4f672d9bb92826f8c07bca2"
+        ],
+        [
+          "b187e99eb6d50f82140b33a67e515c90509dc9ba0f80aae56e062724644e9b30"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0fd69abe82edc7154f298e3f900e9aae68d98bc375d5304b3b4784ec2b6c5ddc",
+          "4ed58e795217dbaa9c7969daac28a3a52a4262756f5ee00c6a236efa9d0fc90b",
+          "a9fba25baf9b3c74a69b88583f54c0be954c0ff56674e4fbb20e07777208eda7",
+          "f9b68e0358e17009e78ebbacd27bb999f767bb48f5f115938f2461c22f3e1813",
+          "209b228d6cbb60dbcee2b682ed5733c29511785bc48acf0273ffd09d7cd1ff94"
+        ],
+        [
+          "fa378a4a8453c3098304f745395454a5cde4081078b75d33a0489d42113e881d",
+          "4105d001adac78bb6a5d3883b38bcd7d3291aaf883832ab99513292ca071bf81",
+          "8755ec7a5527914baf526e16d607c8809763970deac221798b2af388fe61c704",
+          "813f1453963a5bbb5369e04cc28f8e6ea311af3a1ea274d961f012614f94ce8b",
+          "5949fc8925678ffb979bc48a187e6c8a6ebb21de6783021e9a74e9aa5decb320"
+        ]
+      ],
+      "element_hashes": [
+        "2857455d6a9cef6de8917fb687c4cb5a48b8d5301dc54e81b6d70365d2a27447",
+        "84690d1b373d5eda5d2b18a61495357b8cbe27115795cd1a8d0e65b28a9f652a"
+      ],
+      "hash": "5df3a66cf652bffa5e5e9f62e0c7a69f4a744c31a9693e23972dd2f5f78ae569",
+      "kind": "array",
+      "mistakes": {
+        "346ce37959cf0b0ced7afef47fe7b5ea6abc628bb04711e1c7dfd479eb49443a": "W₁ est dans l'unité de la variable : c'est le décalage lui-même, pas rapporté à la largeur"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.7a": {
+      "hash": "550dfa2d525fa6beddc59bc1dc52dd9748e8a2800c152c93bf213304047ef9ef",
+      "kind": "bool",
+      "mistakes": {
+        "80a1448b48dc469a2c456cb468bc2b61267adad07f358b5fd38db7082abca07e": "un plan doit vider chaque dépôt et remplir chaque magasin : vérifie les sommes des lignes et des colonnes"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.7b": {
+      "coarse_any": {
+        "0": [
+          "c9625032ebc0a022db8f914dee8010adb87b56f30828a5effaf5cd1199bbb2d1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "efe8e48f2e018eefb6c72b04c1a2333943b6287f77775a9b14941c20fb25238e"
+        ],
+        "2": [
+          "5c4c9559e310f61b4bc8084140e469b346ec4a8aa8092b75f463004e68c89730"
+        ],
+        "3": [
+          "3b9af44cf71be24c7a9c3a6b90e08317f31951946e3d5a65a0cd14407439ab86"
+        ],
+        "4": [
+          "b177acb9d7d7fe6b32cafb74789cffd8ead6b1cc971e4063b09ec9ed13f9ef53"
+        ]
+      },
+      "decimals": 6,
+      "hash": "1a55ce736ca1572a3f66b29303af6a89a247bc7a3577106ead656bdc86a8056b",
+      "hash_coarse": "bd65df8e79e90da626055f4ed5105d23ecc29a8dc97ba80604746c696c3607df",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "58ef0b30dc1e2dda91f81e7a5dad6af688d2f8ebb949b498bd7a95f16740daf9": "chaque masse est multipliée par la distance de son trajet",
+        "da11757dd4f994bf609cce32786e07861a5385e40873f535a972286ca69f52d5": "γᵢⱼ va du dépôt i (ligne) au magasin j (colonne) : la distance est |xᵢ − yⱼ|"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.7c": {
+      "coarse_any": {
+        "0": [
+          "21f9a270033355b242edbc0ce4c03484906adf9a2434e18a25e56571ab5bbb55"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1eb8f26d2e1a3b6ded99764efda5e8ae3445eb3f60ce013f7628e9dc892f9486"
+        ],
+        "2": [
+          "c0fc612a938d75c038a3be8a2e3d96c5f9956803c5e503efbea93157ddc5e2ef"
+        ],
+        "3": [
+          "7e0c7e510868e21f34121cea4e1c2f7796f16a9a955318c70e4807ab05c1be1b"
+        ],
+        "4": [
+          "d7ac4f2a02ada077549454680b2dc90cba78f70f9c667352e0aca62ed74d4a9c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "ed0061d75b264228047ff6d460e485c2959b966e199e777d526a0e2b304dccc5",
+      "hash_coarse": "a9286f14e1c1a1ca2f686bdec75b822987ab4b173ac5d8ed6c4ac42d5c5d5fb9",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "54e2929ee8ca265dc84206a6cf7e6dd8ad355afa2b2e14b111fc7498c54331c6": "avec des masses en tonnes, le couplage indépendant est γᵢⱼ = aᵢbⱼ divisé par la masse totale"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.7d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "2c1bb13e73bb71a6682cc557be911867b0c05c8edf64e94721a8a8c257d14f74"
+        ],
+        [
+          "48f4798527b807fc04c2bea8659e38d3637c7d12c2df3916056bc1f03a308f8d"
+        ],
+        [
+          "14dd6f3090b49a8554497065c9c72e726bbf24f89d968b3367d1e3fea5a2daf1"
+        ],
+        [
+          "14db6761f6239233a8c82b08bc80e712a15b943361a94e11c30d257dc0cc7b2f"
+        ],
+        [
+          "6c6b7ff7c1f039622d15c3e4bebb1b1c6bd0f32bf4f89dbe399d630cbd15c430"
+        ],
+        [
+          "4babea2eb83b4e15d9e7831808f6aa31b5dd7f65f188a65be47e28fda2116db2"
+        ],
+        [
+          "66f194176b375ddbd2635730325643846a789d1a8813617c0fc51f78613c581e"
+        ],
+        [
+          "4399fa670e37181ded12f3de6c2af3b74e51daafefba17db419665af58abb67a"
+        ],
+        [
+          "659241d718edb507a779038c9f30783228a703f7c73d9c9cc3064abc730a15b6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1a01390ebb238b6170175953ccb610b3c615ecb9d2c95d1bf2270c1f48581b93",
+          "0a661cac88d6bd8c5bcf7a66fd4bb57afc749fdeceeedb6b601cf73c935fc3e7",
+          "b78fb0676757287e150f9b0587b47ebf8c7b0167836caf1cc9de421382e8b427",
+          "5073bfd89dc0a970cbba77d6b5fd019a4c8e2890d7a1311508a5f93edae5b16f",
+          "23591bf51f93a103b5af93cfb2864f8a0cf80638d1d2b00805870caff92fbb0b"
+        ],
+        [],
+        [],
+        [
+          "6691301619174322e8d50677d9e7f7de9122ff6902e98d821586f8604330e12b",
+          "6eb301f8e9bc7ee34e05d1ae71c6a1fbceb5f2bce86cf49df42e50daf40093a1",
+          "ca0e3327ec240000d9f7ac9b1972e9299a542ccf8fcf519bad3d764d680de82d",
+          "d1884bc3f91fe05db27e8dd813c1ee8ec2ce12a230032bbbdebd71d1c83f0270",
+          "24a6ecc03a677eae1317ed73964ed5b43d7966cf8267cbb3fa39b2993f31ba94"
+        ],
+        [
+          "bd739be5cd0555695d82267ec85e2501a239180e229774ab1f1aceb85d554a1e",
+          "6ca3392311e02e8b57e33ed8d600eb3d59781d37c5986eafab589d8953d367a3",
+          "a51c2c63a52a1f0e0683065b744c8d8de607c7637d30a3701649c11c4451d739",
+          "a0b0dfafc5b2adb41223cb22531103c9b2098ba8fc5732240ce906129b603dec",
+          "dae21c1f11507580c4f7bdeb13ea45f512b83ebd81631cb5ad2c9776f4ea0a17"
+        ],
+        [],
+        [],
+        [
+          "29c3f2b67267469c155fc3787b4f9b515ceead43256ae3f18429d2291c2dd1af",
+          "70865f12800c48840c63bc49aef262d4cc1cfb7016ad99c23ddc6748b0a62da5",
+          "18616164ff4b33ca599bf8ecc3ea8e6741b63df494e7d28195f32d92c62626fe",
+          "1e76d2d444a0e1089e487afa04b95b27dc698cdd404e68f54fd6a5acc9aeef2f",
+          "18d8afa0bf94629ff8fb6223db1bcd91d97f1f07621d0647ee812092851753ed"
+        ],
+        [
+          "b3420f69ab96b3331f3395af2efc32f64a8b08ded31cb2b7c674bebb4e2c16a5",
+          "0c40f92d30b857601d64def93be2a0e1132ece6b6f38031a5eb33c86f88bfdee",
+          "414242ad586a95387ae27f175a7e3d3040f86e3b6bdc3e783e5a5f6946fbaebe",
+          "64e1b8bdd3158a0378cb0af2271a82fc82ffe00ed00c47b7b657cf5c37c6c7cc",
+          "7e47c1b8cacfd5978f24e6a6a569811fcb27e01ce387bbda7116200297ed3cd3"
+        ]
+      ],
+      "element_hashes": [
+        "5910041b013f5a9240be45ff6efbc1d79a2271ea1411853cfbc16513ae206974",
+        "0fddd8649dfa0f56457e095e4cafb07504a7af8a7516affaf08e785ea64d7234",
+        "f484e2a5b88dcb6adc3de90a6db22805af7e8868a0bbe785c20f1272665cca3e",
+        "aeaf3b88815d51c39b9fc0095fed6a190e5d8920207ab98a1d1d311349323459",
+        "76957993b5db994f16f120342300c63f9ef526ca34891096e2a3c2d16c4971f9",
+        "8d2248e3dc2394889a61c2059ca61ebb25536762f1df0b693d41d080b2697854",
+        "fd7659f2792ef329804f7c56ea580621221334bf8459a954f0deb71b435c0a38",
+        "a1bae78a0544adc49512b347c9c4c6326a3381df471b5d098fd193d57d11626f",
+        "e3626afbe2cfde4f586b15144e4f11ff66b9704210c2f4910951542900850eb3"
+      ],
+      "hash": "72a75c7dddabcecbada60e8c539302cb542e2e5d12a482ad85200993d0b5ca11",
+      "kind": "array",
+      "mistakes": {
+        "d099242abc67d46734c6a18e8834a0ba9d1e6754dafdd1ad3848bf81e6934f01": "les lignes sont les dépôts (marges 20, 50, 30), les colonnes les magasins (40, 35, 25)"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.7e": {
+      "coarse_any": {
+        "0": [
+          "c1e5b379a096abe44db232ecffb65a230cc8f57a89418e9deb351a320b3410c9"
+        ]
+      },
+      "decimals": 2,
+      "hash": "22bf41beb01ca5fb92b43a0d2cc2c3fcc164b59b24f0edfe9aac2a862341d28f",
+      "hash_coarse": "89ed33ddd9a91eed388d3241e792f4f803a03dc3038b5c8d083770f222ec4295",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "693c96d9b3dcfb7deca97e68325805e0b3863656c6fb60e00110aa03e21ad2c1": "W₁ est une distance entre deux lois de probabilité (des masses de somme 1), et elle s'exprime en km",
+        "ad26ee3b2880af9437b3662cf01b806289d85f9b27cd0d9851c63eb24f3affbb": "W₁ est le coût minimal, pas celui du couplage indépendant"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.8a": {
+      "hash": "ba6da4b29aba4d756916037e0ec38b686de0c8a42d860677a96a10284e5b4554",
+      "kind": "fraction",
+      "mistakes": {
+        "385309e9242b5e94dd6bd5c2d9e321ab79752fd52287a1fc58c6c35d52d225f3": "l'écart des moyennes ne fait que minorer W₁ : l'aire se prend en valeur absolue"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.8b": {
+      "coarse_any": {
+        "0": [
+          "7298cba9d65d93fbf1b044975356893891cfbdc4f5b7af96299fa20c6aea3294"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a54c783823f835de9e0ab45b55a8d2635e7b07bfee1754c10bd23d5625798655"
+        ],
+        "2": [
+          "72fcc195d3c869525f92c78804cb5f0afb03a7fbefa15fc1f589228c29d3bb25"
+        ]
+      },
+      "decimals": 4,
+      "hash": "fc0e12ffb1210fe28c05e57478a5247b6384ab7afd440bec7abb9f787da0967c",
+      "hash_coarse": "98395e397ea3607a024dcbfffcedb87d18662675f614436f86a1cb1a2230a517",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "f5d0577c1e02074db8b3899ea579da146ee3b771cab0018de2c879573c9e5a51": "W₂ se calcule par les fonctions quantiles : ∫₀¹ (F⁻¹ − G⁻¹)² du, pas par l'aire du carré de F − G"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.8c": {
+      "coarse_any": {
+        "0": [
+          "b28c97d69fa49d705a5617a683300b5780b1a61ac5e48921dc9d70ab188f4673"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "03f93c26755269591d2332d5993603d086fb436fe7a8a1f2a9c3ca59cc998bcf"
+        ],
+        "2": [
+          "0356513d143360a061599526b14f57d30a6f5660f529a5a8c436143c41e6a33c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "055159ee8b36c26a7b14d0fe664f1d3235e701681db5644ccd10ee86095016b5",
+      "hash_coarse": "245c13be6f677481e0193312ddcd661fe4912bec10aed1ffd80bad2cec7f14cc",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2a40014146484b35ced8c10856757c3fd8ec24a8f71ac402c07176e9ba2dc354": "la distance est W₂, la racine de la somme des deux carrés",
+        "37d9188987e9774a1dab451096e1eee4ef7a2c3f03b9d043b67b485358fe6d06": "W₂ est la racine d'une somme de carrés, pas |Δμ| + |Δσ|",
+        "866b4d7632cb89d3f2aa1aaf8dbce8923bc25855025066140a0698d64ca6bcce": "des écarts-types, pas des variances : (σ₁ − σ₂)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.8d": {
+      "coarse_any": {
+        "0": [
+          "a531933dd8c238f7a38e328bbed280eeb42b2b8aa5faf85c7dc3becffa43d9fb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7554d4911f27f1d63696919c3056f7d9b96e93c5a6789b875db4918e8ef4c990"
+        ],
+        "2": [
+          "04b803193756c8cfbaf7c274a5ab2eeb1607bc608383555db1891025fa0b2014"
+        ]
+      },
+      "decimals": 4,
+      "hash": "91c2fc6e671f91b0cba6d26582362e93f6f4def62f2d6bde86c1bc130ac157ca",
+      "hash_coarse": "75b66d8b9a4db3f44eac4070695628e83ac6040176c760049a699461f33b0a04",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "52b0e559d31341d48bc2fb2e23c4ff3f75cfa31eb4eb7b87a2dae6814e818a33": "les deux lois ont le même écart-type : il n'entre pas dans la distance d'une translation"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.9a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d908b071554024b7aac30608db8515d57ecde0ae3c060d115871fc0c84dbc019"
+        ],
+        [
+          "fb260573d65824b2eb1a487ed410971cf9daf609a7c1f6fed834ac0ca6dd874b"
+        ],
+        [
+          "fb8dd28c27d6af08e9adc028de4e16a4bb74948ae0b42f12c9b2c20bc0e6431a"
+        ],
+        [
+          "d50ad867d9e4d254652a8c12dd9bc91427fbac854dee1c04e186ca962c7a2a85"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e175deae5b60174e01d9642641f9b906bbe59fe739803d0d453184ff6af0b396",
+          "c22687d6c7ae03e4892b1c2f6e94a656bfceece0f2fe551ec582fc40b58916d7",
+          "7853ca115fefc8312dfde470bb494962273a4166eb3fea88054ff883e5b39aed",
+          "d6c32586b51d07b465b22ccae4cc527383de38b2017fe4497c3688d89117c09e",
+          "4d14ccc3730303584f1203cb27a9ee11a7a8f47866241a43e72faa176a417801"
+        ],
+        [
+          "4a660e8a761b7e32ba2ebd98bb871d056f06e1cb2c23b865ef3907bde215c458",
+          "7740ab9c5f9435a538b9d2dd1caa5bb8a0e58745e750ad28c34ee8251ce33bc2",
+          "2201439a2a12c5476092713269560ab2649b55ca646a5b1632f41e0822145f6a",
+          "c7d264dc0347d3f1a5ed55a6d32037d4770dbb7ffc33551ec006f3643e415f56",
+          "f93ac9fe9ee1311728ab7cf7dd29984caf885e6e27589bf09735fb205a01546f"
+        ],
+        [
+          "5111ab6c7ef0e82e082379f146d5cc39c4bfa1a81048ff00db9fd5bbf6f71b89",
+          "3e13fe0e0696224549598bc8da57d7a2fc58721a3fe7293dfc5d96c19c0c0864",
+          "5831887951c750c4bd816a21704df89a4a9e81196a0a5953d17f9bc577a10794",
+          "9a0adc7f16c5bbb0dccd28108f71658b8f1008c6e19c87f350917801c7c27763",
+          "708ec7ccb915fa7b04edf310a39b280494f0d6c9b7636e011e6b4695c21cf730"
+        ],
+        [
+          "1f0f72a23900b5d8e5c072a14ef50be4b81bdff92607e52fe8ad9e6590d02af3",
+          "cf2a41659ccee535364169d408006234c99f69a5a04b86165182ce36a7507d04",
+          "2e0e06e86295bf385eded419a78a27ca2f42d5ef3aa9625a655bdea762cbe042",
+          "b76a45039a934cda3a79034e2af155016a013282c3cea49afff49700afd9d102",
+          "15f4a8a59b52bb0fd1c8ba2761b49437818893386843ee5627d6058bb21b02b9"
+        ]
+      ],
+      "element_hashes": [
+        "733caf9078a1e6ccbdacf17bd1797173cd2ffddd086589dc73f470ce316d2b3f",
+        "5e7a89bbef80baafcefae7f75779cdaf590996998aef4e50926f213d9aadcc75",
+        "5a6e56599c520839087c8c8ecddb9cdcbde25b79d20b7472da79c2a1f0f91f25",
+        "263d0255d6d88ee9ebb669c829498926c1a7aad238a6e7487bad84f223ca48c2"
+      ],
+      "hash": "2965ab562707f11a58e246d056bc26602704a31692eaaccb974888288b96fc87",
+      "kind": "array",
+      "mistakes": {
+        "05ab8fb0b014990647596909f738895bf8be1779728bdec95328dcaaa1630f3c": "les valeurs propres de Σ sont des variances : ne prends pas leurs racines",
+        "68dceb5a1e9922dd5aad0720a1ebb7adab34d93bacc4a6f423fe00927cdb3840": "les valeurs propres annulent det(Σ − λI) = λ² − (tr Σ)λ + det Σ ; ce ne sont pas les coefficients de la diagonale"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.9b": {
+      "coarse_any": {
+        "0": [
+          "253ad30f173877d5bdad7149bb98be7f323fa21fc407ce8a68a3f80dcad42a4c"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "ef80f18b9bfd636d39b64e873cdbced984db8d5e2faf39406d27d44132ad86d8"
+        ],
+        "2": [
+          "71e5e5c858eb5df5c5c54bdc9b4461d9096e33aca7cbf00c10518008614da81a"
+        ],
+        "3": [
+          "aa1469b6888d1b9d50facb5282d593bf966e3cbf1a75462c020e48c468ff58ea"
+        ],
+        "4": [
+          "63b0126afec2c5398cd5e0669ffccb8e045dce273877d92e5f0910d589eaa0b1"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5e4187f7ffa07397517ae60e1952ebbfd6f06178f202f71d997e5f6a9fcc0af1",
+      "hash_coarse": "9bd75a9e5e3fbb599d28e667cf4b2e5a5bab66418654f6f0b11fee0b44c61f2c",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "2a7ece58d01371d0e21aa0cdce81c21d6dbbaeb14295228e955d0929317785f9": "Σ₁Σ₂ a pour valeurs propres les produits des valeurs propres de Σ₁ et de Σ₂ associées au même vecteur propre",
+        "e8cf9dfc9d0d672e06e70a9a116dddf053540f81d96fb8d160417de355414308": "la somme des racines, pas la racine de la somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.9c": {
+      "coarse_any": {
+        "0": [
+          "fb4f9d7e3b99094f520a00f5a628becad8a1f9cb6c28b30723700a0d344a2e8e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "911349eded4a58d90d436eac6188afa13d62cc363da8873b7bbd9946460dc083"
+        ],
+        "2": [
+          "77cb26abd76acd14d316bbe561b8ac65e70cb06d0cdcb85e18d3b7957a0923c4"
+        ],
+        "3": [
+          "2d56cba730089a8f600cdb9284185855f3cae18fcc373ae6a517ca1f64dec99e"
+        ],
+        "4": [
+          "a5194a0a66b291c56f106ce36cd7624d0273696c21b89f45cd119858b1afa8bd"
+        ]
+      },
+      "decimals": 6,
+      "hash": "1acce884d1318a8406312c0a3a7f373ea45aedcac238007efdfa0b9298d568f7",
+      "hash_coarse": "fb2526b5ac28c407eb13d8185ba23f26672e1be68f2eddc88a4788efa638ae8b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "83cdead414d71a2b0db23c1e95447335dc5d7be11cd81b97cb0b59542c8c076b": "n'oublie pas le terme croisé de la formule",
+        "8893c296a4c60a972085e6dd121658ac4fb173e9b07bdff9f68afe305a5ec8e7": "dans le cas commutatif, ce sont les écarts-types qui se soustraient, pas les variances"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.9d": {
+      "coarse_any": {
+        "0": [
+          "368275fd4c121d92a52fc9b368c681f3f9ef7cdb8df72a69675a210c2b8b4ea1"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5824853b2bfcd847e2452ee3429d4b6ccc82dcac75e15b8e616e9160c35a29ad"
+        ],
+        "2": [
+          "b81a46f1e286b82cb91345bca91e18dcf7a117b3de66cb27f5a3f39c345f40ad"
+        ],
+        "3": [
+          "91c8062fe6944e034a282145f23a073c3c64ec00d1413b526403e23eab8ae8f1"
+        ],
+        "4": [
+          "b32093d601d3486556bf08e68c339487206d4fa7a2cdded742db23ad9a816132"
+        ]
+      },
+      "decimals": 6,
+      "hash": "b81de2b3cc52f7bfbdbff9c2e6238f9a902d3f239a86051a33400dd0fd808dce",
+      "hash_coarse": "4dd134b9d621915e077f8e5471da4255ecbbe926ddea4e03335003f6254fc917",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "335f737251cc9475cb649b8c7d2afbc8a983945f793cc679e3e7dbdc51dc5f5c": "la part des moyennes est ‖Δμ‖², la somme des carrés des coordonnées de Δμ",
+        "349428718fdd2e2369cdb06e75d7951f4512565db78931edd87abfd455a25099": "la part des moyennes dans W₂² est un carré, ‖Δμ‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.9e": {
+      "coarse_any": {
+        "0": [
+          "670a8e5bbea301b2e6be87b9cda5a98482330c1031826c6afdcf17eb9f876223"
+        ]
+      },
+      "decimals": 2,
+      "hash": "d98516a5cce3828c48f12a76e9c7957d89fbbba5aa71112c26ea149009548961",
+      "hash_coarse": "39ec546bb83fc4c76675c93a81c26a07ca5beb93bac06711caec94ce7ca5f68d",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9b402e27c43f03812794faa921ab6184ad1a6eea47bd192799d2b788fd2f5b3a": "la distance de Fréchet est W₂ (fiche §9) ; la formule en donne le carré",
+        "beaeb1b1df473edd60029f37dbc90f15e6f20b23e48c2e10a635246aa525ea0a": "W₂² = ‖Δμ‖² + tr Σ₁ + tr Σ₂ − 2 Σ √λᵢ : n'oublie pas le terme croisé"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10a": {
+      "coarse_any": {
+        "2": [
+          "f469c07ae77a15e62ebc328b66c83ad8f5e9e300f8f7c41a209c7e1309d6a260"
+        ]
+      },
+      "decimals": 4,
+      "hash": "1284059bb2e9a3e897e336f1e4e74be0d8c4a926f23b406c87e9ab79d4fe3e98",
+      "hash_coarse": "345351e2a193c35e116cb59b7a5e992e47ba10e7259780d34a59cad6f99e21a5",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "6526f02e0521614f12f3dd458b9219a1863263a6a15cb37b9ea6ee362be6c3f2": "le PSI pondère ln(p_k/q_k) par la différence p_k − q_k, pas par p_k",
+        "a5341634575d18ada97eca8015dacf22155ba2bb933d8b1afc3f7b189d0a5ff6": "le logarithme est népérien"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10b": {
+      "coarse_any": {
+        "3": [
+          "a089caf5f3207e899f6606d2d09d38360d4d5ef6282265e40c92b02fd9395e68"
+        ]
+      },
+      "decimals": 5,
+      "hash": "418f91c8037065f104f567e019b4ad3ff257c27b5ff130e97b1f8284f9136877",
+      "hash_coarse": "a5d7bd709d083acf5f2c286a12053f55b74d7f23de836f4ff888fd937858f387",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "d033249819a3a9032feba0c90d42373c296c37366f94da158d097bc42482837a": "le logarithme est népérien (nats)",
+        "da36c4c3178c861455573460d983a1e97a01412bcce573d335f55577800b28a7": "JS compare chaque loi au mélange m = (p + q)/2, pas à l'autre loi"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10c": {
+      "coarse_any": {
+        "2": [
+          "c1f828a7a8f928a5b68502ec1a4332ce4374b809c96e00169ba550961fdb93e1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "0b445666e0ead537f66fd367f445448a62fe481b9f075208d33497e157b6c671",
+      "hash_coarse": "43489339ba7847f2721186f99fb231dd5053b4d75863f11b681a88fdc59b8b7b",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "641ae8c70c484ccdbcbca7333c2a9167e8d44ce75f878e90b46bbdcf8f19377e": "on divise par q_k, la proportion de la référence",
+        "ce7eb37c936814be9b890c9ff43740aaf06e8e26e7a0546c085a130e1c409a7a": "les écarts p_k − q_k sont élevés au carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10d": {
+      "coarse_any": {
+        "0": [
+          "849f11869eaf9ce2d1456913482a89c32789cacd412325244c83fda54a2f9958"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ba416c909745ddc05571e177de9732b12d4c78512ecb1e380fca8901aa5b4a06",
+      "hash_coarse": "38562efeaf033a7fecb5465665c78b175e810a27ebfc4b40d8ca3006d345c70c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6a3182c9c6e148eeb88f372b99030b63a148eeb29c9fcdd9ed393e93962342d4": "KS est le plus grand écart vertical entre les deux fonctions de répartition, pas entre des valeurs"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10e": {
+      "coarse_any": {
+        "0": [
+          "c4f4b97a402e325df0596392afc7c930ad7d5b803d3833d9898361958e7bc37f"
+        ]
+      },
+      "decimals": 2,
+      "hash": "2f7d8bc034e71b3a2273eca6d86febf90ae66d2dad6d4ba8c0d0e74d07ee7cc8",
+      "hash_coarse": "184bacebc59d446b0eb00cfb6a1856b2c22a79e1dcadc7c914d7b2815e761bc0",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9862a0d1cb535c707c8f5e910fb0f26f45304384961a6a4cdadf9e562d3db8e1": "l'écart des moyennes ne fait que minorer W₁",
+        "d3784b50f1f7f71cb7d20bda34f79a8a42b499c178dc01c201217f41a035e5f4": "W₁ apparie les valeurs triées : la plus petite avec la plus petite"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.10f": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "c271216b65073571a532854a4df42baf40f0c2d1ca799f4f56eb7106fd3b5cc4"
+        ],
+        [
+          "cf37f7c5f8325ba43e0335b34927763cfecd22a977a2af017f90f98cc79208aa"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a1ecf5271c223053b758d5c8bfefc9ddfbf25fdca9ccf9fc896498bc153a9b74",
+          "717b56e15750f97a9bc5a1b58d441fdee1e7734594e3991c80053074e39ec8e5"
+        ],
+        [
+          "9de93211fff65483e3f73aa5cd5b525db35a9b7a8f61f4678edd6f0b0683cd2a",
+          "75b44d1593bf8293873c8cdc1cca032ebfc6a88fd01bf2f71bb160e43f02d355"
+        ]
+      ],
+      "element_hashes": [
+        "2edce7d99ffb04910f57598de9d7cf8a59da64387b126d78644bb8e70a767f94",
+        "128fa6bc8a6eabe3423acdf00af9ac205c0a0bacf15e76a20737aa6e6d3125d3"
+      ],
+      "hash": "9d3a28752a643339e22e576ec6fade6a64f676d6694f4fb7483794329515b4a3",
+      "kind": "array",
+      "mistakes": {
+        "a39d7a6dbc4431d06e652d806276a0954e31653c3f5e75f609457d0e2aac69e4": "une translation commune des deux échantillons ne change pas la distance entre eux",
+        "ae1fe0081d763723e5d3c4d0a3d9eb79f613f67056857f7144f01082833b9a59": "KS compare des probabilités cumulées : regarde ce qu'un changement d'unité fait à l'ordre des valeurs"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.16a": {
+      "coarse_any": {
+        "1": [
+          "cca311411366a11929ecc72236e6cb216b931e6f5833ffb647108b77561eeab0"
+        ],
+        "2": [
+          "fe361b6ddfb9efb37a4fc15a51c2bb9c94aad3128bbf81a11753778cef703da0"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "561e83ec4d6f267d34007126c28688480f28c65c63d562a72507f017a7bb0da1"
+        ],
+        "4": [
+          "1c6f7fc254d092581e60bb652eaf08f6b9f227eba108f48f3296b2b47cb8db4a"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d07fc34aa11d61f1f488480c31a25e0416f94a0f77b67c69c18c2863a6c1e42f",
+      "hash_coarse": "a0dacc0193fd9eeb44741cc7d4eae2e5cf5ebee8d99f1816b5edb456df321983",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "b13cafeabf950ea039dddd944b64abdb7950f6b6e1d31138ec62116b5b4deb30": "la question demande le carré W₂²",
+        "ce4041dfb4f6f911cf657180b6c7b9b66aa89268ccfe21929a2504eae54ed090": "des écarts-types, pas des variances : (σ₁ − σ₂)²"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.16b": {
+      "coarse_any": {
+        "1": [
+          "41bc52b235bfc02ae3645c8d0efaa16a349872f3fe2de2c4b44b43cbbb4d6c03"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "9380b3c2ba673e9dce222eb0d2573508ded009a4e2a588a77c5fd666001be1b6"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b5c42a21ab4f37be5bc20eedd6e59e91571150eb834989213ab4b4716dd547b7",
+      "hash_coarse": "05610ee1d6ce67a6e52d4960ac330efb06e6f3bb367b7451ac229d5212ab2123",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "11a584b97687b71acfe26c52365e498400c1d646340ee8829e87b4e9132f2e3f": "des écarts-types, pas des variances",
+        "6722fd0b8a67e59c72d170f3e740f43d241ebbc62cc946844ef2d3f7e7ef289c": "W₂ est la racine d'une somme de carrés, pas |Δμ| + |Δσ|"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.16c": {
+      "decimals": 1,
+      "hash": "81c40097abcb6895ff36b95df9d3a5472c4c7cc9376d4ea65fd7b57e30a805a8",
+      "hash_coarse": "cfb4865710069eb3c2ee26ffa6fecaa05b07facefad2cc42d8f5a80360dfff1e",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "4f3d20e9438b4734e56c1d80ed2ac6375e3b6e077070988d57359a72e3d905ef": "la part se rapporte à W₂², une somme de deux carrés, pas à W₂",
+        "aeaf1606e6953500b6c3bfecaa3c561f7ad2b3f0e70485da02f326b6e63f5819": "la question demande la part de la moyenne, pas celle de l'écart-type"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.16d": {
+      "coarse_any": {
+        "3": [
+          "5db9d08760ac2fcaa582af14b1b565d7fb07b27d763a2213bf50ac2bf03bd3c1"
+        ]
+      },
+      "coarser": {
+        "4": [
+          "e506ab331160678c52fdaf38e6cdc7e2f05bd88593457f26dab95392d36f906d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "c06545ec24d51069454ce6f62578aa27c2278bedf71771fc064a29c1e3fe923a",
+      "hash_coarse": "2d0f80a282018019f4a7517ee436a10f7e1025fe74148f59d20cbdb854feb70a",
+      "kind": "float",
+      "magnitude": -3,
+      "mistakes": {
+        "9ab0ed3fe6016cf86bf7bbb1c6b62f5449cf6c1897a5d4fa56a35f3d6b5cd543": "une matrice de covariance contient des variances : Σ = [[σ²]]",
+        "a0e9e144eaaa9257365642e2bf96bbe77b64acf67d2ba0138be8de96c5550825": "n'oublie pas le terme croisé −2(Σ₁Σ₂)^{1/2}"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.16e": {
+      "coarse_any": {
+        "1": [
+          "ecd49c25d57ab9f7c747177025f536b2a93d33e67367f8de6c00a4cf0925c301"
+        ],
+        "2": [
+          "b0abf3ebc0b1a739bdfd8395b51ba331a0285658892edf20820ac5eac49a72be"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b293665f7b29d7294426e710c67ec2d6a836035cc8d3fdc2b2f4ea60a86d75ff",
+      "hash_coarse": "b18806a2a31bd7c5055c03371484f01fbc81795373bb5b6e828d6276532fd60c",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "b51e97d41f663c8764226de682aca82d7ac63696c7cb8f25527293c3e28ec03f": "la fonction rend un carré, sans racine",
+        "bce46c3adae61639344e978df184d677f715f04d162e18af24ebc14d8019e681": "la fonction ajoute aussi ‖Δμ‖² au terme des covariances"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.19a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "3e0a6c18f00f07939d0b94ee2d6582877bb163083251a35ea8596a7557330cbf"
+        ],
+        [
+          "b6c1125c3fcf098680ae7586423e159004b12c2ef2705b25fd14faab02d9c041"
+        ],
+        [
+          "5703a02627e72d5d35eb81b73b09f7cd9b992874ce0aa0027d1964784c1753ec"
+        ],
+        [
+          "629f23dbb411353f6850d9c4e627c3ea86c2b740c860b6a8b4f22db262b1a673"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ccdb8f51b4dbb00cd005fce00de88ef58a43f0b7fe09b72ab9ff4ee0e0ac6d68",
+          "75083f13b0dc53542a9fb37b6bf8a9f1092a208b6be5109b7174b96973a1ad0f",
+          "327017e08d84d22ea6d4ab9f5d853ab6ac3423248071875da320d732d568f0dd",
+          "cc2c6e17d34b195fd066f0cc8d994574fa690879d5a98429731ae995f257dc8b",
+          "189db9c02808dc91397c8309c32fc95b2eec155bc641e20926b8d0d5a9e83a3c"
+        ],
+        [
+          "66a3f2465c13fdd88c4e710c1b3b22e4970262d3f3907578091da774416dd22e",
+          "83ef68325598212355ab872d6cc9c73fbd3d8d0d5f5e8cf97e4a86bd89b79329",
+          "fbdf78e5f078aa53b112a41d99b908140333b1d7ed1dfde262a25ec9da321c36",
+          "b47e3c845e6a02bcae91741fd9b8eee3e02305a28ed68dafc9554103526d6566",
+          "c6913443f242103232126835d6b744e2e2b32a3e3ab10f61a0341c8e3c4fcc89"
+        ],
+        [
+          "e02f5f042eda531e240435a0cf41b39671d83759da7da9fd71dc89913b408361",
+          "f558dcece4ff46e740a88e616e668f4e7656ea02504239d396cddc052e47a9e6",
+          "4dc6814b4f9dbc3bbfb84c4542b0b087611f0857962f39d87f6ef9e42677de00",
+          "fa89ce529192892342dc17a69351ca8c3407da97ed492cb5276702a540219aff",
+          "634d65acce53a7c6e4d6d01e5cd1a7a4207aa56c12065c520044b327e86f84a7"
+        ],
+        [
+          "ff7b326b83557f76088a30b267ddd07601b00b5d4d11a480f6b381ce97e4ee7b",
+          "aaa80d560b547024f4c4fe9809860d58c2d4b7eb06721776747c1a8394e14da4",
+          "206797ac00751d842757db6787fce56240d96ec38694b338416e02270d7254c4",
+          "4946939ff337a87e2e7e0cece6421c6cb0b184f0b789c26c5cde02dcab1d2832",
+          "7af49fb9030c5765d842d91994c7b1b6c60c1373fe98978f69753f3cfc994ed7"
+        ]
+      ],
+      "element_hashes": [
+        "3f2e582a1e4672e2985dfaf3eb42bed1ffe4cc4aa5f1c35913ca46e9c92a6ff3",
+        "cd95ce27fea4cf3774d4e504a6d565ac2f0de6864dad25e480677865177e0004",
+        "f29920cf2b270c78bb9e7e77ec2eddcba37da3e4685658dddf7f22333b42a2ec",
+        "8ed52990a098affd5bbfe250e4d36c04bdda5ec2943a5b2db083adfb795bbf00"
+      ],
+      "hash": "f3659467093918cc4597ccf7f7536658876002eabf0896cbebfa5383ab221536",
+      "kind": "array",
+      "mistakes": {
+        "9acdb4ec346b5c181549af8a1195e99b6676173f3f2eb5651334c4e33eb4d020": "le minimum de chaque ligne se prend le long des colonnes (axis=1), le maximum de chaque colonne le long des lignes (axis=0)",
+        "cde82eebdc111ee82be97d6f35e04a2429225923fd7921eaa989aa0d31b67ff9": "row et col sont les plus petits indices où le maximin et le minimax sont atteints"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.19b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "20581b03fec9248cf71f093f2862440c7e44cc2a59cacf1f831215a988fbd98a"
+        ],
+        [
+          "3831487d62828c8b93126074394b497cf46ce4930cc2f2a2d25d90517a168fa5"
+        ],
+        [
+          "4ad6d25237452b3761c52a45af331ae74055a47478eb9f680aa1162aee8103ab"
+        ],
+        [
+          "3fb39f4349906a10cb725d8febc68037c8965bc0b889f39c4fc51d6bca208c83"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ef37b0dbec76dcd6b2d6ff850bdb1f881419d61928c8a86c8605f26d8359c6ad",
+          "fa08efe174b0f5ff2320ab2f66658d58a8eb6edc7161db28acf0e126f5b0621c",
+          "501f3cb32786ea7ae1fd67c1cb0090dd42a9bc83aa912fcadd79cc5018d5a377",
+          "7f32036d3534758364546ca052e7b4e4b9579184bfbfc289bb34eca2a36d756f",
+          "83140c51d00a53b5676c74207faf33965edf30a8f12cbee34ff7b139eaa456ae"
+        ],
+        [
+          "631a43987e78dd8687cbf272ae5e4d5f843dcd78ad4ad028b13b5f34104ef39a",
+          "01dc5a9b1e044567d3707e12a6a94233c0458af90617f659904640f6cce677ce",
+          "336b57739d08c4df07b23c753f78403b7cc669b2051246bf77d83439aa195123",
+          "36583d28f1ac576da3bfddc4f570ac89f2c6ce227497ad0f6d27a4a069b7412b",
+          "eeea1c5c3c4bf92813206fd352d85216c2bd1f77ae225b582cc61193651906ee"
+        ],
+        [
+          "3a65611000a53e3bd60feeb815ac31691f78c823c1fcd2be2c9996242b0d48e1",
+          "29919ebf80031d8f675ea56986fed94e1d10a15a82bcafdf804fae64ff7c18d4",
+          "69378acdc1b16186249f02dcfb63417d8fc02b103f1be963ced045bf5bb07cf6",
+          "7a30ddcbfe2f803078cfb0ce64fed8949985e7af41e7cc9ada33d684b65f97d4",
+          "51bf8af4f03536cc4dbd6c7310203752ed23beeabf50a2df5d9eb0f63a805e6b"
+        ],
+        [
+          "f66c76dae7eb14040a0b3f30ca880b2930988ae20cc84872d0354c88808ae938",
+          "45e95411d94c61da55b90bc318bf3ff84b511178dfa15e5475be0a9023402926",
+          "9fa6d1eceac9f79dbec0c2cd6ac9d6ed7ba89b7c3a366d15ca0ac58a98936946",
+          "18ec9fbcd455418eebe745de22be3169799ab0b18e88c74238c0be9b02f425fe",
+          "265faa2dd214f91bd09290159dc32d00525b67565c77ccf9314244402c8fd756"
+        ]
+      ],
+      "element_hashes": [
+        "fff060e80fe1ab716ffb59a881a4b65e9c008e33be925ea2d12e72d85e0cffe7",
+        "40bf640734a9c71cfd13a21e2281fa61300c5e602be4b7b3fbbd0b193c1d3d8e",
+        "362eb670c05477ebffd5d623925864d3db37993320cdbd28ca939fef4d7902f3",
+        "bd50d9011b7af3c03091c797f19fd86b4c9d712b6ae42bf74c65a05f617385e7"
+      ],
+      "hash": "849d3c9f3771ddb2c299ea32d5f5f2513e9ab79a824fd4809743f331ab8511f6",
+      "kind": "array",
+      "mistakes": {
+        "6cf99387e2097c1d3d65f955a7f5ec322c16cd09386411ce359731399587df15": "B maximise ce que A perd : ses gains sont −G, pas G",
+        "754129ae6e9a2adf7ec92e7c9edfb00c7d1a599ef55a4b425c76d2443a8f0db1": "les lignes de -G.T sont les stratégies de B : transpose aussi −G"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.19c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "233be2e37d1de08a361e34d56045d0516c1bd53ba5a9aeb75dbf7254de6d310a"
+        ],
+        [
+          "209e336dd74f0f7d4ac189dd984e592c120360e08a4c91f60324abf327c6ce04"
+        ],
+        [
+          "54c2240bea82ba2cf1bee38b27148754ff71263321f5b3fe7fda806475992ca4"
+        ],
+        [
+          "a6bb50f46a1d51aeaba9229620977841274949cef5260ebd33e774aaeab7024a"
+        ],
+        [
+          "e93cfc78097a799931420350b853ad9a663a5f7139813d88be2a6058474bff8a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7436354e7aab9778ee50fb2d737ab364552a9c48a44ba3e95eff51c402b3ace0",
+          "ebb3c1ee29abd434eb6a963adc531ba288743d15c1d88129e775613d0b50d488",
+          "c04fd5b3e4b6f9baf2fcde3056420b920a4f084ceff4d22675bc4a8c7d3675c6",
+          "217ea5e9e6ed8ed1c05591c103224f6192ec80d3526e994ea1c8c36034491ae0",
+          "0ad20fb97b20cea20fc9cce47992e0ce9dc91932651e000de795318d750f7aa5"
+        ],
+        [
+          "87f59aff04235636f1d95392a9dca6b937613162bc5cc67f0f467b364cca5c62",
+          "9ba7b2b8e300f1c30e6a1605ee0bf53521e401a90c44a07369c8241de9aa3383",
+          "e56335130339480179b5a1b7f80f2b8b0e785499d980e78dcf8373ecde7cc21a",
+          "77ba02faf2e24bff85a2dab2dc6edd3d2d7a680bd89053cd7f085154395178da",
+          "3a6847aef806abc4240879c5b8be91ebafa73e0adb3ea7a585583e2ab0a94a9b"
+        ],
+        [
+          "164d0958746f49c4022309d6f9ccf982363dfc5df66478937da55aa91e04923e",
+          "10a22eff77ee5112b7136f7148165c813c0c3bc789d006fe6ddddeb88add2ad5",
+          "39dd1ba86194b4a2d3c9115ffb4ff165cf4000177b9037a082e9eb2cbb8fbda2",
+          "ba75bd3b30f3256eea9df257a805d27663f881a4abdd6b26608a7d885e75f368",
+          "e9297beb42b9a71d96b088cf2604fc6dd10857352723dd53803b53edb6dabfd2"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "d29768536b1e24536a5e48e0b1aff6d90220345c60ac2280ff468794acbb14c1",
+        "080067cee21c83d5768b35666ff3a0104306f8ae087f2414c3f736108f5ca8d7",
+        "168670231e8df5e60d145277b50e22a1afded603ef457ef2b093498f1e334b69",
+        "240bdf657344b370e31dfbd03dd28405362cc084e5b80268bca18738d1680140",
+        "4cf121a1acdb7a262789d595a6a90c0da8b4f704b4f2a3ed1cda5affd2d8237c"
+      ],
+      "hash": "921dca9d78f64002eb3f9b75a49684efda0183ad413465f67faaca9a66d0918f",
+      "kind": "array",
+      "mistakes": {
+        "42d70a61951aacd5f3809997ca68f5e30878e3f8185d69655bdb825fb4f6db67": "(row, col) n'est un point selle que si le maximin égale le minimax"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.20a": {
+      "array_rounded": {
+        "1": "25819d5c435f2493d818b2b4dbb41d178a7d6f2541bec55e2ca50680443c79db",
+        "2": "ff2c5603cc26968bc13b0ece60ab459fb4c99cdb54433c976f384992105c38d0",
+        "3": "bf29d6b9853d5ac12a223be220766263cc3189a0bf71976e5a37c8a8890f2e6c",
+        "4": "e159b0df6501d3d8886850d3cd603f03fa57cee0fe5cb3f47417a551bccb7045",
+        "5": "0d3ba301f35ff95bbc54b1cd1670e8c407d9dbfb6a45f918d22c6c92e89b9574"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0abf739287a27e0d1d24335dc5b0314833194327d5967d5a67576fd2a25cb8ef"
+        ],
+        [
+          "340447c2496ff63f9599ad387db9e326558f0323a3411345fae1dcb0cb4ea99b"
+        ],
+        [
+          "959746da2b69763abae91723e23016c19a823cdcc59eb890da42e3935040f68b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "21cc5fc74797c48b98422a1914b1d19df4029b777bcf2b209617f02ab6dc6bc7",
+          "47519e20eeafee946098fa37b60c100a0430dc7d8273e2752ed4cba37ac60348",
+          "2163c3859213d196f176f900c45bdc6f0d1bc26d61b3061ef09be6cd3557e017",
+          "1ad9c9d22409d9f183cda0a7587357ec47aca9bb39f84cec42d6a0dd91b8bd4c"
+        ],
+        [
+          "e2c924f2feca9f1520337d44f258438eb1874c2d22811f9405d9cddb1f1c00d9",
+          "629250f196a1fa0900b116ef50287b9a9c5456130c29c260658cdf048d7b7068",
+          "c10311d3f4eb473b454209503db729acec9d5bdbb845b463d3ca570626f02191",
+          "93d3a0c10d79ac80af64b8582d2ec7ab7538ab82c59de08aacd3c656f4e26861",
+          "f3f69fc0f99522f9248c48877059779940ddec60e7044aedd3b743b3c6bf6860"
+        ],
+        [
+          "5e1e55ce55daac2a331bb201a578e238054c4fda8d1c8ff2dc077b31f503e074",
+          "e642218f1caff0986303da0afef8f24cb67a67887961d2866f0ca5776e72fd4c",
+          "88ee0a771629a888c157b059e9a5adf50d7d253488e0faa119b4518716e1be15",
+          "cb0bdba0263a66bf0c9d64cceef2a11a3c5e2fc4c41b29f4a2e794179eed78c7",
+          "47f307db65cae63bc1acc5378f96e44c6a7eaaaa2a75f77f603141e2ab2faebd"
+        ]
+      ],
+      "element_hashes": [
+        "ade3038ba0fe9c58de51f9289be7c534294c86f05300b23151fd4a23600863cf",
+        "4f106704e20d428e3a5dd69375e8c624efe719f2791c5186b4921726fc50b002",
+        "f76747ab31f06a86e434bd5d70d7c397ad10f33be995c8795d2615a0a0f46e52"
+      ],
+      "hash": "42d6aa6559c8f6b8fe73013dbbb48ef5ab4cb67f10e345cb982aa3535362372d",
+      "kind": "array",
+      "mistakes": {
+        "0db67760f1d45f836d03187d2e2b4b76237ff267b6ef75e773bd43b9f569fc4c": "p et q sont les probabilités de la première ligne et de la première colonne",
+        "8777ea70f3e56171c6b25c709c866bbaba49cf1cdd7dc59c947ccad0eff80845": "sans point selle, la valeur est le gain espéré des stratégies d'indifférence, pas le maximin",
+        "9b3d9a9ef2c3388ff96a1d64828b1d09985e7cd48271c18d725d62d9665abb54": "p* rend le joueur des colonnes indifférent (il se calcule avec les colonnes), q* le joueur des lignes"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.20b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "003ffd46aae221fe62f646b8539b5cf2b5c3c9b465f015332e207f974df78f73"
+        ],
+        [
+          "855e9ab79e4048e9ec4f6f926af5a666670f3ea8e26b8ad4980d24d558934dee"
+        ],
+        [
+          "e16913100dc575da526e1369eb27679cf54da9c5f189c6595bdc7871a6718dfa"
+        ],
+        [
+          "cfe30ad42f1be5b044fe1d73813b9cee1eba6e9c1cc7f969cd2731259b731c0e"
+        ],
+        [
+          "cd4eaa18359e4ba5130951da9dd09e8bc0b3015421cfbbc9228be08799bcf354"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "073796c97db4755c407f245e6df7472acd4416965e56c4836f7c0067872cde9c",
+          "7aff52cf7bea714e1da9b33417f80edf007997dc7497a54044e25ea2939a7eb7",
+          "3e00829d26d47e916aa8e36581cfab8d02e9e93e7e2520c1d0803a7e35d02923",
+          "3173c6d99eef6a0c75410f7bc877d93ca180e502183d022a092c3c48d582c1c9",
+          "bcb06405b13899441b17f67d8ce155c359855ce27f3b1f39cf75f8037bae9615"
+        ],
+        [
+          "c2a33d96d425ffb7ccd6ba75e8fd7d9431d8d10c595b69a7b49a670bf2cf0866",
+          "0cd81dfb95ae8c99db7f8210fce28d5dc1393aadb6859ede740715673bbb9928",
+          "63bf9d66b45fb9a0291851cc2d972e22630d3687be96bd70659302b8e78a9ae8",
+          "1c80883d22f43e9b10424aed029f550a7b351c416d9dd277a98525fec876efd6",
+          "7d50f8d37fa02b3c40d01612b7fe85eb55b9dff4b4a1de08ff83b3f0d68fc608"
+        ],
+        [
+          "9766f10bb621caeb376886d6a2cc1f7401aa31a1ac881cc6195ad96552d6c858",
+          "08e7ade5d2daf2d1ee747f208d7f912b827e35fedc282e8e9b1459fa0b064b2c",
+          "2f3660536258ccfd8cf24c6f53b57da317dbb049d426a77b83b8ee00a98411fa",
+          "4ec9b3fc4a36d99bdb26460424720169af59c5ab567bb10b031bb2d36116e610",
+          "3e78ad22d8fb74defcf717f1988c3d4b04daea15fd61ecafe08c088f2cc659a0"
+        ],
+        [
+          "dd7c5fa60dceb5fa01acb81a63810a5c22ea3c952c1969c7a0328c8b90e6cd38",
+          "30ba998a370f1787526cd492aab97702664ce8a68d2e293272d956178abcb879",
+          "ce9a0f8919943c7c20ea28ab08c4f08172966712da9af8c0c9bf9263f21f23ae",
+          "317cec486e122b7f6aadd01f92da762ee5207a49898702f7d57f7a170f15f620",
+          "9df0d7dba35fba6553c3b331856f039946150b1e80fe75e8d63518ef0ed8d85a"
+        ],
+        [
+          "6d2b111d81b5dc386de7b9ef1572dae9c794c55d3019a4f5f893f2025d21e458",
+          "0fd1f94ffd33a26865396ffbbda723467998d0f4f13c10ab0212d0a608a6cfa1",
+          "113364bed02fa89b0334fcd86296ae80ad220634c3d2f426a6310adc8eed6d2f",
+          "a879c939f7e02d06ea44883f9f6529546d2441bee4d7f3822cbbe1a00e65275e",
+          "f140be1d2d0f6d266f0f9f4585a8a7648f583b74a765b7f30a3876deaa026b6f"
+        ]
+      ],
+      "element_hashes": [
+        "61baca4f8bf54d8ee1beb45e5534e1e0f9108766b43deadd653f3c64dc2a4bf5",
+        "ba7e6d313c6f93d0dca75cdaf019ff3c6220a6f4277819553cb518b57ac9d844",
+        "bfe337b16f5dd851220fe4f1fcd4c01c26a537131f4a4a1f66da6c5cc022edae",
+        "682ffc6450e31c35b8af9392c9654ac08bffec0daab2e7be3196123d7ed94abe",
+        "1c35633855929f84b0fab5eddf5e763fbe029b6c1d3b55c50bce10f6cd67cc5e"
+      ],
+      "hash": "0d9e4eb7802a6548995bf2df853f7ca921797eba00d49efd62cee4ee304b9f4e",
+      "kind": "array",
+      "mistakes": {
+        "18afafcf9070dca3dfca0b310a7aa025f484d099ed18f95f52042ae9d4df9ccd": "avec un point selle, ta fonction rend les stratégies pures de pure_strategy_values, pas les formules",
+        "358aaa5830c474bdbf1997950667983c2eba07c464b162314e2b6019b450b97f": "p* = (d − c)/κ et q* = (d − b)/κ, avec κ = a − b − c + d"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.20c": {
+      "array_rounded": {
+        "1": "6a12adf60130925ab6dd49cdf01039e3bdd9a4b5bf27292ac0f18bc1d354bb62",
+        "2": "a6f20a98ad85e93dc5a8fcb38c7c9823952091df9c6f92921a7bcf31ef7d3f59",
+        "3": "03ddf208f3f5a3e203379125942b4402fcd3a713f9f8c81974590af078c44625",
+        "4": "70f186c3d311515930b6c1f7613364caaa07dc5d549459b9c6e447d6296d1eb9",
+        "5": "b5971adc410397f7b626e89685e20da3e6a4851e1789fb7e26e3bbf607f9e313"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "cfece9498e6357c30480fb1ba709fc0e741ad00cbd3a49dbf71e16e626230e7f"
+        ],
+        [
+          "8911bf45252fca2d6358df170ee7da566ad20080c697fd46abe940d87ae17da1"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "342bccc4e64ebacb5326b7b8b7467c65006b45310f78c53b68f5d9bc6f70ee4e",
+          "e7ee072e5a2e94be0b25bfb0a272b157a0dded8489cfc15fa8a77e9a979396c1",
+          "646a29ab246fa73311a2e0078d356f5401030f04bf820f2ad3d8735ba4530754",
+          "7d5225791ba8c36c7055d63c3bf59fcdd9c6e43cdb67ad9daceda71309cd7c4b",
+          "c5d990221de92b23764bbcba73841eabd6f2232409daf8feb6ff7d0e135b74d2"
+        ],
+        [
+          "96272f219a10871f8b01673441a7f998448c79b30b8792f99785ba803b518521",
+          "8eb7846a3b9a1c40df2c45eb084907d07dc61e4fb9a3619936deec8ca47bb6fd",
+          "c505498d66b69e77a54688f09f2d0ca8d47ea8024948e22bb45552c06e5711f8",
+          "f9d9a3dbcb34e5a39a88b87bb6086f94d0e29b7a044356d771ae11a86a5420c5",
+          "ed16cf35ed2832736a0ce42fd54d68b933bfc34ed476f8ac68504c4f3cedbf3a"
+        ]
+      ],
+      "element_hashes": [
+        "f71b4ce8ab230256c4db92a087896fe25eb1f41b643dbc3706420766e5721697",
+        "7c68023695000117b8a01402cfe52c8f284daec23757c891cef58dc591b1634a"
+      ],
+      "hash": "a8378003ddfa47b26dc75455916165df57251829b2dec08295de1d3b1cb1166e",
+      "kind": "array",
+      "mistakes": {
+        "e5c2ffb6d0703e9545c3e69b5f9402a97b925d09e343ac6c5b1c7749fb3b98bc": "p* pondère les lignes de G (pᵀG), q* ses colonnes (G q)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.21a": {
+      "array_rounded": {
+        "1": "fcedd46f2d33305879b4ac7d78e2d8513aba1b38f3f6f95259dea47c999048da",
+        "2": "6c9cae6f84644cc5cc4edf6a548120439d169ed5559bcb154c0eed7ddd7f644e",
+        "3": "6f1c37c94350d280b9c999ed5689b6e7d1978dfa749fad04547336327414ba99",
+        "4": "071967d16a09e800233e288e72f839902192d0871bc107531388959905839d22",
+        "5": "a2feda3122513f3732bfd7d84c89d650f0d3b312ade61397f96090693464840c"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a57e56cb18d8aeea66015e7945f279799846cf80f094153398bfc7e60ce5f795"
+        ],
+        [
+          "2d62a1b3536ffd5d824e89e576763a60a431f4d3869b84bbdce198767e6664fa"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c1336c26ddbde60bc0b89b960d0e45f1c6bc507c82b2c4d26bae364a7cec5583",
+          "56102b47dbccaf598bef3c5cb9578402f91dd5f2b80b382fb82f7398770c350a",
+          "f158be249712e050f9dc015ab323861341a024771ea7cdb915d564fa89a6a7ca",
+          "0e7905726f73f5568bde0e62cce81442d49f812d6403cacb3a31b7d99ec319db",
+          "5daa7973f84513db53eb16dfcb03c2954584fef4696d81520268aafea29f7acf"
+        ],
+        [
+          "abc86628a82526a90aafde3a571b397d98e273227c1262b70b368b08e6edd49b",
+          "2334fc16a606c544fb0ac6265b261360334921ccdbac7cc19f19fb13a41fd9d6",
+          "5ec861841f419df505765146f1c4328817971c2ccbddfd9988ca3159f490c093",
+          "898b265be44315ef7f76c7e9d21b2b0c6f6fa1ab63d6794df12e797b3e7648cb",
+          "21942f1d248d77f8e02b6caead31498c549a12edc8e440f9a3579a4adef05851"
+        ]
+      ],
+      "element_hashes": [
+        "4c1e4eb16fa2a94a1dfb0177e8879f713507eb1a3addc9feeeb30d6f2609804e",
+        "69bf40445c1b000678a20c8d5903ac9aec0dcc1f6622a83b9d63169ed85ffc77"
+      ],
+      "hash": "6d4b0effd453dd1ec6ba4c3224fb2b3a83b97c3f493f1e9ff260dde405fabf09",
+      "kind": "array",
+      "mistakes": {
+        "b3456e89578ecc1599bbafb8e427be4e96c2dd291748ff6c19ad1aa21c142ddb": "la distance à l'équilibre est la norme √(x² + y²), pas son carré",
+        "f996736aa9f3de47b4fb11f308431424fa7fe1e6b5479bf1f8e57e8697dad1ca": "la ligne k du tableau est l'itéré après k pas ; la ligne 0 est le départ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.21b": {
+      "hash": "2cd80298acbae78d289e4e2604085508b545a9c631b38e39e23c71212f29eca3",
+      "kind": "bool",
+      "mistakes": {
+        "4dfc4ca6421d1b088b02b5a9782d5727b79da2f24f7ee606815f22842df6675a": "les itérés alternés restent sur l'ellipse Q = Q(x₀, y₀) ; compare leur plus grande distance à (0, 0) au demi-grand axe de cette ellipse"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.21c": {
+      "hash": "d71e9003354782a6a4192324f44fbdb4ef59a0c7fb2572b0f5e1adbe3c34a660",
+      "kind": "bool",
+      "mistakes": {
+        "a963c349f8e8fd4bf34c1fce7dea6eaf211e1c14aa397a3d6b8df877021e728c": "en simultané, ‖x‖² + ‖y‖² augmente à chaque pas (fiche §4) : compare chaque valeur à la précédente"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.22a": {
+      "coarse_any": {
+        "0": [
+          "c83a7bb2035302013e7f537d5077f5aebfd2c49c25f4b93bf92e5118d1e8e58e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "06ebc206e944c4e1019dcfe8d4726821b897351c6fd3b5a6cfd058053848a698"
+        ],
+        "2": [
+          "7c94b6b77b72665601e420684d0e6ebdde2a1060223e0c147f79ea30c4202b47"
+        ],
+        "3": [
+          "b3d3fd59556f26046117a6b68b85d3614867b9b3f0a5be6b5a018768e99ea49c"
+        ],
+        "4": [
+          "0809fe7af34b2582bc7c9fc3a6b2f51216c7e194e3bc0c9ef23901d6f20101b6"
+        ]
+      },
+      "decimals": 6,
+      "hash": "872d9c4ac297cac7ca9413e7086a835f0d31fbbcbf3d0ed48e8c7d1c12a60ca6",
+      "hash_coarse": "97bd231a6335ccb5fad32523e1e6cfeb9fb4c61c37af6119e5a6d7bc63c03911",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "29b458390b3125c42c1fd74e5a16576f2c53a64aece4228df5bc7b3f60a19811": "la fonction rend W₂, pas son carré",
+        "93af65d8fdca62b8b946f1a2b3d1904fdde26beae2036dfcbe4f64cb12c36bf6": "W₂ est la racine d'une somme de deux carrés, pas |Δμ| + |Δσ|",
+        "cf720543a9cef2f7dcfc94fdf4a45fb0ddbd0971b267e48ee696ea34edebd319": "des écarts-types, pas des variances : ta fonction reçoit σ, et la formule soustrait les σ"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.22b": {
+      "coarse_any": {
+        "1": [
+          "32c8f68a591149fd6822b011364a0754de22c26687e1179bb8cb81c0b5c19768"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "adaa8eedbd5d3ddc776fdbeb4eb4b94f6fee2c5a668e4efe8acd95654510318d"
+        ],
+        "3": [
+          "3b12967db003e5fd7153b4881c4dd7dffa44effd4b557b4486334c810c089e66"
+        ],
+        "4": [
+          "da35ea8b4fa1a473b1e492dbdde621fdcf80e103faa41bb5e5622d86cac42fd3"
+        ]
+      },
+      "decimals": 6,
+      "hash": "36c593f5be1217602041ac20fc436f003197a138a20fc3b93d0c5325e3172baf",
+      "hash_coarse": "b65fbb7d05f7722d48e52edb68ad3696d79594c33cffebbd87a38fc837d477c3",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "1fafbc020c5863611f42b7cc74ffdf408e851e5a55c37686eb122096093f6c0f": "des écarts-types, pas des variances : ta fonction reçoit σ, et la formule soustrait les σ",
+        "4881ed354b7c28a566b825bfe84f2798831b8e5aa2dace8dbda441c4adcb1421": "W₂ est la racine d'une somme de deux carrés, pas |Δμ| + |Δσ|",
+        "6da34f33a132ebf226d1523736d7627e91ef0e8a21245aca6a9a77240979ffe5": "la fonction rend W₂, pas son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.22c": {
+      "coarse_any": {
+        "0": [
+          "37a15182d52a50b8d1196e3cd458fd630728217fd2496fb64726141fd4ea84a2"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "39dcd0599b777fcb0f049ecb474a8218a45d4dad072379e73d52a4d5c83b1df4"
+        ],
+        "2": [
+          "d71cd59939f0ddebdfe4ee7cbe70f41e6d11213a5421df4c8a48409eebf2d07b"
+        ],
+        "3": [
+          "40b64014b506966c2aaa751942a18b29aaa26c6564dfe1b469d12aa4b1de27bd"
+        ],
+        "4": [
+          "f00fcc90b5d1ee0f07a2e073d054a90bbaa53ea2277d7c4f9ef4479d59ddfd3a"
+        ]
+      },
+      "decimals": 6,
+      "hash": "d875693cbe4c30315aaaae5e518d8dd595d8ae45e9fe89deb6c89df45cf00f8c",
+      "hash_coarse": "82fbdea0a72e0649195a9b85856b67820f237cc802f0c71f98a882746297b6ae",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "269c9bfe6ca4831d346910e9464a7f9c6bedef92cb5d518eee152540bc3dbb05": "la fonction rend W₂, pas son carré",
+        "803f509560bce1a76e22f51bc0bb6a866c9413936c83df25f6e951a222370fbf": "des écarts-types, pas des variances : ta fonction reçoit σ, et la formule soustrait les σ"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.23a": {
+      "array_rounded": {
+        "1": "ecf1404bb31ac16405fe0193e9e6bf40a8f30cab263e583a57dc6c01edc3a833"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1849e60f9d71093117e992a27075a2ffd40d0c34bebe905bd6dcb7b9da9e81d5"
+        ],
+        [
+          "e540cb11990cffbe93e5c5eb438b5c5a71b20ca26aca4c24fb2e0ff706db1b9e"
+        ],
+        [
+          "468a7ffcdf490c6cd5ecb59ef331042b0dd8fdccc306f9d467c5522eeac864a8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "383b6292de21236c5d46ca31b869ac5908c861db2a4449431b8c04f7ce68a6ed",
+          "37084949005eaa8c295788e4766fef677670298fa2e804975a617559b6f5ab25",
+          "faf90898942bc48d8d4a0f6bcca5668145dc9f7346eec3318602a89f1dd1b6b9",
+          "77ac25991a2e52c7aa5912cc757407a8828f9bb046e8ff3c536316db59d04087",
+          "ac2b033b9f70d2b7ba30c61d8c4112947f77a9d944ff8168a7b55968186d60b5"
+        ],
+        [
+          "104929b6fe296f83c69cf39b6b45120b57c7d4b37ca27535c2ebf55bf015fa5c",
+          "0bb023de61e204e12b87041cc545e5933ae3be6ab912e347c710c2d6fdfdae9a",
+          "78e903589d13dce1a93ade2f6574fa1b49da8c3fa9e64907dc7289e9a84f9513",
+          "6731a554019887bb262e84d6fcba3eb5b0db330bb800de9bfe6dad80711f9878",
+          "7849ebe33236d97cdae03ad878d514eccf48505ba9eac2ba07fe3c35876aba79"
+        ],
+        [
+          "9538ade69784e71f6e7cbbd0252022b4f9b1234ef755e62008714a5173f77a5b",
+          "d847dc8571cb7419c55a5c55638e9a08aa1ea9eb5baf06f6e6e98ded82e96ad2",
+          "424ab4ea3f3476a3e5c4dfbf05ceb596794e23acd21e3d81fc3f1aed3aaedbc6",
+          "3c91058673100ce348fc38fbbe433155b73b65c9c3cb02bad101951fa2ccccbf",
+          "26145f3d242f0a2c5bb14cca595c9fac400716b9961af8f23e20a49a002bd851"
+        ]
+      ],
+      "element_hashes": [
+        "5343c74336067c60f7b6ad600eb067d0bbac4e0e469dcfecd050ca6ff372b643",
+        "48f7fe703e80445da883b026f16e891f121d4974aef923a1cf6ba17588be9b7f",
+        "de1545fc442d8b152981105dab540ee57a53219f5910035b4ad0414bab267c63"
+      ],
+      "hash": "2efba072cba99c58799f61f93a11cf6b175187ab2899abd9fd52167a8409f9ff",
+      "kind": "array",
+      "mistakes": {
+        "0abf9cc34a960e540976101fa7a246708d359e27937d80eb8ed682852ff63849": "compare les coûts, pas les plans : pour le coût |x − y|, plusieurs plans peuvent être optimaux",
+        "84c89b484112f0188be5dbf5795563b756d5f27222db3f93925efaaeac531007": "W₁ est le coût minimal pour deux lois de masse totale 1 : divise par la masse totale (100 t)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.23b": {
+      "array_rounded": {
+        "1": "886380b93575a78e16bfe930f8bae34df9c70f21f39ff4e7545c52ebdf4bd78c",
+        "2": "d4961114d6c92a38b9aa8b83616b1a5672d89ef4adcac1d813b1c5948b96cb48",
+        "3": "55cf629521252b0a94d0d38280c4fbf8537c01a853970b15f65350801e6f8c47",
+        "4": "de4227e9b83836dcb0bb799d1a70130b9f74a1f5295f1fc269eabc19e60cd80f",
+        "5": "7c534a66326e29666e64b27752e0622030a248aff176b866784d16c691328547"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "5f8d82db5e47ae1632f2441b7f6c1f1804324f80b00df930599c0b3fd3eba0fa"
+        ],
+        [
+          "76e94dccc8ec9b3a56b4d04fde10a30d47ce3670283f7fafa5d9af69f3eb7a1a"
+        ],
+        [
+          "f9f11a1cebefb5ec9eae9dcbc27fc9b7714b6c4462d5d9359ccc155fc5213eec"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9bd473d9dd6a7a6ae94e33336bf3d45a1ffcb219d3dacf61a624088552f88594",
+          "befca0b7669016962af0d64876138c79f77052bbaabecc41c74013058caa757b",
+          "647d941cb364e794750d56e96e0912c2a92ec07ba36f0211cab0d4a60df1bf7b",
+          "c80816031ee2b3343463fecf6d1eb8075b093f4d7dd8eaf6a2b9bbcb2e716639",
+          "046678de3c88cd6870ead4a6204f0231bd75af018edf3fdbb601d2d795b0dfcd"
+        ],
+        [
+          "bbf2ecafb2576f639e365f6e7b92b9b0fe1d39cca122c0637867215b99eb2a71",
+          "a263a1185e9462c90aaf0c2d829012de3e60ffaba79b26796e6edd0d8ff595af",
+          "a52b1da48dfce3f4ec23d614934103153cc8d5940bcf40f1d66248ffd9edec07",
+          "16a9ea1d10c1b32ed8c56a4a5e3b56e567b599174d3890b8a37d496843df82fe",
+          "456256ad906dda4fa8254daa56378052363a2035742d926ea2aee57548656725"
+        ],
+        [
+          "73fab0f231ca71db69e6df64530ea83e311b160a2ef9cc2ddcad22885884d77d",
+          "2d7d2e47e151457ae04b59553620eb79860408ff8550abd2a4f4fff1bacb6a04",
+          "70a81fde5b280fe3d0ad4f1191b4b23d2a661cdc11df5f531663a3b8115a0b59",
+          "e4e8394a44b4e5e6854670c0743540a03a324e98b071297ac5427572ecbda458",
+          "f7147be4bc6a7b6f1ac76d793fe97c9715ace94c4104f6ccc93f3ce5747f0ff7"
+        ]
+      ],
+      "element_hashes": [
+        "25deea84938ec1ad4432dc8fe6dbc667b966d09a6a8baca449d9dea58f847357",
+        "d6ed3813fe4336622d1ca1ab7684c57839cc8b1da2845c0a520d6484f561f718",
+        "6383050a3f3211ab0ba225bdd8af1b0e92c6bc96b4daf07bd48d853723b87d4f"
+      ],
+      "hash": "18253ba8cbd902ffc3f1daac6f8bb3226c87ccd0536a28350d5b673a2c231023",
+      "kind": "array",
+      "mistakes": {
+        "25b1bac790c728580eafdfb5aad6467ca57df5535dcff9b24150604518a23ad0": "divise par la masse totale avant de prendre la racine",
+        "3470da9ec2efa14f9412da915c9afef574049e6e3664a5eb08152a3da1bf48c6": "pour le coût (x − y)², strictement convexe, le plan optimal est unique : compare les deux plans coefficient par coefficient",
+        "3ac11e5449679efb31cd87488eb505698395eb2a6013298ce203b01303cf7a15": "W₂ est la racine du coût minimal par tonne (W₂² est le coût minimal)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.23c": {
+      "array_rounded": {
+        "1": "623286f36607fa0c0f4885476757f00933e68eac63880c0941cb05457c543677",
+        "2": "2c169aa79d89daa1ac0b8d16216f504e48b51f81aa76bb8484ae8bbe1ef5c45e",
+        "3": "6d049ef7e72b8f415093bd75660a792189a50f9559b1046d8e3fb12242b5a95a",
+        "4": "dbe400221b364eca932c2fdc6e0cbfab34324cf00ea27a5d84a427b80096bd42",
+        "5": "fbd72d2c5bd7c899f6a4caf5ac85ab777de6df05fcc5240dfb6f9b370074182d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1d6bb488f6a4d45b11606364770d079262166e7cabbe176aea3c5d0f70a38091"
+        ],
+        [
+          "f055d94d47357cee9e068bb70aee37e4df9ca7c2bacb4fb31419d3a3a4cd4a87"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "93f9dc47d9f2215f0059bfd31cf768851764b8c65b324d9ef7259736116fcb25",
+          "41eb2b9e250693ddbe95a922b9bfad060bb44b82fe0e8f6c061f5ecd1d54b35b",
+          "0e4ad42bf90162b5258b8972c94a3b03b5434f3b25d7a9c3629f9b8985e2c1f3",
+          "815f77e290d8ec534f09118ef667db0fe77da721d62b4a67a2bd8da63469ebb7",
+          "ac0a008e55989b8d0ded6046ea385f464b5bd18b2317239d160da849d9917c6c"
+        ],
+        [
+          "d7b0707cd2d6158bffe6d09956fa2cfc2f77d0d6cc44e813ff13f97b9fe3ce61",
+          "75d9c711158b23c7b625099eb58fcc16ec00077ca7fe2d8cbf411418ec395afa",
+          "93fb947adf14f4ad56009943b5a77c6a9baf78cc9b4a1d6c5a8fc18e98305d55",
+          "677c0290c7bc2cc545a64403c1b441eedd731d8b56bae7131a544cfb19d19b17",
+          "4d666d9bd3417b5c2ed9d75c5eb7027531a45deab5779147b27f6c161b3740d5"
+        ]
+      ],
+      "element_hashes": [
+        "cfe30b2e15ff81db65480776d194fccd88a29b1ee36aba8826d079bd0af3591b",
+        "c3d59a879a78549c46aa588c148ec25a74b995ced63bdd391ca152a393d24b77"
+      ],
+      "hash": "86626264acb67b02b4d94625e9e3cc6c747297abffe269c85cfdbd96b390ed82",
+      "kind": "array",
+      "mistakes": {
+        "62aa936ba3e9f85420aebdb879d271cfdec8ea87dc7f09f51e0b81aa74a395e8": "le coût est la distance ‖xᵢ − yⱼ‖, pas son carré",
+        "f73fc83b24ffb7b274d0f46763dbd7a1725b6693a378d736e34b940c8b385d68": "le coût optimal d'abord, puis celui du coin nord-ouest"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24a": {
+      "hash": "97ec83768181d4c975db5533db0e1f2fac63575474ea48426fb6a60eb2217a7f",
+      "kind": "str",
+      "mistakes": {
+        "309fdf5f5e9ef8dbd147bf4e4469749bf4d84c76e6ab0df2c18d6e3964cdf1ca": "un même facteur √(1 + η²) à chaque pas, 40 fois : la distance croît comme une puissance",
+        "f2d43db6f1ac1ceab35f8292bff5930129d5516d084181f6e04537f8ed232df2": "le module √(1 + η²) des valeurs propres dépasse 1 : la distance est multipliée par lui à chaque pas",
+        "fb8eb23c61f23305d9953e790772fc833e9292a5e7231631f820e3f19847d31d": "un même facteur √(1 + η²) à chaque pas, 40 fois : la distance croît comme une puissance"
+      },
+      "prediction": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24b": {
+      "hash": "e35d2f6b350454ff28b9776bda67106afd79c1603bfaeb2406815a6ede48ca3b",
+      "kind": "str",
+      "mistakes": {
+        "13d581bbd44fa20ddbdaae2fbd5fb8053ec67042adb8aaa79f500a54fa8de73b": "chaque pas fait tourner (x, y) de l'argument de 1 + iη, arctan η : compte les tours de 40 pas",
+        "82c6851404182b458b65b1edb30e7d47a565dce5fdf6078c7e4624ddc2e84c46": "M_s est une rotation suivie d'un agrandissement : les itérés tournent autour de l'équilibre",
+        "f084e198bc63ed64f8269d9b6547c55b9d73371ac582d1c3723aa9bb5b8b3cb5": "chaque pas fait tourner (x, y) de l'argument de 1 + iη, arctan η : compte les tours de 40 pas"
+      },
+      "prediction": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24c": {
+      "hash": "369e98a35f6ecc4bec9849ca9e9ff17defdfdc51887d33d7adcaf11eb052ce83",
+      "kind": "str",
+      "mistakes": {
+        "b6b8cc4f1321f7292592bcd6bc30441b96eee052c409e484daa143a2843418af": "pour η > 2, la trace 2 − η² du pas alterné sort de [−2, 2] : ses valeurs propres sont réelles, de produit 1",
+        "fc33b220295d0eae5499fa67cf8ebce2cd4a77a4edbf8d0ad09da19d25d6ac2d": "le déterminant du pas alterné reste 1 : ses deux valeurs propres ne peuvent pas être toutes deux de module < 1"
+      },
+      "prediction": true,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24d": {
+      "coarse_any": {
+        "0": [
+          "7d9a32fc2c2cf413ab8a9149409c84ae17a2e78a63230ee9226e6e0f69699705"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "bdeb16f2d60e914678ba7a7a4a37ecc190f4cabdf8eb2fb9e9a035d4f7db77ca"
+        ],
+        "2": [
+          "158165111d15e7eda8c78364b6904231a70cb1ebbfe520d674304b19792d74ca"
+        ],
+        "3": [
+          "a1443447eb3e3d1d104d240a0d704f3a88bb60ab126bcc175fd7d513709dc768"
+        ],
+        "4": [
+          "369ed6599dcf7f5cf80d639db55dceee6cea1df116590115a174f9d37a438de4"
+        ]
+      },
+      "decimals": 6,
+      "hash": "542c6c9ebbba0a32bc7a21eefa1e468c547d5602ff97fb36102f32d9e90c2e8b",
+      "hash_coarse": "2facec4c967dccae612f9043d3bc4e7b6649581675e167200fddf033b13c7e84",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "68add21126e315cc858a4c3f1efffe4c53c7f9f7c89f5293e81c83fdb14d3173": "la distance à l'équilibre est la norme √(x² + y²), pas son carré",
+        "e0219963e65de46db431adebb763dc18ebde1fcc3294f4e24755a95c2923384a": "d) porte sur les 40 pas simultanés"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24e": {
+      "coarse_any": {
+        "0": [
+          "98f86edb95ce435dca51ce818c9e7dd1a79c334170bdc659264c29699761e779"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "df9d8e618565f0803504eb9f120ff2b2e78596c5e900377db8e2a483364e2646"
+        ],
+        "2": [
+          "cda34745ff19b784a2924feab893a951c2e21bca033640629d3507c1848b7b33"
+        ],
+        "3": [
+          "4526db7bd6ba2c890f1b8ccf9ee1a57d299221ff41a2145369a1babdd754328b"
+        ],
+        "4": [
+          "e2b7d89f3c9dc32f715fd3160316d66c96b4da7468abe3af8de4aa390a915711"
+        ]
+      },
+      "decimals": 6,
+      "hash": "682f29b032436f8a51c8a592f787e9a5545a2409c93184acf609a14bb4d8d885",
+      "hash_coarse": "e59d9f94cbc80f59ecfe6eeb8373d2e8060a1ac323132efac4386f536bde3c15",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "787054883cda3b64398cd63e5b1c75d4651fb3a2ade92627d2c12f97b6baa52e": "un tour vaut 2π radians : divise l'angle total par 2π",
+        "aa25ee40ded5b4c95a44923c483b3b8158cd8a83ec3e4fdad9e3360139e881ba": "l'angle total se lit sur l'angle déroulé (np.unwrap), pas sur le seul angle du dernier itéré"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.24f": {
+      "coarse_any": {
+        "0": [
+          "9e2bfbe6ba5ee646d31d91226d7c80874b5febd731058f58676d0680c9b44662"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e0e93e291de887cdc7edc56a91522fc720124f5b15669693dd6fbca23c5f245a"
+        ],
+        "2": [
+          "c27d6ac7f60ba25ca92cd8ed148f888f2537e54b7d9dfbba7481cd816fa75357"
+        ],
+        "3": [
+          "20580a419ee3c6095b89d1ba6c8c7058edde8ce01ed1154428a033642191cff1"
+        ],
+        "4": [
+          "1d6bd234305a0699118d1c1f87d624f5fa92b7f0a18cf72cb2770bfb6abb5cdb"
+        ]
+      },
+      "decimals": 6,
+      "hash": "e0f1a116184220a61abdbf87a7208d79f378f5838d905b65af13e69ae53df03f",
+      "hash_coarse": "066579fd9b2fc6827e842a913872aa2d761dd2a0ba3d9ffc5065be10264dc42c",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "87986e5724ed174520a5cbc4587494cfb5453c47a33ea7f8e66f036a72abee96": "log₁₀, pas le logarithme népérien",
+        "e0db33c16d29692e2b3bb9c45860b2859d72c4850989e0e1befeccdf6b9c5eb3": "le logarithme de la distance, pas de son carré"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.25a": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "5c4844d673f9abdaa22ca34b3363fe6f14380118b37af79df055dfbb7a1044c1"
+        ],
+        [
+          "11723cd182079f09952a219c325f7bdadb6ee966a5fb126c81c10916c41fa29e"
+        ],
+        [
+          "d31c7551069777df940c071f233ea403a917fb884b305f7880c4be0afe9b8402"
+        ],
+        [
+          "5d5577b0a6571c87b52b0766bcedb9be7503bca1a4a0228c2cd9fe8778dcac71"
+        ],
+        [
+          "2ebe3c94a5ddaee9de47ea4cbb4e3bc9b2e8f763cbe8aaecbac907dbbe826ac7"
+        ],
+        [
+          "51521edcc2b7c5bec2a8b4ba829b5feb6dfa445daf707adfa06a0c357cc308e4"
+        ],
+        [
+          "467c0a49a201dda131628d15b704da4bbc744dcb55725e99bc04603ca0f37383"
+        ],
+        [
+          "da7124c5102110bf2021110ff5be131927afb876eb642cf286d7e660607d0fa9"
+        ],
+        [
+          "21c08cc757ef465d8624cf17e94483aee15f6358910b68940c10db8c26fec50f"
+        ],
+        [
+          "5c039f0794b3054e076c172d74e2c9602630d748969837097ebeb9233310e8b5"
+        ],
+        [
+          "56b871fd09cf699023cc5188b257524cc35fe64394274f4d40f16b80cdb98730"
+        ],
+        [
+          "229f33debf0fc33a95ef5d971986376eca16eb016da8f41e2f6ca2e99293515a"
+        ],
+        [
+          "969de5c4ffca6a49e140be5a226e1336bd08355298912de5261278eaf41ecb76"
+        ],
+        [
+          "81bbdeb20cc9ad42a85fec435d8f57650785e1d4525475b3625f7ae24778411f"
+        ],
+        [
+          "87190245c188b59de32df49920a4966022d12e08e281b5b98aedd811c4d45757"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b8196ea485f9bd775864537d4f74a94eeb3ebcdc0d0fce8b9f9aafb5e3e8a6a2",
+          "57305c0d484c18a779d9f4e564c6d9a32b77d7fad8e8853534154b0361bafabe",
+          "cf468989e47c215900757d88b34b4efa933416bfe90a3905e95936f4eb796667"
+        ],
+        [
+          "ca248af94f7d1bd9746fae7982bd6d7d63025c4b118e4fea004d2098af13557c",
+          "a71e285a4c0213f751119c3f644b12f6739806e1b7b48e51d7f9b6425d7be234"
+        ],
+        [
+          "bf972641d69faa375df054c0a825b1970b3bcdb42a0133dbae471a692509c1df"
+        ],
+        [
+          "8dc4f6e5fc8b881fc416ef06802235a49af894332dd994225b62885d79e86c1a",
+          "e34907db11047004604f7f411f948a9230fe3c6c961c78ba3615485cc6944b48"
+        ],
+        [
+          "8299202d8b38636bdbad7fab693f6e895cbb9c24b5bd89c59dc8dfa8e337f085",
+          "5190991c035161cd01643e12f6631763a80b2083461368e8b2eb2e1238da6e0b"
+        ],
+        [
+          "b6eae1e2fd73db96aad51f1ce88802c516ccae85d8bfaf8dd8f383dceb60f725",
+          "8a139236cc0d26366a18c1e3b1d145d48b6b15e921c6af9ab2221f38252d2ea9",
+          "b531554a88dd0cb495b680a7e4c3085a8cddb1f68ccf92715094797acf5d4569"
+        ],
+        [
+          "d6a8eaeabd7210ae4064231bae9e879d3903b7841c1653f513c09691ad2fe77b",
+          "f770eaffd823e07ae3980893cd60205ace80775c875435a1cab0e16f2775730a"
+        ],
+        [
+          "70c5ed23b932da6c3e6536edbd49487663b11a3efbf7ca12c27c283486428cab"
+        ],
+        [
+          "2f9cd61de251481711cd71e9c0af90d2bbf6bcf6aa8a40b8b011bfc58d7a35e4",
+          "f60d760ac702a8e8d10b8f56ef58de57a1bece86d2626571262a89860ce1b1f8"
+        ],
+        [
+          "bc685adbfad0f02a7bf6b3b195082e79e112d0abd2357f29e029368ea6f950e1",
+          "7b8edb73cbe7ca7844e46d224bb72d83255fcf24c665b95bb6b9d651032cfe84"
+        ],
+        [
+          "69261fb96ed4b3ed0d78dbdb58a4498d537c4e3d009228de4e3804d78bedc651",
+          "679f75f4a3aaed6a3586dd0850905e65f292e1cb515f9a08c81a97f7011432c7",
+          "d2a0b4656851af8e3f5de7768e78296b3fc763a4b156b2379189072f99291041",
+          "3325c9d495ea93e33be2a4a01a529e76e970bdfa288791b0c2c2bf3fd45dd2e8"
+        ],
+        [
+          "87c14d8954bc9acb99faebf4d1ddc0d27ca256d72482129b48c28ab29df1aa90",
+          "3b54d837a8137f607cc850426e27f91751f3115ff89c3151be9201d4fbc2f9c7",
+          "54fbbc9ec8cf57fda561f2941e34aceeb114cee32d0f486a3aea2220c7ce16f3",
+          "74c79cc5eeb4748dd73eed967f2e68b3305377aaa4776c3124ec4380274442a1"
+        ],
+        [
+          "0b518232634d0182e0b40bc9a8139528cacda91356cc36b2962f96c28e7d7306",
+          "a98f2d8338d467d3c943a2a538d3dd85b5cdb3df11760c1a866ebae962924266",
+          "f3930853f090743993bf283ca7c9871aa55142ecd28ed449fd045f8c818a0da7",
+          "0b1df0e57b5b19086458d2f1277a1d098ddf5f8b692f71321ecd37e0f9eb8165"
+        ],
+        [
+          "623590dd5d6e8355799eb598a82ae7ed49cf0e43d0a6869ee690069bf8a8668c",
+          "a7d37f5d6d1afb1897e2935afee2e91f78a90b81e195ee7241ba882c007affc0",
+          "fcd264e872982ffb1c194d258c582fdb3f7f0374d98fcb241b9fb7e7ffcf8f28",
+          "8b77487c627198969f7ff1b42db20af50b535a2e9b2d272145b414c852e75b4d"
+        ],
+        [
+          "816a3f159a24d3c07fe0c346ed995175b6cecf8de1d67a8d688999f3567d35e0",
+          "80344b5d25d40bb65c024eaa50ff0fffbaedafa75d56f7100e26eb76eca6d466",
+          "5c82bab8d9aea7842f77e3d69b9dbfe85bea26e55c11105fd33fca29408aba64",
+          "c9ec340f8d99903e9713c2a73968fc3f7ba1ea3a51f5589095192bf41c334f84"
+        ]
+      ],
+      "element_hashes": [
+        "c289a52d66059eca11b8b7285367b1f52a24b171cc7b6e2a84ad27a42d2cf180",
+        "aea7e0ca276ae9d6956cfc27acb1dcfac5749e72a6e79ed2d9982d0d8bf5b7c6",
+        "5ced5330971479adda2a9e918925886d87fdea40b4d8edb33370b46416e478a1",
+        "f4cb2db480a071c0abc61a5dfe70bdf0490ed3f21aafc08366ab9fe1a4523eb3",
+        "9099bb441152c0cf47fafb445cad42de3fc7b287acc97eeb0f37d23cf8eb3dfa",
+        "aa797dd26ae09203265f9be8dc587448953638d6d0e39e54646983221392c6ad",
+        "1abbd3ae779ed1b9c12638ce5645ac2df518a103f4263466d79a219d46995a1e",
+        "e38ef92f2f27fa6107f514e03a5ada48ca380d81607c0a25bd40775cd1574d87",
+        "340eaf0030aa347e28c5c20fbc1eeda2215a83d7fee0dc4c511abce5f9f740b8",
+        "08c87080284e2a038052a14fcbce61716fc1388d4e8f17ae9d8cea7a0358b909",
+        "477dd9e85af744e8724c4e9ae168ed9337a21e013a8e3839d5d8b5ad602e2b05",
+        "c208eb42f048dfe8640b6693ae81d7bd68c4038f5cf70b801efb5e67530e4618",
+        "5a9b7d744d694154b3ca56b1f26866600c98e50f9f04d3d440d8d3d7a9682aae",
+        "4af328bfce650e8270aaa224f4aabe93d674f7d62912e0caea2bd8df5709fdff",
+        "b13f00440369f2691f64f203f47381318af6495cf3afc8b925a26031e6d69a7c"
+      ],
+      "hash": "6bce9d6a51bf7db7a7bb966449f22625167e71b76e95c8b619588d3a4302fb6e",
+      "kind": "array",
+      "mistakes": {
+        "0903cbd7ce2fa16932ef2427214f91b8b9a7ca901ef9fecbe314dafe0681d4ab": "1/n₁ + 1/n₂ : les deux séries comptent, chacune avec sa taille",
+        "1971375656df44506db8a9ea271667fbb113025ac9ce1805a9903e3c94f20faa": "la moyenne porte sur ‖x̄₁ − x̄₂‖², le carré de la norme",
+        "e768c05fd1cc93a04a5f9e27b25e31ba089576e09bf3de5134189ed82533b32a": "le rapport est la moyenne simulée divisée par tr Σ (1/n₁ + 1/n₂)"
+      },
+      "shape": [
+        3,
+        5
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.25b": {
+      "hash": "439fa59e04d7ed13bc005fa5d29cbcdee597bc0bdd9c4362ef440838081d94dc",
+      "kind": "bool",
+      "mistakes": {
+        "b583dcd7fbf785ab41e60cbced0ceb9f3d3b697ae8435592695a7629fd56514f": "compare chaque rapport à 1 : |rapport − 1| < 0,05"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.25c": {
+      "array_rounded": {
+        "1": "596ef0ca12905c740693923e2ad33664538a9810ba20694761a6e8cda201db1f",
+        "2": "eec7a1c27129931c33af5bb87978682338631a0564a45573f82805ad4c6e95a3",
+        "3": "a50a9fd37bce3f4ce14593f30ca18a9d9961b227b619d1534642ddd6c3627e22",
+        "4": "cde90fd009bd485678603d0dae72d8970617934dc505218b7df944e8ba47e3b4",
+        "5": "21cfa2014d45e72503c26e85d80c61ead77082e1a05315584560b89b014c3ee2"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "9418672a9109a3327c00f189e95220b9471fed9261f65a6fe1ff2415304911cd"
+        ],
+        [
+          "27a54231222e6387df67a7790b0865c1f3511c6fd159451bec9f01dea0d0c0c7"
+        ],
+        [
+          "05e72f9245e02eb8c8eb9f7299dacd00f69d041d7267e4636f3f0137fac0265e"
+        ],
+        [
+          "f714c1cc92901f0e92ffc3101d65748747590a51cc648d8b85c260acbafff4fd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "db5bcff09bd1de4405657b3dc72ae660bb40f5ef20d7cb4c44cbadd28eec29ab",
+          "498c34a3a14b060ffcde26d3209b9119496e757fa1c61c522bb192a9e73e6574",
+          "51ac8d46af16d0449cad2a422434d833ccff894af84b95bd72971ebcc07ac2be",
+          "9424e9da804399191526f615892d48d1cd94eb3bed19b64bd8eeaadb0325b51d"
+        ],
+        [
+          "200a5892233e7bedea05486895135bf491cfc766a923ba086b7cafa29fd4e527",
+          "588b71542d8a4d24ee9afa8e2c94347d000fcbacb2d502b7b65c4e79738ee9d0",
+          "2d77afc304f3778ada9bff606e17b8be9bd2f8ce4170d7acc643f0a18d7e2094"
+        ],
+        [
+          "9eaff6b2af5f1c89d4389e8b2b7a8170ba4236b6b3cf385d93eef72b1e77b08e",
+          "6743aded1879f6b260405e677eabadc188cb3d3432c43d644e73f18b42ae9f67"
+        ],
+        [
+          "a8a6b07e8645f3870f65b426b1e0e97e71f8519258cca0ed96ddf29d72cfe4ef",
+          "5383434c06e44eed701fae847a47c89ac4bcfd3546eaa8b2b91affec7af2091a"
+        ]
+      ],
+      "element_hashes": [
+        "2d008947888afef60105dc342993064c7062b62d1796ac44210dd09a8c680fd3",
+        "e8041891340bc2264c42efd08ec5b8d69ce372ba2aea65371ec0bd0b61259190",
+        "0d62c29d9275f11a9048d1a78d5f5ba624899798411c90d95b135114e2ab04e0",
+        "cf396fec0fa636c827f47d146b0e4e697aa0f5a0f894897ef069a39e3b25bd83"
+      ],
+      "hash": "b06525f1400b92320914fd7c97b5a8564f898bc70ea2dad8f47fa1481920b8c8",
+      "kind": "array",
+      "mistakes": {
+        "7a2ed2e9cf1edbce150b194e70d9d39129a19de530a3dff05b1467a5af763f60": "retire tr Σ (1/n₁ + 1/n₂), avec les deux tailles",
+        "fb181f0d8f03d20dcdf758990c725e1eb86b9ec7fa9faa89a95976df4dcdc3d0": "les deux moyennes d'abord, puis les mêmes moins le biais"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.25d": {
+      "hash": "4557cd1be3e82f78b98e0b270d3193d9d16a6be1f85045dabac8f7335e5e3a27",
+      "kind": "bool",
+      "mistakes": {
+        "7c657c2c809ab4802e0bd135973b1f58cdceedf27548b3f167089ad30e647771": "compare la distance estimée moyenne (5 cales par série, avec le décalage) à vingt fois ‖δ‖²"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.26a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "bdf9c918cf65a779d05c473b5d7fb23baf00fdc0d5c78abb992fea7d6593e4f2"
+        ],
+        [
+          "e0326d24e657cf71aa07ab55217a38f73181030e5da967aafdb96a7cec3b6245"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1e637aaf830f40ceb926eca75da614c77e14f24729a1918679a49552245409d2",
+          "069b1a8cfc351c8fe54e2b0c23e24fb70c4c6dbd10e4d447593651af48f40154",
+          "3a5870efa10a06f2cfd3aeac2735689292140326d0d9509e183d534b7d1da5a2"
+        ],
+        [
+          "e33ada21419254e0c9db45351850d9fd5207e2e804e009c506a806bed1470875",
+          "e39d689e7416ab3d2dc9ab5bfb5771722494aef906bf1bd6f314ddc2e3c43e41"
+        ]
+      ],
+      "element_hashes": [
+        "39b1c3b9eebfdcbab3f649df8286c67c771b8dd21dbd8397c0dc817089060c60",
+        "23ea2d3b9bb457418d23daf04e56adc05fc3845bceee12a4b52b2e70c3c5def1"
+      ],
+      "hash": "eb7bb76267054e00aa507b3506c7ba1b930201c75051b9134e0729120b7fc9dd",
+      "kind": "array",
+      "mistakes": {
+        "4a6f376881d64ead7c7f5376b328163e46d44027b52a7f50adc840495bd1d8ac": "la fonction rend (w1, ks), dans cet ordre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.26b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "4d022e42fbe11318870ab7f37c67238ff59b2d0c505d653ee8243a96b6864c07"
+        ],
+        [
+          "8d4455a4cc047ee91316f61a5f8cd5531b296c2e7d3cc7ef627147ceb5ef8bd4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0ef3f1233abd1932635e425ee09b6659775734828756820e3eb62ec1a20bb5d6",
+          "08a161efe1db761265594def0ea66b835f09d32140f9194dfc52b7fe215f3618",
+          "f05de19db00f8e957d996c0c9dd8483e16c0523f61e8b947b7ac6f7d77e60bef"
+        ],
+        [
+          "cf7fdc453731f2341bda2885af004daceec4fad9842ad7277077f19f1be3d95c",
+          "76776c5a09da56821c17baf0d3be9ca20f13adb120bd12a691c1c8af9106f75a"
+        ]
+      ],
+      "element_hashes": [
+        "e10a3339828c78cbcaa3783d2b8bbce0c2c745c03e3689ead62a61f9fb4e9555",
+        "4c98b26fe267c83e951f8c215e134f6e43c81d7aaf4903dd4401023868e82e53"
+      ],
+      "hash": "81789809619aff084bf1dbff3cc0919ebf63aa5330957830335ea72a368d787a",
+      "kind": "array",
+      "mistakes": {
+        "8480d7865b029076c5c23cf85d8aa79fad8155027de1bfa01686c1564947f19b": "la fonction rend (w1, ks), dans cet ordre"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.26c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "98222e101ce6c6de42f6fb492a63888a87629b6dd0ce0727aec97af1ca0fcfbe"
+        ],
+        [
+          "cc3f2345a584ce0cbd11404afa867071cf69744a5e4a343aa6f6ec08d82be91a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "48d94ff4ed91e29af390e32ee3b13dc8608339ec3d74ecc039b725db61191563",
+          "9f26159924c49d774faac6b0f352f8730a3431d01d896f6adda6a07efc02c50d",
+          "0edb5cb4a5afab3a24a53929a5a76f9485d763c9b79d2a36f816dab4a6970703"
+        ],
+        [
+          "453f05a28a6fcac7d6405bb21958fc439dcee76729f65c743e7aab0bf059f496",
+          "49ca1ba9414389d7c4376491c032d5261d358734948fe5e442f994ca0c4df5b1"
+        ]
+      ],
+      "element_hashes": [
+        "daadd5b50aaa795ad1d4b2b9267a5a4dba36029debee380408658ed41aea0394",
+        "17687b3ca72f0e212e1c6064fe8da0edc5b6d453f57ea7170b86b3f855cae335"
+      ],
+      "hash": "8ac22f623e90a21ddeddbc7783eed829c52449879d52ffccb49ecdb26f9430ea",
+      "kind": "array",
+      "mistakes": {
+        "6656ba01be5b4596936362d8e1e1826dc13ad3ec4e10728a30bf49f5b7ea27ca": "la fonction rend (w1, ks), dans cet ordre",
+        "7757f0645be51ede4b52078ace63e5dfe4fbe8a0777a16677f1e811616424b48": "c) se calcule en °F : les lois et la grille sont en °F, et W₁ a l'unité de la variable"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.27a": {
+      "array_rounded": {
+        "1": "3db3abef6c262c6e265a842caef3a8e3925c259302c2a64187fe8ad40f305ea0",
+        "2": "bd0dcd971233d3f64f48bdf51612ead6d4a386416b540b02c0de700dc11d3c2e",
+        "3": "df20ad7f4e6f44a8c169cd2faf53cdf8453cb23c20af3bbffc164a486f9b043f",
+        "4": "8d48ca440a6e5a11e39a6894887d9bfc1ea7ae14e3311d6150644916712ed048",
+        "5": "ce30a7a3448eb6fe869c2ad8c2c0adf72dcc2ce78b9ec520239f15c214413793"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "55d89ec51c96d6ee62acbdbb1b4e434c8fe27531790bd6fc39db9cce8b95312b"
+        ],
+        [
+          "32d5979083d0218c83e9516139d8e758b3ac9868da95535254308cf1cc8abb0d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e87ffb1188037bd9dcdc6e9840ec74a1bac6caabe3cad05531f617c6286cadf3",
+          "2616d03f525c3d314a69b1e6e33b3201c6b86aa96e736d85aaa4c95c5bb1fa97",
+          "4e3154e128bae0b43f337e69cfb6b00a34a23e01a46c47eddaca167e4c1f8661",
+          "16185651576c2fbce502a75c2e7d351c4cabb0f54308679fb8c60cb6714ef6a7"
+        ],
+        [
+          "70b3fc3efc50180ee07d98f545e94566f065c6d23fd74afada4858fa1523f851",
+          "7b6fdccddd67a63e604fb757907f1b5bbf549dc950d436165fd14e495cfc2f92",
+          "3f29a3a56cb6c77d12b9bf5570228f818b8895471dcf989d46bf411c1b243890",
+          "7dd1b19b7d6144931dd966e1f03c7fd11b2c2c4409a3eaa30a1d5e88e8f052e8",
+          "de64b29251eec91d87e82d5b43b83f978e798b9634971a29e987f18c476f7497"
+        ]
+      ],
+      "element_hashes": [
+        "06ae3d3ec177dcee770a0639e90b5d2c54266f1e3db385df1fd281e05ebb2bd6",
+        "17e4ea57135dd195cd9c6bccd781bc31b8be990ddf4134e381b9ec0de7a9c336"
+      ],
+      "hash": "79b523e111eef3bf2a2b2b45f455cd79d5b707d8f76ed8fe0ae7ecbe3f5c9a9d",
+      "kind": "array",
+      "mistakes": {
+        "40adc789fa076f10b4c2e7abff765b25540654a0e34abc2ab72615e47449849c": "penalty_kick_mix_fixed rend encore la probabilité qui rend le joueur des lignes indifférent",
+        "e4f6efef3239943813abfce4f49d729be1be5913a705cf2ad63148c71b738447": "p* est la probabilité de la première ligne",
+        "e57aaf146e8a8e51365530904e565922d65c2c0e9340f6c02f3b5394f854cc3c": "la seconde valeur est ce que rend la version FAUSSE, penalty_kick_mix"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.27b": {
+      "array_rounded": {
+        "1": "83899747888f1150737779d26411977b9f1762dc9862c32b3465933314bc4dcf",
+        "2": "91df00002baabc8d94ffb14cf8a0b3e58d8a0cb890697e6ffd85ba3309bc222e",
+        "3": "9729eea83a448a2f8fa43ff13b547f2ae6bb887fe6eafb1350e0c481ddebc74a",
+        "4": "21f3dd92b1dc19f93a3aedf3f9050dd57d3df34d6bac55aaabdfda383cb47ff4",
+        "5": "63ef375885e37932c406821306c55ca88e70ea732d6d354907b3cccd96a424f1"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "5f61a5477c619a9d052c2e7a6e6ff2a859a8014212f39dff7f4508b920065e5a"
+        ],
+        [
+          "717fdc825914dd7693781b299c0b377dc257f28197f4d947b586359678f0c4ce"
+        ],
+        [
+          "f9b7807d4eeb9f3d450d6eeca640e0f3b0a63d7b76dc92b1c5f7b6c436d907b6"
+        ],
+        [
+          "a01f552323833dc3da11b774974e6f2012fc41b1addee897d470fd4cd3f71b40"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "295ed335aff130e92294d51dace27eaff234ba162ec5b370025539078466ef6c",
+          "9036796ea0fafc8eb678b7ee900e1b6c57273175efe37645f09a3a5ae7033cd5",
+          "8b822bc70066a992041c101a5f125cf9910e6639d29c68af825cec41f9452fa7",
+          "5b01e490019d1dcbde0b5ca10916e6d713be8050d47b087cd09d1d876e09ca11"
+        ],
+        [
+          "b1076c1b7dcf860b3d1716bc8561c1d9596510f3ac536a3bc4adf1600274755b",
+          "0b9072cc1b6e457c051624c51381c057454ab149c31d7076cd7e8fe650290d81",
+          "6b3a59720030b09ccc34a22702de157c924611ef10318f228f31d028848fb9c0",
+          "6e6fbefc9219a2e9fbd95b1e3a8a8617cf8be0bd705c765acb641474e3c61e37"
+        ],
+        [
+          "578703c560bd48a218d4e79532ec96d9720e83a40044fd62a230094bd23a57bf",
+          "3bab260e15b4ba39df7c8a36ea9431c1d3d106c731eaf58a24daa9821af73fa0",
+          "e52c1028f95424c0527bf7e6c7dc5767d9d2663aa013bbca49f3330c26473944",
+          "c57258ad68588d0c517fb561088690df8e21d7c93231a8426a27e5ba0e7a0a79",
+          "7c644ffc29f9ec4e1b56014e2df66513a7679926be06f1b2359fe1245af6860b"
+        ],
+        [
+          "3b6126de2cfe5d4c5fe77140737d0e023ff4cded68a4c1abfbe4040c36988d13",
+          "eec18647fa3530dcc1bc392b5b1f4e2122c670da4e1a350a4ef57ddfc3cc9633",
+          "922e0ab1b839cfff13081174f1724b15f1e4d751a0e4c91b7f9a0c5d8bf0df45",
+          "9ee32799639fbb31c92a838d9c04a3aa844546b1b4d776ba9e2bc9525a18e7a8",
+          "6f2ea08ae414a5daebc3b585032285bdd5f7d3d8f90277c10c265076d2a12ac2"
+        ]
+      ],
+      "element_hashes": [
+        "30bf26a3d95a141692b7dc7630a4d523473d59fb5d1689287923635b79f11579",
+        "2545597bbaf2519b7ba5befb3545d6d696d62cc25318ad5b59810a704bbf423f",
+        "a29c10fc9874d05644d9c146e7b5e043f94c95f9d40e0c98d186005f1667eb3f",
+        "c69c181cb094d4e10ec837cf753c9c2b277eee4cfdc69b21d5e4354516e7b0df"
+      ],
+      "hash": "3a85bde883a56344df5b04ca3375ee68bf163f7c08279dad252c1d35b64cf320",
+      "kind": "array",
+      "mistakes": {
+        "cf57d9eb204e3922578545c872fbc168b06e79b5861ac771f79c557347c7706e": "la deuxième et la quatrième valeurs sont celles de la version FAUSSE, w2_settings",
+        "d257f5fb98a5e0b7d9eea01c34a7665b485084135441851f27e4986e2b36a659": "w2_settings_fixed met encore des variances : la formule soustrait les écarts-types"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.27c": {
+      "array_rounded": {
+        "1": "4ef50a5c0650970dc1055010e0c57de0cd90e3b4b43d34352c7284beb961fdb1",
+        "2": "a59f0a88edf4155f1087f4e77717263add6e8db75d56766f835190790f645ee4",
+        "3": "0f8254af4e73a0250f6afb163e3e9e37f34f84866a0a72a6b6569f55984e4a47"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "c6a36e8e2af022bd87abfca1fac9d510cb69684573a9442752b7f869481856ce"
+        ],
+        [
+          "01944eaff8cfa35baa6312f594e1cf764466d7963927b0c47bf16741d273ea65"
+        ],
+        [
+          "9cd6dd6c20a632eecff5aee0f9106fc0596b1cf99047e2c5127d551898ead97a"
+        ],
+        [
+          "805ab3bf860822ca07dd97bfd85485a0c8f3fa979ffd762e5d7b57ee3b1026d0"
+        ],
+        [
+          "4592f48e8e49b24f3142b6d8c594a79f6944435f68a36f25df08b2f2084eae2c"
+        ],
+        [
+          "3bc4029f0b4d65156893f0ad5fbbdd069a7e57e1348c06e1a4ff70adb869a416"
+        ],
+        [
+          "7ab2eb91382e77f2df6655ff66e9566282f19c6cba62afe2922f3cf5efe24d01"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "9314cdd2b080a2609c35d1d0a0029f39e596af7c814ba88eaed2acf2b999c1db",
+          "2c3b1b149d10de4954d29994d3c9591f7d6245c0428048bbac4918c381f258bd",
+          "693b053f5ae98cf5aa4f557e579e7183dfc56d0afb949e09e92ec9f3d8990c95",
+          "9f42450de9738935865904e0df0b416a5b49605ea99246a42d9a149e89bb3fa3",
+          "023ff6534819afa79f2a5000b34810552b6e41f368670d8264e13f9e27426991"
+        ],
+        [
+          "8478e3592277a7e6c4f04fbc3fb4c1b2199686357d38f864143a18de9d6e0679",
+          "7c691b2057717528a33c4ee8537d4e00681fc2e3480d5132ad0cd8eb0a7245ef",
+          "001bd5b26c0fbdd9a423d00b556785445f9d8a1d701422b3d85c8d8fac71fc38",
+          "7768c07b63408cb2699e8cb71704eac92d9e2e12eca0d60126b13f3768d47bff",
+          "51e478cca10b77bd986e2c55fff7082c222060278533bc1001ff61bcaaeb7842"
+        ],
+        [
+          "854a1f962d5e5fcb769ef8cc62a8b609e502e0dafe4e6a33eb8770ec9d772953",
+          "0dc4667d1459e30496eac9a6ee29f67bb4221722261fd42593a0e375d2f6ab59",
+          "55f0c9c48b08c0cdd34eeb8d6c8ecfe73a8fc011d7659087e7582c678854d63f",
+          "8d29c9003a1d88790d7e3608d05a46ed05d1a3e1bcb3f97f3ae4a6c964b54208",
+          "91537c70c19259f827fa8962e4dd68bbf56dc5438613bda9e0f17837600b9383"
+        ],
+        [
+          "59f11d4432e3dfde16f18a79c16f7e24ad63af3a3dd386c672eadfcf35535fca",
+          "f51bb048140a53758a0a74ce1261df879ee77a2e5c0182573ae4ef8274036a78",
+          "94a9227182ba8645a71ee8fd3b17d2517fd0685aaf7b6cb13a0ce212b99beed4",
+          "c32463efd185dddc9e9593f2ab986ae654b9eeed15ae9c43730c41e140cb510e",
+          "0d3214fabeadda42f17941239be7736489e96da8a6998f97a82cc600620aacdc"
+        ],
+        [
+          "cd3481a7e4f6a1059e8e7c5f2c71ec9f54de549e5abdf01eff5a97c3052bb7fa",
+          "3c26e9905960cced2b5035cdd2ffc127b2844b513fa253d75db22080a5c92d6b",
+          "a97bf0da2b6c6747b5b3878ef5e8c9b2e50cb41bbfc7e9b987d41b19c102abbf"
+        ],
+        [
+          "bfc6193367256b7abce115442b48037143fafc22d2848c90651a5c869a43d446",
+          "475d83deb434277182e5c25eea5299ee4e44ee69311885b0b5dde1ed43eea988",
+          "9fd5af5d1a135fb24b5889fc8548bcd850317a1682a73f15edd5cc76e238b77c"
+        ]
+      ],
+      "element_hashes": [
+        "f67ce35fff63140ac345604edd2cda4090d2d5cea479d7d10cb8d8509e6a56ae",
+        "c35223dd92dd6409a3bf8fbb27c5bb24bb78dee99098155488e0510853114e95",
+        "262cb31c9d9b85ad5279a4bfc8f2cbab283cc74717f6c68518bbcb8a42913e55",
+        "72c4a99df14e10f88e059e8678c37adfa73c8f293def5320786d63c3a1e29f4b",
+        "c0d5b86ccfcc034d617c1fa9fd4ff12ccd8a1fbe8b6985bd1c240d32f9b5411b",
+        "0dd0745ad5ffcb3ab3238539fe901e36fa99dc3c2a09e9327025ff1dc2db8fa3",
+        "4e5ba8f29b8fe5d4eaf2c09841f6df1b544ca12dd1673f836aae6162862c3385"
+      ],
+      "hash": "2ada716964e21bf3e7ecf45fd579f02c9eb705eed3a4781ab1da60b631e8225d",
+      "kind": "array",
+      "mistakes": {
+        "34f8cbddb5eba5b8e4945a5dddb10f071f9fcc1261bd15e57600b7ac5ae27ada": "la somme de ton appariement d'abord, puis celle du collègue",
+        "9f7d33332aa587bfbe79c7ae86113e2b9a26d6eb1f5bf5ef6b28071143d7f183": "pair_parts_fixed ne range encore que les bagues : les axes aussi arrivent dans le désordre"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.28b": {
+      "hash": "9ec10382d47af88ec026806c6f3419291a538765013385f4113a898ef4cadd8a",
+      "kind": "bool",
+      "mistakes": {
+        "6bc7275e9c55937498bd86078546c3b5132554ccb1aa05058946450963f3a1a3": "avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de ton test (ses tolérances, ses comparaisons) ou de ta fonction"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.28c": {
+      "decimals": 0,
+      "element_hashes": [
+        "8385c2f4b980a8c976421c40836b82e48f65978a5a71f9b1cb613032bc1e185d",
+        "c68888ea8412347ddb2931c8118306a6f8adf5453898d7de245b7f0b57d89bd0",
+        "2b12f0d094078b15bde49fd9369e9f4e4cfe723157e110edc12fe9588aefe300",
+        "f899a19ec672916412bd3b34ce62f805906dc0e8f6b034f5db960f91f8e1c8f4",
+        "2000da696f5b5e6870541ac5d324351ca4bf0f6f77dd4ea1aef82691bd3efed5",
+        "c3af527770e83861ce5cb26d39f7e2825bb524d4f574611787e8aac8b27f7819",
+        "c64236fccb7b0e80290b3f5cda1d327c4211fd8d68056c3408884aca38947b96",
+        "4c43b06fac6966c7775f7bf79e4a38a329f7c11b08c7b24ed0c4526dd583fa4a",
+        "aac07338da8c0e9dc48cf8dfe93ff23cafc95bf9a11c566f4a7e9afe7cea5a77",
+        "4ca2d40fbdfd13521dbae327ef0abe31052d0a9308493e89b61f356e48f0e168",
+        "a47fa54a0bccb0ff311cf38459570fb369ba2b271287a1b84cefb069b7e17d06",
+        "9033509ae7955dd5e4ba96b6ee26c5723d35f706a541e2815dc9b750d4b2d354",
+        "146a793467ee74f67c12e35e3314db5a4b910e2f9fcffb2bcd9433c0afc109d0",
+        "48e45dccfac93b0590edae35ccede20b38ce81be2d5810645677f0d3502dc809",
+        "e8974e5f25fa8fb73d8090a6f688d515516d744a518af6c3a92f9c7b0ece8057",
+        "b387f05a146c55d2382a6a38d6759b06ae15cd9593789b4f3ec409ba1805fd78",
+        "ff8db7a2108a54e657df89091de78f2e4e78c7680a457da5f6f898e9ed5e2293",
+        "4f2d9546245dc7980efe7b6da7f5f6422a4ae087ff9c1da38ea582288f02a9b4",
+        "131469246365b4e9c8208babf4389f830617104f987c6c695685c97d1571ca85",
+        "f2e282211d0cb46b7dc7c49c236f7605eff0d546aa2b3e1535ed9cf594f69dd2"
+      ],
+      "hash": "db9b1b40b4fbbd161a7923aaef76fda54abf285024a6d07d82bbaaf588ac094e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "22974698a879d8f750046199428c0a4a6847df4636616106cda08005d92bb847": "tire dans l'ordre de l'énoncé : G, puis c, puis k",
+        "96b014fb472ea82688a1527803dc9b3f22dcdac07b7d694f646f5d680f1c9184": "les deux dernières propriétés ne portent que sur les jeux sans point selle"
+      },
+      "shape": [
+        4,
+        5
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.28d": {
+      "hash": "e9c9a42fa8991bbd573fb6e1fed0cdc87f26137cc69c7c7865b7f3e8ad0dc38b",
+      "kind": "set",
+      "mistakes": {
+        "0ea4e5ab9a156536bb5563b940cf9629b0df0c9f10c2cfb702d88881bd8a33cd": "formulas_always fausse \"bounds\" : elle ne passe pas les trois propriétés",
+        "27797e6d0143bbef9031cdd3760abf0a4dc129a56b5aae85b4ee48e5f8781944": "il en manque une : relis, dans c), les trois premiers compteurs de chaque version",
+        "36993431da6ff8c8ae691e9b8d6510c255aaa3196705194824c08752aa7145e5": "rounded_value fausse \"scale\" (et parfois \"shift\") : elle ne passe pas les trois propriétés",
+        "42a417fea474cfd8f70018da54ba2ac0490ed16374552fcf9f80e48fddfab06b": "il en manque une : une version passe si ses trois compteurs \"bounds\", \"shift\" et \"scale\" sont nuls (relis tes compteurs de c)"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.29a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "72ed0baad3ed728071153ee2be3fd12747f3b5fb5743db2e98ccc7a1b9c54e79"
+        ],
+        [
+          "377e0e79ef3c26826f30c033f07e7e57ed600877dd7e4f1df89e2f330925608a"
+        ],
+        [
+          "13dbd261ceab4d88e6a7884f46a9c7a76d48d63bce8839e88cc6893f1f5aaf2b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b2f385e52878e16a1d2714348cbfcfdce28ca4fd0f6d276a2ce22c9341c3893a"
+        ],
+        [
+          "a005f066de07e539906e4fa98a8f615167cf59f94b0ce7767de6a1ea0f56fcae"
+        ],
+        [
+          "4a6eafde12940c64a3f621b4768a58b4fc2b3dcf1513f206a5198c7bf0481e69"
+        ]
+      ],
+      "element_hashes": [
+        "1ffe0f7f4b5195162214f9347e8c5549833459ab4198a0b25994cc1f7410634b",
+        "b56ef3e01214dad9fd92e6b251a9bb6288479659e12692b28d770f404a6cdace",
+        "24a9e2bf6ab22ae6fbe9beff0660badc6cd8594213dfd1a10693fe6ef7a7315d"
+      ],
+      "hash": "c3c5317863a473aecba68c112a4fc2722ed3555c8ce4c5abaf848ed427778496",
+      "kind": "array",
+      "mistakes": {
+        "6ebb64f879045d07aac7440ce10c173c809ae1c498710c3033a7aa8672c3f180": "w2 est la distance W₂, pas son carré",
+        "dfb4350e6ad930022b049d7d64fbfcb651b10023eec7c6fe9f8e3e1a11f8e828": "sigma est un écart-type, pas une variance",
+        "ea678220dbacb7fce4395432e19d9f84341a698b7da0af79abb95b1dcaac78b2": "le meilleur σ n'est pas l'écart-type de la loi : écris W₂²(μ, σ) et annule sa dérivée en σ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.29b": {
+      "hash": "a89287641145ea578ea2f2e723ff3044c223406a4b605849fee6bb9838b210b1",
+      "kind": "bool",
+      "mistakes": {
+        "ba90eb37d7044b77cbae258526a68ef43a3696976d3f91eb427dcd880c7813d6": "la dérivée de W₂²(μ, σ) en μ s'annule quand ∫₀¹ (F⁻¹(u) − μ − σΦ⁻¹(u)) du = 0, et ∫₀¹ Φ⁻¹ = 0"
+      },
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
+    "M27.29c": {
+      "decimals": 0,
+      "hash": "b38df27e81d8c6e63fdc9ecbba9a2b2ec0a5bf7b77055b5a1a7e16ea7dde4368",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "8610b5a91b6dc1c30603f40055492ce51752d43b8f26e20a23212b03d393c197": "divise par la variance de la loi exponentielle, 4 (min²), pas par son écart-type",
+        "952a2d5ed7f644e3fce0a63263a6c31f188a70b1b45f4064df504268dfcd85bf": "la part se lit sur W₂², une variance, pas sur W₂",
+        "f7bd270aad3c9bf56309f3e6c4b7bfb385a800ac2666b9e306b0aed9d1384145": "la part que la meilleure gaussienne ne peut pas rendre est W₂²/𝕍(X), pas 1 − W₂²/𝕍(X)"
+      },
+      "sign": 1,
+      "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
