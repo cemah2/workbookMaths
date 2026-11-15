@@ -24,6 +24,7 @@ import numpy as np
 | les lignes de niveau d'une densité du plan | `X1, X2 = np.meshgrid(x1, x2)` ; `ax.contour(X1, X2, multivariate_normal(mu, S).pdf(np.dstack([X1, X2])))` : la dernière dimension porte les deux coordonnées (M25a) |
 | des points colorés par une probabilité | `sc = ax.scatter(X[:, 0], X[:, 1], c=p, cmap="coolwarm", vmin=0, vmax=1)` ; `fig.colorbar(sc, ax=ax)` : par exemple, `p = R[:, 0]`, la responsabilité d'une composante pour chaque point (M25b) |
 | une fonction de répartition empirique, en escalier | `xs = np.sort(x)` ; `n = len(xs)` ; `ax.step(np.r_[xs[0] - 1, xs, xs[-1] + 1], np.r_[0, np.arange(1, n + 1) / n, 1], where="post")` : la valeur $\frac{k}{n}$ à partir de la $k$-ième valeur triée, 0 avant la première et 1 après la dernière ; `where="post"` garde chaque marche jusqu'au point suivant (M27) |
+| une carte de points numérotés | `ax.scatter(X[:, 0], X[:, 1])` ; `for k, (a, b) in enumerate(X, start=1): ax.annotate(str(k), (a, b), xytext=(4, 4), textcoords="offset points")` ; `ax.set_aspect("equal")`, sans quoi une carte retrouvée à partir de distances paraît déformée (M28) |
 | du LaTeX dans un titre | `ax.set_title(r"$f(x) = e^{-x^2}$")` (le `r` devant la chaîne) |
 
 `wbm.setup()` règle le style des graphiques (taille, couleurs lisibles par les daltoniens) ; termine chaque cellule graphique par `plt.show()`.

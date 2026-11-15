@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, calcul numérique.
 
 ```python
 import numpy as np
@@ -166,6 +166,20 @@ Des échantillons `x` et `y` à une dimension ; des lois discrètes `p` et `q` s
 | les termes d'une divergence KL discrète | `from scipy.special import rel_entr` ; `rel_entr(p, q)` rend les $p_k\ln\frac{p_k}{q_k}$, en nats : `0` là où $p_k = 0$, `inf` là où $p_k > 0 = q_k$ ; leur somme `rel_entr(p, q).sum()` est $\mathrm{KL}(p \,\|\, q)$, comme `scipy.stats.entropy(p, q)` (qui normalise d'abord `p` et `q`) ; `np.sum(p * np.log(p / q))` rend `nan` dès que $p_k = 0$ ; `rel_entr([0.5, 0.5, 0], [0.25, 0.5, 0.25]).sum()` → $\frac12\ln 2 \approx 0{,}3466$ |
 
 Dans `mymath/distances.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, rien de `np.linalg` et aucune SciPy (`scipy.optimize.linprog` résout un jeu) : les tests comparent tes résultats à `linprog`, à `np.linalg.matrix_power` et à une intégrale de l'écart des fonctions quantiles. Les formules des valeurs d'un jeu, des stratégies d'indifférence, des itérés de la descente-montée et de $W_2$ entre deux gaussiennes sont dans la fiche (§1, §2, §4 et §8) et dans le formulaire ; les coder est le travail des 🔨 M27.19 à M27.22.
+
+## Matrices de Gram, motifs sur une grille et entropie (M28)
+
+Des points rangés en lignes dans `X` et `Y`, de forme $(n, d)$ ; une grille de `H` lignes et `W` colonnes ; une loi `p`, un tableau de probabilités.
+
+| Je veux… | Code |
+|---|---|
+| les carrés des distances lus dans une matrice de Gram | `g = np.diag(G)` ; `D2 = g[:, None] + g[None, :] - 2 * G` ($\lVert\mathbf{x}_i - \mathbf{x}_j\rVert^2 = G_{ii} + G_{jj} - 2G_{ij}$) ; à partir des points, `scipy.spatial.distance.cdist(X, X, "sqeuclidean")` (plus bas, « Calcul numérique ») ; les arrondis peuvent laisser de petites valeurs négatives : `np.sqrt(np.maximum(D2, 0))` |
+| comparer deux configurations à une isométrie près | jamais leurs coordonnées : `np.allclose(cdist(X, X), cdist(Y, Y))` (mêmes distances), `np.allclose(X @ X.T, Y @ Y.T)` (même matrice de Gram, à origine fixée) ; pour les superposer, `from scipy.linalg import orthogonal_procrustes` ; `Xc, Yc = X - X.mean(axis=0), Y - Y.mean(axis=0)` ; `R, _ = orthogonal_procrustes(Xc, Yc)` : la matrice orthogonale (rotation, ou symétrie) qui rend `Xc @ R` le plus proche possible de `Yc` au sens des moindres carrés |
+| la moyenne quadratique d'un vecteur, les trois pas normalisés | `np.sqrt(np.mean(g ** 2))`, c'est `np.linalg.norm(g) / np.sqrt(g.size)` ; `g / np.linalg.norm(g)`, `g / np.sqrt(np.mean(g ** 2))` et `np.sign(g)` (`np.sign(0.0)` vaut `0.0`) |
+| un motif périodique sur une grille | `i, j = np.meshgrid(np.arange(H), np.arange(W), indexing="ij")`, ou `i, j = np.indices((H, W))` ; `Z = np.cos(2 * np.pi * (f1 * i + f2 * j) + phi)`, de forme `(H, W)`, où `Z[i, j]` est la case de la ligne `i` et de la colonne `j` ; **sans `indexing="ij"`, `meshgrid` rend des tableaux de forme `(W, H)`** ; le damier : `(-1.0) ** (i + j)` ; pour le voir, `ax.imshow(Z, cmap="gray")` |
+| l'entropie d'une loi, en nats | `scipy.stats.entropy(p)` : le logarithme népérien par défaut (`base=2` pour des bits), une probabilité nulle compte pour 0, et `p` est renormalisée si sa somme n'est pas 1 ; `-np.sum(p * np.log(p))` rend `nan` dès qu'un $p_i$ est nul ; `scipy.special.entr(p).sum()` additionne les termes $-p_i\ln p_i$ |
+
+Dans `mymath/sampling.py`, la docstring du module dit ce qui est permis : NumPy, et de `np.linalg` seulement `eigh` (dans `points_from_gram`) ; aucune SciPy (`scipy.special.softmax` et `scipy.special.logsumexp` donneraient `temper`) ni scikit-learn : les tests comparent tes résultats à SciPy. Les fonctions prennent des probabilités, jamais des scores, et ne tirent rien au hasard. Les formules des positions de matrice de Gram donnée, de la loi tempérée et du plus petit ensemble de masse donnée sont dans la fiche (§2 et §5) et dans le formulaire ; les coder est le travail des 🔨 M28.13 et M28.14.
 
 ## Calcul numérique
 
