@@ -16,9 +16,9 @@ Writes small PNG files into chapitres/m28_gram_echantillonnage/figures/:
   4 sin²(πf₁) + 4 sin²(πf₂), over the frequency square [0, 1/2]²;
 - the gain (1 + 2 cos ω)/3 of a moving average of three cases, and a signal of periods 24 and 3 whose period-3 part
   it erases;
-- the tempered laws of a car diagnosis p = (0.05, 0.37, 0.12, 0.27, 0.19) at T = 1/4, 1, 4 and ∞, and the entropy
-  against T;
-- the smallest set of mass at least 0.7 of the same law at T = 1/4, 1 and 4 (1, 3 and 4 outcomes);
+- the tempered laws of an ornithologist's opinion on six species, p = (0.11, 0.28, 0.07, 0.24, 0.09, 0.21), at
+  T = 1/4, 1, 4 and ∞, and the entropy against T;
+- the top-p set of mass at least 0.7 of the same law at T = 1/4, 1 and 4 (2, 3 and 4 species);
 - the rho of the iteration "sum of the squares of the digits" from 15 (preperiod 3, period 8), with two other tails.
 The numbers are those of the fiche; none comes from workbookIA 28, B4 or its checkpoint VI (no network, image of a
 dataset, activation, word or logit, no 28xx seed).
@@ -49,7 +49,7 @@ DPI = 110
 
 # §2: seven sensors in a field of 100 m × 60 m
 SEED_SENSORS, N_SENSORS = 6591, 7
-# §3: squared distance to c on the unit square; renormalized ascent on xᵀAx
+# §3: squared distance to c in a square hangar of side 10; renormalized ascent on xᵀAx
 C_DRONE, SIDE = np.array([4.0, 6.0]), 10.0
 STARTS = [(5.5, 5.0), (3.0, 8.0), (6.0, 7.5), (2.5, 4.5)]
 ETA_BOX, STEPS_BOX = 0.12, 25
@@ -58,9 +58,10 @@ A_QUAD, ETA_SPHERE, X0_SPHERE, STEPS_SPHERE = np.array([[5.0, 2.0], [2.0, 8.0]])
 SEED_NOISE, N_SIGNAL, SIGMA, TAU_SQ, LAM_ABS = 6592, 80, 0.12, 6.0, 0.3
 PATTERNS = [(0.0, 1 / 8), (0.0, 1 / 5), (0.15, 0.2), (0.5, 0.5)]
 GRID, CROP = 40, 16
-# §5: a car that does not start: a mechanic's diagnosis (causes 0 to 4)
-CAUSES = ["démarreur", "batterie", "carburant", "allumage", "électronique"]
-P_DIAG = np.array([0.05, 0.37, 0.12, 0.27, 0.19])
+# §5: an ornithologist hesitates between six species (0 to 5)
+SPECIES = ["rouge-gorge", "pinson", "rossignol", "mésange", "fauvette", "merle"]
+P_BIRD = np.array([0.11, 0.28, 0.07, 0.24, 0.09, 0.21])
+K = len(P_BIRD)
 MASS = 0.7
 
 
@@ -330,35 +331,35 @@ def entropy(q: np.ndarray) -> float:
 
 
 def temperature() -> None:
-    """§5: tempered laws of the diagnosis, and the entropy that increases with T."""
+    """§5: tempered laws of the ornithologist's opinion, and the entropy that increases with T."""
     temps = [(0.25, "T = 1/4"), (1.0, "T = 1"), (4.0, "T = 4"), (math.inf, "T = ∞")]
     fig, axes = plt.subplots(1, 2, figsize=(12.4, 4.4), gridspec_kw={"width_ratios": [1.25, 1]})
     ax = axes[0]
     width = 0.2
     for k, (T, lab) in enumerate(temps):
-        q = temper(P_DIAG, T)
-        ax.bar(np.arange(5) + (k - 1.5) * width, q, width, color=C[k], label=lab)
-    ax.set_xticks(range(5), [f"{i} : {c}" for i, c in enumerate(CAUSES)])
+        q = temper(P_BIRD, T)
+        ax.bar(np.arange(K) + (k - 1.5) * width, q, width, color=C[k], label=lab)
+    ax.set_xticks(range(K), [f"{i} : {c}" for i, c in enumerate(SPECIES)], fontsize=9)
     ax.keep_ticks_x = True
-    ax.set(ylabel="probabilité", title="La loi du diagnostic à quatre températures", ylim=(0, 0.82))
+    ax.set(ylabel="probabilité", title="L'avis de l'ornithologue à quatre températures", ylim=(0, 0.6))
     ax.legend(fontsize=9.5)
     ax = axes[1]
     Ts = np.logspace(-1.6, 2, 300)
-    H = [entropy(temper(P_DIAG, T)) for T in Ts]
+    H = [entropy(temper(P_BIRD, T)) for T in Ts]
     ax.semilogx(Ts, H, color=C[0], lw=2.2)
-    ax.axhline(math.log(5), color="0.4", ls=":", lw=1.2)
-    ax.text(0.03, math.log(5) + 0.03, "ln 5 ≈ 1,609 (uniforme sur les 5 causes)", fontsize=9, color="0.3")
+    ax.axhline(math.log(K), color="0.4", ls=":", lw=1.2)
+    ax.text(0.03, math.log(K) + 0.03, "ln 6 ≈ 1,792 (uniforme sur les 6 espèces)", fontsize=9, color="0.3")
     for T, lab in temps[:3]:
-        h = entropy(temper(P_DIAG, T))
+        h = entropy(temper(P_BIRD, T))
         ax.plot(T, h, "o", color=wbplot.BAD, ms=6)
         ax.annotate(f"{lab} : {fr(h, 3)}", (T, h), textcoords="offset points", xytext=(8, -14), fontsize=9.5)
     ax.set(xlabel="température T (échelle logarithmique)", ylabel="entropie (nats)",
-           title="L'entropie croît avec T", ylim=(0, 1.75))
+           title="L'entropie croît avec T", ylim=(0, 1.98))
     ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _p: french_number(v)))
     fig.tight_layout(w_pad=3)
     save(fig, "temperature.png")
     for T, lab in temps:
-        q = temper(P_DIAG, T)
+        q = temper(P_BIRD, T)
         print(f"    {lab}: {np.round(q, 4).tolist()} H = {entropy(q):.4f}")
 
 
@@ -373,27 +374,27 @@ def top_p() -> None:
     """§5: the smallest set of mass ≥ 0.7 shrinks when the law is cooled, grows when it is heated."""
     fig, axes = plt.subplots(1, 3, figsize=(13.4, 4.3), sharey=True)
     for ax, (T, lab) in zip(axes, ((0.25, "T = 1/4"), (1.0, "T = 1"), (4.0, "T = 4"))):
-        q = temper(P_DIAG, T)
+        q = temper(P_BIRD, T)
         order = np.argsort(-q, kind="stable")
         kept = set(smallest_mass(q, MASS).tolist())
         cols = [C[0] if i in kept else "0.75" for i in order]
-        ax.bar(range(5), q[order], color=cols)
+        ax.bar(range(K), q[order], color=cols)
         cum = np.cumsum(q[order])
-        ax.step(np.arange(5), cum, where="mid", color="black", lw=1.4, label="probabilité cumulée")
-        ax.plot(np.arange(5), cum, "o", color="black", ms=3.5)
+        ax.step(np.arange(K), cum, where="mid", color="black", lw=1.4, label="probabilité cumulée")
+        ax.plot(np.arange(K), cum, "o", color="black", ms=3.5)
         ax.axhline(MASS, color=wbplot.BAD, ls="--", lw=1.2, label="m = 0,7")
-        ax.set_xticks(range(5), [f"{i}\n{CAUSES[i]}" for i in order], fontsize=9)
+        ax.set_xticks(range(K), [f"{i}\n{SPECIES[i].replace('-', '-' + chr(10))}" for i in order], fontsize=8.5)
         ax.keep_ticks_x = True
-        ax.set(title=f"{lab} : {len(kept)} cause{'s' if len(kept) > 1 else ''} gardée{'s' if len(kept) > 1 else ''}",
+        ax.set(title=f"{lab} : {len(kept)} espèce{'s' if len(kept) > 1 else ''} gardée{'s' if len(kept) > 1 else ''}",
                ylim=(0, 1.05))
         for k, v in enumerate(cum):
             ax.text(k, v + 0.025, fr(v, 3) if T != 1.0 else fr(v, 2), ha="center", fontsize=8.5)
-    axes[0].set_ylabel("probabilité (causes triées)")
+    axes[0].set_ylabel("probabilité (espèces triées)")
     axes[0].legend(fontsize=9, loc="center right")
     fig.tight_layout(w_pad=1.5)
     save(fig, "top_p.png")
     for T in (0.25, 1.0, 4.0, math.inf):
-        q = temper(P_DIAG, T)
+        q = temper(P_BIRD, T)
         print(f"    T = {T}: kept {smallest_mass(q, MASS).tolist()}, cumulative {np.round(np.cumsum(np.sort(q)[::-1]), 4).tolist()}")
 
 
