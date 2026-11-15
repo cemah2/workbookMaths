@@ -1383,7 +1383,7 @@ CHAPTERS = [
                     "μ + λ ≤ |E| ; un générateur glouton à contexte fini boucle ; détection par le lièvre et la tortue "
                     "(Floyd, aperçu)"],
         "requires": [("division euclidienne et reste (`//`, `%`)", "R0"), ("cosinus, radians, périodicité", "R9"),
-                     ("loi catégorielle, tirage catégoriel par inversion", "M02b"), ("loi conditionnelle", "M03"),
+                     ("loi catégorielle, tirage catégoriel par inversion", "M02b"), ("matrice de covariance, avec le facteur 1/n", "M02c"), ("loi conditionnelle", "M03"),
                      ("convexité d'une fonction d'une variable, log-sum-exp", "M05a"),
                      ("gradient, montée et descente", "M05b"),
                      ("entropie, divergence KL, KL infinie quand le support manque", "M06"),
@@ -1399,12 +1399,13 @@ CHAPTERS = [
                      ("gradient par rapport à toutes les entrées en un passage inverse", "M18"),
                      ("projection sur une boule et sur un pavé, pas critique 2/λmax", "M19"),
                      ("matrice de centrage", "M20"),
-                     ("laplacien discret, moyenne mobile, convolutions circulaires, forme linéaire sur une boule", "M21")],
+                     ("laplacien discret, moyenne mobile, convolutions circulaires, forme linéaire sur une boule", "M21"),
+                     ("rayon spectral majoré par une norme induite, formules d'addition par l'exponentielle complexe", "M22")],
         "frontieres": ["28.2", "28.4", "28.7", "28.8", "28.10", "28.12", "28.13", "28.15", "28.16", "28.17",
                        "28.18", "28.24", "28.25", "28.28", "28.Q2", "28.Q7", "28.Q10", "28.R2", "28.E2", "28.E3", "B4.Q5", "B4.13"],
         "mymath": {"module": "sampling.py",
                    "functions": ["points_from_gram", "temper", "smallest_mass_set"]},
-        "reading_minutes": 140,
+        "reading_minutes": 150,
         "flashcards": 16,
         "notes": "Frontières : les ∂ 28.3 (une permutation des positions, puis une matrice orthogonale, ne change pas FFᵀ ; "
                  "un seul canal permuté la change ; C G_ii = μ² + σ² et la moyenne qu'elle ne fixe pas ; les tables "
@@ -1572,8 +1573,8 @@ CHAPTERS = [
             ("M28.8", "∂", 3, 30, "Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une "
              "isométrie", "§2", ""),
             ("M28.9", "∂", 2, 15, "Le maximum d'une fonction convexe sur un pavé est atteint en un sommet", "§3", ""),
-            ("M28.10", "∂", 2, 25, "Le plus petit ensemble de masse au moins p est fait des issues les plus probables, et "
-             "la loi tronquée est à −ln P(S) de la loi de départ en divergence KL", "§5", "E"),
+            ("M28.10", "∂", 2, 25, "Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit "
+             "ensemble de masse au moins p, et la loi tronquée est à −ln P(S) de la loi de départ en divergence KL", "§5", "E"),
             ("M28.11", "🔗", 1, 15, "Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la "
              "puissance 1/T, la même loi ; et le même top-k", "§5", "E"),
             ("M28.12", "🗣️", 1, 10, "Expliquer avec une structure de barres rigides ce que la matrice de Gram d'une "
