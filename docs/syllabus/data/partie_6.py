@@ -1404,7 +1404,7 @@ CHAPTERS = [
                        "28.18", "28.24", "28.25", "28.28", "28.Q2", "28.Q7", "28.Q10", "28.R2", "28.E2", "28.E3", "B4.Q5", "B4.13"],
         "mymath": {"module": "sampling.py",
                    "functions": ["points_from_gram", "temper", "smallest_mass_set"]},
-        "reading_minutes": 100,
+        "reading_minutes": 140,
         "flashcards": 16,
         "notes": "Frontières : les ∂ 28.3 (une permutation des positions, puis une matrice orthogonale, ne change pas FFᵀ ; "
                  "un seul canal permuté la change ; C G_ii = μ² + σ² et la moyenne qu'elle ne fixe pas ; les tables "
@@ -1565,7 +1565,7 @@ CHAPTERS = [
              "pas de lissage, et une marche étalée sur n pas, au carré ou en valeur absolue", "§4", "E"),
             ("M28.5", "✏️", 2, 25, "Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation "
              "totale rapportée à l'énergie 4 sin²(ω/2), et gain d'une moyenne mobile", "§4", "E"),
-            ("M28.6", "✏️", 2, 25, "La prévision d'un météorologue en six catégories : la refroidir, garder les deux plus "
+            ("M28.6", "✏️", 2, 25, "La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus "
              "probables, garder le plus petit ensemble de masse donnée, et le coût de chaque troncature", "§5", "E"),
             ("M28.7", "✏️", 1, 15, "Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la "
              "main, et la borne du principe des tiroirs", "§6", "E"),
