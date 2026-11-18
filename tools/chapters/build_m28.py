@@ -84,8 +84,10 @@ PAPER = [
         ("e", "a number (1 decimal), in degrees", "math.degrees(math.acos(G_1[0][1] / math.sqrt(G_1[0][0] * G_1[1][1])))",
          '''decimals=1,
            mistakes={"l'angle est demandé en degrés": math.acos(G_1[0][1] / math.sqrt(G_1[0][0] * G_1[1][1])),
-                     "le cosinus divise G₁₂ par le produit des deux normes, pas par leur somme":
+                     "le cosinus divise G₁₂ par le produit des normes, √(G₁₁G₂₂), pas par la somme G₁₁ + G₂₂":
                          math.degrees(math.acos(G_1[0][1] / (G_1[0][0] + G_1[1][1]))),
+                     "le cosinus divise G₁₂ par le produit des deux normes, pas par leur somme":
+                         math.degrees(math.acos(G_1[0][1] / (math.sqrt(G_1[0][0]) + math.sqrt(G_1[1][1])))),
                      "l'angle entre deux vecteurs se lit dans leur produit scalaire, pas dans le carré de leur distance":
                          math.degrees(math.acos((G_1[0][0] + G_1[1][1] - 2 * G_1[0][1]) / math.sqrt(G_1[0][0] * G_1[1][1])))}'''),
     ]),
@@ -133,7 +135,8 @@ PAPER = [
         ("c", "an integer", "first_step_3(lambda x, previous: np.array_equal(x, BEST_3))",
          '''mistakes={"après un pas, toutes les coordonnées ne sont pas encore à leur borne":
                          first_step_3(lambda x, previous: bool(np.any(x == BEST_3))),
-                     "un pas projeté qui dépasse une borne s'arrête sur elle : il ne faut pas attendre un pas de plus":
+                     "un pas projeté qui dépasse une borne s'arrête sur elle : regarde à quel pas chaque coordonnée "
+                     "atteint sa borne":
                          first_step_3(lambda x, previous: np.array_equal(x, previous))}'''),
         ("d", "a number", "float(np.max(GAP_3 / np.abs(W_3)))",
          '''decimals=6,
@@ -167,11 +170,6 @@ PAPER = [
          '''decimals=6,
            mistakes={"on descend : on retire le pas": floats(X_4 + ETA_4 * 2 * L_4 @ X_4),
                      "le pas est η fois le gradient 2Lx": floats(X_4 - ETA_4 * L_4 @ X_4)}'''),
-        ("d", "a number (2 decimals) (°C²)", "tv_4(X_4 - ETA_4 * 2 * L_4 @ X_4)",
-         '''decimals=2,
-           mistakes={"la variation totale additionne des carrés, pas des valeurs absolues":
-                         float(np.abs(np.diff(X_4 - ETA_4 * 2 * L_4 @ X_4)).sum()),
-                     "le pas est η fois le gradient 2Lx": tv_4(X_4 - ETA_4 * L_4 @ X_4)}'''),
         ("e", "a number (4 decimals)", "1 / max(4 * math.sin(k * math.pi / (2 * 5)) ** 2 for k in range(5))",
          '''decimals=4,
            mistakes={"le pas critique de M19 se calcule avec la hessienne de VT, qui n'est pas L":
@@ -286,6 +284,8 @@ PAPER = [
         ("c", "a list of 5 numbers (4 decimals)", "floats(top_k_11(power_11(softmax(Z_11), 3), 3))",
          '''decimals=4,
            mistakes={"tronque la loi à T = 3, pas la loi de départ": floats(top_k_11(softmax(Z_11), 3)),
+                     "garde au moins 6 chiffres significatifs de p : partir des 4 décimales de a) décale la dernière "
+                     "décimale": floats(top_k_11(power_11(np.round(softmax(Z_11), 4), 3), 3)),
                      "la loi tronquée se renormalise sur les trois espèces gardées":
                          floats(top_k_11(power_11(softmax(Z_11), 3), 3, renormalize=False))}'''),
         ("d", BOOL, "all(set(np.argsort(-softmax(Z_11 / T), kind='stable')[:3]) == set(np.argsort(-Z_11, kind='stable')[:3]) "
@@ -369,7 +369,7 @@ def spectral_map(G, root=True):
 
 # M28.3: four emitters in [0, 1]
 W_3 = np.array([2.0, -1.0, 2.0, 4.0])
-A_3 = np.array([[5, -1, 0, 0], [-1, 5, 0, 0], [0, 0, 6, -2], [0, 0, -2, 3]], dtype=float)
+A_3 = np.array([[5, -1, 0, 0], [-1, 5, 0, 0], [0, 0, 11, -4], [0, 0, -4, 5]], dtype=float)
 X0_3 = np.array([0.3, 0.3, 0.6, 0.92])
 ETA_3 = 0.2
 BEST_3 = (W_3 > 0).astype(float)                       # the vertex of the box that maximizes wᵀx
@@ -393,17 +393,12 @@ RING_4 = 2 * np.eye(5) - np.roll(np.eye(5), 1, axis=1) - np.roll(np.eye(5), -1, 
 ETA_4, H_4, N_4 = 0.15, 6.0, 4
 
 
-def tv_4(x):
-    """The total variation of a signal: the sum of the squares of the differences between neighbours."""
-    return float(np.sum(np.diff(np.asarray(x, dtype=float)) ** 2))
-
-
 # M28.5: three motifs on a 36 × 36 grid closed in both directions
 II_5, JJ_5 = np.meshgrid(np.arange(36), np.arange(36), indexing="ij")
 MOTIF_A_5, MOTIF_B_5 = np.cos(2 * np.pi * JJ_5 / 6), np.cos(2 * np.pi * JJ_5 / 12)
 FREQ_C_5 = (1 / 12, 1 / 6)
 MOTIF_C_5 = np.cos(2 * np.pi * (FREQ_C_5[0] * II_5 + FREQ_C_5[1] * JJ_5))
-F_5 = 11 / 12
+F_5 = 16 / 17
 
 
 def ring_ratio(x):
@@ -910,8 +905,8 @@ NOTE_14 = (r"`temper` : la validation de la loi et de $T$, $T = 0$ (`p == p.max(
            r"`logs = np.log(p[p > 0])`, `w = np.exp((logs - logs.max()) / T)` et la division par la somme. "
            r"`smallest_mass_set` : `order = np.argsort(-p, kind=\"stable\")`, `np.cumsum`, le premier cumul $\ge$ "
            r"`mass - 1e-9`. a) $(0{,}0010 ;\ 0{,}1107 ;\ 0{,}5801 ;\ 0{,}2837 ;\ 0{,}0161 ;\ 0{,}0083)$ et `[2, 3, 1, 4]`. "
-           r"b) `[0.5, 0, 0.5, 0, 0]` et `[0.25, 0, 0.25, 0.25, 0.25]`. c) `[3, 4, 5, 6]`. d) 1,0303 ; 1,5927 ; 1,7642 "
-           r"(et $\ln 6 \approx 1{,}7918$) ; vrai.")
+           r"b) `[0.5, 0, 0.5, 0, 0]` et `[0.25, 0, 0.25, 0.25, 0.25]`. c) `[3, 4, 5, 6]`. Remarque : 1,0303 ; 1,5927 ; "
+           r"1,7642 nat (et $\ln 6 \approx 1{,}7918$), croissantes.")
 
 M28_14 = Ex(
     "M28.14", "🔨", 2, 30, "Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse donnée · "
@@ -926,8 +921,9 @@ M28_14 = Ex(
 **L'usage.** La cellule de données de la partie A donne la prévision de M28.6 (`P_FORECAST`). Avec tes fonctions :
 - a) `temper(P_FORECAST, 1/3)`, puis `smallest_mass_set(P_FORECAST, 0.87)`, à comparer à tes réponses a) et d) de M28.6 (une liste de 10 nombres : les 6 probabilités, puis les 4 indices) ;
 - b) pour $\mathbf{q} = (0{,}3 ;\ 0 ;\ 0{,}3 ;\ 0{,}25 ;\ 0{,}15)$ : `temper(q, 0)`, puis `temper(q, np.inf)` (une liste de 10 nombres) ;
-- c) les tailles de l'ensemble du top-p de seuil 0,87 de la prévision tempérée, pour $T = \frac13$, 1, 3 et $\infty$, dans cet ordre (une liste de 4 entiers) ;
-- d) les entropies, en nats, de la prévision tempérée à $T = \frac13$, 1 et 3 (calculées hors de `mymath`, sans compter les issues de probabilité nulle), puis vrai ou faux : elles croissent (une liste de 4 : les trois nombres, puis le booléen).
+- c) les tailles de l'ensemble du top-p de seuil 0,87 de la prévision tempérée, pour $T = \frac13$, 1, 3 et $\infty$, dans cet ordre (une liste de 4 entiers).
+
+Remarque, sans réponse à donner : calcule aussi, hors de `mymath`, les entropies en nats de la prévision tempérée à $T = \frac13$, 1 et 3, sans compter les issues de probabilité nulle, et compare-les (une cellule libre suit la vérification).
 
 Ce qu'il faut observer : refroidir rétrécit l'ensemble du top-p, réchauffer l'agrandit ; à $T = \infty$, les zéros restent nuls ; l'entropie croît avec $T$ vers $\ln 6$.""",
     todo=LOAD_LEARNER,
@@ -935,13 +931,12 @@ Ce qu'il faut observer : refroidir rétrécit l'ensemble du top-p, réchauffer l
     after=tests_cells("test_temper_ or test_smallest_mass_set_") + [
         ("md", "**L'usage** : la prévision refroidie et son top-p, les deux limites, les tailles du top-p, et l'entropie."),
         ("todo", '''Q_14 = np.array([0.3, 0.0, 0.3, 0.25, 0.15])
-answer_M28_14a = answer_M28_14b = answer_M28_14c = answer_M28_14d = ...
+answer_M28_14a = answer_M28_14b = answer_M28_14c = ...
 with wbm.attempt("M28.14"):          # if you call temper or smallest_mass_set here: ⏳ while they are not written
     answer_M28_14a = ...  # a) a list of 10 numbers: temper(P_FORECAST, 1/3) (6 probabilities), then smallest_mass_set(P_FORECAST, 0.87) (4 indices)
     answer_M28_14b = ...  # b) a list of 10 numbers: temper(Q_14, 0), then temper(Q_14, np.inf)
-    answer_M28_14c = ...  # c) a list of 4 integers: the sizes of the top-p set of mass 0.87 of the tempered forecast, for T = 1/3, 1, 3, np.inf
-    answer_M28_14d = ...  # d) a list of 4: the entropies (nats) of the tempered forecast at T = 1/3, 1, 3, then True or False: they grow'''),
-        ("check", answers_check("M28.14", "abcd")),
+    answer_M28_14c = ...  # c) a list of 4 integers: the sizes of the top-p set of mass 0.87 of the tempered forecast, for T = 1/3, 1, 3, np.inf'''),
+        ("check", answers_check("M28.14", "abc")),
         ("solution", '''Q_14 = np.array([0.3, 0.0, 0.3, 0.25, 0.15])
 temper, smallest_mass_set = mymath.sampling.temper, mymath.sampling.smallest_mass_set
 answer_M28_14a = temper(P_FORECAST, 1 / 3).tolist() + smallest_mass_set(P_FORECAST, 0.87).tolist()
@@ -956,12 +951,9 @@ def entropy_14(q):
     return float(-np.sum(q * np.log(q)))
 
 
-entropies_14 = [entropy_14(temper(P_FORECAST, T)) for T in (1 / 3, 1, 3)]
-answer_M28_14d = entropies_14 + [bool(entropies_14[0] < entropies_14[1] < entropies_14[2])]
 print("a)", np.round(answer_M28_14a, 6).tolist())
-print("b)", answer_M28_14b, " c)", answer_M28_14c, " d)", np.round(entropies_14, 6).tolist(), answer_M28_14d[3])'''),
+print("b)", answer_M28_14b, " c)", answer_M28_14c)'''),
         ("record", '''from scipy import special as special_14r
-from scipy import stats as stats_14r
 
 
 def temper_14r(p, T):
@@ -1007,10 +999,12 @@ wbm.record("M28.14c", sizes_14r,
            mistakes={"dans l'ordre T = 1/3, 1, 3, ∞ : refroidir rétrécit l'ensemble": sizes_14r[::-1],
                      "à T = ∞, la loi est uniforme sur les six catégories : il en faut assez pour atteindre 0,87":
                          sizes_14r[:3] + [5]})
-entropies_14r = [float(stats_14r.entropy(temper_14r(p_14r, T))) for T in (1 / 3, 1, 3)]
-wbm.record("M28.14d", entropies_14r + [True], decimals=5,
-           mistakes={"l'entropie se compte en nats, avec ln": [h / math.log(2) for h in entropies_14r] + [True],
-                     "compare les trois entropies dans l'ordre des températures": entropies_14r + [False]})'''),
+'''),
+        ("md", "**Remarque**, sans réponse à donner : les entropies, en nats, de la prévision tempérée à $T = \\frac13$, 1 "
+               "et 3 (hors de `mymath`, sans compter les issues de probabilité nulle). Croissent-elles ? Vers quoi ?"),
+        ("todo", "# Remark (no answer to check): the entropies, in nats, of the tempered forecast at T = 1/3, 1 and 3"),
+        ("solution", '''entropies_14 = [entropy_14(temper(P_FORECAST, T)) for T in (1 / 3, 1, 3)]
+print("Remarque : entropies (nats) à T = 1/3, 1, 3 :", np.round(entropies_14, 4).tolist(), "; ln 6 =", round(math.log(6), 4))'''),
     ],
 )
 
@@ -1077,7 +1071,7 @@ M28_15 = Ex(
 - c) avec le pas normalisé, les itérés de $1\,000f$ : (A) sont ceux de $f$ ; (B) font des pas 1 000 fois plus longs (une lettre) ;
 - d) avec le pas normalisé, le premier pas $k$ où $\lVert\mathbf{x}_k - \mathbf{c}\rVert < 0{,}1$ (un entier).
 
-Puis, une fois tes prédictions écrites et vérifiées, écris `ascent_15(scale, normalized, n_steps=20)`, qui rend le tableau des itérés, de forme $(\texttt{n\_steps} + 1, 2)$, ligne 0 le départ, pour la fonction $\texttt{scale}\cdot f$ ; elle lit `C_15`, `X0_15` et `ETA_15` au moment de l'appel (la vérification change `X0_15` un instant : un départ caché). Relève :
+Puis, une fois tes prédictions écrites et vérifiées, écris `ascent_15(scale, normalized, n_steps=20)`, qui rend le tableau des itérés, de forme $(\texttt{n\_steps} + 1, 2)$, ligne 0 le départ, pour la fonction $\texttt{scale}\cdot f$ ; `ascent_15` lit `C_15`, `X0_15` et `ETA_15` au moment de l'appel ; la vérification l'essaie sur des départs cachés. Relève :
 - e) les distances $\lVert\mathbf{x}_{20} - \mathbf{c}\rVert$ des quatre montées, dans l'ordre ($f$, pas ordinaire), ($1\,000f$, pas ordinaire), ($f$, pas normalisé), ($1\,000f$, pas normalisé) (une liste de 4 nombres ; 4 décimales dans ta copie) ;
 - f) vrai ou faux : avec le pas normalisé, les 21 itérés de $f$ et de $1\,000f$ sont les mêmes.
 
@@ -1360,9 +1354,9 @@ M28_16 = Ex(
     given=GIVEN_16, note=NOTE_16,
     body=r"""Sur une grille de $48 \times 48$ cases à **bords libres** (une case du bord a moins de quatre voisines), cinq motifs (`MOTIFS_16`, un dictionnaire, de A à E) : A $\cos\frac{2\pi j}{16}$, B $\cos\frac{2\pi j}{6}$, C $\cos\frac{2\pi j}{3}$, D $(-1)^j$ et E $(-1)^{i+j}$, le damier. Le notebook fournit `blur3_16(x)`, la moyenne des neuf cases autour de chaque case intérieure (un tableau $46 \times 46$).
 
-Écris `grid_laplacian_16(x)`, qui rend $\mathbf{L}\mathbf{x}$ pour la grille à bords libres (en chaque case, son nombre de voisines fois sa valeur, moins la somme de ses voisines ; sans boucle sur les cases), puis `draw_stripes_16(axes, motifs, eta, n_steps)`, qui reçoit une grille d'axes de forme $(5, 3)$ et un dictionnaire de motifs et, pour chaque motif (une ligne d'axes), dessine (`imshow`, une même échelle de couleurs de $-1$ à 1 pour les trois images : `vmin=-1, vmax=1`) le motif, son flou, et la grille après `n_steps` pas de descente $\mathbf{x} \leftarrow \mathbf{x} - \eta\cdot 2\mathbf{L}\mathbf{x}$ ; chaque image a un titre qui donne la valeur mesurée (le rapport, le gain, l'atténuation). La fonction rend un dictionnaire de trois listes, dans l'ordre des motifs : `"ratio"`, $\mathrm{VT}(\mathbf{x})/\lVert\mathbf{x}\rVert^2$ sur toute la grille (avec $\mathrm{VT}(\mathbf{x}) = \mathbf{x}^\top\mathbf{L}\mathbf{x}$) ; `"gain"`, $\langle\text{flou}, \mathbf{x}_{\text{int}}\rangle/\lVert\mathbf{x}_{\text{int}}\rVert^2$, où $\mathbf{x}_{\text{int}}$ est le motif sur les cases intérieures ; `"decay"`, $\lVert\mathbf{y}_c\rVert/\lVert\mathbf{x}_c\rVert$ après les pas de descente, sur le bloc central `[12:36, 12:36]`. Écris aussi `draw_decay_curve_16(ax, eta, n_steps, freqs, decays)`, qui trace la courbe $\big(1 - 8\eta\sin^2(\pi f)\big)^{n}$ pour $f$ de 0 à $\frac12$, et place les points mesurés des rayures A à D (`freqs` $= (\frac{1}{16}, \frac16, \frac13, \frac12)$, `FREQS_16`), avec une échelle logarithmique en ordonnée, des noms d'axes, et en titre la valeur théorique du damier, $(1 - 16\eta)^{n}$. Les deux fonctions dessinent dans les axes reçus, sans ouvrir de figure.
+Écris `grid_laplacian_16(x)`, qui rend $\mathbf{L}\mathbf{x}$ pour la grille à bords libres (en chaque case, son nombre de voisines fois sa valeur, moins la somme de ses voisines ; sans boucle sur les cases), puis `draw_stripes_16(axes, motifs, eta, n_steps)`, qui reçoit une grille d'axes de forme $(5, 3)$ et `motifs`, un dictionnaire {nom : grille}, et, pour chaque motif (une ligne d'axes), dessine (`imshow`, une même échelle de couleurs de $-1$ à 1 pour les trois images : `vmin=-1, vmax=1`) le motif, son flou, et la grille après `n_steps` pas de descente $\mathbf{x} \leftarrow \mathbf{x} - \eta\cdot 2\mathbf{L}\mathbf{x}$ ; chaque image a un titre qui donne la valeur mesurée (le rapport, le gain, l'atténuation). La fonction rend un dictionnaire de trois listes, dans l'ordre des motifs : `"ratio"`, $\mathrm{VT}(\mathbf{x})/\lVert\mathbf{x}\rVert^2$ sur toute la grille (avec $\mathrm{VT}(\mathbf{x}) = \mathbf{x}^\top\mathbf{L}\mathbf{x}$) ; `"gain"`, $\langle\text{flou}, \mathbf{x}_{\text{int}}\rangle/\lVert\mathbf{x}_{\text{int}}\rVert^2$, où $\mathbf{x}_{\text{int}}$ est le motif sur les cases intérieures ; `"decay"`, $\lVert\mathbf{y}_c\rVert/\lVert\mathbf{x}_c\rVert$ après les pas de descente, sur le bloc central `[12:36, 12:36]`. Écris aussi `draw_decay_curve_16(ax, eta, n_steps, freqs, decays)`, qui trace d'un trait la courbe $\big(1 - 8\eta\sin^2(\pi f)\big)^{n}$ pour $f$ de 0 à $\frac12$, et place les points mesurés des rayures A à D (`freqs` $= (\frac{1}{16}, \frac16, \frac13, \frac12)$, `FREQS_16`), avec une échelle logarithmique en ordonnée, des noms d'axes, et en titre la valeur théorique du damier, $(1 - 16\eta)^{n}$. Les deux fonctions dessinent dans les axes reçus, sans ouvrir de figure.
 
-La vérification essaie `grid_laplacian_16` sur des grilles tirées au hasard, appelle les deux fonctions avec $\eta = 0{,}05$ et 10 pas (`ETA_16`, `STEPS_16`), affiche les figures, et compare tes trois listes aux valeurs attendues ; elle les appelle aussi sur d'autres motifs, un autre pas et un autre nombre de pas (des appels cachés). Relève, avec `draw_stripes_16` (appelle-la sur les axes d'une figure que tu fermes aussitôt, `fig, axes = plt.subplots(5, 3)` puis `plt.close(fig)`, pour ne pas afficher la figure deux fois) :
+La vérification essaie `grid_laplacian_16` sur des grilles tirées au hasard, appelle les deux fonctions avec $\eta = 0{,}05$ et 10 pas (`ETA_16`, `STEPS_16`), affiche les figures, et compare tes trois listes aux réponses a) à c) ; elle les appelle aussi sur d'autres motifs, un autre pas et un autre nombre de pas (des appels cachés). Relève, avec `draw_stripes_16` (appelle-la sur les axes d'une figure que tu fermes aussitôt, `fig, axes = plt.subplots(5, 3)` puis `plt.close(fig)`, pour ne pas afficher la figure deux fois) :
 - a) les cinq rapports (une liste de 5 nombres ; 3 décimales dans ta copie) ;
 - b) les cinq gains (une liste de 5 nombres ; 4 décimales dans ta copie) ;
 - c) le logarithme décimal des cinq atténuations (une liste de 5 nombres ; 2 décimales dans ta copie) ;
@@ -1540,7 +1534,7 @@ def map_from_distances(D, dim=2):
     return ref_sampling.points_from_gram(G, dim)
 
 
-def tune_emitters(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+def tune_emitters(x0, grad, eta=0.04, n_steps=150, lower=0.0, upper=1.0):
     """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
     x = np.array(x0, dtype=float)
     for _ in range(n_steps):
@@ -1704,7 +1698,7 @@ M28_17 = Ex(
     given=GIVEN_17, note=NOTE_17,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
 1. `map_from_distances(D, dim=2)` doit rendre une carte (une ligne par lieu) dont les distances sont celles de la matrice `D` ; elle forme $\mathbf{J}$, calcule `G = -0.5 * J @ D @ J`, puis rend `points_from_gram(G, dim)`. Il l'a vérifiée sur un triangle équilatéral de côté 1 : les trois distances de la carte valent 1.
-2. `tune_emitters(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0)` doit faire `n_steps` pas de montée projetée sur le pavé $[\texttt{lower}, \texttt{upper}]^n$, le gradient étant donné par la fonction `grad` ; elle répète `x = x + eta * np.clip(grad(x), lower, upper)`. Il l'a vérifiée sur $f(\mathbf{x}) = -\lVert\mathbf{x} - \mathbf{c}\rVert^2$ avec $\mathbf{c} = (0{,}45 ;\ 0{,}62 ;\ 0{,}88)$, depuis $(0{,}15 ;\ 0{,}25 ;\ 0{,}05)$, avec les réglages par défaut : la montée arrive en $\mathbf{c}$, à $10^{-5}$ près, à l'intérieur du pavé $[0, 1]^3$.
+2. `tune_emitters(x0, grad, eta=0.04, n_steps=150, lower=0.0, upper=1.0)` doit faire `n_steps` pas de montée projetée sur le pavé $[\texttt{lower}, \texttt{upper}]^n$, le gradient étant donné par la fonction `grad` ; elle répète `x = x + eta * np.clip(grad(x), lower, upper)`. Il l'a vérifiée sur $f(\mathbf{x}) = -\lVert\mathbf{x} - \mathbf{c}\rVert^2$ avec $\mathbf{c} = (0{,}45 ;\ 0{,}62 ;\ 0{,}88)$, depuis $(0{,}15 ;\ 0{,}25 ;\ 0{,}05)$, avec les réglages par défaut : la montée arrive en $\mathbf{c}$, à $10^{-5}$ près, à l'intérieur du pavé $[0, 1]^3$.
 3. `cycle_of(f, x0)` doit rendre `(mu, lam)`, la prépériode et la période de la suite $u_{t+1} = f(u_t)$ ; elle note dans un dictionnaire l'indice où chaque valeur apparaît, et, à la première valeur déjà vue, d'indice $j$, rend l'indice $i$ de sa première apparition et `j`. Il l'a vérifiée sur $x \mapsto (x + 3) \bmod 10$ depuis 0 : `(0, 10)`.
 
 À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `map_from_distances_fixed`, `tune_emitters_fixed` et `cycle_of_fixed`, avec les mêmes arguments. Puis réponds :
@@ -1718,7 +1712,7 @@ Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du col
     raise NotImplementedError("map_from_distances_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
-def tune_emitters_fixed(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+def tune_emitters_fixed(x0, grad, eta=0.04, n_steps=150, lower=0.0, upper=1.0):
     """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
     raise NotImplementedError("tune_emitters_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
 
@@ -1743,7 +1737,7 @@ with wbm.attempt("M28.17"):          # your three functions: ⏳ while they are 
     return mymath.sampling.points_from_gram(G, dim)
 
 
-def tune_emitters_fixed(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+def tune_emitters_fixed(x0, grad, eta=0.04, n_steps=150, lower=0.0, upper=1.0):
     """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
     x = np.array(x0, dtype=float)
     for _ in range(n_steps):
@@ -1800,8 +1794,8 @@ wbm.record("M28.17a", right_17r + wrong_17r, decimals=6,
                          right_17r + right_17r})
 
 
-def ascent_17r(clip_point, clip_gradient, c=(1.3, -0.2, 0.6, 0.35), x0=(0.2, 0.7, 0.78, 0.1), eta=0.05, n_steps=120):
-    """The oracle: the 120 steps written again with Python floats, the point and/or the gradient clipped to [0, 1]."""
+def ascent_17r(clip_point, clip_gradient, c=(1.3, -0.2, 0.6, 0.35), x0=(0.2, 0.7, 0.78, 0.1), eta=0.04, n_steps=150):
+    """The oracle: the 150 steps written again with Python floats, the point and/or the gradient clipped to [0, 1]."""
     x = list(x0)
     for _ in range(n_steps):
         g = [-2.0 * (xk - ck) for xk, ck in zip(x, c)]
@@ -1814,7 +1808,7 @@ def ascent_17r(clip_point, clip_gradient, c=(1.3, -0.2, 0.6, 0.35), x0=(0.2, 0.7
 
 
 fixed_17r, colleague_17r = ascent_17r(True, False), ascent_17r(False, True)
-wbm.record("M28.17b", fixed_17r + colleague_17r, decimals=6,
+wbm.record("M28.17b", fixed_17r + colleague_17r, decimals=5,
            mistakes={"couper aussi le gradient empêche une coordonnée de gradient négatif de baisser : on ne coupe que le "
                      "point": ascent_17r(True, True) + colleague_17r,
                      "les quatre derniers nombres sont ceux de la version FAUSSE, tune_emitters": fixed_17r + fixed_17r})
@@ -1874,20 +1868,19 @@ def rotated(G, dim=None, tol=1e-9):
 
 def no_sign(G, dim=None, tol=1e-9):
     """WRONG: the right map, without the sign convention."""
-    return -ref_sampling.points_from_gram(G, dim, tol)'''
+    return -ref_sampling.points_from_gram(G, dim, tol)
 
-SOLUTION_18 = '''def gram_property_test_18(n_trials, rng, func=None, rtol=1e-9):
-    """n_trials random clouds: n = int(rng.integers(2, 9)), d = int(rng.integers(1, 5)), scale = 10.0 ** rng.uniform(-2, 3),
-    P = scale * rng.standard_normal((n, d)), P[-1] = P[0] if rng.random() < 0.3, t = scale * rng.standard_normal(d);
-    func defaults to mymath.sampling.points_from_gram, looked up at the call. Returns the numbers of trials "shape",
-    "gram", "distances", "translation" that fail."""
-    f = mymath.sampling.points_from_gram if func is None else func      # looked up at each call: the check replaces it
+
+# The loop of the property test (provided): the draws, in a fixed order, and the counters
+def points_property_test_18(n_trials, rng, func=None, rtol=1e-9, checks=None):
+    """n_trials random clouds, drawn in this order: n = int(rng.integers(2, 9)), d = int(rng.integers(1, 5)),
+    scale = 10.0 ** rng.uniform(-2, 3), P = scale * rng.standard_normal((n, d)), P[-1] = P[0] if rng.random() < 0.3,
+    t = scale * rng.standard_normal(d). func (the function tested) defaults to mymath.sampling.points_from_gram, checks
+    to your failed_checks_18, both looked up at the call; each name returned by checks(P, t, func, rtol) adds 1 to its
+    counter. Returns the counters "shape", "gram", "distances", "translation"."""
+    f = mymath.sampling.points_from_gram if func is None else func
+    chk = failed_checks_18 if checks is None else checks
     counts = {"shape": 0, "gram": 0, "distances": 0, "translation": 0}
-
-    def squares(Z):
-        Z = np.asarray(Z, dtype=float)
-        return ((Z[:, None, :] - Z[None, :, :]) ** 2).sum(axis=-1)
-
     for _ in range(n_trials):
         n = int(rng.integers(2, 9))
         d = int(rng.integers(1, 5))
@@ -1896,20 +1889,41 @@ SOLUTION_18 = '''def gram_property_test_18(n_trials, rng, func=None, rtol=1e-9):
         if rng.random() < 0.3:
             P[-1] = P[0]
         t = scale * rng.standard_normal(d)
-        G = P @ P.T
-        s = max(1.0, float(np.abs(G).max()))
-        X = np.asarray(f(G), dtype=float)
-        finite = bool(np.all(np.isfinite(X)))
-        counts["shape"] += int(X.shape != (n, np.linalg.matrix_rank(P)) or not finite)
-        counts["gram"] += int(not finite or float(np.abs(X @ X.T - G).max()) > rtol * s)
-        counts["distances"] += int(not finite or float(np.abs(squares(X) - squares(P)).max()) > 4 * rtol * s)
-        J = np.eye(n) - np.ones((n, n)) / n
-        Gc = -0.5 * J @ squares(P + t) @ J
-        Y = np.asarray(f(Gc), dtype=float)
-        sc = max(1.0, float(np.abs(Gc).max()))
-        counts["translation"] += int(not np.all(np.isfinite(Y))
-                                     or float(np.abs(squares(Y) - squares(P)).max()) > 4 * rtol * sc)
+        for name in chk(P, t, f, rtol):
+            if name not in counts:
+                raise ValueError(f"les contrôles rendent {name!r} : les noms sont 'shape', 'gram', 'distances' et "
+                                 "'translation'")
+            counts[name] += 1
     return counts'''
+
+SOLUTION_18 = '''def failed_checks_18(P, t, func, rtol=1e-9):
+    """The set of the names of the checks that fail for the points P (the rows) and the translation t, among "shape",
+    "gram", "distances" and "translation" (set() when all pass); func is the function tested."""
+    P = np.asarray(P, dtype=float)
+    n = P.shape[0]
+    failed = set()
+
+    def squares(Z):
+        """The matrix of the squared distances between the rows of Z."""
+        return ((Z[:, None, :] - Z[None, :, :]) ** 2).sum(axis=-1)
+
+    G = P @ P.T
+    s = max(1.0, float(np.abs(G).max()))
+    X = np.asarray(func(G), dtype=float)
+    usable = X.ndim == 2 and X.shape[0] == n and bool(np.all(np.isfinite(X)))
+    if not usable or X.shape != (n, np.linalg.matrix_rank(P)):
+        failed.add("shape")
+    if not usable or float(np.abs(X @ X.T - G).max()) > rtol * s:
+        failed.add("gram")
+    if not usable or float(np.abs(squares(X) - squares(P)).max()) > 4 * rtol * s:
+        failed.add("distances")
+    J = np.eye(n) - np.ones((n, n)) / n
+    Gc = -0.5 * J @ squares(P + t) @ J                    # the doubly centered matrix of the translated points
+    Y = np.asarray(func(Gc), dtype=float)
+    usable = Y.ndim == 2 and Y.shape[0] == n and bool(np.all(np.isfinite(Y)))
+    if not usable or float(np.abs(squares(Y) - squares(P)).max()) > 4 * rtol * max(1.0, float(np.abs(Gc).max())):
+        failed.add("translation")
+    return failed'''
 
 CHECK_18 = '''def extra_column_c18(G, dim=None, tol=1e-9):
     """WRONG: the right map and a column of zeros more (only its shape is wrong)."""
@@ -1923,19 +1937,14 @@ def shifted_c18(G, dim=None, tol=1e-9):
     return X + 0.01 * math.sqrt(max(1.0, float(np.abs(G).max())))
 
 
-def ramp_c18(G, dim=None, tol=1e-9):
-    """WRONG: the right map and a column (0, c, 2c, ...) more."""
-    X = ref_sampling.points_from_gram(G, dim, tol)
-    c = 0.01 * math.sqrt(max(1.0, float(np.abs(G).max())))
-    return np.hstack([X, c * np.arange(len(X), dtype=float)[:, None]])
-
-
 def centered_c18(G, dim=None, tol=1e-9):
     """WRONG only for a doubly centered matrix (rows of sum 0): then the column (0, c, 2c, ...) more."""
     G = np.asarray(G, dtype=float)
+    X = ref_sampling.points_from_gram(G, dim, tol)
     if float(np.abs(G.sum(axis=1)).max()) <= 1e-9 * max(1.0, float(np.abs(G).max())):
-        return ramp_c18(G, dim, tol)
-    return ref_sampling.points_from_gram(G, dim, tol)
+        c = 0.01 * math.sqrt(max(1.0, float(np.abs(G).max())))
+        return np.hstack([X, c * np.arange(len(X), dtype=float)[:, None]])
+    return X
 
 
 def flipped_row_c18(G, dim=None, tol=1e-9):
@@ -1969,28 +1978,22 @@ with checked("M28.18"):
         return {key: (N_C18 if key in keys else 0) for key in KEYS_C18}
 
     def run_c18(label, rng, **kwargs):
-        """Your gram_property_test_18 on a hidden start: its dictionary."""
+        """The loop of the notebook with your failed_checks_18, on a hidden start: its counters."""
         try:
-            counts = gram_property_test_18(N_C18, rng, **kwargs)
+            return points_property_test_18(N_C18, rng, checks=failed_checks_18, **kwargs)
         except (NotImplementedError, MymathMissingError):
             raise
         except AssertionError as exc:
-            print(f"❌ Ex M28.18 : gram_property_test_18 ({label}) lève AssertionError ({str(exc)[:120]}) : elle doit "
-                  "compter les essais qui échouent et rendre le dictionnaire, sans assert.")
+            print(f"❌ Ex M28.18 : failed_checks_18 ({label}) lève AssertionError ({str(exc)[:120]}) : elle doit rendre "
+                  "l'ensemble des noms des contrôles qui échouent, sans assert.")
             raise StopCheck from None
         except Exception as exc:  # noqa: BLE001 - the learner's error
-            print(f"❌ Ex M28.18 : gram_property_test_18 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}")
+            hint = ""
+            if isinstance(exc, TypeError) and "NoneType" in str(exc):
+                hint = (" ; failed_checks_18 doit rendre un ensemble de noms (set() si tout passe) : as-tu oublié le "
+                        "return ?")
+            print(f"❌ Ex M28.18 : failed_checks_18 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}{hint}")
             raise StopCheck from None
-        if not isinstance(counts, dict) or set(counts) != set(KEYS_C18):
-            print("❌ Ex M28.18 : gram_property_test_18 doit rendre un dictionnaire de clés " + ", ".join(KEYS_C18)
-                  + f", reçu {shown(counts)[:160]}")
-            raise StopCheck
-        for key in KEYS_C18:
-            if isinstance(counts[key], (bool, np.bool_)) or not isinstance(counts[key], (int, np.integer)):
-                print(f"❌ Ex M28.18 : le compteur \\"{key}\\" doit être un nombre entier d'essais (un entier NumPy "
-                      f"convient), reçu {type(counts[key]).__name__} {counts[key]!r}")
-                raise StopCheck
-        return {key: int(v) for key, v in counts.items()}
 
     def compare_c18(label, got, want):
         """One ✅ when the four counters are those expected; else one ❌ per counter, naming the property."""
@@ -1999,142 +2002,108 @@ with checked("M28.18"):
             report_18(True, f"{label} : les quatre compteurs comme attendu", "")
         for k in wrong:
             if got[k] == 0:
-                why = f"ton test ne vérifie pas {PROPERTIES_C18[k]}"
+                why = (f"tes contrôles ne vérifient pas {PROPERTIES_C18[k]}, sur la fonction reçue (func, pas celle de "
+                       "mymath)")
             elif want[k] == 0:
                 why = ("cette version ne fausse pas cette propriété : ton contrôle compte trop (sa tolérance relative "
                        "rtol·s, ce qu'il compare)")
+            elif got[k] > want[k]:
+                why = "un contrôle compte une fois par essai : rends un ensemble de noms, sans doublon"
             else:
-                why = (f"cette version fausse {PROPERTIES_C18[k]} à chaque essai : ton test n'en compte qu'une partie "
-                       "(un essai compte une fois s'il échoue)")
-            report_18(False, "", f"{label} : \\"{k}\\" = {got[k]}, attendu {want[k]} : {why}")
+                why = f"cette version fausse {PROPERTIES_C18[k]} à chaque essai : ton contrôle n'en voit qu'une partie"
+            report_18(False, "", f"{label} : le compteur {k!r} vaut {got[k]}, attendu {want[k]} : {why}")
 
     for start_c18, seed_c18 in enumerate(__STARTS_C18__):          # the two hidden starts
-        for label_c18, kwargs_c18, want_c18 in (
-                ("la référence", {"func": ref_sampling.points_from_gram}, all_c18()),
-                ("une version fausse cachée n° 1", {"func": extra_column_c18}, all_c18("shape")),
-                ("une version fausse cachée n° 2", {"func": shifted_c18}, all_c18("gram")),
-                ("une version fausse cachée n° 3", {"func": centered_c18}, all_c18("translation")),
-                ("une version fausse cachée n° 4", {"func": flipped_row_c18}, all_c18("gram", "distances"))):
+        for label_c18, func_c18, want_c18 in (
+                ("la référence", ref_sampling.points_from_gram, all_c18()),
+                ("une version fausse cachée n° 1", extra_column_c18, all_c18("shape")),
+                ("une version fausse cachée n° 2", shifted_c18, all_c18("gram")),
+                ("une version fausse cachée n° 3", centered_c18, all_c18("translation")),
+                ("une version fausse cachée n° 4", flipped_row_c18, all_c18("gram", "distances"))):
             label_c18 = f"{label_c18}, départ caché {start_c18 + 1}"
-            compare_c18(label_c18, run_c18(label_c18, np.random.default_rng(seed_c18), **kwargs_c18), want_c18)
-    seed_c18 = __STARTS_C18__[0]
-    compare_c18("une version fausse de 1e-7, avec rtol = 1e-6 (ton test doit se servir de rtol)",
-                run_c18("rtol = 1e-6", np.random.default_rng(seed_c18), func=scaled_c18, rtol=1e-6), all_c18())
+            compare_c18(label_c18, run_c18(label_c18, np.random.default_rng(seed_c18), func=func_c18), want_c18)
+    compare_c18("une version fausse de 1e-7, avec rtol = 1e-6 (tes contrôles doivent se servir de rtol)",
+                run_c18("rtol = 1e-6", np.random.default_rng(__STARTS_C18__[0]), func=scaled_c18, rtol=1e-6), all_c18())
+    verdict("M28.18", all(results_18), "tes contrôles comptent juste sur la référence et sur les versions fausses "
+            "cachées, et se servent de rtol.", "relis les lignes ❌ ci-dessus.")'''
 
-    original_c18 = mymath.sampling.points_from_gram
-    aliases_c18 = [alias for alias, value in list(globals().items())
-                   if value is original_c18 and alias != "original_c18"]     # your own names for it
-    calls_c18 = [0]
-
-    def replaced_c18(G, dim=None, tol=1e-9):
-        calls_c18[0] += 1
-        return ramp_c18(G, dim, tol)
-
-    mymath.sampling.points_from_gram = replaced_c18
-    for alias_c18 in aliases_c18:
-        globals()[alias_c18] = replaced_c18
-    try:
-        patched_c18 = run_c18("une version fausse à la place de ta points_from_gram", np.random.default_rng(seed_c18))
-    finally:
-        mymath.sampling.points_from_gram = original_c18
-        for alias_c18 in aliases_c18:
-            globals()[alias_c18] = original_c18
-    if calls_c18[0] == 0:
-        report_18(False, "", "une version fausse remplace un instant ta points_from_gram, mais ton test ne l'appelle jamais : "
-                  "avec func=None, il doit prendre mymath.sampling.points_from_gram au moment de l'appel, sans en garder "
-                  "une copie")
-    else:
-        compare_c18("une version fausse à la place de ta points_from_gram (func=None)", patched_c18,
-                    all_c18(*KEYS_C18))
-    verdict("M28.18", all(results_18), "ton test compte juste sur la référence et sur les versions fausses cachées, se "
-            "sert de rtol, et prend ta fonction au moment de l'appel.", "relis les lignes ❌ ci-dessus.")'''
-
-NOTE_18 = (r"a) Les coefficients de $\mathbf{G}$ vont jusqu'à $10^7$ environ : les erreurs d'arrondi sont relatives, de "
-           r"l'ordre de $10^{-16}s$, et une tolérance absolue de $10^{-9}$ refuse la bonne fonction 17 fois sur 300. b) "
-           r"Vrai. c) `no_sqrt` : 0, 300, 285, 285 ; `ascending` : 0, 252, 237, 285 ; `all_columns` : 252, 199, 199, 220 ; "
-           r"`rotated` et `no_sign` : 0, 0, 0, 0. d) `rotated` et `no_sign` : une isométrie qui fixe l'origine ne change ni "
-           r"la matrice de Gram ni les distances ; la convention de signe et les coordonnées sont vérifiées par "
-           r"`tests/test_m28_sampling.py`.")
+NOTE_18 = (r"`failed_checks_18` forme `G`, `s` et `X = func(G)`, fait les trois premiers contrôles, puis forme `Gc` à partir "
+           r"des carrés des distances de `P + t` et compare la carte `func(Gc)`. a) Les coefficients de $\mathbf{G}$ vont "
+           r"jusqu'à $10^7$ environ : les erreurs d'arrondi sont relatives, de l'ordre de $10^{-16}s$, et une tolérance "
+           r"absolue de $10^{-9}$ refuse la bonne fonction 17 fois sur 300. b) Vrai. c) `no_sqrt` : 0, 300, 285, 285 ; "
+           r"`ascending` : 0, 252, 237, 285 ; `all_columns` : 252, 199, 199, 220 ; `rotated` et `no_sign` : 0, 0, 0, 0. "
+           r"d) `rotated` et `no_sign` : une isométrie qui fixe l'origine ne change ni la matrice de Gram ni les "
+           r"distances ; la convention de signe et les coordonnées sont vérifiées par `tests/test_m28_sampling.py`.")
 
 M28_18 = Ex(
     "M28.18", "🛠️", 1, 15, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les distances, "
     "pour des points tirés au hasard",
-    "écrire un test de propriété à tolérance relative, qui compte ses échecs sur des nuages tirés au hasard, et voir ce "
-    "qu'il attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; Ex M28.13", tracks="C", given=GIVEN_18, note=NOTE_18,
-    body=r"""Écris `gram_property_test_18(n_trials, rng, func=None, rtol=1e-9)` ; quand `func` vaut `None`, le test prend `mymath.sampling.points_from_gram` **au moment de l'appel**. Pour chacun des `n_trials` essais, dans cet ordre : `n = int(rng.integers(2, 9))`, `d = int(rng.integers(1, 5))`, `scale = 10.0 ** rng.uniform(-2, 3)`, `P = scale * rng.standard_normal((n, d))`, puis, si `rng.random() < 0.3`, `P[-1] = P[0]` (un point répété), puis `t = scale * rng.standard_normal(d)` ; ensuite `G = P @ P.T`, $s = \max(1, \max\lvert G_{ij}\rvert)$ et `X = func(G)`. La fonction rend un dictionnaire de quatre compteurs d'essais (un essai compte une fois s'il échoue) :
-- `"shape"` : `X` n'a pas la forme $(n, r)$, avec $r$ le rang de `P` (`np.linalg.matrix_rank`), ou contient un nombre non fini ;
-- `"gram"` : $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert > \texttt{rtol}\cdot s$ (ou `X` non fini) ;
-- `"distances"` : les carrés des distances des lignes de `X` s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot s$ (ou `X` non fini) ;
-- `"translation"` : la carte `func(Gc)` de la matrice doublement centrée `Gc` $= -\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ des points translatés `P + t` a des carrés de distances qui s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot\max(1, \max\lvert(\mathbf{G}_c)_{ij}\rvert)$ (ou n'est pas finie).
+    "écrire les contrôles d'un test de propriété à tolérance relative, sur des nuages tirés au hasard, et voir ce qu'il "
+    "attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; Ex M28.13", tracks="C", given=GIVEN_18, note=NOTE_18,
+    body=r"""La cellule fournie donne la boucle du test, `points_property_test_18(n_trials, rng, func=None, rtol=1e-9, checks=None)` : quand `func` vaut `None`, elle prend `mymath.sampling.points_from_gram` **au moment de l'appel**, et, quand `checks` vaut `None`, ta fonction `failed_checks_18` ; pour chacun des `n_trials` essais, dans cet ordre, elle tire `n = int(rng.integers(2, 9))`, `d = int(rng.integers(1, 5))`, `scale = 10.0 ** rng.uniform(-2, 3)`, `P = scale * rng.standard_normal((n, d))`, puis, si `rng.random() < 0.3`, `P[-1] = P[0]` (un point répété), puis `t = scale * rng.standard_normal(d)` ; elle appelle `checks(P, t, f, rtol)`, où `f` est la fonction testée, et ajoute 1 au compteur de chaque nom rendu ; elle rend le dictionnaire des quatre compteurs d'essais `"shape"`, `"gram"`, `"distances"` et `"translation"`.
 
-Les carrés des distances se calculent dans le test, avec NumPy, sans appeler `mymath`. La cellule fournie donne cinq versions fausses de `points_from_gram` : `no_sqrt` (les colonnes $\lambda_k\mathbf{q}_k$), `ascending` (l'ordre croissant de `eigh`, non retourné), `all_columns` ($n$ colonnes, sans mettre à 0 les petites valeurs propres : la racine d'une valeur propre de $-10^{-15}$ donne `nan`), `rotated` (la bonne carte, tournée) et `no_sign` (la bonne carte, sans la convention de signe). Puis :
-- a) pourquoi une tolérance relative à $s$ (dans ta copie) ? Combien de fois sur 300 essais une tolérance absolue de $10^{-9}$ sur $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert$ refuserait-elle la bonne fonction (mêmes tirages, avec `np.random.default_rng(6618)`) (un entier) ?
-- b) avec `rng = np.random.default_rng(6618)` et 300 essais, avec ta fonction : vrai ou faux, les quatre compteurs sont nuls ;
+Écris les contrôles, `failed_checks_18(P, t, func, rtol=1e-9)`, qui rend l'**ensemble** des noms des contrôles qui échouent pour les points `P` et la translation `t` (`set()` si tout passe) : avec `G = P @ P.T`, $s = \max(1, \max\lvert G_{ij}\rvert)$ et `X = func(G)`,
+- `"shape"` échoue si `X` n'a pas la forme $(n, r)$, avec $r$ le rang de `P` (`np.linalg.matrix_rank`), ou contient un nombre non fini ;
+- `"gram"`, si $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert > \texttt{rtol}\cdot s$ (ou `X` non fini) ;
+- `"distances"`, si les carrés des distances des lignes de `X` s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot s$ (ou `X` non fini) ;
+- `"translation"`, si la carte `func(Gc)` de la matrice doublement centrée `Gc` $= -\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ des points translatés `P + t` a des carrés de distances qui s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot\max(1, \max\lvert(\mathbf{G}_c)_{ij}\rvert)$ (ou n'est pas finie).
+
+Les carrés des distances se calculent dans tes contrôles, avec NumPy, sans appeler `mymath`. La cellule fournie donne aussi cinq versions fausses de `points_from_gram` : `no_sqrt` (les colonnes $\lambda_k\mathbf{q}_k$), `ascending` (l'ordre croissant de `eigh`, non retourné), `all_columns` ($n$ colonnes, sans mettre à 0 les petites valeurs propres : la racine d'une valeur propre de $-10^{-15}$ donne `nan`), `rotated` (la bonne carte, tournée) et `no_sign` (la bonne carte, sans la convention de signe). Puis :
+- a) pourquoi une tolérance relative à $s$ (dans ta copie) ? Combien de fois sur 300 essais une tolérance absolue de $10^{-9}$ sur $\mathbf{X}\mathbf{X}^\top - \mathbf{G}$ refuserait-elle la bonne fonction (avec `np.random.default_rng(6618)` ; écris un contrôle qui rend `{"gram"}` quand $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert > 10^{-9}$, et passe-le à la boucle par `checks`) (un entier) ?
+- b) avec `rng = np.random.default_rng(6618)` et 300 essais, avec la bonne fonction et tes contrôles : vrai ou faux, les quatre compteurs sont nuls ;
 - c) avec le même départ (un nouveau `default_rng(6618)` chaque fois, 300 essais) et chacune des cinq versions fausses, dans l'ordre `no_sqrt`, `ascending`, `all_columns`, `rotated`, `no_sign` : les quatre compteurs, dans l'ordre `"shape"`, `"gram"`, `"distances"`, `"translation"` (une liste de 5 listes de 4 entiers) ;
 - d) les noms des versions fausses qui passent le test (leurs quatre compteurs nuls) (une liste de noms, dans n'importe quel ordre, comme `["no_sqrt"]`) ; dans ta copie : pourquoi c'est normal, et qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ? Pourquoi `ascending` n'est-elle attrapée que par une partie des essais ?
 
-La vérification lance ton test sur deux départs cachés (40 essais chacun) : avec la référence, où ses quatre compteurs doivent être nuls, puis avec quatre versions fausses cachées, écrites dans la cellule de vérification, qui faussent à chaque essai la forme, la matrice de Gram seule (une carte déplacée), la translation, ou les produits scalaires et les distances d'un point (son opposé) ; elle le lance aussi avec `rtol = 1e-6` sur une version fausse de $10^{-7}$ en valeur relative (ton test doit se servir de `rtol`), et remplace un instant `mymath.sampling.points_from_gram` par une version fausse qui ajoute une colonne : tes compteurs doivent alors compter. Chacune des quatre propriétés est ainsi exigée par au moins une version fausse. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_m28_sampling.py` des points répétés et une translation suivie d'un double centrage ; il attrape trois versions fausses, et ne peut pas voir une isométrie, puisque la matrice de Gram et les distances n'en dépendent pas ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
-    todo='''def gram_property_test_18(n_trials, rng, func=None, rtol=1e-9):
-    """n_trials random clouds: n = int(rng.integers(2, 9)), d = int(rng.integers(1, 5)), scale = 10.0 ** rng.uniform(-2, 3),
-    P = scale * rng.standard_normal((n, d)), P[-1] = P[0] if rng.random() < 0.3, t = scale * rng.standard_normal(d);
-    func defaults to mymath.sampling.points_from_gram, looked up at the call. Returns the numbers of trials "shape",
-    "gram", "distances", "translation" that fail."""
-    raise NotImplementedError("gram_property_test_18 n'est pas encore écrite (04_indices.md si tu bloques)")
+La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls), avec quatre versions fausses cachées qui faussent chacune certaines propriétés à chaque essai, et avec `rtol = 1e-6` : chacune des quatre propriétés est exigée par au moins une version fausse. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_m28_sampling.py` des points répétés et une translation suivie d'un double centrage ; il attrape trois versions fausses, et ne peut pas voir une isométrie, puisque la matrice de Gram et les distances n'en dépendent pas ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+    todo='''def failed_checks_18(P, t, func, rtol=1e-9):
+    """The set of the names of the checks that fail for the points P (the rows) and the translation t, among "shape",
+    "gram", "distances" and "translation" (set() when all pass); func is the function tested."""
+    raise NotImplementedError("failed_checks_18 n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
 answer_M28_18a = answer_M28_18b = answer_M28_18c = answer_M28_18d = ...
-with wbm.attempt("M28.18"):          # your test and your library: ⏳ while they are not written
-    answer_M28_18a = ...  # a) an integer: the trials (default_rng(6618), 300 trials) where max|X Xᵀ − G| > 1e-9 for the right function
-    answer_M28_18b = ...  # b) True or False: the four counters are 0 (default_rng(6618), 300 trials, your function)
+with wbm.attempt("M28.18"):          # your checks and your library: ⏳ while they are not written
+    answer_M28_18a = ...  # a) an integer: the trials (default_rng(6618), 300 trials) where a check that returns {"gram"} when max|X Xᵀ − G| > 1e-9, passed through checks=, refuses the right function
+    answer_M28_18b = ...  # b) True or False: the four counters are 0 (default_rng(6618), 300 trials, the right function, your checks)
     answer_M28_18c = ...  # c) a list of 5 lists of 4 integers: the counters ("shape", "gram", "distances", "translation") for no_sqrt, ascending, all_columns, rotated, no_sign (a new default_rng(6618) each time, 300 trials)
     answer_M28_18d = ...  # d) a list of names (strings, any order): the wrong versions whose four counters are 0''',
     check=answers_check("M28.18", "abcd") + "\n\n" + CHECK_18,
     solution=SOLUTION_18 + '''
 
 
-def absolute_count_18(n_trials, rng, func=None):
-    """The same draws, and the number of trials where max|X Xᵀ − G| > 1e-9 (an absolute tolerance)."""
-    f = mymath.sampling.points_from_gram if func is None else func
-    bad = 0
-    for _ in range(n_trials):
-        n = int(rng.integers(2, 9))
-        d = int(rng.integers(1, 5))
-        scale = 10.0 ** rng.uniform(-2, 3)
-        P = scale * rng.standard_normal((n, d))
-        if rng.random() < 0.3:
-            P[-1] = P[0]
-        scale * rng.standard_normal(d)                     # the draw of t, to keep the same stream
-        X = np.asarray(f(P @ P.T), dtype=float)
-        bad += int(float(np.abs(X @ X.T - P @ P.T).max()) > 1e-9)
-    return bad
+def absolute_gram_check_18(P, t, func, rtol):
+    """a): an absolute tolerance 1e-9 on X Xᵀ − G, passed to the loop through checks."""
+    G = P @ P.T
+    X = np.asarray(func(G), dtype=float)
+    return {"gram"} if float(np.abs(X @ X.T - G).max()) > 1e-9 else set()
 
 
 KEYS_18 = ("shape", "gram", "distances", "translation")
-answer_M28_18a = absolute_count_18(300, np.random.default_rng(6618))
-mine_18 = gram_property_test_18(300, np.random.default_rng(6618))
+answer_M28_18a = points_property_test_18(300, np.random.default_rng(6618), checks=absolute_gram_check_18)["gram"]
+mine_18 = points_property_test_18(300, np.random.default_rng(6618))
 answer_M28_18b = all(mine_18[k] == 0 for k in KEYS_18)
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")                        # the nan of all_columns
-    wrong_18 = {name: gram_property_test_18(300, np.random.default_rng(6618), func=function)
+    wrong_18 = {name: points_property_test_18(300, np.random.default_rng(6618), func=function)
                 for name, function in (("no_sqrt", no_sqrt), ("ascending", ascending), ("all_columns", all_columns),
                                        ("rotated", rotated), ("no_sign", no_sign))}
 answer_M28_18c = [[counts[k] for k in KEYS_18] for counts in wrong_18.values()]
 answer_M28_18d = [name for name, counts in wrong_18.items() if all(counts[k] == 0 for k in KEYS_18)]
-for name_18, counts_18 in {"ta fonction": mine_18, **wrong_18}.items():
+for name_18, counts_18 in {"la bonne": mine_18, **wrong_18}.items():
     print(f"{name_18:12s}", counts_18)
 print("a)", answer_M28_18a, " b)", answer_M28_18b, " c)", answer_M28_18c, " d)", answer_M28_18d)
 
 ''' + CHECK_18,
-    record='''def variant_18r(seed, func, repeat=True, rank="matrix_rank"):
-    """The test of the statement written again on 300 trials, with two classic variants: no rng.random() draw (no repeated
-    point), or r = min(n, d) instead of the rank of P."""
+    record='''def variant_18r(seed, func, rank="matrix_rank"):
+    """The loop and the checks of the statement written again on 300 trials, with a classic variant: r = min(n, d) instead
+    of the rank of P."""
     rng, counts = np.random.default_rng(seed), [0, 0, 0, 0]
     sq = lambda Z: ((np.asarray(Z)[:, None, :] - np.asarray(Z)[None, :, :]) ** 2).sum(-1)      # noqa: E731
     for _ in range(300):
         n, d = int(rng.integers(2, 9)), int(rng.integers(1, 5))
         scale = 10.0 ** rng.uniform(-2, 3)
         P = scale * rng.standard_normal((n, d))
-        if repeat and rng.random() < 0.3:
+        if rng.random() < 0.3:
             P[-1] = P[0]
         t = scale * rng.standard_normal(d)
         G = P @ P.T
@@ -2169,12 +2138,10 @@ for _ in range(300):                                       # a): the same draws,
 wbm.record("M28.18a", absolute_18r,
            mistakes={"a) compte les essais où l'écart dépasse 1e-9 en valeur absolue, sans le facteur s": 0})
 wbm.record("M28.18b", all(v == 0 for v in right_18r),
-           mistakes={"avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de ton test (ses "
-                     "tolérances, ce qu'il compare) ou de ta fonction": False})
+           mistakes={"avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de tes contrôles "
+                     "(leurs tolérances, ce qu'ils comparent) ou de ta fonction": False})
 wbm.record("M28.18c", table_18r,
-           mistakes={"tire dans l'ordre de l'énoncé, le rng.random() du point répété compris":
-                         [variant_18r(6618, f, repeat=False) for f in versions_18r],
-                     "r est le rang de P (np.linalg.matrix_rank) : un point répété le fait baisser":
+           mistakes={"r est le rang de P (np.linalg.matrix_rank) : un point répété le fait baisser":
                          [variant_18r(6618, f, rank="min") for f in versions_18r]})
 passing_18r = {name for name, row in zip(("no_sqrt", "ascending", "all_columns", "rotated", "no_sign"), table_18r)
                if not any(row)}
@@ -2192,6 +2159,7 @@ wbm.record("M28.18d", passing_18r,
                "tournée, et pourquoi n'est-ce plus un test de la matrice de Gram ?"),
     ],
 )
+
 
 PART_C = Part("C", "Déboguer, tester",
               "Fiche §2, §3 et §6. Trois erreurs classiques, qui passent une vérification mal choisie ; un test de propriété "
@@ -2318,11 +2286,11 @@ M28_19 = Ex(
     "retrouver une carte à partir de distances incomplètes et bruitées, en itérant le positionnement multidimensionnel "
     "classique, et la juger après alignement.", "fiche §2 ; M12d ; Ex M28.2, M28.13 et M28.17", tracks="C",
     given=GIVEN_19, note=NOTE_19,
-    body=r"""La cellule fournie donne la matrice `D_19`, de forme $(30, 30)$, des distances entre 30 villes d'une région de $200 \times 150$ km : symétrique, de diagonale nulle, mesurée avec une erreur d'environ 300 m (des écarts gaussiens d'écart-type 0,3 km), et dont un quart des 435 paires, tirées au hasard, manquent (`np.nan`) ; elle est tirée par `towns_19(6619)`, qui rend aussi les vraies positions `P_19`. Elle donne aussi `procrustes_error_19(Y, P)`, qui centre la carte `Y` et les vraies positions `P`, trouve la transformation orthogonale qui aligne au mieux `Y` sur `P` (le problème de Procrustes orthogonal, Borg et Groenen, ch. 19 *Procrustes Procedures*) et rend la distance moyenne, en km, entre les villes alignées et leurs vraies positions.
+    body=r"""La cellule fournie donne la matrice `D_19`, de forme $(30, 30)$, des distances entre 30 villes d'une région de $200 \times 150$ km : symétrique, de diagonale nulle, mesurée avec une erreur d'environ 300 m (des écarts gaussiens d'écart-type 0,3 km), et dont un quart des 435 paires, tirées au hasard, manquent (`np.nan`) ; elle est tirée par `towns_19(6619)`, qui rend aussi les vraies positions `P_19`. Elle donne aussi `procrustes_error_19(Y, P)`, qui centre la carte `Y` et les vraies positions `P`, trouve la transformation orthogonale qui aligne au mieux `Y` sur `P` (le problème de Procrustes orthogonal, Borg et Groenen, ch. 20 *Procrustes Procedures*) et rend la distance moyenne, en km, entre les villes alignées et leurs vraies positions.
 
 Écris `map_from_partial_distances_19(D)`, qui reçoit une telle matrice ($n$ villes) et rend une carte de forme $(n, 2)$. Tout NumPy et SciPy sont permis, et ta `points_from_gram` ; la matrice doublement centrée d'une matrice complétée a en général des valeurs propres négatives, que ta `points_from_gram` refuse : remplace-la d'abord par sa projection sur les matrices semi-définies positives (ses valeurs propres négatives mises à 0, par `np.linalg.eigh`).
 
-**Critère de réussite :** une erreur après alignement de moins de 1 km en moyenne pour la région du notebook, et pour trois régions cachées de la vérification (d'autres villes, de 26 à 34, d'autres paires manquantes, et des villes renumérotées, tournées et déplacées à chaque exécution), en moins de 10 secondes par région. La vérification recalcule aussi ton erreur a) avec ta fonction, et refuse une fonction qui rend la même carte pour deux régions. Relève :
+**Critère de réussite :** une erreur après alignement de moins de 1 km en moyenne pour la région du notebook, et pour trois régions cachées de la vérification, de 26, 30 et 34 villes, dont les villes sont renumérotées, tournées et déplacées à chaque exécution, en moins de 10 secondes par région. La vérification recalcule aussi ton erreur a) avec ta fonction, et refuse une fonction qui rend la même carte pour deux régions. Relève :
 - a) ton erreur après alignement pour la région du notebook (un nombre, tel que calculé, en km ; 3 décimales dans ta copie) ;
 - b) l'erreur qu'on obtient en remplaçant chaque distance manquante par la moyenne des distances connues, puis en faisant un seul positionnement multidimensionnel classique (un nombre, tel que calculé, en km ; 1 décimale dans ta copie).
 
@@ -2625,19 +2593,19 @@ def build_constants() -> dict:
         cycles.append({"map": name, "x0": x0, "mu": mu, "lam": lam})
     out["__CASES_C17__"] = literal({"maps": maps, "emitters": emitters, "cycles": cycles})
 
-    # M28.18: two hidden starts on which each hidden wrong version breaks its property at every trial, and the reference
-    # none (checked with the test of the solutions, run here on the reference)
+    # M28.18: two hidden starts on which each hidden wrong version breaks its properties at every trial, and the reference
+    # none (the loop of the notebook with the checks of the solutions, run here on the reference)
     starts = (6641, 6643)
     namespace = {"np": np, "math": math, "mymath": type("M", (), {"sampling": ref})(), "ref_sampling": ref}
+    exec(GIVEN_18, namespace)
     exec(SOLUTION_18, namespace)
     exec(CHECK_18.split("\n\nwith checked(")[0], namespace)
-    test = namespace["gram_property_test_18"]
+    test = namespace["points_property_test_18"]
     keys = ("shape", "gram", "distances", "translation")
     for seed in starts:
         for func, broken in ((ref.points_from_gram, ()), (namespace["extra_column_c18"], ("shape",)),
                              (namespace["shifted_c18"], ("gram",)), (namespace["centered_c18"], ("translation",)),
-                             (namespace["flipped_row_c18"], ("gram", "distances")),
-                             (namespace["ramp_c18"], keys)):
+                             (namespace["flipped_row_c18"], ("gram", "distances"))):
             counts = test(40, np.random.default_rng(seed), func=func)
             assert counts == {k: (40 if k in broken else 0) for k in keys}, (seed, func.__name__, counts)
     assert test(40, np.random.default_rng(starts[0]), func=namespace["scaled_c18"], rtol=1e-6) == dict.fromkeys(keys, 0)
