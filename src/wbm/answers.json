@@ -90922,6 +90922,2988 @@
       "sign": 1,
       "source": "chapitres/m27_jeux_distances/05_solutions.ipynb"
     },
+    "M28.1a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "26785d57cd2b3c80f0485c0fca23eb48de65ea899282c0b4622f2a6528db76d2"
+        ],
+        [
+          "d94bfbbf0d101e5f2f266f7c0f7e3212c264cd643e83f8019880cf2ee984643b"
+        ],
+        [
+          "6c96a9c980e7d70e7a0736a7283c7e9a46bc1bf1f3c86cd821d138c313076973"
+        ],
+        [
+          "533728954145e441a0cf00fec4fd731297acca316327aa44578ab7fbfc18879a"
+        ],
+        [
+          "1a32597ec747526dde263e9b9cef22a976173649136f92d0a234c1dc872acbba"
+        ],
+        [
+          "220ecc60ccd78e07b5337e47030484184c2d3254f43efcd4db254256b7402544"
+        ],
+        [
+          "d32b0b2317677a3c573f2bfdea7001478a2db0ff22c6bd3f6423e617ae6b5b05"
+        ],
+        [
+          "26b579f615bdd0d91a2e1b7827e67b745647cfaee165da812ee068a88089eaf7"
+        ],
+        [
+          "fe7f93a8e4cd345ed29e63d99e336b5b476f6a4835d95850df03e3a216147052"
+        ],
+        [
+          "11a7d56579f8b97aae89282667932af78c0c38a85f7750ac829382f2c8a6d7d3"
+        ],
+        [
+          "f64f69c860276b8b346659945c9d715cf2b9956217499d5ad6441d0c3d51d421"
+        ],
+        [
+          "405a636fadbc5152d0a369eeaeaa66f0067d97b314fd5f5e1b1e392d2cab9135"
+        ],
+        [
+          "d9f241112a96a12d98f4af697a1dd2463e6e8e6fc2f70a700eb03931bfbfeb1e"
+        ],
+        [
+          "9051f3ec0a16227b6430aebffd6dff487bc71f5040294b89488beef923e5b5b5"
+        ],
+        [
+          "136e1b565adc8a9a994746f8716e4992bfb435711790251560b3ade8f7eb8d9a"
+        ],
+        [
+          "569ebdb59474279c5e3a92867e247f953a08c6b1413a2971074c2bbe52643a38"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "eadbebc9c9e959178cca0435b006136bcab39e7fdaa217f65b9173f8618ea22b",
+          "71063d82f346cd62a3007d59e0be9e87a6e3790799463cd39ee21c0a113a40d4",
+          "80e5d5c5a8b3f1222933f90506938689195e7a71f37c46c3e738b79008f6eba9",
+          "bc6b13fabbd761f579adfadaf40d57992c5aaa9a335a3a84f59594fd8ce1daa4",
+          "6e36fdaeb74899c0f04d76495e3cff3eeb02c93caa9469b5985e2240e6924a6c"
+        ],
+        [
+          "d1a4ea57c7c73d1d7ce7b190b13fdcf4b61235ed5b2f8f05799ec3a0ebe981cc",
+          "fe7f316c3539b38998239eef23f10f0e40b7c96f124e7e4232be90d061c1d57f",
+          "6069520168b7b09429105194af79bea2c2b975e235d2ad716607a284409dd07a",
+          "ca8474c881b8d412f2f60890ff5f5e25c75722112e5328c62a85190e4c60c94c",
+          "600e6e1e097a791eff2f7700bf636daaa61a00e0efd355e47ced030d638a06f5"
+        ],
+        [
+          "a08ffc2f937ddb84a73eb6435b14b62f35df1f602e6142c8a39072ed18a9ac91",
+          "8e505a05ebceadf597cc1d0b20a0a57fb5313e4935cdf66bdcdb8b7bb43175a7",
+          "da1fadc0e43cdfe14e180f6968545d9c536939a94b96ae4c05f5b9998062aef9",
+          "f8c054cfb166069c9e5f197915025c03e2142fee750153e1863462a7b5d645ee",
+          "612233a107975c7b29dcb8f3e1865036b4e8a148f89f38fa10113c9bd3da4f4d"
+        ],
+        [
+          "78b63f2915af2620a32b60500662b9639a448807c4c9643240b031ac3014334b",
+          "9805fbf880ae2e5e5c34fc100ca1d5432d94e66995f24b25efab3ee255c905c1",
+          "4609981165e416fe2680c034493e8519f8075f52fb95c7cf2bc3b71caad89849",
+          "f9620cc9ccc842a4e41000f4c388293cfa327c37c508cbe71f91737a1b06d533",
+          "dea3aefb5852e8e37cbc49e6d9b70734e200518017b778c41fa37658f921cb5a"
+        ],
+        [
+          "3044e5bbf0eaba5d6afe23734c26b43c4b259bd1fb63b1d236e277860370d386",
+          "6a8a749ef4dadf956a409ce7d16d7d9c0bd31e8368360bf97412849598b2b9cb",
+          "ced7482f528ae3ca69c4e3e1ca44bb3666f0930ec095878963e7966f44cc8f25",
+          "b3c153cea07a682ff6e745db3515f81f54a723d17e44eb7fbf754f3d8f88b29e",
+          "aab179552158119725cb478ce40f3e42c1f7c3cc37bdcf126a09bcf7680582ee"
+        ],
+        [
+          "b155769ff951851d9e1d209c0c323a5e6468992c7572afbea780ff2ed1ad5224",
+          "0bf62c892b6a1972e69873f8054c81f35c7a1220ee315603cbbbc27eee4f07eb",
+          "08c5dde83bd1bee65487e92a8cadf54c0bf1bff04d869f4792beb2b5a052a0fb",
+          "ee879cde159875ec342641c3f7f4563869503bd518892738de066a9e927fa51c",
+          "b633235f668a15469611b5894dd850a5f37e82cc1ce1c036f7239f7fbf3b5db3"
+        ],
+        [
+          "c5a1d581f64dd1b8472fa6daa3ec5e67e96b1457ffa761b848702db4dbd56cc2",
+          "954f7d9e2275a69e6715dd52bd80221992e2a1bf4f3263b1d3e6d73166210271",
+          "7657737989a86fef655ce79bca09e8f7960f7abd01adee6c37ca20d6f8cd0ab5",
+          "5ec9e5227c1d7c756e12fe7a6a5db1b48361ce69db426e1fdcc4e0998b85ed74",
+          "553d01ef1c372ddfac9f5a489e215b00876f55f31257473f827681822ab0afd8"
+        ],
+        [
+          "cb707973eff4064edf10f724f8ae58ba6adcd92f711fae067e19ff3d5635aa31",
+          "418d007c172874974eb0cf65e869271ca589e159fd295c9bdce1580e31ed897a",
+          "2aeadd9a5d6e7382e90c8c51bfba7e4674c157a07a263b601fe9188f96ab2a02",
+          "e7cbcaa83779ab2f8a333623980629a8dc4d9b46f1724cd66827e9af509244d4",
+          "fcbe54b79d875a91f8ad21a4ccaebadbfd84ee2880b1df52544169e2d5e4df39"
+        ],
+        [
+          "80427e41367a52813d5d388afeba38eae645681e83abef0b2cc60fa97456beff",
+          "612a263f4814a81c034ca6778cc9f9ab3431e7a15d2af13c94f597da75dc6667",
+          "be4fac82b5ea9588a57a0831bfdebe638a78001a37df7494a87e0d53269002a0",
+          "3f08efacfa2ef4ba499993b3eb99f76127cff4fe3b6bb3ccf29482b3e42880f7",
+          "bf319fbc724081b4d67b303a794db226397f72d73cb41123bb1c509d340aee0e"
+        ],
+        [
+          "7eb84683fa7106d213d0f5ae774f862e0e91971ac8a85b3ecf3364f2640f73ce",
+          "f929b8022c0a72540daadc4847c41fc2ebff5dc7704e58f550255eadf1ce22f2",
+          "c32c1ec6d3684c54cb5aa4d31093038ecb050602157bd2a44220f62f3b45e762",
+          "acd5b91d6d7c63418acc249ccd7e0f2fa98a67ad01744bd55866d1c9578559c8",
+          "b4cb323ba2d2984ff7eb265e1adb8f8005a2defec1076a9d24565685cb9f2c3e"
+        ],
+        [
+          "fc2efbc63d89fdb0241f91ac223e6f2ab0072e17e5ed4a1268a5af9e5e6921e4",
+          "65aba6c994d19b63a6dc01ed816de9ca61c268695ba898b24f4380b2ac7416ac",
+          "cc0999cfa1e063376cbfa6d9cb343e0ee86bca51d5057619e2b72d200a55b448",
+          "19cbc252712795ca4a56496c1d636418918309a9b6f1db91bbda3245f65ed241",
+          "8472b3879ec7a81fcaef843d7a826b095bc477ecf12325408ad44cd08b11c87f"
+        ],
+        [],
+        [
+          "eef38853bd73b10312bf6d032f23f9f7d99128695c2f4c9561ab7175af79e35b",
+          "426e56183f0a0326b8b8c7000adc6c3cd08b56c654f270ba9ef95b94876ef0e2",
+          "ca5974725c799b96d3136abbf10e9624100741883761c16af6a1dd77e9d5b4e6",
+          "fa68985fbb6c40896dab5c5e0636018e25cdfe813fa8d79b09c0416999cb7bec",
+          "bc6c78b510edb38c794089c6e707e23b3d878f7aa64e330b2e136d5a7684353b"
+        ],
+        [
+          "336f352fa20b96c8d0c77335c066ae681ba88b8b7c67dbd8ae982fd2727b6ab1",
+          "9ab14e043e8edf3708bf7b4619db28c509b6b6951fab84d7349a6043742fe50c",
+          "7ecaea46c95cfeb594de476fecca736801fc6143ae3f068ac02d5e0846387aae",
+          "b7aba4d1d446501eb9e68abac0d9b34daebf102b3ba5d3e2de4df57b04c00d3e",
+          "8d235bf25a1980a15d300d02e4621f534fea1649fa98b8cbbc73b79c94e69dde"
+        ],
+        [],
+        [
+          "e4aa386a9d32b28a65224104aadfe15a86620b7c713e7abccb9cec23dcc4c907",
+          "127b0d36b8a0c5c127df913ae42f9b4ea1caf267ddaf35342aecb62d2b9ddcd1",
+          "5db7ab5e9b8f59429c2ba56ab6164eecebb4982f759706191ecacc7807ad0e74",
+          "e8bf57f9785d7c5a69b0364888c15ab9d65cab1bd688060f6a528d34e0f417dc",
+          "c87aaac64e56aa6b4ca9604b2b788ae1e9f4c3bc2dedb01e09cf935b58ee5658"
+        ]
+      ],
+      "element_hashes": [
+        "d389c57663514cbc7f5827da42a83efe5cca13ff0e6dfeb2a201fd2ecadcd0d6",
+        "874ad56eb808371a2e557e7008b164af542135525323bbe7c3ce1cab4b81e6be",
+        "e1c703007d47a71fb2161a86ab0eccde5cb5351e98b4b4b605c5f06219942d32",
+        "668c14abf91d97375ed73a78a9a78e53552976908ce1c7bd4c38a8273dfb4116",
+        "d5625dbe759ad962116bedf6fe2c572c72a88a3dd641424ad5ca8c2d79d827b6",
+        "c49b929056f4393d0e1314723b42ee70a3afb3497164c8d7c3dbaca36fdebab8",
+        "09d921bce5552aabc32ae47cc38fa98085e133168c913235fc4e90fb4cbea53d",
+        "5e196afdeff2915103cf5488574c725bf7b3f6683d31a512746d653b394015ef",
+        "407d4285f4c884acded56900b9886a75668126704479835e396c081a012529a0",
+        "d4ab4864ecdc5c68b7066ead435095e2050238017920ca9bc50376681cf09ea0",
+        "b1e2139270456e4cc315104bce12c567c335cd12e3473b7c2dc5f929beb51d54",
+        "77c8eaf350d7c22ea5bdbc4d60e8474131b21c2196bdcf10870716a7281cd111",
+        "be46c1b75c3eddeadb5625d870ba7049cdc2ae0fbf5652908bee7509510017a3",
+        "d289970da06f6726d594572bdff4dadc25fa943f5b785a9586b7d3827bf028ee",
+        "ee9e83ffc2f0bf2003b078f9b9be2c540b47b77f6d6b2c444959ba645fb12841",
+        "684e5b636cdff19b217daebd78edbe0a1c855e6ca39ec0b7b16227b36aecd77e"
+      ],
+      "hash": "731f814ca93fd9a3dc409150da8dc0456725c245c79a7f1ecb0f56ce16dd2c31",
+      "kind": "array",
+      "mistakes": {
+        "0d06e1baf4ef503527a1dddafc915eb3110f71b7144e1e87ee8171900236113e": "G_ij est le produit scalaire des points i et j, pas le carré de leur distance",
+        "5b38c04a57207500caee47a95b7a71dbe49f80135762878776a3e0b93776d474": "G = XXᵀ contient les produits scalaires des lignes de X (les points) ; XᵀX est la matrice des colonnes"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.1b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "7bb68248aa6dabf15a3ebafa1cc756cb5dd194ae44e5b9b58dd4164b9cf73bcf"
+        ],
+        [
+          "992059b873b613ba754563948313c01c365840f8c1a179b5dd9906934afbe681"
+        ],
+        [
+          "1c4c3814b0dec4e0efa6babca6aa88065f2aa268733023f7bd02fd7788a67b29"
+        ],
+        [
+          "d036c3789886de26c7e6d83bf32cf5ac23f0dffe79e5121204ec7ca6838c40ea"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "87ea639768bef6c8caa9ef1c94b97a882c51b42b89c4c279b9b1c14f322d2c4b",
+          "1596c6c1856f54344648e551e633e6ddb1b8b58f4f51320ab1fb9efd5e797183",
+          "c7eafb331ae62ee2c4a8c97e06fc9b1980cea1970334067ad6fc19f70de0e4ed",
+          "076be7b224344920f886721b9a2628b55bb9b8b1980e1fe90049024e585a13cb",
+          "8f45d5886c3b6291acb8248d85593b39a9782453401e1fdf8e2ecac6d010bac9"
+        ],
+        [
+          "cfa887c0f04efcf88676ad71d7f2de629e6ff6dde774c03a9655bb9b808630ed",
+          "b1865af8df099220edf63129aa4706809304db5cd981bf903fb09787cae586c6",
+          "34d5fdc7f7128312d6cd043917820c316bbe918d57e582fca85235e06dcc4dfa",
+          "e9a79a5bd08184dd7d3f1d4740e7067cfbf89819d9f7a7485d98b0d66b10da6e",
+          "8cdfce4b39d2f9281b0eae76020d5f44ec346e0306f9003cc63d073f3a6620c3"
+        ],
+        [
+          "981e4a8fce14b410f2134b7f3a5a8be664ee14f3dc74ffe9112c6515ad6a4165",
+          "50ae14e634f4d3e962cda245be8140b108b13136b6d316183994282f689f375a",
+          "564db9795bc7f1913e552560b982c17e019f26869ac5e56cdc9c7600ce2f7be4",
+          "056ab6cee54abf992278b1dffddce5d81a6d8ddfe470f7b5ef92fbce89c8bc0f",
+          "66552812988ec23d4b9f810271e188b90bcf196ddd7eb9e95283cbf3e971063f"
+        ],
+        [
+          "ce50586df828b43f80f1a0105150902fbbec15f021e752097c52cfaa82e3017d",
+          "1ca30dca3507ff50955905a39d89f0e9c3cce253edb01b2cc8e63c49820a2d20",
+          "866bc75a2991e6d183e8d75a0f7279891a149b3411ca8b46d2c36ead1e5f5bec",
+          "46ee44e7ecefcd5cd53705eb8186dd452cc4287169f6f55391c9b9672aa3e034",
+          "260331c9621e07322615d482d9b5c45e417c30c9e3bdafaae0064d5ecee6d44a"
+        ]
+      ],
+      "element_hashes": [
+        "0aaadeb2bf323f32deee8fb22c7ac7be1147da6d916690a1693890d8271ddb99",
+        "a99e9a329e7378d99ffbfd72ea2b73d91be95c94862b921a0d1a5b9805832a74",
+        "c1f8e42e8457fb391ac431c0b98dc44e3235115285a60e354109b4ddbe0dab4e",
+        "d23497b7058a033209f6f6691eee02a51fd34c670b161ab3c6ec0c5ccdba182c"
+      ],
+      "hash": "cb2239c48753c12fec40d9879dc07bee5d7d50d001ba2cf13f30b5e7a1e665a0",
+      "kind": "array",
+      "mistakes": {
+        "585a2d2c8422c05092716d897afa832658cac2d7cc38e672524f55c0689bbeae": "on divise par le nombre d'échantillons (les points), pas par le nombre de coordonnées",
+        "e80c040b402d1e040f4cdf431faa751184cab114472671b7d1063209e0dcbfcb": "sans division par le nombre d'échantillons, la somme des produits n'est pas une moyenne",
+        "f734a520c9beb0a2099a18e901a901dcaebf4f36533b94ae4af8faa7829f3919": "les points sont en lignes : la matrice des moments de leurs coordonnées a la forme (2, 2)"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.1c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "2e90f0c8fbc7de581ff7a13cbfa462d1f7c6195c26b9afd3d2bb93c3b99c9de1"
+        ],
+        [
+          "d1ebbd30ff30a08de000ce230482c9bdb69efc91cb1f90b0434835f1b1843a75"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f0d1412bf35b8713918daf51bd76f89c117245087ad68e8082d6274edea2af1a",
+          "77d985e4f1c53621bcf4ef053d566049e6e632bbad975055888ea9ddba17de2c",
+          "c00e0f8c750b15682f570456b96cb38e667eddfe4331fa4c70fe6bc4f9cf78c9",
+          "752521e3d3bdfa5621164a0d4c7ff497a51e83f043756584d544345125cdf7b5",
+          "2f4af5f5fadc3f05eb9807fbd793f0f147f6c3963600c568593d9b2ca895513d"
+        ],
+        [
+          "f1e75ec6edcca56c17ab9a661b4e61813ca67f17bbf2205e6418074189feb90e",
+          "e49215c1d11b61db74366a6a7409b9ccf9c2531165aae8aab4a3b7d868629fc7",
+          "8848c6f0614104232241c0965db783dede6c4aecb175626eae3d8c672c259180",
+          "20bc3ad1573db4cebca332ec2c8479ce07497b9e8faac3927f6eb28f02ac428d",
+          "c684f86c0b936d9688abea756b6ba5ec395946dbcbd6597bbf9742af5b63f46b"
+        ]
+      ],
+      "element_hashes": [
+        "3aecfb3d8b568e5b53208be61e11c15616860803c684e8863674c48d094acebd",
+        "d8206650a86b9abd3c20c0e82013afdfb62cf87a1557fcbe64ae76d7ee54f76a"
+      ],
+      "hash": "5ed0a82c5d7604292d1d5555f341d70cb43138db7ff90481f7f2ec2785f79e9b",
+      "kind": "array",
+      "mistakes": {
+        "11b02c0edbdc3f55286cce21b9687e990dac3544d51edeb3e03b29de029704f9": "les valeurs propres demandées sont celles de G, pas celles de la matrice des moments",
+        "d10ad8930c6cb9a63b2d1d769c06a164ce444bdba7cf15a62645c39391fec4a5": "par ordre décroissant"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.1d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0ef0492b2301a014741ed59856b055780e86feb2f8ea72656a0f630e7a3dc963"
+        ],
+        [
+          "641a5307e137fe2fa3745a3247c478e820bcc800f50183e136e0310280317bba"
+        ],
+        [
+          "9b809e1783da5ebb3406b10a01d50073b60a2e46773bc9e44605dfce88dd3115"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7f7f5fcf73d8f4bbf3ed57282211741b32cbf24383b18ffd137b3a7d0235b604",
+          "009cd4510d8381ecb8d51abcdabdc8ae617d2938921f8961048f8c90afb6dc4e",
+          "26cd97196fe8b8f4f9a4ce2730d4b7af5cf5de8f7738ca306fd2239a7a9cb9c1",
+          "b0b55989f43f0ea219907e43388bde0a7967a7a7b5d71bbc4030ee79662ce13b",
+          "9292e2936540d9d79de37818db478eefc028b636f440fb1ff60e906b6be6e76a"
+        ],
+        [
+          "5cff7ae3e443e7cf2ae7b9e392108801f844b35e0175c238a0ebd5a7241c89ae",
+          "fe260355f5e03f69e675d6d72daa38a9f6ee36744e2451e67b5f611133e3e2c6",
+          "cfae8e1c9809b6179287084964df7ce1d45ef899527bb5dd929581c604919187",
+          "46787d8126ffe52c43a46f5f3e1dc897b923feb06ed7dc570d0ff95859873df8",
+          "2a8a92b0d3d41805e49e325463b85e312055f7e074d383d54b1f468962feead2"
+        ],
+        [
+          "cb05f2240371e1e1d2f738d4e4a5a62296dcb3245fa0444531138cc11055e81d",
+          "c12a5cca4fcf8d5279937c03f3d7f5a18b555143bf2f0d5b26273e4db41c3351",
+          "2d5f7d450c8d909e86c7f71e329018ece06e2f8e23605f5ce53f0e2d97253a82",
+          "23f2cdb8ebe7a5fbf51ba1565e14fba2bc44b72d6a1be9992fa4c7def9798e09",
+          "e931094380889b9897295c7f8efe754f05da6f4d42edf6e6568fb5e6d8a85de5"
+        ]
+      ],
+      "element_hashes": [
+        "4d836e6a8e8b5fc0c513db2f3a7dbd7564be671362d08f3f435788743dd85f40",
+        "f7304bd167f217e02524315c4ed26693c139b2132b1ed795a688049465f49d6a",
+        "9a7c32852f5c0bece7588198e956bbd32ba2d474c811379d875b177b49fced09"
+      ],
+      "hash": "ada4e8b423c0904a6c5f3c3ad80a42d4dcec692aafb183645f781799236ecacd",
+      "kind": "array",
+      "mistakes": {
+        "32246175611a34e2ad13d9a9a3a0b9d537e9a8c341204a8507b569e45c27709b": "la question demande les carrés des distances, pas les distances",
+        "69945be88844371f6425168e364ac7011b4453d3e949996292c70b39f63de5ef": "le terme croisé de ‖xᵢ − xⱼ‖² apparaît deux fois dans le développement",
+        "b999ad5a9269579432accae9a73206f725ec512b9f1c0aa04397bdf8473f5e5b": "dans ‖xᵢ − xⱼ‖², le terme croisé se retranche"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.1e": {
+      "decimals": 1,
+      "hash": "b11a581ea47cf708095bd483494c49fd8fd580b85df18af235786be6aff57a28",
+      "hash_coarse": "5ad6166c71d992437a1aa452199b9b42bbadee43023d5b8deecc8d43eaf90b90",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2a4f31b8c18ab335c810855bf16f63d506fa07d514792c49124b458854e69cd8": "le cosinus divise G₁₂ par le produit des deux normes, pas par leur somme",
+        "45a0b9cb8fbcf62dad6db381a19bc87163c0fc9384a6924eae8313d5e0da88fd": "l'angle entre deux vecteurs se lit dans leur produit scalaire, pas dans le carré de leur distance",
+        "8a6a42bd2984e275a99eddcbd09481404dfe548ec6b0e7887392ebb69b9e0abd": "l'angle est demandé en degrés"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.2a": {
+      "coarse_any": {
+        "0": [
+          "0fb4d74b5e93044ec899a4a55ffe53cbc6e994362cb164a656a45c026854f1a9"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c2ad496da99d53fbec08414cf08133bec96f7a655b6c715beacb5572d76303a2"
+        ],
+        "2": [
+          "9973c8b94dde45fbf3764a1c7687493d8353bde8ebc5da456734591081678670"
+        ],
+        "3": [
+          "233f44ee78ab7617d9d24f753d2e345b4dec81d42f72733f15dd8fe1f06a8e9a"
+        ],
+        "4": [
+          "0ba83842937dd050578de1df17feeb0e2610fcc52cd294724a969430f6751a94"
+        ]
+      },
+      "decimals": 6,
+      "hash": "839b01da84d078c620f1b97abff642ee000c1b2000c285b4274c5b7137cdab39",
+      "hash_coarse": "52b4f409f2d8862dc317290fa96916da7917736636ea4ae194774e7fd603e065",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "337e3763785318ef7cfc8122b867ad5d7143d0c277ed420095595ab1db747950": "le double centrage porte sur les carrés des distances, pas sur les distances",
+        "95f5d4476ac57b12b06db5f03b7989c285c9be09644c5ec3885ba6373554bff4": "s est la moyenne des n² coefficients de D⁽²⁾, diagonale comprise"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.2b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0c956d071dda9e60c51381b4d8ac798eb1168cdcfbb60a00c155eeea5ce4046d"
+        ],
+        [
+          "d7de513ec2578519d27fa1aeb59b1c1dbf32a39dd7c8c561c2e4f3f0d5d69edd"
+        ],
+        [
+          "79bee9de507cf038725b6602384e5097cc5ab1da909fa957483bf4ec7f5b9eef"
+        ],
+        [
+          "ff47fcabf3ad2956f0294c5285eee4fa6165b271deb8ebf52ee325295269e6cd"
+        ],
+        [
+          "136fc4f51cbcb13042aca032ae4ce710dac00c2501216b42754a5482d39cdd4f"
+        ],
+        [
+          "736e5213a5bfe5f1f51e3d3c86abddfe775a6acb599b9733ed99cf5a2e0b3eb3"
+        ],
+        [
+          "5ba8e798a9cfcdeeb06489e9f19f4646c554d0e1794468af6fb4fdbca69c56b0"
+        ],
+        [
+          "ce8e08e173f21d0f1c212917417148b351f5d5703786b67ebaf15c50454005e6"
+        ],
+        [
+          "b2847d125080a0e03ded9da4ca48accf83ab9829b3822b3e4b2362bc729a258f"
+        ],
+        [
+          "236cfcfa34de95fff1aa5d7497da63f511a4f11b74f55a6150f9d2b724eac9b7"
+        ],
+        [
+          "46716a2a6f990df9f9b332abb07b72cbb85ce4c7ca9669b6fdddd00229c6a127"
+        ],
+        [
+          "0b44117ea053b7ffc5fb7aacf2ccba95a8997d8e0778d6c8d44785260ea09f1d"
+        ],
+        [
+          "172445d2cdd5b93007b4bbf19cb1d79836a20259794cef7c0413de58633668eb"
+        ],
+        [
+          "62d493f42593d1355e8de0d4b4a2961bc572b95827ecf5c54faf9ba0a1f932fc"
+        ],
+        [
+          "9c41ee3db765c3780eefd66c7cfc0d7e53f9bdecad52a6eccc52675d29dfbf8e"
+        ],
+        [
+          "964524dd8a3cc91eea8ef0824e6585e4099eb921f5ac6af4a63264c65426ebde"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "85a198ec1e020ece9266dc81cc88a7dad05f610e7ba498be4c6b308de8002876",
+          "08b44bb29579499030127b693a5e388dca7a836c199704bda56a5aa329eab89b",
+          "e26086d30eeadd035bcb587b1c19d3e90c38889577d2227d48521f6894b598e8",
+          "013e1a036427a1bf597e8b364a7170239a172484d0e69ecd6d8de91e93124838",
+          "9cde81a8e9ccb5a2999c3d61b61ff48e64b01610115beeb585728ebffc49b58e"
+        ],
+        [],
+        [
+          "59937fed7d7c14cd398cf6a1b25b95cc41b33db2e0b09bb68789fd1026daa882",
+          "b0df5b52be06d309c033c4472f058ed225067eb264a4c54e943f993f045bdbef",
+          "b46377621dd5ce277924fe1a7c96eb3cf2450ddeb46ed091f347ff397419b9a9",
+          "97a5da9e004b00ac211dc177be1f703a3f69227f62ae22463231cd1d0cb5f9dd",
+          "a8a25d55aaa8ad6da0809c731763a832ad11ae3f5b54a0c421702e6d5f72785d"
+        ],
+        [],
+        [],
+        [
+          "e816a44e3b9fe9a3d7ee4ecaa6e2fdad8c551966b443a0cb96d3e653cfc37f8b",
+          "5bf81860c04cb495b86e2ebc1eaeda772ff7e7c8d525c33e60abf6ab6670f995",
+          "62bb1a712bf6672bcd79470c1025a8fe68729808859e79723a1d61e8cfce8d3f",
+          "bb1c78daee464851d8df5f68801ef4e5b69991408c8b39bac56bf0d9e7533407",
+          "624f4872525163cbc35d28043aa3fb318e71ae4a558da3e54f5d0cac47ab1a20"
+        ],
+        [],
+        [
+          "2a9b9660a720bfe5106c4a183f42328a4afa810c44046d8605794a753ae89adb",
+          "d34a2096c474d3e865b6062b2afb48a23ebe6e95f5d50fefb54be7e7332ebf42",
+          "878413df4244e255b3d826146f32212dfa1202bd44538356150063b1ac870f0f",
+          "531d3d7eb9c96ba766eaf42f46995929c411b95b5f091782a0d046a42ffde940",
+          "f85a2dd7e15d06bece8a29a79fa6e49c9ae07f4d2605c67a75abeaa851ff3625"
+        ],
+        [
+          "09a0be0d90b076544580171eb3e5b0ac7aa8486cf49cf1a39e6b6f302cc57a7e",
+          "7304ae6f26fcf32f29f31cbe93709280ec00941a0276978c151d5f99014e14df",
+          "3008688b44db0f5c81debaa1deb8bb9a2d464bad6f79690c2cfa5452442d4340",
+          "2b096a3b0171d0fbfa6bf4607b4276c7025071ac2baeaaa770f517cb303bc29c",
+          "0cc60f9c2d518e17c6d648b8682690e8a8082f2fdb02af4580e553b39633970a"
+        ],
+        [],
+        [
+          "aa14fd7560abb7c070f7bde2ff9322aeed7cf09e42c1ae7e31e56ca0af1b2c3a",
+          "e1a37634591dde938f48cf2a62e5179b4193b871843a9219ca89114d727d6b38",
+          "6c472324c4292869030536c3e4eabe4fdbd94199f2aa50902b9d28485593a24c",
+          "c875a0b28f6365585759f0c87b7a5362cd334d4b8a93e405498b392a78501ed9",
+          "4f664ddd2832250c75adec964730efe7fa2a9691ac3a971f22e83d77013e972b"
+        ],
+        [],
+        [],
+        [
+          "77de5af39064ad9c395b91d95a7664a8026b701c6fdb8979f7523aa1f0b0e515",
+          "d5faa4f7f30a561f7a5f0eedcf21e1b07f4b04ff0e2dee4965b72093e2b0e8df",
+          "231ca7795e6b7f4550cd69e8c667f77b8a6e08e2ab3fddb45a88713bc78f7814",
+          "b51bcd36fba4f370a7160d23c95931b5d2b74fe9359fd8208326f43dfe086e5b",
+          "4ecd46d061bb7ad7dd104ef6bd28032cc0b936f1fbc0a798ba12e56106c707b4"
+        ],
+        [],
+        [
+          "38f203f87bc1c426e6cee6906076a0b19df0cf4f501d074e69d32e8689441230",
+          "c12dcca80a40ae37581dd4355f8ab22307269499da7a42a6475d121cfdf5cefd",
+          "c7c9e5fea4e594fc0a007d4a820fdd6e8faf9f47641522db7da3afe07064567f",
+          "2847a920b2b4baf40133d0f84d5b31925931d16a241cf372e707902abb56a6e1",
+          "c4be85381e13372f33793cb43963df84b61172281179b89d3b67e32b22003daa"
+        ]
+      ],
+      "element_hashes": [
+        "b78b0184b5b0cd614014c183cc45227c6fb5477dc1c441058d7faf223cc3bd16",
+        "ef6275fd5b118384dce1da845683ba6f8910ca7446f40bfb86370efa95de01c8",
+        "73a641810ac1a4ee0ad791f9fed20339edef4cb3ecaa1c2812c0d6b11eb9049b",
+        "bdd8b2b1d2ce90e123a30be07e12f710b8afeda60299f893764567d284e94454",
+        "250aad6421940fba7c3c6ce16b45f3a1cf524b303d22fbd4f7d4a5a811d28ac3",
+        "775c44b35fee304fe497552d796f7a2345637c3a49319259d813aa6402391d5a",
+        "3ae528e9a401ca9963534c459d50c87b0d760081e93ac618a5e2f7109faea479",
+        "094ef8a46ae4afaba72b5f96aa4f3843ade23cfd777e409ae5427db15bfd264f",
+        "8b2457e4c9b8590e233822792b1099820d9c2f124ec7f889484402493bc42e52",
+        "a1d5f4b0417f157ac3f767c94ba4a6fdcd136961e8b19f00c7e374e40e4c018f",
+        "ce558f9a1f00e0d193f55b51974b50e6b3903863bf3d24563ca62cc23a7fc2e9",
+        "1d09210160ede6d07ef1133097a19158b349443f1b82b9d51a8a04422dead8d9",
+        "f3a6ca4f471f5dff6270bf623b2462428b9495abc48842f43e86d314730055a1",
+        "666ede66c5e1bed5e8ba6e48f57436709a47459c1bc49f06dd9786fe7a1df56e",
+        "05efa679ff76f4463d4f149cfcec6b766308299bab41b42419458a87f89b7f5d",
+        "c6de5ed736c5fc5de50b4b2dfa9110d5c0d47565e4cf1913730a4863c2059017"
+      ],
+      "hash": "d8e0bcd484f36935e83cfd2e544cb543e98a02f4a314ae2e0ed7820363d6dd28",
+      "kind": "array",
+      "mistakes": {
+        "6cf01248d953db083843076b0bdb196c231a2aeaad47f8430bd77e977c09f0be": "le double centrage se fait sur les carrés des distances",
+        "759d1559e59f1a1bcfc5a7b1f285c42e9688f8f93de14cde9f54c89ee1fe6183": "G = −½ J D⁽²⁾ J : sans le facteur −½, sa diagonale serait négative"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.2c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "b3096564a24758eab3e78214514b6fd88107e0508f1894084f3466cc9fa24d2d"
+        ],
+        [
+          "1f5a0cf363b4b8ac632f12fefe11aeccb5c7fbb7cfad1d88c0aa744ef5cec324"
+        ],
+        [
+          "7fd27f35fed10c7768c0dd4fe67b78d164b8ecc5a10bbe556ffff9cbbbebacbd"
+        ],
+        [
+          "cd644fd0336cbad65cd21f833b21087a969f45aa3c1e562aebbe06558c8889e4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "869aaef34b4483e68771c1e1226ff49c03247b9bc2c2e950c1197c6360ee8015",
+          "90a29ef06e9b1ddd7738162226d893356a75bc7effd96734068238d1296b4067",
+          "daaa36526d64dc734688373c234f7ec128a784ca50b6ae0b90177831fc3c9f7b",
+          "1603ec6d23d0fa770fde202d84af486c190cf7812fd9379c19e9c4542026b761",
+          "0d51774329a6c046bcea7eb4a3e79a6b4ff7b6accd70c961c9c397053075123e"
+        ],
+        [
+          "7f13eadb52fdcc226415322ff689b0bce98733d08cdca81a3644a9c3c3ebdd72",
+          "1113c73847cbb58db80683f99ea8616c1f54e050dd0143bcfe7053d8b1dc7102",
+          "be5a3068acfba4761bfb41a5060a479b6d20aba7b04f96f0fc537203297892c2",
+          "9a4399fdc5175aa6e199d8b51199bd38a8913bd567b0edf21fb962cf6d6b3f28",
+          "3bf9cb9228ecfdc2039b684ed8dc4cd447ca193b934b69445dd6d638af7068ae"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "6cbfc4fcfd9d8a6f6df786208dee9b129fa7aa307932c0193382b8ba0f5c88d2",
+        "77b3d21c8fff5ec855b725c327bdd364e4a5c13f169620495db79341e9f862f2",
+        "5da10c5f9785c3c05daeccd1cb4dadaa0e1a4d3483a856317c6fbcaef0a56aa8",
+        "3f0e06feca137c7b53baf99d5b58cc385ea64020df0847f63673d51fd80fbd60"
+      ],
+      "hash": "ff78a9b2eb754bc9513829d580c8b4adfc7f03f2e3624b8145011f05a7e55385",
+      "kind": "array",
+      "mistakes": {
+        "8c3fd62403597b669c8c4e13a89562afbde6771edb22aca727ff44ff730bcfe5": "les valeurs propres d'une matrice symétrique ne sont pas ses coefficients diagonaux",
+        "9dbd0e755e2db92f8ac83ea2438432f207152e6599e66201af25da7aaa76161c": "par ordre décroissant"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.2d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "6e54f4d749bbc5894214613dc204478a2714234e3ddfd7cd7188f7668a615864"
+        ],
+        [
+          "a0653765d2aa59a9b1fe1890a318630410d735023cd48bd81a9ec4633fd5546f"
+        ],
+        [
+          "cf0e5a7bf60133fc5e1067101da4c47472b2380c7afa321e760a912d2a3d6cb8"
+        ],
+        [
+          "0e1182610c5e7a2b78ab2fc919e5c8afcd829e008565c35b59ace806b938b8ea"
+        ],
+        [
+          "7ac91dd857755be67262f83507ad4b11c93a59dfff9f1dab5ec53c814c506113"
+        ],
+        [
+          "8c9ea1e49594e146698d4100843a3b5de2ee6724e2d843af5382ee7e911bcd72"
+        ],
+        [
+          "a91a5552df61abdb94bbd72fbf8512d4c5300916cf208f4374395b706eb68f3d"
+        ],
+        [
+          "d1cdd84530cda5147bab458b78a87e4874ef0d9ba5612326dfd4d5a57dd0a4a4"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "9666b5cac33e1cb01ffcd2c72849d4589aefa1cd128cbfb986a2223028fccafd",
+          "39b46fc7aa9d3b9019c8c22274f530bc0233c0d7a781cb541d672b4c25cdac66",
+          "6512e1c35cf296cab22e52cf618a62e631b49c3fa1c8c25bc075bdd8eaeacf41",
+          "d5fd823fb2b483a923229d910bda3daae3fb7ccc4b67e3cd08525d69507af47c",
+          "b5575c5a420c5ae2defdd6b11f3ac9e99ca96a781f8d3da0e778a0535ad99945"
+        ],
+        [
+          "0b9265704566056277ef88973698b2e5b3fb39e168ba6c26026f2a11db39c38b",
+          "0db57e38b7a66f8b098bc8b9e52b53b3afec0ef0aa357773feb0ada57d405c19",
+          "f782c0e96689f63eebebb1af82c9aa2acfc1d6761cf0d62a1c5e43895b345df2",
+          "b259147aabdf000f8d8529fcfb6558c90e8977eb8d125aab26e3fa68f62ebfd1",
+          "f0f82e77ba32d4d2d9e7d442d64884dfade3c7573ed662ddd8c0527568dcccc4"
+        ],
+        [],
+        [],
+        [
+          "5dcae4e93d09a0fc31fc4d4fdb7c99f323dc79368caaeeb9c83a3c8ff1c18e76",
+          "32132c27ad1cfd5d4c4f4a3a834496bbee2328f395f6d964fc30c22981d12065",
+          "4ed02f2c490370dc5bccd81234535bbc109ff4c84d8b42c68b95a775670fb07b",
+          "6f4572efa798bff1f5d842a6579e0b18e6cb7104cf19e2553a15adab540959f2",
+          "0cba9b78d72d9d9a0b094d5dd0504893c6725563cd64df52b527e7ceb47f735b"
+        ],
+        [
+          "a31eb5b66ec0c5341fc5c98736d2fd212f8e986a170dc036c1374c1daaeb769c",
+          "6d4cd7fe4506895076ab993b930c33be5f46c323d3322709206264028c79b48a",
+          "872c8bbf0999743a5c6d78f9d30c9b10062848deda585d43e330b2c75592909a",
+          "3e3d5388525397b55d5085c055dedf8177d366c63a686e4aed9f8c79f1a8d393",
+          "d166f816a8a924801c5fcaebc0330d0e2dae036135e2ab547bfed7c74d5df28c"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "75f5a73e5acf81028931b71fb5c4fdf40625bd791762cea5e5ad960d4ea8e01b",
+        "ad597971820ac909d3a1fec532b5dd8ef9af2212d9aa55181f1826b5e7ba456c",
+        "e585a85076e5cf5029f11eca0e9f81c2182ab0ad8dc4ebdf864153c5123e9487",
+        "8f2459a927d5541db91c1f5f815d400966646188e721d7434efa796006526c3f",
+        "37e3990ab778ad32ab17de8ea2b0c9ff26fe08bf5c875b36c52f10fc9f89110c",
+        "f07d6f513ac2081e57314ac1aff0e6d6350004038a2b26983cf2c9f6c49410e9",
+        "8a6ffbf55051f02c6bfaa9d171d1d32016ad22024869aa3374b80f919e7de2ad",
+        "5cf2d7c0dc2f45405510ce977eacec3fe02d91520ade150baac32bb903034f43"
+      ],
+      "hash": "090ad78b63900b263627848599f6a6372c3136e913d8e0e58a05e6f1cd511b18",
+      "kind": "array",
+      "mistakes": {
+        "01f0b1a00cdd44d692a59e69c0c47e9fecdf46fc48ca5dc944cdb604a8aaa136": "la colonne k est √λ_k fois le vecteur propre unitaire : pense à la racine",
+        "53595a6000a91067413a07f333f47a0a9886cb9dcefdc93460cdc7d328590618": "les colonnes viennent par valeur propre décroissante",
+        "87c84cff709d994320a2dca16d0a2f69920d23aa0f51288cbc271c01ee88224a": "dans chaque colonne, la première coordonnée non nulle est positive"
+      },
+      "shape": [
+        4,
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.2e": {
+      "hash": "b05ced816e06df412219e55197302c7d53a26e912398c8265783f5477b3e0022",
+      "kind": "bool",
+      "mistakes": {
+        "e92fc7f764970db2fa82905ca56c26e8967e04721dedefd6c7c7222d8adaad7c": "respecter l'inégalité triangulaire ne suffit pas pour être des distances euclidiennes"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3a": {
+      "coarse_any": {
+        "0": [
+          "ad4019fa2490bad3069228fa8b40f8b7e69afd179449ab6267374d1b54bfb3b9"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "05fceff6e89a239bec46a6b75f7912de5ce090cd4e1db8dc9701f9036cb7f0a6"
+        ],
+        "2": [
+          "eb8d86a9b553dfe3e04820a1c7ea2149afd2037a95280e74b663f36d8f190695"
+        ],
+        "3": [
+          "edced3370d3d2d5a32ecdbe2eb77493cd60f60ae3e79b161f50ff55d0fa21df0"
+        ],
+        "4": [
+          "face8dafda6d8bd6024b385dee29fae51f95f030df7d5eeb8da9df61716b3791"
+        ]
+      },
+      "decimals": 6,
+      "hash": "66bca804ca81cd9c023187a3d9113fddc5801c7cb1d220c116f0864795168fb2",
+      "hash_coarse": "df4f56126bb8561cfffbe29038196ebd09a85b8fd92fffb0bdfafcefb898c435",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "2beec8509dcc1996adc541002328358984c754ca9cb69f64eaa73818db125f2e": "sur la boule, toutes les coordonnées comptent, celles de poids négatif aussi",
+        "3421489ad8143bb05e88d1ff9c9f1463ff7d6e444624078977f35277e9b062d2": "sur la boule, toutes les coordonnées comptent, celles de poids négatif aussi",
+        "f764181a0f5743d9683a9872f93d40854d5056781f9ab3de419c0f08cf7fe1e8": "le maximum est ‖w‖, une racine : pas ‖w‖²"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "9c28656134e587026db8bf21055185696d2384678d1f3e1a14c44a97febb7471"
+        ],
+        [
+          "b04df59fbe9340c1a9e03a9e4c3d31484964400fdf70188172b841d6e129e60d"
+        ],
+        [
+          "8f3b43ec472316f7559172fbace68f92b04c944b716205a4cdaf553b8a79db82"
+        ],
+        [
+          "8fbadff93f2e2fafcad0cdc6e41c225d1c56f7a2863a103c1a4d03a685673e15"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "80a5a77f1a9ba3f1812c0adc0fbaeb11907cbdc56a1070fa168c3e6fdb759e0a",
+          "1ef394e9c8900cabd3b9bfba480a70c35386a151b7f54cb0771c893e9c1f879a",
+          "0bfe6f7d2ff2c5895aea082165f0bfc72d18bd739e2e824088f5994651222d8c",
+          "db763c23ef8d04349c9ebc5e1a941b4ff8a959270b78d2dd821e9297392cf49a",
+          "de116aab385d26984277c83870faa4b6798f8a6f55a7a277111697728e6eafe3"
+        ],
+        [],
+        [
+          "7bc77f69568d1f20153cb348d2082b357b503524961c1248774d183f54f2109e",
+          "cad246f212424f15d93adf60c45866bbedccc44dc28deb94b83fc45a015095c8",
+          "cb42829b764eb174532d569429b05b9fa7a3d286b0b35c7f8a0ec77544222713",
+          "768ca14f935920127a3ad1313be46a3b840bf69bf96cc73ab76038082b2bd534",
+          "186f7c38427d7e2ee5dc92d484bc8728857beb6e3acf59772b5d635284ca784f"
+        ],
+        [
+          "e5500016bab0df8e65f3ed86fd92a2d55baf574b8fdfef354ba7945ba507ad7a",
+          "4dce6dfbd5f9403e292ce9e99b02af0b463894730e47bddc74f67737d64904d7",
+          "0ca4ace2abbafb85093f885d70c49b71d8ee4555eff6c6852d65c9937f83edb5",
+          "c6243ca11db29d980a334e60f89543059713e07fe42e9db1d3dfcd67bdcc5a33",
+          "f70f22d36ddaaaa4ba8f5312a8c69487efefe1b427cce70f20690638acb920fc"
+        ]
+      ],
+      "element_hashes": [
+        "1bf70a61bd0dfb20a418fbbac2669b5655fda7b6b49ec6ac983843654b4f15c7",
+        "f887b5bcc8f49184cf14bbd4f0347a6538bd73dc24d41953cbe9e2ad0cb26d91",
+        "294b1fd09d1fc279030f201af7d54240277200e81a1db66490e52bd2c0f21e81",
+        "387084a6e3e62ef2859386f90f20cbe071349aa14f77ab8ad8bfc8c78b2da1c1"
+      ],
+      "hash": "64b6e6e7b2f59f5da8356682bf1a622a72a19af4034292407621d749ed00de8c",
+      "kind": "array",
+      "mistakes": {
+        "1ca5285ea2116c4d5283cc2792589f1f4ef0936d0b178e859720ac47d396fe15": "le maximum sur le pavé n'est pas la projection du maximum sur la boule",
+        "3233c75302aedc703970c9230cf2061a13d60327671cdec76eed3031ce232976": "une coordonnée de poids négatif fait baisser la réponse"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3c": {
+      "hash": "3627a531cbb56bc5855c4c639892a2e46895143f7b3940ea46c6604244454d4d",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "83a013277e574a0d38c05ccca9f914c7e2ba3572678708dfc43e248d387f06ce": "un pas projeté qui dépasse une borne s'arrête sur elle : il ne faut pas attendre un pas de plus",
+        "d8a0a15f408aefd33eb4bfb30df35c172b5f7c5286576c3330177611ada474cc": "après un pas, toutes les coordonnées ne sont pas encore à leur borne"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3d": {
+      "coarse_any": {
+        "1": [
+          "4974bf3ddd6f94dabe25a7d20c337df60c45edc3de0d44321d50f1ac3663c741",
+          "57b1e101183667f9b5443c757ce0bfe55b511ec05991f4b311274138a200ffe4"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "8b9bc41dc8836f78c998f4b0ac275853c2ff7366ded27b589b5657c829206656"
+        ],
+        "3": [
+          "f0d323c3128d078390e3c9ca33daf017e63827295e1955e932a496afa7e00027"
+        ],
+        "4": [
+          "6ecaab2a948f8688cd95f22d9333dcc8e4ec1554f54a5d867f3ca1b0607461ec"
+        ]
+      },
+      "decimals": 6,
+      "hash": "66e710e39835ed66265346ea2099fb13682cd0e6565037644e0cc1c5c7965e7b",
+      "hash_coarse": "353603ecd185089869191649d90b42759d774b1195d4ab4109db59dc3911990d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2b3bd7f8eebd48908c0e37aabacea38965daff203afaf6b0adf52a795a6cd581": "la distance de xᵢ à sa borne se divise par |wᵢ| pour donner le pas",
+        "7e971da7a64a968ecf97a6c38058b483a57c00387c42b6f12642c1cfbdfd26b2": "avec un pas trop court, au moins une coordonnée reste loin de sa borne"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3e": {
+      "coarse_any": {
+        "0": [
+          "2cc0cd1a566aa00d4be07e0db17335951ab6c2241b3e7e4c50df375f0f159f75"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c4f695d392ae96c435f7fc66659ffa29c96474195f03aa0d95b9d02c6c1678c2"
+        ],
+        "2": [
+          "f39767b9ffe5a094529cba67e408bee6d699df12da83e78bd6237100fca98270"
+        ],
+        "3": [
+          "e510df97956031aca4c093aa063ef7e1eb6cd7cfeb24fa346e57f0c84df5db8b"
+        ],
+        "4": [
+          "b0195d2434b0d175e704bccc50844e2ff80efdc2fc2364512f4a225a82eada2a"
+        ]
+      },
+      "decimals": 6,
+      "hash": "268a29215a4c0638e662667c7361db9cdc957c9d5ad85a61e9d5552ec51cf0b5",
+      "hash_coarse": "8961f683d34a1c1890bc5768735e63868146a74ea357a84fe6fe7abd60199741",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "67131ab42908c793e8ea4c28cd32732f9fd2ae7211289b78e07d6bb3c2c7b2b6": "le maximum sur la sphère est une valeur propre, pas un coefficient diagonal",
+        "8d4bbd50b7a76770b4c7ae85b1e785e06b0a972c80b2c47f249d766554618308": "le maximum sur la sphère est une seule valeur propre, pas leur somme"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.3f": {
+      "coarse_any": {
+        "0": [
+          "f24e3bf4e0525a2e769ba4175d7f56d75a923bedb18cb791a40de7a1c2ae8e11"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "c8b30f3e7cdcde9982dcaee666555c7db0c1e6773290ab2d55674c9ed73a5c50"
+        ],
+        "2": [
+          "bb6d2fb32be147f241ed2ea3ce01331892fd1be443e24bf006c9ae6b7357a3fd"
+        ],
+        "3": [
+          "597e7b54d956acad7b3e3c235b30c7a4faee7fc503b59bcfd106fb5742ba2400"
+        ],
+        "4": [
+          "59b1013f0ea9868da87ae62a46bbb12cb2fd9ca47f2034551876f58ee27c8c85"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4bce81714bcd3d14a2fd56bfcdce928afd5a5ff17f904302b2cdadbca11d84e7",
+      "hash_coarse": "e7e5615f44eba66117cab5a8bfbfe1fc93cbf30996f0708a1ef4821a7a48a3cf",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "b68249080d3368f60aaf6e2d4f66d7688c7bc07a14babd62aabe6c1fe8493c31": "le sommet (1, 1, 1, 1) n'est pas forcément le meilleur",
+        "ffc21769e3747932e49f4218d7905e1c8e5f74d28b9df676eca23f8609e058c7": "λ_max‖x‖² majore xᵀAx, mais cette borne n'est pas atteinte sur le pavé"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4a": {
+      "coarse_any": {
+        "0": [
+          "d7fbf149d391828c017f31c4c40c18297615f6b35ee3f1a4828affce45d24197"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "1ed555eb5069d0157a02bbff52b3fadc883e8a2d90d86db520cbc61a11a60a0e"
+        ],
+        "2": [
+          "adefd9fbe590aa7d30a4ea27063fe62219fdebea3dee6654ebb0db3a6de06239"
+        ],
+        "3": [
+          "23d01d1bf128fc022dc37d48651e70a9771afca4ec89b2717661395566d661b0"
+        ],
+        "4": [
+          "7d251ca99751d9ecfc220ca22617131e507cf8909ea3e741e6e63facbcbf334d"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5abdd8ac215e9e52fe6a4a9b2b8a71e8c275fcdab85d6b5ae9af6b1fe1339a18",
+      "hash_coarse": "e40ea5df24edab8ecf90cf3e802a14b4e1adf08752b13ff7501824beb270a80a",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2d6e7f5d2db778dcf1d63d367d115d64bd9d9cffd3292aaa001ce61bddd1b0de": "la variation totale additionne des carrés, pas des valeurs absolues",
+        "504e77a6cd5087b2b9d820afe1129009cf1d9e555ebf695d2acc5d6c2618278d": "la barre a deux bouts libres : la case 4 n'est pas voisine de la case 0"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "e322e95035aaaee6fdd9ce866adb63ab7b8981d51918f0b0c03d036f73c073c3"
+        ],
+        [
+          "cbadebb7e9be88b50ae5c171ed6d2e71fff527f8d579e903475d12f5d27c7daa"
+        ],
+        [
+          "a5943ae8956d8883e08dab8e0d356c9ff30ee818b16e0e046bc8977976e71901"
+        ],
+        [
+          "ba10db11198ffddf6653bd9b912ce5bf3ba524fea6a4aa48d8490ba5484751f0"
+        ],
+        [
+          "4b6a5c56602c16649114815d2f002466786410c31302e805799ccc94c6387169"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "43e1744be8c01b399b86131b0f93ca0f805f0e6f77b208ce1a45932b79165748",
+          "459df47242b724e56ee8cd04774c75cba5a67d4e9289941fadc39ab36eee5e6f",
+          "a4b8886c8ac4899422fc52973697bb9ddea7e1b9e1b51e001255aa1c64d2ddd4",
+          "51d3ba1cbc3b89a925b592618933b220074f80f5ff8c17a95275a59ff689257c",
+          "77eb32e573e5caf851c0e407e1099018ef2f0f9aba4218fa56a12e74fd52c2a8"
+        ],
+        [
+          "ca48736f8a723689e7d28cfd2f4b11dcd6a8c8e64601284ad9968eb4e85350f7",
+          "9222c418c746a86f50a092d4d93a588fdfe60389967af6d0c32aaeec946bae6a",
+          "e5bb47834dd5039bffb7d785e2eb1d0a2e709c42ec295ddbad38b3d753bf1854",
+          "5b61beb5af8175d64039689e062808f67ef81841650c66c07ac904838d5de33e",
+          "314567952bf74e7296b3215523b0a9495e60007287c66bc5ca1e14c48e203b2d"
+        ],
+        [
+          "a1d0e84425b866cecc7d4116462b45e683cce02ba47709016449e0db4da4c959",
+          "9ce84e56d83e0936ced1c525d1a3673475da203a77578d26e9a559fe85128dc5",
+          "e029c35c5e64674c16ca013d7e1a0129ba2f1311e08509758fbf794d1af25aea",
+          "7ac3266e033ce7c8093bd9de6b8232432bd9a9973abd87370d88d760b949278e",
+          "a418ffdd4bd36e0db68050a82c964d7174bcca9d44cb5c39139cfc738d8a10f4"
+        ],
+        [
+          "1e136c9856e8f9ccc50058be3b370aa9964d4e0dac8cb453c96071c9cd9a1c8f",
+          "46428e1140d7918921a61a87c0dedf22c533290ccf897a10f7d6cd66eec6581b",
+          "2c15e0f9fe419ddd610ee25105e8e0cdf37c070168f59c26e341772fcfd020e7",
+          "4f094a42deabf111f1932c172a373bcb9d62af587d4175a77aa1cb7d553db5a1",
+          "5dba0dddb89f1ea6526fa8d047351f8523e0acf555660df7364c7b86fcfd2554"
+        ],
+        [
+          "6228f7c132b0c4bf1580af8f0d0f17abb0213377541628941b48643043c95ccc",
+          "c01c2778ae6c8fd39231d6102cedc47f1da39535637f8a9e49a6724eb566c510",
+          "146578cd2e01e36c2cc087d76a6c0a3aa4f30b95a7e472d1ffff3af43a6b9815",
+          "6e855fae3549519aa14aaa7d95816a60f254087dbb051db0c151bfd9d17e3068",
+          "683d247f9b4c7fe71418470d982924b9fcf1a23ffb72cbd75291c69040c2d31d"
+        ]
+      ],
+      "element_hashes": [
+        "eebd3e11ffeedc31098382a980151a12d009446fe8edd411892783418eee94b5",
+        "aa03daf41b6c4b5f1602ac111812e69e6cab949005423169c7c849d168425f7b",
+        "5c8ac1cedccc286889d0eb32311faf951c37bdb30b69c1c8bccf321f71536d31",
+        "cf703f31ebce0e1802854484ce41c7a02b4c5554d69220579ae008fb3400974e",
+        "d3970bead50c8bd2280bd255f7f2e0060223c3e2038c3eab6be5c79c904f7e89"
+      ],
+      "hash": "7179ec12a423b348498765f396fdd0c1b94888dbdd212ad131a886903fb8d412",
+      "kind": "array",
+      "mistakes": {
+        "218ff9edcd51804fddbb2332fc0aee62eae0b097c4b74535e2cb48292db5fe01": "aux deux bouts, une case n'a qu'une voisine",
+        "95cb3e7e94dacdbc9c6675edc8615059e5e78af24e18d6888aa4afea1b86f87d": "le gradient de xᵀLx est 2Lx, pas Lx"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "eae9fb95f01fb385e34e13d0ec14ba998d5064eab221b9c76db4350b17442238"
+        ],
+        [
+          "ff4cc868533495b021ab73d1ebf23f292ca282f1401e3dfd8d38e855c355b9f5"
+        ],
+        [
+          "33a4cf72c58f41780622e237cf06e8565da275477538c41bcd150465c483061d"
+        ],
+        [
+          "7d68bc00dc11936f074d48dca9f7fa1f2ec0266e74a9e2631dfe3fa9ab639932"
+        ],
+        [
+          "d429a83d487674ad5c714987417a9bb95cc3eb9abf85801fb3e9e2d62e445751"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "59a9150d23b8f055672f4d81a79d8ea4f00814849f25e4621cf2fc428fccb205",
+          "8be3b50d90db8babe456b2a7b840591022691ec911a92bb0f1bfb28fadc40c60",
+          "6fc3cd261cf5235a9e9db4e87456af8451069293b550479d6dc3b5aa41afaa34",
+          "8d92d2a97babdf475a846a47cb4e275e3ced8931ec9a77fe0981fdfc21c2cc5d",
+          "951f64e363142a8c84ed62fe1dcc54cf4b6c9494af5b30c341a6561cb67c4eb6"
+        ],
+        [
+          "26d78cdcf923bfe2d7b9df95bc96ef240dc566acad99e7560c294b0bf74a2dff",
+          "d956306dfd22189fb40c22465a30daefabf2b5b9e3ead156de290ed3fbb18ffc",
+          "d15766711424d71b9f81e735409612f8eebd99aea2039f53b2d94c3b9da162e8",
+          "7e251a58532d6894b24367a655ea324980193238fcc622994f369a66fd7154c9",
+          "e6a8508b689248c228785ee17544299eb406aeb418c72f90069fdc61fba60474"
+        ],
+        [
+          "f278e0dcb523a4ae7836949eef88482f4347d1f15e12e0258185e455b39fb544",
+          "4c9a377f9d3803ffde9c13157bc5b5f06c616742ff3899313008acf6616df607",
+          "a5ce72b5151c6362c930b81f8d6e6353c08783f3b8fca941a5401dfdf3236acf",
+          "917d21c3074a23984530a647d13c23efebf9166421e24b5192269bbe7ca3001d",
+          "37a4896dcaaa800c32fc8ec53b376cb66940b57550b817cdb8022b13357036a1"
+        ],
+        [
+          "de00a48359eaafb9bb6267b0774e06b9b88cda2496ef4b0a317b1c1df144a95a",
+          "11785609f9469e514f60688e2af89c4dd6c1eaa2d9eb38fb9e25404674076745",
+          "ac1ccac5ddd5966839215bec32d453d9a7f419a0b9f9d22786d69515880172fb",
+          "12f6aa77f210c9e506d07b3b03ec6dc21273a57342eb30ab0b3d40dbb94cbdbb",
+          "14652ba8b7220d1c47f5649d717870cb20773665ad8240f75bb1592c18bf36c1"
+        ],
+        [
+          "21e60e66db37779170e1f15b0e7f09aba9cbe3d3dace4c7dcd6ad0c4ff1cf441",
+          "abb5ae8a5d8edd6eb4392aee79a08939f3f61012c16ee6e6ed80e769c979bb05",
+          "184882a7749885fb996cbc7898a95cba234defdfde438bf48d98b313bb8d6235",
+          "726253435181ecd19bb1e73802133642cfc1488d1f478b785eef96378ac27e8e",
+          "9d4b25e80b7a23b3feb0f3e6282fdf00252ee153c6f31a194e47de09d6bc0e71"
+        ]
+      ],
+      "element_hashes": [
+        "d1b08e37a761b2f3ef0f20f9e3c18a413a185c6de9c9a13cbf6d67b988c79f26",
+        "ce6c6ad7613d8f4c578ccd87fbdfbcef1e353248430eea30cee70701890498d2",
+        "40e480467979976732e85352d412ee5aed42bfb40382d96dc89534facf5bd75e",
+        "26fe6ed8333398a35521f6a03a0f14fb8b16255cd54f20f1f2dc2af1b4fa32e9",
+        "1dd60a810eec87bba62bf6926ba591889f12c1306bbcb86ea656fae8a5a5ce3b"
+      ],
+      "hash": "0f42283f14bac23731a9e95367cb502158025f74af4d1bae804a43f173e6cf16",
+      "kind": "array",
+      "mistakes": {
+        "077bee7560eafaf6ca2ec8f828ef95451e840beecb825316740a6296d16b5fc7": "le pas est η fois le gradient 2Lx",
+        "0ff1084292e14af83e93b4914e857a3ea146385b766d9f511655d06527653605": "on descend : on retire le pas"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4d": {
+      "coarse_any": {
+        "0": [
+          "1925285d8ee1765b548be4a14aaa167eea1c9dc2bbda4151e9d1d77ebddbe9c3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "fca2eb285491e1b999c7954a3db0260b907a4eff9d9805197f069a1f0f544f78",
+      "hash_coarse": "37f350d79d1f35b8d549119aa59f9c660e9914e6903dd14f97345da3c5add79f",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "013665d84bc3d49bfb360c3b6b103a23b7311c6f21b51a195c4fc5cc7c0d9116": "le pas est η fois le gradient 2Lx",
+        "6e751107a4ff642175dfb6f83a88a8444f8fc1f1c6880983afe5d68ca7eeb62c": "le pas est η fois le gradient 2Lx",
+        "ac5d5f83dd130a0c9eb8d2b826f79d9c63141769be692fbd757fd1621b65fa73": "la variation totale additionne des carrés, pas des valeurs absolues"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4e": {
+      "coarse_any": {
+        "1": [
+          "1bf69bb58619a8383f4de55bacb98051bdea74e970cce35f967d91ef7313c377"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "37815cfe6d7348da9b4480ad7699c0ad743b42e98693cbf781b6b5a8985a8289"
+        ]
+      },
+      "decimals": 4,
+      "hash": "23f6635685f237fc5a623298d43a2a9c6cff14802c359e688e238a158b194ea0",
+      "hash_coarse": "7d8ed0776b3eb2b0fffbcd77018a0524c5171fd68fe6e48e4dd60e49baf1b969",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "10a973a68fb69f2bfb70d79ae281e9230202c0785a2ad375d0678827b617d252": "le pas critique de M19 se calcule avec la hessienne de VT, qui n'est pas L",
+        "2b11e7a364958b9a0957e72ff20430881528aac2f2b0b2cd294d9d1d607a9ffd": "la borne λ_max ≤ 4 donne un pas sûr, pas le pas critique"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "96d1ce6a0bccc5ccb9a2ea3ef54c6bf93ed18fb3ca28d4f24879ae52d9de69c5"
+        ],
+        [
+          "31009a1b27d172df87ed4d73df53ba62775e4adbf8482cbd23e47b7b27e0cfa2"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8f551347ab2d67cd73cf6b9489229ce0d725244a6dfbda9336fca803632b1e23",
+          "24eafede4e56114890cfcacedbce43635bfbebb1dc3914cf220008b5f84ed73a",
+          "5d59b226f6d140810c6c5edc811551230269ed9fc41dfb519af7e819494334eb",
+          "7cf7638c2e6eaeed61b420fc8611be32a1474c1a7b13470be88087ec9d9ca04c",
+          "640b60240798870b56188841326fe78c2f05fe883f1d22a968b252944ebaebf7"
+        ],
+        [
+          "fb6413b68001f668291a6e84e84978063c61397a75f3df6dbaa0e05b026eb2ad",
+          "962c2e27c82fd87afa00c0113801409747bc7c5b7bb82528b5d2f78b860ab99d",
+          "b27624d88732ce923e36e6065c92e05c7fc508f040f8348a93c08767df0f6e80",
+          "3164e8f45bcbba4ced6e3e15f3e84c909880054d4a6a28647acc86c97c083080",
+          "381a6c6d2944ae8270cfc0fe95009d0000c2a482a6816b6e4108a27af2d02c79"
+        ]
+      ],
+      "element_hashes": [
+        "5417bcd47821abc159cbb888c66996762310a33e0882645373d9186861d10f5d",
+        "0d559610224fc048058b9142038bd2aca0a7cf88ef12c04195016eb70611a86c"
+      ],
+      "hash": "039ca8a6403476ae560ab57457f4c2bd317fed3b058b0a54632099f1d8cfc2c0",
+      "kind": "array",
+      "mistakes": {
+        "70d0eba1bac2657058652df036106d327450ac3ffda4cb0add07f5f4182334d3": "la liste donne d'abord la variation totale au carré, puis en valeur absolue",
+        "bc8022a873b40d31b9cb0e6c235eea09b56aef8298e6aa7226df21bad759df7c": "chacune des n différences vaut h/n"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.4g": {
+      "hash": "256d15a6a0e60624178c778a8104d92cd75df621500104505a7799fc0604e353",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "31fcbf9983c9fa244ed1815188359e1f0cafdb309741150cd770d8ddc3f70d8c": "au carré, chaque différence compte par son carré",
+        "b2dccaf9c8a5673355ef54649b20351e030f864a0557658692582865c6b8781c": "moins de 1 : une inégalité stricte"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "fa418e23a794b4b3664c469f753452231230936237bd376f6b8d5bfa28e1ffeb"
+        ],
+        [
+          "9ce20dc462eff05d9627b854eec2d0aab4e4711af6428ba27d8ecf46cdbac45e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "65d496acff47480f5263be9a415f032cfc3c196aca7bd0c4d5c1e64d34307068",
+          "3d70de27182b0428b6c17c617908e8d76440669d1e1b2c6f79c5dcf6fb1f10e1"
+        ],
+        [
+          "2d6b21c0568a4262b0e11ad5460cc8f6788ceb9b4106e8e1a344c69cd84d7548"
+        ]
+      ],
+      "element_hashes": [
+        "f0967a21029e4ea99ff95a3cab992aa9f3e003741326f3f8154ea7e24a4f7ff1",
+        "92327aa3c5f1788e83b44a97fb25db51959e4546994e1dd1bcf0154c892039da"
+      ],
+      "hash": "4771e2503541796c2b2bf010ab2a8737d2d16b750a84363f4cc33ac614fce1a4",
+      "kind": "array",
+      "mistakes": {
+        "48c71a631fddfe95072431be0ac6b56fa13f4851d849654e8e9b4be007022386": "4 sin²(ω/2) attend ω = 2πf, en radians par case, pas f en cycles par case",
+        "ea997f9625dba19837543ead07604fc82568799d941c6594ebefa793ab493ed6": "c'est le carré du sinus de la moitié de ω"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "9b776002a97f5971c3595f611dd36a7d35d7412c3901a562421ed42d93f1d8ac"
+        ],
+        [
+          "caa0b7c045c4769033730d4e809d2a55961ff82eabd0769b0eb2f41df39c0c1b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "de318025ed6562ec459cb51404838b8f621eaef6be135898cc81a87e0f4b733f",
+          "a948a83e84d8c3c3e0f6bcfa9074235eb86854908d68497b3056273d5c0e11af",
+          "48777256827b2f192db67b65e4855d90e66d6ee8197380d076a598988259c5ed"
+        ],
+        [
+          "f6f5ed47c311da580a4847519723a596b578f3961a4857db9cddee4a0e13d320",
+          "0b64536a479ee5eb7ff50e499a17fb060738ce6d75320ecce1b6961cb529b648",
+          "7d1cc41f3c996b919be821d40b34c55015a998c7160ca127418214f71c9d1ded"
+        ]
+      ],
+      "element_hashes": [
+        "932c17ca293e261fcaca71335d58f72b23f01b412a97b9c798af80afa6153300",
+        "a582bbe07001561f7bd6f1836b832fe4677ed44c82fb72c356542c2a35f91546"
+      ],
+      "hash": "205286bc67f52f9aae52afddd095c8d8453fe2b282e072b3c3d137d8a3d512e9",
+      "kind": "array",
+      "mistakes": {
+        "5ae3481011e9217f6f03d448ced1fba17a54ac08024beb5edb1212c0ea741838": "cos ω attend ω en radians par case",
+        "8660f8cfd73be33f1206474a198dd993360290cbaa20ead0608447b46b2791c0": "la moyenne mobile pèse 1/3 sur chacune des trois cases, pas 1/2 sur deux"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5c": {
+      "coarse_any": {
+        "0": [
+          "83a389547e223e748bab753687e40dda7529538fabeed3486be8823f4565b58d"
+        ]
+      },
+      "decimals": 2,
+      "hash": "d3cc603c7ae7aacc1fcf8a4505c472bae35ad2540eb9e72af7a371e92d451a67",
+      "hash_coarse": "eb3ecc386ef802f6ab5a15d80bc863d11a28eff3d15a3573f59c07408bca1294",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "93a03abdf4ff0a5f6c35c2c22b13d3d4e359d877bd802b69f92742ad7fdc22f8": "la période ne s'obtient pas à partir de la somme f₁ + f₂",
+        "f4d9fc42fbbf35891d165b016b3455b3467993b94eaca808b4e2c342fb67b3db": "en dimension 2, la période n'est pas la somme des périodes le long des axes"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5d": {
+      "coarse_any": {
+        "0": [
+          "c5601af5ede6139869c79d987a4ad4cf145daf85ea4618234c93271882588acd"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6fad9d96ba97aeffe5594ef78a8cfd8d537e5d7251f19ae926ebbca7dd04d691"
+        ]
+      },
+      "decimals": 3,
+      "hash": "6f7bc775e52a5f5a1c3340dece44b1a67bd6d319d115bcb1badb7ebcb0fb2bc6",
+      "hash_coarse": "1a8bcc981d5587036158680f25af46d4c51c844eba5a5feb464b0199f63906a5",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "69df3ba9e4c1d74cdb3e260b91bc13ef5c31b9b5d9c101b86e05602be0dc13ed": "le motif C varie aussi le long des colonnes",
+        "d4a79c22f83a50a0a45319cc7e9e1774949537f6d12329e46812af155d9fb6a1": "la formule de dimension 1, appliquée à la fréquence prise dans la direction des rayures, ne donne pas la variation totale d'une grille"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5e": {
+      "coarse_any": {
+        "0": [
+          "a9d06e301ae95c30e7c8646fc860ec65dc807a17405abca8e70e67cfc1c04178"
+        ],
+        "1": [
+          "9ef73323a6d1e6fcc1b2a1f610a7de80812aacd3deac233a874d1f2e532f69a9"
+        ]
+      },
+      "decimals": 3,
+      "hash": "f55f2ae2fbacd71e35c0b0f20acb21154d95c5c46712324ef1bc6e3d1aadbd5c",
+      "hash_coarse": "1f71edcdfb5435a95ecf4ef16e59e61b5724154fe08e3c8c64a464b63a25382c",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "23c8fb77cde6526261253318625d30ae07764b33948c380b9e07de0e09a8ac77": "le gain du flou 3 × 3 n'est pas la moyenne des gains des deux directions",
+        "4827ef75536fcdee4535683fee3197ca3dd9526f7773e4034c6173fba62a78e4": "le flou 3 × 3 agit aussi le long des colonnes"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.5f": {
+      "coarse_any": {
+        "0": [
+          "963e7757b7aea1c748321d6e33f048d85ffdea4483dcbb869c10f6bfddd31eaf"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "5f677520acdbf5550d69477ecbbb297d13af14edf1bbcf50ed200a3a7d6e62b1"
+        ],
+        "2": [
+          "7de76d75970034217d86c7aca80c9390ca4d4dfdd896990139271b16ccb4c71b"
+        ],
+        "3": [
+          "dc8c544dfb95422a74536637e91d39ffcc2c7546f8d33a2044592abe529ca308"
+        ],
+        "4": [
+          "92a88d1e383b7326f90d532a71d594d5ce9f5028fc9e0ef2a4eac110ee767336"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5052f50eda8baad21bc9368ed1fddd99e9f930911f1930ea0c778d5cd7483caa",
+      "hash_coarse": "44b10189fe8fc1a2e5006703d01236751f98b0b6a5b2bb09ca0f8b57a1d2324b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "4f48c6e5729cec9a7f7ee4da85bd615af42a61aa5dd9963ca5fddb74a54fa979": "un motif relevé une fois par case n'a jamais une période de moins de 2 cases : replie d'abord la fréquence",
+        "f3d00727cc4932553daa4ea6fecf9c5f1dc7a860528d678240a323b264449668": "la question demande une période, en cases, pas une fréquence"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "afefa2f24c8ec1a7c022df90dd8e14d5231331119548509a6dabb0c7acc5cada"
+        ],
+        [
+          "8ea75e7c7d23561dad95e64b56249683bb2b5af4080a1a83cd92ad1257fb3aa6"
+        ],
+        [
+          "c741f4843099f44034351ac0b2f098df1e77f8aec014a17b9d5a8d5c19a30d4f"
+        ],
+        [
+          "96dfc736a433427cec8b242c63ac2f9734e922289cd7b959ea0a0dbaad1b4d59"
+        ],
+        [
+          "f8667982e1cb9517f88351ceee2fcbfca5388684a71a1475cabb6a80c86a3230"
+        ],
+        [
+          "a18ec16ee6c83c68578b606f0601eddf8c84c36993e642231073cfa3b7b7900e"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "c3ae0ed125a6a91843ddc7c2d717cfb4b3db5f388f0dd02cb42f541ecfee33fc"
+        ],
+        [
+          "1bf2002781690315594e00ffe14db8255a6371ecd606d8a049fa55c1575def9b",
+          "45665a7a88dd4cfdcf61d402414a303e01cac32fd8dceffd0555e0543a18d1cb"
+        ],
+        [
+          "fef91bacc43696a11a18ca6d91aec07109fae3976dd6cf4e68a13acfbe12db4a"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "ffae93b6cfda7c8201252f4ddd529ab4d117dede2b965aa31375c46749e3ec22",
+        "69a9b4c7e76f8bd54a003f76dffd888e0a490a564aaaf3656403351cc10943b3",
+        "a8acb3a3d71f1f34ef2bd614a4e0280586cd194cf502859c81bbb5f72d70709a",
+        "ec2b17d7c76df23fa162b9d90fc407b43a412b85ba45bf519ca0ad5ef8415f23",
+        "8093337f5c817f24c22d9cf314edb9dc9ca1f5e7509bc26042253adadec7334d",
+        "902f49d065e48132b81bf945f5f29b15f21fbe745c8a4170638d391f247dc3f1"
+      ],
+      "hash": "276d2c60650943fbf2d6227b3257161b24cce23be14378ce4ebb5a6a9cf7002a",
+      "kind": "array",
+      "mistakes": {
+        "1dbd18feacd04ce555127c2b243b727ff01e5d437e7441382687a77e79196a03": "multiplier toutes les probabilités par un même nombre ne change rien après la renormalisation : on élève à une puissance",
+        "997e4de5c07ac50af3760fb5bce18171d8207c032cc9ae23e0ae3fab7fb42518": "à T = 1/3, on élève à la puissance 1/T, pas à la puissance T",
+        "f44f7ea2d0955d748dffbb812105fabb87e7d9540c3bc85a6a6bd628f32953a9": "les probabilités tempérées se renormalisent pour que leur somme vaille 1"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3a284dd667d6c38e169722ec08a2ead7afa883e737802007a762e89e607ba57e"
+        ],
+        [
+          "1580450ec494bb9fd5fb49383b3e7cb9526a837f251ada8e08ee7e86bfea0f31"
+        ],
+        [
+          "2fd6c8a1412393a0c6fb78e52a27b30a397eb8312fa7eb3064f85c0dde3856cf"
+        ],
+        [
+          "07548c201a008cdfb09331d7a0551639a81473e10be21a08aabd116871739e11"
+        ],
+        [
+          "47b4caa16467faf448c1de0e6f00d12907fdc0989ff3726bed454123d65a5d78"
+        ],
+        [
+          "d471cd98ecc2ff5d69c0eaf5b72fd6880cdaed8563fa8a597d715f5a7a9d0ec4"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "abd740a0774ddf6921b7c0c24a5be9532e490ab67dca6d0f932286a3903097db",
+          "4562bfd0117c872505437e5322f5b29514de5cb1f8e345853ecbeed5d6666ff9"
+        ],
+        [
+          "22c025bb28a6728b452778baa98f4a596dd96de948a52600dd34a9d00a4a855e",
+          "e15af388edc7b0e9a7d1cbab37139325e572a446a62888f3ad2f845aa85c0754"
+        ],
+        [
+          "a3b96820bef8a3a4c8027e44ca5f29b5ccd3ff2090e55b6079472eab1d859ef7",
+          "0425bb8e58613ce772563d0240f980c062be47772336845494129d5ffddcce69"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "1a247b284f8bf6c23ccb697fc6f8e0e6009771e612752960ca7d0f3f30ab7fba",
+        "a2c9e9434c029bbc280d4150c0f880b6d644140040faae908e3896af4dc2efab",
+        "29f7ac05ce87114e234bb455f9b51a94ff27d411da539707066e2b8fa5ec8771",
+        "98968490c2ba560467ffed9db00e7d2346f9fb6b25c8836c68a64d57af7aae9f",
+        "90ac45b699cd8663c9dec1255e0c652a70423088a8348b3b8b73149da696139a",
+        "74a830845bcb2475448c981dedb0e933766024d6d230095779ec2900b1b45a24"
+      ],
+      "hash": "2a95e2a974ebb00afa35252d10ed4b121f8c2821acaefe02493acc59bd50b6ed",
+      "kind": "array",
+      "mistakes": {
+        "e077f69bc422733070e75402eaced8cd83e86d4616a741b04f6bec11624aba8c": "la loi conditionnelle divise par la masse P(S) des issues gardées",
+        "f5d9831953f016c61a2a4e4433f4fbf0fa66f449766943663846ff38c4de1f55": "le top-3 tronque la loi de départ p, pas la loi refroidie"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5d6e75b3a276ffe0b0fb7abded0751fb00230101e3be46e987293cb879cc7602"
+        ],
+        [
+          "f8afb437267980b547b718ad163c098028210869b58596517b0b4a158df0b2d6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "88b5a4319e482a032d35c3eef7b61a0cc86579dde7a0c02ce97fe0d5bb760428",
+          "5bed1ef742734b98ad2abf634fcc717b32e1175853868f8ffbc3d997a8f303e0"
+        ],
+        [
+          "c8762bbff41dc9161192b074093243e447749aaa0eb4529b8e9b797db886cbd2",
+          "a920ec5532a5bb8bc6ce11612db07d8e4b1b6e354622b1c5f7cbc1febd359412"
+        ]
+      ],
+      "element_hashes": [
+        "21e0b6f78070ac71436a78e92ed3a79c21854fdf34c39f453b028b7c0a068ec4",
+        "9d19db2f8e347b2c1906eb58e6f41d99d9ffac80fca3a1ab0fb4768462bd123d"
+      ],
+      "hash": "fd7f672b1fbcf7ca4680976a01f53d2d9c3af6e188a57455c8f2115ead268c82",
+      "kind": "array",
+      "mistakes": {
+        "531a760f27cb1d2fc11c6111c760f5ec7f50566d15888e61bb839f4bcb4de97f": "1 − P(S) est la distance en variation totale, pas la divergence KL",
+        "7885c1536e300dd434ce7144fce91d486270caa15850d840b163fbf0e07f7af9": "la distance en variation totale est la moitié de la norme L1",
+        "92ba27ae1b35508bae08105e98d97f26c602289c400f5e0f02ae93ba8c3fafee": "la divergence KL se compte en nats, avec ln"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6d": {
+      "decimals": 0,
+      "element_hashes": [
+        "79360ab9e517f771f117c847e6cf576753d8bed1508ca4e48d2e4032841c96f5",
+        "795632634766df5b000ee32c6881b57fa6ca993ec9926e0901f344eb7d6bbec3",
+        "488ab6c8acbf41fb2b15d379ec0d4019f112db742ee7b5dcc7e21ae4a089f98d",
+        "4b5489f8273b85a1e0ca7924de1cc65c41573331d00d7832fc1f0c7a35e923eb"
+      ],
+      "hash": "0bb0127fc0e0b53c168a6056f77ba33d0de06c0dbf3482b9104a3fcff08f0e70",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0abb5a3721679d90dde36169474255be287ba3c9c459164cbdca9d39be592706": "les issues se prennent par probabilité décroissante, pas dans l'ordre des catégories",
+        "5e12e599e8e55182f603df51ccd31b173b93832e0426c360e42224c5c68e209a": "la liste se range par probabilité décroissante, pas par numéro de catégorie"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "82a88863e72c6c1147b42085e64cc69d9b01159d21af3b90b5b2056494a3b079"
+        ],
+        [
+          "1c5a11c35e7cfbe4244d2b4075bc76a1b8f971d0b59a9ec7c44f28e3b2405c10"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4a5e8f54ba5964749ef51270c12afff2fcc72ca2ba03aa20237b9d2766a09f66",
+          "e23ab16f27d2787b4147a0047e022ad09cd1a4bc4567d8bf6c53336b3fd1ba2e"
+        ],
+        [
+          "e0a9f26fda0de942cd375bc1673660ed45198f3f46f71f7acb362000e3f72857",
+          "2abe978783db4948e9e852398b8c9be19413a49ce948277a842578f9be8d631b"
+        ]
+      ],
+      "element_hashes": [
+        "b86972fe3e2efaeed6a84aa3f85648617ebd722d7da8f8d0c6740c5c5989d3f1",
+        "dc8058d0e19dedf29a862eaff9b63ab001fe5df80dc7d6e42730d9124976f046"
+      ],
+      "hash": "5dea60bfef32a2604a21cb7925379c6658c90932ca43949a3ac508edadde6028",
+      "kind": "array",
+      "mistakes": {
+        "6bdbae655833d6905d706de5201cf09f69ac62626fcfacafdfdf3980d56b3c57": "la divergence KL se compte en nats, avec ln",
+        "7fd169b8e98b9d6620767a4feb33343cb454cf0a95c03aeccbc6ae0da40de12e": "le coût se calcule avec la masse de l'ensemble gardé, pas avec le seuil m"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.6f": {
+      "hash": "9993b0831bc075b4a460c5fdc939f9fde722168b9d8c5e0b98034fc8d4287cda",
+      "kind": "interval",
+      "mistakes": {
+        "3a7f28a1bbeab3dfea1595ed019ee724dc4a97939b19f01334592af986eb891f": "au seuil m = P₃ (la masse des trois plus probables), trois issues atteignent m",
+        "8872b239f1caa1b074e0e87531f39dbc61b9b3cd24c4b91f1bd9faf4ff439601": "l'intervalle demandé est celui des seuils où l'on garde trois issues, pas deux",
+        "e0cfb04b5426a463bed94b8fbf37e157fbd466f68463f462a1d3871224298d70": "au seuil m = P₂ (la masse des deux plus probables), deux issues suffisent déjà"
+      },
+      "rounded": {
+        "1": "6ac94e7dae69024f24f576685d795c70d48117ad5c21a2416fae752c00d85cdf"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.7a": {
+      "decimals": 0,
+      "element_hashes": [
+        "ced18526354bea4db70b0e5d431945752815ece20c267cfe38f1afb86ea7c75b",
+        "95a106bd404c6c94f38eb3b72bb3786a023379ff8c06a0886c8dc05bb8c0dd7b"
+      ],
+      "hash": "7f72aef72ca21de72427fe1a600bb182f9140e7733d208b879d043485a967f6e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "957ce700a499bdfbb441547cd2df3e1b64f02e136181e76c9f8f3ab5e350de8a": "la liste donne la prépériode, puis la période",
+        "e4771f4d498ec76b5fc471724aeaecabbc022c8d8d2e3108bbfa7f94bbbe1b5a": "la période est la longueur du cycle, sans la queue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.7b": {
+      "decimals": 0,
+      "element_hashes": [
+        "b37b0d3c3469efa2b9db23a801b8422497e17cf0ade49eaba5a830ec2f1fb7da",
+        "169a27beca49109d215316ab1f93c51e411d9e55fc584222046107e0ba3fb14c"
+      ],
+      "hash": "d3e1e5dcdec13f5d2d118b9fdb4d91d0ef3a7d47e3545451087e1c3621ebe4d4",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "463e5f3f745ba1a6a57dbebfa30eefedb40136dc1057d9b641302d39183f219e": "la liste donne la prépériode, puis la période",
+        "7f1ae445019dac8f14ea95f4d4e53768a6bc2fcda683689457230dc8aa9ae3c6": "la période est la longueur du cycle, sans la queue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.7c": {
+      "hash": "4d2f5f9463841bf536559ff50795bdbc93d685d6d67dab8d0ce704751892b9cf",
+      "kind": "bool",
+      "mistakes": {
+        "075969e0ea13ab734c7639f72e8329fdd107b0a69a3309389398fa88ad3423cb": "compte les restes possibles quand le développement ne s'arrête pas"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.11a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5c4c520664d57907a3900c9e43a69fb16192b5f1f713578ed805f1329a7d3e93"
+        ],
+        [
+          "7aa7b38a0855e6fa87fa24c7293b0a03aad9827c826285e9f5d6c666648ecd90"
+        ],
+        [
+          "ae93410ab72b7236d57d17107f0f70d2bb8d51bbb7c703a1b5d25eaae93974c8"
+        ],
+        [
+          "a21a0a2d6123403264a74eb3e0147bef97e8d7b9374c6a6cf5ff5c54216ce7d7"
+        ],
+        [
+          "0cc2a2d265312c2f8399f2afcda0497892172a180e47a75270ec33dce23664fe"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1db8472ca9e95e14e47a8d00a7ad096ff07479fe4699a8de551652ede4c6f807",
+          "43d88b2437743a96d99e787a9491b27eb1b13ba1d5e751c3e38a3090703ca2df"
+        ],
+        [
+          "2ded6824176ef6fb6e6515653c4cb3f10b7889b1a8376638145974034063e4b6",
+          "5a3c01778575f2fc1e5dfeb87de096649b77bba35a560d190ac7ac5a5c5de1f7"
+        ],
+        [
+          "4543cfcbc43a4e72428f2c1734caabe2ddbd053af345d1970310dc92f6487e99"
+        ],
+        [
+          "c054aae225aed0e7582bb907ae95fb8cf1f2be2d8d6872c05bc5580574d1b659",
+          "f65375331371af3f21ed7535e0f516975530105711184d55e532598eec2d3206"
+        ],
+        [
+          "34ea38f7402802e51ac0a3a79a46cd0f57da1824b00ce9c3eaead5ddf7fe3b73"
+        ]
+      ],
+      "element_hashes": [
+        "332a07e026c1187cea9bb003e02b9cef596d33f18448d8aa2d5d9f2df89e9f4f",
+        "fa53904c1d09ae955040ba8513dd1b586a5ea207dd10f44a45d4de66789641ed",
+        "cd4282e9511e3b65efa078a41ab11c875d4622492de036d51d7c688f33e5e4ac",
+        "8c74c5c2c502088a730959ef75e02ab6c51416cdd5e3d8f67964f3072ed2449f",
+        "593407c89f3974b54492aeb15c29b83e713807543991d85af8f1695f15f141da"
+      ],
+      "hash": "44bb670be5197ba5947cbbf4c1ee787f8a68b802b321895e32b55f1603c63ca2",
+      "kind": "array",
+      "mistakes": {
+        "0a45fe68ad1d3416adb7b07c352545b27f52d956028c104373dbdf36207dbd40": "la softmax passe les scores à l'exponentielle avant de normaliser",
+        "39107a80a4ec346f93ef1e8296394116a22abdb4ac2d7250b49eade9b8a32660": "la softmax normalise : la somme des probabilités vaut 1"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.11b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "8020718c6ac710df75e2d1176308037fd3c7d6710124f0a22631f13240b8399f"
+        ],
+        [
+          "c6c32059fb620f788201088c70a9dc8105e05e550d474aa520ae9e4364b561be"
+        ],
+        [
+          "8900795b88e7c66bd5316c1878d08411c2f3eb04c5e07722d1c7f4c058e1f59b"
+        ],
+        [
+          "57076abdd251fa2fffc06672992cffe821d5f74661fa526a9bbcfde71d8e8f45"
+        ],
+        [
+          "5adec624c62028b25422912ddcb459f716d0f8f92bd3d57fbd2d01996c8d3882"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9036a7a4670c226a3f3c8ae50a0aa562ddfe29503f60c3b0ad5ea1b18d4255c1",
+          "c1dd92db6256d1d93320d0fbce9816c929fb234b3911414d9873f7595605fe0c"
+        ],
+        [
+          "77104ba922ad97daa4dccde9f1c604c6fc7ea38ccf28ca1052f7d948458e58bc",
+          "9626fdc4a06c0146b7b078d037aa5a643e8ee9bfe950879a6efdbc39e5380b03"
+        ],
+        [
+          "430ca9c4faa8393d4ef6cedfbc5797cfb13942fe4cdd71f69fc0b5b65074b37c",
+          "1952fb846e6fb76dbdefda86ad88de502095d141f77013bb0abf447a0a1643a4"
+        ],
+        [
+          "511bced1abcba1ab7b8453e7728f8bf0512d47e187ee85233b1c18a050809871",
+          "e421a478ceb931b145eb703f6dbc88c9825b5778bddf9c42764a9886ea4e3615"
+        ],
+        [
+          "6cbee5886ae813001fe64da0dc58e3721227e78355fdcec0dff8005e63c3fb9b",
+          "8bb6e254b3aa1fbbb7379f87b7322b9c3b0f0eb8c4a71ab57111d001303eac16"
+        ]
+      ],
+      "element_hashes": [
+        "b436d1852e82d8ad52cfbb7343766b689e68fcc5c86a49bd2754f5a4bebc1dfe",
+        "8f1ce2e71c24b0a57af413beb6747cc46c4f7520f57b5fdc1c9508422ebb7dfb",
+        "f44ac2e505b65224eb44578070660ca3e3dd0957882d3e78f3fc7247ab79f4cf",
+        "8b511a86529c3b95739841920a21daabb4bd0763f72027de00d24dc259518cdf",
+        "7a576db27e531786d10ab8668c6038075ed068c3b8657f6775937db4c1f13903"
+      ],
+      "hash": "414ce652d3c296727d2e84d37cad6fa8495da1031c3c977d745400c4e4a3963b",
+      "kind": "array",
+      "mistakes": {
+        "01c621a979e24ca6a7ed983d53e072019bd1d1845b8271e4a6ff8da6b955f059": "la température divise les scores : z/T, pas zT",
+        "0451e22d9ef1be4181534d385af5dcc310d347ba498772828f1ec3502d0cc575": "on divise les scores par T avant la softmax, pas les probabilités après"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.11c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "31799f4ed8eb1f4b717d93e875312af4f0fbd2f214010eb6ad80e34a931b0683"
+        ],
+        [
+          "9cd83e4f64e14ef94ffe13d0d14eb21825be5f801f2e24ff14acae1c52e872d1"
+        ],
+        [
+          "2fb21ed7376be7aefd7fabf97e80d1b4786bf5130b4a68006eb5fe43d8a727b2"
+        ],
+        [
+          "541e5937a9e222636167212c91a42a1d5ada664993760ca6757372b100f38d3c"
+        ],
+        [
+          "0dd0bdf33e28d66cb17354f6534ae8de5e6f7fde765e4285680c8c4d9b604c1e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f0b20880e60ffac72d0e9c8f879a1dd27c7eb5918b87f0253f489a0aa80ee883",
+          "eb2bbb84c243e13a8584128ff8b289a4b989033859e198ed19d8e704a6840838"
+        ],
+        [
+          "488ab50b40ffe1deb62ae1ebde390ee35929e69d871d193c962da7ef970ca070",
+          "96242dc4e944f99d0a62700b81bf7640a6d2676a77e403e9c70035ef2dab410c"
+        ],
+        [],
+        [
+          "88caa469b148338f6bb0cb963456b3449fba0be1d5f809a65c5e9e36b6dace09",
+          "302a1227d3c1549bc11345f7dca4c89fdf4b238e53c386382c93da495fb70d22"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "1b8a063f8ec32130aa72012a5482990a7e41df4f361047c4d3d1412db955f84b",
+        "be4f80147c8edc0102a2a3cd4d490513834c4daa93cdfa05bd7144153c337a87",
+        "a2da799044ecac96e38359196cd842b70401fbafdbfe11aa021bcd2b87b2264e",
+        "b7d9d7092b80c706fb253508e47b240c60bb3fcd435d1b726a4c63fbdebdd4ef",
+        "d3c745ff199d9b6c9d703f9984555ccd66d91ba9d7089c09d6c5ef97f426b981"
+      ],
+      "hash": "edbdf6aba5b3b9de4e0302407686eab49d83cfc50983ac0d67eff595ed5db95d",
+      "kind": "array",
+      "mistakes": {
+        "7530680bd50f93162871a0aaf70905e638d367075b8d43ed1241d9a2952ebfd0": "tronque la loi à T = 3, pas la loi de départ",
+        "d6bc29032aadb9a3dbe954696876999277d51c1564499244651459ce3b359410": "la loi tronquée se renormalise sur les trois espèces gardées"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.11d": {
+      "hash": "06356576b57636cca95efcf54a55302526fb0d2a0a9bd7241be440f096f3ea45",
+      "kind": "bool",
+      "mistakes": {
+        "40783a4cf9a041773a07ac594a32546d1e0b126887376e0322becfe86f5a58b7": "compare l'ordre des espèces aux deux températures"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.11e": {
+      "hash": "d9b1dc8e2010ee41950211b8d28dcde912a8921b6064f51cbc05941083f95caa",
+      "kind": "bool",
+      "mistakes": {
+        "0b3591c3a0e692a86d234cd02196924ec81827ef56e7cde10b759381dcbe791b": "écris les deux lois pour une espèce gardée, et compare leurs dénominateurs"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.13a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f58b65ac36a9eddd692a167758737a71cbb1499acc4525b1ff9c2537292fded4"
+        ],
+        [
+          "bd03ad98228fcda551ee82927d1d16057814ebdc72c2cc3241fd1f7323839c07"
+        ],
+        [
+          "08316ad6cd44ebdd984ad4311f709c58026ed125302ab8ffeee7d27bf3435397"
+        ],
+        [
+          "82c034b6e55aa1268a6ae480a2c7164315f98fd74e595841ce90a202788b6d53"
+        ],
+        [
+          "3bdc09e66186063da1b5b67d03f9239f0dc445aed68076aa808fbc075132d01d"
+        ],
+        [
+          "bc87adf4c01c0ea06fac48c85d01bead7d17357b7c394764475eed74b03302db"
+        ],
+        [
+          "db70a334e984dbc8b982e7d6523b0f62d1755e3ba32ba272a7fe606bc76443c7"
+        ],
+        [
+          "2023538c911d034a890292584e2a1bb2ba9e303befb826c58d3c91d8f8f3b943"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "4adf3846e8e2fb0a82b0ce71f6faec4d5306503518d67d3cbb79b2f180da1f66",
+          "d8c8a83bbe879254d15efdba51ef55bd0dba4f331e7771eefcc2596d022a6a02",
+          "ebafe0eac3d92e6b58bff17f47755c5d585d949e54ec19bbd1db31ccc31e8a6b",
+          "195ab8717bbc844567d9cb3cd5aedd8080cfe0dd0d51e5ef68233a53681c5c6a",
+          "4df20b8d994f3c1d04d44260d0564e5ceb41300521fa72707349e30950159d76"
+        ],
+        [
+          "1a7f7e2daafd1aa5586aee8e8c1b95b61509e4e4de5a39ac5ffb2f06e32608ca",
+          "6b880184dd442336637143b3a6dcb5d07c2ed785b09dc495709181d4c6ad174c",
+          "4e607c71acfd6bd88bd83d305881d1d7300087da91927051c6c7c209d83d297f",
+          "3b4b9646c6f5a02ec56dba9da727c67d4377c4e1443d6554c57580325694dbcf",
+          "9c0fded7364ae31074ce61f2c5d15f0a5c21c10705262b38bbea601d2f6e71ec"
+        ],
+        [],
+        [],
+        [
+          "f7cff8b38958d0a9673eba85b1c9af120854a733f5ed89ba8678bfe70d78ce08",
+          "5a10161a3f036b7e45ea49e3f8ce1de3ff5b577be7d44dbc5d84b8adf5839c20",
+          "f0459b96bf924d4f8626dc5877e13cc5edcb499391625582a4da485228c2c0b4",
+          "557a57ad006d63ee4d232dc2ed20886798fbb5df0b1a2e991142bb93a5e87f63",
+          "21dc4655d8fa1c40ac8f90cf0c16b022a512e198bdd8edad75c304fcc47e6a0e"
+        ],
+        [
+          "709613f764bd939c801719c930c761a706803a8757edd90fbd868e62fed1aa52",
+          "52c3e3b024ce5f3d47f7b12268e4388d1377aaf32335b07aad540fb5e847a834",
+          "6c760938628b5ac17d4482b56daec97616db6b70f57d4f6e134135c035041e8e",
+          "7d90efdd189a2fa5370d7cc5aae0ca60e7134cbc909ad5a1b8a6fa0fdb0ae39d",
+          "fcf6f8586f4552f27cef8fe286247ef388bd5c41e91d1bea30e259b9aa7f3b73"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "12de22bf294da61c4ce8f8a28151a11f7ce0d19392e5f82e086ad2ebadb6450e",
+        "f23c3e833f15d665afc331a6812308cc6611b363bb428d10a9186e3f95cb10af",
+        "b9a02f2b23b132e1ffc468e0d981194d6ff727ba2d5b5ba0ce279c66661f51a8",
+        "44014d3948a525cfc250775764d08a7f545525bdb3a00f16152b1180924b3f73",
+        "e6c863f2268694762beb2742dd477b1b723a3a62282d64c73872b029f68d83b3",
+        "a84deb74a2c9e30abe315aa498991568a82de75bf25ab0ca1fed9e8c117023b4",
+        "8781012dd8095acbbd5c52a3be5c7d77c2722712c4debe64a87919aaaa3722a8",
+        "7f7edb9e66c27acb02198fdb6853ab5c88dc8af02ca48360dc9195994bb7bd39"
+      ],
+      "hash": "bfd67d2185648439937413f491b8ee6fc776ac5b6f5c2100e66bc80ff811eba5",
+      "kind": "array",
+      "mistakes": {
+        "1891a9e0294e4c496e586f0a423055da78a158f20907e2640004997f794ae4c6": "dans chaque colonne, la première coordonnée de valeur absolue > 1e-8 est positive",
+        "88cc2442cdc9241756a83c50432215a2740b214359c381919f9810ae45964bc4": "G se forme à partir des carrés des distances, et les colonnes viennent par valeur propre décroissante",
+        "e0087c2900bab1dba8bc87e4b66f705f509be84eb145db5d19a1a8153cb6baca": "G = −½ J D⁽²⁾ J : le facteur ½ compte (sans lui, chaque coordonnée est multipliée par √2)"
+      },
+      "shape": [
+        4,
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.13b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4a83d78682e9ba2114d9ea7dc244b6905ca8eca63ce1a0de49a195ab560715dd"
+        ],
+        [
+          "25923fe671d0ec59ce91c95e3c3ea3cca6ff367f0633e5bffa112c96d45698c4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6f9268b5a8b61b3583cc49023ea4b93b458faf168981d11468ccce3e661f79d8",
+          "9e9f719b980a96c5b18b1f119b399fc8a416ead15c7fdc286efa01b287e94030",
+          "7d01b8ac74867a58c89a7b6310c3ac373efda86ca44a0c4b73f9593e35b8e4af",
+          "306a9ff49dd60985d17d5786485dd7fdc26d430087bb367e1f62e258c10aa41a",
+          "c4ddbf5ee7f81bc083f2dc5cf42243850d86fe4b82159dc6c3fe88e164b48318"
+        ],
+        [
+          "7ed1f96b07651550b0007c45860f70cef1b4c049c63b8608599c535b6cf5e05c",
+          "82421092937fc62cf929009f01402255715fc56cb1cf37769958404ebccb8e32",
+          "cc25db6406324afbbfbfd637400cb55d5ac5353d146eb5481bd0e43ba9e36a6e",
+          "f3072f4dd21109dbe52b1f43c5ff3e96537f96f1d822bfaf7d6c70bbec2a6a8a",
+          "0f3b6aad57e9b07a4f59ad2fe7d39a3c8b798395db7135dea6060ae526c9dd47"
+        ]
+      ],
+      "element_hashes": [
+        "4b8673f78ab8f88c2e9c8a9170a520d2ae46adeb9a4508bc8892025de253b8f1",
+        "b8999d75017898a80ef4c558480fe14778d51fdc71efb861135b1ca24bca1706"
+      ],
+      "hash": "3bd6eb819570f107e5f6d2f59f2648bd71449eeb3a5a86e8790e2428105ae1e7",
+      "kind": "array",
+      "mistakes": {
+        "506a7f8d863b224e526739729130fc646d17b2b32f8a7d23d6111524f3928186": "le déterminant de R se calcule sur R = Yᵀ X (Xᵀ X)⁻¹, avec la carte Y de la construction de la docstring (colonnes par valeur propre décroissante, convention de signe)",
+        "df6c53b033f6a588507bd9bdfb60e8697dbf9198aa2f5ea5847527c6d017ad6c": "R Rᵀ = I : une matrice orthogonale conserve les produits scalaires, et Y Yᵀ = X Xᵀ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.13c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "8ac3eb11dbd5b3babf5fe29d94691a2689eb135cdcf010adcd19e04f41966420"
+        ],
+        [
+          "e82e0be949a9f4023749d9d9baad4015298c55bb45dbc60f290b654dbc7ad792"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d648261c347407215597498c75fdec11a7ff7fbe11b8d9f46e471e29eccf22a1",
+          "1160846b5478f4ccab96a1f1646c77ad909f85246f6d2d813330946726c13e4b",
+          "f9ccca3093e02b06b0b8b8ac849a090942dd962af8e78d872d8b1688bb55e729",
+          "46fe89bf877c71b35dcb23f98811199d596af6744cd8a10e9a6e49671563a8bf",
+          "e2487fde2b3502c8502e1d45aeff18971ceb2ad6259bc343bf18d0e46abaa2a5"
+        ],
+        [
+          "f02eb673aa3eace3ab6f53a3603aecc356f56e2d323209da3ba942ce12ba986c",
+          "5a92adaf2dbe5c3d0d3c0fd0f29b950620add4ceaa9423b5f4ceb1a1252b077b",
+          "4b6deea77141a38b22af387215c11aa253172d2f40e3ea2b2403075b21638106",
+          "2d9c4bdd5c1171fb7054384f06935aee41ba1bcbb990e24f631fcb9af1927978",
+          "f3d60bb8a572b37acd022b07cfaae192fa5f73cee293bb44dda61b30516fb18f"
+        ]
+      ],
+      "element_hashes": [
+        "8ff4ea0e706f4fca22f50a092ac691fcac1a0b056b09c50749c8946d6458de0c",
+        "eccb84064196dcc6502926c2d568ecfb482765dd3400bed613cc67c372e34a7f"
+      ],
+      "hash": "3759b9f81b05a9f237733b31c4544330955503fb43ea42d5e08e747021901159",
+      "kind": "array",
+      "mistakes": {
+        "0767c82268f152b605eb55d67c61b59248deae2e5d4d41cc21d689919b1216a8": "une valeur propre sous −s veut dire que G n'est pas une matrice de Gram : ta fonction doit lever une ValueError (relance ses tests)",
+        "ddfce2ca364ee9e3524edc1a8899392c2d40d8dd9cb0902072bb626b5b2dd500": "la plus petite valeur propre se calcule sur −½ J D⁽²⁾ J, avec les carrés des distances"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.13d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "002bdbefd8ad7859c43926ab20930c160f6e66ba978e71c08d5a38fb87f67852"
+        ],
+        [
+          "248bbc4db97683d94b2e1f215c1f945433fc63f299a48dd3410d94fdd831aab8"
+        ],
+        [
+          "c1a42c799deeaaed8a8105300afa2bbe09caeaabd4f6e6556e4ba8e14f7911c5"
+        ],
+        [
+          "b19faaf0913f78c272080011ed74900453f94c9040c3a4e3c360df1ec2d4675f"
+        ],
+        [
+          "dafe02693e5aa7dbe7dab54b01cff2161b41f19efa9177b8cfbaf902914d042c"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "8e1134c52e3258b775bee38fe99926a8470e5d1f8240d5eccb95722bc125e2f0",
+          "1bf7f497a320e5e2ef9c8cbe482b508f50a1deebe58c1f942d0e9ec915ecfd3b",
+          "de18122f1acc095495eb20c4c126abe21d127e30cc9070db9f751f9e2619cfa6",
+          "67d76dbc17877e5ab1eed3529999c392279d9184c79ebdd54e903f53401d297a",
+          "cb47af97c23a342260b8f1f9e93776b9260cf79600f4f480796cdf7458a0be5a"
+        ],
+        [],
+        [
+          "3a058b71aae92351aedfdea217cf84903408ef75ef8972ff03a3a8576d9c6928",
+          "7dbe3c68be0c1bf6ce2e8f1f1f5b22b4df0c17f716a358894aad6edbebe36217",
+          "e1344e6e6470a3af78ed855930329dcf7e3ef60cb7be52e0e34199008f1a0a2a",
+          "2e4d39a715f30d5ab1e64fe3e61945b97ccdf829b54b1da4fdf7fcf909d8251b",
+          "21f14b52e708e40bd453070c5c9fefbdd40415470ac0ce0bb9be995602c2369d"
+        ],
+        [
+          "a05797a79c19bfc71e10f23149416f35f585d2b255a4fccd97c322f3aee4a575",
+          "083a96e9d4adf55df6a7c4bcca10c8507fa3dadbe71d70cd92924779180b0eff",
+          "9b052d48a517a5fbe4d5ef85e3d2a91b9f681171a50ca229a5ec239636b6cfa0",
+          "9464ea99642207a30a075120792f5058347f2ebb605ffe6b2b67d326eac6f033",
+          "1811531e6e8e0e880d3d83abf531ad6f4db1464d681b325ad90526ee227fc3ff"
+        ]
+      ],
+      "element_hashes": [
+        "19401976193adda59c0d4f9e8ff1a70c93b50924309dd6def92021cdcb07bc1c",
+        "e2af5a71b0daab379d05207411c33fc7d48dfaf857e6e46f107e70332ad0bbe2",
+        "ab45f4c0db1d8aa606846b14a5c794dbc9d7d66417d75ee086f9835dfad30606",
+        "d580e75a2999e24648269ff6077a366261e7d2b013fb629847eafb681ef38158",
+        "c4b67183bcc06251c951e6a8a749e8a501b49a22e00733d82c47151a77cc3a43"
+      ],
+      "hash": "1b434503a4b6f6fe4444a7c36ae9b0c444136543b294ff750822d0ff2ef4786b",
+      "kind": "array",
+      "mistakes": {
+        "d86898724ea12cefba36d7195bbbbaadbd30b267498ab55717ecec65898f0f03": "avec dim=1, on garde la colonne de la plus grande valeur propre",
+        "f1accc50d42ed5d09bc34adb1d066da0b4f406843513eb3bf6e593a98b44a9a0": "‖·‖_F est la racine de la somme des carrés des coefficients, pas cette somme"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.14a": {
+      "array_rounded": {
+        "1": "204984dc162ac695db7f870d5a303df0eb4071713df05b3efa4be4b7e8f030c1",
+        "2": "9bccdb0a2f008f943ff384923bde60cf5b3fae1de50cc8e6644662987b07a594",
+        "3": "8573e470a6e67f1cf61d4ee42010b69facec9e4c4f235391db85a7e6ef0d3740",
+        "4": "b1417f7ed2391006c2f5ae5f680305d17fee4e98e08f15189e78a2c8259ec934",
+        "5": "161b9d645c1fdddaf4db7e146b179cb80d4fc9d7d46734a95269a8beadc60549"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "684dae2d440ff4e43461b1ea2a271f79b9fe9c0e16e09a20ba777f8f67876695"
+        ],
+        [
+          "035d39307ad5257983a3182fb45ceb7b5be8c41d3db0c77d3f13e0f6f4afdee8"
+        ],
+        [
+          "7af421867866986b9d4b4cd94a6474cbb303dce6ae2adb8d020abfa69591c584"
+        ],
+        [
+          "e427d1b76bc5786ee35e122e363e7f34c81254c8e26a39e3a50ecdba4f70a404"
+        ],
+        [
+          "2b9459a9542f53ef220663df13fa914983671a36f58f9adb659c246530eca851"
+        ],
+        [
+          "5eae47abb5d4cad38265fc656626bb9ab0257b1dbc6ddea890ab43d70b830011"
+        ],
+        [
+          "2029c4e2945f92cb8f6066774901567126fe56ebdc49c3c509577c50b4f826e4"
+        ],
+        [
+          "a3c6bae7995ec185fcc577571400cc84ec00cd7e8a6fad5c80b236016c1fe004"
+        ],
+        [
+          "ff61e08bf5a33745d65e80e27957bf834ffd5e7e1a331987cba2df29dab20927"
+        ],
+        [
+          "47ebf87a96273b7ec9c6061966da13f5cede8b4a240cfea99b1a89b2f1a9f8bc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6f8901791080918c075a07e148cc80b3634e4b8dbe225372137b458ae61bae2a",
+          "ca54cdb136eaf22dd590abf77b1e36d6dcf793ce763fe4e99c871de198232c7a"
+        ],
+        [
+          "2611b1f092cfaf5b9166232acb231b432beca459d2683c13b2d068eff134c78b",
+          "5224ab89487973d2c0f04ca48ca099b7e96a9ced0ec1fccd870cebb7277b7c81",
+          "d8331892324d3f01b5a9ecb6d9c6d5b54a8ca67534346772d92f936116b17341",
+          "3b3d40f2c152c6f102bcd1a811629f0588cf6331c56fc58dd8406d0bad2bd785"
+        ],
+        [
+          "283d42c424b7061601d89cb5b116301d8d67450bc46fda72ec1102dd25406771",
+          "61ed2218796af3180bd521ce343bfc160d3b3d6bcaa4155e4ef4822155aadc98",
+          "2d5b1157dbd8ea9a9ee51abcb309081527c6f7b92d61ec8d409851672481595d",
+          "898a033d6576de14608818c5028fd1d5e04b663a47d76cf3c2bd434868b24bd9",
+          "0df7621c63a6b7dfa818e0ba8652630546fb698e7f7409c816e8b26130730077"
+        ],
+        [
+          "0f9701d4a5d0d97efdffe21db94e2c7a4d5c1e4b6d7298fc61fa0df98ddb0a5c",
+          "68138895ab34a6a2e8d97e357b0f55aad9841d7f0f1e88daff47ac232b4386d0",
+          "f3fb511d822e9b3ac8b294bbd60f5c6644ca7d7d49d34c810154135a08adf5a5",
+          "62cc9ae0e84bae359222306df1875c97f28a93cc33e568f11a2b420de2b49925"
+        ],
+        [
+          "de4f15380676ec13ad63a10b7a7fce5f7bd2ad3f89ff2fc046a8b5cfc99a3d83",
+          "dc3bced1ac5f0ad59c1fcaf8e466feed5b0cb51479bb8753264363b3251385ed",
+          "57b650197313f62d84edacfbfea9951c5a74a74b02e40630c4287aea734cb721"
+        ],
+        [
+          "3395696f57bcd74fb51626b2231fa8f700e3168e71c750c1820cdc8db9351175",
+          "4a614e254d41af2b4e0776dc5c258948e5dc3165de9041a73b1fcc9dfaad44a7",
+          "154c390259d0826a30c1b3c691af92456e1dc4a8a94d7f22e81dbdfb52c030b4"
+        ],
+        [
+          "70c053afd6385755fe54967ca0463eec19ab9a47b08d9fbea905b54f116bfe06",
+          "62f0808dfc5047eeac7419d4a9c0f8611f182a99eff33c859207feacb76e794c",
+          "46b52b408361d289801dfa79be0df99fe582c3d554029bf63436d393504473f1",
+          "774bb19e25b15555a80f6bf023f121498a12ca97c9ef301a260fc17ce204a94f",
+          "cc9bb67fc0e82d07b1ccc52976a6f304ddf3fb9b159abedfbc75f4a14d3ea5a9"
+        ],
+        [
+          "3692fb67b8192531d46eff6e79a4b0a7610c233258a69f04297bdf87d388fba8",
+          "5fe19a37e3345bae167a40ca68d45b9415d59feacce4f9b0ff6d6fbcca104d68",
+          "0e253addd3f5978e9fe834e714104134a7327d656bec577a130b0facdf3b954b",
+          "1a4a5f4ee4e25e9f7233fe46cbb5abedb88ccbe16b6b13bebbec11efd4e47e8b",
+          "98fc1282a780784505f084499324930f67d5fc89bc2355918670c2d46ff7c1a4"
+        ],
+        [
+          "720f010d1d13a63229d6dd08b0782b795c3bb3899338e496503501d17230a2a7",
+          "1e372bd681e579af50fb67b4f38e0f25fbceb24fc8f6de3c7689b192e6551955",
+          "f1a9a57485598d4d76ac7415c3c51e4a1725ad8f090b8ba89e6c2c3598def373",
+          "c9b1d1d2646a25df434279f015e3c0e164d9d5a4244f3440362a70b48be58863",
+          "581ed759aea779abc4bc458279e3cc03ee0282a207a96945097d001323a495cf"
+        ],
+        [
+          "1da5013a57f905a9251e8fa69b69aa6ee072a542e89ef623f54e7f812fd8d9f2",
+          "a942cee2a9e55b0d0893791f461cfd40ea435ccd89395a44980cb0125c969753",
+          "82fa964a7a00bd70575ca5920e8ab0941269bab1de680dee426d0fca104ff293",
+          "c3e80b93d9a40ce0226d1335cb0c87ec1401dc357a62eb7db5a50928e174c61e",
+          "5e4d655dfda471570dd83f7301535e95add468c74906b58264509e3528724011"
+        ]
+      ],
+      "element_hashes": [
+        "605aab9af0db1603610db4341af10164292bcf1fe62064fdab1a9a50e5b9c0fe",
+        "8b126bf5004704302b8a2a4c645f15fb8f65c43cc0fcd9dec70dae1b3eb97125",
+        "592dffe71fcd5240d2a477ed5ab9fee56643408471cdf213dc5bbb35e87e20ac",
+        "cc06f33cda80ec6d5cadf7d4c9428236d1829be7868a232b581a42e9e222503b",
+        "6e29ef74b3a5b7b7e348c5cdd901df1bb0d555996c2d6d0080ba3660a85e2e11",
+        "7c24b8c632dbd2e9acb9bcc1953433406dfd705c5af3fc7acabd8bcb8c6f0bf3",
+        "165fdbd2dbdefdfddd0fde327d36130035bce1304d1fc16fdb9a42142094867a",
+        "fec79680f32c03e5ac79b536453cca25a8f09482f377849e2bd2a715048dee35",
+        "b166e3432b3995d64c736e93e9835de49da587ef80b1aa5339e0582763b16fa4",
+        "4e363e8a219f67b82d0a38d0bd190e6ef9e39fe6b68fc7090b679a4036f27187"
+      ],
+      "hash": "77e06028cb6b540d771236d53cb66ab316b74d41f06102074efc85cdc87167c3",
+      "kind": "array",
+      "mistakes": {
+        "26ba27d93791390dea35f0c48d0c6853d1412e7bda31f17dc632dbf96235d802": "à T = 1/3, on élève les probabilités à la puissance 1/T = 3, pas 1/3",
+        "2da05ee19715d8322ccc9cc0a341b0bf8dbb07db2700389b5d22c73092f35a2a": "smallest_mass_set rend les issues par probabilité décroissante, pas par numéro",
+        "af7324025643210a7150fb21cde3eaee1632ef0a97212f5b8532180f40a83f0c": "smallest_mass_set prend les issues par probabilité décroissante (np.argsort(-p, kind=\"stable\"))"
+      },
+      "shape": [
+        10
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.14b": {
+      "array_rounded": {
+        "1": "5b9017a83f4f550d2379585ff389537b1050cc13ddcf80e29ffe7dbaaf5cf28d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d934af664f5bb4628d4dc0657a723ebcb4aae3dd8e028b273bdfeb81dd612ff0"
+        ],
+        [
+          "3c2f2ebb27dbc41ceeb2c6be9839482833bb8425929a12db6fdf486b45d38b99"
+        ],
+        [
+          "48da511234ebd790f9056c14b6ff40a15bb8ea6fd560679bb35b1ee9a5059cdc"
+        ],
+        [
+          "62fa1386c7de88367189af0e08517ab91aff9220aa670cffbb67b5eeaafc18bf"
+        ],
+        [
+          "afe7ccc952a37ebfd043b10073cac78011436548cfa49590791737fc8a0cf0b3"
+        ],
+        [
+          "134408a17da5e09de7e0a30b64b99f95cc4f87abcb0622a70e70885254c3cafb"
+        ],
+        [
+          "eb1c8b8db00ca398e02937554498bd78b04b5d2314e5f4216520a1acae7447c5"
+        ],
+        [
+          "bc99caf683e188933487196016f8384c73e3cb07bbd4894b0d76dd905020b372"
+        ],
+        [
+          "b106010fda3fa40b8da51ff8786103117037d4e6f7135ce85bd458338035bf89"
+        ],
+        [
+          "adab559892159ab3866d78bbc6d78d3d4bc056ba342c4706b1c4854b8833c394"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fe31407cc0c8ae4d30be4dfc96bd3fe9bcc2fc99a4fc1df370ad3f847bb401e5",
+          "afd7b0b38b6efb89152c91f6ab0ee5fed717bb7dc9f7bc2de1694b0db3a9f4ea",
+          "c7d59e3a0c60c9543c1160cc24e6edcd4f10ded152db1a487a9216a7d73dd015",
+          "87bbf8b475966e935b1a8c7cf277c69514a7ab50fe7824f986be51bfda2eed16"
+        ],
+        [],
+        [
+          "ab66b48510a30dd1dda134d4b1d7b7d0e0f9b165d8f83a597fe84eab1d8ccdb3",
+          "d12b861f5a2a4f826881f2e5cba4e2a0118eb143f0a6f4d148c347333966c810",
+          "cad1428d1b86357dd3e618b4b5d896e7c212fae18e1a18c65d647741b610462a",
+          "fa936550384a74b2c2ecae9de5e07e6d69ab71e22c1a06d3094fac2dff8679c8"
+        ],
+        [],
+        [],
+        [
+          "b25c971afd4d5e94b92dc43f8f4a237b366441259f094f926b2b493e3f891061",
+          "d9daa6e7095578849481694b8f4815b0fde6459dddebd4067c02ab3ce265966c",
+          "d088f7ecaa04d14fa8ecdd0e2810207b683448148c872a69d6d429a25da7947a",
+          "8d8f7510ddec1a890a017d5092eaec650394cfff0757a93fc359dc04f294164c",
+          "c62058789d5ae4e33eb8da8a72d1c2ffdf06ec2e274262ff85fd3c87b22cf091"
+        ],
+        [],
+        [
+          "88fe8a4e32646d795bb588e897923eff74654c5006888d5566668dd0388e2503",
+          "a222b00ee75615ae5daa99d5bd6c34fbb78a18ce2629fa7ae993de22de2f0f1c",
+          "b938e44417ad5e16d9a73818730224ef661ca9a6981f923d97b3963ca4187168",
+          "a28c1b253376dca5a82cb7a5ae0cb94b2aa64bb18dc00e524fb56ff723e9bd9e",
+          "f111a9d86ffb77b0a49d4804eb279cfda07fa4530985702723355fc87c5c405e"
+        ],
+        [
+          "28b331cd624df58950c7518cf1b8a1029cb2031adf4a06160460f1f32c2cf723",
+          "8af75e966c26f0b95e2fd1a790520ccdef2137d0bb0c2b655a211afde263d6cb",
+          "b4d4130dd7bc43b31db8e16b7da724bf5d290c6f1942d686c4d53c8b1da4bb59",
+          "857d486c5b3c3b92a245d4441a5e798f5fae4d48f6d203fe21f2cdfa9780eb18",
+          "447d712d0988449410f6fba68ca02757a1ddb842a23f1d5be0de197577c43203"
+        ],
+        [
+          "7479aa3264ee4b2fef733036c02e357bf772cd740354f64dd39a4ffb8736df38",
+          "fa17f6aa7da8ea151d63cd32d60fb4850089b411cb7d486a41fb38370533c704",
+          "572dcf367afb2dbc2b74d209164f42b1524751c8587a5ca25cfdaf3681123eef",
+          "509c724ec93a50abf160cd7dc1854e11de99a210cde0ef2d84557d141c34b7af",
+          "669a0b510b5bfcfac8eb3963250162c48ae86fc95cde5ace31b68425f8169752"
+        ]
+      ],
+      "element_hashes": [
+        "50add5a10922dd5467738aa200efe7babd24f715c9f1af32c1c320a88f950658",
+        "be51757c8c79afc6e59e5f4fe5b89c1c6805dc87705eddb04732e3ee35c37548",
+        "f82b19a6180169111d61197a58d8841da4d92f2a67e1c9ed28a7bafb2daa3289",
+        "60f9c0cb5a9a6851f1bd82181636be8aa000fe5a84ed26356e490181d4692aa1",
+        "00d0246997be0ad69687be5792f7ebce694ae0a689004a8461946eb252f60087",
+        "4b00dad7d37d5d861c01efa7bbfb7bc739cacbb5759b660314c377790aabbe94",
+        "3fbcbb3bae6e82a0043ee0e263a597827d308427eefc551f975f806a73b3d195",
+        "1ec122b8b7c8698cf18cadbbb5b32e33ed82369822e1abd80d3ad8491d74ed0d",
+        "c16fb5df3f056591ba4cd9b77557bf068e52ccef50cbf674d5edada1d9cfd70e",
+        "12473b983c650a251463da63aa43ed987055b1c825caa029af97224ca1bb2981"
+      ],
+      "hash": "782b5ff509b7ea90c07856df292b0f8888254366b9d30e8130711545326ed138",
+      "kind": "array",
+      "mistakes": {
+        "c1fd295f6dc7a8bc2b1eeabbc0af3ee8a063a2bef1dd4db12ca96beee934431e": "à T = ∞, la loi est uniforme sur les issues de probabilité non nulle : un zéro reste nul",
+        "db12e0a7c5b5b346c26b75737c01ac4be69515277583049a0f143e06cd000df9": "à T = 0, deux issues ex aequo se partagent la probabilité"
+      },
+      "shape": [
+        10
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.14c": {
+      "decimals": 0,
+      "element_hashes": [
+        "8294098400ec6d4989341746307cbcbba98272359a925f0912e7fb5e350605f5",
+        "8749fb0189c5607531925b7811970a9de1fc849b6e9212137ef11b253c5c9631",
+        "e79c2ff5728d44eface6ef32c7131a79b3b95feedf0d7e27cc20d76601d56f29",
+        "d43f314330c86b46ab5ce38da8cebb88899350e67793f344bd68aabbd9b87c37"
+      ],
+      "hash": "f7cc912b03f327e155ef1f2bf8187e6f9c692d9f97cbe222d41e4592793266a7",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a5fdb351ea888b5b3ac16cd996571d733d00b2e0474f34e2e2d1ed9d840c57e4": "à T = ∞, la loi est uniforme sur les six catégories : il en faut assez pour atteindre 0,87",
+        "eea53dc48ca8e6fb2692fa1d2515ec4e6bb86f3aaa95cae9711c933e21debae5": "dans l'ordre T = 1/3, 1, 3, ∞ : refroidir rétrécit l'ensemble"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.14d": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "f803c191ccb0d37d5bf708c0d5ee076c2ec974f9ee051e79ed8dbed9b394611a"
+        ],
+        [
+          "b7522c0de7341b7e4dc880e163f9428123fcef33189930cb0ae4d0d47b76852e"
+        ],
+        [
+          "85b7b9b602f39120234f029f5a0e601e1d83c4e59ea34a90da9e381f7016b38d"
+        ],
+        [
+          "20eb3912a80ac5012176e4f7d8e191158729501a324b9bbab7ebd36542753eea"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "303544dd1a8b6eb70cffc648fc4bcbb94f6438621846dc0b197f3529652581a0",
+          "a075db92f2c4945af399620346ba1841d1bdbfc4d5e1475a6b49945f5da2a6d3",
+          "019e17fc82d13d456b598667cc0e1418ba5395be193963feb31a12e3efec8b93",
+          "528049b79d84212c18e9e8b0a2a14707bed7c937d5f18007a36ac5eada18aae6"
+        ],
+        [
+          "e42c12f9eb00d48ae14d1d608b3f58241a36cd80f12b3e796172accc16a478f8",
+          "c545f6b34b27f8102385d842f8eb7a4907ba31410475d7b6f2bc86e55a20ef7d",
+          "6a7d1281171617f2b5836348b3f9c0f9d1652b79871e59508a220b9588eb7bba",
+          "18e745c9d182a6cbe837a05f85ac4cd3154838e3bc0bf891136826291634e36a"
+        ],
+        [
+          "d941199bbb4e0db61d856ce93a48dbb7de12f9f24e51016dd981c5003a93e058",
+          "3051640a159bb86584c4008fa36ace3b53cecafb10ae4d40dfafb2e217edc61b",
+          "10dfa22d9fe533870a14c52c7d124015efc46eeb5e3b9aecc6a72deda30b594d",
+          "eb9fd6f238cb7307d663e7de857c6957081efdfc6dc53f6c6b617f7cdaa9656e"
+        ],
+        [
+          "5be9c22bac9905efd3f890cc63a85279254e579400709cfa29311c1ee5016135",
+          "ffe13114dbd3f86b736c5dde8a19ea70279403acd74f6c755b70f97ce4c98dda",
+          "65e5782a7f1f8ecf0d012fbac67e02b88e514e5cad1326d8b1e9c05162f19e1b",
+          "11ef598dcc40291327066899e62ed2e2224b7a9e787922e045a1577748420839"
+        ]
+      ],
+      "element_hashes": [
+        "740fcb5791cb4e4a2faf701de5431207c352c11bbec9144ad602d8e23a676e03",
+        "15329b074aee2c681e817e9cd6e2daaec778436808dda2e55773d2224a2d6379",
+        "575e5c9008003d55f9759a06a218636300faf54525522dc4e7bf613ddb9b120b",
+        "f00407152649dc3c485aab9b209668cdfc1c67d58ad9c79f4c5826713fd8282e"
+      ],
+      "hash": "466d6c8d205a9937e149dc9dd655618684aa9c9c70bb462588501c99800f0109",
+      "kind": "array",
+      "mistakes": {
+        "01bf6bfbf8bd0a1a5db25b428e3516a680972b5203ecf1c8c5dc9ab18669bf1a": "compare les trois entropies dans l'ordre des températures",
+        "8ce13d156cfb656b2268a81853fce4461f8c2ff8bf8564a54faa72aff2cfa717": "l'entropie se compte en nats, avec ln"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15a": {
+      "hash": "396f64cb20d5ca50f71945309ce84c7819bd35191cf709d5b6fc7250894d751e",
+      "kind": "str",
+      "mistakes": {
+        "56fc3cd62d6bf712a8373e041840f51dc2a18a1e53d0752d8489282d6b055e9f": "un sommet n'est un point d'arrêt que si le gradient y pousse vers l'extérieur du pavé : regarde le signe du gradient au sommet atteint",
+        "b022b3238f8f79a9d6ca06d127b1925a6619862e4367c0b83c9d54b73a8845b6": "la projection ramène chaque point dans le pavé",
+        "c91ce9b94ed450cd1f8df10ebc637a22b7a61b9301815f35e632c1a9229e07c8": "un pas 1 000 fois plus long ne s'arrête pas sur le maximum : il le dépasse de très loin"
+      },
+      "prediction": true,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "46de0893aac6239a0b97df415282c335138b95c7a49d6dccd5a7beea1ad51c38"
+        ],
+        [
+          "9d4e85b2738e1329ef0dd901ee892ede75e9c99bb8bf1ec85c8ed116ad37569d"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "dc7c062db08bebc7fba4b21b79872f446263007510cf55d01a704120eae99fb0",
+          "c792d83aca14e1e4e7c76223f5c5bc0b8471327fa36587007b0bdd38f60f84c1",
+          "37b239b36b7c784736aac57da2cc141bd7a2f8593f91cd039ab774a976a0fc4f",
+          "69e234e1d6f63c668a90953cccc20497202de25199e1164a78746e8ece1de4c5",
+          "0821a9b373feea71c7c6bb1750c55489c3a4faf1bf662cade961330b7e20f5ce"
+        ]
+      ],
+      "element_hashes": [
+        "0c840c73633913e4256470fe73ddd893a9f2bfe2a5e27f8adba780fcb4c2ee0c",
+        "5e2e9a06bd005fbc9f8f98bbf2dcd8ea4767bfbc712742dbcae009bde3759902"
+      ],
+      "hash": "a3f5c47d9a1b1a418c7f81ea29b5510aa8be57053e7dce001dfa75e0c51b8961",
+      "kind": "array",
+      "mistakes": {
+        "310b47cfa1f111010434c2299e98bdaf9e86f43d4e4aa772444537f999b5d345": "avec 1 000 f, le gradient est multiplié par 1 000",
+        "69dc28284213bfbf896c32aeb75cb816f79144379922516c37ba46374dc739d7": "après le pas, le point est projeté sur le pavé (clip)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15c": {
+      "hash": "4caf04c988272afacda47bbc0c8567b38e6eb864f89422587a7640bfd1be91eb",
+      "kind": "str",
+      "mistakes": {
+        "9a56079705e3df60f08370638802ae331f0bf4456ff6dd62433b4b887cf08ac2": "le pas normalisé divise le gradient par sa norme : le facteur 1 000 se simplifie"
+      },
+      "prediction": true,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15d": {
+      "hash": "30179b85579fedd9e3975513151c08802dfbfc5904343718bcfc12e568a381a9",
+      "kind": "int",
+      "magnitude": 0,
+      "mistakes": {
+        "0328c93b5c27a596347eee1fff8191e553cfb06bc8b154807c0019ba2b4a0ab9": "le premier pas où la distance passe sous 0,1, pas celui où elle s'annulerait",
+        "e17bd0950fbb94fb7d5e7e4ccc27219b4da40abdf1739c95e644bf42513b805a": "avec le pas normalisé, chaque pas a la longueur η, quelle que soit la pente"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15e": {
+      "array_rounded": {
+        "1": "606e17dd3df1ef67cf0a97eedc3421ec98182254a636dbc93e92d8ce583d6775",
+        "2": "6df2ec811a93b771e45f1cbc5991c13eadf775cec96596c7c6ab6415ffec8c59",
+        "3": "2e027a86df6b8a47d15035aab83c9c5081a7cb163a6be7bd05ab8bb38f891e0c",
+        "4": "1e1a9b3441104d2ca3f86d82bb08e227649f0333dc3d9cca520069dcc24ad13f",
+        "5": "e43c95f2cdb9c0407014596ecda22b570d6610e6fadef0ae270534fcdc5cecc6"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4bc0d0379bf32a88975b9feacc544422faec7457e66beb2645268704ac6a287b"
+        ],
+        [
+          "9022e2115fef4e9fa3b9186aea8508c5b936dbf98b6a5829f5cb8160ef51736f"
+        ],
+        [
+          "20804a8ccfcc9cd113c19f7c02a0d90eceb4f295bbb73393da489eb1251e0a05"
+        ],
+        [
+          "b4d400a20c24a11178c6b81648738ba970530c39585bd77d0d2dc193e0d0a4ac"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "b0ba9e2e3ff89b867427155323a243e16b19125c9d476497402045032000b26b",
+          "6ae68241032f226233cef1a3dd60d96b2a71625a6315109a313cbdbf079af0a5",
+          "1ab9f0bb338e55c8ea453df0efe5bbda0c83dd371106dde9c616cef3e1e9293a"
+        ],
+        [
+          "24f7bdbff4fc0d5cdc308514e12c8698a4ce65e705b3e73f067454a67fc4a70f",
+          "a427bf1002f0ce17618751c58bfcdf90357bcde7eae1b7c0f9e5bb1cdff7088a",
+          "55a7059e2ffd37a3cfa5369c3a99c5289f931ea78f8b091cbfd85d96f3e9bd00",
+          "43e4356a5b3a6049b6e74da9fd3b473d4c922a66f0e65c57f61a2e369e3a2980",
+          "b76ca880f31a9b95e19692e375df7ea3184af5e8beaead6b0419541cbe05e9e0"
+        ],
+        [
+          "f14b24d964f7462d93089dd6d6b76b5a50798cde09ca016bb8204384d8181f25",
+          "d9db5530c2942f5462c00d304025bf22305c8cb0f6227786888680870393394d",
+          "94245539a1ecb6cde2f59e21b7464b6e8f29ef9726601bc5f6e8dd3ad17a548c"
+        ],
+        [
+          "80099c79d7ddbb3ac35eb5bf2c76d10f9df9c74e0b08c3903805cd1ed33d139d",
+          "e1dde971f4e05181ba55e4f3222b5ac9ac62149c64fcb88536cb2efb3777d094",
+          "7b16af2fed79402191e12a984cce7ec1356139d45aa5dc3dd1652764d17c9b75"
+        ]
+      ],
+      "element_hashes": [
+        "196cb8529aeb0273d10634bb8a0ceae0738dfdcbf14f7320cf19d432715e0e55",
+        "75a0af405f80a48aef3e2f5646b48803a319fbe03a792e55fb84d7ddc27c038c",
+        "90464fb4b8026ed46b1aa1f560cf9938cb6d6c66584f8afde673573eb46e8f58",
+        "60213bd21cf9cb593ce80ef5fa510b04c9676cde99cdf3bdfbbb11df21a79c5a"
+      ],
+      "hash": "44306c3ab6ac8f7ca4135733dcc2023305f9694e8b2970d81e4436b201aa21cb",
+      "kind": "array",
+      "mistakes": {
+        "adc2c37435b9d1b86a1b3c7dedac91dfe49fd7cea95e0ebab1735595e0deeb04": "l'ordre : (f, ordinaire), (1 000 f, ordinaire), (f, normalisé), (1 000 f, normalisé)",
+        "d1624db19a7c29c1c99c477c6693f5141973c59d97332dd886a24456bc32b496": "x₂₀ est la dernière ligne du tableau (20 pas), la ligne 0 étant le départ",
+        "fce5d9c74b0d216c2427e7e1445fe0655fc090cf327cac401ca4b58d6edd9491": "chaque point est projeté sur le pavé après le pas (np.clip)"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.15f": {
+      "hash": "5183d2cb7c6e01bc3ff0b185bd28c90914400ce5b22217d6f1d2091410c371ac",
+      "kind": "bool",
+      "mistakes": {
+        "391f98215633d0678d2a6626e4e5d142d610b2e5e6e9678feb5aebbfe0d282d2": "compare les deux tableaux d'itérés du pas normalisé, ligne par ligne (np.allclose)"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.16a": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "9202a4d0c64b8739528a1955ef167b4de5b4592f98e57305ac6f678cd3a7c133"
+        ],
+        [
+          "75861c98aaee93c638721dedaa5ff2728764689124e0f3554b05bae355bca910"
+        ],
+        [
+          "4a6b016294de94935de76cc43060a452e0dc0958799dae39be49d1ab9fbf998b",
+          "cc10e5e0b7a24aab6e29b1b0478d089f33edd0fa7568e2394f200ef7977847fe"
+        ],
+        [
+          "13cd0e1f3f45edac98c8bbd5660aae208a9b82891be48b746cd516470cb2bc6d"
+        ],
+        [
+          "3e5da788c2cfd8f021582d00f2d47f808e9a442892a40bb56d1626317eb875fe"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c87663b5c1e484388cbbc8ab15b9798e8d8e690d02724b494ac8e5f10d175497",
+          "89a037d8a5290657d47c6c660a86f5c027bc1eb19867d81e2025fca9fb365bff",
+          "0653f1ae7743a24e158ae56795f58de3f31ee2640aa6c2b5be8711972f9d307a"
+        ],
+        [
+          "e426b577e19bf00a34b20511197d7f93b452923bfdc9cae3b13bf0d7c57dd690",
+          "59a9a01f1aec353694cc0bb1eb179de3165fdf6342aef20dcfa5d4b2d79451ea",
+          "b68dc2cdef8d8661f1076ab78c8cd284d2776313e2220e199c632de93de439d9",
+          "ca30dda1aa2bcb0ed699b5f9c2b73fc59d36073384835c47d70ad92c9482a86e"
+        ],
+        [
+          "64434e0d904c7530d43a3f0397acf33ed45a796620a15e21fc1c06c725bf50a0",
+          "21e0665cff019633d99a6dff6dd2ccb7e8be5f044f45b4cf70fe124f7c91ce23",
+          "84834bce713d8b4dfee93f5ebfb5975fde0e795be8b5e71a73c1fea127babc57",
+          "245456fdf8f5f25c32636c6faf2fff645b3d15ae62b84310861de9c8ac38a782"
+        ],
+        [
+          "d07e98bf50f7e007d469e7b5a83ad554db2c9be44e108895c17c510954663d61",
+          "8d716ea1b2880bbfb44acc5e6a72b3b6b735057d9e58d0c4043284c1df1cceb9",
+          "2e60bfab843227b5a4cff1c0b7d9bec394238866e8ff88035e601fc4226d8c6b",
+          "de15cc2e758e911e63e252b58009a716884fc6db3d9d44e7fe4fd8dfe6ffbbdc"
+        ],
+        [
+          "b0e73ebc7069a868fc035aa7d9da2969e8ffdf83110530e94e1c0c625d99b96a",
+          "6dc89db691edaf32086aa3f0c250c9ca6b7e55a5597f0b95ac1c3753bdd38248",
+          "b2a17e8c50c359bddc6e310270c5bc5306c83211e06a53555e37e4a2c82d3a7e",
+          "8c0aa8902ed6a7d7668b67ee1251565e9230e8000994cd832fd9da8a77c86d6a"
+        ]
+      ],
+      "element_hashes": [
+        "1f053c377697daadb103b66f1068f15686c65ec1ee3ecabfbdef8ae29a634062",
+        "bda424cf164604c16197b672eb7f3a6dc3bed456a807d9840bde864eb619c3aa",
+        "bb1a2eb5a698cfc695fda49030c0018c4052f1a7b02e6859194e40d6a3b2642b",
+        "9a2aa571f2f96652a06081192ad1deb54187a56e782d4de9eb83bb843e666a9f",
+        "0ed811cdffc351b7e0ab8a2b16575e485e2997cc5288630a92b4c3c8aed8eabb"
+      ],
+      "hash": "44b68dcb341836eee1bdb4b4fe5ff2850d15e40346d8d21ccf041884574a5f91",
+      "kind": "array",
+      "mistakes": {
+        "dee297918f64edb9e676ca1f1f9fd86f3b2dbed192d339bb379e9a148fffc68a": "sur une grille à bords libres, une case du bord a moins de quatre voisines : le rapport de la grille refermée n'est qu'approché",
+        "f94b48d09e889b37ba5cd62962ef9482f37449eb1da3468eeb8d1286f1aa60ed": "le rapport est VT(x)/‖x‖² : divise par la somme des carrés des valeurs du motif, pas par le nombre de cases"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.16b": {
+      "array_rounded": {
+        "1": "efaa3cfc2a5658cf6c942b462bd5687e9f55c35326b514e2b98aec0c25cb92cf",
+        "2": "3ddb52b4ffbe7e76db3e829a650841bc1f15fd5cf6fa774084ef41f22f374cac",
+        "3": "beafc43eafc54c24656bb5f6c54016cd8394144485f52deb2f277f52f89f3167",
+        "4": "0f1e37f23844c18d88ff9238051d72403df3de4eff0f14fcbc066bb6ce9983a8",
+        "5": "98e945a752741cc65f3bd6522baf2688f18efc25e465c56cc4bbf654acb34ff3"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "008ff0bc71cc1c86376f6ca249196649fb3823ccb1604947f2e3caae4c969003"
+        ],
+        [
+          "5079c400e9bbed26871124ce425b1fccf95252fed7def4ccb4803fcf7f43663b"
+        ],
+        [
+          "4893d3f3b455bc7ea7e0fbe54f271e5b4bd88cf9827e4c98c9cbeea1fd1ab187"
+        ],
+        [
+          "4a9e194f8b98a4be67a6b164f95292aa05d4f59bd12ba3d20d4855d5947bca75"
+        ],
+        [
+          "a00b0a8db03c1ef5f242296ca269fdd4412483d1eaab3251c04d979a96b78f3b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "75d46fae7c572bb376da32ac20fffe660312c9cae9fef963322f3b9d2e779a51",
+          "84e01c90d7ba0dc5abe5477c960150754fcf069debd8e9108d7e90d1973c6aa7",
+          "76a25649f37d5c5b37585c1f75f7f76992d2f6db8e09fbb67e2de93b09cc5e60",
+          "e8e18ce4a1c3438d6661c4b0b0988845333db629902c7e97d8db2a9b6b1c51a5",
+          "7b9972abd76cbae56e30bd563d50b91107588d26563a9d95027c60e892a03edf"
+        ],
+        [
+          "a98e28b7bd04bb00f983db5fa8b66194d66e6fd8944b748863fc4614250a5a2b",
+          "7cda4d0c996a8a9334a48b31148ced5b00e4937a6f2fcd044141c64b1125a44f",
+          "9438ca9ef3de930aa72dbc146c2e4b6505926cb71b551bbd292bb5a1d435d117",
+          "727c46fef7a99d171c313b872e1625999f01da8987bca61461678d4f4588736a",
+          "b51fa7feaa6ca12b414b1f278b2f4b490bd7ca137429f2375ff1a8d87de40df5"
+        ],
+        [],
+        [
+          "24c23c0db7430e98f9d41042554cb8b995c48fc5135e18203c916201e4e28512",
+          "cb7411102912cc0aa63b263b1db5af81a88e7fd5a2b3f490ee71abd996fb60f7",
+          "f1e6fde42d88853f29a698bc4a63fc327e5cda500ecaad4a71f8616d61e988ae",
+          "9a2915a5ab5a4b20b5451d80cc6702ea0dcd8959583fc3ecf8054c323552c4f0"
+        ],
+        [
+          "ebad399a9bc5d6cf272e1262f7a91afd87724963c2233bdb565f01d68cdb296e",
+          "9df5c14b26d744efc31ffa0db93983b47cdc88e2b6ae3a1e00860429374b7584",
+          "3e09494a73a81ac4f30a1a3e08d3786cd063f3384cc33341ff91a2f942e6b5ba",
+          "60b58fb179e5555371c43ef71463c2163a69948ec4bbc4659bfc7ebebbef8690"
+        ]
+      ],
+      "element_hashes": [
+        "659f82f7ca871b5daf8d908bdfcad6e652ef12342554f319b4f554d97f60b4d1",
+        "3ac7b3863da5308f70656ac7f901bad1a03bc7497b1e1207fd77e339b9a213b9",
+        "75ee27522f67212564a72a04769c718e85348e1839dbd81768580a6f5994c455",
+        "cf97007f0254885e7b2b94d363878e3593bd4385a0e9b7f335e4c8ada587f022",
+        "e5e29cb6d39ac95c26e2a0eb6685906bddb5119e47219cbac72ae833788abc77"
+      ],
+      "hash": "7f842df91843494a63aaebc6be1c6c6e6459551604ea272dbfdf38cff0b846a1",
+      "kind": "array",
+      "mistakes": {
+        "53c2401a517e444501adddff0d652154380cd41ad7db9475c8bddd3b951bbafc": "le gain se mesure sur les cases intérieures : ⟨flou, x_int⟩/‖x_int‖²"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.16c": {
+      "array_rounded": {
+        "1": "fddbc1119fdcf99298d0ad6df30e905ec92cfe945e6760ae2a5d85d0d667a15e",
+        "2": "bff5af919ec2974497f956dcea5d85702e09ba471b071b1910faccdcc58730fe",
+        "3": "7481859a1c37e25481b47b49fc64727e1c7062b7b9afc05fdc71f2e1272696d7",
+        "4": "96eb879c855edace323f93feebb7538c62c2915277ed76eb53329c0f4d243e98",
+        "5": "d464ac479bd6e83f5478b142bb1ddb6a922f2d98944e415e12cfda3dd8b22a38"
+      },
+      "decimals": 7,
+      "element_coarse": [
+        [
+          "77d9d961bb03eeae82f821f3baab9f8e4bf83ec275c382a45ea3e9458bad3f10"
+        ],
+        [
+          "d52da2cfcfb21edfa5988dddf7bdeba3f5ecd6608dd1a1438e825faab298c44e"
+        ],
+        [
+          "c286cbc94297e8c7557f3f15e73ebb29d2cc9a0b13497da950b7fdbeb153547f"
+        ],
+        [
+          "cba24f9778da9fb9f8fe25d6ad22c04ffe4d0b84aba30d9e56d02b5e2942703f"
+        ],
+        [
+          "c03e19489c03f86da38bd8e9a5495edd83a2e826ede12cfd2428b1422dc26c00"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "83a6df827721097cf075ee35aaf1e7494862c77235e53cd6a8f452c354d2f89b",
+          "3f8126579a49d743e778ed63937b566b21d5731d57416f2ca59913b0c1184bf6",
+          "be18553832d5d7971a665c7405a71bb19774c782c524452e850ea7804e947820",
+          "ce0b42e8281b257feeae5a3fd17e7a297e093002d12da3c714c993c40a1420cc",
+          "e4c82fec6c2010511982f84ddecd6be5556d0591e75b888422d57b356218ec7f"
+        ],
+        [
+          "9d6c2ac6786e0c505d0f9268c1b28037754574cc0c6c3906e122f878f9e57ee8",
+          "06166d2800e757dff2b690aaca06b3fdfa372318bd621bb25a89a6e902a29038",
+          "5793a1dab0f26acf9cbf5253bbe6b887cac3a64d31788ad2ebba1fde4e367fc6",
+          "dafc71911aa22bb1b31867ab8c1f40ccdd17a3950d5aca9df12bae6d0f229876",
+          "a5c0cd79da5844ec0b37115a00c67a58990e4bd19503f87b75652d78dbf9951c"
+        ],
+        [
+          "f83cccb11d9b1e615bfa069d2951f3165d1ced7a3caea3ffcf64caa124a97570",
+          "f5ddb8e15e4b591cc714891289c648683a94c638ff533818ee889b19ef35485c",
+          "c284be3547cba82186c526196698687706e56f716c4de9b6e62e6b0749f496cb",
+          "f39923585226801d1139418cb5cc9a92e1d74c42acdaa54bfb25884c3e8548ca",
+          "cf81319ea1a0fbce879c2cf57a89893b0d142a8b09889d83928e8afaba86afde",
+          "4bbed719293680b0694a8a627d250dcee79c923f6469f4c520d7b8ddc660a156"
+        ],
+        [
+          "b3dedaca639a0d2fe669bbe5fe14b5e8104db9c256e6d3f791bb7723fd787378",
+          "af00c96422ec89904e39db878175249ff7081d1961cd0099b9f8e649e219d596",
+          "a8060749e5fa69ebdd17b08e483321e7895ae6f4610213b1d9540a2311957a63",
+          "0e50f13c3e9646db200a8990631b72e832a1784c4d49643e430ff8cc05430ac9",
+          "59d1d21d2d946ba736c1a54fa2aba6d0bb9ee30288a9d1095b620194285e8141",
+          "2b61e90735f55e45c5992f2532d4ac0dd726d72ea0b4f871e25f18fa45501382"
+        ],
+        [
+          "6dd29c19d53dbcc74b1a2b07bcd4dfc8c2d44814eb235598c18b757ad6b569b0",
+          "be4ab0c1cdf4123373badb8c0a00e80f7b3fa2fe430d24d4ee6fc0ed1c255388",
+          "e6cd60c8464ab5f9d1e98dc5802c488eda1d262c069b3ee3df827408427ddffa",
+          "4182354d2724f4824ec403cf7e8553584e35e0177c23ff943706890941c4e572",
+          "4d55939fe3a860135ccffc036668d8a4bb527fdf097712d7e2f341e51c39cb6a",
+          "2bccde34b6a1a3de4de0d97a2c8f0f25a58e7a1c0de1034f97adcbb7801a3075"
+        ]
+      ],
+      "element_hashes": [
+        "98145057e6c1119ca21f55def59e37aba7355d9ecb66651ce6eb53fc54079922",
+        "553e359cb44c71f0685ff2d297e15d1ee029831e522826f3b60d1fb129ea953a",
+        "4789f00f5a20fc21aa208da5f5c837d7608127277409941ab1d1224267944b29",
+        "94aecdedc030b55c9659b8d7c11f19fcf3875bb42e8481191fcd2ac38c068fb6",
+        "487cb2c0c5d0938e4fb734b6bf4c99f793e63451816f4db207f64403cf91e699"
+      ],
+      "hash": "29fcedb044d356eef2884ca79b29b4f0891c4174281ad144577159b12549b4bf",
+      "kind": "array",
+      "mistakes": {
+        "a9bc80fdf3a71a0e9226bf13f91e9da0f2615100ad7bdcdfcfd878bd5e15d98f": "un pas de descente sur VT est x ← x − η·2Lx (le gradient de xᵀLx est 2Lx)",
+        "f00cc0ef4caf32eabb7a2404e3e5563f2829c0e07292d8242c05326640db4824": "le logarithme décimal, log10, pas le logarithme népérien"
+      },
+      "shape": [
+        5
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.16d": {
+      "hash": "a6d7dcddd7614e2353c1f0e2ed306dc5b69ec32ec02df28ea746feddbde55df2",
+      "kind": "bool",
+      "mistakes": {
+        "89a5fa43e02a3fa1c428ee5cd2a54a70f4ef8fba10ab8fe51359f66fce92293e": "compare chaque rapport mesuré à 4 sin²(πf), et le damier à 8"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.16e": {
+      "hash": "9a260d8111eba57ed3f3030c378e940c48997591d3d306bf453aad6128d63402",
+      "kind": "bool",
+      "mistakes": {
+        "89b627dd370dc739f145e97f9eb8e73210fb3cd858b35d72a10ffa6da3e616af": "au centre, une case à plus de 10 cases du bord n'a pas encore « vu » le bord : compare tes atténuations aux valeurs de la courbe"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.17a": {
+      "array_rounded": {
+        "1": "dc679bbaa6c05c4084716ec67af4c52e07eb3f2a6ffb4bb1c9e4fcfb753ecfad",
+        "2": "ad2e158fa0d5b60190f5fd1ea7f875bc2e2fce709113e3ad6ba6fa4324210597",
+        "3": "898d74da4a548c3eb5a589e5ba76c1444eb6b4796b658cb4a192051a2e7ed18f",
+        "4": "deedb85d0931eeaf508e072d58a15bbb8994f6450c861b9fd5b675902feb6b39",
+        "5": "c27d55b5268e4a80aa453508bd94ede5f974fdd0cd336acc6ac50175e36a1e38"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "b96af999c853f2f5d9e0a71e4167d7684f313c7f09e971783b1b900e6a261468"
+        ],
+        [
+          "f221ebe406b5de37018bd08c5f97fc6386b4f7aa03ee8942a46475847ef51403"
+        ],
+        [
+          "1a6bb8327dc5ab5f04c5ab445f0e2c07b41377b0bf6296a4b9315eb6bbd419d2"
+        ],
+        [
+          "86157a47ee8f1782876a38bd9be7a4bf1fd32bbf0f585f6c422f5de8c6337437"
+        ],
+        [
+          "fd54c800195df8583a5a5904cdef1db6c705e231e1c6e10ae12c07b186d1bc48"
+        ],
+        [
+          "d3bd5e0cd3942ca54d736aa959fb3bcf08cb1f9621f28a7f1585b878b955b026"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "bae7b41e3e371a8a36c098503451c1110c0e2dd6f303f1c547054979ba0f8aef",
+          "b1bcc4fbc7a8896176b92d809c070b90d2e0c01a51fecae31430eb8cb86fce6a",
+          "76011fb9b34cc59d73b46bd139e15c03024aaa609a40442ddf15eb69d2871494",
+          "209d4334bbfc4300fc59ecbd59c5c5d58da0ea9b0d44e48066cddd76b597d18b",
+          "cd5fff291d0bfd265de658335639242e7fc66f98d3c0ef393c8f76b062996a92"
+        ],
+        [
+          "962e416cd368d527d87649bd2c5dbc0e8f94f93a7eb5db3b016593f112c858e3",
+          "fe9226a222f7f4f497344b7cf4ac03d1f2a6330972fb72f447b8a711413308ad",
+          "b8226d606204f7e24f8c492bdbc4cf4318586d5eff66f565e260cb7a560b2a2e",
+          "d20f0c40d043c6a3aa317b4027bc6977747188c75fca09a901453dd5f9e0a489",
+          "52dba4794d58f3b6c1707e1d4cc2eb37f3cf16c59adffc7a2a465e5d7cf4d6d0"
+        ],
+        [
+          "43e9b85f79364cbaac449aec1bd7b08562dd609ad9c194704d8097e005527db5",
+          "ee90bdffcc19a0bb2b6de803fa7f6e0c6fd5a958d130ec8a2438072be6179924",
+          "c8f52a84c54108c9d1dd55d25da9cd2b4c75e4e08cb73919d1a7bf33e4dea598",
+          "b21852c85658e5b97a53b78d0f93b1e53b1826780314dd40fc1117bf6d24a19c",
+          "0cec6e2c70ea6164e4d6c6e504d5a58bc708fa0c62cfd01752da1355c1cac789"
+        ],
+        [
+          "762388dc413344b5c2d8277cb891ce24f6dc46c07bd3ccc68d07ee81fa411224",
+          "c61c3afaa18ea66113fd33cf39ea01397e586e6b673d33eb521b477da07d8367",
+          "17f2199dea82b7976d7a090611caa39299eca0a214430e8eac857bee0b9b9509",
+          "e0c33ef327a690ed1f0923799b44217587e082ec6a9250bf97c895ec0420e9bc",
+          "2a692967829c02b393b35162e0b6f731b1def4ad7601769fa82572831a0c8b97"
+        ],
+        [
+          "f70403ccf0c660a65542fe0e52f033f6237a31cc895fcabec0ead3fe3a90754b",
+          "83c029e0bdbf88e40f75dec445ae2462b8351d079d8cf99651a439485adc6d86",
+          "5e87d657132f0ffc33e0835b0bb17125534c0e06575b76b5f070b64076631546",
+          "a00ef6b45c15913b9a77c7b3b96dba6e58ddbf79bf5ae2803d8588ce598624d4",
+          "39158efc05412f62d2e20dca97508a7aa9847051a1a82ca26688a6b31f3067bd"
+        ],
+        [
+          "7b900ef9bde27a151f822b9f51dc25fd6ea3f2a2b6c52b5836193c30060385e5",
+          "c5922474791ba7c69c6df46190f3fa2f90f0efe27a61e9fee1f7300f98e9afdf",
+          "cf2d5fa32dae93596f2a6b77052b237020244810319b2dc20d682f2ae0708ae4",
+          "2a8eb6e1ac04fea7d3aa3399896a0e3a6e2a81e9994993e81424cd11952ee8d5",
+          "3d07bee8b9256a33a7486b015f7b9ab2e3ffed10e69a62688eea66689caef239"
+        ]
+      ],
+      "element_hashes": [
+        "75114b89c4dde02d4816bffa3c35f4da10e581ae711c52f3596fbe9c52e159fb",
+        "5152d47af9673cf41f8cf1cb0f896613344425eae81e8876103764d7a03666ac",
+        "2c0373ebe7b3213ce2a72248a9736dce691e45faddafb5c519c5c054ede79ea8",
+        "13dd4caafe6abf1d313f6d19ab934ecbb13ffe27303bf860f8ea8f65b28bde52",
+        "cb5c83e177dc87206f1b0760a17a44fb880d710af904a5373c566a93701f988f",
+        "b83d8dc8e38b62c2af550cc908f1bdcc5e976179a6b05000caff0ac19fea140b"
+      ],
+      "hash": "ea29913e91a12c2df3231d2f5cdde99e58587aa668701db92010cae1394043f7",
+      "kind": "array",
+      "mistakes": {
+        "84e75457c382d87a864f222f7d1e7f2fb83b9434bc547053c5e589d5446606e9": "les trois dernières distances sont celles de la version FAUSSE, map_from_distances",
+        "c8ec86815358ec09ae473c5eafda58745f7f1467776a2b6aa38b8af64391b894": "map_from_distances_fixed fait encore le double centrage sur les distances, pas sur leurs carrés"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.17b": {
+      "array_rounded": {
+        "1": "c63cb9df7e51725108cda4a891b4f00e905acf716453db2c7f1c69180b0ff208",
+        "2": "effb9a18c242abbbcde7c809d015cbd79bb281a4579ca75943f837a706565b2b",
+        "3": "effb9a18c242abbbcde7c809d015cbd79bb281a4579ca75943f837a706565b2b",
+        "4": "effb9a18c242abbbcde7c809d015cbd79bb281a4579ca75943f837a706565b2b",
+        "5": "7831c44b45a84aafc73a279c1b73366456284d270e3a4f615485f5a61bf96851"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d46b12c11e1b6bee6bcd5f5d73501c978cdac5c37071861906cc114ac5989ab0"
+        ],
+        [
+          "a04a054b8646ae910d2f7c3f46cb41767b5f91d3857f2c32173ec340c9b19067"
+        ],
+        [
+          "74d534945c5c77b9d9f2cb191aadf3920f9d5cea4a704154e0d4b8de232f4cfe"
+        ],
+        [
+          "56736e3cd8ed47f600b55b83cf04efaeee08996fe1c2f8cc9e4b3802ee6e4652"
+        ],
+        [
+          "d4dbc73878e030006d5c09edd74d49ad8d2f11f08dea7c52301aced438f6f009"
+        ],
+        [
+          "d60eafb3332067710ac16dd714e4c5c59074655d4d7033ce854d5a38fe052d61"
+        ],
+        [
+          "9f7715693942998e37f22b867cba89b2eca634bf63e1114bd2323d615e0fbbef"
+        ],
+        [
+          "a12367f999fd59ea5c0900b2b734c86132f0b4584427eb512baa9c6918add424"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9e6afecbe3cc559368a6b66bcad232fbc117cddc153c33dc98b6c6df36c39ff4",
+          "74ed108ac1bc5453967f255a5b9b5564df53dbbc4839384b33e5fe6113e0591b",
+          "250c1bd42357781b191a0bb82a065ad0608577a15c03cdf3169646c66d07fc81",
+          "eaa4288b0419a0ab79c89030606b5d80588da9efbd84093270b3de8889ae7475",
+          "5d02108001e14a8a0ca4ddf3a93eb2c5d611e2be998062bf0e2b426fd89c440a"
+        ],
+        [],
+        [
+          "1ceaf67b78c756d2213fb3ad7af759483007aa8d83636224ced5d491017bfb2f",
+          "51c9fbd588a9c8b4df2bd83732af311d8bbda127622a1b4ba18eeb182da6c30f",
+          "1597d6f9de34d93f4b6a675221fb8b02a32a44a8974eb3455c6426429a0fe700",
+          "a6e7e147700c329f73b1ac5a4f76fa021028535722c6587cecc36d14c1c64282",
+          "a8f08dd0b82491802de5a64227d899c5501ab09989c15d6774ecc27afa140767"
+        ],
+        [
+          "db29fd7d2179c31a10732ff96dc92d9f426f4487afab4993b1c6cca48e5cbc84",
+          "8b39dad9a1bbc67c1685f92185ac9deb6f8d8ca8987baa5c2ee57b7ff2c8f9ec",
+          "3ad2225a58fbf5b489356b5ff5bcd80da0bc924c87c99271efb5835204a61e1b",
+          "65b6547ce5693f85121faf2136fd96c59360c2cfe2751da7162f141bd7e51a7b"
+        ],
+        [
+          "d41497f6ed25f2f6a9aaa2841aca88b41b79f932ccef232697b245bd55b09835",
+          "b8ab4fb9834d3c2cb1870f9569fa88bd0a54248cad8f26ae6c8fd02230a1e18e",
+          "70a87a33493efccee965204304b988cad3cd06ee9c9f18d43ca14926ab47e383",
+          "87883e98cf2e595d8aa8eee346c1c4e8f4412d2d3ef814d0878dd8dfd08da1da",
+          "28d3547ba0b3064856c5ac7c57c3d8df1659a782ce8fdfacba2346ccb5715014"
+        ],
+        [
+          "ea5ea7f4209b4e912edd9ff4466e01e542aa9bf7b63e06c8d8a006b9114bace1",
+          "3aacebb30c7ddb6d2b5b6926dd5c6731e8308ad543a890e72e1bbfa903b4aad6",
+          "f6a648f3bb5c02993c06547e91c01484ff6bfc57a28c5854082832d17fa63d4e",
+          "9a9311f87052b6f3ae18c3fa52e84548dfb4a2c47530696a77ba4f8d8165ae96",
+          "6f38536d4106b813b00c319491b8c4d0bfd6323a471e7c0f5fc5fa35d4d13f78"
+        ],
+        [
+          "d1af4d91ad28ce6887fff733458f3c597dc784f3b69c752a61a55b7b757d9625",
+          "f89113b71b8640667b9ddd931a21c34d621bf0e749c0688699f6143202cec6df",
+          "74609904c9f858b6ef980acfcc7495e4153541b5a72c541a6ed9d715293d6100",
+          "564605d873b5c9ef784ebaa2278e9d8d2fdc05d39750d1e94cdaedca1ba60223",
+          "7e69f22c97cbe704da9c9c750a20adaefd185b9ad3b70635139a5aa7f80d852d"
+        ],
+        [
+          "227764ab91888d2a7ef0387a7acc1bef04cd9e66ed4bc998346bf4cb0e53df4d",
+          "db65bf95178e47cc118d180f4c859e410abd679833202f26aa65830de87d04c0",
+          "4871f2914a8798b993376ed24aa82b9a302515db0bba5ec5b567fed55278e1e5",
+          "05201cda08ef086391806b52ad9557e2607d124e88e37f95fbc5c0c8fc87670e"
+        ]
+      ],
+      "element_hashes": [
+        "2334edc9ca76a587ece45d5484fb4b866f137905bd937064964dd38b895281a4",
+        "6df2ee39b48415f2e83f5c662aea1c8cedc213f3aef9c855491dfa1beaea49da",
+        "25900f4ff9f87f312dadb8c68c36f8c3c38ab8baf57f328ba05d1b4f87454aed",
+        "6ec053a77385a881dd084a0dc4a87e7b278fd3a4e74e632130e9676a7ae17488",
+        "c913e24379770d54baa6ff0621e85eeb0fa13f8cf198b94f0eeff8dbf50e688f",
+        "473d0561ea9a12c222343cd3a4d2d855445ed39a0b86e7a1890a9599e545e32c",
+        "b19c433ea82a87d493bcf7a8e08b05ae9c9581ca8a36f0723a527f2713ac3fae",
+        "83f2a2902f0d4659273a8c4555f449aeb861a50c6e7c89178f283f1c479bcb99"
+      ],
+      "hash": "b6f896f4a3c0a9a458a6d221090f1032327841f16549d046a0688f30cf21d6e8",
+      "kind": "array",
+      "mistakes": {
+        "6a3d875f241fba6aa258e84ea80f3141b9d6535d56111fb4792a2b448fd970cc": "les quatre derniers nombres sont ceux de la version FAUSSE, tune_emitters",
+        "8918772a639ac0341b7ac27281bd3e0e13336817998f0eda1c5bbc3d02f8b98a": "couper aussi le gradient empêche une coordonnée de gradient négatif de baisser : on ne coupe que le point"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.17c": {
+      "decimals": 0,
+      "element_hashes": [
+        "7a7619261af8270295acf2e68dc34004a15a24e4bc9e19584f84443188ae2535",
+        "a7888a2995bfe0bd635d69cfbc845de74f748c4d83b08fc4ddb258cde3dfc076",
+        "3e66386a1342a030391c44caf49404fc31b66e47664d37a7ee0957ebc0dfa101",
+        "5abcb16d239b7d802691b40efaff8f4f2a6007d1169b3152a8f23f6f4976dda7"
+      ],
+      "hash": "105f4c9436b1f5026b3e9f9c21ac47d99edf0d0d8d7a025952dbab22ccba36db",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "06ac9cb28ff6d53aa7a9fb01c109b5f188ac92571c0a4d4cdbae300adaa08e08": "les deux derniers nombres sont ceux de la version FAUSSE, cycle_of",
+        "143caf445ccf3660916dcd287ab4130de79ea186fccc4135b0814a448444870b": "cycle_of_fixed rend (mu, lam) : la prépériode, puis la période",
+        "7c95746579f45a4188c49732e2eb043e5c0079388ef4e75b2dc5ea5a4a5496d3": "cycle_of_fixed rend encore l'indice de la première répétition : la période est j − i"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.18a": {
+      "hash": "8c7f4865a83def768c19d9ca175baa5c0dbccaea8b9cda3802ae066a7a1e1732",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "dd2d61daeb0fdac43aa880bfe243dc2e8632c1c1555759cfd744e4a54992a22e": "a) compte les essais où l'écart dépasse 1e-9 en valeur absolue, sans le facteur s"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.18b": {
+      "hash": "65aae00b11dc3ff56417c260c48808a441f849d6035e463eec3f80880c58df19",
+      "kind": "bool",
+      "mistakes": {
+        "1d6542f439a25bc586ab612b52f5e17addb09cb9b823e01c0bb5e422ad6ea501": "avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de ton test (ses tolérances, ce qu'il compare) ou de ta fonction"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.18c": {
+      "decimals": 0,
+      "element_hashes": [
+        "651ffe7353c36b9e5cbeab7cf026b4d64063f6b24895db2469899a00f070348c",
+        "6f563589d2e45fe157776839416a8a8be97e3ac2dfa05a5ac8ff9a1a8b69c69b",
+        "6f1341cd3b92b1b6e63cca0a59620e65c04d1a8724e75d4356fea2f4ccf72866",
+        "a011b253d2368914cdf97c477371b61cf58a17ea52a1777ecd4fbc550104d8d5",
+        "9d393ad3071a7c15f1d14125a6df3d68da17743892bdcaa18016af290913bd62",
+        "29f4c4a72d061e71975de5e9a9d6b66d14c216f4b8e5d74c36bc89a582d4c906",
+        "4d365b1411d75d9c319360106461d88ebd9362a2f40d692fd9c87676858d8cca",
+        "d5198a45534f4e2ba7adf5b933a2979d38716576d87e3e4a3851b06214e2fcd0",
+        "b2761226b762f5d45eda5a44d9b6754cd94aee7c08d44b08b792c6ccbdc621bf",
+        "74341ffb108fca5166c36ec64c50a00a4e548171b2131ca8f069565e3a62c91b",
+        "a3e317a9775832fb4fe95df75d2080f768bf67a26abb2a8b68078f9434630077",
+        "f68abd5fc65ae04ff98689bf5b636588c969ae4d5fb0ae452f655b2377879179",
+        "b0ab2458c4fccbdf16ea85e72da16a01305fe1c290c9c57ad3fa6c01b9a3512b",
+        "4633cc9efe8567d20c3c3c30519acf11d82855eb2b53cb41e07d42701e9a4dfb",
+        "49a52ff958f241a05083c05a3ff18b881413f62f7261170a01d8b5b5009c9415",
+        "25024979b8dfa81823bee6f52a95f2f0d18453e486129dc9b8cf909a55504636",
+        "c38ecc6133a7e944e5aa3260a75ba7fb445f44ccc3a4ffa823e438d350cc7709",
+        "df05781eb3fa71deae5b11af791b657f94b5733e2cff07fde0294616acf5b3b4",
+        "942762e2aab4637339209a41f855f52d342f8ea66acac89fd103522edffa3535",
+        "828ba1452a6dc3a8152ebaae535538fcc16ddb29e930a7e1f0dfac05c0546c6b"
+      ],
+      "hash": "0c4f5e7b9fb66f847d6716ed0ef267c2e84458afdaccb07a47b8d2b36759eb67",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "4162ec59b423cddb70be9879cff86c4fe1e9556f77f26f3091dc8e99a419bc12": "r est le rang de P (np.linalg.matrix_rank) : un point répété le fait baisser",
+        "ac4a39dce6510995548acc4cb79855b11733b19083f35a339b5b0e7b0226adff": "tire dans l'ordre de l'énoncé, le rng.random() du point répété compris"
+      },
+      "shape": [
+        5,
+        4
+      ],
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.18d": {
+      "hash": "6491145cf0d0df2e446ae881df0fdec03d8b83ceb116f9612dbb8cba6ed62674",
+      "kind": "set",
+      "mistakes": {
+        "5fba011538f5bb58421a3adefb7080367d9def6899a007c050f7e27684125404": "il en manque une : une version passe si ses quatre compteurs sont nuls",
+        "c1bc5e664b9c0d307a8c90bc846d70d1a5f90f0ac9ff342c593873d0debfb8ce": "ascending n'est attrapée que par une partie des essais, mais elle est attrapée : elle ne passe pas",
+        "c9a74fb8fbaa6485f62bfc0e9c4ad2a61515ca5cd23e9b0bf221b96100c0c836": "il en manque une : relis, dans c), les compteurs de chaque version"
+      },
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
+    "M28.19b": {
+      "decimals": 1,
+      "hash": "d6b951de77ce267efcdfa47c1a1f535041632d2f63dd67b69514890564db7c81",
+      "hash_coarse": "15d1d8957b344e67b4e01a72217b8951fadb43e1d39fd83691e0d5fd5e076a08",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0f6836d1e4e2cb6de239cf82b96e2f38a7acfecfaec5bd17cc29eee781c93a3d": "b) demande un seul positionnement, sans répéter le cycle",
+        "a507dfd4b546a9561e0b3d8ac87bdd4057e4b3882eed7fa7cab6774bee074d61": "b) remplit chaque paire manquante par la moyenne des distances connues, pas par un plus court chemin"
+      },
+      "sign": 1,
+      "source": "chapitres/m28_gram_echantillonnage/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",

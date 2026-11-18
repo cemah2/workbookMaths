@@ -686,8 +686,10 @@ def points_at(ax, xs, ys, rtol=1e-7, atol=1e-12, marker_only=False):
 
 
 def follows(ax, f, lo, hi, rtol=1e-6):
-    """True when one line of ax has at least ten points with y = f(x), its x covering [lo, hi]."""
+    """True when one line of ax, drawn with a stroke, has at least ten points with y = f(x), its x covering [lo, hi]."""
     for line in ax.lines:
+        if str(line.get_linestyle()) in ("None", "none", "", " "):
+            continue
         x, y = line_points(line)
         if (x.size >= 10 and np.all(np.isfinite(x)) and x.min() <= lo + 1e-9 * max(1.0, abs(lo))
                 and x.max() >= hi - 1e-9 * max(1.0, abs(hi)) and np.allclose(y, f(x), rtol=rtol, atol=0)):
@@ -768,7 +770,10 @@ CHECK_13 = '''with checked("M28.13"):                       # b): Y and R, compa
     if not filled(R_M28_13b):
         print("⏳ Ex M28.13b : la matrice R, pas encore faite.")
     else:
-        want_R_c13 = want_Y_c13.T @ X_BEACONS @ np.linalg.inv(X_BEACONS.T @ X_BEACONS)   # the formula of the statement
+        Y_c13 = as_floats(Y_M28_13b) if filled(Y_M28_13b) else None
+        own_c13 = Y_c13 is not None and Y_c13.shape == (4, 2) and np.allclose(Y_c13 @ Y_c13.T, G_c13, atol=1e-9)
+        base_c13 = Y_c13 if own_c13 else want_Y_c13          # R is judged with your map Y when Y Yᵀ = G
+        want_R_c13 = base_c13.T @ X_BEACONS @ np.linalg.inv(X_BEACONS.T @ X_BEACONS)   # the formula of the statement
         R_c13 = as_floats(R_M28_13b)
         if matches(R_c13, want_R_c13, atol=1e-9):
             why_c13 = ""
@@ -881,7 +886,8 @@ R_13r = Y_13r.T @ X_13r @ np.linalg.inv(X_13r.T @ X_13r)
 wbm.record("M28.13b", [float(np.linalg.det(R_13r)), True], decimals=6,
            mistakes={"R Rᵀ = I : une matrice orthogonale conserve les produits scalaires, et Y Yᵀ = X Xᵀ":
                          [float(np.linalg.det(R_13r)), False],
-                     "le déterminant de R se calcule sur R = Yᵀ X (Xᵀ X)⁻¹, avec la carte rendue par ta fonction":
+                     "le déterminant de R se calcule sur R = Yᵀ X (Xᵀ X)⁻¹, avec la carte Y de la construction de la "
+                     "docstring (colonnes par valeur propre décroissante, convention de signe)":
                          [-float(np.linalg.det(R_13r)), True]})
 D2e_13r = D_13r ** 2
 D2e_13r[0, 2] = D2e_13r[2, 0] = 2500.0
@@ -1002,7 +1008,7 @@ wbm.record("M28.14c", sizes_14r,
                      "à T = ∞, la loi est uniforme sur les six catégories : il en faut assez pour atteindre 0,87":
                          sizes_14r[:3] + [5]})
 entropies_14r = [float(stats_14r.entropy(temper_14r(p_14r, T))) for T in (1 / 3, 1, 3)]
-wbm.record("M28.14d", entropies_14r + [True], decimals=6,
+wbm.record("M28.14d", entropies_14r + [True], decimals=5,
            mistakes={"l'entropie se compte en nats, avec ln": [h / math.log(2) for h in entropies_14r] + [True],
                      "compare les trois entropies dans l'ordre des températures": entropies_14r + [False]})'''),
     ],
@@ -1013,3 +1019,1708 @@ PART_A = Part("A", "Ta librairie : une carte à partir d'une matrice de Gram ; u
               "Fiche §2 et §5. Les trois fonctions de `mymath/sampling.py`, leurs tests, et un usage de chacune sur les "
               "données des exercices papier. La cellule de données ci-dessous recopie les données des exercices papier.",
               given=TOOLS + "\n\n\n" + DATA, exercises=[M28_13, M28_14])
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: predict, draw (M28.15, M28.16)
+# ---------------------------------------------------------------------------
+GIVEN_15 = '''C_15 = np.array([0.33, 0.58])      # the maximum of f(x) = −‖x − c‖² (W), inside the box [0, 1]²
+X0_15 = np.array([0.83, 0.13])     # the start
+ETA_15 = 0.08                      # the step'''
+
+CHECK_15 = '''HIDDEN_C15 = __HIDDEN_C15__   # hidden calls (start, scale, normalized, n_steps) and the iterates expected
+
+with checked("M28.15"):
+    results_15 = []
+    report_15 = reporter(results_15, stop=False)
+    start_c15 = np.array(X0_15, dtype=float)
+    got_c15 = []
+    try:
+        for x0_c15, scale_c15, normalized_c15, n_c15, _ in HIDDEN_C15:
+            X0_15 = np.array(x0_c15)                     # your function reads X0_15 at the call
+            got_c15.append(ascent_15(scale_c15, normalized_c15, n_c15))
+    finally:
+        X0_15 = start_c15
+    for (x0_c15, scale_c15, normalized_c15, n_c15, want_c15), result_c15 in zip(HIDDEN_C15, got_c15):
+        arr_c15 = as_floats(result_c15)
+        label_c15 = f"un départ caché, scale = {scale_c15:g}, pas {'normalisé' if normalized_c15 else 'ordinaire'}"
+        if arr_c15 is None or arr_c15.shape != (n_c15 + 1, 2):
+            why_c15 = (f"attendu un tableau de forme ({n_c15 + 1}, 2), ligne 0 le départ, reçu "
+                       f"{None if arr_c15 is None else arr_c15.shape}")
+        elif matches(arr_c15, want_c15, atol=1e-9):
+            why_c15 = ""
+        elif matches(arr_c15[0], start_c15):
+            why_c15 = "ta fonction part encore du départ de l'énoncé : lis X0_15 au moment de l'appel"
+        elif np.any(arr_c15 < -1e-12) or np.any(arr_c15 > 1 + 1e-12):
+            why_c15 = "les itérés doivent rester dans le pavé : projette chaque point (np.clip) après le pas"
+        else:
+            why_c15 = ("ces itérés ne sont pas ceux de la montée projetée de l'énoncé, x ← clip(x + η s, 0, 1), sur scale·f "
+                       "(le gradient de f est −2(x − c))")
+        report_15(not why_c15, f"ascent_15 : {label_c15}, comme attendu", f"ascent_15, {label_c15} : {why_c15}")
+    verdict("M28.15", all(results_15), "ta montée suit l'énoncé depuis un départ caché aussi.",
+            "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_15 = (r"Prédictions attendues : a) (C) ; b) $(0, 1)$, la projection de $\mathbf{x}_0 - 160(\mathbf{x}_0 - \mathbf{c}) "
+           r"= (-79{,}17 ;\ 72{,}13)$ ; c) (A) ; d) 8 ($\lVert\mathbf{x}_0 - \mathbf{c}\rVert \approx 0{,}6727$ baisse de "
+           r"0,08 par pas). e) $(0{,}0206 ;\ 0{,}8862 ;\ 0{,}0327 ;\ 0{,}0327)$ : avec $f$, la distance est multipliée par "
+           r"$1 - 2\eta = 0{,}84$ à chaque pas ; avec $1\,000f$, les itérés alternent entre $(0, 1)$ et $(1, 0)$ ; le pas "
+           r"normalisé oscille près du maximum. f) Vrai.")
+
+M28_15 = Ex(
+    "M28.15", "🔮", 1, 15, "Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est multipliée par "
+    "1 000, puis vérifier",
+    "prévoir ce qu'un changement d'unité fait à un pas de montée ordinaire et à un pas normalisé, avec une projection sur "
+    "un pavé, puis le vérifier.", "fiche §3 ; M05b, M19 ; Ex M28.3", tracks="C, E", hypothesis=True, given=GIVEN_15,
+    note=NOTE_15,
+    body=r"""Deux réglages $\mathbf{x} \in [0, 1]^2$ commandent un capteur, dont le signal $f(\mathbf{x}) = -\lVert\mathbf{x} - \mathbf{c}\rVert^2$, en watts, est maximal en $\mathbf{c} = (0{,}33 ;\ 0{,}58)$ (`C_15`), à l'intérieur du pavé. On fait 20 pas de montée projetée, $\mathbf{x}_{t+1} = \operatorname{clip}(\mathbf{x}_t + \eta\,\mathbf{s}_t,\ 0,\ 1)$, de pas $\eta = 0{,}08$ (`ETA_15`), depuis $\mathbf{x}_0 = (0{,}83 ;\ 0{,}13)$ (`X0_15`), avec le pas ordinaire $\mathbf{s}_t = \nabla f(\mathbf{x}_t)$ ou le pas normalisé $\mathbf{s}_t = \nabla f(\mathbf{x}_t)/\lVert\nabla f(\mathbf{x}_t)\rVert$. Puis on exprime le signal en milliwatts : la fonction devient $1\,000f$, et l'on recommence avec le même $\eta$. **Avant d'exécuter quoi que ce soit**, prédis :
+- a) avec $1\,000f$ et le pas ordinaire, les itérés : (A) vont au maximum, plus vite qu'avec $f$ ; (B) s'arrêtent sur un sommet du pavé et y restent ; (C) sautent d'un sommet à un autre sans jamais s'arrêter ; (D) sortent du pavé (une lettre) ;
+- b) le point $\mathbf{x}_1$ avec $1\,000f$ et le pas ordinaire (une liste de 2 nombres, que tu calcules à la main) ;
+- c) avec le pas normalisé, les itérés de $1\,000f$ : (A) sont ceux de $f$ ; (B) font des pas 1 000 fois plus longs (une lettre) ;
+- d) avec le pas normalisé, le premier pas $k$ où $\lVert\mathbf{x}_k - \mathbf{c}\rVert < 0{,}1$ (un entier).
+
+Puis, une fois tes prédictions écrites et vérifiées, écris `ascent_15(scale, normalized, n_steps=20)`, qui rend le tableau des itérés, de forme $(\texttt{n\_steps} + 1, 2)$, ligne 0 le départ, pour la fonction $\texttt{scale}\cdot f$ ; elle lit `C_15`, `X0_15` et `ETA_15` au moment de l'appel (la vérification change `X0_15` un instant : un départ caché). Relève :
+- e) les distances $\lVert\mathbf{x}_{20} - \mathbf{c}\rVert$ des quatre montées, dans l'ordre ($f$, pas ordinaire), ($1\,000f$, pas ordinaire), ($f$, pas normalisé), ($1\,000f$, pas normalisé) (une liste de 4 nombres ; 4 décimales dans ta copie) ;
+- f) vrai ou faux : avec le pas normalisé, les 21 itérés de $f$ et de $1\,000f$ sont les mêmes.
+
+La vérification de l'expérience ne s'exécute qu'une fois tes quatre prédictions écrites. Ce qu'il faut observer : multiplier la fonction par 1 000 multiplie le pas ordinaire par 1 000, et la projection transforme ces sauts démesurés en allers-retours entre deux sommets, alors que le maximum est à l'intérieur ; le pas normalisé ne voit pas l'unité, mais, de longueur fixe, il oscille près du maximum sans s'y poser.""",
+    todo='''prediction_M28_15a = ...  # a) "A", "B", "C" or "D", written BEFORE the experiment: 1000 f with the plain step, the iterates...
+prediction_M28_15b = ...  # b) a list of 2 numbers, computed by hand: x1 for 1000 f with the plain step
+prediction_M28_15c = ...  # c) "A" or "B": the normalized iterates of 1000 f
+prediction_M28_15d = ...  # d) an integer: with the normalized step, the first k such that ‖x_k − c‖ < 0.1''',
+    check='''for letter, prediction in zip("abcd", [prediction_M28_15a, prediction_M28_15b, prediction_M28_15c, prediction_M28_15d]):
+    wbm.check(f"M28.15{letter}", prediction)''',
+    record='''def ascent_15r(scale, normalized, n_steps=20, x0=(0.83, 0.13), c=(0.33, 0.58), eta=0.08, clip=True):
+    """The oracle: the projected ascent of the statement, written again with a Python loop on two coordinates."""
+    x, xs = [float(v) for v in x0], []
+    xs.append(list(x))
+    for _ in range(n_steps):
+        g = [scale * -2.0 * (x[k] - c[k]) for k in range(2)]
+        norm = math.hypot(*g)
+        s = [gk / norm for gk in g] if normalized else g
+        x = [min(max(x[k] + eta * s[k], 0.0), 1.0) if clip else x[k] + eta * s[k] for k in range(2)]
+        xs.append(list(x))
+    return np.array(xs)
+
+
+def distance_15r(xs):
+    return [float(math.hypot(x[0] - 0.33, x[1] - 0.58)) for x in xs]
+
+
+plain_1000_15r = ascent_15r(1000.0, False)
+corners_15r = {tuple(v) for v in plain_1000_15r[1:].tolist()}
+wbm.record("M28.15a", "C" if len(corners_15r) == 2 and np.ptp(plain_1000_15r[1:, 0]) == 1 else "B", prediction=True,
+           mistakes={"un pas 1 000 fois plus long ne s'arrête pas sur le maximum : il le dépasse de très loin": "A",
+                     "un sommet n'est un point d'arrêt que si le gradient y pousse vers l'extérieur du pavé : regarde le "
+                     "signe du gradient au sommet atteint": "B",
+                     "la projection ramène chaque point dans le pavé": "D"})
+wbm.record("M28.15b", plain_1000_15r[1].tolist(), decimals=6,
+           mistakes={"après le pas, le point est projeté sur le pavé (clip)":
+                         [0.83 + 0.08 * 1000 * -2 * (0.83 - 0.33), 0.13 + 0.08 * 1000 * -2 * (0.13 - 0.58)],
+                     "avec 1 000 f, le gradient est multiplié par 1 000": ascent_15r(1.0, False)[1].tolist()})
+same_15r = bool(np.allclose(ascent_15r(1.0, True), ascent_15r(1000.0, True)))
+wbm.record("M28.15c", "A" if same_15r else "B", prediction=True,
+           mistakes={"le pas normalisé divise le gradient par sa norme : le facteur 1 000 se simplifie": "B"})
+normalized_15r = distance_15r(ascent_15r(1.0, True))
+first_15r = next(k for k, d in enumerate(normalized_15r) if d < 0.1)
+d0_15r = normalized_15r[0]
+wbm.record("M28.15d", first_15r,
+           mistakes={"avec le pas normalisé, chaque pas a la longueur η, quelle que soit la pente":
+                         next(k for k, d in enumerate(distance_15r(ascent_15r(1.0, False))) if d < 0.1),
+                     "le premier pas où la distance passe sous 0,1, pas celui où elle s'annulerait":
+                         math.ceil(d0_15r / 0.08)})''',
+    after=[
+        ("md", "**L'expérience.** Écris-la une fois tes quatre prédictions vérifiées ; sa vérification ne s'exécute qu'à cette "
+               "condition."),
+        ("todo", '''def ascent_15(scale, normalized, n_steps=20):
+    """The iterates of the projected ascent x <- clip(x + ETA_15 s, 0, 1) on scale·f, f(x) = −‖x − C_15‖², from X0_15
+    (read at the call), with s the gradient (normalized=False) or the gradient divided by its norm (normalized=True): an
+    array of shape (n_steps + 1, 2), row 0 the start."""
+    raise NotImplementedError("ascent_15 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_M28_15e = answer_M28_15f = ...
+with wbm.attempt("M28.15"):          # your function: ⏳ while it is not written
+    answer_M28_15e = ...  # e) a list of 4 numbers, as computed: ‖x20 − c‖ for (f, plain), (1000 f, plain), (f, normalized), (1000 f, normalized)
+    answer_M28_15f = ...  # f) True or False: with the normalized step, the 21 iterates of f and of 1000 f are the same'''),
+        ("check", guarded(answers_check("M28.15", "ef") + "\n\n" + CHECK_15,
+                          [f"prediction_M28_15{letter}" for letter in "abcd"],
+                          "⏳ Écris d'abord tes quatre prédictions, puis exécute à nouveau.")),
+        ("solution", '''def ascent_15(scale, normalized, n_steps=20):
+    """The iterates of the projected ascent x <- clip(x + ETA_15 s, 0, 1) on scale·f, f(x) = −‖x − C_15‖², from X0_15
+    (read at the call), with s the gradient (normalized=False) or the gradient divided by its norm (normalized=True): an
+    array of shape (n_steps + 1, 2), row 0 the start."""
+    x = np.array(X0_15, dtype=float)
+    xs = [x]
+    for _ in range(n_steps):
+        g = scale * -2.0 * (x - C_15)
+        s = g / np.linalg.norm(g) if normalized else g
+        x = np.clip(x + ETA_15 * s, 0.0, 1.0)
+        xs.append(x)
+    return np.array(xs)
+
+
+runs_15 = [ascent_15(scale, normalized) for normalized in (False, True) for scale in (1.0, 1000.0)]
+answer_M28_15e = [float(np.linalg.norm(xs[-1] - C_15)) for xs in runs_15]
+answer_M28_15f = bool(np.allclose(runs_15[2], runs_15[3]))
+print("e)", np.round(answer_M28_15e, 6).tolist(), " f)", answer_M28_15f)
+print("   1 000 f, pas ordinaire : x1 =", runs_15[1][1].tolist(), ", x2 =", runs_15[1][2].tolist(), ", x3 =", runs_15[1][3].tolist())
+print("   pas normalisé : distances au maximum des pas 6 à 12 :", np.round(np.linalg.norm(runs_15[2][6:13] - C_15, axis=1), 4).tolist())
+
+''' + CHECK_15),
+        ("record", '''runs_15r = [ascent_15r(scale, normalized) for normalized in (False, True) for scale in (1.0, 1000.0)]
+wbm.record("M28.15e", [distance_15r(xs)[-1] for xs in runs_15r], decimals=6,
+           mistakes={"x₂₀ est la dernière ligne du tableau (20 pas), la ligne 0 étant le départ":
+                         [distance_15r(xs)[-2] for xs in runs_15r],
+                     "l'ordre : (f, ordinaire), (1 000 f, ordinaire), (f, normalisé), (1 000 f, normalisé)":
+                         [distance_15r(xs)[-1] for xs in (runs_15r[0], runs_15r[2], runs_15r[1], runs_15r[3])],
+                     "chaque point est projeté sur le pavé après le pas (np.clip)":
+                         [distance_15r(ascent_15r(scale, normalized, clip=False))[-1]
+                          for normalized in (False, True) for scale in (1.0, 1000.0)]})
+wbm.record("M28.15f", bool(np.allclose(runs_15r[2], runs_15r[3])),
+           mistakes={"compare les deux tableaux d'itérés du pas normalisé, ligne par ligne (np.allclose)": False})'''),
+        ("md", "**Après l'expérience**, dans ta copie : pourquoi les itérés de $1\\,000f$ ne s'arrêtent-ils jamais ? Pourquoi "
+               "le pas normalisé ne se pose-t-il pas sur le maximum, et que faudrait-il changer pour qu'il s'en approche "
+               "autant qu'on veut ?"),
+    ],
+)
+
+GIVEN_16 = '''N_16 = 48
+I_16, J_16 = np.meshgrid(np.arange(N_16), np.arange(N_16), indexing="ij")    # row i, column j
+MOTIFS_16 = {"A": np.cos(2 * np.pi * J_16 / 16), "B": np.cos(2 * np.pi * J_16 / 6), "C": np.cos(2 * np.pi * J_16 / 3),
+             "D": (-1.0) ** J_16, "E": (-1.0) ** (I_16 + J_16)}          # five 48 × 48 motifs, from A to E
+FREQS_16 = [1 / 16, 1 / 6, 1 / 3, 1 / 2]                                  # the frequencies of A to D (cycles per cell)
+ETA_16, STEPS_16 = 0.05, 10
+
+
+def blur3_16(x):
+    """The mean of the nine cells around each inner cell of the grid x: an array of shape (n − 2, m − 2)."""
+    x = np.asarray(x, dtype=float)
+    n, m = x.shape
+    return sum(x[1 + a:n - 1 + a, 1 + b:m - 1 + b] for a in (-1, 0, 1) for b in (-1, 0, 1)) / 9'''
+
+CHECK_16 = '''HIDDEN_C16 = __HIDDEN_C16__   # a hidden call: eta, n_steps, and the three lists expected for five hidden motifs (below)
+HIDDEN_MOTIFS_C16 = {"H1": np.cos(2 * np.pi * I_16 / 8), "H2": np.cos(2 * np.pi * (I_16 + 2 * J_16) / 10),
+                     "H3": np.cos(2 * np.pi * J_16 / 4 + 0.7), "H4": (-1.0) ** I_16,
+                     "H5": np.cos(2 * np.pi * (I_16 / 5 - J_16 / 7))}
+
+
+def tv_c16(x):
+    """VT(x) by its definition (fiche §4): the squares of the differences between vertical and horizontal neighbours."""
+    return float((np.diff(x, axis=0) ** 2).sum() + (np.diff(x, axis=1) ** 2).sum())
+
+
+def laplacian_why_c16(rng):
+    """'' when grid_laplacian_16 behaves as a laplacian with free edges on random grids, else the reason."""
+    for shape in ((5, 7), (6, 4)):
+        x, y = rng.normal(size=shape), rng.normal(size=shape)
+        x_before = x.copy()
+        Lx, Ly, Lxy = (as_floats(grid_laplacian_16(v)) for v in (x, y, x + 2 * y))
+        if any(v is None or v.shape != shape for v in (Lx, Ly, Lxy)):
+            return f"grid_laplacian_16 doit rendre un tableau de la forme de x, {shape}"
+        if not np.array_equal(x, x_before):
+            return "grid_laplacian_16 modifie la grille reçue : travaille sur une copie, ou crée un nouveau tableau"
+        if not np.allclose(Lxy, Lx + 2 * Ly, atol=1e-9):
+            return "L est linéaire : L(x + 2y) doit valoir Lx + 2Ly"
+        if math.isclose(float(x.ravel() @ Lx.ravel()), -tv_c16(x), rel_tol=1e-9):
+            return "(Lx)_a = deg(a) x_a − la somme des voisines de a, pas l'inverse"
+        if abs(float(Lx.sum())) > 1e-9:
+            return ("la somme des coefficients de Lx est nulle : en chaque case, son nombre de voisines (2 dans un coin, 3 "
+                    "sur un bord, 4 à l'intérieur) fois sa valeur, moins la somme de ses voisines")
+        if not math.isclose(float(x.ravel() @ Lx.ravel()), tv_c16(x), rel_tol=1e-9):
+            return ("xᵀLx doit valoir VT(x), la somme des carrés des différences entre voisines de la grille : à bords "
+                    "libres, la dernière colonne n'est pas voisine de la première (np.roll referme la grille)")
+        if not math.isclose(float(y.ravel() @ Lx.ravel()), float(x.ravel() @ Ly.ravel()), rel_tol=1e-9, abs_tol=1e-12):
+            return "L est symétrique : ⟨Lx, y⟩ doit valoir ⟨x, Ly⟩"
+    return ""
+
+
+def stripes_why_c16(axes, motifs, result, want=None, letter_check=True):
+    """What is wrong in a call of draw_stripes_16 (French phrases): its three lists, then the fifteen images."""
+    problems = []
+    if not isinstance(result, dict) or set(result) != {"ratio", "gain", "decay"}:
+        return [f"draw_stripes_16 doit rendre un dictionnaire de clés \\"ratio\\", \\"gain\\", \\"decay\\", reçu {shown(result)}"]
+    lists = {key: as_floats(result[key]) for key in ("ratio", "gain", "decay")}
+    if any(v is None or v.shape != (len(motifs),) for v in lists.values()):
+        return [f"chaque liste a une valeur par motif, {len(motifs)} en tout, dans l'ordre des motifs"]
+    if want is None:                     # the visible call: compared like the answers a) to c) (answers.json)
+        for key, letter in (("ratio", "a"), ("gain", "b")):
+            if not wbm.check(f"M28.16{letter}", lists[key].tolist(), computed=True, quiet=True).passed:
+                problems.append(f"la liste \\"{key}\\" n'est pas celle qu'attend l'énoncé")
+        if np.any(lists["decay"] <= 0) or not wbm.check("M28.16c", np.log10(lists["decay"]).tolist(), computed=True,
+                                                        quiet=True).passed:
+            problems.append("la liste \\"decay\\" n'est pas celle qu'attend l'énoncé (‖y_c‖/‖x_c‖ sur le bloc central "
+                            "[12:36, 12:36], après les pas de descente)")
+    else:
+        for key in ("ratio", "gain", "decay"):
+            if not np.allclose(lists[key], want[key], rtol=1e-6, atol=1e-9):
+                problems.append(f"la liste \\"{key}\\" n'est pas celle qu'attend l'énoncé pour ces motifs, ce pas et ce "
+                                "nombre de pas (dessine les motifs reçus, avec eta et n_steps reçus)")
+    for k, (name, x) in enumerate(motifs.items()):
+        row = []
+        for j in range(3):
+            images = axes[k, j].images
+            if not images:
+                row.append(f"l'image {j + 1} (imshow)")
+                continue
+            data = np.asarray(images[-1].get_array(), dtype=float)
+            if images[-1].get_clim() != (-1.0, 1.0):
+                row.append(f"l'échelle de couleurs de −1 à 1 de l'image {j + 1} (vmin=-1, vmax=1)")
+            if j == 0 and not matches(data, x):
+                row.append("le motif lui-même en première image")
+            if j == 1 and not matches(data, blur3_16(x)):
+                row.append("son flou (blur3_16) en deuxième image")
+            if j == 2 and (data.shape != x.shape or not math.isclose(
+                    float(np.linalg.norm(data[12:36, 12:36]) / np.linalg.norm(x[12:36, 12:36])), float(lists["decay"][k]),
+                    rel_tol=1e-6, abs_tol=1e-12)):
+                row.append("la grille après les pas de descente en troisième image (celle dont \\"decay\\" est mesuré)")
+            value = [lists["ratio"][k], lists["gain"][k], lists["decay"][k]][j]
+            candidates = [value] + ([math.log10(value)] if j == 2 and value > 0 else [])
+            if not gives(axes[k, j].get_title(), candidates):
+                row.append(f"un titre qui donne la valeur mesurée sur l'image {j + 1} (un nombre)")
+        if row:
+            problems.append(f"motif {name} : il manque " + " ; ".join(row))
+    return problems
+
+
+def curve_why_c16(ax, eta, n_steps, freqs, decays):
+    """What is missing in a drawing of draw_decay_curve_16 (French phrases)."""
+    missing = []
+    if not follows(ax, lambda f: (1 - 8 * eta * np.sin(np.pi * f) ** 2) ** n_steps, 0.0, 0.5):
+        missing.append("la courbe (1 − 8η sin²(πf))ⁿ, tracée d'un trait pour f de 0 à 1/2 avec le η et le n reçus")
+    if not points_at(ax, freqs, decays, marker_only=True):
+        missing.append("les points mesurés (freqs, decays), avec un marqueur")
+    if ax.get_yscale() != "log":
+        missing.append("l'échelle logarithmique en ordonnée (ax.set_yscale(\\"log\\"))")
+    if not ax.get_xlabel() or not ax.get_ylabel():
+        missing.append("des noms d'axes")
+    if not gives(ax.get_title(), [(1 - 16 * eta) ** n_steps], rel=0.01, abs_tol=0.0):
+        missing.append("en titre, la valeur théorique du damier, (1 − 16η)ⁿ")
+    return missing
+
+
+with checked("M28.16"):
+    results_16 = []
+    report_16 = reporter(results_16, stop=False)
+    why_c16 = laplacian_why_c16(np.random.default_rng())          # random grids, drawn at each run
+    report_16(not why_c16, "grid_laplacian_16 : linéaire, symétrique, de somme nulle, et xᵀLx = VT(x) sur deux grilles "
+              "tirées au hasard", f"grid_laplacian_16 : {why_c16}")
+    fig_16, axes_16 = plt.subplots(5, 3, figsize=(9, 15))
+    fig_curve_16, ax_curve_16 = plt.subplots(figsize=(6.5, 4.2))
+    try:
+        result_16 = []
+        opened_16 = drawn(lambda: result_16.append(draw_stripes_16(axes_16, MOTIFS_16, ETA_16, STEPS_16)))
+        problems_16 = stripes_why_c16(axes_16, MOTIFS_16, result_16[0])
+        report_16(not problems_16, "draw_stripes_16 (η = 0,05, 10 pas) : les trois listes comme attendu, et les quinze "
+                  "images, leur échelle et leurs titres", "draw_stripes_16 : " + " ; ".join(problems_16))
+        fig_c16, axes_c16 = plt.subplots(5, 3)
+        try:
+            hidden_c16 = []
+            opened_16 += drawn(lambda: hidden_c16.append(draw_stripes_16(axes_c16, HIDDEN_MOTIFS_C16, HIDDEN_C16["eta"],
+                                                                          HIDDEN_C16["n_steps"])))
+            problems_c16 = stripes_why_c16(axes_c16, HIDDEN_MOTIFS_C16, hidden_c16[0], want=HIDDEN_C16)
+        finally:
+            plt.close(fig_c16)
+        report_16(not problems_c16, "un appel caché de draw_stripes_16 (cinq autres motifs, un autre pas, un autre nombre "
+                  "de pas) est juste aussi", "un appel caché de draw_stripes_16 : " + " ; ".join(problems_c16))
+        decays_16 = as_floats(result_16[0].get("decay")) if isinstance(result_16[0], dict) else None
+        decays_16 = decays_16[:4] if decays_16 is not None and decays_16.shape == (5,) else np.array([0.8, 0.3, 0.03, 0.006])
+        opened_16 += drawn(draw_decay_curve_16, ax_curve_16, ETA_16, STEPS_16, FREQS_16, decays_16)
+        missing_16 = curve_why_c16(ax_curve_16, ETA_16, STEPS_16, FREQS_16, decays_16)
+        report_16(not missing_16, "draw_decay_curve_16 : la courbe, les points, l'échelle logarithmique, les noms d'axes et "
+                  "le titre", "draw_decay_curve_16 : il manque " + " ; ".join(missing_16))
+        fig_c16, ax_c16 = plt.subplots()
+        try:
+            opened_16 += drawn(draw_decay_curve_16, ax_c16, 0.03, 8, [0.1, 0.25, 0.4], [0.8, 0.45, 0.15])
+            missing_c16 = curve_why_c16(ax_c16, 0.03, 8, [0.1, 0.25, 0.4], [0.8, 0.45, 0.15])
+        finally:
+            plt.close(fig_c16)
+        report_16(not missing_c16, "un appel caché de draw_decay_curve_16 (η = 0,03, 8 pas, trois autres points) est juste "
+                  "aussi", "un appel caché de draw_decay_curve_16 (η = 0,03, 8 pas) : il manque " + " ; ".join(missing_c16))
+        report_16(not opened_16, "tes deux fonctions dessinent dans les axes reçus",
+                  "tes fonctions doivent dessiner dans les axes reçus, sans ouvrir de figure")
+    except BaseException:
+        plt.close(fig_16)
+        plt.close(fig_curve_16)
+        raise
+    fig_16.tight_layout()
+    fig_curve_16.tight_layout()
+    plt.show()
+    verdict("M28.16", all(results_16), "ton laplacien, tes quinze images et ta courbe sont justes.",
+            "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_16 = (r"a) $0{,}152$ ; $0{,}990$ ; $2{,}906$ ; $3{,}917$ ; $7{,}833$ (sur une grille refermée : 0,152 ; 1 ; 3 ; 4 ; 8). "
+           r"b) $0{,}9493$ ; $0{,}6667$ ; $0$ ; $-0{,}3333$ ; $0{,}1111$. c) $-0{,}07$ ; $-0{,}46$ ; $-1{,}55$ ; $-2{,}22$ ; "
+           r"$-6{,}99$. d) Vrai. e) Vrai : sur le bloc central, $0{,}9^{10}$, $0{,}7^{10}$, $0{,}6^{10}$ et $0{,}2^{10}$ "
+           r"pour B, C, D et le damier.")
+
+M28_16 = Ex(
+    "M28.16", "🎨", 1, 20, "Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et ce qu'en "
+    "laissent un flou 3 × 3 et dix pas de descente sur la variation totale",
+    "dessiner des motifs de plus en plus rapides, leur flou et leur lissage par la variation totale, et lire sur les "
+    "images et sur une courbe ce que coûte une haute fréquence.", "fiche §4 ; M21 ; Ex M28.4 et M28.5", tracks="C, E",
+    given=GIVEN_16, note=NOTE_16,
+    body=r"""Sur une grille de $48 \times 48$ cases à **bords libres** (une case du bord a moins de quatre voisines), cinq motifs (`MOTIFS_16`, un dictionnaire, de A à E) : A $\cos\frac{2\pi j}{16}$, B $\cos\frac{2\pi j}{6}$, C $\cos\frac{2\pi j}{3}$, D $(-1)^j$ et E $(-1)^{i+j}$, le damier. Le notebook fournit `blur3_16(x)`, la moyenne des neuf cases autour de chaque case intérieure (un tableau $46 \times 46$).
+
+Écris `grid_laplacian_16(x)`, qui rend $\mathbf{L}\mathbf{x}$ pour la grille à bords libres (en chaque case, son nombre de voisines fois sa valeur, moins la somme de ses voisines ; sans boucle sur les cases), puis `draw_stripes_16(axes, motifs, eta, n_steps)`, qui reçoit une grille d'axes de forme $(5, 3)$ et un dictionnaire de motifs et, pour chaque motif (une ligne d'axes), dessine (`imshow`, une même échelle de couleurs de $-1$ à 1 pour les trois images : `vmin=-1, vmax=1`) le motif, son flou, et la grille après `n_steps` pas de descente $\mathbf{x} \leftarrow \mathbf{x} - \eta\cdot 2\mathbf{L}\mathbf{x}$ ; chaque image a un titre qui donne la valeur mesurée (le rapport, le gain, l'atténuation). La fonction rend un dictionnaire de trois listes, dans l'ordre des motifs : `"ratio"`, $\mathrm{VT}(\mathbf{x})/\lVert\mathbf{x}\rVert^2$ sur toute la grille (avec $\mathrm{VT}(\mathbf{x}) = \mathbf{x}^\top\mathbf{L}\mathbf{x}$) ; `"gain"`, $\langle\text{flou}, \mathbf{x}_{\text{int}}\rangle/\lVert\mathbf{x}_{\text{int}}\rVert^2$, où $\mathbf{x}_{\text{int}}$ est le motif sur les cases intérieures ; `"decay"`, $\lVert\mathbf{y}_c\rVert/\lVert\mathbf{x}_c\rVert$ après les pas de descente, sur le bloc central `[12:36, 12:36]`. Écris aussi `draw_decay_curve_16(ax, eta, n_steps, freqs, decays)`, qui trace la courbe $\big(1 - 8\eta\sin^2(\pi f)\big)^{n}$ pour $f$ de 0 à $\frac12$, et place les points mesurés des rayures A à D (`freqs` $= (\frac{1}{16}, \frac16, \frac13, \frac12)$, `FREQS_16`), avec une échelle logarithmique en ordonnée, des noms d'axes, et en titre la valeur théorique du damier, $(1 - 16\eta)^{n}$. Les deux fonctions dessinent dans les axes reçus, sans ouvrir de figure.
+
+La vérification essaie `grid_laplacian_16` sur des grilles tirées au hasard, appelle les deux fonctions avec $\eta = 0{,}05$ et 10 pas (`ETA_16`, `STEPS_16`), affiche les figures, et compare tes trois listes aux valeurs attendues ; elle les appelle aussi sur d'autres motifs, un autre pas et un autre nombre de pas (des appels cachés). Relève, avec `draw_stripes_16` (appelle-la sur les axes d'une figure que tu fermes aussitôt, `fig, axes = plt.subplots(5, 3)` puis `plt.close(fig)`, pour ne pas afficher la figure deux fois) :
+- a) les cinq rapports (une liste de 5 nombres ; 3 décimales dans ta copie) ;
+- b) les cinq gains (une liste de 5 nombres ; 4 décimales dans ta copie) ;
+- c) le logarithme décimal des cinq atténuations (une liste de 5 nombres ; 2 décimales dans ta copie) ;
+- d) vrai ou faux : les rapports mesurés sont un peu sous les valeurs $4\sin^2(\pi f)$ (et 8 pour le damier) de la grille refermée ;
+- e) vrai ou faux : sur le bloc central, les atténuations sont exactement celles de la courbe pour A à D, et la valeur du titre pour le damier.
+
+Ce qu'il faut observer : plus le motif est rapide, plus il coûte en variation totale et plus le flou et la descente l'effacent ; le flou rend la période 3 nulle et le damier divisé par 9 ; sur une grille à bords libres, les cases du bord ont moins de voisines, ce qui fait baisser les rapports ; mais un pas ne mélange que des voisines, et, après 10 pas, une case à plus de 10 cases du bord n'a pas encore « vu » le bord : au centre, la courbe est exacte.""",
+    todo='''def grid_laplacian_16(x):
+    """L x for the grid x with free edges: in each cell, its number of neighbours times its value, minus the sum of its
+    neighbours (no loop over the cells). Returns a new array of the shape of x."""
+    raise NotImplementedError("grid_laplacian_16 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def draw_stripes_16(axes, motifs, eta, n_steps):
+    """axes: a (5, 3) grid of axes; motifs: a dict {name: grid}. For each motif (one row of axes): imshow of the motif,
+    of its blur (blur3_16) and of the grid after n_steps descent steps x <- x - eta·2Lx, with vmin=-1, vmax=1, and a
+    title that gives the value measured. Returns {"ratio": [...], "gain": [...], "decay": [...]} in the order of the
+    motifs: xᵀLx/‖x‖², ⟨blur, x_int⟩/‖x_int‖², ‖y_c‖/‖x_c‖ on the block [12:36, 12:36]. No other axes."""
+    raise NotImplementedError("draw_stripes_16 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def draw_decay_curve_16(ax, eta, n_steps, freqs, decays):
+    """In ax: the curve (1 − 8 eta sin²(πf))**n_steps for f from 0 to 1/2, the points (freqs, decays) with a marker, a
+    log scale on the y axis, axis labels, and as title the theoretical value of the checkerboard, (1 − 16 eta)**n_steps.
+    No other axes."""
+    raise NotImplementedError("draw_decay_curve_16 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_M28_16a = answer_M28_16b = answer_M28_16c = answer_M28_16d = answer_M28_16e = ...
+with wbm.attempt("M28.16"):          # your functions: ⏳ while they are not written
+    answer_M28_16a = ...  # a) a list of 5 numbers, as computed: the ratios VT/‖x‖² of A to E
+    answer_M28_16b = ...  # b) a list of 5 numbers, as computed: the gains of the 3 × 3 blur
+    answer_M28_16c = ...  # c) a list of 5 numbers, as computed: log10 of the decays on the central block
+    answer_M28_16d = ...  # d) True or False: the ratios measured are a little below 4 sin²(πf) (and 8 for the checkerboard)
+    answer_M28_16e = ...  # e) True or False: on the central block, the decays are exactly those of the curve for A to D, and the value of the title for E''',
+    check=answers_check("M28.16", "abcde") + "\n\n" + CHECK_16,
+    solution='''def grid_laplacian_16(x):
+    """L x for the grid x with free edges: in each cell, its number of neighbours times its value, minus the sum of its
+    neighbours (no loop over the cells). Returns a new array of the shape of x."""
+    x = np.asarray(x, dtype=float)
+    Lx = np.zeros_like(x)
+    vertical, horizontal = x[1:, :] - x[:-1, :], x[:, 1:] - x[:, :-1]      # the differences between neighbours
+    Lx[1:, :] += vertical
+    Lx[:-1, :] -= vertical
+    Lx[:, 1:] += horizontal
+    Lx[:, :-1] -= horizontal
+    return Lx
+
+
+def draw_stripes_16(axes, motifs, eta, n_steps):
+    """axes: a (5, 3) grid of axes; motifs: a dict {name: grid}. For each motif (one row of axes): imshow of the motif,
+    of its blur (blur3_16) and of the grid after n_steps descent steps x <- x - eta·2Lx, with vmin=-1, vmax=1, and a
+    title that gives the value measured. Returns {"ratio": [...], "gain": [...], "decay": [...]} in the order of the
+    motifs: xᵀLx/‖x‖², ⟨blur, x_int⟩/‖x_int‖², ‖y_c‖/‖x_c‖ on the block [12:36, 12:36]. No other axes."""
+    out = {"ratio": [], "gain": [], "decay": []}
+    for k, (name, x) in enumerate(motifs.items()):
+        x = np.asarray(x, dtype=float)
+        blur, inner = blur3_16(x), x[1:-1, 1:-1]
+        y = x.copy()
+        for _ in range(n_steps):
+            y = y - eta * 2 * grid_laplacian_16(y)
+        values = [float((x * grid_laplacian_16(x)).sum() / (x * x).sum()), float((blur * inner).sum() / (inner * inner).sum()),
+                  float(np.linalg.norm(y[12:36, 12:36]) / np.linalg.norm(x[12:36, 12:36]))]
+        for key, value in zip(out, values):
+            out[key].append(value)
+        texts = [f"{name} : VT/‖x‖² = {values[0]:.3f}", f"flou : gain {values[1]:.4f}", f"{n_steps} pas : × {values[2]:.3g}"]
+        for ax, image, text in zip(axes[k], (x, blur, y), texts):
+            ax.imshow(image, cmap="RdBu_r", vmin=-1, vmax=1)
+            ax.set_title(text.replace(".", ","), fontsize=8)
+            ax.set_xticks([])
+            ax.set_yticks([])
+    return out
+
+
+def draw_decay_curve_16(ax, eta, n_steps, freqs, decays):
+    """In ax: the curve (1 − 8 eta sin²(πf))**n_steps for f from 0 to 1/2, the points (freqs, decays) with a marker, a
+    log scale on the y axis, axis labels, and as title the theoretical value of the checkerboard, (1 − 16 eta)**n_steps.
+    No other axes."""
+    f = np.linspace(0, 0.5, 201)
+    ax.plot(f, (1 - 8 * eta * np.sin(np.pi * f) ** 2) ** n_steps, "-", label="(1 − 8η sin²(πf))ⁿ")
+    ax.plot(freqs, decays, "o", label="atténuations mesurées (A à D)")
+    ax.set_yscale("log")
+    ax.set_xlabel("fréquence f (cycles par case)")
+    ax.set_ylabel("atténuation au centre")
+    ax.set_title(f"damier : (1 − 16η)ⁿ = {(1 - 16 * eta) ** n_steps:.4g}".replace(".", ","), fontsize=10)
+    ax.legend(fontsize=8)
+
+
+fig_16, axes_16 = plt.subplots(5, 3)
+measured_16 = draw_stripes_16(axes_16, MOTIFS_16, ETA_16, STEPS_16)
+plt.close(fig_16)
+answer_M28_16a, answer_M28_16b = measured_16["ratio"], measured_16["gain"]
+answer_M28_16c = np.log10(measured_16["decay"]).tolist()
+closed_16 = [4 * math.sin(math.pi * f) ** 2 for f in FREQS_16] + [8.0]
+answer_M28_16d = bool(all(r < c for r, c in zip(answer_M28_16a, closed_16)))
+theory_16 = [(1 - 8 * ETA_16 * math.sin(math.pi * f) ** 2) ** STEPS_16 for f in FREQS_16] + [(1 - 16 * ETA_16) ** STEPS_16]
+answer_M28_16e = bool(np.allclose(measured_16["decay"], theory_16, rtol=1e-9, atol=0))
+print("a)", np.round(answer_M28_16a, 4).tolist(), " b)", np.round(answer_M28_16b, 4).tolist())
+print("c)", np.round(answer_M28_16c, 3).tolist(), " d)", answer_M28_16d, " e)", answer_M28_16e)
+
+''' + CHECK_16,
+    record='''from scipy.signal import convolve2d as convolve2d_16r
+
+
+def path_laplacian_16r(n):
+    """The laplacian of a path of n cells (free ends)."""
+    return np.diag([1.0] + [2.0] * (n - 2) + [1.0]) - np.eye(n, k=1) - np.eye(n, k=-1)
+
+
+L_16r = np.kron(path_laplacian_16r(48), np.eye(48)) + np.kron(np.eye(48), path_laplacian_16r(48))   # the grid, row-major
+i_16r, j_16r = np.meshgrid(np.arange(48), np.arange(48), indexing="ij")
+motifs_16r = [np.cos(2 * np.pi * j_16r / 16), np.cos(2 * np.pi * j_16r / 6), np.cos(2 * np.pi * j_16r / 3),
+              np.cos(np.pi * j_16r), np.cos(np.pi * (i_16r + j_16r))]
+
+
+def descent_16r(v, eta, n_steps):
+    """n_steps descent steps v <- v - eta (2 L) v (dense matrix L of the grid)."""
+    for _ in range(n_steps):
+        v = v - eta * (2 * L_16r @ v)
+    return v
+
+
+ratios_16r, gains_16r, decays_16r = [], [], []
+for x_16r in motifs_16r:
+    v = x_16r.ravel()
+    ratios_16r.append(float(v @ L_16r @ v / (v @ v)))
+    blur = convolve2d_16r(x_16r, np.ones((3, 3)) / 9, mode="valid")
+    inner = x_16r[1:-1, 1:-1]
+    gains_16r.append(float((blur * inner).sum() / (inner * inner).sum()))
+    y = descent_16r(v, 0.05, 10).reshape(48, 48)
+    decays_16r.append(float(np.linalg.norm(y[12:36, 12:36]) / np.linalg.norm(x_16r[12:36, 12:36])))
+closed_16r = [4 * math.sin(math.pi / p) ** 2 for p in (16, 6, 3, 2)] + [8.0]
+wbm.record("M28.16a", ratios_16r, decimals=5,
+           mistakes={"sur une grille à bords libres, une case du bord a moins de quatre voisines : le rapport de la grille "
+                     "refermée n'est qu'approché": closed_16r,
+                     "le rapport est VT(x)/‖x‖² : divise par la somme des carrés des valeurs du motif, pas par le "
+                     "nombre de cases": [float(x.ravel() @ L_16r @ x.ravel() / x.size) for x in motifs_16r]})
+wbm.record("M28.16b", gains_16r, decimals=6,
+           mistakes={"le gain se mesure sur les cases intérieures : ⟨flou, x_int⟩/‖x_int‖²":
+                         [float((convolve2d_16r(x, np.ones((3, 3)) / 9, mode="valid") * x[1:-1, 1:-1]).sum() / (x * x).sum())
+                          for x in motifs_16r]})
+wbm.record("M28.16c", np.log10(decays_16r).tolist(), decimals=7,
+           mistakes={"le logarithme décimal, log10, pas le logarithme népérien": np.log(decays_16r).tolist(),
+                     "un pas de descente sur VT est x ← x − η·2Lx (le gradient de xᵀLx est 2Lx)":
+                         [float(np.log10(np.linalg.norm(descent_16r(x.ravel(), 0.05 / 2, 10).reshape(48, 48)[12:36, 12:36])
+                                         / np.linalg.norm(x[12:36, 12:36]))) for x in motifs_16r]})
+wbm.record("M28.16d", bool(all(r < c for r, c in zip(ratios_16r, closed_16r))),
+           mistakes={"compare chaque rapport mesuré à 4 sin²(πf), et le damier à 8": False})
+theory_16r = [(1 - 8 * 0.05 * math.sin(math.pi / p) ** 2) ** 10 for p in (16, 6, 3, 2)] + [(1 - 16 * 0.05) ** 10]
+wbm.record("M28.16e", bool(np.allclose(decays_16r, theory_16r, rtol=1e-9, atol=0)),
+           mistakes={"au centre, une case à plus de 10 cases du bord n'a pas encore « vu » le bord : compare tes atténuations "
+                     "aux valeurs de la courbe": False})''',
+    after=[
+        ("md", "**Après les figures**, dans ta copie : pourquoi le flou efface-t-il exactement C et pas D ? Pourquoi les "
+               "rapports de la grille à bords libres sont-ils un peu sous ceux de la grille refermée ? Que deviendrait "
+               "l'atténuation au centre avec 30 pas ?"),
+    ],
+)
+
+PART_B = Part("B", "Prédire, dessiner",
+              "Fiche §3 et §4. Ce qu'un changement d'unité fait à un pas de montée, prédit puis vérifié ; des motifs rayés, "
+              "leur flou et leur lissage par la variation totale, dessinés.",
+              exercises=[M28_15, M28_16])
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: debug and test (M28.17, M28.18)
+# ---------------------------------------------------------------------------
+GIVEN_17 = '''# The colleague's code
+def map_from_distances(D, dim=2):
+    """A map (one row per place) whose distances are those of the matrix D."""
+    D = np.asarray(D, dtype=float)
+    n = len(D)
+    J = np.eye(n) - np.ones((n, n)) / n
+    G = -0.5 * J @ D @ J
+    return ref_sampling.points_from_gram(G, dim)
+
+
+def tune_emitters(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+    """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
+    x = np.array(x0, dtype=float)
+    for _ in range(n_steps):
+        x = x + eta * np.clip(grad(x), lower, upper)
+    return x
+
+
+def cycle_of(f, x0):
+    """(mu, lam): the preperiod and the period of the sequence u_(t+1) = f(u_t), from u_0 = x0."""
+    seen, x, t = {}, x0, 0
+    while x not in seen:
+        seen[x] = t
+        x, t = f(x), t + 1
+    return seen[x], t
+
+
+# The colleague's checks: all pass
+triangle_17 = np.array([[0.0, 1, 1], [1, 0, 1], [1, 1, 0]])
+map_check_17 = map_from_distances(triangle_17)
+print("(1)", np.round(np.sqrt(((map_check_17[:, None] - map_check_17[None]) ** 2).sum(-1)), 6).tolist(),
+      "(attendu des 1 hors de la diagonale)")
+c_check_17 = np.array([0.45, 0.62, 0.88])
+x_check_17 = tune_emitters(np.array([0.15, 0.25, 0.05]), lambda x: -2.0 * (x - c_check_17))
+print("(2)", bool(np.allclose(x_check_17, c_check_17, atol=1e-5)), bool(np.all((0 <= x_check_17) & (x_check_17 <= 1))),
+      "(attendu True, True)")
+print("(3)", cycle_of(lambda x: (x + 3) % 10, 0), "(attendu (0, 10))")'''
+
+CHECK_17 = '''CASES_C17 = __CASES_C17__   # the hidden cases of the three corrected functions
+CYCLES_C17 = {"squares": lambda x: (x * x + 5) % 26, "affine": lambda x: (6 * x + 1) % 40,
+              "automaton": lambda s: (s[1], (s[0] * s[1] + 2) % 7)}       # the maps of the hidden sequences
+
+results_17, parts_17 = [], []
+
+
+def report_17(ok, success, failure):
+    results_17.append(bool(ok))
+    print(("✅ " + success) if ok else ("❌ " + failure))
+
+
+def call_17(part, name, function, *args, **kwargs):
+    \"\"\"function(*args, **kwargs); an error of the learner's code becomes one ❌ line that names the function (the check of
+    this part stops there, the final verdict stays).\"\"\"
+    try:
+        return function(*args, **kwargs)
+    except (NotImplementedError, MymathMissingError):
+        raise
+    except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
+        hint = ""
+        if part == 1 and isinstance(exc, ValueError) and "semi-definite" in str(exc):
+            hint = (" ; −½ J D J, fait sur les distances, n'est en général pas une matrice de Gram : le double centrage "
+                    "se fait sur leurs carrés")
+        report_17(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:160]}{hint}")
+        parts_17.append(part)
+        raise StopCheck from None
+
+
+with checked("M28.17"):                                       # (1) map_from_distances_fixed
+    wrong_17 = []
+    for case_c17 in CASES_C17["maps"]:
+        points_c17 = np.array(case_c17["points"])
+        D_c17 = np.sqrt(sq_dists_of(points_c17))
+        before_c17 = D_c17.copy()
+        got_c17 = call_17(1, "map_from_distances_fixed", map_from_distances_fixed, D_c17, case_c17["dim"])
+        arr_c17 = as_floats(got_c17)
+        shape_c17 = (len(points_c17), case_c17["dim"])
+        if arr_c17 is None or arr_c17.shape != shape_c17:
+            wrong_17.append(f"attendu une carte de forme {shape_c17} (une ligne par lieu, dim colonnes), reçu "
+                            f"{None if arr_c17 is None else arr_c17.shape}")
+            continue
+        if not np.array_equal(D_c17, before_c17):
+            wrong_17.append("ta fonction modifie la matrice D reçue : travaille sur une copie")
+            continue
+        d_c17, tol_c17 = np.sqrt(sq_dists_of(arr_c17)), 1e-7 * D_c17.max()
+        if np.allclose(d_c17, D_c17, rtol=1e-7, atol=tol_c17):
+            continue
+        if np.allclose(d_c17, math.sqrt(2) * D_c17, rtol=1e-7, atol=tol_c17):
+            wrong_17.append("G = −½ J D⁽²⁾ J : sans le facteur −½, chaque distance est multipliée par √2")
+        else:
+            wrong_17.append(f"{len(points_c17)} lieux dans un espace de dimension {case_c17['dim']} : les distances de ta "
+                            "carte ne sont pas celles de D (le double centrage se fait sur les carrés des distances, "
+                            "coefficient par coefficient)")
+    report_17(not wrong_17, "(1) map_from_distances_fixed : deux nuages cachés, dans le plan et dans l'espace",
+              "(1) map_from_distances_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(1)
+
+with checked("M28.17"):                                       # (2) tune_emitters_fixed
+    wrong_17 = []
+    for case_c17 in CASES_C17["emitters"]:
+        A_c17, c_c17 = np.array(case_c17["A"]), np.array(case_c17["c"])
+        lower_c17, upper_c17 = case_c17["lower"], case_c17["upper"]
+
+        def grad_c17(x, A=A_c17, c=c_c17):
+            return -2.0 * A @ (np.asarray(x, dtype=float) - c)
+
+        got_c17 = call_17(2, "tune_emitters_fixed", tune_emitters_fixed, np.array(case_c17["x0"]), grad_c17,
+                          eta=case_c17["eta"], n_steps=case_c17["n_steps"], lower=lower_c17, upper=upper_c17)
+        x_c17 = as_floats(got_c17)
+        if x_c17 is None or x_c17.shape != c_c17.shape:
+            wrong_17.append(f"attendu le réglage final, un tableau de forme {c_c17.shape}, reçu {shown(got_c17)}")
+            continue
+        if np.any(x_c17 < lower_c17 - 1e-12) or np.any(x_c17 > upper_c17 + 1e-12):
+            wrong_17.append(f"le réglage final sort du pavé [{fr(lower_c17, 1)} ; {fr(upper_c17, 1)}] : projette le point "
+                            "(np.clip) après chaque pas, avec les bornes lower et upper reçues")
+            continue
+        g_c17 = grad_c17(x_c17)
+        at_low, at_up = x_c17 <= lower_c17 + 1e-9, x_c17 >= upper_c17 - 1e-9     # the optimality conditions on a box
+        if np.all(np.abs(g_c17[~at_low & ~at_up]) <= 1e-6) and np.all(g_c17[at_low] <= 1e-6) and np.all(g_c17[at_up] >= -1e-6):
+            continue
+        if np.allclose(x_c17, np.clip(c_c17, lower_c17, upper_c17), atol=1e-6):
+            wrong_17.append("projeter seulement à la fin donne la projection du maximum sans contrainte, qui n'est pas le "
+                            "maximum sur le pavé quand l'énergie a des termes croisés : projette le point après chaque pas")
+        elif np.any((g_c17 < -1e-6) & ~at_low):
+            wrong_17.append("une coordonnée dont le gradient est négatif reste au-dessus de sa borne : elle doit pouvoir "
+                            "baisser (on ne coupe pas le gradient, on projette le point)")
+        else:
+            wrong_17.append("la montée projetée s'arrête là où aucun pas permis ne fait plus monter f, ce qui n'est pas le "
+                            "cas ici : projette le point après chaque pas, pas seulement à la fin")
+    report_17(not wrong_17, "(2) tune_emitters_fixed : deux montées cachées, sur d'autres pavés, dont une énergie à "
+              "termes croisés", "(2) tune_emitters_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(2)
+
+with checked("M28.17"):                                       # (3) cycle_of_fixed
+    wrong_17 = []
+    for case_c17 in CASES_C17["cycles"]:
+        got_c17 = call_17(3, "cycle_of_fixed", cycle_of_fixed, CYCLES_C17[case_c17["map"]], case_c17["x0"])
+        try:
+            mu_c17, lam_c17 = (int(v) for v in got_c17)
+        except (TypeError, ValueError):
+            wrong_17.append(f"cycle_of_fixed doit rendre le couple (mu, lam), reçu {shown(got_c17)}")
+            continue
+        if (mu_c17, lam_c17) == (case_c17["mu"], case_c17["lam"]):
+            continue
+        if (mu_c17, lam_c17) == (case_c17["mu"], case_c17["mu"] + case_c17["lam"]):
+            wrong_17.append("tu rends encore l'indice de la première répétition : la période est la longueur du cycle, "
+                            "sans la queue")
+        elif (mu_c17, lam_c17) == (case_c17["lam"], case_c17["mu"]):
+            wrong_17.append("cycle_of_fixed rend (mu, lam) : la prépériode, puis la période")
+        else:
+            wrong_17.append("une suite cachée avec une prépériode : ton couple (mu, lam) n'est pas le bon (mu est l'indice "
+                            "de la première apparition de la valeur répétée)")
+    report_17(not wrong_17, "(3) cycle_of_fixed : trois suites cachées avec une prépériode, dont une sur des couples",
+              "(3) cycle_of_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(3)
+
+if len(set(parts_17)) == 3:
+    verdict("M28.17", all(results_17), "les trois fonctions corrigées passent tous les cas.", "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_17 = (r"(1) `map_from_distances` fait le double centrage sur les distances : sur un triangle de côté 1, $d = d^2$. "
+           r"Correction : `G = -0.5 * J @ (D ** 2) @ J`. a) 29, 40, 42 ; puis environ 4,53 ; 6,32 ; 6,48. (2) "
+           r"`tune_emitters` coupe le gradient au lieu du point : la vérification partait sous $\mathbf{c}$, intérieur au "
+           r"pavé, avec des gradients entre 0 et 1,66. Correction : `x = np.clip(x + eta * grad(x), lower, upper)`. b) "
+           r"$(1, 0, 0{,}6, 0{,}35)$ ; puis $(1{,}3 ;\ 0{,}7 ;\ 0{,}78 ;\ 0{,}35)$, hors du pavé. (3) `cycle_of` rend "
+           r"l'indice $j$ de la première répétition : sur une bijection, $\mu = 0$ et $j = \lambda$. Correction : "
+           r"`return seen[x], t - seen[x]`. c) `[2, 6, 2, 8]`.")
+
+M28_17 = Ex(
+    "M28.17", "🐛", 1, 20, "Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs carrés, une "
+    "montée qui coupe le gradient au lieu du point, une prépériode comptée dans la période",
+    "reconnaître trois erreurs classiques sur le double centrage, la montée projetée et la période, qui passent une "
+    "vérification mal choisie, puis les corriger.", "fiche §2, §3 et §6 ; Ex M28.2, M28.3 et M28.7", tracks="C, E",
+    given=GIVEN_17, note=NOTE_17,
+    body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
+1. `map_from_distances(D, dim=2)` doit rendre une carte (une ligne par lieu) dont les distances sont celles de la matrice `D` ; elle forme $\mathbf{J}$, calcule `G = -0.5 * J @ D @ J`, puis rend `points_from_gram(G, dim)`. Il l'a vérifiée sur un triangle équilatéral de côté 1 : les trois distances de la carte valent 1.
+2. `tune_emitters(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0)` doit faire `n_steps` pas de montée projetée sur le pavé $[\texttt{lower}, \texttt{upper}]^n$, le gradient étant donné par la fonction `grad` ; elle répète `x = x + eta * np.clip(grad(x), lower, upper)`. Il l'a vérifiée sur $f(\mathbf{x}) = -\lVert\mathbf{x} - \mathbf{c}\rVert^2$ avec $\mathbf{c} = (0{,}45 ;\ 0{,}62 ;\ 0{,}88)$, depuis $(0{,}15 ;\ 0{,}25 ;\ 0{,}05)$, avec les réglages par défaut : la montée arrive en $\mathbf{c}$, à $10^{-5}$ près, à l'intérieur du pavé $[0, 1]^3$.
+3. `cycle_of(f, x0)` doit rendre `(mu, lam)`, la prépériode et la période de la suite $u_{t+1} = f(u_t)$ ; elle note dans un dictionnaire l'indice où chaque valeur apparaît, et, à la première valeur déjà vue, d'indice $j$, rend l'indice $i$ de sa première apparition et `j`. Il l'a vérifiée sur $x \mapsto (x + 3) \bmod 10$ depuis 0 : `(0, 10)`.
+
+À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `map_from_distances_fixed`, `tune_emitters_fixed` et `cycle_of_fixed`, avec les mêmes arguments. Puis réponds :
+- a) pour le losange de M28.2 (`D_RHOMBUS`), les distances AB, AC et BD de la carte de `map_from_distances_fixed`, puis de celle de `map_from_distances` (une liste de 6 nombres) ;
+- b) pour quatre émetteurs, $f(\mathbf{x}) = -\lVert\mathbf{x} - \mathbf{c}\rVert^2$ avec $\mathbf{c} = (1{,}3 ;\ -0{,}2 ;\ 0{,}6 ;\ 0{,}35)$, depuis $\mathbf{x}_0 = (0{,}2 ;\ 0{,}7 ;\ 0{,}78 ;\ 0{,}1)$, avec les réglages par défaut : le réglage final de `tune_emitters_fixed`, puis celui de `tune_emitters` (une liste de 8 nombres) ;
+- c) pour le générateur jouet $x \mapsto (x^2 + 3) \bmod 22$, depuis 2 : `cycle_of_fixed`, puis `cycle_of` (une liste de 4 entiers).
+
+Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas cachés : des nuages de points qui ne sont pas des triangles équilatéraux, des montées sur d'autres pavés dont le maximum n'est pas à l'intérieur, des suites avec une prépériode.""",
+    todo='''def map_from_distances_fixed(D, dim=2):
+    """A map (one row per place) whose distances are those of the matrix D."""
+    raise NotImplementedError("map_from_distances_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def tune_emitters_fixed(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+    """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
+    raise NotImplementedError("tune_emitters_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def cycle_of_fixed(f, x0):
+    """(mu, lam): the preperiod and the period of the sequence u_(t+1) = f(u_t), from u_0 = x0."""
+    raise NotImplementedError("cycle_of_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_M28_17a = answer_M28_17b = answer_M28_17c = ...
+with wbm.attempt("M28.17"):          # your three functions: ⏳ while they are not written
+    answer_M28_17a = ...  # a) a list of 6 numbers, as computed: AB, AC, BD of the map of map_from_distances_fixed(D_RHOMBUS), then of the WRONG map_from_distances(D_RHOMBUS)
+    answer_M28_17b = ...  # b) a list of 8 numbers, as computed: the final setting of tune_emitters_fixed, then of the WRONG tune_emitters
+    answer_M28_17c = ...  # c) a list of 4 integers: cycle_of_fixed, then the WRONG cycle_of, for x -> (x² + 3) mod 22 from 2''',
+    check=answers_check("M28.17", "abc") + "\n\n" + CHECK_17,
+    solution='''def map_from_distances_fixed(D, dim=2):
+    """A map (one row per place) whose distances are those of the matrix D."""
+    D = np.asarray(D, dtype=float)
+    n = len(D)
+    J = np.eye(n) - np.ones((n, n)) / n
+    G = -0.5 * J @ (D ** 2) @ J                     # the double centering of the SQUARED distances
+    return mymath.sampling.points_from_gram(G, dim)
+
+
+def tune_emitters_fixed(x0, grad, eta=0.05, n_steps=120, lower=0.0, upper=1.0):
+    """n_steps steps of projected gradient ascent on the box [lower, upper]^n; grad(x) gives the gradient."""
+    x = np.array(x0, dtype=float)
+    for _ in range(n_steps):
+        x = np.clip(x + eta * grad(x), lower, upper)  # the step, then the projection of the POINT
+    return x
+
+
+def cycle_of_fixed(f, x0):
+    """(mu, lam): the preperiod and the period of the sequence u_(t+1) = f(u_t), from u_0 = x0."""
+    seen, x, t = {}, x0, 0
+    while x not in seen:
+        seen[x] = t
+        x, t = f(x), t + 1
+    return seen[x], t - seen[x]                     # the length of the cycle, without the tail
+
+
+def three_distances_17(Z):
+    """AB, AC and BD of a map of the rhombus."""
+    Z = np.asarray(Z, dtype=float)
+    return [float(np.linalg.norm(Z[a] - Z[b])) for a, b in ((0, 1), (0, 2), (1, 3))]
+
+
+answer_M28_17a = three_distances_17(map_from_distances_fixed(D_RHOMBUS)) + three_distances_17(map_from_distances(D_RHOMBUS))
+c_17 = np.array([1.3, -0.2, 0.6, 0.35])
+x0_17 = np.array([0.2, 0.7, 0.78, 0.1])
+answer_M28_17b = (tune_emitters_fixed(x0_17, lambda x: -2.0 * (x - c_17)).tolist()
+                  + tune_emitters(x0_17, lambda x: -2.0 * (x - c_17)).tolist())
+toy_17 = lambda x: (x * x + 3) % 22           # noqa: E731
+answer_M28_17c = list(cycle_of_fixed(toy_17, 2)) + list(cycle_of(toy_17, 2))
+print("a)", np.round(answer_M28_17a, 4).tolist(), " b)", np.round(answer_M28_17b, 6).tolist(), " c)", answer_M28_17c)
+
+''' + CHECK_17,
+    record='''from scipy import linalg as linalg_17r
+
+
+def map_17r(G, dim):
+    """The oracle: the dim columns √λ_k q_k of the largest eigenvalues (scipy.linalg.eigh); the signs do not matter here."""
+    w, V = linalg_17r.eigh(G)
+    return V[:, ::-1][:, :dim] * np.sqrt(w[::-1][:dim])
+
+
+def dists_17r(Z):
+    return [float(math.dist(Z[a], Z[b])) for a, b in ((0, 1), (0, 2), (1, 3))]
+
+
+D_17r = np.array([[0.0, 29, 40, 29], [29, 0, 29, 42], [40, 29, 0, 29], [29, 42, 29, 0]])
+J_17r = np.eye(4) - 0.25
+right_17r = dists_17r(map_17r(-0.5 * J_17r @ D_17r ** 2 @ J_17r, 2))
+wrong_17r = dists_17r(map_17r(-0.5 * J_17r @ D_17r @ J_17r, 2))
+wbm.record("M28.17a", right_17r + wrong_17r, decimals=6,
+           mistakes={"map_from_distances_fixed fait encore le double centrage sur les distances, pas sur leurs carrés":
+                         wrong_17r + wrong_17r,
+                     "les trois dernières distances sont celles de la version FAUSSE, map_from_distances":
+                         right_17r + right_17r})
+
+
+def ascent_17r(clip_point, clip_gradient, c=(1.3, -0.2, 0.6, 0.35), x0=(0.2, 0.7, 0.78, 0.1), eta=0.05, n_steps=120):
+    """The oracle: the 120 steps written again with Python floats, the point and/or the gradient clipped to [0, 1]."""
+    x = list(x0)
+    for _ in range(n_steps):
+        g = [-2.0 * (xk - ck) for xk, ck in zip(x, c)]
+        if clip_gradient:
+            g = [min(max(gk, 0.0), 1.0) for gk in g]
+        x = [xk + eta * gk for xk, gk in zip(x, g)]
+        if clip_point:
+            x = [min(max(xk, 0.0), 1.0) for xk in x]
+    return x
+
+
+fixed_17r, colleague_17r = ascent_17r(True, False), ascent_17r(False, True)
+wbm.record("M28.17b", fixed_17r + colleague_17r, decimals=6,
+           mistakes={"couper aussi le gradient empêche une coordonnée de gradient négatif de baisser : on ne coupe que le "
+                     "point": ascent_17r(True, True) + colleague_17r,
+                     "les quatre derniers nombres sont ceux de la version FAUSSE, tune_emitters": fixed_17r + fixed_17r})
+
+
+def rho_17r(f, x0):
+    seen, x, t = {}, x0, 0
+    while x not in seen:
+        seen[x] = t
+        x, t = f(x), t + 1
+    return seen[x], t - seen[x], t
+
+
+mu_17r, lam_17r, j_17r = rho_17r(lambda x: (x * x + 3) % 22, 2)
+wbm.record("M28.17c", [mu_17r, lam_17r, mu_17r, j_17r],
+           mistakes={"cycle_of_fixed rend encore l'indice de la première répétition : la période est j − i":
+                         [mu_17r, j_17r, mu_17r, j_17r],
+                     "les deux derniers nombres sont ceux de la version FAUSSE, cycle_of": [mu_17r, lam_17r, mu_17r, lam_17r],
+                     "cycle_of_fixed rend (mu, lam) : la prépériode, puis la période": [lam_17r, mu_17r, mu_17r, j_17r]})''',
+    after=[
+        ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue ne la "
+               "voyait-elle pas, et quelle vérification l'aurait vue ?"),
+    ],
+)
+
+GIVEN_18 = '''def no_sqrt(G, dim=None, tol=1e-9):
+    """WRONG: the columns λ_k q_k (the square root forgotten), built on the reference."""
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    return X * np.sqrt((X ** 2).sum(axis=0))
+
+
+def ascending(G, dim=None, tol=1e-9):
+    """WRONG: the increasing order of np.linalg.eigh, not reversed."""
+    G = np.asarray(G, dtype=float)
+    s = tol * max(1.0, float(np.abs(G).max()))
+    w, V = np.linalg.eigh(G)
+    w = np.where(w > s, w, 0.0)
+    r = max(1, int(np.count_nonzero(w))) if dim is None else dim
+    return V[:, :r] * np.sqrt(w[:r])
+
+
+def all_columns(G, dim=None, tol=1e-9):
+    """WRONG: n columns, the small eigenvalues not set to 0 (the square root of −1e-15 gives nan)."""
+    w, V = np.linalg.eigh(np.asarray(G, dtype=float))
+    w, V = w[::-1], V[:, ::-1]
+    with np.errstate(invalid="ignore"):
+        return V * np.sqrt(w)
+
+
+def rotated(G, dim=None, tol=1e-9):
+    """WRONG: the right map, turned."""
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    k = X.shape[1]
+    Q, _ = np.linalg.qr(np.arange(1.0, k * k + 1).reshape(k, k) + 3 * np.eye(k))
+    return X @ Q
+
+
+def no_sign(G, dim=None, tol=1e-9):
+    """WRONG: the right map, without the sign convention."""
+    return -ref_sampling.points_from_gram(G, dim, tol)'''
+
+SOLUTION_18 = '''def gram_property_test_18(n_trials, rng, func=None, rtol=1e-9):
+    """n_trials random clouds: n = int(rng.integers(2, 9)), d = int(rng.integers(1, 5)), scale = 10.0 ** rng.uniform(-2, 3),
+    P = scale * rng.standard_normal((n, d)), P[-1] = P[0] if rng.random() < 0.3, t = scale * rng.standard_normal(d);
+    func defaults to mymath.sampling.points_from_gram, looked up at the call. Returns the numbers of trials "shape",
+    "gram", "distances", "translation" that fail."""
+    f = mymath.sampling.points_from_gram if func is None else func      # looked up at each call: the check replaces it
+    counts = {"shape": 0, "gram": 0, "distances": 0, "translation": 0}
+
+    def squares(Z):
+        Z = np.asarray(Z, dtype=float)
+        return ((Z[:, None, :] - Z[None, :, :]) ** 2).sum(axis=-1)
+
+    for _ in range(n_trials):
+        n = int(rng.integers(2, 9))
+        d = int(rng.integers(1, 5))
+        scale = 10.0 ** rng.uniform(-2, 3)
+        P = scale * rng.standard_normal((n, d))
+        if rng.random() < 0.3:
+            P[-1] = P[0]
+        t = scale * rng.standard_normal(d)
+        G = P @ P.T
+        s = max(1.0, float(np.abs(G).max()))
+        X = np.asarray(f(G), dtype=float)
+        finite = bool(np.all(np.isfinite(X)))
+        counts["shape"] += int(X.shape != (n, np.linalg.matrix_rank(P)) or not finite)
+        counts["gram"] += int(not finite or float(np.abs(X @ X.T - G).max()) > rtol * s)
+        counts["distances"] += int(not finite or float(np.abs(squares(X) - squares(P)).max()) > 4 * rtol * s)
+        J = np.eye(n) - np.ones((n, n)) / n
+        Gc = -0.5 * J @ squares(P + t) @ J
+        Y = np.asarray(f(Gc), dtype=float)
+        sc = max(1.0, float(np.abs(Gc).max()))
+        counts["translation"] += int(not np.all(np.isfinite(Y))
+                                     or float(np.abs(squares(Y) - squares(P)).max()) > 4 * rtol * sc)
+    return counts'''
+
+CHECK_18 = '''def extra_column_c18(G, dim=None, tol=1e-9):
+    """WRONG: the right map and a column of zeros more (only its shape is wrong)."""
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    return np.hstack([X, np.zeros((len(X), 1))])
+
+
+def shifted_c18(G, dim=None, tol=1e-9):
+    """WRONG: the right map moved by a same vector (its distances stay right)."""
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    return X + 0.01 * math.sqrt(max(1.0, float(np.abs(G).max())))
+
+
+def ramp_c18(G, dim=None, tol=1e-9):
+    """WRONG: the right map and a column (0, c, 2c, ...) more."""
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    c = 0.01 * math.sqrt(max(1.0, float(np.abs(G).max())))
+    return np.hstack([X, c * np.arange(len(X), dtype=float)[:, None]])
+
+
+def centered_c18(G, dim=None, tol=1e-9):
+    """WRONG only for a doubly centered matrix (rows of sum 0): then the column (0, c, 2c, ...) more."""
+    G = np.asarray(G, dtype=float)
+    if float(np.abs(G.sum(axis=1)).max()) <= 1e-9 * max(1.0, float(np.abs(G).max())):
+        return ramp_c18(G, dim, tol)
+    return ref_sampling.points_from_gram(G, dim, tol)
+
+
+def flipped_row_c18(G, dim=None, tol=1e-9):
+    """WRONG for a matrix that is not doubly centered: the first point replaced by its opposite (its norm is kept, its
+    dot products and its distances to the others are not)."""
+    G = np.asarray(G, dtype=float)
+    X = ref_sampling.points_from_gram(G, dim, tol)
+    if float(np.abs(G.sum(axis=1)).max()) > 1e-9 * max(1.0, float(np.abs(G).max())):
+        X = X.copy()
+        X[0] = -X[0]
+    return X
+
+
+def scaled_c18(G, dim=None, tol=1e-9):
+    """WRONG by 1e-7 in relative value: seen with rtol = 1e-9 on most trials, never with rtol = 1e-6."""
+    return (1 + 1e-7) * ref_sampling.points_from_gram(G, dim, tol)
+
+
+with checked("M28.18"):
+    results_18 = []
+    report_18 = reporter(results_18, stop=False)
+    N_C18 = 40                                      # trials per hidden start
+    KEYS_C18 = ("shape", "gram", "distances", "translation")
+    PROPERTIES_C18 = {"shape": "la forme (n, r) de X, r le rang de P, et ses nombres finis",
+                      "gram": "que X Xᵀ redonne G à rtol·s près",
+                      "distances": "que les carrés des distances des lignes de X redonnent ceux de P",
+                      "translation": "la carte de la matrice doublement centrée des points translatés P + t"}
+
+    def all_c18(*keys):
+        """The counters expected from a version built to break exactly these properties at every trial."""
+        return {key: (N_C18 if key in keys else 0) for key in KEYS_C18}
+
+    def run_c18(label, rng, **kwargs):
+        """Your gram_property_test_18 on a hidden start: its dictionary."""
+        try:
+            counts = gram_property_test_18(N_C18, rng, **kwargs)
+        except (NotImplementedError, MymathMissingError):
+            raise
+        except AssertionError as exc:
+            print(f"❌ Ex M28.18 : gram_property_test_18 ({label}) lève AssertionError ({str(exc)[:120]}) : elle doit "
+                  "compter les essais qui échouent et rendre le dictionnaire, sans assert.")
+            raise StopCheck from None
+        except Exception as exc:  # noqa: BLE001 - the learner's error
+            print(f"❌ Ex M28.18 : gram_property_test_18 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}")
+            raise StopCheck from None
+        if not isinstance(counts, dict) or set(counts) != set(KEYS_C18):
+            print("❌ Ex M28.18 : gram_property_test_18 doit rendre un dictionnaire de clés " + ", ".join(KEYS_C18)
+                  + f", reçu {shown(counts)[:160]}")
+            raise StopCheck
+        for key in KEYS_C18:
+            if isinstance(counts[key], (bool, np.bool_)) or not isinstance(counts[key], (int, np.integer)):
+                print(f"❌ Ex M28.18 : le compteur \\"{key}\\" doit être un nombre entier d'essais (un entier NumPy "
+                      f"convient), reçu {type(counts[key]).__name__} {counts[key]!r}")
+                raise StopCheck
+        return {key: int(v) for key, v in counts.items()}
+
+    def compare_c18(label, got, want):
+        """One ✅ when the four counters are those expected; else one ❌ per counter, naming the property."""
+        wrong = [k for k in KEYS_C18 if got[k] != want[k]]
+        if not wrong:
+            report_18(True, f"{label} : les quatre compteurs comme attendu", "")
+        for k in wrong:
+            if got[k] == 0:
+                why = f"ton test ne vérifie pas {PROPERTIES_C18[k]}"
+            elif want[k] == 0:
+                why = ("cette version ne fausse pas cette propriété : ton contrôle compte trop (sa tolérance relative "
+                       "rtol·s, ce qu'il compare)")
+            else:
+                why = (f"cette version fausse {PROPERTIES_C18[k]} à chaque essai : ton test n'en compte qu'une partie "
+                       "(un essai compte une fois s'il échoue)")
+            report_18(False, "", f"{label} : \\"{k}\\" = {got[k]}, attendu {want[k]} : {why}")
+
+    for start_c18, seed_c18 in enumerate(__STARTS_C18__):          # the two hidden starts
+        for label_c18, kwargs_c18, want_c18 in (
+                ("la référence", {"func": ref_sampling.points_from_gram}, all_c18()),
+                ("une version fausse cachée n° 1", {"func": extra_column_c18}, all_c18("shape")),
+                ("une version fausse cachée n° 2", {"func": shifted_c18}, all_c18("gram")),
+                ("une version fausse cachée n° 3", {"func": centered_c18}, all_c18("translation")),
+                ("une version fausse cachée n° 4", {"func": flipped_row_c18}, all_c18("gram", "distances"))):
+            label_c18 = f"{label_c18}, départ caché {start_c18 + 1}"
+            compare_c18(label_c18, run_c18(label_c18, np.random.default_rng(seed_c18), **kwargs_c18), want_c18)
+    seed_c18 = __STARTS_C18__[0]
+    compare_c18("une version fausse de 1e-7, avec rtol = 1e-6 (ton test doit se servir de rtol)",
+                run_c18("rtol = 1e-6", np.random.default_rng(seed_c18), func=scaled_c18, rtol=1e-6), all_c18())
+
+    original_c18 = mymath.sampling.points_from_gram
+    aliases_c18 = [alias for alias, value in list(globals().items())
+                   if value is original_c18 and alias != "original_c18"]     # your own names for it
+    calls_c18 = [0]
+
+    def replaced_c18(G, dim=None, tol=1e-9):
+        calls_c18[0] += 1
+        return ramp_c18(G, dim, tol)
+
+    mymath.sampling.points_from_gram = replaced_c18
+    for alias_c18 in aliases_c18:
+        globals()[alias_c18] = replaced_c18
+    try:
+        patched_c18 = run_c18("une version fausse à la place de ta points_from_gram", np.random.default_rng(seed_c18))
+    finally:
+        mymath.sampling.points_from_gram = original_c18
+        for alias_c18 in aliases_c18:
+            globals()[alias_c18] = original_c18
+    if calls_c18[0] == 0:
+        report_18(False, "", "une version fausse remplace un instant ta points_from_gram, mais ton test ne l'appelle jamais : "
+                  "avec func=None, il doit prendre mymath.sampling.points_from_gram au moment de l'appel, sans en garder "
+                  "une copie")
+    else:
+        compare_c18("une version fausse à la place de ta points_from_gram (func=None)", patched_c18,
+                    all_c18(*KEYS_C18))
+    verdict("M28.18", all(results_18), "ton test compte juste sur la référence et sur les versions fausses cachées, se "
+            "sert de rtol, et prend ta fonction au moment de l'appel.", "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_18 = (r"a) Les coefficients de $\mathbf{G}$ vont jusqu'à $10^7$ environ : les erreurs d'arrondi sont relatives, de "
+           r"l'ordre de $10^{-16}s$, et une tolérance absolue de $10^{-9}$ refuse la bonne fonction 17 fois sur 300. b) "
+           r"Vrai. c) `no_sqrt` : 0, 300, 285, 285 ; `ascending` : 0, 252, 237, 285 ; `all_columns` : 252, 199, 199, 220 ; "
+           r"`rotated` et `no_sign` : 0, 0, 0, 0. d) `rotated` et `no_sign` : une isométrie qui fixe l'origine ne change ni "
+           r"la matrice de Gram ni les distances ; la convention de signe et les coordonnées sont vérifiées par "
+           r"`tests/test_m28_sampling.py`.")
+
+M28_18 = Ex(
+    "M28.18", "🛠️", 1, 15, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les distances, "
+    "pour des points tirés au hasard",
+    "écrire un test de propriété à tolérance relative, qui compte ses échecs sur des nuages tirés au hasard, et voir ce "
+    "qu'il attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; Ex M28.13", tracks="C", given=GIVEN_18, note=NOTE_18,
+    body=r"""Écris `gram_property_test_18(n_trials, rng, func=None, rtol=1e-9)` ; quand `func` vaut `None`, le test prend `mymath.sampling.points_from_gram` **au moment de l'appel**. Pour chacun des `n_trials` essais, dans cet ordre : `n = int(rng.integers(2, 9))`, `d = int(rng.integers(1, 5))`, `scale = 10.0 ** rng.uniform(-2, 3)`, `P = scale * rng.standard_normal((n, d))`, puis, si `rng.random() < 0.3`, `P[-1] = P[0]` (un point répété), puis `t = scale * rng.standard_normal(d)` ; ensuite `G = P @ P.T`, $s = \max(1, \max\lvert G_{ij}\rvert)$ et `X = func(G)`. La fonction rend un dictionnaire de quatre compteurs d'essais (un essai compte une fois s'il échoue) :
+- `"shape"` : `X` n'a pas la forme $(n, r)$, avec $r$ le rang de `P` (`np.linalg.matrix_rank`), ou contient un nombre non fini ;
+- `"gram"` : $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert > \texttt{rtol}\cdot s$ (ou `X` non fini) ;
+- `"distances"` : les carrés des distances des lignes de `X` s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot s$ (ou `X` non fini) ;
+- `"translation"` : la carte `func(Gc)` de la matrice doublement centrée `Gc` $= -\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ des points translatés `P + t` a des carrés de distances qui s'écartent de ceux de `P` de plus de $4\,\texttt{rtol}\cdot\max(1, \max\lvert(\mathbf{G}_c)_{ij}\rvert)$ (ou n'est pas finie).
+
+Les carrés des distances se calculent dans le test, avec NumPy, sans appeler `mymath`. La cellule fournie donne cinq versions fausses de `points_from_gram` : `no_sqrt` (les colonnes $\lambda_k\mathbf{q}_k$), `ascending` (l'ordre croissant de `eigh`, non retourné), `all_columns` ($n$ colonnes, sans mettre à 0 les petites valeurs propres : la racine d'une valeur propre de $-10^{-15}$ donne `nan`), `rotated` (la bonne carte, tournée) et `no_sign` (la bonne carte, sans la convention de signe). Puis :
+- a) pourquoi une tolérance relative à $s$ (dans ta copie) ? Combien de fois sur 300 essais une tolérance absolue de $10^{-9}$ sur $\max\lvert\mathbf{X}\mathbf{X}^\top - \mathbf{G}\rvert$ refuserait-elle la bonne fonction (mêmes tirages, avec `np.random.default_rng(6618)`) (un entier) ?
+- b) avec `rng = np.random.default_rng(6618)` et 300 essais, avec ta fonction : vrai ou faux, les quatre compteurs sont nuls ;
+- c) avec le même départ (un nouveau `default_rng(6618)` chaque fois, 300 essais) et chacune des cinq versions fausses, dans l'ordre `no_sqrt`, `ascending`, `all_columns`, `rotated`, `no_sign` : les quatre compteurs, dans l'ordre `"shape"`, `"gram"`, `"distances"`, `"translation"` (une liste de 5 listes de 4 entiers) ;
+- d) les noms des versions fausses qui passent le test (leurs quatre compteurs nuls) (une liste de noms, dans n'importe quel ordre, comme `["no_sqrt"]`) ; dans ta copie : pourquoi c'est normal, et qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ? Pourquoi `ascending` n'est-elle attrapée que par une partie des essais ?
+
+La vérification lance ton test sur deux départs cachés (40 essais chacun) : avec la référence, où ses quatre compteurs doivent être nuls, puis avec quatre versions fausses cachées, écrites dans la cellule de vérification, qui faussent à chaque essai la forme, la matrice de Gram seule (une carte déplacée), la translation, ou les produits scalaires et les distances d'un point (son opposé) ; elle le lance aussi avec `rtol = 1e-6` sur une version fausse de $10^{-7}$ en valeur relative (ton test doit se servir de `rtol`), et remplace un instant `mymath.sampling.points_from_gram` par une version fausse qui ajoute une colonne : tes compteurs doivent alors compter. Chacune des quatre propriétés est ainsi exigée par au moins une version fausse. Un entier NumPy convient pour un compteur ; un test qui échoue ne lève pas d'`AssertionError` : il compte. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_m28_sampling.py` des points répétés et une translation suivie d'un double centrage ; il attrape trois versions fausses, et ne peut pas voir une isométrie, puisque la matrice de Gram et les distances n'en dépendent pas ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+    todo='''def gram_property_test_18(n_trials, rng, func=None, rtol=1e-9):
+    """n_trials random clouds: n = int(rng.integers(2, 9)), d = int(rng.integers(1, 5)), scale = 10.0 ** rng.uniform(-2, 3),
+    P = scale * rng.standard_normal((n, d)), P[-1] = P[0] if rng.random() < 0.3, t = scale * rng.standard_normal(d);
+    func defaults to mymath.sampling.points_from_gram, looked up at the call. Returns the numbers of trials "shape",
+    "gram", "distances", "translation" that fail."""
+    raise NotImplementedError("gram_property_test_18 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_M28_18a = answer_M28_18b = answer_M28_18c = answer_M28_18d = ...
+with wbm.attempt("M28.18"):          # your test and your library: ⏳ while they are not written
+    answer_M28_18a = ...  # a) an integer: the trials (default_rng(6618), 300 trials) where max|X Xᵀ − G| > 1e-9 for the right function
+    answer_M28_18b = ...  # b) True or False: the four counters are 0 (default_rng(6618), 300 trials, your function)
+    answer_M28_18c = ...  # c) a list of 5 lists of 4 integers: the counters ("shape", "gram", "distances", "translation") for no_sqrt, ascending, all_columns, rotated, no_sign (a new default_rng(6618) each time, 300 trials)
+    answer_M28_18d = ...  # d) a list of names (strings, any order): the wrong versions whose four counters are 0''',
+    check=answers_check("M28.18", "abcd") + "\n\n" + CHECK_18,
+    solution=SOLUTION_18 + '''
+
+
+def absolute_count_18(n_trials, rng, func=None):
+    """The same draws, and the number of trials where max|X Xᵀ − G| > 1e-9 (an absolute tolerance)."""
+    f = mymath.sampling.points_from_gram if func is None else func
+    bad = 0
+    for _ in range(n_trials):
+        n = int(rng.integers(2, 9))
+        d = int(rng.integers(1, 5))
+        scale = 10.0 ** rng.uniform(-2, 3)
+        P = scale * rng.standard_normal((n, d))
+        if rng.random() < 0.3:
+            P[-1] = P[0]
+        scale * rng.standard_normal(d)                     # the draw of t, to keep the same stream
+        X = np.asarray(f(P @ P.T), dtype=float)
+        bad += int(float(np.abs(X @ X.T - P @ P.T).max()) > 1e-9)
+    return bad
+
+
+KEYS_18 = ("shape", "gram", "distances", "translation")
+answer_M28_18a = absolute_count_18(300, np.random.default_rng(6618))
+mine_18 = gram_property_test_18(300, np.random.default_rng(6618))
+answer_M28_18b = all(mine_18[k] == 0 for k in KEYS_18)
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")                        # the nan of all_columns
+    wrong_18 = {name: gram_property_test_18(300, np.random.default_rng(6618), func=function)
+                for name, function in (("no_sqrt", no_sqrt), ("ascending", ascending), ("all_columns", all_columns),
+                                       ("rotated", rotated), ("no_sign", no_sign))}
+answer_M28_18c = [[counts[k] for k in KEYS_18] for counts in wrong_18.values()]
+answer_M28_18d = [name for name, counts in wrong_18.items() if all(counts[k] == 0 for k in KEYS_18)]
+for name_18, counts_18 in {"ta fonction": mine_18, **wrong_18}.items():
+    print(f"{name_18:12s}", counts_18)
+print("a)", answer_M28_18a, " b)", answer_M28_18b, " c)", answer_M28_18c, " d)", answer_M28_18d)
+
+''' + CHECK_18,
+    record='''def variant_18r(seed, func, repeat=True, rank="matrix_rank"):
+    """The test of the statement written again on 300 trials, with two classic variants: no rng.random() draw (no repeated
+    point), or r = min(n, d) instead of the rank of P."""
+    rng, counts = np.random.default_rng(seed), [0, 0, 0, 0]
+    sq = lambda Z: ((np.asarray(Z)[:, None, :] - np.asarray(Z)[None, :, :]) ** 2).sum(-1)      # noqa: E731
+    for _ in range(300):
+        n, d = int(rng.integers(2, 9)), int(rng.integers(1, 5))
+        scale = 10.0 ** rng.uniform(-2, 3)
+        P = scale * rng.standard_normal((n, d))
+        if repeat and rng.random() < 0.3:
+            P[-1] = P[0]
+        t = scale * rng.standard_normal(d)
+        G = P @ P.T
+        s = max(1.0, float(np.abs(G).max()))
+        with np.errstate(invalid="ignore"):
+            X = np.asarray(func(G), dtype=float)
+            ok = bool(np.all(np.isfinite(X)))
+            r = np.linalg.matrix_rank(P) if rank == "matrix_rank" else min(n, d)
+            counts[0] += int(X.shape != (n, r) or not ok)
+            counts[1] += int(not ok or np.abs(X @ X.T - G).max() > 1e-9 * s)
+            counts[2] += int(not ok or np.abs(sq(X) - sq(P)).max() > 4e-9 * s)
+            J = np.eye(n) - 1.0 / n
+            Gc = -0.5 * J @ sq(P + t) @ J
+            Y = np.asarray(func(Gc), dtype=float)
+            counts[3] += int(not np.all(np.isfinite(Y)) or np.abs(sq(Y) - sq(P)).max() > 4e-9 * max(1.0, float(np.abs(Gc).max())))
+    return counts
+
+
+versions_18r = [no_sqrt, ascending, all_columns, rotated, no_sign]
+table_18r = [variant_18r(6618, f) for f in versions_18r]
+right_18r = variant_18r(6618, ref_sampling.points_from_gram)
+rng_18r, absolute_18r = np.random.default_rng(6618), 0
+for _ in range(300):                                       # a): the same draws, an absolute tolerance
+    n, d = int(rng_18r.integers(2, 9)), int(rng_18r.integers(1, 5))
+    scale = 10.0 ** rng_18r.uniform(-2, 3)
+    P = scale * rng_18r.standard_normal((n, d))
+    if rng_18r.random() < 0.3:
+        P[-1] = P[0]
+    rng_18r.standard_normal(d)
+    X = ref_sampling.points_from_gram(P @ P.T)
+    absolute_18r += int(np.abs(X @ X.T - P @ P.T).max() > 1e-9)
+wbm.record("M28.18a", absolute_18r,
+           mistakes={"a) compte les essais où l'écart dépasse 1e-9 en valeur absolue, sans le facteur s": 0})
+wbm.record("M28.18b", all(v == 0 for v in right_18r),
+           mistakes={"avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de ton test (ses "
+                     "tolérances, ce qu'il compare) ou de ta fonction": False})
+wbm.record("M28.18c", table_18r,
+           mistakes={"tire dans l'ordre de l'énoncé, le rng.random() du point répété compris":
+                         [variant_18r(6618, f, repeat=False) for f in versions_18r],
+                     "r est le rang de P (np.linalg.matrix_rank) : un point répété le fait baisser":
+                         [variant_18r(6618, f, rank="min") for f in versions_18r]})
+passing_18r = {name for name, row in zip(("no_sqrt", "ascending", "all_columns", "rotated", "no_sign"), table_18r)
+               if not any(row)}
+missing_18r = sorted(passing_18r)
+wbm.record("M28.18d", passing_18r,
+           mistakes={"il en manque une : une version passe si ses quatre compteurs sont nuls": {missing_18r[0]},
+                     "il en manque une : relis, dans c), les compteurs de chaque version": {missing_18r[1]},
+                     "ascending n'est attrapée que par une partie des essais, mais elle est attrapée : elle ne passe pas":
+                         passing_18r | {"ascending"}})''',
+    after=[
+        ("todo_md", "**Dans ta copie** : a) pourquoi une tolérance relative à $s$ ; d) pourquoi deux versions fausses "
+                    "passent, ce qui dans le dépôt vérifie ce qu'elles ont de faux, et pourquoi `ascending` n'est attrapée "
+                    "que par une partie des essais."),
+        ("md", "**Après la vérification**, dans ta copie : quelle propriété faudrait-il ajouter pour attraper une carte "
+               "tournée, et pourquoi n'est-ce plus un test de la matrice de Gram ?"),
+    ],
+)
+
+PART_C = Part("C", "Déboguer, tester",
+              "Fiche §2, §3 et §6. Trois erreurs classiques, qui passent une vérification mal choisie ; un test de propriété "
+              "de `points_from_gram`. Les versions fausses et le code du collègue s'appuient sur la référence "
+              "(`ref_sampling`), pour ne pas dépendre de ton code.",
+              exercises=[M28_17, M28_18])
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: the challenge (M28.19)
+# ---------------------------------------------------------------------------
+GIVEN_19 = '''from scipy.linalg import orthogonal_procrustes
+from scipy.spatial.distance import pdist, squareform
+
+
+def towns_19(seed, n=30, frac=0.25, noise=0.3):
+    """n towns drawn in a 200 × 150 km region, their distances measured with gaussian errors of standard deviation noise
+    (km), and a fraction frac of the pairs, drawn at random, missing (np.nan). Returns (P, D): the true positions, of
+    shape (n, 2), and the (n, n) matrix of the measured distances (symmetric, zero diagonal)."""
+    rng = np.random.default_rng(seed)
+    P = rng.uniform([0.0, 0.0], [200.0, 150.0], size=(n, 2))
+    D = squareform(pdist(P))
+    iu = np.triu_indices(n, 1)
+    m = len(iu[0])
+    E = rng.normal(0.0, noise, size=m)
+    D[iu] += E
+    D[(iu[1], iu[0])] += E
+    missing = rng.choice(m, size=int(round(frac * m)), replace=False)
+    D[iu[0][missing], iu[1][missing]] = np.nan
+    D[iu[1][missing], iu[0][missing]] = np.nan
+    return P, D
+
+
+P_19, D_19 = towns_19(6619)       # the region of the notebook: the true positions (km) and the measured distances
+
+
+def procrustes_error_19(Y, P):
+    """The mean distance (km) between the towns of the map Y and their true positions P, once both are centered and Y is
+    aligned on P by the best orthogonal transformation (scipy.linalg.orthogonal_procrustes)."""
+    Y, P = np.asarray(Y, dtype=float), np.asarray(P, dtype=float)
+    Yc, Pc = Y - Y.mean(axis=0), P - P.mean(axis=0)
+    R, _ = orthogonal_procrustes(Yc, Pc)
+    return float(np.linalg.norm(Yc @ R - Pc, axis=1).mean())'''
+
+CHECK_19 = '''HIDDEN_C19 = __HIDDEN_C19__   # three hidden regions of towns_19 (seed, number of towns), renumbered, turned and moved at each run
+rng_c19 = np.random.default_rng()       # a new numbering, rotation and translation at each run: no table of values can pass
+
+
+def map_why_c19(Y, n):
+    """'' when Y is a finite map of shape (n, 2), else the reason."""
+    arr = as_floats(Y)
+    if arr is None or arr.shape != (n, 2):
+        return f"attendu une carte de forme ({n}, 2), reçu {None if arr is None else arr.shape}"
+    if not np.all(np.isfinite(arr)):
+        return "ta carte contient des nombres non finis (nan, inf)"
+    return ""
+
+
+def error_why_c19(error, elapsed):
+    """'' when the criterion is met, else the reason."""
+    if elapsed >= 10:
+        return f"trop lent ({fr(elapsed, 1)} s, il faut moins de 10 s)"
+    if error >= 5:
+        return (f"{fr(error, 1)} km en moyenne après alignement : un seul double centrage d'une matrice complétée ne suffit "
+                "pas ; une carte donne des distances pour toutes les paires")
+    if error >= 1:
+        return (f"{fr(error, 2)} km en moyenne après alignement, plus de 1 km : répète le cycle davantage, ou pars d'un "
+                "meilleur remplissage")
+    return ""
+
+
+with checked("M28.19"):
+    results_19 = []
+    report_19 = reporter(results_19, stop=False)
+    start_19 = time.perf_counter()
+    map_c19 = map_from_partial_distances_19(D_19.copy())
+    elapsed_19 = time.perf_counter() - start_19
+    why_c19 = map_why_c19(map_c19, len(D_19))
+    error_c19 = procrustes_error_19(map_c19, P_19) if not why_c19 else float("nan")
+    why_c19 = why_c19 or error_why_c19(error_c19, elapsed_19)
+    report_19(not why_c19, f"la région du notebook : {fr(error_c19, 3)} km en moyenne après alignement, en "
+              f"{fr(elapsed_19, 2)} s", f"la région du notebook : {why_c19}")
+    if not filled(answer_M28_19a):
+        print("⏳ Ex M28.19a : pas encore fait.")
+    elif math.isfinite(error_c19):
+        try:
+            same_c19 = abs(float(answer_M28_19a) - error_c19) <= 5e-4
+        except (TypeError, ValueError):
+            same_c19 = False
+        report_19(same_c19, "Ex M28.19a : ta réponse est l'erreur de la carte que rend ta fonction",
+                  "Ex M28.19a : ta réponse n'est pas l'erreur de la carte que rend ta fonction maintenant, "
+                  "procrustes_error_19(map_from_partial_distances_19(D_19), P_19) : exécute à nouveau ta cellule")
+    maps_c19 = [as_floats(map_c19)]
+    for k_c19, (seed_c19, n_c19) in enumerate(HIDDEN_C19, start=1):
+        P_c19, D_c19 = towns_19(seed_c19, n_c19)
+        order_c19 = rng_c19.permutation(n_c19)
+        angle_c19 = rng_c19.uniform(0, 2 * np.pi)
+        turn_c19 = np.array([[np.cos(angle_c19), -np.sin(angle_c19)], [np.sin(angle_c19), np.cos(angle_c19)]])
+        P_c19 = P_c19[order_c19] @ turn_c19.T + rng_c19.uniform(-500, 500, size=2)
+        D_c19 = D_c19[np.ix_(order_c19, order_c19)]
+        start_19 = time.perf_counter()
+        got_c19 = map_from_partial_distances_19(D_c19.copy())
+        elapsed_19 = time.perf_counter() - start_19
+        why_c19 = map_why_c19(got_c19, n_c19)
+        if not why_c19 and any(m is not None and m.shape == np.shape(got_c19) and np.allclose(m, got_c19) for m in maps_c19):
+            why_c19 = ("ta fonction rend la même carte pour deux régions différentes : elle doit la calculer à partir de la "
+                       "matrice reçue")
+        error_c19 = procrustes_error_19(got_c19, P_c19) if not why_c19 else float("nan")
+        why_c19 = why_c19 or error_why_c19(error_c19, elapsed_19)
+        report_19(not why_c19, f"région cachée {k_c19} ({n_c19} villes) : {fr(error_c19, 3)} km en moyenne après "
+                  f"alignement, en {fr(elapsed_19, 2)} s", f"région cachée {k_c19} ({n_c19} villes) : {why_c19}")
+        maps_c19.append(as_floats(got_c19))
+    verdict("M28.19", all(results_19), "critère atteint : moins de 1 km en moyenne après alignement pour les quatre "
+            "régions, en moins de 10 secondes chacune.", "critère pas encore atteint : relis les lignes ❌ ci-dessus.")'''
+
+NOTE_19 = (r"a) Environ 0,176 km avec la méthode ci-dessous ; b) environ 14,7 km. Une méthode qui marche : remplacer chaque "
+           r"distance manquante par la moyenne des distances connues, puis répéter une centaine de fois le cycle « double "
+           r"centrage, projection sur les matrices semi-définies positives (valeurs propres négatives mises à 0), carte à "
+           r"deux colonnes par `points_from_gram`, distances de la carte à la place des seules distances manquantes ». "
+           r"Elle arrive à l'ordre de grandeur de l'erreur de mesure, en quelques centièmes de seconde.")
+
+M28_19 = Ex(
+    "M28.19", "🏆", 3, 30, "Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins de 1 km "
+    "en moyenne après alignement",
+    "retrouver une carte à partir de distances incomplètes et bruitées, en itérant le positionnement multidimensionnel "
+    "classique, et la juger après alignement.", "fiche §2 ; M12d ; Ex M28.2, M28.13 et M28.17", tracks="C",
+    given=GIVEN_19, note=NOTE_19,
+    body=r"""La cellule fournie donne la matrice `D_19`, de forme $(30, 30)$, des distances entre 30 villes d'une région de $200 \times 150$ km : symétrique, de diagonale nulle, mesurée avec une erreur d'environ 300 m (des écarts gaussiens d'écart-type 0,3 km), et dont un quart des 435 paires, tirées au hasard, manquent (`np.nan`) ; elle est tirée par `towns_19(6619)`, qui rend aussi les vraies positions `P_19`. Elle donne aussi `procrustes_error_19(Y, P)`, qui centre la carte `Y` et les vraies positions `P`, trouve la transformation orthogonale qui aligne au mieux `Y` sur `P` (le problème de Procrustes orthogonal, Borg et Groenen, ch. 19 *Procrustes Procedures*) et rend la distance moyenne, en km, entre les villes alignées et leurs vraies positions.
+
+Écris `map_from_partial_distances_19(D)`, qui reçoit une telle matrice ($n$ villes) et rend une carte de forme $(n, 2)$. Tout NumPy et SciPy sont permis, et ta `points_from_gram` ; la matrice doublement centrée d'une matrice complétée a en général des valeurs propres négatives, que ta `points_from_gram` refuse : remplace-la d'abord par sa projection sur les matrices semi-définies positives (ses valeurs propres négatives mises à 0, par `np.linalg.eigh`).
+
+**Critère de réussite :** une erreur après alignement de moins de 1 km en moyenne pour la région du notebook, et pour trois régions cachées de la vérification (d'autres villes, de 26 à 34, d'autres paires manquantes, et des villes renumérotées, tournées et déplacées à chaque exécution), en moins de 10 secondes par région. La vérification recalcule aussi ton erreur a) avec ta fonction, et refuse une fonction qui rend la même carte pour deux régions. Relève :
+- a) ton erreur après alignement pour la région du notebook (un nombre, tel que calculé, en km ; 3 décimales dans ta copie) ;
+- b) l'erreur qu'on obtient en remplaçant chaque distance manquante par la moyenne des distances connues, puis en faisant un seul positionnement multidimensionnel classique (un nombre, tel que calculé, en km ; 1 décimale dans ta copie).
+
+Point de départ : un seul double centrage d'une matrice complétée au hasard ne suffit pas, mais une carte donne des distances pour toutes les paires.""",
+    todo='''def map_from_partial_distances_19(D):
+    """A map, of shape (n, 2), of the n towns whose measured distances are the matrix D (symmetric, zero diagonal,
+    np.nan for a missing pair)."""
+    raise NotImplementedError("map_from_partial_distances_19 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_M28_19a = answer_M28_19b = ...
+with wbm.attempt("M28.19"):          # your function: ⏳ while it is not written
+    answer_M28_19a = ...  # a) a number, as computed: procrustes_error_19(your map of D_19, P_19), in km
+    answer_M28_19b = ...  # b) a number, as computed: the error (km) of a single classical scaling after filling each missing distance with the mean of the known ones''',
+    check="check_answer(\"M28.19b\", answer_M28_19b)\n\n" + CHECK_19,
+    solution='''def psd_19(G):
+    """The projection of a symmetric matrix on the positive semi-definite matrices: its negative eigenvalues set to 0."""
+    w, V = np.linalg.eigh(G)
+    return (V * np.clip(w, 0.0, None)) @ V.T
+
+
+def classical_map_19(D_full):
+    """One classical scaling of a complete matrix of distances: double centering of the squares, projection, two columns."""
+    n = len(D_full)
+    J = np.eye(n) - np.ones((n, n)) / n
+    return mymath.sampling.points_from_gram(psd_19(-0.5 * J @ D_full ** 2 @ J), dim=2)
+
+
+def map_from_partial_distances_19(D, n_rounds=100):
+    """A map, of shape (n, 2), of the n towns whose measured distances are the matrix D (symmetric, zero diagonal,
+    np.nan for a missing pair)."""
+    D = np.asarray(D, dtype=float)
+    missing = np.isnan(D)
+    off_diagonal = ~np.eye(len(D), dtype=bool)
+    D_full = np.where(missing, np.nanmean(D[off_diagonal]), D)          # start: the mean of the known distances
+    for _ in range(n_rounds):
+        X = classical_map_19(D_full)
+        distances = np.sqrt(((X[:, None, :] - X[None, :, :]) ** 2).sum(axis=-1))
+        D_full = np.where(missing, distances, D)                          # the map fills the missing pairs only
+    return X
+
+
+start_19 = time.perf_counter()
+answer_M28_19a = procrustes_error_19(map_from_partial_distances_19(D_19), P_19)
+print(f"a) {answer_M28_19a:.4f} km en {time.perf_counter() - start_19:.3f} s ;",
+      int(np.isnan(D_19[np.triu_indices(30, 1)]).sum()), "paires manquantes sur 435")
+answer_M28_19b = procrustes_error_19(map_from_partial_distances_19(D_19, n_rounds=1), P_19)
+print(f"b) {answer_M28_19b:.4f} km")
+
+''' + CHECK_19,
+    record='''from scipy.sparse.csgraph import shortest_path as shortest_path_19r
+
+
+def scaling_19r(D_full):
+    """The oracle: one classical scaling by scipy.linalg.eigh, the negative eigenvalues set to 0, two columns."""
+    from scipy import linalg as linalg_19r
+    n = len(D_full)
+    J = np.eye(n) - 1.0 / n
+    w, V = linalg_19r.eigh(-0.5 * J @ D_full ** 2 @ J)
+    return V[:, ::-1][:, :2] * np.sqrt(np.clip(w[::-1][:2], 0.0, None))
+
+
+known_19r = D_19[~np.isnan(D_19) & ~np.eye(30, dtype=bool)]
+mean_fill_19r = np.where(np.isnan(D_19), known_19r.mean(), D_19)
+one_shot_19r = procrustes_error_19(scaling_19r(mean_fill_19r), P_19)
+paths_19r = shortest_path_19r(np.where(np.isnan(D_19), np.inf, D_19))
+filled_19r = mean_fill_19r
+for _ in range(100):
+    X_19r = scaling_19r(filled_19r)
+    filled_19r = np.where(np.isnan(D_19), squareform(pdist(X_19r)), D_19)
+wbm.record("M28.19b", one_shot_19r, decimals=1,
+           mistakes={"b) remplit chaque paire manquante par la moyenne des distances connues, pas par un plus court chemin":
+                         procrustes_error_19(scaling_19r(paths_19r), P_19),
+                     "b) demande un seul positionnement, sans répéter le cycle": procrustes_error_19(X_19r, P_19)})''',
+    after=[
+        ("md", "**Pour réfléchir** : pourquoi un seul positionnement, après un remplissage par la moyenne, se trompe-t-il de "
+               "plus de 10 km ? Pourquoi l'erreur finale ne descend-elle pas sous l'ordre de grandeur de l'erreur de "
+               "mesure ? Que se passerait-il si une ville n'avait plus que deux distances connues ?"),
+    ],
+)
+
+PART_D = Part("D", "Défi", "Fiche §2. Une carte retrouvée à partir de distances incomplètes et bruitées, jugée après "
+              "alignement sur quatre régions.", exercises=[M28_19])
+
+PARTS = [PART_A, PART_B, PART_C, PART_D]
+
+
+def header_cells(kind: str) -> list:
+    rel = f"{FOLDER}/{'03_notebook' if kind == 'exercise' else '05_solutions'}.ipynb"
+    rows = ["| Partie | ID | Titre | Type | ★ | ⏱️ |", "|---|---|---|---|---|---|",
+            "| 0 | M28.1 à M28.7, M28.11 | Les exercices papier (vérification) | ✏️ 🔗 | | |"]
+    for part in PARTS:
+        for i, ex in enumerate(part.exercises):
+            rows.append(ex.table_row(part.key if i == 0 else ""))
+    if kind == "exercise":
+        title = "# M28 · Matrice de Gram, montée sur l'entrée et lois tronquées — notebook d'exercices"
+        how = ("La partie 0 vérifie tes exercices papier. Chaque exercice de code : un énoncé, une cellule à compléter "
+               "(les `...` et les `raise NotImplementedError`), puis une cellule de vérification (`wbm.check`). Dans "
+               "les parties A à D, donne les valeurs que rend le calcul, **sans les arrondir** : les décimales "
+               "demandées sont celles de ta copie. « Tout exécuter » (*Run all*) va jusqu'au bout même si rien n'est "
+               "rempli : ce qui n'est pas fait affiche ⏳. Bloqué 15 minutes ? `04_indices.md`.\n\n"
+               "> Travaille dans **ta copie** (`mon_travail/m28_gram_echantillonnage/03_notebook.ipynb`, créée par "
+               "`python tools/start_chapter.py M28`) ; la version du dépôt est mise à jour par Claude. Sur Colab, le "
+               "badge ouvre la version du dépôt, qui n'est pas enregistrée : crée puis ouvre ta copie comme "
+               "l'explique `00_setup/COLAB.md` §2.")
+    else:
+        title = "# M28 · Matrice de Gram, montée sur l'entrée et lois tronquées — solutions (notebook exécuté)"
+        how = ("Les réponses des exercices, exécutées. Les démarches détaillées (le *pourquoi*, les erreurs fréquentes, "
+               "les variantes) sont dans `05_solutions.md`. Les cellules marquées `answer` enregistrent les réponses "
+               "vérifiées par `wbm.check` (`tools/build_answers.py`).")
+    return [md(f"{title}\n\n{badge(rel)}\n\n{how}\n\n" + "\n".join(rows))]
+
+
+def objectives_cell() -> list:
+    return [md("## Objectifs et rappel express\n\n"
+               "- Vérifier tes calculs papier (partie 0) : une matrice de Gram et une matrice des moments, un double "
+               "centrage et une carte, une montée projetée, la variation totale d'une barre, des étoffes rayées, une "
+               "prévision refroidie et tronquée, des suites qui bouclent, et un pont vers la température sur des scores.\n"
+               "- Écrire les trois fonctions de `mymath/sampling.py` (`points_from_gram`, `temper`, `smallest_mass_set`) "
+               "et les tester.\n"
+               "- Prédire ce qu'un changement d'unité fait à un pas de montée, dessiner des motifs rayés et leur lissage, "
+               "corriger trois erreurs classiques, écrire un test de propriété, et relever un défi.\n\n"
+               r"**Rappel express.** $\mathbf{G} = \mathbf{X}\mathbf{X}^\top$, $\lVert\mathbf{x}_i - \mathbf{x}_j\rVert^2 "
+               r"= G_{ii} + G_{jj} - 2G_{ij}$ ; pour des points centrés, $\mathbf{G} = -\frac12\mathbf{J}\mathbf{D}^{(2)}"
+               r"\mathbf{J}$ (les **carrés** des distances), et les colonnes $\sqrt{\lambda_k}\,\mathbf{q}_k$ donnent une "
+               r"carte à une isométrie près. Montée projetée : $\mathbf{x} \leftarrow \operatorname{clip}(\mathbf{x} + "
+               r"\eta\,\mathbf{s})$, on coupe le **point** ; le pas normalisé ne voit pas l'unité de $f$. $\mathrm{VT}("
+               r"\mathbf{x}) = \mathbf{x}^\top\mathbf{L}\mathbf{x}$, gradient $2\mathbf{L}\mathbf{x}$ ; un motif de "
+               r"fréquence $f$ : rapport $4\sin^2(\pi f)$, gain $\frac{1 + 2\cos 2\pi f}{3}$. Température : $p_i^{1/T}$ "
+               r"renormalisé ; top-p : le plus petit ensemble de masse $\ge m$ ; $\mathrm{KL}(\mathbf{p}_S \,\|\, "
+               r"\mathbf{p}) = -\ln P(S)$. Période : la longueur du cycle, sans la queue.")]
+
+
+def footer_cells(kind: str) -> list:
+    return [md("## ✅ Bilan\n\n"
+               "**Auto-évaluation** (note-toi de 0 à 3 dans `mon_travail/suivi/auto_evaluation.md`) :\n"
+               "1. Sais-tu former une matrice de Gram dans les deux sens, et y lire des distances ?\n"
+               "2. Sais-tu retrouver une carte à partir de distances (double centrage, théorème spectral), à une isométrie "
+               "près ?\n"
+               "3. Sais-tu faire une montée projetée, et dire ce que change un pas normalisé ?\n"
+               "4. Sais-tu écrire la variation totale comme une forme quadratique, et dire ce qu'elle et un flou font à un "
+               "motif rapide ?\n"
+               "5. Sais-tu tempérer et tronquer une loi, et dire ce que coûte la troncature ?\n"
+               "6. Sais-tu trouver la prépériode et la période d'une suite sur un ensemble fini ?\n\n"
+               "**La suite** : CP6, l'examen blanc de la partie VI, puis le chapitre 28 de workbookIA, qui applique ces "
+               "outils à la visualisation des réseaux, au transfert de style et à la génération de texte.")]
+
+
+def build(kind: str) -> list:
+    cells = header_cells(kind)
+    cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
+    cells += objectives_cell()
+    cells += paper_part(kind)
+    for part in PARTS:
+        cells += part_cells(part, kind)
+    cells += footer_cells(kind)
+    return cells
+
+
+# ---------------------------------------------------------------------------
+# Build-time literals of the hidden cases, computed here by private functions (never the answer of a question), and the
+# assertions that make them fair (the reference passes, the classic wrong versions are seen)
+# ---------------------------------------------------------------------------
+def load_reference_sampling():
+    """solutions/mymath_ref/sampling.py, loaded as a module of its own."""
+    spec = importlib.util.spec_from_file_location("sampling_ref_m28", ROOT / "solutions" / "mymath_ref" / "sampling.py")
+    ref = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ref)
+    return ref
+
+
+def literal(value) -> str:
+    """A Python literal of value (floats by repr: exact), wrapped for reading."""
+    return pprint.pformat(value, width=112, compact=True, sort_dicts=False)
+
+
+def _ascent_15(np, x0, scale, normalized, n_steps, c=(0.33, 0.58), eta=0.08, clip=True):
+    x = np.array(x0, dtype=float)
+    xs = [x]
+    for _ in range(n_steps):
+        g = scale * -2.0 * (x - np.array(c))
+        x = x + eta * (g / np.linalg.norm(g) if normalized else g)
+        x = np.clip(x, 0.0, 1.0) if clip else x
+        xs.append(x)
+    return np.array(xs)
+
+
+def _laplacian_16(np, x):
+    L = np.zeros_like(x)
+    L[1:, :] += x[1:, :] - x[:-1, :]
+    L[:-1, :] += x[:-1, :] - x[1:, :]
+    L[:, 1:] += x[:, 1:] - x[:, :-1]
+    L[:, :-1] += x[:, :-1] - x[:, 1:]
+    return L
+
+
+def _measures_16(np, motifs, eta, n_steps):
+    out = {"ratio": [], "gain": [], "decay": []}
+    for x in motifs.values():
+        inner = x[1:-1, 1:-1]
+        blur = sum(x[1 + a:x.shape[0] - 1 + a, 1 + b:x.shape[1] - 1 + b] for a in (-1, 0, 1) for b in (-1, 0, 1)) / 9
+        y = x.copy()
+        for _ in range(n_steps):
+            y = y - eta * 2 * _laplacian_16(np, y)
+        out["ratio"].append(float((x * _laplacian_16(np, x)).sum() / (x * x).sum()))
+        out["gain"].append(float((blur * inner).sum() / (inner * inner).sum()))
+        out["decay"].append(float(np.linalg.norm(y[12:36, 12:36]) / np.linalg.norm(x[12:36, 12:36])))
+    return out
+
+
+def _rho(f, x0):
+    seen, x, t = {}, x0, 0
+    while x not in seen:
+        seen[x] = t
+        x, t = f(x), t + 1
+    return seen[x], t - seen[x]
+
+
+def _projected(np, A, c, x0, eta, n_steps, lower, upper, clip_point=True, clip_gradient=False):
+    x = np.array(x0, dtype=float)
+    for _ in range(n_steps):
+        g = -2.0 * A @ (x - c)
+        if clip_gradient:
+            g = np.clip(g, lower, upper)
+        x = x + eta * g
+        if clip_point:
+            x = np.clip(x, lower, upper)
+    return x
+
+
+def _kkt(np, A, c, x, lower, upper, tol=1e-6):
+    g = -2.0 * A @ (x - c)
+    low, up = x <= lower + 1e-9, x >= upper - 1e-9
+    inside = np.all(x >= lower - 1e-12) and np.all(x <= upper + 1e-12)
+    return bool(inside and np.all(np.abs(g[~low & ~up]) <= tol) and np.all(g[low] <= tol) and np.all(g[up] >= -tol))
+
+
+def build_constants() -> dict:
+    """The literals written in the check cells, by placeholder, with the assertions that make the hidden cases fair."""
+    import numpy as np
+    from scipy.linalg import orthogonal_procrustes
+    from scipy.spatial.distance import pdist, squareform
+
+    ref = load_reference_sampling()
+    out = {}
+
+    # M28.15: a hidden start; the 1000 f run is not among the hidden calls (its iterates would give the prediction a))
+    runs = [([0.12, 0.94], 1.0, False, 6), ([0.12, 0.94], 1.0, True, 6), ([0.12, 0.94], 3.0, False, 6),
+            ([0.95, 0.05], 12.0, False, 6)]         # the last one: the projection acts, and the iterates still converge
+    hidden = [(x0, s, nz, n, _ascent_15(np, x0, s, nz, n).tolist()) for x0, s, nz, n in runs]
+    free = _ascent_15(np, [0.95, 0.05], 12.0, False, 6, clip=False)
+    assert np.any(free < 0) or np.any(free > 1)
+    out["__HIDDEN_C15__"] = literal(hidden)
+
+    # M28.16: five hidden motifs (the same source as the check cell), another step and another number of steps
+    I16, J16 = np.meshgrid(np.arange(48), np.arange(48), indexing="ij")
+    namespace = {"np": np, "I_16": I16, "J_16": J16}
+    exec(re.search(r"HIDDEN_MOTIFS_C16 = \{.*?\}\n", CHECK_16, re.S).group(0), namespace)
+    hidden = _measures_16(np, namespace["HIDDEN_MOTIFS_C16"], 0.04, 6)
+    visible = _measures_16(np, {k: v for k, v in zip("ABCDE", [np.cos(2 * np.pi * J16 / 16), np.cos(2 * np.pi * J16 / 6),
+                                                               np.cos(2 * np.pi * J16 / 3), (-1.0) ** J16,
+                                                               (-1.0) ** (I16 + J16)])}, 0.05, 10)
+    assert all(not np.allclose(hidden[k], visible[k]) for k in hidden)
+    out["__HIDDEN_C16__"] = literal({"eta": 0.04, "n_steps": 6, **hidden})
+
+    # M28.17: hidden clouds (seed 6627), hidden ascents, hidden sequences
+    rng = np.random.default_rng(6627)
+    maps = [{"points": np.round(rng.uniform(-10, 10, size=(7, 2)), 2).tolist(), "dim": 2},
+            {"points": np.round(rng.uniform(-6, 6, size=(6, 3)), 2).tolist(), "dim": 3}]
+    for case in maps:                          # the bug is seen: wrong distances, or no Gram matrix at all
+        P = np.array(case["points"])
+        D = squareform(pdist(P))
+        J = np.eye(len(P)) - 1.0 / len(P)
+        Gb = -0.5 * J @ D @ J
+        if np.linalg.eigvalsh(Gb).min() > -1e-9 * max(1.0, np.abs(Gb).max()):
+            Xb = ref.points_from_gram(Gb, case["dim"])
+            assert not np.allclose(squareform(pdist(Xb)), D, atol=1e-3)
+    emitters = [{"A": [[2.0, 0.8, 0.0], [0.8, 1.5, 0.5], [0.0, 0.5, 1.0]], "c": [1.6, -0.9, 0.7], "x0": [0.1, 0.4, 0.9],
+                 "eta": 0.05, "n_steps": 400, "lower": -0.5, "upper": 1.2},
+                {"A": np.eye(4).tolist(), "c": [-0.3, 1.25, 0.45, 0.8], "x0": [0.8, 0.1, 0.9, 0.2],
+                 "eta": 0.05, "n_steps": 200, "lower": 0.0, "upper": 1.0}]
+    for k, case in enumerate(emitters):
+        A, c = np.array(case["A"]), np.array(case["c"])
+        args = (np.array(case["x0"]), case["eta"], case["n_steps"], case["lower"], case["upper"])
+        assert _kkt(np, A, c, _projected(np, A, c, *args), case["lower"], case["upper"], tol=1e-8)       # the fix passes
+        assert not _kkt(np, A, c, _projected(np, A, c, *args, clip_point=False, clip_gradient=True),
+                        case["lower"], case["upper"])                                                   # the bug is seen
+        if k == 0:                             # clipping only at the end is seen (a cross term)
+            assert not _kkt(np, A, c, np.clip(_projected(np, A, c, *args, clip_point=False), case["lower"], case["upper"]),
+                            case["lower"], case["upper"])
+        else:                                  # clipping the point AND the gradient is seen (a coordinate must go down)
+            assert not _kkt(np, A, c, _projected(np, A, c, *args, clip_gradient=True), case["lower"], case["upper"])
+    cycles_src = re.search(r"CYCLES_C17 = \{.*?\}", CHECK_17, re.S).group(0)
+    namespace = {}
+    exec(cycles_src, namespace)
+    cycles = []
+    for name, x0 in (("squares", 3), ("affine", 2), ("automaton", (1, 3))):
+        mu, lam = _rho(namespace["CYCLES_C17"][name], x0)
+        assert mu >= 2 and lam >= 2 and mu != lam, (name, mu, lam)
+        cycles.append({"map": name, "x0": x0, "mu": mu, "lam": lam})
+    out["__CASES_C17__"] = literal({"maps": maps, "emitters": emitters, "cycles": cycles})
+
+    # M28.18: two hidden starts on which each hidden wrong version breaks its property at every trial, and the reference
+    # none (checked with the test of the solutions, run here on the reference)
+    starts = (6641, 6643)
+    namespace = {"np": np, "math": math, "mymath": type("M", (), {"sampling": ref})(), "ref_sampling": ref}
+    exec(SOLUTION_18, namespace)
+    exec(CHECK_18.split("\n\nwith checked(")[0], namespace)
+    test = namespace["gram_property_test_18"]
+    keys = ("shape", "gram", "distances", "translation")
+    for seed in starts:
+        for func, broken in ((ref.points_from_gram, ()), (namespace["extra_column_c18"], ("shape",)),
+                             (namespace["shifted_c18"], ("gram",)), (namespace["centered_c18"], ("translation",)),
+                             (namespace["flipped_row_c18"], ("gram", "distances")),
+                             (namespace["ramp_c18"], keys)):
+            counts = test(40, np.random.default_rng(seed), func=func)
+            assert counts == {k: (40 if k in broken else 0) for k in keys}, (seed, func.__name__, counts)
+    assert test(40, np.random.default_rng(starts[0]), func=namespace["scaled_c18"], rtol=1e-6) == dict.fromkeys(keys, 0)
+    assert test(40, np.random.default_rng(starts[0]), func=namespace["scaled_c18"])["gram"] > 0      # rtol is needed
+    out["__STARTS_C18__"] = repr(starts)
+
+    # M28.19: three hidden regions on which the iterative method of the solutions stays far below 1 km, whatever the
+    # numbering (checked for a few numberings)
+    namespace = {"np": np}
+    exec(GIVEN_19, namespace)
+    hidden = [(6642, 26), (6644, 30), (6649, 34)]
+
+    def solve(D, n_rounds=100):
+        missing = np.isnan(D)
+        D_full = np.where(missing, np.nanmean(D[~np.eye(len(D), dtype=bool)]), D)
+        J = np.eye(len(D)) - 1.0 / len(D)
+        for _ in range(n_rounds):
+            w, V = np.linalg.eigh(-0.5 * J @ D_full ** 2 @ J)
+            X = ref.points_from_gram((V * np.clip(w, 0, None)) @ V.T, dim=2)
+            D_full = np.where(missing, squareform(pdist(X)), D)
+        return X
+
+    def error(Y, P):
+        Yc, Pc = Y - Y.mean(0), P - P.mean(0)
+        R, _ = orthogonal_procrustes(Yc, Pc)
+        return float(np.linalg.norm(Yc @ R - Pc, axis=1).mean())
+
+    order_rng = np.random.default_rng(6601)
+    for seed, n in hidden:
+        P, D = namespace["towns_19"](seed, n)
+        assert np.nanmin(D[np.triu_indices(n, 1)]) > 1.0
+        for _ in range(3):
+            order = order_rng.permutation(n)
+            assert error(solve(D[np.ix_(order, order)]), P[order]) < 0.4, (seed, n)
+    out["__HIDDEN_C19__"] = repr(hidden)
+    return out
+
+
+PREPARED = []
+
+
+def prepare() -> None:
+    """Write the build-time literals in every cell text (placeholders __NAME__). Idempotent."""
+    if PREPARED:
+        return
+    constants = build_constants()
+
+    def fill(text):
+        for key, value in constants.items():
+            text = text.replace(key, value)
+        return text
+
+    for part in PARTS:
+        part.given = fill(part.given)
+        for ex in part.exercises:
+            for field_name in ("body", "todo", "check", "solution", "record", "given", "note"):
+                setattr(ex, field_name, fill(getattr(ex, field_name)))
+            ex.after = [(kind, fill(text)) for kind, text in ex.after]
+    left = {match for part in PARTS for ex in part.exercises
+            for text in (ex.body, ex.todo, ex.check, ex.solution, ex.record, ex.given, *(t for _, t in ex.after))
+            for match in re.findall(r"__[A-Z][A-Z0-9_]*__", text)}
+    assert not left, f"placeholders left: {sorted(left)}"
+    PREPARED.append(True)
+
+
+def main() -> int:
+    prepare()
+    for paper in PAPER:
+        lines = [f'wbm.record("{paper.id}{letter}", {expr}{", " + options if options else ""})'
+                 for letter, _, expr, options in paper.subs]
+        check_unique_keys("\n".join(lines), paper.id)
+    for ex in [e for part in PARTS for e in part.exercises]:
+        for source in (ex.record, *(text for kind, text in ex.after if kind == "record")):
+            if source:
+                check_unique_keys(source, ex.id)
+    write_notebook(f"{FOLDER}/03_notebook.ipynb", build("exercise"))
+    write_notebook(f"{FOLDER}/05_solutions.ipynb", build("solution"))
+    n_checks = sum(len(p.subs) for p in PAPER)
+    n_ex = sum(len(part.exercises) for part in PARTS)
+    print(f"✅ {FOLDER}/03_notebook.ipynb and 05_solutions.ipynb written ({len(PAPER)} paper exercises, "
+          f"{n_checks} paper checks, {n_ex} notebook exercises)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
