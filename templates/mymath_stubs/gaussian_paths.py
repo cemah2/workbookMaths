@@ -118,10 +118,10 @@ def posterior_mean_mixture(y, a, b, weights, means, variances):
     --------
     >>> posterior_mean_mixture([0.0, 3.0], 1.0, 1.0, [1.0], [2.0], [3.0])     # one Gaussian: 2 + 0.75 (y - 2)
     array([0.5 , 2.75])
-    >>> np.round(posterior_mean_mixture([-0.5, 0.8, 1.5], 1.0, 1.0, [0.25, 0.75], [-1.0, 2.0], [0.0, 0.0]), 4)
-    array([-0.6101,  1.642 ,  1.951 ])
-    >>> posterior_mean_mixture(5.0, 0.0, 1.0, [0.25, 0.75], [-1.0, 2.0], [0.0, 0.0])    # a = 0: the mixture mean
-    array(1.25)
+    >>> np.round(posterior_mean_mixture([-0.5, 0.8, 1.5], 1.0, 1.0, [0.3, 0.7], [-1.0, 2.0], [0.0, 0.0]), 4)
+    array([-0.6878,  1.5548,  1.9373])
+    >>> posterior_mean_mixture(5.0, 0.0, 1.0, [0.3, 0.7], [-1.0, 2.0], [0.0, 0.0])    # a = 0: the mixture mean
+    array(1.1)
     """
     # TODO: check the arguments; for each component, the predictive variance a² s_k² + b², the log of
     #  π_k N(y | a μ_k, a² s_k² + b²) (minus infinity when π_k = 0), and E[x | y, k]; the responsibilities by
@@ -168,8 +168,8 @@ def euler_ode(f, x0, t0, t1, n_steps):
 
     Examples
     --------
-    >>> euler_ode(lambda t, x: t, 0.0, 0.0, 1.0, 4)          # x' = t, from x(0) = 0: the exact x(1) is 0.5
-    array([0.    , 0.    , 0.0625, 0.1875, 0.375 ])
+    >>> euler_ode(lambda t, x: 2 * t + 1, 0.0, 1.0, 3.0, 4)    # x' = 2t + 1 from x(1) = 0: the exact x(3) is 10
+    array([0. , 1.5, 3.5, 6. , 9. ])
     >>> euler_ode(lambda t, x: 2.0, 1.0, 0.0, 3.0, 1)        # a constant velocity: one step is exact
     array([1., 7.])
     >>> euler_ode(lambda t, x: -x / 4, [4.0, -8.0], 2.0, 0.0, 2)    # backward, h = -1: each step multiplies by 1.25
@@ -217,8 +217,8 @@ def midpoint_ode(f, x0, t0, t1, n_steps):
 
     Examples
     --------
-    >>> midpoint_ode(lambda t, x: t, 0.0, 0.0, 1.0, 4)       # x' = t: exact, x(t) = t² / 2
-    array([0.     , 0.03125, 0.125  , 0.28125, 0.5    ])
+    >>> midpoint_ode(lambda t, x: 2 * t + 1, 0.0, 1.0, 3.0, 4)   # exact: x(t) = t² + t - 2
+    array([ 0.  ,  1.75,  4.  ,  6.75, 10.  ])
     >>> midpoint_ode(lambda t, x: -x / 4, [4.0, -8.0], 2.0, 0.0, 2)  # the exact x(0) is e^0.5 x0 ≈ (6.5949, -13.1898)
     array([[  4.        ,  -8.        ],
            [  5.125     , -10.25      ],

@@ -88,7 +88,7 @@ def score_function_gradient(f_values, scores, baseline=0.0):
 
 
 def policy_gradient_exact(P, r, logits, gamma):
-    """Return ``(V, grad)``: the values of a tabular softmax policy, and their exact gradient with respect to its logits.
+    """Return ``(V, grad)``: the values of a tabular softmax policy, and their exact gradient in its logits.
 
     In state ``s``, the policy draws action ``a`` with the probability ``π(a | s) = e^{z(s, a)} / Σ_b e^{z(s, b)}``,
     the softmax of the row ``logits[s]`` (M17). It induces the chain ``P_π[s, t] = Σ_a π(a | s) P[a, s, t]`` and the
@@ -275,7 +275,7 @@ def bradley_terry_fit(wins, tol=1e-10, max_iter=10_000):
         ...
     ValueError: the strengths do not exist: the graph of wins is not strongly connected
     """
-    # TODO: check wins, tol and max_iter; strong connectivity: the boolean matrix « i reaches j » starts from
+    # TODO: check wins, tol and max_iter; strong connectivity: the boolean matrix 'i reaches j' starts from
     #  wins > 0 or i = j, and its products with itself add longer paths (M16); then Zermelo's sweeps on
     #  β = ln p, centered after each sweep, until the largest change is below tol.
     raise NotImplementedError("bradley_terry_fit() is not implemented yet")
