@@ -8000,7 +8000,8 @@
       "mistakes": {
         "23cba283beee4770de74667181db8ce19e57e3859e1c74191bd5a62460075616": "lire x₂ réduit l'incertitude sur x₁ : la variance conditionnelle est le complément de Schur, plus petit que Σ₁₁",
         "59d7f5b6cf1ea7aba73b47f3f1a23f8723cfd2b50e9a139485f10bdd170acc03": "vérifie le signe de l'écart lu, x₂ − μ₂",
-        "dfe73682f108eb15ba184cd107c1dc989eb625523fde1964d87b4eaf037e233e": "dans la loi de x₁ sachant x₂, on divise par la variance de la coordonnée lue"
+        "dfe73682f108eb15ba184cd107c1dc989eb625523fde1964d87b4eaf037e233e": "dans la loi de x₁ sachant x₂, on divise par la variance de la coordonnée lue",
+        "ff6618f584e7d6db51e49e51f534880954535dfb64c6a447d226ffcde6b3f4df": "dans la variance conditionnelle de x₁, on divise par la variance de la coordonnée lue, Σ₂₂"
       },
       "shape": [
         2
@@ -8180,6 +8181,7 @@
         "6cac03fdce0e5ef7bdb79e0755150acc12659528a6506b04ed413e942869cffb": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
         "8849569da258ae971b99a1213c47a52cc2badd81425910cb74b01bdecb265adb": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
         "a149d70f111f679ada9df9918142c19e3451baec071a0b6a3217582afbc96e37": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
+        "bdcc985f73a1690a0ccc35d2e4e82c0b03be757c2294ad9baec35faccd4fe83f": "Σ₁ a des coefficients hors diagonale : inverse la matrice entière",
         "f882f59d5f03b72a1cc3d354c4bd8b72967c0efcc917c7d960ceb6dc39585648": "le terme des moyennes est une distance de Mahalanobis : il utilise l'inverse d'une covariance"
       },
       "sign": 1,
@@ -8367,6 +8369,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "3c478296da9b85b5469dcceff36633634e7c581399584f4ab283c23808f97b86": "π₁ est la moyenne des responsabilités, pas la part des graines affectées à la composante 1",
         "58f2588b6ee08e13ec65c5c0b464be54fce3f91a49ecc588cf5e73567d4bceca": "un poids est une proportion : les deux poids ont pour somme 1",
         "e2c8f9274a03fe35493f32e201d15d966ba1b4d8f736afa39a3c572de549f263": "le pas M remplace l'ancien poids : recalcule-le à partir des responsabilités"
       },
@@ -8516,7 +8519,8 @@
         "451dcb50fedb78f4d5cdda2a294c0dd84c844f4bc36d886f294e64d38ecba767": "la question demande la probabilité d'être sortie du domaine, pas d'y être encore",
         "4e695fd816fe38d4daeaf72460bda0c380710bf77dfe71d941dbb84f109cf10f": "la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
         "b3a038d489f89e7c5fe76a9bcf01ce0a9da540927a1260cfe75558a861890c72": "la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
-        "c56de375fe8f888b6cacde2b3af0e490b71fd1005b4d5e724fdc7dcf37a9a0d0": "la question demande la probabilité d'être sortie du domaine, pas d'y être encore"
+        "c56de375fe8f888b6cacde2b3af0e490b71fd1005b4d5e724fdc7dcf37a9a0d0": "la question demande la probabilité d'être sortie du domaine, pas d'y être encore",
+        "e62644c2392fae0a3ea0d5f3dc30e22c8f67c9cd7b67547fdd3bf6d3e76ce784": "la deuxième année, la parcelle n'est plus forcément jeune : la probabilité de sortir cette année-là se calcule avec la loi μ₁, pas avec la seule ligne 0"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9094,7 +9098,8 @@
         "00159c502643058cc4e3d26594efb89b7c7d5cdb6afc382f25bc0d7f0292455d": "l'espérance contient aussi l'écart des vraies moyennes",
         "1841e63ebc7563b5454c564b2f02fd4e18422233e89fe2240c8e2d02240b2b1f": "chaque trace se divise par la taille de son propre échantillon",
         "440a9772773d41dfd0346675cfb51fc00913f9cd3683f171ec4e78c41465da5d": "une moyenne de n relevés a pour covariance Σ/n",
-        "e715130bc8f0b646dd6e9f8226bbaa02c966fde745a2fec4fff1584e03e6185d": "chaque trace se divise par la taille de son propre échantillon"
+        "e715130bc8f0b646dd6e9f8226bbaa02c966fde745a2fec4fff1584e03e6185d": "chaque trace se divise par la taille de son propre échantillon",
+        "f13cda4c02ec77f82c6c46c64bc8dc36b0487e5c9cdf415bfc44b862d1f54971": "chaque moyenne estimée a sa propre variance : tr Σ_A / n_A + tr Σ_B / n_B, et non la somme des traces divisée par le nombre total de jours"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9128,21 +9133,8 @@
         "0e9bda26963026937a14c6f63726dda58131c706ad14467800b006329d54cc0f": "l'espérance contient aussi l'écart des vraies moyennes",
         "364e771047880345ce2990e1773668a42c98063b17ccabf96987a114127213d7": "les deux échantillons viennent de deux fermes différentes",
         "82aaeacaea69576416584b1f55c039dc5faf53f8cfa0f753d867d74819847d80": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n",
+        "89a6071fcf491ac304e74335015d3b4c9242754342efda7b24859f49b88658dc": "chaque moyenne estimée a sa propre variance : tr Σ_A / n_A + tr Σ_B / n_B, et non la somme des traces divisée par le nombre total de jours",
         "9c645a1e4393fc54c8b273d674d5f530f6d364f8c8429443a21817f13bd702fe": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n"
-      },
-      "sign": 1,
-      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
-    },
-    "CP6.7f": {
-      "fractional": "n est un nombre de jours : prends le plus petit entier qui vérifie l'inégalité.",
-      "hash": "17007d4a4eb15d9252fb3ea8631bde9642ef22d443f2550d3cd82db76c9259ca",
-      "kind": "int",
-      "magnitude": 2,
-      "mistakes": {
-        "42d2536d772d8783750163bab7a69d38230a3a1f24d24ba94910d664df217539": "deux échantillons de taille n, deux termes tr Σ / n",
-        "562b0df6aad75209c9d0206278cbaa97deaa86d7c8d1cc733704c5b1cb678a29": "le seuil est un pourcentage de ‖μ_A − μ_B‖², pas une valeur en MWh²",
-        "b0ad292cc53443fa1e538df83c488d31f829123166e05657fb6b15590d11e713": "deux échantillons de taille n, deux termes tr Σ / n",
-        "c2b4fae9d983b2f5af693f28a994b1c9f9a979d26d72b11705b0bd89539de4e0": "le plus petit n qui convient doit vérifier l'inégalité : arrondis vers le haut"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"

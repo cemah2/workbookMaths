@@ -19,17 +19,23 @@ value is computed by the slip its message names. The cells are tagged `answer` a
 Not in the notebook: the true/false quiz CP6.Q1, the proof CP6.8, the corrections of CP6.9 b) and the
 justifications « sur ta copie ».
 
-The answers are typed as TEXT (one cell per question, a block between triple quotes, one line « a) value » per
-sub-question, as on the answer sheet), so that nothing typed can stop a cell: a decimal comma (0,0264), a French
-list (0,83 ; -2,6) or a missing bracket gives a message, never the SyntaxError that stopped « Run all » for the
-simulated candidate of CP5. Each value is read as a calculator reads it (0.83, 3/8, sqrt(7), ln(7)); a lone number
-with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with decimal commas; a list
-that mixes « 4,1 » and « , » gets a message; the fractions and the letters go to wbm as texts. A line pasted from
+The answers are typed as TEXT (one cell per question, a RAW string between triple quotes, r'''...''' with double quotes, one line
+« a) value » per sub-question, as on the answer sheet), so that nothing typed can stop a cell: a decimal comma
+(0,0264), a French list (0,83 ; -2,6), a missing bracket or pasted LaTeX ($\\xi$, \\frac, \\N: the simulated candidate of
+CP6 crashed a cell with a plain triple-quoted block) gives a message, never the SyntaxError that stopped « Run all » for the
+simulated candidate of CP5; the block is cut at line feeds only (a pasted \\f or \\v is no line break). Each value is read as
+a calculator reads it (0.83, 3/8, sqrt(7), ln(7), -ln(0,79): a decimal comma inside a calculation of one number is
+read); a lone number with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with
+decimal commas; a list that mixes « 4,1 » and « , » gets a message, and so does a set between braces (no order); the
+fractions and the letters go to wbm as texts. A line pasted from
 the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last « = » or
 « : »), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
 decides, as in CP5. The map of CP6.6 d) is a matrix of one column: [[5], [1], [-6]], and also the flat list of its
-values, (5 ; 1 ; -6) or [5, 1, -6], are read as such (COLUMNS). 44 checks; besides the wrong values of
-s68/reponses_cp6.md (version 2), the simulated candidates added the hint for a fractional number of days in CP6.7 f).
+values, (5 ; 1 ; -6) or [5, 1, -6], are read as such (COLUMNS). 43 checks (CP6.7 f) was removed at step 3 to shorten
+the exam); besides the wrong values of s68/reponses_cp6.md (version 2), the simulated candidate of CP6 added 0.14 in
+CP6.4 b) (two years at the rate of the young plot: a rounding message before), Σ1 without its off-diagonal terms in
+CP6.2 b), [34, 7] in CP6.1 d), 2/3 in CP6.3 b) and the traces divided by the total number of days in CP6.7 d) and e).
+A line without a sub-question letter (a working line pasted from the answer sheet) is ignored with a calm warning.
 The letters of CP6.9 a) get a message that depends on their number only (4, 5 or 6 letters among A to H), never one
 that tells which letters are right.
 
@@ -44,12 +50,12 @@ learner writes rounded (a repeating or irrational wrong value where the statemen
 recorded exact and rounded to 4, 3 and 2 decimals (as_typed), so that a mistake of substance gets its message, never
 a message about rounding (the slip of CP5.5 h); wbm looks the mistakes up before any rounding diagnosis.
 
-The data are those of 01_examen_sujet.md, session 68 (step 2, after the reviews): a calf, μ = (40, 55),
+The data are those of 01_examen_sujet.md, session 68 (step 3, after the reviews and the simulated candidate): a calf, μ = (40, 55),
 Σ = [[16, 12], [12, 13]], ε = (1, −2.5) (CP6.1); two pollutants and a slerp of u = (2, 2, 1), v = (0, 3, 0) (CP6.2);
 germination times 22, 27, 36 h of seeds from two bags, σ² = 16 (CP6.3); vine plots, a row that ends,
 r = (0, 22, 6), γ = 1 (CP6.4); a poacher and a warden, and two nurseries (CP6.5); three aligned buoys, AB² = 16,
-AC² = 121, BC² = 49, a Gram matrix of rank 1 (CP6.6); two solar farms, Σ_A = [[12, 2], [2, 9]], Σ_B = 4 Σ_A, a bias of
-at most 4 % in f) (CP6.7); the letters ACEGH (CP6.9 a); a charging station with three states, top-p m = 0.68, whose
+AC² = 121, BC² = 49, a Gram matrix of rank 1 (CP6.6); two solar farms, Σ_A = [[12, 2], [2, 9]], Σ_B = 4 Σ_A, a) to e)
+(CP6.7); the letters ACEGH (CP6.9 a); a charging station with three states, top-p m = 0.68, whose
 total variation distance was removed: the old g) and h) are now f) and g) (CP6.10). They were chosen and checked
 against both repositories by the author of the statement. Seeds 6801 to 6803 (the Monte Carlo checks).
 """
@@ -255,6 +261,7 @@ TR_PROD_2 = trace(finv2(S1_2)) * trace(S0_2)
 Q_DIRECT_2 = sum(d * x for d, x in zip(D_2, fmatvec(S1_2, D_2)))   # Σ1 in place of its inverse
 Q_OTHER_2 = sum(d * x for d, x in zip(D_2, fmatvec(finv2(S0_2), D_2)))
 Q_PLAIN_2 = sum(d * d for d in D_2)
+Q_DIAG_2 = sum(d * d / s for d, s in zip(D_2, (S1_2[0][0], S1_2[1][1])))   # Σ1 without its off-diagonal terms
 KL_LOG_2 = 0.5 * (float(TR_2) + float(Q_2) - 2 - LN_2)             # ln(det Σ0 / det Σ1)
 KL_NO_D_2 = 0.5 * (float(TR_2) + float(Q_2) + LN_2)                # the dimension not subtracted
 KL_NO_HALF_2 = float(TR_2) + float(Q_2) - 2 + LN_2
@@ -312,6 +319,7 @@ R_NO_HALF_3 = responsibilities(PI_3, half=False)
 MU_BY_N_3 = (R_3 * X_3[:, None]).sum(axis=0) / len(X_3)
 GAP_ALL1_3 = float(-np.log(R_3[:, 0]).sum())                       # every measure put in component 1
 ENTROPY_3 = float(-(R_3 * np.log(R_3)).sum())
+HARD_SHARE_3 = float(np.mean(HARD_3 == 0))                         # the share of the measures put in component 1
 
 # CP6.4: vine plots, young (0), producing (1), old (2); the mass missing from a row is the end
 P_4 = fmat([["0.6", "0.33", 0], [0, "0.7", "0.2"], [0, 0, "0.4"]])
@@ -409,7 +417,7 @@ UNIT_6 = MAP_6 / np.sqrt(W_6[W_6 > 1e-9][::-1])[None, :]           # q alone
 # CP6.7: two solar farms, daily production of two rows of panels (MWh)
 MUA_7, SA_7 = np.array([18.0, 12.0]), np.array([[12.0, 2.0], [2.0, 9.0]])
 MUB_7, SB_7 = np.array([21.0, 13.0]), 4 * SA_7
-NA_7, NB_7, NE_7, SHARE_7 = 20, 40, 25, 0.04                       # f): a bias of at most 4 % of ‖μA − μB‖²
+NA_7, NB_7, NE_7 = 20, 40, 25
 LAM_AB_7 = sorted(np.linalg.eigvals(SA_7 @ SB_7).real, reverse=True)
 EIG_A_7 = sorted(np.linalg.eigvalsh(SA_7), reverse=True)
 assert np.allclose(LAM_AB_7, [4 * x ** 2 for x in EIG_A_7])       # Σ_B = 4 Σ_A
@@ -440,17 +448,13 @@ for n_a, n_b in ((NA_7, NB_7), (NE_7, NE_7)):                      # Monte Carlo
     bars_a = RNG_7.multivariate_normal(MUA_7, SA_7 / n_a, size=20_000)
     bars_b = RNG_7.multivariate_normal(MUB_7, SB_7 / n_b, size=20_000)
     assert abs(((bars_a - bars_b) ** 2).sum(axis=1).mean() - bias(n_a, n_b)) < 0.15
-LIMIT_7 = SHARE_7 * MEANS_7                                        # the excess allowed, in MWh²
 
 
-def smallest_n(excess, limit=LIMIT_7):
-    return next(n for n in range(1, 100_000) if excess / n <= limit + 1e-12)
+def pooled(n_a, n_b):
+    """The sum of the traces divided by the total number of days, in place of tr ΣA / nA + tr ΣB / nB."""
+    return MEANS_7 + (TRA_7 + TRB_7) / (n_a + n_b)
 
 
-N_MIN_7 = smallest_n(TRA_7 + TRB_7)
-assert bias(N_MIN_7, N_MIN_7) - MEANS_7 <= LIMIT_7 + 1e-12 < bias(N_MIN_7 - 1, N_MIN_7 - 1) - MEANS_7
-ONE_TRACE_7 = {smallest_n(TRA_7), smallest_n(TRB_7)}               # one trace only
-IN_MWH_7 = smallest_n(TRA_7 + TRB_7, limit=100 * SHARE_7)          # 4 % read as 4 MWh²
 COV_ONCE_7 = float(TRA_7 + TRB_7 - sum(ROOTS_7))
 COV_NO_ROOT_7 = float(TRA_7 + TRB_7 - 2 * sum(LAM_AB_7))
 TRACES_7 = TRA_7 + TRB_7
@@ -555,6 +559,8 @@ def wrong(*entries: str) -> str:
 
 
 EXACT_LIST = "decimals=6, "
+POOLED_7 = ("chaque moyenne estimée a sa propre variance : tr Σ_A / n_A + tr Σ_B / n_B, et non la somme des "
+            "traces divisée par le nombre total de jours")
 PAPER = [
     Paper("CP6.1", "Un vecteur gaussien de dimension 2 : loi marginale, loi conditionnelle, et la loi de μ + Lε", [
         ("a", f"a 2 × 2 matrix, as a list of rows {EXACT}", "L_1.tolist()", EXACT_LIST + wrong(
@@ -576,7 +582,9 @@ PAPER = [
                   "petit que Σ₁₁", "floats([C12_1[0], S_1[0][0]])"),
             plain("dans la loi de x₁ sachant x₂, on divise par la variance de la coordonnée lue",
                   "floats(C12_OTHER_1)"),
-            plain("vérifie le signe de l'écart lu, x₂ − μ₂", "floats(C12_SIGN_1)"))),
+            plain("vérifie le signe de l'écart lu, x₂ − μ₂", "floats(C12_SIGN_1)"),
+            plain("dans la variance conditionnelle de x₁, on divise par la variance de la coordonnée lue, Σ₂₂",
+                  "floats([C12_1[0], C12_OTHER_1[1]])"))),
         ("e", f"a list of 2 numbers {EXACT}", "DRAW_1", EXACT_LIST + wrong(
             exact("le tirage est μ + Lε, avec L, pas Lᵀ", "DRAW_T_1", "DRAW_1"),
             exact("le tirage multiplie ε par le facteur de Cholesky, pas par Σ", "DRAW_S_1", "DRAW_1"),
@@ -597,7 +605,8 @@ PAPER = [
             number("le terme des moyennes est une distance de Mahalanobis : il utilise l'inverse d'une covariance",
                    "Q_DIRECT_2", "Q_2"),
             number("le terme des moyennes se mesure à l'échelle de la seconde loi, p₁", "Q_OTHER_2", "Q_2"),
-            number("la distance de Mahalanobis tient compte des covariances", "Q_PLAIN_2", "Q_2"))),
+            number("la distance de Mahalanobis tient compte des covariances", "Q_PLAIN_2", "Q_2"),
+            number("Σ₁ a des coefficients hors diagonale : inverse la matrice entière", "Q_DIAG_2", "Q_2"))),
         ("c", "a number (4 decimals)", "KL_2", "decimals=4, " + wrong(
             plain("le logarithme compare les déterminants dans l'ordre det Σ₁ / det Σ₀", "KL_LOG_2"),
             plain("la formule retranche la dimension d", "KL_NO_D_2"),
@@ -624,7 +633,9 @@ PAPER = [
             plain("dans la densité gaussienne, le carré de l'écart est divisé par 2σ²", "R_NO_HALF_3[:, 0].tolist()"))),
         ("b", "a number (4 decimals)", "PI_NEW_3", "decimals=4, " + wrong(
             plain("un poids est une proportion : les deux poids ont pour somme 1", "float(N_3[0])"),
-            plain("le pas M remplace l'ancien poids : recalcule-le à partir des responsabilités", "float(PI_3[0])"))),
+            plain("le pas M remplace l'ancien poids : recalcule-le à partir des responsabilités", "float(PI_3[0])"),
+            plain("π₁ est la moyenne des responsabilités, pas la part des graines affectées à la composante 1",
+                  "HARD_SHARE_3"))),
         ("c", "[mu1, mu2], a list of 2 numbers (3 decimals)", "MU_NEW_3.tolist()", "decimals=3, " + wrong(
             plain("une moyenne pondérée se divise par la somme de ses poids", "MU_BY_N_3.tolist()"),
             plain("les moyennes se donnent dans l'ordre des composantes (24 h et 32 h au départ)",
@@ -646,7 +657,9 @@ PAPER = [
             number("la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
                    "OUT_FIRST_4", "OUT2_4") + " | as_typed(OUT_SECOND_4, OUT2_4)",
             number("la question demande la probabilité d'être sortie du domaine, pas d'y être encore", "sum(MU2_4)",
-                   "OUT2_4"))),
+                   "OUT2_4"),
+            number("la deuxième année, la parcelle n'est plus forcément jeune : la probabilité de sortir cette "
+                   "année-là se calcule avec la loi μ₁, pas avec la seule ligne 0", "2 * OUT_FIRST_4", "OUT2_4"))),
         ("c", f"[V(0), V(1), V(2)], a list of 3 numbers {EXACT}", "floats(V_4)", EXACT_LIST + wrong(
             exact("une parcelle peut rester dans le même état : la ligne de P garde son coefficient diagonal",
                   "V_NO_LOOP_4", "V_4"),
@@ -723,17 +736,14 @@ PAPER = [
         ("d", f"a number {ONE_EXACT}", "BIAS_7", EXACT_LIST + wrong(
             number("une moyenne de n relevés a pour covariance Σ/n", "NO_N_7", "BIAS_7"),
             number("chaque trace se divise par la taille de son propre échantillon", "SWAP_N_7", "BIAS_7"),
-            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_7", "BIAS_7"))),
+            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_7", "BIAS_7"),
+            number(POOLED_7, "pooled(NA_7, NB_7)", "BIAS_7"))),
         ("e", f"a number {ONE_EXACT}", "SAME_7", EXACT_LIST + wrong(
             number("les deux échantillons viennent de deux fermes différentes", "SAME_A_7", "SAME_7"),
             "'deux échantillons, deux moyennes estimées : deux termes tr Σ / n': "
             "set().union(*(as_typed(y, SAME_7) for y in ONE_TERM_7))",
-            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_E_7", "SAME_7"))),
-        ("f", "an integer", "N_MIN_7", 'fractional="n est un nombre de jours : prends le plus petit entier qui vérifie '
-         'l\'inégalité.", ' + wrong(
-            plain("deux échantillons de taille n, deux termes tr Σ / n", "ONE_TRACE_7"),
-            plain("le seuil est un pourcentage de ‖μ_A − μ_B‖², pas une valeur en MWh²", "IN_MWH_7"),
-            plain("le plus petit n qui convient doit vérifier l'inégalité : arrondis vers le haut", "N_MIN_7 - 1"))),
+            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_E_7", "SAME_7"),
+            number(POOLED_7, "pooled(NE_7, NE_7)", "SAME_7"))),
     ]),
     Paper("CP6.9", "Corriger une copie : cinq erreurs, une par chapitre (les lettres seulement)", [
         ("a", LETTERS, "WRONG_9", wrong(
@@ -890,11 +900,15 @@ def read_value(sub_id, text):
     if sub_id not in LISTS:
         if _FRENCH_NUMBER.fullmatch(text):
             return text                                 # 0,83: wbm reads a decimal comma in a text
+        text = re.sub(r"(\d),(\d)", r"\1.\2", text)     # -ln(0,79): a decimal comma inside a calculation
         try:
             return _python(text)
         except Exception:
             return text                                 # wbm says what it expected
     value = _read_list(text)
+    if isinstance(value, (set, frozenset)):
+        raise Unreadable("des accolades font un ensemble, qui n'a pas d'ordre : écris une liste entre crochets, dans "
+                         "l'ordre demandé par l'énoncé, comme [0.83, -2.6].")
     if sub_id in COLUMNS and isinstance(value, (list, tuple)) and not any(isinstance(x, (list, tuple)) for x in value):
         return [[x] for x in value]                     # a matrix of one column written as the list of its values
     return value
@@ -920,7 +934,7 @@ def check_question(question, letters, answers):
     from wbm.checker import CheckResult
 
     values, last = {}, None
-    for line in answers.splitlines():
+    for line in answers.split("\n"):              # not splitlines: a pasted \f or \v is no line break
         line = line.split("#")[0].strip()
         if not line:
             continue
@@ -937,8 +951,8 @@ def check_question(question, letters, answers):
             print(f"⚠️ {question} : ligne ignorée, « {line} » : ce notebook ne vérifie pas de sous-question "
                   f"{match.group(1)}) ici.")
         else:
-            print(f"⚠️ {question} : ligne ignorée, « {line} » : garde la lettre de la sous-question et sa parenthèse, "
-                  f"comme « a) 0.83 ».")
+            print(f"⚠️ {question} : ligne ignorée, « {line} » (pas de « a) » en tête : une démarche est ignorée, "
+                  f"c'est normal ; si c'est une réponse, écris-la comme « a) 0.83 »).")
     for letter in letters:
         sub_id = f"{question}{letter}"
         try:
@@ -980,7 +994,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 **Ne commence qu'une fois ta copie terminée**, examen rendu. Ce notebook vérifie les réponses que tu as écrites sur ta feuille, question par question : ✅ juste, ❌ faux (avec une piste), ⏳ pas rempli. Il ne note pas : les démarches, les justifications, le quiz CP6.Q1, la démonstration CP6.8 et les corrections de CP6.9 b) se corrigent avec `03_examen_corrige.md`, qui donne aussi le barème.
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
-2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Tu peux aussi coller les lignes de ta copie `04_mes_reponses.md` (« - a) L = … ») : seul ce qui suit le dernier « = » ou le dernier « : » est lu. Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
+2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Tu peux aussi coller les lignes de ta copie `04_mes_reponses.md` (« - a) L = … ») : seul ce qui suit le dernier « = » ou le dernier « : » est lu. Efface d'abord ce qui suit ta réponse sur la même ligne (une démarche entre parenthèses, par exemple). Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
 3. Les formes d'écriture, comme sur ta copie : un nombre avec une virgule ou un point (`0,83` ou `0.83`), ou un calcul (`3/8`, `sqrt(7)`, `ln(7)`) ; une liste entre crochets avec des points décimaux, `[0.83, -2.6]`, ou, si tu gardes les virgules décimales, avec des points-virgules entre les éléments, `(0,83 ; -2,6)` (dans une liste, `[4,1, 7,9]` se lit comme quatre nombres) ; une matrice comme la liste de ses lignes, `[[2, -1], [4, 3]]` ; une fraction telle quelle, `3/8` ; des lettres telles quelles, `ABCDE`.
 4. Les décimales : quand l'énoncé dit « valeur exacte », donne toutes les décimales de ta valeur (elle n'en a que quelques-unes) ; quand il dit « 4 décimales » (ou 3, ou 2), arrondis à ce nombre, à la fin du calcul seulement. Quand il dit « dans n'importe quel ordre », l'ordre ne compte pas ; ailleurs, l'ordre de ta liste compte.
 5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
@@ -993,7 +1007,7 @@ def paper_cell(kind: str, paper: Paper) -> list:
         name = f"answers_{paper.id.replace('.', '_')}"
         width = max(len(f"{letter}) ...") for letter, *_ in paper.subs) + 4
         lines = [f"# {paper.id}: after each letter, the value written on your answer sheet (... if not done)",
-                 f'{name} = """']
+                 f'{name} = r"""']
         lines += [f"{letter}) ...".ljust(width) + f"# {hint}" for letter, hint, *_ in paper.subs]
         lines += ['"""', "", "if exam_over():", f'    check_question("{paper.id}", "{paper.letters}", {name})']
         cells.append(code("\n".join(lines)))
