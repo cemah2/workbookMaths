@@ -1,0 +1,736 @@
+#!/usr/bin/env python
+"""Build the two notebooks of the mock exam CP6 from a single source (used by Claude).
+
+    python tools/chapters/build_cp6.py
+    python tools/run_all_notebooks.py checkpoints/partie_6/03_examen_solutions.ipynb --inplace
+    python tools/build_answers.py
+    python tools/run_all_notebooks.py checkpoints/partie_6/02_examen_notebook.ipynb
+
+Same mechanism as build_cp5.py: the exam of CP6 is on paper only (01_examen_sujet.md), and the exam notebook is the
+check done AFTER the exam; nothing is checked while EXAM_OVER is False, so that « Run all » goes to the end.
+Wrong-answer messages state a rule or ask a question, never a number of the answer, the calculation that gives it,
+its last step, nor another sub-question. The solutions notebook records the answers, each one computed from the
+numbers of the statement, with NumPy (Cholesky factor, eigenvalues, matrix powers) and exact fractions (the
+conditional laws, the KL terms, the chains, the Bellman system, the game, the double centring, the truncated chain
+and its stationary law), cross-checked by asserts (Monte Carlo estimates of the KL, of a covariance and of the bias
+of a distance, the end as an absorbing state, the series Σ Pᵏ r, every pairing of the two samples, a grid of mixed
+strategies, the distances given back by the map, the brute force of the top-p sets, the power method); each wrong
+value is computed by the slip its message names. The cells are tagged `answer` and read by build_answers.py.
+Not in the notebook: the true/false quiz CP6.Q1, the proof CP6.8, the corrections of CP6.9 b) and the
+justifications « sur ta copie ».
+
+The answers are typed as TEXT (one cell per question, a block between triple quotes, one line « a) value » per
+sub-question, as on the answer sheet), so that nothing typed can stop a cell: a decimal comma (0,0264), a French
+list (0,2 ; 0,5) or a missing bracket gives a message, never the SyntaxError that stopped « Run all » for the
+simulated candidate of CP5. Each value is read as a calculator reads it (0.25, 3/8, sqrt(13), ln(2)); a lone number
+with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with decimal commas; a list
+that mixes « 0,5 » and « , » gets a message; the fractions and the letters go to wbm as texts. Then wbm.check
+decides, as in CP5.
+
+Decimals, as the column « Réponse attendue » of the statement says: « valeur exacte » (a decimal with few decimals)
+is recorded with decimals=6, the convention of the repository for an exact value, so that the value is accepted as
+it is and a rounded value is told « donne la valeur exacte », never « l'énoncé en demande 4 »; « 4 décimales »,
+« 3 décimales » and « 2 décimales » are recorded with those decimals; the two lists « de 2 nombres » of eigenvalues
+(CP6.6 c, CP6.7 a), whose statement gives no rounding, are exact (decimals=6), never refused for not being integers;
+the answers « entier(s) » are whole numbers. The order counts in every list but the letters of CP6.9 a) (« dans
+n'importe quel ordre »); the fractions are asked irreducible because the statement says so. A wrong value that a
+learner writes rounded (a repeating or irrational wrong value where the statement asks for an exact value) is
+recorded exact and rounded to 4, 3 and 2 decimals (as_typed), so that a mistake of substance gets its message, never
+a message about rounding (the slip of CP5.5 h); wbm looks the mistakes up before any rounding diagnosis.
+
+The data are those of 01_examen_sujet.md, session 68 (step 1): a calf, μ = (40, 55), Σ = [[16, 12], [12, 13]]
+(CP6.1); two pollutants and a slerp of u = (2, 2, 1), v = (0, 3, 0) (CP6.2); delivery times 22, 27, 36 h from two
+warehouses, σ² = 16 (CP6.3); vine plots, a row that ends, r = (0, 22, 6), γ = 1 (CP6.4); a poacher and a warden, and
+two nurseries (CP6.5); three buoys, AB² = 82, AC² = 52, BC² = 34 (CP6.6); two solar farms, Σ_B = 4 Σ_A (CP6.7);
+the letters ACEGH (CP6.9 a); a charging station with three states, top-p m = 0.68 (CP6.10). They were chosen and
+checked against both repositories by the author of the statement. Seeds 6801 to 6803 (the Monte Carlo checks).
+"""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from chapter_kit import Paper, check_unique_keys, md  # noqa: E402
+from nbbuild import badge, code, setup_cell, write_notebook  # noqa: E402
+
+FOLDER = "checkpoints/partie_6"
+EXAM = f"{FOLDER}/02_examen_notebook.ipynb"
+SOLUTIONS = f"{FOLDER}/03_examen_solutions.ipynb"
+MINUTES = 111                       # the sum of the durations of CP6.Q1 to CP6.10 in the syllabus
+
+EXACT = "(exact values)"
+ONE_EXACT = "(exact value)"
+FRACTION = "an irreducible fraction, like 3/8"
+LETTERS = "the letters, in any order, like ABCDE"
+
+PAPER_CONTEXT = r'''# The answers are computed from the numbers of the statement (01_examen_sujet.md), with NumPy and exact fractions
+import math
+from fractions import Fraction
+from itertools import combinations, permutations
+
+import numpy as np
+
+
+def floats(a):
+    """Fractions or floats (a number, nested lists or an array) as plain floats."""
+    return np.asarray(a, dtype=float).tolist()
+
+
+def ints(a):
+    """An array (or nested lists) of whole numbers as lists of int, after checking that every value is whole."""
+    arr = np.asarray(a, dtype=float)
+    assert np.allclose(arr, np.round(arr)), arr
+    return np.round(arr).astype(int).tolist()
+
+
+def fr(x):
+    """A number of the statement, written as text ("0.45") or as an int, as an exact fraction."""
+    return Fraction(x)
+
+
+def fmat(rows):
+    return [[fr(x) for x in row] for row in rows]
+
+
+def fmatmul(p, q):
+    return [[sum(a * b for a, b in zip(row, col)) for col in zip(*q)] for row in p]
+
+
+def fmatvec(p, v):
+    return [sum(a * b for a, b in zip(row, v)) for row in p]
+
+
+def fvecmat(v, p):
+    """A row vector times a matrix (the row convention of the chains)."""
+    return [sum(a * b for a, b in zip(v, col)) for col in zip(*p)]
+
+
+def ftranspose(p):
+    return [list(col) for col in zip(*p)]
+
+
+def finv2(p):
+    """The inverse of a 2 x 2 matrix of fractions."""
+    (a, b), (c, d) = p
+    det = a * d - b * c
+    return [[d / det, -b / det], [-c / det, a / det]]
+
+
+def fsolve(a, b):
+    """The solution x of a x = b, by Gauss-Jordan elimination on fractions."""
+    n = len(a)
+    m = [list(row) + [b_i] for row, b_i in zip(a, b)]
+    for col in range(n):
+        pivot = next(r for r in range(col, n) if m[r][col] != 0)
+        m[col], m[pivot] = m[pivot], m[col]
+        m[col] = [x / m[col][col] for x in m[col]]
+        for r in range(n):
+            if r != col and m[r][col] != 0:
+                m[r] = [x - m[r][col] * y for x, y in zip(m[r], m[col])]
+    return [row[-1] for row in m]
+
+
+def as_typed(value, right, places=(4, 3, 2), decimals=6):
+    """A wrong value as a learner may write it where the statement asks for an exact value: exact, then rounded to 4,
+    3 and 2 decimals, without the roundings that are the same value at the recorded decimals, or the right answer.
+    A set for a number (wbm gives one message to all), a list of variants for a list (see same_message)."""
+    def key(v):
+        return tuple(np.round(np.ravel(np.asarray(v, dtype=float)), decimals))
+
+    seen, variants = {key(right)}, []
+    for v in [value] + [np.round(np.asarray(value, dtype=float), k) for k in places]:
+        v = floats(v)
+        if key(v) not in seen:
+            seen.add(key(v))
+            variants.append(v)
+    return set(variants) if np.ndim(value) == 0 else variants
+
+
+def same_message(message, values):
+    """One message for several wrong values of a list or of a fraction (wbm takes one value per message there): the
+    keys differ by trailing spaces, which the message shown leaves out."""
+    return {message + " " * i: v for i, v in enumerate(values)}
+
+
+# CP6.1: the birth mass x1 and the mass at one month x2 of a calf (kg)
+MU_1, S_1 = [fr(40), fr(55)], fmat([[16, 12], [12, 13]])
+X1_1, X2_1, EPS_1, M_1 = fr(48), fr("48.5"), [fr("1.5"), fr(-2)], fmat([[0, 4], [2, 3]])
+L_1 = np.linalg.cholesky(np.array(floats(S_1)))
+assert np.allclose(L_1 @ L_1.T, floats(S_1)) and L_1[0, 1] == 0 and (np.diag(L_1) > 0).all()
+L11_1 = math.sqrt(S_1[0][0])
+L21_1 = float(S_1[1][0]) / L11_1
+assert np.allclose(L_1, [[L11_1, 0], [L21_1, math.sqrt(S_1[1][1] - L21_1 ** 2)]])   # the formulas of M25a
+L_ROOT_1 = [[L11_1, 0], [L21_1, math.sqrt(S_1[1][1])]]                 # l22 = √Σ22: the l21² forgotten
+L21_SIGMA_1 = float(S_1[1][0] / S_1[0][0])                             # Σ21 divided by Σ11, not by l11
+L_SIGMA_1 = [[L11_1, 0], [L21_SIGMA_1, math.sqrt(S_1[1][1] - L21_SIGMA_1 ** 2)]]
+
+
+def conditional(read, other, value, s=S_1, mu=MU_1):
+    """The law of x_other given x_read = value, [mean, variance] (the Schur complement), exactly."""
+    gain = s[other][read] / s[read][read]
+    return [mu[other] + gain * (value - mu[read]), s[other][other] - gain * s[read][other]]
+
+
+MARG_1 = [MU_1[1], S_1[1][1]]
+C21_1 = conditional(0, 1, X1_1)
+C12_1 = conditional(1, 0, X2_1)
+assert math.isclose(C21_1[1], L_1[1, 1] ** 2)                          # var(x2 | x1) = l22²
+MARG_COND_1 = [MU_1[1], C21_1[1]]                                     # the variance read given x1
+MARG_SD_1 = [float(MU_1[1]), math.sqrt(S_1[1][1])]
+C21_OTHER_1 = [MU_1[1] + S_1[1][0] / S_1[1][1] * (X1_1 - MU_1[0]), S_1[1][1] - S_1[1][0] ** 2 / S_1[1][1]]
+C21_MEAN_1 = [MU_1[1] + S_1[1][0] / S_1[0][0] * (X1_1 - MU_1[1]), C21_1[1]]   # the gap read from the other mean
+C12_OTHER_1 = [MU_1[0] + S_1[0][1] / S_1[0][0] * (X2_1 - MU_1[1]), S_1[0][0] - S_1[0][1] ** 2 / S_1[0][0]]
+C12_SIGN_1 = [MU_1[0] - S_1[0][1] / S_1[1][1] * (X2_1 - MU_1[1]), C12_1[1]]
+DRAW_1 = (np.array(floats(MU_1)) + L_1 @ floats(EPS_1)).tolist()
+DRAW_T_1 = (np.array(floats(MU_1)) + L_1.T @ floats(EPS_1)).tolist()   # Lᵀ in place of L
+DRAW_S_1 = floats([m + e for m, e in zip(MU_1, fmatvec(S_1, EPS_1))])  # Σ in place of L
+DRAW_0_1 = (L_1 @ floats(EPS_1)).tolist()                              # the mean forgotten
+COV_M_1 = fmatmul(M_1, ftranspose(M_1))
+RNG_1 = np.random.default_rng(6801)
+E_1 = RNG_1.standard_normal((200_000, 2))
+assert np.allclose(np.cov((E_1 @ np.array(floats(M_1)).T).T), floats(COV_M_1), atol=0.2)   # the draws M ε
+
+# CP6.2 (1): two pollutants, the true law p0 and the model p1
+MU0_2, S0_2 = [fr(1), fr(0)], fmat([[5, 3], [3, 4]])
+MU1_2, S1_2 = [fr(3), fr(1)], fmat([[4, 2], [2, 2]])
+D_2 = [b - a for a, b in zip(MU0_2, MU1_2)]
+
+
+def det2(s):
+    return s[0][0] * s[1][1] - s[0][1] * s[1][0]
+
+
+def trace(s):
+    return sum(s[i][i] for i in range(len(s)))
+
+
+def kl_terms(m0, s0, m1, s1):
+    """The three terms of KL(N(m0, s0) ‖ N(m1, s1)) in dimension 2: tr(s1⁻¹ s0), δᵀ s1⁻¹ δ and ln(det s1 / det s0)."""
+    inv = finv2(s1)
+    delta = [b - a for a, b in zip(m0, m1)]
+    return trace(fmatmul(inv, s0)), sum(d * x for d, x in zip(delta, fmatvec(inv, delta))), math.log(det2(s1) / det2(s0))
+
+
+def kl_gauss(m0, s0, m1, s1):
+    tr, q, ln = kl_terms(m0, s0, m1, s1)
+    return 0.5 * (float(tr) + float(q) - len(m0) + ln)
+
+
+TR_2, Q_2, LN_2 = kl_terms(MU0_2, S0_2, MU1_2, S1_2)
+KL_2 = kl_gauss(MU0_2, S0_2, MU1_2, S1_2)
+
+
+def log_density(x, m, s):
+    s = np.array(floats(s))
+    d = x - np.array(floats(m))
+    return -0.5 * np.einsum("ni,ij,nj->n", d, np.linalg.inv(s), d) - 0.5 * math.log(np.linalg.det(2 * math.pi * s))
+
+
+RNG_2 = np.random.default_rng(6802)
+SAMPLE_2 = RNG_2.multivariate_normal(floats(MU0_2), floats(S0_2), size=200_000)
+assert abs(np.mean(log_density(SAMPLE_2, MU0_2, S0_2) - log_density(SAMPLE_2, MU1_2, S1_2)) - KL_2) < 0.01   # E_p0
+TR_SWAP_2 = kl_terms(MU0_2, S1_2, MU1_2, S0_2)[0]                    # tr(Σ0⁻¹Σ1)
+TR_COF_2 = TR_2 * det2(S1_2)                                       # the cofactors not divided by the determinant
+TR_PROD_2 = trace(finv2(S1_2)) * trace(S0_2)
+Q_DIRECT_2 = sum(d * x for d, x in zip(D_2, fmatvec(S1_2, D_2)))   # Σ1 in place of its inverse
+Q_OTHER_2 = sum(d * x for d, x in zip(D_2, fmatvec(finv2(S0_2), D_2)))
+Q_PLAIN_2 = sum(d * d for d in D_2)
+KL_LOG_2 = 0.5 * (float(TR_2) + float(Q_2) - 2 - LN_2)             # ln(det Σ0 / det Σ1)
+KL_NO_D_2 = 0.5 * (float(TR_2) + float(Q_2) + LN_2)                # the dimension not subtracted
+KL_NO_HALF_2 = float(TR_2) + float(Q_2) - 2 + LN_2
+KL_REVERSE_2 = kl_gauss(MU1_2, S1_2, MU0_2, S0_2)
+
+# CP6.2 (2): u and v, of the same norm, and the slerp at t = 1/4
+U_2, V_2, T_2 = np.array([2.0, 2, 1]), np.array([0.0, 3, 0]), 0.25
+NORM_2 = float(np.linalg.norm(U_2))
+assert math.isclose(NORM_2, np.linalg.norm(V_2))
+OMEGA_2 = math.acos(U_2 @ V_2 / NORM_2 ** 2)
+DEGREES_2 = math.degrees(OMEGA_2)
+
+
+def slerp(u, v, t, omega=OMEGA_2):
+    return (math.sin((1 - t) * omega) * u + math.sin(t * omega) * v) / math.sin(omega)
+
+
+SLERP_2 = slerp(U_2, V_2, T_2)
+assert math.isclose(np.linalg.norm(SLERP_2), NORM_2) and math.isclose(math.acos(SLERP_2 @ U_2 / NORM_2 ** 2), T_2 * OMEGA_2)
+ASIN_2 = math.degrees(math.asin(U_2 @ V_2 / NORM_2 ** 2))
+SWAPPED_2 = slerp(V_2, U_2, T_2)                                   # the two coefficients exchanged
+LINE_2 = (1 - T_2) * U_2 + T_2 * V_2
+PROJECTED_2 = NORM_2 * LINE_2 / np.linalg.norm(LINE_2)            # the straight point brought back to the sphere
+LINE_NORM_2 = float(np.linalg.norm(LINE_2))
+MIDDLE_2 = float(np.linalg.norm((U_2 + V_2) / 2))
+
+# CP6.3: delivery times (h), two warehouses, a known common variance, one EM step on the weight and the means
+PI_3, MU_3, S2_3, X_3 = np.array([0.62, 0.38]), np.array([24.0, 32.0]), 16.0, np.array([22.0, 27.0, 36.0])
+
+
+def weighted_densities(pi, mu=MU_3, s2=S2_3, x=X_3, half=True):
+    """π_k N(x_i | μ_k, σ²), one row per measure (half=False: the square of the gap divided by σ² only)."""
+    gaps = (x[:, None] - mu[None, :]) ** 2 / (2 * s2 if half else s2)
+    return pi[None, :] * np.exp(-gaps) / math.sqrt(2 * math.pi * s2)
+
+
+def responsibilities(pi, half=True):
+    w = weighted_densities(pi, half=half)
+    return w / w.sum(axis=1, keepdims=True)
+
+
+R_3 = responsibilities(PI_3)
+LOGIT_3 = np.log(PI_3[0] / PI_3[1]) + ((X_3 - MU_3[1]) ** 2 - (X_3 - MU_3[0]) ** 2) / (2 * S2_3)
+assert np.allclose(R_3[:, 0], 1 / (1 + np.exp(-LOGIT_3)))          # a sigmoid of the log-odds
+N_3 = R_3.sum(axis=0)
+PI_NEW_3 = float(N_3[0] / len(X_3))
+MU_NEW_3 = (R_3 * X_3[:, None]).sum(axis=0) / N_3
+HARD_3 = R_3.argmax(axis=1)                                        # the component of largest responsibility
+LOG_P_3 = np.log(weighted_densities(PI_3).sum(axis=1)).sum()
+ELBO_HARD_3 = np.log(weighted_densities(PI_3)[np.arange(len(X_3)), HARD_3]).sum()   # H(q) = 0 for a sure q
+GAP_3 = float(LOG_P_3 - ELBO_HARD_3)
+assert math.isclose(GAP_3, -np.log(R_3[np.arange(len(X_3)), HARD_3]).sum())   # a sum of KL(sure ‖ posterior) = −ln r
+R_EQUAL_3 = responsibilities(np.array([0.5, 0.5]))
+R_NO_HALF_3 = responsibilities(PI_3, half=False)
+MU_BY_N_3 = (R_3 * X_3[:, None]).sum(axis=0) / len(X_3)
+GAP_ALL1_3 = float(-np.log(R_3[:, 0]).sum())                       # every measure put in component 1
+ENTROPY_3 = float(-(R_3 * np.log(R_3)).sum())
+
+# CP6.4: vine plots, young (0), producing (1), old (2); the mass missing from a row is the end
+P_4 = fmat([["0.6", "0.33", 0], [0, "0.7", "0.2"], [0, 0, "0.4"]])
+R_4 = [fr(0), fr(22), fr(6)]
+START_4 = [fr(1), fr(0), fr(0)]
+MU1_4 = fvecmat(START_4, P_4)
+MU2_4 = fvecmat(MU1_4, P_4)
+MU3_4 = fvecmat(MU2_4, P_4)
+P2_4 = fmatmul(P_4, P_4)
+FULL_4 = np.zeros((4, 4))                                          # the end as an absorbing fourth state
+FULL_4[:3, :3] = floats(P_4)
+FULL_4[:3, 3] = 1 - FULL_4[:3, :3].sum(axis=1)
+FULL_4[3, 3] = 1
+OUT2_4 = 1 - sum(MU2_4)
+assert np.allclose(np.linalg.matrix_power(FULL_4, 2)[0], floats(MU2_4) + [OUT2_4])
+I_MINUS_4 = [[int(i == j) - P_4[i][j] for j in range(3)] for i in range(3)]
+V_4 = fsolve(I_MINUS_4, R_4)
+assert all(P_4[i][j] == 0 for i in range(3) for j in range(i))     # triangular: solved from V(2) up
+assert np.allclose(sum(np.linalg.matrix_power(np.array(floats(P_4)), k) @ floats(R_4) for k in range(500)), floats(V_4))
+YEAR2_4 = sum(m * r for m, r in zip(MU2_4, R_4))
+COLUMN_4 = [row[0] for row in P2_4]                               # P² μ0ᵀ: the law put on the right of P
+SQUARES_4 = [p ** 2 for p in P_4[0]]
+OUT_FIRST_4, OUT_SECOND_4 = 1 - sum(MU1_4), sum(MU1_4) - sum(MU2_4)
+V_NO_LOOP_4 = [fr(0)] * 3
+for s in (2, 1, 0):                                                # the diagonal coefficient of each row forgotten
+    V_NO_LOOP_4[s] = R_4[s] + sum(P_4[s][j] * V_NO_LOOP_4[j] for j in range(3) if j != s)
+V_T_4 = fsolve(ftranspose(I_MINUS_4), R_4)
+V_FUTURE_4 = [v - r for v, r in zip(V_4, R_4)]
+YEARS_4 = {sum(m * r for m, r in zip(MU1_4, R_4)), sum(m * r for m, r in zip(MU3_4, R_4))}   # years 1 and 3
+RENORM_4 = YEAR2_4 / sum(MU2_4)
+
+# CP6.5 (1): the poacher (rows: north, south) and the warden (columns: north, south)
+G_5 = [[-4, 6], [3, -2]]
+MAXIMIN_5 = max(min(row) for row in G_5)
+MINIMAX_5 = min(max(col) for col in zip(*G_5))
+assert MAXIMIN_5 < MINIMAX_5                                       # no saddle point: mixed strategies
+(A_5, B_5), (C_5, D_5) = G_5
+KAPPA_5 = A_5 - B_5 - C_5 + D_5
+P_5, Q_5, VALUE_5 = Fraction(D_5 - C_5, KAPPA_5), Fraction(D_5 - B_5, KAPPA_5), Fraction(A_5 * D_5 - B_5 * C_5, KAPPA_5)
+assert P_5 * A_5 + (1 - P_5) * C_5 == P_5 * B_5 + (1 - P_5) * D_5 == VALUE_5   # the warden is indifferent
+assert Q_5 * A_5 + (1 - Q_5) * B_5 == Q_5 * C_5 + (1 - Q_5) * D_5 == VALUE_5   # the poacher is indifferent
+GRID_5 = [Fraction(k, 600) for k in range(601)]                    # brute force on a grid of mixed strategies
+assert max(GRID_5, key=lambda p: min(p * A_5 + (1 - p) * C_5, p * B_5 + (1 - p) * D_5)) == P_5
+assert min(GRID_5, key=lambda q: max(q * A_5 + (1 - q) * B_5, q * C_5 + (1 - q) * D_5)) == Q_5
+COLUMN_MIN_5 = max(min(col) for col in zip(*G_5))                  # the warden's worst read as a minimum
+
+# CP6.5 (2): the heights (cm) of five plants of each nursery
+XA_5, XB_5 = [26, 19, 34, 21, 32], [29, 37, 14, 22, 18]
+GAPS_5 = [abs(a - b) for a, b in zip(sorted(XA_5), sorted(XB_5))]
+W1_5 = Fraction(sum(GAPS_5), len(GAPS_5))
+W2_5 = math.sqrt(sum(g * g for g in GAPS_5) / len(GAPS_5))
+PAIRINGS_5 = list(permutations(XB_5))                              # every pairing: the sorted one is optimal
+assert W1_5 == min(Fraction(sum(abs(a - b) for a, b in zip(XA_5, p)), 5) for p in PAIRINGS_5)
+assert math.isclose(W2_5, min(math.sqrt(sum((a - b) ** 2 for a, b in zip(XA_5, p)) / 5) for p in PAIRINGS_5))
+UNSORTED_W1_5 = Fraction(sum(abs(a - b) for a, b in zip(XA_5, XB_5)), 5)
+MEANS_5 = abs(Fraction(sum(XA_5), 5) - Fraction(sum(XB_5), 5))
+UNSORTED_W2_5 = math.sqrt(sum((a - b) ** 2 for a, b in zip(XA_5, XB_5)) / 5)
+
+# CP6.6: three buoys, the squares of their distances (hm²)
+AB2_6, AC2_6, BC2_6 = 82, 52, 34
+D2_6 = fmat([[0, AB2_6, AC2_6], [AB2_6, 0, BC2_6], [AC2_6, BC2_6, 0]])
+N_6 = len(D2_6)
+J_6 = [[int(i == j) - Fraction(1, N_6) for j in range(N_6)] for i in range(N_6)]
+S_6 = Fraction(sum(map(sum, D2_6)), N_6 ** 2)
+JDJ_6 = fmatmul(fmatmul(J_6, D2_6), J_6)
+G_6 = [[-x / 2 for x in row] for row in JDJ_6]
+ROWS_6 = [sum(row) / N_6 for row in D2_6]
+assert G_6 == [[-(D2_6[i][j] - ROWS_6[i] - ROWS_6[j] + S_6) / 2 for j in range(N_6)] for i in range(N_6)]
+assert all(sum(row) == 0 for row in G_6)                           # G 1 = 0
+DIRECTIONS_6 = [[5, -4, -1], [1, 2, -3]]                          # given by the statement
+LAMBDAS_6 = []
+for q in DIRECTIONS_6:
+    gq = fmatvec(G_6, q)
+    LAMBDAS_6.append(gq[0] / q[0])
+    assert gq == [LAMBDAS_6[-1] * x for x in q]                    # an eigenvector indeed
+assert np.allclose(sorted(np.linalg.eigvalsh(np.array(floats(G_6))))[1:], sorted(floats(LAMBDAS_6)))
+assert LAMBDAS_6 == sorted(LAMBDAS_6, reverse=True)
+COLUMNS_6 = []
+for lam, q in zip(LAMBDAS_6, DIRECTIONS_6):
+    unit = np.array(q, dtype=float) / np.linalg.norm(q)
+    unit *= np.sign(unit[np.flatnonzero(np.round(unit, 12))[0]])  # the first non-zero coordinate positive
+    COLUMNS_6.append(math.sqrt(lam) * unit)
+MAP_6 = np.column_stack(COLUMNS_6)
+assert np.allclose(((MAP_6[:, None, :] - MAP_6[None, :, :]) ** 2).sum(axis=-1), floats(D2_6))   # the distances back
+OFF_DIAGONAL_6 = Fraction(sum(map(sum, D2_6)), N_6 * (N_6 - 1))
+ONCE_6 = Fraction(AB2_6 + AC2_6 + BC2_6, N_6 ** 2)
+SIGN_S_6 = [[-(D2_6[i][j] - ROWS_6[i] - ROWS_6[j] - S_6) / 2 for j in range(N_6)] for i in range(N_6)]
+J_FLOAT_6 = np.array(floats(J_6))
+DIST_6 = -0.5 * J_FLOAT_6 @ np.sqrt(np.array(floats(D2_6))) @ J_FLOAT_6   # the distances, not their squares
+UNNORMALISED_6 = np.column_stack([math.sqrt(lam) * np.array(q, dtype=float) for lam, q in zip(LAMBDAS_6, DIRECTIONS_6)])
+
+# CP6.7: two solar farms, daily production of two rows of panels (MWh)
+MUA_7, SA_7 = np.array([18.0, 12.0]), np.array([[7.0, 2.0], [2.0, 4.0]])
+MUB_7, SB_7 = np.array([21.0, 14.0]), 4 * SA_7
+NA_7, NB_7, NE_7, THRESHOLD_7 = 20, 40, 25, 0.05
+LAM_AB_7 = sorted(np.linalg.eigvals(SA_7 @ SB_7).real, reverse=True)
+EIG_A_7 = sorted(np.linalg.eigvalsh(SA_7), reverse=True)
+assert np.allclose(LAM_AB_7, [4 * x ** 2 for x in EIG_A_7])       # Σ_B = 4 Σ_A
+ROOTS_7 = [math.sqrt(x) for x in LAM_AB_7]
+COV_7 = float(np.trace(SA_7) + np.trace(SB_7) - 2 * sum(ROOTS_7))
+
+
+def sqrtm_sym(s):
+    w, q = np.linalg.eigh(s)
+    return q @ np.diag(np.sqrt(w)) @ q.T
+
+
+ROOT_A_7 = sqrtm_sym(SA_7)
+assert math.isclose(np.trace(SA_7 + SB_7 - 2 * sqrtm_sym(ROOT_A_7 @ SB_7 @ ROOT_A_7)), COV_7)
+MEANS_7 = float(((MUA_7 - MUB_7) ** 2).sum())
+W2_7 = math.sqrt(MEANS_7 + COV_7)
+BIAS_7 = float(MEANS_7 + np.trace(SA_7) / NA_7 + np.trace(SB_7) / NB_7)
+RNG_7 = np.random.default_rng(6803)
+BARS_A_7 = RNG_7.multivariate_normal(MUA_7, SA_7 / NA_7, size=20_000)   # the mean of n days: N(μ, Σ/n)
+BARS_B_7 = RNG_7.multivariate_normal(MUB_7, SB_7 / NB_7, size=20_000)
+assert abs(((BARS_A_7 - BARS_B_7) ** 2).sum(axis=1).mean() - BIAS_7) < 0.1
+SAME_7 = float(2 * np.trace(SA_7) / NE_7)
+N_MIN_7 = next(n for n in range(1, 100_000) if 2 * np.trace(SA_7) / n <= THRESHOLD_7 + 1e-12)
+ONE_TERM_7 = float(np.trace(SA_7) / NE_7)
+N_ONE_7 = next(n for n in range(1, 100_000) if np.trace(SA_7) / n <= THRESHOLD_7 + 1e-12)
+COV_ONCE_7 = float(np.trace(SA_7) + np.trace(SB_7) - sum(ROOTS_7))
+COV_NO_ROOT_7 = float(np.trace(SA_7) + np.trace(SB_7) - 2 * sum(LAM_AB_7))
+TRACES_7 = float(np.trace(SA_7) + np.trace(SB_7))
+NO_N_7 = float(MEANS_7 + np.trace(SA_7) + np.trace(SB_7))
+SWAP_N_7 = float(MEANS_7 + np.trace(SA_7) / NB_7 + np.trace(SB_7) / NA_7)
+NO_MEANS_7 = float(np.trace(SA_7) / NA_7 + np.trace(SB_7) / NB_7)
+GAP_NORM_7 = math.sqrt(math.sqrt(MEANS_7) + COV_7)                 # the distance of the means, not its square
+
+# CP6.9 a): the letters of the five wrong lines
+WRONG_9, RIGHT_9 = "ACEGH", "BDF"
+MISSING_9 = {"".join(c) for c in combinations(WRONG_9, len(WRONG_9) - 1)}
+EXTRA_9 = {"".join(sorted(WRONG_9 + r)) for r in RIGHT_9}
+SWAPPED_9 = {"".join(sorted(set(WRONG_9) - {w} | {r})) for w in WRONG_9 for r in RIGHT_9}
+
+# CP6.10: a charging station with two waiting places, 0, 1 or 2 cars waiting, every five minutes
+P_10 = fmat([["0.32", "0.60", "0.08"], ["0.21", "0.33", "0.46"], ["0.05", "0.60", "0.35"]])
+M_10, U0_10 = fr("0.68"), 0
+assert all(sum(row) == 1 for row in P_10)
+GREEDY_10 = [max(range(3), key=lambda j: (row[j], -j)) for row in P_10]   # ties: the smallest state
+COLUMN_10 = [max(range(3), key=lambda i: (P_10[i][j], -i)) for j in range(3)]
+SEQ_10 = [U0_10]
+while SEQ_10[-1] not in SEQ_10[:-1]:
+    SEQ_10.append(GREEDY_10[SEQ_10[-1]])
+PRE_10 = SEQ_10.index(SEQ_10[-1])
+PERIOD_10 = len(SEQ_10) - 1 - PRE_10
+LONG_10 = [U0_10]
+for _ in range(30):
+    LONG_10.append(GREEDY_10[LONG_10[-1]])
+assert all(LONG_10[t] == LONG_10[t + PERIOD_10] for t in range(PRE_10, 25))
+assert all(LONG_10[t] not in LONG_10[PRE_10:PRE_10 + PERIOD_10] for t in range(PRE_10))
+
+
+def top_p(row, m=M_10):
+    """The states kept, by decreasing probability (ties: the smallest state first), until their mass reaches m."""
+    kept = []
+    for j in sorted(range(len(row)), key=lambda j: (-row[j], j)):
+        kept.append(j)
+        if sum(row[k] for k in kept) >= m:
+            return kept
+
+
+KEPT_10 = [top_p(row) for row in P_10]
+for row, kept in zip(P_10, KEPT_10):                               # the smallest set whose mass reaches m
+    assert len(kept) == min(len(c) for k in range(1, 4) for c in combinations(range(3), k)
+                            if sum(row[j] for j in c) >= M_10)
+P_TRUNC_10 = [[row[j] / sum(row[k] for k in kept) if j in kept else fr(0) for j in range(3)]
+              for row, kept in zip(P_10, KEPT_10)]
+ROW1_10, KEPT1_10, PS1_10 = P_10[1], KEPT_10[1], P_TRUNC_10[1]
+MASS1_10 = sum(ROW1_10[j] for j in KEPT1_10)
+KL1_10 = sum(float(q) * math.log(q / p) for q, p in zip(PS1_10, ROW1_10) if q > 0)
+assert math.isclose(KL1_10, -math.log(MASS1_10))                   # the cost of a truncation: −ln P(S)
+TV1_10 = sum(abs(q - p) for q, p in zip(PS1_10, ROW1_10)) / 2
+assert TV1_10 == 1 - MASS1_10
+
+
+def stationary(p):
+    """π P = π and Σ π = 1, exactly: two equations of (Pᵀ − I) π = 0 and the sum."""
+    rows = [[p[j][i] - int(i == j) for j in range(3)] for i in range(3)][:2] + [[fr(1)] * 3]
+    pi = fsolve(rows, [fr(0), fr(0), fr(1)])
+    assert fvecmat(pi, p) == pi
+    return pi
+
+
+PI_NEW_10 = stationary(P_TRUNC_10)
+assert np.allclose(np.ones(3) / 3 @ np.linalg.matrix_power(np.array(floats(P_TRUNC_10)), 400), floats(PI_NEW_10))
+PI_OLD_10 = stationary(P_10)
+ORDER1_10 = sorted(range(3), key=lambda j: (-ROW1_10[j], j))
+LONGER_10 = ORDER1_10[:len(KEPT1_10) + 1]                          # one state more than needed
+SHORTER_10 = ORDER1_10[:len(KEPT1_10) - 1]                         # one state less: the mass is under m
+assert sum(ROW1_10[j] for j in SHORTER_10) < M_10
+KEPT_ONLY_10 = [[row[j] if j in kept else fr(0) for j in range(3)] for row, kept in zip(P_10, KEPT_10)]
+SPREAD_10 = [ROW1_10[j] + (1 - MASS1_10) / len(KEPT1_10) if j in KEPT1_10 else fr(0) for j in range(3)]
+ONE_HOT_10 = [[int(j == GREEDY_10[i]) for j in range(3)] for i in range(3)]
+UNNORMALISED_10 = [x / PI_NEW_10[1] for x in PI_NEW_10]           # π′ scaled so that π′1 = 1, not to sum 1
+SWAPPED_10 = [PI_NEW_10[0], PI_NEW_10[2], PI_NEW_10[1]]'''
+
+
+
+
+def exact(message: str, value: str, right: str) -> str:
+    """The source of a wrong LIST where the statement asks for exact values: the value and its roundings (as_typed),
+    one message spread over several keys (same_message)."""
+    return f"**same_message({message!r}, as_typed({value}, {right}))"
+
+
+def number(message: str, value: str, right: str) -> str:
+    """The source of a wrong NUMBER where the statement asks for an exact value: the value and its roundings, a set
+    under one message."""
+    return f"{message!r}: as_typed({value}, {right})"
+
+
+def plain(message: str, value: str) -> str:
+    """The source of a wrong value recorded as it is (the statement asks for a number of decimals, or an integer)."""
+    return f"{message!r}: {value}"
+
+
+def wrong(*entries: str) -> str:
+    return "mistakes={" + ", ".join(entries) + "}"
+
+
+EXACT_LIST = "decimals=6, "
+PAPER = [
+    Paper("CP6.1", "Un vecteur gaussien de dimension 2 : loi marginale, loi conditionnelle, et la loi de μ + Lε", [
+        ("a", f"a 2 × 2 matrix, as a list of rows {EXACT}", "L_1.tolist()", EXACT_LIST + wrong(
+            exact("L est triangulaire inférieure : ses coefficients au-dessus de la diagonale sont nuls", "L_1.T",
+                  "L_1"),
+            exact("le coefficient l₂₂ est la racine de Σ₂₂ − l₂₁², pas de Σ₂₂", "L_ROOT_1", "L_1"),
+            exact("le coefficient l₂₁ vaut Σ₂₁ / l₁₁ : divise par l₁₁, pas par Σ₁₁", "L_SIGMA_1", "L_1"))),
+        ("b", f"[mean, variance], a list of 2 numbers {EXACT}", "floats(MARG_1)", EXACT_LIST + wrong(
+            exact("une loi marginale ne tient compte d'aucune valeur lue", "MARG_COND_1", "MARG_1"),
+            exact("le second paramètre de N(μ, σ²) est une variance, pas un écart-type", "MARG_SD_1", "MARG_1"))),
+        ("c", f"[mean, variance], a list of 2 numbers {EXACT}", "floats(C21_1)", EXACT_LIST + wrong(
+            exact("lire x₁ réduit l'incertitude sur x₂ : la variance conditionnelle est le complément de Schur, plus "
+                  "petit que Σ₂₂", "[C21_1[0], S_1[1][1]]", "C21_1"),
+            exact("dans la loi de x₂ sachant x₁, on divise par la variance de la coordonnée lue", "C21_OTHER_1",
+                  "C21_1"),
+            exact("l'écart lu se mesure à la moyenne de la coordonnée lue", "C21_MEAN_1", "C21_1"))),
+        ("d", "[mean, variance], a list of 2 numbers (4 decimals)", "floats(C12_1)", "decimals=4, " + wrong(
+            plain("lire x₂ réduit l'incertitude sur x₁ : la variance conditionnelle est le complément de Schur, plus "
+                  "petit que Σ₁₁", "floats([C12_1[0], S_1[0][0]])"),
+            plain("dans la loi de x₁ sachant x₂, on divise par la variance de la coordonnée lue",
+                  "floats(C12_OTHER_1)"),
+            plain("vérifie le signe de l'écart lu, x₂ − μ₂", "floats(C12_SIGN_1)"))),
+        ("e", f"a list of 2 numbers {EXACT}", "DRAW_1", EXACT_LIST + wrong(
+            exact("le tirage est μ + Lε, avec L, pas Lᵀ", "DRAW_T_1", "DRAW_1"),
+            exact("le tirage multiplie ε par le facteur de Cholesky, pas par Σ", "DRAW_S_1", "DRAW_1"),
+            exact("le tirage part de la moyenne", "DRAW_0_1", "DRAW_1"))),
+        ("f", f"a 2 × 2 matrix, as a list of rows {EXACT}", "floats(COV_M_1)", EXACT_LIST + wrong(
+            exact("la covariance de Mε est M Mᵀ, pas Mᵀ M", "fmatmul(ftranspose(M_1), M_1)", "COV_M_1"),
+            exact("la covariance d'une image linéaire Mε est M I Mᵀ : il faut une transposée", "fmatmul(M_1, M_1)",
+                  "COV_M_1"))),
+    ]),
+    Paper("CP6.2", "La divergence KL entre deux gaussiennes de dimension 2, et une interpolation sphérique", [
+        ("a", f"a number {ONE_EXACT}", "float(TR_2)", EXACT_LIST + wrong(
+            number("la trace de la formule est celle de Σ₁⁻¹Σ₀ : l'inverse de la covariance de la seconde loi",
+                   "TR_SWAP_2", "TR_2"),
+            number("l'inverse d'une matrice 2 × 2 est sa comatrice transposée, divisée par son déterminant",
+                   "TR_COF_2", "TR_2"),
+            number("la trace d'un produit n'est pas le produit des traces", "TR_PROD_2", "TR_2"))),
+        ("b", f"a number {ONE_EXACT}", "float(Q_2)", EXACT_LIST + wrong(
+            number("le terme des moyennes est une distance de Mahalanobis : il utilise l'inverse d'une covariance",
+                   "Q_DIRECT_2", "Q_2"),
+            number("le terme des moyennes se mesure à l'échelle de la seconde loi, p₁", "Q_OTHER_2", "Q_2"),
+            number("la distance de Mahalanobis tient compte des covariances", "Q_PLAIN_2", "Q_2"))),
+        ("c", "a number (4 decimals)", "KL_2", "decimals=4, " + wrong(
+            plain("le logarithme compare les déterminants dans l'ordre det Σ₁ / det Σ₀", "KL_LOG_2"),
+            plain("la formule retranche la dimension d", "KL_NO_D_2"),
+            plain("la formule a un facteur ½ devant le crochet", "KL_NO_HALF_2"),
+            plain("la KL demandée est KL(p₀ ‖ p₁) : l'espérance se prend sous la première loi", "KL_REVERSE_2"))),
+        ("d", "an angle in degrees (2 decimals)", "DEGREES_2", "decimals=2, " + wrong(
+            plain("la réponse est attendue en degrés, pas en radians", "OMEGA_2"),
+            plain("l'angle Ω a pour cosinus uᵀv / (‖u‖ ‖v‖)", "ASIN_2"))),
+        ("e", "a list of 3 numbers (4 decimals)", "SLERP_2.tolist()", "decimals=4, " + wrong(
+            plain("le coefficient de u est sin((1 − t)Ω)/sin Ω, celui de v est sin(tΩ)/sin Ω", "SWAPPED_2.tolist()"),
+            plain("le slerp suit l'arc de grand cercle, pas la ligne droite", "LINE_2.tolist()"),
+            plain("ramener sur la sphère le point de la ligne droite ne donne pas l'angle tΩ",
+                  "PROJECTED_2.tolist()"))),
+        ("f", "a number (3 decimals)", "LINE_NORM_2", "decimals=3, " + wrong(
+            plain("la norme est la racine de la somme des carrés", "LINE_NORM_2 ** 2"),
+            plain("le point de la ligne droite n'est pas sur la sphère : calcule sa norme", "NORM_2"),
+            plain("la question porte sur le point t = 1/4 de la ligne droite, pas sur son milieu", "MIDDLE_2"))),
+    ]),
+    Paper("CP6.3", "Un mélange de deux gaussiennes de variances connues et trois mesures : responsabilités, un pas "
+                   "d'EM sur le poids et les moyennes, et l'écart à l'ELBO d'une affectation dure", [
+        ("a", "a list of 3 numbers (4 decimals)", "R_3[:, 0].tolist()", "decimals=4, " + wrong(
+            plain("les responsabilités tiennent compte des poids πₖ", "R_EQUAL_3[:, 0].tolist()"),
+            plain("la responsabilité demandée est celle de la composante 1, de moyenne 24 h", "R_3[:, 1].tolist()"),
+            plain("dans la densité gaussienne, le carré de l'écart est divisé par 2σ²", "R_NO_HALF_3[:, 0].tolist()"))),
+        ("b", "a number (4 decimals)", "PI_NEW_3", "decimals=4, " + wrong(
+            plain("un poids est une proportion : les deux poids ont pour somme 1", "float(N_3[0])"),
+            plain("le pas M remplace l'ancien poids : recalcule-le à partir des responsabilités", "float(PI_3[0])"))),
+        ("c", "[mu1, mu2], a list of 2 numbers (3 decimals)", "MU_NEW_3.tolist()", "decimals=3, " + wrong(
+            plain("une moyenne pondérée se divise par la somme de ses poids", "MU_BY_N_3.tolist()"),
+            plain("les moyennes se donnent dans l'ordre des composantes (24 h et 32 h au départ)",
+                  "MU_NEW_3[::-1].tolist()"))),
+        ("d", "a number (4 decimals)", "GAP_3", "decimals=4, " + wrong(
+            plain("l'affectation dure met chaque mesure dans la composante de plus grande responsabilité",
+                  "GAP_ALL1_3"),
+            plain("un écart à une borne inférieure est positif ou nul", "-GAP_3"),
+            plain("l'écart à l'ELBO est une divergence KL, pas une entropie", "ENTROPY_3"))),
+    ]),
+    Paper("CP6.4", "Une chaîne de Markov à trois états : loi à deux pas, et la valeur d'une politique fixée par le "
+                   "système de Bellman, quand une ligne finit", [
+        ("a", f"a list of 3 numbers {EXACT}", "floats(MU2_4)", EXACT_LIST + wrong(
+            exact("en convention ligne, une loi avance par μP : elle est à gauche de P", "COLUMN_4", "MU2_4"),
+            exact("un coefficient de P² se lit sur les chemins de longueur 2 : ce n'est pas le carré d'un coefficient "
+                  "de P", "SQUARES_4", "MU2_4"),
+            exact("la question demande la loi dans deux ans, après deux pas", "MU1_4", "MU2_4"))),
+        ("b", f"a number {ONE_EXACT}", "float(OUT2_4)", EXACT_LIST + wrong(
+            number("la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
+                   "OUT_FIRST_4", "OUT2_4") + " | as_typed(OUT_SECOND_4, OUT2_4)",
+            number("la question demande la probabilité d'être sortie du domaine, pas d'y être encore", "sum(MU2_4)",
+                   "OUT2_4"))),
+        ("c", f"[V(0), V(1), V(2)], a list of 3 numbers {EXACT}", "floats(V_4)", EXACT_LIST + wrong(
+            exact("une parcelle peut rester dans le même état : la ligne de P garde son coefficient diagonal",
+                  "V_NO_LOOP_4", "V_4"),
+            exact("en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s", "V_T_4", "V_4"),
+            exact("la valeur compte aussi la récolte de l'année en cours", "V_FUTURE_4", "V_4"))),
+        ("d", f"a number {ONE_EXACT}", "float(YEAR2_4)", EXACT_LIST + wrong(
+            "'l\\'année 0 est l\\'année en cours : la troisième récolte est celle de l\\'année 2': "
+            "set().union(*(as_typed(y, YEAR2_4) for y in YEARS_4))",
+            number("une parcelle sortie du domaine ne récolte plus rien : ne renormalise pas la loi", "RENORM_4",
+                   "YEAR2_4"))),
+    ]),
+    Paper("CP6.5", "Un jeu à somme nulle 2 × 2 en stratégies mixtes, et W₁ entre deux petits échantillons de même "
+                   "taille", [
+        ("a", "[maximin, minimax], a list of 2 integers", "[MAXIMIN_5, MINIMAX_5]", wrong(
+            plain("le joueur des colonnes paie : son pire, dans chaque colonne, est le plus grand gain du braconnier",
+                  "[MAXIMIN_5, COLUMN_MIN_5]"),
+            plain("le maximin (ce que s'assure le braconnier) vient en premier, et il est au plus le minimax",
+                  "[MINIMAX_5, MAXIMIN_5]"))),
+        ("b", FRACTION, "str(P_5)", 'kind="fraction", simplified=True, ' + wrong(
+            plain("la stratégie optimale du braconnier rend le garde indifférent : écris l'égalité des deux colonnes",
+                  "str(Q_5)"),
+            plain("la probabilité p est celle de la première ligne, le nord", "str(1 - P_5)"))),
+        ("c", FRACTION, "str(Q_5)", 'kind="fraction", simplified=True, ' + wrong(
+            plain("la stratégie optimale du garde rend le braconnier indifférent : écris l'égalité des deux lignes",
+                  "str(P_5)"),
+            plain("la probabilité q est celle de la première colonne, le nord", "str(1 - Q_5)"))),
+        ("d", FRACTION, "str(VALUE_5)", 'kind="fraction", simplified=True, ' + wrong(
+            "**same_message('sans point selle, la valeur en stratégies mixtes est strictement entre le maximin et le "
+            "minimax', [MAXIMIN_5, MINIMAX_5])",
+            plain("vérifie le signe de κ = a − b − c + d", "str(-VALUE_5)"))),
+        ("e", f"a number {ONE_EXACT}", "float(W1_5)", EXACT_LIST + wrong(
+            number("trie les deux échantillons avant d'apparier", "UNSORTED_W1_5", "W1_5"),
+            number("l'écart des moyennes n'est qu'une minoration de W₁", "MEANS_5", "W1_5"),
+            number("la distance W₁ est la moyenne des écarts appariés, pas leur somme", "sum(GAPS_5)", "W1_5"))),
+        ("f", "a number (4 decimals)", "W2_5", "decimals=4, " + wrong(
+            plain("la distance W₂ est la racine de la moyenne des carrés des écarts", "W2_5 ** 2"),
+            plain("trie les deux échantillons avant d'apparier", "UNSORTED_W2_5"))),
+    ]),
+    Paper("CP6.6", "Des distances aux positions : double centrage, matrice de Gram, et une configuration à une isométrie "
+                   "près", [
+        ("a", FRACTION, "str(S_6)", 'kind="fraction", simplified=True, ' + wrong(
+            plain("la moyenne porte sur les neuf coefficients de D⁽²⁾, les zéros de la diagonale compris",
+                  "str(OFF_DIAGONAL_6)"),
+            plain("chaque carré de distance apparaît deux fois dans D⁽²⁾", "str(ONCE_6)"))),
+        ("b", f"a 3 × 3 matrix, as a list of rows {EXACT}", "floats(G_6)", EXACT_LIST + wrong(
+            exact("la matrice de Gram est −½ J D⁽²⁾ J : n'oublie pas le facteur −½", "JDJ_6", "G_6"),
+            exact("dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s", "SIGN_S_6", "G_6"),
+            exact("le double centrage se fait sur les carrés des distances", "DIST_6", "G_6"))),
+        ("c", "a list of 2 numbers, from the largest to the smallest", "floats(LAMBDAS_6)", EXACT_LIST + wrong(
+            exact("les valeurs propres non nulles se donnent de la plus grande à la plus petite", "LAMBDAS_6[::-1]",
+                  "LAMBDAS_6"))),
+        ("d", f"a 3 × 2 matrix, as a list of rows {EXACT}", "MAP_6.tolist()", EXACT_LIST + wrong(
+            exact("la colonne k vient de la k-ième valeur propre, dans l'ordre décroissant", "MAP_6[:, ::-1]",
+                  "MAP_6"),
+            exact("dans chaque colonne, la première coordonnée (celle de A) est positive", "-MAP_6", "MAP_6"),
+            exact("la colonne k est √λₖ qₖ, avec qₖ unitaire", "UNNORMALISED_6", "MAP_6"))),
+    ]),
+    Paper("CP6.7", "La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de "
+                   "la distance entre deux moyennes estimées", [
+        ("a", "a list of 2 numbers, from the largest to the smallest", "floats(LAM_AB_7)", EXACT_LIST + wrong(
+            exact("la question porte sur Σ_A Σ_B, pas sur Σ_A seule", "EIG_A_7", "LAM_AB_7"),
+            exact("la question demande les valeurs propres de Σ_A Σ_B, avant la racine", "ROOTS_7", "LAM_AB_7"))),
+        ("b", f"a number {ONE_EXACT}", "COV_7", EXACT_LIST + wrong(
+            number("le terme croisé est 2 Σᵢ √λᵢ", "COV_ONCE_7", "COV_7"),
+            number("le terme croisé porte sur les racines des valeurs propres", "COV_NO_ROOT_7", "COV_7"),
+            number("les traces des covariances ne suffisent pas : retranche le terme croisé", "TRACES_7", "COV_7"))),
+        ("c", "a number (4 decimals)", "W2_7", "decimals=4, " + wrong(
+            plain("la distance de Fréchet est W₂, la racine de la formule", "W2_7 ** 2"),
+            plain("la distance de Fréchet tient compte des moyennes et des covariances", "math.sqrt(COV_7)"),
+            plain("la part des moyennes est le carré de la distance entre elles", "GAP_NORM_7"))),
+        ("d", f"a number {ONE_EXACT}", "BIAS_7", EXACT_LIST + wrong(
+            number("une moyenne de n relevés a pour covariance Σ/n", "NO_N_7", "BIAS_7"),
+            number("chaque trace se divise par la taille de son propre échantillon", "SWAP_N_7", "BIAS_7"),
+            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_7", "BIAS_7"))),
+        ("e", f"a number {ONE_EXACT}", "SAME_7", EXACT_LIST + wrong(
+            number("deux échantillons, deux moyennes estimées : deux termes tr Σ / n", "ONE_TERM_7", "SAME_7"),
+            plain("deux échantillons d'une même loi n'ont presque jamais la même moyenne empirique", "0"))),
+        ("f", "an integer", "N_MIN_7", wrong(
+            plain("deux échantillons de taille n, deux termes tr Σ / n", "N_ONE_7"))),
+    ]),
+    Paper("CP6.9", "Corriger une copie : cinq erreurs, une par chapitre (les lettres seulement)", [
+        ("a", LETTERS, "WRONG_9", wrong(
+            plain("cinq lignes sont fausses : ta réponse en contient moins", "MISSING_9"),
+            plain("exactement cinq lignes sont fausses", "EXTRA_9"),
+            plain("au moins une des lignes que tu donnes est juste : relis-les une par une", "SWAPPED_9"),
+            plain("ce sont les lignes justes : la question demande les fausses", "RIGHT_9"))),
+    ]),
+    Paper("CP6.10", "Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis "
+                    "échantillonnée après la troncature top-p de ses transitions", [
+        ("a", "[f(0), f(1), f(2)], a list of 3 integers", "GREEDY_10", wrong(
+            plain("le glouton lit la ligne de l'état présent et y prend l'issue la plus probable", "COLUMN_10"))),
+        ("b", "[preperiod, period], a list of 2 integers", "[PRE_10, PERIOD_10]", wrong(
+            plain("la période est la longueur du cycle, sans la queue", "[PRE_10, PRE_10 + PERIOD_10]"),
+            plain("la prépériode compte les états du début qui ne reviennent jamais", "[0, PERIOD_10]"))),
+        ("c", "a list of integers, by decreasing probability", "KEPT1_10", wrong(
+            "**same_message('le top-p prend les issues une à une jusqu\\'à ce que leur masse atteigne m', "
+            "[LONGER_10, SHORTER_10])",
+            plain("range les états gardés par probabilité décroissante", "sorted(KEPT1_10)"))),
+        ("d", "a list of 3 numbers (4 decimals)", "floats(PS1_10)", "decimals=4, " + wrong(
+            plain("une loi tronquée est encore une loi : sa somme vaut 1", "floats(KEPT_ONLY_10[1])"),
+            plain("une loi conditionnelle garde les rapports entre les probabilités gardées", "floats(SPREAD_10)"))),
+        ("e", "a number (4 decimals)", "KL1_10", "decimals=4, " + wrong(
+            plain("dans le coût d'une troncature, P(S) est la masse gardée, pas la masse retirée",
+                  "-math.log(1 - MASS1_10)"),
+            plain("les divergences KL sont en nats : logarithme népérien", "-math.log2(MASS1_10)"),
+            plain("la KL d'une troncature n'est pas la masse retirée", "float(1 - MASS1_10)"))),
+        ("f", f"a number {ONE_EXACT}", "float(TV1_10)", EXACT_LIST + wrong(
+            number("la distance en variation totale est la moitié de la norme L1", "2 * TV1_10", "TV1_10"),
+            number("la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
+                   "KL1_10", "TV1_10"))),
+        ("g", "a 3 × 3 matrix, as a list of rows (4 decimals)", "floats(P_TRUNC_10)", "decimals=4, " + wrong(
+            plain("chaque ligne de P′ est une loi : sa somme vaut 1", "floats(KEPT_ONLY_10)"),
+            plain("une ligne garde ses issues jusqu'à ce que leur masse atteigne m, pas seulement la plus probable",
+                  "ONE_HOT_10"))),
+        ("h", "a list of 3 numbers (4 decimals)", "floats(PI_NEW_10)", "decimals=4, " + wrong(
+            plain("la loi demandée est celle de la chaîne tronquée", "floats(PI_OLD_10)"),
+            plain("une loi stationnaire a pour somme 1", "floats(UNNORMALISED_10)"),
+            plain("à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : vérifie lequel multiplie π′₁",
+                  "floats(SWAPPED_10)"))),
+    ]),
+]
+
+EXPECTED = [f"{p.id}{letter}" for p in PAPER for letter, *_ in p.subs]
+# the answers typed as lists or matrices, and those handed to wbm as texts (fractions, letters)
+LISTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if "list" in hint or "matrix" in hint)
+TEXTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if hint in (FRACTION, LETTERS))

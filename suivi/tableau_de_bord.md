@@ -2145,3 +2145,20 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M28.19 🏆 Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins de 1 km en moyenne après alignement ★★★ 45 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end M28 -->
+
+<!-- wbm:section CP6 -->
+## CP6 · Examen blanc de la partie VI ⏱️ 3,1 h
+
+- [ ] CP6.Q1 🧠 Dix affirmations sur la partie VI, deux par chapitre : vrai ou faux ★ 10 min
+- [ ] CP6.1 ✏️ Un vecteur gaussien de dimension 2 : loi marginale, loi conditionnelle, et la loi de μ + Lε ★★ 10 min
+- [ ] CP6.2 ✏️ La divergence KL entre deux gaussiennes de dimension 2, et une interpolation sphérique ★★ 9 min
+- [ ] CP6.3 ✏️ Un mélange de deux gaussiennes de variances connues et trois mesures : responsabilités, un pas d'EM sur le poids et les moyennes, et l'écart à l'ELBO d'une affectation dure ★★ 10 min
+- [ ] CP6.4 ✏️ Une chaîne de Markov à trois états : loi à deux pas, et la valeur d'une politique fixée par le système de Bellman, quand une ligne finit ★★ 9 min
+- [ ] CP6.5 ✏️ Un jeu à somme nulle 2 × 2 en stratégies mixtes, et W₁ entre deux petits échantillons de même taille ★★ 9 min
+- [ ] CP6.6 ✏️ Des distances aux positions : double centrage, matrice de Gram, et une configuration à une isométrie près ★★ 8 min
+- [ ] CP6.7 ✏️ La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ★★ 9 min
+- [ ] CP6.8 ∂ Une démonstration au choix : l'entropie d'une loi tempérée croît avec la température, ou la loi de Boltzmann minimise l'énergie libre ★★★ 12 min
+- [ ] CP6.9 🐛 Corriger une copie : cinq erreurs, une par chapitre ★★ 9 min
+- [ ] CP6.10 🔗 Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire ★★ 16 min
+- [ ] CP6.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
+<!-- wbm:end CP6 -->
