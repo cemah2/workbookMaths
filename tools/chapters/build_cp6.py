@@ -734,3 +734,256 @@ EXPECTED = [f"{p.id}{letter}" for p in PAPER for letter, *_ in p.subs]
 # the answers typed as lists or matrices, and those handed to wbm as texts (fractions, letters)
 LISTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if "list" in hint or "matrix" in hint)
 TEXTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if hint in (FRACTION, LETTERS))
+
+HELPERS = r'''EXAM_OVER = False   # set it to True once your exam is finished, then run the cells below
+
+import math
+import re
+from fractions import Fraction
+
+RESULTS = {}        # sub-ID -> result of wbm.check
+_REMINDED = []      # the full reminder is printed once, then a short one
+LISTS = {''' + ", ".join(map(repr, LISTS)) + r'''}   # the answers that are lists or matrices
+TEXTS = {''' + ", ".join(map(repr, TEXTS)) + r'''}   # the answers read by wbm as texts (fractions, letters)
+
+
+def exam_over():
+    """True once the exam is finished; otherwise print a reminder (and the cell checks nothing)."""
+    if not EXAM_OVER:
+        print("⏸️ Rien n'est vérifié (EXAM_OVER vaut False)." if _REMINDED else
+              "⏸️ Vérification après l'examen : passe EXAM_OVER à True dans cette cellule, puis exécute-la.")
+        _REMINDED.append(True)
+        return False
+    if "wbm" not in globals():
+        print("⚠️ Exécute d'abord la cellule de configuration, tout en haut du notebook.")
+        return False
+    return True
+
+
+_NAMES = {"sqrt": math.sqrt, "pi": math.pi, "e": math.e, "exp": math.exp, "ln": math.log, "log": math.log,
+          "cos": math.cos, "sin": math.sin, "acos": math.acos, "asin": math.asin, "atan": math.atan,
+          "degrees": math.degrees, "abs": abs, "math": math, "Fraction": Fraction}
+_LINE = re.compile(r"[-*•]?\s*\(?([a-zA-Z])\s*[).:]\s*(.*)")
+_FRENCH_NUMBER = re.compile(r"[+-]?\d+,\d+")
+_COMMAS = ("dans une liste, une virgule sépare deux éléments : « [0,5, 1,2] » se lit comme quatre nombres. Écris "
+           "les décimaux avec un point, [0.5, 1.2], ou sépare les éléments par des points-virgules, (0,5 ; 1,2).")
+_UNREADABLE = ("je ne lis pas « {} » comme une liste : écris-la entre crochets, avec des points décimaux et des "
+               "virgules entre les éléments, comme [0.25, -1.5] (une matrice : la liste de ses lignes, "
+               "[[1, 2], [3, 4]]), ou avec des points-virgules entre les éléments, comme (0,25 ; -1,5).")
+
+
+class Unreadable(ValueError):
+    """A value written so that it cannot be read; the message says how to write it."""
+
+
+def _clean(text):
+    """Typographic signs -> Python: − → -, × → *, √2 → sqrt(2), π → pi."""
+    for old, new in {"−": "-", "–": "-", "×": "*", "·": "*", "÷": "/", "«": '"', "»": '"', " ": " "}.items():
+        text = text.replace(old, new)
+    text = re.sub(r"√\s*\(", "sqrt(", text)
+    text = re.sub(r"√\s*(\d+(?:\.\d+)?)", r"sqrt(\1)", text)
+    return re.sub(r"(\d)\s*π", r"\1*pi", text).replace("π", "pi").strip()
+
+
+def _python(text):
+    """The value of a number, a list or a calculation, as a calculator reads it (nothing else is allowed)."""
+    return eval(text, {"__builtins__": {}}, dict(_NAMES))
+
+
+def _split(text):
+    """The parts of a text separated by semicolons outside brackets."""
+    parts, depth, start = [], 0, 0
+    for i, char in enumerate(text):
+        depth += (char in "[(") - (char in "])")
+        if char == ";" and depth == 0:
+            parts.append(text[start:i])
+            start = i + 1
+    return parts + [text[start:]]
+
+
+def _french_list(text):
+    """(0,2 ; 0,5) or [0,2 ; 0,5]: elements separated by semicolons, written with decimal commas."""
+    inner = text.strip()
+    if inner[:1] in "[(" and inner[-1:] in "])":
+        inner = inner[1:-1]
+    items = []
+    for item in (part.strip() for part in _split(inner)):
+        if item[:1] in "[(" and ";" in item:
+            items.append(_french_list(item))
+        elif _FRENCH_NUMBER.fullmatch(item):
+            items.append(float(item.replace(",", ".")))
+        else:
+            items.append(_python(item))
+    return items
+
+
+def read_value(sub_id, text):
+    """The value written after a letter, as wbm.check takes it; ... for a sub-question not done."""
+    text = _clean(text)
+    if text in ("", "...", "…"):
+        return ...
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in "\"'":
+        text = text[1:-1].strip()                       # a text between quotes
+        if sub_id in TEXTS or sub_id not in LISTS:
+            return text
+    if sub_id in TEXTS:
+        return text                                     # a fraction, letters: wbm reads the text
+    if sub_id not in LISTS:
+        if _FRENCH_NUMBER.fullmatch(text):
+            return text                                 # 0,25: wbm reads a decimal comma in a text
+        try:
+            return _python(text)
+        except Exception:
+            return text                                 # wbm says what it expected
+    if ";" in text:
+        try:
+            return _french_list(text)
+        except Exception:
+            raise Unreadable(_UNREADABLE.format(text)) from None
+    if re.search(r"\d,\d", text) and re.search(r",\s", text):
+        raise Unreadable(_COMMAS)                       # [0,5, 1,2]: decimal commas inside a list
+    try:
+        return _python(text)
+    except Exception:
+        raise Unreadable(_UNREADABLE.format(text)) from None
+
+
+def check_question(question, letters, answers):
+    """Read the lines « a) value » of ``answers`` and check each value with wbm.check."""
+    from wbm.checker import CheckResult
+
+    values, last = {}, None
+    for line in answers.splitlines():
+        line = line.split("#")[0].strip()
+        if not line:
+            continue
+        match = _LINE.fullmatch(line)
+        if match and match.group(1).lower() in letters:
+            last = match.group(1).lower()
+            if last in values:
+                print(f"⚠️ {question} : deux lignes {last}) ; je garde la dernière.")
+            values[last] = match.group(2)
+        elif last is not None and values[last].count("[") > values[last].count("]"):
+            values[last] += " " + line                  # a matrix written on several lines
+        else:
+            print(f"⚠️ {question} : ligne ignorée, « {line} » : garde la lettre de la question et sa parenthèse, "
+                  f"comme « a) 0.25 ».")
+    for letter in letters:
+        sub_id = f"{question}{letter}"
+        try:
+            value = read_value(sub_id, values.get(letter, "..."))
+        except Unreadable as exc:
+            print(f"❌ Ex {sub_id} : {exc}")
+            RESULTS[sub_id] = CheckResult(sub_id, False, "type", str(exc))
+            continue
+        RESULTS[sub_id] = wbm.check(sub_id, value)'''
+
+SUMMARY = r'''# Summary of the automatic checks
+EXPECTED = ''' + repr(EXPECTED) + r'''
+
+
+def natural(sub_id):
+    """CP6.2a before CP6.10a: the question number as a number, then the letter."""
+    number, letter = re.match(r"CP6\.(\d+)(.*)", sub_id).groups()
+    return int(number), letter
+
+
+if exam_over():
+    done = {k: r for k, r in RESULTS.items() if r.status != "pending"}
+    right = sorted((k for k, r in done.items() if r), key=natural)
+    wrong = sorted((k for k, r in done.items() if not r), key=natural)
+    pending = sorted((k for k, r in RESULTS.items() if r.status == "pending"), key=natural)
+    missing = [k for k in EXPECTED if k not in RESULTS]
+    print(f"Réponses vérifiées : {len(right)} juste(s) sur {len(done)} ; pas remplies : {len(pending)}.")
+    if wrong:
+        print("À revoir avec le corrigé :", ", ".join(wrong))
+    if missing:
+        print("⚠️ Pas vérifiées (cellule pas exécutée) :", ", ".join(missing))
+    print("Note ensuite ta copie avec le barème de 03_examen_corrige.md : il donne aussi les points des démarches, "
+          "des justifications et des questions rédigées, que cette vérification ne voit pas.")'''
+
+INTRO = r'''## Après l'examen : vérification automatique
+
+**Ne commence qu'une fois ta copie terminée**, examen rendu. Ce notebook vérifie les réponses que tu as écrites sur ta feuille, question par question : ✅ juste, ❌ faux (avec une piste), ⏳ pas rempli. Il ne note pas : les démarches, les justifications, le quiz CP6.Q1, la démonstration CP6.8 et les corrections de CP6.9 b) se corrigent avec `03_examen_corrige.md`, qui donne aussi le barème.
+
+1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
+2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
+3. Les formes d'écriture, comme sur ta copie : un nombre avec une virgule ou un point (`0,25` ou `0.25`), ou un calcul (`3/8`, `sqrt(13)`, `ln(2)`) ; une liste entre crochets avec des points décimaux, `[0.25, -1.5]`, ou, si tu gardes les virgules décimales, avec des points-virgules entre les éléments, `(0,25 ; -1,5)` (dans une liste, `[0,5, 1,2]` se lit comme quatre nombres) ; une matrice comme la liste de ses lignes, `[[1, -2], [0.5, 3]]` ; une fraction telle quelle, `3/8` ; des lettres telles quelles, `ABCDE`.
+4. Les décimales : quand l'énoncé dit « valeur exacte », donne toutes les décimales de ta valeur (elle n'en a que quelques-unes) ; quand il dit « 4 décimales » (ou 3, ou 2), arrondis à ce nombre, à la fin du calcul seulement. Quand il dit « dans n'importe quel ordre », l'ordre ne compte pas ; ailleurs, l'ordre de ta liste compte.
+5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
+
+
+def paper_cell(kind: str, paper: Paper) -> list:
+    """One question: the block of answers and a guarded check (exam), or the wbm.record cell (solutions)."""
+    cells = [md(f"**{paper.id} — {paper.title}**")]
+    if kind == "exercise":
+        name = f"answers_{paper.id.replace('.', '_')}"
+        width = max(len(f"{letter}) ...") for letter, *_ in paper.subs) + 4
+        lines = [f"# {paper.id}: after each letter, the value written on your answer sheet (... if not done)",
+                 f'{name} = """']
+        lines += [f"{letter}) ...".ljust(width) + f"# {hint}" for letter, hint, *_ in paper.subs]
+        lines += ['"""', "", "if exam_over():", f'    check_question("{paper.id}", "{paper.letters}", {name})']
+        cells.append(code("\n".join(lines)))
+    else:
+        lines = []
+        for letter, _, expr, options in paper.subs:
+            args = f", {options}" if options else ""
+            lines.append(f'wbm.record("{paper.id}{letter}", {expr}{args})')
+        source = "\n".join(lines)
+        check_unique_keys(source, paper.id)
+        cells.append(code(source, tags=["answer"]))
+    return cells
+
+
+def header_cells(kind: str) -> list:
+    rel = EXAM if kind == "exercise" else SOLUTIONS
+    if kind == "exercise":
+        title = "# CP6 · Examen blanc de la partie VI — vérification de ta copie"
+        how = (f"L'examen se fait **sur papier** (`01_examen_sujet.md`, {MINUTES} minutes, fiches fermées). Ce notebook "
+               "ne sert qu'**après** : il vérifie les réponses chiffrées de ta copie. Ses cellules ne vérifient rien "
+               "tant que `EXAM_OVER` vaut `False`, et « Tout exécuter » (*Run all*) va jusqu'au bout même si rien n'est "
+               "rempli (⏸️).\n\n"
+               "> Travaille dans **ta copie** (`mon_travail/checkpoints/partie_6/02_examen_notebook.ipynb`, créée par "
+               "`python tools/start_chapter.py CP6`) : ce fichier-ci est mis à jour par Claude. Sur Colab, le badge "
+               "ouvre la version du dépôt, qui n'est pas enregistrée : crée puis ouvre ta copie comme l'explique "
+               "`00_setup/COLAB.md` §2.")
+    else:
+        title = "# CP6 · Examen blanc de la partie VI — solutions (notebook exécuté)"
+        how = ("L'enregistrement des réponses que vérifie le notebook de l'examen (cellules marquées `answer`, "
+               "récoltées par `tools/build_answers.py`), calculées à partir des nombres du sujet, avec NumPy et des "
+               "fractions exactes, et recoupées par des vérifications (`assert`) ; les erreurs classiques reçoivent "
+               "un message qui dit où chercher. Le corrigé détaillé et le barème sont dans `03_examen_corrige.md`.")
+    return [md(f"{title}\n\n{badge(rel)}\n\n{how}")]
+
+
+def build(kind: str) -> list:
+    cells = header_cells(kind)
+    cells.append(setup_cell("demo"))
+    if kind == "exercise":
+        cells.append(md(INTRO))
+        cells.append(code(HELPERS))
+        for paper in PAPER:
+            cells += paper_cell(kind, paper)
+        cells.append(md("## Bilan"))
+        cells.append(code(SUMMARY))
+        cells.append(md("**Ce que cette vérification ne voit pas** : les démarches et les justifications ; le quiz "
+                        "CP6.Q1 ; la démonstration CP6.8 ; les corrections de CP6.9 b) (seules les lettres de a) sont "
+                        "vérifiées). Tout cela se corrige avec `03_examen_corrige.md`. Remplis ensuite le tableau de "
+                        "ta note, à la fin de ta copie, puis fais la remédiation du corrigé."))
+    else:
+        cells.append(md("## Les réponses vérifiées après l'examen"))
+        cells.append(code(PAPER_CONTEXT))
+        for paper in PAPER:
+            cells += paper_cell(kind, paper)
+    return cells
+
+
+def main() -> int:
+    write_notebook(EXAM, build("exercise"))
+    write_notebook(SOLUTIONS, build("solution"))
+    print(f"✅ {EXAM} and {SOLUTIONS} written ({len(PAPER)} questions, {len(EXPECTED)} checks)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
