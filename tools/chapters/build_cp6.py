@@ -19,30 +19,30 @@ value is computed by the slip its message names. The cells are tagged `answer` a
 Not in the notebook: the true/false quiz CP6.Q1, the proof CP6.8, the corrections of CP6.9 b) and the
 justifications « sur ta copie ».
 
-The answers are typed as TEXT (one cell per question, a RAW string between triple quotes, r'''...''' with double quotes, one line
-« a) value » per sub-question, as on the answer sheet), so that nothing typed can stop a cell: a decimal comma
-(0,0264), a French list (0,83 ; -2,6), a missing bracket or pasted LaTeX ($\\xi$, \\frac, \\N: the simulated candidate of
-CP6 crashed a cell with a plain triple-quoted block) gives a message, never the SyntaxError that stopped « Run all » for the
-simulated candidate of CP5; the block is cut at line feeds only (a pasted \\f or \\v is no line break). Each value is read as
-a calculator reads it (0.83, 3/8, sqrt(7), ln(7), -ln(0,79): a decimal comma inside a calculation of one number is
-read); a lone number with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with
-decimal commas; a list that mixes « 4,1 » and « , » gets a message, and so does a set between braces (no order); the
-fractions and the letters go to wbm as texts. A line pasted from
-the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last « = » or
-« : »), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
+The answers are typed as TEXT (one cell per question, a RAW string between triple quotes, r'''...''' with double
+quotes, one line « a) value » per sub-question, as on the answer sheet), so that nothing typed can stop a cell: a
+decimal comma (0,0264), a French list (0,83 ; -2,6), a missing bracket or pasted LaTeX ($\\xi$, \\frac, \\N: the
+simulated candidate of CP6 crashed a cell with a plain triple-quoted block) gives a message, never the SyntaxError
+that stopped « Run all » for the simulated candidate of CP5; the block is cut at line feeds only (a pasted \\f or
+\\v is no line break). Each value is read as a calculator reads it (0.83, 3/8, sqrt(7), ln(7), -ln(0,79): a decimal
+comma inside a calculation of one number is read); a lone number with a decimal comma goes to wbm as a text (wbm
+reads it); a list with semicolons is read with decimal commas; a list that mixes « 4,1 » and « , » gets a message,
+and so does a set between braces (no order); the fractions and the letters go to wbm as texts. A line pasted from
+the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last equals sign or
+colon), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
 decides, as in CP5. The map of CP6.6 d) is a matrix of one column: [[5], [1], [-6]], and also the flat list of its
-values, (5 ; 1 ; -6) or [5, 1, -6], are read as such (COLUMNS). 43 checks (CP6.7 f) was removed at step 3 to shorten
-the exam); besides the wrong values of s68/reponses_cp6.md (version 2), the simulated candidate of CP6 added 0.14 in
-CP6.4 b) (two years at the rate of the young plot: a rounding message before), Σ1 without its off-diagonal terms in
-CP6.2 b), [34, 7] in CP6.1 d), 2/3 in CP6.3 b) and the traces divided by the total number of days in CP6.7 d) and e).
-A line without a sub-question letter (a working line pasted from the answer sheet) is ignored with a calm warning.
-The letters of CP6.9 a) get a message that depends on their number only (4, 5 or 6 letters among A to H), never one
-that tells which letters are right.
+values, [5, 1, -6] or with semicolons, are read as such (COLUMNS). 43 checks (CP6.7 f) was removed at step 3 to
+shorten the exam); besides the wrong values of s68/reponses_cp6.md (version 2), the simulated candidate of CP6 added
+0.14 in CP6.4 b) (two years at the rate of the young plot: a rounding message before), Σ1 without its off-diagonal
+terms in CP6.2 b), [34, 7] in CP6.1 d), 2/3 in CP6.3 b) and the traces divided by the total number of days in CP6.7
+d) and e). A line without a sub-question letter (a working line pasted from the answer sheet) is ignored with a calm
+warning. The letters of CP6.9 a) get a message that depends on their number only (4, 5 or 6 letters among A to H),
+never one that tells which letters are right.
 
 Decimals, as the column « Réponse attendue » of the statement says: « valeur exacte » (a decimal with few decimals)
 is recorded with decimals=6, the convention of the repository for an exact value, so that the value is accepted as
 it is and a rounded value is told « donne la valeur exacte », never « l'énoncé en demande 4 »; « 4 décimales »,
-« 3 décimales » and « 2 décimales » are recorded with those decimals; the two lists « de 2 nombres » of eigenvalues
+« 3 décimales » and « 2 décimales » are recorded with those decimals; the lists of eigenvalues
 (CP6.6 c, CP6.7 a) are exact (decimals=6), never refused for not being integers;
 the answers « entier(s) » are whole numbers. The order counts in every list but the letters of CP6.9 a) (« dans
 n'importe quel ordre »); the fractions are asked irreducible because the statement says so. A wrong value that a
@@ -882,6 +882,11 @@ def _value_part(text):
     return text.strip()
 
 
+def _short(line):
+    """A long line pasted from the answer sheet, cut for a warning."""
+    return line if len(line) <= 70 else line[:67] + "…"
+
+
 def _given(text):
     return _value_part(text) not in ("", "...", "…")
 
@@ -948,11 +953,11 @@ def check_question(question, letters, answers):
         elif last is not None and values[last].count("[") > values[last].count("]"):
             values[last] += " " + line                  # a matrix written on several lines
         elif match:
-            print(f"⚠️ {question} : ligne ignorée, « {line} » : ce notebook ne vérifie pas de sous-question "
-                  f"{match.group(1)}) ici.")
+            print(f"⚠️ {question} : ligne ignorée, « {_short(line)} » : ce notebook ne vérifie pas de "
+                  f"sous-question {match.group(1)}) ici.")
         else:
-            print(f"⚠️ {question} : ligne ignorée, « {line} » (pas de « a) » en tête : une démarche est ignorée, "
-                  f"c'est normal ; si c'est une réponse, écris-la comme « a) 0.83 »).")
+            print(f"⚠️ {question} : ligne ignorée, « {_short(line)} » (pas de « a) » en tête : une démarche est "
+                  f"ignorée, c'est normal ; si c'est une réponse, écris-la comme « a) 0.83 »).")
     for letter in letters:
         sub_id = f"{question}{letter}"
         try:

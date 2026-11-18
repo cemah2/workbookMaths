@@ -94,7 +94,7 @@ Sur ta copie :
 - en a), donner $\mathbf{L}^\top$, triangulaire supérieure, ou prendre $l_{22} = \sqrt{13}$ ;
 - en b), donner la variance conditionnelle (4), ou un écart-type ($\sqrt{13}$) ;
 - en c), garder la variance 13, ou diviser par $\Sigma_{22}$ au lieu de $\Sigma_{11}$ ;
-- en d), garder la variance 16, diviser par $\Sigma_{11}$ ($35{,}125$ et $7$), ou se tromper de signe sur $x_2 - \mu_2$ (46) ;
+- en d), garder la variance 16, diviser par $\Sigma_{11}$ ($35{,}125$ et $7$, ou seulement dans la variance : $[34, 7]$), ou se tromper de signe sur $x_2 - \mu_2$ (46) ;
 - en e), multiplier par $\mathbf{L}^\top$ ($(36{,}5 ;\ 50)$), par $\boldsymbol{\Sigma}$ ($(26 ;\ 34{,}5)$), ou oublier $\boldsymbol{\mu}$ ;
 - en f), calculer $\mathbf{M}^\top\mathbf{M} = \begin{pmatrix} 4 & 6 \\ 6 & 25 \end{pmatrix}$, ou conclure de « $\mathbf{M}$ n'est pas triangulaire » que la loi est fausse.
 
@@ -141,7 +141,7 @@ Sur ta copie : les trois nombres 3 ; 0,5 ; −4 ; l'écart de d) est la somme de
 
 **Erreurs fréquentes** :
 - en a), oublier les poids ($0{,}9526$ ; $0{,}6225$ ; $0{,}0180$), donner $r_{i2}$, ou diviser le carré par $\sigma^2$ au lieu de $2\sigma^2$ ;
-- en b), donner $N_1$ sans diviser par 3, ou garder 0,62 ;
+- en b), donner $N_1$ sans diviser par 3, garder 0,62, ou prendre la part des graines affectées à la composante 1 ($\frac23$) ;
 - en c), diviser par $n = 3$ au lieu de $N_k$ ($14{,}025$ et $14{,}308$), affecter chaque graine tout entière à une seule composante, ou échanger les moyennes ;
 - en d), mettre les trois graines dans la composante 1 (3,886), changer le signe, ou donner l'entropie des posteriors (0,8489).
 
@@ -162,7 +162,7 @@ Sur ta copie : $\mathbf{P}$ ci-dessus, de sommes de lignes $0{,}93$, $0{,}9$ et 
 
 **Erreurs fréquentes** :
 - en a), multiplier dans la convention colonne ($(0{,}36 ;\ 0 ;\ 0)$), élever les coefficients au carré, ou s'arrêter à $\boldsymbol{\mu}_1$ ;
-- en b), ne compter qu'une année (0,07 ou 0,075), ou donner 0,855 ;
+- en b), ne compter qu'une année (0,07 ou 0,075), doubler la probabilité de la première année (0,14), ou donner 0,855 ;
 - en c), oublier les coefficients diagonaux ($(7{,}656 ;\ 23{,}2 ;\ 6)$), résoudre avec $\mathbf{P}^\top$, ou oublier la récolte de l'année en cours ($(66 ;\ 58 ;\ 4)$) ;
 - en d), prendre $\boldsymbol{\mu}_1\mathbf{r} = 7{,}26$ ou $\boldsymbol{\mu}_3\mathbf{r} \approx 9{,}893$, ou renormaliser $\boldsymbol{\mu}_2$ (11,50).
 
@@ -226,8 +226,8 @@ Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$ (13 et 8) ; $\bold
 - en a), donner les valeurs propres de $\boldsymbol{\Sigma}_A$ (13 et 8), ou leurs racines (26 et 16) ;
 - en b), oublier le facteur 2 (63), les racines (−1 759), ou tout le terme croisé (105) ;
 - en c), oublier la racine (31), les moyennes ($\sqrt{21} \approx 4{,}583$), ou leur carré ($\approx 4{,}916$) ;
-- en d), oublier de diviser par les tailles (115), les échanger (14,725), ou oublier l'écart des vraies moyennes (3,15) ;
-- en e), prendre deux échantillons de la même ferme (1,68), ne compter qu'un terme (10,84 ou 13,36), ou oublier l'écart des vraies moyennes (4,2).
+- en d), oublier de diviser par les tailles (115), les échanger (14,725), diviser la somme des traces par le nombre total de jours (11,75), ou oublier l'écart des vraies moyennes (3,15) ;
+- en e), prendre deux échantillons de la même ferme (1,68), ne compter qu'un terme (10,84 ou 13,36), diviser la somme des traces par le nombre total de jours (12,1), ou oublier l'écart des vraies moyennes (4,2).
 
 **Remédiation** : M27.9, M27.15, M27.16, M27.25, M27.Q6, M27.R3, M27.E2.
 
