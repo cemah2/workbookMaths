@@ -21,10 +21,10 @@ justifications « sur ta copie ».
 
 The answers are typed as TEXT (one cell per question, a block between triple quotes, one line « a) value » per
 sub-question, as on the answer sheet), so that nothing typed can stop a cell: a decimal comma (0,0264), a French
-list (0,2 ; 0,5) or a missing bracket gives a message, never the SyntaxError that stopped « Run all » for the
-simulated candidate of CP5. Each value is read as a calculator reads it (0.25, 3/8, sqrt(13), ln(2)); a lone number
+list (0,83 ; -2,6) or a missing bracket gives a message, never the SyntaxError that stopped « Run all » for the
+simulated candidate of CP5. Each value is read as a calculator reads it (0.83, 3/8, sqrt(7), ln(7)); a lone number
 with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with decimal commas; a list
-that mixes « 0,5 » and « , » gets a message; the fractions and the letters go to wbm as texts. A line pasted from
+that mixes « 4,1 » and « , » gets a message; the fractions and the letters go to wbm as texts. A line pasted from
 the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last « = » or
 « : »), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
 decides, as in CP5. 45 checks; besides the wrong values of s68/reponses_cp6.md, the simulated candidates added the
@@ -428,10 +428,12 @@ NO_MEANS_7 = float(np.trace(SA_7) / NA_7 + np.trace(SB_7) / NB_7)
 GAP_NORM_7 = math.sqrt(math.sqrt(MEANS_7) + COV_7)                 # the distance of the means, not its square
 
 # CP6.9 a): the letters of the five wrong lines
-WRONG_9, RIGHT_9 = "ACEGH", "BDF"
-MISSING_9 = {"".join(c) for c in combinations(WRONG_9, len(WRONG_9) - 1)}
-EXTRA_9 = {"".join(sorted(WRONG_9 + r)) for r in RIGHT_9}
-SWAPPED_9 = {"".join(sorted(set(WRONG_9) - {w} | {r})) for w in WRONG_9 for r in RIGHT_9}
+LINES_9, WRONG_9 = "ABCDEFGH", "ACEGH"
+RIGHT_9 = "".join(sorted(set(LINES_9) - set(WRONG_9)))
+FOUR_9 = {"".join(c) for c in combinations(LINES_9, 4)}           # the messages depend on the number of letters only
+SIX_9 = {"".join(c) for c in combinations(LINES_9, 6)}
+FIVE_9 = {"".join(c) for c in combinations(LINES_9, 5)} - {WRONG_9}
+assert (len(FOUR_9), len(SIX_9), len(FIVE_9), RIGHT_9) == (70, 28, 55, "BDF")
 
 # CP6.10: a charging station with two waiting places, 0, 1 or 2 cars waiting, every five minutes
 P_10 = fmat([["0.32", "0.60", "0.08"], ["0.21", "0.33", "0.46"], ["0.05", "0.60", "0.35"]])
@@ -697,9 +699,9 @@ PAPER = [
     ]),
     Paper("CP6.9", "Corriger une copie : cinq erreurs, une par chapitre (les lettres seulement)", [
         ("a", LETTERS, "WRONG_9", wrong(
-            plain("cinq lignes sont fausses : ta réponse en contient moins", "MISSING_9"),
-            plain("exactement cinq lignes sont fausses", "EXTRA_9"),
-            plain("au moins une des lignes que tu donnes est juste : relis-les une par une", "SWAPPED_9"),
+            plain("cinq lignes sont fausses : ta réponse en contient moins", "FOUR_9"),
+            plain("exactement cinq lignes sont fausses", "SIX_9"),
+            plain("au moins une des lignes que tu donnes est juste : relis-les une par une", "FIVE_9"),
             plain("ce sont les lignes justes : la question demande les fausses", "RIGHT_9"))),
     ]),
     Paper("CP6.10", "Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis "
@@ -772,11 +774,11 @@ _NAMES = {"sqrt": math.sqrt, "pi": math.pi, "e": math.e, "exp": math.exp, "ln": 
           "degrees": math.degrees, "abs": abs, "math": math, "Fraction": Fraction}
 _LINE = re.compile(r"[-*•]?\s*\(?([a-zA-Z])\s*[).:]\s*(.*)")
 _FRENCH_NUMBER = re.compile(r"[+-]?\d+,\d+")
-_COMMAS = ("dans une liste, une virgule sépare deux éléments : « [0,5, 1,2] » se lit comme quatre nombres. Écris "
-           "les décimaux avec un point, [0.5, 1.2], ou sépare les éléments par des points-virgules, (0,5 ; 1,2).")
+_COMMAS = ("dans une liste, une virgule sépare deux éléments : « [4,1, 7,9] » se lit comme quatre nombres. Écris "
+           "les décimaux avec un point, [4.1, 7.9], ou sépare les éléments par des points-virgules, (4,1 ; 7,9).")
 _UNREADABLE = ("je ne lis pas « {} » comme une liste : écris-la entre crochets, avec des points décimaux et des "
-               "virgules entre les éléments, comme [0.25, -1.5] (une matrice : la liste de ses lignes, "
-               "[[1, 2], [3, 4]]), ou avec des points-virgules entre les éléments, comme (0,25 ; -1,5).")
+               "virgules entre les éléments, comme [0.83, -2.6] (une matrice : la liste de ses lignes, "
+               "[[2, -1], [4, 3]]), ou avec des points-virgules entre les éléments, comme (0,83 ; -2,6).")
 
 
 class Unreadable(ValueError):
@@ -809,7 +811,7 @@ def _split(text):
 
 
 def _french_list(text):
-    """(0,2 ; 0,5) or [0,2 ; 0,5]: elements separated by semicolons, written with decimal commas."""
+    """(0,83 ; -2,6) or [0,83 ; -2,6]: elements separated by semicolons, written with decimal commas."""
     inner = text.strip()
     if inner[:1] in "[(" and inner[-1:] in "])":
         inner = inner[1:-1]
@@ -851,7 +853,7 @@ def read_value(sub_id, text):
         return text                                     # a fraction, letters: wbm reads the text
     if sub_id not in LISTS:
         if _FRENCH_NUMBER.fullmatch(text):
-            return text                                 # 0,25: wbm reads a decimal comma in a text
+            return text                                 # 0,83: wbm reads a decimal comma in a text
         try:
             return _python(text)
         except Exception:
@@ -862,7 +864,7 @@ def read_value(sub_id, text):
         except Exception:
             raise Unreadable(_UNREADABLE.format(text)) from None
     if re.search(r"\d,\d", text) and re.search(r",\s", text):
-        raise Unreadable(_COMMAS)                       # [0,5, 1,2]: decimal commas inside a list
+        raise Unreadable(_COMMAS)                       # [4,1, 7,9]: decimal commas inside a list
     try:
         return _python(text)
     except Exception:
@@ -892,7 +894,7 @@ def check_question(question, letters, answers):
                   f"{match.group(1)}) ici.")
         else:
             print(f"⚠️ {question} : ligne ignorée, « {line} » : garde la lettre de la sous-question et sa parenthèse, "
-                  f"comme « a) 0.25 ».")
+                  f"comme « a) 0.83 ».")
     for letter in letters:
         sub_id = f"{question}{letter}"
         try:
@@ -935,7 +937,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
 2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Tu peux aussi coller les lignes de ta copie `04_mes_reponses.md` (« - a) L = … ») : seul ce qui suit le dernier « = » ou le dernier « : » est lu. Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
-3. Les formes d'écriture, comme sur ta copie : un nombre avec une virgule ou un point (`0,25` ou `0.25`), ou un calcul (`3/8`, `sqrt(13)`, `ln(2)`) ; une liste entre crochets avec des points décimaux, `[0.25, -1.5]`, ou, si tu gardes les virgules décimales, avec des points-virgules entre les éléments, `(0,25 ; -1,5)` (dans une liste, `[0,5, 1,2]` se lit comme quatre nombres) ; une matrice comme la liste de ses lignes, `[[1, -2], [0.5, 3]]` ; une fraction telle quelle, `3/8` ; des lettres telles quelles, `ABCDE`.
+3. Les formes d'écriture, comme sur ta copie : un nombre avec une virgule ou un point (`0,83` ou `0.83`), ou un calcul (`3/8`, `sqrt(7)`, `ln(7)`) ; une liste entre crochets avec des points décimaux, `[0.83, -2.6]`, ou, si tu gardes les virgules décimales, avec des points-virgules entre les éléments, `(0,83 ; -2,6)` (dans une liste, `[4,1, 7,9]` se lit comme quatre nombres) ; une matrice comme la liste de ses lignes, `[[2, -1], [4, 3]]` ; une fraction telle quelle, `3/8` ; des lettres telles quelles, `ABCDE`.
 4. Les décimales : quand l'énoncé dit « valeur exacte », donne toutes les décimales de ta valeur (elle n'en a que quelques-unes) ; quand il dit « 4 décimales » (ou 3, ou 2), arrondis à ce nombre, à la fin du calcul seulement. Quand il dit « dans n'importe quel ordre », l'ordre ne compte pas ; ailleurs, l'ordre de ta liste compte.
 5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
 
