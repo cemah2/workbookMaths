@@ -198,7 +198,7 @@ Dis chaque mot en français puis en anglais, puis la phrase de la dernière colo
 | variable latente, posterior | latent variable, posterior | « Ce qu'on ne voit pas, et ce qu'on en sait une fois la donnée lue. » |
 | responsabilité | responsibility | « La probabilité qu'une mesure vienne de chaque composante, avec les paramètres du moment. » |
 | borne inférieure de l'évidence | evidence lower bound (ELBO) | « Une borne de ln p(x), dont l'écart est une KL au posterior. » |
-| posterior agrégé, effondrement | aggregate posterior, posterior collapse | « La moyenne des codes sur les données ; un code effondré ne dit plus rien de la donnée. » |
+| posterior agrégé, effondrement | aggregated posterior, posterior collapse | « La moyenne des codes sur les données ; un code effondré ne dit plus rien de la donnée. » |
 | loi stationnaire | stationary distribution | « La loi que la chaîne garde quand elle la possède ; vers laquelle elle converge si elle mélange bien. » |
 | équation de Bellman | Bellman equation | « La valeur d'un état est sa récompense plus la valeur, actualisée, de ce qui suit. » |
 | point selle, stratégie mixte | saddle point, mixed strategy | « Sans point selle, jouer au hasard, avec les bonnes probabilités, rend l'adversaire indifférent. » |
@@ -206,7 +206,7 @@ Dis chaque mot en français puis en anglais, puis la phrase de la dernière colo
 | distance de Fréchet | Fréchet distance | « La distance de Wasserstein d'ordre 2 entre deux gaussiennes : deux moyennes, deux covariances. » |
 | dérive | drift | « Une variable qui change de loi entre deux périodes ; je dis avec quelle mesure, et dans quelle unité. » |
 | positionnement multidimensionnel | multidimensional scaling | « Des distances aux positions : double centrage, puis théorème spectral, à une isométrie près. » |
-| montée projetée | projected ascent | « Un pas de gradient, puis on ramène le point dans le domaine permis. » |
+| montée projetée | projected gradient ascent | « Un pas de gradient, puis on ramène le point dans le domaine permis. » |
 | fréquence spatiale, repliement | spatial frequency, aliasing | « Un motif plus rapide que deux cases par période se replie sur un motif plus lent. » |
 | température, top-p | temperature, nucleus sampling | « Chauffer aplatit la loi ; le top-p garde les plus probables jusqu'à la masse demandée, et paie −ln P(S). » |
-| prépériode, période | tail length, cycle length | « Une suite déterministe sur un ensemble fini finit par revenir sur ses pas : une queue, puis un cycle. » |
+| prépériode, période | preperiod, cycle length | « Une suite déterministe sur un ensemble fini finit par revenir sur ses pas : une queue, puis un cycle. » |

@@ -25,8 +25,8 @@
 - c) loi de x₂ sachant x₁ = 48 : [moyenne, variance] =
 - d) loi de x₁ sachant x₂ = 48,5 : [moyenne, variance] =
 - e) μ + Lε =
-- f) covariance des tirages du collègue =
-- LLᵀ ; x₁ et x₂ en fonction de ε₁ et ε₂, et pourquoi la variance de c) est l₂₂² ; la loi des tirages du collègue, et son point pour le même ε :
+- f) covariance des tirages μ + Mε =
+- LLᵀ ; x₁ et x₂ en fonction de ε₁ et ε₂, et pourquoi la variance de c) est l₂₂² ; la loi des tirages μ + Mε, et leur point pour le même ε :
 
 ## CP6.2 — La divergence KL entre deux gaussiennes de dimension 2, et une interpolation sphérique
 
@@ -36,7 +36,7 @@
 - d) Ω (en degrés) =
 - e) slerp(u, v ; 1/4) =
 - f) norme du point de la ligne droite pour t = 1/4 :
-- Les trois termes de la KL ; la norme du point de e) ; les angles de u avec les points de e) et de f) :
+- Les trois termes de la KL ; l'angle de u avec le point de e) :
 
 ## CP6.3 — Un mélange de deux gaussiennes de variances connues et trois mesures : responsabilités, un pas d'EM sur le poids et les moyennes, et l'écart à l'ELBO d'une affectation dure
 
@@ -51,7 +51,7 @@
 - a) μ₂ =
 - b) probabilité d'être sortie du domaine dans deux ans :
 - c) [V(0), V(1), V(2)] =
-- d) récolte moyenne de l'année 2 :
+- d) récolte moyenne de l'année 2 (une parcelle sortie compte 0 hl) :
 - P et les sommes de ses lignes ; le système V = r + PV, résolu à partir de V(2) ; pourquoi γ = 1 est permis :
 
 ## CP6.5 — Un jeu à somme nulle 2 × 2 en stratégies mixtes, et W₁ entre deux petits échantillons de même taille
@@ -62,25 +62,25 @@
 - d) valeur du jeu :
 - e) W₁ =
 - f) W₂ =
-- Pourquoi pas de point selle ; les deux égalités d'indifférence ; l'appariement ; W₁ comparé à l'écart des moyennes :
+- Pourquoi pas de point selle ; W₁ ≤ W₂ :
 
 ## CP6.6 — Des distances aux positions : double centrage, matrice de Gram, et une configuration à une isométrie près
 
 - a) s =
 - b) G =
-- c) valeurs propres non nulles (de la plus grande à la plus petite) =
-- d) carte (une ligne par bouée) =
-- Les rᵢ ; G1 = 0 ; AB² sur la carte ; l'isométrie possible :
+- c) les trois valeurs propres de G (de la plus grande à la plus petite) =
+- d) carte (une ligne par bouée, une colonne par valeur propre non nulle) =
+- Les rᵢ ; G1 = 0 ; ce que dit le nombre de valeurs propres non nulles ; l'isométrie possible :
 
 ## CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées
 
 - a) valeurs propres de Σ_A Σ_B (de la plus grande à la plus petite) =
 - b) part des covariances dans W₂² =
 - c) W₂ =
-- d) E‖x̄_A − x̄_B‖² (30 et 20 jours) =
-- e) E‖x̄₁ − x̄₂‖² (deux fois 30 jours de la ferme A) =
-- f) plus petit n :
-- Les valeurs propres de Σ_A ; la part des covariances en fonction de tr Σ_A ; ce que dit e) :
+- d) E‖x̄_A − x̄_B‖² (20 jours de A, 40 jours de B) =
+- e) E‖x̄_A − x̄_B‖² (25 jours de chaque ferme) =
+- f) plus petit n (le même pour les deux fermes) :
+- Les valeurs propres de Σ_A ; la part des covariances en fonction de tr Σ_A ; d) comparé à e), et ce qu'il faut en conclure :
 
 ## CP6.8 — Une démonstration au choix (sujet A ou B)
 
@@ -108,10 +108,9 @@ Sujet choisi :
 - c) S₁ (par probabilité décroissante) =
 - d) p_{S₁} =
 - e) KL(p_{S₁} ‖ p₁) =
-- f) distance en variation totale :
-- g) P′ =
-- h) π′ =
-- Les cinq premiers termes et la borne de μ + λ ; pourquoi KL(p₁ ‖ p_{S₁}) est infinie ; pourquoi π′₀ = 0, et ce que cela dit de la file vide ; pourquoi le simulateur aléatoire ne boucle pas forcément :
+- f) P′ =
+- g) π′ =
+- Les cinq premiers termes et la borne de μ + λ ; pourquoi KL(p₁ ‖ p_{S₁}) est infinie ; pourquoi π′₀ = 0, et ce que cela dit de la file vide :
 
 ---
 

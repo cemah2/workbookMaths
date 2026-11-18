@@ -42,7 +42,7 @@
 - **Matrices de Gram.** Les points sont les lignes de $\mathbf{X}$ et $\mathbf{G} = \mathbf{X}\mathbf{X}^\top$ ; $\mathbf{D}^{(2)}$ est la matrice des **carrés** des distances et $\mathbf{J} = \mathbf{I} - \frac1n\mathbf{1}\mathbf{1}^\top$.
 - **Lois tronquées.** Une loi est un vecteur de probabilités ; entre deux probabilités égales, le plus petit état passe d'abord ; le top-p de seuil $m$ prend les issues par probabilité décroissante, une à une, jusqu'à ce que leur masse $P(S)$ atteigne $m$, et la loi tronquée est la loi conditionnelle sur $S$.
 - **Listes.** Une réponse en liste se donne dans l'ordre de la question : les coordonnées ou les états dans l'ordre de leurs numéros, et les éléments annoncés par « puis » dans cet ordre. Quand l'ordre ne compte pas, la question le dit (« dans n'importe quel ordre »).
-- Dans le notebook, une matrice s'écrit comme la liste de ses **lignes**, et une fraction irréductible entre guillemets, comme `"3/8"`.
+- Dans le notebook, tu recopies chaque réponse comme sur ta copie, après sa lettre : une matrice comme la liste de ses **lignes**, une fraction irréductible telle quelle, comme `3/8`.
 - Dans les tableaux, « données 1 », « données 2 » renvoient aux situations numérotées au-dessus du tableau.
 
 ---
@@ -52,14 +52,14 @@
 Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phrase : une règle, un calcul ou un contre-exemple. Chaque affirmation vaut 1 point : 0,4 pour le verdict, 0,6 pour la justification. Ce quiz se note avec le corrigé.
 
 a) Une chaîne de Markov part de sa loi stationnaire : $S_0$ suit $\boldsymbol{\pi}$. Alors $S_0$ et $S_1$ sont indépendants.
-b) Si $\det\boldsymbol{\Sigma}_0 = \det\boldsymbol{\Sigma}_1$, la divergence KL entre $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma}_0)$ et $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma}_1)$, de même moyenne, est nulle.
-c) Tempérer une loi $\mathbf{p}$ à la température $T = 2$, puis tempérer la loi obtenue à la température $T' = 3$, donne la loi $\mathbf{p}$ tempérée à la température 6.
-d) Sur $f(x, y) = 10xy$, que $x$ veut petite et $y$ grande, la descente-montée simultanée de pas $\eta = 0{,}04$ converge vers l'équilibre $(0, 0)$ si elle part assez près de lui.
+b) $\mathcal{N}(\boldsymbol{\mu}, \operatorname{diag}(6, 1))$ et $\mathcal{N}(\boldsymbol{\mu}, \operatorname{diag}(1, 6))$ ont le même déterminant ; la divergence KL de l'une à l'autre est donc nulle.
+c) Tempérer une loi $\mathbf{p}$ à la température $T = 3$, puis tempérer la loi obtenue à la température $T' = 4$, donne la loi $\mathbf{p}$ tempérée à la température 12.
+d) Sur $f(x, y) = 10xy$, que $x$ veut petite et $y$ grande, la descente-montée simultanée de pas $\eta = 0{,}04$ multiplie, à chaque pas et depuis tout point, la distance à l'équilibre $(0, 0)$ par 1,16.
 e) $p$ est la loi uniforme sur $\{1, 2, 3, 4, 5, 6\}$ et $q$ la loi uniforme sur $\{1, 2\}$. $\mathrm{KL}(q \,\|\, p) = \ln 3$ est finie, alors que $\mathrm{KL}(p \,\|\, q) = +\infty$ : c'est pourquoi la KL inverse, $\mathrm{KL}(q \,\|\, p)$, permet à une loi approchée $q$ d'ignorer une partie de la masse de $p$.
-f) Pour une politique fixée, avec des récompenses moyennes $r(s)$ toutes comprises entre 0 et 3 et $\gamma = 0{,}8$, toutes les valeurs $V(s)$ sont comprises entre 0 et 15.
+f) Pour une politique fixée et $0 \le \gamma < 1$ : augmenter la récompense moyenne $r(s_0)$ d'un seul état $s_0$ ne fait baisser la valeur d'aucun état, et fait monter $V(s_0)$ d'au moins autant.
 g) $\mathbf{x} = (x_1, x_2, x_3)$ est un vecteur gaussien de covariance $\boldsymbol{\Sigma}$ inversible, et $\boldsymbol{\Lambda} = \boldsymbol{\Sigma}^{-1}$. La variance de $x_1$ sachant $x_2$ et $x_3$ vaut $\frac{1}{\Lambda_{11}}$.
 h) $p$ et $q$ sont deux lois discrètes de supports disjoints, et $m = \frac12(p + q)$. Alors $\mathrm{JS}(p, m) = \ln 2$, comme $\mathrm{JS}(p, q)$.
-i) Sur un signal refermé en anneau, de longueur multiple de 6, une moyenne mobile de trois cases efface un motif cosinus de période 3 cases, et multiplie un motif cosinus de période 6 cases par $\frac23$.
+i) Sur un signal refermé en anneau, de longueur multiple de 3, une moyenne mobile de trois cases efface tout motif cosinus de période 3 cases, quelle que soit sa phase, et ne multiplie par 0 aucun motif de période plus longue.
 j) Une donnée vaut $x_1$ ou $x_2$, avec la probabilité $\frac12$ chacune. Un code stochastique donne $q(z \mid x_1) = (0{,}84 ;\ 0{,}16)$ et $q(z \mid x_2) = (0{,}34 ;\ 0{,}66)$, et le prior est $p(z) = (0{,}59 ;\ 0{,}41)$. Le posterior agrégé est égal au prior ; donc la KL moyenne au prior, $\mathbb{E}_x\,\mathrm{KL}\big(q(z \mid x) \,\|\, p(z)\big)$, est nulle.
 
 ### CP6.1 — Un vecteur gaussien de dimension 2 : loi marginale, loi conditionnelle, et la loi de μ + Lε ✏️ ★★ ⏱️ 10 min · 10 points (10/6 ≈ 1,67 par sous-question)
@@ -73,10 +73,10 @@ $$\boldsymbol{\mu} = \begin{pmatrix} 40 \\ 55 \end{pmatrix}, \qquad \boldsymbol{
 | b | la loi marginale de $x_2$ : sa moyenne, puis sa variance | une liste de 2 nombres (valeurs exactes) |
 | c | la loi de $x_2$ sachant $x_1 = 48$ : sa moyenne, puis sa variance | une liste de 2 nombres (valeurs exactes) |
 | d | la loi de $x_1$ sachant $x_2 = 48{,}5$ : sa moyenne, puis sa variance | une liste de 2 nombres (4 décimales) |
-| e | le tirage $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ pour $\boldsymbol{\varepsilon} = (1{,}5 ;\ -2)$ | une liste de 2 nombres (valeurs exactes) |
-| f | un collègue tire $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$, avec $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ et $\mathbf{M} = \begin{pmatrix} 0 & 4 \\ 2 & 3 \end{pmatrix}$ : la matrice de covariance de ses tirages | une matrice $2 \times 2$ (valeurs exactes) |
+| e | le tirage $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ pour $\boldsymbol{\varepsilon} = (1 ;\ -2{,}5)$ | une liste de 2 nombres (valeurs exactes) |
+| f | on tire aussi $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$, avec $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ et $\mathbf{M} = \begin{pmatrix} 0 & 4 \\ 2 & 3 \end{pmatrix}$ : la matrice de covariance de ces tirages | une matrice $2 \times 2$ (valeurs exactes) |
 
-Sur ta copie : vérifie $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$ ; écris $x_1$ et $x_2$ en fonction de $\varepsilon_1$ et $\varepsilon_2$, et explique avec elles pourquoi la variance de c) est $l_{22}^2$ et ne dépend pas de la valeur lue ; les tirages du collègue ont-ils la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, et donnent-ils le point de e) pour le même $\boldsymbol{\varepsilon}$ ?
+Sur ta copie : vérifie $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$ ; écris $x_1$ et $x_2$ en fonction de $\varepsilon_1$ et $\varepsilon_2$, et explique avec elles pourquoi la variance de c) est $l_{22}^2$ et ne dépend pas de la valeur lue ; les tirages $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ ont-ils la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, et donnent-ils le point de e) pour le même $\boldsymbol{\varepsilon}$ ?
 
 ### CP6.2 — La divergence KL entre deux gaussiennes de dimension 2, et une interpolation sphérique ✏️ ★★ ⏱️ 9 min · 9 points (1,5 par sous-question)
 
@@ -93,18 +93,18 @@ $$\boldsymbol{\mu}_0 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \boldsymbol{\
 | e | données 2 : $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ;\ \frac14)$ | une liste de 3 nombres (4 décimales) |
 | f | données 2 : la norme du point $(1 - t)\,\mathbf{u} + t\,\mathbf{v}$ de la ligne droite, pour $t = \frac14$ | un nombre (3 décimales) |
 
-Sur ta copie : les trois termes de la KL, et ce que chacun compare ; vérifie que le point de e) a pour norme 3 ; l'angle de $\mathbf{u}$ avec le point de e), puis avec le point de f) : lequel vaut $\frac\Omega4$ ?
+Sur ta copie : les trois termes de la KL, et ce que chacun compare ; l'angle de $\mathbf{u}$ avec le point de e) : vaut-il $\frac\Omega4$ ?
 
 ### CP6.3 — Un mélange de deux gaussiennes de variances connues et trois mesures : responsabilités, un pas d'EM sur le poids et les moyennes, et l'écart à l'ELBO d'une affectation dure ✏️ ★★ ⏱️ 10 min · 10 points (2,5 par sous-question)
 
-Un service de livraison reçoit des colis de deux entrepôts, sans savoir duquel vient chaque colis. Le délai d'un colis, en heures, suit le mélange $\pi_1\,\mathcal{N}(\mu_1, \sigma^2) + \pi_2\,\mathcal{N}(\mu_2, \sigma^2)$ : la composante 1 est l'entrepôt proche, la composante 2 l'entrepôt lointain. La variance est connue, $\sigma^2 = 16$ h² pour les deux, et l'EM ne met à jour que le poids et les moyennes. On part de $\boldsymbol{\pi} = (0{,}62 ;\ 0{,}38)$ et $\boldsymbol{\mu} = (24 ;\ 32)$. Trois colis ont mis $x = 22$, $27$ et $36$ heures.
+Une coopérative a mélangé par erreur les graines de deux sacs, sans savoir de quel sac vient chaque graine. Le temps de germination d'une graine, en heures, suit le mélange $\pi_1\,\mathcal{N}(\mu_1, \sigma^2) + \pi_2\,\mathcal{N}(\mu_2, \sigma^2)$ : la composante 1 est le sac de graines fraîches, la composante 2 le sac de graines anciennes, plus lentes à germer. La variance est connue, $\sigma^2 = 16$ h² pour les deux, et l'EM ne met à jour que le poids et les moyennes. On part de $\boldsymbol{\pi} = (0{,}62 ;\ 0{,}38)$ et $\boldsymbol{\mu} = (24 ;\ 32)$. Trois graines ont germé en $x = 22$, $27$ et $36$ heures.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | les responsabilités $r_{i1}$ de la composante 1 pour les trois colis, dans l'ordre des mesures | une liste de 3 nombres (4 décimales) |
+| a | les responsabilités $r_{i1}$ de la composante 1 pour les trois graines, dans l'ordre des mesures | une liste de 3 nombres (4 décimales) |
 | b | le poids $\pi_1$ après le pas M | un nombre (4 décimales) |
 | c | les moyennes $(\mu_1, \mu_2)$ après le pas M (h) | une liste de 2 nombres (3 décimales) |
-| d | avec les paramètres de départ : l'écart $\ln p(x_1, x_2, x_3) - \operatorname{ELBO}(q)$ pour l'**affectation dure** $q$, qui met chaque colis, avec certitude, dans la composante de plus grande responsabilité | un nombre (4 décimales) |
+| d | avec les paramètres de départ : l'écart $\ln p(x_1, x_2, x_3) - \operatorname{ELBO}(q)$ pour l'**affectation dure** $q$, qui met chaque graine, avec certitude, dans la composante de plus grande responsabilité | un nombre (4 décimales) |
 
 Sur ta copie : les trois nombres $\frac{(x - \mu_2)^2 - (x - \mu_1)^2}{2\sigma^2}$, avant d'y ajouter $\ln\frac{\pi_1}{\pi_2}$ ; pourquoi l'écart de d) est une somme de KL, et pourquoi chacune vaut $-\ln r$ ; pour quelle loi $q$ cet écart serait nul.
 
@@ -122,7 +122,7 @@ Une parcelle morte ou arrachée sort du domaine : c'est la fin, codée par la ma
 | a | la loi $\boldsymbol{\mu}_2$ de l'état, dans deux ans, d'une parcelle jeune cette année (états 0, 1, 2) | une liste de 3 nombres (valeurs exactes) |
 | b | la probabilité que cette parcelle soit sortie du domaine dans deux ans | un nombre (valeur exacte) |
 | c | les valeurs $V(0)$, $V(1)$, $V(2)$ : la récolte totale moyenne d'une parcelle, depuis chaque état (hl) | une liste de 3 nombres (valeurs exactes) |
-| d | la récolte moyenne de l'année 2 (la troisième récolte) d'une parcelle jeune cette année (hl) | un nombre (valeur exacte) |
+| d | la récolte moyenne de l'année 2 (la troisième récolte) d'une parcelle jeune cette année, une parcelle sortie du domaine comptant 0 hl (hl) | un nombre (valeur exacte) |
 
 Sur ta copie : $\mathbf{P}$ et la somme de chacune de ses lignes ; le système $\mathbf{V} = \mathbf{r} + \mathbf{P}\mathbf{V}$, et pourquoi il se résout en commençant par $V(2)$ ; pourquoi $\gamma = 1$ est permis ici.
 
@@ -142,43 +142,43 @@ Le braconnier maximise, le garde minimise ; $p$ est la probabilité que le braco
 | | Question | Réponse attendue |
 |---|---|---|
 | a | données 1 : le maximin, puis le minimax, en stratégies pures | une liste de 2 entiers |
-| b | données 1 : $p^\star$ | une fraction irréductible, entre guillemets |
-| c | données 1 : $q^\star$ | une fraction irréductible, entre guillemets |
-| d | données 1 : la valeur du jeu (en centaines d'euros) | une fraction irréductible, entre guillemets |
+| b | données 1 : $p^\star$ | une fraction irréductible |
+| c | données 1 : $q^\star$ | une fraction irréductible |
+| d | données 1 : la valeur du jeu (en centaines d'euros) | une fraction irréductible |
 | e | données 2 : $W_1$ entre les deux échantillons (cm) | un nombre (valeur exacte) |
 | f | données 2 : $W_2$ entre les deux échantillons (cm) | un nombre (4 décimales) |
 
-Sur ta copie : pourquoi le jeu n'a pas de point selle ; les deux égalités d'indifférence ; l'appariement qui donne $W_1$ ; compare $W_1$ à l'écart des deux moyennes, et dis pourquoi ils diffèrent ici.
+Sur ta copie : pourquoi le jeu n'a pas de point selle ; vérifie $W_1 \le W_2$.
 
 ### CP6.6 — Des distances aux positions : double centrage, matrice de Gram, et une configuration à une isométrie près ✏️ ★★ ⏱️ 8 min · 8 points (2 par sous-question)
 
-Trois bouées A, B et C sont ancrées dans une baie. Un bateau ne mesure que leurs distances ; leurs carrés, en hm² (1 hm = 100 m), valent $\mathrm{AB}^2 = 82$, $\mathrm{AC}^2 = 52$ et $\mathrm{BC}^2 = 34$. Les bouées sont rangées dans l'ordre A, B, C ; $\mathbf{D}^{(2)}$ est la matrice $3 \times 3$ des carrés de leurs distances, et $\mathbf{G} = -\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ la matrice de Gram des bouées centrées. La carte se construit comme dans la fiche M28 : $\mathbf{G} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ avec $\lambda_1 \ge \lambda_2 \ge \cdots$, la colonne $k$ de la carte est $\sqrt{\lambda_k}\,\mathbf{q}_k$ avec $\mathbf{q}_k$ unitaire, on garde autant de colonnes que de valeurs propres non nulles, et, dans chaque colonne, la première coordonnée non nulle (en lisant de A vers C) est positive. On admet que les vecteurs propres de $\mathbf{G}$ pour ses valeurs propres non nulles sont dirigés par $(5, -4, -1)$ et $(1, 2, -3)$.
+Trois bouées A, B et C sont ancrées dans une baie. Un bateau ne mesure que leurs distances ; leurs carrés, en hm² (1 hm = 100 m), valent $\mathrm{AB}^2 = 16$, $\mathrm{AC}^2 = 121$ et $\mathrm{BC}^2 = 49$. Les bouées sont rangées dans l'ordre A, B, C ; $\mathbf{D}^{(2)}$ est la matrice $3 \times 3$ des carrés de leurs distances, et $\mathbf{G} = -\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ la matrice de Gram des bouées centrées. La carte se construit comme dans la fiche M28 : $\mathbf{G} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ avec $\lambda_1 \ge \lambda_2 \ge \cdots$, la colonne $k$ de la carte est $\sqrt{\lambda_k}\,\mathbf{q}_k$ avec $\mathbf{q}_k$ unitaire, on garde autant de colonnes que de valeurs propres non nulles, et, dans chaque colonne, la première coordonnée non nulle (en lisant de A vers C) est positive.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $s$, la moyenne des neuf coefficients de $\mathbf{D}^{(2)}$ (hm²) | une fraction irréductible, entre guillemets |
+| a | $s$, la moyenne des neuf coefficients de $\mathbf{D}^{(2)}$ (hm²) | une fraction irréductible |
 | b | la matrice $\mathbf{G}$, lignes et colonnes dans l'ordre A, B, C (hm²) | une matrice $3 \times 3$ (valeurs exactes) |
-| c | les valeurs propres non nulles de $\mathbf{G}$, de la plus grande à la plus petite | une liste de 2 nombres |
-| d | la carte : une ligne par bouée (A, B, C), en hm | une matrice $3 \times 2$ (valeurs exactes) |
+| c | les trois valeurs propres de $\mathbf{G}$, de la plus grande à la plus petite (compare les lignes de $\mathbf{G}$) | une liste de 3 nombres (valeurs exactes) |
+| d | la carte : une colonne par valeur propre non nulle, une ligne par bouée (A, B, C), en hm | une matrice à 3 lignes (valeurs exactes) |
 
-Sur ta copie : les moyennes $r_i$ des lignes de $\mathbf{D}^{(2)}$, puis $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$ ; vérifie $\mathbf{G}\mathbf{1} = \mathbf{0}$ ; vérifie $\mathrm{AB}^2$ sur ta carte ; quelle sorte d'isométrie peut séparer ta carte de la vraie position des bouées ?
+Sur ta copie : les moyennes $r_i$ des lignes de $\mathbf{D}^{(2)}$, puis $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$ ; vérifie $\mathbf{G}\mathbf{1} = \mathbf{0}$ ; que dit le nombre de valeurs propres non nulles de la disposition des bouées ? quelle sorte d'isométrie peut séparer ta carte de la vraie position des bouées ?
 
 ### CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ ★★ ⏱️ 9 min · 9 points (1,5 par sous-question)
 
 Deux fermes solaires ont chacune deux rangées de panneaux. La production journalière des deux rangées, en MWh, suit $\mathcal{N}(\boldsymbol{\mu}_A, \boldsymbol{\Sigma}_A)$ dans la ferme A et $\mathcal{N}(\boldsymbol{\mu}_B, \boldsymbol{\Sigma}_B)$ dans la ferme B, plus exposée aux nuages :
-$$\boldsymbol{\mu}_A = \begin{pmatrix} 18 \\ 12 \end{pmatrix}, \quad \boldsymbol{\Sigma}_A = \begin{pmatrix} 7 & 2 \\ 2 & 4 \end{pmatrix}, \qquad \boldsymbol{\mu}_B = \begin{pmatrix} 21 \\ 14 \end{pmatrix}, \quad \boldsymbol{\Sigma}_B = 4\,\boldsymbol{\Sigma}_A = \begin{pmatrix} 28 & 8 \\ 8 & 16 \end{pmatrix}.$$
+$$\boldsymbol{\mu}_A = \begin{pmatrix} 18 \\ 12 \end{pmatrix}, \quad \boldsymbol{\Sigma}_A = \begin{pmatrix} 12 & 2 \\ 2 & 9 \end{pmatrix}, \qquad \boldsymbol{\mu}_B = \begin{pmatrix} 21 \\ 13 \end{pmatrix}, \quad \boldsymbol{\Sigma}_B = 4\,\boldsymbol{\Sigma}_A = \begin{pmatrix} 48 & 8 \\ 8 & 36 \end{pmatrix}.$$
 On compare d'abord les deux lois par leur distance de Fréchet $W_2$. Puis on suppose les moyennes inconnues : on les estime par les moyennes $\bar{\mathbf{x}}$ de relevés de jours indépendants.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | les valeurs propres de $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B$, de la plus grande à la plus petite | une liste de 2 nombres |
+| a | les valeurs propres de $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B$, de la plus grande à la plus petite | une liste de 2 nombres (valeurs exactes) |
 | b | la part des covariances dans $W_2^2$, $\operatorname{tr}\boldsymbol{\Sigma}_A + \operatorname{tr}\boldsymbol{\Sigma}_B - 2\sum_i\sqrt{\lambda_i(\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B)}$ (MWh²) | un nombre (valeur exacte) |
 | c | la distance de Fréchet $W_2$ entre les deux lois (MWh) | un nombre (4 décimales) |
 | d | $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$, pour 20 jours de la ferme A et 40 jours de la ferme B (MWh²) | un nombre (valeur exacte) |
-| e | $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2$, pour deux échantillons indépendants de 25 jours chacun, tous deux de la ferme A (MWh²) | un nombre (valeur exacte) |
-| f | le plus petit nombre $n$ de jours tel que, pour deux échantillons indépendants de $n$ jours de la ferme A, l'espérance de e) soit au plus 0,05 MWh² | un entier |
+| e | $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$, pour 25 jours de la ferme A et 25 jours de la ferme B (MWh²) | un nombre (valeur exacte) |
+| f | le plus petit nombre $n$ de jours, le même pour les deux fermes, tel que $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$ dépasse $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2$ d'au plus 4 % de $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2$ | un entier |
 
-Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$, et pourquoi celles de $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B$ s'en déduisent ; écris la part des covariances de b) en fonction de $\operatorname{tr}\boldsymbol{\Sigma}_A$ seulement ; ce que dit e) quand on compare des distances estimées.
+Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$, et pourquoi celles de $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B$ s'en déduisent ; écris la part des covariances de b) en fonction de $\operatorname{tr}\boldsymbol{\Sigma}_A$ seulement ; compare d) et e) : que faut-il en conclure quand on compare des distances estimées ?
 
 ### CP6.8 — Une démonstration au choix ∂ ★★★ ⏱️ 12 min · 12 points (3 par étape)
 
@@ -188,49 +188,48 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 1. Montre que $p_i^{(T)} = \frac{e^{-\beta E_i}}{Z}$, puis que $H(T) = \beta\langle E\rangle + \ln Z$. **[3]**
 2. En dérivant par rapport à $\beta$, montre que $\frac{\mathrm{d}p_i^{(T)}}{\mathrm{d}\beta} = p_i^{(T)}\big(\langle E\rangle - E_i\big)$, puis que $\frac{\mathrm{d}\ln Z}{\mathrm{d}\beta} = -\langle E\rangle$ et $\frac{\mathrm{d}\langle E\rangle}{\mathrm{d}\beta} = -\mathbb{V}(E)$. **[3]**
 3. Déduis-en $\frac{\mathrm{d}H}{\mathrm{d}\beta} = -\beta\,\mathbb{V}(E)$, puis $\frac{\mathrm{d}H}{\mathrm{d}T} = \frac{\mathbb{V}(E)}{T^3} \ge 0$. Quand cette dérivée est-elle nulle ? Conclus. **[3]**
-4. Pour $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1)$ : écris $\mathbf{p}^{(T)}$ à l'aide de $a = 6^{1/T}$ ; donne les limites de $H(T)$ quand $T \to 0$ et quand $T \to +\infty$ ; calcule $H(1)$ et la dérivée $\frac{\mathrm{d}H}{\mathrm{d}T}$ en $T = 1$ (4 décimales). **[3]**
+4. Pour $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1)$ : écris $\mathbf{p}^{(T)}$ à l'aide de $a = 6^{1/T}$ ; calcule $H(1)$ et la dérivée $\frac{\mathrm{d}H}{\mathrm{d}T}$ en $T = 1$ (4 décimales). **[3]**
 
 **Sujet B — La loi de Boltzmann minimise l'énergie libre.** Des issues $1, \ldots, n$ ont des énergies $E_i$, et $T > 0$ est une température. La loi de Boltzmann est $p^\star_i = \frac{e^{-E_i/T}}{Z}$, avec $Z = \sum_j e^{-E_j/T}$. Pour une loi $q$ sur les mêmes issues, l'**énergie libre** est $F(q) = \mathbb{E}_q[E] - T\,H(q)$, où $H(q) = -\sum_i q_i\ln q_i$ (avec $0\ln 0 = 0$).
 1. Montre que, pour chaque issue, $E_i = -T\ln p^\star_i - T\ln Z$. **[3]**
 2. Montre que, pour toute loi $q$, $F(q) = T\,\mathrm{KL}(q \,\|\, p^\star) - T\ln Z$. **[3]**
 3. Conclus : $F(q) \ge -T\ln Z$, avec égalité si et seulement si $q = p^\star$. Réécris l'identité de la question 2 sous la forme $\ln Z = -\frac{F(q)}{T} + \mathrm{KL}(q \,\|\, p^\star)$, et dis à quelle identité de M25b elle ressemble, terme à terme. **[3]**
-4. Pour les énergies $(0,\ \ln 3,\ 2\ln 3)$ et $T = 1$ : calcule $Z$, $p^\star$ et $F(p^\star)$ (4 décimales), puis $F(q)$ pour $q$ uniforme et pour $q = (1, 0, 0)$, et vérifie que $F(q) - F(p^\star) = \mathrm{KL}(q \,\|\, p^\star)$ pour $q$ uniforme. Pourquoi la loi qui met toute la masse sur l'énergie la plus basse ne minimise-t-elle pas $F$ ? **[3]**
+4. Pour les énergies $(0,\ \ln 3,\ 2\ln 3)$ et $T = 1$ : calcule $Z$ (valeur exacte, une fraction), puis $p^\star$ et $F(p^\star)$ (4 décimales), puis $F(q)$ pour $q$ uniforme et pour $q = (1, 0, 0)$, et vérifie que $F(q) - F(p^\star) = \mathrm{KL}(q \,\|\, p^\star)$ pour $q$ uniforme. Pourquoi la loi qui met toute la masse sur l'énergie la plus basse ne minimise-t-elle pas $F$ ? **[3]**
 
 ### CP6.9 — Corriger une copie : cinq erreurs, une par chapitre 🐛 ★★ ⏱️ 9 min · 9 points
 
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses, une par chapitre de la partie VI.
 
 - **(A)** La chaîne de matrice $\begin{pmatrix} 0{,}05 & 0{,}95 \\ 0{,}65 & 0{,}35 \end{pmatrix}$ a pour valeurs propres 1 et $-0{,}6$ ; la seconde étant négative, la loi $\boldsymbol{\mu}_n$ de la chaîne ne converge pas vers sa loi stationnaire : elle oscille sans fin.
-- **(B)** Translater tous les points d'un nuage d'un même vecteur change leur matrice de Gram $\mathbf{X}\mathbf{X}^\top$, mais pas la matrice $-\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$ du double centrage.
+- **(B)** Pour 50 points de $\mathbb{R}^3$ rangés en lignes de $\mathbf{X}$, la matrice de Gram $\mathbf{X}\mathbf{X}^\top$, de taille $50 \times 50$, a au plus trois valeurs propres non nulles : les mêmes que celles de $\mathbf{X}^\top\mathbf{X}$.
 - **(C)** En dimension 2, l'ellipse de Mahalanobis de niveau $c = 2{,}5$ contient 98,8 % des tirages, comme l'intervalle $[\mu - 2{,}5\sigma ;\ \mu + 2{,}5\sigma]$ en dimension 1.
 - **(D)** Sur $f(x, y) = xy$, la descente-montée alternée de pas $\eta = 0{,}4$ garde $x^2 + y^2 - 0{,}4\,xy$ constant : ses itérés restent sur une ellipse.
-- **(E)** Pour approcher le mélange $\frac12\,\mathcal{N}(-3, 1) + \frac12\,\mathcal{N}(3, 1)$ par une gaussienne $q$ au sens de $\mathrm{KL}(p \,\|\, q)$, on prend $q = \mathcal{N}(0, 1)$ : la moyenne du mélange, et la variance commune des deux composantes.
+- **(E)** Pour approcher le mélange $\frac13\,\mathcal{N}(0, 2) + \frac23\,\mathcal{N}(9, 2)$ par une gaussienne $q$ au sens de $\mathrm{KL}(p \,\|\, q)$, on prend $q = \mathcal{N}(6, 2)$ : la moyenne du mélange, et la variance commune des deux composantes.
 - **(F)** L'entropie différentielle de $\mathcal{N}(0 ;\ 0{,}03)$ vaut $\frac12\ln(2\pi e \times 0{,}03) \approx -0{,}334$ nat : ce n'est pas une erreur de calcul, une entropie différentielle peut être négative.
 - **(G)** Le motif $x_{ij} = \cos\big(2\pi(0{,}24\,i + 0{,}07\,j)\big)$ a pour période $\frac{1}{0{,}24} + \frac{1}{0{,}07} \approx 18{,}5$ cases.
-- **(H)** Pour une variable à deux catégories, passée de $q = (0{,}14 ;\ 0{,}86)$ à $p = (0{,}21 ;\ 0{,}79)$, le PSI vaut $\mathrm{KL}(p \,\|\, q) \approx 0{,}0181$ nat.
+- **(H)** Pour $\mathbf{a} = \mathbf{b} = (\frac12 ;\ \frac12)$ sur les points 0 et 1 de la droite, le couplage indépendant $\boldsymbol{\Gamma} = \mathbf{a}\mathbf{b}^\top$ coûte $\frac12$ : c'est $W_1(\mathbf{a}, \mathbf{b})$.
 
-a) Les lettres des cinq lignes fausses, dans n'importe quel ordre (un texte, comme `"ABCDE"`). **[4,5]**
+a) Les lettres des cinq lignes fausses, dans n'importe quel ordre (comme `ABCDE`). **[4,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[4,5]** (0,9 par ligne ; se note avec le corrigé)
 
-### CP6.10 — Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire 🔗 ★★ ⏱️ 16 min · 16 points (2 par sous-question)
+### CP6.10 — Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire 🔗 ★★ ⏱️ 16 min · 16 points (16/7 ≈ 2,29 par sous-question)
 
 Une borne de recharge pour voitures électriques a deux places d'attente. Toutes les cinq minutes, on note le nombre de voitures qui attendent : 0, 1 ou 2, les trois états. Ce nombre suit une chaîne de Markov de matrice
 $$\mathbf{P} = \begin{pmatrix} 0{,}32 & 0{,}60 & 0{,}08 \\ 0{,}21 & 0{,}33 & 0{,}46 \\ 0{,}05 & 0{,}60 & 0{,}35 \end{pmatrix}.$$
 1. Un simulateur **glouton** suit la file en passant toujours à l'état suivant le plus probable, $u_{t+1} = f(u_t)$ (entre deux probabilités égales, le plus petit état), depuis $u_0 = 0$.
-2. Un simulateur **aléatoire** tire l'état suivant, mais après avoir tronqué chaque ligne de $\mathbf{P}$ par un top-p de seuil $m = 0{,}68$ : dans la ligne de l'état présent, il garde les états suivants par probabilité décroissante, un à un, jusqu'à ce que leur masse $P(S)$ atteigne $m$, puis tire selon la loi conditionnelle sur l'ensemble $S$ gardé. On note $\mathbf{P}'$ la matrice de la chaîne ainsi simulée, $\mathbf{p}_1$ la ligne 1 de $\mathbf{P}$, $S_1$ l'ensemble gardé dans cette ligne et $\mathbf{p}_{S_1}$ la ligne 1 de $\mathbf{P}'$.
+2. Un simulateur **aléatoire** tire l'état suivant, mais après avoir tronqué chaque ligne de $\mathbf{P}$ par un top-p de seuil $m = 0{,}68$ : dans la ligne de l'état présent, il garde les états suivants par probabilité décroissante, un à un, jusqu'à ce que leur masse $P(S)$ atteigne $m$, puis tire selon la loi conditionnelle sur l'ensemble $S$ gardé. On note $\mathbf{P}'$ la matrice de la chaîne ainsi simulée, $\mathbf{p}_1$ la ligne 1 de $\mathbf{P}$, $S_1$ l'ensemble des états gardés dans cette ligne (un ensemble d'états, pas l'état $S_t$ au pas 1) et $\mathbf{p}_{S_1}$ la ligne 1 de $\mathbf{P}'$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | données 1 : $f(0)$, $f(1)$, $f(2)$ | une liste de 3 entiers |
-| b | données 1 : la prépériode $\mu$, puis la période $\lambda$ de la suite gloutonne | une liste de 2 entiers |
+| b | données 1 : la prépériode $\mu$ (un nombre de pas, pas une loi), puis la période $\lambda$ de la suite gloutonne | une liste de 2 entiers |
 | c | données 2 : l'ensemble $S_1$, par probabilité décroissante | une liste d'entiers |
 | d | données 2 : la loi tronquée $\mathbf{p}_{S_1}$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
 | e | données 2 : le coût de la troncature de la ligne 1, $\mathrm{KL}(\mathbf{p}_{S_1} \,\|\, \mathbf{p}_1)$, en nats | un nombre (4 décimales) |
-| f | données 2 : la distance en variation totale $\frac12\lVert\mathbf{p}_{S_1} - \mathbf{p}_1\rVert_1$ | un nombre (valeur exacte) |
-| g | données 2 : la matrice $\mathbf{P}'$ | une matrice $3 \times 3$ (4 décimales) |
-| h | données 2 : la loi stationnaire $\boldsymbol{\pi}'$ de $\mathbf{P}'$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
+| f | données 2 : la matrice $\mathbf{P}'$ | une matrice $3 \times 3$ (4 décimales) |
+| g | données 2 : la loi stationnaire $\boldsymbol{\pi}'$ de $\mathbf{P}'$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
 
-Sur ta copie : les cinq premiers termes de la suite gloutonne, et la borne que la fiche M28 donne à $\mu + \lambda$ ; pourquoi $\mathrm{KL}(\mathbf{p}_1 \,\|\, \mathbf{p}_{S_1})$ est infinie ; pourquoi $\pi'_0 = 0$, et ce que cela dit de la file vide dans le simulateur aléatoire ; pourquoi ce simulateur, lui, ne boucle pas forcément.
+Sur ta copie : les cinq premiers termes de la suite gloutonne, et la borne que la fiche M28 donne à $\mu + \lambda$ ; pourquoi $\mathrm{KL}(\mathbf{p}_1 \,\|\, \mathbf{p}_{S_1})$ est infinie ; pourquoi $\pi'_0 = 0$, et ce que cela dit de la file vide dans le simulateur aléatoire.
 
 ---
 
