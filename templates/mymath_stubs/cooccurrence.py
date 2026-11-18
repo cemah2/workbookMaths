@@ -57,18 +57,18 @@ def pmi(joint):
 
 
 def case_control_logit(n_positive, n_negative, keep_positive=1.0, keep_negative=1.0):
-    """Return the logit of a population estimated on a case-control sample: ``ln(n₊ / n₋) - ln(s₊ / s₋)``.
+    """Return the logit of a population estimated on a case-control sample: ``ln(n₁ / n₀) - ln(s₁ / s₀)``.
 
     In a *case-control* sample, each positive example of the population (label 1) is kept with probability
-    ``s₊ = keep_positive`` and each negative one (label 0) with probability ``s₋ = keep_negative``, independently of
-    everything else; ``n₊ = n_positive`` and ``n₋ = n_negative`` are the numbers of examples kept. The logit of the
-    observed proportion ``n₊ / (n₊ + n₋)`` is ``ln(n₊ / n₋)`` (M13a, R6). By Bayes' formula (M04), the odds of a
-    positive in the sample are those of the population multiplied by ``s₊ / s₋``: the logit of the population is the
-    observed one minus ``ln(s₊ / s₋)``. With both rates equal to 1 (the default), nothing was dropped and the result
+    ``s₁ = keep_positive`` and each negative one (label 0) with probability ``s₀ = keep_negative``, independently of
+    everything else; ``n₁ = n_positive`` and ``n₀ = n_negative`` are the numbers of examples kept. The logit of the
+    observed proportion ``n₁ / (n₁ + n₀)`` is ``ln(n₁ / n₀)`` (M13a, R6). By Bayes' formula (M04), the odds of a
+    positive in the sample are those of the population multiplied by ``s₁ / s₀``: the logit of the population is the
+    observed one minus ``ln(s₁ / s₀)``. With both rates equal to 1 (the default), nothing was dropped and the result
     is the logit of the observed proportion.
 
-    When ``n₊ > 0`` and ``n₋ = 0``, the result is ``+inf``; when ``n₊ = 0`` and ``n₋ > 0``, it is ``-inf``. When
-    ``n₊ = n₋ = 0``, nothing was observed: an error.
+    When ``n₁ > 0`` and ``n₀ = 0``, the result is ``+inf``; when ``n₁ = 0`` and ``n₀ > 0``, it is ``-inf``. When
+    ``n₁ = n₀ = 0``, nothing was observed: an error.
 
     Parameters
     ----------
@@ -76,7 +76,7 @@ def case_control_logit(n_positive, n_negative, keep_positive=1.0, keep_negative=
         The numbers of positive and negative examples in the sample: finite numbers ``≥ 0``. Two arrays are combined
         cell by cell, with NumPy broadcasting (M20): one logit per cell.
     keep_positive, keep_negative : float, default 1.0
-        The selection rates ``s₊`` and ``s₋``, in ``]0, 1]``.
+        The selection rates ``s₁`` and ``s₀``, in ``]0, 1]``.
 
     Returns
     -------
@@ -102,7 +102,7 @@ def case_control_logit(n_positive, n_negative, keep_positive=1.0, keep_negative=
     """
     # TODO: check the two rates, then the numbers of examples (refuse booleans before converting to floats), broadcast
     #  them (np.broadcast_arrays); three cases cell by cell: both positive (the logarithm of the ratio, minus that of
-    #  the rates), only n₊ > 0, only n₋ > 0. Return a float when the broadcast shape is ().
+    #  the rates), only n₁ > 0, only n₀ > 0. Return a float when the broadcast shape is ().
     raise NotImplementedError("case_control_logit() is not implemented yet")
 
 
