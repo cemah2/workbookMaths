@@ -15,10 +15,10 @@
 **Objectif :** organiser toute la partie VI dans ta tête, avant l'examen, et repérer ce qui manque.
 
 1. **De mémoire, sans rien ouvrir (20 min).** Écris au centre d'une grande feuille les cinq questions ci-dessus. Autour de chacune, place les objets (un vecteur gaussien, un mélange, une chaîne, une matrice de gains, un nuage de points, une loi catégorielle), puis leurs formules et leurs théorèmes. Ensuite, entoure d'une même couleur chaque notion qui sert dans **deux chapitres au moins** (la KL, la loi stationnaire, la valeur propre dominante, la moyenne et la covariance, la loi conditionnelle…) et relie ses apparitions. Écris sur chaque flèche **pourquoi** elle existe.
-2. **Avec les fiches (25 min).** Ouvre les fiches de M25a à M28 (sections « L'essentiel » et « Les pièges classiques »), la partie VI de `annexes/formulaire.md` et celle de `annexes/erreurs_frequentes.md`. Complète ta carte d'une autre couleur : tout ce que tu ajoutes maintenant est à revoir.
+2. **Avec les fiches (25 min).** Ouvre les fiches de M25a à M28 (sections « L'essentiel » et « Les pièges classiques »), la partie VI de `annexes/formulaire.md` et les sections M25a à M28 de `annexes/erreurs_frequentes.md`. Complète ta carte d'une autre couleur : tout ce que tu ajoutes maintenant est à revoir.
 3. **Ta fiche d'une page (15 min).** Sur une seule page :
    - les 20 à 25 formules ou règles que tu veux avoir en tête le jour de l'examen, chacune avec sa **condition** (ce qu'elle suppose) ;
-   - le tableau des mesures entre deux lois de la section 3, rempli de mémoire (les colonnes seulement, sans regarder les lignes) ;
+   - le tableau des mesures entre deux lois de la section 3 : recopie sa seule ligne d'en-tête (mesure, définition, valeurs, unité, symétrie, saturation, chapitre), puis remplis de mémoire une ligne par mesure (KL, PSI, Jensen-Shannon, variation totale, Kolmogorov-Smirnov, $W_1$, $W_2$) ;
    - les cinq pièges qui te concernent le plus, tirés de tes copies de M25a à M28.
 4. **Compare** avec les sections 1 à 4 ci-dessous, puis garde ta carte et ta fiche dans `mon_travail/checkpoints/partie_6/` (une photo suffit).
 

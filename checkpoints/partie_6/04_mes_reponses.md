@@ -1,7 +1,7 @@
 # CP6 · Ma copie de l'examen blanc
 
 > Ta copie de ce fichier est dans `mon_travail/checkpoints/partie_6/04_mes_reponses.md` (créée par `python tools/start_chapter.py CP6`) : c'est **elle** que tu remplis, pendant l'examen, et c'est elle que Claude lit s'il corrige ton travail.
-> Écris ta démarche, pas seulement le résultat : une partie des points d'une question de calcul va à la méthode. Tu peux aussi composer sur papier, puis recopier ici tes réponses finales.
+> Écris ta démarche, pas seulement le résultat : une partie des points d'une question de calcul va à la méthode. Sur chaque ligne « - a) … = », écris après le « = » **la réponse seule**, et ta démarche sur les lignes suivantes, en retrait (sans les commencer par une lettre suivie d'une parenthèse) : le notebook de vérification lit ce qui suit le dernier « = » ou le dernier « : » de la ligne. Tu peux aussi composer sur papier, puis recopier ici tes réponses finales.
 
 **Date :** · **Début :** · **Fin :** · **Durée :**
 
@@ -79,7 +79,6 @@
 - c) W₂ =
 - d) E‖x̄_A − x̄_B‖² (20 jours de A, 40 jours de B) =
 - e) E‖x̄_A − x̄_B‖² (25 jours de chaque ferme) =
-- f) plus petit n (le même pour les deux fermes) :
 - Les valeurs propres de Σ_A ; la part des covariances en fonction de tr Σ_A ; d) comparé à e), et ce qu'il faut en conclure :
 
 ## CP6.8 — Une démonstration au choix (sujet A ou B)

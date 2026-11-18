@@ -37,7 +37,7 @@
 - **Gaussiennes.** Les vecteurs sont des colonnes ; $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ a pour second paramètre une **covariance** (une variance en dimension 1, jamais un écart-type). Le facteur de Cholesky $\mathbf{L}$ de $\boldsymbol{\Sigma}$ est triangulaire inférieur, de diagonale positive, avec $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$, et un tirage s'écrit $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ avec $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$. $\ln$ est le logarithme népérien : les KL, les entropies et les informations sont en **nats**, et $\mathrm{KL}(p \,\|\, q) = \mathbb{E}_{p}[\ln p - \ln q]$ (l'espérance sous la **première** loi). $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ; t)$ est l'interpolation sphérique de M25a §8 ($\mathbf{u}$ en $t = 0$, $\mathbf{v}$ en $t = 1$), et $\Omega$ l'angle de $\mathbf{u}$ et $\mathbf{v}$.
 - **Mélanges.** Les composantes sont numérotées 1 et 2, de poids $\pi_k$ ; la responsabilité $r_{ik} = P(z_i = k \mid x_i)$ est calculée avec les paramètres du moment ; un pas d'EM est un pas E puis un pas M ; l'ELBO d'une loi $q$ sur les latents est $\mathbb{E}_q[\ln p(\mathbf{x}, \mathbf{z}) - \ln q(\mathbf{z})]$, sommée sur les mesures.
 - **Chaînes.** Convention **ligne** : la loi est une ligne, $\boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}$ ; $p_{ij} = P(S_{t+1} = j \mid S_t = i)$ ; les états sont numérotés à partir de 0 ; une ligne de somme plus petite que 1 dit que le processus peut finir après cet état (la masse manquante est la probabilité de finir). Les récompenses et les valeurs sont des colonnes, $\mathbf{V} = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$, et $\gamma = 1$ est permis quand la fin est sûre.
-- **Jeux.** $\mathbf{G} = (g_{ij})$ donne ce que gagne le joueur des lignes (qui maximise) et ce que paie le joueur des colonnes (qui minimise) ; dans un jeu $2 \times 2$, $p$ et $q$ sont les probabilités de la première ligne et de la première colonne, $p^\star$ et $q^\star$ leurs valeurs optimales.
+- **Jeux.** $\mathbf{G} = (g_{ij})$ donne ce que gagne le joueur des lignes (qui maximise) et ce que paie le joueur des colonnes (qui minimise) ; dans un jeu $2 \times 2$, $p$ et $q$ sont les probabilités de la première ligne et de la première colonne, $p^\star$ et $q^\star$ leurs valeurs optimales. La descente-montée alternée met à jour $x$ d'abord, puis $y$ avec le nouveau $x$ (M27 §4).
 - **Distances entre lois.** $W_p$ est la distance de Wasserstein (et $W_p^p$ le coût minimal) ; la distance de Fréchet de deux gaussiennes est leur $W_2$ ; JS est en nats.
 - **Matrices de Gram.** Les points sont les lignes de $\mathbf{X}$ et $\mathbf{G} = \mathbf{X}\mathbf{X}^\top$ ; $\mathbf{D}^{(2)}$ est la matrice des **carrés** des distances et $\mathbf{J} = \mathbf{I} - \frac1n\mathbf{1}\mathbf{1}^\top$.
 - **Lois tronquées.** Une loi est un vecteur de probabilités ; entre deux probabilités égales, le plus petit état passe d'abord ; le top-p de seuil $m$ prend les issues par probabilité décroissante, une à une, jusqu'à ce que leur masse $P(S)$ atteigne $m$, et la loi tronquée est la loi conditionnelle sur $S$.
@@ -49,7 +49,7 @@
 
 ### CP6.Q1 — Dix affirmations sur la partie VI, deux par chapitre : vrai ou faux 🧠 ★ ⏱️ 10 min · 10 points (1 par affirmation)
 
-Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phrase : une règle, un calcul ou un contre-exemple. Chaque affirmation vaut 1 point : 0,4 pour le verdict, 0,6 pour la justification. Ce quiz se note avec le corrigé.
+Pour chaque affirmation, réponds **Vrai** ou **Faux**, puis justifie en une phrase : une règle ou un contre-exemple suffit, sans calcul (un calcul juste compte, mais ne rapporte rien de plus). Chaque affirmation vaut 1 point : 0,4 pour le verdict, 0,6 pour la justification. Ce quiz se note avec le corrigé.
 
 a) Une chaîne de Markov part de sa loi stationnaire : $S_0$ suit $\boldsymbol{\pi}$. Alors $S_0$ et $S_1$ sont indépendants.
 b) $\mathcal{N}(\boldsymbol{\mu}, \operatorname{diag}(6, 1))$ et $\mathcal{N}(\boldsymbol{\mu}, \operatorname{diag}(1, 6))$ ont le même déterminant ; la divergence KL de l'une à l'autre est donc nulle.
@@ -93,7 +93,7 @@ $$\boldsymbol{\mu}_0 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \boldsymbol{\
 | e | données 2 : $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ;\ \frac14)$ | une liste de 3 nombres (4 décimales) |
 | f | données 2 : la norme du point $(1 - t)\,\mathbf{u} + t\,\mathbf{v}$ de la ligne droite, pour $t = \frac14$ | un nombre (3 décimales) |
 
-Sur ta copie : les trois termes de la KL, et ce que chacun compare ; l'angle de $\mathbf{u}$ avec le point de e) : vaut-il $\frac\Omega4$ ?
+Sur ta copie : les trois termes de la KL, et ce que chacun compare ; sans calcul, l'angle de $\mathbf{u}$ avec le point de e), et sa norme.
 
 ### CP6.3 — Un mélange de deux gaussiennes de variances connues et trois mesures : responsabilités, un pas d'EM sur le poids et les moyennes, et l'écart à l'ELBO d'une affectation dure ✏️ ★★ ⏱️ 10 min · 10 points (2,5 par sous-question)
 
@@ -163,7 +163,7 @@ Trois bouées A, B et C sont ancrées dans une baie. Un bateau ne mesure que leu
 
 Sur ta copie : les moyennes $r_i$ des lignes de $\mathbf{D}^{(2)}$, puis $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$ ; vérifie $\mathbf{G}\mathbf{1} = \mathbf{0}$ ; que dit le nombre de valeurs propres non nulles de la disposition des bouées ? quelle sorte d'isométrie peut séparer ta carte de la vraie position des bouées ?
 
-### CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ ★★ ⏱️ 9 min · 9 points (1,5 par sous-question)
+### CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ ★★ ⏱️ 9 min · 9 points (1,8 par sous-question)
 
 Deux fermes solaires ont chacune deux rangées de panneaux. La production journalière des deux rangées, en MWh, suit $\mathcal{N}(\boldsymbol{\mu}_A, \boldsymbol{\Sigma}_A)$ dans la ferme A et $\mathcal{N}(\boldsymbol{\mu}_B, \boldsymbol{\Sigma}_B)$ dans la ferme B, plus exposée aux nuages :
 $$\boldsymbol{\mu}_A = \begin{pmatrix} 18 \\ 12 \end{pmatrix}, \quad \boldsymbol{\Sigma}_A = \begin{pmatrix} 12 & 2 \\ 2 & 9 \end{pmatrix}, \qquad \boldsymbol{\mu}_B = \begin{pmatrix} 21 \\ 13 \end{pmatrix}, \quad \boldsymbol{\Sigma}_B = 4\,\boldsymbol{\Sigma}_A = \begin{pmatrix} 48 & 8 \\ 8 & 36 \end{pmatrix}.$$
@@ -176,7 +176,6 @@ On compare d'abord les deux lois par leur distance de Fréchet $W_2$. Puis on su
 | c | la distance de Fréchet $W_2$ entre les deux lois (MWh) | un nombre (4 décimales) |
 | d | $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$, pour 20 jours de la ferme A et 40 jours de la ferme B (MWh²) | un nombre (valeur exacte) |
 | e | $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$, pour 25 jours de la ferme A et 25 jours de la ferme B (MWh²) | un nombre (valeur exacte) |
-| f | le plus petit nombre $n$ de jours, le même pour les deux fermes, tel que $\mathbb{E}\lVert\bar{\mathbf{x}}_A - \bar{\mathbf{x}}_B\rVert^2$ dépasse $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2$ d'au plus 4 % de $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2$ | un entier |
 
 Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$, et pourquoi celles de $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B$ s'en déduisent ; écris la part des covariances de b) en fonction de $\operatorname{tr}\boldsymbol{\Sigma}_A$ seulement ; compare d) et e) : que faut-il en conclure quand on compare des distances estimées ?
 
@@ -188,13 +187,13 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 1. Montre que $p_i^{(T)} = \frac{e^{-\beta E_i}}{Z}$, puis que $H(T) = \beta\langle E\rangle + \ln Z$. **[3]**
 2. En dérivant par rapport à $\beta$, montre que $\frac{\mathrm{d}p_i^{(T)}}{\mathrm{d}\beta} = p_i^{(T)}\big(\langle E\rangle - E_i\big)$, puis que $\frac{\mathrm{d}\ln Z}{\mathrm{d}\beta} = -\langle E\rangle$ et $\frac{\mathrm{d}\langle E\rangle}{\mathrm{d}\beta} = -\mathbb{V}(E)$. **[3]**
 3. Déduis-en $\frac{\mathrm{d}H}{\mathrm{d}\beta} = -\beta\,\mathbb{V}(E)$, puis $\frac{\mathrm{d}H}{\mathrm{d}T} = \frac{\mathbb{V}(E)}{T^3} \ge 0$. Quand cette dérivée est-elle nulle ? Conclus. **[3]**
-4. Pour $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1)$ : écris $\mathbf{p}^{(T)}$ à l'aide de $a = 6^{1/T}$ ; calcule $H(1)$ et la dérivée $\frac{\mathrm{d}H}{\mathrm{d}T}$ en $T = 1$ (4 décimales). **[3]**
+4. Pour $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}1)$ : calcule $H(1)$ et la dérivée $\frac{\mathrm{d}H}{\mathrm{d}T}$ en $T = 1$ (4 décimales). **[3]**
 
 **Sujet B — La loi de Boltzmann minimise l'énergie libre.** Des issues $1, \ldots, n$ ont des énergies $E_i$, et $T > 0$ est une température. La loi de Boltzmann est $p^\star_i = \frac{e^{-E_i/T}}{Z}$, avec $Z = \sum_j e^{-E_j/T}$. Pour une loi $q$ sur les mêmes issues, l'**énergie libre** est $F(q) = \mathbb{E}_q[E] - T\,H(q)$, où $H(q) = -\sum_i q_i\ln q_i$ (avec $0\ln 0 = 0$).
 1. Montre que, pour chaque issue, $E_i = -T\ln p^\star_i - T\ln Z$. **[3]**
 2. Montre que, pour toute loi $q$, $F(q) = T\,\mathrm{KL}(q \,\|\, p^\star) - T\ln Z$. **[3]**
 3. Conclus : $F(q) \ge -T\ln Z$, avec égalité si et seulement si $q = p^\star$. Réécris l'identité de la question 2 sous la forme $\ln Z = -\frac{F(q)}{T} + \mathrm{KL}(q \,\|\, p^\star)$, et dis à quelle identité de M25b elle ressemble, terme à terme. **[3]**
-4. Pour les énergies $(0,\ \ln 3,\ 2\ln 3)$ et $T = 1$ : calcule $Z$ (valeur exacte, une fraction), puis $p^\star$ et $F(p^\star)$ (4 décimales), puis $F(q)$ pour $q$ uniforme et pour $q = (1, 0, 0)$, et vérifie que $F(q) - F(p^\star) = \mathrm{KL}(q \,\|\, p^\star)$ pour $q$ uniforme. Pourquoi la loi qui met toute la masse sur l'énergie la plus basse ne minimise-t-elle pas $F$ ? **[3]**
+4. Pour les énergies $(0,\ \ln 3,\ 2\ln 3)$ et $T = 1$ : calcule $Z$ (valeur exacte, une fraction), puis $p^\star$ et $F(p^\star)$ (4 décimales), puis $F(q)$ pour $q$ uniforme et pour $q = (1, 0, 0)$. Pourquoi la loi qui met toute la masse sur l'énergie la plus basse ne minimise-t-elle pas $F$ ? **[3]**
 
 ### CP6.9 — Corriger une copie : cinq erreurs, une par chapitre 🐛 ★★ ⏱️ 9 min · 9 points
 
@@ -205,12 +204,12 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses, une
 - **(C)** En dimension 2, l'ellipse de Mahalanobis de niveau $c = 2{,}5$ contient 98,8 % des tirages, comme l'intervalle $[\mu - 2{,}5\sigma ;\ \mu + 2{,}5\sigma]$ en dimension 1.
 - **(D)** Sur $f(x, y) = xy$, la descente-montée alternée de pas $\eta = 0{,}4$ garde $x^2 + y^2 - 0{,}4\,xy$ constant : ses itérés restent sur une ellipse.
 - **(E)** Pour approcher le mélange $\frac13\,\mathcal{N}(0, 2) + \frac23\,\mathcal{N}(9, 2)$ par une gaussienne $q$ au sens de $\mathrm{KL}(p \,\|\, q)$, on prend $q = \mathcal{N}(6, 2)$ : la moyenne du mélange, et la variance commune des deux composantes.
-- **(F)** L'entropie différentielle de $\mathcal{N}(0 ;\ 0{,}03)$ vaut $\frac12\ln(2\pi e \times 0{,}03) \approx -0{,}334$ nat : ce n'est pas une erreur de calcul, une entropie différentielle peut être négative.
+- **(F)** L'entropie différentielle de $\mathcal{N}(0 ;\ 0{,}03)$ vaut $\frac12\ln(2\pi e \times 0{,}03)$, un nombre négatif : ce n'est pas une erreur de calcul, une entropie différentielle peut être négative.
 - **(G)** Le motif $x_{ij} = \cos\big(2\pi(0{,}24\,i + 0{,}07\,j)\big)$ a pour période $\frac{1}{0{,}24} + \frac{1}{0{,}07} \approx 18{,}5$ cases.
 - **(H)** Pour $\mathbf{a} = \mathbf{b} = (\frac12 ;\ \frac12)$ sur les points 0 et 1 de la droite, le couplage indépendant $\boldsymbol{\Gamma} = \mathbf{a}\mathbf{b}^\top$ coûte $\frac12$ : c'est $W_1(\mathbf{a}, \mathbf{b})$.
 
 a) Les lettres des cinq lignes fausses, dans n'importe quel ordre (comme `ABCDE`). **[4,5]**
-b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[4,5]** (0,9 par ligne ; se note avec le corrigé)
+b) Pour chaque ligne fausse, écris le résultat juste et le nom de la règle oubliée, en quelques mots. **[4,5]** (0,9 par ligne ; se note avec le corrigé)
 
 ### CP6.10 — Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire 🔗 ★★ ⏱️ 16 min · 16 points (16/7 ≈ 2,29 par sous-question)
 
@@ -229,7 +228,7 @@ $$\mathbf{P} = \begin{pmatrix} 0{,}32 & 0{,}60 & 0{,}08 \\ 0{,}21 & 0{,}33 & 0{,
 | f | données 2 : la matrice $\mathbf{P}'$ | une matrice $3 \times 3$ (4 décimales) |
 | g | données 2 : la loi stationnaire $\boldsymbol{\pi}'$ de $\mathbf{P}'$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
 
-Sur ta copie : les cinq premiers termes de la suite gloutonne, et la borne que la fiche M28 donne à $\mu + \lambda$ ; pourquoi $\mathrm{KL}(\mathbf{p}_1 \,\|\, \mathbf{p}_{S_1})$ est infinie ; pourquoi $\pi'_0 = 0$, et ce que cela dit de la file vide dans le simulateur aléatoire.
+Sur ta copie : la borne que la fiche M28 donne à $\mu + \lambda$, comparée à ta réponse b) ; pourquoi $\mathrm{KL}(\mathbf{p}_1 \,\|\, \mathbf{p}_{S_1})$ est infinie ; pourquoi $\pi'_0 = 0$, et ce que cela dit de la file vide dans le simulateur aléatoire.
 
 ---
 

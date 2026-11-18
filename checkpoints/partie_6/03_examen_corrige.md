@@ -8,14 +8,14 @@
 - **Le poids de chaque sous-question.**
   - 1 point par affirmation du quiz (0,4 pour le verdict, 0,6 pour la justification).
   - $\frac{10}{6} \approx 1{,}67$ point par sous-question de CP6.1 (6 sous-questions).
-  - 1,5 point par sous-question de CP6.2, CP6.5 et CP6.7 (6 sous-questions chacune).
+  - 1,5 point par sous-question de CP6.2 et CP6.5 (6 sous-questions chacune), et 1,8 point par sous-question de CP6.7 (5 sous-questions).
   - 2,5 points par sous-question de CP6.3, et 2,25 par sous-question de CP6.4 (4 sous-questions chacune).
   - 2 points par sous-question de CP6.6 (4 sous-questions).
   - $\frac{16}{7} \approx 2{,}29$ points par sous-question de CP6.10 (7 sous-questions).
   - 3 points par étape de CP6.8.
   - 4,5 points pour chacune des deux parties de CP6.9 (0,9 par lettre en a, 0,9 par ligne corrigée en b).
 - **Sur ta copie.** Une justification demandée « sur ta copie » compte dans la sous-question à laquelle elle se rattache.
-- **Crédit partiel** sur une sous-question de calcul : 40 % de ses points ($\frac23 \approx 0{,}67$ sur $\frac{10}{6}$ ; 0,6 sur 1,5 ; 0,8 sur 2 ; 0,9 sur 2,25 ; $\frac{32}{35} \approx 0{,}91$ sur $\frac{16}{7}$ ; 1 sur 2,5) pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul.
+- **Crédit partiel** sur une sous-question de calcul : 40 % de ses points ($\frac23 \approx 0{,}67$ sur $\frac{10}{6}$ ; 0,6 sur 1,5 ; 0,72 sur 1,8 ; 0,8 sur 2 ; 0,9 sur 2,25 ; $\frac{32}{35} \approx 0{,}91$ sur $\frac{16}{7}$ ; 1 sur 2,5) pour une réponse juste sans la démarche demandée, ou pour une méthode juste avec une erreur de calcul.
 - **Erreur reportée** : si une réponse fausse est réutilisée correctement plus loin, la suite n'est pas pénalisée une seconde fois (par exemple des responsabilités fausses en CP6.3 a, réutilisées en b), c) et d), une loi $\boldsymbol{\mu}_2$ fausse en CP6.4 a, réutilisée en b) et d), ou une matrice $\mathbf{P}'$ fausse en CP6.10 f, réutilisée en g)).
 - **Arrondis** : une valeur arrondie là où l'énoncé demande la valeur exacte, ou une décimale de moins que le nombre demandé, coûte au plus 0,25 point par question ; un arrondi fait trop tôt, qui change la dernière décimale demandée, aussi. Des décimales en plus ne coûtent rien (le notebook les accepte).
 - **Questions rédigées** (CP6.Q1, CP6.8, CP6.9 b, les phrases demandées « sur ta copie ») : les critères sont listés ; une idée juste formulée autrement compte autant.
@@ -113,12 +113,12 @@ f) $\frac34\mathbf{u} + \frac14\mathbf{v} = (1{,}5 ;\ 2{,}25 ;\ 0{,}75)$, de nor
 
 Sur ta copie :
 - Les trois termes : $\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0)$ compare la forme et l'étalement de $p_0$ à ceux de $p_1$ ; $\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta}$ mesure l'écart des moyennes à l'échelle de $p_1$ (une distance de Mahalanobis au carré) ; $\ln\frac{\det\boldsymbol{\Sigma}_1}{\det\boldsymbol{\Sigma}_0}$ compare les volumes. Ici il est négatif ($p_1$ est plus concentrée), mais la somme reste positive.
-- L'angle de $\mathbf{u}$ avec le point de e) : $\cos = \frac{8{,}8018}{9} \approx 0{,}97798$, soit $12{,}05° = \frac\Omega4$ : le slerp avance d'un angle proportionnel à $t$.
+- L'angle de $\mathbf{u}$ avec le point de e) : $\frac\Omega4 \approx 12{,}05°$, sans calcul, parce que le slerp tourne de $t\Omega$ ; sa norme est 3, celle de $\mathbf{u}$ et de $\mathbf{v}$ (contre 2,806 pour le point de f). Un calcul de contrôle ($\cos = \frac{8{,}8018}{9} \approx 0{,}97798$) est accepté, mais pas demandé.
 - Pour aller plus loin (non noté) : $1{,}5826^2 + 2{,}4227^2 + 0{,}7913^2 \approx 2{,}5046 + 5{,}8695 + 0{,}6262 = 9{,}0003$, soit 9 aux arrondis près (avec les coordonnées non arrondies, la somme vaut 9) : la norme est 3. Le point de f), lui, fait avec $\mathbf{u}$ l'angle $11{,}49°$ ($\cos = \frac{8{,}25}{3 \times 2{,}806243} \approx 0{,}97996$), pas $\frac\Omega4$ : la ligne droite passe à l'intérieur de la sphère et n'avance pas régulièrement en angle.
 
 **Erreurs fréquentes** :
 - en a), calculer $\operatorname{tr}(\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\Sigma}_1) = \frac{14}{11}$, oublier de diviser par $\det\boldsymbol{\Sigma}_1$ (14), ou multiplier les traces ;
-- en b), utiliser $\boldsymbol{\Sigma}_1$ au lieu de son inverse (26), $\boldsymbol{\Sigma}_0^{-1}$ ($\frac{9}{11}$), ou oublier les covariances (5) ;
+- en b), utiliser $\boldsymbol{\Sigma}_1$ au lieu de son inverse (26), $\boldsymbol{\Sigma}_0^{-1}$ ($\frac{9}{11}$), oublier la matrice ($\boldsymbol{\delta}^\top\boldsymbol{\delta} = 5$), ou ses termes hors diagonale (1,5) ;
 - en c), écrire $\ln\frac{11}{4}$ (1,7558), oublier $-d$ (1,7442) ou le facteur $\frac12$ (1,4884), ou calculer $\mathrm{KL}(p_1 \,\|\, p_0) \approx 0{,}5513$ ;
 - en d), répondre en radians, ou prendre l'arc sinus ($41{,}81°$) ;
 - en e), échanger les deux coefficients, prendre le point de la ligne droite, ou le ramener sur la sphère ($(1{,}6036 ;\ 2{,}4054 ;\ 0{,}8018)$, à l'angle $11{,}49°$) ;
@@ -210,16 +210,15 @@ Sur ta copie : les lignes de $\mathbf{G}$ ont pour somme $25 + 5 - 30 = 0$, $5 +
 
 **Remédiation** : M28.1, M28.2, M28.8, M28.13, M28.18, M28.Q1.
 
-## CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ · 9 points (1,5 par sous-question)
+## CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ · 9 points (1,8 par sous-question)
 
-**Réponses** : a) `[676, 256]` · b) `21` · c) `5.5678` · d) `13.15` · e) `14.2` · f) `263`.
+**Réponses** : a) `[676, 256]` · b) `21` · c) `5.5678` · d) `13.15` · e) `14.2`.
 
 a) $\boldsymbol{\Sigma}_A$ a pour trace 21 et pour déterminant 104 : ses valeurs propres sont 13 et 8. $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = 4\boldsymbol{\Sigma}_A^2$ a les mêmes vecteurs propres, de valeurs propres $4 \times 169 = 676$ et $4 \times 64 = 256$. (Directement : $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = \begin{pmatrix} 592 & 168 \\ 168 & 340 \end{pmatrix}$, de trace 932 et de déterminant 173 056.)
 b) $21 + 84 - 2(26 + 16) = 21$.
 c) $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2 = 3^2 + 1^2 = 10$, et $W_2 = \sqrt{10 + 21} = \sqrt{31} \approx 5{,}5678$ MWh.
 d) $10 + \frac{21}{20} + \frac{84}{40} = 10 + 1{,}05 + 2{,}1 = 13{,}15$ MWh².
 e) $10 + \frac{21}{25} + \frac{84}{25} = 10 + 0{,}84 + 3{,}36 = 14{,}2$ MWh².
-f) $\frac{21 + 84}{n} \le 0{,}04 \times 10 = 0{,}4$ équivaut à $n \ge 262{,}5$ : $n = 263$.
 
 Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$ (13 et 8) ; $\boldsymbol{\Sigma}_B = c\,\boldsymbol{\Sigma}_A$ avec $c = 4$, donc $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = c\,\boldsymbol{\Sigma}_A^2$, de valeurs propres $c\lambda_i^2$ et de racines $\sqrt c\,\lambda_i$ ; la part des covariances vaut $(1 + c - 2\sqrt c)\operatorname{tr}\boldsymbol{\Sigma}_A = (\sqrt c - 1)^2\operatorname{tr}\boldsymbol{\Sigma}_A = \operatorname{tr}\boldsymbol{\Sigma}_A = 21$. d) et e) portent sur les mêmes lois, et le vrai $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2$ vaut 10 ; pourtant l'espérance estimée vaut 13,15 ou 14,2 selon les tailles des échantillons : une distance estimée est biaisée vers le haut, de $\frac{\operatorname{tr}\boldsymbol{\Sigma}_A}{n_A} + \frac{\operatorname{tr}\boldsymbol{\Sigma}_B}{n_B}$. On ne compare deux distances estimées qu'à tailles d'échantillons égales, ou après avoir retranché ce biais.
 
@@ -228,8 +227,7 @@ Sur ta copie : les valeurs propres de $\boldsymbol{\Sigma}_A$ (13 et 8) ; $\bold
 - en b), oublier le facteur 2 (63), les racines (−1 759), ou tout le terme croisé (105) ;
 - en c), oublier la racine (31), les moyennes ($\sqrt{21} \approx 4{,}583$), ou leur carré ($\approx 4{,}916$) ;
 - en d), oublier de diviser par les tailles (115), les échanger (14,725), ou oublier l'écart des vraies moyennes (3,15) ;
-- en e), prendre deux échantillons de la même ferme (1,68), ne compter qu'un terme (10,84 ou 13,36), ou oublier l'écart des vraies moyennes (4,2) ;
-- en f), ne garder qu'une trace (53 ou 210), lire le seuil comme 4 MWh² (27), ou arrondir vers le bas (262).
+- en e), prendre deux échantillons de la même ferme (1,68), ne compter qu'un terme (10,84 ou 13,36), ou oublier l'écart des vraies moyennes (4,2).
 
 **Remédiation** : M27.9, M27.15, M27.16, M27.25, M27.Q6, M27.R3, M27.E2.
 
@@ -242,30 +240,30 @@ Toute démonstration juste et complète d'une étape a tous les points de cette 
 1. **[3]** $p_i^{1/T} = e^{\frac1T\ln p_i} = e^{-\beta E_i}$, donc $p_i^{(T)} = \frac{e^{-\beta E_i}}{Z}$ : la loi tempérée est la loi de Boltzmann des énergies $E_i$. Alors $\ln p_i^{(T)} = -\beta E_i - \ln Z$, et $H(T) = -\sum_i p_i^{(T)}(-\beta E_i - \ln Z) = \beta\langle E\rangle + \ln Z$, puisque $\sum_i p_i^{(T)} = 1$.
 2. **[3]** $\frac{\mathrm{d}Z}{\mathrm{d}\beta} = -\sum_j E_je^{-\beta E_j} = -Z\langle E\rangle$, donc $\frac{\mathrm{d}\ln Z}{\mathrm{d}\beta} = -\langle E\rangle$. Par la dérivée d'un quotient, $\frac{\mathrm{d}p_i^{(T)}}{\mathrm{d}\beta} = \frac{-E_ie^{-\beta E_i}}{Z} - \frac{e^{-\beta E_i}}{Z}\,\frac{\mathrm{d}\ln Z}{\mathrm{d}\beta} = p_i^{(T)}\big(\langle E\rangle - E_i\big)$. Puis $\frac{\mathrm{d}\langle E\rangle}{\mathrm{d}\beta} = \sum_i E_i\,p_i^{(T)}\big(\langle E\rangle - E_i\big) = \langle E\rangle^2 - \langle E^2\rangle = -\mathbb{V}(E)$ (les $E_i$ ne dépendent pas de $\beta$).
 3. **[3]** $\frac{\mathrm{d}H}{\mathrm{d}\beta} = \langle E\rangle + \beta\,\frac{\mathrm{d}\langle E\rangle}{\mathrm{d}\beta} + \frac{\mathrm{d}\ln Z}{\mathrm{d}\beta} = \langle E\rangle - \beta\,\mathbb{V}(E) - \langle E\rangle = -\beta\,\mathbb{V}(E)$. Comme $\beta = \frac1T$, $\frac{\mathrm{d}\beta}{\mathrm{d}T} = -\frac{1}{T^2}$ et $\frac{\mathrm{d}H}{\mathrm{d}T} = -\beta\,\mathbb{V}(E) \times \big(-\frac{1}{T^2}\big) = \frac{\mathbb{V}(E)}{T^3} \ge 0$ (une variance est positive ou nulle, et $T > 0$). Elle n'est nulle que si $E$ est constante sur le support de $\mathbf{p}^{(T)}$, c'est-à-dire sur toutes les issues (toutes les $p_i$ sont positives) : si $\mathbf{p}$ est uniforme. Alors $\mathbf{p}^{(T)} = \mathbf{p}$ pour tout $T$, et $H = \ln n$ est constante ; sinon $\mathbb{V}(E) > 0$ à toute température, et $H$ est **strictement croissante** en $T$.
-4. **[3]** En divisant numérateur et dénominateur par $0{,}1^{1/T}$ : $\mathbf{p}^{(T)} = \frac{(a, 1, 1, 1, 1)}{a + 4}$, avec $a = 6^{1/T}$. $H(1) = -0{,}6\ln 0{,}6 - 0{,}4\ln 0{,}1 \approx 0{,}3065 + 0{,}9210 = 1{,}2275$. En $T = 1$, l'énergie ne prend que deux valeurs, $-\ln 0{,}6$ (probabilité 0,6) et $\ln 10$ (probabilité 0,4), d'écart $\ln 6$ : $\mathbb{V}(E) = 0{,}6 \times 0{,}4 \times (\ln 6)^2 \approx 0{,}24 \times 3{,}2104 \approx 0{,}7705$, et $\frac{\mathrm{d}H}{\mathrm{d}T}(1) \approx 0{,}7705$. (Pour aller plus loin, non noté : quand $T \to 0$, $a \to +\infty$ et $H \to 0$ ; quand $T \to +\infty$, $a \to 1$, la loi devient uniforme et $H \to \ln 5$.)
+4. **[3]** En $T = 1$, $\mathbf{p}^{(1)} = \mathbf{p}$. $H(1) = -0{,}6\ln 0{,}6 - 0{,}4\ln 0{,}1 \approx 0{,}3065 + 0{,}9210 = 1{,}2275$. En $T = 1$, l'énergie ne prend que deux valeurs, $-\ln 0{,}6$ (probabilité 0,6) et $\ln 10$ (probabilité 0,4), d'écart $\ln 6$ : $\mathbb{V}(E) = 0{,}6 \times 0{,}4 \times (\ln 6)^2 \approx 0{,}24 \times 3{,}2104 \approx 0{,}7705$, et $\frac{\mathrm{d}H}{\mathrm{d}T}(1) \approx 0{,}7705$. (Pour aller plus loin, non noté : en divisant numérateur et dénominateur par $0{,}1^{1/T}$, $\mathbf{p}^{(T)} = \frac{(a, 1, 1, 1, 1)}{a + 4}$ avec $a = 6^{1/T}$ ; quand $T \to 0$, $a \to +\infty$ et $H \to 0$ ; quand $T \to +\infty$, $a \to 1$, la loi devient uniforme et $H \to \ln 5$.)
 
 **Grille de relecture.**
 - (1) L'écriture en exponentielle, et le calcul de $H$ avec $\sum_i p_i^{(T)} = 1$.
 - (2) Les trois dérivées, avec la règle utilisée (quotient, ou dérivée de $\ln Z$) et la variance reconnue.
 - (3) La dérivée en $\beta$, le changement de variable $\beta = \frac1T$ avec son signe, le signe de la variance, et le cas d'égalité (la loi uniforme).
-- (4) La forme en $a$, $H(1)$ et $\frac{\mathrm{d}H}{\mathrm{d}T}(1)$, par la variance (une dérivée calculée directement sur la forme en $a$ compte autant).
+- (4) $H(1)$ et $\frac{\mathrm{d}H}{\mathrm{d}T}(1)$, par la variance (une dérivée calculée directement compte autant).
 
 ### Sujet B — La loi de Boltzmann minimise l'énergie libre
 
 1. **[3]** $\ln p^\star_i = -\frac{E_i}{T} - \ln Z$ ; en multipliant par $-T$ : $E_i = -T\ln p^\star_i - T\ln Z$.
 2. **[3]** $\mathbb{E}_q[E] = \sum_i q_iE_i = -T\sum_i q_i\ln p^\star_i - T\ln Z$, puisque $\sum_i q_i = 1$ ; et $-T\,H(q) = T\sum_i q_i\ln q_i$. En additionnant : $F(q) = T\sum_i q_i\ln\frac{q_i}{p^\star_i} - T\ln Z = T\,\mathrm{KL}(q \,\|\, p^\star) - T\ln Z$. (Les issues où $q_i = 0$ ne comptent ni dans $\mathbb{E}_q[E]$ ni dans l'entropie, avec $0\ln 0 = 0$, ni dans la KL.)
 3. **[3]** $\mathrm{KL}(q \,\|\, p^\star) \ge 0$, avec égalité si et seulement si $q = p^\star$ (inégalité de Gibbs, par Jensen) ; et $T > 0$. Donc $F(q) \ge -T\ln Z$, avec égalité seulement pour $q = p^\star$ : la loi de Boltzmann est l'unique minimum de l'énergie libre, et $F(p^\star) = -T\ln Z$. En divisant par $-T$ : $\ln Z = -\frac{F(q)}{T} + \mathrm{KL}(q \,\|\, p^\star)$. C'est l'identité de M25b, $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}\big(q \,\|\, p(\mathbf{z} \mid \mathbf{x})\big)$ : $\ln Z$ joue le rôle de $\ln p(\mathbf{x})$ (le logarithme d'une constante de normalisation), $-\frac{F(q)}{T} = \mathbb{E}_q\big[-\frac ET\big] + H(q)$ celui de l'ELBO (l'espérance d'une log-densité non normalisée, plus une entropie), et $p^\star$ celui du posterior. Maximiser l'ELBO, c'est minimiser une énergie libre ; l'écart est la KL.
-4. **[3]** $e^{-E_i} = (1, \frac13, \frac19)$, $Z = \frac{13}{9}$ (valeur exacte), $p^\star = \big(\frac{9}{13}, \frac{3}{13}, \frac{1}{13}\big) \approx (0{,}6923 ;\ 0{,}2308 ;\ 0{,}0769)$, et $F(p^\star) = -\ln\frac{13}{9} \approx -0{,}3677$. Pour $q$ uniforme : $\mathbb{E}_q[E] = \frac{0 + \ln 3 + 2\ln 3}{3} = \ln 3$ et $H(q) = \ln 3$, donc $F = 0$. Pour $q = (1, 0, 0)$ : énergie 0, entropie 0, $F = 0$. $\mathrm{KL}(q \,\|\, p^\star) = \frac13\sum_i\ln\frac{1/3}{p^\star_i} = -\ln 3 - \frac13\ln\frac{9 \times 3 \times 1}{13^3} = \ln\frac{13}{9} \approx 0{,}3677 = F(q) - F(p^\star)$ pour $q$ uniforme. La loi qui met toute sa masse sur l'énergie la plus basse minimise $\mathbb{E}_q[E]$, mais son entropie est nulle : déplacer une petite masse $\varepsilon$ vers les autres issues coûte une énergie de l'ordre de $\varepsilon$, et rapporte une entropie de l'ordre de $-\varepsilon\ln\varepsilon$, bien plus grande quand $\varepsilon$ est petit. À $T > 0$, $F$ arbitre entre énergie et entropie ; ce n'est qu'en $T \to 0$ que $p^\star$ se concentre sur l'énergie la plus basse.
+4. **[3]** $e^{-E_i} = (1, \frac13, \frac19)$, $Z = \frac{13}{9}$ (valeur exacte), $p^\star = \big(\frac{9}{13}, \frac{3}{13}, \frac{1}{13}\big) \approx (0{,}6923 ;\ 0{,}2308 ;\ 0{,}0769)$, et $F(p^\star) = -\ln\frac{13}{9} \approx -0{,}3677$. Pour $q$ uniforme : $\mathbb{E}_q[E] = \frac{0 + \ln 3 + 2\ln 3}{3} = \ln 3$ et $H(q) = \ln 3$, donc $F = 0$. Pour $q = (1, 0, 0)$ : énergie 0, entropie 0, $F = 0$. (Pour aller plus loin, non noté : $\mathrm{KL}(q \,\|\, p^\star) = \frac13\sum_i\ln\frac{1/3}{p^\star_i} = -\ln 3 - \frac13\ln\frac{9 \times 3 \times 1}{13^3} = \ln\frac{13}{9} \approx 0{,}3677 = F(q) - F(p^\star)$ pour $q$ uniforme.) La loi qui met toute sa masse sur l'énergie la plus basse minimise $\mathbb{E}_q[E]$, mais son entropie est nulle : déplacer une petite masse $\varepsilon$ vers les autres issues coûte une énergie de l'ordre de $\varepsilon$, et rapporte une entropie de l'ordre de $-\varepsilon\ln\varepsilon$, bien plus grande quand $\varepsilon$ est petit. À $T > 0$, $F$ arbitre entre énergie et entropie ; ce n'est qu'en $T \to 0$ que $p^\star$ se concentre sur l'énergie la plus basse.
 
 **Grille de relecture.**
 - (1) Le logarithme de $p^\star_i$, et la multiplication par $-T$.
 - (2) $\mathbb{E}_q[E]$ réécrite avec $\sum_i q_i = 1$, l'entropie, et la KL reconnue.
 - (3) La positivité de la KL et son cas d'égalité, la conclusion (le minimum, sa valeur, son unicité), et la correspondance avec $\ln p(\mathbf{x}) = \operatorname{ELBO} + \mathrm{KL}$, terme à terme.
-- (4) $Z$, $p^\star$, $F(p^\star)$, les deux autres valeurs de $F$, la vérification par la KL, et l'arbitrage entre énergie et entropie.
+- (4) $Z$, $p^\star$, $F(p^\star)$, les deux autres valeurs de $F$, et l'arbitrage entre énergie et entropie.
 
 **Erreurs fréquentes** (deux sujets) :
 - en A, dériver $p_i^{(T)}$ sans dériver $Z$, oublier le signe de $\frac{\mathrm{d}\beta}{\mathrm{d}T}$, ou conclure « croissante » sans traiter le cas d'égalité ;
-- en A, calculer $\mathbb{V}(E)$ en $T = 1$ sous une autre loi que $\mathbf{p}^{(1)} = \mathbf{p}$, ou oublier que $a = 6$ en $T = 1$ ;
+- en A, calculer $\mathbb{V}(E)$ en $T = 1$ sous une autre loi que $\mathbf{p}^{(1)} = \mathbf{p}$ ;
 - en B, écrire $F(q) = T\,\mathrm{KL}(p^\star \,\|\, q) - T\ln Z$ (la KL dans le mauvais sens), ou oublier le facteur $T$ ;
 - en B, croire que la loi d'énergie minimale minimise $F$, ou ne pas dire que l'égalité de la KL n'a lieu qu'en $q = p^\star$.
 
@@ -314,7 +312,7 @@ f) Ligne 0 : 1 (0,60) puis 0 (0,32), masse 0,92 : $(0{,}3478 ;\ 0{,}6522 ;\ 0)$.
 g) La colonne 0 de $\mathbf{P}'$ n'a qu'un coefficient non nul, $P'_{00}$ : $\pi'_0 = \pi'_0 \times 0{,}3478$, donc $\pi'_0 = 0$. Entre 1 et 2, à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : $\pi'_1 \times \frac{46}{79} = \pi'_2 \times \frac{12}{19}$, donc $\frac{\pi'_1}{\pi'_2} = \frac{12 \times 79}{19 \times 46} = \frac{474}{437}$ et $\boldsymbol{\pi}' = \big(0 ;\ \frac{474}{911} ;\ \frac{437}{911}\big) \approx (0 ;\ 0{,}5203 ;\ 0{,}4797)$.
 
 Sur ta copie :
-- Les termes $u_0, \ldots, u_4 = 0, 1, 2, 1, 2$ ; sur un ensemble de $N = 3$ états, $\mu + \lambda \le N$ (parmi $u_0, \ldots, u_3$, deux sont égaux, par le principe des tiroirs) : ici $1 + 2 = 3$.
+- Sur un ensemble de $N = 3$ états, $\mu + \lambda \le N$ (parmi $u_0, \ldots, u_3$, deux sont égaux, par le principe des tiroirs) : ici $1 + 2 = 3$.
 - $\mathrm{KL}(\mathbf{p}_1 \,\|\, \mathbf{p}_{S_1})$ est infinie : $\mathbf{p}_1$ donne 0,21 à l'état 0, où $\mathbf{p}_{S_1}$ est nulle.
 - $\pi'_0 = 0$ : la troncature a coupé, dans les lignes 1 et 2, le passage vers la file vide (0,21 et 0,05, les moins probables). Une fois la file non vide, le simulateur aléatoire ne la revoit **jamais** vide, alors que la vraie file l'est environ 17 % du temps : couper les événements rares change le comportement à long terme.
 - Pour aller plus loin (non noté) : la loi stationnaire de $\mathbf{P}$ est $\big(\frac{1595}{9271} ;\ \frac{60}{127} ;\ \frac{3296}{9271}\big) \approx (0{,}1720 ;\ 0{,}4724 ;\ 0{,}3555)$.
