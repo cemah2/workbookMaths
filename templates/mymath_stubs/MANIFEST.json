@@ -1,5 +1,5 @@
 {
-  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). Part 0 published in session 2, part I in session 16, part II in session 26, part III in session 35, part IV in session 48, part V in session 56, part VI in session 60; the modules of a later part are added in the syllabus session that details it.",
+  "_doc": "Stub files copied by tools/start_chapter.py, per chapter (paths relative to templates/mymath_stubs). Additive only: a published entry is never renamed, edited or removed (BIBLE §7). Part 0 published in session 2, part I in session 16, part II in session 26, part III in session 35, part IV in session 48, part V in session 56, part VI in session 60, part VII in session 69; the modules of a later part are added in the syllabus session that details it.",
   "base": ["__init__.py", "_example.py"],
   "chapters": {
     "R1": ["arith.py"],
@@ -43,6 +43,12 @@
     "M25b": ["latent.py"],
     "M26": ["markov.py"],
     "M27": ["distances.py"],
-    "M28": ["sampling.py"]
+    "M28": ["sampling.py"],
+    "MB2": ["cooccurrence.py"],
+    "MB3": ["positional.py"],
+    "MB4": ["ranks.py"],
+    "MB5": ["gaussian_paths.py"],
+    "MB6": ["attribution.py"],
+    "MB8": ["policy_gradient.py"]
   }
 }

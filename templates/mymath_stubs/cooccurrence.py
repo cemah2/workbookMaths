@@ -42,12 +42,12 @@ def pmi(joint):
 
     Examples
     --------
-    >>> np.round(pmi([[0.3, 0.1], [0.2, 0.4]]), 4)      # p(x) = (0.4, 0.6), p(y) = (0.5, 0.5)
-    array([[ 0.4055, -0.6931],
-           [-0.4055,  0.2877]])
-    >>> np.round(pmi([[0.5, 0.0], [0.25, 0.25]]), 4)    # a cell that never occurs
-    array([[ 0.2877,    -inf],
-           [-0.4055,  0.6931]])
+    >>> np.round(pmi([[0.4, 0.1], [0.2, 0.3]]), 4)      # p(x) = (0.5, 0.5), p(y) = (0.6, 0.4)
+    array([[ 0.2877, -0.6931],
+           [-0.4055,  0.4055]])
+    >>> np.round(pmi([[0.5, 0.0], [0.1, 0.4]]), 4)      # a cell that never occurs
+    array([[ 0.5108,    -inf],
+           [-1.0986,  0.6931]])
     """
     # TODO: check the table; the marginals p(x) (sums of the rows) and p(y) (sums of the columns), as a column and a
     #  row so that they broadcast (M20); then the logarithm of the ratio on the positive cells only, -inf elsewhere
@@ -65,9 +65,8 @@ def optimal_free_logit(positive_weight, negative_weight):
 
         ``x* = ln(a / b)``,
 
-    the logit of the proportion ``a / (a + b)``: with ``p = σ(x)``, ``f`` is minus the log-likelihood of a Bernoulli
-    law with ``a`` successes and ``b`` failures (weights need not be integers), maximal at ``p = a / (a + b)``
-    (M13a). Multiplying ``b`` by ``K`` moves the optimum by ``-ln K``; dividing it by ``K`` moves it by ``+ln K``.
+    the logit of the proportion ``a / (a + b)`` (MB2 §5; the weights need not be integers). Multiplying ``b`` by
+    ``K`` moves the optimum by ``-ln K``.
 
     When ``a > 0`` and ``b = 0``, ``f`` decreases towards 0 without reaching it: there is no minimum, and the result
     is ``+inf``; when ``a = 0`` and ``b > 0``, it is ``-inf``. When ``a = b = 0``, ``f`` is the zero function and
@@ -93,8 +92,8 @@ def optimal_free_logit(positive_weight, negative_weight):
 
     Examples
     --------
-    >>> round(optimal_free_logit(30, 10), 4)        # ln 3: three times more weight on the label 1
-    1.0986
+    >>> round(optimal_free_logit(45, 10), 4)        # ln 4.5: 4.5 times more weight on the label 1
+    1.5041
     >>> optimal_free_logit([2, 0, 5], [2, 7, 0])
     array([  0., -inf,  inf])
     """

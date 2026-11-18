@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 348 notions mathématiques couvertes, 210 notions non mathématiques.
+**Bilan** : 361 notions mathématiques couvertes, 197 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -516,21 +516,23 @@ Non mathématiques : sources de datasets (HF Hub, Kaggle, OpenML, UCI) · API sc
 | zéro-shot CLIP | M07, M17 |
 | few-shot par prototypes | M07 |
 | linear probe | M13a |
+| learning rates discriminatifs | R5 |
 
-Non mathématiques : transfer learning · extraction de features · fine-tuning partiel et complet · learning rates discriminatifs · dégel progressif · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
+Non mathématiques : transfer learning · extraction de features · fine-tuning partiel et complet · dégel progressif · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
 
 ## workbookIA B2 · Tokenisation et embeddings
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| nn.Embedding | MB2 |
+| Unicode et UTF-8 | MB2 |
+| nn.Embedding | M09a, MB2 |
 | embeddings de phrases | MB2 |
-| PPMI + SVD | MB2 |
-| word2vec skip-gram | MB2 |
-| similarité cosinus et analogies | MB2 |
-| recherche sémantique | M07 |
+| PPMI + SVD | M12d, MB2 |
+| word2vec skip-gram | M13a, MB2 |
+| similarité cosinus et analogies | M07, MB2 |
+| recherche sémantique | M07, MB2 |
 
-Non mathématiques : Unicode et UTF-8 · normalisation de texte · BPE from scratch · BPE au niveau octet · bibliothèque tokenizers · fertilité et coût des tokens
+Non mathématiques : normalisation de texte · BPE from scratch · BPE au niveau octet · bibliothèque tokenizers · fertilité et coût des tokens
 
 ## workbookIA B3 · Attention et Transformers : un mini-GPT from scratch
 
@@ -543,50 +545,56 @@ Non mathématiques : Unicode et UTF-8 · normalisation de texte · BPE from scra
 | perplexité | M06 |
 | top-k et top-p | M28 |
 | coût quadratique et FlashAttention | MB3 |
+| Vision Transformer | M21 |
+| bloc Transformer pré-LN | M20 |
 
-Non mathématiques : bloc Transformer pré-LN · architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch · KV cache · Vision Transformer
+Non mathématiques : architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch · KV cache
 
 ## workbookIA B4 · LLM en pratique : Hugging Face, prompting, RAG et LoRA
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| BM25 | MB4 |
-| recherche dense et hybride | MB4 |
-| recall@k et MRR | MB4 |
-| LoRA from scratch | MB4 |
+| BM25 | R6, MB4 |
+| recherche dense et hybride | M07, MB4 |
+| recall@k et MRR | M03, MB4 |
+| LoRA from scratch | M12a, M12d, MB4 |
+| évaluation de LLM | M02c, M08 |
+| classification de textes | R6, M13a |
 
-Non mathématiques : transformers en pratique (5.x) · chat templates · prompting et sortie structurée · évaluation de LLM · RAG avec citations · peft · classification de textes · injection de prompt · reproductibilité d'un pipeline LLM
+Non mathématiques : transformers en pratique (5.x) · chat templates · prompting et sortie structurée · RAG avec citations · peft · injection de prompt · reproductibilité d'un pipeline LLM
 
 ## workbookIA B5 · Modèles de diffusion : un DDPM minimal
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| processus direct et forme fermée | MB5 |
-| plannings de bruit linéaire et cosinus | MB5 |
-| posterior gaussien | MB5 |
+| processus direct et forme fermée | M25a, MB5 |
+| plannings de bruit linéaire et cosinus | R9, MB5 |
+| posterior gaussien | M25a, MB5 |
 | loss de prédiction du bruit | MB5 |
-| échantillonnage DDPM | MB5 |
+| U-Net conditionné par le temps | M21, MB3 |
+| échantillonnage DDPM | M25a, MB5 |
 | DDIM | MB5 |
 | EMA des poids | R5, M19 |
 | guidance sans classifieur | MB5 |
 | évaluation par distance de Fréchet | M27 |
-| flow matching (initiation) | MB5 |
-
-Non mathématiques : U-Net conditionné par le temps · mémorisation
+| mémorisation | M07, MB5 |
+| flow matching (initiation) | M20, MB5 |
 
 ## workbookIA B6 · Explicabilité, équité et éthique
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
+| dépendance partielle et ICE | M25a, MB6 |
+| valeurs de Shapley exactes | R8, MB6 |
 | SHAP (TreeExplainer, graphiques) | MB6 |
-| dépendance partielle et ICE | MB6 |
-| valeurs de Shapley exactes | MB6 |
-| gradients intégrés | MB6 |
-| Grad-CAM par hooks | MB6 |
-| indicateurs d'équité par groupe | M03, MB6 |
+| gradients intégrés | M02a, M17, MB6 |
+| Grad-CAM par hooks | M20, MB6 |
+| indicateurs d'équité par groupe | M03, M08, MB6 |
 | théorème d'impossibilité | M03, MB6 |
+| tests de santé des explications | M02c, MB6 |
+| atténuation des biais | M20, MB6 |
 
-Non mathématiques : tests de santé des explications · atténuation des biais · fiche modèle équité et explicabilité · RGPD et AI Act appliqués
+Non mathématiques : fiche modèle équité et explicabilité · RGPD et AI Act appliqués
 
 ## workbookIA B7 · Du notebook à la production
 
@@ -594,22 +602,25 @@ Non mathématiques : tests de santé des explications · atténuation des biais 
 |---|---|
 | mesure de latence | M02c |
 | surveillance de la dérive | M06, M27 |
+| reproductibilité | M02c, M08 |
+| torch.export | M05a |
+| API de prédiction | R1, M02c |
 
-Non mathématiques : structure d'un projet Python · argparse et logging · configuration typée · reproductibilité · suivi d'expériences · tests pour le ML · intégration continue · artefact de modèle · API de prédiction · torch.export · Dockerfile
+Non mathématiques : structure d'un projet Python · argparse et logging · configuration typée · suivi d'expériences · tests pour le ML · intégration continue · artefact de modèle · Dockerfile
 
 ## workbookIA B8 · RL moderne : DQN, gradient de politique, PPO et RLHF
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
-| DQN et ses stabilisateurs | M02c, M26 |
+| DQN et ses stabilisateurs | M02c, M09b, M26 |
 | Double DQN | M26 |
-| théorème du gradient de politique | MB8 |
+| théorème du gradient de politique | M26, MB8 |
 | REINFORCE avec baseline | MB8 |
-| acteur-critique et GAE | MB8 |
-| PPO from scratch | MB8 |
-| évaluation multi-graines | M08 |
-| modèle de récompense Bradley-Terry | MB8 |
-| RLHF, DPO, GRPO | MB8 |
+| acteur-critique et GAE | M26, MB8 |
+| PPO from scratch | M06, MB8 |
+| évaluation multi-graines | M02c, M08 |
+| modèle de récompense Bradley-Terry | M13a, MB8 |
+| RLHF, DPO, GRPO | M06, MB8 |
 
 Non mathématiques : environnements vectorisés gymnasium · diagnostic par les journaux RL · piratage de la récompense (reward hacking)
 
