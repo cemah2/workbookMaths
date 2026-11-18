@@ -143,16 +143,17 @@ def line_integral(field, points, n_sub=20):
     ------
     ValueError
         If ``points`` is not 2-D with at least 2 rows and 1 column or has an entry that is not finite, if ``n_sub`` is
-        not an even integer ``≥ 2``, if ``field`` is not callable, or if it returns something other than ``d`` finite
-        numbers.
+        not an even integer ``≥ 2``, if ``field`` is not callable, or if it returns something other than an array of
+        shape ``(d,)`` of finite numbers.
 
     Examples
     --------
     >>> F = lambda p: (3 * p[0] ** 2 + p[1], p[0])       # the gradient of f(x, y) = x³ + x y
     >>> round(line_integral(F, [[0, 0], [1, 0], [1, 2]]), 9), round(line_integral(F, [[0, 0], [1, 2]]), 9)
     (3.0, 3.0)
-    >>> round(line_integral(lambda p: (0, p[0]), [[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]), 9)   # not a gradient
-    1.0
+    >>> G = lambda p: (p[1], 0)                          # not a gradient: the value depends on the path
+    >>> round(line_integral(G, [[0, 0], [1, 0], [1, 1]]), 9), round(line_integral(G, [[0, 0], [0, 1], [1, 1]]), 9)
+    (0.0, 1.0)
     >>> round(line_integral(lambda p: [3 * p[0] ** 2], [[0], [2], [1]], n_sub=2), 9)    # forth and back, d = 1
     1.0
     """
@@ -165,7 +166,8 @@ def spearman_rho(x, y):
     """Return Spearman's rank correlation ``ρ`` of two paired samples ``x`` and ``y``.
 
     Each sample is replaced by its ranks: the smallest value gets rank 1, the next one rank 2, and so on, and tied
-    values share the average of the ranks they occupy (two values tied for the 3rd and 4th places both get 3.5). Then
+    values (exactly equal) share the average of the ranks they occupy (two values tied for the 3rd and 4th places both
+    get 3.5). Then
     ``ρ`` is Pearson's correlation of the two vectors of ranks ``r`` and ``s`` (M02c),
     ``ρ = Σ (r_i - r̄)(s_i - s̄) / √(Σ (r_i - r̄)² · Σ (s_i - s̄)²)``; without ties, it equals
     ``1 - 6 Σ (r_i - s_i)² / (n (n² - 1))``. ``ρ`` depends only on the order of each sample: it does not change when

@@ -120,7 +120,7 @@ def posterior_mean_mixture(y, a, b, weights, means, variances):
     array([0.5 , 2.75])
     >>> np.round(posterior_mean_mixture([-0.5, 0.8, 1.5], 1.0, 1.0, [0.3, 0.7], [-1.0, 2.0], [0.0, 0.0]), 4)
     array([-0.6878,  1.5548,  1.9373])
-    >>> posterior_mean_mixture(5.0, 0.0, 1.0, [0.3, 0.7], [-1.0, 2.0], [0.0, 0.0])    # a = 0: the mixture mean
+    >>> posterior_mean_mixture(5.0, 0.0, 2.0, [0.3, 0.7], [-1.0, 2.0], [0.0, 0.0])    # a = 0: the mixture mean
     array(1.1)
     """
     # TODO: check the arguments; for each component, the predictive variance a² s_k² + b², the log of
