@@ -7815,6 +7815,1676 @@
       "simplified": true,
       "source": "checkpoints/partie_5/03_examen_solutions.ipynb"
     },
+    "CP6.1a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "0c934e6e0a0b9da5060c8010a5390ae70ce81e6ac80c1638d07eb1e6f29ceaca"
+        ],
+        [
+          "0689a8ff0ea87d307e5532d9e2c246b51089005647f89dc2d371f81148fcc85b"
+        ],
+        [
+          "e3b6997cf0301a78c86c599f336f43421f42f37455029079fd928c13d21f7138"
+        ],
+        [
+          "23e5e80f0bb79535a9599dd95f34d730bb4061de9ea1e2dbba7e380e482d0057"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2eee57a17ee568ac8d86fe9aa3feb1e09224bb2107c0b6d422c32bb4c22aa6b6",
+          "ce033bc3e1b2ee5e3980d9d7ef97e2853009a94120da9b2e3dd891faafd38897",
+          "6e49df3fdd104b9f88ea0f13fe62e6d08f05ebe09c2b078d3fc338fb848aae5f",
+          "57dfc5940efc88d3aae481333f76e7058ac63a0acfa83ffc888bd177845c479c",
+          "23f27e33b36ecf6240919e28152c359a5c43aeb24613895294f5bfd272550442"
+        ],
+        [],
+        [
+          "0b7ada644eaeb341ee39a624e28f6b8b8c7fe293114166b81a3cd87f5e29ac95",
+          "4f01dfb8dd69c116656001cfb69602962dfe3ce68ffb690f28bfc77d3239ae51",
+          "02c744731949bda05cd2f888b91a1e850e3b082c93c8a4885563a5e0e19d90f7",
+          "dc97cfe892cdee628510e1a70f7e5870eecb2181efe629fc0ce8bc198504823b",
+          "20f96214b5db5b40c6cc67c09ce6826b7ef17a339abcd4b102da8cc25cbd103a"
+        ],
+        [
+          "24f88ed67413ca14e6aa8ed4d65e6012a6ceacb5c9ee98905bfba4734505c4d1",
+          "15dc75855292e9011922e7153219f0f2036a28e07fd9a89983814488dec7764b",
+          "1579a4c2de2a58ff757df5e3b68e8f5df5d744e8e129bc13328c46eb34206826",
+          "b0609df03887e4643d22c23b1e353196973572ef4bd49dc1194db6035d0460b4",
+          "9764cea5a3d7b9a979978cac1c78ad389a1b7d0d7a1185dd60a3ad29838617e9"
+        ]
+      ],
+      "element_hashes": [
+        "767ca02646e15cb461cad756cdebe0422d26069b7f5665aa0557b89ab5877d21",
+        "b7ab34fb06fc664814651269665535804e94dbc08650a64daccba74c102795d1",
+        "90fb9726c0c1d694a456ee6c623e0eb4d29c854efbc9f8f110e27149814fe994",
+        "54fadd9fedcbf4177fb6538abb3c4986b598341c02fc6b018d945508c1732028"
+      ],
+      "hash": "2201f7b50fad7bde4676736223c1927364e12c9a9402ca60e01c9c016b92770f",
+      "kind": "array",
+      "mistakes": {
+        "57bc4a5e8afdecd828a2698dffee4a9497ff05737255c5c0f9a91ef2af70c6f4": "le coefficient l₂₁ vaut Σ₂₁ / l₁₁ : divise par l₁₁, pas par Σ₁₁  ",
+        "667c469950a9b38fd03b7e04ce58a10560585b1595b2714de86eaafa4d9cdbee": "le coefficient l₂₁ vaut Σ₂₁ / l₁₁ : divise par l₁₁, pas par Σ₁₁   ",
+        "8adedbc6c5c75c43a3c90c76683e6207d19e03704b582ade826126423a1c68a2": "le coefficient l₂₂ est la racine de Σ₂₂ − l₂₁², pas de Σ₂₂ ",
+        "9269b3c9419612b43c9ebac40807bb2180a2ee07b67abad2e99cfa9834e2e994": "le coefficient l₂₁ vaut Σ₂₁ / l₁₁ : divise par l₁₁, pas par Σ₁₁",
+        "96da009c96e4b648a9d720543bc48aa00acb5324ad764239064e5bcb9a94f056": "le coefficient l₂₂ est la racine de Σ₂₂ − l₂₁², pas de Σ₂₂  ",
+        "a3f6e7566ade0494a962e72647d050228074c5e0937c3cbae13cbce2ea2fd7f6": "le coefficient l₂₂ est la racine de Σ₂₂ − l₂₁², pas de Σ₂₂   ",
+        "d0dc2db3979f60a620d791f2e79e1c10df9ae184b2c615876bf61e5e417532b3": "le coefficient l₂₁ vaut Σ₂₁ / l₁₁ : divise par l₁₁, pas par Σ₁₁ ",
+        "e70e57a20ef5ef1635209226d0944552b35653858b6497865b6c2d3d9f851b46": "le coefficient l₂₂ est la racine de Σ₂₂ − l₂₁², pas de Σ₂₂",
+        "f091d1ffc560212ac2101c5890979c94b2c7d5e581d356595ef660ab0b41b886": "L est triangulaire inférieure : ses coefficients au-dessus de la diagonale sont nuls"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.1b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "8189f098380b1bef5366c5ffd47de44cd3d3bbbbd4debb8dbdd10ce96216cea8"
+        ],
+        [
+          "19ef798dd970caebb3074afbb145bb0183f3fb96fd73d7993ec90d618ba9cfad"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6352bf8aa81f68dc9222a10bc567a3b1e4792e6c4aeafc140b0ff31a3f271846",
+          "46ac2fbdbd49752aeb5a7cd45b818b12e63f109434ecc226eb6818b6b9ec77dc",
+          "dd5ba329ec8f73dbbf34489f66f4395ef8d72953154e3ebd0ce988156cf9292f",
+          "b63620592e6a8081ef1b020e57c3725482a11ae73d56e1615d897fd22cb38bd8",
+          "db2c1a57052ebfc578bfd4b18cc63cc1df1edfed9f0ca51924b78510fb7195fe"
+        ],
+        [
+          "3e0e8d38c01b33b155170b2de1bdaefd1c60f9de443fdd3c9242d17d4c48a773",
+          "98120dafba1ac73afc1b39b7095f535fd13f1a68b67c52cc24d1478df0c1111b",
+          "2435b6e4080e1353624a0cf961f0b3cecac29867290454ebde6d5435fffb5eb5",
+          "3e026f0bb330eedd48cf451e4a5f05e52ef171e7b71d986d21bdf05edac61d91",
+          "97e5df411bbdf4668e323f08b341f117b740997bcc5f4fe7922b8e62f7166d5c"
+        ]
+      ],
+      "element_hashes": [
+        "2806d22d9ba9e75ab17d572104c8689878cf4f2ffce80c52bae416099b0e10c0",
+        "977b9ac663c9bd1d5bb833d321569123427ea1bf4c3e8287b26dc622a92ea220"
+      ],
+      "hash": "bb142da445e3b4e664b5419f61423ecf4b8a94da03e677e9a4733ac24367e61b",
+      "kind": "array",
+      "mistakes": {
+        "300d907cd64bdced6982058279aaf4e594e63925e1f1b5ce8d23d0d85a2823d7": "une loi marginale ne tient compte d'aucune valeur lue",
+        "b7803925a367d333aa8b1acd1c5280b2a4ee3740939ea96c5f26a977f06189d7": "le second paramètre de N(μ, σ²) est une variance, pas un écart-type",
+        "b7b3594f71231a56b5d2016fe99e8601e2bf93f8dd6056057624eb46084bc006": "le second paramètre de N(μ, σ²) est une variance, pas un écart-type ",
+        "c2b5e6cdba6f265c128721f287b0cefefdd8eeab030df657cfa27e99e5a3b5f5": "le second paramètre de N(μ, σ²) est une variance, pas un écart-type  ",
+        "fc03d81aa0e425437c32fe54c3406d5f4b9202c057fe7d43daeff37e648b006a": "le second paramètre de N(μ, σ²) est une variance, pas un écart-type   "
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.1c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1592ea7871861b276a71d28d20dc7c3cfdcf7f3a3cc1645a37e9e1e88d23a9a5"
+        ],
+        [
+          "8b0164bdf03ddb97f2b62bd57e7fedafcbd74b46684624e838266fa7f357e90c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "dbf69708241de81aa56fa1a0f145847312aeafcad17999b827434ccd19604f9a",
+          "8d423f9891811c28d7adb27afad4ccb13d10f1924fe56a1bf770e9f23a1a9169",
+          "0a3e20af05e558ceaa59bdd8fd1adda35bb05227974f7a51675f03c3c2b896ba",
+          "2302765a40d3a56eea6c41984238fa4c3a297b1e55962b6361db351cff73c134",
+          "662a35cf4c19d408acb7a4e847650cb0ccbc6cd1e79865dc61335240bcb4d508"
+        ],
+        [
+          "04277586e0c9d2dd9678ce2d6e8cbbed583fd45acfe9c1aac8d7020f7ebd2540",
+          "db336bff2807b282c1f66f276da1b667d72aef97be658046c50535909a4d1bb5",
+          "672797df3f5b071be72e8eb80c4e50696b318fe121545847a66fe45014aa183d",
+          "6cbf47547739d937fa533fa438d83ab0f56c737a0a0f13d7fd991377d495122e",
+          "ed1bbcd3c89eec2e347cf78f621c52a9d809a43cf8532afe9331f9c3235a3009"
+        ]
+      ],
+      "element_hashes": [
+        "54824788505b95ed33ef97adc22755b8b2161ce4ed2fff6c22de2858b5ec64ce",
+        "05ac2def7bc485f536b176d0d2b42a1e3d803898ba9515c5de63384c36fa38c7"
+      ],
+      "hash": "4c61d6602045e8e6e5daac599abfaf0d21ffa5eb075c344d935b5ed84ecf8953",
+      "kind": "array",
+      "mistakes": {
+        "73c4d9268ce78d1caf7f08c5d56563e7c3734ef1a7bdcdc654e2620125c171d9": "l'écart lu se mesure à la moyenne de la coordonnée lue",
+        "74af4fdc672d300c619f0b89d9dd35072bf824f21af2d9f452924cd57263abe8": "lire x₁ réduit l'incertitude sur x₂ : la variance conditionnelle est le complément de Schur, plus petit que Σ₂₂",
+        "84ca297942d83fe25bc8db1b699be36fd37c6df0716fecb27dce90ddb2b39635": "dans la loi de x₂ sachant x₁, on divise par la variance de la coordonnée lue ",
+        "df335640e41482a42164d2e5e59d6f3aa04f8fb3eac9ea527313acd8e9e1069d": "dans la loi de x₂ sachant x₁, on divise par la variance de la coordonnée lue   ",
+        "e37c9ae03b9de0d90af3716b3ef5b09e4219098df6e06dbf4a72e5a0004f55a7": "dans la loi de x₂ sachant x₁, on divise par la variance de la coordonnée lue  ",
+        "e75ed9dd965d2e2364ebac29144abcbc0d14a9f62243ae2a5b5aa6f06d690b5b": "dans la loi de x₂ sachant x₁, on divise par la variance de la coordonnée lue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.1d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "938b2d7c4492f61143c374bae6dc40b7bf34230c2c256978e303ce5a1aa11dd2"
+        ],
+        [
+          "1eae4e9c3a51d50126dfef0c81782a24b956fd9b28a4790228ad9e135e238e36"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "897a2bd9bc616ead9c6a01f126bc3e859c0fb9dbb887d63570d2ea2da459deba",
+          "31c86e7445b1d7aa026e009b361415a5e029d9388974df6cad615f79ceb83488",
+          "c8956f727d8f8c19881fa766590772791b21a3c1963be9fa080c6254ae94626b"
+        ],
+        [
+          "7d20162f851c0d97a9667733871bdea50cd34604a9a90e23792fab5606149bf5",
+          "034e99f684cb17ac4b5192296ac35b844de01e69d34360e3af03e62e7ac59651",
+          "17ab607f518153d2b8ce52dec88d3b3b4e46afef8ef811606aaccabc91727dfa"
+        ]
+      ],
+      "element_hashes": [
+        "f5a025b4e1496908bae27c125bfcf2596aee50522c27fa8bfa83fddde1a5aef5",
+        "45826ea5a4b4091e3326c09a52a38ace1c930c13ca80789ecf9666b9677d31e5"
+      ],
+      "hash": "13a6de53e016e7836b87f9ee1d3f50178d6a2bcb4ad13cca20452b6b07b3318a",
+      "kind": "array",
+      "mistakes": {
+        "23cba283beee4770de74667181db8ce19e57e3859e1c74191bd5a62460075616": "lire x₂ réduit l'incertitude sur x₁ : la variance conditionnelle est le complément de Schur, plus petit que Σ₁₁",
+        "59d7f5b6cf1ea7aba73b47f3f1a23f8723cfd2b50e9a139485f10bdd170acc03": "vérifie le signe de l'écart lu, x₂ − μ₂",
+        "dfe73682f108eb15ba184cd107c1dc989eb625523fde1964d87b4eaf037e233e": "dans la loi de x₁ sachant x₂, on divise par la variance de la coordonnée lue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.1e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "daa44f4f57677531192821041e39d6f6686b373dde0a303ab1ec50606f880ab9"
+        ],
+        [
+          "f438058c0fa22f0223b7281eb117b4b0277431cf83a0c139d4be823bc3812412"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a186d675472463ff22f652e712ef5b2d3b381c34d55eaac646fe23eff246c4f3",
+          "45267ea43d5cec1a478ad31f03bc6226f473651ea3158712c059738becf216bb",
+          "3a1d5c16a0c2ea3481c71e782f4d130c870650e6a8a100c72f5a8a46a18c3f96",
+          "0390685f05a5d38f7ef5687f5c1e6e4b4b993cdaee0733c760de657b2778aa24",
+          "377090b1be69009d20ec0017017a2c2d768ae362dcaa7f40306108928ae64b24"
+        ],
+        [
+          "ca05a243f109a70c27c8ce0d97b7f16b2a200409d559930a1f4e5847f6336256",
+          "efa703095cce1824795b3d58d01ef1c220657127860dbc0b5a3c146a09137aab",
+          "b1aeeef84c7ad075838c078f6563d984029ba2b732c1d24775a8fc9befb01505",
+          "4a10914151706f886622b3b721745fc01dd0c117f39537e93d4caca853f8c78d",
+          "a50e390678074543227e12f2d1ba83cab57f4911ec62d15cde5678d5ac67f394"
+        ]
+      ],
+      "element_hashes": [
+        "2511bc1f027b26ff4f7821b7477a783d204c0247d2e343b0346a55b4a0dfef39",
+        "b01b044f604412889254108c459089619bca20124282b174820e8b6ffbc00152"
+      ],
+      "hash": "7800be301e204929ee6af558ab07726d71ec2ac461a02ef2c424f0354047c707",
+      "kind": "array",
+      "mistakes": {
+        "88f44fd30e4ec414a862d63c471d8457fc2b5051eb7e577f8e81916f0446a282": "le tirage part de la moyenne",
+        "b38f556ea11846d14450f214706a556727fca10d6a51d5e8c156773bf47d24b8": "le tirage multiplie ε par le facteur de Cholesky, pas par Σ",
+        "e5ee51fe3d2d0c85b626b44ca2f5a528c89145ba3767ca2e198b36b6aea56535": "le tirage est μ + Lε, avec L, pas Lᵀ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.1f": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "40d88e647eaeaeb0e3ecffad05592c95330b3853dd86ab7c0de55689b412ea51"
+        ],
+        [
+          "3b9f651bf18a6b57689616b705f3979b422502e6a8da71d5209879345286020e"
+        ],
+        [
+          "be6f7b6ba4c2239b892436bd1e0cdd2ea0a7b69a93d79284175e8d14207c4aea"
+        ],
+        [
+          "47b39e87cfb94dc2bb0656ea73c47a868df633ef1af38d68a0dcc9e12a4bb3e9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a9776e5e276ab810d5e7e1cbfbe12e4c925dcdd26f0514658720bf431ddb78da",
+          "aaee32741e022251caff183aa499cc9504b0c6c1efb480ebbab7a79615e41142",
+          "a1fd289495ebda16e040c3d094410851272e8b667f7b9f177231453584f55156",
+          "d16c11674efe71531ef0f7c622ff96080902062ae20e5dbf5f5a42cca5e6f54a",
+          "e460c1cbf3e477a6e34e746bb5293296af7c79bbd5cbd6737fa1620d55fbc46f"
+        ],
+        [
+          "29a11e66448ae0c4b12af64897a73f2c800abb255fa2055f925180815b730a22",
+          "35f9248230c2cd3c93adf11e59c6dac844281020fd6104ccfb9589d47857cda9",
+          "63b8fe07f40764471d31d6362245129f97d843a483601727f464a61aba6f3c9b",
+          "4b3c16c2a89ef8929d72173115f93ae38ee6e1f6e068fcce00167ad9cf809a8e",
+          "970bf9398ae7febe70cd067f207e1ff081504ac0ef8754305c0ab5cd02ba7aab"
+        ],
+        [
+          "5060e714ef293852ee92bc0b665aab0fa2ad97e53b736f7a4f7795851e13446d",
+          "f8b96b83eae2f5cb1b5123c7a4ba1c2d8dd7d252c6ccca51d07370d519c2345f",
+          "2c5af22bba3a1d893557008e87b0c4bb71ecff38a3620663f79aeac8ae84bf36",
+          "f0979c43522dfc46cbb659359d12b19525ac4fb3060d25c12f33a822519cd455",
+          "a92fd92af404f34ae963b5f983fd4b8bbf5614a99e999017d7f62169872794e8"
+        ],
+        [
+          "793751b96574d5b044c9b336bb6b713ad591dfaa20aab73dde6931732f763927",
+          "5c891a0f841319ba779da3bbd1afd75dbef41cf02b7176234456c3cf5c91c923",
+          "14481fc3d6b17334c4e030d375f0837431579afcce5986cd5118a125d72138d9",
+          "f0db3c622eb53cebd300bbb10c17780f1d9369574d7b6319a9a438ec833b8150",
+          "8e1308de62018e9919b142180def29ec67a91184d1d870e1405ad6cdf1be3e33"
+        ]
+      ],
+      "element_hashes": [
+        "370da5d7a034e229f68555024692463ed9fd198001197836f9bd57d99414c761",
+        "66c2fb9c45418eb2756aead3dc540b2431f9e67aae99000bd4dc1bccb3b03aed",
+        "c4d39028491df3ab727d74549f45e376f2813181176c10c8d42ffc98e1fcb117",
+        "abcb61589e40509eb7c55f6abc9372bb7d1f0bb9745e10979156b5528f95a75c"
+      ],
+      "hash": "88ba93ab2c200553f12d3ccea741282939ed8d589667b0858ef9e459c83dc67a",
+      "kind": "array",
+      "mistakes": {
+        "a72292b0fa9658811d93eaaf2ab2e9049e1978701b3c1e202aa6aeb3faea68a3": "la covariance de Mε est M Mᵀ, pas Mᵀ M",
+        "e5a676ce7cac6647e1cd3c406af32b6d7b17ec633a353c163bf44c94c7e67784": "la covariance d'une image linéaire Mε est M I Mᵀ : il faut une transposée"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2a": {
+      "coarse_any": {
+        "0": [
+          "5e996f9e52eaa6b692c9296f154ef968ab7168d7d2371d41b999b1cf5907bc9b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "597e58e93de3fd2de90b5459b979acff1c7112450383371d269323b0bf1aa68d"
+        ],
+        "2": [
+          "051fa451b577153d16dbdd7a7a7dfcb09f0577795ed321cef23bbdc3d2be7dad"
+        ],
+        "3": [
+          "0e61ffc7390979f00598fc1de26e8cd2aa645e047c00b2c73dc68582baf69679"
+        ],
+        "4": [
+          "13a7341a09764c9b882f70b141f181c2f054b95e120a10a249c077d989d32617"
+        ]
+      },
+      "decimals": 6,
+      "hash": "871fa8e0c284ef32211ba3b756c5f34162289fd1d150ad21e46e22d2229caf10",
+      "hash_coarse": "8e8286c441d6c91b1773146c8a7738ffe7bff82bdd2a5bd59958759a706806ac",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "19d363d697c309cf66f9992ca08317708d3e323b8c41632b780d29f5989bda1c": "la trace de la formule est celle de Σ₁⁻¹Σ₀ : l'inverse de la covariance de la seconde loi",
+        "1ccf2c631088eb97ae4cdcb163012316eabf21b808bc8dc5b49c7e5f2d925713": "la trace de la formule est celle de Σ₁⁻¹Σ₀ : l'inverse de la covariance de la seconde loi",
+        "3351f4f92e86a4d0763dead77dc35bbb24d5b7b8e65a1d612c60854e62daba80": "la trace de la formule est celle de Σ₁⁻¹Σ₀ : l'inverse de la covariance de la seconde loi",
+        "40cb8e7951ca5111a455ddd5c208c1170a8e762696fd19a5adf41e82b8e691df": "la trace de la formule est celle de Σ₁⁻¹Σ₀ : l'inverse de la covariance de la seconde loi",
+        "98a383e6ab381f03c3b2aa16c49050fe67e3cc91dcd2472d3fe93945bf977482": "la trace d'un produit n'est pas le produit des traces",
+        "9c6e86f4f866d50975673414573705e0653520d84e9a24ca18e7625cbe691fdf": "l'inverse d'une matrice 2 × 2 est sa comatrice transposée, divisée par son déterminant"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2b": {
+      "coarse_any": {
+        "0": [
+          "99020aa0b738053c071d4e6076d015d57ac444327b5d482f64c3b5658d666ecc"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "8287930392caa84345b0891c50ca3c610abacac5f49573f045c01948f65dee5c"
+        ],
+        "2": [
+          "701178ad3cf3258fd02458c433bb4e41d969f39a8c233bbf21b461592592df66"
+        ],
+        "3": [
+          "e00582e1d93699dedef909412e6855f1bd6ecc68357b366eee8c1b4304516f71"
+        ],
+        "4": [
+          "85c65189ef37607c0b18cc5651185d5eaa9098bfafad7b7c59ae14b2d91e17dd"
+        ]
+      },
+      "decimals": 6,
+      "hash": "022c591d18e14e5f8a4d4ed0b0a536f516eb1aa970d3af70b1977d9ecdb77a3a",
+      "hash_coarse": "306f5633f094b2581bfee8ae7b4c0fed5c1862c87a3ac68577914a99eb22c0f4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "025dbe62d0ef82309652d99065eefd39d7f60bd7b4d059820c3ed92ca0bcc248": "la distance de Mahalanobis tient compte des covariances",
+        "44f357601ab379b09c45abc9f1b405bc6ce16994915f071704782c859cf19336": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
+        "6cac03fdce0e5ef7bdb79e0755150acc12659528a6506b04ed413e942869cffb": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
+        "8849569da258ae971b99a1213c47a52cc2badd81425910cb74b01bdecb265adb": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
+        "a149d70f111f679ada9df9918142c19e3451baec071a0b6a3217582afbc96e37": "le terme des moyennes se mesure à l'échelle de la seconde loi, p₁",
+        "f882f59d5f03b72a1cc3d354c4bd8b72967c0efcc917c7d960ceb6dc39585648": "le terme des moyennes est une distance de Mahalanobis : il utilise l'inverse d'une covariance"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2c": {
+      "coarse_any": {
+        "0": [
+          "3acfda071e448a6966f3fe2bc0ee8984eb626469baa568612ce469243360f6bb"
+        ],
+        "1": [
+          "ec8238334873ec0d9dd30fac08f6803c332437c16d7b39c5c80acf273f4747ce"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4eea67d52f975769ca902a7a57ee3764317363791722afe38e7b082cc4710073"
+        ]
+      },
+      "decimals": 4,
+      "hash": "712d6ad1e3064360da28711e306aabd2ff5a7316f78b37715b9252de6b48e56a",
+      "hash_coarse": "6251207e7f66eeb71592ffef1cd5df466af2d089177093c5b239ee43c5827ff8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0aea1cb69dc587594053336753dbd31505e4ad9812de7abc8c013245632d556a": "le logarithme compare les déterminants dans l'ordre det Σ₁ / det Σ₀",
+        "2733b462a197f0677c83dbef0bb16cf9833152276bfc26cbfdbed2aecfc2aaba": "la formule a un facteur ½ devant le crochet",
+        "27df44170c4dc9178f8524c541dcfa103ea196658c1d8fa89e7ebfe49f02d6ad": "la KL demandée est KL(p₀ ‖ p₁) : l'espérance se prend sous la première loi",
+        "ea6ec029fd6554259f8aa45ace102e4f0b67758418bb2e194b28e1ecf6995e99": "la formule retranche la dimension d"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2d": {
+      "coarse_any": {
+        "0": [
+          "647dd57132121546bda455d877003e80d8d7bd48e1ebeadbcee43b8e998f8e56"
+        ]
+      },
+      "decimals": 2,
+      "hash": "72b46acf96f56d0dbc9c3cccf625c85f38b92926abd608b9dfa0bb875924694c",
+      "hash_coarse": "fcf3555d0c731223125835d05b399bf26758b89613ec5cd2c37cf2f7381dc6be",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0afaa375bca0a6d5443996f4849d77e76225c3f3062ecd142c735a599728a5a6": "la réponse est attendue en degrés, pas en radians",
+        "5faf0367807d891cfc2a49bb99f43c8eea33e90c0f79a6266c0bb8538ec8376b": "l'angle Ω a pour cosinus uᵀv / (‖u‖ ‖v‖)"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "849ec3d2769caeb4a9d5fd890be0a2aaf41862bb33e4957eb923b827b57a9bd2"
+        ],
+        [
+          "1b983f10194ca0618069423b4c152a990e2b70dda1ab5f6f4350f99fba46300d"
+        ],
+        [
+          "7d3313620524ea6ed612f81b63795f4ac0461d55f801bedddfced73321b9b624"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c648f77eb09e068d6a1ae139227b59ed5328c89271a024c0269744be2565ebf4",
+          "590276a76797ea27c9db2410d5db40dff21fe14f047660f47a8420aafcd769b3",
+          "6c9716cee8475e2033445dfa6363e4ed9b479d8c28eab153b830a43307853e1c"
+        ],
+        [
+          "da81f60f40d659fa62483da27871d7181a5a59c10ebafaf91303e126920067d2",
+          "19ebc75c95353b41f8bade77f6539974d76a8dd946c45191c77b3f4cf0d11dba",
+          "0231eeb2cfffa6722684c895cc783bd236569e55e379a0115767e273df983be3"
+        ],
+        [
+          "ae6f388e76bf02a676cd291eda48ec915c695f76a322f0be5162e8e86f6c544b",
+          "36f654595160d8610e015a8304a50a9e49959e33cd415722009ba7e5b6642c43",
+          "789089d4c1cfd31e9bdb303db358e5107a5bc722864d47f31c20ae25449b1676"
+        ]
+      ],
+      "element_hashes": [
+        "39d8962156940bf96f826e88b2f5a21253d8b3537ceff3d59cc08de52dda9640",
+        "3df2980cbc6ec7213dae5adc78732770f4ee4bfafd481f2b48c807dbb6a27967",
+        "b22c23135582becb49fe418a8779af95b0195b1b97bf23a104ced08898cf7fd4"
+      ],
+      "hash": "903c65f56b40148c9bae8d65b6c4d2654b62666abf2b55b6906d1e20890aafc9",
+      "kind": "array",
+      "mistakes": {
+        "3d80990597e7ec439a38291e6b9d7991303d0afd82da7f0e8ecaec42693a0478": "ramener sur la sphère le point de la ligne droite ne donne pas l'angle tΩ",
+        "6c2f30b93217566a953852ff8ebd6a8becfc0d9d240213483071c9d557183efc": "le slerp suit l'arc de grand cercle, pas la ligne droite",
+        "f953d0e1d28da4f8af93b1ddee21b3d3a09ff59a5647a925b051f4d58872df0e": "le coefficient de u est sin((1 − t)Ω)/sin Ω, celui de v est sin(tΩ)/sin Ω"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.2f": {
+      "coarse_any": {
+        "0": [
+          "9d86418d02c29d3f3a54220f9e13891aab6f7bac9dfc4d025ac862beaae0e548"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "3ed2bdbcb8381bd52d2709dde737bcae5ee63ddeea4c49714b2344cb73b90e64"
+        ]
+      },
+      "decimals": 3,
+      "hash": "bc3364423a22bda95eefa69484d66b05ff51bcb4c14cbcf9ae8180862ec76018",
+      "hash_coarse": "b2b7aa4937e855a2e591db6d20db33c4a7e34a93965ce0fc987cbdbffe4c807e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "391f45d447a5bd9a0d93c426c48303c5aa007c5979b80e5b3fac9b485857ed0b": "le point de la ligne droite n'est pas sur la sphère : calcule sa norme",
+        "74dad8a1fa66d20134e519bebbe3982fa8db5bd4c092fb1a3dc68504880d8599": "la norme est la racine de la somme des carrés",
+        "d0cfd26bbc1e606847d5a8fdff743b858500c2bdb9713ed4941623dd38fe49c4": "la question porte sur le point t = 1/4 de la ligne droite, pas sur son milieu"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.3a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "be2cd1225bfec1ac7209501b2bfd4ebd0670507061aaf45a9a93c4f263fe3af8"
+        ],
+        [
+          "a3261581158289309724d45bd055d1b24901f427a1b3c68fdb302075a6932cb6"
+        ],
+        [
+          "507c665b5beada0f4f48d256d2b4b35e5c8c0e02e723bd89fe4609a907cfdc20"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0c8961142e1b67af969ede40f7e090ef78a08a56725c5f567b3c4e52b36ccce6",
+          "50a26c5f8ee2dc1794670aa592dc08882c2ff15980f7baf14fcd7958f7174465",
+          "329786856dfe6e89597d731432820bebd9516c7e030826c1017f88b882bff022"
+        ],
+        [
+          "70b20e646be980af2ceb95136cad3594e661ffe4c1d736d567ebdd56426ca1bd",
+          "b444f2497d095cc5c75693af4aa9d07ea8a8ab82fb7fbda2f0a17189e56ac61f",
+          "a603d0d71ecab1e0db198c9a7e475f525fbc9ce645aabdd7b5475e94da9b9591"
+        ],
+        [
+          "f7f5c1ff659309c52532a23e13451d0f2d561e07334eee7f11e12f5ef2ad3745"
+        ]
+      ],
+      "element_hashes": [
+        "6b0ec67e6b3277f4df4a4da7dff6df2660db817da634dbc1c3c5af1bd915d3cd",
+        "c199503fbb569a0dab00b9593227d36c33e3472f8104b4f141bdd63c3cd2583b",
+        "2e89e843700c09ce65aa4a5f40c10818a097a207b5edce4d4a5283b0b3a792c3"
+      ],
+      "hash": "a551018d14f52d354a61321ad7bcd95a6c2489959c88a9d2af70c80fb53c93bc",
+      "kind": "array",
+      "mistakes": {
+        "0a3cad8563efb5fc184ef7c7ccf19363ef88768354e45d09834b458f6d5296af": "la responsabilité demandée est celle de la composante 1, de moyenne 24 h",
+        "0b6c59d8921793002ddd973e715730a38013d83f811b9b5345a49267ff81e100": "dans la densité gaussienne, le carré de l'écart est divisé par 2σ²",
+        "f41c938d99a73260324554dd8cb1f273a25a263dfb979e225264e2c5186cdd8d": "les responsabilités tiennent compte des poids πₖ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.3b": {
+      "coarse_any": {
+        "0": [
+          "2be8aed7b3cb8627f20221a5bd893886e11fdb53f60cc2fef504293210890926"
+        ],
+        "1": [
+          "5d61d5b086034c0ded1d1e498828c6b666bfad27a951945a1b97f6fcd3ceaed6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "3fa1bbe5513d170d53b4acda9106b8fd2f2486fa16a70b85645cd6e3734b8bbf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f878af9d98ed120c64b601886d487b439f84ff6bebcea24196097486d4004b09",
+      "hash_coarse": "b26dbd70fa70cdcf6f0ee6e223d1f4299f4ff87a769125994b4a9595bf4c3923",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "58f2588b6ee08e13ec65c5c0b464be54fce3f91a49ecc588cf5e73567d4bceca": "un poids est une proportion : les deux poids ont pour somme 1",
+        "e2c8f9274a03fe35493f32e201d15d966ba1b4d8f736afa39a3c572de549f263": "le pas M remplace l'ancien poids : recalcule-le à partir des responsabilités"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.3c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "cb942ec6d65000f76329b2ad1b9295e206f5e3a7f302f5939f67dbff85c1d9c9"
+        ],
+        [
+          "0a74c9999dc1b1d89454e22abf4d830065ce16bbc41b2ff3457e68983e472443"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "443ae74e1164fcb801ab5630fe1fac5c302511a4d650425498ea5c70283d3d8d",
+          "734e15cef6ac86a86270fe34a8ad8df67e480859f3c1aa1941312a7859b86a2d"
+        ],
+        [
+          "4786512bc71dc1f55be54c03c8c545e6fa2101837d4af5311564adf9b6c7347c",
+          "1483df0b316ee7c7b9f955640eddf93f97c0d0e00c0a2be7132094d9d15f6662"
+        ]
+      ],
+      "element_hashes": [
+        "aaa6ea363d29e3d89a878c07f7591e683b0265bdca496335dfefb9149d4796b6",
+        "a9ee636fa37e0ae769717e38de54e6f4f1fdd20512f149e28130476b15f83771"
+      ],
+      "hash": "75d5adf224dec3d9a51a81b78f52494aece23b79977fee4fd01195533776a26d",
+      "kind": "array",
+      "mistakes": {
+        "1307d1b379defbb04561d4ade46495e4b0f2ef2742e1497ce893fafd1e401070": "les moyennes se donnent dans l'ordre des composantes (24 h et 32 h au départ)",
+        "740bc8a68e6389f75f7c13470d33a7fd37ac5d0c37f1ec4a6995c46247e5a91e": "une moyenne pondérée se divise par la somme de ses poids"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.3d": {
+      "coarse_any": {
+        "1": [
+          "f106fe04c3d87fab1cf213b34eb7236de94dd124c446962463a7f84ea9916a80"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "8038728bfe52c2a864f700c1be8f0dd9fafa3d09cf5b69e466321ff5c5010a91"
+        ]
+      },
+      "decimals": 4,
+      "hash": "ecbdfd5e22af12ad52f9b30171e7bafac6c6522f0182408b7a4506acf487ee0a",
+      "hash_coarse": "b8b5460e8fd9c10ab4c9013d6b32ea34fb6226deacb1aeccc4fb48cdff3b0483",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7ff27c7574b942fd4645e4909cb61afe8f5063f0b2ce6c17c75430e896b05d1c": "un écart à une borne inférieure est positif ou nul",
+        "f05518b30f5a0142a5648b73b91d092b102e97ba73a3239095625a38eb3301f0": "l'écart à l'ELBO est une divergence KL, pas une entropie",
+        "f3c7e39ddb6326e1472d9f4cf793b6e43d29eb0576ef131807a767e939c72ecd": "l'affectation dure met chaque mesure dans la composante de plus grande responsabilité"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.4a": {
+      "array_rounded": {
+        "1": "7348d8faec658edada14ba2afb6710b6c7415db6a0620747b77e80992b440e66",
+        "2": "bc4d431c293066e5cd0bcb38b6e8b4ebaaef8eeabd93130404c801b3c3c35700"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "98be0d7f4b1571bdfd0f1bfe8d5d92d9ed74e7b6bd0dc15e81dd58aa83f991c3"
+        ],
+        [
+          "516213e5e6108781d2bbf5429758926b18087b1d0145634cfc1ece0fa97ddcbb"
+        ],
+        [
+          "93a82158e2a4ce7e6ac7750fc15ca08278cb86c33ccbde417ffca6973bb2201a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "523207722fc3f95d69e60a29c94b6ab20e2ef63e485113ec82a11413380781c9",
+          "272bbd72a4395b78fc1549d8f72f0aef1c344ec11794d8d3de1e1dedc943faec",
+          "af4e306a83df1a40f5b52218cf5ac0338cd8a7865e9d67e66e36bc69fa818791",
+          "1077cf3bfb8ec2c1c468e78e5bdb6654201ce5d29bc1b31185f4543c7c1b5da2"
+        ],
+        [
+          "618cd6f596a31254a44057246bb1ca887bc0d3590ff21137361df2714f8e4cd5",
+          "d391644c7d82ec55d9e5c431490efb3700c530db4acce3be7a77d875571dad2a",
+          "610d8e658967faadd4ef144c542c24a596951bd704cadb0a83c558063b696212",
+          "d0b422b3a5275cdb9c83c1f345e28c82456024d1e3ec3ea88543d4757918c49d"
+        ],
+        [
+          "6a1f6c2f208883a9d6ff1b58e20018e4d1d2b8b00b3df5037789dfd335a98afa",
+          "9a5563b86d1976958ef810b1db00faa203920fa43482962de39990c96a8c38b8",
+          "ba3a762f0f6473c41a30a3f2709b4562f4cfcfaa845a75d5502307d9c5f316f7",
+          "c6af58eca2e321dbb6ab87e7bed8b73cac49cbd25de9f0d1396623b37ada07a1"
+        ]
+      ],
+      "element_hashes": [
+        "2b45a7e8534fa2ac7c6ef4c13386efad23825f782622226481c591a5df5b815d",
+        "94d0ed64a3360dfda7b40ad45b304beb43ff6c20ec387e0fc047f4b6108c1fa7",
+        "a3322cad38475ba54e4f9ab5f71c933053b3ecc25ba0810c9980af9a63c36fab"
+      ],
+      "hash": "0d1d16454aa8d37f0e03817f25a300a4a84a7e92cde2b8d713b632a8a00202a2",
+      "kind": "array",
+      "mistakes": {
+        "268f09f4716ed6a35e543778d42350d790e7975507cd1dd7b2407849116a413a": "un coefficient de P² se lit sur les chemins de longueur 2 : ce n'est pas le carré d'un coefficient de P",
+        "3e8bbea76d184c1aaf11027889c19c48e7872ce07a44b9075c3a8e9690cb29ed": "la question demande la loi dans deux ans, après deux pas",
+        "42237b4305900c0b9a143991a9e8e0f1e967cf5f6ca00771ab8d116547d8c60d": "en convention ligne, une loi avance par μP : elle est à gauche de P",
+        "946b58a86358ad9016eec138dcf2d6f2025fbca6d9e5577da95c40120c4beb6e": "un coefficient de P² se lit sur les chemins de longueur 2 : ce n'est pas le carré d'un coefficient de P  ",
+        "a5209cc5d72853c855ba011b44080d33dd3ba00075ee98c1b2bd753b9e7b0a31": "un coefficient de P² se lit sur les chemins de longueur 2 : ce n'est pas le carré d'un coefficient de P "
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.4b": {
+      "coarse_any": {
+        "1": [
+          "06d68ba8a39becbffbfebac5dfc4022665b343454914217ccfe026d17ef4d537"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "7bc27d0f104afc4f00559568fe1702e1f21ab7252778c7409300831a8c0dce68",
+          "8c9bb95ee3d0abb1de8d07577d6e6600c648c93032ede5b677a57bfc11bd9508"
+        ],
+        "3": [
+          "3c07aa88b273f623a77553cf525171a521f805b130f8e4099efd1d50488f4e64"
+        ],
+        "4": [
+          "a3785474075a0547cd7a8473c637bd7a891bf795bf6bfbe318ba994185758c87"
+        ]
+      },
+      "decimals": 6,
+      "hash": "0994fcd1c0c9a170cebcba22a42a3dc33fdd3cb65af0afdc95b28e3e033879c3",
+      "hash_coarse": "fbabbd76f0f8c66d9ddf650555093d4912855633c5b7925fd90c7634c737fd88",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3f7b5b5511417bb178b76befef49969cbf9d1e504b25c9eab7b2cb5b3d50131f": "la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
+        "451dcb50fedb78f4d5cdda2a294c0dd84c844f4bc36d886f294e64d38ecba767": "la question demande la probabilité d'être sortie du domaine, pas d'y être encore",
+        "4e695fd816fe38d4daeaf72460bda0c380710bf77dfe71d941dbb84f109cf10f": "la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
+        "b3a038d489f89e7c5fe76a9bcf01ce0a9da540927a1260cfe75558a861890c72": "la parcelle peut sortir du domaine la première année ou la deuxième : compte les deux",
+        "c56de375fe8f888b6cacde2b3af0e490b71fd1005b4d5e724fdc7dcf37a9a0d0": "la question demande la probabilité d'être sortie du domaine, pas d'y être encore"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.4c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bfbcc1f7ee46579dfc736dc33346edf49b5ebb2065296f1ad23d87e024112dc0"
+        ],
+        [
+          "2ce4f88695bdf3aaff7d93a102a87608dc3c56b71d01db2534cc70d55fed6857"
+        ],
+        [
+          "1fe93c4c866c22e39b080544aa6d6a3291af44d9659e4707ea9bea4d3a2efa5e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ab1a2f7b480b0f27de98e08fcbb8e88aab86e06f0bb678ff6eb750746dc59649",
+          "6a3acf21af5ff4d5a1d0a69ca4d1ab0f642b5ec1901fc928318d00df701117cb",
+          "9bfa0b823be96520878563c23f3ea3005e9a387f23693de790581a35bb518a8d",
+          "0dcf5d5edb980c6b7c64a9b187579cf82ee139ca8923ed1f8bc9ad55f218864a",
+          "8b5b21962dc0d7424b858c09fc7a370679a6e012b8937bf9cbf262e6baf39f94"
+        ],
+        [
+          "17adfdaf3844dcc9945c53e1dd54b59afa1c2526b1edab84583ef86b06291d36",
+          "872c78d264c9bfa0c092acc26dbf912363f1fde7367da76c40b15c3166d1fba2",
+          "6844eaedd40f69c854a670d00b0312e97cd154b29fab88085114aac0090544b3",
+          "0f4a44a3fd42cbb97715b73879034eac238f42fc26eb58ab1013f0713a63785b",
+          "7308b07d88a86b5493d5e2c04e90a34069bcf7c1639ca9b16cee3c23bbf4ee75"
+        ],
+        [
+          "c0511de44cf40a2b5dabceea541defcf7384f52d15b7d749cb59a0c8b91f726d",
+          "bf513a7f91b3e1c77e9bc67eca70b111fcdf8d7a5e1a90e7c20cdb50d2dffac6",
+          "7a9ca5de12c1e127769fa2fd967917fbdff9ae4272d98942ecf414b2a6af72ea",
+          "1e3ed53b5bf211891f7a90d99ee9d28465d65da3104ddfa23394687ec23fc499",
+          "9b28eac78d441f3ee10cdc4d526f84820e6e787b4fdfd246b4494209841e2e31"
+        ]
+      ],
+      "element_hashes": [
+        "03015c283152613fd1bb3b10ff5ce0c28cc075f66fe4def42c6512aa3ce78e09",
+        "7bb278a5caab509bee1e3867006000431cd29d5e05f4ac9b49fc7d9ba3b14f73",
+        "6e41fdfa3ca972943b5bc540ba5f6c08157997c05172914c771d382e2ea6fba0"
+      ],
+      "hash": "92793a520273054608be9c90bd2176955c03d9539402dd892856226c7baa0419",
+      "kind": "array",
+      "mistakes": {
+        "359cdd8b6b4f0611938f5ebbe4e601d53bbe469f5057fa070e152a22a1e3639f": "une parcelle peut rester dans le même état : la ligne de P garde son coefficient diagonal",
+        "35f59487f68c9f65ccd4306cb8dfa154ea60c0d99e7e56516c75d3d0ec91b49a": "en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s   ",
+        "4bef3a19b326d93f9e0d460de4fedc02b7d1b293a3b8b9295f0ab74d2459440f": "la valeur compte aussi la récolte de l'année en cours",
+        "a37368bbf5403852241718b7fccb9c7b4076559d4d1b795a5c8b09336f6d46c1": "en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s  ",
+        "ae844517ddc28da7a5e605ee94dbc437f63ebc4823cb89ede79334d8cd7232c0": "en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s ",
+        "e821d0008453dba9922d7e223cedf08a942b456f7b9728dcf5323332b18c2d86": "la fin n'est pas un état de P : la liste donne V(0), V(1) et V(2)",
+        "ec3e6c18978f307a4f46ef6059588b70c60b35b5407d7c403430bb599aaf3434": "une parcelle peut rester dans le même état : la ligne de P garde son coefficient diagonal ",
+        "f732a556becb32b98ea5cfd8655845b54f75c76295956fa9b502a92a5a592805": "en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.4d": {
+      "coarse_any": {
+        "0": [
+          "27923bc4e9bf66536fb403dedd519f17526e37e305dea7848dec12206f6106b6"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "101117b0c6a711b55437e8ebb0649b3b1deac6c102a5b834bcac56558c8b9740"
+        ],
+        "2": [
+          "1c491a1b0fee065274d6417e986c74dd630c2594f08d5bee3e6d29fe20233d74"
+        ],
+        "3": [
+          "b8b5dd36f3824c9e34e7e01a3bf2a8f8d1ca61b3fa07f51e5a82c88dca8f61bd"
+        ],
+        "4": [
+          "4361c72997c696b7c9247a3e7c6de0147e74906e9c5066aea2f37bc4e2446ecf"
+        ]
+      },
+      "decimals": 6,
+      "hash": "edeefc5a7e6574d4e32ae0e52c5a7b5d892d86ddc37febc822afe5374d52bfa7",
+      "hash_coarse": "24650924386b90cc5f9918993e41b01db72c4d737845c3fbfa87b4edacd181f9",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "5d809aefb14bc2fe994175bbc3946e4f09c1aae95d2b0bbc6a2de5486e1dfcd6": "l'année 0 est l'année en cours : la troisième récolte est celle de l'année 2",
+        "629b1e08fd1bad50b1356f53d05c557dd498a0d08c4a9789b9cc29564f7531d1": "l'année 0 est l'année en cours : la troisième récolte est celle de l'année 2",
+        "7e86b3c45af731f441953683ee6ab8e3f1ffba909d054dc864324d376b9e104b": "une parcelle sortie du domaine ne récolte plus rien : ne renormalise pas la loi",
+        "8df9c87a74b9743b875d10057e4ad65aa2e8f6f1baf638834d7f5fc5ee570207": "une parcelle sortie du domaine ne récolte plus rien : ne renormalise pas la loi",
+        "9ba8be7963627f0209eda3922d18b01daa74d9d2743b1b0bb159bbe3ca149da2": "l'année 0 est l'année en cours : la troisième récolte est celle de l'année 2",
+        "c8a38f17421e73d0f6ed8a29b2484065cb66fa2b8726266873d5aa54afe6039f": "une parcelle sortie du domaine ne récolte plus rien : ne renormalise pas la loi",
+        "d0dea27ea6e7692461732505ca70e6d45cac923832fd1908ed14a656a253e6fe": "une parcelle sortie du domaine ne récolte plus rien : ne renormalise pas la loi",
+        "e6862fbba3b8db7c9cfc7be1f8f798a16a80fcc50184ff93e178c2b61364e6e4": "l'année 0 est l'année en cours : la troisième récolte est celle de l'année 2"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5a": {
+      "decimals": 0,
+      "element_hashes": [
+        "6323302df3e89785319b02bfdc71503239da2380e99807f8f9f19d0ce6f21623",
+        "59c3464de87a8de88ed4c1089eabf91b09ca9492b7d7d2e7be1ebab841e206f2"
+      ],
+      "hash": "e74b737dec93095598fee84290c5c3a2d7f91abe0471e01c41861ca98a9fd6de",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "56e1efd1946c72b91a258f4026b5cd8f696f08ac8c5985c98bfb0628aa9b5bd9": "le maximin (ce que s'assure le braconnier) vient en premier, et il est au plus le minimax",
+        "9a97c2a9b6f1e6ee0dec4310d1c6d84caab6b757a3ddb6fc22b870b27023af5f": "le joueur des colonnes paie : son pire, dans chaque colonne, est le plus grand gain du braconnier"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5b": {
+      "hash": "07c7a338bdcc43ea47451287af087d5a84eec05447078d7239cd0d0b93c299fa",
+      "kind": "fraction",
+      "mistakes": {
+        "1880a4ae49fd2e899c3bec4fe74d39201725502987623ef660bd3e918cf01ccd": "la probabilité p est celle de la première ligne, le nord",
+        "6f1a615086c145cc09aeb70f16d0c9484bd9fbd870e2e43fcf48fead9e7fad8d": "la stratégie optimale du braconnier rend le garde indifférent : écris l'égalité des deux colonnes"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5c": {
+      "hash": "d29d5eb859d87c044edd63b0ebd2f0e64ac6bd43e0baf562700f4cafd19e0913",
+      "kind": "fraction",
+      "mistakes": {
+        "2ca40bdca116699b5f4f75b9102a506bb15659390c4c95aed19510a1d39d0fb8": "la stratégie optimale du garde rend le braconnier indifférent : écris l'égalité des deux lignes",
+        "c009a732bdb48f4b91495930f9f20a65dc1ba364cb171fabf51885211544f0a6": "la probabilité q est celle de la première colonne, le nord"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5d": {
+      "hash": "be0f0cfb18ee99793612fd6d0af6089f702c14d90d2e15415863b12d50c93672",
+      "kind": "fraction",
+      "mistakes": {
+        "7272cc8d4c869aefc22e54c2088c3ca55e00f5c55f0737b772d7d4a9628c7254": "sans point selle, la valeur en stratégies mixtes est strictement entre le maximin et le minimax ",
+        "789a1dc8ec295b4f0d8a4ff7a290b7888df84e3db3a8bcfe72f6ae538890afd8": "sans point selle, la valeur en stratégies mixtes est strictement entre le maximin et le minimax",
+        "8595b47589784c420be88853b5a78b8e911dbcf764db53de3ed956c8748d3a13": "vérifie le signe de κ = a − b − c + d"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5e": {
+      "coarse_any": {
+        "0": [
+          "9db9369980b646ef5426acdfb46319e4483ba9783d5a4850efc41e27705c752b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "a317853585b6dcd5b206dc7eec4473ccd1d54c430b1f95799bd56f188c1ddc21"
+        ],
+        "2": [
+          "dc311305e8830e513296f68cd33827acdeebd99399700a8e35a9ed2f192ccdb9"
+        ],
+        "3": [
+          "79db4de92dacd0f36203af95460fcdb26f165c6a3e277a112ce4765da76a8e86"
+        ],
+        "4": [
+          "bf83efb2e3bf671b9dc9a5c3ba2818ea721a99f549eda892a7d0903541803c14"
+        ]
+      },
+      "decimals": 6,
+      "hash": "4c33b37b26ce62e383f467025dcbe84a56a5e05acde1e24a831a9a481d5b31db",
+      "hash_coarse": "3cbc857e21e02703dc2bba1ee929b033ce52459fe8223d72081d25ae7aef5ac4",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1ec221e1f651112438375c2f5a5cc27b4efa5d6167b56e641423a7ee0d0de718": "l'écart des moyennes n'est qu'une minoration de W₁",
+        "6200a2e75c652b92eb96f4d4b77c1aad4968d87303913f161089bd203c777a89": "trie les deux échantillons avant d'apparier",
+        "d3c39e1a6a63c2130d1f2b877f8cadcddf15c66e69b30d6ce6114635b452cbac": "la distance W₁ est la moyenne des écarts appariés, pas leur somme"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.5f": {
+      "coarse_any": {
+        "0": [
+          "09d1b93414912389e8c4c9388b05403a95f7b31a92360320ef9aa6ce65a1028b"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "02fe98f73c9298ea193e351b3c6f4efd9e952bac8ccd609e51ee3662b7d770c3"
+        ],
+        "2": [
+          "e16682c6830c67c9bac95661ba857c5427e6367a3b4d6d276cd85651381006d4"
+        ]
+      },
+      "decimals": 4,
+      "hash": "facc9d0c706467d7ff735c23a40c56bbc0b53ea884ecb2d2bbb8e05cdbd2a91e",
+      "hash_coarse": "16b74abfc7f7b0f397c9e628b480deddb35281ce21ca1cd3d6f1c584f958da15",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "192854f425a34009faf6ecc72e1725822e35ee8338aae675a0f13cc54fa68cbd": "la distance W₂ est la racine de la moyenne des carrés des écarts",
+        "e99f29c9ca026a9814cd2c5030c7238b5aab1631ca3d08079aa62d23681bfa4e": "trie les deux échantillons avant d'apparier"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.6a": {
+      "hash": "16033ea64fd05d2c2e4102da4e38655d8ff316352e1f55b317dfdfad25eb36d8",
+      "kind": "fraction",
+      "mistakes": {
+        "eeddb5758db9982273f2ed01df297273a8dae75e07c31ebc7d38169b329f3478": "chaque carré de distance apparaît deux fois dans D⁽²⁾",
+        "f442dc7bb27fa6c3c463e2a20beedb80b59ec427944d14f8ab1ef32d92d38fe0": "la moyenne porte sur les neuf coefficients de D⁽²⁾, les zéros de la diagonale compris"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.6b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "dfc991fa0acaebc31ce856b284d40c397a68be41a4b320d3a11510f322f00e10"
+        ],
+        [
+          "05ea8679819d2d6c99b10b8a2c8b944c9b0d45955fb305dba4f7222f2d3238f0"
+        ],
+        [
+          "4f4ca8c588e076ceb8be06b78e5357c0f44e4464e83478af061be03be3628872"
+        ],
+        [
+          "80adb40a76acb45225a8dab2140b55287c5e0de1d7a19839be9a51cf163b2389"
+        ],
+        [
+          "35dc0a72e191fc5e7bf798a6c5b84b8d2d9ba1f524e3da18be00517ba9010d13"
+        ],
+        [
+          "947f02d545de48f93887dd8676357e99eab5b92759c3d21aa0a54dfdb6df623f"
+        ],
+        [
+          "7b218300d1a518a955efaaa28a8a6cf51105b95ce65de7fa08d155740df27df8"
+        ],
+        [
+          "67926510f58849a4078d0f56603d773259b571b7d1977a6a66ccdadb9c9363e4"
+        ],
+        [
+          "95c6f17435c6a205175cab4afd8ca921287b2aab52f6b453030f95f27598b4b8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cc781bc4c535195eafbce057a111e95f3743a9c30c06c85f8536fc620ef55456",
+          "841b89af60801bcbfb0ba5d3d12eb503bca16db0349f8aadf71a7e4efff25e1f",
+          "d4db059fff1a7f334a8fd75a1f91cef99e80a12306d9ba5acbf99a91b888768a",
+          "821defcddb9dab63d61624bfb2351d4302623e614abedf84214ff3906140f942",
+          "d20fee0f65d72f0d419dfcd4a79836e52cfb605741adff753ef81f0a56926607"
+        ],
+        [
+          "5d45d67a222a4f7821190011cf3fa5ff213ac87dc67baeb7ebb07c7ceac63298",
+          "c5b034de8b4a0743b890ad1c4fe092f2cdfbb8fa8f8a6a527e38fc27ba0cac6e",
+          "dca9f3900c2547f7ab48b372de621e4505f06222414c8f2261392196696fe810",
+          "35b41ee11bad763adf76b8b17418700136dbcf1388f51f225fe43253753a2ee6",
+          "ff072264fcc31acfeffd2dfa12f64789e5e03776ed7de5e3bb3d06d9da797b01"
+        ],
+        [
+          "90c9b92675347f63c675ff37db56421f5aa4728009fcea43103251a634dacd68",
+          "735a3d139566a44445a4bd26ad99b03c3590a2d1fdcb85c2b3809b8da4170496",
+          "41f6563a1faf3cba4f09b53e659def650aa5c81e0f758bc583b3f70a009ea6e0",
+          "108cdebd25714a5e3f2f4165c63220255462c53b0f10d097b8031e394026e861",
+          "749f435330e8b6b9d75b7ab45fbab4bae38a8a89183154d14b8d2002b4e91207"
+        ],
+        [
+          "58516b766e8e40e00a85e8b0b5b9be0417d0265fc3a1d39c30fcedd0b81e068a",
+          "e3e7e51d04b1f9abefa0c4acf2e894eb1db415789eef7f39cb36bf3e0c1fa305",
+          "83913e1537a59dd659b8585a1caeaeea40318993853c7dfc4d8a09c6c97d5f43",
+          "79cae5218015aacbb7500c022e4547808aee6af4339f4181fe9f17b38a4b46c1",
+          "41a430a572c481f77773e2d18ef44227ff07af321d56914e2f1ec37b3364f6f2"
+        ],
+        [
+          "9b88543f92419d180b403d44b11ae10fd7341757710e06a19fe922cf2fa21ba9",
+          "320a72d8c749da4f7937f7f00b20eae72306e9798534031e92a9e98b4c9bcfd3",
+          "7881540a17032664e9273aeb74ac05f0b999b18ea00c636a8d2abba2562706b9",
+          "a3ba85170a0956a64e9d5f27badaf14e29099e8ea77487e14fcf3e285094068e",
+          "f8348e9e841b1d61076dbec042ba65d225873750d187e5ee0fa0a2f0f1df758e"
+        ],
+        [
+          "d6be87d425226512bdac95105ad54de3ee3cd0885d19647e87c1f86415a36cb0",
+          "b416f7c96a0691d5cd7d3996b31e86d9a273c13c0f2dab84db870b3934c4369d",
+          "d1b4b4db578c3defb77ae6db9535efd8b38def98a33da863cdff3da30d5bf2d4",
+          "86e4a63d2c3a8e7bcdd9586d0dcb6c9644296924a0b823be151ad19f31de19ba",
+          "33dab0883951e155ce89a0b98f1e44d36044865650acea469eb1388024961c97"
+        ],
+        [
+          "c046bb04013fd8f725ee018c2f33146d9578e851b4be7502675f6acf6c3ac9cf",
+          "9996f9efb4d706d4319d9e9a13aaabb608053132b6fe11ef95a71ba85972c495",
+          "bb0503ad9d4af075fb81d69e60aac82c3ca2ac614edfecf3085fdc42cc410db3",
+          "eb39b572c32004e810e8d18d1b73bc058011911108d9f232d7f30e266cccafd1",
+          "78176e0eca02be59e4ead60e30f53cde457f124da304c2e19910404980db827d"
+        ],
+        [
+          "21cc60e555b9da4e8c1438a562ffa53df0b94eb63cb2adfb9fb61be237602d8a",
+          "10b0c66d169055eeb1d9ed3e38dd541fc451571361708bd865884540badcae3e",
+          "acf78451ab5f6bfe7dcb32bc8465eee97fb3c8c73afd80084b68512761814a7e",
+          "23fa2ed857b67aa4b9e850c9353f4a757e369f220b3ca01298bbceea2c757d70",
+          "ebd59e1b56584b9fe87fdf8eabc8561058c20faf2b106889e7c1c40e25a33d73"
+        ],
+        [
+          "9c1f215d7c40336c60738baabce1bffac7d8157ccec33acffc740114f14a205f",
+          "adc29849b68440c97db3303ddb476e8369bcfb77a74f34663c2ece841e62fc69",
+          "6b3332dd3d8c69a2886766095ece9ec0c18acd700d916f851b3020e5dc81aa0b",
+          "ca5f51f423255b74420f78fb15b375e1f6748708ad50b81676d865570d7933a8",
+          "f2ccbf8a0c5166cf6b45cb9ecfd3a0525f1f32026672de1f4563396f1476e535"
+        ]
+      ],
+      "element_hashes": [
+        "0a7acbe0d71c20c11bb995ed8a3d8679b8d58515ebefeef1587990516f2d4574",
+        "fe13c2b073b980c6b13739831d72c205ee06261605c75703c5a1abd73cce02c7",
+        "7462fe27203eb70ba8036e18dfd6a91a1ff355261a3e971a7992d8430843672e",
+        "46d3a479d189a3ddd422c1efbc7b5a9823082c4f1f3c50c186538803fbadcc54",
+        "51f07dbaf34666c59ebc478051681b73b319a6a99e3f8307fc599f43f78ce31e",
+        "750694f724c375cdb50efb7327bcb60827aa63f19a0b465b0632f4dab9848911",
+        "8ef07963b47d3da883aae403634a58b2950b44a8d3ab3d3badb8217ebc18e7c7",
+        "929306a837e0a8fdefc15d18d213dbdea14db3c9b2523c732dea96e6216659d5",
+        "3fe39685593e1d0cc41b85a1b961c40e0cdfe45d9985b53a7eacb7c3e84ce1c9"
+      ],
+      "hash": "09ae05320cddc06fa915b7a9e35d01e4cdb506d7f3e9a127b267206fa6db5957",
+      "kind": "array",
+      "mistakes": {
+        "1504c8153edfadcac35ba8f187bc973b3a3f4d03211026e612f9651e616c8651": "le double centrage se fait sur les carrés des distances  ",
+        "567ca233922e3e6467d2bad7767733bfe06033e1591cb2d92a0a1e146f91b99a": "le double centrage se fait sur les carrés des distances",
+        "9b48dbc44d6fe184f259c9503b15acfc41630385b6fdd1c6cb0428afb013e63c": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s",
+        "bca12397524215d2a77bf17509c74771eebf97eb86ea398c9428b011da136bfd": "le double centrage se fait sur les carrés des distances   ",
+        "ca0344dd0eeea9ad0e1f4164dadd07814781372e24c2f3ccc07e7597646612c7": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s  ",
+        "cb8eed13ee97cdbcf6eccda0ffbc0920d99675b2962b560983607b7b2799e244": "la matrice de Gram est −½ J D⁽²⁾ J : n'oublie pas le facteur −½",
+        "d029ee80c61b79b9499dd832ad21a393ff539cc0c4a4f5ec5885a1244dea00c7": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s ",
+        "e7b1038275a163cfb9ce72ccc04c043fc712bfe353a307c6093d602baaffd677": "le double centrage se fait sur les carrés des distances ",
+        "fa01ce7c3657373ec06fb0d31a76933bdcfbd121e3400644603f22059231aade": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s   "
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.6c": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1ea31f536b9f2fc2376fb9dfe4c4942c494e2172e882146f783196f9d0fe467d"
+        ],
+        [
+          "adb1bec583719dc626377edefe38aa2aa1789ad0bfc303cba14f1c6ecb3d2736"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6de29129120e2cd67958e35103e6ba5c0c36204316d9d8e6c69ccc120cf3850f",
+          "c32e3d8fee3697ee95d05c607e898299b1ebd28a31356b732af0fa89c1e48657",
+          "5b31fdb26c7b0a5b70f3cc18e7b31f66d60e258dd168fa985b871a2947c1a534",
+          "47d155a5788b1479dbfe01a47bf751a7cbbad70d6600ab2dea61644a5dce9872",
+          "106ae0e9ec8d046fb7749cd8cd22cb68eec74e870f2d7b7a71bf87fad1e33618"
+        ],
+        [
+          "dabfc92708c6cdd5e4115b1a822151c6dc3ebb4f50296937aafe129858e8ec35",
+          "29955983377197301ec62167d455bdb88f6236541ff22a4e13c6e8f963a9f903",
+          "cbd3e3438dc3fc1530a225af3385ca00f2c7c111e2887bffdd4d51d5a581fd64",
+          "6cd01b8f998304ae08af3670d646b2789cb19952fa2a113f2eee553f54ac987b",
+          "fddb96c3eaea70fa6dec6eb88419bff1eb55a4675bfecb283d0514d23d5ab9d9"
+        ]
+      ],
+      "element_hashes": [
+        "d094012db3aeca9b43ab286eec78fa0402aafdaec774cff0de111ad39b49ae85",
+        "86df841102974509d56afdaa4d691266043f3988a8880befd5803ad6a3716d62"
+      ],
+      "hash": "197b0cc707369278c26d61f01aaecaf66f41b1162bc448358bc6a62cfb889fd2",
+      "kind": "array",
+      "mistakes": {
+        "1514a616279700a7f55b2a52e6d90fdb000ac9c1cd282669c28033214abd2ce9": "la question demande les valeurs propres non nulles",
+        "45a584bc306197ea92678ca30fc621b694fd016356303c023ecb4ed4f7339813": "les valeurs propres non nulles se donnent de la plus grande à la plus petite"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.6d": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "e42b08de9de97872ca5eab3c304f88a302ab5169cba70d256987083f51b3b539"
+        ],
+        [
+          "a1c511fe96bbcfe913d3c1891c9268094c1d40db416c4561f9f7e02a1dffac1a"
+        ],
+        [
+          "1b85ec15a912366551aacb12cf27723379bb1cadf1abe8927264bd7e607f17b0"
+        ],
+        [
+          "e45c2afcd5dea568d87ace0f61cfde3cfa00bb004071f608086e69e894340078"
+        ],
+        [
+          "ba20d0403614b898f157a3e9b73f29b7053409dc3b3bb5a4df588a6ba298716b"
+        ],
+        [
+          "642c0675da958100cb611346119179aeea15ea1c3bf646b49c8c035f8a86df6a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6f0fae230beedde477ac40f3a28bceb336557286b8ec806b37060f0a8294a460",
+          "58d5ae98ea8f472b2db1963651daaeee1b55c304199586960383c4a0bc187e62",
+          "67d02087299cc79626aa889c6c341842eedfd1ac102ac8f0c716ae49e923b0d3",
+          "b674a04b2d9300623ef8eb6893e5be431301bdbe39a162bf4f3eb87282ea9846",
+          "304b088bc9c3ed3c7ffcf99637b2d2c85a15fc94d109167eb9c16a14bc48da9e"
+        ],
+        [
+          "926dd3ab2ba484333feedcf5f86df3f4cbac6e91a40c45830a404ee4b3198c89",
+          "c899411f41fa6c17bf3cbb572352c282813199c1384fbff5c4b3e2eaa3112049",
+          "4c16939fa19d27eca2ce3d95c3c0f2c0d9d3524957e1c2ee27b7bd7dfcb07c25",
+          "7c872db8dc6f858a39f072e3787d5f5c6112183d26f0038028a451dbe181f429",
+          "9f77a77c60bcf05c318e1d476014ffd0036f8eafb6adc67f2d7a8c0dd6f5af27"
+        ],
+        [
+          "919bee75bae7fc02ff224cec9577f868ce372e2b9f244df928f7fe00038e1ba0",
+          "4ee3ba1bcd5f8810c7707f8e5ca3202d3e8c02d74492f13fd782ed7af141c1a9",
+          "7a1bb4ecc46fd7aa9b3a8a3b5e0a7a4882368ba8e95be080b3d244f66b31e588",
+          "fd8da436f4cf55c135cf9606ffdbcdee1185bdc4dc0b9c1633c2a1ccc297ba5d",
+          "16fbc9d249935438bb1186ac6cf6204e09f9f220710cb9de8946e26e73e57e29"
+        ],
+        [
+          "4ac4a2cc3e2813002aa32115d15d0d0cf1b2936843a772b5ed50fb8da92e6968",
+          "f601b1db89665b98e139977996e5aaa89b08fb42d900d174a4efe6b29e2d75b9",
+          "3a8ccd0ef118eb413cc94533d41b17a28d20ed22d894cf85b9cd579889c35537",
+          "8facc57d4fc2b06b278f4a97eecc1b9a6af29898cc05fc71c1b68db6b59049d2",
+          "616286a1d0c0bf766efda4faadc511ea63baa0f7daeba578b076267f1efc4407"
+        ],
+        [
+          "ea17ad072edf59fec57c7d8a38c9400359db807a9f689fb045ea8dab2327d245",
+          "910aafa1808929686616e9d9ccf58ad3e3659e6fd5976bfbc1ffd21dbe1c6d19",
+          "41c3c708cc5eefeb3452fc3510aa0f22c1accee9fe08daabd4fefd4c4ba2be83",
+          "642ed092d9b10e8a401fdb1f701a01cbf23f41d81a81a6c9d59bdc9371f187bb",
+          "4993b6660d29548adebbee6b527a6f2733a05b04c0bc7041bc6fa2c013b5be58"
+        ],
+        [
+          "9e3ef03fc08668d2c478c93a5cb0a0b26df06ead0afbdb849df6e02cf2e3d85b",
+          "4310a2f2f8180629a840e97f8e4d1162b915540fb42d7ad0fc9bcacfac9d928d",
+          "df570a82b0897f2483f8bc36221a77665a2735e168714eca3a5451af846f3b78",
+          "d39e6dc4b965227b8974a050492dfc91ede0133f1cd822df1ef5fcd4a3ab2643",
+          "145eeba79990733992a2bc71d46189d2b6a784f2b15f2a0b9fed229f1d5b4a32"
+        ]
+      ],
+      "element_hashes": [
+        "5af033ea2412c6ff1082c0e855c0ea0ffa3c23bdbb4afccecc6b7a724e36bbbb",
+        "1ed9264130fe9565246b364573828b0d927a24ba06e5fca27b59c685c9c80dc6",
+        "9383d0b21ad046e95b1d76c8d56421874b537780ab822d920bde573c7eea327e",
+        "e9e72755ac1058e47f4e4091d00dcc1685510cfc583b6de2044c7e8e32cc394e",
+        "d86d63a02e6ef45234627e4a2a9166caa57f22ede915764536db6d2ee88f2387",
+        "64d915dd73411e50d4d587181ab722af92db824effe010ee0cdb958568edad70"
+      ],
+      "hash": "34613c88849a3ee14f5534038e2a8ed476fe35d456ccb1306ecafafb79878544",
+      "kind": "array",
+      "mistakes": {
+        "05f8d2389902f6568bfd6d3946d1b459add3f8a5d186120b7fcda1200e9ca7f3": "la colonne k est √λₖ qₖ, avec qₖ unitaire   ",
+        "1775d048a0cbd63eea15c8ea56339c3c1e1df07fac004da6c5dc3f2456850314": "dans chaque colonne, la première coordonnée (celle de A) est positive",
+        "40f249b2dbdfef7653ee20226e6e3eab926b8ca3d28a3962456163d637bb45e7": "la colonne k est √λₖ qₖ, avec qₖ unitaire  ",
+        "7f38b352efb5cef1da08333f9fc99ff12c95210581addccdbd404a019519e3b6": "la colonne k vient de la k-ième valeur propre, dans l'ordre décroissant",
+        "cd1353d8d1320c9dac3cadacd5405eca5d6b988f366434829472b8eb14768965": "la colonne k est √λₖ qₖ, avec qₖ unitaire",
+        "efa5c3fc96969a41fabc5ef0549037b69191a3041a026a349e9fb5f9a0d471f6": "la colonne k est √λₖ qₖ, avec qₖ unitaire "
+      },
+      "shape": [
+        3,
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "74f9491a7b6fd39e32b2917239920d825099630e9dadce24f63f3e6a816504c6"
+        ],
+        [
+          "205cecb40103abf933d094f20ffeef96a62c07e8fcf58602b67d756101de5f58"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c661c20513ecf81867956b14a8dcc73eccdd5038ec91dfaba78dc6b9be9b296b",
+          "220f30291232b8c83939c4aff99a2629880411ef58e8cd44b425072eb5482918",
+          "cde0df79eb3341190893e303f05ed4dfe27822b8c3698dffa3d55baf9b625f0f",
+          "c727217940c121a9a80ee678cc4cdbf1c286fc415032e77459295ef711371802",
+          "984ae062baaf669b47a89cb8ad926df448fcc3512f32e0b715254f252ac8cd57"
+        ],
+        [
+          "868fb98097f24cc4c168dab5e706dc4caa5006a44272d783bc698b866e745018",
+          "0cfdf4a384ea8b6b92eb7ee36f384a24c595ad5761ffadd59344c64482d61bbe",
+          "be7bcce2866d447fa4646afd767d210ef0ab03a95afb28128955e56cad5cfc8f",
+          "161d791bee70298d97e90ffec83d587c116794f4c32fee4f65b030a888d3f3e1",
+          "5b946e6819b4fe70db46c6efb60c5fcf155a2f1d3742a47ab25e434c60e4837c"
+        ]
+      ],
+      "element_hashes": [
+        "1dea189f1b47854b211ba410f5a7eb74baea842a68aaa11e445b165365e17475",
+        "b888925b47cbc307926893a2df1121b265304aa07f41e52126f33139e787da15"
+      ],
+      "hash": "6fc92bff57bda8ccbac46300c79b674c297956d2b12ea48b340cd13d461abe38",
+      "kind": "array",
+      "mistakes": {
+        "17612dbf8e796cc06782bf48b3afa67ea731a1e0fec62ade78c2a689947073c6": "la question demande les valeurs propres de Σ_A Σ_B, avant la racine",
+        "78e5d53772c992e25c0ba2a1aeabefea35f68415eb1d6291a348cb1a7bec0122": "la question porte sur Σ_A Σ_B, pas sur Σ_A seule"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7b": {
+      "coarse_any": {
+        "0": [
+          "5741bc318bf6ca14b78bd20dc3aaedb103a298535a26dbc26c3db1430d643d0e"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "736bddcf881f9349e600393f9eccd18386bcaec108a62cf1b916f98933c95c10"
+        ],
+        "2": [
+          "e8c8b5b565e971f31fbcf5a227ec6f1d5dc5214a977043928ac4248859f6d594"
+        ],
+        "3": [
+          "73af8a45c4c8c11d0e2d3160f32356ebb05affdbf4ab9360fc1260d618bae79b"
+        ],
+        "4": [
+          "a3bae4fe5f109ebd0759dd238c8df412e6fd7fc41ee38666f63da6ac8c8a9818"
+        ]
+      },
+      "decimals": 6,
+      "hash": "7eb8de6c92eb2f684392cbe084093344c80382ed5d20e9ffc389cf2f1b8ddb2c",
+      "hash_coarse": "278b055059f9716d1bda68eeae00581f0bf6bf463e66eee6ebde7063d73f75aa",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "0a93856a5c58c177e43770d510d5d3a769220c26ac6d75ae7e3e4eb121e1a9fe": "le terme croisé porte sur les racines des valeurs propres",
+        "7378a94a4568e19cf9b6f98fc697d52142930d63aff4bb36e63731b2f00a1345": "le terme croisé est 2 Σᵢ √λᵢ",
+        "959dde6846b71a4443109ba83910be29d2f497460aa4a5933fff1f733273796e": "les traces des covariances ne suffisent pas : retranche le terme croisé"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7c": {
+      "coarse_any": {
+        "0": [
+          "6822620ee76e470414394255c180a17476cfa3a2fdbbdcf8c5fec74bde5db99d"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "7a58212433527e13751fbb010a943cbf49a420674ebf9311aa0dc1841d9e4f9f"
+        ],
+        "2": [
+          "8750779da1de1c56dc3fd6bdf71b43cc149df7d9869e2d3707cbf9958f95d9a2"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7eb616ccc30b1f88bb77883977fabcbf80155069e6228572bce7ec2bcc22b535",
+      "hash_coarse": "4577e4f1bb851c4a21cb415514b4ab8091a27657dab3d858921fd6acb2024211",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "4825a9a884acc10d3288108b23f832a226ded3830482e0c49e05943525a8f87d": "la part des moyennes est le carré de la distance entre elles",
+        "bd002493c16447269478c193275f5f33caa7cf8e4158f2c0685442e9ac63f150": "la distance de Fréchet est W₂, la racine de la formule",
+        "f3bc1550c055106208daa33969133491fdca49f0930740b2703468c863081c27": "la distance de Fréchet tient compte des moyennes et des covariances"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7d": {
+      "coarse_any": {
+        "0": [
+          "f51760e10b2b0d3d20e073daa3d0b3f13abcc054fb91484722a1dd42582ba2be"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2accc2b6df9cff7a5f922a14bcc8c06d298836adf58ab04fe9978252e2a7918e"
+        ],
+        "2": [
+          "4a0e322d2498083bf9df4b943520dd182c9e99d1dd87e98c5a3d33b67f08f348"
+        ],
+        "3": [
+          "d83fe570668197c1e5711e9e1900f6e7be8016c73f0b1cb7e269077bcbfd7cc9"
+        ],
+        "4": [
+          "5d9e25d869a616e73c9d0dfc3bcee478584b0f920c8281d16c931ef6f96ae06a"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5b4dbf62e1fa3d2b9ae0c54f380cde612e48a5723efb3b6dead16f3f7f5992c2",
+      "hash_coarse": "4e704280bfb9743b6dc77812d3d5895d8e73e1b2cd01f96e6f563c2868d75cac",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "061d77943ca5cf8f775b4b89cf382ca737d939736f41b8012590086a9174673f": "chaque trace se divise par la taille de son propre échantillon",
+        "5b39f690e79883941840c7fa3369c86d5bd0479b4f9cd54b3e35e9436d37f871": "l'espérance contient aussi l'écart des vraies moyennes",
+        "697fd7214c97c94d9eed484deeb256623ef8a247686c69171789a393b6fe05cb": "chaque trace se divise par la taille de son propre échantillon",
+        "72e4584d39f10a3fbfd3ac338e53b5b439db7f6797794bfaf15406ce3e28bb26": "une moyenne de n relevés a pour covariance Σ/n"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7e": {
+      "coarse_any": {
+        "0": [
+          "9d09590b7a826de60d5ca7721564111416a57fa8ff53b8df5a6e9cf783b4402f"
+        ],
+        "1": [
+          "678e15ebe2a15ac06dab1374d7b9ea5555fbc3c06983221ed5c0b5c4ac03bf97"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1d7e77815f71cedfdd97c71b6bcffec74af1cbcb737f9abbe101612b35948ea3"
+        ],
+        "3": [
+          "30a624c6c6d1c686186e7453f39e936199eac5de4082d73b240551a1f1a13f83"
+        ],
+        "4": [
+          "9be35cccc69f40dafec98092cb38f4961755cb5157497aafcb4667e6fdf5664f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "9452ce58941229f2590bb9fb61f5ac1d1186d049f9f9322e406d8a94fe48bb06",
+      "hash_coarse": "e42d190f81a19275733e03b35666d21e1a3941f4e7c7761b630b3dac99d94ff8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "184cff35110f150ef04bb565e80b7a169af10f4868b5ffd3849f30d2a6295069": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n",
+        "4620491818412ef83efb9bc79cbb6d4a5cfa619f11265aeb94ac6f210e1a3008": "deux échantillons d'une même loi n'ont presque jamais la même moyenne empirique"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.7f": {
+      "fractional": "n est un nombre de jours : prends le plus petit entier qui vérifie l'inégalité.",
+      "hash": "d0e90964bd39f3afec326c45eddf95d36f57380c7428616c02aef2cb7403ec75",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "325a6b087fdbec2cded55e8214ddf540c1ac63ab19800a79744d3097eb5dd076": "deux échantillons de taille n, deux termes tr Σ / n"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.9a": {
+      "hash": "85f361d2763e00fda25c7b35f84b0d0a13d6e5e0fb3f5f833b148d7fa14ed1cb",
+      "kind": "str",
+      "mistakes": {
+        "09f3e3cba981cd6435403767a14fa075b513ea24e0ba877ba05400e092b3c569": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "237bd5a6c169b7cafabb15c47d38e4ae8bcd54df9d79c19404ba0eefc111fc81": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "3a135c1c11c734b82d222a4460165f0c083055f465dd524017747de403f42d12": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "3a386c472793d98c14228dc91b6062d3d181a156fa9f02b5ff855159d2a6b650": "cinq lignes sont fausses : ta réponse en contient moins",
+        "4d87b77cc2ac6d6d87ddce87b4ceb65d7eb786ccf3fe2d34189751eddceb7785": "exactement cinq lignes sont fausses",
+        "568d5bd84e5d345b368f1e13bc754e731ab11998076396605bb9ccd891568b82": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "5691a9460ef4d34ba808498aaa35e8146f5e655384bccef63c16553407ff0dbb": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "6057747b1a169110b2d914cd7881bab942d01db48430270fadabff713492d664": "cinq lignes sont fausses : ta réponse en contient moins",
+        "6fc2683d313a89900b933aacf77377bb166a274ba9366ea01d1779b8d886f1de": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "75bb874161ec26bd7a4c1d51ef128348f7399420cac2103e57313010fd294f71": "cinq lignes sont fausses : ta réponse en contient moins",
+        "7826e32801893a10ac0a34af54367800d7c3a7e8ce5195a815faaecb7d57a023": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "7b3b8ca5a547e1269c202f70884232212b327d6d0714c3cf6647c56ced72a634": "cinq lignes sont fausses : ta réponse en contient moins",
+        "7f0f79a036be441ed67ff636424703ba886ef283216cc4c1148581cee2e87096": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "892b418ecec5e4c96a58b4d4d3b73a878f20243f214b31a41a0adf94f18f2bfd": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "90cb39bc0f1fc4b3a4035f2a6d7493052ec8dceb6b9caf9a3308d5dbecfbda89": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "a776268c93fefd3f10da2244ea02cea730ac85f150c0b666ed4cd00ea2c9a353": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "a968172b9d058874438f9bacb2eae1ff2414c27a46067aa0d2671510a53a5f21": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "b130a2244982af3d535dfa36de897cf3f6dbed592fd68aff417ae0c24679d709": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "bc513536e84ae8a7c67d17f08356d7cf195b5380ca11657e40b84572e2ac4f81": "ce sont les lignes justes : la question demande les fausses",
+        "c4755f0fd422baccc629af482c5d3b5e025942ad04ff41f2d0d60a9e6b9b9758": "exactement cinq lignes sont fausses",
+        "ca214241a7ad62fd89aad7e3a347dcec376c13ffd0dd7a83ea747d6bcbd0a250": "cinq lignes sont fausses : ta réponse en contient moins",
+        "cef2e9ea3e64f627fe2880aea647ea6da2a6c9f40474ea46e9c654891c6f5dc0": "exactement cinq lignes sont fausses",
+        "f313fad11fa02b3a07aa5638579d0f65fc9307cda9dcddf949d5f6c9ba8508d8": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "f82100e446795523711f4300e4f300f97204acd61e1f2699fcff8ca5cb37d7f5": "au moins une des lignes que tu donnes est juste : relis-les une par une"
+      },
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10a": {
+      "decimals": 0,
+      "element_hashes": [
+        "64e771e022ad04090a918feb9bd1f4119fbab922eec6de1d1e9b929def3e555f",
+        "6f1093fdc7d4fabfb550bceac1dd54f0f60ad55ceaa6b2488a0118e7fcf66112",
+        "d0b5907659e8d14d1a41db3805f64283718c988a045df4dc04a38378caad5e46"
+      ],
+      "hash": "ca941beb94c5c4051834fc5aa7cb8883183ba27e7571dab0adb61637905386bc",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "f6d77b9b6aa3d6d569361c44213bca9081b2e131bf5642547437f02f8473bd9b": "le glouton lit la ligne de l'état présent et y prend l'issue la plus probable"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10b": {
+      "decimals": 0,
+      "element_hashes": [
+        "71a2c68b5dfdf68dd46f88a434982f10240615236ccf0e161c8cc66504f35cfd",
+        "ada700d46dcbdd095659b8978ac2333fb463d481de15a1cef052c87bbe10a4bf"
+      ],
+      "hash": "a81a5e2f99a87fbc209752f42a19b7ad7f2fcc22c20f1ae372749e2aeaa15d08",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6fa8ef61b825fe4aac54b57340281bfaa56da67e9f40bc12556b074ebbedc63d": "la prépériode compte les états du début qui ne reviennent jamais",
+        "c58c5fcdea1f698f24634332de60ac4c835bf890af63b54a8605126689281360": "la période est la longueur du cycle, sans la queue"
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10c": {
+      "decimals": 0,
+      "element_hashes": [
+        "395108b1147a4762da34c20d5003481b586eb1e525ceeea923e9a6d37e05d3e0",
+        "d1d8504a1d3d987b5019bdc79344218a2d1470bd4cd522aac7db382c779ff01a"
+      ],
+      "hash": "19dbaf70837840cab2d7ba1af7604c52a7c53ec9bc8ce37690883d8d0483df97",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "49672eb152b681aa93281084dd044aa120124d79e2550dce1ab69f4a10021745": "range les états gardés par probabilité décroissante",
+        "950e9f9e741e7bdcf015978055e040c7d02646ed6235d5cb5398fcf1b415839f": "le top-p prend les issues une à une jusqu'à ce que leur masse atteigne m",
+        "a00aa1b9ec5ef6d6259a01c88ca3bc60f24557a69b1d8ee982a74f03bd907058": "le top-p prend les issues une à une jusqu'à ce que leur masse atteigne m "
+      },
+      "shape": [
+        2
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b86a4d0e534ec1849d0ba01e4a3bceac02e449f827ce9323a6c72cf747164719"
+        ],
+        [
+          "5ff1954c00dfa0e7b9c87d3faa961da218dce65d4c355cd5d69a4b9681318877"
+        ],
+        [
+          "3f029ae2b1b05f7b9f99bcdc23e5bdf57a6a45208f7afed9b31d3844e5c05efc"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "d757c700114832243b2cb2c207bb0f11f6dbde1dfcc7692940465d05475a5586",
+          "3252f949bfb006b4248de64dfd038230574fee81717203a8bd8c7e9bbce71800"
+        ],
+        [
+          "456bfb600e60621c71aea9b31049a1faa84a3e37cf601a59f1e512b69ccf07e6",
+          "08cfc6ce35cf1ad88bb6cc44f74ff6c8ca9b1765c1b4793f80ad18abdbe3ae08",
+          "0a5952463f4a535b48c7a2ced7e3ad69fe68b37bb21d6f163ae834e2e913ce39"
+        ]
+      ],
+      "element_hashes": [
+        "b8714e50a5ef482352bc3c9e8623e5516a2ca3a81191eb000549cc90cda1900d",
+        "1a436f4fb4a30466422af179ed04e335e6c34212a8be5cd2cdf9b62aee7ce7bd",
+        "ac7d4c57b12952c2b32337e2fdb1b75c21a79f76b96155ca3d73dccd40c4131c"
+      ],
+      "hash": "ca284cdafa3967ab1f4f1c923f8fd8dfcc496e929ab0ec8d7ee8190e0a8fbdfb",
+      "kind": "array",
+      "mistakes": {
+        "4421a293e6bc6b93efb54131bad4c3028aadd9af8907f91ec4ee8609659d7191": "une loi conditionnelle garde les rapports entre les probabilités gardées",
+        "83633a775d30d9481f867f9a1ce6741378d4a6bce3af90a0f85c0d362ac2ce2c": "une loi tronquée est encore une loi : sa somme vaut 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10e": {
+      "coarse_any": {
+        "1": [
+          "80b81042bafe6985359cf5876c53d4e357526df374a8c595fdea57d27f133cc8"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "331e9424192ef3970ad3aece09b95bb0ec3a7c986b488a6d336741f07de943fc"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b28226600876e757bff29707f5cfdf4a35f2caa28896dd1318724fb34635ad09",
+      "hash_coarse": "2900befa0cd9c88ead24b3983e7d46ba6462bd8d5f4eedc6e807aeaec7b3ef60",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "11e41e0d8435035cc731094c601c4904318d687c093123896a5d291b6d47a726": "la KL d'une troncature n'est pas la masse retirée",
+        "1658b403c1de6a216e0c85f144e8229e4b92beef74964d8b5132fdb479c034aa": "les divergences KL sont en nats : logarithme népérien",
+        "ec08bb8a2d72e615b13d8410e4122cc10a3c50d1ef634099eac1426a967f8698": "dans le coût d'une troncature, P(S) est la masse gardée, pas la masse retirée"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10f": {
+      "coarse_any": {
+        "1": [
+          "e5da9d94211708f033ec801d5204bfd92ec85886203ddef7fa9ce07c4e38326c"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "f90929a7ce9a27a152df0b87735bc74c5733d962e4d2be28ee0dbb2bfbf554ac"
+        ],
+        "3": [
+          "5e7add6da112cd0f53d855554fb2bb4a6176d59ff9463c5e95ebde3999842e1e"
+        ],
+        "4": [
+          "ffc4e34fe0d14669b52b9f36389c7473c26b33d4a6a1bbd2924e90322835b4b1"
+        ]
+      },
+      "decimals": 6,
+      "hash": "f7189c6c9af89511a8aa0037b5296a0b0cb9111742d536995a241f0ba3d7969c",
+      "hash_coarse": "006b8c5eabd19b96834f8c9c3ce32e03c25648210811cf9d6593f53f710561c8",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "02181cc4cc669b714d8d356951389ce4c5332470c96899a06129dbf41997de38": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
+        "1f1419cb715c648b72c792ff3be61ecbba7f24a44a691f3d0f6ec8fa0f5be257": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
+        "6737dac5b83e13ddd3c2dfaad4bc422285f2c6689a329b810d3057957fbf5f88": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
+        "7d5d02af4093f36bef848c2aac67694742de5444c93f844e0211f99919e9106e": "la distance en variation totale est la moitié de la norme L1",
+        "859e2fc688f921048cd0c53dc8ccd8efaec8fbc0255ec143e9399355283f78bf": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme"
+      },
+      "sign": 1,
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "337f9ed1db57f57d112f174f12b84e5243ce154c0a6756b0ef8a7bc4b9eb01ad"
+        ],
+        [
+          "a80552ff6c2e24e26a1cced9d88544dfcb240b2078ae5d86acdc550d3336a97d"
+        ],
+        [
+          "c8d5af92c8f915783f25cb80fd5050e112b311cd295e9faa2ee99107ff3f36c9"
+        ],
+        [
+          "fed8ecbe4efffbbbeb9a863ba61cc25d6b1071e1ae7c85ee31741adbbd9e1a88"
+        ],
+        [
+          "bf61ebd8ce1ae10963dd68495612b002835ff6c62bceda656a5860623dfa777f"
+        ],
+        [
+          "7e609c453786c5d5197051822df10ab8eff3263d04cb7e84d16402c574e88bc1"
+        ],
+        [
+          "bbd16f0953275a3a9c4228444e2df37ddfb423d06c5d2c50598a92e04d0c346d"
+        ],
+        [
+          "bc0dfeeafd141af900399adcb7fc9dbce89ca1768232b4f94fcd1c0962879701"
+        ],
+        [
+          "f6745e51e7c4f1eb0f4ed36efc1504b086a982a209067e8359c8c0768861bc7b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f440e4ca580a40824b872834fd735a05ef956759b39a465d6cb5d12b1dcc05ea",
+          "b4b3620e8da58f7801db93306ee10416b18a42dc472e43329ef97fddb8d5aa90"
+        ],
+        [
+          "3f15f204693a54ff6e85d6977a1e9c930b280498c970914fb489003cc57c1ba5",
+          "6627cb4f2ffac6c029cd7f2a1da7bc5e75c7ea562d0d8d606bdf0c890b377eff",
+          "f2c8c4a8e61ffa08c18cdaeade34a672f2fbce4beaedbed1af4a6f88481d51a5"
+        ],
+        [],
+        [],
+        [
+          "a22ef474a2042c0d646aae7787814801edf81ef8e707f2d06b381448a9de669a",
+          "4a3912acd1be2e7702dfcf0cc9440f0a0b0fe6d317e7c4f7dc15e6a997a8a123"
+        ],
+        [
+          "a1a4cdc1fb6e1232f2d49dec7a7f77235d1301934704e46a30eedbe6bd929c3c",
+          "eaf6f40a26771a2813154e9822592ea3c9e0ece57917d56671a542900f577f26",
+          "4400d8ba8d97450149f7a55ec0afc512cbee3376302d3b3f0c12fb45edeb8c37"
+        ],
+        [],
+        [
+          "2b92210e5cfb1ac9757229a30a94bca7b1f0c3a8fc4a028071ca153b31afde1e",
+          "ff74d15b94dea0d5c60403085446bc68284548ae3d9d0c68492dc74a494af392",
+          "4ef54413cd6147ef9de13a9193e7f7ed1a03dc772d73c5dd8f5d35e40e328882"
+        ],
+        [
+          "bc1d2f253c515e98ff5bb8f1ca3460f7483187dae9994be1f68c293c2f159a2d",
+          "89fd48a24fd7d88b30c4d2ffee1675451db709d22ff8c97d1f6658a4071444ab"
+        ]
+      ],
+      "element_hashes": [
+        "84345774ab99c9c12c4a564cabe5dadb0368b92afe5bc448710cc25bd1b179a5",
+        "bc56734584226ca6494e3c261a03ca0b6101a6d653c790377ce3303d3c304605",
+        "049df618b353f82e54ec1d57d2a2b10f083da08b0477067a1227a074af3c4b4d",
+        "29c7fc75137bf229eeef157b385f21bdec7ba7d23096da9465865d6f7834a370",
+        "2000525f02fe408dcad9d403d3dfe7db3ab517fb4fd46e6f804d09ed289f7a2c",
+        "78c5bc97a9acbbf5da8af847630e98f95268a160463df27c0a0dd381a47decd0",
+        "833b9274a68ef77ee5f7f4166f5d06a46ea8a99e98367e165d25201638bf6129",
+        "ebdb8a87490f9ec6a146527bafa51f3f2bee7cc5c1fd3e3882a61722fcb48f63",
+        "852bbf9b4757821981e8530a6805b18d5fd14b9c7649ab01275bc30ed6441365"
+      ],
+      "hash": "526ff40293a50aae7986d909d6f59c3ce486b67aba10dcf4f804780aaf07c568",
+      "kind": "array",
+      "mistakes": {
+        "8a74c4dc21de294d45909e0a7bebe6b678ab5cf313ba92c17beffc675da7232d": "une ligne garde ses issues jusqu'à ce que leur masse atteigne m, pas seulement la plus probable",
+        "e6b5b90bfb40da546842538478129af7c21d375764747781f8cea9cbeaf95bc0": "chaque ligne de P′ est une loi : sa somme vaut 1"
+      },
+      "shape": [
+        3,
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
+    "CP6.10h": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "b6f9feba5ea925c080b2afc68827ba4ef3975330888e08f1d73fefe7003ebec4"
+        ],
+        [
+          "bb3178addfa22cc6723fb0aaca7453be9058469cdcc0e8e22e6e2d4771b65a11"
+        ],
+        [
+          "f26daf5bb9836b0db271717e9b8c7947f9334862e75f0a821d4d27b0aa350de1"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "0f6c86835db4a96df69c769fb9a3c302e64fdd4c59c5bfb142e4863b02e9e892",
+          "36601cb4676be154513edcbcb872be84431bc119d4339a8c3116a39b24766c69",
+          "b25bf6a7d8ec744be3f46b3196578d309fd8f3a0909d541f8ee2e259d2dba259"
+        ],
+        [
+          "80f7ba768b281c8be32c466269ead57ef37c7090e210e51d573a7ed4dde60704",
+          "efa590394b88fccc2c0a0f41d46d989945a38c0c12d106a7c1c60e0e8efcfceb"
+        ]
+      ],
+      "element_hashes": [
+        "d77662bf716b3128c0f13d4c10752b2bbb711f5cd7c16fcf56f2c579e06ba466",
+        "57cacbb1e2eb965821758960e0329ce5951a960f01ea4de81ff1790b6085cae3",
+        "66bdf05591b29333de36e280a041a4ec10b73191c5cacc911bc6efc69ffa0bdb"
+      ],
+      "hash": "e6a54eda4404ad3ba0c23dd16d5efa289838cfd78d6749f5c72aa41b06f33d31",
+      "kind": "array",
+      "mistakes": {
+        "51e2cfd31c5ffe0f907ece58eabe63f165716729647574d87c247e9d23c9c07c": "la loi demandée est celle de la chaîne tronquée",
+        "9e385b9b24de28b5e91929ea6734edde457e7de242e7645fce9702dd29bb63ec": "à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : vérifie lequel multiplie π′₁",
+        "b1f3a518edb6e2b99c2bb84c5ca7db44736844faf5cdb0f8a6a0b03704f4d699": "une loi stationnaire a pour somme 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
+    },
     "DEMO.1": {
       "hash": "887eec2cb84ea0912b278386d00c46edf751d1c2fef981bfbd159bb3a4147646",
       "kind": "int",

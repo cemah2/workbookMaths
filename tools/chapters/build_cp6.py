@@ -24,8 +24,12 @@ sub-question, as on the answer sheet), so that nothing typed can stop a cell: a 
 list (0,2 ; 0,5) or a missing bracket gives a message, never the SyntaxError that stopped « Run all » for the
 simulated candidate of CP5. Each value is read as a calculator reads it (0.25, 3/8, sqrt(13), ln(2)); a lone number
 with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolons is read with decimal commas; a list
-that mixes « 0,5 » and « , » gets a message; the fractions and the letters go to wbm as texts. Then wbm.check
-decides, as in CP5.
+that mixes « 0,5 » and « , » gets a message; the fractions and the letters go to wbm as texts. A line pasted from
+the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last « = » or
+« : »), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
+decides, as in CP5. 45 checks; besides the wrong values of s68/reponses_cp6.md, the simulated candidates added the
+zero eigenvalue listed in CP6.6 c), the value of the end appended in CP6.4 c) (both got wbm's « des virgules
+décimales ? » for a list of integers one element too long) and the hint for a fractional number of days in CP6.7 f).
 
 Decimals, as the column « Réponse attendue » of the statement says: « valeur exacte » (a decimal with few decimals)
 is recorded with decimals=6, the convention of the repository for an exact value, so that the value is accepted as
@@ -309,7 +313,7 @@ FULL_4[:3, :3] = floats(P_4)
 FULL_4[:3, 3] = 1 - FULL_4[:3, :3].sum(axis=1)
 FULL_4[3, 3] = 1
 OUT2_4 = 1 - sum(MU2_4)
-assert np.allclose(np.linalg.matrix_power(FULL_4, 2)[0], floats(MU2_4) + [OUT2_4])
+assert np.allclose(np.linalg.matrix_power(FULL_4, 2)[0], floats(MU2_4 + [OUT2_4]))
 I_MINUS_4 = [[int(i == j) - P_4[i][j] for j in range(3)] for i in range(3)]
 V_4 = fsolve(I_MINUS_4, R_4)
 assert all(P_4[i][j] == 0 for i in range(3) for j in range(i))     # triangular: solved from V(2) up
@@ -612,7 +616,8 @@ PAPER = [
             exact("une parcelle peut rester dans le même état : la ligne de P garde son coefficient diagonal",
                   "V_NO_LOOP_4", "V_4"),
             exact("en convention ligne, V = r + PV : la ligne s de P donne les états suivants de s", "V_T_4", "V_4"),
-            exact("la valeur compte aussi la récolte de l'année en cours", "V_FUTURE_4", "V_4"))),
+            exact("la valeur compte aussi la récolte de l'année en cours", "V_FUTURE_4", "V_4"),
+            plain("la fin n'est pas un état de P : la liste donne V(0), V(1) et V(2)", "floats(V_4 + [0])"))),
         ("d", f"a number {ONE_EXACT}", "float(YEAR2_4)", EXACT_LIST + wrong(
             "'l\\'année 0 est l\\'année en cours : la troisième récolte est celle de l\\'année 2': "
             "set().union(*(as_typed(y, YEAR2_4) for y in YEARS_4))",
@@ -658,7 +663,8 @@ PAPER = [
             exact("le double centrage se fait sur les carrés des distances", "DIST_6", "G_6"))),
         ("c", "a list of 2 numbers, from the largest to the smallest", "floats(LAMBDAS_6)", EXACT_LIST + wrong(
             exact("les valeurs propres non nulles se donnent de la plus grande à la plus petite", "LAMBDAS_6[::-1]",
-                  "LAMBDAS_6"))),
+                  "LAMBDAS_6"),
+            plain("la question demande les valeurs propres non nulles", "floats(LAMBDAS_6 + [0])"))),
         ("d", f"a 3 × 2 matrix, as a list of rows {EXACT}", "MAP_6.tolist()", EXACT_LIST + wrong(
             exact("la colonne k vient de la k-ième valeur propre, dans l'ordre décroissant", "MAP_6[:, ::-1]",
                   "MAP_6"),
@@ -685,7 +691,8 @@ PAPER = [
         ("e", f"a number {ONE_EXACT}", "SAME_7", EXACT_LIST + wrong(
             number("deux échantillons, deux moyennes estimées : deux termes tr Σ / n", "ONE_TERM_7", "SAME_7"),
             plain("deux échantillons d'une même loi n'ont presque jamais la même moyenne empirique", "0"))),
-        ("f", "an integer", "N_MIN_7", wrong(
+        ("f", "an integer", "N_MIN_7", 'fractional="n est un nombre de jours : prends le plus petit entier qui vérifie '
+         'l\'inégalité.", ' + wrong(
             plain("deux échantillons de taille n, deux termes tr Σ / n", "N_ONE_7"))),
     ]),
     Paper("CP6.9", "Corriger une copie : cinq erreurs, une par chapitre (les lettres seulement)", [
@@ -817,9 +824,23 @@ def _french_list(text):
     return items
 
 
+def _value_part(text):
+    """The value of a line copied from the answer sheet: what follows the last « = » (« L = [[4, 0], [3, 2]] »),
+    or the last « : » (« plus petit n : 440 »)."""
+    if "=" in text:
+        text = text.rsplit("=", 1)[1]
+    if ":" in text:
+        text = text.rsplit(":", 1)[1]
+    return text.strip()
+
+
+def _given(text):
+    return _value_part(text) not in ("", "...", "…")
+
+
 def read_value(sub_id, text):
     """The value written after a letter, as wbm.check takes it; ... for a sub-question not done."""
-    text = _clean(text)
+    text = _clean(_value_part(text))
     if text in ("", "...", "…"):
         return ...
     if len(text) >= 2 and text[0] == text[-1] and text[0] in "\"'":
@@ -859,14 +880,18 @@ def check_question(question, letters, answers):
             continue
         match = _LINE.fullmatch(line)
         if match and match.group(1).lower() in letters:
-            last = match.group(1).lower()
-            if last in values:
+            last, value = match.group(1).lower(), match.group(2)
+            if _given(values.get(last, "")) and _given(value) and _value_part(value) != _value_part(values[last]):
                 print(f"⚠️ {question} : deux lignes {last}) ; je garde la dernière.")
-            values[last] = match.group(2)
+            if _given(value) or last not in values:
+                values[last] = value
         elif last is not None and values[last].count("[") > values[last].count("]"):
             values[last] += " " + line                  # a matrix written on several lines
+        elif match:
+            print(f"⚠️ {question} : ligne ignorée, « {line} » : ce notebook ne vérifie pas de sous-question "
+                  f"{match.group(1)}) ici.")
         else:
-            print(f"⚠️ {question} : ligne ignorée, « {line} » : garde la lettre de la question et sa parenthèse, "
+            print(f"⚠️ {question} : ligne ignorée, « {line} » : garde la lettre de la sous-question et sa parenthèse, "
                   f"comme « a) 0.25 ».")
     for letter in letters:
         sub_id = f"{question}{letter}"
@@ -879,6 +904,8 @@ def check_question(question, letters, answers):
         RESULTS[sub_id] = wbm.check(sub_id, value)'''
 
 SUMMARY = r'''# Summary of the automatic checks
+import re
+
 EXPECTED = ''' + repr(EXPECTED) + r'''
 
 
@@ -907,7 +934,7 @@ INTRO = r'''## Après l'examen : vérification automatique
 **Ne commence qu'une fois ta copie terminée**, examen rendu. Ce notebook vérifie les réponses que tu as écrites sur ta feuille, question par question : ✅ juste, ❌ faux (avec une piste), ⏳ pas rempli. Il ne note pas : les démarches, les justifications, le quiz CP6.Q1, la démonstration CP6.8 et les corrections de CP6.9 b) se corrigent avec `03_examen_corrige.md`, qui donne aussi le barème.
 
 1. Passe `EXAM_OVER` à `True` dans la cellule ci-dessous, puis exécute-la.
-2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
+2. Dans la cellule de chaque question, recopie après chaque lettre **la valeur** écrite sur ta copie, pas un nouveau calcul (sinon tu ne vérifies plus ta copie). Laisse `...` pour une sous-question que tu n'as pas faite. Tu peux aussi coller les lignes de ta copie `04_mes_reponses.md` (« - a) L = … ») : seul ce qui suit le dernier « = » ou le dernier « : » est lu. Garde les triples guillemets `"""` du début et de la fin : ce que tu écris entre eux est lu comme un texte, et rien de ce que tu tapes là n'arrête la cellule ; « Tout exécuter » (*Run all*) va jusqu'au bilan.
 3. Les formes d'écriture, comme sur ta copie : un nombre avec une virgule ou un point (`0,25` ou `0.25`), ou un calcul (`3/8`, `sqrt(13)`, `ln(2)`) ; une liste entre crochets avec des points décimaux, `[0.25, -1.5]`, ou, si tu gardes les virgules décimales, avec des points-virgules entre les éléments, `(0,25 ; -1,5)` (dans une liste, `[0,5, 1,2]` se lit comme quatre nombres) ; une matrice comme la liste de ses lignes, `[[1, -2], [0.5, 3]]` ; une fraction telle quelle, `3/8` ; des lettres telles quelles, `ABCDE`.
 4. Les décimales : quand l'énoncé dit « valeur exacte », donne toutes les décimales de ta valeur (elle n'en a que quelques-unes) ; quand il dit « 4 décimales » (ou 3, ou 2), arrondis à ce nombre, à la fin du calcul seulement. Quand il dit « dans n'importe quel ordre », l'ordre ne compte pas ; ailleurs, l'ordre de ta liste compte.
 5. Le bilan, à la fin, dit aussi quelles réponses n'ont pas été vérifiées.'''
