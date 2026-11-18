@@ -16,14 +16,14 @@ not diffusion.py). The notes of each chapter list the data of workbookIA to avoi
 
 CHAPTERS = [
     {
-        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 10.7, "generation_sessions": 1, "mml": [],
+        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 10.6, "generation_sessions": 1, "mml": [],
         "summary": "Les outils mathématiques des embeddings construits par comptage, hors de tout texte : l'écriture d'un "
                    "entier en base 2 et en base 16 (une lacune) ; l'information mutuelle ponctuelle (PMI) des cases d'une "
                    "table jointe, son signe, sa borne, la PPMI, et l'information mutuelle de M06 comme sa moyenne ; le "
                    "lissage d'une marge, une loi tempérée (rappel de M28), et ce qu'il fait à la PMI de chaque colonne ; "
                    "la SVD tronquée d'une table non centrée (rappel de M12d) et la répartition des valeurs singulières "
                    "entre deux facteurs, qui fixe le produit mais pas les angles ; le modèle logistique d'une paire, le "
-                   "logit libre optimal et le décalage de ln K quand on sous-échantillonne ou repondère une classe ; la "
+                   "logit d'un taux et le décalage de ln K quand on sous-échantillonne une classe (formule de Bayes) ; la "
                    "géométrie des voisins et des analogies (cosinus, parallélogramme, et la borne qui explique "
                    "l'exclusion des points de la question) ; retirer une direction d'un nuage ; la moyenne masquée et le "
                    "coût des comparaisons par paires. Les cadres sont des oiseaux, des magasins, des publicités, des "
@@ -40,8 +40,8 @@ CHAPTERS = [
             "de chaque colonne.",
             "Répartir les valeurs singulières d'une SVD tronquée entre deux facteurs, et démontrer ce qui dépend de ce "
             "choix (les angles entre lignes) et ce qui n'en dépend pas (le produit).",
-            "Trouver le logit libre qui minimise une loss logistique pondérée, et corriger par ln K un sous-échantillonnage "
-            "ou une repondération d'une classe.",
+            "Calculer le logit de vraisemblance maximale d'un taux, et corriger par ln K un sous-échantillonnage d'une "
+            "classe (formule de Bayes).",
             "Mesurer le parallélogramme d'une analogie et expliquer, par une borne sur le cosinus, pourquoi on exclut les "
             "points de la question.",
             "Retirer d'un nuage une direction estimée, et dire quelles distances changent et lesquelles restent.",
@@ -54,7 +54,7 @@ CHAPTERS = [
                      ("§3", "Lisser une marge : une loi tempérée, et ce qu'elle fait à la PMI de chaque colonne"),
                      ("§4", "La SVD tronquée d'une table non centrée : répartir les valeurs singulières entre deux "
                             "facteurs"),
-                     ("§5", "Le modèle logistique d'une paire : le logit libre, et le décalage de ln K quand on "
+                     ("§5", "Le modèle logistique d'une paire : le logit d'un taux, et le décalage de ln K quand on "
                             "sous-échantillonne une classe"),
                      ("§6", "Voisins et analogies : cosinus, produit scalaire et parallélogramme"),
                      ("§7", "Retirer une direction : la projection sur le complément, et ce qui reste"),
@@ -77,18 +77,17 @@ CHAPTERS = [
                     "SVD tronquée d'une table non centrée (rappels de M12d : SVD compacte, Eckart-Young) ; répartir les "
                     "valeurs singulières : M_k = (U_k S_k^β)(V_k S_k^{1−β})ᵀ pour tout β ∈ [0, 1] ; le produit ne dépend "
                     "pas de β, les produits scalaires et les cosinus entre lignes du premier facteur si ; β = 1 garde ceux "
-                    "des lignes de M_k, β = 0 ceux des lignes de U_k ; toute factorisation de rang k s'en déduit par une "
-                    "matrice inversible (démontré)",
+                    "des lignes de M_k, β = 0 ceux des lignes de U_k (démontré ; la non-unicité de toute factorisation de "
+                    "rang k est en MB4)",
                     "ne pas centrer une grande table creuse avant sa SVD tronquée : centrer la rend pleine (mémoire, coût), "
                     "et la SVD non centrée approche la table elle-même",
                     "le modèle logistique d'une paire : σ(s) est la probabilité qu'une paire soit une vraie paire plutôt "
-                    "qu'une paire tirée au hasard ; le logit libre qui minimise −a ln σ(x) − b ln σ(−x) vaut ln(a/b), par "
-                    "le maximum de vraisemblance de Bernoulli (M13a), et la valeur minimale est (a + b) H(a/(a + b)) "
-                    "(démontré)",
-                    "sous-échantillonner ou repondérer une classe : diviser le poids d'une classe par K décale le logit "
-                    "optimal de ± ln K ; dans un modèle logistique, seule l'ordonnée à l'origine bouge (cas-témoins, par "
-                    "la formule de Bayes) ; le résultat de Levy et Goldberg (à l'optimum d'un score libre, le skip-gram à "
-                    "K négatifs donne PMI − ln K) énoncé, démontré dans workbookIA B2",
+                    "qu'une paire tirée au hasard ; le logit de vraisemblance maximale d'un taux observé (a succès, b "
+                    "échecs) est ln(a/b), le logit de la proportion (rappel de M13a, sur des comptes)",
+                    "sous-échantillonner une classe (étude cas-témoins) : garder les positifs avec la probabilité s₁ et "
+                    "les négatifs avec s₀ multiplie la cote par s₁/s₀ (formule de Bayes) ; dans un modèle logistique, "
+                    "seule l'ordonnée à l'origine bouge, de ln(s₁/s₀) (démontré) ; le résultat de Levy et Goldberg est "
+                    "énoncé en une phrase dans la fiche, démontré dans workbookIA B2",
                     "voisins : cosinus et normalisation, ‖a − b‖² = 2 − 2 cos(a, b) pour des vecteurs unitaires, donc le "
                     "même classement (rappel de M07), produit scalaire contre cosinus (les vecteurs longs l'emportent)",
                     "analogie et parallélogramme : requête q = b − a + c, défaut ‖(b − a) − (d − c)‖ ; si "
@@ -113,18 +112,16 @@ CHAPTERS = [
                      ("entropie, information mutuelle d'un tableau (`info.mutual_information`)", "M06"),
                      ("produit scalaire, normes, similarité cosinus, Cauchy-Schwarz, projection sur une droite", "M07"),
                      ("produit matriciel, transposée, une ligne one-hot fois une matrice", "M09a"),
-                     ("rang, matrice inversible", "M12a"),
+                     ("rang d'une matrice", "M12a"),
                      ("complément orthogonal, projection orthogonale, matrices orthogonales", "M12b"),
                      ("SVD compacte, approximation de rang faible (Eckart-Young), axes principaux", "M12d"),
-                     ("maximum de vraisemblance de Bernoulli, log-loss, softplus convexe, régression logistique (le score "
-                      "est la log-cote)", "M13a"),
+                     ("maximum de vraisemblance de Bernoulli, régression logistique (le score est la log-cote)", "M13a"),
                      ("réductions le long d'un axe, diffusion, centrage comme projection", "M20"),
                      ("matrice de Gram d'une famille de vecteurs, température sur des probabilités (`temper`)", "M28")],
-        "after": ["M03", "M06", "M07", "M09a", "M12b", "M12d", "M13a", "M20", "M28"],
         "frontieres": ["B2.1", "B2.2", "B2.5", "B2.6", "B2.9", "B2.11", "B2.22", "B2.23", "B2.24", "B2.25", "B2.28",
                        "B2.Q7", "B2.Q9", "B2.Q10", "B2.Q11", "B2.Q12", "B2.E4"],
         "mymath": {"module": "cooccurrence.py",
-                   "functions": ["pmi", "optimal_free_logit", "remove_direction"]},
+                   "functions": ["pmi", "case_control_logit", "remove_direction"]},
         "reading_minutes": 125,
         "flashcards": 16,
         "notes": "Frontières : le ∂ B2.7 (les dérivées de −ln σ(±s) et σ′ = σ(1 − σ), les gradients par rapport à u_c, "
@@ -183,27 +180,31 @@ CHAPTERS = [
                  "β = 0, ½ et 1 et leur produit, cos(magasin 1, magasin 4) = 0, puis 0,5, puis 0,8 "
                  "(égal au cosinus des lignes de M pour β = 1), cos(magasin 1, magasin 2) de −0,514 à 0,316 ; aucune "
                  "normalisation des lignes ni recherche de voisins. ∂ MB2.9 démontre le cas général (et, pour une "
-                 "matrice symétrique semi-définie positive, que β = ½ donne deux facteurs égaux). Ne pas centrer une "
+                 "matrice symétrique semi-définie positive, que β = ½ donne deux facteurs égaux) ; la non-unicité de toute "
+                 "factorisation de rang k (deux factorisations diffèrent d'une matrice inversible) est démontrée en MB4, "
+                 "pas ici. Ne pas centrer une "
                  "table creuse : Q4 et 💼 MB2.E1. Le 🎨 MB2.16 trace les lignes de U₂S₂^β d'une table plus grande de "
                  "magasins, créée à la génération. "
-                 "§5 : le lemme du logit libre est démontré en général (∂ MB2.10) par le changement de variable "
-                 "p = σ(x) et le maximum de vraisemblance de Bernoulli (M13a), sans dériver σ (∂ 17.4 et ∂ B2.7.1) ; "
-                 "cadres : publicités et clics, études cas-témoins ; diviser le poids des négatifs par K décale l'optimum "
-                 "de +ln K, le multiplier par K de −ln K ; dans un modèle logistique, seule l'ordonnée à l'origine bouge "
-                 "(les cotes de l'échantillon sont celles de la population multipliées par K, par la formule de Bayes) ; "
-                 "le résultat de Levy et Goldberg est énoncé en une phrase avec un renvoi à workbookIA B2, jamais "
-                 "dérivé : aucun exercice ne pose a = #(w, c) et b = K #(w)#(c)/N, ne tire des négatifs selon une loi "
-                 "marginale, n'écrit u_c ou v_w, ne dérive la loss de l'échantillonnage négatif, ni ne relie ses termes "
-                 "aux entrées, labels et poids d'une régression logistique (∂ B2.7.2 à 7). ✏️ MB2.5 : 3 200 affichages, "
-                 "50 clics ; logit ln(50/3 150) = −ln 63 ≈ −4,143 ; un non-clic gardé sur 9 : ln(1/7) ≈ −1,946, soit "
-                 "+ln 9, probabilité lue 1/8 au lieu de 1/64 ; la correction ; chaque non-clic compté 4 fois : −ln 4 ; "
-                 "loss minimale par affichage H(1/64) ≈ 0,0805 nat. "
+                 "§5 : le logit de vraisemblance maximale d'un taux observé, ln(a/b) pour a succès et b échecs, est un "
+                 "rappel de M13a, sur des comptes ; ∂ MB2.10 démontre le décalage par la formule de Bayes, jamais en "
+                 "minimisant une loss −a ln σ(x) − b ln σ(−x) ; aucun exercice ni la fiche n'écrivent cette loss avec des "
+                 "poids réels, ni ne multiplient le poids d'une classe par K ; cadres : publicités et clics, études "
+                 "cas-témoins ; garder les positifs avec la probabilité s₁ et les négatifs avec s₀ multiplie la cote par "
+                 "s₁/s₀, et dans un modèle logistique seule l'ordonnée à l'origine bouge, de ln(s₁/s₀) ; le résultat de "
+                 "Levy et Goldberg est énoncé une fois dans la fiche, en une phrase avec un renvoi à workbookIA B2, comme "
+                 "le fait sa fiche, jamais dérivé ni demandé par un quiz : aucun exercice ne pose a = #(w, c) et "
+                 "b = K #(w)#(c)/N, ne tire des négatifs selon une loi marginale, n'écrit u_c ou v_w, ne dérive la loss "
+                 "de l'échantillonnage négatif, ni ne relie ses termes aux entrées, labels et poids d'une régression "
+                 "logistique (∂ B2.7.2 à 7). ✏️ MB2.5 : 3 200 affichages, 50 clics ; logit ln(50/3 150) = −ln 63 ≈ "
+                 "−4,143 ; un non-clic gardé sur 9 : ln(50/350) = ln(1/7) ≈ −1,946, soit +ln 9, probabilité lue 1/8 au "
+                 "lieu de 1/64 ; la correction par ln 9 ; aucune repondération des négatifs (c'est l'énoncé de ∂ B2.7.6). "
                  "§6 : la fiche rappelle le cosinus, ‖a − b‖² = 2 − 2 cos (M07, sans les nombres de B2.Q12) et le "
                  "produit scalaire contre le cosinus, puis démontre la borne cos(q, c) ≥ √(1 − ε²) ; ✏️ MB2.6 (aliments "
                  "en (protéines, glucides, lipides) pour 100 g : yaourt nature (4, 5, 3) et sucré (4, 10, 3), fromage "
                  "blanc nature (8, 4, 3) et sucré (7, 9, 3)) mesure le parallélogramme : q = (8, 9, 3), défaut δ = 1, "
-                 "ε ≈ 0,530 et borne ≈ 0,848 pour c, cos(q, c) ≈ 0,931 ; la même borne appliquée au défaut, "
-                 "√(1 − δ²/‖q‖²) ≈ 0,997, garantit que d l'emporte sur c sans calculer cos(q, d) ; alignement des "
+                 "ε ≈ 0,530 et borne ≈ 0,848 pour c, cos(q, c) ≈ 0,931 ; la borne de la fiche appliquée à d, "
+                 "√(1 − δ²/‖d‖²) = √(138/139) ≈ 0,996, garantit que d l'emporte sur c sans calculer cos(q, d) "
+                 "(≈ 0,998) ; alignement des "
                  "décalages ≈ 0,981 ; puis la crème (2, 3, 30), où ε ≈ 0,165 et la borne ≈ 0,986 est presque atteinte "
                  "(0,987) ; il ne classe pas une liste de candidats avec et sans exclusion, ne cherche pas le gagnant du "
                  "produit scalaire et ne normalise pas d'abord les vecteurs (B2.2 d à g). "
@@ -251,14 +252,17 @@ CHAPTERS = [
                  "0,821, 0,765, 0,279 ; fenêtre 2 : 26, 0,396), ∂ B2.7 (v_w = (2 ; −1), u_c = (1 ; 1), u_n1 = "
                  "(0,5 ; 0,5), u_n2 = (−1 ; 2), scores 1, 0,5 et −4, L ≈ 1,3055, η = 0,5, K = 5 → −0,868), 🧮 B2.8 "
                  "(90 000 mots, 250 par page, fertilités 1,3 et 1,6, 8 192, 300), 🧮 B2.9 (50 257 × 768, 128 256 × "
-                 "4 096, 2 048, 32 000), les exemples des stubs et du notebook de B2.22 et B2.23 ([0, 1, 2, 1], "
+                 "4 096, 2 048, 32 000), 🔬 B2.20 (tailles 300, 500, 1 000, 2 000, 4 000, 8 000 ; bits par token 6,124, "
+                 "7,499, 8,298, 8,715, 8,857, 8,843 ; octets par token 1,422, 2,045, 2,560, 3,001, 3,382, 3,641 ; bits "
+                 "par octet 4,306 à 2,429), les exemples des stubs et du notebook de B2.22 et B2.23 ([0, 1, 2, 1], "
                  "[[0, 2, 1], [2, 0, 3], [1, 3, 0]] et ses PPMI 0,47, 0,5878, 0,5218, 0,3941, 0,5838, 0,6396, "
                  "[0, 0, 0, 1], [[0, 2, 1, 0], [2, 0, 3, 0], [1, 3, 0, 0], [0, 0, 0, 0]], [[1, 0], [1, 1], [0, 0]] et "
                  "0,7071, [[1, 0], [0, 1], [1, 1], [−1, 0], [2 ; 0,1]] et 0,9988, `eps` 0,5 et 2, [[3, 4]] et [[6, 8]], "
                  "0,943 et 0,866, 120 lignes dont 40 copies, `default_rng(23)`), 📦 B2.24 (4 000 mots, fenêtre 2, "
                  "d = 100, 0,80, 0,73), 📦 B2.25 (1 590 mots, t = 10⁻³, K = 5, batch de 512, 6 ln 2 ≈ 4,159, rang médian "
                  "9,5), 📈 B2.27 (0,14, −0,23, 48 sur 100), 📦 B2.28 (1 055 passages de 120 mots), 🔬 B2.29, 🏆 B2.31 "
-                 "(2 000 tokens) ; de workbookIA B1 (cosinus et prototypes) : (1, 0, 0), (4, 2, 2), (2, 1, 0), "
+                 "(2 000 tokens), 💼 B2.E5 (200 000 documents, 5 millions de passages × 384 × 4 octets ≈ 7,7 Go) ; de "
+                 "workbookIA B1 (cosinus et prototypes) : (1, 0, 0), (4, 2, 2), (2, 1, 0), "
                  "(0, 1, 1), q = (2, 1, 1), « pomme » (0,9 ; 0,1) et (0,7 ; 0,3), « poire » (0,2 ; 0,8) et "
                  "(0,4 ; 0,8), q = (0,6 ; 0,5), 0,900 et 0,869, les cosinus 0,31, 0,27, 0,22 avec s = 100 et 1, "
                  "(3, 0, 4), (0, 3, 4), (16, 2, 8), (2, 1, 2), (1, 2, 2), 0,24, 0,30, 0,28, 0,19, 4,60517, 2,6592, "
@@ -270,24 +274,28 @@ CHAPTERS = [
                  "table des oiseaux, ni la table des magasins, ni les aliments des ✏️, ni les exemples du stub. "
                  "Conventions : logarithme népérien partout (PMI et logits en nats), sauf les bits du §1 ; une table "
                  "jointe a les valeurs de X en lignes (M03, M06) ; les points sont les lignes d'une matrice (M13b, M28) ; "
-                 "rang k et exposant β pour les facteurs de la SVD ; a et b sont des poids (scalaires) au §5, 𝐚, 𝐛, 𝐜, 𝐝 "
+                 "rang k et exposant β pour les facteurs de la SVD ; a et b sont des nombres d'exemples au §5, s₁ et s₀ des "
+                 "taux de sélection, 𝐚, 𝐛, 𝐜, 𝐝 "
                  "des vecteurs (en gras) au §6. `cooccurrence` : NumPy et `math` seulement, aucune SciPy "
                  "(`scipy.special.logit`, `xlogy`, `scipy.optimize`) ni scikit-learn (`mutual_info_score`, "
                  "`LogisticRegression`), qui servent d'oracles aux tests ; `pmi` prend une table jointe de probabilités "
                  "(somme 1), rend des nats et −∞ sur les cases nulles, sans max(0, ·), sans lissage, sans comptes ni "
-                 "`alpha` : un autre contrat que `ppmi(C, alpha)` de workbookIA B2 ; `optimal_free_logit` prend deux "
-                 "poids (nombres ou tableaux, diffusés), jamais des comptes #(w, c), #(w), #(c), N ni K ; "
+                 "`alpha` : un autre contrat que `ppmi(C, alpha)` de workbookIA B2 ; `case_control_logit` prend les "
+                 "nombres d'exemples d'un échantillon (nombres ou tableaux, diffusés) et deux taux de sélection dans "
+                 "]0, 1], et rend ln(n₁/n₀) − ln(s₁/s₀) ; sa docstring passe par la formule de Bayes, sans la forme en σ, "
+                 "sans comptes « attendus » ni poids multiplié par K, et jamais avec des comptes #(w, c), #(w), #(c), N ; "
                  "`remove_direction` retire une direction donnée, sans l'estimer ; aucune fonction de SVD ni de "
                  "facteurs U S^β, d'analogie (`most_similar` avec ses exclusions résoudrait ✏️ B2.2), de cosinus entre "
                  "lignes (`cosine_similarity_matrix`), de matrice de cooccurrences ni de moyenne masquée (`embed_28`). "
                  "Pas de MML : le livre ne traite ni la PMI ni les embeddings, et Eckart-Young a été lu en M12d (§4.6) ; "
-                 "pas de 📖. COMPOSITION : 10 h au plan (8 h avant la session 69), 10,7 h avec la lacune des bases et des "
+                 "pas de 📖. COMPOSITION : 10 h au plan (8 h avant la session 69), 10,6 h avec la lacune des bases et des "
                  "durées réalistes (les chapitres de la partie VI ont dépassé leurs estimations de 20 à 40 %) ; 6 quiz, "
                  "3 rappels, 7 ✏️ et 3 ∂, un 🔗, deux 🔨 et aucun 📦 (les comparaisons avec SciPy et scikit-learn sont "
                  "dans les tests, la SVD par bibliothèque est en M12d), un 🔮 et aucun 🔬 (le temps), 🐛, 🎨, 🗣️, 💼, "
                  "🛠️, 🏆, 16 flashcards ; lecture 125 min (≈ 9 000 mots au rythme des fiches de la partie VI). Parcours "
                  "essentiel : ∂ MB2.9, le 💼, le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours ; les ∂ de la borne (MB2.8) et "
-                 "du logit libre (MB2.10) y sont.",
+                 "du sous-échantillonnage (MB2.10) y sont. Corrections de la relecture (session 69) : R1-1 (la voie de "
+                 "Bayes, `case_control_logit`), R1-4, R1-7, R1-11, R1-14.",
         "exercises": [
             ("MB2.Q1", "🧠", 1, 4, "Bases 2 et 16 : le nombre de chiffres d'un entier, la valeur d'un octet, les bits qu'il "
              "faut pour N valeurs", "§1", "E"),
@@ -297,8 +305,8 @@ CHAPTERS = [
              "quels classements le lissage garde", "§3", "E"),
             ("MB2.Q4", "🧠", 1, 5, "Répartir les valeurs singulières entre deux facteurs : ce qui dépend de β, ce qui n'en "
              "dépend pas, et pourquoi ne pas centrer une table creuse", "§4", "E"),
-            ("MB2.Q5", "🧠", 1, 4, "Le logit libre : où est l'optimum, ce qu'y change un sous-échantillonnage, ce "
-             "qu'énoncent Levy et Goldberg", "§5", "E"),
+            ("MB2.Q5", "🧠", 1, 4, "Le logit d'un taux et le sous-échantillonnage : ce qui bouge (l'ordonnée à "
+             "l'origine), de combien, dans quel sens", "§5", "E"),
             ("MB2.Q6", "🧠", 1, 5, "Analogies, direction retirée et moyenne masquée : vrai ou faux, avec une raison",
              "§6 §7 §8", "E"),
             ("MB2.R1", "🔁", 1, 6, "L'information mutuelle d'un tableau 2 × 2 (M06)", "§2", "E"),
@@ -314,7 +322,7 @@ CHAPTERS = [
              "de la PMI de chaque colonne, et le classement des espèces d'un milieu avant et après", "§3", "E p:MB2.2"),
             ("MB2.4", "✏️", 2, 30, "Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs "
              "U S^β et V S^{1−β} pour β = 0, ½ et 1, leur produit, et le cosinus de deux magasins", "§4", "E"),
-            ("MB2.5", "✏️", 2, 25, "Une bannière affichée 3 200 fois et cliquée 50 fois : le logit de vraisemblance "
+            ("MB2.5", "✏️", 2, 20, "Une bannière affichée 3 200 fois et cliquée 50 fois : le logit de vraisemblance "
              "maximale, puis un non-clic gardé sur 9, le décalage de ln 9 et sa correction", "§5", "E"),
             ("MB2.6", "✏️", 2, 25, "Yaourt et fromage blanc, nature et sucrés : mesurer le parallélogramme d'une analogie "
              "(défaut, rapport ε, borne du cosinus), et dire si d peut l'emporter sur c", "§6", "E"),
@@ -322,11 +330,11 @@ CHAPTERS = [
              "différences, la retirer de trois animaux, et les distances qui restent", "§7", "E"),
             ("MB2.8", "∂", 2, 20, "La PMI est majorée par −ln p(x) et par −ln p(y), avec égalité quand x n'arrive qu'avec "
              "y ; la PMI normalisée est donc au plus 1", "§2", "E"),
-            ("MB2.9", "∂", 3, 30, "Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, "
-             "les produits scalaires des lignes si ; toute factorisation de même rang s'en déduit par une matrice "
-             "inversible", "§4", ""),
-            ("MB2.10", "∂", 2, 20, "Le logit libre : −a ln σ(x) − b ln σ(−x) est minimal en ln(a/b), sa valeur minimale "
-             "est (a + b) fois une entropie, et repondérer une classe décale l'optimum d'un logarithme", "§5", "E"),
+            ("MB2.9", "∂", 3, 25, "Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, "
+             "les produits scalaires des lignes si", "§4", ""),
+            ("MB2.10", "∂", 2, 20, "Sous-échantillonner une classe : par la formule de Bayes, la cote observée est celle "
+             "de la population multipliée par le rapport des taux de sélection s₁/s₀ ; dans un modèle logistique, seule "
+             "l'ordonnée à l'origine bouge, de ln(s₁/s₀)", "§5", "E"),
             ("MB2.11", "🔗", 1, 15, "Pont : résumer des séries de relevés de longueurs différentes par une moyenne "
              "masquée, montrer que le remplissage ne change rien, et compter les comparaisons par paires", "§8", "E"),
             ("MB2.12", "🗣️", 1, 10, "Expliquer à un ornithologue ce que mesure la PMI d'un milieu et d'une espèce, et "
@@ -335,8 +343,8 @@ CHAPTERS = [
              "factoriser par une SVD tronquée ? »", "§4", ""),
             ("MB2.13", "🔨", 1, 25, "La table des PMI d'une loi jointe, −∞ sur les cases vides", "§2",
              "E m:pmi"),
-            ("MB2.14", "🔨", 2, 25, "Deux briques : le logit libre optimal d'une loss logistique pondérée, et retirer une "
-             "direction des lignes d'une matrice", "§5 §7", "E m:optimal_free_logit,remove_direction"),
+            ("MB2.14", "🔨", 2, 25, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et "
+             "retirer une direction des lignes d'une matrice", "§5 §7", "E m:case_control_logit,remove_direction"),
             ("MB2.15", "🔮", 2, 20, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une "
              "case rare et une case fréquente, avec et sans lissage", "§2 §3", ""),
             ("MB2.16", "🎨", 1, 25, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui "
@@ -350,7 +358,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB3", "dir": "mb3_rotations_attention", "hours": 13.0, "generation_sessions": 1, "mml": ["§3.9"],
+        "id": "MB3", "dir": "mb3_rotations_attention", "hours": 12.8, "generation_sessions": 1, "mml": ["§3.9"],
         "summary": "Les rotations et les moyennes pondérées dont se sert le Transformer de workbookIA B3, travaillées hors "
                    "réseau. D'abord les formules d'addition, démontrées par le produit scalaire de deux vecteurs unitaires "
                    "(M22 et M25a les tiraient d'une règle admise), et ce qu'elles disent des rotations du plan : R_α R_β = R_{α+β}, "
@@ -395,7 +403,8 @@ CHAPTERS = [
                      ("§7", "L'échelle des scores : diviser une somme de n contributions par √n, et la saturation de la "
                             "softmax"),
                      ("§8", "La softmax en ligne : l'état (m, l, a), son invariant, et la fusion de deux états"),
-                     ("§9", "Le coût quadratique : compter les paires, et calculer par blocs")],
+                     ("§9", "Le coût quadratique (rappel de MB2 §8) : la mémoire de toutes les paires, et calculer par "
+                            "blocs")],
         "teaches": ["formules d'addition cos(a ± b) et sin(a ± b), démontrées : le cosinus d'une différence par le produit "
                     "scalaire de deux vecteurs unitaires (R9), les autres par la parité et cos(π/2 − x) = sin x ; "
                     "duplication ; produit de deux cosinus en somme, cos a cos b = ½[cos(a − b) + cos(a + b)] ; la règle "
@@ -444,9 +453,10 @@ CHAPTERS = [
                     "(M05a) ; aucune exponentielle d'un nombre positif ; la fusion de deux états, associative et "
                     "commutative, d'élément neutre (−∞, 0, 0) : couper le calcul entre plusieurs machines ; pour un ordre "
                     "au hasard, le maximum change en moyenne H_N − 1 fois sur N blocs (les records, R8 et M02b)",
-                    "coût quadratique : n² paires, doubler n multiplie par 4 (une pente 2 en échelles logarithmiques, "
-                    "R6) ; Σ_{t ≤ n} t = n(n + 1)/2 (R4) ; la mémoire d'une matrice n × n contre celle d'un calcul par "
-                    "blocs de B lignes (n·B), pour la même quantité de calcul"],
+                    "coût quadratique : le coût des comparaisons par paires est un rappel de MB2 §8, en une ligne ; neuf : "
+                    "la mémoire d'une matrice n × n contre celle d'un calcul par blocs de B lignes (n·B), pour la même "
+                    "quantité de calcul ; doubler n multiplie cette mémoire par 4 (une pente 2 en échelles logarithmiques, "
+                    "R6)"],
         "requires": [("Σ, sommes doubles, raisonnement par récurrence", "R4"),
                      ("suites géométriques, moyenne exponentielle (lissage)", "R5"),
                      ("exponentielle et logarithme, échelles logarithmiques", "R6"),
@@ -473,10 +483,10 @@ CHAPTERS = [
                      ("forme exponentielle r e^{iθ}, produit = rotation et homothétie, e^{iα}e^{iβ} = e^{i(α+β)} et "
                       "R_α R_β = R_{α+β} admises", "M22"),
                      ("formules de soustraction tirées de l'exponentielle complexe, matrices par blocs", "M25a"),
-                     ("température sur des probabilités, top-k et top-p comme lois conditionnelles", "M28")],
-        "after": ["R9", "M05a", "M07", "M12b", "M12c", "M16", "M17", "M20", "M22", "M25a", "M28"],
-        "frontieres": ["B3.1", "B3.2", "B3.4", "B3.8", "B3.12", "B3.13", "B3.15", "B3.17", "B3.27", "B3.29", "B3.Q2",
-                       "B3.Q3", "B3.Q4", "B3.Q7", "B3.Q12", "B3.E2", "B3.E5"],
+                     ("température sur des probabilités, top-k et top-p comme lois conditionnelles", "M28"),
+                     ("coût des comparaisons par paires, C(n, 2), contre un vecteur par élément", "MB2")],
+        "frontieres": ["B3.1", "B3.2", "B3.3", "B3.4", "B3.5", "B3.8", "B3.12", "B3.13", "B3.14", "B3.15", "B3.17",
+                       "B3.27", "B3.29", "B3.Q2", "B3.Q3", "B3.Q4", "B3.Q7", "B3.Q12", "B3.E2", "B3.E5"],
         "mymath": {"module": "positional.py",
                    "functions": ["givens_rotation", "online_softmax", "merge_softmax_states"]},
         "reading_minutes": 150,
@@ -488,7 +498,9 @@ CHAPTERS = [
                  "les écarts ±3, la version diagonale par blocs en dimension d_h, les normes conservées, l'encodage additif "
                  "et ses quatre termes, le KV cache) ; ✏️ B3.1 et B3.2 (l'attention à la main sur trois tokens, sans puis "
                  "avec un masque causal, les colonnes qui ne somment pas à 1, la renormalisation oubliée), ✏️ B3.4 (valeurs "
-                 "de l'encodage sinusoïdal, une paire décalée, PE₀·PE₂, PE₁₀₀·PE₁₀₂), 🧮 B3.8 (6ND, GPT-3, Chinchilla, "
+                 "de l'encodage sinusoïdal, une paire décalée, PE₀·PE₂, PE₁₀₀·PE₁₀₂), ✏️ B3.3 et B3.5 (les formes et les "
+                 "paramètres d'une attention multi-têtes et d'un GPT), 🔨 B3.14 (`split_heads`, `merge_heads`, "
+                 "`multi_head_attention`), 🧮 B3.8 (6ND, GPT-3, Chinchilla, "
                  "KV cache), 🔨 B3.12 et B3.15 (les fonctions `mylearn` des masques, de l'attention, de l'encodage "
                  "sinusoïdal et de RoPE), 🔮 B3.13 (une clé copiée, la bascule 1 + e^{7,5}, la log-normale, le maximum de "
                  "gaussiennes), 🐛 B3.17 (trois masques qui mentent), 🔬 B3.27 (temps et mémoire de l'attention en "
@@ -528,15 +540,17 @@ CHAPTERS = [
                  "aucun exercice ne calcule à la main le produit scalaire de deux encodages à plusieurs horloges, ni des "
                  "valeurs d'un encodage à fréquences géométriques (✏️ B3.4) ; les ✏️ n'ont qu'une horloge (la direction "
                  "du vent, ✏️ MB3.3, avec ‖e(t) − e(t′)‖² = 2 − 2 cos ω(t − t′) sur d'autres nombres que cos = 0,8 et 0,4, "
-                 "B2.Q12) ; ni « position », ni 10 000, ni matrice PE ; la période d'une journée encode un instant, ce "
-                 "n'est pas le sinus de période 24 de workbookIA 22 (évité par M22). "
+                 "B2.Q12) ; ni « position », ni 10 000, ni matrice PE. L'horloge de 24 h du 🎨 MB3.19 encode un instant du "
+                 "calendrier, à deux conditions : l'unité est l'heure d'une journée (jamais des « pas ») ; aucune série "
+                 "échantillonnée et bruitée, aucune fenêtre de 8 valeurs, aucune prédiction (ce que M22 évitait est le "
+                 "sinus de période 24 pas, bruité, de 22.14 de workbookIA). "
                  "Les moyennes pondérées (§5) : la softmax de scores, l'estimateur de Nadaraya-Watson (noyau gaussien de "
                  "l'altitude, ✏️ MB3.4 ; la largeur de bande comme une température, 🔮 MB3.17), et, dans le 🔗 MB3.11, "
                  "des stations sur un même cercle (x·xᵢ = ρ² cos(φ − φᵢ)) : à normes égales, le noyau gaussien est une "
                  "softmax des produits scalaires divisés par h² ; ni √d_k, ni projections, ni trois tokens. "
                  "Les masques (§6) : un score −∞ est un conditionnement (M03, M28) ; la moyenne exponentielle normalisée "
                  "comme une softmax sur le passé et un capteur en panne retiré (✏️ MB3.5, des fractions exactes) ; les "
-                 "cases d'un masque triangulaire T(T + 1)/2 pour d'autres T que 5 (B3.Q4) ; « mettre un poids à 0 après "
+                 "cases d'un masque triangulaire, T(T + 1)/2, dans la fiche seulement (B3.Q4 a) ; « mettre un poids à 0 après "
                  "la softmax ne donne pas une loi » est dans la fiche et au plus un vrai ou faux de 🧠 MB3.Q4, jamais une "
                  "erreur à corriger (l'erreur fréquente de ✏️ B3.2) ; ni masque transposé, ni convention inversée, ni "
                  "padding dans une loss (🐛 B3.17) ; la causalité d'un filtre (le futur ne change pas le passé) est "
@@ -547,18 +561,19 @@ CHAPTERS = [
                  "Les quiz : MB3.Q5 porte sur l'échelle comme une température (multiplier les scores, leur ajouter une "
                  "constante), jamais sur l'écart-type d'une somme ni sur ce qu'est une softmax saturée (B3.Q3) ; MB3.Q6 ne "
                  "demande pas si la softmax en ligne est exacte ou approchée, ni ce qu'elle réduit (la mémoire, pas les "
-                 "opérations : B3.Q12 b–c), et son facteur sur le nombre de paires n'est ni 8 (B3.Q12 a), ni 3 (B2.Q1), "
-                 "ni 4 ou 5 ; MB3.Q4 ne demande ni la forme d'une sortie (B3.Q2 e), ni si une moyenne pondérée « voit "
+                 "opérations : B3.Q12 b–c), et ne compte aucune paire (B3.Q12 a : le facteur f² sur le nombre de paires est "
+                 "dans la fiche seulement) ; MB3.Q4 ne demande ni la forme d'une sortie (B3.Q2 e), ni si une moyenne pondérée « voit "
                  "l'ordre » (B3.Q7). "
-                 "L'échelle des scores (§7) : une somme de n contributions indépendantes centrées, n = 25, 100 ou 400 "
-                 "(écarts-types 5, 10, 20 fois celui d'une contribution) ; la variance d'un produit de deux variables "
+                 "L'échelle des scores (§7) : l'écart-type √(nv) d'une somme de n contributions indépendantes centrées et "
+                 "la division par √n sont dans la fiche seulement, sans exercice (B3.Q3 a) ; ✏️ MB3.6 ne garde que la "
+                 "saturation ; la variance d'un produit de deux variables "
                  "indépendantes est un rappel de M16, jamais recalculée pour une somme de produits de coordonnées "
                  "(∂ B3.6.1-2) ; la saturation porte sur K = 3 scores au moins, multipliés par un facteur c, mesurée par "
                  "le poids maximal et 1 − Σ pᵢ² ; jamais deux scores (s, 0) et σ(s), ni la dérivée p(1 − p) d'une "
                  "sigmoïde comparée entre deux échelles (∂ B3.6.5-6) ; la borne 1 − p_max ≤ (K − 1) e^{−cΔ} (Δ, l'écart "
                  "entre le plus grand score et le suivant) est dans la fiche, avec son idée de preuve. Le point "
                  "facultatif de la décision commune, E[e^{σZ}] = e^{σ²/2} et le maximum de n gaussiennes, n'est pas "
-                 "retenu : il ne sert qu'au corrigé du 🔮 B3.13 (frontière), et les 13 h n'en laissent pas la place. "
+                 "retenu : il ne sert qu'au corrigé du 🔮 B3.13 (frontière), et le budget n'en laisse pas la place. "
                  "La softmax en ligne (§8) : l'état (m, l, a), écrit (m, l, acc) dans le code comme dans la fiche de "
                  "workbookIA B3 ; la fiche de B3 montre le code sans preuve, MB3 démontre l'invariant et l'associativité "
                  "de la fusion (∂ MB3.10) ; ✏️ MB3.7 prend neuf scores multiples de ln 2 (des exponentielles qui sont "
@@ -566,8 +581,9 @@ CHAPTERS = [
                  "l'échelle (des scores croissants : à chaque bloc ; au hasard : H_N − 1 en moyenne sur N blocs, les "
                  "records, démontré dans la fiche par des indicatrices) ; la 🗣️ MB3.13 compare l'état à une caisse tenue "
                  "dans une monnaie qui change ; ni 1 000 clés par blocs de 128, ni `default_rng(1)`, ni l'échelle 4,0. "
-                 "Le coût (§9) : n² paires, mémoire n × n contre n·B par blocs, Σ t = n(n + 1)/2, pente 2 en échelles "
-                 "logarithmiques, sur des matrices de distances entre clients ou entre villes ; ni FLOPs par token, ni "
+                 "Le coût (§9) : une ligne rappelle MB2 §8 (C(n, 2) comparaisons contre n vecteurs) ; le § ne garde que ce "
+                 "qui est neuf, la mémoire n × n contre n·B par blocs et la pente 2 en échelles logarithmiques, sur des "
+                 "matrices de distances entre clients ou entre villes ; ni FLOPs par token, ni "
                  "24d², 4Td, T/(12d), 49 152, ni mesure du temps de l'attention (🔬 B3.27), ni Gio d'un modèle. Le "
                  "💼 MB3.E1 porte sur l'encodage d'une variable cyclique (une question de feature engineering), pas sur "
                  "les positions d'un Transformer (B3.E5). Les exercices ne reprennent ni les exemples de la fiche de MB3 "
@@ -607,7 +623,8 @@ CHAPTERS = [
                  "norm de (1, 2, 3, 6), log 65 ≈ 4,17 et log 50 257 ≈ 10,825 ; la clé copiée de 🔮 B3.13 (d_k = 64, "
                  "200 requêtes, S de 10 à 100 000, 1 + e^{7,5} ≈ 1 800, e^{1/2}, 8√(2 ln 10⁵) ≈ 38) ; « le chat que "
                  "Marie a adopté dort », « le chien mord l'homme », Holmes, Watson, Verne, Fashion-MNIST, les patchs "
-                 "d'un ViT (P = 16, 196 patchs). De workbookIA B1 et B2 (des cosinus et des softmax) : a₀ = (1, 0, 0), "
+                 "d'un ViT (P = 16, 196 patchs) ; le cache de B3.Q11 (2 couches, d = 64, 100 tokens, float32, 102 400 "
+                 "octets) et les 15 % de 200 tokens de B3.Q9 (30, puis 80 % : 24). De workbookIA B1 et B2 (des cosinus et des softmax) : a₀ = (1, 0, 0), "
                  "a₁ = (4, 2, 2), a₂ = (2, 1, 0), a₃ = (0, 1, 1), q = (2, 1, 1) ; les prototypes (0,9 ; 0,1), "
                  "(0,7 ; 0,3), (0,2 ; 0,8), (0,4 ; 0,8), q = (0,6 ; 0,5), 0,900 et 0,869 ; les cosinus 0,31 ; 0,27 ; 0,22 "
                  "avec s = 100 (0,982 ; 0,018 ; 0,0001) et s = 1 (0,348 ; 0,334 ; 0,318), et 0,24 ; 0,30 ; 0,28 ; 0,19 "
@@ -631,13 +648,19 @@ CHAPTERS = [
                  "e^{iθ} = cos θ + i sin θ (la formule d'Euler, admise en M22, est ici une définition) ; une loi est "
                  "une softmax d'un vecteur de scores, et un masque met un score à −∞ ; le noyau gaussien est "
                  "exp(−‖x − xᵢ‖²/(2h²)), sa constante n'importe pas ; l'état de la softmax en ligne est (m, l, acc), "
-                 "l'état vide (−∞, 0, 0) ; logarithme népérien. "
+                 "l'état vide (−∞, 0, acc nul ou None), de même nature que les états qu'il complète ; logarithme "
+                 "népérien. "
                  "`positional` : NumPy et `math` permis, aucune fonction de SciPy (`scipy.special.softmax`, `logsumexp`, "
                  "`scipy.spatial.transform.Rotation` sont les oracles des tests) ni `np.logaddexp`. `givens_rotation` "
                  "(MML §3.9.3) contient le cas du plan (n = 2) : `rotation_matrix_2d` et `rotate_complex` du plan sont "
-                 "retirées (une ligne chacune) ; `online_softmax(scores, values=None, block_size=1)` rend l'**état** "
+                 "retirées (une ligne chacune) ; `online_softmax(scores, values=None, block_size=1, history=False)` rend "
+                 "l'**état** "
                  "(m, l, acc), pas des poids ni une sortie d'attention : elle ne prend ni requête, ni clés, ni masque, ni "
-                 "échelle (le contrat de `scaled_dot_product_attention` de workbookIA B3), et accepte des scores −∞ ; "
+                 "échelle (le contrat de `scaled_dot_product_attention` de workbookIA B3), et accepte des scores −∞ ; avec "
+                 "`history=True`, elle rend la liste des états après chaque bloc, ce qui rend testables l'invariant de "
+                 "∂ MB3.10, la lecture par blocs de 🔨 MB3.15 et les remises à l'échelle du 🔬 MB3.18 ; l'état vide n'est "
+                 "neutre que pour les états de même nature (acc `None`, nombre ou tableau), et l ≥ 1 reste exigé quand m "
+                 "est fini (vrai exactement en flottants pour un état produit par `online_softmax` ou par une fusion) ; "
                  "`merge_softmax_states` (la fusion associative, sans équivalent dans `mylearn`) ; aucune fonction de "
                  "masque (`masked_softmax` serait le cœur de 🔨 B3.12), de positions, de fréquences base^{−2i/d} ni "
                  "d'encodage (🔨 B3.15), ni `block_rotation` (appliquée à m·freqs, ce serait RoPE) ; Nadaraya-Watson "
@@ -653,11 +676,12 @@ CHAPTERS = [
                  "COMPOSITION : 3 🔨 et aucun 📦 (au lieu de 4 🔨/📦) : les trois 🔨 écrivent tout `positional`, et les "
                  "bibliothèques qui feraient un 📦 (`scipy.special.softmax`, `logsumexp`, `Rotation`) sont les oracles "
                  "des tests ; un 📦 « la décomposition QR par des rotations de Givens, comparée à `np.linalg.qr` » "
-                 "(25 min) a été écarté pour tenir les 13 h. 10 ✏️/∂, 6 quiz, un 💼, 16 flashcards : le bas des "
+                 "(25 min) a été écarté pour tenir le budget. 10 ✏️/∂, 6 quiz, un 💼, 16 flashcards : le bas des "
                  "fourchettes du §13. Parcours essentiel : le 📖, ∂ MB3.9 (l'équivariance, énoncée), le 🔬, le 🛠️ et le 🏆 "
                  "hors parcours. "
-                 "**Durée** (session 69) : 13,0 h (essentiel 10,7 h ; lecture de la fiche 150 min, neuf sections) au "
-                 "lieu des 12 h visées : neuf notions nouvelles, dont trois démonstrations (les formules d'addition, "
+                 "**Durée** (session 69) : 12,8 h (essentiel 10,6 h ; lecture de la fiche 150 min, neuf sections) au "
+                 "lieu des 12 h visées (13,0 h avant les relectures, qui ont retiré trois sous-questions frontières) : "
+                 "neuf notions nouvelles, dont trois démonstrations (les formules d'addition, "
                  "lacune de R9 à M28 ; l'équivariance ; l'invariant de la softmax en ligne), MML §3.9 lu, et des durées "
                  "relevées comme celles de M25a à M28.",
         "exercises": [
@@ -671,8 +695,8 @@ CHAPTERS = [
              "masque avant ou après la softmax, et un sous-ensemble vide", "§5 §6", "E"),
             ("MB3.Q5", "🧠", 1, 4, "Multiplier tous les scores par c, ou leur ajouter une constante : ce qui change dans les "
              "poids, le poids maximal et l'entropie, et ce qui ne change pas", "§7", "E"),
-            ("MB3.Q6", "🧠", 1, 5, "La softmax en ligne et les paires : ce que garde l'état, quand le remettre à l'échelle, "
-             "l'état vide, et le nombre de paires d'une matrice de distances", "§8 §9", "E"),
+            ("MB3.Q6", "🧠", 1, 4, "La softmax en ligne : ce que garde l'état, quand le remettre à l'échelle, et l'état "
+             "vide", "§8", "E"),
             ("MB3.R1", "🔁", 1, 7, "La forme exponentielle d'un complexe, et le produit comme rotation et homothétie (M22)",
              "§2", "E"),
             ("MB3.R2", "🔁", 1, 5, "Le log-sum-exp et la softmax stable (M05a)", "§8", "E"),
@@ -689,12 +713,10 @@ CHAPTERS = [
             ("MB3.4", "✏️", 2, 25, "L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre "
              "stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, "
              "et ses deux limites", "§5", "E"),
-            ("MB3.5", "✏️", 2, 20, "Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours "
-             "passés, la même quand un capteur tombe en panne un jour (un score −∞), et les cases d'un masque "
-             "triangulaire", "§6", "E"),
-            ("MB3.6", "✏️", 2, 20, "L'échelle des scores : l'écart-type d'une somme de n contributions indépendantes et sa "
-             "division par √n, puis une softmax de trois scores multipliés par un facteur c croissant : le poids "
-             "maximal et la sensibilité 1 − Σ pᵢ²", "§7", "E"),
+            ("MB3.5", "✏️", 2, 18, "Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours "
+             "passés, puis la même quand un capteur tombe en panne un jour (un score −∞)", "§6", "E"),
+            ("MB3.6", "✏️", 2, 15, "La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le "
+             "poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ}", "§7", "E"),
             ("MB3.7", "✏️", 2, 30, "La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus "
              "par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux "
              "états calculés séparément", "§8", "E"),
@@ -717,14 +739,16 @@ CHAPTERS = [
             ("MB3.E1", "💼", 1, 10, "« Comment encoder une variable cyclique comme une heure ou une direction, et pourquoi "
              "pas par sa valeur ? »", "§4", "E"),
             ("MB3.14", "🔨", 1, 15, "La matrice d'une rotation de Givens de ℝⁿ", "§3", "E m:givens_rotation"),
-            ("MB3.15", "🔨", 2, 35, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs", "§8",
+            ("MB3.15", "🔨", 2, 35, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et "
+             "l'état après chaque bloc", "§8",
              "E m:online_softmax"),
             ("MB3.16", "🔨", 2, 25, "La fusion de deux états de la softmax en ligne", "§8",
              "E m:merge_softmax_states p:MB3.15"),
             ("MB3.17", "🔮", 1, 20, "Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur "
              "de bande est divisée ou multipliée par 10, puis tracer", "§5 §7", "E"),
             ("MB3.18", "🔬", 2, 25, "La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à "
-             "l'échelle pour des scores croissants, décroissants ou mélangés, comparé à H_N, et la mémoire gardée",
+             "l'échelle (les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à "
+             "H_N − 1, et la mémoire gardée",
              "§8 §9", ""),
             ("MB3.19", "🎨", 1, 20, "Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois "
              "cercles, un décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart",
@@ -741,7 +765,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB4", "dir": "mb4_rang_faible", "hours": 7.8, "generation_sessions": 1, "mml": ["(§4.6)"],
+        "id": "MB4", "dir": "mb4_rang_faible", "hours": 7.6, "generation_sessions": 1, "mml": ["(§4.6)"],
         "summary": "Les maths du rang faible et de la recherche d'information : la factorisation de rang (une matrice de "
                    "rang r est le produit de r colonnes par r lignes, à une matrice inversible près), ce qu'elle coûte à "
                    "stocker et ses nombres libres, le rang effectif d'une matrice mesurée (rappel d'Eckart-Young) et "
@@ -818,7 +842,6 @@ CHAPTERS = [
                       "tolérance", "M12a"),
                      ("SVD, normes de Frobenius et spectrale, approximation de rang faible et son erreur (Eckart-Young), "
                       "nombres stockés d'une image en rang k", "M12d")],
-        "after": ["M12a", "M12d", "M09a", "M06", "R6", "M03", "M07"],
         "frontieres": ["B4.2", "B4.3", "B4.5", "B4.11", "B4.17", "B4.18", "B4.25", "B4.27", "B4.Q8", "B4.Q9",
                        "B4.Q11", "B4.R3", "B4.E3"],
         "mymath": {"module": "ranks.py", "functions": ["rank_factorization", "borda_scores", "random_ranking_mrr"]},
@@ -854,6 +877,9 @@ CHAPTERS = [
                  "dk/(d + k) ; M12d.5 en a déjà fait la version « image » : il n'est pas refait) : ✏️ MB4.1 compare des "
                  "nombres pour un tableau et un rang donnés, sans pourcentage d'un « modèle », sans liste de couches, "
                  "sans correction ajoutée à une matrice fixe, sans initialisation, gradient, facteur d'échelle ni « pas ». "
+                 "La fiche peut dire, sans nombre, que le même compte r(m + n) vaut pour une correction de rang r, et que "
+                 "workbookIA B4 l'applique (la fiche de M12d, qui promettait ce compte à MB4, est corrigée par le "
+                 "coordinateur). "
                  "§2 : le rang effectif (part de l'énergie, plus petit rang pour une part donnée, rang stable) sur un "
                  "tableau de mesures donné par ses valeurs singulières, l'erreur par Eckart-Young (rappel, M12d.16) ; "
                  "pas de projection d'une matrice sur les sous-espaces singuliers d'une autre (📄 B4.11.8) ; C(Fx) contre "
@@ -869,8 +895,10 @@ CHAPTERS = [
                  "ln((N + 1)/(n + ½)) ; la saturation est étudiée comme une fonction (une prime qui plafonne, la "
                  "cinétique de Michaelis et Menten), la propriété s(1) = 1 pour tout k₁ est énoncée sur la courbe, "
                  "jamais sous la forme « une occurrence dans un document de longueur moyenne contribue exactement "
-                 "l'idf » (la variante du corrigé de 🔨 B4.17) ; au plus une contribution d'un ingrédient pour des "
-                 "valeurs (N, n, x, ℓ) données, jamais le score d'une fiche à plusieurs ingrédients, jamais un "
+                 "l'idf » (la variante du corrigé de 🔨 B4.17) ; la saturation et la normalisation sont chiffrées seules, "
+                 "comme des fonctions (valeurs en x = 1, 2, 10, rapport de la dixième mention à la première, effet de b "
+                 "sur une fiche deux fois plus longue) ; jamais leur produit par un poids de rareté (une contribution de "
+                 "BM25 : ✏️ B4.5 c-d, 🔨 B4.17), jamais le score d'une fiche à plusieurs ingrédients, jamais un "
                  "classement de fiches ni une longueur moyenne calculée sur un corpus (✏️ B4.5, 🔨 B4.17) ; k₁ ∈ {1, 2, "
                  "3} et b ∈ {¼, ½}, jamais le couple k₁ = 1,5, b = 0,75 ni k₁ = 1,2. Les erreurs fréquentes du corrigé "
                  "de ✏️ MB4.3 et le 🐛 n'ont aucune des erreurs listées par workbookIA pour ✏️ B4.5 et 🔨 B4.17 (le « 1 + » "
@@ -882,7 +910,10 @@ CHAPTERS = [
                  "coupure de recall@k et k₁ la constante de saturation) ; ✏️ MB4.4 prend c = 2 et c = 10, jamais c = 0 "
                  "ni 60 ; ∂ MB4.6 démontre en général la condition j < c + 2 (deux listes contre une) et la limite quand "
                  "c grandit (développement 1/(c + j) = 1/c − j/c² + …, M05a), c = 0 n'y est qu'un cas limite, sans "
-                 "nombres ; aucun exercice ne fusionne des listes de documents, des listes partielles d'identifiants ni "
+                 "nombres ; la seconde partie de ∂ MB4.6 porte sur des jurys qui ne classent que leurs premiers (un "
+                 "candidat absent d'une liste ne reçoit rien de ce jury), en lettres, sans liste chiffrée, et la limite "
+                 "de sa troisième partie (le nombre de listes) aussi ; aucun exercice ne fusionne des listes de "
+                 "documents, des listes partielles chiffrées d'identifiants ni "
                  "les résultats de deux moteurs (🔨 B4.18, B4.Q9) ; la recherche dense est un rappel de la fiche "
                  "(cosinus, M07), sans exercice. Le 💼 porte sur des systèmes dont les échelles diffèrent, pas sur un "
                  "RAG. "
@@ -896,7 +927,8 @@ CHAPTERS = [
                  "des rangs des candidats (la permutation au lieu de son inverse), un poids de rareté écrit ln(n/N) ; "
                  "jamais les erreurs du corrigé de 🔨 B4.18 (rangs à partir de 0, recall divisé par k, argsort inversé, "
                  "identifiant répété). "
-                 "Notations : M (m × n) de rang r, C (m × r), F (r × n), produits extérieurs c fᵀ ; au §3, N fiches "
+                 "Notations : M (m × n) de rang r (k en M12d et MB2 ; k est ici la coupure de recall@k), C (m × r), "
+                 "F (r × n), produits extérieurs c fᵀ ; au §3, N fiches "
                  "et n fiches qui contiennent l'ingrédient ; au §4, k₁ ≥ 0, ℓ la longueur rapportée à la moyenne, "
                  "b ∈ [0, 1] ; au §5, des candidats, des rangs j à partir de 1, la constante c ≥ 0, n − j points de "
                  "Borda ; au §6, n objets dont q pertinents, R le rang du premier pertinent, H_n = 1 + 1/2 + … + 1/n. "
@@ -910,23 +942,26 @@ CHAPTERS = [
                  "`cosine_top_k`, pas de fusion triée de listes partielles (la RRF), pas de recall@k ni de MRR "
                  "moyennés sur des requêtes ; `borda_scores` prend des classements complets et rend des points par "
                  "candidat, `random_ranking_mrr` une espérance exacte sous "
-                 "un ordre tiré au hasard ; `rank_factorization` reprend le `rref` de M09a et les colonnes pivots de "
-                 "`column_space_basis` (M12a), un rappel espacé assumé ; `lora_param_count` est retirée (le nom de ∂ "
+                 "un ordre tiré au hasard ; `rank_factorization` reprend le `rref` de M09a (l'apprenant peut l'importer de "
+                 "`.matrices` ou le recopier : 🔨 MB4.8 passe en ★, 20 min) et les colonnes pivots de "
+                 "`column_space_basis` (M12a), un rappel espacé assumé ; dans `borda_scores`, ni `np.argsort` ni "
+                 "`np.lexsort` : l'apprenant inverse chaque classement lui-même (le 🐛 MB4.12 vise cette inversion) ; "
+                 "`lora_param_count` est retirée (le nom de ∂ "
                  "B4.6, un contrat d'une ligne). MML : §4.6 (l'approximation de rang k comme somme de k matrices de "
                  "rang 1, Eckart-Young) a été lu en M12d (📖 M12d.22, questions 5 et 6) ; MB4 le donne en relecture "
                  "dans son guide et le rappelle par 🔁 MB4.R2 ; le livre ne traite ni l'idf, ni la fusion de "
                  "classements, ni les métriques de recherche (référence libre : Manning, Raghavan et Schütze, "
                  "Introduction to Information "
                  "Retrieval, ch. 6, 8 et 11, cités par chapitres). "
-                 "COMPOSITION : chapitre court (7 h visées, 7,8 h) : 4 quiz, 3 rappels, 4 ✏️ et 2 ∂, 2 🔨, un 🔮, un 🎨, "
+                 "COMPOSITION : chapitre court (7 h visées, 7,6 h) : 4 quiz, 3 rappels, 4 ✏️ et 2 ∂, 2 🔨, un 🔮, un 🎨, "
                  "un 🐛, un 🗣️, un 💼, un 🏆, 12 flashcards ; pas de 📖 (§4.6 lu en M12d, voir ci-dessus) ; pas de 🛠️ "
                  "(le test de propriété CF = M est celui de 🔨 MB4.8) ; pas de 🔗 (un calcul « du type de workbookIA B4 » "
                  "serait un compte de paramètres LoRA, un score BM25 ou une RRF : ses frontières) ; pas de 🔬 (le 🔮 "
                  "simule). Parcours essentiel : les quiz, les rappels, les quatre ✏️, ∂ MB4.5, le 🗣️ et 🔨 MB4.8 ; "
-                 "∂ MB4.6, le 💼 et le reste du notebook hors parcours. **Durée** : 7,8 h au lieu de 7 (+0,8 h : "
+                 "∂ MB4.6, le 💼 et le reste du notebook hors parcours. **Durée** : 7,6 h au lieu de 7 (+0,6 h : "
                  "quatre lacunes, la factorisation de rang, l'origine probabiliste de l'idf, l'agrégation de "
                  "classements et la ligne de base au hasard, et des durées réalistes après les relectures de M25a à "
-                 "M28) ; lecture 95 min (≈ 4 500 mots) ; sans 🎨 MB4.11 ni ∂ MB4.6, 7,1 h. "
+                 "M28) ; lecture 95 min (≈ 6 500 mots) ; sans 🎨 MB4.11 ni ∂ MB4.6, 7,0 h. "
                  "Évités (règle de partage), de workbookIA B4 : les modèles et leurs nombres (Qwen2.5-0.5B, "
                  "494 032 768, 24 couches, 896, 14/2 têtes, 32 768 ; SmolLM2-135M, 30 couches, 576, 9/3, 64, 49 152, "
                  "8 192, 134 515 008 ; Qwen3, 596 049 920, 28, 1 024, 16/8 ; distilgpt2, 81 912 576, 6, 768, 12/12, "
@@ -1013,7 +1048,7 @@ CHAPTERS = [
              "E"),
             ("MB4.E1", "💼", 1, 10, "« Comment combiner les classements de deux systèmes dont les scores ne sont pas sur "
              "la même échelle ? »", "§5", ""),
-            ("MB4.8", "🔨", 2, 30, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
+            ("MB4.8", "🔨", 1, 20, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
              "forme échelonnée réduite", "§1", "E m:rank_factorization"),
             ("MB4.9", "🔨", 2, 25, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au "
              "hasard, en fractions", "§5 §6", "m:borda_scores,random_ranking_mrr"),
@@ -1028,7 +1063,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB5", "dir": "mb5_diffusion", "hours": 15.6, "generation_sessions": 2, "mml": ["(§6.5)"],
+        "id": "MB5", "dir": "mb5_diffusion", "hours": 15.7, "generation_sessions": 2, "mml": ["(§6.5)"],
         "summary": "Les outils mathématiques des modèles de diffusion, travaillés hors réseaux : les récurrences linéaires "
                    "gaussiennes (la loi sachant le départ, les produits cumulés, la loi stationnaire d'un processus "
                    "autorégressif), le pont d'une marche aléatoire et des trajectoires différentes aux mêmes lois "
@@ -1049,8 +1084,9 @@ CHAPTERS = [
             "estimation du bruit à une estimation du signal, avec l'erreur qui l'accompagne.",
             "Démontrer que l'erreur quadratique moyenne est minimale pour l'espérance conditionnelle, et en lire les "
             "conséquences sur une cible à plusieurs modes.",
-            "Définir le score en x d'une densité, démontrer la formule de Tweedie, et calculer le débruiteur optimal d'un "
-            "signal gaussien ou d'un mélange.",
+            "Définir le score en x d'une densité, démontrer la formule de Tweedie, calculer le débruiteur optimal d'un "
+            "signal gaussien ou d'un mélange, et dire comment la dynamique de Langevin tire des points d'une densité à "
+            "partir de son score.",
             "Démontrer la décomposition de l'ELBO d'une chaîne de latents en reconstruction, KL finale et KL des pas "
             "retour, et la calculer sur une petite chaîne discrète.",
             "Écrire une combinaison affine de scores comme le score d'un produit de puissances de densités, et calculer la "
@@ -1067,7 +1103,8 @@ CHAPTERS = [
                      ("§3", "Signal et bruit : rapport signal sur bruit, cotes et décibels, et trois cibles qui portent la "
                             "même information"),
                      ("§4", "La MSE apprend l'espérance conditionnelle"),
-                     ("§5", "Le débruiteur optimal : le score en x et la formule de Tweedie"),
+                     ("§5", "Le débruiteur optimal : le score en x, la formule de Tweedie, et la dynamique de Langevin "
+                            "(aperçu)"),
                      ("§6", "L'ELBO d'une chaîne de variables latentes"),
                      ("§7", "Guider : combinaisons affines de scores et produits de puissances de densités"),
                      ("§8", "Équations différentielles : la méthode d'Euler, le point milieu, et l'erreur selon la "
@@ -1078,8 +1115,9 @@ CHAPTERS = [
                     "gaussiennes de même covariance ; espérance et variance conditionnelles, lois totales, responsabilités "
                     "en log, ELBO d'un latent",
                     "récurrence linéaire gaussienne x_t = a_t x_{t−1} + b_t ε_t à coefficients quelconques : x_t est une "
-                    "image affine du vecteur gaussien (x_0, ε_1, …, ε_t) ; loi de x_t sachant x_0 et sachant x_s, de moyenne "
-                    "(a_{s+1} ⋯ a_t) x_s et de variance Σ_k b_k² (a_{k+1} ⋯ a_t)² ; propagation des moments "
+                    "image affine du vecteur gaussien (x_0, ε_1, …, ε_t) ; loi de x_t sachant x_0, de moyenne (a_1 ⋯ a_t) x_0 "
+                    "et de variance Σ_k b_k² (a_{k+1} ⋯ a_t)² ; pour un coefficient constant, la loi sachant x_s ; "
+                    "propagation des moments "
                     "m_t = a_t m_{t−1}, v_t = a_t² v_{t−1} + b_t² (la prédiction d'un filtre de Kalman de dimension 1)",
                     "produits cumulés : ln Π = Σ ln ; 1 − h ≤ e^{−h} (convexité, M05a) et ln(1 − h) ≥ −h − h² pour "
                     "0 ≤ h ≤ ½, d'où e^{−Σh_k − Σh_k²} ≤ Π(1 − h_k) ≤ e^{−Σh_k} ; risque cumulé et probabilité de survie à "
@@ -1110,7 +1148,8 @@ CHAPTERS = [
                     "MAE une médiane conditionnelle (énoncé)",
                     "score d'une densité en x, ∇ₓ ln p(x) = ∇p(x)/p(x) : il pointe vers les régions plus probables, s'annule "
                     "en un mode et ignore la constante de normalisation ; pour N(μ, σ²), −(x − μ)/σ² ; à ne pas confondre "
-                    "avec le score en θ, ∇_θ ln p(x | θ), de MB8",
+                    "avec le score en θ, ∇_θ ln p_θ(x), de MB8, ni avec le score d'un classement ou d'un classifieur (le sens "
+                    "courant de MB2, MB3, MB4 et MB6)",
                     "formule de Tweedie : pour y = a x + b n, avec n de loi N(0, 1) indépendant de x de loi quelconque, "
                     "E[x | y] = (y + b² (ln p_Y)′(y))/a et E[n | y] = −b (ln p_Y)′(y) (démontrée en dimension 1 en dérivant "
                     "p_Y sous l'espérance, énoncée en dimension d avec le gradient) ; estimer le bruit, c'est estimer le "
@@ -1119,6 +1158,10 @@ CHAPTERS = [
                     "a posteriori de chaque composante (M25a) ; pour un nuage de points (variances nulles) et a ≠ 0, il rend "
                     "le point le plus proche de y/a quand le bruit tend vers 0 (il recopie les données ; à égale distance "
                     "de deux points, une moyenne pondérée des deux) ; pour a = 0, la moyenne du nuage",
+                    "dynamique de Langevin (aperçu) : x_{k+1} = x_k + (h/2) (ln p)′(x_k) + √h ε_k, une chaîne de Markov à "
+                    "états continus dont la loi stationnaire approche p quand h → 0 ; pour p = N(μ, σ²), c'est un processus "
+                    "autorégressif d'ordre 1 (§1) de coefficient 1 − h/(2σ²) et de loi stationnaire "
+                    "N(μ, σ²/(1 − h/(4σ²))) : partir d'un bruit et laisser converger la chaîne fabrique des tirages de p",
                     "ELBO d'une chaîne de latents : un processus aller q(z_1 | x) q(z_2 | z_1) ⋯ q(z_T | z_{T−1}), "
                     "markovien et fixé, un modèle retour p(z_T) p(z_{T−1} | z_T) ⋯ p(x | z_1) ; chaque pas aller réécrit "
                     "par Markov et Bayes, q(z_t | z_{t−1}, x) = q(z_{t−1} | z_t, x) q(z_t | x)/q(z_{t−1} | x), puis le "
@@ -1182,26 +1225,27 @@ CHAPTERS = [
                      ("chaîne de Markov, loi stationnaire, propriété de la tour", "M26"),
                      ("meilleur prédicteur pour la log-loss ; distance de Wasserstein entre deux lois de dimension 1 et "
                       "entre deux gaussiennes", "M27")],
-        "after": ["R5", "R6", "M05a", "M20", "M22", "M25a", "M25b", "M26", "M27"],
-        "frontieres": ["B5.1", "B5.2", "B5.3", "B5.4", "B5.5", "B5.11", "B5.12", "B5.14", "B5.15", "B5.16", "B5.17",
+        "frontieres": ["B5.1", "B5.2", "B5.3", "B5.4", "B5.5", "B5.11", "B5.12", "B5.13", "B5.14", "B5.15", "B5.16", "B5.17",
                        "B5.18", "B5.20", "B5.22", "B5.26", "B5.28", "B5.Q2", "B5.Q3", "B5.Q4", "B5.Q8", "B5.Q9",
                        "B5.Q11", "B5.R3", "B5.E2", "B5.E4", "B5.E5"],
         "mymath": {"module": "gaussian_paths.py",
                    "functions": ["linear_gaussian_recursion", "posterior_mean_mixture", "euler_ode", "midpoint_ode"]},
-        "reading_minutes": 155,
+        "reading_minutes": 160,
         "flashcards": 20,
         "notes": "Frontières : les ∂ B5.6 (deux pas de bruit gaussien n'en font qu'un, la forme fermée q(x_t | x_0) par "
                  "récurrence, la variance préservée, la variance qui explose sans le facteur d'atténuation, x_t | x_s ; déjà "
                  "frontière de M25a et de CP6) et B5.7 (le posterior q(x_{t−1} | x_t, x_0) en dimension 1 : Bayes et Markov, "
                  "les précisions, l'identité α_t(1 − ᾱ_{t−1}) + β_t = 1 − ᾱ_t, la substitution de x̂_0 qui donne la moyenne "
-                 "de l'algorithme 2) ; le ✏️ B5.1 (la combinaison (1 + w) ε_c − w ε_∅ de deux vecteurs pour w = 0, 1, 3, "
+                 "de l'algorithme 2 ; ∂ MB5.13 en écrit l'étape « Bayes et Markov », pour des latents quelconques et sans loi "
+                 "gaussienne de pas : c'est l'outil de l'ELBO d'une chaîne promise par M25b, voir §6) ; le ✏️ B5.1 (la combinaison (1 + w) ε_c − w ε_∅ de deux vecteurs pour w = 0, 1, 3, "
                  "puis −1 et −0,5, et le coût de deux passes), le ✏️ B5.2 (un planning linéaire à T = 4, ses produits "
                  "cumulés, Σβ et e^{−Σβ}, T = 400 et 1 000, des bornes mises à l'échelle, et dans la copie ln(1 − β) ≤ −β), "
                  "le ✏️ B5.3 (le SNR des plannings linéaire et cosinus, les seuils 1 et 0,1 d'un chiffre lisible, la part "
                  "des pas entre deux seuils), les ✏️ B5.4 et B5.5 (un pas DDPM et un pas DDIM à la main, β̃, l'écrêtage, "
                  "la famille η), le 📄 B5.11 (Ho et coll. : les poids de l'équation 12, les deux choix de σ_t² et leurs cas "
                  "extrêmes), les 🔨 B5.12, B5.14, B5.16 et B5.17 (les plannings, `q_sample`, le posterior, x̂_0, les pas "
-                 "DDPM et DDIM de `mylearn`), le 📈 B5.15 (lire ᾱ_t et le SNR de deux plannings), le 🔬 B5.18 (l'aller-retour "
+                 "DDPM et DDIM de `mylearn`), le 🔮 B5.13 (l'allure d'un chiffre bruité aux pas 100, 300 et 600, et son SNR), le 📈 B5.15 (lire ᾱ_t et le "
+                 "SNR de deux plannings), le 🔬 B5.18 (l'aller-retour "
                  "exact avec le vrai bruit), le 🔬 B5.20 (flow matching contre DDIM en 2D, Euler à 1, 2, 5, 10, 20, 50 et "
                  "100 pas, la vitesse prise au milieu de l'intervalle), le 🐛 B5.22 (les quatre bugs d'indices, de racines "
                  "et d'échelle, le débruiteur parfait), le 🔮 B5.26 (l'effet de w sur la netteté et la diversité), le "
@@ -1217,7 +1261,7 @@ CHAPTERS = [
                  "un pas de temps de diffusion, β_t, α_t, ᾱ_t, ε_θ, x̂_0, un planning nommé (linéaire de Ho, cosinus de "
                  "Nichol et Dhariwal), ni un pas DDPM ou DDIM calculé. "
                  "**Garde-fous de M25a, repris** : jamais un couple de coefficients a² + b² = 1 dans un exercice, un "
-                 "exemple ou une docstring (il recomposerait x ↦ √α x + √(1 − α) ε ; le cas b² = 1 − a², variance "
+                 "exemple, une docstring ou un test (il recomposerait x ↦ √α x + √(1 − α) ε ; le cas b² = 1 − a², variance "
                  "stationnaire 1, est seulement énoncé, en une phrase, sans nombre ni composition de deux pas) ; jamais la "
                  "KL contre N(0, 1), N(0, I) ou N(0, τ²) ; jamais la forme fermée de q(x_t | x_0) ni le posterior du pas. "
                  "**§1** : la récurrence est démontrée pour des coefficients quelconques (∂ MB5.10 : un énoncé plus général "
@@ -1228,7 +1272,13 @@ CHAPTERS = [
                  "périodes », B5.2 j-l, B5.Q2 e), et demande l'encadrement par deux exponentielles, pas l'écart relatif de "
                  "e^{−Σh} seule ; 1 − h ≤ e^{−h} est un rappel (M20 §6 écrit 1 + u ≤ e^u). Le 🔨 MB5.16 propage les "
                  "moments (m_t, v_t) depuis une loi initiale quelconque : avec mean0 = 1 et var0 = 0, les moyennes sont des "
-                 "produits cumulés, mais la fonction ne prend jamais de β et ne rend aucune sortie nommée ᾱ ou √ᾱ. "
+                 "produits cumulés, mais la fonction ne prend jamais de β et ne rend aucune sortie nommée ᾱ ou √ᾱ ; ses "
+                 "tests ne lui passent jamais un β ni des coefficients √(1 − β_t), √β_t. Ni la fiche, ni un exercice, ni "
+                 "une solution, ni un test n'écrit l'identité Σ_k b_k² Π_{j>k} a_j² = 1 − Π a_j² quand b_k² = 1 − a_k², ni "
+                 "1 − v_t = a_t²(1 − v_{t−1}) (le cœur de ∂ B5.6.2 et ∂ B5.6.7) ; les tests de "
+                 "`linear_gaussian_recursion` n'emploient jamais a_t² + b_t² = 1 ; la loi sachant un instant passé n'est "
+                 "demandée que pour un coefficient constant (✏️ MB5.1, ∂ MB5.10), et la docstring ne dit pas comment "
+                 "l'obtenir avec la fonction (l'indication de ∂ B5.6.7). "
                  "**§2** : le pont est celui d'une marche aléatoire (a = 1), jamais d'une récurrence atténuée (ce serait "
                  "∂ B5.7 avec d'autres coefficients) ; il s'obtient par le modèle linéaire gaussien de M25a, sans "
                  "« coefficient de x_0 et de x_t » ; les couplages sont un lemme général (√(s² − σ²) U + σ Z) appliqué à des "
@@ -1245,8 +1295,13 @@ CHAPTERS = [
                  "chapitre 9 et qu'aucun chapitre publié ne démontre) : ∂ MB5.11 pour X discrète, sur les prix "
                  "d'appartements selon le quartier (la fiche) ; aucun quiz à trois cibles équiprobables, aucun débruitage « en "
                  "un seul coup » qui rend une image floue (B5.Q2 a-c) ; le 💼 MB5.E1 est une question de régression. "
-                 "**§5** : le score est défini **en x** ; la fiche prévient que MB8 appellera score ∇_θ ln p(x | θ) (la "
-                 "méthode du score, nommée en M25b §7) ; ∂ MB5.12 démontre Tweedie en dimension 1 (dériver sous "
+                 "**§5** : le score est défini **en x** ; la fiche prévient que MB8 appellera score ∇_θ ln p_θ(x) (la "
+                 "méthode du score, nommée en M25b §7), et qu'ailleurs « score » a son sens courant, un score de classement "
+                 "ou de pertinence (MB2, MB3, MB4) ou le score S d'un classifieur (MB6) : une ligne ⚠️ de la fiche "
+                 "distingue les trois sens ; un paragraphe « dynamique de Langevin (aperçu) », sans exercice, tient la "
+                 "promesse de M26 (une chaîne de Markov qui converge vers sa loi stationnaire pour fabriquer des données) : "
+                 "pour p = N(μ, σ²), un AR(1) de coefficient 1 − h/(2σ²), où a² + b² = 1 + h²/(4σ⁴) ≠ 1 (compatible avec "
+                 "le garde-fou), sans chiffre ni lien avec B5.E2, qui ne fait que nommer Langevin ; ∂ MB5.12 démontre Tweedie en dimension 1 (dériver sous "
                  "l'espérance, M25b §7 ; une somme finie pour un x discret) ; ✏️ MB5.5 : un signal gaussien (Tweedie "
                  "contre M25a), puis un signal à deux niveaux ±c équiprobables (une tanh), et la limite b → 0 ; la fiche en "
                  "déduit « estimer le bruit, c'est estimer le score de la loi bruitée », sans le facteur √(1 − ᾱ_t), sans "
@@ -1258,7 +1313,12 @@ CHAPTERS = [
                  "**§6** comble ce que M25b a laissé à MB5 : ∂ MB5.13 démontre la décomposition (admise par workbookIA B5, "
                  "fiche 205.4) pour des latents discrets ou continus ; ✏️ MB5.6 la calcule sur une chaîne binaire de deux "
                  "pas (un bit altéré par deux relais, des tables données ; d'autres nombres que la chaudière de M25b) ; "
-                 "aucune chaîne gaussienne n'est calculée (le posterior d'un pas serait ∂ B5.7) ; la KL de deux gaussiennes "
+                 "✏️ MB5.6 donne la probabilité d'altération de chaque relais, calcule q(z₂ | x) comme le produit de deux "
+                 "matrices 2 × 2 (M26) et q(z₁ | z₂, x) par une table de Bayes ; il ne demande ni la loi de z_T pour T "
+                 "quelconque, ni sa limite, ni une formule fermée de la composition de T relais ; ∂ MB5.13 écrit, pour des "
+                 "latents quelconques, l'étape « Bayes et Markov » de ∂ B5.7.1 : c'est l'outil de l'ELBO promise par M25b, "
+                 "accepté, sans aucune loi gaussienne de pas ; aucune chaîne gaussienne n'est calculée (le posterior d'un "
+                 "pas serait ∂ B5.7) ; la KL de deux gaussiennes "
                  "de même variance comme MSE pondérée s'énonce avec un σ² général, sans β_t, α_t ni ᾱ_t, sans aucun poids "
                  "d'article (📄 B5.11 : β_t²/(2σ_t²α_t(1 − ᾱ_t)), β_t/(2α_t(1 − ᾱ_t)), 0,50, 0,010, 0,0055) et sans le nom "
                  "L_simple. "
@@ -1267,7 +1327,9 @@ CHAPTERS = [
                  "(B5.E4), ni sur un compromis fidélité contre diversité (B5.E4, B5.26) ; MB5.Q7 n'a aucun item « w = 0 "
                  "redonne… » ni « w = −1 redonne… » (B5.1 a et f) ; le 🎨 MB5.22 prend une loi générale à deux bosses de "
                  "dimension 1, des w hors de {0, 1, 3, 7}, de 0,5 et de 2, sans écart-type moyen d'un nuage. "
-                 "**§8** : ✏️ MB5.8 (le refroidissement d'une tasse de thé) n'emploie ni x′ = x ni la suite 2 ; 2,25 ; "
+                 "**§8** : MB5.Q8 n'a aucun item « vitesse constante ⇒ un pas suffit » (B5.Q11 d) ; la propriété reste dans "
+                 "la fiche, dans ✏️ MB5.8 (le courant) et dans la docstring d'`euler_ode` ; ✏️ MB5.8 (le refroidissement "
+                 "d'une tasse de thé) n'emploie ni x′ = x ni la suite 2 ; 2,25 ; "
                  "2,441 ; 2,594 (fiche de workbookIA B5), ni λ = −0,5 et la rotation de M20 ; le 📦 MB5.19 suit une "
                  "croissance logistique ; le 🐛 MB5.23 n'a aucune des erreurs du corrigé de B5.20 (un pas d'Euler dans le "
                  "mauvais sens, s tiré dans [0, 1), la cible x_0 − ε) ni de B5.22 (l'échelle, l'indice, la racine, le bruit "
@@ -1286,8 +1348,10 @@ CHAPTERS = [
                  "variance conditionnelles, les responsabilités, l'ELBO d'un latent et la dérivée d'une espérance ; MB5 "
                  "les rappelle (🔁 MB5.R1, MB5.R2) sans les redémontrer. MB8 garde la méthode du score (en θ). Promesses "
                  "tenues : M25a (« MB5 enchaîne produits et sommes de gaussiennes », « MB5 conditionne une loi gaussienne "
-                 "pour les modèles de diffusion »), M25b (« MB5 écrira l'ELBO d'une chaîne de latents »), M20 (Euler, "
-                 "premier contact). Les trois notions « locales » de workbookIA B5 (somme de gaussiennes indépendantes, "
+                 "pour les modèles de diffusion »), M25b (« MB5 écrira l'ELBO d'une chaîne de latents »), M26 (« MB5 fera "
+                 "converger une chaîne de Markov vers sa loi stationnaire pour fabriquer des données » : l'AR(1) du §1 et la "
+                 "dynamique de Langevin du §5), M20 (Euler, premier contact). Une ligne ⚠️ de la fiche : la diffusion des "
+                 "modèles génératifs, pas la diffusion (*broadcasting*) des tableaux de M20. Les trois notions « locales » de workbookIA B5 (somme de gaussiennes indépendantes, "
                  "produit de deux densités en dimension 1, méthode d'Euler pour suivre un champ de vitesses) sont "
                  "couvertes : les deux premières par M25a, la troisième par M20 et MB5. "
                  "**Conventions** : N(μ, v) avec une variance ; un bruit ε (ou n) de loi N(0, 1), indépendant du reste ; "
@@ -1327,7 +1391,8 @@ CHAPTERS = [
                  "workbookIA B5. COMPOSITION : pas de 📖 (§6.5 est lu en entier en M25a, avec le 📖 M25a.17, et le reste du "
                  "chapitre n'est pas dans MML) ; un seul 💼 ; 9 ✏️ et 4 ∂ ; 3 🔨 et un 📦 ; un 🔬 et un 🔮. Parcours "
                  "essentiel : sans ✏️ MB5.3 (pont et couplages), ∂ MB5.12 et MB5.13, le 💼, le 📦, le 🎨, le 🛠️ et le 🏆. "
-                 "**Durée** : 15,6 h (essentiel 12,2 h), pour 14 h au plan et 15 h visées : neuf sections, dont trois "
+                 "**Durée** : 15,7 h (essentiel 12,3 h ; lecture 160 min, dont 5 pour le paragraphe sur Langevin et les "
+                 "lignes ⚠️ ajoutés après relecture), pour 14 h au plan et 15 h visées : neuf sections, dont trois "
                  "lacunes générales (la MSE et l'espérance conditionnelle, Tweedie et le score en x, les EDO au-delà d'Euler) "
                  "et l'ELBO d'une chaîne démontrée ; durées comptées pour un apprenant qui rédige. Deux sessions de "
                  "génération : §1 à §5 (🔨 MB5.16 et MB5.17), puis §6 à §9 (🔨 MB5.18). "
@@ -1386,7 +1451,7 @@ CHAPTERS = [
              "devient une KL entre gaussiennes de même variance", "§6", "E"),
             ("MB5.Q7", "🧠", 1, 4, "Guider : interpoler ou extrapoler, la différence de deux scores, et quand un produit de "
              "puissances n'est plus une densité", "§7", "E"),
-            ("MB5.Q8", "🧠", 1, 5, "Euler, point milieu et chemin droit : quand un pas suffit, ce que coûte un pas, et le "
+            ("MB5.Q8", "🧠", 1, 5, "Euler, point milieu et chemin droit : ce que coûte un pas, l'ordre de l'erreur, et le "
              "sens du temps", "§8 §9", "E"),
             ("MB5.R1", "🔁", 1, 6, "Sommes et images affines de gaussiennes, produit de densités et modèle linéaire gaussien "
              "(M25a)", "§1 §2", "E"),
@@ -1419,9 +1484,9 @@ CHAPTERS = [
             ("MB5.9", "✏️", 3, 35, "Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen (affine en x), "
              "un pas d'Euler depuis s = 1 qui rend m pour tout départ, puis deux pas, et l'écart-type obtenu contre τ",
              "§9", "E"),
-            ("MB5.10", "∂", 2, 30, "La récurrence linéaire gaussienne à coefficients quelconques : la loi de x_t sachant x_s ; "
-             "à coefficient constant |a| < 1, la loi stationnaire et la convergence depuis toute loi initiale ; aucune loi "
-             "stationnaire si |a| ≥ 1", "§1", "E"),
+            ("MB5.10", "∂", 2, 30, "La récurrence linéaire gaussienne à coefficients quelconques : la loi de x_t sachant x_0 ; "
+             "à coefficient constant |a| < 1, la loi sachant un instant passé, la loi stationnaire et la convergence depuis "
+             "toute loi initiale ; aucune loi stationnaire si |a| ≥ 1", "§1", "E"),
             ("MB5.11", "∂", 2, 20, "La meilleure prédiction quadratique : E[(Y − g(X))²] = E[V(Y | X)] + "
              "E[(E[Y | X] − g(X))²], donc g = E[Y | X] ; sur un échantillon, la moyenne de chaque groupe", "§4", "E"),
             ("MB5.12", "∂", 3, 30, "La formule de Tweedie : dériver la densité de y = a x + b n sous l'espérance, d'où "
@@ -1462,7 +1527,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB6", "dir": "mb6_shapley_equite", "hours": 11.9, "generation_sessions": 1, "mml": [],
+        "id": "MB6", "dir": "mb6_shapley_equite", "hours": 12.1, "generation_sessions": 1, "mml": [],
         "summary": "Partager un gain, une variation ou une décision. D'abord les jeux coopératifs : la contribution "
                    "marginale d'un joueur, sa moyenne sur les ordres d'arrivée (la valeur de Shapley), les poids des "
                    "coalitions qui en découlent et ce que coûte le calcul ; les quatre axiomes, les jeux d'unanimité et "
@@ -1547,7 +1612,7 @@ CHAPTERS = [
                     "(u ↦ (u + ½) h/H − ½) ou coins alignés (u ↦ u (h − 1)/(H − 1)), écart d'au plus un demi-pas",
                     "corrélation de rangs de Spearman : rangs, ex aequo (rangs moyens), ρ = corrélation de Pearson des rangs, "
                     "= 1 − 6 Σ d_i²/(n(n² − 1)) sans ex aequo (démontré dans la fiche) ; invariance par une transformation "
-                    "croissante ; ce qu'elle ne voit pas (l'ampleur des écarts)",
+                    "strictement croissante ; ce qu'elle ne voit pas (l'ampleur des écarts)",
                     "critères d'équité comme des (in)dépendances : indépendance Ŷ ⊥ G (parité des décisions), séparation "
                     "Ŷ ⊥ G | Y (égalité des taux d'erreur), suffisance Y ⊥ G | Ŷ ou Y ⊥ G | S (parité des precisions, "
                     "calibration par groupe) ; rappels des définitions de M03 §8 et de l'indépendance conditionnelle de M25b",
@@ -1580,9 +1645,8 @@ CHAPTERS = [
                      ("estimateur de Horvitz-Thompson : diviser par une probabilité", "M20"),
                      ("loi conditionnelle d'un couple gaussien : moyenne affine en la valeur observée", "M25a"),
                      ("indépendance conditionnelle, espérance conditionnelle et espérance totale", "M25b")],
-        "after": ["R3", "R4", "R8", "M02a", "M02b", "M02c", "M03", "M05b", "M08", "M11", "M17", "M20", "M25a", "M25b"],
         "frontieres": ["B6.1", "B6.3", "B6.4", "B6.5", "B6.7", "B6.11", "B6.Q3", "B6.Q4", "B6.Q5", "B6.Q6", "B6.Q7",
-                       "B6.Q9", "B6.Q11", "B6.14", "B6.18", "B6.23", "B6.E2"],
+                       "B6.Q9", "B6.Q11", "B6.14", "B6.18", "B6.21", "B6.22", "B6.23", "B6.E2"],
         "mymath": {"module": "attribution.py",
                    "functions": ["coalition_weights", "harsanyi_dividends", "line_integral", "spearman_rho"]},
         "reading_minutes": 125,
@@ -1599,7 +1663,7 @@ CHAPTERS = [
                  "x₂ = ±1 et de 3x₁ + x₂²), B6.Q4 (les axiomes lus sur une explication base + Σφ), B6.Q5 (le fond), B6.Q6 "
                  "(deux features corrélées ou copiées), B6.Q7 (min(x, 1) et la ligne de référence), B6.Q9 (randomisation, "
                  "« Spearman = 1 ⇒ mêmes valeurs ? »), B6.Q11 (critères compatibles ?), les 🔨 B6.14 (`shapley_values`), B6.18 "
-                 "(`integrated_gradients`, `grad_cam`) et B6.23 (`group_rates` et les deux écarts), et 💼 B6.E2 (une valeur "
+                 "(`integrated_gradients`, `grad_cam`) et B6.23 (`group_rates` et les deux écarts), 🐛 B6.21 (Grad-CAM à l'envers, dont l'alignement `align_corners`), 🔬 B6.22 (le test de randomisation et la corrélation de Spearman), et 💼 B6.E2 (une valeur "
                  "SHAP et ses limites). Vigilance sans frontière : 🔬 B6.27 (repondération et seuils par groupe sur Adult) et "
                  "📦 B6.24, 📈 B6.25 (intervalles d'un écart) côtoient le §8 : autres cadres, autres nombres, et aucun seuil "
                  "choisi comme quantile des scores des positifs. "
@@ -1640,7 +1704,7 @@ CHAPTERS = [
                  "jeu « conditionnel » d'une fonction, en une phrase, sans fond ni calcul de Shapley. ✏️ MB6.3 : deux modèles "
                  "de rendement écrits, l'un séparable (une fonction de la pluie plus une fonction de l'engrais), l'autre non "
                  "(une fonction de l'écart pluie − engrais, de dérivée croisée non nulle) ; les courbes ICE de l'engrais pour "
-                 "trois parcelles, la dérivée croisée, puis, pour le modèle séparable, la moyenne marginale sous une loi "
+                 "trois parcelles, la dérivée croisée, puis, pour le modèle séparable, affine en la pluie, la moyenne marginale sous une loi "
                  "gaussienne de la pluie et la moyenne conditionnelle quand (pluie, engrais) est un couple gaussien "
                  "corrélé : l'écart est affine en l'engrais, la moyenne conditionnelle lui prête l'effet de la pluie. Ni "
                  "produit x₁x₂ à facteur centré, ni « la dépendance partielle est-elle plate ? », ni « combien de pentes ? » "
@@ -1661,8 +1725,9 @@ CHAPTERS = [
                  "Shapley du jeu de la fonction), qui coïncident (le théorème multilinéaire de la fiche, démontré par les "
                  "jeux d'unanimité dans un bloc repliable) ; que deux partages diffèrent pour une fonction qui n'est pas "
                  "multilinéaire est un exemple de la fiche (par exemple x²y entre deux points sans coordonnée nulle) et un "
-                 "item de 🧠 MB6.Q3, sans exercice de calcul. Jamais un produit de deux facteurs du premier degré avec une référence (∂ B6.2.8), ni "
-                 "x y² ou x e^y (M05b), ni une sigmoïde, ni un minimum ou un plafond (la saturation reste un exemple de la "
+                 "item de 🧠 MB6.Q3, sans exercice de calcul. Jamais un produit de deux facteurs du premier degré avec une référence (∂ B6.2.8), ni dans un "
+                 "exercice, ni dans la fiche (exemple, corollaire ou bloc de la preuve du théorème multilinéaire), ni dans "
+                 "une flashcard, une solution ou une variante ; ni x y² ou x e^y (M05b), ni une sigmoïde, ni un minimum ou un plafond (la saturation reste un exemple de la "
                  "fiche, sur un barème plafonné, sans exercice : B6.Q7), ni règle numérique ni nombre de pas. Euler (fonctions "
                  "homogènes, depuis r = 0 la part x_i ∂_i f(x)/k ; une Cobb-Douglas dans la fiche) n'a qu'un item de "
                  "🧠 MB6.Q3 ; jamais « gradient × entrée ». Le 🔮 MB6.17 prend une boucle triangulaire et le champ tournant "
@@ -1673,7 +1738,7 @@ CHAPTERS = [
                  "divisée par HW ; ✏️ MB6.6 la calcule pour un indice régional écrit sur une grille 3 × 4 de températures "
                  "(par exemple des degrés-jours pondérés, y = Σ c_ij max(0, T_ij − 10)), sous un réchauffement uniforme, "
                  "puis agrandit la grille en 6 × 8 dans les deux "
-                 "conventions (centres alignés, coins alignés), avec l'écart d'un demi-pas : on calcule les coordonnées "
+                 "conventions (centres alignés, coins alignés), avec l'écart entre les deux conventions (au plus un demi-pas ; ici un quart de pas aux bords) : on calcule les coordonnées "
                  "d'origine de toutes les cases d'une ligne et les valeurs de quelques cases, pas les 48 ; jamais de canaux, de combinaison "
                  "de cartes par des poids suivie d'une partie positive, de normalisation par le maximum, ni de carte agrandie "
                  "8, 24 ou 32 fois (✏️ B6.4, 🐛 B6.21) ; `align_corners` de PyTorch et `scipy.ndimage.zoom` sont nommés dans "
@@ -1684,7 +1749,7 @@ CHAPTERS = [
                  "le 1/n : leur somme pondérée vaut n), des rangs donnés dans l'ordre d'apparition aux ex aequo, une "
                  "interpolation (1 − t) b + t a au lieu de (1 − t) a + t b ; pas d'erreur d'alignement des coins (🐛 B6.21). "
                  "§7-§8 (équité) : groupes G (deux lignes de production, deux usines, deux lignes de trains, deux "
-                 "laboratoires), label Y (défaut, panne, retard, contamination), décision Ŷ, score S ; les définitions "
+                 "laboratoires), label Y (défaut, panne, retard, contamination), décision Ŷ, score S ; un ⚠️ de la fiche : le score S d'un classifieur (M03) n'a rien à voir avec le score en x de MB5 ni avec la fonction score de MB8 ; les définitions "
                  "par groupe et l'identité de M03 §8 (FPR, prévalence, precision, recall) sont rappelées en une ligne par "
                  "renvoi, jamais redémontrées ni appliquées à de nouveaux nombres : aucun rapport des cotes à PPV et FNR "
                  "égaux (∂ B6.6.6), aucune PPV calculée à FPR et FNR égaux (∂ B6.6.7), aucun classifieur parfait ni "
@@ -1743,7 +1808,7 @@ CHAPTERS = [
                  "16/4/18/162), les fonctions x e^y, x y² en (1, 2) et (2, 1), x²y + y² et x²y + y³ de M05b, les exemples des "
                  "docstrings de `integrate` (M02a), et ceux du stub `attribution` (n = 6 et ses poids 1/6, 1/30, 1/60 ; le "
                  "jeu s ↦ s² et ses dividendes 1 et 2 ; 5 u_{1,2} ; le champ (3x² + y, x) de x³ + x y et le chemin (0, 0) → "
-                 "(1, 0) → (1, 2) ; le champ (y, 0) le long de (0, 0) → (1, 0) → (1, 1) et de (0, 0) → (0, 1) → (1, 1) ; 3x² de 0 à 2 puis à 1 ; (0,5 ; 2 ; 1,5 ; 4) contre "
+                 "(1, 0) → (1, 2) ; le champ (y, 0) le long de (0, 0) → (1, 0) → (1, 1) et de (0, 0) → (0, 1) → (1, 1) ; 3x² de 1 à 3 puis à −1 (et l'ancien exemple, 3x² de 0 à 2 puis à 1, proche de `simpson(lambda x: x ** 3, 0, 2, 2)` de M02a) ; (0,5 ; 2 ; 1,5 ; 4) contre "
                  "(1, 8, 27, 64) et ρ = 0,8 ; (2, 2, 5, 1) contre (4, 3, 6, 0) ; (7, 7, 7)). "
                  "Conventions : joueurs numérotés de 0 à n − 1 dans le code, par des lettres ou de 1 à n sur papier ; "
                  "N le grand groupe, S̄ le complément de S ; v(∅) quelconque, d'où l'efficacité Σφ_i = v(N) − v(∅) ; la "
@@ -1751,7 +1816,7 @@ CHAPTERS = [
                  "« taux de base » p_g, « taux de détection » pour le TPR ; ρ de Spearman noté ρ_S quand il voisine avec la "
                  "corrélation ρ d'un couple gaussien. "
                  "`attribution` : NumPy et les modules `math`, `fractions` et `itertools` ; ni SciPy (`scipy.stats.rankdata`, "
-                 "`spearmanr`, `pearsonr`, `scipy.integrate`), ni `np.corrcoef`, ni le module `statistics` (`statistics.correlation(…, method='ranked')` est le ρ de Spearman), ni pandas. Les fonctions écrivent les "
+                 "`spearmanr`, `pearsonr`, `scipy.integrate`), ni `np.corrcoef`, ni `np.cov`, ni le module `statistics` (`statistics.correlation(…, method='ranked')` est le ρ de Spearman), ni pandas ; les imports relatifs des modules de l'apprenant sont permis (`from .integrate import simpson`, M02a). Les fonctions écrivent les "
                  "briques : `coalition_weights(n_players, exact=False)` (les poids s!(n − 1 − s)!/n!, en `Fraction` ou en "
                  "flottants ; oracles `math.comb` et `Fraction`), `harsanyi_dividends(v, n_players)` (un jeu abstrait, "
                  "v : frozenset → réel, appelé une fois par coalition ; un dict des 2^n dividendes ; oracle : le jeu "
@@ -1774,7 +1839,7 @@ CHAPTERS = [
                  "(2017) pour le §7 ; L. S. Shapley (1953) et J. C. Harsanyi (1963) pour le §2. "
                  "Parcours essentiel : l'unicité (∂ MB6.8), le partage multilinéaire (✏️ MB6.5), le 💼, le 🔨 des dividendes, "
                  "le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours. "
-                 "**Durée** (session 69) : 11,9 h en parcours complet, 8,8 h en parcours essentiel (lecture 125 min, soit une "
+                 "**Durée** (session 69) : 12,1 h en parcours complet, 8,8 h en parcours essentiel (lecture 125 min, soit une "
                  "fiche d'environ 6 200 mots de prose ; 15 flashcards), au lieu des 8 h du plan et des 11 h visées : le "
                  "chapitre comble quatre lacunes qu'aucun chapitre publié ne couvre (jeux coopératifs et valeur de Shapley, "
                  "corrélation de rangs de Spearman, interpolation bilinéaire, écart de deux proportions indépendantes) et la "
@@ -1782,7 +1847,7 @@ CHAPTERS = [
                  "réalistes (les relectures de M25a à M28 ont relevé les durées de 20 à 40 %). Retirés du plan pour tenir : "
                  "l'estimation par permutations comme section et comme fonction (`shapley_monte_carlo`), les fonctions de "
                  "moyenne marginale et conditionnelle (une ligne de NumPy dans le 🔬), une ✏️ de Spearman (le 🔨 et le quiz "
-                 "suffisent), un exercice de saturation (B6.Q7).",
+                 "suffisent), un exercice de saturation (B6.Q7). Après les relectures : le 🏆 MB6.22 passe de 30 à 40 min (+1,1 h au-dessus des 11 h visées, pour la raison écrite ci-dessus).",
         "exercises": [
             ("MB6.Q1", "🧠", 1, 5, "Jeux coopératifs : ordres ou coalitions, poids d'une coalition, et ce que garantit chaque "
              "axiome", "§1 §2", "E"),
@@ -1791,7 +1856,7 @@ CHAPTERS = [
             ("MB6.Q3", "🧠", 1, 5, "Intégrales de chemin : boucle fermée, chemin parcouru à l'envers, champ qui n'est pas un "
              "gradient, fonction homogène", "§4", "E"),
             ("MB6.Q4", "🧠", 1, 4, "Grilles et rangs : interpolation bilinéaire, centres ou coins alignés, ex aequo et "
-             "transformation croissante", "§5 §6", "E"),
+             "transformation strictement croissante", "§5 §6", "E"),
             ("MB6.Q5", "🧠", 1, 5, "Indépendance, séparation, suffisance : quel critère pour quelle phrase, et lesquels se "
              "contredisent", "§7", "E"),
             ("MB6.Q6", "🧠", 1, 4, "Tirer au sort entre deux seuils, repondérer, lire l'écart de deux taux : vrai ou faux",
@@ -1854,13 +1919,13 @@ CHAPTERS = [
             ("MB6.21", "🛠️", 1, 20, "Un test de propriété sur des lignes brisées tirées au hasard : le chemin inversé "
              "change le signe, un segment coupé en deux ne change rien, un champ de gradient donne f(fin) − f(début)",
              "§4", "p:MB6.15"),
-            ("MB6.22", "🏆", 3, 30, "Défi : les indices de Shapley-Shubik exacts d'un conseil de 25 membres, sans parcourir "
+            ("MB6.22", "🏆", 3, 40, "Défi : les indices de Shapley-Shubik exacts d'un conseil de 25 membres, sans parcourir "
              "ses coalitions une à une, en comptant par taille et par poids celles où chaque membre est pivot", "§1",
              "p:MB6.13"),
         ],
     },
     {
-        "id": "MB8", "dir": "mb8_gradient_politique", "hours": 13.2, "generation_sessions": 1, "mml": [],
+        "id": "MB8", "dir": "mb8_gradient_politique", "hours": 13.3, "generation_sessions": 1, "mml": [],
         "summary": "Les outils statistiques du gradient de politique, hors de tout agent. D'abord la fonction score d'une "
                    "loi, d'espérance nulle, et l'information de Fisher ; l'estimateur « score » de la dérivée d'une "
                    "espérance, qui dérive une probabilité là où la dérivée par le chemin de M25b échoue ; la réduction de "
@@ -1973,7 +2038,6 @@ CHAPTERS = [
                      ("la probabilité a posteriori minimise la log-loss espérée (la log-loss est une règle de score propre)",
                       "M27"),
                      ("la température d'une loi donnée par ses probabilités", "M28")],
-        "after": ["M02c", "M04", "M05a", "M06", "M13a", "M14", "M17", "M20", "M25b", "M26", "M27"],
         "frontieres": ["B8.1", "B8.3", "B8.4", "B8.5", "B8.6", "B8.Q4", "B8.Q6", "B8.Q7", "B8.Q11", "B8.17", "B8.18",
                        "B8.19", "B8.25", "B8.11", "B8.E2", "B8.E4"],
         "mymath": {"module": "policy_gradient.py",
@@ -2076,8 +2140,9 @@ CHAPTERS = [
                  "cas λ = 1) : MB8 ne le présente pas comme un rappel, et ne le nomme que dans « Et maintenant ». "
                  "Conventions : s_θ(x) = ∂_θ ln p_θ(x), le score en θ, distinct du score en x de MB5 (∇ₓ ln p) : un "
                  "encadré 📐 le dit ; la loi exponentielle par son taux θ (densité θe^{−θx}, moyenne 1/θ ; M25b la prenait "
-                 "par sa moyenne), un encadré ⚠️ le dit ; le MDP comme en M26.14 : P[a, s, t], r[a, s], et les logits z[s, "
-                 "a] rangés comme pi[s, a] ; les lois en lignes et les valeurs en colonnes (M26) ; en échantillonnage "
+                 "par sa moyenne), un encadré ⚠️ le dit ; le MDP comme en M26.14 : P[a, s, t], r[a, s] = r(s, a) = Σ_t P[a, s, t] R[a, s, t] "
+                 "(M26.14 range les récompenses R[a, s, s2] de chaque transition), et les logits z[s, a] rangés comme pi[s, "
+                 "a] ; les lois en lignes et les valeurs en colonnes (M26) ; en échantillonnage "
                  "d'importance, les tirages viennent de q (la loi de proposition) et w = p/q ; la KL estimée est KL(q ‖ "
                  "p), avec des tirages de q ; Elo en base 10 et à l'échelle 400 (β = R ln 10/400). Les γ des exercices "
                  "sont pris parmi 0,6 et 0,7, et λ parmi 0,6 et 0,7 : jamais γ = 0,5, 0,8, 0,9, 0,95, 0,99, ni 0,75 et "
@@ -2103,7 +2168,7 @@ CHAPTERS = [
                  "; −1 ; 0 ; 1,5) (2,25 ; 1,7854 ; 2,0 ; 2,1667) ; le MDP où l'action 0 mène à l'état 0 et l'action 1 à "
                  "l'état 1, r = [[1, 0], [0, 2]], logits nuls, γ = 0,6 (V = (1,625 ; 2,125), 0,30625, 0,43125) ; les "
                  "log-densités (−1 ; −0,5 ; −0,5 ; −2) et (−1,5 ; −1 ; −1 ; −1) (3,4063) et la troncature à 2 (1,8) ; les "
-                 "tournois [[0, 3], [1, 0]] (ln 3) et [[0, 4, 2], [1, 0, 3], [1, 2, 0]] (0,7464 ; −0,2949 ; −0,4516). "
+                 "tournois [[0, 4], [1, 0]] (ln 4 ; ±0,6931) et [[0, 4, 2], [1, 0, 3], [1, 2, 0]] (0,7464 ; −0,2949 ; −0,4516). "
                  "Évités (règle de partage), de workbookIA B8 : CartPole et ses nombres (4,8 ; 0,4189 ; 2,4 et 12° ; 500 "
                  "et 475 ; 22,3, 19, 8 et 119 ; 19,5 à 24,8 ; 11,8 et 1,2 ; la règle θ + 0,5θ̇ > 0 ; 42 et 202 ; 10⁴ et "
                  "10¹⁰⁰ cases), Atari, AlphaGo Zero, OpenAI Five, InstructGPT, DeepSeekMath, CleanRL, MuJoCo ; la pièce "
@@ -2139,7 +2204,8 @@ CHAPTERS = [
                  "de sport de 🔗 M26.14 (P₀, P₁, 30 € et 21 €), la machine de ✏️ M26.6 ; la loi (0,5 ; 0,3 ; 0,2) et les "
                  "énergies 0, 0,5 et 2 de M17 §7 ; les énergies (0, ln 3, 2 ln 3) à T = 1 de CP6.8 B ; les trois experts "
                  "et η = 0,5 de Hedge (M14 §4) ; les avis de l'ornithologue et du garagiste (M28 §5) ; la forêt (120, 40, "
-                 "300, 90, 60) de Horvitz-Thompson (M20 §5). Pas de MML (le livre n'a ni fonction score, ni "
+                 "300, 90, 60) de Horvitz-Thompson (M20 §5). Glossaire : « fonction score | score function | ∂_θ ln p_θ(x) | MB8 », et "
+                 "l'entrée « méthode du score » (M25b) renvoie à MB8. Pas de MML (le livre n'a ni fonction score, ni "
                  "échantillonnage d'importance, ni apprentissage par renforcement), donc pas de 📖. Références libres, "
                  "citées par sections et à vérifier en génération (annexes/ressources.md) : R. S. Sutton et A. G. Barto, "
                  "Reinforcement Learning: An Introduction (2ᵉ éd., 2018), §12.1 (le λ-retour), §13.2 (le théorème du "
@@ -2151,7 +2217,7 @@ CHAPTERS = [
                  "section a son ✏️, les démonstrations courtes, Gibbs et le λ-retour, sont dans la fiche) ; ni 📦 (les "
                  "quatre 🔨 et leurs oracles en tiennent lieu) ni 🎨 (le 🔮 et le 🔬 tracent leurs mesures) ; un seul 🔗 et un "
                  "💼. Parcours essentiel : tout sauf ∂ MB8.9 (la baseline optimale et les baselines de groupe : la fiche "
-                 "énonce le résultat), le 🔬, le 🛠️ et le 🏆. **Durée** : 13,2 h au lieu des 12 h visées (10 h au plan) : "
+                 "énonce le résultat), le 🔬, le 🛠️ et le 🏆. **Durée** : 13,3 h au lieu des 12 h visées (10 h au plan) : "
                  "huit notions, dont quatre lacunes lourdes (la fonction score et Fisher, les variables de contrôle, "
                  "l'échantillonnage d'importance, le principe de Gibbs) et la dérivation matricielle promise par M26, avec "
                  "des durées d'apprenant qui rédige (les recalages de M25a à M28 : +20 à +40 %) ; déjà allégée (✏️ de "
@@ -2219,7 +2285,7 @@ CHAPTERS = [
              "Bellman", "§4", "E m:policy_gradient_exact"),
             ("MB8.15", "🔨", 2, 25, "Des poids d'importance calculés en log, auto-normalisés ou tronqués, et la taille "
              "effective de l'échantillon", "§6", "E m:importance_weights"),
-            ("MB8.16", "🔨", 2, 30, "Les forces d'un modèle de Bradley-Terry par maximum de vraisemblance (l'algorithme de "
+            ("MB8.16", "🔨", 2, 35, "Les forces d'un modèle de Bradley-Terry par maximum de vraisemblance (l'algorithme de "
              "Zermelo), centrées, et le refus d'un tournoi où elles n'existent pas", "§7", "E m:bradley_terry_fit"),
             ("MB8.17", "🔮", 1, 20, "Prédire l'ordre des écarts-types de l'estimateur score d'une même dérivée, sans "
              "baseline, avec la moyenne des autres tirages et avec la baseline optimale, puis les mesurer",

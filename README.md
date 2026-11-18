@@ -56,7 +56,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 | CP6 · checkpoint de la partie VI | **CP6** · Examen blanc de la partie VI |
 | B1 · Transfer learning et modèles pré-entraînés | — (rien de nouveau) |
 | B2 · Tokenisation et embeddings | **MB2** · Cooccurrences, PMI et embeddings |
-| B3 · Attention et Transformers : un mini-GPT from scratch | **MB3** · Rotations et attention |
+| B3 · Attention et Transformers : un mini-GPT from scratch | **MB3** · Rotations, moyennes pondérées et softmax en ligne |
 | B4 · LLM en pratique : Hugging Face, prompting, RAG et LoRA | **MB4** · Rang faible et recherche d'information |
 | B5 · Modèles de diffusion : un DDPM minimal | **MB5** · Les maths de la diffusion |
 | B6 · Explicabilité, équité et éthique | **MB6** · Shapley, intégrales de chemin et équité |
@@ -67,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 685 h pour le parcours complet (environ 485 h pour le parcours essentiel, la suite étant estimée dans la même proportion que les parties 0 à V), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 700 h pour le parcours complet (environ 509 h pour le parcours essentiel ; le projet de synthèse, environ 25 h, reste estimé), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

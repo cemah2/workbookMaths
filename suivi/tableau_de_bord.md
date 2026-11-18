@@ -112,7 +112,7 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] 🤖 workbookIA **B1** · Transfer learning et modèles pré-entraînés
 - [ ] 📐 **MB2** · Cooccurrences, PMI et embeddings
 - [ ] 🤖 workbookIA **B2** · Tokenisation et embeddings
-- [ ] 📐 **MB3** · Rotations et attention
+- [ ] 📐 **MB3** · Rotations, moyennes pondérées et softmax en ligne
 - [ ] 🤖 workbookIA **B3** · Attention et Transformers : un mini-GPT from scratch
 - [ ] 📐 **MB4** · Rang faible et recherche d'information
 - [ ] 🤖 workbookIA **B4** · LLM en pratique : Hugging Face, prompting, RAG et LoRA

@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 361 notions mathématiques couvertes, 197 notions non mathématiques.
+**Bilan** : 362 notions mathématiques couvertes, 196 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -517,15 +517,16 @@ Non mathématiques : sources de datasets (HF Hub, Kaggle, OpenML, UCI) · API sc
 | few-shot par prototypes | M07 |
 | linear probe | M13a |
 | learning rates discriminatifs | R5 |
+| fine-tuning partiel et complet | M09b, M19 |
 
-Non mathématiques : transfer learning · extraction de features · fine-tuning partiel et complet · dégel progressif · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
+Non mathématiques : transfer learning · extraction de features · dégel progressif · modèles de fondation (DINOv2, CLIP) · oubli catastrophique · latence et taille des modèles · fiche modèle d'un modèle dérivé
 
 ## workbookIA B2 · Tokenisation et embeddings
 
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | Unicode et UTF-8 | MB2 |
-| nn.Embedding | M09a, MB2 |
+| nn.Embedding | M09a, M18, MB2 |
 | embeddings de phrases | MB2 |
 | PPMI + SVD | M12d, MB2 |
 | word2vec skip-gram | M13a, MB2 |
@@ -546,7 +547,7 @@ Non mathématiques : normalisation de texte · BPE from scratch · BPE au niveau
 | top-k et top-p | M28 |
 | coût quadratique et FlashAttention | MB3 |
 | Vision Transformer | M21 |
-| bloc Transformer pré-LN | M20 |
+| bloc Transformer pré-LN | M17, M20 |
 
 Non mathématiques : architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch · KV cache
 
@@ -557,7 +558,7 @@ Non mathématiques : architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch 
 | BM25 | R6, MB4 |
 | recherche dense et hybride | M07, MB4 |
 | recall@k et MRR | M03, MB4 |
-| LoRA from scratch | M12a, M12d, MB4 |
+| LoRA from scratch | M12a, M12d, M18, M19, MB4 |
 | évaluation de LLM | M02c, M08 |
 | classification de textes | R6, M13a |
 
@@ -572,8 +573,8 @@ Non mathématiques : transformers en pratique (5.x) · chat templates · prompti
 | posterior gaussien | M25a, MB5 |
 | loss de prédiction du bruit | MB5 |
 | U-Net conditionné par le temps | M21, MB3 |
-| échantillonnage DDPM | M25a, MB5 |
-| DDIM | MB5 |
+| échantillonnage DDPM | M25a, M25b, MB5 |
+| DDIM | M20, MB5 |
 | EMA des poids | R5, M19 |
 | guidance sans classifieur | MB5 |
 | évaluation par distance de Fréchet | M27 |
