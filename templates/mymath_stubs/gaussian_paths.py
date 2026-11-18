@@ -23,14 +23,12 @@ def linear_gaussian_recursion(a, b, mean0=0.0, var0=0.0):
         ``m_t = a_t m_{t-1}``  and  ``v_t = a_t² v_{t-1} + b_t²``
 
     (the prediction step of a Kalman filter in dimension 1). Unrolled, ``m_t = (a_1 ⋯ a_t) m_0``, a cumulative product,
-    and ``v_t = (a_1 ⋯ a_t)² v_0 + Σ_{k ≤ t} b_k² (a_{k+1} ⋯ a_t)²``. The same function gives the law of a later
-    ``x_t`` given an observed ``x_s = x`` (``s < t``): start from ``mean0 = x``, ``var0 = 0``, with the coefficients
-    of steps ``s + 1`` to ``t`` only, which are ``a[s:t]`` and ``b[s:t]`` (``a[0]`` is ``a_1``).
+    and ``v_t = (a_1 ⋯ a_t)² v_0 + Σ_{k ≤ t} b_k² (a_{k+1} ⋯ a_t)²``.
 
     Parameters
     ----------
     a : 1-D array-like
-        The ``T ≥ 0`` coefficients ``a_1, …, a_T``, real numbers (negative ones are allowed).
+        The ``T ≥ 0`` coefficients ``a_1, …, a_T`` (``a[0]`` is ``a_1``), real numbers (negative ones are allowed).
     b : 1-D array-like
         The ``T`` noise coefficients ``b_1, …, b_T``, real numbers. Only ``b_t²`` matters: ``b_t`` and ``-b_t`` give
         the same law.

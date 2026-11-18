@@ -16,8 +16,9 @@ one keeps the **state** ``(m, l, acc)`` of the scores read so far:
 - ``acc = Σ_j e^{s_j - m} v_j`` (``None`` when there are no values).
 
 Then ``acc / l`` is the weighted mean and ``m + ln l`` the log-sum-exp of the scores (M05a). A score ``-inf`` is a
-masked score: its weight is 0. The **empty state** ``(-inf, 0.0, 0)``, with ``acc`` zero, is the state of no score
-(or of masked scores only): it has no law, and ``acc / l`` is ``0 / 0``.
+masked score: its weight is 0. The **empty state** is ``(-inf, 0.0, acc0)``, with ``acc0`` ``None`` (no values),
+``0.0`` (one number per score) or a zero array of length ``k``: it is the state of no score (or of masked scores
+only), it has no law, and ``acc / l`` is ``0 / 0``.
 
 A state is a tuple ``(m, l, acc)``: ``m`` and ``l`` are Python ``float``; ``acc`` is ``None`` (no values), a Python
 ``float`` (one number per score) or a 1-D ``numpy.ndarray`` of ``k`` floats (a vector of length ``k`` per score).
@@ -78,11 +79,11 @@ def givens_rotation(n, i, j, theta):
     raise NotImplementedError("givens_rotation() is not implemented yet")
 
 
-def online_softmax(scores, values=None, block_size=1):
+def online_softmax(scores, values=None, block_size=1, history=False):
     """Return the state ``(m, l, acc)`` of the scores (and values) read by consecutive blocks of ``block_size``.
 
     The scores are read in order, by blocks of ``block_size`` (the last block may be shorter). Starting from the
-    empty state ``(-inf, 0, 0)``, each block ``B`` updates the state: with ``m_new = max(m, max_{j∈B} s_j)``,
+    empty state, each block ``B`` updates the state: with ``m_new = max(m, max_{j∈B} s_j)``,
 
     - ``l ← l · e^{m - m_new} + Σ_{j∈B} e^{s_j - m_new}``,
     - ``acc ← acc · e^{m - m_new} + Σ_{j∈B} e^{s_j - m_new} v_j``,
@@ -95,6 +96,11 @@ def online_softmax(scores, values=None, block_size=1):
     positive number is ever computed. From the final state, ``acc / l`` is the softmax-weighted mean of the values,
     ``m + ln l`` the log-sum-exp of the scores, and ``e^{s_j - m} / l`` the weight of score ``j``.
 
+    If ``history`` is true, return the list of the states after each block instead (its last element is the final
+    state): ``⌈n / block_size⌉`` states, the ``b``-th being the state of the first ``b · block_size`` scores (the
+    invariant). A block whose scores are all ``-inf`` repeats the previous state. After the first finite block, what
+    was accumulated is rescaled exactly when ``m`` changes from one state to the next.
+
     Parameters
     ----------
     scores : 1-D array-like
@@ -105,20 +111,23 @@ def online_softmax(scores, values=None, block_size=1):
     block_size : int, default 1
         The number of scores read at once, an integer ``≥ 1`` (a NumPy integer is accepted; a ``bool`` or a float
         is refused); it may exceed ``n`` (a single block).
+    history : bool, default False
+        Return the state after every block (a list), instead of the final state only.
 
     Returns
     -------
-    tuple
+    tuple or list of tuples
         ``(m, l, acc)``: two Python ``float``, and ``acc`` as described in the module docstring (``None``, a
-        ``float``, or a 1-D array of ``k`` floats). If every score is ``-inf``, the empty state ``(-inf, 0.0, 0)``
-        (``acc`` is then ``0.0``, a zero array, or ``None``).
+        ``float``, or a 1-D array of ``k`` floats). If every score is ``-inf``, the empty state of that kind (module
+        docstring). With ``history=True``, the list of the ``⌈n / block_size⌉`` states after each block, each with
+        its own ``acc`` (no array is shared between two states).
 
     Raises
     ------
     ValueError
         If ``scores`` is not a non-empty 1-D array of real numbers, has a ``nan`` or a ``+inf``; if ``values`` does
-        not have ``n`` rows, is not 1-D or 2-D, has no column, or has an entry that is not a finite number; or if
-        ``block_size`` is not an integer ``≥ 1``.
+        not have ``n`` rows, is not 1-D or 2-D, has no column, or has an entry that is not a finite number; if
+        ``block_size`` is not an integer ``≥ 1``; or if ``history`` is not a ``bool``.
 
     Examples
     --------
@@ -132,10 +141,14 @@ def online_softmax(scores, values=None, block_size=1):
     -798.592394
     >>> online_softmax([-np.inf, -np.inf], values=[[1.0, 2.0], [3.0, 4.0]])   # every score masked: no law
     (-inf, 0.0, array([0., 0.]))
+    >>> states = online_softmax([0.5, 0.0, 2.0, 1.0, 4.0], block_size=2, history=True)    # three blocks
+    >>> [(m, round(l, 4)) for m, l, _ in states]       # m changes twice: two rescalings
+    [(0.5, 1.6065), (2.0, 1.7263), (4.0, 1.2336)]
     """
     # TODO: check the arguments (float arrays); start from m = -inf, l = 0, acc = 0 (or None); for each block,
     #  skip it if all its scores are -inf, otherwise compute m_new, the factor e^(m - m_new) and the weights
-    #  e^(s_j - m_new) of the block, then update l and acc; return Python floats (acc a float for 1-D values).
+    #  e^(s_j - m_new) of the block, then update l and acc; with history, keep a copy of the state after every
+    #  block (a masked block too); return Python floats (acc a float for 1-D values).
     raise NotImplementedError("online_softmax() is not implemented yet")
 
 
@@ -144,7 +157,7 @@ def merge_softmax_states(state1, state2):
 
     With ``m = max(m₁, m₂)``, the merged state is ``(m, l₁ e^{m₁ - m} + l₂ e^{m₂ - m},
     acc₁ e^{m₁ - m} + acc₂ e^{m₂ - m})``: each state is first expressed relative to the common maximum. The merge is
-    commutative and associative, and the empty state ``(-inf, 0, 0)`` is its neutral element: a long series of
+    commutative and associative, and the empty state of the same kind is its neutral element: a long series of
     scores can be cut into pieces, each piece read separately (on another machine, say), and the states merged in any
     grouping. Reading a block after the others, in ``online_softmax``, is a merge with the state of that block.
 
@@ -153,8 +166,8 @@ def merge_softmax_states(state1, state2):
     state1, state2 : tuple
         Two states ``(m, l, acc)`` (see the module docstring), with ``acc`` of the same kind in both: both ``None``,
         both numbers, or both 1-D arrays of the same length. In a state, ``m`` is a real number or ``-inf`` (not
-        ``nan`` nor ``+inf``), ``l`` is finite, ``l ≥ 1`` when ``m`` is finite, and ``l = 0`` and ``acc = 0`` when
-        ``m = -inf``; ``acc`` is finite.
+        ``nan`` nor ``+inf``), ``l`` is finite, ``l ≥ 1`` when ``m`` is finite, and ``l = 0`` and ``acc`` zero (or
+        ``None``) when ``m = -inf``; ``acc`` is finite.
 
     Returns
     -------

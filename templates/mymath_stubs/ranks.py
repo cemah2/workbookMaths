@@ -5,8 +5,9 @@ columns and ``r`` rows), the Borda points of several rankings, and the exact mea
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_mb4_ranks.py``.
 NumPy is allowed (``@`` included), but nothing from ``np.linalg`` (neither ``matrix_rank``, ``svd``, ``qr``,
 ``lstsq``, ``solve``, ``inv`` nor ``pinv``), no SciPy (``scipy.linalg``, ``scipy.stats.rankdata``…) and no SymPy:
-the tests compare your results with them. ``rank_factorization`` reduces the matrix as your ``rref`` of M09a does
-(you may copy it into a private helper ``_rref``). ``random_ranking_mrr`` computes exactly, with
+the tests compare your results with them. In ``borda_scores``, neither ``np.argsort`` nor ``np.lexsort``: invert each
+ranking yourself. ``rank_factorization`` reduces the matrix as your ``rref`` of M09a does (you may import ``rref``
+from ``.matrices`` (M09a) or copy it into a private helper ``_rref``). ``random_ranking_mrr`` computes exactly, with
 ``fractions.Fraction`` and ``math.comb``, and never lists the ``n!`` orders (``itertools.permutations`` is an oracle
 of the tests). Candidates (or items) are numbered ``0, …, n - 1``; a ranking lists them best first; a rank (a
 position in a ranking) starts at 1. Never modify the arrays you receive. Matrices are returned as ``numpy.ndarray``
@@ -20,7 +21,7 @@ def rank_factorization(M, tol=1e-10):
     ``C`` (``m × r``) is made of the pivot columns of ``M`` itself, in increasing order of index: a basis of the
     column space of ``M`` (``column_space_basis`` of M12a). ``F`` (``r × n``) is made of the ``r`` non-zero rows of
     the reduced row echelon form of ``M`` (``rref`` of M09a); in the pivot columns, it is the identity:
-    ``F[:, pivots]`` is ``I_r``. Then ``C F = M`` (MB4 §1 shows why).
+    ``F[:, pivots]`` is ``I_r``. Then ``C F = M`` in exact arithmetic (MB4 §1 shows why).
 
     Every matrix of rank ``r`` is such a product, and no product ``C F`` whose ``C`` has fewer than ``r`` columns
     gives it, since ``rank(C F) ≤`` the number of columns of ``C`` (M12a). The factorization is not unique: for any
@@ -31,7 +32,8 @@ def rank_factorization(M, tol=1e-10):
     largest absolute value at or below the current row); a column whose candidates are all at most ``tol`` in
     absolute value has no pivot; at the end, the entries of the reduced form at most ``tol`` in absolute value are
     set to 0. For a matrix of measurements, ``tol`` decides which columns count as combinations of the previous
-    ones: the rank found is a numerical rank (M12a).
+    ones: the rank found is a numerical rank (M12a). If ``tol`` sets entries to 0, then ``C F`` is only close to
+    ``M``: the entries set to 0 are the part of ``M`` that this rank ignores.
 
     Parameters
     ----------

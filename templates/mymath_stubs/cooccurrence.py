@@ -1,5 +1,5 @@
-"""Pointwise mutual information and two building blocks of embeddings: the PMI table of a joint law, the optimal free
-logit of a weighted logistic loss, and the removal of a direction (chapter MB2).
+"""Pointwise mutual information and two building blocks of embeddings: the PMI table of a joint law, the logit of a
+population estimated on a case-control sample, and the removal of a direction (chapter MB2).
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_mb2_cooccurrence.py``.
 NumPy and the module ``math`` are allowed, but no SciPy (``scipy.special.logit``, ``scipy.special.xlogy``,
@@ -20,8 +20,9 @@ def pmi(joint):
     the rule "x ⇒ y". A cell of probability 0 gets ``-inf``, without a warning, even in a row or a column of
     probability 0. Nothing else is done to the logarithms: no clipping, no smoothing of the marginals.
 
-    The mutual information of M06 is the mean of the PMI under the joint law, ``I(X ; Y) = Σ p(x, y) PMI(x, y)``,
-    the sum running over the cells where ``p(x, y) > 0``.
+    The mutual information of M06, in nats (``mutual_information(joint, base=math.e)``; M06 defaults to bits), is the
+    mean of the PMI under the joint law, ``I(X ; Y) = Σ p(x, y) PMI(x, y)``, the sum running over the cells where
+    ``p(x, y) > 0``.
 
     Parameters
     ----------
@@ -55,52 +56,54 @@ def pmi(joint):
     raise NotImplementedError("pmi() is not implemented yet")
 
 
-def optimal_free_logit(positive_weight, negative_weight):
-    """Return the score ``x`` that minimizes the weighted logistic loss ``f(x) = -a ln σ(x) - b ln σ(-x)``.
+def case_control_logit(n_positive, n_negative, keep_positive=1.0, keep_negative=1.0):
+    """Return the logit of a population estimated on a case-control sample: ``ln(n₊ / n₋) - ln(s₊ / s₋)``.
 
-    ``σ`` is the sigmoid (R6). Examples labelled 1 of total weight ``a`` (``positive_weight``) and examples labelled
-    0 of total weight ``b`` (``negative_weight``) share one free score ``x``; ``σ(x)`` is the probability that the
-    model gives to the label 1. The loss is ``f(x) = a ln(1 + e^{-x}) + b ln(1 + e^{x})``, a sum of two softplus
-    functions: it is convex (M13a). For ``a > 0`` and ``b > 0``, its minimum is at
+    In a *case-control* sample, each positive example of the population (label 1) is kept with probability
+    ``s₊ = keep_positive`` and each negative one (label 0) with probability ``s₋ = keep_negative``, independently of
+    everything else; ``n₊ = n_positive`` and ``n₋ = n_negative`` are the numbers of examples kept. The logit of the
+    observed proportion ``n₊ / (n₊ + n₋)`` is ``ln(n₊ / n₋)`` (M13a, R6). By Bayes' formula (M04), the odds of a
+    positive in the sample are those of the population multiplied by ``s₊ / s₋``: the logit of the population is the
+    observed one minus ``ln(s₊ / s₋)``. With both rates equal to 1 (the default), nothing was dropped and the result
+    is the logit of the observed proportion.
 
-        ``x* = ln(a / b)``,
-
-    the logit of the proportion ``a / (a + b)`` (MB2 §5; the weights need not be integers). Multiplying ``b`` by
-    ``K`` moves the optimum by ``-ln K``.
-
-    When ``a > 0`` and ``b = 0``, ``f`` decreases towards 0 without reaching it: there is no minimum, and the result
-    is ``+inf``; when ``a = 0`` and ``b > 0``, it is ``-inf``. When ``a = b = 0``, ``f`` is the zero function and
-    every score is optimal: an error.
+    When ``n₊ > 0`` and ``n₋ = 0``, the result is ``+inf``; when ``n₊ = 0`` and ``n₋ > 0``, it is ``-inf``. When
+    ``n₊ = n₋ = 0``, nothing was observed: an error.
 
     Parameters
     ----------
-    positive_weight, negative_weight : float or array-like
-        The weights ``a`` and ``b``: finite numbers ``≥ 0`` (counts or expected counts). Two arrays are combined
-        cell by cell, with NumPy broadcasting (M20): one free score per cell.
+    n_positive, n_negative : float or array-like
+        The numbers of positive and negative examples in the sample: finite numbers ``≥ 0``. Two arrays are combined
+        cell by cell, with NumPy broadcasting (M20): one logit per cell.
+    keep_positive, keep_negative : float, default 1.0
+        The selection rates ``s₊`` and ``s₋``, in ``]0, 1]``.
 
     Returns
     -------
     float or numpy.ndarray
-        ``x*``: a Python ``float`` when both weights are numbers, otherwise an array of floats of the broadcast
-        shape; ``+inf`` or ``-inf`` in the two cases above.
+        The logit: a Python ``float`` when both numbers of examples are numbers, otherwise an array of floats of the
+        broadcast shape; ``+inf`` or ``-inf`` in the two cases above.
 
     Raises
     ------
     ValueError
-        If a weight is negative, ``nan``, infinite or a ``bool`` (or an array of booleans), if both weights are 0
-        for some cell, or if the two shapes do not broadcast.
+        If a number of examples is negative, ``nan``, infinite or a ``bool`` (or an array of booleans), if both are 0
+        for some cell, if the two shapes do not broadcast, or if a rate is not in ``]0, 1]`` (``nan`` and a ``bool``
+        are refused).
 
     Examples
     --------
-    >>> round(optimal_free_logit(45, 10), 4)        # ln 4.5: 4.5 times more weight on the label 1
+    >>> round(case_control_logit(45, 10), 4)                        # everything kept: ln 4.5
     1.5041
-    >>> optimal_free_logit([2, 0, 5], [2, 7, 0])
+    >>> round(case_control_logit(45, 10, keep_negative=0.25), 4)    # one negative in 4 kept: ln(4.5 / 4)
+    0.1178
+    >>> case_control_logit([2, 0, 5], [2, 7, 0])
     array([  0., -inf,  inf])
     """
-    # TODO: check both weights (refuse booleans before converting to floats), broadcast them (np.broadcast_arrays),
-    #  then three cases cell by cell: both positive (the logarithm of the ratio), only a > 0, only b > 0. Return a
-    #  float when the broadcast shape is ().
-    raise NotImplementedError("optimal_free_logit() is not implemented yet")
+    # TODO: check the two rates, then the numbers of examples (refuse booleans before converting to floats), broadcast
+    #  them (np.broadcast_arrays); three cases cell by cell: both positive (the logarithm of the ratio, minus that of
+    #  the rates), only n₊ > 0, only n₋ > 0. Return a float when the broadcast shape is ().
+    raise NotImplementedError("case_control_logit() is not implemented yet")
 
 
 def remove_direction(X, u):

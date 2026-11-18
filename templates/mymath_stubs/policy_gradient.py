@@ -8,9 +8,10 @@ Conventions.
   score *in θ*; the score of MB5, ``∇ₓ ln p(x)``, is a derivative in ``x``.
 - A Markov decision process (M26) with ``m`` states and ``K`` actions is given as in M26.14: ``P[a, s, t]`` is the
   probability of moving from state ``s`` to state ``t`` under action ``a`` (shape ``(K, m, m)``), ``r[a, s]`` the
-  expected reward ``r(s, a)`` of action ``a`` in state ``s`` (shape ``(K, m)``), and a policy is given by its logits,
-  ``logits[s, a]`` (shape ``(m, K)``, the layout of ``pi[s, a]`` in M26.14). As in ``markov`` (M26), each ``P[a]`` may
-  be substochastic: the missing mass of a row is the probability that the process ends. Values are columns.
+  expected reward ``r(s, a) = Σ_t P[a, s, t] R[a, s, t]`` (M26.14 gives the rewards ``R[a, s, s2]`` of each
+  transition) of action ``a`` in state ``s`` (shape ``(K, m)``), and a policy is given by its logits, ``logits[s, a]``
+  (shape ``(m, K)``, the layout of ``pi[s, a]`` in M26.14). As in ``markov`` (M26), each ``P[a]`` may be
+  substochastic: the missing mass of a row is the probability that the process ends. Values are columns.
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_mb8_policy_gradient.py``.
 NumPy and the module ``math`` are allowed, but from ``np.linalg`` only ``solve`` and ``matrix_rank`` (in
@@ -100,8 +101,8 @@ def policy_gradient_exact(P, r, logits, gamma):
 
     ``Q(s, a) = r[a, s] + γ Σ_t P[a, s, t] V(t)`` is the value of action ``a`` in state ``s`` and
     ``A(s, a) = Q(s, a) - V(s)`` its advantage. For ``γ < 1``, the row ``(1 - γ) M[s0]`` is the discounted occupancy
-    law from ``s0`` (M26 §5). Adding the same number to every logit of a state does not change the policy, so
-    ``Σ_a grad[s0, s, a] = 0`` for every ``s0`` and ``s``.
+    law from ``s0`` (a law when every ``P[a]`` is stochastic; M26 §5). Adding the same number to every logit of a state
+    does not change the policy, so ``Σ_a grad[s0, s, a] = 0`` for every ``s0`` and ``s``.
 
     Parameters
     ----------
@@ -153,8 +154,7 @@ def policy_gradient_exact(P, r, logits, gamma):
 
 
 def importance_weights(log_target, log_proposal, self_normalize=False, max_weight=None):
-    """Return ``(weights, ess)``: the importance weights ``p(x_i) / q(x_i)`` of draws from ``q``, and their effective
-    sample size.
+    """Return the importance weights ``p(x_i) / q(x_i)`` of draws from ``q``, and their effective sample size.
 
     ``x_1, …, x_n`` were drawn from a **proposal** law ``q``, and an expectation under a **target** law ``p`` is
     wanted. When ``q > 0`` wherever ``p f ≠ 0``, ``E_q[(p/q)(X) f(X)] = E_p[f(X)]``: the mean of the
@@ -266,8 +266,8 @@ def bradley_terry_fit(wins, tol=1e-10, max_iter=10_000):
 
     Examples
     --------
-    >>> np.round(bradley_terry_fit([[0, 3], [1, 0]]), 4)          # two players: β_0 - β_1 = ln 3
-    array([ 0.5493, -0.5493])
+    >>> np.round(bradley_terry_fit([[0, 4], [1, 0]]), 4)          # two players: β_0 - β_1 = ln 4
+    array([ 0.6931, -0.6931])
     >>> np.round(bradley_terry_fit([[0, 4, 2], [1, 0, 3], [1, 2, 0]]), 4)
     array([ 0.7464, -0.2949, -0.4516])
     >>> bradley_terry_fit([[0, 2, 1], [0, 0, 3], [0, 1, 0]])      # player 0 never lost
