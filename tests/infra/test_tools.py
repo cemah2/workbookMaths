@@ -430,7 +430,7 @@ def test_export_apkg_writes_one_deck_per_chapter(tmp_path):
     try:
         assert db.execute("select count(*) from notes").fetchone()[0] == 3
         decks = {d["name"] for d in json.loads(db.execute("select decks from col").fetchone()[0]).values()}
-        assert any(d.startswith("workbookMaths::Partie VII::") and d.endswith("MB3 Rotations et attention")
+        assert any(d.startswith("workbookMaths::Partie VII::") and d.endswith("MB3 Rotations, moyennes pondérées et softmax en ligne")
                    for d in decks), decks
         tags = {t for (row,) in db.execute("select tags from notes") for t in row.split()}
         assert "mwb::partie_VII::mb3" in tags

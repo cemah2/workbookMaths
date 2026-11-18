@@ -124,7 +124,7 @@ Les valeurs propres de $\mathbf{A}$ elle-même sont $\pm\sqrt{40} \approx \pm 6{
 ### En machine learning
 
 - L'ACP (§6) est une SVD des données centrées ; la compression et le débruitage gardent les grandes valeurs singulières (§3) ; les moindres carrés se résolvent par la pseudo-inverse (§4).
-- La factorisation d'une matrice notes × utilisateurs en deux matrices de rang faible est l'idée des systèmes de recommandation ; des embeddings de mots se construisent par une SVD tronquée d'une matrice de cooccurrences (MB2) ; l'adaptation de rang faible d'un grand modèle (LoRA, MB4) ajoute aux poids une matrice de petit rang.
+- La factorisation d'une matrice notes × utilisateurs en deux matrices de rang faible est l'idée des systèmes de recommandation ; des embeddings de mots se construisent par une SVD tronquée d'une matrice de cooccurrences (MB2) ; l'adaptation de rang faible d'un grand modèle (LoRA, workbookIA B4, préparé par MB4) ajoute aux poids une matrice de petit rang.
 
 ---
 
@@ -189,7 +189,7 @@ Stocker $\mathbf{A}_k$ demande $k$ vecteurs $\mathbf{u}_i$ ($m$ nombres chacun),
 ### En machine learning
 
 - Débruiter : le bruit se répartit sur toutes les couches, le signal se concentre dans les premières ; tronquer garde le signal.
-- Les modèles de recommandation complètent une matrice notes × utilisateurs supposée de rang faible ; MB4 fera le même compte pour une correction des poids de rang faible.
+- Les modèles de recommandation complètent une matrice notes × utilisateurs supposée de rang faible ; MB4 fera le même compte pour une matrice factorisée de rang faible, et workbookIA B4 l'appliquera à une correction des poids (LoRA).
 
 ---
 
@@ -431,7 +431,7 @@ workbookIA 12 en tire les règles pratiques pour lire une carte.
 
 ## Et maintenant
 
-**Dans ce dépôt** : M13b relit l'ACP comme une optimisation sous contrainte, avec les multiplicateurs de Lagrange ; M19 relie le conditionnement de la hessienne à la vitesse de la descente de gradient ; M22 utilise les normes de matrices et le plus grand étirement pour les gradients qui explosent ; M25b donne le point de vue probabiliste de l'ACP (variables latentes) ; MB2 construit des embeddings par une SVD tronquée, et MB4 compte les paramètres d'une adaptation de rang faible.
+**Dans ce dépôt** : M13b relit l'ACP comme une optimisation sous contrainte, avec les multiplicateurs de Lagrange ; M19 relie le conditionnement de la hessienne à la vitesse de la descente de gradient ; M22 utilise les normes de matrices et le plus grand étirement pour les gradients qui explosent ; M25b donne le point de vue probabiliste de l'ACP (variables latentes) ; MB2 construit des embeddings par une SVD tronquée, et MB4 compte les nombres d'une matrice factorisée de rang faible.
 
 **Dans workbookIA** : le chapitre 12 prépare les données. Tu y retrouveras l'ACP par la SVD des données centrées, la variance expliquée et le choix du nombre de composantes, la reconstruction et son erreur, la question des unités et de la standardisation, et les cartes de t-SNE et d'UMAP : tu sais maintenant d'où vient chaque formule, et ce que ta propre fonction calcule.
 

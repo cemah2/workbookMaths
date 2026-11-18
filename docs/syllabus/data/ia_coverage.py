@@ -379,10 +379,11 @@ COVERAGE = {
         "few-shot par prototypes": "M07",
         "linear probe": "M13a",
         "learning rates discriminatifs": "R5",
+        "fine-tuning partiel et complet": "M09b,M19",  # la pénalité L2-SP de ∂ B1.6
     },
     "B2": {
         "Unicode et UTF-8": "MB2",  # bases 2 et 16
-        "nn.Embedding": "M09a,MB2",
+        "nn.Embedding": "M09a,M18,MB2",
         "embeddings de phrases": "MB2",
         "PPMI + SVD": "M12d,MB2",
         "word2vec skip-gram": "M13a,MB2",
@@ -398,13 +399,13 @@ COVERAGE = {
         "top-k et top-p": "M28",
         "coût quadratique et FlashAttention": "MB3",
         "Vision Transformer": "M21",  # la projection des patchs est une convolution
-        "bloc Transformer pré-LN": "M20",  # standardisation, x + hF(x)
+        "bloc Transformer pré-LN": "M17,M20",  # standardisation, x + hF(x) et sa jacobienne
     },
     "B4": {
         "BM25": "R6,MB4",
         "recherche dense et hybride": "M07,MB4",
         "recall@k et MRR": "M03,MB4",
-        "LoRA from scratch": "M12a,M12d,MB4",  # rang et factorisation ; les gradients restent à workbookIA (M18)
+        "LoRA from scratch": "M12a,M12d,M18,M19,MB4",  # rang et factorisation (MB4), gradients (M18), Adam (M19)
         "évaluation de LLM": "M02c,M08",
         "classification de textes": "R6,M13a",
     },
@@ -414,8 +415,8 @@ COVERAGE = {
         "posterior gaussien": "M25a,MB5",
         "loss de prédiction du bruit": "MB5",
         "U-Net conditionné par le temps": "M21,MB3",
-        "échantillonnage DDPM": "M25a,MB5",
-        "DDIM": "MB5",
+        "échantillonnage DDPM": "M25a,M25b,MB5",
+        "DDIM": "M20,MB5",
         "EMA des poids": "R5,M19",
         "guidance sans classifieur": "MB5",
         "évaluation par distance de Fréchet": "M27",

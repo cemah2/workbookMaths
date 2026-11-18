@@ -70,7 +70,7 @@ CHAPTERS: tuple[tuple[str, str, str], ...] = (
     ("M28", "Matrice de Gram, montée sur l'entrée et lois tronquées", "VI"),
     ("CP6", "Examen blanc de la partie VI", "VI"),
     ("MB2", "Cooccurrences, PMI et embeddings", "VII"),
-    ("MB3", "Rotations et attention", "VII"),
+    ("MB3", "Rotations, moyennes pondérées et softmax en ligne", "VII"),
     ("MB4", "Rang faible et recherche d'information", "VII"),
     ("MB5", "Les maths de la diffusion", "VII"),
     ("MB6", "Shapley, intégrales de chemin et équité", "VII"),

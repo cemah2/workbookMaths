@@ -8,12 +8,12 @@ characteristic function ``v``, a callable that receives a coalition and returns 
 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_mb6_attribution.py``.
 NumPy and the modules ``math``, ``fractions`` and ``itertools`` are allowed; SciPy is not (``scipy.stats.rankdata``,
-``spearmanr``, ``pearsonr``, ``scipy.integrate``), nor ``np.corrcoef`` (write Pearson's formula on the ranks, M02c),
-nor the module ``statistics`` (``statistics.correlation(x, y, method="ranked")`` is Spearman's ρ), nor pandas: the
-tests compare your results with ``math.comb`` and ``fractions.Fraction``, with a game rebuilt from its dividends, with
-``scipy.integrate.quad`` on each segment and with ``scipy.stats.spearmanr``. Never modify the arrays you receive.
-Numbers are returned as Python ``float`` (or ``fractions.Fraction`` when asked for), vectors as ``numpy.ndarray`` of
-floats.
+``spearmanr``, ``pearsonr``, ``scipy.integrate``), nor ``np.corrcoef`` and ``np.cov`` (write Pearson's formula on the
+ranks, M02c), nor the module ``statistics`` (``statistics.correlation(x, y, method="ranked")`` is Spearman's ρ), nor
+pandas: the tests compare your results with ``math.comb`` and ``fractions.Fraction``, with a game rebuilt from its
+dividends, with ``scipy.integrate.quad`` on each segment and with ``scipy.stats.spearmanr``. Relative imports of your
+own modules are allowed (``from .integrate import simpson``, M02a). Never modify the arrays you receive. Numbers are
+returned as Python ``float`` (or ``fractions.Fraction`` when asked for), vectors as ``numpy.ndarray`` of floats.
 """
 
 
@@ -118,7 +118,7 @@ def line_integral(field, points, n_sub=20):
     Each segment is integrated in ``t`` by Simpson's rule (M02a) with ``n_sub`` intervals of width ``h = 1 / n_sub``:
     ``(h / 3) (g_0 + 4 g_1 + 2 g_2 + 4 g_3 + … + 2 g_{n_sub - 2} + 4 g_{n_sub - 1} + g_{n_sub})``, where
     ``g_k = F(a + k h (b - a)) · (b - a)``. The rule is exact (up to rounding) when ``t ↦ g(t)`` is a polynomial of
-    degree at most 3, for example when the coordinates of ``F`` are polynomials of degree at most 3; for a smooth
+    degree at most 3, for example when the coordinates of ``F`` are polynomials of total degree at most 3; for a smooth
     field, its error decreases like ``1 / n_sub⁴``. A segment of length 0 adds 0.
 
     Parameters
@@ -154,8 +154,8 @@ def line_integral(field, points, n_sub=20):
     >>> G = lambda p: (p[1], 0)                          # not a gradient: the value depends on the path
     >>> round(line_integral(G, [[0, 0], [1, 0], [1, 1]]), 9), round(line_integral(G, [[0, 0], [0, 1], [1, 1]]), 9)
     (0.0, 1.0)
-    >>> round(line_integral(lambda p: [3 * p[0] ** 2], [[0], [2], [1]], n_sub=2), 9)    # forth and back, d = 1
-    1.0
+    >>> round(line_integral(lambda p: [3 * p[0] ** 2], [[1], [3], [-1]], n_sub=2), 9)    # forth and back, d = 1
+    -2.0
     """
     # TODO: check the arguments; the n_sub + 1 values of t and the Simpson weights 1, 4, 2, …, 2, 4, 1 times h / 3;
     #  for each segment, the dot products F(a + t (b - a)) · (b - a) at these t; add the weighted sums.
@@ -167,11 +167,10 @@ def spearman_rho(x, y):
 
     Each sample is replaced by its ranks: the smallest value gets rank 1, the next one rank 2, and so on, and tied
     values (exactly equal) share the average of the ranks they occupy (two values tied for the 3rd and 4th places both
-    get 3.5). Then
-    ``ρ`` is Pearson's correlation of the two vectors of ranks ``r`` and ``s`` (M02c),
+    get 3.5). Then ``ρ`` is Pearson's correlation of the two vectors of ranks ``r`` and ``s`` (M02c),
     ``ρ = Σ (r_i - r̄)(s_i - s̄) / √(Σ (r_i - r̄)² · Σ (s_i - s̄)²)``; without ties, it equals
     ``1 - 6 Σ (r_i - s_i)² / (n (n² - 1))``. ``ρ`` depends only on the order of each sample: it does not change when
-    an increasing function is applied to the values of ``x`` or of ``y``.
+    a strictly increasing function is applied to the values of ``x`` or of ``y``.
 
     Parameters
     ----------
