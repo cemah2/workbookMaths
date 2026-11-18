@@ -40,7 +40,7 @@ $\operatorname{rms}(\mathbf{g}) = \sqrt{\frac1n\sum_ig_i^2}$ ; $\operatorname{si
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\lVert\mathbf{g}\rVert = 7$ et $\operatorname{rms}(\mathbf{g}) = 3{,}5$ ; deux de ces vecteurs sont des multiples positifs de $\mathbf{g}$. 2. Calcule $\mathbf{x} + 0{,}5\,\mathbf{g}$, puis ramène chaque coordonnée dans $[0, 1]$. 3. Garde la première et la troisième coordonnée de $\mathbf{g}$. 4. Relis l'exemple du drone. 5. Que devient la longueur du pas quand $\mathbf{g}$ tend vers $\mathbf{0}$ ?
+1. $\lVert\mathbf{g}\rVert = 17$ et $\operatorname{rms}(\mathbf{g}) = 8{,}5$ ; deux de ces vecteurs sont des multiples positifs de $\mathbf{g}$. 2. Calcule $\mathbf{x} + 0{,}5\,\mathbf{g}$, puis ramène chaque coordonnée dans $[0, 1]$. 3. Garde la première et la troisième coordonnée de $\mathbf{g}$. 4. Relis l'exemple du drone. 5. Que devient la longueur du pas quand $\mathbf{g}$ tend vers $\mathbf{0}$ ?
 
 </details>
 
@@ -210,7 +210,7 @@ Sur la boule, Cauchy-Schwarz ; sur le pavé, les termes $w_ix_i$ se règlent un 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\lVert\mathbf{w}\rVert$. b) Le signe de chaque $w_i$ décide. c) $\mathbf{x}_0 + 0{,}2\,\mathbf{w} = (0{,}7 ;\ 0{,}1 ;\ 1 ;\ 1{,}72)$ : coupe, puis recommence. d) Pour la première coordonnée, il faut $0{,}3 + 2\eta \ge 1$ ; écris la condition de chaque coordonnée (pour la deuxième, $0{,}3 - \eta \le 0$). e) Le second bloc a pour trace 9 et pour déterminant 14. f) $E$ est une somme d'une fonction de $(x_1, x_2)$ et d'une fonction de $(x_3, x_4)$ : maximise chacune sur les quatre sommets de son carré.
+a) $\lVert\mathbf{w}\rVert$. b) Le signe de chaque $w_i$ décide. c) $\mathbf{x}_0 + 0{,}2\,\mathbf{w} = (0{,}7 ;\ 0{,}1 ;\ 1 ;\ 1{,}72)$ : coupe, puis recommence. d) Pour la première coordonnée, il faut $0{,}3 + 2\eta \ge 1$ ; écris la condition de chaque coordonnée (pour la deuxième, $0{,}3 - \eta \le 0$). e) Le second bloc a pour trace 16 et pour déterminant 39. f) $E$ est une somme d'une fonction de $(x_1, x_2)$ et d'une fonction de $(x_3, x_4)$ : maximise chacune sur les quatre sommets de son carré.
 
 </details>
 
@@ -228,7 +228,7 @@ $(\mathbf{L}\mathbf{x})_j = \deg(j)\,x_j - \sum_{\text{voisines}}x_l$, avec $\de
 </details>
 <details><summary>Indice 3</summary>
 
-a) Les différences valent $-2, 1, -4, -2$. b) $(\mathbf{L}\mathbf{x})_0 = 8 - 6 = 2$ et $(\mathbf{L}\mathbf{x})_1 = 2 \times 6 - 8 - 7 = -3$ ; continue, puis double. c) Retire $0{,}15 \times 2\mathbf{L}\mathbf{x}$. d) Recalcule les différences du nouveau signal. e) $\lambda_{\max} = 4\sin^2\frac{4\pi}{10}$. f) Quatre différences de $\frac64$. g) Résous $\frac{36}{n} < 1$ dans les entiers.
+a) Les différences valent $-2, 1, -4, -2$. b) $(\mathbf{L}\mathbf{x})_0 = 8 - 6 = 2$ et $(\mathbf{L}\mathbf{x})_1 = 2 \times 6 - 8 - 7 = -3$ ; continue, puis double. c) Retire $0{,}15 \times 2\mathbf{L}\mathbf{x}$. e) $\lambda_{\max} = 4\sin^2\frac{4\pi}{10}$. f) Quatre différences de $\frac64$. g) Résous $\frac{36}{n} < 1$ dans les entiers.
 
 </details>
 
@@ -246,7 +246,7 @@ Une période $P$ donne $f = \frac1P$ et $\omega = \frac{2\pi}{P}$. Rapport : $4\
 </details>
 <details><summary>Indice 3</summary>
 
-a) Pour A, $\omega = \frac\pi3$ et $4\sin^2\frac\pi6 = 1$ ; fais de même pour B, avec $\sin^2\frac{\pi}{12} = \frac{1 - \cos(\pi/6)}{2}$. b) $\cos\frac\pi3 = \frac12$ et $\cos\frac\pi6 = \frac{\sqrt3}{2}$. c) $(f_1, f_2) = (\frac{1}{12}, \frac16)$. d) Additionne les rapports des deux directions. e) Le gain des lignes ($f_2$) fois celui des colonnes ($f_1$). f) Replie $\frac{11}{12}$ dans $[0, \frac12]$, puis prends l'inverse.
+a) Pour A, $\omega = \frac\pi3$ et $4\sin^2\frac\pi6 = 1$ ; fais de même pour B, avec $\sin^2\frac{\pi}{12} = \frac{1 - \cos(\pi/6)}{2}$. b) $\cos\frac\pi3 = \frac12$ et $\cos\frac\pi6 = \frac{\sqrt3}{2}$. c) $(f_1, f_2) = (\frac{1}{12}, \frac16)$. d) Additionne les rapports des deux directions. e) Le gain des lignes ($f_2$) fois celui des colonnes ($f_1$). f) Replie $\frac{16}{17}$ dans $[0, \frac12]$, puis prends l'inverse.
 
 </details>
 
@@ -362,7 +362,7 @@ $\operatorname{softmax}(\mathbf{z})_i = e^{z_i}/\sum_je^{z_j}$. Élever $p_i$ à
 </details>
 <details><summary>Indice 3</summary>
 
-a) $e^{\mathbf{z}} \approx (3{,}004 ;\ 11{,}023 ;\ 1{,}105 ;\ 8{,}166 ;\ 0{,}607)$ : divise par leur somme. b) Même calcul avec $\mathbf{z}/3$. c) Garde les trois plus grandes probabilités de b) et renormalise. d) et e) Écris, pour une espèce gardée, les deux lois, et compare-les.
+a) $e^{\mathbf{z}} \approx (3{,}004 ;\ 11{,}023 ;\ 1{,}105 ;\ 8{,}166 ;\ 0{,}607)$ : divise par leur somme. b) Même calcul avec $\mathbf{z}/3$. c) Élève $\mathbf{p}$, avec au moins 6 chiffres significatifs (pas les 4 décimales de a)), à la puissance $\frac13$, garde les trois plus grandes et renormalise. d) et e) Écris, pour une espèce gardée, les deux lois, et compare-les.
 
 </details>
 
@@ -460,7 +460,7 @@ $\nabla(1\,000f) = 1\,000\,\nabla f$, avec $\nabla f(\mathbf{x}) = -2(\mathbf{x}
 </details>
 <details><summary>Indice 3</summary>
 
-Les deux lignes clés de `ascent_15`, dans une boucle de `n_steps` pas qui range les itérés dans une liste : `g = scale * (-2.0 * (x - c))`, puis `x = np.clip(x + eta * step, 0.0, 1.0)`, où `step` est `g` ou `g` divisé par sa norme. Pour d), $\lVert\mathbf{x}_0 - \mathbf{c}\rVert$ se calcule à la main.
+`ascent_15` lit `C_15`, `X0_15` et `ETA_15` au moment de l'appel, pas dans des arguments par défaut : `x = np.array(X0_15, dtype=float)`, puis, dans une boucle de `n_steps` pas qui range les itérés dans une liste, les deux lignes clés `g = scale * (-2.0 * (x - C_15))` et `x = np.clip(x + ETA_15 * step, 0.0, 1.0)`, où `step` est `g` ou `g` divisé par sa norme. Pour d), $\lVert\mathbf{x}_0 - \mathbf{c}\rVert$ se calcule à la main.
 
 </details>
 
@@ -478,7 +478,7 @@ $\mathbf{L}\mathbf{x}$ à bords libres : pour chaque paire de voisines, la diff�
 </details>
 <details><summary>Indice 3</summary>
 
-`L = np.zeros_like(x)` ; `L[1:, :] += x[1:, :] - x[:-1, :]` ; `L[:-1, :] += x[:-1, :] - x[1:, :]` ; et les deux mêmes lignes sur les colonnes. Dans `draw_stripes_16`, une boucle sur les motifs, trois `imshow(..., vmin=-1, vmax=1)` par ligne d'axes, et trois listes à remplir. Le bloc central est `y[12:36, 12:36]`.
+`L = np.zeros_like(x)` ; `L[1:, :] += x[1:, :] - x[:-1, :]` ; `L[:-1, :] += x[:-1, :] - x[1:, :]` ; et les deux mêmes lignes sur les colonnes. Dans `draw_stripes_16`, une boucle sur `motifs.items()`, trois `axes[i, k].imshow(..., vmin=-1, vmax=1)` par ligne d'axes, et trois listes à remplir. Le bloc central est `y[12:36, 12:36]`. Les deux fonctions dessinent dans les axes reçus, sans `plt.figure` ni `plt.subplots` ; la courbe se trace d'un seul `ax.plot`, les points mesurés d'un autre, sans trait.
 
 </details>
 
@@ -509,12 +509,12 @@ Fiche §2 (la formule des distances, le double centrage) et la docstring de `poi
 </details>
 <details><summary>Indice 2</summary>
 
-Respecte exactement l'ordre des tirages de l'énoncé, sinon tes compteurs ne seront pas ceux de la référence. Les carrés des distances d'un nuage `Z` : `((Z[:, None, :] - Z[None, :, :]) ** 2).sum(-1)`. Le test lit la fonction par `func or mymath.sampling.points_from_gram` au moment de l'appel.
+La boucle des tirages est fournie : tes contrôles reçoivent les points `P`, la translation `t`, la fonction à tester `func` et `rtol`, et rendent un ensemble de noms (`set()` quand tout passe). Appelle toujours `func`, jamais `mymath` directement. Les carrés des distances d'un nuage `Z` : `((Z[:, None, :] - Z[None, :, :]) ** 2).sum(-1)`. Pour a), un contrôle de quelques lignes, qui ne regarde que $\mathbf{X}\mathbf{X}^\top - \mathbf{G}$, passé à la boucle par `checks=`.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Squelette d'un essai : les tirages, `G = P @ P.T`, `s = max(1.0, np.abs(G).max())`, `X = np.asarray(f(G), dtype=float)`, `finite = np.all(np.isfinite(X))`, puis les quatre conditions de l'énoncé, chacune avec `or not finite` ; pour la translation, `J = np.eye(n) - np.ones((n, n)) / n` et `Gc = -0.5 * J @ D2 @ J`, où `D2` sont les carrés des distances de `P + t`. Pour d), demande-toi ce qu'une isométrie qui fixe l'origine change à $\mathbf{X}\mathbf{X}^\top$.
+Squelette de `failed_checks_18` : `failed = set()`, `n = len(P)`, `G = P @ P.T`, `s = max(1.0, np.abs(G).max())`, `X = np.asarray(func(G), dtype=float)`, `finite = np.all(np.isfinite(X))`, puis les quatre conditions de l'énoncé, chacune avec `or not finite`, et `failed.add("gram")` (ou un autre nom) quand l'une est vraie ; pour la translation, `J = np.eye(n) - np.ones((n, n)) / n` et `Gc = -0.5 * J @ D2 @ J`, où `D2` sont les carrés des distances de `P + t`. Pour d), demande-toi ce qu'une isométrie qui fixe l'origine change à $\mathbf{X}\mathbf{X}^\top$.
 
 </details>
 
