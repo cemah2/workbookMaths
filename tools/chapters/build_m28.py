@@ -63,7 +63,8 @@ PAPER = [
                      "G_ij est le produit scalaire des points i et j, pas le carré de leur distance": floats(sq_dists(X_1))}'''),
         ("b", "a 2 × 2 matrix, as the list of its rows (m²)", "floats(X_1.T @ X_1 / len(X_1))",
          '''decimals=6,
-           mistakes={"on divise par le nombre d'échantillons (les points), pas par le nombre de coordonnées":
+           mistakes={"on divise par N = 4, le nombre d'échantillons, pas par N − 1": floats(X_1.T @ X_1 / (len(X_1) - 1)),
+                     "on divise par le nombre d'échantillons (les points), pas par le nombre de coordonnées":
                          floats(X_1.T @ X_1 / X_1.shape[1]),
                      "sans division par le nombre d'échantillons, la somme des produits n'est pas une moyenne":
                          floats(X_1.T @ X_1),
@@ -101,6 +102,7 @@ PAPER = [
         ("b", "a 4 × 4 matrix, as the list of its rows (km²)", "floats(double_centering(D2_2))",
          '''decimals=6,
            mistakes={"le double centrage se fait sur les carrés des distances": floats(double_centering(D_2)),
+                     "G = −½ J D⁽²⁾ J : le facteur ½ manque": floats(2 * double_centering(D2_2)),
                      "G = −½ J D⁽²⁾ J : sans le facteur −½, sa diagonale serait négative":
                          floats(-2 * double_centering(D2_2))}'''),
         ("c", "a list of 4 numbers, in decreasing order", "eigen_desc(double_centering(D2_2))",
@@ -115,7 +117,13 @@ PAPER = [
                      "les colonnes viennent par valeur propre décroissante":
                          floats(spectral_map(double_centering(D2_2))[:, ::-1]),
                      "dans chaque colonne, la première coordonnée non nulle est positive":
-                         floats(-spectral_map(double_centering(D2_2)))}'''),
+                         floats(-spectral_map(double_centering(D2_2))),
+                     "dans chaque colonne, la première coordonnée non nulle (en lisant de A vers D) est positive : "
+                     "regarde la première colonne": floats(spectral_map(double_centering(D2_2)) * [-1, 1]),
+                     "dans chaque colonne, la première coordonnée non nulle (en lisant de A vers D) est positive : "
+                     "regarde la deuxième colonne": floats(spectral_map(double_centering(D2_2)) * [1, -1]),
+                     "la colonne k est √λ_k fois un vecteur propre unitaire (de norme 1)":
+                         floats(spectral_map(double_centering(D2_2)) * np.sqrt(2))}'''),
         ("e", BOOL, "bool(min(eigen_desc(double_centering(D2_2E))) >= -1e-9)",
          '''mistakes={"respecter l'inégalité triangulaire ne suffit pas pour être des distances euclidiennes": True}'''),
     ]),
@@ -142,6 +150,10 @@ PAPER = [
          '''decimals=6,
            mistakes={"avec un pas trop court, au moins une coordonnée reste loin de sa borne":
                          float(np.min(GAP_3 / np.abs(W_3))),
+                     "un pas de 0,3 amène la deuxième coordonnée à 0, mais pas encore la première à 1 : il faut atteindre "
+                     "toutes les bornes à la fois": float((GAP_3 / np.abs(W_3))[1]),
+                     "un pas de 0,2 amène la troisième coordonnée à 1, mais pas les autres : il faut atteindre toutes les "
+                     "bornes à la fois": float((GAP_3 / np.abs(W_3))[2]),
                      "la distance de xᵢ à sa borne se divise par |wᵢ| pour donner le pas": float(np.max(GAP_3 * np.abs(W_3)))}'''),
         ("e", "a number", "float(np.linalg.eigvalsh(A_3).max())",
          '''decimals=6,
@@ -241,6 +253,7 @@ PAPER = [
                      "1 − P(S) est la distance en variation totale, pas la divergence KL": [costs_6(TOP3_6)[1]] * 2}'''),
         ("d", "a list of integers, by decreasing probability", "top_p_6(M_6)",
          '''mistakes={"la liste se range par probabilité décroissante, pas par numéro de catégorie": sorted(top_p_6(M_6)),
+                     "les catégories sont numérotées à partir de 0": [i + 1 for i in top_p_6(M_6)],
                      "les issues se prennent par probabilité décroissante, pas dans l'ordre des catégories":
                          top_p_6(M_6, ordered=False)}'''),
         ("e", "a list of 2 numbers (4 decimals): KL, then the half L1 norm", "costs_6(top_p_6(M_6))",
@@ -262,11 +275,15 @@ PAPER = [
         ("a", "a list of 2 integers [mu, lambda]", "list(rho(lambda r: 10 * r % 26, 5)[:2])",
          '''mistakes={"la période est la longueur du cycle, sans la queue": [rho(lambda r: 10 * r % 26, 5)[0],
                                                                             rho(lambda r: 10 * r % 26, 5)[2]],
-                     "la liste donne la prépériode, puis la période": list(rho(lambda r: 10 * r % 26, 5)[1::-1])}'''),
+                     "la liste donne la prépériode, puis la période": list(rho(lambda r: 10 * r % 26, 5)[1::-1]),
+                     "les indices commencent à 0 (r₀ = a) : la prépériode est l'indice de la première apparition de la "
+                     "valeur qui revient": [rho(lambda r: 10 * r % 26, 5)[0] + 1, rho(lambda r: 10 * r % 26, 5)[1]]}'''),
         ("b", "a list of 2 integers [mu, lambda]", "list(rho(lambda x: (x * x + 2) % 17, 0)[:2])",
          '''mistakes={"la période est la longueur du cycle, sans la queue": [rho(lambda x: (x * x + 2) % 17, 0)[0],
                                                                             rho(lambda x: (x * x + 2) % 17, 0)[2]],
-                     "la liste donne la prépériode, puis la période": list(rho(lambda x: (x * x + 2) % 17, 0)[1::-1])}'''),
+                     "la liste donne la prépériode, puis la période": list(rho(lambda x: (x * x + 2) % 17, 0)[1::-1]),
+                     "les indices commencent à 0 (u₀ = 0) : la prépériode est l'indice de la première apparition de la "
+                     "valeur qui revient": [rho(lambda x: (x * x + 2) % 17, 0)[0] + 1, rho(lambda x: (x * x + 2) % 17, 0)[1]]}'''),
         ("c", BOOL, "all(rho(lambda r, n=n: 10 * r % n, a)[1] <= n - 1 for n in range(2, 80) for a in range(1, n))",
          '''mistakes={"compte les restes possibles quand le développement ne s'arrête pas": False}'''),
     ]),
@@ -772,12 +789,14 @@ CHECK_13 = '''with checked("M28.13"):                       # b): Y and R, compa
         R_c13 = as_floats(R_M28_13b)
         if matches(R_c13, want_R_c13, atol=1e-9):
             why_c13 = ""
-        elif matches(R_c13, want_R_c13.T, atol=1e-9):
-            why_c13 = "y_i = R x_i pour les points en lignes s'écrit Y = X Rᵀ : R = Yᵀ X (Xᵀ X)⁻¹, pas sa transposée"
         else:
             why_c13 = "R = Yᵀ X (Xᵀ X)⁻¹, de forme (2, 2), avec ta carte Y"
         report_13(not why_c13, "Ex M28.13b : R envoie chaque balise sur sa ligne de Y", f"Ex M28.13b : R : {why_c13}")
     check_answer("M28.13b", answer_M28_13b)'''
+
+CHECK_13A = '''check_answer("M28.13a", answer_M28_13a, hint=lambda v: (
+    "une carte à 3 colonnes : le double centrage s'est fait sur les distances ; il se fait sur leurs carrés, "
+    "G = −½ J D⁽²⁾ J avec D_RHOMBUS ** 2") if np.shape(v) == (4, 3) else None)'''
 
 NOTE_13 = (r"`G = np.array(G, dtype=float)`, les contrôles, `s`, la symétrie, `np.linalg.eigh` puis l'ordre retourné, le "
            r"refus d'une valeur propre sous $-s$, la mise à 0, `V[:, :k] * np.sqrt(w[:k])`, le signe colonne par "
@@ -788,7 +807,7 @@ NOTE_13 = (r"`G = np.array(G, dtype=float)`, les contrôles, `s`, la symétrie, 
            r"$-225$. d) $(0, 21, 0, -21)$ et 800, la valeur propre laissée de côté.")
 
 M28_13 = Ex(
-    "M28.13", "🔨", 2, 25, "Une configuration de points de matrice de Gram donnée, par le théorème spectral · "
+    "M28.13", "🔨", 2, 40, "Une configuration de points de matrice de Gram donnée, par le théorème spectral · "
     "`points_from_gram`",
     "programmer la construction de positions à partir d'une matrice de Gram, puis retrouver une carte à partir de "
     "distances, voir l'isométrie qui la sépare des vraies positions, et ce que deviennent des distances impossibles et "
@@ -803,7 +822,7 @@ M28_13 = Ex(
 - c) le losange avec $\mathrm{AC} = 50$ km (M28.2 e)) : vrai ou faux, ta fonction lève une `ValueError`, puis la plus petite valeur propre de $-\frac12\mathbf{J}\mathbf{D}^{(2)}\mathbf{J}$, par `np.linalg.eigvalsh` (hors de `mymath`) (une liste de 2 : le booléen, puis le nombre) ;
 - d) le losange avec `dim=1` : les quatre coordonnées de la carte à une colonne (`.ravel()`), puis $\lVert\mathbf{G} - \mathbf{X}\mathbf{X}^\top\rVert_F$ (une liste de 5 nombres).
 
-Ce qu'il faut observer : la carte ne retrouve les vraies positions qu'à une isométrie près, ici une symétrie ($\det\mathbf{R} = -1$) ; des distances impossibles donnent une valeur propre négative, que la fonction refuse ; une colonne de moins, c'est la meilleure matrice de Gram de rang 1 (Eckart-Young), à une distance égale à la valeur propre laissée de côté.""",
+Ce qu'il faut observer : la carte ne retrouve les vraies positions qu'à une isométrie près (b) dit laquelle) ; des distances impossibles donnent une valeur propre négative, que la fonction refuse ; une colonne de moins, c'est la meilleure matrice de Gram de rang 1 (Eckart-Young), à une distance égale à la valeur propre laissée de côté.""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=tests_cells("test_points_from_gram_ or test_module_uses_") + [
@@ -818,7 +837,7 @@ with wbm.attempt("M28.13"):          # if you call points_from_gram here: ⏳ wh
     answer_M28_13b = ...  # b) a list of 2: det R (as computed), then True or False: R Rᵀ = I (to 1e-9)
     answer_M28_13c = ...  # c) a list of 2: True or False: your function raises a ValueError for AC = 50 km, then the smallest eigenvalue of -1/2 J D² J (np.linalg.eigvalsh)
     answer_M28_13d = ...  # d) a list of 5 numbers, as computed: the 4 coordinates of the map with dim=1, then ‖G − X Xᵀ‖_F'''),
-        ("check", "check_answer(\"M28.13a\", answer_M28_13a)\n\n" + CHECK_13 + "\n\n" + answers_check("M28.13", "cd")),
+        ("check", CHECK_13A + "\n\n" + CHECK_13 + "\n\n" + answers_check("M28.13", "cd")),
         ("solution", '''points_from_gram = mymath.sampling.points_from_gram
 J_13 = np.eye(4) - np.ones((4, 4)) / 4
 G_rhombus_13 = -0.5 * J_13 @ D_RHOMBUS ** 2 @ J_13
@@ -909,7 +928,7 @@ NOTE_14 = (r"`temper` : la validation de la loi et de $T$, $T = 0$ (`p == p.max(
            r"1,7642 nat (et $\ln 6 \approx 1{,}7918$), croissantes.")
 
 M28_14 = Ex(
-    "M28.14", "🔨", 2, 30, "Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse donnée · "
+    "M28.14", "🔨", 2, 35, "Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse donnée · "
     "`temper`, `smallest_mass_set`",
     "programmer la température sur des probabilités et le plus petit ensemble de masse donnée, puis voir ce que la "
     "température fait à l'ensemble d'un top-p et à l'entropie.", "fiche §5 ; M17 ; Ex M28.6", tracks="C, E",
@@ -983,14 +1002,16 @@ p_14r = np.array([0.04, 0.19, 0.33, 0.26, 0.10, 0.08])
 q_14r = np.array([0.3, 0.0, 0.3, 0.25, 0.15])
 cooled_14r = temper_14r(p_14r, 1 / 3)
 wbm.record("M28.14a", cooled_14r.tolist() + smallest_14r(p_14r, 0.87), decimals=6,
-           mistakes={"à T = 1/3, on élève les probabilités à la puissance 1/T = 3, pas 1/3":
+           mistakes={"les 6 probabilités d'abord, puis les 4 indices": smallest_14r(p_14r, 0.87) + cooled_14r.tolist(),
+                     "à T = 1/3, on élève les probabilités à la puissance 1/T = 3, pas 1/3":
                          temper_14r(p_14r, 3).tolist() + smallest_14r(p_14r, 0.87),
                      "smallest_mass_set rend les issues par probabilité décroissante, pas par numéro":
                          cooled_14r.tolist() + sorted(smallest_14r(p_14r, 0.87)),
                      "smallest_mass_set prend les issues par probabilité décroissante (np.argsort(-p, kind=\\"stable\\"))":
                          cooled_14r.tolist() + list(np.argsort(p_14r, kind="stable")[:4])})
 wbm.record("M28.14b", temper_14r(q_14r, 0).tolist() + temper_14r(q_14r, np.inf).tolist(), decimals=6,
-           mistakes={"à T = ∞, la loi est uniforme sur les issues de probabilité non nulle : un zéro reste nul":
+           mistakes={"T = 0 d'abord, puis T = ∞": temper_14r(q_14r, np.inf).tolist() + temper_14r(q_14r, 0).tolist(),
+                     "à T = ∞, la loi est uniforme sur les issues de probabilité non nulle : un zéro reste nul":
                          temper_14r(q_14r, 0).tolist() + [0.2] * 5,
                      "à T = 0, deux issues ex aequo se partagent la probabilité":
                          [1.0, 0.0, 0.0, 0.0, 0.0] + temper_14r(q_14r, np.inf).tolist()})
@@ -1021,7 +1042,7 @@ GIVEN_15 = '''C_15 = np.array([0.33, 0.58])      # the maximum of f(x) = −‖x
 X0_15 = np.array([0.83, 0.13])     # the start
 ETA_15 = 0.08                      # the step'''
 
-CHECK_15 = '''HIDDEN_C15 = __HIDDEN_C15__   # hidden calls (start, scale, normalized, n_steps) and the iterates expected
+CHECK_15 = '''HIDDEN_C15 = __HIDDEN_C15__   # hidden calls (start, scale, normalized, n_steps) and the sub-ID of their iterates in answers.json
 
 with checked("M28.15"):
     results_15 = []
@@ -1040,7 +1061,7 @@ with checked("M28.15"):
         if arr_c15 is None or arr_c15.shape != (n_c15 + 1, 2):
             why_c15 = (f"attendu un tableau de forme ({n_c15 + 1}, 2), ligne 0 le départ, reçu "
                        f"{None if arr_c15 is None else arr_c15.shape}")
-        elif matches(arr_c15, want_c15, atol=1e-9):
+        elif wbm.check(f"M28.15{want_c15}", arr_c15.tolist(), computed=True, quiet=True).passed:
             why_c15 = ""
         elif matches(arr_c15[0], start_c15):
             why_c15 = "ta fonction part encore du départ de l'énoncé : lis X0_15 au moment de l'appel"
@@ -1060,7 +1081,7 @@ NOTE_15 = (r"Prédictions attendues : a) (C) ; b) $(0, 1)$, la projection de $\m
            r"normalisé oscille près du maximum. f) Vrai.")
 
 M28_15 = Ex(
-    "M28.15", "🔮", 1, 15, "Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est multipliée par "
+    "M28.15", "🔮", 1, 20, "Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est multipliée par "
     "1 000, puis vérifier",
     "prévoir ce qu'un changement d'unité fait à un pas de montée ordinaire et à un pas normalisé, avec une projection sur "
     "un pavé, puis le vérifier.", "fiche §3 ; M05b, M19 ; Ex M28.3", tracks="C, E", hypothesis=True, given=GIVEN_15,
@@ -1075,7 +1096,7 @@ Puis, une fois tes prédictions écrites et vérifiées, écris `ascent_15(scale
 - e) les distances $\lVert\mathbf{x}_{20} - \mathbf{c}\rVert$ des quatre montées, dans l'ordre ($f$, pas ordinaire), ($1\,000f$, pas ordinaire), ($f$, pas normalisé), ($1\,000f$, pas normalisé) (une liste de 4 nombres ; 4 décimales dans ta copie) ;
 - f) vrai ou faux : avec le pas normalisé, les 21 itérés de $f$ et de $1\,000f$ sont les mêmes.
 
-La vérification de l'expérience ne s'exécute qu'une fois tes quatre prédictions écrites. Ce qu'il faut observer : multiplier la fonction par 1 000 multiplie le pas ordinaire par 1 000, et la projection transforme ces sauts démesurés en allers-retours entre deux sommets, alors que le maximum est à l'intérieur ; le pas normalisé ne voit pas l'unité, mais, de longueur fixe, il oscille près du maximum sans s'y poser.""",
+La vérification de l'expérience ne s'exécute qu'une fois tes quatre prédictions écrites. Ce qu'il faut observer (après l'expérience) : ce que le facteur 1 000 fait au pas ordinaire, ce qu'en fait la projection sur le pavé alors que le maximum est à l'intérieur, et ce que fait près du maximum un pas normalisé de longueur fixe.""",
     todo='''prediction_M28_15a = ...  # a) "A", "B", "C" or "D", written BEFORE the experiment: 1000 f with the plain step, the iterates...
 prediction_M28_15b = ...  # b) a list of 2 numbers, computed by hand: x1 for 1000 f with the plain step
 prediction_M28_15c = ...  # c) "A" or "B": the normalized iterates of 1000 f
@@ -1170,10 +1191,12 @@ wbm.record("M28.15e", [distance_15r(xs)[-1] for xs in runs_15r], decimals=6,
                          [distance_15r(ascent_15r(scale, normalized, clip=False))[-1]
                           for normalized in (False, True) for scale in (1.0, 1000.0)]})
 wbm.record("M28.15f", bool(np.allclose(runs_15r[2], runs_15r[3])),
-           mistakes={"compare les deux tableaux d'itérés du pas normalisé, ligne par ligne (np.allclose)": False})'''),
-        ("md", "**Après l'expérience**, dans ta copie : pourquoi les itérés de $1\\,000f$ ne s'arrêtent-ils jamais ? Pourquoi "
-               "le pas normalisé ne se pose-t-il pas sur le maximum, et que faudrait-il changer pour qu'il s'en approche "
-               "autant qu'on veut ?"),
+           mistakes={"compare les deux tableaux d'itérés du pas normalisé, ligne par ligne (np.allclose)": False})
+for x0_15r, scale_15r, normalized_15r, n_15r, letter_15r in __HIDDEN_C15__:     # the hidden calls of the check
+    wbm.record(f"M28.15{letter_15r}", ascent_15r(scale_15r, normalized_15r, n_15r, x0=x0_15r).tolist(), decimals=6)'''),
+        ("md", "**Après l'expérience**, dans ta copie : que font les itérés de $1\\,000f$ avec le pas ordinaire, et pourquoi ? "
+               "Que fait le pas normalisé près du maximum, et que faudrait-il changer pour qu'il s'en approche autant qu'on "
+               "veut ?"),
     ],
 )
 
@@ -1193,7 +1216,7 @@ def blur3_16(x):
 
 CHECK_16 = '''HIDDEN_C16 = __HIDDEN_C16__   # a hidden call: eta, n_steps, and the three lists expected for five hidden motifs (below)
 HIDDEN_MOTIFS_C16 = {"H1": np.cos(2 * np.pi * I_16 / 8), "H2": np.cos(2 * np.pi * (I_16 + 2 * J_16) / 10),
-                     "H3": np.cos(2 * np.pi * J_16 / 4 + 0.7), "H4": (-1.0) ** I_16,
+                     "H3": np.cos(2 * np.pi * J_16 / 4 + 0.7), "H4": (-1.0) ** I_16 * np.cos(2 * np.pi * J_16 / 12),
                      "H5": np.cos(2 * np.pi * (I_16 / 5 - J_16 / 7))}
 
 
@@ -1321,16 +1344,22 @@ with checked("M28.16"):
         missing_16 = curve_why_c16(ax_curve_16, ETA_16, STEPS_16, FREQS_16, decays_16)
         report_16(not missing_16, "draw_decay_curve_16 : la courbe, les points, l'échelle logarithmique, les noms d'axes et "
                   "le titre", "draw_decay_curve_16 : il manque " + " ; ".join(missing_16))
-        fig_c16, ax_c16 = plt.subplots()
+        elsewhere_16 = False
+        fig_c16, (ax_c16, current_c16) = plt.subplots(1, 2)   # current_c16 is the current axes: plt.plot would draw there
         try:
             opened_16 += drawn(draw_decay_curve_16, ax_c16, 0.03, 8, [0.1, 0.25, 0.4], [0.8, 0.45, 0.15])
             missing_c16 = curve_why_c16(ax_c16, 0.03, 8, [0.1, 0.25, 0.4], [0.8, 0.45, 0.15])
+            elsewhere_16 = bool(current_c16.lines or current_c16.collections or current_c16.get_title())
+            if elsewhere_16:
+                missing_c16 = ["un dessin dans l'axe reçu (ax.plot, ax.set_title, ax.set_yscale… et non plt.plot, "
+                               "plt.title…, qui dessinent dans l'axe courant, ici un autre axe)"]
         finally:
             plt.close(fig_c16)
         report_16(not missing_c16, "un appel caché de draw_decay_curve_16 (η = 0,03, 8 pas, trois autres points) est juste "
                   "aussi", "un appel caché de draw_decay_curve_16 (η = 0,03, 8 pas) : il manque " + " ; ".join(missing_c16))
-        report_16(not opened_16, "tes deux fonctions dessinent dans les axes reçus",
-                  "tes fonctions doivent dessiner dans les axes reçus, sans ouvrir de figure")
+        report_16(not opened_16 and not elsewhere_16, "tes deux fonctions dessinent dans les axes reçus",
+                  "tes fonctions doivent dessiner dans les axes reçus (ax.plot, ax.set_title…), sans ouvrir de figure ni "
+                  "dessiner dans l'axe courant (plt.plot, plt.title…)")
     except BaseException:
         plt.close(fig_16)
         plt.close(fig_curve_16)
@@ -1347,7 +1376,7 @@ NOTE_16 = (r"a) $0{,}152$ ; $0{,}990$ ; $2{,}906$ ; $3{,}917$ ; $7{,}833$ (sur u
            r"pour B, C, D et le damier.")
 
 M28_16 = Ex(
-    "M28.16", "🎨", 1, 20, "Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et ce qu'en "
+    "M28.16", "🎨", 1, 40, "Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et ce qu'en "
     "laissent un flou 3 × 3 et dix pas de descente sur la variation totale",
     "dessiner des motifs de plus en plus rapides, leur flou et leur lissage par la variation totale, et lire sur les "
     "images et sur une courbe ce que coûte une haute fréquence.", "fiche §4 ; M21 ; Ex M28.4 et M28.5", tracks="C, E",
@@ -1363,7 +1392,7 @@ La vérification essaie `grid_laplacian_16` sur des grilles tirées au hasard, a
 - d) vrai ou faux : les rapports mesurés sont un peu sous les valeurs $4\sin^2(\pi f)$ (et 8 pour le damier) de la grille refermée ;
 - e) vrai ou faux : sur le bloc central, les atténuations sont exactement celles de la courbe pour A à D, et la valeur du titre pour le damier.
 
-Ce qu'il faut observer : plus le motif est rapide, plus il coûte en variation totale et plus le flou et la descente l'effacent ; le flou rend la période 3 nulle et le damier divisé par 9 ; sur une grille à bords libres, les cases du bord ont moins de voisines, ce qui fait baisser les rapports ; mais un pas ne mélange que des voisines, et, après 10 pas, une case à plus de 10 cases du bord n'a pas encore « vu » le bord : au centre, la courbe est exacte.""",
+Ce qu'il faut observer : plus le motif est rapide, plus il coûte en variation totale et plus le flou et la descente l'effacent ; le flou rend la période 3 nulle et le damier divisé par 9 ; sur une grille à bords libres, les cases du bord ont moins de voisines : d) et e) disent ce que cela change, sur toute la grille et au centre.""",
     todo='''def grid_laplacian_16(x):
     """L x for the grid x with free edges: in each cell, its number of neighbours times its value, minus the sum of its
     neighbours (no loop over the cells). Returns a new array of the shape of x."""
@@ -1510,8 +1539,8 @@ wbm.record("M28.16e", bool(np.allclose(decays_16r, theory_16r, rtol=1e-9, atol=0
            mistakes={"au centre, une case à plus de 10 cases du bord n'a pas encore « vu » le bord : compare tes atténuations "
                      "aux valeurs de la courbe": False})''',
     after=[
-        ("md", "**Après les figures**, dans ta copie : pourquoi le flou efface-t-il exactement C et pas D ? Pourquoi les "
-               "rapports de la grille à bords libres sont-ils un peu sous ceux de la grille refermée ? Que deviendrait "
+        ("md", "**Après les figures**, dans ta copie : pourquoi le flou efface-t-il exactement C et pas D ? D'où vient "
+               "l'écart entre les rapports de la grille à bords libres et ceux de la grille refermée, et dans quel sens va-t-il ? Que deviendrait "
                "l'atténuation au centre avec 30 pas ?"),
     ],
 )
@@ -1564,9 +1593,22 @@ print("(3)", cycle_of(lambda x: (x + 3) % 10, 0), "(attendu (0, 10))")'''
 
 CHECK_17 = '''CASES_C17 = __CASES_C17__   # the hidden cases of the three corrected functions
 CYCLES_C17 = {"squares": lambda x: (x * x + 5) % 26, "affine": lambda x: (6 * x + 1) % 40,
-              "automaton": lambda s: (s[1], (s[0] * s[1] + 2) % 7)}       # the maps of the hidden sequences
+              "automaton": lambda s: (s[1], (s[0] * s[1] + 2) % 7),
+              "bijection": lambda x: (3 * x + 1) % 16}                    # the maps of the hidden sequences
 
 results_17, parts_17 = [], []
+
+
+def is_cycle_c17(f, x0, mu, lam):
+    """True when (mu, lam) are the preperiod and the period of u_(t+1) = f(u_t), u_0 = x0: u_(mu+lam) = u_mu, no shorter
+    period, and u_(mu-1+lam) != u_(mu-1) (the pair is checked, not searched)."""
+    if mu < 0 or lam < 1 or mu + lam > 10_000:
+        return False
+    u = [x0]
+    for _ in range(mu + lam):
+        u.append(f(u[-1]))
+    return (u[mu + lam] == u[mu] and all(u[mu + k] != u[mu] for k in range(1, lam))
+            and (mu == 0 or u[mu - 1 + lam] != u[mu - 1]))
 
 
 def report_17(ok, success, failure):
@@ -1616,7 +1658,8 @@ with checked("M28.17"):                                       # (1) map_from_dis
             wrong_17.append(f"{len(points_c17)} lieux dans un espace de dimension {case_c17['dim']} : les distances de ta "
                             "carte ne sont pas celles de D (le double centrage se fait sur les carrés des distances, "
                             "coefficient par coefficient)")
-    report_17(not wrong_17, "(1) map_from_distances_fixed : deux nuages cachés, dans le plan et dans l'espace",
+    report_17(not wrong_17, "(1) map_from_distances_fixed : trois nuages cachés, dans le plan (avec dim = 2, puis 3) et dans "
+              "l'espace",
               "(1) map_from_distances_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
     parts_17.append(1)
 
@@ -1646,6 +1689,10 @@ with checked("M28.17"):                                       # (2) tune_emitter
         if np.allclose(x_c17, np.clip(c_c17, lower_c17, upper_c17), atol=1e-6):
             wrong_17.append("projeter seulement à la fin donne la projection du maximum sans contrainte, qui n'est pas le "
                             "maximum sur le pavé quand l'énergie a des termes croisés : projette le point après chaque pas")
+        elif (lower_c17, upper_c17) != (0.0, 1.0) and np.any(~at_low & ~at_up & (np.isclose(x_c17, 0.0, atol=1e-9)
+                                                                                | np.isclose(x_c17, 1.0, atol=1e-9))):
+            wrong_17.append("une coordonnée s'arrête sur 0 ou sur 1, qui ne sont pas les bornes de ce pavé : projette sur "
+                            "[lower ; upper], avec les bornes reçues")
         elif np.any((g_c17 < -1e-6) & ~at_low):
             wrong_17.append("une coordonnée dont le gradient est négatif reste au-dessus de sa borne : elle doit pouvoir "
                             "baisser (on ne coupe pas le gradient, on projette le point)")
@@ -1659,23 +1706,29 @@ with checked("M28.17"):                                       # (2) tune_emitter
 with checked("M28.17"):                                       # (3) cycle_of_fixed
     wrong_17 = []
     for case_c17 in CASES_C17["cycles"]:
-        got_c17 = call_17(3, "cycle_of_fixed", cycle_of_fixed, CYCLES_C17[case_c17["map"]], case_c17["x0"])
+        map_c17 = CYCLES_C17[case_c17["map"]]
+        got_c17 = call_17(3, "cycle_of_fixed", cycle_of_fixed, map_c17, case_c17["x0"])
         try:
             mu_c17, lam_c17 = (int(v) for v in got_c17)
         except (TypeError, ValueError):
             wrong_17.append(f"cycle_of_fixed doit rendre le couple (mu, lam), reçu {shown(got_c17)}")
             continue
-        if (mu_c17, lam_c17) == (case_c17["mu"], case_c17["lam"]):
+        if is_cycle_c17(map_c17, case_c17["x0"], mu_c17, lam_c17):
             continue
-        if (mu_c17, lam_c17) == (case_c17["mu"], case_c17["mu"] + case_c17["lam"]):
+        if is_cycle_c17(map_c17, case_c17["x0"], mu_c17, lam_c17 - mu_c17):
             wrong_17.append("tu rends encore l'indice de la première répétition : la période est la longueur du cycle, "
                             "sans la queue")
-        elif (mu_c17, lam_c17) == (case_c17["lam"], case_c17["mu"]):
+        elif is_cycle_c17(map_c17, case_c17["x0"], mu_c17 - 1, lam_c17):
+            wrong_17.append("la suite commence à u₀ = x0 lui-même, d'indice 0 (ici x0 revient : mu = 0)" if mu_c17 == 1
+                            else "ta prépériode compte un pas de trop : mu est l'indice de la première apparition de la "
+                            "valeur répétée, u₀ = x0 ayant l'indice 0")
+        elif is_cycle_c17(map_c17, case_c17["x0"], lam_c17, mu_c17):
             wrong_17.append("cycle_of_fixed rend (mu, lam) : la prépériode, puis la période")
         else:
-            wrong_17.append("une suite cachée avec une prépériode : ton couple (mu, lam) n'est pas le bon (mu est l'indice "
-                            "de la première apparition de la valeur répétée)")
-    report_17(not wrong_17, "(3) cycle_of_fixed : trois suites cachées avec une prépériode, dont une sur des couples",
+            wrong_17.append("une suite cachée : ton couple (mu, lam) n'est pas le bon (mu est l'indice de la première "
+                            "apparition de la valeur répétée, lam la longueur du cycle)")
+    report_17(not wrong_17, "(3) cycle_of_fixed : quatre suites cachées, trois avec une prépériode (dont une sur des "
+              "couples) et une sans",
               "(3) cycle_of_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
     parts_17.append(3)
 
@@ -1691,7 +1744,7 @@ NOTE_17 = (r"(1) `map_from_distances` fait le double centrage sur les distances 
            r"`return seen[x], t - seen[x]`. c) `[2, 6, 2, 8]`.")
 
 M28_17 = Ex(
-    "M28.17", "🐛", 1, 20, "Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs carrés, une "
+    "M28.17", "🐛", 1, 25, "Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs carrés, une "
     "montée qui coupe le gradient au lieu du point, une prépériode comptée dans la période",
     "reconnaître trois erreurs classiques sur le double centrage, la montée projetée et la période, qui passent une "
     "vérification mal choisie, puis les corriger.", "fiche §2, §3 et §6 ; Ex M28.2, M28.3 et M28.7", tracks="C, E",
@@ -2036,7 +2089,7 @@ NOTE_18 = (r"`failed_checks_18` forme `G`, `s` et `X = func(G)`, fait les trois 
            r"distances ; la convention de signe et les coordonnées sont vérifiées par `tests/test_m28_sampling.py`.")
 
 M28_18 = Ex(
-    "M28.18", "🛠️", 1, 15, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les distances, "
+    "M28.18", "🛠️", 1, 30, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les distances, "
     "pour des points tirés au hasard",
     "écrire les contrôles d'un test de propriété à tolérance relative, sur des nuages tirés au hasard, et voir ce qu'il "
     "attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; Ex M28.13", tracks="C", given=GIVEN_18, note=NOTE_18,
@@ -2054,7 +2107,7 @@ Les carrés des distances se calculent dans tes contrôles, avec NumPy, sans app
 - c) avec le même départ (un nouveau `default_rng(6618)` chaque fois, 300 essais) et chacune des cinq versions fausses, dans l'ordre `no_sqrt`, `ascending`, `all_columns`, `rotated`, `no_sign` : les quatre compteurs, dans l'ordre `"shape"`, `"gram"`, `"distances"`, `"translation"` (une liste de 5 listes de 4 entiers) ;
 - d) les noms des versions fausses qui passent le test (leurs quatre compteurs nuls) (une liste de noms, dans n'importe quel ordre, comme `["no_sqrt"]`) ; dans ta copie : pourquoi c'est normal, et qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ? Pourquoi `ascending` n'est-elle attrapée que par une partie des essais ?
 
-La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls), avec quatre versions fausses cachées qui faussent chacune certaines propriétés à chaque essai, et avec `rtol = 1e-6` : chacune des quatre propriétés est exigée par au moins une version fausse. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_m28_sampling.py` des points répétés et une translation suivie d'un double centrage ; il attrape trois versions fausses, et ne peut pas voir une isométrie, puisque la matrice de Gram et les distances n'en dépendent pas ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls), avec quatre versions fausses cachées qui faussent chacune certaines propriétés à chaque essai, et avec `rtol = 1e-6` : chacune des quatre propriétés est exigée par au moins une version fausse. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_m28_sampling.py` des points répétés et une translation suivie d'un double centrage ; ce qu'il ne peut pas voir se déduit de ce dont la matrice de Gram et les distances ne dépendent pas ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
     todo='''def failed_checks_18(P, t, func, rtol=1e-9):
     """The set of the names of the checks that fail for the points P (the rows) and the translation t, among "shape",
     "gram", "distances" and "translation" (set() when all pass); func is the function tested."""
@@ -2152,11 +2205,11 @@ wbm.record("M28.18d", passing_18r,
                      "ascending n'est attrapée que par une partie des essais, mais elle est attrapée : elle ne passe pas":
                          passing_18r | {"ascending"}})''',
     after=[
-        ("todo_md", "**Dans ta copie** : a) pourquoi une tolérance relative à $s$ ; d) pourquoi deux versions fausses "
+        ("todo_md", "**Dans ta copie** : a) pourquoi une tolérance relative à $s$ ; d) pourquoi des versions fausses "
                     "passent, ce qui dans le dépôt vérifie ce qu'elles ont de faux, et pourquoi `ascending` n'est attrapée "
                     "que par une partie des essais."),
-        ("md", "**Après la vérification**, dans ta copie : quelle propriété faudrait-il ajouter pour attraper une carte "
-               "tournée, et pourquoi n'est-ce plus un test de la matrice de Gram ?"),
+        ("md", "**Après la vérification**, dans ta copie : quelle propriété faudrait-il ajouter pour attraper les versions "
+               "fausses qui passent, et pourquoi n'est-ce plus un test de la matrice de Gram ?"),
     ],
 )
 
@@ -2203,8 +2256,21 @@ def procrustes_error_19(Y, P):
     R, _ = orthogonal_procrustes(Yc, Pc)
     return float(np.linalg.norm(Yc @ R - Pc, axis=1).mean())'''
 
-CHECK_19 = '''HIDDEN_C19 = __HIDDEN_C19__   # three hidden regions of towns_19 (seed, number of towns), renumbered, turned and moved at each run
-rng_c19 = np.random.default_rng()       # a new numbering, rotation and translation at each run: no table of values can pass
+CHECK_19 = '''HIDDEN_C19 = __HIDDEN_C19__   # three hidden regions: the true positions (km) of their towns, and their missing pairs (indices in the upper triangle)
+rng_c19 = np.random.default_rng()       # at each run: new measurement errors, a new numbering, rotation and translation
+
+
+def measured_c19(P, missing, rng, noise=0.3):
+    """The (n, n) matrix of the distances between the towns P, measured with new gaussian errors of standard deviation
+    noise (km), np.nan for the missing pairs (their indices in the upper triangle)."""
+    D = squareform(pdist(P))
+    iu = np.triu_indices(len(P), 1)
+    E = rng.normal(0.0, noise, size=len(iu[0]))
+    D[iu] += E
+    D[(iu[1], iu[0])] += E
+    D[iu[0][missing], iu[1][missing]] = np.nan
+    D[iu[1][missing], iu[0][missing]] = np.nan
+    return D
 
 
 def map_why_c19(Y, n):
@@ -2221,6 +2287,9 @@ def error_why_c19(error, elapsed):
     """'' when the criterion is met, else the reason."""
     if elapsed >= 10:
         return f"trop lent ({fr(elapsed, 1)} s, il faut moins de 10 s)"
+    if error < 0.05:
+        return (f"{fr(error, 3)} km en moyenne après alignement : c'est impossible avec des distances mesurées à 0,3 km "
+                "près ; ta carte doit être calculée à partir de la matrice reçue")
     if error >= 5:
         return (f"{fr(error, 1)} km en moyenne après alignement : un seul double centrage d'une matrice complétée ne suffit "
                 "pas ; une carte donne des distances pour toutes les paires")
@@ -2252,8 +2321,10 @@ with checked("M28.19"):
                   "Ex M28.19a : ta réponse n'est pas l'erreur de la carte que rend ta fonction maintenant, "
                   "procrustes_error_19(map_from_partial_distances_19(D_19), P_19) : exécute à nouveau ta cellule")
     maps_c19 = [as_floats(map_c19)]
-    for k_c19, (seed_c19, n_c19) in enumerate(HIDDEN_C19, start=1):
-        P_c19, D_c19 = towns_19(seed_c19, n_c19)
+    for k_c19, region_c19 in enumerate(HIDDEN_C19, start=1):
+        P_c19 = np.array(region_c19["towns"], dtype=float)
+        n_c19 = len(P_c19)
+        D_c19 = measured_c19(P_c19, region_c19["missing"], rng_c19)
         order_c19 = rng_c19.permutation(n_c19)
         angle_c19 = rng_c19.uniform(0, 2 * np.pi)
         turn_c19 = np.array([[np.cos(angle_c19), -np.sin(angle_c19)], [np.sin(angle_c19), np.cos(angle_c19)]])
@@ -2281,7 +2352,7 @@ NOTE_19 = (r"a) Environ 0,176 km avec la méthode ci-dessous ; b) environ 14,7 k
            r"Elle arrive à l'ordre de grandeur de l'erreur de mesure, en quelques centièmes de seconde.")
 
 M28_19 = Ex(
-    "M28.19", "🏆", 3, 30, "Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins de 1 km "
+    "M28.19", "🏆", 3, 45, "Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins de 1 km "
     "en moyenne après alignement",
     "retrouver une carte à partir de distances incomplètes et bruitées, en itérant le positionnement multidimensionnel "
     "classique, et la juger après alignement.", "fiche §2 ; M12d ; Ex M28.2, M28.13 et M28.17", tracks="C",
@@ -2290,9 +2361,9 @@ M28_19 = Ex(
 
 Écris `map_from_partial_distances_19(D)`, qui reçoit une telle matrice ($n$ villes) et rend une carte de forme $(n, 2)$. Tout NumPy et SciPy sont permis, et ta `points_from_gram` ; la matrice doublement centrée d'une matrice complétée a en général des valeurs propres négatives, que ta `points_from_gram` refuse : remplace-la d'abord par sa projection sur les matrices semi-définies positives (ses valeurs propres négatives mises à 0, par `np.linalg.eigh`).
 
-**Critère de réussite :** une erreur après alignement de moins de 1 km en moyenne pour la région du notebook, et pour trois régions cachées de la vérification, de 26, 30 et 34 villes, dont les villes sont renumérotées, tournées et déplacées à chaque exécution, en moins de 10 secondes par région. La vérification recalcule aussi ton erreur a) avec ta fonction, et refuse une fonction qui rend la même carte pour deux régions. Relève :
+**Critère de réussite :** une erreur après alignement de moins de 1 km en moyenne pour la région du notebook, et pour trois régions cachées de la vérification, de 26, 30 et 34 villes, dont les villes sont renumérotées, tournées et déplacées à chaque exécution, en moins de 10 secondes par région. La vérification recalcule aussi ton erreur a) avec ta fonction, et refuse une fonction qui rend la même carte pour deux régions, ou une erreur impossible avec des distances mesurées à 0,3 km près (moins de 0,05 km). Relève :
 - a) ton erreur après alignement pour la région du notebook (un nombre, tel que calculé, en km ; 3 décimales dans ta copie) ;
-- b) l'erreur qu'on obtient en remplaçant chaque distance manquante par la moyenne des distances connues, puis en faisant un seul positionnement multidimensionnel classique (un nombre, tel que calculé, en km ; 1 décimale dans ta copie).
+- b) l'erreur qu'on obtient en remplaçant chaque distance manquante par la moyenne des distances connues (hors de la diagonale), puis en faisant un seul positionnement multidimensionnel classique (un nombre, tel que calculé, en km ; 1 décimale dans ta copie).
 
 Point de départ : un seul double centrage d'une matrice complétée au hasard ne suffit pas, mais une carte donne des distances pour toutes les paires.""",
     todo='''def map_from_partial_distances_19(D):
@@ -2304,7 +2375,7 @@ Point de départ : un seul double centrage d'une matrice complétée au hasard n
 answer_M28_19a = answer_M28_19b = ...
 with wbm.attempt("M28.19"):          # your function: ⏳ while it is not written
     answer_M28_19a = ...  # a) a number, as computed: procrustes_error_19(your map of D_19, P_19), in km
-    answer_M28_19b = ...  # b) a number, as computed: the error (km) of a single classical scaling after filling each missing distance with the mean of the known ones''',
+    answer_M28_19b = ...  # b) a number, as computed: the error (km) of a single classical scaling after filling each missing distance with the mean of the known ones (off the diagonal)''',
     check="check_answer(\"M28.19b\", answer_M28_19b)\n\n" + CHECK_19,
     solution='''def psd_19(G):
     """The projection of a symmetric matrix on the positive semi-definite matrices: its negative eigenvalues set to 0."""
@@ -2540,7 +2611,7 @@ def build_constants() -> dict:
     # M28.15: a hidden start; the 1000 f run is not among the hidden calls (its iterates would give the prediction a))
     runs = [([0.12, 0.94], 1.0, False, 6), ([0.12, 0.94], 1.0, True, 6), ([0.12, 0.94], 3.0, False, 6),
             ([0.95, 0.05], 12.0, False, 6)]         # the last one: the projection acts, and the iterates still converge
-    hidden = [(x0, s, nz, n, _ascent_15(np, x0, s, nz, n).tolist()) for x0, s, nz, n in runs]
+    hidden = [(x0, s, nz, n, letter) for (x0, s, nz, n), letter in zip(runs, "ghij")]   # their iterates: M28.15g to j
     free = _ascent_15(np, [0.95, 0.05], 12.0, False, 6, clip=False)
     assert np.any(free < 0) or np.any(free > 1)
     out["__HIDDEN_C15__"] = literal(hidden)
@@ -2554,12 +2625,22 @@ def build_constants() -> dict:
                                                                np.cos(2 * np.pi * J16 / 3), (-1.0) ** J16,
                                                                (-1.0) ** (I16 + J16)])}, 0.05, 10)
     assert all(not np.allclose(hidden[k], visible[k]) for k in hidden)
+    for k in hidden:                           # no hidden value is a value of a) to c)
+        for v in hidden[k]:
+            assert min(abs(v - w) for w in visible[k]) > 1e-6, (k, v)
     out["__HIDDEN_C16__"] = literal({"eta": 0.04, "n_steps": 6, **hidden})
 
     # M28.17: hidden clouds (seed 6627), hidden ascents, hidden sequences
     rng = np.random.default_rng(6627)
     maps = [{"points": np.round(rng.uniform(-10, 10, size=(7, 2)), 2).tolist(), "dim": 2},
             {"points": np.round(rng.uniform(-6, 6, size=(6, 3)), 2).tolist(), "dim": 3}]
+    maps.insert(1, {"points": maps[0]["points"], "dim": 3})       # dim larger than the rank: a column of zeros
+    for case in maps:                          # the fix gives a map of shape (n, dim) with the distances of D
+        P = np.array(case["points"])
+        D = squareform(pdist(P))
+        J = np.eye(len(P)) - 1.0 / len(P)
+        X = ref.points_from_gram(-0.5 * J @ D ** 2 @ J, case["dim"])
+        assert X.shape == (len(P), case["dim"]) and np.allclose(squareform(pdist(X)), D, atol=1e-7)
     for case in maps:                          # the bug is seen: wrong distances, or no Gram matrix at all
         P = np.array(case["points"])
         D = squareform(pdist(P))
@@ -2586,11 +2667,17 @@ def build_constants() -> dict:
     cycles_src = re.search(r"CYCLES_C17 = \{.*?\}", CHECK_17, re.S).group(0)
     namespace = {}
     exec(cycles_src, namespace)
+    exec(re.search(r"def is_cycle_c17\(.*?\n\n\n", CHECK_17, re.S).group(0), namespace)
+    is_cycle = namespace["is_cycle_c17"]
     cycles = []
-    for name, x0 in (("squares", 3), ("affine", 2), ("automaton", (1, 3))):
-        mu, lam = _rho(namespace["CYCLES_C17"][name], x0)
-        assert mu >= 2 and lam >= 2 and mu != lam, (name, mu, lam)
-        cycles.append({"map": name, "x0": x0, "mu": mu, "lam": lam})
+    for name, x0 in (("squares", 3), ("affine", 2), ("automaton", (1, 3)), ("bijection", 0)):
+        f = namespace["CYCLES_C17"][name]
+        mu, lam = _rho(f, x0)
+        assert (mu, lam) == (0, 8) if name == "bijection" else (mu >= 2 and lam >= 2 and mu != lam), (name, mu, lam)
+        assert is_cycle(f, x0, mu, lam), name          # the check accepts the pair, and none of the classic wrong ones
+        for wrong in ((mu, mu + lam), (lam, mu), (mu + 1, lam), (mu - 1, lam), (mu, lam + 1), (mu, 2 * lam), (mu + 1, lam - 1)):
+            assert wrong == (mu, lam) or not is_cycle(f, x0, *wrong), (name, wrong)
+        cycles.append({"map": name, "x0": x0})        # the pair is not written: the check tests it by its properties
     out["__CASES_C17__"] = literal({"maps": maps, "emitters": emitters, "cycles": cycles})
 
     # M28.18: two hidden starts on which each hidden wrong version breaks its properties at every trial, and the reference
@@ -2633,14 +2720,24 @@ def build_constants() -> dict:
         R, _ = orthogonal_procrustes(Yc, Pc)
         return float(np.linalg.norm(Yc @ R - Pc, axis=1).mean())
 
-    order_rng = np.random.default_rng(6601)
-    for seed, n in hidden:
+    check_ns = {"np": np, "squareform": squareform, "pdist": pdist}
+    exec(re.search(r"def measured_c19\(.*?\n\n\n", CHECK_19, re.S).group(0), check_ns)
+    measured = check_ns["measured_c19"]
+    test_rng = np.random.default_rng(6601)
+    regions, errors = [], []
+    for seed, n in hidden:                     # the regions are written as data (no seed in the cell)
         P, D = namespace["towns_19"](seed, n)
-        assert np.nanmin(D[np.triu_indices(n, 1)]) > 1.0
-        for _ in range(3):
-            order = order_rng.permutation(n)
-            assert error(solve(D[np.ix_(order, order)]), P[order]) < 0.4, (seed, n)
-    out["__HIDDEN_C19__"] = repr(hidden)
+        iu = np.triu_indices(n, 1)
+        region = {"towns": np.round(P, 2).tolist(), "missing": np.flatnonzero(np.isnan(D[iu])).tolist()}
+        P = np.array(region["towns"])
+        assert squareform(pdist(P))[iu].min() > 2.0
+        for _ in range(25):                    # new measurement errors and a new numbering, as in the check
+            D = measured(P, region["missing"], test_rng)
+            order = test_rng.permutation(n)
+            errors.append(error(solve(D[np.ix_(order, order)]), P[order]))
+        regions.append(region)
+    assert 0.05 < min(errors) and max(errors) < 0.4, (min(errors), max(errors))
+    out["__HIDDEN_C19__"] = literal(regions)
     return out
 
 

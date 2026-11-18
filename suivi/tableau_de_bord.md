@@ -2111,3 +2111,37 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] M27.29 🏆 Défi : la gaussienne la plus proche d'une loi exponentielle au sens de W₂, et cette distance, à 10⁻³ près ★★★ 45 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (20 cartes)
 <!-- wbm:end M27 -->
+
+<!-- wbm:section M28 -->
+## M28 · Matrice de Gram, montée sur l'entrée et lois tronquées ⏱️ 13,6 h
+
+- [ ] M28.Q1 🧠 Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y lit ★ 5 min
+- [ ] M28.Q2 🧠 Monter sur l'entrée : pas normalisé, projection sur un pavé, coordonnées gelées, point d'arrivée ★ 6 min
+- [ ] M28.Q3 🧠 Variation totale et fréquences spatiales : quel motif coûte le plus, lequel traverse un flou ? ★ 6 min
+- [ ] M28.Q4 🧠 Température, top-k et top-p : ce qui change l'ensemble gardé, ce qui ne change que les probabilités ★ 4 min
+- [ ] M28.Q5 🧠 Une itération sur un ensemble fini : prépériode, période, et ce qui empêche de boucler ★ 5 min
+- [ ] M28.R1 🔁 Le quotient de Rayleigh et la méthode de la puissance (M12c) ★ 8 min
+- [ ] M28.R2 🔁 Le laplacien discret et la moyenne mobile d'un signal (M21) ★ 7 min
+- [ ] M28.R3 🔁 La loi de Boltzmann et ses limites en température (M17) ★ 5 min
+- [ ] M28.1 ✏️ Quatre points du plan : leur matrice de Gram 4 × 4, leur matrice des moments d'ordre 2, et les distances lues dans la Gram ★★ 30 min
+- [ ] M28.2 ✏️ Quatre villes aux sommets d'un losange : le double centrage des carrés des distances, puis une carte à une isométrie près ★★ 35 min
+- [ ] M28.3 ✏️ Régler quatre émetteurs entre 0 et 1 : le maximum d'une réponse linéaire sur la boule et sur le pavé, d'une énergie quadratique sur la sphère, et deux pas de montée projetée ★★ 30 min
+- [ ] M28.4 ✏️ Les températures le long d'une barre : la variation totale xᵀLx, son gradient 2Lx, un pas de lissage, et une marche étalée sur n pas, au carré ou en valeur absolue ★★ 30 min
+- [ ] M28.5 ✏️ Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation totale rapportée à l'énergie 4 sin²(ω/2), et gain d'une moyenne mobile ★★ 30 min
+- [ ] M28.6 ✏️ La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus probables, garder le plus petit ensemble de masse donnée, et le coût de chaque troncature ★★ 35 min
+- [ ] M28.7 ✏️ Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la main, et la borne du principe des tiroirs ★ 20 min
+- [ ] M28.8 ∂ Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une isométrie ★★★ 45 min (complet)
+- [ ] M28.9 ∂ Le maximum d'une fonction convexe sur un pavé est atteint en un sommet ★★ 20 min (complet)
+- [ ] M28.10 ∂ Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit ensemble de masse au moins p, et la loi tronquée est à −ln P(S) de la loi de départ en divergence KL ★★ 30 min
+- [ ] M28.11 🔗 Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la puissance 1/T, la même loi ; et le même top-k ★ 25 min
+- [ ] M28.12 🗣️ Expliquer avec une structure de barres rigides ce que la matrice de Gram d'une famille de vecteurs fixe, et ce qu'elle laisse libre ★ 10 min
+- [ ] M28.E1 💼 « Que perd-on, en divergence KL, à ne garder que les issues les plus probables d'une loi avant de tirer ? » ★ 10 min (complet)
+- [ ] M28.13 🔨 Une configuration de points de matrice de Gram donnée, par le théorème spectral ★★ 40 min (complet)
+- [ ] M28.14 🔨 Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse donnée ★★ 35 min
+- [ ] M28.15 🔮 Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est multipliée par 1 000, puis vérifier ★ 20 min
+- [ ] M28.16 🎨 Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et ce qu'en laissent un flou 3 × 3 et dix pas de descente sur la variation totale ★ 40 min
+- [ ] M28.17 🐛 Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs carrés, une montée qui coupe le gradient au lieu du point, une prépériode comptée dans la période ★ 25 min
+- [ ] M28.18 🛠️ Un test de propriété : la configuration rendue redonne la matrice de Gram et les distances, pour des points tirés au hasard ★ 30 min (complet)
+- [ ] M28.19 🏆 Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins de 1 km en moyenne après alignement ★★★ 45 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (16 cartes)
+<!-- wbm:end M28 -->
