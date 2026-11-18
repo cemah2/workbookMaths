@@ -1307,7 +1307,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "M28", "dir": "m28_gram_echantillonnage", "hours": 9.8, "generation_sessions": 1, "mml": [],
+        "id": "M28", "dir": "m28_gram_echantillonnage", "hours": 13.6, "generation_sessions": 1, "mml": [],
         "summary": "La matrice de Gram d'une famille de vecteurs, lue dans les deux sens (XXᵀ et XᵀX), divisée par le "
                    "nombre d'échantillons pour devenir une matrice de moments d'ordre 2, et ce qu'elle coûte ; ce qu'elle "
                    "détermine : toutes les longueurs et tous les angles, donc les distances, et la configuration à une "
@@ -1541,7 +1541,8 @@ CHAPTERS = [
                  "fréquences spatiales, la réciproque de la matrice de Gram et des durées réalistes (relectures de M21 et "
                  "M22) : la composition d'un chapitre court est gardée (5 quiz, 7 ✏️ et 3 ∂, 2 🔨, un 🔮 et un 🎨 sans "
                  "🔬, 16 flashcards). Parcours essentiel : les ∂ de la Gram et de la montée (M28.8, M28.9), le 💼, le "
-                 "🔨 de la Gram, son 🛠️ et le 🏆 hors parcours ; ∂ M28.10 (le top-p) y est.",
+                 "🔨 de la Gram, son 🛠️ et le 🏆 hors parcours ; ∂ M28.10 (le top-p) y est. "
+                 "**Durée** (session 67) : 13,6 h au lieu de 9,8 h (essentiel 10,4 h ; lecture de la fiche 150 min au lieu de 100 ; quatre allègements, M28.2 e), M28.4 d), M28.14 d) et la boucle du 🛠️ M28.18 fournie ; 24 durées recalées après la re-résolution à l'aveugle, l'auteur des exercices et l'apprenant simulé). Titres de ✏️ M28.6 (les trois plus probables) et de ∂ M28.10 (un plus petit ensemble) changés en session 67.",
         "exercises": [
             ("M28.Q1", "🧠", 1, 5, "Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y "
              "lit", "§1 §2", "E"),
