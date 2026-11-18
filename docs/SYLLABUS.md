@@ -65,7 +65,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [M25b](#m25b) | Variables latentes et ELBO | 25 | §8.4, §8.5, §10.7, ch. 11 | 21,1 h | ✅ exercices | 2 |
 | [M26](#m26) | Chaînes de Markov et équation de Bellman | 26 | — | 17,9 h | ✅ exercices | 1 |
 | [M27](#m27) | Jeux et distances entre lois | 27 | §7.2 | 18,7 h | ✅ exercices | 1 |
-| [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 10,6 h | ✅ exercices | 1 |
+| [M28](#m28) | Matrice de Gram, montée sur l'entrée et lois tronquées | 28 | — | 12,2 h | ✅ exercices | 1 |
 | [CP6](#cp6) | Examen blanc de la partie VI | — | — | 3,1 h | ✅ exercices | 1 |
 | [MB2](#mb2) | Cooccurrences, PMI et embeddings | B2 | — | ≈ 8 h (estimé) | plan | 1 |
 | [MB3](#mb3) | Rotations et attention | B3 | §3.9 | ≈ 10 h (estimé) | plan | 1 |
@@ -85,7 +85,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | III · ML classique | 8 | 321 | 107,5 h | 71,2 h |
 | IV · Réseaux | 6 | 182 | 58,8 h | 41,9 h |
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
-| VI · Génératif et RL | 6 | 203 | 91,7 h | 69,0 h |
+| VI · Génératif et RL | 6 | 203 | 93,3 h | 70,2 h |
 | VII · Bonus | 6 | — | ≈ 56 h (estimé) | à détailler |
 | fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
 
@@ -3774,7 +3774,7 @@ Les jeux à deux joueurs et les distances entre lois. D'abord les jeux à somme 
 
 La matrice de Gram d'une famille de vecteurs, lue dans les deux sens (XXᵀ et XᵀX), divisée par le nombre d'échantillons pour devenir une matrice de moments d'ordre 2, et ce qu'elle coûte ; ce qu'elle détermine : toutes les longueurs et tous les angles, donc les distances, et la configuration à une isométrie près (double centrage, positions retrouvées à partir de distances) ; optimiser l'entrée d'une fonction à paramètres fixés : montée de gradient, pas normalisé, projection sur un pavé, coordonnées gelées, et ce que la montée trouve (un sommet du pavé, un vecteur propre) ; la variation totale d'une grille, forme quadratique d'un laplacien, son gradient et le lissage qu'elle produit, et les fréquences spatiales (période d'un motif, fréquence de Nyquist, gain d'un flou) ; les lois catégorielles modifiées : température sur des probabilités, top-k et top-p comme lois conditionnelles, le plus petit ensemble de masse donnée et le coût d'une troncature ; enfin une itération déterministe sur un ensemble fini, qui finit toujours par boucler. workbookIA 28 applique ces outils à la visualisation des réseaux, au transfert de style et à la génération de texte.
 
-**Temps** : 10,6 h en parcours complet, 8,5 h en parcours essentiel (lecture 150 min, 16 flashcards).
+**Temps** : 12,2 h en parcours complet, 9,8 h en parcours essentiel (lecture 150 min, 16 flashcards).
 
 **Objectifs**
 
@@ -3806,25 +3806,25 @@ La matrice de Gram d'une famille de vecteurs, lue dans les deux sens (XXᵀ et X
 
 | ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
 |---|---|---|---|---|---|---|---|---|
-| M28.Q1 | 🧠 | Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y lit | ★ | 4 | §1 §2 | C, E | manuel | — |
-| M28.Q2 | 🧠 | Monter sur l'entrée : pas normalisé, projection sur un pavé, coordonnées gelées, point d'arrivée | ★ | 4 | §3 | C, E | manuel | — |
-| M28.Q3 | 🧠 | Variation totale et fréquences spatiales : quel motif coûte le plus, lequel traverse un flou ? | ★ | 4 | §4 | C, E | manuel | — |
+| M28.Q1 | 🧠 | Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y lit | ★ | 5 | §1 §2 | C, E | manuel | — |
+| M28.Q2 | 🧠 | Monter sur l'entrée : pas normalisé, projection sur un pavé, coordonnées gelées, point d'arrivée | ★ | 6 | §3 | C, E | manuel | — |
+| M28.Q3 | 🧠 | Variation totale et fréquences spatiales : quel motif coûte le plus, lequel traverse un flou ? | ★ | 6 | §4 | C, E | manuel | — |
 | M28.Q4 | 🧠 | Température, top-k et top-p : ce qui change l'ensemble gardé, ce qui ne change que les probabilités | ★ | 4 | §5 | C, E | manuel | — |
-| M28.Q5 | 🧠 | Une itération sur un ensemble fini : prépériode, période, et ce qui empêche de boucler | ★ | 4 | §6 | C, E | manuel | — |
-| M28.R1 | 🔁 | Le quotient de Rayleigh et la méthode de la puissance (M12c) | ★ | 5 | §3 | C, E | manuel | — |
-| M28.R2 | 🔁 | Le laplacien discret et la moyenne mobile d'un signal (M21) | ★ | 5 | §4 | C, E | manuel | — |
+| M28.Q5 | 🧠 | Une itération sur un ensemble fini : prépériode, période, et ce qui empêche de boucler | ★ | 5 | §6 | C, E | manuel | — |
+| M28.R1 | 🔁 | Le quotient de Rayleigh et la méthode de la puissance (M12c) | ★ | 8 | §3 | C, E | manuel | — |
+| M28.R2 | 🔁 | Le laplacien discret et la moyenne mobile d'un signal (M21) | ★ | 7 | §4 | C, E | manuel | — |
 | M28.R3 | 🔁 | La loi de Boltzmann et ses limites en température (M17) | ★ | 5 | §5 | C, E | manuel | — |
-| M28.1 | ✏️ | Quatre points du plan : leur matrice de Gram 4 × 4, leur matrice des moments d'ordre 2, et les distances lues dans la Gram | ★★ | 20 | §1 | C, E | wbm | — |
-| M28.2 | ✏️ | Quatre villes aux sommets d'un losange : le double centrage des carrés des distances, puis une carte à une isométrie près | ★★ | 25 | §2 | C, E | wbm | — |
-| M28.3 | ✏️ | Régler quatre émetteurs entre 0 et 1 : le maximum d'une réponse linéaire sur la boule et sur le pavé, d'une énergie quadratique sur la sphère, et deux pas de montée projetée | ★★ | 25 | §3 | C, E | wbm | — |
-| M28.4 | ✏️ | Les températures le long d'une barre : la variation totale xᵀLx, son gradient 2Lx, un pas de lissage, et une marche étalée sur n pas, au carré ou en valeur absolue | ★★ | 25 | §4 | C, E | wbm | — |
-| M28.5 | ✏️ | Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation totale rapportée à l'énergie 4 sin²(ω/2), et gain d'une moyenne mobile | ★★ | 25 | §4 | C, E | wbm | — |
-| M28.6 | ✏️ | La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus probables, garder le plus petit ensemble de masse donnée, et le coût de chaque troncature | ★★ | 25 | §5 | C, E | wbm | — |
-| M28.7 | ✏️ | Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la main, et la borne du principe des tiroirs | ★ | 15 | §6 | C, E | wbm | — |
-| M28.8 | ∂ | Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une isométrie | ★★★ | 30 | §2 | C | manuel | — |
-| M28.9 | ∂ | Le maximum d'une fonction convexe sur un pavé est atteint en un sommet | ★★ | 15 | §3 | C | manuel | — |
-| M28.10 | ∂ | Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit ensemble de masse au moins p, et la loi tronquée est à −ln P(S) de la loi de départ en divergence KL | ★★ | 25 | §5 | C, E | manuel | — |
-| M28.11 | 🔗 | Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la puissance 1/T, la même loi ; et le même top-k | ★ | 15 | §5 | C, E | wbm | — |
+| M28.1 | ✏️ | Quatre points du plan : leur matrice de Gram 4 × 4, leur matrice des moments d'ordre 2, et les distances lues dans la Gram | ★★ | 30 | §1 | C, E | wbm | — |
+| M28.2 | ✏️ | Quatre villes aux sommets d'un losange : le double centrage des carrés des distances, puis une carte à une isométrie près | ★★ | 35 | §2 | C, E | wbm | — |
+| M28.3 | ✏️ | Régler quatre émetteurs entre 0 et 1 : le maximum d'une réponse linéaire sur la boule et sur le pavé, d'une énergie quadratique sur la sphère, et deux pas de montée projetée | ★★ | 30 | §3 | C, E | wbm | — |
+| M28.4 | ✏️ | Les températures le long d'une barre : la variation totale xᵀLx, son gradient 2Lx, un pas de lissage, et une marche étalée sur n pas, au carré ou en valeur absolue | ★★ | 30 | §4 | C, E | wbm | — |
+| M28.5 | ✏️ | Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation totale rapportée à l'énergie 4 sin²(ω/2), et gain d'une moyenne mobile | ★★ | 30 | §4 | C, E | wbm | — |
+| M28.6 | ✏️ | La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus probables, garder le plus petit ensemble de masse donnée, et le coût de chaque troncature | ★★ | 35 | §5 | C, E | wbm | — |
+| M28.7 | ✏️ | Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la main, et la borne du principe des tiroirs | ★ | 20 | §6 | C, E | wbm | — |
+| M28.8 | ∂ | Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une isométrie | ★★★ | 45 | §2 | C | manuel | — |
+| M28.9 | ∂ | Le maximum d'une fonction convexe sur un pavé est atteint en un sommet | ★★ | 20 | §3 | C | manuel | — |
+| M28.10 | ∂ | Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit ensemble de masse au moins p, et la loi tronquée est à −ln P(S) de la loi de départ en divergence KL | ★★ | 30 | §5 | C, E | manuel | — |
+| M28.11 | 🔗 | Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la puissance 1/T, la même loi ; et le même top-k | ★ | 25 | §5 | C, E | wbm | — |
 | M28.12 | 🗣️ | Expliquer avec une structure de barres rigides ce que la matrice de Gram d'une famille de vecteurs fixe, et ce qu'elle laisse libre | ★ | 10 | §2 | C, E | manuel | — |
 | M28.E1 | 💼 | « Que perd-on, en divergence KL, à ne garder que les issues les plus probables d'une loi avant de tirer ? » | ★ | 10 | §5 | C | manuel | — |
 | M28.13 | 🔨 | Une configuration de points de matrice de Gram donnée, par le théorème spectral · `points_from_gram` | ★★ | 25 | §2 | C | pytest | — |

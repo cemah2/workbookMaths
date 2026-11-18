@@ -1543,39 +1543,39 @@ CHAPTERS = [
                  "🔬, 16 flashcards). Parcours essentiel : les ∂ de la Gram et de la montée (M28.8, M28.9), le 💼, le "
                  "🔨 de la Gram, son 🛠️ et le 🏆 hors parcours ; ∂ M28.10 (le top-p) y est.",
         "exercises": [
-            ("M28.Q1", "🧠", 1, 4, "Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y "
+            ("M28.Q1", "🧠", 1, 5, "Matrice de Gram : XXᵀ ou XᵀX, laquelle former, sa diagonale, et les distances qu'on y "
              "lit", "§1 §2", "E"),
-            ("M28.Q2", "🧠", 1, 4, "Monter sur l'entrée : pas normalisé, projection sur un pavé, coordonnées gelées, point "
+            ("M28.Q2", "🧠", 1, 6, "Monter sur l'entrée : pas normalisé, projection sur un pavé, coordonnées gelées, point "
              "d'arrivée", "§3", "E"),
-            ("M28.Q3", "🧠", 1, 4, "Variation totale et fréquences spatiales : quel motif coûte le plus, lequel traverse "
+            ("M28.Q3", "🧠", 1, 6, "Variation totale et fréquences spatiales : quel motif coûte le plus, lequel traverse "
              "un flou ?", "§4", "E"),
             ("M28.Q4", "🧠", 1, 4, "Température, top-k et top-p : ce qui change l'ensemble gardé, ce qui ne change que les "
              "probabilités", "§5", "E"),
-            ("M28.Q5", "🧠", 1, 4, "Une itération sur un ensemble fini : prépériode, période, et ce qui empêche de boucler",
+            ("M28.Q5", "🧠", 1, 5, "Une itération sur un ensemble fini : prépériode, période, et ce qui empêche de boucler",
              "§6", "E"),
-            ("M28.R1", "🔁", 1, 5, "Le quotient de Rayleigh et la méthode de la puissance (M12c)", "§3", "E"),
-            ("M28.R2", "🔁", 1, 5, "Le laplacien discret et la moyenne mobile d'un signal (M21)", "§4", "E"),
+            ("M28.R1", "🔁", 1, 8, "Le quotient de Rayleigh et la méthode de la puissance (M12c)", "§3", "E"),
+            ("M28.R2", "🔁", 1, 7, "Le laplacien discret et la moyenne mobile d'un signal (M21)", "§4", "E"),
             ("M28.R3", "🔁", 1, 5, "La loi de Boltzmann et ses limites en température (M17)", "§5", "E"),
-            ("M28.1", "✏️", 2, 20, "Quatre points du plan : leur matrice de Gram 4 × 4, leur matrice des moments d'ordre "
+            ("M28.1", "✏️", 2, 30, "Quatre points du plan : leur matrice de Gram 4 × 4, leur matrice des moments d'ordre "
              "2, et les distances lues dans la Gram", "§1", "E"),
-            ("M28.2", "✏️", 2, 25, "Quatre villes aux sommets d'un losange : le double centrage des carrés des distances, "
+            ("M28.2", "✏️", 2, 35, "Quatre villes aux sommets d'un losange : le double centrage des carrés des distances, "
              "puis une carte à une isométrie près", "§2", "E"),
-            ("M28.3", "✏️", 2, 25, "Régler quatre émetteurs entre 0 et 1 : le maximum d'une réponse linéaire sur la boule "
+            ("M28.3", "✏️", 2, 30, "Régler quatre émetteurs entre 0 et 1 : le maximum d'une réponse linéaire sur la boule "
              "et sur le pavé, d'une énergie quadratique sur la sphère, et deux pas de montée projetée", "§3", "E"),
-            ("M28.4", "✏️", 2, 25, "Les températures le long d'une barre : la variation totale xᵀLx, son gradient 2Lx, un "
+            ("M28.4", "✏️", 2, 30, "Les températures le long d'une barre : la variation totale xᵀLx, son gradient 2Lx, un "
              "pas de lissage, et une marche étalée sur n pas, au carré ou en valeur absolue", "§4", "E"),
-            ("M28.5", "✏️", 2, 25, "Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation "
+            ("M28.5", "✏️", 2, 30, "Des étoffes rayées : période, fréquence, fréquence de Nyquist, repliement, variation "
              "totale rapportée à l'énergie 4 sin²(ω/2), et gain d'une moyenne mobile", "§4", "E"),
-            ("M28.6", "✏️", 2, 25, "La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus "
+            ("M28.6", "✏️", 2, 35, "La prévision d'un météorologue en six catégories : la refroidir, garder les trois plus "
              "probables, garder le plus petit ensemble de masse donnée, et le coût de chaque troncature", "§5", "E"),
-            ("M28.7", "✏️", 1, 15, "Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la "
+            ("M28.7", "✏️", 1, 20, "Les décimales de a/n et l'itération x ↦ x² + c modulo n : prépériode et période à la "
              "main, et la borne du principe des tiroirs", "§6", "E"),
-            ("M28.8", "∂", 3, 30, "Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une "
+            ("M28.8", "∂", 3, 45, "Deux familles de vecteurs de même matrice de Gram se déduisent l'une de l'autre par une "
              "isométrie", "§2", ""),
-            ("M28.9", "∂", 2, 15, "Le maximum d'une fonction convexe sur un pavé est atteint en un sommet", "§3", ""),
-            ("M28.10", "∂", 2, 25, "Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit "
+            ("M28.9", "∂", 2, 20, "Le maximum d'une fonction convexe sur un pavé est atteint en un sommet", "§3", ""),
+            ("M28.10", "∂", 2, 30, "Les issues les plus probables, prises jusqu'à atteindre la masse p, forment un plus petit "
              "ensemble de masse au moins p, et la loi tronquée est à −ln P(S) de la loi de départ en divergence KL", "§5", "E"),
-            ("M28.11", "🔗", 1, 15, "Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la "
+            ("M28.11", "🔗", 1, 25, "Pont : diviser des scores par T avant la softmax, ou élever les probabilités à la "
              "puissance 1/T, la même loi ; et le même top-k", "§5", "E"),
             ("M28.12", "🗣️", 1, 10, "Expliquer avec une structure de barres rigides ce que la matrice de Gram d'une "
              "famille de vecteurs fixe, et ce qu'elle laisse libre", "§2", "E"),
