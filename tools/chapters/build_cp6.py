@@ -27,27 +27,31 @@ with a decimal comma goes to wbm as a text (wbm reads it); a list with semicolon
 that mixes « 4,1 » and « , » gets a message; the fractions and the letters go to wbm as texts. A line pasted from
 the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last « = » or
 « : »), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
-decides, as in CP5. 45 checks; besides the wrong values of s68/reponses_cp6.md, the simulated candidates added the
-zero eigenvalue listed in CP6.6 c), the value of the end appended in CP6.4 c) (both got wbm's « des virgules
-décimales ? » for a list of integers one element too long) and the hint for a fractional number of days in CP6.7 f).
+decides, as in CP5. The map of CP6.6 d) is a matrix of one column: [[5], [1], [-6]], and also the flat list of its
+values, (5 ; 1 ; -6) or [5, 1, -6], are read as such (COLUMNS). 44 checks; besides the wrong values of
+s68/reponses_cp6.md (version 2), the simulated candidates added the hint for a fractional number of days in CP6.7 f).
+The letters of CP6.9 a) get a message that depends on their number only (4, 5 or 6 letters among A to H), never one
+that tells which letters are right.
 
 Decimals, as the column « Réponse attendue » of the statement says: « valeur exacte » (a decimal with few decimals)
 is recorded with decimals=6, the convention of the repository for an exact value, so that the value is accepted as
 it is and a rounded value is told « donne la valeur exacte », never « l'énoncé en demande 4 »; « 4 décimales »,
 « 3 décimales » and « 2 décimales » are recorded with those decimals; the two lists « de 2 nombres » of eigenvalues
-(CP6.6 c, CP6.7 a), whose statement gives no rounding, are exact (decimals=6), never refused for not being integers;
+(CP6.6 c, CP6.7 a) are exact (decimals=6), never refused for not being integers;
 the answers « entier(s) » are whole numbers. The order counts in every list but the letters of CP6.9 a) (« dans
 n'importe quel ordre »); the fractions are asked irreducible because the statement says so. A wrong value that a
 learner writes rounded (a repeating or irrational wrong value where the statement asks for an exact value) is
 recorded exact and rounded to 4, 3 and 2 decimals (as_typed), so that a mistake of substance gets its message, never
 a message about rounding (the slip of CP5.5 h); wbm looks the mistakes up before any rounding diagnosis.
 
-The data are those of 01_examen_sujet.md, session 68 (step 1): a calf, μ = (40, 55), Σ = [[16, 12], [12, 13]]
-(CP6.1); two pollutants and a slerp of u = (2, 2, 1), v = (0, 3, 0) (CP6.2); delivery times 22, 27, 36 h from two
-warehouses, σ² = 16 (CP6.3); vine plots, a row that ends, r = (0, 22, 6), γ = 1 (CP6.4); a poacher and a warden, and
-two nurseries (CP6.5); three buoys, AB² = 82, AC² = 52, BC² = 34 (CP6.6); two solar farms, Σ_B = 4 Σ_A (CP6.7);
-the letters ACEGH (CP6.9 a); a charging station with three states, top-p m = 0.68 (CP6.10). They were chosen and
-checked against both repositories by the author of the statement. Seeds 6801 to 6803 (the Monte Carlo checks).
+The data are those of 01_examen_sujet.md, session 68 (step 2, after the reviews): a calf, μ = (40, 55),
+Σ = [[16, 12], [12, 13]], ε = (1, −2.5) (CP6.1); two pollutants and a slerp of u = (2, 2, 1), v = (0, 3, 0) (CP6.2);
+germination times 22, 27, 36 h of seeds from two bags, σ² = 16 (CP6.3); vine plots, a row that ends,
+r = (0, 22, 6), γ = 1 (CP6.4); a poacher and a warden, and two nurseries (CP6.5); three aligned buoys, AB² = 16,
+AC² = 121, BC² = 49, a Gram matrix of rank 1 (CP6.6); two solar farms, Σ_A = [[12, 2], [2, 9]], Σ_B = 4 Σ_A, a bias of
+at most 4 % in f) (CP6.7); the letters ACEGH (CP6.9 a); a charging station with three states, top-p m = 0.68, whose
+total variation distance was removed: the old g) and h) are now f) and g) (CP6.10). They were chosen and checked
+against both repositories by the author of the statement. Seeds 6801 to 6803 (the Monte Carlo checks).
 """
 
 from __future__ import annotations
@@ -69,6 +73,7 @@ EXACT = "(exact values)"
 ONE_EXACT = "(exact value)"
 FRACTION = "an irreducible fraction, like 3/8"
 LETTERS = "the letters, in any order, like ABCDE"
+COLUMN = "a matrix with 3 rows and 1 column"
 
 PAPER_CONTEXT = r'''# The answers are computed from the numbers of the statement (01_examen_sujet.md), with NumPy and exact fractions
 import math
@@ -137,6 +142,14 @@ def fsolve(a, b):
     return [row[-1] for row in m]
 
 
+def fsqrt(q):
+    """The exact square root of a fraction that is a perfect square (25 -> 5)."""
+    q = Fraction(q)
+    num, den = math.isqrt(q.numerator), math.isqrt(q.denominator)
+    assert num * num == q.numerator and den * den == q.denominator, q
+    return Fraction(num, den)
+
+
 def as_typed(value, right, places=(4, 3, 2), decimals=6):
     """A wrong value as a learner may write it where the statement asks for an exact value: exact, then rounded to 4,
     3 and 2 decimals, without the roundings that are the same value at the recorded decimals, or the right answer.
@@ -161,7 +174,7 @@ def same_message(message, values):
 
 # CP6.1: the birth mass x1 and the mass at one month x2 of a calf (kg)
 MU_1, S_1 = [fr(40), fr(55)], fmat([[16, 12], [12, 13]])
-X1_1, X2_1, EPS_1, M_1 = fr(48), fr("48.5"), [fr("1.5"), fr(-2)], fmat([[0, 4], [2, 3]])
+X1_1, X2_1, EPS_1, M_1 = fr(48), fr("48.5"), [fr(1), fr("-2.5")], fmat([[0, 4], [2, 3]])
 L_1 = np.linalg.cholesky(np.array(floats(S_1)))
 assert np.allclose(L_1 @ L_1.T, floats(S_1)) and L_1[0, 1] == 0 and (np.diag(L_1) > 0).all()
 L11_1 = math.sqrt(S_1[0][0])
@@ -358,7 +371,7 @@ MEANS_5 = abs(Fraction(sum(XA_5), 5) - Fraction(sum(XB_5), 5))
 UNSORTED_W2_5 = math.sqrt(sum((a - b) ** 2 for a, b in zip(XA_5, XB_5)) / 5)
 
 # CP6.6: three buoys, the squares of their distances (hm²)
-AB2_6, AC2_6, BC2_6 = 82, 52, 34
+AB2_6, AC2_6, BC2_6 = 16, 121, 49
 D2_6 = fmat([[0, AB2_6, AC2_6], [AB2_6, 0, BC2_6], [AC2_6, BC2_6, 0]])
 N_6 = len(D2_6)
 J_6 = [[int(i == j) - Fraction(1, N_6) for j in range(N_6)] for i in range(N_6)]
@@ -368,32 +381,35 @@ G_6 = [[-x / 2 for x in row] for row in JDJ_6]
 ROWS_6 = [sum(row) / N_6 for row in D2_6]
 assert G_6 == [[-(D2_6[i][j] - ROWS_6[i] - ROWS_6[j] + S_6) / 2 for j in range(N_6)] for i in range(N_6)]
 assert all(sum(row) == 0 for row in G_6)                           # G 1 = 0
-DIRECTIONS_6 = [[5, -4, -1], [1, 2, -3]]                          # given by the statement
-LAMBDAS_6 = []
-for q in DIRECTIONS_6:
-    gq = fmatvec(G_6, q)
-    LAMBDAS_6.append(gq[0] / q[0])
-    assert gq == [LAMBDAS_6[-1] * x for x in q]                    # an eigenvector indeed
-assert np.allclose(sorted(np.linalg.eigvalsh(np.array(floats(G_6))))[1:], sorted(floats(LAMBDAS_6)))
-assert LAMBDAS_6 == sorted(LAMBDAS_6, reverse=True)
+assert all(G_6[i][j] * G_6[k][l] == G_6[i][l] * G_6[k][j]          # every 2 x 2 minor is zero: G has rank 1
+           for i, k in combinations(range(N_6), 2) for j, l in combinations(range(N_6), 2))
+TRACE_6 = trace(G_6)                                               # rank 1: the only non-zero eigenvalue
+LAMBDAS_6 = [TRACE_6] + [Fraction(0)] * (N_6 - 1)
+assert np.allclose(sorted(np.linalg.eigvalsh(np.array(floats(G_6))), reverse=True), floats(LAMBDAS_6), atol=1e-9)
+W_6, Q_6 = np.linalg.eigh(np.array(floats(G_6)))
 COLUMNS_6 = []
-for lam, q in zip(LAMBDAS_6, DIRECTIONS_6):
-    unit = np.array(q, dtype=float) / np.linalg.norm(q)
-    unit *= np.sign(unit[np.flatnonzero(np.round(unit, 12))[0]])  # the first non-zero coordinate positive
-    COLUMNS_6.append(math.sqrt(lam) * unit)
+for k in np.argsort(-W_6):
+    if W_6[k] > 1e-9:                                              # one column per non-zero eigenvalue
+        unit = Q_6[:, k] * np.sign(Q_6[np.flatnonzero(np.round(Q_6[:, k], 12))[0], k])   # first non-zero coordinate > 0
+        COLUMNS_6.append(math.sqrt(W_6[k]) * unit)
 MAP_6 = np.column_stack(COLUMNS_6)
+V_6 = [x / fsqrt(G_6[0][0]) for x in (row[0] for row in G_6)]      # G = v vᵀ, v read on the first column
+assert fmatmul([[x] for x in V_6], [V_6]) == G_6 and np.allclose(MAP_6[:, 0], floats(V_6))
 assert np.allclose(((MAP_6[:, None, :] - MAP_6[None, :, :]) ** 2).sum(axis=-1), floats(D2_6))   # the distances back
 OFF_DIAGONAL_6 = Fraction(sum(map(sum, D2_6)), N_6 * (N_6 - 1))
 ONCE_6 = Fraction(AB2_6 + AC2_6 + BC2_6, N_6 ** 2)
 SIGN_S_6 = [[-(D2_6[i][j] - ROWS_6[i] - ROWS_6[j] - S_6) / 2 for j in range(N_6)] for i in range(N_6)]
 J_FLOAT_6 = np.array(floats(J_6))
 DIST_6 = -0.5 * J_FLOAT_6 @ np.sqrt(np.array(floats(D2_6))) @ J_FLOAT_6   # the distances, not their squares
-UNNORMALISED_6 = np.column_stack([math.sqrt(lam) * np.array(q, dtype=float) for lam, q in zip(LAMBDAS_6, DIRECTIONS_6)])
+NONZERO_6 = [x for x in LAMBDAS_6 if x != 0]                       # the zero eigenvalues left out
+DIAGONAL_6 = [G_6[i][i] for i in range(N_6)]                       # the diagonal read as eigenvalues
+LAMBDA_Q_6 = MAP_6 * np.sqrt(W_6[W_6 > 1e-9][::-1])[None, :]      # λ q in place of √λ q
+UNIT_6 = MAP_6 / np.sqrt(W_6[W_6 > 1e-9][::-1])[None, :]           # q alone
 
 # CP6.7: two solar farms, daily production of two rows of panels (MWh)
-MUA_7, SA_7 = np.array([18.0, 12.0]), np.array([[7.0, 2.0], [2.0, 4.0]])
-MUB_7, SB_7 = np.array([21.0, 14.0]), 4 * SA_7
-NA_7, NB_7, NE_7, THRESHOLD_7 = 20, 40, 25, 0.05
+MUA_7, SA_7 = np.array([18.0, 12.0]), np.array([[12.0, 2.0], [2.0, 9.0]])
+MUB_7, SB_7 = np.array([21.0, 13.0]), 4 * SA_7
+NA_7, NB_7, NE_7, SHARE_7 = 20, 40, 25, 0.04                       # f): a bias of at most 4 % of ‖μA − μB‖²
 LAM_AB_7 = sorted(np.linalg.eigvals(SA_7 @ SB_7).real, reverse=True)
 EIG_A_7 = sorted(np.linalg.eigvalsh(SA_7), reverse=True)
 assert np.allclose(LAM_AB_7, [4 * x ** 2 for x in EIG_A_7])       # Σ_B = 4 Σ_A
@@ -410,22 +426,41 @@ ROOT_A_7 = sqrtm_sym(SA_7)
 assert math.isclose(np.trace(SA_7 + SB_7 - 2 * sqrtm_sym(ROOT_A_7 @ SB_7 @ ROOT_A_7)), COV_7)
 MEANS_7 = float(((MUA_7 - MUB_7) ** 2).sum())
 W2_7 = math.sqrt(MEANS_7 + COV_7)
-BIAS_7 = float(MEANS_7 + np.trace(SA_7) / NA_7 + np.trace(SB_7) / NB_7)
+TRA_7, TRB_7 = float(np.trace(SA_7)), float(np.trace(SB_7))
+
+
+def bias(n_a, n_b):
+    """E‖x̄A − x̄B‖² for n_a days of A and n_b days of B: the mean of n days is N(μ, Σ/n)."""
+    return MEANS_7 + TRA_7 / n_a + TRB_7 / n_b
+
+
+BIAS_7, SAME_7 = bias(NA_7, NB_7), bias(NE_7, NE_7)
 RNG_7 = np.random.default_rng(6803)
-BARS_A_7 = RNG_7.multivariate_normal(MUA_7, SA_7 / NA_7, size=20_000)   # the mean of n days: N(μ, Σ/n)
-BARS_B_7 = RNG_7.multivariate_normal(MUB_7, SB_7 / NB_7, size=20_000)
-assert abs(((BARS_A_7 - BARS_B_7) ** 2).sum(axis=1).mean() - BIAS_7) < 0.1
-SAME_7 = float(2 * np.trace(SA_7) / NE_7)
-N_MIN_7 = next(n for n in range(1, 100_000) if 2 * np.trace(SA_7) / n <= THRESHOLD_7 + 1e-12)
-ONE_TERM_7 = float(np.trace(SA_7) / NE_7)
-N_ONE_7 = next(n for n in range(1, 100_000) if np.trace(SA_7) / n <= THRESHOLD_7 + 1e-12)
-COV_ONCE_7 = float(np.trace(SA_7) + np.trace(SB_7) - sum(ROOTS_7))
-COV_NO_ROOT_7 = float(np.trace(SA_7) + np.trace(SB_7) - 2 * sum(LAM_AB_7))
-TRACES_7 = float(np.trace(SA_7) + np.trace(SB_7))
-NO_N_7 = float(MEANS_7 + np.trace(SA_7) + np.trace(SB_7))
-SWAP_N_7 = float(MEANS_7 + np.trace(SA_7) / NB_7 + np.trace(SB_7) / NA_7)
-NO_MEANS_7 = float(np.trace(SA_7) / NA_7 + np.trace(SB_7) / NB_7)
+for n_a, n_b in ((NA_7, NB_7), (NE_7, NE_7)):                      # Monte Carlo: the means of n days
+    bars_a = RNG_7.multivariate_normal(MUA_7, SA_7 / n_a, size=20_000)
+    bars_b = RNG_7.multivariate_normal(MUB_7, SB_7 / n_b, size=20_000)
+    assert abs(((bars_a - bars_b) ** 2).sum(axis=1).mean() - bias(n_a, n_b)) < 0.15
+LIMIT_7 = SHARE_7 * MEANS_7                                        # the excess allowed, in MWh²
+
+
+def smallest_n(excess, limit=LIMIT_7):
+    return next(n for n in range(1, 100_000) if excess / n <= limit + 1e-12)
+
+
+N_MIN_7 = smallest_n(TRA_7 + TRB_7)
+assert bias(N_MIN_7, N_MIN_7) - MEANS_7 <= LIMIT_7 + 1e-12 < bias(N_MIN_7 - 1, N_MIN_7 - 1) - MEANS_7
+ONE_TRACE_7 = {smallest_n(TRA_7), smallest_n(TRB_7)}               # one trace only
+IN_MWH_7 = smallest_n(TRA_7 + TRB_7, limit=100 * SHARE_7)          # 4 % read as 4 MWh²
+COV_ONCE_7 = float(TRA_7 + TRB_7 - sum(ROOTS_7))
+COV_NO_ROOT_7 = float(TRA_7 + TRB_7 - 2 * sum(LAM_AB_7))
+TRACES_7 = TRA_7 + TRB_7
+NO_N_7 = MEANS_7 + TRA_7 + TRB_7
+SWAP_N_7 = MEANS_7 + TRA_7 / NB_7 + TRB_7 / NA_7
+NO_MEANS_7 = TRA_7 / NA_7 + TRB_7 / NB_7
 GAP_NORM_7 = math.sqrt(math.sqrt(MEANS_7) + COV_7)                 # the distance of the means, not its square
+SAME_A_7 = 2 * TRA_7 / NE_7                                        # two samples of farm A
+ONE_TERM_7 = {MEANS_7 + TRA_7 / NE_7, MEANS_7 + TRB_7 / NE_7}      # one estimated mean only
+NO_MEANS_E_7 = (TRA_7 + TRB_7) / NE_7
 
 # CP6.9 a): the letters of the five wrong lines
 LINES_9, WRONG_9 = "ABCDEFGH", "ACEGH"
@@ -472,8 +507,6 @@ ROW1_10, KEPT1_10, PS1_10 = P_10[1], KEPT_10[1], P_TRUNC_10[1]
 MASS1_10 = sum(ROW1_10[j] for j in KEPT1_10)
 KL1_10 = sum(float(q) * math.log(q / p) for q, p in zip(PS1_10, ROW1_10) if q > 0)
 assert math.isclose(KL1_10, -math.log(MASS1_10))                   # the cost of a truncation: −ln P(S)
-TV1_10 = sum(abs(q - p) for q, p in zip(PS1_10, ROW1_10)) / 2
-assert TV1_10 == 1 - MASS1_10
 
 
 def stationary(p):
@@ -663,19 +696,20 @@ PAPER = [
             exact("la matrice de Gram est −½ J D⁽²⁾ J : n'oublie pas le facteur −½", "JDJ_6", "G_6"),
             exact("dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s", "SIGN_S_6", "G_6"),
             exact("le double centrage se fait sur les carrés des distances", "DIST_6", "G_6"))),
-        ("c", "a list of 2 numbers, from the largest to the smallest", "floats(LAMBDAS_6)", EXACT_LIST + wrong(
-            exact("les valeurs propres non nulles se donnent de la plus grande à la plus petite", "LAMBDAS_6[::-1]",
-                  "LAMBDAS_6"),
-            plain("la question demande les valeurs propres non nulles", "floats(LAMBDAS_6 + [0])"))),
-        ("d", f"a 3 × 2 matrix, as a list of rows {EXACT}", "MAP_6.tolist()", EXACT_LIST + wrong(
-            exact("la colonne k vient de la k-ième valeur propre, dans l'ordre décroissant", "MAP_6[:, ::-1]",
-                  "MAP_6"),
+        ("c", f"a list of 3 numbers, from the largest to the smallest {EXACT}", "floats(LAMBDAS_6)", EXACT_LIST + wrong(
+            exact("les valeurs propres se donnent de la plus grande à la plus petite", "LAMBDAS_6[::-1]", "LAMBDAS_6"),
+            plain("G a trois valeurs propres : donne aussi les nulles", "floats(NONZERO_6)"),
+            exact("les coefficients diagonaux ne sont les valeurs propres que d'une matrice diagonale", "DIAGONAL_6",
+                  "LAMBDAS_6"))),
+        ("d", f"{COLUMN}, as a list of rows {EXACT}", "MAP_6.tolist()", EXACT_LIST + wrong(
             exact("dans chaque colonne, la première coordonnée (celle de A) est positive", "-MAP_6", "MAP_6"),
-            exact("la colonne k est √λₖ qₖ, avec qₖ unitaire", "UNNORMALISED_6", "MAP_6"))),
+            exact("la colonne k est √λₖ qₖ, avec qₖ unitaire", "LAMBDA_Q_6", "MAP_6"),
+            exact("une colonne de la carte est le vecteur propre unitaire multiplié par la racine de sa valeur propre",
+                  "UNIT_6", "MAP_6"))),
     ]),
     Paper("CP6.7", "La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de "
                    "la distance entre deux moyennes estimées", [
-        ("a", "a list of 2 numbers, from the largest to the smallest", "floats(LAM_AB_7)", EXACT_LIST + wrong(
+        ("a", f"a list of 2 numbers, from the largest to the smallest {EXACT}", "floats(LAM_AB_7)", EXACT_LIST + wrong(
             exact("la question porte sur Σ_A Σ_B, pas sur Σ_A seule", "EIG_A_7", "LAM_AB_7"),
             exact("la question demande les valeurs propres de Σ_A Σ_B, avant la racine", "ROOTS_7", "LAM_AB_7"))),
         ("b", f"a number {ONE_EXACT}", "COV_7", EXACT_LIST + wrong(
@@ -691,11 +725,15 @@ PAPER = [
             number("chaque trace se divise par la taille de son propre échantillon", "SWAP_N_7", "BIAS_7"),
             number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_7", "BIAS_7"))),
         ("e", f"a number {ONE_EXACT}", "SAME_7", EXACT_LIST + wrong(
-            number("deux échantillons, deux moyennes estimées : deux termes tr Σ / n", "ONE_TERM_7", "SAME_7"),
-            plain("deux échantillons d'une même loi n'ont presque jamais la même moyenne empirique", "0"))),
+            number("les deux échantillons viennent de deux fermes différentes", "SAME_A_7", "SAME_7"),
+            "'deux échantillons, deux moyennes estimées : deux termes tr Σ / n': "
+            "set().union(*(as_typed(y, SAME_7) for y in ONE_TERM_7))",
+            number("l'espérance contient aussi l'écart des vraies moyennes", "NO_MEANS_E_7", "SAME_7"))),
         ("f", "an integer", "N_MIN_7", 'fractional="n est un nombre de jours : prends le plus petit entier qui vérifie '
          'l\'inégalité.", ' + wrong(
-            plain("deux échantillons de taille n, deux termes tr Σ / n", "N_ONE_7"))),
+            plain("deux échantillons de taille n, deux termes tr Σ / n", "ONE_TRACE_7"),
+            plain("le seuil est un pourcentage de ‖μ_A − μ_B‖², pas une valeur en MWh²", "IN_MWH_7"),
+            plain("le plus petit n qui convient doit vérifier l'inégalité : arrondis vers le haut", "N_MIN_7 - 1"))),
     ]),
     Paper("CP6.9", "Corriger une copie : cinq erreurs, une par chapitre (les lettres seulement)", [
         ("a", LETTERS, "WRONG_9", wrong(
@@ -723,15 +761,11 @@ PAPER = [
                   "-math.log(1 - MASS1_10)"),
             plain("les divergences KL sont en nats : logarithme népérien", "-math.log2(MASS1_10)"),
             plain("la KL d'une troncature n'est pas la masse retirée", "float(1 - MASS1_10)"))),
-        ("f", f"a number {ONE_EXACT}", "float(TV1_10)", EXACT_LIST + wrong(
-            number("la distance en variation totale est la moitié de la norme L1", "2 * TV1_10", "TV1_10"),
-            number("la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
-                   "KL1_10", "TV1_10"))),
-        ("g", "a 3 × 3 matrix, as a list of rows (4 decimals)", "floats(P_TRUNC_10)", "decimals=4, " + wrong(
+        ("f", "a 3 × 3 matrix, as a list of rows (4 decimals)", "floats(P_TRUNC_10)", "decimals=4, " + wrong(
             plain("chaque ligne de P′ est une loi : sa somme vaut 1", "floats(KEPT_ONLY_10)"),
             plain("une ligne garde ses issues jusqu'à ce que leur masse atteigne m, pas seulement la plus probable",
                   "ONE_HOT_10"))),
-        ("h", "a list of 3 numbers (4 decimals)", "floats(PI_NEW_10)", "decimals=4, " + wrong(
+        ("g", "a list of 3 numbers (4 decimals)", "floats(PI_NEW_10)", "decimals=4, " + wrong(
             plain("la loi demandée est celle de la chaîne tronquée", "floats(PI_OLD_10)"),
             plain("une loi stationnaire a pour somme 1", "floats(UNNORMALISED_10)"),
             plain("à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : vérifie lequel multiplie π′₁",
@@ -743,6 +777,7 @@ EXPECTED = [f"{p.id}{letter}" for p in PAPER for letter, *_ in p.subs]
 # the answers typed as lists or matrices, and those handed to wbm as texts (fractions, letters)
 LISTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if "list" in hint or "matrix" in hint)
 TEXTS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if hint in (FRACTION, LETTERS))
+COLUMNS = sorted(f"{p.id}{letter}" for p in PAPER for letter, hint, *_ in p.subs if hint.startswith(COLUMN))
 
 HELPERS = r'''EXAM_OVER = False   # set it to True once your exam is finished, then run the cells below
 
@@ -754,6 +789,7 @@ RESULTS = {}        # sub-ID -> result of wbm.check
 _REMINDED = []      # the full reminder is printed once, then a short one
 LISTS = {''' + ", ".join(map(repr, LISTS)) + r'''}   # the answers that are lists or matrices
 TEXTS = {''' + ", ".join(map(repr, TEXTS)) + r'''}   # the answers read by wbm as texts (fractions, letters)
+COLUMNS = {''' + ", ".join(map(repr, COLUMNS)) + r'''}   # the matrices of one column (a flat list is read so)
 
 
 def exam_over():
@@ -772,7 +808,7 @@ def exam_over():
 _NAMES = {"sqrt": math.sqrt, "pi": math.pi, "e": math.e, "exp": math.exp, "ln": math.log, "log": math.log,
           "cos": math.cos, "sin": math.sin, "acos": math.acos, "asin": math.asin, "atan": math.atan,
           "degrees": math.degrees, "abs": abs, "math": math, "Fraction": Fraction}
-_LINE = re.compile(r"[-*•]?\s*\(?([a-zA-Z])\s*[).:]\s*(.*)")
+_LINE = re.compile(r"[-*•]?\s*\(?([a-z])\s*[).:]\s*(.*)")   # a lower-case letter: « A : … » is a line of CP6.9
 _FRENCH_NUMBER = re.compile(r"[+-]?\d+,\d+")
 _COMMAS = ("dans une liste, une virgule sépare deux éléments : « [4,1, 7,9] » se lit comme quatre nombres. Écris "
            "les décimaux avec un point, [4.1, 7.9], ou sépare les éléments par des points-virgules, (4,1 ; 7,9).")
@@ -858,6 +894,14 @@ def read_value(sub_id, text):
             return _python(text)
         except Exception:
             return text                                 # wbm says what it expected
+    value = _read_list(text)
+    if sub_id in COLUMNS and isinstance(value, (list, tuple)) and not any(isinstance(x, (list, tuple)) for x in value):
+        return [[x] for x in value]                     # a matrix of one column written as the list of its values
+    return value
+
+
+def _read_list(text):
+    """A list or a matrix: Python's writing, or semicolons with decimal commas."""
     if ";" in text:
         try:
             return _french_list(text)
@@ -881,8 +925,8 @@ def check_question(question, letters, answers):
         if not line:
             continue
         match = _LINE.fullmatch(line)
-        if match and match.group(1).lower() in letters:
-            last, value = match.group(1).lower(), match.group(2)
+        if match and match.group(1) in letters:
+            last, value = match.group(1), match.group(2)
             if _given(values.get(last, "")) and _given(value) and _value_part(value) != _value_part(values[last]):
                 print(f"⚠️ {question} : deux lignes {last}) ; je garde la dernière.")
             if _given(value) or last not in values:

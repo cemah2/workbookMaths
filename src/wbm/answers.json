@@ -8011,38 +8011,38 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "daa44f4f57677531192821041e39d6f6686b373dde0a303ab1ec50606f880ab9"
+          "37554fe06365f88c647bcfccd5d939f9cf8d819d07c53a59497cc773975e5ea7"
         ],
         [
-          "f438058c0fa22f0223b7281eb117b4b0277431cf83a0c139d4be823bc3812412"
+          "cd5a0667a461f4e4db6f3fd5b4c9acd2f03a75842a42524b975307c0c0650456"
         ]
       ],
       "element_coarse_any": [
         [
-          "a186d675472463ff22f652e712ef5b2d3b381c34d55eaac646fe23eff246c4f3",
-          "45267ea43d5cec1a478ad31f03bc6226f473651ea3158712c059738becf216bb",
-          "3a1d5c16a0c2ea3481c71e782f4d130c870650e6a8a100c72f5a8a46a18c3f96",
-          "0390685f05a5d38f7ef5687f5c1e6e4b4b993cdaee0733c760de657b2778aa24",
-          "377090b1be69009d20ec0017017a2c2d768ae362dcaa7f40306108928ae64b24"
+          "1030be23a7c12726b8f62e3c58a5a146dabe2e8f6a907a61e83bb477407e96ea",
+          "a64179890ac3e4d8c6d560919a4544c881afc032f5985cc850c9487a17693d4b",
+          "20fe582ad7077228756f752d183635b76fef345fa285bd5fae06ff404897abd0",
+          "31b7b40459f23d4b2bc0eddc395e7a284c5b40df8a4435e47ea5344db2c78611",
+          "e0fb3f4796b2e38add6b27183d29c0a0de42c8bbe3c94b7f8a5226568c6ea8bf"
         ],
         [
-          "ca05a243f109a70c27c8ce0d97b7f16b2a200409d559930a1f4e5847f6336256",
-          "efa703095cce1824795b3d58d01ef1c220657127860dbc0b5a3c146a09137aab",
-          "b1aeeef84c7ad075838c078f6563d984029ba2b732c1d24775a8fc9befb01505",
-          "4a10914151706f886622b3b721745fc01dd0c117f39537e93d4caca853f8c78d",
-          "a50e390678074543227e12f2d1ba83cab57f4911ec62d15cde5678d5ac67f394"
+          "7ff647a3ab021274fcf5ba5653f3af7baf4651b8bd3d8f6eccfa41c6a41525ae",
+          "759b07b8c1504a35eff23f96c42e1b9b2d4285f9826700a984b7628f5c605edc",
+          "4af2ed57a5da4c60bff01c0123ac2007264fb824db8790a7379da2bf2a0efc1c",
+          "cefcf4c3aff228b2c7de5cd9a591de15bf7d3cb315139e13fabc05a4b8f7267b",
+          "f2cafc1904a9b80239f6e36fc6c056a24fa8db49e151ddb21b797be763dcfd60"
         ]
       ],
       "element_hashes": [
-        "2511bc1f027b26ff4f7821b7477a783d204c0247d2e343b0346a55b4a0dfef39",
-        "b01b044f604412889254108c459089619bca20124282b174820e8b6ffbc00152"
+        "72f878378c6feeca672f2b44e072b2deff764e55a68ed4f254251a51ca474d7f",
+        "05a6deb4823a4958d0a1f58e455319de5d2bc68118e12f93c730a24246600f9a"
       ],
-      "hash": "7800be301e204929ee6af558ab07726d71ec2ac461a02ef2c424f0354047c707",
+      "hash": "4a223b644524951bf45491f9e95c449f280c8e9876e0391de07502194f879113",
       "kind": "array",
       "mistakes": {
-        "88f44fd30e4ec414a862d63c471d8457fc2b5051eb7e577f8e81916f0446a282": "le tirage part de la moyenne",
-        "b38f556ea11846d14450f214706a556727fca10d6a51d5e8c156773bf47d24b8": "le tirage multiplie ε par le facteur de Cholesky, pas par Σ",
-        "e5ee51fe3d2d0c85b626b44ca2f5a528c89145ba3767ca2e198b36b6aea56535": "le tirage est μ + Lε, avec L, pas Lᵀ"
+        "405262d326c3e598c3c47510e223f5d829b1143fa4e5aa22cf70b9aac9da84e2": "le tirage part de la moyenne",
+        "63670ad4ffdbbd66c09fc537c8f2d23b711d929fafdd66a22167fed5016dbe71": "le tirage multiplie ε par le facteur de Cholesky, pas par Σ",
+        "7b4cb85390647e2b67a61023d3d95c428db2cea732c41c722521caaf15024a2a": "le tirage est μ + Lε, avec L, pas Lᵀ"
       },
       "shape": [
         2
@@ -8729,11 +8729,11 @@
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
     "CP6.6a": {
-      "hash": "16033ea64fd05d2c2e4102da4e38655d8ff316352e1f55b317dfdfad25eb36d8",
+      "hash": "25da3613b2e642df7ace420e023bc1ae2c6858c5789ffe3399f5e8fd23596369",
       "kind": "fraction",
       "mistakes": {
-        "eeddb5758db9982273f2ed01df297273a8dae75e07c31ebc7d38169b329f3478": "chaque carré de distance apparaît deux fois dans D⁽²⁾",
-        "f442dc7bb27fa6c3c463e2a20beedb80b59ec427944d14f8ab1ef32d92d38fe0": "la moyenne porte sur les neuf coefficients de D⁽²⁾, les zéros de la diagonale compris"
+        "b3566f49a5db3a2cc0a3899f3841d68143a97210127cdbc987cdc73cba854f8d": "la moyenne porte sur les neuf coefficients de D⁽²⁾, les zéros de la diagonale compris",
+        "fd79cb896473a2c565e297de4160cdbd9e637b5ee76c42e79363aa88a342a1bc": "chaque carré de distance apparaît deux fois dans D⁽²⁾"
       },
       "sign": 1,
       "simplified": true,
@@ -8743,121 +8743,121 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "dfc991fa0acaebc31ce856b284d40c397a68be41a4b320d3a11510f322f00e10"
+          "245657318c1245350b0d70870532d4fff04077996438b62cabc6465df99a4cf3"
         ],
         [
-          "05ea8679819d2d6c99b10b8a2c8b944c9b0d45955fb305dba4f7222f2d3238f0"
+          "a48963822ce3902a0ca4c43446956799b4e8bff8ac95aa01c97043c77bb3038a"
         ],
         [
-          "4f4ca8c588e076ceb8be06b78e5357c0f44e4464e83478af061be03be3628872"
+          "49defde936fb24b04d9972d5356dd0eb6bf84f62c1565460f5696a58f8f31940"
         ],
         [
-          "80adb40a76acb45225a8dab2140b55287c5e0de1d7a19839be9a51cf163b2389"
+          "e4a010b98da9cf75bf06de8c49d0dfc255bc077fdab7dccf61af1c5d8eed81bc"
         ],
         [
-          "35dc0a72e191fc5e7bf798a6c5b84b8d2d9ba1f524e3da18be00517ba9010d13"
+          "1efb2384f4547ca7337b22cd1223c61fc5e6c99784781b296f71a2a4ea2ff127"
         ],
         [
-          "947f02d545de48f93887dd8676357e99eab5b92759c3d21aa0a54dfdb6df623f"
+          "3e1c07ead142d48f6da5f0d4a652d05a58306e2d2ea3b6b33784237bf8c3eaad"
         ],
         [
-          "7b218300d1a518a955efaaa28a8a6cf51105b95ce65de7fa08d155740df27df8"
+          "32d68325e545b0ac0346c0331a3432ce82aaab80c3875c48493cbb3e8dd736af"
         ],
         [
-          "67926510f58849a4078d0f56603d773259b571b7d1977a6a66ccdadb9c9363e4"
+          "a67cd75ac79e0b02301ee447853deaaca9a90d4d8a67671ae5dd499c4136ff94"
         ],
         [
-          "95c6f17435c6a205175cab4afd8ca921287b2aab52f6b453030f95f27598b4b8"
+          "bdcae06bb49b13855e831cc4d5555d0431f21a9a259fa24e05067ce149033e87"
         ]
       ],
       "element_coarse_any": [
         [
-          "cc781bc4c535195eafbce057a111e95f3743a9c30c06c85f8536fc620ef55456",
-          "841b89af60801bcbfb0ba5d3d12eb503bca16db0349f8aadf71a7e4efff25e1f",
-          "d4db059fff1a7f334a8fd75a1f91cef99e80a12306d9ba5acbf99a91b888768a",
-          "821defcddb9dab63d61624bfb2351d4302623e614abedf84214ff3906140f942",
-          "d20fee0f65d72f0d419dfcd4a79836e52cfb605741adff753ef81f0a56926607"
+          "5883d729f6c640463ed9b49656d58bd9467895a7c2b8bbaa7bc4bc3d74e9830b",
+          "98b5c45013cdb75b9a2cbe32ba9c7f1c3d5f8f49697c3084a92a9c2474b8a79e",
+          "680ede28dc1a77182e4a259dcb106d0f0d7e8ae071efa1c031a00d8ff8da725f",
+          "b67d347a10f40ca791172c2a44ac80dbac30a8761a83a252f77ac5965ba4b49d",
+          "6479f596bf7d6d68080fb6f7a5b51975f9758f7a8a60d8dc31f6658315138779"
         ],
         [
-          "5d45d67a222a4f7821190011cf3fa5ff213ac87dc67baeb7ebb07c7ceac63298",
-          "c5b034de8b4a0743b890ad1c4fe092f2cdfbb8fa8f8a6a527e38fc27ba0cac6e",
-          "dca9f3900c2547f7ab48b372de621e4505f06222414c8f2261392196696fe810",
-          "35b41ee11bad763adf76b8b17418700136dbcf1388f51f225fe43253753a2ee6",
-          "ff072264fcc31acfeffd2dfa12f64789e5e03776ed7de5e3bb3d06d9da797b01"
+          "cbf24c4805531bb849567de82aa104b05e413137d37387d3290ab19295c468e6",
+          "bbe40d2e3cfa7a57e17c0c92c1c1462e8e1d76cf51cecbd6229b2877f06436b3",
+          "a7672b599d2d22c1dd3bcfb2c9a3d1d3b9442e61f42aa7694080da72376ac44e",
+          "2910f9a5824d13ed8a06731f3de91ac14a229eb1e5065f3b472fb6f778e4bc09",
+          "5acfb0b6072d10d8a33bb8be5f1ac2571e3721e0f44ea9c8e1c38a34b00cbe72"
         ],
         [
-          "90c9b92675347f63c675ff37db56421f5aa4728009fcea43103251a634dacd68",
-          "735a3d139566a44445a4bd26ad99b03c3590a2d1fdcb85c2b3809b8da4170496",
-          "41f6563a1faf3cba4f09b53e659def650aa5c81e0f758bc583b3f70a009ea6e0",
-          "108cdebd25714a5e3f2f4165c63220255462c53b0f10d097b8031e394026e861",
-          "749f435330e8b6b9d75b7ab45fbab4bae38a8a89183154d14b8d2002b4e91207"
+          "854ab7e82c028642d964fdf1a9529162cdc751c1c6b44bd7e36e468c4c493c6c",
+          "1b11a24f209106938e5d42d62b285c9d92cbec3be5ef5e6b0552ee0767eee3d1",
+          "bfce9fca8b9294d32d24f1477443d4b30cca197a65ec0fc4226d39f48d51e5b1",
+          "9c472a59901918bfe30459fde96a64319cc222f95cf2535e45d291cceb9aa1a4",
+          "3ad7286a58104dffc46069f2e33451561778faa7319f12e2340dd3ee41bc3d95"
         ],
         [
-          "58516b766e8e40e00a85e8b0b5b9be0417d0265fc3a1d39c30fcedd0b81e068a",
-          "e3e7e51d04b1f9abefa0c4acf2e894eb1db415789eef7f39cb36bf3e0c1fa305",
-          "83913e1537a59dd659b8585a1caeaeea40318993853c7dfc4d8a09c6c97d5f43",
-          "79cae5218015aacbb7500c022e4547808aee6af4339f4181fe9f17b38a4b46c1",
-          "41a430a572c481f77773e2d18ef44227ff07af321d56914e2f1ec37b3364f6f2"
+          "46c02674e879ac0e6ff7904000386669483a6bcacd6939e7c9972beaa247cb60",
+          "0adae4da9ff3ecf278a0e299c588fd7526191540b3b5b1be68b8cff9a82fcdb7",
+          "1ff248c3de8c56063f6a6f997c59c7e0fe8fffef17c4a975bab7202f970ed314",
+          "73b447a98d9c13a13feea06c21148abc8a07dcd34650bac2e420b1592337a511",
+          "96341c9dbdbd575ce9a048671a6257ca45a69e68cd156794747b792221bf8ff0"
         ],
         [
-          "9b88543f92419d180b403d44b11ae10fd7341757710e06a19fe922cf2fa21ba9",
-          "320a72d8c749da4f7937f7f00b20eae72306e9798534031e92a9e98b4c9bcfd3",
-          "7881540a17032664e9273aeb74ac05f0b999b18ea00c636a8d2abba2562706b9",
-          "a3ba85170a0956a64e9d5f27badaf14e29099e8ea77487e14fcf3e285094068e",
-          "f8348e9e841b1d61076dbec042ba65d225873750d187e5ee0fa0a2f0f1df758e"
+          "dbe4fd13dc4c7c09137887cc6b6ba02703949a51cc56a02e426534b18cd2f0f4",
+          "bac81bbb58ace7b3804bd80c1d38a6d97027c30ad184de0141db2702a794be38",
+          "e20bdbad4a8973e13b4568aecf9b328341d006d974d7c4060924385267a47ff5",
+          "1a0707bc0da74c3e5dbf07648d82c16986bb75631a9e2744105c3d112348a918",
+          "b40887eef6ca1bb90a65ed2f7285caee21a6ce5c540a28bcfb2fe5ff588b5caa"
         ],
         [
-          "d6be87d425226512bdac95105ad54de3ee3cd0885d19647e87c1f86415a36cb0",
-          "b416f7c96a0691d5cd7d3996b31e86d9a273c13c0f2dab84db870b3934c4369d",
-          "d1b4b4db578c3defb77ae6db9535efd8b38def98a33da863cdff3da30d5bf2d4",
-          "86e4a63d2c3a8e7bcdd9586d0dcb6c9644296924a0b823be151ad19f31de19ba",
-          "33dab0883951e155ce89a0b98f1e44d36044865650acea469eb1388024961c97"
+          "6a3107d99fc7f86a9f75ca7e494c639fd79fc5b097225e35a114564659917f9b",
+          "d5c93354add995fdcdaf07a2d7c2d1898a30a162b1b38a8abcd043af4458fcca",
+          "c92fe37641415d12130d21790b73878398d0a3e6aab39dcbe4859416bb2438ba",
+          "3904f37051561a426ac63bf98b28c08739d0e4cdc0e834ff8974011de2deaf1d",
+          "c0fa8c8fb6639c55f04527c54d160f92284e9344774f6fad795eaafefac5f64b"
         ],
         [
-          "c046bb04013fd8f725ee018c2f33146d9578e851b4be7502675f6acf6c3ac9cf",
-          "9996f9efb4d706d4319d9e9a13aaabb608053132b6fe11ef95a71ba85972c495",
-          "bb0503ad9d4af075fb81d69e60aac82c3ca2ac614edfecf3085fdc42cc410db3",
-          "eb39b572c32004e810e8d18d1b73bc058011911108d9f232d7f30e266cccafd1",
-          "78176e0eca02be59e4ead60e30f53cde457f124da304c2e19910404980db827d"
+          "f219b07e82832b056ab59bb994422ad33a9d9baf7f80697ee7c463e3242c31f0",
+          "d078da5c99e64395920fa23d52b86a51c93a3062ba70a22d22dcb84fa6fe9786",
+          "20c0d8c47491dbd4314f018d034460d23e4d41338e5e59c95c6de6aa16bdc64b",
+          "568dbc2c9b5d6482d8683b818305b9dad162ff9d27afc56a7270103a16622834",
+          "6225056d6db1423dfae6c4d25247d5abe806acc82a951d9c8f63cfdbf5f797c3"
         ],
         [
-          "21cc60e555b9da4e8c1438a562ffa53df0b94eb63cb2adfb9fb61be237602d8a",
-          "10b0c66d169055eeb1d9ed3e38dd541fc451571361708bd865884540badcae3e",
-          "acf78451ab5f6bfe7dcb32bc8465eee97fb3c8c73afd80084b68512761814a7e",
-          "23fa2ed857b67aa4b9e850c9353f4a757e369f220b3ca01298bbceea2c757d70",
-          "ebd59e1b56584b9fe87fdf8eabc8561058c20faf2b106889e7c1c40e25a33d73"
+          "8463c3da8f0a81d87532abf3d0b58fece0f35f607a351fbac1a350a51dddf86b",
+          "37bfb883393d0203b51c3fa2cd562998c27d9c4e64bc5504866722bdba5ed5af",
+          "01790ed655bc445b30fba8ae39f3c3c1ad56d2c25d85344f52776a4f59a95350",
+          "4adf5d04a5da2518962d75bd6eb7a5a6bcff519edbddf81e1b2dd445e8de96b0",
+          "aa15dd626e8328e3f3901cab5766deef5cb4ec2cf5f18d287600faabadeaeb82"
         ],
         [
-          "9c1f215d7c40336c60738baabce1bffac7d8157ccec33acffc740114f14a205f",
-          "adc29849b68440c97db3303ddb476e8369bcfb77a74f34663c2ece841e62fc69",
-          "6b3332dd3d8c69a2886766095ece9ec0c18acd700d916f851b3020e5dc81aa0b",
-          "ca5f51f423255b74420f78fb15b375e1f6748708ad50b81676d865570d7933a8",
-          "f2ccbf8a0c5166cf6b45cb9ecfd3a0525f1f32026672de1f4563396f1476e535"
+          "1628c4fb3dff44cecee6cec8a366c113f2414535dd50881d171b4af3f481377b",
+          "661c7b4bf8c465d84185abcc9e6f5559bba5ac77b3775311f11b4ffd6ccebeb7",
+          "0ef5133d59931378f454d06867a1fc54ae5832d1172390d123401b6e54c82026",
+          "e5f9c1909ec2be606bad076e3e7cf1b3e7375cc569109e452f24d5bb865aeccc",
+          "a6ab1342142383ecb5d3c54e1b2eaf9c525f6da72d60e74695ababedadcd9b49"
         ]
       ],
       "element_hashes": [
-        "0a7acbe0d71c20c11bb995ed8a3d8679b8d58515ebefeef1587990516f2d4574",
-        "fe13c2b073b980c6b13739831d72c205ee06261605c75703c5a1abd73cce02c7",
-        "7462fe27203eb70ba8036e18dfd6a91a1ff355261a3e971a7992d8430843672e",
-        "46d3a479d189a3ddd422c1efbc7b5a9823082c4f1f3c50c186538803fbadcc54",
-        "51f07dbaf34666c59ebc478051681b73b319a6a99e3f8307fc599f43f78ce31e",
-        "750694f724c375cdb50efb7327bcb60827aa63f19a0b465b0632f4dab9848911",
-        "8ef07963b47d3da883aae403634a58b2950b44a8d3ab3d3badb8217ebc18e7c7",
-        "929306a837e0a8fdefc15d18d213dbdea14db3c9b2523c732dea96e6216659d5",
-        "3fe39685593e1d0cc41b85a1b961c40e0cdfe45d9985b53a7eacb7c3e84ce1c9"
+        "d80621cd412e6ec70cd6256c0319e1101aa3673fb8dff485289da86b4c5725a7",
+        "244e2e6312d1addcb37627fa0845cd3923ae0bc7020098eacd86535acebe2905",
+        "4fc3733fc8c86c12818d07d0d6d95e71f3a487a1ff2d00c73920d60452b79f6c",
+        "12e63eb1091ce23cdae9dde01e8b8b5646465d44a7bf7d2b0c8d8c88b11aaa79",
+        "d37fa9ff7fe7c079e6dff312fe4a253999a36b21545bc77d10f447b16c1c56aa",
+        "ad80a50db2673b398262b0ef608f432cd2d9cd1ff2e29facda189fc3b9ef7c57",
+        "22918e461ad679cfd6c269ea747abb3e1b77959e95b1087c7dd94e08b4770cad",
+        "647051322c2bdc8a28e693207f8818348751dbce0e3011f3590bff941d296370",
+        "da882d6b0740550e5de79f455076810f664c3a409a1fc1a5b759f42e195b8c6a"
       ],
-      "hash": "09ae05320cddc06fa915b7a9e35d01e4cdb506d7f3e9a127b267206fa6db5957",
+      "hash": "6cf62bbbfda00a175cc424ec9b41db3d27288b70d4248ec8c63a89a2fb6f2a74",
       "kind": "array",
       "mistakes": {
-        "1504c8153edfadcac35ba8f187bc973b3a3f4d03211026e612f9651e616c8651": "le double centrage se fait sur les carrés des distances  ",
-        "567ca233922e3e6467d2bad7767733bfe06033e1591cb2d92a0a1e146f91b99a": "le double centrage se fait sur les carrés des distances",
-        "9b48dbc44d6fe184f259c9503b15acfc41630385b6fdd1c6cb0428afb013e63c": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s",
-        "bca12397524215d2a77bf17509c74771eebf97eb86ea398c9428b011da136bfd": "le double centrage se fait sur les carrés des distances   ",
-        "ca0344dd0eeea9ad0e1f4164dadd07814781372e24c2f3ccc07e7597646612c7": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s  ",
-        "cb8eed13ee97cdbcf6eccda0ffbc0920d99675b2962b560983607b7b2799e244": "la matrice de Gram est −½ J D⁽²⁾ J : n'oublie pas le facteur −½",
-        "d029ee80c61b79b9499dd832ad21a393ff539cc0c4a4f5ec5885a1244dea00c7": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s ",
-        "e7b1038275a163cfb9ce72ccc04c043fc712bfe353a307c6093d602baaffd677": "le double centrage se fait sur les carrés des distances ",
-        "fa01ce7c3657373ec06fb0d31a76933bdcfbd121e3400644603f22059231aade": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s   "
+        "0223886757baa0e77b2d78e15aad42640e112ca6d63a6bd1aba0be0f77ff6475": "la matrice de Gram est −½ J D⁽²⁾ J : n'oublie pas le facteur −½",
+        "052e8e4f54b7d3e59169c5e284bfd6033c1dd956d636171b9ef926de96165ee4": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s   ",
+        "13bc7a30f9241e49954d01550ca3b8ee32006b8f3198d717c28db46c3d3baa58": "le double centrage se fait sur les carrés des distances   ",
+        "36f2d0e0960c1ee0ac20dde146780830199159e9fd3d68c8cc8efc577e0e7828": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s  ",
+        "54d96781b828e9660b1cd5390e237b057ac1292a5d69e619501cc245c996e241": "le double centrage se fait sur les carrés des distances",
+        "becb31411f8758955c0f88596524c82f2afcff05bb3bf81715be146e145dd573": "le double centrage se fait sur les carrés des distances ",
+        "c5c9a0f7b851663152eff18420c7d675c022f7c534e9bc6b7f1a1c34945ea967": "le double centrage se fait sur les carrés des distances  ",
+        "e2412fea75f7345d66278516dce4bc5aa78e9fb526efa06987043fd27b95353c": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s ",
+        "ed293bbc1a502f96a960b52866a8a3fc7c618fda1ca560def1589d996b797e43": "dans Gᵢⱼ = −½(D⁽²⁾ᵢⱼ − rᵢ − rⱼ + s), vérifie le signe de s"
       },
       "shape": [
         3,
@@ -8869,40 +8869,40 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "1ea31f536b9f2fc2376fb9dfe4c4942c494e2172e882146f783196f9d0fe467d"
+          "2d23fef64690a4643ce9941966ac3e471cd5cf8cd60f618b3fb6209a69d8a487"
         ],
         [
-          "adb1bec583719dc626377edefe38aa2aa1789ad0bfc303cba14f1c6ecb3d2736"
+          "b76108619b75592e493fadf6c45861fc5d4cbf99dc2ad1d1dc54f7d0bdf5eced"
+        ],
+        [
+          "42734ac4db0781fd641668a546c025c1eaa1de0a009873a4bdf3b78cade87b3d"
         ]
       ],
       "element_coarse_any": [
         [
-          "6de29129120e2cd67958e35103e6ba5c0c36204316d9d8e6c69ccc120cf3850f",
-          "c32e3d8fee3697ee95d05c607e898299b1ebd28a31356b732af0fa89c1e48657",
-          "5b31fdb26c7b0a5b70f3cc18e7b31f66d60e258dd168fa985b871a2947c1a534",
-          "47d155a5788b1479dbfe01a47bf751a7cbbad70d6600ab2dea61644a5dce9872",
-          "106ae0e9ec8d046fb7749cd8cd22cb68eec74e870f2d7b7a71bf87fad1e33618"
+          "810e42dc2056ce93d61510cfa3ba21a0ee3e94be3874f0a0b6d79068d5022ac7",
+          "d0d036b342707f68848de5bf866409f5b832d35496788c075222d34b5bac3dc5",
+          "b3ee73f4fda48935f404abbf6df9f23df8e3c49323bbd1e8930126b96c1b8e2f",
+          "58e4543f29e096ef38e970384de2ce9ccf267201dd56dcc75ec1b81728e7855b",
+          "9a3c481014cda2c1e7e7668e754368c3dfaf695af52fa04dc8ced1e5cea5ebe8"
         ],
-        [
-          "dabfc92708c6cdd5e4115b1a822151c6dc3ebb4f50296937aafe129858e8ec35",
-          "29955983377197301ec62167d455bdb88f6236541ff22a4e13c6e8f963a9f903",
-          "cbd3e3438dc3fc1530a225af3385ca00f2c7c111e2887bffdd4d51d5a581fd64",
-          "6cd01b8f998304ae08af3670d646b2789cb19952fa2a113f2eee553f54ac987b",
-          "fddb96c3eaea70fa6dec6eb88419bff1eb55a4675bfecb283d0514d23d5ab9d9"
-        ]
+        [],
+        []
       ],
       "element_hashes": [
-        "d094012db3aeca9b43ab286eec78fa0402aafdaec774cff0de111ad39b49ae85",
-        "86df841102974509d56afdaa4d691266043f3988a8880befd5803ad6a3716d62"
+        "4781e51a717fcc803985ffe5a74815bea6dcbbd62acffc27f3c0778f43508f1d",
+        "2b764b1fcf2ac99797c94c8e00443926dd25caf832c88e01efec122f4ec9403e",
+        "be74e3e91b9f69fbb19044ef7a84ba277052c07c6e9dbd2c87eaa49f8f99a885"
       ],
-      "hash": "197b0cc707369278c26d61f01aaecaf66f41b1162bc448358bc6a62cfb889fd2",
+      "hash": "b4198054f05310cb58a428994ee18b0f02f6586b30065552187eb83f8f8a9c7e",
       "kind": "array",
       "mistakes": {
-        "1514a616279700a7f55b2a52e6d90fdb000ac9c1cd282669c28033214abd2ce9": "la question demande les valeurs propres non nulles",
-        "45a584bc306197ea92678ca30fc621b694fd016356303c023ecb4ed4f7339813": "les valeurs propres non nulles se donnent de la plus grande à la plus petite"
+        "4e10e8f2910f9577d4d919dc2aec0d0ca3a7c313a21e4b9e5bfcb7ab5b5384a9": "G a trois valeurs propres : donne aussi les nulles",
+        "87298579a7e23f3da9594e0f73fe05dd9fbab3f3bb0d2452abbfd124c93c939e": "les valeurs propres se donnent de la plus grande à la plus petite",
+        "fc6074904abd2a26acc0fb8c3c277af55f211eed731be041ae606b869957c61b": "les coefficients diagonaux ne sont les valeurs propres que d'une matrice diagonale"
       },
       "shape": [
-        2
+        3
       ],
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
@@ -8916,16 +8916,7 @@
           "a1c511fe96bbcfe913d3c1891c9268094c1d40db416c4561f9f7e02a1dffac1a"
         ],
         [
-          "1b85ec15a912366551aacb12cf27723379bb1cadf1abe8927264bd7e607f17b0"
-        ],
-        [
-          "e45c2afcd5dea568d87ace0f61cfde3cfa00bb004071f608086e69e894340078"
-        ],
-        [
-          "ba20d0403614b898f157a3e9b73f29b7053409dc3b3bb5a4df588a6ba298716b"
-        ],
-        [
-          "642c0675da958100cb611346119179aeea15ea1c3bf646b49c8c035f8a86df6a"
+          "b35ce33d4ac1801ddbfc6a003523ae07752ab22d44d594fd12b4f433e46c583a"
         ]
       ],
       "element_coarse_any": [
@@ -8944,55 +8935,32 @@
           "9f77a77c60bcf05c318e1d476014ffd0036f8eafb6adc67f2d7a8c0dd6f5af27"
         ],
         [
-          "919bee75bae7fc02ff224cec9577f868ce372e2b9f244df928f7fe00038e1ba0",
-          "4ee3ba1bcd5f8810c7707f8e5ca3202d3e8c02d74492f13fd782ed7af141c1a9",
-          "7a1bb4ecc46fd7aa9b3a8a3b5e0a7a4882368ba8e95be080b3d244f66b31e588",
-          "fd8da436f4cf55c135cf9606ffdbcdee1185bdc4dc0b9c1633c2a1ccc297ba5d",
-          "16fbc9d249935438bb1186ac6cf6204e09f9f220710cb9de8946e26e73e57e29"
-        ],
-        [
-          "4ac4a2cc3e2813002aa32115d15d0d0cf1b2936843a772b5ed50fb8da92e6968",
-          "f601b1db89665b98e139977996e5aaa89b08fb42d900d174a4efe6b29e2d75b9",
-          "3a8ccd0ef118eb413cc94533d41b17a28d20ed22d894cf85b9cd579889c35537",
-          "8facc57d4fc2b06b278f4a97eecc1b9a6af29898cc05fc71c1b68db6b59049d2",
-          "616286a1d0c0bf766efda4faadc511ea63baa0f7daeba578b076267f1efc4407"
-        ],
-        [
-          "ea17ad072edf59fec57c7d8a38c9400359db807a9f689fb045ea8dab2327d245",
-          "910aafa1808929686616e9d9ccf58ad3e3659e6fd5976bfbc1ffd21dbe1c6d19",
-          "41c3c708cc5eefeb3452fc3510aa0f22c1accee9fe08daabd4fefd4c4ba2be83",
-          "642ed092d9b10e8a401fdb1f701a01cbf23f41d81a81a6c9d59bdc9371f187bb",
-          "4993b6660d29548adebbee6b527a6f2733a05b04c0bc7041bc6fa2c013b5be58"
-        ],
-        [
-          "9e3ef03fc08668d2c478c93a5cb0a0b26df06ead0afbdb849df6e02cf2e3d85b",
-          "4310a2f2f8180629a840e97f8e4d1162b915540fb42d7ad0fc9bcacfac9d928d",
-          "df570a82b0897f2483f8bc36221a77665a2735e168714eca3a5451af846f3b78",
-          "d39e6dc4b965227b8974a050492dfc91ede0133f1cd822df1ef5fcd4a3ab2643",
-          "145eeba79990733992a2bc71d46189d2b6a784f2b15f2a0b9fed229f1d5b4a32"
+          "5cae8b9a1bef3c98747bf072abe21db291befb0d1adf045454bc8fb70ea8a985",
+          "8040fd1f80b02eca244d62cca8c0d594fda990ef35590f14e024d0b8e29dd10c",
+          "99e83b659686fef8c5d35f7250dfcf1ce5c4ded66b6ed862c067b12c2f7b096c",
+          "2b149fbe3f4e25d541c1c7851f8ccade0c9c906af686b4e78b19d2f00eac6699",
+          "e706654a73c3b89fe48c2dcea0aeb8d63d5076e8ebef923f359863d14b21d061"
         ]
       ],
       "element_hashes": [
         "5af033ea2412c6ff1082c0e855c0ea0ffa3c23bdbb4afccecc6b7a724e36bbbb",
         "1ed9264130fe9565246b364573828b0d927a24ba06e5fca27b59c685c9c80dc6",
-        "9383d0b21ad046e95b1d76c8d56421874b537780ab822d920bde573c7eea327e",
-        "e9e72755ac1058e47f4e4091d00dcc1685510cfc583b6de2044c7e8e32cc394e",
-        "d86d63a02e6ef45234627e4a2a9166caa57f22ede915764536db6d2ee88f2387",
-        "64d915dd73411e50d4d587181ab722af92db824effe010ee0cdb958568edad70"
+        "75f5ba06daed134c04851cc98575a789886acf2b33e9189ff7e75fbedd9633fa"
       ],
-      "hash": "34613c88849a3ee14f5534038e2a8ed476fe35d456ccb1306ecafafb79878544",
+      "hash": "5144182cbdbb65dae9de663e4acf148dc052db496d0175a5a0b0ac46cee745f6",
       "kind": "array",
       "mistakes": {
-        "05f8d2389902f6568bfd6d3946d1b459add3f8a5d186120b7fcda1200e9ca7f3": "la colonne k est √λₖ qₖ, avec qₖ unitaire   ",
-        "1775d048a0cbd63eea15c8ea56339c3c1e1df07fac004da6c5dc3f2456850314": "dans chaque colonne, la première coordonnée (celle de A) est positive",
-        "40f249b2dbdfef7653ee20226e6e3eab926b8ca3d28a3962456163d637bb45e7": "la colonne k est √λₖ qₖ, avec qₖ unitaire  ",
-        "7f38b352efb5cef1da08333f9fc99ff12c95210581addccdbd404a019519e3b6": "la colonne k vient de la k-ième valeur propre, dans l'ordre décroissant",
-        "cd1353d8d1320c9dac3cadacd5405eca5d6b988f366434829472b8eb14768965": "la colonne k est √λₖ qₖ, avec qₖ unitaire",
-        "efa5c3fc96969a41fabc5ef0549037b69191a3041a026a349e9fb5f9a0d471f6": "la colonne k est √λₖ qₖ, avec qₖ unitaire "
+        "4d840a59a5c20df9dd718dda3f7a0d7d6f9689db35b2537192c5cfd613d42de5": "une colonne de la carte est le vecteur propre unitaire multiplié par la racine de sa valeur propre ",
+        "5e05b7f34de15aae962ea505fbfdf651b67766d11182315e13b45546027527a4": "la colonne k est √λₖ qₖ, avec qₖ unitaire  ",
+        "77a1112b9b501d88624bfece77ad62208b10bc8544ae6d07d95abe346cc943ca": "une colonne de la carte est le vecteur propre unitaire multiplié par la racine de sa valeur propre  ",
+        "7e52121da771b06d7a60812c24fb557c65d5d832c5cfab566a2d68988aa3c86e": "dans chaque colonne, la première coordonnée (celle de A) est positive",
+        "a0b15ced3d498b9672bf3069891b4962b021a239c8d43ed2d6ffdc29b9f5af4c": "la colonne k est √λₖ qₖ, avec qₖ unitaire ",
+        "bf121742b0c2c4a1f14ea08f02383f980d4572b047fcc512d95aacf70858ffae": "la colonne k est √λₖ qₖ, avec qₖ unitaire",
+        "ce2bf372d45f83293175733f6db2806a67f182fba116acd3335ca43c9d5a0ff7": "une colonne de la carte est le vecteur propre unitaire multiplié par la racine de sa valeur propre"
       },
       "shape": [
         3,
-        2
+        1
       ],
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
@@ -9000,37 +8968,37 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "74f9491a7b6fd39e32b2917239920d825099630e9dadce24f63f3e6a816504c6"
+          "6ea925dbbcedcdfee167e9e2e40570de3de52fc8aeb01386230d7842607f6898"
         ],
         [
-          "205cecb40103abf933d094f20ffeef96a62c07e8fcf58602b67d756101de5f58"
+          "6959bc81cd09fc33b6339c73b13ba393aab4ecdca9df8b048b6c31920eba454e"
         ]
       ],
       "element_coarse_any": [
         [
-          "c661c20513ecf81867956b14a8dcc73eccdd5038ec91dfaba78dc6b9be9b296b",
-          "220f30291232b8c83939c4aff99a2629880411ef58e8cd44b425072eb5482918",
-          "cde0df79eb3341190893e303f05ed4dfe27822b8c3698dffa3d55baf9b625f0f",
-          "c727217940c121a9a80ee678cc4cdbf1c286fc415032e77459295ef711371802",
-          "984ae062baaf669b47a89cb8ad926df448fcc3512f32e0b715254f252ac8cd57"
+          "a27c04f207a815b8711ef42f283908c2a580b198e69e42679e9b40b08eb4e4e9",
+          "57bf714d56df83d76b83abb78e88b7213b4018f3e991d4c53d6613feb19fb3a9",
+          "61475a19620520cf5eb55a0990c090c459181f69d2a4d4d361150e34c2329671",
+          "0f4be47d77cf777f1b0078e6bda5839a2fd88c9d843ba5d1508270e8ed03dda4",
+          "ed897faeb0e5a0395f2fefe595820d76064cccb3a03f08054c7f17ee6c13486f"
         ],
         [
-          "868fb98097f24cc4c168dab5e706dc4caa5006a44272d783bc698b866e745018",
-          "0cfdf4a384ea8b6b92eb7ee36f384a24c595ad5761ffadd59344c64482d61bbe",
-          "be7bcce2866d447fa4646afd767d210ef0ab03a95afb28128955e56cad5cfc8f",
-          "161d791bee70298d97e90ffec83d587c116794f4c32fee4f65b030a888d3f3e1",
-          "5b946e6819b4fe70db46c6efb60c5fcf155a2f1d3742a47ab25e434c60e4837c"
+          "c229b0aa2c0e83b33592e6b10b2dbf0088f5f3ab189c466d3356cacc8dd6842f",
+          "4a26bdfebb834177bef43107226f1ddf78b54f6a00658f694dc4de5dc05bdd39",
+          "983d2a0cd6352835a3bcc608983ec394385e2c935345de23f7f91a72bc29fe95",
+          "b6fb7ddcf820d81aed42ba3bb4c066f9016b90d3af9403dd742937e6ddeaa0b3",
+          "43fb5c59c35deacf92e02cd57371a0daf8b01f422a8e1b0219e665f80eb62fca"
         ]
       ],
       "element_hashes": [
-        "1dea189f1b47854b211ba410f5a7eb74baea842a68aaa11e445b165365e17475",
-        "b888925b47cbc307926893a2df1121b265304aa07f41e52126f33139e787da15"
+        "de3cd7eb680239b30ab081cc52eae4710494f0731fb3d4a74e4718322e83ad6e",
+        "cd1cf7765d3d9e21a01772347ea1388fb2133bc884fd2756c251cfeaef51be5f"
       ],
-      "hash": "6fc92bff57bda8ccbac46300c79b674c297956d2b12ea48b340cd13d461abe38",
+      "hash": "f1b10a321f1f75b4adbe832bf8f0729274c4c8a58039b56fbc1031eaa87bba87",
       "kind": "array",
       "mistakes": {
-        "17612dbf8e796cc06782bf48b3afa67ea731a1e0fec62ade78c2a689947073c6": "la question demande les valeurs propres de Σ_A Σ_B, avant la racine",
-        "78e5d53772c992e25c0ba2a1aeabefea35f68415eb1d6291a348cb1a7bec0122": "la question porte sur Σ_A Σ_B, pas sur Σ_A seule"
+        "0e302f4a2856209e83b30fd52e6da0b7ed7e4be809268be37a724b6649d80187": "la question demande les valeurs propres de Σ_A Σ_B, avant la racine",
+        "40e3b5465e1e825bde44bbeceae6afb3644d8df87f9933028dabe7ca4777876a": "la question porte sur Σ_A Σ_B, pas sur Σ_A seule"
       },
       "shape": [
         2
@@ -9040,32 +9008,32 @@
     "CP6.7b": {
       "coarse_any": {
         "0": [
-          "5741bc318bf6ca14b78bd20dc3aaedb103a298535a26dbc26c3db1430d643d0e"
+          "342ee9e80b83a19c8688f3d92feb5f9b3f4194a42d662fdc170419525ca2356c"
         ]
       },
       "coarser": {
         "1": [
-          "736bddcf881f9349e600393f9eccd18386bcaec108a62cf1b916f98933c95c10"
+          "660526f80814d6b976252dfdf5221ca7b15e0c7496b14cd28b56804691c5b3f8"
         ],
         "2": [
-          "e8c8b5b565e971f31fbcf5a227ec6f1d5dc5214a977043928ac4248859f6d594"
+          "d7ff486ee119d049e226ed3e694cbf62a620f838c030d34cdce598fbbc5a3d70"
         ],
         "3": [
-          "73af8a45c4c8c11d0e2d3160f32356ebb05affdbf4ab9360fc1260d618bae79b"
+          "70c0559aa28f74ff2c0e593445b2c5d6041e40e7370ec93fffd20abaa10854ee"
         ],
         "4": [
-          "a3bae4fe5f109ebd0759dd238c8df412e6fd7fc41ee38666f63da6ac8c8a9818"
+          "508cc6c82139a3eaf635df8188262fea659a0b5a766ec9544fba0017a66cb8dc"
         ]
       },
       "decimals": 6,
-      "hash": "7eb8de6c92eb2f684392cbe084093344c80382ed5d20e9ffc389cf2f1b8ddb2c",
-      "hash_coarse": "278b055059f9716d1bda68eeae00581f0bf6bf463e66eee6ebde7063d73f75aa",
+      "hash": "6a60afc053668160312ca95f996dd78d55763d9eed1dd464c9340c8b44ee81db",
+      "hash_coarse": "e207d300857c8ce469e931f8c3cdba1383b62e823e3db1dc4317796c9f26e3c1",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "0a93856a5c58c177e43770d510d5d3a769220c26ac6d75ae7e3e4eb121e1a9fe": "le terme croisé porte sur les racines des valeurs propres",
-        "7378a94a4568e19cf9b6f98fc697d52142930d63aff4bb36e63731b2f00a1345": "le terme croisé est 2 Σᵢ √λᵢ",
-        "959dde6846b71a4443109ba83910be29d2f497460aa4a5933fff1f733273796e": "les traces des covariances ne suffisent pas : retranche le terme croisé"
+        "3dabd4781e7da5076f4191ebb3d806c17431cbad430e0bf072bda3f6a35bd960": "le terme croisé porte sur les racines des valeurs propres",
+        "9e6cd2996ab6b7e11ca75a7d8a626991ea3eb2e3611df669fda1ce182ca28be6": "le terme croisé est 2 Σᵢ √λᵢ",
+        "cdf90162b8f99dbd1a2c183b104584dc2faba770685948a1501bd0d9b02d8aaa": "les traces des covariances ne suffisent pas : retranche le terme croisé"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9073,26 +9041,26 @@
     "CP6.7c": {
       "coarse_any": {
         "0": [
-          "6822620ee76e470414394255c180a17476cfa3a2fdbbdcf8c5fec74bde5db99d"
+          "745d0337a43cbb497f1668fc170529c981afcdeb4c009913bbf90bff8b4c3170"
         ]
       },
       "coarser": {
         "1": [
-          "7a58212433527e13751fbb010a943cbf49a420674ebf9311aa0dc1841d9e4f9f"
+          "0a8704c06cd92d056273f914f94b8e7be1981ae4dcfe39d64bfcdbe68b95f784"
         ],
         "2": [
-          "8750779da1de1c56dc3fd6bdf71b43cc149df7d9869e2d3707cbf9958f95d9a2"
+          "6687017b0a75457f0e488ee446d3c79be097837b5119e4530d9b1d8c8215d2c5"
         ]
       },
       "decimals": 4,
-      "hash": "7eb616ccc30b1f88bb77883977fabcbf80155069e6228572bce7ec2bcc22b535",
-      "hash_coarse": "4577e4f1bb851c4a21cb415514b4ab8091a27657dab3d858921fd6acb2024211",
+      "hash": "55f6eadd64a3a67c82e47945fbc6bba77d95bba93eaa51d0f05103a320cb95de",
+      "hash_coarse": "60bbecf5c173bb91d6ba2fc22ecc25c045f729b167325f70ae3e0cda8234e443",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "4825a9a884acc10d3288108b23f832a226ded3830482e0c49e05943525a8f87d": "la part des moyennes est le carré de la distance entre elles",
-        "bd002493c16447269478c193275f5f33caa7cf8e4158f2c0685442e9ac63f150": "la distance de Fréchet est W₂, la racine de la formule",
-        "f3bc1550c055106208daa33969133491fdca49f0930740b2703468c863081c27": "la distance de Fréchet tient compte des moyennes et des covariances"
+        "27175ba3f3d1ecfe3959df38801dabf1b0b55940c7f61046c10bc14cc6dcf291": "la distance de Fréchet est W₂, la racine de la formule",
+        "48b8235cadb09b8f4dbdecb0277105f2e46efa22caefdf4913c06d70bf8b04df": "la distance de Fréchet tient compte des moyennes et des covariances",
+        "d32209fc698e3b8050345b7ef7ece32efca659fb2d8e60b0c8183d787e669c88": "la part des moyennes est le carré de la distance entre elles"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9100,33 +9068,33 @@
     "CP6.7d": {
       "coarse_any": {
         "0": [
-          "f51760e10b2b0d3d20e073daa3d0b3f13abcc054fb91484722a1dd42582ba2be"
+          "606932ce306dd5339f85ac01c688e7c4ef94f44d9f8a19d887dd3d3e3ebe2744"
         ]
       },
       "coarser": {
         "1": [
-          "2accc2b6df9cff7a5f922a14bcc8c06d298836adf58ab04fe9978252e2a7918e"
+          "bcd7a7c7406d8b5226c6dc869bdb99ea48f864c84393ff8e3aff7dd58c4e2745"
         ],
         "2": [
-          "4a0e322d2498083bf9df4b943520dd182c9e99d1dd87e98c5a3d33b67f08f348"
+          "359bdd871200d7dfdd32beb0aede3ba551a78ca23e80090cfe332cab1a4889ce"
         ],
         "3": [
-          "d83fe570668197c1e5711e9e1900f6e7be8016c73f0b1cb7e269077bcbfd7cc9"
+          "bf0127bcc7d9f4abe83223c8860c0f0828eb55a182e52b4d84531ac4c795494a"
         ],
         "4": [
-          "5d9e25d869a616e73c9d0dfc3bcee478584b0f920c8281d16c931ef6f96ae06a"
+          "0c145ce5ec2f0dd5f96789802fa183b68a7ced59b726734151b91ac9f66638b9"
         ]
       },
       "decimals": 6,
-      "hash": "5b4dbf62e1fa3d2b9ae0c54f380cde612e48a5723efb3b6dead16f3f7f5992c2",
-      "hash_coarse": "4e704280bfb9743b6dc77812d3d5895d8e73e1b2cd01f96e6f563c2868d75cac",
+      "hash": "1513867c6540bda0c994ff8544ae230d631b988bf01c78642df420ee8f429d77",
+      "hash_coarse": "83657cd19b22692606d77417175e734d1605a067c252de74c21d3a275fd1ad67",
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
-        "061d77943ca5cf8f775b4b89cf382ca737d939736f41b8012590086a9174673f": "chaque trace se divise par la taille de son propre échantillon",
-        "5b39f690e79883941840c7fa3369c86d5bd0479b4f9cd54b3e35e9436d37f871": "l'espérance contient aussi l'écart des vraies moyennes",
-        "697fd7214c97c94d9eed484deeb256623ef8a247686c69171789a393b6fe05cb": "chaque trace se divise par la taille de son propre échantillon",
-        "72e4584d39f10a3fbfd3ac338e53b5b439db7f6797794bfaf15406ce3e28bb26": "une moyenne de n relevés a pour covariance Σ/n"
+        "00159c502643058cc4e3d26594efb89b7c7d5cdb6afc382f25bc0d7f0292455d": "l'espérance contient aussi l'écart des vraies moyennes",
+        "1841e63ebc7563b5454c564b2f02fd4e18422233e89fe2240c8e2d02240b2b1f": "chaque trace se divise par la taille de son propre échantillon",
+        "440a9772773d41dfd0346675cfb51fc00913f9cd3683f171ec4e78c41465da5d": "une moyenne de n relevés a pour covariance Σ/n",
+        "e715130bc8f0b646dd6e9f8226bbaa02c966fde745a2fec4fff1584e03e6185d": "chaque trace se divise par la taille de son propre échantillon"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9134,42 +9102,47 @@
     "CP6.7e": {
       "coarse_any": {
         "0": [
-          "9d09590b7a826de60d5ca7721564111416a57fa8ff53b8df5a6e9cf783b4402f"
-        ],
-        "1": [
-          "678e15ebe2a15ac06dab1374d7b9ea5555fbc3c06983221ed5c0b5c4ac03bf97"
+          "f1059c85fe78e5e455e26ff7fad6b412f185d033326a78ff75d3a67e4ad77e61"
         ]
       },
       "coarser": {
+        "1": [
+          "bb43c3687f5bc612376aaeeb6000f8649ad6d4d8f07edbe17c1123e5122cd17f"
+        ],
         "2": [
-          "1d7e77815f71cedfdd97c71b6bcffec74af1cbcb737f9abbe101612b35948ea3"
+          "1f4244d2492e1ea95cb3aabf47b43ea02f1399e13a32ac5bfd8202bab4269932"
         ],
         "3": [
-          "30a624c6c6d1c686186e7453f39e936199eac5de4082d73b240551a1f1a13f83"
+          "67edb428283ade0fb1abea8ebd369b6bb00da7e3997711fb80ec84bfb5230462"
         ],
         "4": [
-          "9be35cccc69f40dafec98092cb38f4961755cb5157497aafcb4667e6fdf5664f"
+          "9a57b046b3dbf2c2620a72b1844e495f1945c65dfe55273aeac2f1d2f40cbc2a"
         ]
       },
       "decimals": 6,
-      "hash": "9452ce58941229f2590bb9fb61f5ac1d1186d049f9f9322e406d8a94fe48bb06",
-      "hash_coarse": "e42d190f81a19275733e03b35666d21e1a3941f4e7c7761b630b3dac99d94ff8",
+      "hash": "d5f293f3b110fad72d350aaad67b6ead27b9ea0644f5b0c9006fd56cdde1f652",
+      "hash_coarse": "a6be5086cdc8444f75ea6b9f6c148177cadbbe878596c62eef4658819e16f536",
       "kind": "float",
-      "magnitude": -1,
+      "magnitude": 1,
       "mistakes": {
-        "184cff35110f150ef04bb565e80b7a169af10f4868b5ffd3849f30d2a6295069": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n",
-        "4620491818412ef83efb9bc79cbb6d4a5cfa619f11265aeb94ac6f210e1a3008": "deux échantillons d'une même loi n'ont presque jamais la même moyenne empirique"
+        "0e9bda26963026937a14c6f63726dda58131c706ad14467800b006329d54cc0f": "l'espérance contient aussi l'écart des vraies moyennes",
+        "364e771047880345ce2990e1773668a42c98063b17ccabf96987a114127213d7": "les deux échantillons viennent de deux fermes différentes",
+        "82aaeacaea69576416584b1f55c039dc5faf53f8cfa0f753d867d74819847d80": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n",
+        "9c645a1e4393fc54c8b273d674d5f530f6d364f8c8429443a21817f13bd702fe": "deux échantillons, deux moyennes estimées : deux termes tr Σ / n"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
     "CP6.7f": {
       "fractional": "n est un nombre de jours : prends le plus petit entier qui vérifie l'inégalité.",
-      "hash": "d0e90964bd39f3afec326c45eddf95d36f57380c7428616c02aef2cb7403ec75",
+      "hash": "17007d4a4eb15d9252fb3ea8631bde9642ef22d443f2550d3cd82db76c9259ca",
       "kind": "int",
       "magnitude": 2,
       "mistakes": {
-        "325a6b087fdbec2cded55e8214ddf540c1ac63ab19800a79744d3097eb5dd076": "deux échantillons de taille n, deux termes tr Σ / n"
+        "42d2536d772d8783750163bab7a69d38230a3a1f24d24ba94910d664df217539": "deux échantillons de taille n, deux termes tr Σ / n",
+        "562b0df6aad75209c9d0206278cbaa97deaa86d7c8d1cc733704c5b1cb678a29": "le seuil est un pourcentage de ‖μ_A − μ_B‖², pas une valeur en MWh²",
+        "b0ad292cc53443fa1e538df83c488d31f829123166e05657fb6b15590d11e713": "deux échantillons de taille n, deux termes tr Σ / n",
+        "c2b4fae9d983b2f5af693f28a994b1c9f9a979d26d72b11705b0bd89539de4e0": "le plus petit n qui convient doit vérifier l'inégalité : arrondis vers le haut"
       },
       "sign": 1,
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
@@ -9178,30 +9151,160 @@
       "hash": "85f361d2763e00fda25c7b35f84b0d0a13d6e5e0fb3f5f833b148d7fa14ed1cb",
       "kind": "str",
       "mistakes": {
+        "02575c9f4a0ce498d4e13cdd3e6504220a6bcdea312e1ed6bf66e0c44511f439": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "04e87aa8b74ae9373f4aa216dd03871fca9e274086501cb080cf7e708f38169e": "exactement cinq lignes sont fausses",
+        "08224884cad618a09605f1d989272dd80205a112435ed8494572f3f2dfcb2591": "cinq lignes sont fausses : ta réponse en contient moins",
         "09f3e3cba981cd6435403767a14fa075b513ea24e0ba877ba05400e092b3c569": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "0e2db7f747e823a638d63e2ec57ef9528fcfda5f6d0528418241bbe6e2465312": "exactement cinq lignes sont fausses",
+        "0e3f100149f9ab291fab571c3e542118313b8478a1a2f00bc35bb1b937b84842": "cinq lignes sont fausses : ta réponse en contient moins",
+        "14b0df33dfadedff9378942efcd1da77608061de8e5f3cddb10df571d570e389": "cinq lignes sont fausses : ta réponse en contient moins",
+        "16d97da95092c334f23d3188056bf1b12620eb508b6416894dd4e0ec629b8ee0": "cinq lignes sont fausses : ta réponse en contient moins",
+        "19514ae9be3eb08520f2b75ed5f94e50393f45bc5715edb78c6604c3e1f24e55": "cinq lignes sont fausses : ta réponse en contient moins",
+        "1bea001412351bb700986fdd98ade5ad9842b5b43a98934228486ad18d7c9cb1": "cinq lignes sont fausses : ta réponse en contient moins",
+        "1c0e656571b0c12f13fade2c1507551161e1595ffd68b97b61db2b708cc81d20": "cinq lignes sont fausses : ta réponse en contient moins",
+        "1e3c0419d3871cd5fdc6aceb12affac5af2b0f7d7fdcda0943c47e7d4251861c": "cinq lignes sont fausses : ta réponse en contient moins",
+        "1e87b32ddbbee8313fb30098ca531f41d352a554bf2f3d15119aa4ddcf76b86e": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "22e3cef1f1e11c033eaa745d681dbf0d1894c49f7f3ef137e3b4f2e5c92bb019": "cinq lignes sont fausses : ta réponse en contient moins",
         "237bd5a6c169b7cafabb15c47d38e4ae8bcd54df9d79c19404ba0eefc111fc81": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "247b50c402d1fd08eefa257018f8e16e2465f818c9b9ed1bcb43ef531e612f23": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "2601d9764de4c6e2b100dbc730795ddecb731c61f0d40f226f220855a2266887": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "2781bf98d2ccbbd8227b953316b500d18dcbad0755abce62a866a59ac75d4e97": "cinq lignes sont fausses : ta réponse en contient moins",
+        "289ad9231b438a9ea062a2e94e6018f81e273ece44460ebf6794307095847df9": "cinq lignes sont fausses : ta réponse en contient moins",
+        "2d630f81f1f9a3254236518a09ca12377470452a128d9bf9e5274d5c263d52c2": "cinq lignes sont fausses : ta réponse en contient moins",
+        "2e25b3500ecd09d849c8a3096209e1d2f7b908ec3e131e0c89409bf7a6a4e151": "cinq lignes sont fausses : ta réponse en contient moins",
+        "2e3b60503b420252da209d6ae5c696c081de8ebd7b28b3ae34936fae7019743f": "cinq lignes sont fausses : ta réponse en contient moins",
+        "2fd94534add1b40ef80169104bbc6af31cca0bbfeb14b52b5eae5f9efa4b8e04": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "30b2431b165163f4ba11c36c6a4fd09100f166cdc02d7e0960799a16027119da": "cinq lignes sont fausses : ta réponse en contient moins",
+        "338900c8bc2ad0ea732214d3a83e389485dfae4a34813b58d37db7aaee3b4ca2": "cinq lignes sont fausses : ta réponse en contient moins",
+        "33a2ed789e5bc29e74b65754000bceb8c282bdbce6b10482cf1f0f555adaca6b": "exactement cinq lignes sont fausses",
+        "346fd2d8da73ad78007c2636ce27d9be8bca1497ca9dbef4256e31fda08b1d3c": "cinq lignes sont fausses : ta réponse en contient moins",
+        "36ca48054264013363f9bd66681c88e55c274bbe91b0a51f33150da7b7155932": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "3a135c1c11c734b82d222a4460165f0c083055f465dd524017747de403f42d12": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "3a386c472793d98c14228dc91b6062d3d181a156fa9f02b5ff855159d2a6b650": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3b7e7fb55502f894c54f75635d175f9c089b82d09155811cd2dcaae8b3c114ea": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "3c6eca049fb530d27be08c8e2d41cccd208d3153952667c7b71540cef86387e1": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3caba2e0b7f4302a230976ba05da52a9458845477a62d01b070c14c4856cb29d": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "3d0909a954ee4de3c34a7b39a4f6691aa3c61192dad79db623c9de46f0f69b93": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3dc26a1ea8d6e363f6c589d6ca9c02090d32b9fe96bad513a65ff1f6f202546e": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3e9570f0e4a3d19f3ae8ea178d5afe2c4622063e294998f840f84da8b816397c": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3ecc10b3fd65b19284ae26f4b23a02234b6af0b0d3fad66b5d546d5b7be8e965": "cinq lignes sont fausses : ta réponse en contient moins",
+        "3fa7c56b917b157b1e2d8dc01102db97595dbc234dc2270a48ac8b968f9b4361": "cinq lignes sont fausses : ta réponse en contient moins",
+        "41cb32309e0d5378cd58ea016c434f048cd26f041b3b29f30cdf22fcbc46ccab": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "42474efd3ae3a6bb5043385dc8eda6d953a5c5317dd114293949b963d72298f7": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "42a74a0a519183cb46e52b9331e319b7f595c2b4a543bada4bd3efa6a7daddcc": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "42b7dcbd1b8d820e6ff385be27d19be3954fc3fb06c6c11b2b24a498cbfc5fbd": "exactement cinq lignes sont fausses",
+        "486aa667ac10699e3c45366d90d8155a93f7da6070a45605af1a158ddcd1fde4": "cinq lignes sont fausses : ta réponse en contient moins",
+        "4906a398500bd8787a7315e99ccfa80fe5cc471d782240b1cc8e6390bcfac492": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "4bd326a9930880aa6f1c8401d735837066e288dd398d5aa08ecab45a27b25c86": "exactement cinq lignes sont fausses",
         "4d87b77cc2ac6d6d87ddce87b4ceb65d7eb786ccf3fe2d34189751eddceb7785": "exactement cinq lignes sont fausses",
+        "51bf86075214fd39fa549c9551d033ddb087a2e43cd2a0b51c48311c97adb439": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "51c2ba688a86926eb2713f381e4174edbd36d89d880f0d1ccbc357daa10556db": "cinq lignes sont fausses : ta réponse en contient moins",
+        "522b00f876de22e539ba0c9baa727fcdd94d8be1a0f9dfb613074d10ad2af106": "cinq lignes sont fausses : ta réponse en contient moins",
+        "53b6f444b3079a968b54eb598f3765b72090e2e19226d6a628e768e27b421963": "exactement cinq lignes sont fausses",
         "568d5bd84e5d345b368f1e13bc754e731ab11998076396605bb9ccd891568b82": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "5691a9460ef4d34ba808498aaa35e8146f5e655384bccef63c16553407ff0dbb": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "56ec4abcd63149881626001f6bd88e054d88515eba7949c58d59e8ad89ff653b": "cinq lignes sont fausses : ta réponse en contient moins",
+        "57d1b2938e7490b0830377364ff8bc13a5b93095b3af2516439fceb854994bfd": "exactement cinq lignes sont fausses",
+        "59abd93cbea637cc2f6210b27db2f3cb6909f47c2ff0730f8f9c8626159e8829": "exactement cinq lignes sont fausses",
+        "59cfeb37acba9842ee762feb9df770af630546202790ca6e8caf9ac830b955b5": "cinq lignes sont fausses : ta réponse en contient moins",
+        "5a28ee74f3078808503bc67783af013f71315972a3fe5a6c69724406f6ae54eb": "cinq lignes sont fausses : ta réponse en contient moins",
         "6057747b1a169110b2d914cd7881bab942d01db48430270fadabff713492d664": "cinq lignes sont fausses : ta réponse en contient moins",
+        "619a179693861504d78aa4880f1dc9bc0bf52c7aa074a490fc6982f38d38c28e": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "61bb0d9e9afb0422d440289ff24281ed280651aeca09dde61bfc4948e4f49b06": "cinq lignes sont fausses : ta réponse en contient moins",
+        "6392d2f87e762b751d57458628cc54b211ed3c1d35ad0b2f258d1f4f20c444cb": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "66423ae96c01e010610747e4576ba8cba6fa83e90b5af0e100f20a241fa0d3d8": "cinq lignes sont fausses : ta réponse en contient moins",
+        "66d03cfaf00f6c7f28a0e2c34b44b675c9e094253e48dae77f669e1cbc313aff": "cinq lignes sont fausses : ta réponse en contient moins",
+        "66eb165c6ccb5eea378ebf0af92efad87de0539440ea871c1cf0aff34d544c9a": "exactement cinq lignes sont fausses",
+        "68e7b19e7338037384c8bb4ec46f04b3a2614055f602093d34ea804d26ea41f7": "exactement cinq lignes sont fausses",
+        "6f79057f1a9f2ca032b8e5049c4e7608cde6669c80dedf33120d87b528dbdc1b": "exactement cinq lignes sont fausses",
         "6fc2683d313a89900b933aacf77377bb166a274ba9366ea01d1779b8d886f1de": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "7509ef2f6ec044efb59f7f013310bbc7499567e845135bab6f01be2ef43197c8": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "75bb874161ec26bd7a4c1d51ef128348f7399420cac2103e57313010fd294f71": "cinq lignes sont fausses : ta réponse en contient moins",
+        "779f68423c35758e4b64213e2ab9209b0be31eced167567d2eb036983a749f93": "cinq lignes sont fausses : ta réponse en contient moins",
         "7826e32801893a10ac0a34af54367800d7c3a7e8ce5195a815faaecb7d57a023": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "79495d55f696337eb494955c9b47311a9d717bd0083251ea4974c3eef6fc17ec": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "79e8e8671141d60a74a8baa554ee6a50a623cb70cd1f8088f873c60a4f80bd52": "cinq lignes sont fausses : ta réponse en contient moins",
         "7b3b8ca5a547e1269c202f70884232212b327d6d0714c3cf6647c56ced72a634": "cinq lignes sont fausses : ta réponse en contient moins",
+        "7bad6abf9467d16afa20ebe48b299834db68e41126635c4af289930fd6f14366": "cinq lignes sont fausses : ta réponse en contient moins",
+        "7c5dbe581b2f2232d11fcf10848b67f47648c8064681abf99f9db9535824c38c": "cinq lignes sont fausses : ta réponse en contient moins",
+        "7f0b20374569cf345d8953f3cc98027ca21abf8ce87d6f9e6e5269f5aad12c59": "cinq lignes sont fausses : ta réponse en contient moins",
         "7f0f79a036be441ed67ff636424703ba886ef283216cc4c1148581cee2e87096": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "7fa1781c720b3f84a4d2b06cc9ade79e749acf3bb78fdf02d0df023155769052": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "828e9a8f88d45142d78b624cf364a5f2efa269ae6e38434689d57d57a400322a": "cinq lignes sont fausses : ta réponse en contient moins",
+        "845316dcf2af83e83a3d395587b88fd7b267bb6f10b3265325fb63cfa2c2951c": "cinq lignes sont fausses : ta réponse en contient moins",
+        "851a3435992852211e874ea8be934ad5ca620c1c65cecf303d88a54031f865b4": "exactement cinq lignes sont fausses",
+        "85ec3c55cbf2ae71ca2f11ccd2dacd0d556863e04032b3b1f01b1ffb2991813e": "cinq lignes sont fausses : ta réponse en contient moins",
+        "8694a3ea5b5c00c2f00070fb20179937e175d324d9501d70fe11a18bbee6f761": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "86a3de13f6e60d6eef81ef9f2decb6bb9e2ef3403b971c315809fb1cfe42adb2": "exactement cinq lignes sont fausses",
+        "872a72234cd09adaf03786d88662a039ddceab608c725ab3ff74e93a1667ff06": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "8844db290500b01f9cda7a04f4fbbba617e9f23ca56927dd9bf328a04504314e": "cinq lignes sont fausses : ta réponse en contient moins",
+        "8882e031263ccd2271168c0cacb95df9b5341e5be0bf94f7f153ec83ffdde10c": "cinq lignes sont fausses : ta réponse en contient moins",
         "892b418ecec5e4c96a58b4d4d3b73a878f20243f214b31a41a0adf94f18f2bfd": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "8a051c5f73da69d86c212b70c450e766aee892b74ad0809024300af18b0175b7": "cinq lignes sont fausses : ta réponse en contient moins",
+        "8c1ed3dafe58a4fb26e71894f0c1c6a88cad517606b3d22871db4f212300f9e8": "cinq lignes sont fausses : ta réponse en contient moins",
+        "8f35ad97ae8b9d6f0dfdda935518440ab091513ddb199af1211da3cac9f82b34": "exactement cinq lignes sont fausses",
         "90cb39bc0f1fc4b3a4035f2a6d7493052ec8dceb6b9caf9a3308d5dbecfbda89": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "966ec32e0e873012e4aefd33be124d42969cd78feba98b6d93f50d5e4b67e6b5": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "98a514868663a1a4ce1844d9feb2226f9de86868aa317a44ccef328ce8563b25": "exactement cinq lignes sont fausses",
+        "98b658336bb84078460bf70afa7cb480021457923b948fc9e44773090eb4d8ff": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "9a06199c1a11b593d3c28c14935f7570ad0c8eefe0808c8d5c97057cda0af853": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "9a62bbce9c8341f0ae3c50e853045b5774599e06ec9005f90e024ecb327450be": "cinq lignes sont fausses : ta réponse en contient moins",
+        "9f504ba00659b208d7a2cf1c6437e0de7a4250e118e558a45b5f95fdaa37b851": "cinq lignes sont fausses : ta réponse en contient moins",
+        "a119eb5748d4907bddbf03d31d8b7d11dbed4452928c022f9f93faf8d7c75508": "cinq lignes sont fausses : ta réponse en contient moins",
+        "a28c9c2865af6210b2a0bf4c5d50372768bf8655928043b3e6d80443449ebaca": "exactement cinq lignes sont fausses",
+        "a58b756ccefa34060c2638590115ebac8f2c314b2ec194ba7ac4e04ad9a2cb5d": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "a5e3e6169268cec04657e2d707c80d27c51b1ee00802bb779318b480e6d28385": "cinq lignes sont fausses : ta réponse en contient moins",
+        "a6692a75bda23e99f829130531b522a3539bf95295348b0e80a313cf1bd9a383": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "a776268c93fefd3f10da2244ea02cea730ac85f150c0b666ed4cd00ea2c9a353": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "a881ee216ff5e56e769e646dd5e3ce88b83c52198a4a550535804d27bb09b955": "exactement cinq lignes sont fausses",
         "a968172b9d058874438f9bacb2eae1ff2414c27a46067aa0d2671510a53a5f21": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "aab42aef813d9adf37aa355a7a7c80c6dd2e1f1fd06b675ae1618a45aebdada5": "cinq lignes sont fausses : ta réponse en contient moins",
+        "aae96ed49aa016b02cab5e3718fe76a0fb5af37a5f58f93ca9a5947905122655": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "adc6aca78254cbc75fb7ba0fea030bc9449a2b9118fc5bce909a605c2237ca77": "cinq lignes sont fausses : ta réponse en contient moins",
+        "aef84e25f4a5654469f0cc5dc33c4d248d15ab1e22046357418067ef3b5e362a": "exactement cinq lignes sont fausses",
         "b130a2244982af3d535dfa36de897cf3f6dbed592fd68aff417ae0c24679d709": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "b6c6c9286e3085788a716525f75eac153aada204717c8617f0edfdeb0c3bd116": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "b7c8946eff2b1d3cb3863d33a490b78ea3060db0b5cc9088ec5560cd316bc687": "cinq lignes sont fausses : ta réponse en contient moins",
+        "b8fd463c34325adde9da497d4e1bc2143c7cf3cc9d03a35dec641d00263d2755": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "bc513536e84ae8a7c67d17f08356d7cf195b5380ca11657e40b84572e2ac4f81": "ce sont les lignes justes : la question demande les fausses",
+        "be2d6b99146df7dc8a5b4f517fbdebcd987a96e4dc5a909a95eca643126fec5e": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "be89cfac731490376c542d12e04969fa0b2fb5be96709d93725093467be1a382": "cinq lignes sont fausses : ta réponse en contient moins",
+        "bf30bb626be397ca4e6085b128390755e9c7b88b4b421ad2a81ca1f1885e382d": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "bfbeb95ef742b087d6b0b7df2739e31042ba4daf5be79d0a0ca84053b3616534": "cinq lignes sont fausses : ta réponse en contient moins",
+        "c057a9fa76cf205941e08a58633552d9fa65c7b2139522841e6aeb051794e6e6": "au moins une des lignes que tu donnes est juste : relis-les une par une",
         "c4755f0fd422baccc629af482c5d3b5e025942ad04ff41f2d0d60a9e6b9b9758": "exactement cinq lignes sont fausses",
+        "c6361343bfbc82869298dda96cdc51c68d964a6452c10dc0018b9ace49325f72": "exactement cinq lignes sont fausses",
+        "c8c767d535c73764a45e96e36806c69c94146396c5c5805a6bb020eed7ef4046": "cinq lignes sont fausses : ta réponse en contient moins",
+        "c9150f95ac9396f607c48b8fbc1b48ebbb0524a5ee6fbf25c5fa24f2f9643a88": "cinq lignes sont fausses : ta réponse en contient moins",
+        "c9626b2d5ad0a01135f9ee3c46a56e0cd932aeac6b38842745acf8904c145ab7": "cinq lignes sont fausses : ta réponse en contient moins",
+        "ca1842cdaa5ac1f8e4a8ae86381c0c2c986f80905becdbb7d229799b4830a810": "exactement cinq lignes sont fausses",
         "ca214241a7ad62fd89aad7e3a347dcec376c13ffd0dd7a83ea747d6bcbd0a250": "cinq lignes sont fausses : ta réponse en contient moins",
+        "cb2405e035cdfeef8d474408be8fee27cf14e91754d94a653b2f42006eb29134": "exactement cinq lignes sont fausses",
         "cef2e9ea3e64f627fe2880aea647ea6da2a6c9f40474ea46e9c654891c6f5dc0": "exactement cinq lignes sont fausses",
+        "cf0d74babcd4ac60df983b28bc52af205dabbe9e6f87a849271fb7055135d1e2": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "cf90a67b15f6ab9d00374c40a903e66ef235006e7dd02285c934e86675ef576d": "exactement cinq lignes sont fausses",
+        "d01913cb7a04ff24e676ebec3b35703dbcb32b2ae81bb1724fe519e48b10da14": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "d0f90c7a283d0bc456b072e5ea837d4639c6ad7a227db85972b0a17c5563897f": "cinq lignes sont fausses : ta réponse en contient moins",
+        "d80c90f861d38a04ab758e9c2e7a8776932e091439e305ec4bf996f453f0f1c4": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "d890daba3299e5a2deb54ff3809657a2b8a767d1994e608d470786a31143a4c5": "cinq lignes sont fausses : ta réponse en contient moins",
+        "da34cbed484eca820f752931d5bbc081a6b803b81b5cf81045fc9e9d947d9487": "cinq lignes sont fausses : ta réponse en contient moins",
+        "da683a1296487830fe26bb9ae1084b4ca22fdd199e8c38fa4861b8fb0ed4a60c": "exactement cinq lignes sont fausses",
+        "dad8bf372d07037bcc52294cf9c2a42463ebbab26cdd205c456753132764e15b": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "db7764e37172eb18f1d9bd92dde8ff139c2c976b97cfd86602d90aef24b205c5": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "de1d25d26c217cfc6c698085b6860221aab2c97b71e17ff3a21af44833139178": "cinq lignes sont fausses : ta réponse en contient moins",
+        "ded66534613b70d337f078ff9f80fdd439ab73f6c58023f49248e267c493467b": "cinq lignes sont fausses : ta réponse en contient moins",
+        "e555309da050eaacd0a301c65426888b785a2efd484666ee4db2aad5ef2d7bca": "cinq lignes sont fausses : ta réponse en contient moins",
+        "e69e384ceb3e3dfc919ec1a0595a637a868caba05deae12bd0c530b1df219567": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "eb225548c97d074306925a3132f25ac34e2350475efde7f42add3cbb3794f518": "cinq lignes sont fausses : ta réponse en contient moins",
+        "ef04efdfe4e210aa8426420764cd262cde82e42368723b0bcba783234fa7de7d": "exactement cinq lignes sont fausses",
         "f313fad11fa02b3a07aa5638579d0f65fc9307cda9dcddf949d5f6c9ba8508d8": "au moins une des lignes que tu donnes est juste : relis-les une par une",
-        "f82100e446795523711f4300e4f300f97204acd61e1f2699fcff8ca5cb37d7f5": "au moins une des lignes que tu donnes est juste : relis-les une par une"
+        "f389c945d909f96400e7fa9f2a977bfd23d715dbb7ac5714515dcb87ddf2d9c5": "exactement cinq lignes sont fausses",
+        "f3900a9179367542f73b9df928482d9ace6c440dfd3ae3c3416bc70b3d5cebf8": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "f4b7294a852216a1ad81eb89851ea376d72244090f3661ae25ed83b95417ca8e": "cinq lignes sont fausses : ta réponse en contient moins",
+        "f82100e446795523711f4300e4f300f97204acd61e1f2699fcff8ca5cb37d7f5": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "fb8f17f20eef61c9818b50ad002794e16fd61393c9f84d4e676ae3b681d4ebbe": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "fcef36cdb65373dd4ad0627e49e3c5e5223d679fa20ac7a9898b22ee2d4d1d75": "au moins une des lignes que tu donnes est juste : relis-les une par une",
+        "fddd49e6fa91af1de9d609311907f0daa0bb8d82ec0e2c0fa241aa2319d23c63": "cinq lignes sont fausses : ta réponse en contient moins"
       },
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
@@ -9326,116 +9429,84 @@
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
     "CP6.10f": {
-      "coarse_any": {
-        "1": [
-          "e5da9d94211708f033ec801d5204bfd92ec85886203ddef7fa9ce07c4e38326c"
-        ]
-      },
-      "coarser": {
-        "2": [
-          "f90929a7ce9a27a152df0b87735bc74c5733d962e4d2be28ee0dbb2bfbf554ac"
-        ],
-        "3": [
-          "5e7add6da112cd0f53d855554fb2bb4a6176d59ff9463c5e95ebde3999842e1e"
-        ],
-        "4": [
-          "ffc4e34fe0d14669b52b9f36389c7473c26b33d4a6a1bbd2924e90322835b4b1"
-        ]
-      },
-      "decimals": 6,
-      "hash": "f7189c6c9af89511a8aa0037b5296a0b0cb9111742d536995a241f0ba3d7969c",
-      "hash_coarse": "006b8c5eabd19b96834f8c9c3ce32e03c25648210811cf9d6593f53f710561c8",
-      "kind": "float",
-      "magnitude": -1,
-      "mistakes": {
-        "02181cc4cc669b714d8d356951389ce4c5332470c96899a06129dbf41997de38": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
-        "1f1419cb715c648b72c792ff3be61ecbba7f24a44a691f3d0f6ec8fa0f5be257": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
-        "6737dac5b83e13ddd3c2dfaad4bc422285f2c6689a329b810d3057957fbf5f88": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme",
-        "7d5d02af4093f36bef848c2aac67694742de5444c93f844e0211f99919e9106e": "la distance en variation totale est la moitié de la norme L1",
-        "859e2fc688f921048cd0c53dc8ccd8efaec8fbc0255ec143e9399355283f78bf": "la distance en variation totale se calcule sur les écarts entre probabilités, sans logarithme"
-      },
-      "sign": 1,
-      "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
-    },
-    "CP6.10g": {
       "decimals": 4,
       "element_coarse": [
         [
-          "337f9ed1db57f57d112f174f12b84e5243ce154c0a6756b0ef8a7bc4b9eb01ad"
+          "54c80cc6c57127bd6092cdb89ce5c3622c8c2f71f1811afa9d801643117ff92c"
         ],
         [
-          "a80552ff6c2e24e26a1cced9d88544dfcb240b2078ae5d86acdc550d3336a97d"
+          "c9f569f3fe56cd32a8843cd30f2d447bf6fb5e670c16e38c7896b503bd64f904"
         ],
         [
-          "c8d5af92c8f915783f25cb80fd5050e112b311cd295e9faa2ee99107ff3f36c9"
+          "86f83abfddccb8cbf8dbe4761fc8d616d8242d10d58abd9cec0d41fb8634e325"
         ],
         [
-          "fed8ecbe4efffbbbeb9a863ba61cc25d6b1071e1ae7c85ee31741adbbd9e1a88"
+          "5c92edf8c77aaeeb40c7ff421ba6da233105016f57e3f4fd1b8685bc097ed958"
         ],
         [
-          "bf61ebd8ce1ae10963dd68495612b002835ff6c62bceda656a5860623dfa777f"
+          "f6c430d35866717acb267bf999d579999e25975ca34ac3566b6bf2326beaf484"
         ],
         [
-          "7e609c453786c5d5197051822df10ab8eff3263d04cb7e84d16402c574e88bc1"
+          "5d1fd937736a086970ef5cf6fc290944c357d5b388f4ff89e0270f986e6c8629"
         ],
         [
-          "bbd16f0953275a3a9c4228444e2df37ddfb423d06c5d2c50598a92e04d0c346d"
+          "dad90bc9d1e91bb42ebdba458defba68fa441dc4f79d9b211684f54b9fd37e32"
         ],
         [
-          "bc0dfeeafd141af900399adcb7fc9dbce89ca1768232b4f94fcd1c0962879701"
+          "a39f5b5eb1a8007588b30b4206797f87c00f54ccae0bc1d0af895ce50f7bd46f"
         ],
         [
-          "f6745e51e7c4f1eb0f4ed36efc1504b086a982a209067e8359c8c0768861bc7b"
+          "74abcae9a6a9a3f5c4af9ab69c6dd4d496908a6f9b731be50930a7a797ac07dd"
         ]
       ],
       "element_coarse_any": [
         [
-          "f440e4ca580a40824b872834fd735a05ef956759b39a465d6cb5d12b1dcc05ea",
-          "b4b3620e8da58f7801db93306ee10416b18a42dc472e43329ef97fddb8d5aa90"
+          "ac4289fcf193d88cf9ff6a9cd5bd9e859cc449fd71887505f2d7d3b2490c2b5a",
+          "755924111fcc926bf5c746fef84d8879fc434884a245a8478c8b55204cae5388"
         ],
         [
-          "3f15f204693a54ff6e85d6977a1e9c930b280498c970914fb489003cc57c1ba5",
-          "6627cb4f2ffac6c029cd7f2a1da7bc5e75c7ea562d0d8d606bdf0c890b377eff",
-          "f2c8c4a8e61ffa08c18cdaeade34a672f2fbce4beaedbed1af4a6f88481d51a5"
-        ],
-        [],
-        [],
-        [
-          "a22ef474a2042c0d646aae7787814801edf81ef8e707f2d06b381448a9de669a",
-          "4a3912acd1be2e7702dfcf0cc9440f0a0b0fe6d317e7c4f7dc15e6a997a8a123"
-        ],
-        [
-          "a1a4cdc1fb6e1232f2d49dec7a7f77235d1301934704e46a30eedbe6bd929c3c",
-          "eaf6f40a26771a2813154e9822592ea3c9e0ece57917d56671a542900f577f26",
-          "4400d8ba8d97450149f7a55ec0afc512cbee3376302d3b3f0c12fb45edeb8c37"
+          "e63328cb44c5198901d008f7ccfd3b15db51eed8542b415470ff2e34b2fa2a82",
+          "785f8c00122ccfc36f5f601d3e94a07af8d57d52677b9fa714fe7d1e148d900f",
+          "6017d374f919af6b4aed038f1453ad94c5bc3a26a90dad7a2df8db9de7136389"
         ],
         [],
+        [],
         [
-          "2b92210e5cfb1ac9757229a30a94bca7b1f0c3a8fc4a028071ca153b31afde1e",
-          "ff74d15b94dea0d5c60403085446bc68284548ae3d9d0c68492dc74a494af392",
-          "4ef54413cd6147ef9de13a9193e7f7ed1a03dc772d73c5dd8f5d35e40e328882"
+          "19a08f29009f770161f049071c72db2a628254b3c3390eef925d559c67fb2a82",
+          "be9370ad4429fb515f540353cd209fe5d58e18ba63d3c79ebdd7528b1e113e44"
         ],
         [
-          "bc1d2f253c515e98ff5bb8f1ca3460f7483187dae9994be1f68c293c2f159a2d",
-          "89fd48a24fd7d88b30c4d2ffee1675451db709d22ff8c97d1f6658a4071444ab"
+          "32de7ef20831ef1328106db3e0988636377cac9751b86de62b4e92ceb0380452",
+          "e6429ca5333009975d670c9848930e65d847213877661906bb527c735200e650",
+          "5854ae0858320f4dd42cbc1f0f58749cdbabae61eec01bd62597ad3820fd210a"
+        ],
+        [],
+        [
+          "d651764f14578d4e3cbc6e53056035d47ff82be26ee5a2f8db19428ec6a846fb",
+          "6fcb808442a78e334367e84f7ff230a4fdcac23581899cda0df2582da752d862",
+          "0435fd10c0502f18faff42825f0a0ef043a7d8502e98650dc2db59f88dc1aefb"
+        ],
+        [
+          "d433a0dfc73c21a4bceff43e9bea9c5c29202e6f2cc3f4de8212ce22c4def1bc",
+          "7cee5041cdfcb0a79d1238b95ad8d8608de999a781bb25b27b973854f1af1a71"
         ]
       ],
       "element_hashes": [
-        "84345774ab99c9c12c4a564cabe5dadb0368b92afe5bc448710cc25bd1b179a5",
-        "bc56734584226ca6494e3c261a03ca0b6101a6d653c790377ce3303d3c304605",
-        "049df618b353f82e54ec1d57d2a2b10f083da08b0477067a1227a074af3c4b4d",
-        "29c7fc75137bf229eeef157b385f21bdec7ba7d23096da9465865d6f7834a370",
-        "2000525f02fe408dcad9d403d3dfe7db3ab517fb4fd46e6f804d09ed289f7a2c",
-        "78c5bc97a9acbbf5da8af847630e98f95268a160463df27c0a0dd381a47decd0",
-        "833b9274a68ef77ee5f7f4166f5d06a46ea8a99e98367e165d25201638bf6129",
-        "ebdb8a87490f9ec6a146527bafa51f3f2bee7cc5c1fd3e3882a61722fcb48f63",
-        "852bbf9b4757821981e8530a6805b18d5fd14b9c7649ab01275bc30ed6441365"
+        "b71d4422a09c19684e57e586c81d0bb5d62b6d6e8201de674e9e942ffc2a81cd",
+        "a1ac03ef4b8caaf0ab4bb7313a39ba32dd45f9feee366287673e8989b0f7a580",
+        "06c78f8681bc05e7d59b8809772bd6f94dc6811ecd216469b3f4ec767b0fd9cf",
+        "884c217ae3b85f6c908e54cb1a53a53231649de4bd9b8f976ebee3c0c579e7de",
+        "c53ce40d22bbbd8a33faf7ff70d5ad923bee9a071b1d3c31698e701e2f95f7d6",
+        "a75a5fb3f2ba6e1295584a486ec810f567e5717d3d85aa174f063d68ed4427a2",
+        "65cacd3216fcfe3c77911b3ac8247a425660ba84221c6b27dc00a043c0b88ca1",
+        "bc335f65bd63ca129f29920c67b65fba7467e0ace480ba7ca79b3d5e110c887a",
+        "5367c70d3f1996655fc721f5aa289f4c454c9e0446bb66c050fefe00e2e21adb"
       ],
-      "hash": "526ff40293a50aae7986d909d6f59c3ce486b67aba10dcf4f804780aaf07c568",
+      "hash": "208ceb6b0873d680d5da69506d854b843a2453692ce13eb2aaac793f68ece9a1",
       "kind": "array",
       "mistakes": {
-        "8a74c4dc21de294d45909e0a7bebe6b678ab5cf313ba92c17beffc675da7232d": "une ligne garde ses issues jusqu'à ce que leur masse atteigne m, pas seulement la plus probable",
-        "e6b5b90bfb40da546842538478129af7c21d375764747781f8cea9cbeaf95bc0": "chaque ligne de P′ est une loi : sa somme vaut 1"
+        "59a48baad69a11e2d69087a62b587f39624754a09496077d75d5bbd703434cc4": "une ligne garde ses issues jusqu'à ce que leur masse atteigne m, pas seulement la plus probable",
+        "b6dd4dd4870643441be84389f8b1409e5e165c429d6e97e21479fd3633aab410": "chaque ligne de P′ est une loi : sa somme vaut 1"
       },
       "shape": [
         3,
@@ -9443,42 +9514,42 @@
       ],
       "source": "checkpoints/partie_6/03_examen_solutions.ipynb"
     },
-    "CP6.10h": {
+    "CP6.10g": {
       "decimals": 4,
       "element_coarse": [
         [
-          "b6f9feba5ea925c080b2afc68827ba4ef3975330888e08f1d73fefe7003ebec4"
+          "3fad340791c8b354886a33c8afc7aee94211617697e3f2c03060c4afdfbc7d73"
         ],
         [
-          "bb3178addfa22cc6723fb0aaca7453be9058469cdcc0e8e22e6e2d4771b65a11"
+          "a432f1bf412b0ead9cc85b2435b107ca9e48b90185c9b4f4ec4cca77be7f28e1"
         ],
         [
-          "f26daf5bb9836b0db271717e9b8c7947f9334862e75f0a821d4d27b0aa350de1"
+          "2ee92e02ee510cbd916e87f1ca12fdc23fd5a119cf327622be24848890e1b2cd"
         ]
       ],
       "element_coarse_any": [
         [],
         [
-          "0f6c86835db4a96df69c769fb9a3c302e64fdd4c59c5bfb142e4863b02e9e892",
-          "36601cb4676be154513edcbcb872be84431bc119d4339a8c3116a39b24766c69",
-          "b25bf6a7d8ec744be3f46b3196578d309fd8f3a0909d541f8ee2e259d2dba259"
+          "3f15f204693a54ff6e85d6977a1e9c930b280498c970914fb489003cc57c1ba5",
+          "3b9c0e5392f192447ac7c6172ea3eb5678198dc11550fff305f9f71e421466c8",
+          "64f489d7d718d66e4e943afa36bb5925fda136781964868f4fc110c2f5acf206"
         ],
         [
-          "80f7ba768b281c8be32c466269ead57ef37c7090e210e51d573a7ed4dde60704",
-          "efa590394b88fccc2c0a0f41d46d989945a38c0c12d106a7c1c60e0e8efcfceb"
+          "e0c5ca541612f37821ecd404af439ed7b8c7622a36cbd9a9942491d8171e51ad",
+          "089e4e40b6afde3dfcadbd52400868a2d4a1fe64888d25ff50d34b771b3e41a1"
         ]
       ],
       "element_hashes": [
-        "d77662bf716b3128c0f13d4c10752b2bbb711f5cd7c16fcf56f2c579e06ba466",
-        "57cacbb1e2eb965821758960e0329ce5951a960f01ea4de81ff1790b6085cae3",
-        "66bdf05591b29333de36e280a041a4ec10b73191c5cacc911bc6efc69ffa0bdb"
+        "87dbc5e03f08568904c11f41b9f5a40486c448d768c6c98e733f50ddf6f70e24",
+        "45274f0492cf5cd37a6ec1bd45fc2800d8f107f4939230c8503687eb09cc4b5c",
+        "9ec274ebf19adac378257d15b2881fb939d7f0c92ba4c06622c2c139823cc7c9"
       ],
-      "hash": "e6a54eda4404ad3ba0c23dd16d5efa289838cfd78d6749f5c72aa41b06f33d31",
+      "hash": "d12a7fcc801f592b73126fe94aff2ba7a40b24694e80633e1d977039982e8a3a",
       "kind": "array",
       "mistakes": {
-        "51e2cfd31c5ffe0f907ece58eabe63f165716729647574d87c247e9d23c9c07c": "la loi demandée est celle de la chaîne tronquée",
-        "9e385b9b24de28b5e91929ea6734edde457e7de242e7645fce9702dd29bb63ec": "à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : vérifie lequel multiplie π′₁",
-        "b1f3a518edb6e2b99c2bb84c5ca7db44736844faf5cdb0f8a6a0b03704f4d699": "une loi stationnaire a pour somme 1"
+        "15000ca533de669d2099eebf22c3ee168633470f81321e9fe46cd291790e1c51": "la loi demandée est celle de la chaîne tronquée",
+        "da3ce388f0531bda91b14b445df3eea5ac1c839f4103d1c872b01b43e6ea793d": "une loi stationnaire a pour somme 1",
+        "fd4eac3a0443f04053fba90748c073e7bc297d4b60042a7cc584ae74017a4002": "à l'équilibre, le flux de 1 vers 2 égale le flux de 2 vers 1 : vérifie lequel multiplie π′₁"
       },
       "shape": [
         3
