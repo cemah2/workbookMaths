@@ -122,7 +122,8 @@ def _close(got, want, what, rtol=1e-9, atol=1e-12, hint=""):
     want = np.asarray(want, dtype=float)
     assert got.shape == want.shape and np.allclose(got, want, rtol=rtol, atol=atol), (
         f"expected {what} = {_show(want)}, got {_show(got)}"
-        + ("" if got.shape == want.shape else f" (shape {got.shape} instead of {want.shape})")
+        + (f" (largest gap {float(np.max(np.abs(got - want))):.1e})" if got.shape == want.shape
+           else f" (shape {got.shape} instead of {want.shape})")
         + (f" ({hint})" if hint else ""))
 
 

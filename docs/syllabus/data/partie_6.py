@@ -1581,20 +1581,20 @@ CHAPTERS = [
              "famille de vecteurs fixe, et ce qu'elle laisse libre", "§2", "E"),
             ("M28.E1", "💼", 1, 10, "« Que perd-on, en divergence KL, à ne garder que les issues les plus probables d'une "
              "loi avant de tirer ? »", "§5", ""),
-            ("M28.13", "🔨", 2, 25, "Une configuration de points de matrice de Gram donnée, par le théorème spectral", "§2",
+            ("M28.13", "🔨", 2, 40, "Une configuration de points de matrice de Gram donnée, par le théorème spectral", "§2",
              "m:points_from_gram"),
-            ("M28.14", "🔨", 2, 30, "Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse "
+            ("M28.14", "🔨", 2, 35, "Tempérer une loi donnée par ses probabilités, et le plus petit ensemble de masse "
              "donnée", "§5", "E m:temper,smallest_mass_set"),
-            ("M28.15", "🔮", 1, 15, "Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est "
+            ("M28.15", "🔮", 1, 20, "Prédire ce que deviennent un pas η∇f et un pas normalisé quand la fonction est "
              "multipliée par 1 000, puis vérifier", "§3", "E"),
-            ("M28.16", "🎨", 1, 20, "Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et "
+            ("M28.16", "🎨", 1, 40, "Des motifs rayés de fréquence croissante jusqu'au damier : leur variation totale, et "
              "ce qu'en laissent un flou 3 × 3 et dix pas de descente sur la variation totale", "§4", "E"),
-            ("M28.17", "🐛", 1, 20, "Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs "
+            ("M28.17", "🐛", 1, 25, "Chasse à l'erreur : un double centrage fait sur les distances au lieu de leurs "
              "carrés, une montée qui coupe le gradient au lieu du point, une prépériode comptée dans la période",
              "§2 §3 §6", "E"),
-            ("M28.18", "🛠️", 1, 15, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les "
+            ("M28.18", "🛠️", 1, 30, "Un test de propriété : la configuration rendue redonne la matrice de Gram et les "
              "distances, pour des points tirés au hasard", "§2", "p:M28.13"),
-            ("M28.19", "🏆", 3, 30, "Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins "
+            ("M28.19", "🏆", 3, 45, "Défi : redessiner la carte de 30 villes quand un quart des distances manquent, à moins "
              "de 1 km en moyenne après alignement", "§2", "p:M28.13"),
         ],
     },
