@@ -9,10 +9,11 @@ characteristic function ``v``, a callable that receives a coalition and returns 
 Replace each ``raise NotImplementedError`` with your code, then run ``pytest tests/test_mb6_attribution.py``.
 NumPy and the modules ``math``, ``fractions`` and ``itertools`` are allowed; SciPy is not (``scipy.stats.rankdata``,
 ``spearmanr``, ``pearsonr``, ``scipy.integrate``), nor ``np.corrcoef`` (write Pearson's formula on the ranks, M02c),
-nor pandas: the tests compare your results with ``math.comb`` and ``fractions.Fraction``, with a game rebuilt from
-its dividends, with ``scipy.integrate.quad`` on each segment and with ``scipy.stats.spearmanr``. Never modify the
-arrays you receive. Numbers are returned as Python ``float`` (or ``fractions.Fraction`` when asked for), vectors as
-``numpy.ndarray`` of floats.
+nor the module ``statistics`` (``statistics.correlation(x, y, method="ranked")`` is Spearman's ρ), nor pandas: the
+tests compare your results with ``math.comb`` and ``fractions.Fraction``, with a game rebuilt from its dividends, with
+``scipy.integrate.quad`` on each segment and with ``scipy.stats.spearmanr``. Never modify the arrays you receive.
+Numbers are returned as Python ``float`` (or ``fractions.Fraction`` when asked for), vectors as ``numpy.ndarray`` of
+floats.
 """
 
 
@@ -123,8 +124,9 @@ def line_integral(field, points, n_sub=20):
     Parameters
     ----------
     field : callable
-        ``F``: called with one point, a 1-D float array of length ``d``, it returns ``d`` finite numbers, the vector
-        ``F(p)``. It is called on one point at a time, never on a batch of points.
+        ``F``: called with one point ``p``, a new 1-D float array of length ``d``, it returns the vector ``F(p)``, an
+        array-like of shape ``(d,)`` of finite numbers (for ``d = 1`` too: ``[value]``, not a bare number). It is
+        called on one point at a time, never on a batch of points.
     points : 2-D array-like
         The ``k ≥ 2`` vertices of the path, one per row: shape ``(k, d)``, ``d ≥ 1``, finite numbers. The path may come
         back on itself, or be closed (its last point equal to the first).
