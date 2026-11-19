@@ -32,7 +32,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | 22 · Réseaux récurrents (RNN, LSTM, GRU) | M22 | (§4.2, figure 4.4) (Trefethen et Embree ; Horn et Johnson) |
 | 23 · PyTorch en pratique 1 : du dataset au modèle sauvegardé | — (rien de nouveau) | — |
 | 24 · PyTorch en pratique 2 : améliorer, chercher, CNN et RNN | — (rien de nouveau) | — |
-| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5 (8.5.2 en survol), §6.5.3 (Théorème 6.12), ch. 11 (§11.1–11.4 ; M25a en cite le Théorème 11.2 pour l'estimation de $\boldsymbol{\Sigma}$), §10.7 (10.7.1–10.7.3 ; §10.8 cité pour Tipping et Bishop) (MacKay ch. 22 et 33 ; Bishop ; Tipping et Bishop ; Mohamed et al. ; Cover et Thomas) |
+| 25 · Autoencodeurs et VAE | M25a, M25b | §6.5, fin de §6.7.2 (Théorème 6.16, Exemple 6.17), §9.3 (Bishop ; Murphy ; Cover et Thomas) ; §8.4–8.5 (8.5.2 en survol), §6.5.3 (Théorème 6.12), ch. 11 (§11.1–11.4 ; le §11.5 cité pour les singularités ; M25a en cite le Théorème 11.2 pour l'estimation de $\boldsymbol{\Sigma}$), §10.7 (10.7.1–10.7.3 ; §10.8 cité pour Tipping et Bishop) (MacKay ch. 22 et 33 ; Bishop ; Tipping et Bishop ; Mohamed et al. ; Cover et Thomas) |
 | 26 · Apprentissage par renforcement | M26 | — : pas de MML, le livre ne traite pas les chaînes de Markov (Blitzstein et Hwang, ch. 9 et 11 ; Sutton et Barto, §3.5–3.6 et §4.1–4.4 ; Norris ; Levin et Peres ; Ferguson) |
 | 27 · Réseaux antagonistes génératifs (GAN) | M27 | (§7.2, relu : l'inégalité minimax (7.23) et sa preuve (7.24), la dualité faible (7.27) lue comme un jeu ; §7.3.1 en option, le dual d'un programme linéaire) (Ferguson ; Peyré et Cuturi, ch. 2 et 3) |
 | 28 · Applications créatives | M28 | — : pas de MML, le livre ne traite ni la variation totale, ni les fréquences, ni les troncatures, ni les itérations sur un ensemble fini ($\mathbf{A}^\top\mathbf{A}$, $\mathbf{A}\mathbf{A}^\top$ et la matrice de Gram d'un noyau, §4.5 et §12.4, ont été lus en M12d et M13b) (Borg et Groenen, ch. 12 ; Rudin, Osher et Fatemi ; Holtzman et coll. ; Knuth, vol. 2, §3.1) |
@@ -46,7 +46,7 @@ Trois tables pour se repérer entre les deux workbooks et le livre. Elles suiven
 | B7 · Du notebook à la production | — (rien de nouveau : la mesure d'une dérive, le PSI et la statistique de Kolmogorov-Smirnov sont dans M27 §10, fait avant le ch. 27) | — |
 | B8 · RL moderne : DQN, gradient de politique, PPO et RLHF | MB8 | — |
 
-Entre parenthèses, dans la dernière colonne : pas de lecture nouvelle, mais des sections déjà lues pour un chapitre précédent, à relire, ou ce que le chapitre prépare (« prérequis de §6.2 ») ; « — » : pas de lecture de MML pour ce chapitre.
+Entre parenthèses, dans la dernière colonne : pas de lecture nouvelle, mais des sections déjà lues pour un chapitre précédent, à relire, ou ce que le chapitre prépare (« prérequis de §6.2 ») ; juste après une section, ce qu'on en lit (« fin de §6.7.2 (Théorème 6.16, Exemple 6.17) ») ; en fin de case, les autres lectures, livres et articles, détaillées dans `ressources.md` (« (Ferguson ; Peyré et Cuturi, ch. 2 et 3) ») ; « — » : pas de lecture de MML pour ce chapitre.
 
 ## 2. Pour chaque section de MML, le chapitre qui la couvre
 

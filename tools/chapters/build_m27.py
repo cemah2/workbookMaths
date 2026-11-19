@@ -665,7 +665,7 @@ def covariance_term(c1, c2):
 
 PAPER_FRACTIONS = sorted(f"{paper.id}{letter}" for paper in PAPER for letter, hint, _, _ in paper.subs if hint == FRACTION)
 
-PAPER_LEARNER_CONTEXT = ('''# Part 0: a fraction asked as a text "p/q" must be a text (a float such as 5/13 is only close to it)
+PAPER_LEARNER_CONTEXT = ('''# Part 0: a fraction asked as a text "p/q" must be a text (a float such as 4/9 is only close to it)
 FRACTIONS_0 = ''' + repr(PAPER_FRACTIONS) + '''
 
 
@@ -1714,32 +1714,44 @@ WAIT_A_26, WAIT_B_26 = stats.expon(scale=2).cdf, stats.expon(scale=5).cdf
 GRID_F_26 = 1.8 * GRID_C_26 + 32                           # the same translation in °F
 ROOM_A_F_26, ROOM_B_F_26 = stats.norm(68, 3.6).cdf, stats.norm(70.16, 3.6).cdf'''
 
-CHECK_26 = '''X_STAR_C26 = __X_STAR_C26__   # for each call, the abscissa of the largest gap on the grid ((w1, ks) are checked like a) to c))
-HIDDEN_C26 = __HIDDEN_C26__   # a hidden call: (w1, ks) expected, the abscissa of the largest gap, and the largest F − G without absolute value
+CHECK_26 = '''HIDDEN_C26 = __HIDDEN_C26__   # a hidden call: (w1, ks) expected, the abscissa of the largest gap, and the largest F − G without absolute value
+STAR_IDS_C26 = {"a": "M27.26d", "b": "M27.26e", "c": "M27.26f"}   # the abscissa of the largest gap of each call: in answers.json
 
 
-def vertical_at(ax, x, low, high, tol):
-    """True when a segment of ax is vertical at x (within tol) and goes from low to high (a line or ax.vlines)."""
+def gap_segment_drawn(ax, cdf_a, cdf_b, grid, star):
+    """True when a segment of ax (a line or ax.vlines) is vertical at the abscissa of the largest gap on the grid (within
+    half a step) and goes from one curve to the other there. star: that abscissa, or the letter of a call, whose abscissa
+    is compared like an answer (answers.json, no value written here)."""
+    step = float(grid[1] - grid[0])
     segments = [np.column_stack(line_points(line)) for line in ax.lines]
     for collection in ax.collections:
         if type(collection).__name__ == "LineCollection":
             segments += [np.asarray(s, dtype=float) for s in collection.get_segments()]
     for s in segments:
-        if (len(s) >= 2 and np.all(np.abs(s[:, 0] - x) <= tol) and s[:, 1].min() <= low + 1e-6
-                and s[:, 1].max() >= high - 1e-6):
+        if len(s) < 2 or not np.all(np.isfinite(s)):
+            continue
+        x = float(grid[int(np.argmin(np.abs(grid - s[:, 0].mean())))])     # the point of the grid nearest to it
+        if np.any(np.abs(s[:, 0] - x) > 0.51 * step):
+            continue
+        if isinstance(star, str):
+            if not wbm.check(STAR_IDS_C26[star], x, computed=True, quiet=True).passed:
+                continue
+        elif abs(x - star) > 0.51 * step:
+            continue
+        low, high = sorted((float(cdf_a(x)), float(cdf_b(x))))
+        if s[:, 1].min() <= low + 1e-6 and s[:, 1].max() >= high - 1e-6:
             return True
     return False
 
 
-def look_26(ax, cdf_a, cdf_b, grid, label_a, label_b, unit, x_star):
+def look_26(ax, cdf_a, cdf_b, grid, label_a, label_b, unit, star):
     """What is missing in a drawing of draw_cdf_gaps_26 (French phrases)."""
     missing = []
     if not (through(ax, grid, cdf_a(grid), rtol=1e-9, atol=1e-12) and through(ax, grid, cdf_b(grid), rtol=1e-9, atol=1e-12)):
         missing.append("les deux fonctions de répartition, évaluées sur grid (une courbe chacune)")
     if not any(type(c).__name__ in ("PolyCollection", "FillBetweenPolyCollection") for c in ax.collections):
         missing.append("l'aire entre elles, colorée (ax.fill_between)")
-    low, high = sorted((float(cdf_a(x_star)), float(cdf_b(x_star))))
-    if not vertical_at(ax, x_star, low, high, 0.51 * (grid[1] - grid[0])):
+    if not gap_segment_drawn(ax, cdf_a, cdf_b, grid, star):
         missing.append("le segment vertical du plus grand écart, d'une courbe à l'autre")
     title = ax.get_title()
     if "ks" not in title.lower() or "w" not in title.lower() or unit not in title:
@@ -1799,14 +1811,14 @@ with checked("M27.26"):
     fig_26, axes_26 = plt.subplots(1, 3, figsize=(16, 4.4))
     try:
         opened_26 = list(opened_c26)
-        for ax_26, (label_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26), (letter_26, x_star_26) in zip(
-                axes_26, calls_26, zip("abc", X_STAR_C26)):
+        for ax_26, (label_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26), letter_26 in zip(axes_26, calls_26,
+                                                                                                   "abc"):
             result_26 = []
             opened_26 += drawn(lambda: result_26.append(draw_cdf_gaps_26(ax_26, cdf_a_26, cdf_b_26, grid_26.copy(), la_26,
                                                                           lb_26, unit_26)))
             why_26 = returned_26(label_26, result_26[0], letter_26)
             report_26(not why_26, f"{label_26} : (w1, ks) rendus comme attendu", f"{label_26} : {why_26}")
-            missing_26 = look_26(ax_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26, x_star_26)
+            missing_26 = look_26(ax_26, cdf_a_26, cdf_b_26, grid_26, la_26, lb_26, unit_26, letter_26)
             report_26(not missing_26, f"{label_26} : les deux courbes, l'aire, le segment, le titre et la légende sont là",
                       f"{label_26} : il manque " + " ; ".join(missing_26))
         report_26(not why_c26 and not missing_c26, "un appel caché de ta fonction (deux autres lois, une autre grille) est "
@@ -1890,6 +1902,12 @@ print("a)", np.round(answer_M27_26a, 6).tolist(), " b)", np.round(answer_M27_26b
     """(w1, ks) on the grid, as the statement defines them: the trapezoid area of |F − G|, its largest value."""
     gap = np.abs(cdf_a(grid) - cdf_b(grid))
     return [float(np.sum((gap[1:] + gap[:-1]) / 2 * np.diff(grid))), float(gap.max())]
+
+
+for letter_26r, (cdf_a_26r, cdf_b_26r, grid_26r) in zip("def", ((ROOM_A_26, ROOM_B_26, GRID_C_26), (WAIT_A_26, WAIT_B_26, GRID_MIN_26),
+                                                               (ROOM_A_F_26, ROOM_B_F_26, GRID_F_26))):
+    gap_26r = np.abs(cdf_a_26r(grid_26r) - cdf_b_26r(grid_26r))    # hidden: where the segment of each call must stand
+    wbm.record(f"M27.26{letter_26r}", float(grid_26r[int(np.argmax(gap_26r))]), decimals=4)
 
 
 grid_c_26r = np.linspace(10, 32, 4401)
@@ -2290,9 +2308,21 @@ def reference_counts_28() -> dict:
     return counts
 
 
+def hidden_ids_28() -> dict:
+    """The sub-IDs (answers.json) of the counters of the four versions of the statement on the hidden starts, and of
+    rounded_value with tol = 1.5: compared like answers, since their zeros would give c) and d)."""
+    letters = iter("efghijklm")
+    ids = {str(seed): {name: f"M27.28{next(letters)}" for name in WRONG_NAMES_28} for seed in HIDDEN_STARTS_28}
+    ids["rounded_value_tol"] = f"M27.28{next(letters)}"
+    return ids
+
+
 def check_28(counts: dict) -> str:
-    """The check cell of M27.28, with the reference counters of the hidden starts written in it."""
-    literal_counts = json.dumps({str(seed): value for seed, value in counts.items()}, indent=None)
+    """The check cell of M27.28, with the reference counters of the versions of the check (not of the statement) on the
+    hidden starts written in it; those of the statement's versions are compared through answers.json."""
+    kept = {str(seed): {name: value for name, value in per_seed.items() if name in HIDDEN_WRONG_28 + ("absolute_kappa_c28",)}
+            for seed, per_seed in counts.items()}
+    literal_counts = json.dumps(kept, indent=None)
     return WRONG_C28 + r'''
 
 
@@ -2300,7 +2330,8 @@ with checked("M27.28"):
     results_28 = []
     report_28 = reporter(results_28, stop=False)
     COUNTERS_28 = ''' + repr(COUNTERS_28) + r'''
-    EXPECTED_C28 = ''' + literal_counts + r'''   # the reference, per hidden start
+    EXPECTED_C28 = ''' + literal_counts + r'''   # the reference, per hidden start: the versions of the check
+    IDS_C28 = ''' + json.dumps(hidden_ids_28(), indent=None) + r'''   # the versions of the statement: their counters are in answers.json
     PROPERTIES_C28 = {
         "bounds": "que v est entre maximin − tol et minimax + tol, et p, q entre −tol et 1 + tol",
         "shift": "que solver(G + c) redonne (p, q, v + c) à tol près",
@@ -2356,10 +2387,28 @@ with checked("M27.28"):
                        "de tol")
             report_28(False, "", f"{label} : \"{k}\" = {got[k]}, la référence {want[k]} : {why}")
 
+    def compare_hidden_c28(label, got, ex_id):
+        """One ✅ when the five counters equal the reference's (compared like an answer: no value written here); else
+        one ❌ that says what to look at, without the reference's counters (their zeros would give c) and d))."""
+        if wbm.check(ex_id, [got[k] for k in COUNTERS_28], computed=True, quiet=True).passed:
+            seen = [f"\"{k}\" {got[k]}" for k in COUNTERS_28 if got[k]]
+            report_28(True, f"{label} : les cinq compteurs valent ceux de la référence"
+                      + (" (" + ", ".join(seen) + ", les autres nuls)" if seen else " (0)"), "")
+            return
+        mine = ", ".join(f"\"{k}\" = {got[k]}" for k in COUNTERS_28)
+        if not any(got.values()):
+            why = ("ton test ne compte rien pour cette version : chaque contrôle doit porter sur la fonction reçue (solver) "
+                   "et comparer ce que dit l'énoncé")
+        else:
+            why = ("pour chaque propriété, compte une fois chaque essai où la version l'enfreint au-delà de tol (les deux "
+                   "dernières seulement sur les jeux sans point selle), et rien d'autre ; vérifie ce que compare chaque "
+                   "contrôle, sa tolérance, et l'ordre des tirages (G, puis c, puis k)")
+        report_28(False, "", f"{label} : tes compteurs ({mine}) ne valent pas ceux de la référence : {why}")
+
     for seed_c28 in ''' + repr(HIDDEN_STARTS_28) + r''':
         expected_c28 = EXPECTED_C28[str(seed_c28)]
         mine_c28 = run_c28(f"départ caché {seed_c28}", seed_c28)
-        wrong_c28 = [k for k in COUNTERS_28 if mine_c28[k] != expected_c28["ref"][k]]
+        wrong_c28 = [k for k in COUNTERS_28 if mine_c28[k] != 0]
         report_28(not wrong_c28, f"départ caché {seed_c28}, ta fonction : les cinq compteurs valent ceux de la référence (0)",
                   f"départ caché {seed_c28}, ta fonction : " + ", ".join(f"{k} = {mine_c28[k]}" for k in wrong_c28)
                   + " au lieu de 0 : vérifie l'ordre des tirages (G, puis c, puis k), tes tolérances, puis ta "
@@ -2367,14 +2416,14 @@ with checked("M27.28"):
         for name_c28, function_c28 in (("swapped_pq", swapped_pq), ("formulas_always", formulas_always),
                                        ("maximin_as_value", maximin_as_value), ("rounded_value", rounded_value)):
             got_c28 = run_c28(f"{name_c28}, départ caché {seed_c28}", seed_c28, solver=function_c28)
-            compare_c28(f"{name_c28}, départ caché {seed_c28}", got_c28, expected_c28[name_c28])
+            compare_hidden_c28(f"{name_c28}, départ caché {seed_c28}", got_c28, IDS_C28[str(seed_c28)][name_c28])
         for number_c28, (name_c28, function_c28) in enumerate((("smoothed_p_c28", smoothed_p_c28),
                                                                 ("clipped_q_c28", clipped_q_c28)), start=1):
             label_c28 = f"une version fausse de vérification (n° {number_c28}), départ caché {seed_c28}"
             compare_c28(label_c28, run_c28(label_c28, seed_c28, solver=function_c28), expected_c28[name_c28])
-    compare_c28("rounded_value avec tol = 1,5, départ caché ''' + str(HIDDEN_STARTS_28[0]) + r'''",
-                run_c28("rounded_value avec tol = 1,5", ''' + str(HIDDEN_STARTS_28[0]) + r''', solver=rounded_value, tol=1.5),
-                EXPECTED_C28["''' + str(HIDDEN_STARTS_28[0]) + r'''"]["rounded_value_tol"])
+    compare_hidden_c28("rounded_value avec tol = 1,5, départ caché ''' + str(HIDDEN_STARTS_28[0]) + r'''",
+                       run_c28("rounded_value avec tol = 1,5", ''' + str(HIDDEN_STARTS_28[0]) + r''', solver=rounded_value, tol=1.5),
+                       IDS_C28["rounded_value_tol"])
 
     original_c28 = mymath.distances.mixed_strategy_value_2x2
     aliases_c28 = [alias for alias, value in list(globals().items()) if value is original_c28]
@@ -2509,7 +2558,15 @@ wbm.record("M27.28d", passing_28r,
                      "rounded_value fausse \\"scale\\" (et parfois \\"shift\\") : elle ne passe pas les trois propriétés":
                          passing_28r | {"rounded_value"},
                      "formulas_always fausse \\"bounds\\" : elle ne passe pas les trois propriétés":
-                         passing_28r | {"formulas_always"}})''',
+                         passing_28r | {"formulas_always"}})
+for seed_28r, ids_28r in HIDDEN_IDS_28R.items():     # hidden: the counters of the check's hidden starts (150 trials)
+    if seed_28r == "rounded_value_tol":
+        counts_28r = game_property_test_28(__TRIALS_28__, np.random.default_rng(__FIRST_START_28__), solver=rounded_value, tol=1.5)
+        wbm.record(ids_28r, [counts_28r[k] for k in COUNTERS_28], decimals=0)
+        continue
+    for name_28r, id_28r in ids_28r.items():
+        counts_28r = game_property_test_28(__TRIALS_28__, np.random.default_rng(int(seed_28r)), solver=globals()[name_28r])
+        wbm.record(id_28r, [counts_28r[k] for k in COUNTERS_28], decimals=0)''',
     after=[
         ("todo_md", "**Dans ta copie** : a) pourquoi des gains entiers, et des $c$ et $k$ entiers ; pourquoi les deux "
                     "dernières propriétés seulement sans point selle."),
@@ -2891,14 +2948,9 @@ def build_constants() -> dict:
         hidden[key] = _bias_25(np, *args, np.random.default_rng(hidden["seed"]), variant=variant)
     out["__HIDDEN_C25__"] = literal(hidden)
 
-    # M27.26: x* of the three calls, and (w1, ks, x*, max(F − G)) of a hidden call (U[0, 4] against a triangular law on
-    # [1, 3] whose curve crosses the first: the largest gap without absolute value differs from KS)
-    namespace = {"np": np, "stats": stats}
-    exec(GIVEN_26, namespace)
-    ns = namespace
-    out["__X_STAR_C26__"] = literal([_gaps_26(np, ns["ROOM_A_26"], ns["ROOM_B_26"], ns["GRID_C_26"])[2],
-                                     _gaps_26(np, ns["WAIT_A_26"], ns["WAIT_B_26"], ns["GRID_MIN_26"])[2],
-                                     _gaps_26(np, ns["ROOM_A_F_26"], ns["ROOM_B_F_26"], ns["GRID_F_26"])[2]])
+    # M27.26: (w1, ks, x*, max(F − G)) of a hidden call (U[0, 4] against a triangular law on [1, 3] whose curve crosses
+    # the first: the largest gap without absolute value differs from KS); the x* of the three calls of the statement are
+    # recorded in answers.json (M27.26d to f), since they give KS
     cdf_a, cdf_b, grid = stats.uniform(0, 4).cdf, stats.triang(0.25, loc=1, scale=2).cdf, np.linspace(-1, 5, 3001)
     hidden = _gaps_26(np, cdf_a, cdf_b, grid) + [float((cdf_a(grid) - cdf_b(grid)).max())]
     assert hidden[3] > 0.05 and abs(hidden[3] - hidden[1]) > 1e-3 and float((cdf_b(grid) - cdf_a(grid)).max()) == hidden[1]
@@ -2978,6 +3030,9 @@ def prepare() -> dict:
                 setattr(ex, field_name, fill(getattr(ex, field_name)))
             ex.after = [(kind, fill(text)) for kind, text in ex.after]
     counts = reference_counts_28()
+    M27_28.record = (M27_28.record.replace("__TRIALS_28__", str(HIDDEN_TRIALS_28))
+                     .replace("__FIRST_START_28__", str(HIDDEN_STARTS_28[0])))
+    M27_28.record = "HIDDEN_IDS_28R = " + json.dumps(hidden_ids_28(), indent=None) + "\n" + M27_28.record
     M27_28.check = answers_check("M27.28", "bcd") + "\n\n" + check_28(counts)
     M27_28.solution = M27_28.solution.rstrip("\n") + "\n\n\n" + check_28(counts)
     left = {match for part in PARTS for ex in part.exercises

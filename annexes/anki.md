@@ -5,7 +5,7 @@ Chaque chapitre publié a son fichier `flashcards.csv` (15 à 30 cartes, environ
 ```
 workbookMaths
 ├── Partie 0
-│   ├── 01 R0 Prise en main
+│   ├── 00 R0 Prise en main
 │   ├── 02 R1 Nombres et calcul
 │   └── …
 ├── Partie I
@@ -15,7 +15,7 @@ workbookMaths
     └── 56 MB8 Gradient de politique
 ```
 
-Le numéro en tête est le rang du chapitre dans l'ordre d'étude : Anki range les paquets par ordre alphabétique, et la liste suit ainsi l'ordre du workbook. Chaque carte garde son tag de chapitre (`mwb::m12c::valeur_propre`) et reçoit le tag de sa partie (`mwb::partie_III::m12c`).
+Le numéro en tête est le rang du chapitre dans l'ordre d'étude (en partant de 00 ; un rang sans cartes, comme celui du test de positionnement ou d'un examen blanc, est sauté) : Anki range les paquets par ordre alphabétique, et la liste suit ainsi l'ordre du workbook. Chaque carte garde son tag de chapitre (`mwb::m12c::valeur_propre`) et reçoit le tag de sa partie (`mwb::partie_III::m12c`).
 
 ## 1. Fabriquer le fichier à importer
 

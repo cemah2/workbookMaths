@@ -589,7 +589,7 @@ V_14 = bellman(PPI_14, RPI_14, G_14)'''
 
 PAPER_FRACTIONS = sorted(f"{paper.id}{letter}" for paper in PAPER for letter, hint, _, _ in paper.subs if hint == FRACTION)
 
-PAPER_LEARNER_CONTEXT = ('''# Part 0: a fraction asked as a text "p/q" must be a text (a float such as 1/6 is only close to it)
+PAPER_LEARNER_CONTEXT = ('''# Part 0: a fraction asked as a text "p/q" must be a text (a float such as 3/11 is only close to it)
 FRACTIONS_0 = ''' + repr(PAPER_FRACTIONS) + '''
 
 
@@ -1154,19 +1154,20 @@ wbm.record("M26.19c", W_19r[3].tolist() + [sweeps_19r], decimals=6,
 GIVEN_20 = '''LINKS_20 = {1: [2, 3], 2: [4], 3: [1, 4, 5], 4: [1, 3], 5: [4, 6], 6: []}   # page -> the pages it links to
 D_20 = 0.85                                                # the damping factor'''
 
-CHECK_20 = '''P_D_C20 = __P_D_C20__   # the matrix of the surfer with jumps, (6, 6)
-P_C20 = __P_C20__   # a chain you do not see
-LAW_C20, STEPS_C20 = __POWER_C20__   # what the power method of the statement gives on it, with tol = 1e-10
+CHECK_20 = '''P_C20 = __P_C20__   # a chain you do not see
+STEPS_C20 = __STEPS_C20__   # the number of steps of the power method of the statement on it, with tol = 1e-10
 
 with checked("M26.20"):
-    if filled(P_D_20):
-        same("M26.20", "P_D_20, la matrice du surfeur avec sauts", P_D_20, P_D_C20)
+    if filled(P_D_20):                       # compared like an answer (answers.json, M26.20f): no value written here
+        result_c20 = wbm.check("M26.20f", P_D_20, computed=True, quiet=True)
+        icon_c20 = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result_c20.status, "❌")
+        print(f"{icon_c20} Ex M26.20 : P_D_20, la matrice du surfeur avec sauts : {result_c20.message}")
     else:
         print("⏳ Ex M26.20 : la comparaison attend ta matrice P_D_20.")
     law_c20, n_c20 = pair("M26.20", "power_stationary_20", power_stationary_20(np.array(P_C20), 1e-10),
                           names=("law", "steps"))
     if not same("M26.20", "power_stationary_20, une chaîne que tu ne vois pas (tol = 1e-10) : la loi", law_c20,
-                LAW_C20, rtol=0, atol=1e-9):
+                ref_markov.stationary_distribution(np.array(P_C20)), rtol=0, atol=1e-9):    # the reference, at check time
         raise StopCheck
     if isinstance(n_c20, (bool, np.bool_)) or not isinstance(n_c20, (int, np.integer)):
         verdict("M26.20", False, "", f"power_stationary_20 doit rendre le nombre de pas comme un entier, reçu {n_c20!r}")
@@ -1300,7 +1301,16 @@ wbm.record("M26.20d", [float(modules_20r(Pd_20r)[1]), 0.85 * float(modules_20r(L
 order_20r = (np.argsort(-pi_20r) + 1).tolist()
 wbm.record("M26.20e", order_20r,
            mistakes={"les pages sont numérotées de 1 à 6 : l'état i est la page i + 1": [p - 1 for p in order_20r],
-                     "du plus grand PageRank au plus petit": order_20r[::-1]})''',
+                     "du plus grand PageRank au plus petit": order_20r[::-1]})
+no_jump_page_20r = L_20r.copy()
+no_jump_page_20r[5] = 0.0
+wbm.record("M26.20f", Pd_20r.tolist(), decimals=6,         # hidden: the matrix P_D_20 asked by the TODO cell
+           mistakes={"la page 6, sans lien, saute vers les six pages avec la probabilité 1/6 chacune : sa ligne de L est "
+                     "uniforme": (0.85 * no_jump_page_20r + 0.15 / 6).tolist(),
+                     "P_d = d L + (1 − d)/6 1 1ᵀ : d multiplie L, et 1 − d se partage entre les six pages":
+                         (0.15 * L_20r + 0.85 / 6).tolist(),
+                     "la ligne i de L donne les liens qui partent de la page i (L, pas Lᵀ)":
+                         (0.85 * L_20r.T + 0.15 / 6).tolist()})''',
     after=[
         ("md", "**Après la vérification**, dans ta copie : pourquoi la page 6, sans lien, reçoit-elle si peu ? Combien de "
                "pas la méthode de la puissance gagne-t-elle sur la borne $2\\,d^k$, et quel nombre fixe vraiment sa "
@@ -1471,16 +1481,22 @@ KS_22, NS_22 = (2, 3, 5, 10), (4, 16, 64)                  # the numbers of supp
 N_REP_22 = 20000                                           # the number of simulated experiments'''
 
 HINTS_22 = '''HIDDEN_C22 = __HIDDEN_C22__   # max_bias_22(3, 8, 4.0, 3000, np.random.default_rng(6223)): (naive, double)
-TABLE_C22 = __TABLE_C22__   # the table of the naive biases expected in a), rounded to 0.1 h (the figure, a hint)
+SKETCH_C22 = [[4.0, 2.0, 1.0], [6.0, 3.0, 1.5], [8.0, 4.0, 2.0], [10.0, 5.0, 2.5]]   # a table for the figure, not that of a)
 
 
 def table_hint_22(value):
-    \"\"\"a): a table close to the expected one (within 0.3 h), not equal to it: the order of the draws.\"\"\"
+    \"\"\"a): a wrong table of the right shape while max_bias_22 gives the hidden case below: the order of the draws.\"\"\"
     got = np.asarray(value, dtype=float)
-    if got.shape == (4, 3) and np.all(np.abs(got - np.array(TABLE_C22)) < 0.3):
-        return ("tes biais ont le bon ordre de grandeur : les valeurs exactes demandent les tirages dans l'ordre de "
-                "l'énoncé (k, puis n, puis le dernier appel), avec le même rng, rng.normal de forme (n_rep, n, k) puis "
-                "(n_rep, n)")
+    if got.shape != (4, 3) or not np.all(np.isfinite(got)):
+        return None
+    try:
+        right_function = matches(max_bias_22(3, 8, 4.0, 3000, np.random.default_rng(6223)), HIDDEN_C22, rtol=1e-9, atol=1e-9)
+    except Exception:  # noqa: BLE001 - max_bias_22 not written yet, or odd: no targeted hint
+        return None
+    if right_function:
+        return ("ta max_bias_22 donne le cas caché de la vérification : les valeurs exactes demandent les tirages dans "
+                "l'ordre de l'énoncé (k, puis n, puis le dernier appel), avec le même rng, rng.normal de forme "
+                "(n_rep, n, k) puis (n_rep, n)")
     return None'''
 
 CHECK_22 = '''with checked("M26.22"):
@@ -1495,14 +1511,17 @@ CHECK_22 = '''with checked("M26.22"):
                                       if matches(got_c22, shifted_c22, rtol=1e-9, atol=1e-9) else
                                       " : tire les mesures dans l'ordre de l'énoncé, (n_rep, n, k) puis (n_rep, n)"))
     report_22(True, "max_bias_22 : un cas que tu ne vois pas (k = 3, n = 8, δ = 4, 3 000 expériences), comme attendu", "")
+    mine_c22 = filled(answer_M26_22a) and wbm.check("M26.22a", answer_M26_22a, computed=True, quiet=True).passed
+    table_c22 = np.array(answer_M26_22a, dtype=float) if mine_c22 else np.array(SKETCH_C22)   # your a) once right
+    what_c22 = "ton tableau de a)" if mine_c22 else "un tableau donné, en attendant ton a) juste"
     fig_22, ax_22 = plt.subplots(figsize=(6.5, 4))
     try:
-        opened_22 = drawn(draw_bias_22, ax_22, list(KS_22), list(NS_22), np.array(TABLE_C22))
+        opened_22 = drawn(draw_bias_22, ax_22, list(KS_22), list(NS_22), table_c22.copy())
         report_22(not opened_22, "draw_bias_22 dessine dans l'axe reçu", "draw_bias_22 doit dessiner dans l'axe reçu, "
                   "sans ouvrir de figure")
         missing_22 = [f"n = {n}" for j, n in enumerate(NS_22)
-                      if not through(ax_22, KS_22, np.array(TABLE_C22)[:, j], rtol=1e-9)]
-        report_22(not missing_22, "une courbe du biais naïf contre k pour chaque n (le tableau attendu, arrondi à 0,1 h)",
+                      if not through(ax_22, KS_22, table_c22[:, j], rtol=1e-9)]
+        report_22(not missing_22, f"une courbe du biais naïf contre k pour chaque n ({what_c22})",
                   "il manque la courbe du biais naïf contre k pour " + ", ".join(missing_22))
         report_22(ax_22.get_legend() is not None and ax_22.get_xlabel() != "" and ax_22.get_ylabel() != "",
                   "des noms d'axes et une légende", "draw_bias_22 doit nommer les axes et mettre une légende (un label "
@@ -2908,14 +2927,7 @@ def build_constants() -> dict:
                       "reversed": _sweeps_19(np, P[::-1, ::-1], r[::-1], gamma, V0[::-1], 6)[:, ::-1].tolist()})
     out["__CASES_C19__"] = literal(cases)
 
-    # M26.20: the matrix of the surfer, and the power method on a hidden chain
-    namespace = {"np": np}
-    exec(GIVEN_20, namespace)
-    L = np.zeros((6, 6))
-    for page, targets in namespace["LINKS_20"].items():
-        L[page - 1] = np.full(6, 1 / 6) if not targets else np.isin(np.arange(1, 7), targets) / len(targets)
-    d = namespace["D_20"]
-    out["__P_D_C20__"] = literal((d * L + (1 - d) / 6).tolist())
+    # M26.20: the power method on a hidden chain (the matrix of the surfer is compared through answers.json, M26.20f)
     P = np.random.default_rng(6202).random((5, 5)) + 0.05
     P = P / P.sum(axis=1, keepdims=True)
     x, steps = np.full(5, 1 / 5), 0
@@ -2925,16 +2937,11 @@ def build_constants() -> dict:
             break
         x = y
     out["__P_C20__"] = literal(P.tolist())
-    out["__POWER_C20__"] = literal((y.tolist(), steps))
+    out["__STEPS_C20__"] = literal(steps)
+    assert np.abs(y - ref.stationary_distribution(P)).max() < 1e-10    # the check compares the law with the reference
 
-    # M26.22: a hidden case, and the table of a) rounded to 0.1 h (the figure, and a hint)
+    # M26.22: a hidden case (the table of a) is no longer written in the check: it gave a), b) and c))
     out["__HIDDEN_C22__"] = literal(_max_bias_22(np, 3, 8, 4.0, 3000, np.random.default_rng(6223)))
-    namespace = {}
-    exec(GIVEN_22, namespace)
-    rng = np.random.default_rng(6222)
-    table = [[round(_max_bias_22(np, k, n, 0.0, namespace["N_REP_22"], rng)[0], 1) for n in namespace["NS_22"]]
-             for k in namespace["KS_22"]]
-    out["__TABLE_C22__"] = literal(table)
 
     # M26.24: the hidden cases of the four corrected functions
     rng = np.random.default_rng(6204)

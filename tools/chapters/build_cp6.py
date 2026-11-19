@@ -24,11 +24,11 @@ quotes, one line « a) value » per sub-question, as on the answer sheet), so th
 decimal comma (0,0264), a French list (0,83 ; -2,6), a missing bracket or pasted LaTeX ($\\xi$, \\frac, \\N: the
 simulated candidate of CP6 crashed a cell with a plain triple-quoted block) gives a message, never the SyntaxError
 that stopped « Run all » for the simulated candidate of CP5; the block is cut at line feeds only (a pasted \\f or
-\\v is no line break). Each value is read as a calculator reads it (0.83, 3/8, sqrt(7), ln(7), -ln(0,79): a decimal
+\\v is no line break). Each value is read as a calculator reads it (0.83, 3/8, sqrt(7), ln(7), -ln(0,63): a decimal
 comma inside a calculation of one number is read); a lone number with a decimal comma goes to wbm as a text (wbm
 reads it); a list with semicolons is read with decimal commas; a list that mixes « 4,1 » and « , » gets a message,
 and so does a set between braces (no order); the fractions and the letters go to wbm as texts. A line pasted from
-the answer sheet 04_mes_reponses.md is read too (« - a) L = [[4, 0], [3, 2]] »: what follows the last equals sign or
+the answer sheet 04_mes_reponses.md is read too (« - a) L = [[5, 0], [1, 2]] »: what follows the last equals sign or
 colon), a matrix may span several lines, a second line for the same letter replaces the first. Then wbm.check
 decides, as in CP5. The map of CP6.6 d) is a matrix of one column: [[5], [1], [-6]], and also the flat list of its
 values, [5, 1, -6] or with semicolons, are read as such (COLUMNS). 43 checks (CP6.7 f) was removed at step 3 to
@@ -873,7 +873,7 @@ def _french_list(text):
 
 
 def _value_part(text):
-    """The value of a line copied from the answer sheet: what follows the last « = » (« L = [[4, 0], [3, 2]] »),
+    """The value of a line copied from the answer sheet: what follows the last « = » (« L = [[5, 0], [1, 2]] »),
     or the last « : » (« plus petit n : 440 »)."""
     if "=" in text:
         text = text.rsplit("=", 1)[1]
@@ -905,7 +905,7 @@ def read_value(sub_id, text):
     if sub_id not in LISTS:
         if _FRENCH_NUMBER.fullmatch(text):
             return text                                 # 0,83: wbm reads a decimal comma in a text
-        text = re.sub(r"(\d),(\d)", r"\1.\2", text)     # -ln(0,79): a decimal comma inside a calculation
+        text = re.sub(r"(\d),(\d)", r"\1.\2", text)     # -ln(0,63): a decimal comma inside a calculation
         try:
             return _python(text)
         except Exception:
