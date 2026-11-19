@@ -47,7 +47,7 @@ Vocabulaire anglais de ce chapitre : *binary*, *hexadecimal*, *bit*, *byte*, *bi
 ## Objectifs d'apprentissage
 
 À la fin du chapitre, tu sais :
-- **écrire** un entier en base 2 et en base 16, **lire** un octet et une couleur, **découper** un mot de bits en champs, et **compter** les bits qu'il faut pour $N$ valeurs ;
+- **écrire** un entier en base 2 et en base 16, **lire** un octet et une couleur, **découper** un mot de bits en champs, et **retrouver** les bits qu'il faut pour $N$ valeurs (rappel de R6 et M06) ;
 - **calculer** la PMI des cases d'une table jointe, la **lire** comme le logarithme d'un lift, en **tirer** la PPMI, et **retrouver** l'information mutuelle comme la moyenne des PMI ;
 - **énoncer**, puis **démontrer** (∂ MB2.8), la borne $\operatorname{PMI}(x, y) \le \min(-\ln p(x), -\ln p(y))$, et **expliquer** pourquoi les événements rares ont les PMI extrêmes et les plus bruitées ;
 - **lisser** une marge par une puissance, la **reconnaître** comme une loi tempérée, et **prévoir** le décalage de la PMI de chaque colonne ;
@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *binary*, *hexadecimal*, *bit*, *byte*, *bi
 
 ## L'essentiel en 8 lignes
 
-1. **Bases** : $N = \sum_i c_i b^i$ ; les chiffres sont les restes des divisions successives par $b$, lus du dernier au premier ; $N \ge 1$ a $\lfloor\log_b N\rfloor + 1$ chiffres ; un chiffre hexadécimal vaut 4 bits, un octet deux chiffres ; $N$ valeurs demandent $\lceil\log_2 N\rceil$ bits ; un champ de $\ell$ bits à partir du bit $i$ vaut $\lfloor w/2^i\rfloor \bmod 2^\ell$.
+1. **Bases** : $N = \sum_i c_i b^i$ ; les chiffres sont les restes des divisions successives par $b$, lus du dernier au premier ; $N \ge 1$ a $\lfloor\log_b N\rfloor + 1$ chiffres ; un chiffre hexadécimal vaut 4 bits, un octet deux chiffres ; $N$ valeurs demandent $\lceil\log_2 N\rceil$ bits (R6, M06) ; un champ de $\ell$ bits à partir du bit $i$ vaut $\lfloor w/2^i\rfloor \bmod 2^\ell$.
 2. **PMI** : $\operatorname{PMI}(x, y) = \ln\frac{p(x, y)}{p(x)p(y)} = \ln\frac{P(y \mid x)}{P(y)}$, le logarithme du lift de « $x \Rightarrow y$ » ; positive, nulle ou négative selon que $x$ et $y$ arrivent ensemble plus, autant ou moins souvent que par hasard ; $-\infty$ sur une case vide ; $\operatorname{PPMI} = \max(0, \operatorname{PMI})$ ; $I(X ; Y) = \sum_{p(x, y) > 0} p(x, y)\operatorname{PMI}(x, y) \ge 0$.
 3. **Borne** (∂ MB2.8) : $\operatorname{PMI}(x, y) \le \min(-\ln p(x), -\ln p(y))$, atteinte quand le plus rare des deux n'arrive qu'avec l'autre ; seuls les événements rares ont de grandes PMI, et leurs PMI estimées sont les plus dispersées ; la PMI normalisée $\operatorname{PMI}/(-\ln p(x, y))$ est au plus 1.
 4. **Lissage** : $p_\alpha(y) \propto n(y)^\alpha$ est la loi tempérée de température $1/\alpha$ (M28) ; la PMI de la colonne $y$ se décale de $-\ln\frac{p_\alpha(y)}{p(y)}$ : l'ordre des lignes dans une colonne ne change jamais, celui des colonnes dans une ligne peut changer.
@@ -105,9 +105,7 @@ Un **octet** (*byte*) compte 8 bits : deux chiffres hexadécimaux, de $\texttt{0
 
 ### Combien de bits pour N valeurs ?
 
-$k$ bits forment $2^k$ mots différents. Pour donner un numéro à chacune de $N \ge 2$ valeurs, il faut $2^k \ge N$ ; le plus petit $k$ qui convient est
-$$k = \lceil\log_2 N\rceil .$$
-Pour 700 valeurs, $\log_2 700 \approx 9{,}45$ : $2^9 = 512$ ne suffit pas, il faut 10 bits. Pour $65\,536 = 2^{16}$ valeurs, exactement 16 bits. C'est la longueur d'un code de longueur fixe. L'entropie de M06 dit qu'aucun code ne descend en moyenne sous $\log_2 N$ bits quand les $N$ valeurs sont équiprobables ; le code de longueur fixe en est à moins d'un bit, et l'atteint quand $N$ est une puissance de 2.
+> **Rappel** (R6 §4, M06 §7). $k$ bits forment $2^k$ mots ; numéroter $N$ valeurs demande $\lceil\log_2 N\rceil$ bits.
 
 ### Découper un mot de bits en champs
 
@@ -234,7 +232,7 @@ Une table $\mathbf{M}$ de forme $(m, n)$ et de rang $r$ s'écrit $\mathbf{M} = \
 $$\mathbf{M}_k = \sum_{i=1}^{k}s_i\,\mathbf{u}_i\mathbf{v}_i^\top = \mathbf{U}_k\mathbf{S}_k\mathbf{V}_k^\top$$
 est la **SVD tronquée** (*truncated SVD*), la meilleure approximation de rang $k$ au sens de la norme de Frobenius, d'erreur au carré $\sum_{i > k}s_i^2$ (Eckart-Young, M12d §3). Ce sont `svd` et `low_rank_approximation` de M12d, avec leur convention de signe : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive.
 
-**Exemple : trois mangeoires.** Un matin, on compte les visites de trois espèces (verdier, mésange, sittelle) à trois mangeoires A, B et C, de la plus proche des maisons à la plus proche du bois :
+**Exemple : trois mangeoires.** Un matin, on compte les visites de trois espèces (verdier, chardonneret, sittelle) à trois mangeoires A, B et C, de la plus proche des maisons à la plus proche du bois :
 $$\mathbf{M} = \begin{pmatrix} 8 & 9 & 10 \\ 4 & 8 & 12 \\ 0 & 7 & 14 \end{pmatrix}.$$
 La ligne B est la moyenne des lignes A et C : $\mathbf{M}$ est de rang 2. Sa SVD compacte a pour valeurs singulières $s_1 = 4\sqrt{42} \approx 25{,}92$ et $s_2 = \sqrt{42} \approx 6{,}48$, avec
 $$\mathbf{u}_1 = \tfrac{1}{\sqrt3}(1, 1, 1), \quad \mathbf{u}_2 = \tfrac{1}{\sqrt2}(1, 0, -1), \qquad \mathbf{v}_1 = \tfrac{1}{\sqrt{14}}(1, 2, 3), \quad \mathbf{v}_2 = \tfrac{1}{\sqrt{21}}(4, 1, -2).$$
@@ -321,7 +319,7 @@ Les couleurs du §1 sont des vecteurs de $\mathbb{R}^3$. Le cosinus de deux coul
 
 Pour des **vecteurs unitaires** $\hat{\mathbf{x}} = \mathbf{x}/\lVert\mathbf{x}\rVert$, en développant le carré (M07),
 $$\lVert\hat{\mathbf{x}} - \hat{\mathbf{y}}\rVert^2 = 1 + 1 - 2\,\hat{\mathbf{x}}\cdot\hat{\mathbf{y}} = 2 - 2\cos(\mathbf{x}, \mathbf{y}).$$
-Classer des voisins par cosinus décroissant, ou leurs vecteurs unitaires par distance croissante, donne le **même classement**, donc le même **plus proche voisin** (*nearest neighbor*). Pour $\mathbf{q}$ et $\mathbf{w}$ : $\lVert\hat{\mathbf{q}} - \hat{\mathbf{w}}\rVert^2 = 2 - 2 \times 0{,}873 \approx 0{,}254$.
+Classer des voisins par cosinus décroissant, ou leurs vecteurs unitaires par distance croissante, donne le **même classement**, donc le même **plus proche voisin** (*nearest neighbor*).
 
 ### Le parallélogramme d'une analogie
 
@@ -405,7 +403,7 @@ Pour trouver les ruches qui se ressemblent, on peut comparer leurs séries **par
 $$\binom{n}{2} = \frac{n(n - 1)}{2}$$
 paires (R8) : un coût **quadratique**. On peut aussi **résumer** chaque série une fois en un vecteur (sa moyenne masquée, par exemple), puis obtenir tous les cosinus d'un coup : on normalise les résumés, on les range en lignes d'une matrice $\mathbf{R}$ de forme $(n, d)$, et $\mathbf{R}\mathbf{R}^\top$, la matrice de Gram de M28, contient les $n^2$ produits scalaires.
 
-Pour 1 200 ruches, $\binom{1\,200}{2} = 719\,400$ paires : à 2 ms par comparaison de deux séries, environ 1 439 s, soit 24 minutes. Les 1 200 résumés, à 2 ms chacun, prennent 2,4 s, puis le produit matriciel quelques millièmes de seconde. En contrepartie, une comparaison qui voit les deux séries ensemble peut les aligner, ce qu'un résumé fait séparément ne peut plus faire.
+Pour 1 200 ruches, $\binom{1\,200}{2} = 719\,400$ comparaisons, contre 1 200 résumés et un produit matriciel. En contrepartie, une comparaison qui voit les deux séries ensemble peut les aligner, ce qu'un résumé fait séparément ne peut plus faire.
 
 ⚠️ **Erreur classique.** Diviser par la longueur $L$ du tableau au lieu du nombre de vrais relevés $\sum_t m_t$. Oublier que le masque sert aussi à toute autre réduction : un maximum sur des températures négatives serait faussé par les zéros ajoutés. Compter $n^2$ paires au lieu de $\binom{n}{2}$, ou oublier que le nombre de paires croît comme $n^2/2$.
 
