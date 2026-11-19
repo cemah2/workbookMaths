@@ -534,6 +534,7 @@ def paper_part(kind: str) -> list:
 # Notebook exercises: your library (MB2.13, MB2.14)
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to D)
+import itertools
 import math
 import re
 import time
@@ -590,6 +591,12 @@ def check_answer(ex_id, value, hint=None):
 def passes(ex_id, value):
     """True when value is the hidden answer ex_id (wbm.check, computed=True, nothing printed)."""
     return bool(wbm.check(ex_id, value, computed=True, quiet=True).passed)
+
+
+def finite_form(values):
+    """An array of numbers with -inf written -1000.0, as the hidden answers that hold -inf are recorded (wbm.record
+    keeps finite numbers): a list."""
+    return np.where(np.isneginf(np.asarray(values, dtype=float)), -1000.0, np.asarray(values, dtype=float)).tolist()
 
 
 def reporter(results, stop=True):
@@ -706,8 +713,35 @@ def answers_check(ex_id: str, letters: str, hints: dict | None = None) -> str:
                      + (f", hint={hints[letter]})" if letter in hints else ")") for letter in letters)
 
 
-HINT_13A = '''lambda v: ("la table a une ligne par milieu et une colonne par espèce : la forme (3, 4) de P"
-           if np.shape(v) == (4, 3) else None)'''
+# « Ce qu'il faut observer » of 02_exercices.md: shown after the checks (it gives answers)
+OBSERVE_13 = "une ligne vide et une colonne vide ne font ni erreur ni avertissement ; transposer la loi transpose la table ; l'information mutuelle est la moyenne des PMI, et ne dépend que de l'unité du logarithme."
+OBSERVE_14 = "une bannière sans clic a un logit de $-\\infty$, qui reste $-\\infty$ après la correction ; un sous-échantillonnage fort des négatifs se corrige par une simple soustraction ; retirer une direction ne dépend ni de la longueur de $\\mathbf{u}$ ni de son sens."
+OBSERVE_15 = "ce qui rend une estimation dispersée (le nombre d'oiseaux de la case), ce qui sauve (prairie, huppe) quand la huppe est vue (et ce qu'il en coûte quand elle ne l'est pas), ce que fait le lissage à la cible et ce qu'il ne fait pas à la dispersion."
+OBSERVE_16 = "quand $\\beta$ monte, le nuage s'étire le long du premier axe, celui du profil moyen ; les magasins semblent alors plus proches les uns des autres ; $\\beta = 1$ garde les angles de la table approchée, pas ceux de la table."
+
+
+CHECK_13A = '''with checked("MB2.13"):                  # a): compared with the table of the reference, computed now
+    want_c13 = ref_cooc.pmi(P)                  # no value is written here
+    if not filled(answer_MB2_13a):
+        print("⏳ Ex MB2.13a : pas encore fait.")
+    else:
+        got_c13 = as_floats(answer_MB2_13a)
+        if got_c13 is not None and got_c13.shape == (4, 3):
+            why_c13 = "la table a une ligne par milieu et une colonne par espèce : la forme (3, 4) de P"
+        elif got_c13 is None or got_c13.shape != want_c13.shape:
+            why_c13 = f"attendu un tableau de forme {want_c13.shape}, reçu {shown(answer_MB2_13a)[:60]}"
+        elif matches(got_c13, want_c13):
+            why_c13 = ""
+        elif matches(got_c13, want_c13 / math.log(2)):
+            why_c13 = "la PMI est en nats : le logarithme népérien, np.log"
+        elif matches(got_c13, np.where(np.isinf(want_c13), 0.0, want_c13)):
+            why_c13 = "une case de probabilité 0 a une PMI de −∞, pas 0"
+        elif matches(got_c13, want_c13 + np.log(P.sum(axis=0))):
+            why_c13 = "la PMI divise p(x, y) par p(x) ET par p(y) : ln P(y | x) − ln p(y)"
+        else:
+            why_c13 = "ce n'est pas la table des PMI de P (relance les tests de pmi)"
+        print("✅ Ex MB2.13a : la table des PMI de P, −∞ compris." if not why_c13 else f"❌ Ex MB2.13a : {why_c13}")'''
+
 
 NOTE_13 = (r"`table = np.array(joint, dtype=float)` (une copie), les contrôles (booléens avant la conversion, 2-D, non "
            r"vide, finis, $\ge 0$, somme 1 à $10^{-9}$ près), `p_x = table.sum(axis=1)`, `p_y = table.sum(axis=0)`, "
@@ -732,7 +766,7 @@ MB2_13 = Ex(
 - c) vrai ou faux : `pmi(P.T)` est égale à la transposée de `pmi(P)`, à $10^{-12}$ près, avec $-\infty$ aux mêmes places ;
 - d) pour la loi $\mathbf{Q} = \begin{pmatrix} 0{,}25 & 0 & 0{,}15 \\ 0 & 0 & 0 \\ 0{,}2 & 0 & 0{,}4 \end{pmatrix}$ (`Q_13`), qui a une ligne et une colonne vides : le nombre de cases de PMI $-\infty$ (un entier).
 
-Ce qu'il faut observer : une ligne vide et une colonne vide ne font ni erreur ni avertissement ; transposer la loi transpose la table ; l'information mutuelle est la moyenne des PMI, et ne dépend que de l'unité du logarithme.""",
+Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `pmi` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était attendu).")]
@@ -746,7 +780,7 @@ with wbm.attempt("MB2.13"):          # if you call pmi here: ⏳ while it is not
     answer_MB2_13b = ...  # b) a list of 2: the mean of the PMI under P over the cells of probability > 0 (as computed), then True or False: it equals mymath.info.mutual_information(P, base=math.e) to 1e-12
     answer_MB2_13c = ...  # c) True or False: pmi(P.T) equals the transpose of pmi(P) to 1e-12, with -inf at the same places
     answer_MB2_13d = ...  # d) an integer: the number of cells of pmi(Q_13) equal to -inf'''),
-        ("check", answers_check("MB2.13", "abcd", {"a": HINT_13A})),
+        ("check", CHECK_13A + "\n" + answers_check("MB2.13", "bcd")),
         ("solution", '''Q_13 = np.array([[0.25, 0.0, 0.15], [0.0, 0.0, 0.0], [0.2, 0.0, 0.4]])
 pmi = mymath.cooccurrence.pmi
 with warnings.catch_warnings():
@@ -773,11 +807,6 @@ print("   l'information mutuelle de M06 en bits, par défaut :", round(mymath.in
 
 P_13r = np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]]) / 100
 T_13r = pmi_13r(P_13r)
-conditional_13r = np.where(P_13r > 0, T_13r + np.log(P_13r.sum(axis=0)), -np.inf)       # ln p(y | x)
-wbm.record("MB2.13a", T_13r.tolist(), decimals=6,
-           mistakes={"la PMI est en nats : le logarithme népérien, np.log": (T_13r / math.log(2)).tolist(),
-                     "la PMI divise p(x, y) par p(x) ET par p(y) : ln P(y | x) − ln p(y)": conditional_13r.tolist(),
-                     "une case de probabilité 0 a une PMI de −∞, pas 0": np.where(np.isinf(T_13r), 0.0, T_13r).tolist()})
 finite_13r = P_13r > 0
 I_13r = float(sum(P_13r[i, j] * T_13r[i, j] for i in range(3) for j in range(4) if finite_13r[i, j]))
 wbm.record("MB2.13b", [I_13r, True], decimals=6,
@@ -790,13 +819,26 @@ wbm.record("MB2.13c", True,
 Q_13r = np.array([[0.25, 0.0, 0.15], [0.0, 0.0, 0.0], [0.2, 0.0, 0.4]])
 wbm.record("MB2.13d", int(np.isneginf(pmi_13r(Q_13r)).sum()),
            mistakes={"la case commune à la ligne vide et à la colonne vide ne compte qu'une fois":
-                         int((Q_13r == 0).any(axis=1).sum() * Q_13r.shape[1] + (Q_13r == 0).all(axis=0).sum() * Q_13r.shape[0]),
+                         int((Q_13r == 0).all(axis=1).sum() * Q_13r.shape[1] + (Q_13r == 0).all(axis=0).sum() * Q_13r.shape[0]),
                      "une case de probabilité 0 a une PMI de −∞, même dans une ligne ou une colonne vide": 0,
                      "la colonne vide compte aussi : chacune de ses cases a une PMI de −∞":
                          int((Q_13r == 0).all(axis=1).sum() * Q_13r.shape[1])})'''),
-        ("solution", answers_check("MB2.13", "abcd", {"a": HINT_13A})),
+        ("solution", CHECK_13A + "\n" + answers_check("MB2.13", "bcd")),
+        ("md", "**Ce qu'il faut observer** : " + OBSERVE_13),
     ],
 )
+
+CHECK_14B = '''with checked("MB2.14"):                  # b): the two finite logits, then the banner without a click
+    if not filled(answer_MB2_14b):
+        print("⏳ Ex MB2.14b : pas encore fait.")
+    elif as_floats(answer_MB2_14b) is None or as_floats(answer_MB2_14b).shape != (3,):
+        print(f"❌ Ex MB2.14b : attendu un tableau de 3 logits, rendu par un seul appel, reçu {shown(answer_MB2_14b)}")
+    elif not np.isneginf(as_floats(answer_MB2_14b)[2]):
+        print("❌ Ex MB2.14b : la troisième bannière n'a aucun clic (n₁ = 0) : son logit vaut −∞, avant comme après la "
+              "correction")
+    else:
+        check_answer("MB2.14b", as_floats(answer_MB2_14b)[:2].tolist())'''
+
 
 NOTE_14 = (r"`case_control_logit` : `_rate` pour les deux taux, des tableaux de flottants (booléens refusés avant), "
            r"`np.broadcast_arrays`, le refus d'une case 0/0, puis trois masques ; `float(...)` pour une forme `()`. "
@@ -822,7 +864,7 @@ MB2_14 = Ex(
 - d) les trois animaux de MB2.7 sans la direction $(1, 1, 1)$, à comparer à ta réponse d) de MB2.7, puis vrai ou faux : la direction $(-2, -2, -2)$ donne le même résultat (à $10^{-12}$ près) (une liste de 10 : les 9 coordonnées, ligne par ligne, puis le booléen) ;
 - e) $\lVert\mathbf{x}_1 - \mathbf{x}_3\rVert^2 - \lVert\mathbf{r}_1 - \mathbf{r}_3\rVert^2$, où $\mathbf{r}_i$ est l'animal $i$ après le retrait (un nombre).
 
-Ce qu'il faut observer : une bannière sans clic a un logit de $-\infty$, qui reste $-\infty$ après la correction ; un sous-échantillonnage fort des négatifs se corrige par une simple soustraction ; retirer une direction ne dépend ni de la longueur de $\mathbf{u}$ ni de son sens.""",
+Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `case_control_logit`, puis de `remove_direction` (lis d'abord la ligne qui suit chaque "
@@ -836,7 +878,7 @@ with wbm.attempt("MB2.14"):          # if you call your functions here: ⏳ whil
     answer_MB2_14c = ...  # c) a list of 2 numbers, as computed: the logit of the population, then the probability of a positive in the population
     answer_MB2_14d = ...  # d) a list of 10: the 9 coordinates of remove_direction(ANIMALS, (1, 1, 1)), row by row (.ravel()), then True or False: the direction (-2, -2, -2) gives the same result to 1e-12
     answer_MB2_14e = ...  # e) a number, as computed: ‖x1 − x3‖² − ‖r1 − r3‖²'''),
-        ("check", answers_check("MB2.14", "abcde")),
+        ("check", answers_check("MB2.14", "a") + "\n" + CHECK_14B + "\n" + answers_check("MB2.14", "cde")),
         ("solution", '''case_control_logit = mymath.cooccurrence.case_control_logit
 remove_direction = mymath.cooccurrence.remove_direction
 answer_MB2_14a = case_control_logit(BANNER["clicks"], (BANNER["shown"] - BANNER["clicks"]) * BANNER["keep_negative"],
@@ -866,11 +908,11 @@ wbm.record("MB2.14a", a_14r, decimals=6,
                      "keep_negative est le taux s₀ des négatifs : on retranche ln(s₁/s₀), on ne l'ajoute pas":
                          logit_14r(50, 350) + math.log(9)})
 banners_14r = [(50, 350), (12, 40), (0, 25)]
-wbm.record("MB2.14b", [logit_14r(a, b, 1.0, 1 / 9) for a, b in banners_14r], decimals=6,
+wbm.record("MB2.14b", [logit_14r(a, b, 1.0, 1 / 9) for a, b in banners_14r[:2]], decimals=6,   # the third is -inf
            mistakes={"le logit de la population retranche ln(s₁/s₀) au logit de l'échantillon":
-                         [logit_14r(a, b) for a, b in banners_14r],
+                         [logit_14r(a, b) for a, b in banners_14r[:2]],
                      "keep_negative est le taux s₀ des négatifs : on retranche ln(s₁/s₀), on ne l'ajoute pas":
-                         [logit_14r(a, b, 1 / 9, 1.0) for a, b in banners_14r]})
+                         [logit_14r(a, b, 1 / 9, 1.0) for a, b in banners_14r[:2]]})
 c_14r = logit_14r(30, 120, 0.8, 0.025)
 wbm.record("MB2.14c", [c_14r, 1 / (1 + math.exp(-c_14r))], decimals=6,
            mistakes={"la probabilité est σ(logit) = cote/(1 + cote), pas la cote e^logit": [c_14r, math.exp(c_14r)],
@@ -893,7 +935,8 @@ wbm.record("MB2.14e", gap_14r, decimals=6,
                          float(np.linalg.norm(X_14r[0] - X_14r[2]) - np.linalg.norm(R_14r[0] - R_14r[2])),
                      "sans diviser par u·u, ta fonction ne retire la direction que si u est unitaire (relance ses tests)":
                          float(np.sum((X_14r[0] - X_14r[2]) ** 2) - np.sum((undivided_14r[0] - undivided_14r[2]) ** 2))})'''),
-        ("solution", answers_check("MB2.14", "abcde")),
+        ("solution", answers_check("MB2.14", "a") + "\n" + CHECK_14B + "\n" + answers_check("MB2.14", "cde")),
+        ("md", "**Ce qu'il faut observer** : " + OBSERVE_14),
     ],
 )
 
@@ -931,7 +974,7 @@ with checked("MB2.15"):
                 report_15(False, "", f"{label_c15} : chaque tableau a la forme (n_rep, 3) = ({n_rep_c15}, 3), une ligne "
                                      "par échantillon et une colonne par case de CELLS_15")
                 continue
-            ok_plain, ok_smooth = passes(ids_c15[0], plain_c15.tolist()), passes(ids_c15[1], smooth_c15.tolist())
+            ok_plain, ok_smooth = passes(ids_c15[0], finite_form(plain_c15)), passes(ids_c15[1], finite_form(smooth_c15))
             if not ok_plain and not np.allclose(law_c15, law_15):
                 again_c15 = pmi_samples_15(np.random.default_rng(seed_c15), n_rep_c15, n_obs_c15)
                 if isinstance(again_c15, (tuple, list)) and matches(again_c15[0], plain_c15):
@@ -975,7 +1018,7 @@ Puis, une fois tes prédictions écrites et vérifiées, écris `pmi_samples_15(
 - f) les vraies valeurs, $\operatorname{PMI}$ et $\operatorname{PMI}_\alpha$ de la loi `P` de la région, une ligne par case (un tableau de forme $(3, 2)$ ; 3 décimales dans ta copie) ;
 - g) vrai ou faux : pour les deux cases rares, la moyenne des estimations lissées finies est plus proche de la vraie $\operatorname{PMI}_\alpha$ que de la vraie PMI.
 
-La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut observer (après l'expérience) : ce qui rend une estimation dispersée (le nombre d'oiseaux de la case), ce qui sauve (prairie, huppe) quand la huppe est vue (et ce qu'il en coûte quand elle ne l'est pas), ce que fait le lissage à la cible et ce qu'il ne fait pas à la dispersion.""",
+La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
     todo='''prediction_MB2_15a = ...  # a) a number (3 decimals), computed by hand BEFORE the experiment: the probability that 400 birds hold no hoopoe
 prediction_MB2_15b = ...  # b) "A", "B" or "C": the cell whose estimated PMI (finite) is the most dispersed
 prediction_MB2_15c = ...  # c) "A", "B" or "C": with the smoothing, the standard deviation of the estimated PMI of (prairie, huppe)''',
@@ -1098,21 +1141,21 @@ wbm.record("MB2.15g", all(abs(m - alpha_15r[c]) < abs(m - true_15r[c]) for m, c 
                          False})
 for law_15r, seed_15r, n_rep_15r, n_obs_15r, ids_15r in __HIDDEN_C15__:      # the hidden calls of the check
     for sub_id_15r, values_15r in zip(ids_15r, samples_15r(law_15r, seed_15r, n_rep_15r, n_obs_15r)):
-        wbm.record(sub_id_15r, values_15r.tolist(), decimals=6)'''),
+        wbm.record(sub_id_15r, finite_form(values_15r), decimals=6)          # -inf written -1000.0'''),
         ("solution", answers_check("MB2.15", "defg") + "\n\n" + CHECK_15),
-        ("md", "**Après l'expérience**, dans ta copie : pourquoi (prairie, huppe) est-elle si peu dispersée tant que la "
-               "huppe est vue ? Pourquoi le lissage la rend-il dispersée ? Que faudrait-il pour réduire la dispersion de "
-               "(prairie, pic) ?"),
+        ("md", "**Ce qu'il faut observer** (après l'expérience) : " + OBSERVE_15 + "\n\n**Dans ta copie** : pourquoi "
+               "(prairie, huppe) est-elle si peu dispersée tant que la huppe est vue ? Pourquoi le lissage la rend-il "
+               "dispersée ? Que faudrait-il pour réduire la dispersion de (prairie, pic) ?"),
     ],
 )
 
 GIVEN_16 = '''SHOPS_16 = ["épicerie A", "épicerie B", "épicerie C", "quincaillerie A", "quincaillerie B", "quincaillerie C",
             "bazar A", "bazar B", "bazar C", "bazar D"]
 PRODUCTS_16 = ["pain", "fruits", "fromage", "vis", "peinture"]
-M_16 = np.array([[41.0, 29, 26, 2, 3], [33, 25, 19, 6, 4], [52, 41, 31, 4, 2],          # weekly sales (tens of items):
-                 [4, 1, 0, 36, 27], [6, 3, 2, 49, 41], [0, 2, 1, 23, 21],              # one row per shop of SHOPS_16,
-                 [26, 19, 15, 23, 18], [37, 29, 22, 14, 11], [11, 8, 7, 33, 24],       # one column per product
-                 [22, 15, 14, 19, 13]])'''
+M_16 = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3],          # weekly sales (tens of items):
+                 [2, 1, 0, 22, 16], [4, 2, 1, 29, 25], [0, 1, 1, 14, 13],              # one row per shop of SHOPS_16,
+                 [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19],       # one column per product
+                 [29, 20, 18, 15, 10]])'''
 
 CHECK_16 = '''HIDDEN_C16 = __HIDDEN_C16__   # a hidden table, its names, three other betas, and the sub-IDs of the arrays expected
 
@@ -1171,12 +1214,20 @@ with checked("MB2.16"):
             plt.close(fig_c16)
         report_16(not problems_c16, "un appel caché de draw_factors_16 (une autre table, d'autres β) est juste aussi",
                   "un appel caché de draw_factors_16 (une autre table, d'autres β) : " + " ; ".join(problems_c16))
-        rows_c16 = factor_rows_16(np.array(HIDDEN_C16["table"]), HIDDEN_C16["beta"], k=3)
-        ok_c16 = as_floats(rows_c16) is not None and np.shape(rows_c16) == (len(HIDDEN_C16["table"]), 3) and passes(
-            HIDDEN_C16["ids"][1], as_floats(rows_c16).tolist())
-        report_16(ok_c16, "factor_rows_16 sur la table cachée, avec k = 3 et un autre β, comme attendu",
-                  f"factor_rows_16 sur la table cachée, avec k = 3 : attendu U₃S₃^β, de forme "
-                  f"({len(HIDDEN_C16['table'])}, 3), reçu {shown(rows_c16)[:80]} (k est le nombre de colonnes gardées)")
+        rows_c16 = as_floats(factor_rows_16(np.array(HIDDEN_C16["table"]), HIDDEN_C16["beta"], k=3))
+        shape_c16 = (len(HIDDEN_C16["table"]), 3)
+        if rows_c16 is None or rows_c16.shape != shape_c16:
+            why_c16 = (f"attendu U₃S₃^β, de forme {shape_c16} (k est le nombre de colonnes gardées), reçu "
+                       f"{None if rows_c16 is None else rows_c16.shape}")
+        elif passes(HIDDEN_C16["ids"][1], rows_c16.tolist()):
+            why_c16 = ""
+        elif any(passes(HIDDEN_C16["ids"][1], (rows_c16 * signs).tolist())
+                 for signs in itertools.product([1, -1], repeat=3) if min(signs) < 0):
+            why_c16 = "au signe près d'une colonne : prends la SVD de mymath.svd_pca.svd, qui suit la convention de signe de M12d"
+        else:
+            why_c16 = "ce n'est pas U₃S₃^β, les k = 3 premières colonnes de U multipliées par les puissances β de s"
+        report_16(not why_c16, "factor_rows_16 sur la table cachée, avec k = 3 et un autre β, comme attendu",
+                  f"factor_rows_16 sur la table cachée, avec k = 3 : {why_c16}")
         report_16(not opened_16 and not elsewhere_16, "tes fonctions dessinent dans les axes reçus",
                   "tes fonctions doivent dessiner dans les axes reçus (ax.scatter, ax.set_title…), sans ouvrir de figure ni "
                   "dessiner dans l'axe courant (plt.scatter, plt.title…)")
@@ -1211,7 +1262,7 @@ La vérification appelle `draw_factors_16` avec $\beta = 0$, $\frac12$ et 1, aff
 - e) vrai ou faux : les cosinus entre les lignes de $\mathbf{U}_2\mathbf{S}_2$ sont ceux des lignes de $\mathbf{M}_2$, l'approximation de rang 2 (`mymath.svd_pca.low_rank_approximation`), à $10^{-9}$ près ;
 - f) vrai ou faux : ce sont ceux des lignes de `M_16` elle-même, à $10^{-9}$ près.
 
-Ce qu'il faut observer : quand $\beta$ monte, le nuage s'étire le long du premier axe, celui du profil moyen ; les magasins semblent alors plus proches les uns des autres ; $\beta = 1$ garde les angles de la table approchée, pas ceux de la table.""",
+Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
     todo='''def factor_rows_16(M, beta, k=2):
     """U_k S_k^beta for the compact SVD of M by mymath.svd_pca.svd (M12d, its sign convention): an array of shape
     (number of rows of M, k)."""
@@ -1301,8 +1352,8 @@ def cos_16r(a, b):
     return float(np.dot(a, b) / math.sqrt(np.dot(a, a) * np.dot(b, b)))
 
 
-M_16r = np.array([[41.0, 29, 26, 2, 3], [33, 25, 19, 6, 4], [52, 41, 31, 4, 2], [4, 1, 0, 36, 27], [6, 3, 2, 49, 41],
-                  [0, 2, 1, 23, 21], [26, 19, 15, 23, 18], [37, 29, 22, 14, 11], [11, 8, 7, 33, 24], [22, 15, 14, 19, 13]])
+M_16r = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3], [2, 1, 0, 22, 16], [4, 2, 1, 29, 25],
+                  [0, 1, 1, 14, 13], [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
 s_16r = linalg_16r.svdvals(M_16r)
 wbm.record("MB2.16a", s_16r[:3].tolist(), decimals=6,
            mistakes={"les valeurs singulières sont les racines des valeurs propres de MᵀM, pas ces valeurs propres":
@@ -1342,6 +1393,7 @@ wbm.record(HIDDEN_16r["ids"][0], [factors_16r(HIDDEN_16r["table"], b).tolist() f
 wbm.record(HIDDEN_16r["ids"][1], factors_16r(HIDDEN_16r["table"], HIDDEN_16r["beta"], k=3).tolist(), decimals=6)''',
     after=[
         ("solution", answers_check("MB2.16", "abcdef") + "\n\n" + CHECK_16),
+        ("md", "**Ce qu'il faut observer** : " + OBSERVE_16),
         ("md", "**Après la figure**, dans ta copie : quels magasins se rapprochent quand $\\beta$ monte, et pourquoi ? Quel "
                "$\\beta$ choisirais-tu pour comparer les magasins par le cosinus, et pour comparer les produits ?"),
     ],
@@ -1430,8 +1482,8 @@ with checked("MB2.17"):                                       # (1) pmi_from_cou
         scaled_c17 = as_floats(call_17(1, "pmi_from_counts_fixed", pmi_from_counts_fixed, k_c17 * counts_c17))
         if not matches(scaled_c17, got_c17, rtol=1e-9, atol=1e-9):
             wrong_17.append(f"une table de comptes de total {int(counts_c17.sum())} : multiplier tous les comptes par un "
-                            "même nombre ne change pas la loi, donc pas la PMI ; ta fonction, si (la PMI d'une table de "
-                            "comptes passe par sa loi, les comptes divisés par leur total N)")
+                            "même nombre ne change pas la loi, donc pas la PMI ; ta fonction doit rendre la même table "
+                            "pour C et pour k·C")
     report_17(not wrong_17, "(1) pmi_from_counts_fixed : des lois jointes, et trois tables de comptes de totaux variés, "
               "multipliées par un facteur tiré au hasard", "(1) pmi_from_counts_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
     parts_17.append(1)
@@ -1950,6 +2002,7 @@ with checked("MB2.19"):
     for k_c19, law_c19 in enumerate(HIDDEN_C19, start=1):
         rows_c19, cols_c19 = rng_c19.permutation(10), rng_c19.permutation(10)
         law_c19 = np.array(law_c19)[np.ix_(rows_c19, cols_c19)]
+        law_c19 = law_c19 / law_c19.sum()                   # written to 8 decimals: summed to 1 again
         counts_c19 = rng_c19.multinomial(3000, law_c19.ravel()).reshape(10, 10)
         start_19 = time.perf_counter()
         got_c19 = top_pairs_19(counts_c19.copy())
@@ -2262,15 +2315,17 @@ def build_constants() -> dict:
     rng15 = np.random.default_rng(7131)
     first = [rng15.multinomial(60, np.ravel(birds)) for _ in range(6)]
     assert any(c[4] == 0 for c in first)                     # a sample without a hoopoe: a -inf in the hidden call
+    assert first[0][4] > 0                                   # but not in the first one (wbm.record perturbs it)
     a = np.random.default_rng(7132).multinomial(150, np.ravel(other))
     b = np.random.default_rng(7132).multinomial(150, np.ravel(birds))
     assert not np.array_equal(a, b)                         # reading P at the call is seen
+    assert a[4] > 0
     out["__HIDDEN_C15__"] = literal(hidden)
 
     # MB2.16: a hidden table of six kiosks, k = 3; well separated singular values, a sign convention without a tie
     table = [[18.0, 12, 3, 1], [22, 15, 5, 2], [4, 3, 16, 11], [2, 5, 21, 14], [12, 9, 10, 7], [9, 4, 13, 12]]
-    m16 = np.array([[41.0, 29, 26, 2, 3], [33, 25, 19, 6, 4], [52, 41, 31, 4, 2], [4, 1, 0, 36, 27], [6, 3, 2, 49, 41],
-                    [0, 2, 1, 23, 21], [26, 19, 15, 23, 18], [37, 29, 22, 14, 11], [11, 8, 7, 33, 24], [22, 15, 14, 19, 13]])
+    m16 = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3], [2, 1, 0, 22, 16], [4, 2, 1, 29, 25],
+                    [0, 1, 1, 14, 13], [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
     for M, k in ((np.array(table), 3), (m16, 3)):
         U, s, Vt = np.linalg.svd(M, full_matrices=False)
         assert np.all(s[:k] / s[1:k + 1] > 1.05) and s[k - 1] > 1e-3 * s[0], s
