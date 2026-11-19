@@ -2162,3 +2162,38 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] CP6.10 🔗 Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire ★★ 16 min
 - [ ] CP6.11 🗣️ Ta carte mentale et ta fiche d'une page ★ 60 min
 <!-- wbm:end CP6 -->
+
+<!-- wbm:section MB2 -->
+## MB2 · Cooccurrences, PMI et embeddings ⏱️ 13,2 h
+
+- [ ] MB2.Q1 🧠 Bases 2 et 16 : le nombre de chiffres d'un entier, la valeur d'un octet, les bits qu'il faut pour N valeurs ★ 4 min
+- [ ] MB2.Q2 🧠 La PMI d'une case : son signe, −∞, la PPMI, la borne des événements rares, et l'information mutuelle qui en est la moyenne ★ 6 min
+- [ ] MB2.Q3 🧠 Lisser une marge : quelles colonnes gagnent, de combien bouge la PMI d'une colonne, et quels classements le lissage garde ★ 5 min
+- [ ] MB2.Q4 🧠 Répartir les valeurs singulières entre deux facteurs : ce qui dépend de β, ce qui n'en dépend pas, et pourquoi ne pas centrer une table creuse ★ 6 min
+- [ ] MB2.Q5 🧠 Le logit d'un taux et le sous-échantillonnage : ce qui bouge (l'ordonnée à l'origine), de combien, dans quel sens ★ 4 min
+- [ ] MB2.Q6 🧠 Analogies, direction retirée et moyenne masquée : vrai ou faux, avec une raison ★ 5 min
+- [ ] MB2.R1 🔁 L'information mutuelle d'un tableau 2 × 2 (M06) ★ 8 min
+- [ ] MB2.R2 🔁 La meilleure approximation de rang 1 d'une matrice et son erreur (Eckart-Young, M12d) ★ 8 min
+- [ ] MB2.R3 🔁 Cosinus, projection sur une droite et prototype d'une classe (M07, workbookIA B1) ★ 7 min
+- [ ] MB2.1 ✏️ Des entiers en base 2 et en base 16 : conversions, une couleur #RRGGBB, les bits pour 5 000 codes, et un mot de 16 bits découpé en deux champs ★ 20 min
+- [ ] MB2.2 ✏️ Cent oiseaux, trois milieux, quatre espèces : la PMI des cases, le lift d'une règle, la PPMI, l'espèce vue une seule fois, et l'information mutuelle comme moyenne ★★ 30 min
+- [ ] MB2.3 ✏️ Lisser la marge des espèces de la même table (α = 1/3) : la loi lissée, le décalage de la PMI de chaque colonne, et le classement des espèces d'un milieu avant et après ★★ 25 min
+- [ ] MB2.4 ✏️ Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs U S^β et V S^{1−β} pour β = 0, ½ et 1, leur produit, et le cosinus de deux magasins ★★ 35 min
+- [ ] MB2.5 ✏️ Une bannière affichée 3 200 fois et cliquée 50 fois : le logit de vraisemblance maximale, puis un non-clic gardé sur 9, le décalage de ln 9 et sa correction ★★ 20 min
+- [ ] MB2.6 ✏️ Yaourt et fromage blanc, nature et sucrés : mesurer le parallélogramme d'une analogie (défaut, rapport ε, borne du cosinus), et dire si d peut l'emporter sur c ★★ 25 min
+- [ ] MB2.7 ✏️ Des mesures d'animaux en logarithme : la direction de taille estimée sur deux différences, la retirer de trois animaux, et les distances qui restent ★★ 25 min
+- [ ] MB2.8 ∂ La PMI est majorée par −ln p(x) et par −ln p(y), avec égalité quand x n'arrive qu'avec y ; la PMI normalisée est donc au plus 1 ★★ 20 min
+- [ ] MB2.9 ∂ Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, les produits scalaires des lignes si ★★★ 30 min (complet)
+- [ ] MB2.10 ∂ Sous-échantillonner une classe : par la formule de Bayes, la cote observée est celle de la population multipliée par le rapport des taux de sélection s₁/s₀ ; dans un modèle logistique, seule l'ordonnée à l'origine bouge, de ln(s₁/s₀) ★★ 25 min
+- [ ] MB2.11 🔗 Pont : résumer des séries de relevés de longueurs différentes par une moyenne masquée, montrer que le remplissage ne change rien, et compter les comparaisons par paires ★ 15 min
+- [ ] MB2.12 🗣️ Expliquer à un ornithologue ce que mesure la PMI d'un milieu et d'une espèce, et pourquoi une espèce vue une seule fois a la plus grande ★ 15 min
+- [ ] MB2.E1 💼 « Pourquoi ne centre-t-on pas une grande table de comptages creuse avant de la factoriser par une SVD tronquée ? » ★ 10 min (complet)
+- [ ] MB2.13 🔨 La table des PMI d'une loi jointe, −∞ sur les cases vides ★ 35 min
+- [ ] MB2.14 🔨 Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et retirer une direction des lignes d'une matrice ★★ 45 min
+- [ ] MB2.15 🔮 Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une case rare et une case fréquente, avec et sans lissage ★★ 35 min (complet)
+- [ ] MB2.16 🎨 Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui s'étire, et les angles qui changent ★ 40 min (complet)
+- [ ] MB2.17 🐛 Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une direction retirée sans diviser par u·u ★ 30 min
+- [ ] MB2.18 🛠️ Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et la moyenne qui redonne l'information mutuelle de M06 ★ 40 min (complet)
+- [ ] MB2.19 🏆 Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée de 10 × 10, sans se laisser piéger par les cases rares ★★★ 50 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (16 cartes)
+<!-- wbm:end MB2 -->

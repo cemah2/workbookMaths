@@ -16,9 +16,9 @@ Data. The notebook exercises take the data of the paper exercises (a data cell o
 MB2.4, the animals of MB2.7), the settings of their own statements and their own random draws. Seeds 7101 to 7149 only
 (the tests use 7000 to 7090, the figures of the fiche 7091 to 7099): 7115 (🔮 MB2.15) and 7118 (🛠️ MB2.18) in the
 statements; 7119 (the counts of 🏆 MB2.19, drawn at build time: only the counts are written); 7131 to 7133 (the hidden
-calls of MB2.15), 7141 and 7142 (the hidden starts of MB2.18), 7143 to 7149 (the hidden tables of MB2.19, chosen and
-calibrated at build time) in the check cells or here. The other hidden cases are drawn without a seed at each run (the
-scale factors of 🐛 MB2.17, the new sales, the renumbering of the rows and columns of the hidden tables of MB2.19), or
+calls of MB2.15), 7141 and 7142 (the hidden starts of MB2.18) in the check cells; 7146 here only (300 hidden laws of
+MB2.19 drawn at build time to check their generator). The other hidden cases are drawn without a seed at each run (the
+scale factors of 🐛 MB2.17, the three hidden laws of MB2.19 by hidden_law_c19 and their sales), or
 written in their cell (the hidden table of 🎨 MB2.16, the hidden cases of MB2.17), computed at build time by private
 functions of this script: none is the answer of a question. The check cells never hold the code that solves an exercise
 nor a value that gives an answer without a calculation: the expected values are recorded by the solutions as hidden
@@ -96,7 +96,11 @@ PAPER = [
                      "le champ bas se convertit en base 16 avant d'être écrit": to_base(MACHINE_1, 16) + str(COUNTER_1),
                      "la question demande l'écriture du mot en base 16": str(MACHINE_1 * 2 ** 12 + COUNTER_1),
                      "écris seulement les chiffres, sans le préfixe 0x de Python":
-                         "0x" + to_base(MACHINE_1 * 2 ** 12 + COUNTER_1, 16)}'''),
+                         "0x" + to_base(MACHINE_1 * 2 ** 12 + COUNTER_1, 16),
+                     "le numéro de la machine occupe le champ haut : il s'écrit en premier":
+                         to_base(COUNTER_1, 16) + to_base(MACHINE_1, 16).rjust(2, "0"),
+                     "le mot a 4 chiffres : le numéro de la machine (1 chiffre), puis le compteur (3 chiffres)":
+                         to_base(MACHINE_1, 16).rjust(2, "0") + to_base(COUNTER_1, 16)}'''),
     ]),
 
     Paper("MB2.2", "Cent oiseaux, trois milieux, quatre espèces : la PMI des cases, le lift d'une règle, la PPMI, "
@@ -114,7 +118,8 @@ PAPER = [
          '''decimals=3,
            mistakes={"la PMI se calcule avec le logarithme népérien, en nats": PMI_2[2][2] / math.log(2),
                      "la PMI divise p(x, y) par le produit des deux marges, pas par celle de la ligne seule":
-                         math.log(F_2[2][2] / ROWS_2[2])}'''),
+                         math.log(F_2[2][2] / ROWS_2[2]),
+                     "la question demande la PMI, pas la PPMI": 0.0}'''),
         ("d", "an integer", "sum(v == -math.inf for row in PMI_2 for v in row)",
          '''decimals=0,
            mistakes={"une case vide, de probabilité 0, a une PMI de −∞ : elle compte": 0,
@@ -220,7 +225,9 @@ PAPER = [
            mistakes={"on garde un non-clic sur 9 et tous les clics : seuls les non-clics sont divisés par 9":
                          math.log(CLICKS_5 / (SHOWN_5 / KEEP_5 - CLICKS_5)),
                      "garder un non-clic sur 9 divise le nombre de non-clics par 9":
-                         math.log(CLICKS_5 / ((SHOWN_5 - CLICKS_5) * KEEP_5))}'''),
+                         math.log(CLICKS_5 / ((SHOWN_5 - CLICKS_5) * KEEP_5)),
+                     "le logit est le logarithme de la cote, clics sur non-clics, pas celui du taux":
+                         math.log(CLICKS_5 / (CLICKS_5 + KEPT_5))}'''),
         ("d", "a number (3 decimals)", "math.log(CLICKS_5 / KEPT_5) - math.log(CLICKS_5 / (SHOWN_5 - CLICKS_5))",
          '''decimals=3,
            mistakes={"l'écart est le logarithme du rapport des taux de sélection, pas le rapport lui-même": float(KEEP_5),
@@ -233,7 +240,8 @@ PAPER = [
         ("f", 'an irreducible fraction, between quotes', "from_odds_5(odds_5(READ_5) / KEEP_5)",
          '''kind="fraction", simplified=True,
            mistakes={"on corrige le logit (ou la cote), pas la probabilité directement": READ_5 / KEEP_5,
-                     "on retranche ln 9 au logit, on ne l'ajoute pas": from_odds_5(odds_5(READ_5) * KEEP_5)}'''),
+                     "on retranche ln 9 au logit, on ne l'ajoute pas": from_odds_5(odds_5(READ_5) * KEEP_5),
+                     "c'est la cote de la population : la probabilité est cote / (1 + cote)": odds_5(READ_5) / KEEP_5}'''),
     ]),
 
     Paper("MB2.6", "Yaourt et fromage blanc, nature et sucrés : mesurer le parallélogramme d'une analogie (défaut, "
@@ -283,12 +291,15 @@ PAPER = [
         ("b", "a number", "float(np.linalg.eigvalsh(D_7 @ D_7.T).max())",
          '''decimals=6,
            mistakes={"le premier axe est celui de la plus grande valeur propre": float(np.linalg.eigvalsh(D_7 @ D_7.T).min()),
-                     "les valeurs propres de G ne sont pas ses coefficients diagonaux": float((D_7 @ D_7.T)[0, 0])}'''),
+                     "les valeurs propres de G ne sont pas ses coefficients diagonaux": float((D_7 @ D_7.T)[0, 0]),
+                     "la valeur propre de G, pas sa racine (la valeur singulière de D)":
+                         math.sqrt(float(np.linalg.eigvalsh(D_7 @ D_7.T).max()))}'''),
         ("c", "a list of 3 numbers (3 decimals)", "floats(U_7)",
          '''decimals=3,
            mistakes={"l'axe est unitaire : divise par sa norme": floats(D_7.T @ TOP_7 * math.sqrt(2)),
                      "l'axe vit dans l'espace des mesures, de dimension 3 : c'est Dᵀ fois le vecteur propre de G":
-                         floats(TOP_7)}'''),
+                         floats(TOP_7),
+                     "l'axe est unitaire : divise (1, 1, 1) par sa norme": [1.0, 1.0, 1.0]}'''),
         ("d", "a 3 × 3 matrix, as the list of its rows", "floats(X_7 - np.outer(X_7 @ U_7, U_7))",
          '''decimals=6,
            mistakes={"sans diviser par u·u, la direction n'est retirée que si u est unitaire":
@@ -302,7 +313,8 @@ PAPER = [
                          [norm(R_7[0] - R_7[2]), norm(X_7[0] - X_7[2])]}'''),
         ("f", "a number", "float(((X_7[0] - X_7[2]) @ U_7) ** 2)",
          '''decimals=6,
-           mistakes={"c'est le carré du produit scalaire, ((x₁ − x₃)·u)²": float((X_7[0] - X_7[2]) @ U_7),
+           mistakes={"c'est le carré du produit scalaire, ((x₁ − x₃)·u)²":      # the value, and the same rounded
+                         {float((X_7[0] - X_7[2]) @ U_7), *(round(float((X_7[0] - X_7[2]) @ U_7), d) for d in (2, 3, 4))},
                      "u est unitaire : (1, 1, 1) doit d'abord être divisé par sa norme":
                          float(((X_7[0] - X_7[2]) @ ONES_7) ** 2)}'''),
     ]),
@@ -327,7 +339,9 @@ PAPER = [
          '''decimals=0,
            mistakes={"une paire de capteurs ne se compare qu'une fois, et pas un capteur avec lui-même":
                          SENSORS_11 * SENSORS_11,
-                     "(A, B) et (B, A) sont la même paire": SENSORS_11 * (SENSORS_11 - 1)}'''),
+                     "(A, B) et (B, A) sont la même paire": SENSORS_11 * (SENSORS_11 - 1),
+                     "un capteur ne se compare pas avec lui-même : ne compte que les paires de deux capteurs distincts":
+                         SENSORS_11 * (SENSORS_11 + 1) // 2}'''),
         ("e", "a number", "float(F(math.comb(SENSORS_11, 2), SENSORS_11))",
          '''decimals=6,
            mistakes={"(A, B) et (B, A) sont la même comparaison": float(SENSORS_11 - 1),
@@ -671,7 +685,9 @@ BIRDS = np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]])  # MB2.2: 10
 P = BIRDS / 100                                                      # their joint law; columns 0 huppe, 1 pic, 2 grive, 3 moineau
 SHOPS = np.array([[12.0, 96, 220], [78, 54, 5], [57, 114, 190], [132, 144, 140]])   # MB2.4: shops 1 to 4 (rows), 3 products
 BANNER = {"shown": 3200, "clicks": 50, "keep_negative": 1 / 9}       # MB2.5: one non-click in 9 kept
-ANIMALS = np.array([[2.0, 3, 4], [3.5, 4.5, 5.5], [5, 3, 4]])        # MB2.7: log2 of (body, tail, ear), animals 1 to 3'''
+ANIMALS = np.array([[2.0, 3, 4], [3.5, 4.5, 5.5], [5, 3, 4]])        # MB2.7: log2 of (body, tail, ear), animals 1 to 3
+for _array in (BIRDS, P, SHOPS, ANIMALS):     # read only: a change in place raises an error at the line that does it
+    _array.setflags(write=False)'''
 
 LOAD_LEARNER = ('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="MB2")  '
                 '# reload your saved file')
@@ -713,11 +729,13 @@ def answers_check(ex_id: str, letters: str, hints: dict | None = None) -> str:
                      + (f", hint={hints[letter]})" if letter in hints else ")") for letter in letters)
 
 
-# « Ce qu'il faut observer » of 02_exercices.md: shown after the checks (it gives answers)
-OBSERVE_13 = "une ligne vide et une colonne vide ne font ni erreur ni avertissement ; transposer la loi transpose la table ; l'information mutuelle est la moyenne des PMI, et ne dépend que de l'unité du logarithme."
-OBSERVE_14 = "une bannière sans clic a un logit de $-\\infty$, qui reste $-\\infty$ après la correction ; un sous-échantillonnage fort des négatifs se corrige par une simple soustraction ; retirer une direction ne dépend ni de la longueur de $\\mathbf{u}$ ni de son sens."
-OBSERVE_15 = "la dispersion d'une PMI estimée vient surtout du petit nombre d'oiseaux de la case (8 en moyenne pour (prairie, pic), d'où un écart-type d'environ $1/\\sqrt8$ ; 88 pour (village, moineau)). (prairie, huppe) est un piège : la huppe n'est vue qu'en prairie, donc le compte de la case est celui de la colonne, et ils se simplifient : l'estimation vaut $\\ln\\frac{400}{n_{\\text{prairie}}}$, très stable, sauf quand aucune huppe n'est vue ($-\\infty$). Le lissage décale la cible des colonnes rares vers le bas (c'est son rôle), mais ne réduit pas la dispersion d'une case : il casse même la simplification de la huppe, et son estimation devient aussi dispersée que celle du pic. Pour réduire la dispersion, il faut plus d'observations, ou des pseudo-comptes (M04), que le 🏆 met à l'épreuve."
-OBSERVE_16 = "quand $\\beta$ monte, le nuage s'étire le long du premier axe, celui du profil moyen ; les magasins semblent alors plus proches les uns des autres ; $\\beta = 1$ garde les angles de la table approchée, pas ceux de la table."
+# « Ce qu'il faut regarder » of 02_exercices.md (questions only), repeated after the checks; the answers are in
+# 05_solutions.md, never in the notebook
+LOOK_13 = "que font une ligne vide et une colonne vide ? Que fait à la table des PMI la transposition de la loi ? La moyenne des PMI est-elle l'information mutuelle de M06, et que change l'unité du logarithme ?"
+LOOK_14 = "que devient le logit d'une bannière sans clic, avant et après la correction ? Que demande la correction d'un sous-échantillonnage fort des négatifs ? Le retrait d'une direction dépend-il de la longueur de $\\mathbf{u}$, et de son sens ?"
+LOOK_15 = "qu'est-ce qui rend une estimation dispersée ? Comment se comportent les deux cases rares, (prairie, huppe) et (prairie, pic), quand la huppe est vue et quand elle ne l'est pas ? Que fait le lissage à la cible, et à la dispersion ?"
+LOOK_16 = "que devient le nuage quand $\\beta$ monte, et le long de quel axe ? Les magasins semblent-ils se rapprocher ou s'éloigner les uns des autres ? Quels angles $\\beta = 1$ garde-t-il ?"
+ANSWERS_IN_05 = " Les réponses sont dans `05_solutions.md`, section Notebook."
 
 
 CHECK_13A = '''with checked("MB2.13"):                  # a): compared with the table of the reference, computed now
@@ -738,6 +756,11 @@ CHECK_13A = '''with checked("MB2.13"):                  # a): compared with the 
             why_c13 = "une case de probabilité 0 a une PMI de −∞, pas 0"
         elif matches(got_c13, want_c13 + np.log(P.sum(axis=0))):
             why_c13 = "la PMI divise p(x, y) par p(x) ET par p(y) : ln P(y | x) − ln p(y)"
+        elif np.any(np.isnan(got_c13)):
+            why_c13 = "une case de probabilité 0 a une PMI de −∞ (-np.inf), pas nan"
+        elif (np.array_equal(np.isneginf(got_c13), np.isneginf(want_c13))
+              and np.allclose(got_c13[np.isfinite(want_c13)], want_c13[np.isfinite(want_c13)], rtol=0, atol=6e-3)):
+            why_c13 = "tes valeurs sont arrondies : donne le tableau tel que pmi le rend, sans l'arrondir"
         else:
             why_c13 = "ce n'est pas la table des PMI de P (relance les tests de pmi)"
         print("✅ Ex MB2.13a : la table des PMI de P, −∞ compris." if not why_c13 else f"❌ Ex MB2.13a : {why_c13}")'''
@@ -752,7 +775,7 @@ NOTE_13 = (r"`table = np.array(joint, dtype=float)` (une copie), les contrôles 
            r"vide ont 5 cases en tout.")
 
 MB2_13 = Ex(
-    "MB2.13", "🔨", 1, 30, "La table des PMI d'une loi jointe, −∞ sur les cases vides · `pmi`",
+    "MB2.13", "🔨", 1, 35, "La table des PMI d'une loi jointe, −∞ sur les cases vides · `pmi`",
     "programmer la table des PMI d'une loi jointe, avec −∞ sur les cases vides, puis la comparer à ta copie, retrouver "
     "l'information mutuelle de M06 comme sa moyenne, et voir ce que deviennent une ligne et une colonne vides.",
     "fiche §2 ; M03, M06 ; Ex MB2.2", tracks="C, E", mymath="cooccurrence.py", note=NOTE_13,
@@ -766,7 +789,7 @@ MB2_13 = Ex(
 - c) vrai ou faux : `pmi(P.T)` est égale à la transposée de `pmi(P)`, à $10^{-12}$ près, avec $-\infty$ aux mêmes places ;
 - d) pour la loi $\mathbf{Q} = \begin{pmatrix} 0{,}25 & 0 & 0{,}15 \\ 0 & 0 & 0 \\ 0{,}2 & 0 & 0{,}4 \end{pmatrix}$ (`Q_13`), qui a une ligne et une colonne vides : le nombre de cases de PMI $-\infty$ (un entier).
 
-Ce qu'il faut regarder : que font une ligne vide et une colonne vide ? Que fait à la table des PMI la transposition de la loi ? La moyenne des PMI est-elle l'information mutuelle de M06, et que change l'unité du logarithme ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
+Ce qu'il faut regarder : que font une ligne vide et une colonne vide ? Que fait à la table des PMI la transposition de la loi ? La moyenne des PMI est-elle l'information mutuelle de M06, et que change l'unité du logarithme ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `pmi` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était attendu).")]
@@ -824,7 +847,7 @@ wbm.record("MB2.13d", int(np.isneginf(pmi_13r(Q_13r)).sum()),
                      "la colonne vide compte aussi : chacune de ses cases a une PMI de −∞":
                          int((Q_13r == 0).all(axis=1).sum() * Q_13r.shape[1])})'''),
         ("solution", CHECK_13A + "\n" + answers_check("MB2.13", "bcd")),
-        ("md", "**Ce qu'il faut observer** : " + OBSERVE_13),
+        ("md", "**Ce qu'il faut regarder** : " + LOOK_13 + ANSWERS_IN_05),
     ],
 )
 
@@ -847,7 +870,7 @@ NOTE_14 = (r"`case_control_logit` : `_rate` pour les deux taux, des tableaux de 
            r"-4{,}852$, puis $\frac{1}{129} \approx 0{,}0078$. d) $(-1, 0, 1)$, $(-1, 0, 1)$, $(1, -1, 0)$, et vrai. e) 3.")
 
 MB2_14 = Ex(
-    "MB2.14", "🔨", 2, 35, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et retirer une "
+    "MB2.14", "🔨", 2, 45, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et retirer une "
     "direction des lignes d'une matrice · `case_control_logit`, `remove_direction`",
     "programmer la correction d'un logit estimé sur un échantillon cas-témoins et le retrait d'une direction, puis s'en "
     "servir sur la bannière de MB2.5, une étude cas-témoins et les animaux de MB2.7.",
@@ -864,7 +887,7 @@ MB2_14 = Ex(
 - d) les trois animaux de MB2.7 sans la direction $(1, 1, 1)$, à comparer à ta réponse d) de MB2.7, puis vrai ou faux : la direction $(-2, -2, -2)$ donne le même résultat (à $10^{-12}$ près) (une liste de 10 : les 9 coordonnées, ligne par ligne, puis le booléen) ;
 - e) $\lVert\mathbf{x}_1 - \mathbf{x}_3\rVert^2 - \lVert\mathbf{r}_1 - \mathbf{r}_3\rVert^2$, où $\mathbf{r}_i$ est l'animal $i$ après le retrait (un nombre).
 
-Ce qu'il faut regarder : que devient le logit d'une bannière sans clic, avant et après la correction ? Que demande la correction d'un sous-échantillonnage fort des négatifs ? Le retrait d'une direction dépend-il de la longueur de $\mathbf{u}$, et de son sens ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
+Ce qu'il faut regarder : que devient le logit d'une bannière sans clic, avant et après la correction ? Que demande la correction d'un sous-échantillonnage fort des négatifs ? Le retrait d'une direction dépend-il de la longueur de $\mathbf{u}$, et de son sens ?""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `case_control_logit`, puis de `remove_direction` (lis d'abord la ligne qui suit chaque "
@@ -936,7 +959,7 @@ wbm.record("MB2.14e", gap_14r, decimals=6,
                      "sans diviser par u·u, ta fonction ne retire la direction que si u est unitaire (relance ses tests)":
                          float(np.sum((X_14r[0] - X_14r[2]) ** 2) - np.sum((undivided_14r[0] - undivided_14r[2]) ** 2))})'''),
         ("solution", answers_check("MB2.14", "a") + "\n" + CHECK_14B + "\n" + answers_check("MB2.14", "cde")),
-        ("md", "**Ce qu'il faut observer** : " + OBSERVE_14),
+        ("md", "**Ce qu'il faut regarder** : " + LOOK_14 + ANSWERS_IN_05),
     ],
 )
 
@@ -1004,7 +1027,7 @@ NOTE_15 = (r"Prédictions attendues : a) $0{,}99^{400} \approx 0{,}018$ ; b) (B)
            r"seuls plus d'observations, ou des pseudo-comptes (M04), le font.")
 
 MB2_15 = Ex(
-    "MB2.15", "🔮", 2, 30, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une case rare "
+    "MB2.15", "🔮", 2, 35, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une case rare "
     "et une case fréquente, avec et sans lissage",
     "prévoir ce que le nombre d'observations d'une case fait à sa PMI estimée, et ce que le lissage y change, puis le "
     "mesurer.", "fiche §2 et §3 ; M02c, M28 ; Ex MB2.2 et MB2.3", tracks="C", hypothesis=True, given=GIVEN_15,
@@ -1020,7 +1043,7 @@ Puis, une fois tes prédictions écrites et vérifiées, écris `pmi_samples_15(
 - f) les vraies valeurs, $\operatorname{PMI}$ et $\operatorname{PMI}_\alpha$ de la loi `P` de la région, une ligne par case (un tableau de forme $(3, 2)$ ; 3 décimales dans ta copie) ;
 - g) vrai ou faux : pour les deux cases rares, la moyenne des estimations lissées finies est plus proche de la vraie $\operatorname{PMI}_\alpha$ que de la vraie PMI.
 
-La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut regarder (après l'expérience) : qu'est-ce qui rend une estimation dispersée ? Comment se comportent les deux cases rares, (prairie, huppe) et (prairie, pic), quand la huppe est vue et quand elle ne l'est pas ? Que fait le lissage à la cible, et à la dispersion ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
+La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut regarder (après l'expérience) : qu'est-ce qui rend une estimation dispersée ? Comment se comportent les deux cases rares, (prairie, huppe) et (prairie, pic), quand la huppe est vue et quand elle ne l'est pas ? Que fait le lissage à la cible, et à la dispersion ?""",
     todo='''prediction_MB2_15a = ...  # a) a number (3 decimals), computed by hand BEFORE the experiment: the probability that 400 birds hold no hoopoe
 prediction_MB2_15b = ...  # b) "A", "B" or "C": the cell whose estimated PMI (finite) is the most dispersed
 prediction_MB2_15c = ...  # c) "A", "B" or "C": with the smoothing, the standard deviation of the estimated PMI of (prairie, huppe)''',
@@ -1145,9 +1168,9 @@ for law_15r, seed_15r, n_rep_15r, n_obs_15r, ids_15r in __HIDDEN_C15__:      # t
     for sub_id_15r, values_15r in zip(ids_15r, samples_15r(law_15r, seed_15r, n_rep_15r, n_obs_15r)):
         wbm.record(sub_id_15r, finite_form(values_15r), decimals=6)          # -inf written -1000.0'''),
         ("solution", answers_check("MB2.15", "defg") + "\n\n" + CHECK_15),
-        ("md", "**Ce qu'il faut observer** (après l'expérience) : " + OBSERVE_15 + "\n\n**Dans ta copie** : pourquoi "
-               "(prairie, huppe) est-elle si peu dispersée tant que la huppe est vue ? Pourquoi le lissage la rend-il "
-               "dispersée ? Que faudrait-il pour réduire la dispersion de (prairie, pic) ?"),
+        ("md", "**Ce qu'il faut regarder** (après l'expérience) : " + LOOK_15 + ANSWERS_IN_05 + "\n\n**Dans ta "
+               "copie** : explique, d'après tes mesures, la dispersion de chacune des deux cases rares, sans puis avec le "
+               "lissage, et dis ce qu'il faudrait pour la réduire."),
     ],
 )
 
@@ -1157,9 +1180,23 @@ PRODUCTS_16 = ["pain", "fruits", "œufs", "vis", "peinture"]
 M_16 = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3],          # weekly sales (tens of items):
                  [2, 1, 0, 22, 16], [4, 2, 1, 29, 25], [0, 1, 1, 14, 13],              # one row per shop of SHOPS_16,
                  [34, 28, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19],       # one column per product
-                 [29, 20, 18, 15, 10]])'''
+                 [29, 20, 18, 15, 10]])
+M_16.setflags(write=False)                    # read only: a change in place raises an error at the line that does it'''
 
 CHECK_16 = '''HIDDEN_C16 = __HIDDEN_C16__   # a hidden table, its names, three other betas, and the sub-IDs of the arrays expected
+
+
+def name_near_c16(ax, name, x, y, a):
+    """True when a text of ax writes name next to the point (x, y): the point annotated (ax.annotate) or the position
+    of the text (ax.text), within a tenth of the extent of the cloud a."""
+    span = float(max(np.ptp(a[:, 0]), np.ptp(a[:, 1]), 1e-12))
+    for text in ax.texts:
+        if text.get_text().strip() != name:
+            continue
+        px, py = (text.xy if hasattr(text, "xy") else text.get_position())
+        if abs(float(px) - x) <= 0.1 * span and abs(float(py) - y) <= 0.1 * span:
+            return True
+    return False
 
 
 def factors_why_c16(axes, M, betas, names, arrays, sub_id):
@@ -1180,8 +1217,9 @@ def factors_why_c16(axes, M, betas, names, arrays, sub_id):
     for k, (ax, beta, a) in enumerate(zip(axes, betas, arrays)):
         missing = []
         if not points_at(ax, a[:, 0], a[:, 1]):
-            missing.append("un point par ligne, à ses deux coordonnées (ax.scatter, ou ax.plot avec un marqueur)")
-        if not set(names) <= {text.get_text().strip() for text in ax.texts}:
+            missing.append("un point par ligne, à ses deux coordonnées, sans les relier (ax.scatter, ou ax.plot avec un "
+                           'marqueur et linestyle="none")')
+        if not all(name_near_c16(ax, name, x, y, a) for name, (x, y) in zip(names, a)):
             missing.append("le nom de chaque ligne près de son point (ax.annotate ou ax.text)")
         if ax.get_aspect() not in (1.0, "equal"):
             missing.append('la même échelle sur les deux axes (ax.set_aspect("equal"))')
@@ -1247,7 +1285,7 @@ NOTE_16 = (r"`factor_rows_16` : `U, s, Vt = mymath.svd_pca.svd(M)`, puis `U[:, :
            r"$\mathbf{M}_2$.")
 
 MB2_16 = Ex(
-    "MB2.16", "🎨", 1, 35, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui s'étire, et les "
+    "MB2.16", "🎨", 1, 40, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui s'étire, et les "
     "angles qui changent",
     "dessiner les lignes d'une table dans le plan de U₂S₂^β pour trois β, et voir ce que la répartition des valeurs "
     "singulières change à la forme du nuage et aux angles.", "fiche §4 ; M07, M12d ; Ex MB2.4", tracks="C",
@@ -1264,7 +1302,7 @@ La vérification appelle `draw_factors_16` avec $\beta = 0$, $\frac12$ et 1, aff
 - e) vrai ou faux : les cosinus entre les lignes de $\mathbf{U}_2\mathbf{S}_2$ sont ceux des lignes de $\mathbf{M}_2$, l'approximation de rang 2 (`mymath.svd_pca.low_rank_approximation`), à $10^{-9}$ près ;
 - f) vrai ou faux : ce sont ceux des lignes de `M_16` elle-même, à $10^{-9}$ près.
 
-Ce qu'il faut regarder : que devient le nuage quand $\beta$ monte, et le long de quel axe ? Les magasins semblent-ils se rapprocher ou s'éloigner les uns des autres ? Quels angles $\beta = 1$ garde-t-il ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
+Ce qu'il faut regarder : que devient le nuage quand $\beta$ monte, et le long de quel axe ? Les magasins semblent-ils se rapprocher ou s'éloigner les uns des autres ? Quels angles $\beta = 1$ garde-t-il ?""",
     todo='''def factor_rows_16(M, beta, k=2):
     """U_k S_k^beta for the compact SVD of M by mymath.svd_pca.svd (M12d, its sign convention): an array of shape
     (number of rows of M, k)."""
@@ -1395,7 +1433,7 @@ wbm.record(HIDDEN_16r["ids"][0], [factors_16r(HIDDEN_16r["table"], b).tolist() f
 wbm.record(HIDDEN_16r["ids"][1], factors_16r(HIDDEN_16r["table"], HIDDEN_16r["beta"], k=3).tolist(), decimals=6)''',
     after=[
         ("solution", answers_check("MB2.16", "abcdef") + "\n\n" + CHECK_16),
-        ("md", "**Ce qu'il faut observer** : " + OBSERVE_16),
+        ("md", "**Ce qu'il faut regarder** : " + LOOK_16 + ANSWERS_IN_05),
         ("md", "**Après la figure**, dans ta copie : quels magasins se rapprochent quand $\\beta$ monte, et pourquoi ? Quel "
                "$\\beta$ choisirais-tu pour comparer les magasins par le cosinus, et pour comparer les produits ?"),
     ],
@@ -1471,7 +1509,7 @@ with checked("MB2.17"):                                       # (1) pmi_from_cou
         if got_c17 is None or got_c17.shape != law_c17.shape or not matches(got_c17, ref_cooc.pmi(law_c17)):
             wrong_17.append("sur une loi jointe (de somme 1), ta fonction doit redonner pmi")
     for counts_c17 in CASES_C17["counts"]:                    # tables of counts: k C describes the same law as C
-        counts_c17 = np.array(counts_c17)
+        counts_c17 = np.array(counts_c17, dtype=float)   # floats: a division in place (C /= C.sum()) would show
         before_c17 = counts_c17.copy()
         got_c17 = as_floats(call_17(1, "pmi_from_counts_fixed", pmi_from_counts_fixed, counts_c17))
         if got_c17 is None or got_c17.shape != counts_c17.shape:
@@ -1690,7 +1728,11 @@ def pmi_property_test_18(n_trials, rng, func=None, rtol=1e-9, checks=None):
             W[rng.random((m, n)) < 0.3] = 0.0
         if W.sum() == 0:
             W[0, 0] = 1.0
-        for name in chk(W / W.sum(), f, rtol):
+        names = chk(W / W.sum(), f, rtol)
+        if not isinstance(names, (set, frozenset, list, tuple)):     # None: shown by wbm.attempt as one ❌ line
+            raise TypeError(f"failed_checks_18 doit rendre un ensemble de noms (set() si tout passe), reçu un objet de "
+                            f"type {type(names).__name__!r} : as-tu oublié le return ?")
+        for name in names:
             if name not in counts:
                 raise ValueError(f"les contrôles rendent {name!r} : les noms sont 'bound', 'transpose' et 'mean'")
             counts[name] += 1
@@ -1756,8 +1798,28 @@ def tall_shift_c18(P):
     return T
 
 
+def minf_tall_c18(P):
+    """WRONG for a table with at least two more rows than columns: -inf on its most probable cell (a non-empty cell)."""
+    T = PMI_C18(P)
+    if T.shape[0] > T.shape[1] + 1:
+        T[np.unravel_index(np.argmax(np.asarray(P)), T.shape)] = -np.inf
+    return T
+
+
+class OneRowError_c18(ValueError):
+    """The error of raises_c18."""
+
+
+def raises_c18(P):
+    """WRONG: an error for a table of one row."""
+    if np.asarray(P).shape[0] == 1:
+        raise OneRowError_c18("une seule ligne")
+    return PMI_C18(P)
+
+
 BROKEN_C18 = {"half_c18": ("mean",), "double_c18": ("bound", "mean"), "finite_tall_c18": ("transpose",),
-              "tall_shift_c18": ("bound", "transpose")}           # the properties each hidden version can break
+              "tall_shift_c18": ("bound", "transpose"), "minf_tall_c18": ("bound", "transpose", "mean"),
+              "raises_c18": ("bound", "transpose", "mean")}       # the properties each hidden version can break
 HIDDEN_C18 = __HIDDEN_C18__   # two hidden starts, and the sub-IDs of the counters expected for each version
 
 with checked("MB2.18"):
@@ -1776,7 +1838,9 @@ with checked("MB2.18"):
             raise
         except Exception as exc:  # noqa: BLE001 - the learner's error
             hint = (" ; failed_checks_18 doit rendre un ensemble de noms (set() si tout passe) : as-tu oublié le return ?"
-                    if isinstance(exc, TypeError) and "NoneType" in str(exc) else "")
+                    if isinstance(exc, TypeError) and "NoneType" in str(exc) and "return" not in str(exc) else
+                    " ; c'est la fonction testée qui lève : une exception de func doit faire échouer les trois contrôles "
+                    "(appelle func dans un try)" if isinstance(exc, OneRowError_c18) else "")
             print(f"❌ Ex MB2.18 : failed_checks_18 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}{hint}")
             raise StopCheck from None
 
@@ -1825,10 +1889,13 @@ NOTE_18 = (r"`failed_checks_18` appelle `func(P)` et `func(P.T)` dans un `try`, 
            r"par case, se transpose comme elle). `decimal` passe aussi la borne : diviser une PMI par $\ln 10 > 1$ la "
            r"rapproche de 0, et la borne $\min(-\ln p(x), -\ln p(y))$ est positive ou nulle ; elle n'échoue qu'au contrôle "
            r"de la moyenne, et seulement quand l'information mutuelle n'est pas nulle (elle l'est pour une table d'une "
-           r"ligne ou d'une colonne). `conditional` passe la borne ($\ln P(y \mid x) \le 0$, sous toute borne positive).")
+           r"ligne ou d'une colonne). `conditional` passe la borne ($\ln P(y \mid x) \le 0$, sous toute borne positive). "
+           r"La vérification lance ton test avec la référence et six versions fausses cachées, dont une qui met $-\infty$ "
+           r"sur une case non vide (la clause de finitude de la borne l'attrape) et une qui lève une erreur sur une table "
+           r"d'une ligne (le `try` l'attrape).")
 
 MB2_18 = Ex(
-    "MB2.18", "🛠️", 1, 35, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
+    "MB2.18", "🛠️", 1, 40, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
     "la moyenne qui redonne l'information mutuelle de M06",
     "écrire les contrôles d'un test de propriété de la table des PMI, sur des lois tirées au hasard, et voir ce qu'il "
     "attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; M06 ; Ex MB2.13", tracks="C", given=GIVEN_18, note=NOTE_18,
@@ -1844,7 +1911,7 @@ Une exception levée par `func` fait échouer les trois contrôles. La cellule f
 - b) avec le même départ (un nouveau `default_rng(7118)` chaque fois, 300 essais) et chacune des quatre versions fausses, dans l'ordre `decimal`, `conditional`, `zeros_to_zero`, `lift` : les trois compteurs, dans l'ordre `"bound"`, `"transpose"`, `"mean"` (une liste de 4 listes de 3 entiers) ;
 - c) dans ta copie : lesquelles passent le test, ou passent l'un des contrôles, et pourquoi c'est normal ; qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ?
 
-La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec quatre versions fausses cachées, qui faussent chacune une ou deux des propriétés ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec six versions fausses cachées, qui faussent chacune une ou plusieurs des propriétés : l'une d'elles met $-\infty$ sur une case non vide, une autre lève une erreur sur une table d'une ligne ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
     todo='''def failed_checks_18(P, func, rtol=1e-9):
     """The set of the names of the checks that fail for the joint law P, among "bound", "transpose" and "mean" (set() when
     all pass); func is the function tested."""
@@ -1884,7 +1951,11 @@ print("a)", answer_MB2_18a, " b)", answer_MB2_18b)''',
             W[0, 0] = 1.0
         law = W / W.sum()
         with np.errstate(divide="ignore", invalid="ignore"):
-            T, TT = np.asarray(func(law), dtype=float), np.asarray(func(law.T), dtype=float)
+            try:
+                T, TT = np.asarray(func(law), dtype=float), np.asarray(func(law.T), dtype=float)
+            except Exception:  # noqa: BLE001 - an exception of the function tested fails the three checks
+                counts = [c + 1 for c in counts]
+                continue
             px, py = law.sum(axis=1), law.sum(axis=0)
             mi = float(np.sum(xlogy(law, law)) - np.sum(xlogy(px, px)) - np.sum(xlogy(py, py)))
             pick = np.minimum if bound_min else np.maximum
@@ -1945,6 +2016,7 @@ PART_C = Part("C", "Déboguer, tester",
 # Notebook exercises: the challenge (MB2.19)
 # ---------------------------------------------------------------------------
 GIVEN_19 = '''COUNTS_19 = np.array(__COUNTS_19__)   # 3 000 sales: rows the 10 departments, columns the 10 time slots
+COUNTS_19.setflags(write=False)               # read only: a change in place raises an error at the line that does it
 
 
 def pairs_found_19(pairs):
@@ -1955,8 +2027,32 @@ def pairs_found_19(pairs):
         raise ValueError(f"pairs_found_19 attend 5 paires (ligne, colonne) distinctes, de 0 à 9, reçu {pairs}")
     return sum(any(passes(f"MB2.19{letter}", list(pair)) for letter in "klmno") for pair in pairs)'''
 
-CHECK_19 = '''HIDDEN_C19 = __HIDDEN_C19__   # three hidden joint laws of 10 × 10 (rows and columns renumbered at each run)
-rng_c19 = np.random.default_rng()       # at each run: a new numbering of the rows and columns, and new sales
+HIDDEN_LAW_19 = '''def hidden_law_c19(rng):
+    """A hidden 10 × 10 joint law, drawn anew at each run: two rare rows and two rare columns; one dominant row and one
+    dominant column, whose common cell is the most probable of the table but not associated (its PMI is about 0); five
+    cells boosted 3 to 4 times, on distinct rows and columns of the others: the five most associated pairs, each with
+    3 000 × p ≥ 40 and a PMI at least 0.3 above the sixth."""
+    while True:
+        px, py = rng.uniform(0.7, 1.3, 10), rng.uniform(0.7, 1.3, 10)
+        rr, rc = rng.choice(10, 3, replace=False), rng.choice(10, 3, replace=False)
+        px[rr[:2]], py[rc[:2]] = rng.uniform(0.01, 0.04, 2), rng.uniform(0.01, 0.04, 2)
+        px[rr[2]], py[rc[2]] = rng.uniform(3.5, 4.5), rng.uniform(3.5, 4.5)
+        law = np.outer(px, py) * np.exp(rng.normal(0.0, 0.08, (10, 10)))
+        rows = rng.permutation([i for i in range(10) if i not in rr])[:5]
+        cols = rng.permutation([j for j in range(10) if j not in rc])[:5]
+        law[rows, cols] *= rng.uniform(3.0, 4.0, 5)
+        law /= law.sum()
+        T = ref_cooc.pmi(law).ravel()
+        order = np.argsort(-T)
+        top = {(int(k // 10), int(k % 10)) for k in order[:5]}
+        if (top == set(zip(rows.tolist(), cols.tolist())) and T[order[4]] - T[order[5]] > 0.3
+                and 3000 * min(law[i, j] for i, j in top) >= 40 and law.argmax() == rr[2] * 10 + rc[2]):
+            return law'''
+
+CHECK_19 = HIDDEN_LAW_19 + '''
+
+
+rng_c19 = np.random.default_rng()       # at each run: three new hidden laws, and new sales
 
 
 def pairs_why_c19(pairs):
@@ -1978,11 +2074,27 @@ def top5_c19(law):
     return {(int(i), int(j)) for i, j in zip(*np.unravel_index(np.argsort(-T, axis=None, kind="stable")[:5], T.shape))}
 
 
+def frequent_hint_c19(counts, pairs):
+    """A hint when the pairs chosen are the five cells of most sales: a cell can be frequent only because its row and
+    its column are, with a PMI about 0."""
+    most = {(int(k // 10), int(k % 10)) for k in np.argsort(-np.asarray(counts), axis=None, kind="stable")[:5]}
+    return (" ; tes paires sont les cinq cases les plus vendues : une case peut être fréquente seulement parce que son "
+            "rayon et sa tranche le sont, sans association (sa PMI est alors proche de 0)") if set(pairs) == most else ""
+
+
 def rare_hint_c19(counts, pairs):
     """A hint when the pairs chosen hold cells of few sales (their PMI is very dispersed, MB2.15)."""
-    few = [int(counts[i, j]) for i, j in pairs if counts[i, j] <= 5]
-    return (f" ; {len(few)} des cases choisies n'ont que {', '.join(map(str, sorted(few)))} vente(s) : leur PMI estimée "
-            "est très dispersée (MB2.15)") if few else ""
+    few = sorted(int(counts[i, j]) for i, j in pairs if counts[i, j] <= 5)
+    if not few:
+        return ""
+    sales = ", ".join(map(str, few)) + (" ventes" if max(few) > 1 or len(few) > 1 else " vente")
+    verb = "n'a" if len(few) == 1 else "n'ont"
+    return f" ; {len(few)} des cases choisies {verb} que {sales} : leur PMI estimée est très dispersée (MB2.15)"
+
+
+def pairs_text_c19(n):
+    """« 1 paire », « 3 paires »."""
+    return f"{n} paire{'s' if n > 1 else ''}"
 
 
 with checked("MB2.19"):
@@ -1994,8 +2106,8 @@ with checked("MB2.19"):
     elapsed_19 += time.perf_counter() - start_19
     why_19 = pairs_why_c19(mine_19)
     found_19 = pairs_found_19(mine_19) if not why_19 else 0
-    report_19(not why_19 and found_19 >= 4, f"la table du notebook : {found_19} paires sur 5",
-              f"la table du notebook : {why_19 or f'{found_19} paires sur 5, il en faut au moins 4'}"
+    report_19(not why_19 and found_19 >= 4, f"la table du notebook : {pairs_text_c19(found_19)} sur 5",
+              f"la table du notebook : {why_19 or f'{pairs_text_c19(found_19)} sur 5, il en faut au moins 4'}"
               + ("" if why_19 else rare_hint_c19(COUNTS_19, mine_19)))
     if not filled(answer_MB2_19a):
         print("⏳ Ex MB2.19a : pas encore fait.")
@@ -2004,10 +2116,8 @@ with checked("MB2.19"):
                   "Ex MB2.19a : ta réponse n'est pas le score que rend ta fonction maintenant, "
                   "pairs_found_19(top_pairs_19(COUNTS_19)) : exécute à nouveau ta cellule")
     answers_c19 = [sorted(map(tuple, np.asarray(mine_19, dtype=int).tolist())) if not why_19 else None]
-    for k_c19, law_c19 in enumerate(HIDDEN_C19, start=1):
-        rows_c19, cols_c19 = rng_c19.permutation(10), rng_c19.permutation(10)
-        law_c19 = np.array(law_c19)[np.ix_(rows_c19, cols_c19)]
-        law_c19 = law_c19 / law_c19.sum()                   # written to 8 decimals: summed to 1 again
+    for k_c19 in range(1, 4):
+        law_c19 = hidden_law_c19(rng_c19)                   # a new hidden law at each run
         counts_c19 = rng_c19.multinomial(3000, law_c19.ravel()).reshape(10, 10)
         start_19 = time.perf_counter()
         got_c19 = top_pairs_19(counts_c19.copy())
@@ -2022,9 +2132,9 @@ with checked("MB2.19"):
         got_c19 = [tuple(int(v) for v in p) for p in got_c19]
         answers_c19.append(sorted(got_c19))
         score_c19 = len(set(got_c19) & top5_c19(law_c19))
-        report_19(score_c19 >= 4, f"table cachée {k_c19} : {score_c19} paires sur 5",
-                  f"table cachée {k_c19} : {score_c19} paires sur 5, il en faut au moins 4"
-                  + rare_hint_c19(counts_c19, got_c19))
+        report_19(score_c19 >= 4, f"table cachée {k_c19} : {pairs_text_c19(score_c19)} sur 5",
+                  f"table cachée {k_c19} : {pairs_text_c19(score_c19)} sur 5, il en faut au moins 4"
+                  + rare_hint_c19(counts_c19, got_c19) + frequent_hint_c19(counts_c19, got_c19))
     report_19(elapsed_19 < 10, f"en {fr(elapsed_19, 2)} s pour les quatre tables",
               f"trop lent : {fr(elapsed_19, 1)} s pour les quatre tables, il faut moins de 10 s")
     verdict("MB2.19", all(results_19) and len(results_19) >= 5, "critère atteint : au moins 4 paires sur 5 pour la table "
@@ -2035,19 +2145,21 @@ NOTE_19 = (r"a) 5 avec la méthode ci-dessous ; b) 2 ; c) trois cases de deux ou
            r"tranches rares, devant deux vraies paires. Deux méthodes qui marchent : ne garder que les cases d'au moins 10 "
            r"ventes avant de prendre les cinq plus grandes PMI ; ou rapprocher chaque case de l'indépendance par des "
            r"pseudo-comptes, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = n(x)\,n(y)/N$ le compte "
-           r"qu'on aurait à l'indépendance et $\kappa = 5$.")
+           r"qu'on aurait à l'indépendance et $\kappa = 5$. Un seuil de 5 ventes passe aussi ; les cinq cases les plus "
+           r"vendues échouent toujours, et l'estimation directe presque toujours. C'est le piège inverse : une case peut "
+           r"être très vendue seulement parce que son rayon et sa tranche le sont, et sa PMI est alors proche de 0.")
 
 MB2_19 = Ex(
-    "MB2.19", "🏆", 3, 45, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée "
+    "MB2.19", "🏆", 3, 50, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée "
     "de 10 × 10, sans se laisser piéger par les cases rares",
     "retrouver les cases de plus grande PMI d'une table cachée à partir de comptes, en se protégeant des cases rares, et "
     "le vérifier sur des tables cachées.", "fiche §2 et §3 ; M04 ; Ex MB2.13 et MB2.15", tracks="C",
     given=GIVEN_19, note=NOTE_19,
-    body=r"""Une table jointe cachée de $10 \times 10$ décrit, pour les articles vendus par un hypermarché, le rayon de l'article (10 rayons, en lignes) et la tranche horaire de la vente (10 tranches, en colonnes) ; quelques rayons et quelques tranches sont rares. Les « cinq paires les plus associées » sont les cinq cases de plus grande PMI de la table cachée, toutes de probabilité nettement non nulle. La cellule fournie donne `COUNTS_19`, les comptes, de forme $(10, 10)$, de 3 000 ventes tirées selon une telle table, et `pairs_found_19(pairs)`, qui compte combien des 5 paires `(ligne, colonne)` données sont parmi les cinq paires cachées, sans rien montrer d'elles.
+    body=r"""Une table jointe cachée de $10 \times 10$ décrit, pour les articles vendus par un hypermarché, le rayon de l'article (10 rayons, en lignes) et la tranche horaire de la vente (10 tranches, en colonnes) ; quelques rayons et quelques tranches sont rares, un rayon et une tranche sont très fréquents. Les « cinq paires les plus associées » sont les cinq cases de plus grande PMI de la table cachée, toutes de probabilité nettement non nulle. La cellule fournie donne `COUNTS_19`, les comptes, de forme $(10, 10)$, de 3 000 ventes tirées selon une telle table, et `pairs_found_19(pairs)`, qui compte combien des 5 paires `(ligne, colonne)` données sont parmi les cinq paires cachées, sans rien montrer d'elles.
 
 Écris `top_pairs_19(counts)`, qui reçoit une table de comptes de 3 000 observations et rend une liste de 5 paires `(ligne, colonne)`, numérotées à partir de 0. Tout NumPy et SciPy sont permis, et ta `pmi`.
 
-**Critère de réussite :** au moins 4 des 5 paires trouvées pour la table du notebook, et pour chacune de trois tables cachées de la vérification, dont les lignes et les colonnes sont renumérotées à chaque exécution, et dont les 3 000 ventes sont tirées à nouveau, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse a) avec ta fonction, et refuse une fonction qui rend les mêmes paires pour deux tables. Relève :
+**Critère de réussite :** au moins 4 des 5 paires trouvées pour la table du notebook, et pour chacune de trois tables cachées tirées à nouveau à chaque exécution, comme leurs 3 000 ventes, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse a) avec ta fonction, et refuse une fonction qui rend les mêmes paires pour deux tables. Relève :
 - a) le nombre de paires que ta méthode trouve pour la table du notebook, `pairs_found_19(top_pairs_19(COUNTS_19))` (un entier) ;
 - b) le nombre de paires que trouve l'estimation directe, les cinq plus grandes valeurs de `pmi(COUNTS_19 / 3000)` (un entier) ;
 - c) les comptes des cinq cases que choisit l'estimation directe, par PMI estimée décroissante (une liste de 5 entiers).
@@ -2077,7 +2189,7 @@ with wbm.attempt("MB2.19"):          # your function: ⏳ while it is not writte
 
 start_19 = time.perf_counter()
 answer_MB2_19a = pairs_found_19(top_pairs_19(COUNTS_19))
-print(f"a) {answer_MB2_19a} paires sur 5, en {time.perf_counter() - start_19:.4f} s")
+print(f"a) {answer_MB2_19a} paire{'s' if answer_MB2_19a > 1 else ''} sur 5, en {time.perf_counter() - start_19:.4f} s")
 direct_19 = mymath.cooccurrence.pmi(COUNTS_19 / COUNTS_19.sum())
 order_19 = np.argsort(-direct_19, axis=None, kind="stable")[:5]
 direct_pairs_19 = [(int(i), int(j)) for i, j in zip(*np.unravel_index(order_19, direct_19.shape))]
@@ -2270,6 +2382,25 @@ def _threshold_19(np, counts, t=10):
     return _top5(np, T)
 
 
+def _check_hidden_laws_19(np, cooc, n_laws, seed):
+    """The share of the hidden tables of the check of MB2.19 (a law by hidden_law_c19, then 3 000 sales) on which each
+    method finds at least 4 of the 5 pairs: the two methods of the solutions, the five cells of most sales, the direct
+    estimate."""
+    namespace = {"np": np, "ref_cooc": cooc}
+    exec(HIDDEN_LAW_19, namespace)
+    rng = np.random.default_rng(seed)
+    found = {"threshold": 0, "shrink": 0, "most_sold": 0, "direct": 0}
+    for _ in range(n_laws):
+        law = namespace["hidden_law_c19"](rng)
+        counts = rng.multinomial(3000, law.ravel()).reshape(10, 10)
+        truth = _top5(np, _pmi(np, law))
+        found["threshold"] += len(_threshold_19(np, counts) & truth) >= 4
+        found["shrink"] += len(_shrink_19(np, counts) & truth) >= 4
+        found["most_sold"] += len(_top5(np, counts.astype(float)) & truth) >= 4
+        found["direct"] += len(_top5(np, _pmi(np, counts / 3000)) & truth) >= 4
+    return {key: value / n_laws for key, value in found.items()}
+
+
 def _counters_18(np, math, seed, func, n_trials, variant=0):
     """The counters of the property test of MB2.18 (the statement), with tolerance variants that a right implementation
     may choose: 0 as stated, 1 the bound and the mean compared at a scale max(1, |·|) of the other side, 2 absolute
@@ -2284,7 +2415,11 @@ def _counters_18(np, math, seed, func, n_trials, variant=0):
         if W.sum() == 0:
             W[0, 0] = 1.0
         law = W / W.sum()
-        T, TT = func(law), func(law.T)
+        try:
+            T, TT = func(law), func(law.T)
+        except Exception:  # noqa: BLE001 - an exception of the function tested fails the three checks
+            counts = {key: value + 1 for key, value in counts.items()}
+            continue
         px, py = law.sum(axis=1), law.sum(axis=0)
         tol = (lambda x, y: 1e-9 * max(1.0, abs(x))) if variant == 0 else (lambda x, y: 1e-9 * max(1.0, abs(y))) if (
             variant == 1) else (lambda x, y: 1e-9)
@@ -2390,9 +2525,12 @@ def build_constants() -> dict:
     namespace = {"np": np, "math": math, "ref_cooc": cooc}
     exec(CHECK_18.split("\n\n\nBROKEN_C18")[0], namespace)
     exec(re.search(r"BROKEN_C18 = \{.*?\}\s*#", CHECK_18, re.S).group(0).rstrip("#"), namespace)
-    letters = iter("defghijklmno")
+    letters = iter("defghijklmno")                              # the four first versions (session 71, step 1)
+    new_letters = iter(["p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa"])   # minf_tall_c18, raises_c18
+    first_four = ("half_c18", "double_c18", "finite_tall_c18", "tall_shift_c18")
     hidden18 = []
     broken_somewhere = set()
+    counters18 = {}
     for seed in (7141, 7142):
         assert all(v == 0 for v in _counters_18(np, math, seed, cooc.pmi, 40).values())
         ids = {}
@@ -2405,7 +2543,8 @@ def build_constants() -> dict:
                     assert runs[0][key] == 0, (seed, name, key, runs[0])
                 elif runs[0][key]:
                     broken_somewhere.add((name, key))
-            ids[name] = {key: f"MB2.18{next(letters)}" for key in keys}
+            ids[name] = {key: f"MB2.18{next(letters if name in first_four else new_letters)}" for key in keys}
+            counters18.update({ids[name][key]: runs[0][key] for key in keys})
         hidden18.append((seed, ids))
     assert broken_somewhere == {(n, k) for n, keys in namespace["BROKEN_C18"].items() for k in keys}, broken_somewhere
     for seed in (7118,):                                       # the visible versions: the same counters for the variants
@@ -2416,9 +2555,9 @@ def build_constants() -> dict:
             assert runs[0] == runs[1] == runs[2], (name, runs)
     out["__HIDDEN_C18__"] = literal(hidden18)
 
-    # MB2.19: the table of the notebook (seed 7119, the generator of the author of the exercises), then three hidden
-    # tables on which the two methods of the solutions find at least 4 pairs on every redraw tried, and the direct
-    # estimate seldom does
+    # MB2.19: the table of the notebook (seed 7119, the generator of the author of the exercises); the hidden laws of
+    # the check are drawn at each run by hidden_law_c19: on 300 seeded draws, the two methods of the solutions find at
+    # least 4 pairs every time, the five cells of most sales never, the direct estimate seldom
     rng = np.random.default_rng(7119)
     J19, truth = _hidden_table_19(np, rng)
     counts19 = rng.multinomial(3000, J19.ravel()).reshape(10, 10)
@@ -2428,26 +2567,9 @@ def build_constants() -> dict:
     assert np.all(np.diff(top6) < -1e-6)                   # no tie in the order of the direct estimate (c)
     out["__COUNTS_19__"] = literal(counts19.tolist())
     out["__LAW_19__"] = literal(np.round(J19, 12).tolist())
-    laws19, check_rng = [], np.random.default_rng(7101)
-    for seed in range(7143, 7150):
-        if len(laws19) == 3:
-            break
-        J, planted = _hidden_table_19(np, np.random.default_rng(seed))
-        J = np.round(J, 8)
-        law = J / J.sum()
-        assert _top5(np, _pmi(np, law)) == planted
-        good, direct_ok = 0, 0
-        for _ in range(400):
-            rows, cols = check_rng.permutation(10), check_rng.permutation(10)
-            permuted = law[np.ix_(rows, cols)]
-            c = check_rng.multinomial(3000, permuted.ravel()).reshape(10, 10)
-            want = _top5(np, _pmi(np, permuted))
-            good += len(_shrink_19(np, c) & want) >= 4 and len(_threshold_19(np, c) & want) >= 4
-            direct_ok += len(_top5(np, _pmi(np, c / 3000)) & want) >= 4
-        if good == 400 and direct_ok <= 120:
-            laws19.append(J.tolist())
-    assert len(laws19) == 3
-    out["__HIDDEN_C19__"] = literal(laws19)
+    rates19 = _check_hidden_laws_19(np, cooc, n_laws=300, seed=7146)
+    assert rates19["threshold"] == rates19["shrink"] == 1.0, rates19      # the two methods of the solutions, always
+    assert rates19["most_sold"] == 0.0 and rates19["direct"] <= 0.15, rates19
     return out
 
 

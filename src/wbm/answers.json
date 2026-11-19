@@ -99209,8 +99209,10 @@
       "kind": "str",
       "mistakes": {
         "6941068d48bd066e3b1b9610fe184b55eb656833fd0668d18228597806911924": "le champ bas occupe 12 bits, donc 3 chiffres hexadécimaux, complétés par des zéros à gauche",
+        "81872f4c3acbbf184fc754b2c82c26f86721480d9269d4b1ab044da6cf76b48e": "le mot a 4 chiffres : le numéro de la machine (1 chiffre), puis le compteur (3 chiffres)",
         "83583d45198953d70996a04215b7a1112d617feae00f7d6ea7b2280387891170": "le champ bas se convertit en base 16 avant d'être écrit",
         "86f00e1094c3e762216cfe98ea3a987094368b208158fb839a8f073675899922": "écris seulement les chiffres, sans le préfixe 0x de Python",
+        "c8e03d0db586a7e7283b7ce7b030da8e6e2f768cabf692b62d0bd64ce06d1e2d": "le numéro de la machine occupe le champ haut : il s'écrit en premier",
         "f33963b86bd36f4b1bf4e73ec12c47003bb8954045606cea2fe00a81b6f73186": "la question demande l'écriture du mot en base 16"
       },
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
@@ -99283,6 +99285,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "1a52fb73031d2ce6c1b64a18ca49adc52251bd02506041a0cc4277f158b10b75": "la question demande la PMI, pas la PPMI",
         "24c7589668454a175152ecef07b43ca68cb99c28107b506df137dad13f8134c3": "la PMI divise p(x, y) par le produit des deux marges, pas par celle de la ligne seule",
         "26efd2588b7eb14dea275d8b728a7e66b35739606fcc8e178ac0d1a05b03ab1a": "la PMI se calcule avec le logarithme népérien, en nats"
       },
@@ -99943,6 +99946,7 @@
       "magnitude": 0,
       "mistakes": {
         "6af837c7fe8e6e1df643bd5e0c021b94ca00443dc9c95b6358438e35350942c6": "on garde un non-clic sur 9 et tous les clics : seuls les non-clics sont divisés par 9",
+        "d5b7bf08f4e20c8594241d5ae22dab863006bc16c8ae497845b1647a7501bd0c": "le logit est le logarithme de la cote, clics sur non-clics, pas celui du taux",
         "ded1aeaff8911a412469f41c78caaa9d5342038b2eecdcffbfe212ceb93d1473": "garder un non-clic sur 9 divise le nombre de non-clics par 9"
       },
       "sign": -1,
@@ -99987,6 +99991,7 @@
       "kind": "fraction",
       "mistakes": {
         "0f6e948ea1d9269b1ddc9ca135e5eded1e88f02af6c9bca62465e0854bdb04b0": "on retranche ln 9 au logit, on ne l'ajoute pas",
+        "466028f3a9918eede0ef2648242aabbfebd72506bdf98dca99fb90b3d07ad88a": "c'est la cote de la population : la probabilité est cote / (1 + cote)",
         "a9573e722c63794cb7d33ef367c035d8c77e8ee04d6843cc19891b2da3d67d1a": "on corrige le logit (ou la cote), pas la probabilité directement"
       },
       "sign": 1,
@@ -100330,7 +100335,8 @@
       "magnitude": 1,
       "mistakes": {
         "0c9044dc276baafdb3fe659948009efc7a871e9ef9310bd45156bde33fe6eef7": "les valeurs propres de G ne sont pas ses coefficients diagonaux",
-        "6b0b55c106218992f4ff460c0fbfce50777dd2ffd3c63844b39d0f1b66c44303": "le premier axe est celui de la plus grande valeur propre"
+        "6b0b55c106218992f4ff460c0fbfce50777dd2ffd3c63844b39d0f1b66c44303": "le premier axe est celui de la plus grande valeur propre",
+        "891f9a67fa6438cdfb29dbe3597409bcfa264c721b887e10a179b5f7611d2388": "la valeur propre de G, pas sa racine (la valeur singulière de D)"
       },
       "sign": 1,
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
@@ -100370,6 +100376,7 @@
       "hash": "569d4b2b928187c611a2483bdc7ec3ba81cd9269d7c06c65b6c449a44d0bc0eb",
       "kind": "array",
       "mistakes": {
+        "2ff857a0721ecc201520e53a27a792c1a163afb4bd09810f2598078817fe4ee4": "l'axe est unitaire : divise (1, 1, 1) par sa norme",
         "74f9b0d5a2ceb6fa73d58c073338267e5bf188f669bd7f4aa7ad21fbba7534e7": "l'axe vit dans l'espace des mesures, de dimension 3 : c'est Dᵀ fois le vecteur propre de G",
         "d156746268d5b3c4f49993155cd9ba226b8216a58695fb2efce9f75b67ec55b3": "l'axe est unitaire : divise par sa norme"
       },
@@ -100543,7 +100550,10 @@
       "magnitude": 0,
       "mistakes": {
         "2ec821113cb34e0b00fe74b21262f3caa7026d5445498fe5172b95b71ceec553": "u est unitaire : (1, 1, 1) doit d'abord être divisé par sa norme",
-        "c7edcbbb1ca45e81aafff75dbc0df3b94b9ad4ec4eb76cf763e89b46397c7855": "c'est le carré du produit scalaire, ((x₁ − x₃)·u)²"
+        "41a92eda8438f0210c839b4af16d6ef51d46fefec2ab372627f49625d14f8df8": "c'est le carré du produit scalaire, ((x₁ − x₃)·u)²",
+        "8ec598d4a620982ce29287f8f582b1919f02493cf04acb77d0b41be0ed77ae0e": "c'est le carré du produit scalaire, ((x₁ − x₃)·u)²",
+        "c7edcbbb1ca45e81aafff75dbc0df3b94b9ad4ec4eb76cf763e89b46397c7855": "c'est le carré du produit scalaire, ((x₁ − x₃)·u)²",
+        "c898ef89450de055bb242897eb8feb58d717055e07978c0c0a97cc5fc1ec507c": "c'est le carré du produit scalaire, ((x₁ − x₃)·u)²"
       },
       "sign": 1,
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
@@ -100644,7 +100654,8 @@
       "magnitude": 4,
       "mistakes": {
         "23c7778f9e67bc077296a0bd50185f003d11ce53ebabfca45e9b9403364b8ad5": "une paire de capteurs ne se compare qu'une fois, et pas un capteur avec lui-même",
-        "31879954ad64325cdd9a06ca849bfa606e4f4c2d228e4fc0028b18fd404d8c61": "(A, B) et (B, A) sont la même paire"
+        "31879954ad64325cdd9a06ca849bfa606e4f4c2d228e4fc0028b18fd404d8c61": "(A, B) et (B, A) sont la même paire",
+        "d39be9f564be57b756f3e3ed6a24375fa8f4a7f3c8cb2fe7374aa7277710f061": "un capteur ne se compare pas avec lui-même : ne compte que les paires de deux capteurs distincts"
       },
       "sign": 1,
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
@@ -103770,6 +103781,13 @@
       },
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
     },
+    "MB2.18aa": {
+      "hash": "dc2046ae5a4400f2a8f8e754276faa10c2209313ca4b92d801a3fe83fa224bd6",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
     "MB2.18b": {
       "decimals": 0,
       "element_hashes": [
@@ -103879,6 +103897,83 @@
     },
     "MB2.18o": {
       "hash": "939e6085781a9c2f99005055b4bbc64e27c17acd8bbeb1beda012ad5ee95c3fe",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18p": {
+      "hash": "c680f4114078fe44e53b9833f8f52b370f86f24f693641004d2db3cc26a8d3a0",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18q": {
+      "hash": "ff91f4e09f64fed684ba9231ce0acb629f41006d97fdf02ae382cd26ccd97f24",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18r": {
+      "hash": "6cb20488a20881ebd23bb29255d82c2576072e48d92f53f0e4fb94a41df209f3",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18s": {
+      "hash": "a6d5889eaa47b827157adf70e53b830900e80638e1fe26f6515db590af25cc47",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18t": {
+      "hash": "4d2f9be3671937be92c004e0660e7bc9f34b584b6608c6607ff5500da10cb0f1",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18u": {
+      "hash": "bd2f873933e78243aa47c8fe86d88971b88fadd4be12539709252c0a98781170",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18v": {
+      "hash": "23038e92705429e2575c44321c20daa6e742391dff986ee6574946a7dcc03f72",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18w": {
+      "hash": "ed28efe4a376291d01a5df7d983f48cf28d252acd4f9b0062adae11d2cd61b23",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18x": {
+      "hash": "cde61f7cda984ed34d73c427d9945de40274ceafda995581083144728b0555bf",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18y": {
+      "hash": "f9f95f6f55e2617f600d64cfc552e4108ebb0ce3efd08829484d517e3631ebb9",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18z": {
+      "hash": "41338e0f6f78b250c418d0f54d04e8e8993ae56873d43f2010757f8f555b371b",
       "kind": "int",
       "magnitude": 1,
       "sign": 1,
