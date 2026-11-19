@@ -160,7 +160,8 @@
 2. 
 3. 
 4. 
-5. 
+
+Pour aller plus loin :
 
 ### Ex MB2.9 — Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, les produits scalaires des lignes si
 

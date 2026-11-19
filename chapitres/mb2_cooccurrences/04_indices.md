@@ -22,7 +22,7 @@ Un entier $N \ge 1$ a $k$ chiffres en base $b$ quand $b^{k-1} \le N < b^k$. Un c
 </details>
 <details><summary>Indice 3</summary>
 
-1. Encadre $10^6$ entre deux puissances de 2, puis de 16 ($2^{20} = 16^5 = 1\,048\,576$). 2. C vaut 12. 3. Encadre 26 et 1 000 entre deux puissances de 2 consécutives. 4. 12 bits font combien de groupes de 4 ?
+1. Encadre $100\,000$ entre deux puissances de 2, puis de 16 ($2^{16} = 16^4 = 65\,536$). 2. A vaut 10, D vaut 13 et E vaut 14. 3. Encadre 26 et 1 000 entre deux puissances de 2 consécutives. 4. 12 bits font combien de groupes de 4 ?
 
 </details>
 
@@ -40,7 +40,7 @@ Lift $= \frac{p(x, y)}{p(x)\,p(y)}$ et $\operatorname{PMI} = \ln(\text{lift})$. 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac{0{,}14}{0{,}25 \times 0{,}2}$, puis son logarithme népérien. 2. $\ln 0$ et $\max(0, -\infty)$. 3. $-\ln 0{,}05$ ; quand $p(x, y) = p(y)$. 4. Que fait $\max(0, \cdot)$ aux termes négatifs d'une moyenne ? 5. Une KL peut-elle être négative ?
+1. Multiplie le lift par $p(x)\,p(y)$ ; la PMI est le logarithme népérien du lift. 2. $\ln 0$ et $\max(0, -\infty)$. 3. $-\ln 0{,}05$ ; quand $p(x, y) = p(y)$. 4. Que fait $\max(0, \cdot)$ aux termes négatifs d'une moyenne ? 5. Une KL peut-elle être négative ?
 
 </details>
 
@@ -58,7 +58,7 @@ $\frac{p_\alpha(y)}{p(y)}$ est proportionnel à $p(y)^{\alpha - 1}$. $\operatorn
 </details>
 <details><summary>Indice 3</summary>
 
-1. Avec $\alpha - 1 < 0$, le rapport décroît quand $p(y)$ croît, et sa moyenne pondérée par $p(y)$ vaut 1. 2. $-\ln\frac{0{,}05}{0{,}01}$. 3. et 4. Une constante ajoutée à toute une colonne, ou des constantes différentes d'une colonne à l'autre. 5. La limite $T \to \infty$ d'une loi tempérée (M28).
+1. Avec $\alpha - 1 < 0$, le rapport décroît quand $p(y)$ croît, et sa moyenne pondérée par $p(y)$ vaut 1 ; si la marge n'est pas uniforme, les rapports ne sont pas tous égaux. 2. $-\ln\frac{0{,}05}{0{,}01}$. 3. et 4. Une constante ajoutée à toute une colonne, ou des constantes différentes d'une colonne à l'autre. 5. La limite $T \to \infty$ d'une loi tempérée (M28).
 
 </details>
 
@@ -134,7 +134,7 @@ Les marges sont les sommes des lignes et des colonnes. $H = -\sum p\log_2 p$ en 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0{,}38 + 0{,}22$ et $0{,}02 + 0{,}38$ ; puis les colonnes. 2. $H(X) = H(Y) = -0{,}6\log_20{,}6 - 0{,}4\log_20{,}4$ ; $H(X, Y)$ a quatre termes, dont deux égaux. 3. $2H(X) - H(X, Y)$, puis $\times \ln 2$. 4. Compare $0{,}38$ à $0{,}6 \times 0{,}4$.
+1. $0{,}20 + 0{,}04$ et $0{,}14 + 0{,}62$ ; puis les colonnes. 2. $H(X)$ et $H(Y)$ ont deux termes chacun ; $H(X, Y)$ a quatre termes distincts. 3. $H(X) + H(Y) - H(X, Y)$, puis $\times \ln 2$. 4. Compare $0{,}20$ à $0{,}24 \times 0{,}34$.
 
 </details>
 
@@ -147,7 +147,7 @@ M12d : la SVD par les valeurs propres de $\mathbf{M}^\top\mathbf{M}$, et le thé
 </details>
 <details><summary>Indice 2</summary>
 
-$s_i = \sqrt{\lambda_i(\mathbf{M}^\top\mathbf{M})}$, $\mathbf{v}_i$ un vecteur propre unitaire, $\mathbf{u}_i = \mathbf{M}\mathbf{v}_i/s_i$. L'erreur de la meilleure approximation de rang 1 vaut $\sqrt{s_2^2 + \cdots}$ en norme de Frobenius, et $s_2$ en norme spectrale.
+$s_i = \sqrt{\lambda_i(\mathbf{M}^\top\mathbf{M})}$, $\mathbf{v}_i$ un vecteur propre unitaire, $\mathbf{u}_i = \mathbf{M}\mathbf{v}_i/s_i$. L'erreur de la meilleure approximation de rang 1 vaut $\sqrt{s_2^2 + \cdots}$ en norme de Frobenius.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -182,7 +182,7 @@ Le prototype est la moyenne des points de la classe. $\cos(\mathbf{q}, \mathbf{m
 
 <details><summary>Indice 1</summary>
 
-Fiche §1, en entier : les divisions successives, le passage par groupes de 4 bits, les couleurs, le nombre de bits pour $N$ valeurs, et la propriété du champ de $\ell$ bits.
+Fiche §1, en entier : les divisions successives, le passage par groupes de 4 bits, les couleurs, le rappel sur les bits pour $N$ valeurs (R6 §4, M06 §7), et la propriété du champ de $\ell$ bits.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -228,7 +228,7 @@ $p_\alpha(y) = \frac{n(y)^{1/3}}{\sum_{y'}n(y')^{1/3}}$, et $\operatorname{PMI}_
 </details>
 <details><summary>Indice 3</summary>
 
-a) Les racines cubiques valent 1, 2, 3 et 4. b) $-\ln\frac{0{,}1}{0{,}01}$, $-\ln\frac{0{,}2}{0{,}08}$, $-\ln\frac{0{,}3}{0{,}27}$, $-\ln\frac{0{,}4}{0{,}64}$. c) Ajoute le décalage de la huppe à e) de MB2.2. d) $\ln\frac{0{,}06}{0{,}4 \times 0{,}2}$, et de même pour le merle et le moineau. e) Range les trois valeurs de d). f) Toute une colonne reçoit le même décalage.
+a) Les racines cubiques valent 1, 2, 3 et 4. b) $-\ln\frac{0{,}1}{0{,}01}$, $-\ln\frac{0{,}2}{0{,}08}$, $-\ln\frac{0{,}3}{0{,}27}$, $-\ln\frac{0{,}4}{0{,}64}$. c) Ajoute le décalage de la huppe à e) de MB2.2. d) $\ln\frac{0{,}06}{0{,}4 \times 0{,}2}$, et de même pour la grive et le moineau. e) Range les trois valeurs de d). f) Toute une colonne reçoit le même décalage.
 
 </details>
 
@@ -241,12 +241,12 @@ Fiche §4 : « Rappel : SVD compacte et Eckart-Young » (la vérification d'une 
 </details>
 <details><summary>Indice 2</summary>
 
-La case $(i, j)$ du terme $k$ vaut $s_k\,(\mathbf{u}_k)_i\,(\mathbf{v}_k)_j$. $\mathbf{U}_2\mathbf{S}_2^\beta$ multiplie la première colonne de $\mathbf{U}_2$ par $135^\beta$ et la seconde par $45^\beta$ ; $\mathbf{V}_2\mathbf{S}_2^{1-\beta}$ fait de même avec $1 - \beta$. Un cosinus ne change pas si l'on multiplie ses deux vecteurs par un même nombre positif.
+La case $(i, j)$ du terme $k$ vaut $s_k\,(\mathbf{u}_k)_i\,(\mathbf{v}_k)_j$. $\mathbf{U}_2\mathbf{S}_2^\beta$ multiplie la première colonne de $\mathbf{U}_2$ par $399^\beta$ et la seconde par $133^\beta$ ; $\mathbf{V}_2\mathbf{S}_2^{1-\beta}$ fait de même avec $1 - \beta$. Un cosinus ne change pas si l'on multiplie ses deux vecteurs par un même nombre positif.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $135 \times \frac45 \times \frac49$ et $45 \times \big(-\frac15\big) \times \frac89$. b) Les lignes de $\mathbf{U}_2$, avec leurs deux coordonnées multipliées par 135 et par 45. c) Les lignes de $\mathbf{V}_2$, multipliées de même. d) Les lignes 1 et 4 de $\mathbf{A}_\beta$ sont $\frac25(135^\beta, -45^\beta)$ et $\frac25(135^\beta, 45^\beta)$ ; divise par $45^\beta$ et pose $t = 3^\beta$. e) Les lignes 1 et 2 : $\frac15(2 \times 135^\beta, -2 \times 45^\beta)$ et $\frac15(135^\beta, 4 \times 45^\beta)$. f) $\mathbf{S}_2^\beta\mathbf{S}_2^{1-\beta}$.
+a) $399 \times \frac47 \times \frac{10}{19}$ et $133 \times \big(-\frac17\big) \times \frac{6}{19}$. b) Les lignes de $\mathbf{U}_2$, avec leurs deux coordonnées multipliées par 399 et par 133. c) Les lignes de $\mathbf{V}_2$, multipliées de même. d) Les lignes 1 et 4 de $\mathbf{A}_\beta$ sont $\frac47(399^\beta, -133^\beta)$ et $\frac47(399^\beta, 133^\beta)$ ; divise par $133^\beta$ et pose $t = 3^\beta$. e) Les lignes 1 et 2 : $\frac17(4 \times 399^\beta, -4 \times 133^\beta)$ et $\frac17(399^\beta, 4 \times 133^\beta)$. f) $\mathbf{S}_2^\beta\mathbf{S}_2^{1-\beta}$.
 
 </details>
 
@@ -322,7 +322,7 @@ $p(x) = \sum_{y'}p(x, y')$, une somme de termes positifs dont $p(x, y)$. Écris 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\ln p(x, y) - \ln p(x) - \ln p(y) \le \ln p(x) - \ln p(x) - \ln p(y)$. 2. Égalité si et seulement si $\ln P(Y = y \mid X = x) = 0$. 3. $c \le \operatorname{PMI} \le -\ln p(y)$. 4. $\operatorname{NPMI} \le 1$ revient à $2\ln p(x, y) \le \ln p(x) + \ln p(y)$, la somme de deux inégalités de 1. 5. $-\ln p(x) \ge 0$ et $-\ln p(y) \ge 0$ donnent $\operatorname{PMI} \ge \ln p(x, y)$ ; pour l'inégalité stricte, que faudrait-il pour l'égalité ?
+1. $\ln p(x, y) - \ln p(x) - \ln p(y) \le \ln p(x) - \ln p(x) - \ln p(y)$. 2. Égalité si et seulement si $\ln P(Y = y \mid X = x) = 0$. 3. $c \le \operatorname{PMI} \le -\ln p(y)$. 4. $\operatorname{NPMI} \le 1$ revient à $2\ln p(x, y) \le \ln p(x) + \ln p(y)$, la somme de deux inégalités de 1. Pour aller plus loin : $-\ln p(x) \ge 0$ et $-\ln p(y) \ge 0$ donnent $\operatorname{PMI} \ge \ln p(x, y)$ ; pour l'inégalité stricte, que faudrait-il pour l'égalité ?
 
 </details>
 
@@ -358,7 +358,7 @@ $P(G \mid y = 1, \mathbf{x}) = s_1$ et $P(G \mid y = 0, \mathbf{x}) = s_0$. Écr
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac{s_1\pi(\mathbf{x})}{s_1\pi(\mathbf{x}) + s_0(1 - \pi(\mathbf{x}))}$. 2. Le rapport vaut $\frac{s_1\pi}{s_0(1 - \pi)}$ ; prends le logarithme. 3. Remplace $\operatorname{logit}\pi(\mathbf{x})$ par $\theta_0 + \boldsymbol{\theta}^\top\mathbf{x}$, et regroupe les constantes. 4. $\ln\frac{a}{b}$ estime le logit de l'échantillon : retire $\ln\frac{s_1}{s_0}$. 5. Le décalage devient $\ln s_1 - \ln s_0(\mathbf{x})$ : que se passe-t-il s'il dépend de $\mathbf{x}$ de façon affine, ou non affine ?
+1. $\frac{s_1\pi(\mathbf{x})}{s_1\pi(\mathbf{x}) + s_0(1 - \pi(\mathbf{x}))}$. 2. Le rapport vaut $\frac{s_1\pi}{s_0(1 - \pi)}$ ; prends le logarithme. 3. Remplace $\operatorname{logit}\pi(\mathbf{x})$ par $\theta_0 + \boldsymbol{\theta}^\top\mathbf{x}$, et regroupe les constantes. 4. $\ln\frac{a}{b}$ estime le logit de l'échantillon : retire $\ln\frac{s_1}{s_0}$. 5. Le décalage devient $\ln s_1 - \gamma_0 - \boldsymbol{\gamma}^\top\mathbf{x}$ : regroupe les termes en $\mathbf{x}$ avec $\boldsymbol{\theta}^\top\mathbf{x}$, et les constantes avec $\theta_0$. Si $\ln s_0(\mathbf{x})$ n'est pas affine, le logit de l'échantillon peut-il être affine en $\mathbf{x}$ ?
 
 </details>
 
@@ -550,6 +550,6 @@ Regarde les cinq cases que choisit l'estimation directe : leurs comptes, et les 
 </details>
 <details><summary>Indice 3</summary>
 
-Deux pistes : n'accepter que les cases d'au moins une dizaine de ventes ; ou rapprocher chaque case de l'indépendance, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = \frac{n(x)\,n(y)}{N}$ le compte attendu sous l'indépendance et $\kappa$ de l'ordre de quelques unités. Essaie ta méthode sur des tables que tu tires toi-même, avec des lignes et des colonnes rares.
+Deux pistes : n'accepter que les cases d'au moins une dizaine de ventes ; ou rapprocher chaque case de l'indépendance, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = \frac{n(x)\,n(y)}{N}$ le compte qu'on aurait à l'indépendance et $\kappa$ de l'ordre de quelques unités. Essaie ta méthode sur des tables que tu tires toi-même, avec des lignes et des colonnes rares.
 
 </details>
