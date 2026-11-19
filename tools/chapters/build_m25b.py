@@ -707,16 +707,18 @@ def matches(got, want, rtol=1e-9, atol=1e-12):
     return arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))
 
 
-def scipy_log_joint(X, weights, means, covs):
-    """a[i, k] = ln π_k + ln N(x_i | μ_k, Σ_k) by scipy.stats.multivariate_normal: the oracle of the checks."""
-    X = np.asarray(X, dtype=float)
-    columns = [np.reshape(stats.multivariate_normal(means[k], covs[k]).logpdf(X), (len(X),)) for k in range(len(weights))]
-    return np.column_stack(columns) + np.log(weights)
+def hidden_answer(ex_id, label, value, sub_id, lead=""):
+    """value compared with the answer sub_id of answers.json, by wbm.check(..., computed=True): the expected values
+    are never written in the check cells. One line ✅, ❌ (with the classic mistakes recorded), ⏳ or ❓; True when right."""
+    result = wbm.check(sub_id, value, computed=True, quiet=True)
+    icon = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result.status, "❌")
+    print(f"{icon} Ex {ex_id} : {lead}{label} : {result.message}")
+    return result.passed
 
 
-def scipy_log_likelihood(X, weights, means, covs):
-    """Σ_i logsumexp_k a[i, k], by SciPy."""
-    return float(np.sum(special.logsumexp(scipy_log_joint(X, weights, means, covs), axis=1)))
+def piste(result):
+    """The hint of a classic mistake recorded with a hidden answer (the text after « Piste : »), or ""."""
+    return result.message.split("Piste : ", 1)[1] if "Piste : " in result.message else ""
 
 
 def ellipse_drawn(ax, mean, cov, level):
@@ -1101,8 +1103,8 @@ with wbm.attempt("M25b.24"):          # your sample_mvn, mvn_logpdf and conditio
     check='''wbm.check("M25b.24a", answer_M25b_24a)
 with checked("M25b.24"):
     if filled(angles_24):
-        same("M25b.24", "angles_24, le tableau que rend subspace_angles pour les deux plans, tel quel", angles_24,
-             linalg.subspace_angles(A_24, B_24))
+        hidden_answer("M25b.24", "angles_24, le tableau que rend subspace_angles pour les deux plans, tel quel",
+                      angles_24, "M25b.24e")                  # compared like an answer (answers.json)
     else:
         print("⏳ Ex M25b.24 : la comparaison attend tes angles angles_24.")
 
@@ -1197,7 +1199,12 @@ wbm.record("M25b.24d", [float(gain_24r @ (np.array([15.0, 12.0, 15.0]) - mu_24r)
            mistakes={"la moyenne de la loi jointe est (0, μ) : les notes ont la moyenne μ":
                          [float(gain_24r @ np.array([15.0, 12.0, 15.0])), float(1 - gain_24r @ w_24r)],
                      "on demande la variance a posteriori, pas l'écart-type":
-                         [float(gain_24r @ (np.array([15.0, 12.0, 15.0]) - mu_24r)), math.sqrt(float(1 - gain_24r @ w_24r))]})''',
+                         [float(gain_24r @ (np.array([15.0, 12.0, 15.0]) - mu_24r)), math.sqrt(float(1 - gain_24r @ w_24r))]})
+angles_24r = linalg.subspace_angles(np.array([[1.0, 2.0], [2.0, 1.0], [0.0, 0.0], [0.0, 0.0]]),
+                                    np.array([[12.0, 12.0], [0.0, 7.0], [5.0, 5.0], [0.0, 24.0]]))
+wbm.record("M25b.24e", angles_24r.tolist(), decimals=8,     # hidden: the array of subspace_angles for the two planes
+           mistakes={"subspace_angles rend des angles en radians, tels quels (pas en degrés)": np.degrees(angles_24r).tolist(),
+                     "subspace_angles rend les angles eux-mêmes, pas leurs cosinus": np.cos(angles_24r).tolist()})''',
 )
 
 PART_A = Part("A", "Ta librairie : le pas E, le pas M, la log-vraisemblance et l'ELBO ; puis SciPy",
@@ -1219,18 +1226,9 @@ CHECK_25 = '''with checked("M25b.25"):
     if not filled(lls_25):
         print("⏳ Ex M25b.25 : la vérification attend tes trois log-vraisemblances lls_25.")
         raise StopCheck
-
-    def lls_c25(variance_of):
-        """The three log-likelihoods by SciPy, the variance of component 1 given by variance_of(σ₁)."""
-        return [scipy_log_likelihood(X_RES_25, WEIGHTS_25, np.array([[CENTRE1_25], [MEAN2_25]]),
-                                     np.array([[[variance_of(s)]], [[VAR2_25]]])) for s in SIGMAS_25]
-
-    want_c25 = lls_c25(lambda s: s ** 2)
-    if matches(lls_25, lls_c25(lambda s: s), rtol=1e-9, atol=1e-9):
-        print("❌ Ex M25b.25 : lls_25 met σ₁ à la place de la variance : covs contient σ₁².")
-        raise StopCheck
-    if same("M25b.25", "lls_25, les trois log-vraisemblances sans régularisation", lls_25, want_c25, rtol=1e-9, atol=1e-9):
-        print(f"   incréments : {fr(want_c25[1] - want_c25[0])} et {fr(want_c25[2] - want_c25[1])} nats ; "
+    if hidden_answer("M25b.25", "lls_25, les trois log-vraisemblances sans régularisation", lls_25, "M25b.25f"):
+        mine_c25 = np.asarray(lls_25, dtype=float)                 # yours, right: the expected values are not written here
+        print(f"   incréments : {fr(mine_c25[1] - mine_c25[0])} et {fr(mine_c25[2] - mine_c25[1])} nats ; "
               f"ln 100 ≈ {fr(math.log(100))}, ln 1000 ≈ {fr(math.log(1000))}")'''
 
 CHECK_25_ANSWERS = '''
@@ -1314,7 +1312,10 @@ print("plafond du terme de 46,0 Ω avec reg : ln(0,48 / √(2π · 0,01)) ≈",
       round(math.log(0.48 / math.sqrt(2 * math.pi * 0.01)), 4))
 
 ''' + CHECK_25),
-        ("record", '''wbm.record("M25b.25d", lls_25r[-1], decimals=4,
+        ("record", '''wbm.record("M25b.25f", lls_25r, decimals=6,          # hidden: the three log-likelihoods of the experiment
+           mistakes={"lls_25 met σ₁ à la place de la variance : covs contient σ₁²":
+                         [ll_25r(s, variance_of=lambda t: t) for s in sigmas_25r]})
+wbm.record("M25b.25d", lls_25r[-1], decimals=4,
            mistakes={"covs contient la variance σ₁², pas l'écart-type σ₁": ll_25r(1e-6, variance_of=lambda s: s)})
 wbm.record("M25b.25e", reg_25r, decimals=4,
            mistakes={"reg s'ajoute à la variance σ₁², pas à l'écart-type σ₁":
@@ -1347,73 +1348,44 @@ CHECK_26 = '''with checked("M25b.26"):
     if not filled(runs_26):
         print("⏳ Ex M25b.26 : la vérification attend tes dix essais runs_26.")
         raise StopCheck
-
-    def trace_c26(X, weights, means, covs, n_iter):
-        """The expected (ll, elbo) of EM without regularization, by the reference (the check never uses your code)."""
-        resp = ref_latent.gmm_e_step(X, weights, means, covs)
-        ll, elbo = [ref_latent.gmm_log_likelihood(X, weights, means, covs)], [ref_latent.gmm_elbo(X, resp, weights, means, covs)]
-        for _ in range(n_iter):
-            weights, means, covs = ref_latent.gmm_m_step(X, resp)
-            ll.append(ref_latent.gmm_log_likelihood(X, weights, means, covs))
-            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
-            resp = ref_latent.gmm_e_step(X, weights, means, covs)
-            ll.append(ll[-1])
-            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
-        return np.array(ll), np.array(elbo)
-
-    def starts_c26(ddof=0):
-        rng = np.random.default_rng(6060)
-        return [(np.full(3, 1 / 3), X_FISH_26[rng.choice(300, 3, replace=False)],
-                 np.full((3, 1, 1), X_FISH_26.var(ddof=ddof))) for _ in range(10)]
-
-    first_c26 = starts_c26()[0]
+    rng_c26 = np.random.default_rng(6060)                         # the first start of the statement
+    first_c26 = (np.full(3, 1 / 3), X_FISH_26[rng_c26.choice(300, 3, replace=False)], np.full((3, 1, 1), X_FISH_26.var()))
     with own_code("M25b.26", "em_trace_26", REF_LATENT):
         short_c26 = em_trace_26(X_FISH_26.copy(), *(np.copy(v) for v in first_c26), 3)
-    short_want_c26 = trace_c26(X_FISH_26, *first_c26, 3)
     got_c26 = pair("M25b.26", "em_trace_26", short_c26, names=("ll", "elbo"))
-    if not (matches(got_c26[0], short_want_c26[0], rtol=1e-8) and matches(got_c26[1], short_want_c26[1], rtol=1e-8)):
-        swapped_c26 = matches(got_c26[0], short_want_c26[1], rtol=1e-8) and matches(got_c26[1], short_want_c26[0], rtol=1e-8)
-        touching_c26 = short_want_c26[1].copy()
-        touching_c26[1::2] = short_want_c26[0][1::2]          # an ELBO after the M step with the NEW responsibilities
-        if matches(got_c26[0], short_want_c26[0], rtol=1e-8) and matches(got_c26[1], touching_c26, rtol=1e-8):
-            report_26(False, "", "em_trace_26, 3 itérations depuis le premier départ : ta courbe elbo touche ℓ aussi "
-                      "après chaque pas M ; après un pas M, l'ELBO se calcule avec les ANCIENNES responsabilités et les "
-                      "nouveaux paramètres (le pas E vient après)")
-        report_26(False, "", "em_trace_26, 3 itérations depuis le premier départ : attendu ll = "
-                  f"{shown(short_want_c26[0])} et elbo = {shown(short_want_c26[1])}, reçu {shown(got_c26[0])} et "
-                  f"{shown(got_c26[1])}" + (" (ll et elbo échangés)" if swapped_c26 else " : 2 n_iter + 1 valeurs, "
-                  "après le premier pas E, puis après chaque pas M et chaque pas E (et tes fonctions passent-elles "
-                  "leurs tests ?)"))
-    report_26(True, "em_trace_26 : 3 itérations depuis le premier départ, comme attendu", "")
+    try:
+        trace_c26 = [np.asarray(got_c26[0], dtype=float).tolist(), np.asarray(got_c26[1], dtype=float).tolist()]
+        sizes_c26 = (len(trace_c26[0]), len(trace_c26[1]))
+    except (TypeError, ValueError):
+        sizes_c26 = None
+    if sizes_c26 != (7, 7):
+        report_26(False, "", "em_trace_26, 3 itérations depuis le premier départ : attendu deux tableaux de 2 n_iter + 1 = 7 "
+                  "valeurs, après le premier pas E, puis après chaque pas M et chaque pas E")
+    result_c26 = wbm.check("M25b.26g", trace_c26, computed=True, quiet=True)   # compared like an answer (answers.json)
+    report_26(result_c26.passed, "em_trace_26 : 3 itérations depuis le premier départ, comme attendu",
+              "em_trace_26, 3 itérations depuis le premier départ : " + (piste(result_c26) or "ta trace n'est pas celle "
+              "de l'EM : 2 n_iter + 1 valeurs, après le premier pas E, puis après chaque pas M et chaque pas E (et tes "
+              "fonctions passent-elles leurs tests ?)"))
     if not isinstance(runs_26, (list, tuple)) or len(runs_26) != 10:
         report_26(False, "", "runs_26 doit être une liste de 10 couples (ll, elbo), un par initialisation")
-    want_c26 = [trace_c26(X_FISH_26, *start, N_ITER_26) for start in starts_c26()]
     try:
-        ddof_c26 = trace_c26(X_FISH_26, *starts_c26(ddof=1)[0], N_ITER_26)
-        if matches(runs_26[0][0], ddof_c26[0], rtol=1e-7):
-            report_26(False, "", "tes variances de départ divisent par n − 1 : X.var() (np.var) divise par n ; ddof=1 "
-                      "divise par n − 1")
-    except (TypeError, IndexError, ValueError):
-        pass
-    for j_c26, (want_ll_c26, want_elbo_c26) in enumerate(want_c26):
-        try:
-            got_ll_c26, got_elbo_c26 = runs_26[j_c26]
-        except (TypeError, ValueError):
-            report_26(False, "", f"l'essai {j_c26 + 1} de runs_26 doit être un couple (ll, elbo)")
-        ok_c26 = matches(got_ll_c26, want_ll_c26, rtol=1e-7) and matches(got_elbo_c26, want_elbo_c26, rtol=1e-7)
-        if not ok_c26:
-            same("M25b.26", f"l'essai {j_c26 + 1}, ll", got_ll_c26, want_ll_c26, rtol=1e-7)
-            same("M25b.26", f"l'essai {j_c26 + 1}, elbo", got_elbo_c26, want_elbo_c26, rtol=1e-7)
-            report_26(False, "", f"l'essai {j_c26 + 1} ne suit pas l'EM attendu : les départs se tirent dans l'ordre par "
-                      "rng = np.random.default_rng(6060), rng.choice(300, 3, replace=False) pour chacun, trois "
-                      "variances X.var(), des poids égaux, n_iter = 100")
-    report_26(True, "les dix essais de runs_26 suivent l'EM attendu", "")
-    finals_c26 = np.array([ll[-1] for ll, _ in want_c26]) / 300
+        mine_c26 = np.array([[np.asarray(ll, dtype=float), np.asarray(elbo, dtype=float)] for ll, elbo in runs_26])
+    except (TypeError, ValueError):
+        mine_c26 = None
+    if mine_c26 is None or mine_c26.shape != (10, 2, 2 * N_ITER_26 + 1):
+        report_26(False, "", f"chaque essai de runs_26 doit être un couple (ll, elbo) de 2 n_iter + 1 = {2 * N_ITER_26 + 1} "
+                  "nombres, comme em_trace_26 les rend")
+    result_c26 = wbm.check("M25b.26h", mine_c26.tolist(), computed=True, quiet=True)
+    report_26(result_c26.passed, "les dix essais de runs_26 suivent l'EM attendu",
+              piste(result_c26) or "tes essais ne suivent pas l'EM attendu : les départs se tirent dans l'ordre par rng = "
+              "np.random.default_rng(6060), rng.choice(300, 3, replace=False) pour chacun, trois variances X.var(), des "
+              "poids égaux, n_iter = 100")
+    finals_c26 = mine_c26[:, 0, -1] / 300                         # yours, right
     best_c26, worst_c26 = int(np.argmax(finals_c26)), int(np.argmin(finals_c26))
     fig_26, axes_26 = plt.subplots(1, 2, figsize=(12, 4), sharey=True)
     try:
         for ax_c26, j_c26, name_c26 in ((axes_26[0], best_c26, "le meilleur essai"), (axes_26[1], worst_c26, "un autre essai")):
-            ll30_c26, elbo30_c26 = want_c26[j_c26][0][:31], want_c26[j_c26][1][:31]   # the first 30 half steps
+            ll30_c26, elbo30_c26 = mine_c26[j_c26, 0, :31], mine_c26[j_c26, 1, :31]   # the first 30 half steps
             title_c26 = f"{name_c26} (essai {j_c26 + 1}) : les 30 premiers demi-pas"
             opened_c26 = drawn(draw_trace_26, ax_c26, ll30_c26.copy(), elbo30_c26.copy(), title_c26)
             report_26(not opened_c26, f"{name_c26} : draw_trace_26 dessine dans l'axe reçu",
@@ -1436,6 +1408,7 @@ CHECK_26 = '''with checked("M25b.26"):
     fig_26.tight_layout()
     plt.show()
     verdict("M25b.26", all(results_26), "tes dix essais sont justes, et dessinés.", "")'''
+
 
 NOTE_26 = (r"a) Vrai (la plus forte baisse relative est de l'ordre de $10^{-16}$, l'arrondi). b) Vrai (écart maximal "
            r"$\approx 2 \times 10^{-13}$). c) $-2{,}9960$. d) 7 essais sur 10. e) $-3{,}06$ pour les trois autres : "
@@ -1597,7 +1570,24 @@ wbm.record("M25b.26d", int(near_26r.sum()),
 wbm.record("M25b.26e", float(np.mean(finals_26r[~near_26r])), decimals=2,
            mistakes={"par poisson : divise la log-vraisemblance par n = 300": float(np.mean(finals_26r[~near_26r]) * 300),
                      "e) demande la valeur des autres essais, pas celle du meilleur": float(finals_26r[best_26r])})
-wbm.record("M25b.26f", traces_26r[best_26r][2].tolist(), decimals=2)''',
+wbm.record("M25b.26f", traces_26r[best_26r][2].tolist(), decimals=2)
+first_26r = (np.full(3, 1 / 3), X_FISH_26[np.random.default_rng(6060).choice(300, 3, replace=False)],
+             np.full((3, 1, 1), X_FISH_26.var()))               # hidden: what the check compares
+short_26r = [np.asarray(v, dtype=float).tolist() for v in em_trace_26(X_FISH_26, *first_26r, 3)]
+touching_26r = [short_26r[0], list(short_26r[1])]
+touching_26r[1][1::2] = short_26r[0][1::2]                       # an ELBO after the M step with the NEW responsibilities
+wbm.record("M25b.26g", short_26r, decimals=6,
+           mistakes={"ll et elbo sont échangés : rends (ll, elbo), dans cet ordre": short_26r[::-1],
+                     "ta courbe elbo touche ℓ aussi après chaque pas M ; après un pas M, l'ELBO se calcule avec les "
+                     "ANCIENNES responsabilités et les nouveaux paramètres (le pas E vient après)": touching_26r})
+rng_ddof_26r = np.random.default_rng(6060)
+ddof_runs_26r = [[np.asarray(v, dtype=float).tolist() for v in em_trace_26(
+    X_FISH_26, np.full(3, 1 / 3), X_FISH_26[rng_ddof_26r.choice(300, 3, replace=False)], np.full((3, 1, 1), X_FISH_26.var(ddof=1)),
+    N_ITER_26)] for _ in range(10)]
+wbm.record("M25b.26h", [[np.asarray(ll, dtype=float).tolist(), np.asarray(elbo, dtype=float).tolist()] for ll, elbo in runs_26],
+           decimals=4,
+           mistakes={"tes variances de départ divisent par n − 1 : X.var() (np.var) divise par n ; ddof=1 divise par n − 1":
+                         ddof_runs_26r})''',
     after=[
         ("md", "**Après la figure**, dans ta copie : sur la courbe, où l'ELBO touche-t-elle la log-vraisemblance, et "
                "pourquoi l'escalier ne descend-il jamais ? Que font les deux composantes du haut dans les essais moins "
@@ -1611,48 +1601,57 @@ VARIANCES_27 = np.array([4.0, 6.25])
 MS_27 = np.arange(10.0, 55.0 + 1e-9, 0.25)                 # the means m of the two KL curves: 10, 10.25, ..., 55
 XS_KL_27 = np.linspace(-30.0, 100.0, 260001)               # the grid of x of the integrals (np.trapezoid)'''
 
-CHECK_27 = '''def curves_c27(weights, means, variances):
-    """The expected curves on MS_27, by SciPy on the grid XS_KL_27: KL(N(m, variances[0]) ‖ p) and KL(p ‖ N(m, V_p))."""
-    weights, means, variances = (np.asarray(v, dtype=float) for v in (weights, means, variances))
-    log_p = special.logsumexp(np.log(weights) + stats.norm(means, np.sqrt(variances)).logpdf(XS_KL_27[:, None]), axis=1)
-    mean_p = weights @ means
-    var_p = weights @ variances + weights @ (means - mean_p) ** 2
-    reverse, forward = [], []
-    for m in MS_27:
-        log_q = stats.norm(m, math.sqrt(variances[0])).logpdf(XS_KL_27)
-        reverse.append(np.trapezoid(np.exp(log_q) * (log_q - log_p), XS_KL_27))
-        forward.append(np.trapezoid(np.exp(log_p) * (log_p - stats.norm(m, math.sqrt(var_p)).logpdf(XS_KL_27)), XS_KL_27))
-    return np.array(reverse), np.array(forward)
+CHECK_27 = '''IDS_C27 = {"visible": {"reverse": "M25b.27f", "forward": "M25b.27g", "qstar": "M25b.27j"},
+           "hidden": {"reverse": "M25b.27h", "forward": "M25b.27i", "qstar": "M25b.27k"}}   # what the two calls must draw, in answers.json (no value written here)
 
 
-def look_27(ax_density, ax_kl, weights, means, variances):
-    """What is wrong in a drawing of draw_kl_fits_27: a list of French phrases, empty when all is there."""
+def normal_of_line_c27(x, y):
+    \"\"\"(m, v) of the normal density whose points (x, y) a line would be (ln y is then a parabola), or None.\"\"\"
+    keep = np.isfinite(x) & np.isfinite(y) & (y > 1e-12 * np.max(y, initial=0.0))
+    if keep.sum() < 5:
+        return None
+    a, b, _ = np.polyfit(x[keep], np.log(y[keep]), 2)
+    if not a < 0:
+        return None
+    v = -1 / (2 * a)
+    return float(b * v), float(v)
+
+
+def look_27(ax_density, ax_kl, weights, means, variances, ids):
+    \"\"\"What is wrong in a drawing of draw_kl_fits_27: a list of French phrases, empty when all is there.\"\"\"
     weights, means, variances = (np.asarray(v, dtype=float) for v in (weights, means, variances))
-    mean_p = weights @ means
-    var_p = weights @ variances + weights @ (means - mean_p) ** 2
     densities = {"la densité p du mélange": lambda x: np.exp(special.logsumexp(
                      np.log(weights) + stats.norm(means, np.sqrt(variances)).logpdf(x[:, None]), axis=1)),
-                 "la gaussienne q⋆ des moments": lambda x: stats.norm(mean_p, math.sqrt(var_p)).pdf(x),
                  "la gaussienne q₁": lambda x: stats.norm(means[0], math.sqrt(variances[0])).pdf(x),
                  "la gaussienne q₂": lambda x: stats.norm(means[1], math.sqrt(variances[1])).pdf(x)}
     missing = []
+    spans = [line for line in ax_density.lines if line_points(line)[0].size >= 50 and line_points(line)[0].min() <= 1e-9
+             and line_points(line)[0].max() >= 60 - 1e-9]
     for name, density in densities.items():
-        if not any(line_points(line)[0].size >= 50 and line_points(line)[0].min() <= 1e-9
-                   and line_points(line)[0].max() >= 60 - 1e-9
-                   and np.allclose(line_points(line)[1], density(line_points(line)[0]), rtol=1e-6, atol=1e-12)
-                   for line in ax_density.lines):
+        if not any(np.allclose(line_points(line)[1], density(line_points(line)[0]), rtol=1e-6, atol=1e-12) for line in spans):
             missing.append(f"il manque {name} sur [0, 60] (au moins 50 points)")
+    qstar = False
+    for line in spans:                                         # q*: a normal density whose moments are in answers.json
+        x, y = line_points(line)
+        fit = normal_of_line_c27(x, y)
+        if (fit is not None and wbm.check(ids["qstar"], list(fit), computed=True, quiet=True).passed
+                and np.allclose(y, stats.norm(fit[0], math.sqrt(fit[1])).pdf(x), rtol=1e-6, atol=1e-12)):
+            qstar = True
+    if not qstar:
+        missing.append("il manque la gaussienne q⋆ des moments sur [0, 60] (au moins 50 points)")
     if ax_density.get_legend() is None:
         missing.append("il manque la légende du panneau des densités")
-    reverse, forward = curves_c27(weights, means, variances)
     lost = any(line_points(line)[0].shape == MS_27.shape and not np.all(np.isfinite(line_points(line)[1]))
                for line in ax_kl.lines)
     if lost:
         missing.append("une courbe de KL contient des nan ou des inf : loin des bosses, p sort des flottants (p = 0, "
                        "ln p = −inf, puis 0 × inf) ; calcule ln p directement par un log-sum-exp, sans passer par p")
-    for name, curve in (("la KL inverse m ↦ KL(N(m, variances[0]) ‖ p)", reverse),
-                        ("la KL directe m ↦ KL(p ‖ N(m, V_p))", forward)):
-        if not lost and not through(ax_kl, MS_27, curve, rtol=1e-6, atol=1e-7):
+    for name, key in (("la KL inverse m ↦ KL(N(m, variances[0]) ‖ p)", "reverse"),
+                      ("la KL directe m ↦ KL(p ‖ N(m, V_p))", "forward")):
+        drawn_c27 = any(line_points(line)[0].shape == MS_27.shape and np.allclose(line_points(line)[0], MS_27)
+                        and wbm.check(ids[key], line_points(line)[1].tolist(), computed=True, quiet=True).passed
+                        for line in ax_kl.lines)
+        if not lost and not drawn_c27:
             missing.append(f"il manque {name} contre MS_27 (np.trapezoid sur XS_KL_27, ln p par un log-sum-exp)")
     return missing
 
@@ -1665,14 +1664,14 @@ with checked("M25b.27"):
         opened_27 = drawn(draw_kl_fits_27, density_27, kl_27, WEIGHTS_27.copy(), MEANS_27.copy(), VARIANCES_27.copy())
         report_27(not opened_27, "draw_kl_fits_27 dessine dans les axes reçus",
                   "draw_kl_fits_27 doit dessiner dans les deux axes reçus, sans ouvrir de figure")
-        missing_27 = look_27(density_27, kl_27, WEIGHTS_27, MEANS_27, VARIANCES_27)
+        missing_27 = look_27(density_27, kl_27, WEIGHTS_27, MEANS_27, VARIANCES_27, IDS_C27["visible"])
         report_27(not missing_27, "les quatre densités et les deux courbes de KL sont là", " ; ".join(missing_27))
         hidden_27 = (np.array([0.6, 0.4]), np.array([18.0, 37.0]), np.array([0.25, 0.36]))  # narrow bumps you do not see
         fig_c27, (density_c27, kl_c27) = plt.subplots(1, 2)
         try:
             with np.errstate(divide="ignore", invalid="ignore", under="ignore"):    # ln 0 is reported below, once
                 opened_c27 = drawn(draw_kl_fits_27, density_c27, kl_c27, *(v.copy() for v in hidden_27))
-            missing_c27 = look_27(density_c27, kl_c27, *hidden_27)
+            missing_c27 = look_27(density_c27, kl_c27, *hidden_27, IDS_C27["hidden"])
         finally:
             plt.close(fig_c27)
         report_27(not opened_c27 and not missing_c27, "un mélange que tu ne vois pas (d'autres poids, d'autres moyennes, "
@@ -1840,7 +1839,29 @@ wbm.record("M25b.27c", kl_pq_27r, decimals=4,
 wbm.record("M25b.27d", kl_qp_27r, decimals=2,
            mistakes={"KL(q⋆ ‖ p) prend l'espérance sous q⋆, la première loi": kl_pq_27r})
 wbm.record("M25b.27e", bool(kl_qp_27r > reverse_27r[local_27r].max()),
-           mistakes={"compare KL(q⋆ ‖ p) aux deux minima de a), en nats": False})''',
+           mistakes={"compare KL(q⋆ ‖ p) aux deux minima de a), en nats": False})
+
+
+def curves_27r(weights, means, variances):
+    """Hidden: the two KL curves on MS_27 and the moments of q*, for a mixture (what the check compares)."""
+    log_p = special.logsumexp(np.log(weights) + stats.norm(means, np.sqrt(variances)).logpdf(x_27r[:, None]), axis=1)
+    mean_p = float(weights @ means)
+    var_p = float(weights @ variances + weights @ (means - mean_p) ** 2)
+    reverse, forward = [], []
+    for m in ms_27r:
+        log_q = stats.norm(m, math.sqrt(variances[0])).logpdf(x_27r)
+        reverse.append(float(np.trapezoid(np.exp(log_q) * (log_q - log_p), x_27r)))
+        forward.append(float(np.trapezoid(np.exp(log_p) * (log_p - stats.norm(m, math.sqrt(var_p)).logpdf(x_27r)), x_27r)))
+    return reverse, forward, [mean_p, var_p]
+
+
+for (w_r, m_r, v_r), (id_rev, id_fwd, id_q) in (((w_27r, m_27r, v_27r), ("M25b.27f", "M25b.27g", "M25b.27j")),
+                                                 ((np.array([0.6, 0.4]), np.array([18.0, 37.0]), np.array([0.25, 0.36])),
+                                                  ("M25b.27h", "M25b.27i", "M25b.27k"))):
+    rev_r, fwd_r, q_r = curves_27r(w_r, m_r, v_r)
+    wbm.record(id_rev, rev_r, decimals=6)
+    wbm.record(id_fwd, fwd_r, decimals=6)
+    wbm.record(id_q, q_r, decimals=4)''',
     after=[
         ("md", "**Après la figure**, dans ta copie : pourquoi la KL inverse a-t-elle deux minima et la KL directe un "
                "seul ? Où se trouve $q_\\star$ par rapport aux bosses, et que vaut $p$ à cet endroit ? Laquelle des deux "
@@ -1940,7 +1961,7 @@ with checked("M25b.28"):                                      # (1) machine_shar
     for K_c28, n_c28 in ((2, 6), (3, 7), (4, 5)):
         w_c28, m_c28, s_c28 = law_c28(K_c28)
         x_c28 = np.concatenate([rng_c28.normal(0, 4, n_c28 - 2), [m_c28.max() + 300, m_c28.min() - 250]])
-        want_c28 = special.softmax(np.log(w_c28) + stats.norm(m_c28, s_c28).logpdf(x_c28[:, None]), axis=1)
+        want_c28 = ref_latent.gmm_e_step(x_c28[:, None], w_c28, m_c28[:, None], (s_c28 ** 2)[:, None, None])   # the reference
         got_c28 = call_28(1, "machine_shares_fixed", machine_shares_fixed, x_c28.copy(), w_c28.copy(), m_c28.copy(),
                           s_c28.copy())
         if not matches(got_c28, want_c28):
@@ -1956,8 +1977,8 @@ with checked("M25b.28"):                                      # (2) refit_machin
         x_c28 = rng_c28.normal(10, 3, n_c28)
         resp_c28 = rng_c28.dirichlet(np.ones(K_c28), size=n_c28)
         N_c28 = resp_c28.sum(axis=0)
-        want_c28 = (N_c28 / n_c28, np.array([np.average(x_c28, weights=resp_c28[:, k]) for k in range(K_c28)]),
-                    np.array([np.cov(x_c28, aweights=resp_c28[:, k], bias=True) for k in range(K_c28)]))
+        w_ref_c28, m_ref_c28, C_ref_c28 = ref_latent.gmm_m_step(x_c28[:, None], resp_c28)        # the reference
+        want_c28 = (w_ref_c28, m_ref_c28[:, 0], C_ref_c28[:, 0, 0])
         got_c28 = call_28(2, "refit_machines_fixed", refit_machines_fixed, x_c28.copy(), resp_c28.copy())
         if not isinstance(got_c28, (tuple, list)) or len(got_c28) != 3:
             wrong_28.append(f"attendu le triplet (weights, means, variances), reçu {shown(got_c28)[:90]}")
@@ -1983,8 +2004,9 @@ with checked("M25b.28"):                                      # (3) bound_of_evi
         resp_c28 = rng_c28.dirichlet(np.ones(K_c28), size=n_c28)
         resp_c28[0] = np.eye(K_c28)[0]                        # rows with zeros: 0 ln 0 counts for 0
         resp_c28[1] = np.eye(K_c28)[-1]
-        a_c28 = np.log(w_c28) + stats.norm(m_c28, s_c28).logpdf(x_c28[:, None])
-        want_c28 = float(np.sum(resp_c28 * a_c28) + np.sum(special.entr(resp_c28)))
+        want_c28 = float(ref_latent.gmm_elbo(x_c28[:, None], resp_c28, w_c28, m_c28[:, None],
+                                             (s_c28 ** 2)[:, None, None]))                   # the reference
+        energy_c28 = bound_of_evidence(x_c28, resp_c28, w_c28, m_c28, s_c28)   # the colleague's code: without the entropy
         got_c28 = call_28(3, "bound_of_evidence_fixed", bound_of_evidence_fixed, x_c28.copy(), resp_c28.copy(),
                           w_c28.copy(), m_c28.copy(), s_c28.copy())
         try:
@@ -1994,9 +2016,9 @@ with checked("M25b.28"):                                      # (3) bound_of_evi
             break
         if math.isclose(got_value_c28, want_c28, rel_tol=1e-9, abs_tol=1e-12):
             continue
-        if math.isclose(got_value_c28, float(np.sum(resp_c28 * a_c28)), rel_tol=1e-9, abs_tol=1e-12):
+        if math.isclose(got_value_c28, energy_c28, rel_tol=1e-9, abs_tol=1e-12):
             wrong_28.append("il manque encore l'entropie de q")
-        elif math.isclose(got_value_c28, float(np.sum(resp_c28 * a_c28) - np.sum(special.entr(resp_c28))), rel_tol=1e-9):
+        elif math.isclose(got_value_c28, 2 * energy_c28 - want_c28, rel_tol=1e-9):
             wrong_28.append("l'entropie de q est comptée avec le mauvais signe : l'ELBO retranche E_q[ln q]")
         else:
             wrong_28.append(f"{K_c28} composantes, des lignes avec des zéros : attendu {want_c28:.6f}, reçu "
@@ -2217,24 +2239,10 @@ CHECK_29 = r'''with checked("M25b.29"):
                 totals[key] += value
         return totals
 
-    def descents_c29(X, weights, means, covs, m_step, n_iter=30, tol=1e-9):
-        """By the reference: the half steps where the ELBO goes down, and the iterations where ℓ goes down."""
-        resp = ref_latent.gmm_e_step(X, weights, means, covs)
-        ll, elbo = [ref_latent.gmm_log_likelihood(X, weights, means, covs)], [ref_latent.gmm_elbo(X, resp, weights, means, covs)]
-        for _ in range(n_iter):
-            weights, means, covs = m_step(X, resp)
-            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
-            resp = ref_latent.gmm_e_step(X, weights, means, covs)
-            ll.append(ref_latent.gmm_log_likelihood(X, weights, means, covs))
-            elbo.append(ref_latent.gmm_elbo(X, resp, weights, means, covs))
-        ll, elbo = np.array(ll), np.array(elbo)
-        return (int(np.sum(np.diff(elbo) < -tol * (1 + np.abs(elbo[:-1])))),
-                int(np.sum(np.diff(ll) < -tol * (1 + np.abs(ll[:-1])))))
-
-    def patched_c29(name, replacement, label):
-        """Your test on the third hidden mixture while your mymath.latent.<name> (and every name of the notebook bound
-        to it) is replaced by a wrong function; everything is put back afterwards. Returns the counts and the number of
-        calls to the wrong function."""
+    def patched_c29(name, replacement, label, both=False):
+        """Your test on the third hidden mixture (both: summed on the first two) while your mymath.latent.<name> (and
+        every name of the notebook bound to it) is replaced by a wrong function; everything is put back afterwards.
+        Returns the counts and the number of calls to the wrong function."""
         original = getattr(mymath.latent, name)
         aliases = [alias for alias, value in list(globals().items()) if value is original]
         calls = [0]
@@ -2247,6 +2255,8 @@ CHECK_29 = r'''with checked("M25b.29"):
         for alias in aliases:
             globals()[alias] = wrong
         try:
+            if both:
+                return totals_29(ref_latent.gmm_m_step, label), calls[0]
             return counts_c29(overlap_c29, ref_latent.gmm_m_step, label), calls[0]
         finally:
             setattr(mymath.latent, name, original)
@@ -2258,21 +2268,20 @@ CHECK_29 = r'''with checked("M25b.29"):
               "pas, tes trois compteurs restent nuls", f"avec le pas M de la référence, tes compteurs valent "
               f"{totals_c29} au lieu de 0 : vérifie ton test (les tolérances relatives, l'ordre des demi-pas), puis tes "
               "fonctions de M25b.20 à M25b.22 (leurs tests)")
-    want_c29 = [descents_c29(*case, m_step_means_over_n) for case in cases_c29]
-    want_descent_c29, ll_descent_c29 = sum(w[0] for w in want_c29), sum(w[1] for w in want_c29)
     found_c29 = totals_29(m_step_means_over_n, "m_step_means_over_n")["descent"]
-    if found_c29 == ll_descent_c29:
+    exact_c29 = wbm.check("M25b.29e", found_c29, computed=True, quiet=True).passed   # the reference's count: answers.json
+    if wbm.check("M25b.29f", found_c29, computed=True, quiet=True).passed:
         why_c29 = ("tu comptes les itérations où ℓ baisse : \"descent\" compte les demi-pas, après chaque pas M et après "
                    "chaque pas E, où l'ELBO baisse")
-    elif found_c29 < want_descent_c29:
+    elif any(wbm.check("M25b.29e", k, computed=True, quiet=True).passed for k in range(found_c29 + 1, 121)):
         why_c29 = ("il en manque : compare l'ELBO après chaque demi-pas (après le pas M, avec les anciennes "
                    "responsabilités ; après le pas E, avec les nouvelles) à celle du demi-pas d'avant")
     else:
         why_c29 = ("il y en a trop : une baisse compte si elle dépasse tol * (1 + |ELBO|), avec l'ELBO du demi-pas "
                    "d'avant, et une seule fois par demi-pas")
-    report_29(found_c29 == want_descent_c29, f"avec m_step_means_over_n, ton test compte exactement les descentes de la "
-              f"référence ({want_descent_c29})", f"avec m_step_means_over_n, sur les deux mélanges, ton test compte "
-              f"{found_c29} descentes, la référence {want_descent_c29} : {why_c29}")
+    report_29(exact_c29, f"avec m_step_means_over_n, ton test compte exactement les descentes de la référence "
+              f"({found_c29})", f"avec m_step_means_over_n, sur les deux mélanges, ton test compte {found_c29} descentes, "
+              f"pas autant que la référence : {why_c29}")
     wrong_c29 = (("un pas M faux que tu ne vois pas (des covariances deux fois trop grandes)",
                   lambda X, r: tuple(v * f for v, f in zip(ref_latent.gmm_m_step(X, r), (1.0, 1.0, 2.0)))),
                  ("le pas M de la référence avec reg = 0.2", lambda X, r: ref_latent.gmm_m_step(X, r, reg=0.2)))
@@ -2283,13 +2292,12 @@ CHECK_29 = r'''with checked("M25b.29"):
                   "celle d'avant")
 
     def e_step_without_prior_c29(X, weights, means, covs):
-        """A WRONG E step: the responsibilities without ln π_k."""
-        return special.softmax(scipy_log_joint(X, weights, means, covs) - np.log(weights), axis=1)
+        """A WRONG E step: the responsibilities without ln π_k (those of equal weights, by the reference)."""
+        return ref_latent.gmm_e_step(X, np.full(len(weights), 1 / len(weights)), means, covs)
 
     def elbo_entropy_twice_c29(X, resp, weights, means, covs):
-        """A WRONG ELBO: the entropy of q counted twice."""
-        resp = np.asarray(resp, dtype=float)
-        return float(np.sum(resp * scipy_log_joint(X, weights, means, covs)) + 2 * np.sum(special.entr(resp)))
+        """A WRONG ELBO: the entropy of q counted twice (the reference's ELBO, plus the entropy once more)."""
+        return float(ref_latent.gmm_elbo(X, resp, weights, means, covs) + np.sum(special.entr(np.asarray(resp, dtype=float))))
 
     for name_c29, wrong_step_c29, what_c29, key_c29, how_c29 in (
             ("gmm_e_step", e_step_without_prior_c29, "un pas E faux (sans ln π_k)", "gap",
@@ -2305,6 +2313,15 @@ CHECK_29 = r'''with checked("M25b.29"):
             report_29(counts_p29[key_c29] >= 1, f"{what_c29} à la place de ton {name_c29} : ton compteur \"{key_c29}\" le "
                       f"voit ({counts_p29[key_c29]})", f"{what_c29} à la place de ton {name_c29} : ton compteur "
                       f"\"{key_c29}\" reste à 0 ; {how_c29}, avec la tolérance tol * (1 + |ℓ|)")
+    counts_e29, calls_e29 = patched_c29("gmm_e_step", e_step_without_prior_c29, "un pas E faux sur deux mélanges cachés",
+                                        both=True)
+    if calls_e29:                                             # a wrong E step lowers the ELBO after the E step: answers.json
+        report_29(wbm.check("M25b.29g", counts_e29["descent"], computed=True, quiet=True).passed,
+                  "un pas E faux (sans ln π_k), sur les deux mélanges cachés : ton compteur \"descent\" voit aussi les "
+                  f"baisses après le pas E ({counts_e29['descent']})",
+                  "un pas E faux (sans ln π_k), sur les deux mélanges cachés : ton compteur \"descent\" n'est pas celui de "
+                  "la référence : compare l'ELBO après chaque demi-pas, après le pas E aussi (un pas E faux peut la faire "
+                  "baisser)")
     try:
         mine_c29 = totals_29(mymath.latent.gmm_m_step, "ta librairie")
         print("✅ ta librairie (gmm_m_step) passe ton test" if all(v == 0 for v in mine_c29.values()) else
@@ -2425,7 +2442,53 @@ wbm.record("M25b.29c", True,
            mistakes={"un pas M faux ne maximise plus Q : compare l'ELBO après le pas M à celle d'avant, pour chaque "
                      "itération": False})
 wbm.record("M25b.29d", True,
-           mistakes={"avec reg > 0, le pas M ne maximise plus Q : la monotonie n'est plus garantie (fiche §4)": False})''',
+           mistakes={"avec reg > 0, le pas M ne maximise plus Q : la monotonie n'est plus garantie (fiche §4)": False})
+
+
+def case_29r(rng, weights, means, covs, start_at_truth=False, n=200):
+    """The hidden mixtures of the check, drawn again (same generator, same order)."""
+    weights, means, covs = (np.asarray(v, dtype=float) for v in (weights, means, covs))
+    z = rng.choice(len(weights), size=n, p=weights)
+    X = np.empty((n, means.shape[1]))
+    for k in range(len(weights)):
+        rows = np.flatnonzero(z == k)
+        X[rows] = mymath.gaussian.sample_mvn(means[k], covs[k], len(rows), seed=int(rng.integers(2**31)))
+    starts = rng.choice(n, len(weights), replace=False)
+    if start_at_truth:
+        return X, weights, means, covs
+    return X, np.ones(len(weights)) / len(weights), X[starts], np.tile(np.cov(X.T, bias=True), (len(weights), 1, 1))
+
+
+def descents_29r(X, weights, means, covs, m_step, n_iter=30, tol=1e-9, e_step=None):
+    """The half steps where the ELBO goes down, and the iterations where ℓ goes down (a classic miscount)."""
+    latent = mymath.latent
+    e_step = latent.gmm_e_step if e_step is None else e_step
+    resp = e_step(X, weights, means, covs)
+    ll, elbo = [latent.gmm_log_likelihood(X, weights, means, covs)], [latent.gmm_elbo(X, resp, weights, means, covs)]
+    for _ in range(n_iter):
+        weights, means, covs = m_step(X, resp)
+        elbo.append(latent.gmm_elbo(X, resp, weights, means, covs))
+        resp = e_step(X, weights, means, covs)
+        ll.append(latent.gmm_log_likelihood(X, weights, means, covs))
+        elbo.append(latent.gmm_elbo(X, resp, weights, means, covs))
+    ll, elbo = np.array(ll), np.array(elbo)
+    return (int(np.sum(np.diff(elbo) < -tol * (1 + np.abs(elbo[:-1])))), int(np.sum(np.diff(ll) < -tol * (1 + np.abs(ll[:-1])))))
+
+
+rng_29r = np.random.default_rng(6069)                      # hidden: the counts the check compares (two hidden mixtures)
+cases_29r = [case_29r(rng_29r, [0.3, 0.3, 0.4], [[4.0, 1.0], [7.5, 5.0], [2.0, 6.5]],
+                      [[[0.06, 0.02], [0.02, 0.05]], [[0.08, -0.02], [-0.02, 0.06]], [[0.05, 0.0], [0.0, 0.09]]],
+                      start_at_truth=True),
+             case_29r(rng_29r, [0.55, 0.45], [[5.0, 0.5, 3.0], [1.0, 4.0, 6.0]],
+                      [np.diag([0.3, 0.2, 0.25]) + 0.05, np.diag([0.2, 0.35, 0.15]) + 0.03])]
+counts_29r = [descents_29r(*case, m_step_means_over_n) for case in cases_29r]
+assert sum(c[0] for c in counts_29r) != sum(c[1] for c in counts_29r) and sum(c[0] for c in counts_29r) <= 120
+wbm.record("M25b.29e", sum(c[0] for c in counts_29r))
+wbm.record("M25b.29f", sum(c[1] for c in counts_29r))
+e_wrong_29r = lambda X, w, m, c: mymath.latent.gmm_e_step(X, np.full(len(w), 1 / len(w)), m, c)   # noqa: E731
+wrong_e_29r = sum(descents_29r(*case, mymath.latent.gmm_m_step, e_step=e_wrong_29r)[0] for case in cases_29r)
+assert wrong_e_29r > 0                                     # a test that compares after the M step only is seen
+wbm.record("M25b.29g", wrong_e_29r)''',
     after=[
         ("todo_md", "**Dans ta copie** : a) la justification de `tol = 1e-9`."),
         ("md", "**Après la vérification**, dans ta copie : pourquoi `m_step_means_over_n` et `reg = 0.2` font-ils "
@@ -2497,8 +2560,8 @@ with checked("M25b.30"):
     with own_code("M25b.30", "fit_gmm_30", REF_LATENT):
         result_c30 = fit_gmm_30(X_TRAIN_30.copy(), 3, **SETTINGS_30)
     fit_c30 = valid_c30(result_c30, 3)
-    test_c30 = scipy_log_likelihood(X_TEST_30, *fit_c30) / len(X_TEST_30)
-    exact_c30 = scipy_log_likelihood(X_TEST_30, *TRUE_C30) / len(X_TEST_30)
+    test_c30 = ref_latent.gmm_log_likelihood(X_TEST_30, *fit_c30) / len(X_TEST_30)
+    exact_c30 = ref_latent.gmm_log_likelihood(X_TEST_30, *TRUE_C30) / len(X_TEST_30)
     print(f"a) ta log-vraisemblance moyenne de test : {fr(test_c30, 4)} ; b) celle du modèle exact : {fr(exact_c30, 4)}")
     passed_c30 = test_c30 >= THRESHOLD_30
     verdict("M25b.30", passed_c30, f"critère atteint : {fr(test_c30, 4)} ≥ {fr(THRESHOLD_30, 2)}.",
@@ -2540,7 +2603,7 @@ with checked("M25b.30"):
     for K_c30 in (2, 6):
         with own_code("M25b.30", "fit_gmm_30", REF_LATENT):
             other_c30 = valid_c30(fit_gmm_30(X_TRAIN_30.copy(), K_c30, **SETTINGS_30), K_c30)
-        print(f"c) à K = {K_c30} : log-vraisemblance moyenne de test {fr(scipy_log_likelihood(X_TEST_30, *other_c30) / 400, 4)}")
+        print(f"c) à K = {K_c30} : log-vraisemblance moyenne de test {fr(ref_latent.gmm_log_likelihood(X_TEST_30, *other_c30) / 400, 4)}")
     fitted_30 = fit_c30
 
 with checked("M25b.30"):
@@ -2554,6 +2617,12 @@ with checked("M25b.30"):
         rows_c30 = np.flatnonzero(z_c30 == k_c30)
         X_hidden_c30[rows_c30] = ref_gauss.sample_mvn(hidden_c30[1][k_c30], hidden_c30[2][k_c30], len(rows_c30),
                                                       seed=6076 + k_c30)
+    turn_c30 = np.random.default_rng()           # at each run, the hidden mixture turned and moved: no table of values passes
+    angle_c30 = turn_c30.uniform(0, 2 * np.pi)
+    R_c30 = np.array([[np.cos(angle_c30), -np.sin(angle_c30)], [np.sin(angle_c30), np.cos(angle_c30)]])
+    shift_c30 = turn_c30.uniform(-20, 20, size=2)
+    X_hidden_c30 = X_hidden_c30 @ R_c30.T + shift_c30
+    hidden_c30 = (hidden_c30[0], hidden_c30[1] @ R_c30.T + shift_c30, R_c30 @ hidden_c30[2] @ R_c30.T)
     with own_code("M25b.30", "fit_gmm_30", REF_LATENT):
         hidden_fit_c30 = valid_c30(fit_gmm_30(X_hidden_c30, 3, **SETTINGS_30), 3)
     _, (dw_c30, dm_c30, dC_c30) = matched_c30(hidden_fit_c30, hidden_c30)
@@ -2562,26 +2631,30 @@ with checked("M25b.30"):
             f"un mélange que tu ne vois pas (trois autres régimes) n'est pas retrouvé : poids à {fr(dw_c30, 3)}, moyennes à "
             f"{fr(dm_c30, 2)}, covariances à {fr(dC_c30, 2)} (tolérances 0,05, 0,3 et 0,4).")
     # a set where the starts diverge: four components for the three regimes, five starts drawn with the seed 6051
-    STARTS_C30 = (-3.2530486767, -3.2521749095, -3.2457625715, -3.2478923380, -3.2478923248)  # the reference, per start:
-    with own_code("M25b.30", "fit_gmm_30", REF_LATENT):                                       # mean training log-likelihood
+    STARTS_C30 = {"best": "M25b.30d", "last": "M25b.30e", "first": "M25b.30f",
+                  "others": ("M25b.30g", "M25b.30h", "M25b.30i")}   # the reference's mean training log-likelihood per start: in answers.json
+    with own_code("M25b.30", "fit_gmm_30", REF_LATENT):
         diverge_c30 = valid_c30(fit_gmm_30(X_TRAIN_30.copy(), 4, n_init=5, n_iter=300, reg=1e-6, seed=6051), 4)
-    train_c30 = scipy_log_likelihood(X_TRAIN_30, *diverge_c30) / len(X_TRAIN_30)
-    best_start_c30 = max(STARTS_C30)
-    if abs(train_c30 - STARTS_C30[-1]) <= 1e-6:
+    train_c30 = ref_latent.gmm_log_likelihood(X_TRAIN_30, *diverge_c30) / len(X_TRAIN_30)
+
+    def start_c30(sub_id):
+        return wbm.check(sub_id, train_c30, computed=True, quiet=True).passed
+
+    if start_c30(STARTS_C30["last"]):
         why_c30 = "c'est celle du dernier départ : garde l'essai de meilleure log-vraisemblance d'entraînement, pas le dernier"
-    elif abs(train_c30 - STARTS_C30[0]) <= 1e-6:
+    elif start_c30(STARTS_C30["first"]):
         why_c30 = ("c'est celle du premier départ (le moins bon ici) : fais les n_init départs, tirés par un seul rng, et "
                    "garde celui de meilleure log-vraisemblance d'entraînement")
-    elif any(abs(train_c30 - start) <= 1e-6 for start in STARTS_C30):
+    elif any(start_c30(sub_id) for sub_id in STARTS_C30["others"]):
         why_c30 = "c'est celle d'un autre départ que le meilleur : compare les log-vraisemblances d'entraînement finales"
     else:
         why_c30 = ("aucun départ de la référence ne finit là : relis le tirage des départs (rng = np.random.default_rng(seed), "
                    "puis X[rng.choice(n, K, replace=False)] pour chacun), la covariance de départ, reg et l'arrêt")
-    verdict("M25b.30", abs(train_c30 - best_start_c30) <= 1e-6,
+    verdict("M25b.30", start_c30(STARTS_C30["best"]),
             "sur un jeu où les départs divergent (K = 4, seed = 6051), tu gardes le meilleur des cinq essais.",
             f"sur un jeu où les départs divergent, fit_gmm_30(X_TRAIN_30, 4, n_init=5, n_iter=300, reg=1e-6, seed=6051) "
-            f"finit à une log-vraisemblance moyenne d'entraînement de {fr(train_c30, 6)}, et le meilleur des cinq essais de "
-            f"la référence à {fr(best_start_c30, 6)} (à 1e-6 près) : {why_c30}.")
+            f"finit à une log-vraisemblance moyenne d'entraînement de {fr(train_c30, 6)}, pas à celle du meilleur des cinq "
+            f"essais de la référence (à 1e-6 près) : {why_c30}.")
 
 with checked("M25b.30"):
     if fitted_30 is None:
@@ -2690,6 +2763,33 @@ print("log-vraisemblance moyenne : entraînement", round(gmm_log_likelihood(X_TR
       "; test", round(gmm_log_likelihood(X_TEST_30, weights_30, means_30, covs_30) / 400, 4))
 
 ''' + CHECK_30,
+    record='''def starts_30r(X, K, n_init, n_iter, reg, seed):
+    """The final mean training log-likelihood of each start of fit_gmm_30 (the same loop, start by start)."""
+    X = np.asarray(X, dtype=float)
+    rng, (n, d) = np.random.default_rng(seed), X.shape
+    finals = []
+    for _ in range(n_init):
+        params = (np.full(K, 1 / K), X[rng.choice(n, K, replace=False)],
+                  np.tile(np.cov(X, rowvar=False, bias=True) + reg * np.eye(d), (K, 1, 1)))
+        ll = -np.inf
+        for _ in range(n_iter):
+            params = gmm_m_step(X, gmm_e_step(X, *params), reg=reg)
+            new_ll = gmm_log_likelihood(X, *params)
+            if abs(new_ll - ll) < 1e-8 * abs(new_ll):
+                ll = new_ll
+                break
+            ll = new_ll
+        finals.append(gmm_log_likelihood(X, *params) / n)
+    return finals
+
+
+finals_30r = starts_30r(X_TRAIN_30, 4, n_init=5, n_iter=300, reg=1e-6, seed=6051)   # hidden: the starts the check compares
+assert int(np.argmax(finals_30r)) not in (0, 4)                # the first and the last start are not the best (statement)
+wbm.record("M25b.30d", max(finals_30r), decimals=6)
+wbm.record("M25b.30e", finals_30r[-1], decimals=6)
+wbm.record("M25b.30f", finals_30r[0], decimals=6)
+for id_30r, final_30r in zip(("M25b.30g", "M25b.30h", "M25b.30i"), finals_30r[1:4]):
+    wbm.record(id_30r, final_30r, decimals=6)''',
     after=[
         ("solution_md", "**Pour aller plus loin** : la log-vraisemblance moyenne d'entraînement et de test selon $K$."),
         ("solution", '''train_30, test_30 = [], []

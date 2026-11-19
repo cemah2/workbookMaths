@@ -675,6 +675,7 @@ from wbm.errors import MymathMissingError
 from wbm.nbtools import StopCheck, checked, drawn, filled, fr, pair, run_pytest_group, same, verdict
 
 TEST_M25A = "tests/test_m25a_gaussian.py"            # the tests of mymath/gaussian.py
+ref_gauss = wbm.load_mymath("ref", alias="mymath_ref").gaussian   # the reference: the checks compute with it, at check time
 
 
 def shown(value, digits=4):
@@ -744,7 +745,16 @@ def matches(got, want, rtol=1e-9, atol=1e-12):
     except (TypeError, ValueError):
         return False
     want = np.asarray(want, dtype=float)
-    return arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))'''
+    return arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))
+
+
+def hidden_answer(ex_id, label, value, sub_id, lead=""):
+    """value compared with the answer sub_id of answers.json, by wbm.check(..., computed=True): the expected values
+    are never written in the check cells. One line ✅, ❌ (with the classic mistakes recorded), ⏳ or ❓; True when right."""
+    result = wbm.check(sub_id, value, computed=True, quiet=True)
+    icon = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result.status, "❌")
+    print(f"{icon} Ex {ex_id} : {lead}{label} : {result.message}")
+    return result.passed'''
 
 LOAD_LEARNER = ('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="M25a")  '
                 '# reload your saved file')
@@ -906,13 +916,7 @@ with wbm.attempt("M25a.21"):          # if you call sample_mvn here: ⏳ while i
     answer_M25a_21d = ...  # d) True or False: the first row is μ + L ε, ε the first row of default_rng(5921).standard_normal((20000, 3))'''),
         ("check", '''with checked("M25a.21"):
     if filled(cov_21):
-        E_c21 = np.random.default_rng(5921).standard_normal((20000, 3))
-        draws_c21 = MU_ROAD_21 + E_c21 @ np.linalg.cholesky(COV_ROAD_21).T
-        want_c21 = np.cov(draws_c21, rowvar=False, bias=True)
-        if matches(cov_21, want_c21 * 20000 / 19999):
-            print("❌ Ex M25a.21 : cov_21 est n/(n − 1) fois trop grande : sans bias=True, np.cov divise par n − 1.")
-        else:
-            same("M25a.21", "cov_21, la covariance empirique de tes 20 000 tirages", cov_21, want_c21)
+        hidden_answer("M25a.21", "cov_21, la covariance empirique de tes 20 000 tirages", cov_21, "M25a.21e")   # answers.json
     else:
         print("⏳ Ex M25a.21 : la comparaison attend ta covariance cov_21.")
 for letter, answer in zip("abcd", [answer_M25a_21a, answer_M25a_21b, answer_M25a_21c, answer_M25a_21d]):
@@ -958,7 +962,12 @@ wbm.record("M25a.21c", np.cov(white_21r, rowvar=False, bias=True).tolist(), deci
                      "on blanchit par L⁻¹, pas par Σ⁻¹":
                          np.cov((X_21r - mu_21r) @ np.linalg.inv(cov_21r), rowvar=False, bias=True).tolist()})
 wbm.record("M25a.21d", bool(np.allclose(X_21r[0], mu_21r + L_21r @ E_21r[0])),
-           mistakes={"la docstring fixe le tirage : un seul appel standard_normal((n, d)), puis mean + E @ L.T": False})'''),
+           mistakes={"la docstring fixe le tirage : un seul appel standard_normal((n, d)), puis mean + E @ L.T": False})
+wbm.record("M25a.21e", np.cov(X_21r, rowvar=False, bias=True).tolist(), decimals=6,     # hidden: cov_21
+           mistakes={"cov_21 est n/(n − 1) fois trop grande : sans bias=True, np.cov divise par n − 1":
+                         np.cov(X_21r, rowvar=False).tolist(),
+                     "tes tirages n'ont pas la covariance Σ : la ligne i est μ + L εᵢ, soit mean + E @ L.T":
+                         np.cov(XEL_21r, rowvar=False, bias=True).tolist()})'''),
     ],
 )
 
@@ -1069,16 +1078,12 @@ FIGURE_23 = '''with checked("M25a.23"):
     if not filled(pred_means_23, pred_sds_23):
         print("⏳ Ex M25a.23 : la figure attend tes tableaux pred_means_23 et pred_sds_23.")
         raise StopCheck
-    S_c23 = np.linalg.inv(np.linalg.inv(S0_23) + PHI_23.T @ PHI_23 / NOISE_23)
-    m_c23 = S_c23 @ (PHI_23.T @ E_23 / NOISE_23)
-    features_c23 = np.column_stack([np.ones_like(TS_23), TS_23 / 100])
-    means_c23 = features_c23 @ m_c23
-    sds_c23 = np.sqrt(np.einsum("ij,jk,ik->i", features_c23, S_c23, features_c23) + NOISE_23)
-    results_23.append(same("M25a.23", "pred_means_23, les moyennes de la prédictive", pred_means_23, means_c23))
-    results_23.append(same("M25a.23", "pred_sds_23, les écarts-types de la prédictive (bruit compris)", pred_sds_23,
-                           sds_c23))
+    results_23.append(hidden_answer("M25a.23", "pred_means_23, les moyennes de la prédictive", pred_means_23, "M25a.23e"))
+    results_23.append(hidden_answer("M25a.23", "pred_sds_23, les écarts-types de la prédictive (bruit compris)", pred_sds_23,
+                                    "M25a.23f"))
     if not all(results_23):
         raise StopCheck
+    means_c23, sds_c23 = np.asarray(pred_means_23, dtype=float), np.asarray(pred_sds_23, dtype=float)   # yours, right
     fig_23, ax_23 = plt.subplots(figsize=(8, 4.2))
     try:
         opened_23 = drawn(draw_predictive_23, ax_23, TS_23, means_c23, sds_c23)
@@ -1148,8 +1153,7 @@ with wbm.attempt("M25a.23"):          # if you call linreg_posterior here: ⏳ w
         ("check", '''with checked("M25a.23"):
     if filled(posterior_23):
         m_check_23, S_check_23 = pair("M25a.23", "posterior_23", posterior_23, names=("m_N", "S_N"))
-        same("M25a.23", "S_N, la covariance a posteriori", S_check_23,
-             np.linalg.inv(np.linalg.inv(S0_23) + PHI_23.T @ PHI_23 / NOISE_23))
+        hidden_answer("M25a.23", "S_N, la covariance a posteriori", S_check_23, "M25a.23g")   # answers.json
     else:
         print("⏳ Ex M25a.23 : la comparaison attend ta loi a posteriori posterior_23.")
 for letter, answer in zip("abcd", [answer_M25a_23a, answer_M25a_23b, answer_M25a_23c, answer_M25a_23d]):
@@ -1216,7 +1220,21 @@ wbm.record("M25a.23c", ridge_23r.tolist() + [True], decimals=4,
                      "c) change l'a priori : S₀ = 0,5 I": m_23r.tolist() + [True]})
 wbm.record("M25a.23d", float(-100 * S_23r[0, 1] / S_23r[1, 1]), decimals=1,
            mistakes={"vérifie le signe de la formule": float(100 * S_23r[0, 1] / S_23r[1, 1]),
-                     "(S_N)₂₂ est le coefficient S_N[1, 1], en bas à droite": float(-100 * S_23r[0, 1] / S_23r[0, 0])})'''),
+                     "(S_N)₂₂ est le coefficient S_N[1, 1], en bas à droite": float(-100 * S_23r[0, 1] / S_23r[0, 0])})
+features_23r = np.column_stack([np.ones(301), np.linspace(-50.0, 250.0, 301) / 100])   # hidden: the predictive
+spread_23r = np.einsum("ij,jk,ik->i", features_23r, S_23r, features_23r)
+wbm.record("M25a.23g", S_23r.tolist(), decimals=6,                   # hidden: S_N
+           mistakes={"noise_var est une variance σ², pas un écart-type": posterior_23r(s0_23r, math.sqrt(s2_23r))[1].tolist(),
+                     "l'a priori compte : S_N = (S₀⁻¹ + σ⁻² ΦᵀΦ)⁻¹, pas (σ⁻² ΦᵀΦ)⁻¹":
+                         np.linalg.inv(phi_23r.T @ phi_23r / s2_23r).tolist()})
+wbm.record("M25a.23e", (features_23r @ m_23r).tolist(), decimals=6,
+           mistakes={"la moyenne de la prédictive vient de la loi a posteriori m_N, pas des moindres carrés":
+                         (features_23r @ np.linalg.solve(phi_23r, e_23r)).tolist()})
+wbm.record("M25a.23f", np.sqrt(spread_23r + s2_23r).tolist(), decimals=6,
+           mistakes={"il manque le bruit : la variance de la prédictive est φᵀ S_N φ + σ²": np.sqrt(spread_23r).tolist(),
+                     "on demande des écarts-types : la racine de φᵀ S_N φ + σ²": (spread_23r + s2_23r).tolist(),
+                     "σ² est NOISE_23, une variance : on l'ajoute telle quelle, sans la racine":
+                         np.sqrt(spread_23r + math.sqrt(s2_23r)).tolist()})'''),
     ],
 )
 
@@ -1343,15 +1361,9 @@ CHECK_25 = '''with checked("M25a.25"):
     if not filled(shares_25):
         print("⏳ Ex M25a.25 : la vérification attend tes parts mesurées shares_25.")
         raise StopCheck
-    want_c25 = []
-    for d_c25 in DIMS_25:
-        S_c25 = ar_cov_25(d_c25)
-        X_c25 = np.random.default_rng(5925).standard_normal((100000, d_c25)) @ np.linalg.cholesky(S_c25).T
-        m2_c25 = np.einsum("ij,ij->i", X_c25, np.linalg.solve(S_c25, X_c25.T).T)
-        want_c25.append(float(np.mean(m2_c25 <= LEVEL_25)))
-    if same("M25a.25", "shares_25, les parts mesurées pour d = 2, …, 10", shares_25, want_c25):
+    if hidden_answer("M25a.25", "shares_25, les parts mesurées pour d = 2, …, 10", shares_25, "M25a.25f"):
         print("   d    mesurée   khi-deux")
-        for d_c25, share_c25 in zip(DIMS_25, want_c25):
+        for d_c25, share_c25 in zip(DIMS_25, np.asarray(shares_25, dtype=float)):
             print(f"  {d_c25:2d}    {share_c25:.3f}     {stats.chi2(d_c25).cdf(LEVEL_25):.3f}".replace(".", ","))'''
 
 CHECK_25_ANSWERS = '''
@@ -1427,6 +1439,8 @@ for d in range(2, 11):
     shares_c_25r.append(float(np.mean(m2 <= math.sqrt(level_25r))))
 wbm.record("M25a.25d", shares_25r[-1], decimals=3,
            mistakes={"Δ² se compare au niveau c², pas à c": shares_c_25r[-1]})
+wbm.record("M25a.25f", shares_25r, decimals=5,               # hidden: the nine shares of the experiment
+           mistakes={"Δ² se compare au niveau c², pas à c": shares_c_25r})
 first_25r = 2 + next(i for i, share in enumerate(shares_25r) if share < 0.5)
 wbm.record("M25a.25e", first_25r,
            mistakes={"les dimensions commencent à d = 2 : l'indice de ta liste n'est pas la dimension":
@@ -1448,30 +1462,19 @@ CHECK_26 = '''with checked("M25a.26"):
     if not filled(table_26):
         print("⏳ Ex M25a.26 : la vérification attend ton tableau table_26.")
         raise StopCheck
-    draws_c26 = MU_GREEN_26 + np.random.default_rng(5926).standard_normal((200000, 2)) @ np.linalg.cholesky(COV_GREEN_26).T
-    want_c26 = []
-    for h_c26 in HS_26:
-        kept_c26 = draws_c26[np.abs(draws_c26[:, 0] - T_READ_26) < h_c26, 1]
-        want_c26.append([len(kept_c26), kept_c26.mean(), kept_c26.var()])
-    want_c26 = np.array(want_c26)
-    ddof_c26 = want_c26.copy()
-    ddof_c26[:, 2] *= want_c26[:, 0] / (want_c26[:, 0] - 1)      # the variances of np.var(..., ddof=1)
-    if matches(table_26, ddof_c26):
-        print("❌ Ex M25a.26 : les variances de table_26 sont n/(n − 1) fois trop grandes : np.var divise par n ; "
-              "ddof=1 divise par n − 1.")
-        raise StopCheck
-    results_26.append(same("M25a.26", "table_26, une ligne [nombre, moyenne, variance] par demi-largeur", table_26,
-                           want_c26))
+    results_26.append(hidden_answer("M25a.26", "table_26, une ligne [nombre, moyenne, variance] par demi-largeur",
+                                    table_26, "M25a.26e"))      # compared like an answer: the table is not written here
     if not results_26[-1]:
         raise StopCheck
-    gain_c26 = COV_GREEN_26[1, 0] / COV_GREEN_26[0, 0]
-    exact_c26 = (MU_GREEN_26[1] + gain_c26 * (T_READ_26 - MU_GREEN_26[0]), COV_GREEN_26[1, 1] - gain_c26 * COV_GREEN_26[0, 1])
+    table_c26 = np.asarray(table_26, dtype=float)               # yours, right
+    mean_c26, cov_c26 = ref_gauss.condition_gaussian(MU_GREEN_26, COV_GREEN_26, [0], [T_READ_26])   # the reference
+    exact_c26 = (float(mean_c26[0]), float(cov_c26[0, 0]))
     fig_26, (ax_mean_26, ax_var_26) = plt.subplots(1, 2, figsize=(11, 4))
     try:
-        opened_26 = drawn(draw_window_26, ax_mean_26, ax_var_26, HS_26, want_c26[:, 1], want_c26[:, 2], *exact_c26)
+        opened_26 = drawn(draw_window_26, ax_mean_26, ax_var_26, HS_26, table_c26[:, 1], table_c26[:, 2], *exact_c26)
         report_26(not opened_26, "draw_window_26 dessine dans les axes reçus",
                   "draw_window_26 doit dessiner dans les deux axes reçus, sans ouvrir de figure")
-        report_26(through(ax_mean_26, HS_26, want_c26[:, 1]) and through(ax_var_26, HS_26, want_c26[:, 2]),
+        report_26(through(ax_mean_26, HS_26, table_c26[:, 1]) and through(ax_var_26, HS_26, table_c26[:, 2]),
                   "les moyennes et les variances empiriques sont tracées contre h",
                   "il manque une courbe : les moyennes (à gauche), puis les variances (à droite), contre h")
         report_26(ax_mean_26.get_xscale() == "log" and ax_var_26.get_xscale() == "log", "les abscisses sont logarithmiques",
@@ -1582,7 +1585,17 @@ wbm.record("M25a.26c", float(window_26r(2.0)[:, 1].mean()), decimals=2,
                          float(window_26r(2.0)[:, 0].mean())})
 wbm.record("M25a.26d", bool(window_26r(2.0)[:, 1].var() - exact_26r[1] > 1),
            mistakes={"une fenêtre large mélange des températures différentes : la dispersion de la moyenne "
-                     "conditionnelle dans la fenêtre s'ajoute à la variance": False})''',
+                     "conditionnelle dans la fenêtre s'ajoute à la variance": False})
+table_26r = np.array([[len(window_26r(h)), window_26r(h)[:, 1].mean(), window_26r(h)[:, 1].var()]
+                      for h in (2.0, 1.0, 0.5, 0.2, 0.05)])  # hidden: the table of the experiment
+ddof_26r = table_26r.copy()
+ddof_26r[:, 2] *= table_26r[:, 0] / (table_26r[:, 0] - 1)
+sd_26r = table_26r.copy()
+sd_26r[:, 2] = np.sqrt(table_26r[:, 2])
+wbm.record("M25a.26e", table_26r.tolist(), decimals=6,
+           mistakes={"les variances sont n/(n − 1) fois trop grandes : np.var divise par n ; ddof=1 divise par n − 1":
+                         ddof_26r.tolist(),
+                     "la troisième colonne est la variance de H (np.var), pas son écart-type": sd_26r.tolist()})''',
     after=[
         ("md", "**Après la figure**, dans ta copie : pourquoi la moyenne empirique est-elle biaisée pour $h = 2$, et "
                "dans quel sens ? Combien de relevés faudrait-il tirer pour en garder autant avec $h = 0{,}05$ qu'avec "
@@ -1623,17 +1636,17 @@ CHECK_27 = '''def look_27(ax_joint, ax_cut, mean, cov, x1_value):
     if not any(line_points(line)[0].size >= 2 and np.allclose(line_points(line)[0], x1_value, rtol=0, atol=1e-9)
                for line in ax_joint.lines):
         missing.append(f"il manque la droite verticale x₁ = {fr(x1_value, 2)} (ax.axvline)")
-    slope = cov[0, 1] / cov[0, 0]
+    at_mean = ref_gauss.condition_gaussian(mean, cov, [0], [mean[0]])[0][0]       # the reference, at check time
+    slope = float(ref_gauss.condition_gaussian(mean, cov, [0], [mean[0] + 1.0])[0][0] - at_mean)
     if not any(np.ptp(line_points(line)[0]) > 0 and np.allclose(
             line_points(line)[1], mean[1] + slope * (line_points(line)[0] - mean[0]), rtol=0, atol=1e-9)
                for line in ax_joint.lines):
         missing.append("il manque la droite des moyennes conditionnelles de x₂ sachant x₁")
     if ax_joint.get_aspect() not in ("equal", 1.0):
         missing.append("il manque la même échelle sur les deux axes du panneau du haut (set_aspect(\\"equal\\"))")
-    gain = cov[1, 0] / cov[0, 0]
+    cond_mean, cond_cov = ref_gauss.condition_gaussian(mean, cov, [0], [x1_value])
     laws = {"la densité de la loi marginale de x₂": (mean[1], cov[1, 1]),
-            "la densité de la loi conditionnelle de x₂ sachant x₁": (mean[1] + gain * (x1_value - mean[0]),
-                                                                    cov[1, 1] - gain * cov[0, 1])}
+            "la densité de la loi conditionnelle de x₂ sachant x₁": (float(cond_mean[0]), float(cond_cov[0, 0]))}
     for name, (m, v) in laws.items():
         if not any(line_points(line)[0].size >= 20 and np.allclose(
                 line_points(line)[1], stats.norm(m, math.sqrt(v)).pdf(line_points(line)[0]), rtol=1e-6, atol=1e-12)
@@ -1768,7 +1781,7 @@ PART_B = Part("B", "Prédire, mesurer, dessiner",
 # ---------------------------------------------------------------------------
 # Notebook exercises: debug and test (M25a.28, M25a.29)
 # ---------------------------------------------------------------------------
-GIVEN_C = 'ref_gauss = wbm.load_mymath("ref", alias="mymath_ref").gaussian   # the reference: the check of M25a.29'
+GIVEN_C = ""                                                 # the reference (ref_gauss) is loaded in the tools of part A
 
 GIVEN_28 = '''MU_WIND_28 = np.array([2.5, 1.0])                          # the wind of M25a.3 (m/s)
 COV_WIND_28 = np.array([[14.0, 3.0], [3.0, 6.0]])
@@ -1858,8 +1871,7 @@ with checked("M25a.28"):                                      # (1) draw_correla
         mean_c28, cov_c28 = random_law_28(d_c28)
         got_c28 = call_28(1, "draw_correlated_fixed", draw_correlated_fixed, mean_c28.copy(), cov_c28.copy(), n_c28,
                           seed_c28)
-        want_c28 = (mean_c28 + np.random.default_rng(seed_c28).standard_normal((n_c28, d_c28))
-                    @ np.linalg.cholesky(cov_c28).T)
+        want_c28 = ref_gauss.sample_mvn(mean_c28, cov_c28, n_c28, seed=seed_c28)      # the reference, at check time
         if got_c28 is None or np.shape(got_c28) != want_c28.shape or not np.allclose(got_c28, want_c28, rtol=1e-9,
                                                                                     atol=1e-12):
             wrong_28.append(f"une loi de dimension {d_c28}, {n_c28} tirages : attendu un tableau {want_c28.shape} qui "
@@ -1874,7 +1886,7 @@ with checked("M25a.28"):                                      # (2) log_density_
         mean_c28, cov_c28 = random_law_28(d_c28)
         x_c28 = mean_c28 + rng_c28.normal(size=d_c28) * 2
         got_c28 = call_28(2, "log_density_fixed", log_density_fixed, x_c28.copy(), mean_c28.copy(), cov_c28.copy())
-        want_c28 = float(stats.multivariate_normal(mean_c28, cov_c28).logpdf(x_c28))
+        want_c28 = float(ref_gauss.mvn_logpdf(x_c28, mean_c28, cov_c28))
         if got_c28 is None or np.ndim(got_c28) != 0 or not math.isclose(float(got_c28), want_c28, rel_tol=1e-9):
             wrong_28.append(f"une loi de dimension {d_c28} : attendu {want_c28:.6f}, reçu {shown(got_c28, 6)}"[:200])
     report_28(not wrong_28, "(2) log_density_fixed : des lois de dimension 1, 2, 3 et 5, en des points quelconques",
@@ -1886,11 +1898,7 @@ with checked("M25a.28"):                                      # (3) conditional_
     for d_c28, idx_c28 in ((3, [1]), (4, [3, 0]), (5, [0, 2, 4])):
         mean_c28, cov_c28 = random_law_28(d_c28)
         values_c28 = mean_c28[idx_c28] + rng_c28.normal(size=len(idx_c28)) * 4      # far from the mean
-        rest_c28 = [i for i in range(d_c28) if i not in idx_c28]
-        precision_c28 = np.linalg.inv(cov_c28)
-        cov_want_c28 = np.linalg.inv(precision_c28[np.ix_(rest_c28, rest_c28)])          # Σ_{a|b} = Λ_aa⁻¹
-        mean_want_c28 = mean_c28[rest_c28] - cov_want_c28 @ precision_c28[np.ix_(rest_c28, idx_c28)] @ (
-            values_c28 - mean_c28[idx_c28])
+        mean_want_c28, cov_want_c28 = ref_gauss.condition_gaussian(mean_c28, cov_c28, list(idx_c28), values_c28)
         got_c28 = call_28(3, "conditional_law_fixed", conditional_law_fixed, mean_c28.copy(), cov_c28.copy(),
                           list(idx_c28), values_c28.copy())
         if not isinstance(got_c28, (tuple, list)) or len(got_c28) != 2:
@@ -2081,7 +2089,13 @@ def sampler_inflated(mean, cov, n, seed):
 CHECK_29 = r'''with checked("M25a.29"):
     results_29 = []
     report_29 = reporter(results_29, stop=False)
-    K_c29 = float(stats.norm.ppf(1 - 0.01 / (2 * 5)))
+    try:                                                      # your k of a), once right: the check runs your test with it
+        K_c29 = float(answer_M25a_29a)
+    except (TypeError, ValueError):
+        K_c29 = float("nan")
+    if not (math.isfinite(K_c29) and wbm.check("M25a.29a", K_c29, computed=True, quiet=True).passed):
+        print("⏳ Ex M25a.29 : la vérification de ton test attend ton k de a), juste : elle lance ton test avec lui.")
+        raise StopCheck
 
     def run_29(sampler, label, mean=MU_WIND_29, cov=COV_WIND_29, n=N_29, seed=5929):
         """None when moment_test_29 passes, else the message of its AssertionError (other errors: ❌, then stop)."""
@@ -2315,19 +2329,27 @@ def measures_30():
 Y_OBS_30 = measures_30()'''
 
 CHECK_30 = '''reconstructed_30 = None
-with checked("M25a.30"):
-    result_c30 = fill_missing_30(S_30.copy(), Y_OBS_30.copy(), list(OBS_30), list(MISS_30))
-    means_c30, sds_c30 = pair("M25a.30", "fill_missing_30", result_c30, names=("means", "sds"))
+HIDDEN_C30 = ((5931, [5, 6, 7, 8, 9, 10, 20, 21, 22, 23], "M25a.30e"),
+              (5932, [0, 1, 2, 3, 4, 25, 26, 27, 28, 29, 30], "M25a.30f"))   # two hidden roads: the seed of their draws, their sensors down, and the sub-ID of their exact law in answers.json
+
+
+def law_of_c30(result, n, name="fill_missing_30"):
+    \"\"\"(means, sds) returned by fill_missing_30 as two arrays of n finite numbers; else one ❌ line and StopCheck.\"\"\"
+    means, sds = pair("M25a.30", name, result, names=("means", "sds"))
     try:
-        means_c30, sds_c30 = np.asarray(means_c30, dtype=float), np.asarray(sds_c30, dtype=float)
+        means, sds = np.asarray(means, dtype=float), np.asarray(sds, dtype=float)
     except (TypeError, ValueError):
-        verdict("M25a.30", False, "", "fill_missing_30 doit rendre deux tableaux de 12 nombres (moyennes, écarts-types).")
+        verdict("M25a.30", False, "", f"{name} doit rendre deux tableaux de {n} nombres (moyennes, écarts-types).")
         raise StopCheck from None
-    if means_c30.shape != (12,) or sds_c30.shape != (12,) or not (np.all(np.isfinite(means_c30))
-                                                                  and np.all(np.isfinite(sds_c30))):
-        verdict("M25a.30", False, "", f"fill_missing_30 doit rendre deux tableaux de 12 nombres finis, un par position "
-                f"en panne ; reçu les formes {means_c30.shape} et {sds_c30.shape}.")
+    if means.shape != (n,) or sds.shape != (n,) or not (np.all(np.isfinite(means)) and np.all(np.isfinite(sds))):
+        verdict("M25a.30", False, "", f"{name} doit rendre deux tableaux de {n} nombres finis, un par position en "
+                f"panne ; reçu les formes {means.shape} et {sds.shape}.")
         raise StopCheck
+    return means, sds
+
+
+with checked("M25a.30"):
+    means_c30, sds_c30 = law_of_c30(fill_missing_30(S_30.copy(), Y_OBS_30.copy(), list(OBS_30), list(MISS_30)), 12)
     rng_c30 = np.random.default_rng(5930)
     truth_c30 = (MEAN_30 + np.linalg.cholesky(K_30) @ rng_c30.standard_normal(31))[MISS_30]   # kept by the check
     rmse_c30 = float(np.sqrt(np.mean((means_c30 - truth_c30) ** 2)))
@@ -2336,40 +2358,54 @@ with checked("M25a.30"):
     inside_c30 = int(np.sum(np.abs(means_c30 - truth_c30) <= 2 * sds_c30))
     print(f"a) ton erreur quadratique moyenne : {fr(rmse_c30)} °C ; b) celle de l'interpolation linéaire : "
           f"{fr(rmse_linear_c30)} °C ; c) vraies températures à moins de deux de tes écarts-types : {inside_c30} sur 12")
+    if rmse_c30 < 0.05:
+        verdict("M25a.30", False, "", f"erreur quadratique moyenne {fr(rmse_c30)} °C : c'est impossible avec des mesures "
+                "bruitées et douze capteurs en panne ; tes moyennes doivent venir de la loi conditionnelle sachant les "
+                "mesures reçues, pas des vraies températures que tire la cellule fournie.")
+        raise StopCheck
     verdict("M25a.30", rmse_c30 <= 1.0, f"critère atteint : erreur quadratique moyenne {fr(rmse_c30)} °C ≤ 1,0 °C.",
             f"critère pas encore atteint : erreur quadratique moyenne {fr(rmse_c30)} °C > 1,0 °C.")
     reconstructed_30 = (means_c30, sds_c30)
-
-    def law_c30(noise_var, mean=MEAN_30, everywhere=False):
-        """The moments of the conditional law for a noise variance on the measured positions (or everywhere)."""
-        C = K_30 + noise_var * np.diag([1.0 if everywhere or i not in MISS_30 else 0.0 for i in range(31)])
-        gain = np.linalg.solve(C[np.ix_(OBS_30, OBS_30)], C[np.ix_(OBS_30, MISS_30)]).T
-        return (mean[MISS_30] + gain @ (Y_OBS_30 - mean[OBS_30]),
-                np.sqrt(np.diag(C[np.ix_(MISS_30, MISS_30)] - gain @ C[np.ix_(OBS_30, MISS_30)])))
-
-    def same_law_c30(law):
-        return np.allclose(means_c30, law[0], atol=1e-8) and np.allclose(sds_c30, law[1], atol=1e-8)
-
-    exact_c30 = law_c30(NOISE_SD_30 ** 2)
     lead_c30 = "le critère est atteint, mais " if rmse_c30 <= 1.0 else "de plus, "
-    if same_law_c30(exact_c30):
+    exact_c30 = wbm.check("M25a.30d", [means_c30.tolist(), sds_c30.tolist()], computed=True, quiet=True)   # answers.json
+    if exact_c30.passed:
         print("✅ Ex M25a.30 : tes moyennes et tes écarts-types sont ceux de la loi conditionnelle exacte du modèle.")
-    elif same_law_c30(law_c30(0.0)):
-        print(f"❌ Ex M25a.30 : {lead_c30}tes moyennes et tes écarts-types sont ceux de mesures sans erreur : les 19 "
-              "mesures sont les vraies températures plus un bruit, et leur covariance doit en tenir compte.")
-    elif same_law_c30(law_c30(NOISE_SD_30)):
-        print(f"❌ Ex M25a.30 : {lead_c30}le bruit n'a pas la bonne taille : sur la diagonale de la covariance, on "
-              "ajoute la variance de l'erreur de mesure, le carré de son écart-type.")
-    elif same_law_c30(law_c30(NOISE_SD_30 ** 2, everywhere=True)):
-        print(f"❌ Ex M25a.30 : {lead_c30}tes écarts-types comptent le bruit aux positions en panne : on reconstruit "
-              "les vraies températures, et le bruit ne touche que les positions mesurées.")
-    elif np.allclose(sds_c30, exact_c30[1], atol=1e-8):
+    elif "Piste : " in exact_c30.message:                     # a classic construction, recorded with the exact law
+        print(f"❌ Ex M25a.30 : {lead_c30}{exact_c30.message.split('Piste : ', 1)[1]}")
+    elif wbm.check("M25a.30g", sds_c30.tolist(), computed=True, quiet=True).passed:
         print(f"❌ Ex M25a.30 : {lead_c30}tes écarts-types sont justes, pas tes moyennes : la moyenne a priori est "
               "m(s), qui dépend de la position, aux positions en panne comme aux positions mesurées.")
     else:
         print(f"❌ Ex M25a.30 : {lead_c30}tes moyennes ou tes écarts-types ne sont pas ceux de la loi conditionnelle "
               "du modèle : moyenne m(s), covariance K, et la variance du bruit (0,4², pas 0,4) sur la diagonale des "
               "positions mesurées, et seulement là.")
+
+with checked("M25a.30"):
+    if reconstructed_30 is None:
+        print("⏳ Ex M25a.30 : les routes cachées attendent une reconstruction qui passe la vérification ci-dessus.")
+        raise StopCheck
+    order_c30 = np.random.default_rng()         # at each run, the sensors given in a new order: no table of values passes
+    for k_c30, (seed_c30, miss_c30, id_c30) in enumerate(HIDDEN_C30, start=1):
+        obs_c30 = [i for i in range(31) if i not in miss_c30]
+        rng_c30 = np.random.default_rng(seed_c30)
+        y_c30 = (MEAN_30 + np.linalg.cholesky(K_30) @ rng_c30.standard_normal(31))[obs_c30]
+        y_c30 = y_c30 + NOISE_SD_30 * rng_c30.standard_normal(len(obs_c30))
+        turn_obs_c30, turn_miss_c30 = order_c30.permutation(len(obs_c30)), order_c30.permutation(len(miss_c30))
+        means_h30, sds_h30 = law_of_c30(fill_missing_30(S_30.copy(), y_c30[turn_obs_c30], [obs_c30[i] for i in turn_obs_c30],
+                                                        [miss_c30[i] for i in turn_miss_c30]), len(miss_c30))
+        back_c30 = np.argsort(turn_miss_c30)                  # your values put back in the increasing order of the positions
+        if wbm.check(id_c30, [means_h30[back_c30].tolist(), sds_h30[back_c30].tolist()], computed=True, quiet=True).passed:
+            why_c30 = ""
+        elif wbm.check(id_c30, [means_h30.tolist(), sds_h30.tolist()], computed=True, quiet=True).passed:
+            why_c30 = ("tes valeurs suivent l'ordre croissant des positions, pas celui de miss : rends la valeur de miss[i] "
+                       "en position i (la vérification donne les capteurs dans un autre ordre)")
+        else:
+            why_c30 = ("ce n'est pas la loi conditionnelle du modèle pour ces mesures : ta fonction doit la calculer à partir "
+                       "de s, y_obs, obs et miss reçus, dans leur ordre")
+        verdict("M25a.30", not why_c30, f"une route cachée ({k_c30}, {len(miss_c30)} capteurs en panne, donnés dans un ordre "
+                "tiré au hasard) : la loi conditionnelle du modèle, comme attendu.",
+                f"une route cachée ({k_c30}, {len(miss_c30)} capteurs en panne, donnés dans un ordre tiré au hasard) : "
+                f"{why_c30}.")
 
 with checked("M25a.30"):
     if reconstructed_30 is None:
@@ -2407,13 +2443,14 @@ M25A_30 = Ex(
 
 Écris `fill_missing_30(s, y_obs, obs, miss)`, qui rend les moyennes et les écarts-types de la loi conditionnelle des vraies températures aux positions `miss` sachant les mesures aux positions `obs` (deux tableaux de 12 nombres). Le bruit ne touche que les positions mesurées : à toi de construire la covariance du vecteur formé des vraies températures aux positions en panne et des mesures aux autres positions (ta `condition_gaussian` peut faire le reste). Écris aussi `draw_road_30(ax, s, y_obs, obs, miss, means, sds)`, qui trace dans l'axe reçu les mesures, tes moyennes avec leur bande à deux écarts-types, la moyenne $m(s)$ et l'interpolation linéaire `np.interp(s, s[obs], y_obs)`.
 
-**Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C ; elle compare ensuite tes moyennes et tes écarts-types à ceux de la loi conditionnelle exacte du modèle, puis regarde si ta figure trace les mesures. Puis relève, dans ta copie : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes (affiché aussi).
+**Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C ; elle compare ensuite tes moyennes et tes écarts-types à ceux de la loi conditionnelle exacte du modèle, essaie ta fonction sur deux routes cachées (d'autres capteurs en panne, les capteurs donnés dans un ordre tiré à chaque exécution), puis regarde si ta figure trace les mesures. Puis relève, dans ta copie : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes (affiché aussi).
 
 Pour aller plus loin : la longueur 6 km de la covariance est supposée connue ; trace, en fonction de cette longueur, le logarithme de l'évidence des 19 mesures (ta `mvn_logpdf`), et regarde où il est maximal.""",
     todo='''def fill_missing_30(s, y_obs, obs, miss):
-    """The means and the standard deviations (two 1-D arrays of len(miss)) of the conditional law of the true
-    temperatures at the positions miss, given the measures y_obs at the positions obs (model: mean 14 − 0.15 s,
-    covariance 4 exp(−|s_i − s_j| / 6), a measurement noise of standard deviation 0.4 on the measured positions only)."""
+    """The means and the standard deviations (two 1-D arrays of len(miss), in the order of miss) of the conditional law
+    of the true temperatures at the positions miss, given the measures y_obs at the positions obs (model: mean
+    14 − 0.15 s, covariance 4 exp(−|s_i − s_j| / 6), a measurement noise of standard deviation 0.4 on the measured
+    positions only)."""
     raise NotImplementedError("fill_missing_30 n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
@@ -2432,9 +2469,10 @@ def road_law_30(s, length=6.0):
 
 
 def fill_missing_30(s, y_obs, obs, miss):
-    """The means and the standard deviations (two 1-D arrays of len(miss)) of the conditional law of the true
-    temperatures at the positions miss, given the measures y_obs at the positions obs (model: mean 14 − 0.15 s,
-    covariance 4 exp(−|s_i − s_j| / 6), a measurement noise of standard deviation 0.4 on the measured positions only)."""
+    """The means and the standard deviations (two 1-D arrays of len(miss), in the order of miss) of the conditional law
+    of the true temperatures at the positions miss, given the measures y_obs at the positions obs (model: mean
+    14 − 0.15 s, covariance 4 exp(−|s_i − s_j| / 6), a measurement noise of standard deviation 0.4 on the measured
+    positions only)."""
     obs, miss = list(obs), list(miss)
     order = miss + obs                                         # the vector (truths at miss, measures at obs)
     mean, cov = road_law_30(np.asarray(s, dtype=float)[order])
@@ -2463,6 +2501,33 @@ print("moyennes :", np.round(means_30, 2).tolist())
 print("écarts-types :", np.round(sds_30, 3).tolist())
 
 ''' + CHECK_30,
+    record='''def law_30r(y, obs, miss, noise_var, everywhere=False):
+    """The conditional law of the road (mean 14 − 0.15 s, covariance 4 exp(−|Δs| / 6)) for a noise variance on the
+    measured positions (or everywhere, a classic mistake): [means, sds] at the positions miss, in their order."""
+    order = list(miss) + list(obs)
+    s = np.arange(31.0)[order]
+    cov = 4 * np.exp(-np.abs(s[:, None] - s[None, :]) / 6)
+    cov = cov + noise_var * np.diag([1.0 if everywhere else 0.0] * len(miss) + [1.0] * len(obs))
+    cond_mean, cond_cov = condition_gaussian(14 - 0.15 * s, cov, list(range(len(miss), len(order))), y)
+    return [cond_mean.tolist(), np.sqrt(np.diag(cond_cov)).tolist()]
+
+
+exact_30r = law_30r(Y_OBS_30, OBS_30, MISS_30, 0.16)
+wbm.record("M25a.30d", exact_30r, decimals=6,                # hidden: the exact law of the road of the statement
+           mistakes={"tes moyennes et tes écarts-types sont ceux de mesures sans erreur : les 19 mesures sont les vraies "
+                     "températures plus un bruit, et leur covariance doit en tenir compte": law_30r(Y_OBS_30, OBS_30, MISS_30, 0.0),
+                     "le bruit n'a pas la bonne taille : sur la diagonale de la covariance, on ajoute la variance de "
+                     "l'erreur de mesure, le carré de son écart-type": law_30r(Y_OBS_30, OBS_30, MISS_30, 0.4),
+                     "tes écarts-types comptent le bruit aux positions en panne : on reconstruit les vraies températures, "
+                     "et le bruit ne touche que les positions mesurées": law_30r(Y_OBS_30, OBS_30, MISS_30, 0.16, everywhere=True)})
+wbm.record("M25a.30g", exact_30r[1], decimals=6)              # hidden: its standard deviations alone
+for seed_30r, miss_30r, id_30r in ((5931, [5, 6, 7, 8, 9, 10, 20, 21, 22, 23], "M25a.30e"),
+                                   (5932, [0, 1, 2, 3, 4, 25, 26, 27, 28, 29, 30], "M25a.30f")):   # the hidden roads
+    obs_30r = [i for i in range(31) if i not in miss_30r]
+    rng_30r = np.random.default_rng(seed_30r)
+    y_30r = (MEAN_30 + np.linalg.cholesky(K_30) @ rng_30r.standard_normal(31))[obs_30r]
+    y_30r = y_30r + 0.4 * rng_30r.standard_normal(len(obs_30r))
+    wbm.record(id_30r, law_30r(y_30r, obs_30r, miss_30r, 0.16), decimals=6)''',
     after=[
         ("solution_md", "**Pour aller plus loin** : le logarithme de l'évidence des 19 mesures, $\\ln\\mathcal{N}("
                         "\\mathbf{y} \\mid \\mathbf{m}_{\\text{obs}}, \\mathbf{K}_{\\text{obs, obs}} + 0{,}16\\,"

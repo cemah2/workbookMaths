@@ -2290,9 +2290,28 @@ def reference_counts_25() -> dict:
     return counts
 
 
+STATEMENT_WRONG_25 = ("times_two", "in_place", "without_gamma")     # the versions of the statement: c), d) and e)
+
+
+def hidden_ids_25() -> dict:
+    """The sub-IDs (answers.json) of what the check would otherwise write and that gives b) to e): the worst ratio of the
+    reference on each hidden start, and the counters of the three versions of the statement there."""
+    letters = iter("fghijklm")
+    ids = {}
+    for seed in HIDDEN_STARTS_25:
+        ids[str(seed)] = {"worst_ratio": f"M26.25{next(letters)}"}
+    for seed in HIDDEN_STARTS_25:
+        for key in STATEMENT_WRONG_25:
+            ids[str(seed)][key] = f"M26.25{next(letters)}"
+    return ids
+
+
 def check_25(counts: dict) -> str:
-    """The check cell of M26.25, with the reference counters of the hidden starts written in it."""
-    literal = json.dumps({str(seed): value for seed, value in counts.items()}, indent=None)
+    """The check cell of M26.25, with the reference counters of the versions of the check (not of the statement) on the
+    hidden starts written in it; the rest is compared through answers.json (hidden_ids_25)."""
+    kept = {str(seed): {key: {k: v for k, v in value.items() if k != "worst_ratio"} for key, value in per_seed.items()
+                        if key not in STATEMENT_WRONG_25 + ("ref",)} for seed, per_seed in counts.items()}
+    literal = json.dumps(kept, indent=None)
     passed = ",\n                   ".join(f"({label!r}, {key!r}, {argument!r}, {function})"
                                            for label, key, argument, function in WRONG_PASSED_25)
     patched = ",\n                    ".join(f"({label!r}, {key!r}, {name!r}, {function})"
@@ -2304,7 +2323,8 @@ with checked("M26.25"):
     results_25 = []
     report_25 = reporter(results_25, stop=False)
     COUNTERS_25 = ("law", "invariance", "recurrence", "a_priori", "a_posteriori", "fixed_point")
-    EXPECTED_C25 = ''' + literal + r'''   # the reference, per hidden start
+    EXPECTED_C25 = ''' + literal + r'''   # the reference, per hidden start: the versions of the check
+    IDS_C25 = ''' + json.dumps(hidden_ids_25(), indent=None) + r'''   # the rest is compared like an answer (answers.json)
     PROPERTIES_C25 = {
         "law": "que π est une loi (coordonnées ≥ −tol, somme à tol près de 1)",
         "invariance": "l'invariance de π (‖πP − π‖∞ ≤ tol)",
@@ -2364,22 +2384,43 @@ with checked("M26.25"):
                 why = "un essai compte une fois s'il échoue, au-delà de la tolérance de l'énoncé"
             report_25(False, "", f"{label} : \"{k}\" = {got[k]}, la référence {want[k]} : {why}")
 
+    def compare_hidden_c25(label, got, ex_id):
+        """One ✅ when the six counters equal the reference's (compared like an answer: no value written here); else one
+        ❌ that says what to look at, without the reference's counters (their zeros would give c) to e))."""
+        if wbm.check(ex_id, [got[k] for k in COUNTERS_25], computed=True, quiet=True).passed:
+            seen = [f"\"{k}\" {got[k]}" for k in COUNTERS_25 if got[k]]
+            report_25(True, f"{label} : les six compteurs valent ceux de la référence"
+                      + (" (" + ", ".join(seen) + ", les autres nuls)" if seen else " (0)"), "")
+            return
+        mine = ", ".join(f"\"{k}\" = {got[k]}" for k in COUNTERS_25)
+        if not any(got[k] for k in COUNTERS_25):
+            why = ("ton test ne compte rien pour cette version : chaque contrôle doit porter sur la fonction reçue "
+                   "(stationary, iterates) et comparer ce que dit l'énoncé")
+        else:
+            why = ("pour chaque propriété, compte une fois chaque essai où la version l'enfreint au-delà de la tolérance "
+                   "de l'énoncé (tol, et tol * scale pour les valeurs), et rien d'autre ; vérifie ce que compare chaque "
+                   "contrôle")
+        report_25(False, "", f"{label} : tes compteurs ({mine}) ne valent pas ceux de la référence : {why}")
+
     for seed_c25 in ''' + repr(HIDDEN_STARTS_25) + r''':
         expected_c25 = EXPECTED_C25[str(seed_c25)]
+        ids_c25 = IDS_C25[str(seed_c25)]
         mine_c25 = run_c25(f"départ caché {seed_c25}", seed_c25)
-        wrong_c25 = [k for k in COUNTERS_25 if mine_c25[k] != expected_c25["ref"][k]]
+        wrong_c25 = [k for k in COUNTERS_25 if mine_c25[k] != 0]
         report_25(not wrong_c25, f"départ caché {seed_c25}, tes fonctions : les six compteurs valent ceux de la référence (0)",
                   f"départ caché {seed_c25}, tes fonctions : " + ", ".join(f"{k} = {mine_c25[k]}" for k in wrong_c25)
                   + " au lieu de 0 : vérifie l'ordre des tirages (random_chain_25, puis V0), tes tolérances (tol, et "
                   "tol * scale pour les valeurs), puis tes fonctions de M26.17 à M26.19 (leurs tests)")
-        ratio_c25 = expected_c25["ref"]["worst_ratio"]
-        report_25(abs(mine_c25["worst_ratio"] - ratio_c25) <= 1e-6 * max(1.0, ratio_c25),
-                  f"départ caché {seed_c25} : le pire rapport vaut celui de la référence ({fr(ratio_c25, 6)})",
-                  f"départ caché {seed_c25} : pire rapport {fr(mine_c25['worst_ratio'], 6)}, la référence {fr(ratio_c25, 6)} : "
+        report_25(wbm.check(ids_c25["worst_ratio"], mine_c25["worst_ratio"], computed=True, quiet=True).passed,
+                  f"départ caché {seed_c25} : le pire rapport vaut celui de la référence ({fr(mine_c25['worst_ratio'], 6)})",
+                  f"départ caché {seed_c25} : pire rapport {fr(mine_c25['worst_ratio'], 6)}, pas celui de la référence : "
                   "le rapport ‖V_k − V‖∞ / (γᵏ‖V₀ − V‖∞), sur les essais et les k où le dénominateur dépasse 1e-6 * scale")
         for label_c25, key_c25, argument_c25, function_c25 in (''' + passed + r'''):
             got_c25 = run_c25(f"{label_c25}, départ caché {seed_c25}", seed_c25, **{argument_c25: function_c25})
-            compare_c25(f"{label_c25}, départ caché {seed_c25}", got_c25, expected_c25[key_c25])
+            if key_c25 in ids_c25:
+                compare_hidden_c25(f"{label_c25}, départ caché {seed_c25}", got_c25, ids_c25[key_c25])
+            else:
+                compare_c25(f"{label_c25}, départ caché {seed_c25}", got_c25, expected_c25[key_c25])
 
     def patched_c25(label, key, name, replacement):
         """Your test on the first hidden start while mymath.markov.<name> (and every name of the notebook bound to it) is
@@ -2522,7 +2563,17 @@ wbm.record("M26.25d", [moved_25r, True, True],
                      "seulement les essais où l'écart dépasse tol * scale": [300, True, True]})
 wbm.record("M26.25e", True,
            mistakes={"sans γ, les itérés ne s'approchent pas de V au rythme γᵏ : la borne a priori échoue dans chaque "
-                     "essai": False})''',
+                     "essai": False})
+versions_25r = {"times_two": {"stationary": stationary_times_two}, "in_place": {"iterates": iterates_in_place},
+                "without_gamma": {"iterates": iterates_without_gamma}}
+with np.errstate(over="ignore", invalid="ignore"):          # hidden: what the check compares on its hidden starts
+    for seed_25r, ids_25r in HIDDEN_IDS_25R.items():
+        counts_25r = markov_property_test_25(__TRIALS_25__, np.random.default_rng(int(seed_25r)))
+        wbm.record(ids_25r["worst_ratio"], float(counts_25r["worst_ratio"]), decimals=6)
+        for key_25r, kwargs_25r in versions_25r.items():
+            counts_25r = markov_property_test_25(__TRIALS_25__, np.random.default_rng(int(seed_25r)), **kwargs_25r)
+            wbm.record(ids_25r[key_25r], [counts_25r[k] for k in ("law", "invariance", "recurrence", "a_priori",
+                                                                   "a_posteriori", "fixed_point")], decimals=0)''',
     after=[
         ("todo_md", "**Dans ta copie** : a) la justification de `tol = 1e-9`."),
         ("md", "**Après la vérification**, dans ta copie : pourquoi `stationary_times_two` passe-t-il le contrôle "
@@ -2550,8 +2601,16 @@ GAMMA_26 = 0.7                                             # after each page, th
 BUDGET_26 = 600_000                                        # the budget of simulated steps (pages viewed), per estimate
 SEEDS_26 = range(6230, 6240)                               # the ten seeds of the criterion'''
 
-CHECK_26 = '''VAR_C26 = __VAR_C26__   # the variance of the total of a visit from page 1 (the reference, at build time)
-HIDDEN_C26 = __HIDDEN_C26__   # two chains you do not see: data, exact values and variances of the total of a visit
+CHECK_26 = '''HIDDEN_C26 = __HIDDEN_C26__   # two chains you do not see: data, exact values and variances of the total of a visit
+
+
+def near_hidden_c26(ex_id, x, rel):
+    \"\"\"True when the number x is within rel (relative) of the value recorded for ex_id in answers.json (the standard
+    deviation of the total of a visit from page 1, which gives b): compared at its decimals, no value written here).\"\"\"
+    if not math.isfinite(x) or x <= 0:
+        return False
+    return any(wbm.check(ex_id, float(c), computed=True, quiet=True).passed
+               for c in np.linspace(x * (1 - rel), x * (1 + rel), 241))
 
 
 def triple_c26(result, budget):
@@ -2592,7 +2651,7 @@ with checked("M26.26"):
     verdict("M26.26", hits_c26 >= 8, f"critère atteint : {hits_c26} estimations sur 10 à moins de 0,01 de la valeur exacte, "
             "sans dépasser le budget.", f"critère pas encore atteint : {hits_c26} estimations sur 10 à moins de 0,01 de la "
             "valeur exacte (il en faut 8).")
-    se_mean_c26 = math.sqrt(sum(VAR_C26 / run[1] for run in runs_c26)) / len(runs_c26)
+    se_mean_c26 = float(np.std(estimates_c26, ddof=1)) / math.sqrt(len(runs_c26))   # measured on your ten estimates
     gap_c26 = float(estimates_c26.mean() - exact_c26)
     verdict("M26.26", abs(gap_c26) <= 4 * se_mean_c26,
             f"la moyenne de tes dix estimations est à moins de 4 erreurs types ({fr(4 * se_mean_c26, 4)}) de la valeur exacte "
@@ -2651,17 +2710,17 @@ with checked("M26.26"):
         print("❌ Ex M26.26b : attendu une liste de 2 nombres : l'écart-type de la simulation pilote, puis le nombre de "
               "visites.")
         raise StopCheck from None
-    sd_c26 = math.sqrt(VAR_C26)
-    if abs(pilot_sd_c26 - sd_c26) <= 0.03 * sd_c26:
+    if near_hidden_c26("M26.26c", pilot_sd_c26, 0.03):          # M26.26c: the exact standard deviation of the model
         print(f"✅ Ex M26.26b : écart-type pilote {fr(pilot_sd_c26, 3)}, à moins de 3 % de l'écart-type exact du modèle.")
-    elif abs(pilot_sd_c26 - VAR_C26) <= 0.06 * VAR_C26:
+    elif pilot_sd_c26 > 0 and near_hidden_c26("M26.26c", math.sqrt(pilot_sd_c26), 0.03):
         print("❌ Ex M26.26b : c'est une variance : b) demande l'écart-type (np.std), sa racine.")
-    elif pilot_sd_c26 < 0.5 * sd_c26:
-        print("❌ Ex M26.26b : ton écart-type est bien trop petit : b) demande celui de la recette totale d'une visite, "
-              "sans actualisation, arrêtée par le tirage de γ (pas celui du retour actualisé, ni celui de la moyenne).")
+    elif near_hidden_c26("M26.26c", pilot_sd_c26 * math.sqrt(20000), 0.05):
+        print("❌ Ex M26.26b : ton écart-type est bien trop petit : c'est celui de la moyenne de tes 20 000 visites ; b) "
+              "demande celui de la recette totale d'une visite.")
     else:
         print(f"❌ Ex M26.26b : écart-type pilote {fr(pilot_sd_c26, 3)} : attendu, à 3 % près, celui de la recette totale "
-              "d'une visite, depuis la page 1, sur 20 000 visites simulées comme dans estimate_value_26.")
+              "d'une visite, depuis la page 1, sans actualisation, arrêtée par le tirage de γ (pas celui du retour "
+              "actualisé, ni celui de la moyenne), sur 20 000 visites simulées comme dans estimate_value_26.")
     if abs(visits_needed_c26 - (pilot_sd_c26 / 0.004) ** 2) <= 1 + 1e-9 * visits_needed_c26:
         print("✅ Ex M26.26b : le nombre de visites pour une erreur type de 0,004 est cohérent avec ton écart-type.")
     elif abs(visits_needed_c26 - pilot_sd_c26 / 0.004) <= 1:
@@ -2761,7 +2820,10 @@ V_26r = linalg.solve(np.eye(6) - 0.7 * (0.85 * P_26r + 0.15 / 6), r_26r)
 wbm.record("M26.26a", float(V_26r[0]), decimals=4,
            mistakes={"la page 1 est l'état 0": float(V_26r[1]),
                      "le web est celui du surfeur avec sauts, P_d = 0,85 L + 0,15/6, pas L seule":
-                         float(linalg.solve(np.eye(6) - 0.7 * P_26r, r_26r)[0])})''',
+                         float(linalg.solve(np.eye(6) - 0.7 * P_26r, r_26r)[0])})
+Pd_26r = 0.85 * P_26r + 0.15 / 6                  # hidden: the exact standard deviation of the total of a visit (b))
+second_26r = linalg.solve(np.eye(6) - 0.7 * Pd_26r, r_26r ** 2 + 2 * 0.7 * r_26r * (Pd_26r @ V_26r))
+wbm.record("M26.26c", float(math.sqrt(second_26r[0] - V_26r[0] ** 2)), decimals=3)''',
     after=[
         ("solution_md", "**La comparaison des deux écarts-types** est affichée ci-dessus (la cellule de solution) ; la "
                         "troncature à 60 pages coûte au plus $0{,}7^{60}\\lVert\\mathbf{V}\\rVert_\\infty$."),
@@ -2980,11 +3042,7 @@ def build_constants() -> dict:
                                              "want": np.linalg.solve(np.eye(4) - ends, r).tolist()},
                                     "stochastic": stochastic.tolist(), "kept": kept.tolist()})
 
-    # M26.26: the variance of the total of a visit from page 1, and two hidden chains
-    namespace = {"np": np}
-    exec(GIVEN_26, namespace)
-    _, variance = _visit_moments_26(np, namespace["P_WEB_26"], namespace["REVENUE_26"], namespace["GAMMA_26"], 0)
-    out["__VAR_C26__"] = literal(variance)
+    # M26.26: two hidden chains (the standard deviation of the total of a visit from page 1 gives b): answers.json)
     hidden = [[0.1, 0.5, 0.2, 0.2, 0.0], [0.3, 0.1, 0.3, 0.0, 0.3], [0.0, 0.4, 0.2, 0.2, 0.2],
               [0.25, 0.25, 0.0, 0.25, 0.25], [0.2, 0.0, 0.5, 0.1, 0.2]]
     mean_a, variance_a = _visit_moments_26(np, hidden, np.ones(5), 0.96, 2)
@@ -3021,6 +3079,8 @@ def prepare() -> dict:
                 setattr(ex, field_name, fill(getattr(ex, field_name)))
             ex.after = [(kind, fill(text)) for kind, text in ex.after]
     counts = reference_counts_25()
+    M26_25.record = ("HIDDEN_IDS_25R = " + json.dumps(hidden_ids_25(), indent=None) + "\n"
+                     + M26_25.record.replace("__TRIALS_25__", str(HIDDEN_TRIALS_25)))
     M26_25.check = answers_check("M26.25", "bcde") + "\n\n" + check_25(counts)
     M26_25.solution = M26_25.solution.rstrip("\n") + "\n\n\n" + check_25(counts)
     left = {match for part in PARTS for ex in part.exercises

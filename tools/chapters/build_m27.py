@@ -2426,7 +2426,8 @@ with checked("M27.28"):
                        IDS_C28["rounded_value_tol"])
 
     original_c28 = mymath.distances.mixed_strategy_value_2x2
-    aliases_c28 = [alias for alias, value in list(globals().items()) if value is original_c28]
+    aliases_c28 = [alias for alias, value in list(globals().items())    # not original_c28 itself: it restores the function
+                   if value is original_c28 and alias != "original_c28"]
     calls_c28 = [0]
 
     def replaced_c28(G):
