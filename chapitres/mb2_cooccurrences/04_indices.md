@@ -473,7 +473,7 @@ Fiche §2, « Une PMI estimée sur peu d'observations », et §3, « Une constan
 </details>
 <details><summary>Indice 2</summary>
 
-a) Chaque oiseau est une huppe avec la probabilité 0,01 : la probabilité qu'aucun des 400 ne le soit est $0{,}99^{400}$, et $\ln 0{,}99 \approx -0{,}01$. b) Combien d'oiseaux de chaque case attend-on dans 400 ? Une proportion estimée sur $k$ oiseaux a une erreur relative de l'ordre de $1/\sqrt{k}$. c) Toutes les huppes sont en prairie : $n(\text{prairie}, \text{huppe}) = n(\text{huppe})$ dans chaque échantillon.
+a) Chaque oiseau est une huppe avec la probabilité 0,01 : la probabilité qu'aucun des 400 ne le soit est $0{,}99^{400}$, et $\ln 0{,}99 \approx -0{,}01$. b) Combien d'oiseaux de chaque case attend-on dans 400 ? Une proportion estimée sur $k$ oiseaux a une erreur relative de l'ordre de $1/\sqrt{k}$. Mais où sont vues toutes les huppes ? Écris l'estimation de $\operatorname{PMI}(\text{prairie}, \text{huppe})$ avec les comptes : qu'est-ce qui se simplifie ? c) Avec le lissage, $\hat p(\text{huppe})$ est remplacée par une marge où $n(\text{huppe})$ n'apparaît plus qu'à la puissance 1/3 : la simplification tient-elle encore ?
 
 </details>
 <details><summary>Indice 3</summary>
