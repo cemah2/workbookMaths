@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 10,7 h : lecture et calculs de la fiche ≈ 2 h 15, exercices ≈ 7 h 55, 16 flashcards ≈ 30 min (parcours essentiel ≈ 8,6 h) |
+| **Temps total estimé** | ≈ 12,4 h : lecture et calculs de la fiche ≈ 2 h 15, exercices ≈ 9 h 35, 16 flashcards ≈ 30 min (parcours essentiel ≈ 9,3 h) |
 | **Prérequis** | R0 (division euclidienne et reste, `//` et `%`) ; R1 (puissances de 2 et de 10, moyenne pondérée) ; R4 (notation $\Sigma$) ; R6 ($\ln$ et $\log_2$, bits et nats, sigmoïde et $\sigma(-x) = 1 - \sigma(x)$, cote et logit) ; R8 ($\binom{n}{2}$, simulation avec une graine) ; M02c (loi des grands nombres, erreur type d'une proportion) ; M03 (lois jointes et marginales, tableau de contingence, indépendance, loi conditionnelle) ; M04 (formule de Bayes) ; M06 (entropie, information mutuelle d'un tableau) ; M07 (produit scalaire, normes, cosinus, Cauchy-Schwarz, projection sur une droite) ; M09a (produit matriciel, transposée, ligne one-hot fois une matrice) ; M12a (rang) ; M12b (complément orthogonal, projection orthogonale) ; M12c (valeurs et vecteurs propres d'une matrice symétrique, trace) ; M12d (SVD compacte, Eckart-Young, axes principaux) ; M13a (vraisemblance de Bernoulli, régression logistique, le score est la log-cote) ; M20 (réductions le long d'un axe, centrage comme projection) ; M28 (matrice de Gram, loi tempérée `temper`) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `cooccurrence.py` : `pmi`, `case_control_logit`, `remove_direction` |
