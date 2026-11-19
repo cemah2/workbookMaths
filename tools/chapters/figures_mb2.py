@@ -4,7 +4,7 @@
     python tools/chapters/figures_mb2.py
 
 Writes small PNG files into chapitres/mb2_cooccurrences/figures/:
-- the PMI table of a pump watched by a vibration sensor for 98 hours (regime × signal, counts
+- the PMI table of a pump watched by an acoustic sensor for 98 hours (regime × signal, counts
   [[0, 2, 47], [0, 8, 26], [1, 6, 8]]), and each non-empty cell against the bound −ln max(p(x), p(y));
 - the smoothed column margin p_α(y) ∝ n(y)^α of the same table for α from 1 to 0, and the smoothed PMI of the row
   « rapide », whose order changes (α = 1/4 marked: the fourth roots of 1, 16 and 81);
@@ -47,6 +47,7 @@ COUNTS = np.array([[0, 2, 47], [0, 8, 26], [1, 6, 8]], dtype=float)
 ALPHA = 0.25
 # §4: three feeders × three species, a table of rank 2
 FEEDERS = ["A", "B", "C"]
+BOX = 0.85                                                  # height / width of each panel
 M_FEED = np.array([[8, 9, 10], [4, 8, 12], [0, 7, 14]], dtype=float)
 # §6: a parallelogram in the plane, and the lemma with ε = 0.4
 PA, PB, PC, PD = np.array([1.0, 2.6]), np.array([2.2, 3.4]), np.array([4.2, 0.8]), np.array([5.55, 1.35])
@@ -191,13 +192,15 @@ def factors_beta() -> None:
     U, s, Vt = np.linalg.svd(M_FEED)
     sign = np.sign(Vt[np.arange(2), np.argmax(np.abs(Vt[:2]), axis=1)])   # mymath's sign convention
     U, s = U[:, :2] * sign, s[:2]
-    fig, axes = plt.subplots(1, 3, figsize=(13.2, 4.4))
+    fig, axes = plt.subplots(1, 3, figsize=(13.6, 4.9))
     for ax, beta, lab in zip(axes, (0.0, 0.5, 1.0), ("β = 0", "β = 1/2", "β = 1")):
         W = U * s ** beta
         Vb = Vt[:2].T * sign * s ** (1 - beta)
         assert np.allclose(W @ Vb.T, M_FEED)
         cos_ac = W[0] @ W[2] / np.linalg.norm(W[0]) / np.linalg.norm(W[2])
         xmax, ymax = np.abs(W[:, 0]).max(), np.abs(W[:, 1]).max()
+        width = max(1.45 * xmax, 2.7 * ymax / BOX)                    # the same box in the three panels
+        height = BOX * width
         for i, name in enumerate(FEEDERS):
             ax.add_patch(FancyArrowPatch((0, 0), tuple(W[i]), arrowstyle="-|>", mutation_scale=14, lw=2,
                                          color=C[i]))
@@ -205,7 +208,7 @@ def factors_beta() -> None:
                         color=C[i])
         ax.axhline(0, color="0.6", lw=0.8)
         ax.axvline(0, color="0.6", lw=0.8)
-        ax.set(xlim=(-0.1 * xmax, 1.3 * xmax), ylim=(-1.35 * ymax, 1.35 * ymax), aspect="equal", xlabel="coordonnée 1",
+        ax.set(xlim=(-0.1 * width, 0.9 * width), ylim=(-height / 2, height / 2), aspect="equal", xlabel="coordonnée 1",
                ylabel="coordonnée 2", title=f"{lab} : cos(A, C) ≈ {fr(cos_ac, 3)}")
         print(f"    beta = {beta}: rows {np.round(W, 4).tolist()}, cos(A, C) = {cos_ac:.4f}")
     fig.suptitle(r"Les lignes de $\mathbf{U}_2\mathbf{S}_2^{\beta}$ des trois mangeoires", fontsize=12.5, fontweight="bold")
@@ -281,9 +284,9 @@ def direction() -> None:
         ax.add_patch(FancyArrowPatch((0, 0), tuple(d), arrowstyle="-|>", mutation_scale=12, lw=1.8, color=C[k],
                                      zorder=2))
         ax.annotate(f"d{chr(0x2081 + k)}", tuple(d), textcoords="offset points", xytext=(5, -4), fontsize=11)
-    ax.set(xlim=(-0.02, 0.14), ylim=(-0.02, 0.36), aspect="equal", xlabel="différence de ln L",
+    ax.set(xlim=(-0.02, 0.24), ylim=(-0.02, 0.36), aspect="equal", xlabel="différence de ln L",
            ylabel="différence de ln m", title=f"Premier axe : λ₁ = {fr(lam[-1], 3)}, λ₂ = {fr(lam[0], 3)}")
-    ax.legend(fontsize=9, loc="upper left")
+    ax.legend(fontsize=9, loc="lower right")
     ax = axes[1]
     for k, x in enumerate(TROUT):
         if k == 1:

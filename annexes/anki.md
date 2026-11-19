@@ -12,6 +12,8 @@ workbookMaths
 │   ├── 12 M02a Intégrales et densités
 │   └── …
 └── Partie VII
+    ├── 51 MB2 Cooccurrences, PMI et embeddings
+    ├── …
     └── 56 MB8 Gradient de politique
 ```
 

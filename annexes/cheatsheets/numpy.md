@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, calcul numérique.
 
 ```python
 import numpy as np
@@ -180,6 +180,21 @@ Des points rangés en lignes dans `X` et `Y`, de forme $(n, d)$ ; une grille de 
 | l'entropie d'une loi, en nats | `scipy.stats.entropy(p)` : le logarithme népérien par défaut (`base=2` pour des bits), une probabilité nulle compte pour 0, et `p` est renormalisée si sa somme n'est pas 1 ; `-np.sum(p * np.log(p))` rend `nan` dès qu'un $p_i$ est nul ; `scipy.special.entr(p).sum()` additionne les termes $-p_i\ln p_i$ |
 
 Dans `mymath/sampling.py`, la docstring du module dit ce qui est permis : NumPy, et de `np.linalg` seulement `eigh` (dans `points_from_gram`) ; aucune SciPy (`scipy.special.softmax` et `scipy.special.logsumexp` donneraient `temper`) ni scikit-learn : les tests comparent tes résultats à SciPy. Les fonctions prennent des probabilités, jamais des scores, et ne tirent rien au hasard. Les formules des positions de matrice de Gram donnée, de la loi tempérée et du plus petit ensemble de masse donnée sont dans la fiche (§2 et §5) et dans le formulaire ; les coder est le travail des 🔨 M28.13 et M28.14.
+
+## Bases 2 et 16, tables creuses et paires (MB2)
+
+Un entier Python `n` ; un mot de bits `w` ; une table de comptes `M`, creuse ; `n` éléments à comparer deux à deux.
+
+| Je veux… | Code |
+|---|---|
+| écrire un entier en base 2 ou en base 16, le relire | `bin(n)` et `hex(n)` rendent des chaînes avec les préfixes `'0b'` et `'0x'` (`hex` écrit en minuscules) ; sans préfixe : `format(n, "b")`, `format(n, "X")` (majuscules) ; sur une largeur fixe, complétée par des zéros à gauche : `f"{n:08b}"` (8 bits), `f"{n:02X}"` (un octet) ; `int(s, 2)` et `int(s, 16)` relisent une chaîne, avec ou sans préfixe ; pour NumPy : `np.binary_repr(n, width=8)`, `np.base_repr(n, base=16)` |
+| les bits d'un entier, les bits qui numérotent $N$ valeurs | `n.bit_length()` : les $\lfloor\log_2 n\rfloor + 1$ bits de l'entier $n \ge 1$ ; `(N - 1).bit_length()` : les $\lceil\log_2N\rceil$ bits qui numérotent $N \ge 2$ valeurs, en entiers exacts (`math.ceil(math.log2(N))` passe par un flottant, et se trompe d'un bit pour $N = 2^{53} + 1$) ; jamais `len(bin(n))`, qui compte le préfixe |
+| découper un mot de bits en champs, l'assembler | le champ de `l` bits qui commence au bit `i` : `(w >> i) & ((1 << l) - 1)`, c'est `(w // 2**i) % 2**l` ; placer `a` devant un champ `b` de `l` bits : `(a << l) + b` (ou `a * 2**l + b`) ; les mêmes opérateurs agissent case par case sur un tableau d'entiers (`dtype=np.uint8`, `np.uint16`) ; les 8 bits de chaque octet d'un tableau : `np.unpackbits(np.asarray(octets, dtype=np.uint8))`, le bit de poids fort d'abord |
+| une grande table creuse, ses $k$ plus grandes valeurs singulières | `from scipy.sparse import csr_matrix` ; `S = csr_matrix(M)` ; `S.nnz` compte les cases non nulles, et `S.data.nbytes + S.indices.nbytes + S.indptr.nbytes` mesure la mémoire ; `from scipy.sparse.linalg import svds` ; `U, s, Vt = svds(S, k=k)`, avec `k < min(S.shape)` : l'ordre des valeurs singulières n'est pas garanti (croissant avec le solveur par défaut), donc `order = np.argsort(s)[::-1]`, puis `U[:, order]`, `s[order]` et `Vt[order]` ; `S - S.mean(axis=0)` rend une matrice **pleine** (une `numpy.matrix`) : le centrage détruit le creux |
+| un logit, une sigmoïde | `scipy.special.logit(p)` $= \ln\frac{p}{1 - p}$ et `scipy.special.expit(z)` $= \sigma(z)$, réciproques l'une de l'autre, terme à terme sur un tableau |
+| compter les paires, les parcourir | `math.comb(n, 2)` $= \binom{n}{2}$ ; `itertools.combinations(range(n), 2)` énumère les paires $(i, j)$, $i < j$ ; `i, j = np.triu_indices(n, k=1)`, puis `G[i, j]` : les $\binom{n}{2}$ coefficients au-dessus de la diagonale d'une matrice $n \times n$, chaque paire une fois |
+
+Dans `mymath/cooccurrence.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, mais aucune SciPy (`scipy.special.logit`, `scipy.special.xlogy`, `scipy.optimize`) ni scikit-learn (`mutual_info_score`, `LogisticRegression`) : les tests comparent tes résultats aux leurs. Une loi jointe s'y donne en probabilités, jamais en comptes, et les logarithmes sont népériens. Les formules de la PMI, du logit d'une population estimé sur un échantillon cas-témoins et du retrait d'une direction sont dans la fiche (§2, §5 et §7) et dans le formulaire ; les coder est le travail des 🔨 MB2.13 et MB2.14.
 
 ## Calcul numérique
 
