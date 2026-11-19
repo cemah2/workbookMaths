@@ -2959,7 +2959,7 @@ def build_constants() -> dict:
 
     # M27.27: hidden cases of the three corrected functions
     kicks = []
-    for G in ([[2.0, 7.0], [5.0, 3.0]], [[9.0, 0.0], [2.0, 5.0]], [[-4.0, 5.0], [3.0, -1.0]]):
+    for G in ([[2.0, 8.0], [5.0, 3.0]], [[9.0, 0.0], [2.0, 5.0]], [[-4.0, 5.0], [3.0, -1.0]]):
         (ga, gb), (gc, gd) = G
         kappa = ga - gb - gc + gd
         assert ref.pure_strategy_values(G)[0] < ref.pure_strategy_values(G)[1]      # no saddle point

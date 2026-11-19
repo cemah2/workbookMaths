@@ -424,7 +424,7 @@ En échangeant les rôles de $\mathbf{x}$ et $\mathbf{y}$, $\max_i y_i \le \max_
 
 Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** (*1-Lipschitz*) pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$. Le ∂ M26.12 étend le lemme à la $k$-ième plus grande coordonnée et au supremum d'une famille.
 
-Le **supremum** (*supremum*) d'une fonction $f$ bornée sur un ensemble $E$, $\sup_E f$, est le plus petit majorant de ses valeurs, le symétrique de l'infimum de M13b §4 : $f(e) \le \sup_E f$ pour tout $e$, et tout nombre $M$ qui majore $f$ vérifie $\sup_E f \le M$. C'est le maximum quand il est atteint ; $\sup_{x < 1} x = 1$ ne l'est pas.
+Le **supremum** (*supremum*) d'une fonction $f$ bornée sur un ensemble $E$, $\sup_E f$, est le plus petit majorant de ses valeurs, le symétrique de l'infimum de M13b §4 : $f(e) \le \sup_E f$ pour tout $e$, et tout nombre $M$ qui majore $f$ vérifie $\sup_E f \le M$. C'est le maximum quand il est atteint ; $\sup_{0 \le x < 1} x = 1$ ne l'est pas.
 
 ### L'arrêt optimal
 

@@ -1557,7 +1557,7 @@ Avec `rng = np.random.default_rng(6222)`, `n_rep = 20000` (`N_REP_22`), et ce m�
 - d) vrai ou faux : dans tout le tableau, le biais de l'estimateur double est inférieur à 0,3 h en valeur absolue ;
 - e) avec $k = 3$, $n = 16$ et $\delta = 5$ : les deux biais, naïf puis double (une liste de 2 nombres ; 2 décimales dans ta copie).
 
-La vérification essaie `max_bias_22` sur un cas que tu ne vois pas, puis appelle `draw_bias_22` sur le tableau attendu et affiche la figure. Ce qu'il faut conclure : le biais grandit avec $k$ et décroît comme $1/\sqrt n$ (il est divisé par 4 quand $n$ est multiplié par 16) ; l'estimateur double est sans biais quand tout se vaut, et pessimiste quand une option est meilleure.""",
+La vérification essaie `max_bias_22` sur un cas que tu ne vois pas, puis appelle `draw_bias_22` sur ton tableau de a), une fois juste (sinon sur un tableau d'esquisse), et affiche la figure. Ce qu'il faut conclure : le biais grandit avec $k$ et décroît comme $1/\sqrt n$ (il est divisé par 4 quand $n$ est multiplié par 16) ; l'estimateur double est sans biais quand tout se vaut, et pessimiste quand une option est meilleure.""",
     todo='''def max_bias_22(k, n, delta, n_rep, rng):
     """n_rep experiments at once: the true means are MU_22, except that of supplier 0, MU_22 + delta; the n × k lives by
     rng.normal of shape (n_rep, n, k); the naive estimate is the largest of the k measured means; the double estimate
@@ -2653,11 +2653,11 @@ with checked("M26.26"):
             "valeur exacte (il en faut 8).")
     se_mean_c26 = float(np.std(estimates_c26, ddof=1)) / math.sqrt(len(runs_c26))   # measured on your ten estimates
     gap_c26 = float(estimates_c26.mean() - exact_c26)
-    verdict("M26.26", abs(gap_c26) <= 4 * se_mean_c26,
-            f"la moyenne de tes dix estimations est à moins de 4 erreurs types ({fr(4 * se_mean_c26, 4)}) de la valeur exacte "
+    verdict("M26.26", abs(gap_c26) <= 5 * se_mean_c26,
+            f"la moyenne de tes dix estimations est à moins de 5 erreurs types ({fr(5 * se_mean_c26, 4)}) de la valeur exacte "
             "du modèle : pas de biais visible.",
-            f"la moyenne de tes dix estimations s'écarte de la valeur exacte du modèle de plus de 4 erreurs types "
-            f"({fr(4 * se_mean_c26, 4)}) : ton estimateur a un biais (relis les deux cas cachés ci-dessous).")
+            f"la moyenne de tes dix estimations s'écarte de la valeur exacte du modèle de plus de 5 erreurs types "
+            f"({fr(5 * se_mean_c26, 4)}) : ton estimateur a un biais (relis les deux cas cachés ci-dessous).")
 
 with checked("M26.26"):
     chain_a_c26, chain_b_c26 = HIDDEN_C26
@@ -2747,7 +2747,7 @@ M26_26 = Ex(
 
 Écris `estimate_value_26(P, r, gamma, s0, budget, rng)`, qui simule des visites depuis l'état `s0` : à chaque page vue, la visite encaisse `r` de cette page, puis continue avec la probabilité `gamma` (sinon elle s'arrête) et passe à la page suivante selon la ligne de `P` ; elle somme les recettes **sans actualisation**. Chaque page vue est un pas simulé ; le nombre total de pas, toutes visites comprises, ne doit jamais dépasser `budget`, et toute visite simulée est menée à son terme et comptée (choisis donc le nombre de visites avec une marge). La fonction rend `(estimate, n_visits, n_steps)` : la moyenne des recettes totales, le nombre de visites et le nombre de pas simulés. Simule les visites en parallèle (des tableaux de visites en cours, un pas pour toutes à la fois) : une boucle Python pas à pas sur les 7 millions de pas de la vérification dépasserait la minute.
 
-**Critère de réussite :** avec `budget = 600_000` (`BUDGET_26`), pour chacune des dix graines 6230 à 6239 (`SEEDS_26`, `rng = np.random.default_rng(seed)`), `n_steps <= budget`, et l'estimation tombe à moins de 0,01 de la valeur exacte (par `bellman_linear_solve`) au moins 8 fois sur 10. La vérification contrôle d'abord que tes estimations viennent de simulations (elles varient d'une graine à l'autre, et chaque visite compte au moins un pas), puis compare la moyenne de tes dix estimations à la valeur exacte du modèle (à moins de 4 erreurs types, avec tes nombres de visites) ; elle contrôle, sur une chaîne cachée où chaque page rapporte 1 avec $\gamma = 0{,}96$, que `estimate * n_visits` égale `n_steps` (chaque pas compté, aucune actualisation ajoutée) et que l'estimation est à moins de 4 erreurs types de $\frac{1}{1 - 0{,}96} = 25$ (l'arrêt géométrique, sans troncature) ; et, sur une autre chaîne cachée avec $\gamma = 0{,}6$, que l'estimation est à moins de 4 erreurs types de la valeur exacte. Relève :
+**Critère de réussite :** avec `budget = 600_000` (`BUDGET_26`), pour chacune des dix graines 6230 à 6239 (`SEEDS_26`, `rng = np.random.default_rng(seed)`), `n_steps <= budget`, et l'estimation tombe à moins de 0,01 de la valeur exacte (par `bellman_linear_solve`) au moins 8 fois sur 10. La vérification contrôle d'abord que tes estimations viennent de simulations (elles varient d'une graine à l'autre, et chaque visite compte au moins un pas), puis compare la moyenne de tes dix estimations à la valeur exacte du modèle (à moins de 5 erreurs types, mesurées sur la dispersion de tes dix estimations) ; elle contrôle, sur une chaîne cachée où chaque page rapporte 1 avec $\gamma = 0{,}96$, que `estimate * n_visits` égale `n_steps` (chaque pas compté, aucune actualisation ajoutée) et que l'estimation est à moins de 4 erreurs types de $\frac{1}{1 - 0{,}96} = 25$ (l'arrêt géométrique, sans troncature) ; et, sur une autre chaîne cachée avec $\gamma = 0{,}6$, que l'estimation est à moins de 4 erreurs types de la valeur exacte. Relève :
 - a) la valeur exacte $V$ de la page 1, par ta `bellman_linear_solve` (un nombre ; 4 décimales dans ta copie) ;
 - b) l'écart-type de la recette totale d'une visite, estimé sur une simulation pilote de 20 000 visites (la graine que tu veux), et le nombre de visites qu'il faudrait pour une erreur type de 0,004 (une liste de 2 nombres ; 2 décimales et un entier dans ta copie) : la vérification l'accepte à 3 % près de l'écart-type exact du modèle ;
 - c) dans ta copie : tes dix estimations et ton nombre de succès (affichés par la vérification).

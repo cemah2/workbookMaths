@@ -158,7 +158,7 @@ Des paires qui se ressemblent et qu'il faut savoir séparer, chacune avec la que
 |---|---|---|
 | la loi marginale d'un bloc (le sous-bloc de $\boldsymbol{\Sigma}$) | sa loi conditionnelle (le complément de Schur) | ai-je lu une autre coordonnée ? |
 | la covariance du maximum de vraisemblance, $\frac{\mathbf{S}}{n}$ | la covariance empirique sans biais, $\frac{\mathbf{S}}{n - 1}$ | que demande-t-on : une vraisemblance maximale, ou une estimation sans biais ? |
-| $\mathrm{KL}(q \,\Vert\, p)$, qui choisit un mode | $\mathrm{KL}(p \,\Vert\, q)$, qui couvre la masse (et apparie les moments pour une gaussienne $q$) | sous quelle loi l'espérance est-elle prise ? |
+| $\mathrm{KL}(q \,\Vert\, p)$, qui choisit un mode (bosses séparées) | $\mathrm{KL}(p \,\Vert\, q)$, qui couvre la masse (et apparie les moments pour une gaussienne $q$) | sous quelle loi l'espérance est-elle prise ? |
 | la responsabilité $r_{ik}$, une probabilité | l'affectation dure, une décision | garde-t-on l'incertitude ou la tranche-t-on ? |
 | la convention ligne, $\boldsymbol{\mu}\mathbf{P}$ | la convention colonne, $\mathbf{P}^\top\boldsymbol{\mu}^\top$ | la ligne $i$ de $\mathbf{P}$ donne-t-elle les suites de $i$ ? |
 | une ligne de somme 1 | une ligne sous-stochastique, qui peut finir | où va la masse qui manque ? |
