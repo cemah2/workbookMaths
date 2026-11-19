@@ -53,6 +53,7 @@ Pour les §3, §6, §7 et §8, la fiche est le cours : MML ne traite ni la masse
 - $\mathbf{L}$ est le facteur de Cholesky ($\boldsymbol{\Sigma} = \mathbf{L}\mathbf{L}^\top$, M12c) ; $\boldsymbol{\varepsilon}$ est toujours un vecteur de loi $\mathcal{N}(\mathbf{0}, \mathbf{I})$ ; le bruit d'un modèle, que MML note $\boldsymbol{\epsilon}$, s'écrit $\mathbf{w}$.
 - Les blocs s'indexent $a$ et $b$ ($\mathbf{x}_a$, $\boldsymbol{\Sigma}_{ab}$), comme dans la docstring de `condition_gaussian` ; MML (6.64) les appelle $\mathbf{x}$ et $\mathbf{y}$ ($\boldsymbol{\Sigma}_{xy}$, $\boldsymbol{\mu}_{x \mid y}$).
 - Les vecteurs de la fiche sont des **colonnes** ; dans NumPy et `mymath`, plusieurs vecteurs sont les **lignes** d'un tableau $(n, d)$ (§2).
+- **Lettres à double sens.** $\lambda$ est une valeur propre aux §1 à §4 et une longitude au §8 ; $\mathbf{R}$ (en gras) la covariance du bruit au §5, $R$ un rayon au §8 ; $\mathbf{S}_0$ et $\mathbf{S}_N$ (§5) gardent les noms de MML, où $N$ est le nombre de données (ici $n$), alors que $\mathbf{S}$ sans indice (§6) est la matrice de dispersion ; $\boldsymbol{\Phi}$ (en gras) est la matrice des features, $\Phi$ la fonction de répartition de $\mathcal{N}(0, 1)$.
 
 Vocabulaire anglais de ce chapitre : *multivariate normal distribution*, *covariance matrix*, *standard normal distribution*, *Gaussian random vector*, *Mahalanobis distance*, *log-density*, *degenerate distribution*, *change of variables*, *Jacobian determinant*, *Cholesky factor*, *sampling*, *whitening*, *level set*, *chi-squared distribution*, *chi distribution*, *Rayleigh distribution*, *mode*, *block matrix*, *Schur complement*, *marginal distribution*, *conditional distribution*, *cross-covariance*, *precision matrix*, *conditional independence*, *linear Gaussian model*, *Kalman filter*, *Bayesian linear regression*, *posterior predictive distribution*, *marginal likelihood*, *evidence*, *completing the square*, *scatter matrix*, *Kullback-Leibler divergence*, *support*, *differential entropy*, *Jensen's inequality*, *spherical linear interpolation (slerp)*, *great circle*, *chord*.
 
@@ -196,7 +197,7 @@ Le vecteur $(\mathbf{x}, \mathbf{y})$, mis bout à bout, est gaussien (admis pou
 ### Ce qui ne reste pas gaussien
 
 - **Deux coordonnées gaussiennes ne font pas un vecteur gaussien.** Soit $x \sim \mathcal{N}(0, 1)$ et $s$ un signe $\pm 1$ tiré à pile ou face, indépendant de $x$ ; posons $y = s\,x$. Par symétrie de la cloche, $y \sim \mathcal{N}(0, 1)$. Mais $x + y$ vaut 0 avec la probabilité $\frac12$ sans être constante : ce n'est pas une variable normale, et $(x, y)$ n'est pas un vecteur gaussien. De plus, $\operatorname{Cov}(x, y) = \mathbb{E}[s]\,\mathbb{E}[x^2] = 0$, alors que $\lvert y\rvert = \lvert x\rvert$ : décorrélées et dépendantes, ce qui est impossible dans un vecteur gaussien (§4).
-- **Le produit** de deux variables normales indépendantes n'est pas normal : pour $x, y \sim \mathcal{N}(0, 1)$, $xy$ est centrée, de variance 1, mais $\mathbb{E}[(xy)^4] = 9 \ne 3$, le moment d'ordre 4 de $\mathcal{N}(0, 1)$ (M07.13, ou M02c §9, qui a admis $\mathbb{V}(Z^2) = 2$). Le **produit de deux densités** gaussiennes (§5), lui, est gaussien à un facteur près.
+- **Le produit** de deux variables normales indépendantes n'est pas normal : pour $x, y \sim \mathcal{N}(0, 1)$, $xy$ est centrée, de variance 1, mais $\mathbb{E}[(xy)^4] = 9 \ne 3$, le moment d'ordre 4 de $\mathcal{N}(0, 1)$ (M07.13, ou M02c §9, qui a admis $\mathbb{V}(Z^2) = 2$). Le **produit de deux densités** gaussiennes (*product of Gaussian densities*, §5), lui, est gaussien à un facteur près.
 - **La norme** $\lVert\mathbf{x}\rVert$ n'est normale que si $\mathbf{x}$ est constant : elle est positive, alors qu'une loi normale non dégénérée donne une probabilité positive aux nombres négatifs. Sa loi est au §3.
 
 💻 **Aujourd'hui en pratique** — avec `rng = np.random.default_rng(seed)`, `rng.multivariate_normal(mean, cov, size=n, method="cholesky")` tire $n$ vecteurs d'un coup (sans `method`, il passe par une SVD). Tu écris `sample_mvn` en 🔨 M25a.21, avec un seul appel `rng.standard_normal((n, d))`, et tu la testes par ses moments en 🛠️ M25a.29.
@@ -529,7 +530,7 @@ Elle ne dépend pas de $\boldsymbol{\mu}$, et croît avec $\det\boldsymbol{\Sigm
 
 Le calcul repose sur l'espérance d'une forme quadratique :
 
-> **Lemme de la trace.** Si $\mathbf{x}$ a pour moyenne $\boldsymbol{\mu}$ et pour covariance $\boldsymbol{\Sigma}$ (gaussien ou non), alors pour toute matrice $\mathbf{A}$ et tout vecteur $\mathbf{m}$,
+> **Lemme de la trace** (*expectation of a quadratic form*). Si $\mathbf{x}$ a pour moyenne $\boldsymbol{\mu}$ et pour covariance $\boldsymbol{\Sigma}$ (gaussien ou non), alors pour toute matrice $\mathbf{A}$ et tout vecteur $\mathbf{m}$,
 > $$\mathbb{E}\big[(\mathbf{x} - \mathbf{m})^\top\mathbf{A}(\mathbf{x} - \mathbf{m})\big] = \operatorname{tr}(\mathbf{A}\boldsymbol{\Sigma}) + (\boldsymbol{\mu} - \mathbf{m})^\top\mathbf{A}(\boldsymbol{\mu} - \mathbf{m}).$$
 
 L'idée : écrire $\mathbf{x} - \mathbf{m} = (\mathbf{x} - \boldsymbol{\mu}) + (\boldsymbol{\mu} - \mathbf{m})$, développer (les termes croisés ont une espérance nulle), puis appliquer l'astuce de la trace au premier terme. Pour $\mathbf{m} = \boldsymbol{\mu}$ et $\mathbf{A} = \boldsymbol{\Sigma}^{-1}$, il donne $\mathbb{E}[\Delta^2] = \operatorname{tr}(\mathbf{I}) = d$ : la moyenne d'une loi du khi-deux à $d$ degrés (§3).
@@ -564,10 +565,10 @@ M22 §2 a admis la règle $e^{i\gamma}e^{i\psi} = e^{i(\gamma + \psi)}$, en nota
 $$e^{i(\gamma - \psi)} = (\cos\gamma\cos\psi + \sin\gamma\sin\psi) + i\,(\sin\gamma\cos\psi - \cos\gamma\sin\psi),$$
 et l'on identifie les parties réelles et imaginaires :
 
-> **Formules de soustraction.** Pour tous réels $\gamma$ et $\psi$,
+> **Formules de soustraction** (*angle subtraction formulas*). Pour tous réels $\gamma$ et $\psi$,
 > $$\sin(\gamma - \psi) = \sin\gamma\cos\psi - \cos\gamma\sin\psi, \qquad \cos(\gamma - \psi) = \cos\gamma\cos\psi + \sin\gamma\sin\psi .$$
 
-MB3 s'en resservira.
+MB3 les démontrera sans l'exponentielle complexe, par le produit scalaire de deux vecteurs unitaires, et en tirera la règle $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$ que M22 admettait.
 
 ### Le slerp : formule et propriétés
 

@@ -2838,7 +2838,7 @@ def footer_cells(kind: str) -> list:
                "5. Sais-tu dire pourquoi une distance estimée sur des échantillons est biaisée, et ce que mesurent KS et "
                "$W_1$ ?\n\n"
                "**La suite** : M28, sur la matrice de Gram, la montée sur l'entrée et les lois tronquées, puis le "
-               "chapitre 27 de workbookIA, qui applique ces outils aux réseaux génératifs adverses.")]
+               "chapitre 27 de workbookIA, qui applique ces outils aux réseaux antagonistes génératifs (GAN).")]
 
 
 def build(kind: str) -> list:

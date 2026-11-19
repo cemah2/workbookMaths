@@ -39,7 +39,7 @@
 - **Chaînes.** Convention **ligne** : la loi est une ligne, $\boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}$ ; $p_{ij} = P(S_{t+1} = j \mid S_t = i)$ ; les états sont numérotés à partir de 0 ; une ligne de somme plus petite que 1 dit que le processus peut finir après cet état (la masse manquante est la probabilité de finir). Les récompenses et les valeurs sont des colonnes, $\mathbf{V} = \mathbf{r} + \gamma\mathbf{P}\mathbf{V}$, et $\gamma = 1$ est permis quand la fin est sûre.
 - **Jeux.** $\mathbf{G} = (g_{ij})$ donne ce que gagne le joueur des lignes (qui maximise) et ce que paie le joueur des colonnes (qui minimise) ; dans un jeu $2 \times 2$, $p$ et $q$ sont les probabilités de la première ligne et de la première colonne, $p^\star$ et $q^\star$ leurs valeurs optimales. La descente-montée alternée met à jour $x$ d'abord, puis $y$ avec le nouveau $x$ (M27 §4).
 - **Distances entre lois.** $W_p$ est la distance de Wasserstein (et $W_p^p$ le coût minimal) ; la distance de Fréchet de deux gaussiennes est leur $W_2$ ; JS est en nats.
-- **Matrices de Gram.** Les points sont les lignes de $\mathbf{X}$ et $\mathbf{G} = \mathbf{X}\mathbf{X}^\top$ ; $\mathbf{D}^{(2)}$ est la matrice des **carrés** des distances et $\mathbf{J} = \mathbf{I} - \frac1n\mathbf{1}\mathbf{1}^\top$.
+- **Matrices de Gram.** Les points sont les lignes de $\mathbf{X}$ et $\mathbf{G} = \mathbf{X}\mathbf{X}^\top$ ; $\mathbf{D}^{(2)}$ est la matrice des **carrés** des distances et $\mathbf{J} = \mathbf{I} - \frac1n\mathbf{1}\mathbf{1}^\top$ (la même lettre que la matrice des gains : chaque exercice n'emploie que l'une des deux).
 - **Lois tronquées.** Une loi est un vecteur de probabilités ; entre deux probabilités égales, le plus petit état passe d'abord ; le top-p de seuil $m$ prend les issues par probabilité décroissante, une à une, jusqu'à ce que leur masse $P(S)$ atteigne $m$, et la loi tronquée est la loi conditionnelle sur $S$.
 - **Listes.** Une réponse en liste se donne dans l'ordre de la question : les coordonnées ou les états dans l'ordre de leurs numéros, et les éléments annoncés par « puis » dans cet ordre. Quand l'ordre ne compte pas, la question le dit (« dans n'importe quel ordre »).
 - Dans le notebook, tu recopies chaque réponse comme sur ta copie, après sa lettre : une matrice comme la liste de ses **lignes**, une fraction irréductible telle quelle, comme `3/8`.
@@ -88,7 +88,7 @@ $$\boldsymbol{\mu}_0 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \boldsymbol{\
 |---|---|---|
 | a | données 1 : $\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0)$ | un nombre (valeur exacte) |
 | b | données 1 : $\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta}$ | un nombre (valeur exacte) |
-| c | données 1 : $\mathrm{KL}(p_0 \,\|\, p_1)$, en nats | un nombre (4 décimales) |
+| c | données 1 : $\mathrm{KL}(p_0 \,\Vert\, p_1)$, en nats | un nombre (4 décimales) |
 | d | données 2 : l'angle $\Omega$, en degrés | un nombre (2 décimales) |
 | e | données 2 : $\operatorname{slerp}(\mathbf{u}, \mathbf{v} ;\ \frac14)$ | une liste de 3 nombres (4 décimales) |
 | f | données 2 : la norme du point $(1 - t)\,\mathbf{u} + t\,\mathbf{v}$ de la ligne droite, pour $t = \frac14$ | un nombre (3 décimales) |
@@ -224,7 +224,7 @@ $$\mathbf{P} = \begin{pmatrix} 0{,}32 & 0{,}60 & 0{,}08 \\ 0{,}21 & 0{,}33 & 0{,
 | b | données 1 : la prépériode $\mu$ (un nombre de pas, pas une loi), puis la période $\lambda$ de la suite gloutonne | une liste de 2 entiers |
 | c | données 2 : l'ensemble $S_1$, par probabilité décroissante | une liste d'entiers |
 | d | données 2 : la loi tronquée $\mathbf{p}_{S_1}$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
-| e | données 2 : le coût de la troncature de la ligne 1, $\mathrm{KL}(\mathbf{p}_{S_1} \,\|\, \mathbf{p}_1)$, en nats | un nombre (4 décimales) |
+| e | données 2 : le coût de la troncature de la ligne 1, $\mathrm{KL}(\mathbf{p}_{S_1} \,\Vert\, \mathbf{p}_1)$, en nats | un nombre (4 décimales) |
 | f | données 2 : la matrice $\mathbf{P}'$ | une matrice $3 \times 3$ (4 décimales) |
 | g | données 2 : la loi stationnaire $\boldsymbol{\pi}'$ de $\mathbf{P}'$ (états 0, 1, 2) | une liste de 3 nombres (4 décimales) |
 

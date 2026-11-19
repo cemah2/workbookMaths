@@ -205,9 +205,9 @@ Pour un bulletin plus tranché, la station la refroidit à $T = \frac13$ ; pour 
 |---|---|---|
 | a | la loi refroidie $\mathbf{p}^{(1/3)}$, dans l'ordre des catégories 0 à 5 | une liste de 6 nombres (3 décimales) |
 | b | la loi du top-3 de $\mathbf{p}$, $\mathbf{p}_S$, dans l'ordre des catégories 0 à 5 | une liste de 6 nombres (4 décimales) |
-| c | $\mathrm{KL}(\mathbf{p}_S \,\|\, \mathbf{p})$, puis $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1$, pour ce top-3 | une liste de 2 nombres (4 décimales) |
+| c | $\mathrm{KL}(\mathbf{p}_S \,\Vert\, \mathbf{p})$, puis $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1$, pour ce top-3 | une liste de 2 nombres (4 décimales) |
 | d | l'ensemble gardé par le top-p de $\mathbf{p}$ de seuil $m = 0{,}87$, par probabilité décroissante | une liste d'entiers |
-| e | $\mathrm{KL}(\mathbf{p}_S \,\|\, \mathbf{p})$, puis $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1$, pour ce top-p | une liste de 2 nombres (4 décimales) |
+| e | $\mathrm{KL}(\mathbf{p}_S \,\Vert\, \mathbf{p})$, puis $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1$, pour ce top-p | une liste de 2 nombres (4 décimales) |
 | f | l'intervalle des seuils $m \in\ ]0, 1]$ pour lesquels le top-p de $\mathbf{p}$ garde exactement trois catégories | un intervalle entre guillemets |
 
 Dans ta copie : écris les six cubes et leur somme ; dis pourquoi le top-3 de la loi refroidie garde les mêmes catégories que celui de $\mathbf{p}$ ; vérifie la divergence KL de c) par la somme $\sum_ip_{S,i}\ln\frac{p_{S,i}}{p_i}$, pas seulement par la formule de la fiche ; dis pourquoi $\mathrm{KL}(\mathbf{p} \,\|\, \mathbf{p}_S)$ est infinie ; compare les coûts de c) et de e), et dis d'où vient l'écart ; dis combien de catégories garde le top-p de seuil 0,87 de la loi refroidie, et en quoi c'est cohérent avec la fiche.

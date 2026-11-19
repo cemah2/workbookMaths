@@ -335,7 +335,7 @@ COVERAGE = {
     },
     "25": {
         "autoencodeur (encodeur, décodeur, goulot)": "M12d",
-        "détection d'anomalies par reconstruction": "M12d",
+        "détection d'anomalies par reconstruction": "M03,M12d",
         "espace latent": "M25b",
         "PSNR": "R6",
         "autoencodeur linéaire et ACP": "M12d,M25b",
@@ -345,6 +345,7 @@ COVERAGE = {
         "ELBO": "M25b",
         "β-VAE": "M13b,M25b",
         "interpolation sphérique (slerp)": "M25a",
+        "autoencodeur convolutif": "M21",  # formes et output_padding d'une convolution transposée (✏️ 25.3, 25.4)
     },
     "26": {
         "politique": "M26",
@@ -354,6 +355,9 @@ COVERAGE = {
         "ε-greedy et softmax (Boltzmann)": "M11,M17",
         "équation de Bellman": "M26",
         "itération sur les valeurs": "M26",
+        "conception de la récompense": "R5,M26",  # récompense ajoutée γΦ(s′) − Φ(s) (∂ M26.13), somme géométrique
+        "on-policy / off-policy": "M26",  # valeur d'une politique stochastique contre valeur optimale (M26 §4 à §7)
+        "reproductibilité en RL (graines multiples)": "M02c",  # un intervalle sur plusieurs graines (🛠️ 26.34)
     },
     "27": {
         "GAN : générateur et discriminateur": "M27",
@@ -362,6 +366,8 @@ COVERAGE = {
         "distance de Wasserstein 1D": "M27",
         "distance de Fréchet (FID)": "M12c,M27",
         "équilibre de Nash (idée)": "M27",
+        "boucle d'entraînement alternée (detach, deux optimiseurs)": "M27",  # descente-montée alternée (M27 §4)
+        "effondrement de mode": "M25b,M27",  # un mélange de gaussiennes, une KL inverse qui choisit un mode
     },
     "28": {
         "maximisation d'activation": "M12c,M21,M28",
@@ -370,6 +376,7 @@ COVERAGE = {
         "matrice de Gram": "M12c,M13b,M28",
         "losses de contenu, de style et de variation totale": "M09b,M12d,M18,M28",
         "stratégies de décodage (glouton, température, top-k, top-p)": "M02b,M17,M28",
+        "génération de texte mot à mot": "M28",  # un générateur glouton à contexte fini boucle (M28 §6)
     },
     "29": {
         "décalage de distribution": "M02c,M03",

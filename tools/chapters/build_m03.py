@@ -1238,7 +1238,7 @@ def build(kind: str) -> list:
     cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
     cells += objectives_cell()
     cells += paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO,
-                         learner_context="from fractions import Fraction   # Fraction(3, 4) is accepted too, as \"3/4\"")
+                         learner_context="from fractions import Fraction   # Fraction(5, 8) is accepted too, as \"5/8\"")
     for part in PARTS:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)

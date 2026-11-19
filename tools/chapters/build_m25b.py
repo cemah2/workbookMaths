@@ -2048,7 +2048,7 @@ M25B_28 = Ex(
     body=r"""Un collègue a écrit trois fonctions pour des mesures en dimension 1 (`x` est un tableau 1-D, `sds` les **écarts-types**), chacune accompagnée d'une vérification qui passe (cellule fournie) :
 1. `machine_shares(x, weights, means, sds)` doit rendre les responsabilités, de forme $(n, K)$ ; elle calcule chaque $\pi_k\,\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)$ par `np.exp`, puis divise chaque ligne par sa somme. Il l'a vérifiée sur les quatre résistances de M25b.3 (paramètres de départ, `sds` = les racines de 1 et 2,5) : chaque ligne a pour somme 1 et toutes les valeurs sont dans $[0, 1]$. Il l'applique au bac qui contient aussi la résistance de 120 Ω (`X_BIN_28`).
 2. `refit_machines(x, resp)` doit rendre le pas M, `(weights, means, variances)` ; elle calcule les poids $N_k/n$, les moyennes $\frac{1}{N_k}\sum_ir_{ik}x_i$, puis les variances $\frac1n\sum_ir_{ik}(x_i - \mu_k)^2$. Il l'a vérifiée avec une seule composante (une colonne de 1) : elle rend bien `np.mean(x)` et `np.var(x)`.
-3. `bound_of_evidence(x, resp, weights, means, sds)` doit rendre l'ELBO ; elle rend $\sum_i\sum_kr_{ik}\big(\ln\pi_k + \ln\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)\big)$. Il l'a vérifiée sur 200 tableaux de responsabilités tirés au hasard (`np.random.default_rng(6066).dirichlet`) : elle reste toujours sous la log-vraisemblance des quatre résistances.
+3. `bound_of_evidence(x, resp, weights, means, sds)` doit rendre l'ELBO ; elle rend $\sum_i\sum_kr_{ik}\big(\ln\pi_k + \ln\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)\big)$. Il l'a vérifiée sur 200 tableaux de responsabilités tirés au hasard (`np.random.default_rng(6066).dirichlet` : chaque ligne est un vecteur de probabilités tiré uniformément parmi ceux de taille $K$ ; la loi de Dirichlet n'est pas au programme, seule compte ici cette propriété) : elle reste toujours sous la log-vraisemblance des quatre résistances.
 
 À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `machine_shares_fixed`, `refit_machines_fixed` et `bound_of_evidence_fixed`, avec les mêmes arguments (sans SciPy, et sans jamais calculer $0/0$ ni $\ln 0$). Puis réponds :
 - a) vrai ou faux : la dernière ligne que rend `machine_shares` pour les cinq résistances contient des `nan` ;
@@ -2345,7 +2345,7 @@ M25B_29 = Ex(
     "justifiée, et qui échoue sur un pas faux.",
     "fiche §4 et §5 ; Ex M25b.20 à M25b.22 et M25b.26", tracks="C", given=GIVEN_29, note=NOTE_29,
     body=r"""Écris `em_property_test_29(X, weights, means, covs, m_step, n_iter, tol, rng)`, qui fait `n_iter` itérations de l'EM depuis les paramètres donnés (le pas E de ton `gmm_e_step`, puis le pas M `m_step(X, resp)` reçu) et rend un dictionnaire de trois compteurs (des nombres entiers) :
-- `"bound"`, le nombre d'itérations où l'ELBO d'un tableau de responsabilités tiré au hasard (`rng.dirichlet(np.ones(K), size=n)`, un par itération) dépasse la log-vraisemblance de plus de `tol * (1 + |ℓ|)` ;
+- `"bound"`, le nombre d'itérations où l'ELBO d'un tableau de responsabilités tiré au hasard (`rng.dirichlet(np.ones(K), size=n)` : chaque ligne est un vecteur de probabilités tiré uniformément parmi ceux de taille $K$ ; la loi de Dirichlet n'est pas au programme, seule compte ici cette propriété ; un tableau par itération) dépasse la log-vraisemblance de plus de `tol * (1 + |ℓ|)` ;
 - `"gap"`, le nombre d'itérations où l'ELBO au posterior (après le pas E) s'écarte de la log-vraisemblance de plus de `tol * (1 + |ℓ|)` ;
 - `"descent"`, le nombre de demi-pas où l'ELBO baisse de plus de `tol * (1 + |ELBO|)`.
 

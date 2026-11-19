@@ -294,11 +294,11 @@ La loi exponentielle de paramètre $\lambda > 0$ a pour densité $\lambda e^{-\l
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la KL de la loi exponentielle de paramètre $a$ à celle de paramètre $b$, en fonction de $a$ et $b$ (ici, $a$ et $b$ sont des paramètres) | une expression en `a` et `b`, entre guillemets |
-| b | $\mathrm{KL}(p \,\|\, q)$ pour les batteries | un nombre (3 décimales) |
-| c | $\mathrm{KL}(q \,\|\, p)$ | un nombre (3 décimales) |
-| d | un temps d'attente, en minutes, suit la loi uniforme sur $[2, 5]$ (la loi $p'$) ; un modèle propose la loi uniforme sur $[0, 10]$ (la loi $q'$) : $\mathrm{KL}(p' \,\|\, q')$ | un nombre (3 décimales) |
-| e | vrai ou faux : $\mathrm{KL}(q' \,\|\, p')$ est finie | `True` ou `False` |
-| f | le moteur du même appareil dure, en années, une loi exponentielle de moyenne 6 ans ($p_2$) ; la fiche technique annonce une moyenne de 10 ans ($q_2$) : $\mathrm{KL}(p_2 \,\|\, q_2)$ | un nombre (3 décimales) |
+| b | $\mathrm{KL}(p \,\Vert\, q)$ pour les batteries | un nombre (3 décimales) |
+| c | $\mathrm{KL}(q \,\Vert\, p)$ | un nombre (3 décimales) |
+| d | un temps d'attente, en minutes, suit la loi uniforme sur $[2, 5]$ (la loi $p'$) ; un modèle propose la loi uniforme sur $[0, 10]$ (la loi $q'$) : $\mathrm{KL}(p' \,\Vert\, q')$ | un nombre (3 décimales) |
+| e | vrai ou faux : $\mathrm{KL}(q' \,\Vert\, p')$ est finie | `True` ou `False` |
+| f | le moteur du même appareil dure, en années, une loi exponentielle de moyenne 6 ans ($p_2$) ; la fiche technique annonce une moyenne de 10 ans ($q_2$) : $\mathrm{KL}(p_2 \,\Vert\, q_2)$ | un nombre (3 décimales) |
 | g | la batterie et le moteur sont indépendants sous la loi réelle comme sous la fiche technique : la KL de la loi réelle du couple (batterie, moteur) à celle de la fiche | un nombre (3 décimales) |
 | h | vrai ou faux : si, d'après la fiche technique, les deux durées de vie dépendaient l'une de l'autre, g) serait toujours égal à la somme de b) et de f) | `True` ou `False` |
 
@@ -317,10 +317,10 @@ On note $\boldsymbol{\delta} = \boldsymbol{\mu}_1 - \boldsymbol{\mu}_0$.
 | a | $\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0)$ | une fraction irréductible, entre guillemets |
 | b | $\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta}$ | une fraction irréductible, entre guillemets |
 | c | $\ln\frac{\det\boldsymbol{\Sigma}_1}{\det\boldsymbol{\Sigma}_0}$ | une valeur exacte, entre guillemets |
-| d | $\mathrm{KL}(p_0 \,\|\, p_1)$ | un nombre (4 décimales) |
+| d | $\mathrm{KL}(p_0 \,\Vert\, p_1)$ | un nombre (4 décimales) |
 | e | $\operatorname{tr}(\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\Sigma}_1)$ | une fraction irréductible, entre guillemets |
 | f | $\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\delta}$ | une fraction irréductible, entre guillemets |
-| g | $\mathrm{KL}(p_1 \,\|\, p_0)$ | un nombre (4 décimales) |
+| g | $\mathrm{KL}(p_1 \,\Vert\, p_0)$ | un nombre (4 décimales) |
 | h | un réglage C a la covariance $\boldsymbol{\Sigma}_0$ du réglage A et la moyenne $\boldsymbol{\mu}_1$ du réglage B : la KL de la loi du réglage A à celle du réglage C | une fraction irréductible, entre guillemets |
 | i | la différence des entropies différentielles $h(p_1) - h(p_0)$, en nats | un nombre (4 décimales) |
 

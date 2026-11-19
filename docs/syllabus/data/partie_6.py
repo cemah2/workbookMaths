@@ -404,7 +404,7 @@ CHAPTERS = [
                     "bases ; deux sous-espaces de même dimension sont égaux si et seulement si tous leurs angles sont "
                     "nuls (en général, tous nuls si et seulement si le plus petit est contenu dans l'autre)",
                     "inférence approchée : famille de lois q, KL(q ‖ p) (évite de mettre de la masse là où p est "
-                    "faible, choisit un mode) contre KL(p ‖ q) (couvre toute la masse ; pour une famille gaussienne, "
+                    "faible, choisit un mode quand les bosses de p sont séparées) contre KL(p ‖ q) (couvre toute la masse ; pour une famille gaussienne, "
                     "apparie les moments) ; maximiser l'ELBO, c'est minimiser KL(q ‖ p(z | x))",
                     "inférence amortie : une règle x ↦ q(z | x) commune à toutes les observations ; écart "
                     "d'amortissement : ELBO amortie ≤ meilleure ELBO par observation ≤ ln p(x)",
@@ -433,9 +433,10 @@ CHAPTERS = [
                      ("log-sum-exp stable (`logsumexp`)", "M05a"),
                      ("entropie, divergence KL discrète, information mutuelle, inégalité de Jensen discrète", "M06"),
                      ("distance euclidienne, k-means", "M07"),
+                     ("gradient d'une forme quadratique (x − μ)ᵀA(x − μ)", "M09b"),
                      ("base orthonormée d'un sous-espace, Gram-Schmidt, projection orthogonale", "M12b"),
                      ("théorème spectral, valeurs propres d'une covariance", "M12c"),
-                     ("SVD, ACP, approximation de rang faible", "M12d"),
+                     ("SVD, ACP, approximation de rang faible, pseudo-inverse", "M12d"),
                      ("maximum de vraisemblance, log-vraisemblance, proportion d'un mélange à composantes connues",
                       "M13a"),
                      ("multiplicateurs de Lagrange, KKT", "M13b"),
@@ -745,7 +746,9 @@ CHAPTERS = [
                     "opérateur de Bellman, γ-contraction pour ‖·‖∞ ; convergence géométrique en γᵏ ; borne a posteriori "
                     "γ/(1 − γ)‖V_k − V_{k−1}‖∞ et critère d'arrêt ; itérations synchrones (Richardson de pas 1) et en "
                     "place (Gauss-Seidel) ; théorème du point fixe de Banach (énoncé)",
-                    "un opérateur avec un maximum : |max x − max y| ≤ max |x − y| ; arrêt optimal V = max(g, c + γPV), "
+                    "un opérateur avec un maximum : |max x − max y| ≤ max |x − y| ; supremum d'une fonction bornée "
+                    "(plus petit majorant, symétrique de l'infimum de M13b) et |sup f − sup g| ≤ sup |f − g| ; "
+                    "arrêt optimal V = max(g, c + γPV), "
                     "valeur de continuation et règle à seuil ; équation d'optimalité de Bellman, itération sur les valeurs "
                     "et politique gloutonne (énoncées)",
                     "estimer une valeur par la moyenne de retours simulés, tronqués ; pas 1/n et pas constant ; conditions "
@@ -1048,7 +1051,8 @@ CHAPTERS = [
                     "alternée (une courbe fermée, une ellipse : x² + y² − ηxy reste constant sur xy) sur un jeu "
                     "bilinéaire ; l'équilibre est un point selle de f",
                     "meilleur prédicteur pour la log-loss : la probabilité a posteriori "
-                    "P(Y = 1 | x) = π₁p₁(x)/(π₁p₁(x) + π₀p₀(x)) (Bayes, priors quelconques) ; le maximum de "
+                    "P(Y = 1 | x) = π₁p₁(x)/(π₁p₁(x) + π₀p₀(x)) (Bayes, priors quelconques) ; la log-loss est une règle "
+                    "de score propre (*proper scoring rule*) ; le maximum de "
                     "vraisemblance k ln p + (n − k) ln(1 − p) d'une loi de Bernoulli rappelé (M04.12, M13a.1), avec "
                     "des comptes entiers",
                     "divergence de Jensen-Shannon revisitée : 0 ≤ JS ≤ ln 2, JS = ln 2 pour des supports disjoints, "
@@ -1390,6 +1394,7 @@ CHAPTERS = [
                      ("produit scalaire, normes, Cauchy-Schwarz, similarité cosinus", "M07"),
                      ("transposée, XᵀX et XXᵀ", "M09a"), ("ridge : un terme de régularisation pondéré", "M09b"),
                      ("fonctions convexes de plusieurs variables", "M10"),
+                     ("application linéaire, image, dimension", "M12a"),
                      ("bases orthonormées, matrices orthogonales, Gram-Schmidt, projection sur un sous-espace", "M12b"),
                      ("théorème spectral, quotient de Rayleigh, méthode de la puissance, matrices semi-définies "
                       "positives, matrice de Gram XᵀX", "M12c"),
@@ -1400,7 +1405,9 @@ CHAPTERS = [
                      ("projection sur une boule et sur un pavé, pas critique 2/λmax", "M19"),
                      ("matrice de centrage", "M20"),
                      ("laplacien discret, moyenne mobile, convolutions circulaires, forme linéaire sur une boule", "M21"),
-                     ("rayon spectral majoré par une norme induite, formules d'addition par l'exponentielle complexe", "M22")],
+                     ("rayon spectral majoré par une norme induite", "M22"),
+                     ("formules de soustraction sin(γ − ψ) et cos(γ − ψ), d'où cos(a − b) + cos(a + b) = 2 cos a cos b",
+                      "M25a")],
         "frontieres": ["28.2", "28.4", "28.7", "28.8", "28.10", "28.12", "28.13", "28.15", "28.16", "28.17",
                        "28.18", "28.24", "28.25", "28.28", "28.Q2", "28.Q7", "28.Q10", "28.R2", "28.E2", "28.E3", "B4.Q5", "B4.13"],
         "mymath": {"module": "sampling.py",

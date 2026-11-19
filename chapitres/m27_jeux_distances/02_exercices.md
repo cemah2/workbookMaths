@@ -231,7 +231,7 @@ Un bus passe à un arrêt à une heure uniforme dans une fenêtre de 5 minutes :
 | a | $\mathrm{JS}(p, q)$ pour $\theta = 1$ (nats) | un nombre (3 décimales) |
 | b | $\mathrm{JS}(p, q)$ pour $\theta = 3$ (nats) | un nombre (3 décimales) |
 | c | $\mathrm{JS}(p, q)$ pour $\theta = 8$, puis pour $\theta = 80$ (nats) | une liste de 2 nombres (3 décimales) |
-| d | vrai ou faux : $\mathrm{KL}(p \,\|\, q)$ est finie pour $\theta = 1$ | `True` ou `False` |
+| d | vrai ou faux : $\mathrm{KL}(p \,\Vert\, q)$ est finie pour $\theta = 1$ | `True` ou `False` |
 | e | $W_1(p, q)$ pour $\theta = 8$, puis pour $\theta = 80$ (minutes) | une liste de 2 nombres |
 
 Dans ta copie : pour $0 < \theta < 5$, découpe l'axe en trois morceaux, écris $m = \frac{p + q}{2}$ sur chacun, calcule $\mathrm{KL}(p \,\|\, m)$ et $\mathrm{KL}(q \,\|\, m)$, et déduis-en $\mathrm{JS}$ en fonction de $\theta$ ; fais de même pour $\theta \ge 5$ ; trace $\mathrm{JS}$ et $W_1$ en fonction de $\theta$ sur $[0 ; 12]$, et dis ce que le décalage lui-même mesure.

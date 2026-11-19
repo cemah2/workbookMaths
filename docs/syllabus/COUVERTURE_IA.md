@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 362 notions mathématiques couvertes, 196 notions non mathématiques.
+**Bilan** : 369 notions mathématiques couvertes, 189 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -448,7 +448,7 @@ Non mathématiques : démarche expérimentale et journal d'expériences · estim
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | autoencodeur (encodeur, décodeur, goulot) | M12d |
-| détection d'anomalies par reconstruction | M12d |
+| détection d'anomalies par reconstruction | M03, M12d |
 | espace latent | M25b |
 | PSNR | R6 |
 | autoencodeur linéaire et ACP | M12d, M25b |
@@ -458,8 +458,9 @@ Non mathématiques : démarche expérimentale et journal d'expériences · estim
 | ELBO | M25b |
 | β-VAE | M13b, M25b |
 | interpolation sphérique (slerp) | M25a |
+| autoencodeur convolutif | M21 |
 
-Non mathématiques : autoencodeur convolutif · autoencodeur débruiteur
+Non mathématiques : autoencodeur débruiteur
 
 ## workbookIA 26 · Apprentissage par renforcement
 
@@ -472,8 +473,11 @@ Non mathématiques : autoencodeur convolutif · autoencodeur débruiteur
 | ε-greedy et softmax (Boltzmann) | M11, M17 |
 | équation de Bellman | M26 |
 | itération sur les valeurs | M26 |
+| conception de la récompense | R5, M26 |
+| on-policy / off-policy | M26 |
+| reproductibilité en RL (graines multiples) | M02c |
 
-Non mathématiques : boucle agent-environnement · API gymnasium (reset, step, terminated, truncated) · on-policy / off-policy · experience replay · conception de la récompense · masques d'actions · discrétisation d'un état continu · self-play · reproductibilité en RL (graines multiples)
+Non mathématiques : boucle agent-environnement · API gymnasium (reset, step, terminated, truncated) · experience replay · masques d'actions · discrétisation d'un état continu · self-play
 
 ## workbookIA 27 · Réseaux antagonistes génératifs (GAN)
 
@@ -485,8 +489,10 @@ Non mathématiques : boucle agent-environnement · API gymnasium (reset, step, t
 | distance de Wasserstein 1D | M27 |
 | distance de Fréchet (FID) | M12c, M27 |
 | équilibre de Nash (idée) | M27 |
+| boucle d'entraînement alternée (detach, deux optimiseurs) | M27 |
+| effondrement de mode | M25b, M27 |
 
-Non mathématiques : boucle d'entraînement alternée (detach, deux optimiseurs) · DCGAN · GAN conditionnel · effondrement de mode
+Non mathématiques : DCGAN · GAN conditionnel
 
 ## workbookIA 28 · Applications créatives
 
@@ -498,8 +504,9 @@ Non mathématiques : boucle d'entraînement alternée (detach, deux optimiseurs)
 | matrice de Gram | M12c, M13b, M28 |
 | losses de contenu, de style et de variation totale | M09b, M12d, M18, M28 |
 | stratégies de décodage (glouton, température, top-k, top-p) | M02b, M17, M28 |
+| génération de texte mot à mot | M28 |
 
-Non mathématiques : hooks PyTorch · transfert de style neuronal · génération de texte mot à mot · documentation de provenance et de licences
+Non mathématiques : hooks PyTorch · transfert de style neuronal · documentation de provenance et de licences
 
 ## workbookIA 29 · Datasets et préparation du projet final
 

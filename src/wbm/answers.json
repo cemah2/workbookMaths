@@ -17279,7 +17279,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "6e05e4930da4c25e8373482983f4991e68e03c274ed57baf5872b0b85f1f41d2": "le modèle B signale 120 clients : les 85 signalés à tort sont des erreurs"
+        "6e05e4930da4c25e8373482983f4991e68e03c274ed57baf5872b0b85f1f41d2": "le modèle B signale 120 clients : les 85 signalés à tort sont des erreurs",
+        "9c8e353a91e47d258c0eba599a66abd11592a0c0d519d5cee33ccb6e2f03885b": "le modèle B signale 120 clients : les 85 signalés à tort sont des erreurs"
       },
       "sign": 1,
       "source": "chapitres/m03_probabilites_conditionnelles/05_solutions.ipynb"
@@ -18956,6 +18957,7 @@
       "magnitude": -1,
       "mistakes": {
         "0d0588b3958d04933469f1c41f218f0e8006a1e981a2e8128d1f43f5e54f8f8f": "c'est l'autre probabilité conditionnelle : l'événement d'abord, la condition ensuite",
+        "127a5720cb16f12f3aabe9b29bfbac9dfd92734eb30411db82b574dde9428d3e": "c'est l'autre probabilité conditionnelle : l'événement d'abord, la condition ensuite",
         "70295141cdd474f0d2cc7f26cfc03e05069f92a3bd47be2edfd6522f96d08bc4": "divise par le nombre de tirages où la condition est vraie, pas par le nombre total de tirages"
       },
       "sign": 1,

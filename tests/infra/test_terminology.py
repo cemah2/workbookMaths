@@ -75,6 +75,9 @@ FORBIDDEN = {
     "découpage (des données)": (r"\b[Ss]plits? (?:\*\*)?(?:non )?(?:stratifiés?|temporels?|aléatoires?|"
                                 r"chronologiques?|par groupes|de validation|des données|train ?/|entraînement ?/)"
                                 r"|\bcôtés du split\b", []),
+    # audit of part VI (session 70, A2 and M4): the name of workbookIA 27 and « embedding » kept in English
+    "réseaux antagonistes génératifs": (r"\b[Gg]énératifs? adverses?\b", []),
+    "embedding": (r"\b[Pp]longements?\b", []),
 }
 
 GLOSS = re.compile(r"\(\*[^*\n]+\*|\(<i>[^<\n]+</i>")          # « (*époque*) », « (*taux d'apprentissage* : … »

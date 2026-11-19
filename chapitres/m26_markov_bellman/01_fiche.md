@@ -9,7 +9,7 @@
 | **Prérequis** | R5 (suites géométriques et leur somme, actualisation, moyennes mobile et exponentielle) ; R6 (logarithmes : résoudre $\gamma^k \le \varepsilon$) ; M02b (loi géométrique et son espérance, loi normale, linéarité de l'espérance) ; M02c (loi des grands nombres, erreur type d'une moyenne) ; M03 (probabilité conditionnelle, probabilités totales) ; M06 (inégalité de Jensen) ; M09a (systèmes linéaires, inverse d'une matrice) ; M11 (ε-greedy, une politique stochastique) ; workbookIA 11 (moyenne incrémentale, ∂ 11.2) ; M12c (valeurs propres, diagonalisation et puissances, méthode de la puissance) ; M16 (puissances d'une matrice d'adjacence : sommes sur les chemins d'un graphe) ; M19 (itérations linéaires, point fixe, itération de Richardson) ; M20 (tableaux à plusieurs axes) ; M22 (normes induites $\lVert\cdot\rVert_1$ et $\lVert\cdot\rVert_\infty$, $\rho(\mathbf{A}) \le \lVert\mathbf{A}\rVert$, $\mathbf{A}^t \to \mathbf{0}$ si $\rho(\mathbf{A}) < 1$, applications contractantes et oubli du départ) ; M25b (espérance conditionnelle sachant une variable discrète, espérance et variance totales) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `markov.py` : `n_step_distribution`, `stationary_distribution`, `bellman_linear_solve`, `bellman_fixed_point_iterates` |
-| **Références** | pas de MML (le livre ne traite pas les chaînes de Markov) ; J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), ch. 11 ; R. S. Sutton et A. G. Barto, *Reinforcement Learning: An Introduction* (2ᵉ éd.), §3.5-3.6 et §4.1-4.4 |
+| **Références** | pas de MML (le livre ne traite pas les chaînes de Markov) ; J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd.), ch. 11 ; R. S. Sutton et A. G. Barto, *Reinforcement Learning: An Introduction* (2ᵉ éd.), §3.5–3.6 et §4.1–4.4 |
 
 ## Comment utiliser ce chapitre
 
@@ -37,7 +37,7 @@ Parcours essentiel : tout sauf M26.3, M26.9, M26.10, M26.13, M26.E1, M26.20, M26
 - Les états d'une chaîne sont numérotés $0, \ldots, m - 1$, comme dans `markov.py` (le web du §2 et le site du §3 numérotent leurs pages à partir de 1, comme on les nomme) ; $S_t$ est l'état au pas $t$. $\mathbf{P}$ (en gras) est une matrice de transition et $P(\cdot)$ une probabilité ; $\mathbf{1}$ est le vecteur dont toutes les coordonnées valent 1 et $\mathbb{1}\{\cdot\}$ une indicatrice.
 - Une **loi** sur les états est une **ligne** ($\boldsymbol{\mu}_n$, $\boldsymbol{\pi}$) ; une fonction des états, une récompense ou une valeur est une **colonne** ($\mathbf{f}$, $\mathbf{r}$, $\mathbf{V}$). $\mathbf{V}$ reste une majuscule, comme dans les livres d'apprentissage par renforcement et dans `markov.py`, bien que ce soit un vecteur ; $V(s)$ est sa coordonnée $s$. Le §1 relie cette convention à celle de M22.
 - Aux §1 à §3, $\boldsymbol{\pi}$ (en gras) est une loi stationnaire ; à partir du §4, $\pi(a \mid s)$ est une politique, et la loi stationnaire de la chaîne qu'elle induit s'écrit $\mathbf{d}_\pi$. Le nombre $\pi \approx 3{,}14159$ n'apparaît qu'au §8, dans $1/\sqrt{\pi}$.
-- Au §3, $\mathbf{Q}$ (en gras) est le bloc des états transitoires et $\mathbf{t}$ (en gras) le vecteur des durées moyennes ; au §4, $Q^\pi(s, a)$ est la valeur d'une action, et $t$ (en italique) reste un instant ; au §4, $N$ (en italique) est la dernière semaine d'une saison, à ne pas confondre avec la matrice fondamentale $\mathbf{N}$ du §3.
+- Au §3, $\mathbf{Q}$ (en gras) est le bloc des états transitoires et $\mathbf{t}$ (en gras) le vecteur des durées moyennes ; au §4, $Q^\pi(s, a)$ est la valeur d'une action, et $t$ (en italique) reste un instant ; au §4, $N$ (en italique) est la dernière semaine d'une saison, à ne pas confondre avec la matrice fondamentale $\mathbf{N}$ du §3 ; au §8, $m_n$ est une moyenne courante, sans rapport avec le nombre $m$ d'états.
 - $\gamma \in [0, 1]$ est le facteur d'actualisation, $G$ un retour, $\mathcal{T}$ l'opérateur de Bellman ; $\lVert\mathbf{x}\rVert_\infty = \max_i\lvert x_i\rvert$, $\lVert\cdot\rVert_1$, $\lVert\mathbf{A}\rVert_\infty$ (la plus grande somme des $\lvert a_{ij}\rvert$ d'une ligne) et le rayon spectral $\rho$ sont ceux de M22.
 
 Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *transition matrix*, *stochastic matrix*, *substochastic matrix*, *transition graph*, *Chapman-Kolmogorov equations*, *stationary distribution*, *Perron-Frobenius theorem*, *irreducible*, *aperiodic*, *ergodic theorem*, *spectral gap*, *random surfer*, *damping factor*, *tower property*, *absorbing state*, *transient state*, *first-step analysis*, *fundamental matrix*, *discounted return*, *discount factor*, *value*, *Markov decision process (MDP)*, *policy*, *action value*, *Bellman equation*, *policy evaluation*, *Neumann series*, *discounted state-visitation distribution*, *terminal state*, *Bellman operator*, *contraction*, *Banach fixed-point theorem*, *synchronous update*, *in-place update*, *stopping criterion*, *optimal stopping*, *continuation value*, *threshold rule*, *Bellman optimality equation*, *value iteration*, *greedy policy*, *step size*, *Robbins-Monro conditions*, *stochastic approximation*, *temporal-difference (TD) error*, *Bellman residual*, *reward shaping*, *maximization bias*, *winner's curse*, *double estimator*.
@@ -57,7 +57,7 @@ Vocabulaire anglais de ce chapitre : *Markov chain*, *Markov property*, *transit
 ## L'essentiel en 10 lignes
 
 1. **Chaîne de Markov** : $p_{ij} = P(S_{t+1} = j \mid S_t = i)$, matrice $\mathbf{P}$ **stochastique** ($p_{ij} \ge 0$, $\mathbf{P}\mathbf{1} = \mathbf{1}$). Loi en ligne : $\boldsymbol{\mu}_{t+1} = \boldsymbol{\mu}_t\mathbf{P}$, $\boldsymbol{\mu}_n = \boldsymbol{\mu}_0\mathbf{P}^n$, $(\mathbf{P}^n)_{ij}$ = somme sur les chemins de $i$ à $j$ ; fonction en colonne : $\mathbb{E}[f(S_{t+1}) \mid S_t = i] = (\mathbf{P}\mathbf{f})_i$.
-2. **Loi stationnaire** $\boldsymbol{\pi} = \boldsymbol{\pi}\mathbf{P}$, $\sum_j\pi_j = 1$ : elle existe toujours ($\lVert\mathbf{P}\rVert_\infty = 1 = \rho(\mathbf{P})$, Perron-Frobenius) ; unique si la chaîne est irréductible ; $\boldsymbol{\mu}_n \to \boldsymbol{\pi}$ si elle est de plus apériodique, avec un écart en $\lvert\lambda_2\rvert^n$. À deux états : $\mathbf{P}^n = \mathbf{1}\boldsymbol{\pi} + (1 - a - b)^n(\mathbf{I} - \mathbf{1}\boldsymbol{\pi})$.
+2. **Loi stationnaire** $\boldsymbol{\pi} = \boldsymbol{\pi}\mathbf{P}$, $\sum_j\pi_j = 1$ : elle existe toujours ($\lVert\mathbf{P}\rVert_\infty = 1 = \rho(\mathbf{P})$, Perron-Frobenius) ; unique si la chaîne est irréductible ; $\boldsymbol{\mu}_n \to \boldsymbol{\pi}$ si elle est de plus apériodique, avec un écart en $\lvert\lambda_2\rvert^n$ (pour $\mathbf{P}$ diagonalisable). À deux états : $\mathbf{P}^n = \mathbf{1}\boldsymbol{\pi} + (1 - a - b)^n(\mathbf{I} - \mathbf{1}\boldsymbol{\pi})$.
 3. **PageRank** : la loi stationnaire de $\mathbf{P}_d = d\,\mathbf{L} + \frac{1-d}{m}\mathbf{1}\mathbf{1}^\top$ ($d = 0{,}85$), par la méthode de la puissance, qui converge au moins comme $d^k$.
 4. **Tour** : $\mathbb{E}\big[\mathbb{E}[X \mid Y, Z] \mid Y\big] = \mathbb{E}[X \mid Y]$. **Premier pas** : $\mathbf{h} = \mathbf{Q}\mathbf{h} + \mathbf{b}$ (absorption), $\mathbf{t} = \mathbf{1} + \mathbf{Q}\mathbf{t}$ (durée) ; $\mathbf{N} = (\mathbf{I} - \mathbf{Q})^{-1} = \sum_t\mathbf{Q}^t$ compte les visites.
 5. **Retour** $G = \sum_t\gamma^tR_t$, **valeur** $V(s) = \mathbb{E}[G \mid S_0 = s]$. Arrêter à chaque pas avec la probabilité $1 - \gamma$ donne une durée moyenne $\frac{1}{1-\gamma}$ et un gain total moyen égal à $V(s)$.
@@ -290,7 +290,7 @@ Jusqu'ici, la boutique suivait une règle fixe. Elle pourrait en changer.
 $$\mathbf{P}_{\text{att}} = \begin{pmatrix} 1 & 0 & 0 \\ 0{,}7 & 0{,}3 & 0 \\ 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}, \qquad r(s, \text{att}) = 0,\ 7,\ 9 .$$
 La récompense d'une commande dépend de la demande de la semaine, pas seulement de $(s, a, s')$ : seule sa moyenne $r(s, a)$ comptera pour la valeur. La règle du §1 est la politique déterministe $\pi(0) = \text{commander}$, $\pi(1) = \pi(2) = \text{attendre}$.
 
-> **La chaîne induite.** Sous une politique $\pi$ fixée, les états forment une chaîne de Markov de matrice et de récompenses
+> **La chaîne induite** (*induced Markov chain*). Sous une politique $\pi$ fixée, les états forment une chaîne de Markov de matrice et de récompenses
 > $$\mathbf{P}_\pi(s, s') = \sum_a\pi(a \mid s)\,\mathbf{P}_a(s, s'), \qquad r_\pi(s) = \sum_a\pi(a \mid s)\,r(s, a),$$
 > et la valeur $V^\pi$ de la politique est la valeur de cette chaîne.
 
@@ -424,13 +424,15 @@ En échangeant les rôles de $\mathbf{x}$ et $\mathbf{y}$, $\max_i y_i \le \max_
 
 Par exemple, $\mathbf{x} = (3, 7, 5)$ et $\mathbf{y} = (6, 4, 5)$ ont pour maxima 7 et 6 : un écart de 1, alors que $\lVert\mathbf{x} - \mathbf{y}\rVert_\infty = 3$. Le maximum est **1-lipschitzien** (*1-Lipschitz*) pour $\lVert\cdot\rVert_\infty$ ; le minimum aussi, puisque $\min\mathbf{x} = -\max(-\mathbf{x})$. Le ∂ M26.12 étend le lemme à la $k$-ième plus grande coordonnée et au supremum d'une famille.
 
+Le **supremum** (*supremum*) d'une fonction $f$ bornée sur un ensemble $E$, $\sup_E f$, est le plus petit majorant de ses valeurs, le symétrique de l'infimum de M13b §4 : $f(e) \le \sup_E f$ pour tout $e$, et tout nombre $M$ qui majore $f$ vérifie $\sup_E f \le M$. C'est le maximum quand il est atteint ; $\sup_{x < 1} x = 1$ ne l'est pas.
+
 ### L'arrêt optimal
 
 Dans chaque état $s$ d'une chaîne, on peut **s'arrêter** et recevoir $g(s)$, ou **continuer** : recevoir $c(s)$ (un coût si $c(s) < 0$) et passer à l'état suivant selon $\mathbf{P}$, avec l'actualisation $\gamma$. Le meilleur gain moyen possible depuis chaque état vérifie
 $$\mathbf{V} = \max\big(\mathbf{g},\ \mathbf{c} + \gamma\mathbf{P}\mathbf{V}\big),$$
 le maximum étant pris coordonnée par coordonnée : on compare ce que rapporte l'arrêt à la **valeur de continuation** (*continuation value*) $\mathbf{c} + \gamma\mathbf{P}\mathbf{V}$. C'est un problème d'**arrêt optimal** (*optimal stopping*). Ce n'est plus un système linéaire : selon $\mathbf{V}$, le maximum choisit l'une ou l'autre branche.
 
-> **Énoncé** (admis). Pour $\gamma < 1$, l'opérateur $\mathbf{V} \mapsto \max(\mathbf{g}, \mathbf{c} + \gamma\mathbf{P}\mathbf{V})$ est une γ-contraction pour $\lVert\cdot\rVert_\infty$. Il a donc un unique point fixe $\mathbf{V}^\star$ (Banach), ses itérés y convergent, et la règle « s'arrêter en $s$ si et seulement si $g(s) \ge c(s) + \gamma(\mathbf{P}\mathbf{V}^\star)(s)$ » est la meilleure.
+> **Énoncé** (la contraction découle du lemme, coordonnée par coordonnée ; l'optimalité de la règle est admise). Pour $\gamma < 1$, l'opérateur $\mathbf{V} \mapsto \max(\mathbf{g}, \mathbf{c} + \gamma\mathbf{P}\mathbf{V})$ est une γ-contraction pour $\lVert\cdot\rVert_\infty$. Il a donc un unique point fixe $\mathbf{V}^\star$ (Banach), ses itérés y convergent, et la règle « s'arrêter en $s$ si et seulement si $g(s) \ge c(s) + \gamma(\mathbf{P}\mathbf{V}^\star)(s)$ » est la meilleure.
 
 ### Des offres indépendantes : une seule équation
 
@@ -459,7 +461,7 @@ Pour un MDP quelconque (§4), on cherche la meilleure politique.
 > $$V^\star(s) = \max_{a}\Big[r(s, a) + \gamma\sum_{s'}\mathbf{P}_a(s, s')\,V^\star(s')\Big] ;$$
 > l'opérateur de droite est une γ-contraction pour $\lVert\cdot\rVert_\infty$, et l'**itération sur les valeurs** (*value iteration*) $\mathbf{V}_{k+1} = $ (membre de droite appliqué à $\mathbf{V}_k$) converge vers $\mathbf{V}^\star$ ; la **politique gloutonne** (*greedy policy*) pour $\mathbf{V}^\star$, qui choisit dans chaque état une action réalisant le maximum, est optimale.
 
-L'arrêt optimal en est le cas de deux actions : s'arrêter (gain $g$, puis la fin) ou continuer (gain $c$, transition $\mathbf{P}$) ; sa règle à seuil est la politique gloutonne. Pour un MDP à plusieurs actions, workbookIA 26 met ces énoncés en œuvre ; ce chapitre ne les résout pas.
+L'arrêt optimal en est le cas de deux actions : s'arrêter (gain $g$, puis la fin) ou continuer (gain $c$, transition $\mathbf{P}$) ; sa règle à seuil est la politique gloutonne. Pour un MDP à plusieurs actions, workbookIA 26 met ces énoncés en œuvre ; ce chapitre ne les résout pas. Quand deux joueurs jouent à tour de rôle, on remonte de même un arbre de positions, avec un maximum aux coups du premier et un minimum à ceux du second : c'est le minimax d'un arbre, que M27 §3 traite.
 
 💻 **Aujourd'hui en pratique** — la finance évalue ainsi une option dite américaine, qu'on peut exercer à tout moment : sur un arbre de cours possibles, on remonte le temps avec $\max(\text{gain immédiat},\ \text{valeur de continuation actualisée})$.
 
@@ -512,7 +514,7 @@ On estime plusieurs options avec du bruit, on garde la meilleure estimée, et l'
 
 > **Propriété.** Pour des estimations $\hat{X}_1, \ldots, \hat{X}_k$, $\mathbb{E}\big[\max_i\hat{X}_i\big] \ge \max_i\mathbb{E}[\hat{X}_i]$.
 
-*Démonstration.* Pour chaque $i$, $\max_j\hat{X}_j \ge \hat{X}_i$, donc $\mathbb{E}[\max_j\hat{X}_j] \ge \mathbb{E}[\hat{X}_i]$ ; c'est vrai pour tout $i$, donc pour le plus grand. (C'est aussi l'inégalité de Jensen de M06, étendue aux fonctions convexes de plusieurs variables : le maximum en est une.) $\square$
+*Démonstration.* Pour chaque $i$, $\max_j\hat{X}_j \ge \hat{X}_i$, donc $\mathbb{E}[\max_j\hat{X}_j] \ge \mathbb{E}[\hat{X}_i]$ ; c'est vrai pour tout $i$, donc pour le plus grand. (C'est aussi un cas de l'inégalité de Jensen pour une fonction convexe de plusieurs variables, admise : le maximum en est une, M10.) $\square$
 
 > **Propriété.** Si $Z_1$ et $Z_2$ sont indépendantes de loi $\mathcal{N}(0, 1)$, $\mathbb{E}[\max(Z_1, Z_2)] = \frac{1}{\sqrt\pi} \approx 0{,}564$.
 

@@ -270,7 +270,7 @@ et chaque $(\lambda_i/\lambda_1)^k$ tend vers 0. Normaliser à chaque pas ne cha
 
 ### En machine learning
 
-- La norme spectrale d'une matrice de poids, sa plus grande valeur singulière (M12d), s'estime par une ou deux itérations de la puissance à chaque pas d'entraînement : c'est la **normalisation spectrale** des réseaux génératifs adverses (workbookIA 27).
+- La norme spectrale d'une matrice de poids, sa plus grande valeur singulière (M12d), s'estime par une ou deux itérations de la puissance à chaque pas d'entraînement : c'est la **normalisation spectrale** des réseaux antagonistes génératifs (GAN, workbookIA 27).
 - La plus grande valeur propre d'une hessienne dit la courbure la plus forte d'une loss ; on l'estime de la même façon (M19).
 
 ---
