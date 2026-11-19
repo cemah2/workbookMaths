@@ -1355,3 +1355,784 @@ PART_B = Part("B", "Prédire, dessiner",
               "Fiche §2, §3 et §4. La dispersion d'une PMI estimée, prédite puis mesurée ; des magasins dans le plan des "
               "deux facteurs d'une SVD tronquée.",
               exercises=[MB2_15, MB2_16])
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: debug and test (MB2.17, MB2.18)
+# ---------------------------------------------------------------------------
+GIVEN_17 = '''# The colleague's code
+def pmi_from_counts(C):
+    """The PMI table of a table of COUNTS C (-inf on the empty cells)."""
+    C = np.asarray(C, dtype=float)
+    out = np.full(C.shape, -np.inf)
+    nonzero = C > 0
+    out[nonzero] = np.log(C[nonzero] / np.outer(C.sum(axis=1), C.sum(axis=0))[nonzero])
+    return out
+
+
+def split_factors(U, s, Vt, beta):
+    """The two factors U S^beta and V S^(1 - beta) of a compact SVD (U, s, Vt)."""
+    return U * s ** beta, Vt.T * s ** beta
+
+
+def remove_direction_bad(X, u):
+    """X without the direction u: each row x becomes x minus its component along u."""
+    X, u = np.asarray(X, dtype=float), np.asarray(u, dtype=float)
+    return X - np.outer(X @ u, u)
+
+
+# The colleague's checks: all pass
+print("(1)", bool(np.allclose(pmi_from_counts(P), ref_cooc.pmi(P))), "(attendu True : sur une loi jointe)")
+U_17, s_17, Vt_17 = ref_svd.svd(SHOPS)
+A_17, B_17 = split_factors(U_17, s_17, Vt_17, 0.5)
+print("(2)", bool(np.allclose(A_17 @ B_17.T, SHOPS)), "(attendu True : avec beta = 0.5)")
+u_17 = np.array([0.0, 0.6, 0.8])
+print("(3)", bool(np.allclose(remove_direction_bad(ANIMALS, u_17), ref_cooc.remove_direction(ANIMALS, u_17))),
+      "(attendu True : avec u = (0 ; 0,6 ; 0,8))")'''
+
+CHECK_17 = '''CASES_C17 = __CASES_C17__   # the hidden cases of the three corrected functions
+rng_c17 = np.random.default_rng()       # at each run: new factors for the counts
+
+results_17, parts_17 = [], []
+
+
+def report_17(ok, success, failure):
+    results_17.append(bool(ok))
+    print(("✅ " + success) if ok else ("❌ " + failure))
+
+
+def call_17(part, name, function, *args, **kwargs):
+    \"\"\"function(*args, **kwargs); an error of the learner's code becomes one ❌ line that names the function (the check of
+    this part stops there, the final verdict stays).\"\"\"
+    try:
+        return function(*args, **kwargs)
+    except (NotImplementedError, MymathMissingError):
+        raise
+    except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
+        report_17(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:160]}")
+        parts_17.append(part)
+        raise StopCheck from None
+
+
+with checked("MB2.17"):                                       # (1) pmi_from_counts_fixed
+    wrong_17 = []
+    for law_c17 in CASES_C17["laws"]:                         # joint laws (sum 1): the PMI of pmi
+        law_c17 = np.array(law_c17)
+        got_c17 = as_floats(call_17(1, "pmi_from_counts_fixed", pmi_from_counts_fixed, law_c17.copy()))
+        if got_c17 is None or got_c17.shape != law_c17.shape or not matches(got_c17, ref_cooc.pmi(law_c17)):
+            wrong_17.append("sur une loi jointe (de somme 1), ta fonction doit redonner pmi")
+    for counts_c17 in CASES_C17["counts"]:                    # tables of counts: k C describes the same law as C
+        counts_c17 = np.array(counts_c17)
+        before_c17 = counts_c17.copy()
+        got_c17 = as_floats(call_17(1, "pmi_from_counts_fixed", pmi_from_counts_fixed, counts_c17))
+        if got_c17 is None or got_c17.shape != counts_c17.shape:
+            wrong_17.append(f"attendu une table de la forme des comptes, {counts_c17.shape}, reçu {shown(got_c17)[:60]}")
+            continue
+        if not np.array_equal(counts_c17, before_c17):
+            wrong_17.append("ta fonction modifie la table reçue : travaille sur une copie")
+            continue
+        k_c17 = float(rng_c17.uniform(0.2, 50.0))
+        scaled_c17 = as_floats(call_17(1, "pmi_from_counts_fixed", pmi_from_counts_fixed, k_c17 * counts_c17))
+        if not matches(scaled_c17, got_c17, rtol=1e-9, atol=1e-9):
+            wrong_17.append(f"une table de comptes de total {int(counts_c17.sum())} : multiplier tous les comptes par un "
+                            "même nombre ne change pas la loi, donc pas la PMI ; ta fonction, si (la PMI d'une table de "
+                            "comptes passe par sa loi, les comptes divisés par leur total N)")
+    report_17(not wrong_17, "(1) pmi_from_counts_fixed : des lois jointes, et trois tables de comptes de totaux variés, "
+              "multipliées par un facteur tiré au hasard", "(1) pmi_from_counts_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(1)
+
+with checked("MB2.17"):                                       # (2) split_factors_fixed
+    wrong_17 = []
+    for case_c17 in CASES_C17["factors"]:
+        U_c17, s_c17, Vt_c17 = ref_svd.svd(np.array(case_c17["M"]))
+        beta_c17 = case_c17["beta"]
+        got_c17 = call_17(2, "split_factors_fixed", split_factors_fixed, U_c17, s_c17, Vt_c17, beta_c17)
+        if not isinstance(got_c17, (tuple, list)) or len(got_c17) != 2:
+            wrong_17.append(f"split_factors_fixed doit rendre les deux facteurs, reçu {shown(got_c17)[:60]}")
+            continue
+        A_c17, B_c17 = (as_floats(f) for f in got_c17)
+        shape_A, shape_B = U_c17.shape, Vt_c17.T.shape
+        if A_c17 is None or B_c17 is None or A_c17.shape != shape_A or B_c17.shape != shape_B:
+            wrong_17.append(f"les deux facteurs ont les formes {shape_A} (une ligne par ligne de M) et {shape_B} (une "
+                            "ligne par colonne de M)")
+            continue
+        if not matches(A_c17, split_factors(U_c17, s_c17, Vt_c17, beta_c17)[0]):
+            wrong_17.append("le premier facteur U S^β était juste : ne le change pas")
+            continue
+        if not np.allclose(A_c17 @ B_c17.T, (U_c17 * s_c17) @ Vt_c17, rtol=1e-9, atol=1e-9 * float(s_c17.max())):
+            wrong_17.append(f"avec β = {fr(beta_c17, 2)} et une autre matrice, le produit des deux facteurs doit redonner "
+                            "U S Vᵀ : les puissances de S des deux facteurs s'ajoutent")
+    report_17(not wrong_17, "(2) split_factors_fixed : d'autres matrices, avec β = 0, 0,3 et 1",
+              "(2) split_factors_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(2)
+
+with checked("MB2.17"):                                       # (3) remove_direction_fixed
+    wrong_17 = []
+    for case_c17 in CASES_C17["directions"]:
+        X_c17, u_c17 = np.array(case_c17["X"]), np.array(case_c17["u"])
+        before_c17 = X_c17.copy()
+        R_c17 = as_floats(call_17(3, "remove_direction_fixed", remove_direction_fixed, X_c17, u_c17))
+        size_c17 = float(np.abs(X_c17).max()) * float(np.linalg.norm(u_c17))
+        if R_c17 is None or R_c17.shape != X_c17.shape:
+            wrong_17.append(f"attendu un tableau de la forme de X, {X_c17.shape}, reçu {shown(R_c17)[:60]}")
+        elif not np.array_equal(X_c17, before_c17):
+            wrong_17.append("ta fonction modifie le tableau reçu : travaille sur une copie")
+        elif not np.allclose(R_c17 @ u_c17, 0.0, atol=1e-9 * size_c17):
+            wrong_17.append(f"avec une direction u de norme {fr(float(np.linalg.norm(u_c17)), 2)}, chaque ligne du résultat "
+                            "doit être orthogonale à u : on retire (x·u / u·u) u")
+        elif not np.allclose((X_c17 - R_c17) @ null_space(u_c17[None, :]), 0.0, atol=1e-9 * size_c17):
+            wrong_17.append("on ne retire à chaque ligne qu'un multiple de u : ce qui est orthogonal à u ne change pas")
+    report_17(not wrong_17, "(3) remove_direction_fixed : trois directions cachées, de normes diverses",
+              "(3) remove_direction_fixed : " + " ; ".join(list(dict.fromkeys(wrong_17))[:2]))
+    parts_17.append(3)
+
+if len(set(parts_17)) == 3:
+    verdict("MB2.17", all(results_17), "les trois fonctions corrigées passent tous les cas.", "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_17 = (r"(1) `pmi_from_counts` oublie le total $N$ : elle rend $\operatorname{PMI} - \ln N$, et $N = 1$ sur une loi "
+           r"jointe. Correction : `mymath.cooccurrence.pmi(C / C.sum())`. a) $0{,}629$, puis $0{,}629 - \ln 100 \approx "
+           r"-3{,}977$. (2) `split_factors` donne $\mathbf{S}^\beta$ aux deux facteurs : leur produit vaut "
+           r"$\mathbf{U}\mathbf{S}^{2\beta}\mathbf{V}^\top$, qui n'est $\mathbf{M}$ que pour $\beta = \frac12$. Correction : "
+           r"`Vt.T * s ** (1 - beta)`. b) 50, puis 6 030. (3) `remove_direction_bad` ne divise pas par "
+           r"$\mathbf{u}\cdot\mathbf{u}$ : elle n'est juste que pour un $\mathbf{u}$ unitaire. Correction : "
+           r"`X - np.outer(X @ u / (u @ u), u)`. c) $(-1, 0, 1)$, puis $(-7, -6, -5)$.")
+
+MB2_17 = Ex(
+    "MB2.17", "🐛", 1, 20, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une direction "
+    "retirée sans diviser par u·u",
+    "reconnaître trois erreurs classiques sur la PMI d'une table de comptes, la répartition des valeurs singulières et le "
+    "retrait d'une direction, qui passent une vérification mal choisie, puis les corriger.",
+    "fiche §2, §4 et §7 ; Ex MB2.2, MB2.4 et MB2.7", tracks="C, E", given=GIVEN_17, note=NOTE_17,
+    body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
+1. `pmi_from_counts(C)` doit rendre la table des PMI d'une table de **comptes** ; elle calcule `np.log(C / np.outer(C.sum(1), C.sum(0)))` sur les cases non nulles, et $-\infty$ ailleurs. Il l'a vérifiée sur une loi jointe : elle redonne `pmi`.
+2. `split_factors(U, s, Vt, beta)` doit rendre les deux facteurs $\mathbf{U}\mathbf{S}^\beta$ et $\mathbf{V}\mathbf{S}^{1-\beta}$ d'une SVD compacte ; elle rend `U * s ** beta, Vt.T * s ** beta`. Il l'a vérifiée avec $\beta = \frac12$ sur les magasins de MB2.4 : le produit des deux facteurs redonne $\mathbf{M}$.
+3. `remove_direction_bad(X, u)` doit retirer la direction $\mathbf{u}$ de chaque ligne de $\mathbf{X}$ ; elle rend `X - np.outer(X @ u, u)`. Il l'a vérifiée avec $\mathbf{u} = (0 ;\ 0{,}6 ;\ 0{,}8)$ sur les animaux de MB2.7 : elle redonne `remove_direction`.
+
+À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `pmi_from_counts_fixed`, `split_factors_fixed` et `remove_direction_fixed`, avec les mêmes arguments. Puis réponds :
+- a) pour la table des comptes des oiseaux de MB2.2 (`BIRDS`), $\operatorname{PMI}(\text{forêt}, \text{pic})$ par `pmi_from_counts_fixed`, puis par `pmi_from_counts` (une liste de 2 nombres) ;
+- b) pour les magasins de MB2.4 (`SHOPS`), avec $\beta = 1$ : la case (1, 1) (en haut à gauche) du produit des deux facteurs de `split_factors_fixed`, puis de `split_factors`, la SVD calculée par `mymath.svd_pca.svd` (une liste de 2 nombres) ;
+- c) l'animal 1 de MB2.7 sans la direction $(1, 1, 1)$, par `remove_direction_fixed`, puis par `remove_direction_bad` (une liste de 6 nombres).
+
+Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie tes corrections sur des cas cachés : des tables de comptes de totaux variés, d'autres $\beta$ et d'autres matrices, des directions de normes diverses.""",
+    todo='''def pmi_from_counts_fixed(C):
+    """The PMI table of a table of COUNTS C (-inf on the empty cells)."""
+    raise NotImplementedError("pmi_from_counts_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def split_factors_fixed(U, s, Vt, beta):
+    """The two factors U S^beta and V S^(1 - beta) of a compact SVD (U, s, Vt)."""
+    raise NotImplementedError("split_factors_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def remove_direction_fixed(X, u):
+    """X without the direction u: each row x becomes x minus its component along u."""
+    raise NotImplementedError("remove_direction_fixed n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_MB2_17a = answer_MB2_17b = answer_MB2_17c = ...
+with wbm.attempt("MB2.17"):          # your three functions: ⏳ while they are not written
+    answer_MB2_17a = ...  # a) a list of 2 numbers, as computed: PMI(forêt, pic) of the counts BIRDS by pmi_from_counts_fixed, then by the WRONG pmi_from_counts
+    answer_MB2_17b = ...  # b) a list of 2 numbers, as computed: the top left cell of the product of the two factors of SHOPS with beta = 1, by split_factors_fixed, then by the WRONG split_factors (the SVD by mymath.svd_pca.svd)
+    answer_MB2_17c = ...  # c) a list of 6 numbers, as computed: animal 1 of ANIMALS without the direction (1, 1, 1), by remove_direction_fixed, then by the WRONG remove_direction_bad''',
+    check=answers_check("MB2.17", "abc") + "\n\n" + CHECK_17,
+    solution='''def pmi_from_counts_fixed(C):
+    """The PMI table of a table of COUNTS C (-inf on the empty cells)."""
+    C = np.asarray(C, dtype=float)
+    return mymath.cooccurrence.pmi(C / C.sum())          # the joint law: the counts divided by their total N
+
+
+def split_factors_fixed(U, s, Vt, beta):
+    """The two factors U S^beta and V S^(1 - beta) of a compact SVD (U, s, Vt)."""
+    return U * s ** beta, Vt.T * s ** (1 - beta)          # the powers of S add up to 1
+
+
+def remove_direction_fixed(X, u):
+    """X without the direction u: each row x becomes x minus its component along u."""
+    X, u = np.asarray(X, dtype=float), np.asarray(u, dtype=float)
+    return X - np.outer(X @ u / (u @ u), u)               # divided by u·u: u need not be a unit vector
+
+
+U_s17, s_s17, Vt_s17 = mymath.svd_pca.svd(SHOPS)
+answer_MB2_17a = [float(pmi_from_counts_fixed(BIRDS)[0, 1]), float(pmi_from_counts(BIRDS)[0, 1])]
+answer_MB2_17b = [float((lambda A, B: (A @ B.T)[0, 0])(*split_factors_fixed(U_s17, s_s17, Vt_s17, 1))),
+                  float((lambda A, B: (A @ B.T)[0, 0])(*split_factors(U_s17, s_s17, Vt_s17, 1)))]
+answer_MB2_17c = (np.ravel(remove_direction_fixed(ANIMALS[:1], np.ones(3))).tolist()
+                  + np.ravel(remove_direction_bad(ANIMALS[:1], np.ones(3))).tolist())
+print("a)", np.round(answer_MB2_17a, 4).tolist(), " b)", np.round(answer_MB2_17b, 4).tolist(),
+      " c)", np.round(answer_MB2_17c, 4).tolist())
+
+''' + answers_check("MB2.17", "abc") + "\n\n" + CHECK_17,
+    record='''counts_17r = np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]])
+N_17r = counts_17r.sum()
+right_17r = math.log(counts_17r[0, 1] * N_17r / (counts_17r[0].sum() * counts_17r[:, 1].sum()))
+wrong_17r = math.log(counts_17r[0, 1] / (counts_17r[0].sum() * counts_17r[:, 1].sum()))
+wbm.record("MB2.17a", [right_17r, wrong_17r], decimals=6,
+           mistakes={"pmi_from_counts_fixed oublie encore le total N : la loi jointe est la table des comptes divisée par N":
+                         [wrong_17r, wrong_17r],
+                     "le second nombre est celui de la version FAUSSE, pmi_from_counts": [right_17r, right_17r]})
+shops_17r = np.array([[50.0, 8, 26], [5, 44, 8], [88, 40, 49], [34, 40, 22]])
+U_17r, s_17r, Vt_17r = np.linalg.svd(shops_17r, full_matrices=False)
+cell_17r = [float(np.sum(U_17r[0, :2] * s_17r[:2] ** (b + c) * Vt_17r[:2, 0])) for b, c in ((1, 0), (1, 1))]
+wbm.record("MB2.17b", cell_17r, decimals=6,
+           mistakes={"split_factors_fixed donne encore S^β aux deux facteurs : le second prend S^(1 − β)":
+                         [cell_17r[1], cell_17r[1]],
+                     "le second nombre est celui de la version FAUSSE, split_factors": [cell_17r[0], cell_17r[0]]})
+x_17r, ones_17r = np.array([2.0, 3, 4]), np.ones(3)
+fixed_17r = x_17r - (x_17r @ ones_17r) / (ones_17r @ ones_17r) * ones_17r
+bad_17r = x_17r - (x_17r @ ones_17r) * ones_17r
+wbm.record("MB2.17c", fixed_17r.tolist() + bad_17r.tolist(), decimals=6,
+           mistakes={"remove_direction_fixed ne divise pas par u·u : avec (1, 1, 1), u·u = 3":
+                         bad_17r.tolist() + bad_17r.tolist(),
+                     "on divise par u·u, le carré de la norme, pas par la norme ‖u‖":
+                         (x_17r - (x_17r @ ones_17r) / math.sqrt(3) * ones_17r).tolist() + bad_17r.tolist(),
+                     "les trois derniers nombres sont ceux de la version FAUSSE, remove_direction_bad":
+                         fixed_17r.tolist() + fixed_17r.tolist()})''',
+    after=[
+        ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue ne la "
+               "voyait-elle pas, et quelle vérification l'aurait vue ?"),
+    ],
+)
+
+GIVEN_18 = '''def bits(P):
+    """WRONG: the PMI in bits."""
+    return ref_cooc.pmi(P) / math.log(2)
+
+
+def conditional(P):
+    """WRONG: ln P(Y = y | X = x), without dividing by p(y); -inf on the empty cells."""
+    P = np.asarray(P, dtype=float)
+    out = np.full(P.shape, -np.inf)
+    rows, cols = np.nonzero(P > 0)
+    out[rows, cols] = np.log(P[rows, cols]) - np.log(P.sum(axis=1)[rows])
+    return out
+
+
+def zeros_to_zero(P):
+    """WRONG: 0 instead of -inf on the empty cells."""
+    T = ref_cooc.pmi(P)
+    T[np.isneginf(T)] = 0.0
+    return T
+
+
+def lift(P):
+    """WRONG: the lift p(x, y) / (p(x) p(y)), without the logarithm; 0 on the empty cells."""
+    P = np.asarray(P, dtype=float)
+    out = np.zeros(P.shape)
+    rows, cols = np.nonzero(P > 0)
+    out[rows, cols] = P[rows, cols] / (P.sum(axis=1)[rows] * P.sum(axis=0)[cols])
+    return out
+
+
+# The loop of the property test (provided): the draws, in a fixed order, and the counters
+def pmi_property_test_18(n_trials, rng, func=None, rtol=1e-9, checks=None):
+    """n_trials random joint laws, drawn in this order: m = int(rng.integers(1, 6)), n = int(rng.integers(1, 6)),
+    W = rng.random((m, n)) ** 2, then, if rng.random() < 0.4, W set to 0 where rng.random((m, n)) < 0.3; W[0, 0] = 1 if W
+    is zero; the law is W / W.sum(). func (the function tested) defaults to mymath.cooccurrence.pmi, checks to your
+    failed_checks_18, both looked up at the call; each name returned by checks(law, func, rtol) adds 1 to its counter.
+    Returns the counters "bound", "transpose", "mean"."""
+    f = mymath.cooccurrence.pmi if func is None else func
+    chk = failed_checks_18 if checks is None else checks
+    counts = {"bound": 0, "transpose": 0, "mean": 0}
+    for _ in range(n_trials):
+        m = int(rng.integers(1, 6))
+        n = int(rng.integers(1, 6))
+        W = rng.random((m, n)) ** 2
+        if rng.random() < 0.4:
+            W[rng.random((m, n)) < 0.3] = 0.0
+        if W.sum() == 0:
+            W[0, 0] = 1.0
+        for name in chk(W / W.sum(), f, rtol):
+            if name not in counts:
+                raise ValueError(f"les contrôles rendent {name!r} : les noms sont 'bound', 'transpose' et 'mean'")
+            counts[name] += 1
+    return counts'''
+
+SOLUTION_18 = '''def failed_checks_18(P, func, rtol=1e-9):
+    """The set of the names of the checks that fail for the joint law P, among "bound", "transpose" and "mean" (set() when
+    all pass); func is the function tested."""
+    P = np.asarray(P, dtype=float)
+    try:
+        T = np.asarray(func(P), dtype=float)
+        TT = np.asarray(func(P.T), dtype=float)
+    except Exception:  # noqa: BLE001 - an exception of the function tested fails the three checks
+        return {"bound", "transpose", "mean"}
+    failed = set()
+    nonzero = P > 0
+    if T.shape != P.shape:
+        return {"bound", "transpose", "mean"}
+    p_x, p_y = P.sum(axis=1), P.sum(axis=0)
+    rows, cols = np.nonzero(nonzero)
+    bound = np.minimum(-np.log(p_x[rows]), -np.log(p_y[cols]))
+    values = T[rows, cols]
+    if not np.all(np.isfinite(values)) or np.any(values > bound + rtol * np.maximum(1.0, np.abs(bound))):
+        failed.add("bound")
+    if (TT.shape != T.T.shape or not np.array_equal(np.isneginf(TT), np.isneginf(T.T))
+            or not np.allclose(TT[~np.isneginf(TT)], T.T[~np.isneginf(T.T)], rtol=rtol, atol=rtol)):
+        failed.add("transpose")
+    mean = float(np.sum(P[nonzero] * T[nonzero]))
+    if not math.isfinite(mean) or abs(mean - mymath.info.mutual_information(P, base=math.e)) > rtol * max(1.0, abs(mean)):
+        failed.add("mean")
+    return failed'''
+
+CHECK_18 = '''def half_c18(P):
+    """WRONG: half the PMI (the mean is wrong; the bound and the transposition hold)."""
+    return 0.5 * ref_cooc.pmi(P)
+
+
+def double_c18(P):
+    """WRONG: twice the PMI (the bound and the mean are wrong; the transposition holds)."""
+    return 2.0 * ref_cooc.pmi(P)
+
+
+def finite_tall_c18(P):
+    """WRONG for a table with more rows than columns: -1e300 instead of -inf on the empty cells."""
+    T = ref_cooc.pmi(P)
+    if T.shape[0] > T.shape[1]:
+        T[np.isneginf(T)] = -1e300
+    return T
+
+
+def tall_shift_c18(P):
+    """WRONG for a table with more rows than columns: each finite PMI moved by 0.2 (i - mean of i under p(x)), which
+    keeps the mean."""
+    P = np.asarray(P, dtype=float)
+    T = ref_cooc.pmi(P)
+    if T.shape[0] > T.shape[1]:
+        i = np.arange(T.shape[0], dtype=float)
+        shift = 0.2 * (i - np.sum(P.sum(axis=1) * i))
+        T = np.where(np.isfinite(T), T + shift[:, None], T)
+    return T
+
+
+BROKEN_C18 = {"half_c18": ("mean",), "double_c18": ("bound", "mean"), "finite_tall_c18": ("transpose",),
+              "tall_shift_c18": ("bound", "transpose")}           # the properties each hidden version can break
+HIDDEN_C18 = __HIDDEN_C18__   # two hidden starts, and the sub-IDs of the counters expected for each version
+
+with checked("MB2.18"):
+    results_18 = []
+    report_18 = reporter(results_18, stop=False)
+    N_C18 = 40
+    PROPERTIES_C18 = {"bound": "la borne min(−ln p(x), −ln p(y)) sur les cases non vides",
+                      "transpose": "que func(P.T) redonne la transposée (−∞ aux mêmes places, le reste à rtol près)",
+                      "mean": "que la moyenne des PMI sous P redonne l'information mutuelle de M06, en nats"}
+
+    def run_c18(label, seed, **kwargs):
+        """The loop of the notebook with your failed_checks_18, on a hidden start: its counters."""
+        try:
+            return pmi_property_test_18(N_C18, np.random.default_rng(seed), checks=failed_checks_18, **kwargs)
+        except (NotImplementedError, MymathMissingError):
+            raise
+        except Exception as exc:  # noqa: BLE001 - the learner's error
+            hint = (" ; failed_checks_18 doit rendre un ensemble de noms (set() si tout passe) : as-tu oublié le return ?"
+                    if isinstance(exc, TypeError) and "NoneType" in str(exc) else "")
+            print(f"❌ Ex MB2.18 : failed_checks_18 ({label}) lève {type(exc).__name__} : {str(exc)[:200]}{hint}")
+            raise StopCheck from None
+
+    def compare_c18(label, got, version, ids):
+        """One ✅ when the three counters are those expected; else one ❌ per counter, naming the property."""
+        wrong = []
+        for key in ("bound", "transpose", "mean"):
+            if version is None or key not in BROKEN_C18[version]:            # 0 by construction
+                if got[key] != 0:
+                    wrong.append((key, f"vaut {got[key]}, attendu 0 : "
+                                       + ("avec une fonction juste, aucun contrôle ne compte : ton contrôle compte trop "
+                                          "(sa tolérance rtol·max(1, |…|), ce qu'il compare)" if version is None else
+                                          "cette version ne fausse pas cette propriété : ton contrôle compte trop (sa "
+                                          "tolérance rtol·max(1, |…|), ce qu'il compare)")))
+            elif not passes(ids[key], got[key]):
+                wrong.append((key, ("vaut 0 : tes contrôles ne vérifient pas " + PROPERTIES_C18[key]
+                                    + ", sur la fonction reçue (func, pas celle de mymath)") if got[key] == 0 else
+                                   (f"vaut {got[key]}, ce n'est pas le compte attendu : relis ce que ce contrôle compare, "
+                                    "et sur quelles cases")))
+        if not wrong:
+            report_18(True, f"{label} : les trois compteurs comme attendu", "")
+        for key, why in wrong:
+            report_18(False, "", f"{label} : le compteur {key!r} {why}")
+
+    for start_c18, (seed_c18, ids_c18) in enumerate(HIDDEN_C18, start=1):
+        compare_c18(f"la référence, départ caché {start_c18}", run_c18("la référence", seed_c18, func=ref_cooc.pmi),
+                    None, {})
+        for number_c18, name_c18 in enumerate(BROKEN_C18, start=1):
+            label_c18 = f"une version fausse cachée n° {number_c18}, départ caché {start_c18}"
+            compare_c18(label_c18, run_c18(label_c18, seed_c18, func=globals()[name_c18]), name_c18, ids_c18[name_c18])
+    learner_pmi_c18 = mymath.cooccurrence.pmi                # replaced an instant, put back even if the check fails
+    try:
+        mymath.cooccurrence.pmi = half_c18
+        got_c18 = run_c18("func=None", HIDDEN_C18[0][0])
+    finally:
+        mymath.cooccurrence.pmi = learner_pmi_c18
+    compare_c18("la version fausse n° 1 mise un instant à la place de mymath.cooccurrence.pmi, sans func", got_c18,
+                "half_c18", HIDDEN_C18[0][1]["half_c18"])
+    verdict("MB2.18", all(results_18), "tes contrôles comptent juste sur la référence et sur les versions fausses "
+            "cachées.", "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_18 = (r"`failed_checks_18` appelle `func(P)` et `func(P.T)` dans un `try`, puis fait les trois contrôles sur les cases "
+           r"non vides. a) Vrai. c) `zeros_to_zero` passe tout : les trois contrôles ne regardent que les cases non "
+           r"vides, et ce sont les tests de `tests/test_mb2_cooccurrence.py` qui vérifient $-\infty$ sur les cases vides. "
+           r"`bits` et `lift` passent la transposition (une table multipliée par un nombre, ou transformée case par case, "
+           r"se transpose comme elle) ; `conditional` passe la borne ($\ln P(y \mid x) \le 0$). `bits` n'échoue pas "
+           r"toujours : la moyenne est juste quand l'information mutuelle est nulle.")
+
+MB2_18 = Ex(
+    "MB2.18", "🛠️", 1, 20, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
+    "la moyenne qui redonne l'information mutuelle de M06",
+    "écrire les contrôles d'un test de propriété de la table des PMI, sur des lois tirées au hasard, et voir ce qu'il "
+    "attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; M06 ; Ex MB2.13", tracks="C", given=GIVEN_18, note=NOTE_18,
+    body=r"""La cellule fournie donne la boucle du test, `pmi_property_test_18(n_trials, rng, func=None, rtol=1e-9, checks=None)` : quand `func` vaut `None`, elle prend `mymath.cooccurrence.pmi` **au moment de l'appel**, et, quand `checks` vaut `None`, ta fonction `failed_checks_18` ; pour chacun des `n_trials` essais, dans cet ordre, elle tire `m = int(rng.integers(1, 6))`, `n = int(rng.integers(1, 6))`, `W = rng.random((m, n)) ** 2`, puis, si `rng.random() < 0.4`, met à 0 les cases où `rng.random((m, n)) < 0.3` (des cases vides) ; si `W` est nulle, elle met `W[0, 0] = 1` ; elle divise `W` par sa somme, appelle `checks(P, f, rtol)`, où `P` est la loi tirée et `f` la fonction testée, et ajoute 1 au compteur de chaque nom rendu ; elle rend le dictionnaire des trois compteurs d'essais `"bound"`, `"transpose"` et `"mean"`.
+
+Écris les contrôles, `failed_checks_18(P, func, rtol=1e-9)`, qui rend l'**ensemble** des noms des contrôles qui échouent pour la loi `P` (`set()` si tout passe) : avec `T = func(P)`,
+- `"bound"` échoue si `T` n'a pas la forme de `P`, si une case de probabilité non nulle a une PMI non finie, ou si l'une d'elles dépasse $\min(-\ln p(x), -\ln p(y))$ de plus de $\texttt{rtol}\cdot\max(1, \lvert\text{borne}\rvert)$ ;
+- `"transpose"`, si `func(P.T)` n'a pas la forme de `T.T`, n'a pas ses $-\infty$ aux mêmes places, ou s'en écarte ailleurs de plus de `rtol` (`np.allclose` avec `rtol` et `atol` égaux à `rtol`) ;
+- `"mean"`, si $\sum p(x, y)\,T(x, y)$, sur les cases non vides, s'écarte de `mymath.info.mutual_information(P, base=math.e)` de plus de $\texttt{rtol}\cdot\max(1, \lvert\text{moyenne}\rvert)$ (ou n'est pas finie).
+
+Une exception levée par `func` fait échouer les trois contrôles. La cellule fournie donne aussi quatre versions fausses de `pmi` : `bits` (en bits), `conditional` ($\ln P(Y = y \mid X = x)$, sans diviser par $p(y)$), `zeros_to_zero` (0 au lieu de $-\infty$ sur les cases vides) et `lift` (le lift, sans le logarithme, 0 sur les cases vides). Puis :
+- a) avec `rng = np.random.default_rng(7118)` et 300 essais, avec ta fonction `pmi` et tes contrôles : vrai ou faux, les trois compteurs sont nuls ;
+- b) avec le même départ (un nouveau `default_rng(7118)` chaque fois, 300 essais) et chacune des quatre versions fausses, dans l'ordre `bits`, `conditional`, `zeros_to_zero`, `lift` : les trois compteurs, dans l'ordre `"bound"`, `"transpose"`, `"mean"` (une liste de 4 listes de 3 entiers) ;
+- c) dans ta copie : lesquelles passent le test, ou passent l'un des contrôles, et pourquoi c'est normal ; qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ?
+
+La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec quatre versions fausses cachées, qui faussent chacune une ou deux des propriétés ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+    todo='''def failed_checks_18(P, func, rtol=1e-9):
+    """The set of the names of the checks that fail for the joint law P, among "bound", "transpose" and "mean" (set() when
+    all pass); func is the function tested."""
+    raise NotImplementedError("failed_checks_18 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_MB2_18a = answer_MB2_18b = ...
+with wbm.attempt("MB2.18"):          # your checks and your library: ⏳ while they are not written
+    answer_MB2_18a = ...  # a) True or False: the three counters are 0 (default_rng(7118), 300 trials, your pmi, your checks)
+    answer_MB2_18b = ...  # b) a list of 4 lists of 3 integers: the counters ("bound", "transpose", "mean") for bits, conditional, zeros_to_zero, lift (a new default_rng(7118) each time, 300 trials)''',
+    check=answers_check("MB2.18", "ab") + "\n\n" + CHECK_18,
+    solution=SOLUTION_18 + '''
+
+
+KEYS_18 = ("bound", "transpose", "mean")
+mine_18 = pmi_property_test_18(300, np.random.default_rng(7118))
+answer_MB2_18a = all(mine_18[key] == 0 for key in KEYS_18)
+with np.errstate(divide="ignore", invalid="ignore"):
+    wrong_18 = {name: pmi_property_test_18(300, np.random.default_rng(7118), func=function)
+                for name, function in (("bits", bits), ("conditional", conditional), ("zeros_to_zero", zeros_to_zero),
+                                       ("lift", lift))}
+answer_MB2_18b = [[counts[key] for key in KEYS_18] for counts in wrong_18.values()]
+for name_18, counts_18 in {"ta pmi": mine_18, **wrong_18}.items():
+    print(f"{name_18:14s}", counts_18)
+print("a)", answer_MB2_18a, " b)", answer_MB2_18b)
+
+''' + answers_check("MB2.18", "ab") + "\n\n" + CHECK_18,
+    record=('''def counters_18r(seed, func, n_trials=300, bound_min=True, all_cells=False):
+    """The loop and the checks of the statement written again (the oracle), with two classic variants: the bound with
+    max instead of min, and the mean over all the cells (0 × −∞ gives nan)."""
+    from scipy.special import xlogy
+    rng, counts = np.random.default_rng(seed), [0, 0, 0]
+    for _ in range(n_trials):
+        m, n = int(rng.integers(1, 6)), int(rng.integers(1, 6))
+        W = rng.random((m, n)) ** 2
+        if rng.random() < 0.4:
+            W[rng.random((m, n)) < 0.3] = 0.0
+        if W.sum() == 0:
+            W[0, 0] = 1.0
+        law = W / W.sum()
+        with np.errstate(divide="ignore", invalid="ignore"):
+            T, TT = np.asarray(func(law), dtype=float), np.asarray(func(law.T), dtype=float)
+            px, py = law.sum(axis=1), law.sum(axis=0)
+            mi = float(np.sum(xlogy(law, law)) - np.sum(xlogy(px, px)) - np.sum(xlogy(py, py)))
+            pick = np.minimum if bound_min else np.maximum
+            failed = [False, False, False]
+            for i in range(m):
+                for j in range(n):
+                    if law[i, j] > 0:
+                        b = float(pick(-math.log(px[i]), -math.log(py[j])))
+                        if not math.isfinite(T[i, j]) or T[i, j] > b + 1e-9 * max(1.0, abs(b)):
+                            failed[0] = True
+            same_places = np.array_equal(np.isneginf(TT), np.isneginf(T.T))
+            failed[1] = not (same_places and np.allclose(TT[~np.isneginf(TT)], T.T[~np.isneginf(T.T)], rtol=1e-9, atol=1e-9))
+            cells = np.ones_like(law, dtype=bool) if all_cells else law > 0
+            mean = float(np.sum(law[cells] * T[cells]))
+            failed[2] = not math.isfinite(mean) or abs(mean - mi) > 1e-9 * max(1.0, abs(mean))
+        counts = [c + int(f) for c, f in zip(counts, failed)]
+    return counts
+
+
+''' + GIVEN_18.split("\n\n\n# The loop")[0] + '''
+
+
+versions_18r = [bits, conditional, zeros_to_zero, lift]
+wbm.record("MB2.18a", all(c == 0 for c in counters_18r(7118, ref_cooc.pmi)),
+           mistakes={"avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de tes contrôles "
+                     "(leurs tolérances, ce qu'ils comparent) ou de ta pmi (relance ses tests)": False})
+table_18r = [counters_18r(7118, f) for f in versions_18r]
+wbm.record("MB2.18b", table_18r,
+           mistakes={"la borne est le MINIMUM de −ln p(x) et −ln p(y)": [counters_18r(7118, f, bound_min=False)
+                                                                       for f in versions_18r],
+                     "la moyenne ne porte que sur les cases non vides (0 × −∞ n'est pas un nombre)":
+                         [counters_18r(7118, f, all_cells=True) for f in versions_18r],
+                     "l'ordre des versions : bits, conditional, zeros_to_zero, lift": table_18r[::-1]})
+''' + CHECK_18.split("\n\n\nBROKEN_C18")[0] + '''
+
+
+for seed_18r, ids_18r in __HIDDEN_C18__:                    # the counters of the hidden versions, on the hidden starts
+    for name_18r, by_key_18r in ids_18r.items():
+        counts_18r = dict(zip(("bound", "transpose", "mean"), counters_18r(seed_18r, globals()[name_18r], n_trials=40)))
+        for key_18r, sub_id_18r in by_key_18r.items():
+            wbm.record(sub_id_18r, counts_18r[key_18r])'''),
+    after=[
+        ("todo_md", "**Dans ta copie** : c) lesquelles des quatre versions fausses passent le test, ou l'un des contrôles, "
+                    "pourquoi c'est normal, et ce qui, dans le dépôt, vérifie ce qu'elles ont de faux."),
+        ("md", "**Après la vérification**, dans ta copie : quel contrôle faudrait-il ajouter pour attraper `zeros_to_zero`, "
+               "et pourquoi ne s'agit-il plus d'une propriété des seules cases non vides ?"),
+    ],
+)
+
+PART_C = Part("C", "Déboguer, tester",
+              "Fiche §2, §4 et §7. Trois erreurs classiques, qui passent une vérification mal choisie ; un test de propriété "
+              "de `pmi`. Les versions fausses et le code du collègue s'appuient sur la référence (`ref_cooc`, `ref_svd`), "
+              "pour ne pas dépendre de ton code.",
+              exercises=[MB2_17, MB2_18])
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: the challenge (MB2.19)
+# ---------------------------------------------------------------------------
+GIVEN_19 = '''COUNTS_19 = np.array(__COUNTS_19__)   # 3 000 sales: rows the 10 departments, columns the 10 time slots
+
+
+def pairs_found_19(pairs):
+    """The number of the 5 pairs (row, column) given that are among the five most associated pairs of the hidden table
+    of COUNTS_19: each pair is compared with the hidden answer by wbm.check, which shows nothing of it."""
+    pairs = [tuple(int(v) for v in pair) for pair in pairs]
+    if len(pairs) != 5 or len(set(pairs)) != 5 or not all(0 <= i < 10 and 0 <= j < 10 for i, j in pairs):
+        raise ValueError(f"pairs_found_19 attend 5 paires (ligne, colonne) distinctes, de 0 à 9, reçu {pairs}")
+    return sum(any(passes(f"MB2.19{letter}", list(pair)) for letter in "klmno") for pair in pairs)'''
+
+CHECK_19 = '''HIDDEN_C19 = __HIDDEN_C19__   # three hidden joint laws of 10 × 10 (rows and columns renumbered at each run)
+rng_c19 = np.random.default_rng()       # at each run: a new numbering of the rows and columns, and new sales
+
+
+def pairs_why_c19(pairs):
+    """'' when pairs is a list of 5 distinct pairs (row, column) of integers from 0 to 9, else the reason."""
+    try:
+        pairs = [tuple(int(v) for v in pair) for pair in pairs]
+    except (TypeError, ValueError):
+        return f"top_pairs_19 doit rendre une liste de 5 paires (ligne, colonne), reçu {shown(pairs)}"
+    if len(pairs) != 5 or any(len(p) != 2 for p in pairs) or len(set(pairs)) != 5:
+        return f"top_pairs_19 doit rendre 5 paires (ligne, colonne) distinctes, reçu {shown(pairs)}"
+    if not all(0 <= v < 10 for p in pairs for v in p):
+        return "les lignes et les colonnes se numérotent de 0 à 9"
+    return ""
+
+
+def top5_c19(law):
+    """The five cells of largest PMI of a hidden joint law (the truth of a hidden table, not a method)."""
+    T = ref_cooc.pmi(law)
+    return {(int(i), int(j)) for i, j in zip(*np.unravel_index(np.argsort(-T, axis=None, kind="stable")[:5], T.shape))}
+
+
+def rare_hint_c19(counts, pairs):
+    """A hint when the pairs chosen hold cells of few sales (their PMI is very dispersed, MB2.15)."""
+    few = [int(counts[i, j]) for i, j in pairs if counts[i, j] <= 5]
+    return (f" ; {len(few)} des cases choisies n'ont que {', '.join(map(str, sorted(few)))} vente(s) : leur PMI estimée "
+            "est très dispersée (MB2.15)") if few else ""
+
+
+with checked("MB2.19"):
+    results_19 = []
+    report_19 = reporter(results_19, stop=False)
+    elapsed_19 = 0.0
+    start_19 = time.perf_counter()
+    mine_19 = top_pairs_19(COUNTS_19.copy())
+    elapsed_19 += time.perf_counter() - start_19
+    why_19 = pairs_why_c19(mine_19)
+    found_19 = pairs_found_19(mine_19) if not why_19 else 0
+    report_19(not why_19 and found_19 >= 4, f"la table du notebook : {found_19} paires sur 5",
+              f"la table du notebook : {why_19 or f'{found_19} paires sur 5, il en faut au moins 4'}"
+              + ("" if why_19 else rare_hint_c19(COUNTS_19, mine_19)))
+    if not filled(answer_MB2_19a):
+        print("⏳ Ex MB2.19a : pas encore fait.")
+    elif not why_19:
+        report_19(answer_MB2_19a == found_19, "Ex MB2.19a : ta réponse est le score de ta fonction",
+                  "Ex MB2.19a : ta réponse n'est pas le score que rend ta fonction maintenant, "
+                  "pairs_found_19(top_pairs_19(COUNTS_19)) : exécute à nouveau ta cellule")
+    answers_c19 = [sorted(map(tuple, np.asarray(mine_19, dtype=int).tolist())) if not why_19 else None]
+    for k_c19, law_c19 in enumerate(HIDDEN_C19, start=1):
+        rows_c19, cols_c19 = rng_c19.permutation(10), rng_c19.permutation(10)
+        law_c19 = np.array(law_c19)[np.ix_(rows_c19, cols_c19)]
+        counts_c19 = rng_c19.multinomial(3000, law_c19.ravel()).reshape(10, 10)
+        start_19 = time.perf_counter()
+        got_c19 = top_pairs_19(counts_c19.copy())
+        elapsed_19 += time.perf_counter() - start_19
+        why_c19 = pairs_why_c19(got_c19)
+        if not why_c19 and sorted(map(tuple, np.asarray(got_c19, dtype=int).tolist())) in answers_c19:
+            why_c19 = ("ta fonction rend les mêmes paires pour deux tables différentes : elle doit les calculer à partir "
+                       "des comptes reçus")
+        if why_c19:
+            report_19(False, "", f"table cachée {k_c19} : {why_c19}")
+            continue
+        got_c19 = [tuple(int(v) for v in p) for p in got_c19]
+        answers_c19.append(sorted(got_c19))
+        score_c19 = len(set(got_c19) & top5_c19(law_c19))
+        report_19(score_c19 >= 4, f"table cachée {k_c19} : {score_c19} paires sur 5",
+                  f"table cachée {k_c19} : {score_c19} paires sur 5, il en faut au moins 4"
+                  + rare_hint_c19(counts_c19, got_c19))
+    report_19(elapsed_19 < 10, f"en {fr(elapsed_19, 2)} s pour les quatre tables",
+              f"trop lent : {fr(elapsed_19, 1)} s pour les quatre tables, il faut moins de 10 s")
+    verdict("MB2.19", all(results_19) and len(results_19) >= 5, "critère atteint : au moins 4 paires sur 5 pour la table "
+            "du notebook et pour les trois tables cachées, en moins de 10 secondes.",
+            "critère pas encore atteint : relis les lignes ❌ ci-dessus.")'''
+
+NOTE_19 = (r"a) 5 avec la méthode ci-dessous ; b) 2 ; c) trois cases de deux ou trois ventes, dans des rayons ou des "
+           r"tranches rares, devant deux vraies paires. Deux méthodes qui marchent : ne garder que les cases d'au moins 10 "
+           r"ventes avant de prendre les cinq plus grandes PMI ; ou rapprocher chaque case de l'indépendance par des "
+           r"pseudo-comptes, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = n(x)\,n(y)/N$ le compte "
+           r"attendu sous l'indépendance et $\kappa = 5$.")
+
+MB2_19 = Ex(
+    "MB2.19", "🏆", 3, 30, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée "
+    "de 10 × 10, sans se laisser piéger par les cases rares",
+    "retrouver les cases de plus grande PMI d'une table cachée à partir de comptes, en se protégeant des cases rares, et "
+    "le vérifier sur des tables cachées.", "fiche §2 et §3 ; M04 ; Ex MB2.13 et MB2.15", tracks="C",
+    given=GIVEN_19, note=NOTE_19,
+    body=r"""Une table jointe cachée de $10 \times 10$ décrit, pour les articles vendus par un hypermarché, le rayon de l'article (10 rayons, en lignes) et la tranche horaire de la vente (10 tranches, en colonnes) ; quelques rayons et quelques tranches sont rares. Les « cinq paires les plus associées » sont les cinq cases de plus grande PMI de la table cachée, toutes de probabilité nettement non nulle. La cellule fournie donne `COUNTS_19`, les comptes, de forme $(10, 10)$, de 3 000 ventes tirées selon une telle table, et `pairs_found_19(pairs)`, qui compte combien des 5 paires `(ligne, colonne)` données sont parmi les cinq paires cachées, sans rien montrer d'elles.
+
+Écris `top_pairs_19(counts)`, qui reçoit une table de comptes de 3 000 observations et rend une liste de 5 paires `(ligne, colonne)`, numérotées à partir de 0. Tout NumPy et SciPy sont permis, et ta `pmi`.
+
+**Critère de réussite :** au moins 4 des 5 paires trouvées pour la table du notebook, et pour chacune de trois tables cachées de la vérification, dont les lignes et les colonnes sont renumérotées à chaque exécution, et dont les 3 000 ventes sont tirées à nouveau, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse a) avec ta fonction, et refuse une fonction qui rend les mêmes paires pour deux tables. Relève :
+- a) le nombre de paires que ta méthode trouve pour la table du notebook, `pairs_found_19(top_pairs_19(COUNTS_19))` (un entier) ;
+- b) le nombre de paires que trouve l'estimation directe, les cinq plus grandes valeurs de `pmi(COUNTS_19 / 3000)` (un entier) ;
+- c) les comptes des cinq cases que choisit l'estimation directe, par PMI estimée décroissante (une liste de 5 entiers).
+
+Point de départ : regarde les cases que choisit l'estimation directe, et leurs comptes ; la fiche (§2 et §3) et M04 (les pseudo-comptes) donnent des idées, et la méthode est libre.""",
+    todo='''def top_pairs_19(counts):
+    """The 5 most associated pairs (row, column), numbered from 0, of the hidden joint law whose counts (3 000
+    observations, a (10, 10) array) are given: a list of 5 pairs."""
+    raise NotImplementedError("top_pairs_19 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_MB2_19a = answer_MB2_19b = answer_MB2_19c = ...
+with wbm.attempt("MB2.19"):          # your function: ⏳ while it is not written
+    answer_MB2_19a = ...  # a) an integer: pairs_found_19(top_pairs_19(COUNTS_19))
+    answer_MB2_19b = ...  # b) an integer: the pairs found by the direct estimate, the 5 largest values of pmi(COUNTS_19 / 3000)
+    answer_MB2_19c = ...  # c) a list of 5 integers: the counts of the 5 cells of the direct estimate, by decreasing estimated PMI''',
+    check=answers_check("MB2.19", "bc") + "\n\n" + CHECK_19,
+    solution='''def top_pairs_19(counts, kappa=5.0):
+    """The 5 most associated pairs (row, column), numbered from 0, of the hidden joint law whose counts (3 000
+    observations, a (10, 10) array) are given: a list of 5 pairs."""
+    counts = np.asarray(counts, dtype=float)
+    expected = np.outer(counts.sum(axis=1), counts.sum(axis=0)) / counts.sum()     # the counts if independent
+    score = np.log((counts + kappa) / (expected + kappa))                          # pseudo-counts towards independence
+    best = np.argsort(-score, axis=None, kind="stable")[:5]
+    return [(int(i), int(j)) for i, j in zip(*np.unravel_index(best, counts.shape))]
+
+
+start_19 = time.perf_counter()
+answer_MB2_19a = pairs_found_19(top_pairs_19(COUNTS_19))
+print(f"a) {answer_MB2_19a} paires sur 5, en {time.perf_counter() - start_19:.4f} s")
+direct_19 = mymath.cooccurrence.pmi(COUNTS_19 / COUNTS_19.sum())
+order_19 = np.argsort(-direct_19, axis=None, kind="stable")[:5]
+direct_pairs_19 = [(int(i), int(j)) for i, j in zip(*np.unravel_index(order_19, direct_19.shape))]
+answer_MB2_19b = pairs_found_19(direct_pairs_19)
+answer_MB2_19c = [int(COUNTS_19[i, j]) for i, j in direct_pairs_19]
+print("b)", answer_MB2_19b, " c)", answer_MB2_19c, " ; cases choisies :", direct_pairs_19)''',
+    record='''J_19r = np.array(__LAW_19__)                                  # the hidden joint law of COUNTS_19
+counts_19r = np.array(__COUNTS_19__)
+
+
+def pmi_19r(J):
+    with np.errstate(divide="ignore"):
+        return np.log(J) - np.log(np.outer(J.sum(axis=1), J.sum(axis=0)))
+
+
+def top5_19r(T):
+    flat = sorted(((float(T[i, j]), i, j) for i in range(10) for j in range(10) if np.isfinite(T[i, j])), reverse=True)
+    return [(i, j) for _, i, j in flat[:5]]
+
+
+for letter_19r, pair_19r in zip("klmno", sorted(top5_19r(pmi_19r(J_19r)))):   # the five hidden pairs
+    wbm.record(f"MB2.19{letter_19r}", list(pair_19r), decimals=0)
+direct_19r = top5_19r(pmi_19r(counts_19r / counts_19r.sum()))
+truth_19r = set(top5_19r(pmi_19r(J_19r)))
+wbm.record("MB2.19b", len(set(direct_19r) & truth_19r),
+           mistakes={"b) compte les paires de l'estimation directe qui sont parmi les cinq paires cachées, par "
+                     "pairs_found_19": 5 - len(set(direct_19r) & truth_19r)})
+wbm.record("MB2.19c", [int(counts_19r[i, j]) for i, j in direct_19r],
+           mistakes={"par PMI estimée DÉCROISSANTE": [int(counts_19r[i, j]) for i, j in direct_19r[::-1]],
+                     "les comptes des cinq cases de plus grande PMI estimée, pas les cinq plus grands comptes":
+                         sorted((int(c) for c in counts_19r.ravel()), reverse=True)[:5]})''',
+    after=[
+        ("md", "**Pour réfléchir** : pourquoi l'estimation directe choisit-elle des cases de deux ou trois ventes ? Que "
+               "devient ta méthode avec 30 000 ventes, et avec 300 ? Que se passerait-il si une vraie paire était dans un "
+               "rayon rare ?"),
+    ],
+)
+
+PART_D = Part("D", "Défi", "Fiche §2 et §3. Les cases les plus associées d'une table cachée, retrouvées à partir de "
+              "comptes, sur la table du notebook et trois tables cachées.", exercises=[MB2_19])
+
+PARTS = [PART_A, PART_B, PART_C, PART_D]
+
+
+def header_cells(kind: str) -> list:
+    rel = f"{FOLDER}/{'03_notebook' if kind == 'exercise' else '05_solutions'}.ipynb"
+    rows = ["| Partie | ID | Titre | Type | ★ | ⏱️ |", "|---|---|---|---|---|---|",
+            "| 0 | MB2.1 à MB2.7, MB2.11 | Les exercices papier (vérification) | ✏️ 🔗 | | |"]
+    for part in PARTS:
+        for i, ex in enumerate(part.exercises):
+            rows.append(ex.table_row(part.key if i == 0 else ""))
+    if kind == "exercise":
+        title = "# MB2 · Cooccurrences, PMI et embeddings — notebook d'exercices"
+        how = ("La partie 0 vérifie tes exercices papier. Chaque exercice de code : un énoncé, une cellule à compléter "
+               "(les `...` et les `raise NotImplementedError`), puis une cellule de vérification (`wbm.check`). Dans "
+               "les parties A à D, donne les valeurs que rend le calcul, **sans les arrondir** : les décimales "
+               "demandées sont celles de ta copie. « Tout exécuter » (*Run all*) va jusqu'au bout même si rien n'est "
+               "rempli : ce qui n'est pas fait affiche ⏳. Bloqué 15 minutes ? `04_indices.md`.\n\n"
+               "> Travaille dans **ta copie** (`mon_travail/mb2_cooccurrences/03_notebook.ipynb`, créée par "
+               "`python tools/start_chapter.py MB2`) ; la version du dépôt est mise à jour par Claude. Sur Colab, le "
+               "badge ouvre la version du dépôt, qui n'est pas enregistrée : crée puis ouvre ta copie comme "
+               "l'explique `00_setup/COLAB.md` §2.")
+    else:
+        title = "# MB2 · Cooccurrences, PMI et embeddings — solutions (notebook exécuté)"
+        how = ("Les réponses des exercices, exécutées. Les démarches détaillées (le *pourquoi*, les erreurs fréquentes, "
+               "les variantes) sont dans `05_solutions.md`. Les cellules marquées `answer` enregistrent les réponses "
+               "vérifiées par `wbm.check` (`tools/build_answers.py`).")
+    return [md(f"{title}\n\n{badge(rel)}\n\n{how}\n\n" + "\n".join(rows))]
+
+
+def objectives_cell() -> list:
+    return [md("## Objectifs et rappel express\n\n"
+               "- Vérifier tes calculs papier (partie 0) : des entiers en base 2 et en base 16, la PMI d'une table "
+               "d'oiseaux et son lissage, les facteurs d'une SVD tronquée, le logit d'une bannière sous-échantillonnée, "
+               "une analogie entre aliments, une direction retirée de mesures d'animaux, et un pont vers la moyenne "
+               "masquée.\n"
+               "- Écrire les trois fonctions de `mymath/cooccurrence.py` (`pmi`, `case_control_logit`, "
+               "`remove_direction`) et les tester.\n"
+               "- Prédire puis mesurer la dispersion d'une PMI estimée, dessiner des magasins dans le plan de deux "
+               "facteurs, corriger trois erreurs classiques, écrire un test de propriété, et relever un défi.\n\n"
+               r"**Rappel express.** $\operatorname{PMI}(x, y) = \ln\frac{p(x, y)}{p(x)\,p(y)}$, en nats, $-\infty$ sur "
+               r"une case vide ; $\operatorname{PMI}(x, y) \le \min(-\ln p(x), -\ln p(y))$ ; $I(X ; Y) = \sum "
+               r"p(x, y)\operatorname{PMI}(x, y)$ sur les cases non vides. Lissage : $p_\alpha(y) \propto n(y)^\alpha$, la "
+               r"loi tempérée de $T = 1/\alpha$, qui décale chaque colonne de $-\ln\frac{p_\alpha(y)}{p(y)}$. Facteurs : "
+               r"$(\mathbf{U}_k\mathbf{S}_k^\beta)(\mathbf{V}_k\mathbf{S}_k^{1-\beta})^\top = \mathbf{M}_k$ pour tout $\beta$. "
+               r"Cas-témoins : la cote est multipliée par $s_1/s_0$, le logit décalé de $\ln\frac{s_1}{s_0}$. Retirer "
+               r"$\mathbf{u}$ : $\mathbf{x} - \frac{\mathbf{x}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\,\mathbf{u}$.")]
+
+
+def footer_cells(kind: str) -> list:
+    return [md("## ✅ Bilan\n\n"
+               "**Auto-évaluation** (note-toi de 0 à 3 dans `mon_travail/suivi/auto_evaluation.md`) :\n"
+               "1. Sais-tu écrire un entier en base 2 et en base 16, et découper un mot de bits en champs ?\n"
+               "2. Sais-tu calculer la table des PMI d'une loi jointe, la lire comme un lift, et retrouver l'information "
+               "mutuelle comme sa moyenne ?\n"
+               "3. Sais-tu dire pourquoi les cases rares ont les PMI les plus grandes et les plus dispersées, et ce que "
+               "fait le lissage ?\n"
+               "4. Sais-tu répartir les valeurs singulières entre deux facteurs, et dire ce qui en dépend ?\n"
+               "5. Sais-tu corriger le logit d'un échantillon cas-témoins ?\n"
+               "6. Sais-tu retirer une direction d'un nuage, et dire quelles distances changent ?\n\n"
+               "**La suite** : le chapitre bonus B2 de workbookIA, qui applique ces outils aux tokenizers, à la PPMI "
+               "suivie d'une SVD, à word2vec et aux embeddings de phrases.")]
+
+
+def build(kind: str) -> list:
+    cells = header_cells(kind)
+    cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
+    cells += objectives_cell()
+    cells += paper_part(kind)
+    for part in PARTS:
+        cells += part_cells(part, kind)
+    cells += footer_cells(kind)
+    return cells
