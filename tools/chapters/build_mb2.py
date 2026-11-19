@@ -157,7 +157,7 @@ PAPER = [
          '''decimals=3,
            mistakes={"la PMI lissée ajoute à la PMI le décalage de sa colonne, avec son signe": PMI_2[1][0] - SHIFT_3[0],
                      "la PMI lissée se calcule avec ln, en nats": (PMI_2[1][0] + SHIFT_3[0]) / math.log(2)}'''),
-        ("d", "a list of 3 numbers (3 decimals): woodpecker, blackbird, sparrow", "[PMI_2[0][j] + SHIFT_3[j] for j in (1, 2, 3)]",
+        ("d", "a list of 3 numbers (3 decimals): woodpecker, thrush, sparrow", "[PMI_2[0][j] + SHIFT_3[j] for j in (1, 2, 3)]",
          '''decimals=3,
            mistakes={"le lissage décale la PMI de chaque colonne : pars des PMI de MB2.2 et ajoute le décalage de b)":
                          [PMI_2[0][j] for j in (1, 2, 3)],
@@ -181,7 +181,7 @@ PAPER = [
                      "chaque terme est multiplié par sa valeur singulière s_k": [float(U_4[2, k] * V_4[1, k]) for k in range(2)]}'''),
         ("b", "a 4 × 2 matrix, as the list of its rows", "floats(factor_4(1)[0])",
          '''decimals=6,
-           mistakes={"S multiplie la colonne k de U par s_k : la première par 135, la seconde par 45":
+           mistakes={"S multiplie la colonne k de U par s_k : la première par 399, la seconde par 133":
                          floats(U_4 * S_4[::-1]),
                      "pour β = 1, chaque colonne est multipliée par s_k entière, pas par sa racine":
                          floats(U_4 * np.sqrt(S_4))}'''),
@@ -256,13 +256,13 @@ PAPER = [
          '''decimals=3,
            mistakes={"le cosinus divise le produit scalaire par le produit des deux normes": float(Q_6 @ C_6 / (C_6 @ C_6)),
                      "la question demande le cosinus de q et c, le point de la question": cos(Q_6, D_6)}'''),
-        ("e", "a number (3 decimals)", "math.sqrt(1 - DELTA_6 ** 2 / float(D_6 @ D_6))",
-         '''decimals=3,
+        ("e", "a number (4 decimals)", "math.sqrt(1 - DELTA_6 ** 2 / float(D_6 @ D_6))",
+         '''decimals=4,
            mistakes={"appliquée à d, la borne rapporte δ à la norme de d, pas à celle de c":
                          math.sqrt(1 - DELTA_6 ** 2 / float(C_6 @ C_6)),
                      "la borne est √(1 − δ²/‖d‖²), une racine": 1 - DELTA_6 ** 2 / float(D_6 @ D_6)}'''),
         ("f", BOOL, "cos(Q_6, D_6) > cos(Q_6, C_6)",
-         '''mistakes={"la borne garantie pour d dépasse le cosinus de c : compare les deux nombres": False}'''),
+         '''mistakes={"le lemme minore cos(q, d) par la borne de e) : compare cette borne au cosinus de d)": False}'''),
         ("g", "a number (4 decimals)", "cos(B_6 - A_6, D_6 - C_6)",
          '''decimals=4,
            mistakes={"on compare les deux décalages, b − a et d − c, pas leurs extrémités b et d": cos(B_6, D_6),
@@ -309,29 +309,29 @@ PAPER = [
 
     Paper("MB2.11", "Pont : résumer des séries de relevés de longueurs différentes par une moyenne masquée, montrer que le "
                     "remplissage ne change rien, et compter les comparaisons par paires", [
-        ("a", "a list of 2 numbers: temperature, humidity", "floats(masked_mean_11(H_11, MASK_11)[0])",
+        ("a", "a list of 2 numbers: soil temperature, soil humidity", "floats(masked_mean_11(H_11, MASK_11)[0])",
          '''decimals=6,
            mistakes={"la moyenne masquée divise par la somme du masque (les vrais relevés), pas par la longueur complétée":
                          floats(H_11[0].mean(axis=0)),
                      "la moyenne se fait grandeur par grandeur, sur les relevés : un vecteur de 2 nombres":
                          floats(H_11[0][MASK_11[0] == 1].mean(axis=1))}'''),
-        ("b", "a list of 2 numbers: temperature, humidity", "floats(masked_mean_11(H_11, MASK_11)[1])",
+        ("b", "a list of 2 numbers: soil temperature, soil humidity", "floats(masked_mean_11(H_11, MASK_11)[1])",
          '''decimals=6,
            mistakes={"la moyenne masquée divise par la somme du masque (les vrais relevés), pas par la longueur complétée":
                          floats(H_11[1].mean(axis=0)),
-                     "on divise la somme par le nombre de relevés de la station, pas par le nombre de stations":
+                     "on divise la somme par le nombre de relevés du capteur, pas par le nombre de capteurs":
                          floats(H_11[1].sum(axis=0) / len(H_11))}'''),
         ("c", BOOL, "bool(np.allclose(masked_mean_11(*padded_11(6)), masked_mean_11(H_11, MASK_11)))",
          '''mistakes={"un relevé de masque 0 ne compte ni dans la somme ni dans le nombre de relevés": False}'''),
-        ("d", "an integer", "math.comb(STATIONS_11, 2)",
+        ("d", "an integer", "math.comb(SENSORS_11, 2)",
          '''decimals=0,
-           mistakes={"une paire de stations ne se compare qu'une fois, et pas une station avec elle-même":
-                         STATIONS_11 * STATIONS_11,
-                     "(A, B) et (B, A) sont la même paire": STATIONS_11 * (STATIONS_11 - 1)}'''),
-        ("e", "a number", "float(F(math.comb(STATIONS_11, 2), STATIONS_11))",
+           mistakes={"une paire de capteurs ne se compare qu'une fois, et pas un capteur avec lui-même":
+                         SENSORS_11 * SENSORS_11,
+                     "(A, B) et (B, A) sont la même paire": SENSORS_11 * (SENSORS_11 - 1)}'''),
+        ("e", "a number", "float(F(math.comb(SENSORS_11, 2), SENSORS_11))",
          '''decimals=6,
-           mistakes={"(A, B) et (B, A) sont la même comparaison": float(STATIONS_11 - 1),
-                     "une station ne se compare pas avec elle-même": STATIONS_11 / 2}'''),
+           mistakes={"(A, B) et (B, A) sont la même comparaison": float(SENSORS_11 - 1),
+                     "un capteur ne se compare pas avec lui-même": SENSORS_11 / 2}'''),
     ]),
 ]
 
@@ -386,7 +386,7 @@ WORD_1 = from_base("6B4D", 16)
 MACHINE_1, COUNTER_1 = 9, 200
 
 
-# MB2.2: 100 birds, rows forêt, prairie, village; columns huppe, pic, merle, moineau
+# MB2.2: 100 birds, rows forêt, prairie, village; columns huppe, pic, grive, moineau
 COUNTS_2 = [[0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]]
 F_2 = [[F(c, 100) for c in row] for row in COUNTS_2]                     # the joint law, exactly
 ROWS_2 = [sum(row) for row in F_2]
@@ -431,10 +431,10 @@ def column_order_3(table, j):
 
 
 # MB2.4: four shops, three products; the given compact SVD of rank 2
-M_4 = np.array([[50.0, 8, 26], [5, 44, 8], [88, 40, 49], [34, 40, 22]])
-U_4 = np.array([[2.0, -2], [1, 4], [4, -1], [2, 2]]) / 5
-V_4 = np.array([[7.0, -4], [4, 8], [4, -1]]) / 9
-S_4 = np.array([135.0, 45.0])
+M_4 = np.array([[12.0, 96, 220], [78, 54, 5], [57, 114, 190], [132, 144, 140]])
+U_4 = np.array([[4.0, -4], [1, 4], [4, -1], [4, 4]]) / 7
+V_4 = np.array([[6.0, 15], [10, 6], [15, -10]]) / 19
+S_4 = np.array([399.0, 133.0])
 assert np.allclose(U_4 @ np.diag(S_4) @ V_4.T, M_4)
 
 
@@ -489,9 +489,9 @@ U_7 = U_7 * np.sign(U_7[0])                                             # unit, 
 R_7 = X_7 - np.outer(X_7 @ U_7, U_7)
 
 
-# MB2.11: three weather stations, (temperature °C, humidity %), padded with (0, 0) to 4 readings
+# MB2.11: three soil sensors (soil temperature °C, soil humidity %), padded with (0, 0) to 4 readings
 SERIES_11 = [[(12, 80), (15, 71), (18, 62)], [(9, 88), (11, 84)], [(20, 55), (22, 49), (19, 58), (23, 46)]]
-STATIONS_11 = 300
+SENSORS_11 = 300
 
 
 def padded_11(length):
@@ -507,7 +507,7 @@ H_11, MASK_11 = padded_11(4)
 
 
 def masked_mean_11(H, mask):
-    """Σ m_t h_t / Σ m_t for each station."""
+    """Σ m_t h_t / Σ m_t for each sensor."""
     return (H * mask[..., None]).sum(axis=1) / mask.sum(axis=1)[:, None]'''
 
 PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ MB2.1 à MB2.7 ; 🔗 MB2.11)\n\n"
@@ -668,8 +668,8 @@ def points_at(ax, xs, ys, rtol=1e-7, atol=1e-9):
 
 DATA = '''# The data of the paper exercises (02_exercices.md)
 BIRDS = np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]])  # MB2.2: 100 birds (counts); rows forêt, prairie, village
-P = BIRDS / 100                                                      # their joint law; columns 0 huppe, 1 pic, 2 merle, 3 moineau
-SHOPS = np.array([[50.0, 8, 26], [5, 44, 8], [88, 40, 49], [34, 40, 22]])   # MB2.4: shops 1 to 4 (rows), three products
+P = BIRDS / 100                                                      # their joint law; columns 0 huppe, 1 pic, 2 grive, 3 moineau
+SHOPS = np.array([[12.0, 96, 220], [78, 54, 5], [57, 114, 190], [132, 144, 140]])   # MB2.4: shops 1 to 4 (rows), 3 products
 BANNER = {"shown": 3200, "clicks": 50, "keep_negative": 1 / 9}       # MB2.5: one non-click in 9 kept
 ANIMALS = np.array([[2.0, 3, 4], [3.5, 4.5, 5.5], [5, 3, 4]])        # MB2.7: log2 of (body, tail, ear), animals 1 to 3'''
 
@@ -716,7 +716,7 @@ def answers_check(ex_id: str, letters: str, hints: dict | None = None) -> str:
 # « Ce qu'il faut observer » of 02_exercices.md: shown after the checks (it gives answers)
 OBSERVE_13 = "une ligne vide et une colonne vide ne font ni erreur ni avertissement ; transposer la loi transpose la table ; l'information mutuelle est la moyenne des PMI, et ne dépend que de l'unité du logarithme."
 OBSERVE_14 = "une bannière sans clic a un logit de $-\\infty$, qui reste $-\\infty$ après la correction ; un sous-échantillonnage fort des négatifs se corrige par une simple soustraction ; retirer une direction ne dépend ni de la longueur de $\\mathbf{u}$ ni de son sens."
-OBSERVE_15 = "ce qui rend une estimation dispersée (le nombre d'oiseaux de la case), ce qui sauve (prairie, huppe) quand la huppe est vue (et ce qu'il en coûte quand elle ne l'est pas), ce que fait le lissage à la cible et ce qu'il ne fait pas à la dispersion."
+OBSERVE_15 = "la dispersion d'une PMI estimée vient surtout du petit nombre d'oiseaux de la case (8 en moyenne pour (prairie, pic), d'où un écart-type d'environ $1/\\sqrt8$ ; 88 pour (village, moineau)). (prairie, huppe) est un piège : la huppe n'est vue qu'en prairie, donc le compte de la case est celui de la colonne, et ils se simplifient : l'estimation vaut $\\ln\\frac{400}{n_{\\text{prairie}}}$, très stable, sauf quand aucune huppe n'est vue ($-\\infty$). Le lissage décale la cible des colonnes rares vers le bas (c'est son rôle), mais ne réduit pas la dispersion d'une case : il casse même la simplification de la huppe, et son estimation devient aussi dispersée que celle du pic. Pour réduire la dispersion, il faut plus d'observations, ou des pseudo-comptes (M04), que le 🏆 met à l'épreuve."
 OBSERVE_16 = "quand $\\beta$ monte, le nuage s'étire le long du premier axe, celui du profil moyen ; les magasins semblent alors plus proches les uns des autres ; $\\beta = 1$ garde les angles de la table approchée, pas ceux de la table."
 
 
@@ -747,12 +747,12 @@ NOTE_13 = (r"`table = np.array(joint, dtype=float)` (une copie), les contrôles 
            r"vide, finis, $\ge 0$, somme 1 à $10^{-9}$ près), `p_x = table.sum(axis=1)`, `p_y = table.sum(axis=0)`, "
            r"`result = np.full(table.shape, -np.inf)`, puis, sur `rows, columns = np.nonzero(table > 0)`, "
            r"`np.log(table[rows, columns]) - np.log(p_x[rows]) - np.log(p_y[columns])`. a) La table de MB2.2 : "
-           r"$0{,}629$ pour (forêt, pic), $-0{,}811$ pour (village, merle), $1{,}050$ pour (prairie, huppe), et $-\infty$ "
+           r"$0{,}629$ pour (forêt, pic), $-0{,}811$ pour (village, grive), $1{,}050$ pour (prairie, huppe), et $-\infty$ "
            r"sur les trois cases vides. b) $I \approx 0{,}0759$ nat, et vrai. c) Vrai. d) 5 : la ligne vide et la colonne "
            r"vide ont 5 cases en tout.")
 
 MB2_13 = Ex(
-    "MB2.13", "🔨", 1, 25, "La table des PMI d'une loi jointe, −∞ sur les cases vides · `pmi`",
+    "MB2.13", "🔨", 1, 30, "La table des PMI d'une loi jointe, −∞ sur les cases vides · `pmi`",
     "programmer la table des PMI d'une loi jointe, avec −∞ sur les cases vides, puis la comparer à ta copie, retrouver "
     "l'information mutuelle de M06 comme sa moyenne, et voir ce que deviennent une ligne et une colonne vides.",
     "fiche §2 ; M03, M06 ; Ex MB2.2", tracks="C, E", mymath="cooccurrence.py", note=NOTE_13,
@@ -766,7 +766,7 @@ MB2_13 = Ex(
 - c) vrai ou faux : `pmi(P.T)` est égale à la transposée de `pmi(P)`, à $10^{-12}$ près, avec $-\infty$ aux mêmes places ;
 - d) pour la loi $\mathbf{Q} = \begin{pmatrix} 0{,}25 & 0 & 0{,}15 \\ 0 & 0 & 0 \\ 0{,}2 & 0 & 0{,}4 \end{pmatrix}$ (`Q_13`), qui a une ligne et une colonne vides : le nombre de cases de PMI $-\infty$ (un entier).
 
-Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
+Ce qu'il faut regarder : que font une ligne vide et une colonne vide ? Que fait à la table des PMI la transposition de la loi ? La moyenne des PMI est-elle l'information mutuelle de M06, et que change l'unité du logarithme ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `pmi` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était attendu).")]
@@ -847,7 +847,7 @@ NOTE_14 = (r"`case_control_logit` : `_rate` pour les deux taux, des tableaux de 
            r"-4{,}852$, puis $\frac{1}{129} \approx 0{,}0078$. d) $(-1, 0, 1)$, $(-1, 0, 1)$, $(1, -1, 0)$, et vrai. e) 3.")
 
 MB2_14 = Ex(
-    "MB2.14", "🔨", 2, 25, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et retirer une "
+    "MB2.14", "🔨", 2, 35, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et retirer une "
     "direction des lignes d'une matrice · `case_control_logit`, `remove_direction`",
     "programmer la correction d'un logit estimé sur un échantillon cas-témoins et le retrait d'une direction, puis s'en "
     "servir sur la bannière de MB2.5, une étude cas-témoins et les animaux de MB2.7.",
@@ -864,7 +864,7 @@ MB2_14 = Ex(
 - d) les trois animaux de MB2.7 sans la direction $(1, 1, 1)$, à comparer à ta réponse d) de MB2.7, puis vrai ou faux : la direction $(-2, -2, -2)$ donne le même résultat (à $10^{-12}$ près) (une liste de 10 : les 9 coordonnées, ligne par ligne, puis le booléen) ;
 - e) $\lVert\mathbf{x}_1 - \mathbf{x}_3\rVert^2 - \lVert\mathbf{r}_1 - \mathbf{r}_3\rVert^2$, où $\mathbf{r}_i$ est l'animal $i$ après le retrait (un nombre).
 
-Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
+Ce qu'il faut regarder : que devient le logit d'une bannière sans clic, avant et après la correction ? Que demande la correction d'un sous-échantillonnage fort des négatifs ? Le retrait d'une direction dépend-il de la longueur de $\mathbf{u}$, et de son sens ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `case_control_logit`, puis de `remove_direction` (lis d'abord la ligne qui suit chaque "
@@ -995,14 +995,16 @@ with checked("MB2.15"):
     verdict("MB2.15", all(results_15) and len(results_15) == len(HIDDEN_C15),
             "ta fonction suit l'énoncé sur des appels cachés aussi.", "relis les lignes ❌ ci-dessus.")'''
 
-NOTE_15 = (r"Prédictions attendues : a) $0{,}99^{400} \approx 0{,}018$ ; b) (B) ; c) (C). La huppe n'est vue qu'en prairie : "
+NOTE_15 = (r"Prédictions attendues : a) $0{,}99^{400} \approx 0{,}018$ ; b) (B) ; c) (C). g) Vrai : les moyennes des "
+           r"estimations lissées finies sont plus proches de la vraie $\operatorname{PMI}_\alpha$ ($-1{,}253$ pour les deux "
+           r"cases) que de la vraie PMI ($1{,}050$ et $-0{,}336$). La huppe n'est vue qu'en prairie : "
            r"quand elle est vue, sa case a le compte de sa colonne, ils se simplifient, et l'estimation vaut "
            r"$\ln\frac{400}{n_{\text{prairie}}}$, très stable ; le lissage casse cette simplification. Le lissage déplace "
            r"la cible des cases rares (la vraie $\operatorname{PMI}_\alpha$), mais ne réduit pas la dispersion d'une case : "
            r"seuls plus d'observations, ou des pseudo-comptes (M04), le font.")
 
 MB2_15 = Ex(
-    "MB2.15", "🔮", 2, 20, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une case rare "
+    "MB2.15", "🔮", 2, 30, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une case rare "
     "et une case fréquente, avec et sans lissage",
     "prévoir ce que le nombre d'observations d'une case fait à sa PMI estimée, et ce que le lissage y change, puis le "
     "mesurer.", "fiche §2 et §3 ; M02c, M28 ; Ex MB2.2 et MB2.3", tracks="C", hypothesis=True, given=GIVEN_15,
@@ -1018,7 +1020,7 @@ Puis, une fois tes prédictions écrites et vérifiées, écris `pmi_samples_15(
 - f) les vraies valeurs, $\operatorname{PMI}$ et $\operatorname{PMI}_\alpha$ de la loi `P` de la région, une ligne par case (un tableau de forme $(3, 2)$ ; 3 décimales dans ta copie) ;
 - g) vrai ou faux : pour les deux cases rares, la moyenne des estimations lissées finies est plus proche de la vraie $\operatorname{PMI}_\alpha$ que de la vraie PMI.
 
-La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
+La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites. Ce qu'il faut regarder (après l'expérience) : qu'est-ce qui rend une estimation dispersée ? Comment se comportent les deux cases rares, (prairie, huppe) et (prairie, pic), quand la huppe est vue et quand elle ne l'est pas ? Que fait le lissage à la cible, et à la dispersion ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
     todo='''prediction_MB2_15a = ...  # a) a number (3 decimals), computed by hand BEFORE the experiment: the probability that 400 birds hold no hoopoe
 prediction_MB2_15b = ...  # b) "A", "B" or "C": the cell whose estimated PMI (finite) is the most dispersed
 prediction_MB2_15c = ...  # c) "A", "B" or "C": with the smoothing, the standard deviation of the estimated PMI of (prairie, huppe)''',
@@ -1151,10 +1153,10 @@ for law_15r, seed_15r, n_rep_15r, n_obs_15r, ids_15r in __HIDDEN_C15__:      # t
 
 GIVEN_16 = '''SHOPS_16 = ["épicerie A", "épicerie B", "épicerie C", "quincaillerie A", "quincaillerie B", "quincaillerie C",
             "bazar A", "bazar B", "bazar C", "bazar D"]
-PRODUCTS_16 = ["pain", "fruits", "fromage", "vis", "peinture"]
+PRODUCTS_16 = ["pain", "fruits", "œufs", "vis", "peinture"]
 M_16 = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3],          # weekly sales (tens of items):
                  [2, 1, 0, 22, 16], [4, 2, 1, 29, 25], [0, 1, 1, 14, 13],              # one row per shop of SHOPS_16,
-                 [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19],       # one column per product
+                 [34, 28, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19],       # one column per product
                  [29, 20, 18, 15, 10]])'''
 
 CHECK_16 = '''HIDDEN_C16 = __HIDDEN_C16__   # a hidden table, its names, three other betas, and the sub-IDs of the arrays expected
@@ -1239,22 +1241,22 @@ with checked("MB2.16"):
     verdict("MB2.16", all(results_16), "tes facteurs et tes trois panneaux sont justes.", "relis les lignes ❌ ci-dessus.")'''
 
 NOTE_16 = (r"`factor_rows_16` : `U, s, Vt = mymath.svd_pca.svd(M)`, puis `U[:, :k] * s[:k] ** beta`. a) "
-           r"$(192{,}37 ;\ 61{,}97 ;\ 6{,}10)$ : la table est presque de rang 2. b) $(-0{,}261 ;\ -0{,}058 ;\ 0{,}133)$. "
-           r"c) $(0{,}808 ;\ 0{,}916 ;\ 0{,}969)$. d) $(1 ;\ 1{,}762 ;\ 3{,}104)$, soit $(s_1/s_2)^\beta$. e) Vrai. f) Faux : "
+           r"$(192{,}79 ;\ 61{,}90 ;\ 6{,}36)$ : la table est presque de rang 2. b) $(-0{,}264 ;\ -0{,}060 ;\ 0{,}132)$. "
+           r"c) $(0{,}822 ;\ 0{,}924 ;\ 0{,}973)$. d) $(1 ;\ 1{,}765 ;\ 3{,}115)$, soit $(s_1/s_2)^\beta$. e) Vrai. f) Faux : "
            r"la troisième valeur singulière, petite mais non nulle, écarte un peu les cosinus de $\mathbf{M}$ de ceux de "
            r"$\mathbf{M}_2$.")
 
 MB2_16 = Ex(
-    "MB2.16", "🎨", 1, 25, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui s'étire, et les "
+    "MB2.16", "🎨", 1, 35, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui s'étire, et les "
     "angles qui changent",
     "dessiner les lignes d'une table dans le plan de U₂S₂^β pour trois β, et voir ce que la répartition des valeurs "
     "singulières change à la forme du nuage et aux angles.", "fiche §4 ; M07, M12d ; Ex MB2.4", tracks="C",
     given=GIVEN_16, note=NOTE_16,
-    body=r"""Le notebook fournit `M_16`, les ventes hebdomadaires (en dizaines d'articles) de cinq produits (pain, fruits, fromage, vis, peinture) dans dix magasins : trois épiceries, trois quincailleries et quatre bazars, et `SHOPS_16`, leurs noms.
+    body=r"""Le notebook fournit `M_16`, les ventes hebdomadaires (en dizaines d'articles) de cinq produits (pain, fruits, œufs, vis, peinture) dans dix magasins : trois épiceries, trois quincailleries et quatre bazars, et `SHOPS_16`, leurs noms.
 
-Écris `factor_rows_16(M, beta, k=2)`, qui rend $\mathbf{U}_k\mathbf{S}_k^\beta$ par ta fonction `mymath.svd_pca.svd` (M12d, avec sa convention de signe), puis `draw_factors_16(axes, M, betas, names)`, qui reçoit une ligne de trois axes et, pour chaque $\beta$ de `betas` (un axe chacun), place les lignes de $\mathbf{U}_2\mathbf{S}_2^\beta$ dans le plan de ses deux colonnes : un point et le nom de chaque ligne (`names`), une même échelle sur les deux axes (`ax.set_aspect("equal")`), des noms d'axes, et en titre $\beta$ et le rapport des longueurs (normes) de la première et de la seconde colonne ; elle rend la liste des trois tableaux tracés. Les deux fonctions dessinent dans les axes reçus, sans ouvrir de figure.
+Écris `factor_rows_16(M, beta, k=2)`, qui rend $\mathbf{U}_k\mathbf{S}_k^\beta$ par ta fonction `mymath.svd_pca.svd` (M12d, avec sa convention de signe), puis `draw_factors_16(axes, M, betas, names)`, qui reçoit une ligne de trois axes et, pour chaque $\beta$ de `betas` (un axe chacun), place les lignes de $\mathbf{U}_2\mathbf{S}_2^\beta$ dans le plan de ses deux colonnes : un point et le nom de chaque ligne, pris dans `names`, une même échelle sur les deux axes (`ax.set_aspect("equal")`), des noms d'axes, et en titre $\beta$ et le rapport des longueurs (normes) de la première et de la seconde colonne ; elle rend la liste des trois tableaux tracés. Les deux fonctions dessinent dans les axes reçus, sans ouvrir de figure.
 
-La vérification appelle `draw_factors_16` avec $\beta = 0$, $\frac12$ et 1, affiche la figure, compare tes tableaux aux réponses, et essaie tes fonctions sur une autre table, d'autres $\beta$ et $k = 3$ (des appels cachés). Relève :
+La vérification appelle `draw_factors_16` avec $\beta = 0$, $\frac12$ et 1, affiche la figure, compare tes tableaux aux réponses enregistrées, et essaie tes fonctions sur une autre table, d'autres $\beta$ et $k = 3$ (des appels cachés). Relève :
 - a) les trois plus grandes valeurs singulières de `M_16` (une liste de 3 nombres ; 2 décimales dans ta copie) ;
 - b) le cosinus de l'épicerie A et de la quincaillerie A entre les lignes de $\mathbf{U}_2\mathbf{S}_2^\beta$, pour $\beta = 0$, $\frac12$ et 1 (une liste de 3 nombres ; 3 décimales dans ta copie) ;
 - c) le même pour les bazars A et B ;
@@ -1262,7 +1264,7 @@ La vérification appelle `draw_factors_16` avec $\beta = 0$, $\frac12$ et 1, aff
 - e) vrai ou faux : les cosinus entre les lignes de $\mathbf{U}_2\mathbf{S}_2$ sont ceux des lignes de $\mathbf{M}_2$, l'approximation de rang 2 (`mymath.svd_pca.low_rank_approximation`), à $10^{-9}$ près ;
 - f) vrai ou faux : ce sont ceux des lignes de `M_16` elle-même, à $10^{-9}$ près.
 
-Ce qu'il faut observer : dans la cellule qui suit la vérification (lis-la après).""",
+Ce qu'il faut regarder : que devient le nuage quand $\beta$ monte, et le long de quel axe ? Les magasins semblent-ils se rapprocher ou s'éloigner les uns des autres ? Quels angles $\beta = 1$ garde-t-il ? Ce qu'il faut observer : dans la cellule qui suit la vérification.""",
     todo='''def factor_rows_16(M, beta, k=2):
     """U_k S_k^beta for the compact SVD of M by mymath.svd_pca.svd (M12d, its sign convention): an array of shape
     (number of rows of M, k)."""
@@ -1353,7 +1355,7 @@ def cos_16r(a, b):
 
 
 M_16r = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3], [2, 1, 0, 22, 16], [4, 2, 1, 29, 25],
-                  [0, 1, 1, 14, 13], [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
+                  [0, 1, 1, 14, 13], [34, 28, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
 s_16r = linalg_16r.svdvals(M_16r)
 wbm.record("MB2.16a", s_16r[:3].tolist(), decimals=6,
            mistakes={"les valeurs singulières sont les racines des valeurs propres de MᵀM, pas ces valeurs propres":
@@ -1540,12 +1542,13 @@ NOTE_17 = (r"(1) `pmi_from_counts` oublie le total $N$ : elle rend $\operatornam
            r"jointe. Correction : `mymath.cooccurrence.pmi(C / C.sum())`. a) $0{,}629$, puis $0{,}629 - \ln 100 \approx "
            r"-3{,}977$. (2) `split_factors` donne $\mathbf{S}^\beta$ aux deux facteurs : leur produit vaut "
            r"$\mathbf{U}\mathbf{S}^{2\beta}\mathbf{V}^\top$, qui n'est $\mathbf{M}$ que pour $\beta = \frac12$. Correction : "
-           r"`Vt.T * s ** (1 - beta)`. b) 50, puis 6 030. (3) `remove_direction_bad` ne divise pas par "
+           r"`Vt.T * s ** (1 - beta)`. b) 12 avec la correction, 20 748 avec l'erreur "
+           r"($399^2 \times \frac47 \times \frac{6}{19} - 133^2 \times \frac47 \times \frac{15}{19}$). (3) `remove_direction_bad` ne divise pas par "
            r"$\mathbf{u}\cdot\mathbf{u}$ : elle n'est juste que pour un $\mathbf{u}$ unitaire. Correction : "
            r"`X - np.outer(X @ u / (u @ u), u)`. c) $(-1, 0, 1)$, puis $(-7, -6, -5)$.")
 
 MB2_17 = Ex(
-    "MB2.17", "🐛", 1, 20, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une direction "
+    "MB2.17", "🐛", 1, 30, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une direction "
     "retirée sans diviser par u·u",
     "reconnaître trois erreurs classiques sur la PMI d'une table de comptes, la répartition des valeurs singulières et le "
     "retrait d'une direction, qui passent une vérification mal choisie, puis les corriger.",
@@ -1615,7 +1618,7 @@ wbm.record("MB2.17a", [right_17r, wrong_17r], decimals=6,
            mistakes={"pmi_from_counts_fixed oublie encore le total N : la loi jointe est la table des comptes divisée par N":
                          [wrong_17r, wrong_17r],
                      "le second nombre est celui de la version FAUSSE, pmi_from_counts": [right_17r, right_17r]})
-shops_17r = np.array([[50.0, 8, 26], [5, 44, 8], [88, 40, 49], [34, 40, 22]])
+shops_17r = np.array([[12.0, 96, 220], [78, 54, 5], [57, 114, 190], [132, 144, 140]])
 U_17r, s_17r, Vt_17r = np.linalg.svd(shops_17r, full_matrices=False)
 cell_17r = [float(np.sum(U_17r[0, :2] * s_17r[:2] ** (b + c) * Vt_17r[:2, 0])) for b, c in ((1, 0), (1, 1))]
 wbm.record("MB2.17b", cell_17r, decimals=6,
@@ -1639,9 +1642,9 @@ wbm.record("MB2.17c", fixed_17r.tolist() + bad_17r.tolist(), decimals=6,
     ],
 )
 
-GIVEN_18 = '''def bits(P):
-    """WRONG: the PMI in bits."""
-    return ref_cooc.pmi(P) / math.log(2)
+GIVEN_18 = '''def decimal(P):
+    """WRONG: the PMI in base 10."""
+    return ref_cooc.pmi(P) / math.log(10)
 
 
 def conditional(P):
@@ -1818,12 +1821,14 @@ with checked("MB2.18"):
 NOTE_18 = (r"`failed_checks_18` appelle `func(P)` et `func(P.T)` dans un `try`, puis fait les trois contrôles sur les cases "
            r"non vides. a) Vrai. c) `zeros_to_zero` passe tout : les trois contrôles ne regardent que les cases non "
            r"vides, et ce sont les tests de `tests/test_mb2_cooccurrence.py` qui vérifient $-\infty$ sur les cases vides. "
-           r"`bits` et `lift` passent la transposition (une table multipliée par un nombre, ou transformée case par case, "
-           r"se transpose comme elle) ; `conditional` passe la borne ($\ln P(y \mid x) \le 0$). `bits` n'échoue pas "
-           r"toujours : la moyenne est juste quand l'information mutuelle est nulle.")
+           r"`decimal` et `lift` passent la transposition (une table juste multipliée par un nombre, ou transformée case "
+           r"par case, se transpose comme elle). `decimal` passe aussi la borne : diviser une PMI par $\ln 10 > 1$ la "
+           r"rapproche de 0, et la borne $\min(-\ln p(x), -\ln p(y))$ est positive ou nulle ; elle n'échoue qu'au contrôle "
+           r"de la moyenne, et seulement quand l'information mutuelle n'est pas nulle (elle l'est pour une table d'une "
+           r"ligne ou d'une colonne). `conditional` passe la borne ($\ln P(y \mid x) \le 0$, sous toute borne positive).")
 
 MB2_18 = Ex(
-    "MB2.18", "🛠️", 1, 20, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
+    "MB2.18", "🛠️", 1, 35, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
     "la moyenne qui redonne l'information mutuelle de M06",
     "écrire les contrôles d'un test de propriété de la table des PMI, sur des lois tirées au hasard, et voir ce qu'il "
     "attrape et ce qu'il ne peut pas attraper.", "fiche §2 ; M06 ; Ex MB2.13", tracks="C", given=GIVEN_18, note=NOTE_18,
@@ -1834,9 +1839,9 @@ MB2_18 = Ex(
 - `"transpose"`, si `func(P.T)` n'a pas la forme de `T.T`, n'a pas ses $-\infty$ aux mêmes places, ou s'en écarte ailleurs de plus de `rtol` (`np.allclose` avec `rtol` et `atol` égaux à `rtol`) ;
 - `"mean"`, si $\sum p(x, y)\,T(x, y)$, sur les cases non vides, s'écarte de `mymath.info.mutual_information(P, base=math.e)` de plus de $\texttt{rtol}\cdot\max(1, \lvert\text{moyenne}\rvert)$ (ou n'est pas finie).
 
-Une exception levée par `func` fait échouer les trois contrôles. La cellule fournie donne aussi quatre versions fausses de `pmi` : `bits` (en bits), `conditional` ($\ln P(Y = y \mid X = x)$, sans diviser par $p(y)$), `zeros_to_zero` (0 au lieu de $-\infty$ sur les cases vides) et `lift` (le lift, sans le logarithme, 0 sur les cases vides). Puis :
+Une exception levée par `func` fait échouer les trois contrôles. La cellule fournie donne aussi quatre versions fausses de `pmi` : `decimal` (le logarithme en base 10), `conditional` ($\ln P(Y = y \mid X = x)$, sans diviser par $p(y)$), `zeros_to_zero` (0 au lieu de $-\infty$ sur les cases vides) et `lift` (le lift, sans le logarithme, 0 sur les cases vides). Puis :
 - a) avec `rng = np.random.default_rng(7118)` et 300 essais, avec ta fonction `pmi` et tes contrôles : vrai ou faux, les trois compteurs sont nuls ;
-- b) avec le même départ (un nouveau `default_rng(7118)` chaque fois, 300 essais) et chacune des quatre versions fausses, dans l'ordre `bits`, `conditional`, `zeros_to_zero`, `lift` : les trois compteurs, dans l'ordre `"bound"`, `"transpose"`, `"mean"` (une liste de 4 listes de 3 entiers) ;
+- b) avec le même départ (un nouveau `default_rng(7118)` chaque fois, 300 essais) et chacune des quatre versions fausses, dans l'ordre `decimal`, `conditional`, `zeros_to_zero`, `lift` : les trois compteurs, dans l'ordre `"bound"`, `"transpose"`, `"mean"` (une liste de 4 listes de 3 entiers) ;
 - c) dans ta copie : lesquelles passent le test, ou passent l'un des contrôles, et pourquoi c'est normal ; qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ?
 
 La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec quatre versions fausses cachées, qui faussent chacune une ou deux des propriétés ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
@@ -1849,7 +1854,7 @@ La vérification lance aussi ton test sur deux départs cachés de 40 essais, av
 answer_MB2_18a = answer_MB2_18b = ...
 with wbm.attempt("MB2.18"):          # your checks and your library: ⏳ while they are not written
     answer_MB2_18a = ...  # a) True or False: the three counters are 0 (default_rng(7118), 300 trials, your pmi, your checks)
-    answer_MB2_18b = ...  # b) a list of 4 lists of 3 integers: the counters ("bound", "transpose", "mean") for bits, conditional, zeros_to_zero, lift (a new default_rng(7118) each time, 300 trials)''',
+    answer_MB2_18b = ...  # b) a list of 4 lists of 3 integers: the counters ("bound", "transpose", "mean") for decimal, conditional, zeros_to_zero, lift (a new default_rng(7118) each time, 300 trials)''',
     check=answers_check("MB2.18", "ab") + "\n\n" + CHECK_18,
     solution=SOLUTION_18 + '''
 
@@ -1859,7 +1864,7 @@ mine_18 = pmi_property_test_18(300, np.random.default_rng(7118))
 answer_MB2_18a = all(mine_18[key] == 0 for key in KEYS_18)
 with np.errstate(divide="ignore", invalid="ignore"):
     wrong_18 = {name: pmi_property_test_18(300, np.random.default_rng(7118), func=function)
-                for name, function in (("bits", bits), ("conditional", conditional), ("zeros_to_zero", zeros_to_zero),
+                for name, function in (("decimal", decimal), ("conditional", conditional), ("zeros_to_zero", zeros_to_zero),
                                        ("lift", lift))}
 answer_MB2_18b = [[counts[key] for key in KEYS_18] for counts in wrong_18.values()]
 for name_18, counts_18 in {"ta pmi": mine_18, **wrong_18}.items():
@@ -1902,7 +1907,7 @@ print("a)", answer_MB2_18a, " b)", answer_MB2_18b)''',
 ''' + GIVEN_18.split("\n\n\n# The loop")[0] + '''
 
 
-versions_18r = [bits, conditional, zeros_to_zero, lift]
+versions_18r = [decimal, conditional, zeros_to_zero, lift]
 wbm.record("MB2.18a", all(c == 0 for c in counters_18r(7118, ref_cooc.pmi)),
            mistakes={"avec une fonction juste, aucun compteur ne compte : un compteur non nul vient de tes contrôles "
                      "(leurs tolérances, ce qu'ils comparent) ou de ta pmi (relance ses tests)": False})
@@ -1912,7 +1917,7 @@ wbm.record("MB2.18b", table_18r,
                                                                        for f in versions_18r],
                      "la moyenne ne porte que sur les cases non vides (0 × −∞ n'est pas un nombre)":
                          [counters_18r(7118, f, all_cells=True) for f in versions_18r],
-                     "l'ordre des versions : bits, conditional, zeros_to_zero, lift": table_18r[::-1]})
+                     "l'ordre des versions : decimal, conditional, zeros_to_zero, lift": table_18r[::-1]})
 ''' + CHECK_18.split("\n\n\nBROKEN_C18")[0] + '''
 
 
@@ -2030,10 +2035,10 @@ NOTE_19 = (r"a) 5 avec la méthode ci-dessous ; b) 2 ; c) trois cases de deux ou
            r"tranches rares, devant deux vraies paires. Deux méthodes qui marchent : ne garder que les cases d'au moins 10 "
            r"ventes avant de prendre les cinq plus grandes PMI ; ou rapprocher chaque case de l'indépendance par des "
            r"pseudo-comptes, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = n(x)\,n(y)/N$ le compte "
-           r"attendu sous l'indépendance et $\kappa = 5$.")
+           r"qu'on aurait à l'indépendance et $\kappa = 5$.")
 
 MB2_19 = Ex(
-    "MB2.19", "🏆", 3, 30, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée "
+    "MB2.19", "🏆", 3, 45, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée "
     "de 10 × 10, sans se laisser piéger par les cases rares",
     "retrouver les cases de plus grande PMI d'une table cachée à partir de comptes, en se protégeant des cases rares, et "
     "le vérifier sur des tables cachées.", "fiche §2 et §3 ; M04 ; Ex MB2.13 et MB2.15", tracks="C",
@@ -2325,7 +2330,7 @@ def build_constants() -> dict:
     # MB2.16: a hidden table of six kiosks, k = 3; well separated singular values, a sign convention without a tie
     table = [[18.0, 12, 3, 1], [22, 15, 5, 2], [4, 3, 16, 11], [2, 5, 21, 14], [12, 9, 10, 7], [9, 4, 13, 12]]
     m16 = np.array([[66.0, 46, 42, 3, 5], [53, 40, 30, 10, 6], [83, 66, 50, 6, 3], [2, 1, 0, 22, 16], [4, 2, 1, 29, 25],
-                    [0, 1, 1, 14, 13], [34, 25, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
+                    [0, 1, 1, 14, 13], [34, 28, 20, 18, 14], [48, 38, 29, 11, 9], [14, 10, 9, 26, 19], [29, 20, 18, 15, 10]])
     for M, k in ((np.array(table), 3), (m16, 3)):
         U, s, Vt = np.linalg.svd(M, full_matrices=False)
         assert np.all(s[:k] / s[1:k + 1] > 1.05) and s[k - 1] > 1e-3 * s[0], s
@@ -2405,7 +2410,7 @@ def build_constants() -> dict:
     assert broken_somewhere == {(n, k) for n, keys in namespace["BROKEN_C18"].items() for k in keys}, broken_somewhere
     for seed in (7118,):                                       # the visible versions: the same counters for the variants
         exec(GIVEN_18.split("\n\n\n# The loop")[0], namespace)
-        for name in ("bits", "conditional", "zeros_to_zero", "lift"):
+        for name in ("decimal", "conditional", "zeros_to_zero", "lift"):
             with np.errstate(divide="ignore", invalid="ignore"):
                 runs = [_counters_18(np, math, seed, namespace[name], 300, variant) for variant in (0, 1, 2)]
             assert runs[0] == runs[1] == runs[2], (name, runs)
