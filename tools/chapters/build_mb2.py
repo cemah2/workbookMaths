@@ -762,9 +762,7 @@ answer_MB2_13c = bool(np.array_equal(np.isneginf(TT_13), np.isneginf(T_13.T))
 answer_MB2_13d = int(np.isneginf(TQ_13).sum())
 print("a)", np.round(answer_MB2_13a, 4).tolist())
 print("b)", answer_MB2_13b, " c)", answer_MB2_13c, " d)", answer_MB2_13d)
-print("   l'information mutuelle de M06 en bits, par défaut :", round(mymath.info.mutual_information(P), 6))
-
-''' + answers_check("MB2.13", "abcd", {"a": HINT_13A})),
+print("   l'information mutuelle de M06 en bits, par défaut :", round(mymath.info.mutual_information(P), 6))'''),
         ("record", '''def pmi_13r(J):
     """The oracle: ln p(x, y) - ln p(x) - ln p(y), cell by cell with math.log, -inf on the cells of probability 0."""
     J = np.asarray(J, dtype=float)
@@ -796,6 +794,7 @@ wbm.record("MB2.13d", int(np.isneginf(pmi_13r(Q_13r)).sum()),
                      "une case de probabilité 0 a une PMI de −∞, même dans une ligne ou une colonne vide": 0,
                      "la colonne vide compte aussi : chacune de ses cases a une PMI de −∞":
                          int((Q_13r == 0).all(axis=1).sum() * Q_13r.shape[1])})'''),
+        ("solution", answers_check("MB2.13", "abcd", {"a": HINT_13A})),
     ],
 )
 
@@ -850,9 +849,7 @@ answer_MB2_14d = R_14.ravel().tolist() + [bool(np.allclose(remove_direction(ANIM
                                                            rtol=0, atol=1e-12))]
 answer_MB2_14e = float(np.sum((ANIMALS[0] - ANIMALS[2]) ** 2) - np.sum((R_14[0] - R_14[2]) ** 2))
 print("a)", answer_MB2_14a, " b)", answer_MB2_14b, " c)", answer_MB2_14c)
-print("d)", np.round(answer_MB2_14d[:9], 6).tolist(), answer_MB2_14d[9], " e)", answer_MB2_14e)
-
-''' + answers_check("MB2.14", "abcde")),
+print("d)", np.round(answer_MB2_14d[:9], 6).tolist(), answer_MB2_14d[9], " e)", answer_MB2_14e)'''),
         ("record", '''def logit_14r(n1, n0, s1=1.0, s0=1.0):
     """The oracle: ln(n1/n0) - ln(s1/s0) with math.log; +inf or -inf when a class is absent."""
     if n0 == 0:
@@ -896,6 +893,7 @@ wbm.record("MB2.14e", gap_14r, decimals=6,
                          float(np.linalg.norm(X_14r[0] - X_14r[2]) - np.linalg.norm(R_14r[0] - R_14r[2])),
                      "sans diviser par u·u, ta fonction ne retire la direction que si u est unitaire (relance ses tests)":
                          float(np.sum((X_14r[0] - X_14r[2]) ** 2) - np.sum((undivided_14r[0] - undivided_14r[2]) ** 2))})'''),
+        ("solution", answers_check("MB2.14", "abcde")),
     ],
 )
 
@@ -1073,9 +1071,7 @@ answer_MB2_15g = all(abs(m - answer_MB2_15f[k][1]) < abs(m - answer_MB2_15f[k][0
 print("d)", answer_MB2_15d, " e)", np.round(answer_MB2_15e, 4).tolist())
 print("f)", np.round(answer_MB2_15f, 4).tolist(), " g)", answer_MB2_15g, " (moyennes lissées :", np.round(means_15, 3).tolist(), ")")
 print("   moyennes des estimations finies sans lissage :",
-      [round(float(np.mean(plain_15[:, k][np.isfinite(plain_15[:, k])])), 3) for k in range(3)])
-
-''' + answers_check("MB2.15", "defg") + "\n\n" + CHECK_15),
+      [round(float(np.mean(plain_15[:, k][np.isfinite(plain_15[:, k])])), 3) for k in range(3)])'''),
         ("record", '''wbm.record("MB2.15d", float(np.mean(np.isneginf(plain_15r[:, 0]))), decimals=6,
            mistakes={"d) est une proportion des 1 000 échantillons, pas un nombre d'échantillons":
                          float(np.sum(np.isneginf(plain_15r[:, 0]))),
@@ -1103,6 +1099,7 @@ wbm.record("MB2.15g", all(abs(m - alpha_15r[c]) < abs(m - true_15r[c]) for m, c 
 for law_15r, seed_15r, n_rep_15r, n_obs_15r, ids_15r in __HIDDEN_C15__:      # the hidden calls of the check
     for sub_id_15r, values_15r in zip(ids_15r, samples_15r(law_15r, seed_15r, n_rep_15r, n_obs_15r)):
         wbm.record(sub_id_15r, values_15r.tolist(), decimals=6)'''),
+        ("solution", answers_check("MB2.15", "defg") + "\n\n" + CHECK_15),
         ("md", "**Après l'expérience**, dans ta copie : pourquoi (prairie, huppe) est-elle si peu dispersée tant que la "
                "huppe est vue ? Pourquoi le lissage la rend-il dispersée ? Que faudrait-il pour réduire la dispersion de "
                "(prairie, pic) ?"),
@@ -1286,9 +1283,7 @@ answer_MB2_16f = bool(np.allclose(cos_A_16, all_cosines_16(M_16), rtol=0, atol=1
 print("a)", np.round(answer_MB2_16a, 4).tolist(), " b)", np.round(answer_MB2_16b, 4).tolist(),
       " c)", np.round(answer_MB2_16c, 4).tolist())
 print("d)", np.round(answer_MB2_16d, 4).tolist(), " e)", answer_MB2_16e, " f)", answer_MB2_16f,
-      " (plus grand écart :", round(float(np.abs(cos_A_16 - all_cosines_16(M_16)).max()), 4), ")")
-
-''' + answers_check("MB2.16", "abcdef") + "\n\n" + CHECK_16,
+      " (plus grand écart :", round(float(np.abs(cos_A_16 - all_cosines_16(M_16)).max()), 4), ")")''',
     record='''from scipy import linalg as linalg_16r
 
 
@@ -1346,6 +1341,7 @@ HIDDEN_16r = __HIDDEN_C16__                                                     
 wbm.record(HIDDEN_16r["ids"][0], [factors_16r(HIDDEN_16r["table"], b).tolist() for b in HIDDEN_16r["betas"]], decimals=6)
 wbm.record(HIDDEN_16r["ids"][1], factors_16r(HIDDEN_16r["table"], HIDDEN_16r["beta"], k=3).tolist(), decimals=6)''',
     after=[
+        ("solution", answers_check("MB2.16", "abcdef") + "\n\n" + CHECK_16),
         ("md", "**Après la figure**, dans ta copie : quels magasins se rapprochent quand $\\beta$ monte, et pourquoi ? Quel "
                "$\\beta$ choisirais-tu pour comparer les magasins par le cosinus, et pour comparer les produits ?"),
     ],
@@ -1558,9 +1554,7 @@ answer_MB2_17b = [float((lambda A, B: (A @ B.T)[0, 0])(*split_factors_fixed(U_s1
 answer_MB2_17c = (np.ravel(remove_direction_fixed(ANIMALS[:1], np.ones(3))).tolist()
                   + np.ravel(remove_direction_bad(ANIMALS[:1], np.ones(3))).tolist())
 print("a)", np.round(answer_MB2_17a, 4).tolist(), " b)", np.round(answer_MB2_17b, 4).tolist(),
-      " c)", np.round(answer_MB2_17c, 4).tolist())
-
-''' + answers_check("MB2.17", "abc") + "\n\n" + CHECK_17,
+      " c)", np.round(answer_MB2_17c, 4).tolist())''',
     record='''counts_17r = np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]])
 N_17r = counts_17r.sum()
 right_17r = math.log(counts_17r[0, 1] * N_17r / (counts_17r[0].sum() * counts_17r[:, 1].sum()))
@@ -1587,6 +1581,7 @@ wbm.record("MB2.17c", fixed_17r.tolist() + bad_17r.tolist(), decimals=6,
                      "les trois derniers nombres sont ceux de la version FAUSSE, remove_direction_bad":
                          fixed_17r.tolist() + fixed_17r.tolist()})''',
     after=[
+        ("solution", answers_check("MB2.17", "abc") + "\n\n" + CHECK_17),
         ("md", "**Après la vérification**, dans ta copie : pour chaque erreur, pourquoi la vérification du collègue ne la "
                "voyait-elle pas, et quelle vérification l'aurait vue ?"),
     ],
@@ -1673,19 +1668,22 @@ SOLUTION_18 = '''def failed_checks_18(P, func, rtol=1e-9):
         failed.add("mean")
     return failed'''
 
-CHECK_18 = '''def half_c18(P):
+CHECK_18 = '''PMI_C18 = ref_cooc.pmi                    # captured: the hidden versions never call a function replaced later
+
+
+def half_c18(P):
     """WRONG: half the PMI (the mean is wrong; the bound and the transposition hold)."""
-    return 0.5 * ref_cooc.pmi(P)
+    return 0.5 * PMI_C18(P)
 
 
 def double_c18(P):
     """WRONG: twice the PMI (the bound and the mean are wrong; the transposition holds)."""
-    return 2.0 * ref_cooc.pmi(P)
+    return 2.0 * PMI_C18(P)
 
 
 def finite_tall_c18(P):
     """WRONG for a table with more rows than columns: -1e300 instead of -inf on the empty cells."""
-    T = ref_cooc.pmi(P)
+    T = PMI_C18(P)
     if T.shape[0] > T.shape[1]:
         T[np.isneginf(T)] = -1e300
     return T
@@ -1695,7 +1693,7 @@ def tall_shift_c18(P):
     """WRONG for a table with more rows than columns: each finite PMI moved by 0.2 (i - mean of i under p(x)), which
     keeps the mean."""
     P = np.asarray(P, dtype=float)
-    T = ref_cooc.pmi(P)
+    T = PMI_C18(P)
     if T.shape[0] > T.shape[1]:
         i = np.arange(T.shape[0], dtype=float)
         shift = 0.2 * (i - np.sum(P.sum(axis=1) * i))
@@ -1814,9 +1812,7 @@ with np.errstate(divide="ignore", invalid="ignore"):
 answer_MB2_18b = [[counts[key] for key in KEYS_18] for counts in wrong_18.values()]
 for name_18, counts_18 in {"ta pmi": mine_18, **wrong_18}.items():
     print(f"{name_18:14s}", counts_18)
-print("a)", answer_MB2_18a, " b)", answer_MB2_18b)
-
-''' + answers_check("MB2.18", "ab") + "\n\n" + CHECK_18,
+print("a)", answer_MB2_18a, " b)", answer_MB2_18b)''',
     record=('''def counters_18r(seed, func, n_trials=300, bound_min=True, all_cells=False):
     """The loop and the checks of the statement written again (the oracle), with two classic variants: the bound with
     max instead of min, and the mean over all the cells (0 × −∞ gives nan)."""
@@ -1874,6 +1870,7 @@ for seed_18r, ids_18r in __HIDDEN_C18__:                    # the counters of th
         for key_18r, sub_id_18r in by_key_18r.items():
             wbm.record(sub_id_18r, counts_18r[key_18r])'''),
     after=[
+        ("solution", answers_check("MB2.18", "ab") + "\n\n" + CHECK_18),
         ("todo_md", "**Dans ta copie** : c) lesquelles des quatre versions fausses passent le test, ou l'un des contrôles, "
                     "pourquoi c'est normal, et ce qui, dans le dépôt, vérifie ce qu'elles ont de faux."),
         ("md", "**Après la vérification**, dans ta copie : quel contrôle faudrait-il ajouter pour attraper `zeros_to_zero`, "
@@ -2061,6 +2058,11 @@ wbm.record("MB2.19c", [int(counts_19r[i, j]) for i, j in direct_19r],
     ],
 )
 
+SOLUTION_19, RECORD_19 = MB2_19.solution, MB2_19.record     # the five hidden pairs are recorded before pairs_found_19 is
+MB2_19.solution = MB2_19.record = ""                         # called in the solutions; the check comes last
+MB2_19.after = [("record", RECORD_19), ("solution", SOLUTION_19),
+                ("solution", answers_check("MB2.19", "bc") + "\n\n" + CHECK_19)] + MB2_19.after
+
 PART_D = Part("D", "Défi", "Fiche §2 et §3. Les cases les plus associées d'une table cachée, retrouvées à partir de "
               "comptes, sur la table du notebook et trois tables cachées.", exercises=[MB2_19])
 
@@ -2136,3 +2138,304 @@ def build(kind: str) -> list:
         cells += part_cells(part, kind)
     cells += footer_cells(kind)
     return cells
+
+
+# ---------------------------------------------------------------------------
+# Build-time literals of the hidden cases, computed here by private functions (never the answer of a question), and the
+# assertions that make them fair (the reference passes, the classic wrong versions are seen)
+# ---------------------------------------------------------------------------
+def load_reference(name: str):
+    """solutions/mymath_ref/<name>.py, loaded as a module of its own (its relative imports are not used)."""
+    spec = importlib.util.spec_from_file_location(f"{name}_ref_mb2", ROOT / "solutions" / "mymath_ref" / f"{name}.py")
+    ref = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ref)
+    return ref
+
+
+def literal(value) -> str:
+    """A Python literal of value (floats by repr: exact), wrapped for reading."""
+    return pprint.pformat(value, width=112, compact=True, sort_dicts=False)
+
+
+def _pmi(np, J):
+    J = np.asarray(J, dtype=float)
+    out = np.full(J.shape, -np.inf)
+    rows, cols = np.nonzero(J > 0)
+    out[rows, cols] = np.log(J[rows, cols]) - np.log(J.sum(axis=1)[rows]) - np.log(J.sum(axis=0)[cols])
+    return out
+
+
+def _top5(np, T):
+    order = np.argsort(-T, axis=None, kind="stable")[:5]
+    return {(int(i), int(j)) for i, j in zip(*np.unravel_index(order, T.shape))}
+
+
+def _hidden_table_19(np, rng, n=10, n_rare=3, sd=0.15):
+    """The generator of the tables of MB2.19 (work_c/nb_values.py of the author of the exercises): a joint law whose 5
+    largest PMI are 5 planted pairs of common rows and columns, at least 0.3 above the 6th."""
+    while True:
+        r = rng.uniform(0.6, 1.4, n)
+        c = rng.uniform(0.6, 1.4, n)
+        rare_r = rng.choice(n, n_rare, replace=False)
+        rare_c = rng.choice(n, n_rare, replace=False)
+        r /= r.sum()
+        c /= c.sum()
+        r[rare_r] = rng.uniform(0.002, 0.006, n_rare)
+        c[rare_c] = rng.uniform(0.002, 0.006, n_rare)
+        r /= r.sum()
+        c /= c.sum()
+        common_r = np.setdiff1d(np.arange(n), rare_r)
+        common_c = np.setdiff1d(np.arange(n), rare_c)
+        W = np.ones((n, n))
+        W[np.ix_(common_r, common_c)] = np.exp(np.clip(rng.normal(0, sd, (n - n_rare, n - n_rare)), -2 * sd, 2 * sd))
+        rows = rng.choice(common_r, 5, replace=False)
+        cols = rng.choice(common_c, 5, replace=False)
+        W[rows, cols] = np.exp(rng.uniform(1.1, 1.5, 5))
+        J = np.outer(r, c) * W
+        J /= J.sum()
+        T = _pmi(np, J)
+        ordered = np.sort(T.ravel())[::-1]
+        planted = {(int(i), int(j)) for i, j in zip(rows, cols)}
+        if _top5(np, T) == planted and ordered[4] - ordered[5] >= 0.3:
+            return J, planted
+
+
+def _shrink_19(np, counts, kappa=5.0):
+    counts = np.asarray(counts, dtype=float)
+    expected = np.outer(counts.sum(axis=1), counts.sum(axis=0)) / counts.sum()
+    return _top5(np, np.log((counts + kappa) / (expected + kappa)))
+
+
+def _threshold_19(np, counts, t=10):
+    T = _pmi(np, counts / counts.sum())
+    T[counts < t] = -np.inf
+    return _top5(np, T)
+
+
+def _counters_18(np, math, seed, func, n_trials, variant=0):
+    """The counters of the property test of MB2.18 (the statement), with tolerance variants that a right implementation
+    may choose: 0 as stated, 1 the bound and the mean compared at a scale max(1, |·|) of the other side, 2 absolute
+    tolerances of 1e-9."""
+    from scipy.special import xlogy
+    rng, counts = np.random.default_rng(seed), {"bound": 0, "transpose": 0, "mean": 0}
+    for _ in range(n_trials):
+        m, n = int(rng.integers(1, 6)), int(rng.integers(1, 6))
+        W = rng.random((m, n)) ** 2
+        if rng.random() < 0.4:
+            W[rng.random((m, n)) < 0.3] = 0.0
+        if W.sum() == 0:
+            W[0, 0] = 1.0
+        law = W / W.sum()
+        T, TT = func(law), func(law.T)
+        px, py = law.sum(axis=1), law.sum(axis=0)
+        tol = (lambda x, y: 1e-9 * max(1.0, abs(x))) if variant == 0 else (lambda x, y: 1e-9 * max(1.0, abs(y))) if (
+            variant == 1) else (lambda x, y: 1e-9)
+        rows, cols = np.nonzero(law > 0)
+        bound = np.minimum(-np.log(px[rows]), -np.log(py[cols]))
+        values = T[rows, cols]
+        if not np.all(np.isfinite(values)) or any(v > b + tol(b, v) for v, b in zip(values, bound)):
+            counts["bound"] += 1
+        same = np.array_equal(np.isneginf(TT), np.isneginf(T.T))
+        if not same or not np.allclose(TT[~np.isneginf(TT)], T.T[~np.isneginf(T.T)], rtol=1e-9 if variant < 2 else 0,
+                                       atol=1e-9):
+            counts["transpose"] += 1
+        mean = float(np.sum(law[law > 0] * T[law > 0]))
+        mi = float(np.sum(xlogy(law, law)) - np.sum(xlogy(px, px)) - np.sum(xlogy(py, py)))
+        if not math.isfinite(mean) or abs(mean - mi) > tol(mean, mi):
+            counts["mean"] += 1
+    return counts
+
+
+def build_constants() -> dict:
+    """The literals written in the cells, by placeholder, with the assertions that make the hidden cases fair."""
+    import numpy as np
+    from scipy.linalg import null_space
+
+    cooc, svd_pca = load_reference("cooccurrence"), load_reference("svd_pca")
+    out = {}
+
+    # MB2.15: two hidden calls, the second on another law; their arrays differ from those of the law of the notebook
+    birds = (np.array([[0.0, 6, 14, 20], [1, 2, 10, 22], [0, 0, 3, 22]]) / 100).tolist()
+    other = [[0.06, 0.11, 0.17, 0.08], [0.03, 0.07, 0.12, 0.09], [0.02, 0.04, 0.06, 0.15]]
+    assert abs(sum(map(sum, other)) - 1) < 1e-12
+    hidden = [(birds, 7131, 6, 60, ("MB2.15h", "MB2.15i")), (other, 7132, 5, 150, ("MB2.15j", "MB2.15k"))]
+    rng15 = np.random.default_rng(7131)
+    first = [rng15.multinomial(60, np.ravel(birds)) for _ in range(6)]
+    assert any(c[4] == 0 for c in first)                     # a sample without a hoopoe: a -inf in the hidden call
+    a = np.random.default_rng(7132).multinomial(150, np.ravel(other))
+    b = np.random.default_rng(7132).multinomial(150, np.ravel(birds))
+    assert not np.array_equal(a, b)                         # reading P at the call is seen
+    out["__HIDDEN_C15__"] = literal(hidden)
+
+    # MB2.16: a hidden table of six kiosks, k = 3; well separated singular values, a sign convention without a tie
+    table = [[18.0, 12, 3, 1], [22, 15, 5, 2], [4, 3, 16, 11], [2, 5, 21, 14], [12, 9, 10, 7], [9, 4, 13, 12]]
+    m16 = np.array([[41.0, 29, 26, 2, 3], [33, 25, 19, 6, 4], [52, 41, 31, 4, 2], [4, 1, 0, 36, 27], [6, 3, 2, 49, 41],
+                    [0, 2, 1, 23, 21], [26, 19, 15, 23, 18], [37, 29, 22, 14, 11], [11, 8, 7, 33, 24], [22, 15, 14, 19, 13]])
+    for M, k in ((np.array(table), 3), (m16, 3)):
+        U, s, Vt = np.linalg.svd(M, full_matrices=False)
+        assert np.all(s[:k] / s[1:k + 1] > 1.05) and s[k - 1] > 1e-3 * s[0], s
+        for row in np.abs(Vt[:k]):
+            top = np.sort(row)[::-1]
+            assert top[0] - top[1] > 1e-3, row
+        mine_U, mine_s, mine_Vt = svd_pca.svd(M)
+        assert np.allclose(mine_s[:k], s[:k]) and mine_s.size >= k
+    out["__HIDDEN_C16__"] = literal({"table": table, "names": [f"kiosque {k}" for k in range(1, 7)],
+                                     "betas": [0.25, 0.6, 0.9], "beta": 0.4, "ids": ["MB2.16h", "MB2.16i"]})
+
+    # MB2.17: hidden cases on which the three fixes pass and the classic wrong fixes fail
+    laws = [[[0.2, 0.05], [0.15, 0.6]], [[0.1, 0.0, 0.3], [0.25, 0.05, 0.3]]]
+    counts = [[[3, 0, 7], [12, 5, 0], [0, 9, 4]], [[30, 12], [0, 0], [7, 51], [22, 3]],
+              [[260, 41, 7, 0, 19], [88, 300, 12, 5, 0]]]
+    fix = lambda C: cooc.pmi(np.asarray(C, float) / np.sum(C))                     # noqa: E731
+    bug = lambda C: _pmi(np, C) - np.log(np.sum(C))                                 # noqa: E731 (ln(n / (n_x n_y)))
+    hundred = lambda C: _pmi(np, C) - np.log(np.sum(C)) + np.log(100.0)            # noqa: E731 (divided by 100)
+    minus = lambda C: _pmi(np, C) - 2 * np.log(np.sum(C))                           # noqa: E731 (minus ln N)
+    for L in laws:
+        assert np.allclose(fix(L), cooc.pmi(np.array(L))) and np.allclose(bug(L), cooc.pmi(np.array(L)))
+    for C in counts:
+        C = np.array(C, dtype=float)
+        assert C.sum() not in (1.0, 100.0)
+        for k in (0.2, 3.7, 50.0):
+            assert np.allclose(fix(k * C), fix(C))
+            for wrong in (bug, hundred, minus):
+                assert not np.allclose(wrong(k * C), wrong(C), atol=1e-9)
+    factors = [{"M": [[4.0, 1, 7], [2, 9, 3], [8, 5, 1], [6, 2, 2], [1, 3, 9]], "beta": 0.0},
+               {"M": [[4.0, 1, 7], [2, 9, 3], [8, 5, 1], [6, 2, 2], [1, 3, 9]], "beta": 0.3},
+               {"M": [[2.0, 0, 5, 1, 3, 7], [6, 4, 1, 0, 2, 2], [1, 8, 3, 5, 0, 4], [3, 2, 2, 6, 9, 1]], "beta": 1.0}]
+    seen = {"colleague": False, "V only": False, "swapped": False}
+    for case in factors:
+        U, s, Vt = svd_pca.svd(np.array(case["M"]))
+        beta, M_k = case["beta"], (U * s) @ Vt
+        A, B = U * s ** beta, Vt.T * s ** (1 - beta)
+        assert np.allclose(A @ B.T, M_k) and np.allclose(M_k, case["M"])
+        seen["colleague"] |= not np.allclose(A @ (Vt.T * s ** beta).T, M_k)
+        seen["V only"] |= not np.allclose(A @ Vt, M_k)                              # V without its power of S
+        seen["swapped"] |= not np.allclose(U * s ** (1 - beta), A)                   # (U S^(1-beta), V S^beta)
+    assert all(seen.values()), seen
+    directions = [{"X": [[1.5, -2.0, 0.5], [3, 1, -1], [0, 2.5, 4], [-2, -1, 3]], "u": [0.1, -0.2, 0.05]},
+                  {"X": [[3.0, 1], [-1, 4], [2, 2], [0, -3], [5, -2]], "u": [6.0, 8]},
+                  {"X": [[1.0, 0, 2, -1], [3, 3, 0, 1], [-2, 1, 1, 4]], "u": [2.0, -1, 0, 3]}]
+    for case in directions:
+        X, u = np.array(case["X"]), np.array(case["u"])
+        assert abs(np.linalg.norm(u) - 1) > 0.1
+        R = cooc.remove_direction(X, u)
+        size = np.abs(X).max() * np.linalg.norm(u)
+        assert np.allclose(R @ u, 0, atol=1e-9 * size) and np.allclose((X - R) @ null_space(u[None, :]), 0, atol=1e-9 * size)
+        for wrong in (X - np.outer(X @ u, u), X - np.outer(X @ u / np.linalg.norm(u), u)):
+            assert not np.allclose(wrong @ u, 0, atol=1e-9 * size)
+    out["__CASES_C17__"] = literal({"laws": laws, "counts": counts, "factors": factors, "directions": directions})
+
+    # MB2.18: the counters of the hidden versions are the same for the tolerance variants of a right implementation;
+    # the reference counts nothing; each property is broken by a hidden version on some start
+    namespace = {"np": np, "math": math, "ref_cooc": cooc}
+    exec(CHECK_18.split("\n\n\nBROKEN_C18")[0], namespace)
+    exec(re.search(r"BROKEN_C18 = \{.*?\}\s*#", CHECK_18, re.S).group(0).rstrip("#"), namespace)
+    letters = iter("defghijklmno")
+    hidden18 = []
+    broken_somewhere = set()
+    for seed in (7141, 7142):
+        assert all(v == 0 for v in _counters_18(np, math, seed, cooc.pmi, 40).values())
+        ids = {}
+        for name, keys in namespace["BROKEN_C18"].items():
+            with np.errstate(divide="ignore", invalid="ignore", over="ignore"):
+                runs = [_counters_18(np, math, seed, namespace[name], 40, variant) for variant in (0, 1, 2)]
+            assert runs[0] == runs[1] == runs[2], (seed, name, runs)
+            for key in ("bound", "transpose", "mean"):
+                if key not in keys:
+                    assert runs[0][key] == 0, (seed, name, key, runs[0])
+                elif runs[0][key]:
+                    broken_somewhere.add((name, key))
+            ids[name] = {key: f"MB2.18{next(letters)}" for key in keys}
+        hidden18.append((seed, ids))
+    assert broken_somewhere == {(n, k) for n, keys in namespace["BROKEN_C18"].items() for k in keys}, broken_somewhere
+    for seed in (7118,):                                       # the visible versions: the same counters for the variants
+        exec(GIVEN_18.split("\n\n\n# The loop")[0], namespace)
+        for name in ("bits", "conditional", "zeros_to_zero", "lift"):
+            with np.errstate(divide="ignore", invalid="ignore"):
+                runs = [_counters_18(np, math, seed, namespace[name], 300, variant) for variant in (0, 1, 2)]
+            assert runs[0] == runs[1] == runs[2], (name, runs)
+    out["__HIDDEN_C18__"] = literal(hidden18)
+
+    # MB2.19: the table of the notebook (seed 7119, the generator of the author of the exercises), then three hidden
+    # tables on which the two methods of the solutions find at least 4 pairs on every redraw tried, and the direct
+    # estimate seldom does
+    rng = np.random.default_rng(7119)
+    J19, truth = _hidden_table_19(np, rng)
+    counts19 = rng.multinomial(3000, J19.ravel()).reshape(10, 10)
+    assert len(_shrink_19(np, counts19) & truth) == 5 and len(_threshold_19(np, counts19) & truth) == 5
+    direct = _pmi(np, counts19 / 3000)
+    top6 = np.sort(direct.ravel())[::-1][:6]
+    assert np.all(np.diff(top6) < -1e-6)                   # no tie in the order of the direct estimate (c)
+    out["__COUNTS_19__"] = literal(counts19.tolist())
+    out["__LAW_19__"] = literal(np.round(J19, 12).tolist())
+    laws19, check_rng = [], np.random.default_rng(7101)
+    for seed in range(7143, 7150):
+        if len(laws19) == 3:
+            break
+        J, planted = _hidden_table_19(np, np.random.default_rng(seed))
+        J = np.round(J, 8)
+        law = J / J.sum()
+        assert _top5(np, _pmi(np, law)) == planted
+        good, direct_ok = 0, 0
+        for _ in range(400):
+            rows, cols = check_rng.permutation(10), check_rng.permutation(10)
+            permuted = law[np.ix_(rows, cols)]
+            c = check_rng.multinomial(3000, permuted.ravel()).reshape(10, 10)
+            want = _top5(np, _pmi(np, permuted))
+            good += len(_shrink_19(np, c) & want) >= 4 and len(_threshold_19(np, c) & want) >= 4
+            direct_ok += len(_top5(np, _pmi(np, c / 3000)) & want) >= 4
+        if good == 400 and direct_ok <= 120:
+            laws19.append(J.tolist())
+    assert len(laws19) == 3
+    out["__HIDDEN_C19__"] = literal(laws19)
+    return out
+
+
+PREPARED = []
+
+
+def prepare() -> None:
+    """Write the build-time literals in every cell text (placeholders __NAME__). Idempotent."""
+    if PREPARED:
+        return
+    constants = build_constants()
+
+    def fill(text):
+        for key, value in constants.items():
+            text = text.replace(key, value)
+        return text
+
+    for part in PARTS:
+        part.given = fill(part.given)
+        for ex in part.exercises:
+            for field_name in ("body", "todo", "check", "solution", "record", "given", "note"):
+                setattr(ex, field_name, fill(getattr(ex, field_name)))
+            ex.after = [(kind, fill(text)) for kind, text in ex.after]
+    left = {match for part in PARTS for ex in part.exercises
+            for text in (ex.body, ex.todo, ex.check, ex.solution, ex.record, ex.given, *(t for _, t in ex.after))
+            for match in re.findall(r"__[A-Z][A-Z0-9_]*__", text)}
+    assert not left, f"placeholders left: {sorted(left)}"
+    PREPARED.append(True)
+
+
+def main() -> int:
+    prepare()
+    for paper in PAPER:
+        lines = [f'wbm.record("{paper.id}{letter}", {expr}{", " + options if options else ""})'
+                 for letter, _, expr, options in paper.subs]
+        check_unique_keys("\n".join(lines), paper.id)
+    for ex in [e for part in PARTS for e in part.exercises]:
+        for source in (ex.record, *(text for kind, text in ex.after if kind == "record")):
+            if source:
+                check_unique_keys(source, ex.id)
+    write_notebook(f"{FOLDER}/03_notebook.ipynb", build("exercise"))
+    write_notebook(f"{FOLDER}/05_solutions.ipynb", build("solution"))
+    n_checks = sum(len(p.subs) for p in PAPER)
+    n_ex = sum(len(part.exercises) for part in PARTS)
+    print(f"✅ {FOLDER}/03_notebook.ipynb and 05_solutions.ipynb written ({len(PAPER)} paper exercises, "
+          f"{n_checks} paper checks, {n_ex} notebook exercises)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
