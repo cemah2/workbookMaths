@@ -16,7 +16,7 @@ not diffusion.py). The notes of each chapter list the data of workbookIA to avoi
 
 CHAPTERS = [
     {
-        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 10.6, "generation_sessions": 1, "mml": [],
+        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 12.4, "generation_sessions": 1, "mml": [],
         "summary": "Les outils mathématiques des embeddings construits par comptage, hors de tout texte : l'écriture d'un "
                    "entier en base 2 et en base 16 (une lacune) ; l'information mutuelle ponctuelle (PMI) des cases d'une "
                    "table jointe, son signe, sa borne, la PPMI, et l'information mutuelle de M06 comme sa moyenne ; le "
@@ -76,7 +76,8 @@ CHAPTERS = [
                     "constante par colonne ; lissée sur ses seules colonnes, une table symétrique ne l'est plus",
                     "SVD tronquée d'une table non centrée (rappels de M12d : SVD compacte, Eckart-Young) ; répartir les "
                     "valeurs singulières : M_k = (U_k S_k^β)(V_k S_k^{1−β})ᵀ pour tout β ∈ [0, 1] ; le produit ne dépend "
-                    "pas de β, les produits scalaires et les cosinus entre lignes du premier facteur si ; β = 1 garde ceux "
+                    "pas de β, les produits scalaires et les cosinus entre lignes du premier facteur en dépendent en "
+                    "général ; β = 1 garde ceux "
                     "des lignes de M_k, β = 0 ceux des lignes de U_k (démontré ; la non-unicité de toute factorisation de "
                     "rang k est en MB4)",
                     "ne pas centrer une grande table creuse avant sa SVD tronquée : centrer la rend pleine (mémoire, coût), "
@@ -91,8 +92,8 @@ CHAPTERS = [
                     "voisins : cosinus et normalisation, ‖a − b‖² = 2 − 2 cos(a, b) pour des vecteurs unitaires, donc le "
                     "même classement (rappel de M07), produit scalaire contre cosinus (les vecteurs longs l'emportent)",
                     "analogie et parallélogramme : requête q = b − a + c, défaut ‖(b − a) − (d − c)‖ ; si "
-                    "‖b − a‖ ≤ ε‖c‖ avec ε < 1, alors cos(q, c) ≥ √(1 − ε²) (démontré dans la fiche) : c est presque "
-                    "toujours le plus proche de q, d'où l'exclusion de a, b et c",
+                    "‖b − a‖ ≤ ε‖c‖ avec ε < 1, alors cos(q, c) ≥ √(1 − ε²) (démontré dans la fiche) : c a avec q un "
+                    "cosinus proche de 1 et reste en haut de la liste, d'où l'exclusion de a, b et c",
                     "retirer une direction : x − (x·u/u·u)u, la projection sur le complément de la droite (rappels de M07 "
                     "et M12b) ; une direction estimée comme premier axe de différences (M12d, par la matrice de Gram de "
                     "M28) ; Pythagore : seule la composante de la différence sur u disparaît ; retirer (1, …, 1), c'est "
@@ -114,6 +115,7 @@ CHAPTERS = [
                      ("produit matriciel, transposée, une ligne one-hot fois une matrice", "M09a"),
                      ("rang d'une matrice", "M12a"),
                      ("complément orthogonal, projection orthogonale, matrices orthogonales", "M12b"),
+                     ("valeurs et vecteurs propres d'une matrice symétrique (théorème spectral), trace", "M12c"),
                      ("SVD compacte, approximation de rang faible (Eckart-Young), axes principaux", "M12d"),
                      ("maximum de vraisemblance de Bernoulli, régression logistique (le score est la log-cote)", "M13a"),
                      ("réductions le long d'un axe, diffusion, centrage comme projection", "M20"),
@@ -122,7 +124,7 @@ CHAPTERS = [
                        "B2.Q7", "B2.Q9", "B2.Q10", "B2.Q11", "B2.Q12", "B2.E4"],
         "mymath": {"module": "cooccurrence.py",
                    "functions": ["pmi", "case_control_logit", "remove_direction"]},
-        "reading_minutes": 125,
+        "reading_minutes": 135,
         "flashcards": 16,
         "notes": "Frontières : le ∂ B2.7 (les dérivées de −ln σ(±s) et σ′ = σ(1 − σ), les gradients par rapport à u_c, "
                  "u_{n_k} et v_w, les lignes touchées, l'application chiffrée, la collision n₁ = c, l'optimum "
@@ -169,7 +171,10 @@ CHAPTERS = [
                  "demande si une PMI négative d'une colonne fréquente devient positive (B2.6 h) ; jamais α = 0,75, ni la "
                  "loi des négatifs, ni les comptes 100 et 1. Le 🔮 MB2.15 tire 400 observations de la loi de cette table, "
                  "plusieurs centaines de fois : la PMI estimée de (prairie, huppe) est très dispersée (et vaut parfois "
-                 "−∞), celle de (village, moineau) non ; le lissage réduit la dispersion et décale la cible. "
+                 "−∞), celle de (village, moineau) non ; le lissage décale la cible, sans réduire la dispersion "
+                 "(erratum de la session 71 : la note disait « réduit » ; la huppe n'étant vue qu'en prairie, "
+                 "l'estimation de (prairie, huppe) ne dépend que du nombre d'oiseaux de prairie et varie peu, et le "
+                 "lissage l'en fait dépendre davantage ; le 🔮 suit aussi (prairie, pic), la case rare dispersée). "
                  "§4 : la SVD est un rappel de M12d (`svd`, `low_rank_approximation`, sa convention de signe) ; aucune "
                  "fonction de `mymath` ne rend U_k S_k^β (le cœur de `ppmi_svd_24`, 📦 B2.24) ; l'exposant de "
                  "répartition s'appelle β (p est une probabilité dans ce chapitre ; la fiche dit que workbookIA B2 le "
@@ -221,7 +226,8 @@ CHAPTERS = [
                  "Le 🐛 MB2.17 n'a aucune erreur du corrigé de 🔨 B2.22 (lissage sur les lignes, log₂), de 🔨 B2.23 "
                  "(`eps`) ni de 🐛 B2.18 ; le 🛠️ MB2.18 ne teste pas « une table produit donne des PMI nulles » (la "
                  "propriété documentée de `ppmi`) ; le 🏆 MB2.19 tire une table cachée à chaque exécution, avec des cases "
-                 "rares de grande PMI qui piègent l'estimation directe, et laisse la méthode libre (pseudo-comptes de "
+                 "rares de grande PMI qui piègent l'estimation directe (la vérification renumérote trois tables cachées et tire de "
+                 "nouvelles ventes à chaque exécution), et laisse la méthode libre (pseudo-comptes de "
                  "M04, lissage, seuil sur les comptes) ; la règle de score et le seuil sont calés à la génération. "
                  "Évités (règle de partage) : de la fiche de workbookIA B2, « Les chatons s'endorment paisiblement. » "
                  "(37, 7, 11, 2,75, 1,2), Holmes et Verne (88 caractères, 7 819 et 8 793 mots, 105 849, 562 000, "
@@ -292,35 +298,37 @@ CHAPTERS = [
                  "durées réalistes (les chapitres de la partie VI ont dépassé leurs estimations de 20 à 40 %) ; 6 quiz, "
                  "3 rappels, 7 ✏️ et 3 ∂, un 🔗, deux 🔨 et aucun 📦 (les comparaisons avec SciPy et scikit-learn sont "
                  "dans les tests, la SVD par bibliothèque est en M12d), un 🔮 et aucun 🔬 (le temps), 🐛, 🎨, 🗣️, 💼, "
-                 "🛠️, 🏆, 16 flashcards ; lecture 125 min (≈ 9 000 mots au rythme des fiches de la partie VI). Parcours "
+                 "🛠️, 🏆, 16 flashcards ; lecture 125 min (≈ 9 000 mots au rythme des fiches de la partie VI). Durées revues "
+                 "à la génération (session 71) : lecture 135 min (≈ 9 800 mots), exercices 577 min (papier 337, "
+                 "notebook 240), 12,4 h en tout et 9,3 h en parcours essentiel. Parcours "
                  "essentiel : ∂ MB2.9, le 💼, le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours ; les ∂ de la borne (MB2.8) et "
                  "du sous-échantillonnage (MB2.10) y sont. Corrections de la relecture (session 69) : R1-1 (la voie de "
                  "Bayes, `case_control_logit`), R1-4, R1-7, R1-11, R1-14.",
         "exercises": [
             ("MB2.Q1", "🧠", 1, 4, "Bases 2 et 16 : le nombre de chiffres d'un entier, la valeur d'un octet, les bits qu'il "
              "faut pour N valeurs", "§1", "E"),
-            ("MB2.Q2", "🧠", 1, 5, "La PMI d'une case : son signe, −∞, la PPMI, la borne des événements rares, et "
+            ("MB2.Q2", "🧠", 1, 6, "La PMI d'une case : son signe, −∞, la PPMI, la borne des événements rares, et "
              "l'information mutuelle qui en est la moyenne", "§2", "E"),
-            ("MB2.Q3", "🧠", 1, 4, "Lisser une marge : quelles colonnes gagnent, de combien bouge la PMI d'une colonne, et "
+            ("MB2.Q3", "🧠", 1, 5, "Lisser une marge : quelles colonnes gagnent, de combien bouge la PMI d'une colonne, et "
              "quels classements le lissage garde", "§3", "E"),
-            ("MB2.Q4", "🧠", 1, 5, "Répartir les valeurs singulières entre deux facteurs : ce qui dépend de β, ce qui n'en "
+            ("MB2.Q4", "🧠", 1, 6, "Répartir les valeurs singulières entre deux facteurs : ce qui dépend de β, ce qui n'en "
              "dépend pas, et pourquoi ne pas centrer une table creuse", "§4", "E"),
             ("MB2.Q5", "🧠", 1, 4, "Le logit d'un taux et le sous-échantillonnage : ce qui bouge (l'ordonnée à "
              "l'origine), de combien, dans quel sens", "§5", "E"),
             ("MB2.Q6", "🧠", 1, 5, "Analogies, direction retirée et moyenne masquée : vrai ou faux, avec une raison",
              "§6 §7 §8", "E"),
-            ("MB2.R1", "🔁", 1, 6, "L'information mutuelle d'un tableau 2 × 2 (M06)", "§2", "E"),
-            ("MB2.R2", "🔁", 1, 7, "La meilleure approximation de rang 1 d'une matrice et son erreur (Eckart-Young, M12d)",
+            ("MB2.R1", "🔁", 1, 8, "L'information mutuelle d'un tableau 2 × 2 (M06)", "§2", "E"),
+            ("MB2.R2", "🔁", 1, 8, "La meilleure approximation de rang 1 d'une matrice et son erreur (Eckart-Young, M12d)",
              "§4", "E"),
-            ("MB2.R3", "🔁", 1, 6, "Cosinus, projection sur une droite et prototype d'une classe (M07, workbookIA B1)",
+            ("MB2.R3", "🔁", 1, 7, "Cosinus, projection sur une droite et prototype d'une classe (M07, workbookIA B1)",
              "§6 §7", "E"),
-            ("MB2.1", "✏️", 1, 15, "Des entiers en base 2 et en base 16 : conversions, une couleur #RRGGBB, les bits pour "
+            ("MB2.1", "✏️", 1, 17, "Des entiers en base 2 et en base 16 : conversions, une couleur #RRGGBB, les bits pour "
              "5 000 codes, et un mot de 16 bits découpé en deux champs", "§1", "E"),
             ("MB2.2", "✏️", 2, 30, "Cent oiseaux, trois milieux, quatre espèces : la PMI des cases, le lift d'une règle, "
              "la PPMI, l'espèce vue une seule fois, et l'information mutuelle comme moyenne", "§2", "E"),
             ("MB2.3", "✏️", 2, 25, "Lisser la marge des espèces de la même table (α = 1/3) : la loi lissée, le décalage "
              "de la PMI de chaque colonne, et le classement des espèces d'un milieu avant et après", "§3", "E p:MB2.2"),
-            ("MB2.4", "✏️", 2, 30, "Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs "
+            ("MB2.4", "✏️", 2, 32, "Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs "
              "U S^β et V S^{1−β} pour β = 0, ½ et 1, leur produit, et le cosinus de deux magasins", "§4", "E"),
             ("MB2.5", "✏️", 2, 20, "Une bannière affichée 3 200 fois et cliquée 50 fois : le logit de vraisemblance "
              "maximale, puis un non-clic gardé sur 9, le décalage de ln 9 et sa correction", "§5", "E"),
@@ -330,30 +338,30 @@ CHAPTERS = [
              "différences, la retirer de trois animaux, et les distances qui restent", "§7", "E"),
             ("MB2.8", "∂", 2, 20, "La PMI est majorée par −ln p(x) et par −ln p(y), avec égalité quand x n'arrive qu'avec "
              "y ; la PMI normalisée est donc au plus 1", "§2", "E"),
-            ("MB2.9", "∂", 3, 25, "Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, "
+            ("MB2.9", "∂", 3, 30, "Répartir les valeurs singulières entre deux facteurs : le produit ne dépend pas de β, "
              "les produits scalaires des lignes si", "§4", ""),
-            ("MB2.10", "∂", 2, 20, "Sous-échantillonner une classe : par la formule de Bayes, la cote observée est celle "
+            ("MB2.10", "∂", 2, 25, "Sous-échantillonner une classe : par la formule de Bayes, la cote observée est celle "
              "de la population multipliée par le rapport des taux de sélection s₁/s₀ ; dans un modèle logistique, seule "
              "l'ordonnée à l'origine bouge, de ln(s₁/s₀)", "§5", "E"),
             ("MB2.11", "🔗", 1, 15, "Pont : résumer des séries de relevés de longueurs différentes par une moyenne "
              "masquée, montrer que le remplissage ne change rien, et compter les comparaisons par paires", "§8", "E"),
-            ("MB2.12", "🗣️", 1, 10, "Expliquer à un ornithologue ce que mesure la PMI d'un milieu et d'une espèce, et "
+            ("MB2.12", "🗣️", 1, 15, "Expliquer à un ornithologue ce que mesure la PMI d'un milieu et d'une espèce, et "
              "pourquoi une espèce vue une seule fois a la plus grande", "§2 §3", "E"),
             ("MB2.E1", "💼", 1, 10, "« Pourquoi ne centre-t-on pas une grande table de comptages creuse avant de la "
              "factoriser par une SVD tronquée ? »", "§4", ""),
-            ("MB2.13", "🔨", 1, 25, "La table des PMI d'une loi jointe, −∞ sur les cases vides", "§2",
+            ("MB2.13", "🔨", 1, 30, "La table des PMI d'une loi jointe, −∞ sur les cases vides", "§2",
              "E m:pmi"),
-            ("MB2.14", "🔨", 2, 25, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et "
+            ("MB2.14", "🔨", 2, 35, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et "
              "retirer une direction des lignes d'une matrice", "§5 §7", "E m:case_control_logit,remove_direction"),
-            ("MB2.15", "🔮", 2, 20, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une "
+            ("MB2.15", "🔮", 2, 30, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une "
              "case rare et une case fréquente, avec et sans lissage", "§2 §3", ""),
-            ("MB2.16", "🎨", 1, 25, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui "
+            ("MB2.16", "🎨", 1, 35, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui "
              "s'étire, et les angles qui changent", "§4", ""),
-            ("MB2.17", "🐛", 1, 20, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une "
+            ("MB2.17", "🐛", 1, 30, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une "
              "direction retirée sans diviser par u·u", "§2 §4 §7", "E"),
-            ("MB2.18", "🛠️", 1, 20, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la "
+            ("MB2.18", "🛠️", 1, 35, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la "
              "transposition, et la moyenne qui redonne l'information mutuelle de M06", "§2", "p:MB2.13"),
-            ("MB2.19", "🏆", 3, 30, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une "
+            ("MB2.19", "🏆", 3, 45, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une "
              "table cachée de 10 × 10, sans se laisser piéger par les cases rares", "§2 §3", "p:MB2.13"),
         ],
     },
