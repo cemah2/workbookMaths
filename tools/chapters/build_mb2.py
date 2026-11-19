@@ -2338,7 +2338,7 @@ def build_constants() -> dict:
                                      "betas": [0.25, 0.6, 0.9], "beta": 0.4, "ids": ["MB2.16h", "MB2.16i"]})
 
     # MB2.17: hidden cases on which the three fixes pass and the classic wrong fixes fail
-    laws = [[[0.2, 0.05], [0.15, 0.6]], [[0.1, 0.0, 0.3], [0.25, 0.05, 0.3]]]
+    laws = [[[0.2, 0.05], [0.15, 0.6]], [[0.1, 0.0, 0.35], [0.2, 0.05, 0.3]]]
     counts = [[[3, 0, 7], [12, 5, 0], [0, 9, 4]], [[30, 12], [0, 0], [7, 51], [22, 3]],
               [[260, 41, 7, 0, 19], [88, 300, 12, 5, 0]]]
     fix = lambda C: cooc.pmi(np.asarray(C, float) / np.sum(C))                     # noqa: E731
@@ -2367,9 +2367,9 @@ def build_constants() -> dict:
         seen["V only"] |= not np.allclose(A @ Vt, M_k)                              # V without its power of S
         seen["swapped"] |= not np.allclose(U * s ** (1 - beta), A)                   # (U S^(1-beta), V S^beta)
     assert all(seen.values()), seen
-    directions = [{"X": [[1.5, -2.0, 0.5], [3, 1, -1], [0, 2.5, 4], [-2, -1, 3]], "u": [0.1, -0.2, 0.05]},
-                  {"X": [[3.0, 1], [-1, 4], [2, 2], [0, -3], [5, -2]], "u": [6.0, 8]},
-                  {"X": [[1.0, 0, 2, -1], [3, 3, 0, 1], [-2, 1, 1, 4]], "u": [2.0, -1, 0, 3]}]
+    directions = [{"X": [[1.5, -2.5, 0.5], [3, 1, -1], [0, 2.5, 4], [-2, -1, 3]], "u": [0.1, -0.2, 0.05]},
+                  {"X": [[3.0, 1], [-1, 4], [2, 2], [0, -3], [5, -2]], "u": [3.5, -8.0]},
+                  {"X": [[1.0, 0, 2, -1], [3, 3, 0, 1], [-2, 1, 1, 4]], "u": [1.5, -1, 0, 2.5]}]
     for case in directions:
         X, u = np.array(case["X"]), np.array(case["u"])
         assert abs(np.linalg.norm(u) - 1) > 0.1
