@@ -16,7 +16,7 @@ not diffusion.py). The notes of each chapter list the data of workbookIA to avoi
 
 CHAPTERS = [
     {
-        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 12.4, "generation_sessions": 1, "mml": [],
+        "id": "MB2", "dir": "mb2_cooccurrences", "hours": 13.2, "generation_sessions": 1, "mml": [],
         "summary": "Les outils mathématiques des embeddings construits par comptage, hors de tout texte : l'écriture d'un "
                    "entier en base 2 et en base 16 (une lacune) ; l'information mutuelle ponctuelle (PMI) des cases d'une "
                    "table jointe, son signe, sa borne, la PPMI, et l'information mutuelle de M06 comme sa moyenne ; le "
@@ -231,9 +231,10 @@ CHAPTERS = [
                  "résumés et un produit matriciel, sans SBERT ni 10 000 phrases. "
                  "Le 🐛 MB2.17 n'a aucune erreur du corrigé de 🔨 B2.22 (lissage sur les lignes, log₂), de 🔨 B2.23 "
                  "(`eps`) ni de 🐛 B2.18 ; le 🛠️ MB2.18 ne teste pas « une table produit donne des PMI nulles » (la "
-                 "propriété documentée de `ppmi`) ; le 🏆 MB2.19 se vérifie sur trois tables cachées, renumérotées "
-                 "et revendues à chaque exécution, avec des cases rares de grande PMI qui piègent l'estimation directe, et "
-                 "laisse la méthode libre (pseudo-comptes de "
+                 "propriété documentée de `ppmi`) ; le 🏆 MB2.19 se vérifie sur trois tables cachées tirées à "
+                 "nouveau à chaque exécution, avec des cases rares de grande PMI qui piègent l'estimation directe, et un "
+                 "rayon et une tranche dominants dont la case commune, fréquente sans être associée, piège les cinq cases "
+                 "les plus vendues (apprenant simulé, session 71), et laisse la méthode libre (pseudo-comptes de "
                  "M04, lissage, seuil sur les comptes) ; la règle de score et le seuil sont calés à la génération. "
                  "Évités (règle de partage) : de la fiche de workbookIA B2, « Les chatons s'endorment paisiblement. » "
                  "(37, 7, 11, 2,75, 1,2), Holmes et Verne (88 caractères, 7 819 et 8 793 mots, 105 849, 562 000, "
@@ -314,8 +315,9 @@ CHAPTERS = [
                  "3 rappels, 7 ✏️ et 3 ∂, un 🔗, deux 🔨 et aucun 📦 (les comparaisons avec SciPy et scikit-learn sont "
                  "dans les tests, la SVD par bibliothèque est en M12d), un 🔮 et aucun 🔬 (le temps), 🐛, 🎨, 🗣️, 💼, "
                  "🛠️, 🏆, 16 flashcards ; lecture 125 min (≈ 9 000 mots au rythme des fiches de la partie VI). Durées revues "
-                 "à la génération (session 71) : lecture 135 min (≈ 9 800 mots), exercices 577 min (papier 337, "
-                 "notebook 240), 12,4 h en tout et 9,3 h en parcours essentiel. Parcours "
+                 "à la génération (session 71), après la re-résolution à l'aveugle, l'auteur des exercices et l'apprenant "
+                 "simulé : lecture 135 min (≈ 9 800 mots), exercices 623 min (papier 348, notebook 275), 13,2 h en tout "
+                 "et 9,8 h en parcours essentiel. Parcours "
                  "essentiel : ∂ MB2.9, le 💼, le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours ; les ∂ de la borne (MB2.8) et "
                  "du sous-échantillonnage (MB2.10) y sont. Corrections de la relecture (session 69) : R1-1 (la voie de "
                  "Bayes, `case_control_logit`), R1-4, R1-7, R1-11, R1-14.",
@@ -337,19 +339,19 @@ CHAPTERS = [
              "§4", "E"),
             ("MB2.R3", "🔁", 1, 7, "Cosinus, projection sur une droite et prototype d'une classe (M07, workbookIA B1)",
              "§6 §7", "E"),
-            ("MB2.1", "✏️", 1, 17, "Des entiers en base 2 et en base 16 : conversions, une couleur #RRGGBB, les bits pour "
+            ("MB2.1", "✏️", 1, 20, "Des entiers en base 2 et en base 16 : conversions, une couleur #RRGGBB, les bits pour "
              "5 000 codes, et un mot de 16 bits découpé en deux champs", "§1", "E"),
             ("MB2.2", "✏️", 2, 30, "Cent oiseaux, trois milieux, quatre espèces : la PMI des cases, le lift d'une règle, "
              "la PPMI, l'espèce vue une seule fois, et l'information mutuelle comme moyenne", "§2", "E"),
             ("MB2.3", "✏️", 2, 25, "Lisser la marge des espèces de la même table (α = 1/3) : la loi lissée, le décalage "
              "de la PMI de chaque colonne, et le classement des espèces d'un milieu avant et après", "§3", "E p:MB2.2"),
-            ("MB2.4", "✏️", 2, 32, "Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs "
+            ("MB2.4", "✏️", 2, 35, "Quatre magasins, trois produits, une table de rang 2 de SVD donnée : les facteurs "
              "U S^β et V S^{1−β} pour β = 0, ½ et 1, leur produit, et le cosinus de deux magasins", "§4", "E"),
             ("MB2.5", "✏️", 2, 20, "Une bannière affichée 3 200 fois et cliquée 50 fois : le logit de vraisemblance "
              "maximale, puis un non-clic gardé sur 9, le décalage de ln 9 et sa correction", "§5", "E"),
             ("MB2.6", "✏️", 2, 25, "Yaourt et fromage blanc, nature et sucrés : mesurer le parallélogramme d'une analogie "
              "(défaut, rapport ε, borne du cosinus), et dire si d peut l'emporter sur c", "§6", "E"),
-            ("MB2.7", "✏️", 2, 20, "Des mesures d'animaux en logarithme : la direction de taille estimée sur deux "
+            ("MB2.7", "✏️", 2, 25, "Des mesures d'animaux en logarithme : la direction de taille estimée sur deux "
              "différences, la retirer de trois animaux, et les distances qui restent", "§7", "E"),
             ("MB2.8", "∂", 2, 20, "La PMI est majorée par −ln p(x) et par −ln p(y), avec égalité quand x n'arrive qu'avec "
              "y ; la PMI normalisée est donc au plus 1", "§2", "E"),
@@ -364,19 +366,19 @@ CHAPTERS = [
              "pourquoi une espèce vue une seule fois a la plus grande", "§2 §3", "E"),
             ("MB2.E1", "💼", 1, 10, "« Pourquoi ne centre-t-on pas une grande table de comptages creuse avant de la "
              "factoriser par une SVD tronquée ? »", "§4", ""),
-            ("MB2.13", "🔨", 1, 30, "La table des PMI d'une loi jointe, −∞ sur les cases vides", "§2",
+            ("MB2.13", "🔨", 1, 35, "La table des PMI d'une loi jointe, −∞ sur les cases vides", "§2",
              "E m:pmi"),
-            ("MB2.14", "🔨", 2, 35, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et "
+            ("MB2.14", "🔨", 2, 45, "Deux briques : le logit d'une population estimé sur un échantillon cas-témoins, et "
              "retirer une direction des lignes d'une matrice", "§5 §7", "E m:case_control_logit,remove_direction"),
-            ("MB2.15", "🔮", 2, 30, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une "
+            ("MB2.15", "🔮", 2, 35, "Prédire puis mesurer la dispersion de la PMI estimée sur 400 observations, pour une "
              "case rare et une case fréquente, avec et sans lissage", "§2 §3", ""),
-            ("MB2.16", "🎨", 1, 35, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui "
+            ("MB2.16", "🎨", 1, 40, "Des magasins dans le plan des deux facteurs U₂S₂^β, pour β = 0, ½ et 1 : ce qui "
              "s'étire, et les angles qui changent", "§4", ""),
             ("MB2.17", "🐛", 1, 30, "Chasse à l'erreur : une PMI calculée sans le total, des facteurs U S^β et V S^β, une "
              "direction retirée sans diviser par u·u", "§2 §4 §7", "E"),
-            ("MB2.18", "🛠️", 1, 35, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la "
+            ("MB2.18", "🛠️", 1, 40, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la "
              "transposition, et la moyenne qui redonne l'information mutuelle de M06", "§2", "p:MB2.13"),
-            ("MB2.19", "🏆", 3, 45, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une "
+            ("MB2.19", "🏆", 3, 50, "Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une "
              "table cachée de 10 × 10, sans se laisser piéger par les cases rares", "§2 §3", "p:MB2.13"),
         ],
     },

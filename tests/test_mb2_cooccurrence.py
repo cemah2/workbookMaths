@@ -703,11 +703,13 @@ def test_pmi_accepts_integers_fractions_and_float32(cc, joint, text):
 
 
 def test_pmi_does_not_modify_its_input(cc_module):
-    joint = np.array([[0.21, 0.0, 0.14], [0.0, 0.0, 0.0], [0.35, 0.18, 0.12]])
+    # sums to 1 + 4e-10 (within the 1e-9 tolerance): a division in place, p /= p.sum(), would show
+    joint = np.array([[0.21, 0.0, 0.14], [0.0, 0.0, 0.0], [0.35, 0.18, 0.12 + 4e-10]])
     copy = joint.copy()
     _result(lambda: cc_module.pmi(joint), "a table", "pmi(p) for a law with an empty row and empty cells")
-    assert np.array_equal(joint, copy), (f"expected p unchanged by pmi(p), got p = {_show(joint)} (never modify the "
-                                         f"arrays you receive: p /= ... or p[p == 0] = ... writes into p)")
+    assert np.array_equal(joint, copy), (f"expected p unchanged by pmi(p), got p = {_show(joint)} (largest change "
+                                         f"{float(np.max(np.abs(joint - copy))):.1e}; never modify the arrays you "
+                                         f"receive: p /= ... or p[p == 0] = ... writes into p)")
 
 
 PMI_REFUSALS = [
