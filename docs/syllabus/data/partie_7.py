@@ -1710,7 +1710,8 @@ CHAPTERS = [
                      ("règle de la chaîne le long d'une courbe, fonctions affines par morceaux", "M17"),
                      ("estimateur de Horvitz-Thompson : diviser par une probabilité", "M20"),
                      ("loi conditionnelle d'un couple gaussien : moyenne affine en la valeur observée", "M25a"),
-                     ("indépendance conditionnelle, espérance conditionnelle et espérance totale", "M25b")],
+                     ("indépendance conditionnelle, espérance conditionnelle et espérance totale", "M25b"),
+                     ("rangs, rangs moyens des ex aequo", "MB4")],
         "frontieres": ["B6.1", "B6.3", "B6.4", "B6.5", "B6.7", "B6.11", "B6.Q3", "B6.Q4", "B6.Q5", "B6.Q6", "B6.Q7",
                        "B6.Q9", "B6.Q11", "B6.14", "B6.18", "B6.21", "B6.22", "B6.23", "B6.E2"],
         "mymath": {"module": "attribution.py",
@@ -1736,7 +1737,7 @@ CHAPTERS = [
                  "MB6 travaille hors des réseaux et hors des données de personnes : des jeux (un conseil à vote pondéré, des "
                  "hameaux qui partagent une conduite d'eau, trois amis et un taxi), des fonctions écrites (le rendement d'une "
                  "parcelle, le travail d'une force, un coût à trois facteurs, un indice régional), des grilles de capteurs, "
-                 "deux juges qui classent des boulangeries, des lignes de production, des laboratoires et des trains ; jamais "
+                 "deux topos d'escalade qui cotent les mêmes voies, des lignes de production, des laboratoires et des trains ; jamais "
                  "un modèle entraîné, une feature, un fond (*background*) de données, un réseau, une image, un pixel, une "
                  "carte d'activation, un canal, un logit, un client, un prêt, un candidat, des groupes de personnes ni un dataset "
                  "de workbookIA. SHAP, KernelSHAP, TreeSHAP, LIME, gradients intégrés, saillance et Grad-CAM ne "
@@ -1808,7 +1809,7 @@ CHAPTERS = [
                  "d'origine de toutes les cases d'une ligne et les valeurs de quelques cases, pas les 48 ; jamais de canaux, de combinaison "
                  "de cartes par des poids suivie d'une partie positive, de normalisation par le maximum, ni de carte agrandie "
                  "8, 24 ou 32 fois (✏️ B6.4, 🐛 B6.21) ; `align_corners` de PyTorch et `scipy.ndimage.zoom` sont nommés dans "
-                 "un 💻. §6, Spearman (lacune) : la fiche l'enseigne sur deux juges qui classent huit boulangeries (un ex aequo), "
+                 "un 💻. §6, Spearman (lacune) : la fiche l'enseigne sur deux topos d'escalade qui cotent les mêmes huit voies (un ex aequo ; à la génération, session 75, au lieu des deux juges et des huit boulangeries du plan, cadre déjà pris en MB4), "
                  "avec la formule 1 − 6Σd²/(n(n² − 1)) démontrée dans un bloc repliable ; 🧠 MB6.Q4 et 🔨 MB6.16 ; aucun "
                  "« ρ = 1 ⇒ mêmes valeurs ? » ni le contre-exemple (1, 2, 3)/(10, 20, 30) (B6.Q9 d), aucun test de "
                  "randomisation, SSIM ni carte de saillance (B6.22). Le 🐛 MB6.20 : des poids s!(n − 1 − s)!/(n − 1)! (sans "
