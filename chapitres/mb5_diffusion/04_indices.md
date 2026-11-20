@@ -143,7 +143,7 @@ Fiche §8 : « La méthode d'Euler, dans les deux sens du temps » et « Le poin
 </details>
 <details><summary>Indice 2</summary>
 
-Euler lit le champ une fois par pas, le point milieu deux fois. Une erreur d'ordre $p$ est de l'ordre de $h^p$, donc de $N^{-p}$. Le pas vaut $h = \frac{t_1 - t_0}{N}$, négatif pour remonter le temps. En $s = 1$, $x_s$ ne dit rien de $x_0$.
+Euler lit le champ une fois par pas, le point milieu deux fois. Une erreur d'ordre $p$ est de l'ordre de $h^p$, donc de $N^{-p}$. Le pas vaut $h = \frac{t_N - t_0}{N}$, négatif pour remonter le temps. En $s = 1$, $x_s$ ne dit rien de $x_0$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -585,7 +585,7 @@ Fiche §8 : « La méthode d'Euler, dans les deux sens du temps » et « Le poin
 </details>
 <details><summary>Indice 2</summary>
 
-Contrôle `n_steps` (refuse un booléen avant de tester l'entier) et les deux instants, puis $h = \frac{t_1 - t_0}{N}$, négatif si $t_1 < t_0$. Recalcule $t_k = t_0 + kh$ à chaque pas, plutôt que d'ajouter $h$ à chaque fois. Vérifie que chaque vitesse a la forme de $x$. Garde tous les points, départ compris, et empile-les. Pour la suite : a) le thé, `lambda t, T: -0.06 * (T - 20)` ; b) $t_0 = 10$ et $t_1 = 5$ ; c) `lambda t, x: 3 * t**2` ; d) la solution exacte en $t = 3$.
+Contrôle `n_steps` (refuse un booléen avant de tester l'entier) et les deux instants, puis $h = \frac{t_N - t_0}{N}$, négatif si $t_N < t_0$ (l'argument `t1` est l'instant final $t_N$). Recalcule $t_k = t_0 + kh$ à chaque pas, plutôt que d'ajouter $h$ à chaque fois. Vérifie que chaque vitesse a la forme de $x$. Garde tous les points, départ compris, et empile-les. Pour la suite : a) le thé, `lambda t, T: -0.06 * (T - 20)` ; b) $t_0 = 10$ et $t_N = 5$ ; c) `lambda t, x: 3 * t**2` ; d) la solution exacte en $t = 3$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -633,7 +633,7 @@ Fiche §5 : le paragraphe « Un nuage de points » et sa propriété. Écris ta 
 </details>
 <details><summary>Indice 2</summary>
 
-Cinq relevés de même poids et de variance nulle : $\mathbb{E}[x \mid y] = \sum_kr_k\,\mu_k$, avec $r_k \propto \exp\big(-\frac{a^2(y/a - \mu_k)^2}{2b^2}\big)$, une softmax des distances des relevés à $\frac ya$. Quand $b$ diminue, quels poids survivent ? Quand $b$ est énorme devant toutes les distances, que valent-ils ?
+Cinq relevés de même poids et de variance nulle : $\mathbb{E}[x \mid y] = \sum_kr_k\,\mu_k$, avec $r_k \propto \exp\big(-\frac{a^2(y/a - \mu_k)^2}{2b^2}\big)$, une softmax de scores $-\frac{a^2}{2b^2}\big(\frac ya - \mu_k\big)^2$ : plus un relevé est proche de $\frac ya$, plus il pèse. Quand $b$ diminue, quels poids survivent ? Quand $b$ est énorme devant toutes les distances, que valent-ils ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -651,7 +651,7 @@ Fiche §9 : « Le champ moyen » et « Des données gaussiennes » (le champ aff
 </details>
 <details><summary>Indice 2</summary>
 
-`field_21(s, x)` : $\mathbb{E}[x_0 \mid x_s = x] = m + \frac{(1 - s)\tau^2}{\sigma(s)^2}\big(x - (1 - s)m\big)$, puis $\frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$. `euler_ode` l'appelle `f(t, x)` avec $t = s$ : l'ordre des arguments convient. Transporte de $t_0 = 1$ à $t_1 = 0$ : aucune des deux méthodes ne lit le champ en $s = 0$, où il n'est pas défini.
+`field_21(s, x)` : $\mathbb{E}[x_0 \mid x_s = x] = m + \frac{(1 - s)\tau^2}{\sigma(s)^2}\big(x - (1 - s)m\big)$, puis $\frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$. `euler_ode` l'appelle `f(t, x)` avec $t = s$ : l'ordre des arguments convient. Transporte de $t_0 = 1$ à $t_N = 0$ : aucune des deux méthodes ne lit le champ en $s = 0$, où il n'est pas défini.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -710,7 +710,7 @@ Fiche §8 : « Exacte pour une vitesse constante », « Le point milieu » (exac
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_1 - t_0}{N}$ : plusieurs vitesses (dont une négative) et plusieurs $N$ (dont 1). Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
+Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_N - t_0}{N}$ : plusieurs vitesses (dont une négative) et plusieurs $N$ (dont 1). Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>
