@@ -36,6 +36,7 @@ REL = 0.07               # the criterion: W₁ ≤ REL × (the standard deviatio
 BUDGET = 8               # the calls of the field allowed
 SERIES = 3               # the series of len(KINDS) hidden laws drawn at each run of the check
 MAX_POINTS = 2_000_000   # the largest array of points the process accepts in one request
+NOTEBOOK_LAW = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))   # MIX_25, the two-bump law of the notebook (not hidden)
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -149,17 +150,20 @@ def _floats(stream, n):
 
 
 def serve(series=SERIES):
-    """``python -I mb5_25.py --serve``: draw ``series`` series of hidden laws from fresh entropy, write one JSON line
-    ``{"count": ...}``, then answer the requests of the check on stdin, one line each:
+    """``python -I mb5_25.py --serve``: draw ``series`` series of hidden laws from fresh entropy, put the law of the
+    notebook after them (the last one), write one JSON line ``{"count": ...}`` (the number of laws, the notebook's
+    included), then answer the requests of the check on stdin, one line each:
 
     - ``F k s n``, followed by n little-endian float64 (points): write n float64, the mean field ``v(x, s)`` of law k
       at these points (NaN when s is not in ]0, 1]); each request counts as one call of the field of law k;
     - ``R k n``, followed by n float64: the points reached for law k (kept);
-    - ``verdict``: write one JSON line, for each law in order its kind, its count of calls, W₁ divided by its standard
-      deviation (null for points missing or not finite) and whether it passes, then stop.
+    - ``verdict``: write one JSON line, for each law in order its series (0 for the notebook's), its kind, its count of
+      calls, W₁ divided by its standard deviation (null for points missing or not finite) and whether it passes, then
+      stop.
 
     Any other line, a malformed request or the end of stdin: stop at once (the check stopped, or its kernel died)."""
-    drawn = [item for _ in range(series) for item in hidden_series(np.random.default_rng())]
+    drawn = [(law, kind, number) for number in range(1, series + 1)
+             for law, kind in hidden_series(np.random.default_rng())] + [(NOTEBOOK_LAW, "le mélange du notebook", 0)]
     calls, reached = [0] * len(drawn), [None] * len(drawn)
     inp, out = sys.stdin.buffer, sys.stdout.buffer
     out.write((json.dumps({"count": len(drawn)}) + "\n").encode())
@@ -187,10 +191,10 @@ def serve(series=SERIES):
                     return
             elif words == ["verdict"]:
                 report = []
-                for (law, kind), count, x in zip(drawn, calls, reached):
+                for (law, kind, number), count, x in zip(drawn, calls, reached):
                     ok = x is not None and bool(np.all(np.isfinite(x)))
                     rel = w1_to_mixture(x, law) / mixture_sd(law) if ok else None
-                    report.append({"kind": kind, "calls": count, "rel": rel,
+                    report.append({"series": number, "kind": kind, "calls": count, "rel": rel,
                                    "passes": rel is not None and rel <= REL and count <= BUDGET})
                 out.write((json.dumps(report) + "\n").encode())
                 out.flush()

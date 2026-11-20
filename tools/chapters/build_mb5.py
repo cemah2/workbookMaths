@@ -2065,3 +2065,246 @@ wbm.record(CASES_23r["id"], [bridge_23r(*case) for case in CASES_23r["bridges"]]
                "collègue ne la voyait-elle pas, et quelle vérification l'aurait vue ?"),
     ],
 )
+
+# ---------------------------------------------------------------------------
+# MB5.24 · a property test of a method of integration
+# ---------------------------------------------------------------------------
+CHECK_24 = '''def euler_twin_c24(f, x0, t0, t1, n_steps):
+    """RIGHT: Euler's method written another way (the times accumulated step after step, the points as the start plus
+    the sum of the steps): rounding errors of about 1e-16."""
+    h = (t1 - t0) / n_steps
+    x, t, moves = np.array(x0, dtype=float), t0, []
+    for _ in range(n_steps):
+        moves.append(h * np.asarray(f(t, x), dtype=float))
+        x, t = x + moves[-1], t + h
+    return np.array([np.array(x0, dtype=float)] + [np.array(x0, dtype=float) + s for s in np.cumsum(moves, axis=0)])
+
+
+def midpoint_twin_c24(f, x0, t0, t1, n_steps):
+    """RIGHT: the midpoint method written another way (the times accumulated step after step)."""
+    h = (t1 - t0) / n_steps
+    x, t = np.array(x0, dtype=float), t0
+    out = [x]
+    for _ in range(n_steps):
+        x = x + h * np.asarray(f(t + 0.5 * h, x + 0.5 * h * np.asarray(f(t, x), dtype=float)), dtype=float)
+        t = t + h
+        out.append(x)
+    return np.array(out)
+
+
+def middle_points_off_c24(f, x0, t0, t1, n_steps):
+    """WRONG: the points of the midpoint method, those in between moved by 1e-3 k (N - k) (the first and the last are
+    right)."""
+    points = ref_gp.midpoint_ode(f, x0, t0, t1, n_steps)
+    k = np.arange(n_steps + 1, dtype=float).reshape((-1,) + (1,) * (points.ndim - 1))
+    return points + 1e-3 * k * (n_steps - k)
+
+
+def one_step_only_c24(f, x0, t0, t1, n_steps):
+    """WRONG from two steps on: the midpoint method with steps of length (t1 - t0) / N² (right for one step)."""
+    return ref_gp.midpoint_ode(f, x0, t0, t0 + (t1 - t0) / n_steps, n_steps)
+
+
+def unit_speed_c24(f, x0, t0, t1, n_steps):
+    """WRONG unless the velocity is 0 or 1: Euler's method with the velocity squared."""
+    return ref_gp.euler_ode(lambda t, x: np.asarray(f(t, x), dtype=float) ** 2, x0, t0, t1, n_steps)
+
+
+def unit_slope_c24(f, x0, t0, t1, n_steps):
+    """WRONG unless the field grows by 1 per unit of time: Euler's method plus h²/2 at each step."""
+    h = (t1 - t0) / n_steps
+    return ref_gp.euler_ode(lambda t, x: np.asarray(f(t, x), dtype=float) + h / 2, x0, t0, t1, n_steps)
+
+
+def slightly_off_c24(f, x0, t0, t1, n_steps):
+    """WRONG by about 1e-6: the points of the midpoint method, the point k moved by 1e-6 k."""
+    points = ref_gp.midpoint_ode(f, x0, t0, t1, n_steps)
+    return points + 1e-6 * np.arange(n_steps + 1, dtype=float).reshape((-1,) + (1,) * (points.ndim - 1))
+
+
+def frozen_time_c24(f, x0, t0, t1, n_steps):
+    """WRONG for a field that depends on the time: Euler's method reading the field at t0 at each step."""
+    return ref_gp.euler_ode(lambda t, x: f(t0, x), x0, t0, t1, n_steps)
+
+
+def frozen_point_c24(f, x0, t0, t1, n_steps):
+    """WRONG for a field that depends on x: Euler's method reading the field at the start x0 at each step."""
+    start = np.array(x0, dtype=float)
+    return ref_gp.euler_ode(lambda t, x: f(t, start.copy()), x0, t0, t1, n_steps)
+
+
+def halfway_c24(f, x0, t0, t1, n_steps):
+    """WRONG: Euler's method that stops halfway, at (t0 + t1) / 2 (its error does not tend to 0)."""
+    return ref_gp.euler_ode(f, x0, t0, (t0 + t1) / 2, n_steps)
+
+
+WRONG_C24 = [   # a hidden wrong method, the test that must refuse it, and the clause of the statement it tries
+    (middle_points_off_c24, "constant_is_exact_24", "aux points intermédiaires (le premier et le dernier sont justes) : "
+                                                    "vérifie chaque point rendu, avec plusieurs pas"),
+    (middle_points_off_c24, "affine_is_exact_24", "aux points intermédiaires (le premier et le dernier sont justes) : "
+                                                  "vérifie chaque point rendu, avec plusieurs pas"),
+    (one_step_only_c24, "constant_is_exact_24", "dès deux pas (un seul pas est juste) : essaie plusieurs nombres de pas"),
+    (one_step_only_c24, "affine_is_exact_24", "dès deux pas (un seul pas est juste) : essaie plusieurs nombres de pas"),
+    (unit_speed_c24, "constant_is_exact_24", "sauf pour les vitesses 0 et 1 : essaie plusieurs vitesses, dont des "
+                                             "négatives et des non entières"),
+    (unit_slope_c24, "affine_is_exact_24", "sauf pour une pente κ₁ = 1 : essaie plusieurs champs κ₀ + κ₁ t"),
+    (slightly_off_c24, "constant_is_exact_24", "d'environ 10⁻⁶ : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a par "
+                                               "défaut rtol = 1e-5)"),
+    (slightly_off_c24, "affine_is_exact_24", "d'environ 10⁻⁶ : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a par "
+                                             "défaut rtol = 1e-5)"),
+    (frozen_time_c24, "error_halves_24", "pour un champ qui dépend du temps (elle lit le champ en t_0) : ton champ doit "
+                                         "dépendre de t"),
+    (frozen_point_c24, "error_halves_24", "pour un champ qui dépend de x (elle lit le champ au point de départ) : ton "
+                                          "champ doit dépendre de x"),
+    (halfway_c24, "error_halves_24", "partout : son erreur au temps final ne tend pas vers 0 ; le rapport des erreurs "
+                                     "doit être entre 1,8 et 2,2, pas seulement plus grand que 1"),
+]
+
+with checked("MB5.24"):
+    results_24 = []
+    report_24 = reporter(results_24, stop=False)
+    TESTS_C24 = {"constant_is_exact_24": constant_is_exact_24, "affine_is_exact_24": affine_is_exact_24,
+                 "error_halves_24": error_halves_24}
+
+    def verdict_c24(name, label, method):
+        got = call_safely(f"Ex MB5.24 : {name}({label})", TESTS_C24[name], method)
+        if not isinstance(got, (bool, np.bool_)):
+            print(f"❌ Ex MB5.24 : {name}({label}) rend True ou False, reçu {shown(got)}")
+            raise StopCheck
+        return bool(got)
+
+    def verdicts_c24(label, method):
+        return [verdict_c24(name, label, method) for name in TESTS_C24]
+
+    on_ref_c24 = [verdicts_c24("euler_ode de la référence", ref_gp.euler_ode),
+                  verdicts_c24("midpoint_ode de la référence", ref_gp.midpoint_ode)]
+    report_24(passes("MB5.24a", on_ref_c24), "tes trois tests, sur euler_ode et midpoint_ode de la référence",
+              "tes trois tests ne rendent pas, sur euler_ode et midpoint_ode de la référence, ce que dit la fiche §8 de "
+              "ces deux méthodes : relis les propriétés de chacune (et, pour error_halves_24, prends N assez grand)")
+    twins_c24 = [verdicts_c24("une autre écriture juste d'Euler", euler_twin_c24),
+                 verdicts_c24("une autre écriture juste du point milieu", midpoint_twin_c24)]
+    report_24(twins_c24 == on_ref_c24, "deux autres écritures justes des deux méthodes reçoivent les mêmes verdicts",
+              "deux autres écritures justes des deux méthodes (les instants accumulés pas à pas : des arrondis de l'ordre de "
+              "10⁻¹⁶) ne reçoivent pas les mêmes verdicts que euler_ode et midpoint_ode : ta tolérance est-elle trop "
+              "stricte ?")
+    for number_c24, (method_c24, name_c24, clause_c24) in enumerate(WRONG_C24, start=1):
+        refused_c24 = not verdict_c24(name_c24, f"méthode fausse cachée n° {number_c24}", method_c24)
+        report_24(refused_c24, f"{name_c24} refuse la méthode fausse cachée n° {number_c24}",
+                  f"{name_c24} accepte la méthode fausse cachée n° {number_c24}, fausse {clause_c24}")
+    verdict("MB5.24", all(results_24) and len(results_24) == 2 + len(WRONG_C24), "tes trois tests jugent juste les deux "
+            "méthodes de la référence, deux autres écritures justes, et refusent les méthodes fausses cachées.",
+            "relis les lignes ❌ ci-dessus.")'''
+
+NOTE_24 = (r"Une correction possible : `constant_is_exact_24` essaie trois vitesses (dont une négative), $N = 1$, 3 et "
+           r"7, et compare chaque point à `x0 + c * (t_k - t0)` ; `affine_is_exact_24` compare chaque point à `x0 + k0 * "
+           r"(t_k - t0) + k1 * (t_k ** 2 - t0 ** 2) / 2` pour plusieurs couples $(\kappa_0, \kappa_1)$ ; "
+           r"`error_halves_24` prend $x' = t - x$, $x(0) = 2$, sur $[0, 3]$, avec $N = 64$ et 128. a) Euler : "
+           r"`[True, False, True]` ; point milieu : `[True, True, False]`.")
+
+MB5_24 = ex(
+    "MB5.24", "écrire trois tests de propriété d'une méthode d'intégration, et voir ce que chacun attrape.",
+    "fiche §8 ; M02a (sommes de Riemann, point milieu) ; Ex MB5.18", note=NOTE_24,
+    body=r"""Écris trois fonctions qui testent une méthode d'intégration `method(f, x0, t0, t1, n_steps)` qu'on leur passe (de la forme de `euler_ode` : elle rend les $N + 1$ points), et rendent `True` si la propriété tient, `False` sinon :
+- `constant_is_exact_24(method)` vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$), **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près ;
+- `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte ;
+- `error_halves_24(method)` vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand).
+
+La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
+- a) les résultats de tes trois tests sur `euler_ode`, puis sur `midpoint_ode` de la référence (deux listes de 3 booléens, dans l'ordre constant, affine, erreur).""",
+    todo='''def constant_is_exact_24(method):
+    """True when, for constant velocity fields (several values, several numbers of steps, t0 < t1), every point returned
+    by method(f, x0, t0, t1, n_steps) is on the exact line, up to 1e-9; False otherwise."""
+    raise NotImplementedError("constant_is_exact_24 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def affine_is_exact_24(method):
+    """True when, for fields f(t, x) = k0 + k1 t (several fields, several numbers of steps, t0 < t1), every point
+    returned by method is on the exact parabola, up to 1e-9; False otherwise."""
+    raise NotImplementedError("affine_is_exact_24 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def error_halves_24(method):
+    """True when, for a field that depends on t and on x and whose exact solution you know, the error of method at the
+    final time is divided by a number between 1.8 and 2.2 when the number of steps goes from N to 2N (N large enough);
+    False otherwise."""
+    raise NotImplementedError("error_halves_24 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_MB5_24a = ...
+with wbm.attempt("MB5.24"):          # your three tests: ⏳ while they are not written
+    answer_MB5_24a = ...  # a) two lists of 3 booleans: your three tests on ref_gp.euler_ode, then on ref_gp.midpoint_ode''',
+    check=answers_check("MB5.24", "a") + "\n\n" + CHECK_24,
+    solution='''def constant_is_exact_24(method):
+    """True when, for constant velocity fields (several values, several numbers of steps, t0 < t1), every point returned
+    by method(f, x0, t0, t1, n_steps) is on the exact line, up to 1e-9; False otherwise."""
+    for c in (1.7, -0.45, 3.2):
+        for n in (1, 3, 7):
+            t0, t1, x0 = 0.4, 2.9, -1.3
+            points = np.asarray(method(lambda t, x: c + 0 * x, x0, t0, t1, n), dtype=float)
+            times = t0 + (t1 - t0) / n * np.arange(n + 1)
+            if points.shape != (n + 1,) or not np.allclose(points, x0 + c * (times - t0), rtol=0, atol=1e-9):
+                return False
+    return True
+
+
+def affine_is_exact_24(method):
+    """True when, for fields f(t, x) = k0 + k1 t (several fields, several numbers of steps, t0 < t1), every point
+    returned by method is on the exact parabola, up to 1e-9; False otherwise."""
+    for k0, k1 in ((0.6, -1.3), (-2.1, 0.75), (0.0, 2.4)):
+        for n in (1, 4, 9):
+            t0, t1, x0 = -0.5, 1.8, 0.9
+            points = np.asarray(method(lambda t, x: k0 + k1 * t + 0 * x, x0, t0, t1, n), dtype=float)
+            times = t0 + (t1 - t0) / n * np.arange(n + 1)
+            exact = x0 + k0 * (times - t0) + k1 * (times ** 2 - t0 ** 2) / 2
+            if points.shape != (n + 1,) or not np.allclose(points, exact, rtol=0, atol=1e-9):
+                return False
+    return True
+
+
+def error_halves_24(method):
+    """True when, for a field that depends on t and on x and whose exact solution you know, the error of method at the
+    final time is divided by a number between 1.8 and 2.2 when the number of steps goes from N to 2N (N large enough);
+    False otherwise."""
+    exact = 3 - 1 + 3 * math.exp(-3)                         # x' = t - x, x(0) = 2: x(t) = t - 1 + 3 e^-t
+    errors = [abs(float(np.asarray(method(lambda t, x: t - x, 2.0, 0.0, 3.0, n), dtype=float)[-1]) - exact)
+              for n in (64, 128)]
+    return errors[1] > 0 and 1.8 <= errors[0] / errors[1] <= 2.2
+
+
+answer_MB5_24a = [[test(method) for test in (constant_is_exact_24, affine_is_exact_24, error_halves_24)]
+                  for method in (ref_gp.euler_ode, ref_gp.midpoint_ode)]
+print("a)", answer_MB5_24a)''',
+    record='''def properties_24r(method):
+    """The oracle: the three properties, measured with other fields, steps and times than any test of the notebook (exact
+    values computed in fractions for the first two)."""
+    from fractions import Fraction as F_24r
+    exact_line = all(abs(float(p) - float(F_24r("0.25") + F_24r(str(c)) * (F_24r("1.5") + k * F_24r("2.25") / n
+                                                                            - F_24r("1.5"))))
+                     < 1e-10 for c in (2.5, -0.8) for n in (2, 5)
+                     for k, p in enumerate(method(lambda t, x: c + 0 * x, 0.25, 1.5, 3.75, n)))
+    exact_parabola = all(abs(float(p) - (1.1 + 0.3 * (t - 0.2) - 1.4 * (t * t - 0.04) / 2)) < 1e-10
+                         for n in (2, 6) for t, p in zip(0.2 + 2.6 / n * np.arange(n + 1),
+                                                         method(lambda t, x: 0.3 - 1.4 * t + 0 * x, 1.1, 0.2, 2.8, n)))
+    exact = 1 / (1 + math.exp(-2.0))                          # x' = x (1 - x) (1 + 0 t) from 1/2: the sigmoid of t
+    errors = [abs(float(method(lambda t, x: x * (1 - x) * (1 + 0 * t), 0.5, 0.0, 2.0, n)[-1]) - exact)
+              for n in (200, 400)]
+    halving = 1.8 <= errors[0] / errors[1] <= 2.2
+    return [bool(exact_line), bool(exact_parabola), bool(halving)]
+
+
+wbm.record("MB5.24a", [properties_24r(ref_gp.euler_ode), properties_24r(ref_gp.midpoint_ode)],
+           mistakes={"un test qui rend toujours True ne teste rien : chacune des deux méthodes a une propriété qui lui "
+                     "manque (fiche §8)": [[True, True, True], [True, True, True]],
+                     "la première liste est celle de euler_ode, la seconde celle de midpoint_ode":
+                         [properties_24r(ref_gp.midpoint_ode), properties_24r(ref_gp.euler_ode)]})''',
+    after=[
+        ("solution", answers_check("MB5.24", "a") + "\n\n" + CHECK_24),
+        look("pourquoi `affine_is_exact_24` refuse-t-il la méthode d'Euler, et `error_halves_24` le point milieu ? "
+             "Pourquoi tester chaque point rendu, et pas seulement le dernier ?"),
+    ],
+)
+
+PART_C = Part("C", "Déboguer, tester",
+              "Fiche §2, §5 et §8. Trois erreurs classiques, qui passent une vérification mal choisie ; trois tests de "
+              "propriété d'une méthode d'intégration. Les méthodes cachées s'appuient sur la référence (`ref_gp`), pour ne "
+              "pas dépendre de ton code.", exercises=[MB5_23, MB5_24])
