@@ -104080,6 +104080,3786 @@
       ],
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
     },
+    "MB3.1a": {
+      "hash": "ddee16e7ecc8699a3230a3e3dddd778cfe3c9eea0565271b77768041d0346250",
+      "kind": "exact",
+      "mistakes": {
+        "4a419363e06a9d4d02af8388912233248f432a57be3a74e084387a70b46f1905": "le cosinus d'une somme n'est pas la somme des cosinus",
+        "da89cecdf45a88e8de2e3a4081d7d27cbf7bc391c5977bfb77d2f61eee91ecce": "105° est un angle obtus : son cosinus est négatif"
+      },
+      "rounded": {
+        "1": "9bf9036c9bdf7f598fc2dd540ba0927b8600720a1f64f8dcce05ac9ac751c752",
+        "2": "5539fb9e85c590b8b100de1a6612207c853fdd5a78ebe29d21b56f5a1989709c",
+        "3": "f0ecd33f7b6278a28b1264f523c982c46f37b278e75f5d678b4b3b7d89cb6d6a",
+        "4": "789974822b4cb8c5d238d6990b049139ba57f58dd861919dd30a171bec241415",
+        "5": "464d91cd24bad7303acaf34c1f3ed44e609c2d0ed6434ca8216f5a9acf4c7f65",
+        "6": "8ac80e4a75687399e4a15ac48c78c169575029bbba13a871ff9faee10401c15a",
+        "7": "93235d7ca6042900d416f3022865d1101f8edb63fc26bb4781cb333da7c57810",
+        "8": "fe0e08783c6e73e6a97f45f932b191b07d6e16c4b9e5d66ec952898b0cfe6635"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1b": {
+      "hash": "ab817cbefa2de6e89071306872125257eef10fef434b143a2cd674e1cffc6ef2",
+      "kind": "exact",
+      "mistakes": {
+        "cb70195962a22d19342d77ca5003e8919a5d45f00fbb791949e91bedfef635e0": "dans sin(a + b), les deux produits s'ajoutent",
+        "dd95ecb81eef47e0e1b0e7dda26e7a8faf3b33a4b8513096af788fc3bcc959fe": "le sinus d'une somme n'est pas la somme des sinus"
+      },
+      "rounded": {
+        "1": "9498bebe9c64a96892963c163a0526509bf976fd28c65cd16335df81dc254349",
+        "2": "484a5a6f03e174f50a169247eee887a1446ae183c6eec9a9c94f6605e3dde8f7",
+        "3": "b992b685438d9313fea50b0c8309fd398f83d64bdc73c6c1615419b12c94ab81",
+        "4": "249098d35b65d43453d8d97c584599a935fcf779d0bc350331c7a0256a3faf4d",
+        "5": "4f9f64060dadbab24b36f4b69d4bb8879fd8ebd2d82fb00242b27e304809b69a",
+        "6": "3f6865c3ef2030f6451697f89025dd0180d52d823385faf30d7a23c0e75dde79",
+        "7": "127b39de446f6c2355c4f88172d75ddf16e6b11b82bbc795e97fe8b01513bc51",
+        "8": "27eaa2daef6935588f9ce5eb3812b91e172c8f127c9ef4f618891c5c9a632a9f"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "b127ff40a6cb83bca7568e4d9148fb586eddd1ec85c3d5ecebb60a783f0ecd4d"
+        ],
+        [
+          "35ece64ec87db0fb7953346b488e6dbc660688fff44194bc0c4f1b0e69fd78c3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "86b14f67577661b559a3fee1fb1c5de6e0348eec4db196f7f16b4864079df3e2",
+          "01647bd99c99e9ae231bcf9a77eb5ec82c4b4209a3dfd0095829adae143ed556"
+        ],
+        [
+          "4cb3d6c7f40340f267668eaf6c8c5ea4c6f2830aaa01b67f35e21424065e86ab",
+          "02578d357844b068ccb4f161b51b9ca2f86752fe4321e3220a69aa633a3211bc"
+        ]
+      ],
+      "element_hashes": [
+        "a2e3ada9b87ba1344c4680f9cb523bd9ef0f1a3c8058bdeaf3681f549c529570",
+        "2d83648e67b9c8fe187ebc8f2c4090e9f0204ba491104e8a9e47c94e762f4c2a"
+      ],
+      "hash": "2c090e98fb070d2c252519033034d35ca2e328e1be307303149d880cdfc500fa",
+      "kind": "array",
+      "mistakes": {
+        "0d26b09e1581e732da52db0ca638f8c6521dbf2498b920401d5008f54799f9ef": "l'avant-bras tourne de l'angle de l'épaule plus celui du coude",
+        "7a03c11558e8f4b948f9ab07ba3775411df31d8bd44c5c2a9f97dfee04b64a84": "le bras mesure 4 dm, l'avant-bras 2 dm",
+        "e0a3db0f58aca0e9796e72f9afe3772027e3ec9d5772ad7e845a9f4e3205f367": "les angles sont en degrés : convertis-les en radians avant d'appeler cos et sin"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1d": {
+      "coarse_any": {
+        "0": [
+          "6b3a3e7cbb9ad14702a43d3aa5c42eaf03178f1a3d3b7b34c536586fa8a11d27"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "b6f58b4b76b686a3e5bc226b2515564fc48b7ec5cc3b7e9eb0557c2b12f857bf"
+        ],
+        "2": [
+          "a3493426a4f28986e9e76ee822f080a0bb7b7223c53d41f72f9d63e01d389f70"
+        ],
+        "3": [
+          "05f36c9241f3afa63dbfd4220345dbf458795d23375fcb3b88abb339e03fe8cd"
+        ],
+        "4": [
+          "e211af37f53787a002d34c3b9d7ea5981c033a1d544382a2290e7a646d368f82"
+        ]
+      },
+      "decimals": 6,
+      "hash": "05816d8135bdc08f7288cc79085685dec4f72b49ec3f00789d1a52e219330936",
+      "hash_coarse": "d4e760565ea7581b2beb63d76c6e0e6e627d97041d0fdf3526c1f88a7dd80503",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "673950b95b1f49f8b696ae28a10de96458050412ac85a5e459d9a331b1489e13": "les angles de deux rotations enchaînées s'ajoutent, ils ne se multiplient pas",
+        "f16efac074bcef997ad00081a94be157a3f70b577b2d271bbd92fb5499ed3fcb": "les angles de deux rotations enchaînées s'ajoutent, ils ne se soustraient pas"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1e": {
+      "hash": "773f7e4b11314d64d5def6afa85c20f25c4ab3eb8b66df9f2a379a47217002f9",
+      "kind": "bool",
+      "mistakes": {
+        "772ff040ac821955f9360f85b77a5c516e725ac811c4e7d85db98858c51b7ea1": "deux rotations du plan ont pour produit la rotation de la somme des angles, dans les deux ordres"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3881aabf2f1f43d96ad3f109ab5e46605117f43f0141c240b585ffc462d4063b"
+        ],
+        [
+          "d655527128f556a16d22b9dcceb3b28c5f91361c526e678a7be741cdb2435b01"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a5aae84d29ecee57309daaebc8e703304a0861e2799bb0f94ca3a0bd0627e23e",
+          "499c5f0a68e76410d797cc50e643553b7990487df54edbeddaee306067d003c8",
+          "3875955c3db8a4b40d242990087941024f6d702104e795cb69b8e7d25ebdb601"
+        ],
+        [
+          "d240bfcb2ae16e723baf859a2d7de874c45642afa228376a82fdc2790fc48490",
+          "9c7a070956a0ab32b019136d57c9c742af5f2b617a805166fc4b68f1224ad589",
+          "adabf7b190b189326239af1a37375549e68d4dea00b53022ce3cf4dfe759af8f"
+        ]
+      ],
+      "element_hashes": [
+        "e250b3fb602a63b2dfc84cb717109bfd0b0fe850f51706b96cb6b11294f8c229",
+        "2ad9ab69a567982f3f3637e12b56053afed35cdf52db03e88b659e684bcd160b"
+      ],
+      "hash": "2ce2a469b5a82d25602607c133f1715e1af8e756c0b6bf7a6c7394fe67b8daba",
+      "kind": "array",
+      "mistakes": {
+        "02abd17d757423722d3d956458f399d07993e2fdf12eaa5a2791f2f8f2b0c5d7": "la caméra tourne avec le bras seulement, de 60°",
+        "402347a67290f4cfd9eca5c1c727438856ded159415a823dca3db4d87be147be": "R_θᵀ est la rotation inverse : elle tourne de −θ"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.1g": {
+      "coarse_any": {
+        "0": [
+          "aab63459f27e80a96579dc098c597334587531a3e3e05f9fdb10d17b55f3e418"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "64524de34a11e0028eba8b24ab7e52146bb4a0bc529a1661204f0cdf6532df17"
+        ],
+        "2": [
+          "0e1885b8af198bcf059b68f42dc901499fc0fdf2305c08ee2ddeb01b65dc20bf"
+        ]
+      },
+      "decimals": 4,
+      "hash": "955c03e3538ca7101de9ad5db5c7d7e4023039a55059b0945d6a7af2673991cf",
+      "hash_coarse": "a4c3a06922e48787364489efcf0c028f0f289d99b21d5b56e1f67a1e1d196107",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "3c12b273ec70b37113d0037ff32109b1162ffb4207a6e8ac41b86cd238425ae6": "la distance est la racine carrée de x² + y²",
+        "3cc6ae0fa6bd3739c0351623bad9b8966ed1efcd9860282bd1cb8b04f9fb275d": "le bras et l'avant-bras ne sont pas alignés : la distance n'est pas la somme de leurs longueurs"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f7141f769a8024d63ec7ceafca18235acd56eb64a63fe06d38d46f7dbe0d752b"
+        ],
+        [
+          "06ddb71d5df0443edf0423d5eeaa6f398755b494fa2bfaf7144ba3d18d331458"
+        ],
+        [
+          "0a6f9d9ccd5263d0f6369f581d218c0e0744d490249569d20f2f2525b59126bd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4d27f822cbdfe0532f5671b5276b6727ad9c2c2728deb9b37596d94e62d2aca0",
+          "767d84916d731541f6c806d40da2adcee7001595d9e494d3dd0e3e3929f953b5",
+          "92172e2d6dd67a073c65a0185c1d5e30c312b0ec8bf672a439d62517264d6c2b"
+        ],
+        [],
+        [
+          "3736ef11cb22f60008fd76e57c53a731d4d0c23e5babc25cae454ab37c0f7a81",
+          "219bd659f1a5aa59ab32bd5ee8458c9eba80e20419e6c4114e4574f547e29f77"
+        ]
+      ],
+      "element_hashes": [
+        "cad7a99b6914a7742db858de48049c2fd22d689fa5035f7b356316903cea2810",
+        "fd9f9c6f3b4eba1b353d5424a5d66fee61322d16a6743f2b146371256ef18bd4",
+        "5d3f000a8c125b174e9b2c19e43c94cde8a375f7859aa2b8e0a27b984bdda5f1"
+      ],
+      "hash": "c4341dba63aac524845f4ca3786f4c499365d38086d9027aed2b69d5ec3c6280",
+      "kind": "array",
+      "mistakes": {
+        "afb32ff87b8956f6d083de693fe6d1cb20884f252154ba575c84f0cbaf137534": "R₁₂(θ) envoie e₂ sur −sin θ e₁ + cos θ e₂",
+        "df0c3d50b0bce090bcf39f1b072fd03cdb6c3927043cf304f7b529d6f267f0aa": "R₂₃(θ) tourne autour de e₁ : elle fixe e₁ et tourne le plan (e₂, e₃)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "c3addec47d5fbc09396f96f772ec5d7481e57cee25e54d1ad9538438517caaf5"
+        ],
+        [
+          "f2c8d397d42620bc0f35f53fd1c8b5d502f3d99ac9bfca98dd9210dfbf525b44"
+        ],
+        [
+          "f0a1881ab862c1734c884708bb9b778ff6916fa22a40bdfeb600aafd97bff64f"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [
+          "bc4379fcb2a743dc95d92f14fba6c6d0f61079315f292425c94439b2679148e0",
+          "c26bf18d5d227c2e0932e009d512864fed2b80cecad4421c443280921b11cacf",
+          "ef492f31d05ecdd642431fd6361e6c89315975c9efca5df103b5675218dd7c25"
+        ]
+      ],
+      "element_hashes": [
+        "68cba606cf02d3382ffb7ee511f9ba8fabe8bbd124c8df1e9b88efa3bccd1753",
+        "4deb82ec1c3fba1c1b3bd2b40dbd51ea23e36de6bf0dcbe94c9d3b69d739c0e4",
+        "0a8d904fc1e2b5385e07be57d9283da54379cbea34af83a876a1766307a296ad"
+      ],
+      "hash": "a4b4d2f7254ac286038421ce21a7fc241f527af6d230454f082df3be7577f9cc",
+      "kind": "array",
+      "mistakes": {
+        "6fabc9284aa722480f541f6be153f2185b21ca21f5190e940042688b03dca708": "R₂₃(θ) tourne e₂ vers e₃ quand θ > 0",
+        "ad55d8aa5ffa8cca2591d5a5e4e4287e026db985e515270ed0154993c7004337": "c'est R₂₃(π/2) qui agit d'abord sur e₂ : calcule son image avant d'appliquer R₁₂"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2c": {
+      "hash": "9b212671e4ffe043f3a38c76d0a79c96b8fe000aaa2f0628b367ea8fbc4e0ace",
+      "kind": "bool",
+      "mistakes": {
+        "f155490f2bc0ad78f740f7152e0a8e4d55d457cd894b492ba4ff1f002d6a25fa": "deux rotations de l'espace dont les plans se coupent ne commutent pas en général"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2703f63a4794be86d531b958413714ddfe5f40050700d8d79711ef4a4d0da649"
+        ],
+        [
+          "44ee894693e27d4ba4a8342596b01792b5a6077987389c281679aa415c6b0de7"
+        ],
+        [
+          "a55d06a1e43df00cff501f0c1a8ef8c09cd6302209927977922e18a22a59702a"
+        ],
+        [
+          "3ebecfa0967c4241350bd3b18a9a5da7741f2220f2a9082d629a06964c43b7e3"
+        ],
+        [
+          "a8040b76281eb8ac05c6926e6cd88be8b0af4721386691f21146338defd74135"
+        ],
+        [
+          "3dae4edb7467f8ecacc308ec50a4b05d3176db3327f1a9e9929a23122601a1fd"
+        ],
+        [
+          "ff16d3c87032d729b660a0426bcc18f9242de037636b8de56357d0011f37e72e"
+        ],
+        [
+          "f59e1474fdfcd8d7b1ba6e5a2f8d15ed9ac3379ab9a6a1408c71c094447cb6be"
+        ],
+        [
+          "44293f08756b967d309ab8e546bdba1afbbabebf693e4af57e0467295ec5b4d4"
+        ],
+        [
+          "8ab2b898ffdc38190623671193791c43996e58adff716329fd2218fb18e7dd0b"
+        ],
+        [
+          "94ffe317001434d6031543648b65efc79a9589c14988a5b495d406a730abc01d"
+        ],
+        [
+          "d13fff2af9807c9dcd7b705d318015f72e784e98719bf9ba5636c7824fc58b30"
+        ],
+        [
+          "ea772e83aa273c28677b94270c01b3d47cfd26d0c321706506f043e28739fb75"
+        ],
+        [
+          "b4f4b0b07e9143f38fb557c2dcfd4150100308d2583ea640781c61eaa0673e81"
+        ],
+        [
+          "58f566d383a4392ea8ec11faef1d8c821b3142afd174ba47665583a8f5b1aea7"
+        ],
+        [
+          "b46629de04eb9491cda64400ebeca94561bbd623173461ce9e5caf3d25a8de3f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6b215af49c07ea953ec04d53ba01b034dfb90fe3541d2963e16b0981be68b9ba",
+          "3bcf291ea9128e83d57872718a184ddeee7e6a3629b2f39982c5e874af89a1c5"
+        ],
+        [
+          "7f4247ea89be2fefa42ae71d458272467e4d45bda9a5f47425931e4db2808ba1",
+          "6695f40f98897eac4a998ee55c8d386e6630db743c8e2cd1251a47278f74c1c9",
+          "fcca95d0ea978c7b46a77aa937d49cc5dc30a002ebc30440b065a3723137b0f0"
+        ],
+        [],
+        [],
+        [
+          "ae0ac11de7a89983818e4a53d610e5c8305cb1d7b6309b46532662d96a4aebf6",
+          "8d5c66733bb6bf4b8449f4a9d48c7b414909ad52cf942277ae3a4c0db59f4211",
+          "21c7988f8f648d03692caf1aa15890bf348db7ab6311625c6a2207a84272a8ae"
+        ],
+        [
+          "dcccfefabdb4096af34ee98f27ed61d37a7c658db580d98fbd39f967bbc05c1e",
+          "8f34ca7b76c4e4a94bcdce6a52fb4f8ffff2db80895a2fe7de48d242fe7c0674"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "d0ef1574b707a4356032c6c2fc3bb992517817b7c54365b178f7ae41d8ac6cb7",
+          "acb0d0650756e704167da6ef53939a0d6aeda35eef570cb6bcde9fb0dde0ab4e",
+          "43651122688820acf5e8c2d91c4d45ec29be1ebd6b6c0e4b48ccdc40e322153d"
+        ],
+        [],
+        [],
+        [
+          "8c2d4b0dbd4357c716b0143863c21fa229b9267c64a7f21e439c69b5ee695f9c",
+          "36fd0e92138593aed028cf32a15cfb13ba8ee380f4c61aaa263d14abecdadeaa",
+          "57bead6b95a1fe9f55ba67ce77ffae3c8f3c38d697caa84b7ac9e831fc3648dd"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "e255ab08907a8f206e0f9398e0eed8008120d4500ccf5fe892bf1913f16d32b9",
+        "e8b16dbe978f5595283bffca14c02635d4cc34615cc2809019c83c0ca64a82fd",
+        "66e27647f3f784852c20541c186e966a8910ce0d4457ad53287869d0524206a9",
+        "805316335a6e40318288d8c261fbe4f66622571a57fb54c50f0deed5e6a12cbe",
+        "11e8172aae3baf63f15628e1886a4a6170fb18512ec551f285c829ab431e8ef5",
+        "396e484057284b10dd5dab32953059bf355c4a258450c4eb811f945ef1f5b3ca",
+        "7fca40cea61a1bf8f92529a69d47712bec5ca09788b0189b38e2fb448f07cdd1",
+        "d77eec4596aad979c9fbc3987cfe9a2f39e6bec572aa40a8867c90b9226dc7d2",
+        "6c6365c8df00445a8f967ef26599249de6b1d6215d0a37bfdd6e37c9d143e296",
+        "fb51eb2b9050fb75759e463ce41e4256ea4a297ad311172668a0595474f4daec",
+        "9acc6fe92a2a3b7b014691f9ff71214106d1032232dee6d196ef5fe842588e69",
+        "a9acee99a9495ca51b023737e1cfe0b625766538702e3a6c7afa3e6d6c6d9ff4",
+        "61b5908fab40c739d70f40d820dd34799fed726bc8db33ac411d882127b093d6",
+        "997abf92a59ef966d34ea1d0fc5d7200f55b232da38093a4166ebf51d11af38a",
+        "ef2306e8b180b4f2369b5c32125afbc1c56aaf8fae372ea6a1025b052782e8e3",
+        "cddc792f8fc532cd08f47e6adad48c6640fd1fd2ecdd098ce83ab6256337ccc2"
+      ],
+      "hash": "fc40711f00ea4d4ca4dab9b8d6a37934a2c85f1d1453e42ed70b292dea980dce",
+      "kind": "array",
+      "mistakes": {
+        "0a1e5b71c315af643735cf980b6654c4c568c470409d8a91422deced89dde3f9": "le premier bloc tourne de π/3, le second de π/2",
+        "9bf982516fcaf0bedfa5e0ae5df6c0a2b17f7b186510838bd9ac1f6f669cc2c4": "R_ij(θ) a −sin θ à la ligne i, colonne j, et sin θ à la ligne j, colonne i"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2e": {
+      "hash": "43ca938672119cb2de8319ace5e5a990b04555eb9aad4b728bdb74bddf3a24f1",
+      "kind": "bool",
+      "mistakes": {
+        "9ba1d77b31f0a919f2df346d01a1a99ed018bee899017827794537e9426e5957": "deux rotations dans des plans disjoints agissent sur des coordonnées différentes"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2f": {
+      "decimals": 0,
+      "element_hashes": [
+        "2b07e70b0130f60971bb9a553af4816af3388e642538662b9b997523aea84690",
+        "0fada23874a87a22ef9de124415e656b53f1c68e15a439e50c2f837d1dde8f67",
+        "6f11a33c7f357d24962671a449ecbdc53425bb4ee48cdb1288b7f7824a668868",
+        "80610eeeaba4c2081ae4b5a00c4c0cb37281464e2dbb0a8c49d7b26ca52e27b0"
+      ],
+      "hash": "fa0e61e9eb912a61f9299e5d9ddaf64b9b5ed2c3f38b72949aaf62bb148ddec8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5d7af701fab78569e80ca77440275c015299efbe52ec6882a385c6819e2d53fe": "garde l'ordre (σ(3), σ(4)) : échanger les deux indices change le sens de la rotation",
+        "ce9b793851b3a1e578876636914a5864d717007e80e23f593b46fa0c09908127": "PᵀDP tourne d'autres plans que D : applique σ aux deux indices de chaque plan",
+        "e46abffd09d19b175bf28b5cc7822a2dc467400d91c4bcd3afdb8af58c5c88f0": "P échange les coordonnées 2 et 4, pas 2 et 3"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.2g": {
+      "angle": true,
+      "hash": "a5fb85b5d78b80b9a4df59cb95c362422a44880a9adb8833807b8b1bc0f1df38",
+      "kind": "exact",
+      "mistakes": {
+        "344d1760d0f02d8eccf1db0a41ae2614a2d03653e098f25180a349886b1f6d1d": "R₂₃(θ) tourne e₂ vers e₃ quand θ > 0 : regarde où va e₂",
+        "d9287367020ef477d60749091f4172da2cd175b05f19fa7f5cb7b4a4b95841f2": "P échange les coordonnées 2 et 4 : le bloc du plan (2, 3) de PᵀDP vient du plan (3, 4) de D"
+      },
+      "rounded": {
+        "1": "b4dd15001adf72dab94e723008eb68bc4760946a191fa7edf2ff2f53f4abd4cd",
+        "2": "69739281670619fbef6cf47d93f114766719c74b9788d584fe2b786431a7048b",
+        "3": "057e42d3ca58135b4827f50d4d4e596f025f5d7d7ea1a7a2fba26ed70a7e7688",
+        "4": "abb61ce36e0a7e9bb8ec2b83752661cb19dee84f561370da7358a63033732ccc",
+        "5": "e8a05d1c26ef31f028a8ce2ce80dfaf0a2864ccffefc7ce6e106f4da4235c21c",
+        "6": "82785a0ff1a5395a4f97613daf8db17ead0df53771d2253005ebf5a9a2257488",
+        "7": "9e66ddd0ff074a837fab1c28d6c645b80a27a4371b56f28648bdd9c2bfa9d8e4",
+        "8": "53ddc6433608a6a8aa4ff535485993ba1b866f901ba036ca5953b27e2d8695ba"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "cff83ce6e95def46a78f840d707e38f1a390ee81284bab5f348730fa5ce58f85"
+        ],
+        [
+          "58689e5eafe57c364a3ce19199e425a23a537f257c7fbdd95329ab0b3f5ecb62"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "99c86946be20ce15259bd070ed08f7f865579118d9ef0a20368110d6fbb441bc",
+          "41da1054a58331c8bf55014fd798b436e6abbe59d343cc5e02eb565a623543db",
+          "c8fdb50d54196931fc5d8e10e638e8b74a78239f89415a682396a3c4b9fac052"
+        ],
+        [
+          "81f43dde500ed3e569e1c5e6aef936ec4ab7b21b8a77a9e4355bf68704c9e8af",
+          "24e54dacff9e902020baf6402df4e4d63d459b4a087c6beb7a794de7dbbd384c"
+        ]
+      ],
+      "element_hashes": [
+        "2e0e99feb3beccf5ef385be8e0113e7fc2ad8dcd375981f2531112892e54ee4b",
+        "1dfb78a039af35b375a9b375e2eaa7118ec15e431064c2f2ad05c51ccda7b27a"
+      ],
+      "hash": "e19e08dd6ecd625473784dcb2b91cf081e2e8db0035080b4fc9c2f6a8365cc18",
+      "kind": "array",
+      "mistakes": {
+        "e5be5a526246d536ce8130262ef5d5d1c56de6fe164b2c3e33fccdd4a6dab389": "les angles sont en degrés : convertis-les en radians avant cos et sin",
+        "f9c939de611be081ab3bd430517487b5e815ec8baaef40569b77152af6836822": "l'encodage est (cos θ, sin θ) : le cosinus d'abord"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3b": {
+      "coarse_any": {
+        "1": [
+          "bc84cbd3cafe70a259762655fe266d5e51af1e09b179ade65d0f2195a18a70ef"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1d67f51449f65f76c768158f71cb6bfda37a60c42640c1fc58529bc07b390303"
+        ]
+      },
+      "decimals": 4,
+      "hash": "17d4d52a9eeac8cdbdc5b7792a00bcfc5f50c444a40bfed1af01f17a7becf320",
+      "hash_coarse": "b45d22a38ceca771bffbf8eda2a9d1184efa58b67103731df958fb48ce03c07a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4aadeb75c5649fd9e1c5cf301466286e389a649256f60633c1b0ee403c273dd0": "les angles sont en degrés : convertis-les en radians avant cos et sin",
+        "d94abea368ddcff02df673fbae80840168c4c218760c51fe602f6bb0e4d4d76e": "pour deux vecteurs unitaires, ‖u − v‖² = 2 − 2 u·v",
+        "e2f0fc4edbc6589bae0f8fef1d280eff3d2739eac2592d9b506f630e461d778d": "la question demande le carré de la distance"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "013a92228618af52d24d89b6773e4a5ed21a5fe8962dde430d9dd85e7b63edfa"
+        ],
+        [
+          "ce7a025a1c7fbd9334f3f0c9d430e927ae46c789e214e77818db6b48bc588699"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "77965052aec89ccc23004bb6b53344303090a3d5714cde992ca444e357623296",
+          "529fcebdb2c86055a59f9d401bb776823256ca7ffea7cf60371ab9db3dbe1b8d",
+          "173ccee53c9dc1377103aace9602600ea7e1915a06905a56ff7ce094ef380b52"
+        ],
+        [
+          "274c68be007e3a28127709d7fa17e8f3df739f8e906b2ae2d028951a37dfffd8",
+          "8ea54b8f155f969278341977293ac58fd073205b87ffed925c2729aafc082ab6"
+        ]
+      ],
+      "element_hashes": [
+        "ef84f9cb1e0efaf73264b3c3561aad7ea4fb8c9daf9920f78bb8560479433608",
+        "4f158877ad74dead4bfcc5492d37c0db0495e0dd04009e292b36cc8792b4096c"
+      ],
+      "hash": "ee76f9c9993da64c40c1e7f753bfa6681669350f7d8297d39aa42cc18ccf29cd",
+      "kind": "array",
+      "mistakes": {
+        "19793a55ec3684eaa5f9d674fbc9a281c24cab9400fd1c131e872be93504f662": "le vent tourne dans le sens inverse des aiguilles d'une montre : son angle augmente",
+        "f3ff78c1626c2d37ec01dfd66e2e64a97a902dbb5401fb7971ca0eb9d08b91a0": "le cosinus d'une somme n'est pas la somme des cosinus"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3d": {
+      "hash": "29e6e66448e0e398138e27dd040930a60bb0ca21a8fd29d78c8d1a91249eee26",
+      "kind": "bool",
+      "mistakes": {
+        "b000ac3b990c39dbcc3147e4b33edcb399cb3c948ce21ed0d0ee53f17288175d": "e(θ + 45°) = R_{45°} e(θ), et R_{45°} ne dépend pas de θ"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3e": {
+      "coarse_any": {
+        "0": [
+          "0517f32b4d1749a5eabb98dc70b780dd5f7c5218634e4d86f978eb9c70a1dddb"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "de2511ef856f5a9529ecf29e271729d30f44ef92aeea1fbeaca750c14347879d"
+        ],
+        "2": [
+          "0b30119cb47ad61217aa6e863bc9e4e7209e4f27f4b328cd5c30d6581661226e"
+        ],
+        "3": [
+          "57220c5fdb9eebc4a958dca2235e47dccdfb2cdd94fdc865c90862351698cc9a"
+        ],
+        "4": [
+          "11d0fa0e8722407949460f753010e9131685b78717dae44c034122df356de11c"
+        ]
+      },
+      "decimals": 6,
+      "hash": "a21f06ff59fdaa406ae3b39d1cf9bfd2c4bd62613edfd1db8a97ce163e6e7475",
+      "hash_coarse": "083bcb01a21f5b37ffa12ab73f0f841eb47b15a4e455d785f959d6c1281cacce",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "991d29487256a2a6e7f9f10a4b614a3e391605103074cb5902731cb52ef408f8": "on moyenne les vecteurs (cos θ, sin θ), pas les angles",
+        "9a35a18201d9e3aaa8a04da9d785cccff789b7662f757f064b9317f35c9b3579": "la question demande des degrés"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.3f": {
+      "coarse_any": {
+        "0": [
+          "fae8b4c7bb8c6432b0de30e0fe4289a541b5011429aef1bffb1533c789205c7e"
+        ],
+        "1": [
+          "ee2cfa0f93143515cfdd12e9cb539fe4f699669b336b2d540af3c0dc25fd5523"
+        ]
+      },
+      "decimals": 3,
+      "hash": "97a27966ec6e9efdcef85da87f433704ea7b921db1d914ae1fc99066f83402cc",
+      "hash_coarse": "7103f8bcb62a0426ab0bc226e2aa082b212a710d86fc918081094bf1891e190d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "8e32c93d277f09e898e868e357d338c646fce1c4c6d47c890f1b59675922cf3f": "c'est la norme du vecteur moyen, pas celle de la somme des trois vecteurs",
+        "a965497f005aa68fdacab20c83b828842e633b465e001072b18982485209c62a": "la norme est la racine de la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "16aa24155acc5c3342f1a9a4aeb154676ab2a7f3ab9587f4a59788a3062662c9"
+        ],
+        [
+          "6b2b8d1ba7f2a192369789d11354a065bb8250d2a4732de85b1efed4d834e79e"
+        ],
+        [
+          "4ccde1841059ed29ae747bab3182912bb90e48f2e2dcedfa663915fc14c4fb9a"
+        ],
+        [
+          "e3e85483e18441e60abdbc2078ebd122b72b6518161824044b420c6bfb989478"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3283562d20229e10fd370350f517e093a54ba9cdd0a2b5e33a1df74c5a8d1656",
+          "0fd881b0d1b1c1e339dae21d83757682d75421b7baba7f2f65496b32de846b7b",
+          "96817db3762845048f4c0d67b34d39469e96a1b5c8d3923be8ead34db7f79ea6",
+          "e4df72cfe4999cd1c33a1550c2d3782920e3ed1f6df831814c8f22f11c9e7fb4",
+          "b496d33db0e69dc11297e6f2f56228af55d4ecb40b21760be8708c3edc9866a7",
+          "2f6c52b707f51cedc5942e71002196c3158036e1024b134e68c0cfe6adbcdd55"
+        ],
+        [
+          "477a8cac5fc9b481391bbf7b1ccfd41924d3a793d61ccbdf4107fe1998178b3d",
+          "a6a4531d9f398b71d177c0dd38c64b760d5c6f410f9b51b80a1c741aea60bbcc",
+          "d9dcb9c13b962e008a4f47350c5cd0d717b8781aec9e025aedbeee92d46e2d8a",
+          "bf1697f9cb3a66fcf0fc426b6db48e045891f7d80fe3a80506488c4f64a9d5e9"
+        ],
+        [
+          "5e8bd4e4a60d9c1494f1f7448aa6af616faf0659e013db97affbee33c5ee9abd",
+          "6f39f61db417588afe614bc09fc92b0fd3a9d9cf680bf4e6b4a42077c6840352",
+          "ee90e5f74bfcacf3658cdf82188cfafa5875a4ab75b8f8ef0ecfd5a1ad813a69",
+          "0bcc14d0d8f08103a3f05871d92dae749be3e7d47e4ea32eca8ba326ec72dfe1",
+          "a6322d66f517adc0604944174a477b3e6697b4aba4a6177579bba238ec0bca39"
+        ],
+        [
+          "c662882a774a5c397f6c9bbb7a1ce119fbe580d288b11610eebd5cfb72d5d872",
+          "12d2c0847e6d90ceefaf7c13f8f7fb08fe4ad4482d6faff856845c74d114b01f",
+          "e45ed747a210dac31b403586157f1bd03087582837b081d75755e4422a34317d",
+          "1b1edd140d7856396a6cfd90567027809641664328cdc76eb3629bfc2ed09527",
+          "517b93983305e8804d3cb3c779836f06926476ef1dd271fa40d7294d18fa5822"
+        ]
+      ],
+      "element_hashes": [
+        "e449d2874bc9f76fa9951d8bf00794f3598150cfb4c2ca8d9efcf92169e88d65",
+        "53031f26c6e0344684bc464c8393eabaa428d6e4089407da76f244836ffd12a5",
+        "63273b37e6c6aee90ce2a418f387200ecc5efed9dacc3869b3f556bbb87d7922",
+        "231ff8e3677eb8eec722bb4d63c177ef6c0f5889c46e41d0c42c9039bedf723d"
+      ],
+      "hash": "23ba7445d260cc797b19bbc5877a676b334aa0a6bbca9af05d5cb3e60a433a0b",
+      "kind": "array",
+      "mistakes": {
+        "4a8be46a5af085b85850f8242b6ce4e3fe6506a02b5ed7024c07cc4450354763": "le noyau divise le carré de l'écart par 2h², pas l'écart lui-même",
+        "82a9d2a6ff424a263f2876fb9a381e38dd602979490a54f080f965a6dcc97fbc": "le noyau gaussien divise par 2h², pas par h²",
+        "f7b3b2f5b628bf825ad11a6ad32ed2621d7b0ecd7271ca433297df709079e929": "le score d'un noyau gaussien est un carré changé de signe : il est négatif ou nul"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4b": {
+      "coarse_any": {
+        "0": [
+          "9a929b787413a1c80880dba891cb3a4f537c143368983f06a70c4172b6857b3b"
+        ],
+        "1": [
+          "b224a77a13f2ac5a3320b7270e2a9d4e2fc6b7eaf48e812ea2bc13fdf84d7c78"
+        ]
+      },
+      "decimals": 3,
+      "hash": "46c8332af89ff2754c3b10c08a85ef00599209ee8187be9b428c3e60ce78b84e",
+      "hash_coarse": "94f661fd4a79e63d530d57edb021579d102befd364432fbeedf0bc1dfc00f0a2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0481be3823e8ca6fcca9264e39847d3b99f76e9a548f4d52ef595fc237b1c80b": "un poids se normalise : divise par la somme des quatre noyaux",
+        "18da7c798a0d06517aa6b4d5e12b69d02629300600fb0921a88b97d5240bccc4": "le poids est l'exponentielle du score, pas le score divisé par la somme des scores"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4c": {
+      "coarse_any": {
+        "0": [
+          "27cf58734a8c938d469bd472c6bcd8b440aab5311ef76b7805b59364bb284dd3"
+        ]
+      },
+      "decimals": 2,
+      "hash": "e40c0e0faa832f65614bcce476c228b9f4e1d36336ca7844921bee690dd75cbe",
+      "hash_coarse": "8d72b78f41cfc7136ff6ca23cda047369889b2e39934e6f9a7444b38f47b30a3",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0ce83553b7323195a3caaeb71e5b1d863de390bb96ab3daf080879045b7d23d7": "le score d'un noyau gaussien est négatif : une station lointaine pèse moins",
+        "8510cd9e00edd1700c44ce48c32429a73f309ac8285036b56ddc65dd28067402": "la prévision divise par la somme des noyaux"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "71be3c1ad907b366a9b85ce0d78ee38d208bc45db801c10571788a0704e789a4"
+        ],
+        [
+          "1e1abffe1296c8b5d663488a9a50d52beb027e702f35714a73fa05dfa8b3fbc2"
+        ],
+        [
+          "b8adc92938ae26c8bb07d73d92cc9afcabba96a8aa603657100b5f02614bfedd"
+        ],
+        [
+          "deac68908aba93cce57cef5da1006b364b3f22b0d5bc57538a293ea190261232"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fff127d0bd152d0ae3a60b7af36c09280fd07732698e322fd3c655292fb9a0cf",
+          "61eaad6e0dc6336326f476a14224f1916975dc0859f6244f6c6f91094cbf5a56"
+        ],
+        [
+          "434840f407cc541d030d41113b0709efdc155ba80212c36144b540c96ccaccb8",
+          "b3c4bbca5afd25e6f2199044654b039b892db80df9a298482c887e9cec9191d5"
+        ],
+        [
+          "72a2997e4d148b0f5544d3c5f560fcdbf440c2ea27c20f9ae26f9748bc8dbdaf",
+          "98f638f6a837b73613a5d89b9eb5298d9a6f009e4d7bb671d663bb6b973a3ee8"
+        ],
+        [
+          "98646d91a73a4b7aeaaf031ef0989e517a89a9443424db229ac8320a9e118d7b",
+          "3c494e1d80c00e240006b23dc8e0a7411c1316ad7eb215ae6c9ce0a6c058c9ff"
+        ]
+      ],
+      "element_hashes": [
+        "1ad0d18e89536301a1612e9a1ceff2e6846bf2d0dc051c05d31452aab6cc8006",
+        "e639c50547b475c273803242aae70a0b1424adc8b27d9a4deaf83df3bbd7a284",
+        "c31bed128ee3dd4a1a217f052a3f6e6ab3a2ae463065b90fc69a526778f731ae",
+        "f9b2bfacaa0aec4a61c51e7767980014adfc7cccb7f618882230469a2de11785"
+      ],
+      "hash": "9f84e74386c372e835980fb3901e433d30b57cc5aa3e7382863e3e6fa5602bc3",
+      "kind": "array",
+      "mistakes": {
+        "1af5fd4de6e5db0adf751aa5fe70d1e0237879e8ad6406bdad5bbd161eb1c5e1": "doubler h divise les scores par 4, pas par 2",
+        "d68184623a083f41be4f436247916672e25c8e9c5ae2b98113496b0aefb37685": "les poids d'une loi somment à 1"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4e": {
+      "coarse_any": {
+        "0": [
+          "c69fdfda479fcc61388335660a14c86833ed744ceac7a6d9793f4cece818592c"
+        ]
+      },
+      "decimals": 2,
+      "hash": "f62b73c365322459971720a8139106f4080eb0062e2888a10391405cb28ebf1a",
+      "hash_coarse": "22c92042ecfca81223296ecefd9680c5a8fcaac18a0356411ee1c64d2ccca13b",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "81fecacacabf927125b488d623512c260217ee1cde46e4e92348716dcc8bad43": "la prévision est une moyenne pondérée : divise par la somme des noyaux",
+        "a57da74de23d95e3da4b203befd67d07e6bbddf13b2293cd6970c3b44b1c4b48": "doubler h divise les scores par 4, pas par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4f": {
+      "coarse_any": {
+        "0": [
+          "80bdd280020a08923ce40e365a7b7dff64096be840ee1f719c53c97b77337a9a"
+        ]
+      },
+      "decimals": 2,
+      "hash": "8a23076ee5ff16d3ff1b005457201c8d8bb94ade66e9ab233dd1d481e6aab957",
+      "hash_coarse": "05bad3f70c5f8bae66b41eb52594d385435bd4ad34c9111e1821cc4cd57d0d98",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "306cd0a3752159f172ee01d8d3e896fef3a8b43bfeb3af026d496ea21fa3a2de": "quand h → 0, le rapport des poids de deux stations d'écarts différents tend vers l'infini",
+        "8dd689e49b2880f2bd02588fa88a4fce4225f9125404db9d53f559c3eeef5d80": "les poids se renormalisent : leur somme reste 1 même quand h → 0"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.4g": {
+      "coarse_any": {
+        "0": [
+          "22536617d8d53c17c6820f76dd79cbdd497fb02fa659ac532a4e07bccb631a50"
+        ]
+      },
+      "decimals": 2,
+      "hash": "64bd22735a2c651c167bbadeff4a83325ea0aad29108d705d389e4d0dff0caff",
+      "hash_coarse": "96b7962f6ee605a6153f8c4b277b59f24200e1a4a4a14e35f5db22100bb79009",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "782f4cf19763171581f56d0a2988fe14f54d92abc2b722db6dc6aed96301f89d": "quand h → ∞, aucune station ne l'emporte, pas même la plus lointaine",
+        "97d43e3817ed3fcdd2e25fa472a568177fcca130827842d932b2c03489f391d3": "quand h → ∞, les quatre scores tendent vers 0 : les poids deviennent égaux"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5a": {
+      "array_rounded": {
+        "1": "080037ab7f460b62ef5a50827ab5d821d845575de5433b35b71b6f9f6e48ec43",
+        "2": "1c3a48f078972214ecf74215ab29b71de6e984161e88b5a8f1028c8e6f798c60",
+        "3": "87f1b8ba5c320bfeaa3ff0869d0d29daa849c3aa9bd16f0f7ce9032fd5df048a",
+        "4": "2ded1bbc8beb753307fcbdde46b1afe478ef4d6271ef2267b27bc90bc04216cb",
+        "5": "9d7fe4db68f60bfb56376e2822ed72bf17b634c0256bfe0ead1456f6d2f7fbf4"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "fa9096b5a20e6a2ad76bfbcdf923704a01c1977d0e9a69da8c17b2189a5ea433"
+        ],
+        [
+          "e6261f1ce062e645d2be12d76eefbe92d00d6fa5144cfc7212a7d2055cc041ac"
+        ],
+        [
+          "2fd1f9493e05bda5dd7d7681c3d662b032e16000d7d444de94c4f0611bb2fdda"
+        ],
+        [
+          "07350b8a8ef9f6abfd95bf653a2233b6f972f7e43e84322fe6d0175a831801c5"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4850f932c5486c43e3315e0ddb47cecaa4d313fa22493efffb503574e3ddc762",
+          "49c8bf58ed7ea06f2b9e11147f3254360903bda2167bd791cf81ec3e44d04843",
+          "704a32ee9fd4699a1f1f4c07b07c2c46ad68dd4dd3369666e2d9c3175292f5c8",
+          "bd61e572a2c05be068d1ed9cae608267d0f768606ac997237180804ced294849"
+        ],
+        [
+          "f47c1c39efbd68a99848ff48cb1d89a8058e1fa024458cab0dd9943cdf34f487",
+          "debb5185fdbab494962eedc333db79f0c0aa97d25ec06a76c508109ff1372c06",
+          "9af6a52f899ec6c34a96656f9f5cb958bdd1e62af69259134b61eb17c5faed86",
+          "3da74997fd48d8caed07d6a58e38e40893f51dc70b56ff91e5f0636154a08deb"
+        ],
+        [
+          "dea4c42c8a6c3f879f320d66f0ef06cb9280a6601271c67dcebaa16e5f0969e5",
+          "c213d1e04b131b0bc5798260ee52b01c90903d94665fc88ee70b89c5821ee877",
+          "3b1215468ed353c2d0c84515926da2031dd73162587dad8a9439b04b97afc8db",
+          "e99d9457e5f0e0a08c8e3fc5908d1e677e7e493d3b8532434921a9fd5fea3a14"
+        ],
+        [
+          "fee80af97e620cec2ec3035fb7674031acfe0c981a761cad0bbd3699aa9db3bb",
+          "cad3d5d91dc27153be967eb11bb31571e7fdec2a8c170e2567240caa280a69e6",
+          "2eee0f823699a7d691adc2f56ce20bd853a45a3d2729a6f8c510ed3f2de36bb6",
+          "744a5dfc514d2f06dc189446b0acc0fe7496facb908148647ccc3232057a0e81",
+          "3ec2682b730bf381e73d5f7b776efcd6138cf2d62be2c208fec938b695941779"
+        ]
+      ],
+      "element_hashes": [
+        "5c0b703d694d003544065fb8848966395b39d9024876c47a27cd40326229bcc6",
+        "f65231907a7e824d8bc4ebd962f27a0a46f5c7c546b77f87d424e497aeb7797a",
+        "ffc2140be595b95d5bb286edf10f3c85b2fb87a0a2cf17977c6c171573fe5c8f",
+        "2bddead771c5a8f96a52b0bb54b1ea7f344e55a48f5b9987d2c0f492e7eba783"
+      ],
+      "hash": "95f2ea52a1b60edd69dfe496d047b1b22fd61a96b5e793f7f46946cb7545ba8d",
+      "kind": "array",
+      "mistakes": {
+        "335d125ef88319d767c1af2f3bfa1934f76d95d908b85ec653d92bd261c6cff9": "les poids d'une loi somment à 1",
+        "5bdf5cffd55bbff6563368fd559d2a4ac10bb95412ed616ac59a793285c983cb": "le jour le plus récent a le plus grand poids"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5b": {
+      "hash": "c47c7fb1d96fa86baf2e2640c984d8075df4e67abb8e968723a5193a7eb79507",
+      "kind": "fraction",
+      "mistakes": {
+        "cd78bcc72352ce89c7ce2194b37ad6ec015a87b53e33882d6f545fc623776e20": "la moyenne pondérée divise par la somme des poids",
+        "d03150f7ca514a7c36a78b7f497d614205282280a6fc95a12eb9bb3d16b81ea7": "le jour le plus récent a le plus grand poids"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5c": {
+      "array_rounded": {
+        "1": "a9100f498eecaffa1317038046f044183377755844b3f825db7fd9ca289180e7",
+        "2": "bbfd64cdc138ba08f5c7be322c48a0a50de2ddc7e5bdd5f60483970000322fc8",
+        "3": "81ef28912529096833091674b59ddab8c1824f0671b91a2370a6c1ee7ca15a76",
+        "4": "d768d6c6abd5f5c1e6ad48ec2d879e1fbdaebed0f437131b035b096e25f44418",
+        "5": "d0329372aa63f11dfd851b754180ca06e035a7517aad88397b3160af28ac8131"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "c7fa6b1ef7548ca3a8557804afd258ca78fad36fb27b7331f72f49ad4a7c84c8"
+        ],
+        [
+          "710609606448cd0ddab03cf79630aa18cf0b51d37067e2ffc60bf22b03192184"
+        ],
+        [
+          "ccd98d46eb153e519e8d9377670f16ad1ab53121d95e7ab82db3a71ae33edce8"
+        ],
+        [
+          "1ffc3bdc68d5a804f1f120e263170aead1435e91c7a122583e191b1565ea74e9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7649aac1b096ed389ca032277ec314eb6a6c3172ed8af83f30ada97c79f018fb",
+          "84335148bf93587aa2b38e85e03a2c9aecb23f6324298f423dab65a1183ca61d",
+          "d3c2a4c3b5a660b4141037551841d52b241c5a3f7ce0e9ef89546ccb1d30c60b",
+          "ee8b7c7260f7271bdd7af004c75d06843c824eb87e90c6c703f38fbd639ef743"
+        ],
+        [
+          "5b43e905361aabc8d061eba0e6778b57c6354aac90fea884b34807ec939a501f",
+          "3329d75e8ae4cbbbfbf56946121aa77ae7cb2d96ea3ccb97ac4b2d64b674358e",
+          "9fb4eaca8de67243b759a6525cfeb73c8e74c6dd616d3b07e01d22b70ec39c68",
+          "038f4e1abdda57e0bd8f74c9de2c8d66ab8c1a81b594c2cca4aa92a3b33c0e32",
+          "b87e8b13b896b226640f3a6b77ae017ef6b9627318b0d14e2be91a413316c4a0"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "2a8250bf73f7cf12006c166fa5f2960e6f07126991e52252714d379cea766ed6",
+        "cf13de5cac42933b046549e18b4a0a9cd5bb855197e56cfcf6c4406268296eb7",
+        "cc2adfb045de541b052e86a22744c52c618917035ca8b5e843695a19c547b51c",
+        "147605c51d4ce474aaa73f8086dfc8aa619b532984e20ecc77f708a713dab0d7"
+      ],
+      "hash": "a6784b6c42d3b966172d699e04db7df49a2da27c25bf4cac6a9c68ac27330e87",
+      "kind": "array",
+      "mistakes": {
+        "6de5f024191dd3d95142e62d9a9394a486945dcd23df39b343dbcd6933c5c898": "au jour 2, le jour 2 a le score 0 et le jour 1 le score −ln 2",
+        "d57be23e33e90da6b6fa18e3ec1334e477683dbf7b70fc09eb5cd9b4b6be7a03": "les deux jours connus gardent des scores différents, linéaires en le temps"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5d": {
+      "array_rounded": {
+        "1": "e722db29bdfaffc736737f2fa68ebf6ae9b575e37f6cd9315e967f9f0ce0d805",
+        "2": "0b47321aa931f5543eb86737848eddb76978577be17fc129ccd2218207e81808",
+        "3": "6ca03561498f226555a058556ca793d600d506686af1451b0cc379e8d819185b",
+        "4": "f4a37d45e5ee24d2a69bfeae185debebfe75e5ad52911d630e7ec097050ae80f",
+        "5": "f01c727d329f7330f448982501a26f7b1fc0248ff517daa44c8acb01cbee5043"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "ae30cea4bc2239f779147055425d8e9d0859e218d2574e2ff58777ae62bb2f95"
+        ],
+        [
+          "4d6974d8fcfb347e99550d8165b96917550c6d8f1b068f15052cb3cc8342fdcc"
+        ],
+        [
+          "8b362ab71a14a6fe0cacede7000f8bb179b0bee6c2c705fa34262179c15686ec"
+        ],
+        [
+          "d5db8a82ca3750a0278c5b98f9a9e717912979196d2a07b9aec3e5a86b19f527"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5bd7dbc9c1a1ba8d70ef462d31a2e2c48372b754ce27984ddc88bf3358246f29",
+          "f484b0508ec7492d4863dfd3262417ac852a401c32f10519cc419554a85b1ae8",
+          "33fd36ffc4bbffac373e1bfc350dc621806a00a89b4321f7ab7c0b1ab6a18e46",
+          "dd1dce0667a58f3fad25998947f3088de7cd574acc5ab25728d17a8ae4c3ef07"
+        ],
+        [
+          "0013840cef9154c1cb493e3fcb74437bcbb4b522a40e7e223ba9efe6cbfa975a",
+          "83efbd0b6a2a31435729d11277e0ab2d75dbc5d1b7ba66de21d91778953cf6ee",
+          "a8449420edb2f2d3f199c26ab48b57b760a1928b6b6c0db162c0f338385d16c9",
+          "59026170dbd6315550e649164ba33cf68305fc7d4feee3d45206a976ca248052"
+        ],
+        [],
+        [
+          "b56b4b91dc1a36f0350a6c36f7a91ef67ef5f5fe6080f878af9bb3b22754e820",
+          "70d8a304dfd1656b53a9afb0c6d66937f2da5006ee62ffef145809c393338787",
+          "e517a3396ac65147a2ed968d9d967c7aab1178fd01cc0cac5df002b1fe8ed71e",
+          "1fd83f6d146225b2ee201a6668ff36354cc96f69403eac763a6c5627e4b8b0c8",
+          "752e5e58895a41efe3db2ac7ec76e5c719f3cf5a2a3e6ef595b417845301a75a"
+        ]
+      ],
+      "element_hashes": [
+        "cb83ed4d8dd046e7102ce8d3db28913b3d8f708bde831beb66d8b9d1e9bf44ee",
+        "34315cc63453b3c13e3f6bcffdf40ec740dcf338a7dd8007e92e36010db2752f",
+        "0f7a10031a5acaed2a20a0fbda14586646f4d1d36756dc36fa2946111392d0d5",
+        "44da31a1b36152d0a10a1ea1dfd666dd256e3089ae6cae074afc5aa15271db79"
+      ],
+      "hash": "8c7dfbb9a7c422d6fc8e2325edf9e1e6298cda9b0c334b70b93798be03527903",
+      "kind": "array",
+      "mistakes": {
+        "788897651dbbf301b62f9c5ca31063c59c1a7525239effa1ce93cd4eb61558e5": "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2",
+        "a8d67e775979b3327a94dced46cea253373028c2834d616586d930b0a5007699": "le jour de la panne est retiré : son poids est nul, et les autres se renormalisent"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5e": {
+      "hash": "9149e94704d5166e8cd4d7802ab5c4544cc387c0120e4c64a3f0c0bd4ad9689d",
+      "kind": "fraction",
+      "mistakes": {
+        "992707cfcbe44690ab000c88da5fd99dca37c4cf39efabaa9da0580e0702d6ea": "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2",
+        "c97681de5026b12c9a914a644e90019c0a43195247e984b0beef52d11a5f3aa3": "un relevé manquant n'est pas un relevé nul : on retire le jour"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.5f": {
+      "hash": "9693da85a19957cb23a8ac79bfaa31b53131611728834bffe662e056086b52ab",
+      "kind": "bool",
+      "mistakes": {
+        "1d4fb51413058913396f06e7e39d359c6f280cff09eb5c51fa906a189d9fcc31": "un score −∞ restreint la loi à un sous-ensemble et la renormalise : c'est une loi conditionnelle"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.6a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "194af9c07480572e78d73be762dc4abf3d71396fd010fc02c3b31b8ad80f71b4"
+        ],
+        [
+          "a63f83e42d56424f4907c7624ce8e11fea4948544b1d4ba997981fb7fd3fd858"
+        ],
+        [
+          "e0a1674df461554d3f195ac243dc4f665b86b62f1a0c6d5e87eac0316347388d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4de516b3273b10c3c5d7b6cbb84fb50ca7cc6aa9549c11f46bcefbcfb52ac217",
+          "d362c3d59f93983df04c3ce85d01a2cf4fab0d80ab75587e2ff48c352fc91d45",
+          "041093cbc2fd86aa04f75a7cec199fcc5ea457706ec75dbcb8f6914d0bd70be8"
+        ],
+        [
+          "1c6375b627d77e2822602d52d13aa4cd17921bc9a9f580c0d40716c4a867821c",
+          "e9a86e9c81ccc75a7a280e72993f3a0e19aec65c572bc256c9156e36f4639a50",
+          "4ec09cf935b73a0ad09f56cc08df7f3d1602f53283312395f3a3bf154bcf8e4d"
+        ],
+        [
+          "56458957a0ccb463da14f93b5025644f6350b4053fac267ae989e511eff49bff",
+          "cbaa204391c120138bc20f13cc13c6cefdbdf334598641e8820e25b5479d6b3f",
+          "ed09a184874d8b6ab7c7a32b24f5380dee0ee375f2b74a08cc497be2da61ec9a"
+        ]
+      ],
+      "element_hashes": [
+        "1bcc99be093483e1fa404b154dc1c79e67a1c20dc643ede4708907082f37ab7b",
+        "f125b2656a181f25a04e3914b628dd1c89291291742ddc591eb0951966e7f87c",
+        "a33586b1ea4d9aaa52ae79fbdbf9c394d3a1424c00b22dfe94efdc64a7a28766"
+      ],
+      "hash": "e83ab53ad2499870e0064a43bd03f5f2691f73e1dc8ee76fd81adc4ba96213b3",
+      "kind": "array",
+      "mistakes": {
+        "0cf1279490eaeeb32d4745062dc1089e9e1df7ebb8c066fe7cc52c3a62e49e2d": "multiplier les scores par c n'est pas multiplier les poids par c",
+        "dbeca0668e06f2369ed0cb5c703314d0a8fd9c205ac85360dbac47dc9cc0088a": "multiplier les scores par c change les poids : on reprend la softmax de c·s",
+        "ffd43de36396a26a7f0a59c9bee1b73ad3c3ae1b6596c971beebc94ea061bae4": "les poids se normalisent par la somme des trois exponentielles"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.6b": {
+      "coarse_any": {
+        "2": [
+          "f4f48e07105457f472cdb7caaa297894d09db7cee1fa80950733a1aa0174d661"
+        ]
+      },
+      "decimals": 4,
+      "hash": "eb7de85804c6e1a288c1832abe51a364a9525a5ff55925bf2e75822365354c19",
+      "hash_coarse": "704797f9da4f718a39e20b8e2be387b7edb608329cc1f573f3cb5b06628a319e",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "13533abcdfcf026b589c73381faa88f574a90a0977d4d379782f5f3d6eec316c": "c'est 1 moins la somme des carrés des poids, pas 1 moins le carré de leur somme",
+        "2324f5dbbfe21982f3ebeeb491bf340e2b3ee8e5aac10e9fc20ffa2d975cc019": "c'est 1 − Σ pᵢ², pas 1 − p_max",
+        "afbd79d9afb21b002c19db39ece03797ea758ce38c8d8a2bee44c42378b66384": "la sensibilité est 1 − Σ pᵢ², pas Σ pᵢ²"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.6c": {
+      "coarse_any": {
+        "2": [
+          "cd1736136b8485f45c079bb514b140e1f07b433dba04a25c2d3be64943a30490"
+        ]
+      },
+      "coarser": {
+        "3": [
+          "f0c1f10b9f3b16db6223e0a81d53acf3d3b7f05ddb85ef11b9c1f171fd04e3a6"
+        ]
+      },
+      "decimals": 5,
+      "hash": "0b90c9eaa6cc447332db742d3cb733b8dd2287d3030f710f69dc55a39e402b7b",
+      "hash_coarse": "0806efad44204eb75717f7cc427fd8460e9a74906aed8244bb9f969d3dcf9d5c",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "475172929a1a82629f3f603692f88af1344ed985282de2960a2916b5630bde8b": "Δ est l'écart entre le plus grand score et le suivant, pas le dernier",
+        "662ea2d0ec70216b9425836e94f70acaf4cb61dabf5d2ac3c23be63d2093b2f2": "il y a K − 1 = 2 autres scores",
+        "9536bfeb023e829be3d0df95b3b70f4d959bd41b671c362584abfadcb567c317": "l'exposant de la borne contient c"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.6d": {
+      "coarse_any": {
+        "0": [
+          "cb6202b965339aea74dce2a60d80feb263130d3df6769cf675d1bf1739cf2924"
+        ]
+      },
+      "decimals": 2,
+      "hash": "1a77111664f50cb4943cd8fac4e9846630a9348eb23751eb8d5c985bf323f48b",
+      "hash_coarse": "55a5735ca8bfad87f8b901dad3b66e0c854098bab108f68dfd0e56d59a1c896c",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0895a68e21634f7beed6146f414a00a82a43b1c432317e250c915e933259a61e": "on résout avec le logarithme népérien",
+        "092d676a0f9b9376b9b6b856a17f70e485f446bc5a56478e84109c20f0e29671": "Δ = 0,8 est l'écart entre les deux plus grands scores",
+        "b931dcfd98693af319e8fd641263ed1e4e85f0adc6c259ff3f168d1ab08ac25e": "la borne vaut (K − 1) e^{−cΔ} : il reste le facteur 2"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.6e": {
+      "hash": "0502dd8fd2d1bfd1c1aa76ca2cd1f2e144a4eaf4cff2482cf708e9cee30d9522",
+      "kind": "bool",
+      "mistakes": {
+        "11291d1db1c2c78a4841176f29ab469850e0000ac30752e2b2982cc121abf4fb": "quand c grandit, la loi tend vers le one-hot du plus grand score, dont Σ pᵢ² vaut 1"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7a": {
+      "array_rounded": {
+        "1": "0800d877030085d8ffacbd41a4ba652305037aa81db082a5059abb1da7f11891",
+        "2": "1b7059c16eb26d073fc040db762fcd53e9b8ddc5ec8f0858d4aac96831626077"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f82beacdafe644547502d7890f2f7941400b028d40740d27bcac4b168c6c8d0b"
+        ],
+        [
+          "507cf4c8abf5f67f7bdd6175f418166e20c9f6bee0d678c1ade0451fb04a48ac"
+        ],
+        [
+          "affd1d854489303e1dd14571723af4f0e4e0dbb5c4748ee351c3f3be025e5446"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "65c4bf37d0a6e5250d0f141567a6406a43afb7766baaa7264e718e7c0d973dfa",
+          "1c0a237dedd20b8ffa0f6c59aaa257ff54929fa13c5e4405a4f9b1b55424583a",
+          "da184e97609830725b88410067f0f26912daa4f7d7de26efe86bf14ae729c447",
+          "b3102a05a744abe1102a98e4c0a02e5bbd8d32a3ebb95cb6ab84158c5787ac58",
+          "29dd42d3b0f775677d7a03ed9cdaf852843753d44cd1e4f3d82d8c8849206892"
+        ],
+        [
+          "bbe70246201fcaafecd3ea41f2b5d7b23d98c323ce9229af2eaa43cfb6542417",
+          "8ac951ca9b2db22e2b6fe48efefd3af6e51d424910ea448afc6b4fc922340a7a",
+          "89b9bb6c84422f1b891750104a910ef146f1a1382d619a42430fe86412cbd37c",
+          "79d7fca886b6a8b3a9f4cbf2371c98c5bcc837463dc790cfbd5b12f346588a77",
+          "b807b2809214d4a543f0db3bfbcb919ec559e92a41508c976073ae6f6ce9bea2"
+        ],
+        [
+          "073d5300796adfb647ac087e1d5598feec56a1819f10e5f001145243a8785022",
+          "f1ed792ae46fbcb0cbcb8351f5b80f7dc61ba9293d2e0cd63f89c2aec22d7c36",
+          "8b0119686e24bb6a265e31987acd1956f9af93fdf5e1333ee44251a722af7a5e",
+          "a07af81cec7cbbbf3936ea2ff1420e8b61affb7a8a44d1061874248b42d505e7",
+          "efbb3505111d53dd78db4bccbb66b85d1473ac471b371721e9045c1182cb8343"
+        ]
+      ],
+      "element_hashes": [
+        "7b7710440c34fe3875e2e419357eeb87490d4961498f92f6a2174d1654747ece",
+        "af9f0e28477907a14cb2b6cb19817d5d9788db3cb0821b6c9859fd33b9a8024e",
+        "e68bf08eb56d567aa6939096989152516710313e96771c627e2f50e95cb403b1"
+      ],
+      "hash": "07ec6f52ac3c979182c3aaee7986e303dfcdcc21a69938cd45c00d853a23c65c",
+      "kind": "array",
+      "mistakes": {
+        "e10757eaaebeaa766274df6db30b9283a8cacd73f79ed496b4d720abf25a843d": "l et a s'écrivent par rapport au plus grand score lu : chaque terme est e^{s_j − m}",
+        "f228841260f0d05f9a85bd72f847939177aa7583308f740599b7b8960306d583": "a pondère chaque valeur par e^{s_j − m}"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7b": {
+      "array_rounded": {
+        "1": "f3f178725f0455c093a37d1141d8615e15084a656397f30a5e4799eb78e49123",
+        "2": "13ab5d5888bbb8c3d39744a32f65c4180eeab958d7f1a27801b9cb6b897ef712",
+        "3": "c527b118db8c8c09be52f91c12d8ea1f80c56a12cd935d5b6017d6530a1e0633",
+        "4": "7ca73f8548abfa94e6abe72daa5d109276bf9ee293849c951d3e474df664211b"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "2705dba305a037454885584ec148e1e9556c939ad415926f4fb4359765ae4cac"
+        ],
+        [
+          "a74cebeac864991e6ca3f4308892bf437242de1f9433494d4c8c21db05416688"
+        ],
+        [
+          "32630a4f3a5825d144db9b9c676cd8a91156a8b6d9861c54dcbc33f793abbbe6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a930c306e9e7a9f7b61ec14a65306546c78228ae7cebfece406c1243b8fa03f9",
+          "d8869f8098cf4c7ca4e6837e2edfcfdf0720328245fe6a2cd2b94e08784be6af",
+          "11881b83a8bfa6ceab300b9f50940a837ed5a9d76d6fef3b5975b2564b83cde9",
+          "b46e319cece58a5f3e187cfe418309ccebeccb06af9cd1e1f4ac7af4c416f1aa",
+          "7b1ceef8d56dbec340169910c0e11e203d9ebf2327278041a6c81ca99ad91596"
+        ],
+        [
+          "979be5ff562bf87f8b93cb5d59f3377e36347e1801acf257b074205acafaf3bd",
+          "b971668aad72f0a2841853a12f8053ee58918c488ebe310c78156ffe07a2515c",
+          "fc0edd669c44b93fb9560c1c9d8a2de24c8ae1e648bdd7e935f65bb4169673d3",
+          "e9d377e71abac4a27a316cf52ac4176c832147b51fad81faaf7643f4d78c2b20",
+          "ef1568dc478dcf315dd47e0bfcdf87046c6f711828384c09067653251943a271"
+        ],
+        [
+          "2da0867a7735fafa080327087dcc0c3805c9f1eee4cc65db1a3dbc89ce721801",
+          "bda55fbe704dcff383d875cede87f8b848ccdf63c1883d9e3b87c95d4dd19fa5",
+          "6db34aac9a91a78822675db7a91b96fe612e35f3348f6e64294623673bb032fc",
+          "8b8f9e0f3b646732998a23917cba2d7bd831a613312119c261fef1fc464f999e",
+          "8234138b6deee7539d886ba87829a77ed30718da74bfb17d7060522bd989c30a"
+        ]
+      ],
+      "element_hashes": [
+        "1d32a5b7bce45272a3c8b6c494bd3b1865b8118527d5e727d80b9a644197aba3",
+        "a5bc3a2945d0bc59e0dc4c03190da5308f588c76526f293bc60ea5021e9ff7fd",
+        "e2935d7c598fd2b4c4090fad702e8692356fd08da67458547fb928cd1ee795f9"
+      ],
+      "hash": "cf186326bf70e229ebf4fd0a7777ee75a2ec10ae50cee06cbad087c6f002946a",
+      "kind": "array",
+      "mistakes": {
+        "b265bcb215dd779de412edfe4d2e41d52e72883f3d73531bf0513955116dfbb6": "quand le maximum change, l'ancien l et l'ancien a se multiplient par e^{m_ancien − m_nouveau}",
+        "e2d501514669f46007e31e054abaf79ef8d06923fc52a8bade5c3f4a5cafe9e1": "l et a se remettent tous les deux à l'échelle"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7c": {
+      "array_rounded": {
+        "1": "5efb83e166cbd59540287018a09c9d8e2543225e6760ebd801fcc39232815401",
+        "2": "9d08394b3d4aadd68de04789817637b7ec2b293d4e08b6231aeb48b1e955fe05",
+        "3": "e12d46a50dbda05af6e593bb1d2a6c54190b37a90f2aa8d805ea3f7e126fc777",
+        "4": "43e02d5ec363b5ae5e78fdee2a0e07dbf2b531516bac7b6fac07b813dba78e79"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "00bd7551143e1db4ccdde326320178f54a12e0192d5c76e0aedb38ca1648f276"
+        ],
+        [
+          "fb4126c9da449d3395290e85a0c3cec628537c00272c716bed26589fb3d0264d"
+        ],
+        [
+          "06aebb85b8aa72afb553a7c2995dacdada5f651b72e4424fefdba114cdedfe6f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2ca438ffceb923b632012e08c083251fb5122b2879c55981478edcb22068da8a",
+          "b23ce00bbaa0116d346b7751a23319339c06ed03f52462f7faa62ad0e5843cda",
+          "5f82989e40e3164cd26cd90c703fc2d15b3d243f78f9149e24c9f0e6e257dc86",
+          "3e909792903d75273ebe999c9532e3bd63b020950801d4cbcb980d971dcd09d9",
+          "b465517000277b40eee364f0f99b145ecc8dce3a60a346e58ead16bd378b1d99"
+        ],
+        [
+          "1c0d1264e5fd5cdc1b8a4ec4542020506a29b4f949a27a0b8e72379bb3e4beb5",
+          "f8675d97c2a84d141cef038d872bd57b61fe65702344edbc5b381520d752a6d8",
+          "25f0ddfe2f43cb04089f38e59e0f1fd2ae165f546483287cdb62ac12f36456cc",
+          "d55936e1d6faab3948e8516d67da220c6fb27ffc2d5b837133f0f8600d43f5bb",
+          "fa27fb9e147acea550b077ae7a8b5c42040f5a52de4ca15ab4f251bdec03f5e6",
+          "19d09f8d6444489691e245c5a53dad5e777959cedf1496ed311f3faa492dbc0a"
+        ],
+        [
+          "08ad35dd41a4020a5d96f6d185ad066a20de835b152c7bbb9af4264dca8f48f8",
+          "edf43bcff378ae0d89a4767052691d495f8cc372540b50bb46bc2e748e327391",
+          "d1b0ff723bb02535475fcb8cf2ec2fcec4c0646d2d8c2db05e47a67ccde447b9",
+          "73f4be154dadc5803b8ed287370a4853d77314a4df66a9fe279d0284bc23313f",
+          "ba9429ddb872821ca61852c8db276204ea33eb99103dadc35baa6a3954b162c2"
+        ]
+      ],
+      "element_hashes": [
+        "c56ba0d900d181bbf158b8a3d74ff34bdd368721298364ddebe7d605f7684422",
+        "151c902c84a2681312ee08e118727595f74780b4ba9e91b1595024e2b33ca564",
+        "2387f4615bc46a4fac40794da3d91e1821fdaab43d180b9273d415a6a7abd0f3"
+      ],
+      "hash": "85ef067f0d1eaaae61eacb0c5d678ddc1799a552387e980faa79650243e21370",
+      "kind": "array",
+      "mistakes": {
+        "21010f3813c1b4eac1517b1a8db2919729e2827ab3b944b1b2f1b57d0d911e7d": "l et a se remettent tous les deux à l'échelle",
+        "4996a99da49b16a1e9e681ddb34855e1975e3ebad412891d130f39edd3766c1f": "quand le maximum change, l'ancien l et l'ancien a se multiplient par e^{m_ancien − m_nouveau}",
+        "884ee8f2145221547f31946392fd9a43efb8ecde4e0d0c87a8e5eaa975ba6dff": "on ne remet à l'échelle que si le maximum augmente strictement"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7d": {
+      "hash": "ddf0385970d55e9719ac390f72eceb87600fbca474de31d26fd5d86e0b27740f",
+      "kind": "fraction",
+      "mistakes": {
+        "0802ac7e2784ee232fa1386549f5bff301780fb7c2dbb488a52847c5f9df3395": "la moyenne pondérée est a/l, pas a",
+        "ecbab43f5b0750b08975b7b417660da4df84359a7a7dd8421718a4a7eb788b61": "la moyenne pondérée par la softmax n'est pas la moyenne simple des valeurs"
+      },
+      "sign": 1,
+      "simplified": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7e": {
+      "array_rounded": {
+        "1": "830b150b9baf901ad12a2a55ed3561f82f265a3653eea52cd79826d53647e5e8",
+        "2": "f5cb68d7b0935b27e1001d021254c37eccc7c63d30ee6092eb739b0ca55a535d",
+        "3": "622f9628973997791d1c08b3da35c23d5dafa1f8bd41233a5c17f76de7d21314",
+        "4": "4337a68db38f12ee286407a1f0b318b762c1149f5bafe685035e3cc3246599b0"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "7b3432b57b6f26b0bb2d3742deddcfe48cf053b3be25306d32cc860a8523fcb3"
+        ],
+        [
+          "382d5224c41e10d038cf1083996468f0f4a8f348ae3b86025fd17fe8a485b35c"
+        ],
+        [
+          "639c457eed15128717729a269363eca84350567b5cb9f1635ea7cf04064981cc"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0a4821f8897038c1e083caa68075e2630df11258263c9a238c2cfe9971c00ac1",
+          "906cac1f6e07aab9b3cb21ebe71c482c8528a583a13456acd0cb935d1bbd4479",
+          "dbf0218e8db3ec7aff4741b43ea130a5d8377db2829d0b41ccbd1a28418f7d54",
+          "9fb0efe8fbfc84988b78654a50ccc1417b59fc65b7fc1096605726d4b1cfdfe0",
+          "2385416a34c4c759df12dfd99dcf00aa1c0121851edf15d3032787edf26d9571"
+        ],
+        [
+          "a09993bd89412b3abaa644e6afa7611c96b53c315d8f99ef4ed7844184813ac1",
+          "515e8d5a65cfd953241838dc46b5b21e7a5458a45f961032c479aef6f05d06a0",
+          "6c8742f0fdebba0b7a900c7007d5a10c01b3d4da636a21afec6e3c6d8d4ca82a",
+          "1c4f316d67f16a35ecc4a9e09aa41c7631bf4e5182e92cd977116d39fdb91dda",
+          "6632a551098fd57e7811b9502b6c5da900f29f3a185267eef95242744fb9af6f"
+        ],
+        [
+          "ada95e03a733ea2b127839f7575c06b05892030f97154f33cbc8fb67a2c2b7ab",
+          "23c3915d4c4f430d8b6c74575d9ba489093de80ad8b7af18942901314afbaeda",
+          "e4a0832ce374bd288c351c6f7fa1d8b2f95843c923ea5a44612b7f24210a15f1",
+          "4488f27225e36738613ad95034fa5aa0fedb8aed342ac6a9e2974f05c2bc590c",
+          "55eda5d1172d51431af0d38e3f2328a9339833e70e4edba59b9211c3865f7e15",
+          "206f1634a5683848f6b792a18ab42f7e42f487d130117ad8e9408284bacfba8c"
+        ]
+      ],
+      "element_hashes": [
+        "1e39f3ad83af8854e3b0b6b9aff2a67d495433c5a8fcdde0467017467633a422",
+        "834199461f83b816e1a56b164afedc679dfb8e1f6e42c61adb9e264347a750c4",
+        "01235a844e0d288298975414a79725e12925dc7c1527c286045008e7ae00e2f1"
+      ],
+      "hash": "9be0fd14af7012ade857fc7dcb746b85e006adb8a05412a384ac04cff26ca8e0",
+      "kind": "array",
+      "mistakes": {
+        "45741bea08767ff7e1b2c3739d64eeaa5ce270cf0550fe6475c0f9c30d553772": "la machine B ne connaît pas l'état de A : son m est le plus grand des scores qu'elle lit",
+        "d49f1797ebc33b79f4db298d3d29a85b8d109c70280646815a4bd06edda3de0d": "chaque terme est e^{s_j − m}, avec m le plus grand score lu par B"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7f": {
+      "array_rounded": {
+        "1": "6dd1bfd8c82b380901d6fca56335fffa193e2e6d7655ce8b81fa07eca2e3c995",
+        "2": "8cf901f9998b2f80e770401331826dd1a579ba91a45573c0187f955f56d78b77",
+        "3": "8f533f9514eb4dc7bdc5124ad449d7ee32d7d033ab27113a69e83e9150fbcf77",
+        "4": "d98841325bb235c0b4e713b5023139b2555d90d86581f73a0dd343707b2430bc"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "66bea3b6c14f72f1f2304ca5eb54a31316d29c5fc4d2daf006b9d9c874eb35b6"
+        ],
+        [
+          "e4eace500c9b9ff1525172396913c26762d98e27b952f4e16b64a0026bdb6e5e"
+        ],
+        [
+          "84e6c7b5b56af25f64940aa39992b09016e829b5eb6287853406f190bbcb8efb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0397ecb35735f6f27c2c25c70bdb1eff4375566355ea38a179927b142345e0ea",
+          "5af8a352a1fbb03b236491caf358a603f5d9c2275c6dd07af9f2f739721a06af",
+          "92df6d52e4b64cab253f02cbbc89a2e9dfdec0a2658bcdd4818ef5395c14506f",
+          "5edd7ac0f4376ab34347f981aef96a7a29d85c430c2b6bcc19c3dfeb426a52f5",
+          "0863f5036bd771baf084649088dd2e033ec9cf65e0b274e813d4871295a737df"
+        ],
+        [
+          "1a98edf759de8dfda2841d8db4afae67453ec31884f7b6801b14dc1e9cb19639",
+          "67e1ffd4cdf475c48d35e7b406b87fcf99cfdb8cf50ae7e263f96a68ceba8a68",
+          "ddae3e175220a5a22758f04117bdeb6afe0322bdb7edcc4e31a1751f87375ded",
+          "aa15d1718699df6872ddb05256096f1c6419541c71385f82fe04ba1855d6b5a7",
+          "112166675e084dc2e5dd3583a0d431068a34888ae83ec37dbc913fae5821b0ad",
+          "d9cf6eb70f472065b55c786c7955946ae7f28c7327f022104bbf807e52c1a12b"
+        ],
+        [
+          "a734e927af7f5f1604eb9e972df8211a4ac072c570c6d8bd3317b499f90110ed",
+          "63b767f6edf576ae1cf7c16319e5961cf921b1c682a3a8b30cc998d2dc8c0acc",
+          "b321e9880b41a55b2b791dd798def4d3c0a4113bfb4e54ebdbcc93f1192a3f70",
+          "97bcb4d95e5eb2e4e8a4585601cb47f3fb1f824bdc77f8ddef832a6226edbe48",
+          "4163b3a7e8255bfb48ebc77149e7862d79b2dfceeb4bf7bede934f5b3a8ca598"
+        ]
+      ],
+      "element_hashes": [
+        "afc666862706183796d2da368a87ba52533905d7fbcbc6a6d89b362cbb314255",
+        "a538e27cbcc971ace587a252e7a62964aab529ecfdb47a679916896fb5dcc041",
+        "52c0c28438ace29b38d5c80a3e9cae943d690dc46638c546ca75887f2c7c4053"
+      ],
+      "hash": "fdadb852ec3c04344032c0c01446eb22530e43b6158844dd2c1237a3b33d619e",
+      "kind": "array",
+      "mistakes": {
+        "21bf175caa7ca5fb52084a0d8d80d8340a91e8536606ee1d5e936a134688f563": "chaque état se remet à l'échelle du maximum commun avant d'additionner",
+        "c2148c057101c16a970bf30d8c50a2c04c74beff0c03a6b98a502e327a35fac5": "la fusion additionne les l et les a, elle ne les moyenne pas"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.7g": {
+      "coarse_any": {
+        "0": [
+          "677f40a24506731f1e36937b2cf819b6437f3c135d976a1d31114052bc555a49"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "6e1805ab057a3419fea008d42abfa5e060ff0a01a3f473021e5563102547106c"
+        ],
+        "2": [
+          "fd08d59b8dc2bbab34ce96c9b6ca0b1fbfc83199b121cf3757c13a8764867b7a"
+        ]
+      },
+      "decimals": 4,
+      "hash": "306dac4fb3e1103525d099966061a5c3a92eac965932ebadb96fd0498d874ce6",
+      "hash_coarse": "a6df326ef3c98872683c1a4a5d5d3f2b7e81b8804149a4a62086d07e3d034347",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "340837c5b1af15691921d3579ce5ddfd3c6e1ee6916ebab0f11348a3cb522e63": "m vaut 4 ln 2, pas 4",
+        "61bb1ddecea023d71d84d1a269c70d6cb7774b2c46ed00df1e6fda7feea4aab7": "le log-sum-exp ajoute ln l à m"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11a": {
+      "decimals": 0,
+      "element_hashes": [
+        "b53fe366656d78d3d1d961b6d198e75831372ed78b8b3d4a4c079e4a739f29b1",
+        "9dfb5d221d168e9deab39f7c05b3c2d0d059bd49ca2c3a241e22ad8217d262d9",
+        "e4ba75eb16790c59f5a9ca7227ad6558254e56b345c8897e769ffb3787494576",
+        "72cf4598e97985916d31830c75f405c37334b8ed3f6eaf96f24dd433a541cab4"
+      ],
+      "hash": "d26c5d18208bf97da092575216f76b8c8ee3ca70cabec4821d029af70aac78b8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "a65d2c23dd11cbb79320a745bda0afe7133a46c916ac013950729c6cfe470964": "x·xᵢ = ‖x‖ ‖xᵢ‖ cos(φ − φᵢ) : le cosinus compte",
+        "f993f5b8fa8e16edfa72c41977070e55e66386470f26b5253a9214a72096c96c": "le produit scalaire additionne les produits des coordonnées de même rang"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11b": {
+      "decimals": 0,
+      "element_hashes": [
+        "a9be32be69b4adb9d95261c213cd52083f0d221934725b4516b083a02e1a9423",
+        "bf02688baaeffd7425159babcd3b98eebe0bca2a73183a0c6571b683623332fd",
+        "1474b4455fec8c10154731209fe2ed17a994c29c9eec3d5caafacf9c823a75b6",
+        "8eaa87ab1a1f78cddc4410075d8b484df2574ed7973ddc99f56e10da6aa7eefe"
+      ],
+      "hash": "8120ae19506fe0b9bdd8f1995035721cabc8d79bd602c894c2678a4fc336b093",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "dbab44b1405a0259b9ccc6287db3f8c9ed65c961048723a66ecd5d7381aa7fb2": "‖x − xᵢ‖² = ‖x‖² − 2 x·xᵢ + ‖xᵢ‖² : le double produit compte deux fois",
+        "f975183d3cc3671cff61d44fde9b967fae0e133aeb4cc47fd0b58675eb3717c6": "la question demande le carré de la distance"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "81e968298433f4761eb03a8105133454de9503c0495556b65b8c9406e12371f7"
+        ],
+        [
+          "d177fd96f111e287f8fb46424d0415735983e3712478ba824607a6df4b6b5a63"
+        ],
+        [
+          "65e6047b1055c70a56975bba3bf7145411f566be545a059db2f3373236ac49fc"
+        ],
+        [
+          "bb772e80a9ff61b9feed55e761fa61b66bc8b35c6fecba6f1a2defa5c4de2623"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f47ca9f2f0fd937e37b1afe3508b51980065f95e04b369e6238afbb1f5837107",
+          "f15ce5b9580c49cebfa780cfe16e74b34b47f827aaf24a6b2f71737f369928e3"
+        ],
+        [
+          "761a0baa05bfcc1f3c28ee7b23c3216618f635f458ae09f8609b8ab1f9347d0d",
+          "d1d66094c77f181587c9a60d86dff33710f1a93b26a3bd557a2529761c2a9485"
+        ],
+        [
+          "b9c6505a23bf6eb54a927076683a8f4b1722670835ac198e53ff6446cf36af30",
+          "171c3dc9811b4db2e2a32fd682e12b480f263b6d01a8da23e8a6badd77963454"
+        ],
+        [
+          "218ecef3769338270a7aafb62b2261694fb0ed3d095e25d12d294908319b16f2",
+          "c14138f451867b209486638b040dc464d4247962f198aa25e35f48931568fef7"
+        ]
+      ],
+      "element_hashes": [
+        "ec984a4f6d602263534057236f357cf49ce146232948a29475fd459a58e0fae8",
+        "4a135e7b11b3f2c4f6a1b59f4a0aabf031b6f54f4145d093121367987e8bc801",
+        "e863543aaf39e50f4e2b2fb4c6a4078f175296ec946537bfe46789bbc5416d26",
+        "fab5c4465cd80aca58b2d95298e8bc5bfaf64562afaf205569c4bfce9088715a"
+      ],
+      "hash": "ab455846f42c0653a0cacc2d1e2c2cef3364026a3d95a1c79009da5ae4fe50ec",
+      "kind": "array",
+      "mistakes": {
+        "50430144b99053074ca6e2964da6dfecda950634806c74c858157fcfc5097f88": "le noyau gaussien divise par 2h², pas par h²",
+        "b5b5aea89d3bd1ab4893029c7ba00c00d3a05bddae5caa749b3b50877b655c52": "les poids d'une loi somment à 1",
+        "fb92e3175f1ed21dfaa6b4e29ce7909788327aa3726e8e7885bf7b53a76e0ce8": "le score est −‖x − xᵢ‖²/(2h²) : il est négatif"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11d": {
+      "hash": "ffe3f3b8824ddbac64e854ea841f23f0e30155eaf60264be15cf26b04c9f48e9",
+      "kind": "bool",
+      "mistakes": {
+        "5769ff0f925a9f121f812c20b311d3e7d1c05f06582e41638589d3306e6576b4": "‖x‖² et ‖xᵢ‖² sont les mêmes pour les quatre pluviomètres : ils disparaissent dans la softmax"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11e": {
+      "coarse_any": {
+        "0": [
+          "ec31fb9cdf18652ee879d014d0003d2aa2925caf7064b862b2a84cb68e59cb0e"
+        ]
+      },
+      "decimals": 2,
+      "hash": "b2cafb670c172646945eb898f2318368fee0d0c4566d42ec9651e2dba33b7390",
+      "hash_coarse": "ed88b28c78aa32bc368c6a686b62f9b321b405f63de3eac487aea82e31cc3c35",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "7176c0357d5525adecb539d6ba77527825c63177789cbc93b8220ee770bf5d22": "la prévision est une moyenne pondérée : divise par la somme des noyaux",
+        "f63168bf08c714ad184ce5b0d4457b92ea6b549f60b23520b4f0c4543ea94473": "la prévision pondère les pluies relevées par les poids du noyau"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11f": {
+      "coarse_any": {
+        "0": [
+          "54a3bb8ae9f8c530e793a1a5da8c557bae2c3095ed87b08769b77c53d521402c"
+        ],
+        "1": [
+          "978624e9db6e7c2e2e5c3d6f5e39965d8c4d333028dab862ca5a5832474b4f45"
+        ]
+      },
+      "decimals": 3,
+      "hash": "e92fc05a14dd25b94277f62922acdd65ce4c6465f48363b0fa79cce46198940a",
+      "hash_coarse": "c59d70dcc7e17902b488ab620ea761dc6cd569e6d00c303fb68a1edd18dd6dd7",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2ea766dfbd1de6871f8cfed959768cad84b54bc058f466e9a43900eafa959d46": "diviser h par 2 multiplie les scores x·xᵢ/h² : les poids changent",
+        "9345e3ab17ba1348a46f60d739129fd618fe8613e399e4628d0a49f3319f427c": "diviser h par 2 multiplie les scores par 4, pas par 2"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.11g": {
+      "hash": "0dcbc2ad32cab0503dcbd165d1138999ab121326c744548d37d561d7acd4114c",
+      "kind": "bool",
+      "mistakes": {
+        "f72656bd250a860fe5f2cb22d0974a02a8a737ee84dc9db54268a8df49a5338c": "seuls les ‖xᵢ‖² doivent être égaux : ‖x‖² est le même pour les quatre termes"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.14a": {
+      "array_rounded": {
+        "1": "26c4d849090e38c5e4ecb620967fa028cb28c271fbfe2c4f515c380f811032aa",
+        "2": "1e0ee9f5bbbd2484e5f040ca43aba5ee24e5474abf66080cca9e5bc67c8ad50a",
+        "3": "0fa2a0f59f45c097690304399661d6b5ec433629376f55552fa11ae9b3844948",
+        "4": "0fa2a0f59f45c097690304399661d6b5ec433629376f55552fa11ae9b3844948",
+        "5": "b6eed32e510351fc5e0953ae40034e3a951f887ae3cba65c20c2cd265b3f1b6a"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "46b3a4450555fa9d4b9018ee670b6bb8ce8fb2eff9c9fde41150d3f271b19cdd"
+        ],
+        [
+          "18fc41ba815a9244e297b25f1a99c0653ee3dfb884bda558cfa4eed43eaa3544"
+        ],
+        [
+          "c8bd688a5570fadc18bcf13a57f65bc376172a959815ad684a0715e3870b6e3b"
+        ],
+        [
+          "109af9a46840b09411a403e75946c1dea540bffde61431f3b2f1da19cf93c82f"
+        ],
+        [
+          "762c6f4100608459492557db9baeda327de8d9940bd8b2a00f8c65c924aeebe0"
+        ],
+        [
+          "6e4a437470fe3a89217c3c7b7534ffa065fdba82d632f1c94b554b8ccdfad80a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "0537bc266589739e391d22dc48864f9ce97f4b59d367d0808c956f5aeb4cc388",
+          "71390ce9d79b25ed60b9ea914c043fdb43d46d5560e10d7f0abe1d9438778392",
+          "efa5b73f7c9a2de752e35086822413a4a47491edb85098b287a077c707359783",
+          "adb6df18967aad816eca60a175ca1797eafeb3dc9013d07c8fc27f568ffbab1b",
+          "cc69a4f442bf0a7abe643649da8579dc748708bac05f52641be845b6664489cd"
+        ],
+        [],
+        [
+          "89f7676e24bd4e813988b02d81c9dd8e4d6dc48ab3be0d788d403ec6baf72635",
+          "e41a7404751f8851fbb97e4cd4fd6cbbdfb6405af9d3bfc76d405ef8dc26dfa7",
+          "9aa93d1d189ab099366b69ecc261ec791fac3489600a996d86b728f688d28b05",
+          "fad1c9743942de6ae7c3c1cb059180f8f3fc0f3d326dd6070bf99248dd102fa2"
+        ],
+        [],
+        [],
+        [
+          "d4b48cf4b695632cdf46bf03e47ec06f9c5d579da5164e30a96292a56e3cc91c",
+          "c91978701da3fc40f8acbbb8119dd0d6ce002bf8d854e9488c715b9eb076059c",
+          "f493b8af09817d5400194d74e466b0551f721fe1bc7e4bc6e4c3ce6d5decd172",
+          "2043356c671a863041d32828427ed7791fd1befb976f86f07e783cc1641d796d",
+          "c78987a09f1fc75a0df501b85808475e092f789228c42ce105a4c5e3f12e18bb"
+        ]
+      ],
+      "element_hashes": [
+        "a33e84e0616b707aef73242b01074901b761038f2e6188ad9fd1f8f534940f09",
+        "13b796bae830fb00b0ccf2fb7bf7dc63057fa66725bade09c51670342b5acda2",
+        "3c1f5d9685c07745b3195cff1714bbecfab2ef51efa8cf1217e5b5e063196457",
+        "0e0cee46d1ce633d28b8f9320e9182ab8a81abfc4ed5adc5ec87562f9ff8b11c",
+        "b5758c78237d4912dead53cb04a6581397dace6142112096d31480069c603302",
+        "facfcec462eeb241d1395e76840bf7420b3579b991203f2102dbe27c8a232566"
+      ],
+      "hash": "e57f1cb04a077ea95c783885f9b3c226268c55eed38ce76345c86605b4d128a6",
+      "kind": "array",
+      "mistakes": {
+        "3233b0ac9253cc3f87e8bace1de8b628dab0bae9f132f1840e28c39bb1ce5a4f": "dans R₂₃(π/2) R₁₂(π/3) e₂, c'est la matrice de droite qui agit la première : a), puis b), dans cet ordre",
+        "70b297d63b1c8fd47bcef50d6f9d72bd7a2deb17d95763ba3e28ffa6c91d6485": "givens_rotation(n, i, j, θ) tourne e_i vers e_j : R₂₃ est givens_rotation(3, 1, 2, …), avec i et j dans cet ordre"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.14b": {
+      "decimals": 0,
+      "element_hashes": [
+        "ba9574b3d163cca6d8fc8f16dda89a22018abd601800cab2f34b1fe424324b47",
+        "4530195f231c19c6065a6aa20e1a0d1b99bf958d21627739adeba1a6212e7ab5"
+      ],
+      "hash": "9ecb1e79c36ef3efe061c0d2647b380ed22a54e3996d07d91acaf67cc594c7cd",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "05c47714bd700767f4e6c5521141ab948c7244300acad8430ba3df66a29ba927": "les indices du code partent de 0, et (3.78) a +sin θ en haut à droite : compare avec G[i, j] = −sin θ",
+        "0c98286c1c64649a4ba2a2e71f5fcda228242f2be59973460bbe9b56663cd324": "(3.78) a +sin θ en haut à droite : compare avec G[i, j] = −sin θ de la docstring",
+        "bf10cd6cbff36936590770620e3f4e21ce166c8cd05c81bbfa9cb89371735723": "les indices du code partent de 0 : la coordonnée k de MML est l'indice k − 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.14c": {
+      "array_rounded": {
+        "1": "48c258e00f486f5ee68671205fd399a4aa75df0eed8d04db70e305eb6520cab2",
+        "2": "6c5a4bb1165ad269ca9c0b1cd42db26e9ef88cc9952b7b27cafe9481a0dddbf2",
+        "3": "bd9bf681d2425bb30e41b1624d468a1b5bdb335c00c7c85bfee9118bddd27a40",
+        "4": "57fc7c3ddd1e45ee9391da324fae7f1da2c24d1190e1cac626f7ecced67f89cf",
+        "5": "61e582a3a3e89fe93bab77e185638a7b46b80b4b4716213d2d1bc03c57757a53"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f77ba727a99bc4f11a41119e45aec5eb1ce898b5214c072c4d402f6a3a16b24c"
+        ],
+        [
+          "01c2865bc93459340b7d8cefc950948569ff30c4cba40517615562a502f74c55"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1599c511911adeeb96b1349161b850ea0e5753466366497c67d71244c2213009",
+          "fbbb9c96e825bafdfc92d213e4713d769442e8a294aa6c15d53ac0223b628623",
+          "f07148a93b0604ec5db4c003e8e9d7ea66fea44a3565271c5c522178901f739a",
+          "100b1f684b537bc369705cd44f04ae0c40298a16c9d0f48da4c5f6c71324fc53",
+          "f86f78dfc74b362f03fdce8ed164a4c0c114ce44024490b4cc4615d348ffd9b7"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "40f9c90dafb1cce3f48a0459e4c3008a9008e822ce35d1476fa9df5265944497",
+        "4bf1c76e166f112c70a95261f2471fcf5eb282b97f54773ccfe448e06e935b6e"
+      ],
+      "hash": "84f056c347e82f258ba75e3241aeb27b8ae27000912e888a93c90c9536b021f4",
+      "kind": "array",
+      "mistakes": {
+        "3556247f1eb77c794d701bb8b9fc7fe3195d32f8b8205432301b7e201d6ec6dc": "la norme de Frobenius est la racine de la somme des carrés des coefficients (np.linalg.norm(M), sans ord=2)",
+        "989ad9ec612e754313c7afd9fbfe406ba8e22f187ae43e84b3e713c301ccdb74": "la liste suit l'ordre de l'énoncé : H = givens_rotation(5, 2, 4, -0.6) d'abord",
+        "a9f2fb1244a49d8641a61d88f92d2578eb82965f81d56f8734a678ba8fc474a3": "c'est la norme, pas son carré"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.15a": {
+      "array_rounded": {
+        "1": "afbd74c3f872c1485bf418171c3ab1fa25341d844df5cd4b63b9a73fc9911d89",
+        "2": "e225ff016bdddbf29482486e41d1eff52421eea2cfb44a197735ace120858c36",
+        "3": "bd846cae9fa8101b924349d82b65b22f6a50421866c93adbe371652a0d54b18b",
+        "4": "f94b89777123f7d2a975babfbb459b9a4b0589b9ce292f1a27e171588fc9fa32"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "c4f8b9269c6b9d51432db9dd1a748f65789504d63b5663839077360d8dc029cc"
+        ],
+        [
+          "0eb610248abe2c70c615a0abe5d52760e9e617a87c85cca563eb37a4f6be4d68"
+        ],
+        [
+          "97ff2975435d21b0f324a21c47a9ed97f20bf69f7316289ca0df31f660b31729"
+        ],
+        [
+          "23b852aa86c2445d8153bba858f17ca8e064661f6d88904dca02f22f6be3bd91"
+        ],
+        [
+          "ee4e68a91b79eb72b66f35122b532b669395bce73ed9883d7955a5eef75247c7"
+        ],
+        [
+          "5dbed2a74f0db525f9998f8c39fae641097fa4af470eb8eb22343d2bef984fa2"
+        ],
+        [
+          "54f910b7853c6f4057183c74f2fc65df9cf88f69e83e726528a01c41f3083711"
+        ],
+        [
+          "1b8ced8e5d473f05c27c36fed0f058fb91e78c13342feb1765c897fcddf67374"
+        ],
+        [
+          "9c2c9b0cfaf3a0be8f3fa1b11b2f7cad4b9a32707f6fd49d6fd0df371a0477f7"
+        ],
+        [
+          "27979b287d67b90bdeb94aeb1122966bf14cb3b1a6554657496d180476a2ea2a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1bb7e4f43a248c66d5f4971699a599e3d9496166b04a760d8b76e11b431c043c",
+          "1321391709fe6de1c539785a15b1b271c94c30543a4609691ccb6e1ca3211d2e",
+          "6a221225445adf025418d38122ceafde186e4cc0b788d4d67dc727a281ee76f3",
+          "400d337c47649d44858e6414a42a6107b934fb36f080d582cf507152d8a55ba0",
+          "84a1763f62efd90645c489e190553e22fbaf7d2259499e47086e82333e1e6768"
+        ],
+        [
+          "f60acf17e8dcde761f9d4e033daa376f5f85ac174ed58a34c6c7d42f9375f990",
+          "8866b1cb9ecaf3558673f4443c3fd5e0d4761be692549a9ed7e535a22e0cff2c",
+          "5a222d94581e911ffc91953853c97c7adf0d69ad4793c3da8e074bdf9be47683",
+          "265c3ed8eb326ba0601404932f9f2d70aa343a9c96ddd3a87e32d3fee5f2c54c",
+          "6abdaa1167dad9088585c0152cc24726107854cba92cca2733d4fa745998d479"
+        ],
+        [
+          "73789560ba66377d1775f2bd813eff66ace5d60cae0a09d77b75222504d3465f",
+          "2510d277fe5d6d9ad77916b5f10852095e4673cd9a3b9c6c63b03c9bed5e7d92",
+          "a6b4caea0b1bba9913b67ab630b1e6f491d6637e0c77be15e14ff40361ffd425",
+          "792623effad5b273ee9cf716d2ad566366a06e781ccb8d31284a584c2260ff66",
+          "b47dc42d41fbb1bcde430c464e16b5a2c6a3d2322f8a3ff6d93dfadfba24ad60"
+        ],
+        [
+          "409aaf774258a2e8f263200b4bbda666e3ecd8daef3a0c84dc2a64fcba5effb7",
+          "9c997dda742a8b4853a9b769c70c256127aeb7993330e7ff037de7dafeab5cc2",
+          "3fd80d510739246b7ec957f7e54d3604cf092cf3d7dda8729179714dade7c64d",
+          "830b25fe2eade28bd7cb81ed40ba4fd59fd87579ae50da08f871211b6e25aac0",
+          "6a7fea01a7c84166fca51f565294e9811feec742e5a84203b00a9d3b04db7940"
+        ],
+        [
+          "63466520eb034cbcfcd40dd0f30a0bf7d47109a0ac18658f800c7ef65fd5b8a6",
+          "c9ec46afa316a04a29b58086173d285301a3e23a7ca804d18649509d100f4352",
+          "2fb5150c13de027fa3b3ab5563237148c4fcd167f955df67c1b9055e92fe1fb8",
+          "827c1d532574cc37c58bb392cff6ffb377e2d404ba5f97b8dccb89714349b4ef",
+          "140da0a7533e7df1e184a9ec449d652c5f1d2efdaa0b12206018c9e9aaf84250"
+        ],
+        [
+          "7b40f3db628711c0919697288b7b7290111df5b220cde412bceb085a2751172a",
+          "940363e24cf0d3ae946610c0bc5faf571224943d6ad957b3234eeea6a9d95309",
+          "dabc910224b71926a4e020999c4c87af1b53ced627b96201fee800dcffdeb9cf",
+          "ca2e5960c9e60fe25696780c752dc9f546669bed1e378f50ac44251561000b7d",
+          "c01c3472d7b3ed454a66997cd512c1411d02199b572767e6198b62d91a0016e2"
+        ],
+        [
+          "3f248189e9d5fa2f17db3be62a7a1e76fa688c1d1563504d7106ee181f3ea6f7",
+          "e5913be5dfcd2e97c0b7d18abe12cee4ad979622861775b34559bfdaa5796c8f",
+          "1fed15e3b0148f897f8291f31e41e04300d070f71235d2027808711e3d593aaf",
+          "1392678fd058695e1044c0dd7b345c07c85ff23128d53809a1a530838b7c8858",
+          "cf229ccfba453d46f2bc5ba0bc227747ecf22aeee7aa41967958fbb0bccb2794"
+        ],
+        [
+          "4c19c2f164489ae88eba2f13886fdea9aba0b3ddab8795202e4b36da6c3de06a",
+          "9f85910c074757d7a82ad259b163408b7d31dddae65a611d4802b89ba1b67389",
+          "12c1b55fe9d95077ba45d6fea61812c58115b9b8260d3bb2e683d3154fec75e9",
+          "8ac68a888d5be6608b1cfde8b3593152ec56f5411c1f53e8ac6d9d57ec520ad8",
+          "3f01a3400d647a5cdcf340f616ace3a6c10f33bf6b6364011f4e7e067112564b",
+          "89e7ddf16539a6757810b6847981b267ba8e1aa3d21d7dc6a46f37a22d904a06"
+        ],
+        [
+          "51c21493d8e6c5d61aeac1bc18064ba1f56b204eefacbab349081ee22ef3126e",
+          "e2ca1ab733ab65bd19bab80de299029cc7e2022383ff55d1ca22d6df255fd5d6",
+          "05a30bd8948a0076df6494a0e7ebd83b421e24955ebe9230d6f710c685ae3325",
+          "22451002cdb6341abd32aadcb6968b85894a9b4f7891be747244da5024250603",
+          "068207deff19b07677d2c678a392c5a16155d9b90aff2574cc630d30c219c65e"
+        ],
+        [
+          "1ad738f845fabdb9b02eea24ed741f3845850780e7952ce59ab63e0fda0a74a8",
+          "179ea9cbad4f5e68c26aa7045d53acf7de5a161da929e6ff3dbc64b2ae9c3062",
+          "1420cd24e854144200b35888a683ec1317bbe0a2842b8a2819d87298a5b0d783",
+          "2e67096c61834d972a9e3907100cf39f606d667d1e51df3a99daf4e5a3da14dc",
+          "510abc1d04aff9e897bfc16613d1e62bbcd62f7608f9f6a539d285c9f3cd776b"
+        ]
+      ],
+      "element_hashes": [
+        "887ed724fe39e0de583f12030c0287636f6914015afcf2132c1a19fd067b8dc2",
+        "ae6d388e964140401b39e5d671d7534bd5c251a67e824ee4ad5adf086bba8bd7",
+        "6f8441aaa62f8aa7298aae52dbf882fa8842b180e42ba61448f90c2450525df2",
+        "d8d8cf64807e5ea7c917fd369a0680c93b3e9393ffb8c96b59cdb6e49da6ed76",
+        "6c8e7c205a234c0c16e291cfca24560ed91eb86291af9a779c36c04cb17b12b5",
+        "ed5bf18b3df7470ea7ce6b55ffeee850c71ce63c3644e33a34e2b632b02be0c3",
+        "ce38b9bddbaa4c554abaa1198d6f4eb1ebc2da5b424b72bd5e1f43b6c30fc3b0",
+        "b4834ff7677bb8e41d997698c0a42a7b499ca97a4e3aef4eb2d4c97054efc65c",
+        "13c1605b5a4450bccf1ff66621a3b11060e8fc06d168223191bedc7f94048f79",
+        "7d811210e7d079bfdd83112f6b67affa66080cd517495514da61e349750b1d86"
+      ],
+      "hash": "4b4b35037ecfa590b2c9fbc33efbb936fc2dad8fc1f13e0b04d217e3bd47f814",
+      "kind": "array",
+      "mistakes": {
+        "1789c43a9725f60113abad5e661c312f59e8e2bdf1be4afda4b224ed55fbc5dc": "m s'écrit divisé par ln 2 : chaque état commence par m / ln 2",
+        "e93d68a275aa93113553684875aca1eb48421c4a473c60148223d4e585f25314": "quand le maximum change, l ET l'accumulateur se remettent à l'échelle (relance les tests de online_softmax)"
+      },
+      "shape": [
+        10
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.15b": {
+      "hash": "3a1a56bf47a71937b2e3c58c74309b286faa1bea4397ca1e6ff8d9a64593bfea",
+      "kind": "bool",
+      "mistakes": {
+        "db0408316954db4ca8da0ba3b27158fe1c0c0123953c8079628cc8e4940096a0": "l'état final ne dépend pas de la taille des blocs : compare m, l et acc à 10⁻¹² près (relatif, math.isclose), pas avec =="
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.15c": {
+      "coarse_any": {
+        "0": [
+          "5b8475b2c15460aacee7ce24d3b44e15ab265b11def8342826dabf3f63f0eb0a"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "976b871d315cb16659007af3d8e003de44a6437e3409401d128bec994dfb6991"
+        ],
+        "2": [
+          "7a8d236225fad649e1afe9f686d205a6600555ff77f7a58b45a4dbe5f1e5ac11"
+        ],
+        "3": [
+          "de51aed8bfd4b498f0086b1b01447528278dd88a9470847eb16a8d1bfe40a6d8"
+        ],
+        "4": [
+          "5a2c4b105d006e096c9e6caddce9c260852f4c893a2535efc9790510ce571f35"
+        ]
+      },
+      "decimals": 6,
+      "hash": "69a23e7fbfbd5a9a7cee1f5959b7d110ef9b0a39a78f76d330f11fe6323b56fb",
+      "hash_coarse": "ce58a25c3852f4ae247ae045e88df50e43481c54ab5fb5142767ae03e0b8171f",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "2e62fbdb7edce4241c65fb8370fece420f8cf32ab26e41f78bf46e0c113175e6": "le log-sum-exp est m + ln l : n'oublie pas m",
+        "8b1c28ae69ba972b6cb868e1567a7425886eda7ac7c5c1c2a9330fe083f1989d": "le log-sum-exp est m + ln l, avec le logarithme népérien"
+      },
+      "sign": -1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.15d": {
+      "array_rounded": {
+        "1": "8e79f8bc92c9f0ab61c5a51eaf89e19ef8515e80790c56fd8bc6c3ccaff8d638",
+        "2": "2e0da5817b1373651115c239a9325ead5461f661283d05586a57566d8c4de645",
+        "3": "416e03a93b1a75912253338fc1d1ceaf9fca5767cc658b2eda52533a2b8c1a80",
+        "4": "4fca930f7b777d4e2c5810a4229e801b55a7c1e4c510df66008d3be9a6c2739d",
+        "5": "060a765d16a5c79ce4855286a2ea1239f4e1ff0b4d4b1a81a5fe2f2c14e5362b"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a98067d0d1091507c9ea3c413f5fb299d06d2619ae1c651d39c36cbb0cfc7408"
+        ],
+        [
+          "2d2c9e8d5dbb6e0f9bc48893ee37f407e6d26072aaaeebb7666b32df36cfb85b"
+        ],
+        [
+          "a6b816ae3ae01fb3a61c8841a266e02373f90cf48e61241d827bf12d1925b096"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ec1762ed2aab4bac553e20b23138d91a0317719f49dcc8118130741f59e45c3d",
+          "f296b5412f9cc66addfceb731dd880de6c257ed9d295d4d2be0cec89b44f430a",
+          "bb76227503e2c947aba34aa4ac88d1c2710a5c1497542888d8daba756cc27ef4",
+          "61083f2ddcee9e154a8731a60711d24508a09712d6813c46359fbf490ec5cb5a",
+          "402714ce53d75e084d258096c0d5de78b8752756ad94122fe4f56ff8a09e2b30"
+        ],
+        [
+          "e4c069eacb0b0a3a74efc1a49c7925f4f90ea01d5fd83cfebb6c55408bfb8596",
+          "0c6b3c07d8c1dfd62e2d00075703c2802fa604f6403f3d4febdc47657e101d71",
+          "0bd908d37f933a21ad7c360e423e6f47fb1a7ade7fbeca56b5b8b78f438a4479",
+          "1c01f909fe312906fdd3a4bc28ba09039bd406395672be074eebdfbdf629206b"
+        ],
+        [
+          "075d6586cfbc61de7c81a49c1e0905fa571ebcef99ca12cf7f8786a794d70f1c",
+          "8b76fe2ab4623358a6f8590af0388a4eca6a2897e87821f59e9f90ae174a89c7",
+          "871770cc8fa0ff5425c37fcdcb3212d766590d2e12743f5a405730c9dd86865d",
+          "794dac593c7ceeef51cd8fdad399dd2899060a1c9d0323f0d97119f7c82db967",
+          "0ae39c6ef34f9ec0c3f86731db5cb605a868fcfd9ce58536274e544bd972eae2"
+        ]
+      ],
+      "element_hashes": [
+        "98d8e2f4be85c752a2a532f7f8fa5c1c054346282686fdf7852fe5a49569b45f",
+        "d767056c2208c44a4edbd5054ad0f653f2f34c768277723dec091f03b0dbaf54",
+        "8808805d7ba130a6439c222eba4740dd589bd774986e3f1b2a6f9ff76cfda91e"
+      ],
+      "hash": "f152714bfd377290a486df53a9f2916bf8e3a76460d4df3ec4614a2737d3290b",
+      "kind": "array",
+      "mistakes": {
+        "0d291456628e7860fccf9846609d56dfca0f70bc43c93bb1d29df4e579b0788f": "la direction est dans [0, 360[ : ajoute 360 à un angle négatif",
+        "10dd5ad9628893d58279286b3e35d796cad54b9227cb92b4433e785f6f4d82ec": "les encodages se pondèrent par la softmax des scores de fiabilité, pas tous également",
+        "478528c7aceb2207c6709833ee369a21d0e31fb457a4ace06c976ea612d68107": "la direction se donne en degrés",
+        "60dd3f8ec9a52c491a0b96c8384db1c8f9f7520f3802b6e2cd52b55b35bc126f": "la direction est celle du vecteur a/l, pas la moyenne des angles"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.16a": {
+      "array_rounded": {
+        "1": "a90fa487d0a080fe14caa2b58c6f0191dc888daf8fd247e626e8f74d521fdab4",
+        "2": "06c1b056714ed83bcefc94401f80e7e8b304aca12729324c37b6b937468e4a9b",
+        "3": "26469c9f658ee6bcc9c19853f1d6d67f614267cf1d8752c25725892141872499",
+        "4": "6aab4465a526540f2ccbabaecf4b72eea87d42490f4615af44b1f74cecf8e01e"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "df49cfb9418a097c73b20620b847a0b7328a73e464d1034ac13d8d39aaa0f34f"
+        ],
+        [
+          "e0b6d1f24270250d7648375419e8c71afd92905d2302379ae519fbb408ba038d"
+        ],
+        [
+          "92783b75850f619772ad89bee841f3980bba4c748cb7c15cc82fb841dfc3d3fb"
+        ],
+        [
+          "5008138b226f158c97a7a5455e9da647d621e3374b90bf6758156b53b297a377"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1ecdd0edd7452c5c1a74eb9469d68f41a0e264730affb8afdab2f652aa25b1ce",
+          "a6ade21032c44271af9f842dee0bdc3733a6f97dadfa0844faf6a9fd62948d49",
+          "2e3e964d9695e41d265d866db5b5d5bbd0fdd08d182118037405f5b510a93844",
+          "ce59d0080c54f3c1bcfadf0e037ec4c5ad44bdf9bd6e52c225eb037a0b0d1034",
+          "40fff5a55eec948435e89bc94e6e4f9be7e2ef620047c19c46620c1ce21f439f"
+        ],
+        [
+          "e3570ca17ad55ca74cb86799707a33a8300512165c1e3efd0bcf7df4d61a33af",
+          "03375bc0e6a0e60ca385220668f6235123b352ff7adf9f5bd6b9b924e12d9aab",
+          "4ddca6a23a829c5ef1943c9e36117fb73ce3e9d68bd225f6c6bca548a4391759",
+          "eef201bfbebf357fa46b72ac23d84e02d8a341a98e08f27b0ae2503570251c13",
+          "08f6983a81568a5ce41666fde92db363e221bca9eb157c3e4379395e518fcf37",
+          "5c5544ad20c20d8fc90d1e77e3205aa4f84515cb0424bc88650af59e66d844ef"
+        ],
+        [
+          "8ea31949e3567a808a3e17b98aeb98fe50de715364755dc6ad71c716dc318183",
+          "350725cb9214a30b9f1a8d2940f5a6f3bce829c92bb7c4b445adbfb458cb3397",
+          "638a6a043873bcb866d91dc7d0ed2ecccaf75ad4208d20681ff1fa930f38bbb7",
+          "fcc4f5bbc55a562be5655437741547c2131d2d833259509b592671f6e4b1b7f8",
+          "e0f12b2d88baee75acc10a9812dc266f7f182ddfc211651bfa35d014cdfd25e7"
+        ],
+        [
+          "33805bb5f1f0d4d0528c31983ae6419cbffb171c5e7137448c69d2333ae39c19",
+          "62f91f2316331c6d13ba47f8dfdcd1893480eedb9129ebbdfae466fa1dacc28a",
+          "9f7ed4fad03e0cae6e8df31c0732bc91696a870c9c3050cda855fdc92ed687df",
+          "36d5c01b4d63ec060d2e07ed28cabdcdb760a7e3639787559a9a2571647d0908",
+          "60bf784113933d8cdccb4c02dafd82c99a1a5992f79af72fa899c0987d5d1f65"
+        ]
+      ],
+      "element_hashes": [
+        "4b8c474222b8d3196b36ba0c144c8bb946a07878758084b6081aab6b369565d6",
+        "f2bc665406d7cf7656aa7f98f8359d48f597fdfa33db242926c2967fad0c4588",
+        "0ef535ac7d977de101fba0f2245e491541d2ae00e01927c6189670cd370b3bc4",
+        "f670fce44ad3191e4213f9776fcd06d1c9d15c17a6422ab9d03c678d375f833b"
+      ],
+      "hash": "95f990732dc8b08fd1d1cbb720b2c8e6ff694d6099babcc6f7dc883f86f85e37",
+      "kind": "array",
+      "mistakes": {
+        "1501e13d34da240572d2a03c666798c42c236a31dc9b754f98a3519981beca09": "m s'écrit divisé par ln 2 : la liste commence par m / ln 2",
+        "9ad1fbbdccd6245d95acdc93ce86bcc4be9bae8178a60cd7b55f35b82b8cd995": "la fusion additionne les l et les acc, elle ne les moyenne pas (relance les tests)",
+        "ef3c69f04d5bda0c5c49f1154455b5b2e54e3cc9545ae3656a47d1661afe6aa5": "chaque état se remet à l'échelle du maximum commun avant d'additionner (relance les tests de merge_softmax_states)"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.16b": {
+      "array_rounded": {
+        "1": "119b0d6e77a3752ea697dc0f8c616e851b84b7f23f144c79ff2c85e3a0717636",
+        "2": "1a3acd8b0010f7f71b4dcaa55b77d176d8d568c35de79cd1058ba422ce173f26",
+        "3": "741146e886937f4eaf9e4b15db3e4eb08a1d57ec50fa9fcdf35e4c5a19c5d0e1",
+        "4": "9667917d5191e47fb242423dbcf7dd8578314c3bb59498c7ceab671c961aba99",
+        "5": "50d2e88b1875e3e2f8eed0428ea4e39ea4d7be8c43e6a20bc0da0a705640468f"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "944aa771db17508d0a5e6b28822b354d1ea4cd6ca10fe04069e5cf2af498123d"
+        ],
+        [
+          "3b212f4d0178644fefa4ca07a4ed031b7ecfb3e8bb2e11d0ef8e0464130d9fc4"
+        ],
+        [
+          "bc5c88ba8965785a9dfbd5673f7a6e9bce1d37466ed8284e0704a15ea03a0ce3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c8a06e644c6822a0ab9886dfde1628741d630e630397ded84040813fa1a96992",
+          "05b58b3e872233a8d2d01e81524978028694dcb2d00edec77dec6b3e29ff6c0e",
+          "630995bb95662567329416239d1376c89e7b741d3b1887e5ca51e0f582955093",
+          "975e0542844fe39a6a2aae1b1402be1b89b7283637555a94e079c647b143ffa3",
+          "93723c3e2116bf35613fe99772dfe74d57d5adb9bae1c1bcb84845beb3f71226"
+        ],
+        [
+          "1885dcf19f84562012bbe6ec09ec02a91cda347d8d71a493ff607894a85fbad9",
+          "13adb88368078803447675dce54cd9e9912ba8c8d5adce15f7847407dd4e1fd0",
+          "d8957890796f0b76318d98fe82215337d49e445ea50b22c70055232dbc21a398",
+          "6729f0ec01d08b017392beab84cfaf670bb5002107f3191a93795ad4736dfe36",
+          "4e44e44d9841617aa51e0c529225c58c38939b7f68e33cfe621bf4158839f352"
+        ],
+        [
+          "48f2032baaa2a46e92f0fcb7ca3a0d3292750fb5339e1b226ac37ade84e17530",
+          "afbd347a7b96f86b637755adec6d65978d5585f781377d1cb04af9ec8c42fadd",
+          "03aa18af4fc590430269e51a67fb8d2aadb5bc3b8561c0cfdd4c7c6adce6d006",
+          "5e974f58f368b079f42c395520752e255873bac7bfef2826d1c28e4a8f022256"
+        ]
+      ],
+      "element_hashes": [
+        "a23e61caec6196a782625703937239d60ca658569035cdce3ee9b0ffe6057090",
+        "400746b1f813aec88b193d7b8559a5daae33bf534bd21985d455d781a983bffe",
+        "9fe282fbaec481491144c80277958f9e3ccea59da434cdae19e88a32935c1d7c"
+      ],
+      "hash": "5af682ac5ffc4c9d25084b516aca27faafb9a906e777b4f94ac3b4e383fdb132",
+      "kind": "array",
+      "mistakes": {
+        "235ddf6464382fb90502ae2af03be41c14e59651a9708d6818711c0b4e628480": "la fusion est associative et commutative : compare les états à 10⁻¹² près (m, l et acc), pas avec ==",
+        "e2cf42fce553ad1f37512ca5f36563f47c707ab15ee1598162ff1abf2bffb44f": "la moyenne est pondérée par la softmax des scores, pas la moyenne simple des valeurs",
+        "e5ce563cc7b922bc93aaa9f83543507f30f1a33645d168faa5129a2abcd7b988": "la moyenne pondérée est acc / l, pas acc"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.16c": {
+      "hash": "b1390b46d2c3f1935880a9e631799de6d25f10939061569f65754f61d5bf3f93",
+      "kind": "bool",
+      "mistakes": {
+        "2c50b0041b0988de6deb1d735727604d4a6a527ba6967350d4912db459d61fa2": "l'état vide est neutre des deux côtés : compare les états à 10⁻¹² près (relance les tests de merge_softmax_states)"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17a": {
+      "hash": "97e228ee8101541ec97b984ae6adc0f49f7c1fb7f0d031d29e990727850264c7",
+      "kind": "str",
+      "mistakes": {
+        "1fa11891e4074f9729c4ef33d65dae65f5ee22c976d96b5f4aa1ca087d89aff1": "les scores −(x − xᵢ)²/(2h²) dépendent de h : diviser h par 10 change leurs écarts, donc les poids",
+        "3b0c09539e949f5c17cdc93e8e9ffcbadc1cf5b0a460cb4400ffe34575e04514": "diviser h par 10 multiplie l'échelle 1/(2h²) des scores par 100 : l'écart entre les scores de deux stations devient énorme"
+      },
+      "prediction": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17b": {
+      "hash": "80dad5f88c0c2ababe2f2955ffe3b38a9887f5af761f218190afd2f20c6acb76",
+      "kind": "str",
+      "mistakes": {
+        "04a07ba4cdae71e91e7a87e4c7078b04c8e1b1c94ee7b0b15c677d3a85130ec1": "multiplier h par 10 divise l'échelle des scores par 100 : regarde ce que deviennent des scores presque égaux",
+        "44503f25c8ced9c9880c882cae30d57f95ad38e19d80da5a8313075b77e469f9": "une moyenne pondérée n'est pas une régression : avec des poids presque égaux, que vaut-elle en chaque altitude ?"
+      },
+      "prediction": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17c": {
+      "hash": "5be6e52324a9bd0bdebcdfdcfb295bb0e93f8253cd4da003cd77688a67997ac7",
+      "kind": "str",
+      "mistakes": {
+        "7cd1e9e6660f06be2d10449ef1bc7cb5abb2b182d052d14b59ce53c17762b6fd": "la prévision en une station se rapproche de sa propre température quand h diminue",
+        "ad1b80c04db9496962795e8c68d29e139161a968af1797c4b87c12fccabf57d5": "à l'altitude d'une station, une très petite largeur donne presque tout le poids à cette station elle-même"
+      },
+      "prediction": true,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17d": {
+      "array_rounded": {
+        "1": "bdddc9d34a7046789a545e7eab7d1b661a08ca7a80a426f4625972540513765e",
+        "2": "857432272dcb05e0b34617a1f5b220c7c8d1ad5525581d3eca4960391382e839",
+        "3": "1f8fae1b91f9747e833f301d5d8bf9eedfd2e8dd64d21c99f878f1727fd472b6",
+        "4": "fa2ae66f2242872a0abfe0e07280e78f0b5cea61155bd1ec55c206979fe76dc0",
+        "5": "4b594ad51cf966a360a6b9f3ed890438dc811b502fed7ad8610822a0db72eea2"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a3026c3025a2aefada801cd718eaedd8ad08acb897f41b40591e0811dbac2925"
+        ],
+        [
+          "b84b04085f0408efedfee66b9525d2896a5e90bea5304edc87761f45024ea866"
+        ],
+        [
+          "ca2f453d58514f9698ea0f61b5abb2d5043bf3146906c0b083ec1873628eb79c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "41dee1cd02fd1f58856fd79c0821cfc91cdb7165f33e3ec7505ed274831dff70",
+          "76ed4418553d60a332ac8b90e06c43b48d2b8e765ab4e1c61ce6711bc0dc0f9f",
+          "9d6ca00949585207bfa7d35b9f906353e9a2f3f8d3bd0749c826c73e456cf8b2",
+          "65a1cbfd083b7ddc96f148669aa9dee93bf11b5be3e8bbc4a8f05e542831c589",
+          "69da27908f6d3d2c8e04377c05224190f1bba01c61181d3a0187c8ccf7590c7a"
+        ],
+        [
+          "59459b000ff927bffe4323185048a820eee328421c776981eb8d74fa82e90ecb",
+          "af13f36133ba7c5e2be7ae1098f4ffe8cb5c1f60b539acb8529213099ab1266a",
+          "b6d2b80975f6be49c76b924bc8b9a1c38c23df9c53e3b73b18d8865c8bc36275",
+          "beee71a2eddea324057e4dede96e8077f56ec588c59bde238b02f97d7fd97ae6"
+        ],
+        [
+          "da1e5f2c6e9aac6a1bf083e8868ae14ec4b5acaec501817f8429123f7301f255",
+          "e0d01deb2eaff066d252121487b503f2053705d7cd8ca9ee985921277818faf9",
+          "93fc9755622bd631d9ffc01143bad70dd909a5559d6cf1168d7c14fb4d92aaae"
+        ]
+      ],
+      "element_hashes": [
+        "5db547ada9d135bc4a0f982261821c2ea9029022c38a56e78ebb8621683dea3d",
+        "57bb512f322a96aca07d09bbcf576112019d9ce56a1a0be7448b81101682c6f9",
+        "f6afb4bdb6b5028db2758919bd3024d2c4a86e1fdac63df75582bcb7382a9bcb"
+      ],
+      "hash": "b6744f6c0141edbb87dbc905daf6645b7e6bc6015ff1a2b6be65147a89e541a3",
+      "kind": "array",
+      "mistakes": {
+        "1fd58fc24b29adba0f2d1a7706ee593c3c97cc3fbef3c1819403600aacfb65db": "le noyau gaussien divise par 2h², pas par h²",
+        "347f4d37a03dbc3c07229ccb6339e6b51597fe0f52bccc1080f0d3f552b80cb6": "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17e": {
+      "array_rounded": {
+        "1": "b6ac23553c881c46d9b703633e4a70f613c5844c735f1ff54c3895dff84a7011",
+        "2": "0f619b9f11f2da08a0ed7722d80f1fa3fc163e169a5cfe30bd75d3540df5fd87",
+        "3": "8c73f5b162a0a135a819f9f100b0bde2b3461995a29ae3490035a54dc7b09edb",
+        "4": "f7bc5755619e48616117188fea7bb35349cd989a4eb24960fc991baaff4751a9",
+        "5": "48031f883729730133a35c8bf332e326a65f5e7934a9f26b8f24ffcf86745202"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d1127201b43592ee09947bbb0bc69e9b480a0e455bbe4aa84e92ed515f51f921"
+        ],
+        [
+          "13b48c6686259e838b6fc9f3ac2304a2d6b6214dfd525ccf0f7d0fa8b42bea35"
+        ],
+        [
+          "37b5b7b993b48330a922f21a34c48afd4f7d3ab1c85f1afb4384394842fb0083"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f6cfc1ce117c465ccd075c61c060cbb3f10a82af63b171d5cd07a1ab0f28d522",
+          "d0a9cb66272873f37b6e6dd3bce0e8806590ecc622bf8934276101d1dba33db1",
+          "bd0b61f204e7fdcca76cdfc5ad7b093aa9c074ab962e8bd7b6d985e2ce790ec8",
+          "f966dcb166488eac467721c7270d25a10b6e876200110bdf0278315928aa3a82",
+          "f3b5cbefa8afc261c04c42d606ef44fdd46f013e83f334fe2aa0dbe8cdb2f6cc"
+        ],
+        [
+          "24ab4a67d5a8ef96281207a7e1a3b6e52566da122c49d67766425b9cac2a9af7",
+          "90b1d8c7ba01eb8aa3de6606ee2cd347b828091a3bfc2ff88392a124eb9f1819",
+          "9a7d5777d3a2e28582f62f8001daa4e52172b680de0dab0f403d304605f44e06",
+          "0416c76490120ce98d087f8f5260292df87805978b44f7c87aa6867e37450387",
+          "03150fe07e3005d436ba4e0295b6a7b391e6db65580c597d60f89d8b557e2458"
+        ],
+        [
+          "c378607444a69a28c1368e99901e3bdcf43667392ba3990a8574c1d153c543d0",
+          "c9a87ec4bb53e9c903a3eabc0a91806184edf838ee308e82e3e13fb28ada7567",
+          "03c1248c8c5b9a617a3774d628e4194639aedc9cd3b2eac5cd2a5ccaf0c9e782",
+          "afe4129b292a47be4b40107e5e65c37f7074798c1bd86fbe690e72b5962e694c",
+          "83b6b1c8e804ea4e585af5c803b82df8dc478d61b36dde29d1e8bf5b6b6e3080"
+        ]
+      ],
+      "element_hashes": [
+        "811eb018c5a62ce5a4adba51c78f501536d18ef7a7f7654395ba1d85a20d5696",
+        "17a7c51a50052c2ba47321ce29767ad4a8ffa5cb55112a868089d2b270420e6a",
+        "ee0ccfa2884417cf37ebec4a58d7d0986685dd3fc917d5adfa46338fd0875f0f"
+      ],
+      "hash": "42a3de830c617fabe88cd48601c7c8a61407956f8db1d28122a4240bff8c6c04",
+      "kind": "array",
+      "mistakes": {
+        "399246fa5e9a90da99e36d8da224d87de159073652211c90ce06eefe9c51a60e": "le noyau gaussien divise par 2h², pas par h²",
+        "3f6017beac244337886de795ac478637967e0bb2a6eb17e43f6170a47aeac7b6": "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17f": {
+      "array_rounded": {
+        "1": "6627bddcc15c987b5f5ad62572bd21015a8982ff0e34c073825cae49b95f58de",
+        "2": "9adc1f84d00ca58157a7f80808774b5210e7f19bded0fd6d4f221ae565198427",
+        "3": "ba9a753c0d54d5eb1788da66255937aa862b67950663754fc44f7907dd24633f",
+        "4": "7ed666265b1fea291078f0abb8fbb5534e455256417c368bbd2190d978c79158",
+        "5": "17a989f275a5abb399eedec4530d26792d79fe7c63b4a689f1fdd53ad09282ec"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "7cb77980624dcd20335ece87408697f4705f0145ae2e3202218b1a99f2528729"
+        ],
+        [
+          "49d744c3e2e8f6495d7cd804113faf8506640093d0a1be91263f024d977516a0"
+        ],
+        [
+          "aea43038cc9b289441b6490ef5f58f70221eb02dc24952358fcc9fcc41fbbf27"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9937b8bb7228e4ce1cc20440a181ea13ddb534a1b07f48963eb9b2d18f3aa901",
+          "e8adb0a417823750c602cb1a02e03caf93b8b0a5458c165c95bf8234237366d9",
+          "0ed16f21d26737df1f21b11d16dba137078d25ae8bd3156b927acfc085da4dab"
+        ],
+        [
+          "1e1c897fab962b5e10c3e1e37be71ce31a97531216cd36ab2be521a74a72f429",
+          "3939cbb3eb0e37fd599acec9aa6413ad3e3de48562abc23248f63ce2eaa7b581",
+          "95bd44066e1c3c0eab03df455d7c8411e42f0595e4d1eca9cd692e2bc17278bb",
+          "a58e984808f0cac3e80d9711ee20becebed836896771a8f3fceeb8a9787ef334",
+          "c9fa9fd67764feb98f13b148d9bbb8c30cc75a1a500097f8b2b412e10d9c797a"
+        ],
+        [
+          "8b1592142477454acbf6a1216d1822502319b907267004cfcb47dd9dd62a0f22",
+          "43ee817d2ac43a742578ef0f0eaff3b04196d2a9089a6e14ab6f5de8801bb5c9",
+          "4fda666c5fa0655acf09215109c1048e1bb82f152ef62172ac439e8be466444f",
+          "fe0ecc96175c3384ad8cfb7f022b85b6de0a2d02998f224146c66aace1463225",
+          "11a764036a2a50c84effc2ab7b0a33a4d7a068b92d2f266589a5857746a55534"
+        ]
+      ],
+      "element_hashes": [
+        "c61067c9152f83c7c7df4f665f1abc322a4836d53d8da9f84d8f6da46c024324",
+        "acefdca8da1195b857a9d3016c7aeaac76cb448fc026b375c6b26e195491fbaf",
+        "724331284e2ff8829b33827b9d9de17b68cd3f7d1b0ceeb1d60645cc3bd465e9"
+      ],
+      "hash": "08a0573eecccf8fb8300cc13d2af8d93990f5cae652aaf2d064eef15d1186d24",
+      "kind": "array",
+      "mistakes": {
+        "2453ce64248913a6b9fff7cd60b27ed4be065937dc9b37c4d774785b827fde22": "l'erreur quadratique moyenne est la moyenne des carrés des écarts, sans racine",
+        "c34d5a3547529210f6fc8b6e8ffdea7bb1352ed2523e240ed09f5ef6a87602ea": "le noyau gaussien divise par 2h², pas par h²"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17g": {
+      "array_rounded": {
+        "1": "188375fc14c67af54b11b5a9f926b27362b51f2d6c14524e6d76e9a8266105ae",
+        "2": "1416d033c304e273907e761cecb620325f437eee1bf694fbb0c030a904cc1859",
+        "3": "931e7e663a60f15420979bdcde951b910d07daee75ae1c208bfe364f33d5aa5c",
+        "4": "5a86337cdc7b0073aa96af594eeec23925cade97ef85f1f919d29b3d88cc64d4",
+        "5": "072d102045489ad9dfb54c7cb98073f874cd0677b0c57538237c9ad671b50a56"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "4f6d5ed8efe910414616aa07892e0955df9cea49057522eb4b2af093812a74b2"
+        ],
+        [
+          "621a02cce5b74d45aa6d52b24f675e548383626c2b6736acd7d9017e71dd3484"
+        ],
+        [
+          "daef8e4ec052bff5755c9fb308c559f0b5872f338a5a2bcc08e7a5a1df665ff4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5e53c608ad1af9664e2d70dd349b45f7cb4130838c180859e2e60772dc75b159",
+          "5a537290f843458dd428be74f3276028c6a1014d77827d690c5213984b8df0a2",
+          "c43f6601bf3881d6eeec5b8227a0bef9e7d757ae8c3827fb8a9ab26d6444f2fb",
+          "5236109afef6ab17f9fce68249ce2740f57cb18ee2d0ac4eda22d2625e0259a7",
+          "f6afbdc8a37238bd9b8cc916360d9714301871ecebd0e6ea28f8b4b0cdf266b0"
+        ],
+        [
+          "bd323036ab564451114a894b896de95f70fcf2111150f965aaa16f6b1bd195b1",
+          "ddca922826045fd047341bed92dbac19984dfc9e4c40330a978789757f5abc8e",
+          "f0e6dbc81b43c5a222690aafab97fbfce5bcf5790b6bf113476d2c2f91714437",
+          "fe2b557c6e6de8b294776fd45ec717bb97d98aead47529225669eb0ddaddbffb",
+          "ad12a17dc6782d4224b292d00917232e424647f2bfbdd71a9f550dfcf3408e50"
+        ],
+        [
+          "a7960ec70bb7dbdfeb3d3482bbd2264018beaa4aad3767a62d5c0f264a08c502",
+          "17e7e0e2597c5957bec75d63ebefefb9203be61230dedf1ee58db18c2e6eb800",
+          "18c4bd18e9aaa33cf411fbcf5d93d070e9d11dd497f892d4ea80d6455af1a469",
+          "09e8ed2b33a3acbb7a88c399f1ff20e0056fc3da86817fe94c02eca638779505"
+        ]
+      ],
+      "element_hashes": [
+        "60e505eb331661fcbccf88e385b5126bd599ccdb3ced7f908039d931e1ea7ae4",
+        "1d847400a09b91daa4250fdbcd72b2219b32f09ce51a556ff07cda26c3b85387",
+        "3103d66efddc1d07c75e4b423c536d91e66cc38055a54ddc097d96a00d3f0346"
+      ],
+      "hash": "d611ec990ef0000ac1ea71601f50386a0c62bfbcb3ce4c91a11c230cde1b3c7d",
+      "kind": "array",
+      "mistakes": {
+        "14d845a0d72a2b9a6a8ab9fdde36202f3879a23a3cffba4a4a5be7192cb96968": "le noyau gaussien divise par 2h², pas par h²",
+        "952e49821e7c493de4a0f1878c926f75f2174c63d4297af2e6fe8428d740068a": "l'amplitude se mesure sur la courbe de la grille GRID_17, pas aux seules stations"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.17h": {
+      "array_rounded": {
+        "1": "284563300f013b68e625e0b1529a78a121bde43ad5cf69ef781143c1809643a5",
+        "2": "fd5b2acd1928b2e6171d0632090de65aef099405a253cf17cebccfed72d56067",
+        "3": "1e998063f093a4f776fc733e89248e2d05c4dc0056c3892f2cf4ff592143caec",
+        "4": "8cbac42587e7195e7bac23590880f0cf5f6c3a0712d96f12837e64ad7950debc",
+        "5": "60b79de45846d57e05d343981de007cf530c224bbd048cbe841bac5a817898da"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "b0b8856e1da11d39cc29a949729a81dd26a7c6e3b5c9d223fe39447c913d3c21"
+        ],
+        [
+          "bf78df544bb3f6394fe490034798f35373797e92ef094a08d885eb6f232922ca"
+        ],
+        [
+          "a67a4c43cd5e2bf2745ab39b71a588317f145b0c8c61e0c0873a12e4b2ff3822"
+        ],
+        [
+          "db496417f38e09aa8f7f6ebed5fce517c61299252210c42fb5a0c6d73f8b1171"
+        ],
+        [
+          "0b7f7a84852fee286292d84a9bee65ef5097242230b861846654855b4fa23a40"
+        ],
+        [
+          "d86eae1363a3ce68c6aaba9a6e547d4fbc73de9e059649cf9c08ce08b312a42a"
+        ],
+        [
+          "6cb723ea40702a7eca619ea856225f4d132a16d0b8dd87a3260fcd18f12f0ef0"
+        ],
+        [
+          "b7a1ede52c02de20b8505dc863a1e78c316c7bf46c9227833a0995c0e08604ac"
+        ],
+        [
+          "229cc12a1aae9db718fa19c4c27c2f009970877353414d28d0f9e0d3115ef577"
+        ],
+        [
+          "77cbdd8590b9de5f6c2869794b11d2d6c8968aaa7b837ea2c07c983cb940a684"
+        ],
+        [
+          "784ec9d1ca5acc6202ee11cfbfc343c08a45222f2b3379f52e4bfe1b635e0109"
+        ],
+        [
+          "c8c0415f7f5a9c2aa4f5a14811b671286d4b2e13a61613349f44b897e304b076"
+        ],
+        [
+          "b532db0fc90c9a70845cb3e7f5730523f55e1bfe3c1fbb92e7ff3209b04a81e7"
+        ],
+        [
+          "1c6e541021791650670e7e020c8e1bc4c21ab77fc50a7fb6aec310dbbcecb260"
+        ],
+        [
+          "85aaea166838fec183b5f4008717a66031cf1bdb30978e7789cb3164e7f26072"
+        ],
+        [
+          "3552b62e074d06212dc44894ce5c1769298823d00612c59114f2ca6704a33d16"
+        ],
+        [
+          "c88a48779ee311cc488d8466c6191208c0663f1eca91c1b23b0139ce1b3312dd"
+        ],
+        [
+          "a82263820562362240ddb94bb73c7255839a8bb1864deb1c9cb2ee704bdac04f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "27dd3258a9b547dbff5c5b64570effb8180877b7688a446b92dd7ca310548a85",
+          "3de044b1824f7956dc80b65d38a406ec8555c373bbecd81fc846323057e6009f",
+          "31efe2e698828b8b5b748e290083a2c40428e3ba10d84dbc42faa9234100cac6",
+          "79ad8c47e07912fdd0fb1b8710da9f736f881b38f3c1496b35d26f30f9ee4f58",
+          "9c9b0d36d919af8dd0365def464ecf9a6784f7da2be12e07f95b03b3c83905ae"
+        ],
+        [
+          "c665c6e87aea94a9775a90ceeec9bb9f4ec85c04deb24749267a847c64642922",
+          "c06de024e5527fef4545416c940854ec525ac0871dc14c40c05367c48470d086",
+          "90f2d02b4f071647873b40b436f54c3124289ea3b57f27cec661c8059810f0ad",
+          "e76ff763d758f19bf4332b59e4a07585c18f51c059038a70852ec79a28bc5cc4",
+          "d98c5c4e2374e9f62d7ddcab1e69411a1c257305a4a5cd51402c13f683b1a342"
+        ],
+        [
+          "16130da190dc639ac0db85875938e811b7d7f63ff77f3d7af7f2744bb41d17dc",
+          "35b9985cbd43ecf5dcddb110939ed8d969d890f827faef68e311a766d33e027b",
+          "44d9c6aa527c1f17140071a7abb90d1f6d9d458a3b6ec151a975c527f71c842b",
+          "887ef5d82cbd79024a4d0db32f4a40471b49adc189b635242715542a4c910b71",
+          "51e2b079b79cbde2fa9d5d7f33f3735c5fae1c822f69acf8955c194ef175decd"
+        ],
+        [
+          "a76f0868ab2428d3c6a5592626c8966d898d21af1960e34c96986698bf4491fb",
+          "fce9e688643d5e25d5e4ff04f0a11acac3f0d1d4ddc2656826b034ca560b202b",
+          "55fb3208ace864b1422a27227977b890ccce6d819681fa5b7d1702a386c9bdc4",
+          "6a88369b167bcd2ef19936fd1ab5afba4c62c7cd15c5e34047b6f022a1a219ef",
+          "1d9c5055d53029facf5a8688111bcf07a1ae30faff34eae9a208d6fd7d4eaa77"
+        ],
+        [
+          "95f4bcd4d98ee9815b5a7a88247cd47712abd7e4ffaf4296d31a7778bc32ff86",
+          "06ca7a0ea5f8dd44e79092365fa863fda224ee5fde84b4e9fe608d7aeb32147e",
+          "8208ac447d4428181db495f85f84fe0b85fcb51e7bc5c837157177bf21e86dca",
+          "46ae0e5048dec39216eed2d598f67943a2bcd1b915e7b0df7a91e10292d16f96"
+        ],
+        [
+          "03293adadf06fe03a1e7e0045db5a3d782b6d9ce330dc9c8588d281da105e4d9",
+          "9a3976d6d8766595761aed4d8286d93fb9b1b0002cac20a358c9d7a34cd82a2f",
+          "c844cfe81d2c7acbf80963617c330a14f0030b93931dceec6cb829084444771e",
+          "434d42bb7af688e71f596846c6b3690fde3c56d2979576bf910fe13625a6cf76",
+          "39a668446e2fb77b1513c5c1f679a491a25a68e9858256a3a39d8ba277140468"
+        ],
+        [
+          "bf3ab6c0142d52a679a6cfec118e37c0dd64fff5d1bfef20c0821aa1ea2abdaf",
+          "09960210ff23e02e71fea1afd2109e03436f5d140d8ff810d009bf842b9ece95",
+          "87791b84c1d9df2f19c6cce634f8c2fe3df2ef949c8b4e93bf27363ed9efe6eb",
+          "18f958aaa3e06fb334aa3a17cc4b8bad60a6282a22183614c22eab6b4c95c651",
+          "72949d94ee6ec61647fd752584dd0045994d6d2a0ef11ef625675cbaafa881e4"
+        ],
+        [
+          "e80cbe042264f2d8f9dbfcf6554430c1485534e80588097c28add3eaf960d72d",
+          "9b3ef4adf1dfdc32c91b31a4bfd4b168c017abbe7d63330f20f87079df69ef2f",
+          "385aba520fbe58881a891e72ee9ff06c9e1c7843cf2ed5c9465e49d235a163bd",
+          "18ed0900ef5ba07e2cc718b504f06dc67e80b425079ce31c584bf27716933295",
+          "98087c0aca32b78eb6565908cdbc2b456c9bb42d115de315bb609360e69656f8"
+        ],
+        [
+          "55c2ee655cdaab13df807d74756ccb656456bab2877f7d660627fc6f80d40f1f",
+          "434ec142937a74275efb26506d72cdae3187de180b401fb5292faa715e5cf7a9",
+          "7e0f25de51837fa99043f8cfa591c72bc598f9dc5e9e4a79caef3edef66f5f74",
+          "19c381c3dbd723048d48ac74b28ad51142b4497b44501ccf4934e7588b54cffa",
+          "f9a85e3f86dd203618b0682534b4f73b36ae51b891a4b6d8144af259a5ff0c7c"
+        ],
+        [
+          "933ab22fe92a1e7ece2ea3d93e2a62678a27615acee12ec9b501050a0c106c9d",
+          "029785a518bc36cad20d461398803f36498d9242998fe9241f1e18a9ecb0e4fe",
+          "1250ee454841bb3b18fd0458dbd97292a2fb13b8013f47dce5a7763275571c73",
+          "2ba5bb2b67f623d242e327354a477276bf14f721b3569dc061a0cffcf7610837",
+          "d81beed96242f442584dcb164a0cb2f7fc5403086d8b63fc62384149bb3b63fa"
+        ],
+        [
+          "6dc961ce9ce6704053f9c2127fa1b4a7fe7e91da732b1d0dcbb17830eac05369",
+          "920da921ca534436d0ad28bd2f585e82aba4d6f21cd436237c580fda8f953488",
+          "006cea101984311f9c07c9b5564aa408afc11bbe06fa7d08199687a1916397b1",
+          "a8bb4f4372186220a16c8735ec25b5a1832bdc8675acb41a9500f1fa1162762b",
+          "3ccf2a2126f215d8121cc48096a251790e9f5c953a0faa7c4cf49c549f665f64"
+        ],
+        [
+          "80d21b686cb8bcff1bce5569d60cf1092f67229a5c4e24769609bdd4aa53c5cf",
+          "d0b39aab9a50fc0b3a6663c83a8671ed8c7faf8494854fa88a9be84d9109e588",
+          "25d1c685e791f53b231dbc83fc61611fba6a9bd644a5878994e7234e6d0ec9e9",
+          "406ec4a4975a92e5058cac576f580c6f6b454f84155d22d762f1b762e6b5d3ab",
+          "01b5a93fe0f37c65f6e7a83b89695760a8acecd8639706e7e152f3891dee8bf7"
+        ],
+        [
+          "44ae23b75132986970fcf0d2c33341d5ba2710c608bf57df58dbfb43db575dc3",
+          "370602826450b4480f50f325ffeb19d00e7cac8f0670c9ce58120a242e13ac7a",
+          "3ce40a50a8b5f59804be51e50f0cb6d75e214221e384f00d7751348436b75931",
+          "b6d745ff7d498d97e2bf8311155aaa62b7625d4467a9e43549ef71410735b258",
+          "335724468212ee89076c558d7c1d8d4daa759cdda1ce4bbf9ccd97f572c88f1c"
+        ],
+        [
+          "9ff91cd274047b17a3c79f58779c2bf22ccfe2ead547656d6d9713e7211c2735",
+          "4e1d2555014d2539bb68afaeb462a7dfe1f7353c7b1567e92e82297ffe57cba3",
+          "0728a3648712cbd046e24e4b344f21cc0fb7e15b54558ecf48b05354038bc043",
+          "48cb5ae8ebd3fc2bcff2fa5f7b5f5612ecf6a7508e4a3cc0a0899517e57bb28b",
+          "1d6815bc2d5584cead845c07d9d4f9e29d1baaba1dde2aa955584a56c0669ca4"
+        ],
+        [
+          "10e9c68e1bb6de865f5f24208cde84c93b7fa16ad6ea2ac755b92de901de6fee",
+          "2096fc41410528e700b1d3ae7ffb5e28d0b2221fa5bcf66e736ec16ece0f7b64",
+          "b685ddf8084bf60c682eecfdd3d03da58415c0873cfda84e3761003aed031ba8",
+          "589dca509c7e93ee5a828d29307856f69c14f4428d844dfa417c3e1d1eed5b5c",
+          "ec5350f96aef0a9eee2bfda3c533b3bc6c27ea6597befcd8541a705c8ff0d901"
+        ],
+        [
+          "ed351249a909fd1be1acd937ebaa4221a56ca7614165d74c7858683c4ddf27cb",
+          "7e6205d54bbad4e65e26f218b35df5c739f1f5bb9f630b0fdec26bbf5ae2dfc8",
+          "b213eccf11db53fbb7d631dce2d76b2dccb5c49d3f0433636768919110962efb",
+          "c052bc5bae8b878b5b51bcccac15971c864d4d4f16e183e972ac135f5e2d61d5",
+          "60730e70a0a7c9c957752387a281384e8a984965c0cf3fe5c29d167a83057eb9"
+        ],
+        [
+          "6fbc218bbf3307c1b6d82d0d5c6a4602fd1dab4c0ea3fa9413105835896d0290",
+          "d3170b906ca0728fa116e23c3621a233785296dd17de9d64ebcae174df4a0778",
+          "e9cbca8102fcfc1c00bae671a26e77740422e51bf34327577e3c5761eafdadf3",
+          "7309aebf117326599a38d07bcd12d4c0d51b963ca5582b783765645deeb9fe53",
+          "758b967c8680b364f8066f33ce547e7e6758eecec279667f5946bdf456860506"
+        ],
+        [
+          "b449186e61aa66959595c4ddf25f45dea946affa28602769fdabc8614526902a",
+          "a4e059f87d6ca6180a6bb048294f5a9b98a97e2d18d6cbda34f50f6250541892",
+          "37ddd7a3afb7663566784133f43341ff99b5c3d5892dec3c4a35b8caa551a88d",
+          "b93bf16c626855ac1cb7f2aada8bae859ee75f347ecf2e2b7085054c14eb5885",
+          "348a703d019624ee1a3d39cda1ec1b097f735470d9b7c119da1458ac299a60f1"
+        ]
+      ],
+      "element_hashes": [
+        "1921e4f418c846d60fe5c1f3fde198c0e80bf18bb83e85ca12112586f18bf601",
+        "d080e6d1e3e5e764054ed86f3d6b16786458850be0fe1059cb403f94087f2ed5",
+        "e7d7f5a5304bca1d9924ec362de3ed0e03875c819a2945996cca1f13c01e3fc7",
+        "93d13797591988a1e7f6dcdc65822b9619688d9e43476f6ba8e01c0cc755e8d6",
+        "a614ed325e9e8cf79994ce5ebc9e9663bb34146c986bda98fa3aa40ea5e93e94",
+        "215c2688f8743ed634ee3f2bbf6911532a28e6f3d4127a1ecf6700b966288237",
+        "a239a2e1e9c2184373c822b494950297dc8c5be9fffe9587103d2514a14f3bae",
+        "d24b277e8770436cd01fb93e5465144896a86d6baace2a6beef085207c5b0d3a",
+        "00fceaf6c087d32a535f06e94b89a911b4d1e4f3f71bba9f25d4babe1735be2b",
+        "792bf2706fec2fe9289983272532a71d355e3724188ab8ff972b6ab628216557",
+        "48506fda472f3cced897c6227d1fed2394c6587f22a51c087aa54d104c85bf4b",
+        "983c6675e3fbbec5349a13907fc5e31a0504d66d5205c5791f18125b0985a92f",
+        "40b4d7a9136e3011f152b7eb9aa496736ba6a2a902ef73490099f7dda1a52adf",
+        "091aefb325c6e4f16723438c4ca2fbb2fd210ed3f809e2aebebb1065cb6234c7",
+        "eb9ebf707a58d86f265b4ca5033eab67f22074adc84a17607a0a61c96df6740f",
+        "e0c1f70fa7df3ef9b9e26ca88b26247d49b524903fbff78af8bece80de2aaebc",
+        "b014a67cd4c5046ca59c3d4697125185f8e7f50b6433a76934ade561fe88c4c9",
+        "f99631de4c969fd377107916986d4560bc0883c41770492764ad626f702fcb16"
+      ],
+      "hash": "96b0241aed6afe543374bb61fe682727efc93f8c6074e5f78cd2f3647071b921",
+      "kind": "array",
+      "shape": [
+        3,
+        6
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18a": {
+      "decimals": 0,
+      "element_hashes": [
+        "b8095ed8f900d4f97b3a90d55fffe3e85d67b3de28e9f975a8d4c59d75615132",
+        "b2f96508443f49e52d53ce93d50a19d07a3c7c6b77a4718ebd392b15ec1b4ebd",
+        "6979a85bbd1a2230e21508069c6674347aab7bb26c4e0546228b0bf3a18131c7"
+      ],
+      "hash": "d6704e92740ff7a605af29d3ad360ecc6bc7ef6191c5e32a29c12707cf4be1d1",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "67f04beaa481c9905bf8ffca8cb52336ec44f255e05e028842691989e093b3b8": "la liste suit l'ordre de BLOCKS_18 : B = 1, 6, 60",
+        "d95c64962646f4bd71ae899c6e3dd0b406c8c2123f5e6c1a4a7ee5697cb0bc53": "la lecture du premier bloc n'est pas une remise à l'échelle : rien n'était accumulé avant"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18b": {
+      "decimals": 0,
+      "element_hashes": [
+        "ec786f4c75285b4c482e5f629011ed46334d3039152c9e6774d55fa7c0078655",
+        "95d1d163be401f50739a191f42308dbb91774a44d02c99129c0404a845b8e410",
+        "c91adae63eaac0093831068f1cbb0f25e8a8757bc0ff885a1186a2da732febe5"
+      ],
+      "hash": "2323113f714da4e9dfc4de17cd10a5ada1c3a93e5aa0c55a54adbe1a0751079a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "6592e9e40403e64a4a38bc0b1c7a926c821a19374a9229423432b9a0899ed955": "la lecture du premier bloc n'est pas une remise à l'échelle : rien n'était accumulé avant"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18c": {
+      "array_rounded": {
+        "1": "f9fe9df279404e91a6c5ae1f3623e9f613a73af2c8f1a43b648c1e2d1cd8ea56",
+        "2": "8f2c43427e59fc2a55421fb0306385217b0954d867c5ddd1f2c812263a704e51",
+        "3": "fbe3e650c8448ff511fb72e769847f49e53e6b4bdcdf1f55fa459a1c2e9eee04",
+        "4": "d4685ff4af43df1dff6f3e13aafc3e97f22dc38d84004e8d6d7103353d801104",
+        "5": "eec6db1afda506811d8f3752206bd9e1fd3a066fa1c5ea6930268c6e82d26382"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bbeb55dff1a50db5f3e3560abf071b6046a6044c7ca411ade2f033d7e9bf2ff2"
+        ],
+        [
+          "603dc9ad6df3a7b13553bb3e53359f93c769791b57cb329e3e99143ecef13805"
+        ],
+        [
+          "fc659e495218e2774002a4912d2792d7cb10cb7cf6a219fc14f16720c3384381"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "95cbd029fff5a26cccd89e0ef29be780fc8ddec71184b351a4967bf073eb8909",
+          "756247e335c569011c64a7f350e84e677eade96fdd338ba31b2325128f681ac2",
+          "bc0dd6b6ba9526bf66260108003970679fb3cce27c5826ccafd08b15a975ff4c",
+          "83cae0a822eccb62c391fff215ef4e83ed4c69685059e2550fc1d23545d60e35",
+          "30c4434480c4cf1ce803ffb169d31ffbbb8ccb43beb537e5c1d82ce476d3469d"
+        ],
+        [
+          "7e0625bc17ab85c9a273c0c044c65b75a3621e5b6b6e2bf233904f40efcf7184",
+          "f584c57d1def84d4d9759d11e18abb5a99f14b229f847c9eb1af2da0c60cf8a2",
+          "1016af8b958715dcfc45f415b8e55e1f2ee3c0b53842da6765fab024afb52482",
+          "b852a062c629574551e1577dfec8c9ddc58e36276ae888841d7ef2dba639881d",
+          "a93f5e596047f2f9d64cc55aa2cee9e06ec0ccf4de6a0d6f0cf36d72d3789063"
+        ],
+        [
+          "876eb2aa6ec96ab207fa4a627604a8b59c491457ecb90a3eabd9fc1f7753a939",
+          "c1f63a358cd87227490df868b41eb1f0d0ce3211e0084353c4f1a6bd148e5b44",
+          "1af832a1e3167791bcfe119326c67f0ca82fb71c9394f2df9827fe4320f6112e",
+          "0d74e66f8619916eeeedefc0d894a6e8257f0e05e97250f0497c069baf82d923",
+          "bcfa1ed013a1d0556def7b228e072d3778f802cf2ac81a345bac3e6cedf58061"
+        ]
+      ],
+      "element_hashes": [
+        "2ba8c2cdcc99026874e0fe196166200ceb071dade52cf6051bee6dcd2c45bd1a",
+        "2d83f9c7104a05b710ded364385ed7d40b1734d0a94563f470e49fde40565f4e",
+        "fc26589909e4377733241184fa5e8381bcbe835b4406399cb8a56ec69c7c6c32"
+      ],
+      "hash": "7b3b073bcc849ad5cb7103c5cd14a2ba57a802b5b97231f68389ae9fda1610ac",
+      "kind": "array",
+      "mistakes": {
+        "100529b4df817c1bb6a82eab4f77586c187a80566564cc79d0c3e194968edaa0": "la lecture du premier bloc n'est pas une remise à l'échelle : rien n'était accumulé avant",
+        "19e4f023d5ef57659a4ad816b66ad2d937c98df7845f5ca10a0dcbba2b39a66a": "la liste suit l'ordre de BLOCKS_18 : B = 1, 6, 60"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18d": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "af08e460ad972747e51f23743c8d05a9ccc2ad5eec60b2b529cddb5c11e83b9a"
+        ],
+        [
+          "a969dabaa62096803062c7071f01b0246491f3fc03206123c6309c6a174df1d0"
+        ],
+        [
+          "91a59fdf560cef4010098549b5713adc640295606d962a68337209b28c6f3f0d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "14026693c465d0d9d69bbbe380561a0ee0d4b5f330294ee2520ea622cd20397f",
+          "56a0759acaa416c8d13f3461e611f4aeaa30b8ca1a1b3855e8daa48a1f0746df",
+          "b9f1fe18a7f54dfdd356d27da976740828dcfc73bbef0baccdd96756bdf1bb1a",
+          "8d31784a185cbcf8695e356b1cad4c8f70b1d189e3e9ddc19b575a895ee3e8f2"
+        ],
+        [
+          "cf009a481c74a7ad76cc52bb08c409c03023d9323dbe9f23b4eb58701f68ed02",
+          "c2364b2f09200ab83cb1dfbab6e3fc0215ce6331edd9fe247d2a04481763aa54",
+          "d7d8c8b623bbd2041724c56e57ab7cbddf201294bf19b55501f6e412b82bf9ff",
+          "578edd9e35ef4194462a18a3a05cfbdeb7daf22aaa0b83a7118f60fefc45d7db"
+        ],
+        [
+          "036e2aab02b2e2c77c6b5837fafcc44996268d1207d43775a209c46fad68c1dc",
+          "9e4017e6935d4b5dae436be6eb5683b258a9d5fb0b02375b1a74a547475ce5a8",
+          "f79455f932417101017008e9fce569cadfbba2abd3f0231957413758070eeb12",
+          "a482a8b721c39140436749fe42ec534eb2dab5a303d75b36164091a4e2b7745b"
+        ]
+      ],
+      "element_hashes": [
+        "c1e3e7cc832e8c15fa7fa32b51ebb7f57b8b64466680139129ca20c317659b0c",
+        "b648c1854f60060c71f9ef8ed6ec6100f41fcf20120e27c625461306d6935beb",
+        "6aba913c6408bce05e666da937321f8a962007aabe2d43f5d3c11ca06561ad22"
+      ],
+      "hash": "4d1c63a67283b0e1d0ad4ec239a838628c9675ab5b201c8eeb923c70df1eef35",
+      "kind": "array",
+      "mistakes": {
+        "3f29753e33c0cb651a6e6ecb6278fa4097b9c7b1a6b9422f578d335fd94234f8": "H_N est la somme 1 + 1/2 + … + 1/N, pas ln N",
+        "c524059126da5c1e7fb882e54fa8ec9564cbe50738ca5e4765b1d5caac70c931": "c'est H_N − 1 : le premier bloc ne compte pas"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18e": {
+      "decimals": 0,
+      "element_hashes": [
+        "3cab947941fdfa141ab6fa24632a5c5f21ccece939f6b77a214a8244cf8fdab3",
+        "87a7deb195a30f9ee813e2470eaa608b298f566306370f65fb461abbb33e8917",
+        "ad055beeca6ebbd43c6f40555dfd2720ebb009d21f78df5db69d0e876d406a35"
+      ],
+      "hash": "f59d05544d2fb0a4498ac3601247957a643a0ca1bab5ca9532774a975ac7dad5",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "aaaa9f0b3dada549fe1014d53e679790b863897e0541674a0dfc64db8cca0376": "l'état compte aussi : m, l et les 3 nombres de l'accumulateur",
+        "d49e6ec12248de2da9f1403632163bd1bec01ee1f30c95c7d1f46e0dec70b897": "chaque valeur est un vecteur de longueur 3 : B scores et 3B nombres"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18f": {
+      "hash": "22e194128849cb0dfd591336884e9d0b9a4436aa3113abfd5fd0387122648d5b",
+      "kind": "bool",
+      "mistakes": {
+        "ee89719021adf08d3cd384b0ef89a63cbe17fa86fcdbaa8526fa8baa8dfd0126": "l'état final ne dépend ni de l'ordre ni de la taille des blocs : compare m, l et l'accumulateur à 10⁻¹² près (relatif), pas avec =="
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18g": {
+      "hash": "ecff82b120c5ffa49c828dfd9e9f728fcaa00ba00e0f32342eaa8df7f0f57ae7",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.18h": {
+      "hash": "2601e806ca3fab383407d2a6924810cd1bf1be14c8c0c987423b4513dbbea665",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.19a": {
+      "array_rounded": {
+        "1": "faf32ec364c0df5d0401176b416cd3649bc6f20c86e52b7134d2628462408cbe",
+        "2": "6cf6980fd1c86461ab545f2c028ee5a45fd2c068b0d3d9110f6d1bd4085231b3",
+        "3": "1a9635ae0ca9ca71c871ef61095dbec6c2309d9b5a17722814bb884115d7caf7",
+        "4": "97c8195649b71ee168b0c73e4d80aefb784697f1ad6dc701b738b17a27c5a1a4",
+        "5": "a97c1effb87e516934b3cbe2ecdf463454e8f1bcf9deaa1f877d29a1b478088e"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "b15a80b451bb558d961660b879de2f81fcdf6ec7af93ca36cb46a13277d0dad8"
+        ],
+        [
+          "acf95553780f6cb7a266ff0ef873961b6eeaa0cbe709df06ece1d937dab4dff1"
+        ],
+        [
+          "ba3ca8524bf8d59095bf1af300da875566b74cdba34905cc94d0f03f930787b7"
+        ],
+        [
+          "a093aaf8f9a48f3bfd3589e4e1617e76a6188dece9471176e60b46faa4e9aa28"
+        ],
+        [
+          "041880a80dafc833da4036fa113341d0a843e11adb1968296e1c14a66cc4cd7c"
+        ],
+        [
+          "2d45529aea78b5bc2113d8b21b7b1a88d976d673a5a5d6eba873df3eccd36205"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f2a8525aa3a39676cf9a9b671d5a35f19caebde8e5a43866e70c93aac3b95a07",
+          "e066be28ea033b696c61364df9d78643a9161e2ffb11f4ab8ffcf2a3b631b0a0",
+          "6043e2cdfde1f9ca5496804c2730345cca116a7a385dab7aa2203983e9f0afec",
+          "2d4dec0af9bc251fe34b7fc93e56abffdea1c01fe48c03553794b759b0a0ddef"
+        ],
+        [
+          "7abd7b9f5c9acaeb3d34460724cd155e36677c3da70ccce0e58a667638cfb787",
+          "3be437657064277107cd0ccf5b087e4f74d2fdb99adde84e603999e896beaed2",
+          "79819bc43492f89ea4f24fffd78cf0cb2e62aa6e6fb33be43830adf08caec91c",
+          "9802ae930b042dc44d47a0f7d11f58ef69445dd05b6613b2813a83f0952ff058",
+          "26a3ddedb6d8bb08fba08588443052bcaa623825b903590ffc9267ed58c27cf5"
+        ],
+        [
+          "0d0ac652e0946627d75328580f9041fa3e67cb2e611e5e989cbd60fe688a106b",
+          "236e35f7fd448e2476b3242899bbc015f7f4be9f8bd51e2ab274fb51f8cfc202",
+          "14d1c64f98a097368bb43bc60ce873805ed96d85c68e05d8903b8373426f3004",
+          "74d35abfcd83d43e56fdb2492470d06289a0500979199ec6660c599d59cfc219"
+        ],
+        [
+          "2466772605e6436bb73fa4b0e09a9c69f9ec1506f7144b4e96a2907dd008691d",
+          "0ae9196b91d16ad23bf72ea62374d3bfcaa404748d338946922d10f1e50acdea",
+          "a6b13de0acd7f6efcdc4be5c0a082d5faf188b96e9f7eafa9ddbaf6391899b88",
+          "5312e7fdd43bead01ee0cc400ab24f8c259ed5806195b6baff6ebc1db2648db1",
+          "a054e16709f10540d22d1b7c0fdd160d3aecbaa99680423fe84fbe3a821dd375"
+        ],
+        [
+          "78678898adb915ece1fe345437e26f47259dcdaa373bf47bd17db972d040f297",
+          "ef75a54bdec67c88db8969b4922fbcfa4584735f73327392a86c0bcb115264d0",
+          "983f9b43702a856ac35daf3983f8e21936a3630d96cd43be5d4710dd8f522e9e",
+          "5d655f080148c84322ad8f15eae792c052a53d5036e4ee63810e562b89830496"
+        ],
+        [
+          "d93b489031c79b678e39a02473ba26f1a3c864d5e8da407530f3558cfc5511cb",
+          "b52dc0b22259f91a6f468b6e6e76c47f426213dee9f0e8078e55a1c10dd1678d",
+          "66fa65e27c27687cd534bbe931723c8bb8a4c849b98ead62f9b9413c13aca521",
+          "58d5c2c56262f4ddba217a09b5cb1184796f486628f5040e263a7b8c9ba12bb1",
+          "9842bab09f7e60846be5e97576bd639df1aecb8ea974a16fda56f37e64df55bb"
+        ]
+      ],
+      "element_hashes": [
+        "bc29b0b03a1020ac48ca16a58a4e92e06356311522bac056dcc16ac0b21a6c2c",
+        "8ca0ed99c1a70dbd6475e4062e828d9ccc9e85e2998741054bea72dc03e0a3b5",
+        "2a7b8e9dde0f8fcdc2e4c61db7ef6873a4cdb6695f6d717a9bf80d6ced513363",
+        "a7f2714443ded298c5d7ccbe35170717337bd9b61ec34d13d3c6be18d9cda6e8",
+        "0371aca9aa10bfcfe66e094fb723fae8177fb00c8af48f88d37be208ac9ccd60",
+        "551627203901a047f7c16fbb487d9423ea667976bd8a8f4ec32c5d48d88fe6bc"
+      ],
+      "hash": "eff0e4d30f4b9a24002d30eb8b5c5101a24c20c4e857e99226a21c2239920be9",
+      "kind": "array",
+      "mistakes": {
+        "9d2f70d88f8ab262d2dfdcec72c2e25348744fe205aba7b9a07b799aa62a53e6": "ω_k = 2π/τ_k : un tour par période",
+        "a2f55ac6afb7008a378fb0ca23331ae4adf31ec5526d46eb93515dad99600d0d": "pour chaque horloge, (cos ω_k t, sin ω_k t), le cosinus d'abord"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.19b": {
+      "array_rounded": {
+        "1": "0a0f94878c5eb7a795cefaf2c2e0247e27c1f70339f3215f245371c480cde37a",
+        "2": "c8df97eed1a4af42f852aab3b3727e2e7f77e072bfb034be63c88826a2dbf25f",
+        "3": "92148e5a35b1bbe52c4f3de17e51e901ddf9888505201eb294d6fc6ee278b367",
+        "4": "cc12fa05f5e395764e3d45f1727efc1d35b5e56156a60d8c9b2b4fd982eb02df",
+        "5": "bbf93e242b185e1c92e448ddf7bdc5590490019f8b34be98e3ef9943a1e10e80"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "a72bd811eb3e278dbf344afc56502d764926a2d7caa2a974a7fcd978486885c5"
+        ],
+        [
+          "c34b26906ecb07e8f01b3baa93c2b266ab803ccf7f296b004987df7870f07455"
+        ],
+        [
+          "69cac8ea4be10a5ba3a000f1dfd7c05f901ae54440e37bcbaaddae5990ce699b"
+        ],
+        [
+          "046816f3931fe7632c142ee1f436b4611a4454579a92d2465e4dc8c7823d0b56"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "64f607a06df0e37a127761e2c752087dcfab2593de8caf9f2490aa92a5dccb63",
+          "1d78a457c2b7226fb2230759680eefba36387c6a4335cf20df4bc93863ebc83f",
+          "621a86bafa9798074299a72bd7106d32de255022ce955b8035f4ba78a0df91b1",
+          "b01eb6028b2d4b7bdb67dab375eef0440228fcf3d00e48275092eb480d57d650",
+          "6c6be472757c7e3d439a75baa8dfcc8dba1bae99bb3957c410fb76ae37bc85da"
+        ],
+        [
+          "e9298f7f7d72724dc3ab708855fa74feef943053b7f533657c9b05f8d64bee3e",
+          "4233ece975eb90c028cebcd55202fc6cf6f01c424c2ec7c343cfc9a46ffbccc0",
+          "263efa65eab42859da963a2269e309988f2b8ccce14aeddebcd1d5c0444016f3",
+          "6c55bd193d19fb271b81e48fa0cf35e1e4f9ef54657c48fe88290af625d5d04e",
+          "f0b0f3f08925ea78dc9d1ec00ebe7a82071998a9c9a41a8a40004c22c2a721b2"
+        ],
+        [
+          "d56897ee77cd56f2120e36918a0b78ea43dc7b03467691f3a75d2374b47a8669",
+          "63137dd203aa4523bd9f18d9f7dcef5615261ede3ee8c14f03ad15821a90990b",
+          "1375a33585039975529696eced572bfc243c4e92734466cba738e64e403322c2",
+          "acaa8c066d62f90eff6b0bdd0dbb9329f2bd3e785738c0436a8c966d3bf69626",
+          "db3811994f8b15ca53e15148e28f48bf50e5eb9573c5cbf57aa567fddeacb09e"
+        ],
+        [
+          "b2481d896590c8b5e5bd11f0f4eb5c955fd7b2b4feb95d937d8c23b48403d317",
+          "7725d04b4757b2fcaf6396e2b1e6b173895cb3a8178cd710a9bd8ae1b7c4e061",
+          "d36eeebfb9a095e246adab233b2934904f2a71d7d5b2671777654954e8ab6de5",
+          "afc9e3b87cffa5a5903a238fe59391f90c129d53f41e5a1bf396a324e4600023",
+          "b3e2e5fb2c93ea9610aaf0e6f1e3011c055944ba28be22a8061ffc756872beb9"
+        ]
+      ],
+      "element_hashes": [
+        "35f9c9254c3efef5e4122849900c4aa8a7bc01d20d2151bbbd20261f5130ddc5",
+        "1107cb54d78ce8fbec4d6c27e5b9a581acd406983450fca1debfd3c16ab8c9ab",
+        "f86b99821d9f8209de39acdff8485095c0b580823df0e395b11d17e9efb41e81",
+        "2174d1742307623dfcd149c89e1a89e314720ed87e8ea6cde7ac3014fdaf6082"
+      ],
+      "hash": "1611fa8d9dc5f5b00ecc2645bbcee36681e96e21c4b7e90f93132e86c5607a90",
+      "kind": "array",
+      "mistakes": {
+        "61fa835b21ee64239c2ff04b9db46915639edc440f449b23cb9d28e60b245c18": "le produit scalaire de deux encodages est la somme des produits des six coordonnées, pas leur moyenne",
+        "87e55168767d2065efe8411aaa1366491eea1fbb581813e9ee8e9ab6b47077fe": "E(0) = (1, 0, 1, 0, 1, 0) : le produit scalaire garde les trois cosinus, de toutes les horloges"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.19c": {
+      "array_rounded": {
+        "1": "e3e1149014717cd57a1f2090aa1d1e5f3ccde711a4534fa5bb6dc1f21ae9fb4d",
+        "2": "e3e1149014717cd57a1f2090aa1d1e5f3ccde711a4534fa5bb6dc1f21ae9fb4d",
+        "3": "e3e1149014717cd57a1f2090aa1d1e5f3ccde711a4534fa5bb6dc1f21ae9fb4d",
+        "4": "f1a6f069467bbf1e1b10ede680dbae1ade5a75d32850f658a81fe685055f5eb3",
+        "5": "185c042497b1a4fd9550c6dedbbbf2b363bfeb2fa5e16daf8dba1d7d8d18553c"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "684cb65cb8d03b1bebbf70b879c30d5ed0fa14441a777b048bd1cddfd8408090"
+        ],
+        [
+          "34af99085fd2005a5837612c09aef8c6dcacfdb62f12b995735a766bc47d15b9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6df4b2698c9f8eb1a73213635eb63dbaa31d413d7d7d45abdb6968fe6803ae17",
+          "fa27d818cc63d1864e043f2abf6b9a57500f5c5236af67b809591ce73f7dbed6",
+          "157a6f5824f411e97161fe6ccb8b05f1cbfaf48567246e4d79e61ba2953922b2",
+          "4b932e2fde5bae9a427938ec80b1115591ddba8d48cf9d64829f82275e69dd96",
+          "0babbcc4840ff856d05450692a9e66b41794aec6d6710bb7be2d446cc6eb87b8"
+        ],
+        [
+          "110081e381c6cca71a11ce29499246ad6194c21f6204f9ae966d436535a85ade",
+          "121ac5d9fbc1c4695631734a0a2ed4a40076d84980a138fead23206645a5d343",
+          "b66b291dd7954e777046bcfad0a7aa7d717b481759ab49b53f9f42a7815a811b",
+          "e177f41e5ebff16f860434825d833cf5e052a104b29dbf1527133fef807b7c8c",
+          "3316eacc70a172bfb1fff211130edcd99d904033a0d2d51c31b9a36e99187045"
+        ]
+      ],
+      "element_hashes": [
+        "f3945da31f56eeb1e5f0d564339db7f4d38166ba6e2b9bc825da8c20041115ab",
+        "68149486a877280bf15392e233fbb0560210899f7a22bc32eaa8dd6f19dfb7e4"
+      ],
+      "hash": "3e4e3c440eb79cc1516ead8d7c205e9eb1c7276854dc1ccce0ba96f55330b9bb",
+      "kind": "array",
+      "mistakes": {
+        "07b4663242671314d40aa5ca45480171f89c3069b90384fc4c17e45832981dd6": "l'écart se donne en heures",
+        "8f640007aeb47f641d9257e9b761c965a70ae7b419371191af17b9a4fff5cfe3": "cherche le plus grand produit scalaire sur tous les écarts de 1 à 8 760 h, pas seulement l'année exacte"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.19d": {
+      "hash": "c9fd9e31d5d56642107ac84cee2186922218a25da823c8f096eeef9021b17096",
+      "kind": "bool",
+      "mistakes": {
+        "36f503bbfd954bfc3de444113be3bd2fa510a4becf056087e7a6162f8b0c7cd5": "chaque horloge tourne de 30 ω_k dans son propre plan : compare les deux vecteurs à 10⁻¹² près, avec np.allclose"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.19e": {
+      "array_rounded": {
+        "1": "92f7d3ef53e31ecb0d27581cbe38aa57ced6a3d2e932a8708b9a1070d59b5afe",
+        "2": "4ed2ff571d80cccac865ee8fa0de8fab0d35058ad91911e49459a41c89e24b11",
+        "3": "a7cadbad2e292f563442d3fa297fec16debe07c3f692049aa07efa9bb4fd53d9",
+        "4": "a052075be278bb6af120cb30323f3da86a3b0a596c848161ac02cccc5f97a2e0",
+        "5": "680d3d6e07a5c521785f48781f17f9b28dae39287f2f22dda9f779f9910e2dbc"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d201445dcaf5b8902a2fef5bfe5568664fa625ce3856e60dd44ca50929ea4d14"
+        ],
+        [
+          "a0752c9c3922f8cd6932237eebac92e0a96bed302c2fc32668360b7cb3cc28ab"
+        ],
+        [
+          "b5994d4d3e9295be202344649085d5c66e302ca3f0dee242b7f2f5bd9aacf566"
+        ],
+        [
+          "b0b7d716cb5aee180d330ef96e0d7c0011741a4d3aeb46e04bea8f1e8af25f80"
+        ],
+        [
+          "92ecb68d9e6e321ede462cae480dcc567f0f3ed9e4f454c7dc7b3470975236fe"
+        ],
+        [
+          "0140e0d9867e8eb580bb863af4d42a9da6ebb18ac8593027edf1067ec37aa7cb"
+        ],
+        [
+          "04fd8ace155bf2aa742a2e22f1b51d5fb8197752bba8a70a1dc74e53a1793d6f"
+        ],
+        [
+          "9169bc170fbd14a91ef70b7226acf78ab4a39157e49f715cfac144a168eaeb15"
+        ],
+        [
+          "2a58ad6ef712fe3e46359512776fd738df5da01669c96edc001f89799994fcc3"
+        ],
+        [
+          "a1bd888cbac0e67ce9bdc967ff182dd25242a5e847d6476c207659cbe275ae81"
+        ],
+        [
+          "d71b525bf115466743e4f9c42ffc913d1e3bd0560cbde002ae51083568b9fa26"
+        ],
+        [
+          "ac0448daa265b627f3b9bb31ef2ce1d28f65b6fe7da8b3f12455d40e8efc0fcd"
+        ],
+        [
+          "926303069e459ed760c0926609f53cbb44a48c55e5127eaaaed2508d4f5b388d"
+        ],
+        [
+          "8a114cd6da71ff33ac98a062a5926e0c18616e040ff47cf4598fa328eed72f36"
+        ],
+        [
+          "6ec785616233e4f2d39e053bf19e1ef0b5fe0d4c630563a489a7e3cd066cd0b0"
+        ],
+        [
+          "0b3b38a0c88cf743e9cb1a2c656d2319f734699923a74d45ffde084d89c75b87"
+        ],
+        [
+          "ad1f6944e02d39cd8a85e24e0ed113dc97f3813656729620824194dbebf5fb16"
+        ],
+        [
+          "ed82aaec5e21038b0a14fe6457d89e787b78779829a3fac7a18b7bf7e470b746"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "96946160d92f331d01532c25a3f31fef46a324d46871ba4123473842d7eb6ea9",
+          "009f80a03eb61c7861e4a840ddf87f1527f461be22d37977424709f19b3ab26d",
+          "1f48d11a2acf95fa641c725042ceebe5847e21f82d58ff106f69b238f36e8e14",
+          "025cbf90a097373249fa9c190825404d1cf23278ef6a218494247ebe2a0d0ad9"
+        ],
+        [
+          "fff1bd5002f52cc24311c991c8b4de12cac527b298481f1e59a007ee24bc9e8a",
+          "6d7f870c5a602395b83880d6b195d9c4ba27bd1ed9a40ccc5c5e9e8db04939da",
+          "47d193fe6a27d34fa499564944659f632f67b945165ece8294ae85d148aef3b6",
+          "439a932ae43d0c8a2aba045a069a3e03af6bf89583f03caa85935c23503ec7d4",
+          "395f08f9f8edfc9b004da51d763923626e3e9c49605dabbaccf9a5fcecaa952d"
+        ],
+        [
+          "3a3d3b8f0c3468cc6b31872afdc32d9e33333e1c6a976ebc2f982addc84b860d",
+          "99dbb83e9e667e39864074b1ed958585900e6ce4435cc7a2183231bc4138cea0",
+          "dc2adc06b9f4dfd47442e2ac33bddc8bcfdc497904414fb2a8927bb028c5f460",
+          "ce8b86d5ad873cf4db14734636a2d1b7dfd65d93f96a5faad6bbce18262d6cd9",
+          "b8f47f9193ad941cd66a71f92b6a2ba6c7da4646926a579b62a113a8534e0173"
+        ],
+        [
+          "cc08349760d8ebba1de06a18f727dc51598943670c4ac1cc6b5cac1ee1f5f2d4",
+          "f7c7a62a55a02b3adcc80f60fe643ebef2cb38dc98215f6c30966d812c7f03bb",
+          "bef8f25b30303e92d4eb4731e672a7a39eaf6e059b142a4758d68f567b638606",
+          "55bfe76b9d5dab7953acb8f5dfb28ab1e9220672e10627b8e479f9a9d8a66145"
+        ],
+        [
+          "4cf8d77836447f8850b5a40414852abc06b742c79782deb9e2620a9008682886",
+          "1bf806b28d148e2d98b80dad1562720362485a817795ea9b5048a3d2afeb6b5c",
+          "bbbc8c83171c0781980d0adccf8777778a7871e9a91cb93817328359896676ba",
+          "38e00f42ebdc3be3f80fe37199d03f64c2cd1943120ca3882c3526c09126e3a3",
+          "668bdf62939de4fffc902515e7313f20a3fe1f80c570ffc6081d5b30e319e8e9"
+        ],
+        [
+          "4e79f8f1c9584082f43b64b11646f5113fdc4129b76462fddaadab2e99bb7377",
+          "2d87d1764c101e93e49ac6962ff2f835daa1902816763e2a8683dce636ab5821"
+        ],
+        [
+          "a4207a6e60a3d1833dd38534b52a87792990ad9076e9649fb95a187b47f54c74",
+          "18d2c513354661501a3695de14c35f9dd08df35a8d3918b410bb2d6a8ba918e1",
+          "29ca2d1d454cc5420343c145303550468b6fac9d19f25d6a3a6ca13da62277dc",
+          "d137c94242d71a4ef05d9b340aaf21af621316762c4ef53fbfb2854692bc7832",
+          "ba564213ac463b6f4d228a11417b9a845129c32fbb12c25265986a0df1defddd"
+        ],
+        [
+          "f14ad00b703226b401e8b0aef39e48b581655462ac3810263f13720096250199",
+          "214ae235748d029800cdfe719087da6bd80dcdc00fc839fe167298f999fc5441",
+          "bbadc8a7c4de2d5ce39fc5014c42c8ad95c1d2b149093d9e467ae9a8b13c85cd",
+          "adfa1359a47ac16419e569266c8029d425364a6e8b7b5ae2f1f52d1a433e098c",
+          "859fd6713d124e83a3a956d25e64dbf39c84490045efa11b9d203ca6d43f79a0"
+        ],
+        [
+          "ad15e18e01e84c9d6c3126646bd0ccedebf5cbecd34a6f75683c5e1cb0b0f7bd",
+          "7422d5403ab02b504bc04e72ce6a27c1cd96e62df1c5f61cb0f39899ba3c65fd",
+          "2922fa2244eea7847e4f0d9230dd53c0f93f3d164da1c7628c1d0659c3eb1784",
+          "1f0453c741759d5a4ae1d15dd13c64bbe4a1e5c2a0d7d50825a0a82f59b71508",
+          "542c52efd2c710bcee93fd7ed69a30f355e64dacd90707da757d7bd03913cfa4"
+        ],
+        [
+          "5d9ffb5dd8648ef0aae19aecabef931b99c871ab20b21ba0826633f8e206e338",
+          "ca19216bfa844c04c7246133a200aec27c1811ff39fae15fcd267985fd44e692",
+          "016b9d9a551cc1cf6fcf0dd5c89c5a779f5dd7b98c547fd148e20e72dcba893a",
+          "63b4a71c2ab908b01fcc29b784b8c7009edb64f5adfb0b9ac2028b2d9bd7c9f4",
+          "d626884a39587b79117e1cd1f9031e544a940880c6f00bbe6301e3653644139e"
+        ],
+        [
+          "393a2fd6cc20a8edbe107925722d60b1821068a095f26ef1d77f3db8dd9ba5db",
+          "407efbf629177c237964b6016548124c5ea944098228487c9a258237f10b6880",
+          "9ab4ea57a417ee50e03ac8eea17b4c6cfa38e02be8a2715f12792ade91e0ae97",
+          "28a80b6204a374214a5d6c0fc35ef7f3a277bd6316bdab7cd71917a16d0d8788"
+        ],
+        [
+          "82ee160dbf257331d923e443d60fc55ba73564476874a5b05c64aa13b77a9f8e",
+          "a322b03c39e6dcf1d90230172015e0b4a8863d3886b0a51ba1677fc5eca93c92",
+          "c2d016549a50cb377a674aca6d8ea9db0cd4f92a10a22e6cc1a8e1c55c3ba34b",
+          "1fefd71194404622b21c9600ae179becf8009cacc2bd17f9aaba096ecd107e23",
+          "7797a355bd06891c4289e8092bb294fc833f5be0b4b17cbc7c8201f75b150bda"
+        ],
+        [
+          "3f78b7ca6f6849b71d1a3a8d0a9707117937853def3c146d48b738fbfb9602ae",
+          "83a2386e6e7b83d978bd0f13982c703bd091589ddaa71dde4be284bea8b51a43",
+          "194b72cd7904205ce4024c6803bb39f1323f852a3de5bd6b4470120410e7b0f8",
+          "a46c0632c4d97c9193abac0dd39a521155a10b5730e063b89316fe031ba35c6f",
+          "2170824adbcbce68003d55e181ec367ecf7b7f072f804da561defb24b63afb5b"
+        ],
+        [
+          "834e11bdc5ac4cfef7099c0211cd31cb4aa3347ddb91b48bb429c47dae21e6d0",
+          "82ee71bec1b0f3544ea8e23f2eb496dee394924cf2044f2d90dc952020c3ee0b",
+          "543a9f19cc4de8f2bd39e202cc5c50ab45a0ab0ac0167bd130709e1a94ce3ff5",
+          "003355b4edd03ba2cde70071d17cf02f18922f40a26167f1896d4dfc53b8830a",
+          "6e87a815917ee90455af90214d9a5c074bb21ca9fa989bed2f1c3b78a0c09074"
+        ],
+        [
+          "7195a800a0ae5a29394554175eea67faa34ed5299c1042dd9a5c45421d61fa93",
+          "d96a05e348cbb7febb69cd30d38c037fd789ad3fd7052d3122cec4fa2bfa603f",
+          "284764bf73e7325a6bcfa1658385cbb4d99cc035eb29886109679e24ddd6284b",
+          "0c00661c63b9de6951a353407845a48f3c7e3d18ab7aeef209f48d98b31ae7e5",
+          "e2ec174ce46f47c345c77f5b6c8d2a73833d27ec5334f375f7bd1b9cff1cb3cf"
+        ],
+        [
+          "b5a2e19f044e32933f05ae021a76e4a7f7d9addd78881e73d4fdfd03299fbea7",
+          "eb0649449181a78456dd7c4c2be926a3e0c376932f252cc5f8cb02a1bcef6037",
+          "dd5dbb9fdd8927f4f2613af6880d8ed06bc5f746d41cdcc80207aa1d056c8f78",
+          "7f9304161c7eb993a5b9dd9cbd2e2860a6ca8157a72d4b8027e6adaf1efb308d",
+          "52d44be0d2ee0b88ee3ea68833aded8341f699449628453977bbd8a5052c4b80"
+        ],
+        [
+          "42919ee0ca993f8caf44013115fd71545cacd25ab6cbc89e56558fca66ab00f5",
+          "d5fb5b53fc80c11e6f90d23f41f5fdd467119d0a95c4ef1f23720687bc5c017e",
+          "8c20b0b4e6182f1e2470d3bfc4f24035fe11083e57bb99e30e56fcffdab2d6c7",
+          "80f7b2a1a982d549c20904709d15179ebc5487af00a71a47cb323c502b6e8850"
+        ],
+        [
+          "7563cf7f1fd95fdd42443f7e30574933fba9237653bbf40cb688c38cf56ed4f4",
+          "8aa4fdc859b464b751fd3b4638debbf544fe180ae159e54f0c947e4bceca0dc0",
+          "9d575ff1476f6ea47bf06e0b6689928aa2c35fd5220de18d262c35f197c97e0c",
+          "3fa50ae77bfabd152f970fbc09df519958df1f81de4f39ac136004f2ba40c649",
+          "d459606df0021ff82f8e2f551588e64daa056b1e0079b0eb5ebffc66e31e57a4"
+        ]
+      ],
+      "element_hashes": [
+        "b313046f8c2dee70431568224f30515129e30f3a1914522dd1245f21e2aa00b7",
+        "393ae0caaf67b8810849b9bcc72b822d24006478a65dd172358f92dedaec2c2a",
+        "c2c420bd6039ab52100f5e42c497f79bf7f4ebc4f82f00a544aa0114c6a07686",
+        "02f6e04fc2f33854f9ce32c7b66b331ce84a6f591dd2f8a87b043cc469225e59",
+        "02aebb4e05203a95fd109d0f9b451c635c1510d268715cf7648fcd6c6edfe535",
+        "b60e253c52de2100754bad236223fe4a7c5ab6dffd66fe72e7f96fb567170f4b",
+        "2a38839ede3f1543fc27ca0e1d8b1d6f12861235e0c41c7445d20a5f3aa11e3b",
+        "ece0039c4440a2dae5520d8b4f06e9b08bc57d3676c7d95a1dbc82c97eda0d81",
+        "8fb1aabaf7d931dc1acc708dea11f26ffc9bedae425bcbbbea6b88c73f330511",
+        "1d0f640de2ca60ec1037b424e44b3e971738863ac13da14956907105ff4476b7",
+        "24b852a336629dda21f69ae84623b2b9214512f49a36bdfee1a6127cbfd78717",
+        "7c3426c012c4b9f81af1086845f64239e97cf31213ffbcd6f3b47bf52e0c4f19",
+        "ecb5b9d6a5b61352a713df37a46f5c9f02e48544b338c11c08baf18cc4ddc6ba",
+        "dc8ac5fa419e3e779b174781fe28b64417d9b3740d69fb25c1507d09f230b27a",
+        "f4027a6c5a430b168503665c5fea6c9eb7bcf4bf0e9dae997a267a1e84f46ca6",
+        "797bb8908b8cbea18b81eba607468a96352e8d0e098ac25b226995a815dae685",
+        "a5608420aa63794733246c335408a476a526b2dfe3c0380a33f0f7d57679ab20",
+        "ee28b71c39012fb91573f0bf1ca8a2ba6ed53908797bf9f767642ae446aa824a"
+      ],
+      "hash": "ab4f0747750e48a4bc933072e2cc77b1c5f65afbf2e5174737ab967d7b3d36db",
+      "kind": "array",
+      "shape": [
+        3,
+        6
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.20a": {
+      "array_rounded": {
+        "1": "1eaded8d84ce955017a687e18f65e9769cd9bbc32caf458a800e0b815e1cceb0",
+        "2": "1e217aedf8bed38de7f2b2aaf3ad641a6cb4377109348455c7aac47386f6500e",
+        "3": "6f188522f5a2adbe267565e19421bf9ea22d469a2e2fa12886b36fb4b649cc4b",
+        "4": "59bbfa69200eca7e0f477d801966f1d6eac22499def54c68f1bcec1c3dbd515f",
+        "5": "e681ab5adead31ed2897b8d8a4ca6586e30848ecfb7d3fdf3efe44d4912266a9"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "95f8b7c28ff35dd2c9f41f4239c4f2518ef67adf5be99a465038695c62ec73d8"
+        ],
+        [
+          "596a77eb0ad984ebcf725169c0f681718d797da243dcd3a5e5f273895363c79e"
+        ],
+        [
+          "af223cc5df0925d5b7e18c0358705227754e44446a1107e8b02948415d7061ff"
+        ],
+        [
+          "6708a4ccbdfd9b6c93799d83c60f9db19e36898cf460bd0db6b38e67e8341823"
+        ],
+        [
+          "749ad78d74376b316220c9f1efa81432294e7fe5cc0a313c4419e6d50e8463be"
+        ],
+        [
+          "74cb07d0992a79236896d8a60234cb9e75043dcc27b096661b0a47ac65945de8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "85edf294a2d92c73243432d99252d3d1c56d59b593decc083aa80751db87abad",
+          "497b0b79c2b063deea93a9be784bb46be57780e1e3c22612487572714c793fd9",
+          "7cce9267a2ba99717709c60d9fd64005ce549600be57a0bcc5ea99dda8ace289",
+          "61a0b72135dc297086d3a9bbb706c5b008d82c79bc0db8315c2cb669905d9cbe",
+          "abdb1603511fbaaec5bcd14c1b17733f7c5847e0247282542c704aa30ce0a54f"
+        ],
+        [
+          "ba44d9f0eeb5fb9baa27b47d62752531a0b76f9527b70e0e649cae601e86d8ba",
+          "fe80a98fdee41a8f60ae7a4fe4e413a9c81f21b42fb823992a5a1789471f704c",
+          "2d61d95d948928a7ba37fde1ae4f5b10bec497c5109d6081120868378e9a6bbb",
+          "863aeeb9217ebc85df82877827397035ce3d88bb0976105b96b0d3a30badabfb",
+          "9027414478827cb63869e932825ddd5037ab85b1de77eddf9fce6bb3030a8f27"
+        ],
+        [
+          "0a50f9ccc78a4e64adab5ad6363745c62b47c08c90df4ba85ea02f84ac7898bf",
+          "fff8b14bce587473db397bed7647ae4ce10ec1bfb76e71a55fe1ccb7fdfbc862",
+          "ddc60e5e30bc7e2d7f8f0cf7beb2e1734ffb8ad7fff8aeb2f7bb8182e7135eb9",
+          "e7b0ac7d6bc3a63e522e7319073acfb3abc43078a01fd13af3658236653abfe6",
+          "25b803dda22389e63c02560ca5ed0ace9628ae31f81e439c4151cd0a69a7dc11"
+        ],
+        [
+          "626bb74bc5a562eed68026299c3c1aeda0ff6946fc3fcdc6f2896736931c17bc",
+          "8022f76784666e7e939038f084c8e1894e5948f3d58e6f32b5ea54d89a0d3283",
+          "bfca0edf1fa0f9a86ba9af7999503e0971f2c1039567d2abf5485b3768233520",
+          "189c76d40b30da5393f86494c2ddb4beef366f75cb49cf1872e6f53bdfbc6843",
+          "ff03fab32ba34030f2bf2d128bb73c3d5b7a2dce60e8c118cd541cf249d64a67"
+        ],
+        [
+          "f26c1b967320e2f1b8daf76222ed0461466ab7eb9368bae9e26b2031d38f1280",
+          "85f0490ab1b077e272df2332d57bcf952d1d0aace7de5c3d2dc5c3bbbc349a1e",
+          "186cdfec147fa8715c212dcb18e0b3f08df973ceea12be705b047f0f0dd55e89",
+          "1436ac1be27f42fb2fda2ef95e2428e37e81839e4fde072fa7aac582aa0f3887"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "43ff46ab40309409723503992c4a43e5c8d118479b92e8d8a57e355f6557bbf2",
+        "01bb2a9e7c3f5c7e40d916c9fe8a323ed30ccb415d9c98bca40e6074eb968fe6",
+        "12497757a996670ac4032cc238bf6848179bf39a5e3f4ad636d9db2da30f3943",
+        "3e0b876014cacf041b55300419599d251a8f9f7ed651cc39f4bed1b6e2e4529c",
+        "2b44846eb3edb96eca436f6a1109a5e1a278e662236dfae48d01f4f0fe71a552",
+        "ef0d797cb77c5dc288bd57f5a8e650c5ddbe44f654e0ec418a871f94e2d41fff"
+      ],
+      "hash": "914abf973007a823799bb898a830b5e6bcc65b97d93c75b20e76c9a035cef80f",
+      "kind": "array",
+      "mistakes": {
+        "2ab7347f41d73ab546219f35a8e308b052eeca9f89d25587300e05fe20fec232": "rotate_e3_then_e1_fixed applique encore d'abord la rotation autour de e₁ : dans un produit de matrices appliqué à x, c'est la matrice de droite qui agit la première",
+        "5acc27fc7d8f665d16aebef0a4a31c106c23979f85921b100572683b27a5cc9b": "les trois derniers nombres sont ceux de la version FAUSSE, rotate_e3_then_e1",
+        "b1aae8ba3f621ff34e5d435101803d0ff3444c2ef1d22ff444cafde6755aa61d": "la version corrigée d'abord, puis la version fautive"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.20b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f02e58fb44026c309a6bf9cf5aa30ffff7b05b59ac34f4421f1ef7f04b23ca83"
+        ],
+        [
+          "bd11dd55fc54e8782fdc24865eec5876e1831182e910c6dc9c67614dadf3afe9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d91c066a63ca999664a026772e1a91fdf2be048d6ef57875730616dc00ae4964",
+          "f6c5bba02549e8ea98cf77e240ff5f16c3cc8830c68990d57fa48e6df24bdde4",
+          "cd85d5ec18a82b8699487dc4e09317ec9a672f038bf7bbe29dea6687e47e0d5d",
+          "39326c1b4d30b2a006c809ff4040283b41f9c65d5cd574d3c9a8a9a853c9d469",
+          "6932e966d4f07f69e43144d2b7dd4cb3d31e2a6a93346e05ab4d70a89114cc07",
+          "456758e3c450d45e0a9499b7c842dd2d3b84134028cad6348dc940e2458114c2"
+        ],
+        [
+          "1044a7a225289e22f01ac55c5ebb8a396ef0661c7922c81fae079063b8e93c0d",
+          "8b0a42129e2bb862eeea8a029aa88bf4511ae10b0e7333f345ea7b4670343901",
+          "5727622ab477512b914ac93b16382ccf83e08aa44289b7bb87e982ce689e1caa",
+          "2e09003a5e91e0e52dbfccfc654605342f76990227f2a9cdceea4316804b69a7",
+          "bd2dbb60d401210e1ea27fe19fcbc26cfb9f90dfa86367dbbe438ad7fdc9c2ef",
+          "892f1f69e381c01cb550f7c7877553f1af9b335330b603de6bc743c720a3873e"
+        ]
+      ],
+      "element_hashes": [
+        "1e0a62d9ccb304e41496601cf0d55c4739a6dbedda171340db09179c2a33bc25",
+        "5500ccfe60e816caf2222f3b79467b9220626c068789cf19fe880655ce4fa1e9"
+      ],
+      "hash": "9844f2d0ce9ecc28679b4a69c57522f349f30edff7d1839e91c6902cd427c10e",
+      "kind": "array",
+      "mistakes": {
+        "12f933521bfe3bfc938aa1292b3b5b22f57c27bdedbfda2d09704fb2c875b91f": "le second nombre est celui de la version FAUSSE, mean_direction_bad",
+        "640c82725af2a40762ce713cc3df51d82dff554b6f55b7352efd47162cd60672": "la direction se donne en degrés",
+        "dad1f02a039095eaf5f70fa90d410fdf08b9510724373b07e82fbb0317e2ffe4": "mean_direction_fixed rend encore la moyenne des angles : moyenne les vecteurs (cos θ, sin θ)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.20c": {
+      "array_rounded": {
+        "1": "5ff86d5916883358fc860f3c853fb6293da5adc9cda2e5f98b38001cd97a010d",
+        "2": "ebaa5868c157fe39de5162c4af137e13d25ea66911e3891174241cf06ff7792d",
+        "3": "d6773458623b42ffc41d5d842a78a803962698225c723e39e502eafcb6ffee59",
+        "4": "a9dc596792271f2856efb5f2ffdd738f2a8942c02caf73b6581ddde2f1f919a8",
+        "5": "70e8874d2900f2ff8b51c430d0f882b2ec8e18072cbcbaf3f5fa006269583caa"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "abbbe3992fc69c73460a2d3af1b515120783799b68495aa75792cbd4e20e8f85"
+        ],
+        [
+          "9f6304dbb63c4cdd95f880e72afa51ee5620db2a692b38fe5919902c1dc98cc6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "af2a31004aa73365da394899fc6ef5f757b2c6fa9268154154d0ac490e3345a1",
+          "ed1527d6d1f779a278c6d0b8e8fdf9c0d53a30734ebd23643ac0be4bdd1bd76a",
+          "f8bf3cdd49ab4b17e45c3bf4d7437fc3ca34ec5c2aa0b27f6e5fa46cac1b1399",
+          "2083dc2b0037f97cedae602bc86be0a287471ca23ae70a4570518cdea255a134",
+          "d6bb589a3d116159946deb2cbb793598fcfbc4b15c1dad3aafcaa41193073428"
+        ],
+        [
+          "df7190450ceddc371d0fd8ee62613dfd71684b57ccc040f5ef4344ed82949edb",
+          "a71bda12f8f9213cddbdaaf2cd7edd3f3a81df66cb7709425e6bc254250dda59",
+          "b14322a9c60c39da563829c36cee3f2f19cba461236108a0f6d23cd7d256d6db",
+          "614851e0718c029a1e8cb8594b61ca3be57403623f9ba2b9bda37ceaa4bce28a",
+          "b1867e015f96e2b9bde104d979bbe5a6b33f06cec6f464d96bb01875c0182bfb"
+        ]
+      ],
+      "element_hashes": [
+        "2246a406057bf26c1334a247b46c5d287a109f674a4d3d2ac98f22ba47dd5956",
+        "0bda1e591cdb3f9a99d659cec5aaced8b5ee389d1f5e4dc8f145b0afe479c795"
+      ],
+      "hash": "2a17d0036a840fe12708afce15d0faffed149cc0fe5249ee01a20c330e7bb7ac",
+      "kind": "array",
+      "mistakes": {
+        "0e5efe4afdff1e6771b848eac517ee2cb9b729df039a3014ee229fd0499215db": "le second nombre est celui de la version FAUSSE, online_softmax_bad",
+        "f6233d83e34344c349fbadf81c7298bff674ac1e5322067bddbba94387ac3384": "online_softmax_fixed ne remet toujours pas l'accumulateur à l'échelle quand le maximum change"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.20d": {
+      "array_rounded": {
+        "1": "3b6335ea8581ef1457ef55722b07163a4513f432f2c3b2d34c703ed1c447fc6a",
+        "2": "3fafb1022e7436965ac7e3bc019a055e6326c6f032d2f0b3bc0d5db45f49da4d",
+        "3": "b5aa7d6871630c4c6db448c9dd231fd841d0a3825a08c47ac437047e4aa5ab12",
+        "4": "39f592f25b54b344c0198ee28d19d183d713bdc98c86581cfb5e3da8aba0f913",
+        "5": "534c9aadb4571e55046e90f7d7076312a3dc38bdadadde18cfd528e514a3dfb9"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "3c5a156dc64cf68ce86daa9c741eaafb938ef66c92d2d77bbf3d47dcbb2465c0"
+        ],
+        [
+          "0cdd4fad0707ce0902fe2af319ae55fb1d2d99ef63625b0c34bb43d4ae514c71"
+        ],
+        [
+          "e6a95abfd1fd1a2b6a1428eab2d8aaa27b00186f33a9e320b83c7ecbf7f48ddf"
+        ],
+        [
+          "c8f28032a1a8d2aef45c8c42a2b58740f59783e29d5d0d20b1f095c86a149836"
+        ],
+        [
+          "9e74f48f1eeb310075fb703e7a4d9e26f10c082a6eda862da6733b6db16fad4f"
+        ],
+        [
+          "1cb1bf1be5d9ddd623102c2ec525af27bdd1b19b5d86c2efbd5ad6c5207912ef"
+        ],
+        [
+          "715b1a9acd8deaa7f604beb179eb2f291e1408eb4a0202ce2567c95061000f8f"
+        ],
+        [
+          "d854517f0a0263d7c2379bbb38225b11a0318ed0703896e00108a4d644b90aea"
+        ],
+        [
+          "df1da4dcac077d45b3c831d37ae830e99ff0732a027ec5a880a54a8dca0dd2dd"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "da2e46c5ca5ef2c95bb3f18d0fd841e5eec7ad6e4edf7d56af5d98f34734a653",
+          "c837cff234c4bf3ec6666119e3f7dfef8ca110a0103361fbc6647f591110853e",
+          "dc31a746c2212d439f0a71581ebf9268b1fe8df011cd5efb79deebc311341cc1",
+          "ae0e95975edf2f21e9c69a8d86a9e4d32c5426c2f956e77f75d11d15919a4749",
+          "9aa6c74defab057768c2061702522ebdafff8b4284778f73149f0af42c6d3be5"
+        ],
+        [
+          "beeba4603447ed04d7113e2276d17ac91be9117637eb71e683dfdc87f8cf054c",
+          "4f415bab22dbe9dc985a19cb82c2db15ad57258c854dba6a3794c78061d29d9c",
+          "fd1de6cb568da77cb72971a6e6874ca9bc8fef766b44703d498287e169eeaf67",
+          "bb1d5105c10215883983fcbaf6137b87bee63a84ad1596259d14a7ecbdda34ec",
+          "2555b52bbec0d791f153bc1babab88bc80ff9e16fd26cb11221bf773999804e4"
+        ],
+        [
+          "9db70945ee0742ffd5344f7d5d417526ca1a421b55698b602b303f5cc5d0044f",
+          "34ce0a5513e27a8a8935368d0c280db0132b803d2ad407cc5d66c7fc48d63fd3",
+          "2dd5f254405e6f8ab5649205235ad6322d6c11a429db2a56a941d8d2174f5d0b",
+          "5308b6502c60042744131ca2263eee51d8d68fccd9c82f6ed06b84eee5cc7596"
+        ],
+        [
+          "d56a75ca3af6118478e8dbf7026e519446b0c86f7b336a6a6d853d6ca76c9503",
+          "fb2b1f4bce4b33b02322dc231713ab67c08ff8440397da81f7e8ed4749a17066",
+          "102e87e89dac507162bd800b0f66dd137891b9f5d4f0d0c748447bd5cd265b44",
+          "d5a3727a3d0ca4d791f446b7bb7848f7157d041bae5f347c7c7c6e0eb5fbca00",
+          "2085fe84ba6672c7a3a27452370179d26661589416e4bd1277aaf31d9f682d53"
+        ],
+        [
+          "6ae335bc450924738be6deb0818e94c1d05e3b75e2d250f1128ecdbc466ebf9d",
+          "158d8aedda1cacc371c44f05f6f94f0fe71a08c6a0a31b5ea7df408216934e95",
+          "715ad2f9414a274809e46aec137bb3255b03b2143a138cabf5bf94167405dfc0",
+          "630fd198a12a8e77cc5b3d16fc406bbdec2764d797cc3153d46a3a52fd825235",
+          "ed2c4a546de549c6c082dc432c11682706a17a53bc72776ea77766eee86da862"
+        ],
+        [
+          "0afef3d7f45fc83d4cfb01a6cf5c874de38b1cb11739e1cb5544d260b8173f89",
+          "60b50d402d8cfde8eb1cadc1a5c86c0e8ad57ac6f5cc56473b678682f91414cc",
+          "ecae0818e0c6eb5e28195bdeb8517395b050be5ab02e333ef88c15a01bf5c378",
+          "419c46ee3fe885d6b075c21554643256b81c084d13ff6c8f36e4b73906e3dc5b",
+          "4e9711d7699b97af6a8cd1b30582fa802d306de479426afec2f4e0387f13bc6d"
+        ],
+        [
+          "a622cfccced67da4ec3fd55f49e736a43b8b255d37d2a7c3a40943132760925e",
+          "86e295ca28f4f9126763dd606abb93a47355387da7fe0e59922658a7e713476e",
+          "24dc718df2311786fbb56e6d324e285588736af2b836b06a1eefa78b14c6ea96",
+          "faa3112320380195f36ea936ab11d0df3a3c748d0fc051f8f7b17d34ba699fbe",
+          "0bfaaad736569e5d095cc2c1ff30e62455b452a1bb1b944187da65fd6465d7c3"
+        ],
+        [
+          "6bed24ed120b4a17f48a0355f1577c5c323280749dbb6ddf48960440b886dc1a",
+          "c090b8cff2e49789c594cb6bbe4d8e2ee44f822d4c8c862bfc693ffd6c224b85",
+          "8a0f3c3b7a6fda2564e1682a54c4bd188075ed567df2dc48ac0019dcf6fa184c",
+          "d9eeb74a2119ff9b1cd319a3b2c963f9fdc36889a5bc38a11cd56a6154d5867f",
+          "dea740c084db059c3bd3af0605a9de48a616e611cba8ae1110f6fc1913e0b264"
+        ],
+        [
+          "eb37442fba273a178c4a265c958473c1606d612cea32bda7a72d6aa3b4d4706d",
+          "580455abe950cfb9097ca63135340a32dc270c6778cf2035960774fa76fc32a9",
+          "d43e520c5bbf52fe32d8b233f61f66876381c34fb83b691f855bd007599e9b0d",
+          "f899194ab9f08daa76d0d240305672625a60afc220df0bbb9fecbda2e84c9d63",
+          "c9b0efdf4324985201fa43e8bafb96e08a2fc60ff28444a867096757e3dcd352"
+        ]
+      ],
+      "element_hashes": [
+        "06f36b75b336eb32955924357e72d6ed2c8f51e8a0a3b7a2b127fd90b086d8b7",
+        "1330e1720062d72f27bdd6ec56364c55812b637c9d9b27647e09f88624d4e35b",
+        "f456ddcae568f96b3a6133e0945e50ad3a01909df28dbfaa9c8b31ba87956bbe",
+        "0b38f47f68f3ec9fe663cadd4235550ed45fd3b930c8264766f8eb61373187d8",
+        "b59e0b3f9dffbdac0069f455bf928f1f61ea402d3e347c899e2b5f8441a9cf25",
+        "1fa6bb5a65e66e09148a6983dede54e83c0dba2ea9cd5291cbe9b4ad65c9086e",
+        "8cbf39564fef4bdfd9e655d32277f14a478dd1ed81992d24b9fedeac4eeef2f4",
+        "e122c229d9e14012f44899a38b6ddc0cfcf1ce9bbef344ad5108dc58a35960a6",
+        "1d87ce8fdd005d49d09413e46d5ae802540764f3ede7c42e2bfe18afe0987ded"
+      ],
+      "hash": "69ae2eb103ec9e1321922f1f6fec3c31817142358a45cfc4e9c395590927ccda",
+      "kind": "array",
+      "shape": [
+        3,
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.20e": {
+      "array_rounded": {
+        "1": "fb81056fff135b708aeaf280cf2d560c5200c08125029ec64cad377a6d509ce9",
+        "2": "5b161990d5f02b1b0dfa647587138c1201d0ea29b73f9e673be47bdc3d3f33b7",
+        "3": "d5a453211014eff9f8975c1306f03def2e0284fcfcf6f6562a10cfc2903aa887",
+        "4": "8947ac8a65a355c8782c5a4585050ff3bb8c362c5af3f139fe3157affb2f5595",
+        "5": "5de39ab5cd0d7285b496f4e802af4193f7dadf1d2d44936ced97dee465ad90d3"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d1736ae7ea92dc268353b0e1dd15e60b7f50325207b471c8b7d1944e7fc04bd7"
+        ],
+        [
+          "e21e1c47f9e919134dc1801471053ab3b01967f6a8f141836baa746eea6a650d"
+        ],
+        [
+          "4763a533398e96e3b83b7afe49b615bff0b98bc426fd454d8f4604236984ce4d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "62483eb6d0d0f0e3f38c3d9cf1ca81b45b51d504572f855ff0d5bffe92db0c95",
+          "a398298931633c8da7815cb975fe72ce3137b49f4c1adbc9d88ee2939d855adb",
+          "5a97d5e72a6d4f724ac8211c666d7006be7f45d38bc3e352c591d0bac703c2df",
+          "3c1d3e15354af77a7e85c0e7a071f69e9da6174e4a941459e517b42dc21f7893",
+          "681aa7a7ec79eaa4c3f1d7344c8ba56b1eaf1b4fa4bf2c37f83372048c0a0644"
+        ],
+        [
+          "45fc7981346676ff6c07b343d1b4de75379911c1187e9c7faa3d1ff65b3908e9",
+          "7f33e6c61c1a7ae67b4a13208f262070b15ad6670a65aec1e511b1259fffb8c4",
+          "e4026695b37b488a7a3ea50bd5d348b312ee5d1adb0f2c4ffff4efa9e3cce69b",
+          "9648e2f5c24b2881cb4430c0acfb93927dbf4f6e1ab0aa253416e0f20ed91af2",
+          "b212ac398f17b208caa32b8d079c57bafc4b614fcd31009d781bc007f4aba4ed"
+        ],
+        [
+          "ad65ac6f81bd6c0bb36dbbabd6e8304e113a94e5dfe4ae75f927067fdbab0745",
+          "1e9c22ddb3719fddd047b20e5f488e385616276bc94b9650a2569d078c6e5e0e",
+          "2443b54a8866a55dbe87b87f070da0bc7a7981e0bc3d6eb6d1b592b0e5e3fa25",
+          "ba1c2b685563a384d05891fb65af977281ec279becb10abd539a6f2667f49875",
+          "3b453eb98ada7e42731fe2445d83ad4b81e74485857257b2a11898c0d616f52f"
+        ]
+      ],
+      "element_hashes": [
+        "90e1d17ceea145ae5e3226399b76098cc98a1174fb66f694ed37e6970221498d",
+        "645fb26375ea1be9a518d9cb1ed0dfcc6643538914afefdf1f199bee2c685ce4",
+        "d103f4d54c72ff779e4508f0c45cdba0fab14d65fb71de79fab8bfcdf9e73cdd"
+      ],
+      "hash": "d0071fdee7cf911dd82a273ac087cd49eb45236c9a7724a8a0bda73214197666",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21a": {
+      "hash": "748fbd831ce6241920c2c7dad04bebb737654cd69c67ba86a9a8b0f4a7c5d59f",
+      "kind": "bool",
+      "mistakes": {
+        "ff8e5b7fdbba76a9bd1e353f8cad3c6083f7d09fc50de470112b1066b90e3eb2": "avec des fonctions justes, aucun contrôle ne doit compter : relis ce que compare chacun, et à quoi (le contrôle « shift » ajoute shift à m)"
+      },
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21b": {
+      "decimals": 0,
+      "element_hashes": [
+        "c6f3643792d87dd2f51a4154eeea44cc4397462d533e03c184c30c9b07f40f28",
+        "ac9a50b27d9aa46484551b322f5637b939b204a8d639149f1cf644d299651cb2",
+        "bba38b263e9141b825d67ac83da17bdc9662e69f1e0d9b1b60aa1fab223386ac",
+        "59ceefb0228a78853873b5ec719907037c9e2cb4b9b574fbfd98b85f5318231e",
+        "32ad128ffd75e4682962889cbbd5f2e6eb1d5243a70ec8d8cd055f3420b15655",
+        "a9ea50638e3e987c7728a6b3ecab7b64f45aa73ae02c1e77d716742ace0b2731",
+        "a6a1aa9e07560033b8af3117a491ab0c64081d4c775a6bd56a24945b99ebb22a",
+        "7d87a413dd4ea50bb175583d76c34cea126d7bdbe4e8a7500671dd7a133855e2",
+        "d10c140bba8c953bd5e9b23532cce4ccc6eb16cf2e53f499a24a8049c23621dd",
+        "61ac62958c73970da393bd90cb116be4210813c014f026d86c518cabb3015959",
+        "6a0176aeea551d967a356eec8fe3887c5b39ec1af0f21de4af4b924cbfa43097",
+        "5ee27e3e7029dcb15dc1d4c7b949bb01c451f29991bcc53f6d95d09a57eca483",
+        "521ac35ee7f211dc0f865039f21f97ba4badde0fc6a14829f2b5fdde9453d1bd",
+        "a1aad2afbe5c652126a0fd3ba7e0680167544ea22219cd7db92aca09e0ead92f",
+        "ed83a9d7859f4cbb2dbe8259b4fee1e98073824a097f5c120fe57569844fbb6c",
+        "af1f2cd2c83dbd6bf6a251c67689189fa8cddbd629234baa2bf91bd088492682"
+      ],
+      "hash": "c1fa10c4928f19b91d4c5d4144d4805bde521fa069d201dec8cbddcfe076a5e8",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "336b0e75d4e3d268a491097a81f146c4391ffa38e42a6423676e12105db718b0": "l'ordre des versions : rescale_l_only, centered, merge_no_rescale, merge_mean",
+        "697a6b0dd5764e1723aae613efad85371d59daa48d2e98dbbe39d63568846157": "le contrôle « shift » compare à (m + shift, l, acc) : ajouter une constante aux scores déplace m, et ne change ni l ni acc",
+        "b1078ba794f338c021fe885af036536737885ec2d6636c544cb8af245497adcc": "le contrôle « associative » compare deux groupements, merge(merge(A, B), C) et merge(A, merge(B, C)), pas l'un d'eux à ref"
+      },
+      "shape": [
+        4,
+        4
+      ],
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21d": {
+      "hash": "e66983b1ff09e571006be1f8ff0c150a6c48377d5a1087a249631a9a72a52921",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21e": {
+      "hash": "499d51d49efb4f459752c3d32eaefd59a1ba3eebf6c525945aa45af68ee5c745",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21f": {
+      "hash": "ed3af2a749f5a6b56c296312251be65d940fefcba0eb3921182f30775530a2fa",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21g": {
+      "hash": "a3b316efac804e63c450f18ffe0336954a74159254efb47b91277286aa89a16a",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21h": {
+      "hash": "182ded183c3bf729ec750805c03f8556ab97829cc3344de915873c38eb7198f0",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21i": {
+      "hash": "dff7fc7ca11bd245046ee39fd804bf8dbc7f658f9d05ed039e29bc86c67d4758",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21j": {
+      "hash": "42d04a9b480dae5f322dbb5dbddb55413c06ebd98733fc5e4047df0f083b023f",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21k": {
+      "hash": "3085a7c6b174ee21e19694c9de9fa976de86a4523c6fb0ee2b0552eddc0c6250",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21l": {
+      "hash": "419191ba2d0a3559ebbf7734fc67510a8b46b857deab311e03f46a61f4c7b44d",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21m": {
+      "hash": "c146d90df8b088be970b172dec1f00b9a14aad60a3ccdf5986150ab9e68eaa82",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21n": {
+      "hash": "fbeae8bb2e39fcfdf537ff2751affc6682a0b6b87918c845a652085a7b1127ba",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21o": {
+      "hash": "37a492be7164279df6fe98344685b72aca65ba9bee560bdf3f52958dd4ec3917",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21p": {
+      "hash": "d38ed2f6a36ad12a8e995348d36f815ecc24251ce66678d7be2fc1270026afcc",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21q": {
+      "hash": "0377bd56edc34d91d9e1fe6f22586eef38bcb91fd70855f672a875f68fbe4b5f",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21r": {
+      "hash": "f7b4028316b902a085c366ceaaf0b33c3daf819ffb34ead4f36b88309bf8140b",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21s": {
+      "hash": "a221fef8ba1b0788c2e5adc65024b01812b5e71b7278eb318fba5fd6dcd8d482",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21t": {
+      "hash": "08d9d15ecc7e2b9a16729be9d990df046a4b95ce17cdf00b0a7a871abfa0670a",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.21u": {
+      "hash": "5d99eed6ce5dd32ce7ef268a204bc269d95115b3356d6f5382f422a69c3cff5b",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.22a": {
+      "coarse_any": {
+        "1": [
+          "57027df6f8f15ca6ad88ec4b697f78a3ee3da09fe86d758d2995f3a6d7f440aa"
+        ]
+      },
+      "decimals": 3,
+      "hash": "8deb5686cde058e92ebff79b10934e75c3ba376b23f3f1b9905c16f900733948",
+      "hash_coarse": "7b603d46c5fe933e148185e31d6fe1f233c6dfe093e617233cc0ee5b8d06caf2",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "970c84439c1200dac2b91e5a3b9b2896834f71f971128081de9251ae78d40e85": "la validation croisée « un de côté » ne prévoit pas un relevé avec lui-même : retire-le des poids (un score −∞ sur la diagonale)",
+        "b56a011a0a11afecbaf60e2749d6c89041c845552c00769dc8f962d83b9fed85": "le noyau gaussien divise par 2h², pas par h²"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.22c": {
+      "decimals": 1,
+      "hash": "e4bd5eadbe57ad41ab08f0306d0ed211eea2b2599d3d8813373d12560c4d5f01",
+      "hash_coarse": "be98e359fb031e5c901b9cf86a9635c44185cb7cbb2773cb3fc3f0edeb0ed6b1",
+      "kind": "float",
+      "magnitude": 3,
+      "mistakes": {
+        "1236fbcd9907d49830c997db28aa62315834c5715c4234c8f1cc7cae8255d40c": "c) applique la même méthode aux nombres bruts (θ, d), sans encodage",
+        "df18c9a10c375e1d98600f9de4281916147f1a98a47024cd62351a298cec176f": "c) choisit aussi sa largeur en laissant chaque relevé de côté"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
+    "MB3.22d": {
+      "decimals": 3,
+      "hash": "a9cfb8bb4b349f3d4ab60c20244d46508b17e33e20d4c68183e16aa957fce7e6",
+      "hash_coarse": "f2becfe59caefadd2ca0d556d8870d8c902f75ad015375f0a75cdd8d95a72334",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "9e632f78248b3270025b10d9ca9eade8a25b6a6646db77281cd4ea59a83728fa": "d) est le choix SANS laisser le relevé de côté : chaque relevé fait alors partie des données qui le prévoient"
+      },
+      "sign": 1,
+      "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
