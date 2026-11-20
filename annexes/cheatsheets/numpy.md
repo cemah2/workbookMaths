@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, équations différentielles et décibels, calcul numérique.
 
 ```python
 import numpy as np
@@ -223,6 +223,21 @@ Une matrice `M` de forme $(m, n)$ ; les notes `t` d'un juge ; un tableau $2 \tim
 | un taux de succès@$k$ | `sklearn.metrics.top_k_accuracy_score(y_true, scores, k=k)` : la part des lignes de `scores` (une par question, une colonne par candidat) dont le candidat juste, `y_true`, est parmi les `k` plus grands scores ; à scores égaux, le candidat d'indice le plus grand passe d'abord |
 
 Dans `mymath/ranks.py`, la docstring du module dit ce qui est permis : NumPy (`@` compris), mais rien de `np.linalg` (ni `matrix_rank`, ni `svd`, ni `qr`…), ni SciPy (`scipy.linalg`, `scipy.stats.rankdata`), ni SymPy : les tests comparent tes résultats aux leurs ; dans `borda_scores`, ni `np.argsort` ni `np.lexsort` ; `random_ranking_mrr` calcule en `fractions.Fraction`, avec `math.comb`, sans énumérer les $n!$ ordres. Les candidats sont numérotés à partir de 0, un rang commence à 1, et une fonction ne modifie jamais les tableaux qu'elle reçoit. La factorisation CR, les points de Borda et la loi du premier pertinent sont dans la fiche (§1, §5 et §6) et dans le formulaire ; les coder est le travail des 🔨 MB4.8 et MB4.9.
+
+## Équations différentielles, décibels et débruitage (MB5)
+
+Un champ `f(t, x)`, le temps d'abord ; des instants `t0` et `t1` (`t1 < t0` pour remonter le temps) ; un rapport de variances `snr`.
+
+| Je veux… | Code |
+|---|---|
+| suivre une équation différentielle avec SciPy | `sol = scipy.integrate.solve_ivp(f, (t0, t1), [x0], rtol=1e-10, atol=1e-10)` : `f(t, y)` reçoit un tableau 1-D `y`, même pour une seule inconnue ; `sol.y` a la forme `(n, nombre d'instants)`, d'où `sol.y[0, -1]` pour la valeur finale d'une équation à une inconnue, et `sol.t` les instants ; `t_eval=[…]` choisit les instants rendus, `sol.nfev` compte les évaluations du champ ; par défaut, une méthode de Runge-Kutta à pas adaptatif (`method="RK45"`), aux tolérances lâches (`rtol=1e-3`, `atol=1e-6`) : serre-les pour en faire une référence ; `t1 < t0` est permis |
+| l'ancienne interface, `odeint` | `scipy.integrate.odeint(func, x0, t)` attend `func(y, t)`, **l'état d'abord**, l'inverse de `solve_ivp`, sauf avec `tfirst=True` ; elle rend un tableau de forme `(len(t), n)` ; la documentation conseille `solve_ivp` pour du code nouveau |
+| passer un champ écrit « le point d'abord » | `lambda s, x: v(x, s)` : `euler_ode`, `midpoint_ode` et `solve_ivp` appellent toujours `f(t, x)`, le temps d'abord ; un champ écrit `v(x, s)`, comme celui de workbookIA B5, se passe ainsi |
+| un rapport de variances en décibels, et retour | `10 * np.log10(snr)` ; un rapport d'écarts-types (d'amplitudes) donne le même nombre de décibels par `20 * np.log10(a / b)` ; dans l'autre sens, `10 ** (db / 10)` ; `scipy.special.logit` et `expit` passent de la part $\gamma$ à $\ln\operatorname{SNR}$ et retour (MB2) |
+| une intégrale sur toute la droite | `scipy.integrate.quad(f, -np.inf, np.inf)` rend la valeur et une estimation de l'erreur ; une densité étroite loin de 0 peut lui échapper : `quad(lambda x: norm.pdf(x, 50, 0.01), -np.inf, np.inf)` rend `(0.0, 0.0)` ; intègre alors sur un intervalle borné qui contient la masse |
+| un arbre de régression qui prédit une moyenne, ou une médiane | `from sklearn.tree import DecisionTreeRegressor` ; `criterion="squared_error"` (par défaut) : chaque feuille prédit la moyenne de ses cibles ; `criterion="absolute_error"` : leur médiane |
+
+Dans `mymath/gaussian_paths.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, et aucune SciPy (`solve_ivp`, `odeint`, `quad`, `scipy.stats.norm`, `logsumexp`, `softmax`) : les tests comparent tes résultats aux leurs et à des simulations ; les imports relatifs de tes propres modules sont permis (`from .approx import logsumexp`, M05a). Un champ s'écrit `f(t, x)`, le temps d'abord, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les moments d'une récurrence, le débruiteur d'un mélange et les deux méthodes sont dans la fiche ; les coder est le travail des 🔨 MB5.16 à MB5.18.
 
 ## Calcul numérique
 
