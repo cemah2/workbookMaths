@@ -677,7 +677,7 @@ MB4_8 = Ex(
     note=NOTE_8, given=GIVEN_8,
     body=HOWTO + r"""
 
-Écris `rank_factorization(M, tol=1e-10)` (fiche §1), en suivant sa docstring : contrôle $\mathbf{M}$ (un tableau 2-D non vide de nombres finis) et `tol` (un réel $\ge 0$, ni `nan` ni un booléen) ; réduis une copie en flottants comme le fait `rref` de M09a (tu peux importer `rref` de `.matrices`, ou le recopier dans une fonction privée `_rref`), et garde ses colonnes pivots ; $\mathbf{C}$ est faite des colonnes pivots de $\mathbf{M}$ elle-même, $\mathbf{F}$ des $r$ premières lignes de la forme réduite.
+Écris `rank_factorization(M, tol=1e-10)` (fiche §1), en suivant sa docstring : contrôle $\mathbf{M}$ (un tableau 2-D non vide de nombres finis) et `tol` (un réel $\ge 0$, ni `nan` ni un booléen) ; réduis une copie en flottants comme le fait `rref` de M09a (tu peux importer `rref` de `.matrices`, ou le recopier dans une fonction privée `_rref` ; sans le `matrices.py` de M09a, écris `_rref` d'après la docstring de `rank_factorization`, qui décrit la réduction), et garde ses colonnes pivots ; $\mathbf{C}$ est faite des colonnes pivots de $\mathbf{M}$ elle-même, $\mathbf{F}$ des $r$ premières lignes de la forme réduite.
 
 **L'usage.** Le notebook fournit `M_8`, les mesures de 5 grandeurs sur 6 échantillons du laboratoire de la fonderie (fiche §2), chacun mélange de deux alliages de base (un tableau de rang 2, arrondi au millième). Avec ta fonction :
 - a) `rank_factorization(M_1)`, où `M_1` est le tableau des boulangeries de MB4.1 (cellule de données) : la matrice $\mathbf{F}$ (à comparer à ta copie) ;
@@ -983,8 +983,9 @@ wbm.record("MB4.10g", [gap_10r[k] / (spread_10r[k] / math.sqrt(20000)) for k in 
                      "g) demande l'écart avec son signe, pas sa valeur absolue":
                          [abs(gap_10r[k]) / (spread_10r[k] / math.sqrt(20000)) for k in range(3)]})'''),
         ("solution", HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d", "g": "hint_10g"})),
-        look("pourquoi le MRR n'est-il pas divisé par 10 quand $n$ est multiplié par 10 ? Quelle ligne de base un "
-             "classement doit-il battre parmi 1 000 candidats ?", " (après l'expérience)"),
+        look("les trois écarts de g) sont-ils à moins de 3 erreurs types ? Pourquoi le MRR n'est-il pas divisé par 10 "
+             "quand $n$ est multiplié par 10 ? Quelle ligne de base un classement doit-il battre parmi 1 000 candidats ?",
+             " (après l'expérience)"),
     ],
 )
 
@@ -1138,7 +1139,7 @@ MB4_11 = Ex(
     "normalisation par la longueur leur fait",
     "tracer la saturation pour plusieurs $k_1$, entre la seule présence et le compte brut, et voir ce que la "
     "normalisation par la longueur lui fait.", "fiche §4 ; R7, M05a (concavité) ; Ex MB4.3", tracks="C", note=NOTE_11,
-    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés (tu peux borner l'axe des ordonnées, `ax.set_ylim(0, 5)` : la droite du compte brut écrase les autres courbes) ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure.
+    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés (tu peux borner l'axe des ordonnées, `ax.set_ylim(0, 5)` : la droite du compte brut écrase les autres courbes) ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$ (sa valeur) et des noms d'axes, et rend de même la liste des tableaux tracés. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure.
 
 La vérification les appelle avec $k_1 = 0$, 1, 2, 3 et l'infini, puis avec $k_1 = 1$, $b = \frac12$ et $\ell = \frac12$, 1, 2, sur $[0, 12]$, affiche la figure, et les essaie sur des appels cachés (d'autres $x$, les $k_1$ dans un autre ordre, d'autres longueurs, un autre $b$) ; `saturation_11` ne modifie pas le tableau reçu. Relève :
 - a) $s(6)$ pour $k_1 = 1$, 2 et 3 (une liste de 3 nombres) ;

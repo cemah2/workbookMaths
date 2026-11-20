@@ -2235,3 +2235,30 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] MB3.22 🏆 Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la direction du vent et du jour de l'année, la largeur de bande choisie par validation croisée « un de côté », sous une erreur quadratique moyenne donnée ★★★ 45 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end MB3 -->
+
+<!-- wbm:section MB4 -->
+## MB4 · Rang faible et recherche d'information ⏱️ 9,0 h
+
+- [ ] MB4.Q1 🧠 Rang, factorisation et stockage : vrai ou faux, et le rang d'une somme de produits extérieurs ★ 5 min
+- [ ] MB4.Q2 🧠 Le poids d'un ingrédient rare, la saturation et la normalisation : signe, sens de variation, limites ★ 5 min
+- [ ] MB4.Q3 🧠 Fusionner des classements : ce que change une nouvelle échelle de notes, ce que change la constante c ★ 5 min
+- [ ] MB4.Q4 🧠 recall@k, precision@k, taux de succès et MRR : définitions, et leurs valeurs pour un ordre tiré au hasard ★ 5 min
+- [ ] MB4.R1 🔁 Le rang d'un produit, d'un produit extérieur et d'une somme (M12a) ★ 6 min
+- [ ] MB4.R2 🔁 L'approximation de rang k par la SVD et son erreur de Frobenius (M12d, MML §4.6) ★ 6 min
+- [ ] MB4.R3 🔁 L'information −ln p d'un événement, la cote et le logit (M06, R6) ★ 6 min
+- [ ] MB4.1 ✏️ Les ventes de quatre boulangeries sur cinq produits : le rang, la factorisation par les colonnes pivots, une seconde factorisation (CG)(G⁻¹F), et les nombres stockés ou libres ★★ 35 min
+- [ ] MB4.2 ✏️ Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie captée, rang effectif à 99 %, rang stable, puis le coût de C(Fx) et de (CF)x pour un et pour mille vecteurs ★★ 25 min
+- [ ] MB4.3 ✏️ Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son signe, la variante toujours positive, puis la saturation et la normalisation d'une mention répétée ★★ 30 min
+- [ ] MB4.4 ✏️ Trois jurys classent cinq pâtissiers : les points de Borda, la somme des 1/(c + rang) pour c = 2 et c = 10, et la somme des notes qui change de gagnant quand un jury passe de 20 à 100 points ★★ 35 min
+- [ ] MB4.5 ∂ Une matrice de rang r est un produit C F de r colonnes par r lignes ; deux telles factorisations diffèrent d'une matrice inversible ; le rang est le plus petit nombre de produits extérieurs dont elle est la somme ★★ 30 min
+- [ ] MB4.6 ∂ Une fusion par les rangs ne change pas quand un jury change d'échelle ; j-ième pour deux jurys bat premier pour un seul si et seulement si j < c + 2 ; quand c grandit, la somme des 1/(c + rang) range selon le nombre de listes, puis la somme des rangs ★★ 30 min (complet)
+- [ ] MB4.7 🗣️ Expliquer à un pâtissier pourquoi un ingrédient présent dans toutes les recettes n'aide pas à retrouver la sienne, et pourquoi la dixième mention compte moins que la première ★ 15 min
+- [ ] MB4.E1 💼 « Comment combiner les classements de deux systèmes dont les scores ne sont pas sur la même échelle ? » ★ 10 min (complet)
+- [ ] MB4.8 🔨 La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa forme échelonnée réduite ★ 30 min
+- [ ] MB4.9 🔨 Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au hasard, en fractions ★★ 35 min (complet)
+- [ ] MB4.10 🔮 Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le simuler et le comparer à H_n/n ★ 20 min (complet)
+- [ ] MB4.11 🎨 Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la normalisation par la longueur leur fait ★ 30 min (complet)
+- [ ] MB4.12 🐛 Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme la liste des rangs des candidats, un poids de rareté écrit ln(n/N) ★ 20 min (complet)
+- [ ] MB4.13 🏆 Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs singulières ★★★ 40 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (12 cartes)
+<!-- wbm:end MB4 -->
