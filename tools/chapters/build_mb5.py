@@ -1455,10 +1455,10 @@ M_21r, TAU2_21r = F_21r(4), F_21r(1, 4)
 
 
 def field_parts_21r(s):
-    """The oracle: v(x, s) = alpha(s) + beta(s) x, exactly (the linear Gaussian model of M25a, for N(4, 1/4))."""
+    """The oracle: v(x, s) = intercept(s) + gain(s) x, exactly (the linear Gaussian model of M25a, for N(4, 1/4))."""
     sigma2 = (1 - s) ** 2 * TAU2_21r + s ** 2
-    beta = (s - (1 - s) * TAU2_21r) / sigma2
-    return -M_21r - beta * (1 - s) * M_21r, beta
+    gain = (s - (1 - s) * TAU2_21r) / sigma2
+    return -M_21r - gain * (1 - s) * M_21r, gain
 
 
 def slope_21r(n, midpoint):
@@ -1466,9 +1466,9 @@ def slope_21r(n, midpoint):
     slope, s, h = F_21r(1), F_21r(1), F_21r(-1, n)
     for _ in range(n):
         if midpoint:
-            _, beta0 = field_parts_21r(s)
-            _, beta1 = field_parts_21r(s + h / 2)
-            slope = slope * (1 + h * beta1 * (1 + h / 2 * beta0))
+            _, gain_start = field_parts_21r(s)
+            _, gain_middle = field_parts_21r(s + h / 2)
+            slope = slope * (1 + h * gain_middle * (1 + h / 2 * gain_start))
         else:
             slope = slope * (1 + h * field_parts_21r(s)[1])
         s += h
@@ -1486,8 +1486,8 @@ HIDDEN_21r = __HIDDEN_C21__                                                  # t
 
 
 def field_21r(s, x):
-    alpha, beta = field_parts_21r(F_21r(str(s)))
-    return [float(alpha) + float(beta) * v for v in x]
+    intercept, gain = field_parts_21r(F_21r(str(s)))
+    return [float(intercept) + float(gain) * v for v in x]
 
 
 wbm.record(HIDDEN_21r["id"], [v for s, x in HIDDEN_21r["calls"] for v in field_21r(s, x)], decimals=6)''',
@@ -2299,7 +2299,7 @@ print("a)", answer_MB5_24a)''',
     exact_parabola = all(abs(float(p) - (1.1 + 0.3 * (t - 0.2) - 1.4 * (t * t - 0.04) / 2)) < 1e-10
                          for n in (2, 6) for t, p in zip(0.2 + 2.6 / n * np.arange(n + 1),
                                                          method(lambda t, x: 0.3 - 1.4 * t + 0 * x, 1.1, 0.2, 2.8, n)))
-    exact = 1 / (1 + math.exp(-2.0))                          # x' = x (1 - x) (1 + 0 t) from 1/2: the sigmoid of t
+    exact = 1 / (1 + math.exp(-2.0))                          # the logistic field from 1/2: its solution is the sigmoid
     errors = [abs(float(method(lambda t, x: x * (1 - x) * (1 + 0 * t), 0.5, 0.0, 2.0, n)[-1]) - exact)
               for n in (200, 400)]
     halving = 1.8 <= errors[0] / errors[1] <= 2.2
@@ -2623,7 +2623,7 @@ def euler_25r(n):
 
 
 FIELD_CASES_25r = __FIELD_CASES_C25__                                    # the hidden calls of the check
-wbm.record(FIELD_CASES_25r["id_b"], [float(wasserstein_25r(euler_25r(n), target_25r)) for n in (1, 8)], decimals=6)
+wbm.record(FIELD_CASES_25r["id_b"], [float(wasserstein_25r(euler_25r(n), target_25r)) for n in (1, 8)], decimals=5)
 wbm.record(FIELD_CASES_25r["id"], [v for points, s, law in FIELD_CASES_25r["cases"] for v in field_25r(points, s, law)],
            decimals=6)''',
     after=[
@@ -2847,7 +2847,7 @@ def build_constants() -> dict:
     challenge = load_module(ROOT / "solutions" / "challenges" / "mb5_25.py", "mb5_25_build")
     law25 = ((0.38, 0.62), (-1.6, 2.1), (0.14, 0.3))
     assert challenge.NOTEBOOK_LAW == law25
-    cases25 = [[[-2.13, -0.41, 0.76, 2.58], 1.0, law25], [[-1.87, 0.33, 1.94], 0.63, law25],
+    cases25 = [[[-2.13, -0.41, 0.76, 2.58], 1.0, law25], [[-1.87, 0.33, 1.97], 0.63, law25],
                [[-1.52, 0.18, 2.27], 0.21, law25], [[-1.71, 1.98, 2.36], 0.047, law25],
                [[-0.94, 0.61, 1.83], 0.38, ((0.26, 0.74), (-0.7, 1.45), (0.09, 0.4))],
                [[-2.6, -0.15, 1.2, 3.05], 0.82, ((0.3, 0.45, 0.25), (-1.9, 0.35, 2.4), (0.2, 0.05, 0.33))]]

@@ -21,7 +21,7 @@ Sans la fiche, en 4 à 6 minutes chacun. Réponds vite, puis vérifie dans `05_s
 1. $x_t = -0{,}5\,x_{t-1} + 2\varepsilon_t$, avec $x_0 = 6$ connu. Que valent la moyenne et la variance de $x_1$, puis de $x_2$ ?
 2. Quelle est la loi stationnaire de cette récurrence ?
 3. Avec $b \ne 0$, pour lesquelles de ces valeurs de $a$ la récurrence $x_t = ax_{t-1} + b\varepsilon_t$ a-t-elle une loi stationnaire : $0{,}99$ ; $-1$ ; $1{,}01$ ; $-0{,}3$ ?
-4. Vrai ou faux : pour $a = 1$, la variance de $x_t$ sachant $x_0$ vaut $tb^2$, et ne se stabilise jamais.
+4. Vrai ou faux : pour $a = 1$ et $b \ne 0$, la variance de $x_t$ sachant $x_0$ vaut $tb^2$, et ne se stabilise jamais.
 5. Pour $a = -0{,}5$, après combien de pas l'écart entre la moyenne de $x_t$ et la moyenne stationnaire est-il divisé par 1 000 ? Et l'écart entre la variance de $x_t$ et la variance stationnaire ?
 
 ### MB5.Q2 — Le pont et les couplages : où l'incertitude est la plus grande, ce que fixent les lois marginales et ce qu'elles laissent libre 🧠 ★ ⏱️ 5 min
@@ -116,7 +116,7 @@ Un processus aller $q$ fixé et un modèle retour $p$ dont la loi de départ $p(
 
 1. Un pas d'Euler de $h = 0{,}1$ pour $x' = -2x + 1$, depuis $x = 3$.
 2. Même champ, depuis $x = 3$, avec $h = 1{,}5$ : le pas rapproche-t-il $x$ du point fixe $0{,}5$ ?
-3. La loi stationnaire de la chaîne de matrice de transition $\begin{pmatrix} 0{,}83 & 0{,}17 \\ 0{,}34 & 0{,}66 \end{pmatrix}$.
+3. La loi stationnaire de la chaîne de matrice de transition $\begin{pmatrix} 0{,}79 & 0{,}21 \\ 0{,}42 & 0{,}58 \end{pmatrix}$.
 4. La cote puis le logit de $p = 0{,}12$ (2 décimales).
 5. Quelle probabilité a pour cote 7 ?
 
@@ -150,7 +150,7 @@ Dans ta copie : écris $x_3$ en fonction de $x_0$, $\varepsilon_1$, $\varepsilon
 **Objectif :** calculer une survie comme un produit cumulé, passer par son logarithme, et l'encadrer par deux exponentielles du risque cumulé.
 **Prérequis :** fiche §1 ; R6 (logarithme d'un produit), M20 §6 ($1 + u \le e^u$) · **Parcours :** C, E
 
-Une apicultrice suit une colonie d'abeilles pendant l'hivernage, d'octobre à mars. Le risque de perdre la colonie au cours d'un mois, si elle a survécu jusque-là, vaut, mois après mois : $h = (0{,}01 ;\ 0{,}04 ;\ 0{,}07 ;\ 0{,}12 ;\ 0{,}10 ;\ 0{,}06)$. On note $H = \sum_kh_k$ le risque cumulé.
+Une apicultrice suit une colonie d'abeilles pendant l'hivernage, d'octobre à mars. Le risque de perdre la colonie au cours d'un mois, si elle a survécu jusque-là, vaut, mois après mois : $h = (0{,}01 ;\ 0{,}03 ;\ 0{,}07 ;\ 0{,}12 ;\ 0{,}14 ;\ 0{,}07)$. On note $H = \sum_kh_k$ le risque cumulé.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -173,7 +173,7 @@ Un phoque porte une balise qui donne sa position le long d'une côte (en km) qua
 | a | la moyenne et la variance de la position à 11 h, sachant les deux relevés | une liste de 2 nombres (4 décimales) |
 | b | l'heure entière, de 9 h à 15 h, où cette variance est la plus grande, puis cette variance | une liste de 2 nombres (3 décimales) |
 
-Pour préparer des scénarios à partir de 8 h, sans connaître le relevé de 16 h, on prend la position de 8 h pour origine. La position à l'heure $t$ suit alors $\mathcal{N}(0, V_t)$, où $V_t$ est la variance cumulée depuis 8 h. Trois façons de tirer des scénarios qui ont **cette loi à chaque heure** :
+Pour préparer des scénarios à partir de 8 h, sans connaître le relevé de 16 h, on prend la position de 8 h pour origine. La position à l'heure $t$ suit alors $\mathcal{N}(0, V_t)$, où $V_t$ est la variance cumulée depuis 8 h. Trois façons de tirer des scénarios qui ont **cette loi à chaque heure**, de 9 h à 16 h (à 8 h, la position est l'origine) :
 - **la marche** : un déplacement frais à chaque heure ;
 - **un seul tirage** : $X_t = \sqrt{V_t}\,U$, avec un seul $U \sim \mathcal{N}(0, 1)$ pour toute la journée ;
 - **un bruit frais** : $X_t = \sqrt{V_t - \sigma^2}\,U + \sigma Z_t$, avec $\sigma^2 = 1{,}5$ et un $Z_t \sim \mathcal{N}(0, 1)$ frais à chaque heure, indépendant de $U$.
@@ -207,9 +207,9 @@ Dans ta copie : écris $\hat x - x$ en fonction de $\hat n - n$.
 **Objectif :** calculer le débruiteur optimal de deux façons pour un signal gaussien, puis pour un signal à deux niveaux, et voir sa limite quand le bruit s'efface.
 **Prérequis :** fiche §5 ; M25a §5 (modèle linéaire gaussien), R6 (tanh) · **Parcours :** C, E
 
-Une antenne reçoit $y = ax + bn$ d'un émetteur.
+Un récepteur capte $y = ax + bn$.
 - **Partie A.** Le signal émis suit $x \sim \mathcal{N}(1, 4)$, et $y = 2x + 3n$. On reçoit $y = 6$.
-- **Partie B.** L'émetteur envoie $x = +2$ ou $x = -2$, avec la probabilité $\frac12$ chacun, et $y = 0{,}5\,x + n$. On reçoit $y = 1{,}1$.
+- **Partie B.** La source envoie $x = +2$ ou $x = -2$, avec la probabilité $\frac12$ chacun, et $y = 0{,}5\,x + n$. On reçoit $y = 1{,}1$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -223,7 +223,7 @@ Une antenne reçoit $y = ax + bn$ d'un émetteur.
 Dans ta copie : retrouve a) par la formule de Tweedie ; pour la partie B, écris $p_Y(y)$, puis $\mathbb{E}[x \mid y]$ sous la forme $c\tanh(\cdot)$.
 
 ### Ex MB5.6 — Un bit altéré par deux relais, puis reconstitué par un modèle retour : ln p(x), l'ELBO de la loi aller des relais, et sa décomposition en reconstruction, KL finale et KL d'un pas retour ✏️ ★★★ ⏱️ 40 min
-**Objectif :** calculer sur une chaîne binaire de deux pas la vraisemblance, l'ELBO de la loi aller et ses trois termes, et vérifier qu'ils se recomposent.
+**Objectif :** calculer sur une chaîne binaire de deux pas la vraisemblance, l'ELBO de la loi aller et ses trois termes, et vérifier que l'ELBO reste sous $\ln p(x)$.
 **Prérequis :** fiche §6 ; M25b §5 (ELBO d'un latent), M26 (produit de matrices de transition), M04 (Bayes), M06 (KL discrète) · **Parcours :** C, E
 
 Un bit $x \in \{0, 1\}$ traverse deux relais radio. Le premier l'inverse avec la probabilité $0{,}22$ et rend $z_1$ ; le second inverse $z_1$ avec la probabilité $0{,}4$ et rend $z_2$ : c'est le processus aller $q(z_1 \mid x)\,q(z_2 \mid z_1)$. Un modèle retour reconstitue le message dans l'autre sens : $p(z_2 = 1) = 0{,}3$ ; $p(z_1 \mid z_2)$ inverse $z_2$ avec la probabilité $0{,}16$ ; $p(x \mid z_1)$ inverse $z_1$ avec la probabilité $0{,}32$. On observe $x = 1$.
@@ -233,10 +233,10 @@ Un bit $x \in \{0, 1\}$ traverse deux relais radio. Le premier l'inverse avec la
 | a | $q(z_2 \mid x = 1)$, sous la forme $[q(z_2 = 0 \mid x = 1),\ q(z_2 = 1 \mid x = 1)]$ | une liste de 2 nombres (4 décimales) |
 | b | le pas retour qui connaît $x$ : $[q(z_1 = 1 \mid z_2 = 0, x = 1),\ q(z_1 = 1 \mid z_2 = 1, x = 1)]$ | une liste de 2 nombres (4 décimales) |
 | c | $\ln p(x = 1)$ | un nombre (4 décimales) |
-| d | l'ELBO de la loi aller $q(z_1, z_2 \mid x = 1)$ | un nombre (4 décimales) |
+| d | l'ELBO de la loi aller $q(z_1, z_2 \mid x = 1)$, par sa décomposition : la reconstruction moins les deux KL de e) | un nombre (4 décimales) |
 | e | la reconstruction, la KL finale et la KL du pas retour moyennée sous $q$ | une liste de 3 nombres (4 décimales) |
 
-Dans ta copie : écris $q(z_2 \mid x)$ comme le produit de deux matrices $2 \times 2$ ; vérifie que les trois termes de e) redonnent d).
+Dans ta copie : écris $q(z_2 \mid x)$ comme le produit de deux matrices $2 \times 2$ ; vérifie que d) reste sous c), et dis ce que mesure l'écart.
 
 ### Ex MB5.7 — La date de floraison d'une variété et celle de tout le verger, deux lois gaussiennes : la loi p_v^{1+w} p_g^{−w} pour deux valeurs de w, son score, sa condition d'existence et le w limite ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer une loi guidée de deux gaussiennes, son score comme une combinaison de deux scores, et la condition qui la fait exister.
@@ -250,7 +250,7 @@ Dans un verger de pommiers, la date de pleine floraison (en jours depuis le 1er 
 | b | sa moyenne pour $w = 0{,}4$ | un nombre (4 décimales) |
 | c | la moyenne et la variance de la loi guidée pour $w = 1{,}25$ | une liste de 2 nombres (4 décimales) |
 | d | le score de la loi guidée pour $w = 1{,}25$, en $x = 96$ | un nombre (4 décimales) |
-| e | une variété tardive suit $\mathcal{N}(115, 144)$ : le $w$ limite au-delà duquel sa loi guidée contre le verger n'existe plus | un nombre (4 décimales) |
+| e | une variété tardive suit $\mathcal{N}(115, 144)$ : le $w$ limite à partir duquel sa loi guidée contre le verger n'existe plus | un nombre (4 décimales) |
 
 Dans ta copie : écris la précision $\lambda(w)$ ; dis de quel côté de 102 la moyenne est poussée, et pourquoi la première variété n'a pas de $w$ limite.
 
@@ -258,14 +258,14 @@ Dans ta copie : écris la précision $\lambda(w)$ ; dis de quel côté de 102 la
 **Objectif :** suivre une équation différentielle par les deux méthodes, mesurer leurs erreurs quand le pas diminue, et remonter le temps ; dire quand Euler est exact.
 **Prérequis :** fiche §8 ; M20 §6 (Euler), R6 (exponentielle) · **Parcours :** C, E
 
-Une tasse de thé à 85 °C refroidit dans une pièce à 20 °C selon $T' = -0{,}06\,(T - 20)$, $t$ en minutes.
+Une tasse de thé à 85 °C refroidit dans une pièce à 20 °C selon $T' = -0{,}06\,(T - 20)$, $t$ en minutes ($T$ est ici la température, pas une durée comme au §8).
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la température exacte à 10 min | un nombre (2 décimales) |
 | b | la température à 10 min par Euler, avec $h = 5$ min, puis avec $h = 2{,}5$ min | une liste de 2 nombres (2 décimales) |
 | c | la même par le point milieu, avec $h = 5$ min, puis $h = 2{,}5$ min | une liste de 2 nombres (2 décimales) |
-| d | le rapport de l'erreur avec $h = 5$ à l'erreur avec $h = 2{,}5$, pour Euler, puis pour le point milieu | une liste de 2 nombres (1 décimale) |
+| d | le rapport de l'erreur avec $h = 5$ à l'erreur avec $h = 2{,}5$, pour Euler, puis pour le point milieu, calculé avec les valeurs non arrondies de a), b) et c) | une liste de 2 nombres (1 décimale) |
 | e | à 10 min, une autre tasse est à 47 °C : sa température à 5 min par un pas d'Euler à rebours, puis la valeur exacte | une liste de 2 nombres (2 décimales) |
 
 Dans ta copie : une feuille de thé tombée dans un ruisseau suit un courant de vitesse constante ; dis, sans calcul, pourquoi un seul pas d'Euler donne sa position exacte à tout instant ; puis dis pourquoi le pas à rebours de e) donne une température trop basse.
@@ -298,7 +298,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 
 $x_t = a_tx_{t-1} + b_t\varepsilon_t$ pour $t \ge 1$, avec des réels $a_t$ et $b_t$ quelconques, et des bruits $\varepsilon_1, \varepsilon_2, \ldots$ indépendants de loi $\mathcal{N}(0, 1)$, indépendants de $x_0$. Tu peux utiliser sans le redémontrer qu'une combinaison linéaire de variables gaussiennes indépendantes, plus une constante, est gaussienne (M25a).
 1. Montre par récurrence sur $t$ que $x_t = (a_1\cdots a_t)\,x_0 + \sum_{k=1}^tb_k\,(a_{k+1}\cdots a_t)\,\varepsilon_k$ (un produit vide vaut 1). Déduis-en que, sachant $x_0$, $x_t$ suit $\mathcal{N}\big((a_1\cdots a_t)\,x_0,\ \sum_kb_k^2(a_{k+1}\cdots a_t)^2\big)$.
-2. Désormais $a_t = a$ et $b_t = b \ne 0$, avec $a^2 \ne 1$. Montre que, pour $t > s$, $x_t$ sachant $x_s$ suit $\mathcal{N}\Big(a^{t-s}x_s,\ b^2\dfrac{1 - a^{2(t-s)}}{1 - a^2}\Big)$.
+2. Désormais $a_t = a$ et $b_t = b \ne 0$. Si $a^2 \ne 1$, montre que, pour $t > s$, $x_t$ sachant $x_s$ suit $\mathcal{N}\Big(a^{t-s}x_s,\ b^2\dfrac{1 - a^{2(t-s)}}{1 - a^2}\Big)$.
 3. On suppose $\lvert a\rvert < 1$. Montre que $\mathcal{N}(0, v_\infty)$, $v_\infty = \frac{b^2}{1 - a^2}$, est stationnaire. Puis, si $x_0 \sim \mathcal{N}(m_0, v_0)$, montre que $m_t = a^tm_0$ et $v_t - v_\infty = a^{2t}(v_0 - v_\infty)$, et conclus sur la loi de $x_t$ quand $t \to \infty$.
 4. On suppose $\lvert a\rvert \ge 1$. Montre qu'aucune loi de variance finie n'est stationnaire. Que vaut $v_t$ pour $a = 1$ ?
 
@@ -318,7 +318,7 @@ $X$ est une variable discrète, de valeurs $\xi_1, \ldots, \xi_K$ de probabilit�
 $y = ax + bn$, avec $b > 0$ et $n \sim \mathcal{N}(0, 1)$ indépendant de $x$. On note $\varphi_b$ la densité de $\mathcal{N}(0, b^2)$.
 1. $x$ est discrète, de valeurs $\xi_1, \ldots, \xi_K$ de probabilités $\pi_k$. Écris $p_Y(y)$ comme une somme, puis montre que $p_Y'(y) = -\frac{1}{b^2}\sum_k\pi_k\,(y - a\xi_k)\,\varphi_b(y - a\xi_k)$.
 2. Divise par $p_Y(y)$ et reconnais, par la formule de Bayes, les probabilités $P(x = \xi_k \mid y)$. Déduis-en $s_Y(y) = -\frac{y - a\,\mathbb{E}[x \mid y]}{b^2}$, puis $\mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}$ (pour $a \ne 0$) et $\mathbb{E}[n \mid y] = -b\,s_Y(y)$.
-3. $x$ a une densité $p_X$ : refais le calcul avec une intégrale, en admettant qu'on peut dériver sous l'intégrale (M25b §7).
+3. $x$ a une densité $p_X$ : dis en une ou deux phrases ce qui change dans le calcul (une intégrale au lieu de la somme ; la dérivation sous l'intégrale, admise, M25b §7).
 4. Vérifie la formule quand $x \sim \mathcal{N}(m, \tau^2)$ : calcule $s_Y$, puis $\mathbb{E}[x \mid y]$ par Tweedie, et compare au modèle linéaire gaussien de M25a §5.
 
 ### Ex MB5.13 — L'ELBO d'une chaîne de latents : Markov et Bayes réécrivent chaque pas aller, la somme télescope ; puis chaque KL entre gaussiennes de même variance devient une MSE pondérée des moyennes ∂ ★★★ ⏱️ 40 min
@@ -396,7 +396,7 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le notebook). Les trois 🔨 complètent ta copie `mon_travail/mymath/gaussian_paths.py` (**mymath :** `gaussian_paths.py`), dont la docstring du module dit ce qui est permis : NumPy et `math`, et aucune SciPy (`solve_ivp`, `odeint`, `quad`, `norm`, `logsumexp`, `softmax`) : les tests comparent tes résultats avec SciPy et avec des simulations ; les imports relatifs de tes propres modules sont permis (`from .approx import logsumexp`, M05a) ; ne jamais modifier les tableaux reçus. Chaque 🔨 lance le groupe de tests de sa fonction dans `tests/test_mb5_gaussian_paths.py`, puis s'en sert ; dans le notebook, tu l'appelles par `mymath.gaussian_paths.<nom>(…)`. Hors de `mymath`, le notebook peut se servir de tout NumPy et de SciPy. Les données des exercices papier sont recopiées dans une cellule du notebook.
 
-**MB5.16 · 🔨 `linear_gaussian_recursion(a, b, mean0=0.0, var0=0.0)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (deux tableaux 1-D de même longueur, de nombres finis ; `mean0` et `var0` réels finis, ni booléens, `var0` $\ge 0$), puis propage $m_t = a_tm_{t-1}$ et $v_t = a_t^2v_{t-1} + b_t^2$, et rends les deux tableaux de longueur $T + 1$. Lance le groupe de tests. Ensuite : a) le lac de MB5.1 sur trois jours : la moyenne et la variance de $x_3$ (une liste de 2 nombres, à comparer à ta copie) ; b) au printemps, la persistance et le bruit changent chaque semaine : le notebook fournit `A_16` et `B_16`, les coefficients de douze semaines, et le départ $x_0 \sim \mathcal{N}(1{,}5 ;\ 0{,}3)$ : la moyenne et la variance de $x_{12}$ (une liste de 2 nombres) ; c) $a = -0{,}72$, $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres). Ce qu'il faut regarder : pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue diminue-t-elle ? Par quel côté la variance approche-t-elle $v_\infty$ ?
+**MB5.16 · 🔨 `linear_gaussian_recursion(a, b, mean0=0.0, var0=0.0)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (deux tableaux 1-D de même longueur, de nombres finis ; `mean0` et `var0` réels finis, ni booléens, `var0` $\ge 0$), puis propage $m_t = a_tm_{t-1}$ et $v_t = a_t^2v_{t-1} + b_t^2$, et rends les deux tableaux de longueur $T + 1$. Lance le groupe de tests. Ensuite : a) le lac de MB5.1 sur trois jours : la moyenne et la variance de $x_3$ (une liste de 2 nombres, à comparer à ta copie) ; b) au printemps, la persistance et le bruit changent chaque semaine : le notebook fournit `A_16` et `B_16`, les coefficients de douze semaines, et le départ $x_0 \sim \mathcal{N}(1{,}5 ;\ 0{,}3)$ : la moyenne et la variance de $x_{12}$ (une liste de 2 nombres) ; c) $a = -0{,}68$, $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres). Ce qu'il faut regarder : pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue diminue-t-elle ? Par quel côté la variance approche-t-elle $v_\infty$ ?
 
 **MB5.17 · 🔨 `posterior_mean_mixture(y, a, b, weights, means, variances)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests. Ensuite : a) la partie A de MB5.5, comme un mélange à une composante (un nombre, à comparer à ta copie) ; b) la partie B de MB5.5, comme deux points de poids $\frac12$ (un nombre) ; c) un signal reçu qui suit le mélange $0{,}25\,\mathcal{N}(-1{,}4 ;\ 0{,}2) + 0{,}75\,\mathcal{N}(2{,}3 ;\ 0{,}5)$, mesuré par $y = 0{,}7\,x + 0{,}5\,n$ : $\mathbb{E}[x \mid y]$ pour $y = -0{,}9$, $0{,}3$ et $1{,}7$ (une liste de 3 nombres). Ce qu'il faut regarder : pour $y = -0{,}9$, quelle composante l'emporte, malgré son petit poids, et pourquoi $\mathbb{E}[x \mid y]$ n'est-il pas $\frac ya$ ? Que rend ta fonction pour $a = 0$ ?
 
@@ -404,7 +404,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **MB5.19 · 📦 `scipy.integrate.solve_ivp` et une croissance logistique.** Une culture de levures suit $P' = 0{,}9\,P\big(1 - \frac{P}{40}\big)$ (en millions de cellules, $t$ en heures), depuis $P(0) = 1{,}5$. Relève : a) $P(8)$ par `solve_ivp(…, rtol=1e-10, atol=1e-10)` (un nombre), à comparer à la solution exacte de la fiche ; b) pour $N = 8$, 16, 32, 64, 128 et 256 pas, l'erreur de `euler_ode` puis celle de `midpoint_ode` en $t = 8$ (deux listes de 6 nombres), et trace-les contre $N$ en échelles logarithmiques ; c) les pentes des deux droites, ajustées sur $N = 32$ à 256 par `np.polyfit` sur les logarithmes (une liste de 2 nombres, 1 décimale), puis lis dans b), à 64 évaluations du champ, l'erreur d'Euler (64 pas) et celle du point milieu (32 pas). Ce qu'il faut regarder : pourquoi ajuster les pentes sur les grands $N$ seulement ? À nombre d'évaluations égal, quelle méthode gagne, et de combien ?
 
-**MB5.20 · 🔮 Le débruiteur de cinq relevés quand le bruit tend vers 0.** Une rivière a été relevée cinq fois, à des hauteurs (en m) $1{,}2$ ; $1{,}9$ ; $2{,}3$ ; $3{,}6$ ; $4{,}0$, de poids égaux ; un capteur mesure $y = 0{,}5\,x + b\,n$, où $x$ est l'un des cinq relevés. **Avant d'exécuter**, prédis, quand $b$ tend vers 0 : a) pour $y = 1$ (donc $\frac ya = 2$), $\mathbb{E}[x \mid y]$ tend vers : (A) 2 ; (B) $1{,}9$ ; (C) $2{,}6$, la moyenne des relevés (une lettre) ; b) pour $y = 1{,}475$ (donc $\frac ya = 2{,}95$, à égale distance de $2{,}3$ et de $3{,}6$) : (A) $2{,}95$ ; (B) $2{,}3$ ; (C) $3{,}6$ (une lettre) ; c) pour $y = 1$ et un bruit énorme, $b = 50$ : (A) $1{,}9$ ; (B) 2 ; (C) $2{,}6$ (une lettre). Puis mesure, avec `posterior_mean_mixture` (des variances nulles) : d) $\mathbb{E}[x \mid y = 1]$ pour $b = 1$, $0{,}3$, $0{,}1$, $0{,}03$ et $0{,}01$ (une liste de 5 nombres) ; e) la même chose pour $y = 1{,}475$ (une liste de 5 nombres) ; f) $\mathbb{E}[x \mid y = 1]$ pour $b = 50$ (un nombre). Ce qu'il faut regarder (après l'expérience) : à partir de quel $b$ le débruiteur rend-il presque exactement un relevé ? Pourquoi ne rend-il jamais 2, la valeur $\frac ya$ ? Qu'est-ce qu'un débruiteur optimal fabrique de nouveau à partir d'un nuage de points ?
+**MB5.20 · 🔮 Le débruiteur de cinq relevés quand le bruit tend vers 0.** Un marégraphe a relevé cinq fois la hauteur de la mer, en m : $1{,}2$ ; $1{,}9$ ; $2{,}3$ ; $3{,}6$ ; $4{,}0$, de poids égaux ; un capteur mesure $y = 0{,}5\,x + b\,n$, où $x$ est l'un des cinq relevés. **Avant d'exécuter**, prédis, quand $b$ tend vers 0 : a) pour $y = 1$ (donc $\frac ya = 2$), $\mathbb{E}[x \mid y]$ tend vers : (A) 2 ; (B) $1{,}9$ ; (C) $2{,}6$, la moyenne des relevés (une lettre) ; b) pour $y = 1{,}475$ (donc $\frac ya = 2{,}95$, à égale distance de $2{,}3$ et de $3{,}6$) : (A) $2{,}95$ ; (B) $2{,}3$ ; (C) $3{,}6$ (une lettre) ; c) pour $y = 1$ et un bruit énorme, $b = 50$ : (A) $1{,}9$ ; (B) 2 ; (C) $2{,}6$ (une lettre). Puis mesure, avec `posterior_mean_mixture` (des variances nulles) : d) $\mathbb{E}[x \mid y = 1]$ pour $b = 1$, $0{,}3$, $0{,}1$, $0{,}03$ et $0{,}01$ (une liste de 5 nombres) ; e) la même chose pour $y = 1{,}475$ (une liste de 5 nombres) ; f) $\mathbb{E}[x \mid y = 1]$ pour $b = 50$ (un nombre). Ce qu'il faut regarder (après l'expérience) : à partir de quel $b$ le débruiteur rend-il presque exactement un relevé ? Pourquoi ne rend-il jamais 2, la valeur $\frac ya$ ? Qu'est-ce qu'un débruiteur optimal fabrique de nouveau à partir d'un nuage de points ?
 
 **MB5.21 · 🔬 Le chemin droit vers une loi gaussienne.** Données $\mathcal{N}(4 ;\ 0{,}25)$ de MB5.9. Écris `field_21(s, x)`, le champ moyen exact $v(x, s)$, affine en $x$ (une fonction du temps puis du point, pour `euler_ode` et `midpoint_ode`, qui l'appellent `f(t, x)`) ; la vérification le compare au débruiteur de `posterior_mean_mixture` avec $a = 1 - s$ et $b = s$. Le notebook fournit `Z_21`, 100 000 tirages de $\mathcal{N}(0, 1)$. Transporte-les de $s = 1$ à $s = 0$ par Euler, puis par le point milieu, avec $N = 1$, 2, 4, 8, 16 et 32 pas. Relève : a) l'écart-type (`np.std`) des points obtenus, pour Euler puis pour le point milieu (deux listes de 6 nombres) ; b) l'écart-type obtenu en transportant exactement : celui de $4 + 0{,}5\,$`Z_21` (un nombre). Ce qu'il faut regarder : pourquoi la moyenne des points (`np.mean`) est-elle juste dès un seul pas, et l'écart-type pas ? Par combien l'écart à l'écart-type exact est-il divisé quand $N$ double, pour Euler, puis pour le point milieu ? Est-ce l'ordre que donne la fiche ?
 
@@ -415,7 +415,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 - (2) `denoiser_bad(y, a, b, weights, means, variances)` doit rendre $\mathbb{E}[x \mid y]$ pour un mélange ; elle calcule les responsabilités avec la variance $s_k^2$ du signal seule, au lieu de $a^2s_k^2 + b^2$. Il l'a vérifiée sur un mélange à une seule composante.
 - (3) `euler_bad(f, x0, t0, t1, n_steps)` doit suivre la méthode d'Euler ; elle lit le champ en $t_0$ à chaque pas. Il l'a vérifiée sur $x' = -\frac x3$.
 
-Trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `bridge_fixed`, `denoiser_fixed` et `euler_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle), puis réponds : a) pour le phoque de MB5.3, la moyenne de la position à 11 h par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ; b) pour le mélange $0{,}4\,\mathcal{N}(-1 ;\ 0{,}3) + 0{,}6\,\mathcal{N}(2{,}5 ;\ 0{,}6)$ mesuré par $y = 1{,}2\,x + 0{,}9\,n$, $\mathbb{E}[x \mid y]$ pour $y = 0{,}4$ et $1{,}4$, par la fonction corrigée, puis par la fonction fautive (une liste de 4 nombres) ; c) $x' = t - x$, $x(0) = 2$, sur $[0, 3]$ en six pas, par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas. La vérification essaie aussi tes fonctions corrigées sur des cas cachés : d'autres ponts, des mélanges de deux composantes ou plus, des champs qui dépendent du temps, et des tableaux qu'elles ne doivent pas modifier.
+Trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `bridge_fixed`, `denoiser_fixed` et `euler_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle), puis réponds : a) pour le phoque de MB5.3, la moyenne de la position à 11 h par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ; b) pour le mélange $0{,}4\,\mathcal{N}(-1 ;\ 0{,}3) + 0{,}6\,\mathcal{N}(2{,}5 ;\ 0{,}6)$ mesuré par $y = 1{,}2\,x + 0{,}9\,n$, $\mathbb{E}[x \mid y]$ pour $y = 0{,}4$ et $1{,}4$, par la fonction corrigée, puis par la fonction fautive (une liste de 4 nombres) ; c) $x' = t - x$, $x(0) = 1$, sur $[0, 2]$ en six pas, par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas. La vérification essaie aussi tes fonctions corrigées sur des cas cachés : d'autres ponts, des mélanges de deux composantes ou plus, des champs qui dépendent du temps, et des tableaux qu'elles ne doivent pas modifier.
 
 **MB5.24 · 🛠️ Un test de propriété.** Écris trois fonctions qui testent une méthode d'intégration qu'on leur passe, et rendent `True` si la propriété tient, `False` sinon : `constant_is_exact_24(method)`, qui vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$) **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près ; `affine_is_exact_24(method)`, qui vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$ chaque point rendu est sur la parabole exacte ; et `error_halves_24(method)`, qui vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand). La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence, puis sur des méthodes fausses cachées, une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève : a) les résultats de tes trois tests sur `euler_ode`, puis sur `midpoint_ode` de la référence (deux listes de 3 booléens). Ce qu'il faut regarder : pourquoi `affine_is_exact_24` refuse-t-il la méthode d'Euler, et `error_halves_24` le point milieu ? Pourquoi tester chaque point rendu, et pas seulement le dernier ?
 

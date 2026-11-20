@@ -165,7 +165,7 @@ M25a : sommes et images affines de gaussiennes, produit de deux densités, modè
 </details>
 <details><summary>Indice 2</summary>
 
-Pour des gaussiennes indépendantes, $\alpha X + \beta Y$ a la moyenne $\alpha\mu_X + \beta\mu_Y$ et la variance $\alpha^2v_X + \beta^2v_Y$. Dans un produit de deux densités gaussiennes, les précisions s'ajoutent, et la moyenne est pondérée par les précisions. Pour $y = x + w$, le gain vaut $\frac{\mathbb{V}(x)}{\mathbb{V}(x) + \mathbb{V}(w)}$.
+Pour des gaussiennes indépendantes, $cX + dY$ a la moyenne $c\mu_X + d\mu_Y$ et la variance $c^2v_X + d^2v_Y$. Dans un produit de deux densités gaussiennes, les précisions s'ajoutent, et la moyenne est pondérée par les précisions. Pour $y = x + w$, le gain vaut $\frac{\mathbb{V}(x)}{\mathbb{V}(x) + \mathbb{V}(w)}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -206,7 +206,7 @@ Un pas d'Euler : $x + h\,f(x)$. Pour $x' = -2x + 1$, chaque pas multiplie l'éca
 </details>
 <details><summary>Indice 3</summary>
 
-1. $f(3) = -5$. 2. $1 - 2 \times 1{,}5 = -2$ : l'écart $2{,}5$ devient… 3. $\pi_1 \times 0{,}17 = \pi_2 \times 0{,}34$ et $\pi_1 + \pi_2 = 1$. 4. $\frac{0{,}12}{0{,}88} = \frac{3}{22}$, puis $\ln$. 5. $\frac{7}{1 + 7}$.
+1. $f(3) = -5$. 2. $1 - 2 \times 1{,}5 = -2$ : l'écart $2{,}5$ devient… 3. $\pi_1 \times 0{,}21 = \pi_2 \times 0{,}42$ et $\pi_1 + \pi_2 = 1$. 4. $\frac{0{,}12}{0{,}88} = \frac{3}{22}$, puis $\ln$. 5. $\frac{7}{1 + 7}$.
 
 </details>
 
@@ -246,7 +246,7 @@ La colonie survit à chaque mois avec la probabilité $1 - h_k$ : $P = \prod_k(1
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}99 \times 0{,}96 \times 0{,}93 \times 0{,}88 \times 0{,}90 \times 0{,}94$. b) La somme des six $\ln(1 - h_k)$, tous négatifs. c) $1 - \bar h = P^{1/6} = e^{\ln P/6}$. d) $H = 0{,}40$. e) $\sum_kh_k^2 = 0{,}0001 + 0{,}0016 + \cdots$ ; vérifie à la fin que $P$ est bien entre tes deux bornes.
+a) $0{,}99 \times 0{,}97 \times 0{,}93 \times 0{,}88 \times 0{,}86 \times 0{,}93$. b) La somme des six $\ln(1 - h_k)$, tous négatifs. c) $1 - \bar h = P^{1/6} = e^{\ln P/6}$. d) $H = 0{,}44$. e) $\sum_kh_k^2 = 0{,}0001 + 0{,}0009 + \cdots$ ; vérifie à la fin que $P$ est bien entre tes deux bornes.
 
 </details>
 
@@ -313,7 +313,7 @@ Fiche §6 : « Une chaîne de latents » (le théorème) et l'exemple « Une cas
 </details>
 <details><summary>Indice 2</summary>
 
-a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\,q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\,q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\,p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \,\|\, p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\,\mathrm{KL}\big(q(z_1 \mid z_2, x) \,\|\, p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL (ou la somme directe sur les quatre couples $(z_1, z_2)$).
+a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\,q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\,q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\,p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \,\|\, p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\,\mathrm{KL}\big(q(z_1 \mid z_2, x) \,\|\, p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL de e).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,12 +349,12 @@ Fiche §8 : « Une équation, une condition initiale » (le refroidissement), «
 </details>
 <details><summary>Indice 2</summary>
 
-La solution exacte est $T(t) = 20 + 65\,e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - kh + \frac{(kh)^2}{2}$ avec $k = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour e), le pas vaut $h = -5$, et la pente se lit à 10 min. Pour la feuille de ta copie : sa vitesse change-t-elle le long de sa trajectoire ?
+La solution exacte est $T(t) = 20 + 65\,e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - rh + \frac{(rh)^2}{2}$ avec $r = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour e), le pas vaut $h = -5$, et la pente se lit à 10 min. Pour la feuille de ta copie : sa vitesse change-t-elle le long de sa trajectoire ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $20 + 65\,e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $kh = 0{,}3$ donne le facteur $0{,}745$, $kh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode. e) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
+a) $20 + 65\,e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $rh = 0{,}3$ donne le facteur $0{,}745$, $rh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode, avec les températures non arrondies (les erreurs du point milieu sont petites). e) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
 
 </details>
 
@@ -492,7 +492,7 @@ Un relais fait deux choses : il affaiblit ce qu'il reçoit, et il y ajoute une e
 </details>
 <details><summary>Indice 3</summary>
 
-Plan : les deux effets d'un relais ; le message de départ, affaibli encore et encore ; les erreurs anciennes, affaiblies elles aussi, et un équilibre entre ce qui s'ajoute et ce qui s'efface ; le message reçu comme un tirage dans une dispersion habituelle ; un oubli d'autant plus rapide que chaque relais affaiblit ; sans affaiblissement, aucun équilibre. Aucune formule.
+Plan : les deux effets d'un relais ; le message de départ, affaibli encore et encore ; les erreurs anciennes, affaiblies elles aussi, et un équilibre entre ce qui s'ajoute et ce qui s'efface ; le message reçu comme un tirage dans une dispersion habituelle ; un oubli d'autant plus rapide que chaque relais affaiblit . Aucune formule. (Pour aller plus loin : que se passerait-il si personne n'affaiblissait le message ?)
 
 </details>
 
@@ -531,7 +531,7 @@ Fiche §1 : « Deux moments qui suivent le pas » et son 💻 ; la docstring de 
 </details>
 <details><summary>Indice 2</summary>
 
-Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(6, -0.72)`.
+Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(6, -0.68)`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -543,7 +543,7 @@ for at, bt in zip(a, b):
     variances.append(at ** 2 * variances[-1] + bt ** 2)
 return np.array(means), np.array(variances)
 ```
-c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}72^2}$ ; compare $v_6$ à $v_\infty$.
+c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}68^2}$ ; compare $v_6$ à $v_\infty$.
 
 </details>
 
@@ -697,7 +697,7 @@ Pour chaque fonction, cherche une entrée où l'erreur ne change rien : un insta
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `mean = x0 + Vs / VT * (xT - x0)` ; la variance ne change pas. (2) Dans le logarithme de la loi de $y$ sachant la composante, la variance `a**2 * s2 + b**2`. (3) `f(t0 + k * h, x)` au pas $k$. a) $x_0 = 3$, $x_T = 9$, $V_s = 6$, $V_T = 8{,}5$. b) `weights=[0.4, 0.6]`, `means=[-1, 2.5]`, `variances=[0.3, 0.6]`, $a = 1{,}2$, $b = 0{,}9$. c) `lambda t, x: t - x`, de 0 à 3 en six pas.
+(1) `mean = x0 + Vs / VT * (xT - x0)` ; la variance ne change pas. (2) Dans le logarithme de la loi de $y$ sachant la composante, la variance `a**2 * s2 + b**2`. (3) `f(t0 + k * h, x)` au pas $k$. a) $x_0 = 3$, $x_T = 9$, $V_s = 6$, $V_T = 8{,}5$. b) `weights=[0.4, 0.6]`, `means=[-1, 2.5]`, `variances=[0.3, 0.6]`, $a = 1{,}2$, $b = 0{,}9$. c) `lambda t, x: t - x`, depuis $x(0) = 1$, de 0 à 2 en six pas.
 
 </details>
 
@@ -723,7 +723,7 @@ Les solutions exactes : $x_0 + c\,(t - t_0)$ pour une vitesse constante, $x_0 + 
 
 <details><summary>Indice 1</summary>
 
-Fiche §9 : « Le champ moyen » (le champ par le débruiteur, avec $a = 1 - s$ et $b = s$) ; §8 : « Le point milieu » et le paragraphe « À nombre d'évaluations égal » ; Q8, MB5.19 d) et MB5.21.
+Fiche §9 : « Le champ moyen » (le champ par le débruiteur, avec $a = 1 - s$ et $b = s$) ; §8 : « Le point milieu » et le paragraphe « À nombre d'évaluations égal » ; Q8, MB5.19 c) et MB5.21.
 
 </details>
 <details><summary>Indice 2</summary>
