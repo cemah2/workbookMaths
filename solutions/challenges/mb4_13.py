@@ -119,8 +119,8 @@ def hidden_series(rng=None):
 def serve(series=SERIES):
     """The hidden tables of one run of the check, served from another process (``python -I mb4_13.py --serve``): draw
     ``series`` series of five tables from fresh entropy; write each table on stdout (an 8-byte little-endian length, then
-    ``np.save`` bytes), then a length 0; wait for one line on stdin; then write one JSON line, the ranks and the kinds of
-    the tables, in their order, and stop."""
+    ``np.save`` bytes), then a length 0; wait for the line "ranks" on stdin; then write one JSON line, the ranks and the
+    kinds of the tables, in their order, and stop (any other line, or the end of stdin: stop at once)."""
     drawn = [table for _ in range(series) for table in hidden_series(np.random.default_rng())]
     out = sys.stdout.buffer
     for M, _, _ in drawn:
@@ -129,7 +129,8 @@ def serve(series=SERIES):
         out.write(struct.pack("<Q", len(buffer.getvalue())) + buffer.getvalue())
     out.write(struct.pack("<Q", 0))
     out.flush()
-    sys.stdin.readline()
+    if sys.stdin.readline().strip() != "ranks":            # the check stopped (or its kernel died): nothing more
+        return
     out.write((json.dumps({"ranks": [r for _, r, _ in drawn], "kinds": [k for _, _, k in drawn]}) + "\n").encode())
     out.flush()
 

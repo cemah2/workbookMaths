@@ -109283,11 +109283,22 @@
       "source": "chapitres/mb4_rang_faible/05_solutions.ipynb"
     },
     "MB4.10g": {
-      "hash": "223a3cf0de2fcd8f1c69ea58956cbde1f6c4d79cc6c1514ad5ae2740643792b3",
-      "kind": "bool",
+      "decimals": 1,
+      "element_hashes": [
+        "208ccf57467316edeb890b8b14dd9c3179bc341d27f8d91e0b0064743ba65b1d",
+        "4ef78f6895152c57e26317a006cb11242376595e7f45b9b2418223498e94abb6",
+        "132557f725f1fae821093574b6a7bde02b1bb5a8bb121ffe7fbc13ff1d299596"
+      ],
+      "hash": "2379fb080adcd6f259a827c76cb605855ac9f41df74a506179a99a560da78397",
+      "kind": "array",
       "mistakes": {
-        "ba3870117a2bd130783da4b1ae1b8eaeb5c2c1c681c38b0f528648f8cdbc56dd": "compare |moyenne simulée − H_n/n| à 3 erreurs types, l'écart-type des 20 000 valeurs de 1/R divisé par √20 000 ; si l'écart est plus grand, relis ta simulation"
+        "873fedeec7e2869cb3de9a4039f427d68ba5fbb362f2846f941f6c6e2f58b317": "g) demande la moyenne simulée moins H_n/n, dans cet ordre : le signe dit de quel côté tombe la simulation",
+        "9ba18b704b2c3586554c41742961ac784ba6f310b1553a41f93684e194bd042a": "g) demande l'écart avec son signe, pas sa valeur absolue",
+        "ab3e170f209fcd15b5068fcbc4bee930ebae3dcbd243e56a7886592843e1d1dd": "l'erreur type de la moyenne est l'écart-type des 20 000 valeurs divisé par √20 000"
       },
+      "shape": [
+        3
+      ],
       "source": "chapitres/mb4_rang_faible/05_solutions.ipynb"
     },
     "MB4.11a": {

@@ -872,12 +872,20 @@ HINT_10 = '''def hint_10d(value):
     return None
 
 
+def hint_10g(value):
+    """A targeted hint for g): its three gaps are computed from the means of d)."""
+    if filled(answer_MB4_10d) and not passes("MB4.10d", answer_MB4_10d):
+        return "g) se calcule sur tes moyennes de d) : corrige d) d'abord"
+    return None
+
+
 '''
 
 NOTE_10 = (r"Prédictions attendues : a) (C) ; b) (A) ; c) (B). La simulation : `rr = [1 / (int(np.flatnonzero(order == 0)"
            r"[0]) + 1) for order in (rng.permutation(n) for _ in range(20000))]`. d) $(0{,}292134 ;\ 0{,}051144 ;\ "
            r"0{,}007727)$, à des erreurs types $(0{,}0019 ;\ 0{,}0008 ;\ 0{,}0003)$ ; e) $(0{,}292897 ;\ 0{,}051874 ;\ "
-           r"0{,}007485)$ ; f) $(0{,}230259 ;\ 0{,}046052 ;\ 0{,}006908)$ ; g) vrai.")
+           r"0{,}007485)$ ; f) $(0{,}230259 ;\ 0{,}046052 ;\ 0{,}006908)$ ; g) $(-0{,}4 ;\ -0{,}9 ;\ 0{,}8)$ : les "
+           r"trois moyennes simulées sont à moins de 3 erreurs types de $H_n/n$.")
 
 MB4_10 = Ex(
     "MB4.10", "🔮", 1, 20, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le simuler et "
@@ -893,7 +901,7 @@ Puis, une fois tes prédictions écrites et vérifiées, simule : avec `rng = np
 - d) la moyenne simulée de $1/R$ ;
 - e) $H_n/n$ ;
 - f) $\frac{\ln n}{n}$ ;
-- g) vrai ou faux : chaque moyenne simulée est à moins de 3 erreurs types de $H_n/n$.
+- g) l'écart entre la moyenne simulée et $H_n/n$, divisé par l'erreur type de la moyenne (l'écart-type des 20 000 valeurs de $1/R$, divisé par $\sqrt{20\,000}$) : moyenne simulée moins $H_n/n$, en erreurs types (une liste de 3 nombres, 1 décimale).
 
 La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites.""",
     todo='''prediction_MB4_10a = ...  # a) "A", "B" or "C": for n = 10, the MRR is closest to (A) 0.1, (B) 0.5, (C) 0.3
@@ -928,8 +936,8 @@ with wbm.attempt("MB4.10"):          # your simulation
     answer_MB4_10d = ...  # d) a list of 3 numbers, as computed: the simulated mean of 1/R for n = 10, 100, 1000
     answer_MB4_10e = ...  # e) a list of 3 numbers, as computed: H_n / n for n = 10, 100, 1000
     answer_MB4_10f = ...  # f) a list of 3 numbers, as computed: ln(n) / n for n = 10, 100, 1000
-    answer_MB4_10g = ...  # g) True or False: each simulated mean is within 3 standard errors of H_n / n'''),
-        ("check", guarded(HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d"}),
+    answer_MB4_10g = ...  # g) a list of 3 numbers, as computed: (simulated mean - H_n / n) / its standard error'''),
+        ("check", guarded(HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d", "g": "hint_10g"}),
                           [f"prediction_MB4_10{letter}" for letter in "abc"],
                           "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
         ("solution", '''start_10 = time.perf_counter()
@@ -942,19 +950,20 @@ for n in (10, 100, 1000):
 answer_MB4_10d = means_10
 answer_MB4_10e = [sum(1 / k for k in range(1, n + 1)) / n for n in (10, 100, 1000)]
 answer_MB4_10f = [math.log(n) / n for n in (10, 100, 1000)]
-answer_MB4_10g = all(abs(m - h) < 3 * e for m, h, e in zip(answer_MB4_10d, answer_MB4_10e, errors_10))
+answer_MB4_10g = [(m - h) / e for m, h, e in zip(answer_MB4_10d, answer_MB4_10e, errors_10)]
 print("d)", np.round(answer_MB4_10d, 6).tolist(), " erreurs types :", np.round(errors_10, 6).tolist())
-print("e)", np.round(answer_MB4_10e, 6).tolist(), " f)", np.round(answer_MB4_10f, 6).tolist(), " g)", answer_MB4_10g,
-      f" ({time.perf_counter() - start_10:.2f} s)")'''),
+print("e)", np.round(answer_MB4_10e, 6).tolist(), " f)", np.round(answer_MB4_10f, 6).tolist(),
+      " g)", np.round(answer_MB4_10g, 2).tolist(), f" ({time.perf_counter() - start_10:.2f} s)")'''),
         ("record", '''sizes_10r = (10, 100, 1000)
 rng_10r = np.random.default_rng(7510)                                       # the same stream as the statement
-right_d_10r, first_d_10r = [], []
+right_d_10r, first_d_10r, spread_10r = [], [], []
 for n_10r in sizes_10r:
     place_10r, head_10r = np.empty(20000, dtype=int), np.empty(20000, dtype=int)
     for t_10r in range(20000):
         order_10r = rng_10r.permutation(n_10r)
         place_10r[t_10r], head_10r[t_10r] = int(np.argmax(order_10r == 0)), int(order_10r[0])
     right_d_10r.append(float(np.mean(1 / (place_10r + 1))))
+    spread_10r.append(float(np.std(1 / (place_10r + 1), ddof=1)))          # the standard deviation of the 20 000 1/R
     first_d_10r.append(float(np.mean(1 / (head_10r + 1))))     # the classic error: the item at the head, not the rank
 wbm.record("MB4.10d", right_d_10r, decimals=6,
            mistakes={"le rang du pertinent est sa position dans order, int(np.flatnonzero(order == 0)[0]) + 1, pas l'objet "
@@ -965,10 +974,15 @@ wbm.record("MB4.10e", [mrr_10r[n] for n in sizes_10r], decimals=6,
 wbm.record("MB4.10f", [math.log(n) / n for n in sizes_10r], decimals=5,
            mistakes={"le logarithme est népérien": [math.log10(n) / n for n in sizes_10r],
                      "f) divise ln n par n": [math.log(n) for n in sizes_10r]})
-wbm.record("MB4.10g", True,
-           mistakes={"compare |moyenne simulée − H_n/n| à 3 erreurs types, l'écart-type des 20 000 valeurs de 1/R divisé "
-                     "par √20 000 ; si l'écart est plus grand, relis ta simulation": False})'''),
-        ("solution", HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d"})),
+gap_10r = [right_d_10r[k] - mrr_10r[n] for k, n in enumerate(sizes_10r)]   # simulated mean minus H_n / n
+wbm.record("MB4.10g", [gap_10r[k] / (spread_10r[k] / math.sqrt(20000)) for k in range(3)], decimals=1,
+           mistakes={"l'erreur type de la moyenne est l'écart-type des 20 000 valeurs divisé par √20 000":
+                         [gap_10r[k] / spread_10r[k] for k in range(3)],
+                     "g) demande la moyenne simulée moins H_n/n, dans cet ordre : le signe dit de quel côté tombe la "
+                     "simulation": [-gap_10r[k] / (spread_10r[k] / math.sqrt(20000)) for k in range(3)],
+                     "g) demande l'écart avec son signe, pas sa valeur absolue":
+                         [abs(gap_10r[k]) / (spread_10r[k] / math.sqrt(20000)) for k in range(3)]})'''),
+        ("solution", HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d", "g": "hint_10g"})),
         look("pourquoi le MRR n'est-il pas divisé par 10 quand $n$ est multiplié par 10 ? Quelle ligne de base un "
              "classement doit-il battre parmi 1 000 candidats ?", " (après l'expérience)"),
     ],
@@ -1623,7 +1637,7 @@ CHECK_13 = """def check_c13():
         return data
 
     server = subprocess.Popen([sys.executable, "-I", str(hidden_file), "--serve"], stdin=subprocess.PIPE,
-                              stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)   # this kernel's Python, here or on Colab
     try:
         tables = []
         while True:                                              # three new series of five tables, at each run
@@ -1642,10 +1656,15 @@ CHECK_13 = """def check_c13():
               f"les tire ({type(exc).__name__} ; ta fonction a-t-elle touché à ce processus ?) : exécute à nouveau la "
               "cellule")
         raise StopCheck from None
-    finally:
+    finally:                                                     # always, even on an error or an interruption
         if server.poll() is None:
             server.kill()
         server.wait()
+        for pipe in (server.stdin, server.stdout):
+            try:
+                pipe.close()
+            except OSError:                                      # a pipe already broken
+                pass
     for series in range(3):                                      # each series: five tables, one of each kind
         wrong = []
         for k in range(5 * series, 5 * series + 5):
