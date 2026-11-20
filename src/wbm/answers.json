@@ -118002,7 +118002,8 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "9a8842194e1f2580f496926ad42cd5f256f5ddb306eaa0a88b48bbf7fb29721d": "le travail du gradient va de A vers B : f(B) − f(A), pas f(A) − f(B)"
+        "9a8842194e1f2580f496926ad42cd5f256f5ddb306eaa0a88b48bbf7fb29721d": "le travail du gradient va de A vers B : f(B) − f(A), pas f(A) − f(B)",
+        "e4976add39bf72fc1d977d03dcd1f7cb4a6d5db3b6d263b78d47f39fc47831af": "le bout du cumul le long du segment n'est qu'une approximation (Simpson à 20 intervalles sur un long segment) : a) se calcule avec f_19, f_19(*B_19) − f_19(*A_19)"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"

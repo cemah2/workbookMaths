@@ -277,7 +277,7 @@ Fiche §5 : « La moyenne d'un gradient », « Interpoler sur une case » et « 
 </details>
 <details><summary>Indice 2</summary>
 
-$\max(0, T - 10)$ est nul sous 10 °C et vaut $T - 10$ au-dessus : seules les cases au-dessus de 10 °C comptent, chacune avec sa surface. Un réchauffement $\delta$ ajoute $\delta$ à chaque $T_{ij}$ ; la dérivée en $\delta = 0$ ne vaut que tant qu'aucune case ne franchit 10 °C. Agrandir : $h = 3$ lignes deviennent $H = 6$, $w = 4$ colonnes deviennent $W = 8$ ; une case d'arrivée lit la grille d'origine en $(\xi(u), \xi(v))$.
+$\max(0, T - 10)$ est nul sous 10 °C et vaut $T - 10$ au-dessus : seules les cases au-dessus de 10 °C comptent, chacune avec sa surface. Un réchauffement $\delta$ ajoute $\delta$ à chaque $T_{ij}$ ; la dérivée en $\delta = 0$ ne vaut que tant qu'aucune case ne franchit 10 °C. Agrandir : les 3 lignes deviennent 6, les 4 colonnes deviennent 8 ; une case d'arrivée lit la grille d'origine en $\xi(u)$ sur chaque axe : la formule de $\xi$ avec les nombres de lignes pour sa ligne, avec les nombres de colonnes pour sa colonne.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -593,7 +593,7 @@ Fiche §1 : « Les poids des coalitions » ; §6 : « Des rangs au lieu des vale
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque fonction, cherche pourquoi l'entrée choisie par le collègue cache l'erreur : $n = 1$, un échantillon sans ex aequo, $t = \frac12$. Corrige le code du collègue lui-même, sans appeler `mymath`. Contrôle (1) par $\sum_s\binom{n-1}{s}\,w(s) = 1$, et (3) par les valeurs en $t = 0$ et $t = 1$.
+Pour chaque fonction, trouve d'abord ce qui est faux, sur un petit cas comparé à la définition ($n = 2$ ; deux valeurs égales ; $t = 0$ et $t = 1$), puis pourquoi l'entrée choisie par le collègue le cache : $n = 1$, un échantillon sans ex aequo, $t = \frac12$. Corrige le code du collègue lui-même, sans appeler `mymath`. Contrôle (1) par $\sum_s\binom{n-1}{s}\,w(s) = 1$, et (3) par les valeurs en $t = 0$ et $t = 1$.
 
 </details>
 <details><summary>Indice 3</summary>

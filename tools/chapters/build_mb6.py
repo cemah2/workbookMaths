@@ -615,6 +615,7 @@ import os
 import re
 import sys
 import time
+from fractions import Fraction
 from types import MappingProxyType
 
 import matplotlib.pyplot as plt
@@ -638,6 +639,9 @@ def shown(value, digits=4):
         return repr(value)[:160]
 
 
+GENERIC_COMPUTED = "Ta fonction, ou le calcul qui l'utilise, ne donne pas la bonne valeur ici."
+
+
 def check_answer(ex_id, value, hint=None):
     """wbm.check(ex_id, value, computed=True). For a list that holds True or False, the message gives only how many
     elements are right, not the place of the first wrong one (it would let you guess the booleans one by one).
@@ -657,6 +661,8 @@ def check_answer(ex_id, value, hint=None):
         except Exception:  # noqa: BLE001 - an odd answer: no targeted hint
             extra = None
         if extra:
+            if message.startswith(GENERIC_COMPUTED):            # one text, not two: the hint says what to look at
+                message = GENERIC_COMPUTED
             message = f"{message} Piste : {extra}"
     icon = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result.status, "❌")
     print(f"{icon} Ex {ex_id} : {message}")
@@ -666,7 +672,7 @@ def check_answer(ex_id, value, hint=None):
 def library_hint(names):
     """A hint for a wrong answer computed with the learner's library (no classic error recognised): its tests first,
     then the call."""
-    return lambda value: (f"cette valeur vient de {names} de ta librairie : si ses tests passent tous (plus haut), "
+    return lambda value: (f"si tu t'es servi de {names} de ta librairie et que ses tests passent tous (plus haut), "
                           "l'erreur est dans l'appel (les arguments, leur ordre, ce que tu lis dans le résultat) ; et "
                           "donne la valeur que rend le calcul, sans l'arrondir")
 
@@ -1137,7 +1143,7 @@ MB6_15 = ex(
     note=NOTE_15,
     body=REMINDER + r"""
 
-Écris `line_integral(field, points, n_sub=20)` (fiche §4), en suivant sa docstring : contrôle les arguments (des points finis, deux dimensions, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. Lance le groupe de tests.
+Écris `line_integral(field, points, n_sub=20)` (fiche §4), en suivant sa docstring : contrôle les arguments (des points finis, deux dimensions, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. À défaut de `integrate.py` (M02a), une règle de Simpson privée dans `attribution.py` convient. Lance le groupe de tests.
 
 **L'usage.** Écris d'abord `F_15(p)` et `G_15(p)`, les champs $\mathbf{F} = \nabla f = (2xy^2 + 5,\ 2x^2y)$, $f(x, y) = x^2y^2 + 5x$, et $\mathbf{G}(x, y) = (2y, 3x^2)$ de MB6.4, en un point `p` $= (x, y)$ (la vérification les essaie en des points cachés). Puis, avec ta fonction et les points de `FORCES_4` (cellule de données) :
 - a) $\mathbf{F}$ le long du segment $[AB]$, puis de l'escalier $A \to (2, 0) \to B$ (une liste de 2 nombres, à comparer à ta copie) ;
@@ -1604,14 +1610,18 @@ with checked("MB6.19"):
             raise StopCheck
         sets_c19 = [c for c in ax_map_19.collections if isinstance(c, contour_c19.ContourSet)]
         spans_c19 = []
-        for cs_c19 in sets_c19:
+        for cs_c19 in sets_c19:                       # the extent of the grid given to contour (its corners)
             vertices_c19 = [p.vertices for p in cs_c19.get_paths() if len(p.vertices)]
             if vertices_c19:
                 stacked_c19 = np.vstack(vertices_c19)
-                spans_c19.append((stacked_c19.min(axis=0), stacked_c19.max(axis=0)))
-        report_19(any(lo.min() >= -3.05 and hi.max() <= 3.05 and (hi - lo).min() >= 4 for lo, hi in spans_c19),
+                lo_c19 = np.asarray(getattr(cs_c19, "_mins", stacked_c19.min(axis=0)), dtype=float)
+                hi_c19 = np.asarray(getattr(cs_c19, "_maxs", stacked_c19.max(axis=0)), dtype=float)
+                spans_c19.append((lo_c19, hi_c19))
+        report_19(any(lo.min() >= -3.05 and hi.max() <= 3.05 and lo.max() <= -2.95 and hi.min() >= 2.95
+                      for lo, hi in spans_c19),
                   "les lignes de niveau de f_19 sur [−3, 3]²",
-                  "il faut les lignes de niveau de f_19 sur [−3, 3]², par ax_map.contour (une grille np.meshgrid)")
+                  "il faut les lignes de niveau de f_19 sur tout le carré [−3, 3]², par ax_map.contour (une grille "
+                  "np.meshgrid de −3 à 3 sur chaque axe)")
         lines_c19 = [next((line for line in ax_map_19.lines if follows_c19(line, v)), None) for _, v in PATHS_C19]
         report_19(all(line is not None for line in lines_c19), "les deux chemins, de A_19 à B_19",
                   "il faut tracer dans ax_map le segment de A_19 à B_19 et la ligne brisée A_19 → (0, −2) → (2,5 ; 0) "
@@ -1633,6 +1643,17 @@ with checked("MB6.19"):
                 problems_c19.append(f"le tableau rendu pour le {name_c19} doit être tracé dans ax_cum")
             else:
                 problems_c19 += [f"{name_c19} : {why}" for why in cumul_why_c19(curve_c19, vertices_c19, values_c19)]
+        if problems_c19 and not any("doit être tracé" in p for p in problems_c19):   # the two arrays swapped?
+            swapped_c19 = []
+            for (name_c19, vertices_c19), values_c19 in zip(PATHS_C19, arrays_19[::-1]):
+                curve_c19 = next((line for line in ax_cum_19.lines
+                                  if np.asarray(line.get_ydata(), dtype=float).shape == values_c19.shape
+                                  and np.allclose(np.asarray(line.get_ydata(), dtype=float), values_c19, rtol=0,
+                                                  atol=1e-12)), None)
+                swapped_c19 += cumul_why_c19(curve_c19, vertices_c19, values_c19) if curve_c19 is not None else ["?"]
+            if not swapped_c19:
+                problems_c19 = ["draw_19 rend les deux tableaux dans l'autre ordre : le cumul du segment d'abord, puis "
+                                "celui de la ligne brisée"]
         if not ax_cum_19.get_xlabel() or not ax_cum_19.get_ylabel():
             problems_c19.append("il faut des noms d'axes dans ax_cum")
         report_19(not problems_c19, "les deux cumuls, en fonction de la longueur parcourue, avec des noms d'axes",
@@ -1745,7 +1766,9 @@ print("a)", round(answer_MB6_19a, 6), " b)", np.round(answer_MB6_19b, 4).tolist(
 ends_19r = (np.array([-2.5, -1.0]), np.array([2.0, 2.0]))
 wbm.record("MB6.19a", float(landscape_19r(*ends_19r[1]) - landscape_19r(*ends_19r[0])), decimals=4,
            mistakes={"le travail du gradient va de A vers B : f(B) − f(A), pas f(A) − f(B)":
-                         float(landscape_19r(*ends_19r[0]) - landscape_19r(*ends_19r[1]))})
+                         float(landscape_19r(*ends_19r[0]) - landscape_19r(*ends_19r[1])),
+                     "le bout du cumul le long du segment n'est qu'une approximation (Simpson à 20 intervalles sur un "
+                     "long segment) : a) se calcule avec f_19, f_19(*B_19) − f_19(*A_19)": 1.6965})
 peaks_19r = []
 for vertices_19r in ([ends_19r[0], ends_19r[1]], [ends_19r[0], np.array([0.0, -2.0]), np.array([2.5, 0.0]), ends_19r[1]]):
     t_19r = np.linspace(0, 1, 20_001)
@@ -1900,9 +1923,9 @@ MB6_20 = ex(
     "d'apparition, une interpolation aux poids échangés), qui passent une vérification mal choisie, puis les corriger.",
     "fiche §1, §5 et §6 ; Ex MB6.13, MB6.16", note=NOTE_20, given=GIVEN_20,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
-1. `weights_bad(n)` doit rendre les poids $w(s)$ de la valeur de Shapley ; elle divise $s!\,(n - 1 - s)!$ par $(n - 1)!$ au lieu de $n!$. Il l'a vérifiée pour $n = 1$.
-2. `ranks_bad(x)` doit rendre les rangs, rangs moyens aux ex aequo ; elle donne aux ex aequo des rangs différents, dans l'ordre où ils apparaissent. Il l'a vérifiée sur un échantillon sans ex aequo.
-3. `lerp_bad(a, b, t)` doit interpoler entre $a$ (en $t = 0$) et $b$ (en $t = 1$) ; elle rend $(1 - t)\,b + t\,a$. Elle sert à lire une valeur entre deux cases d'une grille (fiche §5). Il l'a vérifiée en $t = \frac12$.
+1. `weights_bad(n)` doit rendre les poids $w(s)$ de la valeur de Shapley ; mais les poids, comptés autant de fois qu'il y a de coalitions de chaque taille, ne somment pas à 1. Il l'a vérifiée pour $n = 1$.
+2. `ranks_bad(x)` doit rendre les rangs, rangs moyens aux ex aequo ; mais des valeurs égales n'ont pas le même rang. Il l'a vérifiée sur un échantillon sans ex aequo.
+3. `lerp_bad(a, b, t)` doit interpoler entre $a$ (en $t = 0$) et $b$ (en $t = 1$) ; mais la valeur lue est du mauvais côté. Elle sert à lire une valeur entre deux cases d'une grille (fiche §5). Il l'a vérifiée en $t = \frac12$.
 
 À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `weights_fixed`, `ranks_fixed` et `lerp_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle). Puis réponds :
 - a) pour $n = 7$, $\sum_s\binom{6}{s}w(s)$ avec la fonction corrigée, puis avec la fonction fautive (une liste de 2 nombres) ;
@@ -2069,17 +2092,29 @@ def swapped_c21(field, points):
 
 
 def plus_offset_c21(field, points):
-    """WRONG by more than 1e-9, but within np.allclose's default tolerance (1e-8 + 1e-5 |x|): the integral plus
-    2e-9 + 2e-6 |integral|."""
+    """WRONG by more than 1e-9, but within a tolerance of 1e-7 and np.allclose's default (1e-8 + 1e-5 |x|): the
+    integral plus 2e-9 + 2e-8 |integral|."""
     value = ref_att.line_integral(field, points)
-    return value + 2e-9 + 2e-6 * abs(value)
+    return value + 2e-9 + 2e-8 * abs(value)
 
 
 def per_vertex_c21(field, points):
-    """WRONG by more than 1e-9, but within np.allclose's default tolerance: the integral times 1 + 2e-6 (k - 2), k the
-    number of vertices (one vertex more changes the result)."""
+    """WRONG by more than 1e-9, but within a tolerance of 1e-7 and np.allclose's default: the integral times
+    1 + 2e-8 (k - 2), k the number of vertices (one vertex more changes the result)."""
     value = ref_att.line_integral(field, points)
-    return value * (1 + 2e-6 * (len(points) - 2))
+    return value * (1 + 2e-8 * (len(points) - 2))
+
+
+def positive_steps_c21(field, points):
+    """WRONG on a segment that goes to the left or down: F . |b - a| instead of F . (b - a) (right on the segments
+    that go to the right and up)."""
+    pts = np.asarray(points, dtype=float)
+    total = 0.0
+    for a, b in zip(pts[:-1], pts[1:]):
+        values = [float(np.dot(np.asarray(field(a + (k / 20) * (b - a)), dtype=float), np.abs(b - a)))
+                  for k in range(21)]
+        total += (values[0] + values[-1] + 4 * sum(values[1:-1:2]) + 2 * sum(values[2:-1:2])) / 60
+    return total
 
 
 WRONG_C21 = [   # a hidden wrong method, the test that must refuse it, and the clause of the statement it tries
@@ -2089,23 +2124,27 @@ WRONG_C21 = [   # a hidden wrong method, the test that must refuse it, and the c
     (absolute_c21, "reversed_changes_sign_21", "sur le signe : elle rend la même valeur dans les deux sens"),
     (first_segment_c21, "reversed_changes_sign_21", "dès deux segments (un seul segment est juste) : tes lignes brisées "
                                                     "en ont-elles plusieurs ?"),
-    (plus_offset_c21, "reversed_changes_sign_21", "de 2·10⁻⁹ + 2·10⁻⁶ |valeur| : la tolérance de l'énoncé est 10⁻⁹ en "
-                                                  "valeur relative (np.allclose a par défaut rtol = 1e-5 et atol = 1e-8)"),
+    (plus_offset_c21, "reversed_changes_sign_21", "de 2·10⁻⁹ + 2·10⁻⁸ |valeur| : la tolérance de l'énoncé est 10⁻⁹ en "
+                                                  "valeur relative (ta tolérance est-elle plus large ? np.allclose a par "
+                                                  "défaut rtol = 1e-5 et atol = 1e-8)"),
     (trapezoid_c21, "split_changes_nothing_21", "sauf pour un champ affine (la méthode des trapèzes) : prends un champ "
                                                 "dont les coordonnées sont de degré 2 ou 3"),
-    (per_vertex_c21, "split_changes_nothing_21", "d'un facteur 1 + 2·10⁻⁶ par sommet ajouté : la tolérance de l'énoncé "
-                                                 "est 10⁻⁹ en valeur relative (np.allclose a par défaut rtol = 1e-5 et "
-                                                 "atol = 1e-8)"),
+    (per_vertex_c21, "split_changes_nothing_21", "d'un facteur 1 + 2·10⁻⁸ par sommet ajouté : la tolérance de l'énoncé "
+                                                 "est 10⁻⁹ en valeur relative (ta tolérance est-elle plus large ? "
+                                                 "np.allclose a par défaut rtol = 1e-5 et atol = 1e-8)"),
     (trapezoid_c21, "gradient_gives_difference_21", "sauf pour un champ affine (la méthode des trapèzes) : prends le "
                                                     "gradient d'un polynôme de degré 3"),
     (first_segment_c21, "gradient_gives_difference_21", "dès deux segments (un seul segment est juste) : tes lignes "
                                                         "brisées en ont-elles plusieurs ?"),
     (swapped_c21, "gradient_gives_difference_21", "pour un gradient dont les deux coordonnées diffèrent (elle échange "
-                                                  "les composantes du champ) : prends une fonction qui n'est pas "
-                                                  "symétrique en x et y"),
-    (plus_offset_c21, "gradient_gives_difference_21", "de 2·10⁻⁹ + 2·10⁻⁶ |valeur| : la tolérance de l'énoncé est 10⁻⁹ "
-                                                      "en valeur relative (np.allclose a par défaut rtol = 1e-5 et "
-                                                      "atol = 1e-8)"),
+                                                  "les composantes du champ) : prends une fonction dont les deux "
+                                                  "dérivées partielles diffèrent, comme x³y"),
+    (plus_offset_c21, "gradient_gives_difference_21", "de 2·10⁻⁹ + 2·10⁻⁸ |valeur| : la tolérance de l'énoncé est 10⁻⁹ "
+                                                      "en valeur relative (ta tolérance est-elle plus large ? np.allclose "
+                                                      "a par défaut rtol = 1e-5 et atol = 1e-8)"),
+    (positive_steps_c21, "gradient_gives_difference_21", "dès qu'un segment va vers la gauche ou vers le bas (elle prend "
+                                                         "|b − a| pour b − a) : tes lignes brisées, tirées au hasard, "
+                                                         "vont-elles dans toutes les directions ?"),
 ]
 
 with checked("MB6.21"):
@@ -2137,12 +2176,55 @@ with checked("MB6.21"):
     def verdicts_c21(label, method):
         return [verdict_c21(name, label, method) for name in TESTS_C21]
 
+    PEEK_C21 = {"__closure__", "cell_contents", "__code__", "__wrapped__", "__defaults__", "__globals__", "__name__",
+                "__qualname__", "__doc__", "_getframe", "currentframe", "f_back", "f_locals", "f_globals", "inspect",
+                "getsource", "get_objects", "WRONG_C21", "TESTS_C21"}
+
+    def peeks_c21(function, seen=None):
+        """The names of PEEK_C21 that the learner's function (or a function of the notebook it calls) uses, as a name
+        or as a string."""
+        seen = set() if seen is None else seen
+        code = getattr(function, "__code__", None)
+        if code is None or code in seen:
+            return set()
+        seen.add(code)
+        found, todo = set(), [code]
+        while todo:
+            c = todo.pop()
+            found |= PEEK_C21 & (set(c.co_names) | {k for k in c.co_consts if isinstance(k, str)})
+            for name in c.co_names:
+                target = globals().get(name)
+                if callable(target) and getattr(target, "__module__", None) == "__main__":
+                    found |= peeks_c21(target, seen)
+            todo += [k for k in c.co_consts if hasattr(k, "co_code")]
+        return found
+
+    peeked_c21 = {name: sorted(peeks_c21(test)) for name, test in TESTS_C21.items()}
+    peeked_c21 = {name: names for name, names in peeked_c21.items() if names}
+    if peeked_c21:
+        name_c21, names_c21 = next(iter(peeked_c21.items()))
+        print(f"❌ Ex MB6.21 : {name_c21} lit la méthode ou la pile d'appels ({', '.join(names_c21)}) au lieu de "
+              "l'exécuter : un test juge ce que fait la méthode sur tes lignes brisées")
+        raise StopCheck
+
+    REF_FILE_C21 = REF.attribution.__file__
+
+    def no_reference_c21(label, method):
+        """The verdicts on a method that never calls the reference: a call of the reference comes from the test."""
+        with code_from([REF_FILE_C21]) as seen:
+            got = verdicts_c21(label, method)
+        if seen:
+            print(f"❌ Ex MB6.21 : un de tes tests appelle line_integral de la référence ({seen[0]}) : il doit comparer "
+                  "la méthode à −valeur, à la valeur sans le sommet ajouté, ou à f(fin) − f(début), pas à la référence")
+            raise StopCheck
+        return got
+
     on_ref_c21 = verdicts_c21("line_integral de la référence", ref_att.line_integral)
     report_21(passes("MB6.21a", on_ref_c21), "tes trois tests, sur line_integral de la référence",
               "tes trois tests ne rendent pas True sur line_integral de la référence, qui vérifie les trois propriétés : "
               "relis le choix des champs (fiche §4, et la règle de Simpson, exacte pour un polynôme de degré au plus 3)")
-    twins_c21 = [verdicts_c21("une autre écriture juste de Simpson", simpson_twin_c21),
-                 verdicts_c21("une règle de Gauss juste", gauss_twin_c21)]
+    twins_c21 = [no_reference_c21("une autre écriture juste de Simpson", simpson_twin_c21),
+                 no_reference_c21("une règle de Gauss juste", gauss_twin_c21)]
     report_21(all(all(t) for t in twins_c21), "deux autres méthodes justes reçoivent aussi True",
               "deux autres méthodes justes (Simpson à 40 intervalles écrite autrement, Gauss à trois points ; des "
               "arrondis de l'ordre de 10⁻¹⁵) ne reçoivent pas toutes True : ta tolérance est-elle trop stricte, ou un "
@@ -2172,7 +2254,7 @@ MB6_21 = ex(
 
 Chaque comparaison se fait à $10^{-9}$ près en valeur relative, plus finement que la tolérance par défaut de `np.allclose` (`rtol=1e-5`, `atol=1e-8`). Choisis tes champs pour que chaque propriété tienne à l'arrondi près pour `line_integral` de la référence (`ref_att.line_integral`) : parcourir un segment à l'envers garde les mêmes points de Simpson, pour tout champ, mais une méthode aux points non symétriques ne se voit que si $\mathbf{F}\cdot\boldsymbol\gamma'$ varie le long d'un segment (ce n'est pas le cas du champ tournant $(-y, x)$) ; la règle de Simpson n'est exacte que si $t \mapsto \mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$ est un polynôme de degré au plus 3 sur chaque segment, et, pour un autre champ, couper un segment en deux change le résultat d'environ $10^{-5}$ : pour les deux derniers tests, prends des champs dont les coordonnées sont des polynômes de degré 2 ou 3.
 
-La vérification lance tes trois tests sur `line_integral` de la référence, sur deux autres méthodes justes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
+La vérification lance tes trois tests sur `line_integral` de la référence, sur deux autres méthodes justes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses lignes brisées et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode ni la pile d'appels, et n'appelle pas `line_integral` de la référence (la vérification le contrôle). Relève :
 - a) les résultats de tes trois tests sur `line_integral` de la référence (une liste de 3 booléens, dans l'ordre sens inversé, segment coupé, gradient).""",
     todo='''def reversed_changes_sign_21(method):
     """True when, on several polylines drawn at random and a field that is not a gradient, method(field, points[::-1])
