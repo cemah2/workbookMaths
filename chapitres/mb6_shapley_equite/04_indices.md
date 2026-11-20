@@ -611,12 +611,12 @@ Fiche §4 : « Un chemin et une intégrale » (le chemin parcouru à l'envers, l
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test tire plusieurs lignes brisées (`rng.normal(size=(k, 2))`, $k$ de 3 à 6), appelle `method(field, points)` et compare : à l'envers, `points[::-1]` ; coupé, `np.insert(points, j + 1, a + lam * (b - a), axis=0)`, avec `lam` tiré dans $]0, 1[$ ; pour un gradient, $f(\text{fin}) - f(\text{début})$. Compare à $10^{-9}$ près en valeur relative : `abs(u - v) <= 1e-9 * max(1, abs(u))`. Rends un booléen Python.
+Chaque test tire plusieurs lignes brisées (`rng.normal(size=(k, 2))`, $k$ de 3 à 6), appelle `method(field, points)` et compare : à l'envers, `points[::-1]` ; coupé, `np.insert(points, j + 1, a + lam * (b - a), axis=0)`, avec `lam` tiré dans $]0, 1[$ ; pour un gradient, $f(\text{fin}) - f(\text{début})$. Compare à $10^{-9}$ près en valeur relative : `abs(u - v) <= 1e-9 * max(1, abs(u))` (la vérification essaie des méthodes fausses de $2 \cdot 10^{-8}$ en valeur relative ; `np.allclose` les laisserait passer). Un test exécute la méthode, sans lire son code ni la pile, et ne l'appelle jamais avec `line_integral` de la référence pour comparer : il compare la méthode à elle-même (−valeur, valeur sans le sommet ajouté) ou à $f(\text{fin}) - f(\text{début})$. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Les champs : pour le premier test, un champ qui n'est pas un gradient et dont $\mathbf{F}\cdot\boldsymbol\gamma'$ varie le long d'un segment (un sinus convient ; pas le champ tournant $(-y, x)$, pour lequel il est constant sur chaque segment) ; pour les deux autres, des coordonnées polynomiales de degré 2 ou 3, par exemple le gradient d'un polynôme de degré 3 : la règle de Simpson y est exacte, et la propriété tient à l'arrondi près. Avec un champ affine, la méthode des trapèzes passerait ; avec un champ non polynomial, la référence elle-même échouerait au deuxième test. a) Tes trois tests sur `line_integral`.
+Les champs : pour le premier test, un champ qui n'est pas un gradient et dont $\mathbf{F}\cdot\boldsymbol\gamma'$ varie le long d'un segment (un sinus convient ; pas le champ tournant $(-y, x)$, pour lequel il est constant sur chaque segment) ; pour les deux autres, des coordonnées polynomiales de degré 2 ou 3, par exemple le gradient d'un polynôme de degré 3 dont les deux dérivées partielles diffèrent (un terme comme $x^3y$ suffit : une méthode qui échange les composantes du champ doit échouer) : la règle de Simpson y est exacte, et la propriété tient à l'arrondi près. Tire des lignes de plusieurs segments, dans toutes les directions : une méthode peut n'être fausse que sur un segment qui va vers la gauche ou vers le bas. Avec un champ affine, la méthode des trapèzes passerait ; avec un champ non polynomial, la référence elle-même échouerait au deuxième test. a) Tes trois tests sur `line_integral`.
 
 </details>
 

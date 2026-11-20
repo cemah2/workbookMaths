@@ -2305,3 +2305,41 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] MB5.25 🏆 Défi : transporter un bruit N(0, 1) vers une loi à deux bosses par son champ moyen exact, en au plus huit évaluations du champ, sous une distance de Wasserstein fixée ★★★ 35 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (20 cartes)
 <!-- wbm:end MB5 -->
+
+<!-- wbm:section MB6 -->
+## MB6 · Shapley, intégrales de chemin et équité ⏱️ 13,0 h
+
+- [ ] MB6.Q1 🧠 Jeux coopératifs : ordres ou coalitions, poids d'une coalition, et ce que garantit chaque axiome ★ 5 min
+- [ ] MB6.Q2 🧠 Fixer une variable : moyenne marginale ou conditionnelle, courbes ICE parallèles ou non ★ 5 min
+- [ ] MB6.Q3 🧠 Intégrales de chemin : boucle fermée, chemin parcouru à l'envers, champ qui n'est pas un gradient, fonction homogène ★ 5 min
+- [ ] MB6.Q4 🧠 Grilles et rangs : interpolation bilinéaire, centres ou coins alignés, ex aequo et transformation strictement croissante ★ 4 min
+- [ ] MB6.Q5 🧠 Indépendance, séparation, suffisance : quel critère pour quelle phrase, et lesquels se contredisent ★ 5 min
+- [ ] MB6.Q6 🧠 Tirer au sort entre deux seuils, repondérer, lire l'écart de deux taux : vrai ou faux ★ 4 min
+- [ ] MB6.R1 🔁 Parties d'un ensemble, factorielles et combinaisons (R4, R8) ★ 6 min
+- [ ] MB6.R2 🔁 La dérivée d'une fonction le long d'une courbe : gradient, vitesse et règle de la chaîne (M05b, M17) ★ 6 min
+- [ ] MB6.R3 🔁 La loi conditionnelle d'un couple gaussien : une moyenne affine en la valeur observée (M25a) ★ 6 min
+- [ ] MB6.1 ✏️ Un conseil de quatre membres à vote pondéré : l'indice de Shapley-Shubik par les 24 ordres, un membre nul, deux membres de poids différents et de même pouvoir, et le nombre d'ordres tirés au hasard qui suffit (Hoeffding) ★★ 35 min
+- [ ] MB6.2 ✏️ Trois hameaux partagent une conduite d'eau : la valeur de Shapley par les ordres, les dividendes de Harsanyi, le partage tronçon par tronçon, et les quatre axiomes vérifiés ★★ 30 min
+- [ ] MB6.3 ✏️ Le rendement d'une parcelle selon la pluie et l'engrais : courbes ICE et dérivée croisée de deux modèles, puis la moyenne marginale et la moyenne conditionnelle quand pluie et engrais sont corrélés ★★ 30 min
+- [ ] MB6.4 ✏️ Le travail de deux forces entre deux points : un champ de gradient le long de trois chemins, puis un champ qui n'en est pas un (Schwarz) le long de deux chemins ★★ 25 min
+- [ ] MB6.5 ✏️ La variation d'un coût à trois facteurs (prix, quantité, taux de change) partagée entre les facteurs : le long du segment, puis par la moyenne des six chemins en escalier, et pourquoi les deux partages coïncident ★★ 35 min (complet)
+- [ ] MB6.6 ✏️ Des relevés de capteurs sur une grille 3 × 4 : la dérivée d'un indice régional par un réchauffement uniforme, puis la grille agrandie deux fois par interpolation bilinéaire, centres ou coins alignés ★★ 30 min
+- [ ] MB6.7 ✏️ Un contrôle de pièces sur deux lignes de production aux taux de défauts différents : les taux de rejet sous la séparation, un tirage au sort entre deux seuils pour atteindre un taux de détection, et les poids qui rendent ligne et défaut indépendants ★★ 30 min
+- [ ] MB6.8 ∂ Unicité de la valeur de Shapley : les jeux d'unanimité forment une base, et les quatre axiomes imposent φ_i = Σ_{T ∋ i} d_T / |T| ★★★ 40 min (complet)
+- [ ] MB6.9 ∂ Un score calibré dans un groupe vérifie p (1 − E[S | Y = 1]) = (1 − p) E[S | Y = 0] ; si deux groupes ont les mêmes moyennes de scores chez leurs positifs et chez leurs négatifs, leurs taux de base sont égaux ou le score est parfait ★★ 25 min
+- [ ] MB6.10 ∂ Indépendance et séparation ne tiennent ensemble, quand les taux de base diffèrent, que pour une décision qui ignore le label ; la repondération P(g)P(y)/P(g, y) rend groupe et label indépendants sans changer leurs marges ★★ 20 min
+- [ ] MB6.11 🔗 Pont : l'écart des taux de détection de deux laboratoires et son intervalle, par l'erreur type d'une différence de deux proportions, qui se lit avec le nombre d'échantillons positifs de chacun ★ 15 min
+- [ ] MB6.12 🗣️ Expliquer avec trois amis qui partagent un taxi pourquoi on moyenne l'apport de chacun sur tous les ordres d'arrivée ★ 10 min
+- [ ] MB6.E1 💼 « La valeur de Shapley est la seule répartition qui respecte quatre règles simples : lesquelles, et pourquoi suffisent-elles ? » ★ 10 min (complet)
+- [ ] MB6.13 🔨 Les poids des coalitions dans la valeur de Shapley, exacts ou en flottants ★ 15 min
+- [ ] MB6.14 🔨 Les dividendes de Harsanyi d'un jeu donné par sa fonction caractéristique ★★ 25 min (complet)
+- [ ] MB6.15 🔨 L'intégrale d'un champ de vecteurs le long d'une ligne brisée, par la méthode de Simpson sur chaque segment ★★ 30 min
+- [ ] MB6.16 🔨 La corrélation de rangs de Spearman, ex aequo compris ★ 20 min
+- [ ] MB6.17 🔮 Prédire l'intégrale d'un champ de gradient et d'un champ tournant le long d'une boucle triangulaire, dans un sens, dans l'autre et deux fois, puis vérifier ★ 15 min (complet)
+- [ ] MB6.18 🔬 Deux mesures corrélées : la moyenne marginale (dépendance partielle) et la moyenne conditionnelle d'une même fonction, simulées pour plusieurs corrélations et comparées aux formules gaussiennes ★★ 25 min
+- [ ] MB6.19 🎨 Les lignes de niveau d'une fonction de deux variables, deux chemins entre les mêmes points, et l'intégrale du gradient cumulée le long de chacun ★ 25 min (complet)
+- [ ] MB6.20 🐛 Chasse à l'erreur : des poids de coalition sans le facteur 1/n, des ex aequo classés dans l'ordre d'apparition, une interpolation linéaire aux poids échangés ★ 20 min
+- [ ] MB6.21 🛠️ Un test de propriété sur des lignes brisées tirées au hasard : le chemin inversé change le signe, un segment coupé en deux ne change rien, un champ de gradient donne f(fin) − f(début) ★ 25 min (complet)
+- [ ] MB6.22 🏆 Défi : les indices de Shapley-Shubik exacts d'un conseil de 25 membres, sans parcourir ses coalitions une à une, en comptant par taille et par poids celles où chaque membre est pivot ★★★ 45 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (15 cartes)
+<!-- wbm:end MB6 -->
