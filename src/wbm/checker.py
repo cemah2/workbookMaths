@@ -856,8 +856,9 @@ def _numeric_diagnosis(ex_id: str, entry: dict, x: float, computed: bool = False
                     if typed == 0 and abs(x) == 1:   # a proportion of 1 (every case passes), not an integer division
                         return _COMPUTED_ONE         # (M02c learner)
                     return _COMPUTED_INTEGER if typed == 0 else _COMPUTED_NEAR
-                return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et {_asked(decimals)} : "
-                        "refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul).")
+                return (f"Ta valeur n'a que {_count(typed, 'décimale')}, et {_asked(decimals)} : si tu l'as "
+                        "arrondie, refais l'arrondi avec plus de chiffres (arrondis seulement à la fin du calcul) ; "
+                        "si tu ne l'as pas arrondie, c'est le calcul qui est à revoir.")   # 4.0 typed as is (MB5 learner)
         # one unit away on the last decimal (rounded too early, or truncated), claimed only when that unit is
         # small next to the answer (at least 3 significant digits: with 0.65, the neighbour 0.64 is another
         # measure as often as a rounding slip)

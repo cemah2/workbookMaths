@@ -531,7 +531,7 @@ Fiche §1 : « Deux moments qui suivent le pas » et son 💻 ; la docstring de 
 </details>
 <details><summary>Indice 2</summary>
 
-Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(6, -0.68)`.
+Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(7, -0.68)`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -543,7 +543,7 @@ for at, bt in zip(a, b):
     variances.append(at ** 2 * variances[-1] + bt ** 2)
 return np.array(means), np.array(variances)
 ```
-c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}68^2}$ ; compare $v_6$ à $v_\infty$.
+c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}68^2}$ ; compare $v_7$ à $v_\infty$, et regarde le signe de $m_7$.
 
 </details>
 
@@ -556,7 +556,7 @@ Fiche §5 : « Le débruiteur optimal d'un mélange » (les trois temps, et « U
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque composante : `spread = a**2 * s2 + b**2`, le logarithme $\ln\pi_k - \frac12\ln(2\pi\,\text{spread}) - \frac{(y - a\mu_k)^2}{2\,\text{spread}}$ ($-\infty$ si $\pi_k = 0$), et $\mathbb{E}[x \mid y, k] = \mu_k + \frac{as_k^2}{\text{spread}}(y - a\mu_k)$. Ajoute un axe à `y` (`y[..., None]`) pour calculer toutes les composantes d'un coup ; retire le maximum sur cet axe avant l'exponentielle. Pour $a = 0$, rends la moyenne du mélange, de la forme de `y`. Puis : a) un mélange à une composante ; b) deux points de poids $\frac12$ et de variance 0.
+Pour chaque composante, de variance $v_k$ (`s2`, le $s_k^2$ de la docstring) : `spread = a**2 * s2 + b**2`, le logarithme $\ln\pi_k - \frac12\ln(2\pi\,\text{spread}) - \frac{(y - a\mu_k)^2}{2\,\text{spread}}$ ($-\infty$ si $\pi_k = 0$), et $\mathbb{E}[x \mid y, k] = \mu_k + \frac{av_k}{\text{spread}}(y - a\mu_k)$. Ajoute un axe à `y` (`y[..., None]`) pour calculer toutes les composantes d'un coup ; retire le maximum sur cet axe avant l'exponentielle. Pour $a = 0$, rends la moyenne du mélange, de la forme de `y`. Puis : a) un mélange à une composante ; b) deux points de poids $\frac12$ et de variance 0.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -715,7 +715,7 @@ Fiche §8 : « Exacte pour une vitesse constante », « Le point milieu » (exac
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_N - t_0}{N}$ : plusieurs vitesses (dont une négative) et plusieurs $N$ (dont 1). Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
+Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_N - t_0}{N}$ : plusieurs vitesses (dont une négative) et plusieurs $N$ (dont 1). Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Compare à $10^{-9}$ près en valeur absolue (la tolérance par défaut de `np.allclose` est trop large), et ne regarde que les points rendus : la vérification te passe ses méthodes sous un nom neutre. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>

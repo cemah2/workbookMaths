@@ -667,9 +667,11 @@ def check_answer(ex_id, value, hint=None):
 
 
 def library_hint(names):
-    """A hint for a wrong answer computed with the learner's library (no classic error recognised): its tests first."""
-    return lambda value: (f"cette valeur vient de {names} de ta librairie : ses tests passent-ils tous ? (relance-les "
-                          "plus haut)")
+    """A hint for a wrong answer computed with the learner's library (no classic error recognised): its tests first,
+    then the call."""
+    return lambda value: (f"cette valeur vient de {names} de ta librairie : si ses tests passent tous (plus haut), "
+                          "l'erreur est dans l'appel (les arguments, leur ordre, leurs unités ; quel pas tu lis) ; et "
+                          "donne la valeur que rend le calcul, sans l'arrondir")
 
 
 def passes(ex_id, value):
@@ -1018,7 +1020,7 @@ MB5_17 = ex(
     functions="`posterior_mean_mixture`", mymath="gaussian_paths.py", note=NOTE_17,
     body=REMINDER + r"""
 
-Écris `posterior_mean_mixture(y, a, b, weights, means, variances)` (fiche §5), en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests.
+Écris `posterior_mean_mixture(y, a, b, weights, means, variances)` (fiche §5), en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure (le `logsumexp` de ton `approx.py`, M05a, ou, à défaut, un `_logsumexp` privé écrit dans `gaussian_paths.py`) ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests.
 
 **L'usage.** Avec ta fonction :
 - a) la partie A de MB5.5 (`SIGNAL_5A`, cellule de données), comme un mélange à une composante : $\mathbb{E}[x \mid y = 6]$ (un nombre, à comparer à ta copie) ;
@@ -1317,7 +1319,10 @@ La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictio
 prediction_MB5_20b = ...  # b) "A", "B" or "C": for y = 1.475 and b -> 0, (A) 2.95, (B) 2.3, (C) 3.6
 prediction_MB5_20c = ...  # c) "A", "B" or "C": for y = 1 and b = 50, (A) 1.9, (B) 2, (C) 2.6''',
     check='''for letter, prediction in zip("abc", [prediction_MB5_20a, prediction_MB5_20b, prediction_MB5_20c]):
-    wbm.check(f"MB5.20{letter}", prediction)''',
+    if filled(prediction) and not isinstance(prediction, str):      # a number, a list...: not yet a prediction
+        print(f'❌ Ex MB5.20{letter} : une prédiction est une lettre, "A", "B" ou "C", reçu {shown(prediction)}')
+    else:
+        wbm.check(f"MB5.20{letter}", prediction)''',
     record='''def limit_20r(y, b, a=0.5, records=(1.2, 1.9, 2.3, 3.6, 4.0)):
     """The oracle: E[x | y] for points of equal weights, by Bayes (the largest log subtracted before the exponentials)."""
     logs = [-(y - a * x) ** 2 / (2 * b * b) for x in records]
@@ -1332,10 +1337,10 @@ wbm.record("MB5.20a", "B" if abs(limit_20r(1.0, 1e-3) - 1.9) < 1e-9 else "?", pr
                      "quand b tend vers 0, la mesure devient de plus en plus précise : le débruiteur ne peut pas "
                      "l'ignorer": "C"})
 wbm.record("MB5.20b", "A" if abs(limit_20r(1.475, 1e-3) - 2.95) < 1e-9 else "?", prediction=True,
-           mistakes={"y/a est à égale distance des deux relevés voisins : leurs vraisemblances sont égales, pourquoi le "
-                     "plus bas l'emporterait-il ?": "B",
-                     "y/a est à égale distance des deux relevés voisins : leurs vraisemblances sont égales, pourquoi le "
-                     "plus haut l'emporterait-il ?": "C"})
+           mistakes={"y/a = 2,95 tombe entre deux relevés : écris leurs deux vraisemblances quand b est petit, et "
+                     "regarde ce que devient la moyenne qu'elles pondèrent (fiche §5)": "B",
+                     "y/a = 2,95 tombe entre deux relevés : écris les responsabilités des cinq relevés quand b tend vers "
+                     "0, et ce qu'il reste de la moyenne pondérée (fiche §5)": "C"})
 wbm.record("MB5.20c", "C" if abs(limit_20r(1.0, 50.0) - 2.6) < 1e-3 else "?", prediction=True,
            mistakes={"avec b = 50, la mesure est noyée dans le bruit : regarde ce que deviennent les cinq "
                      "responsabilités": "A",
@@ -1412,7 +1417,27 @@ def hint_21(value):
     return library_hint("euler_ode et midpoint_ode")(value)
 
 
+def means_21():
+    """a) checks the means too: np.mean of the points reached from Z_21 with your field_21, by Euler's method then the
+    midpoint method of the reference, for N = 1, 2, 4, 8, 16, 32 (None if field_21 cannot be run)."""
+    try:
+        return [float(np.mean(method(field_21, Z_21, 1.0, 0.0, n)[-1])) for method in (ref_gp.euler_ode,
+                                                                                        ref_gp.midpoint_ode)
+                for n in (1, 2, 4, 8, 16, 32)]
+    except Exception:  # noqa: BLE001 - field_21 fails: its own line says why
+        return None
+
+
 '''
+
+ANSWERS_21 = '''means_c21 = means_21() if filled(answer_MB5_21a) else None
+if means_c21 is not None and not passes(HIDDEN_C21["id_means"], means_c21):
+    print("❌ Ex MB5.21a : la moyenne (np.mean) des points que ta field_21 fait atteindre n'est pas celle du transport "
+          "exact : un terme qui ne dépend que de s déplace tous les points sans changer leur écart-type (ligne ❌ de "
+          "field_21 ci-dessus)")
+else:
+    check_answer("MB5.21a", answer_MB5_21a, hint=hint_21)
+check_answer("MB5.21b", answer_MB5_21b, hint=hint_21)'''
 
 NOTE_21 = (r"`field_21(s, x)` $= -4 + \frac{s - 0{,}25(1 - s)}{0{,}25(1 - s)^2 + s^2}\big(x - 4(1 - s)\big)$. a) Euler : "
            r"$(0 ;\ 0{,}200173 ;\ 0{,}340834 ;\ 0{,}415142 ;\ 0{,}456076 ;\ 0{,}477775)$ ; point milieu : $(0{,}400345 ;\ "
@@ -1428,7 +1453,7 @@ MB5_21 = ex(
     body=r"""Les données suivent $\mathcal{N}(4 ;\ 0{,}25)$, comme en MB5.9 (`DATA_9`), et le chemin droit est $x_s = (1 - s)\,x_0 + s\,\varepsilon$. Écris `field_21(s, x)`, le champ moyen exact $v(x, s)$, affine en $x$, pour $0 < s \le 1$ : une fonction du temps $s$ puis du point $x$ (un tableau de points), pour `euler_ode` et `midpoint_ode`, qui l'appellent `f(t, x)`. La vérification la compare au débruiteur de `posterior_mean_mixture` avec $a = 1 - s$ et $b = s$, en des points cachés.
 
 Le notebook fournit `Z_21`, 100 000 tirages de $\mathcal{N}(0, 1)$. Transporte-les de $s = 1$ à $s = 0$ (`t0=1.0`, `t1=0.0`) par Euler, puis par le point milieu, avec $N = 1$, 2, 4, 8, 16 et 32 pas. Relève :
-- a) l'écart-type (`np.std`) des points obtenus, pour Euler, puis pour le point milieu (deux listes de 6 nombres) ;
+- a) l'écart-type (`np.std`) des points obtenus, pour Euler, puis pour le point milieu (deux listes de 6 nombres ; la vérification regarde aussi leur moyenne, `np.mean`) ;
 - b) l'écart-type obtenu en transportant exactement : celui de `4 + 0.5 * Z_21` (un nombre).""",
     todo='''def field_21(s, x):
     """The exact mean field v(x, s) of the straight path to the data N(4, 0.25), for 0 < s <= 1: the time s first, then
@@ -1440,7 +1465,7 @@ answer_MB5_21a = answer_MB5_21b = ...
 with wbm.attempt("MB5.21"):          # your field and your euler_ode, midpoint_ode: ⏳ while they are not written
     answer_MB5_21a = ...  # a) two lists of 6 numbers, as computed: np.std of the points reached from Z_21 for N = 1, 2, 4, 8, 16, 32, Euler then midpoint
     answer_MB5_21b = ...  # b) a number, as computed: np.std(4 + 0.5 * Z_21)''',
-    check=CHECK_21 + answers_check("MB5.21", "ab", hints={"a": "hint_21", "b": "hint_21"}),
+    check=CHECK_21 + ANSWERS_21,
     solution='''def field_21(s, x):
     """The exact mean field v(x, s) of the straight path to the data N(4, 0.25), for 0 < s <= 1: the time s first, then
     the points x (an array), as euler_ode and midpoint_ode call it."""
@@ -1503,9 +1528,30 @@ def field_21r(s, x):
     return [float(intercept) + float(gain) * v for v in x]
 
 
-wbm.record(HIDDEN_21r["id"], [v for s, x in HIDDEN_21r["calls"] for v in field_21r(s, x)], decimals=6)''',
+wbm.record(HIDDEN_21r["id"], [v for s, x in HIDDEN_21r["calls"] for v in field_21r(s, x)], decimals=6)
+
+
+def transport_21r(n, midpoint):
+    """The transport from s = 1 to s = 0 in n steps is affine in z: (its intercept, its slope), exactly."""
+    intercept, slope, s, h = F_21r(0), F_21r(1), F_21r(1), F_21r(-1, n)
+    for _ in range(n):
+        c_start, g_start = field_parts_21r(s)
+        if midpoint:
+            c_mid, g_mid = field_parts_21r(s + h / 2)
+            probe_intercept = intercept + h / 2 * (c_start + g_start * intercept)
+            probe_slope = slope * (1 + h / 2 * g_start)
+            intercept, slope = intercept + h * (c_mid + g_mid * probe_intercept), slope + h * g_mid * probe_slope
+        else:
+            intercept, slope = intercept + h * (c_start + g_start * intercept), slope * (1 + h * g_start)
+        s += h
+    return intercept, slope
+
+
+centre_21r = float(np.mean(Z_21))                    # the points reached are intercept + slope z: their mean
+wbm.record(HIDDEN_21r["id_means"], [float(c) + float(g) * centre_21r for midpoint in (False, True)
+                                    for c, g in (transport_21r(n, midpoint) for n in (1, 2, 4, 8, 16, 32))], decimals=6)''',
     after=[
-        ("solution", CHECK_21 + answers_check("MB5.21", "ab", hints={"a": "hint_21", "b": "hint_21"})),
+        ("solution", CHECK_21 + ANSWERS_21),
         look("pourquoi la moyenne des points (`np.mean`) est-elle juste dès un seul pas, et l'écart-type pas ? Par combien "
              "l'écart à l'écart-type exact est-il divisé quand $N$ double, pour Euler, puis pour le point milieu ? Est-ce "
              "l'ordre que donne la fiche ?"),
@@ -1655,6 +1701,8 @@ MB5_22 = ex(
     "MB5.22", "calculer et tracer des lois guidées $p_c^{1+w}p_u^{-w}$ sur une grille, et voir ce que $w$ resserre et "
     "déplace.", "fiche §7 ; M02a (méthode des trapèzes), M05a (log-sum-exp) ; Ex MB5.7", note=NOTE_22, given=GIVEN_22,
     body=r"""La loi générale est le mélange $p_u = 0{,}55\,\mathcal{N}(-1{,}8 ;\ 0{,}5) + 0{,}45\,\mathcal{N}(1{,}6 ;\ 0{,}7)$, à deux bosses (`GENERAL_22`), et la loi de la classe est $p_c = \mathcal{N}(1{,}6 ;\ 0{,}7)$ (`CLASS_22`). Sur la grille `XS_22` (`np.linspace(-8, 8, 3201)`), écris `guided_22(xs, w, general=GENERAL_22, cls=CLASS_22)`, qui rend la densité normalisée de $p_c^{1+w}p_u^{-w}$ sur la grille `xs` reçue : calcule son logarithme, retire son maximum avant l'exponentielle, puis normalise par `np.trapezoid` (SciPy est permis, `scipy.stats.norm` et `scipy.special.logsumexp` compris) ; puis `draw_guided_22(ax, ws)`, qui trace dans les axes reçus, sur `XS_22`, $p_u$, $p_c$ et la loi guidée pour chaque $w$ de `ws`, avec une légende qui nomme chaque courbe ($p_u$, $p_c$, et la valeur de $w$ de chaque loi guidée) et des noms d'axes, et rend la liste des densités guidées tracées (une par $w$, dans l'ordre de `ws`). La fonction dessine dans les axes reçus, sans ouvrir de figure.
+
+Sur une échelle linéaire, les trois lois guidées se superposent presque à $p_c$ : tu peux ajouter un second axe en échelle logarithmique, `ax.set_yscale("log")`, pour voir la masse quitter le côté de l'autre bosse.
 
 La vérification appelle `draw_guided_22` avec $w = 0{,}25$, $1{,}75$ et $3{,}5$, affiche la figure, et essaie tes fonctions sur des appels cachés (d'autres $w$, dans un autre ordre ; un autre mélange, sur une autre grille) ; `guided_22` ne modifie pas la grille reçue. Relève, pour $w = 0{,}25$, $1{,}75$ et $3{,}5$, avec `np.trapezoid` sur `XS_22` :
 - a) la moyenne de la loi guidée, $\int x\,d(x)\,\mathrm{d}x$ (une liste de 3 nombres) ;
@@ -1839,6 +1887,11 @@ CHECK_23 = '''CASES_C23 = __CASES_C23__   # the hidden bridges, mixtures and fie
 
 results_23, parts_23 = [], []
 MYMATH_C23 = list(getattr(mymath, "__path__", [])) + list(getattr(REF, "__path__", []))   # the folders of mymath
+TWINS_C23 = set()                                  # the functions of gaussian_paths.py (yours, the reference's)
+for _folder_c23 in MYMATH_C23:
+    _file_c23 = os.path.join(_folder_c23, "gaussian_paths.py")
+    if os.path.exists(_file_c23):
+        TWINS_C23 |= code_keys_of_file(_file_c23)
 FIELDS_C23 = {"wave": lambda t, x: 0.75 * np.cos(1.3 * t) - 0.45 * x,     # hidden fields that depend on the time
               "ramp": lambda t, x: 0.6 * t - 0.25 * x * x}
 
@@ -1851,7 +1904,7 @@ def report_23(ok, success, failure):
 def call_23(part, name, function, *args):
     """function(*args), without mymath; an error of the learner's code becomes one ❌ line that names the function."""
     try:
-        with code_from(MYMATH_C23) as seen:
+        with code_from(MYMATH_C23, twins=TWINS_C23) as seen:
             got = function(*args)
     except (NotImplementedError, MymathMissingError):
         raise
@@ -2152,9 +2205,12 @@ def unit_slope_c24(f, x0, t0, t1, n_steps):
 
 
 def slightly_off_c24(f, x0, t0, t1, n_steps):
-    """WRONG by about 1e-6: the points of the midpoint method, the point k moved by 1e-6 k."""
+    """WRONG by more than 1e-9, but less than np.allclose's default tolerance (1e-8 + 1e-5 |x|): the points of the
+    midpoint method, each point after the first moved by 5e-9 + 5e-6 |x_k|."""
     points = ref_gp.midpoint_ode(f, x0, t0, t1, n_steps)
-    return points + 1e-6 * np.arange(n_steps + 1, dtype=float).reshape((-1,) + (1,) * (points.ndim - 1))
+    moved = points + 5e-9 + 5e-6 * np.abs(points)
+    moved[0] = points[0]
+    return moved
 
 
 def frozen_time_c24(f, x0, t0, t1, n_steps):
@@ -2183,10 +2239,10 @@ WRONG_C24 = [   # a hidden wrong method, the test that must refuse it, and the c
     (unit_speed_c24, "constant_is_exact_24", "sauf pour les vitesses 0 et 1 : essaie plusieurs vitesses, dont des "
                                              "négatives et des non entières"),
     (unit_slope_c24, "affine_is_exact_24", "sauf pour une pente κ₁ = 1 : essaie plusieurs champs κ₀ + κ₁ t"),
-    (slightly_off_c24, "constant_is_exact_24", "d'environ 10⁻⁶ : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a par "
-                                               "défaut rtol = 1e-5)"),
-    (slightly_off_c24, "affine_is_exact_24", "d'environ 10⁻⁶ : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a par "
-                                             "défaut rtol = 1e-5)"),
+    (slightly_off_c24, "constant_is_exact_24", "de 5·10⁻⁹ + 5·10⁻⁶ |x| : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a "
+                                               "par défaut rtol = 1e-5 et atol = 1e-8)"),
+    (slightly_off_c24, "affine_is_exact_24", "de 5·10⁻⁹ + 5·10⁻⁶ |x| : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a "
+                                             "par défaut rtol = 1e-5 et atol = 1e-8)"),
     (frozen_time_c24, "error_halves_24", "pour un champ qui dépend du temps (elle lit le champ en t_0, et son erreur ne "
                                          "tend pas vers 0) : ton champ dépend-il de t, et ton test exige-t-il un rapport "
                                          "entre 1,8 et 2,2 ?"),
@@ -2203,10 +2259,23 @@ with checked("MB5.24"):
     TESTS_C24 = {"constant_is_exact_24": constant_is_exact_24, "affine_is_exact_24": affine_is_exact_24,
                  "error_halves_24": error_halves_24}
 
+    def anonymous_c24(method):
+        """method under a neutral name: a test must judge what the method does, not what it is called."""
+        def method_c24(f, x0, t0, t1, n_steps):
+            return method(f, x0, t0, t1, n_steps)
+        method_c24.__name__ = method_c24.__qualname__ = "method"
+        return method_c24
+
     def verdict_c24(name, label, method):
-        got = call_safely(f"Ex MB5.24 : {name}({label})", TESTS_C24[name], method)
+        got = call_safely(f"Ex MB5.24 : {name}({label})", TESTS_C24[name], anonymous_c24(method))
         if not isinstance(got, (bool, np.bool_)):
-            print(f"❌ Ex MB5.24 : {name}({label}) rend True ou False, reçu {shown(got)}")
+            if isinstance(got, (int, np.integer)):
+                what = f"{int(got)} (un entier)"
+            elif isinstance(got, (float, np.floating)):
+                what = f"{float(got):g} (un nombre)"
+            else:
+                what = shown(got)
+            print(f"❌ Ex MB5.24 : {name}({label}) rend {what}, pas True ou False")
             raise StopCheck
         return bool(got)
 
@@ -2242,8 +2311,8 @@ MB5_24 = ex(
     "MB5.24", "écrire trois tests de propriété d'une méthode d'intégration, et voir ce que chacun attrape.",
     "fiche §8 ; M02a (sommes de Riemann, point milieu) ; Ex MB5.18", note=NOTE_24,
     body=r"""Écris trois fonctions qui testent une méthode d'intégration `method(f, x0, t0, t1, n_steps)` qu'on leur passe (de la forme de `euler_ode` : elle rend les $N + 1$ points), et rendent `True` si la propriété tient, `False` sinon :
-- `constant_is_exact_24(method)` vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$), **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près ;
-- `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte ;
+- `constant_is_exact_24(method)` vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$), **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près (un écart absolu, ou relatif à la valeur exacte, d'au plus $10^{-9}$ : la tolérance par défaut de `np.allclose` est bien plus large) ;
+- `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte, à $10^{-9}$ près ;
 - `error_halves_24(method)` vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand).
 
 La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
@@ -2488,8 +2557,16 @@ def check_c25():
                ([f"{len(over)} lois avec plus de 8 appels du champ (jusqu'à {max(law['calls'] for law in over)})"]
                 if over else []) + ([f"{len(broken)} lois avec des points qui ne sont pas tous finis"] if broken else [])))
     mean = float(np.mean([law["rel"] for law in hidden])) if not broken else math.inf
-    tuned = (" ; elle réussit pourtant le mélange du notebook : se règle-t-elle sur MIX_25 au lieu de suivre field ?"
-             if notebook["rel"] is not None and notebook["rel"] <= 0.07 and mean > 0.07 else "")
+    calls_nb = notebook["calls"]
+    if calls_nb == 0:
+        tuned = " ; ta fonction n'appelle jamais field : elle ne connaît du mélange que ce que le notebook lui montre"
+    elif notebook["rel"] is not None and notebook["rel"] <= 0.07 and notebook["rel"] < 0.25 * mean:
+        tuned = (" ; elle réussit pourtant le mélange du notebook, bien mieux que les lois cachées : se règle-t-elle sur "
+                 "MIX_25 au lieu de suivre field ?")
+    elif calls_nb < 8:
+        tuned = f" ; elle n'emploie que {calls_nb} des 8 appels permis : des pas plus courts réduiraient l'erreur"
+    else:
+        tuned = ""
     report(mean <= 0.07, f"les {len(hidden)} lois cachées : W₁ moyen = {fr(mean, 3)} fois l'écart-type, au plus 0,07",
            f"les {len(hidden)} lois cachées : W₁ moyen = {fr(mean, 3)} fois l'écart-type, au-dessus de 0,07" + advice
            + tuned if math.isfinite(mean) else f"les {len(hidden)} lois cachées : W₁ ne se mesure pas sur des points non finis")
@@ -2546,7 +2623,7 @@ MB5_25 = ex(
 - Puis écris `transport_25(field, z)` : depuis les points `z` (en $s = 1$), suis $x' = v(x, s)$ jusqu'en $s = 0$, en appelant `field(x, s)` **au plus huit fois** (un appel sur un tableau entier compte pour un ; `field` prend le point d'abord, puis l'instant), et rends les points atteints. Ta fonction ne connaît le mélange que par `field` ; tout NumPy et SciPy sont permis.
 
 **Critère de réussite :** avec au plus huit appels du champ pour chaque loi, la distance de Wasserstein $W_1$ (M27) entre tes points et la loi à deux bosses, divisée par l'écart-type de cette loi, est au plus $0{,}07$ pour `MIX_25`, et au plus $0{,}07$ en moyenne pour trois séries de cinq lois cachées, tirées à nouveau à chaque exécution (la moyenne des quinze rapports) ; chaque série a une loi de chacun de ces cinq types : facile ; deux bosses très étroites ; une bosse légère d'une autre largeur ; deux bosses plus écartées que le bruit n'est large ; deux bosses qui se chevauchent. La vérification passe à `transport_25` un `field` qu'elle calcule elle-même, et compte ses appels. Ta fonction ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb5_25.py`) : la vérification le contrôle. Relève :
-- b) avec `scipy.stats.wasserstein_distance` entre tes points et `TARGET_25`, la distance obtenue par un seul pas d'Euler (`euler_ode`, de $s = 1$ à $s = 0$, avec ton `field_25`), puis par huit pas d'Euler, puis par ta fonction (une liste de 3 nombres) ;
+- b) avec `scipy.stats.wasserstein_distance` entre tes points et `TARGET_25`, la distance obtenue par un seul pas d'Euler (`euler_ode`, de $s = 1$ à $s = 0$, avec ton `field_25` ; `euler_ode` appelle `f(s, x)` : passe-lui `lambda s, x: field_25(x, s, *MIX_25)`), puis par huit pas d'Euler, puis par ta fonction (une liste de 3 nombres) ;
 - c) le nombre d'appels de `field` que fait ta fonction (un entier).
 
 Point de départ : huit pas d'Euler ne suffisent pas ; la fiche §8 dit comment comparer deux méthodes qui ont droit au même nombre d'évaluations.""",
@@ -2651,8 +2728,8 @@ wbm.record(FIELD_CASES_25r["id"], [v for points, s, law in FIELD_CASES_25r["case
            decimals=6)''',
     after=[
         ("solution", CHECK_25),
-        ("md", "**Pour réfléchir** : pourquoi huit pas d'Euler ne suffisent-ils pas, alors que quatre pas du point milieu, "
-               "pour le même nombre d'appels, suffisent ? Pourquoi une méthode réglée sur `MIX_25` seul (ses quantiles, "
+        ("md", "**Pour réfléchir** (une fois le critère atteint) : pourquoi huit pas d'Euler ne suffisent-ils pas, alors "
+               "que ta méthode, pour le même nombre d'appels, suffit ? Pourquoi une méthode réglée sur `MIX_25` seul (ses quantiles, "
                "par exemple) ne suffit-elle pas pour les lois cachées ? Les réponses sont dans `05_solutions.md`, section "
                "Notebook."),
     ],
@@ -2702,9 +2779,10 @@ def objectives_cell() -> list:
                "classiques, écrire trois tests de propriété, et relever un défi.\n\n"
                r"**Rappel express.** Pour $x_t = a_tx_{t-1} + b_t\varepsilon_t$ : $m_t = a_tm_{t-1}$ et $v_t = "
                r"a_t^2v_{t-1} + b_t^2$ ; pour $a_t = a$, $\lvert a\rvert < 1$, $b_t = b$ : $v_\infty = \frac{b^2}{1 - "
-               r"a^2}$. Pour $y = ax + bn$ et $x$ de loi $\sum_k\pi_k\mathcal{N}(\mu_k, s_k^2)$ : la composante $k$ a "
-               r"la responsabilité $\propto \pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$, et $\mathbb{E}[x \mid y, "
-               r"k] = \mu_k + \frac{as_k^2}{a^2s_k^2 + b^2}(y - a\mu_k)$. La loi guidée est proportionnelle à "
+               r"a^2}$. Pour $y = ax + bn$ et $x$ de loi $\sum_k\pi_k\mathcal{N}(\mu_k, v_k)$, avec la variance $v_k$ "
+               r"de la fiche ($s_k^2$ dans la docstring, et dans les énoncés qui la suivent) : la composante $k$ a la "
+               r"responsabilité $\propto \pi_k\,\mathcal{N}(y \mid a\mu_k, a^2v_k + b^2)$, et $\mathbb{E}[x \mid y, k] = "
+               r"\mu_k + \frac{av_k}{a^2v_k + b^2}(y - a\mu_k)$. La loi guidée est proportionnelle à "
                r"$p_c^{1+w}p_u^{-w}$. Euler : $x_{k+1} = x_k + h\,f(t_k, x_k)$, d'ordre 1 ; le point milieu : $x_{k+1} = "
                r"x_k + h\,f\big(t_k + \frac h2, x_k + \frac h2f(t_k, x_k)\big)$, d'ordre 2, deux évaluations par pas ; "
                r"$h = \frac{t_N - t_0}{N}$. Le chemin droit $x_s = (1 - s)\,x_0 + s\,\varepsilon$ a le champ moyen "
@@ -2803,7 +2881,7 @@ def build_constants() -> dict:
         assert not any(near_limit(v) for v in field21(s, xs)), (s, xs)
         expected = (np.array(xs) - ref.posterior_mean_mixture(xs, 1 - s, s, [1.0], [4.0], [0.25])) / s
         assert np.allclose(expected, field21(s, xs), rtol=1e-12, atol=1e-12)
-    out["__HIDDEN_C21__"] = literal({"calls": calls21, "id": "MB5.21d"})
+    out["__HIDDEN_C21__"] = literal({"calls": calls21, "id": "MB5.21d", "id_means": "MB5.21e"})
 
     # MB5.22: the points of the grid compared (every 32nd, far from a rounding limit at 6 decimals for every density
     # recorded), hidden w (none of 0, 1, 3, 7, 0.5, 2 nor the w of the fiche and of MB5.7), another mixture on another grid
