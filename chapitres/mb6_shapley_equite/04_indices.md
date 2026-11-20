@@ -575,7 +575,7 @@ Fiche §4 : « Un chemin et une intégrale » (le théorème du gradient) ; ton 
 </details>
 <details><summary>Indice 2</summary>
 
-Une grille `np.meshgrid(np.linspace(-3, 3, 200), np.linspace(-3, 3, 200))`, `ax_map.contour(X, Y, f_19(X, Y), levels=20)`, et les deux chemins par `ax_map.plot`, avec `label=`. Pour le cumul, place des points le long de chaque chemin (par exemple 50 par segment) et, pour chacun, `line_integral(grad_19, …)` sur le début du chemin jusqu'à ce point. La longueur parcourue : la somme cumulée des distances entre points successifs.
+Une grille `np.meshgrid(np.linspace(-3, 3, 200), np.linspace(-3, 3, 200))`, `ax_map.contour(X, Y, f_19(X, Y), levels=20)`, et les deux chemins par `ax_map.plot`, avec `label=`. Pour le cumul, place des points le long de chaque chemin (au moins 50 par segment) et, pour chacun, `line_integral(grad_19, …)` sur le début du chemin jusqu'à ce point. La longueur parcourue : la somme cumulée des distances entre points successifs.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -616,7 +616,7 @@ Chaque test tire plusieurs lignes brisées (`rng.normal(size=(k, 2))`, $k$ de 3 
 </details>
 <details><summary>Indice 3</summary>
 
-Les champs : pour le premier test, un champ qui n'est pas un gradient (un sinus convient : les points de Simpson d'un segment parcouru à l'envers sont les mêmes) ; pour les deux autres, des coordonnées polynomiales de degré 2 ou 3, par exemple le gradient d'un polynôme de degré 3 : la règle de Simpson y est exacte, et la propriété tient à l'arrondi près. Avec un champ affine, la méthode des trapèzes passerait ; avec un champ non polynomial, la référence elle-même échouerait au deuxième test. a) Tes trois tests sur `line_integral`.
+Les champs : pour le premier test, un champ qui n'est pas un gradient et dont $\mathbf{F}\cdot\boldsymbol\gamma'$ varie le long d'un segment (un sinus convient ; pas le champ tournant $(-y, x)$, pour lequel il est constant sur chaque segment) ; pour les deux autres, des coordonnées polynomiales de degré 2 ou 3, par exemple le gradient d'un polynôme de degré 3 : la règle de Simpson y est exacte, et la propriété tient à l'arrondi près. Avec un champ affine, la méthode des trapèzes passerait ; avec un champ non polynomial, la référence elle-même échouerait au deuxième test. a) Tes trois tests sur `line_integral`.
 
 </details>
 
