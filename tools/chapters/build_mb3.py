@@ -351,3 +351,234 @@ PAPER = [
 
 for _paper in PAPER:                      # a sub-question without wbm.record options gets an empty string
     _paper.subs = [tuple(sub) + ("",) * (4 - len(sub)) for sub in _paper.subs]
+
+PAPER_CONTEXT = '''# Part 0: the answers are computed from the statements (SymPy and exact fractions where the calculation is exact)
+import math
+from fractions import Fraction as F
+
+import numpy as np
+import sympy as sp
+
+
+def floats(values):
+    """A number, a vector or a matrix (fractions, NumPy) as a float or nested lists of floats (-0.0 written 0.0)."""
+    return (np.round(np.asarray(values, dtype=float), 12) + 0.0).tolist()
+
+
+def exact(expr):
+    """An exact value (SymPy) as the text the learner types (sqrt, pi)."""
+    return str(sp.nsimplify(expr))
+
+
+def deg(angle):
+    """An angle in degrees as an exact number of radians (SymPy)."""
+    return sp.pi * sp.Rational(angle) / 180
+
+
+def rot(angle):
+    """The rotation R_θ of the plane, θ in degrees (NumPy)."""
+    t = math.radians(angle)
+    return np.array([[math.cos(t), -math.sin(t)], [math.sin(t), math.cos(t)]])
+
+
+def softmax(s):
+    """The softmax of a vector of scores, the largest score subtracted first."""
+    s = np.asarray(s, dtype=float)
+    w = np.exp(s - s.max())
+    return w / w.sum()
+
+
+# MB3.1: an arm of 4 dm and a forearm of 2 dm; the shoulder turns by 60°, the elbow by 45° more
+ARM_1 = np.array([4.0, 2.0])
+SHOULDER_1, ELBOW_1 = 60, 45
+
+
+def gripper_1(arm_angle, forearm_angle, arm=ARM_1):
+    """R_{arm angle} (arm, 0) + R_{forearm angle} (forearm, 0), the angles in degrees."""
+    return rot(arm_angle) @ np.array([arm[0], 0.0]) + rot(forearm_angle) @ np.array([arm[1], 0.0])
+
+
+P_1 = gripper_1(SHOULDER_1, SHOULDER_1 + ELBOW_1)
+
+
+# MB3.2: Givens rotations R_ij(θ), coordinates numbered from 1 as on paper (e_i turned towards e_j)
+def givens(n, i, j, theta):
+    G = np.eye(n)
+    G[i - 1, i - 1] = G[j - 1, j - 1] = math.cos(theta)
+    G[j - 1, i - 1], G[i - 1, j - 1] = math.sin(theta), -math.sin(theta)
+    return G
+
+
+def commute(A, B):
+    return bool(np.allclose(A @ B, B @ A))
+
+
+E2_2 = np.array([0.0, 1.0, 0.0])
+D_2 = givens(4, 1, 2, math.pi / 3) @ givens(4, 3, 4, math.pi / 2)
+SIGMA_2 = {1: 1, 2: 4, 3: 3, 4: 2}                                       # sigma swaps the coordinates 2 and 4
+P_2 = np.array([[1.0 if j == SIGMA_2[i] else 0.0 for j in range(1, 5)] for i in range(1, 5)])   # rows e_sigma(i)
+PDP_2 = P_2.T @ D_2 @ P_2
+PLANES_2 = [(1, 2), (3, 4)]                                              # the planes of D, angles pi/3 then pi/2
+
+
+def planes_2(sigma):
+    """The planes (sigma(i), sigma(j)) of PᵀDP, numbered from 1."""
+    return [[sigma[i], sigma[j]] for i, j in PLANES_2]
+
+
+assert np.allclose(PDP_2, givens(4, *planes_2(SIGMA_2)[0], math.pi / 3) @ givens(4, *planes_2(SIGMA_2)[1], math.pi / 2))
+
+
+def quarter_turn_angle_2():
+    """The angle theta of R_23(theta) in PᵀDP = R_14(pi/3) R_23(theta), read on the block of the coordinates 2 and 3."""
+    theta = math.atan2(PDP_2[2, 1], PDP_2[1, 1])
+    angle = sp.nsimplify(round(theta / math.pi, 12)) * sp.pi
+    assert np.allclose(PDP_2, givens(4, 1, 4, math.pi / 3) @ givens(4, 2, 3, float(angle)))
+    return angle
+
+
+# MB3.3: wind directions in degrees (east 0°, north 90°)
+def wind(theta):
+    return np.array([math.cos(math.radians(theta)), math.sin(math.radians(theta))])
+
+
+READINGS_3 = [330, 20, 70]
+
+
+def mean_direction_3(angles):
+    mean = np.mean([wind(t) for t in angles], axis=0)
+    return math.degrees(math.atan2(mean[1], mean[0])) % 360
+
+
+# MB3.4: a refuge at 2 300 m; stations Val, Bergerie, Col, Pic
+REFUGE_4 = 2300.0
+ALT_4 = np.array([1700.0, 2100.0, 2700.0, 3100.0])
+TEMP_4 = np.array([10.4, 6.3, 2.2, -1.7])
+
+
+def scores_4(h):
+    return -(REFUGE_4 - ALT_4) ** 2 / (2 * h ** 2)
+
+
+# MB3.5: the water of a pond, days 1 to 4; lambda = 1/2; the sensor broken on day 3
+POOL_5 = [18, 15, 21, 17]
+LAMBDA_5, BROKEN_5 = F(1, 2), 3
+
+
+def raw_weights_5(t):
+    """lambda^(t - u) for the days u <= t, 0 for the later days (exact)."""
+    return [LAMBDA_5 ** (t - u) if u <= t else F(0) for u in range(1, 5)]
+
+
+def weights_5(t, broken=None):
+    """The softmax of the scores u ln 2 over the days u <= t (and u != broken): exact fractions."""
+    raw = [0 if u == broken else w for u, w in enumerate(raw_weights_5(t), start=1)]
+    return [F(w) / sum(raw) for w in raw]
+
+
+def kept_but_renormalised_5():
+    """The classic error: the others renormalised without the broken day, but its weight kept."""
+    kept = sum(w for u, w in enumerate(raw_weights_5(4), start=1) if u != BROKEN_5)
+    return [w / kept for w in raw_weights_5(4)]
+
+
+def shifted_weights_5():
+    """The classic error: the days after the broken one moved back one day (day 1 weighted lambda², not lambda³)."""
+    ages = {4: 0, 2: 1, 1: 2}
+    raw = [LAMBDA_5 ** ages[u] if u in ages else F(0) for u in range(1, 5)]
+    return [w / sum(raw) for w in raw]
+
+
+def smoothed_5(weights):
+    return sum(F(w) * t for w, t in zip(weights, POOL_5))
+
+
+def conditioned_5(weights, day):
+    """The law of weights conditioned on « the day is not day »."""
+    return [F(0) if u == day else F(w) / (1 - weights[day - 1]) for u, w in enumerate(weights, start=1)]
+
+
+# MB3.6: three routes, scores s; K = 3; Delta, the gap between the largest score and the next
+ROUTES_6 = np.array([1.3, 0.5, -0.8])
+K_6, TARGET_6 = 3, 0.99
+GAP_6 = float(np.sort(ROUTES_6)[-1] - np.sort(ROUTES_6)[-2])
+
+
+# MB3.7: nine beacons, s_j = k_j ln 2, read by blocks of 3; a state written [m / ln 2, l, a] with exact fractions
+K_7 = [1, 3, 0, 2, -1, 4, 0, 4, 2]
+V_7 = [4, 10, 6, 3, 8, 2, 9, 5, 7]
+
+
+def states_7(ks, vs, size=3, mode="right"):
+    """The states [m / ln 2, l, a] after each block (e^(s - m) = 2^(k - m / ln 2), exact). mode: "right"; the classic
+    errors "none" (nothing rescaled), "l only" (a never rescaled), "halve on ties" (rescaled by 1/2 even when the
+    maximum does not change)."""
+    m, l, a, out = None, F(0), F(0), []
+    for start in range(0, len(ks), size):
+        block_k, block_v = ks[start:start + size], vs[start:start + size]
+        new = max(block_k) if m is None else max(m, max(block_k))
+        if m is None:
+            factor = F(0)
+        elif mode == "none":
+            factor = F(1)
+        elif mode == "halve on ties" and new == m:
+            factor = F(1, 2)
+        else:
+            factor = F(2) ** (m - new)
+        weights = [F(2) ** (k - new) for k in block_k]
+        l = l * factor + sum(weights)
+        a = a * (F(1) if mode == "l only" and m is not None else factor) + sum(w * v for w, v in zip(weights, block_v))
+        m = new
+        out.append([m, l, a])
+    return out
+
+
+def absolute_state_7(ks, vs):
+    """The classic error: [m / ln 2, sum of e^s, sum of e^s v], without subtracting m."""
+    return [max(ks), sum(F(2) ** k for k in ks), sum(F(2) ** k * v for k, v in zip(ks, vs))]
+
+
+def relative_state_7(ks, vs, m0):
+    """The classic error: the sums relative to m0 / ln 2, the maximum of another machine."""
+    return [m0, sum(F(2) ** (k - m0) for k in ks), sum(F(2) ** (k - m0) * v for k, v in zip(ks, vs))]
+
+
+def merge_7(s1, s2, mode="right"):
+    """The merge of two states [m / ln 2, l, a]; the classic errors "none" (no rescaling) and "mean"."""
+    m = max(s1[0], s2[0])
+    f1, f2 = (F(1), F(1)) if mode == "none" else (F(2) ** (s1[0] - m), F(2) ** (s2[0] - m))
+    l, a = s1[1] * f1 + s2[1] * f2, s1[2] * f1 + s2[2] * f2
+    return [m, l / 2, a / 2] if mode == "mean" else [m, l, a]
+
+
+def lse_7(state):
+    return float(state[0] * math.log(2) + math.log(state[1]))
+
+
+# MB3.11: four rain gauges on the shore of a circular lake of radius 5 km; the point x on the shore; a point inside
+GAUGES_11 = np.array([[5.0, 0], [0, 5], [-3, -4], [4, -3]])
+RAIN_11 = np.array([18.0, 30, 11, 22])
+X_11, INSIDE_11 = np.array([3.0, -4.0]), np.array([1.0, 2.0])
+
+
+def gauge_scores_11(h, x=X_11):
+    return -np.sum((GAUGES_11 - x) ** 2, axis=1) / (2 * h ** 2)'''
+
+PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ MB3.1 à MB3.7 ; 🔗 MB3.11)\n\n"
+               "Fais d'abord les exercices de `02_exercices.md` **sur papier**, dans ta copie de "
+               "`06_mes_reponses.md`. Reporte ensuite chaque réponse ici : **la valeur** que tu as trouvée, sous la "
+               "forme indiquée en commentaire, jamais le calcul qui y mène :\n"
+               "- un entier, ou un nombre avec un point décimal, `-1.25`, arrondi comme le demande la question "
+               "(« a number » sans décimales : la valeur exacte, ces calculs tombent juste) ;\n"
+               "- une valeur exacte entre guillemets, avec `sqrt`, `pi` et des fractions, `\"sqrt(5)/3\"` ;\n"
+               "- une fraction irréductible entre guillemets, `\"5/8\"` ;\n"
+               "- une liste `[0.2, -1]`, dans l'ordre que dit la question ; une liste de valeurs exactes peut contenir "
+               "des fractions entre guillemets, `[\"1/6\", 0, \"5/6\"]` ; une matrice comme la liste de ses **lignes**, "
+               "`[[1, 0], [-2, 3]]` (une liste de couples s'écrit de même) ;\n"
+               "- `True` ou `False` pour un vrai ou faux.\n\n"
+               "Les réponses pas encore remplies affichent ⏳.")
+
+
+def paper_part(kind: str) -> list:
+    """The cells of Part 0."""
+    return paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO)
