@@ -182,18 +182,18 @@ PAPER = [
         ("a", "a list of 5 integers: A, B, C, D, E", "borda_4()",
          '''mistakes={"un rang j rapporte n − j points : la première place rapporte le plus": rank_sums_4(),
                      "la dernière place rapporte 0 point": borda_4(start=1)}'''),
-        ("b", "a list of 5 numbers (4 decimals): A to E, for c = 2", "floats(rrf_4(2))",
+        ("b", "a list of 5 numbers (4 decimals): A to E, for c = 2", "floats(reciprocal_sum_4(2))",
          '''decimals=4,
-           mistakes={"garde 6 décimales dans chaque terme 1/(c + j), et n'arrondis que la somme": rrf_rounded_terms_4(2),
-                     "c s'ajoute au rang, il ne le multiplie pas": floats(rrf_4(2, mode="times")),
+           mistakes={"garde 6 décimales dans chaque terme 1/(c + j), et n'arrondis que la somme": reciprocal_sum_rounded_terms_4(2),
+                     "c s'ajoute au rang, il ne le multiplie pas": floats(reciprocal_sum_4(2, mode="times")),
                      "la fusion additionne les contributions des trois jurys, elle ne les moyenne pas":
-                         floats(rrf_4(2, mode="mean"))}'''),
-        ("c", "a list of 5 numbers (4 decimals): A to E, for c = 10", "floats(rrf_4(10))",
+                         floats(reciprocal_sum_4(2, mode="mean"))}'''),
+        ("c", "a list of 5 numbers (4 decimals): A to E, for c = 10", "floats(reciprocal_sum_4(10))",
          '''decimals=4,
-           mistakes={"garde 6 décimales dans chaque terme 1/(c + j), et n'arrondis que la somme": rrf_rounded_terms_4(10),
-                     "c s'ajoute au rang, il ne le multiplie pas": floats(rrf_4(10, mode="times")),
+           mistakes={"garde 6 décimales dans chaque terme 1/(c + j), et n'arrondis que la somme": reciprocal_sum_rounded_terms_4(10),
+                     "c s'ajoute au rang, il ne le multiplie pas": floats(reciprocal_sum_4(10, mode="times")),
                      "la fusion additionne les contributions des trois jurys, elle ne les moyenne pas":
-                         floats(rrf_4(10, mode="mean"))}'''),
+                         floats(reciprocal_sum_4(10, mode="mean"))}'''),
         ("d", "a list of 5 integers: A to E", "[sum(col) for col in zip(*MARKS_4)]",
          '''mistakes={"la question demande la somme des trois notes, pas leur moyenne":
                          floats([F(sum(col), 3) for col in zip(*MARKS_4)]),
@@ -251,7 +251,8 @@ def free(m, n, r):
     return r * (m + n - r)
 
 
-# MB4.2: a 60 x 450 table (60 stations, 450 days), singular values 320, 150, 60, 15, then 56 times 3
+# MB4.2: a 60 x 450 table (60 stations, 450 days: deviations of the pressure from the normal, in hPa), singular values
+# 320, 150, 60, 15, then 56 times 3
 S_2 = [320, 150, 60, 15] + [3] * 56
 ROWS_2, COLS_2 = 60, 450
 ENERGY_2 = sum(s * s for s in S_2)
@@ -311,7 +312,7 @@ def borda_4(start=0):
     return [sum(N_4 - j + start for j in col) for col in zip(*ranks_4())]
 
 
-def rrf_4(c, mode="sum"):
+def reciprocal_sum_4(c, mode="sum"):
     """The sum of the 1/(c + rank), exact; mode "times": 1/(c rank), "mean": divided by 3 (the classic errors)."""
     out = []
     for col in zip(*ranks_4()):
@@ -320,7 +321,7 @@ def rrf_4(c, mode="sum"):
     return out
 
 
-def rrf_rounded_terms_4(c):
+def reciprocal_sum_rounded_terms_4(c):
     """The classic error: each term 1/(c + j) rounded to 4 decimals before the sum."""
     return [round(sum(round(1 / (c + j), 4) for j in col), 4) for col in zip(*ranks_4())]
 
@@ -525,7 +526,8 @@ def look(text: str, after: str = "") -> tuple:
 # ---------------------------------------------------------------------------
 # MB4.8 · rank_factorization
 # ---------------------------------------------------------------------------
-GIVEN_8 = '''# The mean sales of a week (6 bakeries x 5 products), computed from a table of rank 2, rounded to the thousandth
+GIVEN_8 = '''# Measurements of 5 quantities on 6 samples of the foundry's laboratory, each a mix of two base alloys: a table of
+# rank 2, rounded to the thousandth
 M_8 = np.array(__M_8__)
 M_8.setflags(write=False)'''
 
@@ -533,10 +535,10 @@ NOTE_8 = (r"Les contrôles (2-D, non vide, nombres finis ; `tol` réel $\ge 0$, 
           r"`R, pivots = rref(M, tol)` sur une copie en flottants, `C = M[:, pivots]` (les colonnes de $\mathbf{M}$ "
           r"elle-même) et `F = R[:len(pivots)]`. a) $\mathbf{F} = \begin{pmatrix} 1 & 0 & 0{,}5 & 0 & 0{,}25 \\ 0 & 1 & 1 "
           r"& 2 & 0{,}5 \end{pmatrix}$, comme MB4.1 b). b) 5, puis 2. c) $\approx 0{,}000828$, l'ordre de grandeur de "
-          r"l'arrondi au millième des données.")
+          r"l'arrondi au millième des mesures.")
 
 MB4_8 = Ex(
-    "MB4.8", "🔨", 1, 20, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa forme "
+    "MB4.8", "🔨", 1, 25, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa forme "
     "échelonnée réduite · `rank_factorization`",
     "programmer la factorisation de rang par les colonnes pivots, puis retrouver MB4.1 et voir le rôle de la tolérance "
     "sur un tableau mesuré.",
@@ -546,7 +548,7 @@ MB4_8 = Ex(
 
 Écris `rank_factorization(M, tol=1e-10)` (fiche §1), en suivant sa docstring : contrôle $\mathbf{M}$ (un tableau 2-D non vide de nombres finis) et `tol` (un réel $\ge 0$, ni `nan` ni un booléen) ; réduis une copie en flottants comme le fait `rref` de M09a (tu peux importer `rref` de `.matrices`, ou le recopier dans une fonction privée `_rref`), et garde ses colonnes pivots ; $\mathbf{C}$ est faite des colonnes pivots de $\mathbf{M}$ elle-même, $\mathbf{F}$ des $r$ premières lignes de la forme réduite.
 
-**L'usage.** Le notebook fournit `M_8`, les ventes moyennes d'une semaine de 6 boulangeries sur 5 produits, calculées à partir d'un tableau de rang 2, puis arrondies au millième. Avec ta fonction :
+**L'usage.** Le notebook fournit `M_8`, les mesures de 5 grandeurs sur 6 échantillons du laboratoire de la fonderie (fiche §2), chacun mélange de deux alliages de base (un tableau de rang 2, arrondi au millième). Avec ta fonction :
 - a) `rank_factorization(M_1)`, où `M_1` est le tableau des boulangeries de MB4.1 (cellule de données) : la matrice $\mathbf{F}$ (à comparer à ta copie) ;
 - b) le rang trouvé pour `M_8` avec `tol=1e-10`, puis avec `tol=1e-2` (une liste de 2 entiers) ;
 - c) avec `tol=1e-2`, le plus grand écart $\lvert(\mathbf{C}\mathbf{F})_{ij} - (\mathbf{M}_8)_{ij}\rvert$ (un nombre).""",
@@ -555,7 +557,7 @@ MB4_8 = Ex(
     after=[("md", "**Les tests** de `rank_factorization` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était "
                   "attendu).")]
     + tests_cells("test_rank_factorization_ or test_module_uses_") + [
-        ("md", "**L'usage** : le tableau des boulangeries, puis un tableau mesuré et deux tolérances."),
+        ("md", "**L'usage** : le tableau des boulangeries, puis les mesures du laboratoire et deux tolérances."),
         ("todo", '''answer_MB4_8a = answer_MB4_8b = answer_MB4_8c = ...
 with wbm.attempt("MB4.8"):          # if you call rank_factorization here: ⏳ while it is not written
     answer_MB4_8a = ...  # a) a 2 x 5 matrix, as computed: the F of rank_factorization(M_1)
@@ -627,7 +629,7 @@ NOTE_9 = (r"`borda_scores` : les contrôles, puis, pour chaque ligne, `points[ro
           r"$\frac{341}{560}$ et $\frac{11}{72}$. d) Vrai.")
 
 MB4_9 = Ex(
-    "MB4.9", "🔨", 2, 25, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au hasard, en "
+    "MB4.9", "🔨", 2, 30, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au hasard, en "
     "fractions · `borda_scores`, `random_ranking_mrr`",
     "programmer les points de Borda de classements complets et le MRR exact d'un ordre tiré au hasard, puis retrouver "
     "MB4.4 et la valeur $H_n/n$.",
@@ -745,7 +747,7 @@ NOTE_10 = (r"Prédictions attendues : a) (C) ; b) (A) ; c) (B). La simulation : 
            r"0{,}007485)$ ; f) $(0{,}230259 ;\ 0{,}046052 ;\ 0{,}006908)$ ; g) vrai.")
 
 MB4_10 = Ex(
-    "MB4.10", "🔮", 1, 15, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le simuler et "
+    "MB4.10", "🔮", 1, 20, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le simuler et "
     "le comparer à H_n/n",
     "prévoir comment le MRR d'un ordre tiré au hasard décroît avec le nombre de candidats, puis le simuler et le comparer "
     "à $H_n/n$.", "fiche §6 ; M02a (rectangles), R8 ; Ex MB4.9", tracks="C", hypothesis=True, note=NOTE_10,
@@ -981,20 +983,20 @@ with checked("MB4.11"):
 
 NOTE_11 = (r"`saturation_11` : `(x > 0).astype(float)` pour $k_1 = 0$, `x.copy()` pour $k_1$ infini, sinon "
            r"`x * (k1 + 1) / (x + k1)`. a) $(1{,}714286 ;\ 2{,}25 ;\ 2{,}666667)$. b) $(9, 18, 27)$ : $s(x) = "
-           r"0{,}9(k_1 + 1)$ pour $x = 9k_1$. c) $(1{,}684211 ;\ 1{,}6 ;\ 1{,}454545)$. d) Vrai.")
+           r"0{,}9(k_1 + 1)$ pour $x = 9k_1$. c) $(1{,}684211 ;\ 1{,}6 ;\ 1{,}454545)$. d) Vrai : le plafond reste $k_1 + 1 = 2$.")
 
 MB4_11 = Ex(
-    "MB4.11", "🎨", 1, 15, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
+    "MB4.11", "🎨", 1, 25, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
     "normalisation par la longueur leur fait",
     "tracer la saturation pour plusieurs $k_1$, entre la seule présence et le compte brut, et voir ce que la "
     "normalisation par la longueur lui fait.", "fiche §4 ; R7, M05a (concavité) ; Ex MB4.3", tracks="C", note=NOTE_11,
     body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure.
 
-La vérification les appelle avec $k_1 = 0$, 1, 2, 3 et l'infini, puis avec $k_1 = 1$, $b = \frac12$ et $\ell = \frac12$, 1, 2, sur $[0, 12]$, affiche la figure, et les essaie sur des appels cachés. Relève :
+La vérification les appelle avec $k_1 = 0$, 1, 2, 3 et l'infini, puis avec $k_1 = 1$, $b = \frac12$ et $\ell = \frac12$, 1, 2, sur $[0, 12]$, affiche la figure, et les essaie sur des appels cachés (d'autres $x$, les $k_1$ dans un autre ordre, d'autres longueurs, un autre $b$) ; `saturation_11` ne modifie pas le tableau reçu. Relève :
 - a) $s(6)$ pour $k_1 = 1$, 2 et 3 (une liste de 3 nombres) ;
 - b) pour $k_1 = 1$, 2 et 3, la valeur de $x$ où $s$ atteint 90 % de sa limite (une liste de 3 nombres) ;
 - c) pour $k_1 = 1$ et $b = \frac12$, la valeur en $x = 4$ pour $\ell = \frac12$, 1 et 2 (une liste de 3 nombres) ;
-- d) vrai ou faux : pour $\ell = 1$, toutes les courbes passent par le point $(1, 1)$.""",
+- d) vrai ou faux : les trois courbes de c) ($\ell = \frac12$, 1 et 2) tendent vers la même limite quand $x \to \infty$.""",
     todo='''def saturation_11(x, k1):
     """s(x) = x (k1 + 1) / (x + k1) for an array x of numbers >= 0: with k1 = 0, the presence alone (1 for x > 0, 0 for
     x = 0); with k1 = np.inf, the raw count x. Returns an array of the shape of x."""
@@ -1019,7 +1021,7 @@ with wbm.attempt("MB4.11"):          # your functions: ⏳ while they are not wr
     answer_MB4_11a = ...  # a) a list of 3 numbers, as computed: s(6) for k1 = 1, 2, 3
     answer_MB4_11b = ...  # b) a list of 3 numbers: for k1 = 1, 2, 3, the x where s reaches 90 % of its limit
     answer_MB4_11c = ...  # c) a list of 3 numbers, as computed: k1 = 1, b = 0.5, the value at x = 4 for ell = 0.5, 1, 2
-    answer_MB4_11d = ...  # d) True or False: for ell = 1, every curve passes through the point (1, 1)''',
+    answer_MB4_11d = ...  # d) True or False: the three curves of c) (ell = 0.5, 1, 2) tend to the same limit as x -> infinity''',
     check=answers_check("MB4.11", "abcd") + "\n\n" + CHECK_11,
     solution='''from scipy.optimize import brentq
 
@@ -1078,10 +1080,13 @@ answer_MB4_11a = [float(saturation_11(np.array([6.0]), k1)[0]) for k1 in (1, 2, 
 answer_MB4_11b = [brentq(lambda x, k1=k1: saturation_11(np.array([x]), k1)[0] - 0.9 * (k1 + 1), 0.0, 1000.0, xtol=1e-12)
                   for k1 in (1, 2, 3)]
 answer_MB4_11c = [4 * 2 / (4 + 1 * (1 - 0.5 + 0.5 * ell)) for ell in (0.5, 1, 2)]
-answer_MB4_11d = all(abs(float(saturation_11(np.array([1.0]), k1)[0]) - 1) < 1e-12 for k1 in (0, 0.5, 1, 2, 3, 10, np.inf))
+far_11 = 1e9                                       # the curves of c) far to the right: their limits as x -> infinity
+answer_MB4_11d = all(abs(far_11 * 2 / (far_11 + 1 * (1 - 0.5 + 0.5 * ell)) - 2) < 1e-6 for ell in (0.5, 1, 2))
 print("a)", np.round(answer_MB4_11a, 6).tolist(), " b)", np.round(answer_MB4_11b, 6).tolist(),
       " c)", np.round(answer_MB4_11c, 6).tolist(), " d)", answer_MB4_11d)''',
     record='''from fractions import Fraction as F_11r
+
+import sympy as sp_11r
 
 
 def s_11r(x, k1, nu=1):
@@ -1104,9 +1109,12 @@ wbm.record("MB4.11c", [float(s_11r(4, 1, 1 - F_11r(1, 2) + F_11r(1, 2) * F_11r(e
            decimals=6,
            mistakes={"la normalisation multiplie k₁ seul, au dénominateur : x(k₁ + 1)/(x + k₁ ν)":
                          [float(s_11r(4, 1) / (1 - F_11r(1, 2) + F_11r(1, 2) * F_11r(ell))) for ell in ("1/2", 1, 2)]})
-wbm.record("MB4.11d", True,
-           mistakes={"pour ℓ = 1, ν = 1 : compare s(1) à 1 à 10⁻¹² près pour chaque k₁, avec abs(…) < 1e-12, pas avec "
-                     "== ; s'il diffère vraiment, relis saturation_11": False})
+x_11r = sp_11r.symbols("x", positive=True)
+limits_11r = {sp_11r.limit(x_11r * 2 / (x_11r + sp_11r.Rational(1 - F_11r(1, 2) + F_11r(1, 2) * F_11r(ell))), x_11r, sp_11r.oo)
+              for ell in ("1/2", 1, 2)}                                    # the oracle: the limits of the curves of c), SymPy
+wbm.record("MB4.11d", len(limits_11r) == 1,
+           mistakes={"la normalisation multiplie k₁ par ν au dénominateur : le plafond reste k₁ + 1, seule la "
+                     "demi-saturation bouge": False})
 HIDDEN_11r = __HIDDEN_C11__                                                  # the hidden calls of the check
 wbm.record(HIDDEN_11r["id_s"], [[float(s_11r(x, None if math.isinf(k1) else k1)) for x in HIDDEN_11r["x"]]
                                 for k1 in HIDDEN_11r["k1"]], decimals=6)
@@ -1177,8 +1185,8 @@ def rarity_bad(n, N):
 E_12 = np.array([[1.0, 0, 5, 0, -2], [0, 1, 3, 0, 4], [0, 0, 0, 1, 7]])   # a matrix already in reduced row echelon form
 C_12, F_12 = rank_factorization_bad(E_12)
 print("(1)", bool(np.allclose(C_12 @ F_12, E_12)), "(attendu True : C F redonne la matrice)")
-print("(2)", borda_bad([[1, 0, 2], [0, 2, 1], [2, 1, 0]]).tolist() == [3] * 3,
-      "(attendu True : trois jurys, trois points chacun, à la main)")
+print("(2)", borda_bad([[1, 0, 3, 2], [2, 3, 0, 1], [0, 1, 3, 2]]).tolist() == [6, 5, 3, 4],
+      "(attendu True : trois jurys, quatre candidats, les points comptés à la main)")
 print("(3)", rarity_bad(90, 90) == 0, "(attendu True : un ingrédient présent dans toutes les fiches ne surprend pas)")'''
 
 CHECK_12 = '''CASES_C12 = __CASES_C12__   # the hidden tables, rankings and notebooks of recipes, and the sub-ID expected
@@ -1289,19 +1297,19 @@ NOTE_12 = (r"(1) La forme réduite a l'identité dans ses colonnes pivots : pris
            r"1{,}098612 ;\ -3{,}401197 ;\ -1{,}098612)$.")
 
 MB4_12 = Ex(
-    "MB4.12", "🐛", 1, 15, "Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme la liste "
+    "MB4.12", "🐛", 1, 20, "Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme la liste "
     "des rangs des candidats, un poids de rareté écrit ln(n/N)",
     "reconnaître trois erreurs classiques (C pris dans la forme réduite, un classement lu comme la liste des rangs, un "
     "poids de rareté de signe faux), qui passent une vérification mal choisie, puis les corriger.",
     "fiche §1, §3 et §5 ; Ex MB4.1, MB4.3 et MB4.4", tracks="C", given=GIVEN_12, note=NOTE_12,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
 1. `rank_factorization_bad(M)` doit rendre la factorisation par les colonnes pivots ; elle prend $\mathbf{C}$ dans les colonnes pivots de la **forme réduite** au lieu de celles de $\mathbf{M}$. Il l'a vérifiée sur une matrice déjà sous forme échelonnée réduite.
-2. `borda_bad(rankings)` doit rendre les points de Borda ; elle lit chaque ligne comme la liste des **rangs** des candidats (la valeur d'indice $c$ comme la position du candidat $c$), au lieu de la liste des candidats dans l'ordre. Il l'a vérifiée sur trois jurys, `[[1, 0, 2], [0, 2, 1], [2, 1, 0]]`.
-3. `rarity_bad(n, N)` doit rendre la surprise d'un ingrédient présent dans $n$ fiches sur $N$ ; elle rend $\ln\frac nN$. Il l'a vérifiée sur un ingrédient présent dans toutes les fiches, de poids nul.
+2. `borda_bad(rankings)` doit rendre les points de Borda ; elle lit chaque ligne comme la liste des **rangs** des candidats (la valeur d'indice $c$ comme la position du candidat $c$), au lieu de la liste des candidats dans l'ordre. Il l'a vérifiée sur trois jurys et quatre candidats, `[[1, 0, 3, 2], [2, 3, 0, 1], [0, 1, 3, 2]]`.
+3. `rarity_bad(n, N)` doit rendre la surprise d'un ingrédient présent dans $n$ fiches sur $N$ ; elle rend $\ln\frac nN$. Il l'a vérifiée sur un ingrédient présent dans toutes les fiches, de surprise nulle.
 
-À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `rank_factorization_fixed`, `borda_fixed` et `rarity_fixed`, avec les mêmes arguments (sans `mymath` ; `exact_rref_12` de la cellule fournie reste permise). Le notebook fournit `RANK_12`, les classements de 4 juges et 6 candidats. Puis réponds :
+À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `rank_factorization_fixed`, `borda_fixed` et `rarity_fixed`, avec les mêmes arguments (sans `mymath` ; `exact_rref_12`, la réduction exacte de la cellule fournie, reste permise). Puis réponds :
 - a) pour le tableau `M_1` des boulangeries, le plus grand écart $\lvert(\mathbf{C}\mathbf{F})_{ij} - M_{ij}\rvert$ par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ;
-- b) pour `RANK_12`, les points de Borda par la fonction corrigée, puis par la fonction fautive (une liste de 2 listes de 6 entiers) ;
+- b) pour les classements `RANK_12` de 4 juges et 6 candidats, que fournit le notebook : les points de Borda par la fonction corrigée, puis par la fonction fautive (une liste de 2 listes de 6 entiers) ;
 - c) les surprises d'ingrédients présents dans 3 et dans 30 fiches sur 90, par la fonction corrigée, puis par la fonction fautive (une liste de 4 nombres).
 
 Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie aussi tes fonctions corrigées sur des cas cachés : d'autres tableaux, dont des tableaux de rang 1 et des tableaux dont les colonnes pivots ne sont pas les premières, des classements dont aucune ligne n'est sa propre inverse, et d'autres carnets.""",
@@ -1474,7 +1482,7 @@ NOTE_13 = (r"a) $(3, 1, 5, 2, 4)$ ; b) $(60, 70, 120, 50, 75)$, le rang plein ; 
            r"dont l'échelle change d'un tableau à l'autre.")
 
 MB4_13 = Ex(
-    "MB4.13", "🏆", 3, 25, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs "
+    "MB4.13", "🏆", 3, 35, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs "
     "singulières",
     "retrouver le rang caché d'un tableau bruité en comparant ses valeurs singulières au niveau du bruit, estimé sur le "
     "tableau lui-même, et le vérifier sur des tableaux cachés.", "fiche §2 ; M12d (SVD, Eckart-Young) ; Ex MB4.2",
@@ -1688,7 +1696,7 @@ def build_constants() -> dict:
     from mymath_ref import ranks as ref                     # noqa: E402 - the reference, for the assertions
     out = {}
 
-    # MB4.8: the mean sales of a week, from a table of rank 2 (seed 7508, the data of work_c/nb_values.py)
+    # MB4.8: measurements of the foundry's laboratory, a table of rank 2 (seed 7508, the data of work_c/nb_values.py)
     rng = np.random.default_rng(7508)
     C0, F0 = rng.integers(1, 10, (6, 2)), rng.integers(1, 10, (2, 5))
     M8 = np.round(C0 @ F0 / 7, 3)

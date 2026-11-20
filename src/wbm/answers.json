@@ -109450,7 +109450,7 @@
       "hash": "f62451c2e4d9648101651dfee3e9a30bb2865770a27f660b544022af2a35073d",
       "kind": "bool",
       "mistakes": {
-        "54ba66eb94664c8273a5f559639a4a5b51deb4cd712895accce6b1c0e1569a16": "pour ℓ = 1, ν = 1 : compare s(1) à 1 à 10⁻¹² près pour chaque k₁, avec abs(…) < 1e-12, pas avec == ; s'il diffère vraiment, relis saturation_11"
+        "54ba66eb94664c8273a5f559639a4a5b51deb4cd712895accce6b1c0e1569a16": "la normalisation multiplie k₁ par ν au dénominateur : le plafond reste k₁ + 1, seule la demi-saturation bouge"
       },
       "source": "chapitres/mb4_rang_faible/05_solutions.ipynb"
     },
