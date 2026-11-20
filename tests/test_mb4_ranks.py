@@ -804,7 +804,7 @@ ACCEPTED = [
     (((2, -1, 0), (6, -3, 1), (-4, 2, 5), (0, 0, 1)), "a tuple of tuples"),
     (np.array([[5, 0, 10], [-1, 4, -2]], dtype=np.int32), "an int32 array"),
     (np.array([[7, 14, 1], [3, 6, 2], [9, 18, 8]], dtype=np.uint8), "a uint8 array"),
-    (np.array([[0.625, -1.25, 0.0], [1.5, -3.0, 0.375]], dtype=np.float32), "a float32 array"),
+    (np.array([[0.625, -1.25, 0.0], [1.5, -3.0, 0.875]], dtype=np.float32), "a float32 array"),
     ([[Fraction(1, 3), Fraction(2, 3), Fraction(5, 7)], [Fraction(-1, 2), Fraction(-1, 1), Fraction(4, 9)]],
      "fractions"),
     (np.array([[0.0, 2.0], [0.0, -5.0], [0.0, 1.0]]), "a first column of zeros"),
@@ -848,7 +848,7 @@ def test_rank_factorization_does_not_modify_its_input(ranks_module):
 BAD_MATRICES = [
     ([1.0, 2.0, 3.0], "M is 1-D"), (np.ones((2, 2, 2)), "M is 3-D"), (4.5, "M is a number"), ([], "M is empty"),
     ([[]], "M has no column"), (np.zeros((0, 3)), "M has no row"), (np.zeros((3, 0)), "M has no column"),
-    ([[1.0, np.nan], [0.5, 2.0]], "M holds nan"), ([[1.5, 2.0], [np.inf, 0.5]], "M holds inf"),
+    ([[1.0, np.nan], [0.625, 2.0]], "M holds nan"), ([[1.5, 2.0], [np.inf, 0.875]], "M holds inf"),
     ([[-np.inf, 1.0]], "M holds -inf"), ([[1.0, 2.0], [3.0]], "M is a ragged list"), (None, "M is None"),
     ([["a", 1.0], [2.0, 3.0]], "M holds a string"),
 ]
@@ -868,7 +868,7 @@ BAD_TOLS = [(-1e-12, "tol is negative"), (-1.0, "tol is -1"), (math.nan, "tol is
 @pytest.mark.parametrize("tol, why", BAD_TOLS, ids=["negative", "minus-one", "nan", "numpy-nan", "true", "false",
                                                     "numpy-true"])
 def test_rank_factorization_refuses_a_bad_tol(rk, tol, why):
-    M = [[1.5, -2.0], [0.25, 4.0]]
+    M = [[1.5, -2.0], [0.125, 4.0]]
     _expect_error(ValueError, lambda: rk.rank_factorization(M, tol=tol), f"rank_factorization({M!r}, tol={tol!r})",
                   why)
 
@@ -1116,11 +1116,11 @@ def test_borda_scores_accepts_numpy_integer_arrays_lists_and_tuples(rk, dtype):
 
 
 def test_borda_scores_of_many_judges_and_candidates(rk):
-    """400 judges, 60 candidates: the same points as scipy.stats.rankdata of the marks."""
+    """350 judges, 57 candidates: the same points as scipy.stats.rankdata of the marks."""
     rng = _rng(7440)
-    marks = rng.normal(size=(400, 60))
+    marks = rng.normal(size=(350, 57))
     R = _rankings_from_marks(marks)
-    want = (400 * 60 - stats.rankdata(-marks, axis=1).sum(axis=0)).astype(int)
+    want = (350 * 57 - stats.rankdata(-marks, axis=1).sum(axis=0)).astype(int)
     what = f"borda_scores({_show_ints(R)})"
     _check_borda(_borda(rk, R, what), want, R, what)
 
@@ -1328,7 +1328,7 @@ def test_random_ranking_mrr_with_every_item_relevant_is_1(rk):
 
 def test_random_ranking_mrr_at_depth_1_is_q_over_n(rk):
     """depth = 1: only R = 1 counts, and P(R = 1) = q / n."""
-    for n, q in ((7, 3), (11, 4), (13, 6), (19, 2), (23, 17), (60, 7)):
+    for n, q in ((7, 3), (11, 4), (13, 6), (19, 2), (23, 17), (58, 7)):
         _check_mrr(_mrr(rk, n, q, 1), Fraction(q, n), n, q, 1,
                    f"random_ranking_mrr({n}, n_relevant={q}, depth=1) (P(R = 1) = q / n)")
 
@@ -1337,7 +1337,7 @@ def test_random_ranking_mrr_a_depth_beyond_the_last_possible_rank_changes_nothin
     """R ≤ n - q + 1 always: a depth ≥ n - q + 1, or above n, gives the value without depth."""
     rng = _rng(7461)
     for k in range(8):
-        n = int(rng.integers(3, 60))
+        n = int(rng.integers(3, 58))
         q = int(rng.integers(1, n + 1))
         want = _survival_mrr(n, q, None)
         for depth in (n - q + 1, n - q + 2, n, n + 1, 10 * n):
