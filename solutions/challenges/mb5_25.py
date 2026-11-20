@@ -38,7 +38,7 @@ REL = 0.07               # the criterion: W₁ / (the standard deviation of the 
 BUDGET = 8               # the calls of the field allowed
 SERIES = 3               # the series of len(KINDS) hidden laws drawn at each run of the check
 MAX_POINTS = 2_000_000   # the largest array of points the process accepts in one request
-NOTEBOOK_LAW = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))   # MIX_25, the two-bump law of the notebook (not hidden)
+NOTEBOOK_LAW = ((0.38, 0.62), (-1.6, 2.1), (0.14, 0.3))   # MIX_25, the two-bump law of the notebook (not hidden)
 
 
 # --------------------------------------------------------------------------------------------------------------------

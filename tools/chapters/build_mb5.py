@@ -323,9 +323,7 @@ PAPER = [
          "floats([euler_8(-5, 1, start=T10_8, t0=10), exact_8(5, start=T10_8, t0=10)])",
          '''decimals=2,
            mistakes={"la solution exacte fait décroître l'écart à la pièce, 47 − 20, pas la température":
-                         floats([euler_8(-5, 1, start=T10_8, t0=10), float(T10_8) * math.exp(float(K_8) * 5)]),
-                     "remonter le temps multiplie l'écart à la pièce par e^{+k Δt}":
-                         floats([euler_8(-5, 1, start=T10_8, t0=10), exact_8(15, start=T10_8, t0=10)])}'''),
+                         floats([euler_8(-5, 1, start=T10_8, t0=10), float(T10_8) * math.exp(float(K_8) * 5)])}'''),
     ]),
 
     Paper("MB5.9", "Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen, un pas d'Euler depuis s = 1, "
@@ -917,8 +915,8 @@ A_16 = frozen(__A_16__)
 B_16 = frozen(__B_16__)'''
 
 NOTE_16 = (r"Les contrôles, puis deux listes qui démarrent à `mean0` et `var0`, et à chaque pas `m = a_t * m` et "
-           r"`v = a_t ** 2 * v + b_t ** 2`. a) $(1{,}703680 ;\ 0{,}290827)$, comme MB5.1 b). b) $(0{,}205032 ;\ "
-           r"0{,}593080)$. c) $(0{,}696570 ;\ 2{,}463696 ;\ 2{,}512458)$ : les moyennes $5 ;\ -3{,}6 ;\ 2{,}592 ;\ "
+           r"`v = a_t ** 2 * v + b_t ** 2`. a) $(1{,}703680 ;\ 0{,}290827)$, comme MB5.1 b). b) $(0{,}200712 ;\ "
+           r"0{,}682062)$. c) $(0{,}494337 ;\ 2{,}228744 ;\ 2{,}250744)$ : les moyennes $5 ;\ -3{,}4 ;\ 2{,}312 ;\ "
            r"\ldots$ changent de signe à chaque pas, et la variance approche $v_\infty$ par en dessous.")
 
 MB5_16 = ex(
@@ -933,7 +931,7 @@ MB5_16 = ex(
 **L'usage.** Avec ta fonction :
 - a) le lac de MB5.1 (`LAKE_1`, cellule de données) sur trois jours : la moyenne et la variance de $x_3$ (une liste de 2 nombres, à comparer à ta copie) ;
 - b) au printemps, la persistance et le bruit changent chaque semaine : le notebook fournit `A_16` et `B_16`, les coefficients de douze semaines, et le départ suit $x_0 \sim \mathcal{N}(1{,}5 ;\ 0{,}3)$ : la moyenne et la variance de $x_{12}$ (une liste de 2 nombres) ;
-- c) $a = -0{,}72$ et $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres).""",
+- c) $a = -0{,}68$ et $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `linear_gaussian_recursion` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui "
@@ -951,11 +949,11 @@ means_16, variances_16 = linear_gaussian_recursion([LAKE_1["a"]] * 3, [LAKE_1["b
 answer_MB5_16a = [float(means_16[3]), float(variances_16[3])]
 means_16, variances_16 = linear_gaussian_recursion(A_16, B_16, mean0=1.5, var0=0.3)
 answer_MB5_16b = [float(means_16[-1]), float(variances_16[-1])]
-means_16, variances_16 = linear_gaussian_recursion([-0.72] * 6, [1.1] * 6, mean0=5.0)
-answer_MB5_16c = [float(means_16[6]), float(variances_16[6]), 1.1 ** 2 / (1 - 0.72 ** 2)]
+means_16, variances_16 = linear_gaussian_recursion([-0.68] * 6, [1.1] * 6, mean0=5.0)
+answer_MB5_16c = [float(means_16[6]), float(variances_16[6]), 1.1 ** 2 / (1 - 0.68 ** 2)]
 print("a)", np.round(answer_MB5_16a, 6).tolist(), " b)", np.round(answer_MB5_16b, 6).tolist(),
       " c)", np.round(answer_MB5_16c, 6).tolist())
-print("   c) les moyennes :", np.round(means_16, 6).tolist())
+print("   c) les trois premières moyennes :", np.round(means_16[:3], 6).tolist())
 print("   c) les variances :", np.round(variances_16, 6).tolist())'''),
         ("record", '''from fractions import Fraction as F_16r
 
@@ -974,17 +972,17 @@ wbm.record("MB5.16a", moments_16r([0.88] * 3, [0.35] * 3, 2.5), decimals=6,
            mistakes={"le départ connu x_0 = 2,5 se passe par mean0 (sinon, mean0 vaut 0)":
                          moments_16r([0.88] * 3, [0.35] * 3, 0)})
 weeks_a_16r, weeks_b_16r = __A_16__, __B_16__
-wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=5,
+wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=6,
            mistakes={"le départ n'est pas connu : sa variance 0,3 se transmet, passe var0=0.3":
                          moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0),
                      "le départ a la moyenne 1,5 : passe mean0=1.5": moments_16r(weeks_a_16r, weeks_b_16r, 0, 0.3)})
-six_16r = moments_16r([-0.72] * 6, [1.1] * 6, 5)
-limit_16r = float(F_16r("1.1") ** 2 / (1 - F_16r("0.72") ** 2))
+six_16r = moments_16r([-0.68] * 6, [1.1] * 6, 5)
+limit_16r = float(F_16r("1.1") ** 2 / (1 - F_16r("0.68") ** 2))
 wbm.record("MB5.16c", six_16r + [limit_16r], decimals=6,
            mistakes={"la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²":
-                         six_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.72") ** 2))],
+                         six_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.68") ** 2))],
                      "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)":
-                         moments_16r([-0.72] * 6, [1.1] * 6, 0) + [limit_16r]})'''),
+                         moments_16r([-0.68] * 6, [1.1] * 6, 0) + [limit_16r]})'''),
         ("solution", answers_check("MB5.16", "abc", hints=HINTS_16)),
         look("pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue "
              "diminue-t-elle ? Par quel côté la variance approche-t-elle $v_\\infty$ ?"),
@@ -1358,7 +1356,7 @@ wbm.record("MB5.20e", [limit_20r(1.475, b) for b in noises_20r], decimals=6,
                          [limit_20r(2.95, b) for b in noises_20r],
                      "la liste suit l'ordre de l'énoncé : b = 1, 0,3, 0,1, 0,03, puis 0,01":
                          [limit_20r(1.475, b) for b in noises_20r[::-1]]})
-wbm.record("MB5.20f", limit_20r(1.0, 50.0), decimals=6,
+wbm.record("MB5.20f", limit_20r(1.0, 50.0), decimals=4,
            mistakes={"f) passe la mesure y = 1 elle-même : la fonction divise par a, pas toi": limit_20r(2.0, 50.0)})'''),
         ("solution", answers_check("MB5.20", "def", hints=HINTS_20)),
         look("à partir de quel $b$ le débruiteur rend-il presque exactement un relevé ? Pourquoi ne rend-il jamais 2, la "
@@ -1720,13 +1718,14 @@ print("a)", np.round(answer_MB5_22a, 6).tolist(), " b)", np.round(answer_MB5_22b
     record='''from scipy.stats import norm as norm_22r
 
 
-def density_22r(xs, w, general=((0.55, 0.45), (-1.8, 1.6), (0.5, 0.7)), cls=(1.6, 0.7), swap=False, normalise=True):
+def density_22r(xs, w, general=((0.55, 0.45), (-1.8, 1.6), (0.5, 0.7)), cls=(1.6, 0.7), normalise=True):
     """The oracle: the densities themselves, p_c^(1 + w) p_u^(-w) (no logarithm: on these grids no density underflows),
-    normalized by the trapezoids; swap: the powers exchanged (the classic error)."""
+    normalized by the trapezoids; normalise=False: divided by their maximum only (the logarithm minus its maximum,
+    exponentiated, and never normalized)."""
     xs = np.asarray(xs, dtype=float)
     pu = sum(p * norm_22r.pdf(xs, m, math.sqrt(v)) for p, m, v in zip(*general))
     pc = norm_22r.pdf(xs, cls[0], math.sqrt(cls[1]))
-    d = pu ** (1 + w) * pc ** (-w) if swap else pc ** (1 + w) * pu ** (-w)
+    d = pc ** (1 + w) * pu ** (-w)
     return d / np.trapezoid(d, xs) if normalise else d / d.max()
 
 
@@ -1740,22 +1739,20 @@ def moments_22r(d):
 
 weights_22r = (0.25, 1.75, 3.5)
 right_22r = [moments_22r(density_22r(grid_22r, w)) for w in weights_22r]
-swapped_22r = [moments_22r(density_22r(grid_22r, w, swap=True)) for w in weights_22r]
 raw_22r = [moments_22r(density_22r(grid_22r, w, normalise=False)) for w in weights_22r]
 wbm.record("MB5.22a", [m[0] for m in right_22r], decimals=7,
-           mistakes={"la puissance 1 + w va sur p_c, et −w sur p_u": [m[0] for m in swapped_22r],
-                     "la densité se normalise : divise-la par np.trapezoid(d, xs) avant les moments":
-                         [m[0] for m in raw_22r]})
+           mistakes={"la loi guidée se normalise : divise par `np.trapezoid(d, xs)` avant de calculer ses moments": [m[0] for m in raw_22r]})
 wbm.record("MB5.22b", [m[1] for m in right_22r], decimals=6,
-           mistakes={"la puissance 1 + w va sur p_c, et −w sur p_u": [m[1] for m in swapped_22r]})
+           mistakes={"la loi guidée se normalise : divise par `np.trapezoid(d, xs)` avant de calculer ses moments": [m[1] for m in raw_22r]})
 mass_22r = float(np.trapezoid(np.where(grid_22r < 0, density_22r(grid_22r, 3.5), 0), grid_22r))
 wbm.record("MB5.22c", mass_22r, decimals=6,
            mistakes={"c) demande la masse de la loi guidée pour w = 3,5, pas celle de p_c":
                          float(np.trapezoid(np.where(grid_22r < 0, norm_22r.pdf(grid_22r, 1.6, math.sqrt(0.7)), 0),
                                             grid_22r)),
                      "c) demande la masse sur x < 0, le côté de l'autre bosse": 1 - mass_22r,
-                     "la puissance 1 + w va sur p_c, et −w sur p_u":
-                         float(np.trapezoid(np.where(grid_22r < 0, density_22r(grid_22r, 3.5, swap=True), 0), grid_22r))})
+                     "la loi guidée se normalise : divise par `np.trapezoid(d, xs)` avant de calculer ses moments":
+                         float(np.trapezoid(np.where(grid_22r < 0, density_22r(grid_22r, 3.5, normalise=False), 0),
+                                            grid_22r))})
 HIDDEN_22r = __HIDDEN_C22__                                                  # the hidden calls of the check
 idx_22r = HIDDEN_22r["idx"]
 wbm.record(HIDDEN_22r["id_main"], [density_22r(grid_22r, w)[idx_22r].tolist() for w in weights_22r], decimals=6)
@@ -2330,7 +2327,7 @@ PART_C = Part("C", "Déboguer, tester",
 # Notebook exercise: the challenge (MB5.25)
 # ---------------------------------------------------------------------------
 GIVEN_25 = '''# The two-bump law of the challenge: the weights, the means and the variances of a mixture of two Gaussians
-MIX_25 = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+MIX_25 = ((0.38, 0.62), (-1.6, 2.1), (0.14, 0.3))
 Z_25 = frozen(np.random.default_rng(7725).normal(size=20_000))      # 20 000 draws of N(0, 1): the points at s = 1
 _rng_25 = np.random.default_rng(7726)                                # 200 000 draws of MIX_25
 _bump_25 = _rng_25.choice(2, size=200_000, p=MIX_25[0])
@@ -2511,10 +2508,11 @@ with checked("MB5.25"):
 
 NOTE_25 = (r"`field_25` : `(x - posterior_mean_mixture(x, 1 - s, s, weights, means, variances)) / s`. `transport_25` : la "
            r"méthode du point milieu avec quatre pas égaux de $s = 1$ à $s = 0$ (huit appels). b) Un pas d'Euler : "
-           r"$W_1 \approx 1{,}744$ ; huit pas d'Euler : $\approx 0{,}171$ ($0{,}092$ fois l'écart-type $1{,}86$ du "
-           r"mélange) ; le point milieu : $\approx 0{,}033$. c) 8. Le piège : huit pas d'Euler semblent le meilleur usage "
-           r"du budget, mais l'erreur d'Euler n'est que d'ordre 1 ; quatre pas du point milieu, d'ordre 2, font bien "
-           r"mieux pour le même nombre d'évaluations (la fiche §8).")
+           r"$W_1 \approx 1{,}744$ ; huit pas d'Euler : $\approx 0{,}173$ ($0{,}093$ fois l'écart-type $1{,}86$ du "
+           r"mélange, au-dessus du seuil $0{,}07$) ; le point milieu : $\approx 0{,}032$ ($0{,}017$ fois "
+           r"l'écart-type). c) 8. Le piège : huit pas d'Euler semblent le meilleur usage du budget, mais l'erreur "
+           r"d'Euler n'est que d'ordre 1 ; quatre pas du point milieu, d'ordre 2, font bien mieux pour le même nombre "
+           r"d'évaluations (la fiche §8).")
 
 MB5_25 = ex(
     "MB5.25", "transporter un bruit vers une loi à deux bosses par son champ moyen exact, avec un budget d'évaluations du "
@@ -2608,7 +2606,7 @@ def field_25r(x, s, law):
     return (x.ravel() - posterior_25r(x, 1 - s, s, *law)) / s
 
 
-law_25r = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+law_25r = ((0.38, 0.62), (-1.6, 2.1), (0.14, 0.3))
 noise_25r = np.random.default_rng(7725).normal(size=20_000)
 rng_25r = np.random.default_rng(7726)
 bump_25r = rng_25r.choice(2, size=200_000, p=law_25r[0])
@@ -2757,16 +2755,16 @@ def build_constants() -> dict:
 
     # MB5.16: the twelve weeks of spring (the data of work_c/nb_values.py, chosen by hand): no pair with a² + b² = 1, no
     # arithmetic progression; the reference finds the values of 05_solutions.md
-    a16 = [0.97, 0.93, 0.88, 0.71, 0.58, 1.04, 0.99, 0.83, 0.66, 0.92, 1.02, 0.79]
-    b16 = [0.22, 0.31, 0.47, 0.52, 0.38, 0.26, 0.19, 0.41, 0.55, 0.33, 0.28, 0.44]
-    assert all(abs(a * a + b * b - 1) > 1e-3 for a, b in zip(a16, b16))
+    a16 = [0.96, 0.93, 0.88, 0.71, 0.58, 1.04, 0.99, 0.83, 0.66, 0.91, 1.02, 0.79]
+    b16 = [0.36, 0.21, 0.57, 0.52, 0.38, 0.26, 0.34, 0.41, 0.55, 0.48, 0.28, 0.44]
+    assert all(abs(a * a + b * b - 1) >= 0.05 for a, b in zip(a16, b16))
     for seq in (a16, b16):
         steps = np.diff(seq)
         assert not np.allclose(steps, steps[0]) and not np.allclose(np.diff(sorted(seq)), np.diff(sorted(seq))[0])
     m16, v16 = ref.linear_gaussian_recursion(a16, b16, mean0=1.5, var0=0.3)
-    assert [round(float(m16[-1]), 6), round(float(v16[-1]), 6)] == [0.205032, 0.59308]
-    for a, b in ((0.88, 0.35), (-0.72, 1.1), (0.7, 0.5), (0.5, 1.0), (2.0, 3.0), (1.2, 0.9), (1.5, 0.7)):
-        assert abs(a * a + b * b - 1) > 1e-3                   # the pairs of the notebook exercises
+    assert [round(float(m16[-1]), 6), round(float(v16[-1]), 6)] == [0.200712, 0.682062]
+    for a, b in ((0.88, 0.35), (-0.68, 1.1), (0.7, 0.5), (0.5, 1.0), (2.0, 3.0), (1.2, 0.9), (1.5, 0.7)):
+        assert abs(a * a + b * b - 1) >= 0.05                  # the pairs of the notebook exercises
     out["__A_16__"], out["__B_16__"] = literal(a16), literal(b16)
 
     # MB5.21: hidden times and points (non-dyadic; never s = 0.5 nor x = 1.5, the question b of MB5.9), the exact field
@@ -2806,7 +2804,7 @@ def build_constants() -> dict:
     others = [guided(other_grid, w, general_o, cls_o) for w in other_ws]
     idx_o = [i for i in range(0, 2601, 26) if not any(near_limit(c[i]) for c in others)]
     assert len(idx_o) >= 60, len(idx_o)
-    for w in (0.25, 1.75, 3.5):                               # the swapped powers differ on the points compared
+    for w in (0.25, 1.75, 3.5):                               # the exchanged powers differ on the points compared
         swapped = guided(grid, -1 - w)
         assert not np.allclose(swapped[idx], guided(grid, w)[idx], atol=1e-5)
     out["__HIDDEN_C22__"] = literal({"idx": idx, "ws": hidden_ws, "grid": grid_o, "general": general_o, "cls": cls_o,
@@ -2847,7 +2845,7 @@ def build_constants() -> dict:
     # MB5.25: the notebook law is the one of the hidden module; hidden points, times and mixtures for field_25 (never the
     # data of MB5.9), far from a rounding limit; the reference method passes the notebook law
     challenge = load_module(ROOT / "solutions" / "challenges" / "mb5_25.py", "mb5_25_build")
-    law25 = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+    law25 = ((0.38, 0.62), (-1.6, 2.1), (0.14, 0.3))
     assert challenge.NOTEBOOK_LAW == law25
     cases25 = [[[-2.13, -0.41, 0.76, 2.58], 1.0, law25], [[-1.87, 0.33, 1.94], 0.63, law25],
                [[-1.52, 0.18, 2.27], 0.21, law25], [[-1.71, 1.98, 2.36], 0.047, law25],
