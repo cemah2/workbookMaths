@@ -58,7 +58,7 @@ $\lVert\mathbf{e}(t) - \mathbf{e}(t')\rVert^2 = 2 - 2\cos\omega(t - t')$, avec $
 </details>
 <details><summary>Indice 3</summary>
 
-1. Compare $\cos\frac{2\pi \times 100}{365}$ et $\cos\frac{2\pi \times 265}{365}$. 2. L'écart vaut 4 h dans les deux cas : $\omega \times 4 = \frac\pi3$. 4. Le cosinus vaut au plus $-1$ quand l'angle vaut $\pi$.
+1. Compare $\cos\frac{2\pi \times 100}{365}$ et $\cos\frac{2\pi \times 265}{365}$. 2. $\omega \times 4 = \frac\pi3$, puis $\omega \times 8 = \frac{2\pi}{3}$. 4. Le cosinus vaut au plus $-1$ quand l'angle vaut $\pi$.
 
 </details>
 
@@ -112,7 +112,7 @@ $m' = \max(m, \max_{j \in \mathcal{B}}s_j)$ ; $l' = l\,e^{m - m'} + \sum_{j \in 
 </details>
 <details><summary>Indice 3</summary>
 
-3. $m' = 3 + \ln 2$, donc $e^{m - m'} = e^{-\ln 2} = \frac12$, et le nouveau score apporte $e^0 = 1$ à $l$ et $1 \times 7$ à $a$.
+3. $m' = 3 + \ln 5$, donc $e^{m - m'} = e^{-\ln 5} = \frac15$, et le nouveau score apporte $e^0 = 1$ à $l$ et $1 \times 7$ à $a$.
 
 </details>
 
@@ -282,7 +282,7 @@ Pour chaque $c$, retranche le plus grand score : les exponentielles valent 1, $e
 </details>
 <details><summary>Indice 3</summary>
 
-b) Avec les trois poids de $c = 6$, calcule $1 - (p_1^2 + p_2^2 + p_3^2)$. c) $2e^{-6 \times 0{,}8}$. d) Résous $2e^{-0{,}8c} \le 0{,}01$ en prenant le logarithme népérien.
+b) Avec les trois poids de $c = 6$, calcule $1 - (p_1^2 + p_2^2 + p_3^2)$. c) $2e^{-6 \times 0{,}8}$. d) Résous $2e^{-0{,}8c} = 0{,}01$ en prenant le logarithme népérien.
 
 </details>
 
@@ -398,7 +398,7 @@ La rotation de Givens $\mathbf{R}_{ij}(\theta)$ a $-\sin\theta$ à la ligne $i$,
 </details>
 <details><summary>Indice 3</summary>
 
-2. Calcule $\mathbf{R}_2(\theta)\mathbf{e}_3$ : la colonne 3 de (3.78). 3. Pour $(i, j) = (2, 4)$ dans $\mathbb{R}^5$, les trois blocs identité ont pour tailles $i - 1$, $j - i - 1$ et $n - j$. 4. Prends un vecteur qui n'est sur aucun des deux axes, comme $(1, 1, 0)$ ou $(0, 1, 1)$, et applique les deux rotations dans les deux ordres.
+2. Calcule $\mathbf{R}_2(\theta)\mathbf{e}_3$ : la colonne 3 de (3.78). 3. Pour $(i, j) = (2, 4)$ dans $\mathbb{R}^5$, les trois blocs identité ont pour tailles $i - 1$, $j - i - 1$ et $n - j$. 4. Prends un vecteur qui n'est sur aucun des deux axes, comme $(1, 2, 0)$, et applique les deux rotations dans les deux ordres.
 
 </details>
 
