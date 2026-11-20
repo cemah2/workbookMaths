@@ -107984,6 +107984,7 @@
       "kind": "array",
       "mistakes": {
         "25f7bac52dc14256325a81d3ea775cd7a28616b4326679eb5a0b4eb6856d4d1d": "la ligne i de F porte les coordonnées sur la i-ième colonne pivot, dans chaque colonne de F",
+        "3045fe31c8d664d9b39bb48076aa3c1cb0d939705161f3efbb2114177271a813": "la ligne i de F porte les coefficients de la i-ième colonne pivot : la première ligne est celle des baguettes",
         "5cc2ef89526044c7319988c21a98eb8bad2264109fe84a3ba4925c6b5c0c1057": "F ne garde que les r lignes non nulles de la forme échelonnée réduite"
       },
       "shape": [
@@ -108246,7 +108247,9 @@
       "kind": "array",
       "mistakes": {
         "42dc157e9d42d7d3f7fd8a8442581a5d55aa7a3fb1ab0a1dcbeae37bd9cffa45": "C et F stockent r colonnes de m nombres et r lignes de n nombres : ni les m n nombres du tableau, ni des valeurs singulières",
-        "e531ba44e0276ae2b667b3003f2f8389645561540c1bc7aa8d22476d15676376": "l'identité des colonnes pivots fixe r² nombres de F, pas r"
+        "8a4eeb07d93cd135df7740fa3f9bcafa824426d89c90a12886a346919add2762": "C et F stockent r(m + n) nombres ; r(m + n + 1) est le compte d'une SVD tronquée (M12d)",
+        "e531ba44e0276ae2b667b3003f2f8389645561540c1bc7aa8d22476d15676376": "l'identité des colonnes pivots fixe r² nombres de F, pas r",
+        "efb59eeb28e898b71e3393f4f8e3ff83d48ea8754c376a753e3ce4c6d5bec83d": "le second nombre compte les nombres libres : retire les r² nombres que fixe l'identité des colonnes pivots"
       },
       "shape": [
         2
@@ -108315,7 +108318,10 @@
       "magnitude": 1,
       "mistakes": {
         "42a13c1c03014080a9dc2fd61f07f78fbba5d86d8d39ec0f70a5667f878b6104": "en norme de Frobenius, l'erreur compte toutes les valeurs singulières oubliées, pas seulement la plus grande",
+        "822f8e515be5c1574b78b1b11cd4c3f36ce804e5f785461508bc5cf8669d8d76": "c'est l'erreur relative ‖M − M_r‖_F / ‖M‖_F : d) demande l'erreur ‖M − M_r‖_F elle-même",
         "87413977d04c7c734ee5ded3a866fcbe15d73f4cf51a78b71f5c7634dae2cd9b": "la quatrième valeur singulière est oubliée elle aussi",
+        "8ab32f35fdf6bfa2ac5e669b14fa72dd3513b21a6e0a827b3fb3eac4c0565867": "c'est la part de l'énergie oubliée (un carré) ; la question demande l'erreur en norme de Frobenius, sa racine",
+        "8f2c66ec05d38b3249541e37f1a82eb850208cd1e8f3818d2313b9c9c637c128": "c'est l'erreur relative ‖M − M_r‖_F / ‖M‖_F : d) demande l'erreur ‖M − M_r‖_F elle-même",
         "f5d3cba6246696052990270f36c748fc7096fcea5f86c4c4f053bb32f93d1dfd": "‖·‖_F est la racine de la somme des carrés oubliés"
       },
       "sign": 1,
@@ -108377,7 +108383,8 @@
       "kind": "array",
       "mistakes": {
         "1e4b92452d53ebce3819aa5be1b7c181f15e1a44ac2ac9663abd92d7d52a2764": "C F ne se forme qu'une fois, puis s'applique aux mille vecteurs",
-        "28d0af77f13e8af8c83ae987f2f33d75d1e97470921212a74919d2cd0151f2d4": "chacun des mille vecteurs demande son propre F x et son propre C(F x)"
+        "28d0af77f13e8af8c83ae987f2f33d75d1e97470921212a74919d2cd0151f2d4": "chacun des mille vecteurs demande son propre F x et son propre C(F x)",
+        "6e342cf03308150bf48de9e54566cebaa5365f196af765383046eea5a4af1b40": "former C F une fois coûte aussi m n r multiplications"
       },
       "shape": [
         2
@@ -108444,7 +108451,8 @@
       "mistakes": {
         "5cf054621492275e7f7d0db0f34640757b51362ca539cbbd93794fd61e04af78": "le poids corrigé met N − n + ½ au numérateur",
         "6011ef3257bc266469654f2e2ee415b6959ac9b84f090c88e749c063d2305ccd": "la correction ajoute ½, pas 1",
-        "7e61d1351e3f23636ab678aae4282ab4c3daa4c5c2e83b3d0c17c24efb959974": "la correction ajoute ½ à chaque compte"
+        "7e61d1351e3f23636ab678aae4282ab4c3daa4c5c2e83b3d0c17c24efb959974": "la correction ajoute ½ à chaque compte",
+        "cad99529e68441ed137de1c71c7f509afd4c1a83a39848f6192aa07b58229a62": "le logarithme est népérien, pas en base 2"
       },
       "sign": 1,
       "source": "chapitres/mb4_rang_faible/05_solutions.ipynb"
@@ -108471,7 +108479,8 @@
       "mistakes": {
         "67daaa68198633f74d9798b6a00c8b5c7f9ddae81a8e3e868d6521fb9d88db3d": "la correction ajoute ½ à chaque compte",
         "a872c02bf77eb02fb5a077d7dd695b99978a42f50d5b2c429610aa38ba8a3b20": "la correction ajoute ½, pas 1",
-        "e7d2ccf2f84c776498ca1d52c7dc2efb68aab09b701e379157739d964e41d0d2": "le poids corrigé met N − n + ½ au numérateur"
+        "e7d2ccf2f84c776498ca1d52c7dc2efb68aab09b701e379157739d964e41d0d2": "le poids corrigé met N − n + ½ au numérateur",
+        "ef36afadcb5cbabf42df8a1fa11dba2ecc9917ad4b626362bcc9283e31593890": "le logarithme est népérien, pas en base 2"
       },
       "sign": -1,
       "source": "chapitres/mb4_rang_faible/05_solutions.ipynb"
@@ -108505,6 +108514,7 @@
       "magnitude": -1,
       "mistakes": {
         "c9b4bcee9709018f34c4d0d4dc338a5be90327cebf0e90c82fcb4bf279001354": "la variante garde le ½ au dénominateur",
+        "f2b7bb09cbb111043b43fef2556ca08bba1cbae719b3d3983925e5aa1d08340e": "le logarithme est népérien, pas en base 2",
         "fe5ac898bab13eb037efe849996dcc02b58b53de11ea115733439d534cef8bf0": "réduis au même dénominateur : n + ½ + N − n + ½ = N + 1"
       },
       "sign": 1,
@@ -108619,6 +108629,7 @@
       "kind": "array",
       "mistakes": {
         "77daacca4973caecffd6f4023feb694d5adba5ea6dc039d5ade89d33690b95a8": "la dernière place rapporte 0 point",
+        "eb9ba81f9fc82f76721c72004a4e0040ad1a559739dca94acfb67434aeca6fbd": "le rang j rapporte n − j points : la première place n − 1, la dernière 0 (pas l'inverse)",
         "ebca9e3341345b127c9e6f06327ca610116d3b00f1e782435b1f3e0eccf88c5b": "un rang j rapporte n − j points : la première place rapporte le plus"
       },
       "shape": [
@@ -108989,6 +109000,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "062791b9e2ee2b17a9ec6bb784c2e8cad1da4b85052d59f74ff8d934c893868d": "la dernière place rapporte 0 point : n − j, pas n − j + 1 (relance les tests de borda_scores)",
         "d933227c85d2763846d9e85a8f75ea33bb312df6272e9b86fcc352146b0b3bab": "un rang j rapporte n − j points, la première place le plus (relance les tests de borda_scores)",
         "e256ce5f382389acab68f65d2d205f7f6ca934cc08e168bb49f3817046989e61": "une ligne est un ordre (le candidat placé à chaque position), pas la liste des rangs des candidats (relance les tests de borda_scores)"
       },
@@ -109101,7 +109113,7 @@
       "hash": "297335c9e71fcb958b46bd5d460f937006c40bdec00da520a034ce21db65c4fe",
       "kind": "str",
       "mistakes": {
-        "682999ad1183abef0c00903dfb96fee77a90636ed7f0c228d8dc25b5eb705721": "n × MRR = H_n n'est pas constant : H_n grandit avec n",
+        "682999ad1183abef0c00903dfb96fee77a90636ed7f0c228d8dc25b5eb705721": "le MRR vaut H_n/n : regarde ce que devient H_n quand n est multiplié par 10 (fiche §6)",
         "7699b31527b4befac790c9a0100019f2f3ab7d29bb341949b4f903d1d625d1a0": "H_n ne grandit que comme ln n : passer de 100 à 1 000 n'ajoute qu'environ ln 10 à H_n"
       },
       "prediction": true,
@@ -109111,7 +109123,7 @@
       "hash": "8d425c727a0f93daba17dc2c50001f612bcb99e962a847b7e3644696dbd8992c",
       "kind": "str",
       "mistakes": {
-        "21c8cfd840200ab2c7ce29b332a345921282e160a008f84a9c3dee3475b19c76": "n × MRR = H_n, qui grandit comme ln n : de 10 à 1 000, ln n augmente de ln 100",
+        "21c8cfd840200ab2c7ce29b332a345921282e160a008f84a9c3dee3475b19c76": "n × MRR = H_n : relis comment H_n grandit avec n (fiche §6, l'encadrement par des rectangles)",
         "3fc85fe5ef61bdc2baf8f1fc2725fbd9ffa38d5fc694be9d6365daf662884608": "H_n grandit comme ln n, pas comme n"
       },
       "prediction": true,
@@ -109381,7 +109393,8 @@
       "hash": "fb2b4877c1774f25b4fcdac10fb1db7f064d1ffe5a823bf6b83edca2d31120d5",
       "kind": "array",
       "mistakes": {
-        "4a90a89c7310cc11d3a037c96db637dcc96182a6ca6b21fd6473deae1f5b5437": "la limite de s est k₁ + 1, pas k₁ : 90 % de k₁ + 1"
+        "4a90a89c7310cc11d3a037c96db637dcc96182a6ca6b21fd6473deae1f5b5437": "la limite de s est k₁ + 1, pas k₁ : 90 % de k₁ + 1",
+        "c07c12f7c8c0c43c0bdca7594811661ef5f2ded13d7ff761395af57ec18bb2e5": "en x = k₁, s atteint la moitié de sa limite ; b) demande 90 % de la limite k₁ + 1"
       },
       "shape": [
         3
@@ -111293,7 +111306,7 @@
       "kind": "array",
       "mistakes": {
         "1fe135b51320092d23e2f7686dcb2bed2e4a847224a6e679cadf5f9fc9961c11": "les deux derniers nombres sont ceux de la version FAUSSE, rarity_bad",
-        "5352a48bbb0f3191c29796ef44a62ec75f0a679f3fa37e6eb67ad13d3aa5514e": "la version corrigée d'abord, puis la version fautive",
+        "5352a48bbb0f3191c29796ef44a62ec75f0a679f3fa37e6eb67ad13d3aa5514e": "tes valeurs sont celles de la fonction fautive puis de la corrigée : la corrigée d'abord ; et rarity(n, N) prend d'abord n, le nombre de fiches qui contiennent l'ingrédient",
         "705a3c1b504d00d34797b0bd4da79959160d227e962d9c0dcb6e627459d9082d": "la surprise se mesure avec le logarithme népérien, en nats",
         "c93179750d091e27ef9143bb541af007268dc4177ce01aca3a8f16c83073c448": "rarity_fixed rend encore ln(n/N), négatif pour un ingrédient rare"
       },

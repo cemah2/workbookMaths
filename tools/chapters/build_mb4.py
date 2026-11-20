@@ -64,7 +64,9 @@ PAPER = [
          '''decimals=6,
            mistakes={"la ligne i de F porte les coordonnées sur la i-ième colonne pivot, dans chaque colonne de F":
                          floats(swapped_coefficients_1(F_1)),
-                     "F ne garde que les r lignes non nulles de la forme échelonnée réduite": floats(RREF_1)}'''),
+                     "F ne garde que les r lignes non nulles de la forme échelonnée réduite": floats(RREF_1),
+                     "la ligne i de F porte les coefficients de la i-ième colonne pivot : la première ligne est celle des "
+                     "baguettes": floats(F_1)[::-1]}'''),
         ("c", "a 4 × 2 matrix, as the list of its rows", "floats(C_1 * G_1)",
          '''decimals=6,
            mistakes={"la colonne j de C G combine les colonnes de C avec les coefficients de la colonne j de G":
@@ -85,7 +87,11 @@ PAPER = [
         ("g", "a list of 2 integers: the numbers stored, then the free numbers", "[stored(120, 45, 3), free(120, 45, 3)]",
          '''mistakes={"l'identité des colonnes pivots fixe r² nombres de F, pas r": [stored(120, 45, 3), 3 * (120 + 45 - 1)],
                      "C et F stockent r colonnes de m nombres et r lignes de n nombres : ni les m n nombres du tableau, "
-                     "ni des valeurs singulières": [3 * (120 + 45 + 1), 3 * (120 + 45 + 1 - 3)]}'''),
+                     "ni des valeurs singulières": [3 * (120 + 45 + 1), 3 * (120 + 45 + 1 - 3)],
+                     "le second nombre compte les nombres libres : retire les r² nombres que fixe l'identité des colonnes "
+                     "pivots": [stored(120, 45, 3)] * 2,
+                     "C et F stockent r(m + n) nombres ; r(m + n + 1) est le compte d'une SVD tronquée (M12d)":
+                         [3 * (120 + 45 + 1), free(120, 45, 3)]}'''),
     ]),
 
     Paper("MB4.2", "Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie captée, rang "
@@ -108,7 +114,11 @@ PAPER = [
            mistakes={"‖·‖_F est la racine de la somme des carrés oubliés": float(sum(s * s for s in S_2[RANK_2:])),
                      "en norme de Frobenius, l'erreur compte toutes les valeurs singulières oubliées, pas seulement la plus "
                      "grande": float(S_2[RANK_2]),
-                     "la quatrième valeur singulière est oubliée elle aussi": math.sqrt(sum(s * s for s in S_2[RANK_2 + 1:]))}'''),
+                     "la quatrième valeur singulière est oubliée elle aussi": math.sqrt(sum(s * s for s in S_2[RANK_2 + 1:])),
+                     "c'est l'erreur relative ‖M − M_r‖_F / ‖M‖_F : d) demande l'erreur ‖M − M_r‖_F elle-même":
+                         math.sqrt(sum(s * s for s in S_2[RANK_2:]) / ENERGY_2),
+                     "c'est la part de l'énergie oubliée (un carré) ; la question demande l'erreur en norme de Frobenius, "
+                     "sa racine": sum(s * s for s in S_2[RANK_2:]) / ENERGY_2}'''),
         ("e", "a number (3 decimals)", "ENERGY_2 / S_2[0] ** 2",
          '''decimals=3,
            mistakes={"le rang stable est un rapport de carrés": sum(S_2) / S_2[0],
@@ -126,7 +136,9 @@ PAPER = [
          '''mistakes={"C F ne se forme qu'une fois, puis s'applique aux mille vecteurs":
                          [1000 * RANK_2 * (ROWS_2 + COLS_2), 1000 * (ROWS_2 * COLS_2 * RANK_2 + ROWS_2 * COLS_2)],
                      "chacun des mille vecteurs demande son propre F x et son propre C(F x)":
-                         [RANK_2 * (ROWS_2 + COLS_2), ROWS_2 * COLS_2 * RANK_2 + 1000 * ROWS_2 * COLS_2]}'''),
+                         [RANK_2 * (ROWS_2 + COLS_2), ROWS_2 * COLS_2 * RANK_2 + 1000 * ROWS_2 * COLS_2],
+                     "former C F une fois coûte aussi m n r multiplications":
+                         [1000 * RANK_2 * (ROWS_2 + COLS_2), 1000 * ROWS_2 * COLS_2]}'''),
     ]),
 
     Paper("MB4.3", "Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son signe, la variante "
@@ -145,12 +157,14 @@ PAPER = [
          '''decimals=4,
            mistakes={"le poids corrigé met N − n + ½ au numérateur": -weight_3(ORANGE_3),
                      "la correction ajoute ½ à chaque compte": weight_3(ORANGE_3, half=0),
-                     "la correction ajoute ½, pas 1": weight_3(ORANGE_3, half=1)}'''),
+                     "la correction ajoute ½, pas 1": weight_3(ORANGE_3, half=1),
+                     "le logarithme est népérien, pas en base 2": weight_3(ORANGE_3) / math.log(2)}'''),
         ("d", "a number (4 decimals)", "weight_3(EGGS_3)",
          '''decimals=4,
            mistakes={"le poids corrigé met N − n + ½ au numérateur": -weight_3(EGGS_3),
                      "la correction ajoute ½ à chaque compte": weight_3(EGGS_3, half=0),
-                     "la correction ajoute ½, pas 1": weight_3(EGGS_3, half=1)}'''),
+                     "la correction ajoute ½, pas 1": weight_3(EGGS_3, half=1),
+                     "le logarithme est népérien, pas en base 2": weight_3(EGGS_3) / math.log(2)}'''),
         ("e", "an integer", "next(n for n in range(N_3 + 1) if weight_3(n) < 0)",
          '''mistakes={"pour n = N/2, le poids corrigé est nul : nul n'est pas négatif":
                          next(n for n in range(N_3 + 1) if weight_3(n) <= 0),
@@ -159,7 +173,8 @@ PAPER = [
         ("f", "a number (4 decimals)", "variant_3(EGGS_3)",
          '''decimals=4,
            mistakes={"réduis au même dénominateur : n + ½ + N − n + ½ = N + 1": math.log(N_3 / (EGGS_3 + F(1, 2))),
-                     "la variante garde le ½ au dénominateur": math.log((N_3 + 1) / EGGS_3)}'''),
+                     "la variante garde le ½ au dénominateur": math.log((N_3 + 1) / EGGS_3),
+                     "le logarithme est népérien, pas en base 2": variant_3(EGGS_3) / math.log(2)}'''),
         ("g", "a list of 3 numbers (4 decimals): s(1), s(2), s(10)", "floats([saturation_3(x) for x in (1, 2, 10)])",
          '''decimals=4,
            mistakes={"la saturation n'est pas le compte brut : elle plafonne": [1.0, 2.0, 10.0],
@@ -181,7 +196,9 @@ PAPER = [
                    "c = 10, et la somme des notes qui change de gagnant quand un jury passe de 20 à 100 points", [
         ("a", "a list of 5 integers: A, B, C, D, E", "borda_4()",
          '''mistakes={"un rang j rapporte n − j points : la première place rapporte le plus": rank_sums_4(),
-                     "la dernière place rapporte 0 point": borda_4(start=1)}'''),
+                     "la dernière place rapporte 0 point": borda_4(start=1),
+                     "le rang j rapporte n − j points : la première place n − 1, la dernière 0 (pas l'inverse)":
+                         [sum(j - 1 for j in col) for col in zip(*ranks_4())]}'''),
         ("b", "a list of 5 numbers (4 decimals): A to E, for c = 2", "floats(reciprocal_sum_4(2))",
          '''decimals=4,
            mistakes={"garde 6 décimales dans chaque terme 1/(c + j), et n'arrondis que la somme": reciprocal_sum_rounded_terms_4(2),
@@ -361,8 +378,11 @@ def paper_part(kind: str) -> list:
 # Notebook exercises: your library (MB4.8, MB4.9)
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to D)
+import contextlib
 import math
+import os
 import re
+import sys
 import time
 
 import matplotlib.pyplot as plt
@@ -465,7 +485,69 @@ def call_safely(label, function, *args, **kwargs):
         raise
     except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the call
         print(f"❌ {label} : ton code lève {type(exc).__name__} : {str(exc)[:200]}")
-        raise StopCheck from None'''
+        raise StopCheck from None
+
+
+class CodeFrom(BaseException):
+    """Raised inside code_from when watched code starts (a BaseException: a broad except of the learner's code does
+    not hide it)."""
+
+
+def code_key(code):
+    """What identifies a compiled function whatever its file: its bytecode, its names and its constants."""
+    return (code.co_code, code.co_names, tuple(c.co_name if hasattr(c, "co_code") else repr(c) for c in code.co_consts))
+
+
+def code_keys_of_file(path):
+    """The code_key of every function of a Python file, compiled but not run (to recognise a copy of that file)."""
+    keys, todo = set(), [compile(open(path, encoding="utf-8").read(), str(path), "exec")]
+    while todo:
+        code = todo.pop()
+        todo += [c for c in code.co_consts if hasattr(c, "co_code")]
+        if code.co_name != "<module>" and len(code.co_code) >= 40:
+            keys.add(code_key(code))
+    return keys
+
+
+@contextlib.contextmanager
+def code_from(places, twins=()):
+    """Inside the block, the start of any Python code (a function or a module body) of a file among places (files, or
+    folders with everything under them), or of a function whose code_key is among twins (a copy of such a function),
+    stops the block; yields the list of the names seen ("ranks.borda_scores"). The learner's function must not run that
+    code (mymath in a corrected function, the hidden module of a challenge). Without sys.monitoring (Python < 3.12) or
+    a free tool id, nothing is watched."""
+    places = [os.path.realpath(str(place)) for place in places]
+    monitoring, tool, seen, inside = getattr(sys, "monitoring", None), None, [], {}
+    for candidate in ((4, 3, 2) if monitoring is not None else ()):
+        try:
+            monitoring.use_tool_id(candidate, "code_from")
+        except ValueError:                               # taken by another tool
+            continue
+        tool = candidate
+        break
+    if tool is not None:
+        def on_start(code, offset):
+            name = code.co_filename
+            if name not in inside:
+                real = os.path.realpath(name) if os.path.exists(name) else name
+                inside[name] = any(real == place or real.startswith(place + os.sep) for place in places)
+            if inside[name] or (twins and code_key(code) in twins):
+                seen.append(f"{os.path.splitext(os.path.basename(name))[0]}.{code.co_name}")
+                raise CodeFrom
+            return monitoring.DISABLE                    # other code: not watched again until the end of the block
+
+        monitoring.register_callback(tool, monitoring.events.PY_START, on_start)
+        monitoring.set_events(tool, monitoring.events.PY_START)
+    try:
+        yield seen
+    except CodeFrom:
+        pass
+    finally:
+        if tool is not None:
+            monitoring.set_events(tool, 0)
+            monitoring.register_callback(tool, monitoring.events.PY_START, None)
+            monitoring.free_tool_id(tool)
+            monitoring.restart_events()'''
 
 DATA = '''# The data of the paper exercises (02_exercices.md)
 M_1 = np.array([[20.0, 6, 16, 12, 8], [8, 10, 14, 20, 7], [12, 4, 10, 8, 5], [16, 2, 10, 4, 5]])   # MB4.1: the sales (in
@@ -538,7 +620,7 @@ NOTE_8 = (r"Les contrôles (2-D, non vide, nombres finis ; `tol` réel $\ge 0$, 
           r"l'arrondi au millième des mesures.")
 
 MB4_8 = Ex(
-    "MB4.8", "🔨", 1, 25, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa forme "
+    "MB4.8", "🔨", 1, 30, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa forme "
     "échelonnée réduite · `rank_factorization`",
     "programmer la factorisation de rang par les colonnes pivots, puis retrouver MB4.1 et voir le rôle de la tolérance "
     "sur un tableau mesuré.",
@@ -629,7 +711,7 @@ NOTE_9 = (r"`borda_scores` : les contrôles, puis, pour chaque ligne, `points[ro
           r"$\frac{341}{560}$ et $\frac{11}{72}$. d) Vrai.")
 
 MB4_9 = Ex(
-    "MB4.9", "🔨", 2, 30, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au hasard, en "
+    "MB4.9", "🔨", 2, 35, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au hasard, en "
     "fractions · `borda_scores`, `random_ranking_mrr`",
     "programmer les points de Borda de classements complets et le MRR exact d'un ordre tiré au hasard, puis retrouver "
     "MB4.4 et la valeur $H_n/n$.",
@@ -677,7 +759,9 @@ wbm.record("MB4.9a", (5 - ranks_4_9r).sum(axis=0).astype(int).tolist(),
                          ranks_4_9r.sum(axis=0).astype(int).tolist(),
                      "une ligne est un ordre (le candidat placé à chaque position), pas la liste des rangs des candidats "
                      "(relance les tests de borda_scores)": [5 * 3 - 3 - int(np.sum(np.array(
-                         [[0, 1, 2, 3, 4], [0, 1, 3, 4, 2], [2, 1, 4, 3, 0]])[:, c])) for c in range(5)]})
+                         [[0, 1, 2, 3, 4], [0, 1, 3, 4, 2], [2, 1, 4, 3, 0]])[:, c])) for c in range(5)],
+                     "la dernière place rapporte 0 point : n − j, pas n − j + 1 (relance les tests de borda_scores)":
+                         (5 - ranks_4_9r + 1).sum(axis=0).astype(int).tolist()})
 judges_9r = np.array(__RANKINGS_9__)
 ranks_9r = np.argsort(judges_9r, axis=1) + 1                                        # the rank of each candidate
 wbm.record("MB4.9b", (judges_9r.shape[1] - ranks_9r).sum(axis=0).tolist(),
@@ -779,11 +863,12 @@ wbm.record("MB4.10a", closest_a_10r, prediction=True,
                      "R est uniforme sur {1, …, 10} : le rang 1 n'a qu'une chance sur 10": "B"})
 closest_b_10r = min(zip("ABC", (7, 10, 3)), key=lambda pair: abs(pair[1] - mrr_10r[100] / mrr_10r[1000]))[0]
 wbm.record("MB4.10b", closest_b_10r, prediction=True,
-           mistakes={"n × MRR = H_n n'est pas constant : H_n grandit avec n": "B",
+           mistakes={"le MRR vaut H_n/n : regarde ce que devient H_n quand n est multiplié par 10 (fiche §6)": "B",
                      "H_n ne grandit que comme ln n : passer de 100 à 1 000 n'ajoute qu'environ ln 10 à H_n": "C"})
 gain_c_10r = float(H_10r[1000] - H_10r[10])
 wbm.record("MB4.10c", "B" if 4 <= gain_c_10r <= 5 else "A", prediction=True,
-           mistakes={"n × MRR = H_n, qui grandit comme ln n : de 10 à 1 000, ln n augmente de ln 100": "A",
+           mistakes={"n × MRR = H_n : relis comment H_n grandit avec n (fiche §6, l'encadrement par des rectangles)":
+                         "A",
                      "H_n grandit comme ln n, pas comme n": "C"})''',
     after=[
         ("md", "**L'expérience.** Écris-la une fois tes trois prédictions vérifiées ; sa vérification ne s'exécute qu'à cette "
@@ -986,11 +1071,11 @@ NOTE_11 = (r"`saturation_11` : `(x > 0).astype(float)` pour $k_1 = 0$, `x.copy()
            r"0{,}9(k_1 + 1)$ pour $x = 9k_1$. c) $(1{,}684211 ;\ 1{,}6 ;\ 1{,}454545)$. d) Vrai : le plafond reste $k_1 + 1 = 2$.")
 
 MB4_11 = Ex(
-    "MB4.11", "🎨", 1, 25, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
+    "MB4.11", "🎨", 1, 30, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
     "normalisation par la longueur leur fait",
     "tracer la saturation pour plusieurs $k_1$, entre la seule présence et le compte brut, et voir ce que la "
     "normalisation par la longueur lui fait.", "fiche §4 ; R7, M05a (concavité) ; Ex MB4.3", tracks="C", note=NOTE_11,
-    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure.
+    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure (tu peux borner l'axe des ordonnées, `ax.set_ylim(0, 5)` : la droite du compte brut écrase les autres courbes).
 
 La vérification les appelle avec $k_1 = 0$, 1, 2, 3 et l'infini, puis avec $k_1 = 1$, $b = \frac12$ et $\ell = \frac12$, 1, 2, sur $[0, 12]$, affiche la figure, et les essaie sur des appels cachés (d'autres $x$, les $k_1$ dans un autre ordre, d'autres longueurs, un autre $b$) ; `saturation_11` ne modifie pas le tableau reçu. Relève :
 - a) $s(6)$ pour $k_1 = 1$, 2 et 3 (une liste de 3 nombres) ;
@@ -1104,7 +1189,8 @@ wbm.record("MB4.11a", [float(s_11r(6, k1)) for k1 in (1, 2, 3)], decimals=6,
                          [float(F_11r(k1 + 1, 6 + k1)) for k1 in (1, 2, 3)]})
 wbm.record("MB4.11b", [9 * k1 for k1 in (1, 2, 3)], decimals=6,
            mistakes={"la limite de s est k₁ + 1, pas k₁ : 90 % de k₁ + 1":
-                         [float(F_11r(9, 10) * k1 ** 2 / (1 + F_11r(1, 10) * k1)) for k1 in (1, 2, 3)]})
+                         [float(F_11r(9, 10) * k1 ** 2 / (1 + F_11r(1, 10) * k1)) for k1 in (1, 2, 3)],
+                     "en x = k₁, s atteint la moitié de sa limite ; b) demande 90 % de la limite k₁ + 1": [1, 2, 3]})
 wbm.record("MB4.11c", [float(s_11r(4, 1, 1 - F_11r(1, 2) + F_11r(1, 2) * F_11r(ell))) for ell in ("1/2", 1, 2)],
            decimals=6,
            mistakes={"la normalisation multiplie k₁ seul, au dénominateur : x(k₁ + 1)/(x + k₁ ν)":
@@ -1192,6 +1278,7 @@ print("(3)", rarity_bad(90, 90) == 0, "(attendu True : un ingrédient présent d
 CHECK_12 = '''CASES_C12 = __CASES_C12__   # the hidden tables, rankings and notebooks of recipes, and the sub-ID expected
 
 results_12, parts_12 = [], []
+MYMATH_C12 = list(getattr(mymath, "__path__", [])) + list(getattr(REF, "__path__", []))   # the folders of mymath
 
 
 def report_12(ok, success, failure):
@@ -1200,15 +1287,22 @@ def report_12(ok, success, failure):
 
 
 def call_12(part, name, function, *args):
-    """function(*args); an error of the learner's code becomes one ❌ line that names the function."""
+    """function(*args), without mymath; an error of the learner's code becomes one ❌ line that names the function."""
     try:
-        return function(*args)
+        with code_from(MYMATH_C12) as seen:
+            got = function(*args)
     except (NotImplementedError, MymathMissingError):
         raise
     except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
         report_12(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:160]}")
         parts_12.append(part)
         raise StopCheck from None
+    if seen:
+        report_12(False, "", f"({part}) {name} appelle mymath ({seen[0]}) : l'énoncé demande la correction sans mymath, "
+                  "en corrigeant le code du collègue (exact_rref_12 reste permise)")
+        parts_12.append(part)
+        raise StopCheck
+    return got
 
 
 def factors_12(got):
@@ -1237,6 +1331,8 @@ with checked("MB4.12"):                                      # (1) rank_factoriz
         elif matches(got_c12[0], rank_factorization_bad(before_c12)[0], atol=1e-9):
             wrong_c12.append("ta correction prend encore C dans la forme réduite : C est faite des colonnes pivots de M "
                              "elle-même")
+        elif matches(got_c12[0], want_c12[0]) and got_c12[1].shape[0] > want_c12[1].shape[0]:
+            wrong_c12.append("F ne garde que les r lignes non nulles de la forme réduite, une par colonne pivot")
         elif got_c12[0].shape == want_c12[0].shape and matches(got_c12[0], before_c12[:, :got_c12[0].shape[1]]):
             wrong_c12.append("sur des tableaux dont les colonnes pivots ne sont pas les premières, C n'est pas faite des "
                              "colonnes pivots de M")
@@ -1385,7 +1481,9 @@ right_c_12r, bad_c_12r = [math.log(90 / n) for n in (3, 30)], [-math.log(90 / n)
 wbm.record("MB4.12c", right_c_12r + bad_c_12r, decimals=6,
            mistakes={"rarity_fixed rend encore ln(n/N), négatif pour un ingrédient rare": bad_c_12r + bad_c_12r,
                      "les deux derniers nombres sont ceux de la version FAUSSE, rarity_bad": right_c_12r + right_c_12r,
-                     "la version corrigée d'abord, puis la version fautive": bad_c_12r + right_c_12r,
+                     "tes valeurs sont celles de la fonction fautive puis de la corrigée : la corrigée d'abord ; et "
+                     "rarity(n, N) prend d'abord n, le nombre de fiches qui contiennent l'ingrédient":
+                         bad_c_12r + right_c_12r,
                      "la surprise se mesure avec le logarithme népérien, en nats":
                          [math.log10(90 / n) for n in (3, 30)] + bad_c_12r})
 CASES_12r = __CASES_C12__                                                   # the hidden notebooks of recipes of the check
@@ -1420,21 +1518,30 @@ for _array in TABLES_13:
     _array.setflags(write=False)
 print("formes :", [table.shape for table in TABLES_13])'''
 
-CHECK_13 = '''def check_c13():
-    """The check of MB4.13, in a function: the hidden tables and their ranks stay local, and each hidden rank is read
-    only after hidden_rank_13 has returned."""
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("mb4_13_challenge",
-                                                  wbm.repo_root() / "solutions" / "challenges" / "mb4_13.py")
-    challenge = importlib.util.module_from_spec(spec)   # the hidden part of the challenge: the law of the hidden tables
-    spec.loader.exec_module(challenge)                  # and the method of the check (reading it spoils the challenge)
+CHECK_13 = """def check_c13():
+    \"\"\"The check of MB4.13, in a function. The hidden tables come from another process (the hidden module run as a
+    script), which gives their ranks only once hidden_rank_13 has seen all of them: neither a hidden rank nor what makes
+    it (a seed, a kind) lives in this process while the learner's function runs. Each call runs under code_from: the
+    learner's function may not run code of the hidden module.\"\"\"
+    import io
+    import json
+    import struct
+    import subprocess
+    import sys
+    hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb4_13.py"   # reading it spoils the challenge
+    twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
     results, elapsed = [], [0.0]
     report = reporter(results, stop=False)
 
     def rank_of(label, M):
         start = time.perf_counter()
-        got = call_safely(label, hidden_rank_13, M.copy())
+        with code_from([hidden_file], twins=twins) as seen:
+            got = call_safely(label, hidden_rank_13, M.copy())
         elapsed[0] += time.perf_counter() - start
+        if seen:
+            print(f"❌ {label} : hidden_rank_13 exécute du code de solutions/challenges/mb4_13.py ({seen[0]}), la partie "
+                  "cachée du défi, ou une copie de ce code : la vérification mesurerait sa méthode, pas la tienne")
+            raise StopCheck
         if isinstance(got, (bool, np.bool_)) or not isinstance(got, (int, np.integer)) or got < 0:
             print(f"❌ {label} : hidden_rank_13 rend un entier ≥ 0 (un int), reçu {shown(got)}")
             raise StopCheck
@@ -1453,27 +1560,60 @@ CHECK_13 = '''def check_c13():
                "Ex MB4.13a : ta réponse est ce que rend ta fonction sur les cinq tableaux",
                "Ex MB4.13a : ta réponse n'est pas ce que rend hidden_rank_13 sur les cinq tableaux de TABLES_13 "
                "maintenant (la vérification les recalcule) : exécute à nouveau ta cellule")
-    rng = np.random.default_rng()                              # at each run: five new hidden tables, one of each kind
-    kinds = list(challenge.KINDS)
-    rng.shuffle(kinds)
-    for k, kind in enumerate(kinds, start=1):
-        seed = int(rng.integers(2 ** 62))
-        M = challenge.hidden_table(np.random.default_rng(seed), kind)[0]
-        got = rank_of(f"Ex MB4.13 : hidden_rank_13 (tableau caché {k})", M)
-        rank = challenge.hidden_table(np.random.default_rng(seed), kind)[1]       # read after the call
-        where = f"tableau caché {k} ({kind}, {M.shape[0]} × {M.shape[1]})"
-        report(got == rank, f"{where} : le bon rang",
-               f"{where} : rendu {got}, alors que le rang caché est {rank} ; un seuil fixe ou une part d'énergie ne suit "
-               "pas un bruit dont l'échelle change d'un tableau à l'autre")
-    report(elapsed[0] < 10, f"en {fr(elapsed[0], 2)} s pour les dix tableaux",
-           f"trop lent : {fr(elapsed[0], 1)} s pour les dix tableaux, il faut moins de 10 s")
-    verdict("MB4.13", all(results) and len(results) >= 7, "critère atteint : le bon rang pour les cinq tableaux du "
-            "notebook et pour cinq tableaux cachés, en moins de 10 secondes.",
+
+    def exactly(stream, size):
+        data = stream.read(size)
+        if len(data) != size:
+            raise OSError("échange interrompu")
+        return data
+
+    server = subprocess.Popen([sys.executable, "-I", str(hidden_file), "--serve"], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        tables = []
+        while True:                                              # three new series of five tables, at each run
+            size = struct.unpack("<Q", exactly(server.stdout, 8))[0]
+            if not size:
+                break
+            tables.append(np.load(io.BytesIO(exactly(server.stdout, size)), allow_pickle=False))
+        got = [rank_of(f"Ex MB4.13 : hidden_rank_13 (tableau caché {k})", M) for k, M in enumerate(tables, start=1)]
+        server.stdin.write(b"ranks\\n")                          # only now: the hidden ranks
+        server.stdin.flush()
+        truth = json.loads(exactly(server.stdout, 1) + server.stdout.readline())
+        ranks, kinds = truth["ranks"], truth["kinds"]
+        assert len(ranks) == len(kinds) == len(tables) == 15
+    except (OSError, ValueError, KeyError, TypeError, AssertionError, struct.error) as exc:
+        print("❌ Ex MB4.13 : la vérification n'a pas pu échanger les tableaux cachés et leurs rangs avec le processus qui "
+              f"les tire ({type(exc).__name__} ; ta fonction a-t-elle touché à ce processus ?) : exécute à nouveau la "
+              "cellule")
+        raise StopCheck from None
+    finally:
+        if server.poll() is None:
+            server.kill()
+        server.wait()
+    for series in range(3):                                      # each series: five tables, one of each kind
+        wrong = []
+        for k in range(5 * series, 5 * series + 5):
+            if got[k] < ranks[k]:
+                wrong.append(f"le tableau « {kinds[k]} » ({tables[k].shape[0]} × {tables[k].shape[1]}) : rendu {got[k]}, "
+                             f"rang caché {ranks[k]} : ta fonction coupe trop tôt, une valeur singulière du signal reste "
+                             "au-dessus du niveau du bruit")
+            elif got[k] > ranks[k]:
+                wrong.append(f"le tableau « {kinds[k]} » ({tables[k].shape[0]} × {tables[k].shape[1]}) : rendu {got[k]}, "
+                             f"rang caché {ranks[k]} : ta fonction garde des valeurs singulières du bruit ; le bruit seul "
+                             "monte jusqu'à σ(√m + √n) environ, et le dépasse parfois de peu (fiche §2) : estime σ sur le "
+                             "tableau lui-même, et garde une marge")
+        report(not wrong, f"série {series + 1} (cinq tableaux cachés, un de chaque type) : les cinq rangs, cinq fois sur "
+               "cinq", f"série {series + 1} (cinq tableaux cachés, un de chaque type) : " + " ; ".join(wrong))
+    report(elapsed[0] < 15, f"en {fr(elapsed[0], 2)} s pour les vingt tableaux",
+           f"trop lent : {fr(elapsed[0], 1)} s pour les vingt tableaux, il faut moins de 15 s")
+    verdict("MB4.13", all(results) and len(results) >= 5, "critère atteint : le bon rang pour les cinq tableaux du "
+            "notebook et pour trois séries de cinq tableaux cachés, en moins de 15 secondes.",
             "critère pas encore atteint : relis les lignes ❌ ci-dessus.")
 
 
 with checked("MB4.13"):
-    check_c13()'''
+    check_c13()"""
 
 NOTE_13 = (r"a) $(3, 1, 5, 2, 4)$ ; b) $(60, 70, 120, 50, 75)$, le rang plein ; c) $(48, 62, 67, 43, 58)$. La méthode "
            r"ci-dessus estime le bruit sur ce que le rang laisse de côté, $\hat\sigma^2 = \sum_{i > r}s_i^2/((m - r)(n - "
@@ -1482,14 +1622,14 @@ NOTE_13 = (r"a) $(3, 1, 5, 2, 4)$ ; b) $(60, 70, 120, 50, 75)$, le rang plein ; 
            r"dont l'échelle change d'un tableau à l'autre.")
 
 MB4_13 = Ex(
-    "MB4.13", "🏆", 3, 35, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs "
+    "MB4.13", "🏆", 3, 40, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs "
     "singulières",
     "retrouver le rang caché d'un tableau bruité en comparant ses valeurs singulières au niveau du bruit, estimé sur le "
     "tableau lui-même, et le vérifier sur des tableaux cachés.", "fiche §2 ; M12d (SVD, Eckart-Young) ; Ex MB4.2",
     tracks="C", given=GIVEN_13, note=NOTE_13,
     body=r"""Le notebook fournit `TABLES_13`, cinq tableaux de mesures de formes différentes. Chacun est la somme d'un tableau de rang $r$ (caché) et d'un bruit : chaque case reçoit un bruit indépendant, de moyenne nulle et de même écart-type $\sigma$ dans tout le tableau ; $\sigma$ change d'un tableau à l'autre, et n'est pas donné. Écris `hidden_rank_13(M)`, qui rend le rang caché d'un tableau (un entier $\ge 0$ : un tableau peut n'avoir aucun signal), en lisant ses valeurs singulières ; tout NumPy et SciPy sont permis (`np.linalg.svd(M, compute_uv=False)` donne les valeurs singulières).
 
-**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** le bon rang pour cinq tableaux cachés, tirés à nouveau à chaque exécution (l'un facile, l'un dont le signal dépasse à peine le bruit, l'un dont les valeurs singulières du signal s'étalent sur un facteur 10 ou plus, l'un très allongé, et l'un sans signal ou à une échelle extrême), en moins de 10 secondes en tout, et le bon rang pour les cinq tableaux du notebook : la vérification recalcule ta réponse a) avec ta fonction. Relève :
+**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** le bon rang pour trois séries de cinq tableaux cachés, tirés à nouveau à chaque exécution ; chaque série a un tableau de chacun de ces cinq types (l'un facile, l'un dont le signal dépasse à peine le bruit, l'un dont les valeurs singulières du signal s'étalent sur un facteur 10 ou plus, l'un très allongé, et l'un sans signal ou à une échelle extrême), et doit être réussie cinq fois sur cinq ; le bon rang pour les cinq tableaux du notebook : la vérification recalcule ta réponse a) avec ta fonction ; le tout en moins de 15 secondes pour les vingt tableaux. Ta fonction n'exécute aucun code de la partie cachée du défi (`solutions/challenges/mb4_13.py`). Relève :
 - a) les rangs que rend ta fonction pour les cinq tableaux (une liste de 5 entiers) ;
 - b) `np.linalg.matrix_rank` de chacun (une liste de 5 entiers) ;
 - c) le rang effectif à 99 % de chacun (une liste de 5 entiers).
