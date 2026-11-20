@@ -85,7 +85,7 @@ Vocabulaire anglais de ce chapitre : *angle addition formulas*, *double-angle fo
 
 ### Ce qui manquait
 
-M22 a admis la règle $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$, et M25a en a tiré les formules de soustraction. Voici une démonstration qui n'admet rien, par le produit scalaire et le cercle trigonométrique de R9.
+M22 a admis la règle $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$, et M25a en a tiré les formules de soustraction ; M28 §4 s'en servait déjà (le produit en somme, et $1 - \cos\omega = 2\sin^2\frac\omega2$). Voici une démonstration qui n'admet rien, par le produit scalaire et le cercle trigonométrique de R9.
 
 ### Le cosinus d'une différence
 
@@ -118,7 +118,7 @@ Pour $\mathbf{u}_a$ : $\cos 2a = \frac{1\,225 - 144}{1\,369} = \frac{1\,081}{1\,
 $$\cos\frac\pi8 = \sqrt{\frac{1 + \frac{\sqrt2}{2}}{2}} = \frac{\sqrt{2 + \sqrt2}}{2} \approx 0{,}9239, \qquad \sin\frac\pi8 = \frac{\sqrt{2 - \sqrt2}}{2} \approx 0{,}3827,$$
 où l'on prend les racines positives, puisque $\frac\pi8$ est dans le premier quadrant.
 
-**Produits en sommes** (*product-to-sum formulas*). En ajoutant, puis en retranchant, les formules de $\cos(a - b)$ et de $\cos(a + b)$ :
+**Produits en sommes** (*product-to-sum formulas*). En ajoutant, puis en retranchant, les formules de $\cos(a - b)$ et de $\cos(a + b)$ (M28 §4 l'a tirée des formules de soustraction de M25a ; la voici à partir des quatre formules) :
 $$\cos a\cos b = \tfrac12\big[\cos(a - b) + \cos(a + b)\big], \qquad \sin a\sin b = \tfrac12\big[\cos(a - b) - \cos(a + b)\big].$$
 Vérifie : $\frac{35}{37}\cdot\frac{28}{53} = \frac{980}{1\,961} = \frac12\cdot\frac{1\,520 + 440}{1\,961}$. Le produit de deux ondes de pulsations voisines est la demi-somme d'une onde lente, de pulsation la différence, et d'une onde rapide, de pulsation la somme (figure, à droite). Lue à l'envers, avec $a = \frac{\alpha + \beta}{2}$ et $b = \frac{\alpha - \beta}{2}$, la formule donne $\cos\alpha + \cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ : deux notes presque à l'unisson qui sonnent ensemble s'additionnent en une note rapide dont l'amplitude varie lentement, ce sont les **battements** (*beats*).
 
@@ -233,7 +233,7 @@ On peut y ajouter des blocs $1 \times 1$ égaux à 1 (des coordonnées fixes), c
 
 ### Le produit par blocs
 
-> **Propriété.** Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \\ \vdots \\ \mathbf{B}_r \end{pmatrix}$, alors
+> **Rappel et généralisation** (M09a §3 : $\mathbf{A}\mathbf{B} = \sum_k$ (colonne $k$ de $\mathbf{A}$)(ligne $k$ de $\mathbf{B}$), des blocs d'une seule colonne). Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \\ \vdots \\ \mathbf{B}_r \end{pmatrix}$, alors
 > $$\mathbf{A}\mathbf{B} = \mathbf{A}_1\mathbf{B}_1 + \mathbf{A}_2\mathbf{B}_2 + \cdots + \mathbf{A}_r\mathbf{B}_r .$$
 
 En effet, le coefficient $(\mathbf{AB})_{uw} = \sum_k a_{uk}b_{kw}$ est une somme sur les colonnes de $\mathbf{A}$, qu'on coupe en morceaux, un par bloc (M25a découpait aussi les lignes et les colonnes).
@@ -278,7 +278,7 @@ Il faut les deux coordonnées : pour les mois, $\cos\omega t$ seul ne distingue 
 $$\lVert\mathbf{e}(t) - \mathbf{e}(t')\rVert^2 = 2 - 2\cos\omega(t - t') :$$
 la distance ne dépend que de l'**écart** $t - t'$, et elle est la même pour un écart $\delta$ et pour un écart $\tau - \delta$ : deux valeurs proches sur le cercle restent proches.
 
-**Exemple : les mois.** $\tau = 12$ et $\omega = \frac\pi6$ (30° par mois) ; décembre a l'angle $12\omega$, c'est-à-dire 0. Entre décembre et janvier, $\lVert\mathbf{e}(12) - \mathbf{e}(1)\rVert^2 = 2 - 2\cos\frac\pi6 = 2 - \sqrt3 \approx 0{,}268$, une distance $\approx 0{,}518$ ; entre décembre et juin, $2 - 2\cos\pi = 4$, le maximum.
+**Exemple : les mois.** $\tau = 12$ et $\omega = \frac\pi6$ (30° par mois) ; décembre a l'angle $12\omega$, c'est-à-dire 0. Entre décembre et janvier, $\lVert\mathbf{e}(12) - \mathbf{e}(1)\rVert^2 = 2 - 2\cos\frac\pi6 = 2 - \sqrt3 \approx 0{,}268$, une distance $\approx 0{,}518$ ; c'est aussi l'énergie $4\sin^2\frac{\pi}{12}$ d'un motif de période 12 (M28 §4). Entre décembre et juin, $2 - 2\cos\pi = 4$, le maximum.
 
 ### Un décalage est une rotation
 
@@ -334,8 +334,8 @@ Pour prévoir une quantité en $\mathbf{x}$ à partir de mesures $(\mathbf{x}_i,
 
 Une constante qui multiplie le noyau se simplifie (la constante d'une densité gaussienne n'importe pas).
 
-**Exemple : l'autonomie d'un vélo électrique.** Cinq essais, à $x_i = -6$, $-1$, 4, 13 et 25 °C, ont donné des autonomies $y_i = 28$, 40, 49, 57 et 61 km. Que prévoir à $x = 7$ °C, avec $h = 3$ °C ? Les écarts au carré valent 169, 64, 9, 36 et 324, d'où les scores $-\frac{d^2}{18}$ : $-9{,}389$ ; $-3{,}556$ ; $-0{,}5$ ; $-2$ ; $-18$. On retranche le plus grand, $-0{,}5$ : les exponentielles valent $e^{-8{,}889} \approx 0{,}0001$, $e^{-3{,}056} \approx 0{,}0471$, $1$, $e^{-1{,}5} \approx 0{,}2231$ et $e^{-17{,}5} \approx 0$, de somme $\approx 1{,}2704$. Les poids valent donc $\approx (0{,}0001 ;\ 0{,}0371 ;\ 0{,}7872 ;\ 0{,}1756 ;\ 0)$, et
-$$\hat y(7) \approx 0{,}0001 \times 28 + 0{,}0371 \times 40 + 0{,}7872 \times 49 + 0{,}1756 \times 57 \approx 50{,}07 \text{ km}.$$
+**Exemple : l'autonomie d'un vélo électrique.** Cinq essais, à $x_i = -6$, $-1$, 4, 13 et 25 °C, ont donné des autonomies $y_i = 28$, 40, 49, 57 et 61 km. Que prévoir à $x = 7$ °C, avec $h = 3$ °C ? Les écarts au carré valent 169, 64, 9, 36 et 324, d'où les scores $-\frac{d^2}{18}$ : $-9{,}389$ ; $-3{,}556$ ; $-0{,}5$ ; $-2$ ; $-18$. On retranche le plus grand, $-0{,}5$ : les exponentielles valent $e^{-8{,}889} \approx 0{,}00014$, $e^{-3{,}056} \approx 0{,}0471$, $1$, $e^{-1{,}5} \approx 0{,}2231$ et $e^{-17{,}5} \approx 0$, de somme $\approx 1{,}2704$. Les poids valent donc $\approx (0{,}00011 ;\ 0{,}0371 ;\ 0{,}7872 ;\ 0{,}1756 ;\ 0)$, et
+$$\hat y(7) \approx 0{,}00011 \times 28 + 0{,}0371 \times 40 + 0{,}7872 \times 49 + 0{,}1756 \times 57 \approx 50{,}07 \text{ km}.$$
 L'essai à 4 °C, le plus proche, pèse près de 80 %.
 
 ### La largeur de bande, une température
@@ -509,7 +509,7 @@ En ordre croissant, le maximum change à chaque bloc : $N - 1$ remises à l'éch
 
 *Démonstration.* Pour $b = 2, \ldots, N$, soit $I_b$ l'**indicatrice** (*indicator*) de l'événement « le maximum change au bloc $b$ » : $I_b = 1$ si le plus grand des $bB$ premiers scores est dans le bloc $b$, et 0 sinon. Alors $X = I_2 + \cdots + I_N$. Les $bB$ premiers scores sont dans un ordre au hasard, et le plus grand d'entre eux occupe chacune de leurs $bB$ places avec la même probabilité ; le bloc $b$ en contient $B$, donc $P(I_b = 1) = \frac{B}{bB} = \frac1b$. Par linéarité de l'espérance (M02b), qui ne demande aucune indépendance, $\mathbb{E}[X] = \sum_{b=2}^N\mathbb{E}[I_b] = \sum_{b=2}^N\frac1b = H_N - 1$. $\square$
 
-Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous les précédents avec la probabilité $\frac1b$. Le **nombre harmonique** (*harmonic number*) $H_N$ croît comme $\ln N$ : $\ln(N + 1) \le H_N \le 1 + \ln N$ (compare la somme à l'intégrale de $\frac1x$, M02a). Pour $N = 10$, $H_{10} - 1 \approx 1{,}93$ ; pour $N = 100$, $\approx 4{,}19$ : les remises à l'échelle sont rares. Les deux conditions comptent : avec des scores égaux, il y a moins de remises ; avec un dernier bloc plus court, la probabilité qu'il contienne le maximum n'est plus $\frac1N$.
+Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous les précédents avec la probabilité $\frac1b$. Le **nombre harmonique** (*harmonic number*) $H_N$ croît comme $\ln N$ : $\ln(N + 1) \le H_N \le 1 + \ln N$ (compare la somme à l'intégrale de $\frac1x$, M02a ; M11 le faisait déjà). Pour $N = 10$, $H_{10} - 1 \approx 1{,}93$ ; pour $N = 100$, $\approx 4{,}19$ : les remises à l'échelle sont rares. Les deux conditions comptent : avec des scores égaux, il y a moins de remises ; avec un dernier bloc plus court, la probabilité qu'il contienne le maximum n'est plus $\frac1N$.
 
 💻 **Aujourd'hui en pratique** — `scipy.special.logsumexp` calcule le log-sum-exp en une fois ; la version en ligne sert quand les scores arrivent en flux ou sont répartis entre machines (Milakov et Gimelshein, 2018). `online_softmax` (🔨 MB3.15) et `merge_softmax_states` (🔨 MB3.16) l'écrivent ; avec `history=True`, `online_softmax` rend la liste des états, et l'état après le bloc $b$ (compté à partir de 1, comme ici) en est l'élément `b - 1`, puisque Python compte à partir de 0.
 

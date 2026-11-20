@@ -1011,7 +1011,7 @@ wbm.record("MB3.15a", right_15r + [True], decimals=6,
                      "online_softmax)": states_15r(k_15r, v_15r, rescale_acc=False) + [False]})
 wbm.record("MB3.15b", True,
            mistakes={"l'état final ne dépend pas de la taille des blocs : compare m, l et acc à 10⁻¹² près (relatif, "
-                     "math.isclose), pas avec ==": False})
+                     "math.isclose), pas avec == ; s'ils diffèrent vraiment, relance les tests de online_softmax": False})
 s_15r = np.array([-1203.5, -1201.0, -1204.2, -1202.5])
 lse_15r = float(logsumexp_15r(s_15r))
 wbm.record("MB3.15c", lse_15r, decimals=6,
@@ -1530,7 +1530,8 @@ wbm.record("MB3.18e", [5 + 4 * B for B in sizes_18r],
                      "chaque valeur est un vecteur de longueur 3 : B scores et 3B nombres": [5 + 2 * B for B in sizes_18r]})
 wbm.record("MB3.18f", True,
            mistakes={"l'état final ne dépend ni de l'ordre ni de la taille des blocs : compare m, l et l'accumulateur à "
-                     "10⁻¹² près (relatif), pas avec ==": False})
+                     "10⁻¹² près (relatif), pas avec == ; s'ils diffèrent vraiment, relance les tests de online_softmax":
+                         False})
 for scores_18r, size_18r, id_18r in __HIDDEN_C18__:                # the hidden cases of count_rescalings_18
     wbm.record(id_18r, rescalings_18r(scores_18r, size_18r))''',
     after=[
@@ -1777,7 +1778,7 @@ wbm.record("MB3.19c", [best_19r + 1, values_19r[best_19r]], decimals=6,
                      "l'écart se donne en heures": [(best_19r + 1) / 24, values_19r[best_19r]]})
 wbm.record("MB3.19d", True,
            mistakes={"chaque horloge tourne de 30 ω_k dans son propre plan : compare les deux vecteurs à 10⁻¹² près, "
-                     "avec np.allclose": False})
+                     "avec np.allclose ; s'ils diffèrent vraiment, relance les tests de givens_rotation": False})
 HIDDEN_19r = __HIDDEN_C19__                                                  # the hidden times of the check
 wbm.record(HIDDEN_19r["id"], [encode_19r(t) for t in HIDDEN_19r["t"]], decimals=6)''',
     after=[
@@ -2536,8 +2537,8 @@ with checked("MB3.22"):
         report_22(error_c22 <= threshold_c22, f"éolienne cachée {k_c22} : erreur {fr(error_c22, 1)} kW², sous le seuil "
                   f"{fr(threshold_c22, 1)} kW²",
                   f"éolienne cachée {k_c22} : erreur {fr(error_c22, 1)} kW², au-dessus du seuil {fr(threshold_c22, 1)} kW² "
-                  "(1,3 fois la méthode de la vérification) : ta validation croisée laisse-t-elle vraiment chaque relevé "
-                  "de côté, et ta grille est-elle assez fine ?")
+                  "(1,3 fois la méthode de la vérification) : relis ta représentation (359° et 1°, le jour 364 et le "
+                  "jour 0), ta validation croisée (chaque relevé laissé de côté) et ta grille (assez fine ?)")
     report_22(elapsed_22 < 10, f"en {fr(elapsed_22, 2)} s pour les quatre jeux",
               f"trop lent : {fr(elapsed_22, 1)} s pour les quatre jeux, il faut moins de 10 s (calcule les distances de "
               "toutes les paires en une fois, avec la diffusion)")
@@ -2944,7 +2945,7 @@ def build_constants() -> dict:
     def R23(t):
         return np.array([[1.0, 0.0, 0.0], [0.0, math.cos(t), -math.sin(t)], [0.0, math.sin(t), math.cos(t)]])
 
-    rotations = [([1.5, -2.0, 0.5], 1.1, -0.7), ([0.0, 3.0, -1.0], -2.3, 2.0), ([-1.0, 0.5, 2.0], 0.4, 0.4)]
+    rotations = [([2.5, -1.5, 0.5], 1.1, -0.7), ([0.5, 2.5, -1.0], -2.1, 2.0), ([-1.5, 0.5, 2.5], 0.35, 0.35)]
     for name, wrong in (("colleague", lambda x, a, b: R12(a) @ R23(b) @ x),
                         ("angles swapped", lambda x, a, b: R23(a) @ R12(b) @ x),
                         ("transposed", lambda x, a, b: R23(-b) @ R12(-a) @ x)):
