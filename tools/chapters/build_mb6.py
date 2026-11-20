@@ -1495,7 +1495,7 @@ for rho in rhos_18r:
     pd_18r.append(float(np.exp(0.4 + 0.05 * (u_18r - 70)).mean()))
     m_18r.append(float(np.exp(0.1 * (t_18r[keep_18r] - 22) + 0.05 * (u_18r[keep_18r] - 70)).mean()))
     all_18r.append(float(np.exp(0.1 * (t_18r - 22) + 0.05 * (u_18r - 70)).mean()))
-wbm.record("MB6.18b", [v for pair in zip(pd_18r, m_18r) for v in pair], decimals=6,
+wbm.record("MB6.18b", [v for pair in zip(pd_18r, m_18r) for v in pair], decimals=7,
            mistakes={"la moyenne conditionnelle se calcule sur les seuls points de la fenêtre |T − 26| ≤ 0,25":
                          [v for pair in zip(pd_18r, all_18r) for v in pair],
                      "la moyenne marginale fixe T à 26 dans f : la moyenne des f(26, U_i), sur tous les points":
@@ -2693,14 +2693,14 @@ def build_constants() -> dict:
     assert round(rho16, 4) == 0.8787 and not near_limit(rho16)
     out["__MOHS_16__"], out["__VICKERS_16__"] = literal(mohs), literal(vickers)
 
-    # MB6.18: the estimates of b) are far from a rounding limit at 6 decimals
+    # MB6.18: the estimates of b) are far from a rounding limit at 7 decimals
     rng = np.random.default_rng(7918)
     for rho in (0.0, 0.5, 0.9):
         pairs = rng.multivariate_normal([22.0, 70.0], [[9.0, 24.0 * rho], [24.0 * rho, 64.0]], size=300_000)
         keep = np.abs(pairs[:, 0] - 26) <= 0.25
         for value in (np.exp(0.4 + 0.05 * (pairs[:, 1] - 70)).mean(),
                       np.exp(0.1 * (pairs[keep, 0] - 22) + 0.05 * (pairs[keep, 1] - 70)).mean()):
-            assert not near_limit(value), (rho, value)
+            assert not near_limit(value, 7), (rho, value)
 
     # MB6.20: the samples of b) (work_c/nb_values.py), and the hidden cases: other numbers of players (never 1, 2, 3,
     # 4, 5, 6, 7, 8, 9: the colleague's check, the stub, the Évités, the questions), samples with groups of 2 and 3
