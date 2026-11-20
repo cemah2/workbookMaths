@@ -16,7 +16,7 @@ workbookMaths
     ├── 52 MB3 Rotations, moyennes pondérées et softmax en ligne
     ├── 53 MB4 Rang faible et recherche d'information
     ├── 54 MB5 Les maths de la diffusion
-    ├── …
+    ├── 55 MB6 Shapley, intégrales de chemin et équité
     └── 56 MB8 Gradient de politique
 ```
 

@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, équations différentielles et décibels, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, équations différentielles et décibels, coalitions, rangs moyens et grilles agrandies, calcul numérique.
 
 ```python
 import numpy as np
@@ -238,6 +238,18 @@ Un champ `f(t, x)`, le temps d'abord ; des instants `t0` et `t1` (`t1 < t0` pour
 | un arbre de régression qui prédit une moyenne, ou une médiane | `from sklearn.tree import DecisionTreeRegressor` ; `criterion="squared_error"` (par défaut) : chaque feuille prédit la moyenne de ses cibles ; `criterion="absolute_error"` : leur médiane |
 
 Dans `mymath/gaussian_paths.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, et aucune SciPy (`solve_ivp`, `odeint`, `quad`, `scipy.stats.norm`, `logsumexp`, `softmax`) : les tests comparent tes résultats aux leurs et à des simulations ; les imports relatifs de tes propres modules sont permis (`from .approx import logsumexp`, M05a). Un champ s'écrit `f(t, x)`, le temps d'abord, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les moments d'une récurrence, le débruiteur d'un mélange et les deux méthodes sont dans la fiche ; les coder est le travail des 🔨 MB5.16 à MB5.18.
+
+## Coalitions, corrélation de rangs et grilles agrandies (MB6)
+
+Des joueurs `0, …, n - 1` ; deux échantillons appariés `x` et `y` ; un profil `a` de `h` valeurs à agrandir en `H`.
+
+| Je veux… | Code |
+|---|---|
+| parcourir les coalitions, les ordres | `[frozenset(c) for k in range(n + 1) for c in itertools.combinations(range(n), k)]` donne les $2^n$ coalitions, taille par taille, du `frozenset()` vide au grand groupe ; `itertools.permutations(range(n))` donne les $n!$ ordres d'arrivée, des tuples, à réserver aux petits jeux ; une table de valeurs indexée par des `frozenset` se passe comme jeu sous la forme `lambda S: t[S]` |
+| une corrélation de rangs de Spearman | `scipy.stats.spearmanr(x, y).statistic` ; avec des ex aequo, c'est la corrélation de Pearson des rangs moyens de `scipy.stats.rankdata` ; pour un échantillon constant, un `ConstantInputWarning` et `nan` |
+| agrandir un profil par interpolation linéaire | `scipy.ndimage.zoom(a, H / h, order=1)` aligne les coins (`grid_mode=False`, par défaut : le premier et le dernier centre restent en place) ; `scipy.ndimage.zoom(a, H / h, order=1, grid_mode=True, mode="nearest")` aligne les centres (les bords coïncident) ; `order=3`, le réglage par défaut, interpole par des polynômes de degré 3, pas linéairement ; sur un tableau à deux dimensions, l'interpolation est bilinéaire |
+
+Dans `mymath/attribution.py`, la docstring du module dit ce qui est permis : NumPy et les modules `math`, `fractions` et `itertools`, mais ni SciPy (`spearmanr`, `rankdata`, `pearsonr`, `scipy.integrate`), ni `np.corrcoef`, ni `np.cov`, ni le module `statistics`, ni pandas : les tests comparent tes résultats aux leurs ; les imports relatifs de tes propres modules sont permis (`from .integrate import simpson`, M02a). Un jeu est une fonction qui reçoit un `frozenset`, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les poids des coalitions, les dividendes, la règle de Simpson et les rangs moyens sont dans la fiche (§1, §2, §4 et §6) ; les coder est le travail des 🔨 MB6.13 à MB6.16.
 
 ## Calcul numérique
 
