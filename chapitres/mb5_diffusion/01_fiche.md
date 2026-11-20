@@ -510,8 +510,8 @@ chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x
 
 - MML §6.5 (relecture) et l'exercice 6.5.
 - R. E. Kalman, « A New Approach to Linear Filtering and Prediction Problems », *Journal of Basic Engineering*, vol. 82, n° 1, 1960, p. 35-45 : le filtre dont le §1 donne le pas de prédiction.
-- R. H. Shumway et D. S. Stoffer, *Time Series Analysis and Its Applications, With R Examples*, 4ᵉ éd., Springer, 2017, ch. 3 (*ARIMA Models*) : les processus autorégressifs (§1).
+- R. H. Shumway et D. S. Stoffer, *Time Series Analysis and Its Applications: With R Examples*, 4ᵉ éd., Springer, 2017, ch. 3 (*ARIMA Models*) : les processus autorégressifs (§1).
 - J. K. Blitzstein et J. Hwang, *Introduction to Probability*, 2ᵉ éd., CRC Press, 2019, ch. 9 (*Conditional Expectation*), en lecture libre : l'espérance conditionnelle comme meilleure prédiction, aux §9.3 et §9.4 (§4).
 - B. Efron, « Tweedie's Formula and Selection Bias », *Journal of the American Statistical Association*, vol. 106, n° 496, 2011, p. 1602-1614 : la formule de Tweedie et le biais de sélection (§5).
-- E. Süli et D. F. Mayers, *An Introduction to Numerical Analysis*, Cambridge University Press, 2003, ch. 12 (*Initial Value Problems for ODEs*) : Euler, Runge-Kutta, l'ordre de l'erreur (§8).
+- E. Süli et D. F. Mayers, *An Introduction to Numerical Analysis*, Cambridge University Press, 2003, ch. 12 (*Initial value problems for ODEs*), §12.2 à §12.5 : les méthodes à un pas, leur consistance et leur convergence, les méthodes de Runge-Kutta (§8).
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
