@@ -90,8 +90,8 @@ def hidden_table(rng, kind):
         g = rng.uniform(3, 3.8, r)
     elif kind == "étalé":
         m, n = _shape(rng, 60, 220, 4)
-        r = int(rng.integers(4, 9))
-        g = np.geomspace(rng.uniform(30, 60), rng.uniform(3, 3.6), r)
+        r = int(rng.integers(4, 8))
+        g = np.geomspace(rng.uniform(40, 100), rng.uniform(2.8, 3.4), r)   # neighbours further apart than s_r and s_r+1
     elif kind == "allongé":
         m, n = int(rng.integers(22, 41)), int(rng.integers(250, 401))
         r = int(rng.integers(1, 6))

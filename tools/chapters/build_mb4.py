@@ -379,6 +379,7 @@ def paper_part(kind: str) -> list:
 # ---------------------------------------------------------------------------
 TOOLS = '''# Tools of the notebook (parts A to D)
 import contextlib
+import dis
 import math
 import os
 import re
@@ -493,30 +494,67 @@ class CodeFrom(BaseException):
     not hide it)."""
 
 
+_NOT_KEYED = {"CACHE", "PUSH_NULL", "RESUME", "NOP", "EXTENDED_ARG", "NOT_TAKEN"}
+
+
 def code_key(code):
-    """What identifies a compiled function whatever its file: its bytecode, its names and its constants."""
-    return (code.co_code, code.co_names, tuple(c.co_name if hasattr(c, "co_code") else repr(c) for c in code.co_consts))
+    """What identifies a compiled function whatever its file and the module around it: its instructions (without jump
+    targets, nor what depends on the rest of the module) and the names of its variables."""
+    ops = []
+    for i in dis.get_instructions(code):
+        if i.opname in _NOT_KEYED:
+            continue
+        jump = i.opcode in dis.hasjrel or i.opcode in dis.hasjabs or "JUMP" in i.opname or i.opname == "FOR_ITER"
+        ops.append((i.opname, None if jump else i.argval.co_name if hasattr(i.argval, "co_code") else repr(i.argval)))
+    return tuple(ops), code.co_varnames
 
 
 def code_keys_of_file(path):
-    """The code_key of every function of a Python file, compiled but not run (to recognise a copy of that file)."""
+    """The code_key of every function of a Python file, compiled but not run (to recognise a copy of its code)."""
     keys, todo = set(), [compile(open(path, encoding="utf-8").read(), str(path), "exec")]
     while todo:
         code = todo.pop()
         todo += [c for c in code.co_consts if hasattr(c, "co_code")]
-        if code.co_name != "<module>" and len(code.co_code) >= 40:
-            keys.add(code_key(code))
+        key = code_key(code)
+        if code.co_name != "<module>" and len(key[0]) >= 15:
+            keys.add(key)
     return keys
 
 
+_ESCAPE = {"watch": None}      # what code_from(..., escapes=True) watches now (None: nothing)
+_PROCESS_EVENTS = ("subprocess.Popen", "os.system", "os.posix_spawn", "os.fork", "os.forkpty", "os.exec", "os.spawn")
+
+
+def _escape_hook(event, args, escape=_ESCAPE, processes=_PROCESS_EVENTS, os=os, stop=CodeFrom):
+    """Audit hook, for the life of the kernel: inside code_from(..., escapes=True), opening a file of the watched places
+    or starting another process stops the block (code run by another process escapes sys.monitoring). Everything it
+    uses is bound when it is defined: it also runs while the kernel shuts down."""
+    watch = escape["watch"]
+    if watch is None:
+        return
+    if event == "open" and args and isinstance(args[0], (str, bytes, os.PathLike)):
+        real = os.path.realpath(os.fsdecode(args[0]))
+        if any(real == place or real.startswith(place + os.sep) for place in watch["places"]):
+            watch["seen"].append("ouvre " + os.path.basename(real))
+            raise stop
+    elif event.startswith(processes):
+        watch["seen"].append("lance un autre processus : " + event)
+        raise stop
+
+
+sys.addaudithook(_escape_hook)
+
+
 @contextlib.contextmanager
-def code_from(places, twins=()):
+def code_from(places, twins=(), escapes=False):
     """Inside the block, the start of any Python code (a function or a module body) of a file among places (files, or
     folders with everything under them), or of a function whose code_key is among twins (a copy of such a function),
     stops the block; yields the list of the names seen ("ranks.borda_scores"). The learner's function must not run that
-    code (mymath in a corrected function, the hidden module of a challenge). Without sys.monitoring (Python < 3.12) or
-    a free tool id, nothing is watched."""
+    code (mymath in a corrected function, the hidden module of a challenge). With escapes, opening a file of places or
+    starting another process also stops it ("ouvre mb4_13.py", "lance un autre processus : subprocess.Popen"). Without
+    sys.monitoring (Python < 3.12) or a free tool id, code is not watched."""
     places = [os.path.realpath(str(place)) for place in places]
+    libraries = tuple({os.path.realpath(sys.prefix) + os.sep, os.path.realpath(sys.base_prefix) + os.sep})
     monitoring, tool, seen, inside = getattr(sys, "monitoring", None), None, [], {}
     for candidate in ((4, 3, 2) if monitoring is not None else ()):
         try:
@@ -530,19 +568,30 @@ def code_from(places, twins=()):
             name = code.co_filename
             if name not in inside:
                 real = os.path.realpath(name) if os.path.exists(name) else name
-                inside[name] = any(real == place or real.startswith(place + os.sep) for place in places)
-            if inside[name] or (twins and code_key(code) in twins):
+                if any(real == place or real.startswith(place + os.sep) for place in places):
+                    inside[name] = True                  # watched
+                elif twins and not real.startswith(libraries):
+                    inside[name] = False                 # the learner's code: compared with twins
+                else:
+                    inside[name] = None                  # an installed library: not compared
+            if inside[name]:
                 seen.append(f"{os.path.splitext(os.path.basename(name))[0]}.{code.co_name}")
+                raise CodeFrom
+            if inside[name] is False and code_key(code) in twins:
+                seen.append(f"une copie de {code.co_name}")
                 raise CodeFrom
             return monitoring.DISABLE                    # other code: not watched again until the end of the block
 
         monitoring.register_callback(tool, monitoring.events.PY_START, on_start)
         monitoring.set_events(tool, monitoring.events.PY_START)
+    if escapes:
+        _ESCAPE["watch"] = {"places": places, "seen": seen}
     try:
         yield seen
     except CodeFrom:
         pass
     finally:
+        _ESCAPE["watch"] = None
         if tool is not None:
             monitoring.set_events(tool, 0)
             monitoring.register_callback(tool, monitoring.events.PY_START, None)
@@ -1075,7 +1124,7 @@ MB4_11 = Ex(
     "normalisation par la longueur leur fait",
     "tracer la saturation pour plusieurs $k_1$, entre la seule présence et le compte brut, et voir ce que la "
     "normalisation par la longueur lui fait.", "fiche §4 ; R7, M05a (concavité) ; Ex MB4.3", tracks="C", note=NOTE_11,
-    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure (tu peux borner l'axe des ordonnées, `ax.set_ylim(0, 5)` : la droite du compte brut écrase les autres courbes).
+    body=r"""Écris `saturation_11(x, k1)`, qui rend $s(x) = \frac{x(k_1 + 1)}{x + k_1}$ pour un tableau `x` de nombres $\ge 0$ (avec $k_1 = 0$, la seule présence : 1 pour $x > 0$, 0 pour $x = 0$ ; avec `k1=np.inf`, le compte brut $x$) ; puis `draw_saturations_11(ax, k1s, xmax)`, qui trace dans les axes reçus, sur 241 points de $[0, x_{\max}]$ (`np.linspace(0, xmax, 241)`), une courbe pour chaque $k_1$ de `k1s`, avec une légende qui nomme chaque $k_1$ et des noms d'axes, et rend la liste des tableaux tracés (tu peux borner l'axe des ordonnées, `ax.set_ylim(0, 5)` : la droite du compte brut écrase les autres courbes) ; puis `draw_lengths_11(ax, k1, b, ells, xmax)`, qui trace de même, pour chaque $\ell$ de `ells`, la courbe de la saturation normalisée $x \mapsto \frac{x(k_1 + 1)}{x + k_1\nu}$, avec $\nu = 1 - b + b\ell$, avec une légende qui nomme chaque $\ell$. Les fonctions dessinent dans les axes reçus, sans ouvrir de figure.
 
 La vérification les appelle avec $k_1 = 0$, 1, 2, 3 et l'infini, puis avec $k_1 = 1$, $b = \frac12$ et $\ell = \frac12$, 1, 2, sur $[0, 12]$, affiche la figure, et les essaie sur des appels cachés (d'autres $x$, les $k_1$ dans un autre ordre, d'autres longueurs, un autre $b$) ; `saturation_11` ne modifie pas le tableau reçu. Relève :
 - a) $s(6)$ pour $k_1 = 1$, 2 et 3 (une liste de 3 nombres) ;
@@ -1403,7 +1452,7 @@ MB4_12 = Ex(
 2. `borda_bad(rankings)` doit rendre les points de Borda ; elle lit chaque ligne comme la liste des **rangs** des candidats (la valeur d'indice $c$ comme la position du candidat $c$), au lieu de la liste des candidats dans l'ordre. Il l'a vérifiée sur trois jurys et quatre candidats, `[[1, 0, 3, 2], [2, 3, 0, 1], [0, 1, 3, 2]]`.
 3. `rarity_bad(n, N)` doit rendre la surprise d'un ingrédient présent dans $n$ fiches sur $N$ ; elle rend $\ln\frac nN$. Il l'a vérifiée sur un ingrédient présent dans toutes les fiches, de surprise nulle.
 
-À faire : trouve et corrige chaque erreur ; les fonctions corrigées s'appellent `rank_factorization_fixed`, `borda_fixed` et `rarity_fixed`, avec les mêmes arguments (sans `mymath` ; `exact_rref_12`, la réduction exacte de la cellule fournie, reste permise). Puis réponds :
+À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `rank_factorization_fixed`, `borda_fixed` et `rarity_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (ni `rank_factorization`, ni `borda_scores` : la vérification le contrôle) ; `exact_rref_12`, la réduction exacte de la cellule fournie, reste permise. Puis réponds :
 - a) pour le tableau `M_1` des boulangeries, le plus grand écart $\lvert(\mathbf{C}\mathbf{F})_{ij} - M_{ij}\rvert$ par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ;
 - b) pour les classements `RANK_12` de 4 juges et 6 candidats, que fournit le notebook : les points de Borda par la fonction corrigée, puis par la fonction fautive (une liste de 2 listes de 6 entiers) ;
 - c) les surprises d'ingrédients présents dans 3 et dans 30 fiches sur 90, par la fonction corrigée, puis par la fonction fautive (une liste de 4 nombres).
@@ -1535,12 +1584,18 @@ CHECK_13 = """def check_c13():
 
     def rank_of(label, M):
         start = time.perf_counter()
-        with code_from([hidden_file], twins=twins) as seen:
+        with code_from([hidden_file], twins=twins, escapes=True) as seen:
             got = call_safely(label, hidden_rank_13, M.copy())
         elapsed[0] += time.perf_counter() - start
+        if seen and seen[0].startswith("lance "):
+            print(f"❌ {label} : hidden_rank_13 {seen[0].replace(' : ', ' (', 1)}) : le rang se calcule dans ta fonction ; "
+                  "ce qu'exécute un autre processus échappe à la vérification")
+            raise StopCheck
         if seen:
-            print(f"❌ {label} : hidden_rank_13 exécute du code de solutions/challenges/mb4_13.py ({seen[0]}), la partie "
-                  "cachée du défi, ou une copie de ce code : la vérification mesurerait sa méthode, pas la tienne")
+            what = "lit" if seen[0].startswith("ouvre ") else "exécute du code de"
+            where = "" if seen[0].startswith("ouvre ") else f" ({seen[0]})"
+            print(f"❌ {label} : hidden_rank_13 {what} solutions/challenges/mb4_13.py{where}, la partie cachée du défi, ou "
+                  "une copie de son code : la vérification mesurerait sa méthode, pas la tienne")
             raise StopCheck
         if isinstance(got, (bool, np.bool_)) or not isinstance(got, (int, np.integer)) or got < 0:
             print(f"❌ {label} : hidden_rank_13 rend un entier ≥ 0 (un int), reçu {shown(got)}")
@@ -1629,7 +1684,7 @@ MB4_13 = Ex(
     tracks="C", given=GIVEN_13, note=NOTE_13,
     body=r"""Le notebook fournit `TABLES_13`, cinq tableaux de mesures de formes différentes. Chacun est la somme d'un tableau de rang $r$ (caché) et d'un bruit : chaque case reçoit un bruit indépendant, de moyenne nulle et de même écart-type $\sigma$ dans tout le tableau ; $\sigma$ change d'un tableau à l'autre, et n'est pas donné. Écris `hidden_rank_13(M)`, qui rend le rang caché d'un tableau (un entier $\ge 0$ : un tableau peut n'avoir aucun signal), en lisant ses valeurs singulières ; tout NumPy et SciPy sont permis (`np.linalg.svd(M, compute_uv=False)` donne les valeurs singulières).
 
-**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** le bon rang pour trois séries de cinq tableaux cachés, tirés à nouveau à chaque exécution ; chaque série a un tableau de chacun de ces cinq types (l'un facile, l'un dont le signal dépasse à peine le bruit, l'un dont les valeurs singulières du signal s'étalent sur un facteur 10 ou plus, l'un très allongé, et l'un sans signal ou à une échelle extrême), et doit être réussie cinq fois sur cinq ; le bon rang pour les cinq tableaux du notebook : la vérification recalcule ta réponse a) avec ta fonction ; le tout en moins de 15 secondes pour les vingt tableaux. Ta fonction n'exécute aucun code de la partie cachée du défi (`solutions/challenges/mb4_13.py`). Relève :
+**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** trois séries de cinq tableaux cachés, tirées à nouveau à chaque exécution ; chaque série a un tableau de chacun de ces cinq types : facile ; un signal qui dépasse à peine le bruit ; des valeurs singulières du signal étalées sur un facteur 10 ou plus ; très allongé ; sans signal ou à une échelle extrême. Ta fonction doit trouver le bon rang cinq fois sur cinq dans chaque série, et le bon rang pour les cinq tableaux du notebook (la vérification recalcule ta réponse a) avec ta fonction), en moins de 15 secondes en tout. Elle ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb4_13.py`) : la vérification le contrôle. Relève :
 - a) les rangs que rend ta fonction pour les cinq tableaux (une liste de 5 entiers) ;
 - b) `np.linalg.matrix_rank` de chacun (une liste de 5 entiers) ;
 - c) le rang effectif à 99 % de chacun (une liste de 5 entiers).
