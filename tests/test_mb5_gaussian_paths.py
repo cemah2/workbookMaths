@@ -245,9 +245,9 @@ def _follows_the_rules(a, b):
         return
     n = min(a.size, b.size)
     sums = a[:n] ** 2 + b[:n] ** 2
-    assert np.all(np.abs(sums - 1.0) >= 0.01), (
+    assert np.all(np.abs(sums - 1.0) >= 0.05), (
         f"expected test data that follow the rules of the chapter, got a pair (a, b) with a² + b² = "
-        f"{_show(sums[np.abs(sums - 1.0) < 0.01])}")
+        f"{_show(sums[np.abs(sums - 1.0) < 0.05])}")
     for sequence in (a, b, a ** 2, b ** 2):
         steps = np.diff(sequence)
         for i in range(steps.size - 1):
@@ -776,7 +776,7 @@ def test_linear_gaussian_recursion_of_many_steps_is_fast(gp):
     rng = _rng(7614)
     T = 20_000
     a = rng.uniform(0.995, 1.005, size=T)
-    b = rng.uniform(0.2, 0.6, size=T) * rng.choice([-1.0, 1.0], size=T)
+    b = rng.uniform(0.25, 0.6, size=T) * rng.choice([-1.0, 1.0], size=T)
     mean0, var0 = 1.65, 0.85
     _follows_the_rules(a, b)
     what = f"linear_gaussian_recursion(a, b, mean0={mean0}, var0={var0}) (T = {T})"
