@@ -189,7 +189,10 @@ def _gap(got, want):
     if not np.all(np.isfinite(g)):
         return " (the result holds nan or inf)"
     if g.size:
-        return f" (largest gap {float(np.max(np.abs(g - w))):.1e})"
+        d = np.abs(g - w)
+        k = np.unravel_index(int(np.argmax(d)), d.shape)
+        where = tuple(int(i) for i in k) if d.ndim > 1 else int(k[0])
+        return f" (largest gap {float(d[k]):.1e}, at {where}: expected {float(w[k]):.10g}, got {float(g[k]):.10g})"
     return ""
 
 

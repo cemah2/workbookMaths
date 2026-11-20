@@ -806,7 +806,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB4", "dir": "mb4_rang_faible", "hours": 8.4, "generation_sessions": 1, "mml": ["(§4.6)"],
+        "id": "MB4", "dir": "mb4_rang_faible", "hours": 9.0, "generation_sessions": 1, "mml": ["(§4.6)"],
         "summary": "Les maths du rang faible et de la recherche d'information : la factorisation de rang (une matrice de "
                    "rang r est le produit de r colonnes par r lignes, à une matrice inversible près), ce qu'elle coûte à "
                    "stocker et ses nombres libres, le rang effectif d'une matrice mesurée (rappel d'Eckart-Young) et "
@@ -1071,15 +1071,15 @@ CHAPTERS = [
             ("MB4.R2", "🔁", 1, 6, "L'approximation de rang k par la SVD et son erreur de Frobenius (M12d, MML §4.6)",
              "§2", "E"),
             ("MB4.R3", "🔁", 1, 6, "L'information −ln p d'un événement, la cote et le logit (M06, R6)", "§3", "E"),
-            ("MB4.1", "✏️", 2, 30, "Les ventes de quatre boulangeries sur cinq produits : le rang, la factorisation par "
+            ("MB4.1", "✏️", 2, 35, "Les ventes de quatre boulangeries sur cinq produits : le rang, la factorisation par "
              "les colonnes pivots, une seconde factorisation (CG)(G⁻¹F), et les nombres stockés ou libres", "§1", "E"),
-            ("MB4.2", "✏️", 2, 20, "Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie "
+            ("MB4.2", "✏️", 2, 25, "Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie "
              "captée, rang effectif à 99 %, rang stable, puis le coût de C(Fx) et de (CF)x pour un et pour mille "
              "vecteurs", "§2", "E"),
-            ("MB4.3", "✏️", 2, 25, "Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son "
+            ("MB4.3", "✏️", 2, 30, "Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son "
              "signe, la variante toujours positive, puis la saturation et la normalisation d'une mention répétée",
              "§3 §4", "E"),
-            ("MB4.4", "✏️", 2, 30, "Trois jurys classent cinq pâtissiers : les points de Borda, la somme des 1/(c + rang) "
+            ("MB4.4", "✏️", 2, 35, "Trois jurys classent cinq pâtissiers : les points de Borda, la somme des 1/(c + rang) "
              "pour c = 2 et c = 10, et la somme des notes qui change de gagnant quand un jury passe de 20 à 100 "
              "points", "§5", "E"),
             ("MB4.5", "∂", 2, 30, "Une matrice de rang r est un produit C F de r colonnes par r lignes ; deux telles "
@@ -1093,17 +1093,17 @@ CHAPTERS = [
              "E"),
             ("MB4.E1", "💼", 1, 10, "« Comment combiner les classements de deux systèmes dont les scores ne sont pas sur "
              "la même échelle ? »", "§5", ""),
-            ("MB4.8", "🔨", 1, 25, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
+            ("MB4.8", "🔨", 1, 30, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
              "forme échelonnée réduite", "§1", "E m:rank_factorization"),
-            ("MB4.9", "🔨", 2, 30, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au "
+            ("MB4.9", "🔨", 2, 35, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au "
              "hasard, en fractions", "§5 §6", "m:borda_scores,random_ranking_mrr"),
             ("MB4.10", "🔮", 1, 20, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le "
              "simuler et le comparer à H_n/n", "§6", ""),
-            ("MB4.11", "🎨", 1, 25, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
+            ("MB4.11", "🎨", 1, 30, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
              "normalisation par la longueur leur fait", "§4", ""),
             ("MB4.12", "🐛", 1, 20, "Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme "
              "la liste des rangs des candidats, un poids de rareté écrit ln(n/N)", "§1 §3 §5", ""),
-            ("MB4.13", "🏆", 3, 35, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs "
+            ("MB4.13", "🏆", 3, 40, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs "
              "valeurs singulières", "§2", ""),
         ],
     },
