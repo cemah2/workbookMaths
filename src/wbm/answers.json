@@ -116179,7 +116179,7 @@
       "kind": "array",
       "mistakes": {
         "1a668fb3c49fea775f1eb01da497b1627416668265565c047030462307696d81": "la valeur de Shapley n'est pas un partage au prorata des besoins : moyenne les coûts marginaux sur les six ordres",
-        "1d763dfcb278de6f561d31635474f783b60ca0431a3f406f48fd34ee4e9bc2ae": "un tronçon se partage entre les hameaux qui l'utilisent, c'est-à-dire ceux qui sont au-delà de lui",
+        "1d763dfcb278de6f561d31635474f783b60ca0431a3f406f48fd34ee4e9bc2ae": "un tronçon se partage entre les hameaux qu'il dessert : celui qui est à son bout et ceux qui sont plus loin",
         "9a3c6af91da60995ef421017d8329a0e68becf5d3076b693abd14711349b03df": "la part d'un hameau dépend de ce qu'il ajoute au coût, pas seulement du nombre de hameaux"
       },
       "shape": [
@@ -116227,7 +116227,7 @@
       "hash": "021eb93da76d46c5980e2e10fdce1ecb9043110a7a51025640b1aa8e20a20152",
       "kind": "array",
       "mistakes": {
-        "005181306cecd278bdbab5854c953e763251c5b21713060da159c94226b3b7bb": "H3 utilise aussi le tronçon 2 : le surcoût se partage entre H2 et H3",
+        "005181306cecd278bdbab5854c953e763251c5b21713060da159c94226b3b7bb": "H3, plus loin que H2, utilise aussi le tronçon de H1 à H2",
         "e75d5f610c6085116f2238b954615e3a2314b1a73fbccb3d44dba74126cc26a4": "le surcoût du tronçon 2 ne concerne que les hameaux qui l'utilisent"
       },
       "shape": [
@@ -116284,7 +116284,7 @@
       "mistake_decimals": 2,
       "mistakes": {
         "3eb2715ff4790d836f5d53b03c40353086c95eb7d08718ecba6a64054a8d8fd1": "la dérivée croisée dérive une fois par p et une fois par e, pas deux fois par e",
-        "f01d2a29e249f825b8b8a05771947dd959187f237f73d1c35dafc93ca17f04d8": "dériver deux fois −(1/2)(p − e − 3)² par p puis par e donne +1 : la dérivée de −(p − e − 3) par e"
+        "f01d2a29e249f825b8b8a05771947dd959187f237f73d1c35dafc93ca17f04d8": "la dérivée croisée de −½(p − e − 3)² : dérive d'abord par p, puis dérive le résultat par e, sans perdre le signe de −e"
       },
       "shape": [
         2
@@ -116351,17 +116351,17 @@
     "MB6.4a": {
       "coarse_any": {
         "0": [
-          "7eb4a12ff2e99308bb1dbf27f89dd28904471d54d2eeaad07749529d18dd69d9"
+          "edd41a15591ca24049fcc08d729acdc8c778dfe8017b0b18e54596a6d6f2973c"
         ]
       },
       "decimals": 2,
-      "hash": "08e1aaef3089ade5011d334dd95df7aa9aa2b9433553f85a6a2c0e07f065797f",
-      "hash_coarse": "c897c3b50da8913420f9482391562ccf657f3df470b10e0792c1d093ff0cb130",
+      "hash": "91ce16820d6868d4b1a8fa9ccfde63e29fe866d1a6d6ee0291f38cbcce0fc83b",
+      "hash_coarse": "6ca90d86938f26631bc4cf94e0d7b61c43b7b439de7f013c2203b803ff5b81a5",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "79be229f2332e034569f8f539877d3bca78d80ab39f696bdbfc8bfd512836010": "le produit scalaire F · γ′ compte les deux composantes : F₁ γ₁′ + F₂ γ₂′",
-        "94d2cd766522c4071d16c135ab810f243da80c0307e6702a31086a3ac0ff68bc": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)"
+        "320bab8143aaa5abbb0116c2470de43edd51119ffcc8f3a5a341340862b0ffa5": "le produit scalaire F · γ′ compte les deux composantes : F₁ γ₁′ + F₂ γ₂′",
+        "8b4f43c21cb65801e12d03e606c1ea85110c7872c40e474fb0c0f0aa10f2db37": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116369,15 +116369,15 @@
     "MB6.4b": {
       "decimals": 0,
       "element_hashes": [
-        "ad32921addc7f03557b166bafaea56cec7023f9e5802b45e3352a4d24db4d92e",
+        "fa149f79dd6b6654a18601823ddae691871148c092039e8a3f1b0c284452349c",
         "7e375c5480d8f583a11af4c2873bb94a1fbc1551cc5de7ab38c56d023675d3f8"
       ],
-      "hash": "c3206dd19a8e95fd42fa9bcca36d67c46e5360576c73f11f9d831dd8c637279d",
+      "hash": "ba6100a62ff4995734cfbee6930b331a2b5c71d50ce5bae2f1173597009e6b45",
       "integer": true,
       "kind": "array",
       "mistakes": {
-        "15d7066b29b728577c78b6a89298aef090411c5d376762b8bf966f0d8e6b3c7e": "l'escalier va d'abord à l'horizontale, de A à (2, 0), puis à la verticale",
-        "4f72cf518afb5a6713784457ec4990cfda1803e80629836bfe5095104706ddb5": "le coin de l'escalier est (2, 0), pas (1, 1)"
+        "9daad1625b35f920bd438f400475d2ecd6294a4c1e52409ef5a6e7466912e8db": "l'escalier va d'abord à l'horizontale, de A à (2, 0), puis à la verticale",
+        "d964303582dcd63580362be5608e6a59fe9536dcf625eea36428955b2806839f": "le coin de l'escalier est (2, 0), pas (1, 1)"
       },
       "shape": [
         2
@@ -116387,17 +116387,17 @@
     "MB6.4c": {
       "coarse_any": {
         "0": [
-          "503cdb346cb53d6bff1b9672d5b2a5d54887d78488ee801b3e6bb4b560dc7bc7"
+          "570477e4b7c2e51c7447d472f05046b93fed1271875b9122dd4a444e93aefd9f"
         ]
       },
       "decimals": 2,
-      "hash": "7b18cd949ff7e887f4cae4cab7031adf57935d8429f5d9d107bbd45159d4f16b",
-      "hash_coarse": "2223eaaee3fced1ede3cb70255dfb5f46afe5e59d18214796bc19b1ca79e4d11",
+      "hash": "9655c072ad64d4b8fa966f0f947aafd79495e15ce46eaa85d40aa74de1c5ca43",
+      "hash_coarse": "fe9dfe40664612464ed7ce0b0a09d1106bb8a54dbf3b0e9413a8b92a02b04d59",
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "22bf5cb6d8c7433fd651b7972e16951086442e22c6fb9ee188f53911ea50c10a": "la vitesse de γ(t) = (1 + t, t²) est (1, 2t) : la dérivée de t² est 2t",
-        "505133704aace134be9597a75db00a7a632df18c77b585b9b8ad86337828c128": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)"
+        "32cf9827d36b0885862cc92db2ee08572969dbbe93445c672835a33ec2ba7ff3": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)",
+        "70c17847289ab1811f47a3b4074334d0ba823567a82a761fee89b6ec039baaa5": "la vitesse de γ(t) = (1 + t, t²) est (1, 2t) : la dérivée de t² est 2t"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116694,7 +116694,7 @@
       "hash": "49758d75d4310002624f860613b12c5c9f03675974f8a07389b79dde964a2965",
       "kind": "array",
       "mistakes": {
-        "46a11121e9c6a978703c536079e8390d97635572ae26d7f33db882d0e325552b": "le facteur est (h − 1)/(H − 1) = 2/5, pas (h − 1)/H",
+        "46a11121e9c6a978703c536079e8390d97635572ae26d7f33db882d0e325552b": "le facteur des coins alignés est (h − 1)/(H − 1), pas (h − 1)/H : les centres des cases extrêmes des deux grilles se correspondent",
         "edf2529bd613a3d34c4f245a493daab2873416785ed7547f63feed3a3dbcee23": "les coins alignés envoient la dernière case sur la dernière : le facteur est (h − 1)/(H − 1)"
       },
       "shape": [
@@ -116729,7 +116729,7 @@
       "kind": "array",
       "mistakes": {
         "a746b3ea28952cee421b2d28409c54e4c14bee00d998429a2c45789d20c075e3": "le voisin le plus proche reçoit le plus grand poids : (1 − t) a + t b, avec t la distance à a",
-        "d8429c4c9a09e02393bb3560cdf776bf5a3002963ee52438e7265a9f1e60e37c": "le facteur des colonnes est (w − 1)/(W − 1) = 3/7 ; celui des lignes, (h − 1)/(H − 1), ne sert qu'aux lignes"
+        "d8429c4c9a09e02393bb3560cdf776bf5a3002963ee52438e7265a9f1e60e37c": "le facteur des colonnes se calcule avec les nombres de colonnes, 4 et 8 ; celui des lignes ne sert qu'aux lignes"
       },
       "shape": [
         2
@@ -116740,10 +116740,10 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "2f3e1c2b99a001da93a605941b14bf2967d8fb85b01c10ee95e402efb3e4051c"
+          "37d427d65979da891235509aa17c80dfc492319c95c06c24ef91f33da2af290d"
         ],
         [
-          "3895014d003977cc553a61e825ea1a6c4dc002b32f4a152e79f3bccaef602538"
+          "a58c74d2fd1cf1504614eb23072d72684048606461ee6af5d81a6072bdb833d3"
         ]
       ],
       "element_coarse_any": [
@@ -116757,15 +116757,14 @@
         ]
       ],
       "element_hashes": [
-        "8701b2d7504dd6839bf373351f4c19bcafefd52a3d06c5008fe891db6fb572fc",
-        "e62c874933c758aea8e00f04109459f13b087cfe6ad59f5b7257cfe4ff534cec"
+        "74fe973031448cfc57a9a54f6743a5e243e178f47cc90f569a8bc652b6cd27b1",
+        "f09968401a196103eb31df2862835bbbf5acda71ce0548910f05bdb478e7a4e7"
       ],
-      "hash": "6ef9941b79707caa4029611a8806f106a7151f66d825a11b7aa852a8ca3feaf4",
+      "hash": "f83b1618a41df977ee3d27c316ca505e3178837235c9cc4669d3887b8be4bf2c",
       "kind": "array",
       "mistakes": {
-        "2e9f898d89537c094cc4e8cfc55a1c6906f93a060d43b9dc6b64d061d2004b13": "le taux de rejet dépend du contrôle, pas seulement du taux de défauts",
-        "f2bf3391d81b9e4490747ffcce273d10ed161670a979affc51d384c60bb59a36": "une pièce rejetée est défectueuse et détectée, ou bonne et rejetée à tort : ajoute les fausses alertes",
-        "ff61b8e411102ce506968113f0ae4480b46f26cbf90091ddb53b642287fbd05d": "les fausses alertes ne touchent que les bonnes pièces : FPR × (1 − p_g)"
+        "1de4637fc11e884eaadedb0aa5d28bba0d9706dee22d48806d4c13bcf14de6a3": "une pièce rejetée est défectueuse et détectée, ou bonne et rejetée à tort : ajoute les fausses alertes",
+        "d9a26ed92c59848b183aefb0e06c8a2900bc34ab4bcb43ec3a12b05fd0cb9115": "le taux de détection pèse la part des pièces défectueuses, p_g, et le taux de fausses alertes celle des bonnes, 1 − p_g"
       },
       "shape": [
         2
@@ -116896,8 +116895,8 @@
       "hash": "27af4176fa1363cb1dcd974b5080b9673f49d58ea16d6d45c69fab898af02b52",
       "kind": "array",
       "mistakes": {
-        "58acfcfe2b17db35ae4367a287d0f55a2e633dc646730a5f1e42bceaebf7f706": "le taux pondéré divise les défauts pondérés par le total pondéré de la ligne, pas par le total de toute l'usine",
-        "95249e517d000ca1534a0452e47edcef81022c25c07fa7993548f3991c159855": "les taux pondérés pèsent chaque case par son poids : ce ne sont plus les taux bruts"
+        "95249e517d000ca1534a0452e47edcef81022c25c07fa7993548f3991c159855": "les taux pondérés pèsent chaque case par son poids : ce ne sont plus les taux bruts",
+        "a26f7de1c50fa4712c72586b621c4e71149a6d21659ef8ced35523d16629adaa": "chaque case reçoit le poids de sa ligne et de son label"
       },
       "shape": [
         2
@@ -117005,6 +117004,7 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
+        "40f9a814d9d282497ac3c768c3c8add6be69fe11c3f5fa2944806fcb2bc69f69": "seul le terme du laboratoire A est divisé par 4 : l'erreur type de l'écart n'est pas divisée par 2",
         "56cd49ade56f0b2ca2ca43d22553dc6fca9500c3179ae1039147939aa07e216c": "seul le terme du laboratoire A est divisé par 4 : l'erreur type de l'écart n'est pas divisée par 2",
         "fbd814f5ea6e3b7be9e5dd92236f3456cf0af3b7aee621531d8baa1f2b6c3ea1": "quadrupler l'effectif divise la variance de ce terme par 4, pas par 16"
       },
@@ -117297,36 +117297,36 @@
       "decimals": 6,
       "element_coarse": [
         [
-          "d0c3716ae7b669043b702655228aa872bd24a9c4cbda1d35acf6a68064e3e06d"
+          "1abf44188f5695e7ab6e4a0422a946c23e04c4625701021b999e16a3a219f792"
         ],
         [
-          "4fcbec15e6db6c951e0ad80a9f8dbf77bc1ff5e297b221067fb1de984331df7a"
+          "8fa84fd7b3d460ec000f8e486f3adae2b42ccf975d80bf9fc762d288077d3a8d"
         ]
       ],
       "element_coarse_any": [
         [
-          "3f51c86dc1fe76a26b6289f008febd1ac78378ba2dd2f5204339d744bc2ba8d7",
-          "63a54c36159ace98e56c9e1c4794b1d34f80929a0c8ab99e25f0fdf69a42116d",
-          "a29c9fdac2e6aeb13908a8e873e58dbd3d2959b1cf0cd897ca718a312aea521d",
-          "7d2589e617f7d7a53d43be9fd5089a632a378bc86503756857c291ed19ba3926",
-          "0936f3fe910465638f676c2a4aa279c7c0bd21a69847e35bdcc08f96db43f7d0"
+          "f13b49735d4fd988e14c33cdbc043b8823ff22e9a50781e8d02ebb8466d093bd",
+          "7977c57d06a372f48237fd30c0481342801115ff171ad0c42edf73588dcda986",
+          "53dd8c58e92c3766ab3fbb4da8bebc52b4ed5b53a847abb51796c577377e7bbc",
+          "1cfd15b94044407b887904512af4d47c89f69914eb9b034b67a899209f3ee998",
+          "813464c0ab897e030eca1f7e8109b9aba5b7d674f33cd4c1be2173b3526e6215"
         ],
         [
-          "8d56b31d0217ff24c3a9328280eb2f8f6fb3402fb09125dc6c7c52b2fce9c1fa",
-          "f49385d35fd1582aaf74567b50a8c6c6dc99d8a60555f96ebe803eb2882f9a4a",
-          "54658367333905bf952da02ea7fb86204f2c54cfdc2c7c8ddedf55bc4a8062a3",
-          "56f5f047abde5cec8a83b16e5dcd50b6e43205dbcc4b657a02e6063dbe5c720c",
-          "d2d9230105746a386d8926a8a5443ce8c3f7b355480f004fdd9fec395965d567"
+          "61a1b556addb5f95bc2034dd373fb71105daf0d56b03f1d31002603e1d8e9708",
+          "cd2bb9b56d526bd03801d676eccf7e3350b6d041526d2243d286328db415e589",
+          "72ac23f3552870c34e441bacc0a49166fd49676b3070ed261700600bf90aa7b5",
+          "cf4189a1172a729c22a99fabfce7c0ccbb616d5e6b9c888153775e96e47c4cb3",
+          "5811be8faa4aa8f09e795dbed9f5aaf80558af022585c514654520b68a8d040c"
         ]
       ],
       "element_hashes": [
-        "46bdd7783be3b36471320b6b13fc393e777d50b78b9b379d8cf72ffbfbe95790",
-        "397e34e835a3e2f9911aa0a437fbb9b3b473899c4de0144344c42ec9281df488"
+        "5d713c102d467138908764443a063e4167a92a987c2fc1b3d58343b550ea5439",
+        "6f54233867d5a30717cf83e10c8e4522cc087c7f5377f69f25bddcd8e19b21ea"
       ],
-      "hash": "3fd8986e00785e36301ddcb8f21d76d0ca75d8d45c712f3080e4ed8e69ca5f94",
+      "hash": "64d4d3be0802ca3eb7fa489e0e32b0d20b09b155d09d49cd33bbef1aa337c9da",
       "kind": "array",
       "mistakes": {
-        "5bba4b9ff4cbf2d48bf2867465b951a7db0dbfd27825db8ba4920e851e93e5bb": "le travail va de A vers B : les sommets dans l'ordre A, …, B"
+        "de0984db98cb33ebd7b2dd39e45100d7bb556627099d3938d03d4b7f33f4f3a8": "le travail va de A vers B : les sommets dans l'ordre A, …, B"
       },
       "shape": [
         2
@@ -117425,8 +117425,8 @@
       "hash": "b450dde320e9ff76f74df142270825a1c03c45d096472515a9a60101f343406f",
       "kind": "array",
       "mistakes": {
-        "a89da732d08b23f8142c38d7f237659d1d0af3845fa7008830c77d2184fefde4": "les sommets de la ligne brisée sont sur l'arc (1 + t, t²), pas sur le segment",
-        "c2dbc91764655f1eb69af617d9d0b12b710d8c2029368dc7d288a2c8fdd2ee37": "c) intègre G, le champ qui n'est pas un gradient"
+        "4d8fc97f89db14224f5474f2a379f900f856df8e9d601b55002c91a7ddba52bc": "c) intègre G, le champ qui n'est pas un gradient",
+        "a89da732d08b23f8142c38d7f237659d1d0af3845fa7008830c77d2184fefde4": "les sommets de la ligne brisée sont sur l'arc (1 + t, t²), pas sur le segment"
       },
       "shape": [
         3
@@ -117435,34 +117435,34 @@
     },
     "MB6.15d": {
       "array_rounded": {
-        "1": "25e64c78101ef88fca6919f805cc238f755872c59f38450bb738dff10d0c4743",
-        "2": "4861afa5d236dc90512a25dc6acfb103e8320e4951c5fcd10d46133ff9bef422",
-        "3": "6c90a229112561e399a674e10e6f093aa08682dbc767a7702442bd8e5d6cd22b",
-        "4": "76f48229b257e08d68b11065a1bc42788d60687a432c8a0274aa22a0a8fbf3a3",
-        "5": "f99688c5f287947eae1b7e2889a558a0b8ba5bca924ea4adc2f5859a78a7dfda"
+        "1": "56c5fbd4bc8bbba3d184b74d2863a3daf2d21538058150dc404cef4204047e0c",
+        "2": "fab5c8be6a78b1f040a2c3c3f8e44d011e267079a1c198050302afa47dc0b288",
+        "3": "ed5635dcc580844dbe380503a51c280eca8748986d12aa083d90e0de3b8dc5a2",
+        "4": "ebdb3cf5ceb5f2caddae184a56d609d4dde161bd8883c45390b7da6779065a21",
+        "5": "d86022fefdf4a9075ebaa4ec2337d2f3e05e9eb83f4fc1f4c3795ce5f8bc7d91"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "d88ffc03f20dfc5b0055692f38f15d3f70184030cb0abec1948b720625857a5c"
+          "420ff05d0fcf65b8db256b6e64baa3f61b169c896e91cb315616300ae5977f77"
         ],
         [
           "6b80a301575086c1d69f5b53763fa9e30ac7f269141dc2cc9aecd66d6fa545ef"
         ],
         [
-          "6c4e560ad6fb5de917b03863cbe52997845935a78ed31b5b392c139dbbfdaba1"
+          "d32f64dec51a3c2bd427b85c315319f934ff656579d3645f24f482365370d1e0"
         ],
         [
           "dda098fc435864dab18395cfbc8c6906c2366e5e3c385a2e023523a4bd48bac7"
         ],
         [
-          "750032a7a22bb2b04b8db0ff2bfed44ace56206c9dda4fc9a90594c1644fd304"
+          "b25e5e651b06a884fbed5bfbb07c3def4d72b162b4d43d3379302ed9c9522f76"
         ],
         [
           "e32099bc478bb201da60a651c02ba96aba9e83744ea781b19ff27575929de385"
         ],
         [
-          "ecded5a91a6ddd735195c78d204e2710b726e9b1e7cd539c78c045a3c19ac679"
+          "fd6ea3774df9c2b18457603e720562d31f7d56226e9b7bf7d1cdddf0bce857fa"
         ],
         [
           "eff714f5542cb84ad62a7e02d025ef106b5f2fd37e47f50f153fb967f0e39beb"
@@ -117470,11 +117470,11 @@
       ],
       "element_coarse_any": [
         [
-          "73c0639749f4be4859d84458c1f34032c2608d91750a59d6c42fd286bababc8a",
-          "d52274ca5303e8b155fe55792e0e81fff8357f3933aaf25eacdc08c46120ee61",
-          "45aa11b551ec7ecde0c0f516c93942161f71c26e731152c25b9278b8bf7ff9b4",
-          "bd997d8029f51dde448698f51f21ffb24641017fa77f470dd7ccefb1013863a4",
-          "e63e855d9abf6a8f5f9a8be6aaf44b8fc58c47695951e1c07d79ebf406c0502d"
+          "e687bf01fe494986c8cdcc3e1ba6a0190dc2e6a87103f18155eec55aef9f46ad",
+          "97e93b89c95ad26300d081f3a737d809e6c91d84d91cdf97b717fcca59b2f1ed",
+          "66edf123859956a4ea7ee78bfd4f4f5ac51cc0ff2b08ce11d320e6962b23c7d4",
+          "9dc8525cd31c1a1b5538eb1fce226f1f8d578e8ac01d9d7a5ad4ed9ae20ae25d",
+          "e0aee006b92621431e81870d81be2a7c6b0d5f1cd3c19d01dfa4d7c103597111"
         ],
         [
           "61c1b5d5abc93ac35191ba9403d8ef4b9cc77e0a23de38a5ec2b61f12fd47dce",
@@ -117484,11 +117484,11 @@
           "7cec84c69c99bff20df1e4fe49db41f506a722f9b21542e64ddab82910591071"
         ],
         [
-          "1d3dbc3c1469254a3fbd73f6cffa61df258b46761bb23d085496ca3698c04ea3",
-          "a228d74ea335e835497a1ef02fa9eae7301e6d77c20272b08fc5c3faa4fa7a66",
-          "c4374c0c18a06749287283d74f47606cde56de2c09c1f97e23cbd3de3a065889",
-          "a8c9759eb911e2da4557227a4af73529d9be669560515db16cab14be78cd1455",
-          "a0e034418c0076fcbb3798e8a722746ef5707165096a1d766c3087da7b85f429"
+          "a1903c8b27f61f3979ac205e96e97ab232245942babadcd0ee378b7f6d442f94",
+          "cc1189f29bf5ac18577377c79ff13cdd26752e48dd6ea1a010e48eb5f9108581",
+          "9484fec3bd4c2edc34cf72ec8ceb9dcae0d05dfb46d85c497672e450265f31b5",
+          "07f0677ba8e7220074702af204a050f0476a5cc018229f5a29a4aa9c312084bf",
+          "da0a69d59f92b59a5dc4deaa8e1228a31d0998fc5bcac07435eac35a0ea1ea13"
         ],
         [
           "b7dd6418c9fc0fe16777a94baba668994c9c381ff5e40ee5b38116752d9e34a3",
@@ -117498,11 +117498,11 @@
           "e4a37a60c350ece5e9537cc2af87b89f967eef1b07e05ba8c1e21fdaec730364"
         ],
         [
-          "5fce8b426aca049f279f095dbf16b0b4ee1018b283b965eee0b589f4d11f8966",
-          "3b78178815953b954b5ba484cdada371fe4376665041226e19a96ed6078bbd7c",
-          "9769d2aa8f472ddc97b1a9685e9723ae6af799fd78e7e4a3f77443cd2fa1c3a7",
-          "5df4b2741c7d0ee5721226b06812ac598e3e12e0701fedda44726b74450fc0ff",
-          "0a35afacb7e480dd97aad269b074961454340ae92dcd2b68712abc74b19c29c0"
+          "feebff4da144192283b609eb6f01bf1b3446f16e0e65ed4332d87ea98d7289b8",
+          "b22ea1072e724b276d72e2dcbfd92bc328fa7738ffe482b3aa50475e9da1697d",
+          "746ee0ddbe524186c13555fb9e63957439d44a7cc6242c9e1f35e0880a4ac47e",
+          "81b421af371ec9e9a84a1f2a5704290c2886bb00c4cafffba911256d63bf88bd",
+          "0ca77de8cfb08963c220f91006a0118a416114153cf6ea693e79ac2d7ecb027d"
         ],
         [
           "b0964b9c821d23b7cb411f2a1d51c419f7b8c9aa6b4ae242241782eda99a1dda",
@@ -117512,11 +117512,11 @@
           "5df7ddd6ba0fc98aa7ed1960f516027ca6d4dfed3ac99f7958d008faf9aa7c5a"
         ],
         [
-          "90100070bf0bd85656640307c3ee776bb6416acca907ada0917b323b685e3833",
-          "d2072305ab494517caa1ebd600bae5d2352b502c5b632824bddab824cded9677",
-          "f15ca88da31bff39868137511d893ab8a1547e3705e072a14d128504df4f3c4b",
-          "e21a3dba05e9de5d9af94137dedaf96d36ddb02d325ff3dde84d3162efb5b686",
-          "e7990ef1a8e8190e49be1c0102bda6f9fe880bc553784750297c89558c60e37c"
+          "6c6c083344e7a10b4a3d1f94527a8e8a4d5df06ccdb1c5616b45014c65d9e177",
+          "6ded913064a004c7a37424df5f9cf2933825e0181af3980a102b7b94b31104cf",
+          "6c77bb0088ddb02af8854b268a6f1734940debfc77715c08d0f560d6698ce571",
+          "1acf619ae1d2a1408926e03db1e98931984ee538abc7ba9b9f01672f742c9074",
+          "02523aab4aece75f664b7fb62cfa42b4decace89912d9489a1b501aea2b1483e"
         ],
         [
           "90a6eaab9fc7c787ba0163bae2b4eb73e735cc97528f4060d65e66a8d062eb4a",
@@ -117527,16 +117527,16 @@
         ]
       ],
       "element_hashes": [
-        "5ef3f1fadb4f5c9ec60ede1c8a279584fa0b32a32fe926bd6a33d8cae7b39926",
+        "992a79ca65eae181779702a0e5ea77dc70a0787566c9319f93d3ce7ed5df6818",
         "720f67756ab7c5310eee9819d42334f34033a006b6b3a10742507c966ecefe71",
-        "ba124eafc80783f6ab587008b51e210748d11d09b011a4bf5b8add0088aeac0a",
+        "e740ad4cbcd73d43a14e02c9dde75f9938098c15055c81407df8dc616c58a2d8",
         "205f54581e4c007f9f56d7eff23f5ce8ed46fe78f066cd969a9cf280ce61cbd0",
-        "0f65b981bb2c5d2e9f0bfc5f429b35cfa94b449507025f73ee2d23338ca5735c",
+        "09310f1b968e60c0435ab3cb0a80e2aeeb0a58c9bebb61943a24d30791914207",
         "f972fe8e8c263127a40140fc5be6ec7b562085665b03c2904ff3c9951e8a35d0",
-        "480706b89ca2ad03f2ed2c6c00c05bc46f8fd8508047ed3b3373557b4ee662dd",
+        "a4c9190726480a8e50d5fef7397e4cbe4b5d4687f8aca27e49494c75fc6e919e",
         "e5a2fb00f84d46405685c24cf37b594a558e83c7fa6efd2ef4b44b932ffd39fe"
       ],
-      "hash": "90f88b0b90eaa3df7a416c2022f1b958e5a91e8213ece58dbad99b743beba2dc",
+      "hash": "93c752ebb1bb8b603c8e7e12667f5752e622e1b4df7ad3da30177c7f80612e48",
       "kind": "array",
       "shape": [
         8
@@ -117804,7 +117804,7 @@
       "hash": "10d9af467d9de3123cc40d2ec353c2662b1f4b70646061f0fd7fcaa9e9be1a8c",
       "kind": "array",
       "mistakes": {
-        "43e7b44beeddba59f5534808762b6c1771eb9e121db4ce0b761619d23336abc7": "une boucle revient à son point de départ : chaque liste de sommets finit par A",
+        "7b6ba6bd9c8a59a2ca57d2812b0de680e5c03015b4cee151d8b2aa3407e93d4b": "une boucle revient à son point de départ : chaque liste de sommets finit par A",
         "f41de7c5d7ac606591068e1e2c5c12d6a78699d6ee32026388f9a6a23120c047": "le champ tournant est R(x, y) = (−y, x)"
       },
       "shape": [

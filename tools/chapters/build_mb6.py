@@ -107,7 +107,8 @@ PAPER = [
          '''decimals=1,
            mistakes={"la valeur de Shapley n'est pas un partage au prorata des besoins : moyenne les coûts marginaux sur "
                      "les six ordres": floats([F(needs_2()[-1] * b, sum(needs_2())) for b in needs_2()]),
-                     "un tronçon se partage entre les hameaux qui l'utilisent, c'est-à-dire ceux qui sont au-delà de lui":
+                     "un tronçon se partage entre les hameaux qu'il dessert : celui qui est à son bout et ceux qui sont plus "
+                     "loin":
                          floats([sum(F(SECTIONS_2[k], k + 1) for k in range(j, 3)) for j in range(3)]),
                      "la part d'un hameau dépend de ce qu'il ajoute au coût, pas seulement du nombre de hameaux":
                          floats([F(needs_2()[-1], 3)] * 3)}'''),
@@ -128,7 +129,7 @@ PAPER = [
          '''decimals=1,
            mistakes={"le surcoût du tronçon 2 ne concerne que les hameaux qui l'utilisent":
                          floats([x + F(8, 3) for x in shapley_0(cost_2, 3)]),
-                     "H3 utilise aussi le tronçon 2 : le surcoût se partage entre H2 et H3":
+                     "H3, plus loin que H2, utilise aussi le tronçon de H1 à H2":
                          floats([x + (8 if i == 1 else 0) for i, x in enumerate(shapley_0(cost_2, 3))])}'''),
     ]),
 
@@ -148,7 +149,8 @@ PAPER = [
         ("c", "a list of 2 numbers: the cross derivative of model 1, then of model 2",
          "floats([sp.diff(F1_3, p_3, e_3), sp.diff(F2_3, p_3, e_3)])",
          '''decimals=0,
-           mistakes={"dériver deux fois −(1/2)(p − e − 3)² par p puis par e donne +1 : la dérivée de −(p − e − 3) par e":
+           mistakes={"la dérivée croisée de −½(p − e − 3)² : dérive d'abord par p, puis dérive le résultat par e, sans "
+                     "perdre le signe de −e":
                          floats([sp.diff(F1_3, p_3, e_3), -sp.diff(F2_3, p_3, e_3)]),
                      "la dérivée croisée dérive une fois par p et une fois par e, pas deux fois par e":
                          floats([sp.diff(F1_3, e_3, 2), sp.diff(F2_3, e_3, 2)])}'''),
@@ -265,14 +267,15 @@ PAPER = [
          '''decimals=2,
            mistakes={"les coins alignés envoient la dernière case sur la dernière : le facteur est (h − 1)/(H − 1)":
                          floats([u * F(3, 6) for u in range(6)]),
-                     "le facteur est (h − 1)/(H − 1) = 2/5, pas (h − 1)/H": floats([u * F(2, 6) for u in range(6)])}'''),
+                     "le facteur des coins alignés est (h − 1)/(H − 1), pas (h − 1)/H : les centres des cases extrêmes "
+                     "des deux grilles se correspondent": floats([u * F(2, 6) for u in range(6)])}'''),
         ("f", "a list of 2 numbers (2 decimals): the cell (row 4, column 5), centres aligned, then corners aligned",
          "[bilinear_6(T_6, centre_6(4, 3, 6), centre_6(5, 4, 8)), bilinear_6(T_6, corner_6(4, 3, 6), corner_6(5, 4, 8))]",
          '''decimals=2,
            mistakes={"le voisin le plus proche reçoit le plus grand poids : (1 − t) a + t b, avec t la distance à a":
                          [bilinear_6(T_6, centre_6(4, 3, 6), centre_6(5, 4, 8), swapped=True),
                           bilinear_6(T_6, corner_6(4, 3, 6), corner_6(5, 4, 8), swapped=True)],
-                     "le facteur des colonnes est (w − 1)/(W − 1) = 3/7 ; celui des lignes, (h − 1)/(H − 1), ne sert "
+                     "le facteur des colonnes se calcule avec les nombres de colonnes, 4 et 8 ; celui des lignes ne sert "
                      "qu'aux lignes": [bilinear_6(T_6, centre_6(4, 3, 6), centre_6(5, 4, 8)),
                                        bilinear_6(T_6, corner_6(4, 3, 6), 5 * F(2, 5))]}'''),
     ]),
@@ -285,9 +288,8 @@ PAPER = [
          '''decimals=4,
            mistakes={"une pièce rejetée est défectueuse et détectée, ou bonne et rejetée à tort : ajoute les fausses "
                      "alertes": floats([TPR_7 * p for p in RATES_7]),
-                     "les fausses alertes ne touchent que les bonnes pièces : FPR × (1 − p_g)":
-                         floats([TPR_7 * p + FPR_7 for p in RATES_7]),
-                     "le taux de rejet dépend du contrôle, pas seulement du taux de défauts": floats(list(RATES_7))}'''),
+                     "le taux de détection pèse la part des pièces défectueuses, p_g, et le taux de fausses alertes "
+                     "celle des bonnes, 1 − p_g": floats([TPR_7 * (1 - p) + FPR_7 * p for p in RATES_7])}'''),
         ("b", "a number (4 decimals): the probability q", "floats(draw_7())",
          '''decimals=4,
            mistakes={"q est la probabilité de tirer A, le seuil qui détecte le moins, pas celle de tirer B":
@@ -306,8 +308,7 @@ PAPER = [
                          floats(weights_7(divided=False))}'''),
         ("e", "a list of 2 numbers (4 decimals): the weighted defect rate of each line", "floats(weighted_rates_7())",
          '''decimals=4,
-           mistakes={"le taux pondéré divise les défauts pondérés par le total pondéré de la ligne, pas par le total de "
-                     "toute l'usine": floats(weighted_rates_7(per_line=False)),
+           mistakes={"chaque case reçoit le poids de sa ligne et de son label": floats(weighted_rates_7(exchanged=True)),
                      "les taux pondérés pèsent chaque case par son poids : ce ne sont plus les taux bruts":
                          floats(list(RATES_7))}'''),
     ]),
@@ -333,7 +334,7 @@ PAPER = [
          "standard_error_11(times_a=4)",
          '''decimals=4,
            mistakes={"seul le terme du laboratoire A est divisé par 4 : l'erreur type de l'écart n'est pas divisée par 2":
-                         standard_error_11() / 2,
+                         round(standard_error_11(), 4) / 2,
                      "quadrupler l'effectif divise la variance de ce terme par 4, pas par 16": standard_error_11(times_a=16)}'''),
     ]),
 ]
@@ -455,9 +456,9 @@ def rain_given_3(v, slope=RHO_3 * SP_3 / SE_3):
     return MP_3 + slope * (v - ME_3)
 
 
-# MB6.4: from A = (1, 0) to B = (2, 1); F = grad(x² y² + 3x), G = (2y, 3x²); the staircase by (2, 0); the arc (1 + t, t²)
+# MB6.4: from A = (1, 0) to B = (2, 1); F = grad(x² y² + 5x), G = (2y, 3x²); the staircase by (2, 0); the arc (1 + t, t²)
 x_4, y_4, t_4 = sp.symbols("x y t", real=True)
-POTENTIAL_4 = x_4 ** 2 * y_4 ** 2 + 3 * x_4
+POTENTIAL_4 = x_4 ** 2 * y_4 ** 2 + 5 * x_4
 F_4 = (sp.diff(POTENTIAL_4, x_4), sp.diff(POTENTIAL_4, y_4))
 G_4 = (2 * y_4, 3 * x_4 ** 2)
 A_4, B_4, K_4 = (1, 0), (2, 1), (2, 0)
@@ -530,10 +531,10 @@ def bilinear_6(grid, u, v, swapped=False):
     return float((1 - s) * top + s * bottom)
 
 
-# MB6.7: the defect rates of the two lines; the control (detection 0.92, false alarms 0.04); the thresholds A and B of
+# MB6.7: the defect rates of the two lines; the control (detection 0.88, false alarms 0.04); the thresholds A and B of
 # line 2 as (false alarms, detection), the target 0.90; the table of counts (line, defect)
 RATES_7 = (F(6, 100), F(14, 100))
-TPR_7, FPR_7 = F(92, 100), F(4, 100)
+TPR_7, FPR_7 = F(88, 100), F(4, 100)
 THRESHOLD_A_7, THRESHOLD_B_7, TARGET_7 = (F(3, 100), F(74, 100)), (F(9, 100), F(96, 100)), F(90, 100)
 COUNTS_7 = {(1, 1): 78, (1, 0): 1300 - 78, (2, 1): 154, (2, 0): 1100 - 154}
 
@@ -556,11 +557,12 @@ def weights_7(within_line=False, divided=True):
     return out
 
 
-def weighted_rates_7(per_line=True):
-    """The weighted defect rate of each line (per_line=False: the weighted defects divided by the whole factory)."""
+def weighted_rates_7(exchanged=False):
+    """The weighted defect rate of each line (exchanged: the weights of each line applied to the counts of the other,
+    the classic error)."""
     w = dict(zip(((1, 1), (1, 0), (2, 1), (2, 0)), weights_7()))
-    total = sum(COUNTS_7.values())
-    return [w[g, 1] * COUNTS_7[g, 1] / ((w[g, 1] * COUNTS_7[g, 1] + w[g, 0] * COUNTS_7[g, 0]) if per_line else total)
+    return [w[3 - g if exchanged else g, 1] * COUNTS_7[g, 1]
+            / (w[3 - g if exchanged else g, 1] * COUNTS_7[g, 1] + w[3 - g if exchanged else g, 0] * COUNTS_7[g, 0])
             for g in (1, 2)]
 
 
@@ -834,10 +836,10 @@ FORCES_4 = MappingProxyType({"A": (1.0, 0.0), "B": (2.0, 1.0), "corner": (2.0, 0
 COST_5 = MappingProxyType({"r": (11.5, 680.0, 0.93), "x": (13.5, 590.0, 0.87)})   # MB6.5: (price $, quantity, €/$)
 GRID_6 = MappingProxyType({"T": frozen([[11.8, 9.4, 13.2, 10.8], [8.7, 12.5, 14.1, 9.9], [10.3, 7.6, 12.0, 11.4]]),
                            "a": frozen([[2, 1, 3, 1], [1, 2, 2, 1], [3, 1, 1, 2]])})   # MB6.6: °C, hundreds of ha
-LINES_7 = MappingProxyType({"defect_rates": (0.06, 0.14), "tpr": 0.92, "fpr": 0.04, "threshold_A": (0.03, 0.74),
+LINES_7 = MappingProxyType({"defect_rates": (0.06, 0.14), "tpr": 0.88, "fpr": 0.04, "threshold_A": (0.03, 0.74),
                             "threshold_B": (0.09, 0.96), "target": 0.90, "pieces": (1300, 1100),
                             "defective": (78, 154)})                      # MB6.7: thresholds as (fpr, tpr), line 2
-LABS_11 = MappingProxyType({"received": (900, 4000), "contaminated": (28, 520), "signalled": (20, 448)})   # MB6.11: A, B'''
+LABS_11 = MappingProxyType({"contaminated": (28, 520), "signalled": (20, 448)})   # MB6.11: A, B'''
 
 LOAD_LEARNER = ('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="MB6")  '
                 '# reload your saved file')
@@ -1105,7 +1107,7 @@ with checked("MB6.15"):
                 raise StopCheck
             got_c15 += value_c15.tolist()
         fields_ok_15[name_c15] = passes(HIDDEN_C15["id_" + name_c15], got_c15)
-    for name_c15, what_c15 in (("F_15", "le gradient de f(x, y) = x²y² + 3x"), ("G_15", "le champ G(x, y) = (2y, 3x²)")):
+    for name_c15, what_c15 in (("F_15", "le gradient de f(x, y) = x²y² + 5x"), ("G_15", "le champ G(x, y) = (2y, 3x²)")):
         print(f"✅ Ex MB6.15 : {name_c15}, en des points cachés : {what_c15}" if fields_ok_15[name_c15] else
               f"❌ Ex MB6.15 : {name_c15}, en des points cachés : ce n'est pas {what_c15} (MB6.4)")
 
@@ -1133,10 +1135,10 @@ MB6_15 = ex(
 
 Écris `line_integral(field, points, n_sub=20)` (fiche §4), en suivant sa docstring : contrôle les arguments (des points finis, deux dimensions, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. Lance le groupe de tests.
 
-**L'usage.** Écris d'abord `F_15(p)` et `G_15(p)`, les champs $\mathbf{F} = \nabla f$, $f(x, y) = x^2y^2 + 3x$, et $\mathbf{G}(x, y) = (2y, 3x^2)$ de MB6.4, en un point `p` $= (x, y)$ (la vérification les essaie en des points cachés). Puis, avec ta fonction et les points de `FORCES_4` (cellule de données) :
+**L'usage.** Écris d'abord `F_15(p)` et `G_15(p)`, les champs $\mathbf{F} = \nabla f = (2xy^2 + 5,\ 2x^2y)$, $f(x, y) = x^2y^2 + 5x$, et $\mathbf{G}(x, y) = (2y, 3x^2)$ de MB6.4, en un point `p` $= (x, y)$ (la vérification les essaie en des points cachés). Puis, avec ta fonction et les points de `FORCES_4` (cellule de données) :
 - a) $\mathbf{F}$ le long du segment $[AB]$, puis de l'escalier $A \to (2, 0) \to B$ (une liste de 2 nombres, à comparer à ta copie) ;
 - b) $\mathbf{G}$ le long des deux mêmes chemins (une liste de 2 nombres) ;
-- c) $\mathbf{G}$ le long de lignes brisées qui suivent l'arc $\boldsymbol\gamma(t) = (1 + t, t^2)$, avec 4, 16 et 64 segments de même pas en $t$ (une liste de 3 nombres).""",
+- c) $\mathbf{G}$ le long de lignes brisées qui suivent l'arc $\boldsymbol\gamma(t) = (1 + t, t^2)$, avec 4, 16 et 64 segments de même pas en $t$ (une liste de 3 nombres ; l'intégrale de $\mathbf{G}$ le long de l'arc vaut $\frac{55}{6}$).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `line_integral` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était "
@@ -1144,7 +1146,7 @@ MB6_15 = ex(
     + tests_cells("test_line_integral_") + [
         ("md", "**L'usage** : les deux forces de MB6.4, puis des cordes de plus en plus nombreuses le long d'un arc."),
         ("todo", '''def F_15(p):
-    """The field F of MB6.4, the gradient of f(x, y) = x² y² + 3x, at the point p = (x, y)."""
+    """The field F of MB6.4, the gradient of f(x, y) = x² y² + 5x, at the point p = (x, y)."""
     raise NotImplementedError("F_15 n'est pas encore écrite (04_indices.md si tu bloques)")
 
 
@@ -1160,9 +1162,9 @@ with wbm.attempt("MB6.15"):          # your fields and line_integral: ⏳ while 
     answer_MB6_15c = ...  # c) a list of 3 numbers, as computed: G along the polylines of 4, 16 and 64 segments on the arc'''),
         ("check", CHECK_15 + answers_check("MB6.15", "abc", hints={letter: "hint_15" for letter in "abc"})),
         ("solution", '''def F_15(p):
-    """The field F of MB6.4, the gradient of f(x, y) = x² y² + 3x, at the point p = (x, y)."""
+    """The field F of MB6.4, the gradient of f(x, y) = x² y² + 5x, at the point p = (x, y)."""
     x, y = p
-    return np.array([2 * x * y ** 2 + 3, 2 * x ** 2 * y])
+    return np.array([2 * x * y ** 2 + 5, 2 * x ** 2 * y])
 
 
 def G_15(p):
@@ -1182,7 +1184,7 @@ print("   écarts à 55/6 :", [float(f"{55 / 6 - value:.3g}") for value in answe
         ("record", '''import sympy as sp_15r
 
 x_15r, y_15r, t_15r = sp_15r.symbols("x y t", real=True)
-F_FIELD_15r = (2 * x_15r * y_15r ** 2 + 3, 2 * x_15r ** 2 * y_15r)
+F_FIELD_15r = (2 * x_15r * y_15r ** 2 + 5, 2 * x_15r ** 2 * y_15r)
 G_FIELD_15r = (2 * y_15r, 3 * x_15r ** 2)
 
 
@@ -1390,7 +1392,7 @@ def rotating_17r(vertices, sign=1):
 
 
 def potential_17r(x, y):
-    return F_17r(x) ** 2 * F_17r(y) ** 2 + 3 * F_17r(x)
+    return F_17r(x) ** 2 * F_17r(y) ** 2 + 5 * F_17r(x)
 
 
 loop_17r = triangle_17r + triangle_17r[:1]
@@ -2696,7 +2698,7 @@ def build_constants() -> dict:
     points15 = [(1.37, -0.62), (-0.83, 1.94), (2.41, 0.29), (0.56, -1.73)]
     for x, y in points15:
         assert not_dyadic([x, y])
-        for value in (2 * x * y * y + 3, 2 * x * x * y, 2 * y, 3 * x * x):
+        for value in (2 * x * y * y + 5, 2 * x * x * y, 2 * y, 3 * x * x):
             assert not near_limit(value), (x, y, value)
     out["__HIDDEN_C15__"] = literal({"points": points15, "id_F_15": "MB6.15d", "id_G_15": "MB6.15e"})
 
