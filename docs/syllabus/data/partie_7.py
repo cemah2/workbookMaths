@@ -383,7 +383,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB3", "dir": "mb3_rotations_attention", "hours": 13.7, "generation_sessions": 1, "mml": ["§3.9"],
+        "id": "MB3", "dir": "mb3_rotations_attention", "hours": 14.8, "generation_sessions": 1, "mml": ["§3.9"],
         "summary": "Les rotations et les moyennes pondérées dont se sert le Transformer de workbookIA B3, travaillées hors "
                    "réseau. D'abord les formules d'addition, démontrées par le produit scalaire de deux vecteurs unitaires "
                    "(M22 et M25a les tiraient d'une règle admise), et ce qu'elles disent des rotations du plan : R_α R_β = R_{α+β}, "
@@ -738,22 +738,22 @@ CHAPTERS = [
             ("MB3.R2", "🔁", 1, 6, "Le log-sum-exp et la softmax stable (M05a)", "§8", "E"),
             ("MB3.R3", "🔁", 1, 7, "Tempérer et tronquer une loi : p^{1/T} renormalisée, top-k et top-p comme lois "
              "conditionnelles (M28)", "§5 §6", "E"),
-            ("MB3.1", "✏️", 2, 25, "Un bras articulé à deux segments : la position de la pince en valeurs exactes par les "
+            ("MB3.1", "✏️", 2, 28, "Un bras articulé à deux segments : la position de la pince en valeurs exactes par les "
              "formules d'addition, les deux rotations enchaînées en une seule, et le retour par la rotation inverse",
              "§1 §2", "E"),
-            ("MB3.2", "✏️", 2, 25, "Rotations de Givens : deux rotations de l'espace qui ne commutent pas, deux rotations de "
+            ("MB3.2", "✏️", 2, 30, "Rotations de Givens : deux rotations de l'espace qui ne commutent pas, deux rotations de "
              "ℝ⁴ dans des plans disjoints qui commutent, leur matrice diagonale par blocs, et la même rotation après une "
              "permutation des coordonnées", "§3", "E"),
-            ("MB3.3", "✏️", 2, 20, "La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un "
+            ("MB3.3", "✏️", 2, 22, "La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un "
              "vent qui tourne comme une rotation de l'encodage, et la direction moyenne de trois relevés", "§4", "E"),
-            ("MB3.4", "✏️", 2, 27, "L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre "
+            ("MB3.4", "✏️", 2, 28, "L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre "
              "stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, "
              "et ses deux limites", "§5", "E"),
-            ("MB3.5", "✏️", 2, 15, "Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours "
+            ("MB3.5", "✏️", 2, 16, "Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours "
              "passés, puis la même quand un capteur tombe en panne un jour (un score −∞)", "§6", "E"),
-            ("MB3.6", "✏️", 2, 17, "La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le "
+            ("MB3.6", "✏️", 2, 22, "La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le "
              "poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ}", "§7", "E"),
-            ("MB3.7", "✏️", 2, 28, "La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus "
+            ("MB3.7", "✏️", 2, 30, "La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus "
              "par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux "
              "états calculés séparément", "§8", "E"),
             ("MB3.8", "∂", 2, 40, "Les formules d'addition par le produit scalaire de deux vecteurs unitaires ; puis "
@@ -764,38 +764,38 @@ CHAPTERS = [
             ("MB3.10", "∂", 2, 30, "La softmax en ligne est exacte : l'invariant de l'état après chaque bloc, par "
              "récurrence ; puis la fusion de deux états est associative et commutative, d'élément neutre (−∞, 0, 0)",
              "§8", "E"),
-            ("MB3.11", "🔗", 1, 20, "Pont : à normes égales, les poids d'un noyau gaussien sont une softmax des produits "
+            ("MB3.11", "🔗", 1, 22, "Pont : à normes égales, les poids d'un noyau gaussien sont une softmax des produits "
              "scalaires divisés par h² ; le vérifier sur quatre stations d'un même cercle, et lire 1/h² comme l'échelle "
              "des scores", "§5 §7", "E"),
-            ("MB3.12", "📖", 2, 35, "MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la "
+            ("MB3.12", "📖", 2, 40, "MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la "
              "rotation de Givens (3.80)–(3.81) et les propriétés du §3.9.4 ; R₂(θ) écrite comme une rotation de Givens, "
              "et deux rotations de l'espace qui ne commutent pas, sur un vecteur choisi", "§2 §3", ""),
             ("MB3.13", "🗣️", 1, 15, "Expliquer, avec une caisse tenue dans une monnaie qui change, pourquoi la softmax en "
              "ligne donne exactement le résultat du calcul en une fois", "§8", "E"),
             ("MB3.E1", "💼", 1, 10, "« Comment encoder une variable cyclique comme une heure ou une direction, et pourquoi "
              "pas par sa valeur ? »", "§4", "E"),
-            ("MB3.14", "🔨", 1, 20, "La matrice d'une rotation de Givens de ℝⁿ", "§3", "E m:givens_rotation"),
-            ("MB3.15", "🔨", 2, 40, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et "
+            ("MB3.14", "🔨", 1, 25, "La matrice d'une rotation de Givens de ℝⁿ", "§3", "E m:givens_rotation"),
+            ("MB3.15", "🔨", 2, 50, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et "
              "l'état après chaque bloc", "§8",
              "E m:online_softmax"),
-            ("MB3.16", "🔨", 2, 25, "La fusion de deux états de la softmax en ligne", "§8",
+            ("MB3.16", "🔨", 2, 30, "La fusion de deux états de la softmax en ligne", "§8",
              "E m:merge_softmax_states p:MB3.15"),
-            ("MB3.17", "🔮", 1, 25, "Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur "
+            ("MB3.17", "🔮", 1, 30, "Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur "
              "de bande est divisée ou multipliée par 10, puis tracer", "§5 §7", "E"),
             ("MB3.18", "🔬", 2, 30, "La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à "
              "l'échelle (les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à "
              "H_N − 1, et la mémoire gardée",
              "§8 §9", ""),
-            ("MB3.19", "🎨", 1, 25, "Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois "
+            ("MB3.19", "🎨", 1, 30, "Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois "
              "cercles, un décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart",
              "§4", "E"),
             ("MB3.20", "🐛", 1, 25, "Chasse à l'erreur : deux rotations de l'espace composées dans le mauvais ordre, une "
              "direction moyenne prise comme la moyenne des angles, une softmax en ligne qui remet l à l'échelle mais pas "
              "l'accumulateur", "§3 §4 §8", "E"),
-            ("MB3.21", "🛠️", 1, 30, "Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni "
+            ("MB3.21", "🛠️", 1, 35, "Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni "
              "d'une même permutation des scores et des valeurs, ni d'une constante ajoutée aux scores, et la fusion de "
              "trois états est associative", "§8", "p:MB3.15,MB3.16"),
-            ("MB3.22", "🏆", 3, 40, "Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage "
+            ("MB3.22", "🏆", 3, 45, "Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage "
              "cyclique de la direction du vent et du jour de l'année, la largeur de bande choisie par validation "
              "croisée « un de côté », sous une erreur quadratique moyenne donnée", "§4 §5", ""),
         ],

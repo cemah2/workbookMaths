@@ -1426,7 +1426,8 @@ def test_online_softmax_history_states_do_not_share_arrays(pos, pos_module):
 def test_online_softmax_does_not_modify_its_inputs(pos_module):
     """Float arrays (a division or a subtraction in place would show): scores with -inf and a maximum ≠ 0, values 1-D
     and 2-D."""
-    scores = np.array([1.6875, -np.inf, 3.125, -0.625, 2.25, -np.inf, 0.875])
+    # not dyadic: a subtraction in place undone afterwards (s -= m, then s += m) leaves a change of one ulp
+    scores = np.array([1.7, -np.inf, 3.1, -0.6, 2.3, -np.inf, 0.9])
     for values in (np.array([2.375, -1.0, 6.25, 0.75, -3.5, 1.375, 4.0]),
                    np.array([[1.625, -2.0], [0.25, 3.0], [-4.5, 1.0], [2.0, 2.75], [-0.375, -1.625], [3.25, 0.625],
                              [1.0, -3.0]])):
@@ -1436,7 +1437,10 @@ def test_online_softmax_does_not_modify_its_inputs(pos_module):
             got = _result(lambda: pos_module.online_softmax(scores, values, 2, history), "a state", what, ONLINE_HINT)
             assert np.array_equal(scores, copies[0]) and np.array_equal(values, copies[1]), (
                 f"expected scores and values unchanged by {what}, got scores = {_show(scores)}, values = "
-                f"{_show(values)} (never modify the arrays you receive: scores -= m, values *= … or "
+                f"{_show(values)} (largest change "
+                f"{float(np.max(np.abs(np.where(scores == copies[0], 0.0, scores - copies[0])))):.1e} in the scores, "
+                f"{float(np.max(np.abs(values - copies[1]))):.1e} in the values; never modify the arrays you receive: "
+                f"scores -= m, values *= … or "
                 f"scores[scores == -np.inf] = … write into them)")
             for state in (got if history else [got]):
                 acc = state[2] if isinstance(state, tuple) and len(state) == 3 else None
