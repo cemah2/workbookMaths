@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, calcul numérique.
 
 ```python
 import numpy as np
@@ -19,7 +19,7 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | la norme L2, L1, L∞ | `np.linalg.norm(v)`, `np.linalg.norm(v, 1)`, `np.linalg.norm(v, np.inf)` |
 | l'identité, des zéros | `np.eye(3)`, `np.zeros((2, 3))` |
 | une matrice diagonale | `np.diag([1, 2, 3])` |
-| un produit à plusieurs indices | `np.einsum("ij,jk->ik", A, B)` (le produit matriciel écrit avec ses indices) ; une lettre absente du résultat est sommée ; `"sij,sjk->sik"` multiplie des matrices empilées ; `optimize=True` et `np.linalg.multi_dot` choisissent l'ordre des produits (M20) |
+| un produit à plusieurs indices | `np.einsum("ij,jk->ik", A, B)` (le produit matriciel écrit avec ses indices) ; une lettre absente du résultat est sommée ; `"sij,sjk->sik"` multiplie des matrices empilées ; `optimize=True` et `np.linalg.multi_dot` choisissent l'ordre des produits (M20) ; `np.linalg.multi_dot([C, F, x])` calcule $\mathbf{C}\mathbf{F}\mathbf{x}$ sans former $\mathbf{C}\mathbf{F}$ quand c'est moins coûteux (MB4) |
 | la position d'un élément dans la file (ordre C), et l'inverse | `np.ravel_multi_index((2, 3, 5), (4, 7, 24))` → `413` ; `np.unravel_index(413, (4, 7, 24))` → `(2, 3, 5)` (M20) |
 | réordonner les axes d'un tableau | `x.transpose(2, 0, 1)`, `np.moveaxis(x, -1, 0)` ; jamais `reshape`, qui garde l'ordre de la file (M20) |
 | réduire en gardant les axes, puis diffuser | `m = x.mean(axis=(1, 2), keepdims=True)` ; `x - m` ; la variance : `((x - m) ** 2).sum(axis=(1, 2), keepdims=True) / (N - ddof)` (M20) |
@@ -45,7 +45,7 @@ rng = np.random.default_rng(42)          # toujours un générateur avec une gra
 | résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$ | `np.linalg.solve(A, b)` | toujours préférable à `inv(A) @ b` |
 | l'inverse | `np.linalg.inv(A)` | |
 | le déterminant | `np.linalg.det(A)` | valeur approchée : `1e-16` signifie « zéro » ; un déterminant petit ne veut pas dire « presque singulière » (M12c) |
-| le rang | `np.linalg.matrix_rank(A)` | le nombre de valeurs singulières au-dessus d'un seuil d'environ $10^{-16}\,s_{\max}\max(m, n)$ : un rang **numérique** (M12a, M12d) |
+| le rang | `np.linalg.matrix_rank(A)` | le nombre de valeurs singulières au-dessus d'un seuil d'environ $10^{-16}\,s_{\max}\max(m, n)$ : un rang **numérique** (M12a, M12d) ; avec un seuil absolu, `np.linalg.matrix_rank(A, tol=t)` compte les valeurs singulières au-dessus de `t` : on donne le seuil avec le rang (MB4) |
 | valeurs et vecteurs propres | `np.linalg.eig(A)` ; pour une matrice symétrique : `np.linalg.eigh(A)` ; les valeurs seules, en ordre croissant : `np.linalg.eigvalsh(A)` (elle ne lit qu'un triangle : la matrice doit être exactement symétrique, M19) ; les valeurs seules d'une matrice quelconque : `np.linalg.eigvals(A)` (M22) | les vecteurs propres sont les **colonnes** du résultat ; `eigh` rend des valeurs réelles par ordre **croissant** et des vecteurs orthonormés, `eig` peut rendre des complexes (une rotation) |
 | la SVD | `U, s, Vt = np.linalg.svd(A, full_matrices=False)` ; les valeurs seules : `np.linalg.svd(A, compute_uv=False)`, ou `np.linalg.svdvals(A)` (NumPy ≥ 2.0) | `A ≈ (U * s) @ Vt` ; `s` décroissant ; les $\mathbf{v}_i$ sont les **lignes** de `Vt` ; signes arbitraires (changer une ligne de `Vt` et la colonne de `U` ensemble) ; $\min(m, n)$ valeurs, nulles comprises |
 | l'approximation de rang $k$ | `(U[:, :k] * s[:k]) @ Vt[:k]` | la meilleure de rang $k$ (Eckart-Young) |
@@ -210,6 +210,19 @@ Des angles en radians ; des points `X` en lignes, de forme $(n, d)$ ; des scores
 | une moyenne exponentielle normalisée | `pd.Series(y).ewm(alpha=1 - lam, adjust=True).mean()` : au jour $t$, les poids $\lambda^{t - u}$ des jours $u \le t$, divisés par leur somme ; avec `adjust=False`, la récurrence $\hat y_t = \lambda\,\hat y_{t-1} + (1 - \lambda)\,y_t$ (R5) |
 
 Dans `mymath/positional.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, mais aucune SciPy (`scipy.special.softmax`, `scipy.special.logsumexp`, `scipy.spatial.transform.Rotation`) ni `np.logaddexp` : les tests comparent tes résultats aux leurs, et aux matrices de MML (3.76)–(3.81). Les indices des coordonnées partent de 0, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les formules de la rotation de Givens, de la mise à jour par un bloc et de la fusion de deux états sont dans la fiche (§3 et §8) et dans le formulaire ; les coder est le travail des 🔨 MB3.14, MB3.15 et MB3.16.
+
+## Rangs, classements et rapports de cotes (MB4)
+
+Une matrice `M` de forme $(m, n)$ ; les notes `t` d'un juge ; un tableau $2 \times 2$ de comptes `table`.
+
+| Je veux… | Code |
+|---|---|
+| une QR qui révèle le rang | `Q, R, P = scipy.linalg.qr(M, pivoting=True, mode="economic")` : `M[:, P]` vaut `Q @ R`, et les valeurs absolues de la diagonale de `R` décroissent ; celles qui dépassent une tolérance donnent un rang numérique, et `P` dit dans quel ordre les colonnes ont été prises (MB4 §1) |
+| les rangs de notes | `scipy.stats.rankdata(t)` donne le rang 1 à la **plus petite** note ; pour un juge dont la meilleure note est la plus haute : `scipy.stats.rankdata(-t)` ; deux notes égales reçoivent la moyenne des rangs en jeu (`method="average"`, par défaut ; `method="min"` leur donne le plus petit) ; chaque ligne d'un tableau : `axis=1` |
+| un rapport des cotes | `from scipy.stats.contingency import odds_ratio` ; `odds_ratio(table, kind="sample").statistic` vaut `table[0, 0] * table[1, 1] / (table[0, 1] * table[1, 0])` ; le réglage par défaut, `kind="conditional"`, donne une autre estimation ; `table` doit contenir des entiers (`ValueError` pour des flottants) : avec la correction ½, on calcule le rapport à la main |
+| un taux de succès@$k$ | `sklearn.metrics.top_k_accuracy_score(y_true, scores, k=k)` : la part des lignes de `scores` (une par question, une colonne par candidat) dont le candidat juste, `y_true`, est parmi les `k` plus grands scores ; à scores égaux, le candidat d'indice le plus grand passe d'abord |
+
+Dans `mymath/ranks.py`, la docstring du module dit ce qui est permis : NumPy (`@` compris), mais rien de `np.linalg` (ni `matrix_rank`, ni `svd`, ni `qr`…), ni SciPy (`scipy.linalg`, `scipy.stats.rankdata`), ni SymPy : les tests comparent tes résultats aux leurs ; dans `borda_scores`, ni `np.argsort` ni `np.lexsort` ; `random_ranking_mrr` calcule en `fractions.Fraction`, avec `math.comb`, sans énumérer les $n!$ ordres. Les candidats sont numérotés à partir de 0, un rang commence à 1, et une fonction ne modifie jamais les tableaux qu'elle reçoit. La factorisation CR, les points de Borda et la loi du premier pertinent sont dans la fiche (§1, §5 et §6) et dans le formulaire ; les coder est le travail des 🔨 MB4.8 et MB4.9.
 
 ## Calcul numérique
 
