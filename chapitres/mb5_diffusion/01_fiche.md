@@ -278,7 +278,7 @@ L'outil : dériver $p_Y(y) = \mathbb{E}_x\big[\mathcal{N}(y \mid ax, b^2)\big]$ 
 
 Tout ce qu'il faut savoir de la loi de $x$ pour débruiter $y$ est dans le score de la loi de $y$. Et **estimer le bruit, c'est estimer le score de la loi bruitée** : $\mathbb{E}[n \mid y] = -b\,s_Y(y)$.
 
-**Exemple.** Dans un concours, la note méritée d'une copie suit $x \sim \mathcal{N}(12, 9)$ ; le correcteur ajoute une erreur $2n$ ($a = 1$, $b = 2$). La note donnée $y = x + 2n$ suit $\mathcal{N}(12, 13)$, de score $s_Y(y) = -\frac{y - 12}{13}$. Pour une copie notée 18 : $\mathbb{E}[x \mid y = 18] = 18 + 4 \times\big(-\frac{6}{13}\big) \approx 16{,}15$, la valeur que donne le modèle linéaire gaussien de M25a §5, $12 + \frac{9}{13} \times 6$. Et $\mathbb{E}[n \mid y = 18] = \frac{12}{13} \approx 0{,}92$ : le correcteur a été, en moyenne, généreux de $\frac{24}{13} \approx 1{,}85$ point. Les meilleures notes sont trop belles en moyenne : c'est le biais du maximum de M26 §8, qu'Efron appelle biais de sélection (*selection bias* ; un autre sens que le biais de sélection d'un échantillon, M11), et qu'il corrige avec cette formule, en estimant $p_Y$ sur les notes elles-mêmes.
+**Exemple.** Dans une forêt, la hauteur vraie d'un épicéa suit $x \sim \mathcal{N}(12, 9)$ (en mètres) ; un relevé par drone ajoute une erreur $2n$ ($a = 1$, $b = 2$). La hauteur relevée $y = x + 2n$ suit $\mathcal{N}(12, 13)$, de score $s_Y(y) = -\frac{y - 12}{13}$. Pour un arbre relevé à 18 m : $\mathbb{E}[x \mid y = 18] = 18 + 4 \times\big(-\frac{6}{13}\big) \approx 16{,}15$ m, la valeur que donne le modèle linéaire gaussien de M25a §5, $12 + \frac{9}{13} \times 6$. Et $\mathbb{E}[n \mid y = 18] = \frac{12}{13} \approx 0{,}92$ : le relevé a été, en moyenne, trop grand de $\frac{24}{13} \approx 1{,}85$ m. Les arbres relevés les plus hauts sont en moyenne moins hauts qu'on ne l'a relevé : c'est le biais du maximum de M26 §8, qu'Efron appelle biais de sélection (*selection bias* ; un autre sens que le biais de sélection d'un échantillon, M11), et qu'il corrige avec cette formule, en estimant $p_Y$ sur les hauteurs relevées elles-mêmes.
 
 ### Le débruiteur optimal d'un mélange
 
@@ -287,7 +287,7 @@ D'après le §4, $\mathbb{E}[x \mid y]$ est le **débruiteur optimal** (*optimal
 2. **La composante est inconnue** : sa **responsabilité** (*responsibility*, M25b §3) est $r_k(y) \propto \pi_k\,\mathcal{N}(y \mid a\mu_k, a^2v_k + b^2)$, une softmax calculée en logarithmes (log-sum-exp, M05a §8).
 3. **L'espérance totale** (M25b §2) : $\mathbb{E}[x \mid y] = \sum_kr_k(y)\,\mathbb{E}[x \mid y, k]$.
 
-**Exemple.** Une classe a deux groupes d'élèves : $x \sim 0{,}6\,\mathcal{N}(8, 4) + 0{,}4\,\mathcal{N}(15, 1)$, avec le même correcteur ($a = 1$, $b = 2$). Pour $y = 12$ : sachant le groupe, $y$ suit $\mathcal{N}(8, 8)$ ou $\mathcal{N}(15, 5)$, et $\mathbb{E}[x \mid y, 1] = 8 + \frac{4 \times 4}{8} = 10$, $\mathbb{E}[x \mid y, 2] = 15 - \frac{3}{5} = 14{,}4$. Les logarithmes de $0{,}6\,\mathcal{N}(12 \mid 8, 8)$ et $0{,}4\,\mathcal{N}(12 \mid 15, 5)$ valent environ $-3{,}469$ et $-3{,}540$ : $r \approx (0{,}518 ;\ 0{,}482)$, et $\mathbb{E}[x \mid y = 12] \approx 0{,}518 \times 10 + 0{,}482 \times 14{,}4 \approx 12{,}12$. Le débruiteur hésite entre deux corrections de sens opposés.
+**Exemple.** Une parcelle mêle de jeunes et de vieux arbres : $x \sim 0{,}6\,\mathcal{N}(8, 4) + 0{,}4\,\mathcal{N}(15, 1)$, relevés par le même drone ($a = 1$, $b = 2$). Pour $y = 12$ : sachant le groupe, jeunes ou vieux arbres, $y$ suit $\mathcal{N}(8, 8)$ ou $\mathcal{N}(15, 5)$, et $\mathbb{E}[x \mid y, 1] = 8 + \frac{4 \times 4}{8} = 10$, $\mathbb{E}[x \mid y, 2] = 15 - \frac{3}{5} = 14{,}4$. Les logarithmes de $0{,}6\,\mathcal{N}(12 \mid 8, 8)$ et $0{,}4\,\mathcal{N}(12 \mid 15, 5)$ valent environ $-3{,}469$ et $-3{,}540$ : $r \approx (0{,}518 ;\ 0{,}482)$, et $\mathbb{E}[x \mid y = 12] \approx 0{,}518 \times 10 + 0{,}482 \times 14{,}4 \approx 12{,}12$. Le débruiteur hésite entre deux corrections de sens opposés.
 
 **Un nuage de points.** Une variance $v_k = 0$ est une masse au point $\mu_k$ : un nuage de points pondérés (une loi empirique) est un mélange. Alors $\mathbb{E}[x \mid y, k] = \mu_k$, et $\mathbb{E}[x \mid y] = \sum_kr_k(y)\,\mu_k$ avec $r_k \propto \pi_k\exp\big(-\frac{(y - a\mu_k)^2}{2b^2}\big)$ : pour $a \ne 0$, une moyenne des points pondérée par une softmax de scores $\ln\pi_k - \frac{a^2}{2b^2}\big(\mu_k - \frac ya\big)^2$, où plus un point est proche de $\frac ya$, plus il pèse, comme dans l'estimateur de Nadaraya-Watson de MB3 §5.
 
@@ -295,7 +295,7 @@ D'après le §4, $\mathbb{E}[x \mid y]$ est le **débruiteur optimal** (*optimal
 
 Le débruiteur optimal d'un nuage **recopie** ses points : il ne fabrique rien de nouveau. Pour les points 2, 5 et 9, de poids $0{,}2$, $0{,}5$ et $0{,}3$, avec $a = 1$ : pour $y = 4$, il tend vers 5 ; pour $y = 3{,}5$, à égale distance de 2 et de 5, vers $\frac{0{,}2 \times 2 + 0{,}5 \times 5}{0{,}7} \approx 4{,}14$.
 
-![À gauche, la densité du mélange des notes méritées et celle des notes données (plus étalée), avec le score de la seconde, qui s'annule en ses deux modes et au creux entre eux. Au milieu, le débruiteur optimal E[x | y] du mélange pour trois niveaux de bruit : plus le bruit est fort, plus il ramène vers les moyennes des groupes. À droite, le débruiteur du nuage 2, 5, 9 quand b diminue : il devient un escalier qui recopie les points, avec des marches en 3,5 et 7, où il vaut 4,14 et 6,5](figures/debruiteur.png)
+![À gauche, la densité du mélange des hauteurs vraies et celle des hauteurs relevées (plus étalée), avec le score de la seconde, qui s'annule en ses deux modes et au creux entre eux. Au milieu, le débruiteur optimal E[x | y] du mélange pour trois niveaux de bruit : plus le bruit est fort, plus il ramène vers les moyennes des groupes. À droite, le débruiteur du nuage 2, 5, 9 quand b diminue : il devient un escalier qui recopie les points, avec des marches en 3,5 et 7, où il vaut 4,14 et 6,5](figures/debruiteur.png)
 
 ### La dynamique de Langevin (aperçu)
 
@@ -394,7 +394,7 @@ Si $\lambda(w) > 0$, la loi guidée est $\mathcal{N}\big(\mu(w), \frac{1}{\lambd
 
 💻 **Aujourd'hui en pratique** — on ne normalise pas la loi guidée : pour en tirer des points (la dynamique de Langevin du §5), son score $(1 + w)\,s_c - w\,s_u$ suffit, et il ne demande que deux scores.
 
-⚠️ **Erreur classique.** Croire que la loi guidée existe pour tout $w$ ; extrapoler du mauvais côté (au-delà de $y_u$ au lieu de $y_c$) ; additionner des densités au lieu de leurs logarithmes (une combinaison de scores n'est pas un mélange).
+⚠️ **Erreur classique.** Croire que la loi guidée existe pour tout $w$ ; additionner des densités au lieu de leurs logarithmes (une combinaison de scores n'est pas un mélange).
 
 🔗 **Dans workbookIA** — le chapitre B5 combine, avec un poids $w$, deux prédictions d'un même réseau, avec et sans la classe demandée (la guidance sans classifieur, *classifier-free guidance*) : ce paragraphe dit quelle loi il vise.
 
@@ -488,7 +488,7 @@ chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x
 
 💻 **Aujourd'hui en pratique** — on apprend $v$ par une MSE sur des couples $(x_0, \varepsilon)$ tirés au hasard et des instants $s$, puis on suit $x' = v(x, s)$ de $s = 1$ à $s = 0$ par Euler ou par une méthode d'ordre plus élevé (§8).
 
-⚠️ **Erreur classique.** Croire que les trajectoires du champ moyen sont droites parce que chaque chemin l'est ; croire qu'un seul pas d'Euler suffit parce que chaque chemin a une vitesse constante (il rend $m$, pas la loi des données) ; oublier que la formule du SNR suppose une donnée de variance 1.
+⚠️ **Erreur classique.** Prendre les trajectoires de $x' = v(x, s)$ pour les chemins droits $x_s$ : pour des données $\mathcal{N}(m, \tau^2)$, ce sont les courbes $(1 - s)m + \sigma(s)z$, droites seulement si $\tau = 0$ ou $z = 0$ ; croire qu'un seul pas d'Euler depuis $s = 1$ transporte la loi (il rend $m$ pour tout départ) ; oublier que la formule du SNR suppose une donnée de variance 1.
 
 🔗 **Dans workbookIA** — le chapitre B5 apprend un champ de vitesses sur des images par une MSE, avec cette convention ($s = 0$ la donnée, $s = 1$ le bruit), et le suit par Euler avec quelques pas.
 
@@ -498,7 +498,7 @@ chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x
 - **Signal et bruit** : le SNR est un rapport de variances, $10\log_{10}$ en décibels ; l'erreur sur le signal est, en valeur absolue, celle sur le bruit divisée par $\sqrt{\operatorname{SNR}}$.
 - **Prédire** : la MSE apprend une moyenne conditionnelle, pas la valeur la plus probable ; trois sens du mot score ; des responsabilités avec la variance $a^2v_k + b^2$ de la mesure.
 - **ELBO et guidance** : on retire les KL, $q$ en premier ; une loi guidée n'existe que si sa précision est positive.
-- **Équations** : comparer à nombre d'évaluations égal ; le temps avance à chaque pas ; un pas d'Euler n'est exact, quel que soit le pas, que sur une trajectoire droite, et les trajectoires du champ moyen sont courbes.
+- **Équations** : comparer à nombre d'évaluations égal ; le temps avance à chaque pas ; un pas d'Euler n'est exact, quel que soit le pas, que sur une trajectoire droite, et, pour des données gaussiennes, les trajectoires du champ moyen sont courbes dès que $\tau > 0$.
 
 ## Et maintenant
 

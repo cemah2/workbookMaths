@@ -659,6 +659,12 @@ def check_answer(ex_id, value, hint=None):
     return result
 
 
+def library_hint(names):
+    """A hint for a wrong answer computed with the learner's library (no classic error recognised): its tests first."""
+    return lambda value: (f"cette valeur vient de {names} de ta librairie : ses tests passent-ils tous ? (relance-les "
+                          "plus haut)")
+
+
 def passes(ex_id, value):
     """True when value is the hidden answer ex_id (wbm.check, computed=True, nothing printed)."""
     try:
@@ -896,6 +902,13 @@ def ex(ex_id: str, goal: str, prereq: str, body: str, functions: str = "", **fie
     return Ex(ex_id, kind, stars, minutes, title, goal, prereq, body=body, tracks=tracks, **fields)
 
 
+HINTS_16 = {letter: 'library_hint("linear_gaussian_recursion")' for letter in "abc"}
+HINTS_17 = {letter: 'library_hint("posterior_mean_mixture")' for letter in "abc"}
+HINTS_18 = {letter: 'library_hint("euler_ode et midpoint_ode")' for letter in "abcd"}
+HINTS_19 = {letter: 'library_hint("euler_ode et midpoint_ode")' for letter in "bc"}
+HINTS_20 = {letter: 'library_hint("posterior_mean_mixture")' for letter in "def"}
+
+
 # ---------------------------------------------------------------------------
 # MB5.16 · linear_gaussian_recursion
 # ---------------------------------------------------------------------------
@@ -932,7 +945,7 @@ with wbm.attempt("MB5.16"):          # if you call linear_gaussian_recursion her
     answer_MB5_16a = ...  # a) a list of 2 numbers, as computed: the mean and the variance of x_3 (the lake of MB5.1)
     answer_MB5_16b = ...  # b) a list of 2 numbers, as computed: the mean and the variance of x_12 (A_16, B_16, the start)
     answer_MB5_16c = ...  # c) a list of 3 numbers, as computed: the mean and the variance of x_6, then v_inf'''),
-        ("check", answers_check("MB5.16", "abc")),
+        ("check", answers_check("MB5.16", "abc", hints=HINTS_16)),
         ("solution", '''linear_gaussian_recursion = mymath.gaussian_paths.linear_gaussian_recursion
 means_16, variances_16 = linear_gaussian_recursion([LAKE_1["a"]] * 3, [LAKE_1["b"]] * 3, mean0=LAKE_1["x0"])
 answer_MB5_16a = [float(means_16[3]), float(variances_16[3])]
@@ -961,7 +974,7 @@ wbm.record("MB5.16a", moments_16r([0.88] * 3, [0.35] * 3, 2.5), decimals=6,
            mistakes={"le départ connu x_0 = 2,5 se passe par mean0 (sinon, mean0 vaut 0)":
                          moments_16r([0.88] * 3, [0.35] * 3, 0)})
 weeks_a_16r, weeks_b_16r = __A_16__, __B_16__
-wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=6,
+wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=5,
            mistakes={"le départ n'est pas connu : sa variance 0,3 se transmet, passe var0=0.3":
                          moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0),
                      "le départ a la moyenne 1,5 : passe mean0=1.5": moments_16r(weeks_a_16r, weeks_b_16r, 0, 0.3)})
@@ -972,7 +985,7 @@ wbm.record("MB5.16c", six_16r + [limit_16r], decimals=6,
                          six_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.72") ** 2))],
                      "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)":
                          moments_16r([-0.72] * 6, [1.1] * 6, 0) + [limit_16r]})'''),
-        ("solution", answers_check("MB5.16", "abc")),
+        ("solution", answers_check("MB5.16", "abc", hints=HINTS_16)),
         look("pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue "
              "diminue-t-elle ? Par quel côté la variance approche-t-elle $v_\\infty$ ?"),
     ],
@@ -1011,7 +1024,7 @@ with wbm.attempt("MB5.17"):          # if you call posterior_mean_mixture here: 
     answer_MB5_17a = ...  # a) a number, as computed: E[x | y = 6] for the part A of MB5.5 (a mixture of one component)
     answer_MB5_17b = ...  # b) a number, as computed: E[x | y = 1.1] for the part B of MB5.5 (two points, weights 1/2)
     answer_MB5_17c = ...  # c) a list of 3 numbers, as computed: E[x | y] for y = -0.9, 0.3, 1.7 (the mixture of c)'''),
-        ("check", answers_check("MB5.17", "abc")),
+        ("check", answers_check("MB5.17", "abc", hints=HINTS_17)),
         ("solution", '''posterior_mean_mixture = mymath.gaussian_paths.posterior_mean_mixture
 answer_MB5_17a = float(posterior_mean_mixture(SIGNAL_5A["y"], SIGNAL_5A["a"], SIGNAL_5A["b"], [1.0], [SIGNAL_5A["m"]],
                                               [SIGNAL_5A["v"]]))
@@ -1061,7 +1074,7 @@ wbm.record("MB5.17c", [posterior_17r(y, 0.7, 0.5, *mixture_17r) for y in (-0.9, 
                      "les responsabilités comparent y à a μ_k, la moyenne de y sachant la composante (relance les tests "
                      "de posterior_mean_mixture)":
                          [posterior_17r(y, 0.7, 0.5, *mixture_17r, centre=False) for y in (-0.9, 0.3, 1.7)]})'''),
-        ("solution", answers_check("MB5.17", "abc")),
+        ("solution", answers_check("MB5.17", "abc", hints=HINTS_17)),
         look("pour $y = -0{,}9$, quelle composante l'emporte, malgré son petit poids, et pourquoi $\\mathbb{E}[x \\mid y]$ "
              "n'est-il pas $\\frac ya$ ? Que rend ta fonction pour $a = 0$ ?"),
     ],
@@ -1102,7 +1115,7 @@ with wbm.attempt("MB5.18"):          # if you call your functions here: ⏳ whil
     answer_MB5_18b = ...  # b) a number, as computed: the cup at 47 °C at 10 min, taken back to 5 min in ten Euler steps
     answer_MB5_18c = ...  # c) a list of 2 numbers, as computed: x(2) for x' = 3t², four steps, Euler then midpoint
     answer_MB5_18d = ...  # d) a list of 2 numbers, as computed: the errors at t = 3 (positive), Euler then midpoint'''),
-        ("check", answers_check("MB5.18", "abcd")),
+        ("check", answers_check("MB5.18", "abcd", hints=HINTS_18)),
         ("solution", '''euler_ode, midpoint_ode = mymath.gaussian_paths.euler_ode, mymath.gaussian_paths.midpoint_ode
 
 
@@ -1165,7 +1178,7 @@ wbm.record("MB5.18d", [abs(e) for e in signed_18r], decimals=6,
            mistakes={"une erreur se donne ici positive : la valeur absolue de l'écart à la solution exacte": signed_18r,
                      "la liste suit l'ordre de l'énoncé : Euler d'abord, puis le point milieu":
                          [abs(e) for e in signed_18r[::-1]]})'''),
-        ("solution", answers_check("MB5.18", "abcd")),
+        ("solution", answers_check("MB5.18", "abcd", hints=HINTS_18)),
         look("à quelle somme de M02a correspondent les deux valeurs de c), et pourquoi le point milieu n'y est-il pas "
              "exact ? De combien l'erreur de b) en dix pas est-elle plus petite que celle d'un seul pas, en MB5.8 e) ?"),
     ],
@@ -1197,7 +1210,7 @@ with wbm.attempt("MB5.19"):          # solve_ivp, then your euler_ode and midpoi
     answer_MB5_19b = ...  # b) two lists of 6 numbers, as computed: the errors at t = 8 of euler_ode, then of midpoint_ode, for N = 8 to 256
     answer_MB5_19c = ...  # c) a list of 2 numbers, as computed: the slopes fitted on N = 32 to 256, Euler then midpoint
     # and your figure: the errors of b) against N, in logarithmic scales''',
-    check=answers_check("MB5.19", "abc"),
+    check=answers_check("MB5.19", "abc", hints=HINTS_19),
     solution='''from scipy.integrate import solve_ivp
 
 
@@ -1249,7 +1262,7 @@ wbm.record("MB5.19a", exact_19r, decimals=6,
 sizes_19r = [8, 16, 32, 64, 128, 256]
 signed_19r = [[final_19r(n, midpoint) - exact_19r for n in sizes_19r] for midpoint in (False, True)]
 errors_19r = [[abs(e) for e in row] for row in signed_19r]
-wbm.record("MB5.19b", errors_19r, decimals=6,
+wbm.record("MB5.19b", errors_19r, decimals=8,
            mistakes={"une erreur se donne ici positive : la valeur absolue de l'écart à la solution exacte": signed_19r,
                      "les deux listes suivent l'ordre de l'énoncé : Euler d'abord, puis le point milieu":
                          errors_19r[::-1]})
@@ -1261,7 +1274,7 @@ wbm.record("MB5.19c", slopes_19r, decimals=2,
                      "les pentes sont celles de ln(erreur) contre ln N : l'erreur diminue quand N grandit":
                          [-s for s in slopes_19r]})''',
     after=[
-        ("solution", answers_check("MB5.19", "abc")),
+        ("solution", answers_check("MB5.19", "abc", hints=HINTS_19)),
         look("pourquoi ajuster les pentes sur les grands $N$ seulement ? À nombre d'évaluations égal, quelle méthode "
              "gagne, et de combien ?"),
     ],
@@ -1324,7 +1337,7 @@ with wbm.attempt("MB5.20"):          # your posterior_mean_mixture: ⏳ while it
     answer_MB5_20d = ...  # d) a list of 5 numbers, as computed: E[x | y = 1] for b = 1, 0.3, 0.1, 0.03, 0.01
     answer_MB5_20e = ...  # e) a list of 5 numbers, as computed: E[x | y = 1.475] for the same b
     answer_MB5_20f = ...  # f) a number, as computed: E[x | y = 1] for b = 50'''),
-        ("check", guarded(answers_check("MB5.20", "def"), [f"prediction_MB5_20{letter}" for letter in "abc"],
+        ("check", guarded(answers_check("MB5.20", "def", hints=HINTS_20), [f"prediction_MB5_20{letter}" for letter in "abc"],
                           "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
         ("solution", '''posterior_mean_mixture = mymath.gaussian_paths.posterior_mean_mixture
 noises_20 = [1.0, 0.3, 0.1, 0.03, 0.01]
@@ -1347,7 +1360,7 @@ wbm.record("MB5.20e", [limit_20r(1.475, b) for b in noises_20r], decimals=6,
                          [limit_20r(1.475, b) for b in noises_20r[::-1]]})
 wbm.record("MB5.20f", limit_20r(1.0, 50.0), decimals=6,
            mistakes={"f) passe la mesure y = 1 elle-même : la fonction divise par a, pas toi": limit_20r(2.0, 50.0)})'''),
-        ("solution", answers_check("MB5.20", "def")),
+        ("solution", answers_check("MB5.20", "def", hints=HINTS_20)),
         look("à partir de quel $b$ le débruiteur rend-il presque exactement un relevé ? Pourquoi ne rend-il jamais 2, la "
              "valeur $\\frac ya$ ? Qu'est-ce qu'un débruiteur optimal fabrique de nouveau à partir d'un nuage de points ?",
              " (après l'expérience)"),
@@ -1372,7 +1385,7 @@ with checked("MB5.21"):
     elif any(g is None or g.shape != np.shape(p) for g, (_, p) in zip(got_c21, HIDDEN_C21["calls"])):
         report_21(False, "", "field_21 rend un tableau de la forme de x (euler_ode lui passe un tableau de points)")
     else:
-        report_21(passes(HIDDEN_C21["id"], [g.tolist() for g in got_c21]),
+        report_21(passes(HIDDEN_C21["id"], [v for g in got_c21 for v in g.tolist()]),
                   "field_21 en des points cachés (d'autres instants, d'autres points) : le champ moyen exact",
                   "field_21 en des points cachés : ce n'est pas le champ moyen v(x, s) = (x − E[x_0 | x_s = x])/s du chemin "
                   "droit x_s = (1 − s) x_0 + s ε vers N(4 ; 0,25) (fiche §9) ; essaie-la en s = 1, où elle vaut x − 4 "
@@ -1382,8 +1395,10 @@ field_ok_21 = bool(results_21) and all(results_21)
 
 
 def hint_21(value):
-    """A targeted hint for a) and b): field_21 first."""
-    return None if field_ok_21 else "les écarts-types se calculent avec field_21 : corrige-la d'abord (ligne ❌ ci-dessus)"
+    """A targeted hint for a) and b): field_21 first, then the library."""
+    if not field_ok_21:
+        return "les écarts-types se calculent avec field_21 : corrige-la d'abord (ligne ❌ ci-dessus)"
+    return library_hint("euler_ode et midpoint_ode")(value)
 
 
 '''
@@ -1464,7 +1479,7 @@ def slope_21r(n, midpoint):
 
 spread_21r = float(np.std(Z_21))                     # the points reached are a + slope z: np.std is |slope| np.std(z)
 sds_21r = [[abs(float(slope_21r(n, midpoint))) * spread_21r for n in (1, 2, 4, 8, 16, 32)] for midpoint in (False, True)]
-wbm.record("MB5.21a", sds_21r, decimals=6,
+wbm.record("MB5.21a", sds_21r, decimals=7,
            mistakes={"les deux listes suivent l'ordre de l'énoncé : Euler d'abord, puis le point milieu": sds_21r[::-1]})
 wbm.record("MB5.21b", float(np.std(4 + 0.5 * Z_21)), decimals=6,
            mistakes={"b) se mesure sur l'échantillon 4 + 0,5 Z_21, avec np.std : Z_21 n'a pas exactement la dispersion 1":
@@ -1477,7 +1492,7 @@ def field_21r(s, x):
     return [float(alpha) + float(beta) * v for v in x]
 
 
-wbm.record(HIDDEN_21r["id"], [field_21r(s, x) for s, x in HIDDEN_21r["calls"]], decimals=6)''',
+wbm.record(HIDDEN_21r["id"], [v for s, x in HIDDEN_21r["calls"] for v in field_21r(s, x)], decimals=6)''',
     after=[
         ("solution", CHECK_21 + answers_check("MB5.21", "ab", hints={"a": "hint_21", "b": "hint_21"})),
         look("pourquoi la moyenne des points (`np.mean`) est-elle juste dès un seul pas, et l'écart-type pas ? Par combien "
@@ -1727,7 +1742,7 @@ weights_22r = (0.25, 1.75, 3.5)
 right_22r = [moments_22r(density_22r(grid_22r, w)) for w in weights_22r]
 swapped_22r = [moments_22r(density_22r(grid_22r, w, swap=True)) for w in weights_22r]
 raw_22r = [moments_22r(density_22r(grid_22r, w, normalise=False)) for w in weights_22r]
-wbm.record("MB5.22a", [m[0] for m in right_22r], decimals=6,
+wbm.record("MB5.22a", [m[0] for m in right_22r], decimals=7,
            mistakes={"la puissance 1 + w va sur p_c, et −w sur p_u": [m[0] for m in swapped_22r],
                      "la densité se normalise : divise-la par np.trapezoid(d, xs) avant les moments":
                          [m[0] for m in raw_22r]})
@@ -2152,10 +2167,12 @@ WRONG_C24 = [   # a hidden wrong method, the test that must refuse it, and the c
                                                "défaut rtol = 1e-5)"),
     (slightly_off_c24, "affine_is_exact_24", "d'environ 10⁻⁶ : la tolérance de l'énoncé est 10⁻⁹ (np.allclose a par "
                                              "défaut rtol = 1e-5)"),
-    (frozen_time_c24, "error_halves_24", "pour un champ qui dépend du temps (elle lit le champ en t_0) : ton champ doit "
-                                         "dépendre de t"),
-    (frozen_point_c24, "error_halves_24", "pour un champ qui dépend de x (elle lit le champ au point de départ) : ton "
-                                          "champ doit dépendre de x"),
+    (frozen_time_c24, "error_halves_24", "pour un champ qui dépend du temps (elle lit le champ en t_0, et son erreur ne "
+                                         "tend pas vers 0) : ton champ dépend-il de t, et ton test exige-t-il un rapport "
+                                         "entre 1,8 et 2,2 ?"),
+    (frozen_point_c24, "error_halves_24", "pour un champ qui dépend de x (elle lit le champ au point de départ, et son "
+                                          "erreur ne tend pas vers 0) : ton champ dépend-il de x, et ton test exige-t-il "
+                                          "un rapport entre 1,8 et 2,2 ?"),
     (halfway_c24, "error_halves_24", "partout : son erreur au temps final ne tend pas vers 0 ; le rapport des erreurs "
                                      "doit être entre 1,8 et 2,2, pas seulement plus grand que 1"),
 ]
@@ -2308,3 +2325,592 @@ PART_C = Part("C", "Déboguer, tester",
               "Fiche §2, §5 et §8. Trois erreurs classiques, qui passent une vérification mal choisie ; trois tests de "
               "propriété d'une méthode d'intégration. Les méthodes cachées s'appuient sur la référence (`ref_gp`), pour ne "
               "pas dépendre de ton code.", exercises=[MB5_23, MB5_24])
+
+# ---------------------------------------------------------------------------
+# Notebook exercise: the challenge (MB5.25)
+# ---------------------------------------------------------------------------
+GIVEN_25 = '''# The two-bump law of the challenge: the weights, the means and the variances of a mixture of two Gaussians
+MIX_25 = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+Z_25 = frozen(np.random.default_rng(7725).normal(size=20_000))      # 20 000 draws of N(0, 1): the points at s = 1
+_rng_25 = np.random.default_rng(7726)                                # 200 000 draws of MIX_25
+_bump_25 = _rng_25.choice(2, size=200_000, p=MIX_25[0])
+TARGET_25 = frozen(np.array(MIX_25[1])[_bump_25] + np.sqrt(np.array(MIX_25[2]))[_bump_25] * _rng_25.normal(size=200_000))
+del _rng_25, _bump_25'''
+
+CHECK_25 = """FIELD_CASES_C25 = __FIELD_CASES_C25__   # hidden points, times and mixtures for field_25, and the sub-ID expected
+
+
+def check_c25():
+    \"\"\"The check of MB5.25, in a function. The hidden laws live in another process (the hidden module run as a script):
+    it answers each call of the field, counts the calls, and measures the points reached only once transport_25 has
+    seen all the laws; neither a hidden law nor what makes it (a seed, a kind) lives in this process while the learner's
+    function runs. Each call runs under code_from: the learner's function may not run code of the hidden module.\"\"\"
+    import json
+    import subprocess
+    import sys
+    from scipy.stats import wasserstein_distance
+    hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb5_25.py"   # reading it spoils the challenge
+    twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
+    results = []
+    report = reporter(results, stop=False)
+
+    # a) field_25 at hidden points (other times, other mixtures)
+    got = []
+    for case_points, case_s, case_parts in FIELD_CASES_C25["cases"]:
+        x = np.array(case_points)                               # non-dyadic floats: a change in place would show
+        out = as_floats(call_safely("Ex MB5.25 : field_25 (appel caché)", field_25, x, case_s, *case_parts))
+        if not np.array_equal(x, np.array(case_points)):
+            print("❌ Ex MB5.25 : field_25 modifie le tableau x reçu : calcule sur une copie")
+            raise StopCheck
+        if out is None or out.shape != x.shape:
+            print(f"❌ Ex MB5.25 : field_25 rend un tableau de la forme de x, reçu {shown(out)}")
+            raise StopCheck
+        got += out.tolist()
+    field_ok = passes(FIELD_CASES_C25["id"], got)
+    report(field_ok, "Ex MB5.25a : field_25 en des points cachés (d'autres instants, d'autres mélanges)",
+           "Ex MB5.25a : field_25 en des points cachés : ce n'est pas le champ moyen v(x, s) = (x − E[x_0 | x_s = x])/s, "
+           "avec le débruiteur posterior_mean_mixture de gains a = 1 − s et b = s (fiche §9) ; si c'est bien ce que tu "
+           "calcules, les tests de ta posterior_mean_mixture passent-ils tous ?")
+
+    def exactly(stream, size):
+        data = stream.read(size)
+        if len(data) != size:
+            raise OSError("échange interrompu")
+        return data
+
+    def transport(label, field, z):
+        \"\"\"transport_25(field, z) under code_from: the points reached, as a float array of the shape of z.\"\"\"
+        with code_from([hidden_file], twins=twins, escapes=True) as seen:
+            out = call_safely(label, transport_25, field, z.copy())
+        if seen and seen[0].startswith("lance "):
+            print(f"❌ {label} : transport_25 {seen[0].replace(' : ', ' (', 1)}) : le transport se calcule dans ta "
+                  "fonction ; ce qu'exécute un autre processus échappe à la vérification")
+            raise StopCheck
+        if seen:
+            what = "lit" if seen[0].startswith("ouvre ") else "exécute du code de"
+            where = "" if seen[0].startswith("ouvre ") else f" ({seen[0]})"
+            print(f"❌ {label} : transport_25 {what} solutions/challenges/mb5_25.py{where}, la partie cachée du défi, ou "
+                  "une copie de son code : la vérification mesurerait sa méthode, pas la tienne")
+            raise StopCheck
+        points = as_floats(out)
+        if points is None or points.shape != z.shape:
+            print(f"❌ {label} : transport_25 rend un tableau de {z.size} points, un par point de z, reçu {shown(out)}")
+            raise StopCheck
+        return points
+
+    server = subprocess.Popen([sys.executable, "-I", str(hidden_file), "--serve"], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)   # this kernel's Python, here or on Colab
+    try:
+        count = json.loads(exactly(server.stdout, 1) + server.stdout.readline())["count"]
+
+        def field_of(k):
+            \"\"\"The field v(x, s) of the law k, computed by the other process (each call is counted there).\"\"\"
+            def field(x, s):
+                if isinstance(s, (bool, np.bool_)) or np.ndim(s) != 0 or not 0 < float(s) <= 1:
+                    raise ValueError(f"le champ prend un instant s de ]0, 1] (un nombre), reçu {shown(s)}")
+                x = np.asarray(x, dtype=float)
+                flat = np.ascontiguousarray(x.ravel(), dtype="<f8")
+                server.stdin.write(f"F {k} {float(s)!r} {flat.size}\\n".encode() + flat.tobytes())
+                server.stdin.flush()
+                return np.frombuffer(exactly(server.stdout, 8 * flat.size), dtype="<f8").reshape(x.shape).copy()
+            return field
+
+        def send(k, points):
+            flat = np.ascontiguousarray(points.ravel(), dtype="<f8")
+            server.stdin.write(f"R {k} {flat.size}\\n".encode() + flat.tobytes())
+            server.stdin.flush()
+
+        mine = transport("Ex MB5.25 : transport_25 (le mélange du notebook)", field_of(count - 1), np.array(Z_25))
+        send(count - 1, mine)
+        rng = np.random.default_rng()                           # new noise points at each run
+        for k in range(count - 1):
+            send(k, transport(f"Ex MB5.25 : transport_25 (loi cachée {k + 1})", field_of(k), rng.normal(size=20_000)))
+        server.stdin.write(b"verdict\\n")                       # only now: the measures, the kinds and the counts
+        server.stdin.flush()
+        laws = json.loads(exactly(server.stdout, 1) + server.stdout.readline())
+        assert len(laws) == count
+    except (OSError, ValueError, KeyError, TypeError, AssertionError) as exc:
+        print("❌ Ex MB5.25 : la vérification n'a pas pu échanger les points et les champs avec le processus qui tire les "
+              f"lois cachées ({type(exc).__name__} ; ta fonction a-t-elle touché à ce processus ?) : exécute à nouveau la "
+              "cellule")
+        raise StopCheck from None
+    finally:                                                    # always, even on an error or an interruption
+        if server.poll() is None:
+            server.kill()
+        server.wait()
+        for pipe in (server.stdin, server.stdout):
+            try:
+                pipe.close()
+            except OSError:                                     # a pipe already broken
+                pass
+
+    advice = (" : avec ce budget, ta méthode ne suit pas les trajectoires d'assez près ; la fiche §8 dit quelle méthode "
+              "est la plus précise à nombre d'évaluations égal")
+    notebook, hidden = laws[-1], laws[:-1]
+    if notebook["rel"] is None:
+        report(False, "", "le mélange du notebook : transport_25 rend des points qui ne sont pas tous finis")
+    else:
+        report(notebook["rel"] <= 0.07 and notebook["calls"] <= 8,
+               f"le mélange du notebook : W₁ = {fr(notebook['rel'], 3)} fois l'écart-type, en {notebook['calls']} appels "
+               "du champ", "le mélange du notebook : " + " et ".join(
+                   ([f"{notebook['calls']} appels du champ, plus que 8"] if notebook["calls"] > 8 else [])
+                   + ([f"W₁ = {fr(notebook['rel'], 3)} fois l'écart-type, au-dessus de 0,07" + advice]
+                      if notebook["rel"] > 0.07 else [])))
+    for number in sorted({law["series"] for law in hidden}):        # what each hidden law measured (no verdict)
+        series = [law for law in hidden if law["series"] == number]
+        print(f"   série {number} : " + " ; ".join(
+            f"« {law['kind']} » {'non finis' if law['rel'] is None else fr(law['rel'], 3)} ({law['calls']} appels)"
+            for law in series))
+    over = [law for law in hidden if law["calls"] > 8]
+    broken = [law for law in hidden if law["rel"] is None]
+    report(not over and not broken, f"les {len(hidden)} lois cachées : huit appels du champ au plus pour chacune, des "
+           "points finis", f"les {len(hidden)} lois cachées : " + " ; ".join(
+               ([f"{len(over)} lois avec plus de 8 appels du champ (jusqu'à {max(law['calls'] for law in over)})"]
+                if over else []) + ([f"{len(broken)} lois avec des points qui ne sont pas tous finis"] if broken else [])))
+    mean = float(np.mean([law["rel"] for law in hidden])) if not broken else math.inf
+    tuned = (" ; elle réussit pourtant le mélange du notebook : se règle-t-elle sur MIX_25 au lieu de suivre field ?"
+             if notebook["rel"] is not None and notebook["rel"] <= 0.07 and mean > 0.07 else "")
+    report(mean <= 0.07, f"les {len(hidden)} lois cachées : W₁ moyen = {fr(mean, 3)} fois l'écart-type, au plus 0,07",
+           f"les {len(hidden)} lois cachées : W₁ moyen = {fr(mean, 3)} fois l'écart-type, au-dessus de 0,07" + advice
+           + tuned if math.isfinite(mean) else f"les {len(hidden)} lois cachées : W₁ ne se mesure pas sur des points non finis")
+    criterion = all(results) and len(results) == 4               # field_25, the notebook, the budget, the mean
+
+    # b) and c): the two Euler distances (hidden sub-ID), the third and the count recomputed with your function
+    if not filled(answer_MB5_25b):
+        print("⏳ Ex MB5.25b : pas encore fait.")
+    else:
+        mine_b = as_floats(answer_MB5_25b)
+        if mine_b is None or mine_b.shape != (3,):
+            report(False, "", f"Ex MB5.25b : une liste de 3 nombres, reçu {shown(answer_MB5_25b)}")
+        else:
+            report(passes(FIELD_CASES_C25["id_b"], mine_b[:2].tolist()),
+                   "Ex MB5.25b : les distances d'un pas et de huit pas d'Euler",
+                   "Ex MB5.25b : les deux premières distances ne sont pas celles d'un pas, puis de huit pas égaux de "
+                   "euler_ode, de s = 1 à s = 0, depuis Z_25, avec ton field_25 pour MIX_25"
+                   + ("" if field_ok else " (corrige d'abord field_25)"))
+            again = float(wasserstein_distance(mine, TARGET_25))
+            report(math.isclose(float(mine_b[2]), again, rel_tol=1e-6, abs_tol=1e-9),
+                   "Ex MB5.25b : la troisième distance est celle des points de ta fonction",
+                   "Ex MB5.25b : la troisième distance n'est pas celle des points que rend transport_25 maintenant, avec "
+                   "le champ exact (la vérification la recalcule) : exécute à nouveau ta cellule"
+                   + ("" if field_ok else " (et corrige d'abord field_25)"))
+    if not filled(answer_MB5_25c):
+        print("⏳ Ex MB5.25c : pas encore fait.")
+    else:
+        report(isinstance(answer_MB5_25c, (int, np.integer)) and not isinstance(answer_MB5_25c, (bool, np.bool_))
+               and int(answer_MB5_25c) == notebook["calls"], "Ex MB5.25c : le nombre d'appels de ta fonction",
+               "Ex MB5.25c : ta réponse n'est pas le nombre d'appels de field que fait transport_25 sur le mélange du "
+               "notebook (un entier ; la vérification les compte)")
+    verdict("MB5.25", criterion, "critère atteint : en huit appels du champ au plus, W₁ au plus 0,07 fois l'écart-type "
+            "pour le mélange du notebook, et en moyenne pour les quinze lois cachées.",
+            "critère pas encore atteint : relis les lignes ❌ ci-dessus.")
+
+
+with checked("MB5.25"):
+    check_c25()"""
+
+NOTE_25 = (r"`field_25` : `(x - posterior_mean_mixture(x, 1 - s, s, weights, means, variances)) / s`. `transport_25` : la "
+           r"méthode du point milieu avec quatre pas égaux de $s = 1$ à $s = 0$ (huit appels). b) Un pas d'Euler : "
+           r"$W_1 \approx 1{,}744$ ; huit pas d'Euler : $\approx 0{,}171$ ($0{,}092$ fois l'écart-type $1{,}86$ du "
+           r"mélange) ; le point milieu : $\approx 0{,}033$. c) 8. Le piège : huit pas d'Euler semblent le meilleur usage "
+           r"du budget, mais l'erreur d'Euler n'est que d'ordre 1 ; quatre pas du point milieu, d'ordre 2, font bien "
+           r"mieux pour le même nombre d'évaluations (la fiche §8).")
+
+MB5_25 = ex(
+    "MB5.25", "transporter un bruit vers une loi à deux bosses par son champ moyen exact, avec un budget d'évaluations du "
+    "champ, et le vérifier sur des lois cachées.", "fiche §8 et §9 ; M27 (distance de Wasserstein) ; Ex MB5.17, MB5.21",
+    note=NOTE_25, given=GIVEN_25,
+    body=r"""Le notebook fournit `MIX_25`, une loi à deux bosses (les poids, les moyennes et les variances d'un mélange de deux gaussiennes de dimension 1), `Z_25`, 20 000 tirages de $\mathcal{N}(0, 1)$, et `TARGET_25`, 200 000 tirages de `MIX_25`.
+- a) Écris `field_25(x, s, weights, means, variances)`, le champ moyen exact $v(x, s)$ du chemin droit vers ce mélange, avec `posterior_mean_mixture` (pour $0 < s \le 1$ ; `x` est un tableau de points).
+- Puis écris `transport_25(field, z)` : depuis les points `z` (en $s = 1$), suis $x' = v(x, s)$ jusqu'en $s = 0$, en appelant `field(x, s)` **au plus huit fois** (un appel sur un tableau entier compte pour un ; `field` prend le point d'abord, puis l'instant), et rends les points atteints. Ta fonction ne connaît le mélange que par `field` ; tout NumPy et SciPy sont permis.
+
+**Critère de réussite :** avec au plus huit appels du champ pour chaque loi, la distance de Wasserstein $W_1$ (M27) entre tes points et la loi à deux bosses, divisée par l'écart-type de cette loi, est au plus $0{,}07$ pour `MIX_25`, et au plus $0{,}07$ en moyenne pour trois séries de cinq lois cachées, tirées à nouveau à chaque exécution (la moyenne des quinze rapports) ; chaque série a une loi de chacun de ces cinq types : facile ; deux bosses très étroites ; une bosse légère d'une autre largeur ; deux bosses plus écartées que le bruit n'est large ; deux bosses qui se chevauchent. La vérification passe à `transport_25` un `field` qu'elle calcule elle-même, et compte ses appels. Ta fonction ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb5_25.py`) : la vérification le contrôle. Relève :
+- b) avec `scipy.stats.wasserstein_distance` entre tes points et `TARGET_25`, la distance obtenue par un seul pas d'Euler (`euler_ode`, de $s = 1$ à $s = 0$, avec ton `field_25`), puis par huit pas d'Euler, puis par ta fonction (une liste de 3 nombres) ;
+- c) le nombre d'appels de `field` que fait ta fonction (un entier).
+
+Point de départ : huit pas d'Euler ne suffisent pas ; la fiche §8 dit comment comparer deux méthodes qui ont droit au même nombre d'évaluations.""",
+    todo='''def field_25(x, s, weights, means, variances):
+    """The exact mean field v(x, s) of the straight path to the mixture (weights, means, variances), at the points x (an
+    array), for 0 < s <= 1."""
+    raise NotImplementedError("field_25 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+def transport_25(field, z):
+    """From the points z (at s = 1), follow x' = v(x, s) down to s = 0, calling field(x, s) at most 8 times (one call for
+    a whole array counts once); returns the points reached."""
+    raise NotImplementedError("transport_25 n'est pas encore écrite (04_indices.md si tu bloques)")
+
+
+answer_MB5_25b = answer_MB5_25c = ...
+with wbm.attempt("MB5.25"):          # your functions: ⏳ while they are not written
+    answer_MB5_25b = ...  # b) a list of 3 numbers, as computed: wasserstein_distance to TARGET_25 of one Euler step, of eight Euler steps, of transport_25
+    answer_MB5_25c = ...  # c) an integer: the number of calls of field made by transport_25''',
+    check=CHECK_25,
+    solution='''from scipy.stats import wasserstein_distance
+
+
+def field_25(x, s, weights, means, variances):
+    """The exact mean field v(x, s) of the straight path to the mixture (weights, means, variances), at the points x (an
+    array), for 0 < s <= 1."""
+    x = np.asarray(x, dtype=float)
+    return (x - mymath.gaussian_paths.posterior_mean_mixture(x, 1 - s, s, weights, means, variances)) / s
+
+
+def transport_25(field, z):
+    """From the points z (at s = 1), follow x' = v(x, s) down to s = 0, calling field(x, s) at most 8 times (one call for
+    a whole array counts once); returns the points reached."""
+    x = np.array(z, dtype=float)
+    h, s = -0.25, 1.0                                         # four steps of the midpoint method: eight calls
+    for _ in range(4):
+        x = x + h * field(x + h / 2 * field(x, s), s + h / 2)
+        s = s + h
+    return x
+
+
+calls_25 = [0]
+
+
+def counted_field_25(x, s):
+    calls_25[0] += 1
+    return field_25(x, s, *MIX_25)
+
+
+def euler_25(n):
+    return mymath.gaussian_paths.euler_ode(lambda s, x: field_25(x, s, *MIX_25), Z_25, 1.0, 0.0, n)[-1]
+
+
+start_25 = time.perf_counter()
+mine_25 = transport_25(counted_field_25, Z_25)
+answer_MB5_25b = [float(wasserstein_distance(points, TARGET_25)) for points in (euler_25(1), euler_25(8), mine_25)]
+answer_MB5_25c = calls_25[0]
+weights_25, means_25, variances_25 = (np.array(part) for part in MIX_25)
+sd_25 = math.sqrt(float(weights_25 @ (variances_25 + means_25 ** 2)) - float(weights_25 @ means_25) ** 2)
+print("b)", np.round(answer_MB5_25b, 6).tolist(), " soit", np.round(np.array(answer_MB5_25b) / sd_25, 4).tolist(),
+      "fois l'écart-type", round(sd_25, 4), " c)", answer_MB5_25c, f" ({time.perf_counter() - start_25:.2f} s)")''',
+    record='''from scipy.special import logsumexp as logsumexp_25r
+from scipy.stats import norm as norm_25r
+from scipy.stats import wasserstein_distance as wasserstein_25r
+
+
+def posterior_25r(y, a, b, weights, means, variances):
+    """The oracle: E[x_0 | a x_0 + b eps = y] for a mixture, the responsibilities by scipy (norm.logpdf, logsumexp)."""
+    y = np.asarray(y, dtype=float).reshape(-1, 1)
+    w, m, v = (np.asarray(part, dtype=float) for part in (weights, means, variances))
+    if a == 0:
+        return np.full(y.shape[0], float(w @ m))
+    logs = np.log(w) + norm_25r.logpdf(y, a * m, np.sqrt(a * a * v + b * b))
+    resp = np.exp(logs - logsumexp_25r(logs, axis=1, keepdims=True))
+    return (resp * (m + a * v / (a * a * v + b * b) * (y - a * m))).sum(axis=1)
+
+
+def field_25r(x, s, law):
+    x = np.asarray(x, dtype=float)
+    return (x.ravel() - posterior_25r(x, 1 - s, s, *law)) / s
+
+
+law_25r = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+noise_25r = np.random.default_rng(7725).normal(size=20_000)
+rng_25r = np.random.default_rng(7726)
+bump_25r = rng_25r.choice(2, size=200_000, p=law_25r[0])
+target_25r = np.array(law_25r[1])[bump_25r] + np.sqrt(np.array(law_25r[2]))[bump_25r] * rng_25r.normal(size=200_000)
+
+
+def euler_25r(n):
+    """n equal Euler steps from s = 1 to s = 0 (written again)."""
+    x = noise_25r.copy()
+    for k in range(n):
+        s = 1 - k / n
+        x = x - field_25r(x, s, law_25r) / n
+    return x
+
+
+FIELD_CASES_25r = __FIELD_CASES_C25__                                    # the hidden calls of the check
+wbm.record(FIELD_CASES_25r["id_b"], [float(wasserstein_25r(euler_25r(n), target_25r)) for n in (1, 8)], decimals=6)
+wbm.record(FIELD_CASES_25r["id"], [v for points, s, law in FIELD_CASES_25r["cases"] for v in field_25r(points, s, law)],
+           decimals=6)''',
+    after=[
+        ("solution", CHECK_25),
+        ("md", "**Pour réfléchir** : pourquoi huit pas d'Euler ne suffisent-ils pas, alors que quatre pas du point milieu, "
+               "pour le même nombre d'appels, suffisent ? Pourquoi une méthode réglée sur `MIX_25` seul (ses quantiles, "
+               "par exemple) ne suffit-elle pas pour les lois cachées ? Les réponses sont dans `05_solutions.md`, section "
+               "Notebook."),
+    ],
+)
+
+PART_D = Part("D", "Défi", "Fiche §8 et §9. Transporter un bruit vers une loi à deux bosses par son champ moyen exact, avec "
+              "huit évaluations du champ, vérifié sur des lois cachées tirées à chaque exécution.", exercises=[MB5_25])
+
+PARTS = [PART_A, PART_B, PART_C, PART_D]
+
+
+def header_cells(kind: str) -> list:
+    rel = f"{FOLDER}/{'03_notebook' if kind == 'exercise' else '05_solutions'}.ipynb"
+    rows = ["| Partie | ID | Titre | Type | ★ | ⏱️ |", "|---|---|---|---|---|---|",
+            "| 0 | MB5.1 à MB5.9, MB5.14 | Les exercices papier (vérification) | ✏️ 🔗 | | |"]
+    for part in PARTS:
+        for i, exercise in enumerate(part.exercises):
+            rows.append(exercise.table_row(part.key if i == 0 else ""))
+    if kind == "exercise":
+        title = "# MB5 · Les maths de la diffusion — notebook d'exercices"
+        how = ("La partie 0 vérifie tes exercices papier. Chaque exercice de code : un énoncé, une cellule à compléter "
+               "(les `...` et les `raise NotImplementedError`), puis une cellule de vérification (`wbm.check`). Dans "
+               "les parties A à D, donne les valeurs que rend le calcul, **sans les arrondir** : les décimales "
+               "demandées sont celles de ta copie. « Tout exécuter » (*Run all*) va jusqu'au bout même si rien n'est "
+               "rempli : ce qui n'est pas fait affiche ⏳. Bloqué 15 minutes ? `04_indices.md`.\n\n"
+               "> Travaille dans **ta copie** (`mon_travail/mb5_diffusion/03_notebook.ipynb`, créée par "
+               "`python tools/start_chapter.py MB5`) ; la version du dépôt est mise à jour par Claude. Sur Colab, le "
+               "badge ouvre la version du dépôt, qui n'est pas enregistrée : crée puis ouvre ta copie comme "
+               "l'explique `00_setup/COLAB.md` §2.")
+    else:
+        title = "# MB5 · Les maths de la diffusion — solutions (notebook exécuté)"
+        how = ("Les réponses des exercices, exécutées. Les démarches détaillées (le *pourquoi*, les erreurs fréquentes, "
+               "les variantes) sont dans `05_solutions.md`. Les cellules marquées `answer` enregistrent les réponses "
+               "vérifiées par `wbm.check` (`tools/build_answers.py`).")
+    return [md(f"{title}\n\n{badge(rel)}\n\n{how}\n\n" + "\n".join(rows))]
+
+
+def objectives_cell() -> list:
+    return [md("## Objectifs et rappel express\n\n"
+               "- Vérifier tes calculs papier (partie 0) : l'anomalie de température d'un lac, la survie d'une ruche, un "
+               "phoque balisé, une voix et un bruit de fond, un signal reçu, un bit relayé, la floraison d'un verger, une "
+               "tasse de thé, un chemin droit vers une loi gaussienne, et un pont vers une loss de débruitage.\n"
+               "- Écrire les quatre fonctions de `mymath/gaussian_paths.py` (`linear_gaussian_recursion`, "
+               "`posterior_mean_mixture`, `euler_ode`, `midpoint_ode`) et les tester.\n"
+               "- Mesurer l'ordre de deux méthodes avec `solve_ivp`, prédire puis mesurer le débruiteur d'un nuage de "
+               "points, transporter une loi par un champ moyen, tracer des lois guidées, corriger trois erreurs "
+               "classiques, écrire trois tests de propriété, et relever un défi.\n\n"
+               r"**Rappel express.** Pour $x_t = a_tx_{t-1} + b_t\varepsilon_t$ : $m_t = a_tm_{t-1}$ et $v_t = "
+               r"a_t^2v_{t-1} + b_t^2$ ; pour $a_t = a$, $\lvert a\rvert < 1$, $b_t = b$ : $v_\infty = \frac{b^2}{1 - "
+               r"a^2}$. Pour $y = ax + bn$ et $x$ de loi $\sum_k\pi_k\mathcal{N}(\mu_k, s_k^2)$ : la composante $k$ a "
+               r"la responsabilité $\propto \pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$, et $\mathbb{E}[x \mid y, "
+               r"k] = \mu_k + \frac{as_k^2}{a^2s_k^2 + b^2}(y - a\mu_k)$. La loi guidée est proportionnelle à "
+               r"$p_c^{1+w}p_u^{-w}$. Euler : $x_{k+1} = x_k + h\,f(t_k, x_k)$, d'ordre 1 ; le point milieu : $x_{k+1} = "
+               r"x_k + h\,f\big(t_k + \frac h2, x_k + \frac h2f(t_k, x_k)\big)$, d'ordre 2, deux évaluations par pas ; "
+               r"$h = \frac{t_N - t_0}{N}$. Le chemin droit $x_s = (1 - s)\,x_0 + s\,\varepsilon$ a le champ moyen "
+               r"$v(x, s) = \frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$, que l'on suit de $s = 1$ à $s = 0$.")]
+
+
+def footer_cells(kind: str) -> list:
+    return [md("## ✅ Bilan\n\n"
+               "**Auto-évaluation** (note-toi de 0 à 3 dans `mon_travail/suivi/auto_evaluation.md`) :\n"
+               "1. Sais-tu propager la moyenne et la variance d'une récurrence linéaire gaussienne, trouver sa loi "
+               "stationnaire, et dire combien de pas il faut pour oublier le départ ?\n"
+               "2. Sais-tu conditionner une marche aléatoire sur deux instants, et construire des trajectoires de mêmes "
+               "lois marginales mais de corrélations différentes ?\n"
+               "3. Sais-tu passer du SNR à la part de variance, au logit et aux décibels ?\n"
+               "4. Sais-tu dire ce qu'apprend la MSE, calculer le débruiteur optimal d'un mélange, et le relier au score "
+               "par la formule de Tweedie ?\n"
+               "5. Sais-tu écrire l'ELBO d'une chaîne de latents, et calculer une loi guidée et sa condition "
+               "d'existence ?\n"
+               "6. Sais-tu suivre une équation différentielle par Euler et par le point milieu, comparer leurs erreurs à "
+               "nombre d'évaluations égal, et transporter une loi par le champ moyen d'un chemin droit ?\n\n"
+               "**La suite** : le chapitre bonus B5 de workbookIA, qui applique ces outils.")]
+
+
+def build(kind: str) -> list:
+    cells = header_cells(kind)
+    cells.append(setup_cell(kind, chapter=CHAPTER) if kind == "exercise" else setup_cell(kind))
+    cells += objectives_cell()
+    cells += paper_part(kind)
+    for part in PARTS:
+        cells += part_cells(part, kind)
+    cells += footer_cells(kind)
+    return cells
+
+
+# ---------------------------------------------------------------------------
+# Build-time literals of the data and of the hidden cases, computed here by private functions (never the answer of a
+# question), and the assertions that make them fair (the reference passes, the classic wrong versions are seen)
+# ---------------------------------------------------------------------------
+def load_module(path: Path, name: str):
+    """A Python file of the repository, loaded as a module of its own (its relative imports are not used)."""
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def literal(value) -> str:
+    """A Python literal of value (floats by repr: exact), wrapped for reading."""
+    return pprint.pformat(value, width=112, compact=True, sort_dicts=False)
+
+
+def near_limit(value, decimals=6, margin=0.05) -> bool:
+    """True when value is within margin units of its last decimal from a rounding limit."""
+    scaled = abs(float(value)) * 10 ** decimals
+    return abs(scaled - math.floor(scaled) - 0.5) < margin
+
+
+def not_dyadic(values) -> bool:
+    return any(abs(x * 2 ** 20 - round(x * 2 ** 20)) > 1e-9 for x in values)
+
+
+def build_constants() -> dict:
+    """The literals written in the cells, by placeholder, with the assertions that make the data and the hidden cases
+    fair."""
+    import numpy as np
+    from scipy.stats import norm
+
+    sys.path.insert(0, str(ROOT / "solutions"))
+    from mymath_ref import gaussian_paths as ref             # noqa: E402 - the reference, for the assertions
+    out = {}
+
+    # MB5.16: the twelve weeks of spring (the data of work_c/nb_values.py, chosen by hand): no pair with a² + b² = 1, no
+    # arithmetic progression; the reference finds the values of 05_solutions.md
+    a16 = [0.97, 0.93, 0.88, 0.71, 0.58, 1.04, 0.99, 0.83, 0.66, 0.92, 1.02, 0.79]
+    b16 = [0.22, 0.31, 0.47, 0.52, 0.38, 0.26, 0.19, 0.41, 0.55, 0.33, 0.28, 0.44]
+    assert all(abs(a * a + b * b - 1) > 1e-3 for a, b in zip(a16, b16))
+    for seq in (a16, b16):
+        steps = np.diff(seq)
+        assert not np.allclose(steps, steps[0]) and not np.allclose(np.diff(sorted(seq)), np.diff(sorted(seq))[0])
+    m16, v16 = ref.linear_gaussian_recursion(a16, b16, mean0=1.5, var0=0.3)
+    assert [round(float(m16[-1]), 6), round(float(v16[-1]), 6)] == [0.205032, 0.59308]
+    for a, b in ((0.88, 0.35), (-0.72, 1.1), (0.7, 0.5), (0.5, 1.0), (2.0, 3.0), (1.2, 0.9), (1.5, 0.7)):
+        assert abs(a * a + b * b - 1) > 1e-3                   # the pairs of the notebook exercises
+    out["__A_16__"], out["__B_16__"] = literal(a16), literal(b16)
+
+    # MB5.21: hidden times and points (non-dyadic; never s = 0.5 nor x = 1.5, the question b of MB5.9), the exact field
+    # far from a rounding limit at 6 decimals
+    def field21(s, x):
+        sigma2 = (1 - s) ** 2 * 0.25 + s * s
+        return -4 + (s - (1 - s) * 0.25) / sigma2 * (np.asarray(x) - (1 - s) * 4)
+
+    calls21 = [(0.93, [-2.31, 0.47, 1.06, 3.41]), (0.61, [-1.13, 0.29, 2.74, 4.09, 5.91]), (0.27, [2.17, 3.43, 4.74]),
+               (0.08, [3.52, 3.97, 4.33, 4.71]), (1.0, [-0.83, 0.62, 2.29])]
+    for s, xs in calls21:
+        assert not_dyadic(xs) and s != 0.5 and 1.5 not in xs
+        assert not any(near_limit(v) for v in field21(s, xs)), (s, xs)
+        expected = (np.array(xs) - ref.posterior_mean_mixture(xs, 1 - s, s, [1.0], [4.0], [0.25])) / s
+        assert np.allclose(expected, field21(s, xs), rtol=1e-12, atol=1e-12)
+    out["__HIDDEN_C21__"] = literal({"calls": calls21, "id": "MB5.21d"})
+
+    # MB5.22: the points of the grid compared (every 32nd, far from a rounding limit at 6 decimals for every density
+    # recorded), hidden w (none of 0, 1, 3, 7, 0.5, 2 nor the w of the fiche and of MB5.7), another mixture on another grid
+    def guided(xs, w, general=((0.55, 0.45), (-1.8, 1.6), (0.5, 0.7)), cls=(1.6, 0.7)):
+        pu = sum(p * norm.pdf(xs, m, math.sqrt(v)) for p, m, v in zip(*general))
+        d = norm.pdf(xs, cls[0], math.sqrt(cls[1])) ** (1 + w) * pu ** (-w)
+        return d / np.trapezoid(d, xs)
+
+    grid = np.linspace(-8, 8, 3201)
+    hidden_ws, other_ws = [2.8, 0.45, 1.1], [0.9, 2.2]
+    forbidden_w = {0, 1, 3, 7, 0.5, 2, 1.5, 0.4, 1.25, -0.3, 0.07, 0.17, 0.22, 0.05, 0.15, 0.25, 1.75, 3.5}
+    assert not (set(hidden_ws) | set(other_ws)) & (forbidden_w - {0.25, 1.75, 3.5})
+    general_o, cls_o, grid_o = ((0.47, 0.53), (-2.3, 0.9), (0.6, 0.45)), (0.9, 0.45), (-7.0, 6.0, 2601)
+    assert cls_o[1] <= max(general_o[2])                      # the guided laws exist for every w >= 0
+    curves = [guided(grid, w) for w in (0.25, 1.75, 3.5, *hidden_ws)]
+    curves += [sum(p * norm.pdf(grid, m, math.sqrt(v)) for p, m, v in zip((0.55, 0.45), (-1.8, 1.6), (0.5, 0.7))),
+               norm.pdf(grid, 1.6, math.sqrt(0.7))]
+    idx = [i for i in range(0, 3201, 32) if not any(near_limit(c[i]) for c in curves)]
+    assert len(idx) >= 60, len(idx)
+    other_grid = np.linspace(*grid_o)
+    others = [guided(other_grid, w, general_o, cls_o) for w in other_ws]
+    idx_o = [i for i in range(0, 2601, 26) if not any(near_limit(c[i]) for c in others)]
+    assert len(idx_o) >= 60, len(idx_o)
+    for w in (0.25, 1.75, 3.5):                               # the swapped powers differ on the points compared
+        swapped = guided(grid, -1 - w)
+        assert not np.allclose(swapped[idx], guided(grid, w)[idx], atol=1e-5)
+    out["__HIDDEN_C22__"] = literal({"idx": idx, "ws": hidden_ws, "grid": grid_o, "general": general_o, "cls": cls_o,
+                                     "other_ws": other_ws, "idx_other": idx_o, "id_main": "MB5.22d",
+                                     "id_hidden": "MB5.22e", "id_other": "MB5.22f", "id_u": "MB5.22g",
+                                     "id_c": "MB5.22h"})
+
+    # MB5.23: hidden bridges (never V_s/V_T = 1/2), mixtures of 2 to 4 components with measurements in arrays (non-dyadic
+    # floats), fields that depend on the time, forward and backward; the colleague's versions fail on each
+    bridges = [[-2.3, 4.1, 0.7, 5.3], [6.2, 1.9, 4.35, 4.9], [0.35, -1.15, 2.65, 3.1], [10.5, 12.25, 0.9, 7.8]]
+    for x0, xT, Vs, VT in bridges:
+        assert abs(Vs / VT - 0.5) > 0.05 and abs(x0 - xT) > 1
+        mean = x0 + Vs / VT * (xT - x0)
+        assert not near_limit(mean) and not near_limit(Vs * (VT - Vs) / VT)
+    mixtures = [[[-1.1, 0.35, 2.05, 3.3], 1.3, 0.6, [0.27, 0.73], [-0.6, 1.9], [0.45, 0.2]],
+                [[-1.7, -0.2, 0.9, 2.6], 0.85, 1.15, [0.2, 0.5, 0.3], [-2.1, 0.4, 2.7], [0.15, 0.6, 0.35]],
+                [[[-1.3, 0.45], [1.15, -2.2]], -0.75, 0.55, [0.1, 0.25, 0.4, 0.25], [-3.2, -1.0, 0.7, 2.9],
+                 [0.3, 0.12, 0.5, 0.25]]]
+    for y, a, b, w, m, v in mixtures:
+        assert abs(a * a + b * b - 1) > 0.05 and abs(sum(w) - 1) < 1e-12 and not_dyadic(np.ravel(y)) and not_dyadic(w)
+        right = ref.posterior_mean_mixture(y, a, b, w, m, v)
+        y_, w_, m_, v_ = (np.asarray(p, dtype=float) for p in (y, w, m, v))
+        gap = y_.reshape(-1, 1) - a * m_
+        logs = np.log(w_) - 0.5 * np.log(2 * np.pi * v_) - gap ** 2 / (2 * v_)
+        resp = np.exp(logs - logs.max(axis=1, keepdims=True))
+        resp = resp / resp.sum(axis=1, keepdims=True)
+        bad = (resp * (m_ + a * v_ / (a * a * v_ + b * b) * gap)).sum(axis=1).reshape(y_.shape)
+        assert not np.allclose(right, bad, atol=1e-6)         # the colleague's version fails
+    fields = {"wave": lambda t, x: 0.75 * np.cos(1.3 * t) - 0.45 * x, "ramp": lambda t, x: 0.6 * t - 0.25 * x * x}
+    cases_fields = [["wave", [0.3, -1.7, 2.45], 0.0, 2.6, 7], ["ramp", [1.15, 0.05], 0.5, 3.1, 5],
+                    ["wave", [0.9, -0.35], 2.2, -0.4, 6]]
+    for name, x0, t0, t1, n in cases_fields:
+        right = ref.euler_ode(fields[name], np.array(x0), t0, t1, n)
+        frozen = ref.euler_ode(lambda t, x, name=name, t0=t0: fields[name](t0, x), np.array(x0), t0, t1, n)
+        assert not np.allclose(right, frozen, atol=1e-6) and not_dyadic(x0)
+    out["__CASES_C23__"] = literal({"bridges": bridges, "mixtures": mixtures, "fields": cases_fields, "id": "MB5.23d"})
+
+    # MB5.25: the notebook law is the one of the hidden module; hidden points, times and mixtures for field_25 (never the
+    # data of MB5.9), far from a rounding limit; the reference method passes the notebook law
+    challenge = load_module(ROOT / "solutions" / "challenges" / "mb5_25.py", "mb5_25_build")
+    law25 = ((0.38, 0.62), (-1.6, 2.1), (0.12, 0.3))
+    assert challenge.NOTEBOOK_LAW == law25
+    cases25 = [[[-2.13, -0.41, 0.76, 2.58], 1.0, law25], [[-1.87, 0.33, 1.94], 0.63, law25],
+               [[-1.52, 0.18, 2.27], 0.21, law25], [[-1.71, 1.98, 2.36], 0.047, law25],
+               [[-0.94, 0.61, 1.83], 0.38, ((0.26, 0.74), (-0.7, 1.45), (0.09, 0.4))],
+               [[-2.6, -0.15, 1.2, 3.05], 0.82, ((0.3, 0.45, 0.25), (-1.9, 0.35, 2.4), (0.2, 0.05, 0.33))]]
+    for points, s, law in cases25:
+        values = challenge.mean_field(np.array(points), s, law)
+        expected = (np.array(points) - ref.posterior_mean_mixture(points, 1 - s, s, *law)) / s
+        assert np.allclose(values, expected, rtol=1e-12, atol=1e-10) and not any(near_limit(v) for v in values), points
+        assert not_dyadic(points)
+    z25 = np.random.default_rng(7725).normal(size=20_000)
+    reached = challenge.reference(lambda x, s: challenge.mean_field(x, s, law25), z25)
+    assert challenge.w1_to_mixture(reached, law25) / challenge.mixture_sd(law25) < 0.03
+    out["__FIELD_CASES_C25__"] = literal({"cases": cases25, "id": "MB5.25e", "id_b": "MB5.25d"})
+    return out
+
+
+PREPARED = []
+
+
+def prepare() -> None:
+    """Write the build-time literals in every cell text (placeholders __NAME__). Idempotent."""
+    if PREPARED:
+        return
+    constants = build_constants()
+
+    def fill(text):
+        for key, value in constants.items():
+            text = text.replace(key, value)
+        return text
+
+    for part in PARTS:
+        part.given = fill(part.given)
+        for exercise in part.exercises:
+            for field_name in ("body", "todo", "check", "solution", "record", "given", "note"):
+                setattr(exercise, field_name, fill(getattr(exercise, field_name)))
+            exercise.after = [(kind, fill(text)) for kind, text in exercise.after]
+    left = {match for part in PARTS for exercise in part.exercises
+            for text in (exercise.body, exercise.todo, exercise.check, exercise.solution, exercise.record,
+                         exercise.given, *(t for _, t in exercise.after))
+            for match in re.findall(r"__[A-Z][A-Z0-9_]*__", text)}
+    assert not left, f"placeholders left: {sorted(left)}"
+    PREPARED.append(True)
+
+
+def main() -> int:
+    prepare()
+    for paper in PAPER:
+        lines = [f'wbm.record("{paper.id}{letter}", {expr}{", " + options if options else ""})'
+                 for letter, _, expr, options in paper.subs]
+        check_unique_keys("\n".join(lines), paper.id)
+    for exercise in [e for part in PARTS for e in part.exercises]:
+        for source in (exercise.record, *(text for kind, text in exercise.after if kind == "record")):
+            if source:
+                check_unique_keys(source, exercise.id)
+    write_notebook(f"{FOLDER}/03_notebook.ipynb", build("exercise"))
+    write_notebook(f"{FOLDER}/05_solutions.ipynb", build("solution"))
+    n_checks = sum(len(p.subs) for p in PAPER)
+    n_ex = sum(len(part.exercises) for part in PARTS)
+    print(f"✅ {FOLDER}/03_notebook.ipynb and 05_solutions.ipynb written ({len(PAPER)} paper exercises, "
+          f"{n_checks} paper checks, {n_ex} notebook exercises)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

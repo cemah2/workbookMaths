@@ -13,7 +13,9 @@ two Gaussians of dimension 1) and a noise ``ε ~ N(0, 1)`` (MB5 §9); its mean f
 is exact here (the posterior mean of a mixture, with the gains ``1 − s`` and ``s``). From points of ``N(0, 1)`` at
 ``s = 1``, the learner's function follows ``x' = v(x, s)`` down to ``s = 0`` with at most :data:`BUDGET` calls of the
 field (one call for a whole array counts once). Criterion: the distance of Wasserstein ``W₁`` (M27) between the points
-reached and the two-bump law is at most :data:`REL` times the standard deviation of that law.
+reached and the two-bump law, divided by the standard deviation of that law, is at most :data:`REL` for the law of the
+notebook, and at most :data:`REL` on average over the hidden laws of a run (a criterion on the mean: a method of order 2
+stays far under it, a method of order 1 far over it, so that the verdict does not depend on the laws drawn).
 
 - :func:`hidden_mixture` draws a law of one kind of :data:`KINDS`: two bumps of moderate width; two very narrow bumps
   (variances 10^-2.7 to 10^-1.5: the trajectories split late); a light bump (weight 0.08 to 0.2) of another width; two
@@ -32,7 +34,7 @@ import numpy as np
 
 KINDS = ("facile", "deux bosses très étroites", "une bosse légère d'une autre largeur", "deux bosses très écartées",
          "deux bosses qui se chevauchent")
-REL = 0.07               # the criterion: W₁ ≤ REL × (the standard deviation of the two-bump law)
+REL = 0.07               # the criterion: W₁ / (the standard deviation of the law) ≤ REL (on average for the hidden laws)
 BUDGET = 8               # the calls of the field allowed
 SERIES = 3               # the series of len(KINDS) hidden laws drawn at each run of the check
 MAX_POINTS = 2_000_000   # the largest array of points the process accepts in one request
@@ -158,8 +160,7 @@ def serve(series=SERIES):
       at these points (NaN when s is not in ]0, 1]); each request counts as one call of the field of law k;
     - ``R k n``, followed by n float64: the points reached for law k (kept);
     - ``verdict``: write one JSON line, for each law in order its series (0 for the notebook's), its kind, its count of
-      calls, W₁ divided by its standard deviation (null for points missing or not finite) and whether it passes, then
-      stop.
+      calls and W₁ divided by its standard deviation (null for points missing or not finite), then stop.
 
     Any other line, a malformed request or the end of stdin: stop at once (the check stopped, or its kernel died)."""
     drawn = [(law, kind, number) for number in range(1, series + 1)
@@ -194,8 +195,7 @@ def serve(series=SERIES):
                 for (law, kind, number), count, x in zip(drawn, calls, reached):
                     ok = x is not None and bool(np.all(np.isfinite(x)))
                     rel = w1_to_mixture(x, law) / mixture_sd(law) if ok else None
-                    report.append({"series": number, "kind": kind, "calls": count, "rel": rel,
-                                   "passes": rel is not None and rel <= REL and count <= BUDGET})
+                    report.append({"series": number, "kind": kind, "calls": count, "rel": rel})
                 out.write((json.dumps(report) + "\n").encode())
                 out.flush()
                 return

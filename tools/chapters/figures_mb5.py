@@ -13,7 +13,7 @@ Writes small PNG files into chapitres/mb5_diffusion/figures/:
   (a = 0.5) source with a receiver b = 2, and the factor 1/√SNR as a curve;
 - §4: the prices of twelve flats in three districts with the district means; the MSE and the MAE of a constant for
   a building permit answered in 18 or 42 days (probabilities 0.75 and 0.25);
-- §5: a mixture of grades 0.6 N(8, 4) + 0.4 N(15, 1) seen through a marker b = 2, the score of the noisy law, the
+- §5: spruce heights 0.6 N(8, 4) + 0.4 N(15, 1) measured by a drone with b = 2, the score of the noisy law, the
   optimal denoiser for three noise levels; the denoiser of the cloud 2, 5, 9 (weights 0.2, 0.5, 0.3) as b shrinks;
 - §6: the chain of a box that fades (erasing probabilities 0.3 and 0.5) and the decomposition of its ELBO for x = 1;
 - §7: guided laws p_c^(1+w) p_u^(−w) for the sea temperature (N(22, 4) in August, N(16, 16) over the year) and for a
@@ -65,9 +65,9 @@ RECEIVER_B, BRIGHT_A, FAINT_A = 2.0, 5.0, 0.5
 # §4: twelve flats (k€) and a building permit
 FLATS = {"Gare": [180, 200, 205, 215], "Centre": [290, 310, 330], "Port": [240, 250, 260, 270, 280]}
 PERMIT_DAYS = ([18.0, 42.0], [0.75, 0.25])
-# §5: the grades and the marker; the cloud
-GRADES = (np.array([0.6, 0.4]), np.array([8.0, 15.0]), np.array([4.0, 1.0]))
-MARKER_B = 2.0
+# §5: the spruce heights and the drone; the cloud
+SPRUCE_HEIGHTS = (np.array([0.6, 0.4]), np.array([8.0, 15.0]), np.array([4.0, 1.0]))
+DRONE_B = 2.0
 CLOUD = (np.array([0.2, 0.5, 0.3]), np.array([2.0, 5.0, 9.0]))
 # §6: the fading box
 RHO = (0.3, 0.5)
@@ -310,20 +310,20 @@ def conditional_expectation() -> None:
 # --------------------------------------------------------------------------------------------------------- §5
 def denoiser() -> None:
     rng = np.random.default_rng(7695)
-    w, mu, var = GRADES
+    w, mu, var = SPRUCE_HEIGHTS
     fig, axes = plt.subplots(1, 3, figsize=(15.5, 4.6))
     ax = axes[0]
     xs = np.linspace(0, 22, 600)
     px = sum(wk * norm.pdf(xs, m, math.sqrt(v)) for wk, m, v in zip(w, mu, var))
-    py = sum(wk * norm.pdf(xs, m, math.sqrt(v + MARKER_B**2)) for wk, m, v in zip(w, mu, var))
+    py = sum(wk * norm.pdf(xs, m, math.sqrt(v + DRONE_B**2)) for wk, m, v in zip(w, mu, var))
     k = rng.choice(2, size=4000, p=w)
-    y = mu[k] + np.sqrt(var[k]) * rng.standard_normal(4000) + MARKER_B * rng.standard_normal(4000)
-    ax.hist(y, bins=60, range=(0, 22), density=True, color="0.85", label="4 000 notes données (simulées)")
-    ax.plot(xs, px, color=C[0], lw=2, label="notes méritées p_X")
-    ax.plot(xs, py, color=C[1], lw=2, label="notes données p_Y (b = 2)")
-    ax.set(xlabel="note", ylabel="densité", ylim=(0, 0.25))
+    y = mu[k] + np.sqrt(var[k]) * rng.standard_normal(4000) + DRONE_B * rng.standard_normal(4000)
+    ax.hist(y, bins=60, range=(0, 22), density=True, color="0.85", label="4 000 hauteurs relevées (simulées)")
+    ax.plot(xs, px, color=C[0], lw=2, label="hauteurs vraies p_X")
+    ax.plot(xs, py, color=C[1], lw=2, label="hauteurs relevées p_Y (b = 2)")
+    ax.set(xlabel="hauteur (m)", ylabel="densité", ylim=(0, 0.25))
     ax2 = ax.twinx()
-    dpy = sum(wk * norm.pdf(xs, m, math.sqrt(v + MARKER_B**2)) * (-(xs - m) / (v + MARKER_B**2))
+    dpy = sum(wk * norm.pdf(xs, m, math.sqrt(v + DRONE_B**2)) * (-(xs - m) / (v + DRONE_B**2))
               for wk, m, v in zip(w, mu, var))
     score = dpy / py
     ax2.plot(xs, score, color=C[2], lw=1.5, ls="--", label="score s_Y")
@@ -333,18 +333,18 @@ def denoiser() -> None:
     ax2.set_ylabel("score s_Y(y)")
     ax2.set_ylim(-1.6, 2.4)
     ax2.yaxis.set_major_formatter(FuncFormatter(french_number))
-    ax.set_title("Le mélange des notes et le score de p_Y", fontsize=11)
+    ax.set_title("Le mélange des hauteurs et le score de p_Y", fontsize=11)
     h1, l1 = ax.get_legend_handles_labels()
     h2, l2 = ax2.get_legend_handles_labels()
     ax.legend(h1 + h2, l1 + l2, fontsize=7.5, loc="upper center", ncol=2)
     ax = axes[1]
     ys = np.linspace(0, 22, 600)
-    for b, col in ((3.0, C[0]), (MARKER_B, C[1]), (0.5, C[2])):
+    for b, col in ((3.0, C[0]), (DRONE_B, C[1]), (0.5, C[2])):
         ax.plot(ys, posterior_mean(ys, 1.0, b, w, mu, var), color=col, lw=2, label=f"b = {french_number(b)}")
     ax.plot(ys, ys, color="0.6", lw=0.8, ls=":", label="y (aucune correction)")
-    ax.plot([12], [posterior_mean(12.0, 1.0, MARKER_B, w, mu, var)], "o", color="black", ms=5)
+    ax.plot([12], [posterior_mean(12.0, 1.0, DRONE_B, w, mu, var)], "o", color="black", ms=5)
     ax.annotate("y = 12 : ≈ 12,12", (12, 12.12), textcoords="offset points", xytext=(10, -22), fontsize=9)
-    ax.set(xlabel="note donnée y", ylabel="E[x | y]")
+    ax.set(xlabel="hauteur relevée y (m)", ylabel="E[x | y]")
     ax.set_title("Le débruiteur optimal du mélange", fontsize=11)
     ax.legend(fontsize=8.5, loc="upper left")
     ax = axes[2]
