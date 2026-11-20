@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §9 |
 | **Temps total estimé** | ≈ 12,8 h : lecture et calculs de la fiche ≈ 2 h 30, exercices ≈ 9 h 50, 16 flashcards ≈ 30 min (parcours essentiel ≈ 10,6 h) |
-| **Prérequis** | R4 ($\Sigma$, récurrence) ; R5 (suites géométriques, moyenne exponentielle) ; R6 (exp, ln, échelles logarithmiques) ; R8 (issues équiprobables) ; R9 (cercle trigonométrique, parité, périodicité, produit scalaire et angle, Al-Kashi) ; M02b (linéarité de l'espérance, variance d'une somme) ; M03 (loi conditionnelle) ; M05a (log-sum-exp, softmax stable) ; M07 (produit scalaire, normes, $\lVert\mathbf{a} - \mathbf{b}\rVert^2$) ; M08 (validation croisée) ; M09a (produit matriciel, transposée) ; M10 (enveloppe convexe) ; M12b (matrices orthogonales) ; M12c (rotation du plan, déterminant, nombres complexes) ; M13a (Gini) ; M14 (poids exponentiels) ; M16 (matrices de permutation) ; M17 (Boltzmann, $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$) ; M21 (équivariance par translation) ; M22 (forme exponentielle) ; M25a (formules de soustraction, matrices par blocs) ; M28 (température, top-k et top-p) ; MB2 (comparaisons par paires) |
+| **Prérequis** | R4 ($\Sigma$, récurrence) ; R5 (suites géométriques, moyenne exponentielle) ; R6 (exp, ln, échelles logarithmiques) ; R8 (issues équiprobables) ; R9 (cercle trigonométrique, parité, périodicité, produit scalaire et angle, Al-Kashi) ; M02a (intégrale de $\frac1x$) ; M02b (linéarité de l'espérance, variance d'une somme) ; M03 (loi conditionnelle) ; M05a (log-sum-exp, softmax stable) ; M07 (produit scalaire, normes, $\lVert\mathbf{a} - \mathbf{b}\rVert^2$) ; M08 (validation croisée) ; M09a (produit matriciel, transposée) ; M10 (enveloppe convexe) ; M12a (matrice d'une composition, changement de base) ; M12b (matrices orthogonales) ; M12c (rotation du plan, déterminant, nombres complexes) ; M13a (Gini) ; M14 (poids exponentiels) ; M16 (matrices de permutation) ; M17 (Boltzmann, $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$) ; M20 (axes, réductions, diffusion) ; M21 (équivariance par translation) ; M22 (forme exponentielle) ; M25a (formules de soustraction, matrices par blocs) ; M28 (température, top-k et top-p) ; MB2 (comparaisons par paires) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `positional.py` : `givens_rotation`, `online_softmax`, `merge_softmax_states` |
 | **MML** | §3.9 (*Rotations*) : §3.9.1 avant le §2 de la fiche, §3.9.2 à §3.9.4 avant le §3 ; exercice 3.10 conseillé |
@@ -19,7 +19,7 @@
 2. Section par section : lis **crayon en main** et refais chaque calcul (avant les §2 et §3, le passage de MML que donne le guide ci-dessous) ; puis fais les exercices de la section, quiz 🧠 d'abord.
 3. Les exercices ✏️ et 🔗 se font sur papier, dans ta copie de `06_mes_reponses.md`, puis se vérifient dans la **partie 0** du notebook. Les démonstrations ∂ se rédigent dans ta copie et se jugent avec la grille de relecture de `05_solutions.md`.
 
-Le chapitre a deux moitiés. Les §1 à §4 (les rotations) se lisent dans l'ordre. Les §5 à §9 (les moyennes pondérées) demandent peu des premiers : les §6 et §7 s'appuient sur le §5, le §8 sur M05a, le §9 sur les §5 et §8.
+Le chapitre a deux moitiés. Les §1 à §4 (les rotations) se lisent dans l'ordre. Les §5 à §9 (les moyennes pondérées) demandent peu des premiers : les §6 et §7 s'appuient sur le §5 (et le §6 sur les matrices de permutation du §3), le §8 sur M05a, le §9 sur les §5 et §8.
 
 | Section | Quiz 🧠 et rappels 🔁 | Papier et réflexion | Notebook |
 |---|---|---|---|
@@ -37,7 +37,7 @@ Parcours essentiel : tout sauf MB3.9, MB3.12, MB3.18, MB3.21 et MB3.22 (l'énonc
 
 ## Guide de lecture de MML
 
-MML §3.9 (*Rotations*) donne des définitions et des matrices, sans démonstration : il lit les images de $\mathbf{e}_1$ et $\mathbf{e}_2$ sur une figure et énonce le §3.9.4 sans preuve. La fiche fournit les démonstrations, le livre les matrices et le vocabulaire. Lis-le en deux fois.
+MML §3.9 (*Rotations*) donne des définitions et des matrices : il lit les images de $\mathbf{e}_1$ et $\mathbf{e}_2$ sur une figure et énonce le §3.9.4 en renvoyant aux matrices orthogonales de son §3.4 ((3.31)-(3.32)) ; il ne démontre ni les formules d'addition ni la commutativité dans le plan. La fiche fournit les démonstrations, le livre les matrices et le vocabulaire. Lis-le en deux fois.
 
 - **Après le §1, avant le §2** de la fiche : l'introduction de **§3.9** (une rotation est un *automorphism* qui fixe l'origine ; un angle positif tourne *counterclockwise*) et **§3.9.1** : la figure 3.16, puis (3.75) et (3.76), la matrice $\mathbf{R}(\theta)$. Les figures 3.14 et 3.15 se regardent sans s'y arrêter.
 - **Avant le §3** : **§3.9.2**, les trois rotations autour des axes de coordonnées, (3.77) à (3.79), avec la convention « regarder l'axe depuis sa pointe vers l'origine » (le 📖 MB3.12 te fait comparer (3.78) à la définition suivante) ; **§3.9.3**, la Définition 3.11, la rotation de Givens (3.80)–(3.81), pour $i < j$ ; **§3.9.4**, les distances et les angles conservés, et la commutativité, réservée au plan (« en général » : le §3 de la fiche précise quand des rotations de l'espace commutent).
@@ -45,15 +45,15 @@ MML §3.9 (*Rotations*) donne des définitions et des matrices, sans démonstrat
 MML ne parle ni d'horloges, ni de moyennes pondérées, ni de softmax en ligne : pour les §4 à §9, la fiche est le cours. Exercice du livre conseillé : 3.10.
 
 📐 **Notations.**
-- **Écarts avec MML.** MML écrit $\mathbf{R}(\theta)$ ; la fiche, $\mathbf{R}_\theta$. MML note $\Phi$ l'application linéaire et $\mathbf{R}_{ij}(\theta)$ la rotation de Givens, comme ici. Les coordonnées sont numérotées à partir de 1 dans la fiche et dans MML, à partir de 0 dans `positional.py` : `givens_rotation(n, i - 1, j - 1, θ)` est $\mathbf{R}_{ij}(\theta)$. MML écrit $\log$ pour $\ln$.
+- **Écarts avec MML.** MML écrit $\mathbf{R}(\theta)$ ; la fiche, $\mathbf{R}_\theta$. MML note $\Phi$ l'application linéaire (la fiche n'en a pas besoin) et, comme ici, $\mathbf{R}_{ij}(\theta)$ la rotation de Givens. Les coordonnées sont numérotées à partir de 1 dans la fiche et dans MML, à partir de 0 dans `positional.py` : `givens_rotation(n, i - 1, j - 1, θ)` est $\mathbf{R}_{ij}(\theta)$. MML écrit $\log$ pour $\ln$.
 - **§1 et §2.** $a$, $b$, $\alpha$, $\beta$, $\theta$, $\varphi$ sont des angles, en radians (en degrés quand un énoncé le dit), positifs dans le sens inverse des aiguilles d'une montre ; les vecteurs sont des colonnes, $\mathbf{R}_\theta\mathbf{x}$ ; $\mathbf{u}_a = (\cos a, \sin a)$ est le point d'angle $a$ du cercle unité. $i$ est l'unité imaginaire, $i^2 = -1$ ; $e^{i\theta} = \cos\theta + i\sin\theta$ est ici une **définition** (M22 l'admettait comme formule d'Euler) ; $\bar z$ est le conjugué de $z$. $\mathbf{Q}$ est une matrice orthogonale.
-- **§3.** $\mathbf{e}_1, \ldots, \mathbf{e}_n$ est la base canonique de $\mathbb{R}^n$ ; $\mathbf{R}_{ij}(\theta)$ tourne $\mathbf{e}_i$ vers $\mathbf{e}_j$. $\sigma$ est une permutation de $\{1, \ldots, n\}$ et $\mathbf{P}$ sa matrice, de lignes $\mathbf{e}_{\sigma(1)}^\top, \ldots, \mathbf{e}_{\sigma(n)}^\top$, si bien que $(\mathbf{P}\mathbf{x})_k = x_{\sigma(k)}$. $\mathbf{A}$ et $\mathbf{B}$ sont deux matrices découpées en blocs.
-- **§4.** $t$ est une valeur d'une variable cyclique de **période** $\tau$, $\omega = 2\pi/\tau$ sa **pulsation**, $\mathbf{e}(t) = (\cos\omega t, \sin\omega t)$ son encodage ; $\delta$ est un décalage, $\rho$ la longueur d'un vecteur moyen.
-- **§5.** $s_1, \ldots, s_n$ sont des **scores**, des réels qu'on passe à la softmax (pas le score d'un classifieur, ni ceux de MB5 et MB8) ; $p_i$ est un poids, $y_i$ un nombre (ou un vecteur) moyenné, $\hat y$ la moyenne pondérée ; $\mathbf{x}_i$ (ou $x_i$ en dimension 1) sont les points de mesure, $\mathbf{x}$ le point de la prévision, $K(\mathbf{x}, \mathbf{x}_i)$ le **noyau**, $h > 0$ la **largeur de bande** ; $b$ est une constante ajoutée à tous les scores.
-- **§6.** $S$ est un sous-ensemble d'indices et $p(i \mid S)$ la loi conditionnelle ; $T$ est un nombre de jours ; $\lambda \in\ ]0, 1[$ est le facteur d'une moyenne exponentielle (le $\beta$ de R5) ; $\mathbf{S}$, $\mathbf{C}$, $\mathbf{X}$ et $\mathbf{Y}$ sont les matrices des scores, des poids, des points et des nombres moyennés, une ligne par point.
+- **§3.** $\mathbf{e}_1, \ldots, \mathbf{e}_n$ est la base canonique de $\mathbb{R}^n$ ; $\mathbf{R}_{ij}(\theta)$ tourne $\mathbf{e}_i$ vers $\mathbf{e}_j$. $\sigma$ est une permutation de $\{1, \ldots, n\}$ et $\mathbf{P}$ sa matrice, de lignes $\mathbf{e}_{\sigma(1)}^\top, \ldots, \mathbf{e}_{\sigma(n)}^\top$, si bien que $(\mathbf{P}\mathbf{x})_k = x_{\sigma(k)}$. $\mathbf{A}$ et $\mathbf{B}$ sont deux matrices découpées en blocs. $\mathbf{D}$ est une matrice diagonale par blocs de $r$ rotations planes, et $r_{ij}$ un coefficient de $\mathbf{R}_{ij}(\theta)$.
+- **§4.** $t$ est une valeur d'une variable cyclique de **période** (*period*) $\tau$, $\omega = 2\pi/\tau$ sa **pulsation** (*angular frequency*), $\mathbf{e}(t) = (\cos\omega t, \sin\omega t)$ son encodage ; $\delta$ est un décalage, $\rho$ la longueur d'un vecteur moyen.
+- **§5.** $s_1, \ldots, s_n$ sont des **scores**, des réels qu'on passe à la softmax (pas le score d'un classifieur, ni ceux de MB5 et MB8) ; $p_i$ est un poids, $y_i$ un nombre (ou un vecteur) moyenné, $\hat y$ la moyenne pondérée ; $\mathbf{x}_i$ (ou $x_i$ en dimension 1) sont les points de mesure, $\mathbf{x}$ le point de la prévision, $K(\mathbf{x}, \mathbf{x}_i)$ le **noyau**, $h > 0$ la **largeur de bande** ; $b$ est une constante ajoutée à tous les scores ; $E_i$ est une énergie (M17), $\eta$ et $L_i$ le learning rate et la loss cumulée de Hedge (M14).
+- **§6.** $S$ est un sous-ensemble d'indices et $p(i \mid S)$ la loi conditionnelle ; $T$ est un nombre de jours, $t$ et $u$ sont des jours ; $\lambda \in\ ]0, 1[$ est le facteur d'une moyenne exponentielle (le $\beta$ de R5) ; $\mathbf{S}$, $\mathbf{C}$, $\mathbf{X}$ et $\mathbf{Y}$ sont les matrices des scores, des poids, des points et des nombres moyennés, une ligne par point.
 - **§7.** $n$ compte des contributions de variance $v$ ; $c > 0$ multiplie les scores ; $K$ est le nombre de scores, $p_{\max}$ le plus grand poids, $\Delta$ l'écart entre le plus grand score et le suivant.
 - **§8.** L'**état** est $(m, l, a)$ : $m$ le plus grand score lu, $l$ et $a$ deux sommes ; le code l'écrit `(m, l, acc)`. $v_j$ est le nombre (ou le vecteur de longueur $k$) associé au score $s_j$, `values` dans le code. $B$ est la taille d'un bloc, $N$ le nombre de blocs, $X$ un nombre de remises à l'échelle, $H_N = 1 + \frac12 + \cdots + \frac1N$.
-- **Lettres à double sens.** $i$ est l'unité imaginaire aux §1 et §2, un indice ailleurs (dans $\mathbf{R}_{ij}$, $x_i$ ou $p_i$). $e$ est la base de l'exponentielle, $\mathbf{e}_i$ (en gras, indicé) un vecteur de base au §3, $\mathbf{e}(t)$ un encodage au §4. $a$ et $b$ sont des angles au §1 ; $b$ est une constante au §5, $a$ la troisième composante de l'état au §8. $\mathbf{A}$, $\mathbf{B}$ (en gras) sont des matrices au §3, $B$ une taille de bloc aux §8 et §9. $K$ est le noyau au §5, un nombre de scores au §7. $k$ indexe une horloge au §4 et compte les coordonnées d'un $v_j$ au §8. $n$ est la dimension aux §2 et §3, un nombre de points aux §5 et §6, de contributions au §7, de clients au §9. $T$ est une température aux §5 et §7, un nombre de jours au §6. $h$ (en italique) est une largeur de bande, « h » (droit) l'heure. $\mathbf{S}$ (en gras) est la matrice des scores, $S$ un sous-ensemble (§6). $\mathbf{P}$ (en gras) est une matrice de permutation, $p$ un poids, $P(\cdot)$ une probabilité (§8). $\mathbf{X}$ (en gras) est la matrice des points au §6, $X$ un nombre aléatoire au §8. $\sigma$ est une permutation, jamais un écart-type ici. Le contexte tranche.
+- **Lettres à double sens.** $i$ est l'unité imaginaire aux §1 et §2, un indice ailleurs (dans $\mathbf{R}_{ij}$, $x_i$ ou $p_i$). $e$ est la base de l'exponentielle, $\mathbf{e}_i$ (en gras, indicé) un vecteur de base aux §2 et §3, $\mathbf{e}(t)$ un encodage au §4 et $\mathbf{E}(t)$ un encodage à plusieurs horloges ; $E_i$ est une énergie aux §5 et §7, $\mathbb{E}$ l'espérance au §8. $a$ et $b$ sont des angles aux §1 et §2 et des coefficients de $\mathbf{A}$ et de $\mathbf{B}$ au §3 ; $b$ est une constante au §5 et un numéro de bloc au §8, $a$ la troisième composante de l'état au §8. $\mathbf{A}$, $\mathbf{B}$ (en gras) sont des matrices au §3, $B$ une taille de bloc aux §8 et §9. $r_{ij}$ est un coefficient de $\mathbf{R}_{ij}(\theta)$ et $r$ un nombre de blocs, tous deux au §3. $K$ est le noyau au §5, un nombre de scores au §7. $k$ est un indice aux §3 et §6, indexe une horloge au §4 et compte les coordonnées d'un $v_j$ au §8. $n$ est la dimension au §3, un nombre de valeurs au §4, de points aux §5 et §6, de contributions au §7, de clients au §9. $t$ est un entier (un exposant) aux §1 et §2 et le temps d'une onde dans la figure du §1, une valeur d'une variable cyclique au §4, un jour au §6 ; $u$ est un indice au §3 et un jour au §6 ; $\mathbf{u}_a$ (en gras) est un point du cercle aux §1 et §2, et $\mathbf{u}$, $\mathbf{v}$ deux vecteurs quelconques au §1. $v$ est une variance au §7, $v_j$ un nombre moyenné au §8. $w$ est un complexe au §2, un indice au §3. $x$ et $y$ sont des coordonnées aux §1 à §3, $x_i$ et $y_i$ un point et une mesure aux §5 et §6. $T$ est une température aux §5 et §7, un nombre de jours au §6. $h$ (en italique) est une largeur de bande, « h » (droit) l'heure. $\mathbf{S}$ (en gras) est la matrice des scores, $S$ un sous-ensemble (§6). $\mathbf{P}$ (en gras) est une matrice de permutation, $p$ un poids, $P(\cdot)$ une probabilité (§8). $\mathbf{X}$ (en gras) est la matrice des points au §6, $X$ un nombre aléatoire au §8. $\mathbf{I}$ (en gras) est l'identité, $I_b$ une indicatrice au §8. $\sigma$ est une permutation, jamais un écart-type ici. Le contexte tranche.
 
 Vocabulaire anglais de ce chapitre : *angle addition formulas*, *double-angle formulas*, *half-angle formulas*, *product-to-sum formulas*, *beats*, *counterclockwise*, *reflection*, *Givens rotation*, *commute*, *block-diagonal matrix*, *permutation matrix*, *cyclical feature*, *cyclic encoding*, *angular frequency*, *mean direction*, *mean resultant length*, *convex combination*, *kernel regression*, *Nadaraya-Watson estimator*, *bandwidth*, *nearest neighbor*, *leave-one-out*, *mask*, *filtering*, *smoothing*, *causal*, *permutation equivariant*, *saturation*, *online softmax*, *rescaling*, *invariant*, *merge*, *neutral element*, *record*, *indicator*, *harmonic number*.
 
@@ -96,11 +96,11 @@ Notons $\mathbf{u}_a = (\cos a, \sin a)$ le point d'angle $a$ du cercle unité (
 
 L'idée : calculer le produit scalaire $\mathbf{u}_a\cdot\mathbf{u}_b$ de deux façons. En coordonnées, il vaut $\cos a\cos b + \sin a\sin b$. Par l'angle (R9 §7), il vaut $\lVert\mathbf{u}_a\rVert\,\lVert\mathbf{u}_b\rVert\cos\varphi = \cos\varphi$, où $\varphi \in [0, \pi]$ est l'angle des deux vecteurs ; or $\varphi$ est égal à $a - b$ au signe et à un multiple de $2\pi$ près, ce que la parité et la périodicité du cosinus effacent. Le ∂ MB3.8 rédige ce dernier point.
 
-**Pas de cercle vicieux.** R9 §7 a obtenu $\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert\cos\varphi$ en admettant qu'une rotation conserve le produit scalaire, ce que le §2 veut établir. Mais la formule sort aussi d'Al-Kashi, démontrée en R9.12 par une hauteur, sans rotation : dans le triangle de côtés $\mathbf{u}$, $\mathbf{v}$, $\mathbf{u} - \mathbf{v}$, compare Al-Kashi au développement $\lVert\mathbf{u} - \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2 - 2\,\mathbf{u}\cdot\mathbf{v}$ (M07).
+**Pas de cercle vicieux.** R9 §7 a obtenu $\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert\cos\varphi$ en admettant qu'une rotation conserve le produit scalaire, ce que le §2 veut établir. Mais la formule sort aussi d'Al-Kashi, démontrée en R9.12 par une hauteur, sans rotation : dans le triangle de côtés $\mathbf{u}$, $\mathbf{v}$, $\mathbf{u} - \mathbf{v}$, compare Al-Kashi au développement $\lVert\mathbf{u} - \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2 - 2\,\mathbf{u}\cdot\mathbf{v}$ (M07). Si $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires, il n'y a pas de triangle, mais $\varphi$ vaut 0 ou $\pi$ et les deux membres valent $\pm\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
 
 **Exemple : deux points à coordonnées rationnelles.** Le point $\mathbf{u}_a = \big(\frac{35}{37}, \frac{12}{37}\big)$ est sur le cercle unité, puisque $35^2 + 12^2 = 1\,369 = 37^2$ ; de même $\mathbf{u}_b = \big(\frac{28}{53}, \frac{45}{53}\big)$, car $28^2 + 45^2 = 2\,809 = 53^2$. Leurs angles valent $a \approx 18{,}92°$ et $b \approx 58{,}11°$. Alors
 $$\cos(b - a) = \frac{28}{53}\cdot\frac{35}{37} + \frac{45}{53}\cdot\frac{12}{37} = \frac{980 + 540}{1\,961} = \frac{1\,520}{1\,961} \approx 0{,}7751,$$
-le cosinus de $39{,}18°$ : vérifie à la calculatrice.
+le cosinus de $b - a$ : vérifie à la calculatrice que $\arccos\frac{1\,520}{1\,961} \approx 39{,}18°$.
 
 ### Les trois autres, et ce qu'on en tire
 
@@ -108,11 +108,11 @@ le cosinus de $39{,}18°$ : vérifie à la calculatrice.
 > $$\cos(a + b) = \cos a\cos b - \sin a\sin b, \qquad \cos(a - b) = \cos a\cos b + \sin a\sin b,$$
 > $$\sin(a + b) = \sin a\cos b + \cos a\sin b, \qquad \sin(a - b) = \sin a\cos b - \cos a\sin b .$$
 
-L'idée, que le ∂ MB3.8 rédige : $\cos(a + b) = \cos\big(a - (-b)\big)$, puis la parité, $\cos(-b) = \cos b$ et $\sin(-b) = -\sin b$ ; avec $a = \frac\pi2$, la formule de $\cos(a - b)$ donne $\cos(\frac\pi2 - x) = \sin x$, puis, en remplaçant $x$ par $\frac\pi2 - x$, $\sin(\frac\pi2 - x) = \cos x$ ; enfin $\sin(a + b) = \cos\big((\frac\pi2 - a) - b\big)$, que l'on développe.
+L'idée, que le ∂ MB3.8 rédige : la parité de $\cos$ et de $\sin$ ramène $\cos(a + b)$ à la formule de $\cos(a - b)$, et le cas $a = \frac\pi2$ de celle-ci, $\cos(\frac\pi2 - x) = \sin x$, ramène les sinus aux cosinus.
 
 Pour l'exemple : $\sin(b - a) = \frac{45 \times 35 - 28 \times 12}{1\,961} = \frac{1\,239}{1\,961}$, $\cos(a + b) = \frac{980 - 540}{1\,961} = \frac{440}{1\,961}$ et $\sin(a + b) = \frac{336 + 1\,575}{1\,961} = \frac{1\,911}{1\,961}$ ; contrôle : $440^2 + 1\,911^2 = 1\,961^2$.
 
-**Duplication** (*double-angle formulas*). Avec $b = a$, et $\cos^2 + \sin^2 = 1$ :
+**Duplication** (*double-angle formulas*), que le ∂ MB3.8 tire des formules d'addition :
 $$\cos 2a = \cos^2a - \sin^2a = 2\cos^2a - 1 = 1 - 2\sin^2a, \qquad \sin 2a = 2\sin a\cos a .$$
 Pour $\mathbf{u}_a$ : $\cos 2a = \frac{1\,225 - 144}{1\,369} = \frac{1\,081}{1\,369}$ et $\sin 2a = \frac{2 \times 12 \times 35}{1\,369} = \frac{840}{1\,369}$. Lue à l'envers, $\cos^2a = \frac{1 + \cos 2a}{2}$ donne l'**angle moitié** (*half-angle formulas*) : avec $\cos\frac\pi4 = \frac{\sqrt2}{2}$,
 $$\cos\frac\pi8 = \sqrt{\frac{1 + \frac{\sqrt2}{2}}{2}} = \frac{\sqrt{2 + \sqrt2}}{2} \approx 0{,}9239, \qquad \sin\frac\pi8 = \frac{\sqrt{2 - \sqrt2}}{2} \approx 0{,}3827,$$
@@ -120,13 +120,13 @@ où l'on prend les racines positives, puisque $\frac\pi8$ est dans le premier qu
 
 **Produits en sommes** (*product-to-sum formulas*). En ajoutant, puis en retranchant, les formules de $\cos(a - b)$ et de $\cos(a + b)$ :
 $$\cos a\cos b = \tfrac12\big[\cos(a - b) + \cos(a + b)\big], \qquad \sin a\sin b = \tfrac12\big[\cos(a - b) - \cos(a + b)\big].$$
-Vérifie : $\frac{35}{37}\cdot\frac{28}{53} = \frac{980}{1\,961} = \frac12\cdot\frac{1\,520 + 440}{1\,961}$. Le produit de deux ondes de pulsations voisines est la demi-somme d'une onde lente et d'une onde rapide : les **battements** (*beats*) de deux notes presque à l'unisson (figure, à droite).
+Vérifie : $\frac{35}{37}\cdot\frac{28}{53} = \frac{980}{1\,961} = \frac12\cdot\frac{1\,520 + 440}{1\,961}$. Le produit de deux ondes de pulsations voisines est la demi-somme d'une onde lente, de pulsation la différence, et d'une onde rapide, de pulsation la somme (figure, à droite). Lue à l'envers, avec $a = \frac{\alpha + \beta}{2}$ et $b = \frac{\alpha - \beta}{2}$, la formule donne $\cos\alpha + \cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ : deux notes presque à l'unisson qui sonnent ensemble s'additionnent en une note rapide dont l'amplitude varie lentement, ce sont les **battements** (*beats*).
 
 ![À gauche, les vecteurs unitaires u_a = (35/37, 12/37) et u_b = (28/53, 45/53) et l'angle b − a entre eux : leur produit scalaire, 1520/1961, est cos(b − a). À droite, cos 7t cos 6t sur un tour : une oscillation rapide autour de l'onde lente ½ cos t, entre les enveloppes ½ cos t ± ½](figures/addition.png)
 
 ### La règle des exponentielles, enfin démontrée
 
-Définissons $e^{i\theta} = \cos\theta + i\sin\theta$ (M22 l'admettait comme formule d'Euler ; le §2 justifie la notation). En développant le produit $e^{i\alpha}e^{i\beta}$ avec $i^2 = -1$, la partie réelle et la partie imaginaire sont exactement les formules de $\cos(\alpha + \beta)$ et de $\sin(\alpha + \beta)$ :
+Définissons $e^{i\theta} = \cos\theta + i\sin\theta$ (M22 l'admettait comme formule d'Euler ; la propriété suivante justifie la notation). Le produit $e^{i\alpha}e^{i\beta}$ se développe avec $i^2 = -1$ ; le ∂ MB3.8 y reconnaît les formules d'addition :
 
 > **Propriété** (∂ MB3.8). $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$ : la règle que M22 admettait n'est que les formules d'addition.
 
@@ -151,10 +151,10 @@ M12c et M22 l'ont rencontrée. Les formules d'addition, ligne par ligne, donnent
 ### Composer, inverser
 
 > **Propriétés** (∂ MB3.8).
-> 1. **Composer** : $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$. Donc $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_\beta\mathbf{R}_\alpha$ : deux rotations du plan **commutent**.
-> 2. **Inverser** : $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$, et $\det\mathbf{R}_\theta = \cos^2\theta + \sin^2\theta = 1$.
+> 1. **Composer** : $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$. Donc $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_\beta\mathbf{R}_\alpha$ : deux rotations du plan **commutent** (*commute*).
+> 2. **Inverser** : $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$, et $\det\mathbf{R}_\theta = 1$.
 
-L'idée : chaque coefficient du produit $\mathbf{R}_\alpha\mathbf{R}_\beta$ est l'une des formules d'addition du §1 ; $\mathbf{R}_\theta^\top$ s'écrit $\mathbf{R}_{-\theta}$ par la parité de $\cos$ et de $\sin$, et c'est l'inverse puisque $\mathbf{R}_{-\theta}\mathbf{R}_\theta = \mathbf{R}_0 = \mathbf{I}$. Par récurrence, $(\mathbf{R}_\theta)^t = \mathbf{R}_{t\theta}$ pour tout entier $t \ge 0$.
+L'idée, que le ∂ MB3.8 rédige : chaque coefficient du produit $\mathbf{R}_\alpha\mathbf{R}_\beta$ est l'une des formules d'addition du §1 ; pour l'inverse, compare $\mathbf{R}_\theta^\top$ et $\mathbf{R}_{-\theta}$ coefficient par coefficient. Par récurrence, $(\mathbf{R}_\theta)^t = \mathbf{R}_{t\theta}$ pour tout entier $t \ge 0$.
 
 **Exemple.** Avec $\cos a = \frac{35}{37}$ et $\cos b = \frac{28}{53}$ du §1,
 $$\mathbf{R}_a\mathbf{R}_b = \frac{1}{1\,961}\begin{pmatrix} 35 & -12 \\ 12 & 35 \end{pmatrix}\begin{pmatrix} 28 & -45 \\ 45 & 28 \end{pmatrix} = \frac{1}{1\,961}\begin{pmatrix} 440 & -1\,911 \\ 1\,911 & 440 \end{pmatrix} = \mathbf{R}_{a + b},$$
@@ -164,11 +164,11 @@ et l'autre ordre donne la même matrice. De même, $\mathbf{R}_a^2 = \frac{1}{1\
 
 ### Ce qu'une rotation conserve
 
-> **Propriété** (MML §3.9.4). Une rotation conserve les **produits scalaires** : $(\mathbf{R}_\theta\mathbf{x})\cdot(\mathbf{R}_\theta\mathbf{y}) = \mathbf{x}\cdot\mathbf{y}$ pour tous vecteurs $\mathbf{x}$ et $\mathbf{y}$ du plan. Donc aussi les **normes**, les **distances** et les **angles**.
+> **Propriété** (MML §3.9.4, et (3.31)-(3.32) pour une matrice orthogonale). Une rotation conserve les **produits scalaires** : $(\mathbf{R}_\theta\mathbf{x})\cdot(\mathbf{R}_\theta\mathbf{y}) = \mathbf{x}\cdot\mathbf{y}$ pour tous vecteurs $\mathbf{x}$ et $\mathbf{y}$ du plan. Donc aussi les **normes**, les **distances** et les **angles**.
 
 En effet $(\mathbf{R}_\theta\mathbf{x})^\top(\mathbf{R}_\theta\mathbf{y}) = \mathbf{x}^\top\mathbf{R}_\theta^\top\mathbf{R}_\theta\mathbf{y} = \mathbf{x}^\top\mathbf{y}$ (M09a, M12b) ; les normes s'en déduisent avec $\mathbf{y} = \mathbf{x}$, les distances par $\mathbf{x} - \mathbf{y}$, les angles par leur cosinus. Les deux vecteurs sont tournés par **la même** rotation.
 
-**Exemple : deux repères sur un plateau tournant**, en $\mathbf{x} = (2, 1)$ et $\mathbf{y} = (-1, 3)$ : $\mathbf{x}\cdot\mathbf{y} = 1$ et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = 13$. Le plateau tourne de $a$ : $\mathbf{R}_a\mathbf{x} = \frac{1}{37}(58, 59)$ et $\mathbf{R}_a\mathbf{y} = \frac{1}{37}(-71, 93)$. Leur produit scalaire vaut $\frac{-4\,118 + 5\,487}{1\,369} = 1$, et leur distance au carré $\frac{129^2 + 34^2}{1\,369} = \frac{17\,797}{1\,369} = 13$.
+**Exemple : deux repères sur un plateau tournant**, en $\mathbf{x} = (5, 3)$ et $\mathbf{y} = (-1, 3)$ : $\mathbf{x}\cdot\mathbf{y} = 4$ et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = 36$. Le plateau tourne de $a$ : $\mathbf{R}_a\mathbf{x} = \frac{1}{37}(139, 165)$ et $\mathbf{R}_a\mathbf{y} = \frac{1}{37}(-71, 93)$. Leur produit scalaire vaut $\frac{-9\,869 + 15\,345}{1\,369} = 4$, et leur distance au carré $\frac{210^2 + 72^2}{1\,369} = \frac{49\,284}{1\,369} = 36$.
 
 ### Rotation ou symétrie
 
@@ -190,7 +190,7 @@ Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i
 
 ⚠️ **Erreur classique.** Mettre le signe moins en bas à gauche : on obtient $\mathbf{R}_{-\theta}$. Écrire $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha\beta}$. Croire qu'une matrice orthogonale est toujours une rotation. Croire qu'une rotation conserve le produit scalaire de deux vecteurs tournés d'angles **différents**.
 
-🔗 **Dans workbookIA** — le chapitre B3 se sert de matrices de rotation $2 \times 2$, de leur composition et de leur transposée pour coder des positions ; il énonce ces propriétés, que ce paragraphe démontre.
+🔗 **Dans workbookIA** — le chapitre B3 se sert de matrices de rotation $2 \times 2$, de leur composition et de leur transposée pour coder des positions ; il énonce ces propriétés, que ce paragraphe et le ∂ MB3.8 démontrent.
 
 ## §3 · Les rotations de ℝⁿ : l'espace, les rotations de Givens, les matrices diagonales par blocs et les permutations des coordonnées
 
@@ -246,7 +246,7 @@ le premier client paie 23 € pour 13 kg. Les produits 1 et 2 sont au rayon frai
 
 Soit $\mathbf{P}$ la matrice de la permutation $\sigma$ (📐) : $(\mathbf{P}\mathbf{x})_k = x_{\sigma(k)}$, et $\mathbf{P}^{-1} = \mathbf{P}^\top$ (M12b ; M16 renumérotait ainsi les nœuds d'un graphe).
 
-> **Propriété.** Pour $i \ne j$, $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ est la rotation d'angle $\theta$ dans le plan des coordonnées $(\sigma(i), \sigma(j))$, qui tourne $\mathbf{e}_{\sigma(i)}$ vers $\mathbf{e}_{\sigma(j)}$ : c'est **la même rotation**, écrite dans d'autres coordonnées. Si $\sigma(i) > \sigma(j)$, c'est $\mathbf{R}_{\sigma(j)\sigma(i)}(-\theta)$ dans la convention $i < j$ de MML.
+> **Propriété.** Pour $i < j$, $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ est la rotation d'angle $\theta$ dans le plan des coordonnées $(\sigma(i), \sigma(j))$, qui tourne $\mathbf{e}_{\sigma(i)}$ vers $\mathbf{e}_{\sigma(j)}$ : c'est **la même rotation**, transportée dans un autre plan de coordonnées. Si $\sigma(i) > \sigma(j)$, c'est $\mathbf{R}_{\sigma(j)\sigma(i)}(-\theta)$ dans la convention $i < j$ de MML.
 
 *Démonstration.* La coordonnée $u$ de $\mathbf{P}\mathbf{e}_{\sigma(k)}$ vaut 1 si $\sigma(u) = \sigma(k)$, c'est-à-dire si $u = k$, et 0 sinon : $\mathbf{P}\mathbf{e}_{\sigma(k)} = \mathbf{e}_k$, donc $\mathbf{P}^\top\mathbf{e}_k = \mathbf{e}_{\sigma(k)}$. Alors $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}\,\mathbf{e}_{\sigma(i)} = \mathbf{P}^\top(\cos\theta\,\mathbf{e}_i + \sin\theta\,\mathbf{e}_j) = \cos\theta\,\mathbf{e}_{\sigma(i)} + \sin\theta\,\mathbf{e}_{\sigma(j)}$ ; de même pour $\mathbf{e}_{\sigma(j)}$, et les autres $\mathbf{e}_{\sigma(k)}$ restent fixes. $\square$
 
@@ -270,7 +270,7 @@ Le mois, l'heure ou la direction du vent sont des variables **cycliques** (*cycl
 
 > **Définition.** Une variable cyclique $t$ de période $\tau$ s'**encode** (*cyclic encoding*) par le point du cercle unité
 > $$\mathbf{e}(t) = (\cos\omega t,\ \sin\omega t), \qquad \omega = \frac{2\pi}{\tau} :$$
-> une **horloge** dont l'aiguille fait un tour par période.
+> une **horloge** (*clock*) dont l'aiguille fait un tour par période.
 
 Il faut les deux coordonnées : pour les mois, $\cos\omega t$ seul ne distingue pas mars de septembre ($\cos\frac\pi2 = \cos\frac{3\pi}{2} = 0$), et $\sin\omega t$ seul ne distingue pas janvier de mai.
 
@@ -300,7 +300,7 @@ une fonction du seul écart ; et un décalage $\delta$ tourne chaque horloge de 
 
 La moyenne de valeurs cycliques se fait sur les **vecteurs**, pas sur les numéros :
 
-> **Définition.** La **direction moyenne** (*mean direction*) de $t_1, \ldots, t_n$ est l'angle (l'argument, M22) du vecteur moyen $\bar{\mathbf{e}} = \frac1n\sum_i\mathbf{e}(t_i)$, ramené à la variable en divisant par $\omega$. Sa longueur $\rho = \lVert\bar{\mathbf{e}}\rVert$ (*mean resultant length*), entre 0 et 1, dit si les valeurs sont **groupées** (près de 1) ou **dispersées** (près de 0). Si $\bar{\mathbf{e}} = \mathbf{0}$, il n'y a pas de direction moyenne.
+> **Définition.** La **direction moyenne** (*mean direction*) de $t_1, \ldots, t_n$ est l'angle (l'argument, M22) du vecteur moyen $\bar{\mathbf{e}} = \frac1n\sum_i\mathbf{e}(t_i)$, ramené à la variable en divisant par $\omega$. Sa longueur $\rho = \lVert\bar{\mathbf{e}}\rVert$ (*mean resultant length*), entre 0 et 1, dit si les valeurs sont **groupées** (près de 1) ou **dispersées** (près de 0 ; mais deux groupes opposés, autant de relevés en janvier qu'en juillet, donnent aussi $\rho = 0$). Si $\bar{\mathbf{e}} = \mathbf{0}$, il n'y a pas de direction moyenne.
 
 **Exemple : les pannes d'un chauffage.** Un chauffage collectif est tombé en panne en octobre, en novembre, en janvier et en février. La moyenne des numéros, $\frac{10 + 11 + 1 + 2}{4} = 6$, désigne juin, à quatre mois au moins de chaque panne. Les quatre vecteurs, d'angles 300°, 330°, 30° et 60°, ont pour somme
 $$\Big(\tfrac12 + \tfrac{\sqrt3}{2} + \tfrac{\sqrt3}{2} + \tfrac12,\ -\tfrac{\sqrt3}{2} - \tfrac12 + \tfrac12 + \tfrac{\sqrt3}{2}\Big) = (1 + \sqrt3,\ 0) :$$
@@ -316,11 +316,11 @@ $\bar{\mathbf{e}} = \big(\frac{1 + \sqrt3}{4}, 0\big)$, d'angle 0, c'est-à-dire
 
 ### Des poids par une softmax
 
-> **Définition.** Des **scores** $s_1, \ldots, s_n$ donnent des **poids** par la softmax,
+> **Définition.** Des **scores** $s_1, \ldots, s_n$ donnent des **poids** (*weights*) par la softmax,
 > $$p_i = \frac{e^{s_i}}{\sum_{j=1}^ne^{s_j}},$$
 > et la **moyenne pondérée** (*weighted mean*) de nombres, ou de vecteurs, $y_1, \ldots, y_n$ est $\hat y = \sum_ip_iy_i$.
 
-- Les poids sont positifs, de somme 1 : $\hat y$ est une **combinaison convexe** des $y_i$, donc un point de leur **enveloppe convexe** (M10). Pour des nombres, $\hat y$ est entre le plus petit et le plus grand, quels que soient les scores.
+- Les poids sont positifs, de somme 1 : $\hat y$ est une **combinaison convexe** (*convex combination*) des $y_i$, donc un point de leur **enveloppe convexe** (M10). Pour des nombres, $\hat y$ est entre le plus petit et le plus grand, quels que soient les scores.
 - **Ajouter une même constante** $b$ à tous les scores ne change rien : $e^{s_i + b}$ multiplie numérateur et dénominateur par $e^b$. Seuls les écarts entre scores comptent, $\frac{p_i}{p_j} = e^{s_i - s_j}$ ; c'est pourquoi on retranche le plus grand score avant l'exponentielle (M05a).
 - Ce sont les poids de la loi de Boltzmann (M17), avec $s_i = -E_i/T$, et ceux de Hedge (M14), avec $s_i = -\eta L_i$.
 
@@ -328,9 +328,9 @@ $\bar{\mathbf{e}} = \big(\frac{1 + \sqrt3}{4}, 0\big)$, d'angle 0, c'est-à-dire
 
 Pour prévoir une quantité en $\mathbf{x}$ à partir de mesures $(\mathbf{x}_i, y_i)$, on fait la moyenne des $y_i$ en donnant plus de poids aux mesures prises près de $\mathbf{x}$.
 
-> **Définition.** Avec un **noyau** (*kernel*) $K(\mathbf{x}, \mathbf{x}_i) \ge 0$, grand quand $\mathbf{x}_i$ est proche de $\mathbf{x}$, l'**estimateur de Nadaraya-Watson** (*Nadaraya-Watson estimator*, une **régression à noyau**) est
+> **Définition.** Avec un **noyau** (*kernel*) $K(\mathbf{x}, \mathbf{x}_i) \ge 0$, grand quand $\mathbf{x}_i$ est proche de $\mathbf{x}$, l'**estimateur de Nadaraya-Watson** (*Nadaraya-Watson estimator*, une **régression à noyau**, *kernel regression*) est
 > $$\hat y(\mathbf{x}) = \frac{\sum_iK(\mathbf{x}, \mathbf{x}_i)\,y_i}{\sum_jK(\mathbf{x}, \mathbf{x}_j)} .$$
-> Avec le **noyau gaussien** $K(\mathbf{x}, \mathbf{x}_i) = \exp\big(-\lVert\mathbf{x} - \mathbf{x}_i\rVert^2/(2h^2)\big)$, de **largeur de bande** (*bandwidth*) $h > 0$, c'est une moyenne pondérée par une softmax, de scores $s_i = -\frac{\lVert\mathbf{x} - \mathbf{x}_i\rVert^2}{2h^2}$.
+> (il faut $\sum_jK(\mathbf{x}, \mathbf{x}_j) > 0$, ce qui est toujours vrai pour le noyau gaussien). Avec le **noyau gaussien** $K(\mathbf{x}, \mathbf{x}_i) = \exp\big(-\lVert\mathbf{x} - \mathbf{x}_i\rVert^2/(2h^2)\big)$, de **largeur de bande** (*bandwidth*) $h > 0$, c'est une moyenne pondérée par une softmax, de scores $s_i = -\frac{\lVert\mathbf{x} - \mathbf{x}_i\rVert^2}{2h^2}$.
 
 Une constante qui multiplie le noyau se simplifie (la constante d'une densité gaussienne n'importe pas).
 
@@ -346,7 +346,7 @@ Ces scores sont ceux d'une loi de Boltzmann d'énergies $\lVert\mathbf{x} - \mat
 
 Pour le vélo, $h \to 0$ donne 49 km et $h \to \infty$ 47 km. Entre les deux, $h$ règle un compromis : petit, la prévision suit chaque mesure et son bruit ; grand, elle efface la tendance. On choisit souvent $h$ par **validation croisée** (M08) **« un de côté »** (*leave-one-out*) : on prévoit chaque $y_i$ à partir des $n - 1$ autres mesures, ce qui revient ici à retirer le poids de $\mathbf{x}_i$ lui-même, et l'on garde le $h$ dont l'erreur quadratique moyenne est la plus petite.
 
-![À gauche, les cinq essais et la prévision pour h = 1, 3 et 10 °C : presque l'escalier du plus proche voisin à h = 1, une courbe proche de la moyenne (47 km) à h = 10. À droite, les poids à 7 °C selon h (échelle logarithmique) : l'essai à 4 °C prend tout aux petits h, et tous les poids tendent vers 1/5](figures/noyau.png)
+![À gauche, les cinq essais et la prévision pour h = 1, 3 et 10 °C : presque l'escalier du plus proche voisin à h = 1 ; à h = 10, une courbe lisse qui garde la tendance, encore loin de la droite de la moyenne (47 km), qu'elle ne rejoint que quand h → ∞. À droite, les poids à 7 °C selon h (échelle logarithmique) : l'essai à 4 °C prend tout aux petits h, et tous les poids tendent vers 1/5](figures/noyau.png)
 
 ### À normes égales, des produits scalaires
 
@@ -406,13 +406,13 @@ L'idée : la softmax traite toutes ses coordonnées de la même façon, $\operat
 
 ⚠️ **Erreur classique.** Mettre des poids à 0 après la softmax sans renormaliser. Masquer par un score $0$ au lieu de $-\infty$ : un score nul garde un poids. Oublier le sous-ensemble vide (aucun relevé disponible) : $0/0$, à traiter à part.
 
-🔗 **Dans workbookIA** — le chapitre B3 masque des scores pour qu'un élément d'une suite ne regarde pas les suivants ; ce paragraphe en donne la version probabiliste, une loi conditionnelle, et démontre l'équivariance par permutation.
+🔗 **Dans workbookIA** — le chapitre B3 masque des scores pour qu'un élément d'une suite ne regarde pas les suivants ; ce paragraphe en donne la version probabiliste, une loi conditionnelle, et énonce l'équivariance par permutation (démontrée au ∂ MB3.9).
 
 ## §7 · L'échelle des scores : diviser une somme de n contributions par √n, et la saturation de la softmax
 
 ### Une somme de n contributions
 
-Un score est souvent une somme : les avis des $n$ membres d'un jury, les $n$ facteurs d'un indice de risque.
+Un score est souvent une somme : les réponses aux $n$ questions d'un questionnaire, les $n$ facteurs d'un indice de risque.
 
 > **Rappel** (M02b). Si $Z_1, \ldots, Z_n$ sont indépendantes, centrées et de variance $v$, leur somme a pour variance $nv$ et pour écart-type $\sqrt{nv}$.
 
@@ -422,7 +422,7 @@ Pourquoi tenir l'échelle ? Ajouter une constante aux scores ne change rien (§5
 
 ### Multiplier les scores par c
 
-Pour $c > 0$, $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{e^{cs_i}}{\sum_je^{cs_j}} = \frac{p_i^c}{\sum_jp_j^c}$, où $\mathbf{p} = \operatorname{softmax}(\mathbf{s})$ : c'est la **loi tempérée** de M28 à la température $T = \frac1c$. Avec une loi de Boltzmann, $cs_i = -E_i/(T/c)$ : **multiplier les scores par $c$, c'est diviser la température par $c$** (M17).
+Pour $c > 0$, $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{e^{cs_i}}{\sum_je^{cs_j}} = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ est la loi pour $c = 1$ : c'est la **loi tempérée** de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$. Avec une loi de Boltzmann, $cs_i = -E_i/(T/c)$ : **multiplier les scores par $c$, c'est diviser la température par $c$** (M17).
 
 > **Propriété.** Soit $\mathbf{p} = \operatorname{softmax}(c\,\mathbf{s})$, pour des scores non tous égaux. Quand $c$ croît, le plus grand poids $p_{\max}$ croît et l'entropie de $\mathbf{p}$ décroît (M28 : l'entropie croît avec la température). Quand $c \to 0$, $\mathbf{p}$ tend vers la loi uniforme ; quand $c \to \infty$, vers le **one-hot** du plus grand score s'il est unique, et vers la loi uniforme sur les plus grands scores s'ils sont plusieurs.
 
@@ -430,7 +430,7 @@ Pour $p_{\max}$ : $\ln p_{\max} = cs_{\max} - \ln\sum_je^{cs_j}$ a pour dérivé
 
 ### La saturation
 
-> **Définition.** La **sensibilité** d'une loi $\mathbf{p}$ est $1 - \sum_ip_i^2 = \sum_ip_i(1 - p_i)$ : la trace de la matrice $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$ de M17, et l'impureté de Gini de M13a.
+> **Définition.** La **sensibilité** (pas de nom anglais établi : c'est l'impureté de Gini, *Gini impurity*, de M13a) d'une loi $\mathbf{p}$ est $1 - \sum_ip_i^2 = \sum_ip_i(1 - p_i)$ : la trace de la matrice $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$ de M17 (M17 l'écrit $\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, avec $\mathbf{p}$ en ligne).
 
 Cette matrice, une covariance pour M17, est aussi la jacobienne de la softmax, calculée au chapitre 17 de workbookIA : son coefficient diagonal $p_i(1 - p_i)$ dit de combien bouge $p_i$ quand $s_i$ seul bouge un peu. Quand la sensibilité est proche de 0, la softmax est **saturée** (*saturation*) : de petits changements des scores ne changent presque plus les poids.
 
@@ -444,7 +444,7 @@ En échelle logarithmique, la borne est une droite de pente $-\Delta$ (R6) ; ell
 
 **Exemple.** Quatre scores $(3, 2, 2, 0)$ : $K = 4$ et $\Delta = 1$. Pour $c = 4$, les exponentielles $e^{4(s_i - 3)}$ valent $1$, $e^{-4}$, $e^{-4}$ et $e^{-12}$, d'où $p_{\max} \approx 0{,}9647$ : $1 - p_{\max} \approx 0{,}0353$, sous la borne $3e^{-4} \approx 0{,}0549$, et la sensibilité vaut $\approx 0{,}0688$, sous $2 \times 0{,}0549$. À $c = 6$, $1 - p_{\max}$ tombe à $\approx 0{,}0049$.
 
-![À gauche, les poids des scores (3, 2, 2, 0) multipliés par c, de c = 0 (tous à 1/4) à c = 8 (le plus grand près de 1). À droite, en échelle logarithmique, 1 − p_max sous sa borne 3e^(−c) et la sensibilité sous 6e^(−c) : au-delà de c ≈ 2, quatre droites de pente −1](figures/saturation.png)
+![À gauche, les poids des scores (3, 2, 2, 0) multipliés par c, de c = 0 (tous à 1/4) à c = 8 (le plus grand près de 1). À droite, en échelle logarithmique, 1 − p_max sous sa borne 3e^(−c) et la sensibilité sous 6e^(−c) : les deux bornes sont des droites de pente −1, et les deux courbes leur deviennent parallèles quand c grandit](figures/saturation.png)
 
 **Pourquoi diviser par $\sqrt n$.** Des scores faits de $n$ contributions ont des écarts qui grandissent comme $\sqrt n$, comme si $c$ grandissait avec $n$ ; les diviser par $\sqrt n$ garde le même régime de la softmax, quel que soit $n$.
 
@@ -458,7 +458,7 @@ En échelle logarithmique, la borne est une droite de pente $-\Delta$ (R6) ; ell
 
 On veut $\sum_jp_jv_j$, avec $p_j = \operatorname{softmax}(\mathbf{s})_j$, pour des millions de scores qui arrivent **par blocs** : on ne peut ni tout garder, ni relire. La recette de M05a, retrancher le plus grand score, demande de le connaître d'avance ; la **softmax en ligne** (*online softmax*) le découvre en chemin.
 
-> **Définition.** L'**état** des scores lus jusqu'ici, et des nombres $v_j$ qui les accompagnent, est le triplet
+> **Définition.** L'**état** (*state*) des scores lus jusqu'ici, et des nombres $v_j$ qui les accompagnent, est le triplet
 > $$m = \max_js_j, \qquad l = \sum_je^{s_j - m}, \qquad a = \sum_je^{s_j - m}\,v_j .$$
 > L'**état vide**, celui d'aucun score (ou de scores tous égaux à $-\infty$), est $(-\infty, 0, 0)$.
 
@@ -472,7 +472,7 @@ Tous les exposants sont négatifs ou nuls : **aucune exponentielle d'un nombre p
 
 > **Propriété** (∂ MB3.10). Après chaque bloc, $(m, l, a)$ est exactement l'état des scores lus jusque-là : c'est l'**invariant** (*invariant*) de la softmax en ligne. À la fin, $a/l$ est donc la moyenne pondérée **exacte**, et $m + \ln l$ le log-sum-exp de tous les scores.
 
-L'idée, que le ∂ MB3.10 rédige par récurrence sur les blocs : si l'invariant tient avant le bloc, multiplier par $e^{m - m'}$ réécrit les anciennes sommes par rapport au nouveau maximum, puisque $e^{s_j - m}\,e^{m - m'} = e^{s_j - m'}$ ; on y ajoute les termes du bloc.
+L'idée, que le ∂ MB3.10 rédige par récurrence sur les blocs : le facteur $e^{m - m'}$ réécrit les anciennes sommes par rapport au nouveau maximum, puis on y ajoute les termes du bloc.
 
 **Exemple : une note moyenne, page par page.** Chaque avis d'un site a une note $v_j$ sur 10 et un **score de fiabilité** $s_j$ ; l'avis 5, signalé comme faux, a le score $-\infty$. On lit les avis par pages de trois.
 
@@ -496,9 +496,9 @@ La note pondérée vaut $a/l \approx 5{,}9732$, et $m + \ln l \approx 3{,}7209$ 
 > $$(m_1, l_1, a_1) \oplus (m_2, l_2, a_2) = \big(m,\ l_1e^{m_1 - m} + l_2e^{m_2 - m},\ a_1e^{m_1 - m} + a_2e^{m_2 - m}\big),$$
 > et la fusion de deux états vides est l'état vide.
 
-> **Propriété** (∂ MB3.10). Si les deux états sont ceux de deux ensembles **disjoints** de scores, leur fusion est l'état de leur réunion. La fusion est **commutative** et **associative**, et l'état vide $(-\infty, 0, 0)$ est son **élément neutre** (*neutral element*).
+> **Propriété** (∂ MB3.10). Si les deux états sont ceux de deux ensembles **disjoints** d'indices (aucun score n'est lu deux fois), leur fusion est l'état de leur réunion. La fusion est **commutative** et **associative**, et l'état vide $(-\infty, 0, 0)$ est son **élément neutre** (*neutral element*).
 
-L'idée : chaque état est réécrit par rapport au maximum commun ; les deux groupements d'une triple fusion donnent l'état de la même réunion. Lire un bloc, c'est fusionner l'état courant avec l'état du bloc : à la page 3, l'état des pages 1 et 2, $(2 ;\ 2{,}8711 ;\ 19{,}7953)$, fusionné avec celui de l'avis 7 seul, $(3, 1, 5)$, redonne $(3 ;\ 2{,}0562 ;\ 12{,}2823)$. On peut donc couper une longue série en morceaux, lire chacun sur une machine, et fusionner les états dans n'importe quel ordre et groupement. L'état tient en $2 + k$ nombres (pour des $v_j$ de longueur $k$), quel que soit le nombre de scores lus.
+L'idée, que le ∂ MB3.10 rédige : chaque état est réécrit par rapport au maximum commun, comme dans la mise à jour. Lire un bloc, c'est fusionner l'état courant avec l'état du bloc : à la page 3, l'état des pages 1 et 2, $(2 ;\ 2{,}8711 ;\ 19{,}7953)$, fusionné avec celui de l'avis 7 seul, $(3, 1, 5)$, redonne $(3 ;\ 2{,}0562 ;\ 12{,}2823)$. On peut donc couper une longue série en morceaux, lire chacun sur une machine, et fusionner les états dans n'importe quel ordre et groupement. L'état tient en $2 + k$ nombres (pour des $v_j$ de longueur $k$), quel que soit le nombre de scores lus.
 
 ### Combien de remises à l'échelle ?
 
@@ -509,11 +509,11 @@ En ordre croissant, le maximum change à chaque bloc : $N - 1$ remises à l'éch
 
 *Démonstration.* Pour $b = 2, \ldots, N$, soit $I_b$ l'**indicatrice** (*indicator*) de l'événement « le maximum change au bloc $b$ » : $I_b = 1$ si le plus grand des $bB$ premiers scores est dans le bloc $b$, et 0 sinon. Alors $X = I_2 + \cdots + I_N$. Les $bB$ premiers scores sont dans un ordre au hasard, et le plus grand d'entre eux occupe chacune de leurs $bB$ places avec la même probabilité ; le bloc $b$ en contient $B$, donc $P(I_b = 1) = \frac{B}{bB} = \frac1b$. Par linéarité de l'espérance (M02b), qui ne demande aucune indépendance, $\mathbb{E}[X] = \sum_{b=2}^N\mathbb{E}[I_b] = \sum_{b=2}^N\frac1b = H_N - 1$. $\square$
 
-Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous les précédents avec la probabilité $\frac1b$. Le **nombre harmonique** $H_N$ croît comme $\ln N$ : $\ln(N + 1) \le H_N \le 1 + \ln N$ (compare la somme à l'intégrale de $\frac1x$, M02a). Pour $N = 10$, $H_{10} - 1 \approx 1{,}93$ ; pour $N = 100$, $\approx 4{,}19$ : les remises à l'échelle sont rares. Les deux conditions comptent : avec des scores égaux, il y a moins de remises ; avec un dernier bloc plus court, la probabilité qu'il contienne le maximum n'est plus $\frac1N$.
+Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous les précédents avec la probabilité $\frac1b$. Le **nombre harmonique** (*harmonic number*) $H_N$ croît comme $\ln N$ : $\ln(N + 1) \le H_N \le 1 + \ln N$ (compare la somme à l'intégrale de $\frac1x$, M02a). Pour $N = 10$, $H_{10} - 1 \approx 1{,}93$ ; pour $N = 100$, $\approx 4{,}19$ : les remises à l'échelle sont rares. Les deux conditions comptent : avec des scores égaux, il y a moins de remises ; avec un dernier bloc plus court, la probabilité qu'il contienne le maximum n'est plus $\frac1N$.
 
 💻 **Aujourd'hui en pratique** — `scipy.special.logsumexp` calcule le log-sum-exp en une fois ; la version en ligne sert quand les scores arrivent en flux ou sont répartis entre machines (Milakov et Gimelshein, 2018). `online_softmax` (🔨 MB3.15) et `merge_softmax_states` (🔨 MB3.16) l'écrivent ; avec `history=True`, `online_softmax` rend la liste des états, et l'état après le bloc $b$ (compté à partir de 1, comme ici) en est l'élément `b - 1`, puisque Python compte à partir de 0.
 
-⚠️ **Erreur classique.** Remettre $l$ à l'échelle mais oublier $a$ (🐛 MB3.20). Multiplier par $e^{m' - m}$ au lieu de $e^{m - m'}$. Calculer $e^{m - m'}$ avec $m = m' = -\infty$ : $-\infty - (-\infty)$ n'a pas de sens, d'où le cas à part d'un bloc entièrement masqué ou de deux états vides. Croire que l'ordre de lecture change le résultat : il ne change que le nombre de remises à l'échelle.
+⚠️ **Erreur classique.** Remettre $l$ à l'échelle mais oublier $a$ (🐛 MB3.20). Multiplier par $e^{m' - m}$ au lieu de $e^{m - m'}$. Oublier qu'un bloc entièrement masqué ne change pas l'état. Croire que l'ordre de lecture change le résultat : il ne change que le nombre de remises à l'échelle.
 
 🔗 **Dans workbookIA** — le chapitre B3 montre le code de la softmax en ligne, avec l'état `(m, l, acc)`, sans démonstration ; ce paragraphe en donne l'invariant et la fusion.
 
@@ -523,7 +523,7 @@ Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous l
 
 ### La mémoire de toutes les paires
 
-Pour chacun de $n = 30\,000$ clients, on veut une moyenne pondérée par une softmax des distances aux autres : un Nadaraya-Watson sur tous les clients (§5). La matrice $n \times n$ des distances compte $n^2 = 9 \times 10^8$ nombres ; en `float64` (8 octets), $7{,}2 \times 10^9$ octets, soit 7,2 Go (1 Go $= 10^9$ octets).
+Pour chacun de $n = 30\,000$ clients, on veut une moyenne pondérée par une softmax de scores tirés de ses distances aux clients, $-d^2/(2h^2)$ : un Nadaraya-Watson sur tous les clients (§5). La matrice $n \times n$ des distances compte $n^2 = 9 \times 10^8$ nombres ; en `float64` (8 octets), $7{,}2 \times 10^9$ octets, soit 7,2 Go (1 Go $= 10^9$ octets).
 
 > **Propriété.** La mémoire d'une matrice $n \times n$ est proportionnelle à $n^2$ : doubler $n$ la multiplie par 4. En échelles logarithmiques, $\ln(8n^2) = 2\ln n + \ln 8$ : une **droite de pente 2** (R6).
 
@@ -562,9 +562,9 @@ Si une ligne est elle-même trop longue, la softmax en ligne du §8 la lit par b
 ## Pour aller plus loin
 
 - MML §3.9 et l'exercice 3.10.
-- E. A. Nadaraya, « On Estimating Regression », *Theory of Probability and Its Applications*, vol. 9, n° 1, 1964 ; G. S. Watson, « Smooth Regression Analysis », *Sankhyā, Series A*, vol. 26, n° 4, 1964 : l'estimateur du §5.
-- W. Givens, « Computation of Plane Unitary Rotations Transforming a General Matrix to Triangular Form », *Journal of the SIAM*, vol. 6, n° 1, 1958 : les rotations du §3.
-- K. V. Mardia et P. E. Jupp, *Directional Statistics*, Wiley, 2000 : la direction moyenne (§4).
+- E. A. Nadaraya, « On Estimating Regression », *Theory of Probability and Its Applications*, vol. 9, n° 1, 1964, p. 141-142 ; G. S. Watson, « Smooth Regression Analysis », *Sankhyā, Series A*, vol. 26, 1964, p. 359-372 : l'estimateur du §5.
+- W. Givens, « Computation of Plane Unitary Rotations Transforming a General Matrix to Triangular Form », *Journal of the Society for Industrial and Applied Mathematics*, vol. 6, n° 1, 1958, p. 26-50 : les rotations du §3.
+- K. V. Mardia et P. E. Jupp, *Directional Statistics*, Wiley, Chichester, 2000 : la direction moyenne (§4).
 - M. Milakov et N. Gimelshein, « Online Normalizer Calculation for Softmax », arXiv:1805.02867, 2018 : le §8.
-- D. E. Knuth, *The Art of Computer Programming*, vol. 1, §1.2.10 : le maximum d'une liste change $H_n - 1$ fois en moyenne.
+- D. E. Knuth, *The Art of Computer Programming*, vol. 1, *Fundamental Algorithms* (3ᵉ éd., Addison-Wesley, 1997), §1.2.10 (*Analysis of an Algorithm*) : l'algorithme M, qui cherche le maximum d'une liste, le change $H_N - 1$ fois en moyenne.
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
