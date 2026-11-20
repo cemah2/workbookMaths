@@ -335,8 +335,8 @@ def ranks() -> None:
     pr, sr = pearsonr(x, y).statistic, spearmanr(x, y).statistic
     ax.plot(x, y, "o", color=C[1], ms=6, alpha=0.8)
     ax.set(xlabel="x", ylabel="y")
-    ax.set_title(f"Une relation croissante mais pas affine :\nPearson ≈ {fr(pr, 2)}, Spearman ≈ {fr(sr, 2)}",
-                 fontsize=10.5)
+    ax.set_title(f"Une relation croissante en moyenne, bruitée et pas affine :\n"
+                 f"Pearson ≈ {fr(pr, 2)}, Spearman ≈ {fr(sr, 2)}", fontsize=10)
     inset = ax.inset_axes([0.08, 0.5, 0.36, 0.42])
     inset.plot(rankdata(x), rankdata(y), "o", color=C[1], ms=3)
     inset.set_title("les mêmes points en rangs", fontsize=8)
