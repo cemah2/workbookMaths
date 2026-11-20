@@ -1122,7 +1122,7 @@ def hint_15(value):
 
 NOTE_15 = (r"Pour chaque segment, `ts = np.linspace(0, 1, n_sub + 1)`, les produits scalaires `np.dot(field(a + t * (b - "
            r"a)), b - a)` point par point, et les poids $1, 4, 2, \ldots, 4, 1$ fois $\frac h3$. a) $(7 ;\ 7)$. b) $(8 ;\ "
-           r"12)$. c) $(9{,}093750 ;\ 9{,}162109 ;\ 9{,}166382)$ : l'écart à $\frac{55}{6}$ est divisé par 16.")
+           r"12)$. c) $(9{,}093750 ;\ 9{,}162109 ;\ 9{,}166382)$ : l'écart à $\frac{55}{6}$ diminue.")
 
 MB6_15 = ex(
     "MB6.15", "programmer l'intégrale d'un champ de vecteurs le long d'une ligne brisée par la méthode de Simpson, puis "
@@ -1178,9 +1178,7 @@ answer_MB6_15a = [line_integral(F_15, segment_15), line_integral(F_15, staircase
 answer_MB6_15b = [line_integral(G_15, segment_15), line_integral(G_15, staircase_15)]
 answer_MB6_15c = [line_integral(G_15, [[1 + t, t ** 2] for t in np.linspace(0, 1, n + 1)]) for n in (4, 16, 64)]
 print("a)", answer_MB6_15a, " b)", answer_MB6_15b, " c)", np.round(answer_MB6_15c, 6).tolist())
-gaps_15 = [55 / 6 - value for value in answer_MB6_15c]
-print("   écarts à 55/6 :", [float(f"{g:.3g}") for g in gaps_15], " divisés par",
-      [round(gaps_15[k] / gaps_15[k + 1], 2) for k in range(2)])'''),
+print("   écarts à 55/6 :", [float(f"{55 / 6 - value:.3g}") for value in answer_MB6_15c])'''),
         ("record", '''import sympy as sp_15r
 
 x_15r, y_15r, t_15r = sp_15r.symbols("x y t", real=True)
@@ -1220,9 +1218,8 @@ wbm.record(HIDDEN_15r["id_F_15"], [float(c.subs({x_15r: sp_15r.nsimplify(x), y_1
 wbm.record(HIDDEN_15r["id_G_15"], [float(c.subs({x_15r: sp_15r.nsimplify(x), y_15r: sp_15r.nsimplify(y)}))
                                    for x, y in HIDDEN_15r["points"] for c in G_FIELD_15r], decimals=6)'''),
         ("solution", CHECK_15 + answers_check("MB6.15", "abc", hints={letter: "hint_15" for letter in "abc"})),
-        look("l'intégrale de $\\mathbf{G}$ le long de l'arc vaut $\\frac{55}{6}$ ; par combien l'écart est-il divisé "
-             "quand le nombre de segments est multiplié par 4 ? Pourquoi $\\mathbf{F}$ donne-t-il la même valeur pour "
-             "toutes ces lignes brisées ?"),
+        look("la ligne brisée s'approche-t-elle de $\\frac{55}{6}$ quand les segments se multiplient ? Pourquoi "
+             "$\\mathbf{F}$ donne-t-il la même valeur pour toutes ces lignes brisées ?"),
     ],
 )
 
