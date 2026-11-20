@@ -89,7 +89,7 @@ Fiche §5 : « Des poids par une softmax » ; §7 : « Multiplier les scores par
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{softmax}(\mathbf{s} + b) = \operatorname{softmax}(\mathbf{s})$, et $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{p_i^c}{\sum_jp_j^c}$ : la loi tempérée de M28 à la température $T = \frac1c$.
+$\operatorname{softmax}(\mathbf{s} + b) = \operatorname{softmax}(\mathbf{s})$, et $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ : la loi tempérée de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -210,7 +210,7 @@ La matrice de droite agit la première. $\mathbf{R}_{ij}(\theta)$ envoie $\mathb
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R}_{23}(\frac\pi2)$ de $\mathbf{e}_2$, et $\mathbf{R}_{12}$ de $\mathbf{e}_3$ ? f) $\sigma(1) = 1$ et $\sigma(2) = 4$ : $\mathbf{R}_{12}(\frac\pi3)$ devient $\mathbf{R}_{14}(\frac\pi3)$ ; fais de même pour $\mathbf{R}_{34}(\frac\pi2)$, sans changer l'ordre des deux indices. g) $\mathbf{R}_{ji}(\theta)$ est la transposée de $\mathbf{R}_{ij}(\theta)$ : c'est $\mathbf{R}_{ij}(-\theta)$.
+a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R}_{23}(\frac\pi2)$ de $\mathbf{e}_2$, et $\mathbf{R}_{12}$ de $\mathbf{e}_3$ ? f) $\sigma(1) = 1$ et $\sigma(2) = 4$ : $\mathbf{R}_{12}(\frac\pi3)$ devient $\mathbf{R}_{14}(\frac\pi3)$, qui tourne $\mathbf{e}_1$ vers $\mathbf{e}_4$ ; fais de même pour $\mathbf{R}_{34}(\frac\pi2)$, sans changer l'ordre $(\sigma(3), \sigma(4))$. g) La fiche, « Renuméroter les coordonnées » : si $\sigma(i) > \sigma(j)$, $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P} = \mathbf{R}_{\sigma(j)\sigma(i)}(-\theta)$.
 
 </details>
 

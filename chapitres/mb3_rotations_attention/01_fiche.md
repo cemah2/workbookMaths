@@ -559,7 +559,7 @@ Si une ligne est elle-même trop longue, la softmax en ligne du §8 la lit par b
 ## Pour aller plus loin
 
 - MML §3.9 et l'exercice 3.10.
-- E. A. Nadaraya, « On Estimating Regression », *Theory of Probability and Its Applications*, vol. 9, n° 1, 1964, p. 141-142 ; G. S. Watson, « Smooth Regression Analysis », *Sankhyā, Series A*, vol. 26, 1964, p. 359-372 : l'estimateur du §5.
+- E. A. Nadaraya, « On Estimating Regression », *Theory of Probability and Its Applications*, vol. 9, n° 1, 1964, p. 141-142 ; G. S. Watson, « Smooth Regression Analysis », *Sankhyā, Series A*, vol. 26, n° 4, 1964, p. 359-372 : l'estimateur du §5.
 - W. Givens, « Computation of Plane Unitary Rotations Transforming a General Matrix to Triangular Form », *Journal of the Society for Industrial and Applied Mathematics*, vol. 6, n° 1, 1958, p. 26-50 : les rotations du §3.
 - K. V. Mardia et P. E. Jupp, *Directional Statistics*, Wiley, Chichester, 2000 : la direction moyenne (§4).
 - M. Milakov et N. Gimelshein, « Online Normalizer Calculation for Softmax », arXiv:1805.02867, 2018 : le §8.
