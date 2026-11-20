@@ -808,25 +808,28 @@ print("d)", np.round(answer_MB4_10d, 6).tolist(), " erreurs types :", np.round(e
 print("e)", np.round(answer_MB4_10e, 6).tolist(), " f)", np.round(answer_MB4_10f, 6).tolist(), " g)", answer_MB4_10g,
       f" ({time.perf_counter() - start_10:.2f} s)")'''),
         ("record", '''sizes_10r = (10, 100, 1000)
-rng_10r = np.random.default_rng(7510)
-drawn_10r = {n: np.array([rng_10r.permutation(n) for _ in range(20000)]) for n in sizes_10r}   # the same stream
-right_d_10r = [float(np.mean(1 / (np.argmax(drawn_10r[n] == 0, axis=1) + 1))) for n in sizes_10r]
-first_d_10r = [float(np.mean(1 / (drawn_10r[n][:, 0] + 1))) for n in sizes_10r]
+rng_10r = np.random.default_rng(7510)                                       # the same stream as the statement
+right_d_10r, first_d_10r = [], []
+for n_10r in sizes_10r:
+    place_10r, head_10r = np.empty(20000, dtype=int), np.empty(20000, dtype=int)
+    for t_10r in range(20000):
+        order_10r = rng_10r.permutation(n_10r)
+        place_10r[t_10r], head_10r[t_10r] = int(np.argmax(order_10r == 0)), int(order_10r[0])
+    right_d_10r.append(float(np.mean(1 / (place_10r + 1))))
+    first_d_10r.append(float(np.mean(1 / (head_10r + 1))))     # the classic error: the item at the head, not the rank
 wbm.record("MB4.10d", right_d_10r, decimals=6,
            mistakes={"le rang du pertinent est sa position dans order, int(np.flatnonzero(order == 0)[0]) + 1, pas l'objet "
                      "placé en tête": first_d_10r})
 wbm.record("MB4.10e", [mrr_10r[n] for n in sizes_10r], decimals=6,
            mistakes={"le MRR d'un ordre au hasard est H_n divisé par n": [float(H_10r[n]) for n in sizes_10r],
                      "1/R vaut 1 au rang 1, 1/2 au rang 2… : sa moyenne est H_n/n, pas 1/n": [1 / n for n in sizes_10r]})
-wbm.record("MB4.10f", [math.log(n) / n for n in sizes_10r], decimals=6,
+wbm.record("MB4.10f", [math.log(n) / n for n in sizes_10r], decimals=5,
            mistakes={"le logarithme est népérien": [math.log10(n) / n for n in sizes_10r],
                      "f) divise ln n par n": [math.log(n) for n in sizes_10r]})
 wbm.record("MB4.10g", True,
            mistakes={"compare |moyenne simulée − H_n/n| à 3 erreurs types, l'écart-type des 20 000 valeurs de 1/R divisé "
                      "par √20 000 ; si l'écart est plus grand, relis ta simulation": False})'''),
-        ("solution", guarded(HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d"}),
-                             [f"prediction_MB4_10{letter}" for letter in "abc"],
-                             "⏳ Écris d'abord tes trois prédictions, puis exécute à nouveau.")),
+        ("solution", HINT_10 + answers_check("MB4.10", "defg", hints={"d": "hint_10d"})),
         look("pourquoi le MRR n'est-il pas divisé par 10 quand $n$ est multiplié par 10 ? Quelle ligne de base un "
              "classement doit-il battre parmi 1 000 candidats ?", " (après l'expérience)"),
     ],
@@ -851,7 +854,8 @@ def label_value_c11(label, drop):
     if drop:
         text = re.sub(_NAMES_C11 + r"\\s*(?:=|:)\\s*[-+]?[\\d.]+(?:/\\d+)?", " ", text)
     text = re.sub(r"k_?\\{?1\\}?|k₁|k1", " ", text)
-    match = re.search(r"(∞|infty|infini|inf)|(?<![\\w.])(\\d+(?:\\.\\d+)?)(?:/(\\d+))?", text, flags=re.IGNORECASE)
+    match = re.search(r"(∞|\\binf(?:ty|ini|inity)?\\b)|(?<![\\w.])(\\d+(?:\\.\\d+)?)(?:/(\\d+))?", text,
+                      flags=re.IGNORECASE)
     if match is None:
         return None
     if match.group(1):
@@ -922,7 +926,7 @@ with checked("MB4.11"):
                                   for c, k1 in zip(curves, k1s))
 
     def lengths_right_c11(sub_id):
-        return lambda curves: passes(sub_id, [c.tolist() for c in curves])
+        return lambda curves: passes(sub_id, [c[HIDDEN_C11["idx"]].tolist() for c in curves])
 
     fig_11, axes_11 = plt.subplots(1, 2, figsize=(12, 4.5))
     try:
@@ -1104,7 +1108,8 @@ wbm.record(HIDDEN_11r["id_s"], [[float(s_11r(x, None if math.isinf(k1) else k1))
 
 
 def lengths_11r(k1, b, ells, xmax):
-    grid = [F_11r(xmax) * i / 240 for i in range(241)]
+    """The oracle: the normalised curves at the points of index HIDDEN_11r["idx"] of np.linspace(0, xmax, 241)."""
+    grid = [F_11r(xmax) * i / 240 for i in HIDDEN_11r["idx"]]
     return [[float(s_11r(x, k1, 1 - F_11r(b) + F_11r(b) * F_11r(ell))) for x in grid] for ell in ells]
 
 
@@ -1527,7 +1532,13 @@ def shares_13r(table, power=2):
 
 
 wbm.record("MB4.13a", challenge_13r.notebook_ranks())
-wbm.record("MB4.13b", [int(np.sum(np.linalg.svd(t, compute_uv=False) > 1e-9)) for t in tables_13r],
+def numerical_rank_13r(table):
+    """The oracle: the singular values above the default tolerance of np.linalg.matrix_rank, s1 max(m, n) eps."""
+    s = np.linalg.svd(table, compute_uv=False)
+    return int(np.sum(s > s[0] * max(table.shape) * np.finfo(float).eps))
+
+
+wbm.record("MB4.13b", [numerical_rank_13r(t) for t in tables_13r],
            mistakes={"le rang ne dépasse pas le plus petit des deux côtés du tableau": [max(t.shape) for t in tables_13r]})
 wbm.record("MB4.13c", [int(np.argmax(shares_13r(t) >= 0.99)) + 1 for t in tables_13r],
            mistakes={"le rang effectif à 99 % est le plus petit r dont la part atteint 0,99 : compte r à partir de 1":
@@ -1687,11 +1698,29 @@ def build_constants() -> dict:
     assert not np.array_equal(b9, _borda_bad(np, R9))
     out["__RANKINGS_9__"] = literal(R9.tolist())
 
-    # MB4.11: hidden calls (non-dyadic x, k1 = 0, 0.7, 2.5 and the infinity; a hidden call of each drawing)
-    out["__HIDDEN_C11__"] = literal({"x": [0.0, 0.4, 1.0, 2.5, 7.0, 31.0], "k1": [0, 0.7, 2.5, math.inf],
-                                     "id_s": "MB4.11e", "draw_k1": [0.7, 2.5, math.inf], "draw_xmax": 9,
-                                     "id_l": "MB4.11f", "k1_l": 2, "b_l": 0.25, "ells": [0.6, 3], "xmax_l": 15,
-                                     "id_h": "MB4.11g"})
+    # MB4.11: hidden calls (non-dyadic x, k1 = 0, 0.7, 2.5 and the infinity; a hidden call of each drawing); the curves
+    # of draw_lengths_11 are compared at the points of the grid of index 0, 8, 16..., dropping a point where a value of either
+    # call is within 0.025 of a rounding limit at 6 decimals (so that no ⚠️ and no rounding chance decide)
+    from fractions import Fraction
+
+    def near_limit(value, decimals=6):
+        scaled = abs(float(value)) * 10 ** decimals
+        return abs(scaled - math.floor(scaled) - 0.5) < 0.025
+
+    def normalised(x, k1, b, ell):
+        return x * (k1 + 1) / (x + k1 * (1 - b + b * ell))
+
+    calls = [(1, Fraction(1, 2), (Fraction(1, 2), 1, 2), 12), (2, Fraction(1, 4), (Fraction(3, 5), 3), 15)]
+    idx = [i for i in range(0, 241, 8)
+           if not any(near_limit(normalised(Fraction(xmax) * i / 240, k1, b, ell))
+                      for k1, b, ells, xmax in calls for ell in ells)]
+    assert len(idx) >= 24, idx
+    xs11, k1s11 = [0.0, 0.4, 1.0, 2.5, 7.0, 31.0], [0, 0.7, 2.5, math.inf]
+    for k1 in k1s11[1:3]:
+        assert not any(near_limit(x * (k1 + 1) / (x + k1)) for x in xs11)
+    out["__HIDDEN_C11__"] = literal({"x": xs11, "k1": k1s11, "id_s": "MB4.11e", "draw_k1": [0.7, 2.5, math.inf],
+                                     "draw_xmax": 9, "id_l": "MB4.11f", "k1_l": 2, "b_l": 0.25, "ells": [0.6, 3],
+                                     "xmax_l": 15, "id_h": "MB4.11g", "idx": idx})
 
     # MB4.12: the 4 x 6 rankings (seed 7512): no row is its own inverse, and the colleague's Borda differs
     rng = np.random.default_rng(7512)
@@ -1727,6 +1756,7 @@ def build_constants() -> dict:
         assert np.array_equal(ref.borda_scores(R), _borda(np, R))
         rankings.append(R.tolist())
     notebooks = [[7, 120], [33, 61], [250, 400], [1, 13]]
+    assert not any(near_limit(math.log(N / n)) for n, N in notebooks)
     out["__CASES_C12__"] = literal({"tables": tables, "rankings": rankings, "notebooks": notebooks, "id": "MB4.12d"})
 
     # MB4.13: the notebook tables of solutions/challenges/mb4_13.py; the method of the check finds their ranks; the naive
