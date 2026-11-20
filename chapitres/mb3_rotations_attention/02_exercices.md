@@ -13,7 +13,7 @@ Dans tout le chapitre, comme dans la fiche : les angles sont en radians (en degr
 
 ## 🧠 Quiz
 
-Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
+Sans la fiche, en 4 à 6 minutes chacun. Réponds vite, puis vérifie dans `05_solutions.md`.
 
 ### MB3.Q1 — Formules d'addition et rotations du plan : le bon signe, composer, inverser, rotation ou symétrie ? 🧠 ★ ⏱️ 5 min
 *Fiche §1 et §2 · parcours C, E*
@@ -24,7 +24,7 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 4. $\mathbf{A} = \frac{1}{41}\begin{pmatrix} 9 & -40 \\ 40 & 9 \end{pmatrix}$ et $\mathbf{B} = \frac{1}{41}\begin{pmatrix} 9 & 40 \\ 40 & -9 \end{pmatrix}$ sont orthogonales. Laquelle est une rotation, laquelle une symétrie ? Quel vecteur la symétrie laisse-t-elle fixe ?
 5. Vrai ou faux : pour tous angles $\alpha$ et $\beta$, $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_\beta\mathbf{R}_\alpha$.
 
-### MB3.Q2 — Rotations de l'espace, de Givens et par blocs : commutent-elles, que fixent-elles, que change une permutation des coordonnées ? 🧠 ★ ⏱️ 5 min
+### MB3.Q2 — Rotations de l'espace, de Givens et par blocs : commutent-elles, que fixent-elles, que change une permutation des coordonnées ? 🧠 ★ ⏱️ 6 min
 *Fiche §3 · parcours C, E*
 
 1. Vrai ou faux : dans l'espace, la rotation autour de $\mathbf{e}_1$ et la rotation autour de $\mathbf{e}_3$ commutent, quels que soient leurs angles.
@@ -37,12 +37,12 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 *Fiche §4 · parcours C, E*
 
 1. Vrai ou faux : $\cos\frac{2\pi t}{365}$ seul donne un code différent à chaque jour $t = 0, \ldots, 364$ de l'année.
-2. L'heure est encodée avec la période 24. Que vaut $\lVert\mathbf{e}(22) - \mathbf{e}(2)\rVert^2$, entre 22 h et 2 h ? Et entre 10 h et 14 h ?
+2. L'heure est encodée avec la période 24. Que vaut $\lVert\mathbf{e}(22) - \mathbf{e}(2)\rVert^2$, entre 22 h et 2 h ? Et entre 9 h et 17 h ?
 3. Pour encoder le jour de la semaine (0 à 6), quelle période et quelle pulsation $\omega$ prends-tu ?
 4. Quelle est la plus grande valeur possible de $\lVert\mathbf{e}(t) - \mathbf{e}(t')\rVert^2$, et pour quel écart $t - t'$ ?
-5. Vrai ou faux : avec la seule horloge de période 365 jours, deux dates séparées d'exactement un an ont le même encodage.
+5. Vrai ou faux : avec la seule horloge de période 365 jours, deux dates séparées d'exactement 365 jours ont le même encodage.
 
-### MB3.Q4 — Moyennes pondérées par une softmax : dans l'enveloppe convexe ou non, largeur de bande, masque avant ou après la softmax, et un sous-ensemble vide 🧠 ★ ⏱️ 5 min
+### MB3.Q4 — Moyennes pondérées par une softmax : dans l'enveloppe convexe ou non, largeur de bande, masque avant ou après la softmax, et un sous-ensemble vide 🧠 ★ ⏱️ 4 min
 *Fiche §5 et §6 · parcours C, E*
 
 1. Vrai ou faux : une moyenne pondérée par une softmax des nombres 3, 8 et 11 peut valoir 12, pour des scores bien choisis.
@@ -51,7 +51,7 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 4. Trois poids valent $(0{,}2 ;\ 0{,}7 ;\ 0{,}1)$, et l'on veut exclure le deuxième. Que donne un score $-\infty$ avant la softmax ? Vrai ou faux : mettre le deuxième poids à 0 après la softmax donne une loi.
 5. Tous les scores sont masqués. Que valent les poids ?
 
-### MB3.Q5 — Multiplier tous les scores par c, ou leur ajouter une constante : ce qui change dans les poids, le poids maximal et l'entropie, et ce qui ne change pas 🧠 ★ ⏱️ 4 min
+### MB3.Q5 — Multiplier tous les scores par c, ou leur ajouter une constante : ce qui change dans les poids, le poids maximal et l'entropie, et ce qui ne change pas 🧠 ★ ⏱️ 5 min
 *Fiche §7 · parcours C, E*
 
 1. Vrai ou faux : ajouter 5 à tous les scores change les poids.
@@ -60,12 +60,12 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 4. Quand $c$ grandit (scores non tous égaux, le plus grand unique), que deviennent le plus grand poids et l'entropie de la loi ? Et quand $c \to 0$ ?
 5. On multiplie les scores par $c = -1$ : quel score reçoit le plus grand poids ?
 
-### MB3.Q6 — La softmax en ligne : ce que garde l'état, quand le remettre à l'échelle, et l'état vide 🧠 ★ ⏱️ 4 min
+### MB3.Q6 — La softmax en ligne : ce que garde l'état, quand le remettre à l'échelle, et l'état vide 🧠 ★ ⏱️ 5 min
 *Fiche §8 · parcours C, E*
 
 1. Que valent $m$, $l$ et $a$ pour les scores $s_j$ et les nombres $v_j$ lus jusqu'ici ?
 2. Quand faut-il remettre $l$ et $a$ à l'échelle, et par quel facteur ?
-3. L'état vaut $(3, 2, 10)$. On lit un bloc d'un seul score, $3 + \ln 2$, de nombre $v = 7$. Quel est le nouvel état, et la moyenne pondérée ?
+3. L'état vaut $(3, 2, 10)$. On lit un bloc d'un seul score, $3 + \ln 5$, de nombre $v = 7$. Quel est le nouvel état, et la moyenne pondérée ?
 4. Comment lire, sur l'état final, le log-sum-exp des scores et le poids du score $s_j$ ?
 5. Vrai ou faux : fusionner un état avec l'état vide $(-\infty, 0, 0)$ ne le change pas.
 
@@ -83,21 +83,21 @@ $z = \sqrt3 - i$ et $w = 3\,e^{i\pi/6}$.
 4. $z^6$, par la formule de Moivre.
 5. Vrai ou faux : $\lvert e^{i\theta}z\rvert = \lvert z\rvert$ pour tout $\theta$.
 
-### MB3.R2 — Le log-sum-exp et la softmax stable (M05a) 🔁 ★ ⏱️ 5 min
+### MB3.R2 — Le log-sum-exp et la softmax stable (M05a) 🔁 ★ ⏱️ 6 min
 *Fiche §8 · parcours C, E*
 
 Les scores valent $\mathbf{s} = (750, 748, 747)$.
-1. $\operatorname{LSE}(\mathbf{s}) = \ln\sum_je^{s_j}$, en retranchant d'abord le plus grand score (4 décimales).
+1. $\operatorname{LSE}(\mathbf{s}) = \ln\sum_je^{s_j}$, en retranchant d'abord le plus grand score (3 décimales).
 2. Que rend `np.exp(750.0)` en `float64` ?
 3. La softmax de $\mathbf{s}$ (4 décimales).
 4. Vrai ou faux : $\operatorname{softmax}(\mathbf{s} - 1\,500) = \operatorname{softmax}(\mathbf{s})$.
-5. $\operatorname{LSE}(-750, -752, -753)$ (4 décimales). Que rend le calcul direct `np.log(np.sum(np.exp(s)))` ?
+5. $\operatorname{LSE}(-750, -752, -753)$ (3 décimales). Que rend le calcul direct `np.log(np.sum(np.exp(s)))` ?
 
-### MB3.R3 — Tempérer et tronquer une loi : p^{1/T} renormalisée, top-k et top-p comme lois conditionnelles (M28) 🔁 ★ ⏱️ 6 min
+### MB3.R3 — Tempérer et tronquer une loi : p^{1/T} renormalisée, top-k et top-p comme lois conditionnelles (M28) 🔁 ★ ⏱️ 7 min
 *Fiche §5 et §6 · parcours C, E*
 
 Une loi sur quatre issues vaut $\mathbf{p} = (0{,}46 ;\ 0{,}29 ;\ 0{,}15 ;\ 0{,}10)$.
-1. La loi tempérée à $T = \frac12$ (3 décimales).
+1. La loi tempérée à $T = \frac12$ (fractions de même dénominateur).
 2. La troncature top-2, renormalisée (fractions).
 3. La troncature top-p de masse $0{,}8$ : le plus petit ensemble d'issues de masse au moins $0{,}8$, et la loi renormalisée (fractions).
 4. Vrai ou faux : la troncature top-k est la loi conditionnelle de $\mathbf{p}$ sachant « l'issue est l'une des $k$ plus probables ».
@@ -117,7 +117,7 @@ Fais-les **à la main** (calculatrice permise pour les cosinus, les exponentiell
 
 « Valeurs exactes » veut dire : tous les chiffres, sans arrondir (ces calculs tombent juste). Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'arrondis qu'à la fin.
 
-### Ex MB3.1 — Un bras articulé à deux segments : la position de la pince en valeurs exactes par les formules d'addition, les deux rotations enchaînées en une seule, et le retour par la rotation inverse ✏️ ★★ ⏱️ 30 min
+### Ex MB3.1 — Un bras articulé à deux segments : la position de la pince en valeurs exactes par les formules d'addition, les deux rotations enchaînées en une seule, et le retour par la rotation inverse ✏️ ★★ ⏱️ 25 min
 **Objectif :** placer une pince par les formules d'addition, composer deux rotations du plan en une seule, et revenir en arrière par la transposée.
 **Prérequis :** fiche §1 et §2 ; R9 (valeurs remarquables de cos et sin) · **Parcours :** C, E
 
@@ -151,12 +151,12 @@ $$\mathbf{P} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \
 | c | vrai ou faux : $\mathbf{R}_{23}(\frac\pi2)\mathbf{R}_{12}(\frac\pi3) = \mathbf{R}_{12}(\frac\pi3)\mathbf{R}_{23}(\frac\pi2)$ | `True` ou `False` |
 | d | la matrice $\mathbf{D}$ | une matrice $4 \times 4$ (4 décimales) |
 | e | vrai ou faux : $\mathbf{R}_{12}(\frac\pi3)\mathbf{R}_{34}(\frac\pi2) = \mathbf{R}_{34}(\frac\pi2)\mathbf{R}_{12}(\frac\pi3)$ | `True` ou `False` |
-| f | les deux plans de $\mathbf{P}^\top\mathbf{D}\mathbf{P}$ : pour chacun, le couple $(u, w)$ tel que $\mathbf{P}^\top\mathbf{D}\mathbf{P}$ tourne $\mathbf{e}_u$ vers $\mathbf{e}_w$, de $\frac\pi3$ dans le premier plan et de $\frac\pi2$ dans le second, à écrire `[[u, w], [u2, w2]]` | une liste de 2 couples d'entiers |
+| f | les couples **orientés** $(i, j)$ et $(k, l)$ tels que $\mathbf{P}^\top\mathbf{D}\mathbf{P} = \mathbf{R}_{ij}(\frac\pi3)\,\mathbf{R}_{kl}(\frac\pi2)$, où $\mathbf{R}_{kl}$ tourne $\mathbf{e}_k$ vers $\mathbf{e}_l$, même si $k > l$ (fiche §3, « Renuméroter les coordonnées »), à écrire `[[i, j], [k, l]]` | une liste de 2 couples d'entiers |
 | g | l'angle $\theta$ tel que $\mathbf{P}^\top\mathbf{D}\mathbf{P} = \mathbf{R}_{14}(\frac\pi3)\,\mathbf{R}_{23}(\theta)$, dans $]-\pi, \pi]$ | une valeur exacte |
 
 Dans ta copie : dis ce que b) montre de $\mathbf{R}_{12}$ ; dis pourquoi $\mathbf{P}^\top = \mathbf{P}$ ici.
 
-### Ex MB3.3 — La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un vent qui tourne comme une rotation de l'encodage, et la direction moyenne de trois relevés ✏️ ★★ ⏱️ 25 min
+### Ex MB3.3 — La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un vent qui tourne comme une rotation de l'encodage, et la direction moyenne de trois relevés ✏️ ★★ ⏱️ 20 min
 **Objectif :** encoder une direction par $(\cos, \sin)$, mesurer l'écart de deux encodages, lire un vent qui tourne comme une rotation, et moyenner des directions sur le cercle.
 **Prérequis :** fiche §1 et §4 ; R9 (cercle trigonométrique) · **Parcours :** C, E
 
@@ -173,7 +173,7 @@ Une girouette donne la direction $\theta$ d'où vient le vent, en degrés, compt
 
 Dans ta copie : compare b) à l'écart des nombres 340 et 20 ; montre que c) est $\mathbf{e}(195°)$ ; compare e) à la moyenne des trois nombres 330, 20 et 70.
 
-### Ex MB3.4 — L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, et ses deux limites ✏️ ★★ ⏱️ 25 min
+### Ex MB3.4 — L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, et ses deux limites ✏️ ★★ ⏱️ 27 min
 **Objectif :** calculer une prévision de Nadaraya-Watson comme une moyenne pondérée par une softmax, et voir ce que la largeur de bande change.
 **Prérequis :** fiche §5 ; M05a (softmax stable) · **Parcours :** C, E
 
@@ -198,7 +198,7 @@ On prévoit la température du refuge par l'estimateur de Nadaraya-Watson, avec 
 
 Dans ta copie : retranche le plus grand score avant de prendre les exponentielles ; dis en une phrase ce que la largeur de bande change.
 
-### Ex MB3.5 — Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours passés, puis la même quand un capteur tombe en panne un jour (un score −∞) ✏️ ★★ ⏱️ 18 min
+### Ex MB3.5 — Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours passés, puis la même quand un capteur tombe en panne un jour (un score −∞) ✏️ ★★ ⏱️ 15 min
 **Objectif :** écrire une moyenne exponentielle normalisée comme une softmax sur le passé, puis retirer un jour par un score $-\infty$ et reconnaître une loi conditionnelle.
 **Prérequis :** fiche §6 ; R5 (moyenne exponentielle), M03 (loi conditionnelle) · **Parcours :** C, E
 
@@ -213,9 +213,9 @@ Un capteur relève chaque soir la température de l'eau d'un bassin, en °C : 18
 | e | la valeur lissée du jour 4, avec la panne du jour 3 | une fraction irréductible |
 | f | vrai ou faux : les poids de d) sont ceux de a), conditionnés par « le jour n'est pas le jour 3 » | `True` ou `False` |
 
-Dans ta copie : dis pourquoi le lissage du jour 2 ne peut pas dépendre des jours 3 et 4.
+Dans ta copie : retranche $4\ln 2$ aux scores de a), et vérifie que les poids ne changent pas.
 
-### Ex MB3.6 — La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ} ✏️ ★★ ⏱️ 15 min
+### Ex MB3.6 — La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ} ✏️ ★★ ⏱️ 17 min
 **Objectif :** mesurer la saturation d'une softmax quand on multiplie ses scores, et comparer à la borne de la fiche.
 **Prérequis :** fiche §7 ; M13a (Gini), M17 ($\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$) · **Parcours :** C, E
 
@@ -223,15 +223,15 @@ Une application propose un itinéraire parmi trois, tiré avec les poids $\opera
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le plus grand poids $p_{\max}$, pour $c = 1$, 2 et 6 | une liste de 3 nombres (4 décimales) |
+| a | le plus grand poids $p_{\max}$, pour $c = 2$ et 6 | une liste de 2 nombres (4 décimales) |
 | b | la sensibilité $1 - \sum_ip_i^2$, pour $c = 6$ | un nombre (4 décimales) |
 | c | la borne $(K - 1)\,e^{-c\Delta}$ de $1 - p_{\max}$, pour $c = 6$ | un nombre (5 décimales) |
-| d | le plus petit $c$ pour lequel la borne garantit $p_{\max} \ge 0{,}99$ | un nombre (2 décimales) |
+| d | la valeur de $c$ où la borne vaut 0,01 : au-delà, elle garantit $p_{\max} \ge 0{,}99$ | un nombre (2 décimales) |
 | e | vrai ou faux : quand $c \to \infty$, $1 - \sum_ip_i^2 \to 0$ | `True` ou `False` |
 
-Dans ta copie : compare $1 - p_{\max}$ à c) pour $c = 6$ ; d) garantit-il que c'est le plus petit $c$ qui convient ?
+Dans ta copie : compare $1 - p_{\max}$ à c) pour $c = 6$ ; le $c$ de d) est-il le plus petit $c$ pour lequel $p_{\max} \ge 0{,}99$ ?
 
-### Ex MB3.7 — La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux états calculés séparément ✏️ ★★ ⏱️ 30 min
+### Ex MB3.7 — La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux états calculés séparément ✏️ ★★ ⏱️ 28 min
 **Objectif :** faire tourner la softmax en ligne à la main, avec ses remises à l'échelle, puis fusionner deux états.
 **Prérequis :** fiche §8 ; M05a (log-sum-exp) · **Parcours :** C, E
 
@@ -262,7 +262,7 @@ Dans ta copie : écris, pour chaque bloc, le facteur de remise à l'échelle ; c
 
 Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque étape et ce qui la justifie, ce que tu conclus. `05_solutions.md` donne une grille de relecture.
 
-### Ex MB3.8 — Les formules d'addition par le produit scalaire de deux vecteurs unitaires ; puis R_α R_β = R_{α+β}, R_θ⁻¹ = R_θᵀ = R_{−θ}, et la règle e^{iα}e^{iβ} = e^{i(α+β)} que M22 admettait ∂ ★★ ⏱️ 30 min
+### Ex MB3.8 — Les formules d'addition par le produit scalaire de deux vecteurs unitaires ; puis R_α R_β = R_{α+β}, R_θ⁻¹ = R_θᵀ = R_{−θ}, et la règle e^{iα}e^{iβ} = e^{i(α+β)} que M22 admettait ∂ ★★ ⏱️ 40 min
 **Objectif :** démontrer les quatre formules d'addition sans rien admettre d'autre que la géométrie de R9, puis en tirer le groupe des rotations du plan et la règle des exponentielles.
 **Prérequis :** fiche §1 et §2 ; R9 (cercle trigonométrique, parité, produit scalaire et angle, Al-Kashi), M07 ($\lVert\mathbf{u} - \mathbf{v}\rVert^2$) · **Parcours :** C, E
 
@@ -274,7 +274,7 @@ Pour un réel $a$, on note $\mathbf{u}_a = (\cos a, \sin a)$.
 5. Avec la définition $e^{i\theta} = \cos\theta + i\sin\theta$, montre que $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$.
 6. Montre que $\det\mathbf{R}_\theta = 1$. Déduis de 2 les formules de duplication : $\cos 2a = \cos^2a - \sin^2a = 2\cos^2a - 1 = 1 - 2\sin^2a$ et $\sin 2a = 2\sin a\cos a$.
 
-### Ex MB3.9 — Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance ∂ ★★ ⏱️ 20 min
+### Ex MB3.9 — Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer l'équivariance par permutation d'une moyenne pondérée sur un ensemble de points, et voir sur un contre-exemple ce qui la casse.
 **Prérequis :** fiche §3 et §6 ; M16 (matrices de permutation) · **Parcours :** C
 
@@ -317,20 +317,20 @@ Un lac circulaire de rayon 5 km a son centre à l'origine. Quatre pluviomètres 
 
 Dans ta copie : dis ce que devient l'échelle des scores quand $h$ est divisé par 2. Dans workbookIA B3, des poids sont aussi la softmax de produits scalaires multipliés par une échelle.
 
-### Ex MB3.12 — MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la rotation de Givens (3.80)–(3.81) et les propriétés du §3.9.4 ; R₂(θ) écrite comme une rotation de Givens, et deux rotations de l'espace qui ne commutent pas, sur un vecteur choisi 📖 ★★ ⏱️ 30 min
+### Ex MB3.12 — MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la rotation de Givens (3.80)–(3.81) et les propriétés du §3.9.4 ; R₂(θ) écrite comme une rotation de Givens, et deux rotations de l'espace qui ne commutent pas, sur un vecteur choisi 📖 ★★ ⏱️ 35 min
 **Objectif :** relire MML §3.9 en anglais avec la fiche, traduire ses matrices dans les notations du chapitre, et vérifier ses affirmations sur tes propres nombres.
 **Prérequis :** fiche §2 et §3 · **Parcours :** C
 
 Lis MML §3.9 (*Rotations*) en entier, en suivant le guide de lecture de la fiche. Réponds dans ta copie, en français, avec tes mots (ne recopie pas le livre).
 1. En §3.9.1, d'où viennent les deux colonnes de $\mathbf{R}(\theta)$ dans (3.75) et (3.76) ? Le livre les lit sur la figure 3.16 : quelle propriété des rotations du plan ne démontre-t-il pas, et où la fiche la démontre-t-elle ?
 2. En §3.9.2, quelle coordonnée chacune des matrices (3.77), (3.78) et (3.79) laisse-t-elle fixe ? Écris $\mathbf{R}_1(\theta)$ et $\mathbf{R}_3(\theta)$ comme des rotations de Givens $\mathbf{R}_{ij}(\theta)$. Montre que $\mathbf{R}_2(\theta) = \mathbf{R}_{13}(-\theta)$, et explique le signe avec la convention du livre (« regarder l'axe depuis sa pointe ») : vers quel vecteur $\mathbf{R}_2(\theta)$ tourne-t-elle $\mathbf{e}_3$ ?
-3. En §3.9.3, écris la matrice $\mathbf{R}_{24}(\theta)$ de $\mathbb{R}^5$ par la définition 3.11 : que sont les blocs $\mathbf{I}_{i-1}$, $\mathbf{I}_{j-i-1}$ et $\mathbf{I}_{n-j}$ ? Vérifie que $n = 2$ redonne (3.76).
+3. En §3.9.3, écris la matrice $\mathbf{R}_{24}(\theta)$ de $\mathbb{R}^5$ par la définition 3.11 : que sont les blocs $\mathbf{I}_{i-1}$, $\mathbf{I}_{j-i-1}$ et $\mathbf{I}_{n-j}$ ?
 4. En §3.9.4, laquelle des propriétés découle de ce qu'une rotation est une matrice orthogonale, et comment (fiche §2) ? Le livre dit que des rotations en dimension 3 ou plus ne commutent pas « en général » : donne deux rotations de $\mathbb{R}^4$ qui commutent, puis choisis un vecteur $\mathbf{x}$ de $\mathbb{R}^3$ et calcule $\mathbf{R}_1(\frac\pi2)\mathbf{R}_3(\frac\pi2)\mathbf{x}$ et $\mathbf{R}_3(\frac\pi2)\mathbf{R}_1(\frac\pi2)\mathbf{x}$.
-5. Relève cinq expressions anglaises du passage et leur traduction dans la fiche.
+5. Relève trois expressions anglaises du passage et leur traduction (celle de la fiche quand elle en donne une).
 
 L'exercice 3.10 de MML est conseillé : fais-le avec les formules d'addition.
 
-### Ex MB3.13 — Expliquer, avec une caisse tenue dans une monnaie qui change, pourquoi la softmax en ligne donne exactement le résultat du calcul en une fois 🗣️ ★ ⏱️ 10 min
+### Ex MB3.13 — Expliquer, avec une caisse tenue dans une monnaie qui change, pourquoi la softmax en ligne donne exactement le résultat du calcul en une fois 🗣️ ★ ⏱️ 15 min
 **Objectif :** expliquer sans formule l'invariant de la softmax en ligne et la remise à l'échelle.
 **Prérequis :** fiche §8 ; MB3.7 · **Parcours :** C, E
 
@@ -359,21 +359,21 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 | ID | Titre | Type | ★ | ⏱️ | Parcours |
 |---|---|---|---|---|---|
-| MB3.14 | La matrice d'une rotation de Givens de ℝⁿ · `givens_rotation` | 🔨 | ★ | 15 | C, E |
-| MB3.15 | La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et l'état après chaque bloc · `online_softmax` | 🔨 | ★★ | 35 | C, E |
+| MB3.14 | La matrice d'une rotation de Givens de ℝⁿ · `givens_rotation` | 🔨 | ★ | 20 | C, E |
+| MB3.15 | La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et l'état après chaque bloc · `online_softmax` | 🔨 | ★★ | 40 | C, E |
 | MB3.16 | La fusion de deux états de la softmax en ligne · `merge_softmax_states` | 🔨 | ★★ | 25 | C, E |
-| MB3.17 | Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur de bande est divisée ou multipliée par 10, puis tracer | 🔮 | ★ | 20 | C, E |
-| MB3.18 | La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à l'échelle (les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à H_N − 1, et la mémoire gardée | 🔬 | ★★ | 25 | C |
-| MB3.19 | Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois cercles, un décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart | 🎨 | ★ | 20 | C, E |
+| MB3.17 | Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur de bande est divisée ou multipliée par 10, puis tracer | 🔮 | ★ | 25 | C, E |
+| MB3.18 | La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à l'échelle (les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à H_N − 1, et la mémoire gardée | 🔬 | ★★ | 30 | C |
+| MB3.19 | Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois cercles, un décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart | 🎨 | ★ | 25 | C, E |
 | MB3.20 | Chasse à l'erreur : deux rotations de l'espace composées dans le mauvais ordre, une direction moyenne prise comme la moyenne des angles, une softmax en ligne qui remet l à l'échelle mais pas l'accumulateur | 🐛 | ★ | 25 | C, E |
-| MB3.21 | Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni d'une même permutation des scores et des valeurs, ni d'une constante ajoutée aux scores, et la fusion de trois états est associative | 🛠️ | ★ | 25 | C |
-| MB3.22 | Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la direction du vent et du jour de l'année, la largeur de bande choisie par validation croisée « un de côté », sous une erreur quadratique moyenne donnée | 🏆 | ★★★ | 35 | C |
+| MB3.21 | Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni d'une même permutation des scores et des valeurs, ni d'une constante ajoutée aux scores, et la fusion de trois états est associative | 🛠️ | ★ | 30 | C |
+| MB3.22 | Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la direction du vent et du jour de l'année, la largeur de bande choisie par validation croisée « un de côté », sous une erreur quadratique moyenne donnée | 🏆 | ★★★ | 40 | C |
 
 Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le notebook). Les trois 🔨 complètent ta copie `mon_travail/mymath/positional.py` (**mymath :** `positional.py`), dont la docstring du module dit ce qui est permis : NumPy et le module `math`, mais aucune fonction de SciPy (`scipy.special.softmax`, `scipy.special.logsumexp`, `scipy.spatial.transform.Rotation`) ni `np.logaddexp` : les tests comparent tes résultats avec elles ; des indices de coordonnées à partir de 0 ; ne jamais modifier les tableaux reçus. Chaque 🔨 lance le groupe de tests de sa fonction dans `tests/test_mb3_positional.py`, puis s'en sert ; dans le notebook, tu l'appelles par `mymath.positional.<nom>(…)`. Hors de `mymath`, le notebook peut se servir de tout NumPy et de SciPy. Les données des exercices papier (le bras, les rotations de MB3.2, les vents, les stations, le bassin, les itinéraires, les balises, les pluviomètres) sont recopiées dans une cellule du notebook.
 
 **MB3.14 · 🔨 `givens_rotation(n, i, j, theta)`.** Écris la fonction, en suivant sa docstring : contrôle $n$ (un entier $\ge 2$, ni un booléen ni un flottant comme `3.0`), $i$ et $j$ (deux entiers différents de $[0, n - 1]$) et $\theta$ (un réel fini, pas un booléen) ; pars de `np.eye(n)` et change les quatre coefficients du plan $(i, j)$. Lance le groupe de tests. Ensuite : a) les deux vecteurs de MB3.2 a) et b), avec `givens_rotation(3, 1, 2, np.pi / 2)` pour $\mathbf{R}_{23}(\frac\pi2)$ et `givens_rotation(3, 0, 1, np.pi / 3)` pour $\mathbf{R}_{12}(\frac\pi3)$ (une liste de 6 nombres, à comparer à ta copie) ; b) écris la matrice (3.78) de MML pour $\theta = 0{,}4$, puis cherche le couple $(i, j)$ tel que `givens_rotation(3, i, j, 0.4)` lui est égale (une liste de 2 entiers) ; c) la norme de Frobenius de $\mathbf{G}\mathbf{H} - \mathbf{H}\mathbf{G}$ pour `G = givens_rotation(5, 0, 2, 0.9)` et `H = givens_rotation(5, 2, 4, -0.6)`, puis pour le même `G` et `givens_rotation(5, 1, 3, -0.6)` (une liste de 2 nombres). Ce qu'il faut regarder : pourquoi le couple de b) n'est-il pas $(0, 2)$ ? Qu'ont en commun les plans des deux rotations qui ne commutent pas ?
 
-**MB3.15 · 🔨 `online_softmax(scores, values=None, block_size=1, history=False)`.** Écris la fonction, en suivant sa docstring : contrôle les scores (un tableau 1-D non vide de réels, $-\infty$ permis, ni `nan` ni $+\infty$), les valeurs ($n$ lignes, 1-D ou 2-D, finies), `block_size` (un entier $\ge 1$, pas un booléen) et `history` (un booléen) ; pars de l'état vide ; pour chaque bloc, saute-le si tous ses scores valent $-\infty$, sinon calcule le nouveau maximum, le facteur $e^{m - m'}$ et les poids $e^{s_j - m'}$ du bloc, puis mets $l$ et l'accumulateur à jour ; avec `history=True`, garde une copie de l'état après chaque bloc. Rends des `float` Python (et un `float` pour `acc` quand les valeurs sont 1-D). Lance le groupe de tests. Ensuite : a) les neuf balises de MB3.7, par blocs de 3 avec `history=True` : les trois états, avec $m$ divisé par $\ln 2$ (une liste de 9 nombres), puis vrai ou faux, ils sont égaux à tes réponses a) à c) de MB3.7 à $10^{-12}$ près ; b) vrai ou faux : l'état final est le même, à $10^{-12}$ près, pour des blocs de 1, 2, 3, 4 et 9 ; c) pour les scores $(-1\,203{,}5 ;\ -1\,201 ;\ -1\,204{,}2 ;\ -1\,202{,}5)$ : $m + \ln l$, puis ce que rend `np.log(np.sum(np.exp(s)))` ; d) quatre relevés de vent, de directions 300°, 330°, 20° et 70° et de scores de fiabilité $(0{,}8 ;\ 0 ;\ 1{,}2 ;\ -0{,}4)$, encodés par $(\cos, \sin)$ : avec ces encodages comme valeurs 2-D et des blocs de 2, la moyenne pondérée $a/l$ (2 nombres), puis sa direction en degrés dans $[0, 360[$. Ce qu'il faut regarder : combien de fois $m$ change-t-il dans a), et à quels blocs ? Pourquoi le calcul direct de c) échoue-t-il, et pas le tien ? Que vaudrait, pour d), la moyenne des quatre angles ?
+**MB3.15 · 🔨 `online_softmax(scores, values=None, block_size=1, history=False)`.** Écris la fonction, en suivant sa docstring : contrôle les scores (un tableau 1-D non vide de réels, $-\infty$ permis, ni `nan` ni $+\infty$), les valeurs ($n$ lignes, 1-D ou 2-D, finies), `block_size` (un entier $\ge 1$, pas un booléen) et `history` (un booléen) ; pars de l'état vide ; pour chaque bloc, saute-le si tous ses scores valent $-\infty$, sinon calcule le nouveau maximum, le facteur $e^{m - m'}$ et les poids $e^{s_j - m'}$ du bloc, puis mets $l$ et l'accumulateur à jour ; avec `history=True`, garde une copie de l'état après chaque bloc. Rends des `float` Python (et un `float` pour `acc` quand les valeurs sont 1-D). Lance le groupe de tests. Ensuite : a) les neuf balises de MB3.7, par blocs de 3 avec `history=True` : les trois états, avec $m$ divisé par $\ln 2$ (une liste de 9 nombres), puis vrai ou faux, ils sont égaux à tes réponses a) à c) de MB3.7 à $10^{-12}$ près ; b) vrai ou faux : l'état final est le même, à $10^{-12}$ près, pour des blocs de 1, 2, 3, 4 et 9 ; c) pour les scores $(-1\,203{,}5 ;\ -1\,201 ;\ -1\,204{,}2 ;\ -1\,202{,}5)$ : $m + \ln l$, puis ce que rend `np.log(np.sum(np.exp(s)))` ; d) quatre relevés de vent, de directions 285°, 335°, 15° et 75° et de scores de fiabilité $(0{,}8 ;\ 0 ;\ 1{,}2 ;\ -0{,}4)$, encodés par $(\cos, \sin)$ : avec ces encodages comme valeurs 2-D et des blocs de 2, la moyenne pondérée $a/l$ (2 nombres), puis sa direction en degrés dans $[0, 360[$. Ce qu'il faut regarder : combien de fois $m$ change-t-il dans a), et à quels blocs ? Pourquoi le calcul direct de c) échoue-t-il, et pas le tien ? Que vaudrait, pour d), la moyenne des quatre angles ?
 
 **MB3.16 · 🔨 `merge_softmax_states(state1, state2)`.** Écris la fonction, en suivant sa docstring : contrôle les deux états (des triplets ; $m$ réel ou $-\infty$ ; $l$ fini, $\ge 1$ quand $m$ est fini ; $l = 0$ et `acc` nul ou `None` quand $m = -\infty$ ; des `acc` de même nature et de même longueur) ; deux états vides donnent l'état vide ; sinon, remets chaque état à l'échelle du maximum commun et additionne. Rends un nouveau tableau, sans modifier les arguments. Lance le groupe de tests. Ensuite : a) les balises de MB3.7 : l'état $A$ du bloc 1, l'état $B$ des blocs 2 et 3, chacun par `online_softmax`, et leur fusion, à comparer à ta réponse f) de MB3.7 ; puis vrai ou faux, cette fusion égale l'état final de MB3.15 a) à $10^{-12}$ près ; b) le notebook fournit `S_16` et `V_16`, douze scores et douze valeurs de longueur 2 : coupe-les en quatre morceaux de 2, 5, 1 et 4 scores, calcule leurs états, puis vrai ou faux, les groupements $(A \oplus B) \oplus (C \oplus D)$, $A \oplus (B \oplus (C \oplus D))$ et $(D \oplus C) \oplus (B \oplus A)$ égalent tous `online_softmax(S_16, V_16, block_size=5)` à $10^{-12}$ près, et la moyenne pondérée (2 nombres) ; c) vrai ou faux : l'état vide `(-np.inf, 0.0, np.zeros(2))` est neutre pour l'état $A$ de b), des deux côtés. Ce qu'il faut regarder : quel grand calcul ces égalités permettent-elles de partager, et entre quoi ?
 
