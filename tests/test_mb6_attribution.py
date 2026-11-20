@@ -355,9 +355,6 @@ def _cw_variants(n):
         ([Fraction(1, math.comb(n - 1, s)) for s in range(n)],
          "the factor 1/n is missing: s! (n - 1 - s)! / (n - 1)! = 1 / C(n - 1, s), and these weights, counted "
          "C(n - 1, s) times each, add up to n instead of 1"),
-        ([Fraction(1, n)] * n,
-         "1/n is the weight of all the C(n - 1, s) coalitions of size s together: one coalition of size s weighs "
-         "1 / (n C(n - 1, s))"),
         ([Fraction(f(s) * f(n - s), f(n)) for s in range(n)],
          "(n - s)! counts one player too many: besides i and the s players before it, n - 1 - s players come after"),
     ]

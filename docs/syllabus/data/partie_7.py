@@ -1593,7 +1593,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB6", "dir": "mb6_shapley_equite", "hours": 12.1, "generation_sessions": 1, "mml": [],
+        "id": "MB6", "dir": "mb6_shapley_equite", "hours": 13.0, "generation_sessions": 1, "mml": [],
         "summary": "Partager un gain, une variation ou une décision. D'abord les jeux coopératifs : la contribution "
                    "marginale d'un joueur, sa moyenne sur les ordres d'arrivée (la valeur de Shapley), les poids des "
                    "coalitions qui en découlent et ce que coûte le calcul ; les quatre axiomes, les jeux d'unanimité et "
@@ -1907,7 +1907,8 @@ CHAPTERS = [
                  "(2017) pour le §7 ; L. S. Shapley (1953) et J. C. Harsanyi (1963) pour le §2. "
                  "Parcours essentiel : l'unicité (∂ MB6.8), le partage multilinéaire (✏️ MB6.5), le 💼, le 🔨 des dividendes, "
                  "le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours. "
-                 "**Durée** (session 69) : 12,1 h en parcours complet, 8,8 h en parcours essentiel (lecture 125 min, soit une "
+                 "**Durée** : 13,0 h en parcours complet, 9,4 h en parcours essentiel, recalée à la génération (session 75) par "
+                 "l'auteur des exercices, la re-résolution à l'aveugle et l'apprenant simulé ; à la session 69 : 12,1 h en parcours complet, 8,8 h en parcours essentiel (lecture 125 min, soit une "
                  "fiche d'environ 6 200 mots de prose ; 15 flashcards), au lieu des 8 h du plan et des 11 h visées : le "
                  "chapitre comble quatre lacunes qu'aucun chapitre publié ne couvre (jeux coopératifs et valeur de Shapley, "
                  "corrélation de rangs de Spearman, interpolation bilinéaire, écart de deux proportions indépendantes) et la "
@@ -1934,7 +1935,7 @@ CHAPTERS = [
              "chaîne (M05b, M17)", "§4", "E"),
             ("MB6.R3", "🔁", 1, 6, "La loi conditionnelle d'un couple gaussien : une moyenne affine en la valeur observée "
              "(M25a)", "§3", "E"),
-            ("MB6.1", "✏️", 2, 30, "Un conseil de quatre membres à vote pondéré : l'indice de Shapley-Shubik par les 24 "
+            ("MB6.1", "✏️", 2, 35, "Un conseil de quatre membres à vote pondéré : l'indice de Shapley-Shubik par les 24 "
              "ordres, un membre nul, deux membres de poids différents et de même pouvoir, et le nombre d'ordres tirés au "
              "hasard qui suffit (Hoeffding)", "§1", "E"),
             ("MB6.2", "✏️", 2, 30, "Trois hameaux partagent une conduite d'eau : la valeur de Shapley par les ordres, les "
@@ -1942,23 +1943,23 @@ CHAPTERS = [
             ("MB6.3", "✏️", 2, 30, "Le rendement d'une parcelle selon la pluie et l'engrais : courbes ICE et dérivée croisée "
              "de deux modèles, puis la moyenne marginale et la moyenne conditionnelle quand pluie et engrais sont "
              "corrélés", "§3", "E"),
-            ("MB6.4", "✏️", 2, 20, "Le travail de deux forces entre deux points : un champ de gradient le long de trois "
+            ("MB6.4", "✏️", 2, 25, "Le travail de deux forces entre deux points : un champ de gradient le long de trois "
              "chemins, puis un champ qui n'en est pas un (Schwarz) le long de deux chemins", "§4", "E"),
-            ("MB6.5", "✏️", 2, 30, "La variation d'un coût à trois facteurs (prix, quantité, taux de change) partagée entre "
+            ("MB6.5", "✏️", 2, 35, "La variation d'un coût à trois facteurs (prix, quantité, taux de change) partagée entre "
              "les facteurs : le long du segment, puis par la moyenne des six chemins en escalier, et pourquoi les deux "
              "partages coïncident", "§4", ""),
-            ("MB6.6", "✏️", 2, 25, "Des relevés de capteurs sur une grille 3 × 4 : la dérivée d'un indice régional par un "
+            ("MB6.6", "✏️", 2, 30, "Des relevés de capteurs sur une grille 3 × 4 : la dérivée d'un indice régional par un "
              "réchauffement uniforme, puis la grille agrandie deux fois par interpolation bilinéaire, centres ou coins "
              "alignés", "§5", "E"),
             ("MB6.7", "✏️", 2, 30, "Un contrôle de pièces sur deux lignes de production aux taux de défauts différents : "
              "les taux de rejet sous la séparation, un tirage au sort entre deux seuils pour atteindre un taux de "
              "détection, et les poids qui rendent ligne et défaut indépendants", "§7 §8", "E"),
-            ("MB6.8", "∂", 3, 35, "Unicité de la valeur de Shapley : les jeux d'unanimité forment une base, et les quatre "
+            ("MB6.8", "∂", 3, 40, "Unicité de la valeur de Shapley : les jeux d'unanimité forment une base, et les quatre "
              "axiomes imposent φ_i = Σ_{T ∋ i} d_T / |T|", "§2", ""),
             ("MB6.9", "∂", 2, 25, "Un score calibré dans un groupe vérifie p (1 − E[S | Y = 1]) = (1 − p) E[S | Y = 0] ; si "
              "deux groupes ont les mêmes moyennes de scores chez leurs positifs et chez leurs négatifs, leurs taux de "
              "base sont égaux ou le score est parfait", "§7", "E"),
-            ("MB6.10", "∂", 2, 15, "Indépendance et séparation ne tiennent ensemble, quand les taux de base diffèrent, que "
+            ("MB6.10", "∂", 2, 20, "Indépendance et séparation ne tiennent ensemble, quand les taux de base diffèrent, que "
              "pour une décision qui ignore le label ; la repondération P(g)P(y)/P(g, y) rend groupe et label "
              "indépendants sans changer leurs marges", "§7 §8", "E"),
             ("MB6.11", "🔗", 1, 15, "Pont : l'écart des taux de détection de deux laboratoires et son intervalle, par "
@@ -1968,11 +1969,11 @@ CHAPTERS = [
              "chacun sur tous les ordres d'arrivée", "§1", "E"),
             ("MB6.E1", "💼", 1, 10, "« La valeur de Shapley est la seule répartition qui respecte quatre règles simples : "
              "lesquelles, et pourquoi suffisent-elles ? »", "§2", ""),
-            ("MB6.13", "🔨", 1, 10, "Les poids des coalitions dans la valeur de Shapley, exacts ou en flottants", "§1",
+            ("MB6.13", "🔨", 1, 15, "Les poids des coalitions dans la valeur de Shapley, exacts ou en flottants", "§1",
              "E m:coalition_weights"),
             ("MB6.14", "🔨", 2, 25, "Les dividendes de Harsanyi d'un jeu donné par sa fonction caractéristique", "§2",
              "m:harsanyi_dividends"),
-            ("MB6.15", "🔨", 2, 25, "L'intégrale d'un champ de vecteurs le long d'une ligne brisée, par la méthode de "
+            ("MB6.15", "🔨", 2, 30, "L'intégrale d'un champ de vecteurs le long d'une ligne brisée, par la méthode de "
              "Simpson sur chaque segment", "§4", "E m:line_integral"),
             ("MB6.16", "🔨", 1, 20, "La corrélation de rangs de Spearman, ex aequo compris", "§6", "E m:spearman_rho"),
             ("MB6.17", "🔮", 1, 15, "Prédire l'intégrale d'un champ de gradient et d'un champ tournant le long d'une boucle "
@@ -1980,14 +1981,14 @@ CHAPTERS = [
             ("MB6.18", "🔬", 2, 25, "Deux mesures corrélées : la moyenne marginale (dépendance partielle) et la moyenne "
              "conditionnelle d'une même fonction, simulées pour plusieurs corrélations et comparées aux formules "
              "gaussiennes", "§3", "E"),
-            ("MB6.19", "🎨", 1, 20, "Les lignes de niveau d'une fonction de deux variables, deux chemins entre les mêmes "
+            ("MB6.19", "🎨", 1, 25, "Les lignes de niveau d'une fonction de deux variables, deux chemins entre les mêmes "
              "points, et l'intégrale du gradient cumulée le long de chacun", "§4", "p:MB6.15"),
             ("MB6.20", "🐛", 1, 20, "Chasse à l'erreur : des poids de coalition sans le facteur 1/n, des ex aequo classés "
              "dans l'ordre d'apparition, une interpolation linéaire aux poids échangés", "§1 §5 §6", "E"),
-            ("MB6.21", "🛠️", 1, 20, "Un test de propriété sur des lignes brisées tirées au hasard : le chemin inversé "
+            ("MB6.21", "🛠️", 1, 25, "Un test de propriété sur des lignes brisées tirées au hasard : le chemin inversé "
              "change le signe, un segment coupé en deux ne change rien, un champ de gradient donne f(fin) − f(début)",
              "§4", "p:MB6.15"),
-            ("MB6.22", "🏆", 3, 40, "Défi : les indices de Shapley-Shubik exacts d'un conseil de 25 membres, sans parcourir "
+            ("MB6.22", "🏆", 3, 45, "Défi : les indices de Shapley-Shubik exacts d'un conseil de 25 membres, sans parcourir "
              "ses coalitions une à une, en comptant par taille et par poids celles où chaque membre est pivot", "§1",
              "p:MB6.13"),
         ],
