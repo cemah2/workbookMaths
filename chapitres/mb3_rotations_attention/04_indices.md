@@ -187,7 +187,7 @@ Fiche §1 : « Les trois autres, et ce qu'on en tire » ; §2 : « Composer, inv
 </details>
 <details><summary>Indice 2</summary>
 
-$105° = 60° + 45°$ : $\cos(a + b) = \cos a\cos b - \sin a\sin b$ et $\sin(a + b) = \sin a\cos b + \cos a\sin b$. $\mathbf{R}_\theta(r, 0) = (r\cos\theta, r\sin\theta)$. $\mathbf{R}_{60°}^\top = \mathbf{R}_{-60°}$, et une rotation conserve les normes.
+$105° = 60° + 45°$ : $\cos(a + b) = \cos a\cos b - \sin a\sin b$ et $\sin(a + b) = \sin a\cos b + \cos a\sin b$. $\mathbf{R}_\theta(r, 0) = (r\cos\theta, r\sin\theta)$. $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$, $\mathbf{R}_{60°}^\top = \mathbf{R}_{-60°}$, et une rotation conserve les normes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -210,7 +210,7 @@ La matrice de droite agit la première. $\mathbf{R}_{ij}(\theta)$ envoie $\mathb
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R}_{23}(\frac\pi2)$ de $\mathbf{e}_2$, et $\mathbf{R}_{12}$ de $\mathbf{e}_3$ ? f) Échange les lignes 2 et 4 de $\mathbf{D}$, puis ses colonnes 2 et 4. g) Regarde la colonne 2 de f) : où va $\mathbf{e}_2$ ?
+a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R}_{23}(\frac\pi2)$ de $\mathbf{e}_2$, et $\mathbf{R}_{12}$ de $\mathbf{e}_3$ ? f) $\sigma(1) = 1$ et $\sigma(2) = 4$ : $\mathbf{R}_{12}(\frac\pi3)$ devient $\mathbf{R}_{14}(\frac\pi3)$ ; fais de même pour $\mathbf{R}_{34}(\frac\pi2)$, sans changer l'ordre des deux indices. g) $\mathbf{R}_{ji}(\theta)$ est la transposée de $\mathbf{R}_{ij}(\theta)$ : c'est $\mathbf{R}_{ij}(-\theta)$.
 
 </details>
 
@@ -282,7 +282,7 @@ Pour chaque $c$, retranche le plus grand score : les exponentielles valent 1, $e
 </details>
 <details><summary>Indice 3</summary>
 
-c) $2e^{-6 \times 0{,}8}$. d) Résous $2e^{-0{,}8c} \le 0{,}01$ en prenant le logarithme népérien.
+b) Avec les trois poids de $c = 6$, calcule $1 - (p_1^2 + p_2^2 + p_3^2)$. c) $2e^{-6 \times 0{,}8}$. d) Résous $2e^{-0{,}8c} \le 0{,}01$ en prenant le logarithme népérien.
 
 </details>
 
@@ -581,7 +581,7 @@ Fiche §8 (l'invariant, la fusion) et §5 (une constante ajoutée aux scores) ; 
 </details>
 <details><summary>Indice 2</summary>
 
-Écris d'abord une fonction `differ(s1, s2, rtol)` qui compare deux états, en traitant à part deux $m$ égaux à $-\infty$ ; puis les quatre contrôles avec `ref = func(scores, values, block_size=1)` ; un seul `try` autour de tout.
+Chaque contrôle compare deux états par la fonction fournie `differ_21(state1, state2, rtol)` ; calcule d'abord `ref = func(scores, values, block_size=1)`, puis les quatre contrôles, avec un seul `try` autour de tout.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -599,11 +599,11 @@ Fiche §4 (encoder une variable cyclique) et §5 (Nadaraya-Watson, la validation
 </details>
 <details><summary>Indice 2</summary>
 
-Encode chaque relevé en 4 coordonnées, puis calcule une fois la matrice $(400, 400)$ des distances au carré entre relevés. Pour chaque $h$ de la grille, prévois chaque relevé par les 399 autres : mets la diagonale des scores à $-\infty$.
+Encode les relevés par `encode_22(theta, day)`, puis calcule une fois la matrice $(400, 400)$ des distances au carré entre relevés. Pour chaque $h$ de la grille, prévois chaque relevé par les 399 autres : mets la diagonale des scores à $-\infty$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`D2 = ((Z[:, None, :] - Z[None, :, :]) ** 2).sum(-1)` ; pour chaque `h`, `S = -D2 / (2 * h ** 2)`, `np.fill_diagonal(S, -np.inf)`, `pred = scipy.special.softmax(S, axis=1) @ y`, et l'erreur `np.mean((pred - y) ** 2)` ; garde le meilleur `h`, puis prévois `TEST_22` avec tous les relevés.
+`Z = encode_22(train[:, 0], train[:, 1])` et `y = train[:, 2]` ; `D2 = ((Z[:, None, :] - Z[None, :, :]) ** 2).sum(-1)` ; pour chaque `h`, `S = -D2 / (2 * h ** 2)`, `np.fill_diagonal(S, -np.inf)`, `pred = scipy.special.softmax(S, axis=1) @ y`, et l'erreur `np.mean((pred - y) ** 2)` ; garde le meilleur `h`, puis prévois `TEST_22` avec tous les relevés.
 
 </details>

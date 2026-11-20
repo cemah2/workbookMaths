@@ -5,10 +5,10 @@
 
 Writes small PNG files into chapitres/mb3_rotations_attention/figures/:
 - §1: the unit vectors of angles a and b (cos a = 35/37, cos b = 28/53) and the cosine of their difference, and the
-  product of two cosines written as half the sum of two cosines (beats of cos 7t and cos 6t);
+  product of two cosines written as half the sum of two cosines (cos 7t cos 6t: a slow wave plus a fast one);
 - §2: a flag turned by R_a then R_b, by R_b then R_a, and by R_{a+b}; a rotation and a reflection of the same flag;
-- §3: the matrices of a Givens rotation of ℝ⁵ (plane (2, 5), cos θ = 35/37), of a block-diagonal rotation, and of Pᵀ R₁₂ P = R₂₃ in ℝ³; two
-  quarter turns of space applied to e₁ in both orders;
+- §3: the matrices of a Givens rotation of ℝ⁵ (plane (2, 5), cos θ = 35/37), of a block-diagonal rotation, and of
+  Pᵀ R₁₂ P = R₂₃ in ℝ³; two quarter turns of space applied to e₁ in both orders;
 - §4: the twelve months on a circle (December and January close, June opposite), four breakdowns and their mean
   vector; the dot product of two encodings of a clock with two hands as a function of the gap;
 - §5: Nadaraya-Watson on the autonomy of an electric bike against the outside temperature (five points), for three
@@ -326,7 +326,7 @@ def kernel() -> None:
     ax.axhline(Y_BIKE.mean(), color="0.6", lw=1, ls="--", label="h → ∞ : la moyenne (47 km)")
     for h, col in ((1.0, C[2]), (3.0, C[0]), (10.0, C[1])):
         ax.plot(xs, [nw(x, h) for x in xs], color=col, lw=1.8, label=f"h = {h:g} °C")
-    ax.plot(X_BIKE, Y_BIKE, "o", color="black", ms=7, zorder=4, label="les cinq trajets")
+    ax.plot(X_BIKE, Y_BIKE, "o", color="black", ms=7, zorder=4, label="les cinq essais")
     ax.plot(X_QUERY, nw(X_QUERY, H_TEXT), "s", color=C[0], ms=8, zorder=5)
     ax.annotate(f"ŷ(7) ≈ {fr(nw(X_QUERY, H_TEXT), 2)} km", (X_QUERY, nw(X_QUERY, H_TEXT)), textcoords="offset points",
                 xytext=(-38, 14), fontsize=9.5, color=C[0])
@@ -337,7 +337,7 @@ def kernel() -> None:
     hs = np.logspace(-0.3, 2, 300)
     W = np.array([softmax(-(X_QUERY - X_BIKE) ** 2 / (2 * h * h)) for h in hs])
     for k in range(5):
-        ax.semilogx(hs, W[:, k], color=C[k % len(C)], lw=1.8, label=f"trajet à {fr(X_BIKE[k], 0)} °C")
+        ax.semilogx(hs, W[:, k], color=C[k % len(C)], lw=1.8, label=f"essai à {fr(X_BIKE[k], 0)} °C")
     ax.axhline(0.2, color="0.6", lw=0.8, ls="--")
     ax.text(60, 0.23, "1/5", fontsize=9.5, color="0.4")
     ax.axvline(H_TEXT, color="0.5", lw=0.8, ls=":")

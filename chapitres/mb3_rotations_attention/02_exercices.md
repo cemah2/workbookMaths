@@ -130,7 +130,7 @@ Une caméra fixée au bras voit la pince dans son propre repère, qui a tourné 
 | a | $\cos 105°$, par une formule d'addition | une valeur exacte |
 | b | $\sin 105°$, par une formule d'addition | une valeur exacte |
 | c | la position $\mathbf{p}$ de la pince | une liste de 2 nombres (3 décimales) |
-| d | l'angle $\theta$, en degrés, tel que $\mathbf{R}_{60°}\mathbf{R}_{45°} = \mathbf{R}_\theta$ | un nombre |
+| d | l'angle $\theta$ de $[0°, 360°[$ tel que $\mathbf{R}_{60°}\mathbf{R}_{45°} = \mathbf{R}_\theta$, en degrés | un nombre |
 | e | vrai ou faux : $\mathbf{R}_{60°}\mathbf{R}_{45°} = \mathbf{R}_{45°}\mathbf{R}_{60°}$ | `True` ou `False` |
 | f | $\mathbf{R}_{60°}^\top\,\mathbf{p}$, la pince vue par la caméra | une liste de 2 nombres (4 décimales) |
 | g | la distance de l'épaule à la pince | un nombre (4 décimales) |
