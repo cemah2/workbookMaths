@@ -111754,6 +111754,7 @@
       "kind": "array",
       "mistakes": {
         "06172d5d8d893d39064d345c10568b9f3a7b2abc8c7c83a781e2c271f2051c37": "la moyenne pondère par les variances cumulées V_s/V_T, pas par les durées",
+        "48f5fc9cdcce7050e6a3c75550d443068c7c97a1857e7438246a0e7cfbb3dd18": "le pont avance au rythme des variances cumulées V_s/V_T, pas du temps s/T : les heures de chasse comptent plus",
         "aeb663e0cac2f7221f0f184ed43154255d9f3c8de609b4a6a54ff690a996d3ab": "le poids V_s/V_T va avec la position de 16 h, et 1 − V_s/V_T avec celle de 8 h",
         "bf3de481d396807a7c32dab127f443ee11ce03ed817dc2a8db8d628c40e4d8d4": "sachant aussi la position de 16 h, la variance devient V_s(V_T − V_s)/V_T, plus petite que V_s"
       },
@@ -111818,6 +111819,7 @@
       "magnitude": -1,
       "mistakes": {
         "9a6db5dc62e7420848459be13ace4e3c5f98028646414252889aab0cd56f3046": "les scénarios partent de 8 h sans connaître le relevé de 16 h : ce n'est pas le pont",
+        "ad2f5c9372ee1f19cedd8ddc87e8b7baa225a538acdc36e79cf4e586e2a384de": "une corrélation 1 est celle d'un seul tirage ; la marche ajoute un déplacement frais chaque heure",
         "e3c8bac49ee1eda181cb881a3c87739d427a95678ca7badfc3057f47e8ec9169": "les pas de 10 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) est la variance cumulée à 10 h, pas celle des pas de 10 h à 13 h"
       },
       "sign": 1,
@@ -111954,6 +111956,7 @@
       "mistakes": {
         "0a86057b28c076598d0f3df4cc76d66bae67d41fad01461bd5fd898a6ae872e1": "9 dB ne sont pas un SNR de 9 : r se tire de 10 log₁₀ r = 9",
         "17d6a496a117cd2cbd2d22989a0feb76f3b3f113b33e808beb1544b4bbf64f5f": "les décibels sont en base 10, pas en base e",
+        "241799ee61ff2c07edb079ba38de057617cfafed7633b507abfd319636e7f546": "c'est le seuil r de SNR : e) demande la part γ qui lui correspond",
         "7775eb8e0841cf8d74cb217f8bab3c82d9e8772c0732241623e2f113e25bd903": "un seuil r de SNR correspond à γ = r/(1 + r), pas 1/(1 + r)",
         "fd22d3d1e62ba2a7b7375e5a97e4a3cd3bde6ddc9b4c7c66dc257d05476e3509": "les décibels sont en base 10, pas en base e"
       },
@@ -112045,6 +112048,7 @@
       "mistakes": {
         "2fecd8da49d8c839c8d8f143dabfd3bc659c8ce96713202b992d9aea6b05b354": "le gain du modèle linéaire gaussien a le facteur a au numérateur : a τ²/(a² τ² + b²)",
         "56c2f599645434dbaaf9e1bd1faedcd28351a515e6b23e52c610733cb70bbe46": "l'écart à la moyenne de y est y − a m, pas y − m",
+        "c37d45e8531572e655967a81605bc257acfe9da86c5a598f6d929c7f5adbc061": "y/a ne tient compte ni de la loi de x ni du bruit : le débruiteur ramène vers la moyenne",
         "eaf4c2cb5fe13d2fb108788e40c85c5bfbfbea1e5a64e4fffb7ae35c8a58f8e0": "la variance de y est a² τ² + b², pas τ² + b²"
       },
       "sign": 1,
@@ -112238,7 +112242,8 @@
       "kind": "array",
       "mistakes": {
         "67584073e928205b741fd93d6a2a75d2eab8c21c14e943e29909b2f9b55dd402": "il reste à diviser par q(z₂ | x = 1), la somme sur z₁",
-        "a73eff5c5340af875849052146b38fca58b4d5d15faa3d5e1b2252e9d5d0e869": "Bayes multiplie la vraisemblance q(z₂ | z₁) par l'a priori q(z₁ | x = 1) avant de normaliser"
+        "a73eff5c5340af875849052146b38fca58b4d5d15faa3d5e1b2252e9d5d0e869": "Bayes multiplie la vraisemblance q(z₂ | z₁) par l'a priori q(z₁ | x = 1) avant de normaliser",
+        "eb8321a8cec63bd9251d7f92ce2cd1b6c71bcf7adbb9e12361afee045df7bf97": "q(z₁ = 1 | x = 1) ignore z₂ : le pas retour qui connaît x conditionne aussi sur z₂ (Bayes)"
       },
       "shape": [
         2
@@ -112363,6 +112368,7 @@
       "kind": "float",
       "magnitude": 1,
       "mistakes": {
+        "028e9fc31b97ecf0a9b019f956cae200d68001cf4669e3dec14c3d238aa4ea07": "c'est la précision λ(w) : a) demande la variance 1/λ(w)",
         "395a601583427c82db9217d0329a7d9c2a61b04d165c8ab06608347f63ddaf32": "la précision de p_v^{1+w} p_g^{−w} est (1 + w)/σ_v² − w/σ_g², avec un signe moins",
         "a01d3b0a7d926287df8fe0231c85e28dcf79fc0e4d61f5367c6cbc38ff9436bc": "on combine les précisions 1/σ², pas les variances",
         "ca0dd2c67b8501716f37dd51817b96d386b6bcb8eaa652c05b8ed82a0b4a9445": "la puissance 1 + w multiplie aussi la précision de p_v",
@@ -112392,7 +112398,8 @@
       "magnitude": 2,
       "mistakes": {
         "7c1111b2ce45242fcc696c40a1c57dfffaabe2f335924c957dae47b4e81d637b": "chaque moyenne compte avec sa précision et le signe de sa puissance : − w μ_g/σ_g²",
-        "9b894a165c5253516e60d102c853ea363e4273606990aeda8f91a4539a565472": "la combinaison affine (1 + w) μ_v − w μ_g oublie les précisions"
+        "9b894a165c5253516e60d102c853ea363e4273606990aeda8f91a4539a565472": "la combinaison affine (1 + w) μ_v − w μ_g oublie les précisions",
+        "ca1119ae5a474fa3d73eb1aaa5c538ad1cfb6223d2eb411cbe387729aa0da86b": "pour w > 0, la moyenne est poussée à l'opposé de μ_g = 108"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -112578,6 +112585,7 @@
       "kind": "array",
       "mistakes": {
         "86fb6f8ee414cbb564b21e5dfe7be6cb34ef39a8c78649a4cad43915a6a617ff": "le rapport divise l'erreur du grand pas par celle du petit",
+        "c7ab83a807b34eef21a98581be6c9ece9faf66f72c57a6fd320ae672e50a384a": "ce sont les rapports de la théorie : d) demande ceux que donnent tes valeurs de a), b) et c)",
         "d86e6cab253855898ecc2d4d539a5af2b5188d06c4c5192d522951f776b100f1": "une erreur est un écart à la valeur exacte, pas la valeur approchée",
         "f328d4926557b60e2f8c98481a14be289e4458a3f4078cffb7110b68535d941c": "les erreurs se calculent avec les températures non arrondies : à 2 décimales, celle du point milieu perd presque toute sa précision"
       },
@@ -112692,6 +112700,7 @@
       "magnitude": 0,
       "mistakes": {
         "2eb8b7a4fa24ea56b434e0434236584a8a9f49461bc0d27405854eee1594fcef": "un seul pas va de s = 1 à s = 0 : il dure 1, pas 1/2",
+        "e8db72dd56774762cbf805921f7d81ce4a5670f88d31143ddc4b14c03df04f28": "c'est le point d'arrivée exact de la trajectoire : c) demande un seul pas d'Euler, h = −1",
         "eb48809e74ba0bd48f3c51a492f7017654a7d3ed2b8d3e130ba467c90bde2c48": "en s = 1, x_0 et x_s sont indépendants : E[x_0 | x_1 = x] = m, donc v(x, 1) = x − m, pas −m"
       },
       "sign": 1,
@@ -112718,6 +112727,7 @@
       "magnitude": 0,
       "mistakes": {
         "224cb233319ad5994047c363fe18f081b66cdad1fd42411f599875a3742f02ba": "le second pas lit le champ en s = 0,5, au point où le premier pas est arrivé, pas au départ z",
+        "3a7491031119f30ca1781ed95763bdd49a242c1b0ea8bc376b3989791784d3c7": "c'est le point d'arrivée exact de la trajectoire : d) demande deux pas d'Euler",
         "f00d1c186b508cf6fb38cc970e5f3207c03ef06b8e487465f1e0364af01d1e7a": "le second pas lit le champ à son propre instant, s = 0,5, pas en s = 1"
       },
       "sign": 1,
@@ -112752,6 +112762,7 @@
       "hash": "611fc82ad770b66dc48a02400254e673e7586d9ee48a543afd7ebd35bafb5b9b",
       "kind": "array",
       "mistakes": {
+        "11aaebedd26493b8c8e8f6a07ea9e475d5a0e275d966f24a0d634371d57bd379": "τ = 0,5 est la dispersion de la cible : e) demande celle de la loi obtenue en deux pas",
         "9d55b76fb9ab448141c73252f5516591d0a55f00f7dc4cc0e1d14c32f06983e3": "z = −0,7 est négatif : le point d'arrivée exact est sous m",
         "d8d6ad18272b1d41f34a6b4afc5186820c91e1efd7ae3ab5af2efbd23e8f08d9": "deux pas, pas un seul : un pas depuis s = 1 enverrait tous les départs au même point"
       },
@@ -112984,42 +112995,39 @@
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
     },
     "MB5.16c": {
-      "decimals": 3,
+      "decimals": 2,
       "element_coarse": [
         [
-          "236ce396e4d65659a7893dd5cf9e7580ee86598ffefd05375c0b4a301c425ecf"
+          "20d2f7fdf8ef10cc3f79f5911dbe197b7d9224f014bf58d81d632f40177d3d9f"
         ],
         [
-          "0d8252446713f37d6f7e31ee5d964c401b29929e29868210c068e1cdcd36100e"
-        ],
-        [
-          "77cb8e336d7d0fb652e0f63014c8814b99750b8019c621eeba50cb7cc064f0e7"
-        ]
-      ],
-      "element_coarse_any": [
-        [
-          "360473f2ab8e686f83a6244a58844f08fc51522e45ebf938de320065024a55a9"
-        ],
-        [
-          "eda0927bf795c09475d97af8ad7bd462a0fce327d64d8e76086081783d93b8e7",
           "bd28630dd0e40d118ccbe46a22e0396d2c3731b88527c777d94455ef7853e95e"
         ],
         [
-          "00a0c0e2dac58cf94ece6d4c2e437d9a113a3d3781e16f8f8519c5f5d22cecfa",
           "aa4b6111f61f80c1590bbe17e9270c99f43a0299c23125943e3243c248df77dc"
         ]
       ],
-      "element_hashes": [
-        "28ce65d2e430f999d825f662b267e25d05ba348f7d479d8de3ccc9e4da8c6ebc",
-        "bfc8829b8033e6f53bd6cba0e6100f855fbee4ca1a0557f1316e5bc7fe7652bc",
-        "0039e0205bc8eed7077dacdd8ef248b94aac6c1decc673bba579dc1b286fa8e2"
+      "element_coarse_any": [
+        [],
+        [
+          "eda0927bf795c09475d97af8ad7bd462a0fce327d64d8e76086081783d93b8e7"
+        ],
+        [
+          "00a0c0e2dac58cf94ece6d4c2e437d9a113a3d3781e16f8f8519c5f5d22cecfa"
+        ]
       ],
-      "hash": "08a6c3226b1be02c430f6f1ef3c1005a16e0945d8a17aa5240ec1509d45fd192",
+      "element_hashes": [
+        "e9e98ffd5e20c352aafd28cfb73c58a0d38169a33dd789e5fe4f794cccfb8635",
+        "e8b9eb9f0ce6ef025eefa04d12d4b6dca9845a8a481be59c4aa27b21408e716a",
+        "77cb8e336d7d0fb652e0f63014c8814b99750b8019c621eeba50cb7cc064f0e7"
+      ],
+      "hash": "d0ecccc5b029709d6bd18600a3b2741a331572c67672d7a1ff843d3349f5e5b2",
       "kind": "array",
       "mistakes": {
-        "2848b55660f163688c606a9a60be624fde6085d17b9fbbc3a373fb001f52669e": "la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²",
-        "96da3956605af012cf2d74b063df9b169d55661e3d7dd34d4bf1956b74e74f3f": "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)",
-        "c51b8a218fa4efe132d84039232e10ab603da6bf2c962a113024b436f78f7264": "chaque pas ajoute le bruit b² = 1,21 à la variance : passe les b aux pas"
+        "0c95c1b526f13ba2dba64dd2e1dc294d6b110be10c4877c603fadbc5e1331cf0": "chaque pas ajoute le bruit b² = 1,21 à la variance : passe les b aux pas",
+        "231482817d3987165b719eeded785900a66eea1f52f4e848d05bfa4a922847b3": "a = −0,68 est négatif : la moyenne change de signe à chaque pas",
+        "85560ee4a22726034fe07ed3b0660159a5c09430d0bf175c0487ab8cbb21ebce": "la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²",
+        "d731c0d774c26054331fc91d7e23fe00e15592b249fb09267ade00a9f27da350": "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)"
       },
       "shape": [
         3

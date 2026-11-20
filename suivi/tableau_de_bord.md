@@ -2262,3 +2262,46 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] MB4.13 🏆 Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs valeurs singulières ★★★ 40 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (12 cartes)
 <!-- wbm:end MB4 -->
+
+<!-- wbm:section MB5 -->
+## MB5 · Les maths de la diffusion ⏱️ 16,6 h
+
+- [ ] MB5.Q1 🧠 Une récurrence linéaire gaussienne : quelle moyenne, quelle variance, quand une loi stationnaire, et combien de pas pour oublier le départ ? ★ 5 min
+- [ ] MB5.Q2 🧠 Le pont et les couplages : où l'incertitude est la plus grande, ce que fixent les lois marginales et ce qu'elles laissent libre ★ 5 min
+- [ ] MB5.Q3 🧠 Signal et bruit : SNR, cotes, logit et décibels, et ce qu'un changement d'échelle ne change pas ★ 4 min
+- [ ] MB5.Q4 🧠 Ce que la MSE apprend : une moyenne conditionnelle, pas la valeur la plus probable ; et ce qu'apprennent la MAE et la log-loss ★ 5 min
+- [ ] MB5.Q5 🧠 Le score en x : où il pointe, la constante qu'il ignore, et ce que dit la formule de Tweedie ★ 5 min
+- [ ] MB5.Q6 🧠 L'ELBO d'une chaîne : quels termes dépendent du modèle, quelle KL compare quoi, et ce que devient une KL entre gaussiennes de même variance ★ 5 min
+- [ ] MB5.Q7 🧠 Guider : interpoler ou extrapoler, la différence de deux scores, et quand un produit de puissances n'est plus une densité ★ 4 min
+- [ ] MB5.Q8 🧠 Euler, point milieu et chemin droit : ce que coûte un pas, l'ordre de l'erreur, et le sens du temps ★ 5 min
+- [ ] MB5.R1 🔁 Sommes et images affines de gaussiennes, produit de densités et modèle linéaire gaussien (M25a) ★ 6 min
+- [ ] MB5.R2 🔁 Espérance et variance conditionnelles, lois totales, et l'ELBO d'un latent (M25b) ★ 6 min
+- [ ] MB5.R3 🔁 Un pas d'Euler (M20), la loi stationnaire d'une chaîne finie (M26) et la cote d'une probabilité (R6) ★ 6 min
+- [ ] MB5.1 ✏️ L'anomalie de température d'un lac, un processus autorégressif d'ordre 1 : sa loi dans k jours sachant aujourd'hui, sa loi stationnaire, le nombre de jours pour oublier le départ, et sa loi sachant un jour passé ★★ 30 min
+- [ ] MB5.2 ✏️ La survie d'une ruche à six mois de risques différents : le produit exact, son logarithme, le risque mensuel constant équivalent, et l'encadrement par deux exponentielles ★ 20 min
+- [ ] MB5.3 ✏️ Un phoque balisé entre deux relevés : sa loi à une heure intermédiaire (le pont d'une marche aléatoire) ; puis des scénarios de position aux mêmes lois à chaque heure, tirés avec un seul nombre au hasard ou avec un bruit frais, et leur corrélation ★★ 30 min (complet)
+- [ ] MB5.4 ✏️ Une voix mêlée à un bruit de fond : SNR, part de variance de la voix, logit et décibels, puis la voix retrouvée à partir d'une estimation du bruit, et l'erreur amplifiée ★★ 20 min
+- [ ] MB5.5 ✏️ Débruiter un signal reçu, d'abord gaussien, puis émis à deux niveaux ±c : E[x | y] par M25a et par la formule de Tweedie (une tanh), et ce que rend le débruiteur quand le bruit tend vers 0 ★★ 40 min
+- [ ] MB5.6 ✏️ Un bit altéré par deux relais, puis reconstitué par un modèle retour : ln p(x), l'ELBO de la loi aller des relais, et sa décomposition en reconstruction, KL finale et KL d'un pas retour ★★★ 45 min
+- [ ] MB5.7 ✏️ La date de floraison d'une variété et celle de tout le verger, deux lois gaussiennes : la loi p_v^{1+w} p_g^{−w} pour deux valeurs de w, son score, sa condition d'existence et le w limite ★★ 30 min
+- [ ] MB5.8 ✏️ Une tasse de thé qui refroidit : Euler et point milieu contre la solution exacte, l'erreur quand le pas est divisé par deux, un courant de vitesse constante, et un calcul à rebours ★★ 30 min
+- [ ] MB5.9 ✏️ Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen (affine en x), un pas d'Euler depuis s = 1 qui rend m pour tout départ, puis deux pas, et l'écart-type obtenu contre τ ★★★ 40 min
+- [ ] MB5.10 ∂ La récurrence linéaire gaussienne à coefficients quelconques : la loi de x_t sachant x_0 ; à coefficient constant |a| < 1, la loi sachant un instant passé, la loi stationnaire et la convergence depuis toute loi initiale ; aucune loi stationnaire si |a| ≥ 1 ★★ 40 min
+- [ ] MB5.11 ∂ La meilleure prédiction quadratique : E[(Y − g(X))²] = E[V(Y | X)] + E[(E[Y | X] − g(X))²], donc g = E[Y | X] ; sur un échantillon, la moyenne de chaque groupe ★★ 20 min
+- [ ] MB5.12 ∂ La formule de Tweedie : dériver la densité de y = a x + b n sous l'espérance, d'où E[x | y] et E[n | y] ; la vérification quand x est gaussien ★★★ 30 min (complet)
+- [ ] MB5.13 ∂ L'ELBO d'une chaîne de latents : Markov et Bayes réécrivent chaque pas aller, la somme télescope ; puis chaque KL entre gaussiennes de même variance devient une MSE pondérée des moyennes ★★★ 40 min (complet)
+- [ ] MB5.14 🔗 Pont : une loss de débruitage à plusieurs niveaux de bruit, son minimiseur à chaque niveau, et pour des données gaussiennes les MSE minimales sur le signal et sur le bruit, dont le rapport est le SNR ★ 25 min
+- [ ] MB5.15 🗣️ Expliquer avec le jeu du téléphone pourquoi, après assez de relais qui atténuent et bruitent, le message reçu ne dit plus rien du message émis ★ 10 min
+- [ ] MB5.E1 💼 « Un modèle de régression entraîné à la MSE prédit-il le prix le plus probable ? Que prédit-il quand les prix d'un même profil se partagent en deux groupes, et quelle loss prendre pour une médiane ? » ★ 10 min (complet)
+- [ ] MB5.16 🔨 Propager la moyenne et la variance d'une récurrence linéaire gaussienne à coefficients quelconques ★ 30 min
+- [ ] MB5.17 🔨 Le débruiteur optimal d'une mesure bruitée quand le signal suit un mélange de gaussiennes, des points compris ★★ 45 min
+- [ ] MB5.18 🔨 Suivre un champ de vitesses qui dépend du temps : la méthode d'Euler et celle du point milieu, dans les deux sens du temps ★★ 40 min
+- [ ] MB5.19 📦 `scipy.integrate.solve_ivp` : une croissance logistique suivie par tes deux méthodes, l'erreur au temps final selon le nombre de pas en échelle log-log, et les pentes 1 et 2 ★ 20 min (complet)
+- [ ] MB5.20 🔮 Prédire ce que rend le débruiteur optimal de cinq relevés quand le bruit tend vers 0, pour une mesure proche d'un relevé puis à égale distance de deux, et mesurer ★ 15 min
+- [ ] MB5.21 🔬 Le chemin droit vers une loi gaussienne : Euler et point milieu sur le champ moyen exact, de 1 à 32 pas, la moyenne et l'écart-type obtenus contre ceux de la cible ★★ 25 min
+- [ ] MB5.22 🎨 Des lois guidées p_c^{1+w} p_u^{−w} sur une grille : une loi générale à deux bosses, une loi de classe gaussienne, et ce que w resserre et déplace ★ 20 min (complet)
+- [ ] MB5.23 🐛 Chasse à l'erreur : un pont aux poids inversés, un débruiteur qui oublie le bruit dans ses responsabilités, et un Euler dont le temps n'avance pas ★ 20 min
+- [ ] MB5.24 🛠️ Un test de propriété : Euler exact pour une vitesse constante, le point milieu exact pour une vitesse affine en t, et l'erreur d'Euler divisée par deux avec le pas ★ 30 min (complet)
+- [ ] MB5.25 🏆 Défi : transporter un bruit N(0, 1) vers une loi à deux bosses par son champ moyen exact, en au plus huit évaluations du champ, sous une distance de Wasserstein fixée ★★★ 35 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (20 cartes)
+<!-- wbm:end MB5 -->

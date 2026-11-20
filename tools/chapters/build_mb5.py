@@ -146,7 +146,9 @@ PAPER = [
                      "le poids V_s/V_T va avec la position de 16 h, et 1 − V_s/V_T avec celle de 8 h":
                          floats(bridge_3(3, swapped=True)),
                      "sachant aussi la position de 16 h, la variance devient V_s(V_T − V_s)/V_T, plus petite que V_s":
-                         floats([bridge_3(3)[0], V_3[3]])}'''),
+                         floats([bridge_3(3)[0], V_3[3]]),
+                     "le pont avance au rythme des variances cumulées V_s/V_T, pas du temps s/T : les heures de chasse "
+                     "comptent plus": floats([bridge_3(3, by_hours=True)[0], bridge_3(3)[1]])}'''),
         ("b", "a list of 2 numbers (3 decimals): the hour (an integer), then the variance", "floats(widest_3())",
          '''decimals=3,
            mistakes={"la variance du pont est la plus grande où V_s est le plus proche de V_T/2, pas au milieu de la "
@@ -159,7 +161,8 @@ PAPER = [
                          math.sqrt(float(V_3[2] * (V_3[8] - V_3[5]) / (V_3[5] * (V_3[8] - V_3[2])))),
                      "les pas de 10 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) est la variance "
                      "cumulée à 10 h, pas celle des pas de 10 h à 13 h":
-                         float(V_3[5] - V_3[2]) / math.sqrt(V_3[2] * V_3[5])}'''),
+                         float(V_3[5] - V_3[2]) / math.sqrt(V_3[2] * V_3[5]),
+                     "une corrélation 1 est celle d'un seul tirage ; la marche ajoute un déplacement frais chaque heure": 1.0}'''),
         ("d", "a number (4 decimals)", "fresh_3()",
          '''decimals=4,
            mistakes={"Z_10h et Z_13h sont deux tirages frais, indépendants : seul U est commun aux deux heures":
@@ -189,7 +192,8 @@ PAPER = [
          '''decimals=4,
            mistakes={"un seuil r de SNR correspond à γ = r/(1 + r), pas 1/(1 + r)": 1 / (1 + 10 ** 0.9),
                      "9 dB ne sont pas un SNR de 9 : r se tire de 10 log₁₀ r = 9": 9 / (1 + 9),
-                     "les décibels sont en base 10, pas en base e": math.exp(0.9) / (1 + math.exp(0.9))}'''),
+                     "les décibels sont en base 10, pas en base e": math.exp(0.9) / (1 + math.exp(0.9)),
+                     "c'est le seuil r de SNR : e) demande la part γ qui lui correspond": 10 ** 0.9}'''),
         ("f", "a number (4 decimals)", "(Y2_4 - B2_4 * NHAT_4) / A2_4",
          '''decimals=4,
            mistakes={"on retire b n̂, le bruit multiplié par son gain": (Y2_4 - NHAT_4) / A2_4,
@@ -208,7 +212,9 @@ PAPER = [
            mistakes={"la variance de y est a² τ² + b², pas τ² + b²": float(gaussian_5(spread=TAU2_5 + B_5 ** 2)),
                      "l'écart à la moyenne de y est y − a m, pas y − m": float(gaussian_5(centre=M_5)),
                      "le gain du modèle linéaire gaussien a le facteur a au numérateur : a τ²/(a² τ² + b²)":
-                         float(gaussian_5(gain=1))}'''),
+                         float(gaussian_5(gain=1)),
+                     "y/a ne tient compte ni de la loi de x ni du bruit : le débruiteur ramène vers la moyenne":
+                         float(Y_5 / A_5)}'''),
         ("b", "a number (4 decimals)", "float(SCORE_5)",
          '''decimals=4,
            mistakes={"le score est négatif au-dessus de la moyenne a m : il pointe vers elle": float(-SCORE_5),
@@ -245,7 +251,9 @@ PAPER = [
          '''decimals=4,
            mistakes={"Bayes multiplie la vraisemblance q(z₂ | z₁) par l'a priori q(z₁ | x = 1) avant de normaliser":
                          floats([FLIP_6(R2_6)[1][z2] / (FLIP_6(R2_6)[0][z2] + FLIP_6(R2_6)[1][z2]) for z2 in (0, 1)]),
-                     "il reste à diviser par q(z₂ | x = 1), la somme sur z₁": floats([Q12_6[1, 0], Q12_6[1, 1]])}'''),
+                     "il reste à diviser par q(z₂ | x = 1), la somme sur z₁": floats([Q12_6[1, 0], Q12_6[1, 1]]),
+                     "q(z₁ = 1 | x = 1) ignore z₂ : le pas retour qui connaît x conditionne aussi sur z₂ (Bayes)":
+                         floats([Q1_6[1]] * 2)}'''),
         ("c", "a number (4 decimals)", "math.log(PX_6)",
          '''decimals=4,
            mistakes={"p(x = 1) est une probabilité : son logarithme est négatif": -math.log(PX_6),
@@ -272,13 +280,15 @@ PAPER = [
            mistakes={"la précision de p_v^{1+w} p_g^{−w} est (1 + w)/σ_v² − w/σ_g², avec un signe moins":
                          float(1 / ((1 + W1_7) / VV_7 + W1_7 / VG_7)),
                      "on combine les précisions 1/σ², pas les variances": float((1 + W1_7) * VV_7 - W1_7 * VG_7),
-                     "la puissance 1 + w multiplie aussi la précision de p_v": float(1 / (1 / VV_7 - W1_7 / VG_7))}'''),
+                     "la puissance 1 + w multiplie aussi la précision de p_v": float(1 / (1 / VV_7 - W1_7 / VG_7)),
+                     "c'est la précision λ(w) : a) demande la variance 1/λ(w)": float(1 / guided_7(W1_7)[1])}'''),
         ("b", "a number (4 decimals)", "float(guided_7(W1_7)[0])",
          '''decimals=4,
            mistakes={"chaque moyenne compte avec sa précision et le signe de sa puissance : − w μ_g/σ_g²":
                          float(guided_7(W1_7, sign=1)[0]),
                      "la combinaison affine (1 + w) μ_v − w μ_g oublie les précisions":
-                         float((1 + W1_7) * MV_7 - W1_7 * MG_7)}'''),
+                         float((1 + W1_7) * MV_7 - W1_7 * MG_7),
+                     "pour w > 0, la moyenne est poussée à l'opposé de μ_g = 108": float(2 * MV_7 - guided_7(W1_7)[0])}'''),
         ("c", "a list of 2 numbers (4 decimals): the mean, then the variance", "floats(guided_7(W2_7))",
          '''decimals=4,
            mistakes={"la combinaison affine (1 + w) μ_v − w μ_g oublie les précisions":
@@ -323,7 +333,9 @@ PAPER = [
                      "une erreur est un écart à la valeur exacte, pas la valeur approchée":
                          [float(euler_8(5, 2) / euler_8(F(5, 2), 4)), float(midpoint_8(5, 2) / midpoint_8(F(5, 2), 4))],
                      "les erreurs se calculent avec les températures non arrondies : à 2 décimales, celle du point milieu "
-                     "perd presque toute sa précision": ratios_8(rounded=True)}'''),
+                     "perd presque toute sa précision": ratios_8(rounded=True),
+                     "ce sont les rapports de la théorie : d) demande ceux que donnent tes valeurs de a), b) et c)":
+                         [2.0, 4.0]}'''),
         ("e", "a list of 2 numbers (2 decimals): one Euler step backward, then the exact value",
          "floats([euler_8(-5, 1, start=T10_8, t0=10), exact_8(5, start=T10_8, t0=10)])",
          '''decimals=2,
@@ -348,20 +360,25 @@ PAPER = [
          '''decimals=4,
            mistakes={"un seul pas va de s = 1 à s = 0 : il dure 1, pas 1/2": euler_9([1, F(1, 2)]),
                      "en s = 1, x_0 et x_s sont indépendants : E[x_0 | x_1 = x] = m, donc v(x, 1) = x − m, pas −m":
-                         float(Z_9 + M_9)}'''),
+                         float(Z_9 + M_9),
+                     "c'est le point d'arrivée exact de la trajectoire : c) demande un seul pas d'Euler, h = −1":
+                         float(M_9 + TAU_9 * Z_9)}'''),
         ("d", "a number (4 decimals)", "euler_9([1, F(1, 2), 0])",
          '''decimals=4,
            mistakes={"le second pas lit le champ en s = 0,5, au point où le premier pas est arrivé, pas au départ z":
                          euler_9([1, F(1, 2), 0], frozen_point=True),
                      "le second pas lit le champ à son propre instant, s = 0,5, pas en s = 1":
-                         euler_9([1, F(1, 2), 0], frozen_time=True)}'''),
+                         euler_9([1, F(1, 2), 0], frozen_time=True),
+                     "c'est le point d'arrivée exact de la trajectoire : d) demande deux pas d'Euler": float(M_9 + TAU_9 * Z_9)}'''),
         ("e", "a list of 2 numbers (4 decimals): the standard deviation, then the exact point reached",
          "floats([(euler_9([1, F(1, 2), 0], z=1) - euler_9([1, F(1, 2), 0], z=0)), M_9 + TAU_9 * Z_9])",
          '''decimals=4,
            mistakes={"deux pas, pas un seul : un pas depuis s = 1 enverrait tous les départs au même point":
                          floats([0, M_9 + TAU_9 * Z_9]),
                      "z = −0,7 est négatif : le point d'arrivée exact est sous m":
-                         floats([(euler_9([1, F(1, 2), 0], z=1) - euler_9([1, F(1, 2), 0], z=0)), M_9 - TAU_9 * Z_9])}'''),
+                         floats([(euler_9([1, F(1, 2), 0], z=1) - euler_9([1, F(1, 2), 0], z=0)), M_9 - TAU_9 * Z_9]),
+                     "τ = 0,5 est la dispersion de la cible : e) demande celle de la loi obtenue en deux pas":
+                         floats([TAU_9, M_9 + TAU_9 * Z_9])}'''),
     ]),
 
     Paper("MB5.14", "Pont : une loss de débruitage à trois niveaux de bruit, son minimiseur à chaque niveau, et les MSE "
@@ -927,8 +944,9 @@ B_16 = frozen(__B_16__)'''
 
 NOTE_16 = (r"Les contrôles, puis deux listes qui démarrent à `mean0` et `var0`, et à chaque pas `m = a_t * m` et "
            r"`v = a_t ** 2 * v + b_t ** 2`. a) $(1{,}703680 ;\ 0{,}290827)$, comme MB5.1 b). b) $(0{,}200712 ;\ "
-           r"0{,}682062)$. c) $(0{,}494337 ;\ 2{,}228744 ;\ 2{,}250744)$ : les moyennes $5 ;\ -3{,}4 ;\ 2{,}312 ;\ "
-           r"\ldots$ changent de signe à chaque pas, et la variance approche $v_\infty$ par en dessous.")
+           r"0{,}682062)$. c) $(-0{,}336149 ;\ 2{,}240571 ;\ 2{,}250744)$, après sept pas : les moyennes $5 ;\ -3{,}4 ;\ "
+           r"2{,}312 ;\ \ldots$ changent de signe à chaque pas, si bien qu'après un nombre impair de pas la moyenne est "
+           r"négative, et la variance approche $v_\infty$ par en dessous.")
 
 MB5_16 = ex(
     "MB5.16", "programmer la propagation de la moyenne et de la variance d'une récurrence linéaire gaussienne, puis "
@@ -942,7 +960,7 @@ MB5_16 = ex(
 **L'usage.** Avec ta fonction :
 - a) le lac de MB5.1 (`LAKE_1`, cellule de données) sur trois jours : la moyenne et la variance de $x_3$ (une liste de 2 nombres, à comparer à ta copie) ;
 - b) au printemps, la persistance et le bruit changent chaque semaine : le notebook fournit `A_16` et `B_16`, les coefficients de douze semaines, et le départ suit $x_0 \sim \mathcal{N}(1{,}5 ;\ 0{,}3)$ : la moyenne et la variance de $x_{12}$ (une liste de 2 nombres) ;
-- c) $a = -0{,}68$ et $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres).""",
+- c) $a = -0{,}68$ et $b = 1{,}1$ pendant sept pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_7$, puis $v_\infty$ (une liste de 3 nombres).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `linear_gaussian_recursion` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui "
@@ -953,15 +971,15 @@ MB5_16 = ex(
 with wbm.attempt("MB5.16"):          # if you call linear_gaussian_recursion here: ⏳ while it is not written
     answer_MB5_16a = ...  # a) a list of 2 numbers, as computed: the mean and the variance of x_3 (the lake of MB5.1)
     answer_MB5_16b = ...  # b) a list of 2 numbers, as computed: the mean and the variance of x_12 (A_16, B_16, the start)
-    answer_MB5_16c = ...  # c) a list of 3 numbers, as computed: the mean and the variance of x_6, then v_inf'''),
+    answer_MB5_16c = ...  # c) a list of 3 numbers, as computed: the mean and the variance of x_7, then v_inf'''),
         ("check", answers_check("MB5.16", "abc", hints=HINTS_16)),
         ("solution", '''linear_gaussian_recursion = mymath.gaussian_paths.linear_gaussian_recursion
 means_16, variances_16 = linear_gaussian_recursion([LAKE_1["a"]] * 3, [LAKE_1["b"]] * 3, mean0=LAKE_1["x0"])
 answer_MB5_16a = [float(means_16[3]), float(variances_16[3])]
 means_16, variances_16 = linear_gaussian_recursion(A_16, B_16, mean0=1.5, var0=0.3)
 answer_MB5_16b = [float(means_16[-1]), float(variances_16[-1])]
-means_16, variances_16 = linear_gaussian_recursion([-0.68] * 6, [1.1] * 6, mean0=5.0)
-answer_MB5_16c = [float(means_16[6]), float(variances_16[6]), 1.1 ** 2 / (1 - 0.68 ** 2)]
+means_16, variances_16 = linear_gaussian_recursion([-0.68] * 7, [1.1] * 7, mean0=5.0)
+answer_MB5_16c = [float(means_16[7]), float(variances_16[7]), 1.1 ** 2 / (1 - 0.68 ** 2)]
 print("a)", np.round(answer_MB5_16a, 6).tolist(), " b)", np.round(answer_MB5_16b, 6).tolist(),
       " c)", np.round(answer_MB5_16c, 6).tolist())
 print("   c) les trois premières moyennes :", np.round(means_16[:3], 6).tolist())
@@ -989,15 +1007,17 @@ wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=
                      "chaque semaine ajoute le bruit b_t² à la variance : passe B_16 aux pas":
                          moments_16r(weeks_a_16r, [0] * len(weeks_b_16r), 1.5, 0.3),
                      "le départ a la moyenne 1,5 : passe mean0=1.5": moments_16r(weeks_a_16r, weeks_b_16r, 0, 0.3)})
-six_16r = moments_16r([-0.68] * 6, [1.1] * 6, 5)
+seven_16r = moments_16r([-0.68] * 7, [1.1] * 7, 5)
 limit_16r = float(F_16r("1.1") ** 2 / (1 - F_16r("0.68") ** 2))
-wbm.record("MB5.16c", six_16r + [limit_16r], decimals=3,
-           mistakes={"la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²":
-                         six_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.68") ** 2))],
+wbm.record("MB5.16c", seven_16r + [limit_16r], decimals=2,
+           mistakes={"a = −0,68 est négatif : la moyenne change de signe à chaque pas":
+                         moments_16r([0.68] * 7, [1.1] * 7, 5) + [limit_16r],
+                     "la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²":
+                         seven_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.68") ** 2))],
                      "chaque pas ajoute le bruit b² = 1,21 à la variance : passe les b aux pas":
-                         moments_16r([-0.68] * 6, [0] * 6, 5) + [limit_16r],
+                         moments_16r([-0.68] * 7, [0] * 7, 5) + [limit_16r],
                      "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)":
-                         moments_16r([-0.68] * 6, [1.1] * 6, 0) + [limit_16r]})'''),
+                         moments_16r([-0.68] * 7, [1.1] * 7, 0) + [limit_16r]})'''),
         ("solution", answers_check("MB5.16", "abc", hints=HINTS_16)),
         look("pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue "
              "diminue-t-elle ? Par quel côté la variance approche-t-elle $v_\\infty$ ?"),
@@ -1020,7 +1040,7 @@ MB5_17 = ex(
     functions="`posterior_mean_mixture`", mymath="gaussian_paths.py", note=NOTE_17,
     body=REMINDER + r"""
 
-Écris `posterior_mean_mixture(y, a, b, weights, means, variances)` (fiche §5), en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure (le `logsumexp` de ton `approx.py`, M05a, ou, à défaut, un `_logsumexp` privé écrit dans `gaussian_paths.py`) ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests.
+Écris `posterior_mean_mixture(y, a, b, weights, means, variances)` (fiche §5), en suivant sa docstring : contrôle les arguments ; pour chaque composante de variance $v_k$ ($s_k^2$ dans la docstring), la variance $a^2v_k + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2v_k + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure (le `logsumexp` de ton `approx.py`, M05a, ou, à défaut, un `_logsumexp` privé écrit dans `gaussian_paths.py`) ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests.
 
 **L'usage.** Avec ta fonction :
 - a) la partie A de MB5.5 (`SIGNAL_5A`, cellule de données), comme un mélange à une composante : $\mathbb{E}[x \mid y = 6]$ (un nombre, à comparer à ta copie) ;
@@ -1431,9 +1451,10 @@ def means_21():
 '''
 
 ANSWERS_21 = '''means_c21 = means_21() if filled(answer_MB5_21a) else None
-if means_c21 is not None and not passes(HIDDEN_C21["id_means"], means_c21):
+means_wrong_c21 = means_c21 is not None and not passes(HIDDEN_C21["id_means"], means_c21)
+if means_wrong_c21 and wbm.check("MB5.21a", answer_MB5_21a, computed=True, quiet=True).passed:   # right spreads only
     print("❌ Ex MB5.21a : la moyenne (np.mean) des points que ta field_21 fait atteindre n'est pas celle du transport "
-          "exact : un terme qui ne dépend que de s déplace tous les points sans changer leur écart-type (ligne ❌ de "
+          "exact : un terme qui ne dépend que de s déplace tous les points sans changer leur dispersion (ligne ❌ de "
           "field_21 ci-dessus)")
 else:
     check_answer("MB5.21a", answer_MB5_21a, hint=hint_21)
@@ -2003,7 +2024,7 @@ MB5_23 = ex(
     "fiche §2, §5 et §8 ; Ex MB5.3, MB5.17, MB5.18", note=NOTE_23, given=GIVEN_23,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
 1. `bridge_bad(x0, xT, Vs, VT)` doit rendre la moyenne et la variance du pont d'une marche aléatoire ; elle met le poids $\frac{V_s}{V_T}$ sur $x_0$ au lieu de $x_T$. Il l'a vérifiée au milieu d'une marche de pas égaux.
-2. `denoiser_bad(y, a, b, weights, means, variances)` doit rendre $\mathbb{E}[x \mid y]$ pour un mélange ; elle calcule les responsabilités avec la variance $s_k^2$ du signal seule, au lieu de $a^2s_k^2 + b^2$. Il l'a vérifiée sur un mélange à une seule composante.
+2. `denoiser_bad(y, a, b, weights, means, variances)` doit rendre $\mathbb{E}[x \mid y]$ pour un mélange ; elle calcule les responsabilités avec la variance $v_k$ du signal seule, au lieu de $a^2v_k + b^2$. Il l'a vérifiée sur un mélange à une seule composante.
 3. `euler_bad(f, x0, t0, t1, n_steps)` doit suivre la méthode d'Euler ; elle lit le champ en $t_0$ à chaque pas. Il l'a vérifiée sur $x' = -\frac x3$.
 
 À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `bridge_fixed`, `denoiser_fixed` et `euler_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle). Puis réponds :
@@ -2311,11 +2332,11 @@ MB5_24 = ex(
     "MB5.24", "écrire trois tests de propriété d'une méthode d'intégration, et voir ce que chacun attrape.",
     "fiche §8 ; M02a (sommes de Riemann, point milieu) ; Ex MB5.18", note=NOTE_24,
     body=r"""Écris trois fonctions qui testent une méthode d'intégration `method(f, x0, t0, t1, n_steps)` qu'on leur passe (de la forme de `euler_ode` : elle rend les $N + 1$ points), et rendent `True` si la propriété tient, `False` sinon :
-- `constant_is_exact_24(method)` vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$), **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près (un écart absolu, ou relatif à la valeur exacte, d'au plus $10^{-9}$ : la tolérance par défaut de `np.allclose` est bien plus large) ;
-- `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte, à $10^{-9}$ près ;
+- `constant_is_exact_24(method)` vérifie qu'avec un champ constant (plusieurs valeurs, plusieurs nombres de pas, avec $t_0 < t_N$), **chaque** point rendu est sur la droite exacte, à $10^{-9}$ près en valeur absolue (plus fin que la tolérance par défaut de `np.allclose`, `rtol=1e-5` et `atol=1e-8`) ;
+- `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte, à $10^{-9}$ près en valeur absolue ;
 - `error_halves_24(method)` vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand).
 
-La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
+La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
 - a) les résultats de tes trois tests sur `euler_ode`, puis sur `midpoint_ode` de la référence (deux listes de 3 booléens, dans l'ordre constant, affine, erreur).""",
     todo='''def constant_is_exact_24(method):
     """True when, for constant velocity fields (several values, several numbers of steps, t0 < t1), every point returned
