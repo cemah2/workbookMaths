@@ -1,6 +1,6 @@
 # MB4 · Rang faible et recherche d'information — fiche de cours
 
-> Deux sens du mot « rang ». Le **rang d'une matrice** : la **factorisation de rang** $\mathbf{M} = \mathbf{C}\mathbf{F}$, ses nombres stockés et ses nombres libres, le **rang effectif** d'une matrice mesurée, l'ordre des produits. Le **rang dans un classement** : le poids d'un **indice rare**, du log du rapport des cotes de Robertson et Spärck Jones ; la **saturation** et la **normalisation par la longueur** ; la **fusion de classements** (Borda, somme des $\frac{1}{c + \text{rang}}$) ; recall@k, MRR et la **ligne de base** d'un ordre tiré au hasard. Le chapitre bonus B4 de workbookIA les applique.
+> Deux sens du mot « rang ». Le **rang d'une matrice** : la **factorisation de rang** $\mathbf{M} = \mathbf{C}\mathbf{F}$, ses nombres stockés et ses nombres libres, le **rang effectif** d'une matrice mesurée, l'ordre des produits. Le **rang dans un classement** : le poids d'un **indice rare**, du log du rapport des cotes de Robertson et Spärck Jones ; la **saturation** et la **normalisation par la longueur** ; la **fusion de classements** (*rank aggregation* ; Borda, somme des $\frac{1}{c + \text{rang}}$) ; recall@k, MRR et la **ligne de base** d'un ordre tiré au hasard. Le chapitre bonus B4 de workbookIA les applique.
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@
 2. Section par section : lis **crayon en main** et refais chaque calcul (avant le §2, relis MML §4.6 avec le guide ci-dessous) ; puis fais les exercices de la section, quiz 🧠 d'abord.
 3. Les ✏️ se font sur papier, dans ta copie de `06_mes_reponses.md`, et se vérifient dans la **partie 0** du notebook ; les ∂ se jugent avec la grille de relecture de `05_solutions.md`.
 
-Le chapitre a deux moitiés. Les §1 et §2 (le rang d'une matrice) se lisent dans l'ordre. Les §3 à §6 (le rang dans un classement) ne leur demandent rien : le §4 prolonge le §3, les §5 et §6 se lisent seuls.
+Le chapitre a deux moitiés. Les §1 et §2 (le rang d'une matrice) se lisent dans l'ordre. Les §3 à §6 (le rang dans un classement) ne leur demandent rien : le §4 prolonge le §3, les §5 et §6 se lisent seuls (le dernier paragraphe du §5 renvoie au §3).
 
 | Section | Quiz 🧠 et rappels 🔁 | Papier et réflexion | Notebook |
 |---|---|---|---|
@@ -39,12 +39,12 @@ Parcours essentiel : tout sauf MB4.6, MB4.E1 et MB4.9 à MB4.13 (les énoncés d
 - La définition 4.23 (norme spectrale) et le théorème 4.24 ($\lVert\mathbf{A}\rVert_2 = \sigma_1$) servent au rang stable du §2. Le théorème 4.25 énonce Eckart-Young en norme spectrale ; M12d §3 et le §2 l'emploient en norme de Frobenius.
 - L'esquisse de démonstration (4.96)-(4.99) et la fin de l'exemple 4.15 se survolent.
 
-MML ne parle ni de la factorisation par les colonnes pivots, ni du rang effectif ou stable, ni de recherche d'information : pour les §1 et §3 à §6, la fiche est le cours, avec Manning, Raghavan et Schütze en lecture libre.
+MML ne parle ni de la factorisation par les colonnes pivots (son §2.5, autour de (2.66), lit pourtant chaque colonne non pivot comme une combinaison des colonnes pivots : c'est ce que range $\mathbf{F}$), ni du rang effectif ou stable, ni de recherche d'information : pour les §1 et §3 à §6, la fiche est le cours, avec Manning, Raghavan et Schütze en lecture libre.
 
 📐 **Notations.**
 - **Écarts.** MML note $\sigma_i$ les valeurs singulières, $\operatorname{rk}$ le rang et $\hat{\mathbf{A}}(k)$ l'approximation de rang $k$ ; la fiche écrit, comme M12d, $s_i$, $\operatorname{rg}$ et $\mathbf{M}_r$. M12d et MB2 notent $k$ le rang gardé ; ici c'est $r$, car $k$ est la coupure de recall@k. La constante $c$ du §5 est notée $k$ dans workbookIA B4 et chez Cormack et coll. MML écrit $\log$ pour $\ln$.
 - **Le mot « rang »** a deux sens, voulus : le rang d'une matrice (§1, §2), et la place d'un candidat ou d'un objet dans un classement (§5, §6), qui commence à 1. Dans `ranks.py`, les candidats sont numérotés à partir de 0, et un classement les liste du meilleur au moins bon : ce n'est pas la liste de leurs rangs.
-- **Lettres à double sens.** $r$ : un rang de matrice (§1, §2), un nombre de dossiers (§3) ; $R$ : un nombre de dossiers (§3), le rang du premier pertinent (§6). $n$ compte des colonnes (§1, §2), des dossiers (§3), des candidats (§5), des objets (§6) ; $m$ des lignes (§1, §2), des juges (§5). $k$ est la coupure (§6), $k_1$ une constante (§4), et le rang gardé de M12d. $s_i$ est une valeur singulière (§2), $s(x)$ la saturation (§4). $c$ est la constante du §5, $\mathbf{c}_i$ (en gras) une colonne au §1. $p$ compte des vecteurs (§2), c'est une probabilité (§3) ; $q$ une probabilité (§3), un nombre d'objets (§6). $\mathbf{x}$ (en gras) est un vecteur (§2), $x$ un nombre de mentions (§4). $j$ numérote des colonnes (§1), c'est un rang (§5, §6). $\mathbf{C}$ (en gras) est une matrice, C (en romain) une photo. Le contexte tranche.
+- **Lettres à double sens.** $r$ : un rang de matrice (§1, §2), un nombre de dossiers (§3) ; $R$ : un nombre de dossiers (§3), le rang du premier pertinent (§6). $n$ compte des colonnes (§1, §2), des dossiers (§3), des candidats (§5), des objets (§6) ; $m$ des lignes (§1, §2), des juges (§5). $k$ est la coupure (§6), $k_1$ une constante (§4), et le rang gardé de M12d. $s_i$ est une valeur singulière (§2), $s(x)$ la saturation (§4). $c$ est la constante du §5, $\mathbf{c}_i$ (en gras) une colonne au §1. $p$ compte des vecteurs (§2), c'est une probabilité (§3) ; $q$ une probabilité (§3), un nombre d'objets (§6). $\mathbf{x}$ (en gras) est un vecteur (§2), $x$ un nombre de mentions (§4). $j$ numérote des colonnes (§1), c'est un rang (§5, §6). $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$ (en gras) sont des matrices, A, B, C, D (en romain) des photos (§5). $\sigma$ est l'écart-type d'un bruit (§2), jamais une valeur singulière ici (MML les note $\sigma_i$). $x$ est aussi la variable de $\frac1x$ (§6) ; $u$ (en italique) un petit nombre (§5), $\mathbf{u}_i$ (en gras) un vecteur singulier (§1). Le contexte tranche.
 
 Vocabulaire anglais de ce chapitre : *rank factorization*, *pivot column*, *outer product*, *degrees of freedom*, *effective rank*, *stable rank*, *noise level*, *surprisal*, *odds ratio*, *relevance weight*, *pseudo-count*, *saturation*, *diminishing returns*, *length normalization*, *rank aggregation*, *Borda count*, *ranking*, *recall at k*, *precision at k*, *hit rate*, *reciprocal rank*, *mean reciprocal rank (MRR)*, *baseline*, *harmonic number*.
 
@@ -115,13 +115,13 @@ Les outils, que le ∂ MB4.5 met en œuvre : une base de l'espace des colonnes e
 
 Stocker $\mathbf{C}$ et $\mathbf{F}$ demande $mr + rn = r(m + n)$ nombres, contre $mn$ (rappel de M12a §4, et des $k(m + n + 1)$ nombres d'une SVD tronquée, M12d §3). Pour les alliages, 14 contre 12 : sur un si petit tableau, rien à gagner. Sur un registre de 30 éléments mesurés dans 500 alliages, tous mélanges de 4 alliages de base, le rang est au plus 4 : $4 \times 530 = 2\,120$ nombres contre $15\,000$, environ 14 %.
 
-Tous ne sont pas **libres** : la forme CR impose l'identité dans $r$ colonnes de $\mathbf{F}$, soit $r^2$ nombres. Une matrice de rang $r$ est décrite, une fois connues les positions des pivots, par
+Tous ne sont pas **libres** : la forme CR impose l'identité dans $r$ colonnes de $\mathbf{F}$, soit $r^2$ nombres. Dans le cas général, où les $r$ premières colonnes sont libres (les pivots sont alors les colonnes 1 à $r$, comme pour les alliages), une matrice de rang $r$ est décrite par
 $$r(m + n) - r^2 = r(m + n - r)$$
-nombres libres (*degrees of freedom*) : 10 pour les alliages, $2\,104$ pour le registre. Les $r^2$ nombres en trop sont ceux de $\mathbf{G}$, qu'on choisit sans changer le produit. Cas limites : pour $r = \min(m, n)$, le compte vaut $mn$ (si $r = m$, $m(m + n - m) = mn$), rien n'est contraint ; pour $r = 0$, la matrice nulle, il vaut 0.
+nombres libres (*degrees of freedom*) : 10 pour les alliages, $2\,104$ pour le registre. Si les pivots sont ailleurs, la forme réduite impose encore des zéros à gauche de chaque pivot, et il en reste moins : $r(m + n - r)$ est le nombre de degrés de liberté de l'ensemble de toutes les matrices de rang $r$. Les $r^2$ nombres en trop sont ceux de $\mathbf{G}$, qu'on choisit sans changer le produit. Cas limites : pour $r = \min(m, n)$, le compte vaut $mn$ (si $r = m$, $m(m + n - m) = mn$), rien n'est contraint ; pour $r = 0$, la matrice nulle, il vaut 0.
 
-💻 **Aujourd'hui en pratique** — en flottants, on préfère au pivot de Gauss une QR avec permutation des colonnes (`scipy.linalg.qr(M, pivoting=True)`) ou la SVD tronquée. `rank_factorization` (🔨 MB4.8) reprend ton `rref` de M09a.
+💻 **Aujourd'hui en pratique** — en flottants, on préfère au pivot de Gauss une QR avec permutation des colonnes (`scipy.linalg.qr(M, pivoting=True)`) ou la SVD tronquée. `rank_factorization` (🔨 MB4.8) reprend ton `rref` de M09a, avec une petite tolérance `tol` sur les pivots.
 
-⚠️ **Erreur classique.** Prendre $\mathbf{C}$ dans la forme réduite au lieu de $\mathbf{M}$ : le produit ne redonne pas $\mathbf{M}$ (🐛 MB4.12). Croire la factorisation unique. Compter $r(m + n)$ nombres libres.
+⚠️ **Erreur classique.** Prendre $\mathbf{C}$ dans la forme réduite au lieu de $\mathbf{M}$ : en général, le produit ne redonne pas $\mathbf{M}$ (🐛 MB4.12). Croire la factorisation unique. Compter $r(m + n)$ nombres libres.
 
 🔗 **Dans workbookIA** — le chapitre B4 apprend une correction de rang $r$ d'une matrice (LoRA) : le compte $r(m + n)$ vaut pour cette correction, et B4 l'applique à ses propres matrices.
 
@@ -139,15 +139,15 @@ Le laboratoire de la fonderie dose 6 éléments dans 40 échantillons de trois a
 
 M12d traçait déjà la part d'énergie gardée selon le rang (§3), et choisissait le nombre de composantes d'une ACP par un seuil sur la part cumulée (§7) : le rang effectif donne un nom à ce choix.
 
-**Exemple.** Les valeurs singulières du laboratoire sont $(10 ;\ 6 ;\ 3 ;\ 0{,}4 ;\ 0{,}3 ;\ 0{,}2)$. Leurs carrés font une énergie de $145{,}29$, et des parts cumulées de 68,8 %, 93,6 %, 99,80 %, 99,91 %, 99,97 % et 100 % : le rang effectif vaut 2 à 90 %, 3 à 99 %. L'approximation de rang 3 laisse $0{,}16 + 0{,}09 + 0{,}04 = 0{,}29$, soit 0,2 % de l'énergie, mais une erreur relative de $\sqrt{0{,}29/145{,}29} \approx 4{,}5\ \%$ en norme : une part d'énergie est un carré. Avec une tolérance de 1 sur les valeurs singulières, le rang numérique vaut 3 ; avec 0,25, il vaut 5. Le rang stable vaut $\frac{145{,}29}{100} \approx 1{,}45$.
+**Exemple.** Les valeurs singulières du laboratoire sont $(10 ;\ 6 ;\ 3 ;\ 0{,}4 ;\ 0{,}3 ;\ 0{,}2)$. Leurs carrés font une énergie de $145{,}29$, et des parts cumulées de 68,83 %, 93,61 %, 99,80 %, 99,91 %, 99,97 % et 100 % : le rang effectif vaut 2 à 90 %, 3 à 99 %. L'approximation de rang 3 laisse $0{,}16 + 0{,}09 + 0{,}04 = 0{,}29$, soit 0,2 % de l'énergie, mais une erreur relative de $\sqrt{0{,}29/145{,}29} \approx 4{,}5\ \%$ en norme : une part d'énergie est un carré. Si l'on compte les valeurs singulières au-dessus d'un seuil, le rang numérique vaut 3 pour un seuil de 0,5, et 5 pour un seuil de 0,25. Le rang stable vaut $\frac{145{,}29}{100} \approx 1{,}45$.
 
-Comme $\lVert\mathbf{M}\rVert_2 = s_1$ (MML, théorème 4.24), les $\operatorname{rg}(\mathbf{M})$ termes non nuls de $\frac{s_1^2 + s_2^2 + \cdots}{s_1^2}$ valent au plus 1, et le premier vaut 1 : le rang stable est **entre 1 et le rang**, égal au rang seulement si les valeurs singulières non nulles sont égales. Il ne demande aucun seuil, et un petit bruit le change à peine (Rudelson et Vershynin l'appellent *numerical rank*, rien à voir avec le rang numérique de M12a).
+Comme $\lVert\mathbf{M}\rVert_2 = s_1$ (M12d §2, MML théorème 4.24), les $\operatorname{rg}(\mathbf{M})$ termes non nuls de $\frac{s_1^2 + s_2^2 + \cdots}{s_1^2}$ valent au plus 1, et le premier vaut 1 : le rang stable est **entre 1 et le rang**, égal au rang seulement si les valeurs singulières non nulles sont égales. Il ne demande aucun seuil, et un petit bruit le change à peine (Rudelson et Vershynin l'appellent *numerical rank*, rien à voir avec le rang numérique de M12a).
 
 ### Où couper : chercher un écart
 
-Sur un tableau bruité, on trace les valeurs singulières en échelle logarithmique et l'on cherche un **écart** : $s_r$ nettement au-dessus de $s_{r+1}$. Ici $s_3/s_4 = 7{,}5$, et les trois dernières valeurs ont la taille d'un bruit.
+Sur un tableau bruité, on trace les valeurs singulières en échelle logarithmique et l'on cherche un **écart** (*gap*) : $s_r$ nettement au-dessus de $s_{r+1}$. Ici $s_3/s_4 = 7{,}5$, et les trois dernières valeurs ont la taille d'un bruit. C'est le « coude » de M12d §7.
 
-💻 **Aujourd'hui en pratique** — on admet qu'un tableau $m \times n$ de bruits indépendants d'écart-type $\sigma$ a ses valeurs singulières sous $\sigma(\sqrt m + \sqrt n)$ environ, pour $m$ et $n$ grands. Si le laboratoire mesure à $\sigma = 0{,}05$ près, ce niveau vaut $0{,}05(\sqrt{40} + \sqrt6) \approx 0{,}44$ : 0,4, 0,3 et 0,2 sont du bruit, 3 est loin au-dessus. `np.linalg.svd(M, compute_uv=False)` rend les valeurs singulières ; `np.linalg.matrix_rank(M, tol=...)` compte celles qui dépassent `tol`.
+💻 **Aujourd'hui en pratique** — on admet qu'un tableau $m \times n$ de bruits indépendants, de moyenne nulle et d'écart-type $\sigma$, a ses valeurs singulières sous $\sigma(\sqrt m + \sqrt n)$ environ (elles le dépassent parfois, de peu). Si le laboratoire mesure à $\sigma = 0{,}05$ près, ce niveau vaut $0{,}05(\sqrt{40} + \sqrt6) \approx 0{,}44$ : 0,4, 0,3 et 0,2 sont du bruit, 3 est loin au-dessus. `np.linalg.svd(M, compute_uv=False)` rend les valeurs singulières ; `np.linalg.matrix_rank(M, tol=...)` compte celles qui dépassent `tol`.
 
 ![À gauche, la part d'énergie des six valeurs singulières du laboratoire et sa part cumulée (93,6 % au rang 2, 99,8 % au rang 3), et le rang stable 1,45. À droite, un tableau 120 × 40 de rang 5 plus un bruit d'écart-type 0,1 : cinq valeurs singulières au-dessus du niveau 0,1(√120 + √40) ≈ 1,73, puis un écart](figures/energie.png)
 
@@ -161,7 +161,7 @@ Pour $p$ vecteurs, $r(m + n)\,p$ contre $mnr + mn\,p$ : former le produit coûte
 
 **Exemple.** Une commande $\mathbf{x} = (3, 1, 2, 4)$ de lingots de 100 kg des quatre alliages demande $\mathbf{F}\mathbf{x} = (7, 3)$ : sept lingots de laiton et trois de bronze, en comptant ceux des mélanges ; puis $\mathbf{C}(\mathbf{F}\mathbf{x}) = 7(60, 40, 0) + 3(80, 0, 20) = (660, 280, 60)$ kg de cuivre, de zinc et d'étain, 1 000 kg en tout, comme $\mathbf{M}\mathbf{x}$. Sur le registre $30 \times 500$ de rang 4, $\mathbf{C}(\mathbf{F}\mathbf{x})$ coûte $2\,120$ multiplications, $\mathbf{M}\mathbf{x}$ $15\,000$, et former $\mathbf{C}\mathbf{F}$ $60\,000$.
 
-**En flottants**, l'addition n'est pas associative (M05a §6) : les deux ordres peuvent différer au dernier chiffre. Avec $\mathbf{C} = (3)$, $\mathbf{F} = (0{,}3 \ \ 0{,}7)$ et $\mathbf{x} = (1, 1)$ : $\mathbf{C}(\mathbf{F}\mathbf{x}) = 3 \times (0{,}3 + 0{,}7) = 3$ exactement en `float64`, mais $(\mathbf{C}\mathbf{F})\mathbf{x} = 0{,}8999999999999999 + 2{,}0999999999999996 = 2{,}9999999999999996$. On compare donc par `np.allclose`, jamais par `==`. `np.linalg.multi_dot` choisit lui-même l'ordre le moins coûteux.
+**En flottants**, chaque multiplication et chaque addition est arrondie (M05a §6) : l'associativité et la distributivité ne tiennent plus qu'à un arrondi près, et les deux ordres peuvent différer au dernier chiffre. Avec $\mathbf{C} = (3)$, $\mathbf{F} = (0{,}3 \ \ 0{,}7)$ et $\mathbf{x} = (1, 1)$ : $\mathbf{C}(\mathbf{F}\mathbf{x}) = 3 \times (0{,}3 + 0{,}7) = 3$ exactement en `float64`, mais $(\mathbf{C}\mathbf{F})\mathbf{x} = 3 \times 0{,}3 + 3 \times 0{,}7 = 0{,}8999999999999999 + 2{,}0999999999999996 = 2{,}9999999999999996$ : ici, ce sont les produits arrondis qui font l'écart. On compare donc par `np.allclose`, jamais par `==`. `np.linalg.multi_dot` choisit lui-même l'ordre le moins coûteux.
 
 ⚠️ **Erreur classique.** Annoncer le rang d'un tableau mesuré sans dire la tolérance. Confondre la part d'énergie oubliée (un carré) et l'erreur relative en norme. Former $\mathbf{C}\mathbf{F}$ pour l'appliquer. Comparer deux flottants par `==`.
 
@@ -188,7 +188,7 @@ Si l'on sait quels dossiers sont **pertinents** (*relevant* : ceux de la maladie
 
 Soit $p = \frac rR$ la probabilité de l'indice chez les pertinents, et $q = \frac{n - r}{N - R}$ chez les autres.
 
-> **Définition** (le poids de Robertson et Spärck Jones). Le **poids** d'un indice est le logarithme du **rapport des cotes** (*odds ratio*) de sa présence chez les pertinents et chez les autres :
+> **Définition** (le poids de Robertson et Spärck Jones). Le **poids** (*relevance weight*) d'un indice est le logarithme du **rapport des cotes** (*odds ratio*) de sa présence chez les pertinents et chez les autres :
 > $$w = \ln\frac{p\,(1 - q)}{q\,(1 - p)} = \operatorname{logit}p - \operatorname{logit}q .$$
 
 Il est positif quand l'indice est plus fréquent chez les pertinents, nul s'il l'est autant, négatif sinon.
@@ -201,7 +201,7 @@ Il est positif quand l'indice est plus fréquent chez les pertinents, nul s'il l
 
 Si aucun dossier pertinent ne note l'indice ($r = 0$), la formule donne $\ln 0$ ; si tous le notent, une division par 0. On ajoute **½ à chacune des quatre cases** :
 $$w = \ln\frac{(r + \frac12)(N - n - R + r + \frac12)}{(R - r + \frac12)(n - r + \frac12)} ,$$
-le rapport des cotes de $\hat p = \frac{r + 1/2}{R + 1}$ et de $\hat q = \frac{n - r + 1/2}{N - R + 1}$ : des **pseudo-observations** d'un demi, là où le lissage de Laplace de M04 §5 en ajoutait une. Pour la dysplasie, $w = \ln\frac{32{,}5 \times 741{,}5}{8{,}5 \times 19{,}5} \approx 4{,}979$ ; si aucun des 40 dossiers ne notait la boiterie, on trouverait $\ln\frac{0{,}5 \times 709{,}5}{40{,}5 \times 51{,}5} \approx -1{,}771$ au lieu de $-\infty$.
+le rapport des cotes de $\hat p = \frac{r + 1/2}{R + 1}$ et de $\hat q = \frac{n - r + 1/2}{N - R + 1}$ : des **pseudo-observations** (*pseudo-counts*) d'un demi, là où le lissage de Laplace de M04 §5 en ajoutait une. Pour la dysplasie, $w = \ln\frac{32{,}5 \times 741{,}5}{8{,}5 \times 19{,}5} \approx 4{,}979$ ; si aucun des 40 dossiers ne notait la boiterie, on trouverait $\ln\frac{0{,}5 \times 709{,}5}{40{,}5 \times 51{,}5} \approx -1{,}771$ au lieu de $-\infty$.
 
 ### Sans information de pertinence
 
@@ -219,7 +219,7 @@ toujours positive, puisque $n \le N < N + \frac12$, et proche de la surprise : 2
 
 💻 **Aujourd'hui en pratique** — `scipy.stats.contingency.odds_ratio(tableau, kind="sample")` rend le rapport des cotes d'un tableau $2 \times 2$ (156 pour la dysplasie) ; son réglage par défaut, `kind="conditional"`, en donne une autre estimation.
 
-⚠️ **Erreur classique.** Écrire le poids $\ln\frac nN$, négatif pour tout indice (🐛 MB4.12). Confondre la cote $\frac{n}{N - n}$ et la proportion $\frac nN$. Échanger $p$ et $q$ : le poids change de signe. Prendre un poids négatif pour une faute de calcul quand $n > \frac N2$.
+⚠️ **Erreur classique.** Écrire la surprise $\ln\frac nN$ au lieu de $-\ln\frac nN$ : elle n'est jamais positive (🐛 MB4.12). Confondre la cote $\frac{n}{N - n}$ et la proportion $\frac nN$. Échanger $p$ et $q$ : le poids change de signe. Prendre un poids négatif pour une faute de calcul quand $n > \frac N2$.
 
 🔗 **Dans workbookIA** — le chapitre B4 pondère chaque mot d'une requête par la variante $\ln\frac{N + 1}{n + 1/2}$, la fréquence inverse (*idf*) de BM25 ; ce paragraphe en donne l'origine.
 
@@ -237,15 +237,15 @@ Un dossier qui mentionne cinq fois une boiterie est-il cinq fois plus pertinent 
 > 3. Elle **plafonne** : sa limite en $+\infty$ est $k_1 + 1$, et elle en atteint la moitié en $x = k_1$.
 > 4. Quand $k_1 \to 0$, $s(x) \to 1$ pour tout $x > 0$ : seule la **présence** compte. Quand $k_1 \to \infty$, $s(x) \to x$ : le **compte brut**.
 
-**Exemple**, $k_1 = 3$ : $s(x) = \frac{4x}{x + 3}$ vaut 1 pour une mention, 2 pour trois, 2,5 pour cinq, 3 pour neuf, et n'atteindra jamais 4. La première mention ajoute 1 ; la troisième, $s(3) - s(2) = 2 - \frac85 = 0{,}4$.
+**Exemple**, $k_1 = 3$ : $s(x) = \frac{4x}{x + 3}$ vaut 1 pour une mention, 2 pour trois, 2,8 pour sept, 3,5 pour vingt et une, et n'atteindra jamais 4. La première mention ajoute 1 ; la troisième n'ajoute plus que $s(3) - s(2) = 0{,}4$.
 
-C'est la forme de la **cinétique de Michaelis et Menten** : la vitesse d'une réaction catalysée par une enzyme vaut $\frac{V_{\max}\,s}{K_m + s}$ pour une concentration $s$ du substrat, et atteint la moitié de son plafond en $s = K_m$ ; ici $V_{\max} = k_1 + 1$ et $K_m = k_1$. Des **rendements décroissants** (*diminishing returns*).
+C'est la forme de la **cinétique de Michaelis et Menten** (*Michaelis-Menten kinetics*) : la vitesse d'une réaction catalysée par une enzyme vaut $\frac{V_{\max}\,[S]}{K_m + [S]}$ pour une concentration $[S]$ du substrat, et atteint la moitié de son plafond en $[S] = K_m$ ; ici $V_{\max} = k_1 + 1$ et $K_m = k_1$. Des **rendements décroissants** (*diminishing returns*).
 
 ### La normalisation par la longueur
 
 Un long dossier mentionne tout plus souvent. Soit $\ell$ sa longueur rapportée à la longueur moyenne des dossiers.
 
-> **Définition.** Pour $b \in [0, 1]$, la **normalisation par la longueur** (*length normalization*) est $\nu = 1 - b + b\,\ell$, et la saturation normalisée est $\dfrac{x\,(k_1 + 1)}{x + k_1\nu} = s\Big(\dfrac x\nu\Big)$ : $k_1$ devient $k_1\nu$ au dénominateur.
+> **Définition.** Pour $b \in [0, 1]$ et $\ell > 0$, la **normalisation par la longueur** (*length normalization*) est $\nu = 1 - b + b\,\ell$, et la saturation normalisée est $\dfrac{x\,(k_1 + 1)}{x + k_1\nu} = s\Big(\dfrac x\nu\Big)$ : $k_1$ devient $k_1\nu$ au dénominateur.
 
 - $\nu$ est **affine** en $\ell$ et en $b$ : elle va de 1 ($b = 0$, aucune normalisation) à $\ell$ ($b = 1$). Toutes les droites passent par $(\ell, \nu) = (1, 1)$ : à longueur moyenne, $b$ ne change rien.
 - La seconde écriture le dit : normaliser, c'est diviser le nombre de mentions par $\nu$ avant de saturer. Le plafond reste $k_1 + 1$ ; la demi-saturation passe de $k_1$ à $k_1\nu$.
@@ -276,11 +276,11 @@ C gagne. Mais le juge 3 étale ses notes, de 6 à 17, quand les autres les resse
 
 ### Fusionner par les rangs
 
-Chaque juge donne un **classement** (*ranking*), du meilleur au moins bon : ABCD, ABCD, CBAD et DBCA. Le **rang** d'une photo pour un juge est sa place, à partir de 1 : A a les rangs (1, 1, 3, 4), B (2, 2, 2, 2), C (3, 3, 1, 3), D (4, 4, 4, 1).
+Chaque juge donne un **classement** (*ranking*), du meilleur au moins bon : ABCD, ABCD, CBAD et DBCA. Le **rang** (*rank*) d'une photo pour un juge est sa place, à partir de 1 : A a les rangs (1, 1, 3, 4), B (2, 2, 2, 2), C (3, 3, 1, 3), D (4, 4, 4, 1).
 
 > **Propriété** (∂ MB4.6). Une fusion qui ne dépend que des rangs ne change pas quand on applique aux notes d'un juge une transformation strictement croissante (une autre échelle, une autre unité, des notes resserrées).
 
-L'outil est celui de l'AUC de M03 §7 (et du 🔮 M03.23) : une transformation strictement croissante garde l'ordre, donc les rangs.
+L'outil est celui de l'AUC de M03 §7 (et du 🔮 M03.23), que le ∂ MB4.6 applique aux rangs.
 
 > **Définition** (la méthode de Borda). Avec $n$ candidats, un juge donne $n - j$ **points** (*Borda count*) au candidat qu'il classe au rang $j$ : $n - 1$ au premier, 0 au dernier. Les points d'un candidat s'additionnent sur les $m$ juges.
 
@@ -293,8 +293,8 @@ Ils valent $mn$ moins la somme de ses rangs : classer par points décroissants, 
 Un $c$ petit donne beaucoup au premier rang ; un $c$ grand rend les rangs presque égaux. Pour les photos, avec $c = 1$ : A 1,45 ; B $\frac43 \approx 1{,}333$ ; C 1,25 ; D 1,1 ; A, deux fois premier, passe devant B. Avec $c = 20$ : A 0,1804 ; B 0,1818 ; C 0,1781 ; D 0,1726, l'ordre de Borda. A et B échangent leurs places en $c = \frac{1 + \sqrt{57}}{2} \approx 4{,}27$.
 
 > **Propriétés** (∂ MB4.6).
-> 1. **Une double présence contre une première place.** Un candidat classé $j$-ième par deux juges l'emporte sur un candidat classé premier par un seul juge et absent de la liste de l'autre si et seulement si $j < c + 2$ ; ils sont ex aequo pour $j = c + 2$.
-> 2. **Quand $c$ grandit** : pour $c$ assez grand, la somme range les candidats selon le nombre de listes où ils figurent ; à nombre égal de listes, la plus petite somme des rangs passe devant. Pour des classements complets, c'est l'ordre de Borda.
+> 1. **Une double présence contre une première place.** Un candidat classé $j$-ième ($j \ge 2$) par deux juges l'emporte sur un candidat classé premier par un seul juge et absent de la liste de l'autre si et seulement si $j < c + 2$ ; ils sont ex aequo pour $j = c + 2$.
+> 2. **Quand $c$ grandit** : pour $c$ assez grand, la somme range les candidats selon le nombre de listes où ils figurent ; à nombre égal de listes, la plus petite somme des rangs passe devant. Pour des classements complets, c'est l'ordre de Borda (à ses ex aequo près).
 
 Les outils, que le ∂ MB4.6 met en œuvre : la comparaison de deux fractions pour le point 1 ; l'écriture $\frac{1}{c + j} = \frac1c\cdot\frac{1}{1 + j/c}$ et l'approximation $\frac{1}{1 + u} \approx 1 - u$ de M05a pour le point 2.
 
@@ -302,9 +302,9 @@ Les outils, que le ∂ MB4.6 met en œuvre : la comparaison de deux fractions po
 
 **Deux systèmes, deux échelles.** Le même problème se pose quand deux systèmes classent les mêmes objets : l'un additionne les poids des indices du §3, l'autre classe les objets par **cosinus** décroissant entre deux vecteurs (rappel de M07 §4). Leurs scores n'ont aucune commune mesure : on fusionne leurs rangs.
 
-⚠️ **Erreur classique.** Lire un classement comme la liste des rangs des candidats : le classement (3, 0, 2, 1) dit que le candidat 3 est premier, et non que le candidat 0 est en position 3 (🐛 MB4.12). Additionner des notes d'échelles différentes. Croire qu'une fusion par les rangs ne dépend d'aucun réglage : elle dépend de $c$.
+⚠️ **Erreur classique.** Lire un classement comme la liste des rangs des candidats : le classement (3, 0, 2, 1) dit que le candidat 3 est premier, et non que le candidat 0 est quatrième (à la position 3, en comptant à partir de 0) (🐛 MB4.12). Additionner des notes d'échelles différentes. Croire qu'une fusion par les rangs ne dépend d'aucun réglage : elle dépend de $c$.
 
-🔗 **Dans workbookIA** — le chapitre B4 fusionne les classements de BM25 et d'une recherche par cosinus par la somme des $\frac{1}{c + \text{rang}}$, la RRF de Cormack et coll. ; ce paragraphe en démontre les propriétés sur des juges.
+🔗 **Dans workbookIA** — le chapitre B4 fusionne les classements de BM25 et d'une recherche par cosinus par la somme des $\frac{1}{c + \text{rang}}$, la RRF de Cormack et coll. ; ce paragraphe en énonce les propriétés sur des juges, et le ∂ MB4.6 les démontre.
 
 ## §6 · Mesurer un classement : recall@k, precision@k, MRR, et ce que donne le hasard
 
@@ -340,7 +340,7 @@ sur le rang réciproque, le hasard fait en moyenne un peu mieux que le $\frac12$
 
 Avec $q = 1$, $R$ est uniforme sur $\{1, \ldots, n\}$, et $\mathbb{E}[\frac1R] = \frac1n\big(1 + \frac12 + \cdots + \frac1n\big) = \frac{H_n}{n}$. Pour $n = 7$ : $H_7 = \frac{363}{140}$, et $\mathbb{E}[\frac1R] = \frac{363}{980} \approx 0{,}370$. Si l'on ne montre que les $k$ premiers, la somme s'arrête à $\frac1k$ : $\frac{H_k}{n}$, soit $\frac{25}{84}$ pour $n = 7$ et $k = 4$.
 
-**Rappel** (MB3 §8, M11). Des rectangles encadrent le **nombre harmonique** (M02a) : le rectangle de hauteur $\frac1j$ sur $[j, j + 1]$ est au-dessus de la courbe de $\frac1x$, celui de hauteur $\frac1j$ sur $[j - 1, j]$ au-dessous. Donc $H_n \ge \int_1^{n+1}\frac{dx}{x}$ et $H_n - 1 \le \int_1^n\frac{dx}{x}$ :
+**Rappel** (MB3 §8, M11). Des rectangles encadrent le **nombre harmonique** (*harmonic number* ; M02a) : le rectangle de hauteur $\frac1j$ sur $[j, j + 1]$ est au-dessus de la courbe de $\frac1x$, celui de hauteur $\frac1j$ sur $[j - 1, j]$ au-dessous. Donc $H_n \ge \int_1^{n+1}\frac{dx}{x}$ et $H_n - 1 \le \int_1^n\frac{dx}{x}$ :
 $$\ln(n + 1) \le H_n \le 1 + \ln n, \qquad \frac{\ln(n + 1)}{n} \le \mathbb{E}\Big[\frac1R\Big] \le \frac{1 + \ln n}{n} .$$
 
 Le MRR d'un ordre au hasard décroît presque comme $\frac1n$, à un facteur $\ln n$ près. Pour $n = 50$ : $H_{50} \approx 4{,}50$ et $\mathbb{E}[\frac1R] \approx 0{,}090$, entre 0,0786 et 0,0982.
@@ -372,9 +372,9 @@ Le MRR d'un ordre au hasard décroît presque comme $\frac1n$, à un facteur $\l
 - G. Strang et C. Moler, « LU and CR Elimination », *SIAM Review*, vol. 64, n° 1, 2022, p. 181-190 : la factorisation CR (§1).
 - M. Rudelson et R. Vershynin, « Sampling from Large Matrices: An Approach through Geometric Functional Analysis », *Journal of the ACM*, vol. 54, n° 4, 2007, article 21 (le rang stable) ; M. Gavish et D. L. Donoho, « The Optimal Hard Threshold for Singular Values is 4/√3 », *IEEE Transactions on Information Theory*, vol. 60, n° 8, 2014, p. 5040-5053 (où couper un tableau bruité) (§2).
 - K. Spärck Jones, « A Statistical Interpretation of Term Specificity and Its Application in Retrieval », *Journal of Documentation*, vol. 28, n° 1, 1972, p. 11-21 ; S. E. Robertson et K. Spärck Jones, « Relevance Weighting of Search Terms », *Journal of the American Society for Information Science*, vol. 27, n° 3, 1976, p. 129-146 ; W. B. Croft et D. J. Harper, « Using Probabilistic Models of Document Retrieval without Relevance Information », *Journal of Documentation*, vol. 35, n° 4, 1979, p. 285-295 (§3).
-- S. Robertson et H. Zaragoza, « The Probabilistic Relevance Framework: BM25 and Beyond », *Foundations and Trends in Information Retrieval*, vol. 3, n° 4, 2009 : d'où viennent le poids, la saturation et la normalisation (§3, §4).
+- S. Robertson et H. Zaragoza, « The Probabilistic Relevance Framework: BM25 and Beyond », *Foundations and Trends in Information Retrieval*, vol. 3, n° 4, 2009, p. 333-389 : d'où viennent le poids, la saturation et la normalisation (§3, §4).
 - L. Michaelis et M. L. Menten, « Die Kinetik der Invertinwirkung », *Biochemische Zeitschrift*, vol. 49, 1913, p. 333-369 ; traduction anglaise par K. A. Johnson et R. S. Goody, *Biochemistry*, vol. 50, n° 39, 2011, p. 8264-8269 (§4).
-- J.-C. de Borda, « Mémoire sur les élections au scrutin », *Histoire de l'Académie royale des sciences* (année 1781), Paris, 1784 ; G. V. Cormack, C. L. A. Clarke et S. Büttcher, « Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods », *Proceedings of the 32nd International ACM SIGIR Conference*, 2009, p. 758-759 (§5).
+- J.-C. de Borda, « Mémoire sur les élections au scrutin », *Histoire de l'Académie royale des sciences*, année 1781 (partie des *Mémoires*), Paris, 1784, p. 657 ; G. V. Cormack, C. L. A. Clarke et S. Büttcher, « Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods », *Proceedings of the 32nd International ACM SIGIR Conference*, 2009, p. 758-759 (§5).
 - E. M. Voorhees, « The TREC-8 Question Answering Track Report », *The Eighth Text REtrieval Conference (TREC-8)*, NIST Special Publication 500-246, 2000, p. 77 et suivantes : le MRR (§6).
-- C. D. Manning, P. Raghavan et H. Schütze, *Introduction to Information Retrieval*, Cambridge University Press, 2008, en lecture libre : ch. 6 (pondérer des termes), ch. 11 (le modèle probabiliste et la correction ½), ch. 8 (évaluer un classement).
+- C. D. Manning, P. Raghavan et H. Schütze, *Introduction to Information Retrieval*, Cambridge University Press, 2008, en lecture libre : ch. 6 (pondérer des termes), ch. 11 (le modèle probabiliste ; la correction ½ au §11.3.2), ch. 8 (évaluer un classement).
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

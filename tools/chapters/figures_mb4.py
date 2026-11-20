@@ -10,8 +10,8 @@ Writes small PNG files into chapitres/mb4_rang_faible/figures/:
   singular values of a simulated 120 × 40 table of rank 5 plus noise, against the noise level σ(√m + √n);
 - §3: three weights of a clue present in n records out of N = 800 (the surprise, the corrected log odds ratio without
   relevance information, the variant that stays positive), with the clinic's two clues (n = 51 and n = 640);
-- §4: the saturation x ↦ x(k₁ + 1)/(x + k₁) from k₁ → 0 to k₁ → ∞; the normalization 1 − b + bℓ for four values of b;
-  the saturation k₁ = 3 for a record half as long, as long and three times as long as the mean (b = 1/2);
+- §4: the saturation x ↦ x(k₁ + 1)/(x + k₁) from k₁ → 0 to k₁ → ∞; the normalization 1 − b + bℓ for four values
+  of b; the saturation k₁ = 3 for a record half as long, as long and three times as long as the mean (b = 1/2);
 - §5: the place of four photos in the fusion of four judges' rankings as c grows (A then B first, switch at
   c = (1 + √57)/2); the region where j-th in two lists beats first in one (j < c + 2);
 - §6: the law of the rank R of the first relevant object among 12 (q = 1, 2, 4); the rectangles that frame H_n;
@@ -180,7 +180,8 @@ def energy() -> None:
         ax.annotate(f"{fr(100 * cum[k - 1], 1)} %", (k, cum[k - 1]), textcoords="offset points", xytext=(-14, -18),
                     fontsize=9, color=C[1])
     ax.axvline(srank, color=C[2], lw=1.6, ls="--")
-    ax.text(srank + 0.08, 0.42, "rang stable\n" + r"$\Vert\mathbf{M}\Vert_F^2/\Vert\mathbf{M}\Vert_2^2$" + f" ≈ {fr(srank, 2)}",
+    stable = r"$\Vert\mathbf{M}\Vert_F^2/\Vert\mathbf{M}\Vert_2^2$"
+    ax.text(srank + 0.08, 0.42, "rang stable\n" + stable + f" ≈ {fr(srank, 2)}",
             fontsize=9.5, color=C[2])
     ax.set(xlabel="rang r", ylabel=r"part de $\Vert\mathbf{M}\Vert_F^2$", xticks=ks, ylim=(0, 1.08), xlim=(0.4, 6.9),
            title="s = (10 ; 6 ; 3 ; 0,4 ; 0,3 ; 0,2) : l'énergie gardée par rang")
@@ -197,7 +198,8 @@ def energy() -> None:
     ax.semilogy(k[SIM_R:], sv[SIM_R:], "o", color="0.55", ms=4, label="les autres")
     ax.axhline(level, color=C[1], lw=1.6, ls="--",
                label=f"niveau du bruit σ(√m + √n) ≈ {fr(level, 2)}")
-    ax.annotate(f"écart : s₅/s₆ ≈ {fr(sv[4] / sv[5], 1)}", (5.5, math.sqrt(sv[4] * sv[5])), textcoords="offset points",
+    ax.annotate(f"écart : s₅/s₆ ≈ {fr(sv[4] / sv[5], 1)}", (5.5, math.sqrt(sv[4] * sv[5])),
+                textcoords="offset points",
                 xytext=(14, 0), fontsize=9.5, va="center")
     ax.set(xlabel="i", ylabel="valeur singulière $s_i$ (échelle logarithmique)", xlim=(0, SIM_N + 1),
            title=f"Un tableau {SIM_M} × {SIM_N} de rang {SIM_R}, plus un bruit d'écart-type {fr(SIM_SIGMA, 1)}")
@@ -220,10 +222,12 @@ def rarity() -> None:
     variant = np.log((N + 1) / (n + 0.5))
     fig, ax = plt.subplots(figsize=(8.6, 4.9))
     ax.axvspan(N / 2, N, color="0.94", zorder=0)
-    ax.text(0.75 * N, 3.6, "n > N/2 : le poids sans information\nde pertinence est négatif", ha="center", fontsize=9, color="0.35")
+    ax.text(0.75 * N, 3.6, "n > N/2 : le poids sans information\nde pertinence est négatif", ha="center", fontsize=9,
+            color="0.35")
     ax.plot(n, surprise, color=C[0], lw=1.8, label="surprise −ln(n/N)")
     ax.plot(n, rsj, color=C[1], lw=2.0, label="ln((N − n + ½)/(n + ½)) : sans information de pertinence")
-    ax.plot(n, variant, color=C[2], lw=1.6, ls="--", label="ln((N + 1)/(n + ½)) : toujours positive, presque la surprise")
+    ax.plot(n, variant, color=C[2], lw=1.6, ls="--",
+            label="ln((N + 1)/(n + ½)) : toujours positive, presque la surprise")
     ax.axhline(0, color="0.5", lw=0.9)
     ax.plot([N / 2], [0], "o", color=C[1], ms=6)
     ax.annotate("n = N/2 = 400 : 0", (N / 2, 0), textcoords="offset points", xytext=(-40, -18), fontsize=9)
@@ -255,11 +259,12 @@ def saturation() -> None:
     ax.plot([1], [1], "o", color="black", ms=6, zorder=5)
     ax.annotate("(1, 1) pour tout k₁", (1, 1), textcoords="offset points", xytext=(10, -14), fontsize=9)
     ax.plot([3], [2], "s", color=C[2], ms=6, zorder=5)
-    ax.annotate("k₁ = 3 : la moitié du plafond\nen x = k₁ = 3", (3, 2), xytext=(6.2, 1.05), fontsize=8.5, color=C[2],
+    ax.annotate("k₁ = 3 : la moitié du plafond\nen x = k₁ = 3", (3, 2), xytext=(6.2, 1.05), fontsize=8.5,
+                color=C[2],
                 arrowprops=dict(arrowstyle="->", color=C[2], lw=1))
     ax.set(xlabel="x, le nombre de mentions", ylabel="s(x) = x(k₁ + 1)/(x + k₁)", xlim=(0, 12), ylim=(0, 5.2),
            title="La saturation : croissante, concave, plafonnée")
-    ax.legend(fontsize=8.5, loc="upper left")
+    ax.legend(fontsize=8.5, loc="upper left", frameon=True, framealpha=0.95, edgecolor="none")
     ax = axes[1]
     ell = np.linspace(0, 3.2, 100)
     for b, col in ((0, "0.45"), (0.25, C[0]), (0.5, C[1]), (1, C[2])):
@@ -267,11 +272,13 @@ def saturation() -> None:
         ax.plot(ell, 1 - b + b * ell, color=col, lw=2, label=lab)
     ax.plot([1], [1], "o", color="black", ms=6, zorder=5)
     ax.annotate("ℓ = 1 : ν = 1 pour tout b", (1, 1), textcoords="offset points", xytext=(10, -16), fontsize=9)
-    ax.set(xlabel="ℓ, la longueur rapportée à la moyenne", ylabel="ν = 1 − b + bℓ", xlim=(0, 3.2), ylim=(0, 3.3),
+    ax.set(xlabel="ℓ, la longueur rapportée à la moyenne", ylabel="ν = 1 − b + bℓ", xlim=(0, 3.2),
+           ylim=(0, 3.3),
            title="La normalisation : affine en ℓ et en b")
     ax.legend(fontsize=8.5, loc="upper left")
     ax = axes[2]
-    for ell_v, col, lab in ((0.5, C[0], "ℓ = 1/2 : ν = 3/4"), (1.0, "black", "ℓ = 1 : ν = 1"), (3.0, C[1], "ℓ = 3 : ν = 2")):
+    lengths = ((0.5, C[0], "ℓ = 1/2 : ν = 3/4"), (1.0, "black", "ℓ = 1 : ν = 1"), (3.0, C[1], "ℓ = 3 : ν = 2"))
+    for ell_v, col, lab in lengths:
         nu = 1 - 0.5 + 0.5 * ell_v
         ax.plot(x, x * 4 / (x + 3 * nu), color=col, lw=2, label=lab)
     ax.axhline(4, color="0.5", lw=0.8, ls="--")
@@ -283,7 +290,7 @@ def saturation() -> None:
     ax.legend(fontsize=8.5, loc="lower right")
     fig.tight_layout(w_pad=2.2)
     save(fig, "saturation.png")
-    print(f"    k1 = 3: sat(1, 3, 5, 9) = {[round(v * 4 / (v + 3), 4) for v in (1, 3, 5, 9)]}")
+    print(f"    k1 = 3: s(1, 3, 7, 21) = {[round(v * 4 / (v + 3), 4) for v in (1, 3, 7, 21)]}")
 
 
 # --------------------------------------------------------------------------------------------------------- §5
@@ -304,7 +311,7 @@ def fusion() -> None:
     styles = {"A": (C[0], "-"), "B": (C[1], "-"), "C": (C[2], "--"), "D": ("0.45", ":")}
     for c in cands:
         col, ls = styles[c]
-        lab = f"photo {c} : rangs {tuple(ranks[c])}, somme {sum(ranks[c])}".replace("(", "(").replace(")", ")")
+        lab = f"photo {c} : rangs {tuple(ranks[c])}, somme {sum(ranks[c])}"
         ax.plot(cs, places[c], color=col, ls=ls, lw=2.4, drawstyle="steps-post", label=lab)
     ax.axvline(cstar, color="0.4", lw=1, ls=":")
     ax.text(cstar * 1.07, 1.45, "c = (1 + √57)/2 ≈ 4,27", fontsize=9, color="0.3")
@@ -315,18 +322,17 @@ def fusion() -> None:
     ax.legend(fontsize=8.5, loc="center right", bbox_to_anchor=(1.0, 0.5))
     ax = axes[1]
     cg = np.linspace(0.5, 10, 400)
-    ax.fill_between(cg, 0.5, cg + 2, color=C[0], alpha=0.18,
-                    label="2/(c + j) > 1/(c + 1) : deux fois j-ième l'emporte")
+    ax.fill_between(cg, 1.5, cg + 2, color=C[0], alpha=0.18, label="deux fois j-ième l'emporte")
     ax.plot(cg, cg + 2, color=C[0], lw=2, label="j = c + 2 : égalité")
     for cv in range(1, 11):
-        for j in range(1, 14):
+        for j in range(2, 14):
             win = 2 / (cv + j) > 1 / (cv + 1)
             tie = 2 * (cv + 1) == cv + j
             ax.plot(cv, j, "o" if win else ("D" if tie else "x"), color=C[0] if win else ("black" if tie else C[1]),
                     ms=4.5 if not tie else 5.5)
-    ax.set(xlabel="la constante c", ylabel="rang j dans les deux listes", xlim=(0.5, 10.3), ylim=(0.5, 13.5),
+    ax.set(xlabel="la constante c", ylabel="rang j dans les deux listes", xlim=(0.5, 10.3), ylim=(1.5, 13.5),
            title="Deux fois j-ième contre une fois premier")
-    ax.plot([], [], "x", color=C[1], label="1/(c + 1) plus grand : une fois premier l'emporte")
+    ax.plot([], [], "x", color=C[1], label="une fois premier l'emporte")
     ax.legend(fontsize=8.5, loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=2)
     fig.tight_layout(w_pad=2.5)
     save(fig, "fusion.png")
@@ -346,7 +352,7 @@ def first_relevant() -> None:
         assert abs(p.sum() - 1) < 1e-12
         mean_inv = float(np.sum(p / js))
         ax.bar(js + (k - 1) * width, p, width=width, color=col,
-               label=f"q = {q} : E[1/R] ≈ {fr(mean_inv, 3)}")
+               label=f"q = {q} : E[1/R] ≈ {fr(mean_inv, 2)}")
     ax.set(xlabel="j", ylabel="P(R = j)", xticks=range(1, n + 1), xlim=(0.4, n + 0.6))
     ax.set_title(f"La loi de R parmi n = {n} objets, ordre au hasard", fontsize=11)
     ax.legend(fontsize=9, loc="upper right")

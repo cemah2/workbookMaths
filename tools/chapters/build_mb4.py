@@ -397,7 +397,7 @@ def check_answer(ex_id, value, hint=None):
     if holds_bool:
         for cut in (" Le premier faux est le ", " Premier élément faux à l'indice "):
             message = message.split(cut)[0]
-    if hint is not None and result.status not in ("correct", "pending", "unknown"):
+    if hint is not None and result.status not in ("correct", "pending", "unknown") and "Piste" not in message:
         try:
             extra = hint(value)
         except Exception:  # noqa: BLE001 - an odd answer: no targeted hint
@@ -441,7 +441,8 @@ def matches(got, want, rtol=1e-9, atol=1e-12):
     got)."""
     arr = as_floats(got)
     want = np.asarray(want, dtype=float)
-    return arr is not None and arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))
+    return arr is not None and arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol,
+                                                                            equal_nan=True))
 
 
 def line_with(ax, xs, ys, rtol=1e-7, atol=1e-9):
@@ -450,7 +451,7 @@ def line_with(ax, xs, ys, rtol=1e-7, atol=1e-9):
     for line in ax.lines:
         x, y = np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float)
         if x.shape == xs.shape and y.shape == ys.shape and np.allclose(x, xs, rtol=rtol, atol=atol) \\
-                and np.allclose(y, ys, rtol=rtol, atol=atol):
+                and np.allclose(y, ys, rtol=rtol, atol=atol, equal_nan=True):
             return True
     return False
 
@@ -869,7 +870,8 @@ def legend_names_c11(ax, grid, curves, values, drop):
         found = False
         for line in ax.lines:
             x, y = np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float)
-            if x.shape == grid.shape and y.shape == grid.shape and np.allclose(x, grid) and np.allclose(y, curve):
+            if x.shape == grid.shape and y.shape == grid.shape and np.allclose(x, grid) \\
+                    and np.allclose(y, curve, equal_nan=True):
                 named = label_value_c11(line.get_label(), drop)
                 found = found or (named is not None and (named == value or math.isclose(named, value)))
         if not found:
@@ -885,18 +887,18 @@ def curves_why_c11(ax, values, xmax, curves, right, what, name):
     grid = np.linspace(0, xmax, 241)
     curves = [as_floats(c) for c in curves]
     if any(c is None or c.shape != grid.shape for c in curves):
-        return [f"chaque tableau rendu par {what} a 241 valeurs, une par point de np.linspace(0, xmax, 241)"]
+        return [f"chaque tableau rendu par {what} doit avoir 241 valeurs, une par point de np.linspace(0, xmax, 241)"]
     problems = []
     if not right(curves):
-        problems.append(f"les tableaux rendus par {what} ne sont pas les bonnes courbes, une par valeur, dans l'ordre reçu")
+        problems.append(f"les tableaux rendus doivent être les courbes de chaque {name} reçu, dans l'ordre reçu")
     if not all(line_with(ax, grid, c) for c in curves):
-        problems.append("chaque courbe tracée en fonction des 241 points de [0, xmax] (np.linspace(0, xmax, 241))")
+        problems.append("chaque courbe doit être tracée en fonction des 241 points de [0, xmax], np.linspace(0, xmax, 241)")
     if ax.get_legend() is None:
-        problems.append("une légende (label=…, puis ax.legend())")
+        problems.append("il faut une légende (label=…, puis ax.legend())")
     elif not legend_names_c11(ax, grid, curves, values, drop=(name == "ℓ")):
-        problems.append(f"une légende qui nomme le {name} de chaque courbe (label=f\\"{name} = {{valeur}}\\")")
+        problems.append(f"la légende doit nommer le {name} de chaque courbe (label=f\\"{name} = {{valeur}}\\")")
     if not ax.get_xlabel() or not ax.get_ylabel():
-        problems.append("des noms d'axes")
+        problems.append("il faut des noms d'axes")
     return problems
 
 
@@ -936,14 +938,14 @@ with checked("MB4.11"):
         problems_11 = curves_why_c11(axes_11[0], (0, 1, 2, 3, math.inf), 12, drawn_11[0],
                                      saturations_right_c11((0, 1, 2, 3, np.inf), 12), "draw_saturations_11", "k₁")
         report_11(not problems_11, "draw_saturations_11 (k₁ = 0, 1, 2, 3 et l'infini, sur [0, 12]) : les courbes, la "
-                  "légende et les noms d'axes", "draw_saturations_11 : il manque " + " ; ".join(problems_11))
+                  "légende et les noms d'axes", "draw_saturations_11 : " + " ; ".join(problems_11))
         lengths_11 = []
         opened_11 += drawn(lambda: lengths_11.append(call_safely("Ex MB4.11 : draw_lengths_11", draw_lengths_11,
                                                                  axes_11[1], 1, 0.5, (0.5, 1, 2), 12)))
         problems_11 = curves_why_c11(axes_11[1], (0.5, 1, 2), 12, lengths_11[0], lengths_right_c11(HIDDEN_C11["id_l"]),
                                      "draw_lengths_11", "ℓ")
         report_11(not problems_11, "draw_lengths_11 (k₁ = 1, b = ½, ℓ = ½, 1 et 2, sur [0, 12]) : les courbes, la "
-                  "légende et les noms d'axes", "draw_lengths_11 : il manque " + " ; ".join(problems_11))
+                  "légende et les noms d'axes", "draw_lengths_11 : " + " ; ".join(problems_11))
         fig_c11, axes_c11 = plt.subplots(1, 3)          # the 3rd axes is the current one: plt.plot would draw there
         try:
             hidden_s_c11, hidden_l_c11 = [], []
@@ -962,7 +964,7 @@ with checked("MB4.11"):
         finally:
             plt.close(fig_c11)
         report_11(not problems_c11, "des appels cachés (d'autres k₁, d'autres longueurs, un autre b) sont justes aussi",
-                  "des appels cachés (d'autres k₁, d'autres longueurs, un autre b) : il manque "
+                  "des appels cachés (d'autres k₁, d'autres longueurs, un autre b) : "
                   + " ; ".join(dict.fromkeys(problems_c11)))
         report_11(not opened_11 and not elsewhere_11, "tes fonctions dessinent dans les axes reçus",
                   "tes fonctions doivent dessiner dans les axes reçus (ax.plot, ax.legend…), sans ouvrir de figure ni "
@@ -1371,7 +1373,9 @@ right_c_12r, bad_c_12r = [math.log(90 / n) for n in (3, 30)], [-math.log(90 / n)
 wbm.record("MB4.12c", right_c_12r + bad_c_12r, decimals=6,
            mistakes={"rarity_fixed rend encore ln(n/N), négatif pour un ingrédient rare": bad_c_12r + bad_c_12r,
                      "les deux derniers nombres sont ceux de la version FAUSSE, rarity_bad": right_c_12r + right_c_12r,
-                     "la version corrigée d'abord, puis la version fautive": bad_c_12r + right_c_12r})
+                     "la version corrigée d'abord, puis la version fautive": bad_c_12r + right_c_12r,
+                     "la surprise se mesure avec le logarithme népérien, en nats":
+                         [math.log10(90 / n) for n in (3, 30)] + bad_c_12r})
 CASES_12r = __CASES_C12__                                                   # the hidden notebooks of recipes of the check
 wbm.record(CASES_12r["id"], [math.log(N / n) for n, N in CASES_12r["notebooks"]], decimals=6)''',
     after=[

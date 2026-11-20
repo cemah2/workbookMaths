@@ -87,7 +87,7 @@ def hidden_table(rng, kind):
     elif kind == "allongé":
         m, n = int(rng.integers(22, 41)), int(rng.integers(250, 401))
         r = int(rng.integers(1, 6))
-        g = rng.uniform(3.4, 10, r)
+        g = rng.uniform(3.4, 6, r)
         if rng.random() < 0.5:
             m, n = n, m
     elif kind == "sans signal ou échelle extrême":
