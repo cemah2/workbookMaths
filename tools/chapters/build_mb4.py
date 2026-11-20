@@ -525,7 +525,8 @@ def look(text: str, after: str = "") -> tuple:
 # ---------------------------------------------------------------------------
 # MB4.8 · rank_factorization
 # ---------------------------------------------------------------------------
-GIVEN_8 = '''M_8 = np.array(__M_8__)   # the mean sales of a week (6 bakeries x 5 products), from a table of rank 2, rounded
+GIVEN_8 = '''# The mean sales of a week (6 bakeries x 5 products), computed from a table of rank 2, rounded to the thousandth
+M_8 = np.array(__M_8__)
 M_8.setflags(write=False)'''
 
 NOTE_8 = (r"Les contrôles (2-D, non vide, nombres finis ; `tol` réel $\ge 0$, ni `nan` ni booléen), puis "
@@ -615,7 +616,8 @@ wbm.record("MB4.8c", gap_8r, decimals=6,
 # ---------------------------------------------------------------------------
 # MB4.9 · borda_scores, random_ranking_mrr
 # ---------------------------------------------------------------------------
-GIVEN_9 = '''RANKINGS_9 = np.array(__RANKINGS_9__)   # 7 judges rank 9 candidates (0 to 8), best first
+GIVEN_9 = '''# 7 judges rank 9 candidates (numbered 0 to 8): one row per judge, best first
+RANKINGS_9 = np.array(__RANKINGS_9__)
 RANKINGS_9.setflags(write=False)'''
 
 NOTE_9 = (r"`borda_scores` : les contrôles, puis, pour chaque ligne, `points[row[p]] += n - 1 - p` (la position $p$ est "
@@ -918,7 +920,7 @@ with checked("MB4.11"):
         report_11(False, "", "saturation_11 rend un tableau de la forme de x")
     else:
         report_11(passes(HIDDEN_C11["id_s"], [g.tolist() for g in got_c11]),
-                  "saturation_11 : des appels cachés (d'autres x, d'autres k₁, dont 0 et l'infini) sont justes",
+                  "saturation_11 : des appels cachés (d'autres x, et k₁ = 0, 1, 3 et l'infini) sont justes",
                   "saturation_11 sur des appels cachés : ce n'est pas s(x) = x(k₁ + 1)/(x + k₁) ; relis les deux cas à "
                   "part, k₁ = 0 (la seule présence) et k₁ infini (le compte brut)")
 
@@ -963,8 +965,8 @@ with checked("MB4.11"):
             elsewhere_11 = bool(axes_c11[2].lines or axes_c11[2].collections or axes_c11[2].get_legend())
         finally:
             plt.close(fig_c11)
-        report_11(not problems_c11, "des appels cachés (d'autres k₁, d'autres longueurs, un autre b) sont justes aussi",
-                  "des appels cachés (d'autres k₁, d'autres longueurs, un autre b) : "
+        report_11(not problems_c11, "des appels cachés (les k₁ dans un autre ordre, d'autres longueurs, un autre b) sont justes aussi",
+                  "des appels cachés (les k₁ dans un autre ordre, d'autres longueurs, un autre b) : "
                   + " ; ".join(dict.fromkeys(problems_c11)))
         report_11(not opened_11 and not elsewhere_11, "tes fonctions dessinent dans les axes reçus",
                   "tes fonctions doivent dessiner dans les axes reçus (ax.plot, ax.legend…), sans ouvrir de figure ni "
@@ -1050,6 +1052,7 @@ def draw_saturations_11(ax, k1s, xmax):
         curves.append(y)
     ax.set_xlabel("nombre de mentions x")
     ax.set_ylabel("saturation s(x)")
+    ax.set_ylim(-0.1, 4.6)                         # the raw count goes on, out of the frame
     ax.legend(fontsize=8)
     return curves
 
@@ -1135,7 +1138,8 @@ PART_B = Part("B", "Prédire, dessiner",
 # ---------------------------------------------------------------------------
 GIVEN_12 = '''import sympy as sp
 
-RANK_12 = np.array(__RANK_12__)   # 4 judges rank 6 candidates (0 to 5), best first
+# 4 judges rank 6 candidates (numbered 0 to 5): one row per judge, best first
+RANK_12 = np.array(__RANK_12__)
 RANK_12.setflags(write=False)
 
 
@@ -1702,7 +1706,7 @@ def build_constants() -> dict:
     assert not np.array_equal(b9, _borda_bad(np, R9))
     out["__RANKINGS_9__"] = literal(R9.tolist())
 
-    # MB4.11: hidden calls (non-dyadic x, k1 = 0, 0.7, 2.5 and the infinity; a hidden call of each drawing); the curves
+    # MB4.11: hidden calls (non-dyadic x, k1 = 0, 3, 1 and the infinity; a hidden call of each drawing); the curves
     # of draw_lengths_11 are compared at the points of the grid of index 0, 8, 16..., dropping a point where a value of either
     # call is within 0.025 of a rounding limit at 6 decimals (so that no ⚠️ and no rounding chance decide)
     from fractions import Fraction
@@ -1719,10 +1723,10 @@ def build_constants() -> dict:
            if not any(near_limit(normalised(Fraction(xmax) * i / 240, k1, b, ell))
                       for k1, b, ells, xmax in calls for ell in ells)]
     assert len(idx) >= 24, idx
-    xs11, k1s11 = [0.0, 0.4, 1.0, 2.5, 7.0, 31.0], [0, 0.7, 2.5, math.inf]
-    for k1 in k1s11[1:3]:
+    xs11, k1s11 = [0.0, 0.4, 1.0, 2.5, 7.0, 31.0], [0, 3, 1, math.inf]       # k1 in {1, 2, 3} (syllabus), 0 and the
+    for k1 in k1s11[1:3]:                                                    # infinity, in another order
         assert not any(near_limit(x * (k1 + 1) / (x + k1)) for x in xs11)
-    out["__HIDDEN_C11__"] = literal({"x": xs11, "k1": k1s11, "id_s": "MB4.11e", "draw_k1": [0.7, 2.5, math.inf],
+    out["__HIDDEN_C11__"] = literal({"x": xs11, "k1": k1s11, "id_s": "MB4.11e", "draw_k1": [3, 1, math.inf],
                                      "draw_xmax": 9, "id_l": "MB4.11f", "k1_l": 2, "b_l": 0.25, "ells": [0.6, 3],
                                      "xmax_l": 15, "id_h": "MB4.11g", "idx": idx})
 
@@ -1759,7 +1763,7 @@ def build_constants() -> dict:
                 break
         assert np.array_equal(ref.borda_scores(R), _borda(np, R))
         rankings.append(R.tolist())
-    notebooks = [[7, 120], [33, 61], [250, 400], [1, 13]]
+    notebooks = [[7, 130], [33, 61], [260, 410], [1, 13]]
     assert not any(near_limit(math.log(N / n)) for n, N in notebooks)
     out["__CASES_C12__"] = literal({"tables": tables, "rankings": rankings, "notebooks": notebooks, "id": "MB4.12d"})
 
