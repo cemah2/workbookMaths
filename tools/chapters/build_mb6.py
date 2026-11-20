@@ -2408,6 +2408,8 @@ CHECK_22 = """def check_c22():
         if x == 0:
             return "0"
         mantissa, exponent = f"{x:.1e}".split("e")
+        if int(exponent) == 0:
+            return mantissa.replace(".", ",")
         return mantissa.replace(".", ",") + "·10" + str(int(exponent)).translate(str.maketrans("-0123456789",
                                                                                                 "⁻⁰¹²³⁴⁵⁶⁷⁸⁹"))
 
