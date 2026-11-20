@@ -1964,9 +1964,7 @@ from scipy import stats as stats_20r
 sum_20r = [float(sum(math.comb(6, s) * F_20r(math.factorial(s) * math.factorial(6 - s), math.factorial(top))
                      for s in range(7))) for top in (7, 6)]
 wbm.record("MB6.20a", sum_20r, decimals=4,
-           mistakes={"weights_fixed divise encore par (n − 1)! : les poids de la valeur de Shapley divisent par n!":
-                         [sum_20r[1]] * 2,
-                     "le second nombre est celui de la version FAUSSE, weights_bad": [sum_20r[0]] * 2,
+           mistakes={"le second nombre est celui de la version FAUSSE, weights_bad": [sum_20r[0]] * 2,
                      "la version corrigée d'abord, puis la version fautive": sum_20r[::-1]})
 x_20r, y_20r = np.array(__X_20__), np.array(__Y_20__)
 
@@ -1993,7 +1991,7 @@ wbm.record("MB6.20c", [right_c_20r, bad_c_20r], decimals=2,
                      "la version corrigée d'abord, puis la version fautive": [bad_c_20r, right_c_20r]})
 CASES_20r = __CASES_C20__                                                   # the hidden cases of the check
 wbm.record(CASES_20r["id_weights"], [float(F_20r(math.factorial(s) * math.factorial(n - 1 - s), math.factorial(n)))
-                                     for n in CASES_20r["players"] for s in range(n)], decimals=12)
+                                     for n in CASES_20r["players"] for s in range(n)], decimals=11)
 wbm.record(CASES_20r["id_ranks"], [float(r) for sample in CASES_20r["samples"]
                                    for r in stats_20r.rankdata(sample, method="average")], decimals=6)
 wbm.record(CASES_20r["id_lerps"], [float((1 - F_20r(str(t))) * F_20r(str(a)) + F_20r(str(t)) * F_20r(str(b)))
@@ -2708,6 +2706,9 @@ def build_constants() -> dict:
     x20, y20 = [5.1, 3.5, 4.3, 5.1, 4.7, 4.7, 4.7], [3.0, 1.0, 2.0, 4.5, 5.0, 1.5, 4.0]
     out["__X_20__"], out["__Y_20__"] = literal(x20), literal(y20)
     players = [11, 14, 17]
+    for n in players:                                     # far from a rounding limit at 11 decimals
+        assert not any(near_limit(math.factorial(s) * math.factorial(n - 1 - s) / math.factorial(n), 11, 0.02)
+                       for s in range(n))
     samples = [[3.71, 1.94, 3.71, 2.58, 1.94, 3.71, 0.66], [-0.37, 2.15, 2.15, -1.08, 0.94, 2.15, 0.94, 5.26],
                [7.3, 6.1, 6.1, 8.9, 7.3, 6.1, 5.2, 9.4, 7.3]]
     for sample in samples:

@@ -116066,6 +116066,3312 @@
       ],
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
     },
+    "MB6.1a": {
+      "decimals": 0,
+      "element_hashes": [
+        "a06471aa83048d50710f49d6071f0730e922f6b9b943e519868d56d8fc3c6761",
+        "516cb7a6bab1db12e7079d3e1bc19201235c2ee05498921f8277336f84361d48",
+        "9304852b6c27b7f3a18581923e5dfb7de3a9f8f70dd7f8b7d3b29baf9b67cfd2",
+        "b13141d7cc545d7334b69a76d2f6fab52058d58687245f27c943ca8eb6aff023"
+      ],
+      "hash": "ee547a1bb578c65e319751e733c1938e52d3f7c8bb80964a4c6b09a7b086e07a",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "0d95748b10bb13c9b84d31d329d3f6101f3cf547b0de2a83a08d0d4afc32e157": "une motion passe dès que ses voix atteignent le quota (au moins q), pas seulement quand elles le dépassent",
+        "9dd35cb3fbbdb7947598597ede708ee9b1120c30f0eca0e018d602b2463c560c": "le pivot est le membre dont l'arrivée fait passer la coalition de perdante à gagnante, pas le dernier arrivé"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.1b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e909da6c7e1841958fdcde1e70637f86c36139fdf75e6e16836d029e9f9ef40f"
+        ],
+        [
+          "672f8c353144b956c9cc23f58c7c22d53d337f6b59f1d537600cbabc7e60ec12"
+        ],
+        [
+          "74a22c0b04cf7a7408e57a8f1bd8993ed81adfb8823fe4569b6b2ef65b31a114"
+        ],
+        [
+          "fca12537658117ac695d667345a6f5ba3a93bea47b8357b9d9115d6cca520c17"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "397e8fdd91e214dbcefea3a5b9b61641a27e49f41fbdb0e2e2ec08274a9cca12",
+          "7e4ba946001106f8038408a6ae611e86cc8c282eee5163261d9a0a548a34440c",
+          "8ee62d39f3386d77603e6f1364964bd21550cf9c35de4e4ab335e70b1dd57b54"
+        ],
+        [
+          "ea09e258f6ddedd1926e15a56fd818d0782afdc5308222b5d69536deabece28b",
+          "834c8194687c45e989c0e6a22feb91925040cc1043d2fdf6ee6fd109997df568"
+        ],
+        [
+          "9d7d71045d3bcbc6fbd527576b45fe9d929b60a5d9aac511b1732929b6c584d9",
+          "bd526acd1e33dc586a5f3a127fe36b1bb36968c882ff9a545ba65da86d2dd44f"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "3b82d3725d27d4cc624b6dfd79e19ff9ff99231ad3cd133ffce1479fa41114f1",
+        "4a0d76a6e2b4f8de2b7788b789253e656fdfeeafbe99fc6198150b31636a0d05",
+        "225e01bcccea3b6de6efe09ccaadd509db2797ed51772803e4b230e178ce848e",
+        "df438f429bde6aa4219d93566e678387cf4713148f1e8bb4892933be1a6bd755"
+      ],
+      "hash": "1b8456107e3fc7ac151aecd56eab089b12644588b40c9d2948c81c882c7423ed",
+      "kind": "array",
+      "mistakes": {
+        "18319baa4425b04677173abf15e65f79b1cc5b6590561d2955a319b444edbe09": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot",
+        "869d79b7c3227adef5d65164d3f7e284dfd31597a3caca16f0ce4298d7caae93": "être dans une coalition gagnante ne suffit pas : compte les ordres où le membre fait basculer le vote"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.1c": {
+      "decimals": 0,
+      "element_hashes": [
+        "166b0f46046330c76c68d9a568051ee1c002575de54eb1cf87c9bf3dba3e831e",
+        "f78ff407594120b1d2900768d33d8338bbed8530efb45feb1f85f9499a1e8333",
+        "d392924d94c4dc6b2fbd67450a44e2c439f4f7165f0dd2831875f56109984b78",
+        "03f03e01fa7b5404c5c863347fdeabb56001f2ad8b5ef52103d65a2533ca0b6d"
+      ],
+      "hash": "f3d0cab8d2d0e452a82d4561387791c8fbfe1a8a6147dcd89804bb6ff5ee5877",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "17193b9a7c391135f72c801c929a0a629881c030f4b014b52890ea30a5c12f94": "une motion passe dès que ses voix atteignent le quota (au moins q), pas seulement quand elles le dépassent",
+        "2169e73ca9a4ef2a326698c5cc2f8a013e25525a4d827700ee55bb09e57e045c": "le pivot est le membre dont l'arrivée fait passer la coalition de perdante à gagnante, pas le dernier arrivé"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.1d": {
+      "fractional": "m est un nombre d'ordres : le plus petit entier qui satisfait la borne, donc arrondi vers le haut",
+      "hash": "c50904598810f97e081980e7861ce3b45fbad7581c0b116a6eb6c175bfdf77bb",
+      "kind": "int",
+      "magnitude": 2,
+      "mistakes": {
+        "12be36e94604ac1d71448a52c56152f032a84f84060c32c8319a42cd773635c4": "m est le plus petit entier qui satisfait la borne : arrondis vers le haut",
+        "16293ca4a17c028c2349cc34ba38d698c89dee16a53a26183ec4fe73470ae9b8": "l'exposant de Hoeffding contient ε², pas ε",
+        "cfaa3b414a8caec7828ac0bd1de92971497d7da79391314f553357e5157528bb": "la borne de Hoeffding porte sur les deux côtés de l'écart : 2 e^{−2mε²} ≤ δ"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.2a": {
+      "decimals": 1,
+      "element_hashes": [
+        "9a562e05eaddbd3b470d5a2a2a6ab1351ecf584a43af3bafd3ca05110d56143f",
+        "0dccd03a6261b20eff7907d1d513549a4fbe28079ed12294155a48f084cb2f0b",
+        "839daec91f433eac913f13937f9040d279ecde9e5d6898c5e6e8510b07e2c0cc"
+      ],
+      "hash": "8bcca2c25776c98779046e2b252e940ef39dfe293ad0059d113e0d5916995918",
+      "kind": "array",
+      "mistakes": {
+        "1a668fb3c49fea775f1eb01da497b1627416668265565c047030462307696d81": "la valeur de Shapley n'est pas un partage au prorata des besoins : moyenne les coûts marginaux sur les six ordres",
+        "1d763dfcb278de6f561d31635474f783b60ca0431a3f406f48fd34ee4e9bc2ae": "un tronçon se partage entre les hameaux qui l'utilisent, c'est-à-dire ceux qui sont au-delà de lui",
+        "9a3c6af91da60995ef421017d8329a0e68becf5d3076b693abd14711349b03df": "la part d'un hameau dépend de ce qu'il ajoute au coût, pas seulement du nombre de hameaux"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.2b": {
+      "decimals": 0,
+      "element_hashes": [
+        "e786b05498da246b2f3215b41fa0c701a90d403cafc73bc473e505e7b2870dfb",
+        "d0c1fdbe0037ac79b8a59c8ffdf7c32c276897ed9c79144a987cb82f797fd4df",
+        "8563c5f134bbcba403cae441eeffef6746830a2071b6459d7305fe384ff21a50"
+      ],
+      "hash": "0c3de91daf101f3edc56544ad3bf7c93b55b3dff460c57dd50d461d12b4f1aea",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "73f6e69e0d3373b234ea5380fe8bba1471c2ef16158ba8f7874e3596cc561c17": "d_{ij} = c({i, j}) − c({i}) − c({j}) : retire les deux hameaux seuls",
+        "cdbeee6e971162e19d39824052fd996a8e2a65dd94ef0b69115dc2f8095774d7": "pour une paire, le dividende est c({i, j}) − c({i}) − c({j}) + c(∅) : regarde son signe"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.2c": {
+      "hash": "a8301c48cf25ccdb66952a59bcb94d9841fb2799228f8d120e07aaeaf9503a0a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "bc51f5f27f4a473dd001b553d04b19f1f4fe137742b4580aad6a638820df1b59": "le dividende de N retire aussi les dividendes des paires, pas seulement ceux des hameaux seuls",
+        "c2f99cda08bf194ec96cfb194b8c8ba36f1babd255d011dea2c6239621e94b57": "dans la somme alternée, les coûts des paires sont soustraits et ceux des hameaux seuls ajoutés"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.2d": {
+      "decimals": 1,
+      "element_hashes": [
+        "936113ce56b1dc67cf2c659348583f0e8d5ebfb97c0b73fa623f458489d9c118",
+        "b7b47055a55f0fe4b58b0d083b18cf85eb56aabc45dc7d2532ee9a686a9568bb",
+        "ec41197989b7cfc29f8d216c8c6c137dbe93a33aec7565f6106784e3978b4505"
+      ],
+      "hash": "021eb93da76d46c5980e2e10fdce1ecb9043110a7a51025640b1aa8e20a20152",
+      "kind": "array",
+      "mistakes": {
+        "005181306cecd278bdbab5854c953e763251c5b21713060da159c94226b3b7bb": "H3 utilise aussi le tronçon 2 : le surcoût se partage entre H2 et H3",
+        "e75d5f610c6085116f2238b954615e3a2314b1a73fbccb3d44dba74126cc26a4": "le surcoût du tronçon 2 ne concerne que les hameaux qui l'utilisent"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.3a": {
+      "decimals": 1,
+      "element_hashes": [
+        "dd2372744425b5b4b50fd26011fc3994246d98202e92156d510bca0f3c4f77dc",
+        "7fed9c8059fe47ef7a86f1e0f56638886c5bef7ba69e461a04f9331fcdf12c43",
+        "1e9d373a2d2ef5919f66128bfd00331892dc21315f9a7a48ec762b775cbfe851"
+      ],
+      "hash": "cd0798b1e29f23a0a8922e16f5a8cebbea02d7a77838904dd8a71f4cdae1ff5f",
+      "kind": "array",
+      "mistakes": {
+        "4e533d311418c2f086b4612620e00b084a6e4069f73d8ec31a3224db5a886016": "le gain est une différence f(p, 2) − f(p, 1), pas la dérivée en e = 1",
+        "6333a1ca93632401829fd2a9121deaca99c84c67dd974bbf340923505c3c2dd4": "le gain se lit sur la courbe ICE de chaque parcelle : f(p, 2) − f(p, 1), et non f(p, 2)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.3b": {
+      "decimals": 1,
+      "element_hashes": [
+        "c1994b8e9df9633bb85c2554824b095a68e1b4ba00283474af5fdfbe57ebd021",
+        "24a62472d7c0d51c6541f652d857a8a073c6d03512c1ad00b5ee31d2308d0345",
+        "5c76a6c398be9253c42103d1ade7a72ba565c32f1b0f263d8582da149e0dd142"
+      ],
+      "hash": "b838fd1af2a193aeeadcb7ef7b731399059e17cbe9721272e677fe1d686af8c1",
+      "kind": "array",
+      "mistakes": {
+        "0058a0837a523840acdc98b3ef54c1c34bc511e52463e89439bbb75c21756194": "le gain est une différence f(p, 2) − f(p, 1), pas la dérivée en e = 1",
+        "a6669761ec81496dad9915487f91e770b84e5a07d9ed47ea092bfe6f5bbbfc78": "le gain est f(p, 2) − f(p, 1), pas f(p, 1) − f(p, 2)",
+        "b942e10da8fd85497f8439561e3d9b19765b9e659b01fd5e2dc9b36c6f2838af": "(p − e − 3)² n'est pas p² + e² + 9 : développe les doubles produits, ou garde le carré tel quel"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.3c": {
+      "decimals": 0,
+      "element_hashes": [
+        "53dd9ecc2879c660e3c68fcc52565dc84086a317fa5fbfe398c14cb9f8a3f639",
+        "7f592d8ac291d8635c7066539d981324535975779f115825ca857f284d470b32"
+      ],
+      "hash": "577bfaff63fc8dfeb8d6d094e9ff0796f317d6f1f1dc46de6df7623d69c993e7",
+      "integer": true,
+      "kind": "array",
+      "mistake_decimals": 2,
+      "mistakes": {
+        "3eb2715ff4790d836f5d53b03c40353086c95eb7d08718ecba6a64054a8d8fd1": "la dérivée croisée dérive une fois par p et une fois par e, pas deux fois par e",
+        "f01d2a29e249f825b8b8a05771947dd959187f237f73d1c35dafc93ca17f04d8": "dériver deux fois −(1/2)(p − e − 3)² par p puis par e donne +1 : la dérivée de −(p − e − 3) par e"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.3d": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "58d378372ac1ac920152e5f010763f12ac543ad66eda2d83ab31fe1d5f17195f"
+        ],
+        [
+          "493ffe52e3394a110b2fe6a2c41c9432aea3f7d78d5cfa3e6e56c5c01fa1bf01"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "801f8a3154e2af3302de0707ab4f521cd9343e12a9bf74b11093e233447b8af3",
+          "e20a628146ec1c92b52fe505705a72ae238842a33ff9e7bdc9bc4466ef10a10f"
+        ],
+        [
+          "06b0758d6e1958aaef9f33cb992a18ae6e259abe9bf1b479a7a8c9ae83582627",
+          "86aac6cbbeb1f3a9d767d3dfef869aef7cf4508526dc1fce7f166760d00fd7b9"
+        ]
+      ],
+      "element_hashes": [
+        "e38eeb31a59dba108cf55ef26c9885d24973d826317f520baedc618f73e33298",
+        "35b2e8538e209df58f05e80cb0c91479f1f917ac91bcf9f3a1e2dca3a9a072f7"
+      ],
+      "hash": "82f8f1e190e149ff6febf86e771be57af6cdf4cbd273eadf3d79599f89bab27d",
+      "kind": "array",
+      "mistakes": {
+        "3587bcfa5f8a8268de3047bbf44bf882acd82662621f99570cf634bb7fb189e9": "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E",
+        "7e019d2a7f4116c452ddbd2b3b5ba5852a4ca2db3b6c0400c5ca7ca66eb177f2": "la moyenne conditionnelle tient compte de la corrélation : sachant E = 2, la pluie moyenne n'est plus 5,5",
+        "e63a3e866616deffa561f077af528cfae6bd4506c8455d2c60c3caf213eada11": "la pente de E[P | E = v] est ρ σ_P/σ_E, pas ρ σ_E/σ_P"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.3e": {
+      "coarse_any": {
+        "0": [
+          "5d359eade171e35f7c5ace42933e1bed20621241f01bc0302e798216bc9c3c76"
+        ],
+        "1": [
+          "f8bdf7b663ee5cdfd6c0eb0f10172dfe717dcbacdaef1782355a2826f6fa0f21"
+        ]
+      },
+      "decimals": 3,
+      "hash": "e1199d25127c16c75c97527c01cc0b4a00c5045e4c109ca75f1639225f8fba8a",
+      "hash_coarse": "3ca8a224e1bef99854fbe28391b3daf393bec1185c013e1fa148efbbeb1b6788",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "128deb6b02b82af10c0e45f009b6bc17aea0804bbfc602c5db7743fc91694a8a": "l'écart vient de la pluie : il est multiplié par l'effet 0,6 d'une unité de pluie",
+        "9ad4e8c37dde42cc3961da0e1d1f95dbed281d35d8e08db43859ace780f14e08": "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.4a": {
+      "coarse_any": {
+        "0": [
+          "7eb4a12ff2e99308bb1dbf27f89dd28904471d54d2eeaad07749529d18dd69d9"
+        ]
+      },
+      "decimals": 2,
+      "hash": "08e1aaef3089ade5011d334dd95df7aa9aa2b9433553f85a6a2c0e07f065797f",
+      "hash_coarse": "c897c3b50da8913420f9482391562ccf657f3df470b10e0792c1d093ff0cb130",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "79be229f2332e034569f8f539877d3bca78d80ab39f696bdbfc8bfd512836010": "le produit scalaire F · γ′ compte les deux composantes : F₁ γ₁′ + F₂ γ₂′",
+        "94d2cd766522c4071d16c135ab810f243da80c0307e6702a31086a3ac0ff68bc": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.4b": {
+      "decimals": 0,
+      "element_hashes": [
+        "ad32921addc7f03557b166bafaea56cec7023f9e5802b45e3352a4d24db4d92e",
+        "7e375c5480d8f583a11af4c2873bb94a1fbc1551cc5de7ab38c56d023675d3f8"
+      ],
+      "hash": "c3206dd19a8e95fd42fa9bcca36d67c46e5360576c73f11f9d831dd8c637279d",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "15d7066b29b728577c78b6a89298aef090411c5d376762b8bf966f0d8e6b3c7e": "l'escalier va d'abord à l'horizontale, de A à (2, 0), puis à la verticale",
+        "4f72cf518afb5a6713784457ec4990cfda1803e80629836bfe5095104706ddb5": "le coin de l'escalier est (2, 0), pas (1, 1)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.4c": {
+      "coarse_any": {
+        "0": [
+          "503cdb346cb53d6bff1b9672d5b2a5d54887d78488ee801b3e6bb4b560dc7bc7"
+        ]
+      },
+      "decimals": 2,
+      "hash": "7b18cd949ff7e887f4cae4cab7031adf57935d8429f5d9d107bbd45159d4f16b",
+      "hash_coarse": "2223eaaee3fced1ede3cb70255dfb5f46afe5e59d18214796bc19b1ca79e4d11",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "22bf5cb6d8c7433fd651b7972e16951086442e22c6fb9ee188f53911ea50c10a": "la vitesse de γ(t) = (1 + t, t²) est (1, 2t) : la dérivée de t² est 2t",
+        "505133704aace134be9597a75db00a7a632df18c77b585b9b8ad86337828c128": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.4d": {
+      "decimals": 0,
+      "element_hashes": [
+        "b42005c7ef2b90a2e7b9ce016de62be8efbae3b44d3a8db8b6e5046d63956d5f",
+        "3f961c5392a4ab81499d9c897acb32915d1c1c0e2f41a2fe82ca39bdfc78c634"
+      ],
+      "hash": "7d24d49b3c9b4f909a8f886484133ba28a905a756a8616c4282cef2c4377b9d6",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "5d495fd6af522c01c5588d7415ef2f5dcfb1833552788a7ad72fb90c39c513e7": "∂G₁/∂y dérive la première composante par y, ∂G₂/∂x la seconde par x : garde cet ordre",
+        "fcdca04c3a118c72ebb895b3360bfc6eee57a7f16ea6c6cf4b9d1371cf7af923": "les dérivées sont demandées au point A = (1, 0)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.4e": {
+      "decimals": 0,
+      "element_hashes": [
+        "fdd6c87e95ef5cdebbc848f18da9bc7d30a6766c70f43c8864355788576e3342",
+        "20d3d257a71ac88072202cd2b627a903ee9f99277d68137c68de57dcb78f8517"
+      ],
+      "hash": "94b2592270169eaeee9d44a8e897dfc044a91d9789815209d6aaa2c4a462ac18",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "2cafeaf26eb23cc1a1469e5a8348aeeb20f0567d267278819c9c4339be490d1f": "l'escalier est celui de b), par le coin (2, 0)",
+        "af3443a736e277c9be50c0720ded70d79020ad1c9bc889813c6da9136135639b": "le segment d'abord, l'escalier ensuite"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.5a": {
+      "coarse_any": {
+        "0": [
+          "2550d22181e1ada0bc9126b9987e093f2f5e6ec458e821526822ac7304723e49"
+        ]
+      },
+      "decimals": 2,
+      "hash": "ed371780e188edbefb939932a55e0ed74264467e6e2e41772880b4929d07731c",
+      "hash_coarse": "b771fe1895414383f4ba151a55f2da4fa91feb5f48d52300ae78ac50922fe3e6",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "23e5dca8ec8632d2d66e2d93fddd6ac12047ff77c04c699c00e6b805e73afb76": "la variation d'un produit n'est pas le produit des variations",
+        "454ba7ee9c45a766daea9f30ca094b137db0a729d527d052eabe71d23f514233": "la variation va du premier trimestre au second : C(x) − C(r)"
+      },
+      "sign": -1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.5b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "96120ec579a2c5e28a6dceaac0974e43322f955def3ebbd2d3df8dd9d7137aba"
+        ],
+        [
+          "19494343d7f4caba1a6d77bcb053d116fba6730667b77bc3c53e70eb50a41cac"
+        ],
+        [
+          "e0a9c6351fac788267444f7c150996de109d6411526d570a3eab82f12ee6d615"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6a5061ed849f0cfaafe072eafd92c46481f966b13bdabe16a5dc741f7d6f508b"
+        ],
+        [
+          "1f39cc4da9ba8cfaef95c9236481556d19b82be77a205003fcdf41a1cad48a43"
+        ],
+        [
+          "382f6626573323fc8c462ce341afef49aa8b3a7954f3d316d9f45c8eea56c155"
+        ]
+      ],
+      "element_hashes": [
+        "ca4b2f6f6b85014cd4902a19cb2d0682fa9ae8cfbb4ed880c5010b04d9cb637c",
+        "64e8ce787bccf3f657d608734fedc2057eed08c6cca59824f23c09d9e2c11da1",
+        "54b1cbaebdfb90e3c6657961c1f011fb80574e47ed4f8c2fa4b89fe7dc05d0ec"
+      ],
+      "hash": "a2844661518ce537ed93ffa1cf1f04c6b20d931e183b752fb82bf5b78d7383b8",
+      "kind": "array",
+      "mistakes": {
+        "d077166047dba96f7eeac8bbf9828949542af01cb166a4ff5e4c84c02a8b8ad4": "l'intégrale de t² entre 0 et 1 vaut 1/3, pas 1/2",
+        "e10ffc68f4cebeb9f00c0d2759244584fd47a678eba6bb00a7bd0f2b81a892bb": "le produit des deux autres facteurs le long du segment a un terme en t², d'intégrale 1/3"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.5c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "aa5331ce1dfab5544b61bdcc5e33c427ce98c264e3e4d967559a7c1583fa2338"
+        ],
+        [
+          "43823edd09dc5b44ef4126a27aa8e03cdd107ff31cc2a3070afa93b8e1641623"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "345c19c23249aef230bde74e1d99779673032bbb6aa50c19cdea46bc9b23af8d"
+        ],
+        [
+          "c13ea06e56df95b53bb62e6193243a5153802bc1d166bb2ad9fb923f5633b97d"
+        ]
+      ],
+      "element_hashes": [
+        "63201612720a3224125de16bcab8c047aa8c9fdf3ee53c7d7c85bd821302dd32",
+        "81ebc6c16deb3fe4ba7c2ad0817145ed9290a400a2eb4db94dfa610be7527647"
+      ],
+      "hash": "c9dd07201d5a6e87234a94fc144ac612227afa89303d6fe25364799c29957102",
+      "kind": "array",
+      "mistakes": {
+        "09313a0ea8de1e3f58b149f9886180fe9c2f5e0b1b06003a04f11443922d5cd9": "dans l'ordre (p, q, τ), τ change en dernier : le prix et la quantité ont déjà leurs valeurs du second trimestre",
+        "936a0dc8b2647318594e40dac7d567a61f6d7dacb38cb46f8822a04656cc79fc": "le taux de change baisse : sa contribution est négative"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.5d": {
+      "coarse_any": {
+        "0": [
+          "96f2749ec8ddbb769e16305270c216ee18663eca5b559941d27a4d6757cc81cf"
+        ]
+      },
+      "decimals": 2,
+      "hash": "d6dc136b426f98a62cd23f931018d447fb2d88f410c21aa7a6c430709d5cacc9",
+      "hash_coarse": "597ae7f281b1117b8995d959c2e7cb4bbe310ebcc9e2d36245bcf6ff6a8b87c9",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "76c9ecb1c68c50b615842ecc54c0d6b80ef6712d893b330c1c14ebe6bb34c78b": "la variation ne se partage pas à parts égales entre les trois facteurs",
+        "aee02f86a4c069d205b657d63472231c779db216e87cdea153ad9e8f07f886b3": "la moyenne porte sur les six ordres, pas seulement sur un ordre et son inverse"
+      },
+      "sign": -1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6a": {
+      "decimals": 1,
+      "hash": "95aebe27939b07e4e563f90300f78459f890db09e5ab699fde1fb9360c2fa365",
+      "hash_coarse": "66df0ee2a803ac1950a00ae07b149f888420d533fc35013d6f3036e19351c320",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "201eb284a1234cdd5e27945b89d806e00a733b2f682aaaddd2c41b950ce4da49": "une case sous 10 °C ne compte pas : max(0, T − 10) vaut 0, pas un nombre négatif",
+        "f97532336b3caa4a6271779141e41a29f95134653d29ca16c8da8943a1a720e9": "chaque case compte avec sa surface a_ij"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6b": {
+      "hash": "b87bd213a3bd37a561f8a46e8f7729a46e6283cee490b8b457e9022172f10d3a",
+      "kind": "int",
+      "magnitude": 1,
+      "mistakes": {
+        "2f05324909430e104b276ca6fb2c1c3acc97eabf59082260c487de9e5e9ef71b": "une case sous 10 °C ne bouge pas l'indice : sa dérivée est nulle",
+        "8ac13a542b412d4533d3f183103e877c0df8cfd9458d39f0fd7a4c718514f47e": "chaque case au-dessus de 10 °C ajoute sa surface a_ij, pas 1"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6c": {
+      "decimals": 1,
+      "hash": "e2714cba900d4489ea821f00daa9e169a0e16165504471a1f476260f421e94dd",
+      "hash_coarse": "1f9a0c19b308a95a48653d242a6cc38bae34bbce4fa0d4c209c8fe3048d0f5f6",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "1b0edf1d48419615e6480a96d4e587f3d371f84fbcad1c66060027b91341c5a9": "une case reste à 0 tant qu'elle est sous 10 °C, même réchauffée",
+        "ead1fd51fc015fde98b614fbd09591bc507d6ac79f3c311b3c1c3e7cc9d1ca13": "deux cases passent au-dessus de 10 °C : la dérivée ne vaut que tant qu'aucune case ne franchit 10 °C"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "5cff10c7619a5060a16ca5bc7f680e7e0762a939cf7dc3c0cda0b05613ee057e",
+          "d2cd7fff278ea85c920d85facee275105d53fb60b36eef10688b4cce63f187a1"
+        ],
+        [
+          "0778a53a1515c030c2377ef67e68a3786e03967425c1f0c2f6ee7420b31c90be",
+          "46a54a9e6d75aa7e55f006f89ae2bb6c6bf39a35398839cffdb7781d78217f01"
+        ],
+        [
+          "a80a1d1e8fa756ebdbc9aee50e3631a7002489a56098c20061383ee781bfb5fb"
+        ],
+        [
+          "a28865e50dfa1740c5f90322510b537afb3c239c8e294eb407554dd70467f238",
+          "bec264fde1949df54b49a67cb7417c48afebd31f5a1af247c3f96564b7de5c81"
+        ],
+        [
+          "61a5c9b2042008ed6033e4b563fa272172cafdf8c48211aab83ed40c985a79de"
+        ],
+        [
+          "85a9aaf7946b2fbf67b64e44411a7c2f388b7b1b7954bd128b09ddac8001cf64",
+          "524a0006993b767306279dfca32c3fe07eb29681294e0a1e0c00364621d10093"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [
+          "88badfb64158a3501d8d6c1898bf1257ecbd35c34b9a4d1920b0d3be513e8268"
+        ],
+        [
+          "8fb02f44c223e5c73a597234591ae33e17c2303dd49d4471c4042c7e475e8a17"
+        ],
+        [
+          "b0fdb5204a91777bdc5e0804722fe98431c6edf192ee1a60a282fcd2f8d42ccf"
+        ],
+        [
+          "5684ee5d706d5cd05dce7edaabc6080a1b18a82b6925f354e380bbc8b5f62eb0"
+        ]
+      ],
+      "element_hashes": [
+        "6f9fed8b9881a82ca0132c7410bc0f17153a69651d699db5dc8d1e35b61ca720",
+        "48b5cc2a9ab27a0e1315a943519e612f3fc2a9d6dc951cb2c9b7e0c8fcdaa6d5",
+        "6344f59af5f49480e29b3138ccc6a2b3523f310172e440bc97b9dfabd1d5c677",
+        "6d632ddfee50676366bdfeb455ed9b65a61ac7c882600334c3bdd68a4dfea39e",
+        "dbafa20a66e1b86b0f857349772f14a04c7e132477e4807111d403a0038934bc",
+        "b0b272192c6e8d5666d85313dd42f3f0f5150cf9f10ca15ce95af9d0dbd5793c"
+      ],
+      "hash": "200a6f750ed31cf607dd4f948bd00f7047c83ba5f0351fdc75a2b8d1e804fcad",
+      "kind": "array",
+      "mistakes": {
+        "6c83e1262dd84c152db3a7d54c3644b5e92429a77a306a22f9df7c44eeb92714": "le centre de la case u est en u + ½, pas en u",
+        "ca2d8857e95061628f9593c8fb2c4bc2155627cc12f7b502897297a073cf2147": "la formule des centres retire ½ après la mise à l'échelle : (u + ½) h/H − ½"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6e": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "7a11ea3dd2ba4ee5fda41117c5f316e9f1fa822b56be023df808eb9282e8d438"
+        ],
+        [
+          "14a2c11b739547b10ff2e262fe126e3a1c44dac1c02ff94170ed20ee65d6d05c"
+        ],
+        [
+          "981a37afa5cb78705245237834a638bc2c53c404ec6f14062cbf33ddfe5b577a"
+        ],
+        [
+          "cab982eb7d782ddcb320d27683d623818f0588d9ec5928ff3c4e5206ecd442de"
+        ],
+        [
+          "11cc7243c34463add92f244ed724f2f3b85097c031b483866980aa04f657e63b"
+        ],
+        [
+          "dd64db32d64ec8529a7c99bbba417fc8540c6960a2f74a6b40ebe911ad13d95c"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [],
+        [
+          "fc95bce500f2b4d8f8c79f9183db2c8c3e462bea2e005d801070cf2ae8564ffa"
+        ],
+        [
+          "c778c4b5151a7450a45b2e97aa45d6582338a1687dbbb832d551c907386a95c7"
+        ],
+        [
+          "2ed6e067235319dc1b4af47f583c8547966c6672c96081284b440c880d56acbf"
+        ],
+        [
+          "ba0621a994186e546717adb1a19221abf7a871e66d8ce7e700ccd3709830a77d"
+        ]
+      ],
+      "element_hashes": [
+        "e54cc5d64c1d13827bb8ae623f1f284ff743cf8b7f3c7eedd196e773bb52fdde",
+        "d1d8bba13dfe6c5055dc50ca59142d6bd0c9f71cc747382b345867e161484877",
+        "f6f212e343459ac990892b0c088276dc828dc24a105f77f3e31c0b0e8afc09c3",
+        "edb8dab69e1466eeddba0f6c656b7d95a26a69a09f419b58036da5aa29b3a319",
+        "10576d7bad624120482d45aa067cb04eddd7e5a25281e7f0ee0cc6cb43ad3682",
+        "9a2bd559892ae4911b9a30c744236b8f0d5863115722a0642836757af96fdeec"
+      ],
+      "hash": "49758d75d4310002624f860613b12c5c9f03675974f8a07389b79dde964a2965",
+      "kind": "array",
+      "mistakes": {
+        "46a11121e9c6a978703c536079e8390d97635572ae26d7f33db882d0e325552b": "le facteur est (h − 1)/(H − 1) = 2/5, pas (h − 1)/H",
+        "edf2529bd613a3d34c4f245a493daab2873416785ed7547f63feed3a3dbcee23": "les coins alignés envoient la dernière case sur la dernière : le facteur est (h − 1)/(H − 1)"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.6f": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "0c488d95c421279d090b8e3c821184ec679caa753ae68aa36e81efe993f459fe",
+          "aa81fc4f75bc6f06a9101f2771ed57b4d6c5c008193af522cd024ad29b02895b"
+        ],
+        [
+          "ff9c23a9f7e0f36ac04617234c072e9851778068e2c453b0c2ebb12a752463ab"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "18354eb8de10b11419ef8ddee561a1ba6d8f140d679027acdeabb7497b06295c"
+        ],
+        [
+          "c798231db0c3008b6a03e80cff90e3ccfb15a010713a7c5c59a6cf33cf777011"
+        ]
+      ],
+      "element_hashes": [
+        "9dbe521fbbfa5ec693de0a8edc08e747fcc02dece4fe0f0941a2abd54e677e47",
+        "f38367fb24327f254b5b3e478db45f2b3cdf3f784856d989179f27296661dfd2"
+      ],
+      "hash": "6a146ae0dff860900fdd9af846c9da70a968f1ba095c80a8855b1444c98d7477",
+      "kind": "array",
+      "mistakes": {
+        "a746b3ea28952cee421b2d28409c54e4c14bee00d998429a2c45789d20c075e3": "le voisin le plus proche reçoit le plus grand poids : (1 − t) a + t b, avec t la distance à a",
+        "d8429c4c9a09e02393bb3560cdf776bf5a3002963ee52438e7265a9f1e60e37c": "le facteur des colonnes est (w − 1)/(W − 1) = 3/7 ; celui des lignes, (h − 1)/(H − 1), ne sert qu'aux lignes"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.7a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "2f3e1c2b99a001da93a605941b14bf2967d8fb85b01c10ee95e402efb3e4051c"
+        ],
+        [
+          "3895014d003977cc553a61e825ea1a6c4dc002b32f4a152e79f3bccaef602538"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f29c1bb7a87155cf210bf3b4c6ee35c33b3e7232d6639910d0327ec3afd8046e",
+          "774e2b89cf0c070022fe1d86fa3da9556a66dc57554f1aba4e3b66acc72e3a88"
+        ],
+        [
+          "6e6080ff5eb4b868da4c66f618d4c1f34a1d37c5f752e8497bac5cab6176953d",
+          "58622d6144b2261041d7acf78564a6ab642d50eb1a97a039cd660e1abc83d189"
+        ]
+      ],
+      "element_hashes": [
+        "8701b2d7504dd6839bf373351f4c19bcafefd52a3d06c5008fe891db6fb572fc",
+        "e62c874933c758aea8e00f04109459f13b087cfe6ad59f5b7257cfe4ff534cec"
+      ],
+      "hash": "6ef9941b79707caa4029611a8806f106a7151f66d825a11b7aa852a8ca3feaf4",
+      "kind": "array",
+      "mistakes": {
+        "2e9f898d89537c094cc4e8cfc55a1c6906f93a060d43b9dc6b64d061d2004b13": "le taux de rejet dépend du contrôle, pas seulement du taux de défauts",
+        "f2bf3391d81b9e4490747ffcce273d10ed161670a979affc51d384c60bb59a36": "une pièce rejetée est défectueuse et détectée, ou bonne et rejetée à tort : ajoute les fausses alertes",
+        "ff61b8e411102ce506968113f0ae4480b46f26cbf90091ddb53b642287fbd05d": "les fausses alertes ne touchent que les bonnes pièces : FPR × (1 − p_g)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.7b": {
+      "coarse_any": {
+        "1": [
+          "d22d1c3242a244790a9e423d797b53daf6a30c185fe784d5204cd7482083f0b7"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "91ba9782b9c9d71996885a881c0f1d299f3f977d395ae001e360c93c9cba5d25"
+        ]
+      },
+      "decimals": 4,
+      "hash": "7e1ec8a2a71a919301c7f595bb9b26db736867266907f1b2777247015578522b",
+      "hash_coarse": "0cf31ae619d597380cfbdbdc51a60b84da6c14c936aa1ce8a69df238c085cb44",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "2c2f1f163670705cf64601f4e7c1dd967239a8e983e5cbcf58cea80c0952179e": "q est la probabilité de tirer A, le seuil qui détecte le moins, pas celle de tirer B"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.7c": {
+      "coarse_any": {
+        "1": [
+          "cd1ff1bc2d9da48166fcf9aa060c559a1728f22611057ee1ff829250323a3952"
+        ],
+        "2": [
+          "dc3cd47e6804b27cdeca5ed36098dbc5c96b364213e23a8f5f9e31119c799f3d"
+        ]
+      },
+      "decimals": 4,
+      "hash": "28c90df1ace75aacd5a96b97d35287035ed08e4e3375f8509ba6f4a01e6cada9",
+      "hash_coarse": "77ea114b7428903ee3bb6f69c26c4a5f6943b4c067a9d1a3e544edb0a32e56b4",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "1706ca64d7431fea1a499cc6e5c7cdf001f408ff953c0c6c4086a3d255c559b2": "le seuil A est tiré avec la probabilité q : c'est son taux de fausses alertes qui pèse q"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.7d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "783a26e456ec80cd4dc11c4bcb404068557e3a8c41c7f7bff1fd264bacabb3d0"
+        ],
+        [
+          "96c139e5d440ab7e165241f7f9d3d0aa0653b95a568659a1fa5857cd90ca3ce9"
+        ],
+        [
+          "eb61e5c5456bc13197793c212b3bb926c35b7add3a0171a7fa8670c624f43c96"
+        ],
+        [
+          "050df8af1c39eb7de563d534b491aa7adcc950a7306775680d457303551b4cea"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3a351d22c2399b4ea7457b3ba7f58c7c9a0950b8b9876cbe67b21ebe9a774175",
+          "4f0b2eee6f8d83e8ea5499e14e9132669f5d8971c90c9e3b2b015a23d763ef6d",
+          "8162e182035ba1f4e8667ee2f88f8552237fed2d624d915e213309c507b88176"
+        ],
+        [
+          "5ee7bb803cde44b16fc7644077b450f4ea1fbf634beca73ea320e80f89a1742d",
+          "baa6927560778d6b4841277ab33d9a61e5f9c93b83f8ae930e709dd2077568b6",
+          "d03afe2314c378e97edf82acac12efe13d5408f36b4ae95e851846fa1ebb4253"
+        ],
+        [
+          "b9a06874943a349b039948ac725905c2453b610dab47c0ba347a51518af6914f",
+          "24c10ebb986b21b367bb3df7ff5b7e212c46322b088f4b2309ee27fded42d6fd",
+          "c54c6650432bd5f0dbbcefcd984e570b22baf3f5603b5d7f7b145e300a5461fa"
+        ],
+        [
+          "ec6400fb010df5fb5ea85f5d05810ac48cd96d78c990aaed6f902bcb67f7801d",
+          "13e938a043bf8064180856db9e107b267c3e7441b249217699a951c00537e638",
+          "4d2c80240d2209e1cb9b9af85ab1ef37d76ce6766b4215617ab79147f93b9ef3"
+        ]
+      ],
+      "element_hashes": [
+        "7fa929d5ee0242650aa0ababc43439b07e835168ab10c154ee3fedad5639f35a",
+        "15d0754a42df44be06587c787679eedcf11b579400ba20242a616820ff9e1741",
+        "c72809d12e7937d22d27d258fbc20ffcd3a3b0a23ff4d03e1b454fd4da8f1c97",
+        "705678b5f100f306a63df153294aa1b6586c1372004028b951f210ecf4fa3d55"
+      ],
+      "hash": "5600cbd04fdc6a9c02bc3cc28c889c9739d243898a05736aa97eba557c6b5719",
+      "kind": "array",
+      "mistakes": {
+        "5e114fcb3f96895e06ae65108256c4d001d44b4850905e29ab969a38e93f37fd": "le poids est P(g) P(y) / P(g, y) : la probabilité jointe P(g, y) se lit sur toute la table",
+        "8498e3f865b9df3fdec2e03954ff7b9e93ba9e6e060728c63d311e0b031bb754": "le poids divise par P(g, y), la part de la case : P(g) P(y) seul ne corrige rien"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.7e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "0025167c993833961ddeaeecf6b6fc4d0f7c70c9b9db9cbf5a3815461c355eaf"
+        ],
+        [
+          "feb21bfe22c773e16a4de28225e9b051edcf57a863cf4f1024976d6d3e4aee11"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a0c459db6e140ec841456b4cbbdfc2adbea6c48aba831f2c71dffe744a33627c",
+          "e6168308bdc4e6fa02753c194bb25851f3446d92a5a1095dba373f283b317ce9"
+        ],
+        [
+          "8943003d7091f32b88b1685ab72dd14d9b3552646729d861628d0d71699db34b",
+          "d49b070af635353004c2b98c9c9facbb159fa9219491c0d5908186d8bfb5d50e"
+        ]
+      ],
+      "element_hashes": [
+        "de67a817186e87fd227fe4361e11371dc439baad78742ca5149d1751d6186253",
+        "04dfe3f94be12c38b16b12f6dc4cb954a0c157b14114c78400cfa226f2464aaa"
+      ],
+      "hash": "27af4176fa1363cb1dcd974b5080b9673f49d58ea16d6d45c69fab898af02b52",
+      "kind": "array",
+      "mistakes": {
+        "58acfcfe2b17db35ae4367a287d0f55a2e633dc646730a5f1e42bceaebf7f706": "le taux pondéré divise les défauts pondérés par le total pondéré de la ligne, pas par le total de toute l'usine",
+        "95249e517d000ca1534a0452e47edcef81022c25c07fa7993548f3991c159855": "les taux pondérés pèsent chaque case par son poids : ce ne sont plus les taux bruts"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.11a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "db24e6768cf391df298acf145784df1c673104d38959a37bf8b7e34126d22b93"
+        ],
+        [
+          "07cc63f31a9057d56183d3682ead7ce9aaac8ba9e1b03000f2cf0d823f09758a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a8de457cdd0fd23d034b6d4f94ed34513c4998539a6664caa6427f2efe4ca5e1",
+          "8dea17c9a3d9655aee9de880e10873db1b5b3e2b2e8db87589efce369c7ff079",
+          "45869ebf2895c362115c270dc922a21575ea477db49d6589a75801fe4eda07cd"
+        ],
+        [
+          "a1015f2c5b9985298fbdc1b0c3cc13bded8281f1735939df02a9ffb0b165c832",
+          "449544d803397deb20feb3d92fd93f911d8fad53b5d4f2c39809dff83a3dd667",
+          "18e7a46f904ce8ece6753ce9e07b74103d8529c029cf87166981a432d9256286"
+        ]
+      ],
+      "element_hashes": [
+        "72d72aafcaaccc8b15cb3bb3865371b98956143fc351fdbc53689eca2352ee98",
+        "0e6c5a6b7eed3652168f4ca4fca702d2ce10ad516f93dd5da73e9521ba124d8d"
+      ],
+      "hash": "ea5b202f67d3f091bbb296713174c9b5e9a1fd36206cc562e9cb7cb41dc63751",
+      "kind": "array",
+      "mistakes": {
+        "756f8245847eaf6a7d009acd2072cdc24171164b5bbc1b05214170413738e030": "un taux de détection est une proportion, entre 0 et 1, pas un pourcentage",
+        "9c7f9a2e9b642df9fa3f35d1daa7526241b40dc5c85cb4d550fa1e70d518ee8b": "l'ordre demandé : A, puis B"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.11b": {
+      "coarse_any": {
+        "1": [
+          "e965ffe4680c53bf00a7d25295dbbfaaf79c46b4c1c001d17c39e5988740f403"
+        ],
+        "2": [
+          "7f91044b2817c068adb3e7b091685989c0fd33cea3e2855be5d6278f5fb8d75c"
+        ]
+      },
+      "decimals": 4,
+      "hash": "401efb9d6746f42b9ac6156b9f684d71bc03822e9fd348db00a7625a902e1e38",
+      "hash_coarse": "b23f0963520eefbe4650da2a22ade7f859576e3205a9136d9a6982436d2f31b8",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "2132eabdf3458e0e9976af4861b906f09b939c8b7b271761b973f9e5cd88926d": "les variances de deux estimations indépendantes s'ajoutent, pas leurs erreurs types",
+        "8db6d35df9fd26261a59a297430c6be961de94a9c3dfbfef1fbd373836d05732": "chaque taux garde sa propre proportion : pas de taux commun aux deux laboratoires"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.11c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "3afd0a8f7f530466d741af106b44343bbd13ccfd814567ae6f90bd908f1529e0"
+        ],
+        [
+          "398738d2528add4f4a49614ccd99c6142472035f5f74e314a5c9b5921f0bff48"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "ca90cddf36c91890ade2229d2afb3abf45c96f54acff3230025a3abfdbc7a08b"
+        ]
+      ],
+      "element_hashes": [
+        "bc0837d9d4a84add7ce88cbe8fd2fb3320f0c09373caa6ea316ff1e6d3ba488e",
+        "ba3510c5e00b393510213a05366270d020be826da3f4565ab8c70185877f4bde"
+      ],
+      "hash": "d953c5802ee42ccd248075cfd6a699719fce4fb2346d7e709e6ffc07dd937c9a",
+      "kind": "array",
+      "mistakes": {
+        "a8ef66834089fb9f22ed3eaae476fbef28976751ef22964b544a73e0a3e24d8e": "un intervalle à 95 % prend 1,96 erreur type de chaque côté, pas 1,645",
+        "fb46d49686a765e900280b4cdac44b1791f39151d2fba122be9e6ffcf247243b": "un intervalle à 95 % prend 1,96 erreur type de chaque côté"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.11d": {
+      "coarse_any": {
+        "2": [
+          "16edb5dee44c151932de7decad5cdfb8f4946d3e67ce61e0e6ef3942d854b548"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dcf678adb2591bdd17a50042f0ca58822d6003f566873cdf3b611d271b21a384",
+      "hash_coarse": "15b900d1b35893d4aa75e60c8dec65d571498d5a67c8781312f1df1a6b5d9662",
+      "kind": "float",
+      "magnitude": -2,
+      "mistakes": {
+        "56cd49ade56f0b2ca2ca43d22553dc6fca9500c3179ae1039147939aa07e216c": "seul le terme du laboratoire A est divisé par 4 : l'erreur type de l'écart n'est pas divisée par 2",
+        "fbd814f5ea6e3b7be9e5dd92236f3456cf0af3b7aee621531d8baa1f2b6c3ea1": "quadrupler l'effectif divise la variance de ce terme par 4, pas par 16"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.13a": {
+      "array_rounded": {
+        "1": "2af832f4738e5431fb74e88e127d954b05a1e6a47d8392b348e00343fa527197",
+        "2": "c1838e6f2a8311c1310b48cc7633433b7e296323f0ae54a660b6a5a737258eab",
+        "3": "9050b0c1062f56798a11f1f73d4b3d95b4e2f7544875642578868b09a618cb0f",
+        "4": "53b3c884016cf8ebf4ee7e6e0af68a9275c0341c1f73bb1d5727e529e2511fa1",
+        "5": "f792ae51c0dc9836c84393b690024221a3b2bee9d3757b836be51daea07f707d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "273b5d44f0d080e3093b7907c2d39ef8f4256204b5c8db4e0fbd444d928080a1"
+        ],
+        [
+          "eb58542075953fcbcf8c31c067146156dcc4b10f4661cdaac454ce44fbc38e0f"
+        ],
+        [
+          "478ec431803859f823d775234eb59f35cf333e424cda4fadc53d8c706e8ff583"
+        ],
+        [
+          "dd805475744dd8da3611eab1cb153178ca51b209f929875e6621c8bdb1423e0d"
+        ],
+        [
+          "831de16a214c47a6341de88e2bed36c633fc5b4ea98d363849e6dee31060bef9"
+        ],
+        [
+          "847d8d099a21ae135c2789af5bf99ae738f4b0344a5570a168b28eaf89ddbdda"
+        ],
+        [
+          "3acd6331e9dc7068145a721c663bd707aa7be7678fb16ba66d52e5eae27c0135"
+        ],
+        [
+          "80dcd0c812de84fd9fcdf28d28692b324fff7f5487b2b225b7cfc82e789acc3a"
+        ],
+        [
+          "3599bed92a9165f5fb276ab7fae6a2de820aaf40b4aed4acf056c78ca15277e6"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e5338ec9e800be19f738b3e2c1452fc5c71c6cd51c085e3800d0402735e40f00",
+          "ff34b8152310ffa2f3e8d6f6f54780e90f2549b8f9928025a69cc9cb48847e6e",
+          "b332a524cac4fa52114a0b4e0401b2186b0bb37911bc7730384954b91619d79a",
+          "1ac28e703d48c8ef86392e480804fe7e1721edb1a649258fe66e81d8578ed45e"
+        ],
+        [
+          "4a4b46b1ed8258fe6ddb65cf1840300926275e30d1da08790596087b1aac5e7a",
+          "91d672ce0ba7abe5920bbd3931ba8f1f101d7df13583a08b67d0ad4de4dfd7e7",
+          "2160d07ee5cf73df320e4b7154d74b62c9a6fbbcc160da3661ed0814339edfd0"
+        ],
+        [
+          "a464c505af08a6c084abd844306628826ce190505b229f9bdb80ed084454fc48",
+          "d9bcabf8ab90c2e20749b7f45839af6a4743742f5d14f88bc865b11f09027813"
+        ],
+        [
+          "86e81fdedeced8d18287035b590f487367d3ae2ee3dd0183a0ffbe85c3958768",
+          "5cd5d33d96e76b44e6287db34f47e205796b1dffcf0f1ec9335470999c9421ad"
+        ],
+        [
+          "baf1279daa28acf99b0f1c588aad49690d9c7af5d4879cba59c959be5fe449ad",
+          "08424f13209489bbcc4e00aa031c5175f93409aa7b8ead0514fbc1f69237dad8"
+        ],
+        [
+          "06a0340c22a3ad35e19d7f3c1b29cbfa00c94762a77c007fe873e6510afdfe77",
+          "4af4a4ad625273b5c19345c4cb64af27bd1dd927d012dbbfa808bf84c422675a"
+        ],
+        [
+          "facc50f90e33e5446fa5d9226d664adc25e5074198cd6558fdd00d080d891824",
+          "7ce45cc094ab0df0a6b256416e4664b99d5c8ab1df9126f925fd02ea4f2ccac2"
+        ],
+        [
+          "f6bbf0573a126eb00e0d8d536ca320341dad7eb85a5a7376eee1ecf99faf27a5",
+          "8240a07eae841cd783eb46988442c04e5d588d09c66f20ec0156feb86ea2f242",
+          "d9b51acf5e102648815ec683d3baa9080d3eb078612558798441043533e83ccf"
+        ],
+        [
+          "9daaa8d78a9975603e5b8d718b771a3e7321c662a3da0d75f539bc0776701cd1",
+          "80d49ccc2341978ffbacc389f9191c5e094576599f8b29b368c0c4d6a67cab7a",
+          "2e933ae2a1fac8a148076467b854ee9904730d4dffaace71eb8be443f9f6678d",
+          "f56a2a2c942473ee3bbe0a62a30e39e00c596e1eb0ba66805ede3a1a0cdfaf6c"
+        ]
+      ],
+      "element_hashes": [
+        "64cedd1cede71217c56425e110f5681667e51a904b8a3e3f4d0c8e0fbf75fb01",
+        "c233c7ce25100b5bbf48e4084d635b86833bd5263a058c3e6537e4cda56f64b6",
+        "3f61c3eee7e87a4f5fe20eac95ef1d8c64b0816ecfeee8d26935359db3d50c39",
+        "9d6f23bdb1657e9e927e2d9c5ff661510359ea52230f011ff223716691795f6a",
+        "1d4c5446c8b8229e0a653ed8ff41b34682a70bb8d2ede1bba7f60c2f7f1c87f3",
+        "f93e07d39933ff8bcaa3a201943550decf8abba5d86edfb7ee5762cf2060a88f",
+        "29c179957adcea3cc6434ce33d89148c442660f899c6076139840f5a30fa2556",
+        "e2c4095121f74b673dfe6a4dba44f4a8e869bf48f9bb9b52035cb56d92530f50",
+        "ca2ef9822de97fa1003c5208e4280ebe688126e8bbdb6a929c29b3d658b3023a"
+      ],
+      "hash": "b06c2afd8f432ef017254be766061b75625cdbea123bfc7e6c53b4eb6e2691ef",
+      "kind": "array",
+      "mistakes": {
+        "d8184be9a5a5674ed644dba0da058532ffb5f02fa3b5b5f772042516e557cf0c": "les poids divisent s! (n − 1 − s)! par n!, pas par (n − 1)! (relance les tests de coalition_weights)"
+      },
+      "shape": [
+        9
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.13b": {
+      "hash": "16d18c08916375aa3df0afdb5e2d4f4285bc0ba864f281836f7fb95e51b05f79",
+      "kind": "int",
+      "magnitude": 6,
+      "mistakes": {
+        "2f2ba691f3799c11c6a6edbd031206d6f4b5b6dd58eab9ee0bf4a0190b1d9ca2": "w(12) est le poids d'une coalition de 12 membres : l'élément 12 de la liste, comptée à partir de 0",
+        "6bbee836e362c7cd507ae4320d486e1927014c8c5908e72cb4a0407c1d6418ee": "le conseil du 🏆 a 25 membres : les poids de n = 25"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.14a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "46624ea1ea0d9acf0f2305da091639df143e1edb3d072c3c067d22d77d3c5409"
+        ],
+        [
+          "df1d157f2b4a439ce58a9c9fa09e90673eeedc3261ecaafdc4e832d9505f5134"
+        ],
+        [
+          "e2f2f52c4a5bb3bcf2cf2c661a66c2f995fbb2650022d542cf7ece771f4ba6a1"
+        ],
+        [
+          "b9d6ca88032436ad0aacb575f9bbe488d05d5be70aa8120b600e4df991bf864e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "12e3ba52b9bf552f7cfc106eda7903abeb0773237f9dcf93ba3ef4d95cec4601"
+        ],
+        [
+          "4eb1157f39e5b26e8355e07fdc41b3a2563e12ef240a002ec064c80607b59474"
+        ],
+        [
+          "2b57a88224b1f73e2deb16187023004b052b84a709114aec7f7dce66d2af1c8e"
+        ],
+        [
+          "7d016ac4239354a5b1100a827b18e976d5eccb7d5915482c9e8778a34870fc8f"
+        ]
+      ],
+      "element_hashes": [
+        "34f7a9eb714ca87022ddebb0acd5655b825981bce632790e4b1fcbd2339a460e",
+        "7fc0421b0bf0dd71da05a93a89f8028f592c86e7f8e5f2dac187dbc65beb330f",
+        "43239c0dbfe9d697765539438500feb88371a9aa26b695fbb9a6aab1123a3408",
+        "af92ed3fb3d63ee141a59362e6791b8ec6855cacc995daa89c270a9047b0a449"
+      ],
+      "hash": "bc915db415b74644ad0df2aec4c69f99bbddfa1362243b05f0b270b0a2b0da21",
+      "kind": "array",
+      "mistakes": {
+        "51db97c94f72d5ac5aaa232a414af14261750de5a184150f15787ac43f618ad5": "les besoins des hameaux sont cumulés (30, 51 et 68) : le coût d'une coalition est le besoin du plus éloigné, pas le prix d'un seul tronçon",
+        "95312758345bb305dbfc53875665dc4298d737bf15c649fa9bd3d54c23993823": "le coût d'une coalition est celui de son membre le plus éloigné (un max), pas la somme des besoins"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.14b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "6c825f154355a4cc7ff5155b68d52a63b2ec68553aca53254fbf2b77b23a96c4"
+        ],
+        [
+          "3d44bcb283e923a5b066420af5e144d9617db75e7661050db308cd5145bea173"
+        ],
+        [
+          "c1f6f188c14e5f804798600e070303190ab8127a6688b352fc5e1c18be14d1d1"
+        ],
+        [
+          "9ee1011b89ddf1174578aea34d2a38909f4e33d39114dd0642c72e9068e41a7b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "2ea5e127d55e92918758bccb9186e0180befde60073fa98e5221eb741a1c497d",
+          "90bfeafb6c183a8b7288cbda5694918c96fd611d07e0da84e6ebeef5da07afd0"
+        ],
+        [
+          "8efb3589defc252737edd6ab2b9fa732848d7125c59cf238034fa40b76f7148f"
+        ],
+        [
+          "3cec67a45f853a5bb08af29f5bec8939134afcd624ee36455f4e07c143d35e7e"
+        ],
+        [
+          "f9ea0e93663478a24e27da7fbfde149cfc98d154bc42f80d30fd0cfb477a1fe8"
+        ]
+      ],
+      "element_hashes": [
+        "b447e4865bf265646bfde5d1f070bcfa81082e968d95756bc55517ef1fced9c2",
+        "a3b39908aba0d7829cf305c106c468eaa7b73295af3722718dba779c8ffa0321",
+        "32af4336fda5a573f252f122b0259cbb143f39d97f56b8537b1628fd494913ab",
+        "e2361e7a20fced67e65e176dc82f1347e0ee88e9b388f667c160de46376fc3a2"
+      ],
+      "hash": "b4b71d7280a5ea1904d6a381fb695e143003367b93c94dd3b240719ce829cb22",
+      "kind": "array",
+      "mistakes": {
+        "5328b57ab6598c9633449137a7418b95608aa7417232e4d0b2440e4322f9ef84": "d_T se partage entre les |T| membres de T, pas entre les quatre maraîchers",
+        "a640bada6fae15ec09dc9ab6e88007b7b2ae867db08e4466f8ef764f5e200864": "chaque dividende se partage également entre les membres de T : divise d_T par |T|"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.14c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "2601a734d89a7863065f7546fb2947c16113397b7567728401ee65e18d57b02f"
+        ],
+        [
+          "77624676e75fe7d85c6b8ff6e46cba69b091ebf2ffb92d202ca1695924a81658"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7feb84317b2509ab458cd49e487fb1231401d67ef4d80711ebadd28998d96d31"
+        ],
+        [
+          "21f51fee0404a92b819792a9c27907c559015a888ca679b33e445ac21a4925ed"
+        ]
+      ],
+      "element_hashes": [
+        "ed044160e32a9245a446cba67e88a3658d55c215c80fec55603afb3608ebb6f0",
+        "0633e3730923b8f874203ed2c186dfe6576157f8922cce4c352392a0a26f1352"
+      ],
+      "hash": "ef0f26cd47e284eed9e1bfbf1745187736d1260dd65c62baf57af8f12a1500f4",
+      "kind": "array",
+      "mistakes": {
+        "1c4fe0d55845e0f1977b2691a90b130db8836a86523fc816d29fa531884a14e2": "l'ordre demandé : d_{1,2}, puis d_{0,1,3}",
+        "7e4aa72c38d8a1721c9adde3a1c45e0d2cd144c06ee2243154b831feb8870450": "d_T est la somme alternée sur toutes les parties de T : les trois paires de {0, 1, 3} comptent aussi, avec le signe −"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.14d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "4a013e473516f1df6fac5978480f710e96ebb73f6b0c514136d0ebbf8744dfa8"
+        ],
+        [
+          "3d56b639bce16721dd61f5202e6ffc1ddd076f95ed59594cf240325cac375014"
+        ],
+        [
+          "8594a56df93d31773dbcb58a72482d9c1e0d88112fafa49823d5c21ffb0b6e34"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "99883977e8cb94e5a68a863ef9a07c35f11f1873b96b0ed0f32801aab8dcf787"
+        ],
+        [
+          "51e13e50c762cd680bc762c40070f0d623d322abebe10cd362b323a6687f7937"
+        ],
+        [
+          "e285f1e112f4751ef435bb1bd0b753c9cba0f6776025b2c27934c9da672e33b4"
+        ]
+      ],
+      "element_hashes": [
+        "3837bd01e39ffa2c610748e1a7f905e7b235aedda9f969d1820a9193e3893066",
+        "601cc87072b0855f54c01c1a1bd015b53021204809485ee2872268459e246149",
+        "cbf146d465feef2e120fe987b74a860f7e971ab49b03aed6b2e723c27984cd82"
+      ],
+      "hash": "a33467efaa5a6c85c54a364db783698d1ac349c88d47a2034e129bf0691a0713",
+      "kind": "array",
+      "mistakes": {
+        "cbbe3889fc69a639a2768690fc2286cf11d976c19f4995186decfd4a9f11f9b6": "l'ordre demandé : d_{0,1}, d_{0,2}, puis d_{0,1,2}",
+        "fd3c8bd681f723b1ebe79716fbc81d6bf185e1d19bc4e0150f2a8e7a2c124700": "une motion passe dès que ses voix atteignent le quota (au moins 11), pas seulement quand elles le dépassent"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.15a": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d0c3716ae7b669043b702655228aa872bd24a9c4cbda1d35acf6a68064e3e06d"
+        ],
+        [
+          "4fcbec15e6db6c951e0ad80a9f8dbf77bc1ff5e297b221067fb1de984331df7a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3f51c86dc1fe76a26b6289f008febd1ac78378ba2dd2f5204339d744bc2ba8d7",
+          "63a54c36159ace98e56c9e1c4794b1d34f80929a0c8ab99e25f0fdf69a42116d",
+          "a29c9fdac2e6aeb13908a8e873e58dbd3d2959b1cf0cd897ca718a312aea521d",
+          "7d2589e617f7d7a53d43be9fd5089a632a378bc86503756857c291ed19ba3926",
+          "0936f3fe910465638f676c2a4aa279c7c0bd21a69847e35bdcc08f96db43f7d0"
+        ],
+        [
+          "8d56b31d0217ff24c3a9328280eb2f8f6fb3402fb09125dc6c7c52b2fce9c1fa",
+          "f49385d35fd1582aaf74567b50a8c6c6dc99d8a60555f96ebe803eb2882f9a4a",
+          "54658367333905bf952da02ea7fb86204f2c54cfdc2c7c8ddedf55bc4a8062a3",
+          "56f5f047abde5cec8a83b16e5dcd50b6e43205dbcc4b657a02e6063dbe5c720c",
+          "d2d9230105746a386d8926a8a5443ce8c3f7b355480f004fdd9fec395965d567"
+        ]
+      ],
+      "element_hashes": [
+        "46bdd7783be3b36471320b6b13fc393e777d50b78b9b379d8cf72ffbfbe95790",
+        "397e34e835a3e2f9911aa0a437fbb9b3b473899c4de0144344c42ec9281df488"
+      ],
+      "hash": "3fd8986e00785e36301ddcb8f21d76d0ca75d8d45c712f3080e4ed8e69ca5f94",
+      "kind": "array",
+      "mistakes": {
+        "5bba4b9ff4cbf2d48bf2867465b951a7db0dbfd27825db8ba4920e851e93e5bb": "le travail va de A vers B : les sommets dans l'ordre A, …, B"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.15b": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "112eff427337daf0a0447ca88a43ca33cc96b45e848bd8a7f854cb4b4f3b00ff"
+        ],
+        [
+          "eca9109402480c732020cde9286311c254f44ba5157821ab3d0fdac7a7355f9d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "19d5b2bf8b3fc3aba6760ad7220dcaac47c6df440829fad6e3bb0906a08c8844",
+          "0bbbadf39112afd4a47d6f00c77a60fff1d6ca0c20975660855196b45442bed9",
+          "9908151cdc42f9d39ed2c2408bcafce944274ce29a1cff97b43c9de397f09b7b",
+          "fe139c8f9e6af029530dfa536dacc9d0a00451339417296be0c4d3794a06d2f1",
+          "8fda1e3688182422d838e9400f57a28cbc1907c44028173e565de6401256da5d"
+        ],
+        [
+          "0f63a8504675e6c3cad7d9fb24f4d3097a0af3ba06c702b6d06d52cec020fcc3",
+          "51dc809ac1601a8e1a4c5d2dbfac0a006caf94fb926137770b2b1986fb00aa49",
+          "b064e46445aec665e9736a4d02c771b44283f27b21a730a7fc37d1bd660a58ca",
+          "338ad22cd3861d6d1b206a11a024bb5649946a3161e89f8e519bdbeb266cc24f",
+          "99f1eaafc8bd9caa38f8b23088d182e0e970473f59ebd69b1b9e90346264a64d"
+        ]
+      ],
+      "element_hashes": [
+        "037f820554021a130d65534fa3e4b43b5949cc39ec0786732cb2962f0a460920",
+        "ecbc93f5d8b0997a2a7f368ca181373cbf59883c8573f8b685d007173ca379a5"
+      ],
+      "hash": "f851317c0ae78bd55c2690291ad3459725ed8df8a4654577b7b04a18df0aa6cd",
+      "kind": "array",
+      "mistakes": {
+        "92765eff411836819c39a04c1bb00fe6dc1f002bdbdc5c47ff72366f6781fe3a": "le segment d'abord, l'escalier ensuite",
+        "e96d35e3f373ce6ad869e8ffdee95d8f033a35569fcd2e71898ea2832d5d2321": "l'escalier passe par le coin (2, 0) de FORCES_4"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.15c": {
+      "array_rounded": {
+        "1": "b75ca0c623b5eaebc028bb9d80468bf1ab373ceea571c75dac68c9610d63a27c",
+        "2": "385325993ab11c8e0be83f27096719259886fef3182f4084184c724053d1816a",
+        "3": "a49298266652979d24c48c69161f2c3c414ae9d5b288ce1d4cda2fe85b706884",
+        "4": "5bc71fd98009855a3323b7e137feb6c4a5dbab7a0c023bb98389d1f3c3f43d21",
+        "5": "c9ee478e37ed605e481f495b6f464dcb4c0d3f13a85023cce53c62000a20ab5d"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d2419b2d883bc7cbdac5599c310a3a5fb88390ade8063254de4a424c5ce95c9d"
+        ],
+        [
+          "912c4aa2e4448e9109f40044b382bc2b8db48e368acb2889630f23e30bfb34d9"
+        ],
+        [
+          "12bcac5e90f574cb0b64b83af306bf80aa74c3cf4c96c85ded91f14395222169"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "d6cc324ee78f0467c42bdcd3e3c960567e57160a08ec65711f7e0c69998466c5",
+          "40f262e06b90d348ef97b565f9b4caafd0fa8478b386cc3bd7c423fa3e1246c3",
+          "999eef32eb72e29a90a142fd8871598de89c5b886b6ff04bedb2103efb4b39c2",
+          "af3b79d090cc8090abbc437dd93c5e61b86b6cb93099eb4a49a94b2a490396e5",
+          "adc95630f7dfb4a6c2c2a9c7542a57246e353d6c3fb3b2c2133a8d8f9c0ab7d6"
+        ],
+        [
+          "cca45d6cda0f7d7cc6eea50eea7d75d3c8c8b3e18d8a04a5dea31c0ca887f01a",
+          "78822361cb34d46711062d74efbd67a847622ba600a244ba7d8960633d17be34",
+          "e8ab5afd7269e3a9f6d999911f3283ee20509a5de5d0b84529cfa80a3e8ae4ed",
+          "d4dae1129801e1fb5980ebe54ba2065b404aa64d482d970f62ac304417889def",
+          "d6f8f83dd1e4d98bcbc7015efcab8abee1b8a5a3f5545a6d7ce5077caf02e04b"
+        ],
+        [
+          "19dd6ee6496e3fec7b6a42b77b6688388a149ecfd088e6e97e238f51ccf2cbd7",
+          "1b7d3650a4bb019dbf764906354fbbecf1e16a13fb6b840e0fa4c393f7bfdb7c",
+          "48d5f3066cbb4961c17d71074fbf9583698eaeebdb5d8bc210877c3390c4b1bb",
+          "1e5625b117939643789aca08c6e21fbc6e6e811eaf57ff96854efe6350abfaaa",
+          "0d0fce05f345277a0aad613dae4c90a4d9c4e24c3ca54cee813f0aafde6c3e40"
+        ]
+      ],
+      "element_hashes": [
+        "59bb87494fe2ebcc11d96ef21e70e8cbc32127831d8f618a6e0a63d36911ffb5",
+        "ba12f9a11b99a6be151711cfa4b25990969c3bd8a693a6e86a6b676ca9a648fc",
+        "8adbda0e01b82df335c5ff8381dacf7208cd04c0e4f312354d712f6f491bfef5"
+      ],
+      "hash": "b450dde320e9ff76f74df142270825a1c03c45d096472515a9a60101f343406f",
+      "kind": "array",
+      "mistakes": {
+        "a89da732d08b23f8142c38d7f237659d1d0af3845fa7008830c77d2184fefde4": "les sommets de la ligne brisée sont sur l'arc (1 + t, t²), pas sur le segment",
+        "c2dbc91764655f1eb69af617d9d0b12b710d8c2029368dc7d288a2c8fdd2ee37": "c) intègre G, le champ qui n'est pas un gradient"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.15d": {
+      "array_rounded": {
+        "1": "25e64c78101ef88fca6919f805cc238f755872c59f38450bb738dff10d0c4743",
+        "2": "4861afa5d236dc90512a25dc6acfb103e8320e4951c5fcd10d46133ff9bef422",
+        "3": "6c90a229112561e399a674e10e6f093aa08682dbc767a7702442bd8e5d6cd22b",
+        "4": "76f48229b257e08d68b11065a1bc42788d60687a432c8a0274aa22a0a8fbf3a3",
+        "5": "f99688c5f287947eae1b7e2889a558a0b8ba5bca924ea4adc2f5859a78a7dfda"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "d88ffc03f20dfc5b0055692f38f15d3f70184030cb0abec1948b720625857a5c"
+        ],
+        [
+          "6b80a301575086c1d69f5b53763fa9e30ac7f269141dc2cc9aecd66d6fa545ef"
+        ],
+        [
+          "6c4e560ad6fb5de917b03863cbe52997845935a78ed31b5b392c139dbbfdaba1"
+        ],
+        [
+          "dda098fc435864dab18395cfbc8c6906c2366e5e3c385a2e023523a4bd48bac7"
+        ],
+        [
+          "750032a7a22bb2b04b8db0ff2bfed44ace56206c9dda4fc9a90594c1644fd304"
+        ],
+        [
+          "e32099bc478bb201da60a651c02ba96aba9e83744ea781b19ff27575929de385"
+        ],
+        [
+          "ecded5a91a6ddd735195c78d204e2710b726e9b1e7cd539c78c045a3c19ac679"
+        ],
+        [
+          "eff714f5542cb84ad62a7e02d025ef106b5f2fd37e47f50f153fb967f0e39beb"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "73c0639749f4be4859d84458c1f34032c2608d91750a59d6c42fd286bababc8a",
+          "d52274ca5303e8b155fe55792e0e81fff8357f3933aaf25eacdc08c46120ee61",
+          "45aa11b551ec7ecde0c0f516c93942161f71c26e731152c25b9278b8bf7ff9b4",
+          "bd997d8029f51dde448698f51f21ffb24641017fa77f470dd7ccefb1013863a4",
+          "e63e855d9abf6a8f5f9a8be6aaf44b8fc58c47695951e1c07d79ebf406c0502d"
+        ],
+        [
+          "61c1b5d5abc93ac35191ba9403d8ef4b9cc77e0a23de38a5ec2b61f12fd47dce",
+          "9c8a65f9f0be0caf89efce8af9a5de84d973b192dede69c73fa7bf1f8ce4547b",
+          "1a94f86c7c31a08888eeafbfe12c7520d448f1b3d01dd71f745294eaaf22c7eb",
+          "de10191140c1f514c1839b4a1202802efe8d2c1e088ffcc2c8be64bded4e8fc0",
+          "7cec84c69c99bff20df1e4fe49db41f506a722f9b21542e64ddab82910591071"
+        ],
+        [
+          "1d3dbc3c1469254a3fbd73f6cffa61df258b46761bb23d085496ca3698c04ea3",
+          "a228d74ea335e835497a1ef02fa9eae7301e6d77c20272b08fc5c3faa4fa7a66",
+          "c4374c0c18a06749287283d74f47606cde56de2c09c1f97e23cbd3de3a065889",
+          "a8c9759eb911e2da4557227a4af73529d9be669560515db16cab14be78cd1455",
+          "a0e034418c0076fcbb3798e8a722746ef5707165096a1d766c3087da7b85f429"
+        ],
+        [
+          "b7dd6418c9fc0fe16777a94baba668994c9c381ff5e40ee5b38116752d9e34a3",
+          "a840d8d63e2780e071e3121568b75d723b8d8f5234471f7e59da0b7e5a42e41f",
+          "912a61e4d7036852346f63415c3f35cabb2bf4cfb3c96fa26a343ddfc1ead9ef",
+          "5b7973c7c5d107323e1de08192b05a676c84a7fdd3ef758820f76bf95e0e0b64",
+          "e4a37a60c350ece5e9537cc2af87b89f967eef1b07e05ba8c1e21fdaec730364"
+        ],
+        [
+          "5fce8b426aca049f279f095dbf16b0b4ee1018b283b965eee0b589f4d11f8966",
+          "3b78178815953b954b5ba484cdada371fe4376665041226e19a96ed6078bbd7c",
+          "9769d2aa8f472ddc97b1a9685e9723ae6af799fd78e7e4a3f77443cd2fa1c3a7",
+          "5df4b2741c7d0ee5721226b06812ac598e3e12e0701fedda44726b74450fc0ff",
+          "0a35afacb7e480dd97aad269b074961454340ae92dcd2b68712abc74b19c29c0"
+        ],
+        [
+          "b0964b9c821d23b7cb411f2a1d51c419f7b8c9aa6b4ae242241782eda99a1dda",
+          "d3d522db8cd186957bbc98f63d3651c1772eeba42e643888bff8e92dd2273b87",
+          "a92b8b5a48940eba7cd1edf508b74ab72ff6cbd139191b69420ab0097fc92992",
+          "5647a5c40f786b04925b41827d8f4ca22edfb42a41ad1106a2b69f0c6eec0151",
+          "5df7ddd6ba0fc98aa7ed1960f516027ca6d4dfed3ac99f7958d008faf9aa7c5a"
+        ],
+        [
+          "90100070bf0bd85656640307c3ee776bb6416acca907ada0917b323b685e3833",
+          "d2072305ab494517caa1ebd600bae5d2352b502c5b632824bddab824cded9677",
+          "f15ca88da31bff39868137511d893ab8a1547e3705e072a14d128504df4f3c4b",
+          "e21a3dba05e9de5d9af94137dedaf96d36ddb02d325ff3dde84d3162efb5b686",
+          "e7990ef1a8e8190e49be1c0102bda6f9fe880bc553784750297c89558c60e37c"
+        ],
+        [
+          "90a6eaab9fc7c787ba0163bae2b4eb73e735cc97528f4060d65e66a8d062eb4a",
+          "81662d2e375902d22be15618233f4d0297eedc301c0d021f5714b9dbf029dc99",
+          "320db83de196ee6f3872c1a7892eeda5711803d07fd765c67b319089f26ded53",
+          "fe147e8f27efeaa54748c64d661da8b9190097df375cba5345ddbd5e445a65bd",
+          "64f23bc744d058baec00c79600e4b3add644436ea7c5a4e9a5193b13ae526d1d"
+        ]
+      ],
+      "element_hashes": [
+        "5ef3f1fadb4f5c9ec60ede1c8a279584fa0b32a32fe926bd6a33d8cae7b39926",
+        "720f67756ab7c5310eee9819d42334f34033a006b6b3a10742507c966ecefe71",
+        "ba124eafc80783f6ab587008b51e210748d11d09b011a4bf5b8add0088aeac0a",
+        "205f54581e4c007f9f56d7eff23f5ce8ed46fe78f066cd969a9cf280ce61cbd0",
+        "0f65b981bb2c5d2e9f0bfc5f429b35cfa94b449507025f73ee2d23338ca5735c",
+        "f972fe8e8c263127a40140fc5be6ec7b562085665b03c2904ff3c9951e8a35d0",
+        "480706b89ca2ad03f2ed2c6c00c05bc46f8fd8508047ed3b3373557b4ee662dd",
+        "e5a2fb00f84d46405685c24cf37b594a558e83c7fa6efd2ef4b44b932ffd39fe"
+      ],
+      "hash": "90f88b0b90eaa3df7a416c2022f1b958e5a91e8213ece58dbad99b743beba2dc",
+      "kind": "array",
+      "shape": [
+        8
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.15e": {
+      "array_rounded": {
+        "1": "0c3538216ab587e4ed5627ddea3643a51d41057ef76c66975aa3604746a7c45f",
+        "2": "e757c2b42008d081e22e9a17447bb80f3303e0dbd7dbe35ecd76dd5c15d26ecf",
+        "3": "3784c5bf67319890dd375be3e28d57316cf803735f90ddfa568b4b06a85c6501"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "95318dac36aece63b24404b596c4c7b652c59e64b9c794b67797760c9b50dc93"
+        ],
+        [
+          "da1f3f22299025efcc626f75b3692b24efb597f332db732f2babef6a8c77ccd5"
+        ],
+        [
+          "653b59dba3942f77181e85a5b4e82c4066e3e0d27dba747ff963dc090cfc88fd"
+        ],
+        [
+          "5201796143b794010b9941bf49693af23a97d9ade5673404abb39c6a6da0a45a"
+        ],
+        [
+          "b1ca254a777bf75aa5fc3b3eb91e86f848c39c93ece56ee0d3fba62ae64449c2"
+        ],
+        [
+          "b697f26c9c62fb1463b28f549474e77b8cbc850b77b7bccb62c30d436db55ae1"
+        ],
+        [
+          "d0feca735633a8092de7ab909d8bfd769916d659f7c214d61c75a9f51cd85d32"
+        ],
+        [
+          "bd4ea20f74909148d6a02e1a6e34c540f77fe1bb5a46926247e3734e1bd004a7"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4bfb53d8692aec9e0da948c7b8068d0c437e18dbcf91534c0333eb53480fee8c",
+          "5035202deec225f6829b95e8ba8fbc2d5461257b7eb2b9ab0dced7a576d64835",
+          "b0aa6687a8c42fc77d540140430f7c95f743dfa81abbbfbcd86d8b27b6435b44",
+          "d01eee237f3988aaf381067db6acf137de6c4bf95fd61e8580da0d3dd181d991",
+          "44103af55b8f14b26fd6433d47fb07b8abcde7c8bb442805dea9eca852941318"
+        ],
+        [
+          "0aecfcbd36a86c92046d6aa4877fb5236096f3369164a4c6b1262e673333c453",
+          "d811ec2297d0dd07dbd80b4caca25e8e166a12db8a3f01dcecdbb162df97c21c",
+          "2971c8bd8d5f35c31c5b60083c46b23bda3dfdf374afebcf6a7a2b8ce38bcad0",
+          "11237c3e5bd5be47aba0378f39613025087e7d40d5f55ae50c4b584c57fafbe2",
+          "ef8157f31b726e51cfd7742b1520b51871f14793a70a80ce19b5b7ae4a8df309"
+        ],
+        [
+          "9a887a33f255275ee27c0818f12661bac6f5ea4a8e57428dcc1c24fbb71cf225",
+          "e12122ec5fe636436705b12c51cd708006362727593a5d0701909c84a7242966",
+          "7a01804d9fb5d03ad9e9aabf3d9bb505779a3ca5bd85c2c4dd57867bb7bb18c0",
+          "c8eec0e2bc40025235b2f76e6a0f2640d4c8fd445ccbf9dc91a5042def1ee23b",
+          "22596216e23045de2ed261edff25c58feb48e2e5d62806659892d394f7dfc0f4"
+        ],
+        [
+          "30d2237dffbf3f18f96288978f9ad314688e403598697e243e37f9206005b318",
+          "3fe7b79368956b992e971ff5abde0c3e7f13442cdb728e6e6cca9ba2def33a0e",
+          "cd084366f0115fa57cc9bd3da1f89f9bef2a393c5b02b3079338fae4e28e5c13",
+          "f960a3c7f88ed6b189056e2922dc15326266684fba6c1e870fff6b3e1dbed7b5",
+          "d7a6f611427d6b1af9f1dbaa7b4e545be7c269957b2b9b0a7ffe3f1970eab39c"
+        ],
+        [
+          "fd3c1b28e2d417f2188c2a2dbc522251f77b7eccd727aa2f734c4c176fab0f93",
+          "c14b3efb0b99b53fd8726225acb8f8e4b686b0a5d4f08457c5aea12274455ef2",
+          "7b282fcfda21c280f5b243fe2da5497e00ec725f575b06d4c84c755b179aa45f",
+          "eef4d531f86b255eadd20f353323d24a78c1f1130fc95c48000d9d6a7e3eb366",
+          "00254fd5a1737e9373ee1c21035f331dab8db02a7d8d4f707d93e2e947d045cb"
+        ],
+        [
+          "0dabe070c65f07d51a984a7d10f658d1d83343d59db4b57ce00b5f7d6374e131",
+          "b4992c71b21121f701b04b237e629b789d2da01d8051dd4da938b079b6923b47",
+          "724acdc41231f9f52d0bf21d1f4dd60ff5348e66a6417eadf2d9d1d020ce207a",
+          "b564752584e2ead41b8013b3806c2ae92030bf2a7ec79e3dffde561a30c2e70d",
+          "f4a1bdeb935d22160a4dc0ef1aee7c04b2440a42a3f703858e9ad049e79374cd"
+        ],
+        [
+          "0913cad420b0948ae01d610a6317abc9b4f38585f38f122b288e1173745f0e19",
+          "d47ee8503fcb4780f9b3ca2d96eb9d54b4a0b1257e310a0514352edbf4d76557",
+          "c43c3fd3520c2d04869b924720d49701728c26743339c5f299e9ea7d860322ba",
+          "01b7002a7caed63940270757b75682f546da2d27a364e8d77ef5d64a820fd7e4",
+          "6da41d746aaa8a4bbd4b7e84b43793e92c2a2024e39201fdd1982274cbb5b081"
+        ],
+        [
+          "fd5bbbc4c91d31a50252b4f08b11d57ed473577800581e774c6849a1ead48d37",
+          "e2137e24baec0cdee71efaec7e157a718aac61c53bedc6e1d3c82d712e85c03e",
+          "9f51b349bb06466603acf5cfe10c7dd9141643bc4b6dd45d7d95826a271e4b4b",
+          "e25a0b56e4109cd1e7100ea381ee9f3e57fbbb5f40fff4b252bc83abe5f28328",
+          "b516e4c240fc03db2ed5cbee9f96876697714426713a606b7c8122ee12d96e2b"
+        ]
+      ],
+      "element_hashes": [
+        "9b8b1d728b08e17026c14e02b928803e88fb58652dc08647d0c56701802fed01",
+        "f98648a79ad54d8192aecfd47c5b25c190eeabee5e104c472adc86ec2354808b",
+        "61482da65794432074d0a41c1d354f09ea57dabf0f05ac3ccf392957992f7b6d",
+        "c2b14d9b371fbb562def34239437a7bfbdecbbc518e8b0b14e5b6bdc478fa2f4",
+        "2e54b15f6343abd135afc82f41601f70ddc4fd1af0ce5d409dcecc405bce652d",
+        "542d85dad9f21c72734c7af4540cc029e716ef5224060825c779ae00238f0e8b",
+        "56b20cb28f46593c040ef5fa73ef221d6869a5d69bf51a9772e4e15975423b82",
+        "df845728e50d37cd2d61f2f7ba516810eb7f92e750341680ec1f43434622a9c3"
+      ],
+      "hash": "aa3b54b2b9b9106f8223d7243f5ad4fe09c734f4d4a660089d16e5d8433d1823",
+      "kind": "array",
+      "shape": [
+        8
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.16a": {
+      "coarse_any": {
+        "0": [
+          "f09be6dc8b2359ea54c5f7c5b656093045ee25dffae997e1d637cfe00044e07c"
+        ],
+        "1": [
+          "ba4f4afec9a956438fff20960b0b0b64b638c1cb77128d051f426657f209404d"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "021ef0bc0262786491b5f05693d0737b561e041db4cc66fc6f2a084bafd0ed49"
+        ],
+        "3": [
+          "ba4ce85a31ff901e63e133c8cc96814964ef79761d41e908f4f4a8cb6f88916d"
+        ],
+        "4": [
+          "10d758a5ad9f8e8eaf9789dd08e062c33ac405ea7e733f7b9a09e3c6c7805b13"
+        ]
+      },
+      "decimals": 6,
+      "hash": "23ed20a93da78341c139f1464e958812cf92336ae6c52a7d8bfd11a7ca3bbf94",
+      "hash_coarse": "8581896147ada97a41de1124ceb16b194840c48a93ae7864fbb91c578b46d51d",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "0bcc92b54f7b2e5e0df2fa26c6386d94904cbeb3f66a11727ac8b7f3680caeb4": "les deux minéraux de dureté 3 sont ex aequo : chacun reçoit la moyenne de leurs places (relance les tests de spearman_rho)",
+        "d97a113dc14f74fdad7bb1a237cebc05bfe32afe8344de40e2f30b2bfb1f899c": "avec un ex aequo, 1 − 6Σd²/(n(n² − 1)) n'est qu'une approximation : ρ_S est la corrélation des rangs, calculée sur les rangs centrés"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.16b": {
+      "coarse_any": {
+        "0": [
+          "66520db77c6c5214e9c205d029e5666e0ea2bc04a32a3cbea1de523dc2dea969"
+        ],
+        "1": [
+          "61dee51f2b07bb8d3c21f02abfbb518f54bba5081995c811154231d30fa2e7f9"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "de091f009c1fecbe8b47f7cc057a40f2100819c478517be20eddbdad596fdf24"
+        ],
+        "3": [
+          "69e6e5116f7b1cacd154dba23e02bf389488a38e1eab03317a51ea05c1f83e47"
+        ],
+        "4": [
+          "823e08ece21cd0a9ade4b4e609896ada62ca6c39e174639c19e7bcd43e5877a1"
+        ]
+      },
+      "decimals": 6,
+      "hash": "5d8d31d4b62d68eeb57307146f4b355b2739c871ca284540d4c1b067444562c9",
+      "hash_coarse": "d417c0dfa54b0ab9e719e45295f45cf5ab4fc885ca01a72d491d1f8dbbf4bfed",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "427e85a0b554c0965668bc68a862cbcfc1470edeb0e73ca0d27c743d2c50ba17": "les deux minéraux de dureté 3 sont ex aequo : chacun reçoit la moyenne de leurs places (relance les tests de spearman_rho)",
+        "d0c31da68b17265fb55a0747a3535f5d5185898a8c71b0a35294a6a287d3686d": "avec un ex aequo, 1 − 6Σd²/(n(n² − 1)) n'est qu'une approximation : ρ_S est la corrélation des rangs, calculée sur les rangs centrés"
+      },
+      "sign": -1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.17a": {
+      "hash": "87a506de34d821a6f789c0e86f1c012d117f1d0eb0ac2064fb54d5d86ac1158e",
+      "kind": "str",
+      "mistakes": {
+        "192fcbc1b8ce1d7422cec044387401089e3c4912888e082edf1a94d58ac77084": "F est un gradient : que dit le théorème du gradient (fiche §4) pour un chemin qui revient à son point de départ ?",
+        "8cf49e7065826dcd372cbfdce0e641596d44fcc085fa637a0d1b5abeda87cf0a": "F est un gradient : que dit le théorème du gradient (fiche §4) pour un chemin qui revient à son point de départ ?"
+      },
+      "prediction": true,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.17b": {
+      "hash": "0a702f447624cdfc368747251ca830157fcb1c53db66fbd635e2cecc5f6766cd",
+      "kind": "str",
+      "mistakes": {
+        "5bbfb4995f0132c283c9074c456558a5e91f97041bb2a0b5a5e35f93afa2a39e": "R n'est pas un gradient (ses dérivées croisées diffèrent) : calcule R(a + t(b − a)) · (b − a) sur un côté du triangle, puis somme sur les trois côtés (fiche §4)",
+        "8033be73143edfe58b64321716be1843a2e2a5bf53e34704276e84c2e4ed6e41": "R n'est pas un gradient (ses dérivées croisées diffèrent) : calcule R(a + t(b − a)) · (b − a) sur un côté du triangle, puis somme sur les trois côtés (fiche §4)"
+      },
+      "prediction": true,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.17c": {
+      "hash": "57b42ae4621949e7054b7e482412d9c5fdae2485b6746b174cbfffbe3eaba7a7",
+      "kind": "str",
+      "mistakes": {
+        "28c00f85a540d7a2fd486be8cf79960bb3d0fc02c34fe5c9fe309129a7565849": "relis ce que la fiche §4 dit d'un chemin parcouru dans l'autre sens, pour un champ quelconque",
+        "c762ae96238b48174f549d1a95aaf0dc8c681ec714f94abad6065d44a4f81dc6": "relis ce que la fiche §4 dit d'un chemin parcouru dans l'autre sens, pour un champ quelconque"
+      },
+      "prediction": true,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.17d": {
+      "hash": "3619291bc432b5e96d67ffbf2c67a71b1f7c28d9f1c418f64587b0317a4adef5",
+      "kind": "str",
+      "mistakes": {
+        "bf5862bd0dd42d171a5a4f368df350d5ac5a91549a95eadb5b102123e98a9c78": "relis comment l'intégrale le long d'une ligne brisée se décompose sur ses segments (fiche §4)",
+        "d873b48cdcb5a0c4bb2c17fef8c69253b17d8830b1b727499f5599c3f96c0334": "relis comment l'intégrale le long d'une ligne brisée se décompose sur ses segments (fiche §4)"
+      },
+      "prediction": true,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.17e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "f49fc2bf60943445eb791db2bcedc436b54c545ec011b3c1d010545db6f65981"
+        ],
+        [
+          "b4d4dabb24ec35dc0d10461f6ed1d7756807fee8c2351bf9472c019bcca35763"
+        ],
+        [
+          "6ecfee753e29af97b4ae04eb4b48ac092b10a385e8159000fdd10d4c2df5d74a"
+        ],
+        [
+          "fa22d6a0460aa7c804b67c5bfa4d9a1ac4f9b7b9a58fcb74edc9fa431b6c21dc"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "469670acd74013f7683611a5fa90f7d8e210ebe4bc18b54a9ff5d20019eec03f",
+          "b73b0e16cda4d61ff3857b0b6c7dcf20ec51ab6853fbcaaeac94272666c9dfa5",
+          "07f783e7a8b31fb58c3a30c644a3a5b30d26f9aec56c1805d006d1a8ca1a3bbf",
+          "0dc895b7b942a0755ecc63508747ad82066697007e833ce35ab6309cbf020ddf",
+          "f120e913e2627de5dac1e1b85a66ebb0ae7542af052f19251ab0a47a3d8b0351"
+        ],
+        [
+          "03a36b0afdb896fe21a6aa025e24ae76e59f309ff64107d315615eb38a9db6bb",
+          "937e2e73a095d4bcda720e805b63c4056c75699300edf76d8bae3d4f7e41160e",
+          "dcf9134800563a53856225cc76443bffd751567a906d8f6b49ed173f1a9f93c1",
+          "2bfdad4d4219797217cd1676f25cf8894feebaab0e8d389c085016d0fd2e463b",
+          "8170b78fc994428c0037f263fe19d8ed264e42cabd7df0026fbad261a8ca52f0"
+        ],
+        [
+          "832fa9041d5a230fbadb2126e6708c81b6f0cd55f0518850fb39e1d07c1038a5",
+          "fe13dc387b07dd01091ab08fd22f0cffd31ba98ff46815b43a6b8af16c7d8fad",
+          "a43b9ee065047dc376ebf5ef34d60ed372b4d2e220b32d75b004d2c360f2d4af",
+          "dacee2a07db664c5befbf74a7f102b91ab8caa84e04a310d3897ec39b1b324a3",
+          "63e027137db9a83c930f89319dfe2c44d553d163e708cf066784c079f52b16ea"
+        ]
+      ],
+      "element_hashes": [
+        "49679deeb8ba122ad7df4e974180a08388403688c7d13dc1a6acf360ee6bb434",
+        "2222c1038138322dc7fc517cc21cdfc9da3c71434ef27ffe3dca05b08dcedd9f",
+        "2b74de209f330c6698a4b09abb189fa715b86a4dfe790c874a1d30988bf2da11",
+        "0bfd6ef45fb5f31ba55425ea17fa01c25baa398180c06ef77ce274976d17e6b6"
+      ],
+      "hash": "10d9af467d9de3123cc40d2ec353c2662b1f4b70646061f0fd7fcaa9e9be1a8c",
+      "kind": "array",
+      "mistakes": {
+        "43e7b44beeddba59f5534808762b6c1771eb9e121db4ce0b761619d23336abc7": "une boucle revient à son point de départ : chaque liste de sommets finit par A",
+        "f41de7c5d7ac606591068e1e2c5c12d6a78699d6ee32026388f9a6a23120c047": "le champ tournant est R(x, y) = (−y, x)"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.18a": {
+      "array_rounded": {
+        "1": "b3f9033a0e17b78763f108319c329ac3f3ba1d1c06fac5dc77727f11d017e6bb",
+        "2": "7066cd9d0252d3fa61be87e0dbfca18bbd6a614f6ea6bafce6e3b1362e0e9591",
+        "3": "03243e03d916d3a0bf626d25872153b32b3ddb9a949cd0f8e63aed834482ce0b",
+        "4": "648e6165ab1c1b0382b395309ab714bebc8ea5188d3c60de582bedb336f27c36",
+        "5": "40d0ed710bea803c3e186bf698b720dc7ffd68de0e23c62688c8c96047006ecd"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bfbf77b5e3d49b3433b8b0d838dde6af281b54a24b44f8b8b6633a38b5fba866"
+        ],
+        [
+          "b045ea235bb4b7dcc92f2ad80a759d9985dcd663e292d7dff2e49044f4b8c87a"
+        ],
+        [
+          "1c02ac280cc2652c98a94d25fa2c3eb9c45c2372c6e84e1912c8ac345124612c"
+        ],
+        [
+          "6a2a6707c5d86f6a916c8f10e20bb2b06d180d65be6f3cebd8a97f473a0c72c3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "290f7b2c1d6d0982d35647ac96a6700fcc7db5c484990f5ebbc6dca06299d5ea",
+          "7222f77933be77d7e1bf6ab798c155757914fb9840552af5a946a01c1c923a91",
+          "3e8fef0b9925e6005f6b8d989b69e25adffa39f202dce365dd96e29c84a451fd",
+          "07640d5e4d4e0ad988745b8de83711547310e4878b84e3eebbf30b3b4702d510",
+          "376069c14c616342c495ed736a735e1ec5c8041c2707cf6f10fb87693b7ddabd"
+        ],
+        [
+          "57a51896558077b9b158b669c2316a92b67cabd0427fcc0c8af07582a49f951c",
+          "1b5862b80680c5e5f3ec8293589f743a8224745286c7134e7a3d1f70d70c1e1f",
+          "d8d93df517c26f5f9b3f7cf5f48dc103109b8c404cc5f2a6ba3692a89d7df0f6",
+          "69e082d8af53f421e2ad087a5fff6b2d9bc449ea40a1db1e09aeb5b7b4ab523c",
+          "c052a536495b4bb36defb860ab7c654728d2a092138d55753188b73e3089821a"
+        ],
+        [
+          "5d0919d061c8b4eab9c43297e942786f5079a6e64d89b547f8fb60cf705593ab",
+          "687af4915d5c34353c8df8111ed41eecfd7f7a79d74024e4b65482cc02eb1ae6",
+          "4afbf9ca8093089792cc7c47400cd202581eb0df29a1b124790fd42a9f15ef5b",
+          "6cb2848b4b06fda327f3e0852902c38e7c5c1bfee8286b31eb0e62c3c89ddfd0",
+          "20750bca1ca645973a6f141cc4d7232a3b167516e2b10e598ca37b2470baf0ca"
+        ],
+        [
+          "f1cf6f3cef0d57b20f860a53d002a14996e08c02d01ac3cbc1be5085dbd03eaf",
+          "3116e47621e14e84d7c30156d049ca70fddda4e029ef80b22d369888e22d9ace",
+          "f1dcdaf24bd2afe91d846c64e7ec8efc8532a7a258a11747d489ee144f2f7214",
+          "ae1c41c9e073d460cb60d670809abe2773a5020b953853ba6c0f0686b5236032",
+          "08ce0b6d5595e26e7188f0d5f2b2a5687f2e616b7c027db190b03472ff3dae6f"
+        ]
+      ],
+      "element_hashes": [
+        "acba07dc2ec9daae4b600c74163f36e064190dc06a8d9beb5c93200f30e8be6d",
+        "1ef0b860ddb55877c506727fb313a21cadf78787bb1a92d832f425e7440cbf90",
+        "e8c5a442cf1bb5302d907761d822f8314e09b2b6b71c197f2652f94cc8041b18",
+        "b27d1b7f4519bc81d58f3297e23c95d76581722cced1a06b6a5499b3e6cb6782"
+      ],
+      "hash": "aef8c2adf40bcba760ef8f090fff65ad6141d2a7d5b8bf7b385661f277ec0bca",
+      "kind": "array",
+      "mistakes": {
+        "93463f02298527239d304c3ddf6f522c6775431b9e9514297eae09e0cf29e494": "E[e^{cZ}] = e^{cμ + c²σ²/2} : le terme de la variance est divisé par 2",
+        "ffff4ce8068d5867d210e712549f8dd3e1bc7a786870dc6ecad25493f2f59ddf": "sachant T = 26, U a la moyenne 70 + ρ (σ_U/σ_T)(26 − 22) : la pente est ρ σ_U/σ_T, pas ρ σ_T/σ_U"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.18b": {
+      "array_rounded": {
+        "1": "68046bd419350448c58e20943b7cf8ae33ee3c021314cd7bab15283e3b3e6b55",
+        "2": "072d6647ad78ce7e839384083ea01fdd7d72eae29bd5dbb031b1026e42dcaa48",
+        "3": "169a05106629e562bbd1fea40381370843e9ee565afb33a5120aa515e9d1b5c4",
+        "4": "005af1c6d827307fb8ff9789189a63f5b4a64f4c3ee4918dab50a5bcd952c951",
+        "5": "aedc6c856f04baa57bd6051f73a726fa4dedf668dc32a1eeef7ebd6a8a465487"
+      },
+      "decimals": 7,
+      "element_coarse": [
+        [
+          "333384b92f271fc56f490eaa01be215ac8be6041334379b9f8b48765267e25e1"
+        ],
+        [
+          "53a198c19d37f813f16a1f8acb3dab767dba4ee2ba20046abc5c746286ba6c35"
+        ],
+        [
+          "40f3489bc941789b4b2822af94e971dce21e7a0c6b0920906a2e08834592902f"
+        ],
+        [
+          "39226794e3058c0518c6a3c45561e610b57d04efd33ce6bd99b94af619d577c8"
+        ],
+        [
+          "5bc0b43a80570ec38de3605334a25fa79635fbe43eedefc3cb1eeaea6c00bad1"
+        ],
+        [
+          "baf2053aaa473749f5f4a01fee451653c102569c4588faf7e83b92206df4db7a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "59269b6863bcbddf8d5bd6790f7df1a45233624443066e136268f0dcf411f101",
+          "720e235b50f4e5560b92a00a5e09338483190a37810be4fc4b745be12dc07ef3",
+          "133075086e70ad9d14f8eeca5249c8aed187cbe1f74964c1ddd7f5c9aeedc764",
+          "5b1ec8b04710977c83e58f1a29b93525f1796cb1237d48254d10e1543f0990ba",
+          "ffcbf267cff11bfa7f2c7e7b9db2b74e65cf2a6178c89a438b3d3a8cd6635b8d",
+          "c3557d51f22b62a0060803d335148e6225fc4b81f3ed534a9291e6430c98e4b8"
+        ],
+        [
+          "4625aef4ed7582a71629550d3f5e7ff1fdd5a40d5439ef9c9cc30a0f7a721b86",
+          "5836f8878c17a3571e23ca02e5bb3e93791cf72917a32587410e477f58b15ba0",
+          "5d99bf9b9c0540513ca47db68bcf477e1d31a6308882117206b45d947f291f3c",
+          "973f905f3d5e3b72eadfcda047e3387ed1af4b31673676732a8d4f2e1e2a7ef5",
+          "9645f9dbd290b01173ee4e00a0dd123b3f23b0ff4a95b36cce6aa851b1dd7ce6",
+          "1fd680da430a2fed600f81a1b1d8f3ae76aebbfa2b5a7a9b78eba7da00ac4035"
+        ],
+        [
+          "31a149eefca50e1e9214e1e568d7f3e951072ca35f3f13765d72931572e367ea",
+          "cdffc1ba42ee1d0fb8d6324d74e7b775bb7eaee5d4228ad6951c824900befa1b",
+          "dbb7b59fabf459c28aac394557d2a2f18a463c2b7a8fb4e1a8e61bb5a66940d8",
+          "d94aaa13ef75ef5d80ee61eaf20f036bb9c0e5a85ceb462abbd3d5307b704f6b",
+          "8f5e6bfb2f702c08d55c1b170d330cbbcae54436d4aaf060a765efa3036d3bdd",
+          "d52c0a10e17c513add24f147956bd6ef59cad62a027a05a09a07b44b14bcff1e"
+        ],
+        [
+          "223f9ed3cf01bbe4df5cd4fdbc17b3a2f46b94b6232beb04a74ea8a584aea0c7",
+          "c50b40a95b2baa17ce433bc7f116c00733628686a7929d51c1f64a33f41f5477",
+          "e9a0bdb1399095f985c422aab67b44ba7e6811f8b8395c3dfa9dc24bcb740505",
+          "641a390cbaa6316c727440fcce8df7b3eba66e087b6258b09c3fc7371745cbc6",
+          "d2424102f6d3bc00b063c342576ff47412c071fde963cd3cee6836cf0f88dcf9",
+          "6161dfa69902ef80a5dc107cf1df455e007877165da1c73e7714c8f77a0b519e"
+        ],
+        [
+          "944070d477d872d0ddcd8f20d40368f83ff91e18f196ede68e0cbaf8ae03425c",
+          "bcc38fb76b75bcde8d629a0678d1891eaf07e8e05401da175cfc063714a0d39a",
+          "bf79a23d34352e9e47b7bb8c8ac1a887831119c2511b3edc569b8a2a0fa84691",
+          "3fd3dd17a19474fed28f26803507175b163b59a5fe4a7f371953d93b31c89113",
+          "e7ba93c7913f9dd182cdeb47abed22b9f9e8093eadeff452a3817e00dd9375d5",
+          "ab6ca890adfe6806eefcae7d54284386612e6a3410e1f34af82e57af955ec809"
+        ],
+        [
+          "91eac493e536c49458c37c4f6de35af69dec14a78c2f2daefaa9f74b7257155b",
+          "9232e15e7d15367f4f1356b286f8510a99aad4ba1842b47121fe75ed798f60e6",
+          "4b867daf5dedcf3b345afa322f62e7e84a42a3d9202ec2d0a10641c007dcb71a",
+          "bfd30b23c3950fc47b1864d9d6b5283fb14433cc0e145621665a293c6f955dd6",
+          "9bf383ff9b48c3a888cbca1e39962604dd702ced3f64f7e3293985baf26b5c95",
+          "4dc4fcc1d19648db97b72a4b1f63668351bc8521483adb0d13f1000b8b1fc5a0"
+        ]
+      ],
+      "element_hashes": [
+        "6a7c895462b3351a4b8e4f59974972d1086355340c6812681afa38b955ebf948",
+        "743f5e7ef3e24a996f4d506b279aba6b3b0e073072e6ddd93ecbac9691e68b82",
+        "280b6c8cc75e937904ea9820460625e508931e66c742b524a94afa4e00b41d76",
+        "ca6efaa1d6f6e68ab145363eefcf4487fe66bcce21185c7c25fa9650ca41122a",
+        "3c5cfd4e79eea468ca62d7effceb9be9f338f4857e269afdfa184739b8ead6e4",
+        "0c329966378d43ff46f8fccefb9bb9334c7f3c60c027b54c144556bb1b6493e2"
+      ],
+      "hash": "7adced6a827a3675b1d30eb1c787cd370fbdb85ad791d23933562e4b02857f98",
+      "kind": "array",
+      "mistakes": {
+        "244cd88ceeb62a1731df84ef48c52d828d5094d18c0d9a423c142c335a8fd3ac": "la moyenne conditionnelle se calcule sur les seuls points de la fenêtre |T − 26| ≤ 0,25",
+        "880a9075d3288a014917b1606d6e5028569bfb0981be354dd77305982124e95b": "la moyenne marginale fixe T à 26 dans f : la moyenne des f(26, U_i), sur tous les points"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.19a": {
+      "coarse_any": {
+        "0": [
+          "c830a4ab010b58a302ff2cef983a116588cf92e7159f92fb5d92c6a6dd83e543"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "e56027cbf166cffc5d42d936eda5874d2926d11208ac1347f21b7365d85479ae"
+        ],
+        "2": [
+          "1abd98c80c2dd9afb2c807502f618264901a071add8831faf66dff720b184ba0"
+        ]
+      },
+      "decimals": 4,
+      "hash": "befb5771eb0fd6d0081a71ef9bb256a2b171bfe2da3f46b1d56739185d8c43b3",
+      "hash_coarse": "f058d9c774cd732f9608fd304db77fdee136c3e4144b46288f888fdd23534205",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "9a8842194e1f2580f496926ad42cd5f256f5ddb306eaa0a88b48bbf7fb29721d": "le travail du gradient va de A vers B : f(B) − f(A), pas f(A) − f(B)"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.19b": {
+      "decimals": 1,
+      "element_hashes": [
+        "ed091aef73aa025c0e6a41afbdd42682ac4ede647c668c9453c5c56aa1e37d2a",
+        "7009b2a7135a009b0726aca984e058eb2a75e3a67d20ccfb5a49a29ccb81c574"
+      ],
+      "hash": "f0ce61c3731b297e0f15b7c3b57d5c97d33f6730cfcbf39f6c0ac85f704d12f2",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "22d64d35fd0d3e78641fae21e31fc4e5947d763339c2474cbefa4c4e5804ef1d"
+        ],
+        [
+          "3c28dfecb31ea276945bb37a1393ca8542c3e476d7b160f530a13b1137fd92c3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "08f4ebdcc37276403a41d36319c3acda479c107f05ce50dcce09505ccce71b93",
+          "776abc08e5ad3ebfd92d3014ef2dd445ed92381ba8eab8be3ad2569f6ff78f15",
+          "225ef5efb463adacb10aaae9edce070f0b28ddf32ca9c3489101d35bc5b2c188"
+        ],
+        [
+          "a6244cd0a16943830b24c99779f878ebab9eb499c475db658aff9f8c6fe02064",
+          "4ba1bac0ac729c05694f699d35c9b1cb5bc839456a13a0820d345cc3e019b6a7",
+          "f0421d25c4913db675eb7c0957351fdffa4e2621183c88895e759afde406d891"
+        ]
+      ],
+      "element_hashes": [
+        "ed532ca7ee2bd71e45cb48b03e139a48fbed71b5f173c8baba4b2ea27ebd2f70",
+        "ae16693a79c3d2d4c8f4d6f72be672388e3db9809dcd28d15dd490f067a689fd"
+      ],
+      "hash": "93231566b0e2c62d0fe4da05bf9ae667784c7a734cb245cfcc1658ee54efdfd2",
+      "kind": "array",
+      "mistakes": {
+        "17ec246fb19b8ea20c5ec39d0f8eb0ee6850547e96ca8aee77530b56fa5300d5": "le second nombre est celui de la version FAUSSE, weights_bad",
+        "b896505b3d0a064b620eb43e29fa883d4ec1e090d981233930c21feedea24a70": "la version corrigée d'abord, puis la version fautive",
+        "bf2304e02ade49c41bc17fd8bc832daf798b8ed03227db974d7cbb006a77f481": "weights_fixed divise encore par (n − 1)! : les poids de la valeur de Shapley divisent par n!"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ae7f1f5c7be730b68ff4d2d261660e663b1d4151c0075446d932ba4c22689173"
+        ],
+        [
+          "15f0846df109388769fbfd50829fe8160475cedbcf281bec205077c15c063807"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "49e9888408fc99abdf8dca33893eab51c101b3d73bd45c6039f3d2e44b200589",
+          "d6d4e83f9c083a0a647869399dbc1864f587bb636fc2257250f62881f30eb6a6",
+          "ba9477bec48a1526525db11ad04ecd0352d78c2de59119e24c62e61a60c326c1"
+        ],
+        [
+          "7a766f4b3c69d4c76e64db29ee9a75f688c67b86a69de5f811d2bbb7375033f2",
+          "8c1e0a01029b005efe2fbe6a3eb8bb384b11f5b84cd8017dbafdcd8955c5e3f1",
+          "fca87dadc10bef4e6a673bb0798d713234d6d93ee7fe66905d26d1e7c19451ad"
+        ]
+      ],
+      "element_hashes": [
+        "c9a7dbd0a8c60e2ce7bbc559b070bd80a6c6cdb307682dc4a1ff11bedb55e9c5",
+        "66b85821d344430138d39e8bf223676d8a2c09c83a29fd9df15f6b6e7ebe030e"
+      ],
+      "hash": "da48ec36df47a49d0fb666ecaa6811e7c6d7f21884d157bbf3ab81cb2e8da150",
+      "kind": "array",
+      "mistakes": {
+        "36d09a216dd0e984b1add5fbe3705b25ef492404b559b030287e104ec0d67278": "le second nombre est celui de la version FAUSSE, ranks_bad",
+        "3be83891f532d5c6b69c48774660e403db600e737bc45d64700fc21ce80b1809": "ranks_fixed donne encore aux ex aequo des rangs différents",
+        "8382ece728a94a7f4c95a5081dfc07f49d7940d3c37cc9fabc38050d74a71ba4": "les ex aequo reçoivent la moyenne de leurs places, pas la plus petite",
+        "b26933e322df0af8e3e4bc329a119b0dd3f2059985e0f892850e329f346d1268": "les ex aequo reçoivent la moyenne de leurs places, pas la plus grande",
+        "e9b442c83440302f18c72d05bab58e510f588a5c8c6967530280840184aeb0e0": "les ex aequo reçoivent la moyenne de leurs places : les rangs vont de 1 à n, sans se resserrer après un groupe d'ex aequo",
+        "f1b926c66c86598aa767fdd831717360f9e1d1589dff16fd60a9aead20e98b94": "la version corrigée d'abord, puis la version fautive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20c": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "89b2314602876fadf756ad3c032f94993e375372e8afd71dfabd9d21203028db"
+        ],
+        [
+          "404fe4f3cd3d68f36fecfcdd41d56877c397f9a82b2fbec75c9a5d2b34779746"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3ec1a4075680347d21192c2ccaf43a3771c79ee9f03eba282cfb196f20f14feb"
+        ],
+        [
+          "9c0ab43e502bf43ae81b8c03e385c888e24ee4e6f195d502706177f172ef08fd"
+        ]
+      ],
+      "element_hashes": [
+        "6007b2310b312469fb23b7caa2eaa5c72337ace4a67b60bbc2f5514ca21266a5",
+        "d967e45795919d111ec85f55801f94c0e9b1a64d9c1b85297d20d7d49c6f236d"
+      ],
+      "hash": "d78512d76647502c03a558253dd7eeec7dd2e38220fa2b687b9849e16eadafa9",
+      "kind": "array",
+      "mistakes": {
+        "47af6deb4656156632db959ba14a513377944e9fe68505495ac452f9932d86d5": "lerp_fixed rend encore (1 − t) b + t a",
+        "578c04fffde8d3346fb753fa7bdc7a6fcae5f046f603270b5a92a8c3445ed59c": "le second nombre est celui de la version FAUSSE, lerp_bad",
+        "7e0d0dfc191799555ff3a7dc997c6081fa0a5d39b99a4cff082275ab0aaab597": "la version corrigée d'abord, puis la version fautive"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20d": {
+      "array_rounded": {
+        "1": "ce5a2877443996dc5994545d88077345328f36abcc8533f07423d00359b0cfe2",
+        "2": "082c6a2af0ebd3d53e67d94674703e32e5522f7320990567ee252418b2f00912",
+        "3": "b5d38ecf2ec1b27149a31c7844817103951e4b0a6c0939023a6de8f4a4e65eeb",
+        "4": "bf5e6366aa405de552797c4a418dd50f300fb6bf0cdc18f5cb5aee48255f87f3",
+        "5": "de1f6fa4460b0d92eda64688638c3e051dd70f5f37879b28b02d926c33e6db97"
+      },
+      "decimals": 11,
+      "element_coarse": [
+        [
+          "0805ed6c44fe80906226d3dedcf279ef8b23d935eec9afd40290070d4d32d2f0"
+        ],
+        [
+          "644982df2b31cab38aa2917a56b1307b2d2150bd1353684f67ecb1b8a578998c"
+        ],
+        [
+          "f1578b2f28643769d345526f198e779c771fc92f054a306a835bde130f40c53e"
+        ],
+        [
+          "29aa80559cf985ba9f879263c03a7796be7f0f0ce1f78c2165c1c6a8e5a99f36"
+        ],
+        [
+          "bad6ba0797b443158a9c69a89dc451985fa762f06c66b30bdca6ddc7f55366ad"
+        ],
+        [
+          "1f816c226a86441416f3b2fab9df489a05cb94d4d4658d918c1bb1781f6e875a"
+        ],
+        [
+          "682b795f5246bb3ad704ec9b8c9a4f2ab9d2bb45f6bb54c251dc0162a89e991f"
+        ],
+        [
+          "91be34316fe1554da40b674a46c46e5b80d0d2ec37761827b407f54451cc86ff"
+        ],
+        [
+          "f24e7eb0b7f678ae47c0c8feb98720b3183a3a7ba80f78b87de187fc52d31184"
+        ],
+        [
+          "80b148c990f3019c1b379e1875de657d8d4d090593423863a1f1f5a247fdca8f"
+        ],
+        [
+          "3b134d22deec675c4e85007131cc14850d8e5c20e2604f34032d8e11064f53ec"
+        ],
+        [
+          "dd523c06a8efa14c420671e416d4709c06b40e1232b3205e673d1536d2cbbab5"
+        ],
+        [
+          "3d088808562284742fdf41d2ba3e8777dbd49a7a1ce764e92dea56a9be3d9593"
+        ],
+        [
+          "f8f0a127982e8c44f9e55f5ad984826e20dc5e7afcf74a6c9fc40c7ade178b01"
+        ],
+        [
+          "2d6f6af3529913446e9f37a45526ec9e82dcb79e62f4f90b0ab0fb48cc4551a8"
+        ],
+        [
+          "78b5012606c72a1f4056414dbe0c98686d74a06ecfef4b0bc1dde371a954ecde"
+        ],
+        [
+          "827d16e1fb639911568edca46629bb5a859af8cde265c63fc811eb4373f4f18f"
+        ],
+        [
+          "fd6056a056a2cee38dd66624bc57c6a3be04051f0d1935c0281a2bcd7ac33897"
+        ],
+        [
+          "b975b487f2f6715232611547b1e3cb9a98f65f2d700b77c1ccf125ee8058e2d4"
+        ],
+        [
+          "2de14157b957e8ff1803efe1c2f78772fb0e0493e17ea6c77fad0801d72fe121"
+        ],
+        [
+          "c0e49139589b617339040cec4f04a72a251d58363d06b776a40fc0d4775e0c99"
+        ],
+        [
+          "29083eb7f142ead75addc9e20ad3d584a28878b4dd5055f32138ad2f1be6bcaa"
+        ],
+        [
+          "10219b2b2d6656397dd860e336c72968c7832648a65d411dd02824221128312e"
+        ],
+        [
+          "cfa76c585489e15d96943c5966e76be3774bd76bd320097a4e9f962cd9e234a4"
+        ],
+        [
+          "f96e58f069ac26937e29132901ad43096c713393a4b8de0189b5e7c64cd5c16a"
+        ],
+        [
+          "737046349cd69ea1a63b52fdd214b86548ef0523bb713d9f5af59335f1ac8c41"
+        ],
+        [
+          "db7bc3fefce0f70d9d5e0322e530a00ab7b8e2dd738677d0111c73861aab0e12"
+        ],
+        [
+          "e32689c3a1b2d6cb8139c16b5b8089084b908a7d510f6b79db844d3a344d8107"
+        ],
+        [
+          "6ff8f585b9e7f85adb0db2f5b65b90cf86f87353790404b6a46d165e72c8f5a1"
+        ],
+        [
+          "ab0627466b5b9e95a24463b357e13c418600a5b526a27cd09fa0ad595d3a5ee9"
+        ],
+        [
+          "5b275a66027d510c83e12e8b31d76308eebb6a3aefc2c5682ab9b991529a7f1b"
+        ],
+        [
+          "e717e09d497392f22a1c04426f52e249a6a15aac1bc61a15f35433e1a0c7b8b4"
+        ],
+        [
+          "fc52abca2a170a2e9ef4f69895a7802d2085f048bafda18c4013a76924e54788"
+        ],
+        [
+          "c26e77a00c199514a7c59d36000cae7621cced831919dbcf2ac183acd24325cc"
+        ],
+        [
+          "bc5af8e25583eed87bde486679b112c30a84dc5c1f2680f06f1c735bba6c7884"
+        ],
+        [
+          "7ba961d2e61a21ab8805e264309ec1e39877d15166f1cdfa00ba7c467dccadb5"
+        ],
+        [
+          "7e971416635be3d2053e607354fdc4951ba20f6d3b2efd8ce663e7fb8ce113ab"
+        ],
+        [
+          "af76424612d879aba1ba8303d3b54fac0a64562a46f40ff8d6cd086884f0c968"
+        ],
+        [
+          "305e8d28d73ca486a2923bec1fb26d533da056a493b29340bae5acf9381630d5"
+        ],
+        [
+          "54274a26e4f29ad26532c7840350a5e67f276dd53da95b7dbe31b076ccac8683"
+        ],
+        [
+          "9a89ebcd7c14f39d88f47969087e433f6728086687a2079dc417ebeaa0ba1569"
+        ],
+        [
+          "3c8d6a930158eb045e2531d99fe5d96e366003318908adb9b4608067ee228b37"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "57aad396036e2c2bf945248d4c242049cfd9dd3a82a49a37f02485c5ae28386e",
+          "ca1a8fd7c1d8734c26c46a937f4cdb60926ff99b4b94874edf3925045435a6c0",
+          "00db8afc8e629d01cdf1359ee45cdab160c28abdc20b0c91f060111838a180e2",
+          "2475e5bb992fb95e7a978f4ed5f237452b6a640f045c6f9b993619f45ece1b4b",
+          "69773aedefe3232328ec5770e634aba0f0bf93e5062cde63c639e7e596d9fa1d",
+          "40b0f68265ffe4615d5cf64abcf85b88667335109c37f2756a5a943dc0da0824",
+          "4095e60b941c271a0c8c8edca8af43005e33bffff3ef15c3b4b2889655507fd2",
+          "6f5cc0549f5f5af1a47469d47f0a5cdb33876d76cd87d34bc76c93d3d60e0cf8",
+          "66b8f84e7c2f2ce387cb9172a8c39a0c325323c34443b9f2c83aa67ae413e230"
+        ],
+        [
+          "c176556663d34ed48a2e1334de56121d4b03ee6d4ca64f6d85296d8b1feb4dae",
+          "a33554d82b2edd63036eb979d91068562d0368c7c88a1a2caa161ebd52781add",
+          "38e2be42f7259e1e3bcffd711eaa623c836b66607946838b5ce1c762244537f7",
+          "e9ce10d6daf3c200147dad3d8472754934ce429e3a6b410da9c5b03499b22fde",
+          "a061d07c7a46ceb366cb2bf787345b3b298dd990842ca61f131b3bf582faeb27",
+          "ea7e1c7297c4f02508450f6fb53f857be6ba727c0276f9af86a50c7216bc4381",
+          "4ec801c7e4306ee112e339f8822c411ab31191b5554169eb5568e7896534af4b",
+          "fd53a457133d6c9bb5cfc21d2190977f5db470c34aab4f0d582f34c47b486df3"
+        ],
+        [
+          "94414ddb34c88aca107fdb3bd1ce39c3c04760afbd72711b7cb5065ac6147635",
+          "10d3a507182a7de82489933083925b2b73ad05a17748c4d6a81d6949c8041d31",
+          "a23254965d05efd8ed9c12b1f28630c9ceed0be1fbfb530ca68680ce2061b3c8",
+          "476059ef1785951c0d7fec83e51455ec7536b2fe89632c4731a1b3f2721eb462",
+          "fc30d66a4f60ab927a7e4582dbd1b13396de5303b183c0b7e9045bc7a40e1dfd",
+          "0a2afb25cc6a6cb15f53c0fcb502533f3e2f943cf047070194b97354fc47d225",
+          "5bf61f3b54f9cd22462454c8dacbffa472927be60e11e16ce42d72d699fc4576"
+        ],
+        [
+          "2ee68a42b9d907e5551dfa7592d6fb527da90b2f3944e8387f7958287b7aa813",
+          "8dba2734532ecbd87cc6e65fd2c0d195d8578c4e9a34b26c018bcd190bb2401a",
+          "26dd040d1927e7de7461c53a556085175fdb5ac804a5dc2ce384e2d795e45d92",
+          "6634acbf1c82d07071361fe8251563b6cf41ad2ebf951cf36be89a98f556a3c5",
+          "40cd7e516ad934851079e2c5000bee599b8ae3da890e2426273d24a0cb36255a",
+          "1e08f374216a481593e482a9ba2f3ab33d4a5af3dc22c0741e11983c0a8e1f07",
+          "f563241f81d488847ed8d4c462ecf8c3ca1dc77453f48141c55c29aea8becd7c"
+        ],
+        [
+          "8c6d4a934039a0ebc8d5b25c4b6aa3a1d840a6df7f8bb5be568a748ba41f645d",
+          "0d4e5f625eca658829702198e0bc3426ea30ffdc684308ec0b344162d5bc01b4",
+          "45cf8d3ad98081b6a7a1971ac49278d40ae4b5561f8ae057cfad78b5a1a670f2",
+          "1b7ee87b886549d70dc7bc4c0b3aa512ce5d77d48df65e46b558c5429a14ce5b",
+          "a96cf94c6c2d95d8d1fee4b6e76ed897c333b71ae88ce41e4b0c67cd6dba4722",
+          "b65cb0457922dcba51830b2a6e1079bb4fe28a89a99c336ade9cb94f65c7a0b5"
+        ],
+        [
+          "4b4694e5abbdb9d7aaa024130f3e30a0d4fa4e3b014f89e5fde2806dc87885cc",
+          "31e3c0592ca54aa692987c145b59191420f702e271de3fc5af6aa938751f330e",
+          "7716dd4237defbeb1220efb9d3787ab00fba0fcade9828f2e8583acbc72eb2eb",
+          "160abcb15f9e1eef7724f9c9b57c7e36ca5b4cc08ea98f3ccbec6868809ca154",
+          "8f7675c40ad6b2cf01207b5bb1ecb01bcc8510163f4d7dca1ee7dd292130c016",
+          "40600b04cf071c1b683f0894bebcfa6d2ce8b9084a9fa58ee63c8fd9c3456caa"
+        ],
+        [
+          "eca0518a03a2c04696125109992c665f7e807e70f05cc90949140276b3a54873",
+          "34bd41c838f2e38cc80053ed00a625025869851598d4cd0014aa74231b37b44d",
+          "f1c6373a62beeb039415105bc70a826cc4dd4c066ca1dc9cd5663d301a27af6d",
+          "5266668d1ca9426c8a143f136404cdea0f21b61935307633ef78ca7670464593",
+          "d61222bde9f843e5f4db4187219ec917fbe5cf94bfa1cd7c291935569e49a520",
+          "dd28d2f21383e1d5ce5906bb96625f4558465a21f6a8accb9813ca36d46755d4"
+        ],
+        [
+          "3a648d7672ed6d24c404e92ed4a0406090768c8ab9dad94f7d793484adf848a8",
+          "df9bfb72fd032c7a682d9567c06406cb10464df4dfd6242cd0680c69c34c6975",
+          "dfb858c4ecce1a2569bc5cc1b3b94d72322b9995563da74f36a30765f24bb5dd",
+          "5688f813ccecb5eba65cb3e00883cf06fb2069f881f5862c362241c60739c0c4",
+          "3c184ce8003911798127e1a3a133be7adfa0f3dc8d84401cfcf32806fc898b59",
+          "57c6e21897cb2bef4aa6f7d955fb374466361872bc6b2337397355ac330a5786",
+          "e1f4b6d3f0b2f8fad2829ae2fc7eecccde61e7256b9a929c76c6a680e4f23a6d"
+        ],
+        [
+          "ab1384671e3cddc3e0afa1beb4534b72b891962ddcd52088b67da4a0cf1882b5",
+          "c17e8e24a57b1a438f9c1b5f147786955fefb27d44a6be534138e8da8017a88d",
+          "6e09b3c56cf681c878ee87dfb6344fbe24eb7b8cf6bafc67c1734e37b16c9f8c",
+          "7a377d87e4b13ed7eaf85b96b810aa391cb0eb1f61ea2e5d9f612c81d9c20de6",
+          "6416c9ceb1dc395adc7e5f6d9b6ac3453333362c23f023bc635f9f15244f6956",
+          "1d73d61c9b1c08b301a76688d1fe6f6a02fd188f2aac9ae0276a6020484c044e",
+          "ba41433ca784774924a81a8efc16a852a5396d9cd064ada1cd33ddd4db510c89"
+        ],
+        [
+          "fa8bb17b0de0047de0cc6417a27064e3c16ef23cc765122b8bfb875f5cdf4aeb",
+          "0ce3c7929f9418d7a5cb1ece4f59a21dd2526a8bc82a2ad57742257e6384b4b2",
+          "8170a5e940eb5d39c4639658ded2fd3388c1ae9389c4a907c6050f1d8b4d22d7",
+          "376fbfe73ce94cc7c07843a3f969e451986c4b4babffb8e07b45aabe25d2b0cb",
+          "2667813cd40cddca9614ef1621841bd02ebbacffed81b80b9597d204763571e8",
+          "3291951dcb1cd1ec2d16bd7e85b0e598c5e22209cba26785e0a8235de815c35f",
+          "b9ddde8a57fd31d6bd9320283b6cbae8c2addea05036c447a9293bc355994468",
+          "fb68f6e07779aeaed76b061a331dfe6e01896394bdbf8c2ab36f28e0d99143e4"
+        ],
+        [
+          "8e2ea20bdaf1d699c4db807111a2267c0312042de76572232a19d91f0ec3a51c",
+          "ec4be5dcc9b5084d3d7c9d1e3921c0a3394b33e1a8e1ac143f2578483de08636",
+          "4d859cf7fcabd504445932cf3c4274a15feecc3e7f11e42c026200956feb8b0c",
+          "c8ffc3eea95e4ed86b0945ee1d0ae3bf966cb60ff0084311b7a5e505221d6b74",
+          "fdaaf73b3fab4be2265975d1a40a32de00bf626e8fab17799fcd7c674bfe67ec",
+          "752b1ea4eaa44729c364bc2165db46c4de217a91c163e509eeed3b6cc23ff564",
+          "62718b4c7cbb7a0826a904db3aa8f97cd73dfa4a621a035a5346838548ec231b",
+          "3994d8dd7d5ab9c73deb51c4a054997b661028929832bc2eff6385d4b72d7fa5",
+          "003ae90e149d4f3c5d3e1f23b36cb9dec456a96f98bce472fd944502146a4772"
+        ],
+        [
+          "41444885a7f5dcaabfe3e4ae947e52d5deaf56fcf8d8c6aed6f9b54d96ced434",
+          "4be7829cc1b68d65e69a5f03bbb178272d0ef5b4fd618b05ece64b11b1cf2628",
+          "4a9d322ed816ad4cb6aef294fcaeb61bf32cd0f07bd4d34834e1f7bf32a8f991",
+          "cfd76d466e3862a8c360244839c7aaef30eeda78ea8b98bcb46a5aa0fc15f804",
+          "3b0fe4c8b03929e9ae774cf7dc34b04218e117c2ef5f6605d653aa023e66b11d",
+          "f8b951a70c99a94f892113711f2510d0b64a4bc5644e0f03cb12212e2231928f",
+          "0054b276b6e84d82919fb31585ffc6c2f8c34c25e22163075e9a3f2e17384960",
+          "1a2e5fc328cc9b277f9b2a060faeac2c4156a4c01cf445b9fad10e5b8b536467",
+          "9ba88410b988471c02436d256780cbec1aa4f9b82c63c191680529ac1a1eb1ef"
+        ],
+        [
+          "1c09b65854dc2a4fcd2eb4147b8c0b6c63b58fc190ac934637e0f3c29211462a",
+          "2291c597c2d73fdb58f7598acc06546d295d90d5efe40df61bf255b9d38768c0",
+          "5af24417e62c28db1f679eac77be94191109fac33b13307f13472ff76e17dc16",
+          "4b2b706f257b2a6bbe03dbac07085616266ad9ff98289291b224d22046e2fc7b",
+          "dfe404543d883436910d048cd3cf5fdda5c2fd4ea82552a644cb2cf431e5632b",
+          "06a49e71b22ef4cfb64ccb90bf1c0a2b786fd5cc92b55bca693ce8ccdc7ba851",
+          "7726c35ecadb54b4d0c3b4611eaa30cc96d0e4f041939cf6647dbcb636e51f7f",
+          "29673384c92d8a9ae28ba204db9b453e0f62c1249cf5bad64e3637917ab547ed"
+        ],
+        [
+          "3f95be137c5762c67a184009ba19edaeb6e8748b69ce2cba5f9c36298bf4c0b9",
+          "5eef75bc93d43dfc02a972b072c6baca5119c560309fe6ef7b8c6947245ace1f",
+          "754d2e56098000d3bc947f78902671ca0191b8d96edef9c6761967a1e2a3c4b5",
+          "91aed628df60cc59d6f9abbb2cd542682e5a54d0b3637462dd8fd4d7ea23a9ae",
+          "9603795ffb07db5b46002045105315525094b3d0e1b5d2ee9b24ed5514483716",
+          "53e032d61f84bed7f6f01842b869b4be4a7eb41279d621738381c4f4cbeec449",
+          "15ea64dc6dfd8d52885cce22347d2ec7e5342c115f8c90c80715994428078f73"
+        ],
+        [
+          "1b85ca53683a8a6e3c230efe91a7e9b1efa5dcac1c5f5229527b750420d205f7",
+          "4a57965b316cb9d87137bff2be58862b7a9f27b0fc8c88e3d182d95c55132071",
+          "4730a1b854072965ba4abed8b3a4c8d6af4b47ed5d8ce718e402645a9eb4ea1f",
+          "3d9b77fe0c747e4aa09ecd5c385148807b327a6cc3932c48a35d935906182776",
+          "049872c035ea35622e2218adfd9ad0011104f9e74827aee8f6433d5c02b94b8b",
+          "c916b66a910d5941eae5c3f46490ef4307d29335d1f92f142804328feeba5529"
+        ],
+        [
+          "5a3512c18d00c0759aa7b090e53c3e1f31e20d644c667283acad295d87ed17b2",
+          "3694b254e1425ce22e067e19fe478163fb31a5746c2ff61bf70b6458b82b8437",
+          "611c748a6b801cbdb4b73aeaf592a494c60747c7d5c8127508aa19fca180a242",
+          "5992507080727cc1f8e6186b6d5b721d0e961df71071804c01f6ec8c1056e07e",
+          "bf1e671e13a4e05afc329fcb93e058a42b13c27907362351c9204d865f9f0821",
+          "0d3a08d760524842f107c95d4a9f6bb488e01e3ce56f54a9e323d9fe445e1980"
+        ],
+        [
+          "77a9dc4daca77b16350ac685d2859c266ebfc7f7c2986c5eb79c4a0024714e5f",
+          "ce8b8a6cab656118d6ce5859f3746ea8732e75025b2211d881d05fc7909b585e",
+          "2df41672da1bbc9eaa44ec8ba23caea229214b7f86c770015b04e6bfe94da5d4",
+          "d1a543f3d76a2d3f11d13360a0801af887cffe2b64825de76c5c2dee21fed63e",
+          "c99f16e5ea070eabdc20c0c66f87a956b1d580ccd78ab8fabbac4f1571c34f2b",
+          "6129ed487fc213065464ef92acefc04c316c947e76db222faf9d4aab62f3e960"
+        ],
+        [
+          "8249af5f9609e49c6e2c2b4b67c4f38f53f549c5f46aa750aa77bfc3320e8321",
+          "edff8657013765713adbf63f6a5d8cea64e09086e4db40752e0eb3af01ae67c4",
+          "f86725323529fa0d163c78dc69e0ad68b6b155dcf69e8750b2316536ceb5deec",
+          "7794ef2394feca26087e0de4306215da546a760134b71a196a3ee17bee79d646",
+          "8c511e27060504ad7f7a2c62b30239ef278f0734765c139acdf979476c4bd34d"
+        ],
+        [
+          "288a0a267f8b5f6dec567a811d23233527d04d11df45903c57b59d3f60932428",
+          "ff5a05c36ebb44cf1f994a421e86d240a067b2f2a62ed9a544bbf9bc31aaad04",
+          "93702514d6d57e0f1acac1dd568837ebf5f113ba2b6257eec55979dc1aa882f8",
+          "53a3843990ae963e9ee37cb7ec04316cd4b6edebd95a15b09fa056cdf282c973",
+          "8c268d421f6846ff82a6aedcb10db0cf60aaddb737ea83756fa146e0d4ba4f33"
+        ],
+        [
+          "9e97922d90f2aaa483db10cdeb2db4085e1ac54e1d64219a3f9d5f6acec86441",
+          "cf0c46de3af56a56b3e3cd32a45a8bf184e2a33ffdcdf5dc2024f36a5cf062dc",
+          "e8fab0a7c3761265726ad64e59e9b743a102210e66c2a776b6ba13fa59cba829",
+          "00942f8d52be291891f948f95c83112a75c954620cb312d97caf66ac200557d3",
+          "b2ce48b4af7ceef6e88a8117e3deb2da7bf158c443fea3940d0e32687d7119b0",
+          "4d29955072cb4b159f8539db5fec1a3b2e0784aaa8022ab93d2792d47d443cf2"
+        ],
+        [
+          "c1866e919630211cf7a3f90a642c67b2d51f2002f5c95de3cd2e2541f9458360",
+          "e72cd08a4073c1eb401d4e64cb95b91648cfcd74455c8fbcdb373d876beb20e7",
+          "6715ea4d8188214f81bee3dee6667da15788ba95b210a8c1f3f470ef8ad86481",
+          "9e1e9e34b5bc0b608c2f106419d818a85acbd47f485046b6e60a5733c31fb767",
+          "b6bf09d15f977ff0552b77c7d3ab3883a4efa5d26155885bbf896cfacd991647",
+          "be553a010ef8db98258f5bc132400b1f032f9971552b0e12c69fcfcc1b7f00d9"
+        ],
+        [
+          "75b52c340f6d5939c2d774c38e4fb700b95000dc815a6cc148d1575334d31001",
+          "a25906a6e3820df7d3507086798689474ffa9a76b90cbad3d51663c88a8742f7",
+          "57547d2717882cd74375e4121d16ec3d43acd830cd80aa8576788f778e87b33d",
+          "aad85e2e2d5456ce53ef6e63f7e15442051bb61ae91da52c61d17ca5e3744476",
+          "b0e29bd0be42be3c8d22d8d1242b5e769c8bc0926c9c3cd78dba5ee00030e282",
+          "31ae482188282354ac9c70cbf875f6b9f78aa0d4f942a12fb9c8826bd65acbcc"
+        ],
+        [
+          "d1dfd345537ae7e814a6e83deb26f68104c8e8028fde95c17bd11ee5588317c0",
+          "4b74038346cd87ed5faeadfee60d50d730a8c305ef8b2288806e35e135688974",
+          "13f65f955d4d4fa3cc2b738c9048aa9bd921cab2f23ad6347ef01b4967598dc7",
+          "d61092d9a864c435320119422295888dde722290f3d6e70adb6ac9ee5d06efab",
+          "40fd1f46fae28f4eacfc43bfef1dd3f77e0db511d5c2eae58ce744ad90dc33be",
+          "846a45829189c30fcdbb9817f1957679c7cf258ab1e592a42f3daa50238157e1",
+          "44cb5823e030c70a4cad44c25202811fd2ac0bfc64f6530794a454ff025c6aea"
+        ],
+        [
+          "a0c92f739118e7ec51c7833ce99e5c00e3c4a3d32d184ab16b82a9e035a6ed0e",
+          "ebe330f5c1764b8048fe90ee570c786a3c94a9a5809064cd8fd9b4bb3fd5c55f",
+          "0b542bccc498b2420ddd72fa2c19aee3d16710e926c851d03ec1084cfa0e6ccf",
+          "3c190be84353ceb9254c4e9eccf31587f6fd661206e234be27abe5352309fa3c",
+          "3ca73955fe524c9c57934fe772c22c0ae124c097b6b002ef8aa145254194629d",
+          "63da3d350dc396841e95ce358fb55c0dd5c15d115a2637382995788ee51c4765",
+          "c7a260e94a690af4d15ebd7385a890be59b25aca2354cd8312a48d609ff8fa35",
+          "b8edd10fcb259de5e220f2f5ad1668de5e8a40a296beb2bf367d5f6d2dc24626"
+        ],
+        [
+          "af6ca4324081df146e949bf5e94e94755acec39cc33658de965221dcf09300c9",
+          "c53e835d34b376b91ab583693db8c58ccd2f63534741866a79d8c990c301c868",
+          "480c7516b0068143a79e738c9cf0744fce742944aa6fa265a50a2e30e21f1c1f",
+          "29a12bde68110701bf44da2732558e709f94737044571ed49e66f1987e8d28d7",
+          "2b4f4fa2d2db59fe9c3447974dd1fe64e29cafe821344a7cbeb415d1e0f32970",
+          "74822c09e82ed6dab9194c0939b82e3722d3e1a39767882ccebba43f7801d606",
+          "2f7bc2ab54d3175aa2d0158f5d08bb63f14d42873738bf32bd5c9a39b2f8b563",
+          "1d74e2b9519bbd19c2334c676f7c99b29eed51ed1a5f5f98813b641487288b46",
+          "4c0472d4637df71114c0b4269f654a9ff355adf13759f845b93fea98c8d1e2c1"
+        ],
+        [
+          "c6cac247bf4ffeed80d6105dd0e3c1b22a211c834e7a5ea5102a6bb9e9a3791f",
+          "2cbb85280564a9c81a30a777fbcb8ac8f640c40821b5c466b56c4ee68f7765f8",
+          "77ea759f8a1dba7353ffef9d41b34d7bbc96286a0e88e73642658ef3a592ab4c",
+          "5339a63b0a546214086bae1af34183f9ee158e728046bfa39d919b2ba8f65042",
+          "e8676e862ae8c9b50fbff1d02892c3f227296e67b28fe88cd9f57d61769c8d53",
+          "41328829d4b6cfb09e508e1fc6529616d9f9643ed2d57d98f31e7296117ae627",
+          "4bf530ed3538dc223dfab4306a4b45af321c0e422f567c802acdb18a40ddca35",
+          "22579a42fc4f7c618c3eeee932b0212f0729e25e7690d705adaf837b30cfeef4",
+          "b0141cccbd08481f8050b4b8acd0164bea3e05e7926caf283acf1e9e94e6656b"
+        ],
+        [
+          "520f24b7e45ee739378333709c7bd5df649795765194032c92b0bf7b7012a3cf",
+          "1881835bc071b29ed0c4d4e6b5126124aaa79620ccb9a198e0277565b4ad4ff8",
+          "55aab704e9b5612223bc46f290183a041b317a54361d972129fb142b17105143",
+          "72fb8b2b6506546c7142d3113809c22ee394e51b0c74a1483394dee00076a76b",
+          "17799c364349979b5e83cb9d5788000f2bdc4a208558d394a0e1bbf544d4fda1",
+          "1981344562436118bf235a825ec40b5559695e81a69f36fc5a4bbf0b1b97136c",
+          "1c006b07c33b76581639ed87e045b466722d92a328d5f53f7e0c3443b343f1db"
+        ],
+        [
+          "34e6bd91d6bc0e9c2536e27f9eb3f81adb27826bbdb99a0c0f8a32ce52684b84",
+          "a163a8ba01402025cb7fae101f80f243a303294e0d43bc806ec3866c3338b0e3",
+          "5743e0e737caf57420194157d08d7d14a86fc4561ad1109069671746c9f6d7c7",
+          "1de861174f7a28d37ccf6c0e3a9f298aa6aa25a21b2027349604e6e0198655b5",
+          "7abfd148f1f6d81585778a48c1a156ea00fcc277c23f6ccadfe0ed1f586d79d3",
+          "324da533c3df902fb19279637a52570aeddf4096194abf7d9fbeb437054a3e66"
+        ],
+        [
+          "4401ba01f6ce7bb201711f41f4a485d0481db59d5b9243e85ea4d60c5ddf03f8",
+          "0b04bf1731ff8837b6690b6b89cd2b41abfc0aed1cdeccc4b0350c237e862227",
+          "c6188034bc6271bca7fbc9804f7299c4a147a3ec88a6206e0f2b617a85a135bf",
+          "1a223f7dc4ab6b4a2c2d4b1ba9d26fcd8fb9784765e019aa7e316dbf63c6d49c",
+          "031fb14bcb181ed2a365d43cec7140f2b990d3551326c7dc94ed1f1b96887e55",
+          "a669fc9599eb0236b3929b47f74768c8166dc157b9d115a65b01ca3a03777255"
+        ],
+        [
+          "be63311b9c8d2a2bec3ac9a2bc8b973bf90c622a3cb3dd1dcdb8c8e077dd7174",
+          "6b93e04f95d11afc1d0349cedc42198c4dd2eec1b4c55edc2522f90afabb4150",
+          "50474072befd6f0a446f34ea5d7ce306a56bc45f30a693ede2b950fdc9c75429",
+          "ab7e88a9617d7af4b15e4273ccfdad3029634320fceffe6af0ba1197183ca235",
+          "96db673d973ba843b215110fc0226059ebd16f4db55a31338a8908a3dbc2dff0"
+        ],
+        [
+          "50277253ec33ef5b585f2ffe97ff8a3c55467b1b55ddeb80c10d4635ee583a6b",
+          "0a9f83ae434f5ac069c240177ff421dd0e2690506f08346ba7a4cfd8ba88e74e",
+          "912c6a945fa4e79424bf0b244641ffe1cbd3f8ebcc9773782af0e167328d7835",
+          "ccab4744c75d46fa0c367fa15ccbea417aad3ee57d5a891f0e7c2a066d9770e8",
+          "f19716a95240754928f24be97fbd2cb19fc0e3b8664a6b5de9c0eba740d623fb"
+        ],
+        [
+          "ec2ce9740f4ee2b2cdb31f66bb4eab335fbdcf5c5cbaa81ba462e5141f2c410c",
+          "0791e300519186dd512a9776213c40ea074562ef343c8a1a606992ff065b5661",
+          "c998f22f127805370efc4fa32da25bfd5d07842b43a619210dd529d0bd93a0b2",
+          "1018494b956f7141341aeb340549eea55e1624a75b0f4fcb1c430b2e451214eb",
+          "a96518ee2f2c5caf6734b323ef01e49884fab1671bd44f18097830fe78d68a8a"
+        ],
+        [
+          "24597d7e9db79588bb28153be52327942bb534691ed4e02e8d4fbc359281af9c",
+          "90565ddecbd6bee89e160ee70e6018600ea380f7ed25d228cc5ba2774be3b1bd",
+          "f04076e0bef4c810710fe39fb7467ff8475b1856671fbac076e250c3587a30a3",
+          "343f523bb5dc1bacc4c525bc5d8bcdd694ff5d4bce7b86a7d121178ad8f48661",
+          "2967b6d5fd8f210a66ce0f7c652a61a2a2bb7b5e30640241880fda79f2152a3f"
+        ],
+        [
+          "268bc684ad1b2f3479bb1607dcf331bb514ac4287aa2938bd72728f12c505770",
+          "daa1a3718cb6398b0c5f7f4f8b94eac9847a9301b89d9a58f33e2a27551a72f7",
+          "5b36207c3a69f911fb2965d6857c2290c7744627cb1f1e73a43c8a7821d9e927",
+          "4b890ccf58a605b826ac87c910e85321fa3d7c6964155dc22257fb085797cf6b"
+        ],
+        [
+          "142bd71fa2dc8c5ebb65947c83e2a68ffe779a1daf08aeef129bf3695b3d334b",
+          "0abc9f6673e7fd73479f8ac8c188688df3dff2aa616c036031a74f856d975acb",
+          "1d30f1262c119830ae3d4950e4c5ae294583f85594c65f11480028b414eb0fa7",
+          "a2400c8d4ec7b0e9df20e063e04a14fe041ee00fca38cd4846852f409dd17228",
+          "b8168ba8388d443bc0e3de5518b187501ab43b0b67287101b7dad290fe8a4706"
+        ],
+        [
+          "2ca68e00d21af4f4f09ee4d61790ba532313d7c4ec93789f0bfcf7c15337511f",
+          "c4ddadf2b0d671e01deb9fc8cbca8ed37ce30b2a1c23a7f5e96f23b876664041",
+          "4f375dfa83ee047b80bf87ef08e346d6cea8a5896a75c9e58e30f864f0bb6ee6",
+          "33203b4aa0346eb973e76dcd1c462c9bda48e4cd889e6eb45eaa60f308f04f6a",
+          "1e56a6796846cb2fb7b89a0936b28e2054dcd5b968d3bcec0807d55d5c421615"
+        ],
+        [
+          "31ce071ab74239718edf68557249598e5401f73fc5bc855d1c16fe454af700dd",
+          "f80bd2ac43ea60eeb4fb69b76406ecaa3b83040426a5f57917b932fde34cdca9",
+          "177761323370315f8ea62961bffe4721fd3d4e8b9b4290018c98ac08d2df99ef",
+          "84ddd199b2e137576e8e4ac4a2d40916ef0f89f5be8ff716c83f838ec084dc60",
+          "bf19265a4ad3cfc20b20500b24b56c551afaffd258703866a2c3b83f79a5cccb"
+        ],
+        [
+          "f75ed8cc5672b1e3bf5557ed6ef67e8cfd8d5c8a0dc7d425cdf114054bece730",
+          "a998418b0110137c921dc2dfadb0af0d06e0a9fe38c939d4539d54b67033eeff",
+          "92b254a17cebcb3516960a762139da811ce76a7f549f44e3a2e90be3853d93bd",
+          "fef35d0c125e422114db7bee293ea15e5d19efc53590b0bbeb2cf6825dd394c0",
+          "f65053aa7d229383d946a277855b3ad7f28edff2230d74f7a154f84bf47f8780"
+        ],
+        [
+          "c7f07778ac59a27a627b5b882fde2971cb70083d86d26c3b73cfa912da39e028",
+          "e2026f8a3dc7d86e0ca3945be82e42e376b4850cd6493de006454352a4df2164",
+          "32983355b06eac22f3c590f51c6891b2289ae62c0fc8a009194f08e9db694580",
+          "637f8d11b43e5808f847a213cc7e2666062562c98b599ab5419833db0a4ebf93",
+          "3817d6c249b8d04f04dbe9a9f692d7b6c5a1d3ff7975aa183457bb678d921af7",
+          "55c58fb163a7b3aa5e1ff6684ebf9826d2425d1331cbe5d57197993a22b1e504"
+        ],
+        [
+          "a423ce7dff3ea27c2a6570e8fd10f8713159438afe67c0cf6368342f415ca031",
+          "a3a547c5975f492bb4a3b47febf621053e4f7b1b94b35205d6a53c00409e6ba4",
+          "dcc45278363ae7434ca2269c2c69757b4999aceac825a26a98eeee97ec505b3a",
+          "8f728aeb70b99ca69ca542c4b9b7f1012c4f3c1626148d3cc4027504b6b37d13",
+          "21d13b5b95b89b636d5153e132624221d9dbb6e1808fafaf7fb1f44b25e125ed",
+          "549f6c3169b5bd9172314e351dc668614138a3fca5bd3375ec67f9cb0c7de191"
+        ],
+        [
+          "519fd8b70824308a9140838cd7f5bb91423138c1bbc2662a4dfcc39cffc771cc",
+          "ecd4979822c6199470dd29b9eb47bdada772236a4ef31d1aa6e1dc31a023bb78",
+          "7bb471a2be82a2dd711085bb8ac02bb8e47bf0422984e7d692dcf07d231157bb",
+          "ef36e1b26fb02af16058cd1545bcd7d3e3be52811f03bdc13b1cd6b6ee1c8ff9",
+          "d89b09b75c1333e6bf2b688da25db26b495ab5a12ec9ffabb5e6978fd1e2cb30",
+          "105044cc30c126aa0f1a56948fb0cf1a7b84f117c79cddbf2a87e2d904d1fddb",
+          "21981614847df4d633a3b65b3810b076f7c1a4f9193332ec14ea5cc86f0f58ab"
+        ],
+        [
+          "7fc247e9f309045b7999c681b60d64804c364bce374fffe854b4c321646bfac4",
+          "8bb97ebad482098ae4dd8b00f09702ca80ff6726c5c574890bea51f50446c570",
+          "d8a5c4c212a23c56e9a08b305f75d76980257f6c1f2b1342e9945b16150caae7",
+          "7bd9c85566eaed7f40e4ecaf8e38865000346730e7d650bf7acd8c4f00283f9d",
+          "b190781a8d9b1d4a0395b8ca4fb14f5b7a8834c42dadbfb6b80e667098f49126",
+          "3c15e99876cd43d23f5a671ac54b407da166738a7b7565ee7275d69059a19fdd",
+          "02600225cbc11bcca3db1660664f80dd3c4f4a10cd57d61653a01a4e0c183f90",
+          "e80f9996ed235eed5e467ffea15aa5bd8257a367eadce0fdc428872386ae78a5",
+          "8e59c88e2936039d487026730be8d5be5ef2c9dfce0fa2510d41daa62ba13522"
+        ]
+      ],
+      "element_hashes": [
+        "58e27cad43b07dc0e495ca816f8100e3b1087bf11234788f1c76b36cdd7d70b0",
+        "86c7763a4cd52c5a5c6e1acbb7050c86b73bc89f1b51db73a0df6b49f725dc27",
+        "b9c0512c0c94ec31862c1ae49ee7bf9393087852360054b3e450596bfcbe0576",
+        "7ae2669d340924a9fedd4a0bf351c456a4e946ca23face1d81168abdfdd9ea74",
+        "202f5248baffea3767721e2c202b3e8beb64d47cec40ca436b09095390cc02d1",
+        "c8aa1ba578e35fd23b00b095a79ab941c96678d34900ae9001cbd9c37e101bd7",
+        "dd834ee8993b50c1bdd95536ea213327c1a54e181a57863979c00f860342f7bc",
+        "d355b6b000249f4caa1f35155d9487dea8d892813abc6182bb7ee898bbaaa563",
+        "0104870126ce1d6db1048e0832f6bfba3e2949f7548aff5dade1a48bf3b40e00",
+        "1c58cf95f7799c7485f5d9d70439a203fdb9a12b5f1c9a43a469d1e30c47105d",
+        "8b1e8fd44b05007b041235d46142ce8ae907e0e318e6b0b08ad8246dd71cc02a",
+        "c6c02f259f41c1ab1be24a9e56f27832d732844d61b6f4d700234a42f8bd3f52",
+        "6bb73e590b4248f358c8cf408f8bde6b7507e1c2b8e62bb1de231c7158525a53",
+        "8563819d18d73bcfc6da7f7a4adf1e8b0ad7c8291de16e3262a8476c4bfe71d8",
+        "d240f3fdb8bc66e07b48aa570ba8ccf5606d31e20dfeca95d179764a760fd437",
+        "a778f43599ad3cf21157833c8318a9f5b87089adda985649c741e6b11f80c22d",
+        "0c9a46acda5b92c41b42037d20b28909fff75d442334e55d047de305cc538e1d",
+        "6eb242078db82eecabf6bcb0beffd3912db3d38691b689a744cd4568ecd37758",
+        "ceb2fd45dad09e82d160db65161125d7fd70d406c1d2d13250d92b3ccfa46c6a",
+        "ad7743c2fd5dd4ffd5944bbd8803f45aba6fcefb2e36a301d05c6bb6b9c11f1b",
+        "54da4b120c433d741443ba2d3476215e20671182a53a1005f901bedaf838738f",
+        "ba3b76e6043a1d0de55a952e43f37457602c022ceea6aa3eec0e4ca5138c17c7",
+        "b5e3fc74872669bb39c0a8fd56b9c5433eb19a868206024b94f2988d902237f0",
+        "7b2e8d273722de11d4f1976725b06462709bdce5d64e83ccabe8580ef4e51474",
+        "b788ba004ee556f65d347f92dc0d828f62cbd4c5c6cac7f917ab1ebfb64a8734",
+        "32815d065c0d9c0a798644d3842746edf1196eff8b360e784cfb84dccff6623f",
+        "4cef8f4e96b9fd6b220a4ededb116cd881613a8d68ecf37517f46dee228b7380",
+        "75ec3219fa7c57768cd2c18af26ba98bcfa15b0a088fa36d3735c16d9c3a68d4",
+        "e98580e2cf1d2cc5da9a149e58926b125d4dba94380d83901074b7d76aefabd5",
+        "a3be8891be6cacdb8dffafabb1dbdd061cf145adc2b351b43f111a6be3d696eb",
+        "2d02d16e8ea9d5600f4b3525e252564f997ae6e639d15d8a4800cf21db823e5e",
+        "9e873b6b0ae321da5abc49c8e91cdbc6fa6527370acced0727cb731d913175c7",
+        "b22ff876e4b92c3d822adb1159b24038f536985b04993d62a57fb792e2941565",
+        "506bad17e86f66d71ea874d2482be2637fa4bf17ed3fad7f9a66bfca7cb255ee",
+        "2f66cbe0a13adeeb2e4894b8c5f0dfd73ce07f882d1fc4043a55dfbbe7d708fe",
+        "b79b9fb58c73b3818bb094afab75b9e3ce36fda0307df766462be231be858945",
+        "f69be47beb51d9e916ad9e92dc94540ffdccc6cc400c2e4d741d001b917e68f1",
+        "2b0faac10c766c5dabaaa868b1282a5cc8d48872ded30de449ccb5bea0bbbaa6",
+        "daad80b6080b473d41de0a56139df1d2048e828c20069071e081be8370b4c12f",
+        "a6fefbe4390900ea724dba4e2a6884a920e759fa30f7b00c53913219b7bd7b66",
+        "165527227dd7ebfe2ed14a1351f35e30da247140442b98c2946fd474a10fce27",
+        "3c01709f7832f6420bdeed2a742eb5ff976f80b1ca9e1dd7afaaa1d1841a3a96"
+      ],
+      "hash": "5535b9658fb1fa75899e841ca37c4ffb329a65eff7b7fb2f8b23e481b9056838",
+      "kind": "array",
+      "shape": [
+        42
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20e": {
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "bf04da01c75a87e634a52822b9ae6b515f5f334aa3c28a40f5e63280fa16d0e4"
+        ],
+        [
+          "91cd0dffc1efe22a826daf7b6a4abe59bfd8ca3bbb70005d56ccf9e1dffca00b"
+        ],
+        [
+          "9a2d9a129e5d0dbbffeeb7e563677c349f29e404b8c34f14efb9bd02705c2afc"
+        ],
+        [
+          "7c8d394422180515e9899bc67613f74f91ab68161676c3e40b5771049a00efdd"
+        ],
+        [
+          "553ddc52910f3f926f756545ed5d0d47d39349feb14d4fb9fc7d74c3bb91d66d"
+        ],
+        [
+          "bb4e72c8e33375fbaa6ae9d3cb7b61ce91f363cacb3dc2d38f5676f6180213fa"
+        ],
+        [
+          "24fbeb6fe729c2178a9dc44703b8f71c19789a1dae141344b714eaf17a54ce2c"
+        ],
+        [
+          "f2b3d6a88c68787fe265331c4579774214266d563325c8cbb270ea942cff6b8c"
+        ],
+        [
+          "d065f65b67128f3f49339d8a4706412d01a3c10d0f85c55f621ab7df55b5db63"
+        ],
+        [
+          "b05f661eadc7b4938650fe6ca052a8f80bfb05cf755991a5cf118558cf36c9c3"
+        ],
+        [
+          "693d107664373c71e051991b1f0fb74ae7613a69d6d0f4a1bc8ddb5beca4d6d3"
+        ],
+        [
+          "f4cd01516198320ac67810785dd541d12e227680fcefb5985d877154a007eee1"
+        ],
+        [
+          "ff341b1c346a61ab895a99049c817ea0bb16288da68cacb3c8a8d9d3141ffabd"
+        ],
+        [
+          "e39e4dcfa05b72c16124397cfa23a6fb8161a6cf775a315d647b4db540b4bf88"
+        ],
+        [
+          "f56f2c7d5422cb96071d32d20c02415de1dd68d6d5df58f521d6fd85addefb50"
+        ],
+        [
+          "a5233b0ae3bb5d6fadbc408f61770f4fb4574ddee0ebd6edf90d419887ea1422"
+        ],
+        [
+          "085e5e965311d569640a07e1965986011ba373e636542e73f898af0a7a05c3fc"
+        ],
+        [
+          "9076c728d8600c1525ea6e0b84eb6bbd81acb839120b401c7675767a0bee7b60"
+        ],
+        [
+          "8e95b033c2701d91513bc866045b792be8efdc27bcc1c93f4179cd4ed4032912"
+        ],
+        [
+          "3dfd21e9fdc9da0f166c1571b0c410bb4e94b384a738364ce9992f302d5c1876"
+        ],
+        [
+          "1ace1489e47cce4623eefb1101163923cc1c676ffbd13c355f159cb2dea59792"
+        ],
+        [
+          "b204d05e113dfc7217dda940cb61ba93e4774a89a3129db0cb367d526e899ccc"
+        ],
+        [
+          "948db151b4a848a31532d10d56c9a03ba7aa47b2c6e5d0dfe74a7e12a7ebc426"
+        ],
+        [
+          "d537ad92260af359a58e8c8fe19154814dad08e0a175c182c4cc2b5294a45d00"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "91ee3217707280a7ae57ba9a9b18d696bae91708b82e6bfa18a9ceca37aff1e6",
+          "0f6bc81e94c9a34da3e78bc6165546270239f9993a1e8194a6f6cdfa315fbd9c",
+          "d76885dd35311295b6b97c7baad370e0af284f2ee7cca08bb9d03f8107973334",
+          "982d9333478e557cd19afcf7a2430b8e608e7b643a8e79d6d7e3f9c079131c41",
+          "6a47cade875693092f395a7d5256e3cd5521cd9845b9d0bd79c82dcb2fdd01ff"
+        ],
+        [
+          "4d405ba77889f0f7389ffa467aedf7b022bf39196bbe482980cf916e8aa7535c",
+          "2d625baa278c1818ccce83dd17d71ad81c89e20577bac1d5e2d6f138e1c4fc4d",
+          "06c0d8665ed6bd182d0130c67a99795a07ee072c551465059e76a4b27b6ab551",
+          "bb575b4a003f910340a1aa524c2996ea62fdd30bec28ceaf00aca72634b73670",
+          "cb1280ae9ccf113fd8546ac7cc37a511d4e1bb73cbd861fcebfb33ff554f6149",
+          "14e2d34a1d576318f9ddce2c6dd0c90daf8ab8564d5fa4abc954499c1eff7f6e"
+        ],
+        [
+          "ee30c219c9459d0dbebf6e1463955302a263a32561d1004b0036819677905c99",
+          "08e1d2162f0315fded684c41b1a5b5e2832850ffffbb9f9c92ba981af9739dd0",
+          "993d15e7b54e334800e0c75201df7bac50f0b0ec8e66d71a747991e9965e586b",
+          "8e5514dd24db8a4d0f4e2626d16fcbd522af970f5267a9c8a88cbfe0aff3f272",
+          "9140d3eb243335194ca49f7fc7963c5066c8cf97fb5dbd4b44adbb04acc8e315"
+        ],
+        [
+          "6fb3d09bb18e0353c6e208fc2427f451150bf09b3774195a7d773a466ff2d928",
+          "4ad2a435d2f9d656bee2abf30c724baf9fff5fa26f08ad57c3649d43cfe3c120",
+          "136f4e9e5d27c57249f6156eec4a157f3b39d6965bbdcf3c2234733c25e38021",
+          "df9623b33e4cce110916dd2be5ab92fe6c85bce9e4852d588905df0e0982b2c7",
+          "80498dc585584fa65f517b3e8ab3142d0885b0109369639ec5d2961b539fa464"
+        ],
+        [
+          "0148ef95cc5e8ea9867efb14cf12d7682cd2a89c38110423a73b430927a32bbe",
+          "813079c2f08dfc456c03ababa7eb124c6118959846ab60d64780e13a24d35d37",
+          "820b933eb05188ac5b959c54e3a464aa3e7f5c907746b82148c50d97e9460662",
+          "5ee2bf5bcd97aefb4956d6f6bcb08c511cdb3cf58df1fc672e820e7d1d018553",
+          "ea5ff4f1d6715e18b06d76351c2107c7126be73230d2e9f7016b54d17f00a747",
+          "5c796b70fd38ac2246a5314a92b35fc289fe29ee0c4f51e646ee01cac3f6e9e3"
+        ],
+        [
+          "8bc98121701851301c9c7960172f916357959c5c48c2cf1994c9f0667ddae8c8",
+          "34c3676c583d11dd9218a882e25667c7385fe563fac082b40760010047ec8e10",
+          "a9a060bf74a94bd902e7acc2804b12d051c746e1dff3084ced2d7a8498a32390",
+          "dd4e69d685b6db6b567d3e016233710b7f5479c625b3873e8780a0d8e8bb1200",
+          "863839403e3a9cad8435e0314e802979262d2eb97a56ad29ac6c0558982bdb57"
+        ],
+        [
+          "4cea42a4c5849f0e1859d071ede2e555a9dbae48034390bd1be4ce70d6e3feb9",
+          "809be51940f39a37bde6ca48871a5578b7f943b8f829e0ad8bc70324d5ef9594",
+          "bf4e0d0bc1a430a6941fa3911c6fd1692f20a170133bf7c0ca6181627a1f81f5",
+          "61fa45e0038866409c1f082b35fa6376fd9ebf215363a8b2ac38340139061dde",
+          "730266e97446b5fdb85e2f9164099a1efd294929fcb72b2cf1c428c467188e44"
+        ],
+        [
+          "7d855ab26c5875828d04a2da45c4d9d027a7f66d9645b4c3b1c0360d568a209d",
+          "8a75d128773e1385886afd63b528f0b282a2bfeb6aff8e076a21d1834627c517",
+          "88edc6bdd6f795b8a4fee2a3aeb9afc0bf850cb93f295a195b08cb20f8d931dc",
+          "e47b58ab97a742b01358efa65e60e85efdeb53d33bed6d1ebd239ceebe08806b",
+          "4dd77412da85417f5559e52a1a7da6ba02738139e26ed76daa7d8c8715a0ba86"
+        ],
+        [
+          "42f7ea50ecdfcc56b4f6136f148136f1f4b13e1ab19e8e845c4a968a52edf4e3",
+          "bc98ab26c4e53098a9362b463c0bf4232b210d4c7a3869887dad04b4e2f63c4a",
+          "997cd7b0b34c94788b39a78b5b9b1bd3dc9418a0363cdb5c043494c745293a4e",
+          "9631b1f71cac8797d1fe0a5b48262b4e88f78c28114dd1ba075c3e99c041bf72",
+          "799fb530daae8cf9ccf06633a76a30ebbf463084b75d770bcc736520781c5759"
+        ],
+        [
+          "07fe99facdbfe39b6f0c237113cfcf1dbe18c8a3530d1831b37c03b83a907bb4",
+          "41050018041d54be329a44d3699c68f1e2d6716b72156a111764a1880021b2e0",
+          "8955eb7ee9bdef32b5efc0195880d86fd0e0c038e4393e38a587aefaa42785fa",
+          "fed6f92d1c2376971116871357bd4fe6ff3968fd95216dc6b4301d35fc60d7d8",
+          "7c92e3ac7be607d6d7e682c46eeaa0a2a27852d38ca6b9e9b2f9b1fc2ff2b27b"
+        ],
+        [
+          "d69e75746ee2ebd47d7bbc2c250d0b5e8b92fdc521ee7b0fc717b8986db88417",
+          "dfbedb5d17f657d6e590090602ca9417b6343910bc99c16dcf8b396fa1d2a59d",
+          "95e2826db840e686854d4b8d2d6deecf2bff1e47bde3ee2df2d7c8e14a48d42c",
+          "fc3663f844b865f237cd06f33ae43d2d5de0b9dd42ae21f64663649c1add0e61",
+          "24326717533452533058f8aaa4a7ba2de7cf1fb3395896d98d4ee0e24496e975"
+        ],
+        [
+          "2cf59dea3fb2df0aab923c2223616d5b969165cb29556e3f1fd9e82c8418c497",
+          "5bd18da4385a3ecb335a02cf4efdc66cab1c43d0404610eace9db9dc1ad66373",
+          "ff6d2883b47052874f13e1c5690a6798347b48da480ba000fa3372a81855c31a",
+          "0c0c3fcc29a4874eb3a90e72b928896366977bb7c3294a58803b4958ac887485",
+          "427738b271584b3ca77f7364b76d7b8940e0184cd7ca49e4feb8d0cc7a2b6976"
+        ],
+        [
+          "0adbd8166bf8dd164408385cdd606f26f37267ee34b15243c7dbf4d17a297bd4",
+          "6488555eced5e03cdd7cd501c961f151d4175e26d1492063493ff6f87d80e3e3",
+          "a6154b243bd04b45886024a17e3851dacae696ab560913ee937a8f6cc99bccb3",
+          "e849aba452b2781e5f43fe98517a4da386bd0ab92dd1bdac0d024189638a5fa9",
+          "fbcc486ed53fd9541c271e2c54ee64943f49d665a448135b54d5691a74eed071"
+        ],
+        [
+          "4f6c5ef056c07e181c00881498594a8c0005f57973de6e214475aa600269db66",
+          "93d3f5e33f00b69409cd426165fe603ed9071edd230056d50dabc31e3d40c22f",
+          "c55fd6def512722a5c875f04e0089bf6d4b79414cb16b008181b076d3d2de1f3",
+          "2ae3ba59dbd3eb9062429ae257f92bdeea4c3751335428be0db5b3b9d29f73ea",
+          "f70e98687c212889448c8bf50ddd4da9cd8e4b9600cc1ecb88e6a0fc48f87c1c"
+        ],
+        [
+          "1258b6a992187e59e0780aa3df7d03d78f079d0290b041147054c522b94dafce",
+          "457fd102e26efb206f479f2d9b26a453b46f464be57c8b6be06baa987b73e6dc",
+          "aa70798752c01b383908a247120360dfa8791922ffc2c8d1d17b85c773eebf75",
+          "c53e83e3dd9b9b5b426fb2434aab88c4e8065646c2c803dd06083a851f8b1058",
+          "57998baabb59ba1f76b409c063cf62b842f6e2e0320aa31c22f5ff3f42eafb7b"
+        ],
+        [
+          "8d9797e9ffb668d0d3dc0f8c50d8da0c1865c6070afc7512948f195a66c11a3e",
+          "576f51d4866802b6e432bb0d5941a6fd7d1cdbb2497a8377300b01eb5f55fad1",
+          "908efad97c86ebc67042852adfd6f581276789aea7f70f61fc059f0e35d0dc23",
+          "8d69e49e6f7cb0c48989a6ae72100ec01f457f147953f669bd7ce85821c37fd7",
+          "50bf5830704b28203674c5e189f7875c50fc751b3e6a8f8652c9c224954d1c56"
+        ],
+        [
+          "67fc747b264a50b7b501241a1fd0605de547c2284ece18737ba3addff68862f7",
+          "1f818f42becfd8b4e337d8cd30aca1a65a7df7daa4fa7edb0f12f1a6fb7ee528",
+          "b4c33abfd344e018769bf9e5cda886b38b7b4d017adf7d57f2605e4969737120",
+          "376b45cc927d40da888e3793e1801273e5a2c4098b100690031fa8566930c590",
+          "0730464df889bf093ca0cca28f46a189cd963c75d40fb3fdeb594aff4e614e49"
+        ],
+        [
+          "f88e44b7804caf92f6c8d97974c9283fc983f26585b2c2331aa61f1cd9524221",
+          "64198cc080d09bfb5a93fe491a536817eae4ebbeb77ddf2eeda1d98709492efc",
+          "2cce8c43f3ced689b15b43422a2ceb689a93c82f0ffc23dfb213e2d6960446e1",
+          "90be2956c38efc4dd423db05632acfe3aaa7f17ba58c5e39e001d2c9f755ca2b",
+          "9c666f4df9e72a2b9de3b0454b92cf08c5428ba1bef27ab771e67b96da2fabf5"
+        ],
+        [
+          "eb00073d49cac1a20d83289eae455e864767a99d6dec2c63039dd0bc926c6daa",
+          "6690a893d78ed385a059e2cfef45be6a84a5cd519880b7260691574be724cedf",
+          "6f74a0e0b0fbe11b5b1d16c71e905823987e612934eb2f5405b86c0cbf731627",
+          "51b2012dd95e4b9eb1a40d64d6171ac3f8f8cbb8497a4c9931b5fb66677e69ee",
+          "a15588f483ffe84958bd4a367b2cd16b0a112fb452c94d299c7c30efae27e3a2"
+        ],
+        [
+          "a275d8233ce96d86e7eed887ee86471e4f6060108fd510b9f134f2e7e626c58e",
+          "6120d3684971d931ff637b6260ae8b277aa4668313455e3be544d018fe9670b9",
+          "b944aacf70ad419a95909d040bc8d3f68b7d3fed132d93ec94cbbd7410a1c95e",
+          "6aa5b1618c7ad4c729775da2d4e8c210cf630fbcad75ac502533baad6b1a1dcd",
+          "6e5eb66ef2acc5a232a050d7d81e00fe070ed682986aa0ff6d6de9443101b18c"
+        ],
+        [
+          "03e035b8b63d6f9f0456e43d251e07d01a16cb3f5259f0860c4184e98a4c452e",
+          "3789fdbd7cbda20cf04bbcedd573e69d3bb31ef978359361b4654ea1bfe955d5",
+          "2d2cf7364e79da0bc2cf87e4d6ff9484b7d364806901c6dc869aabc478c325ae",
+          "a8cbb31f7ea0fc775b766bf1ec8a351bad2a3db6851cd943853a40cb7ede8134",
+          "9463179b51738e523889c9a85151b0515213fed182bf583db21ee0f97cfe2887"
+        ],
+        [
+          "b97a6c3f4825feaf6eaaceb0a75f0b1237e43c69c915c4f78b008511357a24e4",
+          "c7a5599a01c4530eb75033ee73d7d3ab0edb0d25832a0057aad9f5583adc13cb",
+          "c00e450ea6c68cc4e5699aa283eca990e695afa39451dba0b6414c9c6fd40bd6",
+          "3b6c41eb48c441e55e3bd62d3886efc01d358149c3a5f1c21e981140e56b36ab",
+          "539b87fe5ac528d8e7e8df8cbfff17b9a3bfa1623ff703dcc00d20e3d826e260"
+        ],
+        [
+          "53c096ab02f5ea7e41a6939826dfe58b2dc579a3d513c99b8710c6a167542041",
+          "07fea987c515ad4d6f7b58e0af918ac2be94c094899e7eac100ccae0319e4b43",
+          "affa2dd12ac464da338914bbc828e8eb2b262874ceb73d8cae32260d95eb1ff7",
+          "21def6f1b57e2c71d5b1c447cd21721eafe10981bcf47894812c914e4d0ad0db",
+          "a9239077eafa1babf384f7e9d19e718a7a6e9cbbc6a06602784ec03c8a50b997"
+        ],
+        [
+          "d5f280b22af04e80e31be4ab02da5a55ee251fa43ff2c29bfb0323d8579601eb",
+          "d36179f65cbbb4e6c6fce18c43db34885435893f3ff53d46a4ce6c9fb4bd169b",
+          "6534956b25ad04e31d187c3c50f57ef93db58269c874f492a9aedb7dbe91b6c4",
+          "1d779a1efeb8f29bb7eeb2d6c539243b5907f030bef5480718aa6fc449e97407",
+          "7e2119f5f2f589fe4dc3e22d5db92d1d8edc710c3ab0919b625d6abd0252410a"
+        ]
+      ],
+      "element_hashes": [
+        "9f5e748d453980bd6b5de410ae8f1bb60c6e0e0cf3e034b5689c2f76cd1f7fa0",
+        "32a3e513264e238890ca0c345977c289f6e83e25e0b135e10d78d857c500c955",
+        "513b778ed41538782849dab01cd9fa8665fa0ea37b3699d7d43cc3c66f9c983d",
+        "2dc49029f512f17869b1f264fdf6e48e0433602dfde10f12014650421f3544f5",
+        "1e5d6db198d8217c37c7df684561d7082c250a778d4b8fa8cb3ec70f1fb864d4",
+        "412baf8d300d3f0b92f158681c09911ae1f8b3cf6039eadc0e6b8fd71d7d8181",
+        "c0b777384c6df62217ad2ad9789db48fb6dc53cc00aa3eef5dcecb42d8b743f7",
+        "992cce5eb11ef6df7434f19ec66ec25a9525cc850c8d2047e404bf60dbf02354",
+        "5bfb763ab292f50911bcc93165bd28a457341491aaf74440b5ed3089dd52322d",
+        "c1555ead30bab88e33f5864a253a10357b452ba811a190b316343407c10311d8",
+        "0f32c6335d9dd41246bbc9d20d0468adaf047567f0e75ae0463849c29602b694",
+        "9afdb5169f690f67c80960fae2d09f884ac6d691faaa9ac177b58ad3ce97da3a",
+        "f0063b51dec028fb24030ed823ba11b1a66524014bdc06ba325e847fb40ddb68",
+        "1637b38598ef8ea32c974d57dd3cfc27fa4f61d9148b02c18fa0f0576ee1d456",
+        "8ea255462353ffb7b7831de18be009e5bbc2e77ee5db3dd14671c21d2aa99f1d",
+        "3bfccab52542b0d40f91bb7cd2ffd391d777ad32310287550c5af09325ce74fa",
+        "cf52e24d214aba9c7e7af8f7fe8e33e7e3a8acd6434b09a511ddcc9582b91f1d",
+        "25156a2941c9eabc770cb12291b112a36a4f8e3d2b54c29086141699602784f9",
+        "dd626e439d7034d3b0b2de7381f098f4e8010352de4b3fbf0c2104cb91f8d7f3",
+        "30a2333291f821869875bfb4d87a9818cd39638f90bae80eeb79572bd1b5cf8f",
+        "a0f62f5a0d3d9881686d9cbe67f1dac4179d3b93f2f0a363b0f96b6b624d0e23",
+        "155ed05842cfd4fe6efed3018a2ceb5706b4f6b8afabd1125818466b8a9c64a0",
+        "0b8694a997653004e7bc081c5d50cbbc0942bdaee331b8890c5866e9cdc5e2a2",
+        "a2fa5d9ce8cc4244365d163dbd241a5c90e36c5d75b5cf6ea8e9f2695a13f6cb"
+      ],
+      "hash": "25991acaf93c848eb1a011227260ffe929e472067b5350f018cd99a1647fc03a",
+      "kind": "array",
+      "shape": [
+        24
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.20f": {
+      "array_rounded": {
+        "1": "098d22687529b76b7a1b791d9b883d4f5bd6996634484413b96f870b9e4af379",
+        "2": "6bb37b3d92701278e51a87733fd59685c8a840e96637fe34afdd7cd1b541444b",
+        "3": "265e59274b0c62025c15cf6b65c2edfdf2dde8ddc661b33b5eb459fe49832ee7"
+      },
+      "decimals": 9,
+      "element_coarse": [
+        [
+          "5a0e33329689b0d7e591ff2487b86f254487373570c899ddcd583bfbf459440b"
+        ],
+        [
+          "37ecbcc2be4c82a217173debf86b00d7ab8cf5f4e33e19270a7c5dd9db7763cf"
+        ],
+        [
+          "551f65b09dd0d331bee07723bea229afed7b107c3069c7d735c35d11624f18db"
+        ],
+        [
+          "507fd932564e223b863fa67ac0092bb8e521f239c67ef6d90831ffb123854c3c"
+        ],
+        [
+          "87af8f526ab416b944588eff215a8d7bc1ff2c7fb4c6b00156c7a851d190760a"
+        ],
+        [
+          "57dcdb229c0c938ce3f594e5c746be3df233b3823bb150e416e0630c26dc664c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "61e69e9b4bae63c3919a20b6b48d78dbce014117d83bb4317bc7358539d5b599",
+          "30dc89c6d0c8736079c3a8523b4b1c937dda318b39182bae73e13a2ae26c3db2",
+          "a0496bf644df61a8adba65f0062956643a4e3815b024a7f5eaf4f3566c223e92",
+          "bf69135fb0f73de0a23e259a845a5bc38d2ec270631286c60d7993ce40461f1e",
+          "4fd808f7cebe7b53937f741b7e1a1a23795c7294be23b8af55cf090dda0c47f3",
+          "488758d9f81367dbb752582e6ea5ee5a0c649712253663670e3f4a7aacfc3b5a",
+          "28d3454f9d1c309570c691f011ddf960c0af606fbe7930d88ed95172b12a2503",
+          "05dff4408d5c512bca1aae45845b6e2c4e6fcb9c7ae250969bd8edaa05620bb1"
+        ],
+        [
+          "ff3f227e08bfcae90c3c67f08286bf8fa4baf07a4b582b30a3aa88cf88e2f6e8",
+          "539476ada55d426b45863b26808f4f06574e6fc67e6afd983d3f77d4a5ae1235",
+          "6103a22811606ff96b91807d160a4f11e07b116880ae16943e325fa58143c6a3",
+          "960ae3ae6ed6f6f4616f4b155e78eff7ac8235983c594c998c35e4ed4bf51e5b",
+          "ca9ab33a8602b5a66500f4cae2fbf91d1498d82666b6c8aa1e726c908ad9cef2",
+          "fa8baa0e0c996857b1641dc1c24eb02e926ca341a6dabcd3131c74955ba88097",
+          "2e8db0f1435c2b90fa3eaa9c0232dce573db7768bdb3dc923750dcffd2564773",
+          "1bb67be93024ef72bd49f7ad6f736b424c0824ef05923cd0e5579256c678e423",
+          "35fd1accb8b953706ff7bd2c864cd83676337ea2ec3474a6ca2aabf471c7e22f"
+        ],
+        [
+          "f317a3bdfd1a0ebae1990b5e7f56b91155750fec0537941e174f00f1b225bbbb",
+          "ac8dab0b746288983e75cb3d23426034a702024465c6c70f749f672ebb57e239",
+          "d131b0cf9b95a6655eb9db6aff5363fcd31f122e9d15db80a24725e380714536",
+          "7d49bef6064b44c8329a79b4e56f74170ba6cab184255e64697d0e656175bb7c",
+          "8bde110a2b92b22438b6d0f311e3bea66ef3e7b716ddadde607752e01bb0d045",
+          "4e03e49fb88f540c6f4cefd092e986a764cff4dd88cf5a23fda10dca3b52b53a",
+          "a627d64a1ad350dea3c8dea18ff51e15fd8c29b55674aaeea81109685e6c16e3",
+          "633859c8c11326f01903279c5572b354f543c54225844e34b89e1ecc1a897b40"
+        ],
+        [
+          "d865775b1477510f9d93c8ed879af8b1a1a8d101662f9b516ce3f416620d33e9",
+          "04413a0742dc7d3f44fcf298af10dc07efbe96b306b16b9e546cbdb66d4c7c07",
+          "108217e45ab2e2be9e0bc923b07029b925a5dd392440b3dcab6cbe2b0e79f73a",
+          "0b2c44fb69a93b399bfd8e60d87257acaa791b962e606533990e98cf3d09ffbd",
+          "856ff50380d5297e09d9ceaa20970ff45333b6037ab96ff7fd955abe8d6cf3b5",
+          "3eae8555bd7ded18b6bd6190f94c71b1fff43eaee7624296e3d8e90cfe90a2bc",
+          "a2d4829d3cb44e7353408fd9e879ade758fc6df51916ce6182cf701548c731b1",
+          "e3ca2e01e48d74051a5ee9d57a9782c699d0898949c5b275236eddbbe031d931"
+        ],
+        [
+          "7eee4cc87f22f058e6bfdea0607f346df915068d0ac4d7033e81c3dd6582920b",
+          "56d9e0d18623018e31f81b802ee8596b01a1edbc52c0adf195d0a7a5bd2a99e4",
+          "391fb93be6248695ef62ba8f1cf94b6069778ae8d7041fdf5eb0cb7f2bb7c5d5",
+          "9aefe273a3e7ce1b4eb39764ee36bc830211cdee58685c01ea759d8101938295",
+          "f0b9f28f40f0cc34d6ea8aa6873b2b9cbfd4c888f623fdfe2c3355b4d03e0ea3",
+          "192447ed20ddafd7bfcccd694276340074430f90fa984da1c112c462fbb3e5fd",
+          "a3ed5bf99da1575df0a2ae52de7b6b58e5a9642a0984997bb02d9027c5088c77"
+        ],
+        [
+          "0b92c60075c4760a6cf1e465c13f2c1d16268a7a59cb4f21899ce02c31337c04",
+          "aecbe76ad4ec0af2463b5d1e9b45c7c6182a32c5a5c0aeb15df15f1d2041b0b2",
+          "eb668fe24f16ed8960928fbaeb26392b8e59dd12861ceca1dfdac09b6f2a705b",
+          "8639f10be1a65717c7a0aa5ffa00cd243b07a8060ba67f57f23b500e19d9249e",
+          "11672d479dbd9d3e49c0a152f8ce8fba8d073e54933706752e7d06093e738142",
+          "408c70208fb8c250de877e2b3bb0d6d652555a60c3cc6a771e38558baa76b12f",
+          "b73d407a0cf5731056032ce1549dc07dc3f3ed10f989e22f22120244060ce986",
+          "b87ce42c32e53a4aa3fb2ecfdff42ed04855f425bc431d9aeb3704b948c91f8a"
+        ]
+      ],
+      "element_hashes": [
+        "3875536c8436188da882229c7ff0a7f713ead360277b65918fe1d9e24f67871f",
+        "81e5c3a23d48b75b6bfb09a5d5e14ae2a44630cca5ae21fed546ffb64bf462ae",
+        "a6c39d5e91ad6b7d394c40df1cb8dd4bdc129ae5d72fbc182a635605c5ef8af1",
+        "e4afd3ab9b284872c2f523c172ca651b81b58a35029c0c85d1c97d5770abbf26",
+        "2b969c1fe4596773a233a2be120c5d67f0009f5ad9896251669fbb91f604ff82",
+        "fb271dd620aa94fdc195d2fbdc1855ac01a32c693aed15f82cbe71b8ecac2ae4"
+      ],
+      "hash": "d9d481374fb8715a73b429fec1f0d444e23954f55fbb14a426cf0c3d483abc68",
+      "kind": "array",
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.21a": {
+      "decimals": 0,
+      "element_hashes": [
+        "c21fd9a7c821d2ed6a4cfb9985922c1fb692f83e9623da11d5fcf1c578904367",
+        "8b3ccb34ebd131c35fc122cd0878a61562ade2c639caffb1d0d89861de1c9ce0",
+        "c6903fb77df08c7591d6aa97ae130e4f5e847a01b16594ca91ed29a13765fe97"
+      ],
+      "hash": "897e61a89f31266f4a83188c6957b60ecf4ae6702eeee663ed51a82b91a3fb9e",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "9c7803e45e7e0caff11767bdceeed9bc771e124e51e41ca3150ae9502e097822": "line_integral de la référence vérifie les trois propriétés : un test qui la refuse a un champ ou une tolérance qui ne conviennent pas (relis le choix des champs)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.22a": {
+      "coarse_any": {
+        "1": [
+          "3779672e097b64b2c158b96d6b7566c2d9e424b694dd02cb264cca531bf9e069"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "1eb4666023997b55434ffbf38cdaca2e72df26acecd3dd4121846fd22318e715"
+        ],
+        "3": [
+          "9d38db1edb58c576f58ac6d71d5b1e1d86f8971d96aaf3d32aa2f5b00877ecb4"
+        ],
+        "4": [
+          "22a80a0e161a472a15c877f1c2335b464ed71608e4c982073f488884ace30e4f"
+        ]
+      },
+      "decimals": 6,
+      "hash": "2f1c269e5e64396440662f19ca93c47d41e3b5fffe2759764dc6d574333745ce",
+      "hash_coarse": "b8804bbcb41c8bd44059bb7db6a1c4a1483fdf83825a2555c1ea5f91975a1a76",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "6688de881abb2cfa36b4ca847999bd78eb967565fc88b22a6fc6b25b8db7aa62": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot",
+        "828f7d771b02581f46e7fa02d0760b25e2a7bdbc3c3da622d8a755994b5fbc23": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui"
+      },
+      "sign": 1,
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
+    "MB6.22b": {
+      "array_rounded": {
+        "1": "04fb3571944fe63203df004534724e884d6a341aae46b45f33e87cde4cde87c7",
+        "2": "cbcd2bac0b846a402adc1c17934957f78e19a38dad407eba22b73155684d4a1b",
+        "3": "739da9f25c7a907a6976e7752913b22488921682c5659b2cd4a37423809b9c9f",
+        "4": "78b2ae0d5561b2858c07f6446d9af58ba08e184fbb08cfb3256a92a6e941ef13",
+        "5": "789c33694fc06e8b50ef59db4a8e2add8ac98f06b2312bff4eab086c8cffff89"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "773da1e306c173933ed2681f13b2f659ccc0cf09b975d2db79ef71fb89cc425c"
+        ],
+        [
+          "96388ab58be0a875884f203042f46471b836561e17dda5995127c279bc76bbe4"
+        ],
+        [
+          "bbf37802786c83d88596dd49822dd8030574ec59c207db4ed3e00124cafb8558"
+        ],
+        [
+          "77264b4711ad1ed8ae2a23eb843e59912fbcce833ed35a34f8c122dfdfccc7dd"
+        ],
+        [
+          "98831cde430c558129471d28eff643197df158e67b550cba7d99f5033e0609d7"
+        ],
+        [
+          "1803224593af7e9a543f1740868cb01773492f5c67dba2f091b7b17956c51355"
+        ],
+        [
+          "03ae585073c93302604c9263ea34cb721715b2e870de6044536f4f61755ddb7b"
+        ],
+        [
+          "a41aacff0ee6bed418d012528577d9cdd9b1a1ac3a772546cb9fe2c9452662ee"
+        ],
+        [
+          "83439d6be7d4c0a83261b519ec7d74db29b7e50ddf75ecca4e1fba69d15031bb"
+        ],
+        [
+          "bae29c3455a54d4b20b74dae1105eade750c2649ee9047a91e132bdce8c4bba5"
+        ],
+        [
+          "b2442bf92a4dcd70804f994ce8b88f8b13436aec1eb7c927eba7ea46d795344d"
+        ],
+        [
+          "be535449b177509c8cf9d62e6ada60e7788d66ee26e4127cfdce09fdbc38ee82"
+        ],
+        [
+          "2fae11f7dff0bf8347c3ee56645d9416604f2b01f6ca76837530e372732a4d61"
+        ],
+        [
+          "a91d5937ba36951e78eccce24aa2acb1a5d04902c5d61dadc6b6517802645721"
+        ],
+        [
+          "0752cdf636e3cfa1757591a518840ecff5ee49bee81345b70963ba61c670530b"
+        ],
+        [
+          "d8a5cbad6a32e525687f35eadce500ade8d309b1a3bf387af6c202beccf09506"
+        ],
+        [
+          "2300dfac801c5a08fc4dab13880ae4dffcfe4c14715fb06c9ede066e471bb46f"
+        ],
+        [
+          "c2c2afdd1bc1577325b743c9458c1f4a7e978ae436d680a4ec4978249611495d"
+        ],
+        [
+          "871951a5368fc0332d49858e0181f0f73d50b7b984b0164578b44cce0b38eb1d"
+        ],
+        [
+          "c5f652a98e8673f4e7d2303870097d5a00cc4286d3047c077f3cb7aa6452c68f"
+        ],
+        [
+          "58fb658cda5d3a93c5c78d8be47bf0c6c1e3cc15fbcd3db4d2e8a618c5af8c9c"
+        ],
+        [
+          "bfb734fd0135ee0c12e3dc51feaaeec8c88cdf8674c6e493b811da963e33e976"
+        ],
+        [
+          "9baeae40742ab2cd9e633059211a66908a98155d644ac37b874ff00e13f0e6eb"
+        ],
+        [
+          "283c5e5769bd7cd7a29b7c2665b73c696fd2b28bc31fc5ec9086eb9ae5ca0c87"
+        ],
+        [
+          "baf35e653ed5fc583ca76fb96c8f7de7e9129936c79a357e380db23e0e6fad6a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "76c5f185ea6659901506801dff92d8b92afe7a08c16a42894194144024ee451b",
+          "94e8a049c4279e39cdbc8ac1b9de9b5be510220313f37cdfa01404af7b1cf244",
+          "97e70f37606e113cfe1e6a97e3cfca2fdb39e8cdac94af5e436faf660f07bc92",
+          "a30f895db01074aaa3cbbf2b66aab4217c6ee31fedbdf4eee6364facb1020b6e"
+        ],
+        [
+          "5f4a27dfe2f90afe111f9a6b6bcde7dddc8e1176935fd1da0212a3f63ea2bae1",
+          "2a620b9bd4361fa38019c9267673b02ca1e622fdd26197d08e08c58759075c7e",
+          "2ebf04260fe50bd38d6547d2e3b99852fa221209c938a161cb5ad25043d50967",
+          "c9947d5762518312092a81e470d4ed67f8629f3c000a1b9680a3aefc36728702"
+        ],
+        [
+          "46918991d50748c0e4c78acca2118618bb9583ab064497a784b4ead5dcafff11",
+          "f8b95819d49d921e55e7c3d24d240a435e2405a5e7bd8efe0126e0b88498bcec",
+          "168f8f86a635c877919811b24861391fb39f5c56977105addffbd451ccdefd95",
+          "d7fcf4ea7ead05c28a42c35a0d73f16e5a2632e2e1ccdf1a6133b52dafef1b4f"
+        ],
+        [
+          "3be4d832c619b35bd76a1338636fe36f38ff939a643fa65ed79f365f248f24d4",
+          "4520571ea00c31c0f16549b05eb398f910faad8f8318d3d6dc84b6a42ad081cb",
+          "e4eda772dbb99e04377ca08d16db5d3c8b09cbbc7931fe8455c8506ecf152d7d",
+          "e3392c3955e19d58b945db704d4d5cc3b9b822b90a8e88d36dd596ce5fb668c3"
+        ],
+        [
+          "d427354021b28dcfc9863a00f9b4322aba76417992d2d9e0a571e0564c19b5ea",
+          "142fc8573b6a7ef5b0aa85110cce205bdc73150e7dbd96073ff00f8c210aa678",
+          "0372c2340453c1c68d60f295c959fcfb675e7b767fe6f8bcdcb5541918a40cd6",
+          "972e07585249c115ff1076c483786d8a01edb06d4c8994c3b2eab05174dc3009"
+        ],
+        [
+          "7fde22b5608d6f1da1c8c4201a89f9cfe176700813af6e5e44c1edf4f6806cdf",
+          "765a9dc22d72dd17395865cf92796a55edd0f62078ca5258943d1703bb41fa33",
+          "d485ac4a80fec5265fc1f8153c0c97fb80d0689e30fbf7cd8b04b0857ddec7cf",
+          "8db180f72b47831b2141903bca218760fc0ed0d106175d718d0cc880e71be019"
+        ],
+        [
+          "cefbc70e744fc5947eb978d30e771a040e88201c07bf583e28f639eebb3c380e",
+          "2dddd10585b59170eef66edbb20c67b00a9731c774365300c775032dd8e270cb",
+          "5647ae8ac4a171e6e09bb9da6c47568a454f80916b8a6417ef2d4e63b445c9e9",
+          "8c1973a3dd9cddfc4a78fbad838902209810280285ed0a047edf094d5aaa2ed1"
+        ],
+        [
+          "dc6f056e4e416207345bcfc9f8a6072a03a59398a242aa417b5cbf3f107eedb6",
+          "c2f64abc101588f53ee9eff45f7d875b1c6e500c8e89785f92fb6a0f1944084b",
+          "88d960f10e686b0e38678c8fdabea7c19d0663da974b92339b95f8d979ef54cc",
+          "a97c43c4f24268bd613dc869be6220a3f381d275fb14acc24546e8fa3336ad44"
+        ],
+        [
+          "85667acce1411d6942a993a0b7303c4930410cf5f664df9f1e6844ed4aa8d178",
+          "34acf245962b37e8224b21cf580a1631328cd763f54d972da94cc842758e030f",
+          "fa2e8aa30c8f2d9cb4fd17afa25144c84601e4bcdbffb917dd3bf59ec33d96be"
+        ],
+        [
+          "39af2ab26617879e511c5b3eb324f150818767afff15f7a3f70a73e903a748ec",
+          "0bbafcae1421b2ed63a7d5b8e95ec1a7bf363b10d824faa95c2921edf94fe2a4",
+          "5dc5d3bea1916e25b6169cea092dd9710779672265217b496de91213f3beae38"
+        ],
+        [
+          "d0d0dfc18d08fae850b88fa9aabe388d57ecf4a8be533565e541e28fdfaa4b12",
+          "399976c5a85af22d1971521486e89f7f25d4f644e38f99158b9a5cca66c0502b",
+          "d1150b22433dad7704f55f845451f775ce1ead3cfb2ab037a0cca6ccedb6eff1"
+        ],
+        [
+          "3ab5f95e481e8aebfb0e8caa181781169a276b3123586b21ca894304125d04ee",
+          "23ceef1eab3a9b5cb5942260c03267bfecc3dafcac73306f29c8042195e9d0d0",
+          "e6b290b9de9df5839f66cfa4013e711e2ae33d2e875553f294ace278cad6dcff"
+        ],
+        [
+          "63cb4bebf71f09ce61267a302b8136ca450cfcad5d784d78bbf09c74f31119cc",
+          "55f936562c6359973d63dff4cd675d95d3eca68499a6a03d6a23c213efa16dcf",
+          "30aee34ca9897a3a59fec832848bd5e854ef344adb834bed78f6b8c2f0d2ca2c"
+        ],
+        [
+          "67d23e339d7850ee1d6e6bb99bda462143b60aac14b6efe4afa5c829e6378903",
+          "a7e4b01f68139c5dad4a2c55348fdc67c25733512a74372b8e2383d02794e743",
+          "22215d3f2029a67029d336113f10b10a46e2f7d859099cc518f1f80bed36111f"
+        ],
+        [
+          "c22a077065d4662cc34941285c5ded237b40323df5ae8433f1bac947de831ba5",
+          "cfdfeb75cb3e3235de09763a91e4a0400b9ffebb47d6c76be09c8f0c9dbe6f9a",
+          "be825c9faf63cacd057599ce4fae568b30e2722af7388941141ac0d84db16c94"
+        ],
+        [
+          "47edfd192c7f09e866e953d27636f7f69a4a841ea2e9d934cdb57bec96aed27f",
+          "4c83839b991cdd19b2385ba6dc23c6179327fc0f3b01095411cddcef3b64fda4",
+          "c16dcf4d31b857f3c9a9cd0125083fa7812dd5761a3569e51cab52e23dc012c2"
+        ],
+        [
+          "4114412aba211fc4b39be86e190e134b3a100b3e8e74d47054aab091eb67b66d",
+          "70e602bbfe13d947f5d04ff727f1fe2c861b22c65eae6a3ff695701b07c9de1c",
+          "bcfbc9a328915a576817558ed3616f5ce4992787069c0142dc6fa6d362871d0e"
+        ],
+        [
+          "4f712eac9c0402a7acea42d6c9f4e14f8d6706e8a04f0ac0f3f8f03f00467606",
+          "32fa80e83b7842a1986674e3d2d98c0b1a44bfc4ebdb97cbfc46e8ce60832217",
+          "f20607d6c47a9dcece817b8998a6021cede64b8d8af3dfdf569115b3c0b0e8d2"
+        ],
+        [
+          "8f4b52367334c4fffeaa1cb470fb74a0de7d0ce2b9b866a3258248623a8bae40",
+          "ec78bf952c1a13af3c537358ab3a6821325231bea6ff71fa26bf6dd3360f1b93",
+          "f756b3e90b13c925a4e7bc51cbaa4aa4100cf2a0f8d424fb2f796dd917a85784"
+        ],
+        [
+          "4d127fb9b26f4611a32db213faf36552f8fb083fab1389d4a1c2e6c2a1c6645d",
+          "17dd7d5f0c45a0784a946353c5b29a3eef0d4eee2187124df0ea0e9ff3ee56e9",
+          "4aba215a673f3b50fb4f09791c313d66fb6129ca3e471198457a15c999cae32c"
+        ],
+        [
+          "f4121bb0271158493bcf2ef171efaf3ef085c043e8498795083d9c11023aefcb",
+          "55269f378ca29181c77c4a9d20ab6b4699dc38fd52c94608d2bbf7f547cb9331",
+          "0f8e1149a8fb08fd7ba2e0ab75b22e607fa1c6990999bf59ab2117739f096515"
+        ],
+        [
+          "6194af862fbe0695e151d1f8fabbe26352446b1d7f6bea37366492b49e831909",
+          "4087c304291ae7e0fd5424bbf00111c84e922c3817061494eb9be218d4c16be9",
+          "256772fa9bbad6a16052c3ff9e67b460b06de3b7097f5997dd3ad72aa332d462"
+        ],
+        [
+          "d8a91386d1758f9b6d00e7267d60b41957f7cbdf8bd5718e18c907d425d77b7a",
+          "67986d3ee86c27e73ae4ea803177ed64543f414080c9775ccfe101e687a17bc0",
+          "cf162c66dda439b6a0a9dbfdcfc769b88311875a476524b631e17a644f805cf1"
+        ],
+        [
+          "9642cd318a5dbc9497f17c801753afaca3f93a106c6b7982a927422a6a0551f3",
+          "7018363c7da58375948374e36ee15fea5fe35de8aac5fa7880ba531397f89738",
+          "7aad10a8abf95b62229feaa277ce805cbace3fc3b237192d8005d2f0e8a9be14"
+        ],
+        [
+          "dcbfd43dc34795de132c975c030a442e6cad59fd905051790753ffd49ca65e4e",
+          "5de7fd5faaa5ad9df8188e622445b822086bd1e44f322d7a688533eb6421ec23",
+          "163868dc8b60be40a0b37d39ee2692c54f63178465f6ccd6d99e86dee2ab3088"
+        ]
+      ],
+      "element_hashes": [
+        "dd3ba7c9476ea7973ee9098dbd47fc6e7c6f03b3f7809342916e09e8d2a45b33",
+        "38fb35596ca6a8ffed6434b7470f6ab5abb545ef37238e0e6d34aa4d6dd86195",
+        "ded01f3ba826dd78f40655434df4371f91f5f278e55961d1cb5f96505b1c7dfd",
+        "682165c645d5d72de55f343da88329631bd38dab37b2c5e9b5652dcaca9339ce",
+        "828f05d6dee89ca7dd8b441707304877458910ab0154a288e77f6a90ca8090ac",
+        "ed44bb5a8c87008e22f3b5c6e64933c2e3c806ed1814472d9ee6f7a5c1a0738b",
+        "315db856e0074f8b6047caaa73bfb3ffc5e76d3481f5df8f8f63528207970319",
+        "df98d78c5159ba91841b3b1fb05bc2dd8bd81b622e37520c1ca6f0095d3849eb",
+        "44a37092d02d2c893cacfcd1f9e0ac85b865fa814a97c6439995c48bc557c58c",
+        "9490561fbceb08e5b6ac7a882c110444dd07a99e8e7a890ab5b381851596d280",
+        "8b4af0318695400168dda3d8f39dac52e30fc5be73852cb70029bc614590a84e",
+        "918694cb1ee707c158cf527ca7a93ea4c1efc9e1c16e80f2e8226295533cbc50",
+        "71f2e233214b75f453832aae0a89274796722098046645226872306e84bec939",
+        "d5821941d17d2afbd8a78fcdd1aaa7ea1c5faa148147f832f4f8a3a0b3eb15f8",
+        "fc07e014c854c7425b2823444d58f1d5af8cd29991c049377dd297c9586f8911",
+        "c653e549df9eebef7753f900f265ea7a62993a7e9a7943ebff1aff39efa70608",
+        "38615ee273564662439b1ac12c7fa65994134f1b3ace7aefae3b4d7471c430ff",
+        "98d6532ef4b4388293de23cb40359716273c6b6f1f9fa3854ea1ab5cf957bf09",
+        "1c840503bdde7e8d7bf26e930d2e0c72a7c16cc2b317fb43fbb1a3323bcfdecb",
+        "025f0fe218533b65a646f075d68c1b152eb1e8b852f041f3a28b915ed0e92a71",
+        "ec331a51c854a4b0f1e15542ed866d861027e9123c2be044f9908ef4bb390f1b",
+        "10c17267929d8a0cb777ab3f6fba6263f5e8fe358393560150b6826fbc05c4b5",
+        "510ba6d807dd9ec23a12bf9b7aca3b88f1193fbc55471206809515268685010c",
+        "a8245d003bb713b410ee9ae2a70d1ece65d0b43e36d4281586e57a30f95d9108",
+        "e4c7a9ef0d410e86a14e12431141d80c59392855ffd208890648f581ba524923"
+      ],
+      "hash": "2c295421ef726702136b538a32ebb1a27ceb890041d3d5e1b99496be8aea667d",
+      "kind": "array",
+      "mistakes": {
+        "5f34fe30abced6ef17b16c46e91c46d294999882368ee38674191f1e26c3e628": "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i",
+        "9503f8e23c7d2f5497c61dec9b47a3acef96231fa5ab8d1bc7e6177a7bb2bf2d": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
+        "a58d7e19a6dc18eaf0cfc98fb8b7a1614b4cf48f7493aad4c7d1d7eb86912dca": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui",
+        "e6106e3fa4c9fd3db79c696dfa0b8ca281407bc117147b8e48154f218b874882": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot"
+      },
+      "shape": [
+        25
+      ],
+      "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
