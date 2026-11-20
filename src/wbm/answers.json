@@ -105071,7 +105071,8 @@
       "kind": "array",
       "mistakes": {
         "788897651dbbf301b62f9c5ca31063c59c1a7525239effa1ce93cd4eb61558e5": "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2",
-        "a8d67e775979b3327a94dced46cea253373028c2834d616586d930b0a5007699": "le jour de la panne est retiré : son poids est nul, et les autres se renormalisent"
+        "a8d67e775979b3327a94dced46cea253373028c2834d616586d930b0a5007699": "le jour de la panne est retiré : son poids est nul, et les autres se renormalisent",
+        "d6d5a7eded0ba971a4c3031a41d2b819261cc8f4131a6d7dd2f1d6af073ea51b": "le poids d'un jour retiré ne passe pas à un autre jour : les jours gardés se partagent la masse en gardant leurs rapports"
       },
       "shape": [
         4
@@ -105082,8 +105083,8 @@
       "hash": "9149e94704d5166e8cd4d7802ab5c4544cc387c0120e4c64a3f0c0bd4ad9689d",
       "kind": "fraction",
       "mistakes": {
-        "992707cfcbe44690ab000c88da5fd99dca37c4cf39efabaa9da0580e0702d6ea": "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2",
-        "c97681de5026b12c9a914a644e90019c0a43195247e984b0beef52d11a5f3aa3": "un relevé manquant n'est pas un relevé nul : on retire le jour"
+        "2cf42d399cc268cea0005f9d0ccceaca37414d6bc07de061740fcba4996c12e5": "le poids d'un jour retiré ne passe pas à un autre jour : les jours gardés se partagent la masse en gardant leurs rapports",
+        "992707cfcbe44690ab000c88da5fd99dca37c4cf39efabaa9da0580e0702d6ea": "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2"
       },
       "sign": 1,
       "simplified": true,
@@ -105101,46 +105102,37 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "194af9c07480572e78d73be762dc4abf3d71396fd010fc02c3b31b8ad80f71b4"
+          "74fdf60845eb8a61ad0ea52d56158851edb540d6849f79362ad1ac3eff6e8081"
         ],
         [
-          "a63f83e42d56424f4907c7624ce8e11fea4948544b1d4ba997981fb7fd3fd858"
-        ],
-        [
-          "e0a1674df461554d3f195ac243dc4f665b86b62f1a0c6d5e87eac0316347388d"
+          "db79c077f652b8a2a4bfa344abb3fec9840ffae9872929e5d86a6543c7e9e657"
         ]
       ],
       "element_coarse_any": [
         [
           "4de516b3273b10c3c5d7b6cbb84fb50ca7cc6aa9549c11f46bcefbcfb52ac217",
-          "d362c3d59f93983df04c3ce85d01a2cf4fab0d80ab75587e2ff48c352fc91d45",
-          "041093cbc2fd86aa04f75a7cec199fcc5ea457706ec75dbcb8f6914d0bd70be8"
+          "284e0f9b2371b4ea0a58dd5b09643d6c3bee8473842b45400abdf28fcd34cb62",
+          "0c6bf1f1430d483a33884f6cb08da622342f8564d9733fefcdc1df969d6906d5"
         ],
         [
           "1c6375b627d77e2822602d52d13aa4cd17921bc9a9f580c0d40716c4a867821c",
-          "e9a86e9c81ccc75a7a280e72993f3a0e19aec65c572bc256c9156e36f4639a50",
-          "4ec09cf935b73a0ad09f56cc08df7f3d1602f53283312395f3a3bf154bcf8e4d"
-        ],
-        [
-          "56458957a0ccb463da14f93b5025644f6350b4053fac267ae989e511eff49bff",
-          "cbaa204391c120138bc20f13cc13c6cefdbdf334598641e8820e25b5479d6b3f",
-          "ed09a184874d8b6ab7c7a32b24f5380dee0ee375f2b74a08cc497be2da61ec9a"
+          "b58ab1fb1ebeac2b2f4e0bd13c96b9841640e834974f1e1f0a20e210177ba5ba",
+          "4e43556bf32ae762836db3d5ba906e8390cb683a0e3e54ff8ef4d809ffea54a6"
         ]
       ],
       "element_hashes": [
-        "1bcc99be093483e1fa404b154dc1c79e67a1c20dc643ede4708907082f37ab7b",
-        "f125b2656a181f25a04e3914b628dd1c89291291742ddc591eb0951966e7f87c",
-        "a33586b1ea4d9aaa52ae79fbdbf9c394d3a1424c00b22dfe94efdc64a7a28766"
+        "5c8774beb6b238e28af1b7d0ffbe5470492cc1e6ef773977e84b292f77cef0da",
+        "3937b5ece0e68566b922f8b761721d48d68c7923c36ee21e010105df6ec1d6a6"
       ],
-      "hash": "e83ab53ad2499870e0064a43bd03f5f2691f73e1dc8ee76fd81adc4ba96213b3",
+      "hash": "d1886917ff6a30723c4d01b4f70feb5b4c7067b7abd382bd87861ff2711e4622",
       "kind": "array",
       "mistakes": {
-        "0cf1279490eaeeb32d4745062dc1089e9e1df7ebb8c066fe7cc52c3a62e49e2d": "multiplier les scores par c n'est pas multiplier les poids par c",
-        "dbeca0668e06f2369ed0cb5c703314d0a8fd9c205ac85360dbac47dc9cc0088a": "multiplier les scores par c change les poids : on reprend la softmax de c·s",
-        "ffd43de36396a26a7f0a59c9bee1b73ad3c3ae1b6596c971beebc94ea061bae4": "les poids se normalisent par la somme des trois exponentielles"
+        "008c50d01368c00a10b71f1be6ff70cbd0c7d6fefaa4833d8c581a88b3c5355f": "multiplier les scores par c change les poids : on reprend la softmax de c·s",
+        "0a43c3338dbfb003bf7115f61e8aec0214ffea7b7529681d0f8eec76dc796c88": "les poids se normalisent par la somme des trois exponentielles",
+        "e042bd2504f3b4381e2315e8f07ecd26e561d5959a2faf8a8ca9c9559a5c48f5": "multiplier les scores par c n'est pas multiplier les poids par c"
       },
       "shape": [
-        3
+        2
       ],
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
     },
@@ -106004,58 +105996,58 @@
     },
     "MB3.15d": {
       "array_rounded": {
-        "1": "8e79f8bc92c9f0ab61c5a51eaf89e19ef8515e80790c56fd8bc6c3ccaff8d638",
-        "2": "2e0da5817b1373651115c239a9325ead5461f661283d05586a57566d8c4de645",
-        "3": "416e03a93b1a75912253338fc1d1ceaf9fca5767cc658b2eda52533a2b8c1a80",
-        "4": "4fca930f7b777d4e2c5810a4229e801b55a7c1e4c510df66008d3be9a6c2739d",
-        "5": "060a765d16a5c79ce4855286a2ea1239f4e1ff0b4d4b1a81a5fe2f2c14e5362b"
+        "1": "544397d50f4b47297f31369b7467c23446a86fff465a5c2afc1a3cc53d926cf0",
+        "2": "3578cadbee008ec66a77fe2f1fbe3430202aec2fef393a4f245fa3d7054b8808",
+        "3": "5f5215f9890650c9cc5dfd7be4f8cd0a68d8c528caa7887bf4a92d44deba42fd",
+        "4": "c8f8100ccd81d3cf9f772e5d3d725e94564af2ac3afdfbd0ed23726e926e4cf8",
+        "5": "b24d0fda171394ab00b72bbd8c2e7f626ccc361c11bd3150193cd23c798be9b9"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "a98067d0d1091507c9ea3c413f5fb299d06d2619ae1c651d39c36cbb0cfc7408"
+          "8f4619f31bf1f2320e3088eda8deaec82ef7330fe948a545093f7aaf8e9c59bc"
         ],
         [
-          "2d2c9e8d5dbb6e0f9bc48893ee37f407e6d26072aaaeebb7666b32df36cfb85b"
+          "47745e36322e7e6ff577977fb3555c2a295ab4083f63890df3df2b4931c2f266"
         ],
         [
-          "a6b816ae3ae01fb3a61c8841a266e02373f90cf48e61241d827bf12d1925b096"
+          "67f6d4d8260e6aff99296a269a00a382407d208c0aa38cec567a8bdffe10102f"
         ]
       ],
       "element_coarse_any": [
         [
           "ec1762ed2aab4bac553e20b23138d91a0317719f49dcc8118130741f59e45c3d",
           "f296b5412f9cc66addfceb731dd880de6c257ed9d295d4d2be0cec89b44f430a",
-          "bb76227503e2c947aba34aa4ac88d1c2710a5c1497542888d8daba756cc27ef4",
-          "61083f2ddcee9e154a8731a60711d24508a09712d6813c46359fbf490ec5cb5a",
-          "402714ce53d75e084d258096c0d5de78b8752756ad94122fe4f56ff8a09e2b30"
+          "e3168124f6bd50c121acf0b01400dcbba0dd01d5803bbb80dbd615fcce898049",
+          "b01585a66b0c4d47bb2c398b54eb07fdf3881d5c6d8844e611abce2bba7ba40d",
+          "45bb0dd121af256bc24404a4c76d064c3465627ea7912e1b1b5fb03a585af132"
         ],
         [
           "e4c069eacb0b0a3a74efc1a49c7925f4f90ea01d5fd83cfebb6c55408bfb8596",
-          "0c6b3c07d8c1dfd62e2d00075703c2802fa604f6403f3d4febdc47657e101d71",
-          "0bd908d37f933a21ad7c360e423e6f47fb1a7ade7fbeca56b5b8b78f438a4479",
-          "1c01f909fe312906fdd3a4bc28ba09039bd406395672be074eebdfbdf629206b"
+          "90da7fd6dd56092a9765d702e03db733c543fd01e019fc8b8ce98a5f1064a69f",
+          "543b0d13db51673ff0e2e422c7e3ac0cb89516f33835b9051c6c613c7d11fc07",
+          "8c308edfde935511aa0d1993befa118b753bbb385d409bc9a795f8544231ef0c"
         ],
         [
-          "075d6586cfbc61de7c81a49c1e0905fa571ebcef99ca12cf7f8786a794d70f1c",
-          "8b76fe2ab4623358a6f8590af0388a4eca6a2897e87821f59e9f90ae174a89c7",
-          "871770cc8fa0ff5425c37fcdcb3212d766590d2e12743f5a405730c9dd86865d",
-          "794dac593c7ceeef51cd8fdad399dd2899060a1c9d0323f0d97119f7c82db967",
-          "0ae39c6ef34f9ec0c3f86731db5cb605a868fcfd9ce58536274e544bd972eae2"
+          "701ca2ad6587f31432a40cfe181b6c4e5b62b5a46d7843a42697c54e76ed54a5",
+          "d26152eaa13e5580b39740de4da3338b11a1523c0c0415e14a8baeaa321fac55",
+          "89f37e98e6ce55f01a32d5349db231962e175bc5543be607a1ae62a577b15f50",
+          "bd41c06fb4e444222b9bcff9d84e80a75324b459f1ec8b68671b8cba40899339",
+          "6cb8501672556077a0817f1ff5b5f69831ac8c9638e23491d242ef222bf36e58"
         ]
       ],
       "element_hashes": [
-        "98d8e2f4be85c752a2a532f7f8fa5c1c054346282686fdf7852fe5a49569b45f",
-        "d767056c2208c44a4edbd5054ad0f653f2f34c768277723dec091f03b0dbaf54",
-        "8808805d7ba130a6439c222eba4740dd589bd774986e3f1b2a6f9ff76cfda91e"
+        "41f5dd01b16f56c800781f34a3d88e449666915ad71d7ab07c5bf5fec6336a8e",
+        "e8c39339b24f7c583fe19f348abf3212f832cb5c6b3ba2614476ff4f15533d62",
+        "215fbddf170b0f406da58fe4e9a4d19e9967698d77b90d85fdc36357345df889"
       ],
-      "hash": "f152714bfd377290a486df53a9f2916bf8e3a76460d4df3ec4614a2737d3290b",
+      "hash": "d4293e09e6b4400a484220dea1190e22b72c04a83b167ee0ce807cb631f25123",
       "kind": "array",
       "mistakes": {
-        "0d291456628e7860fccf9846609d56dfca0f70bc43c93bb1d29df4e579b0788f": "la direction est dans [0, 360[ : ajoute 360 à un angle négatif",
-        "10dd5ad9628893d58279286b3e35d796cad54b9227cb92b4433e785f6f4d82ec": "les encodages se pondèrent par la softmax des scores de fiabilité, pas tous également",
-        "478528c7aceb2207c6709833ee369a21d0e31fb457a4ace06c976ea612d68107": "la direction se donne en degrés",
-        "60dd3f8ec9a52c491a0b96c8384db1c8f9f7520f3802b6e2cd52b55b35bc126f": "la direction est celle du vecteur a/l, pas la moyenne des angles"
+        "4caa18c8477168f4c54e50c1afb5c0755439c73df16c79e69c8aaac3abab344e": "les encodages se pondèrent par la softmax des scores de fiabilité, pas tous également",
+        "7f92bdf6dfb147d651d91ea2cc9b4ccee03bdca62d7d388ccdc681cad935166d": "la direction est celle du vecteur a/l, pas la moyenne des angles",
+        "8c53c9d312a9fedd5a50c05520a41498f92398eb03d90e980e0103c831d35bfe": "la direction est dans [0, 360[ : ajoute 360 à un angle négatif",
+        "9fba188b9a13620943fdd8c03d44d5f156ceb713850cd402a58a225a8d68a39e": "la direction se donne en degrés"
       },
       "shape": [
         3
@@ -106287,23 +106279,16 @@
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
     },
     "MB3.17e": {
-      "array_rounded": {
-        "1": "b6ac23553c881c46d9b703633e4a70f613c5844c735f1ff54c3895dff84a7011",
-        "2": "0f619b9f11f2da08a0ed7722d80f1fa3fc163e169a5cfe30bd75d3540df5fd87",
-        "3": "8c73f5b162a0a135a819f9f100b0bde2b3461995a29ae3490035a54dc7b09edb",
-        "4": "f7bc5755619e48616117188fea7bb35349cd989a4eb24960fc991baaff4751a9",
-        "5": "48031f883729730133a35c8bf332e326a65f5e7934a9f26b8f24ffcf86745202"
-      },
-      "decimals": 6,
+      "decimals": 5,
       "element_coarse": [
         [
-          "d1127201b43592ee09947bbb0bc69e9b480a0e455bbe4aa84e92ed515f51f921"
+          "f3b5cbefa8afc261c04c42d606ef44fdd46f013e83f334fe2aa0dbe8cdb2f6cc"
         ],
         [
-          "13b48c6686259e838b6fc9f3ac2304a2d6b6214dfd525ccf0f7d0fa8b42bea35"
+          "03150fe07e3005d436ba4e0295b6a7b391e6db65580c597d60f89d8b557e2458"
         ],
         [
-          "37b5b7b993b48330a922f21a34c48afd4f7d3ab1c85f1afb4384394842fb0083"
+          "83b6b1c8e804ea4e585af5c803b82df8dc478d61b36dde29d1e8bf5b6b6e3080"
         ]
       ],
       "element_coarse_any": [
@@ -106311,34 +106296,31 @@
           "f6cfc1ce117c465ccd075c61c060cbb3f10a82af63b171d5cd07a1ab0f28d522",
           "d0a9cb66272873f37b6e6dd3bce0e8806590ecc622bf8934276101d1dba33db1",
           "bd0b61f204e7fdcca76cdfc5ad7b093aa9c074ab962e8bd7b6d985e2ce790ec8",
-          "f966dcb166488eac467721c7270d25a10b6e876200110bdf0278315928aa3a82",
-          "f3b5cbefa8afc261c04c42d606ef44fdd46f013e83f334fe2aa0dbe8cdb2f6cc"
+          "f966dcb166488eac467721c7270d25a10b6e876200110bdf0278315928aa3a82"
         ],
         [
           "24ab4a67d5a8ef96281207a7e1a3b6e52566da122c49d67766425b9cac2a9af7",
           "90b1d8c7ba01eb8aa3de6606ee2cd347b828091a3bfc2ff88392a124eb9f1819",
           "9a7d5777d3a2e28582f62f8001daa4e52172b680de0dab0f403d304605f44e06",
-          "0416c76490120ce98d087f8f5260292df87805978b44f7c87aa6867e37450387",
-          "03150fe07e3005d436ba4e0295b6a7b391e6db65580c597d60f89d8b557e2458"
+          "0416c76490120ce98d087f8f5260292df87805978b44f7c87aa6867e37450387"
         ],
         [
           "c378607444a69a28c1368e99901e3bdcf43667392ba3990a8574c1d153c543d0",
           "c9a87ec4bb53e9c903a3eabc0a91806184edf838ee308e82e3e13fb28ada7567",
           "03c1248c8c5b9a617a3774d628e4194639aedc9cd3b2eac5cd2a5ccaf0c9e782",
-          "afe4129b292a47be4b40107e5e65c37f7074798c1bd86fbe690e72b5962e694c",
-          "83b6b1c8e804ea4e585af5c803b82df8dc478d61b36dde29d1e8bf5b6b6e3080"
+          "afe4129b292a47be4b40107e5e65c37f7074798c1bd86fbe690e72b5962e694c"
         ]
       ],
       "element_hashes": [
-        "811eb018c5a62ce5a4adba51c78f501536d18ef7a7f7654395ba1d85a20d5696",
-        "17a7c51a50052c2ba47321ce29767ad4a8ffa5cb55112a868089d2b270420e6a",
-        "ee0ccfa2884417cf37ebec4a58d7d0986685dd3fc917d5adfa46338fd0875f0f"
+        "d1127201b43592ee09947bbb0bc69e9b480a0e455bbe4aa84e92ed515f51f921",
+        "fef8d5a2d97309a9370f878479b12c9cbd25eab58b9f476fea3fd96681f244d0",
+        "512f5e1ecf1fbd012f10e6a03e784d704e0057477f13a89052bf110587d5f8ae"
       ],
-      "hash": "42a3de830c617fabe88cd48601c7c8a61407956f8db1d28122a4240bff8c6c04",
+      "hash": "0861cab44b702d8d0b47fc279e13ddd45b232953fe8ecc808aa7007afd53b311",
       "kind": "array",
       "mistakes": {
-        "399246fa5e9a90da99e36d8da224d87de159073652211c90ce06eefe9c51a60e": "le noyau gaussien divise par 2h², pas par h²",
-        "3f6017beac244337886de795ac478637967e0bb2a6eb17e43f6170a47aeac7b6": "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5"
+        "b8fd3b7494dea7091b01e7489678b61875d94da42780d7a522af4e7455d01cd9": "le noyau gaussien divise par 2h², pas par h²",
+        "bb077d8039337067476108bd76dce24101105cdb9da159d8d824cfc6dc1326b9": "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5"
       },
       "shape": [
         3
@@ -106349,53 +106331,53 @@
       "array_rounded": {
         "1": "6627bddcc15c987b5f5ad62572bd21015a8982ff0e34c073825cae49b95f58de",
         "2": "9adc1f84d00ca58157a7f80808774b5210e7f19bded0fd6d4f221ae565198427",
-        "3": "ba9a753c0d54d5eb1788da66255937aa862b67950663754fc44f7907dd24633f",
-        "4": "7ed666265b1fea291078f0abb8fbb5534e455256417c368bbd2190d978c79158",
-        "5": "17a989f275a5abb399eedec4530d26792d79fe7c63b4a689f1fdd53ad09282ec"
+        "3": "d13db8712b73279c862ffdc1867fc174ab2ffe1e42a0de3581d176a5987ba95b",
+        "4": "070117404dd3e118e82013bd285c4915fbfdce12f0a295bc0c2cb76e28ac4694",
+        "5": "2a076a4ed8bebe41d53e46d776688acc9979b000f64a27729b649c954f649d4c"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "7cb77980624dcd20335ece87408697f4705f0145ae2e3202218b1a99f2528729"
+          "ed1958214752deb170d2595d0acf6eccb53376ad4f7e9ec1e73714d1072d4159"
         ],
         [
-          "49d744c3e2e8f6495d7cd804113faf8506640093d0a1be91263f024d977516a0"
+          "3b4b3a54310d749a33f38f916f69c1b0dbe7162e292d40b74dd8e123e70da9fb"
         ],
         [
-          "aea43038cc9b289441b6490ef5f58f70221eb02dc24952358fcc9fcc41fbbf27"
+          "509e3c2e3df4cb9c5a3c42daa953558b6f35ffb3eda47048803c1d96c6541bb2"
         ]
       ],
       "element_coarse_any": [
         [
           "9937b8bb7228e4ce1cc20440a181ea13ddb534a1b07f48963eb9b2d18f3aa901",
           "e8adb0a417823750c602cb1a02e03caf93b8b0a5458c165c95bf8234237366d9",
-          "0ed16f21d26737df1f21b11d16dba137078d25ae8bd3156b927acfc085da4dab"
+          "941e58b1ff2d61877ab60a504a9889154eddbb2e6774784cb6b227558c2e7eb2"
         ],
         [
           "1e1c897fab962b5e10c3e1e37be71ce31a97531216cd36ab2be521a74a72f429",
           "3939cbb3eb0e37fd599acec9aa6413ad3e3de48562abc23248f63ce2eaa7b581",
           "95bd44066e1c3c0eab03df455d7c8411e42f0595e4d1eca9cd692e2bc17278bb",
           "a58e984808f0cac3e80d9711ee20becebed836896771a8f3fceeb8a9787ef334",
-          "c9fa9fd67764feb98f13b148d9bbb8c30cc75a1a500097f8b2b412e10d9c797a"
+          "fab440889bde40bc32956d72029b8dc812e590c06df6b0e49b9e53e9d216e2ff"
         ],
         [
           "8b1592142477454acbf6a1216d1822502319b907267004cfcb47dd9dd62a0f22",
           "43ee817d2ac43a742578ef0f0eaff3b04196d2a9089a6e14ab6f5de8801bb5c9",
           "4fda666c5fa0655acf09215109c1048e1bb82f152ef62172ac439e8be466444f",
-          "fe0ecc96175c3384ad8cfb7f022b85b6de0a2d02998f224146c66aace1463225",
-          "11a764036a2a50c84effc2ab7b0a33a4d7a068b92d2f266589a5857746a55534"
+          "4f866b6b058b9998877bfaef28e00146b04bcfc8b05372da63882f50c8fea549",
+          "d982165ecfc36e43e126c65eab4e9a66190c95c87a46e3c61c67e18b00fe364c"
         ]
       ],
       "element_hashes": [
-        "c61067c9152f83c7c7df4f665f1abc322a4836d53d8da9f84d8f6da46c024324",
-        "acefdca8da1195b857a9d3016c7aeaac76cb448fc026b375c6b26e195491fbaf",
-        "724331284e2ff8829b33827b9d9de17b68cd3f7d1b0ceeb1d60645cc3bd465e9"
+        "b42ee9912c72a456a58f4ea06fdb46a94cdd2070b5649ccf9ac5b9cc41ca6907",
+        "af8759a64c9965ff19c315147740e4be2eb224e13a18b31904a892a7b88bb2fa",
+        "09b28fe71209aacc589d3702c17be48eae973ce0b5637e4135a526d9516ff66c"
       ],
-      "hash": "08a0573eecccf8fb8300cc13d2af8d93990f5cae652aaf2d064eef15d1186d24",
+      "hash": "8854a7fe4077e664eb0573c050b4c7f8edbbd3010181cfa13666bdc171a5bf1c",
       "kind": "array",
       "mistakes": {
-        "2453ce64248913a6b9fff7cd60b27ed4be065937dc9b37c4d774785b827fde22": "l'erreur quadratique moyenne est la moyenne des carrés des écarts, sans racine",
-        "c34d5a3547529210f6fc8b6e8ffdea7bb1352ed2523e240ed09f5ef6a87602ea": "le noyau gaussien divise par 2h², pas par h²"
+        "5682b4de81df5a97ca8d0207e69d74d01981c12db80b1128ecb7e11293ec6659": "le noyau gaussien divise par 2h², pas par h²",
+        "64ef24751d52389bec084940cc74ad996cd5ee12b215475919006382b1580a47": "l'erreur quadratique moyenne est la moyenne des carrés des écarts, sans racine"
       },
       "shape": [
         3
@@ -106407,19 +106389,19 @@
         "1": "188375fc14c67af54b11b5a9f926b27362b51f2d6c14524e6d76e9a8266105ae",
         "2": "1416d033c304e273907e761cecb620325f437eee1bf694fbb0c030a904cc1859",
         "3": "931e7e663a60f15420979bdcde951b910d07daee75ae1c208bfe364f33d5aa5c",
-        "4": "5a86337cdc7b0073aa96af594eeec23925cade97ef85f1f919d29b3d88cc64d4",
-        "5": "072d102045489ad9dfb54c7cb98073f874cd0677b0c57538237c9ad671b50a56"
+        "4": "b6674a1853e899ec1457ef9e01e3c130b6c66b051c9d5d14c32b57efd3fe5be3",
+        "5": "46515267e906b4b6f6afbce81f12bad7254ccc9c2c321412ed19dc5c1ed92cf5"
       },
       "decimals": 6,
       "element_coarse": [
         [
-          "4f6d5ed8efe910414616aa07892e0955df9cea49057522eb4b2af093812a74b2"
+          "5a402a7872493951bcbc214776964710328cffadccc98b79bcc746bf22096503"
         ],
         [
-          "621a02cce5b74d45aa6d52b24f675e548383626c2b6736acd7d9017e71dd3484"
+          "ab056fa33ebbb0d171b04ab1484af7b4a439cfa623c4119a7f8ea3ae2412a8b1"
         ],
         [
-          "daef8e4ec052bff5755c9fb308c559f0b5872f338a5a2bcc08e7a5a1df665ff4"
+          "ba8fc1e16a0145df338a91f59042e4a726178ead61646e0deb9f65b1007dc5f7"
         ]
       ],
       "element_coarse_any": [
@@ -106428,7 +106410,7 @@
           "5a537290f843458dd428be74f3276028c6a1014d77827d690c5213984b8df0a2",
           "c43f6601bf3881d6eeec5b8227a0bef9e7d757ae8c3827fb8a9ab26d6444f2fb",
           "5236109afef6ab17f9fce68249ce2740f57cb18ee2d0ac4eda22d2625e0259a7",
-          "f6afbdc8a37238bd9b8cc916360d9714301871ecebd0e6ea28f8b4b0cdf266b0"
+          "c24bf2e273efd09803eab1cc66472af316d04cf72d16a6521f85e9477e13d0cf"
         ],
         [
           "bd323036ab564451114a894b896de95f70fcf2111150f965aaa16f6b1bd195b1",
@@ -106441,19 +106423,19 @@
           "a7960ec70bb7dbdfeb3d3482bbd2264018beaa4aad3767a62d5c0f264a08c502",
           "17e7e0e2597c5957bec75d63ebefefb9203be61230dedf1ee58db18c2e6eb800",
           "18c4bd18e9aaa33cf411fbcf5d93d070e9d11dd497f892d4ea80d6455af1a469",
-          "09e8ed2b33a3acbb7a88c399f1ff20e0056fc3da86817fe94c02eca638779505"
+          "43e2d4770bf8df6583fbac2138c43f2c452552673dfbed2dbfa620000211efd7"
         ]
       ],
       "element_hashes": [
-        "60e505eb331661fcbccf88e385b5126bd599ccdb3ced7f908039d931e1ea7ae4",
-        "1d847400a09b91daa4250fdbcd72b2219b32f09ce51a556ff07cda26c3b85387",
-        "3103d66efddc1d07c75e4b423c536d91e66cc38055a54ddc097d96a00d3f0346"
+        "9a36aa237141208375eef9c1dcdd26d00f01f525dd508d4601db8260a5cabec1",
+        "a4152d0bf31c6a91477eb09e2f24d23c1203b3776a035f542db48070e0529044",
+        "668e250d9380df0d8c5bd97edc45b92783e4758c64157ac77a6ffcd8c7b281b5"
       ],
-      "hash": "d611ec990ef0000ac1ea71601f50386a0c62bfbcb3ce4c91a11c230cde1b3c7d",
+      "hash": "7b1a83a27d0e46842d4e4fec2d9bc81b76878a248c1fc8fbdfab2d571faf30b3",
       "kind": "array",
       "mistakes": {
-        "14d845a0d72a2b9a6a8ab9fdde36202f3879a23a3cffba4a4a5be7192cb96968": "le noyau gaussien divise par 2h², pas par h²",
-        "952e49821e7c493de4a0f1878c926f75f2174c63d4297af2e6fe8428d740068a": "l'amplitude se mesure sur la courbe de la grille GRID_17, pas aux seules stations"
+        "501f5daae360a762c4ee2a25020e52add02cda5ea3815dc59f1e72a90635446a": "le noyau gaussien divise par 2h², pas par h²",
+        "66065df96492c5c676b1a2c3d874fc92b9c6750d195b6b2e45538b18d5ba80b7": "l'amplitude se mesure sur la courbe de la grille GRID_17, pas aux seules stations"
       },
       "shape": [
         3

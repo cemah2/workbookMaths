@@ -120,7 +120,8 @@ PAPER = [
                          floats(givens(4, 1, 2, math.pi / 2) @ givens(4, 3, 4, math.pi / 3))}'''),
         ("e", BOOL, "commute(givens(4, 1, 2, math.pi / 3), givens(4, 3, 4, math.pi / 2))",
          '''mistakes={"deux rotations dans des plans disjoints agissent sur des coordonnées différentes": False}'''),
-        ("f", "a list of 2 pairs of integers, numbered from 1: [[i, j], [k, l]]", "planes_2(SIGMA_2)",
+        ("f", "a list of 2 oriented pairs (i, j), (k, l), numbered from 1, with PᵀDP = R_ij(pi/3) R_kl(pi/2), R_kl turning e_k towards e_l even if k > l: [[i, j], [k, l]]",
+         "planes_2(SIGMA_2)",
          '''decimals=0,
            mistakes={"PᵀDP tourne d'autres plans que D : applique σ aux deux indices de chaque plan":
                          [list(plane) for plane in PLANES_2],
@@ -227,11 +228,13 @@ PAPER = [
            mistakes={"le jour de la panne est retiré : son poids est nul, et les autres se renormalisent":
                          floats(kept_but_renormalised_5()),
                      "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2":
-                         floats(shifted_weights_5())}'''),
+                         floats(shifted_weights_5()),
+                     "le poids d'un jour retiré ne passe pas à un autre jour : les jours gardés se partagent la masse en "
+                     "gardant leurs rapports": floats(reported_weights_5())}'''),
         ("e", 'an irreducible fraction, between quotes', "smoothed_5(weights_5(4, broken=BROKEN_5))",
          '''kind="fraction", simplified=True,
-           mistakes={"un relevé manquant n'est pas un relevé nul : on retire le jour":
-                         sum(w * (0 if day == BROKEN_5 else t) for day, (w, t) in enumerate(zip(weights_5(4), POOL_5), start=1)),
+           mistakes={"le poids d'un jour retiré ne passe pas à un autre jour : les jours gardés se partagent la masse en "
+                     "gardant leurs rapports": smoothed_5(reported_weights_5()),
                      "la panne ne décale pas les jours : le jour 1 garde son score −3 ln 2": smoothed_5(shifted_weights_5())}'''),
         ("f", BOOL, "weights_5(4, broken=BROKEN_5) == conditioned_5(weights_5(4), BROKEN_5)",
          '''mistakes={"un score −∞ restreint la loi à un sous-ensemble et la renormalise : c'est une loi conditionnelle":
@@ -240,14 +243,14 @@ PAPER = [
 
     Paper("MB3.6", "La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le poids maximal, la "
                    "sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ}", [
-        ("a", "a list of 3 numbers (4 decimals): c = 1, 2, 6", "[float(softmax(c * ROUTES_6).max()) for c in (1, 2, 6)]",
+        ("a", "a list of 2 numbers (4 decimals): c = 2, 6", "[float(softmax(c * ROUTES_6).max()) for c in (2, 6)]",
          '''decimals=4,
            mistakes={"multiplier les scores par c n'est pas multiplier les poids par c":
-                         [c * float(softmax(ROUTES_6).max()) for c in (1, 2, 6)],
+                         [c * float(softmax(ROUTES_6).max()) for c in (2, 6)],
                      "les poids se normalisent par la somme des trois exponentielles":
-                         [float(np.exp(c * ROUTES_6).max()) for c in (1, 2, 6)],
+                         [float(np.exp(c * ROUTES_6).max()) for c in (2, 6)],
                      "multiplier les scores par c change les poids : on reprend la softmax de c·s":
-                         [float(softmax(ROUTES_6).max())] * 3}'''),
+                         [float(softmax(ROUTES_6).max())] * 2}'''),
         ("b", "a number (4 decimals)", "float(1 - np.sum(softmax(6 * ROUTES_6) ** 2))",
          '''decimals=4,
            mistakes={"c'est 1 moins la somme des carrés des poids, pas 1 moins le carré de leur somme":
@@ -260,7 +263,7 @@ PAPER = [
                          (K_6 - 1) * math.exp(-6 * (ROUTES_6.max() - ROUTES_6.min())),
                      "il y a K − 1 = 2 autres scores": K_6 * math.exp(-6 * GAP_6),
                      "l'exposant de la borne contient c": (K_6 - 1) * math.exp(-GAP_6)}'''),
-        ("d", "a number (2 decimals)", "math.log((K_6 - 1) / (1 - TARGET_6)) / GAP_6",
+        ("d", "a number (2 decimals): the c where the bound equals 0.01", "math.log((K_6 - 1) / (1 - TARGET_6)) / GAP_6",
          '''decimals=2,
            mistakes={"la borne vaut (K − 1) e^{−cΔ} : il reste le facteur 2": math.log(1 / (1 - TARGET_6)) / GAP_6,
                      "on résout avec le logarithme népérien": math.log10((K_6 - 1) / (1 - TARGET_6)) / GAP_6,
@@ -487,6 +490,14 @@ def shifted_weights_5():
     ages = {4: 0, 2: 1, 1: 2}
     raw = [LAMBDA_5 ** ages[u] if u in ages else F(0) for u in range(1, 5)]
     return [w / sum(raw) for w in raw]
+
+
+def reported_weights_5():
+    """The classic error: the weight of the broken day moved to the last day (day 4), the others kept."""
+    weights = weights_5(4)
+    moved = [F(0) if u == BROKEN_5 else w for u, w in enumerate(weights, start=1)]
+    moved[-1] += weights[BROKEN_5 - 1]
+    return moved
 
 
 def smoothed_5(weights):
@@ -835,7 +846,7 @@ NOTE_14 = (r"Les contrôles (entiers refusés s'ils sont booléens, `math.isfini
            r"disjoints commutent.")
 
 MB3_14 = Ex(
-    "MB3.14", "🔨", 1, 15, "La matrice d'une rotation de Givens de ℝⁿ · `givens_rotation`",
+    "MB3.14", "🔨", 1, 20, "La matrice d'une rotation de Givens de ℝⁿ · `givens_rotation`",
     "programmer la matrice d'une rotation de Givens, puis s'en servir pour retrouver MB3.2, une matrice de MML et la "
     "commutation de deux rotations.",
     "fiche §3 ; MML §3.9.3 ; Ex MB3.2", tracks="C, E", mymath="positional.py", note=NOTE_14,
@@ -930,11 +941,11 @@ NOTE_15 = (r"`s = np.asarray(scores, dtype=float)` après les contrôles ; `m, l
            r"(0 au premier bloc), `w = np.exp(s_b - m_new)`, `l = l * f + w.sum()`, `acc = acc * f + w @ v_b` ; une "
            r"copie de l'état par bloc avec `history`. a) $(3 ;\ 1{,}375 ;\ 11{,}75 ;\ 4 ;\ 1{,}96875 ;\ 8{,}875 ;\ 4 ;\ "
            r"3{,}28125 ;\ 16{,}1875)$ et vrai ; la moyenne vaut $\frac{74}{15}$. b) Vrai. c) $m + \ln l \approx "
-           r"-1\,200{,}702880$, et `-inf` pour le calcul direct. d) $\approx (0{,}738354 ;\ -0{,}091732)$, de direction "
-           r"$\approx 352{,}92°$.")
+           r"-1\,200{,}702880$, et `-inf` pour le calcul direct. d) $\approx (0{,}673893 ;\ -0{,}147664)$, de direction "
+           r"$\approx 347{,}64°$.")
 
 MB3_15 = Ex(
-    "MB3.15", "🔨", 2, 35, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et l'état après "
+    "MB3.15", "🔨", 2, 40, "La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et l'état après "
     "chaque bloc · `online_softmax`",
     "programmer la softmax en ligne avec son état après chaque bloc, puis retrouver MB3.7, l'indépendance de la taille "
     "des blocs, un log-sum-exp qui déborderait, et une direction moyenne pondérée.",
@@ -947,7 +958,7 @@ MB3_15 = Ex(
 - a) les neuf balises, par blocs de 3 avec `history=True` : les trois états, avec $m$ divisé par $\ln 2$, puis vrai ou faux, ils sont égaux à tes réponses a) à c) de MB3.7 à $10^{-12}$ près (une liste de 10 : les 9 nombres, état par état, puis le booléen) ;
 - b) vrai ou faux : l'état final est le même, à $10^{-12}$ près, pour des blocs de 1, 2, 3, 4 et 9 ;
 - c) pour les scores $(-1\,203{,}5 ;\ -1\,201 ;\ -1\,204{,}2 ;\ -1\,202{,}5)$ : $m + \ln l$, puis ce que rend `np.log(np.sum(np.exp(s)))` (une liste de 2) ;
-- d) quatre relevés de vent, de directions 300°, 330°, 20° et 70° et de scores de fiabilité $(0{,}8 ;\ 0 ;\ 1{,}2 ;\ -0{,}4)$, encodés par $(\cos, \sin)$ : avec ces encodages comme valeurs 2-D et des blocs de 2, la moyenne pondérée $a/l$, puis sa direction en degrés dans $[0, 360[$ (une liste de 3 nombres).""",
+- d) quatre relevés de vent, de directions 285°, 335°, 15° et 75° et de scores de fiabilité $(0{,}8 ;\ 0 ;\ 1{,}2 ;\ -0{,}4)$, encodés par $(\cos, \sin)$ : avec ces encodages comme valeurs 2-D et des blocs de 2, la moyenne pondérée $a/l$, puis sa direction en degrés dans $[0, 360[$ (une liste de 3 nombres).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
     after=[("md", "**Les tests** de `online_softmax` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était "
@@ -975,7 +986,7 @@ m_15, l_15, _ = online_softmax(s_15)
 with np.errstate(divide="ignore"):
     direct_15 = float(np.log(np.sum(np.exp(s_15))))
 answer_MB3_15c = [m_15 + math.log(l_15), direct_15]
-angles_15 = np.radians([300.0, 330.0, 20.0, 70.0])
+angles_15 = np.radians([285.0, 335.0, 15.0, 75.0])
 codes_15 = np.column_stack([np.cos(angles_15), np.sin(angles_15)])
 m_15, l_15, acc_15 = online_softmax([0.8, 0.0, 1.2, -0.4], codes_15, block_size=2)
 mean_15 = acc_15 / l_15
@@ -1018,7 +1029,7 @@ wbm.record("MB3.15c", lse_15r, decimals=6,
            mistakes={"le log-sum-exp est m + ln l : n'oublie pas m": lse_15r - float(s_15r.max()),
                      "le log-sum-exp est m + ln l, avec le logarithme népérien":
                          float(s_15r.max() + math.log10(math.exp(lse_15r - s_15r.max())))})
-a_15r = np.radians([300.0, 330.0, 20.0, 70.0])
+a_15r = np.radians([285.0, 335.0, 15.0, 75.0])
 codes_15r = np.column_stack([np.cos(a_15r), np.sin(a_15r)])
 mean_15r = softmax_15r([0.8, 0.0, 1.2, -0.4]) @ codes_15r
 direction_15r = math.degrees(math.atan2(mean_15r[1], mean_15r[0]))
@@ -1029,7 +1040,7 @@ wbm.record("MB3.15d", mean_15r.tolist() + [direction_15r % 360], decimals=6,
                      "la direction est dans [0, 360[ : ajoute 360 à un angle négatif": mean_15r.tolist() + [direction_15r],
                      "la direction se donne en degrés": mean_15r.tolist() + [math.radians(direction_15r % 360)],
                      "la direction est celle du vecteur a/l, pas la moyenne des angles":
-                         mean_15r.tolist() + [float(np.mean([300.0, 330.0, 20.0, 70.0]))]})'''),
+                         mean_15r.tolist() + [float(np.mean([285.0, 335.0, 15.0, 75.0]))]})'''),
         ("solution", answers_check("MB3.15", "ab") + "\n" + CHECK_15C + "\n" + answers_check("MB3.15", "d")),
         look(LOOK_15),
     ],
@@ -1211,10 +1222,10 @@ with checked("MB3.17"):
 NOTE_17 = (r"Prédictions attendues : a) (A) ; b) (B) ; c) (A). `nw_predict_17` : les scores "
            r"`-(x[:, None] - X[None, :]) ** 2 / (2 * h ** 2)`, moins leur maximum par ligne, puis `np.exp`, la "
            r"normalisation par ligne et le produit par `Y`. d) $(0{,}9653 ;\ 0{,}1099 ;\ 0{,}0424)$ ; e) $(5{,}343 ;\ "
-           r"4{,}186 ;\ 4{,}427)$ °C ; f) $(0{,}033 ;\ 1{,}220 ;\ 10{,}146)$ ; g) $(11{,}887 ;\ 8{,}095 ;\ 0{,}380)$ °C.")
+           r"4{,}186 ;\ 4{,}427)$ °C ; f) $(0{,}033 ;\ 1{,}220 ;\ 10{,}147)$ ; g) $(11{,}887 ;\ 8{,}095 ;\ 0{,}380)$ °C.")
 
 MB3_17 = Ex(
-    "MB3.17", "🔮", 1, 20, "Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur de bande "
+    "MB3.17", "🔮", 1, 25, "Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur de bande "
     "est divisée ou multipliée par 10, puis tracer",
     "prévoir l'effet de la largeur de bande sur les poids et sur la courbe de Nadaraya-Watson, puis le mesurer et le "
     "tracer.", "fiche §5 et §7 ; M05a, M28 ; Ex MB3.4", tracks="C, E", hypothesis=True, given=GIVEN_17, note=NOTE_17,
@@ -1340,7 +1351,7 @@ print("   moyenne des températures :", round(float(Y_17.mean()), 3), " ; 1/24 =
         ("record", '''wbm.record("MB3.17d", right_17r["d"], decimals=6,
            mistakes={"le noyau gaussien divise par 2h², pas par h²": h2_17r["d"],
                      "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5": right_17r["d"][::-1]})
-wbm.record("MB3.17e", right_17r["e"], decimals=6,
+wbm.record("MB3.17e", right_17r["e"], decimals=5,
            mistakes={"le noyau gaussien divise par 2h², pas par h²": h2_17r["e"],
                      "la liste suit l'ordre de H_17 : h = 0,025 ; 0,25 ; 2,5": right_17r["e"][::-1]})
 wbm.record("MB3.17f", right_17r["f"], decimals=6,
@@ -1419,13 +1430,13 @@ NOTE_18 = (r"`count_rescalings_18` : `ms = [m for m, _, _ in states]`, puis le n
            r"$H_N - 1 \approx 5{,}975$ ; $4{,}187$ ; $1{,}929$. e) 9, 29 et 245 flottants, contre 2 400. f) Vrai.")
 
 MB3_18 = Ex(
-    "MB3.18", "🔬", 2, 25, "La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à l'échelle "
+    "MB3.18", "🔬", 2, 30, "La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à l'échelle "
     "(les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à H_N − 1, et la mémoire "
     "gardée",
     "compter les remises à l'échelle de la softmax en ligne selon l'ordre des scores et la taille des blocs, comparer à "
     "H_N − 1, et mesurer la mémoire gardée.", "fiche §8 et §9 ; R8, M02b ; Ex MB3.15", tracks="C", given=GIVEN_18,
     note=NOTE_18,
-    body=r"""Le notebook fournit `S_18`, 600 scores, `V_18`, leurs valeurs, de forme $(600, 3)$, et `ORDERS_18`, 300 ordres de lecture tirés au hasard une fois pour toutes (300 permutations de `range(600)`, tirées par la graine 7318). Une remise à l'échelle a lieu quand $m$ change d'un état au suivant (après le premier bloc qui a un score fini). Écris `count_rescalings_18(states)`, qui la compte sur une liste d'états rendue par `mymath.positional.online_softmax(..., history=True)`, puis `draw_rescalings_18(ax, Ns, means, harmonic)`, qui trace dans les axes reçus `means` et `harmonic` en fonction de `Ns`, en abscisse logarithmique, avec une légende et des noms d'axes. Pour des blocs de $B = 1$, 6 et 60 scores (`BLOCKS_18`, soit $N = 600$, 100 et 10 blocs), relève (chaque fois une liste de 3, dans l'ordre de `BLOCKS_18`) :
+    body=r"""Le notebook fournit `S_18`, 600 scores, `V_18`, leurs valeurs, de forme $(600, 3)$, et `ORDERS_18`, 300 ordres de lecture tirés une fois pour toutes par la cellule fournie (300 permutations de `range(600)`, graine 7318). Une remise à l'échelle a lieu quand $m$ change d'un état au suivant (après le premier bloc qui a un score fini). Écris `count_rescalings_18(states)`, qui la compte sur une liste d'états rendue par `mymath.positional.online_softmax(..., history=True)`, puis `draw_rescalings_18(ax, Ns, means, harmonic)`, qui trace dans les axes reçus `means` et `harmonic` en fonction de `Ns`, en abscisse logarithmique, avec une légende et des noms d'axes. Pour des blocs de $B = 1$, 6 et 60 scores (`BLOCKS_18`, soit $N = 600$, 100 et 10 blocs), relève (chaque fois une liste de 3, dans l'ordre de `BLOCKS_18`) :
 - a) le nombre de remises à l'échelle quand les scores sont lus en ordre croissant (les valeurs permutées avec leurs scores) ;
 - b) en ordre décroissant ;
 - c) leur moyenne sur les 300 ordres de `ORDERS_18` (les valeurs permutées avec leurs scores, le même ordre pour les trois tailles de blocs) ;
@@ -1667,7 +1678,7 @@ NOTE_19 = (r"`encode_19` : `np.array([f(w * t) for w in W_19 for f in (np.cos, n
            r"2{,}623490)$. c) $\delta = 8\,736$ h (52 semaines), où le produit vaut $\approx 2{,}999852$. d) Vrai.")
 
 MB3_19 = Ex(
-    "MB3.19", "🎨", 1, 20, "Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois cercles, un "
+    "MB3.19", "🎨", 1, 25, "Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois cercles, un "
     "décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart",
     "encoder une date par trois horloges, la dessiner sur trois cercles, lire un décalage comme trois rotations, et "
     "tracer le produit scalaire de deux encodages en fonction de leur écart.", "fiche §3 et §4 ; Ex MB3.3 et MB3.14",
@@ -2303,7 +2314,7 @@ NOTE_21 = (r"`failed_checks_21` : un `try` autour des appels, `ref = func(scores
            r"trompe seulement sur les valeurs 2-D, et une fusion fausse mais associative.")
 
 MB3_21 = Ex(
-    "MB3.21", "🛠️", 1, 25, "Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni d'une même "
+    "MB3.21", "🛠️", 1, 30, "Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni d'une même "
     "permutation des scores et des valeurs, ni d'une constante ajoutée aux scores, et la fusion de trois états est "
     "associative",
     "écrire les contrôles d'un test de propriété de la softmax en ligne et de la fusion, sur des cas tirés au hasard, et "
@@ -2546,7 +2557,7 @@ with checked("MB3.22"):
             "la méthode de la vérification, sur le jeu du notebook et sur trois éoliennes cachées, en moins de 10 "
             "secondes.", "critère pas encore atteint : relis les lignes ❌ ci-dessus.")'''
 
-NOTE_22 = (r"a) $h \approx 0{,}151$ ; b) $\approx 2\,111$ kW² avec la méthode ci-dessous ; c) $\approx 3\,837$ kW², "
+NOTE_22 = (r"a) $h \approx 0{,}151$ ; b) $\approx 2\,111$ kW² avec la méthode ci-dessous ; c) $\approx 3\,838$ kW², "
            r"1,82 fois plus ; d) 0,03, la plus petite largeur de la grille : sans laisser le relevé de côté, chaque relevé "
            r"se prévoit lui-même. Le piège : les heures à prévoir sont autour du jour 0 et de la direction 0°, là où les "
            r"nombres bruts mettent loin les uns des autres des relevés voisins (le jour 364 et le jour 0, 359° et 1°). "
@@ -2554,7 +2565,7 @@ NOTE_22 = (r"a) $h \approx 0{,}151$ ; b) $\approx 2\,111$ kW² avec la méthode 
            r"scores mise à $-\infty$) et une grille fine suffisent.")
 
 MB3_22 = Ex(
-    "MB3.22", "🏆", 3, 35, "Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la "
+    "MB3.22", "🏆", 3, 40, "Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la "
     "direction du vent et du jour de l'année, la largeur de bande choisie par validation croisée « un de côté », sous une "
     "erreur quadratique moyenne donnée",
     "prévoir par Nadaraya-Watson sur un encodage cyclique, choisir la largeur de bande par validation croisée « un de "
@@ -2562,7 +2573,7 @@ MB3_22 = Ex(
     given=GIVEN_22, note=NOTE_22,
     body=r"""Une éolienne reçoit surtout un vent dominant venu des directions proches de 0°, qui souffle le plus fort en hiver. Le notebook fournit `TRAIN_22`, 400 relevés de l'année passée, de forme $(400, 3)$ : la direction d'où vient le vent $\theta$ (en degrés, de 0 à 360 ; 0° et 360° sont la même direction), le jour de l'année $d$ (de 0 à 365) et la production moyenne de l'heure $y$ (en kW) ; et `TEST_22`, de forme $(400, 2)$, les directions et les jours de 400 heures à prévoir, autour du nouvel an, par vent dominant. Écris `predict_22(train, test)`, qui rend 400 prévisions par Nadaraya-Watson à noyau gaussien sur l'encodage cyclique des deux variables, $(\cos\theta, \sin\theta, \cos\frac{2\pi d}{365}, \sin\frac{2\pi d}{365})$, que rend la fonction fournie `encode_22(theta, day)` (un tableau de forme $(n, 4)$), avec une largeur de bande choisie par validation croisée « un de côté » (fiche §5) sur une grille d'une trentaine de valeurs en progression géométrique, par exemple `GRID_22` (30 valeurs de 0,03 à 1,5). Tout NumPy et SciPy sont permis. La cellule fournie donne aussi `mse_22(predictions)`, qui rend l'erreur quadratique moyenne de 400 prévisions de `TEST_22` par rapport à la production moyenne attendue (`TRUTH_22`), sans montrer la loi cachée.
 
-**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées tirées à nouveau à chaque exécution (une autre éolienne du même type, ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction, et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Relève :
+**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées, tirées au hasard à chaque exécution parmi 300 (chacune du même type, avec ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction, et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Relève :
 - a) la largeur de bande que choisit la validation croisée « un de côté » sur `TRAIN_22`, avec la grille `GRID_22` (un nombre ; 3 décimales dans ta copie) ;
 - b) `mse_22` de tes prévisions, `mse_22(predict_22(TRAIN_22, TEST_22))` (un nombre) ;
 - c) `mse_22` de la même méthode appliquée aux nombres bruts $(\theta, d)$, sa largeur choisie de la même façon, sur la grille `GRID_RAW_22` (30 valeurs de 1 à 200) (un nombre) ;
@@ -2897,6 +2908,8 @@ def build_constants() -> dict:
     # MB3.17: 24 stations (seed 7317), on which the three predictions a) (A), b) (B), c) (A) are right
     rng = np.random.default_rng(7317)
     X17 = np.round(np.linspace(1.0, 2.6, 24) + rng.uniform(-0.02, 0.02, 24), 3)
+    assert X17[0] == 1.001
+    X17[0] = 1.002                       # 1.001 is a number of the Évités (a simulation of the fiche of B3)
     Y17 = np.round(16 - 6.5 * X17 + rng.normal(0, 0.9, 24), 1) + 0.0
     out["__X_17__"], out["__Y_17__"] = literal(X17.tolist()), literal(Y17.tolist())
 
