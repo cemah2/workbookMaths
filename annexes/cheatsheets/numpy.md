@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, calcul numérique.
 
 ```python
 import numpy as np
@@ -195,6 +195,21 @@ Un entier Python `n` ; un mot de bits `w` ; une table de comptes `M`, creuse ; `
 | compter les paires, les parcourir | `math.comb(n, 2)` $= \binom{n}{2}$ ; `itertools.combinations(range(n), 2)` énumère les paires $(i, j)$, $i < j$ ; `i, j = np.triu_indices(n, k=1)`, puis `G[i, j]` : les $\binom{n}{2}$ coefficients au-dessus de la diagonale d'une matrice $n \times n$, chaque paire une fois |
 
 Dans `mymath/cooccurrence.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, mais aucune SciPy (`scipy.special.logit`, `scipy.special.xlogy`, `scipy.optimize`) ni scikit-learn (`mutual_info_score`, `LogisticRegression`) : les tests comparent tes résultats aux leurs. Une loi jointe s'y donne en probabilités, jamais en comptes, et les logarithmes sont népériens. Les formules de la PMI, du logit d'une population estimé sur un échantillon cas-témoins et du retrait d'une direction sont dans la fiche (§2, §5 et §7) et dans le formulaire ; les coder est le travail des 🔨 MB2.13 et MB2.14.
+
+## Rotations, horloges et softmax en ligne (MB3)
+
+Des angles en radians ; des points `X` en lignes, de forme $(n, d)$ ; des scores `s` qui peuvent valoir `-np.inf`.
+
+| Je veux… | Code |
+|---|---|
+| l'angle d'un point $(x, y)$ | `np.arctan2(y, x)`, en radians dans $[-\pi, \pi]$ : l'ordonnée d'abord ; `np.angle(x + 1j * y)` rend le même angle ; `% (2 * np.pi)` le ramène dans $[0, 2\pi[$, `np.degrees` le passe en degrés ; `np.arctan(y / x)` se trompe de quadrant quand $x < 0$ |
+| une matrice diagonale par blocs | `scipy.linalg.block_diag(A, B, C)` : les blocs le long de la diagonale, des zéros ailleurs |
+| des rotations de l'espace avec SciPy | `from scipy.spatial.transform import Rotation` ; `r = Rotation.from_rotvec(theta * axis)`, avec un axe unitaire et un angle en radians, positif quand on regarde l'axe depuis sa pointe vers l'origine ; `r.as_matrix()`, `r.apply(x)`, `r.inv()` ; `p * q` applique `q`, puis `p`, comme le produit `p.as_matrix() @ q.as_matrix()` |
+| des scores masqués | `-np.inf` : `np.exp(-np.inf)` vaut `0.0`, et `scipy.special.softmax` donne un poids nul à un tel score ; si tous les scores valent `-np.inf`, elle rend des `nan` (un $0/0$, avec un `RuntimeWarning`), et `scipy.special.logsumexp` rend `-inf` |
+| la mémoire d'un tableau, des distances par blocs de lignes | `A.nbytes` : 8 octets par nombre en `float64`, 4 en `float32` ; un bloc de `B` lignes de la matrice des distances : `scipy.spatial.distance.cdist(X[debut:debut + B], X)`, de forme `(B, n)` ; `sklearn.metrics.pairwise_distances_chunked(X, working_memory=m)` rend les blocs de lignes l'un après l'autre, chacun d'environ `m` Mio au plus |
+| une moyenne exponentielle normalisée | `pd.Series(y).ewm(alpha=1 - lam, adjust=True).mean()` : au jour $t$, les poids $\lambda^{t - u}$ des jours $u \le t$, divisés par leur somme ; avec `adjust=False`, la récurrence $\hat y_t = \lambda\,\hat y_{t-1} + (1 - \lambda)\,y_t$ (R5) |
+
+Dans `mymath/positional.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, mais aucune SciPy (`scipy.special.softmax`, `scipy.special.logsumexp`, `scipy.spatial.transform.Rotation`) ni `np.logaddexp` : les tests comparent tes résultats aux leurs, et aux matrices de MML (3.76)–(3.81). Les indices des coordonnées partent de 0, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les formules de la rotation de Givens, de la mise à jour par un bloc et de la fusion de deux états sont dans la fiche (§3 et §8) et dans le formulaire ; les coder est le travail des 🔨 MB3.14, MB3.15 et MB3.16.
 
 ## Calcul numérique
 

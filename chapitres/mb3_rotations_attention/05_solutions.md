@@ -1,0 +1,275 @@
+# MB3 · Rotations, moyennes pondérées et softmax en ligne — solutions
+
+> À lire **après** avoir cherché (et ouvert les indices de `04_indices.md`). Pour chaque exercice : les réponses, la démarche, les erreurs fréquentes et une variante ; pour une démonstration, une rédaction modèle et une grille de relecture, qui accepte toute démonstration correcte. Les exercices du notebook sont corrigés dans `05_solutions.ipynb` ; leur résumé est à la fin.
+
+**Sommaire** : [🧠 Quiz](#quiz) · [🔁 Rappels](#rappels) · [✏️ Papier-crayon](#papier) · [∂ Démonstrations](#demonstrations) · [🔗 📖 🗣️ Pont, lecture et explication](#reflexion) · [💼 Entretien](#entretien) · [Notebook](#notebook)
+
+<a id="quiz"></a>
+
+## 🧠 Quiz
+
+### MB3.Q1 — Formules d'addition et rotations du plan : le bon signe, composer, inverser, rotation ou symétrie ?
+1. $\cos(a + b) = \cos a\cos b - \sin a\sin b$ et $\sin(a - b) = \sin a\cos b - \cos a\sin b$.
+2. $\frac{2\pi}{9} + \frac{5\pi}{18} = \frac{9\pi}{18} = \frac\pi2$ : c'est le quart de tour $\mathbf{R}_{\pi/2} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, puisque $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$.
+3. Vrai : $\mathbf{R}_{\pi/7}^{-1} = \mathbf{R}_{\pi/7}^\top = \mathbf{R}_{-\pi/7}$, et $-\frac\pi7 + 2\pi = \frac{13\pi}{7}$ donne la même matrice (cos et sin sont $2\pi$-périodiques).
+4. $\det\mathbf{A} = \frac{81 + 1\,600}{1\,681} = 1$ : $\mathbf{A}$ est la rotation d'angle $\theta$ tel que $\cos\theta = \frac{9}{41}$ et $\sin\theta = \frac{40}{41}$ ($\theta \approx 77{,}32°$). $\det\mathbf{B} = \frac{-81 - 1\,600}{1\,681} = -1$ : $\mathbf{B}$ est la symétrie par rapport à la droite d'angle $\frac\theta2 \approx 38{,}66°$, dirigée par $(5, 4)$ : $\mathbf{B}\begin{pmatrix} 5 \\ 4 \end{pmatrix} = \frac{1}{41}\begin{pmatrix} 45 + 160 \\ 200 - 36 \end{pmatrix} = \begin{pmatrix} 5 \\ 4 \end{pmatrix}$.
+5. Vrai : $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta} = \mathbf{R}_\beta\mathbf{R}_\alpha$ (∂ MB3.8).
+
+### MB3.Q2 — Rotations de l'espace, de Givens et par blocs : commutent-elles, que fixent-elles, que change une permutation des coordonnées ?
+1. Faux : leurs plans, $(x_2, x_3)$ et $(x_1, x_2)$, partagent la coordonnée 2 ; elles ne commutent que si l'une est l'identité ou si les deux sont des demi-tours (fiche §3). Deux quarts de tour envoient $\mathbf{e}_1$ sur $\mathbf{e}_3$ dans un ordre et sur $\mathbf{e}_2$ dans l'autre.
+2. $\mathbf{R}_{13}(\alpha)$ et $\mathbf{R}_{24}(\beta)$ tournent des plans disjoints : elles commutent. $\mathbf{R}_{13}(\alpha)$ et $\mathbf{R}_{35}(\beta)$ partagent la coordonnée 3 : elles ne commutent pas.
+3. Les vecteurs dont les coordonnées 2 et 4 sont nulles, c'est-à-dire les combinaisons de $\mathbf{e}_1$, $\mathbf{e}_3$ et $\mathbf{e}_5$ : un sous-espace de dimension 3.
+4. Le déterminant d'une matrice diagonale par blocs est le produit de ceux des blocs : $1 \times 1 \times 1 = 1$. $\mathbf{D}^{-1} = \operatorname{diag}(\mathbf{R}_{-\pi/2}, \mathbf{R}_{-\pi/5}, \mathbf{R}_{-3\pi/4}) = \mathbf{D}^\top$.
+5. $\sigma$ échange 2 et 3 : $\mathbf{P}^\top\mathbf{R}_{12}(\theta)\mathbf{P}$ tourne le plan $(\sigma(1), \sigma(2)) = (1, 3)$ et envoie $\mathbf{e}_1$ vers $\mathbf{e}_3$ : c'est $\mathbf{R}_{13}(\theta)$. (Ici $\mathbf{P} = \mathbf{P}^\top$.)
+
+### MB3.Q3 — Encoder une direction ou un jour de l'année : une ou deux coordonnées, quelle période, quelle distance entre deux encodages ?
+1. Faux : $\cos\frac{2\pi t}{365} = \cos\frac{2\pi(365 - t)}{365}$, par exemple pour les jours 100 et 265 ; il faut aussi le sinus, qui les distingue (il change de signe).
+2. $2 - 2\cos\big(\frac{2\pi}{24} \times 4\big) = 2 - 2\cos\frac\pi3 = 1$ : 22 h et 2 h sont à 4 h l'une de l'autre, comme 10 h et 14 h, et leurs encodages sont à la même distance.
+3. La période 7 (jours), et $\omega = \frac{2\pi}{7} \approx 0{,}898$ rad par jour.
+4. 4, quand l'écart vaut une demi-période : les deux points sont diamétralement opposés.
+5. Vrai : $\mathbf{e}(t + 365) = \mathbf{e}(t)$. Une horloge seule ne distingue pas $t$ de $t$ plus sa période.
+
+### MB3.Q4 — Moyennes pondérées par une softmax : dans l'enveloppe convexe ou non, largeur de bande, masque avant ou après la softmax, et un sous-ensemble vide
+1. Faux : les poids sont positifs et de somme 1, et la moyenne reste entre 3 et 11.
+2. Vrai : c'est une combinaison convexe des points (M10).
+3. $h \to 0$ : le $y_i$ du point le plus proche (s'il est unique) ; $h \to \infty$ : la moyenne simple des $y_i$.
+4. Avant la softmax : $\big(\frac{0{,}2}{0{,}3}, 0, \frac{0{,}1}{0{,}3}\big) = \big(\frac23, 0, \frac13\big)$, la loi conditionnelle. Faux : $(0{,}2 ;\ 0 ;\ 0{,}1)$ a pour somme $0{,}3$, ce n'est pas une loi.
+5. Ils ne sont pas définis : $\frac{0}{0}$. Il n'y a pas de loi, ni de moyenne pondérée ; le cas se traite à part.
+
+### MB3.Q5 — Multiplier tous les scores par c, ou leur ajouter une constante : ce qui change dans les poids, le poids maximal et l'entropie, et ce qui ne change pas
+1. Faux : $e^{s_i + 5}$ multiplie numérateur et dénominateur par $e^5$.
+2. Doubler les scores élève les poids au carré, puis renormalise : $\frac{(0{,}25 ;\ 0{,}16 ;\ 0{,}01)}{0{,}42} = \big(\frac{25}{42}, \frac{16}{42}, \frac{1}{42}\big) \approx (0{,}595 ;\ 0{,}381 ;\ 0{,}024)$.
+3. $T = \frac14$ (M28 : $p_i^c$ renormalisée, c'est la loi tempérée à $T = \frac1c$).
+4. Le plus grand poids croît vers 1 et l'entropie décroît vers 0 : la loi tend vers le one-hot du plus grand score. Quand $c \to 0$, elle tend vers la loi uniforme, d'entropie $\ln K$.
+5. Le plus petit score : $c = -1$ renverse l'ordre des poids.
+
+### MB3.Q6 — La softmax en ligne : ce que garde l'état, quand le remettre à l'échelle, et l'état vide
+1. $m = \max_js_j$, $l = \sum_je^{s_j - m}$ et $a = \sum_je^{s_j - m}v_j$.
+2. Quand le bloc lu contient un score plus grand que $m$ : $l$ **et** $a$ sont multipliés par $e^{m - m'} < 1$, où $m'$ est le nouveau maximum.
+3. $m' = 3 + \ln 2$ et le facteur vaut $e^{-\ln 2} = \frac12$ : $l' = 2 \times \frac12 + 1 = 2$ et $a' = 10 \times \frac12 + 7 = 12$. Le nouvel état est $(3 + \ln 2, 2, 12)$, et la moyenne pondérée vaut $\frac{12}{2} = 6$.
+4. Le log-sum-exp vaut $m + \ln l$, et le poids du score $s_j$ vaut $e^{s_j - m}/l$.
+5. Vrai, pour un état de $m$ fini : $e^{-\infty} = 0$ efface l'état vide (et la fusion de deux états vides est, par définition, l'état vide).
+
+<a id="rappels"></a>
+
+## 🔁 Rappels
+
+### MB3.R1 — La forme exponentielle d'un complexe, et le produit comme rotation et homothétie (M22)
+1. $\lvert z\rvert = \sqrt{3 + 1} = 2$ ; $\cos\theta = \frac{\sqrt3}{2}$ et $\sin\theta = -\frac12$, donc $\theta = -\frac\pi6$ : $z = 2\,e^{-i\pi/6}$.
+2. $zw = 6\,e^{i(-\pi/6 + \pi/6)} = 6\,e^{0} = 6$.
+3. Une rotation d'angle $\frac\pi6$ et une homothétie de rapport 3, dans n'importe quel ordre : la matrice $3\,\mathbf{R}_{\pi/6}$.
+4. $z^6 = 2^6\,e^{-i\pi} = -64$.
+5. Vrai : $\lvert e^{i\theta}\rvert = 1$.
+
+### MB3.R2 — Le log-sum-exp et la softmax stable (M05a)
+1. $750 + \ln(1 + e^{-2} + e^{-3}) = 750 + \ln 1{,}18512 \approx 750{,}1698$.
+2. `inf`, avec un avertissement d'overflow : en `float64`, $e^s$ dépasse le plus grand flottant dès que $s > 709{,}78$ environ.
+3. $\frac{(1 ;\ e^{-2} ;\ e^{-3})}{1{,}18512} \approx (0{,}8438 ;\ 0{,}1142 ;\ 0{,}0420)$.
+4. Vrai : retrancher une constante ne change pas la softmax.
+5. $-750 + \ln 1{,}18512 \approx -749{,}8302$. Le calcul direct rend $-\infty$ : les trois exponentielles valent 0 en `float64` (underflow), et $\ln 0 = -\infty$.
+
+### MB3.R3 — Tempérer et tronquer une loi : p^{1/T} renormalisée, top-k et top-p comme lois conditionnelles (M28)
+1. $p_i^2 = (0{,}2116 ;\ 0{,}0841 ;\ 0{,}0225 ;\ 0{,}01)$, de somme $0{,}3282$ : $\approx (0{,}645 ;\ 0{,}256 ;\ 0{,}069 ;\ 0{,}030)$.
+2. $\frac{(0{,}46 ;\ 0{,}29)}{0{,}75} = \big(\frac{46}{75}, \frac{29}{75}, 0, 0\big) \approx (0{,}613 ;\ 0{,}387 ;\ 0 ;\ 0)$.
+3. $0{,}46 + 0{,}29 = 0{,}75 < 0{,}8$, puis $0{,}75 + 0{,}15 = 0{,}9 \ge 0{,}8$ : les trois premières issues ; la loi $\frac{(0{,}46 ;\ 0{,}29 ;\ 0{,}15)}{0{,}9} = \big(\frac{23}{45}, \frac{29}{90}, \frac16, 0\big)$.
+4. Vrai : elle garde les $k$ issues, met les autres à 0 et renormalise, ce qui est $P(\,\cdot \mid A)$ pour l'événement $A$ « l'une des $k$ plus probables ».
+5. $T \to 0$ : le one-hot de l'issue la plus probable ; $T \to \infty$ : la loi uniforme.
+
+<a id="papier"></a>
+
+## ✏️ Papier-crayon
+
+### Ex MB3.1 — Un bras articulé à deux segments : la position de la pince en valeurs exactes par les formules d'addition, les deux rotations enchaînées en une seule, et le retour par la rotation inverse
+
+**Réponses.** a) `"(sqrt(2) - sqrt(6))/4"` · b) `"(sqrt(6) + sqrt(2))/4"` · c) `[1.482, 5.396]` · d) `[[-0.2588, -0.9659], [0.9659, -0.2588]]` · e) `True` · f) `[5.4142, 1.4142]` · g) `5.5959`.
+
+**Démarche.** a) $\cos(60° + 45°) = \cos 60°\cos 45° - \sin 60°\sin 45° = \frac12\cdot\frac{\sqrt2}{2} - \frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2} = \frac{\sqrt2 - \sqrt6}{4} \approx -0{,}2588$. b) $\sin(60° + 45°) = \sin 60°\cos 45° + \cos 60°\sin 45° = \frac{\sqrt6 + \sqrt2}{4} \approx 0{,}9659$. c) Le coude est en $\mathbf{R}_{60°}(4, 0) = (2, 2\sqrt3)$, et l'avant-bras ajoute $\mathbf{R}_{105°}(2, 0) = (2\cos 105°, 2\sin 105°) = \big(\frac{\sqrt2 - \sqrt6}{2}, \frac{\sqrt6 + \sqrt2}{2}\big)$ : $\mathbf{p} = \big(2 + \frac{\sqrt2 - \sqrt6}{2},\ 2\sqrt3 + \frac{\sqrt6 + \sqrt2}{2}\big) \approx (1{,}482 ;\ 5{,}396)$. d) $\mathbf{R}_{60°}\mathbf{R}_{45°} = \mathbf{R}_{105°}$, de coefficients $\cos 105°$ et $\sin 105°$. e) Vrai : deux rotations du plan commutent. f) $\mathbf{R}_{60°}^\top = \mathbf{R}_{-60°}$, donc $\mathbf{R}_{60°}^\top\mathbf{p} = (4, 0) + \mathbf{R}_{45°}(2, 0) = (4 + \sqrt2, \sqrt2) \approx (5{,}4142 ;\ 1{,}4142)$. g) $\lVert\mathbf{p}\rVert = \lVert\mathbf{R}_{60°}^\top\mathbf{p}\rVert = \sqrt{(4 + \sqrt2)^2 + 2} = \sqrt{20 + 8\sqrt2} \approx 5{,}5959$.
+
+Dans ta copie : la caméra tourne avec le bras ; dans son repère, le bras est sur l'axe des abscisses et l'avant-bras fait 45° avec lui, d'où f) sans calcul. Une rotation conserve les normes : g) est la norme de f) (ou Al-Kashi, avec l'angle de 135° au coude : $16 + 4 - 16\cos 135° = 20 + 8\sqrt2$).
+
+**Erreurs fréquentes.** Additionner les cosinus ($\frac12 + \frac{\sqrt2}{2} \approx 1{,}207$, plus grand que 1 : impossible pour un cosinus). Oublier que 105° est obtus et trouver $\cos 75°$, positif. Faire tourner l'avant-bras de 45° seulement, $(3{,}414 ;\ 4{,}878)$, ou échanger les longueurs des segments. Calculer le cosinus de 60 radians. Mettre le signe moins en bas à gauche de la matrice, multiplier case par case, ou soustraire les angles ($\mathbf{R}_{15°}$). Pour f), tourner encore de 60° au lieu de revenir, ou revenir de 105°, $(4{,}828 ;\ -2{,}828)$. Pour g), additionner les longueurs (6) ou oublier la racine (31,31).
+
+**Variante.** Épaule à 45°, coude à 30° : l'avant-bras fait 75°, $\cos 75° = \frac{\sqrt6 - \sqrt2}{4}$ et $\sin 75° = \frac{\sqrt6 + \sqrt2}{4}$, et la pince est en $(4\cos 45° + 2\cos 75°,\ 4\sin 45° + 2\sin 75°) \approx (3{,}346 ;\ 4{,}760)$.
+
+### Ex MB3.2 — Rotations de Givens : deux rotations de l'espace qui ne commutent pas, deux rotations de ℝ⁴ dans des plans disjoints qui commutent, leur matrice diagonale par blocs, et la même rotation après une permutation des coordonnées
+
+**Réponses.** a) `[-0.866, 0, 0.5]` · b) `[0, 0, 1]` · c) `False` · d) `[[0.5, -0.866, 0, 0], [0.866, 0.5, 0, 0], [0, 0, 0, -1], [0, 0, 1, 0]]` · e) `True` · f) `[[0.5, 0, 0, -0.866], [0, 0, 1, 0], [0, -1, 0, 0], [0.866, 0, 0, 0.5]]` · g) `"-pi/2"`.
+
+**Démarche.** a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\sin\frac\pi3, \cos\frac\pi3, 0) = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$ : $(-\frac{\sqrt3}{2}, 0, \frac12)$. b) $\mathbf{R}_{23}(\frac\pi2)\mathbf{e}_2 = \mathbf{e}_3$, que $\mathbf{R}_{12}$ laisse fixe : $(0, 0, 1)$. c) Faux, puisque a) et b) diffèrent. d) Deux blocs sur la diagonale, $\mathbf{R}_{\pi/3}$ et $\mathbf{R}_{\pi/2}$. e) Vrai : les plans $(1, 2)$ et $(3, 4)$ sont disjoints. f) $\mathbf{P}^\top\mathbf{D}\mathbf{P}$ permute les lignes **et** les colonnes 2 et 4 de $\mathbf{D}$ ; par la propriété de la fiche, $\mathbf{R}_{12}(\frac\pi3)$ devient la rotation du plan $(\sigma(1), \sigma(2)) = (1, 4)$, qui tourne $\mathbf{e}_1$ vers $\mathbf{e}_4$, et $\mathbf{R}_{34}(\frac\pi2)$ celle du plan $(\sigma(3), \sigma(4)) = (3, 2)$, qui tourne $\mathbf{e}_3$ vers $\mathbf{e}_2$. g) Tourner $\mathbf{e}_3$ vers $\mathbf{e}_2$ de $\frac\pi2$, c'est tourner $\mathbf{e}_2$ vers $\mathbf{e}_3$ de $-\frac\pi2$ : $\theta = -\frac\pi2$, et l'on vérifie que la colonne 2 de f) est $-\mathbf{e}_3$.
+
+Dans ta copie : b) montre que $\mathbf{R}_{12}$ fixe $\mathbf{e}_3$, son axe. $\mathbf{P} = \mathbf{P}^\top$ parce que $\sigma$, qui échange deux coordonnées, est sa propre inverse. Les plans de $\mathbf{P}^\top\mathbf{D}\mathbf{P}$, $(1, 4)$ et $(2, 3)$, sont la même rotation que $\mathbf{D}$, écrite dans d'autres coordonnées.
+
+**Erreurs fréquentes.** Lire le produit de gauche à droite (c'est la matrice de droite qui agit la première) : on échange a) et b). Écrire $\mathbf{R}_{12}(\theta)\mathbf{e}_2 = (\sin\theta, \cos\theta, 0)$, ou faire tourner $\mathbf{R}_{23}$ autour de $\mathbf{e}_3$. Transposer les blocs de $\mathbf{D}$, ou échanger leurs angles. Ne permuter que les lignes (ou que les colonnes) de $\mathbf{D}$ ; échanger les coordonnées 2 et 3 au lieu de 2 et 4. Pour g), oublier le signe ($\frac\pi2$) ou prendre l'angle de l'autre bloc ($-\frac\pi3$).
+
+**Variante.** Avec la permutation qui échange les coordonnées 1 et 3, $\mathbf{P}^\top\mathbf{D}\mathbf{P} = \mathbf{R}_{32}(\frac\pi3)\,\mathbf{R}_{14}(\frac\pi2)$ : les plans $(3, 2)$ et $(1, 4)$.
+
+### Ex MB3.3 — La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un vent qui tourne comme une rotation de l'encodage, et la direction moyenne de trois relevés
+
+**Réponses.** a) `[-0.866, 0.5]` · b) `0.4679` · c) `[-0.9659, -0.2588]` · d) `True` · e) `20` · f) `0.762`.
+
+**Démarche.** a) $(\cos 150°, \sin 150°) = (-\frac{\sqrt3}{2}, \frac12)$. b) $2 - 2\cos(340° - 20°) = 2 - 2\cos 320° = 2 - 2\cos 40° \approx 2 - 1{,}5321 = 0{,}4679$. c) $\mathbf{R}_{45°}\mathbf{e}(150°) = \mathbf{e}(195°) = (\cos 195°, \sin 195°) \approx (-0{,}9659 ;\ -0{,}2588)$, par les formules d'addition ($195° = 150° + 45°$). d) Vrai : $\mathbf{e}(\theta + 45°) = \mathbf{R}_{45°}\mathbf{e}(\theta)$, et $\mathbf{R}_{45°}$ ne dépend pas de $\theta$. e) $330° = 20° - 50°$ et $70° = 20° + 50°$ : $\mathbf{e}(330°) + \mathbf{e}(70°) = 2\cos 50°\,\mathbf{e}(20°)$ (formules d'addition), donc la somme des trois vecteurs vaut $(1 + 2\cos 50°)\,\mathbf{e}(20°)$, de direction 20°. f) $\rho = \frac{1 + 2\cos 50°}{3} \approx \frac{2{,}2856}{3} \approx 0{,}762$.
+
+Dans ta copie : les nombres 340 et 20 diffèrent de 320, mais les directions ne sont qu'à 40° l'une de l'autre, et l'encodage le voit. La moyenne des nombres 330, 20 et 70 vaut 140 : une direction presque opposée aux trois relevés.
+
+**Erreurs fréquentes.** Écrire $(\sin\theta, \cos\theta)$, ou prendre les cosinus de 150 radians. Donner la distance au lieu de son carré (0,684), ou écrire $1 - \cos$ au lieu de $2 - 2\cos$. Tourner dans le mauvais sens ($\mathbf{e}(105°)$), ou ajouter les cosinus. Moyenner les angles (140) ; donner le résultat en radians (0,349). Donner la norme de la somme au lieu de celle de la moyenne (2,286), ou son carré (0,580).
+
+**Variante.** Les relevés 320°, 355° et 30° : direction moyenne 355°, $\rho = \frac{1 + 2\cos 35°}{3} \approx 0{,}879$ ; la moyenne des nombres, 235, désigne une direction opposée.
+
+### Ex MB3.4 — L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, et ses deux limites
+
+**Réponses.** a) `[-4.5, -0.5, -2, -8]` · b) `0.805` · c) `5.62` · d) `[0.1666, 0.4528, 0.3112, 0.0694]` · e) `5.15` · f) `6.30` · g) `4.30`.
+
+**Démarche.** Les écarts $x_i - x$ valent $-600$, $-200$, $400$ et $800$ m. a) Avec $2h^2 = 80\,000$ : $-\frac{360\,000}{80\,000} = -4{,}5$, puis $-0{,}5$, $-2$ et $-8$. b) On retranche le plus grand score, $-0{,}5$ : $(-4 ;\ 0 ;\ -1{,}5 ;\ -7{,}5)$, d'exponentielles $0{,}01832$ ; 1 ; $0{,}22313$ ; $0{,}00055$, de somme $1{,}24200$ ; les poids valent $(0{,}0147 ;\ 0{,}8052 ;\ 0{,}1797 ;\ 0{,}0004)$ ; la Bergerie pèse $\approx 0{,}805$. c) $0{,}0147 \times 10{,}4 + 0{,}8052 \times 6{,}3 + 0{,}1797 \times 2{,}2 + 0{,}0004 \times (-1{,}7) \approx 5{,}62$ °C. d) Avec $2h^2 = 320\,000$, les scores valent $(-1{,}125 ;\ -0{,}125 ;\ -0{,}5 ;\ -2)$, soit $(-1 ;\ 0 ;\ -0{,}375 ;\ -1{,}875)$ après le décalage, d'exponentielles $0{,}36788$ ; 1 ; $0{,}68729$ ; $0{,}15335$, de somme $2{,}20852$. e) $\approx 5{,}15$ °C. f) Quand $h \to 0$, tout le poids va à la station la plus proche en altitude, la Bergerie : 6,3 °C. g) Quand $h \to \infty$, les poids tendent vers $\frac14$ : $\frac{10{,}4 + 6{,}3 + 2{,}2 - 1{,}7}{4} = 4{,}3$ °C.
+
+Dans ta copie : une petite largeur de bande suit la station la plus proche, une grande moyenne tout le massif.
+
+**Erreurs fréquentes.** Diviser par $h^2$ au lieu de $2h^2$, oublier le signe moins, ou ne pas élever l'écart au carré. Oublier de normaliser (0,607 pour la Bergerie, 4,23 °C pour la prévision), ou normaliser les scores eux-mêmes. Avec des scores positifs, la station la plus lointaine l'emporte. Diviser les scores par 2 quand $h$ double (ils sont divisés par 4). Pour f), garder les deux stations les plus proches (4,25), ou croire que tous les poids s'annulent (ils restent de somme 1). Pour g), moyenner deux stations, ou donner la plus lointaine.
+
+**Variante.** Pour un refuge à 2 500 m et $h = 200$ m, les scores valent $(-8 ;\ -2 ;\ -0{,}5 ;\ -4{,}5)$ et la prévision $\approx 2{,}88$ °C : le Col l'emporte.
+
+### Ex MB3.5 — Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours passés, puis la même quand un capteur tombe en panne un jour (un score −∞)
+
+**Réponses.** a) `["1/15", "2/15", "4/15", "8/15"]` · b) `"268/15"` · c) `["1/3", "2/3", 0, 0]` · d) `["1/11", "2/11", 0, "8/11"]` · e) `"184/11"` · f) `True`.
+
+**Démarche.** a) Les poids $\lambda^{4 - u}$ valent $\frac18$, $\frac14$, $\frac12$ et 1, de somme $\frac{15}{8}$ : $\frac{(1, 2, 4, 8)}{15}$, la softmax de $(\ln 2, 2\ln 2, 3\ln 2, 4\ln 2)$. b) $\frac{18 + 2 \times 15 + 4 \times 21 + 8 \times 17}{15} = \frac{268}{15} \approx 17{,}87$ °C. c) Le jour 2, les jours 3 et 4 ont le score $-\infty$ ; les poids des jours 1 et 2, $\frac12$ et 1, se normalisent en $\frac13$ et $\frac23$. d) Le jour 3 a le score $-\infty$ : $\frac{(1, 2, 0, 8)}{11}$. e) $\frac{18 + 30 + 136}{11} = \frac{184}{11} \approx 16{,}73$ °C. f) Vrai : $\frac{1/15}{1 - 4/15} = \frac{1}{11}$, et de même pour les autres jours : c'est la loi de a) conditionnée par « $u \ne 3$ ».
+
+Dans ta copie : le lissage du jour 2 se calcule le soir du jour 2, avant les relevés suivants : c'est un filtre, et le futur ne peut pas changer le passé.
+
+**Erreurs fréquentes.** Donner le plus grand poids au jour le plus ancien ; oublier de normaliser ($\frac18$, $\frac14$, $\frac12$, 1, ou $\frac{67}{2}$ pour la moyenne). Pour c), donner le même poids aux deux jours connus, ou le plus grand au jour 1. Pour d), retirer le jour 3 sans renormaliser les autres, ou décaler les jours suivants comme si le jour 3 n'avait pas existé ($\frac17$, $\frac27$, 0, $\frac47$). Pour e), compter le relevé manquant comme un relevé nul ($\frac{184}{15}$).
+
+**Variante.** Avec $\lambda = \frac13$, les poids du jour 4 valent $\frac{(1, 3, 9, 27)}{40}$ ; avec la panne du jour 3, $\frac{(1, 3, 0, 27)}{31}$, et la valeur lissée $\frac{18 + 45 + 459}{31} = \frac{522}{31}$.
+
+### Ex MB3.6 — La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ}
+
+**Réponses.** a) `[0.6362, 0.8218, 0.9918]` · b) `[0.5074, 0.297, 0.0162]` · c) `0.01646` · d) `6.62` · e) `True`.
+
+**Démarche.** $\Delta = 1{,}3 - 0{,}5 = 0{,}8$. Pour chaque $c$, on retranche le plus grand score : les exponentielles valent 1, $e^{-0{,}8c}$ et $e^{-2{,}1c}$. Pour $c = 1$ : 1 ; 0,4493 ; 0,1225, d'où les poids $(0{,}6362 ;\ 0{,}2859 ;\ 0{,}0779)$ et la sensibilité $1 - (0{,}4048 + 0{,}0817 + 0{,}0061) \approx 0{,}5074$. Pour $c = 2$ : $(0{,}8218 ;\ 0{,}1659 ;\ 0{,}0123)$ et $0{,}2970$. Pour $c = 6$ : 1 ; $e^{-4{,}8} \approx 0{,}00823$ ; $e^{-12{,}6} \approx 3 \times 10^{-6}$, d'où $p_{\max} \approx 0{,}9918$ et la sensibilité $\approx 0{,}0162$. c) $2e^{-4{,}8} \approx 0{,}01646$. d) $2e^{-0{,}8c} \le 0{,}01 \iff c \ge \frac{\ln 200}{0{,}8} \approx 6{,}62$. e) Vrai : la loi tend vers le one-hot, dont $\sum_ip_i^2 = 1$.
+
+Dans ta copie : pour $c = 6$, $1 - p_{\max} \approx 0{,}0082$, sous la borne 0,01646. La borne garantit $p_{\max} \ge 0{,}99$ à partir de $c \approx 6{,}62$, mais elle n'est pas atteinte : $p_{\max}$ dépasse déjà 0,99 à $c = 6$, et le vrai seuil est $c \approx 5{,}75$. La borne compte le troisième score comme s'il était à $\Delta$ du premier ; elle donne une vitesse, pas le plus petit $c$.
+
+**Erreurs fréquentes.** Multiplier les poids par $c$ au lieu des scores, ou garder les mêmes poids pour tous les $c$ ; oublier de normaliser. Calculer $1 - (\sum_ip_i)^2 = 0$, ou $\sum_ip_i^2$, ou $1 - p_{\max}$, au lieu de la sensibilité. Prendre pour $\Delta$ l'écart avec le dernier score (2,1), compter $K = 3$ autres scores au lieu de $K - 1 = 2$, ou oublier $c$ dans l'exposant. Pour d), oublier le facteur 2 ($c \approx 5{,}76$, qui n'est pas ce que garantit la borne), ou prendre $\log_{10}$.
+
+**Variante.** Pour $c = 10$, $p_{\max} \approx 0{,}9997$, sous la borne $1 - 2e^{-8} \approx 1 - 0{,}00067$.
+
+### Ex MB3.7 — La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux états calculés séparément
+
+**Réponses.** a) `[3, 1.375, 11.75]` · b) `[4, 1.96875, 8.875]` · c) `[4, 3.28125, 16.1875]` · d) `"74/15"` · e) `[4, 2.59375, 10.3125]` · f) `[4, 3.28125, 16.1875]` · g) `3.9608`.
+
+**Démarche.** Tout se calcule en puissances de 2 : $e^{s_j - m} = 2^{k_j - m/\ln 2}$. a) Bloc 1, $k = (1, 3, 0)$ : $m = 3\ln 2$ ; les poids $2^{k - 3}$ valent $\frac14$, 1 et $\frac18$ ; $l = \frac{11}{8}$ et $a = \frac{4}{4} + 10 + \frac68 = \frac{47}{4}$. b) Bloc 2, $k = (2, -1, 4)$ : le maximum passe à $4\ln 2$, le facteur vaut $2^{3 - 4} = \frac12$ ; $l = \frac{11}{16} + \frac14 + \frac{1}{32} + 1 = \frac{63}{32}$ et $a = \frac{47}{8} + \frac34 + \frac{8}{32} + 2 = \frac{71}{8}$. c) Bloc 3, $k = (0, 4, 2)$ : le maximum reste $4\ln 2$ (égal, pas plus grand), le facteur vaut 1 ; $l = \frac{63}{32} + \frac{1}{16} + 1 + \frac14 = \frac{105}{32}$ et $a = \frac{71}{8} + \frac{9}{16} + 5 + \frac74 = \frac{259}{16}$. d) $\frac{259/16}{105/32} = \frac{518}{105} = \frac{74}{15} \approx 4{,}933$. e) La machine B part de l'état vide : bloc 2, $m = 4\ln 2$, $l = \frac14 + \frac{1}{32} + 1 = \frac{41}{32}$, $a = \frac34 + \frac14 + 2 = 3$ ; bloc 3, sans remise à l'échelle, $l = \frac{83}{32}$ et $a = \frac{165}{16}$. f) Le maximum commun est $4\ln 2$ : l'état de A, $(3\ln 2, \frac{11}{8}, \frac{47}{4})$, est multiplié par $\frac12$ ; $l = \frac{11}{16} + \frac{83}{32} = \frac{105}{32}$ et $a = \frac{47}{8} + \frac{165}{16} = \frac{259}{16}$ : l'état c). g) $4\ln 2 + \ln\frac{105}{32} \approx 2{,}7726 + 1{,}1882 = 3{,}9608$.
+
+Dans ta copie : les facteurs valent 0 au bloc 1 (rien d'accumulé avant), $\frac12$ au bloc 2 et 1 au bloc 3. f) égale c) : fusionner, c'est lire les blocs dans un autre ordre et un autre groupement.
+
+**Erreurs fréquentes.** Oublier de retrancher $m$ ($l = 11$, $a = 94$) ou ne pas pondérer les valeurs ($a = 20$). Oublier la remise à l'échelle quand le maximum change, ou ne remettre à l'échelle que $l$ (🐛 MB3.20). Remettre à l'échelle au bloc 3, où le maximum ne change pas. Donner $a$ au lieu de $a/l$, ou la moyenne simple des valeurs (6). Pour e), oublier de retrancher le maximum de B, ou partir du $m$ de A. Pour f), additionner sans remettre A à l'échelle, ou faire la moyenne des deux états. Pour g), écrire $m = 4$ au lieu de $4\ln 2$.
+
+**Variante.** Par blocs de quatre (relevés 1 à 4, 5 à 8, puis 9) : les états valent $(3\ln 2, \frac{15}{8}, \frac{53}{4})$, $(4\ln 2, \frac{97}{32}, \frac{231}{16})$ et $(4\ln 2, \frac{105}{32}, \frac{259}{16})$ : l'état final ne change pas.
+
+<a id="demonstrations"></a>
+
+## ∂ Démonstrations
+
+### Ex MB3.8 — Les formules d'addition par le produit scalaire de deux vecteurs unitaires ; puis R_α R_β = R_{α+β}, R_θ⁻¹ = R_θᵀ = R_{−θ}, et la règle e^{iα}e^{iβ} = e^{i(α+β)} que M22 admettait
+
+**Démonstration.**
+1. Comme $\cos$ et $\sin$ sont $2\pi$-périodiques, on peut remplacer $a$ par $a - 2k\pi$ sans changer $\mathbf{u}_a$ : on choisit $k$ pour que $\delta = a - b$ soit dans $]-\pi, \pi]$. Les points $\mathbf{u}_b$ et $\mathbf{u}_a = \mathbf{u}_{b + \delta}$ du cercle unité sont reliés par un arc de longueur $\lvert\delta\rvert \le \pi$ ; en radians, l'angle au centre est cette longueur d'arc (R9 §6), donc $\varphi = \lvert\delta\rvert$, et $\cos\varphi = \cos\lvert\delta\rvert = \cos\delta = \cos(a - b)$, par la parité puis la périodicité. Le produit scalaire de deux vecteurs unitaires vaut le cosinus de leur angle (R9 §7, qu'on peut tirer d'Al-Kashi, sans rotation) : $\mathbf{u}_a\cdot\mathbf{u}_b = \cos\varphi = \cos(a - b)$. En coordonnées, $\mathbf{u}_a\cdot\mathbf{u}_b = \cos a\cos b + \sin a\sin b$ : d'où $\cos(a - b) = \cos a\cos b + \sin a\sin b$.
+2. $\cos(a + b) = \cos\big(a - (-b)\big) = \cos a\cos(-b) + \sin a\sin(-b) = \cos a\cos b - \sin a\sin b$, par la parité. Avec $a = \frac\pi2$ dans 1 : $\cos(\frac\pi2 - x) = 0 \times \cos x + 1 \times \sin x = \sin x$ ; en y remplaçant $x$ par $\frac\pi2 - x$, $\sin(\frac\pi2 - x) = \cos x$. Alors $\sin(a + b) = \cos\big((\frac\pi2 - a) - b\big) = \cos(\frac\pi2 - a)\cos b + \sin(\frac\pi2 - a)\sin b = \sin a\cos b + \cos a\sin b$, et $\sin(a - b) = \sin\big(a + (-b)\big) = \sin a\cos b - \cos a\sin b$.
+3. $\mathbf{R}_\alpha\mathbf{R}_\beta = \begin{pmatrix} \cos\alpha\cos\beta - \sin\alpha\sin\beta & -(\cos\alpha\sin\beta + \sin\alpha\cos\beta) \\ \sin\alpha\cos\beta + \cos\alpha\sin\beta & \cos\alpha\cos\beta - \sin\alpha\sin\beta \end{pmatrix} = \begin{pmatrix} \cos(\alpha + \beta) & -\sin(\alpha + \beta) \\ \sin(\alpha + \beta) & \cos(\alpha + \beta) \end{pmatrix} = \mathbf{R}_{\alpha + \beta}$, par 2. Comme $\alpha + \beta = \beta + \alpha$, $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta} = \mathbf{R}_\beta\mathbf{R}_\alpha$.
+4. $\mathbf{R}_\theta^\top = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix} = \begin{pmatrix} \cos(-\theta) & -\sin(-\theta) \\ \sin(-\theta) & \cos(-\theta) \end{pmatrix} = \mathbf{R}_{-\theta}$, par la parité. Par 3, $\mathbf{R}_\theta^\top\mathbf{R}_\theta = \mathbf{R}_{-\theta}\mathbf{R}_\theta = \mathbf{R}_0 = \mathbf{I}$, et de même $\mathbf{R}_\theta\mathbf{R}_\theta^\top = \mathbf{I}$ : $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$.
+5. $e^{i\alpha}e^{i\beta} = (\cos\alpha + i\sin\alpha)(\cos\beta + i\sin\beta) = (\cos\alpha\cos\beta - \sin\alpha\sin\beta) + i(\sin\alpha\cos\beta + \cos\alpha\sin\beta)$, avec $i^2 = -1$ ; par 2, c'est $\cos(\alpha + \beta) + i\sin(\alpha + \beta) = e^{i(\alpha + \beta)}$.
+
+**Pour aller plus loin.** $\det\mathbf{R}_\theta = \cos^2\theta + \sin^2\theta = 1$. Avec $b = a$ dans la formule de $\cos(a + b)$ : $\cos 2a = \cos^2a - \sin^2a = 2\cos^2a - 1$.
+
+**Grille de relecture.** 1 : la réduction de $a - b$ à $]-\pi, \pi]$ par la périodicité, l'angle $\varphi = \lvert a - b\rvert$ (à $2\pi$ près) et la parité, le produit scalaire calculé de deux façons ; une démonstration qui passe par Al-Kashi dans le triangle $O$, $\mathbf{u}_a$, $\mathbf{u}_b$ est correcte aussi ; une démonstration qui se sert d'une rotation pour établir $\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\cos\varphi$ tourne en rond. 2 : la parité pour $\cos(a + b)$, $\cos(\frac\pi2 - x) = \sin x$ et sa réciproque, puis les deux sinus. 3 : les quatre coefficients du produit, chacun reconnu, puis la commutativité. 4 : la transposée par la parité, puis le produit égal à $\mathbf{I}$ (dans un ordre suffit pour une matrice carrée). 5 : le développement avec $i^2 = -1$ et l'identification par 2 ; on ne doit pas se servir de la règle des exponentielles, que l'on démontre.
+
+**Variante.** $\cos 15° = \cos(45° - 30°) = \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} + \frac{\sqrt2}{2}\cdot\frac12 = \frac{\sqrt6 + \sqrt2}{4}$.
+
+### Ex MB3.9 — Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance
+
+**Démonstration.**
+1. $(\mathbf{P}\mathbf{s})_k = s_{\sigma(k)}$, donc $\operatorname{softmax}(\mathbf{P}\mathbf{s})_k = \frac{e^{s_{\sigma(k)}}}{\sum_ue^{s_{\sigma(u)}}}$. Comme $\sigma$ est une bijection, la somme du dénominateur parcourt tous les indices une fois : elle vaut $\sum_je^{s_j}$. Donc $\operatorname{softmax}(\mathbf{P}\mathbf{s})_k = \operatorname{softmax}(\mathbf{s})_{\sigma(k)} = \big(\mathbf{P}\operatorname{softmax}(\mathbf{s})\big)_k$.
+2. Le point $k$ de $\mathbf{P}\mathbf{X}$ est $\mathbf{x}_{\sigma(k)}$ : le score de la paire $(k, w)$ renumérotée vaut $s(\mathbf{x}_{\sigma(k)}, \mathbf{x}_{\sigma(w)}) = S_{\sigma(k)\sigma(w)}$. Et $(\mathbf{P}\mathbf{S}\mathbf{P}^\top)_{kw} = \sum_{u, v}P_{ku}S_{uv}P_{wv} = S_{\sigma(k)\sigma(w)}$, puisque $P_{ku} = 1$ seulement pour $u = \sigma(k)$. C'est ici que sert l'hypothèse : le score ne dépend que de la paire de points, pas de leurs numéros.
+3. La ligne $k$ de $\mathbf{P}\mathbf{S}\mathbf{P}^\top$ est la ligne $\sigma(k)$ de $\mathbf{S}$, dont les coefficients sont permutés par $\sigma$ : par 1, sa softmax est la ligne $\sigma(k)$ de $\mathbf{C}$, permutée de la même façon, de coefficients $C_{\sigma(k)\sigma(w)} = (\mathbf{P}\mathbf{C}\mathbf{P}^\top)_{kw}$. Alors $\hat{\mathbf{Y}}(\mathbf{P}\mathbf{X}, \mathbf{P}\mathbf{Y}) = \mathbf{P}\mathbf{C}\mathbf{P}^\top\mathbf{P}\mathbf{Y} = \mathbf{P}\mathbf{C}\mathbf{Y} = \mathbf{P}\,\hat{\mathbf{Y}}(\mathbf{X}, \mathbf{Y})$, puisque $\mathbf{P}^\top\mathbf{P} = \mathbf{I}$.
+4. Deux capteurs, un score nul ($s \equiv 0$), et les mesures $y_1 = 0$, $y_2 = 1$. Avec le masque, $\hat y_1 = y_1 = 0$ (le capteur 1 ne regarde que lui-même) et $\hat y_2 = \frac{0 + 1}{2} = \frac12$. On échange les capteurs : les mesures deviennent $(1, 0)$, et $\hat y'_1 = 1$, $\hat y'_2 = \frac12$. L'équivariance demanderait $(\hat y_2, \hat y_1) = (\frac12, 0)$ : elle est fausse. Le masque dépend des numéros, pas des points.
+
+**Grille de relecture.** 1 : la coordonnée $k$ de $\mathbf{P}\mathbf{s}$, le dénominateur inchangé parce que $\sigma$ est une bijection. 2 : le score des points renumérotés, le calcul de $(\mathbf{P}\mathbf{S}\mathbf{P}^\top)_{kw}$, et l'endroit où sert l'hypothèse (un score qui ne dépend que de la paire). 3 : la softmax ligne par ligne par 1, puis $\mathbf{P}^\top\mathbf{P} = \mathbf{I}$. 4 : un contre-exemple chiffré juste, avec les deux sorties comparées dans le bon ordre. Une démonstration écrite avec des indices, sans matrices, est correcte aussi.
+
+**Variante.** Avec un score qui dépend des numéros, $s(i, j) = -\lvert i - j\rvert$, et trois capteurs de mesures $(0, 0, 3)$ : $\hat y_1 = \frac{3e^{-2}}{1 + e^{-1} + e^{-2}} \approx 0{,}27$ ; si l'on échange les capteurs 1 et 3, le nouveau capteur 3 (l'ancien 1) reçoit $\frac{0 \cdot e^{-2} + 0 \cdot e^{-1} + 3}{e^{-2} + e^{-1} + 1} \approx 1{,}97$, au lieu de 0,27.
+
+### Ex MB3.10 — La softmax en ligne est exacte : l'invariant de l'état après chaque bloc, par récurrence ; puis la fusion de deux états est associative et commutative, d'élément neutre (−∞, 0, 0)
+
+**Démonstration.**
+1. Soit $m' = \max(m_J, \max_{j \in \mathcal{B}}s_j)$ : c'est le plus grand score de $J \cup \mathcal{B}$, $m' = m_{J \cup \mathcal{B}}$. Alors
+$$l' = l_Je^{m_J - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'} = \sum_{j \in J}e^{s_j - m_J}e^{m_J - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'} = \sum_{j \in J \cup \mathcal{B}}e^{s_j - m'} = l_{J \cup \mathcal{B}},$$
+puisque $e^{s_j - m_J}e^{m_J - m'} = e^{s_j - m'}$ ; de même, $a' = a_{J \cup \mathcal{B}}$. Un score $-\infty$ apporte $e^{-\infty} = 0$ aux deux sommes : il ne compte pas, ce qui est bien l'effet d'un masque.
+2. Au bloc 1, on part de l'état vide $(-\infty, 0, 0)$ : avec $e^{-\infty} = 0$, la règle donne $l = \sum_{j \in \mathcal{B}_1}e^{s_j - m'}$ et $a = \sum_{j \in \mathcal{B}_1}e^{s_j - m'}v_j$, c'est-à-dire $\operatorname{st}(\mathcal{B}_1)$. Si l'état est $\operatorname{st}(\mathcal{B}_1 \cup \cdots \cup \mathcal{B}_b)$ après le bloc $b$, il est $\operatorname{st}(\mathcal{B}_1 \cup \cdots \cup \mathcal{B}_{b+1})$ après le bloc $b + 1$, par 1. Par récurrence, l'invariant tient après chaque bloc. À la fin, $\frac al = \frac{\sum_je^{s_j - m}v_j}{\sum_ke^{s_k - m}} = \sum_j\frac{e^{s_j}}{\sum_ke^{s_k}}v_j = \sum_jp_jv_j$ (on a multiplié en haut et en bas par $e^m$), et $m + \ln l = \ln\big(e^m\sum_je^{s_j - m}\big) = \ln\sum_je^{s_j}$.
+3. Les exposants sont $s_j - m'$, négatif ou nul puisque $m'$ est le plus grand score lu, et $m_J - m'$, négatif ou nul puisque $m' \ge m_J$.
+4. Avec $m = \max(m_1, m_2) = m_{J_1 \cup J_2}$, le calcul de 1 donne $l_1e^{m_1 - m} + l_2e^{m_2 - m} = \sum_{j \in J_1 \cup J_2}e^{s_j - m}$, et de même pour $a$ : la fusion est $\operatorname{st}(J_1 \cup J_2)$. Comme $J_1 \cup J_2 = J_2 \cup J_1$, elle est commutative. Pour trois ensembles disjoints, les deux groupements donnent l'état de $J_1 \cup J_2 \cup J_3$ : elle est associative.
+5. Avec $e^{-\infty} = 0$ : $\max(-\infty, m) = m$, $0 \times e^{-\infty - m} + l\,e^{m - m} = l$ et $0 + a = a$. Deux états vides donneraient $e^{-\infty - (-\infty)}$, qui n'a pas de sens : on définit leur fusion comme l'état vide, ce qui est cohérent (la réunion de deux ensembles sans score fini n'a pas de score fini).
+
+**Grille de relecture.** 1 : $m'$ reconnu comme le maximum de la réunion, et la simplification $e^{s_j - m_J}e^{m_J - m'} = e^{s_j - m'}$, pour $l$ et pour $a$. 2 : l'initialisation depuis l'état vide (avec la convention $e^{-\infty} = 0$), l'hérédité par 1, et les deux conclusions, $a/l$ et $m + \ln l$. 3 : les deux sortes d'exposants. 4 : la fusion égale à l'état de la réunion, puis la commutativité et l'associativité **déduites** de cette égalité. 5 : la convention $e^{-\infty} = 0$, et le cas de deux états vides traité à part.
+
+**Variante.** L'état de $\{s_1\}$ seul est $(s_1, 1, v_1)$ ; fusionner $n$ tels états, un par score, redonne l'état de tous les scores, dans n'importe quel ordre : c'est la softmax en ligne par blocs de 1.
+
+<a id="reflexion"></a>
+
+## 🔗 📖 🗣️ Pont, lecture et explication
+
+### Ex MB3.11 — Pont : à normes égales, les poids d'un noyau gaussien sont une softmax des produits scalaires divisés par h² ; le vérifier sur quatre stations d'un même cercle, et lire 1/h² comme l'échelle des scores
+
+**Réponses.** a) `[15, -20, 7, 24]` · b) `[20, 90, 36, 2]` · c) `[0.2936, 0.0724, 0.2132, 0.4208]` · d) `True` · e) `19.06` · f) `0.767` · g) `True`.
+
+**Démarche.** a) $3 \times 5 = 15$ ; $-4 \times 5 = -20$ ; $-9 + 16 = 7$ ; $12 + 12 = 24$. b) $\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = 25 + 25 - 2\,\mathbf{x}\cdot\mathbf{x}_i$ : 20, 90, 36 et 2. c) Avec $2h^2 = 50$, les scores valent $(-0{,}4 ;\ -1{,}8 ;\ -0{,}72 ;\ -0{,}04)$ ; décalés de leur maximum, $(-0{,}36 ;\ -1{,}76 ;\ -0{,}68 ;\ 0)$, d'exponentielles $0{,}6977$ ; $0{,}1720$ ; $0{,}5066$ ; 1, de somme $2{,}3763$. d) Vrai : $\frac{\mathbf{x}\cdot\mathbf{x}_i}{h^2} = (0{,}6 ;\ -0{,}8 ;\ 0{,}28 ;\ 0{,}96)$, c'est-à-dire les scores de c) plus 1 : mêmes poids. e) $0{,}2936 \times 18 + 0{,}0724 \times 30 + 0{,}2132 \times 11 + 0{,}4208 \times 22 \approx 19{,}06$ mm. f) Pour $h = 2{,}5$ km, les scores sont multipliés par 4, $(2{,}4 ;\ -3{,}2 ;\ 1{,}12 ;\ 3{,}84)$ ; le pluviomètre 4 pèse $\approx 0{,}767$. g) Vrai : seuls les $\lVert\mathbf{x}_i\rVert^2$ doivent être égaux ; $\lVert\mathbf{x}\rVert^2$ est commun aux quatre termes, quel que soit $\mathbf{x}$.
+
+Dans ta copie : diviser $h$ par 2 multiplie l'échelle $\frac{1}{h^2}$ des scores par 4, c'est-à-dire divise la température par 4 : les poids se concentrent sur le pluviomètre le plus proche.
+
+**Erreurs fréquentes.** Croiser les coordonnées dans le produit scalaire, ou écrire $\mathbf{x}\cdot\mathbf{x}_i = \lVert\mathbf{x}\rVert\,\lVert\mathbf{x}_i\rVert = 25$. Écrire $\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = 50 - \mathbf{x}\cdot\mathbf{x}_i$, ou donner les distances. Diviser par $h^2$ au lieu de $2h^2$, oublier le signe ou la normalisation. Donner la moyenne simple des pluies (20,25 mm). Multiplier les scores par 2 quand $h$ est divisé par 2.
+
+**Variante.** Pour le point $\mathbf{x} = (4, 3)$ de la rive, les produits scalaires valent $(20 ;\ 15 ;\ -24 ;\ 7)$ : le pluviomètre 1 l'emporte.
+
+### Ex MB3.12 — MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la rotation de Givens (3.80)–(3.81) et les propriétés du §3.9.4 ; R₂(θ) écrite comme une rotation de Givens, et deux rotations de l'espace qui ne commutent pas, sur un vecteur choisi
+
+**Corrigé.**
+1. Les colonnes de $\mathbf{R}(\theta)$ sont les images des vecteurs de base, $\Phi(\mathbf{e}_1) = (\cos\theta, \sin\theta)$ et $\Phi(\mathbf{e}_2) = (-\sin\theta, \cos\theta)$, que le livre lit sur la figure 3.16 par la trigonométrie : c'est le $\mathbf{R}_\theta$ de la fiche. Le livre ne démontre ni les formules d'addition ni $\mathbf{R}(\alpha)\mathbf{R}(\beta) = \mathbf{R}(\alpha + \beta)$ : il énonce au §3.9.4 que les rotations du plan commutent, sans preuve. La fiche le démontre au §2 (∂ MB3.8).
+2. (3.77) fixe $x_1$ et tourne le plan $(x_2, x_3)$ : $\mathbf{R}_1(\theta) = \mathbf{R}_{23}(\theta)$. (3.79) fixe $x_3$ : $\mathbf{R}_3(\theta) = \mathbf{R}_{12}(\theta)$. (3.78) fixe $x_2$, avec $r_{13} = \sin\theta$ et $r_{31} = -\sin\theta$, l'inverse de $\mathbf{R}_{13}(\theta)$ : $\mathbf{R}_2(\theta) = \mathbf{R}_{13}(-\theta) = \mathbf{R}_{31}(\theta)$. Elle tourne $\mathbf{e}_3$ vers $\mathbf{e}_1$ : $\mathbf{R}_2(\theta)\mathbf{e}_3 = (\sin\theta, 0, \cos\theta)$. Vu depuis la pointe de $\mathbf{e}_2$, le plan est parcouru dans l'ordre $\mathbf{e}_3 \to \mathbf{e}_1$ (l'ordre circulaire $1 \to 2 \to 3 \to 1$) : le sens direct va de $\mathbf{e}_3$ vers $\mathbf{e}_1$.
+3. Dans $\mathbb{R}^5$, pour $(i, j) = (2, 4)$ : $\mathbf{I}_{i-1} = \mathbf{I}_1$, $\mathbf{I}_{j-i-1} = \mathbf{I}_1$ et $\mathbf{I}_{n-j} = \mathbf{I}_1$, trois blocs $1 \times 1$ ;
+$$\mathbf{R}_{24}(\theta) = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & \cos\theta & 0 & -\sin\theta & 0 \\ 0 & 0 & 1 & 0 & 0 \\ 0 & \sin\theta & 0 & \cos\theta & 0 \\ 0 & 0 & 0 & 0 & 1 \end{pmatrix}.$$
+Pour $n = 2$, $(i, j) = (1, 2)$ et les trois blocs identité sont vides : il reste (3.76).
+4. La conservation des distances et des angles découle de $\mathbf{R}^\top\mathbf{R} = \mathbf{I}$ : $(\mathbf{R}\mathbf{x})\cdot(\mathbf{R}\mathbf{y}) = \mathbf{x}^\top\mathbf{R}^\top\mathbf{R}\mathbf{y} = \mathbf{x}\cdot\mathbf{y}$, d'où les normes, les distances et les cosinus. $\mathbf{R}_{12}(\alpha)$ et $\mathbf{R}_{34}(\beta)$, de plans disjoints, commutent. Par exemple, avec $\mathbf{x} = (1, 1, 0)$, $\mathbf{R}_1(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$ et $\mathbf{R}_3(\frac\pi2)$ sur $(-x_2, x_1, x_3)$ : $\mathbf{R}_1\mathbf{R}_3\mathbf{x} = \mathbf{R}_1(-1, 1, 0) = (-1, 0, 1)$ et $\mathbf{R}_3\mathbf{R}_1\mathbf{x} = \mathbf{R}_3(1, 0, 1) = (0, 1, 1)$ : différents.
+5. Par exemple : *rotation* (rotation) ; *counterclockwise* (le sens inverse des aiguilles d'une montre) ; *rotation matrix* (matrice de rotation) ; *Givens rotation* (rotation de Givens) ; *commutative* (commutatif) ; *automorphism* (un automorphisme, application linéaire bijective d'un espace dans lui-même) ; *fixed point* (point fixe) ; *Abelian group* (groupe commutatif).
+
+L'exercice 3.10 de MML : la rotation de 30° est $\mathbf{R}_{30°} = \frac12\begin{pmatrix} \sqrt3 & -1 \\ 1 & \sqrt3 \end{pmatrix}$ ; applique-la aux deux vecteurs du livre.
+
+**Grille de relecture.** Les colonnes comme images des vecteurs de base, et ce que le livre admet ; les trois coordonnées fixes et l'écriture en rotations de Givens, avec le signe de $\mathbf{R}_2$ justifié ; les blocs de (3.80) et le cas $n = 2$ ; la conservation tirée de $\mathbf{R}^\top\mathbf{R} = \mathbf{I}$, un exemple de commutation dans $\mathbb{R}^4$ et un contre-exemple calculé juste ; un vocabulaire traduit avec les mots de la fiche, sans phrase recopiée du livre.
+
+### Ex MB3.13 — Expliquer, avec une caisse tenue dans une monnaie qui change, pourquoi la softmax en ligne donne exactement le résultat du calcul en une fois
+
+**Réponse modèle (6 à 10 phrases).** Ta caisse garde trois choses : la monnaie de référence, qui est la plus forte rencontrée jusqu'ici, et deux totaux écrits dans cette monnaie. La softmax en ligne garde de même le plus grand score lu, et deux sommes exprimées par rapport à lui : la somme des poids et la somme des valeurs pondérées. Tant que les paquets n'apportent rien de plus fort, tu convertis chaque recette dans la monnaie de référence et tu l'ajoutes. Quand une monnaie plus forte arrive, tu convertis tes deux totaux, d'un seul coup, au même taux, et ce taux est plus petit que 1 : c'est la remise à l'échelle. Une conversion ne perd rien : elle multiplie un total par un nombre connu, et l'on pourrait revenir en arrière. Surtout, ce qu'on veut à la fin est le rapport de tes deux totaux, et ce rapport ne dépend pas de la monnaie dans laquelle on les écrit, pourvu que ce soit la même. Convertir vers la plus forte garde des montants raisonnables : on ne manipule jamais d'énormes nombres, de même que l'ordinateur ne prend jamais l'exponentielle d'un nombre positif. Et si deux trésoriers ont tenu deux caisses à part, il suffit de convertir les deux dans la plus forte des deux monnaies et d'additionner : c'est la fusion des états.
+
+**En 3 phrases.** On tient deux totaux dans la monnaie la plus forte rencontrée, et on les convertit tous les deux au même taux quand une plus forte arrive. Une conversion ne perd rien, et le résultat, le rapport des deux totaux, ne dépend pas de la monnaie. On évite ainsi les nombres énormes, et deux caisses tenues à part se fusionnent en convertissant puis en additionnant.
+
+**Grille.** La monnaie de référence comme le plus grand score lu ; les deux totaux (somme des poids, somme pondérée) ; la conversion des deux totaux au même taux, plus petit que 1, quand une monnaie plus forte arrive ; pourquoi rien n'est perdu (un rapport ne dépend pas de l'unité) ; pourquoi la plus forte (pas de nombres énormes) ; la fusion de deux caisses ; aucune formule.
+
+<a id="entretien"></a>
+
+## 💼 Entretien
+
+### MB3.E1 — « Comment encoder une variable cyclique comme une heure ou une direction, et pourquoi pas par sa valeur ? »
+
+**Réponse modèle (60 secondes).** « Une heure codée par sa valeur, de 0 à 23, met 23 h et minuit à 23 unités l'une de l'autre, alors qu'elles sont voisines : un modèle qui mesure des distances, comme les k plus proches voisins ou un noyau, se trompe au passage de minuit, et un modèle linéaire ne peut pas faire revenir l'effet à son point de départ. On place plutôt la valeur sur un cercle : deux colonnes, le cosinus et le sinus de 2π fois l'heure divisée par 24, la période. Il en faut deux, parce que le cosinus seul donne le même code à 6 h et à 18 h. La distance au carré entre deux encodages vaut alors 2 moins 2 fois le cosinus de l'écart : elle ne dépend que de l'écart, et elle est petite pour deux heures proches, de part et d'autre de minuit comme ailleurs. Pour plusieurs cycles, la journée, la semaine et l'année, on met bout à bout une paire de colonnes par période. On peut aussi faire un one-hot des 24 heures, mais il perd la proximité entre heures voisines et ajoute 24 colonnes ; des fonctions bosses centrées sur quelques heures sont un intermédiaire. Les arbres n'ont pas besoin de ces colonnes, mais ils coupent le cycle en morceaux. Deux pièges : se tromper de période, 23 au lieu de 24 ; et standardiser le cosinus et le sinus séparément quand les heures ne sont pas réparties uniformément, ce qui déforme le cercle en ellipse. »
+
+**Grille.** Le défaut de la valeur brute (23 h et 0 h), pour les distances et pour un modèle linéaire ; l'encodage $(\cos, \sin)$ avec sa période ; les deux coordonnées (6 h et 18 h) ; la distance $2 - 2\cos$, fonction de l'écart ; plusieurs périodes, plusieurs paires ; une alternative (one-hot, fonctions bosses) et sa limite ; un piège (la période, la standardisation séparée).
+
+<a id="notebook"></a>
+
+## Notebook
+
+Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses et ce qu'il faut en retenir.
+
+- **MB3.14 🔨** `givens_rotation` : les contrôles (entiers refusés s'ils sont booléens, `math.isfinite(theta)`), puis `G = np.eye(n)`, `G[i, i] = G[j, j] = math.cos(theta)`, `G[j, i] = math.sin(theta)`, `G[i, j] = -math.sin(theta)`. a) $(-0{,}866025 ;\ 0 ;\ 0{,}5 ;\ 0 ;\ 0 ;\ 1)$, comme MB3.2 a) et b). b) $(2, 0)$ : (3.78) tourne $\mathbf{e}_3$ vers $\mathbf{e}_1$, et `givens_rotation(3, 0, 2, 0.4)` tournerait $\mathbf{e}_1$ vers $\mathbf{e}_3$, de $-0{,}4$ par rapport à (3.78). c) $\approx 0{,}7211$, puis 0. Ce qu'il faut observer : le couple $(0, 2)$ donne la transposée de (3.78), soit l'angle opposé ; les deux rotations qui ne commutent pas partagent une coordonnée (l'indice 2), celles qui commutent tournent des plans disjoints.
+- **MB3.15 🔨** `online_softmax` : `s = np.asarray(scores, dtype=float)` après les contrôles ; `m, l = -math.inf, 0.0` et un accumulateur nul ; pour chaque bloc, `mb = s_b.max()`, et si `mb > -inf` : `m_new = max(m, mb)`, `f = math.exp(m - m_new)` (0 au premier bloc), `w = np.exp(s_b - m_new)`, `l = l * f + w.sum()`, `acc = acc * f + w @ v_b` ; une copie de l'état par bloc avec `history`. a) $(3 ;\ 1{,}375 ;\ 11{,}75 ;\ 4 ;\ 1{,}96875 ;\ 8{,}875 ;\ 4 ;\ 3{,}28125 ;\ 16{,}1875)$ ; vrai ; la moyenne vaut $\frac{74}{15} \approx 4{,}9333$. b) Vrai. c) $m + \ln l \approx -1\,200{,}702880$, et `-inf` pour le calcul direct. d) $\approx (0{,}738354 ;\ -0{,}091732)$, de direction $\approx 352{,}92°$ ; la moyenne des quatre angles vaudrait 180°. Ce qu'il faut observer : $m$ change une fois, au bloc 2, et pas au bloc 3, dont le plus grand score égale $m$ ; le calcul direct prend $e^{-1\,200}$, qui vaut 0 en `float64`, puis $\ln 0$, alors que l'état ne prend que des exponentielles de nombres négatifs ou nuls, dont l'une vaut 1 ; une moyenne pondérée des encodages reste une direction sensée (vers 353°, entre 330° et 20°), la moyenne des angles désigne l'ouest.
+- **MB3.16 🔨** `merge_softmax_states` : les contrôles des deux états ; deux états vides rendent l'état vide ; sinon `m = max(m1, m2)`, `f1 = math.exp(m1 - m)` (0 si `m1 = -inf`), de même `f2`, puis `(m, l1 * f1 + l2 * f2, acc1 * f1 + acc2 * f2)`, dans un nouveau tableau. a) $(4\ln 2 ;\ 3{,}28125 ;\ 16{,}1875)$, comme MB3.7 f) ; vrai. b) Vrai pour les trois groupements ; la moyenne vaut $\approx (0{,}998801 ;\ 0{,}192926)$. c) Vrai. Ce qu'il faut observer : la fusion permet de couper une longue série de scores entre plusieurs machines (ou entre des blocs de colonnes d'une longue ligne, fiche §9), de lire chaque morceau à part, puis de fusionner dans n'importe quel ordre et groupement.
+- **MB3.17 🔮** Prédictions attendues : a) (A) ; b) (B) ; c) (A). Mesures, pour $h = 0{,}025$ ; $0{,}25$ ; $2{,}5$ km : d) $(0{,}9653 ;\ 0{,}1099 ;\ 0{,}0424)$ ; e) $(5{,}343 ;\ 4{,}186 ;\ 4{,}427)$ °C ; f) $(0{,}033 ;\ 1{,}220 ;\ 10{,}146)$ ; g) $(11{,}887 ;\ 8{,}095 ;\ 0{,}380)$ °C, pour des températures qui s'étendent sur 12 °C. Ce qu'il faut observer (après l'expérience) : avec $h/10$, la courbe passe presque par chaque station, en escalier : elle recopie aussi le bruit des mesures, et l'erreur aux stations, presque nulle, ne dit rien de la qualité de la prévision ailleurs ; avec $10h$, elle est presque plate, autour de la moyenne des 24 températures (4,44 °C), et efface la baisse avec l'altitude ; la largeur de référence suit la tendance. Le plus grand poids tend vers 1 (la température tend vers 0 : le one-hot de la station la plus proche, à 1,823 km, 5,4 °C) ou vers $\frac1{24} \approx 0{,}0417$ (la température tend vers l'infini : la loi uniforme). On choisirait $h$ par validation croisée « un de côté », comme dans le 🏆.
+- **MB3.18 🔬** a) 599, 99 et 9 remises à l'échelle (une par bloc, sauf le premier). b) 0, 0 et 0. c) En moyenne sur 300 ordres : $\approx 5{,}72$, $4{,}01$ et $1{,}85$ (erreurs types $\approx 0{,}12$ ; $0{,}10$ ; $0{,}06$). d) $H_N - 1 \approx 5{,}975$ ; $4{,}187$ ; $1{,}929$ : c) s'en écarte de moins de deux erreurs types. e) 9, 29 et 245 flottants, contre 2 400. f) Vrai. Ce qu'il faut observer : en ordre aléatoire, le nombre de remises à l'échelle grandit comme $\ln N$, très lentement ; l'ordre change ce nombre, jamais l'état final ; la lecture par blocs ne garde que l'état et un bloc.
+- **MB3.19 🎨** a) $(-0{,}5 ;\ 0{,}866025 ;\ 0{,}074730 ;\ -0{,}997204 ;\ 0{,}492528 ;\ 0{,}870297)$. b) $(0{,}900932 ;\ -1{,}001814 ;\ -1{,}099031 ;\ 2{,}623490)$. c) $\delta = 8\,736$ h (52 semaines), où le produit vaut $\approx 2{,}999852$. d) Vrai. La figure montre, sur l'horloge de la journée, le 3 mars à 8 h et à 20 h aux deux bouts d'un diamètre ; sur celle de la semaine, des points qui ne se distinguent que d'un demi-jour ; sur celle de l'année, le 3 septembre à l'opposé du 3 mars ; la flèche du décalage de 30 h fait un tour et quart sur la première horloge, un peu plus d'un sixième de tour sur la deuxième, presque rien sur la troisième ; la courbe du produit scalaire oscille vite (la journée), plus lentement (la semaine), et suit l'onde de l'année. Ce qu'il faut observer : l'horloge de la journée sépare 8 h de 20 h ; celle de l'année sépare mars de septembre. Une année compte 52 semaines et un jour : après 8 760 h, les horloges de la journée et de l'année sont revenues, celle de la semaine a un jour d'avance ($\cos\frac{2\pi}{7} \approx 0{,}62$), d'où 2,62 ; c'est après 52 semaines, 364 jours, que les trois horloges sont presque revenues ensemble.
+- **MB3.20 🐛** (1) `rotate_e3_then_e1` applique d'abord la rotation autour de $\mathbf{e}_1$ (la matrice de droite agit la première) ; correction : `R23(beta) @ R12(alpha) @ x`. a) $(1{,}732051 ;\ -1 ;\ 1)$, puis $(2{,}232051 ;\ 0{,}133975 ;\ 0)$. Les deux demi-tours de la vérification sont des matrices diagonales, qui commutent : l'ordre n'y changeait rien. (2) La moyenne des angles ignore que 0° et 360° sont la même direction ; correction : l'argument du vecteur moyen, `np.degrees(np.arctan2(sin.mean(), cos.mean())) % 360`. b) 2,5°, puis 182,5°. Les relevés 40°, 60° et 80° sont loin de 0° et symétriques autour de 60° : la moyenne des angles y donne la direction moyenne. (3) L'accumulateur doit être remis à l'échelle comme $l$ : `acc = acc * f + w @ v_b`. c) $\approx 2{,}393046$, puis $\approx 3{,}056764$. Avec des scores décroissants, le maximum est atteint dès le premier bloc et ne change plus : aucune remise à l'échelle n'est nécessaire, et l'oubli ne se voit pas. La vérification essaie aussi des cas cachés, dont des scores croissants et des directions de part et d'autre de 0°.
+- **MB3.21 🛠️** `failed_checks_21` : un `try` autour des appels ; `ref = func(scores, values, block_size=1)` ; une fonction `differ(s1, s2)` qui compare $m$ (les deux $-\infty$, ou un écart relatif d'au plus `rtol`), $l$ et l'accumulateur (`np.allclose`) ; puis les quatre contrôles. a) Vrai. b) `rescale_l_only` : `{"blocks": 126, "permutation": 191, "shift": 0, "associative": 0}` ; `centered` : `{"blocks": 0, "permutation": 0, "shift": 200, "associative": 0}` ; `merge_no_rescale` : quatre compteurs nuls ; `merge_mean` : `{"blocks": 0, "permutation": 0, "shift": 0, "associative": 199}`. c) `rescale_l_only` passe le contrôle de la constante ajoutée (les facteurs $e^{m - m'}$ ne dépendent que des écarts entre scores) et celui de la fusion (qui ne teste que `merge`) ; il échoue quand le maximum change en cours de lecture. `centered` donne les bons poids et la bonne moyenne, mais un $m$ faux : seul le contrôle de la constante le voit. `merge_no_rescale` passe tout : additionner sans remettre à l'échelle est associatif, mais faux, et ce sont les tests de `tests/test_mb3_positional.py`, qui comparent à `scipy.special.logsumexp` et `scipy.special.softmax`, qui l'attrapent ; de même, les quatre propriétés ne vérifient pas que $a/l$ est la bonne moyenne. `merge_mean` n'est pas associative : une moyenne de moyennes dépend du groupement. La vérification lance ton test sur deux départs cachés de 40 essais, avec les bonnes fonctions et des versions fausses cachées, et remplace un instant `mymath.positional.online_softmax` pour l'appel sans `func`.
+- **MB3.22 🏆** a) $h \approx 0{,}151$. b) Pour la méthode de la vérification, $\approx 2\,111$ kW² (la tienne en est proche si sa grille est fine). c) Sur les nombres bruts, $\approx 3\,837$ kW², 1,82 fois plus. d) 0,03, la plus petite largeur de la grille : sans laisser le relevé de côté, chaque relevé se prévoit lui-même, et la plus petite largeur l'emporte toujours. Le piège : les heures à prévoir sont autour du jour 0 et de la direction 0°, là où les nombres bruts mettent loin les uns des autres des relevés voisins (le jour 364 et le jour 0, 359° et 1°) : la prévision n'y voit qu'un côté de ses voisins. L'encodage cyclique, une validation croisée qui laisse vraiment chaque relevé de côté, et une grille fine suffisent ; sur 300 jeux tirés comme les jeux cachés, la méthode de la vérification et une grille plus fine réussissent toujours, alors que les nombres bruts échouent sur trois jeux sur quatre (moins d'une fois sur 300 sur quatre jeux), la validation croisée sans le relevé laissé de côté et un seul cosinus par variable presque toujours. Une largeur de bande par horloge fait souvent mieux encore, à condition de la chercher sur une grille assez fine.

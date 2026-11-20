@@ -13,6 +13,7 @@ workbookMaths
 │   └── …
 └── Partie VII
     ├── 51 MB2 Cooccurrences, PMI et embeddings
+    ├── 52 MB3 Rotations, moyennes pondérées et softmax en ligne
     ├── …
     └── 56 MB8 Gradient de politique
 ```
