@@ -151,13 +151,14 @@ PAPER = [
          '''decimals=3,
            mistakes={"la variance du pont est la plus grande où V_s est le plus proche de V_T/2, pas au milieu de la "
                      "durée": floats([12, bridge_3(4)[1]]),
-                     "V_s = V_T/2 tombe entre 10 h et 11 h : compare les variances des deux heures entières voisines":
-                         floats([11, bridge_3(3)[1]])}'''),
+                     "calcule V_s(V_T − V_s)/V_T à chaque heure entière : le maximum n'est pas forcément à la première "
+                     "heure où V_s dépasse V_T/2": floats([11, bridge_3(3)[1]])}'''),
         ("c", "a number (4 decimals)", "math.sqrt(V_3[2] / V_3[5])",
          '''decimals=4,
-           mistakes={"les variances cumulées ne croissent pas comme les heures : 2 par heure jusqu'à 11 h, puis 0,5":
-                         math.sqrt(2 / 5),
-                     "les pas de 11 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) = V_2, pas V_5 − V_2":
+           mistakes={"les scénarios partent de 8 h sans connaître le relevé de 16 h : ce n'est pas le pont":
+                         math.sqrt(float(V_3[2] * (V_3[8] - V_3[5]) / (V_3[5] * (V_3[8] - V_3[2])))),
+                     "les pas de 10 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) est la variance "
+                     "cumulée à 10 h, pas celle des pas de 10 h à 13 h":
                          float(V_3[5] - V_3[2]) / math.sqrt(V_3[2] * V_3[5])}'''),
         ("d", "a number (4 decimals)", "fresh_3()",
          '''decimals=4,
@@ -251,9 +252,10 @@ PAPER = [
                      "le logarithme est népérien": math.log10(PX_6),
                      "le modèle retour part de p(z₂), pas de la loi aller q(z₂ | x)":
                          math.log(sum(Q2_6[z2] * P21_6[z2][z1] * PX1_6[z1][1] for z1 in (0, 1) for z2 in (0, 1)))}'''),
-        ("d", "a number (4 decimals)", "ELBO_6",
+        ("d", "a number (4 decimals): by its decomposition, the reconstruction minus the two KL of e)", "ELBO_6",
          '''decimals=4,
-           mistakes={"l'ELBO retire aussi E_q[ln q(z₁, z₂ | x)] : il manque l'entropie de q": ELBO_6 - ENTROPY_6,
+           mistakes={"l'ELBO retire les deux KL de la reconstruction, elle ne les ajoute pas":
+                         terms_6()[0] + terms_6()[1] + terms_6()[2],
                      "l'ELBO est sous ln p(x) : ln p(x) moins l'écart, pas plus": 2 * math.log(PX_6) - ELBO_6}'''),
         ("e", "a list of 3 numbers (4 decimals): the reconstruction, the final KL, the KL of the backward step",
          "terms_6()",
@@ -305,7 +307,7 @@ PAPER = [
                      "un seul pas d'Euler n'est pas la solution exacte": float(euler_8(10, 1))}'''),
         ("b", "a list of 2 numbers (2 decimals): h = 5, then h = 2.5", "floats([euler_8(5, 2), euler_8(F(5, 2), 4)])",
          '''decimals=2,
-           mistakes={"la vitesse est −k(T − 20), avec l'écart à la pièce":
+           mistakes={"la vitesse est −r(T − 20), avec l'écart à la pièce":
                          floats([euler_8(5, 2, room=0), euler_8(F(5, 2), 4, room=0)]),
                      "la première valeur est celle des deux pas de 5 min": floats([euler_8(F(5, 2), 4), euler_8(5, 2)])}'''),
         ("c", "a list of 2 numbers (2 decimals): h = 5, then h = 2.5", "floats([midpoint_8(5, 2), midpoint_8(F(5, 2), 4)])",
@@ -314,16 +316,20 @@ PAPER = [
                          floats([midpoint_8(5, 2, half=1), midpoint_8(F(5, 2), 4, half=1)]),
                      "la première valeur est celle des deux pas de 5 min":
                          floats([midpoint_8(F(5, 2), 4), midpoint_8(5, 2)])}'''),
-        ("d", "a list of 2 numbers (1 decimal): Euler, then the midpoint method", "ratios_8()",
+        ("d", "a list of 2 numbers (1 decimal): Euler, then the midpoint method, from the unrounded values of a), b), c)",
+         "ratios_8()",
          '''decimals=1,
            mistakes={"le rapport divise l'erreur du grand pas par celle du petit": [1 / r for r in ratios_8()],
                      "une erreur est un écart à la valeur exacte, pas la valeur approchée":
-                         [float(euler_8(5, 2) / euler_8(F(5, 2), 4)), float(midpoint_8(5, 2) / midpoint_8(F(5, 2), 4))]}'''),
+                         [float(euler_8(5, 2) / euler_8(F(5, 2), 4)), float(midpoint_8(5, 2) / midpoint_8(F(5, 2), 4))],
+                     "les erreurs se calculent avec les températures non arrondies : à 2 décimales, celle du point milieu "
+                     "perd presque toute sa précision": ratios_8(rounded=True)}'''),
         ("e", "a list of 2 numbers (2 decimals): one Euler step backward, then the exact value",
          "floats([euler_8(-5, 1, start=T10_8, t0=10), exact_8(5, start=T10_8, t0=10)])",
          '''decimals=2,
            mistakes={"la solution exacte fait décroître l'écart à la pièce, 47 − 20, pas la température":
-                         floats([euler_8(-5, 1, start=T10_8, t0=10), float(T10_8) * math.exp(float(K_8) * 5)])}'''),
+                         floats([euler_8(-5, 1, start=T10_8, t0=10), float(T10_8) * math.exp(float(K_8) * 5)]),
+                     "un seul pas d'Euler n'est pas la valeur exacte": floats([euler_8(-5, 1, start=T10_8, t0=10)] * 2)}'''),
     ]),
 
     Paper("MB5.9", "Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen, un pas d'Euler depuis s = 1, "
@@ -423,7 +429,7 @@ def days_1(level):
 
 
 # MB5.2: the monthly risks of a hive, October to March
-H_2 = [F(1, 100), F(4, 100), F(7, 100), F(12, 100), F(10, 100), F(6, 100)]
+H_2 = [F(1, 100), F(3, 100), F(7, 100), F(12, 100), F(14, 100), F(7, 100)]
 P_2 = math.prod(1 - h for h in H_2)
 S1_2, S2_2 = float(sum(H_2)), float(sum(h * h for h in H_2))
 
@@ -495,7 +501,6 @@ P21_6, PX1_6 = FLIP_6(R21_6), FLIP_6(RX1_6)                              # p(z1 
 JOINT_6 = {(z1, z2): PZ_6[z2] * P21_6[z2][z1] * PX1_6[z1][1] for z1 in (0, 1) for z2 in (0, 1)}
 PX_6 = sum(JOINT_6.values())
 ELBO_6 = sum(float(Q12_6[k]) * (math.log(JOINT_6[k]) - math.log(Q12_6[k])) for k in Q12_6)
-ENTROPY_6 = -sum(float(Q12_6[k]) * math.log(Q12_6[k]) for k in Q12_6)
 
 
 def terms_6(final_reversed=False, equal_weights=False):
@@ -532,12 +537,12 @@ K_8, ROOM_8, T0_8, T10_8 = F(6, 100), F(20), F(85), F(47)
 
 
 def exact_8(t, start=T0_8, t0=0):
-    """The exact temperature at t: 20 + (start − 20) e^{−k (t − t0)}."""
+    """The exact temperature at t: 20 + (start − 20) e^{−r (t − t0)}, with the rate r = K_8."""
     return float(ROOM_8) + float(start - ROOM_8) * math.exp(-float(K_8) * (t - t0))
 
 
 def euler_8(h, n, start=T0_8, t0=0, room=ROOM_8):
-    """n Euler steps of length h (exact fractions); room=0: the velocity −k T (the classic error)."""
+    """n Euler steps of length h (exact fractions); room=0: the velocity −r T (the classic error)."""
     T = start
     for _ in range(n):
         T = T - F(h) * K_8 * (T - room)
@@ -553,11 +558,15 @@ def midpoint_8(h, n, start=T0_8, half=F(1, 2)):
     return T
 
 
-def ratios_8():
-    """The ratio of the error with h = 5 to the error with h = 2.5, for Euler, then for the midpoint method."""
-    exact = exact_8(10)
-    return [(exact - float(euler_8(5, 2))) / (exact - float(euler_8(F(5, 2), 4))),
-            (exact - float(midpoint_8(5, 2))) / (exact - float(midpoint_8(F(5, 2), 4)))]
+def ratios_8(rounded=False):
+    """The ratio of the error with h = 5 to the error with h = 2.5, for Euler, then for the midpoint method; rounded: from
+    the temperatures rounded to 2 decimals, and the ratios rounded to 1 decimal, as the learner types them (unrounded,
+    the ratio of the midpoint method would fall within the tolerance of the right one)."""
+    temp = (lambda value: round(float(value), 2)) if rounded else float
+    exact = temp(exact_8(10))
+    ratios = [(exact - temp(euler_8(5, 2))) / (exact - temp(euler_8(F(5, 2), 4))),
+              (exact - temp(midpoint_8(5, 2))) / (exact - temp(midpoint_8(F(5, 2), 4)))]
+    return [round(r, 1) for r in ratios] if rounded else ratios
 
 
 # MB5.9: the straight path to N(4, 0.25) (m = 4, tau = 0.5); z = −0.7
@@ -843,7 +852,7 @@ SEAL_3 = MappingProxyType({"x8h": 3.0, "x16h": 9.0, "var_8h_11h": 2.0, "var_11h_
 #   at 8 h and 16 h, and the variance (km²) that each hour adds, from 8 h to 11 h, then from 11 h to 16 h
 SIGNAL_5A = MappingProxyType({"m": 1.0, "v": 4.0, "a": 2.0, "b": 3.0, "y": 6.0})   # MB5.5 A: x ~ N(m, v), y = a x + b n
 SIGNAL_5B = MappingProxyType({"c": 2.0, "a": 0.5, "b": 1.0, "y": 1.1})   # MB5.5 B: x = +c or -c (1/2 each), y = a x + b n
-TEA_8 = MappingProxyType({"k": 0.06, "room": 20.0, "T0": 85.0, "T10": 47.0})   # MB5.8: T' = -k (T - room), T(0) = T0
+TEA_8 = MappingProxyType({"r": 0.06, "room": 20.0, "T0": 85.0, "T10": 47.0})   # MB5.8: T' = -r (T - room), T(0) = T0
 #   (°C, minutes); e) another cup at T10 at 10 min
 DATA_9 = MappingProxyType({"m": 4.0, "tau": 0.5})                      # MB5.9: the data x_0 ~ N(m, tau²)'''
 
@@ -972,15 +981,19 @@ wbm.record("MB5.16a", moments_16r([0.88] * 3, [0.35] * 3, 2.5), decimals=6,
            mistakes={"le départ connu x_0 = 2,5 se passe par mean0 (sinon, mean0 vaut 0)":
                          moments_16r([0.88] * 3, [0.35] * 3, 0)})
 weeks_a_16r, weeks_b_16r = __A_16__, __B_16__
-wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=6,
+wbm.record("MB5.16b", moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0.3), decimals=4,
            mistakes={"le départ n'est pas connu : sa variance 0,3 se transmet, passe var0=0.3":
                          moments_16r(weeks_a_16r, weeks_b_16r, 1.5, 0),
+                     "chaque semaine ajoute le bruit b_t² à la variance : passe B_16 aux pas":
+                         moments_16r(weeks_a_16r, [0] * len(weeks_b_16r), 1.5, 0.3),
                      "le départ a la moyenne 1,5 : passe mean0=1.5": moments_16r(weeks_a_16r, weeks_b_16r, 0, 0.3)})
 six_16r = moments_16r([-0.68] * 6, [1.1] * 6, 5)
 limit_16r = float(F_16r("1.1") ** 2 / (1 - F_16r("0.68") ** 2))
-wbm.record("MB5.16c", six_16r + [limit_16r], decimals=6,
+wbm.record("MB5.16c", six_16r + [limit_16r], decimals=3,
            mistakes={"la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²":
                          six_16r + [float(F_16r("1.1") ** 2 / (1 + F_16r("0.68") ** 2))],
+                     "chaque pas ajoute le bruit b² = 1,21 à la variance : passe les b aux pas":
+                         moments_16r([-0.68] * 6, [0] * 6, 5) + [limit_16r],
                      "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)":
                          moments_16r([-0.68] * 6, [1.1] * 6, 0) + [limit_16r]})'''),
         ("solution", answers_check("MB5.16", "abc", hints=HINTS_16)),
@@ -1119,7 +1132,7 @@ with wbm.attempt("MB5.18"):          # if you call your functions here: ⏳ whil
 
 def tea_18(t, T):
     """Newton's cooling of the tea of MB5.8 (°C, minutes)."""
-    return -TEA_8["k"] * (T - TEA_8["room"])
+    return -TEA_8["r"] * (T - TEA_8["room"])
 
 
 answer_MB5_18a = [float(euler_ode(tea_18, TEA_8["T0"], 0.0, 10.0, 2)[-1]),
@@ -1288,7 +1301,7 @@ NOTE_20 = (r"Prédictions attendues : a) (B) ; b) (A) ; c) (C). d) $(2{,}43201 ;
 MB5_20 = ex(
     "MB5.20", "prévoir ce que rend le débruiteur optimal d'un nuage de points quand le bruit s'efface, puis le mesurer.",
     "fiche §5 ; M04 (Bayes), MB3 (moyenne pondérée par une softmax) ; Ex MB5.5, MB5.17", hypothesis=True, note=NOTE_20,
-    body=r"""Une rivière a été relevée cinq fois, à des hauteurs (en m) $1{,}2$ ; $1{,}9$ ; $2{,}3$ ; $3{,}6$ ; $4{,}0$ (`RECORDS_20`), de poids égaux ; un capteur mesure $y = 0{,}5\,x + b\,n$, où $x$ est l'un des cinq relevés. **Avant d'exécuter quoi que ce soit**, prédis, quand $b$ tend vers 0 :
+    body=r"""Un marégraphe a relevé cinq fois la hauteur de la mer, en m : $1{,}2$ ; $1{,}9$ ; $2{,}3$ ; $3{,}6$ ; $4{,}0$ (`RECORDS_20`), de poids égaux ; un capteur mesure $y = 0{,}5\,x + b\,n$, où $x$ est l'un des cinq relevés. **Avant d'exécuter quoi que ce soit**, prédis, quand $b$ tend vers 0 :
 - a) pour $y = 1$ (donc $\frac ya = 2$), $\mathbb{E}[x \mid y]$ tend vers : (A) 2 ; (B) $1{,}9$ ; (C) $2{,}6$, la moyenne des relevés (une lettre) ;
 - b) pour $y = 1{,}475$ (donc $\frac ya = 2{,}95$, à égale distance de $2{,}3$ et de $3{,}6$) : (A) $2{,}95$ ; (B) $2{,}3$ ; (C) $3{,}6$ (une lettre) ;
 - c) pour $y = 1$ et un bruit énorme, $b = 50$ : (A) $1{,}9$ ; (B) 2 ; (C) $2{,}6$ (une lettre).
@@ -1299,7 +1312,7 @@ Puis, une fois tes prédictions écrites et vérifiées, mesure avec `posterior_
 - f) $\mathbb{E}[x \mid y = 1]$ pour $b = 50$ (un nombre).
 
 La vérification de l'expérience ne s'exécute qu'une fois tes trois prédictions écrites.""",
-    given='''RECORDS_20 = frozen([1.2, 1.9, 2.3, 3.6, 4.0])     # five heights of a river (m), equal weights''',
+    given='''RECORDS_20 = frozen([1.2, 1.9, 2.3, 3.6, 4.0])     # five heights of the sea read by a tide gauge (m), equal weights''',
     todo='''prediction_MB5_20a = ...  # a) "A", "B" or "C": for y = 1 and b -> 0, E[x | y] tends to (A) 2, (B) 1.9, (C) 2.6
 prediction_MB5_20b = ...  # b) "A", "B" or "C": for y = 1.475 and b -> 0, (A) 2.95, (B) 2.3, (C) 3.6
 prediction_MB5_20c = ...  # c) "A", "B" or "C": for y = 1 and b = 50, (A) 1.9, (B) 2, (C) 2.6''',
@@ -1929,7 +1942,7 @@ if len(set(parts_23)) == 3:
 NOTE_23 = (r"(1) Le poids $\frac{V_s}{V_T}$ va avec $x_T$ : `(1 - weight) * x0 + weight * xT`. a) $(7{,}235294 ;\ "
            r"4{,}764706)$. (2) Les responsabilités demandent la loi de $y$ sachant la composante, de variance `a ** 2 * v "
            r"+ b ** 2`. b) $(0{,}086508 ;\ 1{,}608911 ;\ -0{,}127978 ;\ 1{,}811618)$. (3) Le temps du champ avance : "
-           r"`f(t0 + k * h, x)`. c) $(2{,}046875 ;\ 0{,}03125)$.")
+           r"`f(t0 + k * h, x)`. c) $(1{,}175583 ;\ 0{,}087791)$.")
 
 MB5_23 = ex(
     "MB5.23", "reconnaître trois erreurs classiques (des poids inversés dans un pont, le bruit oublié dans les "
@@ -1943,7 +1956,7 @@ MB5_23 = ex(
 À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `bridge_fixed`, `denoiser_fixed` et `euler_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle). Puis réponds :
 - a) pour le phoque de MB5.3 (`SEAL_3`, cellule de données), la moyenne de la position à 11 h par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ;
 - b) pour le mélange $0{,}4\,\mathcal{N}(-1 ;\ 0{,}3) + 0{,}6\,\mathcal{N}(2{,}5 ;\ 0{,}6)$ mesuré par $y = 1{,}2\,x + 0{,}9\,n$, $\mathbb{E}[x \mid y]$ pour $y = 0{,}4$ et $1{,}4$, par la fonction corrigée, puis par la fonction fautive (une liste de 4 nombres) ;
-- c) $x' = t - x$, $x(0) = 2$, sur $[0, 3]$ en six pas : le point atteint en $t = 3$ par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres).
+- c) $x' = t - x$, $x(0) = 1$, sur $[0, 2]$ en six pas : le point atteint en $t = 2$ par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres).
 
 Dans ta copie : pour chacune des trois erreurs, pourquoi la vérification du collègue ne la voyait pas. La vérification essaie aussi tes fonctions corrigées sur des cas cachés : d'autres ponts, des mélanges de deux composantes ou plus, des champs qui dépendent du temps, et des tableaux qu'elles ne doivent pas modifier.""",
     todo='''def bridge_fixed(x0, xT, Vs, VT):
@@ -1967,7 +1980,7 @@ answer_MB5_23a = answer_MB5_23b = answer_MB5_23c = ...
 with wbm.attempt("MB5.23"):          # your three functions: ⏳ while they are not written
     answer_MB5_23a = ...  # a) a list of 2 numbers, as computed: the mean at 11 h by bridge_fixed, then by the WRONG bridge_bad
     answer_MB5_23b = ...  # b) a list of 4 numbers, as computed: denoiser_fixed at y = 0.4 and 1.4, then the WRONG denoiser_bad
-    answer_MB5_23c = ...  # c) a list of 2 numbers, as computed: the point at t = 3 by euler_fixed, then by the WRONG euler_bad''',
+    answer_MB5_23c = ...  # c) a list of 2 numbers, as computed: the point at t = 2 by euler_fixed, then by the WRONG euler_bad''',
     check=answers_check("MB5.23", "abc") + "\n\n" + CHECK_23,
     solution='''def bridge_fixed(x0, xT, Vs, VT):
     """The mean and the variance of a random walk at the time of cumulated variance Vs, given its value x0 at the start
@@ -2008,9 +2021,10 @@ answer_MB5_23a = [bridge_fixed(SEAL_3["x8h"], SEAL_3["x16h"], hours_8_11_23, hou
 mixture_23 = ([0.4, 0.6], [-1.0, 2.5], [0.3, 0.6])
 answer_MB5_23b = (denoiser_fixed([0.4, 1.4], 1.2, 0.9, *mixture_23).tolist()
                   + denoiser_bad([0.4, 1.4], 1.2, 0.9, *mixture_23).tolist())
-answer_MB5_23c = [float(euler_fixed(lambda t, x: t - x, 2.0, 0.0, 3.0, 6)[-1]),
-                  float(euler_bad(lambda t, x: t - x, 2.0, 0.0, 3.0, 6)[-1])]
-print("a)", np.round(answer_MB5_23a, 6).tolist(), " b)", np.round(answer_MB5_23b, 6).tolist(), " c)", answer_MB5_23c)''',
+answer_MB5_23c = [float(euler_fixed(lambda t, x: t - x, 1.0, 0.0, 2.0, 6)[-1]),
+                  float(euler_bad(lambda t, x: t - x, 1.0, 0.0, 2.0, 6)[-1])]
+print("a)", np.round(answer_MB5_23a, 6).tolist(), " b)", np.round(answer_MB5_23b, 6).tolist(),
+      " c)", np.round(answer_MB5_23c, 6).tolist())''',
     record='''from fractions import Fraction as F_23r
 
 from scipy import integrate as integrate_23r
@@ -2056,19 +2070,28 @@ wbm.record("MB5.23b", right_b_23r + bad_b_23r, decimals=6,
                      "la version corrigée d'abord, puis la version fautive": bad_b_23r + right_b_23r})
 
 
-def euler_23r(late=True):
-    """The oracle: Euler for x' = t - x from x(0) = 2 on [0, 3] in six steps, exactly (late=False: the time frozen at
-    t0, the colleague's error)."""
-    x, h = F_23r(2), F_23r(1, 2)
+def euler_23r(times="start"):
+    """The oracle: Euler for x' = t - x from x(0) = 1 on [0, 2] in six steps, exactly; times="frozen": the field read
+    at t0 at every step (the colleague's error); "end": read at the end of each step; "middle": a midpoint step."""
+    x, h = F_23r(1), F_23r(1, 3)
     for k in range(6):
-        x = x + h * ((k * h if late else 0) - x)
+        t = k * h
+        if times == "middle":
+            x = x + h * ((t + h / 2) - (x + h / 2 * (t - x)))
+        else:
+            x = x + h * ({"start": t, "frozen": 0, "end": t + h}[times] - x)
     return float(x)
 
 
-wbm.record("MB5.23c", [euler_23r(), euler_23r(late=False)], decimals=6,
-           mistakes={"euler_fixed lit encore le champ en t_0 à chaque pas": [euler_23r(late=False)] * 2,
-                     "le second nombre est celui de la version FAUSSE, euler_bad": [euler_23r()] * 2,
-                     "la version corrigée d'abord, puis la version fautive": [euler_23r(late=False), euler_23r()]})
+right_c_23r, bad_c_23r = euler_23r(), euler_23r("frozen")
+wbm.record("MB5.23c", [right_c_23r, bad_c_23r], decimals=4,
+           mistakes={"euler_fixed lit encore le champ en t_0 à chaque pas": [bad_c_23r] * 2,
+                     "le second nombre est celui de la version FAUSSE, euler_bad": [right_c_23r] * 2,
+                     "la version corrigée d'abord, puis la version fautive": [bad_c_23r, right_c_23r],
+                     "le pas k d'Euler lit le champ au début du pas, en (t_k, x_k), pas en t_(k+1)":
+                         [euler_23r("end"), bad_c_23r],
+                     "euler_fixed corrige le temps du champ, sans changer de méthode : un seul appel du champ par pas, "
+                     "en (t_k, x_k)": [euler_23r("middle"), bad_c_23r]})
 CASES_23r = __CASES_C23__                                                   # the hidden bridges of the check
 wbm.record(CASES_23r["id"], [bridge_23r(*case) for case in CASES_23r["bridges"]], decimals=6)''',
     after=[

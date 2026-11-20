@@ -111604,23 +111604,23 @@
           "ea89e47919094e8ee2e15e533852c250756cd02d7117a6164edab4f7e035f32f"
         ],
         "1": [
-          "aab00a31b3879b983deb2b8f65821d2048fd0e1a0c6570d94b06ca425e083bfd"
+          "8afda7953347aec1cf418187e4775100281c71467e41c321f7e6d26bbd1fbc4c"
         ]
       },
       "coarser": {
         "2": [
-          "14142da00b7e6708f10b7ee522d314258584349ae443a83c7ff343f1b4a65438"
+          "b03cb41f6cdc2bfbc7fc8425ded49199397631480c4a28e355f3efc9d39b487b"
         ]
       },
       "decimals": 4,
-      "hash": "a3f3ec2d53b21eb30681c8264095c70cc49bbcbefc495255449996acf94f6c5b",
-      "hash_coarse": "c9af70968a00d40b07f3dc9c4c18588f48ee7710c2235c0c38ed49701546afbb",
+      "hash": "0a05c477e05b116316546cf186e75308d26d6595e90a78ff0f35161fcf55e0c3",
+      "hash_coarse": "50c2dd70372056fa8230c06b010d4d42ead7ede0660c773a7301d8b295d2d0ef",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "33a2634d9ac21fedaa16be7aeb95ea9cb6d777f1248cad1d1343ad5b67ae653f": "chaque mois a son propre risque : le produit des six 1 − h, pas (1 − la moyenne des risques)⁶",
-        "36f8c38250f5b49e21fda41fe1b4a5e8bf8a5a6bc4228709133c71b0804e4ac2": "survivre six mois, c'est survivre à chaque mois : un produit des 1 − h, pas 1 moins la somme des risques",
-        "d7c37e0da487f1f243d902e53623abd0cb3e1f9a01b83bb60d6282b6be1b9fb9": "la probabilité de survie est un produit, pas une moyenne des 1 − h"
+        "2488367d468925b9b8391ae4bd858f44826a5867d99568847e296ca8ce9bbafa": "chaque mois a son propre risque : le produit des six 1 − h, pas (1 − la moyenne des risques)⁶",
+        "5a26399f43954310d4f2bf218491904b49dd333e6ddabd256b1dcb8ce3eec095": "survivre six mois, c'est survivre à chaque mois : un produit des 1 − h, pas 1 moins la somme des risques",
+        "6f6e8e8bff2f6e7fc813a327ad1512b0ca842a849baee89815ecd38c308290d5": "la probabilité de survie est un produit, pas une moyenne des 1 − h"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -111628,23 +111628,23 @@
     "MB5.2b": {
       "coarse_any": {
         "1": [
-          "de6834dca5bf1eca0871fc908adfff53d42005ef7d1b7b53d47b8d269dc0a3dd"
+          "bfb36948c30b8ce302dbbcf7c4a47c48f78a01a2244171e5bbe3fdb289d7e256"
         ]
       },
       "coarser": {
         "2": [
-          "f8a4c1bb798eba90bbf3694b4fde48c00d1bc28522d0f1375b0f2b9222122967"
+          "9e3f2cbb1ec9090538f1189bfe22dc35dd0a1e1257cf737ba7cf2b2ad14f0c62"
         ]
       },
       "decimals": 4,
-      "hash": "1feb728e7407c3c19aa1a964bb4915bdc9908fb1980204eba7d0a66707b8593a",
-      "hash_coarse": "b6e554b29927cc5133076d929c8ebb52145a78ef7ec2e0d483c50c367af18d0b",
+      "hash": "80bf6c0f2e8c5c296f759446dc49911a875a8dbe44d3461cc20e32096255b8ac",
+      "hash_coarse": "9a0db924270764b759ac83e172eda7a23cb9fda40728fb8b46c62bc7e5f9800b",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "a8f9a2cfbfd8cd89ca0b9f841660f662e35859e9f96b577454439748fb2fd063": "le logarithme est népérien",
-        "ccf695e90ae9512ec16ecbe53b6dd96f457d6810f6c1680a7181d8140dd4a833": "P est plus petit que 1 : son logarithme est négatif",
-        "f844004e68630abd02bd2c2d8f2deb307b218e094bc92673e40f8b581c9604a3": "ln P est la somme des ln(1 − h), pas −Σh"
+        "094174474739b8df3df1acf51ea91c2f145fc35953f86d54752a4b4307d7577c": "P est plus petit que 1 : son logarithme est négatif",
+        "4f396026cf421826de7f05ebe2ec15efbf595e4ffa7874ed19d3b22c85c541ce": "ln P est la somme des ln(1 − h), pas −Σh",
+        "a0f55fb5ebe99e985061aa00ebe738b7eebeacedabdc3d42bbcaf9336bd5e3b4": "le logarithme est népérien"
       },
       "sign": -1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -111659,14 +111659,14 @@
         ]
       },
       "decimals": 4,
-      "hash": "8faf11ada3a7b8249ad34c4500e0dccf6352b29e505810a3a72d095d40e44e30",
-      "hash_coarse": "4876d652dd9aabdf23e08507fbc05215029e12b1bb3bc2614873f6f52abb2731",
+      "hash": "7825013864c0c60ee4d600be9a6ea36b5a1563e640ddd986cfeeb8846b26d835",
+      "hash_coarse": "ea3b28be62f5450973eec9f224eb1e8d4534fbaf9a94a2cec96703f11f3fd27e",
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "44dd8eeccc27564cdccc6b1e5f3b1208e525327f8c62762e38e9f35d55145b2f": "le risque constant équivalent vérifie (1 − h)⁶ = P : ce n'est pas la moyenne des six risques",
-        "4e6aa1904140701d2cb49ffead1dc65804296d8ef518fe0fe2caed984193e908": "(1 − h)⁶ = P donne 1 − h = P^{1/6} : la question demande h",
-        "9dc6de63240bd685fe3e7412f41f1ad18eec12738c03442d6f41130638778781": "six mois de risque h laissent (1 − h)⁶, pas 1 − 6h"
+        "025c89fc39bed156e29d8bd667d85ba3c738a667d812e1f312f0055d5c84e5c3": "six mois de risque h laissent (1 − h)⁶, pas 1 − 6h",
+        "1bdcd95d8019c4fb65fe354ae43e5bbe87b9cd2257cbd040af84c5f75c627a74": "(1 − h)⁶ = P donne 1 − h = P^{1/6} : la question demande h",
+        "80b118c4f88614cba241cd4c51c3d2a9eae803e189a1ed4bdbe31b5fe26fc440": "le risque constant équivalent vérifie (1 − h)⁶ = P : ce n'est pas la moyenne des six risques"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -111677,22 +111677,22 @@
           "1ba544c6fa3710538d1ef054c436e51eab58b354ec810cbf0c6212419db20410"
         ],
         "1": [
-          "100a240a50aa8cc554e869f5d29227eb9b88b021ec46b2b96222da66811c07fc"
+          "bfa85bcf6ee46aa7b728bb469880cf00fa254ff5ffc4ddc30eeb32eaf1442b89"
         ]
       },
       "coarser": {
         "2": [
-          "3e08fb121b69e77cf4071e217b8632846fa2e14e766f477ea912297c510ef4da"
+          "12689055db7ee21d5940e617cebd6b76fc4806cb04cb1fdcb615ead37f646dc4"
         ]
       },
       "decimals": 4,
-      "hash": "211e2681aeb59cabef5bfd6fea7c7138babe3d35253030bf9349e59b3c11d7e4",
-      "hash_coarse": "02b94f53db59b3b257ed6aa3e1665063c3639610099be65f6d85dbfb6d7c55ba",
+      "hash": "5c698e6798bc9359e475015b41e3a20b9f2b493c8fc6efcffd0c95747fe02f48",
+      "hash_coarse": "437a58b77c5ff32da204027c4d0f652c996e103b10b1b3d2d0bc2edbfc9c6409",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "278e8005773c47d3a390d0bda64d85e6aefe0d18ccacd30870225ac2ab29aa62": "1 − h ≤ e^{−h} donne un produit d'exponentielles, e^{−Σh}, pas 1 − Σh",
-        "6e634721c58d8b4758a0d44b86a7e6f09ecf1dedea033042d54df0df283114ef": "le risque cumulé est la somme des six risques, pas leur moyenne"
+        "076067e4d25edb58b0503232579810a6bc7670da6c3680e7f6d1536d2bbced79": "1 − h ≤ e^{−h} donne un produit d'exponentielles, e^{−Σh}, pas 1 − Σh",
+        "18904ce0b358401e1aad1ae0e8dcdfd77bfb11edffd48beb92059f7c90e89aed": "le risque cumulé est la somme des six risques, pas leur moyenne"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -111708,18 +111708,18 @@
       },
       "coarser": {
         "2": [
-          "3a2878364a2447509cf8def2f53f9ac813389d5c511fee7496ef652be8b404d0"
+          "22d0243f2c98de7b955fb4ae6c7447d10daadd8169b028cfbb4960f048e5dfee"
         ]
       },
       "decimals": 4,
-      "hash": "967ae4c60fea4c2cf371a93d1572a304a7a38503c2d8b96915df2c5b5761db80",
-      "hash_coarse": "29e5ebad048cd2c66d0b5bb7e0c69b25b96230d96f3efd0f744fccdf9d897418",
+      "hash": "4371369b2ffdd750313a26e435d8eb255acd0449ea788f741d826f141f65870a",
+      "hash_coarse": "e087b607f3c38d17de05bb94148dc7b318e34b4b9305cf33b8314b72ca944bcb",
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "0ebc1577e7af5dc24e20205a3111f0d316f8840f53fbf4f79a911c5ceb3fef33": "Σh² est la somme des carrés des risques, pas le carré de leur somme",
-        "e620626bdcee915ba79f76eda51edd38ac5551855ed4beab0d7ed43bc3d9163d": "l'exposant −Σh − Σh² est négatif : on retire la somme des carrés",
-        "eda9e3599413beafd3b692bd550ad9ca19c64ee8609f66f066c55d0a6569c6fc": "la borne inférieure vient de ln(1 − h) ≥ −h − h², pas −h − h²/2"
+        "8bffa168c353b0693a326db151cfe9e2f97a0da6689f05644f680a220fcd3a86": "la borne inférieure vient de ln(1 − h) ≥ −h − h², pas −h − h²/2",
+        "e604ae102000c35c94e019d3a9c712b63d1083b8622d9c57385a8537e0f02e30": "l'exposant −Σh − Σh² est négatif : on retire la somme des carrés",
+        "fe008259e3a980531fbb809b017969debd6c595a192070a3371828432fa67a15": "Σh² est la somme des carrés des risques, pas le carré de leur somme"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -111790,7 +111790,7 @@
       "kind": "array",
       "mistakes": {
         "1f99918a141f183745a5e267d78f2100ce3af2aaba1095352114fc8bf36c62b8": "la variance du pont est la plus grande où V_s est le plus proche de V_T/2, pas au milieu de la durée",
-        "a36b250e6a35895653edb19cba5bb305f5c5c5a7a7490f6daaebf81843fbe59f": "V_s = V_T/2 tombe entre 10 h et 11 h : compare les variances des deux heures entières voisines"
+        "a36b250e6a35895653edb19cba5bb305f5c5c5a7a7490f6daaebf81843fbe59f": "calcule V_s(V_T − V_s)/V_T à chaque heure entière : le maximum n'est pas forcément à la première heure où V_s dépasse V_T/2"
       },
       "shape": [
         2
@@ -111817,8 +111817,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "5071d143533df8a519ec9b4b82954f9f1203c780c0643b1b115d7f4ca05f8178": "les variances cumulées ne croissent pas comme les heures : 2 par heure jusqu'à 11 h, puis 0,5",
-        "e3c8bac49ee1eda181cb881a3c87739d427a95678ca7badfc3057f47e8ec9169": "les pas de 11 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) = V_2, pas V_5 − V_2"
+        "9a6db5dc62e7420848459be13ace4e3c5f98028646414252889aab0cd56f3046": "les scénarios partent de 8 h sans connaître le relevé de 16 h : ce n'est pas le pont",
+        "e3c8bac49ee1eda181cb881a3c87739d427a95678ca7badfc3057f47e8ec9169": "les pas de 10 h à 13 h sont indépendants des deux premiers : Cov(X_10h, X_13h) est la variance cumulée à 10 h, pas celle des pas de 10 h à 13 h"
       },
       "sign": 1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -112293,7 +112293,7 @@
       "magnitude": 0,
       "mistakes": {
         "0881c4f71f7c34d65e08d2e94009d9d19219b8b2c3e649bae1ce53cb2841de29": "l'ELBO est sous ln p(x) : ln p(x) moins l'écart, pas plus",
-        "60c0857a582a7105745d749e07bdd755b026468c1f8e01ab967b279d74845c30": "l'ELBO retire aussi E_q[ln q(z₁, z₂ | x)] : il manque l'entropie de q"
+        "fc8a43e0831c84031a97a228f3d14ba80cd1ccd3335672dfdca8f11fe8b60a87": "l'ELBO retire les deux KL de la reconstruction, elle ne les ajoute pas"
       },
       "sign": -1,
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
@@ -112527,7 +112527,7 @@
       "hash": "cfbb3bf891371b9471e99a154222416007898ae81e5a6c1bb48b977572390643",
       "kind": "array",
       "mistakes": {
-        "2eb157ff11c3ee67a2990064630cc4fc734a125fe230b972efd8265d8e9ac898": "la vitesse est −k(T − 20), avec l'écart à la pièce",
+        "2eb157ff11c3ee67a2990064630cc4fc734a125fe230b972efd8265d8e9ac898": "la vitesse est −r(T − 20), avec l'écart à la pièce",
         "e490f86e371aa9a8ffeee3feea0c602b692d2f92cfc487dc5beb342b3cabb9ae": "la première valeur est celle des deux pas de 5 min"
       },
       "shape": [
@@ -112578,7 +112578,8 @@
       "kind": "array",
       "mistakes": {
         "86fb6f8ee414cbb564b21e5dfe7be6cb34ef39a8c78649a4cad43915a6a617ff": "le rapport divise l'erreur du grand pas par celle du petit",
-        "d86e6cab253855898ecc2d4d539a5af2b5188d06c4c5192d522951f776b100f1": "une erreur est un écart à la valeur exacte, pas la valeur approchée"
+        "d86e6cab253855898ecc2d4d539a5af2b5188d06c4c5192d522951f776b100f1": "une erreur est un écart à la valeur exacte, pas la valeur approchée",
+        "f328d4926557b60e2f8c98481a14be289e4458a3f4078cffb7110b68535d941c": "les erreurs se calculent avec les températures non arrondies : à 2 décimales, celle du point milieu perd presque toute sa précision"
       },
       "shape": [
         2
@@ -112610,6 +112611,7 @@
       "hash": "d939d4d616bf8472366d0a9e4136d2cc5fbb94abcc0c26546e9d85c901f142c8",
       "kind": "array",
       "mistakes": {
+        "4387a86d9fb839a617429ca48c04b19a4da3d420d915fa49477ee51c58d26548": "un seul pas d'Euler n'est pas la valeur exacte",
         "5ef22a46cc8614c3936f851b65cad11bd797407266be7355dc2e9bc47abdde4c": "la solution exacte fait décroître l'écart à la pièce, 47 − 20, pas la température"
       },
       "shape": [
@@ -112945,46 +112947,36 @@
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
     },
     "MB5.16b": {
-      "array_rounded": {
-        "1": "b447bde162d807d7727cb287fcdbc1a79ae627b45414a1b916c5949d795f9d1d",
-        "2": "fa8fdf7c0abd6f176c6179c2968c850fa90b79edee4808c5cc39f10b2a08f82f",
-        "3": "7234a58dc202d40db293209120999555dc5a72dc6780f4651361d274191c8912",
-        "4": "329010ab872f8e1e274f5be7043836525f8e73f5602b668d7f7628704237ad6e",
-        "5": "6c9a6c217c07f7526e3fcab7e4119c66d5d07e2ba8335a5a40719eb44ec7018c"
-      },
-      "decimals": 6,
+      "decimals": 4,
       "element_coarse": [
         [
-          "78cd866286f134e15210ce35bef100ba3e80cc9e7c35e6dce5317bb76e6ada8d"
+          "7a69d6a9b555e0c97e75adb8e74cf76ac5d49f8137be97a1c7e36e4a8dc45618"
         ],
         [
-          "f79c2588b5bf09aeac39053d1eb66d93267a92ce667855684eebb1ff5f0372b1"
+          "fb2777951f8a1eb9a9ad7510cf0487e21fd18492e8be1f13f9f4d967f8e94201"
         ]
       ],
       "element_coarse_any": [
         [
           "5718ad58c4417ce8964c5dfa6c89d5b81b6981770ab7a26dd5f56c792c3b260a",
-          "c7460dffcaa62ca15e2179ad8f824eee8e55cc9486883a23e8fe035ed8dc152b",
-          "7a69d6a9b555e0c97e75adb8e74cf76ac5d49f8137be97a1c7e36e4a8dc45618",
-          "33ff0806aa7067c878defa50409a768acb16b8cf49f36f0a164fcd0302214275"
+          "c7460dffcaa62ca15e2179ad8f824eee8e55cc9486883a23e8fe035ed8dc152b"
         ],
         [
           "54996a60ea618f441c60b5c74a91b87f6657786971ac984dddb3497af848bf0f",
           "9051301e9893bf0fd62eb37a388f75da945e51e1abd6f9a31853a82165b92ffb",
-          "69830babe639016c56836c4cbfea021654c576d9dff461a749ece5cffbc431ec",
-          "fb2777951f8a1eb9a9ad7510cf0487e21fd18492e8be1f13f9f4d967f8e94201",
-          "38d43916a2c554eb5e9e052d440607813343f480c40c3b5d40cf011d7e598ea6"
+          "69830babe639016c56836c4cbfea021654c576d9dff461a749ece5cffbc431ec"
         ]
       ],
       "element_hashes": [
-        "4fb45be8da29d8a7e64dddf97897bcfafd936d12c5d7cdc8273a4d9708e1093e",
-        "a6918335702a66ea37e0444b966d721df8e994f497f14ed84fb9be32cf80e7c0"
+        "33ff0806aa7067c878defa50409a768acb16b8cf49f36f0a164fcd0302214275",
+        "38d43916a2c554eb5e9e052d440607813343f480c40c3b5d40cf011d7e598ea6"
       ],
-      "hash": "115dddd790dbfcc13a9e6eda604dd81461fc1053715aa1edfbdb36b43cb35352",
+      "hash": "5b5fcab141db130d3ed74a017b5c3c592d2931d6f9ceba2310d476f3d1d28f72",
       "kind": "array",
       "mistakes": {
-        "a2d586d5a110a5f7b931f5537113afb91e77f44b1268795d5f18710e27a61c19": "le départ n'est pas connu : sa variance 0,3 se transmet, passe var0=0.3",
-        "c9b1c8b36f7f5e936fac64f087f5cbeecf324370b595f35cd8bd62d9c67ec589": "le départ a la moyenne 1,5 : passe mean0=1.5"
+        "74322704c3d19ebdec1c8e6cc2edfe7e3e7923bbd0b8466626e960991316e7b9": "le départ a la moyenne 1,5 : passe mean0=1.5",
+        "7f7553241fa219d21a9dacf505f99dd082aeb86a4113df426ef13e0a72e41883": "chaque semaine ajoute le bruit b_t² à la variance : passe B_16 aux pas",
+        "fb09c250070cf8c9c724ab2c076c732a85ce2df2586cd146d697450f7e72fd6c": "le départ n'est pas connu : sa variance 0,3 se transmet, passe var0=0.3"
       },
       "shape": [
         2
@@ -112992,57 +112984,42 @@
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
     },
     "MB5.16c": {
-      "array_rounded": {
-        "1": "e93201ab5e26623480ef3eb0e9c96e4a96a34f75d9c1993d411b3f281f231876",
-        "2": "c8812e2118efc1482e62a78eb854a7c8546bb3b7d65a908ce10042353ee1594d",
-        "3": "3dbc007317332f4410df7e02f045b0d2d1b6e911b84c5f524aea847f2a59ed3c",
-        "4": "e19028deb0daa5717039e5acbcebf383f31655ff02296a3b19fcecaa33f7a87f",
-        "5": "74295b6b8bdece85902cc44381c1b2e805206e4d4deebc946877ad0881629017"
-      },
-      "decimals": 6,
+      "decimals": 3,
       "element_coarse": [
         [
-          "0cc73aef86024bf1b9a44835a625b5f7c3b46b3985af146c0e4ca3f5844d8856"
+          "236ce396e4d65659a7893dd5cf9e7580ee86598ffefd05375c0b4a301c425ecf"
         ],
         [
-          "115361a868c7bb12b04e2ddcff38325e30f701cd275cc94e2149cd471013e124"
+          "0d8252446713f37d6f7e31ee5d964c401b29929e29868210c068e1cdcd36100e"
         ],
         [
-          "ae2b410d6d33b3e46b8bee474cc32b6f3cf69d51225a8fa9b4762ad21857a67a"
+          "77cb8e336d7d0fb652e0f63014c8814b99750b8019c621eeba50cb7cc064f0e7"
         ]
       ],
       "element_coarse_any": [
         [
-          "360473f2ab8e686f83a6244a58844f08fc51522e45ebf938de320065024a55a9",
-          "236ce396e4d65659a7893dd5cf9e7580ee86598ffefd05375c0b4a301c425ecf",
-          "28ce65d2e430f999d825f662b267e25d05ba348f7d479d8de3ccc9e4da8c6ebc",
-          "2b8579fa1c5d39cbc9c3b8ea8913a2fec80f3e95bff65b44bf76541ed0c8dfb2"
+          "360473f2ab8e686f83a6244a58844f08fc51522e45ebf938de320065024a55a9"
         ],
         [
           "eda0927bf795c09475d97af8ad7bd462a0fce327d64d8e76086081783d93b8e7",
-          "bd28630dd0e40d118ccbe46a22e0396d2c3731b88527c777d94455ef7853e95e",
-          "0d8252446713f37d6f7e31ee5d964c401b29929e29868210c068e1cdcd36100e",
-          "bfc8829b8033e6f53bd6cba0e6100f855fbee4ca1a0557f1316e5bc7fe7652bc",
-          "23e24cefacbee5a4a924370d05b24105fe206973e63e7b93b691c547aa24db1b"
+          "bd28630dd0e40d118ccbe46a22e0396d2c3731b88527c777d94455ef7853e95e"
         ],
         [
           "00a0c0e2dac58cf94ece6d4c2e437d9a113a3d3781e16f8f8519c5f5d22cecfa",
-          "aa4b6111f61f80c1590bbe17e9270c99f43a0299c23125943e3243c248df77dc",
-          "77cb8e336d7d0fb652e0f63014c8814b99750b8019c621eeba50cb7cc064f0e7",
-          "0039e0205bc8eed7077dacdd8ef248b94aac6c1decc673bba579dc1b286fa8e2",
-          "69bc4bce73507cbd127885cfe16e8ae3fefac27aa729d114af68ab04c350c3e9"
+          "aa4b6111f61f80c1590bbe17e9270c99f43a0299c23125943e3243c248df77dc"
         ]
       ],
       "element_hashes": [
-        "b365905225da175149919f253ae853b4bc92ef7a02f7a8e14e0e9bfa44a6e325",
-        "5097c50c7cad72df952e56dca55510a39c177692c4c242aaa14fe2aaed5c5696",
-        "4e4b622aa285393d42ceca5aca294e1a10bc0274348b9b7a20ba4306e5dbfbf1"
+        "28ce65d2e430f999d825f662b267e25d05ba348f7d479d8de3ccc9e4da8c6ebc",
+        "bfc8829b8033e6f53bd6cba0e6100f855fbee4ca1a0557f1316e5bc7fe7652bc",
+        "0039e0205bc8eed7077dacdd8ef248b94aac6c1decc673bba579dc1b286fa8e2"
       ],
-      "hash": "1500c5795c2eb3671a07ef89895c4101a6059c349e4677e1c939ed8dafa13f18",
+      "hash": "08a6c3226b1be02c430f6f1ef3c1005a16e0945d8a17aa5240ec1509d45fd192",
       "kind": "array",
       "mistakes": {
-        "32bba27f247399676c5e5188015f4f6f2c41b908c6fa2b71ed802f5053a9d9ff": "la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²",
-        "87a2536e3689d89aa24ee1df43dd0b14ece02224bf5391be4068c2af218053f8": "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)"
+        "2848b55660f163688c606a9a60be624fde6085d17b9fbbc3a373fb001f52669e": "la variance stationnaire est le point fixe de v = a² v + b², d'où v (1 − a²) = b²",
+        "96da3956605af012cf2d74b063df9b169d55661e3d7dd34d4bf1956b74e74f3f": "le départ connu x_0 = 5 se passe par mean0 (sinon, mean0 vaut 0)",
+        "c51b8a218fa4efe132d84039232e10ab603da6bf2c962a113024b436f78f7264": "chaque pas ajoute le bruit b² = 1,21 à la variance : passe les b aux pas"
       },
       "shape": [
         3
@@ -115486,47 +115463,38 @@
       "source": "chapitres/mb5_diffusion/05_solutions.ipynb"
     },
     "MB5.23c": {
-      "array_rounded": {
-        "1": "2210fd1abb4fd838093025a730eca531b4ff000753bd669cfd734b7430df6374",
-        "2": "5f66925cd0cc80add9b54a086e7693dd137ae57f30b983708ef344c5740e502a",
-        "3": "d129264ecfc8a66a629a6b4eb583e2b86a0fc8c4741a34a376ba85b461d3de97",
-        "4": "fcb50fb1e9304d0dd742723cc2e8b9460a976278be9133d3669b1af02277e3a4",
-        "5": "2e22a7204b6fb5ab80ca5a4e615eb76bb362b44ae2b0b2d021dfe570b0a9fd0b"
-      },
-      "decimals": 6,
+      "decimals": 4,
       "element_coarse": [
         [
-          "48885d36c1c41335a641f0d4eeed2e3457d40b5e3f05df80cb6c80050aec4547"
+          "87cf04e6ebee70063055b29fec60031647d5f3257a754401da03ab1627bc9652"
         ],
         [
-          "7076cd7a2f3968ec02b60bdb1d65a61fb6f6b77e35aecb693629f0f7b2533e02"
+          "4b2652a4697ed748b2dd53fb7fb2646307998c3c2ac30249a28e7d21a60ac043"
         ]
       ],
       "element_coarse_any": [
         [
-          "2f97dc3913ff57dfe5989d2ccf150c8d2c40fc355da0d38fa7e5c10a669f966b",
-          "cc6f65172a3ebaa821ed174f3796b281ecf9f024aea280fd106a26b0ffdae358",
-          "ae2d7b0ccad69bbd6fdcaa23d20e97728ef50f1a2e6b11c89dc29bf10e48e2b6",
-          "36a2472bc7512562b623482d5ed4934780a0f8f2d1a8bb3bd73e2b2e1d506af8",
-          "4d8f0cfc984768031b369049e4e78f688e9a6560f0887607adbbeb8ae609eba2"
+          "cae0daa2703e068744881062f05b8759bed906acfdfceb29bb31ed7d086efc9e",
+          "391c5dd0ebfbe000e3c63bfbb4675f7af08d8991cee724a226b2ba5e2cb04ecd",
+          "a9ccd2fa1d0b4acafbce25f90e489d3530f39b48ec154e7f535274b374b66ff3"
         ],
         [
-          "e5fd9627a6d3707bd13f2892b86661f523a71e929ca06966c82a256b6bafa12c",
-          "d3ad21808827b6d143c4fad2305bd16294a6aee21e59791d713902b715d082f0",
-          "d63fd87887b782f7a0f041f01a714b7b4e7b63bb510f36348d64459e64ada686",
-          "5478608a1d54b554f3eb7767f6a117d9d380c0c4034953a8d48694b48130e3b9"
+          "cbe69317803bbca97373e42de6e575b8528668d921eb6739dd9d3c6d05b4d1db",
+          "58f6726b0ca1e77678f6e3e93fdfc54da6296fdeae2215c0010145e38379891f"
         ]
       ],
       "element_hashes": [
-        "eaadc22947c49755914edbf88612eeb290f1a78b4f2888899b846f9c7fb4801a",
-        "07325893d953ac599d74d91bb705ec5bfb3766f0af078cf52d0a8fec3a2d2315"
+        "18c36efaac6272263bc7dff6539f6f92d365b6435f3d8029f45a7434996961b1",
+        "ce313571af6008e8289dbe3ebca913dd8cf30ed546cccdc86fb835fd49b96c3d"
       ],
-      "hash": "7e13efa3bf60cf59a2761d638e664cb40dc72afb889cac1aafb3f8e043a88754",
+      "hash": "38770f790288c34abe7163eeb67907c26bf65759dfe40c2e92ae0ac3985dbc13",
       "kind": "array",
       "mistakes": {
-        "521523d824549b9416b62ee5e30d7122e7d041ee659165d0433c09a978f6f412": "euler_fixed lit encore le champ en t_0 à chaque pas",
-        "5a67600b8e222ae144d1778364696eba9271a62ddaf58ca5f8a1c2cd08bde81f": "la version corrigée d'abord, puis la version fautive",
-        "ca766a0b6e86ad2d3a0faa2ec936bd51f73c74a2e0ddbc152bc95cc08ee9640a": "le second nombre est celui de la version FAUSSE, euler_bad"
+        "1cf113c82baa3c1a1a20f1f64e4bfadb179051c70705327138f9de01c00006f6": "le pas k d'Euler lit le champ au début du pas, en (t_k, x_k), pas en t_(k+1)",
+        "2da4c04ac68a990c92fb15a73936a760fa2609830b63d112427d2d535ae7602e": "le second nombre est celui de la version FAUSSE, euler_bad",
+        "7f5b8f6feb05ad3771e2109af9cc57375ad63c8072464dea57ab7fd40f759dbf": "euler_fixed corrige le temps du champ, sans changer de méthode : un seul appel du champ par pas, en (t_k, x_k)",
+        "801b60a92a899a2162b7016b89a9d1fd3a2e8744e22aaf5c9aba21546998476c": "la version corrigée d'abord, puis la version fautive",
+        "a2a138282fa12999d178c57c12d2667ff82e6118a44c993f849842de485a1800": "euler_fixed lit encore le champ en t_0 à chaque pas"
       },
       "shape": [
         2
