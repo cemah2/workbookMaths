@@ -153,7 +153,7 @@ Sur un tableau bruité, on trace les valeurs singulières en échelle logarithmi
 
 ### L'ordre des produits
 
-**Rappel** (M09a §3). Un produit d'une matrice $(m, n)$ par une matrice $(n, p)$ coûte $mnp$ multiplications, et l'associativité laisse le choix des parenthèses. Pour appliquer $\mathbf{M} = \mathbf{C}\mathbf{F}$ à un vecteur $\mathbf{x}$ :
+**Rappel** (M09a §3 ; M20 §3 pour l'ordre des contractions et `np.linalg.multi_dot`). Un produit d'une matrice $(m, n)$ par une matrice $(n, p)$ coûte $mnp$ multiplications, et l'associativité laisse le choix des parenthèses. Pour appliquer $\mathbf{M} = \mathbf{C}\mathbf{F}$ à un vecteur $\mathbf{x}$ :
 - $\mathbf{C}(\mathbf{F}\mathbf{x})$ coûte $rn$ multiplications, puis $mr$ : $r(m + n)$ en tout ;
 - $(\mathbf{C}\mathbf{F})\mathbf{x}$ coûte $mnr$ pour former $\mathbf{C}\mathbf{F}$, puis $mn$.
 
@@ -195,7 +195,7 @@ Il est positif quand l'indice est plus fréquent chez les pertinents, nul s'il l
 
 **Exemple.** Parmi $R = 40$ dossiers d'une dysplasie de la hanche, $r = 32$ notent une boiterie : les cases valent 32, 8, 19 et 741, d'où $p = \frac45$ et $q = \frac{19}{760} = \frac{1}{40}$. Les cotes valent 4 et $\frac{1}{39}$, leur rapport 156, et $w = \ln 156 \approx 5{,}05$.
 
-**Par la formule de Bayes.** La présence de l'indice multiplie la cote de pertinence d'un dossier par $\frac pq$ (le facteur de Bayes de M08 §7 ; ici 32), son absence par $\frac{1 - p}{1 - q}$ (ici $\frac{8}{39}$) : $w = \ln\frac pq - \ln\frac{1 - p}{1 - q}$ est l'écart des deux, en logarithmes.
+**Par la formule de Bayes.** La présence de l'indice multiplie la cote de pertinence d'un dossier par $\frac pq$ (le facteur de Bayes de M08 §7 ; MB2 §5 multipliait de même la cote d'un positif par $K$ ; ici 32), son absence par $\frac{1 - p}{1 - q}$ (ici $\frac{8}{39}$) : $w = \ln\frac pq - \ln\frac{1 - p}{1 - q}$ est l'écart des deux, en logarithmes.
 
 ### La correction ½
 

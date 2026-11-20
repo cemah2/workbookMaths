@@ -71,12 +71,12 @@ Fiche §6 : « Quatre mesures », « La ligne de base d'un ordre tiré au hasard
 </details>
 <details><summary>Indice 2</summary>
 
-recall@k divise le nombre de pertinents vus par $q$, precision@k par $k$. Au hasard, $\mathbb{E}[\text{recall@k}] = \frac kn$, $\mathbb{E}[\text{precision@k}] = \frac qn$, $P(R = j) = \binom{n - j}{q - 1}\big/\binom nq$, et $\mathbb{E}[\frac1R] = \frac{H_n}{n}$ pour un seul pertinent.
+recall@k divise le nombre de pertinents vus par $q$, precision@k par $k$ ; le succès@k vaut 1 dès qu'un pertinent est parmi les $k$ premiers, 0 sinon. Au hasard, $\mathbb{E}[\text{recall@k}] = \frac kn$, $\mathbb{E}[\text{precision@k}] = \frac qn$, $P(R = j) = \binom{n - j}{q - 1}\big/\binom nq$, et $\mathbb{E}[\frac1R] = \frac{H_n}{n}$ pour un seul pertinent.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Parmi les 4 premiers, un seul bon diagnostic (celui du rang 3). 3. $R$ prend les valeurs 1, 2, 3 avec la même probabilité. 4. $\binom62 = 15$, et $\binom{6 - j}{1} = 6 - j$. 5. $\ln 41$, $H_{40}$ (calculatrice, ou la somme), $1 + \ln 40$, puis divise $H_{40}$ par 40.
+1. Parmi les 4 premiers, un seul bon diagnostic (celui du rang 3), qui est aussi parmi les 3 premiers. 3. $R$ prend les valeurs 1, 2, 3 avec la même probabilité. 4. $\binom62 = 15$, et $\binom{6 - j}{1} = 6 - j$. 5. Le MRR vaut $\frac{H_{40}}{40}$ : divise par 40 chaque borne de $H_{40}$.
 
 </details>
 
@@ -164,7 +164,7 @@ Pour les pains de campagne, les lignes Halles et Moulin donnent $12\alpha + 4\be
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : « Le rang effectif et le rang stable » (l'exemple du laboratoire) et « L'ordre des produits ».
+Fiche §2 : « Le rang effectif et le rang stable » (l'exemple du laboratoire) et « L'ordre des produits » ; M20 §3 pour l'ordre des contractions et `np.linalg.multi_dot`.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -352,7 +352,7 @@ Le MRR d'un ordre au hasard vaut $\frac{H_n}{n}$, et $H_n$ est entre $\ln(n + 1)
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\,000}/1\,000} = 10 \times \frac{H_{100}}{H_{1\,000}}$, et $\frac{H_{100}}{H_{1\,000}}$ est proche de $\frac{\ln 100 + 0{,}58}{\ln 1\,000 + 0{,}58}$. c) $n \times \text{MRR} = H_n$ : de combien $H_n$ augmente-t-il chaque fois que $n$ est multiplié par 10, et combien de fois $n$ l'est-il de 10 à 1 000 ? Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
+a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\,000}/1\,000} = 10 \times \frac{H_{100}}{H_{1\,000}}$, et l'encadrement de la fiche donne $\frac{\ln 101}{1 + \ln 1\,000} \le \frac{H_{100}}{H_{1\,000}} \le \frac{1 + \ln 100}{\ln 1\,001}$. c) $n \times \text{MRR} = H_n$ : de combien $H_n$ augmente-t-il chaque fois que $n$ est multiplié par 10, et combien de fois $n$ l'est-il de 10 à 1 000 ? Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
 
 </details>
 
@@ -370,7 +370,7 @@ Traite à part $k_1 = 0$ (`(x > 0).astype(float)`) et $k_1$ infini (`math.isinf(
 </details>
 <details><summary>Indice 3</summary>
 
-`np.asarray(x, dtype=float) * (k1 + 1) / (x + k1)` ; pour la longueur, `nu = 1 - b + b * ell`, puis `x * (k1 + 1) / (x + k1 * nu)`. b) $x(k_1 + 1) = 0{,}9(k_1 + 1)(x + k_1)$ donne $0{,}1x = 0{,}9k_1$. c) Pour $k_1 = 1$ et $b = \frac12$, $\nu$ vaut $\frac34$, 1 et $\frac32$.
+`np.asarray(x, dtype=float) * (k1 + 1) / (x + k1)` ; pour la longueur, `nu = 1 - b + b * ell`, puis `x * (k1 + 1) / (x + k1 * nu)`. b) $x(k_1 + 1) = 0{,}9(k_1 + 1)(x + k_1)$ donne $0{,}1x = 0{,}9k_1$. c) Pour $k_1 = 1$ et $b = \frac12$, $\nu$ vaut $\frac34$, 1 et $\frac32$. d) La limite en $+\infty$ de $\frac{x(k_1 + 1)}{x + k_1\nu}$ dépend-elle de $\nu$ ?
 
 </details>
 
@@ -388,7 +388,7 @@ Pour chaque fonction, cherche une entrée où l'erreur ne change rien : une matr
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `C = np.asarray(M, dtype=float)[:, list(pivots)]`. (2) `for p, cand in enumerate(row): points[cand] += n - 1 - p`. (3) `-math.log(n / N)`. Pour la vérification du collègue, la ligne `[1, 0, 2]` : que dit-elle lue comme un ordre, puis comme une liste de rangs ?
+(1) `C = np.asarray(M, dtype=float)[:, list(pivots)]`. (2) `for p, cand in enumerate(row): points[cand] += n - 1 - p`. (3) `-math.log(n / N)`. Pour la vérification du collègue, la ligne `[1, 0, 3, 2]` : que dit-elle lue comme un ordre, puis comme une liste de rangs ?
 
 </details>
 
