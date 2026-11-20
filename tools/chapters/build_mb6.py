@@ -1569,7 +1569,10 @@ def cumul_why_c19(curve, vertices, values):
         return ["en abscisse, la longueur parcourue depuis A_19 : de 0 à la longueur du chemin, croissante"]
     if abs(values[0]) > 1e-9:
         return ["le cumul vaut 0 au départ, en A_19"]
-    picks = np.unique(np.linspace(0, len(values) - 1, min(len(values), 60)).astype(int))
+    ends = np.concatenate([[0.0], np.cumsum(np.linalg.norm(np.diff(vertices, axis=0), axis=1))])
+    if any(np.count_nonzero((lengths >= lo - 1e-9) & (lengths <= hi + 1e-9)) < 50 for lo, hi in zip(ends, ends[1:])):
+        return ["trop peu de points : il en faut au moins 50 sur chaque segment du chemin, ses deux bouts compris"]
+    picks =np.unique(np.linspace(0, len(values) - 1, min(len(values), 60)).astype(int))
     expected = []
     for k in picks:
         point, start = point_at_c19(vertices, float(lengths[k]))
@@ -1658,8 +1661,8 @@ else:
         print("❌ Ex MB6.19b : b) relève le plus grand cumul de chacun des deux tableaux que rend draw_19 (le segment, "
               "puis la ligne brisée), sans l'arrondir")
     elif not passes("MB6.19b", peaks_19):
-        print("❌ Ex MB6.19b : tes plus grands cumuls sont loin de ceux des deux chemins : place plus de points le long "
-              "de chaque chemin (au moins 50 par segment)")
+        print("❌ Ex MB6.19b : tes plus grands cumuls sont loin de ceux des deux chemins : répartis tes points sur toute "
+              "la longueur de chaque segment (np.linspace), pour ne pas manquer le haut de la bosse")
     else:
         print("✅ Ex MB6.19b : les plus grands cumuls de tes deux tableaux, assez denses pour trouver les sommets.")'''
 
@@ -2347,23 +2350,23 @@ CHECK_22 = """def check_c22():
             raise StopCheck
         return values, elapsed
 
-    def probe(rng, n):
-        \"\"\"A council of n members of 1 to 8 votes, simple majority (a probe of the time, not a hidden case).\"\"\"
-        votes = [int(v) for v in rng.integers(1, 9, n)]
-        return votes, sum(votes) // 2 + 1
+    def probe(n):
+        \"\"\"A council of n members of 1, 2, ..., 8, 1, 2, ... votes, simple majority (a probe of the time, not a hidden
+        case): the smaller of two timings.\"\"\"
+        votes = [k % 8 + 1 for k in range(n)]
+        label = f"Ex MB6.22 : shapley_shubik_22 (un conseil d'essai de {n} membres)"
+        return min(indices(label, votes, sum(votes) // 2 + 1, 60)[1] for _ in range(2))
 
-    mine, spent = indices("Ex MB6.22 : shapley_shubik_22 (le conseil du notebook)", WEIGHTS_22, QUOTA_22, 120)
+    mine, spent = indices("Ex MB6.22 : shapley_shubik_22 (le conseil du notebook)", WEIGHTS_22, QUOTA_22, 30)
     if spent > 30:
         print(f"❌ Ex MB6.22 : ta fonction met {fr(spent, 1)} s pour les 25 membres du notebook ; les conseils cachés en "
               "ont 30 à 50 : à ce rythme, ils dépasseraient de loin les cinq minutes permises")
         raise StopCheck
     if spent >= 0.2:                                            # a slow function: does its time double with each member?
-        rng = np.random.default_rng()
-        times = [indices(f"Ex MB6.22 : shapley_shubik_22 (un conseil d'essai de {n} membres)", *probe(rng, n), 60)[1]
-                 for n in (20, 22)]
-        if times[1] > 0.1 and times[1] > 3 * max(times[0], 1e-3):
+        times = [probe(n) for n in (16, 22)]                    # 2^6 = 64 times more coalitions; a polynomial: 3 to 5 times
+        if times[1] > 0.05 and times[1] > 15 * max(times[0], 1e-3):
             print(f"❌ Ex MB6.22 : ta fonction semble parcourir les coalitions : son temps est multiplié par "
-                  f"{fr(times[1] / max(times[0], 1e-3), 1)} quand le conseil passe de 20 à 22 membres ({fr(times[0], 2)} s, "
+                  f"{fr(times[1] / max(times[0], 1e-3), 0)} quand le conseil passe de 16 à 22 membres ({fr(times[0], 3)} s, "
                   f"puis {fr(times[1], 2)} s) ; pour 30 à 50 membres, il lui faudrait des heures : compte les coalitions "
                   "par taille et par poids total")
             raise StopCheck
@@ -2403,29 +2406,37 @@ CHECK_22 = """def check_c22():
             except OSError:                                     # a pipe already broken
                 pass
 
+    def tens(x):
+        \"\"\"A gap written the French way, in powers of ten (9,0·10⁻³).\"\"\"
+        if x == 0:
+            return "0"
+        mantissa, exponent = f"{x:.1e}".split("e")
+        return mantissa.replace(".", ",") + "·10" + str(int(exponent)).translate(str.maketrans("-0123456789",
+                                                                                                "⁻⁰¹²³⁴⁵⁶⁷⁸⁹"))
+
     notebook, hidden = measured[-1], measured[:-1]
     notebook_ok = notebook["gap"] is not None and notebook["gap"] <= 1e-9
     report(notebook_ok, "le conseil du notebook : chaque indice à 10⁻⁹ près",
            "le conseil du notebook : " + ("des indices qui ne sont pas des nombres finis" if notebook["gap"] is None
-                                          else f"un indice à {notebook['gap']:.1e} de l'indice exact, plus que 10⁻⁹"))
+                                          else f"un indice à {tens(notebook['gap'])} de l'indice exact, plus que 10⁻⁹"))
     for number in sorted({c["series"] for c in hidden}):        # what each hidden council measured (no index)
         series = [c for c in hidden if c["series"] == number]
         print(f"   série {number} : " + " ; ".join(f"« {c['kind']} » ({c['n']} membres) écart "
-                                                  + ("non mesuré" if c["gap"] is None else f"{c['gap']:.1e}")
+                                                  + ("non mesuré" if c["gap"] is None else tens(c["gap"]))
                                                   for c in series))
     wrong = [c for c in hidden if c["gap"] is None or c["gap"] > 1e-9]
     largest = max((c["gap"] for c in wrong if c["gap"] is not None), default=None)
     if not wrong:
         why = ""
     elif largest is not None and largest < 1e-6 and all(c["gap"] is not None for c in wrong):
-        why = (f" (écart jusqu'à {largest:.1e}) : presque juste, mais les comptes de coalitions vont jusqu'à 10¹⁴ ; "
+        why = (f" (écart jusqu'à {tens(largest)}) : presque juste, mais les comptes de coalitions vont jusqu'à 10¹⁴ ; "
                "des flottants de 32 bits n'en gardent pas assez de chiffres : garde des flottants de 64 bits ou des "
                "entiers")
     elif notebook_ok:
         why = (" : ta fonction est exacte pour le conseil du notebook, mais pas pour ces conseils ; se sert-elle de "
                "nombres du conseil du notebook (25 membres, le quota 66, ses voix) au lieu de ceux du conseil reçu ?")
     else:
-        why = ("" if largest is None else f" (écart jusqu'à {largest:.1e})") + (" : ce ne sont pas les indices de "
+        why = ("" if largest is None else f" (écart jusqu'à {tens(largest)})") + (" : ce ne sont pas les indices de "
                "Shapley-Shubik ; relis la condition du pivot et les poids w(s) des coalitions (fiche §1)")
     report(not wrong, f"les {len(hidden)} conseils cachés : chaque indice à 10⁻⁹ près, en {fr(total, 2)} s",
            f"les {len(hidden)} conseils cachés : {len(wrong)} ont un indice à plus de 10⁻⁹ de l'indice exact" + why)
@@ -2531,7 +2542,11 @@ banzhaf_22r = [sum(row) / sum(map(sum, pivot_22r)) for row in pivot_22r]       #
 wbm.record("MB6.22a", right_22r[0], decimals=6,
            mistakes={"le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot": shares_22r[0],
                      "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec "
-                     "lui": weighted_22r(wider_22r)[0]})
+                     "lui": weighted_22r(wider_22r)[0],
+                     "w(s) se lit à la taille s de la coalition des autres membres, sans compter i":
+                         weighted_22r(pivot_22r, shift=1)[0],
+                     "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i":
+                         banzhaf_22r[0]})
 wbm.record("MB6.22b", right_22r, decimals=6,
            mistakes={"le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot": shares_22r,
                      "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec "
@@ -2719,7 +2734,7 @@ def build_constants() -> dict:
         counts = sorted({sample.count(v) for v in sample if sample.count(v) > 1})
         assert counts, sample
     assert any(set(sorted(sample.count(v) for v in set(sample))) >= {2, 3} for sample in samples)
-    lerps = [(-3.7, 5.9, 0.15), (12.4, 2.3, 0.85), (0.61, 8.43, 0.38), ([1.37, -0.64, 2.91], [4.03, 0.29, -1.58], 0.35)]
+    lerps = [(-3.7, 5.9, 0.23), (12.4, 2.3, 0.85), (0.61, 8.43, 0.38), ([1.37, -0.64, 2.91], [4.03, 0.29, -1.58], 0.35)]
     for a, b, t in lerps:
         assert t not in (0, 0.5, 1) and not_dyadic(np.ravel([a, b]).tolist())
         right, bad = (1 - t) * np.array(a) + t * np.array(b), (1 - t) * np.array(b) + t * np.array(a)

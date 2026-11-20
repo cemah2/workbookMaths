@@ -1706,6 +1706,7 @@ CHAPTERS = [
                      ("dérivées partielles, gradient, dérivée directionnelle, dérivées croisées et théorème de Schwarz",
                       "M05b"),
                      ("intervalle d'une proportion (Wald)", "M08"),
+                     ("base d'un espace vectoriel (∂ MB6.8)", "M12a"),
                      ("inégalité de Hoeffding et taille d'échantillon", "M11"),
                      ("règle de la chaîne le long d'une courbe, fonctions affines par morceaux", "M17"),
                      ("estimateur de Horvitz-Thompson : diviser par une probabilité", "M20"),
@@ -1823,7 +1824,7 @@ CHAPTERS = [
                  "Δ_DP (B6.Q11). MB6 ajoute les critères comme indépendances (M25b), l'incompatibilité indépendance et "
                  "séparation et la repondération (∂ MB6.10, deux preuves de trois lignes), et Kleinberg et coll. pour des "
                  "scores (∂ MB6.9 : l'identité p(1 − E[S | Y = 1]) = (1 − p) E[S | Y = 0] par l'espérance totale (M25b), "
-                 "puis l'impossibilité ; une petite table de scores calibrés de retards de trains en contrôle) : la fiche de "
+                 "puis l'impossibilité ; une petite table de scores calibrés en contrôle : à la génération, session 75, celle de la ligne 1 de ✏️ MB6.7, puisque la fiche §7 prend un service météo, au lieu des retards de trains du plan) : la fiche de "
                  "B6 l'énonce et l'admet, ∂ B6.6.9 demande seulement ce qu'il ajoute à COMPAS, et MB6 ne parle pas de "
                  "COMPAS. ✏️ MB6.7 : deux lignes de taux de défauts différents (par exemple 8 % et 20 %), un contrôle de "
                  "mêmes TPR et FPR sur les deux : les taux de rejet diffèrent ; sur une ligne, deux points (FPR, TPR) donnés "
@@ -1876,7 +1877,7 @@ CHAPTERS = [
                  "docstrings de `integrate` (M02a), et ceux du stub `attribution` (n = 6 et ses poids 1/6, 1/30, 1/60 ; le "
                  "jeu s ↦ s² et ses dividendes 1 et 2 ; 5 u_{1,2} ; le champ (3x² + y, x) de x³ + x y et le chemin (0, 0) → "
                  "(1, 0) → (1, 2) ; le champ (y, 0) le long de (0, 0) → (1, 0) → (1, 1) et de (0, 0) → (0, 1) → (1, 1) ; 3x² de 1 à 3 puis à −1 (et l'ancien exemple, 3x² de 0 à 2 puis à 1, proche de `simpson(lambda x: x ** 3, 0, 2, 2)` de M02a) ; (0,5 ; 2 ; 1,5 ; 4) contre "
-                 "(1, 8, 27, 64) et ρ = 0,8 ; (2, 2, 5, 1) contre (4, 3, 6, 0) ; (7, 7, 7)). "
+                 "(1, 8, 27, 64) et ρ = 0,8 ; (2, 2, 5, 1) contre (4, 3, 6, 0) ; (7, 7, 7)) ; ajoutés à la génération (session 75, relecture de partage) : les bornes d'intervalles de B6.24 et B6.27 (0,058 ; 0,042 ; 0,150 ; 0,161 ; 0,147 ; 0,177 ; 0,011 ; 0,020 ; 0,067 ; 0,087) et les Δ_EO 0,076 ; 0,016 ; 0,012 ; le test d'usine de ✏️ M11 (3 %, 92 %, 6 %) ; la fonction de ✏️ M05b.7 (x³y² − e^{xy}) ; le 🗣️ M17.13 (taux de change entre monnaies) ; le ferry de M26.3 ; les boulangeries et les jurys de MB4 ; la serre de M25a.26 ; et les erreurs fréquentes des corrigés de B6.1, B6.5, ∂ B6.6, B6.14 et B6.23 (la fonction en la moyenne, des poids uniformes, une seule contribution marginale, un taux divisé par tout le groupe ou sur toutes les pièces, le taux de base pris pour le taux de décision, 0 au lieu de non défini) ne reviennent nulle part, ni en valeur fausse, ni en message, ni en ⚠️, ni en flashcard, ni en annexe. "
                  "Conventions : joueurs numérotés de 0 à n − 1 dans le code, par des lettres ou de 1 à n sur papier ; "
                  "N le grand groupe, S̄ le complément de S ; v(∅) quelconque, d'où l'efficacité Σφ_i = v(N) − v(∅) ; la "
                  "référence d'un chemin est notée r (ni b, ni x′, ni « fond ») ; un chemin γ de paramètre t ∈ [0, 1] ; "

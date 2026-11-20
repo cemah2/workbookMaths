@@ -118048,8 +118048,7 @@
       "kind": "array",
       "mistakes": {
         "17ec246fb19b8ea20c5ec39d0f8eb0ee6850547e96ca8aee77530b56fa5300d5": "le second nombre est celui de la version FAUSSE, weights_bad",
-        "b896505b3d0a064b620eb43e29fa883d4ec1e090d981233930c21feedea24a70": "la version corrigée d'abord, puis la version fautive",
-        "bf2304e02ade49c41bc17fd8bc832daf798b8ed03227db974d7cbb006a77f481": "weights_fixed divise encore par (n − 1)! : les poids de la valeur de Shapley divisent par n!"
+        "b896505b3d0a064b620eb43e29fa883d4ec1e090d981233930c21feedea24a70": "la version corrigée d'abord, puis la version fautive"
       },
       "shape": [
         2
@@ -118962,14 +118961,14 @@
     },
     "MB6.20f": {
       "array_rounded": {
-        "1": "098d22687529b76b7a1b791d9b883d4f5bd6996634484413b96f870b9e4af379",
-        "2": "6bb37b3d92701278e51a87733fd59685c8a840e96637fe34afdd7cd1b541444b",
-        "3": "265e59274b0c62025c15cf6b65c2edfdf2dde8ddc661b33b5eb459fe49832ee7"
+        "1": "e0ed49f4fb2787a46d432afd44faaa7d6bdf63bdea2c6cbda08a295240a507a6",
+        "2": "e952e1cf877da6bb5f41a1b5c893d052daf6fced1aaf0d0c75b028c52fe31831",
+        "3": "b9069149a989cf536c0031d91de96a09a2afd206c5cfdf81708ece14f6d759ae"
       },
       "decimals": 9,
       "element_coarse": [
         [
-          "5a0e33329689b0d7e591ff2487b86f254487373570c899ddcd583bfbf459440b"
+          "b9b026e0a5544f2a3d0d5508ebf5d9bfd409fc31498c26dd831a72505436f399"
         ],
         [
           "37ecbcc2be4c82a217173debf86b00d7ab8cf5f4e33e19270a7c5dd9db7763cf"
@@ -118989,14 +118988,14 @@
       ],
       "element_coarse_any": [
         [
-          "61e69e9b4bae63c3919a20b6b48d78dbce014117d83bb4317bc7358539d5b599",
-          "30dc89c6d0c8736079c3a8523b4b1c937dda318b39182bae73e13a2ae26c3db2",
-          "a0496bf644df61a8adba65f0062956643a4e3815b024a7f5eaf4f3566c223e92",
-          "bf69135fb0f73de0a23e259a845a5bc38d2ec270631286c60d7993ce40461f1e",
-          "4fd808f7cebe7b53937f741b7e1a1a23795c7294be23b8af55cf090dda0c47f3",
-          "488758d9f81367dbb752582e6ea5ee5a0c649712253663670e3f4a7aacfc3b5a",
-          "28d3454f9d1c309570c691f011ddf960c0af606fbe7930d88ed95172b12a2503",
-          "05dff4408d5c512bca1aae45845b6e2c4e6fcb9c7ae250969bd8edaa05620bb1"
+          "017939e706751d2a9a31f315286a9f6a11d0a4c0802ec4c831289de8f7b96e17",
+          "8eae62925615ba810f46d543f28bec23e38ab528a04797cb0c79cb0282d9002f",
+          "bf21cc1f2d37e4fd90c125134bcf0f4158e4357960e659592791bef5576782d9",
+          "d0da906e73b322259691f26d17a706e58524d9b540e90a2e72d410e4ebe233e9",
+          "d3aa8cbdbe1cb19f2fc50eab92d88e0c281b44695eb485dfdc3007babba3391e",
+          "3f140969cd666a370e961441cc38b4b724b2fba02bf6cff9d56fbcc6b8a9500b",
+          "590bca5b2442120397efa4fb3b3b4c555a06c91bd49d4cc5b777cc59cb39ac05",
+          "ccaaa2b4df5e3249ae3c1e1e951ed677005bc64dc8c37fb08b9aeac201fa4f68"
         ],
         [
           "ff3f227e08bfcae90c3c67f08286bf8fa4baf07a4b582b30a3aa88cf88e2f6e8",
@@ -119050,14 +119049,14 @@
         ]
       ],
       "element_hashes": [
-        "3875536c8436188da882229c7ff0a7f713ead360277b65918fe1d9e24f67871f",
+        "a8c48bb68280bb946c9ce17e4f2fd812b4190a62e40488b26a360b8bd00297b5",
         "81e5c3a23d48b75b6bfb09a5d5e14ae2a44630cca5ae21fed546ffb64bf462ae",
         "a6c39d5e91ad6b7d394c40df1cb8dd4bdc129ae5d72fbc182a635605c5ef8af1",
         "e4afd3ab9b284872c2f523c172ca651b81b58a35029c0c85d1c97d5770abbf26",
         "2b969c1fe4596773a233a2be120c5d67f0009f5ad9896251669fbb91f604ff82",
         "fb271dd620aa94fdc195d2fbdc1855ac01a32c693aed15f82cbe71b8ecac2ae4"
       ],
-      "hash": "d9d481374fb8715a73b429fec1f0d444e23954f55fbb14a426cf0c3d483abc68",
+      "hash": "ce7806c4635dabcbe8491b3ffd45b7475e6ac5c54d923ff5875f7aed6cca99eb",
       "kind": "array",
       "shape": [
         6
@@ -119105,7 +119104,10 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "0baf3639b94eaafa3dc4c6067cb2686b0d46f4206304dd19e81680a5cff1a2e3": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
+        "558a07127c0f42a2f75725a79d1168b91e2a7c2dff766d82d58fbfc600d415e0": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
         "6688de881abb2cfa36b4ca847999bd78eb967565fc88b22a6fc6b25b8db7aa62": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot",
+        "70e4b50d7d2038567d1c1b489c91c4343e162b2b29e754530a8b393c2fc5d636": "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i",
         "828f7d771b02581f46e7fa02d0760b25e2a7bdbc3c3da622d8a755994b5fbc23": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui"
       },
       "sign": 1,
