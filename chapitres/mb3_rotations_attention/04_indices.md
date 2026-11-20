@@ -550,7 +550,7 @@ $\mathbf{E}(0)\cdot\mathbf{E}(\delta) = \cos\omega_1\delta + \cos\omega_2\delta 
 </details>
 <details><summary>Indice 3</summary>
 
-`W_19` (fourni) vaut `2 * np.pi / np.array([24, 168, 8760])` ; `encode_19` empile `np.cos(W_19 * t)` et `np.sin(W_19 * t)` dans l'ordre (cos, sin) de chaque horloge ; `draw_clocks_19` rend, par horloge, le tableau `(len(times), 2)` des points tracés. c) Calcule le produit pour tous les $\delta$ de 1 à 8 760 et prends `np.argmax` (+ 1). Pense à 365 = 52 × 7 + 1.
+`W_19` (fourni) vaut `2 * np.pi / np.array([24, 168, 8760])` ; `encode_19` empile `np.cos(W_19 * t)` et `np.sin(W_19 * t)` dans l'ordre (cos, sin) de chaque horloge ; `draw_clocks_19` rend, par horloge, le tableau `(len(times), 2)` des points tracés. Quand plusieurs dates tombent au même point (les trois dates à 8 h, sur l'horloge de la journée), décale chaque nom selon son rang `k`, par exemple `ax.annotate(nom, point, xytext=(4, 4 + 9 * k), textcoords="offset points")`. c) Calcule le produit pour tous les $\delta$ de 1 à 8 760 et prends `np.argmax` (+ 1). Pense à 365 = 52 × 7 + 1.
 
 </details>
 

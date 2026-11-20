@@ -104181,6 +104181,9 @@
       "magnitude": 2,
       "mistakes": {
         "673950b95b1f49f8b696ae28a10de96458050412ac85a5e459d9a331b1489e13": "les angles de deux rotations enchaînées s'ajoutent, ils ne se multiplient pas",
+        "83b92b3fecc1ba712f37c2b18b38ba9c0e26bee61b44a3512d49f50765d0a640": "l'angle se donne en degrés, pas en radians",
+        "c578f4573589fa4df702097f0bab9f5af1968c420d73cf29111b85eef896866e": "ramène l'angle dans [0°, 360°[ (ajoute ou retranche 360°)",
+        "ecde8a05627c2bd18172ccfa813ff421e392fc93a0c1e8ac0b9898274a2b9233": "ramène l'angle dans [0°, 360°[ (ajoute ou retranche 360°)",
         "f16efac074bcef997ad00081a94be157a3f70b577b2d271bbd92fb5499ed3fcb": "les angles de deux rotations enchaînées s'ajoutent, ils ne se soustraient pas"
       },
       "sign": 1,
@@ -104252,7 +104255,9 @@
       "magnitude": 0,
       "mistakes": {
         "3c12b273ec70b37113d0037ff32109b1162ffb4207a6e8ac41b86cd238425ae6": "la distance est la racine carrée de x² + y²",
-        "3cc6ae0fa6bd3739c0351623bad9b8966ed1efcd9860282bd1cb8b04f9fb275d": "le bras et l'avant-bras ne sont pas alignés : la distance n'est pas la somme de leurs longueurs"
+        "3cc6ae0fa6bd3739c0351623bad9b8966ed1efcd9860282bd1cb8b04f9fb275d": "le bras et l'avant-bras ne sont pas alignés : la distance n'est pas la somme de leurs longueurs",
+        "4a17344d14acb6e928335b3b458d9e6bc058e0666b69e44b7bb65ec64607dbef": "la distance est la racine carrée de x² + y²",
+        "e2a19391e63eee46055505aabadb903b0d4e7b0e5bdcc49f6008293bb381d079": "la distance est la racine carrée de x² + y²"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -104290,6 +104295,7 @@
       "hash": "c4341dba63aac524845f4ca3786f4c499365d38086d9027aed2b69d5ec3c6280",
       "kind": "array",
       "mistakes": {
+        "6c1eeaa43ee9acefae22a866370e59da0bb03bd3aaee6268ebc12d9aae76c14f": "tu as lu le produit de gauche à droite : ici d'abord R₁₂, puis R₂₃ (la matrice de droite agit la première)",
         "afb32ff87b8956f6d083de693fe6d1cb20884f252154ba575c84f0cbaf137534": "R₁₂(θ) envoie e₂ sur −sin θ e₁ + cos θ e₂",
         "df0c3d50b0bce090bcf39f1b072fd03cdb6c3927043cf304f7b529d6f267f0aa": "R₂₃(θ) tourne autour de e₁ : elle fixe e₁ et tourne le plan (e₂, e₃)"
       },
@@ -104329,6 +104335,7 @@
       "kind": "array",
       "mistakes": {
         "6fabc9284aa722480f541f6be153f2185b21ca21f5190e940042688b03dca708": "R₂₃(θ) tourne e₂ vers e₃ quand θ > 0",
+        "9da182ae47453ff08879c8567fe1d0df13ac91cc048602c1a41d3ed3e2ebcac2": "tu as lu le produit de gauche à droite : ici d'abord R₂₃, puis R₁₂ (la matrice de droite agit la première)",
         "ad55d8aa5ffa8cca2591d5a5e4e4287e026db985e515270ed0154993c7004337": "c'est R₂₃(π/2) qui agit d'abord sur e₂ : calcule son image avant d'appliquer R₁₂"
       },
       "shape": [
@@ -104501,6 +104508,7 @@
       "hash": "a5fb85b5d78b80b9a4df59cb95c362422a44880a9adb8833807b8b1bc0f1df38",
       "kind": "exact",
       "mistakes": {
+        "03118186a08dbd5d1b37dec3ef7ac5fbcd0e08b2f0ed8381f0aa3a0435ca5465": "3π/2 et −π/2 sont le même angle : donne celui de ]−π, π]",
         "344d1760d0f02d8eccf1db0a41ae2614a2d03653e098f25180a349886b1f6d1d": "R₂₃(θ) tourne e₂ vers e₃ quand θ > 0 : regarde où va e₂",
         "d9287367020ef477d60749091f4172da2cd175b05f19fa7f5cb7b4a4b95841f2": "P échange les coordonnées 2 et 4 : le bloc du plan (2, 3) de PᵀDP vient du plan (3, 4) de D"
       },
@@ -104647,7 +104655,9 @@
       "magnitude": 1,
       "mistakes": {
         "991d29487256a2a6e7f9f10a4b614a3e391605103074cb5902731cb52ef408f8": "on moyenne les vecteurs (cos θ, sin θ), pas les angles",
-        "9a35a18201d9e3aaa8a04da9d785cccff789b7662f757f064b9317f35c9b3579": "la question demande des degrés"
+        "9a35a18201d9e3aaa8a04da9d785cccff789b7662f757f064b9317f35c9b3579": "la question demande des degrés",
+        "a31375fb0289533c520ec620b9455e8d54ae9490386454cc8b805c5a5d5bfd68": "ramène la direction dans [0°, 360°[ (ajoute ou retranche 360°)",
+        "ff3e1e6611a612e21f0f77cdd98b01e0090336387c4d733cca8faceda667c2a6": "ramène la direction dans [0°, 360°[ (ajoute ou retranche 360°)"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -104667,6 +104677,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "079c390d27b9baa3f8681e978c1bf3e82deff877fe49784f8080691469651baa": "1 est la longueur d'un seul encodage : ρ est la longueur du vecteur moyen",
         "8e32c93d277f09e898e868e357d338c646fce1c4c6d47c890f1b59675922cf3f": "c'est la norme du vecteur moyen, pas celle de la somme des trois vecteurs",
         "a965497f005aa68fdacab20c83b828842e633b465e001072b18982485209c62a": "la norme est la racine de la somme des carrés"
       },
@@ -104728,8 +104739,11 @@
       "hash": "23ba7445d260cc797b19bbc5877a676b334aa0a6bbca9af05d5cb3e60a433a0b",
       "kind": "array",
       "mistakes": {
+        "1d155d34be410ddc1239ff5a280148779b4695fa59c38a8610952cd624f237d6": "ce sont les scores pour h = 400 m : la question demande h = 200 m",
         "4a8be46a5af085b85850f8242b6ce4e3fe6506a02b5ed7024c07cc4450354763": "le noyau divise le carré de l'écart par 2h², pas l'écart lui-même",
+        "63bf4fe58fbb680db5f66954c9b5ef388572918c01abce51c921413d6e4130b4": "exprime h et l'écart d'altitude dans la même unité (des mètres)",
         "82a9d2a6ff424a263f2876fb9a381e38dd602979490a54f080f965a6dcc97fbc": "le noyau gaussien divise par 2h², pas par h²",
+        "f2f51db8cb4139195146c0e39ae07696260d063b8088f72144d5b5d46bce4843": "ce sont les scores moins le plus grand : la question demande les scores eux-mêmes",
         "f7b3b2f5b628bf825ad11a6ad32ed2621d7b0ecd7271ca433297df709079e929": "le score d'un noyau gaussien est un carré changé de signe : il est négatif ou nul"
       },
       "shape": [
@@ -104771,7 +104785,10 @@
       "magnitude": 0,
       "mistakes": {
         "0ce83553b7323195a3caaeb71e5b1d863de390bb96ab3daf080879045b7d23d7": "le score d'un noyau gaussien est négatif : une station lointaine pèse moins",
-        "8510cd9e00edd1700c44ce48c32429a73f309ac8285036b56ddc65dd28067402": "la prévision divise par la somme des noyaux"
+        "4522741a5cae90b6c07dce00ddd8334082fce1099550253e44ee015b1ecfc9a9": "c'est la limite h → ∞ (la moyenne des quatre stations) : la question demande h = 200 m",
+        "745b637c1d8d6e3f70083cf3011ce1c15e02c9273ff6a9230d7412e9d2f28957": "c'est la limite h → 0 : la question demande h = 200 m",
+        "8510cd9e00edd1700c44ce48c32429a73f309ac8285036b56ddc65dd28067402": "la prévision divise par la somme des noyaux",
+        "d729daf498fbd3676f8c0023ea5ea4b21da46f8eaa0a405c4dd6b355ed912983": "c'est la prévision pour h = 400 m : la question demande h = 200 m"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -104840,7 +104857,8 @@
       "magnitude": 0,
       "mistakes": {
         "81fecacacabf927125b488d623512c260217ee1cde46e4e92348716dcc8bad43": "la prévision est une moyenne pondérée : divise par la somme des noyaux",
-        "a57da74de23d95e3da4b203befd67d07e6bbddf13b2293cd6970c3b44b1c4b48": "doubler h divise les scores par 4, pas par 2"
+        "a57da74de23d95e3da4b203befd67d07e6bbddf13b2293cd6970c3b44b1c4b48": "doubler h divise les scores par 4, pas par 2",
+        "dc6397c209133e4f72ac30a39b33b414ad5aa6b21bd688adb3079464411522d5": "c'est la prévision pour h = 200 m : la question demande h = 400 m"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -104857,6 +104875,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "0063dbf8bdb5b6ecb07869824bcd7ff636fc2ffd9fa718a8d3d034830b108beb": "compare les écarts d'altitude des quatre stations au refuge : celle-ci n'est pas la plus proche",
         "306cd0a3752159f172ee01d8d3e896fef3a8b43bfeb3af026d496ea21fa3a2de": "quand h → 0, le rapport des poids de deux stations d'écarts différents tend vers l'infini",
         "8dd689e49b2880f2bd02588fa88a4fce4225f9125404db9d53f559c3eeef5d80": "les poids se renormalisent : leur somme reste 1 même quand h → 0"
       },
@@ -105008,6 +105027,7 @@
       "hash": "a6784b6c42d3b966172d699e04db7df49a2da27c25bf4cac6a9c68ac27330e87",
       "kind": "array",
       "mistakes": {
+        "696d9c32c0af79f1071de464d458b70bc0482431b7f764c536855e5f70edfaf0": "au jour 2, les jours 3 et 4 ont le score −∞",
         "6de5f024191dd3d95142e62d9a9394a486945dcd23df39b343dbcd6933c5c898": "au jour 2, le jour 2 a le score 0 et le jour 1 le score −ln 2",
         "d57be23e33e90da6b6fa18e3ec1334e477683dbf7b70fc09eb5cd9b4b6be7a03": "les deux jours connus gardent des scores différents, linéaires en le temps"
       },
@@ -105174,7 +105194,8 @@
       "mistakes": {
         "475172929a1a82629f3f603692f88af1344ed985282de2960a2916b5630bde8b": "Δ est l'écart entre le plus grand score et le suivant, pas le dernier",
         "662ea2d0ec70216b9425836e94f70acaf4cb61dabf5d2ac3c23be63d2093b2f2": "il y a K − 1 = 2 autres scores",
-        "9536bfeb023e829be3d0df95b3b70f4d959bd41b671c362584abfadcb567c317": "l'exposant de la borne contient c"
+        "9536bfeb023e829be3d0df95b3b70f4d959bd41b671c362584abfadcb567c317": "l'exposant de la borne contient c",
+        "96226a7968918f6ec8c19e9d2e13281e70f5aecae8142709799c8c286d6b603c": "c'est 1 − p_max lui-même : la question demande la borne (K − 1) e^{−cΔ}"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -105193,6 +105214,8 @@
       "mistakes": {
         "0895a68e21634f7beed6146f414a00a82a43b1c432317e250c915e933259a61e": "on résout avec le logarithme népérien",
         "092d676a0f9b9376b9b6b856a17f70e485f446bc5a56478e84109c20f0e29671": "Δ = 0,8 est l'écart entre les deux plus grands scores",
+        "0bb0d6356c98ba657091c43cb7f862e9a89716e99284a4b7e3c1a96c50c734a0": "il y a K − 1 = 2 autres scores, pas K = 3",
+        "accf6b26d35db2c8eebe741c6ea551afd0d8de27edb6eb9366770f54654edf67": "c'est le plus petit c où p_max ≥ 0,99 : la question demande le c où la borne vaut 0,01",
         "b931dcfd98693af319e8fd641263ed1e4e85f0adc6c259ff3f168d1ab08ac25e": "la borne vaut (K − 1) e^{−cΔ} : il reste le facteur 2"
       },
       "sign": 1,
@@ -105254,6 +105277,7 @@
       "hash": "07ec6f52ac3c979182c3aaee7986e303dfcdcc21a69938cd45c00d853a23c65c",
       "kind": "array",
       "mistakes": {
+        "98c1c4a2a9811a26e7d9927618f20d11118339a55e2fb210a471de25a770300d": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
         "e10757eaaebeaa766274df6db30b9283a8cacd73f79ed496b4d720abf25a843d": "l et a s'écrivent par rapport au plus grand score lu : chaque terme est e^{s_j − m}",
         "f228841260f0d05f9a85bd72f847939177aa7583308f740599b7b8960306d583": "a pondère chaque valeur par e^{s_j − m}"
       },
@@ -105312,6 +105336,8 @@
       "hash": "cf186326bf70e229ebf4fd0a7777ee75a2ec10ae50cee06cbad087c6f002946a",
       "kind": "array",
       "mistakes": {
+        "2dc4eec27512cd7b348261ff26d325ec0b0e98af8f5564ee8a7f282c60a48e9a": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
+        "44a7f93eb5bd7cbc53c0136047b51aed0ab7e4ec71b6cb01e4bd5c462f046f82": "l aussi se remet à l'échelle quand le maximum change (le facteur e^{m_ancien − m_nouveau})",
         "b265bcb215dd779de412edfe4d2e41d52e72883f3d73531bf0513955116dfbb6": "quand le maximum change, l'ancien l et l'ancien a se multiplient par e^{m_ancien − m_nouveau}",
         "e2d501514669f46007e31e054abaf79ef8d06923fc52a8bade5c3f4a5cafe9e1": "l et a se remettent tous les deux à l'échelle"
       },
@@ -105373,6 +105399,7 @@
       "mistakes": {
         "21010f3813c1b4eac1517b1a8db2919729e2827ab3b944b1b2f1b57d0d911e7d": "l et a se remettent tous les deux à l'échelle",
         "4996a99da49b16a1e9e681ddb34855e1975e3ebad412891d130f39edd3766c1f": "quand le maximum change, l'ancien l et l'ancien a se multiplient par e^{m_ancien − m_nouveau}",
+        "5b75bc338afc4d8294e9079fa1b4fb7a5537747b189ddd1d50399e91e1051fe7": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
         "884ee8f2145221547f31946392fd9a43efb8ecde4e0d0c87a8e5eaa975ba6dff": "on ne remet à l'échelle que si le maximum augmente strictement"
       },
       "shape": [
@@ -105443,6 +105470,8 @@
       "kind": "array",
       "mistakes": {
         "45741bea08767ff7e1b2c3739d64eeaa5ce270cf0550fe6475c0f9c30d553772": "la machine B ne connaît pas l'état de A : son m est le plus grand des scores qu'elle lit",
+        "a75e4f89e3786c7dcf2e5fd60019ff9116cc3ecfd42e9943810f6bb350e535e7": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
+        "c4e11f4ba3a0cf7a56e368a411596937188c8adece8e311dcca73d50fd0a248a": "la machine B part de l'état vide, pas de l'état de A",
         "d49f1797ebc33b79f4db298d3d29a85b8d109c70280646815a4bd06edda3de0d": "chaque terme est e^{s_j − m}, avec m le plus grand score lu par B"
       },
       "shape": [
@@ -105502,6 +105531,8 @@
       "kind": "array",
       "mistakes": {
         "21bf175caa7ca5fb52084a0d8d80d8340a91e8536606ee1d5e936a134688f563": "chaque état se remet à l'échelle du maximum commun avant d'additionner",
+        "3306f813eae42cf4f7aaeb8c00e4fc3fb10d7373635a31f48c07a2dc004ad668": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
+        "8fb4ef53c251c0680337ad9ffd97cfbd73e889cc296ffd21993065648991842c": "la fusion remet chaque état à l'échelle du maximum commun, puis additionne : ni moyenne, ni somme brute",
         "c2148c057101c16a970bf30d8c50a2c04c74beff0c03a6b98a502e327a35fac5": "la fusion additionne les l et les a, elle ne les moyenne pas"
       },
       "shape": [
@@ -105529,6 +105560,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "2310bbdc61996c37c4207c258e26cd3c130580aae0e1d2f1ab6779b76f0283ff": "m vaut 4 ln 2 : le log-sum-exp est m + ln l, pas ln l seul",
         "340837c5b1af15691921d3579ce5ddfd3c6e1ee6916ebab0f11348a3cb522e63": "m vaut 4 ln 2, pas 4",
         "61bb1ddecea023d71d84d1a269c70d6cb7774b2c46ed00df1e6fda7feea4aab7": "le log-sum-exp ajoute ln l à m"
       },
@@ -105989,7 +106021,8 @@
       "magnitude": 3,
       "mistakes": {
         "2e62fbdb7edce4241c65fb8370fece420f8cf32ab26e41f78bf46e0c113175e6": "le log-sum-exp est m + ln l : n'oublie pas m",
-        "8b1c28ae69ba972b6cb868e1567a7425886eda7ac7c5c1c2a9330fe083f1989d": "le log-sum-exp est m + ln l, avec le logarithme népérien"
+        "8b1c28ae69ba972b6cb868e1567a7425886eda7ac7c5c1c2a9330fe083f1989d": "le log-sum-exp est m + ln l, avec le logarithme népérien",
+        "e15b440b200bf6862b0452cb518a441ed87c1cdd2e246cb6d4a0d9ae5ec8195f": "le log-sum-exp est m + ln l : as-tu oublié ln l ?"
       },
       "sign": -1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -107636,7 +107669,7 @@
       "hash": "748fbd831ce6241920c2c7dad04bebb737654cd69c67ba86a9a8b0f4a7c5d59f",
       "kind": "bool",
       "mistakes": {
-        "ff8e5b7fdbba76a9bd1e353f8cad3c6083f7d09fc50de470112b1066b90e3eb2": "avec des fonctions justes, aucun contrôle ne doit compter : relis ce que compare chacun, et à quoi (le contrôle « shift » ajoute shift à m)"
+        "ff8e5b7fdbba76a9bd1e353f8cad3c6083f7d09fc50de470112b1066b90e3eb2": "avec des fonctions justes, aucun contrôle ne doit compter : relis ce que compare chacun, et à quoi (par exemple, le contrôle « shift » ajoute shift à m, et « permutation » permute les valeurs avec les scores)"
       },
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
     },
