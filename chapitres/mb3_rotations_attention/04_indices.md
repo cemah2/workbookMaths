@@ -322,7 +322,7 @@ Fiche §1 : « Le cosinus d'une différence » (et son paragraphe « Pas de cerc
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{u}_a\cdot\mathbf{u}_b$ vaut $\cos a\cos b + \sin a\sin b$ en coordonnées, et $\cos\varphi$ par l'angle, avec $\cos\varphi = \cos\lvert a - b\rvert = \cos(a - b)$. 4. $\cos(-\theta) = \cos\theta$ et $\sin(-\theta) = -\sin\theta$, puis $\mathbf{R}_{-\theta}\mathbf{R}_\theta = \mathbf{R}_0$. 5. Développe le produit avec $i^2 = -1$ et reconnais 2.
+1. $\mathbf{u}_a\cdot\mathbf{u}_b$ vaut $\cos a\cos b + \sin a\sin b$ en coordonnées, et $\cos\varphi$ par l'angle, avec $\cos\varphi = \cos\lvert a - b\rvert = \cos(a - b)$. 4. $\cos(-\theta) = \cos\theta$ et $\sin(-\theta) = -\sin\theta$, puis $\mathbf{R}_{-\theta}\mathbf{R}_\theta = \mathbf{R}_0$. 5. Développe le produit avec $i^2 = -1$ et reconnais 2. 6. Le déterminant de $\begin{pmatrix} c & -s \\ s & c \end{pmatrix}$ vaut $c^2 + s^2$ ; pour la duplication, prends $b = a$ dans les formules de 2, puis remplace $\sin^2a$ (ou $\cos^2a$) grâce à $\cos^2a + \sin^2a = 1$.
 
 </details>
 

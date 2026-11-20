@@ -163,8 +163,7 @@
 3. 
 4. 
 5. 
-
-Pour aller plus loin :
+6. 
 
 ### Ex MB3.9 — Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance
 

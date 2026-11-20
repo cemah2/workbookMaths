@@ -582,3 +582,330 @@ PAPER_INTRO = ("## Partie 0 · Vérifier tes exercices papier (✏️ MB3.1 à M
 def paper_part(kind: str) -> list:
     """The cells of Part 0."""
     return paper_cells(kind, PAPER, PAPER_CONTEXT, PAPER_INTRO)
+
+
+# ---------------------------------------------------------------------------
+# Notebook exercises: your library (MB3.14, MB3.15, MB3.16)
+# ---------------------------------------------------------------------------
+TOOLS = '''# Tools of the notebook (parts A to D)
+import math
+import time
+import warnings
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+from wbm.errors import MymathMissingError
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, run_pytest_group, verdict
+
+TEST_MB3 = "tests/test_mb3_positional.py"           # the tests of mymath/positional.py
+REF = wbm.load_mymath("ref", alias="mymath_ref")  # the reference: the checks of the hidden cases rely on it
+ref_pos = REF.positional
+LN2 = math.log(2)
+
+
+def shown(value, digits=4):
+    """A short text for a result of the learner's code (the check messages): numbers rounded, as lists."""
+    if value is None:
+        return "None"
+    try:
+        return str(np.round(np.asarray(value, dtype=float), digits).tolist())[:160]
+    except (TypeError, ValueError):
+        return repr(value)[:160]
+
+
+def check_answer(ex_id, value, hint=None):
+    """wbm.check(ex_id, value, computed=True). For a list that holds True or False, the message gives only how many
+    elements are right, not the place of the first wrong one (it would let you guess the booleans one by one).
+    hint(value), when given, may return a targeted « Piste » for a wrong answer (None otherwise)."""
+    holds_bool = isinstance(value, (list, tuple)) and any(isinstance(v, (bool, np.bool_)) for v in value)
+    if not holds_bool and hint is None:
+        return wbm.check(ex_id, value, computed=True)
+    result = wbm.check(ex_id, value, computed=True, quiet=True)
+    message = result.message
+    if holds_bool:
+        for cut in (" Le premier faux est le ", " Premier élément faux à l'indice "):
+            message = message.split(cut)[0]
+    if hint is not None and result.status not in ("correct", "pending", "unknown"):
+        try:
+            extra = hint(value)
+        except Exception:  # noqa: BLE001 - an odd answer: no targeted hint
+            extra = None
+        if extra:
+            message = f"{message} Piste : {extra}"
+    icon = {"correct": "✅", "pending": "⏳", "unknown": "❓"}.get(result.status, "❌")
+    print(f"{icon} Ex {ex_id} : {message}")
+    return result
+
+
+def passes(ex_id, value):
+    """True when value is the hidden answer ex_id (wbm.check, computed=True, nothing printed)."""
+    try:
+        return bool(wbm.check(ex_id, value, computed=True, quiet=True).passed)
+    except Exception:  # noqa: BLE001 - an odd value is not the answer
+        return False
+
+
+def reporter(results, stop=True):
+    """A function report(ok, success, failure) that prints one ✅ or ❌ line, keeps the verdict in results, and (stop)
+    ends the check at the first ❌ (StopCheck, caught by checked)."""
+    def report(ok, success, failure):
+        results.append(bool(ok))
+        print(("✅ " + success) if ok else ("❌ " + failure))
+        if not ok and stop:
+            raise StopCheck
+    return report
+
+
+def as_floats(value):
+    """value as a float array, or None when it is not an array of numbers."""
+    try:
+        return np.asarray(value, dtype=float)
+    except (TypeError, ValueError):
+        return None
+
+
+def matches(got, want, rtol=1e-9, atol=1e-12):
+    """True when got is an array of numbers of the shape of want and equal to it up to rounding, an infinity equal to
+    the same infinity (no error for an odd got)."""
+    arr = as_floats(got)
+    want = np.asarray(want, dtype=float)
+    return arr is not None and arr.shape == want.shape and bool(np.allclose(arr, want, rtol=rtol, atol=atol))
+
+
+def state_parts(state):
+    """(m, l, acc as a float array or None) of a state (m, l, acc), or None when it is not one."""
+    try:
+        m, l, acc = state
+        return float(m), float(l), None if acc is None else np.atleast_1d(np.asarray(acc, dtype=float))
+    except (TypeError, ValueError):
+        return None
+
+
+def same_state(got, want, rtol=1e-9):
+    """True when got is a state equal to want: the m both -inf or within rtol·max(1, |m|), the l within rtol·max(1, l),
+    the acc equal by np.allclose (no error for an odd got)."""
+    a, b = state_parts(got), state_parts(want)
+    if a is None or b is None:
+        return False
+    (m1, l1, c1), (m2, l2, c2) = a, b
+    if (m1 == -math.inf) != (m2 == -math.inf):
+        return False
+    if m2 != -math.inf and not abs(m1 - m2) <= rtol * max(1.0, abs(m2)):
+        return False
+    if not abs(l1 - l2) <= rtol * max(1.0, abs(l2)):
+        return False
+    if (c1 is None) != (c2 is None):
+        return False
+    return c1 is None or (c1.shape == c2.shape and bool(np.allclose(c1, c2, rtol=rtol,
+                                                                     atol=rtol * max(1.0, float(np.abs(c2).max())))))
+
+
+def drawn_points(ax):
+    """All the points drawn in ax: those of its lines with a marker and of its scatters."""
+    points = []
+    for line in ax.lines:
+        if line.get_marker() in (None, "", " ", "None", "none"):
+            continue
+        points += list(zip(np.asarray(line.get_xdata(), dtype=float).ravel(),
+                           np.asarray(line.get_ydata(), dtype=float).ravel()))
+    for collection in ax.collections:
+        offsets = np.asarray(collection.get_offsets(), dtype=float)
+        if offsets.ndim == 2 and offsets.shape[1] == 2 and type(collection).__name__ == "PathCollection":
+            points += [tuple(p) for p in offsets]
+    return points
+
+
+def points_at(ax, xs, ys, rtol=1e-7, atol=1e-9):
+    """True when every point (xs[k], ys[k]) is drawn in ax (a line with markers, or a scatter)."""
+    points = np.array(drawn_points(ax) or [(np.nan, np.nan)], dtype=float)
+    return all(np.any(np.isclose(points[:, 0], x, rtol=rtol, atol=atol) & np.isclose(points[:, 1], y, rtol=rtol, atol=atol))
+               for x, y in zip(np.atleast_1d(xs), np.atleast_1d(ys)))
+
+
+def line_with(ax, xs, ys, rtol=1e-7, atol=1e-9):
+    """True when a line of ax has exactly the abscissas xs and the ordinates ys."""
+    xs, ys = np.asarray(xs, dtype=float), np.asarray(ys, dtype=float)
+    for line in ax.lines:
+        x, y = np.asarray(line.get_xdata(), dtype=float), np.asarray(line.get_ydata(), dtype=float)
+        if x.shape == xs.shape and y.shape == ys.shape and np.allclose(x, xs, rtol=rtol, atol=atol) \\
+                and np.allclose(y, ys, rtol=rtol, atol=atol):
+            return True
+    return False
+
+
+def name_near(ax, name, x, y, span):
+    """True when a text of ax writes name next to the point (x, y): the point annotated (ax.annotate) or the position
+    of the text (ax.text), within a tenth of span."""
+    for text in ax.texts:
+        if text.get_text().strip() != name:
+            continue
+        px, py = (text.xy if hasattr(text, "xy") else text.get_position())
+        if abs(float(px) - x) <= 0.1 * span and abs(float(py) - y) <= 0.1 * span:
+            return True
+    return False
+
+
+def call_safely(label, function, *args, **kwargs):
+    """function(*args, **kwargs); an error of the learner's code becomes one ❌ line naming the call (StopCheck)."""
+    try:
+        return function(*args, **kwargs)
+    except (NotImplementedError, MymathMissingError):
+        raise
+    except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the call
+        print(f"❌ {label} : ton code lève {type(exc).__name__} : {str(exc)[:200]}")
+        raise StopCheck from None'''
+
+DATA = '''# The data of the paper exercises (02_exercices.md)
+ARM = {"arm": 4.0, "forearm": 2.0, "shoulder_deg": 60, "elbow_deg": 45}       # MB3.1: lengths in dm, angles in degrees
+E2 = np.array([0.0, 1.0, 0.0])                                             # MB3.2: the basis vector e_2 of space
+WINDS = np.array([150.0, 340.0, 20.0, 330.0, 70.0])                        # MB3.3: directions in degrees (east 0°)
+ALTITUDES = np.array([1700.0, 2100.0, 2700.0, 3100.0])                     # MB3.4: Val, Bergerie, Col, Pic (m), the
+TEMPERATURES = np.array([10.4, 6.3, 2.2, -1.7])                            # temperatures (°C); the refuge at 2 300 m
+POND = np.array([18.0, 15.0, 21.0, 17.0])                                  # MB3.5: days 1 to 4 (°C), lambda = 1/2
+ROUTES = np.array([1.3, 0.5, -0.8])                                        # MB3.6: the scores of the three routes
+K_7 = np.array([1.0, 3, 0, 2, -1, 4, 0, 4, 2])                             # MB3.7: the beacons, s_j = k_j ln 2,
+S_7 = K_7 * LN2                                                            # read by blocks of 3
+V_7 = np.array([4.0, 10, 6, 3, 8, 2, 9, 5, 7])                             # their values
+GAUGES = np.array([[5.0, 0.0], [0.0, 5.0], [-3.0, -4.0], [4.0, -3.0]])     # MB3.11: the rain gauges (km), their
+RAIN = np.array([18.0, 30.0, 11.0, 22.0])                                  # rain (mm); the point x = (3, -4)
+for _array in (E2, WINDS, ALTITUDES, TEMPERATURES, POND, ROUTES, K_7, S_7, V_7, GAUGES, RAIN):
+    _array.setflags(write=False)   # read only: a change in place raises an error at the line that does it'''
+
+LOAD_LEARNER = ('mymath = wbm.load_mymath("learner", missing_ok=True, fallback="ref", chapter="MB3")  '
+                '# reload your saved file')
+LOAD_REF = 'mymath = wbm.load_mymath("ref")'
+
+HOWTO = ("> **Mode d'emploi `mymath`** (comme en MB2). Ouvre ta copie `mon_travail/mymath/positional.py`, lis la "
+         "docstring du module (ses conventions, et ce qui est permis) puis celle de la fonction, remplace chaque "
+         "`raise NotImplementedError(...)` par ton code, **enregistre** le fichier, puis exécute les cellules "
+         "ci-dessous : la première recharge ta librairie. Dans le notebook, appelle tes fonctions par "
+         "`mymath.positional.<nom>` (par exemple `mymath.positional.givens_rotation(3, 0, 1, 0.2)`), ou donne-leur un "
+         "nom court (`givens_rotation = mymath.positional.givens_rotation`) dans une cellule exécutée après le "
+         "rechargement. ⚠️ Le squelette n'importe rien : ajoute en tête du fichier `import math` et `import numpy as "
+         "np`. NumPy et le module `math` sont permis, mais aucune fonction de SciPy (`scipy.special.softmax`, "
+         "`scipy.special.logsumexp`, `scipy.spatial.transform.Rotation`) ni `np.logaddexp` : les tests comparent tes "
+         "résultats aux leurs, et un test lit ton module. Les indices des coordonnées partent de 0 ; ne modifie "
+         "jamais les tableaux reçus. Hors de `mymath`, le notebook peut se servir de tout NumPy et de SciPy.")
+
+REMINDER = ("> Même mode d'emploi qu'en MB3.14 : écris la fonction dans ta copie `mon_travail/mymath/positional.py`, "
+            "**enregistre**, puis exécute les cellules ci-dessous ; la première recharge ta librairie.")
+
+
+def tests_cells(keyword: str) -> list:
+    """The cells that run the tests of positional.py selected by ``keyword`` (learner's code, or the reference)."""
+    return [("todo", f'run_pytest_group(TEST_MB3, "{keyword}")'),
+            ("solution", f'run_pytest_group(TEST_MB3, "{keyword}", impl="ref")')]
+
+
+def answers_check(ex_id: str, letters: str, hints: dict | None = None) -> str:
+    """The check cell of the answers a), b)... of a notebook exercise: one check_answer each. ``hints`` maps a letter to
+    the code of a function value -> targeted hint (or None), written in the cell."""
+    names = ", ".join(f"answer_{ex_id.replace('.', '_')}{letter}" for letter in letters)
+    if not hints:
+        return (f'for letter, answer in zip("{letters}", [{names}]):\n'
+                f'    check_answer(f"{ex_id}{{letter}}", answer)')
+    tag = ex_id.replace(".", "_")
+    return "\n".join(f'check_answer("{ex_id}{letter}", answer_{tag}{letter}'
+                     + (f", hint={hints[letter]})" if letter in hints else ")") for letter in letters)
+
+
+def look(text: str, after: str = "") -> tuple:
+    """The cell « Ce qu'il faut regarder » shown after the check (questions of 02_exercices.md; answers in 05)."""
+    return ("md", f"**Ce qu'il faut regarder**{after} : {text} Les réponses sont dans `05_solutions.md`, section "
+                  "Notebook.")
+
+
+# « Ce qu'il faut regarder » of 02_exercices.md (questions only), shown after the checks; the answers are in
+# 05_solutions.md, never in the notebook
+LOOK_14 = ("que fait `givens_rotation(3, 0, 2, 0.4)` par rapport à la matrice (3.78) ? Qu'ont en commun les plans des deux "
+           "rotations qui ne commutent pas ?")
+LOOK_15 = ("combien de fois $m$ change-t-il dans a), et à quels blocs ? Que rend le calcul direct de c), et pourquoi le "
+           "tien n'a-t-il pas ce problème ? Que vaudrait, pour d), la moyenne des quatre angles ?")
+LOOK_16 = "quel grand calcul ces égalités permettent-elles de partager, et entre quoi ?"
+
+# ---------------------------------------------------------------------------
+# MB3.14 · givens_rotation
+# ---------------------------------------------------------------------------
+NOTE_14 = (r"Les contrôles (entiers refusés s'ils sont booléens, `math.isfinite(theta)`), puis `G = np.eye(n)`, "
+           r"`G[i, i] = G[j, j] = math.cos(theta)`, `G[j, i] = math.sin(theta)`, `G[i, j] = -math.sin(theta)`. a) "
+           r"$(-0{,}866025 ;\ 0 ;\ 0{,}5 ;\ 0 ;\ 0 ;\ 1)$, comme MB3.2 a) et b). b) $(2, 0)$ : (3.78) tourne "
+           r"$\mathbf{e}_3$ vers $\mathbf{e}_1$, et `givens_rotation(3, 0, 2, 0.4)` est sa transposée. c) "
+           r"$\approx 0{,}7211$, puis 0 : les plans qui partagent la coordonnée d'indice 2 ne commutent pas, les plans "
+           r"disjoints commutent.")
+
+MB3_14 = Ex(
+    "MB3.14", "🔨", 1, 15, "La matrice d'une rotation de Givens de ℝⁿ · `givens_rotation`",
+    "programmer la matrice d'une rotation de Givens, puis s'en servir pour retrouver MB3.2, une matrice de MML et la "
+    "commutation de deux rotations.",
+    "fiche §3 ; MML §3.9.3 ; Ex MB3.2", tracks="C, E", mymath="positional.py", note=NOTE_14,
+    body=HOWTO + r"""
+
+Écris `givens_rotation(n, i, j, theta)` (fiche §3), en suivant sa docstring : contrôle $n$ (un entier $\ge 2$, ni un booléen ni un flottant comme `3.0`), $i$ et $j$ (deux entiers différents de $[0, n - 1]$) et $\theta$ (un réel fini, pas un booléen) ; pars de `np.eye(n)` et change les quatre coefficients du plan $(i, j)$.
+
+**L'usage.** Avec ta fonction :
+- a) les deux vecteurs de MB3.2 a) et b), avec `givens_rotation(3, 1, 2, np.pi / 2)` pour $\mathbf{R}_{23}(\frac\pi2)$ et `givens_rotation(3, 0, 1, np.pi / 3)` pour $\mathbf{R}_{12}(\frac\pi3)$, et le vecteur `E2` de la cellule de données (une liste de 6 nombres : le vecteur de a), puis celui de b), à comparer à ta copie) ;
+- b) écris la matrice (3.78) de MML pour $\theta = 0{,}4$, puis cherche le couple $(i, j)$ tel que `givens_rotation(3, i, j, 0.4)` lui est égale (une liste de 2 entiers) ;
+- c) la norme de Frobenius de $\mathbf{G}\mathbf{H} - \mathbf{H}\mathbf{G}$ pour `G = givens_rotation(5, 0, 2, 0.9)` et `H = givens_rotation(5, 2, 4, -0.6)`, puis pour le même `G` et `givens_rotation(5, 1, 3, -0.6)` (une liste de 2 nombres).""",
+    todo=LOAD_LEARNER,
+    solution=LOAD_REF,
+    after=[("md", "**Les tests** de `givens_rotation` (lis d'abord la ligne qui suit chaque ❌ : elle dit ce qui était "
+                  "attendu).")]
+    + tests_cells("test_givens_rotation_ or test_module_uses_") + [
+        ("md", "**L'usage** : les vecteurs de MB3.2, une matrice de MML, et deux commutateurs."),
+        ("todo", '''answer_MB3_14a = answer_MB3_14b = answer_MB3_14c = ...
+with wbm.attempt("MB3.14"):          # if you call givens_rotation here: ⏳ while it is not written
+    answer_MB3_14a = ...  # a) a list of 6 numbers, as computed: the vector of MB3.2 a), then the vector of MB3.2 b)
+    answer_MB3_14b = ...  # b) a list of 2 integers: (i, j) such that givens_rotation(3, i, j, 0.4) equals (3.78) of MML
+    answer_MB3_14c = ...  # c) a list of 2 numbers, as computed: the Frobenius norm of GH - HG for the two H'''),
+        ("check", answers_check("MB3.14", "abc")),
+        ("solution", '''givens_rotation = mymath.positional.givens_rotation
+R23_14, R12_14 = givens_rotation(3, 1, 2, np.pi / 2), givens_rotation(3, 0, 1, np.pi / 3)
+answer_MB3_14a = np.concatenate([R23_14 @ R12_14 @ E2, R12_14 @ R23_14 @ E2]).tolist()
+t_14 = 0.4
+R2_mml_14 = np.array([[math.cos(t_14), 0, math.sin(t_14)], [0, 1, 0], [-math.sin(t_14), 0, math.cos(t_14)]])   # (3.78)
+answer_MB3_14b = next([i, j] for i in range(3) for j in range(3)
+                      if i != j and np.allclose(givens_rotation(3, i, j, t_14), R2_mml_14))
+G_14 = givens_rotation(5, 0, 2, 0.9)
+answer_MB3_14c = [float(np.linalg.norm(G_14 @ H - H @ G_14))
+                  for H in (givens_rotation(5, 2, 4, -0.6), givens_rotation(5, 1, 3, -0.6))]
+print("a)", np.round(answer_MB3_14a, 6).tolist(), " b)", answer_MB3_14b, " c)", np.round(answer_MB3_14c, 6).tolist())'''),
+        ("record", '''def givens_14r(n, i, j, t):
+    """The oracle, MML (3.80)-(3.81) with indices from 0: e_i turned towards e_j."""
+    G = np.eye(n)
+    G[i, i] = G[j, j] = math.cos(t)
+    G[j, i], G[i, j] = math.sin(t), -math.sin(t)
+    return G
+
+
+e2_14r = np.array([0.0, 1.0, 0.0])
+
+
+def vectors_14r(sign):
+    A, B = givens_14r(3, 1, 2, sign * math.pi / 2), givens_14r(3, 0, 1, sign * math.pi / 3)
+    return np.round(np.concatenate([A @ B @ e2_14r, B @ A @ e2_14r]), 12).tolist()
+
+
+a_14r = vectors_14r(1)
+wbm.record("MB3.14a", a_14r, decimals=6,
+           mistakes={"dans R₂₃(π/2) R₁₂(π/3) e₂, c'est la matrice de droite qui agit la première : a), puis b), dans cet "
+                     "ordre": a_14r[3:] + a_14r[:3],
+                     "givens_rotation(n, i, j, θ) tourne e_i vers e_j : R₂₃ est givens_rotation(3, 1, 2, …), avec i et j "
+                     "dans cet ordre": vectors_14r(-1)})
+wbm.record("MB3.14b", [2, 0],
+           mistakes={"(3.78) a +sin θ en haut à droite : compare avec G[i, j] = −sin θ de la docstring": [0, 2],
+                     "les indices du code partent de 0 : la coordonnée k de MML est l'indice k − 1": [3, 1],
+                     "les indices du code partent de 0, et (3.78) a +sin θ en haut à droite : compare avec G[i, j] = −sin θ":
+                         [1, 3]})
+G_14r = givens_14r(5, 0, 2, 0.9)
+commutators_14r = [G_14r @ H - H @ G_14r for H in (givens_14r(5, 2, 4, -0.6), givens_14r(5, 1, 3, -0.6))]
+c_14r = [float(np.sqrt(np.sum(C ** 2))) for C in commutators_14r]
+wbm.record("MB3.14c", c_14r, decimals=6,
+           mistakes={"la liste suit l'ordre de l'énoncé : H = givens_rotation(5, 2, 4, -0.6) d'abord": c_14r[::-1],
+                     "la norme de Frobenius est la racine de la somme des carrés des coefficients (np.linalg.norm(M), "
+                     "sans ord=2)": [float(np.linalg.norm(C, 2)) for C in commutators_14r],
+                     "c'est la norme, pas son carré": [float(np.sum(C ** 2)) for C in commutators_14r]})'''),
+        ("solution", answers_check("MB3.14", "abc")),
+        look(LOOK_14),
+    ],
+)

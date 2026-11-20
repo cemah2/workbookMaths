@@ -272,8 +272,7 @@ Pour un réel $a$, on note $\mathbf{u}_a = (\cos a, \sin a)$.
 3. Montre que $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$ pour tous $\alpha$ et $\beta$, et déduis-en que deux rotations du plan commutent.
 4. Montre que $\mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$, puis que $\mathbf{R}_\theta^\top\mathbf{R}_\theta = \mathbf{I}$ : $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$.
 5. Avec la définition $e^{i\theta} = \cos\theta + i\sin\theta$, montre que $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$.
-
-**Pour aller plus loin.** Montre que $\det\mathbf{R}_\theta = 1$, et que la duplication $\cos 2a = 2\cos^2a - 1$ découle de 2.
+6. Montre que $\det\mathbf{R}_\theta = 1$. Déduis de 2 les formules de duplication : $\cos 2a = \cos^2a - \sin^2a = 2\cos^2a - 1 = 1 - 2\sin^2a$ et $\sin 2a = 2\sin a\cos a$.
 
 ### Ex MB3.9 — Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer l'équivariance par permutation d'une moyenne pondérée sur un ensemble de points, et voir sur un contre-exemple ce qui la casse.
