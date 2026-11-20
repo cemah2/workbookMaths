@@ -436,7 +436,7 @@ def _lgr_hint(got, a, b, mean0, var0):
         texts.append(_first_match(got_m, want_m, [
             (_variant(a, b, mean0, var0, abs_a=True)[0], "the means are multiplied by |a_t| instead of a_t: a "
                                                           "negative coefficient changes the sign of the mean"),
-            (got_v if _same(got_v, want_m, 1e-9, 1e-12) else None, "the means and the variances are swapped")]))
+            (want_v if _same(got_v, want_m, 1e-9, 1e-12) else None, "the means and the variances are swapped")]))
     if not _same(got_v, want_v, 1e-9, 1e-12):
         texts.append(_first_match(got_v, want_v, [
             (_variant(a, b, mean0, var0, square_a=False)[1], "the previous variance is multiplied by a_t, not by a_t² "
@@ -447,9 +447,10 @@ def _lgr_hint(got, a, b, mean0, var0):
                                                                  "a_t²: it comes after it"),
             (_variant(a, b, mean0, var0, start=float(var0) ** 2)[1], "var0 is a variance, not a standard deviation: "
                                                                       "do not square it"),
-            (_variant(a, b, mean0, 0.0)[1], "var0 is the variance of x_0: start the variances with it"),
+            (np.concatenate([[float(var0)], _variant(a, b, mean0, 0.0)[1][1:]]),
+             "the recursion starts from the variance var0 of x_0, not from 0"),
             (np.sqrt(np.abs(want_v)), "these are standard deviations: return the variances"),
-            (got_m if _same(got_m, want_v, 1e-9, 1e-12) else None, "the means and the variances are swapped")]))
+            (want_m if _same(got_m, want_v, 1e-9, 1e-12) else None, "the means and the variances are swapped")]))
     texts = [t for t in texts if t]
     return f"{LGR_HINT}; here {'; '.join(texts)}" if texts else LGR_HINT
 
