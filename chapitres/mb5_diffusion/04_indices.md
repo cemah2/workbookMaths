@@ -669,13 +669,18 @@ Fiche §7 : « Bayes en logarithmes : une combinaison de scores » (la propriét
 </details>
 <details><summary>Indice 2</summary>
 
-Le logarithme de la loi guidée est $(1 + w)\ln p_c - w\ln p_u$ ; retire son maximum, prends l'exponentielle et divise par `np.trapezoid(d, xs)`. Les moments s'intègrent de même : la moyenne $\int x\,d(x)\,\mathrm{d}x$, l'écart-type $\sqrt{\int(x - \text{moyenne})^2d(x)\,\mathrm{d}x}$. Pour la figure : une courbe par loi, chacune avec un `label`, puis `ax.legend()`, `ax.set_xlabel(…)` et `ax.set_ylabel(…)`.
+Calcule $p_u$ et $p_c$ sur `xs` à partir des arguments `general` (les poids, les moyennes et les variances du mélange) et `cls` (la moyenne et la variance de la classe), jamais à partir des lois de l'énoncé écrites en dur : la vérification passe un autre mélange. Le logarithme de la loi guidée est $(1 + w)\ln p_c - w\ln p_u$ ; retire son maximum, prends l'exponentielle et divise par `np.trapezoid(d, xs)`. Les moments s'intègrent de même : la moyenne $\int x\,d(x)\,\mathrm{d}x$, l'écart-type $\sqrt{\int(x - \text{moyenne})^2d(x)\,\mathrm{d}x}$. Pour la figure : une courbe par loi, chacune avec un `label`, puis `ax.legend()`, `ax.set_xlabel(…)` et `ax.set_ylabel(…)`.
 
 </details>
 <details><summary>Indice 3</summary>
 
 ```python
-lg = (1 + w) * np.log(pc) - w * np.log(pu)
+# from scipy.special import logsumexp; from scipy.stats import norm
+weights, means, variances = general
+lpu = logsumexp([np.log(p) + norm.logpdf(xs, m, np.sqrt(v))
+                 for p, m, v in zip(weights, means, variances)], axis=0)      # ln p_u, without underflow
+lpc = norm.logpdf(xs, cls[0], np.sqrt(cls[1]))
+lg = (1 + w) * lpc - w * lpu
 d = np.exp(lg - lg.max())
 d = d / np.trapezoid(d, xs)
 ```
@@ -733,6 +738,6 @@ Fiche §9 : « Le champ moyen » (le champ par le débruiteur, avec $a = 1 - s$ 
 </details>
 <details><summary>Indice 3</summary>
 
-Quatre pas du point milieu, $h = -0{,}25$, de $s = 1$ à $s = 0$ : à chaque pas, un appel en $(x, s)$ pour le demi-pas, puis un appel en $\big(x + \frac h2\,v, s + \frac h2\big)$ pour le pas entier. Mesure `scipy.stats.wasserstein_distance(points, TARGET_25)`, divise-la par l'écart-type du mélange, et essaie ta fonction sur des mélanges que tu fabriques toi-même : deux bosses très étroites, très écartées, une bosse légère.
+Quatre pas du point milieu, $h = -0{,}25$, de $s = 1$ à $s = 0$ : à chaque pas, un appel en $(x, s)$ pour le demi-pas, puis un appel en $\big(x + \frac h2\,v, s + \frac h2\big)$ pour le pas entier. Mesure `scipy.stats.wasserstein_distance(points, TARGET_25)`, divise-la par l'écart-type du mélange : la vérification fait la moyenne de ces rapports sur quinze lois cachées, chacune avec ses huit appels. Essaie ta fonction sur des mélanges que tu fabriques toi-même : deux bosses très étroites, très écartées, une bosse légère.
 
 </details>
