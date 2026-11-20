@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §8 |
 | **Temps total estimé** | ≈ 12,1 h : lecture et calculs de la fiche ≈ 2 h 05, exercices ≈ 9 h 30, 15 flashcards ≈ 30 min (parcours essentiel ≈ 8,8 h) |
-| **Prérequis** | R3 (fonction affine par deux points) ; R4 (parties d'un ensemble, $\Sigma$, somme télescopique, démonstration) ; R8 (factorielle, combinaisons, $2^n$ parties) ; M02a (théorème fondamental, rectangles, trapèzes, Simpson) ; M02b (espérance, Bernoulli, variance d'une somme indépendante) ; M02c (Pearson, estimateur sans biais, bootstrap) ; M03 (indépendance, courbe ROC, calibration, taux par groupe) ; M05b (gradient, dérivée directionnelle, Schwarz) ; M08 (Wald) ; M11 (Hoeffding, taux de base) ; M17 (règle de la chaîne) ; M20 (Horvitz-Thompson) ; M25a (couple gaussien conditionné) ; M25b (indépendance conditionnelle, espérance totale) ; MB4 (rangs) |
+| **Prérequis** | R3 (fonction affine par deux points) ; R4 (parties d'un ensemble, $\Sigma$, somme télescopique, démonstration) ; R8 (factorielle, combinaisons, $2^n$ parties) ; M02a (théorème fondamental, rectangles, trapèzes, Simpson) ; M02b (espérance, Bernoulli, variance d'une somme indépendante) ; M02c (Pearson, estimateur sans biais, bootstrap) ; M03 (indépendance, courbe ROC, calibration, taux par groupe) ; M05b (gradient, dérivée directionnelle, Schwarz) ; M08 (Wald) ; M11 (Hoeffding, taux de base) ; M12a (base d'un espace vectoriel, ∂ MB6.8) ; M17 (règle de la chaîne) ; M20 (Horvitz-Thompson) ; M25a (couple gaussien conditionné) ; M25b (indépendance conditionnelle, espérance totale) ; MB4 (rangs) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `attribution.py` : `coalition_weights`, `harsanyi_dividends`, `line_integral`, `spearman_rho` |
 | **Références** | pas de MML (le livre ne traite ni les jeux coopératifs, ni les intégrales de chemin, ni l'équité) ; Shapley, Shubik, Harsanyi, Littlechild et Owen, Osborne et Rubinstein (§1, §2) ; Aumann et Shapley (§4) ; Spearman (§6) ; Barocas, Hardt et Narayanan, Kleinberg et coll. (§7) ; Hardt et coll., Kamiran et Calders, Agresti et Caffo (§8) |
@@ -181,7 +181,7 @@ Soit $f(x_1, \ldots, x_d)$ une fonction et $\mathbf{X}$ un vecteur aléatoire. O
 
 Si $X_j \perp \mathbf{X}_{-j}$, la loi de $\mathbf{X}_{-j}$ sachant $X_j = v$ est sa loi marginale, et $M_j = \operatorname{PD}_j$. Sinon, elles diffèrent en général (pas toujours : si $f$ ne dépend que de $x_j$, toutes deux valent $f(v)$).
 
-**Un ferry** consomme $f(x_1, x_2) = 100 + 0{,}5\,x_1^2 + 20\,x_2$ litres de gazole par heure, selon le vent $x_1$ (m/s) et la houle $x_2$ (m). Le vent et la houle forment un couple gaussien : le vent suit $\mathcal{N}(8, 3^2)$, la houle $\mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $\rho = 0{,}8$ (le vent lève la houle). Fixons la houle.
+**Un chalutier** consomme $f(x_1, x_2) = 100 + 0{,}5\,x_1^2 + 20\,x_2$ litres de gazole par heure, selon le vent $x_1$ (m/s) et la houle $x_2$ (m). Le vent et la houle forment un couple gaussien : le vent suit $\mathcal{N}(8, 3^2)$, la houle $\mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $\rho = 0{,}8$ (le vent lève la houle). Fixons la houle.
 - **Marginale** : $\mathbb{E}[X_1^2] = 8^2 + 3^2 = 73$, donc $\operatorname{PD}_2(v) = 136{,}5 + 20v$.
 - **Conditionnelle** (M25a §4) : $X_1 \mid X_2 = v \sim \mathcal{N}\big(8 + 0{,}8 \times \frac{3}{0{,}5}(v - 1{,}5) ;\ 9(1 - 0{,}64)\big) = \mathcal{N}\big(8 + 4{,}8(v - 1{,}5) ;\ 3{,}24\big)$, et $\mathbb{E}[X_1^2 \mid X_2 = v]$ est sa variance plus le carré de sa moyenne : en $v = 2{,}5$, $3{,}24 + 12{,}8^2 = 167{,}08$, et $M_2 = 100 + 83{,}54 + 50 = 233{,}54$.
 
@@ -190,11 +190,11 @@ Si $X_j \perp \mathbf{X}_{-j}$, la loi de $\mathbf{X}_{-j}$ sachant $X_j = v$ es
 | $\operatorname{PD}_2(v)$ | 146,5 | 166,5 | 186,5 |
 | $M_2(v)$ | 116,74 | 163,62 | 233,54 |
 
-La moyenne conditionnelle prête à la houle l'effet du vent qui l'accompagne : elle répond à « que consomme le ferry les jours de forte houle ? », la marginale à « que changerait la houle seule, au vent habituel ? ».
+La moyenne conditionnelle prête à la houle l'effet du vent qui l'accompagne : elle répond à « que consomme le chalutier les jours de forte houle ? », la marginale à « que changerait la houle seule, au vent habituel ? ».
 
 De même, le jeu « marginal » d'une fonction, $S \mapsto \mathbb{E}\big[f(\mathbf{x}_S, \mathbf{X}_{\bar S})\big]$, et son jeu « conditionnel », $S \mapsto \mathbb{E}\big[f(\mathbf{X}) \mid \mathbf{X}_S = \mathbf{x}_S\big]$, ont en général des valeurs de Shapley différentes quand les coordonnées sont dépendantes.
 
-![Le ferry : la moyenne marginale de la houle (une droite) et la moyenne conditionnelle (une parabole plus raide), 186,5 contre 233,54 en v = 2,5 ; le panneau solaire : trois courbes ICE décalées et leur moyenne, bien plus plate](figures/marginale_ice.png)
+![Le chalutier : la moyenne marginale de la houle (une droite) et la moyenne conditionnelle (une parabole plus raide), 186,5 contre 233,54 en v = 2,5 ; le panneau solaire : trois courbes ICE décalées et leur moyenne, bien plus plate](figures/marginale_ice.png)
 
 ### Les courbes ICE
 
@@ -207,13 +207,13 @@ De même, le jeu « marginal » d'une fonction, $S \mapsto \mathbb{E}\big[f(\mat
 
 *Démonstration.* (1 ⇒ 2) $f(v, \mathbf{x}_{-j}) - f(v, \mathbf{x}'_{-j}) = h(\mathbf{x}_{-j}) - h(\mathbf{x}'_{-j})$ ne dépend pas de $v$. (2 ⇒ 3) Cette différence étant constante en $v$, sa dérivée en $v$ est nulle : $\partial_jf(v, \mathbf{x}_{-j})$ ne dépend pas de $\mathbf{x}_{-j}$, donc $\partial_k\partial_jf = 0$, et $\partial_j\partial_kf = 0$ par Schwarz (M05b §6). (3 ⇒ 1) Par Schwarz, $\partial_k(\partial_jf) = 0$ pour $k \ne j$ ; sur un pavé, faire varier la seule coordonnée $x_k$ ne sort pas du pavé, et $\partial_jf$ y est constante (M02a §2) : $\partial_jf(\mathbf{x}) = \psi(x_j)$. Si $g$ est une primitive de $\psi$, $f - g(x_j)$ a une dérivée nulle en $x_j$, donc ne dépend que de $\mathbf{x}_{-j}$ : c'est $h$. $\square$
 
-Le ferry est séparable en la houle : ses courbes ICE de $x_2$ sont parallèles (de pente 20), et ses deux moyennes diffèrent pourtant : l'écart vient de la corrélation, pas d'une interaction.
+Le chalutier est séparable en la houle : ses courbes ICE de $x_2$ sont parallèles (de pente 20), et ses deux moyennes diffèrent pourtant : l'écart vient de la corrélation, pas d'une interaction.
 
 **Une moyenne peut cacher une interaction.** Un panneau solaire orienté vers l'azimut $x_1 \in [-45°, 45°]$ produit $\cos(x_1 - u)$ (en part du maximum) quand le soleil est à l'azimut $u$ : $-45°$, $0°$ ou $45°$, avec la même probabilité. Chaque courbe ICE culmine face au soleil ; elles ne sont pas parallèles, et $\frac{\partial^2}{\partial x_1\partial u}\cos(x_1 - u) = \cos(x_1 - u) \ne 0$. Leur moyenne, $\frac13\big[\cos(x_1 + 45°) + \cos x_1 + \cos(x_1 - 45°)\big] = \frac{1 + \sqrt2}{3}\cos x_1$ (formule d'addition), culmine en 0° et ne varie qu'entre 0,57 et 0,80 : elle cache que la meilleure orientation suit le soleil.
 
 💻 **Aujourd'hui en pratique** — sur un échantillon, la moyenne marginale est la moyenne des $f(v, \mathbf{x}_{i,-j})$, une ligne de NumPy ; la conditionnelle s'estime avec les points dont $x_j$ tombe dans une fenêtre autour de $v$ (🔬 MB6.18).
 
-⚠️ **Erreur classique.** Croire que des courbes ICE parallèles rendent égales les deux moyennes (le ferry) ; lire la dépendance partielle comme l'effet de la variable en chaque point (le panneau).
+⚠️ **Erreur classique.** Croire que des courbes ICE parallèles rendent égales les deux moyennes (le chalutier) ; lire la dépendance partielle comme l'effet de la variable en chaque point (le panneau).
 
 🔗 **Dans workbookIA** — le chapitre B6 trace dépendances partielles et courbes ICE, et oppose des valeurs de Shapley « interventionnelles » (jeu marginal) et « observationnelles » (jeu conditionnel).
 
@@ -279,7 +279,7 @@ Ils coïncident aussi pour $g(x_i)$, une fonction d'une seule coordonnée (part 
 
 > **Théorème** (Euler). Si $f$ est **homogène de degré $k$** (*homogeneous function*), $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ pour tout $\lambda > 0$, et dérivable aux points $\lambda\mathbf{x}$, alors $\sum_ix_i\,\partial_if(\mathbf{x}) = k\,f(\mathbf{x})$ ; et si $k > 0$, la part de $x_i$ le long du segment depuis $\mathbf{0}$ vaut $\frac{x_i\,\partial_if(\mathbf{x})}{k}$.
 
-*Démonstration.* Dériver $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ en $\lambda = 1$ donne l'identité ; la dériver en $x_i$ donne $\lambda\,\partial_if(\lambda\mathbf{x}) = \lambda^k\partial_if(\mathbf{x})$ : $\partial_if$ est homogène de degré $k - 1$, et la part vaut $x_i\int_0^1t^{k-1}\partial_if(\mathbf{x})\,\mathrm{d}t = \frac{x_i\partial_if(\mathbf{x})}{k}$. $\square$
+*Démonstration.* Dériver $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ en $\lambda = 1$ donne l'identité (M18.26 l'a vue pour $k = 1$) ; la dériver en $x_i$ donne $\lambda\,\partial_if(\lambda\mathbf{x}) = \lambda^k\partial_if(\mathbf{x})$ : $\partial_if$ est homogène de degré $k - 1$, et la part vaut $x_i\int_0^1t^{k-1}\partial_if(\mathbf{x})\,\mathrm{d}t = \frac{x_i\partial_if(\mathbf{x})}{k}$. $\square$
 
 **Une Cobb-Douglas.** La production $Q = K^{1/4}L^{1/2}$ (capital $K$, travail $L$) est homogène de degré $\frac34$. En $(16, 9)$, $Q = 6$, $K\partial_KQ = \frac Q4 = 1{,}5$ et $L\partial_LQ = \frac Q2 = 3$ (somme $4{,}5 = \frac34 \times 6$) ; depuis $\mathbf{0}$, les parts le long du segment valent 2 et 4, proportionnelles aux exposants. Les chemins en escalier partagent autrement : $Q$ est nulle dès qu'un facteur l'est, le jeu est $6\,u_{\{K, L\}}$, d'où 3 et 3.
 
@@ -426,7 +426,7 @@ C'est la formule des probabilités totales, en conditionnant par le seuil tiré.
 
 ### Repondérer
 
-Les 1 000 jours forment une table région × temps : 222 jours de pluie et 378 secs dans la région 1, 68 et 332 dans la région 2 ; $P(\text{pluie}) = 0{,}29$. Région et pluie sont dépendantes. On donne à chaque jour un **poids** selon sa case : c'est **repondérer** (*reweighing*).
+Les 1 000 jours forment une table région × temps : 222 jours de pluie et 378 secs dans la région 1, 68 et 332 dans la région 2 ; $P(\text{pluie}) = 0{,}29$. Région et pluie sont dépendantes. On donne à chaque jour un **poids** selon sa case (M03 §6 repondérait les classes ; ici, les cases groupe × label) : c'est **repondérer** (*reweighing*).
 
 > **Théorème** (∂ MB6.10). Si chaque case a $P(g, y) > 0$, les poids $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$ définissent une loi pondérée qui garde les deux marges et rend $G$ et $Y$ **indépendants**.
 
@@ -438,7 +438,7 @@ Sur ces 1 000 jours, avec la règle qu'il appliquait alors, le service a alerté
 
 > **Propriété.** Pour deux proportions $\theta_1$ et $\theta_2$, estimées par $\hat\theta_1$ et $\hat\theta_2$ sur des échantillons indépendants de tailles $n_1$ et $n_2$, $\mathbb{V}(\hat\theta_1 - \hat\theta_2) = \frac{\theta_1(1 - \theta_1)}{n_1} + \frac{\theta_2(1 - \theta_2)}{n_2}$, et l'**intervalle de Wald** de l'écart à 95 % est $\hat\theta_1 - \hat\theta_2 \pm 1{,}96\sqrt{\frac{\hat\theta_1(1 - \hat\theta_1)}{n_1} + \frac{\hat\theta_2(1 - \hat\theta_2)}{n_2}}$.
 
-Les variances de deux estimations indépendantes s'ajoutent (M02b §6), et $\hat\theta_g$ est une moyenne de $n_g$ variables de Bernoulli ; l'intervalle suit M08 §5. Pour un taux de détection, $n_g$ est le nombre de **positifs** du groupe (les jours de pluie). Ici, $\frac{0{,}752 \times 0{,}248}{222} \approx 0{,}00084$ et $\frac{0{,}603 \times 0{,}397}{68} \approx 0{,}00352$ : une erreur type de $0{,}066$, et $0{,}149 \pm 0{,}129$, soit $[0{,}020 ;\ 0{,}278]$. L'intervalle ne contient pas 0 : l'écart est établi, au niveau de 95 %. La région 2, avec ses 68 jours de pluie, fait 81 % de la variance. Comme pour une proportion seule, Wald se dégrade quand un $\hat\theta_g$ vaut 0 ou 1 ou qu'un $n_g$ est petit ; ajouter un succès et un échec à chaque groupe l'améliore beaucoup (Agresti et Caffo, 2000).
+Les variances de deux estimations indépendantes s'ajoutent (M02b §6 ; M04.14 l'a fait pour deux lois a posteriori), et $\hat\theta_g$ est une moyenne de $n_g$ variables de Bernoulli ; l'intervalle suit M08 §5. Pour un taux de détection, $n_g$ est le nombre de **positifs** du groupe (les jours de pluie). Ici, $\frac{0{,}752 \times 0{,}248}{222} \approx 0{,}00084$ et $\frac{0{,}603 \times 0{,}397}{68} \approx 0{,}00352$ : une erreur type de $0{,}066$, et $0{,}149 \pm 0{,}129$, soit $[0{,}020 ;\ 0{,}278]$. L'intervalle ne contient pas 0 : l'écart est établi, au niveau de 95 %. La région 2, avec ses 68 jours de pluie, fait 81 % de la variance. Comme pour une proportion seule, Wald se dégrade quand un $\hat\theta_g$ vaut 0 ou 1 ou qu'un $n_g$ est petit ; ajouter un succès et un échec à chaque groupe l'améliore beaucoup (Agresti et Caffo, 2000).
 
 **Le bootstrap stratifié** (*stratified bootstrap* ; M02c §7) tire avec remise **dans chaque groupe**, en gardant $n_1$ et $n_2$ ; le bootstrap global tire dans tout l'échantillon et fait varier la taille des groupes, une variabilité que l'étude n'a pas.
 

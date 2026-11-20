@@ -2535,23 +2535,24 @@ votes_22r = list(__WEIGHTS_22__)
 pivot_22r, wider_22r = swings_22r(votes_22r, 66)
 right_22r = weighted_22r(pivot_22r)
 shares_22r = [w / sum(votes_22r) for w in votes_22r]
-banzhaf_22r = [sum(row) / sum(map(sum, pivot_22r)) for row in pivot_22r]       # every swing alike, normalised
+few_22r = [float(sum(F_22r(math.factorial(s) * math.factorial(23 - s), math.factorial(24)) * c   # the weights of
+                     for s, c in enumerate(row[:24]))) for row in pivot_22r]                  # 24 players: an error
 wbm.record("MB6.22a", right_22r[0], decimals=6,
            mistakes={"le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot": shares_22r[0],
                      "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec "
                      "lui": weighted_22r(wider_22r)[0],
                      "w(s) se lit à la taille s de la coalition des autres membres, sans compter i":
                          weighted_22r(pivot_22r, shift=1)[0],
-                     "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i":
-                         banzhaf_22r[0]})
+                     "le conseil a 25 membres : les poids sont ceux de coalition_weights(25), même si i n'est pas dans "
+                     "la coalition": few_22r[0]})
 wbm.record("MB6.22b", right_22r, decimals=6,
            mistakes={"le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot": shares_22r,
                      "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec "
                      "lui": weighted_22r(wider_22r),
                      "w(s) se lit à la taille s de la coalition des autres membres, sans compter i":
                          weighted_22r(pivot_22r, shift=1),
-                     "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i":
-                         banzhaf_22r})''',
+                     "le conseil a 25 membres : les poids sont ceux de coalition_weights(25), même si i n'est pas dans "
+                     "la coalition": few_22r})''',
     after=[
         ("solution", answers_check("MB6.22", "ab") + "\n\n\n" + CHECK_22),
         ("md", "**Pour réfléchir** (une fois le critère atteint) : pourquoi deux membres de mêmes voix ont-ils le même "

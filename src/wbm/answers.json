@@ -119107,8 +119107,8 @@
         "0baf3639b94eaafa3dc4c6067cb2686b0d46f4206304dd19e81680a5cff1a2e3": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
         "558a07127c0f42a2f75725a79d1168b91e2a7c2dff766d82d58fbfc600d415e0": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
         "6688de881abb2cfa36b4ca847999bd78eb967565fc88b22a6fc6b25b8db7aa62": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot",
-        "70e4b50d7d2038567d1c1b489c91c4343e162b2b29e754530a8b393c2fc5d636": "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i",
-        "828f7d771b02581f46e7fa02d0760b25e2a7bdbc3c3da622d8a755994b5fbc23": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui"
+        "828f7d771b02581f46e7fa02d0760b25e2a7bdbc3c3da622d8a755994b5fbc23": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui",
+        "e5ccac55c157780755b19999b0b075d33be992f19e0f8187f4eca64f0ba08aa1": "le conseil a 25 membres : les poids sont ceux de coalition_weights(25), même si i n'est pas dans la coalition"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -119364,8 +119364,8 @@
       "hash": "2c295421ef726702136b538a32ebb1a27ceb890041d3d5e1b99496be8aea667d",
       "kind": "array",
       "mistakes": {
-        "5f34fe30abced6ef17b16c46e91c46d294999882368ee38674191f1e26c3e628": "chaque coalition pèse w(s), selon sa taille : la part des ordres où exactement elle précède i",
         "9503f8e23c7d2f5497c61dec9b47a3acef96231fa5ab8d1bc7e6177a7bb2bf2d": "w(s) se lit à la taille s de la coalition des autres membres, sans compter i",
+        "a2b4ba8b984539b5155188d52b053c2c8d8f331b826ff3b3b740aaaf02b263f9": "le conseil a 25 membres : les poids sont ceux de coalition_weights(25), même si i n'est pas dans la coalition",
         "a58d7e19a6dc18eaf0cfc98fb8b7a1614b4cf48f7493aad4c7d1d7eb86912dca": "i est pivot quand la coalition des autres perd sans lui (poids total au plus q − 1) et gagne avec lui",
         "e6106e3fa4c9fd3db79c696dfa0b8ca281407bc117147b8e48154f218b874882": "le pouvoir d'un membre n'est pas sa part des voix : compte les ordres où il est pivot"
       },

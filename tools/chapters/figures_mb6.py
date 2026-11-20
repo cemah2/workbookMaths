@@ -7,7 +7,7 @@ Writes small PNG files into chapitres/mb6_shapley_equite/figures/:
 - §1: the six orders of arrival of a jazz trio (piano, double bass, drums) in a bar, with the marginal contribution
   of each musician (v(∅) = 20, v = 50, 30, 35 alone, 75, 90, 50 in pairs, 108 for the three: the hall is full);
   the weights of the coalitions for n = 5 (1/5, 1/20, 1/30, 1/20, 1/5), each size carrying 1/5 in all;
-- §3: the fuel used by a ferry, f = 100 + 0.5 x₁² + 20 x₂ (wind x₁ ~ N(8, 3²), swell x₂ ~ N(1.5, 0.5²),
+- §3: the fuel used by a trawler, f = 100 + 0.5 x₁² + 20 x₂ (wind x₁ ~ N(8, 3²), swell x₂ ~ N(1.5, 0.5²),
   correlation 0.8): the marginal mean (partial dependence) and the conditional mean of the swell; the ICE curves
   cos(x₁ − u) of a solar panel's orientation x₁ ∈ [−45°, 45°] for three positions of the sun (u = −45°, 0°, 45°)
   and their mean ((1 + √2)/3) cos x₁;
@@ -54,7 +54,7 @@ DPI = 110
 # §1: the jazz trio in a bar (tickets sold), the hall holds 108
 TRIO = {"": 20, "P": 50, "C": 30, "B": 35, "PC": 75, "PB": 90, "CB": 50, "PCB": 108}
 NAMES = {"P": "piano", "C": "contrebasse", "B": "batterie"}
-# §3: the ferry and the solar panel
+# §3: the trawler and the solar panel
 WIND, SWELL, RHO = (8.0, 3.0), (1.5, 0.5), 0.8
 SUN = (-45.0, 0.0, 45.0)
 # §4: the box and the non-gradient field
@@ -156,7 +156,7 @@ def marginal_conditional() -> None:
     f = lambda a, b: 100 + 0.5 * a**2 + 20 * b  # noqa: E731
     fig, axes = plt.subplots(1, 2, figsize=(13.5, 4.6))
     ax = axes[0]
-    ax.scatter(pts[:, 1], f(pts[:, 0], pts[:, 1]), s=8, color="0.7", alpha=0.6, label="400 traversées simulées")
+    ax.scatter(pts[:, 1], f(pts[:, 0], pts[:, 1]), s=8, color="0.7", alpha=0.6, label="400 sorties en mer simulées")
     v = np.linspace(0.0, 3.0, 200)
     pd_ = 100 + 0.5 * (m1**2 + s1**2) + 20 * v
     mc = m1 + RHO * s1 / s2 * (v - m2)
@@ -169,7 +169,7 @@ def marginal_conditional() -> None:
     ax.annotate("v = 2,5 : 186,5 contre 233,54", (2.5, 233.54), textcoords="offset points", xytext=(-150, 6),
                 fontsize=9, arrowprops=dict(arrowstyle="->", color="0.3"))
     ax.set(xlabel="houle v (m)", ylabel="gazole (L/h)", ylim=(80, 320))
-    ax.set_title("Ferry : fixer la houle, avec ou sans le vent qui l'accompagne (ρ = 0,8)", fontsize=10.5)
+    ax.set_title("Chalutier : fixer la houle, avec ou sans le vent qui l'accompagne (ρ = 0,8)", fontsize=10.5)
     ax.legend(fontsize=8.5, loc="upper left")
     ax = axes[1]
     x1 = np.linspace(-45, 45, 181)
