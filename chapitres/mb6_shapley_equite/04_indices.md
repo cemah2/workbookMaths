@@ -17,12 +17,12 @@ Fiche §1 : « Un gain créé ensemble », « Les poids des coalitions », « Es
 </details>
 <details><summary>Indice 2</summary>
 
-Un ordre de 7 joueurs : combien de façons de les ranger ? Une coalition sans $i$ : chacun des 6 autres y est ou n'y est pas. Le poids d'**une** coalition de taille $s$ est $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$, et il y a $\binom{n-1}{s}$ coalitions de taille $s$ sans $i$. Pour 4, cherche un petit conseil où un membre de 2 voix n'est jamais plus utile qu'un membre d'une voix. Pour 5, dans un même ordre, que donne la somme des contributions ?
+Un ordre de 7 joueurs : combien de façons de les ranger ? Si $i$ est premier, il reste à ranger les 6 autres. Le poids d'**une** coalition de taille $s$ est $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$, et il y a $\binom{n-1}{s}$ coalitions de taille $s$ sans $i$. Pour 4, cherche un petit conseil où un membre de 2 voix n'est jamais plus utile qu'un membre d'une voix. Pour 5, dans un même ordre, que donne la somme des contributions ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $7!$, puis $2^6$. 2. $\frac{2!\,4!}{7!}$, puis multiplie par $\binom62 = 15$. 3. Les quatre noms : efficacité, symétrie, joueur nul, additivité. 4. Essaie $[5 ;\ 4, 2, 1, 1]$ : compte les ordres où le membre de 2 voix est pivot, puis ceux d'un membre d'une voix. 5. Les contributions d'un ordre se télescopent : de $v(\varnothing)$ à $v(N)$.
+1. $7!$, puis $6!$. 2. $\frac{2!\,4!}{7!}$, puis multiplie par $\binom62 = 15$. 3. Les quatre noms : efficacité, symétrie, joueur nul, additivité. 4. Essaie $[5 ;\ 4, 2, 1, 1]$ : compte les ordres où le membre de 2 voix est pivot, puis ceux d'un membre d'une voix. 5. Les contributions d'un ordre se télescopent : de $v(\varnothing)$ à $v(N)$.
 
 </details>
 
@@ -40,7 +40,7 @@ $\operatorname{PD}_j(v)$ moyenne $f$ sur la loi **marginale** des autres variabl
 </details>
 <details><summary>Indice 3</summary>
 
-1. (C) met la moyenne dans $f$ au lieu de prendre la moyenne de $f$. 3. Avec des moyennes nulles et des variances 1, $\mathbb{E}[X_2 \mid X_1 = v] = \rho\,v$ ; $\operatorname{PD}_1(v) = 3v - 2\,\mathbb{E}[X_2]$ et $M_1(v) = 3v - 2\,\mathbb{E}[X_2 \mid X_1 = v]$. 4. Calcule $\frac{\partial^2f}{\partial x_1\,\partial x_2}$ pour chaque fonction. 5. L'estimation de la fiche : $\frac1n\sum_if(v, \mathbf{x}_{i,-j})$.
+1. (C) ne garde qu'un point. 3. Avec des moyennes nulles et des variances 1, $\mathbb{E}[X_2 \mid X_1 = v] = \rho\,v$ ; $\operatorname{PD}_1(v) = v - 4\,\mathbb{E}[X_2]$ et $M_1(v) = v - 4\,\mathbb{E}[X_2 \mid X_1 = v]$. 4. Calcule $\frac{\partial^2f}{\partial x_1\,\partial x_2}$ pour chaque fonction. 5. L'estimation de la fiche : $\frac1n\sum_if(v, \mathbf{x}_{i,-j})$.
 
 </details>
 
@@ -71,12 +71,12 @@ Fiche §5 : « Interpoler sur une case » et « Agrandir une grille : deux conve
 </details>
 <details><summary>Indice 2</summary>
 
-Les poids bilinéaires sont $(1 - s)(1 - t)$, $s(1 - t)$, $(1 - s)\,t$ et $s\,t$. Centres alignés : $c(u) = (u + \frac12)\frac hH - \frac12$ ; coins alignés : $c(u) = u\,\frac{h - 1}{H - 1}$. Les rangs : trie, numérote à partir de 1, et donne aux ex aequo la moyenne de leurs places. $\rho_S$ ne dépend que de l'ordre de chaque échantillon.
+Les poids bilinéaires sont $(1 - s)(1 - t)$, $s(1 - t)$, $(1 - s)\,t$ et $s\,t$. Centres alignés : $\xi(u) = (u + \frac12)\frac hH - \frac12$ ; coins alignés : $\xi(u) = u\,\frac{h - 1}{H - 1}$. Les rangs : trie, numérote à partir de 1, et donne aux ex aequo la moyenne de leurs places. $\rho_S$ ne dépend que de l'ordre de chaque échantillon.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $s = t = \frac12$. 2. $h = 4$ et $H = 10$ : $c(0) = \frac12 \times 0{,}4 - \frac12$ et $c(9) = 9{,}5 \times 0{,}4 - \frac12$ ; coins : $u \times \frac39$. 3. Trie : $2{,}9$ ; $3{,}8$ ; $5{,}2$ ; $5{,}2$ ; $7{,}1$ ; puis remets les rangs dans l'ordre de départ. 4. $\ln$ garde l'ordre ; $x \mapsto -x$ l'inverse : le rang $r_i$ devient $n + 1 - r_i$.
+1. $s = t = \frac12$. 2. $h = 4$ et $H = 10$ : $\xi(0) = \frac12 \times 0{,}4 - \frac12$ et $\xi(9) = 9{,}5 \times 0{,}4 - \frac12$ ; coins : $u \times \frac39$. 3. Trie : $2{,}9$ ; $3{,}8$ ; $5{,}2$ ; $5{,}2$ ; $7{,}1$ ; puis remets les rangs dans l'ordre de départ. 4. $\ln$ garde l'ordre ; $x \mapsto -x$ l'inverse : le rang $r_i$ devient $n + 1 - r_i$.
 
 </details>
 
@@ -112,7 +112,7 @@ Le seuil tiré est indépendant du label : les probabilités totales. Le tirage 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $P(\hat Y = 1 \mid Y = 1) = q\,P(\hat Y = 1 \mid Y = 1, A) + (1 - q)\,P(\hat Y = 1 \mid Y = 1, B)$. 2. Le point $(\mathrm{FPR}, \mathrm{TPR})$ du tirage, quand $q$ va de 0 à 1. 3. Somme les probabilités pondérées d'un groupe : $\sum_yP(g)\,P(y) = \ ?$ 4. Compare $\sqrt{a^2 + b^2}$ et $a + b$. 5. Seul le terme $\frac{p(1 - p)}{n}$ de ce groupe est divisé par 4.
+1. $P(\hat Y = 1 \mid Y = 1) = q\,P(\hat Y = 1 \mid Y = 1, A) + (1 - q)\,P(\hat Y = 1 \mid Y = 1, B)$. 2. Le point $(\mathrm{FPR}, \mathrm{TPR})$ du tirage, quand $q$ va de 0 à 1. 3. Somme les probabilités pondérées d'un groupe : $\sum_yP(g)\,P(y) = \ ?$ 4. Compare $\sqrt{a^2 + b^2}$ et $a + b$. 5. Seul le terme $\frac{\theta(1 - \theta)}{n}$ de ce groupe est divisé par 4.
 
 </details>
 
@@ -124,7 +124,7 @@ Le seuil tiré est indépendant du label : les probabilités totales. Le tirage 
 
 <details><summary>Indice 1</summary>
 
-R4 (les parties d'un ensemble, la formule du binôme) et R8 (factorielles et combinaisons).
+R4 (les parties d'un ensemble) et R8 (factorielles, combinaisons, la somme d'une ligne du triangle de Pascal).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -152,7 +152,7 @@ $(f\circ\boldsymbol\gamma)'(t) = \nabla f(\boldsymbol\gamma(t))\cdot\boldsymbol\
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\partial_xf = 3x^2y^2$ et $\partial_yf = 2x^3y - 2$. 2. $\boldsymbol\gamma(1) = (2, 1)$ et $\boldsymbol\gamma'(t) = (1, -1)$. 3. Le produit scalaire de $\nabla f(2, 1)$ et de $(1, -1)$ ; directement, dérive $(1 + t)^3(2 - t)^2 - 2(2 - t)$ par la règle du produit, puis prends $t = 1$. 4. $\nabla f(2, 1)\cdot\frac{(1, 1)}{\sqrt2}$. 5. Dérive $3x^2y^2$ par $y$, puis $2x^3y - 2$ par $x$.
+1. $\partial_xf = 6x^2y$ et $\partial_yf = 2x^3 - 3y^2$. 2. $\boldsymbol\gamma(1) = (2, 1)$ et $\boldsymbol\gamma'(t) = (1, -1)$. 3. Le produit scalaire de $\nabla f(2, 1)$ et de $(1, -1)$. 4. $\nabla f(2, 1)\cdot\frac{(1, 1)}{\sqrt2}$. 5. Dérive $6x^2y$ par $y$, puis $2x^3 - 3y^2$ par $x$.
 
 </details>
 
@@ -246,7 +246,7 @@ Pour chaque chemin : un paramétrage $\boldsymbol\gamma(t)$, sa vitesse $\boldsy
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol\gamma(t) = (1 + t, t)$ et $\boldsymbol\gamma' = (1, 1)$ : intègre $2(1 + t)t^2 + 3 + 2(1 + t)^2t$. b) Horizontal : $y = 0$, $F_1 = 3$, de $x = 1$ à 2 ; vertical : $x = 2$, $F_2 = 8y$, de $y = 0$ à 1. c) $\boldsymbol\gamma' = (1, 2t)$. d) $G_1 = 2y$ et $G_2 = 3x^2$. e) Segment : $\mathbf{G}\cdot(1, 1) = 2t + 3(1 + t)^2$ ; escalier : $G_1$ sur $y = 0$, puis $G_2$ sur $x = 2$.
+a) $\boldsymbol\gamma(t) = (1 + t, t)$ et $\boldsymbol\gamma' = (1, 1)$ : intègre $2(1 + t)t^2 + 5 + 2(1 + t)^2t$. b) Horizontal : $y = 0$, $F_1 = 5$, de $x = 1$ à 2 ; vertical : $x = 2$, $F_2 = 8y$, de $y = 0$ à 1. c) $\boldsymbol\gamma' = (1, 2t)$. d) $G_1 = 2y$ et $G_2 = 3x^2$. e) Segment : $\mathbf{G}\cdot(1, 1) = 2t + 3(1 + t)^2$ ; escalier : $G_1$ sur $y = 0$, puis $G_2$ sur $x = 2$.
 
 </details>
 
@@ -277,12 +277,12 @@ Fiche §5 : « La moyenne d'un gradient », « Interpoler sur une case » et « 
 </details>
 <details><summary>Indice 2</summary>
 
-$\max(0, T - 10)$ est nul sous 10 °C et vaut $T - 10$ au-dessus : seules les cases au-dessus de 10 °C comptent, chacune avec sa surface. Un réchauffement $\delta$ ajoute $\delta$ à chaque $T_{ij}$ ; la dérivée en $\delta = 0$ ne vaut que tant qu'aucune case ne franchit 10 °C. Agrandir : $h = 3$ lignes deviennent $H = 6$, $w = 4$ colonnes deviennent $W = 8$ ; une case d'arrivée lit la grille d'origine en $(c(u), c(v))$.
+$\max(0, T - 10)$ est nul sous 10 °C et vaut $T - 10$ au-dessus : seules les cases au-dessus de 10 °C comptent, chacune avec sa surface. Un réchauffement $\delta$ ajoute $\delta$ à chaque $T_{ij}$ ; la dérivée en $\delta = 0$ ne vaut que tant qu'aucune case ne franchit 10 °C. Agrandir : $h = 3$ lignes deviennent $H = 6$, $w = 4$ colonnes deviennent $W = 8$ ; une case d'arrivée lit la grille d'origine en $(\xi(u), \xi(v))$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Huit cases sont au-dessus de 10 °C : $11{,}8$ ; $13{,}2$ ; $10{,}8$ ; $12{,}5$ ; $14{,}1$ ; $10{,}3$ ; $12{,}0$ ; $11{,}4$. b) Leurs surfaces. c) Après $+1$ °C, quelles cases passent au-dessus de 10 ? d) $(u + \frac12)\frac36 - \frac12$. e) $u\,\frac25$. f) La ligne $c(4)$ et la colonne $c(5)$ (avec $\frac48$ pour les colonnes en centres alignés, $\frac37$ en coins alignés) tombent entre les lignes 1 et 2 et les colonnes 2 et 3 : interpole sur chaque ligne, puis entre les deux lignes.
+a) Huit cases sont au-dessus de 10 °C : $11{,}8$ ; $13{,}2$ ; $10{,}8$ ; $12{,}5$ ; $14{,}1$ ; $10{,}3$ ; $12{,}0$ ; $11{,}4$. b) Leurs surfaces. c) Après $+1$ °C, quelles cases passent au-dessus de 10 ? d) $(u + \frac12)\frac36 - \frac12$. e) $u\,\frac25$. f) La ligne $\xi(4)$ et la colonne $\xi(5)$ (avec $\frac48$ pour les colonnes en centres alignés, $\frac37$ en coins alignés) tombent entre les lignes 1 et 2 et les colonnes 2 et 3 : interpole sur chaque ligne, puis entre les deux lignes.
 
 </details>
 
@@ -300,7 +300,7 @@ Taux de rejet d'une ligne $= \mathrm{TPR}\times p_g + \mathrm{FPR}\times(1 - p_g
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}92 \times 0{,}06 + 0{,}04 \times 0{,}94$, puis la ligne 2. b) $0{,}74\,q + 0{,}96\,(1 - q) = 0{,}90$. c) $q \times 0{,}03 + (1 - q) \times 0{,}09$, avec le $q$ de b) gardé en fraction. d) 232 pièces défectueuses en tout ; par exemple $w(1, \text{défaut}) = \frac{1\,300}{2\,400} \times \frac{232}{2\,400} \Big/ \frac{78}{2\,400}$. e) $\frac{78\,w(1, \text{défaut})}{78\,w(1, \text{défaut}) + 1\,222\,w(1, \text{sans défaut})}$.
+a) $0{,}88 \times 0{,}06 + 0{,}04 \times 0{,}94$, puis la ligne 2. b) $0{,}74\,q + 0{,}96\,(1 - q) = 0{,}90$. c) $q \times 0{,}03 + (1 - q) \times 0{,}09$, avec le $q$ de b) gardé en fraction. d) 232 pièces défectueuses en tout ; par exemple $w(1, \text{défaut}) = \frac{1\,300}{2\,400} \times \frac{232}{2\,400} \Big/ \frac{78}{2\,400}$. e) $\frac{78\,w(1, \text{défaut})}{78\,w(1, \text{défaut}) + 1\,222\,w(1, \text{sans défaut})}$.
 
 </details>
 
@@ -312,7 +312,7 @@ a) $0{,}92 \times 0{,}06 + 0{,}04 \times 0{,}94$, puis la ligne 2. b) $0{,}74\,q
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : « Quatre règles de partage » et « Les jeux d'unanimité et les dividendes » ; R4 (la formule du binôme) ; M12a (base d'un espace vectoriel).
+Fiche §2 : « Quatre règles de partage » et « Les jeux d'unanimité et les dividendes » ; M02b §2 (la formule du binôme) ; M12a (base d'un espace vectoriel).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -375,12 +375,12 @@ Fiche §8 : « L'écart de deux taux » ; M02b (variance d'une différence) ; M0
 </details>
 <details><summary>Indice 2</summary>
 
-Un taux de détection se calcule sur les prélèvements contaminés seulement. L'erreur type d'une proportion estimée sur $n$ cas est $\sqrt{\frac{p(1 - p)}{n}}$, avec $n$ le nombre de prélèvements contaminés. Les deux laboratoires sont indépendants : les variances s'ajoutent. Wald à 95 % : l'écart $\pm\ 1{,}96$ erreur type.
+Un taux de détection se calcule sur les prélèvements contaminés seulement. L'erreur type d'une proportion estimée sur $n$ cas est $\sqrt{\frac{\theta(1 - \theta)}{n}}$, avec $n$ le nombre de prélèvements contaminés. Les deux laboratoires sont indépendants : les variances s'ajoutent. Wald à 95 % : l'écart $\pm\ 1{,}96$ erreur type.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{20}{28}$ et $\frac{448}{520}$. b) $\sqrt{\frac{\hat p_A(1 - \hat p_A)}{28} + \frac{\hat p_B(1 - \hat p_B)}{520}}$, avec tous les chiffres. c) $(\hat p_B - \hat p_A) \pm 1{,}96 \times$ b). d) Seul le premier terme change : 112 au lieu de 28.
+a) $\frac{20}{28}$ et $\frac{448}{520}$. b) $\sqrt{\frac{\hat\theta_A(1 - \hat\theta_A)}{28} + \frac{\hat\theta_B(1 - \hat\theta_B)}{520}}$, avec tous les chiffres. c) $(\hat\theta_B - \hat\theta_A) \pm 1{,}96 \times$ b). d) Seul le premier terme change : 112 au lieu de 28.
 
 </details>
 
@@ -498,7 +498,7 @@ for a, b in zip(pts[:-1], pts[1:]):
     g = [np.dot(value(a + t * (b - a)), b - a) for t in np.linspace(0, 1, n_sub + 1)]
     total += np.dot(w, g) / (3 * n_sub)
 ```
-(`value` : ta fonction qui appelle `field` sur un point et contrôle ce qu'il rend.) c) `[[1 + t, t ** 2] for t in np.linspace(0, 1, N + 1)]`, puis divise chaque écart à $\frac{55}{6}$ par le suivant.
+(`value` : ta fonction qui appelle `field` sur un point et contrôle ce qu'il rend.) c) `[[1 + t, t ** 2] for t in np.linspace(0, 1, N + 1)]`, puis compare chaque valeur à $\frac{55}{6}$.
 
 </details>
 

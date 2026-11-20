@@ -10,7 +10,7 @@
 
 ### MB6.Q1 — Jeux coopératifs : ordres ou coalitions, poids d'une coalition, et ce que garantit chaque axiome
 
-1. $7! = 5\,040$ ordres ; $2^6 = 64$ coalitions sans $i$ (chacun des 6 autres joueurs y est ou non).
+1. $7! = 5\,040$ ordres ; $6! = 720$ où $i$ arrive le premier, soit $\frac17$ : chaque place est également probable (fiche §1).
 2. $w(2) = \frac{2!\,4!}{7!} = \frac{48}{5\,040} = \frac{1}{105}$. Il y a $\binom62 = 15$ coalitions de 2 joueurs sans $i$ : ensemble, $\frac{15}{105} = \frac17$. Chaque taille, de 0 à 6, pèse $\frac17$ : le nombre de joueurs arrivés avant $i$ est uniforme (fiche §1).
 3. (a) le joueur nul ; (b) la symétrie ; (c) l'additivité ; (d) l'efficacité.
 4. Faux. Dans $[5 ;\ 4, 2, 1, 1]$, le membre de 4 voix est pivot dès qu'il n'arrive pas le premier (18 ordres sur 24) ; chacun des trois autres n'est pivot que s'il arrive juste après lui, en deuxième position (2 ordres) : le membre de 2 voix a le pouvoir d'un membre d'une voix. Le pouvoir ne suit pas les voix (MB6.1 en donne un autre exemple).
@@ -18,9 +18,9 @@
 
 ### MB6.Q2 — Fixer une variable : moyenne marginale ou conditionnelle, courbes ICE parallèles ou non
 
-1. (A). (B) est la moyenne conditionnelle $M_j(v)$ ; (C) n'est ni l'une ni l'autre (la fonction en la moyenne, au lieu de la moyenne de la fonction).
+1. (A). (B) est la moyenne conditionnelle $M_j(v)$ ; (C) est la courbe ICE d'un seul point ; la dépendance partielle en est la moyenne, sur la loi de $\mathbf{X}_{-j}$ (fiche §3).
 2. Quand $X_j$ est indépendante de $\mathbf{X}_{-j}$ : la loi de $\mathbf{X}_{-j}$ sachant $X_j = v$ est alors sa loi marginale.
-3. $\operatorname{PD}_1(v) = 3v - 2\,\mathbb{E}[X_2] = 3v$ : pente 3. $\mathbb{E}[X_2 \mid X_1 = v] = 0{,}6\,v$ (M25a), donc $M_1(v) = 3v - 1{,}2\,v = 1{,}8\,v$ : pente $1{,}8$. La moyenne conditionnelle prête à $x_1$ une part de l'effet de $x_2$, qui l'accompagne.
+3. $\operatorname{PD}_1(v) = v - 4\,\mathbb{E}[X_2] = v$ : pente 1. $\mathbb{E}[X_2 \mid X_1 = v] = 0{,}6\,v$ (M25a), donc $M_1(v) = v - 4 \times 0{,}6\,v = -1{,}4\,v$ : pente $-1{,}4$. La moyenne conditionnelle prête à $x_1$ l'effet de $x_2$, qui l'accompagne : elle change même de sens.
 4. Oui : $f$ est une fonction de $x_1$ plus une fonction de $x_2$, et deux courbes ICE diffèrent de $x_2^2 - x_2'^2$. Non : $\frac{\partial^2f}{\partial x_1\partial x_2} = -e^{x_1 - x_2} \ne 0$ ; les courbes $v \mapsto e^{v}e^{-x_2}$ sont des multiples les unes des autres, pas des translatées.
 5. Vrai : c'est la définition de la fiche §3, la moyenne des $f(v, \mathbf{x}_{i,-j})$.
 
@@ -28,14 +28,14 @@
 
 1. 0, par le théorème du gradient : $f(\text{fin}) - f(\text{début}) = 0$ pour une boucle.
 2. $-2{,}5$, pour **tout** champ : parcourir le chemin à l'envers change le signe de la vitesse.
-3. (A) et (C) : (A) est le gradient de $x^3 - y^2$, (C) celui de $x^4y + y$. (B) n'en est pas un : $\frac{\partial F_1}{\partial y} = 1 \ne \frac{\partial F_2}{\partial x} = 2$.
+3. (A) et (C) : (A) est le gradient de $x^2 - y^3$, (C) celui de $x^4y + y$. (B) n'en est pas un : $\frac{\partial F_1}{\partial y} = 1 \ne \frac{\partial F_2}{\partial x} = 2$.
 4. $f(3, 4) = 125$ ; $\partial_xf = 3x\sqrt{x^2 + y^2}$, donc $x\,\partial_xf = 3 \times 9 \times 5 = 135$, et $y\,\partial_yf = 3 \times 16 \times 5 = 240$ ; leur somme $375 = 3 \times 125$ (Euler). Parts : $\frac{135}{3} = 45$ et $\frac{240}{3} = 80$, de somme $125 = f(3, 4) - f(0, 0)$.
 5. Faux : les deux partages coïncident pour une fonction multilinéaire (et pour une somme d'une telle fonction et de fonctions d'une seule coordonnée), pas en général : la fiche §4 en montre une qui n'est pas multilinéaire et dont les deux partages diffèrent.
 
 ### MB6.Q4 — Grilles et rangs : interpolation bilinéaire, centres ou coins alignés, ex aequo et transformation strictement croissante
 
 1. Vrai : en $(s, t) = (\frac12, \frac12)$, les quatre poids valent $\frac14$.
-2. Centres alignés : $c(u) = (u + \frac12)\frac{4}{10} - \frac12$, donc $c(0) = -0{,}3$ (ramené à 0) et $c(9) = 3{,}3$ (ramené à 3). Coins alignés : $c(u) = u\,\frac{3}{9} = \frac u3$, donc $c(0) = 0$ et $c(9) = 3$. Avant le retour au bord, l'écart vaut $0{,}3 = \frac12\big(1 - \frac{4}{10}\big)$ aux deux bords.
+2. Centres alignés : $\xi(u) = (u + \frac12)\frac{4}{10} - \frac12$, donc $\xi(0) = -0{,}3$ (ramené à 0) et $\xi(9) = 3{,}3$ (ramené à 3). Coins alignés : $\xi(u) = u\,\frac{3}{9} = \frac u3$, donc $\xi(0) = 0$ et $\xi(9) = 3$. Avant le retour au bord, l'écart vaut $0{,}3 = \frac12\big(1 - \frac{4}{10}\big)$ aux deux bords.
 3. $(3{,}5 ;\ 2 ;\ 3{,}5 ;\ 5 ;\ 1)$ : les deux $5{,}2$ occupent les places 3 et 4.
 4. $\rho_S(\ln x, y) = 0{,}7$ : $\ln$ est strictement croissante et garde les rangs. $\rho_S(-x, y) = -0{,}7$ : $x \mapsto -x$ renverse l'ordre, le rang $r_i$ devient $n + 1 - r_i$, et la corrélation change de signe.
 
@@ -69,11 +69,11 @@
 
 ### MB6.R2 — La dérivée d'une fonction le long d'une courbe : gradient, vitesse et règle de la chaîne (M05b, M17)
 
-1. $\nabla f(x, y) = (3x^2y^2,\ 2x^3y - 2)$, et $\nabla f(2, 1) = (12, 14)$.
+1. $\nabla f(x, y) = (6x^2y,\ 2x^3 - 3y^2)$, et $\nabla f(2, 1) = (24, 13)$.
 2. $\boldsymbol\gamma(1) = (2, 1)$ et $\boldsymbol\gamma'(t) = (1, -1)$.
-3. $(f\circ\boldsymbol\gamma)'(1) = \nabla f(2, 1)\cdot(1, -1) = 12 - 14 = -2$. Directement : $f(\boldsymbol\gamma(t)) = (1 + t)^3(2 - t)^2 - 2(2 - t)$, de dérivée $3(1 + t)^2(2 - t)^2 - 2(1 + t)^3(2 - t) + 2$, qui vaut $12 - 16 + 2 = -2$ en $t = 1$.
-4. $\nabla f(2, 1)\cdot\frac{(1, 1)}{\sqrt2} = \frac{26}{\sqrt2} = 13\sqrt2 \approx 18{,}385$.
-5. $\frac{\partial^2f}{\partial x\,\partial y} = \frac{\partial^2f}{\partial y\,\partial x} = 6x^2y$, soit 24 en $(2, 1)$ : égales, comme le garantit Schwarz pour une fonction de classe $C^2$.
+3. $(f\circ\boldsymbol\gamma)'(1) = \nabla f(2, 1)\cdot(1, -1) = 24 - 13 = 11$.
+4. $\nabla f(2, 1)\cdot\frac{(1, 1)}{\sqrt2} = \frac{37}{\sqrt2} \approx 26{,}163$.
+5. $\frac{\partial^2f}{\partial x\,\partial y} = \frac{\partial^2f}{\partial y\,\partial x} = 6x^2$, soit 24 en $(2, 1)$ : égales, comme le garantit Schwarz pour une fonction de classe $C^2$.
 
 ### MB6.R3 — La loi conditionnelle d'un couple gaussien : une moyenne affine en la valeur observée (M25a)
 
@@ -89,7 +89,7 @@
 
 ### Ex MB6.1 — Un conseil de quatre membres à vote pondéré : l'indice de Shapley-Shubik par les 24 ordres, un membre nul, deux membres de poids différents et de même pouvoir, et le nombre d'ordres tirés au hasard qui suffit (Hoeffding)
 
-**Réponses.** a) `[16, 4, 4, 0]` · b) `[0.6667, 0.1667, 0.1667, 0]` · c) `[10, 6, 6, 2]` · d) `783`.
+**Réponses.** a) `[16, 4, 4, 0]` · b) `[0.6667, 0.1667, 0.1667, 0.0000]` · c) `[10, 6, 6, 2]` · d) `783`.
 
 **Démarche.** Gagnent (au moins 11 voix) : AB (14), AC (11), ABC, ABD (15), ACD (12) et ABCD ; AD (9) et BCD (10) perdent, comme les membres seuls et les autres paires. Dans un ordre, le pivot est le membre dont l'arrivée fait passer les voix déjà réunies sous 11 à au moins 11.
 - a) A est pivot dès qu'il arrive après B ou C : en deuxième position derrière B ou C (2 × 2 = 4 ordres) ; en troisième derrière deux membres de BCD (9, 7 ou 4 voix, puis 8 de plus : 6 ordres) ; en dernier derrière BCD (10 voix : 6 ordres) ; derrière D seul (1 + 8 = 9), il ne l'est pas. Total 16. B est pivot juste après A (2 ordres) ou après A et D (9 voix, 2 ordres) : 4 ; C de même (8 + 3 = 11 et 9 + 3 = 12) : 4. D ne l'est jamais. Total 24.
@@ -121,7 +121,7 @@ Dans ta copie : $c = c^{(1)} + c^{(2)} + c^{(3)}$, où $c^{(1)}(S) = 30$ si $S \
 
 ### Ex MB6.3 — Le rendement d'une parcelle selon la pluie et l'engrais : courbes ICE et dérivée croisée de deux modèles, puis la moyenne marginale et la moyenne conditionnelle quand pluie et engrais sont corrélés
 
-**Réponses.** a) `[1.2, 1.2, 1.2]` · b) `[-0.5, 1.0, 2.5]` · c) `[0, 1]` · d) `[8.0, 8.252]` · e) `0.504`.
+**Réponses.** a) `[1.2, 1.2, 1.2]` · b) `[-0.5, 1.0, 2.5]` · c) `[0, 1]` · d) `[8.000, 8.252]` · e) `0.504`.
 
 **Démarche.**
 - a) $f_1(p, 2) - f_1(p, 1) = 2{,}4 - 0{,}4 \times (4 - 1) = 1{,}2$, quel que soit $p$ : les courbes ICE de l'engrais du modèle 1 sont translatées les unes des autres (de $0{,}6\,\Delta p$).
@@ -138,16 +138,16 @@ Dans ta copie : modèle 1, trois paraboles décalées verticalement ; modèle 2,
 
 ### Ex MB6.4 — Le travail de deux forces entre deux points : un champ de gradient le long de trois chemins, puis un champ qui n'en est pas un (Schwarz) le long de deux chemins
 
-**Réponses.** a) `7` · b) `[3, 4]` · c) `7` · d) `[2, 6]` · e) `[8, 12]`.
+**Réponses.** a) `9` · b) `[5, 4]` · c) `9` · d) `[2, 6]` · e) `[8, 12]`.
 
-**Démarche.** $\mathbf{F} = (2xy^2 + 3,\ 2x^2y)$.
-- a) $\boldsymbol\gamma(t) = (1 + t, t)$, $\boldsymbol\gamma' = (1, 1)$ : $\mathbf{F}\cdot\boldsymbol\gamma' = 2(1 + t)t^2 + 3 + 2(1 + t)^2t = 3 + 2t + 6t^2 + 4t^3$, d'intégrale $3 + 1 + 2 + 1 = 7$.
-- b) Horizontal ($y = 0$) : $F_1 = 3$, $\int_1^23\,\mathrm{d}x = 3$. Vertical ($x = 2$) : $F_2 = 8y$, $\int_0^18y\,\mathrm{d}y = 4$.
-- c) $\boldsymbol\gamma' = (1, 2t)$ : $\big(2(1 + t)t^4 + 3\big) + 2(1 + t)^2t^2 \times 2t = 3 + 4t^3 + 10t^4 + 6t^5$, d'intégrale $3 + 1 + 2 + 1 = 7$.
+**Démarche.** $\mathbf{F} = (2xy^2 + 5,\ 2x^2y)$.
+- a) $\boldsymbol\gamma(t) = (1 + t, t)$, $\boldsymbol\gamma' = (1, 1)$ : $\mathbf{F}\cdot\boldsymbol\gamma' = 2(1 + t)t^2 + 5 + 2(1 + t)^2t = 5 + 2t + 6t^2 + 4t^3$, d'intégrale $5 + 1 + 2 + 1 = 9$.
+- b) Horizontal ($y = 0$) : $F_1 = 5$, $\int_1^25\,\mathrm{d}x = 5$. Vertical ($x = 2$) : $F_2 = 8y$, $\int_0^18y\,\mathrm{d}y = 4$.
+- c) $\boldsymbol\gamma' = (1, 2t)$ : $\big(2(1 + t)t^4 + 5\big) + 2(1 + t)^2t^2 \times 2t = 5 + 4t^3 + 10t^4 + 6t^5$, d'intégrale $5 + 1 + 2 + 1 = 9$.
 - d) $\frac{\partial G_1}{\partial y} = 2$ et $\frac{\partial G_2}{\partial x} = 6x$, qui vaut 6 en $A$.
 - e) Segment : $\mathbf{G}\cdot(1, 1) = 2t + 3(1 + t)^2$, d'intégrale $1 + 7 = 8$. Escalier : $G_1 = 0$ sur le morceau horizontal ($y = 0$), $G_2 = 12$ sur le vertical ($x = 2$) : $0 + 12 = 12$.
 
-Dans ta copie : a), b) et c) valent $f(B) - f(A) = (4 + 6) - 3 = 7$, le théorème du gradient. d) prouve que $\mathbf{G}$ n'est pas un gradient (la contraposée de Schwarz) ; mais deux chemins donnés pourraient encore donner la même valeur : seule une valeur différente, comme en e), montre la dépendance du chemin.
+Dans ta copie : a), b) et c) valent $f(B) - f(A) = (4 + 10) - 5 = 9$, le théorème du gradient. d) prouve que $\mathbf{G}$ n'est pas un gradient (la contraposée de Schwarz) ; mais deux chemins donnés pourraient encore donner la même valeur : seule une valeur différente, comme en e), montre la dépendance du chemin.
 
 **Erreurs fréquentes.** Calculer $f(A) - f(B)$ ; ne garder que la première composante du produit scalaire ; prendre $(1, t)$ pour la vitesse de $(1 + t, t^2)$ ; échanger les deux morceaux de l'escalier, ou passer par le coin $(1, 1)$ ; échanger les dérivées croisées, ou les calculer en $B$ ; en e), donner l'escalier avant le segment.
 
@@ -155,7 +155,7 @@ Dans ta copie : a), b) et c) valent $f(B) - f(A) = (4 + 6) - 3 = 7$, le théorè
 
 ### Ex MB6.5 — La variation d'un coût à trois facteurs (prix, quantité, taux de change) partagée entre les facteurs : le long du segment, puis par la moyenne des six chemins en escalier, et pourquoi les deux partages coïncident
 
-**Réponses.** a) `-343.05` · b) `[1143.9, -1011.6, -475.35]` · c) `[-477.9, -469.2]` · d) `-475.35`.
+**Réponses.** a) `-343.05` · b) `[1143.90, -1011.60, -475.35]` · c) `[-477.90, -469.20]` · d) `-475.35`.
 
 **Démarche.** $C(\mathbf{r}) = 11{,}5 \times 680 \times 0{,}93 = 7\,272{,}60$ et $C(\mathbf{x}) = 13{,}5 \times 590 \times 0{,}87 = 6\,929{,}55$ : a) $-343{,}05$. Avec $\mathbf{h} = (2 ;\ -90 ;\ -0{,}06)$, le long du segment :
 - prix : $2\int_0^1(680 - 90t)(0{,}93 - 0{,}06t)\,\mathrm{d}t = 2\big(632{,}4 - \frac{40{,}8 + 83{,}7}{2} + \frac{5{,}4}{3}\big) = 2 \times 571{,}95 = 1\,143{,}90$ ;
@@ -172,13 +172,13 @@ Dans ta copie : $C = p\,q\,\tau$ est affine en chaque facteur quand les deux aut
 
 ### Ex MB6.6 — Des relevés de capteurs sur une grille 3 × 4 : la dérivée d'un indice régional par un réchauffement uniforme, puis la grille agrandie deux fois par interpolation bilinéaire, centres ou coins alignés
 
-**Réponses.** a) `32.9` · b) `16` · c) `50.2` · d) `[-0.25, 0.25, 0.75, 1.25, 1.75, 2.25]` · e) `[0.0, 0.4, 0.8, 1.2, 1.6, 2.0]` · f) `[12.15, 12.55]`.
+**Réponses.** a) `32.9` · b) `16` · c) `50.2` · d) `[-0.25, 0.25, 0.75, 1.25, 1.75, 2.25]` · e) `[0.00, 0.40, 0.80, 1.20, 1.60, 2.00]` · f) `[12.15, 12.55]`.
 
 **Démarche.**
 - a) Les huit cases au-dessus de 10 °C : $2 \times 1{,}8 + 3 \times 3{,}2 + 1 \times 0{,}8 + 2 \times 2{,}5 + 2 \times 4{,}1 + 3 \times 0{,}3 + 1 \times 2{,}0 + 2 \times 1{,}4 = 32{,}9$ ; les quatre autres comptent 0.
 - b) $\frac{\partial y}{\partial T_{ij}} = a_{ij}$ si $T_{ij} > 10$, 0 si $T_{ij} < 10$ ; la dérivée par un décalage uniforme est leur somme : $2 + 3 + 1 + 2 + 2 + 3 + 1 + 2 = 16$.
 - c) Les cases déjà au-dessus de 10 ajoutent 16 ; celles à $9{,}4$ et $9{,}9$ passent au-dessus et ajoutent $0{,}4 + 0{,}9$ ; celles à $8{,}7$ et $7{,}6$ restent à 0 : $32{,}9 + 16 + 1{,}3 = 50{,}2$.
-- d) $c(u) = (u + \frac12)\frac36 - \frac12 = \frac u2 - \frac14$. e) $c(u) = u\,\frac25$.
+- d) $\xi(u) = (u + \frac12)\frac36 - \frac12 = \frac u2 - \frac14$. e) $\xi(u) = u\,\frac25$.
 - f) Ligne 4 : $1{,}75$ (centres), $1{,}6$ (coins). Colonne 5 : $(5 + \frac12)\frac48 - \frac12 = 2{,}25$ (centres), $5 \times \frac37 = \frac{15}{7} \approx 2{,}1429$ (coins). Centres : sur la case des lignes 1 et 2, colonnes 2 et 3, avec $s = 0{,}75$ et $t = 0{,}25$ : ligne 1, $14{,}1 + 0{,}25 \times (9{,}9 - 14{,}1) = 13{,}05$ ; ligne 2, $12{,}0 + 0{,}25 \times (11{,}4 - 12{,}0) = 11{,}85$ ; puis $13{,}05 + 0{,}75 \times (11{,}85 - 13{,}05) = 12{,}15$. Coins, avec $s = 0{,}6$ et $t = \frac17$ : $13{,}5$ et $\approx 11{,}9143$, puis $13{,}5 + 0{,}6 \times (11{,}9143 - 13{,}5) \approx 12{,}5486$.
 
 Dans ta copie : la moyenne des 12 dérivées partielles vaut $\frac{16}{12} \approx 1{,}333$, la dérivée de b) divisée par $HW = 12$ (fiche §5). $y$ est affine par morceaux en $\delta$ : la dérivée ne vaut que tant qu'aucune case ne franchit 10 °C, et deux cases le franchissent avant $\delta = 1$.
@@ -189,10 +189,10 @@ Dans ta copie : la moyenne des 12 dérivées partielles vaut $\frac{16}{12} \app
 
 ### Ex MB6.7 — Un contrôle de pièces sur deux lignes de production aux taux de défauts différents : les taux de rejet sous la séparation, un tirage au sort entre deux seuils pour atteindre un taux de détection, et les poids qui rendent ligne et défaut indépendants
 
-**Réponses.** a) `[0.0928, 0.1632]` · b) `0.2727` · c) `0.0736` · d) `[1.6111, 0.961, 0.6905, 1.0504]` · e) `[0.0967, 0.0967]`.
+**Réponses.** a) `[0.0904, 0.1576]` · b) `0.2727` · c) `0.0736` · d) `[1.6111, 0.9610, 0.6905, 1.0504]` · e) `[0.0967, 0.0967]`.
 
 **Démarche.**
-- a) $P(\hat Y = 1 \mid G = g) = 0{,}92\,p_g + 0{,}04\,(1 - p_g) = 0{,}04 + 0{,}88\,p_g$ : $0{,}0928$ et $0{,}1632$.
+- a) $P(\hat Y = 1 \mid G = g) = 0{,}88\,p_g + 0{,}04\,(1 - p_g) = 0{,}04 + 0{,}84\,p_g$ : $0{,}0904$ et $0{,}1576$.
 - b) $0{,}74\,q + 0{,}96\,(1 - q) = 0{,}90$ donne $q = \frac{0{,}06}{0{,}22} = \frac{3}{11} \approx 0{,}2727$.
 - c) $\frac{3}{11} \times 0{,}03 + \frac{8}{11} \times 0{,}09 = \frac{0{,}81}{11} \approx 0{,}0736$.
 - d) 2 400 pièces, dont 232 défectueuses : $P(G = 1) = \frac{1\,300}{2\,400}$, $P(G = 2) = \frac{1\,100}{2\,400}$, $P(\text{défaut}) = \frac{232}{2\,400}$. $w(1, \text{défaut}) = \frac{1\,300 \times 232}{2\,400 \times 78} = \frac{29}{18} \approx 1{,}6111$ ; $w(1, \text{sans défaut}) = \frac{1\,300 \times 2\,168}{2\,400 \times 1\,222} \approx 0{,}9610$ ; $w(2, \text{défaut}) = \frac{1\,100 \times 232}{2\,400 \times 154} = \frac{29}{42} \approx 0{,}6905$ ; $w(2, \text{sans défaut}) = \frac{1\,100 \times 2\,168}{2\,400 \times 946} \approx 1{,}0504$.
@@ -200,7 +200,7 @@ Dans ta copie : la moyenne des 12 dérivées partielles vaut $\frac{16}{12} \app
 
 Dans ta copie : sous la séparation, le taux de rejet suit le taux de défauts ; avec $p_1 \ne p_2$, il diffère d'une ligne à l'autre, et l'indépendance $\hat Y \perp G$ ne tient pas (∂ MB6.10). Les comptes pondérés valent $125{,}67$ et $1\,174{,}33$ (ligne 1), $106{,}33$ et $993{,}67$ (ligne 2) : toujours 1 300 et 1 100 pièces, et 232 défectueuses.
 
-**Erreurs fréquentes.** Oublier les fausses alertes, ou les compter sur toutes les pièces au lieu des bonnes ; donner le taux de défauts pour le taux de rejet ; en b), la probabilité de tirer B au lieu de A, ou l'écart sans le diviser ; en c), échanger les poids des deux seuils, ou prendre le milieu des deux taux ; en d), diviser par $P(y \mid g)$ au lieu de $P(g, y)$, ou ne pas diviser du tout ; en e), diviser par le total de l'usine, ou garder les taux bruts.
+**Erreurs fréquentes.** Oublier les fausses alertes ; échanger les poids des deux taux (le taux de détection pèse la part des pièces défectueuses, le taux de fausses alertes celle des bonnes) ; en b), la probabilité de tirer B au lieu de A, ou l'écart sans le diviser ; en c), échanger les poids des deux seuils, ou prendre le milieu des deux taux ; en d), diviser par $P(y \mid g)$ au lieu de $P(g, y)$, ou ne pas diviser du tout ; en e), échanger les poids des deux lignes, ou garder les taux bruts.
 
 **Variante.** Pour détecter 85 % des pièces défectueuses : $q = \frac12$, et un taux de fausses alertes de $0{,}06$.
 
@@ -234,10 +234,10 @@ Dans ta copie : sous la séparation, le taux de rejet suit le taux de défauts ;
 ### Ex MB6.10 — Indépendance et séparation ne tiennent ensemble, quand les taux de base diffèrent, que pour une décision qui ignore le label ; la repondération P(g)P(y)/P(g, y) rend groupe et label indépendants sans changer leurs marges
 
 **Démonstration.**
-1. Par les probabilités totales, $P(\hat Y = 1 \mid G = g) = t_g\,p_g + f_g\,(1 - p_g)$. Sous la séparation, c'est $f + (t - f)\,p_g$ ; l'indépendance impose l'égalité pour $g = 1$ et 2 : $(t - f)(p_1 - p_2) = 0$, donc $t = f$ puisque $p_1 \ne p_2$. Et $t = f$ dit $P(\hat Y = 1 \mid Y = 1, G = g) = P(\hat Y = 1 \mid Y = 0, G = g)$ : $\hat Y \perp Y$ dans chaque groupe. Réciproque : une décision indépendante du label, de **même** taux dans les deux groupes, vérifie l'indépendance et la séparation ; si son taux diffère d'un groupe à l'autre, elle vérifie $\hat Y \perp Y \mid G$, mais ni l'indépendance ni la séparation.
+1. Par les probabilités totales, $P(\hat Y = 1 \mid G = g) = t_g\,p_g + f_g\,(1 - p_g)$. Si $p_1 = p_2$ et $(t_1, f_1) = (t_2, f_2)$, les deux taux sont égaux : la séparation entraîne l'indépendance. Sous la séparation, c'est $f + (t - f)\,p_g$ ; l'indépendance impose l'égalité pour $g = 1$ et 2 : $(t - f)(p_1 - p_2) = 0$, donc $t = f$ puisque $p_1 \ne p_2$. Et $t = f$ dit $P(\hat Y = 1 \mid Y = 1, G = g) = P(\hat Y = 1 \mid Y = 0, G = g)$ : $\hat Y \perp Y$ dans chaque groupe. Réciproquement, pas toujours : une décision telle que $\hat Y \perp Y$ dans chaque groupe a, dans le groupe $g$, un seul taux $t_g = f_g$ ; si ce taux est le même dans les deux groupes, elle vérifie l'indépendance et la séparation ; s'il diffère, elle ne vérifie ni l'une ni l'autre.
 2. $Q(g, y) = P(g)\,P(y) \ge 0$, et $\sum_{g, y}Q(g, y) = \sum_gP(g)\sum_yP(y) = 1$ : c'est une loi. Ses marges : $\sum_yQ(g, y) = P(g)$ et $\sum_gQ(g, y) = P(y)$. Et $Q(g, y)$ est le produit de ses marges : $G$ et $Y$ sont indépendants sous $Q$.
 
-**Grille de relecture.** 1 : la formule des probabilités totales ; la factorisation par $p_1 - p_2$, qui exige $p_1 \ne p_2$ ; la traduction de $t = f$ en indépendance conditionnelle ; la réciproque, avec la condition d'un même taux. 2 : la positivité et la somme 1, les deux marges calculées, l'indépendance comme produit des marges ; l'hypothèse $P(g, y) > 0$ (le poids doit être défini).
+**Grille de relecture.** 1 : la formule des probabilités totales et le cas $p_1 = p_2$ ; la factorisation par $p_1 - p_2$, qui exige $p_1 \ne p_2$ ; la traduction de $t = f$ en indépendance conditionnelle ; la réciproque, avec la condition d'un même taux. 2 : la positivité et la somme 1, les deux marges calculées, l'indépendance comme produit des marges ; l'hypothèse $P(g, y) > 0$ (le poids doit être défini).
 
 <a id="pont"></a>
 
@@ -247,7 +247,7 @@ Dans ta copie : sous la séparation, le taux de rejet suit le taux de défauts ;
 
 **Réponses.** a) `[0.7143, 0.8615]` · b) `0.0867` · c) `[-0.023, 0.317]` · d) `0.0453`.
 
-**Démarche.** a) Un taux de détection se calcule sur les prélèvements contaminés : $\frac{20}{28} \approx 0{,}7143$ et $\frac{448}{520} \approx 0{,}8615$ ; les 900 et 4 000 prélèvements reçus n'y entrent pas. b) $\frac{0{,}7143 \times 0{,}2857}{28} \approx 0{,}0072886$ et $\frac{0{,}8615 \times 0{,}1385}{520} \approx 0{,}0002294$ ; erreur type $\sqrt{0{,}0075180} \approx 0{,}0867$. c) $0{,}1473 \pm 1{,}96 \times 0{,}0867 = 0{,}1473 \pm 0{,}1699$ : $[-0{,}023 ;\ 0{,}317]$. d) Le premier terme est divisé par 4 : $\sqrt{0{,}0018222 + 0{,}0002294} \approx 0{,}0453$, et l'intervalle devient $[0{,}058 ;\ 0{,}236]$.
+**Démarche.** a) Un taux de détection se calcule sur les prélèvements contaminés : $\frac{20}{28} \approx 0{,}7143$ et $\frac{448}{520} \approx 0{,}8615$. b) $\frac{0{,}7143 \times 0{,}2857}{28} \approx 0{,}0072886$ et $\frac{0{,}8615 \times 0{,}1385}{520} \approx 0{,}0002294$ ; erreur type $\sqrt{0{,}0075180} \approx 0{,}0867$. c) $0{,}1473 \pm 1{,}96 \times 0{,}0867 = 0{,}1473 \pm 0{,}1699$ : $[-0{,}023 ;\ 0{,}317]$. d) Le premier terme est divisé par 4 : $\sqrt{0{,}0018222 + 0{,}0002294} \approx 0{,}0453$.
 
 Dans ta copie : l'intervalle contient 0 : ces données ne tranchent pas (ce qui ne veut pas dire « aucun écart ») ; le laboratoire A, avec ses 28 prélèvements contaminés, fait 97 % de la variance. Un bootstrap stratifié tire avec remise 28 prélèvements contaminés de A et 520 de B, recalcule l'écart, recommence, et lit l'intervalle sur les centiles des écarts obtenus.
 
@@ -283,11 +283,11 @@ Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses e
 
 - **MB6.13 🔨** `coalition_weights` : les contrôles (un entier $n \ge 1$, ni booléen ni flottant ; `exact` booléen), puis `Fraction(math.factorial(s) * math.factorial(n - 1 - s), math.factorial(n))`, converti par `float` si `exact` est faux. a) $\big(\frac19, \frac1{72}, \frac1{252}, \frac1{504}, \frac1{630}, \frac1{504}, \frac1{252}, \frac1{72}, \frac19\big)$. b) $\binom{24}{12} = 2\,704\,156$. Ce qu'il faut observer : chaque taille pèse $\frac1n$ en tout, partagé entre $\binom{n-1}{s}$ coalitions ; les tailles moyennes ont le plus de coalitions, donc les plus petits poids : une coalition de 12 membres sur 24 pèse 2,7 millions de fois moins que la coalition vide.
 - **MB6.14 🔨** `harsanyi_dividends` : les valeurs dans un dictionnaire, taille par taille ; puis, pour chaque $T$, la somme de $(-1)^{\lvert T\rvert - \lvert S\rvert}v(S)$ sur les $S \subseteq T$. a) $(-30, -30, -51, 30)$, comme MB6.2. b) $(4{,}5 ;\ 6 ;\ 3 ;\ 6)$, de somme $19{,}5 = v(N)$. c) $(-1 ;\ 1{,}5)$. d) $(1, 1, -1)$. Ce qu'il faut observer : $d_{\{1, 2\}} = -1$ : les maraîchers 1 et 2 vendent moins ensemble que séparément (ils se font concurrence), et ce dividende de $-1$ (100 € de bénéfice en moins par semaine) est partagé entre eux deux. Dans le conseil, A gagne avec B ou avec C : $d_{\{0, 1\}} = d_{\{0, 2\}} = 1$ ; mais ABC ne gagne qu'une fois, pas deux, d'où $d_{\{0, 1, 2\}} = -1$ ; et $\varphi_A = \frac12 + \frac12 - \frac13 = \frac23$, comme MB6.1.
-- **MB6.15 🔨** `line_integral` : pour chaque segment, `ts = np.linspace(0, 1, n_sub + 1)`, les produits scalaires `np.dot(field(a + t * (b - a)), b - a)` point par point, et les poids de Simpson $1, 4, 2, \ldots, 4, 1$ fois $\frac{h}{3}$. a) $(7, 7)$. b) $(8, 12)$. c) $(9{,}093750 ;\ 9{,}162109 ;\ 9{,}166382)$. Ce qu'il faut observer : l'écart à $\frac{55}{6}$ ($0{,}0729$, $0{,}0046$, $0{,}00028$) est divisé par 16 quand le nombre de segments est multiplié par 4 : les cordes approchent l'arc à l'ordre 2. Pour $\mathbf{F}$, toutes les lignes brisées de $A$ à $B$ donnent $f(B) - f(A) = 7$ : le chemin ne compte pas.
+- **MB6.15 🔨** `line_integral` : pour chaque segment, `ts = np.linspace(0, 1, n_sub + 1)`, les produits scalaires `np.dot(field(a + t * (b - a)), b - a)` point par point, et les poids de Simpson $1, 4, 2, \ldots, 4, 1$ fois $\frac{h}{3}$. a) $(9, 9)$. b) $(8, 12)$. c) $(9{,}093750 ;\ 9{,}162109 ;\ 9{,}166382)$. Ce qu'il faut observer : l'écart à $\frac{55}{6}$ ($0{,}0729$, $0{,}0046$, $0{,}00028$) diminue : la ligne brisée s'approche de l'arc. Pour $\mathbf{F}$, toutes les lignes brisées de $A$ à $B$ donnent $f(B) - f(A) = 9$ : le chemin ne compte pas.
 - **MB6.16 🔨** `spearman_rho` : les rangs par `np.argsort`, puis la moyenne des places de chaque groupe de valeurs égales ; Pearson sur les rangs centrés ; `nan` si une somme de carrés est nulle. a) $\approx 0{,}8787$. b) $\approx -0{,}8787$. Ce qu'il faut observer : l'ex aequo de l'échelle de Mohs (deux minéraux à 3) rend la formule en $\sum d_i^2$ approchée ; $v \mapsto \frac1v$ est strictement décroissante sur les duretés positives : elle renverse l'ordre, et $\rho_S$ change de signe.
 - **MB6.17 🔮** Prédictions attendues : a) (A) ; b) (C) ; c) (B) ; d) (B). Mesures : e) $(0 ;\ 8 ;\ -8 ;\ 16)$ (à $10^{-14}$ près pour le premier). Ce qu'il faut observer (après l'expérience) : l'aire du triangle vaut 4, et $\mathbf{R}$ donne $8$, deux fois l'aire ; sur chaque côté, $\mathbf{R}\cdot\boldsymbol\gamma'$ est le double de l'aire balayée par le rayon depuis l'origine, si bien que la boucle donne deux fois l'aire enfermée, avec un signe qui dit le sens du parcours. Une boucle d'intégrale nulle ne suffit pas : $\mathbf{R}$ donne 0 sur un aller et retour, sans être un gradient.
 - **MB6.18 🔬** a) $\operatorname{PD}(26) = e^{0{,}4 + 0{,}08} \approx 1{,}6161$ ; $M(26) \approx 1{,}6161$ ($\rho = 0$), $2{,}0682$ ($\rho = 0{,}5$), $2{,}4478$ ($\rho = 0{,}9$), par $\mathbb{E}[U \mid T = 26] = 70 + \rho\frac83 \times 4$ et $\mathbb{V}(U \mid T = 26) = 64(1 - \rho^2)$. b) La fenêtre garde environ $2{,}7$ % des points, soit 8 200 environ pour chaque $\rho$ ; avec la graine de la correction, les estimations de $\operatorname{PD}$ sont à $0{,}001$ près, celles de $M$ à $0{,}015$ près. Ce qu'il faut observer : pour $\rho = 0$, les deux moyennes sont égales ; plus la corrélation est forte, plus la moyenne conditionnelle prête à la température l'effet du phosphore qui l'accompagne. $\operatorname{PD}$ se moyenne sur 300 000 points, $M$ sur ceux de la fenêtre seulement : son estimation est plus dispersée, et une fenêtre dix fois plus étroite garderait dix fois moins de points (environ $\sqrt{10}$ fois plus de dispersion), pour un biais plus petit.
 - **MB6.19 🎨** a) $f(B) - f(A) \approx 1{,}6968$. b) Le plus grand cumul vaut environ $3{,}694$ le long du segment (qui passe près du sommet de la bosse), $2{,}014$ le long de la ligne brisée. Ce qu'il faut observer : le segment descend d'abord dans le creux puis monte sur la bosse, la ligne brisée la contourne ; les deux cumuls finissent à $f(B) - f(A)$, parce que le cumul jusqu'au point $\boldsymbol\gamma(t)$ vaut $f(\boldsymbol\gamma(t)) - f(A)$ (théorème du gradient) : il ne dépend que du point atteint.
-- **MB6.20 🐛** (1) Diviser par $n!$ : `math.factorial(s) * math.factorial(n - 1 - s) / math.factorial(n)`. a) $(1, 7)$ : la somme pondérée fautive vaut $n$. Pour $n = 1$, $0!\,0! / 0! = 0!\,0! / 1! = 1$ : l'erreur ne se voit pas. (2) Donner aux valeurs égales la moyenne de leurs places. b) $\approx (0{,}5988 ;\ 0{,}5357)$. Sans ex aequo, les deux rangements coïncident. (3) `(1 - t) * a + t * b`. c) $(14{,}4 ;\ 17{,}6)$. En $t = \frac12$, les deux poids valent $\frac12$ : l'échange ne se voit pas. Il ne se verrait pas non plus à l'intérieur d'une intégrale le long d'un segment (les points et les poids de Simpson sont symétriques) : c'est en lisant une valeur intermédiaire qu'il change le résultat. Des corrections fausses ne rendent pas juste : des rangs « min », « max » ou « denses » aux ex aequo donnent $0{,}527$, $0{,}638$ et $0{,}650$ en b).
+- **MB6.20 🐛** (1) Diviser par $n!$ : `math.factorial(s) * math.factorial(n - 1 - s) / math.factorial(n)`. a) $(1, 7)$ : la somme pondérée fautive vaut $n$. Pour $n = 1$, $0!\,0! / 0! = 0!\,0! / 1! = 1$ : l'erreur ne se voit pas. (2) Donner aux valeurs égales la moyenne de leurs places. b) $\approx (0{,}5988 ;\ 0{,}5357)$. Sans ex aequo, les deux rangements coïncident. (3) `(1 - t) * a + t * b`. c) $(14{,}4 ;\ 17{,}6)$. En $t = \frac12$, les deux poids valent $\frac12$ : l'échange ne se voit pas. Il ne se verrait pas non plus à l'intérieur d'une intégrale le long d'un segment (les points et les poids de Simpson sont symétriques) : c'est en lisant une valeur intermédiaire qu'il change le résultat. Des corrections fausses ne rendent pas juste : des rangs « min », « max » ou « denses » aux ex aequo donnent encore d'autres valeurs, que la vérification refuse.
 - **MB6.21 🛠️** Une correction possible : `reversed_changes_sign_21` tire cinq lignes brisées de 2 à 5 segments et compare `method(F, P)` à `-method(F, P[::-1])` pour $\mathbf{F}(x, y) = (\sin x + y^2,\ x\cos y)$, qui n'est pas un gradient ; `split_changes_nothing_21` insère un sommet en un point tiré au hasard d'un segment, pour $\mathbf{F}(x, y) = (x^3 - 2y,\ x^2 + y^3)$ ; `gradient_gives_difference_21` prend le gradient de $f(x, y) = x^3 - 4y^3 + 5xy$ et compare à $f(\text{fin}) - f(\text{début})$ ; chaque comparaison à $10^{-9}$ près en valeur relative. a) `[True, True, True]`. Ce qu'il faut observer : pour un champ non polynomial, la règle de Simpson à 20 intervalles fait une erreur d'environ $10^{-5}$, qui change quand on coupe un segment : le deuxième test refuserait la référence elle-même. Avec des coordonnées de degré 2 ou 3, la règle de Simpson est exacte et les propriétés tiennent à $10^{-13}$ près ; la méthode des trapèzes, exacte seulement pour un champ affine, est alors refusée par les deux derniers tests, mais passe le premier : ses points aussi sont symétriques. Des lignes tirées au hasard, plusieurs fois, évitent un cas particulier où une erreur s'annulerait (un segment parallèle à un axe, une ligne symétrique).
 - **MB6.22 🏆** `shapley_shubik_22` : pour chaque membre $i$, un tableau `table[s, t]` des coalitions des autres membres de taille $s$ et de poids total $t < q$, rempli membre par membre (`table[1:, w:] += table[:-1, :q - w]`, avec une copie) ; puis `counts = table[:, max(q - w_i, 0):q].sum(axis=1)` (les coalitions qui perdent et que $i$ fait gagner) et $\varphi_i = \sum_sw(s)\,\mathrm{counts}[s]$, avec `coalition_weights(n)`. a) $\varphi_0 \approx 0{,}131430$. b) Les 25 indices, de $0{,}131430$ (12 voix) à $0{,}009681$ (une voix) ; somme 1. Ce qu'il faut observer : les membres de mêmes voix ont le même indice (symétrie) ; le pouvoir n'est pas proportionnel aux voix (12 voix sur 98, soit 12,2 %, donnent 13,1 % du pouvoir). La vérification tire trois séries de cinq conseils cachés de 30 à 50 membres : la programmation dynamique les traite en une fraction de seconde, alors que l'énumération de leurs $2^{29}$ à $2^{49}$ coalitions est impossible. Échouent à chaque exécution : les voix prises pour le pouvoir, les voix normalisées, des parts égales, un tirage de 20 000 ordres, la fenêtre de poids qui inclut $q$, le poids de taille décalé d'un rang, des comptes en `float32`, et les indices du conseil du notebook recopiés.

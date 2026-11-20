@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les joueurs d'un jeu sont nommés par des lettres ou numérotés de 1 à $n$ sur papier, de 0 à $n - 1$ dans le code ; $N$ est le grand groupe, $S$ une coalition de taille $s$, $\bar S$ son complément ; $v(\varnothing)$ n'est pas forcément nul, et l'efficacité s'écrit $\sum_i\varphi_i = v(N) - v(\varnothing)$ ($c$ pour un coût). $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$ est le poids d'**une** coalition de taille $s$ ; un vote pondéré s'écrit $[q ;\ \omega_1, \ldots, \omega_n]$ (quota $q$, voix $\omega_i$) ; $d_T$ est le dividende de Harsanyi de $T$, $u_T$ son jeu d'unanimité. Au §3, $\operatorname{PD}_j(v) = \mathbb{E}[f(v, \mathbf{X}_{-j})]$ est la moyenne marginale et $M_j(v) = \mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ la moyenne conditionnelle. Au §4, un chemin $\boldsymbol\gamma$ a pour paramètre $t \in [0, 1]$, $\mathbf{r}$ est la référence d'un partage et $\mathbf{h} = \mathbf{x} - \mathbf{r}$. Au §5, une grille de $h$ lignes devient une grille de $H$ lignes ; la case d'arrivée $u$ a la coordonnée d'origine $c(u)$, et les lignes et les colonnes sont numérotées à partir de 0. Au §6, $\rho_S$ est la corrélation de rangs de Spearman. Aux §7 et §8, $G$ est le groupe, $Y$ le label (1 : l'événement a lieu), $\hat Y$ la décision, $S$ le score, $p_g$ le taux de base du groupe $g$ ; le taux de détection est le TPR, le taux de fausses alertes le FPR ; $q$ est la probabilité de tirer un seuil, $w(g, y)$ un poids de repondération. Les logarithmes sont népériens.
+Dans tout le chapitre, comme dans la fiche : les joueurs d'un jeu sont nommés par des lettres ou numérotés de 1 à $n$ sur papier, de 0 à $n - 1$ dans le code ; $N$ est le grand groupe, $S$ une coalition de taille $s$, $\bar S$ son complément ; $v(\varnothing)$ n'est pas forcément nul, et l'efficacité s'écrit $\sum_i\varphi_i = v(N) - v(\varnothing)$ ($c$ pour un coût). $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$ est le poids d'**une** coalition de taille $s$ ; un vote pondéré s'écrit $[q ;\ \omega_1, \ldots, \omega_n]$ (quota $q$, voix $\omega_i$) ; $d_T$ est le dividende de Harsanyi de $T$, $u_T$ son jeu d'unanimité. Au §3, $\operatorname{PD}_j(v) = \mathbb{E}[f(v, \mathbf{X}_{-j})]$ est la moyenne marginale et $M_j(v) = \mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ la moyenne conditionnelle. Au §4, un chemin $\boldsymbol\gamma$ a pour paramètre $t \in [0, 1]$, $\mathbf{r}$ est la référence d'un partage et $\mathbf{h} = \mathbf{x} - \mathbf{r}$. Au §5, une grille de $h$ lignes devient une grille de $H$ lignes ; la case d'arrivée $u$ a la coordonnée d'origine $\xi(u)$, et les lignes et les colonnes sont numérotées à partir de 0. Au §6, $\rho_S$ est la corrélation de rangs de Spearman. Aux §7 et §8, $G$ est le groupe, $Y$ le label (1 : l'événement a lieu), $\hat Y$ la décision, $S$ le score, $p_g$ le taux de base du groupe $g$ ; le taux de détection est le TPR, le taux de fausses alertes le FPR ; au §8, $\theta_g$ est une proportion du groupe $g$ (son taux de détection) et $\hat\theta_g$ son estimation ; $q$ est la probabilité de tirer un seuil, $w(g, y)$ un poids de repondération. Les logarithmes sont népériens.
 
 <a id="quiz"></a>
 
@@ -18,18 +18,18 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 ### MB6.Q1 — Jeux coopératifs : ordres ou coalitions, poids d'une coalition, et ce que garantit chaque axiome 🧠 ★ ⏱️ 5 min
 *Fiche §1 et §2 · parcours C, E*
 
-1. Un jeu a 7 joueurs. Combien y a-t-il d'ordres d'arrivée ? Combien de coalitions ne contiennent pas un joueur $i$ donné ?
-2. Dans la formule par les coalitions, quel poids porte **une** coalition de 2 joueurs qui ne contient pas $i$ ? Et toutes les coalitions de 2 joueurs ensemble ?
+1. Un jeu a 7 joueurs. Combien y a-t-il d'ordres d'arrivée ? Dans combien d'entre eux le joueur $i$ arrive-t-il le premier ?
+2. Dans la formule par les coalitions, quel poids porte **une** coalition de 2 joueurs qui ne contient pas $i$ ? Et toutes les coalitions de 2 joueurs sans $i$, ensemble ?
 3. Quel axiome garantit chacune de ces phrases ? (a) Un membre qui ne change jamais la valeur d'une coalition reçoit 0. (b) Deux membres interchangeables reçoivent la même part. (c) Si l'on additionne deux jeux, les parts s'additionnent. (d) Les parts somment à $v(N) - v(\varnothing)$.
 4. Vrai ou faux : dans un conseil à vote pondéré, un membre qui a deux fois plus de voix qu'un autre a deux fois plus de pouvoir.
-5. Vrai ou faux : des parts estimées par $m$ ordres tirés au hasard somment exactement à $v(N) - v(\varnothing)$, quel que soit le tirage.
+5. Vrai ou faux : des parts estimées sur les mêmes $m$ ordres tirés au hasard, pour tous les joueurs, somment exactement à $v(N) - v(\varnothing)$, quel que soit le tirage.
 
 ### MB6.Q2 — Fixer une variable : moyenne marginale ou conditionnelle, courbes ICE parallèles ou non 🧠 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
-1. Laquelle de ces quantités est la dépendance partielle $\operatorname{PD}_j(v)$ : (A) $\mathbb{E}[f(v, \mathbf{X}_{-j})]$ ; (B) $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ ; (C) $f\big(v, \mathbb{E}[\mathbf{X}_{-j}]\big)$ ?
+1. Laquelle de ces quantités est la dépendance partielle $\operatorname{PD}_j(v)$ : (A) $\mathbb{E}[f(v, \mathbf{X}_{-j})]$ ; (B) $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ ; (C) $f(v, \mathbf{x}_{1,-j})$, pour le premier point $\mathbf{x}_1$ d'un échantillon ?
 2. À quelle condition sur la loi de $\mathbf{X}$ les fonctions $\operatorname{PD}_j$ et $M_j$ sont-elles égales, quelle que soit $f$ ?
-3. $f(x_1, x_2) = 3x_1 - 2x_2$, et $(X_1, X_2)$ est un couple gaussien de moyennes nulles, de variances 1 et de corrélation $0{,}6$. Quelles sont les pentes de $\operatorname{PD}_1$ et de $M_1$ ?
+3. $f(x_1, x_2) = x_1 - 4x_2$, et $(X_1, X_2)$ est un couple gaussien de moyennes nulles, de variances 1 et de corrélation $0{,}6$. Quelles sont les pentes de $\operatorname{PD}_1$ et de $M_1$ ?
 4. Les courbes ICE de $x_1$ sont-elles parallèles pour $f(x_1, x_2) = \sin x_1 + x_2^2$ ? Pour $f(x_1, x_2) = e^{x_1 - x_2}$ ?
 5. Vrai ou faux : sur un échantillon, la dépendance partielle estimée est la moyenne des courbes ICE.
 
@@ -38,7 +38,7 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 
 1. $\mathbf{F} = \nabla f$ pour une fonction $f$ de classe $C^1$. Que vaut l'intégrale de $\mathbf{F}$ le long d'une boucle ?
 2. L'intégrale d'un champ le long d'un chemin de $A$ à $B$ vaut $2{,}5$. Que vaut-elle le long du même chemin parcouru de $B$ vers $A$ ? Faut-il que le champ soit un gradient ?
-3. Lesquels de ces champs sont des gradients : (A) $(3x^2, -2y)$ ; (B) $(x + y, 2x)$ ; (C) $(4x^3y, x^4 + 1)$ ?
+3. Lesquels de ces champs sont des gradients : (A) $(2x, -3y^2)$ ; (B) $(x + y, 2x)$ ; (C) $(4x^3y, x^4 + 1)$ ?
 4. $f(x, y) = (x^2 + y^2)^{3/2}$ est homogène de degré 3. En $(3, 4)$, depuis la référence $\mathbf{r} = \mathbf{0}$, quelles sont les parts de $x$ et de $y$ le long du segment ?
 5. Vrai ou faux : pour toute fonction dérivable, la moyenne des chemins en escalier et le partage le long du segment donnent les mêmes parts.
 
@@ -64,9 +64,9 @@ Une usine contrôle ses pièces sur deux lignes ($G$) : le contrôle rejette une
 *Fiche §8 · parcours C, E*
 
 Vrai ou faux ?
-1. Tirer le seuil A avec la probabilité $q$, et le seuil B sinon, donne le taux de détection $q\,\mathrm{TPR}_A + (1 - q)\,\mathrm{TPR}_B$.
+1. Tirer pour chaque exemple, indépendamment de son label, le seuil A avec la probabilité $q$, et le seuil B sinon, donne le taux de détection $q\,\mathrm{TPR}_A + (1 - q)\,\mathrm{TPR}_B$.
 2. En faisant varier $q$, ce tirage atteint tous les points du segment qui joint les points ROC de A et de B.
-3. Repondérer par $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$ change la part des exemples de chaque groupe.
+3. Repondérer par $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$ change la part de chaque groupe dans l'ensemble des exemples.
 4. L'erreur type de l'écart de deux taux estimés sur des échantillons indépendants est la somme de leurs erreurs types.
 5. Quadrupler l'effectif d'un seul des deux groupes divise par 2 l'erreur type de l'écart.
 
@@ -86,10 +86,10 @@ Vrai ou faux ?
 ### MB6.R2 — La dérivée d'une fonction le long d'une courbe : gradient, vitesse et règle de la chaîne (M05b, M17) 🔁 ★ ⏱️ 6 min
 *Fiche §4 · parcours C, E*
 
-$f(x, y) = x^3y^2 - 2y$ et le chemin $\boldsymbol\gamma(t) = (1 + t,\ 2 - t)$.
+$f(x, y) = 2x^3y - y^3$ et le chemin $\boldsymbol\gamma(t) = (1 + t,\ 2 - t)$.
 1. $\nabla f(x, y)$, puis $\nabla f(2, 1)$.
 2. $\boldsymbol\gamma(1)$ et $\boldsymbol\gamma'(t)$.
-3. $(f\circ\boldsymbol\gamma)'(1)$ par la règle de la chaîne ; vérifie en dérivant $t \mapsto f(\boldsymbol\gamma(t))$ directement.
+3. $(f\circ\boldsymbol\gamma)'(1)$ par la règle de la chaîne.
 4. La dérivée directionnelle de $f$ en $(2, 1)$ dans la direction unitaire de $(1, 1)$ (3 décimales).
 5. $\frac{\partial^2f}{\partial x\,\partial y}$ et $\frac{\partial^2f}{\partial y\,\partial x}$ en $(2, 1)$ : que dit le théorème de Schwarz ?
 
@@ -107,7 +107,7 @@ $(X, Y)$ est un couple gaussien : $X \sim \mathcal{N}(20, 4^2)$, $Y \sim \mathca
 
 ## ✏️ Papier-crayon
 
-Fais-les **à la main** (calculatrice permise pour les logarithmes et les racines), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
+Fais-les **à la main** (calculatrice permise pour les logarithmes, les racines et les valeurs approchées), en écrivant ta démarche dans ta copie de `06_mes_reponses.md`. Reporte ensuite **la valeur** trouvée dans la **partie 0 du notebook**, sous la forme demandée :
 - un nombre entier, ou un nombre avec un point décimal, comme `-1.25`, arrondi comme le demande la question ;
 - une liste entre crochets, comme `[0.2, -1]`, dans l'ordre que dit la question.
 
@@ -167,7 +167,7 @@ Dans ta copie : esquisse les trois courbes ICE de l'engrais pour chaque modèle 
 **Objectif :** calculer l'intégrale d'un champ le long de plusieurs chemins, reconnaître un champ de gradient, et voir qu'un champ qui n'en est pas un dépend du chemin.
 **Prérequis :** fiche §4 ; M05b (gradient, Schwarz), M17 (règle de la chaîne) · **Parcours :** C, E
 
-Un petit robot va de $A = (1, 0)$ à $B = (2, 1)$ (en m), sous deux forces (en N) : $\mathbf{F} = \nabla f$, avec $f(x, y) = x^2y^2 + 3x$, et $\mathbf{G}(x, y) = (2y,\ 3x^2)$. Trois chemins : le segment $[AB]$ ; l'escalier $A \to (2, 0) \to B$ ; l'arc de parabole $\boldsymbol\gamma(t) = (1 + t,\ t^2)$, $t \in [0, 1]$. Le travail d'une force le long d'un chemin est son intégrale le long de ce chemin (fiche §4) ; calcule chaque intégrale.
+Un petit robot va de $A = (1, 0)$ à $B = (2, 1)$ (en m), sous deux forces (en N) : $\mathbf{F} = \nabla f = (2xy^2 + 5,\ 2x^2y)$, avec $f(x, y) = x^2y^2 + 5x$, et $\mathbf{G}(x, y) = (2y,\ 3x^2)$. Trois chemins : le segment $[AB]$ ; l'escalier $A \to (2, 0) \to B$ ; l'arc de parabole $\boldsymbol\gamma(t) = (1 + t,\ t^2)$, $t \in [0, 1]$. Le travail d'une force le long d'un chemin est son intégrale le long de ce chemin (fiche §4) ; calcule chaque intégrale.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -207,7 +207,7 @@ L'indice régional est $y = \sum_{i, j}a_{ij}\max(0,\ T_{ij} - 10)$ (des degrés
 | a | l'indice $y$ | un nombre (1 décimale) |
 | b | la dérivée de $y$ par un réchauffement uniforme de $\delta$ °C, en $\delta = 0$ | un entier |
 | c | l'indice après un réchauffement uniforme de 1 °C | un nombre (1 décimale) |
-| d | centres alignés : la coordonnée d'origine $c(u)$ des 6 lignes de la grille agrandie, avant le retour au bord | une liste de 6 nombres (2 décimales) |
+| d | centres alignés : la coordonnée d'origine $\xi(u)$ des 6 lignes de la grille agrandie, avant le retour au bord | une liste de 6 nombres (2 décimales) |
 | e | coins alignés : la coordonnée d'origine des 6 lignes | une liste de 6 nombres (2 décimales) |
 | f | la valeur de la case (ligne 4, colonne 5) de la grille agrandie, centres alignés puis coins alignés | une liste de 2 nombres (2 décimales) |
 
@@ -217,9 +217,9 @@ Dans ta copie : écris la moyenne des 12 dérivées partielles $\frac{\partial y
 **Objectif :** voir que la séparation impose des taux de rejet différents, atteindre un taux de détection en tirant au sort entre deux seuils, et repondérer une table.
 **Prérequis :** fiche §7 et §8 ; M03 §7 et §8 (courbe ROC, taux par groupe) · **Parcours :** C, E
 
-Une usine fabrique la même pièce sur deux lignes : 6 % des pièces de la ligne 1 sont défectueuses, 14 % de celles de la ligne 2. Un contrôle automatique rejette une pièce ($\hat Y = 1$) ; $Y = 1$ pour une pièce défectueuse. Sur les deux lignes, il a le même taux de détection, $0{,}92$, et le même taux de fausses alertes, $0{,}04$ : il vérifie la séparation.
+Une usine fabrique la même pièce sur deux lignes : 6 % des pièces de la ligne 1 sont défectueuses, 14 % de celles de la ligne 2. Un contrôle automatique rejette une pièce ($\hat Y = 1$) ; $Y = 1$ pour une pièce défectueuse. Sur les deux lignes, il a le même taux de détection, $0{,}88$, et le même taux de fausses alertes, $0{,}04$ : il vérifie la séparation.
 
-Sur la ligne 2, le contrôle repose sur un score : le seuil A donne (taux de fausses alertes, taux de détection) $= (0{,}03 ;\ 0{,}74)$, le seuil B $(0{,}09 ;\ 0{,}96)$. Pour détecter 90 % des pièces défectueuses, on tire au sort, pièce par pièce, le seuil A avec la probabilité $q$, le seuil B sinon.
+Sur la ligne 2, on essaie un contrôle plus rapide, fondé sur un score : deux seuils voisins, A et B, donnent (taux de fausses alertes, taux de détection) $= (0{,}03 ;\ 0{,}74)$ et $(0{,}09 ;\ 0{,}96)$, et aucun seuil de ce score ne donne de point entre les deux. Pour détecter 90 % des pièces défectueuses, on tire au sort, pièce par pièce, le seuil A avec la probabilité $q$, le seuil B sinon.
 
 Enfin, une table de comptes : ligne 1, 1 300 pièces dont 78 défectueuses ; ligne 2, 1 100 pièces dont 154 défectueuses.
 
@@ -241,7 +241,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 
 ### Ex MB6.8 — Unicité de la valeur de Shapley : les jeux d'unanimité forment une base, et les quatre axiomes imposent φ_i = Σ_{T ∋ i} d_T / |T| ∂ ★★★ ⏱️ 35 min
 **Objectif :** démontrer l'inversion de Möbius des dividendes, puis que les quatre axiomes ne laissent qu'une règle de partage.
-**Prérequis :** fiche §2 ; R4 (parties d'un ensemble, formule du binôme), M12a (base d'un espace vectoriel) · **Parcours :** C
+**Prérequis :** fiche §2 ; R4 (parties d'un ensemble), M02b §2 (formule du binôme), M12a (base d'un espace vectoriel) · **Parcours :** C
 
 On fixe $n$ joueurs. Un jeu est une fonction $v$ des $2^n$ coalitions dans $\mathbb{R}$ ; les jeux forment un espace vectoriel de dimension $2^n$. Pour $T \ne \varnothing$, $u_T$ vaut 1 sur les coalitions qui contiennent $T$, 0 ailleurs ; $u_\varnothing$ vaut 1 partout.
 1. Pour un jeu $v$, pose $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}v(S)$. Montre que $v(S) = \sum_{T \subseteq S}d_T$ pour toute coalition $S$.
@@ -264,7 +264,7 @@ Dans un groupe, un score $S$ à valeurs dans $[0, 1]$ (en nombre fini) est **cal
 **Objectif :** démontrer en quelques lignes l'incompatibilité de l'indépendance et de la séparation, puis ce que fait la repondération.
 **Prérequis :** fiche §7 et §8 ; M03 (probabilités totales, indépendance) · **Parcours :** C, E
 
-1. Deux groupes ont des taux de base $p_1 \ne p_2$ ; une décision a, dans le groupe $g$, le taux de détection $t_g$ et le taux de fausses alertes $f_g$. Écris $P(\hat Y = 1 \mid G = g)$ avec $p_g$, $t_g$ et $f_g$. Montre que la séparation ($t_1 = t_2 = t$ et $f_1 = f_2 = f$) et l'indépendance ensemble imposent $t = f$, puis que $t = f$ signifie $\hat Y \perp Y$ dans chaque groupe. La réciproque est-elle vraie ?
+1. Deux groupes ont des taux de base $p_1 \ne p_2$ ; une décision a, dans le groupe $g$, le taux de détection $t_g$ et le taux de fausses alertes $f_g$. Écris $P(\hat Y = 1 \mid G = g)$ avec $p_g$, $t_g$ et $f_g$, et déduis-en que, si $p_1 = p_2$, la séparation entraîne l'indépendance. Montre que la séparation ($t_1 = t_2 = t$ et $f_1 = f_2 = f$) et l'indépendance ensemble imposent $t = f$, puis que $t = f$ signifie $\hat Y \perp Y$ dans chaque groupe. Réciproquement, une décision telle que $\hat Y \perp Y$ dans chaque groupe vérifie-t-elle l'indépendance et la séparation ?
 2. Toutes les cases d'une table $(g, y)$ ont $P(g, y) > 0$, et $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$. Montre que $Q(g, y) = w(g, y)\,P(g, y)$ est une loi de probabilité, qu'elle a les marges $P(g)$ et $P(y)$, et que $G$ et $Y$ y sont indépendants.
 
 <a id="pont"></a>
@@ -275,7 +275,7 @@ Dans un groupe, un score $S$ à valeurs dans $[0, 1]$ (en nombre fini) est **cal
 **Objectif :** chiffrer l'incertitude de l'écart de deux taux de détection, et voir lequel des deux effectifs la fixe.
 **Prérequis :** fiche §8 ; M02b (variance d'une différence), M08 §5 (Wald) · **Parcours :** C, E
 
-Deux laboratoires analysent des prélèvements d'eau et signalent une contamination. Le laboratoire A a reçu 900 prélèvements, dont 28 contaminés, et en a signalé 20 ; le laboratoire B en a reçu 4 000, dont 520 contaminés, et en a signalé 448. Les deux échantillons sont indépendants.
+Deux laboratoires analysent des prélèvements d'eau et signalent une contamination. Parmi les prélèvements contaminés qu'il a reçus, le laboratoire A en a signalé 20 sur 28, le laboratoire B 448 sur 520. Les deux échantillons sont indépendants.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -294,7 +294,7 @@ Dans ta copie : dis ce que c) permet de conclure, puis, en une phrase, comment u
 **Objectif :** expliquer sans formule pourquoi la valeur de Shapley fait la moyenne des apports sur tous les ordres.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
-Trois amis rentrent d'un concert dans le même taxi. Le taxi suit une seule route : il dépose d'abord Léa, puis Max, puis Sam, qui habite le plus loin. Ils veulent partager la course équitablement, et Max propose : « chacun paie ce que sa présence ajoute au prix ».
+Trois amis rentrent d'un match dans le même taxi. Le taxi suit une seule route : il dépose d'abord Léa, puis Max, puis Sam, qui habite le plus loin. Ils veulent partager la course équitablement, et Max propose : « chacun paie ce que sa présence ajoute au prix ».
 
 Réponds-lui en 5 à 8 phrases, sans formule ni calcul : pourquoi « ce que sa présence ajoute » dépend de qui est déjà dans le taxi ; pourquoi imaginer les amis monter dans un ordre ou dans un autre change ce partage ; pourquoi on fait la moyenne sur tous les ordres ; ce que cette moyenne garantit (tout le prix est payé, et deux amis qui habiteraient au même endroit paieraient autant) ; et qui paie le plus.
 
@@ -336,7 +336,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **MB6.14 · 🔨 `harsanyi_dividends(v, n_players)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; appelle `v` une fois par coalition (taille par taille, avec `itertools.combinations`) et garde les valeurs ; puis, pour chaque $T$, la somme alternée sur ses parties ; rends le dictionnaire dans l'ordre de la docstring. Lance le groupe de tests. Ensuite : a) les hameaux de MB6.2 (numérotés 0, 1, 2, besoins 30, 51 et 68) : $d_{\{0, 1\}}$, $d_{\{0, 2\}}$, $d_{\{1, 2\}}$, $d_{\{0, 1, 2\}}$ (une liste de 4 nombres, à comparer à ta copie) ; b) quatre maraîchers partagent un stand au marché ; le notebook fournit `TABLE_14`, le bénéfice hebdomadaire $v(S)$ de chaque coalition (en centaines d'euros), un dictionnaire indexé par des `frozenset` : leurs valeurs de Shapley par $\varphi_i = \sum_{T \ni i}\frac{d_T}{\lvert T\rvert}$ (une liste de 4 nombres) ; c) $d_{\{1, 2\}}$ et $d_{\{0, 1, 3\}}$ (une liste de 2 nombres) ; d) le conseil de MB6.1 (A, B, C, D numérotés 0 à 3) : $d_{\{0, 1\}}$, $d_{\{0, 2\}}$, $d_{\{0, 1, 2\}}$ (une liste de 3 nombres). Ce qu'il faut regarder : quel dividende du stand est négatif, et que dit-il des maraîchers 1 et 2 ? Dans le conseil, pourquoi $d_{\{0, 1, 2\}}$ est-il négatif ?
 
-**MB6.15 · 🔨 `line_integral(field, points, n_sub=20)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (des points 2-D finis, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. Lance le groupe de tests. Ensuite : a) $\mathbf{F}$ de MB6.4 le long du segment $[AB]$, puis de l'escalier $A \to (2, 0) \to B$ (une liste de 2 nombres) ; b) $\mathbf{G}$ de MB6.4 le long des deux mêmes chemins (une liste de 2 nombres) ; c) $\mathbf{G}$ le long de lignes brisées qui suivent l'arc $\boldsymbol\gamma(t) = (1 + t, t^2)$, avec 4, 16 et 64 segments de même pas en $t$ (une liste de 3 nombres). Ce qu'il faut regarder : l'intégrale de $\mathbf{G}$ le long de l'arc vaut $\frac{55}{6}$ ; par combien l'écart est-il divisé quand le nombre de segments est multiplié par 4 ? Pourquoi $\mathbf{F}$ donne-t-il la même valeur pour toutes ces lignes brisées ?
+**MB6.15 · 🔨 `line_integral(field, points, n_sub=20)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (des points 2-D finis, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. Lance le groupe de tests. Ensuite : a) $\mathbf{F}$ de MB6.4 le long du segment $[AB]$, puis de l'escalier $A \to (2, 0) \to B$ (une liste de 2 nombres) ; b) $\mathbf{G}$ de MB6.4 le long des deux mêmes chemins (une liste de 2 nombres) ; c) $\mathbf{G}$ le long de lignes brisées qui suivent l'arc $\boldsymbol\gamma(t) = (1 + t, t^2)$, avec 4, 16 et 64 segments de même pas en $t$ (une liste de 3 nombres ; l'intégrale de $\mathbf{G}$ le long de l'arc vaut $\frac{55}{6}$). Ce qu'il faut regarder : la ligne brisée s'approche-t-elle de $\frac{55}{6}$ quand les segments se multiplient ? Pourquoi $\mathbf{F}$ donne-t-il la même valeur pour toutes ces lignes brisées ?
 
 **MB6.16 · 🔨 `spearman_rho(x, y)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; les rangs de chaque échantillon (`np.argsort`, puis le rang moyen de chaque groupe de valeurs égales, comptés à partir de 1) ; la formule de Pearson sur les rangs centrés ; `nan` quand une somme de carrés est nulle. Lance le groupe de tests. Ensuite : le notebook fournit `MOHS_16` et `VICKERS_16`, la dureté de neuf échantillons de minéraux sur l'échelle de Mohs (des degrés et des demi-degrés, avec un ex aequo) et par un essai de Vickers (en HV) : a) $\rho_S$(Mohs, Vickers) (un nombre) ; b) $\rho_S$(Mohs, $\frac{1}{\text{Vickers}}$) (un nombre). Ce qu'il faut regarder : pourquoi la formule $1 - \frac{6\sum d_i^2}{n(n^2 - 1)}$ n'est-elle ici qu'une approximation ? Pourquoi b) se déduit-il de a) sans calcul ?
 
