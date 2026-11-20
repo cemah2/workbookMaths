@@ -527,12 +527,12 @@ Fiche §8, « Combien de remises à l'échelle ? ».
 </details>
 <details><summary>Indice 2</summary>
 
-Une remise à l'échelle a lieu au bloc $b \ge 2$ quand le plus grand des scores lus change, c'est-à-dire quand le bloc $b$ contient un nouveau record. `np.argsort(S_18)` donne l'ordre croissant ; permute les valeurs avec les scores.
+Une remise à l'échelle a lieu au bloc $b \ge 2$ quand le plus grand des scores lus change, c'est-à-dire quand le bloc $b$ contient un nouveau record. `np.argsort(S_18)` donne l'ordre croissant ; pour c), chaque ligne `order` de `ORDERS_18` donne `S_18[order]` et `V_18[order]` : permute toujours les valeurs avec les scores.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`count_rescalings_18` : compte les indices `b ≥ 1` tels que `states[b][0] != states[b - 1][0]`. $H_N - 1$ : `sum(1 / k for k in range(2, N + 1))`. e) $5 + B(1 + 3)$.
+`count_rescalings_18` : compte les indices `b ≥ 1` tels que `states[b - 1][0]` est fini et différent de `states[b][0]`. `draw_rescalings_18` : deux `ax.plot(Ns, ...)` avec un `label`, puis `ax.set_xscale("log")`, `ax.legend()` et les noms d'axes. $H_N - 1$ : `sum(1 / k for k in range(2, N + 1))`. e) $5 + B(1 + 3)$.
 
 </details>
 
@@ -550,7 +550,7 @@ $\mathbf{E}(0)\cdot\mathbf{E}(\delta) = \cos\omega_1\delta + \cos\omega_2\delta 
 </details>
 <details><summary>Indice 3</summary>
 
-`w = 2 * np.pi / np.array([24, 168, 8760])` ; `encode_19` empile `np.cos(w * t)` et `np.sin(w * t)` dans l'ordre (cos, sin) de chaque horloge. c) Calcule le produit pour tous les $\delta$ de 1 à 8 760 et prends `np.argmax` (+ 1). Pense à 365 = 52 × 7 + 1.
+`W_19` (fourni) vaut `2 * np.pi / np.array([24, 168, 8760])` ; `encode_19` empile `np.cos(W_19 * t)` et `np.sin(W_19 * t)` dans l'ordre (cos, sin) de chaque horloge ; `draw_clocks_19` rend, par horloge, le tableau `(len(times), 2)` des points tracés. c) Calcule le produit pour tous les $\delta$ de 1 à 8 760 et prends `np.argmax` (+ 1). Pense à 365 = 52 × 7 + 1.
 
 </details>
 
@@ -599,7 +599,7 @@ Fiche §4 (encoder une variable cyclique) et §5 (Nadaraya-Watson, la validation
 </details>
 <details><summary>Indice 2</summary>
 
-Encode les relevés par `encode_22(theta, day)`, puis calcule une fois la matrice $(400, 400)$ des distances au carré entre relevés. Pour chaque $h$ de la grille, prévois chaque relevé par les 399 autres : mets la diagonale des scores à $-\infty$.
+Encode les relevés par `encode_22(theta, day)`, puis calcule une fois la matrice $(400, 400)$ des distances au carré entre relevés. Pour chaque $h$ de la grille `GRID_22`, prévois chaque relevé par les 399 autres : mets la diagonale des scores à $-\infty$.
 
 </details>
 <details><summary>Indice 3</summary>
