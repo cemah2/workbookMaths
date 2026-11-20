@@ -104295,7 +104295,6 @@
       "hash": "c4341dba63aac524845f4ca3786f4c499365d38086d9027aed2b69d5ec3c6280",
       "kind": "array",
       "mistakes": {
-        "6c1eeaa43ee9acefae22a866370e59da0bb03bd3aaee6268ebc12d9aae76c14f": "tu as lu le produit de gauche à droite : ici d'abord R₁₂, puis R₂₃ (la matrice de droite agit la première)",
         "afb32ff87b8956f6d083de693fe6d1cb20884f252154ba575c84f0cbaf137534": "R₁₂(θ) envoie e₂ sur −sin θ e₁ + cos θ e₂",
         "df0c3d50b0bce090bcf39f1b072fd03cdb6c3927043cf304f7b529d6f267f0aa": "R₂₃(θ) tourne autour de e₁ : elle fixe e₁ et tourne le plan (e₂, e₃)"
       },
@@ -104335,7 +104334,6 @@
       "kind": "array",
       "mistakes": {
         "6fabc9284aa722480f541f6be153f2185b21ca21f5190e940042688b03dca708": "R₂₃(θ) tourne e₂ vers e₃ quand θ > 0",
-        "9da182ae47453ff08879c8567fe1d0df13ac91cc048602c1a41d3ed3e2ebcac2": "tu as lu le produit de gauche à droite : ici d'abord R₂₃, puis R₁₂ (la matrice de droite agit la première)",
         "ad55d8aa5ffa8cca2591d5a5e4e4287e026db985e515270ed0154993c7004337": "c'est R₂₃(π/2) qui agit d'abord sur e₂ : calcule son image avant d'appliquer R₁₂"
       },
       "shape": [
@@ -104785,10 +104783,7 @@
       "magnitude": 0,
       "mistakes": {
         "0ce83553b7323195a3caaeb71e5b1d863de390bb96ab3daf080879045b7d23d7": "le score d'un noyau gaussien est négatif : une station lointaine pèse moins",
-        "4522741a5cae90b6c07dce00ddd8334082fce1099550253e44ee015b1ecfc9a9": "c'est la limite h → ∞ (la moyenne des quatre stations) : la question demande h = 200 m",
-        "745b637c1d8d6e3f70083cf3011ce1c15e02c9273ff6a9230d7412e9d2f28957": "c'est la limite h → 0 : la question demande h = 200 m",
-        "8510cd9e00edd1700c44ce48c32429a73f309ac8285036b56ddc65dd28067402": "la prévision divise par la somme des noyaux",
-        "d729daf498fbd3676f8c0023ea5ea4b21da46f8eaa0a405c4dd6b355ed912983": "c'est la prévision pour h = 400 m : la question demande h = 200 m"
+        "8510cd9e00edd1700c44ce48c32429a73f309ac8285036b56ddc65dd28067402": "la prévision divise par la somme des noyaux"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -104857,8 +104852,7 @@
       "magnitude": 0,
       "mistakes": {
         "81fecacacabf927125b488d623512c260217ee1cde46e4e92348716dcc8bad43": "la prévision est une moyenne pondérée : divise par la somme des noyaux",
-        "a57da74de23d95e3da4b203befd67d07e6bbddf13b2293cd6970c3b44b1c4b48": "doubler h divise les scores par 4, pas par 2",
-        "dc6397c209133e4f72ac30a39b33b414ad5aa6b21bd688adb3079464411522d5": "c'est la prévision pour h = 200 m : la question demande h = 400 m"
+        "a57da74de23d95e3da4b203befd67d07e6bbddf13b2293cd6970c3b44b1c4b48": "doubler h divise les scores par 4, pas par 2"
       },
       "sign": 1,
       "source": "chapitres/mb3_rotations_attention/05_solutions.ipynb"
@@ -105027,7 +105021,6 @@
       "hash": "a6784b6c42d3b966172d699e04db7df49a2da27c25bf4cac6a9c68ac27330e87",
       "kind": "array",
       "mistakes": {
-        "696d9c32c0af79f1071de464d458b70bc0482431b7f764c536855e5f70edfaf0": "au jour 2, les jours 3 et 4 ont le score −∞",
         "6de5f024191dd3d95142e62d9a9394a486945dcd23df39b343dbcd6933c5c898": "au jour 2, le jour 2 a le score 0 et le jour 1 le score −ln 2",
         "d57be23e33e90da6b6fa18e3ec1334e477683dbf7b70fc09eb5cd9b4b6be7a03": "les deux jours connus gardent des scores différents, linéaires en le temps"
       },
@@ -105471,7 +105464,6 @@
       "mistakes": {
         "45741bea08767ff7e1b2c3739d64eeaa5ce270cf0550fe6475c0f9c30d553772": "la machine B ne connaît pas l'état de A : son m est le plus grand des scores qu'elle lit",
         "a75e4f89e3786c7dcf2e5fd60019ff9116cc3ecfd42e9943810f6bb350e535e7": "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2",
-        "c4e11f4ba3a0cf7a56e368a411596937188c8adece8e311dcca73d50fd0a248a": "la machine B part de l'état vide, pas de l'état de A",
         "d49f1797ebc33b79f4db298d3d29a85b8d109c70280646815a4bd06edda3de0d": "chaque terme est e^{s_j − m}, avec m le plus grand score lu par B"
       },
       "shape": [

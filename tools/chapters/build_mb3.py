@@ -110,17 +110,13 @@ PAPER = [
            mistakes={"R₁₂(θ) envoie e₂ sur −sin θ e₁ + cos θ e₂":
                          floats(givens(3, 2, 3, math.pi / 2) @ givens(3, 1, 2, -math.pi / 3) @ E2_2),
                      "R₂₃(θ) tourne autour de e₁ : elle fixe e₁ et tourne le plan (e₂, e₃)":
-                         floats(givens(3, 1, 2, math.pi / 2) @ givens(3, 1, 2, math.pi / 3) @ E2_2),
-                     "tu as lu le produit de gauche à droite : ici d'abord R₁₂, puis R₂₃ (la matrice de droite agit la "
-                     "première)": floats(givens(3, 1, 2, math.pi / 3) @ givens(3, 2, 3, math.pi / 2) @ E2_2)}'''),
+                         floats(givens(3, 1, 2, math.pi / 2) @ givens(3, 1, 2, math.pi / 3) @ E2_2)}'''),
         ("b", "a list of 3 numbers (4 decimals)", "floats(givens(3, 1, 2, math.pi / 3) @ givens(3, 2, 3, math.pi / 2) @ E2_2)",
          '''decimals=4,
            mistakes={"R₂₃(θ) tourne e₂ vers e₃ quand θ > 0":
                          floats(givens(3, 1, 2, math.pi / 3) @ givens(3, 2, 3, -math.pi / 2) @ E2_2),
                      "c'est R₂₃(π/2) qui agit d'abord sur e₂ : calcule son image avant d'appliquer R₁₂":
-                         floats(givens(3, 1, 2, math.pi / 3) @ E2_2),
-                     "tu as lu le produit de gauche à droite : ici d'abord R₂₃, puis R₁₂ (la matrice de droite agit la "
-                     "première)": floats(givens(3, 2, 3, math.pi / 2) @ givens(3, 1, 2, math.pi / 3) @ E2_2)}'''),
+                         floats(givens(3, 1, 2, math.pi / 3) @ E2_2)}'''),
         ("c", BOOL, "commute(givens(3, 2, 3, math.pi / 2), givens(3, 1, 2, math.pi / 3))",
          '''mistakes={"deux rotations de l'espace dont les plans se coupent ne commutent pas en général": True}'''),
         ("d", "a 4 × 4 matrix, as the list of its rows (4 decimals)", "floats(D_2)",
@@ -203,13 +199,7 @@ PAPER = [
          '''decimals=2,
            mistakes={"la prévision divise par la somme des noyaux": float(np.exp(scores_4(200)) @ TEMP_4),
                      "le score d'un noyau gaussien est négatif : une station lointaine pèse moins":
-                         float(softmax(-scores_4(200)) @ TEMP_4),
-                     "c'est la limite h → ∞ (la moyenne des quatre stations) : la question demande h = 200 m":
-                         float(np.mean(TEMP_4)),
-                     "c'est la limite h → 0 : la question demande h = 200 m":
-                         float(TEMP_4[np.argmin(np.abs(ALT_4 - REFUGE_4))]),
-                     "c'est la prévision pour h = 400 m : la question demande h = 200 m":
-                         float(softmax(scores_4(400)) @ TEMP_4)}'''),
+                         float(softmax(-scores_4(200)) @ TEMP_4)}'''),
         ("d", "a list of 4 numbers (4 decimals): Val, Bergerie, Col, Pic", "floats(softmax(scores_4(400)))",
          '''decimals=4,
            mistakes={"doubler h divise les scores par 4, pas par 2": floats(softmax(scores_4(200) / 2)),
@@ -218,9 +208,7 @@ PAPER = [
          '''decimals=2,
            mistakes={"doubler h divise les scores par 4, pas par 2": float(softmax(scores_4(200) / 2) @ TEMP_4),
                      "la prévision est une moyenne pondérée : divise par la somme des noyaux":
-                         float(np.exp(scores_4(400)) @ TEMP_4),
-                     "c'est la prévision pour h = 200 m : la question demande h = 400 m":
-                         float(softmax(scores_4(200)) @ TEMP_4)}'''),
+                         float(np.exp(scores_4(400)) @ TEMP_4)}'''),
         ("f", "a number (2 decimals), in °C", "float(TEMP_4[np.argmin(np.abs(ALT_4 - REFUGE_4))])",
          '''decimals=2,
            mistakes={"quand h → 0, le rapport des poids de deux stations d'écarts différents tend vers l'infini":
@@ -250,8 +238,7 @@ PAPER = [
          '''decimals=6,
            mistakes={"les deux jours connus gardent des scores différents, linéaires en le temps":
                          floats([F(1, 2), F(1, 2), 0, 0]),
-                     "au jour 2, le jour 2 a le score 0 et le jour 1 le score −ln 2": floats(weights_5(2)[1::-1] + [0, 0]),
-                     "au jour 2, les jours 3 et 4 ont le score −∞": floats(weights_5(4))}'''),
+                     "au jour 2, le jour 2 a le score 0 et le jour 1 le score −ln 2": floats(weights_5(2)[1::-1] + [0, 0])}'''),
         ("d", "a list of 4 exact values: days 1 to 4", "floats(weights_5(4, broken=BROKEN_5))",
          '''decimals=6,
            mistakes={"le jour de la panne est retiré : son poids est nul, et les autres se renormalisent":
@@ -341,7 +328,6 @@ PAPER = [
                          floats(absolute_state_7(K_7[3:], V_7[3:])),
                      "la machine B ne connaît pas l'état de A : son m est le plus grand des scores qu'elle lit":
                          floats(relative_state_7(K_7[3:], V_7[3:], max(K_7[:3]))),
-                     "la machine B part de l'état vide, pas de l'état de A": floats(states_7(K_7, V_7)[2]),
                      "chaque état s'écrit [m / ln 2, l, a] : divise m par ln 2":
                          floats(m_in_nats_7(states_7(K_7[3:], V_7[3:])[-1]))}'''),
         ("f", "a list of 3 exact values: [m / ln 2, l, a]",
@@ -1494,8 +1480,11 @@ with checked("MB3.18"):
                     found.append(str(collection.get_label()))
             return found
 
-        if not missing_c18 and (not any("H" in label for label in labels_at_c18(Ns_c18, harmonic_c18))
-                                or any("H" in label for label in labels_at_c18(Ns_c18, means_c18))):
+        def names_h_c18(label):
+            return "H" in label or "harmon" in label.lower()
+
+        if not missing_c18 and (not any(names_h_c18(label) for label in labels_at_c18(Ns_c18, harmonic_c18))
+                                or any(names_h_c18(label) for label in labels_at_c18(Ns_c18, means_c18))):
             missing_c18.append("le bon nom de chaque série dans la légende : « H_N − 1 » pour harmonic, et pas pour "
                                "means (label=…)")
         if ax_c18.get_xscale() != "log":
@@ -1530,7 +1519,7 @@ MB3_18 = Ex(
     "compter les remises à l'échelle de la softmax en ligne selon l'ordre des scores et la taille des blocs, comparer à "
     "H_N − 1, et mesurer la mémoire gardée.", "fiche §8 et §9 ; R8, M02b ; Ex MB3.15", tracks="C", given=GIVEN_18,
     note=NOTE_18,
-    body=r"""Le notebook fournit `S_18`, 600 scores, `V_18`, leurs valeurs, de forme $(600, 3)$, et `ORDERS_18`, 300 ordres de lecture tirés une fois pour toutes par la cellule fournie (300 permutations de `range(600)`, graine 7318). Une remise à l'échelle a lieu quand $m$ change d'un état au suivant (après le premier bloc qui a un score fini). Écris `count_rescalings_18(states)`, qui la compte sur une liste d'états rendue par `mymath.positional.online_softmax(..., history=True)`, puis `draw_rescalings_18(ax, Ns, means, harmonic)`, qui trace dans les axes reçus `means` et `harmonic` en fonction de `Ns`, en abscisse logarithmique, avec une légende et des noms d'axes. Pour des blocs de $B = 1$, 6 et 60 scores (`BLOCKS_18`, soit $N = 600$, 100 et 10 blocs), relève (chaque fois une liste de 3, dans l'ordre de `BLOCKS_18`) :
+    body=r"""Le notebook fournit `S_18`, 600 scores, `V_18`, leurs valeurs, de forme $(600, 3)$, et `ORDERS_18`, 300 ordres de lecture tirés une fois pour toutes par la cellule fournie (300 permutations de `range(600)`, graine 7318). Une remise à l'échelle a lieu quand $m$ change d'un état au suivant (après le premier bloc qui a un score fini). Écris `count_rescalings_18(states)`, qui la compte sur une liste d'états rendue par `mymath.positional.online_softmax(..., history=True)`, puis `draw_rescalings_18(ax, Ns, means, harmonic)`, qui trace dans les axes reçus `means` et `harmonic` en fonction de `Ns`, en abscisse logarithmique, avec une légende qui nomme chaque série (celle de `harmonic` contient « H_N − 1 ») et des noms d'axes. Pour des blocs de $B = 1$, 6 et 60 scores (`BLOCKS_18`, soit $N = 600$, 100 et 10 blocs), relève (chaque fois une liste de 3, dans l'ordre de `BLOCKS_18`) :
 - a) le nombre de remises à l'échelle quand les scores sont lus en ordre croissant (les valeurs permutées avec leurs scores) ;
 - b) en ordre décroissant ;
 - c) leur moyenne sur les 300 ordres de `ORDERS_18` (les valeurs permutées avec leurs scores, le même ordre pour les trois tailles de blocs) ;
@@ -2567,18 +2556,7 @@ def mse_22(predictions):
         raise ValueError(f"mse_22 attend 400 prévisions, une par heure de TEST_22, reçu la forme {p.shape}")
     return float(np.mean((p - TRUTH_22) ** 2))'''
 
-CHECK_22 = """def load_challenge_c22():
-    \"\"\"The hidden part of the challenge, solutions/challenges/mb3_22.py (the law of the hidden turbines and the method
-    of the check), loaded by its path from the root of the repository and kept local: reading it spoils the challenge.\"\"\"
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("mb3_22_challenge",
-                                                  wbm.repo_root() / "solutions" / "challenges" / "mb3_22.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def predictions_why_c22(p):
+CHECK_22 = """def predictions_why_c22(p):
     \"\"\"'' when p is an array of 400 finite numbers, else the reason.\"\"\"
     p = as_floats(p)
     if p is None or p.shape != (400,):
@@ -2602,7 +2580,11 @@ def width_hint_c22(challenge, train, test, got, chosen):
 
 def check_c22():
     \"\"\"The check of MB3.22, in a function: the hidden turbines, their laws and their expected productions stay local.\"\"\"
-    challenge = load_challenge_c22()
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("mb3_22_challenge",
+                                                  wbm.repo_root() / "solutions" / "challenges" / "mb3_22.py")
+    challenge = importlib.util.module_from_spec(spec)   # the hidden part of the challenge: the law of the hidden turbines
+    spec.loader.exec_module(challenge)                  # and the method of the check (reading it spoils the challenge)
     results, elapsed = [], 0.0
     report = reporter(results, stop=False)
     order = np.random.default_rng().permutation(400)          # the hours of TEST_22 in a new order at each run
@@ -2610,6 +2592,9 @@ def check_c22():
     mine = call_safely("Ex MB3.22 : predict_22", predict_22, TRAIN_22.copy(), TEST_22[order].copy())
     elapsed += time.perf_counter() - start
     why = predictions_why_c22(mine)
+    if not why and np.allclose(as_floats(mine), TRUTH_22[order], rtol=1e-9, atol=1e-9):
+        why = ("tes prévisions sont TRUTH_22 elle-même : predict_22 doit prévoir à partir des relevés et des heures "
+               "reçus, sans lire TRUTH_22")
     limit, _ = challenge.threshold(TRAIN_22, TEST_22, TRUTH_22)
     error = float(np.mean((as_floats(mine) - TRUTH_22[order]) ** 2)) if not why else math.inf
     above = (f"erreur quadratique moyenne {fr(error, 1)} kW², au-dessus du seuil {fr(limit, 1)} kW² (1,3 fois la méthode "
@@ -2627,7 +2612,8 @@ def check_c22():
                "Ex MB3.22b : ta réponse n'est pas mse_22(predict_22(TRAIN_22, TEST_22)), l'erreur que donnent tes "
                "prévisions maintenant (la vérification les recalcule, les heures dans un autre ordre) : exécute à "
                "nouveau ta cellule")
-    previous = [as_floats(mine)[np.argsort(order)]] if not why else []
+    # the predictions of the notebook set, as returned and in the order of TEST_22
+    previous = [as_floats(mine), as_floats(mine)[np.argsort(order)]] if not why else []
     rng = np.random.default_rng()                               # at each run: three new hidden turbines
     for k, noise_range in enumerate(challenge.NOISES, start=1):
         train, test, law = challenge.turbine(rng, noise_range=noise_range)
@@ -2679,7 +2665,7 @@ MB3_22 = Ex(
     given=GIVEN_22, note=NOTE_22,
     body=r"""Une éolienne reçoit surtout un vent dominant venu des directions proches de 0°, qui souffle le plus fort en hiver. Le notebook fournit `TRAIN_22`, 400 relevés de l'année passée, de forme $(400, 3)$ : la direction d'où vient le vent $\theta$ (en degrés, de 0 à 360 ; 0° et 360° sont la même direction), le jour de l'année $d$ (de 0 à 365) et la production moyenne de l'heure $y$ (en kW) ; et `TEST_22`, de forme $(400, 2)$, les directions et les jours de 400 heures à prévoir, autour du nouvel an, par vent dominant. Écris `predict_22(train, test)`, qui rend 400 prévisions par Nadaraya-Watson à noyau gaussien sur l'encodage cyclique des deux variables, $(\cos\theta, \sin\theta, \cos\frac{2\pi d}{365}, \sin\frac{2\pi d}{365})$, que rend la fonction fournie `encode_22(theta, day)` (un tableau de forme $(n, 4)$), avec une largeur de bande choisie par validation croisée « un de côté » (fiche §5) sur une grille d'une trentaine de valeurs en progression géométrique, par exemple `GRID_22` (30 valeurs de 0,03 à 1,5). Tout NumPy et SciPy sont permis. La cellule fournie donne aussi `mse_22(predictions)`, qui rend l'erreur quadratique moyenne de 400 prévisions de `TEST_22` par rapport à la production moyenne attendue (`TRUTH_22`), sans montrer la loi cachée.
 
-**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées, tirées à nouveau à chaque exécution (du même type, l'une peu bruitée, l'une moyennement, l'une très bruitée, chacune avec ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction (les heures de `TEST_22` dans un autre ordre), et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Relève :
+**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées, tirées à chaque exécution, de bruit faible, moyen et fort (chacune du même type, avec ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction (les heures de `TEST_22` dans un autre ordre), et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Relève :
 - a) la largeur de bande que choisit la validation croisée « un de côté » sur `TRAIN_22`, avec la grille `GRID_22` (un nombre ; 3 décimales dans ta copie) ;
 - b) `mse_22` de tes prévisions, `mse_22(predict_22(TRAIN_22, TEST_22))` (un nombre) ;
 - c) `mse_22` de la même méthode appliquée aux nombres bruts $(\theta, d)$, sa largeur choisie de la même façon, sur la grille `GRID_RAW_22` (30 valeurs de 1 à 200) (un nombre) ;

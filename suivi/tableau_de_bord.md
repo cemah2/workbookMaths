@@ -2197,3 +2197,41 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] MB2.19 🏆 Défi : retrouver, sur 3 000 observations, les cinq paires les plus associées d'une table cachée de 10 × 10, sans se laisser piéger par les cases rares ★★★ 50 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end MB2 -->
+
+<!-- wbm:section MB3 -->
+## MB3 · Rotations, moyennes pondérées et softmax en ligne ⏱️ 14,8 h
+
+- [ ] MB3.Q1 🧠 Formules d'addition et rotations du plan : le bon signe, composer, inverser, rotation ou symétrie ? ★ 5 min
+- [ ] MB3.Q2 🧠 Rotations de l'espace, de Givens et par blocs : commutent-elles, que fixent-elles, que change une permutation des coordonnées ? ★ 6 min
+- [ ] MB3.Q3 🧠 Encoder une direction ou un jour de l'année : une ou deux coordonnées, quelle période, quelle distance entre deux encodages ? ★ 5 min
+- [ ] MB3.Q4 🧠 Moyennes pondérées par une softmax : dans l'enveloppe convexe ou non, largeur de bande, masque avant ou après la softmax, et un sous-ensemble vide ★ 4 min
+- [ ] MB3.Q5 🧠 Multiplier tous les scores par c, ou leur ajouter une constante : ce qui change dans les poids, le poids maximal et l'entropie, et ce qui ne change pas ★ 5 min
+- [ ] MB3.Q6 🧠 La softmax en ligne : ce que garde l'état, quand le remettre à l'échelle, et l'état vide ★ 5 min
+- [ ] MB3.R1 🔁 La forme exponentielle d'un complexe, et le produit comme rotation et homothétie (M22) ★ 7 min
+- [ ] MB3.R2 🔁 Le log-sum-exp et la softmax stable (M05a) ★ 6 min
+- [ ] MB3.R3 🔁 Tempérer et tronquer une loi : p^{1/T} renormalisée, top-k et top-p comme lois conditionnelles (M28) ★ 7 min
+- [ ] MB3.1 ✏️ Un bras articulé à deux segments : la position de la pince en valeurs exactes par les formules d'addition, les deux rotations enchaînées en une seule, et le retour par la rotation inverse ★★ 28 min
+- [ ] MB3.2 ✏️ Rotations de Givens : deux rotations de l'espace qui ne commutent pas, deux rotations de ℝ⁴ dans des plans disjoints qui commutent, leur matrice diagonale par blocs, et la même rotation après une permutation des coordonnées ★★ 30 min
+- [ ] MB3.3 ✏️ La direction du vent : l'encoder par (cos, sin), la distance entre deux encodages, un vent qui tourne comme une rotation de l'encodage, et la direction moyenne de trois relevés ★★ 22 min
+- [ ] MB3.4 ✏️ L'estimateur de Nadaraya-Watson : la température d'un refuge à partir de quatre stations de montagne pondérées par un noyau gaussien de l'écart d'altitude, pour deux largeurs de bande, et ses deux limites ★★ 28 min
+- [ ] MB3.5 ✏️ Masques : une moyenne exponentielle normalisée vue comme une softmax sur les jours passés, puis la même quand un capteur tombe en panne un jour (un score −∞) ★★ 16 min
+- [ ] MB3.6 ✏️ La saturation d'une softmax : trois scores multipliés par un facteur c croissant, le poids maximal, la sensibilité 1 − Σ pᵢ² et la borne (K − 1) e^{−cΔ} ★★ 22 min
+- [ ] MB3.7 ✏️ La softmax en ligne à la main : neuf scores (des multiples de ln 2) et leurs valeurs lus par blocs de trois, l'état (m, l, a) après chaque bloc, la moyenne pondérée finale, puis la fusion de deux états calculés séparément ★★ 30 min
+- [ ] MB3.8 ∂ Les formules d'addition par le produit scalaire de deux vecteurs unitaires ; puis R_α R_β = R_{α+β}, R_θ⁻¹ = R_θᵀ = R_{−θ}, et la règle e^{iα}e^{iβ} = e^{i(α+β)} que M22 admettait ★★ 40 min
+- [ ] MB3.9 ∂ Une moyenne pondérée par une softmax sur un ensemble de points commute avec toute renumérotation des points ; un masque triangulaire casse cette équivariance ★★ 25 min (complet)
+- [ ] MB3.10 ∂ La softmax en ligne est exacte : l'invariant de l'état après chaque bloc, par récurrence ; puis la fusion de deux états est associative et commutative, d'élément neutre (−∞, 0, 0) ★★ 30 min
+- [ ] MB3.11 🔗 Pont : à normes égales, les poids d'un noyau gaussien sont une softmax des produits scalaires divisés par h² ; le vérifier sur quatre stations d'un même cercle, et lire 1/h² comme l'échelle des scores ★ 22 min
+- [ ] MB3.12 📖 MML §3.9 lu : la rotation du plan (3.76), les rotations de l'espace (3.77)–(3.79), la rotation de Givens (3.80)–(3.81) et les propriétés du §3.9.4 ; R₂(θ) écrite comme une rotation de Givens, et deux rotations de l'espace qui ne commutent pas, sur un vecteur choisi ★★ 40 min (complet)
+- [ ] MB3.13 🗣️ Expliquer, avec une caisse tenue dans une monnaie qui change, pourquoi la softmax en ligne donne exactement le résultat du calcul en une fois ★ 15 min
+- [ ] MB3.E1 💼 « Comment encoder une variable cyclique comme une heure ou une direction, et pourquoi pas par sa valeur ? » ★ 10 min
+- [ ] MB3.14 🔨 La matrice d'une rotation de Givens de ℝⁿ ★ 25 min
+- [ ] MB3.15 🔨 La softmax en ligne : l'état (m, l, a) de scores et de valeurs lus par blocs, et l'état après chaque bloc ★★ 50 min
+- [ ] MB3.16 🔨 La fusion de deux états de la softmax en ligne ★★ 30 min
+- [ ] MB3.17 🔮 Prédire ce que deviennent les poids et la prévision de Nadaraya-Watson quand la largeur de bande est divisée ou multipliée par 10, puis tracer ★ 30 min
+- [ ] MB3.18 🔬 La softmax en ligne selon l'ordre et la taille des blocs : le nombre de remises à l'échelle (les états après chaque bloc) pour des scores croissants, décroissants ou mélangés, comparé à H_N − 1, et la mémoire gardée ★★ 30 min (complet)
+- [ ] MB3.19 🎨 Trois horloges (la journée, la semaine, l'année) : l'encodage d'une date sur trois cercles, un décalage comme trois rotations, et le produit scalaire de deux encodages en fonction de l'écart ★ 30 min
+- [ ] MB3.20 🐛 Chasse à l'erreur : deux rotations de l'espace composées dans le mauvais ordre, une direction moyenne prise comme la moyenne des angles, une softmax en ligne qui remet l à l'échelle mais pas l'accumulateur ★ 25 min
+- [ ] MB3.21 🛠️ Un test de propriété : la softmax en ligne ne dépend ni de la taille des blocs, ni d'une même permutation des scores et des valeurs, ni d'une constante ajoutée aux scores, et la fusion de trois états est associative ★ 35 min (complet)
+- [ ] MB3.22 🏆 Défi : prévoir la production d'une éolienne par Nadaraya-Watson sur l'encodage cyclique de la direction du vent et du jour de l'année, la largeur de bande choisie par validation croisée « un de côté », sous une erreur quadratique moyenne donnée ★★★ 45 min (complet)
+- [ ] Flashcards du chapitre importées dans Anki (16 cartes)
+<!-- wbm:end MB3 -->

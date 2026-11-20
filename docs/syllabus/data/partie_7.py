@@ -719,7 +719,12 @@ CHAPTERS = [
                  "lieu des 12 h visées (13,0 h avant les relectures, qui ont retiré trois sous-questions frontières) : "
                  "neuf notions nouvelles, dont trois démonstrations (les formules d'addition, "
                  "lacune de R9 à M28 ; l'équivariance ; l'invariant de la softmax en ligne), MML §3.9 lu, et des durées "
-                 "relevées comme celles de M25a à M28.",
+                 "relevées comme celles de M25a à M28. Génération (session 72) : le critère du 🏆 MB3.22 est relatif (au plus 1,3 "
+                 "fois l'erreur quadratique moyenne de la méthode de référence, sur le jeu du notebook et trois éoliennes "
+                 "cachées de bruit faible, moyen et fort tirées à chaque exécution ; générateur et méthode dans "
+                 "`solutions/challenges/mb3_22.py`, hors du notebook) ; ∂ MB3.8 q. 6 (det R_θ et duplication) ; durées "
+                 "revues après la re-résolution à l'aveugle, l'auteur des exercices et l'apprenant simulé : exercices "
+                 "708 min, 14,8 h en tout et 11,9 h en parcours essentiel.",
         "exercises": [
             ("MB3.Q1", "🧠", 1, 5, "Formules d'addition et rotations du plan : le bon signe, composer, inverser, rotation "
              "ou symétrie ?", "§1 §2", "E"),
