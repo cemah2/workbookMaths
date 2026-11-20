@@ -37,7 +37,7 @@ Une marche aléatoire a des pas de même variance $0{,}4$ ; elle vaut 0 à l'ins
 ### MB5.Q3 — Signal et bruit : SNR, cotes, logit et décibels, et ce qu'un changement d'échelle ne change pas 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-1. $y = 1{,}8\,x + 0{,}5\,n$, avec $x$ de variance 1. Le SNR, la part $\gamma$ (4 décimales) et le SNR en décibels (2 décimales).
+1. $y = 1{,}8\,x + 0{,}5\,n$, avec $x$ de variance 1. Le SNR, puis la part $\gamma$ (4 décimales).
 2. Une mesure a $\gamma = 0{,}96$ : son SNR, puis $\operatorname{logit}\gamma$ (3 décimales).
 3. On multiplie $y$ par 10 (un amplificateur). Que deviennent le SNR et $\gamma$ ?
 4. Il faut 15 dB pour comprendre une voix. À quelle part $\gamma$ cela correspond-il (3 décimales) ?
@@ -96,7 +96,7 @@ Un processus aller $q$ fixé et un modèle retour $p$ dont la loi de départ $p(
 ### MB5.R1 — Sommes et images affines de gaussiennes, produit de densités et modèle linéaire gaussien (M25a) 🔁 ★ ⏱️ 6 min
 *Fiche §1 et §2 · parcours C, E*
 
-1. $X \sim \mathcal{N}(3, 2)$ et $Y \sim \mathcal{N}(-1, 5)$ sont indépendantes. La loi de $X + Y$, puis celle de $2X - Y$.
+1. $X \sim \mathcal{N}(5, 2)$ et $Y \sim \mathcal{N}(-1, 5)$ sont indépendantes. La loi de $X + Y$, puis celle de $2X - Y$.
 2. $\mathcal{N}(x \mid 1, 2)\,\mathcal{N}(x \mid 4, 6)$ est proportionnel à $\mathcal{N}(x \mid m, v)$ : que valent $m$ et $v$ ?
 3. $x \sim \mathcal{N}(10, 3)$, et l'on mesure $y = x + w$, avec $w \sim \mathcal{N}(0, 1)$ indépendant de $x$. La loi de $x$ sachant $y = 15$.
 4. Vrai ou faux : la somme de deux variables gaussiennes est toujours gaussienne.
@@ -116,7 +116,7 @@ Un processus aller $q$ fixé et un modèle retour $p$ dont la loi de départ $p(
 
 1. Un pas d'Euler de $h = 0{,}1$ pour $x' = -2x + 1$, depuis $x = 3$.
 2. Même champ, depuis $x = 3$, avec $h = 1{,}5$ : le pas rapproche-t-il $x$ du point fixe $0{,}5$ ?
-3. La loi stationnaire de la chaîne de matrice de transition $\begin{pmatrix} 0{,}85 & 0{,}15 \\ 0{,}35 & 0{,}65 \end{pmatrix}$.
+3. La loi stationnaire de la chaîne de matrice de transition $\begin{pmatrix} 0{,}83 & 0{,}17 \\ 0{,}34 & 0{,}66 \end{pmatrix}$.
 4. La cote puis le logit de $p = 0{,}12$ (2 décimales).
 5. Quelle probabilité a pour cote 7 ?
 
@@ -160,7 +160,7 @@ Une apicultrice suit une colonie d'abeilles pendant l'hivernage, d'octobre à ma
 | d | la borne supérieure $e^{-H}$ | un nombre (4 décimales) |
 | e | la borne inférieure $e^{-H - \sum_kh_k^2}$ | un nombre (4 décimales) |
 
-Dans ta copie : écris $\ln P$ comme une somme ; vérifie que chaque $h_k$ remplit la condition de la borne inférieure ; dis quel mois pèse le plus dans $\ln P$.
+Dans ta copie : écris $\ln P$ comme une somme, et vérifie que chaque $h_k$ remplit la condition de la borne inférieure.
 
 ### Ex MB5.3 — Un phoque balisé entre deux relevés : sa loi à une heure intermédiaire (le pont d'une marche aléatoire) ; puis des scénarios de position aux mêmes lois à chaque heure, tirés avec un seul nombre au hasard ou avec un bruit frais, et leur corrélation ✏️ ★★ ⏱️ 30 min
 **Objectif :** conditionner une marche aléatoire sur deux instants, puis construire des scénarios qui ont les mêmes lois à chaque heure mais pas les mêmes trajectoires.
@@ -182,7 +182,6 @@ Pour préparer des scénarios à partir de 8 h, sans connaître le relevé de 16
 |---|---|---|
 | c | la corrélation des positions de 10 h et de 13 h, pour la marche | un nombre (4 décimales) |
 | d | la même corrélation, pour le bruit frais | un nombre (4 décimales) |
-| e | la variance de $X_{13\,\mathrm{h}} - X_{10\,\mathrm{h}}$ pour la marche, pour un seul tirage, puis pour le bruit frais | une liste de 3 nombres (4 décimales) |
 
 Dans ta copie : vérifie par le lemme de la fiche que, avec le bruit frais, $X_t$ suit bien $\mathcal{N}(0, V_t)$ à chaque heure, et dis pourquoi $\sigma^2$ ne peut pas dépasser 2 ici.
 
@@ -402,9 +401,9 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **MB5.16 · 🔨 `linear_gaussian_recursion(a, b, mean0=0.0, var0=0.0)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (deux tableaux 1-D de même longueur, de nombres finis ; `mean0` et `var0` réels finis, ni booléens, `var0` $\ge 0$), puis propage $m_t = a_tm_{t-1}$ et $v_t = a_t^2v_{t-1} + b_t^2$, et rends les deux tableaux de longueur $T + 1$. Lance le groupe de tests. Ensuite : a) le lac de MB5.1 sur trois jours : la moyenne et la variance de $x_3$ (une liste de 2 nombres, à comparer à ta copie) ; b) au printemps, la persistance et le bruit changent chaque semaine : le notebook fournit `A_16` et `B_16`, les coefficients de douze semaines, et le départ $x_0 \sim \mathcal{N}(1{,}5 ;\ 0{,}3)$ : la moyenne et la variance de $x_{12}$ (une liste de 2 nombres) ; c) $a = -0{,}72$, $b = 1{,}1$ pendant six pas, depuis $x_0 = 5$ connu : la moyenne et la variance de $x_6$, puis $v_\infty$ (une liste de 3 nombres) ; d) $a = 1{,}05$, $b = 0{,}3$ pendant quarante pas, depuis $x_0 = 0$ : la variance de $x_{20}$, puis celle de $x_{40}$ (une liste de 2 nombres). Ce qu'il faut regarder : pourquoi les moyennes de c) changent-elles de signe à chaque pas, et de combien leur valeur absolue diminue-t-elle ? La variance de d) approche-t-elle une limite ?
 
-**MB5.17 · 🔨 `posterior_mean_mixture(y, a, b, weights, means, variances)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests. Ensuite : a) la partie A de MB5.5, comme un mélange à une composante (un nombre, à comparer à ta copie) ; b) la partie B de MB5.5, comme deux points de poids $\frac12$ (un nombre) ; c) un signal reçu qui suit le mélange $0{,}3\,\mathcal{N}(-1{,}5 ;\ 0{,}2) + 0{,}7\,\mathcal{N}(2 ;\ 0{,}5)$, mesuré par $y = 0{,}7\,x + 0{,}5\,n$ : $\mathbb{E}[x \mid y]$ pour $y = -1$, $0{,}3$ et $1{,}7$ (une liste de 3 nombres) ; d) le score $s_Y(0{,}3)$ de la loi de $y$, par une différence centrée de pas $10^{-4}$ sur $\ln p_Y$ que tu écris avec `scipy.stats.norm` (un nombre). Ce qu'il faut regarder : la formule de Tweedie, $\frac{y + b^2s_Y(y)}{a}$, redonne-t-elle ta valeur de c) en $y = 0{,}3$ ? Pour $y = -1$, quelle composante l'emporte, et pourquoi $\mathbb{E}[x \mid y]$ n'est-il pas $\frac ya$ ?
+**MB5.17 · 🔨 `posterior_mean_mixture(y, a, b, weights, means, variances)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; pour chaque composante, la variance $a^2s_k^2 + b^2$ de $y$, le logarithme de $\pi_k\,\mathcal{N}(y \mid a\mu_k, a^2s_k^2 + b^2)$ ($-\infty$ pour un poids nul) et $\mathbb{E}[x \mid y, k]$ ; les responsabilités par un log-sum-exp sur $k$, pour chaque mesure ; enfin la moyenne pondérée, de la forme de `y` ; pour $a = 0$, la moyenne du mélange. Lance le groupe de tests. Ensuite : a) la partie A de MB5.5, comme un mélange à une composante (un nombre, à comparer à ta copie) ; b) la partie B de MB5.5, comme deux points de poids $\frac12$ (un nombre) ; c) un signal reçu qui suit le mélange $0{,}25\,\mathcal{N}(-1{,}4 ;\ 0{,}2) + 0{,}75\,\mathcal{N}(2{,}3 ;\ 0{,}5)$, mesuré par $y = 0{,}7\,x + 0{,}5\,n$ : $\mathbb{E}[x \mid y]$ pour $y = -0{,}9$, $0{,}3$ et $1{,}7$ (une liste de 3 nombres). Ce qu'il faut regarder : pour $y = -0{,}9$, quelle composante l'emporte, malgré son petit poids, et pourquoi $\mathbb{E}[x \mid y]$ n'est-il pas $\frac ya$ ? Que rend ta fonction pour $a = 0$ ?
 
-**MB5.18 · 🔨 `euler_ode(f, x0, t0, t1, n_steps)` et `midpoint_ode(f, x0, t0, t1, n_steps)`.** Écris les deux fonctions, en suivant leurs docstrings : contrôle `n_steps` (un entier $\ge 1$, pas un booléen ni un flottant), `t0` et `t1` (des réels finis) et la forme de chaque vitesse ; $h = \frac{t_1 - t_0}{N}$, négatif si $t_1 < t_0$ ; une évaluation de `f` par pas pour Euler, deux pour le point milieu ; rends les $N + 1$ points, départ compris. Lance les deux groupes de tests. Ensuite : a) le thé de MB5.8, à 10 min, par Euler puis par le point milieu, avec deux pas (une liste de 2 nombres, à comparer à ta copie) ; b) la tasse à 47 °C de MB5.8 f), remontée de 10 min à 5 min en un pas d'Euler, puis en dix pas (une liste de 2 nombres) ; c) $x' = 3t^2$, $x(0) = 0$, sur $[0, 2]$ en quatre pas : Euler, puis le point milieu (une liste de 2 nombres) ; d) $x' = t - x$, $x(0) = 2$, sur $[0, 3]$ en six pas : l'erreur d'Euler, puis celle du point milieu, par rapport à la solution exacte $t - 1 + 3e^{-t}$ (une liste de 2 nombres, positifs). Ce qu'il faut regarder : à quelle somme de M02a correspondent les deux valeurs de c), et pourquoi le point milieu n'y est-il pas exact ? Que vaut l'erreur de b) en dix pas, comparée à celle d'un seul pas ?
+**MB5.18 · 🔨 `euler_ode(f, x0, t0, t1, n_steps)` et `midpoint_ode(f, x0, t0, t1, n_steps)`.** Écris les deux fonctions, en suivant leurs docstrings : contrôle `n_steps` (un entier $\ge 1$, pas un booléen ni un flottant), `t0` et `t1` (des réels finis) et la forme de chaque vitesse ; $h = \frac{t_1 - t_0}{N}$, négatif si $t_1 < t_0$ ; une évaluation de `f` par pas pour Euler, deux pour le point milieu ; rends les $N + 1$ points, départ compris. Lance les deux groupes de tests. Ensuite : a) le thé de MB5.8, à 10 min, par Euler puis par le point milieu, avec deux pas (une liste de 2 nombres, à comparer à ta copie) ; b) la tasse à 47 °C de MB5.8 f), remontée de 10 min à 5 min en dix pas d'Euler (un nombre) ; c) $x' = 3t^2$, $x(0) = 0$, sur $[0, 2]$ en quatre pas : Euler, puis le point milieu (une liste de 2 nombres) ; d) $x' = t - x$, $x(0) = 2$, sur $[0, 3]$ en six pas : l'erreur d'Euler, puis celle du point milieu, par rapport à la solution exacte $t - 1 + 3e^{-t}$ (une liste de 2 nombres, positifs). Ce qu'il faut regarder : à quelle somme de M02a correspondent les deux valeurs de c), et pourquoi le point milieu n'y est-il pas exact ? De combien l'erreur de b) en dix pas est-elle plus petite que celle d'un seul pas, en MB5.8 f) ?
 
 **MB5.19 · 📦 `scipy.integrate.solve_ivp` et une croissance logistique.** Une culture de levures suit $P' = 0{,}9\,P\big(1 - \frac{P}{40}\big)$ (en millions de cellules, $t$ en heures), depuis $P(0) = 1{,}5$. Relève : a) $P(8)$ par `solve_ivp(…, rtol=1e-10, atol=1e-10)` (un nombre), à comparer à la solution exacte de la fiche ; b) pour $N = 8$, 16, 32, 64, 128 et 256 pas, l'erreur de `euler_ode` puis celle de `midpoint_ode` en $t = 8$ (deux listes de 6 nombres), et trace-les contre $N$ en échelles logarithmiques ; c) les pentes des deux droites, ajustées sur $N = 32$ à 256 par `np.polyfit` sur les logarithmes (une liste de 2 nombres, 1 décimale) ; d) à 64 évaluations du champ, l'erreur d'Euler (64 pas), puis celle du point milieu (32 pas) (une liste de 2 nombres). Ce qu'il faut regarder : pourquoi ajuster les pentes sur les grands $N$ seulement ? À nombre d'évaluations égal, quelle méthode gagne, et de combien ?
 

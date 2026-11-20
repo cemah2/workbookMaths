@@ -212,11 +212,11 @@ def _close(got, want, what, rtol=1e-12, atol=1e-14, hint=""):
 
 
 def _first_match(got, want, candidates, rtol=1e-9, atol=1e-11):
-    """The text of the first classic error whose value got matches (and that differs from the right value), or ""."""
-    for value, text in candidates:
-        if value is not None and not _same(value, want, rtol, atol) and _same(got, value, rtol, atol):
-            return text
-    return ""
+    """The texts of the classic errors whose value got matches (and that differ from the right value), joined by
+    « or » when several errors give the same value here; "" when none does."""
+    texts = [text for value, text in candidates
+             if value is not None and not _same(value, want, rtol, atol) and _same(got, value, rtol, atol)]
+    return " — or ".join(dict.fromkeys(texts))
 
 
 def _rng(seed, case=None):
@@ -451,8 +451,8 @@ def _lgr_hint(got, a, b, mean0, var0):
              "the recursion starts from the variance var0 of x_0, not from 0"),
             (np.sqrt(np.abs(want_v)), "these are standard deviations: return the variances"),
             (want_m if _same(got_m, want_v, 1e-9, 1e-12) else None, "the means and the variances are swapped")]))
-    texts = [t for t in texts if t]
-    return f"{LGR_HINT}; here {'; '.join(texts)}" if texts else LGR_HINT
+    texts = list(dict.fromkeys(t for t in texts if t))
+    return f"here {'; '.join(texts)}; {LGR_HINT}" if texts else LGR_HINT
 
 
 def _check_lgr(got, a, b, mean0, var0, what, rtol=1e-12, want=None):
@@ -932,18 +932,20 @@ def _softmax_mean(y, a, b, W, M):
     return special.softmax(logs, axis=-1) @ M[keep]
 
 
-def _variant_mean(y, a, b, W, M, S, spread=None, center=None, pull=None):
-    """E[x | y] computed with a classic error (another variance of y given k, another center, another pull)."""
+def _variant_mean(y, a, b, W, M, S, spread=None, center=None, pull=None, shift=None):
+    """E[x | y] computed with a classic error (another variance of y given k, another center of y given k, another
+    pull, another center in E[x | y, k] = μ_k + pull (y - shift))."""
     W, M, S = _arrays(W, M, S)
     y = np.asarray(y, dtype=float)[..., None]
     spread = a * a * S + b * b if spread is None else spread
     center = a * M if center is None else center
     pull = a * S / (a * a * S + b * b) if pull is None else pull
+    shift = a * M if shift is None else shift
     with np.errstate(divide="ignore", invalid="ignore", over="ignore"):
         logs = np.where(W > 0, np.log(np.where(W > 0, W, 1.0)), -np.inf) - 0.5 * np.log(spread) \
             - (y - center) ** 2 / (2 * spread)
         weights = special.softmax(logs, axis=-1)
-        return np.sum(weights * (M + pull * (y - a * M)), axis=-1)
+        return np.sum(weights * (M + pull * (y - shift)), axis=-1)
 
 
 def _pmm_hint(got, y, a, b, W, M, S):
@@ -962,14 +964,18 @@ def _pmm_hint(got, y, a, b, W, M, S):
         (_variant_mean(y, a, b, W, M, S, spread=a * a * np.sqrt(Sf) + b * b,
                        pull=a * np.sqrt(Sf) / (a * a * np.sqrt(Sf) + b * b)),
          "s_k² is a variance: do not take its square root"),
+        (_variant_mean(y, a, b, W, M, S, spread=a * a * Sf ** 2 + b * b, pull=a * Sf ** 2 / (a * a * Sf ** 2 + b * b)),
+         "variances holds the variances s_k², not standard deviations: do not square them"),
         (_variant_mean(y, a, b, W, M, S, center=Mf),
          "the mean of y given k is a μ_k, not μ_k"),
+        (_variant_mean(y, a, b, W, M, S, center=Mf, shift=Mf),
+         "the mean of y given k is a μ_k, not μ_k (in the responsibilities and in E[x | y, k])"),
         (_variant_mean(y, a, b, W, M, S, spread=np.full(Mf.shape, b * b)),
          "the responsibilities need the variance of y given k, a² s_k² + b², not b² alone"),
         (_variant_mean(y, a, b, np.full(Wf.shape, 1.0 / Wf.size), M, S),
          "the responsibilities are proportional to π_k N(y | a μ_k, a² s_k² + b²): the weights π_k are missing"),
     ])
-    return f"{PMM_HINT}; here {text}" if text else PMM_HINT
+    return f"here {text}; {PMM_HINT}" if text else PMM_HINT
 
 
 def _check_pmm(got, want, y, a, b, W, M, S, what, rtol=1e-10, scale_atol=1e-11):
@@ -1200,8 +1206,8 @@ def test_posterior_mean_mixture_changing_the_scale_of_the_signal_or_of_the_measu
 
 
 def test_posterior_mean_mixture_grows_with_y_when_a_is_positive(gp):
-    """dE[x | y]/dy = a V(x | y) / b² (Tweedie, once more): for a > 0 the result never decreases when y grows, for a < 0
-    it never increases (360 measurements from -10 to 10)."""
+    """For a > 0, a larger measurement never gives a smaller E[x | y]; for a < 0, never a larger one (360 measurements
+    from -10 to 10)."""
     rng = _rng(7631)
     y = np.linspace(-10.0, 10.0, 360)
     for k in range(6):
@@ -1465,7 +1471,7 @@ def _times(t0, t1, n):
 
 def _ode_hint(method, got, candidates, want):
     text = _first_match(got, want, candidates, rtol=1e-9, atol=1e-11)
-    return f"{HINTS[method]}; here {text}" if text else HINTS[method]
+    return f"here {text}; {HINTS[method]}" if text else HINTS[method]
 
 
 def _check_ode(method, got, want, what, candidates=(), rtol=1e-12, atol=None):
@@ -1864,13 +1870,16 @@ def test_midpoint_ode_with_a_velocity_of_time_only_is_the_midpoint_rule(gp, t0, 
         start, middle, end = g(times[:-1]), g(times[:-1] + h / 2), g(times[1:])
         want = total(middle)
         got, _ = _ode(gp, "midpoint_ode", _time_only(g), name, x0, t0, t1, n)
-        candidates = [(total(start), "this is Euler's method: the velocity of the step is read at its middle, "
-                                     "t_k + h / 2, not at its start"),
+        candidates = [(total(start), "this is Euler's method (the velocity read at the start of the step): the "
+                                     "midpoint method reads it at the middle, t_k + h / 2"),
                       (total((start + end) / 2), "this is the average of the velocities at t_k and t_k + h (the "
                                                  "method of Heun), not the velocity read at the middle"),
                       (total(end), "the velocity is read at the end of the step, not at its middle"),
-                      (total((start + middle) / 2), "two half Euler steps: the second half step is not the update; "
-                                                    "the velocity read at the middle is used for the whole step"),
+                      (total((start + middle) / 2), "the update is (h / 2) (k1 + k2) (two half Euler steps, or the "
+                                                    "average of k1 and k2): it is h k2, the velocity read at the "
+                                                    "middle used for the whole step"),
+                      (total(middle / 2), "the update is x_k + (h / 2) k2: the velocity read at the middle is used "
+                                          "for the whole step, x_k + h k2"),
                       (total(np.full(n, g(t0 + h / 2))), "the time does not move: the steps all use t0")]
         _check_ode("midpoint_ode", got, want, _describe_ode("midpoint_ode", name, x0, t0, t1, n) + " (the midpoint "
                    "rule)", candidates)
@@ -1878,18 +1887,18 @@ def test_midpoint_ode_with_a_velocity_of_time_only_is_the_midpoint_rule(gp, t0, 
 
 @pytest.mark.parametrize("t0, t1", DIRECTIONS, ids=DIRECTION_IDS)
 def test_midpoint_ode_is_exact_for_a_velocity_affine_in_t(gp, t0, t1):
-    """x' = α + β t: the midpoint method gives the exact x0 + α (t - t0) + β (t² - t0²) / 2 at every t_k (up to
+    """x' = c + d t: the midpoint method gives the exact x0 + c (t - t0) + d (t² - t0²) / 2 at every t_k (up to
     rounding), whatever the number of steps, one step included."""
     rng = _rng(7671, DIRECTIONS.index((t0, t1)))
     for k in range(6):
-        alpha, beta = (float(np.round(v, 3)) for v in rng.uniform(-3.0, 3.0, size=2))
+        c, d = (float(np.round(v, 3)) for v in rng.uniform(-3.0, 3.0, size=2))
         x0 = float(np.round(rng.normal(), 3)) if k % 2 else np.round(rng.normal(size=2), 3)
         for n in (1, 3, 11):
             times = np.linspace(t0, t1, n + 1)
-            want = np.asarray(x0)[None, ...] + (alpha * (times - t0) + beta * (times ** 2 - t0 ** 2) / 2).reshape(
+            want = np.asarray(x0)[None, ...] + (c * (times - t0) + d * (times ** 2 - t0 ** 2) / 2).reshape(
                 (-1,) + (1,) * np.ndim(x0))
-            name = f"x' = {alpha} + {beta} t"
-            got, _ = _ode(gp, "midpoint_ode", _time_only(lambda t, alpha=alpha, beta=beta: alpha + beta * t), name,
+            name = f"x' = {c} + {d} t"
+            got, _ = _ode(gp, "midpoint_ode", _time_only(lambda t, c=c, d=d: c + d * t), name,
                           x0, t0, t1, n)
             _check_ode("midpoint_ode", got, want, _describe_ode("midpoint_ode", name, x0, t0, t1, n) + " (the exact "
                        "solution)", rtol=1e-12, atol=1e-12 * (1 + float(np.max(np.abs(want)))) * n)
@@ -1913,12 +1922,18 @@ def test_midpoint_ode_with_a_linear_field_multiplies_by_the_factor_of_one_step(g
         want = product(1 + h * middle * (1 + h / 2 * start))
         got, _ = _ode(gp, "midpoint_ode", _linear(rate), name, x0, t0, t1, n)
         candidates = [
-            (product(1 + h * start), "this is Euler's method: the velocity of the step is read at its middle"),
+            (product(1 + h * start), "this is Euler's method (the velocity read at the start of the step): the "
+                                     "midpoint method reads it at the middle"),
             (product(1 + h / 2 * (start + end * (1 + h * start))), "this is the method of Heun (the average of two "
                                                                     "velocities), not the velocity at the middle"),
             (product(1 + h * middle * (1 + h * start)), "the point at the middle is x_k + (h / 2) k1, half an Euler "
                                                         "step, not a whole one"),
             (product(1 + h * middle), "the velocity at the middle is read at x_k + (h / 2) k1, not at x_k"),
+            (product(1 + h / 2 * middle * (1 + h / 2 * start)), "the update is x_k + (h / 2) k2: the velocity read "
+                                                                "at the middle is used for the whole step"),
+            (product(1 + h / 2 * (start + middle * (1 + h / 2 * start))), "the update is (h / 2) (k1 + k2) (two half "
+                                                                          "Euler steps, or the average of k1 and "
+                                                                          "k2): it is h k2"),
             (product(1 + h * end * (1 + h / 2 * start)), "the second velocity is read at t_k + h / 2, not at "
                                                          "t_k + h"),
             (product(np.full(n, 1 + h * rate(t0 + h / 2) * (1 + h / 2 * rate(t0)))),
