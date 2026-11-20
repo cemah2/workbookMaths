@@ -7,12 +7,12 @@ Writes small PNG files into chapitres/mb5_diffusion/figures/:
 - §1: the heading error of a sailing boat under autopilot, an AR(1) with a = 0.7 and b = 1 (trajectories from 6° and
   from −4°, their mean and band; the variance from v₀ = 0 and v₀ = 5 towards 1/0.51, and the random walk a = 1); the
   survival of a four-leg race (risks 0.09, 0.03, 0.11, 0.13) between its two exponential bounds;
-- §2: the bridge of a mechanical watch (variance 4 s² a day on weekdays, 1 s² on the weekend, x₀ = 0, x₇ = 11 s);
-  three couplings of the same marginals N(0, 4t) (random walk, one draw, a fresh draw each day);
+- §2: the bridge of a mechanical watch (variance 4 s² a day when worn, 1 s² a day from Saturday noon to Monday noon,
+  x₀ = 0, x₇ = 11 s); three couplings of the same marginals N(0, 4t) (random walk, one draw, a fresh draw each day);
 - §3: the share γ of the signal variance against the SNR in decibels, measurements of a bright (a = 5) and a faint
   (a = 0.5) source with a receiver b = 2, and the factor 1/√SNR as a curve;
-- §4: the prices of twelve flats in three districts with the district means; the MSE and the MAE of a constant for a
-  trip of 18 or 42 minutes (probabilities 0.75 and 0.25);
+- §4: the prices of twelve flats in three districts with the district means; the MSE and the MAE of a constant for
+  a building permit answered in 18 or 42 days (probabilities 0.75 and 0.25);
 - §5: a mixture of grades 0.6 N(8, 4) + 0.4 N(15, 1) seen through a marker b = 2, the score of the noisy law, the
   optimal denoiser for three noise levels; the denoiser of the cloud 2, 5, 9 (weights 0.2, 0.5, 0.3) as b shrinks;
 - §6: the chain of a box that fades (erasing probabilities 0.3 and 0.5) and the decomposition of its ELBO for x = 1;
@@ -22,9 +22,9 @@ Writes small PNG files into chapitres/mb5_diffusion/figures/:
   at t = 20 against the number of evaluations of the field (log-log);
 - §9: straight paths between data N(3, 0.45²) and noises, the trajectories of the mean field for these data, and for
   data on the two points −1.5 and 2.5.
-The numbers are those of the fiche; none comes from workbookIA B1 to B5, nor from the exercises of MB5. The figures
-that draw random numbers use the seeds 7691 (§1), 7692 and 7693 (§2), 7694 (§3), 7695 (§5) and 7696 (§9), among the
-seeds 7691 to 7699 kept for the figures of MB5.
+The numbers are those of the fiche; none comes from workbookIA B1 to B5, nor from the exercises of MB5. The
+figures that draw random numbers use the seeds 7691 (§1), 7692 and 7693 (§2), 7694 (§3), 7695 (§5) and 7696 (§9),
+among the seeds 7691 to 7699 kept for the figures of MB5.
 """
 
 from __future__ import annotations
@@ -62,9 +62,9 @@ WATCH_END = 11.0
 COUPLING_VAR = 4.0
 # §3: a receiver b = 2, a bright source a = 5 and a faint one a = 0.5
 RECEIVER_B, BRIGHT_A, FAINT_A = 2.0, 5.0, 0.5
-# §4: twelve flats (k€) and the trip at 17 h
+# §4: twelve flats (k€) and a building permit
 FLATS = {"Gare": [180, 200, 205, 215], "Centre": [290, 310, 330], "Port": [240, 250, 260, 270, 280]}
-TRIP = ([18.0, 42.0], [0.75, 0.25])
+PERMIT_DAYS = ([18.0, 42.0], [0.75, 0.25])
 # §5: the grades and the marker; the cloud
 GRADES = (np.array([0.6, 0.4]), np.array([8.0, 15.0]), np.array([4.0, 1.0]))
 MARKER_B = 2.0
@@ -221,7 +221,7 @@ def couplings() -> None:
                 x = math.sqrt(COUPLING_VAR) * np.sqrt(t) * rng.standard_normal()
             else:
                 x = math.sqrt(COUPLING_VAR) * np.sqrt(t) * rng.standard_normal(T + 1)
-            style = dict(lw=1.2) if j < 2 else dict(lw=0.6, ls=":")
+            style = dict(lw=1.2) if j < 2 else dict(ls="none")
             ax.plot(t, x, marker="o", ms=3, color=C[i % len(C)], **style)
         ax.set_title(titles[j], fontsize=10.5)
         ax.set_xlabel("jour t")
@@ -283,7 +283,7 @@ def conditional_expectation() -> None:
     ax.set_title(f"MSE des moyennes de quartier ≈ {fr(within, 1)}, d'une constante ≈ {fr(np.var(allp), 1)}",
                  fontsize=10.5)
     ax = axes[1]
-    vals, probs = TRIP
+    vals, probs = PERMIT_DAYS
     c = np.linspace(10, 50, 401)
     mse = sum(p * (v - c) ** 2 for v, p in zip(vals, probs))
     mae = sum(p * np.abs(v - c) for v, p in zip(vals, probs))
@@ -291,17 +291,17 @@ def conditional_expectation() -> None:
     ax2 = ax.twinx()
     ax2.plot(c, mae, color=C[1], lw=2, label="MAE E|Y − c|")
     ax.plot([24], [108], "o", color=C[0], ms=7)
-    ax.annotate("moyenne 24 : MSE 108", (24, 108), textcoords="offset points", xytext=(10, 40), fontsize=9,
+    ax.annotate("moyenne 24 : MSE 108", (24, 108), textcoords="data", xytext=(26, 480), fontsize=9,
                 color=C[0], arrowprops=dict(arrowstyle="->", color=C[0]))
     ax2.plot([18], [6], "s", color=C[1], ms=7)
     ax2.annotate("médiane 18 : MAE 6", (18, 6), textcoords="offset points", xytext=(-40, 60), fontsize=9,
                  color=C[1], arrowprops=dict(arrowstyle="->", color=C[1]))
-    ax.set(xlabel="prédiction constante c (minutes)", ylabel="MSE")
+    ax.set(xlabel="prédiction constante c (jours)", ylabel="MSE")
     ax2.set_ylabel("MAE")
     ax2.yaxis.set_major_formatter(FuncFormatter(french_number))
-    ax.set_title("Le trajet de 17 h : 18 min (0,75) ou 42 min (0,25)", fontsize=10.5)
+    ax.set_title("Un permis de construire : 18 jours (0,75) ou 42 jours (0,25)", fontsize=10.5)
     lines = ax.get_lines()[:1] + ax2.get_lines()[:1]
-    ax.legend(lines, [ln.get_label() for ln in lines], fontsize=8.5, loc="upper center")
+    ax2.legend(lines, [ln.get_label() for ln in lines], fontsize=8.5, loc="upper center")
     fig.tight_layout(w_pad=2.5)
     save(fig, "esperance_conditionnelle.png")
     print(f"    flats: within {within:.4f}, total {np.var(allp):.4f}")
@@ -447,10 +447,10 @@ def guidance() -> None:
     mu_c2, v_c2, mu_u2, v_u2 = 1.0, 5.0, 0.0, 1.0
     ax.plot(xs, norm.pdf(xs, mu_u2, 1.0), color="0.5", lw=1.8, ls="--", label="p_u = N(0, 1)")
     ax.plot(xs, norm.pdf(xs, mu_c2, math.sqrt(v_c2)), color=C[0], lw=2.2, label="p_c = N(1, 5)")
-    for w, col in ((0.05, C[1]), (0.15, C[2]), (0.22, C[3])):
+    for w, col in ((0.07, C[1]), (0.17, C[2]), (0.22, C[3])):
         m, v = guided(mu_c2, v_c2, mu_u2, v_u2, w)
         ax.plot(xs, norm.pdf(xs, m, math.sqrt(v)), color=col, lw=1.6,
-                label=f"w = {french_number(w)} : variance {fr(v, 1)}")
+                label=f"w = {french_number(w)} : variance {fr(v + 1e-9, 2)}")
     ax.set(xlabel="x", ylabel="densité")
     ax.set_title("σ_c² = 5σ_u² : plus de densité pour w ≥ 1/4", fontsize=11)
     ax.legend(fontsize=8, loc="upper right")

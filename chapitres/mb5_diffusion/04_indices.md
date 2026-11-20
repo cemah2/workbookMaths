@@ -282,7 +282,7 @@ $\operatorname{SNR} = \frac{a^2}{b^2}$, $\gamma = \frac{\operatorname{SNR}}{1 + 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{1{,}44}{0{,}25}$. b) $\frac{1{,}44}{1{,}44 + 0{,}25}$. c) Le logarithme népérien du SNR. d) $10\log_{10}$ du SNR. e) $10^{0{,}9}$, puis $\frac{r}{1 + r}$. f) $\frac{0{,}9 - 1{,}8 \times 0{,}7}{0{,}3}$. g) Retire $x = \frac{y - bn}{a}$ de $\hat x$ : le facteur est un rapport des deux gains, pour chaque enregistrement.
+a) $\frac{1{,}44}{0{,}25}$. b) $\frac{1{,}44}{1{,}44 + 0{,}25}$. c) Le logarithme népérien du SNR. d) $10\log_{10}$ du SNR. e) $10^{0{,}9}$, puis $\frac{r}{1 + r}$. f) $\frac{0{,}9 - 1{,}8 \times 0{,}7}{0{,}3}$. g) Retire $x = \frac{y - bn}{a}$ de $\hat x$ : le rapport des deux erreurs est un rapport des deux gains, pour chaque enregistrement.
 
 </details>
 
@@ -300,7 +300,7 @@ Partie A : $y \sim \mathcal{N}(am, a^2\tau^2 + b^2)$, $\mathbb{E}[x \mid y] = m 
 </details>
 <details><summary>Indice 3</summary>
 
-A : $y \sim \mathcal{N}(2, 25)$. a) $1 + \frac{2 \times 4}{25}(6 - 2)$. b) $-\frac{6 - 2}{25}$. c) $-3 \times s_Y(6)$ ; contrôle : $2\,\mathbb{E}[x \mid y] + 3\,\mathbb{E}[n \mid y] = 6$. B : le rapport vaut $\tanh\big(\frac{acy}{b^2}\big)$ ; ici $ac = 1$ et $b^2 = 1$. d) $2\tanh(1{,}1)$. e) $\frac{1{,}1 - 0{,}5 \times \mathbb{E}[x \mid y]}{1}$. f) Quand $b \to 0$, que devient $\frac{acy}{b^2}$ pour $y = 1{,}1$, et pour $y = 0$ ?
+A : $y \sim \mathcal{N}(2, 25)$. a) $1 + \frac{2 \times 4}{25}(6 - 2)$. b) $-\frac{6 - 2}{25}$. c) $-3 \times s_Y(6)$ ; contrôle : $2\,\mathbb{E}[x \mid y] + 3\,\mathbb{E}[n \mid y] = 6$. B : le rapport vaut $\tanh\big(\frac{acy}{b^2}\big)$ ; ici $ac = 1$ et $b^2 = 1$. d) $2\tanh(1{,}1)$. e) $\frac{1{,}1 - 0{,}5 \times \mathbb{E}[x \mid y]}{1}$. f) Quand $b \to 0$, que devient $\frac{acy}{b^2}$ pour $y = 1{,}1$, et vers quoi tend alors la tanh ?
 
 </details>
 
@@ -313,7 +313,7 @@ Fiche §6 : « Une chaîne de latents » (le théorème) et l'exemple « Une cas
 </details>
 <details><summary>Indice 2</summary>
 
-a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\,q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\,q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\,p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \,\|\, p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\,\mathrm{KL}\big(q(z_1 \mid z_2, x) \,\|\, p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL (ou la somme directe sur les quatre couples $(z_1, z_2)$). f) L'écart est une KL.
+a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\,q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\,q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\,p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \,\|\, p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\,\mathrm{KL}\big(q(z_1 \mid z_2, x) \,\|\, p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL (ou la somme directe sur les quatre couples $(z_1, z_2)$).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,12 +349,12 @@ Fiche §8 : « Une équation, une condition initiale » (le refroidissement), «
 </details>
 <details><summary>Indice 2</summary>
 
-La solution exacte est $T(t) = 20 + 65\,e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - kh + \frac{(kh)^2}{2}$ avec $k = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour f), le pas vaut $h = -5$, et la pente se lit à 10 min.
+La solution exacte est $T(t) = 20 + 65\,e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - kh + \frac{(kh)^2}{2}$ avec $k = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour e), le pas vaut $h = -5$, et la pente se lit à 10 min. Pour la feuille de ta copie : sa vitesse change-t-elle le long de sa trajectoire ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $20 + 65\,e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $kh = 0{,}3$ donne le facteur $0{,}745$, $kh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode. e) $4 + 0{,}35 \times 30$, en un pas comme en six. f) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
+a) $20 + 65\,e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $kh = 0{,}3$ donne le facteur $0{,}745$, $kh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode. e) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
 
 </details>
 
@@ -470,7 +470,7 @@ Fiche §3 (« Trois cibles qui portent la même information »), §4 (« La meil
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{1{,}7}{1{,}1^2 + 1{,}7^2}$. b) $1 - \frac{b_k^2}{a_k^2 + b_k^2}$, à chaque niveau. c) $1 - \frac{a_k^2}{a_k^2 + b_k^2}$. d) Simplifie le rapport de b) à c), et compare au §3. e) $\sum_k\omega_k \times$ (la MSE de b) au niveau $k$).
+a) $\frac{1{,}7}{1{,}1^2 + 1{,}7^2}$. b) $1 - \frac{b_k^2}{a_k^2 + b_k^2}$, à chaque niveau. c) $1 - \frac{a_k^2}{a_k^2 + b_k^2}$. d) $\sum_k\omega_k \times$ (la MSE de b) au niveau $k$). Pour ta copie, simplifie le rapport de b) à c), et compare au §3.
 
 </details>
 
@@ -531,7 +531,7 @@ Fiche §1 : « Deux moments qui suivent le pas » et son 💻 ; la docstring de 
 </details>
 <details><summary>Indice 2</summary>
 
-Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(6, -0.72)` ; d) quarante pas, et les entrées 20 et 40.
+Les contrôles d'abord : `np.asarray(…, dtype=float)`, une dimension, la même longueur, des nombres finis ; `mean0` et `var0` réels finis, pas des booléens (`isinstance(…, bool)` avant le reste), `var0` positif ou nul. Puis une boucle sur les couples $(a_t, b_t)$, sans modifier les tableaux reçus. Pour la suite : a) trois pas de mêmes coefficients ; b) `A_16`, `B_16` et le départ $\mathcal{N}(1{,}5 ;\ 0{,}3)$ ; c) `np.full(6, -0.72)`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -543,7 +543,7 @@ for at, bt in zip(a, b):
     variances.append(at ** 2 * variances[-1] + bt ** 2)
 return np.array(means), np.array(variances)
 ```
-c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}72^2}$. d) Que vaut $a^2$ ici, et que devient alors la récurrence de $v_t$ ?
+c) $v_\infty = \frac{1{,}1^2}{1 - 0{,}72^2}$ ; compare $v_6$ à $v_\infty$.
 
 </details>
 
@@ -620,7 +620,7 @@ Un seul champ `f(t, P)`, le temps d'abord, sert à SciPy et à tes deux fonction
 </details>
 <details><summary>Indice 3</summary>
 
-`f = lambda t, P: 0.9 * P * (1 - P / 40)` ; la solution exacte en 8 : $\frac{40}{1 + (40/1{,}5 - 1)\,e^{-7{,}2}}$. b) `Ns = [8, 16, 32, 64, 128, 256]`, une liste d'erreurs par méthode, puis `ax.loglog(Ns, errors)`. c) `np.polyfit(np.log(Ns[2:]), np.log(err[2:]), 1)[0]`. d) Euler avec 64 pas, le point milieu avec 32.
+`f = lambda t, P: 0.9 * P * (1 - P / 40)` ; la solution exacte en 8 : $\frac{40}{1 + (40/1{,}5 - 1)\,e^{-7{,}2}}$. b) `Ns = [8, 16, 32, 64, 128, 256]`, une liste d'erreurs par méthode, puis `ax.loglog(Ns, errors)`. c) `np.polyfit(np.log(Ns[2:]), np.log(err[2:]), 1)[0]` ; puis, dans tes listes de b), l'erreur d'Euler à $N = 64$ et celle du point milieu à $N = 32$.
 
 </details>
 
@@ -656,7 +656,7 @@ Fiche §9 : « Le champ moyen » et « Des données gaussiennes » (le champ aff
 </details>
 <details><summary>Indice 3</summary>
 
-a) Pour chaque $N$, `np.std(euler_ode(field_21, Z_21, 1.0, 0.0, N)[-1])`, puis la même chose avec `midpoint_ode`. b) Le départ `0.0` au lieu de `Z_21`. c) `np.std(4 + 0.5 * Z_21)`. Pour la question sur l'ordre : divise chaque écart à l'écart-type exact de c) par celui du $N$ suivant.
+a) Pour chaque $N$, `np.std(euler_ode(field_21, Z_21, 1.0, 0.0, N)[-1])`, puis la même chose avec `midpoint_ode`. b) `np.std(4 + 0.5 * Z_21)`. Pour la moyenne, `np.mean` des mêmes points. Pour la question sur l'ordre : divise chaque écart à l'écart-type exact de b) par celui du $N$ suivant.
 
 </details>
 
@@ -710,7 +710,7 @@ Fiche §8 : « Exacte pour une vitesse constante », « Le point milieu » (exac
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_1 - t_0}{N}$ : plusieurs vitesses (dont une négative), plusieurs $N$ (dont 1), et $t_1 < t_0$ aussi. Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
+Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **chaque** point rendu à la solution exacte aux instants $t_k = t_0 + k\frac{t_1 - t_0}{N}$ : plusieurs vitesses (dont une négative) et plusieurs $N$ (dont 1). Le champ doit rendre la forme de $x$ : `lambda t, x: c + 0 * x`. Pour `error_halves_24`, un champ qui dépend de $t$ et de $x$, de solution connue, et $N$ assez grand pour que l'erreur suive sa droite. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -151,7 +151,6 @@
 - c :
 - d :
 - e :
-- f :
 - dans ta copie :
 
 ### Ex MB5.7 — La date de floraison d'une variété et celle de tout le verger, deux lois gaussiennes : la loi p_v^{1+w} p_g^{−w} pour deux valeurs de w, son score, sa condition d'existence et le w limite
@@ -170,7 +169,6 @@
 - c :
 - d :
 - e :
-- f :
 - dans ta copie :
 
 ### Ex MB5.9 — Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen (affine en x), un pas d'Euler depuis s = 1 qui rend m pour tout départ, puis deux pas, et l'écart-type obtenu contre τ
@@ -219,7 +217,6 @@
 - b :
 - c :
 - d :
-- e :
 - dans ta copie :
 
 ### Ex MB5.15 — Expliquer avec le jeu du téléphone pourquoi, après assez de relais qui atténuent et bruitent, le message reçu ne dit plus rien du message émis
