@@ -40,7 +40,7 @@ Le poids $\ln\frac{N - n + 1/2}{n + 1/2}$ est négatif quand son argument est pl
 </details>
 <details><summary>Indice 3</summary>
 
-2. Pour $n = N$, l'argument vaut $\frac{1/2}{N + 1/2}$ ; la variante, $\frac{N + 1}{N + 1/2}$. 3. $\ln 0$ et une division par 0. 4. $s(1) = \frac{k_1 + 1}{1 + k_1}$ ; dérive deux fois $\frac{x(k_1 + 1)}{x + k_1} = (k_1 + 1)\big(1 - \frac{k_1}{x + k_1}\big)$. 5. $\frac{x(0 + 1)}{x + 0}$, et, pour $k_1$ grand, $\frac{k_1 + 1}{x + k_1} \to 1$.
+2. Pour $n = N$, l'argument vaut $\frac{1/2}{N + 1/2}$ ; la variante, $\frac{N + 1}{N + 1/2}$. 3. $\ln 0$ et une division par 0. 4. $s(1) = \frac{k_1 + 1}{1 + k_1}$ ; dérive deux fois $\frac{x(k_1 + 1)}{x + k_1} = (k_1 + 1)\big(1 - \frac{k_1}{x + k_1}\big)$. 5. $\frac{x(0 + 1)}{x + 0}$, et, pour $k_1$ grand, $\frac{k_1 + 1}{x + k_1} \to 1$ ; pour $b = 0$, remplace $b$ dans $1 - b + b\ell$.
 
 </details>
 
@@ -106,7 +106,7 @@ Toutes les colonnes de $\mathbf{u}\mathbf{v}^\top$ sont des multiples de $\mathb
 
 <details><summary>Indice 1</summary>
 
-M12d §3 (l'approximation de rang faible, Eckart-Young) ; fiche §2, le rappel du début de « Mesurée, une matrice a le rang plein » ; MML §4.6, (4.90) à (4.92).
+M12d §3, « L'approximation de rang faible » ; fiche §2, le rappel de « Mesurée, une matrice a le rang plein » ; MML §4.6 (l'approximation de rang $k$ et le théorème d'Eckart-Young).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -232,7 +232,7 @@ Fiche §1 : le théorème de « Une somme de produits extérieurs », et les out
 </details>
 <details><summary>Indice 3</summary>
 
-1. Pour le rang de $\mathbf{F}$ : $r = \operatorname{rg}(\mathbf{C}\mathbf{F}) \le \operatorname{rg}\mathbf{F}$, et $\mathbf{F}$ a $r$ lignes. 2. Chaque colonne de $\mathbf{C}'$ s'écrit $\mathbf{C}\mathbf{g}_k$ par 1 ; pour $\mathbf{G}$ inversible, utilise $\operatorname{rg}\mathbf{C}' \le \operatorname{rg}\mathbf{G}$ ; pour $\mathbf{F}'$, écris $\mathbf{C}(\mathbf{F} - \mathbf{G}\mathbf{F}') = \mathbf{0}$, et sers-toi des colonnes libres de $\mathbf{C}$. 3. $\sum_i\mathbf{u}_i\mathbf{v}_i^\top = \mathbf{U}\mathbf{V}^\top$.
+1. Pour le rang de $\mathbf{F}$ : $r = \operatorname{rg}(\mathbf{C}\mathbf{F}) \le \operatorname{rg}\mathbf{F}$, et $\mathbf{F}$ a $r$ lignes. 2. Chaque colonne de $\mathbf{C}'$ est dans l'espace des colonnes de $\mathbf{M}$, donc s'écrit $\mathbf{C}\mathbf{g}_k$ comme à la question 1 ; pour $\mathbf{G}$ inversible, utilise $\operatorname{rg}\mathbf{C}' \le \operatorname{rg}\mathbf{G}$ ; pour $\mathbf{F}'$, écris $\mathbf{C}(\mathbf{F} - \mathbf{G}\mathbf{F}') = \mathbf{0}$, et sers-toi des colonnes libres de $\mathbf{C}$. 3. $\sum_i\mathbf{u}_i\mathbf{v}_i^\top = \mathbf{U}\mathbf{V}^\top$.
 
 </details>
 
@@ -352,7 +352,7 @@ Le MRR d'un ordre au hasard vaut $\frac{H_n}{n}$, et $H_n$ est entre $\ln(n + 1)
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\,000}/1\,000} = 10 \times \frac{H_{100}}{H_{1\,000}}$, et $\frac{H_{100}}{H_{1\,000}}$ est proche de $\frac{\ln 100 + 0{,}58}{\ln 1\,000 + 0{,}58}$. c) $n \times \text{MRR} = H_n$, qui gagne environ $\ln 10$ chaque fois que $n$ est multiplié par 10. Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
+a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\,000}/1\,000} = 10 \times \frac{H_{100}}{H_{1\,000}}$, et $\frac{H_{100}}{H_{1\,000}}$ est proche de $\frac{\ln 100 + 0{,}58}{\ln 1\,000 + 0{,}58}$. c) $n \times \text{MRR} = H_n$ : de combien $H_n$ augmente-t-il chaque fois que $n$ est multiplié par 10, et combien de fois $n$ l'est-il de 10 à 1 000 ? Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
 
 </details>
 
@@ -388,7 +388,7 @@ Pour chaque fonction, cherche une entrée où l'erreur ne change rien : une matr
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `C = np.asarray(M, dtype=float)[:, pivots]`. (2) `for p, cand in enumerate(row): points[cand] += n - 1 - p`. (3) `-math.log(n / N)`. Pour b), le classement `[1, 0, 2]` échange deux candidats : que donne-t-il lu des deux façons ?
+(1) `C = np.asarray(M, dtype=float)[:, list(pivots)]`. (2) `for p, cand in enumerate(row): points[cand] += n - 1 - p`. (3) `-math.log(n / N)`. Pour la vérification du collègue, la ligne `[1, 0, 2]` : que dit-elle lue comme un ordre, puis comme une liste de rangs ?
 
 </details>
 
