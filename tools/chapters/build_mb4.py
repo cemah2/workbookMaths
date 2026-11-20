@@ -15,9 +15,9 @@ Wrong-answer messages state a rule, never a number of the answer, the last step 
 Data. The notebook exercises take the data of the paper exercises (a data cell of part A, read only), the data of their
 own statements (the measured table M_8 of 🔨 MB4.8, seed 7508; the 7 × 9 rankings of 🔨 MB4.9, seed 7509; the 4 × 6
 rankings of 🐛 MB4.12, seed 7512; all written as literals) and their own draws (the simulation of 🔮 MB4.10, seed 7510).
-Seeds 7501 to 7549 only (the tests use 7400 to 7490, the figures 7491 to 7499): 7521 and 7522 (the hidden tables and
-rankings of 🐛 MB4.12); 7513 is the seed of the five tables of 🏆 MB4.13 (in its module); 7540 to 7549 serve only the
-calibration of the challenge (scratchpad). The check cells never hold the code that solves an exercise nor a value that
+Seeds 7501 to 7549 only (the tests use 7400 to 7490, the figures 7491 to 7499): 7522 (the hidden rankings of 🐛 MB4.12;
+its hidden tables are written by hand, of non-dyadic floats); 7513 is the seed of the five tables of 🏆 MB4.13 (in its
+module); 7540 to 7549 serve only the calibration of the challenge (scratchpad). The check cells never hold the code that solves an exercise nor a value that
 gives an answer without a calculation: the expected values are recorded by the solutions as hidden sub-IDs and compared
 with ``wbm.check(..., computed=True)`` (the hidden calls of 🎨 MB4.11, the hidden notebooks of recipes of 🐛 MB4.12),
 computed at check time by the reference ``mymath_ref.ranks`` (the hidden tables and rankings of 🐛 MB4.12, the exact
