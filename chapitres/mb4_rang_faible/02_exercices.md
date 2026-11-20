@@ -21,7 +21,7 @@ Sans la fiche, en 4 à 6 minutes chacun. Réponds vite, puis vérifie dans `05_s
 1. Vrai ou faux : toute matrice de forme $(7, 11)$ et de rang 3 s'écrit $\mathbf{C}\mathbf{F}$, avec $\mathbf{C}$ de forme $(7, 3)$ et $\mathbf{F}$ de forme $(3, 11)$.
 2. Vrai ou faux : si $\mathbf{M} = \mathbf{C}\mathbf{F} = \mathbf{C}'\mathbf{F}'$, où $\mathbf{C}$ et $\mathbf{C}'$ ont toutes deux $r$ colonnes, alors $\mathbf{C} = \mathbf{C}'$.
 3. $\mathbf{u}_1 = (1, 0, 3, 0)$, $\mathbf{u}_2 = (0, 1, 0, 4)$ et $\mathbf{u}_3 = \mathbf{u}_1 + \mathbf{u}_2$ ; $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$ est la base canonique de $\mathbb{R}^3$. Quel est le rang de $\mathbf{u}_1\mathbf{e}_1^\top + \mathbf{u}_2\mathbf{e}_2^\top + \mathbf{u}_3\mathbf{e}_3^\top$, une somme de trois produits extérieurs ?
-4. Une matrice de forme $(40, 150)$ est de rang 2. Combien de nombres stocke une factorisation $\mathbf{C}\mathbf{F}$ ? Combien de ces nombres sont libres ?
+4. Une matrice de forme $(40, 150)$ est de rang 2. Combien de nombres stocke une factorisation $\mathbf{C}\mathbf{F}$ ? Combien de ces nombres sont libres (cas général : pivots dans les $r$ premières colonnes) ?
 5. Vrai ou faux : le rang stable d'une matrice non nulle est compris entre 1 et son rang.
 
 ### MB4.Q2 — Le poids d'un ingrédient rare, la saturation et la normalisation : signe, sens de variation, limites 🧠 ★ ⏱️ 5 min
@@ -118,7 +118,7 @@ $\mathbf{M}$ est ce tableau ($m = 4$ lignes, $n = 5$ colonnes), et $\mathbf{C}\m
 | d | la matrice $\mathbf{G}^{-1}\mathbf{F}$ | une matrice $2 \times 5$ (valeurs exactes) |
 | e | le nombre de nombres que stockent $\mathbf{C}$ et $\mathbf{F}$ | un entier |
 | f | le nombre de nombres libres, $r(m + n - r)$ | un entier |
-| g | une chaîne de 120 boulangeries vend 45 produits, et son tableau de ventes est de rang 3 : les nombres stockés par $\mathbf{C}$ et $\mathbf{F}$, puis les nombres libres | une liste de 2 entiers |
+| g | une chaîne de 120 boulangeries vend 45 produits, et son tableau de ventes est de rang 3 : les nombres stockés par $\mathbf{C}$ et $\mathbf{F}$, puis les nombres libres (cas général : pivots dans les $r$ premières colonnes) | une liste de 2 entiers |
 
 Dans ta copie : écris $\mathbf{C}$, et vérifie une ligne de $\mathbf{C}\mathbf{F}$.
 

@@ -17,7 +17,7 @@ Fiche §1 : « La factorisation CR », « Une factorisation par matrice inversib
 </details>
 <details><summary>Indice 2</summary>
 
-Toute matrice de rang $r$ est un produit $(m, r) \times (r, n)$, et deux tels produits diffèrent d'une $\mathbf{G}$ inversible. $\mathbf{u}_1\mathbf{e}_1^\top + \mathbf{u}_2\mathbf{e}_2^\top + \mathbf{u}_3\mathbf{e}_3^\top$ est la matrice dont les colonnes sont les $\mathbf{u}_i$. $r(m + n)$ nombres stockés, $r(m + n - r)$ libres. Le rang stable est $\frac{\sum_is_i^2}{s_1^2}$.
+Toute matrice de rang $r$ est un produit $(m, r) \times (r, n)$, et deux tels produits diffèrent d'une $\mathbf{G}$ inversible. $\mathbf{u}_1\mathbf{e}_1^\top + \mathbf{u}_2\mathbf{e}_2^\top + \mathbf{u}_3\mathbf{e}_3^\top$ est la matrice dont les colonnes sont les $\mathbf{u}_i$. $r(m + n)$ nombres stockés, $r(m + n - r)$ libres (cas général : pivots dans les $r$ premières colonnes). Le rang stable est $\frac{\sum_is_i^2}{s_1^2}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -306,7 +306,7 @@ Plan : le problème des échelles ; la normalisation et sa fragilité ; Borda et
 
 <details><summary>Indice 1</summary>
 
-Fiche §1, « La factorisation CR », et la docstring de `rank_factorization` dans ta copie de `ranks.py` ; ton `rref` de M09a.
+Fiche §1, « La factorisation CR », et la docstring de `rank_factorization` dans ta copie de `ranks.py` ; ton `rref` de M09a, avec une petite tolérance `tol` sur les pivots (le 💻 du §1).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -378,7 +378,7 @@ Traite à part $k_1 = 0$ (`(x > 0).astype(float)`) et $k_1$ infini (`math.isinf(
 
 <details><summary>Indice 1</summary>
 
-Les ⚠️ de la fiche : §1 (« Prendre $\mathbf{C}$ dans la forme réduite »), §3 (« Écrire le poids $\ln\frac nN$ ») et §5 (« Lire un classement comme la liste des rangs »).
+Les ⚠️ de la fiche : §1 (« Prendre $\mathbf{C}$ dans la forme réduite »), §3 (« Écrire la surprise $\ln\frac nN$ au lieu de $-\ln\frac nN$ ») et §5 (« Lire un classement comme la liste des rangs »).
 
 </details>
 <details><summary>Indice 2</summary>
@@ -396,12 +396,12 @@ Pour chaque fonction, cherche une entrée où l'erreur ne change rien : une matr
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : « Mesurée, une matrice a le rang plein », « Où couper : chercher un écart » et son encadré 💻 (le niveau du bruit $\sigma(\sqrt m + \sqrt n)$).
+Fiche §2 : « Mesurée, une matrice a le rang plein », « Où couper : chercher un écart » et son encadré 💻 (le niveau $\sigma(\sqrt m + \sqrt n)$ d'un bruit de moyenne nulle et d'écart-type $\sigma$).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Ni une tolérance fixe ni une part d'énergie ne suivent un bruit dont l'échelle change d'un tableau à l'autre : il faut un seuil proportionnel à $\sigma$. Une fois un rang $r$ choisi, les valeurs singulières qu'il laisse de côté viennent presque toutes du bruit, et leur énergie vaut environ $\sigma^2$ par case qui reste.
+Ni un seuil fixe sur les valeurs singulières ni une part d'énergie ne suivent un bruit dont l'échelle change d'un tableau à l'autre : il faut un seuil proportionnel à $\sigma$. Une fois un rang $r$ choisi, les valeurs singulières qu'il laisse de côté viennent presque toutes du bruit, et leur énergie vaut environ $\sigma^2$ par case qui reste.
 
 </details>
 <details><summary>Indice 3</summary>
