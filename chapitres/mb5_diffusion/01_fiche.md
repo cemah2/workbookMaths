@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §9 |
-| **Temps total estimé** | ≈ 15,7 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 12 h 20, 20 flashcards ≈ 40 min (parcours essentiel ≈ 12,3 h) |
+| **Temps total estimé** | ≈ 16,6 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 13 h 15, 20 flashcards ≈ 40 min (parcours essentiel ≈ 13,0 h) |
 | **Prérequis** | R4 (somme télescopique) ; R5 (suite géométrique, somme infinie, récurrence affine) ; R6 (ln d'un produit, $\log_{10}$ et décibels, cote, logit, sigmoïde, tanh) ; R7 (dérivée, tangente) ; M02a (primitive, sommes de Riemann à gauche et au point milieu, ordre d'une méthode) ; M02b (loi normale, variance d'une image affine et d'une somme indépendante) ; M02c (la moyenne et la médiane d'une série) ; M04 (Bayes) ; M05a (convexité, Taylor et son reste, log-sum-exp) ; M06 (KL discrète) ; M07 (barycentre) ; M09a (inverse d'une matrice 2 × 2) ; M09b (MSE, MAE) ; M13a (feuille d'un arbre de régression) ; M14 ($(1 + x/n)^n \to e^x$) ; M20 (Euler pour $x' = F(x)$, $1 + u \le e^u$) ; M22 (récurrence avec entrée, facteurs dans $[0, 1]$) ; M25a (images affines et sommes de gaussiennes, produit de densités, modèle linéaire gaussien, KL entre gaussiennes) ; M25b (chaîne, espérance et variance conditionnelles, responsabilités en log, ELBO d'un latent, dériver sous l'espérance) ; M26 (chaîne de Markov, loi stationnaire, propriété de la tour) ; M27 (log-loss, couplages, Wasserstein en dimension 1) ; MB3 (Nadaraya-Watson) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `gaussian_paths.py` : `linear_gaussian_recursion`, `posterior_mean_mixture`, `euler_ode`, `midpoint_ode` |
@@ -123,7 +123,7 @@ Par mer régulière, le pilote garde chaque minute $a = 0{,}7$ de l'écart, et l
 > **Théorème** (∂ MB5.10). Soit $x_t = ax_{t-1} + b\varepsilon_t$, avec $b \ne 0$.
 > 1. **Sachant un instant passé** $x_s$, pour $t > s$ : $x_t \sim \mathcal{N}\Big(a^{t-s}x_s,\ b^2\,\dfrac{1 - a^{2(t-s)}}{1 - a^2}\Big)$ si $a^2 \ne 1$, et de variance $(t - s)\,b^2$ si $a^2 = 1$.
 > 2. Si $\lvert a\rvert < 1$, la loi $\mathcal{N}\big(0, v_\infty\big)$, $v_\infty = \frac{b^2}{1 - a^2}$, est **stationnaire** (*stationary distribution*) : si $x_0$ la suit, chaque $x_t$ la suit. Depuis tout départ $\mathcal{N}(m_0, v_0)$, $m_t = a^tm_0$ et $v_t - v_\infty = a^{2t}(v_0 - v_\infty)$ : la loi de $x_t$ tend vers la loi stationnaire, et le processus **oublie son départ**.
-> 3. Si $\lvert a\rvert \ge 1$, il n'y a pas de loi stationnaire : $v_t \ge v_{t-1} + b^2$ croît sans borne (pour $a = 1$, $v_t = v_0 + tb^2$ : la **marche aléatoire**, *random walk*).
+> 3. Si $\lvert a\rvert \ge 1$, aucune loi de variance finie n'est stationnaire : $v_t \ge v_{t-1} + b^2$ croît sans borne (pour $a = 1$, $v_t = v_0 + tb^2$ : la **marche aléatoire**, *random walk*).
 
 Les outils : la propriété de Markov (M26 §1), la somme géométrique (R5 §4) et le point fixe d'une récurrence affine (R5 §5) ; le ∂ MB5.10 les met en œuvre. Cas particulier : si $b^2 = 1 - a^2$, la variance stationnaire vaut 1.
 
@@ -494,7 +494,7 @@ chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x
 
 ## Les pièges classiques ⚠️ (récapitulatif)
 
-- **Récurrences** : des variances qui se multiplient par $a_t^2$ et s'ajoutent ; pas de loi stationnaire pour $\lvert a\rvert \ge 1$ ; un pont s'interpole selon les variances cumulées ; des marges égales ne disent rien des trajectoires.
+- **Récurrences** : des variances qui se multiplient par $a_t^2$ et s'ajoutent ; pas de loi stationnaire de variance finie pour $\lvert a\rvert \ge 1$ ; un pont s'interpole selon les variances cumulées ; des marges égales ne disent rien des trajectoires.
 - **Signal et bruit** : le SNR est un rapport de variances, $10\log_{10}$ en décibels ; l'erreur sur le signal est, en valeur absolue, celle sur le bruit divisée par $\sqrt{\operatorname{SNR}}$.
 - **Prédire** : la MSE apprend une moyenne conditionnelle, pas la valeur la plus probable ; trois sens du mot score ; des responsabilités avec la variance $a^2v_k + b^2$ de la mesure.
 - **ELBO et guidance** : on retire les KL, $q$ en premier ; une loi guidée n'existe que si sa précision est positive.

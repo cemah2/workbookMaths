@@ -1112,7 +1112,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB5", "dir": "mb5_diffusion", "hours": 15.7, "generation_sessions": 2, "mml": ["(§6.5)"],
+        "id": "MB5", "dir": "mb5_diffusion", "hours": 16.6, "generation_sessions": 2, "mml": ["(§6.5)"],
         "summary": "Les outils mathématiques des modèles de diffusion, travaillés hors réseaux : les récurrences linéaires "
                    "gaussiennes (la loi sachant le départ, les produits cumulés, la loi stationnaire d'un processus "
                    "autorégressif), le pont d'une marche aléatoire et des trajectoires différentes aux mêmes lois "
@@ -1449,7 +1449,8 @@ CHAPTERS = [
                  "workbookIA B5. COMPOSITION : pas de 📖 (§6.5 est lu en entier en M25a, avec le 📖 M25a.17, et le reste du "
                  "chapitre n'est pas dans MML) ; un seul 💼 ; 9 ✏️ et 4 ∂ ; 3 🔨 et un 📦 ; un 🔬 et un 🔮. Parcours "
                  "essentiel : sans ✏️ MB5.3 (pont et couplages), ∂ MB5.12 et MB5.13, le 💼, le 📦, le 🎨, le 🛠️ et le 🏆. "
-                 "**Durée** : 15,7 h (essentiel 12,3 h ; lecture 160 min, dont 5 pour le paragraphe sur Langevin et les "
+                 "**Durée** : 16,6 h (essentiel 13,0 h ; recalée à la génération, session 74, par l'auteur des exercices, la "
+                 "re-résolution à l'aveugle et l'apprenant simulé : 15,7 h et 12,3 h au syllabus ; lecture 160 min, dont 5 pour le paragraphe sur Langevin et les "
                  "lignes ⚠️ ajoutés après relecture), pour 14 h au plan et 15 h visées : neuf sections, dont trois "
                  "lacunes générales (la MSE et l'espérance conditionnelle, Tweedie et le score en x, les EDO au-delà d'Euler) "
                  "et l'ELBO d'une chaîne démontrée ; durées comptées pour un apprenant qui rédige. Deux sessions de "
@@ -1534,10 +1535,10 @@ CHAPTERS = [
              "hasard ou avec un bruit frais, et leur corrélation", "§2", ""),
             ("MB5.4", "✏️", 2, 20, "Une voix mêlée à un bruit de fond : SNR, part de variance de la voix, logit et décibels, "
              "puis la voix retrouvée à partir d'une estimation du bruit, et l'erreur amplifiée", "§3", "E"),
-            ("MB5.5", "✏️", 2, 35, "Débruiter un signal reçu, d'abord gaussien, puis émis à deux niveaux ±c : E[x | y] par "
+            ("MB5.5", "✏️", 2, 40, "Débruiter un signal reçu, d'abord gaussien, puis émis à deux niveaux ±c : E[x | y] par "
              "M25a et par la formule de Tweedie (une tanh), et ce que rend le débruiteur quand le bruit tend vers 0",
              "§5", "E"),
-            ("MB5.6", "✏️", 3, 40, "Un bit altéré par deux relais, puis reconstitué par un modèle retour : ln p(x), l'ELBO "
+            ("MB5.6", "✏️", 3, 45, "Un bit altéré par deux relais, puis reconstitué par un modèle retour : ln p(x), l'ELBO "
              "de la loi aller des relais, et sa décomposition en reconstruction, KL finale et KL d'un pas retour", "§6",
              "E"),
             ("MB5.7", "✏️", 2, 30, "La date de floraison d'une variété et celle de tout le verger, deux lois gaussiennes : "
@@ -1546,10 +1547,10 @@ CHAPTERS = [
             ("MB5.8", "✏️", 2, 30, "Une tasse de thé qui refroidit : Euler et point milieu contre la solution exacte, "
              "l'erreur quand le pas est divisé par deux, un courant de vitesse constante, et un calcul à rebours", "§8",
              "E"),
-            ("MB5.9", "✏️", 3, 35, "Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen (affine en x), "
+            ("MB5.9", "✏️", 3, 40, "Le chemin droit d'un bruit N(0, 1) vers une loi N(m, τ²) : le champ moyen (affine en x), "
              "un pas d'Euler depuis s = 1 qui rend m pour tout départ, puis deux pas, et l'écart-type obtenu contre τ",
              "§9", "E"),
-            ("MB5.10", "∂", 2, 30, "La récurrence linéaire gaussienne à coefficients quelconques : la loi de x_t sachant x_0 ; "
+            ("MB5.10", "∂", 2, 40, "La récurrence linéaire gaussienne à coefficients quelconques : la loi de x_t sachant x_0 ; "
              "à coefficient constant |a| < 1, la loi sachant un instant passé, la loi stationnaire et la convergence depuis "
              "toute loi initiale ; aucune loi stationnaire si |a| ≥ 1", "§1", "E"),
             ("MB5.11", "∂", 2, 20, "La meilleure prédiction quadratique : E[(Y − g(X))²] = E[V(Y | X)] + "
@@ -1567,11 +1568,11 @@ CHAPTERS = [
             ("MB5.E1", "💼", 1, 10, "« Un modèle de régression entraîné à la MSE prédit-il le prix le plus probable ? Que "
              "prédit-il quand les prix d'un même profil se partagent en deux groupes, et quelle loss prendre pour une "
              "médiane ? »", "§4", ""),
-            ("MB5.16", "🔨", 1, 25, "Propager la moyenne et la variance d'une récurrence linéaire gaussienne à coefficients "
+            ("MB5.16", "🔨", 1, 30, "Propager la moyenne et la variance d'une récurrence linéaire gaussienne à coefficients "
              "quelconques", "§1", "E m:linear_gaussian_recursion"),
-            ("MB5.17", "🔨", 2, 35, "Le débruiteur optimal d'une mesure bruitée quand le signal suit un mélange de "
+            ("MB5.17", "🔨", 2, 45, "Le débruiteur optimal d'une mesure bruitée quand le signal suit un mélange de "
              "gaussiennes, des points compris", "§5", "E m:posterior_mean_mixture"),
-            ("MB5.18", "🔨", 2, 35, "Suivre un champ de vitesses qui dépend du temps : la méthode d'Euler et celle du point "
+            ("MB5.18", "🔨", 2, 40, "Suivre un champ de vitesses qui dépend du temps : la méthode d'Euler et celle du point "
              "milieu, dans les deux sens du temps", "§8", "E m:euler_ode,midpoint_ode"),
             ("MB5.19", "📦", 1, 20, "`scipy.integrate.solve_ivp` : une croissance logistique suivie par tes deux méthodes, "
              "l'erreur au temps final selon le nombre de pas en échelle log-log, et les pentes 1 et 2", "§8", "p:MB5.18"),
@@ -1584,9 +1585,9 @@ CHAPTERS = [
              "loi de classe gaussienne, et ce que w resserre et déplace", "§7", "p:MB5.7"),
             ("MB5.23", "🐛", 1, 20, "Chasse à l'erreur : un pont aux poids inversés, un débruiteur qui oublie le bruit dans "
              "ses responsabilités, et un Euler dont le temps n'avance pas", "§2 §5 §8", "E"),
-            ("MB5.24", "🛠️", 1, 25, "Un test de propriété : Euler exact pour une vitesse constante, le point milieu exact "
+            ("MB5.24", "🛠️", 1, 30, "Un test de propriété : Euler exact pour une vitesse constante, le point milieu exact "
              "pour une vitesse affine en t, et l'erreur d'Euler divisée par deux avec le pas", "§8", "p:MB5.18"),
-            ("MB5.25", "🏆", 3, 30, "Défi : transporter un bruit N(0, 1) vers une loi à deux bosses par son champ moyen "
+            ("MB5.25", "🏆", 3, 35, "Défi : transporter un bruit N(0, 1) vers une loi à deux bosses par son champ moyen "
              "exact, en au plus huit évaluations du champ, sous une distance de Wasserstein fixée", "§8 §9",
              "p:MB5.17,MB5.18"),
         ],
