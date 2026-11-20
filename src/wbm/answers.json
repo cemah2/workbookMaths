@@ -116163,7 +116163,10 @@
       "mistakes": {
         "12be36e94604ac1d71448a52c56152f032a84f84060c32c8319a42cd773635c4": "m est le plus petit entier qui satisfait la borne : arrondis vers le haut",
         "16293ca4a17c028c2349cc34ba38d698c89dee16a53a26183ec4fe73470ae9b8": "l'exposant de Hoeffding contient ε², pas ε",
-        "cfaa3b414a8caec7828ac0bd1de92971497d7da79391314f553357e5157528bb": "la borne de Hoeffding porte sur les deux côtés de l'écart : 2 e^{−2mε²} ≤ δ"
+        "ab17c1d58b2de9bd796a0074fcb1d99f6cc84fa051d73e0d1a310e9f650ccc6a": "2 e^{−2mε²} ≤ δ donne m ≥ ln(2/δ)/(2ε²) : le 2 de l'exposant passe au dénominateur",
+        "b53bace9b8d340c2457d535a2d484fab2f8aea850e2a28f43327ec1773594f80": "les logarithmes du chapitre sont népériens : ln 50, pas log₁₀ 50",
+        "cfaa3b414a8caec7828ac0bd1de92971497d7da79391314f553357e5157528bb": "la borne de Hoeffding porte sur les deux côtés de l'écart : 2 e^{−2mε²} ≤ δ",
+        "fbefb6c0019de00f04709776a57f706f2390b677aafe08947126b003a134417e": "δ est le risque d'une erreur de plus de ε : 1 − 0,96 = 0,04, pas 0,96"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116178,6 +116181,7 @@
       "hash": "8bcca2c25776c98779046e2b252e940ef39dfe293ad0059d113e0d5916995918",
       "kind": "array",
       "mistakes": {
+        "0c9ab5bb314f1e4d2a06da76a2c3d7a9e3a49cf78a521745b5a7dabb92f9d3f2": "un hameau paie sa part de chaque tronçon qu'il utilise depuis la source, pas seulement du dernier",
         "1a668fb3c49fea775f1eb01da497b1627416668265565c047030462307696d81": "la valeur de Shapley n'est pas un partage au prorata des besoins : moyenne les coûts marginaux sur les six ordres",
         "1d763dfcb278de6f561d31635474f783b60ca0431a3f406f48fd34ee4e9bc2ae": "un tronçon se partage entre les hameaux qu'il dessert : celui qui est à son bout et ceux qui sont plus loin",
         "9a3c6af91da60995ef421017d8329a0e68becf5d3076b693abd14711349b03df": "la part d'un hameau dépend de ce qu'il ajoute au coût, pas seulement du nombre de hameaux"
@@ -116198,6 +116202,7 @@
       "integer": true,
       "kind": "array",
       "mistakes": {
+        "030f34f93ffea6ff2df74397713058a6a88e6e951a294a25484754994903b865": "ce sont les coûts des paires : le dividende d'une paire leur retire les coûts des deux hameaux seuls (et ajoute c(∅))",
         "73f6e69e0d3373b234ea5380fe8bba1471c2ef16158ba8f7874e3596cc561c17": "d_{ij} = c({i, j}) − c({i}) − c({j}) : retire les deux hameaux seuls",
         "cdbeee6e971162e19d39824052fd996a8e2a65dd94ef0b69115dc2f8095774d7": "pour une paire, le dividende est c({i, j}) − c({i}) − c({j}) + c(∅) : regarde son signe"
       },
@@ -116211,6 +116216,7 @@
       "kind": "int",
       "magnitude": 1,
       "mistakes": {
+        "9cdf22a70126abf177442e9d3b628166f7ccdc516dd06f8b86bafc411c207b0e": "c'est le coût de N : son dividende est la somme alternée sur les huit coalitions, c(N) − (paires) + (hameaux seuls) − c(∅)",
         "bc51f5f27f4a473dd001b553d04b19f1f4fe137742b4580aad6a638820df1b59": "le dividende de N retire aussi les dividendes des paires, pas seulement ceux des hameaux seuls",
         "c2f99cda08bf194ec96cfb194b8c8ba36f1babd255d011dea2c6239621e94b57": "dans la somme alternée, les coûts des paires sont soustraits et ceux des hameaux seuls ajoutés"
       },
@@ -116246,7 +116252,8 @@
       "kind": "array",
       "mistakes": {
         "4e533d311418c2f086b4612620e00b084a6e4069f73d8ec31a3224db5a886016": "le gain est une différence f(p, 2) − f(p, 1), pas la dérivée en e = 1",
-        "6333a1ca93632401829fd2a9121deaca99c84c67dd974bbf340923505c3c2dd4": "le gain se lit sur la courbe ICE de chaque parcelle : f(p, 2) − f(p, 1), et non f(p, 2)"
+        "6333a1ca93632401829fd2a9121deaca99c84c67dd974bbf340923505c3c2dd4": "le gain se lit sur la courbe ICE de chaque parcelle : f(p, 2) − f(p, 1), et non f(p, 2)",
+        "e2cf53e082b260832b3d8d0a7459f78c6994cbfd4a69c942927e18c19f99f26a": "f₁(p, 2) − f₁(p, 1) garde aussi le terme −0,4 e² : −0,4 × (2² − 1²)"
       },
       "shape": [
         3
@@ -116318,6 +116325,7 @@
       "hash": "82f8f1e190e149ff6febf86e771be57af6cdf4cbd273eadf3d79599f89bab27d",
       "kind": "array",
       "mistakes": {
+        "206edfa747e3a78a25bab7dbc69f453a7b28442383d53131b2043fe3ed686a29": "E[P | E = 2] vaut 5,92 : arrondie à 5,9, elle décale M(2) ; garde 6 chiffres significatifs jusqu'au bout",
         "3587bcfa5f8a8268de3047bbf44bf882acd82662621f99570cf634bb7fb189e9": "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E",
         "7e019d2a7f4116c452ddbd2b3b5ba5852a4ca2db3b6c0400c5ca7ca66eb177f2": "la moyenne conditionnelle tient compte de la corrélation : sachant E = 2, la pluie moyenne n'est plus 5,5",
         "e63a3e866616deffa561f077af528cfae6bd4506c8455d2c60c3caf213eada11": "la pente de E[P | E = v] est ρ σ_P/σ_E, pas ρ σ_E/σ_P"
@@ -116343,7 +116351,9 @@
       "magnitude": -1,
       "mistakes": {
         "128deb6b02b82af10c0e45f009b6bc17aea0804bbfc602c5db7743fc91694a8a": "l'écart vient de la pluie : il est multiplié par l'effet 0,6 d'une unité de pluie",
-        "9ad4e8c37dde42cc3961da0e1d1f95dbed281d35d8e08db43859ace780f14e08": "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E"
+        "1718f06e2fc9785fd078643488d53948608064dad09519308a0e0ec986d55bc0": "la pente de E[P | E = v] est ρ σ_P/σ_E, pas ρ σ_E/σ_P",
+        "9ad4e8c37dde42cc3961da0e1d1f95dbed281d35d8e08db43859ace780f14e08": "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E",
+        "c9655fcfc9cb2f40c695d4be043e75d7d86f544953eb785dd3e6b91e87df2b96": "la pente de E[P | E = v] est ρ σ_P/σ_E, pas ρ σ_E/σ_P"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116396,6 +116406,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
+        "2c6328c5a2ac243fe91ff00b7287dedce5d925d614ed39c976a62fbf04685634": "c'est le travail de G le long de l'arc : c) demande celui de F, un gradient",
         "32cf9827d36b0885862cc92db2ee08572969dbbe93445c672835a33ec2ba7ff3": "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)",
         "70c17847289ab1811f47a3b4074334d0ba823567a82a761fee89b6ec039baaa5": "la vitesse de γ(t) = (1 + t, t²) est (1, 2t) : la dérivée de t² est 2t"
       },
@@ -116542,7 +116553,7 @@
       "magnitude": 2,
       "mistakes": {
         "76c9ecb1c68c50b615842ecc54c0d6b80ef6712d893b330c1c14ebe6bb34c78b": "la variation ne se partage pas à parts égales entre les trois facteurs",
-        "aee02f86a4c069d205b657d63472231c779db216e87cdea153ad9e8f07f886b3": "la moyenne porte sur les six ordres, pas seulement sur un ordre et son inverse"
+        "fac5725d98f8a3680ce844a601099b020bcb825f69e4649e1a7ba7eb2280abae": "le taux de change baisse : sa contribution moyenne est négative"
       },
       "sign": -1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116638,6 +116649,7 @@
       "kind": "array",
       "mistakes": {
         "6c83e1262dd84c152db3a7d54c3644b5e92429a77a306a22f9df7c44eeb92714": "le centre de la case u est en u + ½, pas en u",
+        "a48e9357afec05b895027ba9b2cea1c921dde77ac1d73525f1dd8eaf7f6a7099": "d) demande ξ(u) avant le retour au bord : les deux cases extrêmes tombent hors de [0, 2]",
         "ca2d8857e95061628f9593c8fb2c4bc2155627cc12f7b502897297a073cf2147": "la formule des centres retire ½ après la mise à l'échelle : (u + ½) h/H − ½"
       },
       "shape": [
@@ -116958,7 +116970,8 @@
       "magnitude": -2,
       "mistakes": {
         "2132eabdf3458e0e9976af4861b906f09b939c8b7b271761b973f9e5cd88926d": "les variances de deux estimations indépendantes s'ajoutent, pas leurs erreurs types",
-        "8db6d35df9fd26261a59a297430c6be961de94a9c3dfbfef1fbd373836d05732": "chaque taux garde sa propre proportion : pas de taux commun aux deux laboratoires"
+        "8db6d35df9fd26261a59a297430c6be961de94a9c3dfbfef1fbd373836d05732": "chaque taux garde sa propre proportion : pas de taux commun aux deux laboratoires",
+        "e822d5b961f31b6004aff73460d1a6808eb1667fb361afa3808eabd661964931": "c'est l'erreur type du seul laboratoire A : l'écart réunit deux estimations indépendantes, dont les variances s'ajoutent"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
@@ -116986,6 +116999,7 @@
       "hash": "d953c5802ee42ccd248075cfd6a699719fce4fb2346d7e709e6ffc07dd937c9a",
       "kind": "array",
       "mistakes": {
+        "9b1b5b7727b860fd1e1335f087a938e6984657cfa837855f2c71dce46e757ff7": "l'intervalle prend l'erreur type de l'écart, celle de b), pas celle d'un seul laboratoire",
         "a8ef66834089fb9f22ed3eaae476fbef28976751ef22964b544a73e0a3e24d8e": "un intervalle à 95 % prend 1,96 erreur type de chaque côté, pas 1,645",
         "fb46d49686a765e900280b4cdac44b1791f39151d2fba122be9e6ffcf247243b": "un intervalle à 95 % prend 1,96 erreur type de chaque côté"
       },

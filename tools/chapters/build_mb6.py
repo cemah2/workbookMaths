@@ -97,7 +97,13 @@ PAPER = [
          '''mistakes={"la borne de Hoeffding porte sur les deux côtés de l'écart : 2 e^{−2mε²} ≤ δ":
                          hoeffding_1(two_sided=False),
                      "m est le plus petit entier qui satisfait la borne : arrondis vers le haut": hoeffding_1() - 1,
-                     "l'exposant de Hoeffding contient ε², pas ε": hoeffding_1(squared=False)},
+                     "l'exposant de Hoeffding contient ε², pas ε": hoeffding_1(squared=False),
+                     "les logarithmes du chapitre sont népériens : ln 50, pas log₁₀ 50":
+                         math.ceil(math.log10(2 / DELTA_1) / (2 * EPS_1 ** 2)),
+                     "δ est le risque d'une erreur de plus de ε : 1 − 0,96 = 0,04, pas 0,96":
+                         math.ceil(math.log(2 / (1 - DELTA_1)) / (2 * EPS_1 ** 2)),
+                     "2 e^{−2mε²} ≤ δ donne m ≥ ln(2/δ)/(2ε²) : le 2 de l'exposant passe au dénominateur":
+                         math.ceil(math.log(2 / DELTA_1) / EPS_1 ** 2)},
            fractional="m est un nombre d'ordres : le plus petit entier qui satisfait la borne, donc arrondi vers le haut"'''),
     ]),
 
@@ -111,20 +117,26 @@ PAPER = [
                      "loin":
                          floats([sum(F(SECTIONS_2[k], k + 1) for k in range(j, 3)) for j in range(3)]),
                      "la part d'un hameau dépend de ce qu'il ajoute au coût, pas seulement du nombre de hameaux":
-                         floats([F(needs_2()[-1], 3)] * 3)}'''),
+                         floats([F(needs_2()[-1], 3)] * 3),
+                     "un hameau paie sa part de chaque tronçon qu'il utilise depuis la source, pas seulement du dernier":
+                         floats([F(SECTIONS_2[0], 3), F(SECTIONS_2[1], 2), F(SECTIONS_2[2])])}'''),
         ("b", "a list of 3 numbers: the dividends of {H1, H2}, {H1, H3}, {H2, H3}",
          "floats([dividends_0(cost_2, 3)[frozenset(p)] for p in ((0, 1), (0, 2), (1, 2))])",
          '''decimals=0,
            mistakes={"d_{ij} = c({i, j}) − c({i}) − c({j}) : retire les deux hameaux seuls":
                          [needs_2()[j] - needs_2()[i] for i, j in ((0, 1), (0, 2), (1, 2))],
                      "pour une paire, le dividende est c({i, j}) − c({i}) − c({j}) + c(∅) : regarde son signe":
-                         floats([-dividends_0(cost_2, 3)[frozenset(p)] for p in ((0, 1), (0, 2), (1, 2))])}'''),
+                         floats([-dividends_0(cost_2, 3)[frozenset(p)] for p in ((0, 1), (0, 2), (1, 2))]),
+                     "ce sont les coûts des paires : le dividende d'une paire leur retire les coûts des deux hameaux "
+                     "seuls (et ajoute c(∅))": [cost_2(set(p)) for p in ((0, 1), (0, 2), (1, 2))]}'''),
         ("c", "a number: the dividend of the three hamlets together", "int(dividends_0(cost_2, 3)[frozenset({0, 1, 2})])",
          '''mistakes={"dans la somme alternée, les coûts des paires sont soustraits et ceux des hameaux seuls ajoutés":
                          int(cost_2({0, 1, 2}) - sum(cost_2(set(p)) for p in ((0, 1), (0, 2), (1, 2)))
                              - sum(cost_2({i}) for i in range(3))),
                      "le dividende de N retire aussi les dividendes des paires, pas seulement ceux des hameaux seuls":
-                         int(cost_2({0, 1, 2}) - sum(cost_2({i}) for i in range(3)))}'''),
+                         int(cost_2({0, 1, 2}) - sum(cost_2({i}) for i in range(3))),
+                     "c'est le coût de N : son dividende est la somme alternée sur les huit coalitions, c(N) − (paires) "
+                     "+ (hameaux seuls) − c(∅)": int(cost_2({0, 1, 2}))}'''),
         ("d", "a list of 3 numbers (1 decimal): the new shares", "floats(shapley_0(lambda S: cost_2(S, SECTIONS_2D), 3))",
          '''decimals=1,
            mistakes={"le surcoût du tronçon 2 ne concerne que les hameaux qui l'utilisent":
@@ -139,7 +151,9 @@ PAPER = [
          '''decimals=1,
            mistakes={"le gain est une différence f(p, 2) − f(p, 1), pas la dérivée en e = 1": floats(slopes_3(F1_3)),
                      "le gain se lit sur la courbe ICE de chaque parcelle : f(p, 2) − f(p, 1), et non f(p, 2)":
-                         floats([F1_3.subs({p_3: p, e_3: 2}) for p in PLOTS_3])}'''),
+                         floats([F1_3.subs({p_3: p, e_3: 2}) for p in PLOTS_3]),
+                     "f₁(p, 2) − f₁(p, 1) garde aussi le terme −0,4 e² : −0,4 × (2² − 1²)":
+                         floats([sp.Rational(12, 5) * (2 - 1)] * 3)}'''),
         ("b", "a list of 3 numbers (1 decimal): model 2, the same gain", "floats(gains_3(F2_3))",
          '''decimals=1,
            mistakes={"le gain est f(p, 2) − f(p, 1), pas f(p, 1) − f(p, 2)": floats([-g for g in gains_3(F2_3)]),
@@ -163,13 +177,17 @@ PAPER = [
                          floats([F1_3.subs({p_3: MP_3, e_3: 2}),
                                  F1_3.subs({p_3: rain_given_3(2, slope=RHO_3 * SE_3 / SP_3), e_3: 2})]),
                      "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E":
-                         floats([F1_3.subs({p_3: MP_3, e_3: 2}), F1_3.subs({p_3: rain_given_3(2, slope=RHO_3), e_3: 2})])}'''),
+                         floats([F1_3.subs({p_3: MP_3, e_3: 2}), F1_3.subs({p_3: rain_given_3(2, slope=RHO_3), e_3: 2})]),
+                     "E[P | E = 2] vaut 5,92 : arrondie à 5,9, elle décale M(2) ; garde 6 chiffres significatifs "
+                     "jusqu'au bout": floats([F1_3.subs({p_3: MP_3, e_3: 2}), F1_3.subs({p_3: sp.Rational(59, 10), e_3: 2})])}'''),
         ("e", "a number (3 decimals): the slope of M(v) − PD(v)", "floats(sp.Rational(3, 5) * RHO_3 * SP_3 / SE_3)",
          '''decimals=3,
            mistakes={"l'écart vient de la pluie : il est multiplié par l'effet 0,6 d'une unité de pluie":
                          floats(RHO_3 * SP_3 / SE_3),
                      "la pente de E[P | E = v] est ρ σ_P/σ_E : n'oublie pas le rapport σ_P/σ_E":
-                         floats(sp.Rational(3, 5) * RHO_3)}'''),
+                         floats(sp.Rational(3, 5) * RHO_3),
+                     "la pente de E[P | E = v] est ρ σ_P/σ_E, pas ρ σ_E/σ_P":
+                         floats(sp.Rational(3, 5) * RHO_3 * SE_3 / SP_3)}'''),
     ]),
 
     Paper("MB6.4", "Le travail de deux forces entre deux points : un champ de gradient le long de trois chemins, puis un "
@@ -190,7 +208,9 @@ PAPER = [
          '''decimals=2,
            mistakes={"la vitesse de γ(t) = (1 + t, t²) est (1, 2t) : la dérivée de t² est 2t":
                          floats(work_4(F_4, ARC_4, speed=(1, t_4))),
-                     "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)": floats(-work_4(F_4, ARC_4))}'''),
+                     "le travail de A vers B est f(B) − f(A), pas f(A) − f(B)": floats(-work_4(F_4, ARC_4)),
+                     "c'est le travail de G le long de l'arc : c) demande celui de F, un gradient":
+                         floats(work_4(G_4, ARC_4))}'''),
         ("d", "a list of 2 numbers: dG1/dy and dG2/dx at A",
          "floats([sp.diff(G_4[0], y_4).subs({x_4: A_4[0], y_4: A_4[1]}), sp.diff(G_4[1], x_4).subs({x_4: A_4[0], y_4: A_4[1]})])",
          '''decimals=0,
@@ -235,10 +255,10 @@ PAPER = [
                          floats([game_5({0, 1}) - game_5({0, 1, 2}), game_5(set()) - game_5({2})])}'''),
         ("d", "a number (2 decimals): the mean contribution of the exchange rate", "floats(shapley_0(game_5, 3)[2])",
          '''decimals=2,
-           mistakes={"la moyenne porte sur les six ordres, pas seulement sur un ordre et son inverse":
-                         floats((game_5({2}) - game_5(set()) + game_5({0, 1, 2}) - game_5({0, 1})) / 2),
-                     "la variation ne se partage pas à parts égales entre les trois facteurs":
-                         floats((cost_5(X_5) - cost_5(R_5)) / 3)}'''),
+           mistakes={"la variation ne se partage pas à parts égales entre les trois facteurs":
+                         floats((cost_5(X_5) - cost_5(R_5)) / 3),
+                     "le taux de change baisse : sa contribution moyenne est négative":
+                         floats(-shapley_0(game_5, 3)[2])}'''),
     ]),
 
     Paper("MB6.6", "Des relevés de capteurs sur une grille 3 × 4 : la dérivée d'un indice régional par un réchauffement "
@@ -261,7 +281,9 @@ PAPER = [
          '''decimals=2,
            mistakes={"la formule des centres retire ½ après la mise à l'échelle : (u + ½) h/H − ½":
                          floats([(u + F(1, 2)) * F(3, 6) for u in range(6)]),
-                     "le centre de la case u est en u + ½, pas en u": floats([u * F(3, 6) - F(1, 2) for u in range(6)])}'''),
+                     "le centre de la case u est en u + ½, pas en u": floats([u * F(3, 6) - F(1, 2) for u in range(6)]),
+                     "d) demande ξ(u) avant le retour au bord : les deux cases extrêmes tombent hors de [0, 2]":
+                         floats([min(max(centre_6(u, 3, 6), F(0)), F(2)) for u in range(6)])}'''),
         ("e", "a list of 6 numbers (2 decimals): corners aligned, the coordinates of the 6 rows",
          "floats([corner_6(u, 3, 6) for u in range(6)])",
          '''decimals=2,
@@ -329,11 +351,16 @@ PAPER = [
            mistakes={"les variances de deux estimations indépendantes s'ajoutent, pas leurs erreurs types":
                          standard_error_11(add_errors=True),
                      "chaque taux garde sa propre proportion : pas de taux commun aux deux laboratoires":
-                         standard_error_11(pooled=True)}'''),
+                         standard_error_11(pooled=True),
+                     "c'est l'erreur type du seul laboratoire A : l'écart réunit deux estimations indépendantes, dont "
+                     "les variances s'ajoutent": math.sqrt(RATE_A_11 * (1 - RATE_A_11) / POS_A_11)}'''),
         ("c", "a list of 2 numbers (3 decimals): the Wald interval at 95 %", "wald_11(1.96)",
          '''decimals=3,
            mistakes={"un intervalle à 95 % prend 1,96 erreur type de chaque côté": wald_11(1),
-                     "un intervalle à 95 % prend 1,96 erreur type de chaque côté, pas 1,645": wald_11(1.645)}'''),
+                     "un intervalle à 95 % prend 1,96 erreur type de chaque côté, pas 1,645": wald_11(1.645),
+                     "l'intervalle prend l'erreur type de l'écart, celle de b), pas celle d'un seul laboratoire":
+                         [RATE_B_11 - RATE_A_11 + z * math.sqrt(RATE_A_11 * (1 - RATE_A_11) / POS_A_11)
+                          for z in (-1.96, 1.96)]}'''),
         ("d", "a number (4 decimals): the standard error with 4 times more contaminated samples in A",
          "standard_error_11(times_a=4)",
          '''decimals=4,
@@ -1923,9 +1950,9 @@ MB6_20 = ex(
     "d'apparition, une interpolation aux poids échangés), qui passent une vérification mal choisie, puis les corriger.",
     "fiche §1, §5 et §6 ; Ex MB6.13, MB6.16", note=NOTE_20, given=GIVEN_20,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
-1. `weights_bad(n)` doit rendre les poids $w(s)$ de la valeur de Shapley ; mais les poids, comptés autant de fois qu'il y a de coalitions de chaque taille, ne somment pas à 1. Il l'a vérifiée pour $n = 1$.
-2. `ranks_bad(x)` doit rendre les rangs, rangs moyens aux ex aequo ; mais des valeurs égales n'ont pas le même rang. Il l'a vérifiée sur un échantillon sans ex aequo.
-3. `lerp_bad(a, b, t)` doit interpoler entre $a$ (en $t = 0$) et $b$ (en $t = 1$) ; mais la valeur lue est du mauvais côté. Elle sert à lire une valeur entre deux cases d'une grille (fiche §5). Il l'a vérifiée en $t = \frac12$.
+1. `weights_bad(n)` doit rendre les poids $w(s)$ de la valeur de Shapley ; les poids, comptés autant de fois qu'il y a de coalitions de chaque taille, ne somment pas à 1. Il l'a vérifiée pour $n = 1$.
+2. `ranks_bad(x)` doit rendre les rangs, rangs moyens aux ex aequo ; des valeurs égales n'ont pas le même rang. Il l'a vérifiée sur un échantillon sans ex aequo.
+3. `lerp_bad(a, b, t)` doit interpoler entre $a$ (en $t = 0$) et $b$ (en $t = 1$) ; la valeur lue est du mauvais côté. Elle sert à lire une valeur entre deux cases d'une grille (fiche §5). Il l'a vérifiée en $t = \frac12$.
 
 À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `weights_fixed`, `ranks_fixed` et `lerp_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle). Puis réponds :
 - a) pour $n = 7$, $\sum_s\binom{6}{s}w(s)$ avec la fonction corrigée, puis avec la fonction fautive (une liste de 2 nombres) ;
