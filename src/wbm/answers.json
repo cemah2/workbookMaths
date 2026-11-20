@@ -116788,6 +116788,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "0a146e95415cbee0fb5ac10115addeae5923617f6ee1b36e974b00d28dd9e2df": "q est une part de l'écart entre les deux taux de détection : divise par TPR_B − TPR_A",
         "2c2f1f163670705cf64601f4e7c1dd967239a8e983e5cbcf58cea80c0952179e": "q est la probabilité de tirer A, le seuil qui détecte le moins, pas celle de tirer B"
       },
       "sign": 1,
@@ -116808,7 +116809,8 @@
       "kind": "float",
       "magnitude": -2,
       "mistakes": {
-        "1706ca64d7431fea1a499cc6e5c7cdf001f408ff953c0c6c4086a3d255c559b2": "le seuil A est tiré avec la probabilité q : c'est son taux de fausses alertes qui pèse q"
+        "1706ca64d7431fea1a499cc6e5c7cdf001f408ff953c0c6c4086a3d255c559b2": "le seuil A est tiré avec la probabilité q : c'est son taux de fausses alertes qui pèse q",
+        "a9d172d43392efe87bd94baa29d67eb7223db9b60f886786e6549c867c6d549b": "le tirage change aussi le taux de fausses alertes : la même combinaison des deux seuils, avec le même q"
       },
       "sign": 1,
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"

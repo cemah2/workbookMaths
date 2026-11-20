@@ -293,12 +293,16 @@ PAPER = [
         ("b", "a number (4 decimals): the probability q", "floats(draw_7())",
          '''decimals=4,
            mistakes={"q est la probabilité de tirer A, le seuil qui détecte le moins, pas celle de tirer B":
-                         floats(1 - draw_7())}'''),
+                         floats(1 - draw_7()),
+                     "q est une part de l'écart entre les deux taux de détection : divise par TPR_B − TPR_A":
+                         floats((THRESHOLD_B_7[1] - TARGET_7) / (TARGET_7 - THRESHOLD_A_7[1]))}'''),
         ("c", "a number (4 decimals): the rate of false alarms obtained",
          "floats(draw_7() * THRESHOLD_A_7[0] + (1 - draw_7()) * THRESHOLD_B_7[0])",
          '''decimals=4,
            mistakes={"le seuil A est tiré avec la probabilité q : c'est son taux de fausses alertes qui pèse q":
-                         floats((1 - draw_7()) * THRESHOLD_A_7[0] + draw_7() * THRESHOLD_B_7[0])}'''),
+                         floats((1 - draw_7()) * THRESHOLD_A_7[0] + draw_7() * THRESHOLD_B_7[0]),
+                     "le tirage change aussi le taux de fausses alertes : la même combinaison des deux seuils, avec le "
+                     "même q": floats(THRESHOLD_B_7[0])}'''),
         ("d", "a list of 4 numbers (4 decimals): w(1, defect), w(1, no defect), w(2, defect), w(2, no defect)",
          "floats(weights_7())",
          '''decimals=4,
