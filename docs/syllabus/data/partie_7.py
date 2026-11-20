@@ -1251,18 +1251,22 @@ CHAPTERS = [
                     "affine en x, les trajectoires sont x(s) = (1 − s) m + σ(s) z avec σ(s)² = (1 − s)² τ² + s², courbes "
                     "dès que τ > 0 ; un seul pas d'Euler depuis s = 1 rend m pour tout départ ; pour deux points, le champ "
                     "n'est plus affine"],
-        "requires": [("suite géométrique et sa somme, somme infinie", "R5"),
+        "requires": [("somme télescopique", "R4"),
+                     ("suite géométrique et sa somme, somme infinie", "R5"),
                      ("logarithme d'un produit, log₁₀, tanh, cote et logit", "R6"),
                      ("dérivée, tangente", "R7"),
                      ("primitive, intégrale, sommes de Riemann à gauche et au point milieu", "M02a"),
                      ("loi normale, densité, variance d'une transformation affine et d'une somme de variables "
                       "indépendantes", "M02b"),
+                     ("la moyenne et la médiane minimisent les écarts quadratiques et absolus", "M02c"),
                      ("formule de Bayes, probabilités totales", "M04"),
                      ("convexité : une fonction convexe est au-dessus de ses tangentes ; polynôme de Taylor d'ordre 2 et "
                       "son reste ; ln(1 + x) ≈ x", "M05a"),
                      ("divergence KL discrète, entropie", "M06"),
                      ("barycentre ; la moyenne minimise la somme des carrés des écarts", "M07"),
+                     ("inverse d'une matrice 2 × 2, ad − bc", "M09a"),
                      ("MSE, risque empirique", "M09b"),
+                     ("feuille d'un arbre de régression, variance intra et inter", "M13a"),
                      ("(1 + x/n)ⁿ → eˣ", "M14"),
                      ("méthode d'Euler pour x′ = F(x), application proche de l'identité", "M20"),
                      ("récurrence linéaire avec entrée ; Aᵗ → 0 quand le rayon spectral est inférieur à 1", "M22"),
@@ -1273,7 +1277,8 @@ CHAPTERS = [
                       "mélanges et responsabilités en log, ELBO d'un latent, dériver sous l'espérance", "M25b"),
                      ("chaîne de Markov, loi stationnaire, propriété de la tour", "M26"),
                      ("meilleur prédicteur pour la log-loss ; distance de Wasserstein entre deux lois de dimension 1 et "
-                      "entre deux gaussiennes", "M27")],
+                      "entre deux gaussiennes", "M27"),
+                     ("estimateur de Nadaraya-Watson, sa limite h → 0", "MB3")],
         "frontieres": ["B5.1", "B5.2", "B5.3", "B5.4", "B5.5", "B5.11", "B5.12", "B5.13", "B5.14", "B5.15", "B5.16", "B5.17",
                        "B5.18", "B5.20", "B5.22", "B5.26", "B5.28", "B5.Q2", "B5.Q3", "B5.Q4", "B5.Q8", "B5.Q9",
                        "B5.Q11", "B5.R3", "B5.E2", "B5.E4", "B5.E5"],
@@ -1349,8 +1354,10 @@ CHAPTERS = [
                  "ou de pertinence (MB2, MB3, MB4) ou le score S d'un classifieur (MB6) : une ligne ⚠️ de la fiche "
                  "distingue les trois sens ; un paragraphe « dynamique de Langevin (aperçu) », sans exercice, tient la "
                  "promesse de M26 (une chaîne de Markov qui converge vers sa loi stationnaire pour fabriquer des données) : "
-                 "pour p = N(μ, σ²), un AR(1) de coefficient 1 − h/(2σ²), où a² + b² = 1 + h²/(4σ⁴) ≠ 1 (compatible avec "
-                 "le garde-fou), sans chiffre ni lien avec B5.E2, qui ne fait que nommer Langevin ; ∂ MB5.12 démontre Tweedie en dimension 1 (dériver sous "
+                 "pour p = N(μ, σ²), un AR(1) de coefficient 1 − h/(2σ²), où a² + b² = 1 + h(1 − 1/σ²) + h²/(4σ⁴) "
+                 "(qui vaut 1 pour h = 4σ²(1 − σ²) dès que σ² < 1 : la fiche reste en lettres, et aucun exercice, "
+                 "corrigé ou test ne chiffre Langevin à ce pas ; erratum de la session 74, l'ancienne note écrivait "
+                 "1 + h²/(4σ⁴) ≠ 1, vrai pour σ² = 1 seulement), sans chiffre ni lien avec B5.E2, qui ne fait que nommer Langevin ; ∂ MB5.12 démontre Tweedie en dimension 1 (dériver sous "
                  "l'espérance, M25b §7 ; une somme finie pour un x discret) ; ✏️ MB5.5 : un signal gaussien (Tweedie "
                  "contre M25a), puis un signal à deux niveaux ±c équiprobables (une tanh), et la limite b → 0 ; la fiche en "
                  "déduit « estimer le bruit, c'est estimer le score de la loi bruitée », sans le facteur √(1 − ᾱ_t), sans "
