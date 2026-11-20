@@ -806,7 +806,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB4", "dir": "mb4_rang_faible", "hours": 7.6, "generation_sessions": 1, "mml": ["(§4.6)"],
+        "id": "MB4", "dir": "mb4_rang_faible", "hours": 8.4, "generation_sessions": 1, "mml": ["(§4.6)"],
         "summary": "Les maths du rang faible et de la recherche d'information : la factorisation de rang (une matrice de "
                    "rang r est le produit de r colonnes par r lignes, à une matrice inversible près), ce qu'elle coûte à "
                    "stocker et ses nombres libres, le rang effectif d'une matrice mesurée (rappel d'Eckart-Young) et "
@@ -874,15 +874,19 @@ CHAPTERS = [
                      ("sommes de Riemann, encadrer une aire par des rectangles", "M02a"),
                      ("precision et recall comme probabilités conditionnelles, l'AUC invariante par une transformation "
                       "croissante des scores", "M03"),
+                     ("lissage de Laplace (pseudo-comptes)", "M04"),
                      ("dérivée seconde et concavité, 1/(1 + u) ≈ 1 − u, nombres flottants et erreurs d'arrondi", "M05a"),
                      ("information −log p d'un événement, en nats", "M06"),
                      ("cosinus, plus proches voisins", "M07"),
+                     ("facteur de Bayes", "M08"),
                      ("pivot de Gauss, forme échelonnée réduite et colonnes pivots, coût d'un produit et ordre des "
                       "parenthèses dans ABC", "M09a"),
                      ("indépendance, base, coordonnées, rang, rang(AB) ≤ min(rang A, rang B), rang numérique et "
                       "tolérance", "M12a"),
+                     ("somme harmonique comparée à l'intégrale de 1/x", "M11"),
                      ("SVD, normes de Frobenius et spectrale, approximation de rang faible et son erreur (Eckart-Young), "
-                      "nombres stockés d'une image en rang k", "M12d")],
+                      "nombres stockés d'une image en rang k", "M12d"),
+                     ("nombre harmonique H_n et records", "MB3")],
         "frontieres": ["B4.2", "B4.3", "B4.5", "B4.11", "B4.17", "B4.18", "B4.25", "B4.27", "B4.Q8", "B4.Q9",
                        "B4.Q11", "B4.R3", "B4.E3"],
         "mymath": {"module": "ranks.py", "functions": ["rank_factorization", "borda_scores", "random_ranking_mrr"]},
@@ -1069,37 +1073,37 @@ CHAPTERS = [
             ("MB4.R3", "🔁", 1, 6, "L'information −ln p d'un événement, la cote et le logit (M06, R6)", "§3", "E"),
             ("MB4.1", "✏️", 2, 30, "Les ventes de quatre boulangeries sur cinq produits : le rang, la factorisation par "
              "les colonnes pivots, une seconde factorisation (CG)(G⁻¹F), et les nombres stockés ou libres", "§1", "E"),
-            ("MB4.2", "✏️", 2, 25, "Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie "
+            ("MB4.2", "✏️", 2, 20, "Un tableau de relevés de stations météo donné par ses valeurs singulières : énergie "
              "captée, rang effectif à 99 %, rang stable, puis le coût de C(Fx) et de (CF)x pour un et pour mille "
              "vecteurs", "§2", "E"),
-            ("MB4.3", "✏️", 2, 30, "Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son "
+            ("MB4.3", "✏️", 2, 25, "Les ingrédients d'un carnet de recettes : surprise, cote, poids corrigé par ½ et son "
              "signe, la variante toujours positive, puis la saturation et la normalisation d'une mention répétée",
              "§3 §4", "E"),
             ("MB4.4", "✏️", 2, 30, "Trois jurys classent cinq pâtissiers : les points de Borda, la somme des 1/(c + rang) "
              "pour c = 2 et c = 10, et la somme des notes qui change de gagnant quand un jury passe de 20 à 100 "
              "points", "§5", "E"),
-            ("MB4.5", "∂", 2, 25, "Une matrice de rang r est un produit C F de r colonnes par r lignes ; deux telles "
+            ("MB4.5", "∂", 2, 30, "Une matrice de rang r est un produit C F de r colonnes par r lignes ; deux telles "
              "factorisations diffèrent d'une matrice inversible ; le rang est le plus petit nombre de produits "
              "extérieurs dont elle est la somme", "§1", "E"),
-            ("MB4.6", "∂", 2, 25, "Une fusion par les rangs ne change pas quand un jury change d'échelle ; j-ième pour "
+            ("MB4.6", "∂", 2, 30, "Une fusion par les rangs ne change pas quand un jury change d'échelle ; j-ième pour "
              "deux jurys bat premier pour un seul si et seulement si j < c + 2 ; quand c grandit, la somme des "
              "1/(c + rang) range selon le nombre de listes, puis la somme des rangs", "§5", ""),
-            ("MB4.7", "🗣️", 1, 10, "Expliquer à un pâtissier pourquoi un ingrédient présent dans toutes les recettes "
+            ("MB4.7", "🗣️", 1, 15, "Expliquer à un pâtissier pourquoi un ingrédient présent dans toutes les recettes "
              "n'aide pas à retrouver la sienne, et pourquoi la dixième mention compte moins que la première", "§3 §4",
              "E"),
             ("MB4.E1", "💼", 1, 10, "« Comment combiner les classements de deux systèmes dont les scores ne sont pas sur "
              "la même échelle ? »", "§5", ""),
-            ("MB4.8", "🔨", 1, 20, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
+            ("MB4.8", "🔨", 1, 25, "La factorisation de rang C F : les colonnes pivots de M et les lignes non nulles de sa "
              "forme échelonnée réduite", "§1", "E m:rank_factorization"),
-            ("MB4.9", "🔨", 2, 25, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au "
+            ("MB4.9", "🔨", 2, 30, "Les points de Borda de classements complets, et le MRR exact d'un ordre tiré au "
              "hasard, en fractions", "§5 §6", "m:borda_scores,random_ranking_mrr"),
-            ("MB4.10", "🔮", 1, 15, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le "
+            ("MB4.10", "🔮", 1, 20, "Prédire le MRR d'un ordre tiré au hasard parmi 10, 100 puis 1 000 candidats, puis le "
              "simuler et le comparer à H_n/n", "§6", ""),
-            ("MB4.11", "🎨", 1, 15, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
+            ("MB4.11", "🎨", 1, 25, "Les courbes de saturation x ↦ x(k₁ + 1)/(x + k₁) de k₁ = 0 à l'infini, et ce que la "
              "normalisation par la longueur leur fait", "§4", ""),
-            ("MB4.12", "🐛", 1, 15, "Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme "
+            ("MB4.12", "🐛", 1, 20, "Chasse à l'erreur : C pris dans la forme réduite au lieu de M, un classement lu comme "
              "la liste des rangs des candidats, un poids de rareté écrit ln(n/N)", "§1 §3 §5", ""),
-            ("MB4.13", "🏆", 3, 25, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs "
+            ("MB4.13", "🏆", 3, 35, "Défi : retrouver le rang caché de cinq tableaux bruités, cinq fois sur cinq, par leurs "
              "valeurs singulières", "§2", ""),
         ],
     },

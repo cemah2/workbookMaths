@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §6 |
-| **Temps total estimé** | ≈ 7,6 h : lecture et calculs de la fiche ≈ 1 h 35, exercices ≈ 5 h 40, 12 flashcards ≈ 25 min (parcours essentiel ≈ 5,5 h) |
+| **Temps total estimé** | ≈ 8,4 h : lecture et calculs de la fiche ≈ 1 h 35, exercices ≈ 6 h 25, 12 flashcards ≈ 25 min (parcours essentiel ≈ 5,5 h) |
 | **Prérequis** | R6 (cote, logit) ; R7 (dérivée, limites) ; R8 (combinaisons, espérance) ; M02a (rectangles) ; M03 (precision, recall, l'AUC ne dépend que de l'ordre) ; M04 (lissage de Laplace) ; M05a (concavité, flottants) ; M06 (information $-\ln p$) ; M07 (cosinus) ; M08 (facteur de Bayes) ; M09a (forme réduite, coût d'un produit) ; M11 et MB3 §8 (nombre harmonique) ; M12a (base, rang, rang d'un produit, rang numérique) ; M12d (SVD, Eckart-Young) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `ranks.py` : `rank_factorization`, `borda_scores`, `random_ranking_mrr` |
