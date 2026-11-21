@@ -218,7 +218,8 @@ def load_mymath(
         if impl == "learner" and not path:
             message = (
                 "ta librairie mymath n'existe pas encore dans mon_travail/mymath/ ; "
-                f"lance d'abord : python tools/start_chapter.py {chapter or '--init'}"
+                # the synthesis project copies no stub (start_chapter.py PS): only --init creates the library
+                f"lance d'abord : python tools/start_chapter.py {chapter if chapter and chapter != 'PS' else '--init'}"
             )
         else:
             message = f"aucun package mymath trouvé dans {pkg_dir}"
