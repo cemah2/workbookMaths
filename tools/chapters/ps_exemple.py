@@ -24,7 +24,7 @@ from nbbuild import code, md, setup_cell  # noqa: E402
 TITLE = r"""
 # La régression de Poisson ajustée par la méthode de Newton : dérivation, implémentation, vérification
 
-> **L'exemple rédigé du projet de synthèse.** Un article complet sur un algorithme qui n'est ni dans la liste du cahier des charges ni dans workbookIA. Il sert d'étalon pour chaque étape (PS.2 à PS.9 et PS.E1) : ton article lui emprunte la méthode, jamais le contenu, et son algorithme n'est pas accepté comme projet. Ouvre-le une fois ton cadrage écrit une première fois : le [`README.md`](README.md) de ce dossier dit quoi y regarder. Ses sections ont les numéros du modèle du kit, son cadrage est dans [`cadrage.md`](cadrage.md), et sa grille remplie, [`grille.md`](grille.md), renvoie à chaque cellule qui sert de preuve. Il tourne sur la **référence** de `mymath` ; ton projet, lui, appelle **tes** fonctions.
+> **L'exemple rédigé du projet de synthèse.** Un article complet sur un algorithme qui n'est ni dans la liste du cahier des charges ni dans workbookIA. Il sert d'étalon pour chaque étape (PS.2 à PS.9 et PS.E1) : ton article lui emprunte la méthode, jamais le contenu, et son algorithme n'est pas accepté comme projet. Ouvre-le une fois ton cadrage écrit une première fois : le [`README.md`](README.md) de ce dossier dit quoi y regarder (et, si tu as choisi la régression logistique, ce qu'il ne faut pas y lire avant d'avoir rédigé tes §3 et §4). Ses sections ont les numéros du modèle du kit, son cadrage est dans [`cadrage.md`](cadrage.md), et sa grille remplie, [`grille.md`](grille.md), renvoie à chaque cellule qui sert de preuve. Il tourne sur la **référence** de `mymath` ; ton projet, lui, appelle **tes** fonctions.
 
 **Auteur** : l'exemple de workbookMaths · **Algorithme** : régression de Poisson, ajustée par la méthode de Newton (moindres carrés repondérés) ; hors liste, hors workbookIA
 
@@ -43,6 +43,7 @@ PROJECT_CODE = r'''
 # The folder of the example, its module, and the tools of the check cells
 import ast
 import math
+import re
 import sys
 import time
 from fractions import Fraction
@@ -445,7 +446,7 @@ Le module [`poisson_newton.py`](poisson_newton.py) suit la table des formules fi
 - **Le coût** d'une itération de `fit` : former $\mathbf{W}^{1/2}\mathbf{X}$ coûte $O(np)$, la QR $O(np^2)$ (M12b §7), le conditionnement $O(np^2 + p^3)$ (la SVD de `mymath` passe par $\mathbf{B}^\top\mathbf{B}$, M12d §4), la log-vraisemblance du garde-fou $O(np)$ par essai : en tout $O(np^2)$ par itération, pour une dizaine d'itérations au plus ici. Un pas de montée de gradient (3.11) coûte $O(np)$, mais il en faut de l'ordre de $\kappa$ fois plus (§8).
 - **Sans boucle sur les exemples** : les sommes de (3.1) à (3.3) sont des produits de NumPy, et $\ln(y_i!)$ se lit dans une somme cumulée de logarithmes ($\ln 1 + \cdots + \ln m$), calculée une fois pour toutes les valeurs de $\mathbf{y}$. Les seules boucles Python sont celles des itérations et des divisions du pas par deux.
 
-La cellule « Contrôle du module » lit `poisson_newton.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle (**mymath** ; dans ton projet, elles doivent être marquées « à toi »), et ses imports (**imports**).
+La cellule « Contrôle du module » lit `poisson_newton.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API** ; une fonction qui ne cite aucune équation, comme `check_data`, reçoit une note ℹ️, normale pour une vérification des données), les fonctions de `mymath` qu'il appelle (**mymath** ; dans ton projet, elles doivent être marquées « à toi »), et ses imports (**imports**).
 """
 
 CONTROL_CODE = r'''
@@ -456,12 +457,15 @@ print("API :")
 for node in tree.body:
     if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and not node.name.startswith("_"):
         doc = ast.get_docstring(node) or ""
-        needed = ("Parameters", "Returns") if isinstance(node, ast.FunctionDef) else ()
+        needed = ("Parameters", "Returns") if isinstance(node, ast.FunctionDef) else ()   # the kit's rules
         missing = [part for part in needed if part not in doc]
-        equation = "Eq. (" in doc
+        equation = bool(re.search(r"\((?:2|3|4)\.\d+\)", doc))
         mark = "✅" if doc and not missing else "⚠️"
-        print(f"  {mark} {node.name} : {doc.splitlines()[0]}" + ("" if equation or node.name in
-              ("NoMaximumError", "PoissonFit", "check_data") else " (aucune équation citée)"))
+        note = "" if doc and not missing else f" (docstring {'absente' if not doc else 'sans ' + ', '.join(missing)})"
+        note += ("" if equation or isinstance(node, ast.ClassDef) else
+                 " ℹ️ aucune équation citée : normal seulement pour une fonction qui ne calcule pas une formule de §3 "
+                 "(vérification des données)")
+        print(f"  {mark} {node.name} : {doc.splitlines()[0] if doc else '—'}{note}")
 print("mymath :")
 modules = {alias.name for node in ast.walk(tree) if isinstance(node, ast.ImportFrom) and node.module == "mymath"
            for alias in node.names}
@@ -477,8 +481,9 @@ for node in ast.walk(tree):
     if isinstance(node, (ast.Import, ast.ImportFrom)):
         names = [a.name for a in node.names] if isinstance(node, ast.Import) else [node.module or "."]
         for name in [n for n in names if n != "__future__"]:
-            bad = name.split(".")[0] in FORBIDDEN
-            print(f"  {'❌' if bad else '✅'} {name}")
+            top = name.split(".")[0]
+            allowed = top in {"numpy", "mymath"} or top in sys.stdlib_module_names
+            print(f"  {'❌' if top in FORBIDDEN else '✅' if allowed else '⚠️'} {name}")
 '''
 
 DEMO_CODE = r'''

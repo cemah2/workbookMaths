@@ -120,8 +120,14 @@ def test_example_conftest_is_the_kit_one():
 
 
 def test_example_cadrage_fits_on_one_page():
-    words = len((EXAMPLE / "cadrage.md").read_text(encoding="utf-8").split())
-    assert words <= 600, f"expected a cadrage of 600 words at most (GRILLE.md, PS.1), got {words}"
+    """GRILLE.md, PS.1: 600 words at most without the template (the words of the cadrage minus those of
+    depart/cadrage.md, the instruction lines that start with > removed from both)."""
+    def words(path: Path) -> int:
+        return sum(len(line.split()) for line in path.read_text(encoding="utf-8").splitlines()
+                   if not line.startswith(">"))
+
+    net = words(EXAMPLE / "cadrage.md") - words(PROJECT / "depart" / "cadrage.md")
+    assert net <= 600, f"expected a cadrage of 600 words at most without the template (GRILLE.md, PS.1), got {net}"
 
 
 def _table_rows(text: str) -> dict[str, list[list[str]]]:

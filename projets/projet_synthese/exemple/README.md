@@ -4,7 +4,7 @@
 
 ## Quand le lire
 
-**Une fois ton cadrage écrit une première fois** (`cadrage.md`, PS.1) : ouvert plus tôt, il risque de donner sa forme à ton projet au lieu de laisser ton algorithme la décider. Lis-le une fois en entier (environ 30 minutes, comptées dans les 25 h du projet), puis reprends ton cadrage. Reviens ensuite à la section qui correspond à l'étape où tu en es.
+**Une fois ton cadrage écrit une première fois** (`cadrage.md`, PS.1) : ouvert plus tôt, il risque de donner sa forme à ton projet au lieu de laisser ton algorithme la décider. Survole-le une fois (environ 50 minutes, comptées dans les 27,3 h du projet) : le cadrage, puis les titres et le premier paragraphe de chaque section de l'article, et la grille remplie ; puis reprends ton cadrage. Reviens ensuite lire en détail la section qui correspond à l'étape où tu en es : cette lecture compte dans la durée de l'étape. Si tu as choisi la régression logistique (n° 1), lis d'abord sa consigne propre, plus bas (« En quoi ton projet en diffère »).
 
 ## Étape par étape
 
@@ -39,4 +39,5 @@ python -m pytest -q projets/projet_synthese/exemple/test_poisson_newton.py --imp
 - **Ta librairie, pas la référence.** Ton module appelle les fonctions de `mymath` que tu as écrites ; dans l'exemple, la cellule « Contrôle du module » les marque « référence », dans ton projet elle doit les marquer « à toi » (un critère de PS.6 que l'exemple, par construction, ne remplit pas).
 - **Ta répétition, chronométrée.** L'annexe de l'exemple estime la durée de l'exposé par son nombre de mots ; toi, tu chronomètres une vraie répétition.
 - **Ton algorithme, tes mots.** Les dérivations des algorithmes de la liste (les ∂ de workbookIA cités dans le cahier des charges) ne sont écrites nulle part dans ce dépôt, ni ici ni ailleurs : c'est toi qui les rédiges. Ce qui se transpose de l'exemple, c'est la méthode (une étape, sa justification, ses formes ; une prédiction avant l'expérience ; une preuve par critère), pas son contenu.
+- **Si tu as choisi la régression logistique (n° 1).** Comme la régression de Poisson, c'est un modèle linéaire généralisé à lien canonique : son gradient, sa hessienne, sa convexité et l'existence de son minimum ont la même structure que §3.2, §3.3 et §4 de l'exemple (il suffit de remplacer $e^{z}$ par $\sigma(z)$). Pour que ta dérivation (∂ 13.8) et tes propriétés restent les tiennes, ne lis de l'exemple, avant d'avoir rédigé tes §3 et §4, que le cadrage, §1, §2 et §5 à §9. Ensuite, ne transpose ni le lemme, ni la propriété 1, ni le théorème 3 : si tu démontres l'unicité ou l'existence, rédige ta démonstration sans rouvrir §4. Et ne prends pas pour expérience « Newton contre descente de gradient », qui recopierait §8.1.
 - **Une mutation suffit.** L'exemple en montre deux, pour comparer ce que chacune révèle des tests.
