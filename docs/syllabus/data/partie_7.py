@@ -2105,7 +2105,7 @@ CHAPTERS = [
                       "log-somme-exp (sa dérivée seconde est une variance)", "M13a"),
                      ("poids exponentiels : l'algorithme Hedge", "M14"),
                      ("puissances d'une matrice d'adjacence et chemins d'un graphe", "M16"),
-                     ("loi de Boltzmann et température, la matrice diag(p) − ppᵀ, covariance d'un vecteur one-hot "
+                     ("loi de Boltzmann et température, la matrice diag(p) − pᵀp (p en ligne), covariance d'un vecteur one-hot "
                       "(workbookIA 17 y reconnaît la jacobienne de la softmax, ∂ 17.7)", "M17"),
                      ("règle du produit pour des fonctions à valeurs matricielles", "M18"),
                      ("gradient estimé sans biais sur un échantillon, variance d'une moyenne de B tirages", "M19"),

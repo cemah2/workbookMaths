@@ -22,6 +22,7 @@ notebook has already imported ``torch``.
 from __future__ import annotations
 
 import contextlib
+import functools
 import os
 import re
 import subprocess
@@ -742,6 +743,8 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
     print("pytest:", _french_summary(shown))
     return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
                        errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)
+
+
 # ---------------------------------------------------------------------------
 # Reading instead of running (🛠️ and 🏆 of part VII, audit of session 78)
 # ---------------------------------------------------------------------------
@@ -754,7 +757,8 @@ PEEK_NAMES = frozenset({
     "_getframe", "currentframe", "_current_frames", "f_back", "f_locals", "f_globals", "f_code", "__traceback__",
     "tb_frame", "tb_next", "exc_info", "exception", "last_traceback", "walk_stack", "extract_stack", "traceback",
     # names built at run time, and what reaches every object
-    "getattr", "attrgetter", "methodcaller", "vars", "dir", "eval", "exec", "compile", "globals", "locals",
+    "getattr", "setattr", "delattr", "attrgetter", "methodcaller", "vars", "dir", "eval", "exec", "compile", "globals",
+    "locals",
     "builtins", "__builtins__", "__import__", "importlib", "inspect", "getsource", "gc", "get_objects",
     "get_referrers", "ctypes", "settrace", "setprofile", "monitoring",
     # the other process of a challenge and its pipes; the hidden module read or run from its file
@@ -775,21 +779,42 @@ def _strings(values):
 def peeked(function, namespace, names=PEEK_NAMES, private=(), _seen=None) -> set:
     """The names of ``names`` that ``function`` uses, as a name, as a string or as a string of a constant tuple, and
     those of the functions of the notebook it reaches: the functions and classes of ``namespace`` (the notebook's
-    ``globals()``) it names, the methods of those classes, its default values. A check calls it before running the
-    learner's function: a 🛠️ test judges what a method does, not what it is; a 🏆 computes its answer, it does not read
-    the check (its frames, the other process). private holds the suffixes of the names of the check cell
+    ``globals()``) it names, the methods of those classes, its default values, the functions of its closure, what it
+    wraps (``__wrapped__``, ``functools.partial``), the class of a callable object of the notebook, and the names of the
+    notebook that are aliases of a name of ``names`` (``from sys import _getframe as up``). A check calls it before
+    running the learner's function: a 🛠️ test judges what a method does, not what it is; a 🏆 computes its answer, it
+    does not read the check (its frames, the other process). private holds the suffixes of the names of the check cell
     (("_c24", "_C24"): its hidden methods, its lists, its helpers), which the learner's code does not use either. A list
     of names cannot see everything: it only makes reading costlier than writing the method."""
     seen = set() if _seen is None else _seen
     if isinstance(function, type):
+        if function in seen:
+            return set()
+        seen.add(function)
         return set().union(*(peeked(v, namespace, names, private, seen) for v in vars(function).values()))
+    if isinstance(function, functools.partial):                  # partial(f, ...): f and its arguments
+        return set().union(*(peeked(v, namespace, names, private, seen)
+                             for v in (function.func, *function.args, *function.keywords.values()) if callable(v)))
     function = getattr(function, "__func__", function)
-    code = getattr(function, "__code__", None)
-    if code is None or code in seen:
-        return set()
-    seen.add(code)
     found = set()
-    for value in (getattr(function, "__defaults__", None) or ()):
+    wrapped = getattr(function, "__wrapped__", None)             # functools.cache, functools.wraps
+    if callable(wrapped):
+        found |= peeked(wrapped, namespace, names, private, seen)
+    code = getattr(function, "__code__", None)
+    if code is None:                                             # an object of the notebook with __call__: its class
+        kind = type(function)
+        return found | (peeked(kind, namespace, names, private, seen)
+                        if getattr(kind, "__module__", None) == "__main__" else set())
+    if code in seen:
+        return found
+    seen.add(code)
+    cells = []
+    for cell in (getattr(function, "__closure__", None) or ()):  # the functions it holds in its closure
+        try:
+            cells.append(cell.cell_contents)
+        except ValueError:                                       # an empty cell
+            pass
+    for value in (*(getattr(function, "__defaults__", None) or ()), *cells):
         if callable(value):
             found |= peeked(value, namespace, names, private, seen)
     todo = [code]
@@ -799,6 +824,8 @@ def peeked(function, namespace, names=PEEK_NAMES, private=(), _seen=None) -> set
         found |= (names & used) | {name for name in used if private and name.endswith(tuple(private))}
         for name in c.co_names:
             target = namespace.get(name)
+            if target is not None:                               # an alias: from sys import _getframe as up
+                found |= names & {getattr(target, "__name__", None), type(target).__name__}
             if callable(target) and getattr(target, "__module__", None) == "__main__":
                 found |= peeked(target, namespace, names, private, seen)
         todo += [k for k in c.co_consts if hasattr(k, "co_code")]
