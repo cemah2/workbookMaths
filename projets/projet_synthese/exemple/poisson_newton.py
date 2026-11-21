@@ -103,6 +103,8 @@ class PoissonFit:
 def check_data(X, y):
     """Check a design matrix and a vector of counts, and return them as float arrays.
 
+    The hypotheses (H1) (integer counts >= 0) and (H2) (linearly independent columns) of the notebook's §2.
+
     Parameters
     ----------
     X : 2-D array-like

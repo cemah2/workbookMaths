@@ -74,16 +74,19 @@ def centred_hessian(f, w, h: float):
 
 
 def assert_close(got, expected, *, rtol: float, atol: float, what: str) -> None:
-    """Compare two arrays; the first line of the failure says what was expected (the kit's helper)."""
+    """Compare two arrays; the first line of the failure says what was expected (the kit's helper, with the
+    numbers printed as plain floats)."""
     got = np.asarray(got, dtype=float)
     expected = np.asarray(expected, dtype=float)
     assert got.shape == expected.shape, f"{what}: expected shape {expected.shape}, got {got.shape}"
     gap = np.abs(got - expected)
     bad = gap > atol + rtol * np.abs(expected)
     if np.any(bad) or not np.all(np.isfinite(got)):
-        index = np.unravel_index(int(np.argmax(np.where(np.isfinite(gap), gap, np.inf))), gap.shape)
-        raise AssertionError(f"{what}: expected {expected[index]!r} at index {index} (rtol={rtol}, atol={atol}), "
-                             f"got {got[index]!r}; {int(np.sum(bad))} value(s) out of tolerance")
+        index = tuple(int(i) for i in np.unravel_index(int(np.argmax(np.where(np.isfinite(gap), gap, np.inf))),
+                                                        gap.shape))
+        raise AssertionError(f"{what}: expected {float(expected[index]):.10g} at index {index} (rtol={rtol:g}, "
+                             f"atol={atol:.3g}), got {float(got[index]):.10g}; {int(np.sum(bad))} value(s) out of "
+                             "tolerance")
 
 
 def sklearn_weights(X, y):

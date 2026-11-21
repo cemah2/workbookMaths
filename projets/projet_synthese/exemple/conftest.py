@@ -48,7 +48,7 @@ if ROOT is not None and str(ROOT / "src") not in sys.path:
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))             # `import algo` and `import mutants` from this folder
 
-_STATE: dict = {"impl": None, "mymath": None, "error": None, "mutants": []}
+_STATE: dict = {"impl": None, "mymath": None, "error": None, "broken": None, "mutants": []}
 
 
 def pytest_addoption(parser):
@@ -87,6 +87,8 @@ def pytest_configure(config):
         _STATE["error"] = (str(exc) if impl != "learner" or "n'existe pas encore" not in str(exc) else
                            "ta librairie n'existe pas encore dans mon_travail/mymath/ (le projet appelle les fonctions "
                            "que tu as écrites dans les chapitres ; python tools/start_chapter.py --init crée le dossier)")
+    except Exception as exc:  # noqa: BLE001 - a SyntaxError in mymath/__init__.py: said by the fixture, not a crash
+        _STATE["broken"] = f"ta librairie ne se charge pas ({type(exc).__name__} : {exc})"
     os.environ["WBM_IMPL"] = impl
 
 
@@ -98,6 +100,8 @@ def pytest_report_header(config):
 @pytest.fixture(scope="session")
 def mymath():
     """The mymath package selected with --impl (the tests that need it are skipped with ⏳ while it is missing)."""
+    if _STATE["broken"]:
+        pytest.fail(f"❌ {_STATE['broken']} : corrige-la, puis relance pytest", pytrace=False)
     if _STATE["mymath"] is None:
         pytest.skip(f"⏳ mymath absente : {_STATE['error']}")
     return _STATE["mymath"]
@@ -150,7 +154,9 @@ def pytest_terminal_summary(terminalreporter):
     """One ℹ️ line for what the summary does not say: tests waiting, mutation applied, modules of the reference."""
     skipped = terminalreporter.stats.get("skipped", [])
     pending = [report for report in skipped if "⏳" in str(report.longrepr)]
-    if _STATE["mymath"] is None and skipped:
+    if _STATE["broken"]:
+        terminalreporter.write_line(f"❌ {_STATE['broken']}.")
+    elif _STATE["mymath"] is None and skipped:
         terminalreporter.write_line(f"ℹ️ Tests sautés : mymath absente ({_STATE['error']}).")
     elif pending:
         terminalreporter.write_line(f"ℹ️ {len(pending)} test(s) en attente ⏳ (squelettes à écrire ou fonctions pas "
