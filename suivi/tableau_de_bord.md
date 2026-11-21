@@ -2380,3 +2380,18 @@ Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre
 - [ ] MB8.21 🏆 Défi : estimer, avec un budget de tirages, la dérivée d'une probabilité de dépassement par rapport au paramètre d'une loi, assez précisément neuf fois sur dix (score, baseline, variable de contrôle) ★★★ 40 min (complet)
 - [ ] Flashcards du chapitre importées dans Anki (16 cartes)
 <!-- wbm:end MB8 -->
+
+<!-- wbm:section PS -->
+## PS · Projet de synthèse ⏱️ 27,3 h
+
+- [ ] PS.1 🗣️ Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions de maths et leurs chapitres, l'oracle de la vérification et le plan de l'article ★★ 75 min
+- [ ] PS.2 ✏️ Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, tableau des notations et conventions ★★ 105 min
+- [ ] PS.3 ∂ La dérivation complète, de l'objectif aux formules que le code calcule : chaque étape justifiée par un résultat cité, chaque forme vérifiée ★★★★ 270 min
+- [ ] PS.4 ∂ Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, espérance, borne, coût), et un cas où une hypothèse tombe ★★★ 210 min
+- [ ] PS.5 ✏️ Un exemple à la main en dimension 2 ou 3 (en fractions quand c'est possible), retrouvé par le code ★★★ 120 min
+- [ ] PS.6 🛠️ L'implémentation : un module documenté (contrat, formes, erreurs) qui appelle au moins trois fonctions de ta librairie `mymath`, sans bibliothèque de ML ★★★★ 210 min
+- [ ] PS.7 📦 La vérification : des tests contre une bibliothèque indépendante sur des cas tirés au hasard, les dérivées contre des différences finies, une propriété, et une erreur introduite exprès que les tests attrapent ★★★★ 210 min
+- [ ] PS.8 🔬 Une expérience numérique qui illustre une propriété démontrée (convergence, conditionnement, stabilité, effet d'un hyperparamètre) : une figure légendée et sa conclusion ★★★ 150 min
+- [ ] PS.9 🛠️ Rédiger l'article : introduction, plan, conclusion et limites, références par sections, LaTeX propre, notebook exécuté de bout en bout en moins de 5 minutes ★★★ 140 min
+- [ ] PS.E1 💼 Présenter l'algorithme en cinq minutes, puis répondre à cinq questions d'entretien sur ses maths ★★★ 60 min
+<!-- wbm:end PS -->

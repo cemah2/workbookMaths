@@ -8,7 +8,7 @@ Il suit le livre **« Mathematics for Machine Learning »** de M. P. Deisenroth,
 
 > Le livre n'est pas inclus dans ce dépôt : son PDF est gratuit pour un usage personnel sur le site du livre, mais sa notice en interdit la redistribution. Les fiches et les exercices sont originaux ; ils renvoient aux sections sous la forme « (MML §4.5) ». Voir [Crédits et licences](#crédits-et-licences).
 
-**État** : les parties 0 à IV sont publiées (R0 à M20 et les examens blancs CP0 à CP4) ; les parties V à VII et le projet de synthèse sont planifiés dans [`docs/SYLLABUS.md`](docs/SYLLABUS.md), et chacun sera détaillé juste avant sa génération. Les chapitres arrivent dans l'ordre de travail ci-dessous.
+**État** : tout le parcours est publié : la remise à niveau (R0 à R9) et le test de positionnement, les parties I à VII, les examens blancs CP0 à CP6 et le projet de synthèse ; le détail de chacun est dans [`docs/SYLLABUS.md`](docs/SYLLABUS.md). Les chapitres se suivent dans l'ordre de travail ci-dessous.
 
 ## 🔀 Ordre de travail commun
 
@@ -67,7 +67,7 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 
 `python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
 
-**Volume estimé** : 49 chapitres, environ 709 h pour le parcours complet (environ 515 h pour le parcours essentiel ; le projet de synthèse, environ 25 h, reste estimé), à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 711 h pour le parcours complet (environ 517 h pour le parcours essentiel), projet de synthèse compris, à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
 
 ## 🚀 Démarrage rapide sur Google Colab
 

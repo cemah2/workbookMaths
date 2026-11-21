@@ -60,7 +60,7 @@ class NoMaximumError(RuntimeError):
     history : list of numpy.ndarray
         The iterates ``w_0, w_1, ...`` computed before the error (each of shape ``(p,)``).
     log_likelihoods : list of float
-        ``l(w_k)`` for each iterate.
+        ``l(w_k)`` for each iterate (the same length as ``history``).
     """
 
     def __init__(self, message: str, history=None, log_likelihoods=None):
@@ -81,9 +81,10 @@ class PoissonFit:
     history : list of numpy.ndarray
         The iterates ``w_0, w_1, ..., w_K`` (``K = n_iter``), each of shape ``(p,)``.
     log_likelihoods : list of float
-        ``l(w_k)`` for each iterate: a non-decreasing list (up to rounding, see :func:`fit`).
+        ``l(w_k)`` for each iterate (length ``n_iter + 1``): a non-decreasing list (up to rounding, see :func:`fit`).
     step_sizes : list of float
-        The fraction ``t`` of each Newton step that was taken (1 for a full step, 1/2, 1/4... when halved).
+        The fraction ``t`` of each Newton step that was taken (length ``n_iter``; 1 for a full step, 1/2, 1/4...
+        when halved).
     gradient_norm : float
         ``max_j |grad l(w)_j|`` at the returned ``w``.
     """

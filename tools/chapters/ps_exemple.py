@@ -95,20 +95,27 @@ $$\mathbf{z} = \mathbf{X}\mathbf{w}, \qquad \boldsymbol{\mu} = \exp(\mathbf{z}) 
 | $\mathbf{X}$ | les données, une ligne par exemple | $(n, p)$ | $\mathbb{R}^{n \times p}$, première colonne $\mathbf{1}$ (H3) |
 | $\mathbf{x}_i$ | la ligne $i$ de $\mathbf{X}$, écrite en colonne | $(p,)$ | $\mathbb{R}^p$ |
 | $\mathbf{y}$ | les comptages observés | $(n,)$ | $\lbrace 0, 1, 2, \ldots \rbrace^n$ |
+| $Y_i$, $\mathcal{P}(\mu_i)$ | le comptage aléatoire de l'exemple $i$, dont $y_i$ est la valeur observée ; la loi de Poisson de moyenne $\mu_i$ (M02b §2) | scalaire | $\lbrace 0, 1, 2, \ldots \rbrace$ |
 | $\mathbf{w}$ | les poids ; $w_1$ est l'ordonnée à l'origine | $(p,)$ | $\mathbb{R}^p$ |
 | $\mathbf{z} = \mathbf{X}\mathbf{w}$ | les sommes pondérées | $(n,)$ | $\mathbb{R}^n$ |
 | $\boldsymbol{\mu} = \exp(\mathbf{z})$ | les moyennes du modèle | $(n,)$ | $]0, +\infty[^n$ |
-| $\mathbf{W} = \operatorname{diag}(\boldsymbol{\mu})$ | la matrice diagonale des poids d'une itération | $(n, n)$ | diagonale $> 0$ |
+| $\mathbf{W} = \operatorname{diag}(\boldsymbol{\mu})$, $\mathbf{W}^{1/2} = \operatorname{diag}(\sqrt{\mu_1}, \ldots, \sqrt{\mu_n})$ | la matrice diagonale des poids d'une itération, et sa racine (§3.5) | $(n, n)$ | diagonales $> 0$ |
 | $\ell(\mathbf{w})$ | la log-vraisemblance | scalaire | $]-\infty, 0[$ |
 | $\nabla\ell(\mathbf{w})$ | le gradient, de la forme de $\mathbf{w}$ | $(p,)$ | $\mathbb{R}^p$ |
 | $\nabla^2\ell(\mathbf{w})$ | la hessienne | $(p, p)$ | symétrique |
 | $\boldsymbol{\delta}$ | la direction de Newton | $(p,)$ | $\mathbb{R}^p$ |
+| $\mathbf{A} = \mathbf{X}^\top\mathbf{W}\mathbf{X}$ | moins la hessienne au point considéré ($\mathbf{X}^\top\hat{\mathbf{W}}\mathbf{X}$, au maximum, en §3.8) | $(p, p)$ | symétrique définie positive sous (H1) et (H2) |
+| $\mathbf{w}_k$, $\boldsymbol{\delta}_k$, $\boldsymbol{\mu}_k$ | l'itéré $k$ (`w0` du module pour $k = 0$, par défaut $\mathbf{0}$), sa direction de Newton ($\boldsymbol{\delta}_0$ en $\mathbf{w}_0 = \mathbf{0}$, (3.8)) et ses moyennes | $(p,)$, $(p,)$, $(n,)$ | $\mathbb{R}^p$, $\mathbb{R}^p$, $]0, +\infty[^n$ |
 | $t_k$ | la fraction du pas de Newton prise à l'itération $k$ | scalaire | $\lbrace 1, \frac12, \frac14, \ldots \rbrace$ |
+| `tol`, `max_iter`, `max_halvings` | les réglages de `fit` : l'arrêt quand $\max_j\lvert\delta_j\rvert \le$ `tol` $\cdot\,(1 + \max_j\lvert w_j\rvert)$ (§3.4), le nombre de pas au plus, de divisions par deux au plus | scalaires | `tol` $> 0$ (défaut $10^{-10}$) ; entiers $\ge 1$ et $\ge 0$ (défauts 100 et 30) |
+| $\operatorname{se}(\hat{w}_j)$ | l'erreur type du poids $j$, (3.9) (`standard_errors` rend les $p$ à la fois) | scalaire ; $(p,)$ | $> 0$ |
+| $\bar{y}$, $w_k$, $w^\star$ | le modèle sans feature (§3.7) : la moyenne des comptages, l'itéré $k$ (un nombre) et le maximum $\ln\bar{y}$ | scalaires | $\bar{y} \ge 0$ ; $\mathbb{R}$ |
 | $\tilde{\mathbf{r}} = \mathbf{W}^{-1}(\mathbf{y} - \boldsymbol{\mu})$ | les résidus de travail | $(n,)$ | $\mathbb{R}^n$ |
 | $\tilde{\mathbf{z}} = \mathbf{z} + \tilde{\mathbf{r}}$ | la réponse de travail (*working response*) | $(n,)$ | $\mathbb{R}^n$ |
 | $\hat{\mathbf{w}}$, $\hat{\boldsymbol{\mu}}$, $\hat{\mathbf{W}}$ | les mêmes objets au maximum | | |
-| $\eta$ | le learning rate de la montée de gradient (§3.8) | scalaire | $> 0$ |
-| $\lambda_{\min}$, $\lambda_{\max}$, $\kappa$ | valeurs propres extrêmes et conditionnement $\lambda_{\max}/\lambda_{\min}$ de $\mathbf{X}^\top\hat{\mathbf{W}}\mathbf{X}$ | scalaires | $> 0$ ; $\kappa \ge 1$ |
+| $\eta$, `n_steps` | le learning rate de la montée de gradient (§3.8) ; son nombre de pas (`gradient_ascent` rend les $\mathbf{w}_k$, une ligne chacun : un tableau de forme `(n_steps + 1, p)`) | scalaires | $> 0$ ; entier $\ge 0$ |
+| $\eta_c$, $\rho(\eta)$ | le learning rate critique ; le facteur par lequel la montée linéarisée multiplie l'erreur à chaque pas (3.12) | scalaires | $> 0$ ; $\ge 0$ |
+| $\lambda_i$, $\lambda_{\min}$, $\lambda_{\max}$, $\kappa$ | les valeurs propres de $\mathbf{A} = \mathbf{X}^\top\hat{\mathbf{W}}\mathbf{X}$, les extrêmes, et le conditionnement $\lambda_{\max}/\lambda_{\min}$ | scalaires | $> 0$ ; $\kappa \ge 1$ |
 | $\mathbf{1}$, $\mathbf{e}_j$ | le vecteur de 1 ; le $j$-ième vecteur de la base canonique | $(n,)$ ; $(p,)$ | |
 
 **Les hypothèses**, citées par leur numéro en §3 et §4.
@@ -457,7 +464,7 @@ print("API :")
 for node in tree.body:
     if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and not node.name.startswith("_"):
         doc = ast.get_docstring(node) or ""
-        needed = ("Parameters", "Returns") if isinstance(node, ast.FunctionDef) else ()   # the kit's rules
+        needed = ("Parameters", "Returns", "Raises") if isinstance(node, ast.FunctionDef) else ("Attributes",)   # the kit
         missing = [part for part in needed if part not in doc]
         equation = bool(re.search(r"\((?:2|3|4)\.\d+\)", doc))
         mark = "✅" if doc and not missing else "⚠️"
