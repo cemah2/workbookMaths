@@ -20,6 +20,6 @@ Le bilan clôt la partie V, juste avant le checkpoint V de workbookIA. Il vérif
 5. **Note ta copie** avec le barème du corrigé (un point par minute prévue, partagé également entre les sous-questions de chaque question ; ta note sur 20 est ton total sur 112 divisé par 5,6) : il donne aussi les points des démarches, des justifications, du quiz, de la démonstration et des corrections, que le notebook ne voit pas. Remplis le tableau en fin de copie, avec le temps réellement passé sur chaque question.
 6. **Remédie** : pour chaque question où tu as eu moins de la moitié des points, refais les exercices indiqués par le corrigé ; une semaine plus tard, refais ces questions sans le corrigé.
 
-Tu peux aussi faire corriger ta copie par Claude : il lit `mon_travail/checkpoints/partie_5/`, sans jamais y écrire.
+Tu peux aussi faire corriger ta copie par Claude, une fois poussée sur GitHub (`00_setup/COLAB.md` §3) : il lit `mon_travail/checkpoints/partie_5/`, sans jamais y écrire.
 
 Reporte ta note et tes points faibles dans `mon_travail/suivi/journal.md` et `mon_travail/suivi/auto_evaluation.md`, puis coche CP5 dans ton tableau de bord. Ensuite : **le checkpoint V de workbookIA** et son mini-projet ; la suite de ce dépôt reprend avec la partie VI, par M25a (la gaussienne multivariée), avant workbookIA 25.

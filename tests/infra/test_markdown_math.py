@@ -72,3 +72,14 @@ def test_github_syntax_for_matrices_and_two_formulas_github_does_not_read():
     assert "$(1, 6){}$)" in fixed and "$2 + 3 =$ 5" in fixed, fixed
     assert "```math\n\\begin{pmatrix} 1 \\cr 0 \\end{pmatrix}\n```" in fixed, fixed
     assert mdmath.problems(fixed) == [] and mdmath.fix_text(fixed) == fixed
+
+
+def test_a_formula_right_after_an_at_sign_is_seen_and_fixed():
+    text = "le recall@$k$ et le succès@$k$ ; la précision@$k + 1$ ; à $k = 5$\n"
+    found = mdmath.problems(text)
+    assert len(found) == 3 and all("right after @" in line for line in found), (
+        f"expected one line naming the $ right after @ for each of the three formulas after @, got {found}")
+    fixed = mdmath.fix_text(text)
+    assert fixed == "le recall@k et le succès@k ; la précision@$k + 1$ ; à $k = 5$\n", (
+        f"expected recall@k and succès@k without $ (the formula k + 1 is left to a person), got {fixed!r}")
+    assert mdmath.fix_text("`recall@$k$` en code\n") == "`recall@$k$` en code\n"

@@ -315,7 +315,7 @@ Chaque critère, sa vérification et sa colonne « Preuve » sont dans [`GRILLE.
 ## La correction
 
 1. **L'auto-évaluation** : dans `mon_travail/projet_synthese/grille.md`, coche les critères tenus et écris pour chacun sa preuve (la section et l'équation, le test, la sortie de cellule, le fichier) ; une case cochée sans preuve vaut zéro. Fais toi-même les « vérifications communes » du haut de la grille.
-2. **Claude corrige**, si tu le lui demandes : il travaille sur une copie de ton dossier, refait chaque vérification de la grille et rend une note par critère ; `mon_travail/` n'est jamais modifié. Copie ce prompt dans une session de Claude ouverte sur le dépôt :
+2. **Claude corrige**, si tu le lui demandes, une fois ton dossier poussé sur GitHub (`00_setup/COLAB.md` §3 ; il ne voit que ce qui y est) : il travaille sur une copie de ton dossier, refait chaque vérification de la grille et rend une note par critère ; `mon_travail/` n'est jamais modifié. Copie ce prompt dans une session de Claude ouverte sur le dépôt :
 
 ```text
 Tu corriges mon projet de synthèse de workbookMaths. Lis projets/projet_synthese/README.md et

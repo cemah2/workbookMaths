@@ -40,7 +40,7 @@ Que vaut chaque expression en Python ? Donne la valeur **et** dis si c'est un en
 *Fiche §3 · parcours C, E*
 
 Pour chaque réponse tapée, `wbm.check` l'accepte-t-il ? Réponds par oui ou non.
-1. Réponse attendue : la fraction exacte $\frac{1}{3}$. Tu tapes `1/3`, sans guillemets.
+1. Réponse attendue : la fraction exacte $\frac{1}{3}$. Tu tapes `0.3333`, sans guillemets.
 2. Même réponse attendue. Tu tapes `"1/3"`, entre guillemets.
 3. Réponse attendue : l'expression $2x^2 + 1$. Tu tapes `"2x^2 + 1"`.
 4. Réponse attendue : l'intervalle des réels positifs ou nuls. Tu tapes `"[0 ; +oo]"`.

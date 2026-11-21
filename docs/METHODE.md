@@ -15,27 +15,22 @@ Ce guide est pour toi. Il explique **comment piloter Claude, session après sess
 
 ## 2. Déroulé des sessions
 
-| # | Session | Ce que tu demandes | Ton rôle après la session |
-|---|---|---|---|
-| 1 ✅ | Mise en place : outils, versions, consignes, démo | (fait le 2026-11-06) | Ouvrir `00_setup/demo.ipynb` dans Colab et vérifier qu'il tourne |
-| 2 ✅ | Syllabus : la partie 0 détaillée (exercices, signatures `mymath`, parcours, temps), le plan des parties I à VII, la preuve que workbookIA est couvert | (fait le 2026-11-06) | **Relire `docs/SYLLABUS.md`** (la partie 0 en détail, le plan du reste) : c'est le moment de tout changer |
-| 3 → ~15 | Remise à niveau : R0, le test de positionnement, R1 à R9, l'examen CP0 | « Session : chapitre R3 » | Commencer l'étude (et workbookIA 0A en parallèle) |
-| avant chaque partie I à VII | Syllabus de la partie : ses exercices, ses signatures `mymath`, ses temps | « Session : syllabus de la partie II » | Relire la partie dans `docs/SYLLABUS.md` |
-| suite | Chapitres M02a à MB8, dans l'ordre de travail commun ; un examen blanc à la fin de chaque partie | « Session : chapitre M12c » | Étudier, puis envoyer ton retour |
-| après les parties 0, II, IV | Audit qualité indépendant | « Audit des parties … » | Valider les corrections majeures |
-| dernière | Projet de synthèse, finalisation (index des notions, deck Anki global) | « Finalisation » | 🎓 |
+| Sessions | Ce qui a été fait |
+|---|---|
+| 1 et 2 ✅ | Mise en place (outils, versions, consignes, démo) ; syllabus (la partie 0 détaillée, le plan des parties I à VII) |
+| 3 à 15 ✅ | Remise à niveau : R0, le test de positionnement, R1 à R9, l'examen CP0 |
+| 16 à 77 ✅ | Pour chaque partie I à VII : son syllabus détaillé, ses chapitres (une ou deux sessions chacun) et son examen blanc ; puis le projet de synthèse |
+| 34, 55, 70, 78 ✅ | Audits indépendants (parties 0 à II, III et IV, VI, VII) |
+| 79 ✅ | Finalisation : formules lisibles sur GitHub, relecture d'ensemble, versions, tous les contrôles |
 
-Compte **environ 75 sessions**.
+La génération est terminée : 79 sessions, du 2026-11-06 au 2026-11-21. Les sessions suivantes partent de toi : une correction ciblée, un retour d'étude, le tuteur ou la correction de ton travail (modèles ci-dessous).
 
 ### Modèles de demandes (à copier dans une nouvelle conversation)
 
-- **Générer un chapitre** : « Session de génération de workbookMaths : chapitre `M12c`. Clone `cemah2/workbookMaths` (écriture) et `cemah2/workbookIA` (lecture seule, ne le modifie jamais), lis `CLAUDE.md` puis suis-le. Pousse à la fin. »
-- **Détailler une partie** (avant de la générer) : « Session de syllabus de workbookMaths : partie `II`. Clone `cemah2/workbookMaths` (écriture) et `cemah2/workbookIA` (lecture seule, ne le modifie jamais), lis `CLAUDE.md` puis suis-le. Pousse à la fin. »
-- **Reprendre une session interrompue** : « Reprends la session de génération de workbookMaths là où `suivi/PROGRESS.md` l'indique. »
-- **Correction ciblée** : « Dans workbookMaths, chapitre `R3`, exercice `R3.12` : [le problème]. Corrige en respectant la bible. »
+- **Correction ciblée** : « Dans workbookMaths, chapitre `R3`, exercice `R3.12` : [le problème]. Corrige en respectant la bible. Clone `cemah2/workbookIA` en lecture seule : lis-le seulement avec Read, Grep et Glob. »
 - **Retour d'étude** (calibrage) : « Retour sur workbookMaths `R3` : temps réel [..], trop dur / trop facile [..], pas clair [..]. Mets à jour le calibrage dans `PROGRESS.md` pour les chapitres suivants. »
 - **Tuteur** : « Je bloque sur l'exercice `M12c.7` de workbookMaths. Guide-moi par questions, sans me donner la réponse. »
-- **Correction de mon travail** : « Corrige mon travail du chapitre `R3` de workbookMaths (`mon_travail/r3_…/06_mes_reponses.md` et mon notebook), en lecture seule. »
+- **Correction de mon travail** (pousse d'abord `mon_travail/` sur GitHub : `00_setup/COLAB.md` §3, ou `git push` en local) : « Corrige mon travail du chapitre `R3` de workbookMaths (`mon_travail/r3_…/06_mes_reponses.md` et mon notebook), en lecture seule. » Claude te répond dans la conversation ; si une notion n'est pas acquise, il ajoute des exercices dans `suivi/remediation.md`, que `git pull` t'apporte.
 
 ## 3. Comment étudier les deux workbooks en même temps
 
@@ -44,7 +39,7 @@ Compte **environ 75 sessions**.
 **Routine d'un chapitre de maths :**
 
 1. **`python tools/start_chapter.py M12c`** (ou `12`) : copie le notebook, ta feuille de réponses `06_mes_reponses.md` et les squelettes `mymath` dans `mon_travail/`.
-2. **La fiche** (`01_fiche.md`) : lis « Comment utiliser ce chapitre », les objectifs et « L'essentiel en 10 lignes ».
+2. **La fiche** (`01_fiche.md`, à lire sur GitHub : README, « Routine ») : lis « Comment utiliser ce chapitre », les objectifs et « L'essentiel en 10 lignes ».
 3. **Bloc par bloc, comme avec Glassner** : la section de MML indiquée par la fiche, puis la partie de la fiche correspondante (elle reprend tout en français : appuie-toi dessus quand un passage du livre résiste), puis les quiz 🧠 et les exercices papier ✏️ et ∂ de ce bloc, **crayon en main**. La remise à niveau R0 à R9 n'a pas de livre : la fiche est le cours.
 4. **Vérifie tes calculs papier** dans la partie 0 du notebook (`wbm.check`), puis fais le reste du notebook ; à chaque 🔮, écris ta prédiction avant d'exécuter.
 5. **Bloqué 15 minutes** : indice 1 ; encore 5 minutes : indice 2, puis l'indice 3. Ou demande au tuteur.

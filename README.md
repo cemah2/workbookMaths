@@ -8,7 +8,7 @@ Il suit le livre **« Mathematics for Machine Learning »** de M. P. Deisenroth,
 
 > Le livre n'est pas inclus dans ce dépôt : son PDF est gratuit pour un usage personnel sur le site du livre, mais sa notice en interdit la redistribution. Les fiches et les exercices sont originaux ; ils renvoient aux sections sous la forme « (MML §4.5) ». Voir [Crédits et licences](#crédits-et-licences).
 
-**État** : tout le parcours est publié : la remise à niveau (R0 à R9) et le test de positionnement, les parties I à VII, les examens blancs CP0 à CP6 et le projet de synthèse ; le détail de chacun est dans [`docs/SYLLABUS.md`](docs/SYLLABUS.md). Les chapitres se suivent dans l'ordre de travail ci-dessous.
+**État** : tout le parcours est publié : la remise à niveau (R0 à R9) et le test de positionnement, les parties I à VII, les examens blancs CP0 à CP6 et le projet de synthèse. Les durées sont dans [`docs/PARCOURS.md`](docs/PARCOURS.md), les sections de MML dans [`annexes/correspondances.md`](annexes/correspondances.md) ; le contrat complet (`docs/SYLLABUS.md`) est trop long pour que GitHub l'affiche : ouvre-le en local. Les chapitres se suivent dans l'ordre de travail ci-dessous.
 
 ## 🔀 Ordre de travail commun
 
@@ -65,9 +65,9 @@ La règle : **la remise à niveau (R0 à R9) pendant le chapitre 0A de workbookI
 | PF · projet final | **PS** · Projet de synthèse |
 <!-- wbm:end ordre -->
 
-`python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le détail de chaque chapitre (contenu, sections de MML, durée estimée) est dans [`docs/BIBLE.md` §8](docs/BIBLE.md#8-plan--chapitre-par-chapitre-de-workbookia).
+`python tools/start_chapter.py 12` prépare d'un coup tous les chapitres de maths à faire avant le chapitre 12 de workbookIA. Le contenu de chaque chapitre est dans sa fiche ; ses sections de MML sont dans [`annexes/correspondances.md`](annexes/correspondances.md), sa durée dans [`docs/PARCOURS.md`](docs/PARCOURS.md).
 
-**Volume estimé** : 49 chapitres, environ 711 h pour le parcours complet (environ 517 h pour le parcours essentiel), projet de synthèse compris, à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau.
+**Volume estimé** : 49 chapitres, environ 711 h pour le parcours complet (environ 517 h pour le parcours essentiel), projet de synthèse compris, à ajouter aux environ 920 h de workbookIA. Le test de positionnement peut retirer une partie de la remise à niveau. Pour le parcours essentiel, saute les exercices marqués « (complet) » dans ton tableau de bord (liste : [`docs/PARCOURS.md`](docs/PARCOURS.md#essentiel)).
 
 ## 🚀 Démarrage rapide sur Google Colab
 
@@ -94,12 +94,13 @@ jupyter lab                           # ouvre 00_setup/demo.ipynb
 
 ## 🔁 Routine pour chaque chapitre
 
-1. `python tools/start_chapter.py R3` (ou `12` pour tous les chapitres de maths d'un chapitre de workbookIA) : copie le notebook et les squelettes `mymath` dans `mon_travail/`, sans jamais écraser ton travail.
-2. Ouvre la fiche (`01_fiche.md`) et suis son **ordre conseillé** : à partir du chapitre M02a, un bloc de MML, la partie de la fiche qui lui correspond, puis les quiz 🧠 et les exercices papier ✏️ et ∂ de ce bloc. La remise à niveau n'a pas de livre : la fiche est le cours.
+1. `python tools/start_chapter.py R3` (ou `12` pour tous les chapitres de maths d'un chapitre de workbookIA) : copie le notebook, ta feuille de réponses `06_mes_reponses.md` et les squelettes `mymath` dans `mon_travail/`, sans jamais écraser ton travail.
+2. Ouvre la fiche (`01_fiche.md`) **sur GitHub** (<https://github.com/cemah2/workbookMaths/tree/main/chapitres>), qui affiche les formules et les figures, et suis son **ordre conseillé** : à partir du chapitre M02a, un bloc de MML, la partie de la fiche qui lui correspond, puis les quiz 🧠 et les exercices papier ✏️ et ∂ de ce bloc. La remise à niveau n'a pas de livre : la fiche est le cours. Dans Colab ou dans Drive, un fichier `.md` s'ouvre en texte brut. Dans l'aperçu Markdown de JupyterLab ou de VS Code, les formules s'affichent, sauf les matrices, écrites pour GitHub (```` ```math ```` et `` $`…`$ ``) : elles y restent en code TeX.
 3. Écris tes réponses papier dans `mon_travail/<chapitre>/06_mes_reponses.md`, et vérifie les calculs dans la partie 0 du notebook : `wbm.check` dit si ta réponse est juste (un nombre, une fraction, une expression, un intervalle) sans la révéler.
 4. Notebook : à chaque 🔮, écris ta prédiction **avant** d'exécuter ; puis `python -m pytest tests/test_<chapitre>_<module>.py -q` compare tes fonctions `mymath` à NumPy, SciPy ou SymPy.
 5. Corrige avec les indices (`04_indices.md`) puis les solutions, importe les flashcards dans Anki (`python tools/export_flashcards.py --chapter R3`).
 6. Note ta séance dans `mon_travail/suivi/journal.md` et coche tes exercices dans `mon_travail/suivi/tableau_de_bord.md`. Puis passe au chapitre de workbookIA.
+7. Bloqué, besoin d'une correction ou d'un retour sur les durées : les demandes à faire à Claude sont dans [`docs/METHODE.md`](docs/METHODE.md) §2 (tuteur, correction de ton travail, retour d'étude).
 
 ## 🗂️ Structure du dépôt
 
@@ -118,8 +119,8 @@ workbookMaths/
 ├── solutions/mymath_ref/     implémentation de référence de mymath
 ├── tests/             tests de mymath et de l'outillage (tests/infra/)
 ├── data/              données légères versionnées et leurs fiches (data/cards/)
-├── docs/              BIBLE.md (la spécification), METHODE.md
-├── suivi/             PROGRESS.md (génération), modèles de ton tableau de bord, journal, auto-évaluation
+├── docs/              BIBLE.md (la spécification), METHODE.md (travailler avec Claude), SYLLABUS.md et PARCOURS.md (générés)
+├── suivi/             PROGRESS.md (génération), remediation.md (exercices après une correction), modèles de ton tableau de bord, journal, auto-évaluation
 ├── tools/             scripts (voir Outils) ; tools/chapters/ : un script de construction par chapitre
 └── mon_travail/       TON espace : copies des notebooks, ta librairie mymath, ton suivi (Claude n'y écrit jamais)
 ```
@@ -146,7 +147,7 @@ workbookMaths/
 
 ## Versions
 
-Python 3.13 et les versions préinstallées sur Colab ; pour les paquets communs, exactement celles de workbookIA (un seul environnement pour les deux dépôts). Détail : [`docs/BIBLE.md` §22](docs/BIBLE.md#22-versions-figées). Pas de PyTorch.
+Python 3.13 et les versions préinstallées sur Colab ; pour les paquets communs, exactement celles de workbookIA (un seul environnement pour les deux dépôts) : [`requirements.txt`](requirements.txt) (le tableau et sa justification sont dans `docs/BIBLE.md` §22). Pas de PyTorch.
 
 ## Crédits et licences
 

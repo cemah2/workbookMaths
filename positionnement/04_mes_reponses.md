@@ -1,6 +1,6 @@
 # Test de positionnement · Mes réponses
 
-> Ta copie de ce fichier est dans `mon_travail/positionnement/04_mes_reponses.md` (créée par `python tools/start_chapter.py POS`) : c'est **elle** que tu remplis pendant le test, et c'est elle que Claude lit s'il relit ton travail.
+> Ta copie de ce fichier est dans `mon_travail/positionnement/04_mes_reponses.md` (créée par `python tools/start_chapter.py POS`) : c'est **elle** que tu remplis pendant le test, et c'est elle que Claude lit s'il relit ton travail (une fois poussée sur GitHub : `00_setup/COLAB.md` §3).
 > Écris ta démarche en quelques lignes, pas seulement le résultat : c'est elle qui dit, au moment du corrigé, si une erreur vient d'une notion oubliée ou d'une étourderie. Une question que tu ne sais pas faire : laisse sa ligne vide et passe à la suite (dans le notebook, elle restera à `...`).
 
 **Début :** … · **Fin :** … · **Durée :** … min

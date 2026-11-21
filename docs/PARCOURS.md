@@ -2,7 +2,7 @@
 
 *Généré par `python tools/syllabus.py build` : ne pas modifier à la main.*
 
-Deux parcours (BIBLE §12) : **complet** (tout, par défaut) et **essentiel** (ce dont workbookIA a besoin). Seules les parties détaillées sont listées ; les autres le seront avant leur génération.
+Deux parcours (BIBLE §12) : **complet** (tout, par défaut) et **essentiel** (ce dont workbookIA a besoin). Dans ton tableau de bord, un exercice marqué « (complet) » n'est pas du parcours essentiel.
 
 <a id="sync-0a"></a>
 ## Synchronisation avec workbookIA 0A (Python)
@@ -88,7 +88,7 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | MB8 | MB8.Q1, MB8.Q2, MB8.Q3, MB8.Q4, MB8.Q5, MB8.Q6, MB8.R1, MB8.R2, MB8.R3, MB8.1, MB8.2, MB8.3, MB8.4, MB8.5, MB8.6, MB8.7, MB8.8, MB8.9, MB8.10, MB8.11, MB8.12, MB8.E1, MB8.13, MB8.14, MB8.15, MB8.16, MB8.17, MB8.18, MB8.19, MB8.20, MB8.21 | 14,8 h |
 | PS | PS.1, PS.2, PS.3, PS.4, PS.5, PS.6, PS.7, PS.8, PS.9, PS.E1 | 27,3 h |
 
-**Total des parties détaillées** : 711,3 h.
+**Total** : 711,3 h.
 
 <a id="essentiel"></a>
 ## Parcours essentiel
@@ -154,5 +154,5 @@ La remise à niveau se fait en même temps que 0A. Avant chaque chapitre, avance
 | MB8 | MB8.Q1, MB8.Q2, MB8.Q3, MB8.Q4, MB8.Q5, MB8.Q6, MB8.R1, MB8.R2, MB8.R3, MB8.1, MB8.2, MB8.3, MB8.4, MB8.5, MB8.6, MB8.7, MB8.8, MB8.10, MB8.11, MB8.12, MB8.E1, MB8.13, MB8.14, MB8.15, MB8.16, MB8.17, MB8.19 | 12,7 h |
 | PS | PS.1, PS.2, PS.3, PS.4, PS.5, PS.6, PS.7, PS.8, PS.9, PS.E1 | 27,3 h |
 
-**Total des parties détaillées** : 516,9 h.
+**Total** : 516,9 h.
 

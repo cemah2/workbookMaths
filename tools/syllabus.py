@@ -3,7 +3,8 @@
 
     python tools/syllabus.py check     # consistency of the data (errors stop, warnings are listed)
     python tools/syllabus.py build     # check, then write docs/SYLLABUS.md, docs/PARCOURS.md,
-                                       # docs/syllabus/COUVERTURE_IA.md, the dashboard model and the README table
+                                       # docs/syllabus/COUVERTURE_IA.md, the README table and the models of
+                                       # the dashboard and of the self-assessment (suivi/)
     python tools/syllabus.py stats     # totals per part
 
 Source of truth: ``docs/syllabus/data/partie_*.py`` and ``fin.py`` (one list ``CHAPTERS`` per file, in study order),
@@ -539,7 +540,7 @@ def build_parcours(chapters: dict) -> str:
     out = ["# PARCOURS — workbookMaths", "",
            "*Généré par `python tools/syllabus.py build` : ne pas modifier à la main.*", "",
            "Deux parcours (BIBLE §12) : **complet** (tout, par défaut) et **essentiel** (ce dont workbookIA a besoin). "
-           "Seules les parties détaillées sont listées ; les autres le seront avant leur génération.", ""]
+           "Dans ton tableau de bord, un exercice marqué « (complet) » n'est pas du parcours essentiel.", ""]
     out += sync_0a_table(chapters)
     for track, label in TRACKS.items():
         out += [f"<a id=\"{track}\"></a>", f"## {label}", "",
@@ -552,7 +553,7 @@ def build_parcours(chapters: dict) -> str:
             minutes = chapter_minutes(ch, track)
             total += minutes
             out.append(f"| {cid} | {', '.join(ids)} | {hours_label(minutes)} |")
-        out += ["", f"**Total des parties détaillées** : {hours_label(total)}.", ""]
+        out += ["", f"**Total** : {hours_label(total)}.", ""]
     return "\n".join(out) + "\n"
 
 
@@ -676,6 +677,18 @@ def dashboard_chapter_section(cid: str, ch: dict) -> str:
     return "\n".join(lines)
 
 
+def self_assessment_section(cid: str, ch: dict) -> str:
+    """The section of a chapter in the self-assessment model: one row per objective of the syllabus (BIBLE §19)."""
+    lines = [f"<!-- wbm:section {cid} -->", f"## {cid} · {ch['title']}", "",
+             "| Compétence | Niveau (0 à 3) | Date |", "|---|:-:|:-:|"]
+    for objective in ch["objectives"]:
+        text = objective.strip()
+        text = text[:-1] if text.endswith(".") else text
+        lines.append(f"| {text.replace('|', chr(92) + '|')} | | |")     # a | of the text must not end the cell
+    lines.append(f"<!-- wbm:end {cid} -->")
+    return "\n".join(lines)
+
+
 def replace_block(text: str, start: str, end: str, body: str) -> str:
     i, j = text.index(start), text.index(end)
     return text[: i + len(start)] + "\n" + body + "\n" + text[j:]
@@ -695,12 +708,21 @@ def render(chapters: dict, warnings: list[str], coverage: dict, snapshot: dict, 
     head = text[: text.index("<!-- wbm:section ordre -->")]
     sections = [head.rstrip("\n"), "", "<!-- wbm:section ordre -->", "## Ordre de travail commun (les deux workbooks)",
                 "", "Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre de maths (ses "
-                "exercices) s'ajoute plus bas quand il est publié.", "", dashboard_order_section(chapters),
+                "exercices) est plus bas.", "", dashboard_order_section(chapters),
                 "<!-- wbm:end ordre -->"]
     for cid, ch in chapters.items():
         if published(ch, root):
             sections += ["", dashboard_chapter_section(cid, ch)]
     files[board] = "\n".join(sections) + "\n"
+    # the self-assessment: its hand-written head and « Mise en place », then one section per chapter, in study order
+    evaluation = root / "suivi" / "auto_evaluation.md"
+    text = evaluation.read_text(encoding="utf-8")
+    end = "<!-- wbm:end setup -->"
+    sections = [text[: text.index(end) + len(end)]]
+    for cid, ch in chapters.items():
+        if published(ch, root):
+            sections += ["", self_assessment_section(cid, ch)]
+    files[evaluation] = "\n".join(sections) + "\n"
     # formulas that GitHub displays as Colab does (tools/mdmath.py, BIBLE §24, session 79)
     return {path: fix_text(text) if path.suffix == ".md" else text for path, text in files.items()}
 
@@ -718,7 +740,7 @@ def build(chapters: dict | None = None, out=print) -> int:
         path.write_text(text, encoding="utf-8")
     for w in warnings:
         out(f"⚠️ {w}")
-    out(f"✅ SYLLABUS.md, PARCOURS.md, COUVERTURE_IA.md, README et tableau de bord écrits "
+    out(f"✅ SYLLABUS.md, PARCOURS.md, COUVERTURE_IA.md, README, tableau de bord et auto-évaluation écrits "
         f"({len(warnings)} avertissement(s)).")
     return 0
 

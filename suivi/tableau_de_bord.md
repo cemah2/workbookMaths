@@ -1,10 +1,10 @@
 # Tableau de bord
 
-> **Modèle tenu par Claude : ne coche pas ici.** Ta copie personnelle est `mon_travail/suivi/tableau_de_bord.md`, créée par `python tools/start_chapter.py --init`. À chaque nouveau chapitre, `start_chapter.py` ajoute à la fin de ta copie les sections publiées depuis, sans toucher à tes cases déjà cochées ; si une section déjà copiée change ici (titre, ★ ou durée), il te le signale (ℹ️) sans modifier ta copie.
+> **Modèle tenu par Claude : ne coche pas ici.** Ta copie personnelle est `mon_travail/suivi/tableau_de_bord.md`, créée par `python tools/start_chapter.py --init`. Si une section change ici après ta copie (titre, ★ ou durée, après une correction), `start_chapter.py` te le signale (ℹ️) sans modifier ta copie.
 
-Coche les cases au fur et à mesure (`- [x]`). Note ton temps réel au bout de la ligne quand il s'écarte de plus de moitié du temps annoncé (par exemple `- [x] R3.12 … 20 min → 45 min`) : ces temps servent à recaler les durées des chapitres suivants.
+Coche les cases au fur et à mesure (`- [x]`). Note ton temps réel au bout de la ligne quand il s'écarte de plus de moitié du temps annoncé (par exemple `- [x] R3.12 … 20 min → 45 min`) : envoie-les dans un retour d'étude (`docs/METHODE.md`) : ils servent à recaler les durées.
 
-Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · 📐 workbookMaths · 🤖 workbookIA
+Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · (complet) : exercice du parcours complet seulement, que le parcours essentiel saute · 📐 workbookMaths · 🤖 workbookIA
 
 <!-- wbm:section setup -->
 ## Mise en place ⏱️ 30 min environ
@@ -19,7 +19,7 @@ Légende : ★ application directe · ★★ standard · ★★★ approfondi ·
 <!-- wbm:section ordre -->
 ## Ordre de travail commun (les deux workbooks)
 
-Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre de maths (ses exercices) s'ajoute plus bas quand il est publié.
+Une case par chapitre, dans l'ordre où les faire. Le détail de chaque chapitre de maths (ses exercices) est plus bas.
 
 - [ ] 📐 **R0** · Prise en main *(avant : workbookIA 0A jusqu'à §100.5.1)*
 - [ ] 📐 **POS** · Test de positionnement *(avant : workbookIA 0A jusqu'à §100.5.1)*

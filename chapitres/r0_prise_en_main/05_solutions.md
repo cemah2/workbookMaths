@@ -24,7 +24,7 @@
 6. `-5`, un `int` : $-9 / 2 = -4{,}5$, et `//` arrondit vers le bas, vers $-\infty$. Vérification : $-9 = 2 \times (-5) + 1$, avec un reste de 1, bien entre 0 et 1 (car $0 \le r < 2$).
 
 ### R0.Q3 — Taper une réponse : fraction, expression, intervalle
-1. **Non** : sans guillemets, Python calcule `1/3` en flottant, `0.3333333333333333`, une valeur approchée. `wbm.check` répond que c'est une valeur approchée et demande la fraction exacte.
+1. **Non** : `0.3333` est une valeur que tu as arrondie toi-même, pas la fraction. `wbm.check` répond que c'est une valeur approchée et demande la fraction exacte. (Le flottant `1/3` tapé sans guillemets, lui, est reconnu comme le calcul de $\frac{1}{3}$ ; prends quand même l'habitude des guillemets.)
 2. **Oui** : entre guillemets, `"1/3"` est lu comme la fraction exacte.
 3. **Oui** : dans une chaîne, `wbm.check` accepte `^` pour la puissance et la multiplication sous-entendue (`2x`). En **code** Python, `2x^2` serait faux deux fois.
 4. **Non** : du côté de l'infini, le crochet est toujours ouvert : `"[0 ; +oo["`. Le message de `wbm.check` le dit.

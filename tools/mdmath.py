@@ -21,7 +21,9 @@ The rule, which holds in both worlds: inside a formula,
   ``\\$`` (that GitHub documents) and ``\\`` followed by a space stay;
 * no ``*`` (``\\ast``, the same glyph ∗), no ``<`` before a letter (``\\lt``);
 * no ``_`` that the emphasis rules of CommonMark would pair with another delimiter of the same paragraph: such an
-  ``_`` gets a space before it (``\\sum _{i}``), which TeX ignores and which keeps it from closing an emphasis.
+  ``_`` gets a space before it (``\\sum _{i}``), which TeX ignores and which keeps it from closing an emphasis;
+* no ``$`` right after ``@``: GitHub leaves « recall@$k$ » as text, so write ``recall@k`` (``--fix`` takes a formula of
+  letters and digits out of its ``$``; it leaves any other formula after ``@`` for a person to rewrite).
 
 ``\\%`` and ``\\#`` have no letter command: a percent sign goes after the formula (``$95$ %``) and ``\\#\\{…\\}``
 becomes ``\\operatorname{card}\\lbrace…\\rbrace`` (``annexes/symboles.md``); ``--fix`` does the first when ``\\%`` ends the
@@ -322,7 +324,7 @@ def _needs_github_syntax(tex: str) -> bool:
 
 
 def _github_syntax(text: str) -> str:
-    """Two cases that GitHub refuses as $-math whatever the escapes (checked on rendered pages, session 79).
+    """Three cases that GitHub refuses as $-math whatever the escapes (checked on rendered pages, session 79).
 
     * A formula with ``&``, ``\\begin{`` or ``\\cr`` (a matrix, a column vector, cases) is never read as math: it goes into GitHub's own syntax, a ```` ```math ```` block
       for a display formula alone on its lines, ``$`…`$`` otherwise (Colab, Jupyter and VS Code then show its TeX as
@@ -371,9 +373,25 @@ def _github_syntax(text: str) -> str:
     return "".join(out)
 
 
+def _unwrap_after_at(text: str) -> str:
+    """« recall@$k$ » becomes « recall@k »: GitHub does not read a $ right after @ (rendered pages, session 79).
+
+    Only a formula of letters and digits goes out of its $ (it reads the same as text); any other is left to
+    ``problems``."""
+    out, last = [], 0
+    for s in math_spans(text):
+        if (not s.display and s.start > 0 and text[s.start - 1] == "@"
+                and re.fullmatch(r"[A-Za-z0-9]+", s.tex(text))):
+            out.append(text[last:s.start] + s.tex(text))
+            last = s.end
+    out.append(text[last:])
+    return "".join(out)
+
+
 def fix_text(text: str) -> str:
     """The text with every formula made safe for GitHub (the prose is never touched)."""
     text = re.sub(r"(?:\\,|\\ |\\;|~)?\\%\$(?!\$)", "$ %", text)          # a percent sign that ends a formula
+    text = _unwrap_after_at(text)                                         # recall@$k$ -> recall@k
     for _ in range(3):
         spans = math_spans(text)
         pieces, last = [], 0
@@ -429,6 +447,8 @@ def problems(text: str) -> list[str]:
             found.append(")$) (end the formula with {})")
         if not s.display and tex.strip() and tex != tex.strip():
             found.append("a space right inside a $ (GitHub then does not read the formula)")
+        if s.start > 0 and text[s.start - 1] == "@":
+            found.append("a $ right after @ (GitHub does not read it: write recall@k)")
         if found:
             out.append(f"line {line_of(s.start)}: {' '.join(sorted(set(found)))} in ${tex[:60]}$")
     for o, cl in emphasis_problems(text):

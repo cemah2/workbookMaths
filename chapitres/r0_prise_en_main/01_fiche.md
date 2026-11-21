@@ -209,7 +209,7 @@ Rappel de 0A (§100.2.2) : du texte entre guillemets, comme `"5/8"`, est une **c
 | un vrai ou faux | « 7 est-il pair ? » | `False` |
 | une liste de nombres | « les solutions de… » | `[-1, 3]` |
 
-**Les fractions.** Tape une fraction entre guillemets : `"5/8"`. Sans guillemets, `5/8` est d'abord calculé par Python, qui donne le flottant `0.625`. Ici c'est sans danger, car 0,625 est un nombre décimal exact. Mais `1/3` donnerait `0.3333333333333333`, une valeur **approchée** : `wbm.check` la refuse quand l'énoncé demande une fraction exacte, avec un message qui le dit. Quand l'énoncé demande une fraction **irréductible**, `"10/16"` est refusé avec un message qui dit que la valeur est juste mais pas simplifiée.
+**Les fractions.** Tape une fraction entre guillemets : `"5/8"`. Sans guillemets, `5/8` est d'abord calculé par Python, qui donne le flottant `0.625`. Ici c'est sans danger, car 0,625 est un nombre décimal exact. Mais `1/3` donne `0.3333333333333333` : `wbm.check` reconnaît ce flottant comme le calcul de $\frac{1}{3}$ et l'accepte, mais une valeur que tu arrondis toi-même (`0.3333`) est refusée, et une fraction **irréductible** ne se vérifie qu'entre guillemets. Prends l'habitude des guillemets. Quand l'énoncé demande une fraction **irréductible**, `"10/16"` est refusé avec un message qui dit que la valeur est juste mais pas simplifiée.
 
 **Les expressions.** Tape-les comme en Python, entre guillemets : `"3*x**2 - 2*x + 5"`. Dans une chaîne de caractères, `wbm.check` est indulgent : `"3x^2 - 2x + 5"`, avec `^` et sans signe `*`, passe aussi, et `"x²"` également. Toutes les écritures **équivalentes** sont acceptées : `"(x + 1)**2"` et `"x**2 + 2*x + 1"` sont la même expression. Fonctions reconnues : `exp`, `ln` (ou `log`), `sqrt`, `abs`, `sin`, `cos`, `pi`.
 
@@ -265,7 +265,7 @@ SymPy sert à **vérifier**, pas à calculer à ta place. La méthode la plus s�
 
 ## §5 · Écrire une formule en LaTeX
 
-Dans une cellule Markdown (et dans `06_mes_reponses.md`), une formule s'écrit en **LaTeX** entre deux signes `$` : `$x^2 + 1$` affiche $x^2 + 1$. Entre deux paires `$$`, la formule est centrée sur sa propre ligne. GitHub, Colab et Jupyter affichent tous les trois ces formules.
+Dans une cellule Markdown (et dans `06_mes_reponses.md`), une formule s'écrit en **LaTeX** entre deux signes `$` : `$x^2 + 1$` affiche $x^2 + 1$. Entre deux paires `$$`, la formule est centrée sur sa propre ligne. GitHub, Colab et Jupyter affichent tous les trois ces formules. Sur GitHub, le dépôt écrit certaines formules autrement (`\lbrace` pour `\{`, une matrice dans un bloc ```` ```math ````) ; dans ta feuille de réponses et tes notebooks, écris le LaTeX habituel, que Colab et Jupyter affichent.
 
 | Pour écrire | Tape | Résultat |
 |---|---|---|
@@ -360,7 +360,7 @@ Un test qui échoue affiche ❌ suivi de son nom, puis une ligne qui commence pa
 | le signe moins devant une puissance | croire que `-3**2` vaut 9 | `-3**2` vaut -9 ; `(-3)**2` vaut 9 |
 | une fraction en Python | `1/2*x` pour $\frac{1}{2x}$ | `1/(2*x)` ; `1/2*x` veut dire $\frac{1}{2}x$ |
 | comparer deux flottants | `0.1 + 0.2 == 0.3` | `math.isclose(0.1 + 0.2, 0.3)` |
-| une fraction exacte pour `wbm.check` | `1/3` (flottant approché) | `"1/3"` (entre guillemets) |
+| une fraction exacte pour `wbm.check` | `0.3333` (une valeur arrondie) | `"1/3"` (entre guillemets) |
 | l'infini dans un intervalle | `"[0 ; +oo]"` | `"[0 ; +oo["` |
 | un exposant en LaTeX | `x^10` | `x^{10}` |
 | une fonction sur un tableau | `math.exp(xs)` | `np.exp(xs)` |

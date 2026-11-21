@@ -20,6 +20,6 @@ Le bilan clôt la partie I, juste avant le checkpoint I de workbookIA. Il vérif
 5. **Note ta copie** avec le barème du corrigé : il donne aussi les points des démarches, des justifications, du quiz, de la démonstration et des corrections, que le notebook ne voit pas. Remplis le tableau en fin de copie, avec le temps réellement passé sur chaque question.
 6. **Remédie** : pour chaque question où tu as eu moins de la moitié des points, refais les exercices indiqués par le corrigé ; une semaine plus tard, refais ces questions sans le corrigé.
 
-Tu peux aussi faire corriger ta copie par Claude : il lit `mon_travail/checkpoints/partie_1/`, sans jamais y écrire.
+Tu peux aussi faire corriger ta copie par Claude, une fois poussée sur GitHub (`00_setup/COLAB.md` §3) : il lit `mon_travail/checkpoints/partie_1/`, sans jamais y écrire.
 
 Reporte ta note et tes points faibles dans `mon_travail/suivi/journal.md` et `mon_travail/suivi/auto_evaluation.md`, puis coche CP1 dans ton tableau de bord. Ensuite : **le checkpoint I de workbookIA** ; la suite de ce dépôt reprend avec M07, avant workbookIA 7.

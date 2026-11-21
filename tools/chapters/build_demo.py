@@ -56,7 +56,7 @@ x = sp.Symbol("x")
 f = x**2 * sp.exp(-x)
 print("f(x)        =", f)
 print("f'(x)       =", sp.factor(sp.diff(f, x)))
-print("f'(x) = 0 si x ∈", sp.solve(sp.diff(f, x), x))
+print("solutions de f'(x) = 0 :", sp.solve(sp.diff(f, x), x), "(une liste)")
 print("∫ f sur [0, +∞[ =", sp.integrate(f, (x, 0, sp.oo)))"""
 
 PLOT_MD = """## 4. Un graphique : une fonction et sa tangente
@@ -88,7 +88,7 @@ MYMATH_MD = """## 5. `mymath`, ta librairie
 
 Au fil des chapitres, tu écris ta propre librairie de maths dans `mon_travail/mymath/` : pivot de Gauss, méthode de Newton, valeurs propres, échantillonnage… Les tests la comparent à des bibliothèques de confiance (NumPy, SciPy, SymPy).
 
-Pour la créer : `python tools/start_chapter.py --init` (sur Colab, voir `00_setup/COLAB.md`). Tant qu'elle n'existe pas, la cellule ci-dessous affiche ⏳ au lieu de planter."""
+Pour la créer : `python tools/start_chapter.py --init` (sur Colab, voir `00_setup/COLAB.md`). Tant qu'elle n'existe pas, ou tant que tu n'as pas écrit sa fonction `mean` (exercice R0.9), la cellule ci-dessous affiche ⏳ au lieu de planter."""
 
 MYMATH_EXERCISE = """mymath = wbm.load_mymath("learner", missing_ok=True)
 with wbm.attempt("démo mymath"):

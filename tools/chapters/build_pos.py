@@ -356,10 +356,11 @@ def build(kind: str) -> list:
                     "chapitre : 2/2 → tu peux sauter, 1/2 → à survoler, 0/2 → à faire en entier. Le détail, et ce qu'il "
                     "faut faire quand même, est dans `05_grille.md`."))
     cells.append(code("show_grid(RESULTS, FINISHED)"))
-    cells.append(md("## Et maintenant\n\nRecopie ta grille dans ta copie de `04_mes_reponses.md` et dans "
-                    "`mon_travail/suivi/journal.md`. Lis `03_corrige.md` pour les questions ratées : chacune renvoie "
-                    "à la section du chapitre qui l'enseigne. Puis passe à R1 : même « sauté », un chapitre garde "
-                    "quelques exercices à faire (`05_grille.md`)."))
+    cells.append(md("## Et maintenant\n\nLis `05_grille.md` : même « sauté », un chapitre garde quelques exercices "
+                    "à faire (les fonctions de ta librairie `mymath`), et les quiz. Lis `03_corrige.md` pour les "
+                    "questions ratées : chacune renvoie à la section du chapitre qui l'enseigne. Puis recopie ta grille "
+                    "dans ta copie de `04_mes_reponses.md` et dans `mon_travail/suivi/journal.md`, coche la case POS "
+                    "de ton tableau de bord, et passe à R1."))
     return cells
 
 

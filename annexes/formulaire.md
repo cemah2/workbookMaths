@@ -1,6 +1,6 @@
 # Formulaire
 
-Toutes les formules du workbook, rangées dans l'ordre des chapitres. Chaque chapitre ajoute les siennes à sa publication ; les notations suivent `docs/BIBLE.md` §6.
+Toutes les formules du workbook, rangées dans l'ordre des chapitres. Les notations suivent `docs/BIBLE.md` §6.
 
 Le formulaire est rangé en quatre fichiers, un par groupe de parties (un seul fichier était trop long pour que GitHub l'affiche) :
 

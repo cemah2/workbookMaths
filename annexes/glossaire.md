@@ -1,6 +1,6 @@
 # Glossaire français ↔ anglais
 
-Les termes mathématiques sont en français dans les fiches, avec l'anglais en glose à leur première apparition : c'est l'anglais que tu liras dans MML. Les termes du machine learning gardent l'usage de workbookIA (loss, learning rate, batch, feature… restent en anglais). Chaque chapitre ajoute ses termes ; la colonne « Chapitre » renvoie à celui qui le définit.
+Les termes mathématiques sont en français dans les fiches, avec l'anglais en glose à leur première apparition : c'est l'anglais que tu liras dans MML. Les termes du machine learning gardent l'usage de workbookIA (loss, learning rate, batch, feature… restent en anglais). La colonne « Chapitre » renvoie à celui qui définit le terme.
 
 Le glossaire est rangé en six fichiers, par ordre alphabétique des termes français (un seul était trop long pour que GitHub l'affiche) :
 

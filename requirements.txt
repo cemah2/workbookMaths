@@ -26,6 +26,7 @@ scipy==1.16.3
 matplotlib==3.10.0
 pandas==2.2.3
 scikit-learn==1.6.1
+# requests: imported nowhere in this repository, kept for the environment shared with workbookIA
 requests==2.32.4
 
 # --- Symbolic maths ------------------------------------------------------

@@ -20,6 +20,6 @@ Le bilan clôt la partie VI, juste avant le checkpoint VI de workbookIA. Il vér
 5. **Note ta copie** avec le barème du corrigé (un point par minute prévue, partagé également entre les sous-questions de chaque question ; ta note sur 20 est ton total sur 111 multiplié par $\frac{20}{111}$, c'est-à-dire divisé par 5,55) : il donne aussi les points des démarches, des justifications, du quiz, de la démonstration et des corrections, que le notebook ne voit pas. Remplis le tableau en fin de copie, avec le temps réellement passé sur chaque question.
 6. **Remédie** : pour chaque question où tu as eu moins de la moitié des points, refais les exercices indiqués par le corrigé ; une semaine plus tard, refais ces questions sans le corrigé.
 
-Tu peux aussi faire corriger ta copie par Claude : il lit `mon_travail/checkpoints/partie_6/`, sans jamais y écrire.
+Tu peux aussi faire corriger ta copie par Claude, une fois poussée sur GitHub (`00_setup/COLAB.md` §3) : il lit `mon_travail/checkpoints/partie_6/`, sans jamais y écrire.
 
 Reporte ta note et tes points faibles dans `mon_travail/suivi/journal.md` et `mon_travail/suivi/auto_evaluation.md`, puis coche CP6 dans ton tableau de bord. Ensuite : **le checkpoint VI de workbookIA** et son mini-projet ; la suite de ce dépôt reprend avec la partie VII, par MB2 (cooccurrences, PMI et embeddings), avant workbookIA B2.

@@ -35,7 +35,7 @@ Les deux dépôts ont été conçus pour vivre dans **le même environnement** :
    pip install -r requirements.txt
    pip install -e .
    ```
-   `pip` ne doit rien changer aux versions déjà installées ; s'il propose de remplacer un paquet, arrête-toi et signale-le (prompt de retour à Claude).
+   `pip` ne doit changer aucune version déjà installée : si sa sortie annonce « Successfully uninstalled … » pour un paquet autre que SymPy, signale-le (prompt de retour à Claude).
 4. Passe aux [étapes communes](#étapes-communes).
 
 ---
@@ -87,7 +87,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install -e .
 ```
-La première commande installe les versions exactes du workbook (celles de Colab, et de workbookIA) ; la seconde rend le package `wbm` importable depuis n'importe quel dossier.
+`pip install -r requirements.txt` installe les versions exactes du workbook (celles de Colab, et de workbookIA) ; `pip install -e .` rend le package `wbm` importable depuis n'importe quel dossier.
 
 ---
 
@@ -121,7 +121,7 @@ Ouvre `00_setup/demo.ipynb`, puis **Run → Run All Cells** : tout doit s'exécu
 ```bash
 cd ~/workbookMaths
 source .venv/bin/activate          # ou l'environnement de workbookIA (cas A)
-git pull                           # récupère les nouveaux chapitres
+git pull                           # récupère les mises à jour
 jupyter lab
 ```
 

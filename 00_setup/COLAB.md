@@ -1,6 +1,6 @@
 # Travailler sur Google Colab (avec Google Drive)
 
-Colab exécute les notebooks dans ton navigateur, sur une machine de Google où toutes les bibliothèques sont déjà installées. Le dépôt est gardé dans ton **Google Drive** : ton travail y est sauvegardé et `git pull` y récupère les nouveaux chapitres. Les maths n'ont jamais besoin de GPU.
+Colab exécute les notebooks dans ton navigateur, sur une machine de Google où toutes les bibliothèques sont déjà installées. Le dépôt est gardé dans ton **Google Drive** : ton travail y est sauvegardé et `git pull` y récupère les mises à jour. Les maths n'ont jamais besoin de GPU.
 
 ## 1. Première ouverture
 
@@ -20,7 +20,7 @@ Ce que fait la cellule de setup, à chaque ouverture de n'importe quel notebook 
 | rend `wbm` importable | ajoute `workbookMaths/src` au chemin de Python |
 | `wbm.setup(seed=42)` | graines aléatoires, style des graphiques, rapport des versions |
 
-Rien n'est installé : Colab a déjà NumPy, SciPy, SymPy, matplotlib et pandas. workbookIA et workbookMaths sont deux dossiers distincts de ton Drive (`Mon Drive/workbookIA` et `Mon Drive/workbookMaths`).
+Rien n'est installé : Colab a déjà NumPy, SciPy, SymPy, matplotlib, pandas et scikit-learn. workbookIA et workbookMaths sont deux dossiers distincts de ton Drive (`Mon Drive/workbookIA` et `Mon Drive/workbookMaths`).
 
 ## 2. Démarrer un chapitre
 
@@ -30,7 +30,7 @@ Dans n'importe quel notebook où le setup a tourné, crée une cellule et exécu
 !python /content/drive/MyDrive/workbookMaths/tools/start_chapter.py R1
 ```
 
-(`… start_chapter.py 12` prépare tous les chapitres de maths à faire avant le chapitre 12 de workbookIA.) Puis, dans Google Drive, ouvre `workbookMaths/mon_travail/r1_…/03_notebook.ipynb` → clic droit → *Ouvrir avec → Google Colaboratory*. Ce notebook est **ta copie**, enregistrée automatiquement dans ton Drive. Le badge « Open in Colab » d'un notebook, lui, ouvre la version du dépôt sur GitHub : ce que tu y écris n'est pas enregistré. De même pour le test de positionnement (`start_chapter.py POS`, ta copie : `mon_travail/positionnement/02_notebook.ipynb`) et pour un examen blanc (`start_chapter.py CP1`, ta copie : `mon_travail/checkpoints/partie_1/02_examen_notebook.ipynb`).
+(`… start_chapter.py 12` prépare tous les chapitres de maths à faire avant le chapitre 12 de workbookIA.) Puis, dans Google Drive, ouvre `workbookMaths/mon_travail/r1_…/03_notebook.ipynb` → clic droit → *Ouvrir avec → Google Colaboratory*. Ce notebook est **ta copie**, enregistrée automatiquement dans ton Drive. Le badge « Open in Colab » d'un notebook, lui, ouvre la version du dépôt sur GitHub : ce que tu y écris n'est pas enregistré. De même pour le test de positionnement (`start_chapter.py POS`, ta copie : `mon_travail/positionnement/02_notebook.ipynb`) et pour un examen blanc (`start_chapter.py CP1`, ta copie : `mon_travail/checkpoints/partie_1/02_examen_notebook.ipynb`). Les fiches, les énoncés et les corrigés (`.md`) se lisent sur GitHub (<https://github.com/cemah2/workbookMaths>), qui affiche les formules et les figures. Colab ne sait pas afficher un `.md` de ton Drive : il l'ouvre en texte brut.
 
 La première fois (ou avec `--init`), `start_chapter.py` crée aussi `mon_travail/suivi/` (tableau de bord, journal, auto-évaluation) et `mon_travail/mymath/` (ta librairie).
 
@@ -45,7 +45,9 @@ Pour tester ta librairie `mymath` depuis Colab :
 !cd /content/drive/MyDrive/workbookMaths && python -m pytest tests/ -q -m mymath
 ```
 
-## 3. Sauvegarder ton travail sur GitHub (optionnel)
+## 3. Sauvegarder ton travail sur GitHub (pour une correction par Claude, ou pour ton portfolio)
+
+Claude ne lit ton travail que s'il est sur GitHub : pousse `mon_travail/` avant de lui demander une correction.
 
 Même procédure que pour workbookIA (`COLAB.md` de workbookIA, section 5), avec un token limité au dépôt `workbookMaths` et le chemin `/content/drive/MyDrive/workbookMaths`.
 

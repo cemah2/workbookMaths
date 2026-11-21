@@ -28,7 +28,7 @@ Le numéro en tête est le rang du chapitre dans l'ordre d'étude (en partant de
 |---|---|---|
 | `python tools/export_flashcards.py --chapter M12c` | `mwb_anki_m12c_….csv` : les cartes d'un chapitre | à la fin de chaque chapitre |
 | `python tools/export_flashcards.py` | `mwb_anki.csv` : toutes les cartes | pour rattraper plusieurs chapitres |
-| `python tools/export_flashcards.py --apkg` | `mwb_anki.apkg` : un paquet Anki | si tu préfères un double-clic (demande `pip install genanki`) |
+| `python tools/export_flashcards.py --apkg` | `mwb_anki.apkg` : un paquet Anki | si tu préfères un double-clic (demande `pip install genanki==0.13.1`) |
 
 Sur Colab : `!python /content/drive/MyDrive/workbookMaths/tools/export_flashcards.py --chapter M12c`, puis télécharge le fichier depuis `Mon Drive/workbookMaths/exports/`.
 

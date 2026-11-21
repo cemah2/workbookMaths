@@ -53,12 +53,12 @@ Relis la fiche §3, « Comment taper chaque sorte de réponse » : les paragraph
 </details>
 <details><summary>Indice 2</summary>
 
-Sans guillemets, Python **calcule** d'abord ce que tu tapes : que devient `1/3` ? Entre guillemets, `wbm.check` lit une expression avec indulgence. Pour l'infini, regarde le sens du crochet.
+`0.3333` est-il la fraction $\frac{1}{3}$, ou une valeur arrondie ? Entre guillemets, `wbm.check` lit une expression avec indulgence. Pour l'infini, regarde le sens du crochet.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : **non**, car `1/3` est calculé en flottant, `0.3333333333333333`, une valeur approchée, alors que l'énoncé demande la fraction exacte. Pour 2, qu'est-ce qui change avec les guillemets ? Pour 3, `^` et la multiplication sous-entendue sont-ils acceptés **dans une chaîne** ? Pour 4, quel crochet met-on du côté de l'infini ? Pour 5, les deux notations sont-elles acceptées ?
+1 : **non**, car `0.3333` est une valeur arrondie à la main, alors que l'énoncé demande la fraction exacte. Pour 2, qu'est-ce qui change avec les guillemets ? Pour 3, `^` et la multiplication sous-entendue sont-ils acceptés **dans une chaîne** ? Pour 4, quel crochet met-on du côté de l'infini ? Pour 5, les deux notations sont-elles acceptées ?
 
 </details>
 
