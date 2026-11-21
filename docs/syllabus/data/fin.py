@@ -2,7 +2,7 @@
 
 CHAPTERS = [
     {
-        "id": "PS", "dir": "projets/projet_synthese", "hours": 25, "generation_sessions": 1, "mml": [],
+        "id": "PS", "dir": "projets/projet_synthese", "hours": 27.3, "generation_sessions": 1, "mml": [],
         "summary": "« Les maths d'un algorithme, de A à Z » : tu choisis un algorithme de workbookIA (régression "
                    "logistique, rétropropagation d'un MLP, VAE, attention…) et tu écris un notebook-article qui dérive "
                    "tout, l'implémente avec `mymath` et le vérifie contre une bibliothèque. Grille sur 20, pas de "
@@ -29,28 +29,28 @@ CHAPTERS = [
         "frontieres": ["7.7", "9.2", "9.3", "9.6", "12.8", "13.8", "17.7", "18.6", "18.7", "18.8", "19.7", "19.8",
                        "20.8", "21.7", "22.6", "22.7", "25.5", "25.7", "26.7", "26.8", "B2.7", "B3.6", "B3.7",
                        "B5.6", "B5.7", "B8.7"],
-        "reading_minutes": 60,
+        "reading_minutes": 90,
         "flashcards": 0,
         "exercises": [
-            ("PS.1", "🗣️", 2, 60, "Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions "
+            ("PS.1", "🗣️", 2, 75, "Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions "
              "de maths et leurs chapitres, l'oracle de la vérification et le plan de l'article", "§1", "E"),
-            ("PS.2", "✏️", 2, 90, "Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, "
+            ("PS.2", "✏️", 2, 105, "Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, "
              "tableau des notations et conventions", "§2", "E c:manuel p:PS.1"),
             ("PS.3", "∂", 4, 270, "La dérivation complète, de l'objectif aux formules que le code calcule : chaque "
              "étape justifiée par un résultat cité, chaque forme vérifiée", "§2", "E p:PS.2"),
-            ("PS.4", "∂", 3, 180, "Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, "
+            ("PS.4", "∂", 3, 210, "Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, "
              "espérance, borne, coût), et un cas où une hypothèse tombe", "§2", "E p:PS.3"),
             ("PS.5", "✏️", 3, 120, "Un exemple à la main en dimension 2 ou 3 (en fractions quand c'est possible), "
              "retrouvé par le code", "§2 §3", "E c:manuel p:PS.3"),
             ("PS.6", "🛠️", 4, 210, "L'implémentation : un module documenté (contrat, formes, erreurs) qui appelle au "
              "moins trois fonctions de ta librairie `mymath`, sans bibliothèque de ML", "§3", "E p:PS.3"),
-            ("PS.7", "📦", 4, 180, "La vérification : des tests contre une bibliothèque indépendante sur des cas tirés "
+            ("PS.7", "📦", 4, 210, "La vérification : des tests contre une bibliothèque indépendante sur des cas tirés "
              "au hasard, les dérivées contre des différences finies, une propriété, et une erreur introduite exprès "
              "que les tests attrapent", "§3", "E c:pytest p:PS.6"),
             ("PS.8", "🔬", 3, 150, "Une expérience numérique qui illustre une propriété démontrée (convergence, "
              "conditionnement, stabilité, effet d'un hyperparamètre) : une figure légendée et sa conclusion", "§3",
              "E c:manuel p:PS.6"),
-            ("PS.9", "🛠️", 3, 120, "Rédiger l'article : introduction, plan, conclusion et limites, références par "
+            ("PS.9", "🛠️", 3, 140, "Rédiger l'article : introduction, plan, conclusion et limites, références par "
              "sections, LaTeX propre, notebook exécuté de bout en bout en moins de 5 minutes", "§4", "E p:PS.8"),
             ("PS.E1", "💼", 3, 60, "Présenter l'algorithme en cinq minutes, puis répondre à cinq questions "
              "d'entretien sur ses maths", "§4", "E p:PS.9"),
@@ -80,8 +80,9 @@ CHAPTERS = [
                  "la différentielle) et ne donnent aucun résultat propre à un algorithme de la liste. **Oracles** : "
                  "NumPy, SciPy, SymPy, scikit-learn, et PyTorch dans le projet de l'apprenant seulement (installé pour "
                  "workbookIA et sur Colab ; ce dépôt ne l'importe jamais) ; jamais une autre fonction de l'apprenant ni "
-                 "une formule écrite pour l'occasion. Durée : 25 h, lecture du cahier des charges et de l'exemple "
-                 "comprise (60 min), en même temps que le projet final de workbookIA (quatre semaines). Le projet "
+                 "une formule écrite pour l'occasion. Durée : 27,3 h, lecture du cahier des charges, de la grille "
+                 "et de l'exemple survolé comprise (90 min), recalée à la génération par l'apprenant simulé (25 h au "
+                 "plan ; 2 à 4 h de plus si des modules de `mymath` manquent), en même temps que le projet final de workbookIA (quatre semaines). Le projet "
                  "appartient aux deux parcours (BIBLE §12).",
     },
 ]
