@@ -1,0 +1,332 @@
+# Erreurs de calcul fréquentes · remise à niveau et partie I
+
+*Une partie de [Erreurs de calcul fréquentes](erreurs_frequentes.md) : l'index donne les autres.*
+
+## Écrire des maths en Python (R0)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre `^` pour la puissance | `x^2` | `x**2` (`^` est le « ou exclusif » sur les bits, sans message d'erreur) |
+| Sous-entendre la multiplication | `2x`, `3(x + 1)` | `2*x`, `3*(x + 1)` |
+| Oublier que `**` passe avant le signe moins | croire que `-3**2` vaut 9 | `-3**2` vaut -9 ; écrire `(-3)**2` pour 9 |
+| Mal parenthéser une fraction | `1/2*x` pour $\frac{1}{2x}$ | `1/(2*x)` ; `1/2*x` vaut $\frac{x}{2}$ |
+| Comparer deux flottants avec `==` | `0.1 + 0.2 == 0.3` (faux) | `math.isclose(0.1 + 0.2, 0.3)`, ou `Fraction` pour un calcul exact |
+| Croire que `//` arrondit vers zéro | `-23 // 4` vaut -5 | `//` arrondit vers $-\infty$ : -6 (et `-23 % 4` vaut 1) |
+| Appliquer `math` à un tableau NumPy | `math.exp(xs)` | `np.exp(xs)` |
+| Oublier les accolades en LaTeX | `x^10`, `\frac{a+b}2` | `x^{10}`, `\frac{a+b}{2}` |
+
+## Calcul et algèbre (R1, R2)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Le carré d'une somme n'est pas la somme des carrés | $(a+b)^2 = a^2 + b^2$ | $(a+b)^2 = a^2 + 2ab + b^2$ ; vérifie avec $a = b = 1$ : $4 \ne 2$ |
+| La racine d'une somme n'est pas la somme des racines | $\sqrt{4 + 9} = 2 + 3$ | $\sqrt{13} \approx 3{,}6 \ne 5$ |
+| Additionner des fractions « en haut et en bas » | $\frac{1}{2} + \frac{1}{3} = \frac{2}{5}$ | même dénominateur d'abord : $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$ |
+| Simplifier un terme d'une somme | $\frac{x + 2}{2} = x + 1$ | on ne simplifie que des **facteurs** : $\frac{x+2}{2} = \frac{x}{2} + 1$ |
+| Oublier les parenthèses autour d'un nombre négatif | $-3^2 = 9$ | $-3^2 = -9$, mais $(-3)^2 = 9$ (et en Python, `-3**2` vaut `-9`) |
+| Diviser par une quantité qui peut être nulle | $x^2 = x \Rightarrow x = 1$ | $x^2 - x = 0 \Leftrightarrow x(x-1) = 0$ : $x = 0$ ou $x = 1$ |
+| Garder le sens d'une inégalité en multipliant par un négatif | $-2x < 6 \Rightarrow x < -3$ | multiplier ou diviser par un négatif **retourne** l'inégalité : $x > -3$ |
+| Pourcentages qui s'additionnent | +10 % puis +10 % = +20 % | les coefficients se multiplient : $1{,}1 \times 1{,}1 = 1{,}21$, soit +21 % |
+| Ranger les négatifs comme les positifs | $-2 < -7$ | sur la droite, $-7$ est à gauche : $-7 < -2$ |
+| Calculer × et ÷ de droite à gauche | $24 \div 4 \times 2 = 3$ | même priorité, de gauche à droite : $6 \times 2 = 12$ |
+| Diviser par une fraction sans prendre l'inverse | $\frac{10}{3} \div \frac{5}{6} = \frac{50}{18}$ | multiplier par l'inverse : $\frac{10}{3} \times \frac{6}{5} = 4$ |
+| Additionner les exposants d'une somme | $3^2 + 3^3 = 3^5$ | seul le **produit** additionne les exposants : $3^2 \times 3^3 = 3^5$ |
+| Croire qu'un exposant négatif rend négatif | $3^{-2} = -9$ | $3^{-2} = \frac{1}{9}$ : « inverse », pas « opposé » |
+| Oublier qu'une racine carrée est positive | $\sqrt{(-4)^2} = -4$ | $\sqrt{(-4)^2} = 4$ |
+| Une mantisse hors de [1 ; 10[ | $45{,}2 \times 10^3$ | $4{,}52 \times 10^4$ |
+| Arrondir un arrondi | 3,46 → 3,5 → 4 | arrondir une seule fois, depuis la valeur complète : 3 |
+| Prendre `int` pour un plancher | `int(-1.6)` vaut $\lfloor -1{,}6 \rfloor$ | `int` coupe vers 0 ($-1$) ; $\lfloor -1{,}6 \rfloor = -2$ |
+| Diviser par la valeur d'arrivée | de 250 à 210 : $\frac{-40}{210}$ | le taux d'évolution divise par la valeur de départ : $\frac{-40}{250} = -16$ % |
+| Prendre l'opposé du taux pour revenir au départ | après −20 %, +20 % | le coefficient réciproque est l'inverse : $\frac{1}{0{,}8} = 1{,}25$, soit +25 % |
+| Faire la moyenne de deux moyennes | moyenne de 12 (10 élèves) et de 8 (30 élèves) = 10 | pondérer par les effectifs : $\frac{120 + 240}{40} = 9$ |
+| Oublier des produits en développant | $(x + 3)(2x - 5) = 2x^2 - 15$ | chaque terme par chaque terme : quatre produits, $2x^2 + x - 15$ |
+| Un moins devant une parenthèse qui ne change qu'un signe | $-(x - 4) = -x - 4$ | il change le signe de **chaque** terme : $-x + 4$ |
+| Le carré d'un produit | $(2x)^2 = 2x^2$ | le carré porte sur tout le produit : $4x^2$ |
+| Multiplier une fraction sans parenthèses | $\frac{x - 1}{2} \times 6 = 3x - 1$ | le 3 multiplie tout le numérateur : $3(x - 1) = 3x - 3$ |
+| Conclure « $x = 0$ » quand les $x$ disparaissent | $2(x + 1) = 2x + 5$, « donc $x = 0$ » | regarder l'égalité qui reste : $2 = 5$ est faux, aucune solution ; $6 = 6$ serait vrai, tous les réels |
+| Un crochet fermé du côté de l'infini | $[1 ; +\infty]$ | toujours ouvert : $[1 ; +\infty[$ |
+| Confondre « et » et « ou » | « $x > 1$ et $x < 4$ » donne une réunion | « et » : intersection, $]1 ; 4[$ ; « ou » : réunion |
+| Une seule solution à une équation avec valeur absolue | $\lvert x + 2 \rvert = 5 \Rightarrow x = 3$ | deux points à distance 5 de $-2$ : $-7$ et $3$ |
+| Distribuer la valeur absolue sur une somme | $\lvert a + b \rvert = \lvert a \rvert + \lvert b \rvert$ | faux pour $a = 1$, $b = -1$ ; seulement $\lvert a + b \rvert \le \lvert a \rvert + \lvert b \rvert$ |
+| Un système à déterminant nul « a une solution » | $D = 0$, « une solution » | aucune ou une infinité : comparer les seconds membres |
+| Lire `[]` de `sympy.solve` comme « aucune solution » | `sp.solve(3*(x - 2) - (3*x - 6), x)` vaut `[]` | aussi pour une équation vraie pour tout $x$ ; `sp.solveset(..., x, sp.S.Reals)` distingue `EmptySet` et `Reals` |
+
+## Logique, ensembles et sommes (R4)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Nier un « et » en gardant « et » | non ($a > 0$ et $b > 0$) = ($a \le 0$ et $b \le 0$) | De Morgan : ($a \le 0$ **ou** $b \le 0$) |
+| Prendre la réciproque pour l'implication | « les rectangles ont quatre angles droits, donc une figure à quatre angles droits est un carré » | la réciproque est une autre phrase, à démontrer à part |
+| Nier une implication par une implication | non (s'il fait beau, je sors) = (s'il ne fait pas beau, je ne sors pas) | « il fait beau et je ne sors pas » |
+| Nier « pour tout » par « aucun » | non (tous les nombres sont pairs) = aucun n'est pair | il existe un nombre impair |
+| Nier une inégalité stricte | non ($t > 5$) = $t < 5$ | $t \le 5$ |
+| Confondre élément et sous-ensemble | $\lbrace a\rbrace \in \lbrace a, b\rbrace$ | $a \in \lbrace a, b\rbrace$ et $\lbrace a\rbrace \subset \lbrace a, b\rbrace$ |
+| Oublier l'intersection dans un cardinal | $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert$ | retirer $\lvert A \cap B \rvert$, comptée deux fois |
+| Compter les termes d'une somme | $\sum_{k=5}^{9}$ a 4 termes | $9 - 5 + 1 = 5$ termes |
+| Séparer un produit dans une somme | $\sum a_k b_k = \left(\sum a_k\right)\left(\sum b_k\right)$ | faux en général ; seule une somme **double** $\sum_i \sum_j x_i y_j$ se factorise |
+| Sortir une constante d'un produit | $\prod_{k=1}^{n} 3a_k = 3 \prod a_k$ | $3^n \prod a_k$ |
+| Une borne de `range` | $\sum_{k=1}^{n}$ codée `range(1, n)` | `range(1, n + 1)` |
+| Démontrer par des exemples | « vrai pour 1, 2, 3, donc pour tout $n$ » | un argument pour tous les $n$ (ou une récurrence) |
+| Une récurrence sans initialisation | une hérédité juste suffit | vérifier aussi le premier cas |
+
+## Suites (R5)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre rang et valeur | $u_{n+1} = u_n + 1$ | $u_{n+1}$ est le terme suivant ; $u_n + 1$ est le terme augmenté de 1 |
+| Oublier le premier rang | $a_n = a_1 + n\thinspace r$ pour une suite qui commence à $a_1$ | $a_n = a_1 + (n - 1)\thinspace r$ |
+| Calculer une suite géométrique comme une arithmétique | $u_n = u_0 \times q \times n$ | $u_n = u_0\thinspace q^n$ |
+| Mettre le premier terme sous la puissance | $5 \times 3^n = 15^n$ | la puissance ne porte que sur la raison |
+| Ne garder qu'une raison | $q^2 = 9$ donne $q = 3$ | $q = 3$ ou $q = -3$ |
+| Compter les écarts au lieu des termes | $5 + 8 + \dots + 50$ a 15 termes | 15 écarts, donc 16 termes |
+| Mettre le dernier rang en exposant | $\sum_{k=0}^{6} q^k = \frac{1 - q^6}{1 - q}$ | 7 termes : $\frac{1 - q^7}{1 - q}$ |
+| Oublier le premier terme d'une somme | $\sum_{k=1}^{+\infty} q^k = \frac{1}{1 - q}$ | premier terme $q$ : $\frac{q}{1 - q}$ |
+| Une somme infinie avec $\lvert q \rvert \ge 1$ | $1 + 3 + 9 + \dots = \frac{1}{1 - 3} = -\frac{1}{2}$ | pas de valeur finie : la formule exige $\lvert q \rvert < 1$ |
+| Croire que des termes qui tendent vers 0 suffisent | $1 + \frac{1}{2} + \frac{1}{3} + \dots$ est finie | elle grandit sans fin |
+| Prendre le point fixe pour la limite sans vérifier | $u_{n+1} = 2u_n - 3$ « tend vers 3 » | le point fixe n'est la limite que si la suite converge ($\lvert a \rvert < 1$) |
+| Composer des pourcentages en les additionnant | trois hausses de 20 % = +60 % | $1{,}2^3 = 1{,}728$ : +72,8 % |
+| Actualiser en multipliant | valeur actuelle de 5 000 € dans 3 ans : $5\thinspace000 \times 1{,}02^3$ | diviser : $\frac{5\thinspace000}{1{,}02^3}$ |
+| Démarrer une moyenne exponentielle à la première valeur | $v_1 = x_1$ | $v_0 = 0$, donc $v_1 = (1 - \beta)\thinspace x_1$ |
+| Inverser le rôle de $\beta$ | $v_t = (1 - \beta)\thinspace v_{t-1} + \beta\thinspace x_t$ | $\beta$ multiplie l'ancienne moyenne |
+| Une moyenne mobile de trop ou de moins | 4 moyennes sur une fenêtre de 3 et 5 valeurs | $N - k + 1 = 3$ moyennes |
+
+## Fonctions, exponentielle, logarithme (R3, R6)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre image et antécédent | « les antécédents de 2 » : calculer $f(2)$ | une image se calcule ; des antécédents se cherchent en résolvant $f(x) = 2$ |
+| Oublier un antécédent | $x^2 = 4 \Rightarrow x = 2$ | deux antécédents : $-2$ et $2$ |
+| Mélanger l'ordre des points | $m = \frac{y_2 - y_1}{x_1 - x_2}$ | même ordre en haut et en bas : $\frac{y_2 - y_1}{x_2 - x_1}$ |
+| Un sens de variation sans intervalle | « $x^2$ est croissante » | croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ |
+| L'image d'un intervalle par ses bornes | carré de $[-3 \mkern5mu ;\mkern5mu  1]$ = $[1 \mkern5mu ;\mkern5mu  9]$ | la courbe passe par 0 : $[0 \mkern5mu ;\mkern5mu  9]$ |
+| Le signe dans la forme canonique | $(x + 5)^2 - 2$ : sommet en $x = 5$ | $(x + 5)^2 = (x - (-5))^2$ : sommet en $x = -5$ |
+| Diviser seulement la racine par $2a$ | $-b \pm \frac{\sqrt{\Delta}}{2a}$ | tout le numérateur : $\frac{-b \pm \sqrt{\Delta}}{2a}$ |
+| Maximum et argmax | « le maximum est 3 » quand 3 est une valeur de $x$ | le maximum est une valeur de $f$ ; l'argmax, une valeur de $x$ |
+| Un extremum hors de l'intervalle | le sommet de la parabole comme maximum sur $[0 \mkern5mu ;\mkern5mu  1]$ alors qu'il est en $x = 4$ | regarder les variations sur l'intervalle, comparer les bornes |
+| L'ordre d'une composée | $(f \circ g)(x)$ : $f$ puis $g$ | $g$ d'abord : $f(g(x))$ |
+| Une réciproque sans restriction | « la réciproque du carré est la racine » sur $\mathbb{R}$ | seulement sur $[0 \mkern5mu ;\mkern5mu  +\infty[$, où chaque valeur a un seul antécédent |
+| Le logarithme d'une somme | $\ln(a + b) = \ln a + \ln b$ | c'est pour un **produit** : $\ln(ab) = \ln a + \ln b$ |
+| L'exponentielle d'une somme | $e^{a+b} = e^a + e^b$ | $e^{a+b} = e^a \times e^b$ |
+| Confondre réciproque et inverse | $f^{-1}(x) = \frac{1}{f(x)}$ | $f^{-1}$ défait $f$ : $\ln$ est la réciproque de $\exp$, pas $\frac{1}{\exp}$ |
+| Le logarithme d'un nombre négatif ou nul | $\ln(-1)$ | $\ln$ n'est défini que pour $x > 0$ |
+| Multiplier les exposants d'un produit | $e^{2x} \times e^{3} = e^{6x}$ | on les additionne : $e^{2x + 3}$ |
+| Additionner les exposants d'une puissance | $(e^{3})^{2} = e^{5}$ | on les multiplie : $e^{6}$ |
+| Lire un exposant fractionnaire comme un produit | $27^{2/3} = 27 \times \frac{2}{3}$ | la racine cubique, puis le carré : 9 |
+| Un exposant négatif rend négatif | $27^{-1/3} = -3$ | il donne l'inverse : $\frac{1}{3}$ |
+| Le carré d'un logarithme | $(\ln a)^2 = 2 \ln a$ | c'est $\ln(a^2)$ qui vaut $2 \ln a$ |
+| Le logarithme d'un quotient | $\ln \frac{a}{b} = \frac{\ln a}{\ln b}$ | $\ln a - \ln b$ |
+| Une équation exponentielle sans solution | $e^x = -2 \iff x = \ln(-2)$ | pas de solution : $e^x > 0$ |
+| Diviser par un logarithme négatif | $0{,}8^n < 0{,}1 \iff n < \frac{\ln 0{,}1}{\ln 0{,}8}$ | $\ln 0{,}8 < 0$ : le sens change, $n > \dots$ |
+| Le changement de base à l'envers | $\log_5 30 = \frac{\ln 5}{\ln 30}$ | $\frac{\ln 30}{\ln 5}$ |
+| Des bits aux nats | 4 bits $= \frac{4}{\ln 2}$ nats | on multiplie par $\ln 2$ : $4 \ln 2 \approx 2{,}77$ nats |
+| `np.log` pris pour le logarithme décimal | `np.log(1000)` vaut 3 | `np.log` est $\ln$ ; le décimal est `np.log10` |
+| Croire qu'une puissance bat une exponentielle | $x^5 > 1{,}1^x$ en $x = 100$, donc toujours | l'exponentielle finit par gagner (ici vers 299) |
+| La symétrie de la sigmoïde | $\sigma(-x) = -\sigma(x)$ | $\sigma(-x) = 1 - \sigma(x)$ ; c'est tanh qui est impaire |
+| Le logit | $\operatorname{logit}(p) = \ln p$ | $\ln \frac{p}{1 - p}$ |
+| Un produit de probabilités en flottants | multiplier des milliers de probabilités | additionner leurs logarithmes : le produit devient 0 |
+
+## Dérivées (R7)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier la dérivée de l'intérieur (composée) | $(e^{x^2})' = e^{x^2}$ | $(e^{x^2})' = 2x\thinspace e^{x^2}$ : multiplier par la dérivée de ce qui est « dedans » |
+| Dériver un produit facteur par facteur | $(uv)' = u'v'$ | $(uv)' = u'v + uv'$ |
+| Dériver un quotient sans la formule | $\left(\frac{u}{v}\right)' = \frac{u'}{v'}$ | $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ |
+| Inverser l'ordre au numérateur du quotient | $\left(\frac{u}{v}\right)' = \frac{uv' - u'v}{v^2}$ | $u'v$ en premier : le signe du résultat change sinon |
+| Lever une forme indéterminée « à l'œil » | $\infty - \infty = 0$, $\frac{\infty}{\infty} = 1$ | mettre en facteur le terme qui domine, ou factoriser |
+| Chercher l'asymptote verticale au numérateur | $\frac{3x - 2}{x + 1}$ : asymptote $x = \frac{2}{3}$ | là où le **dénominateur** s'annule (et pas le numérateur) |
+| Oublier $f(a)$ dans la tangente | $y = f'(a)(x - a)$ | $y = f(a) + f'(a)(x - a)$ |
+| Dériver $\sqrt{x}$ ou $\frac{1}{x}$ de travers | $(\sqrt{x})' = \frac{1}{\sqrt{x}}$, $\left(\frac{1}{x}\right)' = \ln x$ | $\frac{1}{2\sqrt{x}}$ et $-\frac{1}{x^2}$ |
+| Confondre l'ordre de deux composées | $(e^x)^2$ et $e^{x^2}$ : même dérivée | $2e^{2x}$ et $2x\thinspace e^{x^2}$ |
+| Conclure à un extremum dès que $f' = 0$ | $(x^5)' = 0$ en 0, donc extremum | il faut que $f'$ change de signe |
+| Oublier les bords d'un intervalle fermé | maximum sur $[a ; b]$ cherché seulement où $f' = 0$ | comparer aussi $f(a)$ et $f(b)$ |
+| Donner l'abscisse au lieu de la valeur | « le maximum vaut 2 » quand il est atteint en $x = 2$ | le maximum est $f(2)$ ; l'abscisse est l'argmax |
+
+## Probabilités (R8)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Additionner des probabilités d'événements qui ne s'excluent pas | $P(A \cup B) = P(A) + P(B)$ | $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ |
+| Multiplier des probabilités d'événements dépendants | $P(A \cap B) = P(A)P(B)$ toujours | seulement si $A$ et $B$ sont indépendants |
+| Choisir un univers dont les issues ne sont pas équiprobables | deux pièces : 0, 1 ou 2 piles, chacun $\frac{1}{3}$ | distinguer les deux pièces : PP, PF, FP, FF ; un seul pile a la probabilité $\frac{1}{2}$ |
+| Additionner pour « au moins un » | au moins un 4 en deux lancers d'un dé à 4 faces : $\frac{1}{4} + \frac{1}{4}$ | passer par le contraire : $1 - \left(\frac{3}{4}\right)^2 = \frac{7}{16}$ |
+| Compter un comité comme un podium | 3 personnes parmi 9 : $9 \times 8 \times 7$ | sans ordre : diviser par $3!$, $\binom{9}{3} = 84$ |
+| Croire que $0! = 0$ | $\binom{n}{n} = \frac{n!}{n! \times 0!}$ impossible | $0! = 1$, le produit vide |
+| Garder les mêmes probabilités sans remise | 2 morceaux préférés sur 6, deux tirages sans remise : $\left(\frac{2}{6}\right)^2$ | ce qui est tiré ne revient pas : $\frac{2}{6} \times \frac{1}{5}$ |
+| Additionner le long d'un chemin d'arbre | $0{,}3 + 0{,}4$ pour « pluie et retard » | multiplier le long d'un chemin ($0{,}3 \times 0{,}4$), additionner entre les chemins |
+| Confondre incompatibles et indépendants | « incompatibles, donc $P(A \cap B) = P(A)\thinspace P(B)$ » | incompatibles : $P(A \cap B) = 0$, donc dépendants (si $P(A), P(B) > 0$) |
+| Confondre $\mathbb{E}[X^2]$ et $\mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, la moyenne des carrés moins le carré de la moyenne |
+| Mal changer d'échelle une variance | $\mathbb{V}(10X - 4) = 10\thinspace\mathbb{V}(X) - 4$ | $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$ |
+| Croire que le hasard compense | après cinq piles, face est « dû » | les lancers sont indépendants ; la loi des grands nombres dilue les écarts |
+
+## Géométrie, vecteurs et trigonométrie (R9)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Additionner les écarts pour une distance | $AB = (x_B - x_A) + (y_B - y_A)$, ou $\sqrt{a^2 + b^2} = a + b$ | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ |
+| Inverser les coordonnées d'un vecteur | $\overrightarrow{AB} = A - B$ | arrivée moins départ : $B - A$ |
+| Additionner deux vecteurs en Python avec `+` sur des tuples | `(3, -1) + (-2, 4)` donne `(3, -1, -2, 4)` | additionner coordonnée par coordonnée, ou passer par NumPy |
+| Garder le signe dans une norme | $\lVert -2\vec{u} \rVert = -2\thinspace\lVert \vec{u} \rVert$ | $\lvert -2 \rvert\thinspace\lVert \vec{u} \rVert = 2\thinspace\lVert \vec{u} \rVert$ |
+| Croire que la norme d'une somme est la somme des normes | $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ | seulement $\le$ (inégalité triangulaire), avec égalité si l'un est nul ou s'ils ont même direction et même sens |
+| Prendre $(a ; b)$ pour un vecteur directeur de $ax + by + c = 0$ | $(2 ; -1)$ dirige $2x - y - 3 = 0$ | $(-b ; a) = (1 ; 2)$ la dirige ; $(a ; b)$ lui est normal |
+| Croire qu'un produit scalaire est un vecteur | $(3 ; -1) \cdot (-2 ; 4) = (-6 ; -4)$ | c'est un nombre : $-6 - 4 = -10$ |
+| Passer des degrés à `math.cos` | `math.cos(30)` pour $\cos 30°$ | `math.cos(math.radians(30))` : Python attend des radians |
+| Convertir à l'envers | $30° = 30 \times \frac{180}{\pi}$ rad | $\times \frac{\pi}{180}$ : 180° doivent donner $\pi$ |
+| Confondre les valeurs remarquables | $\cos\frac{\pi}{3} = \frac{\sqrt{3}}{2}$ | $\frac{1}{2}$ ; c'est $\sin\frac{\pi}{3}$ qui vaut $\frac{\sqrt{3}}{2}$ |
+| Oublier le signe d'un cosinus ou d'un sinus | $\sin\frac{7\pi}{6} = \frac{1}{2}$ | dessiner le point sur le cercle : sous l'axe horizontal, le sinus est négatif |
+| Croire que $\arccos(\cos\theta) = \theta$ toujours | $\arccos\left(\cos\left(-\frac{\pi}{6}\right)\right) = -\frac{\pi}{6}$ | $\arccos$ rend un angle de $[0 ; \pi]$ : ici $\frac{\pi}{6}$ |
+| Oublier de diviser par les normes pour un angle | $\cos\theta = \vec{u} \cdot \vec{v}$ | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}$ |
+| Tester l'orthogonalité de flottants avec `==` | `0.1 * 2.1 + 0.7 * (-0.3) == 0` vaut `False` | comparer à 0 avec une tolérance absolue : `math.isclose(x, 0, abs_tol=1e-9)` |
+
+## Intégrales et densités (M02a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre intégrale et aire géométrique | $\int_0^{2\pi} \sin x\thinspace dx = 0$, « donc l'aire est nulle » | les parties sous l'axe comptent négativement : découper là où $f$ change de signe, et additionner les valeurs absolues |
+| Inverser les bornes du crochet | $\big[x^3\big]_0^2 = 0 - 8$ | $F(b) - F(a)$ : la borne du haut d'abord |
+| Appliquer la formule des puissances à $x^{-1}$ | $\int \frac{dx}{x} = \frac{x^0}{0}$ | $\ln \lvert x \rvert$ |
+| Oublier le facteur d'une primitive composée | une primitive de $e^{3x}$ est $e^{3x}$ | $\frac{e^{3x}}{3}$ : dériver la réponse pour vérifier |
+| Intégrer un produit facteur par facteur | $\int x\thinspace e^x\thinspace dx = \frac{x^2}{2}e^x$ | par parties : $x\thinspace e^x - e^x$ |
+| Changer de variable sans changer les bornes | $\int_0^1 2x\thinspace(x^2 + 1)^3\thinspace dx = \int_0^1 u^3\thinspace du$ | $u = x^2 + 1$ va de 1 à 2 : $\int_1^2 u^3\thinspace du$ |
+| Conclure qu'une intégrale converge parce que $f \to 0$ | $\int_1^{+\infty} \frac{dx}{x}$ converge | il faut décroître assez vite : $\frac{1}{x^p}$ converge vers $+\infty$ si et seulement si $p > 1$ |
+| Ignorer une fonction qui explose dans l'intervalle | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas bornée près de 0, et $\int_0^1 \frac{dx}{x^2}$ diverge ($p = 2 \ge 1$) : l'intégrale diverge |
+| Compter les extrémités entièrement dans les trapèzes | $h(f_0 + f_1 + \cdots + f_n)$ | les deux extrémités comptent pour moitié |
+| Appliquer Simpson avec $n$ impair, ou des poids faux | poids $1, 2, 4, 2, 1$ | $n$ pair, poids $1, 4, 2, 4, \ldots, 4, 1$, le tout fois $\frac{h}{3}$ |
+| Lire une densité comme une probabilité | $f(1) = 0{,}4$, « donc $P(X = 1) = 0{,}4$ » | $P(X = 1) = 0$ ; une probabilité est une aire sous $f$, et $f$ peut dépasser 1 |
+| Oublier une condition de densité | « $x - 1$ sur $[0 ; 2]$ a une intégrale positive » | positive partout **et** d'aire totale 1 |
+| Confondre $F(x)$ et $P(X > x)$ | $P(X > 2) = F(2)$ | $P(X > 2) = 1 - F(2)$ |
+| Prendre un percentile pour une probabilité | « le percentile 90 vaut 0,9 » | c'est une valeur $x$ telle que $F(x) = 0{,}9$ |
+
+## Variables aléatoires et lois usuelles (M02b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre une variable aléatoire et sa loi | « $X$ et $Y$ ont la même loi, donc $X = Y$ » | une loi décrit des chances : $X$ et $1 - X$ (pièce équilibrée) ont la même loi et ne sont jamais égales |
+| Oublier le coefficient binomial | $P(X = 2) = 0{,}2^2 \times 0{,}8^4$ pour $\mathcal{B}(6 ; 0{,}2)$ | $\binom{6}{2}\thinspace0{,}2^2\thinspace0{,}8^4$ : il y a $\binom{6}{2}$ suites à deux succès |
+| Se tromper sur $P(X > k)$ d'une loi géométrique | $P(X > 3) = 1 - (1 - p)^3$ | $P(X > 3) = (1 - p)^3$ : les trois premiers essais échouent |
+| Lire le second paramètre de $\mathcal{N}$ comme un écart-type | $\mathcal{N}(5, 4)$ : $z = \frac{x - 5}{4}$ | c'est la variance : $\sigma = 2$, $z = \frac{x - 5}{2}$ ; et NumPy, SciPy attendent $\sigma$ |
+| Se tromper de signe avec $\Phi$ | $\Phi(-1) = -0{,}8413$ | $\Phi(-1) = 1 - \Phi(1) = 0{,}1587$ |
+| Donner une probabilité à une valeur exacte d'une variable à densité | $T \sim \mathcal{E}(2)$ : $P(T = 1) = 2e^{-2}$ | $P(T = 1) = 0$ ; $f(1)$ est une densité |
+| Croire que $\mathbb{E}[g(X)] = g(\mathbb{E}[X])$ | $\mathbb{E}[X^2] = \mathbb{E}[X]^2$ | vrai pour $g$ affine seulement ; utiliser le théorème de transfert |
+| Mal transformer une variance | $\mathbb{V}(3X + 5) = 3\thinspace\mathbb{V}(X) + 5$ | $9\thinspace\mathbb{V}(X)$ : le facteur au carré, le décalage disparaît |
+| Additionner des écarts-types | $\sigma(X + Y) = 3 + 4 = 7$ pour des variables indépendantes | additionner les variances : $\sqrt{9 + 16} = 5$ |
+| Soustraire les variances d'une différence | $\mathbb{V}(X - Y) = \mathbb{V}(X) - \mathbb{V}(Y)$ | $\mathbb{V}(X) + \mathbb{V}(Y)$ pour des variables indépendantes |
+| Traiter $2X$ comme deux copies indépendantes | $\mathbb{V}(2X) = 2\thinspace\mathbb{V}(X)$ | $\mathbb{V}(2X) = 4\thinspace\mathbb{V}(X)$ ; c'est $\mathbb{V}(X_1 + X_2)$ qui vaut $2\thinspace\mathbb{V}(X)$ |
+| Conclure à l'indépendance sur une seule case | « $P(X = 0, Y = 0) = P(X = 0)P(Y = 0)$, donc indépendantes » | vérifier toutes les cases ; une seule case fausse prouve la dépendance |
+| Oublier le facteur d'un changement de variable | $Y = 3X - 1$ : $f_Y(y) = f_X\big(\frac{y + 1}{3}\big)$ | multiplier par $\frac{1}{3}$ : l'aire de la densité doit rester 1 |
+| Se tromper sur `loc` et `scale` de `scipy.stats` | `stats.expon(2)` pour $\lambda = 2$ ; `stats.uniform(2, 8)` pour $[2 ; 8]$ | `stats.expon(scale=1/2)` ; `stats.uniform(loc=2, scale=6)` |
+
+## Échantillons et estimation (M02c)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Lire la médiane sur la série non triée | la médiane de $42, 38, 51, 45$ est $\frac{38 + 51}{2}$ | trier d'abord : $38, 42, 45, 51$, médiane $\frac{42 + 45}{2} = 43{,}5$ |
+| Ne pas dire par quoi on divise une variance | « la variance vaut 41 » sans préciser | $s_n^2$ divise par $n$ (`ddof=0`), $s^2$ par $n - 1$ (`ddof=1`) : les deux sont des réponses différentes |
+| Une seule convention de quantile | « le premier quartile de 8 valeurs est la médiane de la première moitié » | plusieurs conventions existent ; NumPy interpole à la position $p(n - 1)$ |
+| Se fier au seul z-score pour une valeur aberrante | « $\lvert z \rvert = 2{,}8 < 3$, donc rien d'anormal » | la valeur gonfle $s$ (effet de masque) ; vérifier avec la règle de Tukey, qui repose sur les quartiles |
+| Standardiser le test avec ses propres statistiques | `(x_test - x_test.mean()) / x_test.std()` | utiliser la moyenne et l'écart-type du jeu d'entraînement |
+| Oublier la racine de $n$ | $\sigma(\bar{X}) = \frac{\sigma}{n}$ | $\frac{\sigma}{\sqrt{n}}$ : 4 fois plus de données divisent l'erreur par 2 |
+| Croire que le hasard compense | « après dix piles, face est plus probable » | les tirages sont indépendants ; la loi des grands nombres dilue les écarts, elle ne les corrige pas |
+| Appliquer le théorème central limite aux données | « avec 10 000 valeurs, les durées sont normales » | il porte sur la **moyenne** (ou la somme) ; les données gardent leur loi |
+| Oublier le carré du biais | $\text{EQM} = \text{biais} + \text{variance}$ | $\text{EQM} = \text{biais}^2 + \text{variance}$ |
+| Confondre écart-type et erreur type | un intervalle $\bar{x} \pm 1{,}96\thinspace s$ « pour la moyenne » | l'intervalle de la moyenne utilise $\frac{s}{\sqrt{n}}$ ; $\bar{x} \pm 1{,}96\thinspace s$ décrit à peu près les valeurs elles-mêmes |
+| Garder 1,96 pour tous les niveaux | intervalle à 99 % : $\bar{x} \pm 1{,}96\thinspace\text{SE}$ | 1,645 à 90 %, 1,96 à 95 %, 2,576 à 99 % |
+| Mal interpréter un intervalle de confiance | « $\mu$ a 95 % de chances d'être dans $[39 ; 41]$ » | 95 % des intervalles construits ainsi contiennent $\mu$ ; celui-ci la contient ou non |
+| Diviser la covariance par le produit des variances | $r = \frac{\operatorname{Cov}}{\mathbb{V}(X)\mathbb{V}(Y)}$ | $r = \frac{\operatorname{Cov}}{\sigma_X\sigma_Y}$, les écarts-types |
+| Oublier la covariance dans une variance de somme | $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ pour des variables corrélées | ajouter $2\operatorname{Cov}(X, Y)$ (et le retrancher pour une différence) |
+| Conclure à une causalité | « corrélées à 0,6, donc l'une cause l'autre » | chercher une variable de confusion ; seule une expérience contrôlée établit une cause |
+| Croire que plus de données corrigent un biais d'échantillonnage | « un million d'exemples, donc l'estimation est fiable » | $n$ réduit la variance, pas le biais : se demander qui manque dans les données |
+
+## Probabilités conditionnelles et évaluation d'un classifieur (M03)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Confondre $P(A \mid B)$ et $P(B \mid A)$ | « 99 % des malades ont un test positif, donc un test positif signifie 99 % de chances d'être malade » | c'est la formule de Bayes qui relie les deux ; la prévalence change tout (M03, M04) |
+| Diviser une conditionnelle par le total du tableau | $P(\text{premium} \mid \text{mobile}) = \frac{30}{500}$ | diviser par le total de l'événement « sachant » : $\frac{30}{300}$ |
+| Conclure à l'indépendance sur une seule case | une case égale au produit de ses marges, donc « indépendantes » | vérifier toutes les cases, ou que toutes les lignes ont la même loi conditionnelle |
+| Croire que l'indépendance deux à deux suffit | trois événements indépendants deux à deux, donc mutuellement | deux pièces et « même côté » : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$ |
+| Moyenner des taux sans les poids des groupes | 2 %, 5 % et 8 % : « 5 % en moyenne » | probabilités totales : $\sum_k P(A \mid B_k)\thinspace P(B_k)$ ; et attention au paradoxe de Simpson |
+| Lire la matrice de scikit-learn à l'envers | TP en haut à gauche | labels triés : `[[TN, FP], [FN, TP]]`, la vérité en lignes |
+| Échanger recall et precision | recall $= \frac{TP}{TP + FP}$ | recall : sachant la vérité, $\frac{TP}{TP + FN}$ ; precision : sachant la prédiction, $\frac{TP}{TP + FP}$ |
+| Garder la precision du test pour une autre population | 0,92 en test (20 % de positifs), donc 0,92 en production (2 %) | recalculer $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ : 0,48 |
+| Juger sur l'accuracy quand une classe est rare | « rien n'est positif » : 95 %, un bon modèle | regarder la balanced accuracy, le MCC, le recall et la precision |
+| Utiliser $\beta$ au lieu de $\beta^2$ dans $F_\beta$ | $F_2 = \frac{3PR}{2P + R}$ | $F_2 = \frac{5PR}{4P + R}$ |
+| Compter un ex æquo comme bien ou mal classé | AUC des paires avec un ex æquo compté 1 (ou 0) | un ex æquo compte $\frac{1}{2}$ |
+| Croire que l'AUC mesure les probabilités | AUC 0,95, donc des probabilités fiables | l'AUC ne voit que l'ordre ; la calibration se juge au diagramme de fiabilité et au score de Brier |
+| Calculer l'average precision par les trapèzes | relier les points (recall, precision) par des segments | des rectangles : $\sum_j (R_j - R_{j-1})\thinspace P_j$ |
+
+## Bayes, vraisemblance et loi Beta (M04)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre la vraisemblance pour l'a posteriori | « le capteur détecte 90 % des roulements usés, donc une alerte signifie 90 % de chances d'usure » | diviser vraisemblance × a priori par l'évidence ; un événement rare donne surtout de fausses alertes |
+| Oublier une partie de l'évidence | $P(\text{alerte}) = 0{,}02 \times 0{,}9$ | additionner toutes les façons d'observer : $\sum_j P(O \mid H_j)\thinspace P(H_j)$ |
+| Repartir de l'a priori de départ à chaque observation | trois mises à jour, chacune avec l'a priori 0,5 | l'a posteriori d'une étape est l'a priori de la suivante |
+| Croire que la vraisemblance est une densité en $\theta$ | « $\theta = \frac{1}{6}$ a la probabilité 0,0045 » | c'est la probabilité des données ; son intégrale en $\theta$ ne vaut pas 1 |
+| Confondre $B(a, b)$ avec des factorielles de $a$ et $b$ | $B(3, 6) = \frac{3!\thinspace6!}{9!}$ | $\Gamma(n) = (n - 1)!$ : $B(3, 6) = \frac{2!\thinspace5!}{8!}$ |
+| Confondre le mode et la moyenne d'une loi Beta | MAP de $\mathrm{Beta}(4, 18)$ : $\frac{4}{22}$ | mode $\frac{a - 1}{a + b - 2} = \frac{3}{20}$ ; moyenne $\frac{a}{a + b}$ |
+| Appliquer la formule du mode hors de son domaine | mode de $\mathrm{Beta}(0{,}6 ;\ 3)$ : $\frac{-0{,}4}{1{,}6}$ | la formule vaut pour $a, b > 1$ ; sinon étudier la monotonie (mode 0 ou 1, ou pas de mode unique) |
+| Mettre à jour une loi Beta à l'envers | 5 défauts sur 60 : $\mathrm{Beta}(a + 55,\ b + 5)$ pour le taux de défaut | dire d'abord ce que compte $a$ : ici les défauts ; $\mathrm{Beta}(a + 5,\ b + 55)$ |
+| Ajouter $n$ à $b$ au lieu des échecs | $\mathrm{Beta}(a + k,\ b + n)$ | $\mathrm{Beta}(a + k,\ b + n - k)$ |
+| Croire que deux succès futurs ont la probabilité « moyenne au carré » | $\big(\frac{a}{a + b}\big)^2$ | mettre à jour entre les deux : $\frac{a}{a + b}\cdot\frac{a + 1}{a + b + 1}$ |
+| Annoncer un maximum de vraisemblance sur très peu de données | 0 achat sur 9 visites : « taux nul » | un a priori, par exemple Laplace : $\frac{1}{11}$ |
+| Multiplier de nombreuses probabilités en flottants | $0{,}3^{700}$ donne 0 | additionner les logarithmes, normaliser par log-sum-exp |
+| Prendre les exponentielles de log-probabilités sans soustraire le maximum | `np.exp([-1000, -1001])` donne `[0, 0]` | soustraire d'abord le maximum : `np.exp(l - l.max())` |
+| Calculer $\Gamma$ ou $B$ directement pour de grands paramètres | `math.gamma(700)` : `OverflowError` | `math.lgamma`, `scipy.special.betaln`, et l'exponentielle à la fin |
+| Écrire `k * math.log(p)` avec $p = 0$ | `ValueError` même pour $k = 0$ | traiter $p = 0$ et $p = 1$ à part : $0 \times \ln 0 = 0$ par convention |
+| Lire un intervalle de crédibilité comme un intervalle de confiance (ou l'inverse) | « 95 % des études répétées contiendraient θ », pour un intervalle de crédibilité | crédibilité : une probabilité sur le paramètre, sachant les données ; confiance : une propriété de la méthode |
+
+## Dérivées, Taylor et calcul numérique (M05a)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Prendre tout point où $f'' = 0$ pour un point d'inflexion | « $(x^4)''(0) = 0$, donc 0 est un point d'inflexion » | vérifier que $f''$ change de signe : $12x^2$ ne change pas de signe, $x^4$ est convexe partout |
+| Conclure « ni maximum ni minimum » quand $f''(c) = 0$ | $x^4$ en 0 | le test de la dérivée seconde ne conclut pas : étudier le signe de $f'$ autour de $c$ |
+| Chercher les extrema globaux parmi les seuls points critiques | $x^2 e^{-x}$ sur $[-1, 4]$ : « maximum global $4e^{-2}$, en 2 » | comparer aussi les bords : $f(-1) = e$ est plus grand |
+| Confondre convexe et croissante | « $e^{-x}$ décroît, donc elle n'est pas convexe » | la convexité dit que la pente augmente : $(e^{-x})'' = e^{-x} > 0$ |
+| Oublier les factorielles, ou centrer en 0 au lieu de $a$ | $\cos x \approx 1 - x^2$ ; $P_2$ de $e^x$ en 1 avec des puissances de $x$ | $\frac{f^{(k)}(a)}{k!}(x - a)^k$ |
+| Croire qu'une série de Taylor converge partout | $\ln 3 = 2 - \frac{4}{2} + \frac{8}{3} - \cdots$ | la série de $\ln(1 + x)$ ne converge que pour $-1 < x \le 1$ |
+| Écrire le pas de Newton à l'envers | $x_{k+1} = x_k - \frac{f'(x_k)}{f(x_k)}$ | $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$, avec un test de $f'(x_k) \ne 0$ et un nombre maximal d'itérations |
+| Croire que Newton converge toujours | $x^3 - 2x + 2$ depuis 0 | la suite cycle entre 0 et 1 : changer de point de départ, ou encadrer la racine d'abord |
+| Diviser la différence centrée par $h$ | $\frac{f(x + h) - f(x - h)}{h}$ | les deux points sont à $2h$ l'un de l'autre : diviser par $2h$ |
+| Prendre un pas $h$ minuscule « pour être précis » | $h = 10^{-15}$ dans une différence finie | l'arrondi grandit en $\frac{\delta}{h}$ : prendre le pas qui minimise la borne d'erreur |
+| Prendre l'epsilon machine pour le plus petit flottant | « en `float64`, rien n'est plus petit que $2{,}2 \times 10^{-16}$ » | $\varepsilon$ est l'écart après 1 ; le plus petit `float64` positif est vers $5 \times 10^{-324}$ |
+| Comparer des flottants calculés avec `==` | `0.1 + 0.2 == 0.3` donne `False` | une tolérance : `math.isclose(a, b, rel_tol=..., abs_tol=...)` |
+| Soustraire deux nombres presque égaux | `(1e8 + 0.1) - 1e8` en `float32` ; $\sqrt{x + 1} - \sqrt{x}$ pour $x = 10^{12}$ | réécrire la formule : $\frac{1}{\sqrt{x + 1} + \sqrt{x}}$, `math.log1p`, `math.expm1` |
+| Calculer $\ln(1 + x)$ par `math.log(1 + x)` pour $x$ minuscule | `math.log(1 + 1e-10)` n'a que 7 chiffres justes | `math.log1p(1e-10)` |
+| Prendre l'exponentielle de grands scores | `math.exp(710)` : `OverflowError` ; `np.exp(710)` : `inf`, puis `nan` dans la softmax | soustraire le **maximum** des scores, puis le rajouter au log-sum-exp |
+| Calculer le log-softmax par le logarithme de la softmax | une probabilité qui s'efface donne `math.log(0.0)` | $\ln\text{softmax}(\mathbf{v})_i = v_i - \text{LSE}(\mathbf{v})$, directement à partir des scores |
+
+## Fonctions de plusieurs variables et gradient (M05b)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Oublier la variable « fixée » dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2$ | $y$ est une constante qui reste en facteur : $3x^2 y$ |
+| Prendre une direction donnée par un vecteur non unitaire | la pente de $f$ dans la direction $(7, 24)$, avec $\nabla f = (6, 9)$ : « $42 + 216 = 258$ » | diviser d'abord par la norme : $\mathbf{u} = (0{,}28 ;\ 0{,}96)$, et la pente vaut $10{,}32$ |
+| Croire que le gradient vise le sommet, ou suit les lignes de niveau | sur le dôme $100 - x^2 - 2y^2$, « en $(3, 1)$, le gradient pointe vers $(0, 0)$ » | il suit la montée la plus raide sur le moment, à angle droit des lignes de niveau : $(-6, -4)$ passe à côté de l'origine |
+| Écrire le plan tangent sans les décalages | $z = f(a, b) + f_x(a, b)\thinspace x + f_y(a, b)\thinspace y$ | $z = f(a, b) + f_x(a, b)\thinspace(x - a) + f_y(a, b)\thinspace(y - b)$ : le plan passe par le point de contact |
+| Prendre $f_{xy}$ pour le produit $f_x \times f_y$ | pour $x^3 y + 2y^2$ en $(1, 2)$ : « $f_{xy} = 6 \times 9$ » | $f_{xy}$ est la dérivée de $f_x$ par rapport à $y$ : $3x^2 = 3$ |
+| Oublier le facteur 2 du terme croisé dans la courbure | dans la direction $\frac{(1, -1)}{\sqrt{2}}$ : « $\frac{12 - 3 + 4}{2}$ » | $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2 = \frac{12 - 6 + 4}{2} = 5$ |
+| Conclure « minimum » parce que $f_{xx} > 0$ et $f_{yy} > 0$ | $f_{xx} = f_{yy} = 1$, $f_{xy} = 2$ | calculer $D = f_{xx}f_{yy} - f_{xy}^2 = 1 - 4 < 0$ : un point selle |
+| Appliquer le test du second ordre quand $D = 0$ | « $x^4 + y^2$ n'a pas de minimum en $(0, 0)$, puisque $D = 0$ » | $D = 0$ : le test ne dit rien, regarder la fonction ($x^4 + y^2 \ge 0$ : c'est un minimum) |
+| Oublier les bords pour un extremum global sur un domaine borné | le minimum de $f$ sur un segment cherché seulement là où $\nabla f = \mathbf{0}$ | paramétrer le segment, se ramener à une variable, comparer les points critiques **et** les extrémités |
+| Se tromper de signe dans le pas de descente | $\mathbf{x} + \eta\thinspace\nabla f(\mathbf{x})$ pour minimiser | descendre : $\mathbf{x} - \eta\thinspace\nabla f(\mathbf{x})$ ; $+$ monte |
+| Confondre $\min f$ et $\arg\min f$ | pour $(x - 3)^2 + 2(y + 1)^2$ : « $\arg\min f = 0$ » | $\min f = 0$ (une valeur), $\arg\min f = (3, -1)$ (un point) |
+
+## Théorie de l'information (M06)
+
+| Erreur | Exemple faux | Ce qu'il faut faire |
+|---|---|---|
+| Calculer en nats en croyant calculer en bits | « $-\ln \frac{1}{8} \approx 2{,}08$ bits » | bits : $\log_2$, soit $-\log_2 \frac{1}{8} = 3$ bits ; nats : $\ln$ ; scikit-learn et PyTorch calculent en nats |
+| Laisser $0 \log 0$ donner `nan` | `-np.sum(p * np.log2(p))` avec une probabilité nulle : `nan` | $0 \log 0 = 0$ : ne garder que les $p > 0$, ou utiliser `scipy.special.xlogy` |
+| Prendre l'entropie d'une ligne sans la diviser par sa probabilité | pour la ligne $(0{,}12 ;\ 0{,}28)$, l'entropie « de 0,12 et 0,28 » | la loi conditionnelle est la ligne divisée par $p(x) = 0{,}4$ : $(0{,}3 ;\ 0{,}7)$ |
+| Faire la moyenne simple des entropies des lignes | $H(Y \mid X) = \frac{H_1 + H_2}{2}$ alors que $p(x_1) = 0{,}8$ | pondérer par les probabilités des lignes : $0{,}8\thinspace H_1 + 0{,}2\thinspace H_2$ |
+| Croire que chaque valeur de $X$ diminue l'incertitude sur $Y$ | « $H(Y \mid X = x) \le H(Y)$ pour tout $x$ » | c'est vrai seulement en moyenne, $H(Y \mid X) \le H(Y)$ ; une valeur particulière peut l'augmenter |
+| Prendre $H(X) + H(Y)$ pour $H(X, Y)$ | sans vérifier que $X$ et $Y$ sont indépendantes | $H(X, Y) = H(X) + H(Y) - I(X ; Y)$ : l'égalité n'a lieu que pour des variables indépendantes |
+| Conclure à l'indépendance d'une corrélation nulle | $X$ uniforme sur $\lbrace-1, 0, 1\rbrace$ et $Y = X^2$ : « corrélation nulle, donc $I(X ; Y) = 0$ » | la corrélation ne voit que les liens linéaires ; ici $I(X ; Y) = H(Y) > 0$ |
+| Échanger les deux lois de la divergence KL | $D_{\mathrm{KL}}(\text{modèle} \parallel \text{données})$ au lieu de $D_{\mathrm{KL}}(\text{données} \parallel \text{modèle})$ | l'ordre compte : les poids sont ceux des données ; l'autre sens peut même être infini |
+| Appeler la divergence KL une distance | « la distance KL entre $p$ et $q$ » | une divergence : pas symétrique, pas d'inégalité triangulaire ; Jensen-Shannon, elle, est symétrique |
+| Écrire l'inégalité de Jensen dans le mauvais sens | « $\mathbb{E}[\ln X] \ge \ln \mathbb{E}[X]$ » | $\ln$ est concave : $\mathbb{E}[\ln X] \le \ln \mathbb{E}[X]$ ; le sens « $\ge$ » est celui des fonctions convexes |
+| Croire qu'une somme de Kraft au plus 1 rend un code préfixe | « $\lbrace0, 01, 11\rbrace$ : $\frac{1}{2} + \frac{1}{4} + \frac{1}{4} = 1$, donc préfixe » | Kraft dit qu'**il existe** un code préfixe de ces longueurs (0, 10, 11), pas que celui-ci l'est : 0 est le début de 01 |
+| Arrondir les longueurs de Shannon à l'entier le plus proche | $-\log_2 0{,}4 \approx 1{,}32$, « donc 1 » | à l'entier supérieur, $\lceil 1{,}32 \rceil = 2$ : sinon la somme de Kraft peut dépasser 1 |
+| Croire sans biais l'entropie des fréquences observées | l'entropie des fréquences de 10 tirages prise pour la vraie entropie | elle la sous-estime en moyenne (et l'information mutuelle estimée la surestime) : plus de données, ou une correction |

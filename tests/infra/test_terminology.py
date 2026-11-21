@@ -104,7 +104,7 @@ def _scannable(path, line):
     """The line, with the second column of a glossary table and the target of a reference link blanked out."""
     if REFERENCE_DEFINITION.match(line):
         return ""
-    if path.name == "glossaire.md" and line.startswith("|"):
+    if path.name.startswith("glossaire") and line.startswith("|"):   # glossaire.md and its parts (session 79)
         cells = line.split("|")
         if len(cells) > 3:
             cells[2] = " " * len(cells[2])
