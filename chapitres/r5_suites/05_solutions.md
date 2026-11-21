@@ -11,7 +11,7 @@
 ### R5.Q1 — Explicite ou par récurrence ?
 1. **Explicite** : la formule donne $u_n$ à partir de $n$ seul.
 2. **Par récurrence** : $u_{n+1}$ se calcule à partir de $u_n$ (et de $n$), en partant de $u_0$.
-3. $u_{20} = 400 + 1 = $ **401**.
+3. $u_{20} = 400 + 1 =$ **401**.
 4. **Non** : la règle ne donne $u_{20}$ qu'à partir de $u_{19}$, qui demande $u_{18}$, et ainsi de suite (le §5 de la fiche donne un raccourci pour ce type de règle, mais la règle seule n'en donne pas).
 5. **Faux** : il manque le premier terme. Avec $u_0 = 2$, on obtient 2, 4, 16, 256… ; avec $u_0 = 1$, la suite constante 1.
 6. $1, -1, 1, -1$ : **ni croissante ni décroissante**, elle monte et descend à chaque pas.
@@ -47,7 +47,7 @@
 1. **La moyenne exponentielle** : $v_t = \beta\thinspace v_{t-1} + (1 - \beta)\thinspace x_t$.
 2. **La moyenne mobile** : chaque valeur de la fenêtre pèse $\frac{1}{k}$.
 3. **La moyenne mobile** : pas de moyenne tant que la fenêtre n'est pas pleine.
-4. $10 - 4 + 1 = $ **7**.
+4. $10 - 4 + 1 =$ **7**.
 5. **Trop bas** : $v_1 = (1 - \beta) \times 50$, bien en dessous de 50.
 6. **Augmenter** $\beta$ : la moyenne garde plus de passé.
 

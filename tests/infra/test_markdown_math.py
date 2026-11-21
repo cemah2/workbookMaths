@@ -62,3 +62,13 @@ def test_a_percent_sign_that_ends_a_formula_goes_after_it():
 def test_table_cells_are_separate_units():
     text = "| a | $x_{1}$ | $y_{2}$ |\n|---|---|---|\n"
     assert mdmath.emphasis_problems(text) == []
+
+
+def test_github_syntax_for_matrices_and_two_formulas_github_does_not_read():
+    text = ("Avec $\\mathbf{A} = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ (vecteur propre $(1, 6)$), "
+            "on a $2 + 3 = $ 5.\n$$\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$$\n")
+    fixed = mdmath.fix_text(text)
+    assert "$`\\mathbf{A} = \\begin{pmatrix} 1 & 2 \\cr 3 & 4 \\end{pmatrix}`$" in fixed, fixed
+    assert "$(1, 6){}$)" in fixed and "$2 + 3 =$ 5" in fixed, fixed
+    assert "```math\n\\begin{pmatrix} 1 \\cr 0 \\end{pmatrix}\n```" in fixed, fixed
+    assert mdmath.problems(fixed) == [] and mdmath.fix_text(fixed) == fixed

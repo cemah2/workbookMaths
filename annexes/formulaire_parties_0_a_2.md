@@ -225,7 +225,7 @@ R0 (prise en main) n'a pas de formule : les priorités de Python (`**` avant le 
 | balanced accuracy, MCC | BA $=$ moyenne des recalls (binaire : $\frac{\text{recall} + \text{spécificité}}{2}$) ; MCC $= \frac{TP \cdot TN - FP \cdot FN}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}$ |
 | prévalence | precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ ; `class_weight="balanced"` : $w_k = \frac{n}{K\thinspace n_k}$ |
 | seuil de décision | probabilités calibrées : positif si $p > \frac{c_{FP}}{c_{FP} + c_{FN}}$ |
-| AUC | aire sous la courbe ROC (points (FPR, recall)) $= \frac{\operatorname{card}\lbrace s_+ > s_-\rbrace + \frac{1}{2}\operatorname{card}\lbrace s_+ = s_-\rbrace}{n_+ n_-} = P(S_+ > S_-) + \frac{1}{2}P(S_+ = S_-)$ ; inchangée par une fonction strictement croissante ; $1 - $ AUC pour $-s$ |
+| AUC | aire sous la courbe ROC (points (FPR, recall)) $= \frac{\operatorname{card}\lbrace s_+ > s_-\rbrace + \frac{1}{2}\operatorname{card}\lbrace s_+ = s_-\rbrace}{n_+ n_-} = P(S_+ > S_-) + \frac{1}{2}P(S_+ = S_-)$ ; inchangée par une fonction strictement croissante ; $1 -$ AUC pour $-s$ |
 | average precision | $\text{AP} = \sum_j (R_j - R_{j-1})\thinspace P_j$, aux seuils décroissants ($R_0 = 0$) ; hasard : la prévalence |
 | calibration, Brier | calibré : $P(Y = 1 \mid \text{score} = p) = p$ ; $\text{Brier} = \frac{1}{n}\sum (p_i - y_i)^2$ ; prévision constante $\pi$ : $\pi(1 - \pi)$ |
 | taux par groupe | $\text{FPR} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot\text{recall}$ : prévalences différentes, impossible d'égaliser PPV, recall et FPR à la fois (sauf cas extrêmes, sans faux positif) |

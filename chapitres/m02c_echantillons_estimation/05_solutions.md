@@ -42,7 +42,7 @@
 
 ### M02c.Q5 — Biais, variance et ddof
 1. **Non** : il est juste **en moyenne** sur tous les échantillons ; sur un échantillon donné, il se trompe (de l'ordre de son écart-type).
-2. $2^2 + 5 = $ **9**.
+2. $2^2 + 5 =$ **9**.
 3. Par $n$ ; par $n - 1$.
 4. Par $\frac{4}{3}$ : $s^2 = \frac{n}{n - 1}s_n^2$.
 5. **Faux** : l'erreur quadratique compte ; un estimateur biaisé mais peu dispersé peut être meilleur (fiche §6).

@@ -13,7 +13,7 @@
 | $Y$, $\hat{Y}$ | « Y », « Y chapeau » | true label, predicted label | la vraie classe d'un exemple et la classe prédite par un modèle | recall $= P(\hat{Y} = 1 \mid Y = 1)$ | M03 |
 | TP, FP, FN, TN | « vrais positifs, faux positifs, faux négatifs, vrais négatifs » | true / false positives / negatives | les quatre cases d'une matrice de confusion binaire | precision $= \frac{TP}{TP + FP}$ | M03 |
 | $F_\beta$ | « F bêta » | F-beta score | moyenne harmonique pondérée de la precision et du recall | $F_1 = \frac{2PR}{P + R}$ | M03 |
-| TPR, FPR | « taux de vrais positifs », « taux de faux positifs » | true / false positive rate | le recall, et $1 - $ spécificité : les deux axes de la courbe ROC ; MB6 les appelle taux de détection et taux de fausses alertes | | M03, MB6 |
+| TPR, FPR | « taux de vrais positifs », « taux de faux positifs » | true / false positive rate | le recall, et $1 -$ spécificité : les deux axes de la courbe ROC ; MB6 les appelle taux de détection et taux de fausses alertes | | M03, MB6 |
 | $\pi$ (en classification) | « pi », « la prévalence » | prevalence, base rate | $P(Y = 1)$, la proportion de positifs (pas le nombre 3,14…) | precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$ | M03 |
 | $X \sim \mathcal{N}(\mu, \sigma^2)$ | « X suit une loi normale de moyenne mu et de variance sigma carré » | X is distributed as a normal | la loi de la variable aléatoire $X$ | $\mathcal{N}(505, 5^2)$ : écart-type 5 | M02b |
 | $\mathcal{B}(n, p)$, $\mathcal{P}(\lambda)$, $\mathcal{E}(\lambda)$, $\mathcal{U}([a ; b])$ | « binomiale n p », « Poisson lambda », « exponentielle lambda », « uniforme sur a b » | binomial, Poisson, exponential, uniform | les lois usuelles et leurs paramètres | $X \sim \mathcal{P}(3)$ : 3 événements en moyenne | M02b |

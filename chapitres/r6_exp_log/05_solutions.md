@@ -31,7 +31,7 @@
 2. **20** questions : $2^{19} = 524\thinspace288$ ne suffit pas, $2^{20} = 1\thinspace048\thinspace576$ suffit.
 3. **5** bits ($-\log_{2} \frac{1}{32} = 5$).
 4. **0** bit : un événement certain n'apprend rien.
-5. $2^{7} = $ **128** possibilités.
+5. $2^{7} =$ **128** possibilités.
 6. **Vrai** : 1 bit ≈ 0,693 nat, donc une quantité de $I$ bits vaut $0{,}693\thinspace I$ nats, un nombre plus petit (4 bits ≈ 2,77 nats).
 
 ### R6.Q4 — Qui grandit le plus vite ?
@@ -46,7 +46,7 @@
 1. **Oui** : chaque intervalle est un facteur 10, une décade.
 2. **À la moitié**, à peu près : $\log_{10} 3 \approx 0{,}48$.
 3. **Non** pour les deux : $\log 0$ et $\log(-5)$ n'existent pas.
-4. $10^{2} = $ **100**.
+4. $10^{2} =$ **100**.
 5. Une croissance **exponentielle** : $\log y$ est une fonction affine de $x$.
 
 ### R6.Q6 — Sigmoïde : valeurs remarquables et symétrie

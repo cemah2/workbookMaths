@@ -17,16 +17,16 @@
 6. **Faux** : l'évidence est la même, $P(O)$ ; d'ailleurs $P(\text{non } H \mid O) = 1 - P(H \mid O) = 0{,}41$.
 
 ### M04.Q2 — Mettre à jour deux fois
-1. Produits $0{,}5 \times 0{,}6 = 0{,}3$ et $0{,}5 \times 0{,}2 = 0{,}1$ : $P(H_1 \mid O) = \frac{0{,}3}{0{,}4} = $ **0,75**.
-2. Avec l'a priori 0,75 : $\frac{0{,}75 \times 0{,}6}{0{,}75 \times 0{,}6 + 0{,}25 \times 0{,}2} = \frac{0{,}45}{0{,}5} = $ **0,9**.
+1. Produits $0{,}5 \times 0{,}6 = 0{,}3$ et $0{,}5 \times 0{,}2 = 0{,}1$ : $P(H_1 \mid O) = \frac{0{,}3}{0{,}4} =$ **0,75**.
+2. Avec l'a priori 0,75 : $\frac{0{,}75 \times 0{,}6}{0{,}75 \times 0{,}6 + 0{,}25 \times 0{,}2} = \frac{0{,}45}{0{,}5} =$ **0,9**.
 3. **Faux** : l'a priori de la deuxième mise à jour est l'a posteriori de la première, 0,75.
-4. $\frac{0{,}5 \times 0{,}6 \times 0{,}4}{0{,}5 \times 0{,}6 \times 0{,}4 + 0{,}5 \times 0{,}2 \times 0{,}8} = \frac{0{,}12}{0{,}2} = $ **0,6**.
+4. $\frac{0{,}5 \times 0{,}6 \times 0{,}4}{0{,}5 \times 0{,}6 \times 0{,}4 + 0{,}5 \times 0{,}2 \times 0{,}8} = \frac{0{,}12}{0{,}2} =$ **0,6**.
 5. Chaque $O$ multiplie le rapport par $\frac{0{,}6}{0{,}2} = 3$, et le rapport a priori vaut 1 : **$3^n$**.
 6. Il faut $3^n > 99$ : $3^4 = 81$ ne suffit pas ($\frac{81}{82} \approx 0{,}988$), $3^5 = 243$ suffit ($\frac{243}{244} \approx 0{,}996$) : **5**.
 
 ### M04.Q3 — La vraisemblance, une fonction du paramètre
 1. $L(\theta) = \theta^4(1 - \theta)^6$.
-2. En $\theta = \frac{4}{10} = $ **0,4**.
+2. En $\theta = \frac{4}{10} =$ **0,4**.
 3. **Faux** : $L$ n'est pas une densité en $\theta$ ; ici $\int_0^1 L = B(5, 7) = \frac{1}{2310}$.
 4. **Vrai** : $c\thinspace L$ a les mêmes variations que $L$ si $c > 0$.
 5. Le logarithme change le produit en somme ($4\ln\theta + 6\ln(1 - \theta){}$), plus simple à dériver, et il évite l'underflow d'un produit de nombreuses probabilités (fiche §7). Comme $\ln$ est croissante, $\ln L$ a le même maximum que $L$.
@@ -34,26 +34,26 @@
 
 ### M04.Q4 — La loi Beta : forme et paramètres
 1. La loi **uniforme** sur $[0, 1]$ (densité 1).
-2. $\frac{3}{10} = $ **0,3**.
+2. $\frac{3}{10} =$ **0,3**.
 3. **$\mathrm{Beta}(30, 70)$** : même moyenne, mais variance $\frac{0{,}21}{101} \approx 0{,}0021$ contre $\frac{0{,}21}{11} \approx 0{,}019$.
 4. Une forme en **U** : elle tend vers l'infini en 0 et en 1, avec un minimum en $\frac{1}{2}$.
-5. $\Gamma(5) = 4! = $ **24**.
+5. $\Gamma(5) = 4! =$ **24**.
 6. **Faux** : la densité de $\mathrm{Beta}(2, 2)$ vaut 1,5 en $\frac{1}{2}$, celle de $\mathrm{Beta}(30, 70)$ dépasse 8. Seule son aire vaut 1.
 
 ### M04.Q5 — Conjuguée, Laplace, MAP
-1. $\mathrm{Beta}(2 + 4,\ 3 + 1) = $ **$\mathrm{Beta}(6, 4)$**.
-2. $\frac{6 - 1}{6 + 4 - 2} = \frac{5}{8} = $ **0,625**.
-3. $\frac{6}{10} = $ **0,6**.
-4. $\frac{0 + 1}{8 + 2} = $ **0,1**.
+1. $\mathrm{Beta}(2 + 4,\ 3 + 1) =$ **$\mathrm{Beta}(6, 4)$**.
+2. $\frac{6 - 1}{6 + 4 - 2} = \frac{5}{8} =$ **0,625**.
+3. $\frac{6}{10} =$ **0,6**.
+4. $\frac{0 + 1}{8 + 2} =$ **0,1**.
 5. **Vrai** : l'a posteriori est $\mathrm{Beta}(k + 1,\ n - k + 1)$, de mode $\frac{k}{n}$ (fiche §6).
-6. $6 + 14 = $ **20** pseudo-observations, dont 6 succès.
+6. $6 + 14 =$ **20** pseudo-observations, dont 6 succès.
 
 ### M04.Q6 — Logarithmes et underflow
-1. $400 \ln 0{,}1 \approx $ **$-921{,}03$**.
+1. $400 \ln 0{,}1 \approx$ **$-921{,}03$**.
 2. **`0.0`** : $0{,}1^{400} = 10^{-400}$ est plus petit que le plus petit `float64` positif (environ $5 \times 10^{-324}$) ; c'est l'underflow.
 3. Pour que le plus grand terme devienne $e^0 = 1$ : aucune exponentielle ne déborde, et elles ne valent pas toutes 0. L'identité $\ln\sum_j e^{\ell_j} = m + \ln\sum_j e^{\ell_j - m}$ est exacte.
-4. $\ln 2 \approx $ **0,693**.
-5. $-500 + \ln 2 \approx $ **$-499{,}307$** (alors que `math.exp(-500)` est déjà minuscule, et `math.exp(-800)` vaut 0).
+4. $\ln 2 \approx$ **0,693**.
+5. $-500 + \ln 2 \approx$ **$-499{,}307$** (alors que `math.exp(-500)` est déjà minuscule, et `math.exp(-800)` vaut 0).
 6. **Vrai** : la log-vraisemblance d'observations indépendantes est la somme de leurs log-probabilités.
 
 ### M04.Q7 — Fréquentiste ou bayésien ?
@@ -69,10 +69,10 @@
 ## 🔁 Rappels
 
 ### M04.R1 — Probabilités conditionnelles (M03)
-1. $\frac{30 + 24}{200} = $ **0,27**.
-2. $\frac{24}{80} = $ **0,3**.
+1. $\frac{30 + 24}{200} =$ **0,27**.
+2. $\frac{24}{80} =$ **0,3**.
 3. $\frac{24}{54} = \frac{4}{9} \approx$ **0,444**.
-4. $\frac{24}{200} = $ **0,12**.
+4. $\frac{24}{200} =$ **0,12**.
 5. **Non** : $P(\text{achat} \mid \text{iOS}) = 0{,}3 \ne P(\text{achat}) = 0{,}27$ (et $P(\text{achat} \mid \text{Android}) = 0{,}25$).
 
 ### M04.R2 — Intégrales et densités (M02a)
@@ -84,8 +84,8 @@
 
 ### M04.R3 — Loi binomiale (M02b)
 1. $0{,}7^{10} \approx$ **0,0282**.
-2. $10 \times 0{,}3 = $ **3**.
-3. $10 \times 0{,}3 \times 0{,}7 = $ **2,1**.
+2. $10 \times 0{,}3 =$ **3**.
+3. $10 \times 0{,}3 \times 0{,}7 =$ **2,1**.
 4. $\binom{10}{2} \times 0{,}3^2 \times 0{,}7^8 = 45 \times 0{,}09 \times 0{,}0576 \approx$ **0,2335**.
 5. $\binom{10}{2}$ ne dépend pas de $p$ : multiplier une fonction de $p$ par une constante positive ne déplace pas son maximum (fiche §3). On peut maximiser $p^2(1 - p)^8$.
 

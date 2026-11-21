@@ -17,12 +17,12 @@
 6. **Faux** : c'est la somme sur toutes les valeurs $y$, à $x$ **fixé**, qui vaut 1 (une ligne de lois conditionnelles). Pour $y$ fixé, la somme sur $x$ n'a pas de raison de valoir 1 (0,1 + 0,25 = 0,35 pour « premium » dans la fiche).
 
 ### M03.Q2 — P(A sachant B) et P(B sachant A)
-1. Règle du produit : $P(\text{technique} \cap \text{formation}) = P(\text{technique} \mid \text{formation})\thinspace P(\text{formation}) = 0{,}8 \times 0{,}25 = $ **0,2**.
-2. $P(\text{formation} \mid \text{technique}) = \frac{0{,}2}{0{,}4} = $ **0,5**.
+1. Règle du produit : $P(\text{technique} \cap \text{formation}) = P(\text{technique} \mid \text{formation})\thinspace P(\text{formation}) = 0{,}8 \times 0{,}25 =$ **0,2**.
+2. $P(\text{formation} \mid \text{technique}) = \frac{0{,}2}{0{,}4} =$ **0,5**.
 3. **Faux** : $P(B \mid A) = P(A \mid B)\thinspace\frac{P(B)}{P(A)}$ peut être minuscule si $B$ est rare et $A$ fréquent.
 4. **Vrai** : sachant $B$, $A$ et « non $A$ » se partagent tout l'univers restreint.
 5. **Faux** : les deux probabilités ont des conditions différentes. Exemple : $A$ certain donne $1 + 1 = 2$.
-6. $0{,}4 \times 0{,}05 = $ **0,02**, soit 2 % des pièces (règle du produit).
+6. $0{,}4 \times 0{,}05 =$ **0,02**, soit 2 % des pièces (règle du produit).
 
 ### M03.Q3 — Indépendants ou incompatibles ?
 1. **Indépendants** : $P(A \cap B) = P(\lbrace2\rbrace) = \frac{1}{6}$ et $P(A)\thinspace P(B) = \frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$.
@@ -36,14 +36,14 @@
 1. Le **recall** (sensibilité, taux de vrais positifs).
 2. La **precision** (valeur prédictive positive).
 3. La **spécificité**.
-4. Le **taux de faux positifs** (FPR), $1 - $ spécificité.
+4. Le **taux de faux positifs** (FPR), $1 -$ spécificité.
 5. L'**accuracy**.
 6. Le **recall**, la **spécificité** et le **taux de faux positifs** : ils conditionnent par la vérité. La precision et l'accuracy changent (fiche §6).
 
 ### M03.Q5 — Moyennes de métriques
 1. $\frac{2 \times 0{,}5 \times 1}{1{,}5} = \frac{2}{3} \approx$ **0,667**.
 2. **Faux** : $\beta = 2$ donne au recall le poids $\frac{4}{5}$.
-3. $\frac{0{,}9 + 0{,}6 + 0{,}3}{3} = $ **0,6**.
+3. $\frac{0{,}9 + 0{,}6 + 0{,}3}{3} =$ **0,6**.
 4. **Vrai** (fiche §5, et M03.13).
 5. **0**, par convention : une colonne de la matrice est vide, le dénominateur de la formule est nul, et la prédiction n'a aucun lien avec la vérité.
 6. **Vrai** : la moyenne macro est une moyenne simple des classes.
@@ -70,23 +70,23 @@
 
 ### M03.R1 — Arbres pondérés (R8)
 1. Premier niveau : rouge $\frac{3}{5}$, bleu $\frac{2}{5}$ ; second niveau : gagne $\frac{1}{2}$ sachant rouge, $\frac{1}{6}$ sachant bleu.
-2. $\frac{3}{5} \times \frac{1}{2} = $ **0,3**.
-3. $\frac{2}{5} \times \frac{1}{6} = \frac{2}{30} = $ $\frac{1}{15}$.
-4. $\frac{3}{10} + \frac{1}{15} = \frac{9}{30} + \frac{2}{30} = $ $\frac{11}{30}$ (les probabilités totales).
+2. $\frac{3}{5} \times \frac{1}{2} =$ **0,3**.
+3. $\frac{2}{5} \times \frac{1}{6} = \frac{2}{30} =$ $\frac{1}{15}$.
+4. $\frac{3}{10} + \frac{1}{15} = \frac{9}{30} + \frac{2}{30} =$ $\frac{11}{30}$ (les probabilités totales).
 5. $1 - \frac{11}{30} = \frac{19}{30}$.
 
 ### M03.R2 — Moyenne harmonique et moyenne pondérée (R1)
-1. $\frac{2}{\frac{1}{2} + \frac{1}{6}} = \frac{2}{\frac{4}{6}} = $ **3**.
+1. $\frac{2}{\frac{1}{2} + \frac{1}{6}} = \frac{2}{\frac{4}{6}} =$ **3**.
 2. $\frac{2}{2 + 1} = \frac{2}{3} \approx$ **0,667**.
-3. $\frac{3 \times 10 + 1 \times 20}{4} = $ **12,5**.
-4. Harmonique $\frac{2 \times 0{,}9 \times 0{,}1}{1} = $ **0,18** ; arithmétique **0,5**. La moyenne harmonique reste près du plus petit nombre.
+3. $\frac{3 \times 10 + 1 \times 20}{4} =$ **12,5**.
+4. Harmonique $\frac{2 \times 0{,}9 \times 0{,}1}{1} =$ **0,18** ; arithmétique **0,5**. La moyenne harmonique reste près du plus petit nombre.
 5. $\frac{1}{\frac{1}{5} \times 2 + \frac{4}{5} \times 1} = \frac{1}{1{,}2} = \frac{5}{6} \approx$ **0,833**.
 
 ### M03.R3 — Aire par la méthode des trapèzes (M02a)
-1. $0{,}5 \times \frac{0{,}4 + 0{,}8}{2} = $ **0,3**.
-2. $0{,}5 \times \frac{0 + 0{,}6}{2} + 0{,}5 \times \frac{0{,}6 + 1}{2} = 0{,}15 + 0{,}4 = $ **0,55**.
-3. $0{,}5 \times \frac{0 + 0{,}25}{2} + 0{,}5 \times \frac{0{,}25 + 1}{2} = 0{,}0625 + 0{,}3125 = $ **0,375**, pour une valeur exacte de $\frac{1}{3}$ : erreur $\approx 0{,}042$ (par excès : la courbe est tournée vers le haut, donc chaque corde passe au-dessus d'elle).
-4. Deux paliers : $0{,}5 \times 0{,}5 + 0{,}5 \times 1 = $ **0,75**.
+1. $0{,}5 \times \frac{0{,}4 + 0{,}8}{2} =$ **0,3**.
+2. $0{,}5 \times \frac{0 + 0{,}6}{2} + 0{,}5 \times \frac{0{,}6 + 1}{2} = 0{,}15 + 0{,}4 =$ **0,55**.
+3. $0{,}5 \times \frac{0 + 0{,}25}{2} + 0{,}5 \times \frac{0{,}25 + 1}{2} = 0{,}0625 + 0{,}3125 =$ **0,375**, pour une valeur exacte de $\frac{1}{3}$ : erreur $\approx 0{,}042$ (par excès : la courbe est tournée vers le haut, donc chaque corde passe au-dessus d'elle).
+4. Deux paliers : $0{,}5 \times 0{,}5 + 0{,}5 \times 1 =$ **0,75**.
 5. Il a une largeur nulle : son « trapèze » a une aire nulle.
 
 <a id="papier"></a>

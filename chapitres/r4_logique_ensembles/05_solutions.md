@@ -41,7 +41,7 @@
 7. **Vrai** : 1 n'est pas dans $]0 \mkern5mu ;\mkern5mu  1[$, et c'est le seul nombre de $[1 \mkern5mu ;\mkern5mu  2]$ qui aurait pu y être.
 
 ### R4.Q5 — Lire une somme Σ
-1. $10 - 4 + 1 = $ **7** termes.
+1. $10 - 4 + 1 =$ **7** termes.
 2. $2 + 3 + 4 + 5$.
 3. **Vrai** : l'indice est muet.
 4. $7n$ : $n$ termes égaux à 7.

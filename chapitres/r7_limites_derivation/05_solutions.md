@@ -28,7 +28,7 @@
 ### R7.Q3 — Le nombre dérivé est une pente
 1. **Vrai** : c'est la pente de la **sécante** qui passe par $(a \mkern5mu ;\mkern5mu  f(a))$ et $(a + h \mkern5mu ;\mkern5mu  f(a + h))$.
 2. Elle **monte** : la pente de sa tangente en −1 est positive.
-3. $f(5{,}1) \approx f(5) + f'(5) \times 0{,}1 = 2 + 0{,}4 = $ **2,4**.
+3. $f(5{,}1) \approx f(5) + f'(5) \times 0{,}1 = 2 + 0{,}4 =$ **2,4**.
 4. **Faux** : $y = f(a) + f'(a)(x - a)$ ; sans $f(a)$, la droite passe par $(a \mkern5mu ;\mkern5mu  0)$ au lieu du point de la courbe.
 5. **Faux** : $\lvert x \rvert$ est continue en 0, mais n'y est pas dérivable (R7.12).
 6. Des **km/h** : une distance divisée par une durée.

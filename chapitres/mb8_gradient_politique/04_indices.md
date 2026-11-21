@@ -277,7 +277,7 @@ Fiche §7 : « Le modèle », « Quand les forces existent » et « La cote Elo 
 </details>
 <details><summary>Indice 2</summary>
 
-Deux clubs seuls : l'équation de vraisemblance d'une paire, $n\thinspace\sigma(d) = $ les victoires de A. Avec $p_i = e^{\beta_i}$, $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, et les victoires attendues de $i$ contre $j$ valent $n_{ij}\thinspace\sigma(\beta_i - \beta_j)$. Centrer : retrancher la moyenne des $\ln p_i$. Elo : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et C gagne $k\thinspace(1 - E)$.
+Deux clubs seuls : l'équation de vraisemblance d'une paire, $n\thinspace\sigma(d) =$ les victoires de A. Avec $p_i = e^{\beta_i}$, $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, et les victoires attendues de $i$ contre $j$ valent $n_{ij}\thinspace\sigma(\beta_i - \beta_j)$. Centrer : retrancher la moyenne des $\ln p_i$. Elo : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et C gagne $k\thinspace(1 - E)$.
 
 </details>
 <details><summary>Indice 3</summary>

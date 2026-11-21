@@ -676,7 +676,7 @@ Les quatre ⚠️ des §1, §2 et §5 de la fiche.
 </details>
 <details><summary>Indice 3</summary>
 
-Corrections : `mu = mu @ P` ; diviser par la somme ; $r(s) = $ `monthly_fee` si $s = 1$, plus `closing_fee` $\times\thinspace p_{s2}$, et 0 pour l'état résilié ; `if np.linalg.matrix_rank(np.eye(m) - P) < m: raise ValueError(...)`.
+Corrections : `mu = mu @ P` ; diviser par la somme ; $r(s) =$ `monthly_fee` si $s = 1$, plus `closing_fee` $\times\thinspace p_{s2}$, et 0 pour l'état résilié ; `if np.linalg.matrix_rank(np.eye(m) - P) < m: raise ValueError(...)`.
 
 </details>
 

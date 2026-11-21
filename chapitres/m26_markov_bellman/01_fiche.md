@@ -473,7 +473,7 @@ Pour un MDP quelconque (§4), on cherche la meilleure politique.
 
 > **Énoncés** (admis). La **valeur optimale** (*optimal value*) $\mathbf{V}^\star$ est l'unique solution de l'**équation d'optimalité de Bellman** (*Bellman optimality equation*)
 > $$V^\star(s) = \max_{a}\Big[r(s, a) + \gamma\sum_{s'}\mathbf{P} _a(s, s')\thinspace V^\star(s')\Big] ;$$
-> l'opérateur de droite est une γ-contraction pour $\lVert\cdot\rVert  _\infty$, et l'**itération sur les valeurs** (*value iteration*) $\mathbf{V} _{k+1} = $ (membre de droite appliqué à $\mathbf{V}_k$) converge vers $\mathbf{V}^\star$ ; la **politique gloutonne** (*greedy policy*) pour $\mathbf{V}^\star$, qui choisit dans chaque état une action réalisant le maximum, est optimale.
+> l'opérateur de droite est une γ-contraction pour $\lVert\cdot\rVert  _\infty$, et l'**itération sur les valeurs** (*value iteration*) $\mathbf{V} _{k+1} =$ (membre de droite appliqué à $\mathbf{V}_k$) converge vers $\mathbf{V}^\star$ ; la **politique gloutonne** (*greedy policy*) pour $\mathbf{V}^\star$, qui choisit dans chaque état une action réalisant le maximum, est optimale.
 
 L'arrêt optimal en est le cas de deux actions : s'arrêter (gain $g$, puis la fin) ou continuer (gain $c$, transition $\mathbf{P}$) ; sa règle à seuil est la politique gloutonne. Pour un MDP à plusieurs actions, workbookIA 26 met ces énoncés en œuvre ; ce chapitre ne les résout pas. Quand deux joueurs jouent à tour de rôle, on remonte de même un arbre de positions, avec un maximum aux coups du premier et un minimum à ceux du second : c'est le minimax d'un arbre, que M27 §3 traite.
 

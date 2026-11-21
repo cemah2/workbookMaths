@@ -622,6 +622,6 @@ Tu obtiens $H X^{-1} + X\thinspace D = 0$, où $D$ est la dérivée de $X^{-1}$ 
 </details>
 <details><summary>Indice 3</summary>
 
-La colonne $k$ de la jacobienne (aplatie par lignes) est la dérivée dans la direction $H = $ la $k$-ième matrice de base, aplatie : construis-la colonne par colonne, et compare à `numerical_jacobian`.
+La colonne $k$ de la jacobienne (aplatie par lignes) est la dérivée dans la direction $H =$ la $k$-ième matrice de base, aplatie : construis-la colonne par colonne, et compare à `numerical_jacobian`.
 
 </details>

@@ -264,7 +264,7 @@ Pour $0 < \eta < 2$, le discriminant $(2 - \eta^2)^2 - 4 = \eta^2(\eta^2 - 4)$ e
 
 > **Propriété.** Pour le pas alterné sur $\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$, la quantité
 > $$Q(\mathbf{x}, \mathbf{y}) = \lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\thinspace\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$$
-> garde la même valeur à chaque itération. Sur $xy$, les itérés restent sur l'ellipse $x^2 + y^2 - \eta xy = $ constante (une ellipse dès que $\eta < 2$).
+> garde la même valeur à chaque itération. Sur $xy$, les itérés restent sur l'ellipse $x^2 + y^2 - \eta xy =$ constante (une ellipse dès que $\eta < 2$).
 
 *Démonstration.* Notons $\mathbf{x}' = \mathbf{x} - \eta\mathbf{A}\mathbf{y}$ et $\mathbf{y}' = \mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}'$. On développe $\lVert\mathbf{y}'\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ et $\mathbf{x}'^\top\mathbf{A}\mathbf{y}' = \mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ : il reste $Q(\mathbf{x}', \mathbf{y}') = \lVert\mathbf{x}'\rVert^2 + \lVert\mathbf{y}\rVert^2 + \eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y}$. On remplace $\mathbf{x}'$ : $\lVert\mathbf{x}'\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y} = \eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} - \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ ; la somme donne $Q(\mathbf{x}, \mathbf{y})$. $\square$
 

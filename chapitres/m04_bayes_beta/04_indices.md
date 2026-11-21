@@ -205,7 +205,7 @@ Fais le tableau du §1 : hypothèse, a priori, vraisemblance de « sonne », pro
 </details>
 <details><summary>Indice 2</summary>
 
-L'évidence additionne les deux façons de sonner : avec une fuite (bonne détection) et sans fuite (fausse alerte). Pour c), la vraisemblance de « ne sonne pas » est $1 - $ celle de « sonne ».
+L'évidence additionne les deux façons de sonner : avec une fuite (bonne détection) et sans fuite (fausse alerte). Pour c), la vraisemblance de « ne sonne pas » est $1 -$ celle de « sonne ».
 
 </details>
 <details><summary>Indice 3</summary>

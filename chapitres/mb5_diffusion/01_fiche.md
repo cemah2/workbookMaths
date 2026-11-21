@@ -334,12 +334,12 @@ Les outils : la propriété de Markov et la formule de Bayes, qui réécrivent c
 Une case d'un vieux formulaire est cochée ($x = 1$) ou non ($x = 0$). À chaque période, si elle est encore lisible, l'humidité l'efface avec la probabilité $\rho_t$ ($\rho_1 = 0{,}3$, puis $\rho_2 = 0{,}5$) ; une case effacée, notée ?, le reste. Les latents $z_1, z_2$ valent 0, 1 ou ?. Le modèle retour est celui d'un restaurateur :
 - $p(z_2)$ vaut $0{,}2$ pour 0, $0{,}2$ pour 1 et $0{,}6$ pour ? ;
 - une case lisible le reste en remontant ($z_1 = z_2$) ; d'une case effacée, il propose 0 ou 1 avec la probabilité $0{,}15$ chacun, et ? avec $0{,}7$ ;
-- $p(x \mid z_1)$ recopie une case lisible, et tire $x$ à pile ou face si $z_1 = $ ?.
+- $p(x \mid z_1)$ recopie une case lisible, et tire $x$ à pile ou face si $z_1 =$ ?.
 
-Pour $x = 1$ : $q(z_1 \mid x)$ vaut $0{,}7$ pour 1 et $0{,}3$ pour ? ; $q(z_2 \mid x)$ vaut $0{,}7 \times 0{,}5 = 0{,}35$ pour 1 et $0{,}65$ pour ?. Le pas retour qui connaît $x$ : sachant $z_2 = 1$, $z_1 = 1$ ; sachant $z_2 = $ ?, $z_1 = 1$ avec la probabilité $\frac{0{,}35}{0{,}65} = \frac{7}{13}$ (Bayes : effacée seulement à la seconde période) et ? avec $\frac{6}{13}$. Les trois termes :
+Pour $x = 1$ : $q(z_1 \mid x)$ vaut $0{,}7$ pour 1 et $0{,}3$ pour ? ; $q(z_2 \mid x)$ vaut $0{,}7 \times 0{,}5 = 0{,}35$ pour 1 et $0{,}65$ pour ?. Le pas retour qui connaît $x$ : sachant $z_2 = 1$, $z_1 = 1$ ; sachant $z_2 =$ ?, $z_1 = 1$ avec la probabilité $\frac{0{,}35}{0{,}65} = \frac{7}{13}$ (Bayes : effacée seulement à la seconde période) et ? avec $\frac{6}{13}$. Les trois termes :
 - reconstruction : $0{,}7\ln 1 + 0{,}3\ln\frac12 \approx -0{,}2079$ ;
 - KL finale : $0{,}35\ln\frac{0{,}35}{0{,}2} + 0{,}65\ln\frac{0{,}65}{0{,}6} \approx 0{,}2479$ ;
-- le pas $t = 2$ : nul si $z_2 = 1$ (deux lois certaines égales) ; si $z_2 = $ ?, $\frac{7}{13}\ln\frac{7/13}{0{,}15} + \frac{6}{13}\ln\frac{6/13}{0{,}7} \approx 0{,}4960$ ; en moyenne, $0{,}65 \times 0{,}4960 \approx 0{,}3224$.
+- le pas $t = 2$ : nul si $z_2 = 1$ (deux lois certaines égales) ; si $z_2 =$ ?, $\frac{7}{13}\ln\frac{7/13}{0{,}15} + \frac{6}{13}\ln\frac{6/13}{0{,}7} \approx 0{,}4960$ ; en moyenne, $0{,}65 \times 0{,}4960 \approx 0{,}3224$.
 
 D'où $\operatorname{ELBO} \approx -0{,}2079 - 0{,}2479 - 0{,}3224 = -0{,}7782$. Directement, $p(x = 1) = 0{,}2 + 0{,}6 \times (0{,}15 + 0{,}7 \times \frac12) = 0{,}5$, et $\ln p(x) \approx -0{,}6931$ : l'ELBO est bien en dessous, d'un écart de $0{,}0851$.
 

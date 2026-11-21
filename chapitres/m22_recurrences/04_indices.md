@@ -228,7 +228,7 @@ Un pas : $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u}_t$, o
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{A}\mathbf{x}_0 = (1{,}2 \times 20 + 0{,}8 \times 30 ;\ 0{,}4 \times 40 ;\ 0{,}6 \times 20)$. d) $\mathbf{A}^2\mathbf{B}$ est formée de la première et de la troisième colonne de $\mathbf{A}^2$. e) Calcule $\mathbf{A}^2$, puis $\mathbf{A}^3 = \mathbf{A}\mathbf{A}^2$, ou applique $\mathbf{A}$ trois fois à $\mathbf{x}_0$. h) Dans $\mathbf{x}_3 = $ e) $+$ f), quelle partie double avec $\mathbf{x}_0$ ?
+a) $\mathbf{A}\mathbf{x}_0 = (1{,}2 \times 20 + 0{,}8 \times 30 ;\ 0{,}4 \times 40 ;\ 0{,}6 \times 20)$. d) $\mathbf{A}^2\mathbf{B}$ est formée de la première et de la troisième colonne de $\mathbf{A}^2$. e) Calcule $\mathbf{A}^2$, puis $\mathbf{A}^3 = \mathbf{A}\mathbf{A}^2$, ou applique $\mathbf{A}$ trois fois à $\mathbf{x}_0$. h) Dans $\mathbf{x}_3 =$ e) $+$ f), quelle partie double avec $\mathbf{x}_0$ ?
 
 </details>
 

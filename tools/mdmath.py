@@ -327,6 +327,7 @@ def _github_syntax(text: str) -> str:
     * A formula with ``&``, ``\\begin{`` or ``\\cr`` (a matrix, a column vector, cases) is never read as math: it goes into GitHub's own syntax, a ```` ```math ```` block
       for a display formula alone on its lines, ``$`…`$`` otherwise (Colab, Jupyter and VS Code then show its TeX as
       code: the price of a readable matrix on GitHub).
+    * A formula with a space right inside one of its ``$`` (« $2 + 3 = $ 5 ») is not read: the space goes outside.
     * A formula that ends with ``)`` right before a ``)`` (« (vecteur propre $(1, 6)$) ») is not read either: it gets
       an empty group at its end, ``$(1, 6){}$)``, which TeX ignores.
     """
@@ -334,6 +335,18 @@ def _github_syntax(text: str) -> str:
     for s in math_spans(text):
         tex = s.tex(text)
         if not _needs_github_syntax(tex):
+            if not s.display and tex.strip() and tex != tex.strip():     # « $2 + 3 = $ 5 »: the spaces go outside
+                prev, nxt = text[s.start - 1:s.start], text[s.end:s.end + 1]
+                lead = "" if prev == "" or prev.isspace() or prev in "([«'’" else " "
+                trail = "" if nxt == "" or nxt.isspace() or nxt in ".,;:!?)]»" else " "
+                lead = lead if tex[:1].isspace() else ""
+                trail = trail if tex[-1:].isspace() else ""
+                out.append(text[last:s.start] + lead + "$" + tex.strip() + "$" + trail)
+                last = s.end
+                tex = tex.strip()
+                if tex.endswith(")") and text[s.end:s.end + 1] == ")" and not trail:
+                    out[-1] = out[-1][:-1] + "{}$"
+                continue
             if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
                 out.append(text[last:s.end - 1] + "{}$")
                 last = s.end
@@ -414,6 +427,8 @@ def problems(text: str) -> list[str]:
             found.append("an environment or & (a matrix: GitHub reads it only as ```math or $`…`$)")
         if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
             found.append(")$) (end the formula with {})")
+        if not s.display and tex.strip() and tex != tex.strip():
+            found.append("a space right inside a $ (GitHub then does not read the formula)")
         if found:
             out.append(f"line {line_of(s.start)}: {' '.join(sorted(set(found)))} in ${tex[:60]}$")
     for o, cl in emphasis_problems(text):

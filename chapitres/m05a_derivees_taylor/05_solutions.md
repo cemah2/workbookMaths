@@ -33,7 +33,7 @@
 6. **Faux** : la série de $\ln(1 + x)$ ne converge que pour $-1 < x \le 1$ ; pour $x = 2$, ses termes $\frac{2^k}{k}$ grandissent sans limite.
 
 ### M05a.Q4 — Newton converge-t-il ?
-1. $x_1 = 4 - \frac{16 - 9}{8} = 4 - 0{,}875 = $ **3,125**.
+1. $x_1 = 4 - \frac{16 - 9}{8} = 4 - 0{,}875 =$ **3,125**.
 2. Le pas n'est pas défini (division par 0) : la tangente est **horizontale** et ne coupe pas l'axe.
 3. **Faux** : depuis un mauvais point, la suite peut cycler ou s'éloigner (fiche §4, M05a.24).
 4. L'erreur est à peu près élevée au carré : environ $10^{-4}$, puis $10^{-8}$.
@@ -58,7 +58,7 @@
 
 ### M05a.Q7 — Overflow, underflow, log-sum-exp
 1. `math.exp(720)` lève une `OverflowError` ; `np.exp(720)` renvoie `inf`, avec un avertissement (720 dépasse 709,78).
-2. $\ln(2e^3) = 3 + \ln 2 \approx $ **3,693**.
+2. $\ln(2e^3) = 3 + \ln 2 \approx$ **3,693**.
 3. Entre $\max_i v_i$ et $\max_i v_i + \ln n$.
 4. Avec le maximum, tous les exposants $v_i - m$ sont négatifs ou nuls : aucune exponentielle ne déborde, et le plus grand terme vaut $e^0 = 1$, donc la somme est au moins 1 (pas de $\ln 0$). Avec le minimum, les exposants sont positifs, et les grands peuvent déborder.
 5. La même : $\text{softmax}(\mathbf{v} + c) = \text{softmax}(\mathbf{v})$ ($e^c$ se simplifie).
@@ -71,7 +71,7 @@
 ### M05a.R1 — Dérivées et variations (R7)
 1. $f'(x) = \ln x + x \cdot \frac{1}{x} - 1 = \ln x$.
 2. En $x = 1$.
-3. $f$ décroît sur $]0, 1]$ ($\ln x < 0$) et croît sur $[1, +\infty[$ : minimum $f(1) = $ **$-1$**.
+3. $f$ décroît sur $]0, 1]$ ($\ln x < 0$) et croît sur $[1, +\infty[$ : minimum $f(1) =$ **$-1$**.
 4. $f(e) = e - e = 0$ et $f'(e) = 1$ : $y = x - e$.
 5. $g'(x) = 4(3x - 2)^3 \times 3 = 12(3x - 2)^3$.
 
@@ -83,10 +83,10 @@
 5. Une convergence **linéaire** (ou géométrique) : chaque pas gagne le même nombre de décimales (ici $\log_{10} 2{,}5 \approx 0{,}4$). Newton près d'une racine simple est **quadratique** : le nombre de décimales justes double à chaque pas.
 
 ### M05a.R3 — Log-probabilités et log-sum-exp (M04)
-1. $-600 \ln 10 \approx $ **$-1381{,}55$**.
+1. $-600 \ln 10 \approx$ **$-1381{,}55$**.
 2. **Non** : $10^{-600}$ est bien en dessous du plus petit `float64` positif (environ $5 \times 10^{-324}$) : le produit vaut 0.
-3. $\frac{e^{-5}}{e^{-5} + e^{-6}} = \frac{1}{1 + e^{-1}} \approx $ **0,7311** et **0,2689**.
-4. $-5 + \ln(1 + e^{-1}) \approx $ **$-4{,}6867$**.
+3. $\frac{e^{-5}}{e^{-5} + e^{-6}} = \frac{1}{1 + e^{-1}} \approx$ **0,7311** et **0,2689**.
+4. $-5 + \ln(1 + e^{-1}) \approx$ **$-4{,}6867$**.
 5. Les log-vraisemblances étaient très négatives ($-1000$…) : leurs exponentielles valaient toutes 0 (underflow), et la normalisation donnait $\frac{0}{0}$. Soustraire le maximum ramène le plus grand terme à $e^0 = 1$ sans changer les probabilités normalisées : c'est le log-sum-exp de la fiche §8.
 
 <a id="papier"></a>

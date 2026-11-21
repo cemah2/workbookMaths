@@ -213,7 +213,7 @@ L'indice régional est $y = \sum_{i, j}a_{ij}\max(0,\ T_{ij} - 10)$ (des degrés
 | e | coins alignés : la coordonnée d'origine des 6 lignes | une liste de 6 nombres (2 décimales) |
 | f | la valeur de la case (ligne 4, colonne 5) de la grille agrandie, centres alignés puis coins alignés | une liste de 2 nombres (2 décimales) |
 
-Dans ta copie : écris la moyenne des 12 dérivées partielles $\frac{\partial y}{\partial T_{ij}}$ et relie-la à b) ; dis pourquoi c) n'est pas $y + $ b).
+Dans ta copie : écris la moyenne des 12 dérivées partielles $\frac{\partial y}{\partial T_{ij}}$ et relie-la à b) ; dis pourquoi c) n'est pas $y +$ b).
 
 ### Ex MB6.7 — Un contrôle de pièces sur deux lignes de production aux taux de défauts différents : les taux de rejet sous la séparation, un tirage au sort entre deux seuils pour atteindre un taux de détection, et les poids qui rendent ligne et défaut indépendants ✏️ ★★ ⏱️ 30 min
 **Objectif :** voir que la séparation impose des taux de rejet différents, atteindre un taux de détection en tirant au sort entre deux seuils, et repondérer une table.
