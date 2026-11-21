@@ -390,7 +390,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, run_pytest_group, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, refuse_peeking, run_pytest_group, verdict
 
 TEST_MB4 = "tests/test_mb4_ranks.py"               # the tests of mymath/ranks.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")  # the reference: the checks of the hidden cases rely on it
@@ -1592,6 +1592,8 @@ CHECK_13 = """def check_c13():
     import struct
     import subprocess
     import sys
+    refuse_peeking("MB4.13", {"hidden_rank_13": hidden_rank_13}, globals(), private=("_c13", "_C13"),
+                   extra=("passes",))                   # it computes, it never reads the check
     hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb4_13.py"   # reading it spoils the challenge
     twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
     results, elapsed = [], [0.0]
@@ -1704,7 +1706,7 @@ MB4_13 = Ex(
     tracks="C", given=GIVEN_13, note=NOTE_13,
     body=r"""Le notebook fournit `TABLES_13`, cinq tableaux de mesures de formes différentes. Chacun est la somme d'un tableau de rang $r$ (caché) et d'un bruit : chaque case reçoit un bruit indépendant, de moyenne nulle et de même écart-type $\sigma$ dans tout le tableau ; $\sigma$ change d'un tableau à l'autre, et n'est pas donné. Écris `hidden_rank_13(M)`, qui rend le rang caché d'un tableau (un entier $\ge 0$ : un tableau peut n'avoir aucun signal), en lisant ses valeurs singulières ; tout NumPy et SciPy sont permis (`np.linalg.svd(M, compute_uv=False)` donne les valeurs singulières).
 
-**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** trois séries de cinq tableaux cachés, tirées à nouveau à chaque exécution ; chaque série a un tableau de chacun de ces cinq types : facile ; un signal qui dépasse à peine le bruit ; des valeurs singulières du signal étalées sur un facteur 10 ou plus ; très allongé ; sans signal ou à une échelle extrême. Ta fonction doit trouver le bon rang cinq fois sur cinq dans chaque série, et le bon rang pour les cinq tableaux du notebook (la vérification recalcule ta réponse a) avec ta fonction), en moins de 15 secondes en tout. Elle ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb4_13.py`) : la vérification le contrôle. Relève :
+**Critère de réussite** (les « cinq fois sur cinq » du titre) **:** trois séries de cinq tableaux cachés, tirées à nouveau à chaque exécution ; chaque série a un tableau de chacun de ces cinq types : facile ; un signal qui dépasse à peine le bruit ; des valeurs singulières du signal étalées sur un facteur 10 ou plus ; très allongé ; sans signal ou à une échelle extrême. Ta fonction doit trouver le bon rang cinq fois sur cinq dans chaque série, et le bon rang pour les cinq tableaux du notebook (la vérification recalcule ta réponse a) avec ta fonction), en moins de 15 secondes en tout. Elle ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb4_13.py`), ni lire la vérification (sa pile d'appels, le processus à part) : la vérification le contrôle. Relève :
 - a) les rangs que rend ta fonction pour les cinq tableaux (une liste de 5 entiers) ;
 - b) `np.linalg.matrix_rank` de chacun (une liste de 5 entiers) ;
 - c) le rang effectif à 99 % de chacun (une liste de 5 entiers).

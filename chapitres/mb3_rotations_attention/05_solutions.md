@@ -111,7 +111,7 @@ Dans ta copie : b) montre que $\mathbf{R}_{12}$ fixe $\mathbf{e}_3$, son axe. $\
 
 Dans ta copie : les nombres 340 et 20 diffèrent de 320, mais les directions ne sont qu'à 40° l'une de l'autre, et l'encodage le voit. La moyenne des nombres 330, 20 et 70 vaut 140 : une direction à 120° de la direction moyenne, et à 170° du relevé de 330°.
 
-**Erreurs fréquentes.** Écrire $(\sin\theta, \cos\theta)$, ou prendre les cosinus de 150 radians. Donner la distance au lieu de son carré (0,684), ou écrire $1 - \cos$ au lieu de $2 - 2\cos$. Tourner dans le mauvais sens ($\mathbf{e}(105°)$), ou ajouter les cosinus. Moyenner les angles (140) ; donner le résultat en radians (0,349). Donner la norme de la somme au lieu de celle de la moyenne (2,286), ou son carré (0,580).
+**Erreurs fréquentes.** Écrire $(\sin\theta, \cos\theta)$, ou prendre les cosinus de 150 radians. Donner la distance au lieu de son carré (0,684), ou écrire $1 - \cos$ au lieu de $2 - 2\cos$. Ajouter les cosinus. Moyenner les angles (140) ; donner le résultat en radians (0,349). Donner la norme de la somme au lieu de celle de la moyenne (2,286), ou son carré (0,580).
 
 **Variante.** Les relevés 320°, 355° et 30° : direction moyenne 355°, $\rho = \frac{1 + 2\cos 35°}{3} \approx 0{,}879$ ; la moyenne des nombres, 235, est à 120° de la direction moyenne.
 

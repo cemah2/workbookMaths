@@ -260,7 +260,7 @@ Une famille de densités $p_\theta$ sur $\mathbb{R}$, de paramètre réel $\thet
 **Objectif :** démontrer la baseline optimale, puis séparer exactement une baseline sans biais d'une baseline qui biaise.
 **Prérequis :** fiche §3 ; M02c (variance, covariance, estimateur sans biais) · **Parcours :** C
 
-On estime $D = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[f(X)] = \mathbb{E}[f(X)\,s(X)]$, où $s = s_\theta$ ; on suppose $\mathbb{E}[s(X)] = 0$, $0 < \mathbb{E}[s(X)^2] < +\infty$ $\mathbb{E}[f(X)^2s(X)^2] < +\infty$ et $\mathbb{E}[\lvert f(X)\rvert] < +\infty$.
+On estime $D = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[f(X)] = \mathbb{E}[f(X)\,s(X)]$, où $s = s_\theta$ ; on suppose $\mathbb{E}[s(X)] = 0$, $0 < \mathbb{E}[s(X)^2] < +\infty$, $\mathbb{E}[f(X)^2s(X)^2] < +\infty$ et $\mathbb{E}[\lvert f(X)\rvert] < +\infty$.
 1. Pour une constante $b$, montre que $(f(X) - b)\,s(X)$ est sans biais, et que sa variance est un trinôme du second degré en $b$. Déduis-en $b^\star$ et la variance minimale.
 2. Donne une condition sous laquelle $b^\star = \mathbb{E}[f(X)]$, puis dis pourquoi ✏️ MB8.2 ne la vérifie pas.
 3. On tire $x_1, \ldots, x_n$ indépendants ($n \ge 2$), et $b_i = \frac{1}{n - 1}\sum_{j \ne i}f(x_j)$. Montre que $\frac1n\sum_i\big(f(x_i) - b_i\big)\,s(x_i)$ est sans biais.

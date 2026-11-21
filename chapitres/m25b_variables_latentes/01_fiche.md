@@ -272,7 +272,7 @@ Si $\boldsymbol{\mu}_k$ est strictement le centre le plus proche de $\mathbf{x}_
 
 ⚠️ **Erreur classique.** Diviser par $n$ au lieu de $N_k$ dans le pas M (🐛 M25b.28). Calculer $\boldsymbol{\Sigma}_k$ avec l'ancienne moyenne. Conclure d'une seule initialisation. Croire que l'EM régularisé monte toujours.
 
-🔗 **Dans workbookIA** — le chapitre 7 a présenté k-means, la limite dure de l'EM ; le bonus B2 estime les probabilités de ses tokens par un algorithme EM.
+🔗 **Dans workbookIA** — le chapitre 7 a présenté k-means, la limite dure de l'EM ; le bonus B2 présente le tokenizer Unigram, qui estime les probabilités de ses tokens par un algorithme EM.
 
 ## §5 · La borne inférieure de l'évidence (ELBO) : ln p(x) = ELBO + KL, l'EM comme montée par coordonnées, et le gradient de ln p(x)
 

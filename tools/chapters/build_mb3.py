@@ -24,9 +24,11 @@ MB3.20, the counters of the hidden wrong versions of MB3.21), computed at check 
 ``mymath_ref.positional`` (the online softmax of the hidden cases of MB3.20), or given by properties. The hidden part of
 🏆 MB3.22 lives in ``solutions/challenges/mb3_22.py`` (the generator of the turbines, of which the notebook set is
 ``turbine(default_rng(7328), noise=60.0)``, and the method of the check: Nadaraya-Watson on the cyclic encoding, its
-bandwidth chosen by leave-one-out on 30 values from 0.03 to 1.5); the check cell loads it by its path, inside a function,
-draws three new turbines at each run (little, some and much noise) and computes each threshold on the spot, 1.3 times
-the error of that method, so that neither the method nor a law nor a hidden set is in the notebook or in its globals.
+bandwidth chosen by leave-one-out on 30 values from 0.03 to 1.5); the check cell runs it as a script in another process
+(``python -I mb3_22.py --serve``), which draws three new turbines at each run (little, some and much noise), sends their
+relevés and their hours only, and measures the predictions it receives against a threshold computed there, 1.3 times
+the error of that method, so that neither the method nor a law lives in the notebook's process while the learner's
+function runs (the threshold of the notebook set, which the cell shows, is a literal computed at build time).
 The check cells use their own data, never the test cases of tests/test_mb3_positional.py,
 the examples of the docstrings of the stub positional, the examples of the fiche, nor the numbers of workbookIA B3, B2
 and B1 (the notes of MB3 in the syllabus and their list « Évités »).
@@ -655,7 +657,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, run_pytest_group, verdict
+from wbm.nbtools import (ReferenceCalled, StopCheck, checked, drawn, filled, fr, refuse_peeking, run_pytest_group,
+                         verdict, watched)
 
 TEST_MB3 = "tests/test_mb3_positional.py"           # the tests of mymath/positional.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")  # the reference: the checks of the hidden cases rely on it
@@ -1945,16 +1948,36 @@ def report_20(ok, success, failure):
     print(("✅ " + success) if ok else ("❌ " + failure))
 
 
-def call_20(part, name, function, *args):
-    """function(*args); an error of the learner's code becomes one ❌ line that names the function."""
+def references_c20():
+    """The functions of positional.py, yours and the reference's: a corrected function calls none of them."""
+    names = ("givens_rotation", "online_softmax", "merge_softmax_states")
+    found = {f"ref_pos.{name}": getattr(ref_pos, name) for name in names}
     try:
-        return function(*args)
+        found.update({f"mymath.positional.{name}": getattr(mymath.positional, name) for name in names})
+    except Exception:  # noqa: BLE001 - no positional.py of yours yet: only the reference is watched
+        pass
+    return found
+
+
+def call_20(part, name, function, *args):
+    """function(*args), without mymath; an error of the learner's code becomes one ❌ line that names the function."""
+    try:
+        with watched(references_c20()) as seen_c20:
+            got = function(*args)
+    except ReferenceCalled:
+        got = None
     except (NotImplementedError, MymathMissingError):
         raise
     except Exception as exc:  # noqa: BLE001 - the learner's error, reported with the name of the function
         report_20(False, "", f"({part}) {name} : ton code lève {type(exc).__name__} : {str(exc)[:160]}")
         parts_20.append(part)
         raise StopCheck from None
+    if seen_c20:
+        report_20(False, "", f"({part}) {name} appelle {seen_c20[0]} : l'énoncé demande la correction sans mymath, en "
+                  "corrigeant le code du collègue")
+        parts_20.append(part)
+        raise StopCheck
+    return got
 
 
 with checked("MB3.20"):                                      # (1) rotate_e3_then_e1_fixed
@@ -2556,8 +2579,11 @@ def mse_22(predictions):
         raise ValueError(f"mse_22 attend 400 prévisions, une par heure de TEST_22, reçu la forme {p.shape}")
     return float(np.mean((p - TRUTH_22) ** 2))'''
 
-CHECK_22 = """def predictions_why_c22(p):
-    \"\"\"'' when p is an array of 400 finite numbers, else the reason.\"\"\"
+CHECK_22 = r'''LIMIT_22 = __LIMIT_22__   # 1.3 times the error of the method of the check on TEST_22 (solutions/challenges/mb3_22.py)
+
+
+def predictions_why_c22(p):
+    """'' when p is an array of 400 finite numbers, else the reason."""
     p = as_floats(p)
     if p is None or p.shape != (400,):
         return f"predict_22 doit rendre 400 prévisions, une par heure à prévoir, reçu {shown(p)[:60]}"
@@ -2566,25 +2592,17 @@ CHECK_22 = """def predictions_why_c22(p):
     return ""
 
 
-def width_hint_c22(challenge, train, test, got, chosen):
-    \"\"\"A hint when the predictions are those of Nadaraya-Watson with another width of GRID_22 than the one that
-    leave-one-out chooses on the relevés received.\"\"\"
-    for h in GRID_22:
-        if abs(h - chosen) > 1e-12 and np.allclose(got, challenge.reference(train, test, width=float(h))[0], rtol=1e-6,
-                                                   atol=1e-6):
-            return (f" ; tes prévisions sont celles de la largeur {fr(float(h), 3)}, alors que la validation croisée « un "
-                    f"de côté » sur les relevés de cette éolienne choisit {fr(chosen, 3)} : choisis la largeur sur les "
-                    "relevés reçus, à chaque appel")
-    return ""
-
-
 def check_c22():
-    \"\"\"The check of MB3.22, in a function: the hidden turbines, their laws and their expected productions stay local.\"\"\"
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("mb3_22_challenge",
-                                                  wbm.repo_root() / "solutions" / "challenges" / "mb3_22.py")
-    challenge = importlib.util.module_from_spec(spec)   # the hidden part of the challenge: the law of the hidden turbines
-    spec.loader.exec_module(challenge)                  # and the method of the check (reading it spoils the challenge)
+    """The check of MB3.22, in a function. The hidden turbines come from another process (the hidden module run as a
+    script): it draws them, sends their relevés and their hours only, and measures the predictions it receives only at
+    the end; no law of a hidden turbine, nor the method of the check, lives in this process while the learner's function
+    runs."""
+    import json
+    import subprocess
+    import sys
+    refuse_peeking("MB3.22", {"predict_22": predict_22}, globals(), private=("_c22", "_C22"),
+                   extra=("TRUTH_22", "mse_22"))         # it predicts, it never reads the check nor the truth
+    hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb3_22.py"   # reading it spoils the challenge
     results, elapsed = [], 0.0
     report = reporter(results, stop=False)
     order = np.random.default_rng().permutation(400)          # the hours of TEST_22 in a new order at each run
@@ -2595,13 +2613,12 @@ def check_c22():
     if not why and np.allclose(as_floats(mine), TRUTH_22[order], rtol=1e-9, atol=1e-9):
         why = ("tes prévisions sont TRUTH_22 elle-même : predict_22 doit prévoir à partir des relevés et des heures "
                "reçus, sans lire TRUTH_22")
-    limit, _ = challenge.threshold(TRAIN_22, TEST_22, TRUTH_22)
     error = float(np.mean((as_floats(mine) - TRUTH_22[order]) ** 2)) if not why else math.inf
-    above = (f"erreur quadratique moyenne {fr(error, 1)} kW², au-dessus du seuil {fr(limit, 1)} kW² (1,3 fois la méthode "
-             "de la vérification) : regarde où sont les heures à prévoir, et ce que deviennent 359° et 1°, ou le jour 364 "
-             "et le jour 0, dans ta représentation")
-    report(not why and error <= limit, f"le jeu du notebook (ses heures dans un autre ordre) : erreur quadratique moyenne "
-           f"{fr(error, 1)} kW², sous le seuil {fr(limit, 1)} kW²",
+    above = (f"erreur quadratique moyenne {fr(error, 1)} kW², au-dessus du seuil {fr(LIMIT_22, 1)} kW² (1,3 fois la "
+             "méthode de la vérification) : regarde où sont les heures à prévoir, et ce que deviennent 359° et 1°, ou le "
+             "jour 364 et le jour 0, dans ta représentation")
+    report(not why and error <= LIMIT_22, f"le jeu du notebook (ses heures dans un autre ordre) : erreur quadratique "
+           f"moyenne {fr(error, 1)} kW², sous le seuil {fr(LIMIT_22, 1)} kW²",
            f"le jeu du notebook (ses heures dans un autre ordre) : {why or above}")
     if not filled(answer_MB3_22b):
         print("⏳ Ex MB3.22b : pas encore fait.")
@@ -2612,32 +2629,60 @@ def check_c22():
                "Ex MB3.22b : ta réponse n'est pas mse_22(predict_22(TRAIN_22, TEST_22)), l'erreur que donnent tes "
                "prévisions maintenant (la vérification les recalcule, les heures dans un autre ordre) : exécute à "
                "nouveau ta cellule")
-    # the predictions of the notebook set, as returned and in the order of TEST_22
     previous = [as_floats(mine), as_floats(mine)[np.argsort(order)]] if not why else []
-    rng = np.random.default_rng()                               # at each run: three new hidden turbines
-    for k, noise_range in enumerate(challenge.NOISES, start=1):
-        train, test, law = challenge.turbine(rng, noise_range=noise_range)
-        start = time.perf_counter()
-        got = call_safely(f"Ex MB3.22 : predict_22 (éolienne cachée {k})", predict_22, train.copy(), test.copy())
-        elapsed += time.perf_counter() - start
-        why_k = predictions_why_c22(got)
-        if not why_k and any(np.allclose(as_floats(got), p) for p in previous):
-            why_k = ("ta fonction rend les mêmes prévisions pour deux jeux différents : elle doit les calculer à partir "
-                     "des relevés et des heures reçus")
+    server = subprocess.Popen([sys.executable, "-I", str(hidden_file), "--serve"], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)   # this kernel's Python, here or on Colab
+    try:
+        line = server.stdout.readline()
+        if not line.endswith(b"\n"):
+            raise OSError("échange interrompu")
+        turbines = [(np.array(train), np.array(test)) for train, test in json.loads(line)["turbines"]]
+        sent, whys = [], []
+        for k, (train, test) in enumerate(turbines, start=1):   # three new hidden turbines, at each run
+            start = time.perf_counter()
+            got = call_safely(f"Ex MB3.22 : predict_22 (éolienne cachée {k})", predict_22, train.copy(), test.copy())
+            elapsed += time.perf_counter() - start
+            why_k = predictions_why_c22(got)
+            if not why_k and any(np.allclose(as_floats(got), p) for p in previous):
+                why_k = ("ta fonction rend les mêmes prévisions pour deux jeux différents : elle doit les calculer à "
+                         "partir des relevés et des heures reçus")
+            if not why_k:
+                previous.append(as_floats(got))
+            sent.append(None if why_k else as_floats(got).tolist())
+            whys.append(why_k)
+        server.stdin.write((json.dumps(sent) + "\n").encode())
+        server.stdin.flush()
+        line = server.stdout.readline()                          # only now: the errors and the thresholds
+        if not line.endswith(b"\n"):
+            raise OSError("échange interrompu")
+        measured = json.loads(line)
+        assert len(measured) == len(turbines)
+    except (OSError, ValueError, KeyError, TypeError, AssertionError) as exc:
+        print("❌ Ex MB3.22 : la vérification n'a pas pu échanger les éoliennes cachées et tes prévisions avec le "
+              f"processus qui les tire ({type(exc).__name__}) : exécute à nouveau la cellule")
+        raise StopCheck from None
+    finally:                                                     # always, even on an error or an interruption
+        if server.poll() is None:
+            server.kill()
+        server.wait()
+        for pipe in (server.stdin, server.stdout):
+            try:
+                pipe.close()
+            except OSError:                                      # a pipe already broken
+                pass
+    for k, (why_k, m) in enumerate(zip(whys, measured), start=1):
         if why_k:
             report(False, "", f"éolienne cachée {k} : {why_k}")
             continue
-        got = as_floats(got)
-        previous.append(got)
-        truth = law(test[:, 0], test[:, 1])                     # computed after the call of predict_22
-        threshold, chosen = challenge.threshold(train, test, truth)
-        error_k = float(np.mean((got - truth) ** 2))
-        report(error_k <= threshold, f"éolienne cachée {k} : erreur {fr(error_k, 1)} kW², sous le seuil "
-               f"{fr(threshold, 1)} kW²",
-               f"éolienne cachée {k} : erreur {fr(error_k, 1)} kW², au-dessus du seuil {fr(threshold, 1)} kW² (1,3 fois "
-               "la méthode de la vérification) : relis ta représentation (359° et 1°, le jour 364 et le jour 0), ta "
-               "validation croisée (chaque relevé laissé de côté) et ta grille (assez fine ?)"
-               + width_hint_c22(challenge, train, test, got, chosen))
+        like = "" if m["like"] is None else (
+            f" ; tes prévisions sont celles de la largeur {fr(m['like'], 3)}, alors que la validation croisée « un de "
+            f"côté » sur les relevés de cette éolienne choisit {fr(m['chosen'], 3)} : choisis la largeur sur les relevés "
+            "reçus, à chaque appel")
+        report(m["error"] <= m["threshold"], f"éolienne cachée {k} : erreur {fr(m['error'], 1)} kW², sous le seuil "
+               f"{fr(m['threshold'], 1)} kW²",
+               f"éolienne cachée {k} : erreur {fr(m['error'], 1)} kW², au-dessus du seuil {fr(m['threshold'], 1)} kW² "
+               "(1,3 fois la méthode de la vérification) : relis ta représentation (359° et 1°, le jour 364 et le jour "
+               "0), ta validation croisée (chaque relevé laissé de côté) et ta grille (assez fine ?)" + like)
     report(elapsed < 10, f"en {fr(elapsed, 2)} s pour les quatre jeux",
            f"trop lent : {fr(elapsed, 1)} s pour les quatre jeux, il faut moins de 10 s (calcule les distances de "
            "toutes les paires en une fois, avec la diffusion)")
@@ -2647,7 +2692,7 @@ def check_c22():
 
 
 with checked("MB3.22"):
-    check_c22()"""
+    check_c22()'''
 
 NOTE_22 = (r"a) $h \approx 0{,}151$ ; b) $\approx 2\,111$ kW² avec la méthode ci-dessous ; c) $\approx 3\,838$ kW², "
            r"1,82 fois plus ; d) 0,03, la plus petite largeur de la grille : sans laisser le relevé de côté, chaque relevé "
@@ -2665,7 +2710,7 @@ MB3_22 = Ex(
     given=GIVEN_22, note=NOTE_22,
     body=r"""Une éolienne reçoit surtout un vent dominant venu des directions proches de 0°, qui souffle le plus fort en hiver. Le notebook fournit `TRAIN_22`, 400 relevés de l'année passée, de forme $(400, 3)$ : la direction d'où vient le vent $\theta$ (en degrés, de 0 à 360 ; 0° et 360° sont la même direction), le jour de l'année $d$ (de 0 à 365) et la production moyenne de l'heure $y$ (en kW) ; et `TEST_22`, de forme $(400, 2)$, les directions et les jours de 400 heures à prévoir, autour du nouvel an, par vent dominant. Écris `predict_22(train, test)`, qui rend 400 prévisions par Nadaraya-Watson à noyau gaussien sur l'encodage cyclique des deux variables, $(\cos\theta, \sin\theta, \cos\frac{2\pi d}{365}, \sin\frac{2\pi d}{365})$, que rend la fonction fournie `encode_22(theta, day)` (un tableau de forme $(n, 4)$), avec une largeur de bande choisie par validation croisée « un de côté » (fiche §5) sur une grille d'une trentaine de valeurs en progression géométrique, par exemple `GRID_22` (30 valeurs de 0,03 à 1,5). Tout NumPy et SciPy sont permis. La cellule fournie donne aussi `mse_22(predictions)`, qui rend l'erreur quadratique moyenne de 400 prévisions de `TEST_22` par rapport à la production moyenne attendue (`TRUTH_22`), sans montrer la loi cachée.
 
-**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées, tirées à chaque exécution, de bruit faible, moyen et fort (chacune du même type, avec ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction (les heures de `TEST_22` dans un autre ordre), et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Relève :
+**Critère de réussite** (c'est l'« erreur quadratique moyenne donnée » du titre) **:** sur `TEST_22`, et sur trois éoliennes cachées, tirées à chaque exécution, de bruit faible, moyen et fort (chacune du même type, avec ses relevés et ses heures à prévoir), une erreur quadratique moyenne au plus 1,3 fois celle de la méthode de la vérification (Nadaraya-Watson sur le même encodage, sa largeur choisie sur les 30 valeurs de `GRID_22`) sur le même jeu, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse b) avec ta fonction (les heures de `TEST_22` dans un autre ordre), et refuse une fonction qui rend les mêmes prévisions pour deux jeux. Les éoliennes cachées viennent d'un processus à part, qui ne rend que l'erreur et le seuil de chacune ; ta fonction ne doit ni lire ni exécuter le module caché du défi (`solutions/challenges/mb3_22.py`), ni lire la vérification ou `TRUTH_22` : la vérification le contrôle. Relève :
 - a) la largeur de bande que choisit la validation croisée « un de côté » sur `TRAIN_22`, avec la grille `GRID_22` (un nombre ; 3 décimales dans ta copie) ;
 - b) `mse_22` de tes prévisions, `mse_22(predict_22(TRAIN_22, TEST_22))` (un nombre) ;
 - c) `mse_22` de la même méthode appliquée aux nombres bruts $(\theta, d)$, sa largeur choisie de la même façon, sur la grille `GRID_RAW_22` (30 valeurs de 1 à 200) (un nombre) ;
@@ -3136,6 +3181,7 @@ def build_constants() -> dict:
     errors = {name: float(np.mean((method(train, test) - truth) ** 2)) for name, method in methods.items()}
     threshold = challenge.threshold(train, test, truth)[0]
     assert abs(threshold - 1.3 * errors["reference"]) < 1e-9 and errors["fine grid"] <= threshold, errors
+    out["__LIMIT_22__"] = repr(threshold)                 # the threshold of the notebook set, shown by the check cell
     for name in ("raw numbers", "no leave-out", "cos only", "mean", "nearest", "frozen width"):
         assert errors[name] > threshold or name == "frozen width", (name, errors)
     return out

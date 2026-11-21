@@ -188,7 +188,7 @@ Le produit scalaire se lit aussi sur les complexes. Pour $z = x_1 + iy_1$ et $w 
 $$\operatorname{Re}(\bar z\,w) = (x_1, y_1)\cdot(x_2, y_2).$$
 Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i}{37}\cdot\frac{28 + 45i}{53}\Big) = \frac{980 + 540}{1\,961} = \frac{1\,520}{1\,961}$, le $\cos(b - a)$ du §1.
 
-⚠️ **Erreur classique.** Mettre le signe moins en bas à gauche : on obtient $\mathbf{R}_{-\theta}$. Écrire $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha\beta}$. Croire qu'une matrice orthogonale est toujours une rotation. Croire qu'une rotation conserve le produit scalaire de deux vecteurs tournés d'angles **différents**.
+⚠️ **Erreur classique.** Écrire $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha\beta}$. Croire qu'une matrice orthogonale est toujours une rotation. Croire qu'une rotation conserve le produit scalaire de deux vecteurs tournés d'angles **différents**. Pour placer le signe moins de $\mathbf{R}_\theta$ sans hésiter, relire ses colonnes : les images de $\mathbf{e}_1$ et de $\mathbf{e}_2$, $(\cos\theta, \sin\theta)$ et $(-\sin\theta, \cos\theta)$.
 
 🔗 **Dans workbookIA** — le chapitre B3 se sert de matrices de rotation $2 \times 2$, de leur composition et de leur transposée pour coder des positions ; il énonce ces propriétés, que ce paragraphe et le ∂ MB3.8 démontrent.
 
@@ -404,7 +404,7 @@ L'idée : la softmax traite toutes ses coordonnées de la même façon, $\operat
 
 💻 **Aujourd'hui en pratique** — `pandas` calcule la moyenne exponentielle normalisée d'une série par `serie.ewm(alpha=1 - λ, adjust=True).mean()` : un filtre causal, qui ne regarde que le passé.
 
-⚠️ **Erreur classique.** Mettre des poids à 0 après la softmax sans renormaliser. Masquer par un score $0$ au lieu de $-\infty$ : un score nul garde un poids. Oublier le sous-ensemble vide (aucun relevé disponible) : $0/0$, à traiter à part.
+⚠️ **Erreur classique.** Masquer par un score $0$ au lieu de $-\infty$ : un score nul garde un poids ; le masque se pose sur les scores, avant la softmax, et les poids gardés, divisés par la masse de $S$, somment à 1. Oublier le sous-ensemble vide (aucun relevé disponible) : $0/0$, à traiter à part.
 
 🔗 **Dans workbookIA** — le chapitre B3 masque des scores pour qu'un élément d'une suite ne regarde pas les suivants ; ce paragraphe en donne la version probabiliste, une loi conditionnelle, et énonce l'équivariance par permutation (démontrée au ∂ MB3.9).
 
@@ -547,7 +547,7 @@ Si une ligne est elle-même trop longue, la softmax en ligne du §8 la lit par b
 
 - **Rotations** : un moins dans $\cos(a + b)$ et en haut à droite de $\mathbf{R}_\theta$ ; un produit s'applique de droite à gauche, et dans l'espace l'ordre compte ; déterminant $-1$ : une symétrie ; indices à partir de 1 dans la fiche, de 0 dans le code.
 - **Horloges** : deux coordonnées, la bonne période, la moyenne des vecteurs.
-- **Softmax** : diviser par la somme des poids ; $-\infty$ avant, pas 0 après ; ajouter une constante ne change rien, multiplier change tout ; en ligne, remettre $l$ **et** $a$ à l'échelle.
+- **Softmax** : diviser par la somme des poids ; masquer par $-\infty$, avant la softmax : une loi conditionnelle ; ajouter une constante ne change rien, multiplier change tout ; en ligne, remettre $l$ **et** $a$ à l'échelle.
 - **Coût** : les blocs économisent la mémoire, pas les calculs.
 
 ## Et maintenant

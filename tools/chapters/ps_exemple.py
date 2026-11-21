@@ -459,6 +459,54 @@ La cellule « Contrôle du module » lit `poisson_newton.py` sans l'exécuter : 
 CONTROL_CODE = r'''
 # Cell « Contrôle du module » (PS.6): reads poisson_newton.py without running it
 FORBIDDEN = {"sklearn", "torch", "scipy", "sympy", "tensorflow", "jax", "statsmodels"}   # the oracles of PS.7
+
+
+def function_bodies(path):
+    """{name: the syntax tree of the function, without its docstring} for each function of a Python file."""
+    found = {}
+    for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            body = node.body
+            if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
+                    and isinstance(body[0].value.value, str):
+                body = body[1:]                                  # the docstring
+            found[node.name] = ast.dump(node.args) + "".join(ast.dump(statement) for statement in body)
+    return found
+
+
+def copied_functions(mine_path, ref_path):
+    """The functions of your module whose code is that of the reference, docstrings, comments and spaces aside (a
+    function pasted from solutions/mymath_ref/ into the file of the stub)."""
+    try:
+        mine, ref = function_bodies(mine_path), function_bodies(ref_path)
+    except SyntaxError:                                          # your file does not parse: its tests say where
+        return set()
+    return {name for name, tree in mine.items() if ref.get(name) == tree}
+
+
+def mymath_calls(tree):
+    """The pairs (module, function) of mymath that a module calls: mymath.m.f (or mm.m.f after import mymath as mm),
+    or m.f after a from-import."""
+    aliases, roots, calls = {}, {"mymath"}, set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ImportFrom) and node.module == "mymath":
+            aliases.update({a.asname or a.name: a.name for a in node.names})
+        elif isinstance(node, ast.ImportFrom) and (node.module or "").startswith("mymath."):
+            calls.update((node.module.split(".")[1], a.name) for a in node.names)
+        elif isinstance(node, ast.Import):   # import mymath.eigen as eig ; import mymath as mm
+            aliases.update({a.asname: a.name.split(".")[1] for a in node.names
+                            if a.name.startswith("mymath.") and a.asname})
+            roots.update(a.asname for a in node.names if a.name == "mymath" and a.asname)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Attribute):
+            inner = node.value
+            if isinstance(inner.value, ast.Name) and inner.value.id in roots:
+                calls.add((inner.attr, node.attr))
+        elif isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id in aliases:
+            calls.add((aliases[node.value.id], node.attr))
+    return sorted(calls)
+
+
 tree = ast.parse((PROJECT / "poisson_newton.py").read_text(encoding="utf-8"))
 print("API :")
 for node in tree.body:
@@ -474,13 +522,14 @@ for node in tree.body:
                  "(vérification des données)")
         print(f"  {mark} {node.name} : {doc.splitlines()[0] if doc else '—'}{note}")
 print("mymath :")
-modules = {alias.name for node in ast.walk(tree) if isinstance(node, ast.ImportFrom) and node.module == "mymath"
-           for alias in node.names}
-calls = sorted({(node.value.id, node.attr) for node in ast.walk(tree)
-                if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id in modules})
+calls = mymath_calls(tree)
 for module, function in calls:
-    mine = (ROOT / "mon_travail" / "mymath" / f"{module}.py").exists() and mymath.__wb_impl__ == "learner"
-    print(f"  {'✅ à toi    ' if mine else 'ℹ️ référence'} mymath.{module}.{function}")
+    mine_path = ROOT / "mon_travail" / "mymath" / f"{module}.py"
+    ref_path = ROOT / "solutions" / "mymath_ref" / f"{module}.py"
+    mine = mine_path.exists() and mymath.__wb_impl__ == "learner"
+    copied = mine and ref_path.exists() and function in copied_functions(mine_path, ref_path)
+    label = "⚠️ copie de la référence" if copied else ("✅ à toi    " if mine else "ℹ️ référence")
+    print(f"  {label} mymath.{module}.{function}")
 print(f"  {len(calls)} fonctions de mymath appelées ; l'exemple tourne sur la référence (setup de solution), "
       "ton projet appelle les tiennes")
 print("imports :")

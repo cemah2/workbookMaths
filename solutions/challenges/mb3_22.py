@@ -1,9 +1,10 @@
 """The hidden part of the challenge 🏆 MB3.22 (chapter MB3): the turbines and the method of the check.
 
-Reference material, like ``solutions/mymath_ref/``: the check cell of the notebook loads this file by its path from the
-root of the repository (``wbm.repo_root() / "solutions" / "challenges" / "mb3_22.py"``), inside a function, so that the
-notebook shows neither the law of the hidden turbines nor the method that sets the threshold. Reading it before
-solving the challenge spoils it.
+Reference material, like ``solutions/mymath_ref/``. The notebook never reads this file; the check cell runs it as a
+script in another process (``python -I mb3_22.py --serve``, :func:`serve`): that process draws three new turbines at
+each run, sends their relevés and their hours only, receives the predictions of the learner's function, and answers with
+the error and the threshold of each (:func:`measure`), so that neither the law of a hidden turbine nor the method that
+sets the threshold lives in the notebook's process. Reading this file before solving the challenge spoils it.
 
 - :func:`turbine` draws a turbine of the type of the notebook: a law of the production as a function of the direction
   of the wind and of the day of the year, 400 noisy relevés, and 400 hours to predict around 0° and the new year. The
@@ -75,3 +76,50 @@ def threshold(train, test, truth):
     """1.3 times the mean squared error of :func:`reference` against ``truth``, and the width it chose."""
     predictions, width = reference(train, test)
     return FACTOR * float(np.mean((predictions - np.asarray(truth, dtype=float)) ** 2)), width
+
+
+def measure(train, test, law, predictions):
+    """What the check says of the predictions of one turbine: the mean squared error, the threshold (1.3 times the
+    error of :func:`reference`), the width that leave-one-out chooses, and the other width of :data:`GRID` whose
+    predictions the learner's are (None when none is)."""
+    truth = law(test[:, 0], test[:, 1])
+    limit, chosen = threshold(train, test, truth)
+    try:
+        got = np.asarray(predictions, dtype=float)
+    except (TypeError, ValueError):
+        got = None
+    if got is None or got.shape != (len(test),) or not np.all(np.isfinite(got)):
+        return {"error": None, "threshold": limit, "chosen": chosen, "like": None}
+    like = next((float(h) for h in GRID if abs(h - chosen) > 1e-12
+                 and np.allclose(got, reference(train, test, width=float(h))[0], rtol=1e-6, atol=1e-6)), None)
+    return {"error": float(np.mean((got - truth) ** 2)), "threshold": limit, "chosen": chosen, "like": like}
+
+
+def serve():
+    """``python -I mb3_22.py --serve``: draw three hidden turbines from fresh entropy (one per range of :data:`NOISES`);
+    write one JSON line, ``{"turbines": [[train, test], ...]}`` (the relevés and the hours only); read one JSON line,
+    the 400 predictions of the learner's function for each turbine, in order (null for a turbine it could not do);
+    write one JSON line, :func:`measure` of each turbine, then stop. Any other input, or the end of stdin: stop at
+    once."""
+    import json
+    import sys
+    rng = np.random.default_rng()
+    drawn = [turbine(rng, noise_range=noise_range) for noise_range in NOISES]
+    out = sys.stdout.buffer
+    out.write((json.dumps({"turbines": [[train.tolist(), test.tolist()] for train, test, _ in drawn]}) + "\n").encode())
+    out.flush()
+    try:
+        answers = json.loads(sys.stdin.buffer.readline().decode("utf-8"))
+    except (ValueError, UnicodeDecodeError):
+        return
+    if not isinstance(answers, list) or len(answers) != len(drawn):
+        return
+    out.write((json.dumps([measure(train, test, law, answer) for (train, test, law), answer in zip(drawn, answers)])
+               + "\n").encode())
+    out.flush()
+
+
+if __name__ == "__main__":
+    import sys as _sys
+    if _sys.argv[1:] == ["--serve"]:
+        serve()

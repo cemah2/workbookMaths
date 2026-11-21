@@ -6,11 +6,11 @@
 |---|---|
 | **Sections** | §1 à §6 |
 | **Temps total estimé** | ≈ 9,0 h : lecture et calculs de la fiche ≈ 1 h 35, exercices ≈ 7 h 05, 12 flashcards ≈ 25 min (parcours essentiel ≈ 6,0 h) |
-| **Prérequis** | R6 (cote, logit) ; R7 (dérivée, limites) ; R8 (combinaisons, espérance) ; M02a (rectangles) ; M03 (precision, recall, l'AUC ne dépend que de l'ordre) ; M04 (lissage de Laplace) ; M05a (concavité, flottants) ; M06 (information $-\ln p$) ; M07 (cosinus) ; M08 (facteur de Bayes) ; M09a (forme réduite, coût d'un produit) ; M11 et MB3 §8 (nombre harmonique) ; M12a (base, rang, rang d'un produit, rang numérique) ; M12d (SVD, Eckart-Young) |
+| **Prérequis** | R6 (cote, logit) ; R7 (dérivée, limites) ; R8 (combinaisons, espérance) ; M02a (rectangles) ; M03 (precision, recall, l'AUC ne dépend que de l'ordre) ; M04 (lissage de Laplace) ; M05a (concavité, flottants) ; M06 (information $-\ln p$) ; M07 (cosinus) ; M08 (facteur de Bayes) ; M09a (forme réduite, coût d'un produit) ; M11 et MB3 §8 (nombre harmonique) ; M12a (base, rang, rang d'un produit, rang numérique) ; M12d (SVD, Eckart-Young) ; M20 (ordre des contractions) ; MB2 §4 et §5 (rappels) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `ranks.py` : `rank_factorization`, `borda_scores`, `random_ranking_mrr` |
 | **MML** | §4.6 (*Matrix Approximation*), lu en M12d : à relire avant le §2 |
-| **Références** | G. Strang et C. Moler (§1) ; M. Rudelson et R. Vershynin (§2) ; K. Spärck Jones, S. E. Robertson (§3) ; L. Michaelis et M. L. Menten (§4) ; J.-C. de Borda, G. V. Cormack et coll. (§5) ; C. D. Manning, P. Raghavan et H. Schütze, ch. 6, 8 et 11 |
+| **Références** | G. Strang et C. Moler (§1) ; M. Rudelson et R. Vershynin, M. Gavish et D. L. Donoho (§2) ; K. Spärck Jones, S. E. Robertson, W. B. Croft et D. J. Harper (§3) ; S. Robertson et H. Zaragoza (§3, §4) ; L. Michaelis et M. L. Menten (§4) ; J.-C. de Borda, G. V. Cormack et coll. (§5) ; E. M. Voorhees (§6) ; C. D. Manning, P. Raghavan et H. Schütze, ch. 6, 8 et 11 |
 
 ## Comment utiliser ce chapitre
 

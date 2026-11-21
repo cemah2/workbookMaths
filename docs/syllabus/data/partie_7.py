@@ -472,7 +472,7 @@ CHAPTERS = [
                     "une échelle fixe ; multiplier les scores par c, c'est diviser la température par c (M17, M28) ; "
                     "saturation : quand c grandit, la softmax tend vers le one-hot du plus grand score, et la sensibilité "
                     "1 − Σ pᵢ² (la trace de diag(p) − ppᵀ, l'impureté de Gini de M13a) tend vers 0, exponentiellement vite "
-                    "en c (énoncé, avec une idée de preuve)",
+                    "en c (démontré dans la fiche)",
                     "softmax en ligne : lire les scores par blocs en gardant l'état (m, l, a), le plus grand score lu, "
                     "Σ e^{s_j − m} et Σ e^{s_j − m} v_j, remis à l'échelle par e^{m_ancien − m_nouveau} quand le maximum "
                     "change ; l'invariant, démontré par récurrence : le résultat est exact, et m + ln l est le log-sum-exp "
@@ -886,6 +886,9 @@ CHAPTERS = [
                      ("somme harmonique comparée à l'intégrale de 1/x", "M11"),
                      ("SVD, normes de Frobenius et spectrale, approximation de rang faible et son erreur (Eckart-Young), "
                       "nombres stockés d'une image en rang k", "M12d"),
+                     ("ordre des contractions de trois tableaux", "M20"),
+                     ("répartir les valeurs singulières entre deux facteurs ; une cote multipliée par un rapport de "
+                      "sélection", "MB2"),
                      ("nombre harmonique H_n et records", "MB3")],
         "frontieres": ["B4.2", "B4.3", "B4.5", "B4.11", "B4.17", "B4.18", "B4.25", "B4.27", "B4.Q8", "B4.Q9",
                        "B4.Q11", "B4.R3", "B4.E3"],
@@ -1694,12 +1697,14 @@ CHAPTERS = [
                     "indépendants (démontré) ; diviser par une probabilité, comme Horvitz-Thompson (M20)",
                     "écart de deux proportions indépendantes : erreur type √(p₁(1 − p₁)/n₁ + p₂(1 − p₂)/n₂) et intervalle "
                     "de Wald de l'écart ; pour un taux de vrais positifs, n est le nombre de positifs ; bootstrap stratifié "
-                    "(tirer dans chaque groupe) contre bootstrap global (principe)"],
+                    "(tirer dans chaque groupe) contre bootstrap global (principe) ; bootstrap par groupes (tirer des "
+                    "groupes entiers quand les exemples sont dépendants, principe)"],
         "requires": [("fonction affine passant par deux points", "R3"),
                      ("parties d'un ensemble et leur nombre 2^n, notations Σ et Π, rédiger une démonstration", "R4"),
                      ("principe multiplicatif, factorielle, combinaisons C(n, k), arbres", "R8"),
                      ("intégrale, théorème fondamental, méthodes des rectangles, des trapèzes et de Simpson", "M02a"),
-                     ("espérance, linéarité de l'espérance, loi de Bernoulli et sa variance", "M02b"),
+                     ("espérance, linéarité de l'espérance, loi de Bernoulli et sa variance, variance d'une somme "
+                      "indépendante, formule du binôme", "M02b"),
                      ("corrélation de Pearson, estimateur sans biais, erreur type, bootstrap", "M02c"),
                      ("probabilités conditionnelles, indépendance, taux par groupe, calibration, courbe ROC, l'identité des "
                       "taux de faux positifs de deux groupes (§8)", "M03"),
@@ -1907,7 +1912,7 @@ CHAPTERS = [
                  "(2017) pour le §7 ; L. S. Shapley (1953) et J. C. Harsanyi (1963) pour le §2. "
                  "Parcours essentiel : l'unicité (∂ MB6.8), le partage multilinéaire (✏️ MB6.5), le 💼, le 🔨 des dividendes, "
                  "le 🔮, le 🎨, le 🛠️ et le 🏆 hors parcours. "
-                 "**Durée** : 13,0 h en parcours complet, 9,4 h en parcours essentiel, recalée à la génération (session 75) par "
+                 "**Durée** : 13,0 h en parcours complet, 9,3 h en parcours essentiel, recalée à la génération (session 75) par "
                  "l'auteur des exercices, la re-résolution à l'aveugle et l'apprenant simulé ; à la session 69 : 12,1 h en parcours complet, 8,8 h en parcours essentiel (lecture 125 min, soit une "
                  "fiche d'environ 6 200 mots de prose ; 15 flashcards), au lieu des 8 h du plan et des 11 h visées : le "
                  "chapitre comble quatre lacunes qu'aucun chapitre publié ne couvre (jeux coopératifs et valeur de Shapley, "
@@ -2048,7 +2053,7 @@ CHAPTERS = [
                     "variables de contrôle (control variates) : f − c(h − E[h]) sans biais, c* = Cov(f, h)/Var(h), "
                     "variance (1 − ρ²)Var(f) ; pour l'estimateur score, toute constante b donne (f − b)s sans biais (E[s] "
                     "= 0) ; baseline optimale b* = E[f s²]/E[s²] (une moyenne de f pondérée par s²), différente de E[f] en "
-                    "général ; Var((f − b)s) est un trinôme en b, minimal en b* (à la génération, session 76 : « une mauvaise baseline augmente la variance » n'est pas écrit, c'est l'erreur fréquente du corrigé de ∂ B8.7 ; la figure du trinôme suffit)",
+                    "général ; Var((f − b)s) est un trinôme en b, minimal en b*",
                     "baselines de groupe : sur n tirages i.i.d., la moyenne des n − 1 autres f est une baseline sans biais "
                     "; la moyenne des n, tirage compris, multiplie l'estimateur par (n − 1)/n ; diviser par l'écart-type "
                     "du groupe garde le signe de chaque terme, mais l'espérance n'est plus exactement proportionnelle à la "
@@ -2057,8 +2062,8 @@ CHAPTERS = [
                     "V = r_π + γP_πV donne ∂V = (I − γP_π)⁻¹(∂r_π + γ(∂P_π)V) ; ∂V(s₀)/∂z(s, a) = ν_{s₀}(s)/(1 − γ) · π(a "
                     "| s) A^π(s, a), avec la loi d'occupation actualisée ν_{s₀} de M26 §5 et l'avantage A^π = Q^π − V^π ; "
                     "Σ_a π(a | s)A^π(s, a) = 0 ; la forme Σ_s ν(s) Σ_a π(a | s) ∂ln π(a | s) Q^π(s, a) ; la jacobienne de "
-                    "la softmax (rappel M17) ; la pondération (1 − γ)γᵗ des états visités, énoncée ; vérification par "
-                    "différences finies (M05a)",
+                    "la softmax (la matrice de M17 §7, reconnue au chapitre 17 de workbookIA) ; la pondération (1 − γ)γᵗ "
+                    "des états visités, énoncée ; vérification par différences finies (M05a)",
                     "retours à k pas G^(k) = Σ_{j<k} γʲ R_{t+j} + γᵏ V(S_{t+k}) ; G^(k) − V(S_t) = Σ_{l<k} γˡ δ_{t+l} (le "
                     "télescopage de M26 §8, tronqué) ; le λ-retour, moyenne des G^(k) de poids (1 − λ)λ^{k−1}, et G^λ − "
                     "V(S_t) = Σ_l (γλ)ˡ δ_{t+l} (démontré) ; λ = 0 et λ = 1 ; E[δ_t | S_t = s, A_t = a] = A^π(s, a) quand "
@@ -2086,7 +2091,7 @@ CHAPTERS = [
         "requires": [("fonction du second degré (trinôme) et son minimum", "R3"),
                      ("suite et série géométriques", "R5"),
                      ("dérivée d'un logarithme et d'une composée", "R7"),
-                     ("intégration par parties", "M02a"),
+                     ("intégration par parties ; une valeur moyenne estimée par Monte-Carlo", "M02a"),
                      ("lois de Bernoulli, binomiale, de Poisson, exponentielle et normale ; espérance, variance, variance "
                       "d'une somme de variables indépendantes ; simulation par inversion", "M02b"),
                      ("estimateur sans biais, erreur type d'une moyenne, covariance et corrélation, loi des grands nombres",
@@ -2100,7 +2105,8 @@ CHAPTERS = [
                       "log-somme-exp (sa dérivée seconde est une variance)", "M13a"),
                      ("poids exponentiels : l'algorithme Hedge", "M14"),
                      ("puissances d'une matrice d'adjacence et chemins d'un graphe", "M16"),
-                     ("loi de Boltzmann et température, jacobienne de la softmax diag(p) − ppᵀ", "M17"),
+                     ("loi de Boltzmann et température, la matrice diag(p) − ppᵀ, covariance d'un vecteur one-hot "
+                      "(workbookIA 17 y reconnaît la jacobienne de la softmax, ∂ 17.7)", "M17"),
                      ("règle du produit pour des fonctions à valeurs matricielles", "M18"),
                      ("gradient estimé sans biais sur un échantillon, variance d'une moyenne de B tirages", "M19"),
                      ("estimateur de Horvitz-Thompson ; tableaux à trois axes et einsum", "M20"),
@@ -2111,7 +2117,8 @@ CHAPTERS = [
                       "états)", "M26"),
                      ("la probabilité a posteriori minimise la log-loss espérée (la log-loss est une règle de score propre)",
                       "M27"),
-                     ("la température d'une loi donnée par ses probabilités", "M28")],
+                     ("la température d'une loi donnée par ses probabilités", "M28"),
+                     ("la saturation de la softmax quand ses scores s'écartent", "MB3")],
         "frontieres": ["B8.1", "B8.3", "B8.4", "B8.5", "B8.6", "B8.Q4", "B8.Q6", "B8.Q7", "B8.Q11", "B8.17", "B8.18",
                        "B8.19", "B8.25", "B8.11", "B8.E2", "B8.E4"],
         "mymath": {"module": "policy_gradient.py",

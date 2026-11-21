@@ -103788,6 +103788,48 @@
       "sign": 1,
       "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
     },
+    "MB2.18ab": {
+      "hash": "4f783bbe131b36169205dceae384053db1dee131aea39bc3157c85de3cb8ba7a",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18ac": {
+      "hash": "e3d902af01a3cb0e032e78f2729f2a71910f8680890c09f44585824e229dc9a5",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18ad": {
+      "hash": "48b1d1f4c9a29a52f270e95606a1a3310e98fc81bfe269ce5342dc359de3bc3c",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18ae": {
+      "hash": "2e8a208608ed73e9fea4f8cbaceb0d6ce0a2bb03b11712115d84c1bcf67e9cd4",
+      "kind": "int",
+      "magnitude": 0,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18af": {
+      "hash": "f603999304bf3e2ca43f26f715b0977834ea72df776494eb7acb84d494e4b64f",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
+    "MB2.18ag": {
+      "hash": "3710f893724ae2073885d01a273dea471bbb9d18beb50510544ab837e1afea07",
+      "kind": "int",
+      "magnitude": 1,
+      "sign": 1,
+      "source": "chapitres/mb2_cooccurrences/05_solutions.ipynb"
+    },
     "MB2.18b": {
       "decimals": 0,
       "element_hashes": [

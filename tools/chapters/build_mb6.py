@@ -27,8 +27,9 @@ model trained, a pixel or a network, never the number of steps of a rule, never 
 The check cells never hold the code that solves an exercise nor a value that gives an answer without a calculation: the
 expected values are recorded by the solutions as hidden sub-IDs and compared with ``wbm.check(..., computed=True)``
 (the fields of 🔨 MB6.15 at hidden points, the hidden cases of 🐛 MB6.20, the peaks of 🎨 MB6.19), computed at check time
-by the reference ``mymath_ref.attribution`` (the cumulative integrals of 🎨 MB6.19, along the beginning of each path), or
-given by properties (the hidden methods of 🛠️ MB6.21). The hidden part of 🏆 MB6.22 lives in
+from the landscape given (the cumulative integrals of 🎨 MB6.19: grad_19 is the gradient of f_19, fiche §4), or given by
+properties (the hidden methods of 🛠️ MB6.21, whose quadratures written out live in ``solutions/challenges/mb6_21.py`` so
+that no cell shows a solution of 🔨 MB6.15). The hidden part of 🏆 MB6.22 lives in
 ``solutions/challenges/mb6_22.py``: the check cell runs it in another process, which draws the hidden councils at each
 run, sends them, and measures the indices it receives only at the end, so that no exact index of a hidden council
 lives in the notebook's process. The check cells use their own data, never the test cases of
@@ -649,7 +650,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, run_pytest_group, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, refuse_peeking, run_pytest_group, verdict
 
 TEST_MB6 = "tests/test_mb6_attribution.py"           # the tests of mymath/attribution.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")       # the reference: some checks of the hidden cases rely on it
@@ -1588,11 +1589,11 @@ def follows_c19(line, vertices):
 
 
 def point_at_c19(vertices, length):
-    """The point of the polyline at the given length from its start, and the vertices of its beginning up to it."""
+    """The point of the polyline at the given length from its start."""
     for k, (a, b) in enumerate(zip(vertices[:-1], vertices[1:])):
         step = float(np.linalg.norm(b - a))
         if length <= step + 1e-12 or k == len(vertices) - 2:
-            return a + min(length / step, 1.0) * (b - a), vertices[:k + 1]
+            return a + min(length / step, 1.0) * (b - a)
         length -= step
 
 
@@ -1608,14 +1609,11 @@ def cumul_why_c19(curve, vertices, values):
     ends = np.concatenate([[0.0], np.cumsum(np.linalg.norm(np.diff(vertices, axis=0), axis=1))])
     if any(np.count_nonzero((lengths >= lo - 1e-9) & (lengths <= hi + 1e-9)) < 50 for lo, hi in zip(ends, ends[1:])):
         return ["trop peu de points : il en faut au moins 50 sur chaque segment du chemin, ses deux bouts compris"]
-    picks =np.unique(np.linspace(0, len(values) - 1, min(len(values), 60)).astype(int))
-    expected = []
-    for k in picks:
-        point, start = point_at_c19(vertices, float(lengths[k]))
-        expected.append(0.0 if lengths[k] == 0 else ref_att.line_integral(grad_19, np.vstack([start, point])))
+    picks = np.unique(np.linspace(0, len(values) - 1, min(len(values), 60)).astype(int))
+    # grad_19 is the gradient of f_19: its integral from A_19 to a point is f_19(point) - f_19(A_19) (fiche §4)
+    expected = [float(f_19(*point_at_c19(vertices, float(lengths[k]))) - f_19(*A_19)) for k in picks]
     if np.abs(values[picks] - np.array(expected)).max() > 0.005:
-        return ["les cumuls ne sont pas l'intégrale de grad_19 depuis A_19 jusqu'au point courant, à 0,005 près "
-                "(line_integral sur le début du chemin, dont les sommets précédents, jusqu'au point courant)"]
+        return ["les cumuls ne sont pas l'intégrale de grad_19 depuis A_19 jusqu'au point courant, à 0,005 près"]
     return []
 
 
@@ -2063,34 +2061,19 @@ wbm.record(CASES_20r["id_lerps"], [float((1 - F_20r(str(t))) * F_20r(str(a)) + F
 # ---------------------------------------------------------------------------
 # MB6.21 · a property test of line_integral
 # ---------------------------------------------------------------------------
-CHECK_21 = '''def simpson_twin_c21(field, points):
-    """RIGHT: Simpson's rule with 40 intervals on each segment, written another way (the nodes accumulated)."""
-    pts = np.asarray(points, dtype=float)
-    total = 0.0
-    for a, b in zip(pts[:-1], pts[1:]):
-        values = [float(np.dot(np.asarray(field(a + (k / 40) * (b - a)), dtype=float), b - a)) for k in range(41)]
-        total += (values[0] + values[-1] + 4 * sum(values[1:-1:2]) + 2 * sum(values[2:-1:2])) / 120
-    return total
+CHECK_21 = '''def load_hidden_c21():
+    """The quadratures of the check (solutions/challenges/mb6_21.py: reading it spoils 🔨 MB6.15)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("hidden_methods_c21", wbm.repo_root() / "solutions" / "challenges"
+                                                  / "mb6_21.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
-def gauss_twin_c21(field, points):
-    """RIGHT: the three-point Gauss-Legendre rule on 8 equal pieces of each segment (exact for degrees up to 5)."""
-    nodes, weights = np.polynomial.legendre.leggauss(3)
-    pts = np.asarray(points, dtype=float)
-    total = 0.0
-    for a, b in zip(pts[:-1], pts[1:]):
-        for piece in range(8):
-            for x, w in zip(nodes, weights):
-                t = (piece + (x + 1) / 2) / 8
-                total += w / 16 * float(np.dot(np.asarray(field(a + t * (b - a)), dtype=float), b - a))
-    return total
-
-
-def left_sums_c21(field, points):
-    """WRONG: left Riemann sums with 64 intervals on each segment (its nodes are not symmetric)."""
-    pts = np.asarray(points, dtype=float)
-    return sum(sum(float(np.dot(np.asarray(field(a + (k / 64) * (b - a)), dtype=float), b - a)) for k in range(64)) / 64
-               for a, b in zip(pts[:-1], pts[1:]))
+HIDDEN_C21 = load_hidden_c21()
+simpson_twin_c21, gauss_twin_c21 = HIDDEN_C21.simpson_twin, HIDDEN_C21.gauss_twin
+left_sums_c21, trapezoid_c21, positive_steps_c21 = HIDDEN_C21.left_sums, HIDDEN_C21.trapezoid, HIDDEN_C21.positive_steps
 
 
 def absolute_c21(field, points):
@@ -2101,16 +2084,6 @@ def absolute_c21(field, points):
 def first_segment_c21(field, points):
     """WRONG from two segments on: the integral along the first segment only."""
     return ref_att.line_integral(field, np.asarray(points, dtype=float)[:2])
-
-
-def trapezoid_c21(field, points):
-    """WRONG unless the field is affine: the trapezoid rule with 20 intervals on each segment."""
-    pts = np.asarray(points, dtype=float)
-    total = 0.0
-    for a, b in zip(pts[:-1], pts[1:]):
-        values = [float(np.dot(np.asarray(field(a + (k / 20) * (b - a)), dtype=float), b - a)) for k in range(21)]
-        total += (sum(values) - (values[0] + values[-1]) / 2) / 20
-    return total
 
 
 def swapped_c21(field, points):
@@ -2130,18 +2103,6 @@ def per_vertex_c21(field, points):
     1 + 2e-8 (k - 2), k the number of vertices (one vertex more changes the result)."""
     value = ref_att.line_integral(field, points)
     return value * (1 + 2e-8 * (len(points) - 2))
-
-
-def positive_steps_c21(field, points):
-    """WRONG on a segment that goes to the left or down: F . |b - a| instead of F . (b - a) (right on the segments
-    that go to the right and up)."""
-    pts = np.asarray(points, dtype=float)
-    total = 0.0
-    for a, b in zip(pts[:-1], pts[1:]):
-        values = [float(np.dot(np.asarray(field(a + (k / 20) * (b - a)), dtype=float), np.abs(b - a)))
-                  for k in range(21)]
-        total += (values[0] + values[-1] + 4 * sum(values[1:-1:2]) + 2 * sum(values[2:-1:2])) / 60
-    return total
 
 
 WRONG_C21 = [   # a hidden wrong method, the test that must refuse it, and the clause of the statement it tries
@@ -2203,36 +2164,8 @@ with checked("MB6.21"):
     def verdicts_c21(label, method):
         return [verdict_c21(name, label, method) for name in TESTS_C21]
 
-    PEEK_C21 = {"__closure__", "cell_contents", "__code__", "__wrapped__", "__defaults__", "__globals__", "__name__",
-                "__qualname__", "__doc__", "_getframe", "currentframe", "f_back", "f_locals", "f_globals", "inspect",
-                "getsource", "get_objects", "WRONG_C21", "TESTS_C21"}
-
-    def peeks_c21(function, seen=None):
-        """The names of PEEK_C21 that the learner's function (or a function of the notebook it calls) uses, as a name
-        or as a string."""
-        seen = set() if seen is None else seen
-        code = getattr(function, "__code__", None)
-        if code is None or code in seen:
-            return set()
-        seen.add(code)
-        found, todo = set(), [code]
-        while todo:
-            c = todo.pop()
-            found |= PEEK_C21 & (set(c.co_names) | {k for k in c.co_consts if isinstance(k, str)})
-            for name in c.co_names:
-                target = globals().get(name)
-                if callable(target) and getattr(target, "__module__", None) == "__main__":
-                    found |= peeks_c21(target, seen)
-            todo += [k for k in c.co_consts if hasattr(k, "co_code")]
-        return found
-
-    peeked_c21 = {name: sorted(peeks_c21(test)) for name, test in TESTS_C21.items()}
-    peeked_c21 = {name: names for name, names in peeked_c21.items() if names}
-    if peeked_c21:
-        name_c21, names_c21 = next(iter(peeked_c21.items()))
-        print(f"❌ Ex MB6.21 : {name_c21} lit la méthode ou la pile d'appels ({', '.join(names_c21)}) au lieu de "
-              "l'exécuter : un test juge ce que fait la méthode sur tes lignes brisées")
-        raise StopCheck
+    # a test runs the method: it reads neither the method, nor the stack, nor the names of this cell
+    refuse_peeking("MB6.21", TESTS_C21, globals(), private=("_c21", "_C21"))
 
     REF_FILE_C21 = REF.attribution.__file__
 
@@ -2402,6 +2335,8 @@ CHECK_22 = """def check_c22():
     import subprocess
     import sys
     import threading
+    refuse_peeking("MB6.22", {"shapley_shubik_22": shapley_shubik_22}, globals(),
+                   private=("_c22", "_C22"))            # it computes, it never reads the check
     hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb6_22.py"   # reading it spoils the challenge
     twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
     results = []
@@ -2575,7 +2510,7 @@ MB6_22 = ex(
     "conseils cachés.", "fiche §1 ; Ex MB6.1, MB6.13", note=NOTE_22, given=GIVEN_22,
     body=r"""Le notebook fournit `WEIGHTS_22`, les voix des 25 membres d'un conseil (des entiers de 1 à 12, 98 voix en tout), et `QUOTA_22` $= 66$. Écris `shapley_shubik_22(weights, quota)`, qui rend les indices de Shapley-Shubik de tous les membres, exacts (des flottants), sans parcourir les coalitions une à une : pour chaque membre $i$, compte les coalitions des autres membres par taille et par poids total (un tableau rempli membre par membre), garde celles où $i$ est pivot, et pondère par `coalition_weights`.
 
-**Critère de réussite :** pour le conseil du notebook et pour trois séries de cinq conseils cachés de 30 à 50 membres, tirés à nouveau à chaque exécution (une majorité simple, une majorité qualifiée, un membre au veto, quelques grands et beaucoup de petits, des poids presque égaux), chaque indice est à $10^{-9}$ près l'indice exact, et ta fonction traite les quinze conseils cachés en moins de cinq minutes. Elle ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb6_22.py`) : la vérification le contrôle. Relève :
+**Critère de réussite :** pour le conseil du notebook et pour trois séries de cinq conseils cachés de 30 à 50 membres, tirés à nouveau à chaque exécution (une majorité simple, une majorité qualifiée, un membre au veto, quelques grands et beaucoup de petits, des poids presque égaux), chaque indice est à $10^{-9}$ près l'indice exact, et ta fonction traite les quinze conseils cachés en moins de cinq minutes. Elle ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb6_22.py`), ni lire la vérification (sa pile d'appels, le processus à part) : la vérification le contrôle. Relève :
 - a) l'indice du membre 0, qui a 12 voix (un nombre) ;
 - b) les 25 indices (une liste de 25 nombres).
 

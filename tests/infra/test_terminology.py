@@ -20,8 +20,9 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCES = ["chapitres/*/*.md", "chapitres/*/flashcards.csv", "checkpoints/*/*.md", "projets/*/README.md",
            "projets/*/*/README.md", "annexes/*.md", "annexes/cheatsheets/*.md", "README.md", "00_setup/*.md",
            "suivi/auto_evaluation.md", "suivi/journal.md", "suivi/remediation.md", "suivi/tableau_de_bord.md",
-           "docs/METHODE.md", "docs/SYLLABUS.md", "docs/PARCOURS.md", "docs/syllabus/data/*.json",
+           "docs/METHODE.md", "docs/SYLLABUS.md", "docs/PARCOURS.md", "docs/syllabus/data/*.py",
            "tools/chapters/build_*.py", "tools/chapters/figures_*.py", "tools/chapters/chapter_kit.py",
+           "tools/chapters/ps_*.py",                                       # the two notebooks of the synthesis project
            "tools/chapters/*_parts*.py", "tools/chapters/*_code*.py",    # chapters built in several files
            "data/cards/*.md", "src/wbm/*.py", "tools/*.py", "templates/*.py", "projets/*/*/*.py",
            "projets/*/*/*.md", "projets/*/*/*/*.py",

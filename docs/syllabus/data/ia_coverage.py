@@ -390,19 +390,21 @@ COVERAGE = {
     },
     "B2": {
         "Unicode et UTF-8": "MB2",  # bases 2 et 16
+        "fertilité et coût des tokens": "R1",  # des comptes : tokens par mot, coût d'une requête
         "nn.Embedding": "M09a,M18,MB2",
         "embeddings de phrases": "MB2",
         "PPMI + SVD": "M12d,MB2",
-        "word2vec skip-gram": "M13a,MB2",
+        "word2vec skip-gram": "M13a,M18,MB2",  # les gradients par rapport à u_c et v_w (∂ B2.7)
         "similarité cosinus et analogies": "M07,MB2",
         "recherche sémantique": "M07,MB2",
     },
     "B3": {
         "masques causal et de padding": "MB3",
         "attention par produit scalaire": "MB3",
-        "attention multi-têtes": "MB3",
+        "attention multi-têtes": "M16,M20,MB3",  # paramètres d'une couche (M16), découpage des axes (M20 §1), produit par blocs (MB3 §3)
         "encodages de position (sinusoïdal, RoPE)": "MB3",
         "perplexité": "M06",
+        "KV cache": "R1,M05a",  # un compte : mémoire 2 × couches × longueur × dimension × octets (flottants, M05a)
         "top-k et top-p": "M28",
         "coût quadratique et FlashAttention": "MB3",
         "Vision Transformer": "M21",  # la projection des patchs est une convolution
@@ -436,7 +438,7 @@ COVERAGE = {
         "SHAP (TreeExplainer, graphiques)": "MB6",
         "gradients intégrés": "M02a,M17,MB6",
         "Grad-CAM par hooks": "M20,MB6",
-        "indicateurs d'équité par groupe": "M03,M08,MB6",
+        "indicateurs d'équité par groupe": "M02c,M03,M08,MB6",  # intervalles bootstrap (📦 B6.24)
         "théorème d'impossibilité": "M03,MB6",
         "tests de santé des explications": "M02c,MB6",
         "atténuation des biais": "M20,MB6",
@@ -455,6 +457,7 @@ COVERAGE = {
         "REINFORCE avec baseline": "MB8",
         "acteur-critique et GAE": "M26,MB8",
         "PPO from scratch": "M06,MB8",
+        "diagnostic par les journaux RL": "M06,M09b,MB8",  # KL approchée k₃ (MB8 §6), entropie (M06), variance expliquée (le R² de M09b §1)
         "évaluation multi-graines": "M02c,M08",
         "modèle de récompense Bradley-Terry": "M13a,MB8",
         "RLHF, DPO, GRPO": "M06,MB8",

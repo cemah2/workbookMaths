@@ -531,7 +531,7 @@ import numpy as np
 from scipy import stats
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, refuses, run_pytest_group, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, refuse_peeking, refuses, run_pytest_group, verdict
 
 TEST_MB8 = "tests/test_mb8_policy_gradient.py"       # the tests of mymath/policy_gradient.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")       # the reference: the colleague's code of MB8.19 relies on it
@@ -1838,39 +1838,8 @@ with checked("MB8.20"):
             raise StopCheck
         return bool(got)
 
-    PEEK_C20 = {"__closure__", "cell_contents", "__code__", "__wrapped__", "__defaults__", "__globals__", "__name__",
-                "__qualname__", "__doc__", "__module__", "_getframe", "currentframe", "f_back", "f_locals", "f_globals",
-                "inspect", "getsource", "get_objects", "WRONG_C20", "TESTS_C20", "HIDDEN_C20", "mb8_20",
-                "getattr", "attrgetter", "methodcaller", "vars", "__getattribute__", "__dict__", "eval", "exec",
-                "compile", "globals", "locals", "builtins", "__builtins__", "__import__", "importlib", "gc", "ctypes",
-                "settrace", "setprofile", "monitoring", "traceback", "walk_stack", "extract_stack"}
-
-    def peeks_c20(function, seen=None):
-        """The names of PEEK_C20 that the learner's function (or a function of the notebook it calls) uses, as a name
-        or as a string."""
-        seen = set() if seen is None else seen
-        code = getattr(function, "__code__", None)
-        if code is None or code in seen:
-            return set()
-        seen.add(code)
-        found, todo = set(), [code]
-        while todo:
-            c = todo.pop()
-            found |= PEEK_C20 & (set(c.co_names) | {k for k in c.co_consts if isinstance(k, str)})
-            for name in c.co_names:
-                target = globals().get(name)
-                if callable(target) and getattr(target, "__module__", None) == "__main__":
-                    found |= peeks_c20(target, seen)
-            todo += [k for k in c.co_consts if hasattr(k, "co_code")]
-        return found
-
-    peeked_c20 = {name: sorted(peeks_c20(test)) for name, test in TESTS_C20.items()}
-    peeked_c20 = {name: names for name, names in peeked_c20.items() if names}
-    if peeked_c20:
-        name_c20, names_c20 = next(iter(peeked_c20.items()))
-        print(f"❌ Ex MB8.20 : {name_c20} lit la méthode ou la pile d'appels ({', '.join(names_c20)}) au lieu de "
-              "l'exécuter : un test juge ce que fait la méthode sur tes MDP")
-        raise StopCheck
+    # a test runs the method: it reads neither the method, nor the stack, nor the names of this cell
+    refuse_peeking("MB8.20", TESTS_C20, globals(), private=("_c20", "_C20"), extra=("mb8_20",))
 
     LIBRARY_FILES_C20 = [REF.policy_gradient.__file__]
     try:
@@ -2089,6 +2058,8 @@ CHECK_21 = """def check_c21():
     import subprocess
     import sys
     import threading
+    refuse_peeking("MB8.21", {"derivative_21": derivative_21}, globals(),
+                   private=("_c21", "_C21"))            # it computes, it never reads the check
     hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb8_21.py"   # reading it spoils the challenge
     twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
     results = []
@@ -2299,7 +2270,7 @@ MB8_21 = ex(
     given=GIVEN_21,
     body=r"""Écris `derivative_21(draw, c, budget)`, qui estime $J'(\theta) = \frac{\mathrm{d}}{\mathrm{d}\theta}P_\theta(X > c)$ pour une loi $p_\theta$ que tu ne connais pas. Ta fonction peut appeler `draw(k, delta=0.0)` : $k$ tirages, un décalage $\delta$ de $\theta$ (propre à cet exercice). Elle rend deux tableaux de `k` flottants : `k` tirages indépendants $x_i$ de $p_{\theta + \delta}$, puis leurs scores $s_{\theta + \delta}(x_i)$, au paramètre du tirage ; ses appels réunis ne doivent pas dépasser `budget` tirages (au-delà, `draw` rend des `nan`, et le cas échoue). Ni la famille de la loi ni $\theta$ ne sont donnés : la loi est exponentielle, de Poisson, normale ou binomiale, et le seuil $c$ donne une probabilité $P_\theta(X > c)$ qui va de presque 0 à presque 1. Le notebook fournit un cas d'essai, les attentes au téléphone de MB8.1 (`TRIAL_21` : taux $0{,}1$, seuil 18 minutes, budget de 10 000 tirages), et une fonction `draw` pour lui (`trial_draw_21()` en rend une nouvelle, qui compte ses tirages).
 
-**Critère de réussite :** ton estimation est à 10 % près (en valeur relative) de $J'(\theta)$ pour le cas d'essai, et pour au moins 90 % des 120 cas cachés (douze séries de dix), tirés à nouveau à chaque exécution par un processus à part, qui sert les tirages et compte ceux de chaque cas. Ta fonction ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb8_21.py`), ni lancer un autre processus : la vérification le contrôle. Relève :
+**Critère de réussite :** ton estimation est à 10 % près (en valeur relative) de $J'(\theta)$ pour le cas d'essai, et pour au moins 90 % des 120 cas cachés (douze séries de dix), tirés à nouveau à chaque exécution par un processus à part, qui sert les tirages et compte ceux de chaque cas. Ta fonction ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb8_21.py`), ni lancer un autre processus, ni lire la vérification (sa pile d'appels, le processus à part) : la vérification le contrôle. Relève :
 - a) ton estimation pour le cas d'essai (un nombre ; la vérification la compare à la dérivée exacte, à 10 % près).
 
 Point de départ : la dérivée par le chemin d'une indicatrice est nulle ; des différences finies entre deux échantillons indépendants, à $\theta + h$ et à $\theta - h$, noient l'écart de deux probabilités voisines dans leur bruit ; l'estimateur score sans baseline est sans biais, mais est-il assez précis dans tous les cas ?""",

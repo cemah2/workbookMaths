@@ -71,7 +71,7 @@ Fiche §5 : « Des poids par une softmax » et « La largeur de bande, une temp�
 </details>
 <details><summary>Indice 2</summary>
 
-Des poids positifs de somme 1 donnent une combinaison convexe. Le masque avant la softmax renormalise les poids restants, sur le sous-ensemble ; un poids mis à 0 après ne renormalise rien.
+Des poids positifs de somme 1 donnent une combinaison convexe. Le masque avant la softmax renormalise les poids restants, sur le sous-ensemble ; après la softmax, additionne les poids qui restent.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -412,6 +412,142 @@ def own_code_raising():
         return 1 / 0
 
 
+def test_watched_sees_each_of_two_functions_of_the_same_source_in_two_files(tmp_path):
+    """Audit of part VII (session 78, A6): a library copied from the reference has code objects EQUAL to those of the
+    reference (same hash); each of the two copies is watched under its own label, and only a watched one."""
+    import importlib.util
+
+    from wbm.nbtools import ReferenceCalled, watched
+
+    modules = []
+    for name in ("reference_copy", "learner_copy"):
+        (tmp_path / f"{name}.py").write_text("def twice(x):\n    return 2 * x\n", encoding="utf-8")
+        spec = importlib.util.spec_from_file_location(name, tmp_path / f"{name}.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        modules.append(module)
+    ref, mine = modules
+    assert ref.twice.__code__ == mine.twice.__code__ and ref.twice.__code__ is not mine.twice.__code__
+    both = {"ref.twice": ref.twice, "mymath.twice": mine.twice}
+    for function, label in ((ref.twice, "ref.twice"), (mine.twice, "mymath.twice")):
+        with pytest.raises(ReferenceCalled) as caught:
+            with watched(both) as seen:
+                function(3)
+        assert caught.value.label == label and seen == [label]
+    with watched({"ref.twice": ref.twice}) as seen:
+        assert mine.twice(3) == 6
+    assert seen == []
+    assert ref.twice(2) == mine.twice(2) == 4, "the watch ends with the block"
+
+
+# ---------------------------------------------------------------------------
+# refuse_peeking: a 🛠️ test or a 🏆 function that reads instead of running (audit of part VII, session 78)
+# ---------------------------------------------------------------------------
+NOTEBOOK_PEEK = '''
+import sys
+
+WRONG_C24 = [("wrong", "euler_wrong")]
+
+
+def honest_24(method):
+    return abs(method(lambda t, x: 1.0, 0.0, 0.0, 1.0, 4)[-1] - 1.0) < 1e-12
+
+
+def closure_24(method):
+    return method.__closure__[0].cell_contents.__name__ == "euler_twin"
+
+
+def built_name_24(method):
+    return getattr(method, "".join(["__clo", "sure__"])) is not None
+
+
+def pattern_24(method):
+    match method:
+        case object(__closure__=cells):
+            return cells is not None
+    return False
+
+
+def traceback_24(method):
+    try:
+        method("x", "y", "z", "w", "v")
+    except Exception as exc:
+        return exc.__traceback__.tb_next.tb_frame.f_code.co_name == "euler_twin"
+    return False
+
+
+def helper_24(method):
+    return sys._getframe(1).f_locals
+
+
+def through_helper_24(method):
+    return bool(helper_24(method))
+
+
+class Reader24:
+    def read(self, method):
+        return method.__wrapped__
+
+
+def through_class_24(method):
+    return Reader24().read(method)
+
+
+def by_default_24(method, read=helper_24):
+    return read(method)
+
+
+def private_24(method):
+    return [name for _, name in WRONG_C24]
+
+
+def oracle_24(method):
+    return passes("MB5.24", method)
+'''
+
+
+def notebook_peek() -> dict:
+    """The globals of a notebook (functions of the module __main__) holding the functions of NOTEBOOK_PEEK."""
+    namespace = {"__name__": "__main__"}
+    exec(NOTEBOOK_PEEK, namespace)
+    return namespace
+
+
+def test_peeked_finds_what_a_function_reads_instead_of_running():
+    from wbm.nbtools import peeked
+
+    nb = notebook_peek()
+    assert peeked(nb["honest_24"], nb) == set()
+    assert peeked(nb["closure_24"], nb) == {"__closure__", "cell_contents", "__name__"}
+    assert peeked(nb["built_name_24"], nb) == {"getattr"}
+    assert peeked(nb["pattern_24"], nb) == {"__closure__"}         # match keeps its attribute names in a tuple
+    assert peeked(nb["traceback_24"], nb) == {"__traceback__", "tb_next", "tb_frame", "f_code", "co_name"}
+    assert peeked(nb["through_helper_24"], nb) == {"_getframe", "f_locals"}   # a function of the notebook it calls
+    assert peeked(nb["through_class_24"], nb) == {"__wrapped__"}             # the methods of a class it names
+    assert peeked(nb["by_default_24"], nb) == {"_getframe", "f_locals"}       # a default value
+    assert peeked(nb["private_24"], nb) == set()
+    assert peeked(nb["private_24"], nb, private=("_c24", "_C24")) == {"WRONG_C24"}   # a name of the check cell
+    assert peeked(nb["oracle_24"], nb) == set()
+    assert peeked(nb["oracle_24"], nb, names=frozenset({"passes"})) == {"passes"}
+
+
+def test_refuse_peeking_prints_one_line_and_stops_the_check(capsys):
+    from wbm.nbtools import refuse_peeking
+
+    nb = notebook_peek()
+    assert refuse_peeking("MB5.24", {"honest_24": nb["honest_24"]}, nb, private=("_c24", "_C24")) is None
+    assert out(capsys) == ""
+    for label, extra, names in (("closure_24", (), "__closure__, __name__, cell_contents"),
+                                ("private_24", (), "WRONG_C24"),
+                                ("oracle_24", ("passes",), "passes")):
+        with checked("MB5.24"):
+            refuse_peeking("MB5.24", {"honest_24": nb["honest_24"], label: nb[label]}, nb, private=("_c24", "_C24"),
+                           extra=extra)
+            print("not reached")
+        assert out(capsys) == (f"❌ Ex MB5.24 : {label} lit la méthode, la pile d'appels ou la vérification ({names}) "
+                               "au lieu de calculer : écris ce calcul sans ces noms\n")
+
+
 def test_refuses(capsys):
     def bad_p():
         raise ValueError("p must be in [0, 1), got 1.5")

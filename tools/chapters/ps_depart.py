@@ -207,7 +207,7 @@ IMPLEMENTATION = r"""
 
 📝 **PS.6** (3 points) · Présente `algo.py` : ses fonctions publiques, la formule de §3 que chacune calcule, les fonctions de `mymath` qu'il appelle et ce qu'elles font dans le calcul, et le coût d'un appel (en fonction de $n$ et $p$, M18 §5 si c'est une rétropropagation).
 
-La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si ce module est la référence recopiée, aux commentaires et aux espaces près (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
+La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si le code de cette fonction est celui de la référence, aux docstrings, aux commentaires et aux espaces près (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
 """
 
 CONTROL_CODE = r'''
@@ -218,21 +218,46 @@ OWNER = {Path(rel).stem: cid for cid, files in manifest["chapters"].items() for 
 MYMATH_MODULES = {}   # module of mymath -> the test file of its chapter
 
 
+def function_bodies(path):
+    """{name: the syntax tree of the function, without its docstring} for each function of a Python file."""
+    found = {}
+    for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            body = node.body
+            if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
+                    and isinstance(body[0].value.value, str):
+                body = body[1:]                                  # the docstring
+            found[node.name] = ast.dump(node.args) + "".join(ast.dump(statement) for statement in body)
+    return found
+
+
+def copied_functions(mine_path, ref_path):
+    """The functions of your module whose code is that of the reference, docstrings, comments and spaces aside (a
+    function pasted from solutions/mymath_ref/ into the file of the stub)."""
+    try:
+        mine, ref = function_bodies(mine_path), function_bodies(ref_path)
+    except SyntaxError:                                          # your file does not parse: its tests say where
+        return set()
+    return {name for name, tree in mine.items() if ref.get(name) == tree}
+
+
 def mymath_calls(tree):
-    """The pairs (module, function) of mymath that a module calls: mymath.m.f, or m.f after a from-import."""
-    aliases, calls = {}, set()
+    """The pairs (module, function) of mymath that a module calls: mymath.m.f (or mm.m.f after import mymath as mm),
+    or m.f after a from-import."""
+    aliases, roots, calls = {}, {"mymath"}, set()
     for node in ast.walk(tree):
         if isinstance(node, ast.ImportFrom) and node.module == "mymath":
             aliases.update({a.asname or a.name: a.name for a in node.names})
         elif isinstance(node, ast.ImportFrom) and (node.module or "").startswith("mymath."):
             calls.update((node.module.split(".")[1], a.name) for a in node.names)
-        elif isinstance(node, ast.Import):   # import mymath.eigen as eig
+        elif isinstance(node, ast.Import):   # import mymath.eigen as eig ; import mymath as mm
             aliases.update({a.asname: a.name.split(".")[1] for a in node.names
                             if a.name.startswith("mymath.") and a.asname})
+            roots.update(a.asname for a in node.names if a.name == "mymath" and a.asname)
     for node in ast.walk(tree):
         if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Attribute):
             inner = node.value
-            if isinstance(inner.value, ast.Name) and inner.value.id == "mymath":
+            if isinstance(inner.value, ast.Name) and inner.value.id in roots:
                 calls.add((inner.attr, node.attr))
         elif isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id in aliases:
             calls.add((aliases[node.value.id], node.attr))
@@ -265,13 +290,15 @@ if tree is not None:
         mine_path = ROOT / "mon_travail" / "mymath" / f"{module}.py"
         ref_path = ROOT / "solutions" / "mymath_ref" / f"{module}.py"
         mine = mine_path.exists()
-        same_code = lambda a, b: ast.dump(ast.parse(a.read_text(encoding="utf-8"))) == ast.dump(ast.parse(b.read_text(encoding="utf-8")))  # noqa: E731,E501
-        copied = mine and ref_path.exists() and same_code(mine_path, ref_path)
-        chapter = OWNER.get(module, "?")
+        copied = mine and ref_path.exists() and function in copied_functions(mine_path, ref_path)
+        chapter = OWNER.get(module)
+        if chapter is None:
+            print(f"  ❌ mymath.{module}.{function} : aucun chapitre ne crée le module {module} (une faute de frappe ?)")
+            continue
         MYMATH_MODULES[module] = f"tests/test_{chapter.lower()}_{module}.py"
         label = "⚠️ copie de la référence" if copied else ("✅ à toi    " if mine else "⚠️ référence")
         print(f"  {label} mymath.{module}.{function} ({chapter})")
-    count = len(calls)
+    count = sum(1 for module, _ in calls if module in OWNER)
     print(f"  {count} fonction(s) de mymath appelée(s) ; au moins 3 sont attendues, écrites par toi"
           + (" ⏳" if count < 3 else ""))
     print("imports :")
@@ -285,6 +312,15 @@ if tree is not None:
                 note = (" (un oracle de PS.7 : pas dans le module)" if top in FORBIDDEN else "" if allowed else
                         " (ni NumPy, ni la bibliothèque standard, ni mymath : README, « Les règles », 3)")
                 print(f"  {mark} {name}{note}")
+    for node in ast.walk(tree):   # an import by name, at run time: importlib.import_module("…"), __import__("…")
+        if isinstance(node, ast.Call) and node.args and isinstance(node.args[0], ast.Constant) \
+                and isinstance(node.args[0].value, str) and (
+                    (isinstance(node.func, ast.Attribute) and node.func.attr == "import_module")
+                    or (isinstance(node.func, ast.Name) and node.func.id in {"__import__", "import_module"})):
+            top = node.args[0].value.split(".")[0]
+            mark = "❌" if top in FORBIDDEN else "⚠️"
+            print(f"  {mark} {node.args[0].value} (importé à l'exécution : écris un import en tête du module ; "
+                  f"{'un oracle de PS.7 : pas dans le module' if top in FORBIDDEN else 'README, « Les règles », 3'})")
 '''
 
 MYMATH_TESTS = r'''
@@ -307,8 +343,9 @@ La cellule suivante lance tes tests avec ton code. Tant qu'un squelette n'est pa
 
 TESTS_CODE = r'''
 # Your tests (PS.7)
+TESTS_PS7 = None   # the result of your tests without mutation: the cell « mutation » needs them green
 with wbm.attempt("PS.7"):
-    run_pytest_group(PROJECT / "test_algo.py", root=PROJECT)
+    TESTS_PS7 = run_pytest_group(PROJECT / "test_algo.py", root=PROJECT)
 '''
 
 MUTATION_MD = r"""
@@ -324,6 +361,9 @@ MUTATION_CHECK = r'''
 with wbm.attempt("PS.7"):
     if not filled(MUTANT):
         raise NotImplementedError("PS.7 : écris une mutation dans mutants.py, puis son nom dans MUTANT")
+    if TESTS_PS7 is None or not TESTS_PS7.ok:
+        raise NotImplementedError("PS.7 : la mutation se juge sur des tests qui passent tous sans elle ; corrige d'abord "
+                                  "les échecs de la cellule « tes tests », puis réexécute les deux cellules")
     result = run_pytest_group(PROJECT / "test_algo.py", root=PROJECT, args=[f"--mutant={MUTANT}"])
     if result.failed:
         print(f"✅ la mutation {MUTANT} est attrapée : {result.failed} test(s) en échec, nommés ci-dessus")

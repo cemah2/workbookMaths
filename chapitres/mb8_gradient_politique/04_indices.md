@@ -124,7 +124,7 @@ $\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$, et le maximum de $F$ vaut $
 
 <details><summary>Indice 1</summary>
 
-M17 §7 (la loi de Boltzmann et la jacobienne de la softmax) ; fiche §4 : « Une politique softmax tabulaire ».
+M17 §7 (la loi de Boltzmann, et diag(p) − pᵀp comme covariance d'un vecteur one-hot) ; le chapitre 17 de workbookIA (la jacobienne de la softmax) ; fiche §4 : « Une politique softmax tabulaire ».
 
 </details>
 <details><summary>Indice 2</summary>

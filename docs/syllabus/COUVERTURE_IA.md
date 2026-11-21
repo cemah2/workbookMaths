@@ -4,7 +4,7 @@
 
 Pour chaque chapitre de workbookIA, ses notions mathématiques et le chapitre de maths qui les enseigne **avant** lui dans l'ordre de travail commun (`syllabus.py check` le vérifie). Les notions de workbookIA sont lues dans une copie figée (`docs/syllabus/workbookia_notions.json`, commit ff7a37c). « Enseignée » veut dire : le chapitre de maths donne les outils dont la notion a besoin ; les démonstrations du chapitre de workbookIA restent les siennes (règle de partage, BIBLE §8 : la liste « Frontières » de chaque chapitre dans `docs/SYLLABUS.md`). Les notions sans chapitre de maths sont jugées non mathématiques (outils, pratique, vocabulaire du ML) : elles sont listées pour relecture.
 
-**Bilan** : 369 notions mathématiques couvertes, 189 notions non mathématiques.
+**Bilan** : 372 notions mathématiques couvertes, 186 notions non mathématiques.
 
 ## workbookIA 0A · Python, notebooks et outils
 
@@ -533,14 +533,15 @@ Non mathématiques : transfer learning · extraction de features · dégel progr
 | Notion de workbookIA | Enseignée dans |
 |---|---|
 | Unicode et UTF-8 | MB2 |
+| fertilité et coût des tokens | R1 |
 | nn.Embedding | M09a, M18, MB2 |
 | embeddings de phrases | MB2 |
 | PPMI + SVD | M12d, MB2 |
-| word2vec skip-gram | M13a, MB2 |
+| word2vec skip-gram | M13a, M18, MB2 |
 | similarité cosinus et analogies | M07, MB2 |
 | recherche sémantique | M07, MB2 |
 
-Non mathématiques : normalisation de texte · BPE from scratch · BPE au niveau octet · bibliothèque tokenizers · fertilité et coût des tokens
+Non mathématiques : normalisation de texte · BPE from scratch · BPE au niveau octet · bibliothèque tokenizers
 
 ## workbookIA B3 · Attention et Transformers : un mini-GPT from scratch
 
@@ -548,15 +549,16 @@ Non mathématiques : normalisation de texte · BPE from scratch · BPE au niveau
 |---|---|
 | masques causal et de padding | MB3 |
 | attention par produit scalaire | MB3 |
-| attention multi-têtes | MB3 |
+| attention multi-têtes | M16, M20, MB3 |
 | encodages de position (sinusoïdal, RoPE) | MB3 |
 | perplexité | M06 |
+| KV cache | R1, M05a |
 | top-k et top-p | M28 |
 | coût quadratique et FlashAttention | MB3 |
 | Vision Transformer | M21 |
 | bloc Transformer pré-LN | M17, M20 |
 
-Non mathématiques : architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch · KV cache
+Non mathématiques : architectures BERT/GPT/T5 · mini-GPT PyTorch from scratch
 
 ## workbookIA B4 · LLM en pratique : Hugging Face, prompting, RAG et LoRA
 
@@ -597,7 +599,7 @@ Non mathématiques : transformers en pratique (5.x) · chat templates · prompti
 | SHAP (TreeExplainer, graphiques) | MB6 |
 | gradients intégrés | M02a, M17, MB6 |
 | Grad-CAM par hooks | M20, MB6 |
-| indicateurs d'équité par groupe | M03, M08, MB6 |
+| indicateurs d'équité par groupe | M02c, M03, M08, MB6 |
 | théorème d'impossibilité | M03, MB6 |
 | tests de santé des explications | M02c, MB6 |
 | atténuation des biais | M20, MB6 |
@@ -626,9 +628,10 @@ Non mathématiques : structure d'un projet Python · argparse et logging · conf
 | REINFORCE avec baseline | MB8 |
 | acteur-critique et GAE | M26, MB8 |
 | PPO from scratch | M06, MB8 |
+| diagnostic par les journaux RL | M06, M09b, MB8 |
 | évaluation multi-graines | M02c, M08 |
 | modèle de récompense Bradley-Terry | M13a, MB8 |
 | RLHF, DPO, GRPO | M06, MB8 |
 
-Non mathématiques : environnements vectorisés gymnasium · diagnostic par les journaux RL · piratage de la récompense (reward hacking)
+Non mathématiques : environnements vectorisés gymnasium · piratage de la récompense (reward hacking)
 

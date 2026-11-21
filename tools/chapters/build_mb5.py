@@ -24,7 +24,8 @@ The check cells never hold the code that solves an exercise nor a value that giv
 expected values are recorded by the solutions as hidden sub-IDs and compared with ``wbm.check(..., computed=True)``
 (the mean fields of 🔬 MB5.21 and 🏆 MB5.25 at hidden points, the guided densities of 🎨 MB5.22, the hidden bridges of
 🐛 MB5.23, the two Euler distances of 🏆 MB5.25 b), computed at check time by the reference ``mymath_ref.gaussian_paths``
-(the hidden mixtures and fields of 🐛 MB5.23), or given by properties (the hidden methods of 🛠️ MB5.24). The hidden part
+(the hidden mixtures and fields of 🐛 MB5.23), or given by properties (the hidden methods of 🛠️ MB5.24, whose two right
+ones live in ``solutions/challenges/mb5_24.py`` so that no cell shows a solution of 🔨 MB5.18). The hidden part
 of 🏆 MB5.25 lives in ``solutions/challenges/mb5_25.py``: the check cell runs it in another process, which draws the
 hidden laws at each run, answers the field requests (and counts them) and measures the points reached only at the end,
 so that no hidden law (nor a seed, nor a kind) lives in the notebook's process while the learner's function runs.
@@ -641,7 +642,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, run_pytest_group, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, refuse_peeking, run_pytest_group, verdict
 
 TEST_MB5 = "tests/test_mb5_gaussian_paths.py"          # the tests of mymath/gaussian_paths.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")       # the reference: the checks of the hidden cases rely on it
@@ -2023,9 +2024,9 @@ MB5_23 = ex(
     "responsabilités, un temps qui n'avance pas), qui passent une vérification mal choisie, puis les corriger.",
     "fiche §2, §5 et §8 ; Ex MB5.3, MB5.17, MB5.18", note=NOTE_23, given=GIVEN_23,
     body=r"""Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe (cellule fournie) :
-1. `bridge_bad(x0, xT, Vs, VT)` doit rendre la moyenne et la variance du pont d'une marche aléatoire ; elle met le poids $\frac{V_s}{V_T}$ sur $x_0$ au lieu de $x_T$. Il l'a vérifiée au milieu d'une marche de pas égaux.
-2. `denoiser_bad(y, a, b, weights, means, variances)` doit rendre $\mathbb{E}[x \mid y]$ pour un mélange ; elle calcule les responsabilités avec la variance $v_k$ du signal seule, au lieu de $a^2v_k + b^2$. Il l'a vérifiée sur un mélange à une seule composante.
-3. `euler_bad(f, x0, t0, t1, n_steps)` doit suivre la méthode d'Euler ; elle lit le champ en $t_0$ à chaque pas. Il l'a vérifiée sur $x' = -\frac x3$.
+1. `bridge_bad(x0, xT, Vs, VT)` doit rendre la moyenne et la variance du pont d'une marche aléatoire. Près de la fin de la marche ($V_s$ proche de $V_T$), sa moyenne reste près de $x_0$ au lieu de rejoindre $x_T$. Il l'a vérifiée au milieu d'une marche de pas égaux.
+2. `denoiser_bad(y, a, b, weights, means, variances)` doit rendre $\mathbb{E}[x \mid y]$ pour un mélange. Sur un mélange de deux composantes, ses responsabilités ne changent pas quand le bruit $b$ grandit : elle fait autant confiance à une mesure très bruitée qu'à une mesure presque exacte. Il l'a vérifiée sur un mélange à une seule composante.
+3. `euler_bad(f, x0, t0, t1, n_steps)` doit suivre la méthode d'Euler. Sur $x' = t$ depuis $t_0 = 0$, elle rend $x_0$ quelle que soit la durée. Il l'a vérifiée sur $x' = -\frac x3$.
 
 À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `bridge_fixed`, `denoiser_fixed` et `euler_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle). Puis réponds :
 - a) pour le phoque de MB5.3 (`SEAL_3`, cellule de données), la moyenne de la position à 11 h par la fonction corrigée, puis par la fonction fautive (une liste de 2 nombres) ;
@@ -2178,27 +2179,18 @@ wbm.record(CASES_23r["id"], [bridge_23r(*case) for case in CASES_23r["bridges"]]
 # ---------------------------------------------------------------------------
 # MB5.24 · a property test of a method of integration
 # ---------------------------------------------------------------------------
-CHECK_24 = '''def euler_twin_c24(f, x0, t0, t1, n_steps):
-    """RIGHT: Euler's method written another way (the times accumulated step after step, the points as the start plus
-    the sum of the steps): rounding errors of about 1e-16."""
-    h = (t1 - t0) / n_steps
-    x, t, moves = np.array(x0, dtype=float), t0, []
-    for _ in range(n_steps):
-        moves.append(h * np.asarray(f(t, x), dtype=float))
-        x, t = x + moves[-1], t + h
-    return np.array([np.array(x0, dtype=float)] + [np.array(x0, dtype=float) + s for s in np.cumsum(moves, axis=0)])
+CHECK_24 = '''def load_hidden_c24():
+    """The two right methods of the check (solutions/challenges/mb5_24.py: reading it spoils 🔨 MB5.18)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("hidden_methods_c24", wbm.repo_root() / "solutions" / "challenges"
+                                                  / "mb5_24.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
-def midpoint_twin_c24(f, x0, t0, t1, n_steps):
-    """RIGHT: the midpoint method written another way (the times accumulated step after step)."""
-    h = (t1 - t0) / n_steps
-    x, t = np.array(x0, dtype=float), t0
-    out = [x]
-    for _ in range(n_steps):
-        x = x + h * np.asarray(f(t + 0.5 * h, x + 0.5 * h * np.asarray(f(t, x), dtype=float)), dtype=float)
-        t = t + h
-        out.append(x)
-    return np.array(out)
+HIDDEN_C24 = load_hidden_c24()
+euler_twin_c24, midpoint_twin_c24 = HIDDEN_C24.euler_twin, HIDDEN_C24.midpoint_twin
 
 
 def middle_points_off_c24(f, x0, t0, t1, n_steps):
@@ -2279,6 +2271,8 @@ with checked("MB5.24"):
     report_24 = reporter(results_24, stop=False)
     TESTS_C24 = {"constant_is_exact_24": constant_is_exact_24, "affine_is_exact_24": affine_is_exact_24,
                  "error_halves_24": error_halves_24}
+    # a test runs the method: it reads neither the method, nor the stack, nor the names of this cell
+    refuse_peeking("MB5.24", TESTS_C24, globals(), private=("_c24", "_C24"))
 
     def anonymous_c24(method):
         """method under a neutral name: a test must judge what the method does, not what it is called."""
@@ -2308,8 +2302,20 @@ with checked("MB5.24"):
     report_24(passes("MB5.24a", on_ref_c24), "tes trois tests, sur euler_ode et midpoint_ode de la référence",
               "tes trois tests ne rendent pas, sur euler_ode et midpoint_ode de la référence, ce que dit la fiche §8 de "
               "ces deux méthodes : relis les propriétés de chacune (et, pour error_halves_24, prends N assez grand)")
-    twins_c24 = [verdicts_c24("une autre écriture juste d'Euler", euler_twin_c24),
-                 verdicts_c24("une autre écriture juste du point milieu", midpoint_twin_c24)]
+    REF_FILE_C24 = REF.gaussian_paths.__file__
+
+    def no_reference_c24(label, method):
+        """The verdicts on a method that never calls the reference: a call of the reference comes from the test."""
+        with code_from([REF_FILE_C24]) as seen:
+            got = verdicts_c24(label, method)
+        if seen:
+            print(f"❌ Ex MB5.24 : un de tes tests appelle la référence ({seen[0]}) : il doit comparer la méthode à la "
+                  "solution exacte de son champ, pas à euler_ode ou midpoint_ode de la référence")
+            raise StopCheck
+        return got
+
+    twins_c24 = [no_reference_c24("une autre écriture juste d'Euler", euler_twin_c24),
+                 no_reference_c24("une autre écriture juste du point milieu", midpoint_twin_c24)]
     report_24(twins_c24 == on_ref_c24, "deux autres écritures justes des deux méthodes reçoivent les mêmes verdicts",
               "deux autres écritures justes des deux méthodes (les instants accumulés pas à pas : des arrondis de l'ordre de "
               "10⁻¹⁶) ne reçoivent pas les mêmes verdicts que euler_ode et midpoint_ode : ta tolérance est-elle trop "
@@ -2336,7 +2342,7 @@ MB5_24 = ex(
 - `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte, à $10^{-9}$ près en valeur absolue ;
 - `error_halves_24(method)` vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand).
 
-La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Relève :
+La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses champs et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode, ni la pile d'appels, ni les noms de la vérification, et n'appelle pas `euler_ode` ni `midpoint_ode` de la référence (la vérification le contrôle). Relève :
 - a) les résultats de tes trois tests sur `euler_ode`, puis sur `midpoint_ode` de la référence (deux listes de 3 booléens, dans l'ordre constant, affine, erreur).""",
     todo='''def constant_is_exact_24(method):
     """True when, for constant velocity fields (several values, several numbers of steps, t0 < t1), every point returned
@@ -2459,6 +2465,8 @@ def check_c25():
     import subprocess
     import sys
     from scipy.stats import wasserstein_distance
+    refuse_peeking("MB5.25", {"field_25": field_25, "transport_25": transport_25}, globals(),
+                   private=("_c25", "_C25"))            # it computes, it never reads the check
     hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb5_25.py"   # reading it spoils the challenge
     twins = code_keys_of_file(hidden_file)                      # its functions, to recognise a copy run from elsewhere
     results = []
@@ -2643,7 +2651,7 @@ MB5_25 = ex(
 - a) Écris `field_25(x, s, weights, means, variances)`, le champ moyen exact $v(x, s)$ du chemin droit vers ce mélange, avec `posterior_mean_mixture` (pour $0 < s \le 1$ ; `x` est un tableau de points).
 - Puis écris `transport_25(field, z)` : depuis les points `z` (en $s = 1$), suis $x' = v(x, s)$ jusqu'en $s = 0$, en appelant `field(x, s)` **au plus huit fois** (un appel sur un tableau entier compte pour un ; `field` prend le point d'abord, puis l'instant), et rends les points atteints. Ta fonction ne connaît le mélange que par `field` ; tout NumPy et SciPy sont permis.
 
-**Critère de réussite :** avec au plus huit appels du champ pour chaque loi, la distance de Wasserstein $W_1$ (M27) entre tes points et la loi à deux bosses, divisée par l'écart-type de cette loi, est au plus $0{,}07$ pour `MIX_25`, et au plus $0{,}07$ en moyenne pour trois séries de cinq lois cachées, tirées à nouveau à chaque exécution (la moyenne des quinze rapports) ; chaque série a une loi de chacun de ces cinq types : facile ; deux bosses très étroites ; une bosse légère d'une autre largeur ; deux bosses plus écartées que le bruit n'est large ; deux bosses qui se chevauchent. La vérification passe à `transport_25` un `field` qu'elle calcule elle-même, et compte ses appels. Ta fonction ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb5_25.py`) : la vérification le contrôle. Relève :
+**Critère de réussite :** avec au plus huit appels du champ pour chaque loi, la distance de Wasserstein $W_1$ (M27) entre tes points et la loi à deux bosses, divisée par l'écart-type de cette loi, est au plus $0{,}07$ pour `MIX_25`, et au plus $0{,}07$ en moyenne pour trois séries de cinq lois cachées, tirées à nouveau à chaque exécution (la moyenne des quinze rapports) ; chaque série a une loi de chacun de ces cinq types : facile ; deux bosses très étroites ; une bosse légère d'une autre largeur ; deux bosses plus écartées que le bruit n'est large ; deux bosses qui se chevauchent. La vérification passe à `transport_25` un `field` qu'elle calcule elle-même, et compte ses appels. Ta fonction ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb5_25.py`), ni lire la vérification (sa pile d'appels, le processus à part) : la vérification le contrôle. Relève :
 - b) avec `scipy.stats.wasserstein_distance` entre tes points et `TARGET_25`, la distance obtenue par un seul pas d'Euler (`euler_ode`, de $s = 1$ à $s = 0$, avec ton `field_25` ; `euler_ode` appelle `f(s, x)` : passe-lui `lambda s, x: field_25(x, s, *MIX_25)`), puis par huit pas d'Euler, puis par ta fonction (une liste de 3 nombres) ;
 - c) le nombre d'appels de `field` que fait ta fonction (un entier).
 

@@ -18,15 +18,16 @@ MB2.4, the animals of MB2.7), the settings of their own statements and their own
 statements; 7119 (the counts of 🏆 MB2.19, drawn at build time: only the counts are written); 7131 to 7133 (the hidden
 calls of MB2.15), 7141 and 7142 (the hidden starts of MB2.18) in the check cells; 7146 here only (300 hidden laws of
 MB2.19 drawn at build time to check their generator). The other hidden cases are drawn without a seed at each run (the
-scale factors of 🐛 MB2.17, the three hidden laws of MB2.19 by hidden_law_c19 and their sales), or
+scale factors of 🐛 MB2.17; the three hidden laws of MB2.19 and their sales, by another process that runs
+solutions/challenges/mb2_19.py), or
 written in their cell (the hidden table of 🎨 MB2.16, the hidden cases of MB2.17), computed at build time by private
 functions of this script: none is the answer of a question. The check cells never hold the code that solves an exercise
 nor a value that gives an answer without a calculation: the expected values are recorded by the solutions as hidden
 sub-IDs and compared with ``wbm.check(..., computed=True)`` (the hidden calls of MB2.15 and MB2.16, the counters of the
 hidden wrong versions of MB2.18, the five pairs of the table of MB2.19), given by properties (the PMI of a table of
 counts does not change when the counts are multiplied by a same number; a removed direction leaves rows orthogonal to it
-and removes a multiple of it), or computed at check time by the reference for hidden cases only (the five pairs of the
-hidden tables of MB2.19, from their joint law). They use their own data, never the test cases of
+and removes a multiple of it), or computed at check time for hidden cases only (the five pairs of the hidden tables of
+MB2.19, from their joint law, in the other process that draws them: the notebook receives only their scores). They use their own data, never the test cases of
 tests/test_mb2_cooccurrence.py, the examples of the docstrings of the stub cooccurrence, the examples of the fiche, nor the
 numbers of workbookIA B2 and B1 (the notes of MB2 in the syllabus and their list « Évités »).
 """
@@ -559,7 +560,7 @@ import numpy as np
 from scipy.linalg import null_space
 
 from wbm.errors import MymathMissingError
-from wbm.nbtools import StopCheck, checked, drawn, filled, fr, own_code, run_pytest_group, verdict
+from wbm.nbtools import StopCheck, checked, drawn, filled, fr, own_code, refuse_peeking, run_pytest_group, verdict
 
 TEST_MB2 = "tests/test_mb2_cooccurrence.py"         # the tests of mymath/cooccurrence.py
 REF = wbm.load_mymath("ref", alias="mymath_ref")  # the reference: the wrong versions and the checks rely on it
@@ -1817,9 +1818,19 @@ def raises_c18(P):
     return PMI_C18(P)
 
 
+def nudged_c18(P):
+    """WRONG for a table with more rows than columns: each finite PMI times 1 + 2e-7 (a gap smaller than the default
+    tolerance of np.allclose, rtol=1e-5 and atol=1e-8, larger than rtol = 1e-9)."""
+    T = PMI_C18(P)
+    if T.shape[0] > T.shape[1]:
+        T = np.where(np.isfinite(T), T * (1 + 2e-7), T)
+    return T
+
+
 BROKEN_C18 = {"half_c18": ("mean",), "double_c18": ("bound", "mean"), "finite_tall_c18": ("transpose",),
               "tall_shift_c18": ("bound", "transpose"), "minf_tall_c18": ("bound", "transpose", "mean"),
-              "raises_c18": ("bound", "transpose", "mean")}       # the properties each hidden version can break
+              "raises_c18": ("bound", "transpose", "mean"),
+              "nudged_c18": ("bound", "transpose", "mean")}       # the properties each hidden version can break
 HIDDEN_C18 = __HIDDEN_C18__   # two hidden starts, and the sub-IDs of the counters expected for each version
 
 with checked("MB2.18"):
@@ -1856,7 +1867,11 @@ with checked("MB2.18"):
                                           "cette version ne fausse pas cette propriété : ton contrôle compte trop (sa "
                                           "tolérance rtol·max(1, |…|), ce qu'il compare)")))
             elif not passes(ids[key], got[key]):
-                wrong.append((key, ("vaut 0 : tes contrôles ne vérifient pas " + PROPERTIES_C18[key]
+                wrong.append((key, ("vaut 0 : cette version ne s'écarte de la PMI que de 2·10⁻⁷ fois sa valeur ; ta "
+                                    "tolérance est-elle rtol·max(1, |…|), avec le rtol reçu (10⁻⁹) ? np.allclose et "
+                                    "np.isclose ont par défaut rtol = 1e-5 et atol = 1e-8")
+                                   if got[key] == 0 and version == "nudged_c18" else
+                                   ("vaut 0 : tes contrôles ne vérifient pas " + PROPERTIES_C18[key]
                                     + ", sur la fonction reçue (func, pas celle de mymath)") if got[key] == 0 else
                                    (f"vaut {got[key]}, ce n'est pas le compte attendu : relis ce que ce contrôle compare, "
                                     "et sur quelles cases")))
@@ -1890,9 +1905,10 @@ NOTE_18 = (r"`failed_checks_18` appelle `func(P)` et `func(P.T)` dans un `try`, 
            r"rapproche de 0, et la borne $\min(-\ln p(x), -\ln p(y))$ est positive ou nulle ; elle n'échoue qu'au contrôle "
            r"de la moyenne, et seulement quand l'information mutuelle n'est pas nulle (elle l'est pour une table d'une "
            r"ligne ou d'une colonne). `conditional` passe la borne ($\ln P(y \mid x) \le 0$, sous toute borne positive). "
-           r"La vérification lance ton test avec la référence et six versions fausses cachées, dont une qui met $-\infty$ "
+           r"La vérification lance ton test avec la référence et sept versions fausses cachées, dont une qui met $-\infty$ "
            r"sur une case non vide (la clause de finitude de la borne l'attrape) et une qui lève une erreur sur une table "
-           r"d'une ligne (le `try` l'attrape).")
+           r"d'une ligne (le `try` l'attrape) et une qui ne s'écarte que de 2·10⁻⁷ fois la PMI (la tolérance de l'énoncé "
+           r"l'attrape, pas celle de `np.allclose` par défaut).")
 
 MB2_18 = Ex(
     "MB2.18", "🛠️", 1, 40, "Un test de propriété de `pmi` sur des tables tirées au hasard : la borne, la transposition, et "
@@ -1911,7 +1927,7 @@ Une exception levée par `func` fait échouer les trois contrôles. La cellule f
 - b) avec le même départ (un nouveau `default_rng(7118)` chaque fois, 300 essais) et chacune des quatre versions fausses, dans l'ordre `decimal`, `conditional`, `zeros_to_zero`, `lift` : les trois compteurs, dans l'ordre `"bound"`, `"transpose"`, `"mean"` (une liste de 4 listes de 3 entiers) ;
 - c) dans ta copie : lesquelles passent le test, ou passent l'un des contrôles, et pourquoi c'est normal ; qu'est-ce qui, dans le dépôt, vérifie ce qu'elles ont de faux ?
 
-La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec six versions fausses cachées, qui faussent chacune une ou plusieurs des propriétés : l'une d'elles met $-\infty$ sur une case non vide, une autre lève une erreur sur une table d'une ligne ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
+La vérification lance aussi ton test sur deux départs cachés de 40 essais, avec la référence (compteurs nuls) et avec sept versions fausses cachées, qui faussent chacune une ou plusieurs des propriétés : l'une d'elles met $-\infty$ sur une case non vide, une autre lève une erreur sur une table d'une ligne, une troisième ne s'écarte de la PMI que de $2 \cdot 10^{-7}$ fois sa valeur (moins que la tolérance par défaut de `np.allclose`) ; elle remplace aussi un instant `mymath.cooccurrence.pmi` par l'une d'elles, pour l'appel sans `func`. Ce qu'il faut retenir : ce test ajoute à ceux de `tests/test_mb2_cooccurrence.py` des tables de formes et de cases vides tirées au hasard ; chacun de ses contrôles attrape certaines erreurs et en laisse passer d'autres ; un test se juge aux erreurs qu'il attrape, et à celles qu'il ne peut pas attraper.""",
     todo='''def failed_checks_18(P, func, rtol=1e-9):
     """The set of the names of the checks that fail for the joint law P, among "bound", "transpose" and "mean" (set() when
     all pass); func is the function tested."""
@@ -2027,34 +2043,7 @@ def pairs_found_19(pairs):
         raise ValueError(f"pairs_found_19 attend 5 paires (ligne, colonne) distinctes, de 0 à 9, reçu {pairs}")
     return sum(any(passes(f"MB2.19{letter}", list(pair)) for letter in "klmno") for pair in pairs)'''
 
-HIDDEN_LAW_19 = '''def hidden_law_c19(rng):
-    """A hidden 10 × 10 joint law, drawn anew at each run: two rare rows and two rare columns; one dominant row and one
-    dominant column, whose common cell is the most probable of the table but not associated (its PMI is about 0); five
-    cells boosted 3 to 4 times, on distinct rows and columns of the others: the five most associated pairs, each with
-    3 000 × p ≥ 40 and a PMI at least 0.3 above the sixth."""
-    while True:
-        px, py = rng.uniform(0.7, 1.3, 10), rng.uniform(0.7, 1.3, 10)
-        rr, rc = rng.choice(10, 3, replace=False), rng.choice(10, 3, replace=False)
-        px[rr[:2]], py[rc[:2]] = rng.uniform(0.01, 0.04, 2), rng.uniform(0.01, 0.04, 2)
-        px[rr[2]], py[rc[2]] = rng.uniform(3.5, 4.5), rng.uniform(3.5, 4.5)
-        law = np.outer(px, py) * np.exp(rng.normal(0.0, 0.08, (10, 10)))
-        rows = rng.permutation([i for i in range(10) if i not in rr])[:5]
-        cols = rng.permutation([j for j in range(10) if j not in rc])[:5]
-        law[rows, cols] *= rng.uniform(3.0, 4.0, 5)
-        law /= law.sum()
-        T = ref_cooc.pmi(law).ravel()
-        order = np.argsort(-T)
-        top = {(int(k // 10), int(k % 10)) for k in order[:5]}
-        if (top == set(zip(rows.tolist(), cols.tolist())) and T[order[4]] - T[order[5]] > 0.3
-                and 3000 * min(law[i, j] for i, j in top) >= 40 and law.argmax() == rr[2] * 10 + rc[2]):
-            return law'''
-
-CHECK_19 = HIDDEN_LAW_19 + '''
-
-
-rng_c19 = np.random.default_rng()       # at each run: three new hidden laws, and new sales
-
-
+CHECK_19 = r'''
 def pairs_why_c19(pairs):
     """'' when pairs is a list of 5 distinct pairs (row, column) of integers from 0 to 9, else the reason."""
     try:
@@ -2066,12 +2055,6 @@ def pairs_why_c19(pairs):
     if not all(0 <= v < 10 for p in pairs for v in p):
         return "les lignes et les colonnes se numérotent de 0 à 9"
     return ""
-
-
-def top5_c19(law):
-    """The five cells of largest PMI of a hidden joint law (the truth of a hidden table, not a method)."""
-    T = ref_cooc.pmi(law)
-    return {(int(i), int(j)) for i, j in zip(*np.unravel_index(np.argsort(-T, axis=None, kind="stable")[:5], T.shape))}
 
 
 def frequent_hint_c19(counts, pairs):
@@ -2097,49 +2080,90 @@ def pairs_text_c19(n):
     return f"{n} paire{'s' if n > 1 else ''}"
 
 
-with checked("MB2.19"):
-    results_19 = []
-    report_19 = reporter(results_19, stop=False)
-    elapsed_19 = 0.0
-    start_19 = time.perf_counter()
-    mine_19 = top_pairs_19(COUNTS_19.copy())
-    elapsed_19 += time.perf_counter() - start_19
-    why_19 = pairs_why_c19(mine_19)
-    found_19 = pairs_found_19(mine_19) if not why_19 else 0
-    report_19(not why_19 and found_19 >= 4, f"la table du notebook : {pairs_text_c19(found_19)} sur 5",
-              f"la table du notebook : {why_19 or f'{pairs_text_c19(found_19)} sur 5, il en faut au moins 4'}"
-              + ("" if why_19 else rare_hint_c19(COUNTS_19, mine_19)))
+def check_c19():
+    """The check of MB2.19, in a function. The hidden tables come from another process (the hidden module run as a
+    script): it draws the hidden laws and their sales, sends the counts only, and scores the pairs it receives only at
+    the end; no hidden law nor its five pairs lives in this process while the learner's function runs."""
+    import json
+    import subprocess
+    import sys
+    refuse_peeking("MB2.19", {"top_pairs_19": top_pairs_19}, globals(), private=("_c19", "_C19"),
+                   extra=("pairs_found_19", "passes"))  # it computes, it never reads the check
+    hidden_file = wbm.repo_root() / "solutions" / "challenges" / "mb2_19.py"   # reading it spoils the challenge
+    results, elapsed = [], 0.0
+    report = reporter(results, stop=False)
+    start = time.perf_counter()
+    mine = top_pairs_19(COUNTS_19.copy())
+    elapsed += time.perf_counter() - start
+    why = pairs_why_c19(mine)
+    found = pairs_found_19(mine) if not why else 0
+    report(not why and found >= 4, f"la table du notebook : {pairs_text_c19(found)} sur 5",
+           f"la table du notebook : {why or f'{pairs_text_c19(found)} sur 5, il en faut au moins 4'}"
+           + ("" if why else rare_hint_c19(COUNTS_19, [tuple(int(v) for v in p) for p in mine])))
     if not filled(answer_MB2_19a):
         print("⏳ Ex MB2.19a : pas encore fait.")
-    elif not why_19:
-        report_19(answer_MB2_19a == found_19, "Ex MB2.19a : ta réponse est le score de ta fonction",
-                  "Ex MB2.19a : ta réponse n'est pas le score que rend ta fonction maintenant, "
-                  "pairs_found_19(top_pairs_19(COUNTS_19)) : exécute à nouveau ta cellule")
-    answers_c19 = [sorted(map(tuple, np.asarray(mine_19, dtype=int).tolist())) if not why_19 else None]
-    for k_c19 in range(1, 4):
-        law_c19 = hidden_law_c19(rng_c19)                   # a new hidden law at each run
-        counts_c19 = rng_c19.multinomial(3000, law_c19.ravel()).reshape(10, 10)
-        start_19 = time.perf_counter()
-        got_c19 = top_pairs_19(counts_c19.copy())
-        elapsed_19 += time.perf_counter() - start_19
-        why_c19 = pairs_why_c19(got_c19)
-        if not why_c19 and sorted(map(tuple, np.asarray(got_c19, dtype=int).tolist())) in answers_c19:
-            why_c19 = ("ta fonction rend les mêmes paires pour deux tables différentes : elle doit les calculer à partir "
-                       "des comptes reçus")
-        if why_c19:
-            report_19(False, "", f"table cachée {k_c19} : {why_c19}")
+    elif not why:
+        report(answer_MB2_19a == found, "Ex MB2.19a : ta réponse est le score de ta fonction",
+               "Ex MB2.19a : ta réponse n'est pas le score que rend ta fonction maintenant, "
+               "pairs_found_19(top_pairs_19(COUNTS_19)) : exécute à nouveau ta cellule")
+    answers = [sorted(map(tuple, np.asarray(mine, dtype=int).tolist())) if not why else None]
+    server = subprocess.Popen([sys.executable, "-I", str(hidden_file), "--serve"], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)   # this kernel's Python, here or on Colab
+    try:
+        line = server.stdout.readline()
+        if not line.endswith(b"\n"):
+            raise OSError("échange interrompu")
+        tables = [np.array(table) for table in json.loads(line)["counts"]]   # three new tables, at each run
+        chosen, whys = [], []
+        for counts in tables:
+            start = time.perf_counter()
+            got = top_pairs_19(counts.copy())
+            elapsed += time.perf_counter() - start
+            why_k = pairs_why_c19(got)
+            if not why_k and sorted(map(tuple, np.asarray(got, dtype=int).tolist())) in answers:
+                why_k = ("ta fonction rend les mêmes paires pour deux tables différentes : elle doit les calculer à "
+                         "partir des comptes reçus")
+            got = None if why_k else [tuple(int(v) for v in pair) for pair in got]
+            if got is not None:
+                answers.append(sorted(got))
+            chosen.append(got)
+            whys.append(why_k)
+        server.stdin.write((json.dumps([None if c is None else [list(p) for p in c] for c in chosen]) + "\n").encode())
+        server.stdin.flush()
+        line = server.stdout.readline()                          # only now: the scores
+        if not line.endswith(b"\n"):
+            raise OSError("échange interrompu")
+        scores = json.loads(line)
+        assert len(scores) == len(tables)
+    except (OSError, ValueError, KeyError, TypeError, AssertionError) as exc:
+        print("❌ Ex MB2.19 : la vérification n'a pas pu échanger les tables cachées et tes paires avec le processus qui "
+              f"les tire ({type(exc).__name__}) : exécute à nouveau la cellule")
+        raise StopCheck from None
+    finally:                                                     # always, even on an error or an interruption
+        if server.poll() is None:
+            server.kill()
+        server.wait()
+        for pipe in (server.stdin, server.stdout):
+            try:
+                pipe.close()
+            except OSError:                                      # a pipe already broken
+                pass
+    for k, (counts, got, why_k, score) in enumerate(zip(tables, chosen, whys, scores), start=1):
+        if why_k:
+            report(False, "", f"table cachée {k} : {why_k}")
             continue
-        got_c19 = [tuple(int(v) for v in p) for p in got_c19]
-        answers_c19.append(sorted(got_c19))
-        score_c19 = len(set(got_c19) & top5_c19(law_c19))
-        report_19(score_c19 >= 4, f"table cachée {k_c19} : {pairs_text_c19(score_c19)} sur 5",
-                  f"table cachée {k_c19} : {pairs_text_c19(score_c19)} sur 5, il en faut au moins 4"
-                  + rare_hint_c19(counts_c19, got_c19) + frequent_hint_c19(counts_c19, got_c19))
-    report_19(elapsed_19 < 10, f"en {fr(elapsed_19, 2)} s pour les quatre tables",
-              f"trop lent : {fr(elapsed_19, 1)} s pour les quatre tables, il faut moins de 10 s")
-    verdict("MB2.19", all(results_19) and len(results_19) >= 5, "critère atteint : au moins 4 paires sur 5 pour la table "
+        report(score >= 4, f"table cachée {k} : {pairs_text_c19(score)} sur 5",
+               f"table cachée {k} : {pairs_text_c19(score)} sur 5, il en faut au moins 4"
+               + rare_hint_c19(counts, got) + frequent_hint_c19(counts, got))
+    report(elapsed < 10, f"en {fr(elapsed, 2)} s pour les quatre tables",
+           f"trop lent : {fr(elapsed, 1)} s pour les quatre tables, il faut moins de 10 s")
+    verdict("MB2.19", all(results) and len(results) >= 5, "critère atteint : au moins 4 paires sur 5 pour la table "
             "du notebook et pour les trois tables cachées, en moins de 10 secondes.",
-            "critère pas encore atteint : relis les lignes ❌ ci-dessus.")'''
+            "critère pas encore atteint : relis les lignes ❌ ci-dessus.")
+
+
+with checked("MB2.19"):
+    check_c19()'''
 
 NOTE_19 = (r"a) 5 avec la méthode ci-dessous ; b) 2 ; c) trois cases de deux ou trois ventes, dans des rayons ou des "
            r"tranches rares, devant deux vraies paires. Deux méthodes qui marchent : ne garder que les cases d'au moins 10 "
@@ -2159,7 +2183,7 @@ MB2_19 = Ex(
 
 Écris `top_pairs_19(counts)`, qui reçoit une table de comptes de 3 000 observations et rend une liste de 5 paires `(ligne, colonne)`, numérotées à partir de 0. Tout NumPy et SciPy sont permis, et ta `pmi`.
 
-**Critère de réussite :** au moins 4 des 5 paires trouvées pour la table du notebook, et pour chacune de trois tables cachées tirées à nouveau à chaque exécution, comme leurs 3 000 ventes, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse a) avec ta fonction, et refuse une fonction qui rend les mêmes paires pour deux tables. Relève :
+**Critère de réussite :** au moins 4 des 5 paires trouvées pour la table du notebook, et pour chacune de trois tables cachées tirées à nouveau à chaque exécution, comme leurs 3 000 ventes, par un processus à part qui ne rend que le nombre de paires trouvées, en moins de 10 secondes en tout. La vérification recalcule aussi ta réponse a) avec ta fonction, et refuse une fonction qui rend les mêmes paires pour deux tables, ou qui lit la vérification au lieu de calculer (sa pile d'appels, ses noms, `pairs_found_19`). Relève :
 - a) le nombre de paires que ta méthode trouve pour la table du notebook, `pairs_found_19(top_pairs_19(COUNTS_19))` (un entier) ;
 - b) le nombre de paires que trouve l'estimation directe, les cinq plus grandes valeurs de `pmi(COUNTS_19 / 3000)` (un entier) ;
 - c) les comptes des cinq cases que choisit l'estimation directe, par PMI estimée décroissante (une liste de 5 entiers).
@@ -2322,6 +2346,14 @@ def load_reference(name: str):
     return ref
 
 
+def load_challenge_19():
+    """solutions/challenges/mb2_19.py, the hidden part of 🏆 MB2.19 (its hidden laws)."""
+    spec = importlib.util.spec_from_file_location("mb2_19_challenge_build", ROOT / "solutions" / "challenges" / "mb2_19.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def literal(value) -> str:
     """A Python literal of value (floats by repr: exact), wrapped for reading."""
     return pprint.pformat(value, width=112, compact=True, sort_dicts=False)
@@ -2383,15 +2415,14 @@ def _threshold_19(np, counts, t=10):
 
 
 def _check_hidden_laws_19(np, cooc, n_laws, seed):
-    """The share of the hidden tables of the check of MB2.19 (a law by hidden_law_c19, then 3 000 sales) on which each
-    method finds at least 4 of the 5 pairs: the two methods of the solutions, the five cells of most sales, the direct
-    estimate."""
-    namespace = {"np": np, "ref_cooc": cooc}
-    exec(HIDDEN_LAW_19, namespace)
+    """The share of the hidden tables of the check of MB2.19 (a law by hidden_law of solutions/challenges/mb2_19.py, then
+    3 000 sales) on which each method finds at least 4 of the 5 pairs: the two methods of the solutions, the five cells
+    of most sales, the direct estimate."""
+    challenge = load_challenge_19()
     rng = np.random.default_rng(seed)
     found = {"threshold": 0, "shrink": 0, "most_sold": 0, "direct": 0}
     for _ in range(n_laws):
-        law = namespace["hidden_law_c19"](rng)
+        law = challenge.hidden_law(rng)
         counts = rng.multinomial(3000, law.ravel()).reshape(10, 10)
         truth = _top5(np, _pmi(np, law))
         found["threshold"] += len(_threshold_19(np, counts) & truth) >= 4
@@ -2527,6 +2558,7 @@ def build_constants() -> dict:
     exec(re.search(r"BROKEN_C18 = \{.*?\}\s*#", CHECK_18, re.S).group(0).rstrip("#"), namespace)
     letters = iter("defghijklmno")                              # the four first versions (session 71, step 1)
     new_letters = iter(["p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa"])   # minf_tall_c18, raises_c18
+    newer_letters = iter(["ab", "ac", "ad", "ae", "af", "ag"])   # nudged_c18 (audit of part VII)
     first_four = ("half_c18", "double_c18", "finite_tall_c18", "tall_shift_c18")
     hidden18 = []
     broken_somewhere = set()
@@ -2543,7 +2575,7 @@ def build_constants() -> dict:
                     assert runs[0][key] == 0, (seed, name, key, runs[0])
                 elif runs[0][key]:
                     broken_somewhere.add((name, key))
-            ids[name] = {key: f"MB2.18{next(letters if name in first_four else new_letters)}" for key in keys}
+            ids[name] = {key: f"MB2.18{next(letters if name in first_four else newer_letters if name == 'nudged_c18' else new_letters)}" for key in keys}
             counters18.update({ids[name][key]: runs[0][key] for key in keys})
         hidden18.append((seed, ids))
     assert broken_somewhere == {(n, k) for n, keys in namespace["BROKEN_C18"].items() for k in keys}, broken_somewhere
@@ -2556,7 +2588,7 @@ def build_constants() -> dict:
     out["__HIDDEN_C18__"] = literal(hidden18)
 
     # MB2.19: the table of the notebook (seed 7119, the generator of the author of the exercises); the hidden laws of
-    # the check are drawn at each run by hidden_law_c19: on 300 seeded draws, the two methods of the solutions find at
+    # the check are drawn at each run by hidden_law of mb2_19.py: on 300 seeded draws, the two methods of the solutions find at
     # least 4 pairs every time, the five cells of most sales never, the direct estimate seldom
     rng = np.random.default_rng(7119)
     J19, truth = _hidden_table_19(np, rng)

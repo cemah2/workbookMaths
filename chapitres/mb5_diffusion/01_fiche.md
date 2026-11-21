@@ -135,7 +135,7 @@ C'est une **chaîne de Markov à états continus** (*continuous-state Markov cha
 
 💻 **Aujourd'hui en pratique** — `linear_gaussian_recursion` (🔨 MB5.16) propage les deux moments pas à pas, sans jamais former un produit de $t$ facteurs à part : c'est la récurrence $m_t$, $v_t$ ci-dessus. Un filtre de Kalman alterne ce pas de prédiction et le conditionnement de M25a §5 à chaque mesure ; les bibliothèques de séries temporelles estiment $a$ et $b$ sur des données (Shumway et Stoffer, ch. 3).
 
-⚠️ **Erreur classique.** Oublier le carré : la variance se multiplie par $a_t^2$, pas par $a_t$ ; additionner des écarts-types $b_k$ au lieu des variances $b_k^2$ ; oublier l'incertitude du départ ($v_0 > 0$), qui se transmet aussi ; croire qu'une marche aléatoire ($a = 1$) a une loi stationnaire.
+⚠️ **Erreur classique.** Oublier l'incertitude du départ ($v_0 > 0$), qui se transmet aussi : ce sont les variances qui se propagent, $v_t = a_t^2v_{t-1} + b_t^2$ ; croire qu'une marche aléatoire ($a = 1$) a une loi stationnaire.
 
 🔗 **Dans workbookIA** — le chapitre B5 bruite des images pas à pas par une récurrence de ce type, dont les coefficients sont choisis pour que le bruit l'emporte à la fin, et se sert de produits cumulés de coefficients.
 
@@ -211,7 +211,7 @@ Plus généralement, toute combinaison $cx + dn$ dont le couple $(c, d)$ n'est p
 
 💻 **Aujourd'hui en pratique** — en radio et en audio, le SNR se donne en décibels, `10 * np.log10(snr)` pour un rapport de variances (de puissances) ; `20 * np.log10(...)` s'applique à un rapport d'écarts-types (d'amplitudes).
 
-⚠️ **Erreur classique.** Prendre $\frac ab$ (un rapport d'écarts-types) pour le SNR ; écrire $20\log_{10}$ pour un rapport de variances ; confondre la cote $\frac{\gamma}{1 - \gamma}$ et la part $\gamma$ ; diviser l'erreur par le SNR au lieu de sa racine.
+⚠️ **Erreur classique.** Confondre la cote $\frac{\gamma}{1 - \gamma}$ et la part $\gamma$ : le SNR est la cote, le rapport des **variances** $\frac{a^2}{b^2}$, qui se met en décibels par $10\log_{10}$ ; et c'est sa racine, $\frac ab$, qui relie les erreurs sur $x$ et sur $n$.
 
 🔗 **Dans workbookIA** — le chapitre B5 suit le SNR de ses images bruitées le long de la chaîne de bruitage, souvent en $\ln\operatorname{SNR}$, et entraîne un réseau à prédire le bruit : ce paragraphe dit comment passer d'une cible à l'autre.
 
@@ -270,7 +270,7 @@ D'autres losses apprennent d'autres résumés de la loi de $Y$ sachant $X$ : la 
 
 On mesure $y = ax + bn$, avec $b > 0$ et un bruit $n \sim \mathcal{N}(0, 1)$ indépendant d'un signal $x$ de loi **quelconque**. Notons $p_Y$ la densité de $y$ (toujours dérivable et strictement positive, grâce au bruit) et $s_Y = (\ln p_Y)'$ son score.
 
-> **Théorème** (formule de **Tweedie**, ∂ MB5.12). En dimension 1,
+> **Théorème** (formule de **Tweedie**, *Tweedie's formula*, ∂ MB5.12). En dimension 1,
 > $$\mathbb{E}[n \mid y] = -b\,s_Y(y), \qquad\text{et, si } a \ne 0, \qquad \mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}.$$
 > En dimension $d$ ($y = ax + bn$, $n \sim \mathcal{N}(0, \mathbf{I})$), les mêmes formules tiennent avec le gradient $\nabla\ln p_Y$ (énoncé).
 
@@ -502,7 +502,7 @@ chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x
 
 ## Et maintenant
 
-**Dans ce dépôt** : MB6 passe aux valeurs de Shapley, aux intégrales de chemin et à l'équité, où revient le score d'un classifieur, le troisième sens du mot ; MB8 dérivera une espérance par rapport aux paramètres d'une loi, avec le score en $\theta$.
+**Dans ce dépôt** : MB6 passe aux valeurs de Shapley, aux intégrales de chemin et à l'équité, où revient le score d'un classifieur, le sens courant du mot ; MB8 dérivera une espérance par rapport aux paramètres d'une loi, avec le score en $\theta$.
 
 **Dans workbookIA** : le chapitre B5 construit des modèles de diffusion. Il bruite des images pas à pas par une récurrence gaussienne et suit leur rapport signal sur bruit (§1, §3), entraîne un réseau à prédire le bruit par une MSE (§3 à §5), écrit l'ELBO de sa chaîne (§6), échantillonne pas à pas puis par des trajectoires déterministes plus rapides (DDIM, §2), guide la génération vers une classe (§7), et termine par le flow matching, suivi par la méthode d'Euler (§8, §9).
 
