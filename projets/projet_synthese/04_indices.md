@@ -1,6 +1,6 @@
 # Projet de synthèse · Indices
 
-> **Mode d'emploi.** Cherche d'abord seul. Si tu bloques sur une étape, ouvre **l'indice 1** (la direction), cherche encore, puis l'indice 2 (la méthode), puis l'indice 3 (le gabarit et la liste de contrôle). Ces indices valent pour tous les algorithmes : ce sont des conseils de méthode, jamais le résultat d'une dérivation. Le résultat, c'est toi qui le trouves, et c'est lui que la grille note.
+> **Mode d'emploi.** Trois indices par étape, du plus léger au plus précis : une direction, puis une méthode, puis un gabarit avec sa liste de contrôle. N'ouvre le suivant qu'après avoir vraiment cherché avec le précédent. Ils valent pour tous les algorithmes de la liste : des conseils de méthode, jamais le résultat d'une dérivation. Ce résultat, c'est toi qui le trouves, et c'est lui que la grille note.
 
 **Sommaire** : [PS.1](#ps1) · [PS.2](#ps2) · [PS.3](#ps3) · [PS.4](#ps4) · [PS.5](#ps5) · [PS.6](#ps6) · [PS.7](#ps7) · [PS.8](#ps8) · [PS.9](#ps9) · [PS.E1](#pse1)
 
@@ -213,6 +213,6 @@ Un plan type : 30 secondes pour le problème ; 2 minutes pour la dérivation (l'
 </details>
 <details><summary>Indice 3</summary>
 
-Pour chaque question : la réponse en une phrase, le renvoi à l'article (« éq. (3.4) », « propriété 2 », « la figure de §8 »), puis la limite (« je ne l'ai vérifié que pour … »). Si tu ne sais pas, dis comment tu le vérifierais : un test, une expérience, une section de MML.
+Pour chaque question : la réponse en une phrase, le renvoi à l'article (« éq. (3.4) », « propriété 2 », « la figure de §8 »), puis la limite (« je ne l'ai vérifié que pour … »). Faute de réponse sûre, nomme ce qui trancherait : un test, une expérience, une section de MML.
 
 </details>

@@ -36,6 +36,12 @@ OWN_FILES = ["README.md", "GRILLE.md", "04_indices.md", "depart/README.md", "dep
              "depart/algo.py", "depart/test_algo.py", "depart/conftest.py", "depart/mutants.py",
              "depart/synthese.ipynb"]
 CHAPTER_ID = r"(?:R\d|M\d\d[a-d]?|MB\d)"
+# functions of mymath that take one number, or one example (one vector, one sequence) at a time: on a batch they need
+# a Python loop, so a row of the list of algorithms needs three bricks besides them (README, « Des fonctions qui
+# prennent un nombre »)
+ONE_EXAMPLE_AT_A_TIME = {"explog.sigmoid", "explog.tanh", "approx.logsumexp", "sequences.exponential_moving_average",
+                         "vectors.norm_p", "vectors.cosine_similarity", "orthogonal.project", "positional.online_softmax",
+                         "positional.merge_softmax_states", "gaussian.condition_gaussian"}
 
 
 def _number(text: str) -> Fraction:
@@ -150,10 +156,34 @@ def test_the_list_of_algorithms_cites_existing_chapters_and_mymath_functions():
         functions = re.findall(r"`(\w+)\.(\w+)`", cells[4])
         if len(functions) < 3:
             problems.append(f"row {cells[0]}: expected at least three functions of mymath, got {len(functions)}")
+        arrays = [f"{m}.{f}" for m, f in functions if f"{m}.{f}" not in ONE_EXAMPLE_AT_A_TIME]
+        if len(arrays) < 3:
+            problems.append(f"row {cells[0]}: expected at least three bricks that take an array (not one number or one "
+                            f"example at a time), got {arrays}")
     for module, function in re.findall(r"`(\w+)\.(\w+)`", readme):
         if module in public and function not in public[module]:
             problems.append(f"mymath.{module} has no public function {function}")
     assert not problems, "expected existing chapters and mymath functions: " + "; ".join(problems)
+
+
+def test_the_kit_table_of_the_readme_lists_exactly_the_files_of_the_kit():
+    import start_chapter
+
+    readme = (PROJECT / "README.md").read_text(encoding="utf-8")
+    table = readme.split('<a id="kit"></a>', 1)[1].split('<a id="etapes"></a>', 1)[0]
+    listed = set(re.findall(r"^\| `([^`]+)` \|", table, re.M))
+    files = {path.relative_to(KIT).as_posix() for path in start_chapter.starter_files(PROJECT)}
+    assert listed == files, f"expected the kit table to list exactly the files of depart/ {sorted(files)}, got {sorted(listed)}"
+
+
+def test_the_hints_give_three_levels_for_each_step():
+    text = (PROJECT / "04_indices.md").read_text(encoding="utf-8")
+    sections = re.split(r"^### ", text, flags=re.M)[1:]
+    steps = [section.split(" — ", 1)[0] for section in sections]
+    assert steps == STEPS, f"expected one section of hints per step {STEPS}, got {steps}"
+    for step, section in zip(steps, sections):
+        levels = re.findall(r"<summary>Indice (\d)</summary>", section)
+        assert levels == ["1", "2", "3"], f"{step}: expected the hints 1, 2 and 3, got {levels}"
 
 
 def _fiche_sections(chapter: str) -> set[int]:

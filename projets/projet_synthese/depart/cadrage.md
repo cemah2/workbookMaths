@@ -30,8 +30,8 @@
 |---|---|
 | §2 Le problème | 📝 |
 | §3 La dérivation | 📝 (de quoi à quoi) |
-| §4 Les propriétés | propriété 1 : 📝 ; propriété 2 : 📝 ; le cas limite pressenti (quelle hypothèse tombe) : 📝 |
-| §5 L'exemple à la main | 📝 (quelle dimension, quelles données) |
+| §4 Deux propriétés et un cas limite | propriété 1 : 📝 ; propriété 2 : 📝 ; le cas limite pressenti (quelle hypothèse tombe) : 📝 |
+| §5 Un exemple à la main | 📝 (quelle dimension, quelles données) |
 | §6 et §7 L'implémentation et la vérification | les fonctions de `mymath` prévues : 📝 ; la mutation prévue : 📝 |
 | §8 L'expérience | 📝 (la question, ce qui varie) |
 

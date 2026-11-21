@@ -1,6 +1,6 @@
 # Projet de synthèse · Le kit de départ
 
-Ce dossier est ton projet. `python tools/start_chapter.py PS` l'a copié dans `mon_travail/projet_synthese/` ; Claude n'y écrit jamais, et une nouvelle copie n'écrase aucun de tes fichiers. Le cahier des charges est `projets/projet_synthese/README.md`, la grille `projets/projet_synthese/GRILLE.md`, les indices `projets/projet_synthese/04_indices.md`.
+Tout ton projet tient dans ce dossier. `python tools/start_chapter.py PS` l'a copié dans `mon_travail/projet_synthese/` ; Claude n'y écrit jamais, et une nouvelle copie n'écrase aucun de tes fichiers. Le cahier des charges est `projets/projet_synthese/README.md`, la grille `projets/projet_synthese/GRILLE.md`, les indices `projets/projet_synthese/04_indices.md`.
 
 ## Ce qu'il contient
 
@@ -17,7 +17,7 @@ Ce dossier est ton projet. `python tools/start_chapter.py PS` l'a copié dans `m
 
 ## Les commandes
 
-Depuis le dossier de workbookMaths (ou depuis ce dossier, en retirant le chemin) :
+Depuis le dossier de workbookMaths (ou depuis ce dossier, en retirant le chemin, sauf la dernière commande) :
 
 ```bash
 python -m pytest -q mon_travail/projet_synthese/test_algo.py                     # tes tests, avec ta mymath
@@ -27,10 +27,10 @@ python -m pytest -q mon_travail/projet_synthese/test_algo.py --mutant=<nom>     
 python -m pytest -q tests/test_m12c_eigen.py                                     # les tests d'un module de ta librairie (ici M12c)
 ```
 
-Le notebook s'ouvre dans Jupyter depuis ce dossier, ou sur Colab depuis ton Drive (`workbookMaths/mon_travail/projet_synthese/synthese.ipynb`) : sa première cellule retrouve le dépôt, sa deuxième ce dossier. « Run all » va au bout dès le départ, avec des ⏳ là où ton travail manque.
+Le notebook s'ouvre dans Jupyter depuis ce dossier, ou sur Colab depuis ton Drive (`workbookMaths/mon_travail/projet_synthese/synthese.ipynb`) : sa première cellule de code retrouve le dépôt, la deuxième ce dossier. « Run all » va au bout dès le départ, avec des ⏳ là où ton travail manque.
 
 ## Trois règles à garder en tête
 
-- **Ton module appelle ta librairie** : au moins trois fonctions de `mymath` que tu as écrites, chacune utile au calcul. La cellule « Contrôle du module » de §6 marque chaque fonction « à toi » ou « référence » (un module absent de `mon_travail/mymath/` est pris dans la référence : il ne compte pas).
+- **Ton module appelle ta librairie** : au moins trois fonctions de `mymath` que tu as écrites, chacune utile au calcul. La cellule « Contrôle du module » de §6 marque chaque fonction « à toi » ou « référence » (un module absent de `mon_travail/mymath/` est pris dans la référence, et un module recopié de la référence est marqué « copie de la référence » : ni l'un ni l'autre ne compte).
 - **Tes tests ont un oracle indépendant** : NumPy, SciPy, SymPy, scikit-learn ou PyTorch, jamais une autre de tes fonctions ni ta formule recopiée. Ils appellent `algo.<fonction>(...)` par la fixture `algo` (jamais `from algo import ...`, que la mutation n'atteindrait pas).
-- **Le projet est fini** quand `pytest -rfs` ne saute plus rien, que la mutation fait échouer un test, et que « Run all » finit sans erreur en moins de 5 minutes, sorties conservées.
+- **Le code est prêt** quand `pytest -rfs` ne saute plus rien, que la mutation fait échouer un test, et que « Run all » finit sans erreur en moins de 5 minutes, sorties conservées.

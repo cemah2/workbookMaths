@@ -14,7 +14,8 @@ The rules of the project (projets/projet_synthese/README.md, « Les règles »):
 * docstrings in English, in the NumPy format: what the function computes, Parameters (with their shapes), Returns
   (with its shape), Raises; an invalid input raises the announced error, with a message that says what was expected;
 * the code reads next to the equations (same names, one equation per block), without Python loops over examples
-  or coordinates that NumPy can do (a loop over the iterations or over time is normal).
+  or coordinates that NumPy can do (a loop over the iterations or over time is normal, and so is a loop over a few
+  examples around a function of mymath that only takes a number, said in §6).
 """
 
 from __future__ import annotations

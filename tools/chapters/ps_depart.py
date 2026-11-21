@@ -45,6 +45,7 @@ PROJECT_CODE = r'''
 import ast
 import importlib
 import json
+import re
 import sys
 import time
 from fractions import Fraction
@@ -59,8 +60,11 @@ T0 = time.perf_counter()
 MODULE_NAME = "algo"
 KIT = (ROOT / "projets" / "projet_synthese" / "depart").resolve()
 CANDIDATES = [Path.cwd().resolve(), (ROOT / "mon_travail" / "projet_synthese").resolve(), KIT]
-PROJECT = next(folder for folder in CANDIDATES
-               if (folder / "synthese.ipynb").exists() and (folder / f"{MODULE_NAME}.py").exists())
+PROJECT = next((folder for folder in CANDIDATES
+                if (folder / "synthese.ipynb").exists() and (folder / f"{MODULE_NAME}.py").exists()), None)
+if PROJECT is None:
+    raise FileNotFoundError("dossier du projet introuvable : garde les noms synthese.ipynb et algo.py, "
+                            "dans mon_travail/projet_synthese/")
 FIGURES = PROJECT / "figures"
 if str(PROJECT) not in sys.path:
     sys.path.insert(0, str(PROJECT))
@@ -203,7 +207,7 @@ IMPLEMENTATION = r"""
 
 📝 **PS.6** (3 points) · Présente `algo.py` : ses fonctions publiques, la formule de §3 que chacune calcule, les fonctions de `mymath` qu'il appelle et ce qu'elles font dans le calcul, et le coût d'un appel (en fonction de $n$ et $p$, M18 §5 si c'est une rétropropagation).
 
-La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/` et « référence » sinon (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
+La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si ce module est la référence recopiée (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
 """
 
 CONTROL_CODE = r'''
@@ -222,6 +226,9 @@ def mymath_calls(tree):
             aliases.update({a.asname or a.name: a.name for a in node.names})
         elif isinstance(node, ast.ImportFrom) and (node.module or "").startswith("mymath."):
             calls.update((node.module.split(".")[1], a.name) for a in node.names)
+        elif isinstance(node, ast.Import):   # import mymath.eigen as eig
+            aliases.update({a.asname: a.name.split(".")[1] for a in node.names
+                            if a.name.startswith("mymath.") and a.asname})
     for node in ast.walk(tree):
         if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Attribute):
             inner = node.value
@@ -243,6 +250,7 @@ if tree is not None:
         if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and not node.name.startswith("_"):
             doc = ast.get_docstring(node) or ""
             missing = [part for part in ("Parameters", "Returns") if part not in doc]
+            missing += [] if re.search(r"\(3\.\d+\)", doc) else ["numéro d'équation (3.k)"]
             mark = "⏳" if node.name == "example_function" else ("✅" if doc and not missing else "⚠️")
             note = (" (l'exemple du kit : remplace-la par tes fonctions)" if node.name == "example_function" else
                     "" if doc and not missing else f" (docstring {'absente' if not doc else 'sans ' + ', '.join(missing)})")
@@ -250,10 +258,14 @@ if tree is not None:
     print("mymath :")
     calls = mymath_calls(tree)
     for module, function in calls:
-        mine = (ROOT / "mon_travail" / "mymath" / f"{module}.py").exists()
+        mine_path = ROOT / "mon_travail" / "mymath" / f"{module}.py"
+        ref_path = ROOT / "solutions" / "mymath_ref" / f"{module}.py"
+        mine = mine_path.exists()
+        copied = mine and ref_path.exists() and mine_path.read_bytes() == ref_path.read_bytes()
         chapter = OWNER.get(module, "?")
         MYMATH_MODULES[module] = f"tests/test_{chapter.lower()}_{module}.py"
-        print(f"  {'✅ à toi    ' if mine else '⚠️ référence'} mymath.{module}.{function} ({chapter})")
+        label = "⚠️ copie de la référence" if copied else ("✅ à toi    " if mine else "⚠️ référence")
+        print(f"  {label} mymath.{module}.{function} ({chapter})")
     count = len(calls)
     print(f"  {count} fonction(s) de mymath appelée(s) ; au moins 3 sont attendues, écrites par toi"
           + (" ⏳" if count < 3 else ""))
@@ -262,8 +274,12 @@ if tree is not None:
         if isinstance(node, (ast.Import, ast.ImportFrom)):
             names = [a.name for a in node.names] if isinstance(node, ast.Import) else [node.module or "."]
             for name in [n for n in names if n != "__future__"]:
-                bad = name.split(".")[0] in FORBIDDEN
-                print(f"  {'❌' if bad else '✅'} {name}" + (" (un oracle de PS.7 : pas dans le module)" if bad else ""))
+                top = name.split(".")[0]
+                allowed = top in {"numpy", "mymath"} or top in sys.stdlib_module_names
+                mark = "❌" if top in FORBIDDEN else ("✅" if allowed else "⚠️")
+                note = (" (un oracle de PS.7 : pas dans le module)" if top in FORBIDDEN else "" if allowed else
+                        " (ni NumPy, ni la bibliothèque standard, ni mymath : README, « Les règles », 3)")
+                print(f"  {mark} {name}{note}")
 '''
 
 MYMATH_TESTS = r'''
@@ -393,7 +409,7 @@ PRESENTATION = r"""
 
 **Répétition chronométrée** le 📝 : 📝 min 📝 s.
 
-**Cinq questions d'entretien** (de la banque du README, ou les tiennes) et tes réponses, de quelques lignes chacune, qui renvoient à l'article. Quand tu ne sais pas, dis-le, et dis comment tu le vérifierais.
+**Cinq questions d'entretien** (de la banque du README, ou les tiennes) et tes réponses, de quelques lignes chacune, qui renvoient à l'article. Faute de réponse sûre, écris ce qui trancherait (un test, une expérience, une section de MML).
 
 1. *Question* : 📝 — *Réponse* : 📝
 2. *Question* : 📝 — *Réponse* : 📝

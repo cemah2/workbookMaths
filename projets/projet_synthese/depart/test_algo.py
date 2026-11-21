@@ -13,8 +13,8 @@ comments after ``todo`` give the plan), and add your own. The rules (README, « 
 
 The fixtures ``algo`` (your module) and ``mymath`` (your library) come from conftest.py: a test takes them as
 arguments and calls ``algo.<function>(...)``, never ``from algo import ...`` (the mutation would not reach it).
-A test stopped by a function that still raises NotImplementedError is skipped with ⏳: the project is finished
-when ``python -m pytest -q -rfs test_algo.py`` passes everything and skips nothing.
+A test stopped by a function that still raises NotImplementedError is skipped with ⏳: the code of the project is
+ready when ``python -m pytest -q -rfs test_algo.py`` passes everything and skips nothing.
 """
 
 from __future__ import annotations
@@ -40,8 +40,9 @@ def assert_close(got, expected, *, rtol: float, atol: float, what: str) -> None:
     bad = gap > atol + rtol * np.abs(expected)
     if np.any(bad) or not np.all(np.isfinite(got)):
         index = np.unravel_index(int(np.argmax(np.where(np.isfinite(gap), gap, np.inf))), gap.shape)
-        raise AssertionError(f"{what}: expected {expected[index]!r} at index {index} (rtol={rtol}, atol={atol}), "
-                             f"got {got[index]!r}; {int(np.sum(bad))} value(s) out of tolerance")
+        raise AssertionError(f"{what}: expected {float(expected[index])!r} at index {tuple(int(i) for i in index)} "
+                             f"(rtol={rtol}, atol={atol}), got {float(got[index])!r}; {int(np.sum(bad))} value(s) out "
+                             "of tolerance")
 
 
 def test_example_function(algo):
@@ -50,7 +51,7 @@ def test_example_function(algo):
     assert algo.example_function(x).shape == (3,), "expected a result of shape (n,) = (3,)"
 
 
-@pytest.mark.parametrize("seed", SEEDS)
+@pytest.mark.parametrize("seed", SEEDS, ids=[f"seed={s}" for s in SEEDS])
 @pytest.mark.parametrize("size", SIZES, ids=[f"n={n},p={p}" for n, p in SIZES])
 def test_matches_oracle(algo, size, seed):
     """The algorithm gives the oracle's result on a random case (PS.7)."""
@@ -63,7 +64,7 @@ def test_matches_oracle(algo, size, seed):
     # 4. assert_close(got, expected, rtol=..., atol=..., what="...")   # why this tolerance?
 
 
-@pytest.mark.parametrize("seed", SEEDS)
+@pytest.mark.parametrize("seed", SEEDS, ids=[f"seed={s}" for s in SEEDS])
 def test_derivative_matches_centred_differences(algo, seed):
     """A derivative computed by the code equals its centred finite differences (PS.7)."""
     todo("une dérivée calculée par ton code contre des différences finies centrées écrites ici")
@@ -73,7 +74,7 @@ def test_derivative_matches_centred_differences(algo, seed):
     # with a tolerance of the order of the error of the method (M05a §5).
 
 
-@pytest.mark.parametrize("seed", SEEDS)
+@pytest.mark.parametrize("seed", SEEDS, ids=[f"seed={s}" for s in SEEDS])
 def test_property(algo, seed):
     """A property of §4 (or an invariance, an identity, a bound) holds on a random case (PS.7)."""
     todo("une propriété démontrée en §4, vérifiée sur un cas tiré au hasard")

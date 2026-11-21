@@ -160,7 +160,7 @@ def pytest_terminal_summary(terminalreporter):
         terminalreporter.write_line(f"ℹ️ Tests sautés : mymath absente ({_STATE['error']}).")
     elif pending:
         terminalreporter.write_line(f"ℹ️ {len(pending)} test(s) en attente ⏳ (squelettes à écrire ou fonctions pas "
-                                    "encore écrites) : le projet est fini quand plus rien n'est sauté.")
+                                    "encore écrites) : le code est prêt quand plus rien n'est sauté.")
     if _STATE["mutants"]:
         swapped = ", ".join(f"{MODULE_NAME}.{name} ← {MUTANTS_NAME}.{name}" for name in _STATE["mutants"])
         terminalreporter.write_line(f"ℹ️ Mutation : {swapped} ; au moins un test doit échouer.")
