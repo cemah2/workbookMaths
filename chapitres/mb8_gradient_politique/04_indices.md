@@ -192,7 +192,7 @@ $s_\theta(x) = \frac1\theta - x$ et $P(X > c) = e^{-\theta c}$. $\mathbb{E}[g(X)
 </details>
 <details><summary>Indice 3</summary>
 
-a) $e^{-1{,}8}$. b) $-c\,e^{-\theta c}$. c) $\frac1\theta e^{-\theta c}$, puis $(c + \frac1\theta)\,e^{-\theta c}$ ; leur différence doit redonner b). d) $-\frac{\xi}{\theta^2} = -\frac X\theta$, d'espérance $-\frac{1}{\theta^2}$ ; et l'indicatrice ? e) $\mathbb{E}[(\frac1\theta - X)^2 \mid X > c] = c^2 + \mathbb{V}(Y)$, puis $\mathbb{V}(g) = \mathbb{E}[g^2] - (\text{b})^2$. f) $\sqrt{\mathbb{V}(g)/500}$.
+a) $e^{-1{,}8}$. b) $-c\,e^{-\theta c}$. c) $\frac1\theta e^{-\theta c}$, puis $(c + \frac1\theta)\,e^{-\theta c}$ ; leur différence doit redonner b). d) $-\frac{\xi}{\theta^2} = -\frac X\theta$, d'espérance $-\frac{1}{\theta^2}$ ; et l'indicatrice ? e) $\mathbb{E}[(\frac1\theta - X)^2 \mid X > c] = c^2 + \mathbb{V}(Y)$, puis $\mathbb{V}(g) = \mathbb{E}[g^2] - (\text{b})^2$.
 
 </details>
 
@@ -259,12 +259,12 @@ Fiche §6 : « Changer de loi », « Normaliser, mesurer, tronquer » et « Esti
 </details>
 <details><summary>Indice 2</summary>
 
-$w = \frac pq$ classe par classe ; $\mathbb{E}_q[wf] = \sum q\,w\,f = \sum p\,f$. La variance de $wf$ sous $q$ : $\sum q\,(wf)^2 - (\mathbb{E}_q[wf])^2$. Kish : $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$ sur les six panélistes. Tronquer : $\min(w, c)$ classe par classe ; le biais se compare à la moyenne repondérée exacte. $\mathrm{KL}(q \,\|\, p) = \sum q\ln\frac qp$ ; $k_1 = -\ln w$ ; $k_3 = (w - 1) - \ln w$.
+$w = \frac pq$ classe par classe ; $\mathbb{E}_q[wf] = \sum q\,w\,f = \sum p\,f$. Kish : $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$ sur les six panélistes. Tronquer : $\min(w, c)$ classe par classe ; le biais se compare à la moyenne repondérée exacte. $\mathrm{KL}(q \,\|\, p) = \sum q\ln\frac qp$ ; $k_1 = -\ln w$ ; $k_3 = (w - 1) - \ln w$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\,f$, puis $\sum p\,f$. c) $wf = (18{,}72 ;\ 82 ;\ 58{,}08)$. d) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. e) $\min(w, 1{,}3) = (0{,}52 ;\ 1{,}3 ;\ 1{,}3)$. f) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ g), h) Classe par classe ; contrôle : $\sum q\,k_1$ et $\sum q\,k_3$ redonnent f).
+a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\,f$, puis $\sum p\,f$. c) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. d) $\min(w, 1{,}3) = (0{,}52 ;\ 1{,}3 ;\ 1{,}3)$. e) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ f), g) Classe par classe ; contrôle : $\sum q\,k_1$ et $\sum q\,k_3$ redonnent e).
 
 </details>
 
@@ -322,7 +322,7 @@ Sur $S$, $\partial_\theta p_\theta = p_\theta\,s_\theta$. Dérive $\int_Sp_\thet
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\,s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; la dérivée de $\int_0^\theta p_\theta$ a un terme de bord, $p_\theta(\theta^-)$. 5. $\mathbb{E}_\theta[f] = \frac1\theta\int_0^\theta f$ : dérive un produit.
+1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\,s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; la dérivée de $\int_0^\theta p_\theta$ a un terme de bord, $p_\theta(\theta^-)$.
 
 </details>
 

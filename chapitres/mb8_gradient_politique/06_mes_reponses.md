@@ -81,7 +81,6 @@
 - c :
 - d :
 - e :
-- f :
 - dans ta copie :
 
 ### Ex MB8.2 — Deux graines par godet (une loi binomiale B(2, θ)) et un prix selon le nombre de pousses : la dérivée de la recette moyenne, puis l'estimateur score sans baseline, avec b = E[f] et avec la baseline optimale, et leurs variances
@@ -119,7 +118,6 @@
 - e :
 - f :
 - g :
-- h :
 - dans ta copie :
 
 ### Ex MB8.6 — Un tournoi de babyfoot entre trois clubs : deux clubs seuls (la différence de forces en forme fermée), puis vérifier les équations du maximum de vraisemblance pour des forces proposées, la probabilité qu'un club batte un autre, une mise à jour Elo, et un club invaincu
@@ -147,7 +145,6 @@
 2. 
 3. 
 4. 
-5. 
 
 ### Ex MB8.9 — La baseline optimale b* = E[f s²]/E[s²] d'un estimateur score ; sur n tirages, la moyenne des autres est une baseline sans biais, et la moyenne du groupe multiplie l'estimateur par (n − 1)/n
 
