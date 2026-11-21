@@ -129,7 +129,7 @@ Relis le terme général d'une suite géométrique (fiche de R5, §3).
 </details>
 <details><summary>Indice 2</summary>
 
-$u_{n} = u_{0}\,q^{n}$ ; des multiplications successives se composent en une puissance.
+$u_{n} = u_{0}\thinspace q^{n}$ ; des multiplications successives se composent en une puissance.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -416,7 +416,7 @@ Pars de la question « à quelle puissance faut-il élever 10 (ou 2) pour obteni
 </details>
 <details><summary>Indice 3</summary>
 
-Par exemple : $\log_{10} 100\,000 = 5$ (cinq zéros) ; $\log_{2} 4\,096 = 12$ (douze doublements depuis 1, ou douze questions oui ou non pour trouver un nombre parmi 4 096).
+Par exemple : $\log_{10} 100\thinspace000 = 5$ (cinq zéros) ; $\log_{2} 4\thinspace096 = 12$ (douze doublements depuis 1, ou douze questions oui ou non pour trouver un nombre parmi 4 096).
 
 </details>
 

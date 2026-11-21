@@ -9,25 +9,25 @@
 ## 🧠 Quiz
 
 ### M13b.Q1 — Lagrange : ce que dit ∇f = λ ∇g
-1. $\nabla f(\mathbf{x}^*)$ est orthogonal à la courbe $g = 0$ en $\mathbf{x}^*$ : il est colinéaire à $\nabla g(\mathbf{x}^*)$. La ligne de niveau de $f$ qui passe par $\mathbf{x}^*$ y est tangente à la contrainte.
+1. $\nabla f(\mathbf{x}^\ast)$ est orthogonal à la courbe $g = 0$ en $\mathbf{x}^\ast$ : il est colinéaire à $\nabla g(\mathbf{x}^\ast)$. La ligne de niveau de $f$ qui passe par $\mathbf{x}^\ast$ y est tangente à la contrainte.
 2. **Faux** : la condition est nécessaire, pas suffisante. Le point peut être un maximum sous contrainte, ou ni l'un ni l'autre.
-3. $\lambda = 0$ : $\nabla f(\mathbf{x}^*) = \mathbf{0}$ convient, la contrainte ne coûte rien.
+3. $\lambda = 0$ : $\nabla f(\mathbf{x}^\ast) = \mathbf{0}$ convient, la contrainte ne coûte rien.
 4. Cinq : trois coordonnées et deux multiplicateurs.
-5. $\frac{df^*}{dc} = -\lambda = 5$ : le minimum **monte** d'environ $5 \times 0{,}1 = 0{,}5$.
-6. Si $\nabla g(\mathbf{x}^*) = \mathbf{0}$, la courbe peut avoir un point anguleux ou se réduire à un point, et il n'existe pas toujours de $\lambda$ (∂ M13b.14, question 4).
+5. $\frac{df^\ast}{dc} = -\lambda = 5$ : le minimum **monte** d'environ $5 \times 0{,}1 = 0{,}5$.
+6. Si $\nabla g(\mathbf{x}^\ast) = \mathbf{0}$, la courbe peut avoir un point anguleux ou se réduire à un point, et il n'existe pas toujours de $\lambda$ (∂ M13b.14, question 4).
 
 ### M13b.Q2 — Contrainte active ou inactive ?
-1. Elle est atteinte avec égalité : $g(\mathbf{x}^*) = 0$.
-2. **Vrai** : c'est la complémentarité, $\mu\,g(\mathbf{x}^*) = 0$ avec $g(\mathbf{x}^*) < 0$.
-3. **Faux** : une contrainte peut être atteinte avec $\mu = 0$, quand le minimum libre tombe exactement sur son bord (minimiser $x^2$ sous $x \le 0$ : $x^* = 0$, $\mu = 0$).
-4. Sous $x \le 5$ : le minimum libre $x = 3$ est admissible, la contrainte est inactive ($\mu = 0$). Sous $x \le 1$ : active, $x^* = 1$, et $2(1 - 3) + \mu = 0$ donne $\mu = 4$.
+1. Elle est atteinte avec égalité : $g(\mathbf{x}^\ast) = 0$.
+2. **Vrai** : c'est la complémentarité, $\mu\thinspace g(\mathbf{x}^\ast) = 0$ avec $g(\mathbf{x}^\ast) < 0$.
+3. **Faux** : une contrainte peut être atteinte avec $\mu = 0$, quand le minimum libre tombe exactement sur son bord (minimiser $x^2$ sous $x \le 0$ : $x^\ast = 0$, $\mu = 0$).
+4. Sous $x \le 5$ : le minimum libre $x = 3$ est admissible, la contrainte est inactive ($\mu = 0$). Sous $x \le 1$ : active, $x^\ast = 1$, et $2(1 - 3) + \mu = 0$ donne $\mu = 4$.
 5. La contrainte ne devrait pas être active : un multiplicateur d'inégalité négatif n'est pas un point KKT. On recommence avec cette contrainte inactive ($\mu = 0$).
 6. $4 - x_1 - x_2 \le 0$.
 
 ### M13b.Q3 — Primal, dual, dualité faible
 1. $D(\boldsymbol{\mu}) = \min_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ (sa plus grande minoration, $\inf$, si le minimum n'est pas atteint), pour $\boldsymbol{\mu} \ge \mathbf{0}$.
 2. **Vrai** : c'est un minimum de fonctions affines des multiplicateurs.
-3. 8 est impossible : la dualité faible impose $D \le f^* = 7$. 5 est possible.
+3. 8 est impossible : la dualité faible impose $D \le f^\ast = 7$. 5 est possible.
 4. $\min f - \max D \ge 0$ ; il est nul quand la dualité est forte, par exemple pour un problème convexe qui vérifie la condition de Slater.
 5. **Faux** : une variable par **contrainte**.
 6. Ils sont optimaux tous les deux : $\mathbf{x}$ est un minimum du primal, $\boldsymbol{\mu}$ un maximum du dual (∂ M13b.15, question 5).
@@ -57,7 +57,7 @@
 6. **Vrai** : $\lambda = \frac{1}{nC} = \frac{1}{10}$.
 
 ### M13b.Q7 — Noyau valide ou pas ?
-1. **Oui** : un noyau (le produit scalaire) multiplié par une constante positive, $\varphi(\mathbf{x}) = \sqrt{3}\,\mathbf{x}$.
+1. **Oui** : un noyau (le produit scalaire) multiplié par une constante positive, $\varphi(\mathbf{x}) = \sqrt{3}\thinspace\mathbf{x}$.
 2. **Oui** : la somme du noyau linéaire et d'une constante positive ($\varphi(\mathbf{x}) = (\mathbf{x}, \sqrt{5})$).
 3. **Non** : $k(\mathbf{x}, \mathbf{x}) = -\lVert\mathbf{x}\rVert^2 < 0$ pour $\mathbf{x} \ne \mathbf{0}$, alors qu'une matrice de Gram a une diagonale positive ou nulle.
 4. **Oui** : $(\mathbf{x} \cdot \mathbf{z})^3$ est un produit de trois noyaux linéaires, le RBF est un noyau, et une somme de noyaux en est un.
@@ -93,7 +93,7 @@
 ### M13b.R3 — Matrices définies positives (M12c)
 1. Oui : trace 7 et déterminant 2 sont positifs, donc les deux valeurs propres le sont.
 2. Non : le déterminant vaut $-1 < 0$, une valeur propre est négative.
-3. $\begin{pmatrix} 6 & 1 & 7 \\ 1 & 2 & 3 \\ 7 & 3 & 10 \end{pmatrix}$.
+3. $\begin{pmatrix} 6 & 1 & 7 \cr 1 & 2 & 3 \cr 7 & 3 & 10 \end{pmatrix}$.
 4. Semi-définie positive mais pas définie positive : le troisième vecteur est la somme des deux premiers, donc $\mathbf{v} = (1, 1, -1)$ donne $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\mathbf{v}_1 + \mathbf{v}_2 - \mathbf{v}_3\rVert^2 = 0$.
 5. $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\sum_i v_i\mathbf{v}_i\rVert^2 \ge 0$ (M12c.17).
 
@@ -105,13 +105,13 @@
 
 **Réponses** : a) `[8, 4, 2]` · b) `64` · c) `8` · d) `72` · e) `15625/216` · f) `8` · g) `48`.
 
-**Démarche.** Le système : $yz = \lambda$, $xz = 2\lambda$, $xy = 4\lambda$, $x + 2y + 4z = 24$. Les deux premières donnent $\frac{x}{y} = 2$, les deux dernières $\frac{y}{z} = 2$ : $x = 2y = 4z$, donc $3x = 24$, $(x, y, z) = (8, 4, 2)$, $P^* = 64$ et $\lambda = yz = 8$. Pour un second membre $c$ : $x = \frac{c}{3}$, $y = \frac{c}{6}$, $z = \frac{c}{12}$, $P^*(c) = \frac{c^3}{216}$, de dérivée $\frac{c^2}{72} = 8$ en $c = 24$ ; $P^*(25) = \frac{25^3}{216} = \frac{15\,625}{216} \approx 72{,}34$, bien estimé par $64 + 8 = 72$.
+**Démarche.** Le système : $yz = \lambda$, $xz = 2\lambda$, $xy = 4\lambda$, $x + 2y + 4z = 24$. Les deux premières donnent $\frac{x}{y} = 2$, les deux dernières $\frac{y}{z} = 2$ : $x = 2y = 4z$, donc $3x = 24$, $(x, y, z) = (8, 4, 2)$, $P^\ast = 64$ et $\lambda = yz = 8$. Pour un second membre $c$ : $x = \frac{c}{3}$, $y = \frac{c}{6}$, $z = \frac{c}{12}$, $P^\ast(c) = \frac{c^3}{216}$, de dérivée $\frac{c^2}{72} = 8$ en $c = 24$ ; $P^\ast(25) = \frac{25^3}{216} = \frac{15\thinspace625}{216} \approx 72{,}34$, bien estimé par $64 + 8 = 72$.
 
 Pour la copie : la condition de Lagrange donne des candidats. Ici, sur la partie admissible où $x, y, z \ge 0$ (un triangle fermé et borné), $P$ est continu et atteint un maximum ; il vaut 0 sur les bords et 64 en l'unique point critique intérieur, qui est donc le maximum. g) le confirme sur un point : 48 < 64.
 
 **Erreurs fréquentes.** Diviser des équations par une variable nulle ; oublier les coefficients 2 et 4 de la contrainte ; prendre $\lambda = -8$ (l'autre convention de signe : l'énoncé fixe la sienne).
 
-**Variante.** Sous $x + y + z = 12$ ? *Réponse* : $(4, 4, 4)$, $P^* = 64$, $\lambda = 16$.
+**Variante.** Sous $x + y + z = 12$ ? *Réponse* : $(4, 4, 4)$, $P^\ast = 64$, $\lambda = 16$.
 
 ### Ex M13b.2 — La distance d'un point à un plan, retrouvée par Lagrange
 
@@ -130,22 +130,22 @@ Pour la copie : $\mathbf{x} - \mathbf{x}_0 = -\frac{\lambda}{2}\mathbf{n}$ est c
 **Réponses** : a) `5` · b) `[3/2, 1, 1/2]` · c) `[-7/2, -3/2]` · d) `19/4` · e) `10` · f) `[1, 1, 1]` · g) `4` · h) `-23/28`.
 
 **Démarche.** Le système par blocs :
-$$\begin{pmatrix} 4 & 1 & 0 & 1 & 1 \\ 1 & 2 & 0 & 1 & 0 \\ 0 & 0 & 2 & 1 & -1 \\ 1 & 1 & 1 & 0 & 0 \\ 1 & 0 & -1 & 0 & 0 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ \lambda_1 \\ \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 \\ 0 \\ -1 \\ 3 \\ 1 \end{pmatrix}.$$
-Vérification : $\mathbf{Q}\mathbf{x}^* + \mathbf{c} = (5 ;\ 3{,}5 ;\ 2)$ et $\mathbf{A}^\top\boldsymbol{\lambda} = (-5 ;\ -3{,}5 ;\ -2)$ ; $f(\mathbf{x}^*) = \frac{1}{2}(10{,}5 + 3{,}5 + 0{,}5) - 2{,}5 = 4{,}75$. Avec la seule première contrainte, le système $4 \times 4$ donne $(1, 1, 1)$ et $f = 4$. Sans contrainte, $\mathbf{x} = -\mathbf{Q}^{-1}\mathbf{c} = (\frac{4}{7}, -\frac{2}{7}, -\frac{1}{2})$ et $f = -\frac{23}{28}$.
+$$\begin{pmatrix} 4 & 1 & 0 & 1 & 1 \cr 1 & 2 & 0 & 1 & 0 \cr 0 & 0 & 2 & 1 & -1 \cr 1 & 1 & 1 & 0 & 0 \cr 1 & 0 & -1 & 0 & 0 \end{pmatrix}\begin{pmatrix} x_1 \cr x_2 \cr x_3 \cr \lambda_1 \cr \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 \cr 0 \cr -1 \cr 3 \cr 1 \end{pmatrix}.$$
+Vérification : $\mathbf{Q}\mathbf{x}^\ast + \mathbf{c} = (5 ;\ 3{,}5 ;\ 2)$ et $\mathbf{A}^\top\boldsymbol{\lambda} = (-5 ;\ -3{,}5 ;\ -2)$ ; $f(\mathbf{x}^\ast) = \frac{1}{2}(10{,}5 + 3{,}5 + 0{,}5) - 2{,}5 = 4{,}75$. Avec la seule première contrainte, le système $4 \times 4$ donne $(1, 1, 1)$ et $f = 4$. Sans contrainte, $\mathbf{x} = -\mathbf{Q}^{-1}\mathbf{c} = (\frac{4}{7}, -\frac{2}{7}, -\frac{1}{2})$ et $f = -\frac{23}{28}$.
 
 Pour la copie : chaque contrainte de plus réduit l'ensemble admissible, donc le minimum ne peut que monter : $-\frac{23}{28} < 4 < \frac{19}{4}$. Les mineurs principaux de $\mathbf{Q}$ (4, 7, 14) sont positifs : $\mathbf{Q}$ est définie positive, la solution est unique et c'est le minimum (§5).
 
 **Erreurs fréquentes.** Mettre $+\mathbf{c}$ au second membre ; oublier le bloc nul ; des multiplicateurs de signes opposés (la convention $f - \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$).
 
-**Variante.** Avec $\mathbf{b} = (3, 0)$ ? *Réponse* : $\mathbf{x}^* = (1, 1, 1)$ et $\boldsymbol{\lambda} = (-3, 0)$ : la solution sous la seule première contrainte vérifie déjà $x_1 = x_3$, la deuxième contrainte ne coûte rien.
+**Variante.** Avec $\mathbf{b} = (3, 0)$ ? *Réponse* : $\mathbf{x}^\ast = (1, 1, 1)$ et $\boldsymbol{\lambda} = (-3, 0)$ : la solution sous la seule première contrainte vérifie déjà $x_1 = x_3$, la deuxième contrainte ne coûte rien.
 
 ### Ex M13b.4 — Relire l'ACP par Lagrange : maximiser uᵀCu sous ‖u‖ = 1
 
 **Réponses** : a) `13` · b) `[-0.2673, 0.8018, -0.5345]` · c) `13` · d) `0` · e) `6` · f) `13/20` · g) `19/20` · h) `2`.
 
-**Démarche.** Le polynôme caractéristique a pour racines 13, 6 et 1 (somme 20 = la trace, produit 78 = le déterminant). Pour 13 : $\mathbf{C}(1, -3, 2) = (13, -39, 26)$ ; normalisé ($\sqrt{14}$) et orienté par la convention (la coordonnée $-3$ devient positive), $\mathbf{u}_1 = \frac{1}{\sqrt{14}}(-1, 3, -2)$. Pour 6 : $(-1, 3, 5)$ ; pour 1 : $(3, 1, 0)$. h) $C_{11} = 2$, entre la plus petite et la plus grande valeur propre, comme tout $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ avec $\lVert\mathbf{u}\rVert = 1$.
+**Démarche.** Le polynôme caractéristique a pour racines 13, 6 et 1 (somme 20 = la trace, produit 78 = le déterminant). Pour 13 : $\mathbf{C}(1, -3, 2) = (13, -39, 26)$ ; normalisé ($\sqrt{14}$) et orienté par la convention (la coordonnée $-3$ devient positive), $\mathbf{u} _1 = \frac{1}{\sqrt{14}}(-1, 3, -2)$. Pour 6 : $(-1, 3, 5)$ ; pour 1 : $(3, 1, 0)$. h) $C _{11} = 2$, entre la plus petite et la plus grande valeur propre, comme tout $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ avec $\lVert\mathbf{u}\rVert = 1$.
 
-Pour la copie : la stationnarité de $\mathbf{u}^\top\mathbf{C}\mathbf{u} - \lambda(\mathbf{u}^\top\mathbf{u} - 1)$ donne $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, et en un tel point $\mathbf{u}^\top\mathbf{C}\mathbf{u} = \lambda$. Pour le deuxième axe, $2\mathbf{C}\mathbf{u} - 2\lambda\mathbf{u} - \nu\mathbf{u}_1 = \mathbf{0}$ ; multiplié par $\mathbf{u}_1^\top$ : $2\mathbf{u}_1^\top\mathbf{C}\mathbf{u} - 2\lambda\,\mathbf{u}_1 \cdot \mathbf{u} - \nu = 0$, avec $\mathbf{u}_1^\top\mathbf{C}\mathbf{u} = (\mathbf{C}\mathbf{u}_1) \cdot \mathbf{u} = 13\,\mathbf{u}_1 \cdot \mathbf{u} = 0$ : $\nu = 0$, et $\mathbf{u}$ est un vecteur propre orthogonal à $\mathbf{u}_1$, le meilleur étant celui de 6. La plus petite valeur propre est aussi un point critique : c'est le **minimum** de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur la sphère ; celle du milieu est un col.
+Pour la copie : la stationnarité de $\mathbf{u}^\top\mathbf{C}\mathbf{u} - \lambda(\mathbf{u}^\top\mathbf{u} - 1)$ donne $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$, et en un tel point $\mathbf{u}^\top\mathbf{C}\mathbf{u} = \lambda$. Pour le deuxième axe, $2\mathbf{C}\mathbf{u} - 2\lambda\mathbf{u} - \nu\mathbf{u}_1 = \mathbf{0}$ ; multiplié par $\mathbf{u}_1^\top$ : $2\mathbf{u}_1^\top\mathbf{C}\mathbf{u} - 2\lambda\thinspace\mathbf{u}_1 \cdot \mathbf{u} - \nu = 0$, avec $\mathbf{u}_1^\top\mathbf{C}\mathbf{u} = (\mathbf{C}\mathbf{u}_1) \cdot \mathbf{u} = 13\thinspace\mathbf{u}_1 \cdot \mathbf{u} = 0$ : $\nu = 0$, et $\mathbf{u}$ est un vecteur propre orthogonal à $\mathbf{u}_1$, le meilleur étant celui de 6. La plus petite valeur propre est aussi un point critique : c'est le **minimum** de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur la sphère ; celle du milieu est un col.
 
 **Erreurs fréquentes.** Oublier la normalisation ; le signe de la convention ; maximiser $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sans contrainte (elle n'a pas de maximum) ; prendre la plus petite valeur propre.
 
@@ -155,25 +155,25 @@ Pour la copie : la stationnarité de $\mathbf{u}^\top\mathbf{C}\mathbf{u} - \lam
 
 **Réponses** : a) `False` · b) `4/3` · c) `[2/3, 5/3]` · d) `-10` · e) `-12` · f) `-4/3` · g) `-4/3`.
 
-**Démarche.** Le minimum libre est $(2, 2)$, où $2x + y = 6 > 3$ : non admissible, la contrainte est active. Stationnarité : $2x - 4 + 2\mu = 0$ et $4y - 8 + \mu = 0$, donc $x = 2 - \mu$, $y = 2 - \frac{\mu}{4}$ ; la contrainte : $6 - \frac{9\mu}{4} = 3$, $\mu = \frac{4}{3}$. $f(\frac{2}{3}, \frac{5}{3}) = \frac{4}{9} + \frac{50}{9} - \frac{8}{3} - \frac{40}{3} = -10$. Pour $c = 8$ : $(2, 2)$ est admissible, $\mu = 0$, $f^* = -12$. g) Avec $3 - 2x - y \le 0$ supposée active : $2x - 4 - 2\mu = 0$ et $4y - 8 - \mu = 0$, d'où $6 + \frac{9\mu}{4} = 3$ et $\mu = -\frac{4}{3}$.
+**Démarche.** Le minimum libre est $(2, 2)$, où $2x + y = 6 > 3$ : non admissible, la contrainte est active. Stationnarité : $2x - 4 + 2\mu = 0$ et $4y - 8 + \mu = 0$, donc $x = 2 - \mu$, $y = 2 - \frac{\mu}{4}$ ; la contrainte : $6 - \frac{9\mu}{4} = 3$, $\mu = \frac{4}{3}$. $f(\frac{2}{3}, \frac{5}{3}) = \frac{4}{9} + \frac{50}{9} - \frac{8}{3} - \frac{40}{3} = -10$. Pour $c = 8$ : $(2, 2)$ est admissible, $\mu = 0$, $f^\ast = -12$. g) Avec $3 - 2x - y \le 0$ supposée active : $2x - 4 - 2\mu = 0$ et $4y - 8 - \mu = 0$, d'où $6 + \frac{9\mu}{4} = 3$ et $\mu = -\frac{4}{3}$.
 
-Pour la copie : pour $c = 3$, faisabilité ($\frac{4}{3} + \frac{5}{3} = 3$), stationnarité, signe ($\mu > 0$), complémentarité ($g = 0$). En g), le signe négatif dit que la contrainte ne doit pas être active : sous $2x + y \ge 3$, le minimum libre $(2, 2)$ est admissible, et c'est la solution, avec $\mu = 0$ et $f^* = -12$.
+Pour la copie : pour $c = 3$, faisabilité ($\frac{4}{3} + \frac{5}{3} = 3$), stationnarité, signe ($\mu > 0$), complémentarité ($g = 0$). En g), le signe négatif dit que la contrainte ne doit pas être active : sous $2x + y \ge 3$, le minimum libre $(2, 2)$ est admissible, et c'est la solution, avec $\mu = 0$ et $f^\ast = -12$.
 
 **Erreurs fréquentes.** Oublier de tester l'admissibilité du minimum libre ; accepter $\mu < 0$ ; le signe de la sensibilité.
 
-**Variante.** Pour $c = 6$ ? *Réponse* : $(2, 2)$ est sur le bord, $\mu = 0$ : contrainte active de multiplicateur nul, $f^* = -12$.
+**Variante.** Pour $c = 6$ ? *Réponse* : $(2, 2)$ est sur le bord, $\mu = 0$ : contrainte active de multiplicateur nul, $f^\ast = -12$.
 
 ### Ex M13b.6 — La fonction duale d'un petit problème quadratique, et la dualité faible
 
 **Réponses** : a) `6*mu - 3*mu**2/8` · b) `18` · c) `8` · d) `24` · e) `[4, 2]` · f) `24` · g) `18`.
 
-**Démarche.** $\mathcal{L} = x^2 + 2y^2 + \mu(6 - x - y)$ est minimal en $x = \frac{\mu}{2}$, $y = \frac{\mu}{4}$ : $D(\mu) = \frac{\mu^2}{4} + \frac{\mu^2}{8} + 6\mu - \frac{\mu^2}{2} - \frac{\mu^2}{4} = 6\mu - \frac{3}{8}\mu^2$, maximal en $\mu = 8$, où il vaut 24. Le primal : $x = 2y$ (Lagrange), $3y = 6$, $(4, 2)$ et $f^* = 16 + 8 = 24$.
+**Démarche.** $\mathcal{L} = x^2 + 2y^2 + \mu(6 - x - y)$ est minimal en $x = \frac{\mu}{2}$, $y = \frac{\mu}{4}$ : $D(\mu) = \frac{\mu^2}{4} + \frac{\mu^2}{8} + 6\mu - \frac{\mu^2}{2} - \frac{\mu^2}{4} = 6\mu - \frac{3}{8}\mu^2$, maximal en $\mu = 8$, où il vaut 24. Le primal : $x = 2y$ (Lagrange), $3y = 6$, $(4, 2)$ et $f^\ast = 16 + 8 = 24$.
 
-Pour la copie : b) et g) sont des valeurs de $D$, donc des minorants (dualité faible). KKT en $(4, 2)$ : $\nabla f = (8, 8) = 8\,(1, 1)$, soit $\nabla f + \mu\nabla g = \mathbf{0}$ avec $\nabla g = (-1, -1)$ et $\mu = 8 \ge 0$, contrainte active. Le saut est nul, comme prévu : le problème est convexe et $(10, 10)$ est strictement admissible (Slater).
+Pour la copie : b) et g) sont des valeurs de $D$, donc des minorants (dualité faible). KKT en $(4, 2)$ : $\nabla f = (8, 8) = 8\thinspace(1, 1)$, soit $\nabla f + \mu\nabla g = \mathbf{0}$ avec $\nabla g = (-1, -1)$ et $\mu = 8 \ge 0$, contrainte active. Le saut est nul, comme prévu : le problème est convexe et $(10, 10)$ est strictement admissible (Slater).
 
-**Erreurs fréquentes.** Minimiser $\mathcal{L}$ en $\mu$ au lieu de $(x, y)$ ; une erreur de signe dans $\mu(6 - x - y)$ ; croire que $D$ peut dépasser $f^*$.
+**Erreurs fréquentes.** Minimiser $\mathcal{L}$ en $\mu$ au lieu de $(x, y)$ ; une erreur de signe dans $\mu(6 - x - y)$ ; croire que $D$ peut dépasser $f^\ast$.
 
-**Variante.** Sous $x + y \ge 3$ ? *Réponse* : $\mu^* = 4$, $f^* = D(4) = 6$, en $(2, 1)$.
+**Variante.** Sous $x + y \ge 3$ ? *Réponse* : $\mu^\ast = 4$, $f^\ast = D(4) = 6$, en $(2, 1)$.
 
 ### Ex M13b.7 — Reconnaître un problème convexe : fonctions, contraintes, ensembles
 
@@ -191,7 +191,7 @@ Pour la copie : (B) la région $x^2 + y^2 \ge 1$ (l'extérieur d'un disque) n'es
 
 **Réponses** : a) `[-0.2, 0.4]` · b) `-0.4` · c) `[0.05, 0.05, 0.1]` · d) `0.1` · e) `2.2361` · f) `2.8` · g) `3` · h) `0.1`.
 
-**Démarche.** $\mathbf{x}_1$ et $\mathbf{x}_2$ sont tous deux sur le bord $\mathbf{w} \cdot \mathbf{x} + b = 1$ : $\mathbf{w} \cdot (\mathbf{x}_2 - \mathbf{x}_1) = \mathbf{w} \cdot (4, 2) = 0$, donc $\mathbf{w} = k(-1, 2)$. Avec $\mathbf{w} \cdot (\mathbf{x}_1 - \mathbf{x}_3) = 2$ : $k\,(-1, 2) \cdot (-4, 3) = 10k = 2$, $k = 0{,}2$ ; $b = 1 - \mathbf{w} \cdot \mathbf{x}_1 = 1 - 1{,}4 = -0{,}4$. Les multiplicateurs : $\alpha_3 = \alpha_1 + \alpha_2$ et $\alpha_1(3, 5) + \alpha_2(7, 7) - \alpha_3(7, 2) = (-0{,}2 ;\ 0{,}4)$ ; la première coordonnée donne $-4\alpha_1 = -0{,}2$, la seconde $3\alpha_1 + 5\alpha_2 = 0{,}4$ : $\alpha_1 = \alpha_2 = 0{,}05$, $\alpha_3 = 0{,}1$.
+**Démarche.** $\mathbf{x}_1$ et $\mathbf{x}_2$ sont tous deux sur le bord $\mathbf{w} \cdot \mathbf{x} + b = 1$ : $\mathbf{w} \cdot (\mathbf{x}_2 - \mathbf{x}_1) = \mathbf{w} \cdot (4, 2) = 0$, donc $\mathbf{w} = k(-1, 2)$. Avec $\mathbf{w} \cdot (\mathbf{x}_1 - \mathbf{x}_3) = 2$ : $k\thinspace(-1, 2) \cdot (-4, 3) = 10k = 2$, $k = 0{,}2$ ; $b = 1 - \mathbf{w} \cdot \mathbf{x}_1 = 1 - 1{,}4 = -0{,}4$. Les multiplicateurs : $\alpha_3 = \alpha_1 + \alpha_2$ et $\alpha_1(3, 5) + \alpha_2(7, 7) - \alpha_3(7, 2) = (-0{,}2 ;\ 0{,}4)$ ; la première coordonnée donne $-4\alpha_1 = -0{,}2$, la seconde $3\alpha_1 + 5\alpha_2 = 0{,}4$ : $\alpha_1 = \alpha_2 = 0{,}05$, $\alpha_3 = 0{,}1$.
 
 Pour la copie : les quatre conditions KKT tiennent (contraintes respectées, toutes à 1 ; $\alpha_i > 0$ ; complémentarité ; stationnarité). La marge vaut $1/\sqrt{0{,}2} = \sqrt{5}$. Le quatrième exemple a une marge fonctionnelle de 2,8 : avec $\alpha_4 = 0$, toutes les conditions KKT restent vraies, et le problème est convexe : la solution ne change pas. Le dual vaut $0{,}2 - 0{,}1 = 0{,}1$, le primal aussi.
 
@@ -215,7 +215,7 @@ Pour la copie : $t > 1$, au-delà du bord de leur classe : $(3, 0)$, $(1, 0)$, $
 
 **Réponses** : a) `[1, -2, 1.5, 0.5]` · b) `2.375` · c) `[1, 1.5]` · d) `0` · e) `[0.3, 0.7]` · f) `2.165` · g) `[-0.5, 1.25]`.
 
-**Démarche.** Scores : $1$ ; $2$ ; $-1{,}5$ ; $0{,}5$. Comptent $(0, 3)$ ($t = -2$) et $(-1, 2)$ ($t = 0{,}5$) ; $(3 ;\ 0{,}5)$ est au coude ($t = 1$). $J = \frac{1}{2}(0{,}25 + 1) + 0{,}5\,(3 + 0{,}5) = 2{,}375$. $\mathbf{g}_{\mathbf{w}} = (0{,}5 ;\ 1) - 0{,}5\,[(-1)(0, 3) + (+1)(-1, 2)] = (1 ;\ 1{,}5)$, $g_b = -0{,}5\,(-1 + 1) = 0$. Après le pas, les marges deviennent $0{,}25$ ; $-1{,}1$ ; $1{,}4$ ; $0{,}1$, et $J = 0{,}29 + 0{,}5 \times 3{,}75 = 2{,}165$.
+**Démarche.** Scores : $1$ ; $2$ ; $-1{,}5$ ; $0{,}5$. Comptent $(0, 3)$ ($t = -2$) et $(-1, 2)$ ($t = 0{,}5$) ; $(3 ;\ 0{,}5)$ est au coude ($t = 1$). $J = \frac{1}{2}(0{,}25 + 1) + 0{,}5\thinspace(3 + 0{,}5) = 2{,}375$. $\mathbf{g}_{\mathbf{w}} = (0{,}5 ;\ 1) - 0{,}5\thinspace[(-1)(0, 3) + (+1)(-1, 2)] = (1 ;\ 1{,}5)$, $g_b = -0{,}5\thinspace(-1 + 1) = 0$. Après le pas, les marges deviennent $0{,}25$ ; $-1{,}1$ ; $1{,}4$ ; $0{,}1$, et $J = 0{,}29 + 0{,}5 \times 3{,}75 = 2{,}165$.
 
 Pour la copie : au coude, la hinge admet toute pente entre $-1$ et $0$ ; compter le point revient à prendre la pente $-1$, ce qui donne un autre sous-gradient valide. $J$ a baissé ici, mais rien ne le garantit : avec $\eta = 2$, par exemple, le pas mène à $\mathbf{w} = (-1{,}5 ;\ -2)$, et $J$ remonte à $9{,}375$.
 
@@ -239,9 +239,9 @@ Pour la copie : libres, 1 et 6 ($0 < \alpha_i < 1$), sur le bord de leur classe 
 
 **Réponses** : a) `[1, 5.66, -4.24, 16, -16.97, 9]` · b) `[1, 4.24, -7.07, 9, -21.21, 25]` · c) `784` · d) `[3, 9.8, -7.35, 16, -16.97, 9]` · e) `55` · f) `220`.
 
-**Démarche.** $(1 + x_1z_1 + x_2z_2)^2 = 1 + 2x_1z_1 + 2x_2z_2 + x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2$ : chaque terme est un produit d'une fonction de $\mathbf{x}$ par la même fonction de $\mathbf{z}$, d'où $\varphi$ ; les $\sqrt{2}$ répartissent les coefficients 2 des termes croisés. $\varphi(\mathbf{x}) = (1, 4\sqrt{2}, -3\sqrt{2}, 16, -12\sqrt{2}, 9)$, $\varphi(\mathbf{z}) = (1, 3\sqrt{2}, -5\sqrt{2}, 9, -15\sqrt{2}, 25)$. c) $\mathbf{x} \cdot \mathbf{z} = 12 + 15 = 27$, $k = 28^2 = 784$. d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\,\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante devient 3, les coordonnées de degré 1 prennent $\sqrt{6}$ ; $4\sqrt{6} \approx 9{,}80$ et $-3\sqrt{6} \approx -7{,}35$.
+**Démarche.** $(1 + x_1z_1 + x_2z_2)^2 = 1 + 2x_1z_1 + 2x_2z_2 + x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2$ : chaque terme est un produit d'une fonction de $\mathbf{x}$ par la même fonction de $\mathbf{z}$, d'où $\varphi$ ; les $\sqrt{2}$ répartissent les coefficients 2 des termes croisés. $\varphi(\mathbf{x}) = (1, 4\sqrt{2}, -3\sqrt{2}, 16, -12\sqrt{2}, 9)$, $\varphi(\mathbf{z}) = (1, 3\sqrt{2}, -5\sqrt{2}, 9, -15\sqrt{2}, 25)$. c) $\mathbf{x} \cdot \mathbf{z} = 12 + 15 = 27$, $k = 28^2 = 784$. d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\thinspace\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante devient 3, les coordonnées de degré 1 prennent $\sqrt{6}$ ; $4\sqrt{6} \approx 9{,}80$ et $-3\sqrt{6} \approx -7{,}35$.
 
-Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 144 + 360 + 225 = 784$. Pour $(c + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi = (c, \sqrt{2c}\,x_1, \sqrt{2c}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ : seules la constante et les coordonnées de degré 1 dépendent de $c$, et $\sqrt{2c}$ n'existe que pour $c \ge 0$ ; plus $c$ est grand, plus les termes de bas degré pèsent. Pour $c < 0$, ce n'est plus un noyau : en dimension 1 avec $c = -1$, les points 0 et 1 donnent la matrice de Gram $\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$, de déterminant $-1$. Enfin, `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$.
+Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 144 + 360 + 225 = 784$. Pour $(c + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi = (c, \sqrt{2c}\thinspace x_1, \sqrt{2c}\thinspace x_2, x_1^2, \sqrt{2}\thinspace x_1x_2, x_2^2)$ : seules la constante et les coordonnées de degré 1 dépendent de $c$, et $\sqrt{2c}$ n'existe que pour $c \ge 0$ ; plus $c$ est grand, plus les termes de bas degré pèsent. Pour $c < 0$, ce n'est plus un noyau : en dimension 1 avec $c = -1$, les points 0 et 1 donnent la matrice de Gram $\begin{pmatrix} 1 & 1 \cr 1 & 0 \end{pmatrix}$, de déterminant $-1$. Enfin, `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$.
 
 **Erreurs fréquentes.** Oublier les $\sqrt{2}$ ; garder $\sqrt{2}$ au lieu de $\sqrt{2c}$ quand $c \ne 1$ ; oublier le monôme constant ou ceux de degré 1 (le noyau inhomogène les contient) ; compter les monômes de degré exactement $d$.
 
@@ -251,7 +251,7 @@ Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 1
 
 **Réponses** : a) `[9, 4, 13]` · b) `0.1653` · c) `[[1, 0.1653, 0.4493], [0.1653, 1, 0.0743], [0.4493, 0.0743, 1]]` · d) `0.7763` · e) `1.2921` · f) `-18` · g) `1` · h) `3`.
 
-**Démarche.** $k = e^{-0{,}2 d^2}$ : $e^{-1{,}8} \approx 0{,}1653$, $e^{-0{,}8} \approx 0{,}4493$, $e^{-2{,}6} \approx 0{,}0743$. e) $\sqrt{2 - 2 \times 0{,}1653}$. f) $-\gamma\,d^2 = -2 \times 9$.
+**Démarche.** $k = e^{-0{,}2 d^2}$ : $e^{-1{,}8} \approx 0{,}1653$, $e^{-0{,}8} \approx 0{,}4493$, $e^{-2{,}6} \approx 0{,}0743$. e) $\sqrt{2 - 2 \times 0{,}1653}$. f) $-\gamma\thinspace d^2 = -2 \times 9$.
 
 Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est définie positive. Les distances relevées valent $\sqrt{2 - 2k}$, avec $k > 0$ : toutes inférieures à $\sqrt{2}$. Avec la matrice pleine de 1, tous les exemples ont la même image : la SVM ne peut produire qu'une décision constante. Avec l'identité, chaque exemple n'a de produit scalaire non nul, dans l'espace des features, qu'avec lui-même : la SVM peut apprendre n'importe quels labels d'entraînement et ne rien prédire ailleurs.
 
@@ -266,11 +266,11 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 ### Ex M13b.14 — Au point optimal sous une contrainte d'égalité, ∇f est colinéaire à ∇g
 
 **Réponse modèle.**
-1. $g(\mathbf{c}(t)) = 0$ pour tout $t$ : sa dérivée, par la règle de la chaîne (M05b), $\nabla g(\mathbf{c}(t)) \cdot \mathbf{c}'(t)$, est nulle ; en $t = 0$, $\nabla g(\mathbf{x}^*) \cdot \mathbf{c}'(0) = 0$.
-2. Les points $\mathbf{c}(t)$ sont admissibles, et $\mathbf{x}^* = \mathbf{c}(0)$ minimise $f$ parmi eux : $t \mapsto f(\mathbf{c}(t))$ a un minimum en 0, sa dérivée y est nulle : $\nabla f(\mathbf{x}^*) \cdot \mathbf{c}'(0) = 0$.
-3. $\nabla f(\mathbf{x}^*)$ et $\nabla g(\mathbf{x}^*)$ sont orthogonaux au vecteur non nul $\mathbf{c}'(0)$ ; en dimension 2, les vecteurs orthogonaux à $\mathbf{c}'(0)$ forment une droite, engendrée par $\nabla g(\mathbf{x}^*) \ne \mathbf{0}$ : $\nabla f(\mathbf{x}^*) = -\lambda\nabla g(\mathbf{x}^*)$ pour un $\lambda$.
+1. $g(\mathbf{c}(t)) = 0$ pour tout $t$ : sa dérivée, par la règle de la chaîne (M05b), $\nabla g(\mathbf{c}(t)) \cdot \mathbf{c}'(t)$, est nulle ; en $t = 0$, $\nabla g(\mathbf{x}^\ast) \cdot \mathbf{c}'(0) = 0$.
+2. Les points $\mathbf{c}(t)$ sont admissibles, et $\mathbf{x}^\ast = \mathbf{c}(0)$ minimise $f$ parmi eux : $t \mapsto f(\mathbf{c}(t))$ a un minimum en 0, sa dérivée y est nulle : $\nabla f(\mathbf{x}^\ast) \cdot \mathbf{c}'(0) = 0$.
+3. $\nabla f(\mathbf{x}^\ast)$ et $\nabla g(\mathbf{x}^\ast)$ sont orthogonaux au vecteur non nul $\mathbf{c}'(0)$ ; en dimension 2, les vecteurs orthogonaux à $\mathbf{c}'(0)$ forment une droite, engendrée par $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$ : $\nabla f(\mathbf{x}^\ast) = -\lambda\nabla g(\mathbf{x}^\ast)$ pour un $\lambda$.
 4. À la question 3 (pour que $\nabla g$ engendre la droite) et pour l'existence de la courbe. Exemple : minimiser $x$ sous $g(x, y) = y^2 - x^3 = 0$ ; le minimum est $(0, 0)$, où $\nabla g = (0, 0)$ et $\nabla f = (1, 0)$ : aucun $\lambda$ ne convient.
-5. $\nabla f(\mathbf{x}^*)$ est orthogonal à toutes les directions tangentes à la contrainte, qui forment l'hyperplan orthogonal à $\nabla g(\mathbf{x}^*)$ : il est donc colinéaire à $\nabla g(\mathbf{x}^*)$.
+5. $\nabla f(\mathbf{x}^\ast)$ est orthogonal à toutes les directions tangentes à la contrainte, qui forment l'hyperplan orthogonal à $\nabla g(\mathbf{x}^\ast)$ : il est donc colinéaire à $\nabla g(\mathbf{x}^\ast)$.
 
 **Grille.** (1) la règle de la chaîne sur $g \circ \mathbf{c}$ ; (2) le minimum de $f \circ \mathbf{c}$ en 0 et sa dérivée nulle ; (3) l'argument de dimension avec $\nabla g \ne \mathbf{0}$ ; (4) le rôle de l'hypothèse et un contre-exemple ; (5) la généralisation par l'espace tangent.
 
@@ -288,11 +288,11 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 ### Ex M13b.16 — Pour un problème convexe, un minimum local est global
 
 **Réponse modèle.**
-1. $K$ est convexe et contient $\mathbf{x}^*$ et $\mathbf{y}$ : il contient tout le segment.
-2. $f(\mathbf{x}_\theta) \le (1 - \theta)f(\mathbf{x}^*) + \theta f(\mathbf{y}) < (1 - \theta)f(\mathbf{x}^*) + \theta f(\mathbf{x}^*) = f(\mathbf{x}^*)$, car $\theta > 0$ et $f(\mathbf{y}) < f(\mathbf{x}^*)$.
-3. $\lVert\mathbf{x}_\theta - \mathbf{x}^*\rVert = \theta\lVert\mathbf{y} - \mathbf{x}^*\rVert < r$ dès que $\theta < r/\lVert\mathbf{y} - \mathbf{x}^*\rVert$ : un point de $K$ aussi près qu'on veut de $\mathbf{x}^*$ fait mieux, contradiction. Aucun $\mathbf{y}$ ne fait mieux : $\mathbf{x}^*$ est un minimum global.
-4. Si $\mathbf{x}^* \ne \mathbf{y}^*$ sont deux minima, de valeur $m$, leur milieu est dans $K$ et $f\big(\frac{\mathbf{x}^* + \mathbf{y}^*}{2}\big) < \frac{1}{2}m + \frac{1}{2}m = m$ : contradiction.
-5. Chaque $\{g_i \le 0\}$ est convexe (pour $\mathbf{x}, \mathbf{y}$ dedans, $g_i$ convexe donne $g_i(\mathbf{x}_\theta) \le 0$), chaque $\{h_j = 0\}$ est un hyperplan, et une intersection de convexes est convexe. Pour une fonction convexe qu'on **maximise**, l'inégalité de 2 va dans le mauvais sens : rien n'empêche un maximum local de ne pas être global, et les maxima sont souvent au bord.
+1. $K$ est convexe et contient $\mathbf{x}^\ast$ et $\mathbf{y}$ : il contient tout le segment.
+2. $f(\mathbf{x}_\theta) \le (1 - \theta)f(\mathbf{x}^\ast) + \theta f(\mathbf{y}) < (1 - \theta)f(\mathbf{x}^\ast) + \theta f(\mathbf{x}^\ast) = f(\mathbf{x}^\ast)$, car $\theta > 0$ et $f(\mathbf{y}) < f(\mathbf{x}^\ast)$.
+3. $\lVert\mathbf{x}_\theta - \mathbf{x}^\ast\rVert = \theta\lVert\mathbf{y} - \mathbf{x}^\ast\rVert < r$ dès que $\theta < r/\lVert\mathbf{y} - \mathbf{x}^\ast\rVert$ : un point de $K$ aussi près qu'on veut de $\mathbf{x}^\ast$ fait mieux, contradiction. Aucun $\mathbf{y}$ ne fait mieux : $\mathbf{x}^\ast$ est un minimum global.
+4. Si $\mathbf{x}^\ast \ne \mathbf{y}^\ast$ sont deux minima, de valeur $m$, leur milieu est dans $K$ et $f\big(\frac{\mathbf{x}^\ast + \mathbf{y}^\ast}{2}\big) < \frac{1}{2}m + \frac{1}{2}m = m$ : contradiction.
+5. Chaque $\lbrace g_i \le 0\rbrace$ est convexe (pour $\mathbf{x}, \mathbf{y}$ dedans, $g_i$ convexe donne $g_i(\mathbf{x}_\theta) \le 0$), chaque $\lbrace h_j = 0\rbrace$ est un hyperplan, et une intersection de convexes est convexe. Pour une fonction convexe qu'on **maximise**, l'inégalité de 2 va dans le mauvais sens : rien n'empêche un maximum local de ne pas être global, et les maxima sont souvent au bord.
 
 **Grille.** (1) le segment dans $K$ ; (2) l'inégalité stricte grâce à $\theta > 0$ ; (3) le choix de $\theta$ et la contradiction ; (4) l'unicité par le milieu ; (5) la convexité de l'ensemble admissible et le cas du maximum.
 
@@ -313,20 +313,20 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 1. Les deux contraintes disent $\xi_i \ge 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ et $\xi_i \ge 0$, donc $\xi_i \ge \max(0, 1 - t_i)$, et cette valeur est admissible : c'est la plus petite.
 2. À $(\mathbf{w}, b)$ fixés, l'objectif de (P) est croissant en chaque $\xi_i$ ($C > 0$) : son minimum prend chaque $\xi_i$ le plus petit possible, et vaut $\frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - t_i) = J(\mathbf{w}, b)$.
 3. $\min_{\mathbf{w}, b, \boldsymbol{\xi}} = \min_{\mathbf{w}, b}\min_{\boldsymbol{\xi}} = \min_{\mathbf{w}, b} J$ : même valeur, et un $(\mathbf{w}, b)$ est optimal pour l'un si et seulement s'il l'est pour l'autre (avec les $\xi_i$ de la question 1).
-4. $(\mathbf{w}_{\mathrm{dure}}, b_{\mathrm{dure}}, \boldsymbol{\xi} = \mathbf{0})$ est admissible pour (P), de valeur $\frac{1}{2}\lVert\mathbf{w}_{\mathrm{dure}}\rVert^2$ : l'optimum fait au moins aussi bien.
-5. À l'optimum, $C\sum_i \xi_i \le$ (objectif optimal) $\le \frac{1}{2}\lVert\mathbf{w}_{\mathrm{dure}}\rVert^2$, d'où $\sum_i \xi_i \le \frac{\lVert\mathbf{w}_{\mathrm{dure}}\rVert^2}{2C}$ : la somme des écarts tend vers 0 quand $C \to \infty$, et la solution se rapproche de la marge dure.
+4. $(\mathbf{w} _{\mathrm{dure}}, b  _{\mathrm{dure}}, \boldsymbol{\xi} = \mathbf{0})$ est admissible pour (P), de valeur $\frac{1}{2}\lVert\mathbf{w} _{\mathrm{dure}}\rVert^2$ : l'optimum fait au moins aussi bien.
+5. À l'optimum, $C\sum_i \xi_i \le$ (objectif optimal) $\le \frac{1}{2}\lVert\mathbf{w} _{\mathrm{dure}}\rVert^2$, d'où $\sum_i \xi_i \le \frac{\lVert\mathbf{w} _{\mathrm{dure}}\rVert^2}{2C}$ : la somme des écarts tend vers 0 quand $C \to \infty$, et la solution se rapproche de la marge dure.
 
 **Grille.** (1) les deux contraintes réunies en un maximum ; (2) la croissance de l'objectif en $\xi_i$ ; (3) l'échange des minimisations ; (4) un point admissible tiré de la marge dure ; (5) la borne et la limite.
 
 ### Ex M13b.19 — La somme et le produit de deux noyaux sont des noyaux ; une matrice de Gram est semi-définie positive
 
 **Réponse modèle.**
-1. $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \sum_{i,j} v_iv_j\,\varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j) = \big(\sum_i v_i\varphi(\mathbf{x}_i)\big) \cdot \big(\sum_j v_j\varphi(\mathbf{x}_j)\big) \ge 0$ ; $\mathbf{K}$ est symétrique : semi-définie positive. C'est M12c.17, pour la matrice dont les colonnes sont les $\varphi(\mathbf{x}_i)$.
-2. $\sqrt{c}\,\varphi$.
+1. $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \sum_{i,j} v_iv_j\thinspace\varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j) = \big(\sum_i v_i\varphi(\mathbf{x}_i)\big) \cdot \big(\sum_j v_j\varphi(\mathbf{x}_j)\big) \ge 0$ ; $\mathbf{K}$ est symétrique : semi-définie positive. C'est M12c.17, pour la matrice dont les colonnes sont les $\varphi(\mathbf{x}_i)$.
+2. $\sqrt{c}\thinspace\varphi$.
 3. $\varphi(\mathbf{x}) = (\varphi_1(\mathbf{x}), \varphi_2(\mathbf{x})) \in \mathbb{R}^{q_1 + q_2}$ : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = k_1(\mathbf{x}, \mathbf{z}) + k_2(\mathbf{x}, \mathbf{z})$.
-4. $\sum_{a,b}\varphi_{1,a}(\mathbf{x})\varphi_{2,b}(\mathbf{x})\,\varphi_{1,a}(\mathbf{z})\varphi_{2,b}(\mathbf{z}) = \big(\sum_a \varphi_{1,a}(\mathbf{x})\varphi_{1,a}(\mathbf{z})\big)\big(\sum_b \varphi_{2,b}(\mathbf{x})\varphi_{2,b}(\mathbf{z})\big) = k_1k_2$.
+4. $\sum_{a,b}\varphi_{1,a}(\mathbf{x})\varphi_{2,b}(\mathbf{x})\thinspace\varphi_{1,a}(\mathbf{z})\varphi_{2,b}(\mathbf{z}) = \big(\sum_a \varphi_{1,a}(\mathbf{x})\varphi_{1,a}(\mathbf{z})\big)\big(\sum_b \varphi_{2,b}(\mathbf{x})\varphi_{2,b}(\mathbf{z})\big) = k_1k_2$.
 5. $\mathbf{x} \cdot \mathbf{z}$ est un noyau ; la constante $c$ aussi : pour $c > 0$, c'est $c$ fois le noyau constant égal à 1 (question 2), et $c = 0$ n'ajoute rien ; leur somme en est un (question 3), et la puissance $d$ est un produit de $d$ copies de ce noyau (question 4).
-6. Pour un point $\mathbf{x}$ et un point $\mathbf{z}$ à distance 1, la matrice de Gram vaut $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, de valeur propre $-1$ ; ou plus simplement : $\mathbf{v} = (1, -1)$ donne $\mathbf{v}^\top\mathbf{K}\mathbf{v} = -2 < 0$.
+6. Pour un point $\mathbf{x}$ et un point $\mathbf{z}$ à distance 1, la matrice de Gram vaut $\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}$, de valeur propre $-1$ ; ou plus simplement : $\mathbf{v} = (1, -1)$ donne $\mathbf{v}^\top\mathbf{K}\mathbf{v} = -2 < 0$.
 
 **Grille.** (1) le développement de la forme quadratique et la symétrie ; (2) à (4) une $\varphi$ explicite pour chaque construction ; (5) l'assemblage sans écrire $\varphi$ ; (6) un contre-exemple chiffré.
 
@@ -338,13 +338,13 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 
 **Réponses** : a) `0` · b) `0.1056` · c) `1` · d) `-0.2613` · e) `-0.1` · f) `3`.
 
-**Démarche.** Pour $(0{,}5 ;\ 0{,}5)$, les distances au carré aux trois vecteurs de support valent $2{,}5$ ; $4{,}5$ ; $6{,}5$, et les noyaux $e^{-0{,}75} \approx 0{,}4724$, $e^{-1{,}35} \approx 0{,}2592$, $e^{-1{,}95} \approx 0{,}1423$ : $s = 0{,}3779 - 0{,}1296 - 0{,}0427 - 0{,}1 \approx 0{,}1056$. Pour $(2, 4)$ : distances au carré 18, 25 et 2, d'où $s = 0{,}8\,e^{-5{,}4} - 0{,}5\,e^{-7{,}5} - 0{,}3\,e^{-0{,}6} - 0{,}1 \approx -0{,}2613$ : seul le troisième vecteur de support, tout proche, compte encore.
+**Démarche.** Pour $(0{,}5 ;\ 0{,}5)$, les distances au carré aux trois vecteurs de support valent $2{,}5$ ; $4{,}5$ ; $6{,}5$, et les noyaux $e^{-0{,}75} \approx 0{,}4724$, $e^{-1{,}35} \approx 0{,}2592$, $e^{-1{,}95} \approx 0{,}1423$ : $s = 0{,}3779 - 0{,}1296 - 0{,}0427 - 0{,}1 \approx 0{,}1056$. Pour $(2, 4)$ : distances au carré 18, 25 et 2, d'où $s = 0{,}8\thinspace e^{-5{,}4} - 0{,}5\thinspace e^{-7{,}5} - 0{,}3\thinspace e^{-0{,}6} - 0{,}1 \approx -0{,}2613$ : seul le troisième vecteur de support, tout proche, compte encore.
 
 Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en $b$ (fiche §6). Loin de tous les vecteurs de support, chaque noyau tend vers 0 et la décision vers $b = -0{,}1$ : la classe $-1$, celle que favorise le biais. Une prédiction demande autant d'évaluations de $k$ que d'exemples où $\alpha_i > 0$ : c'est ce nombre, et non la dimension des données, qui fixe son coût.
 
 **Erreurs fréquentes.** Oublier le biais ; oublier les labels ; la distance non élevée au carré.
 
-**Variante.** $s(-1, 1)$ ? *Réponse* : $0{,}8 - 0{,}5\,e^{-3{,}9} - 0{,}3\,e^{-2{,}4} - 0{,}1 \approx 0{,}6627$.
+**Variante.** $s(-1, 1)$ ? *Réponse* : $0{,}8 - 0{,}5\thinspace e^{-3{,}9} - 0{,}3\thinspace e^{-2{,}4} - 0{,}1 \approx 0{,}6627$.
 
 ### Ex M13b.21 — MML §7.2 et §7.3 : Lagrange, dualité et optimisation convexe, en anglais
 
@@ -353,7 +353,7 @@ Pour la copie : $\sum_i \alpha_i y_i = 0$ est la stationnarité du lagrangien en
 2. L'inégalité du minimax : le maximum (en $\mathbf{y}$) d'un minimum (en $\mathbf{x}$) est au plus le minimum d'un maximum. Appliquée au lagrangien, elle donne $\max_{\boldsymbol{\lambda}} D \le \min_{\mathbf{x}} \max_{\boldsymbol{\lambda}} \mathcal{L} = \min f$ : c'est la dualité faible de ∂ M13b.15, démontrée autrement.
 3. Une égalité est remplacée par deux inégalités, $h \le 0$ et $-h \le 0$ ; la différence de leurs deux multiplicateurs positifs peut prendre n'importe quel signe : d'où un multiplicateur libre.
 4. Un objectif et des inégalités convexes, et des égalités $h_j = 0$ qui définissent des ensembles convexes. Une fonction dérivable est convexe si et seulement si elle est au-dessus de ses tangentes ; deux fois dérivable, si et seulement si sa hessienne est semi-définie positive. La fiche §5 demande des égalités affines : c'est le cas courant, et une égalité affine définit toujours un ensemble convexe.
-5. Pour $\min \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} \le \mathbf{b}$, le dual se calcule en minimisant le lagrangien en $\mathbf{x}$ : $\mathbf{x} = -\mathbf{Q}^{-1}(\mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda})$. Pour M13b.6 : $\mathbf{Q} = \operatorname{diag}(2, 4)$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (-1 \ \ -1)$, $b = -6$ : $D(\mu) = -\frac{1}{2}\mu^2\,(1, 1)\mathbf{Q}^{-1}(1, 1)^\top + 6\mu = 6\mu - \frac{3}{8}\mu^2$.
+5. Pour $\min \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} \le \mathbf{b}$, le dual se calcule en minimisant le lagrangien en $\mathbf{x}$ : $\mathbf{x} = -\mathbf{Q}^{-1}(\mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda})$. Pour M13b.6 : $\mathbf{Q} = \operatorname{diag}(2, 4)$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (-1 \ \ -1)$, $b = -6$ : $D(\mu) = -\frac{1}{2}\mu^2\thinspace(1, 1)\mathbf{Q}^{-1}(1, 1)^\top + 6\mu = 6\mu - \frac{3}{8}\mu^2$.
 6. Par exemple : *constrained optimization* (optimisation sous contraintes), *weak duality* (dualité faible), *convex set* (ensemble convexe).
 
 **Grille.** (1) l'indicatrice et la relaxation ; (2) le minimax et le lien avec ∂ M13b.15 ; (3) les égalités ; (4) les caractérisations ; (5) le calcul refait ; (6) trois mots.
@@ -404,9 +404,9 @@ En 3 phrases : « Le multiplicateur d'une contrainte est son prix : ce que l'obj
 
 **Réponse modèle (60 secondes).**
 
-> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\,s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$, et un exemple de marge $t > 1$ a, à l'optimum, un multiplicateur nul : il disparaît de $\mathbf{w}$, qui ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
+> Les deux s'écrivent en fonction de la marge fonctionnelle $t = y\thinspace s$ d'un exemple : la hinge vaut $\max(0, 1 - t)$, la log-loss $\ln(1 + e^{-t})$. Elles ont beaucoup en commun : convexes, décroissantes, presque linéaires pour un exemple très mal classé, et, après une mise à l'échelle, des majorants de l'erreur de classification. Trois différences comptent. La log-loss est dérivable partout, la hinge a un coude en $t = 1$, d'où le sous-gradient. La hinge vaut exactement 0 dès que $t \ge 1$, et un exemple de marge $t > 1$ a, à l'optimum, un multiplicateur nul : il disparaît de $\mathbf{w}$, qui ne dépend que des vecteurs de support ; la log-loss ne s'annule jamais, tous les exemples tirent un peu sur les paramètres. Enfin, la log-loss est une log-vraisemblance : le modèle sort une probabilité ; la hinge ne donne qu'un score, qu'il faudrait calibrer après coup. Sur des données séparables, la hinge atteint 0 avec des poids finis, alors que la log-loss non régularisée continue de baisser quand les poids grandissent. On choisit la log-loss quand on veut des probabilités, la hinge quand on veut une frontière qui ne dépend que des exemples difficiles.
 
-**Grille.** (1) les deux formules en fonction de $y\,s$ ; (2) les points communs ; (3) la dérivabilité ; (4) le zéro et les vecteurs de support ; (5) score ou probabilité ; (6) un critère de choix.
+**Grille.** (1) les deux formules en fonction de $y\thinspace s$ ; (2) les points communs ; (3) la dérivabilité ; (4) le zéro et les vecteurs de support ; (5) score ou probabilité ; (6) un critère de choix.
 
 <a id="notebook"></a>
 
@@ -426,7 +426,7 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Réponses** : a) `0.765625` · b) `3.46875` · c) `[2, -0.25]` · d) `1` · e) `True` · f) `4.5078` · g) `"ValueError"`.
 
-**Démarche.** `t = y * (X @ w + b)`, `below = t < 1` ; `hinge_loss` rend `np.mean(np.maximum(0, 1 - y * s))` ; `svm_subgradient` rend $J = \frac12\mathbf{w} \cdot \mathbf{w} + C \times$ la **somme** des hinges, `w - C * (y[below] @ X[below])` et `-C * y[below].sum()`. Pour la copie : les marges valent $1$ ; $3$ ; $-0{,}625$ ; $0{,}25$ ; $0{,}125$ ; $1{,}75$ ; $1{,}25$ ; $-1{,}875$ : trois au-delà du bord de leur classe ($t > 1$), le premier exactement sur son bord, deux entre leur bord et la frontière ($0 < t < 1$), deux de l'autre côté de la frontière ($t < 0$). Hinges $1{,}625 + 0{,}75 + 0{,}875 + 2{,}875 = 6{,}125$, moyenne $0{,}765625$, $J = 0{,}40625 + 0{,}5 \times 6{,}125 = 3{,}46875$, et $\sum_{t_i < 1} y_i\mathbf{x}_i = (-2{,}5 ;\ -0{,}5)$ donne $\mathbf{g}_{\mathbf{w}} = (2 ;\ -0{,}25)$, $g_b = 1$. Compter aussi le premier exemple donnerait $(1 ;\ -1)$ et $0{,}5$ : un autre sous-gradient valide (au coude, toute pente entre $-1$ et $0$ convient). Le pas $0{,}5$ fait **monter** $J$ (de 3,4688 à 4,5078) : un pas de sous-gradient ne garantit pas la baisse (fiche §7) ; le pas $0{,}1$ la fait baisser (3,2141).
+**Démarche.** `t = y * (X @ w + b)`, `below = t < 1` ; `hinge_loss` rend `np.mean(np.maximum(0, 1 - y * s))` ; `svm_subgradient` rend $J = \frac12\mathbf{w} \cdot \mathbf{w} + C \times$ la **somme** des hinges, `w - C * (y[below] @ X[below])` et `-C * y[below].sum()`. Pour la copie : les marges valent $1$ ; $3$ ; $-0{,}625$ ; $0{,}25$ ; $0{,}125$ ; $1{,}75$ ; $1{,}25$ ; $-1{,}875$ : trois au-delà du bord de leur classe ($t > 1$), le premier exactement sur son bord, deux entre leur bord et la frontière ($0 < t < 1$), deux de l'autre côté de la frontière ($t < 0$). Hinges $1{,}625 + 0{,}75 + 0{,}875 + 2{,}875 = 6{,}125$, moyenne $0{,}765625$, $J = 0{,}40625 + 0{,}5 \times 6{,}125 = 3{,}46875$, et $\sum_{t_i < 1} y_i\mathbf{x} _i = (-2{,}5 ;\ -0{,}5)$ donne $\mathbf{g} _{\mathbf{w}} = (2 ;\ -0{,}25)$, $g_b = 1$. Compter aussi le premier exemple donnerait $(1 ;\ -1)$ et $0{,}5$ : un autre sous-gradient valide (au coude, toute pente entre $-1$ et $0$ convient). Le pas $0{,}5$ fait **monter** $J$ (de 3,4688 à 4,5078) : un pas de sous-gradient ne garantit pas la baisse (fiche §7) ; le pas $0{,}1$ la fait baisser (3,2141).
 
 **Erreurs fréquentes.** $C$ fois la moyenne dans $J$ ; compter le premier exemple (marge exactement 1) ; oublier le terme $\mathbf{w}$ de $\mathbf{g}_{\mathbf{w}}$ ; faire le pas sur $\mathbf{w}$ seulement.
 
@@ -434,7 +434,7 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Réponses** : a) `[[0.367879, 0.182684], [0.818731, 0.024724], [0.367879, 0.272532]]` · b) `[[0.125, 0.015625], [8, -5.359375], [0.125, 0.421875]]` · c) `True` · d) `True` · e) `"ValueError"`.
 
-**Démarche.** Les carrés des distances par `(X**2).sum(1)[:, None] - 2 * X @ Z.T + (Z**2).sum(1)[None, :]`, écrêtés à 0 par `np.maximum`, puis `np.exp(-gamma * d2)` ; `(X @ Z.T + coef0) ** degree`. Pour la copie : $\lVert\mathbf{x}_1 - \mathbf{z}_1\rVert^2 = 0{,}25 + 2{,}25 = 2{,}5$, $e^{-0{,}4 \times 2{,}5} = e^{-1} \approx 0{,}367879$ ; $\mathbf{x}_2 \cdot \mathbf{z}_2 = -2{,}25$, $(-1{,}75)^3 = -5{,}359375$ (un noyau peut prendre des valeurs négatives hors de la diagonale). La matrice de c) est calculée par des opérations flottantes dont l'ordre diffère entre $(i, j)$ et $(j, i)$ : symétrique à $10^{-16}$ près, pas exactement. d) Sans `np.maximum`, la diagonale vaut $e^{-0{,}5\,\varepsilon}$ avec $\varepsilon$ un peu négatif : un peu plus que 1. Loin de l'origine, $\lVert\mathbf{x}\rVert^2 \approx 2{,}7 \times 10^7$ et l'écart cherché est de l'ordre de 1 : la soustraction de deux grands nombres presque égaux perd environ sept chiffres sur seize (R0). $\gamma = 0$ donnerait la matrice pleine de 1, et $\gamma < 0$ n'est pas un noyau.
+**Démarche.** Les carrés des distances par `(X**2).sum(1)[:, None] - 2 * X @ Z.T + (Z**2).sum(1)[None, :]`, écrêtés à 0 par `np.maximum`, puis `np.exp(-gamma * d2)` ; `(X @ Z.T + coef0) ** degree`. Pour la copie : $\lVert\mathbf{x}_1 - \mathbf{z}_1\rVert^2 = 0{,}25 + 2{,}25 = 2{,}5$, $e^{-0{,}4 \times 2{,}5} = e^{-1} \approx 0{,}367879$ ; $\mathbf{x}_2 \cdot \mathbf{z}_2 = -2{,}25$, $(-1{,}75)^3 = -5{,}359375$ (un noyau peut prendre des valeurs négatives hors de la diagonale). La matrice de c) est calculée par des opérations flottantes dont l'ordre diffère entre $(i, j)$ et $(j, i)$ : symétrique à $10^{-16}$ près, pas exactement. d) Sans `np.maximum`, la diagonale vaut $e^{-0{,}5\thinspace\varepsilon}$ avec $\varepsilon$ un peu négatif : un peu plus que 1. Loin de l'origine, $\lVert\mathbf{x}\rVert^2 \approx 2{,}7 \times 10^7$ et l'écart cherché est de l'ordre de 1 : la soustraction de deux grands nombres presque égaux perd environ sept chiffres sur seize (R0). $\gamma = 0$ donnerait la matrice pleine de 1, et $\gamma < 0$ n'est pas un noyau.
 
 **Erreurs fréquentes.** La distance non élevée au carré ; diviser par $\gamma$ ; oublier l'écrêtage ; transposer la matrice (lignes pour $\mathbf{z}$).
 
@@ -442,7 +442,7 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Réponses** : a) `4.017413` · b) `True` · c) `True` · d) `True` · e) `2.04222` · f) `0.909167` · g) `True` · h) `"ValueError"`.
 
-**Démarche.** Chaque valeur s'obtient par l'appel de l'énoncé. Pour la copie : SLSQP fait quelques itérations (8 ici ; le nombre dépend des versions) ; ta fonction résout un seul système linéaire, exact aux arrondis près, parce que l'objectif est quadratique et les contraintes affines : SLSQP sert quand ce n'est pas le cas. e) Sans paramètres, `polynomial_kernel` calcule $(\frac{1}{p}\,\mathbf{x} \cdot \mathbf{z} + 1)^3$ avec $p = 4$ : $\mathbf{x} \cdot \mathbf{z} \approx 1{,}0749$ donne $\approx 2{,}0422$, quand ta fonction, avec ses défauts (degré 2, $c = 1$, pas de facteur), donnerait $\approx 4{,}31$ : comparer deux bibliothèques demande de passer tous les paramètres. h) Les scores pris pour des labels : scikit-learn lève une `ValueError` qui parle de classes et de forme, pas d'ordre des arguments ; un message qui ne dit pas la vraie cause.
+**Démarche.** Chaque valeur s'obtient par l'appel de l'énoncé. Pour la copie : SLSQP fait quelques itérations (8 ici ; le nombre dépend des versions) ; ta fonction résout un seul système linéaire, exact aux arrondis près, parce que l'objectif est quadratique et les contraintes affines : SLSQP sert quand ce n'est pas le cas. e) Sans paramètres, `polynomial_kernel` calcule $(\frac{1}{p}\thinspace\mathbf{x} \cdot \mathbf{z} + 1)^3$ avec $p = 4$ : $\mathbf{x} \cdot \mathbf{z} \approx 1{,}0749$ donne $\approx 2{,}0422$, quand ta fonction, avec ses défauts (degré 2, $c = 1$, pas de facteur), donnerait $\approx 4{,}31$ : comparer deux bibliothèques demande de passer tous les paramètres. h) Les scores pris pour des labels : scikit-learn lève une `ValueError` qui parle de classes et de forme, pas d'ordre des arguments ; un message qui ne dit pas la vraie cause.
 
 **Erreurs fréquentes.** Oublier le ½ de l'objectif dans `fun` ; deviner e) au lieu de l'exécuter ; comparer une moyenne à une somme.
 
@@ -450,7 +450,7 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Réponses** : a) `1` · b) `2` · c) `2` · d) `3`.
 
-**Démarche.** a) et b) $\frac{df^*}{dc} = -\lambda = 2{,}4$ : le minimum monte d'environ $0{,}24$ ; on mesure $0{,}2437$, parce que $f^*(c) = \frac{11}{30}c^2 - \frac{19}{15}c - \frac{49}{30}$ est une parabole, au-dessus de sa tangente. c) $2\nabla f + \lambda'\nabla g = \mathbf{0}$ et $\nabla f + \lambda\nabla g = \mathbf{0}$ donnent $\lambda' = 2\lambda = -4{,}8$. d) $\nabla f + \lambda'(2\nabla g) = \mathbf{0}$ donne $\lambda' = \lambda/2 = -1{,}2$. Pour la copie : le point solution ne change dans aucun des deux cas ; le multiplicateur est un prix, exprimé dans l'unité de l'objectif par unité de contrainte. Un multiplicateur nul dirait que la contrainte ne coûte rien. Avec la convention $f - \lambda g$, $\lambda$ change de signe, mais pas la variation de $f^*$, qui ne dépend que du problème.
+**Démarche.** a) et b) $\frac{df^\ast}{dc} = -\lambda = 2{,}4$ : le minimum monte d'environ $0{,}24$ ; on mesure $0{,}2437$, parce que $f^\ast(c) = \frac{11}{30}c^2 - \frac{19}{15}c - \frac{49}{30}$ est une parabole, au-dessus de sa tangente. c) $2\nabla f + \lambda'\nabla g = \mathbf{0}$ et $\nabla f + \lambda\nabla g = \mathbf{0}$ donnent $\lambda' = 2\lambda = -4{,}8$. d) $\nabla f + \lambda'(2\nabla g) = \mathbf{0}$ donne $\lambda' = \lambda/2 = -1{,}2$. Pour la copie : le point solution ne change dans aucun des deux cas ; le multiplicateur est un prix, exprimé dans l'unité de l'objectif par unité de contrainte. Un multiplicateur nul dirait que la contrainte ne coûte rien. Avec la convention $f - \lambda g$, $\lambda$ change de signe, mais pas la variation de $f^\ast$, qui ne dépend que du problème.
 
 ### Ex M13b.30 — La descente de sous-gradient sur la hinge loss : pas constant contre pas décroissant
 
@@ -458,13 +458,13 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Démarche.** `run_subgradient` : partir de $(\mathbf{0}, 0)$, et, à chaque pas, calculer `J, g_w, g_b`, ranger `J`, puis faire le pas `eta(t)`. Pour la copie : le pas 0,01 descend vite puis oscille autour du minimum, à une distance de l'ordre du pas : son meilleur écart plafonne vers $7 \times 10^{-4}$, son dernier vaut $\approx 0{,}03$, et $J$ remonte 129 fois sur 299 pas (un sous-gradient n'est pas une direction de descente, fiche §7). Le pas 0,001 oscille moins mais démarre lentement (écart $\approx 1$ après 50 pas). Le pas $0{,}01/\sqrt{t}$ garde les grands pas du début et des pas de plus en plus fins ensuite : le meilleur écart, $8{,}2 \times 10^{-5}$. Comme $J$ ne baisse pas à chaque pas, on garde le **meilleur** point vu, pas le dernier. Sur d'autres données, l'ordre des deux pas constants peut changer ; seule la convergence du pas décroissant est garantie.
 
-**Erreurs fréquentes.** Rendre les derniers écarts au lieu des meilleurs ; oublier de retrancher $J^*$ ; compter les descentes au lieu des remontées (170).
+**Erreurs fréquentes.** Rendre les derniers écarts au lieu des meilleurs ; oublier de retrancher $J^\ast$ ; compter les descentes au lieu des remontées (170).
 
 ### Ex M13b.31 — Lignes de niveau et contrainte : voir le point de Lagrange
 
 **Vérification manuelle** : le point $\approx (1{,}6717 ;\ -0{,}6027)$, sur la parabole, avec deux gradients colinéaires.
 
-**Démarche.** Paramétrer la parabole par $x$, évaluer $f$ sur une grille fine et garder le minimum ; tracer les lignes de niveau dans `ax`, la parabole, le point et les deux gradients ramenés à la même longueur ; rendre le point. Pour la copie : $2(x - 3) + \lambda x = 0$ et $4(y + 1) - \lambda = 0$, avec $y = \frac{x^2}{2} - 2$, donnent $\lambda = 2x^2 - 4$, puis $x^3 - x - 3 = 0$. Sa dérivée $3x^2 - 1$ s'annule en $\pm\frac{1}{\sqrt{3}}$, où la fonction vaut $\approx -3{,}4$ et $\approx -2{,}6$, deux valeurs négatives : une seule racine réelle, $x^* \approx 1{,}6717$, donc $\lambda \approx 1{,}589$. L'ellipse $f = f^* \approx 2{,}08$ touche la parabole sans la traverser, et les gradients sont portés par la même droite, de sens opposés. En un point où ils ne sont pas colinéaires, $\nabla f$ a une composante le long de la courbe : en glissant dans le sens opposé, $f$ baisse.
+**Démarche.** Paramétrer la parabole par $x$, évaluer $f$ sur une grille fine et garder le minimum ; tracer les lignes de niveau dans `ax`, la parabole, le point et les deux gradients ramenés à la même longueur ; rendre le point. Pour la copie : $2(x - 3) + \lambda x = 0$ et $4(y + 1) - \lambda = 0$, avec $y = \frac{x^2}{2} - 2$, donnent $\lambda = 2x^2 - 4$, puis $x^3 - x - 3 = 0$. Sa dérivée $3x^2 - 1$ s'annule en $\pm\frac{1}{\sqrt{3}}$, où la fonction vaut $\approx -3{,}4$ et $\approx -2{,}6$, deux valeurs négatives : une seule racine réelle, $x^\ast \approx 1{,}6717$, donc $\lambda \approx 1{,}589$. L'ellipse $f = f^\ast \approx 2{,}08$ touche la parabole sans la traverser, et les gradients sont portés par la même droite, de sens opposés. En un point où ils ne sont pas colinéaires, $\nabla f$ a une composante le long de la courbe : en glissant dans le sens opposé, $f$ baisse.
 
 ### Ex M13b.32 — Chasse à l'erreur : le signe d'un multiplicateur, une largeur de bande 1/‖w‖ au lieu de 2/‖w‖, une matrice de Gram non symétrique
 
@@ -476,12 +476,12 @@ Le code complet de chaque exercice est dans `05_solutions.ipynb`, exécuté ; vo
 
 **Vérification manuelle** : ✅ pour les cinq candidats.
 
-**Démarche.** Évaluer une fois les $g_i(\mathbf{x})$ et le gradient du lagrangien, puis rendre les quatre booléens avec la tolérance. Pour la copie : en $(3, 2)$, $g_1 = 0$ (active), $g_2 = -4$ (inactive, $\mu_2 = 0$), $\nabla f = (4, -12)$ et $\mu_1\nabla g_1 = 4\,(-1, 3) = (-4, 12)$ : la stationnarité tient, $\mu_1 = 4 \ge 0$, la complémentarité aussi. Le problème est convexe ($f$ convexe, contraintes affines) : les conditions KKT suffisent, $(3, 2)$ est **le** minimum (fiche §5). Le troisième candidat est le point de la droite $g_2 = 0$ où la stationnarité demande $\mu_2 = -12$ : le signe négatif dit que $f$ baisserait en quittant cette droite vers l'intérieur, donc que $g_2$ ne devrait pas être active. En flottants, $g_1$ calculé au vrai point vaut souvent $\pm 10^{-16}$ au lieu de 0 : avec `tol=0`, une solution juste serait déclarée non admissible ou non complémentaire.
+**Démarche.** Évaluer une fois les $g_i(\mathbf{x})$ et le gradient du lagrangien, puis rendre les quatre booléens avec la tolérance. Pour la copie : en $(3, 2)$, $g_1 = 0$ (active), $g_2 = -4$ (inactive, $\mu_2 = 0$), $\nabla f = (4, -12)$ et $\mu_1\nabla g_1 = 4\thinspace(-1, 3) = (-4, 12)$ : la stationnarité tient, $\mu_1 = 4 \ge 0$, la complémentarité aussi. Le problème est convexe ($f$ convexe, contraintes affines) : les conditions KKT suffisent, $(3, 2)$ est **le** minimum (fiche §5). Le troisième candidat est le point de la droite $g_2 = 0$ où la stationnarité demande $\mu_2 = -12$ : le signe négatif dit que $f$ baisserait en quittant cette droite vers l'intérieur, donc que $g_2$ ne devrait pas être active. En flottants, $g_1$ calculé au vrai point vaut souvent $\pm 10^{-16}$ au lieu de 0 : avec `tol=0`, une solution juste serait déclarée non admissible ou non complémentaire.
 
 ### Ex M13b.34 — Défi : une SVM linéaire entraînée par sous-gradient, un objectif à 1 % de celui de scikit-learn au même C
 
 **Vérification** : `True` si l'objectif est atteint sur les deux datasets, dans le budget.
 
-**Démarche.** Centrer les exemples ($\mathbf{x}_i - \mathbf{m}$), descendre avec $\eta_t = 0{,}01/\sqrt{t}$ pendant 3 000 pas en gardant le meilleur $(\mathbf{w}, b')$, puis rendre $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$ : $J/J^* < 1{,}0001$ sur les deux datasets, en moins d'une seconde. Pour la copie : sur les exemples d'origine, le biais doit valoir environ $-23{,}5$, mais chaque coordonnée de $\mathbf{g}_{\mathbf{w}}$ est dominée par la moyenne des features (de l'ordre de 10) : un pas assez petit pour que $\mathbf{w}$ n'explose pas fait bouger $b$ d'un rien, et le pas constant reste coincé : après 20 000 pas, le dernier point fait $J/J^* \approx 2{,}7$ avec $\eta = 10^{-4}$ et $\approx 17$ avec $10^{-3}$, le meilleur point vu $\approx 2{,}1$ et $\approx 1{,}9$. Le centrage est l'ingrédient indispensable : une fois les exemples centrés, même un pas constant $10^{-3}$ et le dernier point passent sous 1 % ; le pas décroissant et le meilleur point rendent la méthode sûre sans réglage. Le changement de variable $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$ donne le même score à chaque exemple avec le même $\mathbf{w}$ : $J$ et $\lVert\mathbf{w}\rVert$ ne changent pas, seul le biais est déplacé. Diviser une feature par son écart-type, au contraire, change $\lVert\mathbf{w}\rVert$ pour un même classifieur, donc le terme $\frac12\lVert\mathbf{w}\rVert^2$ et le minimum.
+**Démarche.** Centrer les exemples ($\mathbf{x} _i - \mathbf{m}$), descendre avec $\eta_t = 0{,}01/\sqrt{t}$ pendant 3 000 pas en gardant le meilleur $(\mathbf{w}, b')$, puis rendre $(\mathbf{w}, b' - \mathbf{w} \cdot \mathbf{m})$ : $J/J^\ast < 1{,}0001$ sur les deux datasets, en moins d'une seconde. Pour la copie : sur les exemples d'origine, le biais doit valoir environ $-23{,}5$, mais chaque coordonnée de $\mathbf{g} _{\mathbf{w}}$ est dominée par la moyenne des features (de l'ordre de 10) : un pas assez petit pour que $\mathbf{w}$ n'explose pas fait bouger $b$ d'un rien, et le pas constant reste coincé : après 20 000 pas, le dernier point fait $J/J^\ast \approx 2{,}7$ avec $\eta = 10^{-4}$ et $\approx 17$ avec $10^{-3}$, le meilleur point vu $\approx 2{,}1$ et $\approx 1{,}9$. Le centrage est l'ingrédient indispensable : une fois les exemples centrés, même un pas constant $10^{-3}$ et le dernier point passent sous 1 % ; le pas décroissant et le meilleur point rendent la méthode sûre sans réglage. Le changement de variable $\mathbf{w} \cdot \mathbf{x} + b = \mathbf{w} \cdot (\mathbf{x} - \mathbf{m}) + (b + \mathbf{w} \cdot \mathbf{m})$ donne le même score à chaque exemple avec le même $\mathbf{w}$ : $J$ et $\lVert\mathbf{w}\rVert$ ne changent pas, seul le biais est déplacé. Diviser une feature par son écart-type, au contraire, change $\lVert\mathbf{w}\rVert$ pour un même classifieur, donc le terme $\frac12\lVert\mathbf{w}\rVert^2$ et le minimum.
 
 **Erreurs fréquentes.** Rendre le dernier point au lieu du meilleur ; oublier de ramener le biais aux exemples d'origine ; normaliser les features ; appeler `svm_subgradient` directement au lieu de la fonction reçue.

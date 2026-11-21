@@ -349,7 +349,7 @@ Relis « Le produit scalaire et l'angle » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$, puis $\theta = \arccos(\ldots)$. Reconnais les valeurs remarquables ($\frac{\sqrt{2}}{2}$, $\frac{\sqrt{3}}{2}$…) avant de prendre la calculatrice.
+$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}$, puis $\theta = \arccos(\ldots)$. Reconnais les valeurs remarquables ($\frac{\sqrt{2}}{2}$, $\frac{\sqrt{3}}{2}$…) avant de prendre la calculatrice.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -460,7 +460,7 @@ a : $3 + 3 \times 2 - 6$. Pour c, un point de l'axe des $x_2$ a $x_1 = 0$. Pour 
 
 <details><summary>Indice 1</summary>
 
-Relis le §5 et la formule $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta$ (§7).
+Relis le §5 et la formule $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert\cos\theta$ (§7).
 
 </details>
 <details><summary>Indice 2</summary>

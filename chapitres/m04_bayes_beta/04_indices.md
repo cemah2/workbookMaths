@@ -22,7 +22,7 @@ Relis « La formule et ses quatre termes » (fiche §1).
 </details>
 <details><summary>Indice 3</summary>
 
-5 : calcule $\frac{P(O \mid H)\,P(H)}{P(O)}$ et compare au quatrième chiffre. 6 : le dénominateur de la formule dépend-il de l'hypothèse ?
+5 : calcule $\frac{P(O \mid H)\thinspace P(H)}{P(O)}$ et compare au quatrième chiffre. 6 : le dénominateur de la formule dépend-il de l'hypothèse ?
 
 </details>
 
@@ -165,7 +165,7 @@ Une primitive de $x^n$ est $\frac{x^{n + 1}}{n + 1}$.
 </details>
 <details><summary>Indice 2</summary>
 
-Une densité sur $[0, 1]$ a une intégrale de 1 ; son espérance est $\int_0^1 x\,f(x)\,dx$.
+Une densité sur $[0, 1]$ a une intégrale de 1 ; son espérance est $\int_0^1 x\thinspace f(x)\thinspace dx$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -210,7 +210,7 @@ L'évidence additionne les deux façons de sonner : avec une fuite (bonne détec
 </details>
 <details><summary>Indice 3</summary>
 
-f) : avec deux capteurs, la vraisemblance de chaque hypothèse est un produit de deux probabilités (ou reprends b) comme nouvel a priori). g) : écris $\frac{0{,}0095}{0{,}0095 + 0{,}99\,x} \ge 0{,}5$ et résous en $x$.
+f) : avec deux capteurs, la vraisemblance de chaque hypothèse est un produit de deux probabilités (ou reprends b) comme nouvel a priori). g) : écris $\frac{0{,}0095}{0{,}0095 + 0{,}99\thinspace x} \ge 0{,}5$ et résous en $x$.
 
 </details>
 
@@ -282,7 +282,7 @@ $B(2, 5) = \frac{\Gamma(2)\Gamma(5)}{\Gamma(7)}$ avec $\Gamma(n) = (n - 1)!$. La
 </details>
 <details><summary>Indice 3</summary>
 
-f) : avec $u = 1 - \theta$, $\int_0^{0{,}5} \theta(1 - \theta)^4\,d\theta = \int_{0{,}5}^1 (1 - u)u^4\,du$. g) : reconnais $\theta^2(1 - \theta)$ comme la forme de $\mathrm{Beta}(3, 2)$.
+f) : avec $u = 1 - \theta$, $\int_0^{0{,}5} \theta(1 - \theta)^4\thinspace d\theta = \int_{0{,}5}^1 (1 - u)u^4\thinspace du$. g) : reconnais $\theta^2(1 - \theta)$ comme la forme de $\mathrm{Beta}(3, 2)$.
 
 </details>
 

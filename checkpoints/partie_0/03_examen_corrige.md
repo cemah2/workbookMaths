@@ -115,7 +115,7 @@ b) $3x^2 - 12 = 0$ équivaut à $x^2 = 4$ : $x = -2$ ou $x = 2$. **[0,25]**
 c) $f'$ est positive avant $-2$, négative entre $-2$ et 2, positive après : maximum local $f(-2) = -8 + 24 + 5 = 21$, minimum local $f(2) = 8 - 24 + 5 = -11$. **[0,25]**
 d) $f' \le 0$ sur $[-2 ; 2]$ (nulle seulement aux bornes) : $f$ y est décroissante. **[0,25]**
 e) $f(1) = -6$ et $f'(1) = -9$ : $y = -9(x - 1) - 6 = -9x + 3$. **[0,25]**
-f) Règle du produit avec $u = x^2$, $v = e^{-x}$, $v' = -e^{-x}$ (règle de la chaîne) : $g'(x) = 2x\,e^{-x} - x^2 e^{-x} = (2x - x^2)\,e^{-x}$. **[0,25]**
+f) Règle du produit avec $u = x^2$, $v = e^{-x}$, $v' = -e^{-x}$ (règle de la chaîne) : $g'(x) = 2x\thinspace e^{-x} - x^2 e^{-x} = (2x - x^2)\thinspace e^{-x}$. **[0,25]**
 g) Règle du quotient avec $u = 2x - 1$, $v = x + 3$ : $h'(x) = \frac{2(x + 3) - (2x - 1) \times 1}{(x + 3)^2} = \frac{7}{(x + 3)^2}$. **[0,25]**
 h) **3** : $f$ part de $-\infty$ (en $-\infty$), monte jusqu'à $f(-2) = 21 > 0$, descend jusqu'à $f(2) = -11 < 0$, puis remonte vers $+\infty$. Sur chacun des trois intervalles où elle est monotone, elle passe par 0 exactement une fois. **[0,25]** (0,1 sans le tableau de variations)
 
@@ -133,7 +133,7 @@ b) $P(V \cap R) = P(V) \times P_V(R) = 0{,}3 \times 0{,}08 = 0{,}024$. **[0,25]*
 c) Par l'événement contraire : aucun des deux n'est en retard avec probabilité $0{,}948^2 = 0{,}898704$ (indépendance), donc au moins un l'est avec probabilité $1 - 0{,}898704 \approx 0{,}1013$. **[0,25]**
 d) $\mathbb{E}[X] = 0{,}948 \times 2 + 0{,}052 \times (-10) = 1{,}896 - 0{,}52 = 1{,}376 \approx 1{,}38$. **[0,25]**
 e) $\mathbb{E}[X^2] = 0{,}948 \times 4 + 0{,}052 \times 100 = 3{,}792 + 5{,}2 = 8{,}992$, puis $\mathbb{V}(X) = 8{,}992 - 1{,}376^2 = 8{,}992 - 1{,}893376 \approx 7{,}10$. **[0,25]**
-f) Linéarité de l'espérance : $\mathbb{E}[2X - 1] = 2\,\mathbb{E}[X] - 1 = 1{,}752 \approx 1{,}75$. **[0,25]**
+f) Linéarité de l'espérance : $\mathbb{E}[2X - 1] = 2\thinspace\mathbb{E}[X] - 1 = 1{,}752 \approx 1{,}75$. **[0,25]**
 
 **Erreurs fréquentes** : en a), additionner les taux de retard (0,12) ou en faire la moyenne (0,06) ; en b), répondre 0,08, la seule probabilité conditionnelle ; en c), $2 \times 0{,}052$ ; en d), la moyenne non pondérée $-4$ ; en e), oublier de retrancher $\mathbb{E}[X]^2$ ; en f), oublier le $-1$.
 **Remédiation** : R8.3, R8.6, R8.7, R8.8, R8.9.
@@ -145,7 +145,7 @@ f) Linéarité de l'espérance : $\mathbb{E}[2X - 1] = 2\,\mathbb{E}[X] - 1 = 1{
 a) Arrivée moins départ : $\overrightarrow{AB} = (3 - (-3) ; -3 - 1) = (6 ; -4)$. **[0,25]**
 b) $AB = \sqrt{6^2 + (-4)^2} = \sqrt{52} = 2\sqrt{13} \approx 7{,}21$. **[0,25]**
 c) $\overrightarrow{AC} = (3 ; 2)$, donc $\overrightarrow{AB} \cdot \overrightarrow{AC} = 6 \times 3 + (-4) \times 2 = 18 - 8 = 10$. **[0,25]**
-d) $AC = \sqrt{13}$, et $\cos\widehat{BAC} = \frac{10}{\sqrt{52}\,\sqrt{13}} = \frac{10}{\sqrt{676}} = \frac{10}{26} = \frac{5}{13}$. **[0,25]**
+d) $AC = \sqrt{13}$, et $\cos\widehat{BAC} = \frac{10}{\sqrt{52}\thinspace\sqrt{13}} = \frac{10}{\sqrt{676}} = \frac{10}{26} = \frac{5}{13}$. **[0,25]**
 e) $\arccos\frac{5}{13} \approx 1{,}176$ radian, soit environ 67,4°. **[0,25]**
 
 **Erreurs fréquentes** : en a), départ moins arrivée ; en b), oublier la racine (52) ; en c), un signe perdu (26) ; en d), diviser par une seule norme, ou ne pas simplifier $\frac{10}{26}$ ; en e), donner l'angle en radians.
@@ -160,7 +160,7 @@ e) $\arccos\frac{5}{13} \approx 1{,}176$ radian, soit environ 67,4°. **[0,25]**
    - *Hérédité* : soit $n \ge 0$ tel que $P(n)$ est vraie, c'est-à-dire $u_n = 6 \times 2^n - 5$. Alors $u_{n+1} = 2u_n + 5 = 2(6 \times 2^n - 5) + 5 = 6 \times 2^{n+1} - 10 + 5 = 6 \times 2^{n+1} - 5$ : $P(n + 1)$ est vraie.
    - *Conclusion* : $P(0)$ est vraie et $P(n)$ entraîne $P(n + 1)$ ; par récurrence, $u_n = 6 \times 2^n - 5$ pour tout entier $n \ge 0$. ∎
 3. $2^n$ tend vers $+\infty$ (suite géométrique de raison $2 > 1$), donc $6 \times 2^n - 5$ aussi : $(u_n)$ tend vers $+\infty$.
-4. $u_n > 1\,000$ équivaut à $6 \times 2^n > 1\,005$, soit $2^n > 167{,}5$. Or $2^7 = 128$ et $2^8 = 256$ : le plus petit entier est $n = 8$ ($u_7 = 763$, $u_8 = 1\,531$). Comme $(u_n)$ est croissante (elle l'est, puisque $2^n$ l'est), tous les rangs suivants conviennent aussi.
+4. $u_n > 1\thinspace000$ équivaut à $6 \times 2^n > 1\thinspace005$, soit $2^n > 167{,}5$. Or $2^7 = 128$ et $2^8 = 256$ : le plus petit entier est $n = 8$ ($u_7 = 763$, $u_8 = 1\thinspace531$). Comme $(u_n)$ est croissante (elle l'est, puisque $2^n$ l'est), tous les rangs suivants conviennent aussi.
 
 **Barème.** 1. **[0,25]** (0,1 si un seul terme est faux) ; 2. initialisation **[0,2]**, hérédité **[0,4]** (l'hypothèse de récurrence écrite et utilisée, le calcul jusqu'à la formule au rang $n + 1$), conclusion **[0,15]** ; 3. **[0,25]** (la limite avec sa justification) ; 4. **[0,25]** (0,1 pour la valeur sans justification).
 
@@ -194,7 +194,7 @@ a) $0 + 3 + 8 + 15 = 26$ (ou $1 + 4 + 9 + 16 - 4$). **[0,25]**
 b) Somme géométrique de premier terme 5, de raison 2, à 5 termes : $5 \times \frac{2^5 - 1}{2 - 1} = 5 \times 31 = 155$ (vérification : $5 + 10 + 20 + 40 + 80$). **[0,25]**
 c) De $k = 4$ à $k = 12$, il y a $12 - 4 + 1 = 9$ termes, tous égaux à 3 : 27. **[0,25]**
 d) Raison $q = \frac{2}{5}$, avec $\lvert q \rvert < 1$, premier terme 1 : $\frac{1}{1 - \frac{2}{5}} = \frac{5}{3}$. **[0,25]**
-e) $2^1 \times 2^2 \times 2^3 \times 2^4 = 2^{1 + 2 + 3 + 4} = 2^{10} = 1\,024$ : un produit de puissances d'un même nombre additionne les exposants. **[0,25]**
+e) $2^1 \times 2^2 \times 2^3 \times 2^4 = 2^{1 + 2 + 3 + 4} = 2^{10} = 1\thinspace024$ : un produit de puissances d'un même nombre additionne les exposants. **[0,25]**
 
 **Erreurs fréquentes** : en a), compter le $-1$ une seule fois (29) ; en b) et c), un terme de moins (75, 24) ; en d), $\frac{q}{1 - q}$ en oubliant le terme $k = 0$ ; en e), additionner les termes (30), ou multiplier les exposants ($2^{24}$).
 **Remédiation** : R4.6, R4.7, R5.4, R5.5.
@@ -205,9 +205,9 @@ e) $2^1 \times 2^2 \times 2^3 \times 2^4 = 2^{1 + 2 + 3 + 4} = 2^{10} = 1\,024$ 
 
 a) $L(0) = e^0 - 0 = 1$. **[0,25]**
 b) $L'(w) = e^w - 2$. **[0,25]**
-c) $e^w - 2 = 0$ équivaut à $e^w = 2$, soit $w^* = \ln 2 \approx 0{,}693$. **[0,25]**
+c) $e^w - 2 = 0$ équivaut à $e^w = 2$, soit $w^\ast = \ln 2 \approx 0{,}693$. **[0,25]**
 d) $L(\ln 2) = e^{\ln 2} - 2\ln 2 = 2 - 2\ln 2 \approx 0{,}614$. **[0,25]**
-e) $L'(w) < 0$ équivaut à $e^w < 2$, soit $w < \ln 2$ ($\exp$ est croissante) : $L$ est décroissante sur $]-\infty ; \ln 2]$, puis croissante : $w^*$ est bien un minimum. **[0,25]**
+e) $L'(w) < 0$ équivaut à $e^w < 2$, soit $w < \ln 2$ ($\exp$ est croissante) : $L$ est décroissante sur $]-\infty ; \ln 2]$, puis croissante : $w^\ast$ est bien un minimum. **[0,25]**
 f) $L(w) = w\left(\frac{e^w}{w} - 2\right)$ et $\frac{e^w}{w}$ tend vers $+\infty$ (croissances comparées) : $L(w)$ tend vers $+\infty$. **[0,25]**
 g) $L'(0) = e^0 - 2 = -1$ et $L(0) = 1$ : $y = -w + 1$. **[0,25]**
 h) **Vrai** : le minimum de $L$ sur $\mathbb{R}$ est $2 - 2\ln 2 \approx 0{,}614 > 0$. **[0,25]**

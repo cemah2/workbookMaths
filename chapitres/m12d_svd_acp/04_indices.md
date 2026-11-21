@@ -94,7 +94,7 @@ C'est un quotient de Rayleigh : son maximum est la plus grande valeur propre de 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : la matrice est par blocs : $\mathbf{e}_1$ est vecteur propre (valeur 4), et le bloc $\begin{pmatrix} 2 & 2 \\ 2 & 5 \end{pmatrix}$ (trace 7, déterminant 6) donne les deux autres.
+3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : la matrice est par blocs : $\mathbf{e}_1$ est vecteur propre (valeur 4), et le bloc $\begin{pmatrix} 2 & 2 \cr 2 & 5 \end{pmatrix}$ (trace 7, déterminant 6) donne les deux autres.
 
 </details>
 
@@ -228,7 +228,7 @@ $\mathbf{A}^\top\mathbf{A}$ a pour trace 229 et pour déterminant $125 \times 10
 </details>
 <details><summary>Indice 3</summary>
 
-Pour 225 : $(\mathbf{A}^\top\mathbf{A} - 225\,\mathbf{I})\mathbf{v} = \mathbf{0}$ donne $-100x + 110y = 0$ ; puis $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/15$.
+Pour 225 : $(\mathbf{A}^\top\mathbf{A} - 225\thinspace\mathbf{I})\mathbf{v} = \mathbf{0}$ donne $-100x + 110y = 0$ ; puis $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/15$.
 
 </details>
 
@@ -300,7 +300,7 @@ Le rang $k$ coûte $k(m + n + 1)$ nombres.
 </details>
 <details><summary>Indice 3</summary>
 
-d) $k < \frac{mn}{m + n + 1}$ ; e) $k(m + n + 1) \le 0{,}02\,mn$ ; g) une seule matrice de $900 \times 4\,800$.
+d) $k < \frac{mn}{m + n + 1}$ ; e) $k(m + n + 1) \le 0{,}02\thinspace mn$ ; g) une seule matrice de $900 \times 4\thinspace800$.
 
 </details>
 
@@ -336,7 +336,7 @@ $\mathbf{P}^\top\mathbf{P}$ est diagonale ; $\mathbf{Q}$ est orthogonale ; pour 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $s_1^2$ est la plus grande racine de $x^2 - 102x + 1$, et $\kappa = s_1/s_2 = s_1^2$ puisque $s_1s_2 = 1$. f) $\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \\ -5 & 8 \end{pmatrix}$.
+c) $s_1^2$ est la plus grande racine de $x^2 - 102x + 1$, et $\kappa = s_1/s_2 = s_1^2$ puisque $s_1s_2 = 1$. f) $\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \cr -5 & 8 \end{pmatrix}$.
 
 </details>
 
@@ -354,7 +354,7 @@ Le point moyen est $(14, 9, 6)$ ; la deuxième mesure centrée est orthogonale a
 </details>
 <details><summary>Indice 3</summary>
 
-Le bloc $\begin{pmatrix} 19 & 4 \\ 4 & 4 \end{pmatrix}$ a pour trace 23 et déterminant 60 ; pour 20, $-x_1 + 4x_3 = 0$.
+Le bloc $\begin{pmatrix} 19 & 4 \cr 4 & 4 \end{pmatrix}$ a pour trace 23 et déterminant 60 ; pour 20, $-x_1 + 4x_3 = 0$.
 
 </details>
 
@@ -367,12 +367,12 @@ Relis « Les trois étapes » (fiche §6) et « L'erreur de reconstruction » (f
 </details>
 <details><summary>Indice 2</summary>
 
-$t_{7j} = \mathbf{u}_j^\top(\mathbf{x}_7 - \boldsymbol{\mu})$, avec $\mathbf{x}_7 - \boldsymbol{\mu} = (6, 1, 1)$ ; $\hat{\mathbf{x}}_7 = \boldsymbol{\mu} + t_{71}\mathbf{u}_1 + t_{72}\mathbf{u}_2$.
+$t_{7j} = \mathbf{u}_j^\top(\mathbf{x}_7 - \boldsymbol{\mu})$, avec $\mathbf{x}_7 - \boldsymbol{\mu} = (6, 1, 1)$ ; $\hat{\mathbf{x}} _7 = \boldsymbol{\mu} + t _{71}\mathbf{u} _1 + t _{72}\mathbf{u}_2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\sqrt{17}\,t_{i1} = 4x_1 + x_3$ sur les objets centrés ; e) $\operatorname{Cov}(t_1, x_1) = \mathbf{u}_1^\top\mathbf{C}\,\mathbf{e}_1$ ; f) $\frac{n-1}{n}\lambda_3$ ; g) $\frac{n-1}{n}(\lambda_2 + \lambda_3)$.
+c) $\sqrt{17}\thinspace t_{i1} = 4x_1 + x_3$ sur les objets centrés ; e) $\operatorname{Cov}(t_1, x_1) = \mathbf{u}_1^\top\mathbf{C}\thinspace\mathbf{e}_1$ ; f) $\frac{n-1}{n}\lambda_3$ ; g) $\frac{n-1}{n}(\lambda_2 + \lambda_3)$.
 
 </details>
 
@@ -426,7 +426,7 @@ Le point moyen est $(5, 6, 3, 4, 7)$ ; $\mathbf{G}$ est $3 \times 3$, de lignes 
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{G}(1, 0, -1) = 38\,(1, 0, -1)$ ; l'axe est $\mathbf{X}_c^\top\mathbf{w}$ normé, avec $\mathbf{w} = (1, 0, -1)$ ; les variances sont les valeurs propres non nulles divisées par $n - 1 = 2$.
+$\mathbf{G}(1, 0, -1) = 38\thinspace(1, 0, -1)$ ; l'axe est $\mathbf{X}_c^\top\mathbf{w}$ normé, avec $\mathbf{w} = (1, 0, -1)$ ; les variances sont les valeurs propres non nulles divisées par $n - 1 = 2$.
 
 </details>
 
@@ -466,7 +466,7 @@ Relis la fiche §1 et M12c §7 (une matrice de Gram).
 </details>
 <details><summary>Indice 3</summary>
 
-4. $\mathbf{A}\mathbf{A}^\top(\mathbf{A}\mathbf{v}) = \mathbf{A}(\mathbf{A}^\top\mathbf{A}\mathbf{v}) = \lambda\,\mathbf{A}\mathbf{v}$, et $\lVert \mathbf{A}\mathbf{v} \rVert^2 = \lambda\lVert \mathbf{v} \rVert^2 \ne 0$.
+4. $\mathbf{A}\mathbf{A}^\top(\mathbf{A}\mathbf{v}) = \mathbf{A}(\mathbf{A}^\top\mathbf{A}\mathbf{v}) = \lambda\thinspace\mathbf{A}\mathbf{v}$, et $\lVert \mathbf{A}\mathbf{v} \rVert^2 = \lambda\lVert \mathbf{v} \rVert^2 \ne 0$.
 
 </details>
 
@@ -533,7 +533,7 @@ Relis « L'erreur de reconstruction » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-Les $\mathbf{u}_j$ forment une base orthonormée : les coordonnées de $\mathbf{x}_i - \boldsymbol{\mu}$ sont les $t_{ij}$, et Pythagore donne les normes.
+Les $\mathbf{u}_j$ forment une base orthonormée : les coordonnées de $\mathbf{x} _i - \boldsymbol{\mu}$ sont les $t _{ij}$, et Pythagore donne les normes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -551,12 +551,12 @@ Relis « Les scores ne sont pas corrélés » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-Le coefficient $(j, l)$ de $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$ est la ligne $j$ de $\mathbf{W}_k^\top$, fois $\mathbf{C}$, fois la colonne $l$ de $\mathbf{W}_k$.
+Le coefficient $(j, l)$ de $\mathbf{W}_k^\top\mathbf{C}\thinspace\mathbf{W}_k$ est la ligne $j$ de $\mathbf{W}_k^\top$, fois $\mathbf{C}$, fois la colonne $l$ de $\mathbf{W}_k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$. 2. la variance de $\mathbf{a}^\top\mathbf{z}_i$ est $\mathbf{a}^\top\operatorname{Cov}(\mathbf{z})\,\mathbf{a}$. 3. $\frac{1}{169}(5 \times (-12) \times 4 + 12 \times 5 \times 1)$.
+1. $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$. 2. la variance de $\mathbf{a}^\top\mathbf{z}_i$ est $\mathbf{a}^\top\operatorname{Cov}(\mathbf{z})\thinspace\mathbf{a}$. 3. $\frac{1}{169}(5 \times (-12) \times 4 + 12 \times 5 \times 1)$.
 
 </details>
 
@@ -591,12 +591,12 @@ Relis « Les unités comptent » (fiche §6) et M12c §8.
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{D}\mathbf{C}\mathbf{D})_{ij} = d_id_jc_{ij}$, avec $\mathbf{D} = \operatorname{diag}(1, 1, 3)$.
+$(\mathbf{D}\mathbf{C}\mathbf{D}) _{ij} = d_id_jc _{ij}$, avec $\mathbf{D} = \operatorname{diag}(1, 1, 3)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le nouveau bloc $\begin{pmatrix} 19 & 12 \\ 12 & 36 \end{pmatrix}$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ ; f) l'arccos du produit scalaire des deux axes unitaires, en degrés.
+Le nouveau bloc $\begin{pmatrix} 19 & 12 \cr 12 & 36 \end{pmatrix}$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ ; f) l'arccos du produit scalaire des deux axes unitaires, en degrés.
 
 </details>
 
@@ -645,7 +645,7 @@ Relis « La grande dimension » (fiche §7) et le piège des équations normales
 </details>
 <details><summary>Indice 2</summary>
 
-$10^6 \times 250 \times 8$ octets ; $np^2 = 10^6 \times 62\,500$ opérations.
+$10^6 \times 250 \times 8$ octets ; $np^2 = 10^6 \times 62\thinspace500$ opérations.
 
 </details>
 <details><summary>Indice 3</summary>

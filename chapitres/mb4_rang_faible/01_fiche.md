@@ -74,7 +74,7 @@ Vocabulaire anglais de ce chapitre : *rank factorization*, *pivot column*, *oute
 
 Une fonderie coule quatre alliages. Le tableau donne les kilogrammes de cuivre, de zinc et d'étain (en lignes) dans 100 kg de laiton, de bronze, d'un alliage 3 et d'un alliage 4 (en colonnes) :
 
-$$\mathbf{M} = \begin{pmatrix} 60 & 80 & 70 & 65 \\ 40 & 0 & 20 & 30 \\ 0 & 20 & 10 & 5 \end{pmatrix}.$$
+$$\mathbf{M} = \begin{pmatrix} 60 & 80 & 70 & 65 \cr 40 & 0 & 20 & 30 \cr 0 & 20 & 10 & 5 \end{pmatrix}.$$
 
 L'alliage 3 est moitié laiton, moitié bronze ; l'alliage 4, trois quarts de laiton et un quart de bronze. Ses colonnes 3 et 4 combinent donc les deux premières, qui sont libres : $\operatorname{rg}(\mathbf{M}) = 2$.
 
@@ -84,7 +84,7 @@ L'alliage 3 est moitié laiton, moitié bronze ; l'alliage 4, trois quarts de la
 
 Pourquoi $\mathbf{C}\mathbf{F} = \mathbf{M}$ : la colonne $j$ de la forme réduite donne les coefficients qui écrivent la colonne $j$ de $\mathbf{M}$ avec les colonnes pivots, comme M09a §8 et M12a §2 lisent une relation dans la forme réduite ; le produit refait ces combinaisons. Pour les alliages, les pivots sont dans les colonnes 1 et 2 :
 
-$$\mathbf{C} = \begin{pmatrix} 60 & 80 \\ 40 & 0 \\ 0 & 20 \end{pmatrix}, \qquad \mathbf{F} = \begin{pmatrix} 1 & 0 & \frac12 & \frac34 \\ 0 & 1 & \frac12 & \frac14 \end{pmatrix}.$$
+$$\mathbf{C} = \begin{pmatrix} 60 & 80 \cr 40 & 0 \cr 0 & 20 \end{pmatrix}, \qquad \mathbf{F} = \begin{pmatrix} 1 & 0 & \frac12 & \frac34 \cr 0 & 1 & \frac12 & \frac14 \end{pmatrix}.$$
 
 Chaque colonne de $\mathbf{F}$ est une **recette** : celle de l'alliage 4 dit $\frac34(60, 40, 0) + \frac14(80, 0, 20) = (65, 30, 5)$.
 
@@ -92,7 +92,7 @@ Chaque colonne de $\mathbf{F}$ est une **recette** : celle de l'alliage 4 dit $\
 
 Pour toute matrice $r \times r$ inversible $\mathbf{G}$, $(\mathbf{C}\mathbf{G})(\mathbf{G}^{-1}\mathbf{F}) = \mathbf{C}\mathbf{F}$ par associativité : une autre factorisation de rang. Prenons pour $\mathbf{G}$ les recettes des alliages 3 et 4 :
 
-$$\mathbf{G} = \begin{pmatrix} \frac12 & \frac34 \\ \frac12 & \frac14 \end{pmatrix}, \quad \mathbf{G}^{-1} = \begin{pmatrix} -1 & 3 \\ 2 & -2 \end{pmatrix} : \qquad \mathbf{C}\mathbf{G} = \begin{pmatrix} 70 & 65 \\ 20 & 30 \\ 10 & 5 \end{pmatrix}, \quad \mathbf{G}^{-1}\mathbf{F} = \begin{pmatrix} -1 & 3 & 1 & 0 \\ 2 & -2 & 0 & 1 \end{pmatrix}.$$
+$$\mathbf{G} = \begin{pmatrix} \frac12 & \frac34 \cr \frac12 & \frac14 \end{pmatrix}, \quad \mathbf{G}^{-1} = \begin{pmatrix} -1 & 3 \cr 2 & -2 \end{pmatrix} : \qquad \mathbf{C}\mathbf{G} = \begin{pmatrix} 70 & 65 \cr 20 & 30 \cr 10 & 5 \end{pmatrix}, \quad \mathbf{G}^{-1}\mathbf{F} = \begin{pmatrix} -1 & 3 & 1 & 0 \cr 2 & -2 & 0 & 1 \end{pmatrix}.$$
 
 $\mathbf{C}\mathbf{G}$ est faite des alliages 3 et 4, et la première colonne de $\mathbf{G}^{-1}\mathbf{F}$ dit que le laiton vaut $-1$ fois l'alliage 3 plus 2 fois l'alliage 4 : vérifie que $-(70, 20, 10) + 2(65, 30, 5) = (60, 40, 0)$. Aucune fonderie ne « retire » d'alliage : une factorisation ne dit pas de quoi le tableau est fait, elle dit quel espace engendrent ses colonnes. MB2 §4, en répartissant les valeurs singulières entre deux facteurs, prenait une $\mathbf{G}$ diagonale.
 
@@ -100,7 +100,7 @@ $\mathbf{C}\mathbf{G}$ est faite des alliages 3 et 4, et la première colonne de
 
 Le produit $\mathbf{C}\mathbf{F}$ est la somme des « colonne $i$ de $\mathbf{C}$ fois ligne $i$ de $\mathbf{F}$ » (rappel de M09a §3) :
 $$\mathbf{M} = \mathbf{c}_1\mathbf{f}_1^\top + \cdots + \mathbf{c}_r\mathbf{f}_r^\top,$$
-$r$ **produits extérieurs** (*outer products*), chacun de rang 1. Pour les alliages, $\mathbf{c}_1\mathbf{f}_1^\top$ est la part du laiton dans chaque alliage, $\mathbf{c}_2\mathbf{f}_2^\top$ celle du bronze (figure). Inversement, une somme de $r$ produits extérieurs est de rang au plus $r$ : c'est le rappel de M12a §4 ($\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$, ∂ M12a.18), qu'on ne redémontre pas. La SVD compacte de M12d, $\sum_{i=1}^r s_i\mathbf{u}_i\mathbf{v}_i^\top$, est une autre factorisation de rang : $\mathbf{C} = \mathbf{U}_r\mathbf{S}_r$ et $\mathbf{F} = \mathbf{V}_r^\top$.
+$r$ **produits extérieurs** (*outer products*), chacun de rang 1. Pour les alliages, $\mathbf{c}_1\mathbf{f}_1^\top$ est la part du laiton dans chaque alliage, $\mathbf{c}_2\mathbf{f} _2^\top$ celle du bronze (figure). Inversement, une somme de $r$ produits extérieurs est de rang au plus $r$ : c'est le rappel de M12a §4 ($\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$, ∂ M12a.18), qu'on ne redémontre pas. La SVD compacte de M12d, $\sum _{i=1}^r s_i\mathbf{u}_i\mathbf{v}_i^\top$, est une autre factorisation de rang : $\mathbf{C} = \mathbf{U}_r\mathbf{S}_r$ et $\mathbf{F} = \mathbf{V}_r^\top$.
 
 ![En haut, C fois F (les recettes) donne le tableau des alliages ; en bas, le même tableau comme somme de la part du laiton et de celle du bronze, deux matrices de rang 1](figures/factorisation.png)
 
@@ -113,11 +113,11 @@ Les outils, que le ∂ MB4.5 met en œuvre : une base de l'espace des colonnes e
 
 ### Ce qu'elle coûte, et ses nombres libres
 
-Stocker $\mathbf{C}$ et $\mathbf{F}$ demande $mr + rn = r(m + n)$ nombres, contre $mn$ (rappel de M12a §4, et des $k(m + n + 1)$ nombres d'une SVD tronquée, M12d §3). Pour les alliages, 14 contre 12 : sur un si petit tableau, rien à gagner. Sur un registre de 30 éléments mesurés dans 500 alliages, tous mélanges de 4 alliages de base, le rang est au plus 4 : $4 \times 530 = 2\,120$ nombres contre $15\,000$, environ 14 %.
+Stocker $\mathbf{C}$ et $\mathbf{F}$ demande $mr + rn = r(m + n)$ nombres, contre $mn$ (rappel de M12a §4, et des $k(m + n + 1)$ nombres d'une SVD tronquée, M12d §3). Pour les alliages, 14 contre 12 : sur un si petit tableau, rien à gagner. Sur un registre de 30 éléments mesurés dans 500 alliages, tous mélanges de 4 alliages de base, le rang est au plus 4 : $4 \times 530 = 2\thinspace120$ nombres contre $15\thinspace000$, environ 14 %.
 
 Tous ne sont pas **libres** : la forme CR impose l'identité dans $r$ colonnes de $\mathbf{F}$, soit $r^2$ nombres. Dans le cas général, où les $r$ premières colonnes sont libres (les pivots sont alors les colonnes 1 à $r$, comme pour les alliages), une matrice de rang $r$ est décrite par
 $$r(m + n) - r^2 = r(m + n - r)$$
-nombres libres (*degrees of freedom*) : 10 pour les alliages, $2\,104$ pour le registre. Si les pivots sont ailleurs, la forme réduite impose encore des zéros à gauche de chaque pivot, et il en reste moins : $r(m + n - r)$ est le nombre de degrés de liberté de l'ensemble de toutes les matrices de rang $r$. Les $r^2$ nombres en trop sont ceux de $\mathbf{G}$, qu'on choisit sans changer le produit. Cas limites : pour $r = \min(m, n)$, le compte vaut $mn$ (si $r = m$, $m(m + n - m) = mn$), rien n'est contraint ; pour $r = 0$, la matrice nulle, il vaut 0.
+nombres libres (*degrees of freedom*) : 10 pour les alliages, $2\thinspace104$ pour le registre. Si les pivots sont ailleurs, la forme réduite impose encore des zéros à gauche de chaque pivot, et il en reste moins : $r(m + n - r)$ est le nombre de degrés de liberté de l'ensemble de toutes les matrices de rang $r$. Les $r^2$ nombres en trop sont ceux de $\mathbf{G}$, qu'on choisit sans changer le produit. Cas limites : pour $r = \min(m, n)$, le compte vaut $mn$ (si $r = m$, $m(m + n - m) = mn$), rien n'est contraint ; pour $r = 0$, la matrice nulle, il vaut 0.
 
 💻 **Aujourd'hui en pratique** — en flottants, on préfère au pivot de Gauss une QR avec permutation des colonnes (`scipy.linalg.qr(M, pivoting=True)`) ou la SVD tronquée. `rank_factorization` (🔨 MB4.8) reprend ton `rref` de M09a, avec une petite tolérance `tol` sur les pivots.
 
@@ -131,7 +131,7 @@ nombres libres (*degrees of freedom*) : 10 pour les alliages, $2\,104$ pour le r
 
 Le laboratoire de la fonderie dose 6 éléments dans 40 échantillons de trois alliages de base. Sans erreur de mesure, ce tableau $40 \times 6$ aurait le rang 3 ; mesuré, il a le rang 6, car le bruit ne respecte aucune relation exacte, et le rang numérique de M12a dépend de la **tolérance** choisie. Il faut une mesure plus douce.
 
-**Rappel** (M12d §3, MML §4.6). $\lVert\mathbf{M}\rVert_F^2 = s_1^2 + s_2^2 + \cdots$ est l'**énergie** du tableau ; l'approximation de rang $r$ de la SVD, $\mathbf{M}_r$, est la meilleure de son rang (Eckart-Young), avec $\lVert\mathbf{M} - \mathbf{M}_r\rVert_F^2 = \sum_{i > r}s_i^2$, et $s_{r+1}$ en norme spectrale.
+**Rappel** (M12d §3, MML §4.6). $\lVert\mathbf{M}\rVert_F^2 = s_1^2 + s_2^2 + \cdots$ est l'**énergie** du tableau ; l'approximation de rang $r$ de la SVD, $\mathbf{M} _r$, est la meilleure de son rang (Eckart-Young), avec $\lVert\mathbf{M} - \mathbf{M} _r\rVert_F^2 = \sum _{i > r}s_i^2$, et $s _{r+1}$ en norme spectrale.
 
 ### Le rang effectif et le rang stable
 
@@ -139,7 +139,7 @@ Le laboratoire de la fonderie dose 6 éléments dans 40 échantillons de trois a
 
 M12d traçait déjà la part d'énergie gardée selon le rang (§3), et choisissait le nombre de composantes d'une ACP par un seuil sur la part cumulée (§7) : le rang effectif donne un nom à ce choix.
 
-**Exemple.** Les valeurs singulières du laboratoire sont $(10 ;\ 6 ;\ 3 ;\ 0{,}4 ;\ 0{,}3 ;\ 0{,}2)$. Leurs carrés font une énergie de $145{,}29$, et des parts cumulées de 68,83 %, 93,61 %, 99,80 %, 99,91 %, 99,97 % et 100 % : le rang effectif vaut 2 à 90 %, 3 à 99 %. L'approximation de rang 3 laisse $0{,}16 + 0{,}09 + 0{,}04 = 0{,}29$, soit 0,2 % de l'énergie, mais une erreur relative de $\sqrt{0{,}29/145{,}29} \approx 4{,}5\ \%$ en norme : une part d'énergie est un carré. Si l'on compte les valeurs singulières au-dessus d'un seuil, le rang numérique vaut 3 pour un seuil de 0,5, et 5 pour un seuil de 0,25. Le rang stable vaut $\frac{145{,}29}{100} \approx 1{,}45$.
+**Exemple.** Les valeurs singulières du laboratoire sont $(10 ;\ 6 ;\ 3 ;\ 0{,}4 ;\ 0{,}3 ;\ 0{,}2)$. Leurs carrés font une énergie de $145{,}29$, et des parts cumulées de 68,83 %, 93,61 %, 99,80 %, 99,91 %, 99,97 % et 100 % : le rang effectif vaut 2 à 90 %, 3 à 99 %. L'approximation de rang 3 laisse $0{,}16 + 0{,}09 + 0{,}04 = 0{,}29$, soit 0,2 % de l'énergie, mais une erreur relative de $\sqrt{0{,}29/145{,}29} \approx 4{,}5$ % en norme : une part d'énergie est un carré. Si l'on compte les valeurs singulières au-dessus d'un seuil, le rang numérique vaut 3 pour un seuil de 0,5, et 5 pour un seuil de 0,25. Le rang stable vaut $\frac{145{,}29}{100} \approx 1{,}45$.
 
 Comme $\lVert\mathbf{M}\rVert_2 = s_1$ (M12d §2, MML théorème 4.24), les $\operatorname{rg}(\mathbf{M})$ termes non nuls de $\frac{s_1^2 + s_2^2 + \cdots}{s_1^2}$ valent au plus 1, et le premier vaut 1 : le rang stable est **entre 1 et le rang**, égal au rang seulement si les valeurs singulières non nulles sont égales. Il ne demande aucun seuil, et un petit bruit le change à peine (Rudelson et Vershynin l'appellent *numerical rank*, rien à voir avec le rang numérique de M12a).
 
@@ -157,9 +157,9 @@ Sur un tableau bruité, on trace les valeurs singulières en échelle logarithmi
 - $\mathbf{C}(\mathbf{F}\mathbf{x})$ coûte $rn$ multiplications, puis $mr$ : $r(m + n)$ en tout ;
 - $(\mathbf{C}\mathbf{F})\mathbf{x}$ coûte $mnr$ pour former $\mathbf{C}\mathbf{F}$, puis $mn$.
 
-Pour $p$ vecteurs, $r(m + n)\,p$ contre $mnr + mn\,p$ : former le produit coûte à lui seul autant que $r$ applications de $\mathbf{M}$.
+Pour $p$ vecteurs, $r(m + n)\thinspace p$ contre $mnr + mn\thinspace p$ : former le produit coûte à lui seul autant que $r$ applications de $\mathbf{M}$.
 
-**Exemple.** Une commande $\mathbf{x} = (3, 1, 2, 4)$ de lingots de 100 kg des quatre alliages demande $\mathbf{F}\mathbf{x} = (7, 3)$ : sept lingots de laiton et trois de bronze, en comptant ceux des mélanges ; puis $\mathbf{C}(\mathbf{F}\mathbf{x}) = 7(60, 40, 0) + 3(80, 0, 20) = (660, 280, 60)$ kg de cuivre, de zinc et d'étain, 1 000 kg en tout, comme $\mathbf{M}\mathbf{x}$. Sur le registre $30 \times 500$ de rang 4, $\mathbf{C}(\mathbf{F}\mathbf{x})$ coûte $2\,120$ multiplications, $\mathbf{M}\mathbf{x}$ $15\,000$, et former $\mathbf{C}\mathbf{F}$ $60\,000$.
+**Exemple.** Une commande $\mathbf{x} = (3, 1, 2, 4)$ de lingots de 100 kg des quatre alliages demande $\mathbf{F}\mathbf{x} = (7, 3)$ : sept lingots de laiton et trois de bronze, en comptant ceux des mélanges ; puis $\mathbf{C}(\mathbf{F}\mathbf{x}) = 7(60, 40, 0) + 3(80, 0, 20) = (660, 280, 60)$ kg de cuivre, de zinc et d'étain, 1 000 kg en tout, comme $\mathbf{M}\mathbf{x}$. Sur le registre $30 \times 500$ de rang 4, $\mathbf{C}(\mathbf{F}\mathbf{x})$ coûte $2\thinspace120$ multiplications, $\mathbf{M}\mathbf{x}$ $15\thinspace000$, et former $\mathbf{C}\mathbf{F}$ $60\thinspace000$.
 
 **En flottants**, chaque multiplication et chaque addition est arrondie (M05a §6) : l'associativité et la distributivité ne tiennent plus qu'à un arrondi près, et les deux ordres peuvent différer au dernier chiffre. Avec $\mathbf{C} = (3)$, $\mathbf{F} = (0{,}3 \ \ 0{,}7)$ et $\mathbf{x} = (1, 1)$ : $\mathbf{C}(\mathbf{F}\mathbf{x}) = 3 \times (0{,}3 + 0{,}7) = 3$ exactement en `float64`, mais $(\mathbf{C}\mathbf{F})\mathbf{x} = 3 \times 0{,}3 + 3 \times 0{,}7 = 0{,}8999999999999999 + 2{,}0999999999999996 = 2{,}9999999999999996$ : ici, ce sont les produits arrondis qui font l'écart. On compare donc par `np.allclose`, jamais par `==`. `np.linalg.multi_dot` choisit lui-même l'ordre le moins coûteux.
 
@@ -189,7 +189,7 @@ Si l'on sait quels dossiers sont **pertinents** (*relevant* : ceux de la maladie
 Soit $p = \frac rR$ la probabilité de l'indice chez les pertinents, et $q = \frac{n - r}{N - R}$ chez les autres.
 
 > **Définition** (le poids de Robertson et Spärck Jones). Le **poids** (*relevance weight*) d'un indice est le logarithme du **rapport des cotes** (*odds ratio*) de sa présence chez les pertinents et chez les autres :
-> $$w = \ln\frac{p\,(1 - q)}{q\,(1 - p)} = \operatorname{logit}p - \operatorname{logit}q .$$
+> $$w = \ln\frac{p\thinspace(1 - q)}{q\thinspace(1 - p)} = \operatorname{logit}p - \operatorname{logit}q .$$
 
 Il est positif quand l'indice est plus fréquent chez les pertinents, nul s'il l'est autant, négatif sinon.
 
@@ -229,7 +229,7 @@ toujours positive, puisque $n \le N < N + \frac12$, et proche de la surprise : 2
 
 Un dossier qui mentionne cinq fois une boiterie est-il cinq fois plus pertinent qu'un dossier qui la mentionne une fois ? Non.
 
-> **Définition.** Pour $k_1 > 0$, la **saturation** d'un nombre de mentions $x \ge 0$ est $s(x) = \dfrac{x\,(k_1 + 1)}{x + k_1}$.
+> **Définition.** Pour $k_1 > 0$, la **saturation** d'un nombre de mentions $x \ge 0$ est $s(x) = \dfrac{x\thinspace(k_1 + 1)}{x + k_1}$.
 
 > **Propriétés.**
 > 1. $s(0) = 0$ et $s(1) = 1$ pour tout $k_1$ : toutes les courbes passent par $(1, 1)$.
@@ -239,13 +239,13 @@ Un dossier qui mentionne cinq fois une boiterie est-il cinq fois plus pertinent 
 
 **Exemple**, $k_1 = 3$ : $s(x) = \frac{4x}{x + 3}$ vaut 1 pour une mention, 2 pour trois, 2,8 pour sept, 3,5 pour vingt et une, et n'atteindra jamais 4. La première mention ajoute 1 ; la troisième n'ajoute plus que $s(3) - s(2) = 0{,}4$.
 
-C'est la forme de la **cinétique de Michaelis et Menten** (*Michaelis-Menten kinetics*) : la vitesse d'une réaction catalysée par une enzyme vaut $\frac{V_{\max}\,[S]}{K_m + [S]}$ pour une concentration $[S]$ du substrat, et atteint la moitié de son plafond en $[S] = K_m$ ; ici $V_{\max} = k_1 + 1$ et $K_m = k_1$. Des **rendements décroissants** (*diminishing returns*).
+C'est la forme de la **cinétique de Michaelis et Menten** (*Michaelis-Menten kinetics*) : la vitesse d'une réaction catalysée par une enzyme vaut $\frac{V_{\max}\thinspace[S]}{K_m + [S]}$ pour une concentration $[S]$ du substrat, et atteint la moitié de son plafond en $[S] = K_m$ ; ici $V_{\max} = k_1 + 1$ et $K_m = k_1$. Des **rendements décroissants** (*diminishing returns*).
 
 ### La normalisation par la longueur
 
 Un long dossier mentionne tout plus souvent. Soit $\ell$ sa longueur rapportée à la longueur moyenne des dossiers.
 
-> **Définition.** Pour $b \in [0, 1]$ et $\ell > 0$, la **normalisation par la longueur** (*length normalization*) est $\nu = 1 - b + b\,\ell$, et la saturation normalisée est $\dfrac{x\,(k_1 + 1)}{x + k_1\nu} = s\Big(\dfrac x\nu\Big)$ : $k_1$ devient $k_1\nu$ au dénominateur.
+> **Définition.** Pour $b \in [0, 1]$ et $\ell > 0$, la **normalisation par la longueur** (*length normalization*) est $\nu = 1 - b + b\thinspace\ell$, et la saturation normalisée est $\dfrac{x\thinspace(k_1 + 1)}{x + k_1\nu} = s\Big(\dfrac x\nu\Big)$ : $k_1$ devient $k_1\nu$ au dénominateur.
 
 - $\nu$ est **affine** en $\ell$ et en $b$ : elle va de 1 ($b = 0$, aucune normalisation) à $\ell$ ($b = 1$). Toutes les droites passent par $(\ell, \nu) = (1, 1)$ : à longueur moyenne, $b$ ne change rien.
 - La seconde écriture le dit : normaliser, c'est diviser le nombre de mentions par $\nu$ avant de saturer. Le plafond reste $k_1 + 1$ ; la demi-saturation passe de $k_1$ à $k_1\nu$.
@@ -338,7 +338,7 @@ sur le rang réciproque, le hasard fait en moyenne un peu mieux que le $\frac12$
 
 ### Un seul pertinent : H_n/n
 
-Avec $q = 1$, $R$ est uniforme sur $\{1, \ldots, n\}$, et $\mathbb{E}[\frac1R] = \frac1n\big(1 + \frac12 + \cdots + \frac1n\big) = \frac{H_n}{n}$. Pour $n = 7$ : $H_7 = \frac{363}{140}$, et $\mathbb{E}[\frac1R] = \frac{363}{980} \approx 0{,}370$. Si l'on ne montre que les $k$ premiers, la somme s'arrête à $\frac1k$ : $\frac{H_k}{n}$, soit $\frac{25}{84}$ pour $n = 7$ et $k = 4$.
+Avec $q = 1$, $R$ est uniforme sur $\lbrace1, \ldots, n\rbrace$, et $\mathbb{E}[\frac1R] = \frac1n\big(1 + \frac12 + \cdots + \frac1n\big) = \frac{H_n}{n}$. Pour $n = 7$ : $H_7 = \frac{363}{140}$, et $\mathbb{E}[\frac1R] = \frac{363}{980} \approx 0{,}370$. Si l'on ne montre que les $k$ premiers, la somme s'arrête à $\frac1k$ : $\frac{H_k}{n}$, soit $\frac{25}{84}$ pour $n = 7$ et $k = 4$.
 
 **Rappel** (MB3 §8, M11). Des rectangles encadrent le **nombre harmonique** (*harmonic number* ; M02a) : le rectangle de hauteur $\frac1j$ sur $[j, j + 1]$ est au-dessus de la courbe de $\frac1x$, celui de hauteur $\frac1j$ sur $[j - 1, j]$ au-dessous. Donc $H_n \ge \int_1^{n+1}\frac{dx}{x}$ et $H_n - 1 \le \int_1^n\frac{dx}{x}$ :
 $$\ln(n + 1) \le H_n \le 1 + \ln n, \qquad \frac{\ln(n + 1)}{n} \le \mathbb{E}\Big[\frac1R\Big] \le \frac{1 + \ln n}{n} .$$

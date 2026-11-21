@@ -13,23 +13,23 @@
 2. **Conditionnelle** : $P(\text{clic} \mid \text{ouvert}) = 0{,}16$.
 3. **Marginale** : $P(\text{ouvert}) = 0{,}25$.
 4. **Conditionnelle** : $P(\text{ouvert} \mid \text{clic}) = 1$.
-5. Tout clic suit une ouverture, donc $\{\text{clic}\} = \{\text{clic}\} \cap \{\text{ouvert}\}$ et $P(\text{clic}) = 0{,}04$. Cohérentes : $P(\text{clic} \mid \text{ouvert})\,P(\text{ouvert}) = 0{,}16 \times 0{,}25 = 0{,}04$, la règle du produit.
+5. Tout clic suit une ouverture, donc $\lbrace\text{clic}\rbrace = \lbrace\text{clic}\rbrace \cap \lbrace\text{ouvert}\rbrace$ et $P(\text{clic}) = 0{,}04$. Cohérentes : $P(\text{clic} \mid \text{ouvert})\thinspace P(\text{ouvert}) = 0{,}16 \times 0{,}25 = 0{,}04$, la règle du produit.
 6. **Faux** : c'est la somme sur toutes les valeurs $y$, à $x$ **fixé**, qui vaut 1 (une ligne de lois conditionnelles). Pour $y$ fixé, la somme sur $x$ n'a pas de raison de valoir 1 (0,1 + 0,25 = 0,35 pour « premium » dans la fiche).
 
 ### M03.Q2 — P(A sachant B) et P(B sachant A)
-1. Règle du produit : $P(\text{technique} \cap \text{formation}) = P(\text{technique} \mid \text{formation})\,P(\text{formation}) = 0{,}8 \times 0{,}25 = $ **0,2**.
+1. Règle du produit : $P(\text{technique} \cap \text{formation}) = P(\text{technique} \mid \text{formation})\thinspace P(\text{formation}) = 0{,}8 \times 0{,}25 = $ **0,2**.
 2. $P(\text{formation} \mid \text{technique}) = \frac{0{,}2}{0{,}4} = $ **0,5**.
-3. **Faux** : $P(B \mid A) = P(A \mid B)\,\frac{P(B)}{P(A)}$ peut être minuscule si $B$ est rare et $A$ fréquent.
+3. **Faux** : $P(B \mid A) = P(A \mid B)\thinspace\frac{P(B)}{P(A)}$ peut être minuscule si $B$ est rare et $A$ fréquent.
 4. **Vrai** : sachant $B$, $A$ et « non $A$ » se partagent tout l'univers restreint.
 5. **Faux** : les deux probabilités ont des conditions différentes. Exemple : $A$ certain donne $1 + 1 = 2$.
 6. $0{,}4 \times 0{,}05 = $ **0,02**, soit 2 % des pièces (règle du produit).
 
 ### M03.Q3 — Indépendants ou incompatibles ?
-1. **Indépendants** : $P(A \cap B) = P(\{2\}) = \frac{1}{6}$ et $P(A)\,P(B) = \frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$.
+1. **Indépendants** : $P(A \cap B) = P(\lbrace2\rbrace) = \frac{1}{6}$ et $P(A)\thinspace P(B) = \frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$.
 2. **Incompatibles** (aucun nombre pair n'est 1 ou 3), donc **dépendants** : $P(A \cap C) = 0 \ne \frac{1}{2} \times \frac{1}{3}$.
 3. **Indépendants** : $0{,}3 \times 0{,}5 = 0{,}15$.
-4. **Faux** : $P(A \cap B) = 0$, alors que $P(A)\,P(B) > 0$.
-5. **Vrai** : $P(E \cap \text{non } F) = P(E) - P(E \cap F) = P(E) - P(E)P(F) = P(E)\,(1 - P(F))$.
+4. **Faux** : $P(A \cap B) = 0$, alors que $P(A)\thinspace P(B) > 0$.
+5. **Vrai** : $P(E \cap \text{non } F) = P(E) - P(E \cap F) = P(E) - P(E)P(F) = P(E)\thinspace(1 - P(F))$.
 6. **Faux** : l'exemple des deux pièces de la fiche (§2) : « première pile », « seconde pile », « même côté ».
 
 ### M03.Q4 — Quelle métrique pour quelle probabilité ?
@@ -121,7 +121,7 @@ Pour la copie : $P(\text{photo} \mid \text{1 ou 2}) = 0{,}375 \ne P(\text{photo}
 - g) $0{,}06 \ne 0{,}072$ : dépendants ; d'ailleurs $P(\text{achat} \mid \text{matin}) = 0{,}15$ et $P(\text{achat} \mid \text{soir}) = 0{,}2$.
 - h) $\frac{300 \times 90}{500} = 54$ (on observe 60).
 
-Pour la copie : le tableau attendu du tableau 2 est $\begin{pmatrix} 36 & 164 \\ 54 & 246 \end{pmatrix}$. La version B fait exactement aussi bien que la version A : elle ne gagne ni ne perd de clics. (Avec des données réelles, une égalité exacte est rare ; il faudrait un test statistique pour juger un petit écart.)
+Pour la copie : le tableau attendu du tableau 2 est $\begin{pmatrix} 36 & 164 \cr 54 & 246 \end{pmatrix}$. La version B fait exactement aussi bien que la version A : elle ne gagne ni ne perd de clics. (Avec des données réelles, une égalité exacte est rare ; il faudrait un test statistique pour juger un petit écart.)
 
 **Erreurs fréquentes.** Diviser par le total de la colonne en b) ($\frac{32}{80} = 0{,}4$) ; conclure à l'indépendance sur une seule case calculée de travers ; donner en h) l'effectif observé.
 
@@ -133,10 +133,10 @@ Pour la copie : le tableau attendu du tableau 2 est $\begin{pmatrix} 36 & 164 \\
 
 **Démarche.**
 - a) $0{,}45 \times 0{,}01 + 0{,}35 \times 0{,}02 + 0{,}2 \times 0{,}04 = 0{,}0045 + 0{,}007 + 0{,}008 = 0{,}0195$.
-- b) $P(S_3 \cap E) = P(E \mid S_3)\,P(S_3) = 0{,}04 \times 0{,}2$. c) $1 - 0{,}0195$. d) $0{,}0195 \times 10\,000$.
+- b) $P(S_3 \cap E) = P(E \mid S_3)\thinspace P(S_3) = 0{,}04 \times 0{,}2$. c) $1 - 0{,}0195$. d) $0{,}0195 \times 10\thinspace000$.
 - e) $P(S_3 \mid E) = \frac{P(S_3 \cap E)}{P(E)} = \frac{0{,}008}{0{,}0195} \approx 0{,}41$.
 - f) $0{,}0045 + 0{,}007 + 0{,}2 \times 0{,}02 = 0{,}0155$. g) Parts 45 %, 45 %, 10 % : $0{,}0045 + 0{,}009 + 0{,}004 = 0{,}0175$.
-- h) $0{,}0045 \times 10\,000$.
+- h) $0{,}0045 \times 10\thinspace000$.
 
 Pour la copie : a) est une moyenne des taux pondérée par les parts ; le serveur le moins fiable ne traite que 20 % du trafic, d'où une valeur près des petits taux. e) : $S_3$ traite 20 % des requêtes mais produit 41 % des erreurs, parce que son taux d'erreur est le double ou le quadruple des autres. Réparer $S_3$ (f) fait mieux que déplacer son trafic (g).
 
@@ -185,7 +185,7 @@ Pour la copie : échanger P et R revient à remplacer $\beta$ par $\frac{1}{\bet
 **Démarche.** Modèle A : TP = 0, FN = 50, FP = 0, TN = 950. Modèle B : TP = 35, FN = 15, FP = 85, TN = 865.
 - a) $\frac{950}{1000}$. b) recall 0 et spécificité 1 : $\frac{0 + 1}{2}$.
 - c) $\frac{35 + 865}{1000}$. d) $\frac{35}{50}$. e) $\frac{865}{950}$. f) $\frac{0{,}7 + 0{,}9105}{2}$.
-- g) $\frac{35 \times 865 - 85 \times 15}{\sqrt{120 \times 50 \times 950 \times 880}} = \frac{29\,000}{\sqrt{5{,}016 \times 10^9}} \approx \frac{29\,000}{70\,824}$.
+- g) $\frac{35 \times 865 - 85 \times 15}{\sqrt{120 \times 50 \times 950 \times 880}} = \frac{29\thinspace000}{\sqrt{5{,}016 \times 10^9}} \approx \frac{29\thinspace000}{70\thinspace824}$.
 - h) $\frac{35}{120}$.
 
 Pour la copie : pour A, la colonne « prédit positif » est vide ($TP + FP = 0$), la formule divise par 0 ; on pose MCC = 0 (aucune corrélation entre une prédiction constante et la vérité). L'accuracy préfère A (0,95 contre 0,9) ; la balanced accuracy (0,5 contre 0,81) et le MCC (0 contre 0,41) préfèrent B. B est utile : il trouve 70 % des clients qui partent, en n'en contactant que 120 ; si une offre de fidélité coûte peu, 85 offres inutiles valent bien 35 clients peut-être retenus.
@@ -201,8 +201,8 @@ Pour la copie : pour A, la colonne « prédit positif » est vide ($TP + FP = 0$
 **Démarche.**
 - a) $\frac{0{,}9 \times 0{,}2}{0{,}9 \times 0{,}2 + 0{,}02 \times 0{,}8} = \frac{0{,}18}{0{,}196}$.
 - b) $\frac{0{,}9 \times 0{,}02}{0{,}9 \times 0{,}02 + 0{,}02 \times 0{,}98} = \frac{0{,}018}{0{,}0376}$.
-- c) 200 comptes piratés, $0{,}9 \times 200 = 180$. d) 9 800 comptes sains, $0{,}02 \times 9\,800 = 196$.
-- e) TN $= 0{,}98 \times 9\,800 = 9\,604$, FN $= 20$ : $\frac{9604}{9624} \approx 0{,}998$. f) $\frac{180 + 9604}{10\,000}$.
+- c) 200 comptes piratés, $0{,}9 \times 200 = 180$. d) 9 800 comptes sains, $0{,}02 \times 9\thinspace800 = 196$.
+- e) TN $= 0{,}98 \times 9\thinspace800 = 9\thinspace604$, FN $= 20$ : $\frac{9604}{9624} \approx 0{,}998$. f) $\frac{180 + 9604}{10\thinspace000}$.
 - g) $\frac{0{,}9\pi}{0{,}9\pi + 0{,}02(1 - \pi)} = 0{,}8 \iff 0{,}18\pi = 0{,}016(1 - \pi) \iff \pi = \frac{0{,}016}{0{,}196} \approx 0{,}0816$.
 - h) Precision 0,8 avec 180 vrais positifs : $FP = 45$, donc $1 - s = \frac{45}{9800}$ et $s \approx 0{,}9954$.
 
@@ -301,11 +301,11 @@ Pour la copie : le paquet haut est sur la diagonale ; le paquet bas annonce 25 %
 **Réponse modèle.**
 1. Entre deux scores consécutifs, rien ne change. Quand le seuil descend juste sous un score $s_i$ d'un positif (et qu'aucun négatif n'a ce score), le nombre de positifs déclarés positifs augmente de 1 : TPR augmente de $\frac{1}{n_+}$, FPR ne bouge pas, un pas vertical. De même un négatif fait un pas horizontal de $\frac{1}{n_-}$. TPR et FPR sont des proportions d'un ensemble qui ne fait que grandir quand le seuil baisse : ils ne diminuent jamais, et la courbe va de $(0, 0)$ (seuil au-dessus de tout) à $(1, 1)$ (seuil sous tout).
 2. Sous un escalier, l'aire est la somme des rectangles posés sous les paliers horizontaux. Il y a un pas horizontal par négatif $j$, de largeur $\frac{1}{n_-}$ ; la hauteur du rectangle est la hauteur de la courbe pendant ce pas, c'est-à-dire au moment où le seuil passe $t_j$. Les pas verticaux ont une largeur nulle et n'ajoutent rien.
-3. Quand le seuil passe $t_j$, les positifs déjà déclarés positifs sont ceux de score plus grand que $t_j$ (les scores sont distincts) : la hauteur vaut $\frac{1}{n_+}\#\{i : s_i > t_j\}$.
-4. $\text{aire} = \sum_j \frac{1}{n_-} \cdot \frac{1}{n_+}\#\{i : s_i > t_j\} = \frac{1}{n_+ n_-}\#\{(i, j) : s_i > t_j\}$, le nombre de paires bien classées divisé par le nombre de paires.
+3. Quand le seuil passe $t_j$, les positifs déjà déclarés positifs sont ceux de score plus grand que $t_j$ (les scores sont distincts) : la hauteur vaut $\frac{1}{n_+}\operatorname{card}\lbrace i : s_i > t_j\rbrace$.
+4. $\text{aire} = \sum_j \frac{1}{n_-} \cdot \frac{1}{n_+}\operatorname{card}\lbrace i : s_i > t_j\rbrace = \frac{1}{n_+ n_-}\operatorname{card}\lbrace(i, j) : s_i > t_j\rbrace$, le nombre de paires bien classées divisé par le nombre de paires.
 5. Si le seuil passe d'un coup $a$ positifs et $b$ négatifs de même score, TPR augmente de $\frac{a}{n_+}$ et FPR de $\frac{b}{n_-}$ en même temps : la courbe va en ligne droite d'un coin à l'autre d'un rectangle de $a \times b$ cases. Une diagonale coupe un rectangle en deux triangles égaux : l'aire sous le segment, dans ce rectangle, vaut la moitié du rectangle, soit $\frac{1}{2} \cdot \frac{ab}{n_+ n_-}$. Or ce rectangle représente exactement les $ab$ paires ex æquo de ce groupe : chacune compte pour $\frac{1}{2}$. Le reste de l'aire se compte comme en 4.
 6. Une fonction strictement croissante garde chaque inégalité $s_i > t_j$, chaque égalité et chaque inégalité inverse : le décompte des paires, donc l'AUC, ne change pas. Une fonction strictement décroissante échange paires bien et mal classées et garde les ex æquo : l'AUC devient $1 - \text{AUC}$.
-7. $U = \#\{s_i > t_j\} + \frac{1}{2}\#\{s_i = t_j\} = n_+ n_- \cdot \text{AUC}$ : l'AUC est la statistique de Mann et Whitney, normalisée.
+7. $U = \operatorname{card}\lbrace s_i > t_j\rbrace + \frac{1}{2}\operatorname{card}\lbrace s_i = t_j\rbrace = n_+ n_- \cdot \text{AUC}$ : l'AUC est la statistique de Mann et Whitney, normalisée.
 
 **Grille.** Une bonne démonstration : (1) justifie la forme en escalier croissant (proportions d'ensembles qui grandissent) ; (2) découpe l'aire en rectangles sous les paliers horizontaux, un par négatif, et note que les pas verticaux n'ajoutent rien ; (3) identifie la hauteur comme une proportion de positifs de score plus grand ; (4) conclut par une double somme, une proportion de paires ; (5) traite les ex æquo par le rectangle coupé en deux ; (6) en déduit l'invariance par une fonction strictement croissante, et $1 - \text{AUC}$ pour une décroissante.
 
@@ -318,7 +318,7 @@ Pour la copie : le paquet haut est sur la diagonale ; le paquet bas annonce 25 %
 4. Une erreur (vraie classe $k$, prédite $l \ne k$) est à la fois un faux positif pour la classe prédite $l$ et un faux négatif pour la vraie classe $k$ : elle est comptée une fois de chaque côté.
 5. Diagonale $50 + 22 + 7 = 79$, $n = 100$ : 0,79 ; $\sum FP_k = (5 + 2) + (4 + 1) + (6 + 3) = 21 = 100 - 79$.
 6. En binaire avec `average="binary"`, on ne garde que la classe positive : precision $\frac{TP}{TP + FP}$ et recall $\frac{TP}{TP + FN}$ diffèrent dès que $FP \ne FN$, et aucun des deux n'est l'accuracy $\frac{TP + TN}{n}$, qui compte aussi les vrais négatifs. L'égalité de 3 venait de ce qu'on additionnait les comptages de **toutes** les classes, la négative comprise. En multi-label, un exemple peut avoir plusieurs vrais labels ou plusieurs prédictions : une erreur n'est plus forcément à la fois un FP et un FN, et $\sum_k (TP_k + FP_k)$ (le nombre de prédictions) n'est plus égal à $\sum_k (TP_k + FN_k)$ (le nombre de vrais labels) : l'étape 2 tombe.
-7. En binaire, le recall de la classe positive est le recall, et celui de la classe négative est $\frac{TN}{TN + FP}$, la spécificité : leur moyenne simple est $\frac{\text{recall} + \text{spécificité}}{2}$, la balanced accuracy. Exemple : $\begin{pmatrix} 90 & 0 \\ 10 & 0 \end{pmatrix}$ (vérité en lignes, 90 négatifs puis 10 positifs, tout prédit négatif) : accuracy 0,9, recall macro $\frac{1 + 0}{2} = 0{,}5$. Comme l'accuracy vaut $\pi \cdot \text{recall} + (1 - \pi) \cdot \text{spécificité}$ (probabilités totales), les deux sont égaux quand $\pi = \frac{1}{2}$ ou quand recall et spécificité sont égaux.
+7. En binaire, le recall de la classe positive est le recall, et celui de la classe négative est $\frac{TN}{TN + FP}$, la spécificité : leur moyenne simple est $\frac{\text{recall} + \text{spécificité}}{2}$, la balanced accuracy. Exemple : $\begin{pmatrix} 90 & 0 \cr 10 & 0 \end{pmatrix}$ (vérité en lignes, 90 négatifs puis 10 positifs, tout prédit négatif) : accuracy 0,9, recall macro $\frac{1 + 0}{2} = 0{,}5$. Comme l'accuracy vaut $\pi \cdot \text{recall} + (1 - \pi) \cdot \text{spécificité}$ (probabilités totales), les deux sont égaux quand $\pi = \frac{1}{2}$ ou quand recall et spécificité sont égaux.
 
 **Grille.** (1) la trace et l'accuracy ; (2) l'argument « chaque case hors diagonale est comptée une fois » pour FP et pour FN ; (3) la conclusion, avec le F1 ; (4) l'interprétation (une erreur, un FP et un FN) ; (5) la vérification numérique ; (6) pourquoi l'égalité tombe en binaire « classe positive seule » (ni entre elles, ni avec l'accuracy) et en multi-label (l'étape 2 tombe ; dire que la matrice $C$ à un seul couple (vérité, prédiction) par exemple n'existe plus est aussi juste) ; (7) le recall macro binaire égal à la balanced accuracy, un exemple chiffré, et le cas d'égalité avec l'accuracy.
 
@@ -363,10 +363,10 @@ Pour la copie : l'identité donne $\frac{60}{140} \times \frac{28}{48} \times 0{
 **Éléments de réponse.**
 1. Pour une variable discrète, la loi marginale de $\mathbf{x}$ est la somme de la loi jointe sur toutes les valeurs de $\mathbf{y}$ ; pour une variable continue, une intégrale. Le livre appelle ce passage la **marginalisation** (*marginalization property*) : on obtient une loi **marginale**.
 2. Le livre note que beaucoup des difficultés de calcul des modèles probabilistes viennent de la règle de la somme : avec beaucoup de variables, ou des variables à beaucoup d'états, il faut calculer une somme ou une intégrale en grande dimension, ce qui est coûteux (et souvent impossible exactement). Pour 30 variables binaires, la loi marginale d'une seule s'obtient en sommant sur les $2^{29} \approx 5{,}4 \times 10^8$ configurations des 29 autres.
-3. La loi jointe est le produit d'une loi conditionnelle et d'une loi marginale : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$. Les rôles de $\mathbf{x}$ et $\mathbf{y}$ sont symétriques dans la loi jointe, donc on peut aussi écrire $p(\mathbf{x} \mid \mathbf{y})\,p(\mathbf{y})$.
+3. La loi jointe est le produit d'une loi conditionnelle et d'une loi marginale : $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\thinspace p(\mathbf{x})$. Les rôles de $\mathbf{x}$ et $\mathbf{y}$ sont symétriques dans la loi jointe, donc on peut aussi écrire $p(\mathbf{x} \mid \mathbf{y})\thinspace p(\mathbf{y})$.
 4. $p$ désigne une probabilité (une **masse**, *probability mass function*) pour une variable discrète, et une **densité** (*probability density function*) pour une variable continue ; la même notation sert à une loi jointe, marginale ou conditionnelle. $p(x, y)$ est $P(X = x, Y = y)$ pour deux variables discrètes, et une densité jointe (qu'on intègre sur une région du plan) pour deux variables continues.
-5. $P(\text{premium}) = 0{,}06 + 0{,}10 = 0{,}16$ (somme sur les appareils) ; $P(\text{mobile} \cap \text{premium}) = P(\text{premium} \mid \text{mobile})\,P(\text{mobile}) = 0{,}1 \times 0{,}6 = 0{,}06$.
-6. Par exemple $p(x, y, z) = p(x)\,p(y \mid x)\,p(z \mid x, y)$ et $p(x, y, z) = p(z)\,p(x \mid z)\,p(y \mid x, z)$ (toute permutation convient).
+5. $P(\text{premium}) = 0{,}06 + 0{,}10 = 0{,}16$ (somme sur les appareils) ; $P(\text{mobile} \cap \text{premium}) = P(\text{premium} \mid \text{mobile})\thinspace P(\text{mobile}) = 0{,}1 \times 0{,}6 = 0{,}06$.
+6. Par exemple $p(x, y, z) = p(x)\thinspace p(y \mid x)\thinspace p(z \mid x, y)$ et $p(x, y, z) = p(z)\thinspace p(x \mid z)\thinspace p(y \mid x, z)$ (toute permutation convient).
 7. Par exemple : *marginalization* (marginalisation), *intractable* (impossible à calculer exactement en pratique), *factorized* (écrit comme un produit).
 
 ### Ex M03.17 — Un taux de réussite trompeur : le paradoxe de Simpson
@@ -385,7 +385,7 @@ Pour la copie : l'identité donne $\frac{60}{140} \times \frac{28}{48} \times 0{
 
 **Réponse modèle.**
 
-> Les deux phrases parlent de deux probabilités différentes. Les données disent $P(\text{usage rare} \mid \text{désabonné}) = 95\,\%$ ; ta conclusion porte sur $P(\text{désabonné} \mid \text{usage rare})$. Elles ont le même numérateur, les utilisateurs à la fois rares et désabonnés, mais pas le même dénominateur. Imagine 1 000 utilisateurs : 40 se désabonnent, dont 38 utilisaient l'appli rarement ; mais 600 utilisateurs l'ouvrent rarement. Alors 95 % des désabonnés étaient rares, et pourtant seuls $\frac{38}{600} \approx 6\,\%$ des utilisateurs rares se désabonnent. Pour calculer la bonne probabilité, il manque le nombre d'utilisateurs rares et le taux global de désabonnement. Ta promotion toucherait 600 personnes pour en retenir au mieux 38.
+> Les deux phrases parlent de deux probabilités différentes. Les données disent $P(\text{usage rare} \mid \text{désabonné}) = 95$ % ; ta conclusion porte sur $P(\text{désabonné} \mid \text{usage rare})$. Elles ont le même numérateur, les utilisateurs à la fois rares et désabonnés, mais pas le même dénominateur. Imagine 1 000 utilisateurs : 40 se désabonnent, dont 38 utilisaient l'appli rarement ; mais 600 utilisateurs l'ouvrent rarement. Alors 95 % des désabonnés étaient rares, et pourtant seuls $\frac{38}{600} \approx 6$ % des utilisateurs rares se désabonnent. Pour calculer la bonne probabilité, il manque le nombre d'utilisateurs rares et le taux global de désabonnement. Ta promotion toucherait 600 personnes pour en retenir au mieux 38.
 
 **Grille.** (1) les deux probabilités écrites avec « sachant » ; (2) un tableau chiffré cohérent où la seconde est petite ; (3) les informations manquantes (la part d'utilisateurs rares, le taux de désabonnement) ; (4) huit lignes au plus.
 
@@ -441,7 +441,7 @@ Pour la copie : l'identité donne $\frac{60}{140} \times \frac{28}{48} \times 0{
 
 **Réponses** : a) `1` · b) `1` · c) `2` · d) `1` · e) `2`.
 
-**Démarche.** L'AUC ne dépend que de l'ordre des scores dans chaque paire (fiche §7 et M03.12, question 6) : $10\,s$, $s^2$ (scores positifs) et le rang gardent l'ordre ; $1 - s$ l'inverse. Le score de Brier compare les valeurs à 0 et 1 : il change (0,1165 puis 0,1143 ici).
+**Démarche.** L'AUC ne dépend que de l'ordre des scores dans chaque paire (fiche §7 et M03.12, question 6) : $10\thinspace s$, $s^2$ (scores positifs) et le rang gardent l'ordre ; $1 - s$ l'inverse. Le score de Brier compare les valeurs à 0 et 1 : il change (0,1165 puis 0,1143 ici).
 
 ### Ex M03.24 — Simuler pour estimer une probabilité conditionnelle
 

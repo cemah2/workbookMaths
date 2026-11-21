@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §10 |
 | **Temps total estimé** | ≈ 18,7 h : lecture et calculs de la fiche ≈ 2 h 45, exercices ≈ 15 h 20, 20 flashcards ≈ 40 min (parcours essentiel ≈ 12,8 h) |
-| **Prérequis** | M02a (intégrales, changement de variable, fonction de répartition et quantile $F^{-1}(u) = \inf\{x : F(x) \ge u\}$) ; M02b (espérance d'une variable discrète, indépendance, loi normale et $\Phi$, simulation par inversion $F^{-1}(U)$) ; M02c (biais d'un estimateur, variance d'une moyenne, matrice de covariance) ; M04 (formule de Bayes ; le maximum de vraisemblance d'une loi de Bernoulli est la fréquence) ; M05a (approximation $\ln(1 + x) \approx x$) ; M05b (point selle d'une fonction de deux variables, descente et montée de gradient) ; M06 (divergence KL, inégalités de Jensen et de Gibbs, Jensen-Shannon) ; M08 (p-valeur d'un test) ; M10 (programmes linéaires) ; M12c (trace, matrices semblables, théorème spectral, racine carrée d'une matrice symétrique positive) ; M13a (log-loss, et ce qu'elle devient quand la probabilité prédite tend vers 0) ; M13b (lagrangien et dualité faible, MML §7.2 lu une première fois) ; M22 (valeurs propres complexes d'une matrice $2 \times 2$, module, rotations et homothéties) ; M25a (KL entre lois continues, infinie quand le support de $q$ ne couvre pas celui de $p$) |
+| **Prérequis** | M02a (intégrales, changement de variable, fonction de répartition et quantile $F^{-1}(u) = \inf\lbrace x : F(x) \ge u\rbrace$) ; M02b (espérance d'une variable discrète, indépendance, loi normale et $\Phi$, simulation par inversion $F^{-1}(U)$) ; M02c (biais d'un estimateur, variance d'une moyenne, matrice de covariance) ; M04 (formule de Bayes ; le maximum de vraisemblance d'une loi de Bernoulli est la fréquence) ; M05a (approximation $\ln(1 + x) \approx x$) ; M05b (point selle d'une fonction de deux variables, descente et montée de gradient) ; M06 (divergence KL, inégalités de Jensen et de Gibbs, Jensen-Shannon) ; M08 (p-valeur d'un test) ; M10 (programmes linéaires) ; M12c (trace, matrices semblables, théorème spectral, racine carrée d'une matrice symétrique positive) ; M13a (log-loss, et ce qu'elle devient quand la probabilité prédite tend vers 0) ; M13b (lagrangien et dualité faible, MML §7.2 lu une première fois) ; M22 (valeurs propres complexes d'une matrice $2 \times 2$, module, rotations et homothéties) ; M25a (KL entre lois continues, infinie quand le support de $q$ ne couvre pas celui de $p$) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `distances.py` : `pure_strategy_values`, `mixed_strategy_value_2x2`, `descent_ascent_iterates`, `w2_gaussians_1d` |
 | **MML** | §7.2 (*Constrained Optimization and Lagrange Multipliers*), relu ; §7.3.1 (*Linear Programming*) en option |
@@ -48,7 +48,7 @@ Le 📖 M27.17 te guide. En option, après le §2 : le **§7.3.1** (*Linear Prog
 📐 **Notations.**
 - **Jeux.** $\mathbf{G} = (g_{ij})$ (en gras), de forme $(m, n)$, est la matrice des gains : $g_{ij}$ est ce que gagne le joueur des lignes (qui maximise) et ce que paie le joueur des colonnes (qui minimise), comme dans `distances.py`. Les stratégies du texte sont numérotées à partir de 1, celles de `distances.py` à partir de 0. Une stratégie mixte est un vecteur de probabilités, $\mathbf{p}$ pour les lignes et $\mathbf{q}$ pour les colonnes ; dans un jeu $2 \times 2$, $p$ et $q$ (en italique) sont les probabilités de la première ligne et de la première colonne. MML (7.23) et `descent_ascent_iterates` (§4) appellent $\mathbf{x}$ le joueur qui **minimise**. $\eta > 0$ est un pas.
 - **Lois.** Au §5, $p_0$ et $p_1$ sont des densités (ou des lois discrètes), $\pi_0$ et $\pi_1$ des probabilités a priori, $t(x)$ une probabilité prédite. Aux §6 et §10, $p$ et $q$ sont des lois discrètes, et $m = \frac{p + q}{2}$. Logarithme népérien : JS, KL et PSI sont en **nats** (M06 calculait JS en bits : 1 bit $= \ln 2$ nat).
-- **Transport.** $\mu$ et $\nu$ sont deux lois, $a_i$ et $b_j$ leurs masses, $\boldsymbol{\Gamma} = (\gamma_{ij})$ un plan de transport. Dans $W_p$, $p \ge 1$ est un exposant ; $W_p$ est la distance et $W_p^p$ le coût minimal. $F$ et $G$ (en italique) sont des fonctions de répartition, $F(x) = P(X \le x)$ et $F^{-1}(u) = \inf\{x : F(x) \ge u\}$ (M02a) ; $\Phi$ est celle de $\mathcal{N}(0, 1)$. La fonction $G$ n'a rien à voir avec la matrice $\mathbf{G}$. La lettre $m$ sert à trois choses (le nombre de lignes de $\mathbf{G}$, le mélange du §6, le nombre de points d'une loi au §7), comme $\mu$ (une loi ou une moyenne au §8) et $\lambda$ (un multiplicateur au §1, comme dans MML, quand M13b écrivait $\mu$ ; une valeur propre au §9) : le contexte tranche.
+- **Transport.** $\mu$ et $\nu$ sont deux lois, $a_i$ et $b_j$ leurs masses, $\boldsymbol{\Gamma} = (\gamma_{ij})$ un plan de transport. Dans $W_p$, $p \ge 1$ est un exposant ; $W_p$ est la distance et $W_p^p$ le coût minimal. $F$ et $G$ (en italique) sont des fonctions de répartition, $F(x) = P(X \le x)$ et $F^{-1}(u) = \inf\lbrace x : F(x) \ge u\rbrace$ (M02a) ; $\Phi$ est celle de $\mathcal{N}(0, 1)$. La fonction $G$ n'a rien à voir avec la matrice $\mathbf{G}$. La lettre $m$ sert à trois choses (le nombre de lignes de $\mathbf{G}$, le mélange du §6, le nombre de points d'une loi au §7), comme $\mu$ (une loi ou une moyenne au §8) et $\lambda$ (un multiplicateur au §1, comme dans MML, quand M13b écrivait $\mu$ ; une valeur propre au §9) : le contexte tranche.
 - **Trois lettres à double sens.** $\mathbf{A}$ est la matrice du joueur des lignes d'un jeu bimatriciel au §3 et celle du jeu bilinéaire $f = \mathbf{x}^\top\mathbf{A}\mathbf{y}$ au §4 ; $\theta$ est un angle au §4 et un décalage aux §6 et §8 ; $\sigma$ est la sigmoïde au §5 et un écart-type ailleurs : le contexte les distingue.
 
 Vocabulaire anglais de ce chapitre : *zero-sum game*, *payoff matrix*, *pure strategy*, *maximin*, *minimax*, *saddle point*, *value of the game*, *strictly dominated strategy*, *minimax inequality*, *weak duality*, *mixed strategy*, *expected payoff*, *best response*, *principle of indifference*, *minimax theorem*, *general-sum game*, *bimatrix game*, *Nash equilibrium*, *prisoner's dilemma*, *coordination game*, *perfect information*, *game tree*, *backward induction*, *gradient descent-ascent*, *simultaneous / alternating updates*, *bilinear game*, *posterior probability*, *proper scoring rule*, *support*, *coupling*, *transport plan*, *independent coupling*, *optimal transport*, *Wasserstein distance*, *earth mover's distance*, *Kantorovich-Rubinstein duality*, *Lipschitz function*, *quantile function*, *exchange argument*, *north-west corner rule*, *Fréchet distance*, *commuting matrices*, *data drift*, *population stability index (PSI)*, *Jeffreys divergence*, *Kolmogorov-Smirnov statistic*.
@@ -70,15 +70,15 @@ Vocabulaire anglais de ce chapitre : *zero-sum game*, *payoff matrix*, *pure str
 ## L'essentiel en 10 lignes
 
 1. **Somme nulle** : la ligne maximise $g_{ij}$, la colonne le minimise. $\max_i\min_j g_{ij}$ (maximin) $\le \min_j\max_i g_{ij}$ (minimax), égalité si et seulement s'il y a un **point selle** (le plus petit de sa ligne, le plus grand de sa colonne) ; jouer en second ne nuit jamais ; la dualité faible est cette inégalité pour le lagrangien. Une stratégie strictement dominée se raye.
-2. **Mixtes** : gain espéré $\mathbf{p}^\top\mathbf{G}\mathbf{q}$. Sans point selle, $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ a pour solution $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, $\kappa = a - b - c + d$, et $E(p, q) = v + \kappa(p - p^\star)(q - q^\star)$. **Von Neumann** : $\max_{\mathbf{p}}\min_{\mathbf{q}}\mathbf{p}^\top\mathbf{G}\mathbf{q} = \min_{\mathbf{q}}\max_{\mathbf{p}}\mathbf{p}^\top\mathbf{G}\mathbf{q}$ ; un jeu fini est un programme linéaire.
+2. **Mixtes** : gain espéré $\mathbf{p}^\top\mathbf{G}\mathbf{q}$. Sans point selle, $\begin{pmatrix} a & b \cr c & d \end{pmatrix}$ a pour solution $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, $\kappa = a - b - c + d$, et $E(p, q) = v + \kappa(p - p^\star)(q - q^\star)$. **Von Neumann** : $\max_{\mathbf{p}}\min_{\mathbf{q}}\mathbf{p}^\top\mathbf{G}\mathbf{q} = \min_{\mathbf{q}}\max_{\mathbf{p}}\mathbf{p}^\top\mathbf{G}\mathbf{q}$ ; un jeu fini est un programme linéaire.
 3. **Nash** : chaque stratégie est une meilleure réponse à l'autre. Dilemme du prisonnier : un équilibre, moins bon pour tous qu'une autre issue ; coordination : deux équilibres purs et un mixte. **Arbre** : induction arrière, max aux nœuds du premier joueur, min à ceux du second.
-4. **Descente-montée** sur $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ : simultanée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2$ ne baisse jamais (sur $xy$, valeurs propres $1 \pm i\eta$ : une spirale qui s'éloigne) ; alternée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\,\mathbf{x}^\top\mathbf{A}\mathbf{y}$ est constant (sur $xy$, déterminant 1 : une ellipse si $\eta < 2$).
+4. **Descente-montée** sur $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ : simultanée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2$ ne baisse jamais (sur $xy$, valeurs propres $1 \pm i\eta$ : une spirale qui s'éloigne) ; alternée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y}$ est constant (sur $xy$, déterminant 1 : une ellipse si $\eta < 2$).
 5. **Log-loss** : $t^\star(x) = P(Y = 1 \mid X = x) = \frac{\pi_1p_1(x)}{\pi_1p_1(x) + \pi_0p_0(x)}$ minimise la log-loss espérée (∂ M27.12, par Gibbs) ; sans observation, la meilleure constante est la fréquence.
-6. **JS** $= \frac12\mathrm{KL}(p \,\|\, m) + \frac12\mathrm{KL}(q \,\|\, m) \in [0, \ln 2]$ (∂ M27.13), égale à $\ln 2$ pour des supports disjoints, quelle que soit leur distance : aucune pente. La KL y est infinie.
-7. **Transport** : un plan $\boldsymbol{\Gamma} \ge 0$ de marges $\mathbf{a}$ et $\mathbf{b}$ ; $W_p^p = \min\sum\gamma_{ij}\lvert x_i - y_j\rvert^p$, un programme linéaire ; $W_1 \le W_2$ ; $W_1 = \max\big(\mathbb{E}_\mu f - \mathbb{E}_\nu f\big)$ sur les $f$ 1-lipschitziennes.
-8. **Dimension 1** : $W_1 = \int\lvert F - G\rvert$, $W_p^p = \int_0^1\lvert F^{-1}(u) - G^{-1}(u)\rvert^p\,\mathrm{d}u$ ; trier puis apparier (∂ M27.14) ; $W_2^2\big(\mathcal{N}(\mu_1, \sigma_1^2), \mathcal{N}(\mu_2, \sigma_2^2)\big) = (\mu_1 - \mu_2)^2 + (\sigma_1 - \sigma_2)^2$ ; une translation de $\theta$ : $W_p = \lvert\theta\rvert$.
-9. **Fréchet** : $W_2^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \operatorname{tr}\boldsymbol{\Sigma}_1 + \operatorname{tr}\boldsymbol{\Sigma}_2 - 2\sum_i\sqrt{\lambda_i(\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2)}$ ; commutatif : $\lVert\Delta\boldsymbol{\mu}\rVert^2 + \sum_i(\sigma_{1,i} - \sigma_{2,i})^2$ ; invariante par une rotation commune. **Biais** : $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \frac{\operatorname{tr}\boldsymbol{\Sigma}_1}{n_1} + \frac{\operatorname{tr}\boldsymbol{\Sigma}_2}{n_2}$ (∂ M27.15).
-10. **Dérive** : $\mathrm{PSI} = \sum_k(p_k - q_k)\ln\frac{p_k}{q_k} = \mathrm{KL}(p \,\|\, q) + \mathrm{KL}(q \,\|\, p) \approx \sum_k\frac{(p_k - q_k)^2}{q_k}$ ; $\mathrm{KS} = \sup\lvert F - G\rvert$, sans unité ; $W_1 = \int\lvert F - G\rvert$, dans l'unité de la variable ; $W_1 \le (b - a)\,\mathrm{KS}$ sur $[a, b]$.
+6. **JS** $= \frac12\mathrm{KL}(p \thinspace\Vert\thinspace m) + \frac12\mathrm{KL}(q \thinspace\Vert\thinspace m) \in [0, \ln 2]$ (∂ M27.13), égale à $\ln 2$ pour des supports disjoints, quelle que soit leur distance : aucune pente. La KL y est infinie.
+7. **Transport** : un plan $\boldsymbol{\Gamma} \ge 0$ de marges $\mathbf{a}$ et $\mathbf{b}$ ; $W_p^p = \min\sum\gamma_{ij}\lvert x_i - y_j\rvert^p$, un programme linéaire ; $W_1 \le W_2$ ; $W_1 = \max\big(\mathbb{E} _\mu f - \mathbb{E} _\nu f\big)$ sur les $f$ 1-lipschitziennes.
+8. **Dimension 1** : $W_1 = \int\lvert F - G\rvert$, $W_p^p = \int_0^1\lvert F^{-1}(u) - G^{-1}(u)\rvert^p\thinspace\mathrm{d}u$ ; trier puis apparier (∂ M27.14) ; $W_2^2\big(\mathcal{N}(\mu_1, \sigma_1^2), \mathcal{N}(\mu_2, \sigma_2^2)\big) = (\mu_1 - \mu_2)^2 + (\sigma_1 - \sigma_2)^2$ ; une translation de $\theta$ : $W_p = \lvert\theta\rvert$.
+9. **Fréchet** : $W_2^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \operatorname{tr}\boldsymbol{\Sigma}_1 + \operatorname{tr}\boldsymbol{\Sigma}_2 - 2\sum_i\sqrt{\lambda_i(\boldsymbol{\Sigma} _1\boldsymbol{\Sigma} _2)}$ ; commutatif : $\lVert\Delta\boldsymbol{\mu}\rVert^2 + \sum_i(\sigma _{1,i} - \sigma _{2,i})^2$ ; invariante par une rotation commune. **Biais** : $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \frac{\operatorname{tr}\boldsymbol{\Sigma}_1}{n_1} + \frac{\operatorname{tr}\boldsymbol{\Sigma}_2}{n_2}$ (∂ M27.15).
+10. **Dérive** : $\mathrm{PSI} = \sum_k(p_k - q_k)\ln\frac{p_k}{q_k} = \mathrm{KL}(p \thinspace\Vert\thinspace q) + \mathrm{KL}(q \thinspace\Vert\thinspace p) \approx \sum_k\frac{(p_k - q_k)^2}{q_k}$ ; $\mathrm{KS} = \sup\lvert F - G\rvert$, sans unité ; $W_1 = \int\lvert F - G\rvert$, dans l'unité de la variable ; $W_1 \le (b - a)\thinspace\mathrm{KS}$ sur $[a, b]$.
 
 ## §1 · Jeux à somme nulle : matrice des gains, maximin et minimax, point selle, stratégies dominées
 
@@ -131,7 +131,7 @@ Un joueur raisonnable ne joue jamais une stratégie strictement dominée : on pe
 
 ### La dualité faible, un jeu
 
-Pour minimiser $f(\mathbf{x})$ sous $g(\mathbf{x}) \le 0$ (M13b), un joueur choisit $\mathbf{x}$, l'autre un multiplicateur $\lambda \ge 0$, et le premier paie au second $\mathcal{L}(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda\,g(\mathbf{x})$.
+Pour minimiser $f(\mathbf{x})$ sous $g(\mathbf{x}) \le 0$ (M13b), un joueur choisit $\mathbf{x}$, l'autre un multiplicateur $\lambda \ge 0$, et le premier paie au second $\mathcal{L}(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda\thinspace g(\mathbf{x})$.
 - Si $\mathbf{x}$ annonce d'abord, $\lambda$ répond : $\max_{\lambda \ge 0}\mathcal{L}(\mathbf{x}, \lambda)$ vaut $f(\mathbf{x})$ si $g(\mathbf{x}) \le 0$, et $+\infty$ sinon. Donc $\min_{\mathbf{x}}\max_\lambda\mathcal{L}$ est le minimum cherché, le problème **primal** (MML (7.25) et (7.26)).
 - Si $\lambda$ annonce d'abord, $\mathbf{x}$ répond par le minimum du lagrangien, la fonction duale $D(\lambda)$ : le joueur des multiplicateurs obtient $\max_\lambda D(\lambda)$, le problème **dual**.
 
@@ -146,14 +146,14 @@ L'inégalité minimax donne $\max_\lambda\min_{\mathbf{x}}\mathcal{L} \le \min_{
 Au volley, une attaque qui va toujours du même côté est vite lue. Elle tire donc son côté au hasard, avec des probabilités choisies, et le contre aussi.
 
 > **Définition.** Une **stratégie mixte** (*mixed strategy*) du joueur des lignes est un vecteur de probabilités $\mathbf{p} = (p_1, \ldots, p_m)$ ($p_i \ge 0$, $\sum_i p_i = 1$) : il joue la ligne $i$ avec la probabilité $p_i$. De même $\mathbf{q}$ pour les colonnes. Les deux tirages sont indépendants, et le **gain espéré** (*expected payoff*) du joueur des lignes vaut
-> $$E(\mathbf{p}, \mathbf{q}) = \sum_i\sum_j p_i\,q_j\,g_{ij} = \mathbf{p}^\top\mathbf{G}\,\mathbf{q}.$$
+> $$E(\mathbf{p}, \mathbf{q}) = \sum_i\sum_j p_i\thinspace q_j\thinspace g_{ij} = \mathbf{p}^\top\mathbf{G}\thinspace\mathbf{q}.$$
 
 Contre une stratégie $\mathbf{q}$ fixée, $(\mathbf{G}\mathbf{q})_i$ est le gain espéré de la ligne pure $i$, et $\mathbf{p}^\top(\mathbf{G}\mathbf{q})$ en est une moyenne : une **meilleure réponse** (*best response*) peut toujours être pure. De même, avec $\mathbf{p}$, le joueur des lignes s'assure $\min_j(\mathbf{p}^\top\mathbf{G})_j$, son plus petit gain espéré contre une colonne pure, et il cherche le $\mathbf{p}$ qui maximise ce minimum.
 
 ### L'indifférence, dans un jeu 2 × 2
 
-Écrivons $\mathbf{G} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, $p$ la probabilité de la première ligne et $q$ celle de la première colonne :
-$$E(p, q) = pq\,a + p(1 - q)\,b + (1 - p)q\,c + (1 - p)(1 - q)\,d .$$
+Écrivons $\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$, $p$ la probabilité de la première ligne et $q$ celle de la première colonne :
+$$E(p, q) = pq\thinspace a + p(1 - q)\thinspace b + (1 - p)q\thinspace c + (1 - p)(1 - q)\thinspace d .$$
 
 **Le principe d'indifférence** (*principle of indifference*). Le joueur des lignes choisit $p$ pour que l'adversaire n'ait **plus de préférence** : ses deux colonnes lui coûtent alors autant,
 $$pa + (1 - p)c = pb + (1 - p)d \quad\Longleftrightarrow\quad p^\star = \frac{d - c}{a - b - c + d} ;$$
@@ -161,23 +161,23 @@ de même, $q^\star$ rend les deux lignes équivalentes, $qa + (1 - q)b = qc + (1
 
 **Exemple : le volley.** $a = 40$, $b = 75$, $c = 60$, $d = 45$, donc $\kappa = a - b - c + d = -50$. L'attaque va à gauche avec la probabilité $p^\star = \frac{45 - 60}{-50} = 0{,}3$ ; alors chaque placement du contre lui laisse $0{,}3 \times 40 + 0{,}7 \times 60 = 0{,}3 \times 75 + 0{,}7 \times 45 = 54$ %. Le contre se place à gauche avec la probabilité $q^\star = \frac{45 - 75}{-50} = 0{,}6$ ; alors chaque côté d'attaque gagne $0{,}6 \times 40 + 0{,}4 \times 75 = 0{,}6 \times 60 + 0{,}4 \times 45 = 54$ %. Les deux garanties se rejoignent à 54 %, entre le maximin (45) et le minimax (60). L'attaquant de gauche, le meilleur quand il n'est pas contré (75 contre 60), reçoit pourtant le moins de ballons : le contre le surveille plus souvent.
 
-> **Théorème** (jeu $2 \times 2$ sans point selle). Si $\mathbf{G} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ n'a pas de point selle, alors $\kappa = a - b - c + d \ne 0$, $p^\star$ et $q^\star$ sont strictement entre 0 et 1, et
-> $$E(p, q) = v + \kappa\,(p - p^\star)(q - q^\star), \qquad v = \frac{ad - bc}{\kappa}.$$
+> **Théorème** (jeu $2 \times 2$ sans point selle). Si $\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$ n'a pas de point selle, alors $\kappa = a - b - c + d \ne 0$, $p^\star$ et $q^\star$ sont strictement entre 0 et 1, et
+> $$E(p, q) = v + \kappa\thinspace(p - p^\star)(q - q^\star), \qquad v = \frac{ad - bc}{\kappa}.$$
 > Donc $p^\star$ garantit au joueur des lignes le gain espéré $v$ contre toute stratégie de l'autre, et $q^\star$ garantit au joueur des colonnes de ne pas payer plus de $v$ : ces stratégies sont **optimales**, et $v$ est la **valeur** du jeu.
 
 *Démonstration.* (i) **Les inégalités tournent.** Si $a \ge c$, alors $a$ est le plus grand de sa colonne ; ce n'est pas un point selle, donc $a$ n'est pas le plus petit de sa ligne : $a > b$. Alors $b$ est le plus petit de sa ligne, donc pas le plus grand de sa colonne : $b < d$. Alors $d$ est le plus grand de sa colonne, donc pas le plus petit de sa ligne : $d > c$. Enfin $c$, le plus petit de sa ligne, n'est pas le plus grand de sa colonne : $c < a$. La diagonale $(a, d)$ est donc au-dessus de l'autre : $a - b$, $d - c$, $a - c$ et $d - b$ sont positifs, $\kappa = (a - b) + (d - c) > 0$, et $p^\star = \frac{d - c}{(a - b) + (d - c)}$, $q^\star = \frac{d - b}{(a - c) + (d - b)}$ sont dans $]0, 1[$. Si $a < c$, le même tour, parti de $c$, donne $b, c > a, d$ (le volley) : tous ces écarts changent de signe, $\kappa < 0$, et les deux fractions restent dans $]0, 1[$.
 (ii) **L'identité.** En développant, $E(p, q) = d + (b - d)p + (c - d)q + \kappa pq$, et $v + \kappa(p - p^\star)(q - q^\star) = v + \kappa pq - (d - b)p - (d - c)q + \frac{(d - c)(d - b)}{\kappa}$. Les termes en $p$, en $q$ et en $pq$ coïncident, et $v + \frac{(d - c)(d - b)}{\kappa} = \frac{ad - bc + d^2 - bd - cd + bc}{\kappa} = \frac{d\kappa}{\kappa} = d$.
 (iii) **La conclusion.** $E(p^\star, q) = v$ pour tout $q$ et $E(p, q^\star) = v$ pour tout $p$. Donc $\max_p\min_q E \ge \min_q E(p^\star, q) = v$ et $\min_q\max_p E \le \max_p E(p, q^\star) = v$. L'inégalité minimax du §1 vaut aussi pour les stratégies mixtes (même preuve) : $\max_p\min_q E \le \min_q\max_p E$. Tout est égal à $v$. $\square$
 
-Pour le volley, $E(p, q) = 54 - 50\,(p - 0{,}3)(q - 0{,}6)$ (en %) : une selle de M05b, centrée en $(0{,}3 ;\ 0{,}6)$. La figure montre ce que chaque joueur peut garantir.
+Pour le volley, $E(p, q) = 54 - 50\thinspace(p - 0{,}3)(q - 0{,}6)$ (en %) : une selle de M05b, centrée en $(0{,}3 ;\ 0{,}6)$. La figure montre ce que chaque joueur peut garantir.
 
 ![À gauche, le gain espéré de l'attaque du volley en fonction de p, la probabilité d'attaquer à gauche : deux droites, contre le contre à gauche (60 − 20p) et contre le contre à droite (45 + 30p) ; leur minimum, en trait épais, est maximal en p* = 0,3, où il vaut 54. À droite, ce que paie le contre en fonction de q : deux droites (75 − 35q et 45 + 15q) ; leur maximum est minimal en q* = 0,6, où il vaut 54. Les niveaux 45 (maximin) et 60 (minimax) sont tracés en pointillés](figures/gain_mixte.png)
 
 > **Théorème minimax de von Neumann** (1928 ; *minimax theorem*, admis). Pour toute matrice $\mathbf{G}$,
-> $$\max_{\mathbf{p}}\,\min_{\mathbf{q}}\,\mathbf{p}^\top\mathbf{G}\,\mathbf{q} = \min_{\mathbf{q}}\,\max_{\mathbf{p}}\,\mathbf{p}^\top\mathbf{G}\,\mathbf{q} = v .$$
+> $$\max_{\mathbf{p}}\thinspace\min_{\mathbf{q}}\thinspace\mathbf{p}^\top\mathbf{G}\thinspace\mathbf{q} = \min_{\mathbf{q}}\thinspace\max_{\mathbf{p}}\thinspace\mathbf{p}^\top\mathbf{G}\thinspace\mathbf{q} = v .$$
 > Il existe des stratégies mixtes optimales $\mathbf{p}^\star$ et $\mathbf{q}^\star$ : $\mathbf{p}^\star$ garantit au moins $v$, $\mathbf{q}^\star$ au plus $v$, et maximin $\le v \le$ minimax (en stratégies pures).
 
-Les min et max intérieurs se prennent sur les stratégies pures : $\max_{\mathbf{p}}\min_j(\mathbf{p}^\top\mathbf{G})_j = \min_{\mathbf{q}}\max_i(\mathbf{G}\mathbf{q})_i$. Une stratégie strictement dominée a une probabilité nulle dans toute stratégie optimale : on peut la rayer avant de calculer.
+Les min et max intérieurs se prennent sur les stratégies pures : $\max_{\mathbf{p}}\min_j(\mathbf{p}^\top\mathbf{G}) _j = \min _{\mathbf{q}}\max_i(\mathbf{G}\mathbf{q})_i$. Une stratégie strictement dominée a une probabilité nulle dans toute stratégie optimale : on peut la rayer avant de calculer.
 
 > **Un jeu fini est un programme linéaire** (énoncé). Le joueur des lignes résout
 > $$\text{maximiser } v \quad\text{sous}\quad (\mathbf{p}^\top\mathbf{G})_j \ge v \text{ pour toute colonne } j, \qquad p_i \ge 0, \qquad \textstyle\sum_i p_i = 1,$$
@@ -196,7 +196,7 @@ Les min et max intérieurs se prennent sur les stratégies pures : $\max_{\mathb
 Dans un jeu à **somme non nulle** (*general-sum game*), chaque joueur a sa matrice : $\mathbf{A}$ pour celui des lignes, $\mathbf{B}$ pour celui des colonnes (un **jeu bimatriciel**, *bimatrix game*), et chaque case porte les deux gains $(a_{ij}, b_{ij})$. Chacun maximise le sien ; la somme nulle est le cas $\mathbf{B} = -\mathbf{A}$.
 
 > **Définition.** Un couple de stratégies, pures ou mixtes, $(\mathbf{p}^\star, \mathbf{q}^\star)$ est un **équilibre de Nash** (*Nash equilibrium*) si chacune est une meilleure réponse à l'autre : contre $\mathbf{q}^\star$, le joueur des lignes ne trouve rien de mieux que $\mathbf{p}^\star$, et contre $\mathbf{p}^\star$, le joueur des colonnes rien de mieux que $\mathbf{q}^\star$ :
-> $$\mathbf{p}^\top\mathbf{A}\,\mathbf{q}^\star \le \mathbf{p}^{\star\top}\mathbf{A}\,\mathbf{q}^\star \text{ pour tout } \mathbf{p}, \qquad \mathbf{p}^{\star\top}\mathbf{B}\,\mathbf{q} \le \mathbf{p}^{\star\top}\mathbf{B}\,\mathbf{q}^\star \text{ pour tout } \mathbf{q}.$$
+> $$\mathbf{p}^\top\mathbf{A}\thinspace\mathbf{q}^\star \le \mathbf{p}^{\star\top}\mathbf{A}\thinspace\mathbf{q}^\star \text{ pour tout } \mathbf{p}, \qquad \mathbf{p}^{\star\top}\mathbf{B}\thinspace\mathbf{q} \le \mathbf{p}^{\star\top}\mathbf{B}\thinspace\mathbf{q}^\star \text{ pour tout } \mathbf{q}.$$
 
 Comme au §2, il suffit de comparer aux stratégies pures. Nash a démontré en 1950 que tout jeu fini a au moins un équilibre, éventuellement mixte (admis). Dans un jeu à somme nulle, les équilibres de Nash sont exactement les couples de stratégies optimales du §2 ; en stratégies pures, ce sont les points selles.
 
@@ -235,34 +235,34 @@ Aux échecs, on joue chacun son tour en voyant tout : un jeu à **information pa
 ### Deux descentes qui se répondent
 
 Quand les stratégies sont des vecteurs de nombres réels, chaque joueur avance par un pas de gradient. Soit $f(\mathbf{x}, \mathbf{y})$, que le joueur $\mathbf{x}$ veut petite et le joueur $\mathbf{y}$ grande. Un équilibre est un couple $(\mathbf{x}^\star, \mathbf{y}^\star)$ tel que $f(\mathbf{x}^\star, \mathbf{y}) \le f(\mathbf{x}^\star, \mathbf{y}^\star) \le f(\mathbf{x}, \mathbf{y}^\star)$ pour tous $\mathbf{x}$ et $\mathbf{y}$ : un minimum en $\mathbf{x}$ quand $\mathbf{y} = \mathbf{y}^\star$, un maximum en $\mathbf{y}$ quand $\mathbf{x} = \mathbf{x}^\star$, comme la case selle du §1. C'est un point selle au sens des jeux ; un point selle de M05b n'en est pas toujours un : $(0, 0)$ est un point selle de $-x^2 + y^2$, mais un maximum en $x$. La **descente-montée de gradient** (*gradient descent-ascent*), de pas $\eta > 0$, se joue de deux façons :
-- **simultanée** (*simultaneous updates*) : $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla_{\mathbf{x}}f(\mathbf{x}_k, \mathbf{y}_k)$ et $\mathbf{y}_{k+1} = \mathbf{y}_k + \eta\,\nabla_{\mathbf{y}}f(\mathbf{x}_k, \mathbf{y}_k)$, tous deux calculés depuis l'ancien couple ;
-- **alternée** (*alternating updates*) : $\mathbf{x}_{k+1}$ comme ci-dessus, puis $\mathbf{y}_{k+1} = \mathbf{y}_k + \eta\,\nabla_{\mathbf{y}}f(\mathbf{x}_{k+1}, \mathbf{y}_k)$, qui voit déjà le nouveau $\mathbf{x}$.
+- **simultanée** (*simultaneous updates*) : $\mathbf{x}_{k+1} = \mathbf{x} _k - \eta\thinspace\nabla _{\mathbf{x}}f(\mathbf{x}_k, \mathbf{y} _k)$ et $\mathbf{y} _{k+1} = \mathbf{y} _k + \eta\thinspace\nabla _{\mathbf{y}}f(\mathbf{x}_k, \mathbf{y}_k)$, tous deux calculés depuis l'ancien couple ;
+- **alternée** (*alternating updates*) : $\mathbf{x} _{k+1}$ comme ci-dessus, puis $\mathbf{y} _{k+1} = \mathbf{y} _k + \eta\thinspace\nabla  _{\mathbf{y}}f(\mathbf{x} _{k+1}, \mathbf{y}_k)$, qui voit déjà le nouveau $\mathbf{x}$.
 
-Le cas le plus simple est le **jeu bilinéaire** (*bilinear game*) $f(\mathbf{x}, \mathbf{y}) = \mathbf{x}^\top\mathbf{A}\,\mathbf{y}$ : $\nabla_{\mathbf{x}}f = \mathbf{A}\mathbf{y}$, $\nabla_{\mathbf{y}}f = \mathbf{A}^\top\mathbf{x}$, et $(\mathbf{0}, \mathbf{0})$ est un équilibre. Il n'est pas artificiel : autour de ses stratégies optimales, un jeu $2 \times 2$ en est un, puisque $E(p, q) - v = \kappa\,(p - p^\star)(q - q^\star)$ (§2).
+Le cas le plus simple est le **jeu bilinéaire** (*bilinear game*) $f(\mathbf{x}, \mathbf{y}) = \mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$ : $\nabla_{\mathbf{x}}f = \mathbf{A}\mathbf{y}$, $\nabla_{\mathbf{y}}f = \mathbf{A}^\top\mathbf{x}$, et $(\mathbf{0}, \mathbf{0})$ est un équilibre. Il n'est pas artificiel : autour de ses stratégies optimales, un jeu $2 \times 2$ en est un, puisque $E(p, q) - v = \kappa\thinspace(p - p^\star)(q - q^\star)$ (§2).
 
 ### Le pas simultané s'éloigne
 
-> **Propriété.** Pour le pas simultané sur $\mathbf{x}^\top\mathbf{A}\,\mathbf{y}$,
-> $$\lVert\mathbf{x}_{k+1}\rVert^2 + \lVert\mathbf{y}_{k+1}\rVert^2 = \lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2 + \eta^2\big(\lVert\mathbf{A}\mathbf{y}_k\rVert^2 + \lVert\mathbf{A}^\top\mathbf{x}_k\rVert^2\big) :$$
+> **Propriété.** Pour le pas simultané sur $\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$,
+> $$\lVert\mathbf{x} _{k+1}\rVert^2 + \lVert\mathbf{y} _{k+1}\rVert^2 = \lVert\mathbf{x}_k\rVert^2 + \lVert\mathbf{y}_k\rVert^2 + \eta^2\big(\lVert\mathbf{A}\mathbf{y}_k\rVert^2 + \lVert\mathbf{A}^\top\mathbf{x}_k\rVert^2\big) :$$
 > la distance à l'équilibre ne diminue jamais.
 
-*Démonstration.* $\lVert\mathbf{x} - \eta\mathbf{A}\mathbf{y}\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\,\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\lVert\mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\,\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}\rVert^2$ ; les termes croisés s'annulent, car $\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} = \mathbf{x}^\top\mathbf{A}\mathbf{y}$. $\square$
+*Démonstration.* $\lVert\mathbf{x} - \eta\mathbf{A}\mathbf{y}\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\lVert\mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\thinspace\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}\rVert^2$ ; les termes croisés s'annulent, car $\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} = \mathbf{x}^\top\mathbf{A}\mathbf{y}$. $\square$
 
 Sur $f(x, y) = xy$, un pas multiplie le vecteur $(x, y)$ par
-$$\mathbf{M}_s = \begin{pmatrix} 1 & -\eta \\ \eta & 1 \end{pmatrix} = \sqrt{1 + \eta^2}\;\mathbf{R}_\theta, \qquad \theta = \arctan\eta ,$$
+$$\mathbf{M} _s = \begin{pmatrix} 1 & -\eta \cr \eta & 1 \end{pmatrix} = \sqrt{1 + \eta^2}\mkern5mu \mathbf{R} _\theta, \qquad \theta = \arctan\eta ,$$
 où $\theta$ est l'angle de $]0, \frac\pi2[$ tel que $\cos\theta = \frac{1}{\sqrt{1 + \eta^2}}$ et $\sin\theta = \frac{\eta}{\sqrt{1 + \eta^2}}$. $\mathbf{M}_s$ est la multiplication par le complexe $1 + i\eta$ de M22 : une rotation et un agrandissement de rapport $\sqrt{1 + \eta^2}$. Ses valeurs propres $1 \pm i\eta$ ont pour module $\sqrt{1 + \eta^2} > 1$ : les itérés tournent autour de l'équilibre en s'en éloignant, une **spirale**. Pour $\eta = 0{,}2$, la distance à l'équilibre gagne un facteur $\sqrt{1{,}04} \approx 1{,}02$ par pas, et double en 35 pas environ ($1{,}04^{17{,}5} \approx 1{,}99$).
 
 ### Le pas alterné tourne en rond
 
-Avec le pas alterné sur $xy$ : $x_{k+1} = x_k - \eta y_k$, puis $y_{k+1} = y_k + \eta x_{k+1} = \eta x_k + (1 - \eta^2)\,y_k$, soit
-$$\mathbf{M}_a = \begin{pmatrix} 1 & -\eta \\ \eta & 1 - \eta^2 \end{pmatrix}, \qquad \det\mathbf{M}_a = 1, \qquad \operatorname{tr}\mathbf{M}_a = 2 - \eta^2 .$$
+Avec le pas alterné sur $xy$ : $x_{k+1} = x_k - \eta y_k$, puis $y_{k+1} = y_k + \eta x_{k+1} = \eta x_k + (1 - \eta^2)\thinspace y_k$, soit
+$$\mathbf{M}_a = \begin{pmatrix} 1 & -\eta \cr \eta & 1 - \eta^2 \end{pmatrix}, \qquad \det\mathbf{M}_a = 1, \qquad \operatorname{tr}\mathbf{M}_a = 2 - \eta^2 .$$
 Pour $0 < \eta < 2$, le discriminant $(2 - \eta^2)^2 - 4 = \eta^2(\eta^2 - 4)$ est négatif : deux valeurs propres complexes conjuguées de produit 1, donc de module 1 (M22). Les itérés ne s'éloignent pas et ne se rapprochent pas : voici la courbe fermée qu'ils parcourent.
 
-> **Propriété.** Pour le pas alterné sur $\mathbf{x}^\top\mathbf{A}\,\mathbf{y}$, la quantité
-> $$Q(\mathbf{x}, \mathbf{y}) = \lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\,\mathbf{x}^\top\mathbf{A}\,\mathbf{y}$$
+> **Propriété.** Pour le pas alterné sur $\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$, la quantité
+> $$Q(\mathbf{x}, \mathbf{y}) = \lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\thinspace\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$$
 > garde la même valeur à chaque itération. Sur $xy$, les itérés restent sur l'ellipse $x^2 + y^2 - \eta xy = $ constante (une ellipse dès que $\eta < 2$).
 
-*Démonstration.* Notons $\mathbf{x}' = \mathbf{x} - \eta\mathbf{A}\mathbf{y}$ et $\mathbf{y}' = \mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}'$. On développe $\lVert\mathbf{y}'\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\,\mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ et $\mathbf{x}'^\top\mathbf{A}\mathbf{y}' = \mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ : il reste $Q(\mathbf{x}', \mathbf{y}') = \lVert\mathbf{x}'\rVert^2 + \lVert\mathbf{y}\rVert^2 + \eta\,\mathbf{x}'^\top\mathbf{A}\mathbf{y}$. On remplace $\mathbf{x}'$ : $\lVert\mathbf{x}'\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\,\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\eta\,\mathbf{x}'^\top\mathbf{A}\mathbf{y} = \eta\,\mathbf{x}^\top\mathbf{A}\mathbf{y} - \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ ; la somme donne $Q(\mathbf{x}, \mathbf{y})$. $\square$
+*Démonstration.* Notons $\mathbf{x}' = \mathbf{x} - \eta\mathbf{A}\mathbf{y}$ et $\mathbf{y}' = \mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}'$. On développe $\lVert\mathbf{y}'\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ et $\mathbf{x}'^\top\mathbf{A}\mathbf{y}' = \mathbf{x}'^\top\mathbf{A}\mathbf{y} + \eta\lVert\mathbf{A}^\top\mathbf{x}'\rVert^2$ : il reste $Q(\mathbf{x}', \mathbf{y}') = \lVert\mathbf{x}'\rVert^2 + \lVert\mathbf{y}\rVert^2 + \eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y}$. On remplace $\mathbf{x}'$ : $\lVert\mathbf{x}'\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\eta\thinspace\mathbf{x}'^\top\mathbf{A}\mathbf{y} = \eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} - \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ ; la somme donne $Q(\mathbf{x}, \mathbf{y})$. $\square$
 
 Comme $\lvert\mathbf{x}^\top\mathbf{A}\mathbf{y}\rvert \le \lVert\mathbf{A}\rVert_2\lVert\mathbf{x}\rVert\lVert\mathbf{y}\rVert \le \frac{\lVert\mathbf{A}\rVert_2}{2}\big(\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2\big)$ (M22), $Q$ est définie positive dès que $\eta\lVert\mathbf{A}\rVert_2 < 2$, et les itérés restent bornés. Mais ils ne convergent pas : ils tournent autour de l'équilibre.
 
@@ -280,23 +280,23 @@ La figure fait jouer l'attaque et le contre du volley sur leurs probabilités, a
 
 ### Rappel : la meilleure constante
 
-La log-loss d'une probabilité prédite $t \in\ ]0, 1[$ pour un label $y \in \{0, 1\}$ vaut $\ell(t, y) = -\big[y\ln t + (1 - y)\ln(1 - t)\big]$ (M06, M13a) ; elle tend vers $+\infty$ quand la probabilité prédite pour la classe observée tend vers 0. Sur $n$ observations dont $k$ valent 1, la constante qui minimise la log-loss moyenne est la fréquence $t = \frac{k}{n}$ : c'est le maximum de vraisemblance $k\ln t + (n - k)\ln(1 - t)$ d'une loi de Bernoulli (∂ M04.12, ✏️ M13a.1). Le 🔁 M27.R1 te le fait refaire.
+La log-loss d'une probabilité prédite $t \in\ ]0, 1[$ pour un label $y \in \lbrace0, 1\rbrace$ vaut $\ell(t, y) = -\big[y\ln t + (1 - y)\ln(1 - t)\big]$ (M06, M13a) ; elle tend vers $+\infty$ quand la probabilité prédite pour la classe observée tend vers 0. Sur $n$ observations dont $k$ valent 1, la constante qui minimise la log-loss moyenne est la fréquence $t = \frac{k}{n}$ : c'est le maximum de vraisemblance $k\ln t + (n - k)\ln(1 - t)$ d'une loi de Bernoulli (∂ M04.12, ✏️ M13a.1). Le 🔁 M27.R1 te le fait refaire.
 
 ### Avec une observation : la probabilité a posteriori
 
 Le label $Y$ vaut 1 avec la probabilité a priori $\pi_1$, et 0 avec $\pi_0 = 1 - \pi_1$ ; sachant $Y = k$, l'observation $X$ suit la loi $p_k$ (une densité ou une loi discrète). Un prédicteur est une fonction $t(x) \in\ ]0, 1[$, et sa **log-loss espérée** est $R(t) = \mathbb{E}\big[\ell(t(X), Y)\big]$, la moyenne sur le couple $(X, Y)$.
 
 > **Théorème** (∂ M27.12). La log-loss espérée est minimale pour la **probabilité a posteriori** (*posterior probability*)
-> $$t^\star(x) = P(Y = 1 \mid X = x) = \frac{\pi_1\,p_1(x)}{\pi_1\,p_1(x) + \pi_0\,p_0(x)}$$
+> $$t^\star(x) = P(Y = 1 \mid X = x) = \frac{\pi_1\thinspace p_1(x)}{\pi_1\thinspace p_1(x) + \pi_0\thinspace p_0(x)}$$
 > (la formule de Bayes, M04) : $R(t) \ge R(t^\star)$ pour tout prédicteur $t$.
 
 L'idée : l'écart $R(t) - R(t^\star)$ s'écrit comme une moyenne, sur $X$, de divergences KL entre deux lois de Bernoulli, de paramètres $t^\star(X)$ et $t(X)$ ; l'inégalité de Gibbs (M06) les rend positives. Le ∂ M27.12 rédige la preuve, sans aucune dérivée. On dit que la log-loss est une **règle de score propre** (*proper scoring rule*) : pour la minimiser, il faut annoncer la vraie probabilité, ni plus sûre ni moins sûre.
 
 **Exemple : deux variétés de pommes.** Un verger récolte deux variétés : A, 90 % des pommes, et B, 10 %. La masse d'une pomme A suit $\mathcal{N}(150, 10^2)$, celle d'une pomme B $\mathcal{N}(170, 10^2)$, en grammes ; $Y = 1$ pour B. Le rapport des densités vaut
-$$\frac{p_A(x)}{p_B(x)} = \exp\Big(\frac{(x - 170)^2 - (x - 150)^2}{2 \times 100}\Big) = \exp\Big(-\frac{x - 160}{5}\Big), \qquad\text{d'où}\qquad t^\star(x) = \frac{1}{1 + 9\,e^{-(x - 160)/5}} ,$$
+$$\frac{p_A(x)}{p_B(x)} = \exp\Big(\frac{(x - 170)^2 - (x - 150)^2}{2 \times 100}\Big) = \exp\Big(-\frac{x - 160}{5}\Big), \qquad\text{d'où}\qquad t^\star(x) = \frac{1}{1 + 9\thinspace e^{-(x - 160)/5}} ,$$
 le 9 venant de $\pi_A/\pi_B = 0{,}9/0{,}1$. Une pomme de 155 g est une B avec la probabilité $t^\star(155) = \frac{1}{1 + 9e} \approx 0{,}039$ ; une de 180 g avec $\frac{1}{1 + 9e^{-4}} \approx 0{,}858$. Une pomme de 170 g, la masse moyenne des B, n'est pourtant une B qu'avec la probabilité $\frac{1}{1 + 9e^{-2}} \approx 0{,}451$ : les B sont neuf fois moins nombreuses.
 
-Ici, $t^\star(x) = \sigma\big(0{,}2\,x - 32 - \ln 9\big)$, la sigmoïde d'une fonction affine de $x$ : avec deux gaussiennes de même écart-type, les carrés se simplifient, et la probabilité a posteriori est un modèle de régression logistique (M13a).
+Ici, $t^\star(x) = \sigma\big(0{,}2\thinspace x - 32 - \ln 9\big)$, la sigmoïde d'une fonction affine de $x$ : avec deux gaussiennes de même écart-type, les carrés se simplifient, et la probabilité a posteriori est un modèle de régression logistique (M13a).
 
 💻 **Aujourd'hui en pratique** — on ne connaît ni les $\pi_k$ ni les $p_k$ : un classifieur entraîné à minimiser la log-loss moyenne sur des données approche $t^\star(x)$, et c'est pourquoi ses sorties peuvent se lire comme des probabilités, à condition de vérifier qu'il est bien **calibré** (*calibrated*).
 
@@ -309,7 +309,7 @@ Ici, $t^\star(x) = \sigma\big(0{,}2\,x - 32 - \ln 9\big)$, la sigmoïde d'une fo
 ### Une divergence bornée
 
 Rappel de M06 : pour deux lois $p$ et $q$ et leur mélange $m = \frac{p + q}{2}$,
-$$\mathrm{JS}(p, q) = \tfrac12\,\mathrm{KL}(p \,\|\, m) + \tfrac12\,\mathrm{KL}(q \,\|\, m),$$
+$$\mathrm{JS}(p, q) = \tfrac12\thinspace\mathrm{KL}(p \thinspace\Vert\thinspace m) + \tfrac12\thinspace\mathrm{KL}(q \thinspace\Vert\thinspace m),$$
 symétrique, toujours finie, nulle seulement si $p = q$. M06 la calculait en bits ; ici, en nats, avec $\ln$. Le **support** (*support*) d'une loi est l'ensemble des issues de probabilité (ou de densité) positive.
 
 > **Propriétés** (∂ M27.13). $0 \le \mathrm{JS}(p, q) \le \ln 2$, et $\mathrm{JS}(p, q) = \ln 2$ si et seulement si $p$ et $q$ ont des supports disjoints (pour des densités : disjoints à un ensemble de longueur nulle près ; deux intervalles qui se touchent en un point ne se recouvrent pas).
@@ -317,12 +317,12 @@ symétrique, toujours finie, nulle seulement si $p = q$. M06 la calculait en bit
 L'idée : M06 a montré que $m \ge \frac{p}{2}$ ; le ∂ M27.13 en tire la borne et étudie le cas d'égalité. En bits, la borne vaut 1 bit.
 
 **Exemple : deux sites.** Un capteur rend un niveau 0, 1 ou 2. Sur un premier site, $p = (0{,}6 ;\ 0{,}4 ;\ 0)$ ; sur un second, $q = (0 ;\ 0{,}2 ;\ 0{,}8)$. Alors $m = (0{,}3 ;\ 0{,}3 ;\ 0{,}4)$,
-$$\mathrm{KL}(p \,\|\, m) = 0{,}6\ln 2 + 0{,}4\ln\tfrac43 \approx 0{,}5310, \qquad \mathrm{KL}(q \,\|\, m) = 0{,}2\ln\tfrac23 + 0{,}8\ln 2 \approx 0{,}4734,$$
+$$\mathrm{KL}(p \thinspace\Vert\thinspace m) = 0{,}6\ln 2 + 0{,}4\ln\tfrac43 \approx 0{,}5310, \qquad \mathrm{KL}(q \thinspace\Vert\thinspace m) = 0{,}2\ln\tfrac23 + 0{,}8\ln 2 \approx 0{,}4734,$$
 et $\mathrm{JS}(p, q) \approx 0{,}5022$ nat ($\approx 0{,}7245$ bit), sous $\ln 2 \approx 0{,}6931$. Les deux KL directes, elles, sont infinies : $p$ met de la masse en 0, où $q$ n'en met pas, et $q$ en 2, où $p$ n'en met pas (M06, M25a).
 
 ### Aveugle quand les supports se séparent
 
-Prenons deux lois ponctuelles : $\delta_0$ (toute la masse en 0) et $\delta_\theta$ (toute la masse en $\theta$). Pour $\theta \ne 0$, leurs supports sont disjoints : $m$ met $\frac12$ en 0 et $\frac12$ en $\theta$, donc $\mathrm{KL}(\delta_0 \,\|\, m) = \ln\frac{1}{1/2} = \ln 2$, de même pour $\delta_\theta$, et $\mathrm{JS}(\delta_0, \delta_\theta) = \ln 2$, que $\theta$ vaille 0,001 ou 1 000. Vue comme une fonction de $\theta$, JS est constante sur $]0, +\infty[$ : sa **pente est nulle**, et qui ajuste $\theta$ en suivant cette pente ne reçoit aucune information sur la direction à prendre. Les KL valent $+\infty$, sans plus d'information. Pourtant, transporter $\delta_0$ sur $\delta_\theta$ coûte $\lvert\theta\rvert$ : c'est la distance de Wasserstein $W_1$ du §7, qui croît avec l'écart et garde une pente de 1.
+Prenons deux lois ponctuelles : $\delta_0$ (toute la masse en 0) et $\delta_\theta$ (toute la masse en $\theta$). Pour $\theta \ne 0$, leurs supports sont disjoints : $m$ met $\frac12$ en 0 et $\frac12$ en $\theta$, donc $\mathrm{KL}(\delta_0 \thinspace\Vert\thinspace m) = \ln\frac{1}{1/2} = \ln 2$, de même pour $\delta_\theta$, et $\mathrm{JS}(\delta_0, \delta_\theta) = \ln 2$, que $\theta$ vaille 0,001 ou 1 000. Vue comme une fonction de $\theta$, JS est constante sur $]0, +\infty[$ : sa **pente est nulle**, et qui ajuste $\theta$ en suivant cette pente ne reçoit aucune information sur la direction à prendre. Les KL valent $+\infty$, sans plus d'information. Pourtant, transporter $\delta_0$ sur $\delta_\theta$ coûte $\lvert\theta\rvert$ : c'est la distance de Wasserstein $W_1$ du §7, qui croît avec l'écart et garde une pente de 1.
 
 Le même phénomène apparaît sans supports disjoints : pour $\mathcal{N}(0, 1)$ et $\mathcal{N}(\theta, 1)$, les supports se recouvrent toujours, mais JS s'approche de $\ln 2$ et s'aplatit dès que $\theta$ dépasse quelques écarts-types.
 
@@ -336,18 +336,18 @@ Le même phénomène apparaît sans supports disjoints : pour $\mathcal{N}(0, 1)
 
 ### Le problème de Monge
 
-En 1781, Gaspard Monge cherche comment déplacer des **déblais** pour combler des **remblais** avec le moins de travail. Sur une route droite, des tas de terre (les déblais) sont aux kilomètres 0, 2 et 3, avec 50 %, 30 % et 20 % de la terre ; deux trous à combler sont aux kilomètres 1 et 4, et en prennent 60 % et 40 %. Déplacer une masse $w$ sur une distance $d$ coûte $w\,d$.
+En 1781, Gaspard Monge cherche comment déplacer des **déblais** pour combler des **remblais** avec le moins de travail. Sur une route droite, des tas de terre (les déblais) sont aux kilomètres 0, 2 et 3, avec 50 %, 30 % et 20 % de la terre ; deux trous à combler sont aux kilomètres 1 et 4, et en prennent 60 % et 40 %. Déplacer une masse $w$ sur une distance $d$ coûte $w\thinspace d$.
 
 > **Définition.** Soit $\mu$ une loi sur les points $x_1, \ldots, x_m$, de masses $a_i$, et $\nu$ une loi sur $y_1, \ldots, y_n$, de masses $b_j$. Un **couplage** (*coupling*), ou **plan de transport** (*transport plan*), est une matrice $\boldsymbol{\Gamma} = (\gamma_{ij}) \ge 0$ de forme $(m, n)$ dont les marges sont $\mathbf{a}$ et $\mathbf{b}$ :
 > $$\sum_j\gamma_{ij} = a_i \ \text{(chaque départ est vidé)}, \qquad \sum_i\gamma_{ij} = b_j \ \text{(chaque arrivée est remplie)} .$$
-> $\gamma_{ij}$ est la masse envoyée de $x_i$ à $y_j$, et $\Pi(\mathbf{a}, \mathbf{b})$ l'ensemble des plans. Pour un coût $c(x, y)$, le coût du plan est $\sum_{i,j}\gamma_{ij}\,c(x_i, y_j)$.
+> $\gamma_{ij}$ est la masse envoyée de $x_i$ à $y_j$, et $\Pi(\mathbf{a}, \mathbf{b})$ l'ensemble des plans. Pour un coût $c(x, y)$, le coût du plan est $\sum_{i,j}\gamma_{ij}\thinspace c(x_i, y_j)$.
 
 Un couplage est aussi une loi jointe : $\gamma_{ij} = P(X = x_i, Y = y_j)$, avec $X$ de loi $\mu$ et $Y$ de loi $\nu$, et son coût vaut $\mathbb{E}[c(X, Y)]$. Le **couplage indépendant** (*independent coupling*), $\gamma_{ij} = a_i b_j$, soit $\boldsymbol{\Gamma} = \mathbf{a}\mathbf{b}^\top$, est toujours admissible.
 
 **Exemple.** Le couplage indépendant envoie chaque tas vers chaque trou en proportion :
-$$\boldsymbol{\Gamma}_{\text{ind}} = \begin{pmatrix} 0{,}3 & 0{,}2 \\ 0{,}18 & 0{,}12 \\ 0{,}12 & 0{,}08 \end{pmatrix}, \quad\text{de coût}\quad 0{,}3 \times 1 + 0{,}2 \times 4 + 0{,}18 \times 1 + 0{,}12 \times 2 + 0{,}12 \times 2 + 0{,}08 \times 1 = 1{,}84$$
+$$\boldsymbol{\Gamma}_{\text{ind}} = \begin{pmatrix} 0{,}3 & 0{,}2 \cr 0{,}18 & 0{,}12 \cr 0{,}12 & 0{,}08 \end{pmatrix}, \quad\text{de coût}\quad 0{,}3 \times 1 + 0{,}2 \times 4 + 0{,}18 \times 1 + 0{,}12 \times 2 + 0{,}12 \times 2 + 0{,}08 \times 1 = 1{,}84$$
 avec $c(x, y) = \lvert x - y\rvert$. Mieux : combler le trou du km 1 avec le tas du km 0 et un peu de celui du km 2, et le trou du km 4 avec le reste,
-$$\boldsymbol{\Gamma}^\star = \begin{pmatrix} 0{,}5 & 0 \\ 0{,}1 & 0{,}2 \\ 0 & 0{,}2 \end{pmatrix}, \quad\text{de coût}\quad 0{,}5 \times 1 + 0{,}1 \times 1 + 0{,}2 \times 2 + 0{,}2 \times 1 = 1{,}2 .$$
+$$\boldsymbol{\Gamma}^\star = \begin{pmatrix} 0{,}5 & 0 \cr 0{,}1 & 0{,}2 \cr 0 & 0{,}2 \end{pmatrix}, \quad\text{de coût}\quad 0{,}5 \times 1 + 0{,}1 \times 1 + 0{,}2 \times 2 + 0{,}2 \times 1 = 1{,}2 .$$
 Le §8 montrera qu'on ne fait pas mieux.
 
 ![À gauche, la route de 0 à 4 km : trois tas de terre (0,5 au km 0, 0,3 au km 2, 0,2 au km 3) au-dessus de l'axe, deux trous (0,6 au km 1, 0,4 au km 4) en dessous, et les flèches du plan optimal Γ*, d'épaisseur proportionnelle à la masse : 0,5 de 0 vers 1, 0,1 de 2 vers 1, 0,2 de 2 vers 4, 0,2 de 3 vers 4 ; aucune flèche ne croise une autre. À droite, les deux plans en matrices colorées, l'indépendant (coût 1,84) et Γ* (coût 1,2)](figures/plan_transport.png)
@@ -355,7 +355,7 @@ Le §8 montrera qu'on ne fait pas mieux.
 ### Les distances de Wasserstein
 
 > **Définition.** Pour $p \ge 1$, la **distance de Wasserstein** (*Wasserstein distance*) d'ordre $p$ est
-> $$W_p(\mu, \nu) = \Big(\min_{\boldsymbol{\Gamma} \in \Pi(\mathbf{a}, \mathbf{b})}\ \sum_{i,j}\gamma_{ij}\,\lvert x_i - y_j\rvert^p\Big)^{1/p} = \Big(\min\ \mathbb{E}\lvert X - Y\rvert^p\Big)^{1/p},$$
+> $$W_p(\mu, \nu) = \Big(\min_{\boldsymbol{\Gamma} \in \Pi(\mathbf{a}, \mathbf{b})}\ \sum_{i,j}\gamma_{ij}\thinspace\lvert x_i - y_j\rvert^p\Big)^{1/p} = \Big(\min\ \mathbb{E}\lvert X - Y\rvert^p\Big)^{1/p},$$
 > le second minimum portant sur les couplages de $\mu$ et $\nu$ ; $W_p^p$ est le **coût minimal**.
 
 Elle se définit de même dans $\mathbb{R}^d$, avec $\lVert x - y\rVert$, et pour des lois continues, dont les couplages sont les lois jointes de marges $\mu$ et $\nu$. C'est une distance sur les lois de moment d'ordre $p$ fini (admis) : positive, symétrique, nulle seulement si $\mu = \nu$, avec l'inégalité triangulaire. $W_1$ s'appelle aussi *earth mover's distance*, la distance du terrassier. Pour la terre, $W_1 = 1{,}2$ km (les masses ont pour somme 1) ; avec le coût $(x - y)^2$, $\boldsymbol{\Gamma}^\star$ coûte $0{,}5 + 0{,}1 + 0{,}2 \times 4 + 0{,}2 = 1{,}6$, et le §8 montrera qu'il est encore optimal : $W_2 = \sqrt{1{,}6} \approx 1{,}26$ km.
@@ -368,9 +368,9 @@ Elle se définit de même dans $\mathbb{R}^d$, avec $\lVert x - y\rVert$, et pou
 
 Pour la terre : $1{,}2 \le \sqrt{1{,}6}$.
 
-> **Dualité de Kantorovich-Rubinstein** (*Kantorovich-Rubinstein duality*, énoncée). $W_1(\mu, \nu) = \max_f\big(\mathbb{E}_\mu[f(X)] - \mathbb{E}_\nu[f(Y)]\big)$, le maximum portant sur les fonctions **1-lipschitziennes** (*1-Lipschitz*) : $\lvert f(x) - f(y)\rvert \le \lvert x - y\rvert$ pour tous $x, y$.
+> **Dualité de Kantorovich-Rubinstein** (*Kantorovich-Rubinstein duality*, énoncée). $W_1(\mu, \nu) = \max_f\big(\mathbb{E} _\mu[f(X)] - \mathbb{E} _\nu[f(Y)]\big)$, le maximum portant sur les fonctions **1-lipschitziennes** (*1-Lipschitz*) : $\lvert f(x) - f(y)\rvert \le \lvert x - y\rvert$ pour tous $x, y$.
 
-Une inégalité est immédiate : pour tout couplage, $\mathbb{E}f(X) - \mathbb{E}f(Y) = \mathbb{E}[f(X) - f(Y)] \le \mathbb{E}\lvert X - Y\rvert$, et l'on prend le couplage optimal. Chaque $f$ donne donc une minoration de $W_1$ ; l'égalité, admise, dit que la meilleure l'atteint. Pour la terre, $f(x) = -x$ donne $\mathbb{E}_\nu[Y] - \mathbb{E}_\mu[X] = 2{,}2 - 1{,}2 = 1 \le W_1 = 1{,}2$ : le déplacement moyen n'est qu'une minoration.
+Une inégalité est immédiate : pour tout couplage, $\mathbb{E}f(X) - \mathbb{E}f(Y) = \mathbb{E}[f(X) - f(Y)] \le \mathbb{E}\lvert X - Y\rvert$, et l'on prend le couplage optimal. Chaque $f$ donne donc une minoration de $W_1$ ; l'égalité, admise, dit que la meilleure l'atteint. Pour la terre, $f(x) = -x$ donne $\mathbb{E} _\nu[Y] - \mathbb{E} _\mu[X] = 2{,}2 - 1{,}2 = 1 \le W_1 = 1{,}2$ : le déplacement moyen n'est qu'une minoration.
 
 ⚠️ **Erreur classique.** Oublier une marge : un plan doit vider chaque départ **et** remplir chaque arrivée. Confondre $W_2$ et $W_2^2$. Prendre $\lvert\mathbb{E}X - \mathbb{E}Y\rvert$ pour $W_1$ : ce n'est qu'une minoration.
 
@@ -383,8 +383,8 @@ Une inégalité est immédiate : pour tout couplage, $\mathbb{E}f(X) - \mathbb{E
 Sur la droite, pas besoin de programme linéaire : il suffit de ranger les deux lois dans l'ordre.
 
 > **Théorème** (admis en général). Soit $\mu$ et $\nu$ deux lois sur $\mathbb{R}$, de fonctions de répartition $F$ et $G$, et $U$ de loi $\mathcal{U}([0 ; 1])$. Le couple $\big(F^{-1}(U), G^{-1}(U)\big)$ est un couplage de $\mu$ et $\nu$ (M02b : $F^{-1}(U)$ suit $\mu$), et il est optimal pour tout $p \ge 1$ :
-> $$W_p^p(\mu, \nu) = \int_0^1\big\lvert F^{-1}(u) - G^{-1}(u)\big\rvert^p\,\mathrm{d}u .$$
-> Pour $p = 1$, c'est aussi l'aire entre les deux fonctions de répartition : $W_1(\mu, \nu) = \displaystyle\int_{-\infty}^{+\infty}\lvert F(x) - G(x)\rvert\,\mathrm{d}x$.
+> $$W_p^p(\mu, \nu) = \int_0^1\big\lvert F^{-1}(u) - G^{-1}(u)\big\rvert^p\thinspace\mathrm{d}u .$$
+> Pour $p = 1$, c'est aussi l'aire entre les deux fonctions de répartition : $W_1(\mu, \nu) = \displaystyle\int_{-\infty}^{+\infty}\lvert F(x) - G(x)\rvert\thinspace\mathrm{d}x$.
 
 Le **couplage des quantiles** (*quantile coupling*, ou *monotone coupling*) envoie le premier centile de $\mu$ sur le premier de $\nu$, le deuxième sur le deuxième, etc. : deux trajets ne se croisent jamais. Les deux formules de $W_1$ mesurent la même aire, vue entre $F^{-1}$ et $G^{-1}$ ou entre $F$ et $G$ (la symétrie par rapport à la diagonale échange les axes).
 
@@ -400,11 +400,11 @@ le coût de $\boldsymbol{\Gamma}^\star$. Ce plan est le couplage des quantiles :
 
 ### Deux gaussiennes, une translation
 
-Pour $\mathcal{N}(\mu, \sigma^2)$, la **fonction quantile** (*quantile function*) est $F^{-1}(u) = \mu + \sigma\,\Phi^{-1}(u)$ (M02b). Avec $Z = \Phi^{-1}(U)$, de loi $\mathcal{N}(0, 1)$ :
-$$W_2^2 = \int_0^1\big(\mu_1 - \mu_2 + (\sigma_1 - \sigma_2)\Phi^{-1}(u)\big)^2\mathrm{d}u = (\mu_1 - \mu_2)^2 + 2(\mu_1 - \mu_2)(\sigma_1 - \sigma_2)\,\mathbb{E}[Z] + (\sigma_1 - \sigma_2)^2\,\mathbb{E}[Z^2],$$
+Pour $\mathcal{N}(\mu, \sigma^2)$, la **fonction quantile** (*quantile function*) est $F^{-1}(u) = \mu + \sigma\thinspace\Phi^{-1}(u)$ (M02b). Avec $Z = \Phi^{-1}(U)$, de loi $\mathcal{N}(0, 1)$ :
+$$W_2^2 = \int_0^1\big(\mu_1 - \mu_2 + (\sigma_1 - \sigma_2)\Phi^{-1}(u)\big)^2\mathrm{d}u = (\mu_1 - \mu_2)^2 + 2(\mu_1 - \mu_2)(\sigma_1 - \sigma_2)\thinspace\mathbb{E}[Z] + (\sigma_1 - \sigma_2)^2\thinspace\mathbb{E}[Z^2],$$
 et $\mathbb{E}[Z] = 0$, $\mathbb{E}[Z^2] = 1$. D'où :
 
-> $$W_2\big(\mathcal{N}(\mu_1, \sigma_1^2), \mathcal{N}(\mu_2, \sigma_2^2)\big) = \sqrt{(\mu_1 - \mu_2)^2 + (\sigma_1 - \sigma_2)^2}\,,$$
+> $$W_2\big(\mathcal{N}(\mu_1, \sigma_1^2), \mathcal{N}(\mu_2, \sigma_2^2)\big) = \sqrt{(\mu_1 - \mu_2)^2 + (\sigma_1 - \sigma_2)^2}\thinspace,$$
 > la distance euclidienne entre les points $(\mu_1, \sigma_1)$ et $(\mu_2, \sigma_2)$ du plan (moyenne, écart-type).
 
 **Exemple.** Le temps de trajet suit $\mathcal{N}(31, 4^2)$ par un itinéraire et $\mathcal{N}(36 ;\ 2{,}5^2)$ par l'autre, en minutes : $W_2 = \sqrt{5^2 + 1{,}5^2} = \sqrt{27{,}25} \approx 5{,}22$ minutes.
@@ -422,27 +422,27 @@ et $\mathbb{E}[Z] = 0$, $\mathbb{E}[Z^2] = 1$. D'où :
 ### La formule
 
 > **Théorème** (admis en général). Pour deux gaussiennes $\mathcal{N}(\boldsymbol{\mu}_1, \boldsymbol{\Sigma}_1)$ et $\mathcal{N}(\boldsymbol{\mu}_2, \boldsymbol{\Sigma}_2)$ de $\mathbb{R}^d$,
-> $$W_2^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \operatorname{tr}\Big(\boldsymbol{\Sigma}_1 + \boldsymbol{\Sigma}_2 - 2\,\big(\boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}\big)^{1/2}\Big).$$
+> $$W_2^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \operatorname{tr}\Big(\boldsymbol{\Sigma}_1 + \boldsymbol{\Sigma}_2 - 2\thinspace\big(\boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}\big)^{1/2}\Big).$$
 
 La distance $W_2$ entre deux gaussiennes s'appelle aussi leur **distance de Fréchet** (*Fréchet distance*) ; la formule en donne le carré, et en dimension 1, c'est le carré de la formule du §8. On l'écrit souvent avec $\operatorname{tr}\big((\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2)^{1/2}\big)$ : les deux traces sont égales, et voici pourquoi.
 
 > **Propriété.** Si $\boldsymbol{\Sigma}_1$ est définie positive, $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2$ est semblable à la matrice symétrique semi-définie positive $\mathbf{S} = \boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}$. Ses valeurs propres $\lambda_i$ sont donc réelles et positives, et $\operatorname{tr}(\mathbf{S}^{1/2}) = \sum_i\sqrt{\lambda_i(\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2)}$.
 
-*Démonstration.* $\boldsymbol{\Sigma}_1^{1/2}$ est inversible (M12c) et $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \boldsymbol{\Sigma}_1^{1/2}\big(\boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}\big)\boldsymbol{\Sigma}_1^{-1/2} = \boldsymbol{\Sigma}_1^{1/2}\,\mathbf{S}\,\boldsymbol{\Sigma}_1^{-1/2}$ : les deux matrices sont semblables, donc ont les mêmes valeurs propres (M12c). $\mathbf{S}$ est symétrique et $\mathbf{x}^\top\mathbf{S}\mathbf{x} = (\boldsymbol{\Sigma}_1^{1/2}\mathbf{x})^\top\boldsymbol{\Sigma}_2(\boldsymbol{\Sigma}_1^{1/2}\mathbf{x}) \ge 0$ : ses valeurs propres sont positives, et $\mathbf{S}^{1/2}$ a pour valeurs propres leurs racines (M12c), dont la somme est sa trace. $\square$
+*Démonstration.* $\boldsymbol{\Sigma}_1^{1/2}$ est inversible (M12c) et $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \boldsymbol{\Sigma}_1^{1/2}\big(\boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}\big)\boldsymbol{\Sigma}_1^{-1/2} = \boldsymbol{\Sigma}_1^{1/2}\thinspace\mathbf{S}\thinspace\boldsymbol{\Sigma}_1^{-1/2}$ : les deux matrices sont semblables, donc ont les mêmes valeurs propres (M12c). $\mathbf{S}$ est symétrique et $\mathbf{x}^\top\mathbf{S}\mathbf{x} = (\boldsymbol{\Sigma}_1^{1/2}\mathbf{x})^\top\boldsymbol{\Sigma}_2(\boldsymbol{\Sigma}_1^{1/2}\mathbf{x}) \ge 0$ : ses valeurs propres sont positives, et $\mathbf{S}^{1/2}$ a pour valeurs propres leurs racines (M12c), dont la somme est sa trace. $\square$
 
-**Exemple.** $\boldsymbol{\Sigma}_1 = \operatorname{diag}(3, 2)$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 5 & 1 \\ 1 & 5 \end{pmatrix}$ ne commutent pas. $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \begin{pmatrix} 15 & 3 \\ 2 & 10 \end{pmatrix}$, non symétrique, a pour trace 25 et pour déterminant 144 ; ses valeurs propres, $\frac{25 \pm 7}{2}$, soit 16 et 9, sont bien réelles et positives, et $\sum_i\sqrt{\lambda_i} = 4 + 3 = 7$. Avec des moyennes égales, $W_2^2 = 5 + 10 - 2 \times 7 = 1$.
+**Exemple.** $\boldsymbol{\Sigma}_1 = \operatorname{diag}(3, 2)$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 5 & 1 \cr 1 & 5 \end{pmatrix}$ ne commutent pas. $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \begin{pmatrix} 15 & 3 \cr 2 & 10 \end{pmatrix}$, non symétrique, a pour trace 25 et pour déterminant 144 ; ses valeurs propres, $\frac{25 \pm 7}{2}$, soit 16 et 9, sont bien réelles et positives, et $\sum_i\sqrt{\lambda_i} = 4 + 3 = 7$. Avec des moyennes égales, $W_2^2 = 5 + 10 - 2 \times 7 = 1$.
 
 ### Le cas commutatif
 
-Supposons $\boldsymbol{\Sigma}_1$ et $\boldsymbol{\Sigma}_2$ diagonales dans une même base orthonormée $\mathbf{u}_1, \ldots, \mathbf{u}_d$ (elles commutent alors : des **matrices qui commutent**, *commuting matrices*) : $\boldsymbol{\Sigma}_k\mathbf{u}_i = \sigma_{k,i}^2\,\mathbf{u}_i$.
+Supposons $\boldsymbol{\Sigma}_1$ et $\boldsymbol{\Sigma}_2$ diagonales dans une même base orthonormée $\mathbf{u}_1, \ldots, \mathbf{u}_d$ (elles commutent alors : des **matrices qui commutent**, *commuting matrices*) : $\boldsymbol{\Sigma}_k\mathbf{u} _i = \sigma _{k,i}^2\thinspace\mathbf{u}_i$.
 
-> **Propriété** (cas commutatif). $W_2^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2 + \sum_i(\sigma_{1,i} - \sigma_{2,i})^2$ : la somme des $W_2^2$ en dimension 1 le long des axes communs.
+> **Propriété** (cas commutatif). $W_2^2 = \lVert\boldsymbol{\mu} _1 - \boldsymbol{\mu} _2\rVert^2 + \sum_i(\sigma _{1,i} - \sigma _{2,i})^2$ : la somme des $W_2^2$ en dimension 1 le long des axes communs.
 
-*Démonstration.* Écrivons les coordonnées dans la base $(\mathbf{u}_i)$ : $X'_i = \mathbf{u}_i^\top\mathbf{x}$ pour $\mathbf{x}$ de loi $\mathcal{N}(\boldsymbol{\mu}_1, \boldsymbol{\Sigma}_1)$, et de même $Y'_i = \mathbf{u}_i^\top\mathbf{y}$. Les $X'_i$ sont des gaussiennes indépendantes $\mathcal{N}(\mathbf{u}_i^\top\boldsymbol{\mu}_1, \sigma_{1,i}^2)$ (M25a), et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = \sum_i(X'_i - Y'_i)^2$. **Minoration** : pour tout couplage, $\mathbb{E}\big[(X'_i - Y'_i)^2\big]$ est au moins le $W_2^2$ en dimension 1 de ces deux gaussiennes, $\big(\mathbf{u}_i^\top(\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2)\big)^2 + (\sigma_{1,i} - \sigma_{2,i})^2$ (§8) ; on somme, et Pythagore dans la base $(\mathbf{u}_i)$ donne $\sum_i\big(\mathbf{u}_i^\top(\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2)\big)^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2$. **Égalité** : avec un même $\mathbf{z}$ de loi $\mathcal{N}(\mathbf{0}, \mathbf{I})$, $X'_i = \mathbf{u}_i^\top\boldsymbol{\mu}_1 + \sigma_{1,i}z_i$ et $Y'_i = \mathbf{u}_i^\top\boldsymbol{\mu}_2 + \sigma_{2,i}z_i$ forment un couplage qui atteint la somme. $\square$
+*Démonstration.* Écrivons les coordonnées dans la base $(\mathbf{u}_i)$ : $X'_i = \mathbf{u}_i^\top\mathbf{x}$ pour $\mathbf{x}$ de loi $\mathcal{N}(\boldsymbol{\mu}_1, \boldsymbol{\Sigma}_1)$, et de même $Y'_i = \mathbf{u}_i^\top\mathbf{y}$. Les $X'_i$ sont des gaussiennes indépendantes $\mathcal{N}(\mathbf{u}_i^\top\boldsymbol{\mu} _1, \sigma _{1,i}^2)$ (M25a), et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = \sum_i(X'_i - Y'_i)^2$. **Minoration** : pour tout couplage, $\mathbb{E}\big[(X'_i - Y'_i)^2\big]$ est au moins le $W_2^2$ en dimension 1 de ces deux gaussiennes, $\big(\mathbf{u}_i^\top(\boldsymbol{\mu} _1 - \boldsymbol{\mu} _2)\big)^2 + (\sigma _{1,i} - \sigma _{2,i})^2$ (§8) ; on somme, et Pythagore dans la base $(\mathbf{u}_i)$ donne $\sum_i\big(\mathbf{u}_i^\top(\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2)\big)^2 = \lVert\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2\rVert^2$. **Égalité** : avec un même $\mathbf{z}$ de loi $\mathcal{N}(\mathbf{0}, \mathbf{I})$, $X'_i = \mathbf{u}_i^\top\boldsymbol{\mu} _1 + \sigma _{1,i}z_i$ et $Y'_i = \mathbf{u}_i^\top\boldsymbol{\mu} _2 + \sigma _{2,i}z_i$ forment un couplage qui atteint la somme. $\square$
 
 > **Invariance par une rotation commune.** Pour une matrice orthogonale $\mathbf{R}$ et un vecteur $\mathbf{c}$, les lois de $\mathbf{R}X + \mathbf{c}$ et de $\mathbf{R}Y + \mathbf{c}$ sont à la même distance $W_2$ que celles de $X$ et de $Y$ : $\lVert(\mathbf{R}\mathbf{x} + \mathbf{c}) - (\mathbf{R}\mathbf{y} + \mathbf{c})\rVert = \lVert\mathbf{x} - \mathbf{y}\rVert$, et chaque couplage de l'un donne un couplage de l'autre, de même coût. Pour des gaussiennes, $\mathcal{N}(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$ devient $\mathcal{N}(\mathbf{R}\boldsymbol{\mu}_k + \mathbf{c}, \mathbf{R}\boldsymbol{\Sigma}_k\mathbf{R}^\top)$.
 
-**Exemple.** $\boldsymbol{\Sigma}_1 = \begin{pmatrix} 13 & 12 \\ 12 & 13 \end{pmatrix}$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 12{,}5 & -3{,}5 \\ -3{,}5 & 12{,}5 \end{pmatrix}$ ont les mêmes vecteurs propres $\mathbf{u}_1 = \frac{1}{\sqrt2}(1, 1)$ et $\mathbf{u}_2 = \frac{1}{\sqrt2}(1, -1)$ : $\boldsymbol{\Sigma}_1\mathbf{u}_1 = 25\,\mathbf{u}_1$, $\boldsymbol{\Sigma}_1\mathbf{u}_2 = \mathbf{u}_2$, $\boldsymbol{\Sigma}_2\mathbf{u}_1 = 9\,\mathbf{u}_1$, $\boldsymbol{\Sigma}_2\mathbf{u}_2 = 16\,\mathbf{u}_2$. Les écarts-types sont 5 et 1 d'un côté, 3 et 4 de l'autre : les covariances apportent $(5 - 3)^2 + (1 - 4)^2 = 13$. Avec les moyennes $(0, 0)$ et $(3, 3)$, décalées le long de $\mathbf{u}_1$, $W_2^2 = 18 + 13 = 31$ et $W_2 \approx 5{,}57$. Ce sont deux gaussiennes à covariances diagonales, $\operatorname{diag}(25, 1)$ et $\operatorname{diag}(9, 16)$, tournées ensemble de 45°.
+**Exemple.** $\boldsymbol{\Sigma}_1 = \begin{pmatrix} 13 & 12 \cr 12 & 13 \end{pmatrix}$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 12{,}5 & -3{,}5 \cr -3{,}5 & 12{,}5 \end{pmatrix}$ ont les mêmes vecteurs propres $\mathbf{u}_1 = \frac{1}{\sqrt2}(1, 1)$ et $\mathbf{u}_2 = \frac{1}{\sqrt2}(1, -1)$ : $\boldsymbol{\Sigma}_1\mathbf{u}_1 = 25\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_1\mathbf{u}_2 = \mathbf{u}_2$, $\boldsymbol{\Sigma}_2\mathbf{u}_1 = 9\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_2\mathbf{u}_2 = 16\thinspace\mathbf{u}_2$. Les écarts-types sont 5 et 1 d'un côté, 3 et 4 de l'autre : les covariances apportent $(5 - 3)^2 + (1 - 4)^2 = 13$. Avec les moyennes $(0, 0)$ et $(3, 3)$, décalées le long de $\mathbf{u}_1$, $W_2^2 = 18 + 13 = 31$ et $W_2 \approx 5{,}57$. Ce sont deux gaussiennes à covariances diagonales, $\operatorname{diag}(25, 1)$ et $\operatorname{diag}(9, 16)$, tournées ensemble de 45°.
 
 ![Deux paires d'ellipses à 2 écarts-types. À gauche, l'exemple non commutatif : diag(3, 2), alignée sur les axes, et la matrice [[5, 1], [1, 5]], aux axes inclinés à 45° ; W₂² = 1 à moyennes égales. À droite, l'exemple commutatif : les deux ellipses ont les mêmes axes, inclinés à 45° (écarts-types 5 et 1, puis 3 et 4), et des centres (0, 0) et (3, 3) ; W₂² = 18 + 13 = 31](figures/frechet_ellipses.png)
 
@@ -454,7 +454,7 @@ On ne connaît pas $\boldsymbol{\mu}_1$ et $\boldsymbol{\mu}_2$ : on les estime 
 
 L'idée : $\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2$ a pour moyenne $\boldsymbol{\mu}_1 - \boldsymbol{\mu}_2$ et pour covariance $\frac{\boldsymbol{\Sigma}_1}{n_1} + \frac{\boldsymbol{\Sigma}_2}{n_2}$ (M02c) ; il reste à relier $\mathbb{E}\lVert\mathbf{v}\rVert^2$ à la moyenne et à la covariance d'un vecteur aléatoire $\mathbf{v}$, ce que fait le ∂ M27.15.
 
-La distance estimée est donc **biaisée vers le haut** : entre deux échantillons d'une **même** loi, elle vaut en moyenne $\operatorname{tr}\boldsymbol{\Sigma}\,\big(\frac{1}{n_1} + \frac{1}{n_2}\big) > 0$. **Exemple.** Un anémomètre mesure le vent $(u, v)$ en m/s, avec des écarts-types 2 et 1,5 : $\operatorname{tr}\boldsymbol{\Sigma} = 6{,}25$ (m/s)². Pour deux échantillons de 25 relevés d'un même vent, $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2 = 6{,}25 \times \big(\frac{1}{25} + \frac{1}{25}\big) = 0{,}5$ (m/s)² ; pour 25 relevés contre 125, $0{,}25 + 0{,}05 = 0{,}3$. Le biais dépend des tailles : deux distances estimées ne se comparent qu'**à tailles égales**, ou après en avoir retiré une estimation du biais.
+La distance estimée est donc **biaisée vers le haut** : entre deux échantillons d'une **même** loi, elle vaut en moyenne $\operatorname{tr}\boldsymbol{\Sigma}\thinspace\big(\frac{1}{n_1} + \frac{1}{n_2}\big) > 0$. **Exemple.** Un anémomètre mesure le vent $(u, v)$ en m/s, avec des écarts-types 2 et 1,5 : $\operatorname{tr}\boldsymbol{\Sigma} = 6{,}25$ (m/s)². Pour deux échantillons de 25 relevés d'un même vent, $\mathbb{E}\lVert\bar{\mathbf{x}}_1 - \bar{\mathbf{x}}_2\rVert^2 = 6{,}25 \times \big(\frac{1}{25} + \frac{1}{25}\big) = 0{,}5$ (m/s)² ; pour 25 relevés contre 125, $0{,}25 + 0{,}05 = 0{,}3$. Le biais dépend des tailles : deux distances estimées ne se comparent qu'**à tailles égales**, ou après en avoir retiré une estimation du biais.
 
 ⚠️ **Erreur classique.** Prendre la racine de $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2$ coefficient par coefficient (M12c). Ajouter $\operatorname{tr}\boldsymbol{\Sigma}_1 + \operatorname{tr}\boldsymbol{\Sigma}_2$ sans retrancher le terme croisé. Comparer deux distances estimées sur des échantillons de tailles différentes.
 
@@ -471,9 +471,9 @@ Les données d'un modèle en production peuvent changer de loi sans prévenir : 
 > **Définition.** Pour une variable répartie en classes $k$, de proportions $q_k$ (référence) et $p_k$ (aujourd'hui), toutes positives, l'**indice de stabilité de population** (*population stability index*, PSI) vaut
 > $$\mathrm{PSI} = \sum_k(p_k - q_k)\ln\frac{p_k}{q_k} .$$
 
-> **Propriété.** $\mathrm{PSI} = \mathrm{KL}(p \,\|\, q) + \mathrm{KL}(q \,\|\, p)$, la **divergence de Jeffreys** (*Jeffreys divergence*) : une KL symétrisée, positive, nulle seulement si $p = q$.
+> **Propriété.** $\mathrm{PSI} = \mathrm{KL}(p \thinspace\Vert\thinspace q) + \mathrm{KL}(q \thinspace\Vert\thinspace p)$, la **divergence de Jeffreys** (*Jeffreys divergence*) : une KL symétrisée, positive, nulle seulement si $p = q$.
 
-*Démonstration.* $\sum_k(p_k - q_k)\ln\frac{p_k}{q_k} = \sum_k p_k\ln\frac{p_k}{q_k} - \sum_k q_k\ln\frac{p_k}{q_k} = \mathrm{KL}(p \,\|\, q) + \sum_k q_k\ln\frac{q_k}{p_k}$. $\square$
+*Démonstration.* $\sum_k(p_k - q_k)\ln\frac{p_k}{q_k} = \sum_k p_k\ln\frac{p_k}{q_k} - \sum_k q_k\ln\frac{p_k}{q_k} = \mathrm{KL}(p \thinspace\Vert\thinspace q) + \sum_k q_k\ln\frac{q_k}{p_k}$. $\square$
 
 > **Un petit décalage.** Si $p_k = q_k + \varepsilon_k$ avec $\lvert\varepsilon_k\rvert$ petit devant $q_k$, alors $\ln\frac{p_k}{q_k} = \ln\big(1 + \frac{\varepsilon_k}{q_k}\big) \approx \frac{\varepsilon_k}{q_k}$ (M05a), donc $\mathrm{PSI} \approx \sum_k\frac{(p_k - q_k)^2}{q_k}$.
 
@@ -484,14 +484,14 @@ Les données d'un modèle en production peuvent changer de loi sans prévenir : 
 ### Kolmogorov-Smirnov et W₁
 
 > **Définition.** La **statistique de Kolmogorov-Smirnov** (*Kolmogorov-Smirnov statistic*) entre deux lois de fonctions de répartition $F$ et $G$ (le plus souvent empiriques) est
-> $$\mathrm{KS} = \sup_x\,\lvert F(x) - G(x)\rvert ,$$
-> le plus grand écart vertical entre les deux courbes ; $W_1 = \int\lvert F(x) - G(x)\rvert\,\mathrm{d}x$ en est l'aire (§8).
+> $$\mathrm{KS} = \sup_x\thinspace\lvert F(x) - G(x)\rvert ,$$
+> le plus grand écart vertical entre les deux courbes ; $W_1 = \int\lvert F(x) - G(x)\rvert\thinspace\mathrm{d}x$ en est l'aire (§8).
 
 Ce sont deux tailles de la même fonction $F - G$ : son maximum en valeur absolue et son intégrale en valeur absolue. Pour les commandes, $F_{\text{janv}} = (0{,}42 ;\ 0{,}75 ;\ 0{,}91 ;\ 1)$ et $F_{\text{juin}} = (0{,}37 ;\ 0{,}69 ;\ 0{,}88 ;\ 1)$ en 1, 2, 3 et 4, d'où des écarts 0,05, 0,06, 0,03 et 0 : $\mathrm{KS} = 0{,}06$. Les fonctions sont en escalier, à marches d'un article : $W_1 = (0{,}05 + 0{,}06 + 0{,}03) \times 1 = 0{,}14$ article (pour la variable codée de 1 à 4). Ici $F_{\text{juin}} \le F_{\text{janv}}$ partout : toute la masse a glissé vers le haut, et $W_1$ est exactement l'écart des moyennes, $2{,}06 - 1{,}92 = 0{,}14$.
 
 Pour deux échantillons, $F$ et $G$ sont les fonctions de répartition empiriques. Sous l'hypothèse « même loi » (continue), la loi de KS ne dépend pas de cette loi : on en tire un test et sa **p-valeur** (M08), que les bibliothèques calculent (`scipy.stats.ks_2samp`).
 
-> **Une borne.** Si les deux lois vivent dans $[a, b]$, $W_1 = \int_a^b\lvert F - G\rvert \le (b - a)\,\mathrm{KS}$.
+> **Une borne.** Si les deux lois vivent dans $[a, b]$, $W_1 = \int_a^b\lvert F - G\rvert \le (b - a)\thinspace\mathrm{KS}$.
 
 Pour les commandes, sur $[1 ; 4]$ : $W_1 = 0{,}14 \le 3 \times 0{,}06 = 0{,}18$.
 

@@ -71,7 +71,7 @@ Relis « Un modèle linéaire en $\mathbf{w}$ » (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-Un modèle est linéaire en $\mathbf{w}$ s'il s'écrit $\sum_j w_j\,\phi_j(x)$, avec des fonctions $\phi_j$ qui ne contiennent aucun poids.
+Un modèle est linéaire en $\mathbf{w}$ s'il s'écrit $\sum_j w_j\thinspace\phi_j(x)$, avec des fonctions $\phi_j$ qui ne contiennent aucun poids.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ Relis M09a §6 et §7.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 2 : $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
+Pour 2 : $\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -295,7 +295,7 @@ Relis le §3 de la fiche, conséquence 1.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x \\ \sum x & \sum x^2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (\sum y, \sum xy)$.
+$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x \cr \sum x & \sum x^2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (\sum y, \sum xy)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -318,7 +318,7 @@ Calcule d'abord $(\mathbf{X}^\top\mathbf{X})^{-1}$, puis $h_{ij} = (1, x_i)(\mat
 </details>
 <details><summary>Indice 3</summary>
 
-b) Le déterminant vaut 14. c) $14\,h_{ij} = 10 - 4x_i - 4x_j + 3x_ix_j$.
+b) Le déterminant vaut 14. c) $14\thinspace h_{ij} = 10 - 4x_i - 4x_j + 3x_ix_j$.
 
 </details>
 
@@ -421,7 +421,7 @@ Relis « Biais et variance d'un estimateur » (fiche §8).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[c\,\bar{x}] = c\mu$ et $\mathbb{V}(c\,\bar{x}) = c^2\frac{\sigma^2}{n}$.
+$\mathbb{E}[c\thinspace\bar{x}] = c\mu$ et $\mathbb{V}(c\thinspace\bar{x}) = c^2\frac{\sigma^2}{n}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -461,12 +461,12 @@ Relis le §2 (identité 3) et le §3 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 3, développe $\lVert \mathbf{r}^* - \mathbf{X}\mathbf{v} \rVert^2$ comme un carré $\lVert \mathbf{a} - \mathbf{b} \rVert^2 = \lVert \mathbf{a} \rVert^2 - 2\mathbf{a} \cdot \mathbf{b} + \lVert \mathbf{b} \rVert^2$.
+Pour 3, développe $\lVert \mathbf{r}^\ast - \mathbf{X}\mathbf{v} \rVert^2$ comme un carré $\lVert \mathbf{a} - \mathbf{b} \rVert^2 = \lVert \mathbf{a} \rVert^2 - 2\mathbf{a} \cdot \mathbf{b} + \lVert \mathbf{b} \rVert^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le double produit est $\mathbf{v}^\top\mathbf{X}^\top\mathbf{r}^*$, et les équations normales disent $\mathbf{X}^\top\mathbf{r}^* = \mathbf{0}$.
+Le double produit est $\mathbf{v}^\top\mathbf{X}^\top\mathbf{r}^\ast$, et les équations normales disent $\mathbf{X}^\top\mathbf{r}^\ast = \mathbf{0}$.
 
 </details>
 
@@ -596,7 +596,7 @@ Chaque question est un système $2 \times 2$ : forme $\mathbf{X}^\top\mathbf{X}$
 </details>
 <details><summary>Indice 3</summary>
 
-c) et d) En euros, la colonne du prix vaut $10\,x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \\ 20 & 2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (40, 3)$. e) Le premier exemple a $x_1 = -10$ en euros.
+c) et d) En euros, la colonne du prix vaut $10\thinspace x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \cr 20 & 2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (40, 3)$. e) Le premier exemple a $x_1 = -10$ en euros.
 
 </details>
 
@@ -650,7 +650,7 @@ $\binom{103}{3} - 1$ colonnes ; $\mathbf{X}^\top\mathbf{X}$ en a le carré.
 </details>
 <details><summary>Indice 3</summary>
 
-3 : un produit $(p, n) \times (n, p)$ coûte $n\,p^2$ multiplications.
+3 : un produit $(p, n) \times (n, p)$ coûte $n\thinspace p^2$ multiplications.
 
 </details>
 
@@ -820,7 +820,7 @@ Tire **une fois** les échantillons, de forme `(reps, n)`, et calcule les moyenn
 </details>
 <details><summary>Indice 3</summary>
 
-`np.array([np.mean((c * means - mu) ** 2) for c in cs])` ; c) $c^* = \frac{\mu^2}{\mu^2 + \sigma^2/n}$.
+`np.array([np.mean((c * means - mu) ** 2) for c in cs])` ; c) $c^\ast = \frac{\mu^2}{\mu^2 + \sigma^2/n}$.
 
 </details>
 

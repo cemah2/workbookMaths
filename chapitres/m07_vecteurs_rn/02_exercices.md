@@ -20,7 +20,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 1. Un dataset a 500 lignes et 12 colonnes de nombres. Chaque exemple est un vecteur de quel espace ?
 2. Vrai ou faux : on peut additionner un vecteur de $\mathbb{R}^3$ et un vecteur de $\mathbb{R}^4$.
-3. Calcule $2\,(1, 0, -3) - (0, 4, 1)$.
+3. Calcule $2\thinspace(1, 0, -3) - (0, 4, 1)$.
 4. Les moyens de transport {train, avion, bateau}, dans cet ordre, sont codés en one-hot. Écris le vecteur de « avion ».
 5. Vrai ou faux : la somme des coordonnées d'un vecteur one-hot vaut toujours 1.
 6. Écris $(4, -2, 5)$ comme une combinaison linéaire de $\mathbf{e}_1$, $\mathbf{e}_2$ et $\mathbf{e}_3$.
@@ -51,7 +51,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 1. La similarité cosinus de deux vecteurs ne change pas quand on multiplie l'un d'eux par 10.
 2. Elle ne change pas non plus quand on le multiplie par $-10$.
 3. Un cosinus nul signifie que les deux vecteurs sont orthogonaux.
-4. En dimension 4 ou plus, $|\mathbf{u} \cdot \mathbf{v}|$ peut dépasser $\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
+4. En dimension 4 ou plus, $|\mathbf{u} \cdot \mathbf{v}|$ peut dépasser $\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$.
 5. Deux vecteurs non nuls dont toutes les coordonnées sont positives ou nulles ont un cosinus positif ou nul.
 6. Deux vecteurs de cosinus 1 sont à une distance euclidienne nulle.
 
@@ -80,7 +80,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 1. Quelle est la longueur de la diagonale du cube unité de $\mathbb{R}^{100}$ ?
 2. Vrai ou faux : quand la dimension grandit, l'angle entre la diagonale du cube et un axe tend vers 90°.
-3. On tire deux vecteurs de $\mathbb{R}^{10\,000}$ à coordonnées gaussiennes indépendantes. Leur cosinus est plutôt : (A) proche de 1 ; (B) proche de 0 ; (C) proche de $-1$ ; (D) n'importe quelle valeur entre $-1$ et 1, avec la même probabilité.
+3. On tire deux vecteurs de $\mathbb{R}^{10\thinspace000}$ à coordonnées gaussiennes indépendantes. Leur cosinus est plutôt : (A) proche de 1 ; (B) proche de 0 ; (C) proche de $-1$ ; (D) n'importe quelle valeur entre $-1$ et 1, avec la même probabilité.
 4. Un vecteur $\mathbf{X}$ de $\mathbb{R}^n$ a des coordonnées indépendantes de loi $\mathcal{N}(0, 1)$. Sa norme est d'environ combien ?
 5. Vrai ou faux : si l'écart-type du cosinus de deux directions tirées au hasard vaut environ $\frac{1}{\sqrt{n}}$, il faut 100 fois plus de dimensions pour le diviser par 10.
 6. Un vecteur de $\mathbb{R}^n$ a toutes ses coordonnées égales à $\frac{1}{\sqrt{n}}$. Que vaut sa norme ?
@@ -138,7 +138,7 @@ Soit $\mathbf{u} = (1, -2, 0, 4)$, $\mathbf{v} = (3, 1, -1, 2)$ et $\mathbf{w} =
 | a | $\mathbf{u} + \mathbf{v}$ | une liste de 4 entiers |
 | b | $2\mathbf{u} - 3\mathbf{v}$ | une liste de 4 entiers |
 | c | $\mathbf{u} - \mathbf{v} + \mathbf{w}$ | une liste de 4 entiers |
-| d | les réels $a$ et $b$ tels que $a\,\mathbf{u} + b\,\mathbf{v} = (5, -3, -1, 10)$ | la liste `[a, b]` |
+| d | les réels $a$ et $b$ tels que $a\thinspace\mathbf{u} + b\thinspace\mathbf{v} = (5, -3, -1, 10)$ | la liste `[a, b]` |
 
 Une application de covoiturage code le mode de chaque trajet en one-hot, dans l'ordre (vélo, bus, métro, marche).
 
@@ -162,7 +162,7 @@ Soit $\mathbf{u} = (2, 1, -2, 0)$ et $\mathbf{v} = (1, 3, 1, -1)$.
 | b | $\lVert \mathbf{u} \rVert^2$ | un entier |
 | c | $\lVert \mathbf{v} \rVert^2$ | un entier |
 | d | $\lVert \mathbf{u} - 2\mathbf{v} \rVert^2$, à partir de a), b) et c) seulement | un entier |
-| e | le réel $t$ pour lequel $\mathbf{u} + t\,\mathbf{v}$ est orthogonal à $\mathbf{v}$ | une fraction irréductible |
+| e | le réel $t$ pour lequel $\mathbf{u} + t\thinspace\mathbf{v}$ est orthogonal à $\mathbf{v}$ | une fraction irréductible |
 | f | deux vecteurs $\mathbf{a}$ et $\mathbf{b}$ vérifient $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = 50$ et $\lVert \mathbf{a} - \mathbf{b} \rVert^2 = 18$ : que vaut $\mathbf{a} \cdot \mathbf{b}$ ? | un entier |
 | g | vrai ou faux : si $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ et $\mathbf{u} \ne \mathbf{0}$, alors $\mathbf{v} = \mathbf{w}$ | `True` ou `False` |
 
@@ -304,7 +304,7 @@ Dans ta copie : écris la formule de König-Huygens avec des poids, et utilise-l
 **Objectif :** calculer les distances moyennes $a$ et $b$ et la silhouette de points d'un petit découpage.
 **Prérequis :** fiche §3 et §6 · **Parcours :** C
 
-Un découpage en deux clusters : $\{A = (0, 0),\ B = (2, 0),\ C = (1, 2)\}$ et $\{D = (6, 1),\ F = (7, 3)\}$. Les distances sont euclidiennes.
+Un découpage en deux clusters : $\lbrace A = (0, 0),\ B = (2, 0),\ C = (1, 2)\rbrace$ et $\lbrace D = (6, 1),\ F = (7, 3)\rbrace$. Les distances sont euclidiennes.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -355,16 +355,16 @@ Dans ta copie : écris le cosinus de f) en fonction de $d$ ; vers quoi tend-il ?
 **Objectif :** calculer le moment d'ordre 4 d'une loi normale, puis l'espérance et la variance du carré de la norme d'un vecteur gaussien, et voir que sa dispersion relative diminue comme $\frac{1}{\sqrt{n}}$.
 **Prérequis :** fiche §7 ; M02a (intégration par parties) ; M02b (variance d'une somme de variables indépendantes) ; M02c (§9, inégalité de Bienaymé-Tchebychev) · **Parcours :** C
 
-$Z$ est une variable de loi $\mathcal{N}(0, 1)$, de densité $\varphi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$, qui vérifie $\varphi'(z) = -z\,\varphi(z)$ ; on rappelle que $\mathbb{E}[Z^2] = 1$. M02c (§9) a admis que $\mathbb{V}(Z^2) = 2$ : a) et b) le démontrent. Ensuite, $\mathbf{X} = (X_1, \ldots, X_n)$ est un vecteur de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 9)$, d'écart-type 3 : $X_i = 3Z_i$, avec des $Z_i$ indépendantes de loi $\mathcal{N}(0, 1)$.
+$Z$ est une variable de loi $\mathcal{N}(0, 1)$, de densité $\varphi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$, qui vérifie $\varphi'(z) = -z\thinspace\varphi(z)$ ; on rappelle que $\mathbb{E}[Z^2] = 1$. M02c (§9) a admis que $\mathbb{V}(Z^2) = 2$ : a) et b) le démontrent. Ensuite, $\mathbf{X} = (X_1, \ldots, X_n)$ est un vecteur de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 9)$, d'écart-type 3 : $X_i = 3Z_i$, avec des $Z_i$ indépendantes de loi $\mathcal{N}(0, 1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\mathbb{E}[Z^4] = \int_{-\infty}^{+\infty} z^3 \cdot z\,\varphi(z)\,dz$, par une intégration par parties (le terme de bord est nul) | un entier |
+| a | $\mathbb{E}[Z^4] = \int_{-\infty}^{+\infty} z^3 \cdot z\thinspace\varphi(z)\thinspace dz$, par une intégration par parties (le terme de bord est nul) | un entier |
 | b | $\mathbb{V}(Z^2)$ | un entier |
 | c | $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ en dimension 50 | un entier |
 | d | $\mathbb{V}\big(\lVert \mathbf{X} \rVert^2\big)$ en dimension 50 | un entier |
 | e | la dispersion relative de $\lVert \mathbf{X} \rVert^2$, son écart-type divisé par son espérance, en dimension 50 | un nombre |
-| f | en dimension 8 000, la majoration de $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - \mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] \big\rvert \ge \frac{1}{10}\,\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]\big)$ que donne l'inégalité de Bienaymé-Tchebychev | un nombre |
+| f | en dimension 8 000, la majoration de $P\big(\big\lvert \lVert \mathbf{X} \rVert^2 - \mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] \big\rvert \ge \frac{1}{10}\thinspace\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]\big)$ que donne l'inégalité de Bienaymé-Tchebychev | un nombre |
 
 Dans ta copie : pourquoi les variances des $X_i^2$ s'additionnent-elles ? Écris e) en fonction de $n$ : pourquoi e) et f) ne dépendent-ils pas de l'écart-type 3 ? Quelle est la plus petite dimension pour laquelle la dispersion relative est au plus 1 % ? Avec l'approximation $\sqrt{t} \approx \sqrt{m} + \frac{t - m}{2\sqrt{m}}$ pour $t$ proche de $m = \mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big]$ (la tangente de M05a), déduis de d) l'écart-type approximatif de $\lVert \mathbf{X} \rVert$, et compare-le au cas d'écart-type 1 de la fiche (§7) et de M07.30.
 
@@ -379,11 +379,11 @@ Rédige chaque démonstration dans ta copie : hypothèses, étapes justifiées, 
 **Prérequis :** fiche §2 et §4 ; R3 (discriminant) · **Parcours :** C, E
 
 Soit $\mathbf{u}$ et $\mathbf{v}$ deux vecteurs de $\mathbb{R}^n$, avec $\mathbf{v} \ne \mathbf{0}$.
-1. Pour un réel $t$, développe $q(t) = \lVert \mathbf{u} + t\,\mathbf{v} \rVert^2$ : écris-le sous la forme $\alpha t^2 + \beta t + \gamma$, avec $\alpha$, $\beta$ et $\gamma$ exprimés à l'aide de produits scalaires.
-2. Pourquoi $q(t) \ge 0$ pour tout $t$ ? Déduis-en le signe du discriminant de $q$, puis l'inégalité $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
+1. Pour un réel $t$, développe $q(t) = \lVert \mathbf{u} + t\thinspace\mathbf{v} \rVert^2$ : écris-le sous la forme $\alpha t^2 + \beta t + \gamma$, avec $\alpha$, $\beta$ et $\gamma$ exprimés à l'aide de produits scalaires.
+2. Pourquoi $q(t) \ge 0$ pour tout $t$ ? Déduis-en le signe du discriminant de $q$, puis l'inégalité $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$.
 3. Que se passe-t-il quand $\mathbf{v} = \mathbf{0}$ ?
 4. Montre que l'égalité a lieu si et seulement si $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires. (Indication : un discriminant nul signifie que $q$ s'annule pour un certain $t$.)
-5. Avec $\mathbf{v} = (1, \ldots, 1)$ et $\mathbf{u} = (|x_1|, \ldots, |x_n|)$, montre que $\lVert \mathbf{x} \rVert_1 \le \sqrt{n}\,\lVert \mathbf{x} \rVert_2$. Pour quels vecteurs y a-t-il égalité ?
+5. Avec $\mathbf{v} = (1, \ldots, 1)$ et $\mathbf{u} = (|x_1|, \ldots, |x_n|)$, montre que $\lVert \mathbf{x} \rVert_1 \le \sqrt{n}\thinspace\lVert \mathbf{x} \rVert_2$. Pour quels vecteurs y a-t-il égalité ?
 6. Vérifie l'inégalité de 2 sur $\mathbf{u} = (1, -1, 3)$ et $\mathbf{v} = (2, 0, 1)$, puis celle de 5 avec $\mathbf{x} = \mathbf{u}$.
 
 ### Ex M07.15 — L'inégalité triangulaire pour L2, L1 et L∞ ∂ ★★ ⏱️ 20 min
@@ -394,7 +394,7 @@ Soit $\mathbf{u}$ et $\mathbf{v}$ deux vecteurs de $\mathbb{R}^n$.
 1. Développe $\lVert \mathbf{u} + \mathbf{v} \rVert_2^2$, majore le double produit avec l'inégalité de Cauchy-Schwarz, et conclus que $\lVert \mathbf{u} + \mathbf{v} \rVert_2 \le \lVert \mathbf{u} \rVert_2 + \lVert \mathbf{v} \rVert_2$.
 2. Démontre la même inégalité pour la norme L1, à partir de $|a + b| \le |a| + |b|$ pour deux réels.
 3. Démontre-la pour la norme L∞.
-4. Déduis de 1 l'**inégalité triangulaire renversée** : $\big|\,\lVert \mathbf{u} \rVert_2 - \lVert \mathbf{v} \rVert_2\,\big| \le \lVert \mathbf{u} - \mathbf{v} \rVert_2$. (Indication : écris $\mathbf{u} = (\mathbf{u} - \mathbf{v}) + \mathbf{v}$.)
+4. Déduis de 1 l'**inégalité triangulaire renversée** : $\big|\thinspace\lVert \mathbf{u} \rVert_2 - \lVert \mathbf{v} \rVert_2\thinspace\big| \le \lVert \mathbf{u} - \mathbf{v} \rVert_2$. (Indication : écris $\mathbf{u} = (\mathbf{u} - \mathbf{v}) + \mathbf{v}$.)
 5. Montre que la formule $N(\mathbf{x}) = \big(\sqrt{|x_1|} + \sqrt{|x_2|}\big)^2$ de $\mathbb{R}^2$ vérifie la positivité et l'homogénéité, mais pas l'inégalité triangulaire.
 
 ### Ex M07.16 — La moyenne minimise la somme des carrés des distances, en dimension n ∂ ★★ ⏱️ 20 min
@@ -403,7 +403,7 @@ Soit $\mathbf{u}$ et $\mathbf{v}$ deux vecteurs de $\mathbb{R}^n$.
 
 Soit $\mathbf{x}_1, \ldots, \mathbf{x}_m$ des points de $\mathbb{R}^n$, de barycentre $\bar{\mathbf{x}}$, et $\mathbf{c}$ un point de $\mathbb{R}^n$.
 1. Montre que $\sum_{i=1}^{m} (\mathbf{x}_i - \bar{\mathbf{x}}) = \mathbf{0}$.
-2. En écrivant $\mathbf{x}_i - \mathbf{c} = (\mathbf{x}_i - \bar{\mathbf{x}}) + (\bar{\mathbf{x}} - \mathbf{c})$, démontre la formule de König-Huygens : $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$.
+2. En écrivant $\mathbf{x}_i - \mathbf{c} = (\mathbf{x}_i - \bar{\mathbf{x}}) + (\bar{\mathbf{x}} - \mathbf{c})$, démontre la formule de König-Huygens : $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$.
 3. Déduis-en que $\bar{\mathbf{x}}$ est l'unique point qui minimise $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$.
 4. Avec des poids $\omega_i \ge 0$ de somme $\Omega > 0$ et le barycentre pondéré $\bar{\mathbf{x}}_\omega$, énonce et démontre la formule correspondante.
 5. Retrouve le résultat de 3 autrement : calcule le gradient de $J(\mathbf{c}) = \sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$ par rapport aux coordonnées de $\mathbf{c}$, trouve son unique point critique, et explique pourquoi c'est un minimum.
@@ -413,7 +413,7 @@ Soit $\mathbf{x}_1, \ldots, \mathbf{x}_m$ des points de $\mathbb{R}^n$, de baryc
 **Prérequis :** fiche §2, §4 et §5 · **Parcours :** C, E
 
 Soit $H$ l'hyperplan d'équation $\mathbf{w} \cdot \mathbf{x} + b = 0$ de $\mathbb{R}^n$, avec $\mathbf{w} \ne \mathbf{0}$, et $\mathbf{x}_0$ un point de $\mathbb{R}^n$.
-1. On cherche le point de la forme $\mathbf{x}_0 - t\,\mathbf{w}$ qui est sur $H$. Trouve $t$, puis le point $\mathbf{x}_H$.
+1. On cherche le point de la forme $\mathbf{x}_0 - t\thinspace\mathbf{w}$ qui est sur $H$. Trouve $t$, puis le point $\mathbf{x}_H$.
 2. Calcule $\lVert \mathbf{x}_0 - \mathbf{x}_H \rVert$.
 3. Soit $\mathbf{y}$ un point quelconque de $H$. Montre que $\mathbf{x}_H - \mathbf{y}$ est orthogonal à $\mathbf{w}$, puis que $\lVert \mathbf{x}_0 - \mathbf{y} \rVert^2 = \lVert \mathbf{x}_0 - \mathbf{x}_H \rVert^2 + \lVert \mathbf{x}_H - \mathbf{y} \rVert^2$. Conclus que $\mathbf{x}_H$ est le point de $H$ le plus proche de $\mathbf{x}_0$, et que $d(\mathbf{x}_0, H) = \frac{|\mathbf{w} \cdot \mathbf{x}_0 + b|}{\lVert \mathbf{w} \rVert}$.
 4. Montre que cette distance ne change pas quand on remplace $(\mathbf{w}, b)$ par $(\lambda\mathbf{w}, \lambda b)$, pour tout réel $\lambda \ne 0$.
@@ -423,11 +423,11 @@ Soit $H$ l'hyperplan d'équation $\mathbf{w} \cdot \mathbf{x} + b = 0$ de $\math
 **Objectif :** démontrer qu'aucune étape de k-means n'augmente l'inertie, en déduire que l'algorithme s'arrête, et voir qu'il peut s'arrêter sur un mauvais découpage.
 **Prérequis :** fiche §6 ; Ex M07.16 · **Parcours :** C
 
-On note $J(c, \boldsymbol{\mu}) = \sum_{i=1}^{m} \lVert \mathbf{x}_i - \boldsymbol{\mu}_{c_i} \rVert^2$ l'inertie d'une affectation $c = (c_1, \ldots, c_m)$, où $c_i \in \{1, \ldots, k\}$ est le cluster du point $i$, et de centres $\boldsymbol{\mu} = (\boldsymbol{\mu}_1, \ldots, \boldsymbol{\mu}_k)$.
+On note $J(c, \boldsymbol{\mu}) = \sum_{i=1}^{m} \lVert \mathbf{x} _i - \boldsymbol{\mu} _{c_i} \rVert^2$ l'inertie d'une affectation $c = (c_1, \ldots, c_m)$, où $c_i \in \lbrace1, \ldots, k\rbrace$ est le cluster du point $i$, et de centres $\boldsymbol{\mu} = (\boldsymbol{\mu}_1, \ldots, \boldsymbol{\mu}_k)$.
 1. Les centres étant fixés, montre que l'étape d'affectation donne une inertie au plus égale à celle de l'affectation précédente.
 2. L'affectation étant fixée, montre que l'étape de mise à jour donne une inertie au plus égale à celle des centres précédents. (Indication : regroupe les termes de $J$ par cluster et utilise M07.16 ; que faire d'un cluster vide ?)
 3. Pourquoi la suite des inerties converge-t-elle ? On convient qu'un point garde son centre en cas d'égalité, et que l'algorithme s'arrête quand aucune affectation ne change. Montre qu'il s'arrête après un nombre fini d'étapes. (Indication : combien y a-t-il d'affectations possibles ?)
-4. Quatre points, aux sommets d'un rectangle : $(0, 0)$, $(0, 1)$, $(5, 0)$ et $(5, 1)$, avec $k = 2$. Montre que les centres $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ ne bougent plus (ils sont un point fixe de l'algorithme), et compare leur inertie à celle du découpage en $\{(0, 0), (0, 1)\}$ et $\{(5, 0), (5, 1)\}$. Qu'en conclus-tu ?
+4. Quatre points, aux sommets d'un rectangle : $(0, 0)$, $(0, 1)$, $(5, 0)$ et $(5, 1)$, avec $k = 2$. Montre que les centres $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ ne bougent plus (ils sont un point fixe de l'algorithme), et compare leur inertie à celle du découpage en $\lbrace(0, 0), (0, 1)\rbrace$ et $\lbrace(5, 0), (5, 1)\rbrace$. Qu'en conclus-tu ?
 
 <a id="reflexion"></a>
 

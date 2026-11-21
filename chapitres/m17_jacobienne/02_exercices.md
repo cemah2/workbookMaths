@@ -42,12 +42,12 @@ Pour chaque application de $\mathbb{R}^4$ dans $\mathbb{R}^4$, dis si sa jacobie
 
 $\mathbf{f} : \mathbb{R}^2 \to \mathbb{R}^5$ et $\mathbf{g} : \mathbb{R}^5 \to \mathbb{R}^3$.
 
-1. Quelle est la forme de $\mathbf{J}_{\mathbf{f}}$ ? De $\mathbf{J}_{\mathbf{g}}$ ? De $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}$ ?
+1. Quelle est la forme de $\mathbf{J} _{\mathbf{f}}$ ? De $\mathbf{J}  _{\mathbf{g}}$ ? De $\mathbf{J} _{\mathbf{g} \circ \mathbf{f}}$ ?
 2. Écris $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x})$ en précisant où chaque jacobienne est évaluée.
-3. Le produit $\mathbf{J}_{\mathbf{f}}\mathbf{J}_{\mathbf{g}}$ existe-t-il ?
+3. Le produit $\mathbf{J} _{\mathbf{f}}\mathbf{J} _{\mathbf{g}}$ existe-t-il ?
 4. Vrai ou faux : pour $f$, $g$ de $\mathbb{R}$ dans $\mathbb{R}$, la règle de la chaîne de R7 est un cas particulier de celle-ci.
 5. Vrai ou faux : $\frac{\partial(\mathbf{g} \circ \mathbf{f})_i}{\partial x_j}$ est une somme de 5 produits.
-6. Vrai ou faux : si $\mathbf{f}$ et $\mathbf{g}$ vont de $\mathbb{R}^3$ dans $\mathbb{R}^3$, $\mathbf{J}_{\mathbf{f}}\mathbf{J}_{\mathbf{g}}$ est aussi la jacobienne de $\mathbf{g} \circ \mathbf{f}$.
+6. Vrai ou faux : si $\mathbf{f}$ et $\mathbf{g}$ vont de $\mathbb{R}^3$ dans $\mathbb{R}^3$, $\mathbf{J} _{\mathbf{f}}\mathbf{J} _{\mathbf{g}}$ est aussi la jacobienne de $\mathbf{g} \circ \mathbf{f}$.
 
 ### M17.Q4 — Gradient en ligne ou de la forme de la variable 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
@@ -57,16 +57,16 @@ $L : \mathbb{R}^3 \to \mathbb{R}$, $\mathbf{f} : \mathbb{R}^4 \to \mathbb{R}^3$.
 1. Quelle est la forme du gradient de $L$ chez MML ? Dans NumPy ?
 2. Écris $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ en ligne, puis en colonne.
 3. Quelle est la forme de $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ dans NumPy ?
-4. Vrai ou faux : $\mathbf{J}_{\mathbf{f}}\,\nabla_{\mathbf{y}}L$ est le gradient de $L \circ \mathbf{f}$ en convention colonne.
+4. Vrai ou faux : $\mathbf{J} _{\mathbf{f}}\thinspace\nabla _{\mathbf{y}}L$ est le gradient de $L \circ \mathbf{f}$ en convention colonne.
 5. Une fonction réelle d'une matrice $\mathbf{M}$ de forme $(4, 2)$ : quelle est la forme de son gradient dans NumPy ?
 6. Vrai ou faux : les deux conventions donnent les mêmes nombres.
 
 ### M17.Q5 — Jacobienne-vecteur ou vecteur-jacobienne : combien d'opérations ? 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C*
 
-1. $\mathbf{f}$ va de $\mathbb{R}^{1\,000}$ dans $\mathbb{R}$ : combien de produits jacobienne-vecteur faut-il pour avoir son gradient ? Combien de produits vecteur-jacobienne ?
-2. Et pour une application de $\mathbb{R}$ dans $\mathbb{R}^{1\,000}$ ?
-3. Par différences centrées, combien d'évaluations de $\mathbf{f}$ coûte $\mathbf{J}\mathbf{v}$, pour $n = 1\,000$ ?
+1. $\mathbf{f}$ va de $\mathbb{R}^{1\thinspace000}$ dans $\mathbb{R}$ : combien de produits jacobienne-vecteur faut-il pour avoir son gradient ? Combien de produits vecteur-jacobienne ?
+2. Et pour une application de $\mathbb{R}$ dans $\mathbb{R}^{1\thinspace000}$ ?
+3. Par différences centrées, combien d'évaluations de $\mathbf{f}$ coûte $\mathbf{J}\mathbf{v}$, pour $n = 1\thinspace000$ ?
 4. $\mathbf{J}_1$, $\mathbf{J}_2$ sont $500 \times 500$ et $\mathbf{v}$ a 500 coordonnées : combien de multiplications coûte $\mathbf{J}_2(\mathbf{J}_1\mathbf{v})$ ? Et $(\mathbf{J}_2\mathbf{J}_1)\mathbf{v}$ ?
 5. Vrai ou faux : $\mathbf{u}^\top\mathbf{J}$ est le gradient de $\mathbf{x} \mapsto \mathbf{u} \cdot \mathbf{f}(\mathbf{x})$.
 6. Vrai ou faux : la jacobienne entière peut se calculer colonne par colonne avec $n$ produits jacobienne-vecteur.
@@ -110,12 +110,12 @@ $f(x, y) = x^2y - 3y + 1$.
 ### M17.R3 — La matrice de covariance (M02c) 🔁 ★ ⏱️ 5 min
 *Fiche §7 · parcours C*
 
-$\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & -1 \\ -1 & 2 \end{pmatrix}$.
+$\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & -1 \cr -1 & 2 \end{pmatrix}$.
 
 1. $\mathbb{V}(X_1 + X_2)$ ? $\mathbb{V}(X_1 - X_2)$ ?
 2. Pour une ligne $\mathbf{v}$, comment s'écrit $\mathbb{V}(\mathbf{v} \cdot \mathbf{X})$ avec $\boldsymbol{\Sigma}$ ?
 3. Pourquoi une matrice de covariance est-elle semi-définie positive ?
-4. Pour une autre matrice de covariance $\boldsymbol{\Sigma}'$, celle d'un vecteur $(X_1, X_2)$ dont la somme $X_1 + X_2$ est constante, que vaut $\boldsymbol{\Sigma}'\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ? Est-ce possible pour la matrice $\boldsymbol{\Sigma}$ ci-dessus ?
+4. Pour une autre matrice de covariance $\boldsymbol{\Sigma}'$, celle d'un vecteur $(X_1, X_2)$ dont la somme $X_1 + X_2$ est constante, que vaut $\boldsymbol{\Sigma}'\begin{pmatrix} 1 \cr 1 \end{pmatrix}$ ? Est-ce possible pour la matrice $\boldsymbol{\Sigma}$ ci-dessus ?
 5. Une matrice de covariance est-elle toujours symétrique ? Toujours inversible ?
 
 <a id="papier"></a>
@@ -144,7 +144,7 @@ $\mathbf{f}(r, \theta) = (r\cos\theta,\ r\sin\theta)$, au point $(r, \theta) = (
 | f | la distance entre d) et e) | un nombre (4 décimales) |
 | g | l'aire de l'image du petit rectangle $[4 ;\ 4{,}01] \times [\frac{\pi}{6} ;\ \frac{\pi}{6} + 0{,}02]$, approchée par le déterminant | un nombre (4 décimales) |
 
-Dans ta copie : écris $\mathbf{J}_{\mathbf{f}}(r, \theta)$ en général, et montre que $\det\mathbf{J}_{\mathbf{f}}(r, \theta) = r$. Pourquoi la deuxième colonne a-t-elle la longueur $r$, et la première la longueur 1 (que fait le point quand $\theta$ bouge, puis quand $r$ bouge) ? Pourquoi l'erreur f) est-elle bien plus petite que les déplacements $0{,}1$ et $0{,}05$ ?
+Dans ta copie : écris $\mathbf{J} _{\mathbf{f}}(r, \theta)$ en général, et montre que $\det\mathbf{J} _{\mathbf{f}}(r, \theta) = r$. Pourquoi la deuxième colonne a-t-elle la longueur $r$, et la première la longueur 1 (que fait le point quand $\theta$ bouge, puis quand $r$ bouge) ? Pourquoi l'erreur f) est-elle bien plus petite que les déplacements $0{,}1$ et $0{,}05$ ?
 
 ### Ex M17.2 — Une fonction appliquée coordonnée par coordonnée : la jacobienne diagonale, et son produit par un vecteur ✏️ ★ ⏱️ 15 min
 **Objectif :** écrire la jacobienne diagonale d'une fonction appliquée coordonnée par coordonnée, et son produit par un vecteur.
@@ -155,10 +155,10 @@ $g(t) = \ln(1 + t^2)$, appliquée coordonnée par coordonnée : $\mathbf{f}(\mat
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la diagonale de $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | une liste de 4 nombres |
-| b | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v}$ pour $\mathbf{v} = (2, 1, -5, 0{,}5)$ | une liste de 4 nombres |
+| b | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\thinspace\mathbf{v}$ pour $\mathbf{v} = (2, 1, -5, 0{,}5)$ | une liste de 4 nombres |
 | c | le nombre de coefficients nuls de $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | un entier |
-| d | pour la même fonction sur $n = 1\,000$ coordonnées, le nombre de coefficients **hors** de la diagonale | un entier |
-| e | le nombre d'évaluations de $\mathbf{f}$ pour la diagonale, puis pour la jacobienne entière, par différences centrées, pour $n = 1\,000$ | une liste de 2 entiers |
+| d | pour la même fonction sur $n = 1\thinspace000$ coordonnées, le nombre de coefficients **hors** de la diagonale | un entier |
+| e | le nombre d'évaluations de $\mathbf{f}$ pour la diagonale, puis pour la jacobienne entière, par différences centrées, pour $n = 1\thinspace000$ | une liste de 2 entiers |
 | f | la diagonale de la jacobienne de $\mathbf{x} \mapsto \mathbf{x} \odot g(\mathbf{x})$ en $\mathbf{x}$ | une liste de 4 nombres (3 décimales) |
 
 Dans ta copie : pourquoi le coefficient $(2, 3)$ de $\mathbf{J}_{\mathbf{f}}$ est-il nul ? Pourquoi un coefficient de la diagonale est-il nul lui aussi, et que dit-il de $g$ en ce point ? Pourquoi f) est-elle encore une jacobienne diagonale ?
@@ -176,7 +176,7 @@ $\mathbf{f}_1(x, y) = (x + y,\ xy,\ x - y)$ de $\mathbb{R}^2$ dans $\mathbb{R}^3
 | c | $\mathbf{J}_{\mathbf{f}_2}$ au point où on l'applique | une matrice |
 | d | $\mathbf{J}_{f_3}$ au point où on l'applique | une matrice (une ligne : `[[a, b]]`) |
 | e | le gradient de $h$ en $(1, 2)$, en ligne | une liste de 2 nombres |
-| f | le nombre de multiplications pour $(\mathbf{J}_{f_3}\mathbf{J}_{\mathbf{f}_2})\mathbf{J}_{\mathbf{f}_1}$, puis pour $\mathbf{J}_{f_3}(\mathbf{J}_{\mathbf{f}_2}\mathbf{J}_{\mathbf{f}_1})$ | une liste de 2 entiers |
+| f | le nombre de multiplications pour $(\mathbf{J} _{f_3}\mathbf{J} _{\mathbf{f} _2})\mathbf{J} _{\mathbf{f} _1}$, puis pour $\mathbf{J}  _{f_3}(\mathbf{J} _{\mathbf{f} _2}\mathbf{J} _{\mathbf{f}_1})$ | une liste de 2 entiers |
 
 Dans ta copie : écris les formes des trois jacobiennes et vérifie qu'elles s'enchaînent. Vérifie e) en écrivant $h(x, y)$ et en dérivant directement. Pourquoi le produit de gauche à droite est-il ici le moins cher ?
 
@@ -184,18 +184,18 @@ Dans ta copie : écris les formes des trois jacobiennes et vérifie qu'elles s'e
 **Objectif :** dériver la normalisation, reconnaître la structure de sa jacobienne, et calculer un produit jacobienne-vecteur sans former la matrice.
 **Prérequis :** fiche §3 et §5 ; M12b, M12c · **Parcours :** C
 
-$\mathbf{n}(\mathbf{x}) = \frac{\mathbf{x}}{\lVert\mathbf{x}\rVert}$, de $\mathbb{R}^3 \setminus \{\mathbf{0}\}$ dans $\mathbb{R}^3$, et $\mathbf{u} = \mathbf{n}(\mathbf{x})$. On admet (à montrer dans ta copie) que $\mathbf{J}_{\mathbf{n}}(\mathbf{x}) = \frac{\mathbf{I} - \mathbf{u}\mathbf{u}^\top}{\lVert\mathbf{x}\rVert}$. Au point $\mathbf{x} = (3, 0, 4)$ :
+$\mathbf{n}(\mathbf{x}) = \frac{\mathbf{x}}{\lVert\mathbf{x}\rVert}$, de $\mathbb{R}^3 \setminus \lbrace\mathbf{0}\rbrace$ dans $\mathbb{R}^3$, et $\mathbf{u} = \mathbf{n}(\mathbf{x})$. On admet (à montrer dans ta copie) que $\mathbf{J}_{\mathbf{n}}(\mathbf{x}) = \frac{\mathbf{I} - \mathbf{u}\mathbf{u}^\top}{\lVert\mathbf{x}\rVert}$. Au point $\mathbf{x} = (3, 0, 4)$ :
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\lVert\mathbf{x}\rVert$ et $\mathbf{u}$ | une liste de 4 nombres : $\lVert\mathbf{x}\rVert$, puis les 3 coordonnées de $\mathbf{u}$ |
 | b | $\mathbf{J}_{\mathbf{n}}(\mathbf{x})$ | une matrice |
-| c | $\mathbf{J}_{\mathbf{n}}(\mathbf{x})\,\mathbf{x}$ | une liste de 3 nombres |
-| d | $\mathbf{J}_{\mathbf{n}}(\mathbf{x})\,\mathbf{v}$ pour $\mathbf{v} = (0, 2, 1)$, sans former la matrice : $\frac{\mathbf{v} - (\mathbf{u} \cdot \mathbf{v})\,\mathbf{u}}{\lVert\mathbf{x}\rVert}$ | une liste de 3 nombres |
+| c | $\mathbf{J}_{\mathbf{n}}(\mathbf{x})\thinspace\mathbf{x}$ | une liste de 3 nombres |
+| d | $\mathbf{J}_{\mathbf{n}}(\mathbf{x})\thinspace\mathbf{v}$ pour $\mathbf{v} = (0, 2, 1)$, sans former la matrice : $\frac{\mathbf{v} - (\mathbf{u} \cdot \mathbf{v})\thinspace\mathbf{u}}{\lVert\mathbf{x}\rVert}$ | une liste de 3 nombres |
 | e | le rang de $\mathbf{J}_{\mathbf{n}}(\mathbf{x})$ | un entier |
 | f | ses valeurs propres, dans l'ordre croissant | une liste de 3 nombres |
 
-Dans ta copie : démontre la formule de $\mathbf{J}_{\mathbf{n}}$ (dérive $\frac{x_i}{\lVert\mathbf{x}\rVert}$ par rapport à $x_j$, avec $\frac{\partial\lVert\mathbf{x}\rVert}{\partial x_j} = \frac{x_j}{\lVert\mathbf{x}\rVert}$). Pourquoi c) est-il nul, sans calcul (que fait $\mathbf{n}$ le long de la droite de $\mathbf{x}$) ? Reconnais dans $\mathbf{I} - \mathbf{u}\mathbf{u}^\top$ une projection orthogonale (M12b) : sur quoi ? Déduis-en e) et f). Combien de multiplications coûte d), contre la matrice entière pour $n = 1\,000$ ?
+Dans ta copie : démontre la formule de $\mathbf{J}_{\mathbf{n}}$ (dérive $\frac{x_i}{\lVert\mathbf{x}\rVert}$ par rapport à $x_j$, avec $\frac{\partial\lVert\mathbf{x}\rVert}{\partial x_j} = \frac{x_j}{\lVert\mathbf{x}\rVert}$). Pourquoi c) est-il nul, sans calcul (que fait $\mathbf{n}$ le long de la droite de $\mathbf{x}$) ? Reconnais dans $\mathbf{I} - \mathbf{u}\mathbf{u}^\top$ une projection orthogonale (M12b) : sur quoi ? Déduis-en e) et f). Combien de multiplications coûte d), contre la matrice entière pour $n = 1\thinspace000$ ?
 
 ### Ex M17.5 — Le gradient d'une fonction scalaire d'une composée, dans les deux conventions : J_fᵀ ∇L ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer le gradient d'une fonction réelle d'une composée en ligne et en colonne, et vérifier que les nombres sont les mêmes.
@@ -210,15 +210,15 @@ $\mathbf{f}(x_1, x_2) = (x_1 - x_2,\ x_1x_2,\ x_2^2)$ de $\mathbb{R}^2$ dans $\m
 | c | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | une matrice |
 | d | $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ | une liste de 2 nombres |
 | e | la forme de $\mathbf{J}_{\mathbf{f}}^\top$ | une liste de 2 entiers |
-| f | la dérivée en $t = 0$ de $t \mapsto (L \circ \mathbf{f})\big(\mathbf{x} + t\,(1, 1)\big)$ (sans normaliser $(1, 1)$) | un nombre |
+| f | la dérivée en $t = 0$ de $t \mapsto (L \circ \mathbf{f})\big(\mathbf{x} + t\thinspace(1, 1)\big)$ (sans normaliser $(1, 1)$) | un nombre |
 
-Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$, puis en colonne, $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$, et vérifie par la dérivation directe de $L(\mathbf{f}(\mathbf{x}))$. Pourquoi $\mathbf{J}_{\mathbf{f}}\,\nabla_{\mathbf{y}}L$ n'a-t-il pas de sens ici ?
+Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\thinspace\mathbf{J} _{\mathbf{f}}$, puis en colonne, $\mathbf{J}  _{\mathbf{f}}^\top\nabla _{\mathbf{y}}L$, et vérifie par la dérivation directe de $L(\mathbf{f}(\mathbf{x}))$. Pourquoi $\mathbf{J} _{\mathbf{f}}\thinspace\nabla _{\mathbf{y}}L$ n'a-t-il pas de sens ici ?
 
 ### Ex M17.6 — Dérivées à gauche et à droite d'une fonction définie par morceaux, et la dérivée d'une composée de sept copies d'une fonction lisse ✏️ ★★ ⏱️ 15 min
 **Objectif :** dériver une fonction affine par morceaux de chaque côté de ses coins, et une longue composition par le produit des dérivées.
 **Prérequis :** fiche §6 ; R7 · **Parcours :** C, E
 
-**Partie 1.** Une facture d'électricité (en €) en fonction de la consommation $x$ (en kWh) : $c(x) = 0{,}15\,x$ pour $x \le 100$ ; $15 + 0{,}25\,(x - 100)$ pour $100 \le x \le 300$ ; $65 + 0{,}1\,(x - 300)$ pour $x \ge 300$ (une remise au-delà de 300 kWh).
+**Partie 1.** Une facture d'électricité (en €) en fonction de la consommation $x$ (en kWh) : $c(x) = 0{,}15\thinspace x$ pour $x \le 100$ ; $15 + 0{,}25\thinspace(x - 100)$ pour $100 \le x \le 300$ ; $65 + 0{,}1\thinspace(x - 300)$ pour $x \ge 300$ (une remise au-delà de 300 kWh).
 
 **Partie 2.** $g(x) = \frac{1}{1 + x}$, et $g^{\circ 7} = g \circ g \circ \cdots \circ g$ (sept copies). De $x_0 = 1$, $x_{k+1} = g(x_k)$.
 
@@ -230,7 +230,7 @@ Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{
 | d | les dérivées à gauche et à droite de $x \mapsto \lvert c(x) - 40\rvert$ au point où $c(x) = 40$ | une liste de 2 nombres |
 | e | $x_7 = g^{\circ 7}(1)$ | une fraction entre guillemets (irréductible) |
 | f | la dérivée de $g^{\circ 7}$ en 1 | une fraction entre guillemets (irréductible) |
-| g | $\lvert g'(x^*)\rvert$, au point fixe $x^* > 0$ de $g$ | un nombre (3 décimales) |
+| g | $\lvert g'(x^\ast)\rvert$, au point fixe $x^\ast > 0$ de $g$ | un nombre (3 décimales) |
 
 Dans ta copie : $c$ est-elle continue ? Restreinte à $[0 ;\ 300]$, $c$ est convexe : quels sont ses sous-gradients en 100 (M13b) ? Pourquoi $c$, sur tout $[0 ;\ +\infty[$, n'est-elle pas convexe, et pourquoi n'a-t-elle aucun sous-gradient en 300 ? Pour f), écris le produit des sept dérivées $g'(x_k)$, avec les $x_k$ en fractions, et observe les simplifications. Comment le facteur g) explique-t-il l'ordre de grandeur de f) ?
 
@@ -278,13 +278,13 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer la règle de la chaîne multivariée à partir de la définition de la jacobienne par l'approximation linéaire.
 **Prérequis :** fiche §1 et §3 ; M12a, M12d · **Parcours :** C, E
 
-On dit que $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ est **différentiable** en $\mathbf{x}$, de jacobienne $\mathbf{J}_{\mathbf{f}}$, si $\mathbf{f}(\mathbf{x} + \mathbf{h}) = \mathbf{f}(\mathbf{x}) + \mathbf{J}_{\mathbf{f}}\mathbf{h} + \boldsymbol{\varepsilon}_{\mathbf{f}}(\mathbf{h})\,\lVert\mathbf{h}\rVert$ avec $\boldsymbol{\varepsilon}_{\mathbf{f}}(\mathbf{h}) \to \mathbf{0}$ quand $\mathbf{h} \to \mathbf{0}$. $\mathbf{g} : \mathbb{R}^p \to \mathbb{R}^m$ est différentiable en $\mathbf{y} = \mathbf{f}(\mathbf{x})$, de jacobienne $\mathbf{J}_{\mathbf{g}}$.
+On dit que $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ est **différentiable** en $\mathbf{x}$, de jacobienne $\mathbf{J} _{\mathbf{f}}$, si $\mathbf{f}(\mathbf{x} + \mathbf{h}) = \mathbf{f}(\mathbf{x}) + \mathbf{J} _{\mathbf{f}}\mathbf{h} + \boldsymbol{\varepsilon} _{\mathbf{f}}(\mathbf{h})\thinspace\lVert\mathbf{h}\rVert$ avec $\boldsymbol{\varepsilon}  _{\mathbf{f}}(\mathbf{h}) \to \mathbf{0}$ quand $\mathbf{h} \to \mathbf{0}$. $\mathbf{g} : \mathbb{R}^p \to \mathbb{R}^m$ est différentiable en $\mathbf{y} = \mathbf{f}(\mathbf{x})$, de jacobienne $\mathbf{J} _{\mathbf{g}}$.
 
-1. Pose $\mathbf{k} = \mathbf{f}(\mathbf{x} + \mathbf{h}) - \mathbf{f}(\mathbf{x})$. Montre que $\lVert\mathbf{k}\rVert \le C\lVert\mathbf{h}\rVert$ pour $\mathbf{h}$ assez petit, avec une constante $C$ (utilise $\lVert\mathbf{J}_{\mathbf{f}}\mathbf{h}\rVert \le \lVert\mathbf{J}_{\mathbf{f}}\rVert_2\,\lVert\mathbf{h}\rVert$, la norme spectrale de M12d). Attention : $\mathbf{k}$ peut être nul pour un $\mathbf{h}$ non nul ; prévois ce cas à l'étape 3.
+1. Pose $\mathbf{k} = \mathbf{f}(\mathbf{x} + \mathbf{h}) - \mathbf{f}(\mathbf{x})$. Montre que $\lVert\mathbf{k}\rVert \le C\lVert\mathbf{h}\rVert$ pour $\mathbf{h}$ assez petit, avec une constante $C$ (utilise $\lVert\mathbf{J} _{\mathbf{f}}\mathbf{h}\rVert \le \lVert\mathbf{J} _{\mathbf{f}}\rVert_2\thinspace\lVert\mathbf{h}\rVert$, la norme spectrale de M12d). Attention : $\mathbf{k}$ peut être nul pour un $\mathbf{h}$ non nul ; prévois ce cas à l'étape 3.
 2. Écris $\mathbf{g}(\mathbf{f}(\mathbf{x} + \mathbf{h})) = \mathbf{g}(\mathbf{y} + \mathbf{k})$ avec l'approximation de $\mathbf{g}$, puis remplace $\mathbf{k}$.
-3. Montre que tout ce qui n'est pas $\mathbf{g}(\mathbf{y}) + \mathbf{J}_{\mathbf{g}}\mathbf{J}_{\mathbf{f}}\mathbf{h}$ est petit devant $\lVert\mathbf{h}\rVert$, et conclus : $\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$.
+3. Montre que tout ce qui n'est pas $\mathbf{g}(\mathbf{y}) + \mathbf{J} _{\mathbf{g}}\mathbf{J} _{\mathbf{f}}\mathbf{h}$ est petit devant $\lVert\mathbf{h}\rVert$, et conclus : $\mathbf{J} _{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}  _{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\thinspace\mathbf{J} _{\mathbf{f}}(\mathbf{x})$.
 4. Écris le coefficient $(i, j)$ de ce produit, et interprète-le comme une somme sur les variables intermédiaires.
-5. Retrouve la règle de la chaîne de R7 dans le cas $n = p = m = 1$, et la formule $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ du §4 dans le cas $m = 1$.
+5. Retrouve la règle de la chaîne de R7 dans le cas $n = p = m = 1$, et la formule $\nabla_{\mathbf{x}}(L \circ \mathbf{f}) = \nabla_{\mathbf{y}}L\thinspace\mathbf{J}_{\mathbf{f}}$ du §4 dans le cas $m = 1$.
 
 ### Ex M17.9 — Une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et J v = g′(x) ⊙ v ∂ ★ ⏱️ 15 min
 **Objectif :** démontrer qu'une fonction appliquée coordonnée par coordonnée a une jacobienne diagonale, et en tirer les coûts.
@@ -293,7 +293,7 @@ On dit que $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^p$ est **différentiable** 
 $g : \mathbb{R} \to \mathbb{R}$ est dérivable, et $\mathbf{f}(\mathbf{x}) = (g(x_1), \ldots, g(x_n))$.
 
 1. Calcule $\frac{\partial f_i}{\partial x_j}$ pour $j \ne i$, puis pour $j = i$, et conclus : $\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = \operatorname{diag}\big(g'(x_1), \ldots, g'(x_n)\big)$.
-2. Montre que $\mathbf{J}_{\mathbf{f}}(\mathbf{x})\,\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ et que $\mathbf{u}^\top\mathbf{J}_{\mathbf{f}}(\mathbf{x}) = (\mathbf{u} \odot g'(\mathbf{x}))^\top$.
+2. Montre que $\mathbf{J} _{\mathbf{f}}(\mathbf{x})\thinspace\mathbf{v} = g'(\mathbf{x}) \odot \mathbf{v}$ et que $\mathbf{u}^\top\mathbf{J} _{\mathbf{f}}(\mathbf{x}) = (\mathbf{u} \odot g'(\mathbf{x}))^\top$.
 3. Combien de multiplications coûtent ces produits, contre un produit par une matrice pleine $n \times n$ ?
 4. Montre que la coordonnée $i$ de $\frac{\mathbf{f}(\mathbf{x} + h\mathbf{1}) - \mathbf{f}(\mathbf{x} - h\mathbf{1})}{2h}$ tend vers $g'(x_i)$ quand $h \to 0$ : deux évaluations donnent toute la diagonale.
 5. Pour une matrice $\mathbf{A}$ $n \times n$, que donne le même calcul sur $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ ? Conclus : pourquoi ne peut-on pas faire confiance au raccourci sans savoir que la jacobienne est diagonale ?
@@ -302,7 +302,7 @@ $g : \mathbb{R} \to \mathbb{R}$ est dérivable, et $\mathbf{f}(\mathbf{x}) = (g(
 **Objectif :** établir la covariance d'un vecteur one-hot, et en déduire ses propriétés.
 **Prérequis :** fiche §7 ; M02b, M02c, M12c · **Parcours :** C, E
 
-$I$ suit une loi $\mathbf{p} = (p_1, \ldots, p_K)$ sur $\{1, \ldots, K\}$ (une ligne, $p_i \ge 0$, $\sum_ip_i = 1$), et $\mathbf{Y} = \mathbf{e}_I$ est son vecteur one-hot.
+$I$ suit une loi $\mathbf{p} = (p_1, \ldots, p_K)$ sur $\lbrace1, \ldots, K\rbrace$ (une ligne, $p_i \ge 0$, $\sum_ip_i = 1$), et $\mathbf{Y} = \mathbf{e}_I$ est son vecteur one-hot.
 
 1. Montre que $\mathbb{E}[Y_i] = p_i$, et que $\mathbb{E}[Y_iY_j] = p_i$ si $i = j$ et 0 sinon.
 2. Déduis-en $\operatorname{Cov}(\mathbf{Y}) = \operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p}$, coefficient par coefficient.

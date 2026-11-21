@@ -22,7 +22,7 @@ Depuis un départ connu, $m_0 = x_0$ et $v_0 = 0$ ; puis $m_t = am_{t-1}$ et $v_
 </details>
 <details><summary>Indice 3</summary>
 
-1. $m_1 = -0{,}5 \times 6$ et $v_1 = 2^2$ ; recommence une fois. 2. $b^2 = 4$ et $a^2 = 0{,}25$. 3. Pour chaque valeur, $a^2$ est-il plus petit que 1 ? Sinon, que fait $v_t$ ? 4. Avec $a = 1$, $v_t = v_{t-1} + b^2$. 5. Le premier $t$ tel que $0{,}5^t \le 10^{-3}$, puis tel que $0{,}25^t \le 10^{-3}$ ; $2^{10} = 1\,024$.
+1. $m_1 = -0{,}5 \times 6$ et $v_1 = 2^2$ ; recommence une fois. 2. $b^2 = 4$ et $a^2 = 0{,}25$. 3. Pour chaque valeur, $a^2$ est-il plus petit que 1 ? Sinon, que fait $v_t$ ? 4. Avec $a = 1$, $v_t = v_{t-1} + b^2$. 5. Le premier $t$ tel que $0{,}5^t \le 10^{-3}$, puis tel que $0{,}25^t \le 10^{-3}$ ; $2^{10} = 1\thinspace024$.
 
 </details>
 
@@ -35,12 +35,12 @@ Fiche §2 : « Le pont d'une marche aléatoire » (la propriété, et où la var
 </details>
 <details><summary>Indice 2</summary>
 
-Des pas de même variance $0{,}4$ donnent $V_s = 0{,}4\,s$. Sachant $x_0$ et $x_T$, $x_s$ a la moyenne $x_0 + \frac{V_s}{V_T}(x_T - x_0)$ et la variance $\frac{V_s(V_T - V_s)}{V_T}$, maximale quand $V_s = \frac{V_T}{2}$. Le lemme : $\sqrt{\omega^2 - \sigma^2}\,U + \sigma Z$ suit $\mathcal{N}(0, \omega^2)$ pour $0 \le \sigma \le \omega$. Pour la marche, $\operatorname{Cov}(W_s, W_t) = \mathbb{V}(W_s)$ quand $s < t$.
+Des pas de même variance $0{,}4$ donnent $V_s = 0{,}4\thinspace s$. Sachant $x_0$ et $x_T$, $x_s$ a la moyenne $x_0 + \frac{V_s}{V_T}(x_T - x_0)$ et la variance $\frac{V_s(V_T - V_s)}{V_T}$, maximale quand $V_s = \frac{V_T}{2}$. Le lemme : $\sqrt{\omega^2 - \sigma^2}\thinspace U + \sigma Z$ suit $\mathcal{N}(0, \omega^2)$ pour $0 \le \sigma \le \omega$. Pour la marche, $\operatorname{Cov}(W_s, W_t) = \mathbb{V}(W_s)$ quand $s < t$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $V_{10} = 4$ : pour quel $s$ a-t-on $V_s = 2$ ? 2. $V_4 = 1{,}6$ : la moyenne $\frac{1{,}6}{4} \times 5$, la variance $\frac{1{,}6 \times 2{,}4}{4}$. 3. La variance $4 + 5$, donc $\omega = 3$. 4. Pense aux trois façons de simuler de la fiche. 5. $X_4 = 2X_1$ ; pour la marche, $\frac{\operatorname{Cov}(W_1, W_4)}{\sqrt{\mathbb{V}(W_1)\,\mathbb{V}(W_4)}}$.
+1. $V_{10} = 4$ : pour quel $s$ a-t-on $V_s = 2$ ? 2. $V_4 = 1{,}6$ : la moyenne $\frac{1{,}6}{4} \times 5$, la variance $\frac{1{,}6 \times 2{,}4}{4}$. 3. La variance $4 + 5$, donc $\omega = 3$. 4. Pense aux trois façons de simuler de la fiche. 5. $X_4 = 2X_1$ ; pour la marche, $\frac{\operatorname{Cov}(W_1, W_4)}{\sqrt{\mathbb{V}(W_1)\thinspace\mathbb{V}(W_4)}}$.
 
 </details>
 
@@ -89,12 +89,12 @@ Fiche §5 : « Le score en x » (ses quatre propriétés) et « La formule de Tw
 </details>
 <details><summary>Indice 2</summary>
 
-Pour $\mathcal{N}(\mu, \sigma^2)$, $s(x) = -\frac{x - \mu}{\sigma^2}$. $\ln(Cf) = \ln C + \ln f$, et une constante a une dérivée nulle. Tweedie : $\mathbb{E}[n \mid y] = -b\,s_Y(y)$ et $\mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}$.
+Pour $\mathcal{N}(\mu, \sigma^2)$, $s(x) = -\frac{x - \mu}{\sigma^2}$. $\ln(Cf) = \ln C + \ln f$, et une constante a une dérivée nulle. Tweedie : $\mathbb{E}[n \mid y] = -b\thinspace s_Y(y)$ et $\mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\sigma^2 = 4$ : $-\frac{7 - 3}{4}$ et $-\frac{1 - 3}{4}$. 2. La dérivée de $-\frac{x^4}{4}$, en 2. 3. $s = \frac{p'}{p}$, et que vaut $p'$ en un mode ? 4. $a = 2$, $b = 0{,}5$, $b^2 = 0{,}25$ ; contrôle : $a\,\mathbb{E}[x \mid y] + b\,\mathbb{E}[n \mid y] = 3$. 5. Dans la preuve (∂ MB5.12), qu'est-ce qui doit être gaussien : le signal ou le bruit ?
+1. $\sigma^2 = 4$ : $-\frac{7 - 3}{4}$ et $-\frac{1 - 3}{4}$. 2. La dérivée de $-\frac{x^4}{4}$, en 2. 3. $s = \frac{p'}{p}$, et que vaut $p'$ en un mode ? 4. $a = 2$, $b = 0{,}5$, $b^2 = 0{,}25$ ; contrôle : $a\thinspace\mathbb{E}[x \mid y] + b\thinspace\mathbb{E}[n \mid y] = 3$. 5. Dans la preuve (∂ MB5.12), qu'est-ce qui doit être gaussien : le signal ou le bruit ?
 
 </details>
 
@@ -107,7 +107,7 @@ Fiche §6 : « Une chaîne de latents » (le théorème et la lecture des termes
 </details>
 <details><summary>Indice 2</summary>
 
-La KL finale compare $q(z_T \mid x)$ à $p(z_T)$ ; chaque terme du milieu compare le pas retour du modèle au pas retour qui connaît $x$. Deux gaussiennes de même variance $\sigma^2$ ont la KL $\frac{(\mu_q - \mu_p)^2}{2\sigma^2}$. Et $\operatorname{ELBO} = \ln p(x) - \mathrm{KL}\big(q(z_{1:T} \mid x) \,\|\, p(z_{1:T} \mid x)\big)$.
+La KL finale compare $q(z_T \mid x)$ à $p(z_T)$ ; chaque terme du milieu compare le pas retour du modèle au pas retour qui connaît $x$. Deux gaussiennes de même variance $\sigma^2$ ont la KL $\frac{(\mu_q - \mu_p)^2}{2\sigma^2}$. Et $\operatorname{ELBO} = \ln p(x) - \mathrm{KL}\big(q(z_{1:T} \mid x) \thinspace\Vert\thinspace p(z_{1:T} \mid x)\big)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -125,12 +125,12 @@ Fiche §7 : « Interpoler ou extrapoler », « Bayes en logarithmes : une combin
 </details>
 <details><summary>Indice 2</summary>
 
-$(1 + w)\,y_c - w\,y_u = y_c + w\,(y_c - y_u)$ : deux coefficients de somme 1, tous deux positifs ou nuls exactement quand $w \in [-1, 0]$. La loi guidée de deux gaussiennes existe tant que $\lambda(w) = \frac{1 + w}{\sigma_c^2} - \frac{w}{\sigma_u^2} > 0$.
+$(1 + w)\thinspace y_c - w\thinspace y_u = y_c + w\thinspace(y_c - y_u)$ : deux coefficients de somme 1, tous deux positifs ou nuls exactement quand $w \in [-1, 0]$. La loi guidée de deux gaussiennes existe tant que $\lambda(w) = \frac{1 + w}{\sigma_c^2} - \frac{w}{\sigma_u^2} > 0$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $1 + w = 0{,}7$ et $-w = 0{,}3$. 2. $y_c + 1{,}25\,(y_c - y_u)$ : de quel côté de $y_c$ ? 3. Bayes en logarithmes, $\ln p(x \mid c) = \ln p(c \mid x) + \ln p(x) - \ln p(c)$, puis dérive en $x$. 4. $\lambda(w) = \frac{1 + w}{4} - w$ : résous $\lambda(w) > 0$. 5. Écris $\lambda(w) = \frac{1}{\sigma_c^2} + w\big(\frac{1}{\sigma_c^2} - \frac{1}{\sigma_u^2}\big)$ : quel est le signe de la parenthèse ?
+1. $1 + w = 0{,}7$ et $-w = 0{,}3$. 2. $y_c + 1{,}25\thinspace(y_c - y_u)$ : de quel côté de $y_c$ ? 3. Bayes en logarithmes, $\ln p(x \mid c) = \ln p(c \mid x) + \ln p(x) - \ln p(c)$, puis dérive en $x$. 4. $\lambda(w) = \frac{1 + w}{4} - w$ : résous $\lambda(w) > 0$. 5. Écris $\lambda(w) = \frac{1}{\sigma_c^2} + w\big(\frac{1}{\sigma_c^2} - \frac{1}{\sigma_u^2}\big)$ : quel est le signe de la parenthèse ?
 
 </details>
 
@@ -148,7 +148,7 @@ Euler lit le champ une fois par pas, le point milieu deux fois. Une erreur d'ord
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac{12}{1}$ et $\frac{12}{2}$. 2. Compare $\frac h2$ à $h$, puis $\big(\frac h2\big)^2$ à $h^2$. 3. Si l'erreur vaut $CN^{-p}$, son logarithme vaut $\ln C - p\ln N$. 4. $\frac{2 - 5}{6}$. 5. $v(z, 1) = z - m$ et $h = -1$ : calcule $z + h\,v(z, 1)$.
+1. $\frac{12}{1}$ et $\frac{12}{2}$. 2. Compare $\frac h2$ à $h$, puis $\big(\frac h2\big)^2$ à $h^2$. 3. Si l'erreur vaut $CN^{-p}$, son logarithme vaut $\ln C - p\ln N$. 4. $\frac{2 - 5}{6}$. 5. $v(z, 1) = z - m$ et $h = -1$ : calcule $z + h\thinspace v(z, 1)$.
 
 </details>
 
@@ -183,7 +183,7 @@ M25b §2 (lois totales), §3 (responsabilités) et §5 (ELBO d'un latent) ; M26 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[X] = \sum_kP(Z = k)\,\mathbb{E}[X \mid Z = k]$ et $\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X \mid Z)] + \mathbb{V}(\mathbb{E}[X \mid Z])$. $\operatorname{ELBO} = \ln p(x) - \mathrm{KL}\big(q \,\|\, p(z \mid x)\big)$. Les responsabilités sont la softmax des logarithmes.
+$\mathbb{E}[X] = \sum_kP(Z = k)\thinspace\mathbb{E}[X \mid Z = k]$ et $\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X \mid Z)] + \mathbb{V}(\mathbb{E}[X \mid Z])$. $\operatorname{ELBO} = \ln p(x) - \mathrm{KL}\big(q \thinspace\Vert\thinspace p(z \mid x)\big)$. Les responsabilités sont la softmax des logarithmes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -201,7 +201,7 @@ M20 §6 (la méthode d'Euler et sa stabilité), M26 §2 (loi stationnaire) et R6
 </details>
 <details><summary>Indice 2</summary>
 
-Un pas d'Euler : $x + h\,f(x)$. Pour $x' = -2x + 1$, chaque pas multiplie l'écart au point fixe $0{,}5$ par $1 - 2h$. Pour une chaîne à deux états, la loi stationnaire équilibre les flux : $\pi_1P_{12} = \pi_2P_{21}$. La cote est $\frac{p}{1 - p}$, le logit son logarithme, et $p = \frac{\text{cote}}{1 + \text{cote}}$.
+Un pas d'Euler : $x + h\thinspace f(x)$. Pour $x' = -2x + 1$, chaque pas multiplie l'écart au point fixe $0{,}5$ par $1 - 2h$. Pour une chaîne à deux états, la loi stationnaire équilibre les flux : $\pi_1P_{12} = \pi_2P_{21}$. La cote est $\frac{p}{1 - p}$, le logit son logarithme, et $p = \frac{\text{cote}}{1 + \text{cote}}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -223,12 +223,12 @@ Fiche §1 : « Deux moments qui suivent le pas » et « La loi stationnaire d'un
 </details>
 <details><summary>Indice 2</summary>
 
-$x_0$ est mesuré : $m_0 = 2{,}5$ et $v_0 = 0$. Puis $m_t = 0{,}88\,m_{t-1}$ et $v_t = 0{,}88^2v_{t-1} + 0{,}35^2$. La variance stationnaire est $\frac{b^2}{1 - a^2}$. Pour d), compare $m_k = 2{,}5 \times 0{,}88^k$ au dixième de $\sqrt{v_\infty}$. Pour e), repars de $x_{20}$, connu, pour cinq jours.
+$x_0$ est mesuré : $m_0 = 2{,}5$ et $v_0 = 0$. Puis $m_t = 0{,}88\thinspace m_{t-1}$ et $v_t = 0{,}88^2v_{t-1} + 0{,}35^2$. La variance stationnaire est $\frac{b^2}{1 - a^2}$. Pour d), compare $m_k = 2{,}5 \times 0{,}88^k$ au dixième de $\sqrt{v_\infty}$. Pour e), repars de $x_{20}$, connu, pour cinq jours.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$a^2 = 0{,}7744$ et $b^2 = 0{,}1225$. a) $m_1 = 0{,}88 \times 2{,}5$ et $v_1 = b^2$. b) $v_2 = 0{,}7744 \times 0{,}1225 + 0{,}1225 = 0{,}217364$, puis $v_3$ de la même façon ; $m_3 = 0{,}88^3 \times 2{,}5$. c) $\frac{0{,}1225}{0{,}2256}$. d) Résous $2{,}5 \times 0{,}88^k < 0{,}1\sqrt{v_\infty}$ par les logarithmes, prends l'entier juste au-dessus, et vérifie-le, ainsi que l'entier d'avant. e) La moyenne $0{,}88^5 \times (-1{,}4)$, la variance $v_\infty\,(1 - 0{,}88^{10})$.
+$a^2 = 0{,}7744$ et $b^2 = 0{,}1225$. a) $m_1 = 0{,}88 \times 2{,}5$ et $v_1 = b^2$. b) $v_2 = 0{,}7744 \times 0{,}1225 + 0{,}1225 = 0{,}217364$, puis $v_3$ de la même façon ; $m_3 = 0{,}88^3 \times 2{,}5$. c) $\frac{0{,}1225}{0{,}2256}$. d) Résous $2{,}5 \times 0{,}88^k < 0{,}1\sqrt{v_\infty}$ par les logarithmes, prends l'entier juste au-dessus, et vérifie-le, ainsi que l'entier d'avant. e) La moyenne $0{,}88^5 \times (-1{,}4)$, la variance $v_\infty\thinspace(1 - 0{,}88^{10})$.
 
 </details>
 
@@ -295,12 +295,12 @@ Fiche §5 : « La formule de Tweedie » (l'exemple des notes) et « Le débruite
 </details>
 <details><summary>Indice 2</summary>
 
-Partie A : $y \sim \mathcal{N}(am, a^2\tau^2 + b^2)$, $\mathbb{E}[x \mid y] = m + \frac{a\tau^2}{a^2\tau^2 + b^2}(y - am)$, et le score d'une gaussienne ; puis $\mathbb{E}[n \mid y] = -b\,s_Y(y)$. Partie B : $p_Y(y) = \frac12\mathcal{N}(y \mid ac, b^2) + \frac12\mathcal{N}(y \mid -ac, b^2)$, et $\mathbb{E}[x \mid y] = c\,\frac{\mathcal{N}(y \mid ac, b^2) - \mathcal{N}(y \mid -ac, b^2)}{\mathcal{N}(y \mid ac, b^2) + \mathcal{N}(y \mid -ac, b^2)}$ : simplifie le facteur commun, et reconnais une tanh. Puis $n = \frac{y - ax}{b}$.
+Partie A : $y \sim \mathcal{N}(am, a^2\tau^2 + b^2)$, $\mathbb{E}[x \mid y] = m + \frac{a\tau^2}{a^2\tau^2 + b^2}(y - am)$, et le score d'une gaussienne ; puis $\mathbb{E}[n \mid y] = -b\thinspace s_Y(y)$. Partie B : $p_Y(y) = \frac12\mathcal{N}(y \mid ac, b^2) + \frac12\mathcal{N}(y \mid -ac, b^2)$, et $\mathbb{E}[x \mid y] = c\thinspace\frac{\mathcal{N}(y \mid ac, b^2) - \mathcal{N}(y \mid -ac, b^2)}{\mathcal{N}(y \mid ac, b^2) + \mathcal{N}(y \mid -ac, b^2)}$ : simplifie le facteur commun, et reconnais une tanh. Puis $n = \frac{y - ax}{b}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-A : $y \sim \mathcal{N}(2, 25)$. a) $1 + \frac{2 \times 4}{25}(6 - 2)$. b) $-\frac{6 - 2}{25}$. c) $-3 \times s_Y(6)$ ; contrôle : $2\,\mathbb{E}[x \mid y] + 3\,\mathbb{E}[n \mid y] = 6$. B : le rapport vaut $\tanh\big(\frac{acy}{b^2}\big)$ ; ici $ac = 1$ et $b^2 = 1$. d) $2\tanh(1{,}1)$. e) $\frac{1{,}1 - 0{,}5 \times \mathbb{E}[x \mid y]}{1}$. f) Quand $b \to 0$, que devient $\frac{acy}{b^2}$ pour $y = 1{,}1$, et vers quoi tend alors la tanh ?
+A : $y \sim \mathcal{N}(2, 25)$. a) $1 + \frac{2 \times 4}{25}(6 - 2)$. b) $-\frac{6 - 2}{25}$. c) $-3 \times s_Y(6)$ ; contrôle : $2\thinspace\mathbb{E}[x \mid y] + 3\thinspace\mathbb{E}[n \mid y] = 6$. B : le rapport vaut $\tanh\big(\frac{acy}{b^2}\big)$ ; ici $ac = 1$ et $b^2 = 1$. d) $2\tanh(1{,}1)$. e) $\frac{1{,}1 - 0{,}5 \times \mathbb{E}[x \mid y]}{1}$. f) Quand $b \to 0$, que devient $\frac{acy}{b^2}$ pour $y = 1{,}1$, et vers quoi tend alors la tanh ?
 
 </details>
 
@@ -313,7 +313,7 @@ Fiche §6 : « Une chaîne de latents » (le théorème) et l'exemple « Une cas
 </details>
 <details><summary>Indice 2</summary>
 
-a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\,q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\,q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\,p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \,\|\, p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\,\mathrm{KL}\big(q(z_1 \mid z_2, x) \,\|\, p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL de e).
+a) $q(z_2 \mid x) = \sum_{z_1}q(z_1 \mid x)\thinspace q(z_2 \mid z_1)$. b) Bayes : $q(z_1 \mid z_2, x) = \frac{q(z_1 \mid x)\thinspace q(z_2 \mid z_1)}{q(z_2 \mid x)}$. c) $p(x) = \sum_{z_2}p(z_2)\sum_{z_1}p(z_1 \mid z_2)\thinspace p(x \mid z_1)$. e) La reconstruction $\sum_{z_1}q(z_1 \mid x)\ln p(x \mid z_1)$, la KL finale $\mathrm{KL}\big(q(z_2 \mid x) \thinspace\Vert\thinspace p(z_2)\big)$, et la KL du pas retour $\sum_{z_2}q(z_2 \mid x)\thinspace\mathrm{KL}\big(q(z_1 \mid z_2, x) \thinspace\Vert\thinspace p(z_1 \mid z_2)\big)$. d) La reconstruction moins les deux KL de e).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -331,12 +331,12 @@ Fiche §7 : « Deux densités gaussiennes » (la précision $\lambda(w)$, la moy
 </details>
 <details><summary>Indice 2</summary>
 
-$\lambda(w) = \frac{1 + w}{25} - \frac{w}{81}$, la variance $\frac{1}{\lambda(w)}$, et $\lambda(w)\,\mu(w) = \frac{(1 + w) \times 102}{25} - \frac{w \times 108}{81}$. Le score guidé est $(1 + w)\,s_v - w\,s_g$, ou $-\lambda(w)\,(x - \mu(w))$. Pour e), la loi existe tant que $\lambda(w) > 0$.
+$\lambda(w) = \frac{1 + w}{25} - \frac{w}{81}$, la variance $\frac{1}{\lambda(w)}$, et $\lambda(w)\thinspace\mu(w) = \frac{(1 + w) \times 102}{25} - \frac{w \times 108}{81}$. Le score guidé est $(1 + w)\thinspace s_v - w\thinspace s_g$, ou $-\lambda(w)\thinspace(x - \mu(w))$. Pour e), la loi existe tant que $\lambda(w) > 0$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{1{,}4}{25} - \frac{0{,}4}{81}$, puis l'inverse. b) $\frac{1{,}4 \times 102}{25} - \frac{0{,}4 \times 108}{81}$, divisé par $\lambda(0{,}4)$. c) La même chose avec $w = 1{,}25$. d) $s_v(96) = -\frac{96 - 102}{25}$ et $s_g(96) = -\frac{96 - 108}{81}$ ; puis $2{,}25\,s_v - 1{,}25\,s_g$. e) $\frac{1 + w}{144} - \frac{w}{81} > 0$ : isole $w$ (ou $w^\star = \frac{\sigma_u^2}{\sigma_c^2 - \sigma_u^2}$, avec $\sigma_c^2 = 144$ et $\sigma_u^2 = 81$).
+a) $\frac{1{,}4}{25} - \frac{0{,}4}{81}$, puis l'inverse. b) $\frac{1{,}4 \times 102}{25} - \frac{0{,}4 \times 108}{81}$, divisé par $\lambda(0{,}4)$. c) La même chose avec $w = 1{,}25$. d) $s_v(96) = -\frac{96 - 102}{25}$ et $s_g(96) = -\frac{96 - 108}{81}$ ; puis $2{,}25\thinspace s_v - 1{,}25\thinspace s_g$. e) $\frac{1 + w}{144} - \frac{w}{81} > 0$ : isole $w$ (ou $w^\star = \frac{\sigma_u^2}{\sigma_c^2 - \sigma_u^2}$, avec $\sigma_c^2 = 144$ et $\sigma_u^2 = 81$).
 
 </details>
 
@@ -349,12 +349,12 @@ Fiche §8 : « Une équation, une condition initiale » (le refroidissement), «
 </details>
 <details><summary>Indice 2</summary>
 
-La solution exacte est $T(t) = 20 + 65\,e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - rh + \frac{(rh)^2}{2}$ avec $r = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour e), le pas vaut $h = -5$, et la pente se lit à 10 min. Pour la feuille de ta copie : sa vitesse change-t-elle le long de sa trajectoire ?
+La solution exacte est $T(t) = 20 + 65\thinspace e^{-0{,}06t}$. Un pas d'Euler multiplie l'écart $T - 20$ par $1 - 0{,}06h$ ; un pas du point milieu, par $1 - rh + \frac{(rh)^2}{2}$ avec $r = 0{,}06$ (vérifie-le sur un pas). L'erreur est la valeur approchée moins la valeur exacte. Pour e), le pas vaut $h = -5$, et la pente se lit à 10 min. Pour la feuille de ta copie : sa vitesse change-t-elle le long de sa trajectoire ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $20 + 65\,e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $rh = 0{,}3$ donne le facteur $0{,}745$, $rh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode, avec les températures non arrondies (les erreurs du point milieu sont petites). e) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
+a) $20 + 65\thinspace e^{-0{,}6}$. b) $20 + 65 \times 0{,}7^2$ et $20 + 65 \times 0{,}85^4$. c) $rh = 0{,}3$ donne le facteur $0{,}745$, $rh = 0{,}15$ le facteur $0{,}86125$ ; deux pas, puis quatre. d) L'erreur avec $h = 5$ divisée par l'erreur avec $h = 2{,}5$, pour chaque méthode, avec les températures non arrondies (les erreurs du point milieu sont petites). e) La pente à 10 min vaut $-0{,}06 \times 27$ ; un pas : $47 + (-5) \times \text{pente}$ ; exactement, l'écart $27$ est multiplié par $e^{+0{,}3}$.
 
 </details>
 
@@ -367,7 +367,7 @@ Fiche §9 : « Un chemin droit », « Le champ moyen » et « Des données gauss
 </details>
 <details><summary>Indice 2</summary>
 
-$x_s \sim \mathcal{N}\big((1 - s)m, \sigma(s)^2\big)$, $\sigma(s)^2 = (1 - s)^2\tau^2 + s^2$, et $\mathbb{E}[x_0 \mid x_s = x] = m + \frac{(1 - s)\tau^2}{\sigma(s)^2}\big(x - (1 - s)m\big)$. Puis $v(x, s) = \frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$. Un pas d'Euler de $s$ à $s + h$, avec $h < 0$ : $x + h\,v(x, s)$, le champ lu au début du pas.
+$x_s \sim \mathcal{N}\big((1 - s)m, \sigma(s)^2\big)$, $\sigma(s)^2 = (1 - s)^2\tau^2 + s^2$, et $\mathbb{E}[x_0 \mid x_s = x] = m + \frac{(1 - s)\tau^2}{\sigma(s)^2}\big(x - (1 - s)m\big)$. Puis $v(x, s) = \frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$. Un pas d'Euler de $s$ à $s + h$, avec $h < 0$ : $x + h\thinspace v(x, s)$, le champ lu au début du pas.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -394,7 +394,7 @@ Fiche §1 : « Deux moments qui suivent le pas » (la formule de $x_t$) et « La
 </details>
 <details><summary>Indice 3</summary>
 
-1. $x_t = a_t\Big[(a_1\cdots a_{t-1})x_0 + \sum_{k<t}b_k(a_{k+1}\cdots a_{t-1})\varepsilon_k\Big] + b_t\varepsilon_t$. 2. $b^2\sum_{j=0}^{t-s-1}a^{2j}$, une somme géométrique de raison $a^2 \ne 1$. 3. $a^2v_\infty + b^2 = v_\infty$ ; retire-la de $v_t = a^2v_{t-1} + b^2$. 4. $v = a^2v + b^2$ donne $(1 - a^2)\,v = b^2 > 0$ : est-ce possible si $a^2 \ge 1$ et $v \ge 0$ ? Pour $a = 1$, $v_t = v_{t-1} + b^2$.
+1. $x_t = a_t\Big[(a_1\cdots a_{t-1})x_0 + \sum_{k\lt t}b_k(a_{k+1}\cdots a_{t-1})\varepsilon_k\Big] + b_t\varepsilon_t$. 2. $b^2\sum_{j=0}^{t-s-1}a^{2j}$, une somme géométrique de raison $a^2 \ne 1$. 3. $a^2v_\infty + b^2 = v_\infty$ ; retire-la de $v_t = a^2v_{t-1} + b^2$. 4. $v = a^2v + b^2$ donne $(1 - a^2)\thinspace v = b^2 > 0$ : est-ce possible si $a^2 \ge 1$ et $v \ge 0$ ? Pour $a = 1$, $v_t = v_{t-1} + b^2$.
 
 </details>
 
@@ -407,7 +407,7 @@ Fiche §4 : « La meilleure prédiction quadratique » et ses outils ; M02c §1 
 </details>
 <details><summary>Indice 2</summary>
 
-1. Écris $Y - c = (Y - \mu_k) + (\mu_k - c)$, avec $\mu_k = \mathbb{E}[Y \mid X = \xi_k]$, développe le carré et prends l'espérance sachant $X = \xi_k$. 2. $\mathbb{E}[(Y - g(X))^2] = \sum_kp_k\,\mathbb{E}\big[(Y - g(\xi_k))^2 \mid X = \xi_k\big]$, et la question 1 avec $c = g(\xi_k)$. 3. La loi empirique : $X$ prend les valeurs observées, avec les probabilités $\frac{n_\xi}{n}$.
+1. Écris $Y - c = (Y - \mu_k) + (\mu_k - c)$, avec $\mu_k = \mathbb{E}[Y \mid X = \xi_k]$, développe le carré et prends l'espérance sachant $X = \xi_k$. 2. $\mathbb{E}[(Y - g(X))^2] = \sum_kp_k\thinspace\mathbb{E}\big[(Y - g(\xi_k))^2 \mid X = \xi_k\big]$, et la question 1 avec $c = g(\xi_k)$. 3. La loi empirique : $X$ prend les valeurs observées, avec les probabilités $\frac{n_\xi}{n}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -425,12 +425,12 @@ Fiche §5 : « La formule de Tweedie » et son outil ; M04 (Bayes), M25a §5, M2
 </details>
 <details><summary>Indice 2</summary>
 
-1. Sachant $x = \xi_k$, $y$ a la densité $\varphi_b(y - a\xi_k)$ ; probabilités totales ; et $\varphi_b'(u) = -\frac{u}{b^2}\varphi_b(u)$. 2. $P(x = \xi_k \mid y) = \frac{\pi_k\,\varphi_b(y - a\xi_k)}{p_Y(y)}$. 3. Remplace la somme par $\int p_X(u)\,\varphi_b(y - au)\,\mathrm{d}u$. 4. $y \sim \mathcal{N}(am, a^2\tau^2 + b^2)$, et le score d'une gaussienne.
+1. Sachant $x = \xi_k$, $y$ a la densité $\varphi_b(y - a\xi_k)$ ; probabilités totales ; et $\varphi_b'(u) = -\frac{u}{b^2}\varphi_b(u)$. 2. $P(x = \xi_k \mid y) = \frac{\pi_k\thinspace\varphi_b(y - a\xi_k)}{p_Y(y)}$. 3. Remplace la somme par $\int p_X(u)\thinspace\varphi_b(y - au)\thinspace\mathrm{d}u$. 4. $y \sim \mathcal{N}(am, a^2\tau^2 + b^2)$, et le score d'une gaussienne.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. $s_Y = \frac{p_Y'}{p_Y} = -\frac{1}{b^2}\sum_kP(x = \xi_k \mid y)\,(y - a\xi_k)$ : la somme vaut $y - a\,\mathbb{E}[x \mid y]$ ; isole $\mathbb{E}[x \mid y]$, puis écris $n = \frac{y - ax}{b}$ et prends l'espérance sachant $y$. 4. $\frac1a\Big(y - \frac{b^2(y - am)}{a^2\tau^2 + b^2}\Big)$ : écris $y = am + (y - am)$ et regroupe les termes en $y - am$.
+2. $s_Y = \frac{p_Y'}{p_Y} = -\frac{1}{b^2}\sum_kP(x = \xi_k \mid y)\thinspace(y - a\xi_k)$ : la somme vaut $y - a\thinspace\mathbb{E}[x \mid y]$ ; isole $\mathbb{E}[x \mid y]$, puis écris $n = \frac{y - ax}{b}$ et prends l'espérance sachant $y$. 4. $\frac1a\Big(y - \frac{b^2(y - am)}{a^2\tau^2 + b^2}\Big)$ : écris $y = am + (y - am)$ et regroupe les termes en $y - am$.
 
 </details>
 
@@ -465,7 +465,7 @@ Fiche §3 (« Trois cibles qui portent la même information »), §4 (« La meil
 </details>
 <details><summary>Indice 2</summary>
 
-À chaque niveau, $(x, n, y)$ est un vecteur gaussien centré : $\mathbb{V}(y) = a^2 + b^2$, $\operatorname{Cov}(n, y) = b$ et $\operatorname{Cov}(x, y) = a$. Alors $\mathbb{E}[n \mid y] = \frac{\operatorname{Cov}(n, y)}{\mathbb{V}(y)}\,y$, et la MSE minimale vaut $\mathbb{V}(n) - \frac{\operatorname{Cov}(n, y)^2}{\mathbb{V}(y)}$ ; de même pour $x$. $L$ est une somme sur les niveaux de termes qui ne dépendent chacun que de $g(\cdot, k)$.
+À chaque niveau, $(x, n, y)$ est un vecteur gaussien centré : $\mathbb{V}(y) = a^2 + b^2$, $\operatorname{Cov}(n, y) = b$ et $\operatorname{Cov}(x, y) = a$. Alors $\mathbb{E}[n \mid y] = \frac{\operatorname{Cov}(n, y)}{\mathbb{V}(y)}\thinspace y$, et la MSE minimale vaut $\mathbb{V}(n) - \frac{\operatorname{Cov}(n, y)^2}{\mathbb{V}(y)}$ ; de même pour $x$. $L$ est une somme sur les niveaux de termes qui ne dépendent chacun que de $g(\cdot, k)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -556,7 +556,7 @@ Fiche §5 : « Le débruiteur optimal d'un mélange » (les trois temps, et « U
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque composante, de variance $v_k$ (`s2`, le $s_k^2$ de la docstring) : `spread = a**2 * s2 + b**2`, le logarithme $\ln\pi_k - \frac12\ln(2\pi\,\text{spread}) - \frac{(y - a\mu_k)^2}{2\,\text{spread}}$ ($-\infty$ si $\pi_k = 0$), et $\mathbb{E}[x \mid y, k] = \mu_k + \frac{av_k}{\text{spread}}(y - a\mu_k)$. Ajoute un axe à `y` (`y[..., None]`) pour calculer toutes les composantes d'un coup ; retire le maximum sur cet axe avant l'exponentielle. Pour $a = 0$, rends la moyenne du mélange, de la forme de `y`. Puis : a) un mélange à une composante ; b) deux points de poids $\frac12$ et de variance 0.
+Pour chaque composante, de variance $v_k$ (`s2`, le $s_k^2$ de la docstring) : `spread = a**2 * s2 + b**2`, le logarithme $\ln\pi_k - \frac12\ln(2\pi\thinspace\text{spread}) - \frac{(y - a\mu_k)^2}{2\thinspace\text{spread}}$ ($-\infty$ si $\pi_k = 0$), et $\mathbb{E}[x \mid y, k] = \mu_k + \frac{av_k}{\text{spread}}(y - a\mu_k)$. Ajoute un axe à `y` (`y[..., None]`) pour calculer toutes les composantes d'un coup ; retire le maximum sur cet axe avant l'exponentielle. Pour $a = 0$, rends la moyenne du mélange, de la forme de `y`. Puis : a) un mélange à une composante ; b) deux points de poids $\frac12$ et de variance 0.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -615,12 +615,12 @@ Fiche §8 : « Une équation, une condition initiale » (la croissance logistiqu
 </details>
 <details><summary>Indice 2</summary>
 
-Un seul champ `f(t, P)`, le temps d'abord, sert à SciPy et à tes deux fonctions. `solve_ivp(f, (0, 8), [1.5], rtol=1e-10, atol=1e-10)` rend un objet dont `.y[0, -1]` est la valeur en $t = 8$. L'erreur est l'écart absolu à la solution exacte $\frac{K}{1 + (K/P_0 - 1)\,e^{-rt}}$. Les pentes : `np.polyfit` sur les logarithmes de $N$ et des erreurs, pour les quatre plus grands $N$.
+Un seul champ `f(t, P)`, le temps d'abord, sert à SciPy et à tes deux fonctions. `solve_ivp(f, (0, 8), [1.5], rtol=1e-10, atol=1e-10)` rend un objet dont `.y[0, -1]` est la valeur en $t = 8$. L'erreur est l'écart absolu à la solution exacte $\frac{K}{1 + (K/P_0 - 1)\thinspace e^{-rt}}$. Les pentes : `np.polyfit` sur les logarithmes de $N$ et des erreurs, pour les quatre plus grands $N$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`f = lambda t, P: 0.9 * P * (1 - P / 40)` ; la solution exacte en 8 : $\frac{40}{1 + (40/1{,}5 - 1)\,e^{-7{,}2}}$. b) `Ns = [8, 16, 32, 64, 128, 256]`, une liste d'erreurs par méthode, puis `ax.loglog(Ns, errors)`. c) `np.polyfit(np.log(Ns[2:]), np.log(err[2:]), 1)[0]` ; puis, dans tes listes de b), l'erreur d'Euler à $N = 64$ et celle du point milieu à $N = 32$.
+`f = lambda t, P: 0.9 * P * (1 - P / 40)` ; la solution exacte en 8 : $\frac{40}{1 + (40/1{,}5 - 1)\thinspace e^{-7{,}2}}$. b) `Ns = [8, 16, 32, 64, 128, 256]`, une liste d'erreurs par méthode, puis `ax.loglog(Ns, errors)`. c) `np.polyfit(np.log(Ns[2:]), np.log(err[2:]), 1)[0]` ; puis, dans tes listes de b), l'erreur d'Euler à $N = 64$ et celle du point milieu à $N = 32$.
 
 </details>
 
@@ -633,7 +633,7 @@ Fiche §5 : le paragraphe « Un nuage de points » et sa propriété. Écris ta 
 </details>
 <details><summary>Indice 2</summary>
 
-Cinq relevés de même poids et de variance nulle : $\mathbb{E}[x \mid y] = \sum_kr_k\,\mu_k$, avec $r_k \propto \exp\big(-\frac{a^2(y/a - \mu_k)^2}{2b^2}\big)$, une softmax de scores $-\frac{a^2}{2b^2}\big(\frac ya - \mu_k\big)^2$ : plus un relevé est proche de $\frac ya$, plus il pèse. Quand $b$ diminue, quels poids survivent ? Quand $b$ est énorme devant toutes les distances, que valent-ils ?
+Cinq relevés de même poids et de variance nulle : $\mathbb{E}[x \mid y] = \sum_kr_k\thinspace\mu_k$, avec $r_k \propto \exp\big(-\frac{a^2(y/a - \mu_k)^2}{2b^2}\big)$, une softmax de scores $-\frac{a^2}{2b^2}\big(\frac ya - \mu_k\big)^2$ : plus un relevé est proche de $\frac ya$, plus il pèse. Quand $b$ diminue, quels poids survivent ? Quand $b$ est énorme devant toutes les distances, que valent-ils ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -669,7 +669,7 @@ Fiche §7 : « Bayes en logarithmes : une combinaison de scores » (la propriét
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule $p_u$ et $p_c$ sur `xs` à partir des arguments `general` (les poids, les moyennes et les variances du mélange) et `cls` (la moyenne et la variance de la classe), jamais à partir des lois de l'énoncé écrites en dur : la vérification passe un autre mélange. Le logarithme de la loi guidée est $(1 + w)\ln p_c - w\ln p_u$ ; retire son maximum, prends l'exponentielle et divise par `np.trapezoid(d, xs)`. Les moments s'intègrent de même : la moyenne $\int x\,d(x)\,\mathrm{d}x$, l'écart-type $\sqrt{\int(x - \text{moyenne})^2d(x)\,\mathrm{d}x}$. Pour la figure : une courbe par loi, chacune avec un `label`, puis `ax.legend()`, `ax.set_xlabel(…)` et `ax.set_ylabel(…)`.
+Calcule $p_u$ et $p_c$ sur `xs` à partir des arguments `general` (les poids, les moyennes et les variances du mélange) et `cls` (la moyenne et la variance de la classe), jamais à partir des lois de l'énoncé écrites en dur : la vérification passe un autre mélange. Le logarithme de la loi guidée est $(1 + w)\ln p_c - w\ln p_u$ ; retire son maximum, prends l'exponentielle et divise par `np.trapezoid(d, xs)`. Les moments s'intègrent de même : la moyenne $\int x\thinspace d(x)\thinspace\mathrm{d}x$, l'écart-type $\sqrt{\int(x - \text{moyenne})^2d(x)\thinspace\mathrm{d}x}$. Pour la figure : une courbe par loi, chacune avec un `label`, puis `ax.legend()`, `ax.set_xlabel(…)` et `ax.set_ylabel(…)`.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -720,7 +720,7 @@ Chaque test appelle `method(f, x0, t0, t1, N)` sur plusieurs cas et compare **ch
 </details>
 <details><summary>Indice 3</summary>
 
-Les solutions exactes : $x_0 + c\,(t - t_0)$ pour une vitesse constante, $x_0 + \kappa_0(t - t_0) + \kappa_1\frac{t^2 - t_0^2}{2}$ pour $\kappa_0 + \kappa_1t$. Pour chaque cas : `ts = t0 + np.arange(N + 1) * (t1 - t0) / N`, puis `np.max(np.abs(xs - exact(ts))) <= 1e-9`. Pour `error_halves_24` : $x' = t - x$, $x(0) = 2$, sur $[0, 3]$, de solution $t - 1 + 3e^{-t}$, avec $N = 64$ puis 128, et `1.8 <= e64 / e128 <= 2.2`.
+Les solutions exactes : $x_0 + c\thinspace(t - t_0)$ pour une vitesse constante, $x_0 + \kappa_0(t - t_0) + \kappa_1\frac{t^2 - t_0^2}{2}$ pour $\kappa_0 + \kappa_1t$. Pour chaque cas : `ts = t0 + np.arange(N + 1) * (t1 - t0) / N`, puis `np.max(np.abs(xs - exact(ts))) <= 1e-9`. Pour `error_halves_24` : $x' = t - x$, $x(0) = 2$, sur $[0, 3]$, de solution $t - 1 + 3e^{-t}$, avec $N = 64$ puis 128, et `1.8 <= e64 / e128 <= 2.2`.
 
 </details>
 
@@ -738,6 +738,6 @@ Fiche §9 : « Le champ moyen » (le champ par le débruiteur, avec $a = 1 - s$ 
 </details>
 <details><summary>Indice 3</summary>
 
-Quatre pas du point milieu, $h = -0{,}25$, de $s = 1$ à $s = 0$ : à chaque pas, un appel en $(x, s)$ pour le demi-pas, puis un appel en $\big(x + \frac h2\,v, s + \frac h2\big)$ pour le pas entier. Mesure `scipy.stats.wasserstein_distance(points, TARGET_25)`, divise-la par l'écart-type du mélange : la vérification fait la moyenne de ces rapports sur quinze lois cachées, chacune avec ses huit appels. Essaie ta fonction sur des mélanges que tu fabriques toi-même : deux bosses très étroites, très écartées, une bosse légère.
+Quatre pas du point milieu, $h = -0{,}25$, de $s = 1$ à $s = 0$ : à chaque pas, un appel en $(x, s)$ pour le demi-pas, puis un appel en $\big(x + \frac h2\thinspace v, s + \frac h2\big)$ pour le pas entier. Mesure `scipy.stats.wasserstein_distance(points, TARGET_25)`, divise-la par l'écart-type du mélange : la vérification fait la moyenne de ces rapports sur quinze lois cachées, chacune avec ses huit appels. Essaie ta fonction sur des mélanges que tu fabriques toi-même : deux bosses très étroites, très écartées, une bosse légère.
 
 </details>

@@ -117,7 +117,7 @@ Un sac contient 3 boules rouges et 2 boules bleues. On tire une boule au hasard.
 
 1. L'aire d'un trapèze de largeur 0,5 dont les côtés parallèles mesurent 0,4 et 0,8 ?
 2. L'aire sous la ligne brisée qui relie $(0, 0)$, $(0{,}5 ;\ 0{,}6)$ et $(1, 1)$ ?
-3. La méthode des trapèzes avec deux intervalles pour $\int_0^1 x^2\,\mathrm{d}x$, puis l'erreur commise ?
+3. La méthode des trapèzes avec deux intervalles pour $\int_0^1 x^2\thinspace\mathrm{d}x$, puis l'erreur commise ?
 4. L'aire sous l'escalier $(0, 0) \to (0 ;\ 0{,}5) \to (0{,}5 ;\ 0{,}5) \to (0{,}5 ;\ 1) \to (1, 1)$ ?
 5. Pourquoi un segment vertical n'ajoute-t-il rien à l'aire ?
 
@@ -243,7 +243,7 @@ Un modèle A de détection d'intrusion a une precision de 0,6 et un recall de 0,
 | g | un modèle B a une precision de 0,9 et un recall de 0,6 : son $F_2$ | un nombre (4 décimales) |
 | h | pour l'équipe sécurité, laisser passer une intrusion coûte beaucoup plus cher qu'une fausse alerte : le modèle à préférer | une lettre entre guillemets (A ou B) |
 
-Dans ta copie : retrouve a) et b) avec les comptages, par la formule $\frac{(1 + \beta^2)\,TP}{(1 + \beta^2)\,TP + \beta^2\,FN + FP}$. Compare g) et c) : pourquoi sont-ils égaux ? Les deux modèles ont-ils le même $F_1$ ?
+Dans ta copie : retrouve a) et b) avec les comptages, par la formule $\frac{(1 + \beta^2)\thinspace TP}{(1 + \beta^2)\thinspace TP + \beta^2\thinspace FN + FP}$. Compare g) et c) : pourquoi sont-ils égaux ? Les deux modèles ont-ils le même $F_1$ ?
 
 ### Ex M03.6 — Balanced accuracy et MCC sur un problème déséquilibré ✏️ ★★ ⏱️ 20 min
 **Objectif :** voir pourquoi l'accuracy trompe quand une classe est rare, et calculer la balanced accuracy et le MCC.
@@ -387,11 +387,11 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer que l'aire sous la courbe ROC est la proportion des paires (positif, négatif) bien classées, ex æquo comptés pour moitié.
 **Prérequis :** fiche §7 ; R4 (Σ) ; M02a §5 · **Parcours :** C
 
-Un classifieur donne des scores à $n_+$ exemples positifs, de scores $s_1, \ldots, s_{n_+}$, et à $n_-$ exemples négatifs, de scores $t_1, \ldots, t_{n_-}$. Pour un seuil $\theta$, on déclare positif tout exemple de score $\ge \theta$ ; la courbe ROC relie par des segments, pour des seuils décroissants, les points $\big(\text{FPR}(\theta), \text{TPR}(\theta)\big)$, de $(0, 0)$ à $(1, 1)$. On note $\text{TPR}(\theta) = \frac{1}{n_+}\#\{i : s_i \ge \theta\}$ et $\text{FPR}(\theta) = \frac{1}{n_-}\#\{j : t_j \ge \theta\}$.
+Un classifieur donne des scores à $n_+$ exemples positifs, de scores $s_1, \ldots, s_{n_+}$, et à $n_-$ exemples négatifs, de scores $t_1, \ldots, t_{n_-}$. Pour un seuil $\theta$, on déclare positif tout exemple de score $\ge \theta$ ; la courbe ROC relie par des segments, pour des seuils décroissants, les points $\big(\text{FPR}(\theta), \text{TPR}(\theta)\big)$, de $(0, 0)$ à $(1, 1)$. On note $\text{TPR}(\theta) = \frac{1}{n_+}\operatorname{card}\lbrace i : s_i \ge \theta\rbrace$ et $\text{FPR}(\theta) = \frac{1}{n_-}\operatorname{card}\lbrace j : t_j \ge \theta\rbrace$.
 1. On suppose d'abord tous les scores **différents**. On fait descendre le seuil d'un score à l'autre. Montre que la courbe avance par pas verticaux de $\frac{1}{n_+}$ (quand le seuil passe un positif) et par pas horizontaux de $\frac{1}{n_-}$ (quand il passe un négatif). Pourquoi la courbe est-elle un escalier qui ne redescend jamais ?
 2. Montre que l'aire sous cet escalier est la somme, sur les négatifs $j$, de $\frac{1}{n_-}$ fois la hauteur de la courbe au moment où le seuil passe $t_j$.
-3. Que vaut cette hauteur ? Écris-la à l'aide de $\#\{i : s_i > t_j\}$.
-4. Déduis-en que l'aire vaut $\frac{1}{n_+ n_-}\sum_{j}\#\{i : s_i > t_j\}$, la proportion des paires (positif, négatif) bien classées.
+3. Que vaut cette hauteur ? Écris-la à l'aide de $\operatorname{card}\lbrace i : s_i > t_j\rbrace$.
+4. Déduis-en que l'aire vaut $\frac{1}{n_+ n_-}\sum_{j}\operatorname{card}\lbrace i : s_i > t_j\rbrace$, la proportion des paires (positif, négatif) bien classées.
 5. On autorise maintenant des ex æquo. Un groupe de scores égaux contient $a$ positifs et $b$ négatifs ($a, b \ge 1$) : montre que la courbe y suit la diagonale du rectangle qu'elle traverse, et que l'aire sous ce segment, dans le rectangle de $a \times b$ cases de taille $\frac{1}{n_+} \times \frac{1}{n_-}$ qu'il traverse, vaut la moitié du rectangle. Conclus que chaque paire ex æquo compte pour $\frac{1}{2}$.
 6. Déduis-en que l'AUC ne change pas si l'on remplace chaque score $s$ par $f(s)$, pour une fonction $f$ strictement croissante. Que devient-elle pour une fonction strictement décroissante ?
 7. Pour aller plus loin : la statistique $U$ de Mann et Whitney (un test de comparaison de deux groupes) compte les paires où un élément du premier groupe dépasse un élément du second, ex æquo comptés pour moitié. Relie $U$ à l'AUC.

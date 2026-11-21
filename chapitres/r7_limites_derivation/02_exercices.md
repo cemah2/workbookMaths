@@ -32,10 +32,10 @@ Vrai ou faux ?
 
 1. La fonction $x \mapsto \frac{1}{x}$ est-elle continue en chaque point où elle est définie ?
 2. La fonction marche (0 pour $x < 0$, 1 pour $x \ge 0$) est-elle continue en 0 ? En 0,5 ?
-3. $f$ est continue sur $[0 \;;\; 1]$, $f(0) = -2$ et $f(1) = 5$ : $f$ prend-elle la valeur 3 ?
+3. $f$ est continue sur $[0 \mkern5mu ;\mkern5mu  1]$, $f(0) = -2$ et $f(1) = 5$ : $f$ prend-elle la valeur 3 ?
 4. Vrai ou faux : une fonction telle que $f(0) = -1$ et $f(1) = 1$ s'annule forcément entre 0 et 1.
-5. Après 10 étapes de dichotomie partant de $[0 \;;\; 1]$, quelle est la longueur de l'intervalle ?
-6. Vrai ou faux : la dichotomie trouve un zéro de $x \mapsto x^2$ sur $[-1 \;;\; 2]$.
+5. Après 10 étapes de dichotomie partant de $[0 \mkern5mu ;\mkern5mu  1]$, quelle est la longueur de l'intervalle ?
+6. Vrai ou faux : la dichotomie trouve un zéro de $x \mapsto x^2$ sur $[-1 \mkern5mu ;\mkern5mu  2]$.
 
 ### R7.Q3 — Le nombre dérivé est une pente 🧠 ★ ⏱️ 4 min
 *Fiche §3 et §4 · parcours C, E*
@@ -63,9 +63,9 @@ Donne la dérivée de :
 *Fiche §6 · parcours C, E*
 
 Vrai ou faux ?
-1. $(uv)' = u'\,v'$.
+1. $(uv)' = u'\thinspace v'$.
 2. $(5u)' = 5u'$.
-3. $\left(\frac{u}{v}\right)' = \frac{u\,v' - u'\,v}{v^2}$.
+3. $\left(\frac{u}{v}\right)' = \frac{u\thinspace v' - u'\thinspace v}{v^2}$.
 4. $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
 5. Pour dériver $\frac{x + 1}{x}$, la règle du quotient est indispensable.
 6. $f$ et $f + 10$ ont la même dérivée.
@@ -86,9 +86,9 @@ Pour chaque fonction, nomme l'étage intérieur $u$ et l'étage extérieur (la f
 
 1. La fonction $x \mapsto x^3 + x$ a-t-elle un extremum local ?
 2. $f'$ passe du signe $+$ au signe $-$ en $c$ : maximum ou minimum local ?
-3. Sur $[0 \;;\; 4]$, $f'(x) > 0$ partout : où $f$ atteint-elle son maximum sur cet intervalle ?
+3. Sur $[0 \mkern5mu ;\mkern5mu  4]$, $f'(x) > 0$ partout : où $f$ atteint-elle son maximum sur cet intervalle ?
 4. Vrai ou faux : $\lvert x \rvert$ a un minimum en 0, bien qu'elle n'y soit pas dérivable.
-5. $f' < 0$ sur $]0 \;;\; 2[$ : compare $f(0{,}5)$ et $f(1{,}5)$.
+5. $f' < 0$ sur $]0 \mkern5mu ;\mkern5mu  2[$ : compare $f(0{,}5)$ et $f(1{,}5)$.
 6. Vrai ou faux : un maximum local est toujours la plus grande valeur de la fonction.
 
 ### R7.Q8 — Qui domine qui ? 🧠 ★ ⏱️ 4 min
@@ -99,7 +99,7 @@ Pour chaque fonction, nomme l'étage intérieur $u$ et l'étage extérieur (la f
 3. Pour $n$ très grand, lequel est le plus grand : $2^n$ ou $n^{10}$ ?
 4. Deux boucles imbriquées de $n$ tours chacune : quel coût, en grand O ?
 5. Vrai ou faux : $\log_2 n = O(\ln n)$.
-6. Un algorithme en $O(n^2)$ met 2 secondes pour $n = 1\,000$ : combien, environ, pour $n = 10\,000$ ?
+6. Un algorithme en $O(n^2)$ met 2 secondes pour $n = 1\thinspace000$ : combien, environ, pour $n = 10\thinspace000$ ?
 
 <a id="rappels"></a>
 
@@ -150,7 +150,7 @@ Limites quand $x \to +\infty$, sauf à la ligne h.
 | c | $\dfrac{4x + 1}{2x - 3}$ | un nombre |
 | d | $\dfrac{x^2 + 1}{x^3 - 2}$ | un nombre |
 | e | $e^{-2x} + 1$ | un nombre |
-| f | $(x^2 + 1)\,e^{-x}$ | un nombre |
+| f | $(x^2 + 1)\thinspace e^{-x}$ | un nombre |
 | g | $\dfrac{\sqrt{x}}{\ln x}$ | un nombre ou `"+oo"`, `"-oo"` |
 | h | $x^3 + 2x$, quand $x \to -\infty$ | un nombre ou `"+oo"`, `"-oo"` |
 
@@ -235,7 +235,7 @@ Donne $f'(x)$ pour chaque fonction (là où elle est définie).
 |---|---|---|
 | a | $e^x \ln x$ | une expression en `x` |
 | b | $(x^2 + 1)(3x - 2)$ | une expression en `x` |
-| c | $\sqrt{x}\,\ln x$ | une expression en `x` |
+| c | $\sqrt{x}\thinspace\ln x$ | une expression en `x` |
 | d | $\dfrac{x - 4}{2x + 1}$ | une expression en `x` |
 | e | $\dfrac{x}{x^2 + 1}$ | une expression en `x` |
 | f | $\dfrac{e^x}{x + 1}$ | une expression en `x` |
@@ -251,7 +251,7 @@ Pour chaque fonction, nomme $u$ dans ta copie, dérive chaque étage, puis multi
 | | $f(x)$ | Réponse attendue |
 |---|---|---|
 | a | $(2x^2 - 1)^3$ | une expression en `x` |
-| b | $10\,e^{-x/5}$ | une expression en `x` |
+| b | $10\thinspace e^{-x/5}$ | une expression en `x` |
 | c | $\ln(3x + 2)$ | une expression en `x` |
 | d | $\sqrt{x^3 + 1}$, pour $x > -1$ | une expression en `x` |
 | e | $e^{\sqrt{x}}$ | une expression en `x` |
@@ -272,9 +272,9 @@ On pose $f(x) = x^4 - 4x^3 + 10$, définie sur $\mathbb{R}$. Dresse son tableau 
 | c | l'intervalle sur lequel $f$ est décroissante (le plus grand possible) | un intervalle |
 | d | le nombre d'extremums locaux de $f$ | un nombre entier |
 | e | la plus petite valeur de $f$ sur $\mathbb{R}$ | un nombre |
-| f | la plus grande valeur de $f$ sur l'intervalle $[-1 \;;\; 4]$ | un nombre |
+| f | la plus grande valeur de $f$ sur l'intervalle $[-1 \mkern5mu ;\mkern5mu  4]$ | un nombre |
 
-Puis $g(x) = x - 2\ln x$, sur $]0 \;;\; +\infty[$.
+Puis $g(x) = x - 2\ln x$, sur $]0 \mkern5mu ;\mkern5mu  +\infty[$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -315,7 +315,7 @@ Dans une feuille de carton de 16 cm sur 10 cm, on découpe un carré de côté $
 **Objectif :** dériver une formule à plusieurs lettres par rapport à l'une d'elles, en traitant les autres comme des constantes.
 **Prérequis :** fiche §5 et §7 · **Parcours :** C, E
 
-Une population vaut $N = A\,e^{kt}$ (au temps $t$, avec l'effectif initial $A$ et le taux $k$) ; un cylindre de rayon $r$ et de hauteur $h$ a pour volume $V = \pi r^2 h$ ; un objet de masse $m$ et de vitesse $v$ a l'énergie cinétique $E = \frac{1}{2} m v^2$. Réponds avec les mêmes lettres (`A`, `k`, `t`, `r`, `h`, `m`, `v`, et `pi` pour $\pi$).
+Une population vaut $N = A\thinspace e^{kt}$ (au temps $t$, avec l'effectif initial $A$ et le taux $k$) ; un cylindre de rayon $r$ et de hauteur $h$ a pour volume $V = \pi r^2 h$ ; un objet de masse $m$ et de vitesse $v$ a l'énergie cinétique $E = \frac{1}{2} m v^2$. Réponds avec les mêmes lettres (`A`, `k`, `t`, `r`, `h`, `m`, `v`, et `pi` pour $\pi$).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -350,9 +350,9 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 
 Soient $u$ et $v$ deux fonctions dérivables en $a$.
 1. Montre que $v$ est continue en $a$ : écris $v(a + h) - v(a) = h \times \frac{v(a + h) - v(a)}{h}$ et fais tendre $h$ vers 0.
-2. Vérifie l'égalité $u(a + h)\,v(a + h) - u(a)\,v(a) = \big(u(a + h) - u(a)\big)\,v(a + h) + u(a)\,\big(v(a + h) - v(a)\big)$.
-3. Divise par $h$ et fais tendre $h$ vers 0 : déduis-en que $(uv)'(a) = u'(a)\,v(a) + u(a)\,v'(a)$. Où sers-tu la question 1 ?
-4. Démontre par récurrence que $(x^n)' = n\,x^{n-1}$ pour tout entier $n \ge 1$ (avec $x^{n+1} = x^n \times x$).
+2. Vérifie l'égalité $u(a + h)\thinspace v(a + h) - u(a)\thinspace v(a) = \big(u(a + h) - u(a)\big)\thinspace v(a + h) + u(a)\thinspace\big(v(a + h) - v(a)\big)$.
+3. Divise par $h$ et fais tendre $h$ vers 0 : déduis-en que $(uv)'(a) = u'(a)\thinspace v(a) + u(a)\thinspace v'(a)$. Où sers-tu la question 1 ?
+4. Démontre par récurrence que $(x^n)' = n\thinspace x^{n-1}$ pour tout entier $n \ge 1$ (avec $x^{n+1} = x^n \times x$).
 5. Déduis de 3 la dérivée de $u^2$, puis celle de $u^3$, en fonction de $u$ et $u'$.
 
 ### Ex R7.14 — La règle du quotient à partir de la règle du produit : (1/v)′ = −v′/v² ∂ ★★ ⏱️ 25 min
@@ -363,7 +363,7 @@ Soit $v$ une fonction dérivable qui ne s'annule pas. On admet que $\frac{1}{v}$
 1. Dérive les deux membres de l'égalité $v(x) \times \frac{1}{v(x)} = 1$ avec la règle du produit.
 2. Déduis-en que $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
 3. Écris $\frac{u}{v} = u \times \frac{1}{v}$ et déduis-en la règle du quotient $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$.
-4. Applique 2 à $v(x) = x^n$ ($n \ge 1$ entier, $x \ne 0$) : montre que $(x^{-n})' = -n\,x^{-n-1}$. Que dit ce résultat de la règle $(x^m)' = m\,x^{m-1}$ ?
+4. Applique 2 à $v(x) = x^n$ ($n \ge 1$ entier, $x \ne 0$) : montre que $(x^{-n})' = -n\thinspace x^{-n-1}$. Que dit ce résultat de la règle $(x^m)' = m\thinspace x^{m-1}$ ?
 5. Applique 2 à $v(x) = x^3 + 2$ : donne la dérivée de $\frac{1}{x^3 + 2}$, et vérifie-la avec la règle de la chaîne (fiche §7).
 
 <a id="reflexion"></a>
@@ -379,14 +379,14 @@ Un réglage $a > 0$ d'un modèle donne une erreur modélisée par $E(a) = 2a + \
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $E'(a)$ | une expression en `a` |
-| b | le réglage $a^*$ qui minimise $E$ | un nombre |
-| c | l'erreur minimale $E(a^*)$ | un nombre |
-| d | $E'(1)$ : son signe dit de quel côté de $a^*$ se trouve 1 | un nombre |
-| e | le seuil $t^*$ qui minimise $L$ | un nombre (3 décimales) |
-| f | le coût minimal $L(t^*)$ | un nombre |
-| g | les valeurs $L(t^* - 0{,}1)$ et $L(t^* + 0{,}1)$, dans cet ordre | une liste (3 décimales) |
+| b | le réglage $a^\ast$ qui minimise $E$ | un nombre |
+| c | l'erreur minimale $E(a^\ast)$ | un nombre |
+| d | $E'(1)$ : son signe dit de quel côté de $a^\ast$ se trouve 1 | un nombre |
+| e | le seuil $t^\ast$ qui minimise $L$ | un nombre (3 décimales) |
+| f | le coût minimal $L(t^\ast)$ | un nombre |
+| g | les valeurs $L(t^\ast - 0{,}1)$ et $L(t^\ast + 0{,}1)$, dans cet ordre | une liste (3 décimales) |
 
-Dans ta copie : pourquoi annuler la dérivée ne suffit-il pas ? Comment as-tu vérifié que $a^*$ et $t^*$ sont des minimums, et pourquoi ces minimums sont-ils les plus petites valeurs sur tout le domaine, pas seulement au voisinage ?
+Dans ta copie : pourquoi annuler la dérivée ne suffit-il pas ? Comment as-tu vérifié que $a^\ast$ et $t^\ast$ sont des minimums, et pourquoi ces minimums sont-ils les plus petites valeurs sur tout le domaine, pas seulement au voisinage ?
 
 ### Ex R7.16 — Expliquer ce qu'est une dérivée sans écrire de formule 🗣️ ★ ⏱️ 10 min
 **Objectif :** expliquer simplement la dérivée, avec deux images concrètes.

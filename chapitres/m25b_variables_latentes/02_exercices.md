@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les vecteurs sont des **colonnes** ; un mélange de $K$ gaussiennes a pour poids $\pi_k$, moyennes $\boldsymbol{\mu}_k$ et covariances $\boldsymbol{\Sigma}_k$ ; $r_{ik}$ est la responsabilité de la composante $k$ pour la donnée $i$, et $N_k = \sum_i r_{ik}$ ; $\ell(\boldsymbol{\theta})$ est la log-vraisemblance ; $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x}, \mathbf{z}) - \ln q(\mathbf{z})]$ ; $\mathrm{KL}(p \,\|\, q) = \mathbb{E}_p[\ln p - \ln q]$, en nats ; $\ln$ est le logarithme népérien ; $\mathcal{N}(c \mid \mu, \sigma^2)$ est la densité de $\mathcal{N}(\mu, \sigma^2)$ en $c$, et $\mathcal{N}(\mu, \sigma^2)$ a pour second paramètre une **variance** ; les angles principaux s'écrivent $\phi_i$. ACP probabiliste : $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_k)$, $\mathbf{x} = \mathbf{W}\mathbf{z} + \boldsymbol{\mu} + \boldsymbol{\varepsilon}$, $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2\mathbf{I}_d)$, $\mathbf{C} = \mathbf{W}\mathbf{W}^\top + \sigma^2\mathbf{I}_d$ et $\mathbf{M} = \mathbf{W}^\top\mathbf{W} + \sigma^2\mathbf{I}_k$. Dans le notebook, les données sont les **lignes** d'un tableau de forme $(n, d)$ (des mesures en dimension 1 forment une colonne $(n, 1)$), une matrice s'écrit comme la liste de ses lignes, et les covariances d'un mélange forment un tableau $(K, d, d)$.
+Dans tout le chapitre, comme dans la fiche : les vecteurs sont des **colonnes** ; un mélange de $K$ gaussiennes a pour poids $\pi_k$, moyennes $\boldsymbol{\mu} _k$ et covariances $\boldsymbol{\Sigma} _k$ ; $r _{ik}$ est la responsabilité de la composante $k$ pour la donnée $i$, et $N_k = \sum_i r _{ik}$ ; $\ell(\boldsymbol{\theta})$ est la log-vraisemblance ; $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x}, \mathbf{z}) - \ln q(\mathbf{z})]$ ; $\mathrm{KL}(p \thinspace\Vert\thinspace q) = \mathbb{E}_p[\ln p - \ln q]$, en nats ; $\ln$ est le logarithme népérien ; $\mathcal{N}(c \mid \mu, \sigma^2)$ est la densité de $\mathcal{N}(\mu, \sigma^2)$ en $c$, et $\mathcal{N}(\mu, \sigma^2)$ a pour second paramètre une **variance** ; les angles principaux s'écrivent $\phi_i$. ACP probabiliste : $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_k)$, $\mathbf{x} = \mathbf{W}\mathbf{z} + \boldsymbol{\mu} + \boldsymbol{\varepsilon}$, $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2\mathbf{I}_d)$, $\mathbf{C} = \mathbf{W}\mathbf{W}^\top + \sigma^2\mathbf{I}_d$ et $\mathbf{M} = \mathbf{W}^\top\mathbf{W} + \sigma^2\mathbf{I}_k$. Dans le notebook, les données sont les **lignes** d'un tableau de forme $(n, d)$ (des mesures en dimension 1 forment une colonne $(n, 1)$), une matrice s'écrit comme la liste de ses lignes, et les covariances d'un mélange forment un tableau $(K, d, d)$.
 
 <a id="quiz"></a>
 
@@ -30,7 +30,7 @@ Un drone de livraison : la force du vent $V$ et la charge transportée $C$ fixen
 ### M25b.Q2 — Marginaliser ou conditionner : vraisemblance marginale, posterior d'un latent, moyenne et variance d'un mélange 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-$X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$, de latent $Z \in \{1, 2\}$.
+$X$ suit le mélange $\frac12\thinspace\mathcal{N}(3, 2) + \frac12\thinspace\mathcal{N}(11, 2)$, de latent $Z \in \lbrace1, 2\rbrace$.
 
 1. $\mathbb{E}[X]$ ?
 2. $\mathbb{V}(X)$ ?
@@ -44,7 +44,7 @@ $X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$,
 
 1. Pour une donnée, $a_{i1} = -3$ et $a_{i2} = -3 - \ln 3$. Que vaut $r_{i1}$ ?
 2. Que vaut $\ln p(\mathbf{x}_i)$ ?
-3. Vrai ou faux : $\ln\sum_k\pi_k\,\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) = \sum_k\ln\big(\pi_k\,\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)\big)$.
+3. Vrai ou faux : $\ln\sum_k\pi_k\thinspace\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) = \sum_k\ln\big(\pi_k\thinspace\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)\big)$.
 4. Un maximum à 3 composantes distinctes : combien de numérotations donnent la même loi ?
 5. Vrai ou faux : avec $K \ge 2$, une composante centrée sur une donnée, dont la variance tend vers 0, fait tendre $\ell$ vers $+\infty$.
 6. Vrai ou faux : pour une seule gaussienne ($K = 1$) et au moins deux données distinctes en dimension 1, la log-vraisemblance est bornée.
@@ -66,8 +66,8 @@ $X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$,
 2. Pour quelle loi $q$ y a-t-il égalité ?
 3. L'écart $\ln p(\mathbf{x}) - \operatorname{ELBO}(q)$ est une KL : laquelle (attention à l'ordre) ?
 4. $\ln p(\mathbf{x}) = -2{,}3$ et $\operatorname{ELBO}(q) = -2{,}9$ : que vaut cette KL ?
-5. Vrai ou faux : $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x} \mid \mathbf{z})] - \mathrm{KL}(q \,\|\, p(\mathbf{z}))$.
-6. Vrai ou faux : maximiser l'ELBO sur une famille de lois $q$ revient à y minimiser $\mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$.
+5. Vrai ou faux : $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x} \mid \mathbf{z})] - \mathrm{KL}(q \thinspace\Vert\thinspace p(\mathbf{z}))$.
+6. Vrai ou faux : maximiser l'ELBO sur une famille de lois $q$ revient à y minimiser $\mathrm{KL}(q \thinspace\Vert\thinspace p(\mathbf{z} \mid \mathbf{x}))$.
 
 ### M25b.Q6 — L'ACP probabiliste : covariance marginale, rotation de W, angles principaux et directions éteintes 🧠 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
@@ -82,11 +82,11 @@ $X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$,
 ### M25b.Q7 — KL directe ou inverse, inférence amortie et écart d'amortissement, et dériver sous l'espérance : quand le peut-on ? 🧠 ★ ⏱️ 5 min
 *Fiche §7 · parcours C, E*
 
-1. $p$ a deux bosses bien séparées ; la gaussienne $q$ qui minimise $\mathrm{KL}(q \,\|\, p)$ se place (A) entre les bosses, (B) sur une bosse, (C) de façon à couvrir les deux ?
-2. $p$ a pour moyenne 3 et pour variance 5 : quelle gaussienne minimise $\mathrm{KL}(p \,\|\, q)$ ?
+1. $p$ a deux bosses bien séparées ; la gaussienne $q$ qui minimise $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ se place (A) entre les bosses, (B) sur une bosse, (C) de façon à couvrir les deux ?
+2. $p$ a pour moyenne 3 et pour variance 5 : quelle gaussienne minimise $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ ?
 3. Vrai ou faux : l'ELBO d'une règle amortie est au plus égale à la meilleure ELBO obtenue observation par observation.
 4. Vrai ou faux : si la famille contient le posterior et que la règle amortie sait le représenter, les deux écarts sont nuls.
-5. $X = \mu + \sigma\varepsilon$ et $f(x) = \mathbb{1}\{x > 2\}$ : la dérivée par le chemin donne 0, alors que $\frac{\mathrm{d}}{\mathrm{d}\mu}P(X > 2) > 0$. Quelle hypothèse du théorème de la fiche manque ?
+5. $X = \mu + \sigma\varepsilon$ et $f(x) = \mathbb{1}\lbrace x > 2\rbrace$ : la dérivée par le chemin donne 0, alors que $\frac{\mathrm{d}}{\mathrm{d}\mu}P(X > 2) > 0$. Quelle hypothèse du théorème de la fiche manque ?
 6. Vrai ou faux : pour $f(x) = \max(x - 2, 0)$, qui a un coin en 2, l'échange de la dérivée et de l'espérance reste permis (avec une domination).
 7. Vrai ou faux : un estimateur sans biais à un tirage est précis.
 
@@ -94,8 +94,8 @@ $X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$,
 *Fiche §8 · parcours C, E*
 
 1. Un budget d'information augmenté de 0,1 nat fait monter la meilleure reconstruction de 0,03. Que vaut, à peu près, le multiplicateur $\beta$ ?
-2. Vrai ou faux : si $\mathbb{E}_{\mathbf{x}}\mathrm{KL}(q(\mathbf{z} \mid \mathbf{x}) \,\|\, p(\mathbf{z})) = 0$, alors $I(X ; Z) = 0$.
-3. La KL moyenne au prior vaut 0,40 nat et $I(X ; Z) = 0{,}25$ nat : que vaut $\mathrm{KL}(q(\mathbf{z}) \,\|\, p(\mathbf{z}))$ ?
+2. Vrai ou faux : si $\mathbb{E}_{\mathbf{x}}\mathrm{KL}(q(\mathbf{z} \mid \mathbf{x}) \thinspace\Vert\thinspace p(\mathbf{z})) = 0$, alors $I(X ; Z) = 0$.
+3. La KL moyenne au prior vaut 0,40 nat et $I(X ; Z) = 0{,}25$ nat : que vaut $\mathrm{KL}(q(\mathbf{z}) \thinspace\Vert\thinspace p(\mathbf{z}))$ ?
 4. Avec une reconstruction gaussienne, le couple ($\sigma^2 = 2$, $\beta = 0{,}6$) équivaut au couple ($\sigma^2 = 0{,}4$, $\beta = ?$).
 5. Vrai ou faux : le posterior agrégé est toujours égal au prior.
 6. Vrai ou faux : un $\beta$ plus grand pousse vers un code effondré.
@@ -118,11 +118,11 @@ $X$ suit le mélange $\frac12\,\mathcal{N}(3, 2) + \frac12\,\mathcal{N}(11, 2)$,
 *Fiche §5 et §8 · parcours C, E*
 
 1. $X$ vaut 2 ou 32 avec la probabilité $\frac12$. Compare $\ln\mathbb{E}[X]$ et $\mathbb{E}[\ln X]$ ; quelle inégalité illustre-t-on ?
-2. $\mathrm{KL}\big(\mathcal{N}(2, 3) \,\|\, \mathcal{N}(5, 3)\big)$ ?
-3. En une ligne : pourquoi l'inégalité de Jensen, appliquée au logarithme, donne-t-elle $\mathrm{KL}(p \,\|\, q) \ge 0$ pour deux densités $p$ et $q$ ?
+2. $\mathrm{KL}\big(\mathcal{N}(2, 3) \thinspace\Vert\thinspace \mathcal{N}(5, 3)\big)$ ?
+3. En une ligne : pourquoi l'inégalité de Jensen, appliquée au logarithme, donne-t-elle $\mathrm{KL}(p \thinspace\Vert\thinspace q) \ge 0$ pour deux densités $p$ et $q$ ?
 4. Vrai ou faux : comme l'entropie de M06, l'entropie différentielle $h(X)$ d'une variable à densité est toujours positive ou nulle.
 5. Que vaut $I(X ; Y)$ si $X$ et $Y$ sont indépendantes ?
-6. Vrai ou faux : $I(X ; Y) = \mathrm{KL}\big(p(x, y) \,\|\, p(x)\,p(y)\big) = H(X) - H(X \mid Y)$ pour deux variables discrètes.
+6. Vrai ou faux : $I(X ; Y) = \mathrm{KL}\big(p(x, y) \thinspace\Vert\thinspace p(x)\thinspace p(y)\big) = H(X) - H(X \mid Y)$ pour deux variables discrètes.
 
 ### M25b.R3 — La SVD, l'ACP et la projection orthogonale sur un sous-espace (M12b, M12d) 🔁 ★ ⏱️ 8 min
 *Fiche §6 · parcours C, E*
@@ -153,7 +153,7 @@ Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'a
 **Objectif :** écrire un modèle à variable latente discrète, en tirer un échantillon ancestral, puis l'inverser par la règle de Bayes.
 **Prérequis :** fiche §1 et §2 ; M04 · **Parcours :** C, E
 
-Un atelier coupe des tiges sur trois machines. Une tige vient de la machine $z \in \{1, 2, 3\}$ avec les probabilités $\boldsymbol{\pi} = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ ; sachant $z$, sa longueur $x$ (en mm) suit $\mathcal{N}(\mu_z, \sigma_z^2)$, avec les moyennes $\boldsymbol{\mu} = (100 ;\ 102 ;\ 97)$ et les **écarts-types** $(\sigma_1, \sigma_2, \sigma_3) = (1 ;\ 1 ;\ 2)$. Pour tirer une machine avec un nombre $u$ uniforme sur $[0, 1[$ : machine 1 si $u < 0{,}5$, machine 2 si $0{,}5 \le u < 0{,}8$, machine 3 sinon. Une tige mesurée vaut $x = 98{,}2$ mm.
+Un atelier coupe des tiges sur trois machines. Une tige vient de la machine $z \in \lbrace1, 2, 3\rbrace$ avec les probabilités $\boldsymbol{\pi} = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ ; sachant $z$, sa longueur $x$ (en mm) suit $\mathcal{N}(\mu_z, \sigma_z^2)$, avec les moyennes $\boldsymbol{\mu} = (100 ;\ 102 ;\ 97)$ et les **écarts-types** $(\sigma_1, \sigma_2, \sigma_3) = (1 ;\ 1 ;\ 2)$. Pour tirer une machine avec un nombre $u$ uniforme sur $[0, 1[$ : machine 1 si $u < 0{,}5$, machine 2 si $0{,}5 \le u < 0{,}8$, machine 3 sinon. Une tige mesurée vaut $x = 98{,}2$ mm.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -171,7 +171,7 @@ Dans ta copie : dessine le graphe du modèle pour $n$ tiges (un cadre), écris l
 **Prérequis :** fiche §2 ; M12c · **Parcours :** C, E
 
 Un sac contient deux variétés de grains de café : 60 % de la variété 1, 40 % de la variété 2. Pour un grain, $\mathbf{x} = (\text{longueur}, \text{largeur})$, en mm. Dans chaque variété, $\mathbf{x}$ suit une loi de moyenne et de covariance
-$$\boldsymbol{\mu}_1 = \begin{pmatrix} 11 \\ 7 \end{pmatrix},\ \ \boldsymbol{\Sigma}_1 = \begin{pmatrix} 1 & 0 \\ 0 & 0{,}4 \end{pmatrix} ; \qquad \boldsymbol{\mu}_2 = \begin{pmatrix} 13 \\ 8 \end{pmatrix},\ \ \boldsymbol{\Sigma}_2 = \begin{pmatrix} 1{,}5 & 0 \\ 0 & 0{,}3 \end{pmatrix}.$$
+$$\boldsymbol{\mu}_1 = \begin{pmatrix} 11 \cr 7 \end{pmatrix},\ \ \boldsymbol{\Sigma}_1 = \begin{pmatrix} 1 & 0 \cr 0 & 0{,}4 \end{pmatrix} ; \qquad \boldsymbol{\mu}_2 = \begin{pmatrix} 13 \cr 8 \end{pmatrix},\ \ \boldsymbol{\Sigma}_2 = \begin{pmatrix} 1{,}5 & 0 \cr 0 & 0{,}3 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -201,10 +201,10 @@ Un bac mélange des résistances de deux séries, de valeurs nominales 47 Ω et 
 | f | la log-vraisemblance avec les paramètres après le pas M | un nombre (4 décimales) |
 | g | vrai ou faux : f) est plus grand que e) | `True` ou `False` |
 
-Dans ta copie : écris les huit $a_{ik}$ et les quatre $\operatorname{LSE}_k\,a_{ik}$ (4 décimales). Pourquoi la responsabilité de la série 1 pour 52,1 Ω est-elle presque nulle (de l'ordre de $10^{-6}$), et pas seulement petite ? Compare les écarts de 52,1 à 47 et à 51, en écarts-types de chaque série.
+Dans ta copie : écris les huit $a_{ik}$ et les quatre $\operatorname{LSE} _k\thinspace a _{ik}$ (4 décimales). Pourquoi la responsabilité de la série 1 pour 52,1 Ω est-elle presque nulle (de l'ordre de $10^{-6}$), et pas seulement petite ? Compare les écarts de 52,1 à 47 et à 51, en écarts-types de chaque série.
 
 ### Ex M25b.6 — Une sonde de qualité de l'eau, un état caché à deux valeurs et une mesure gaussienne : ln p(x), l'ELBO pour trois lois q, et l'écart égal à la KL au posterior ✏️ ★★ ⏱️ 25 min
-**Objectif :** calculer l'ELBO pour plusieurs lois $q$ d'un latent discret et vérifier l'identité $\ln p(x) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(z \mid x))$.
+**Objectif :** calculer l'ELBO pour plusieurs lois $q$ d'un latent discret et vérifier l'identité $\ln p(x) = \operatorname{ELBO}(q) + \mathrm{KL}(q \thinspace\Vert\thinspace p(z \mid x))$.
 **Prérequis :** fiche §5 ; M06 · **Parcours :** C, E
 
 Une sonde mesure la turbidité $x$ d'une rivière, en NTU. L'eau est dans l'un de deux états cachés : conforme ($z = 1$, probabilité a priori 0,9) ou polluée ($z = 2$, probabilité 0,1). Sachant $z = 1$, $x \sim \mathcal{N}(1 ;\ 0{,}25)$ ; sachant $z = 2$, $x \sim \mathcal{N}(3 ;\ 1)$. La sonde lit $x = 2$ NTU.
@@ -216,7 +216,7 @@ Une sonde mesure la turbidité $x$ d'une rivière, en NTU. L'eau est dans l'un d
 | c | $\operatorname{ELBO}(q)$ pour $q = (0{,}5 ;\ 0{,}5)$ | un nombre (4 décimales) |
 | d | $\operatorname{ELBO}(q)$ pour $q = (0{,}6 ;\ 0{,}4)$, avec $q(z = 1) = 0{,}6$ | un nombre (4 décimales) |
 | e | $\operatorname{ELBO}(q)$ quand $q$ est le posterior | un nombre (4 décimales) |
-| f | $\mathrm{KL}\big(q \,\Vert\, p(z \mid x = 2)\big)$ pour $q = (0{,}5 ;\ 0{,}5)$, calculée par sa définition | un nombre (4 décimales) |
+| f | $\mathrm{KL}\big(q \thinspace\Vert\thinspace p(z \mid x = 2)\big)$ pour $q = (0{,}5 ;\ 0{,}5)$, calculée par sa définition | un nombre (4 décimales) |
 | g | vrai ou faux : c) + f) = a) | `True` ou `False` |
 
 Dans ta copie : pourquoi l'ELBO de d) dépasse-t-elle celle de c) ? Laquelle des trois lois $q$ est la plus proche du prior, et cela l'aide-t-il ?
@@ -226,7 +226,7 @@ Dans ta copie : pourquoi l'ELBO de d) dépasse-t-elle celle de c) ? Laquelle des
 **Prérequis :** fiche §6 et §7 ; M12c, M25a · **Parcours :** C, E
 
 Un concours a trois épreuves, notées sur 20. On modélise les notes $\mathbf{x} \in \mathbb{R}^3$ d'un candidat par l'ACP probabiliste à un facteur ($k = 1$), son aptitude cachée $z \sim \mathcal{N}(0, 1)$ :
-$$\mathbf{x} = \mathbf{w}\,z + \boldsymbol{\mu} + \boldsymbol{\varepsilon}, \qquad \mathbf{w} = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad \boldsymbol{\mu} = \begin{pmatrix} 12 \\ 11 \\ 13 \end{pmatrix}, \quad \boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, 3\,\mathbf{I}_3).$$
+$$\mathbf{x} = \mathbf{w}\thinspace z + \boldsymbol{\mu} + \boldsymbol{\varepsilon}, \qquad \mathbf{w} = \begin{pmatrix} 2 \cr 1 \cr 2 \end{pmatrix}, \quad \boldsymbol{\mu} = \begin{pmatrix} 12 \cr 11 \cr 13 \end{pmatrix}, \quad \boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, 3\thinspace\mathbf{I}_3).$$
 Pour les questions f) à i), une autre session du concours a donné une covariance des notes (au sens du maximum de vraisemblance) de valeurs propres $\lambda_1 = 14$, $\lambda_2 = 4{,}5$ et $\lambda_3 = 2{,}5$.
 
 | | Question | Réponse attendue |
@@ -277,44 +277,44 @@ Une boulangerie cuit chaque matin $c = 252$ baguettes. La demande du jour suit $
 | f | la variance de l'estimateur à un tirage de la dérivée en $\mu$ | un nombre (4 décimales) |
 | g | $\frac{\partial}{\partial c}\mathbb{E}[(D - c)^+]$ | un nombre (4 décimales) |
 
-Dans ta copie : établis la formule fermée $\mathbb{E}[(D - c)^+] = \sigma\varphi(z) - (c - \mu)(1 - \Phi(z))$ en intégrant sur $\{\varepsilon > z\}$. Dérive-la en $\mu$, puis en $\sigma$ (avec $\varphi'(z) = -z\varphi(z)$), et retrouve b) et c). Pourquoi l'échange de la dérivée et de l'espérance est-il permis ici, bien que $x \mapsto (x - c)^+$ ait un coin ?
+Dans ta copie : établis la formule fermée $\mathbb{E}[(D - c)^+] = \sigma\varphi(z) - (c - \mu)(1 - \Phi(z))$ en intégrant sur $\lbrace\varepsilon > z\rbrace$. Dérive-la en $\mu$, puis en $\sigma$ (avec $\varphi'(z) = -z\varphi(z)$), et retrouve b) et c). Pourquoi l'échange de la dérivée et de l'espérance est-il permis ici, bien que $x \mapsto (x - c)^+$ ait un coin ?
 
 ### Ex M25b.13 — Une seule gaussienne pour la loi bimodale des temps de trajet par deux itinéraires : KL(p ‖ q) apparie les moments, KL(q ‖ p) choisit un itinéraire ✏️ ★★ ⏱️ 35 min
 **Objectif :** voir sur un calcul ce que choisit chaque sens de la KL quand on approche une loi bimodale par une seule gaussienne.
 **Prérequis :** fiche §2 et §7 ; M25a · **Parcours :** C, E
 
 Une conductrice va au travail par la rocade (70 % des jours) ou par le centre-ville (30 %). Son temps de trajet, en minutes, suit le mélange
-$$p = 0{,}7\,\mathcal{N}(22, 4) + 0{,}3\,\mathcal{N}(40 ;\ 6{,}25).$$
-On l'approche par une seule gaussienne $q$. On note $q_1 = \mathcal{N}(22, 4)$, $q_2 = \mathcal{N}(40 ;\ 6{,}25)$, et $q_\star$ la gaussienne qui minimise $\mathrm{KL}(p \,\|\, q)$.
+$$p = 0{,}7\thinspace\mathcal{N}(22, 4) + 0{,}3\thinspace\mathcal{N}(40 ;\ 6{,}25).$$
+On l'approche par une seule gaussienne $q$. On note $q_1 = \mathcal{N}(22, 4)$, $q_2 = \mathcal{N}(40 ;\ 6{,}25)$, et $q_\star$ la gaussienne qui minimise $\mathrm{KL}(p \thinspace\Vert\thinspace q)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la moyenne et la variance de $p$ (qui sont celles de $q_\star$) | une liste de 2 nombres (valeurs exactes) |
 | b | le rapport $\frac{q_\star(27{,}4)}{p(27{,}4)}$ des deux densités en 27,4 min | un nombre (2 décimales) |
-| c | $\mathrm{KL}(q_1 \,\Vert\, p)$, en remplaçant sous $q_1$ la densité $p$ par $0{,}7\,q_1$ (l'autre bosse y est négligeable) | une valeur exacte, entre guillemets |
-| d | $\mathrm{KL}(q_2 \,\Vert\, p)$, de même avec $0{,}3\,q_2$ | une valeur exacte, entre guillemets |
-| e | le numéro de l'itinéraire (1 pour la rocade, 2 pour le centre-ville) où se pose le minimum global de $\mathrm{KL}(q \,\Vert\, p)$ | un entier |
+| c | $\mathrm{KL}(q_1 \thinspace\Vert\thinspace p)$, en remplaçant sous $q_1$ la densité $p$ par $0{,}7\thinspace q_1$ (l'autre bosse y est négligeable) | une valeur exacte, entre guillemets |
+| d | $\mathrm{KL}(q_2 \thinspace\Vert\thinspace p)$, de même avec $0{,}3\thinspace q_2$ | une valeur exacte, entre guillemets |
+| e | le numéro de l'itinéraire (1 pour la rocade, 2 pour le centre-ville) où se pose le minimum global de $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ | un entier |
 | f | $\mathbb{E}_p[\ln q_1(X)]$ | un nombre (4 décimales) |
-| g | $\mathbb{E}_p[\ln q_\star(X)]$ | un nombre (4 décimales) |
-| h | vrai ou faux : $\mathrm{KL}(p \,\Vert\, q_1) - \mathrm{KL}(p \,\Vert\, q_\star) > 10$ | `True` ou `False` |
+| g | $\mathbb{E} _p[\ln q _\star(X)]$ | un nombre (4 décimales) |
+| h | vrai ou faux : $\mathrm{KL}(p \thinspace\Vert\thinspace q_1) - \mathrm{KL}(p \thinspace\Vert\thinspace q_\star) > 10$ | `True` ou `False` |
 
-Dans ta copie : pourquoi $q_\star$ est-elle une mauvaise description des trajets (que dit b) ?), et pourquoi $q_1$ est-elle une très mauvaise approximation au sens de $\mathrm{KL}(p \,\|\, q)$ ? Pour f), sers-toi de $\mathbb{E}_p[(X - m)^2] = \mathbb{V}_p(X) + (\mathbb{E}_p[X] - m)^2$.
+Dans ta copie : pourquoi $q_\star$ est-elle une mauvaise description des trajets (que dit b) ?), et pourquoi $q_1$ est-elle une très mauvaise approximation au sens de $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ ? Pour f), sers-toi de $\mathbb{E}_p[(X - m)^2] = \mathbb{V}_p(X) + (\mathbb{E}_p[X] - m)^2$.
 
 ### Ex M25b.14 — Un code stochastique d'une source à trois symboles : posterior agrégé, information mutuelle, KL moyenne au prior décomposée en I(X ; Z) + KL(q(z) ‖ p(z)), puis le code qui s'effondre ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer, sur des tableaux, le posterior agrégé, l'information mutuelle d'un code, et la décomposition de la KL moyenne au prior.
 **Prérequis :** fiche §8 ; M06 · **Parcours :** C, E
 
-Une source émet les symboles $a$, $b$, $c$ avec les probabilités $p(x) = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$. Un code stochastique les transmet par $z \in \{1, 2\}$ selon
+Une source émet les symboles $a$, $b$, $c$ avec les probabilités $p(x) = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$. Un code stochastique les transmet par $z \in \lbrace1, 2\rbrace$ selon
 $$q(z \mid a) = (0{,}85 ;\ 0{,}15), \qquad q(z \mid b) = (0{,}35 ;\ 0{,}65), \qquad q(z \mid c) = (0{,}15 ;\ 0{,}85),$$
 et le prior du code est $p(z) = (0{,}8 ;\ 0{,}2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le posterior agrégé $q(z) = \sum_xp(x)\,q(z \mid x)$ | une liste de 2 nombres (4 décimales) |
-| b | les trois KL au prior $\mathrm{KL}(q(\cdot \mid x) \,\Vert\, p(z))$, pour $x = a$, $b$, $c$ dans cet ordre | une liste de 3 nombres (4 décimales) |
-| c | la KL moyenne au prior, $\mathbb{E}_x\mathrm{KL}(q(\cdot \mid x) \,\Vert\, p(z))$ | un nombre (4 décimales) |
-| d | l'information mutuelle $I(X ; Z)$ de la loi jointe $p(x)\,q(z \mid x)$, par sa définition | un nombre (4 décimales) |
-| e | $\mathrm{KL}(q(z) \,\Vert\, p(z))$ | un nombre (4 décimales) |
+| a | le posterior agrégé $q(z) = \sum_xp(x)\thinspace q(z \mid x)$ | une liste de 2 nombres (4 décimales) |
+| b | les trois KL au prior $\mathrm{KL}(q(\cdot \mid x) \thinspace\Vert\thinspace p(z))$, pour $x = a$, $b$, $c$ dans cet ordre | une liste de 3 nombres (4 décimales) |
+| c | la KL moyenne au prior, $\mathbb{E}_x\mathrm{KL}(q(\cdot \mid x) \thinspace\Vert\thinspace p(z))$ | un nombre (4 décimales) |
+| d | l'information mutuelle $I(X ; Z)$ de la loi jointe $p(x)\thinspace q(z \mid x)$, par sa définition | un nombre (4 décimales) |
+| e | $\mathrm{KL}(q(z) \thinspace\Vert\thinspace p(z))$ | un nombre (4 décimales) |
 | f | vrai ou faux : c) = d) + e) | `True` ou `False` |
 | g | un code effondré rend $q(z \mid x) = p(z)$ pour les trois symboles : la KL moyenne au prior et $I(X ; Z)$, dans cet ordre | une liste de 2 nombres |
 | h | vrai ou faux : si $q(z \mid x)$ était le posterior exact d'un modèle de prior $p(z)$, et si la source suivait la loi marginale de ce modèle, e) vaudrait 0 | `True` ou `False` |
@@ -331,13 +331,13 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer que le pas M maximise $Q(\boldsymbol{\theta} \mid \boldsymbol{\theta}_t)$.
 **Prérequis :** fiche §4 ; M13b, M18, M25a (∂ M25a.12, parcours C, facultatif) · **Parcours :** C, E
 
-$\mathbf{x}_1, \ldots, \mathbf{x}_n$ sont dans $\mathbb{R}^d$ ; les responsabilités $r_{ik} \ge 0$ sont **fixées** (calculées au pas E), chaque ligne a pour somme 1, et $N_k = \sum_ir_{ik} > 0$. On maximise en $\boldsymbol{\theta} = (\pi_k, \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)_{k \le K}$
-$$Q(\boldsymbol{\theta}) = \sum_{i=1}^n\sum_{k=1}^Kr_{ik}\big[\ln\pi_k + \ln\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)\big].$$
+$\mathbf{x} _1, \ldots, \mathbf{x} _n$ sont dans $\mathbb{R}^d$ ; les responsabilités $r _{ik} \ge 0$ sont **fixées** (calculées au pas E), chaque ligne a pour somme 1, et $N_k = \sum_ir _{ik} > 0$. On maximise en $\boldsymbol{\theta} = (\pi_k, \boldsymbol{\mu} _k, \boldsymbol{\Sigma} _k)  _{k \le K}$
+$$Q(\boldsymbol{\theta}) = \sum  _{i=1}^n\sum _{k=1}^Kr _{ik}\big[\ln\pi_k + \ln\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)\big].$$
 
-1. Montre que $Q(\boldsymbol{\theta}) = \sum_kN_k\ln\pi_k + \sum_kQ_k(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$, avec $Q_k = \sum_ir_{ik}\ln\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$, et explique pourquoi on peut maximiser séparément les poids et chaque couple $(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$.
+1. Montre que $Q(\boldsymbol{\theta}) = \sum_kN_k\ln\pi_k + \sum_kQ_k(\boldsymbol{\mu}_k, \boldsymbol{\Sigma} _k)$, avec $Q_k = \sum_ir _{ik}\ln\mathcal{N}(\mathbf{x}_i \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$, et explique pourquoi on peut maximiser séparément les poids et chaque couple $(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$.
 2. Maximise $\sum_kN_k\ln\pi_k$ sous la contrainte $\sum_k\pi_k = 1$ par un multiplicateur de Lagrange (M13b). Montre que le point trouvé, $\pi_k = \frac{N_k}{n}$, est bien le maximum (par exemple avec la positivité d'une KL discrète, M06).
-3. À $\boldsymbol{\Sigma}_k$ fixée, annule le gradient de $Q_k$ en $\boldsymbol{\mu}_k$, puis montre que $Q_k(\boldsymbol{\mu}, \boldsymbol{\Sigma}_k) = Q_k(\hat{\boldsymbol{\mu}}_k, \boldsymbol{\Sigma}_k) - \frac{N_k}{2}(\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})^\top\boldsymbol{\Sigma}_k^{-1}(\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})$, avec $\hat{\boldsymbol{\mu}}_k = \frac{1}{N_k}\sum_ir_{ik}\mathbf{x}_i$.
-4. En $\boldsymbol{\mu}_k = \hat{\boldsymbol{\mu}}_k$, écris $Q_k$ en fonction de la précision $\boldsymbol{\Lambda}_k = \boldsymbol{\Sigma}_k^{-1}$ et de $\mathbf{S}_k = \sum_ir_{ik}(\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k)(\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k)^\top$, supposée définie positive ; annule son gradient (M18) et trouve $\boldsymbol{\Sigma}_k = \frac{\mathbf{S}_k}{N_k}$. Montre que c'est un maximum : si tu as fait ∂ M25a.12, dis quelle question le donne, en remplaçant $n$ par $N_k$ et $\mathbf{S}$ par $\mathbf{S}_k$ ; sinon, redémontre-le (avec $\frac{\mathbf{S}_k}{N_k} = \mathbf{C}\mathbf{C}^\top$, $\mathbf{B} = \mathbf{C}^\top\boldsymbol{\Lambda}_k\mathbf{C}$ et $\ln b \le b - 1$).
+3. À $\boldsymbol{\Sigma}_k$ fixée, annule le gradient de $Q_k$ en $\boldsymbol{\mu}_k$, puis montre que $Q_k(\boldsymbol{\mu}, \boldsymbol{\Sigma}_k) = Q_k(\hat{\boldsymbol{\mu}}_k, \boldsymbol{\Sigma}_k) - \frac{N_k}{2}(\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})^\top\boldsymbol{\Sigma}_k^{-1}(\hat{\boldsymbol{\mu}}_k - \boldsymbol{\mu})$, avec $\hat{\boldsymbol{\mu}} _k = \frac{1}{N_k}\sum_ir _{ik}\mathbf{x}_i$.
+4. En $\boldsymbol{\mu}_k = \hat{\boldsymbol{\mu}}_k$, écris $Q_k$ en fonction de la précision $\boldsymbol{\Lambda}_k = \boldsymbol{\Sigma}_k^{-1}$ et de $\mathbf{S} _k = \sum_ir _{ik}(\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k)(\mathbf{x}_i - \hat{\boldsymbol{\mu}}_k)^\top$, supposée définie positive ; annule son gradient (M18) et trouve $\boldsymbol{\Sigma}_k = \frac{\mathbf{S}_k}{N_k}$. Montre que c'est un maximum : si tu as fait ∂ M25a.12, dis quelle question le donne, en remplaçant $n$ par $N_k$ et $\mathbf{S}$ par $\mathbf{S}_k$ ; sinon, redémontre-le (avec $\frac{\mathbf{S}_k}{N_k} = \mathbf{C}\mathbf{C}^\top$, $\mathbf{B} = \mathbf{C}^\top\boldsymbol{\Lambda}_k\mathbf{C}$ et $\ln b \le b - 1$).
 5. Pourquoi la covariance du pas M utilise-t-elle la **nouvelle** moyenne ? (Que donne 3 si l'on garde l'ancienne ?) Vérifie que, pour des $r_{ik}$ égales à 0 ou 1, on retrouve la proportion, la moyenne et la covariance de chaque groupe.
 
 ### Ex M25b.5 — L'ELBO en général : ln p(x) = ELBO(q) + KL(q ‖ p(z | x)) pour un latent discret ou continu, la borne retrouvée par Jensen, et la forme E_q[ln p(x | z)] − KL(q ‖ p(z)) ∂ ★★★ ⏱️ 35 min
@@ -346,23 +346,23 @@ $$Q(\boldsymbol{\theta}) = \sum_{i=1}^n\sum_{k=1}^Kr_{ik}\big[\ln\pi_k + \ln\mat
 
 On fixe un modèle $p(\mathbf{x}, \mathbf{z})$ et une observation $\mathbf{x}$, avec $p(\mathbf{x}) > 0$.
 
-1. **Latent discret.** $q$ est une loi sur les valeurs de $\mathbf{z}$ telle que $q(\mathbf{z}) > 0 \Rightarrow p(\mathbf{x}, \mathbf{z}) > 0$. Démontre $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$.
+1. **Latent discret.** $q$ est une loi sur les valeurs de $\mathbf{z}$ telle que $q(\mathbf{z}) > 0 \Rightarrow p(\mathbf{x}, \mathbf{z}) > 0$. Démontre $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \thinspace\Vert\thinspace p(\mathbf{z} \mid \mathbf{x}))$.
 2. Déduis-en $\operatorname{ELBO}(q) \le \ln p(\mathbf{x})$, avec égalité si et seulement si $q = p(\cdot \mid \mathbf{x})$.
 3. **Latent continu.** Refais 1 avec des densités. Sur quel ensemble intègre-t-on ? Que vaut l'ELBO si $q$ met une masse positive là où $p(\mathbf{x}, \mathbf{z}) = 0$ ?
 4. **Par Jensen.** Sans passer par la KL, montre $\operatorname{ELBO}(q) \le \ln p(\mathbf{x})$ en appliquant l'inégalité de Jensen (M25a §7) au logarithme et à la variable $\frac{p(\mathbf{x}, \mathbf{Z})}{q(\mathbf{Z})}$, $\mathbf{Z} \sim q$. Retrouve le cas d'égalité par le cas d'égalité de Jensen (le logarithme est strictement concave).
-5. Montre $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x} \mid \mathbf{z})] - \mathrm{KL}(q \,\|\, p(\mathbf{z}))$ et $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x}, \mathbf{z})] + H(q)$.
+5. Montre $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x} \mid \mathbf{z})] - \mathrm{KL}(q \thinspace\Vert\thinspace p(\mathbf{z}))$ et $\operatorname{ELBO}(q) = \mathbb{E}_q[\ln p(\mathbf{x}, \mathbf{z})] + H(q)$.
 
 ### Ex M25b.7 — L'EM comme montée par coordonnées de l'ELBO : le pas E maximise en q, le pas M en θ, d'où la monotonie ; et ∇ ln p(x) = E_{p(z | x)}[∇ ln p(x, z)] pour la moyenne d'une composante ∂ ★★★ ⏱️ 40 min
 **Objectif :** démontrer la monotonie de l'EM par l'ELBO, son extension à un pas M partiel, et l'identité du gradient de la log-vraisemblance.
 **Prérequis :** fiche §4 et §5 ; ∂ M25b.5 ; M09b · **Parcours :** C, E
 
-Un modèle à latent discret, de paramètres $\boldsymbol{\theta}$, et $n$ données indépendantes : $\ell(\boldsymbol{\theta}) = \sum_i\ln p(\mathbf{x}_i \mid \boldsymbol{\theta})$ et $\operatorname{ELBO}(q, \boldsymbol{\theta}) = \sum_i\mathbb{E}_{q_i}\big[\ln p(\mathbf{x}_i, z \mid \boldsymbol{\theta}) - \ln q_i(z)\big]$, avec $q = (q_1, \ldots, q_n)$.
+Un modèle à latent discret, de paramètres $\boldsymbol{\theta}$, et $n$ données indépendantes : $\ell(\boldsymbol{\theta}) = \sum_i\ln p(\mathbf{x} _i \mid \boldsymbol{\theta})$ et $\operatorname{ELBO}(q, \boldsymbol{\theta}) = \sum_i\mathbb{E} _{q_i}\big[\ln p(\mathbf{x}_i, z \mid \boldsymbol{\theta}) - \ln q_i(z)\big]$, avec $q = (q_1, \ldots, q_n)$.
 
 1. À $\boldsymbol{\theta}_t$ fixé, montre que $q \mapsto \operatorname{ELBO}(q, \boldsymbol{\theta}_t)$ atteint son maximum en $q_i = p(\cdot \mid \mathbf{x}_i, \boldsymbol{\theta}_t)$ et **seulement** là, et que ce maximum vaut $\ell(\boldsymbol{\theta}_t)$.
-2. Avec $q_t$ ce maximum, montre que $\operatorname{ELBO}(q_t, \boldsymbol{\theta}) = Q(\boldsymbol{\theta} \mid \boldsymbol{\theta}_t) + \sum_iH(q_{t,i})$, puis justifie chaque maillon de $\ell(\boldsymbol{\theta}_{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t)$.
-3. **Un pas M partiel.** On ne met à jour que les moyennes (les poids et les covariances restent ceux de $\boldsymbol{\theta}_t$), de sorte que seulement $Q(\boldsymbol{\theta}_{t+1} \mid \boldsymbol{\theta}_t) \ge Q(\boldsymbol{\theta}_t \mid \boldsymbol{\theta}_t)$. Montre que $\ell$ ne baisse toujours pas (c'est l'**EM généralisé**). Quel maillon un pas M régularisé casse-t-il ?
-4. Démontre $\nabla_{\boldsymbol{\theta}}\ln p(\mathbf{x} \mid \boldsymbol{\theta}) = \mathbb{E}_{p(z \mid \mathbf{x}, \boldsymbol{\theta})}\big[\nabla_{\boldsymbol{\theta}}\ln p(\mathbf{x}, z \mid \boldsymbol{\theta})\big]$ pour un latent à $K$ valeurs (une somme finie).
-5. Pour un mélange de gaussiennes, déduis-en $\nabla_{\boldsymbol{\mu}_k}\ell = \sum_ir_{ik}\boldsymbol{\Sigma}_k^{-1}(\mathbf{x}_i - \boldsymbol{\mu}_k)$, où les $r_{ik}$ sont les responsabilités en $\boldsymbol{\theta}$. Montre qu'en un point fixe de l'EM ($\boldsymbol{\theta}_{t+1} = \boldsymbol{\theta}_t$), ce gradient est nul.
+2. Avec $q_t$ ce maximum, montre que $\operatorname{ELBO}(q_t, \boldsymbol{\theta}) = Q(\boldsymbol{\theta} \mid \boldsymbol{\theta} _t) + \sum_iH(q _{t,i})$, puis justifie chaque maillon de $\ell(\boldsymbol{\theta} _{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta} _{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t)$.
+3. **Un pas M partiel.** On ne met à jour que les moyennes (les poids et les covariances restent ceux de $\boldsymbol{\theta} _t$), de sorte que seulement $Q(\boldsymbol{\theta} _{t+1} \mid \boldsymbol{\theta}_t) \ge Q(\boldsymbol{\theta}_t \mid \boldsymbol{\theta}_t)$. Montre que $\ell$ ne baisse toujours pas (c'est l'**EM généralisé**). Quel maillon un pas M régularisé casse-t-il ?
+4. Démontre $\nabla_{\boldsymbol{\theta}}\ln p(\mathbf{x} \mid \boldsymbol{\theta}) = \mathbb{E} _{p(z \mid \mathbf{x}, \boldsymbol{\theta})}\big[\nabla _{\boldsymbol{\theta}}\ln p(\mathbf{x}, z \mid \boldsymbol{\theta})\big]$ pour un latent à $K$ valeurs (une somme finie).
+5. Pour un mélange de gaussiennes, déduis-en $\nabla_{\boldsymbol{\mu} _k}\ell = \sum_ir _{ik}\boldsymbol{\Sigma}_k^{-1}(\mathbf{x} _i - \boldsymbol{\mu} _k)$, où les $r _{ik}$ sont les responsabilités en $\boldsymbol{\theta}$. Montre qu'en un point fixe de l'EM ($\boldsymbol{\theta} _{t+1} = \boldsymbol{\theta}_t$), ce gradient est nul.
 
 ### Ex M25b.8 — L'ACP probabiliste : la loi marginale N(μ, WWᵀ + σ²I), le posterior de z par le modèle linéaire gaussien, et W ou WR donnent la même loi ∂ ★★ ⏱️ 35 min
 **Objectif :** démontrer la loi jointe, la loi marginale et les deux formes du posterior de l'ACP probabiliste, et ce que la rotation change.
@@ -383,9 +383,9 @@ $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_k)$ et $\boldsymbol{\varepsi
 On reprend les notations et les hypothèses du théorème de la fiche §7 : $\psi(\theta, \xi) = f(g_\theta(\xi))$, continue en $\theta$ sur $I$ et dérivable sauf en un nombre fini de points pour presque tout $\xi$, dérivable en chaque $\theta$ pour presque tout $\xi$, et $\lvert\partial_\theta\psi(\theta, \xi)\rvert \le G(\xi)$ avec $\mathbb{E}[G(\xi)] < \infty$. On admet le théorème de convergence dominée.
 
 1. Démontre le théorème : écris le taux d'accroissement $\frac{\psi(\theta + t, \xi) - \psi(\theta, \xi)}{t}$ comme une moyenne de $\partial_\theta\psi$ sur $[\theta, \theta + t]$, majore-le, puis passe à la limite sous l'espérance. Dis à quel endroit sert chaque hypothèse.
-2. $X = \mu + \sigma\varepsilon$, $\varepsilon \sim \mathcal{N}(0, 1)$, et $J(\sigma) = \mathbb{E}[e^X]$ pour $\sigma \in\, ]0, s_0[$. Propose une fonction $G$ qui domine, et déduis-en $J'(\sigma) = \mathbb{E}[\varepsilon\,e^{\mu + \sigma\varepsilon}]$. Calcule cette espérance : montre $\mathbb{E}[\varepsilon\,e^{t\varepsilon}] = t\,e^{t^2/2}$ en complétant le carré.
-3. L'estimateur à un tirage est $\hat g = \varepsilon\,e^{\mu + \sigma\varepsilon}$. Montre $\mathbb{E}[\varepsilon^2e^{t\varepsilon}] = (1 + t^2)\,e^{t^2/2}$, puis calcule $\mathbb{V}(\hat g)$. Pour $\mu = 1$ et $\sigma = 0{,}4$ : compare l'écart-type de $\hat g$ à $J'(\sigma)$.
-4. $f(x) = \mathbb{1}\{x > c\}$ et $\theta = \mu$ : la fiche (§7) dit que l'hypothèse de continuité en $\theta$ manque. Montre que $\partial_\mu\psi(\mu, \varepsilon) = 0$ pour tout $\varepsilon$ sauf un, de sorte que la dérivée par le chemin vaut 0. Calcule la vraie dérivée $\frac{\mathrm{d}}{\mathrm{d}\mu}P(X > c)$, et écris-la comme la densité d'une loi normale en $c$. À quel endroit de ta démonstration de 1 l'absence de continuité se voit-elle ?
+2. $X = \mu + \sigma\varepsilon$, $\varepsilon \sim \mathcal{N}(0, 1)$, et $J(\sigma) = \mathbb{E}[e^X]$ pour $\sigma \in\thinspace ]0, s_0[$. Propose une fonction $G$ qui domine, et déduis-en $J'(\sigma) = \mathbb{E}[\varepsilon\thinspace e^{\mu + \sigma\varepsilon}]$. Calcule cette espérance : montre $\mathbb{E}[\varepsilon\thinspace e^{t\varepsilon}] = t\thinspace e^{t^2/2}$ en complétant le carré.
+3. L'estimateur à un tirage est $\hat g = \varepsilon\thinspace e^{\mu + \sigma\varepsilon}$. Montre $\mathbb{E}[\varepsilon^2e^{t\varepsilon}] = (1 + t^2)\thinspace e^{t^2/2}$, puis calcule $\mathbb{V}(\hat g)$. Pour $\mu = 1$ et $\sigma = 0{,}4$ : compare l'écart-type de $\hat g$ à $J'(\sigma)$.
+4. $f(x) = \mathbb{1}\lbrace x > c\rbrace$ et $\theta = \mu$ : la fiche (§7) dit que l'hypothèse de continuité en $\theta$ manque. Montre que $\partial_\mu\psi(\mu, \varepsilon) = 0$ pour tout $\varepsilon$ sauf un, de sorte que la dérivée par le chemin vaut 0. Calcule la vraie dérivée $\frac{\mathrm{d}}{\mathrm{d}\mu}P(X > c)$, et écris-la comme la densité d'une loi normale en $c$. À quel endroit de ta démonstration de 1 l'absence de continuité se voit-elle ?
 
 ### Ex M25b.15 — β comme multiplicateur de Lagrange : une mesure gaussienne codée avec du bruit, distorsion s² e^{−2I}, le lagrangien D + βI, et le code qui s'éteint quand β dépasse 2s² ∂ ★★★ ⏱️ 35 min
 **Objectif :** traiter jusqu'au bout un compromis distorsion-information gaussien : l'information par les entropies, la distorsion en fonction de l'information, et le seuil où le code s'éteint.
@@ -408,7 +408,7 @@ Une grandeur $X \sim \mathcal{N}(m, s^2)$ est transmise par le code $Z = X + U$,
 **Prérequis :** fiche §1 et §2 · **Parcours :** C
 
 Lis MML §8.4 (8.4.1 à 8.4.3) et §8.5 (8.5.1 ; survole 8.5.2), en suivant le guide de lecture de la fiche. Réponds dans ta copie, en français.
-1. D'après 8.4.1, qu'est-ce qui spécifie un modèle probabiliste, et quelles trois quantités en découlent ? Relie-les à $p(\mathbf{x}, \mathbf{z}) = p(\mathbf{z})\,p(\mathbf{x} \mid \mathbf{z})$ de la fiche.
+1. D'après 8.4.1, qu'est-ce qui spécifie un modèle probabiliste, et quelles trois quantités en découlent ? Relie-les à $p(\mathbf{x}, \mathbf{z}) = p(\mathbf{z})\thinspace p(\mathbf{x} \mid \mathbf{z})$ de la fiche.
 2. Dans (8.22) et (8.23), nomme le prior, la vraisemblance et l'évidence. D'après 8.4.2, quel est le problème de calcul central de l'inférence bayésienne, et celui de l'estimation par maximum de vraisemblance ou MAP ?
 3. Comment 8.4.3 distingue-t-il les variables latentes $\mathbf{z}$ des paramètres $\boldsymbol{\theta}$ ? Écris (8.25) et (8.28) pour les machines de ✏️ M25b.1 ($z$ la machine, $\boldsymbol{\theta}$ les proportions, moyennes et écarts-types).
 4. Avec (8.31) et la notation en cadre (Figure 8.10), dessine le graphe de ✏️ M25b.1 pour $n$ tiges : quels nœuds sont grisés, lesquels sont hors du cadre ?
@@ -449,8 +449,8 @@ Réponds-lui en 6 à 10 phrases, sans formule, avec l'image du bac : le point de
 **Prérequis :** fiche §5 ; 🔨 M25b.22 (facultatif : tu peux retrouver tes nombres avec ta `gmm_elbo`) · **Parcours :** C, E
 
 Deux machines produisent des pièces de masses $\mathcal{N}(10, 1)$ et $\mathcal{N}(14 ;\ 2{,}25)$ (en g), dans les proportions $\boldsymbol{\pi} = (0{,}75 ;\ 0{,}25)$. Trois pièces pesées forment le tableau $\mathbf{X}$ de forme $(3, 1)$, de lignes 9,2 ; 11,6 ; 13,4. Pour chaque pièce, une loi $q_i$ sur les deux machines est donnée par la ligne $i$ du tableau
-$$\mathbf{R} = \begin{pmatrix} 0{,}85 & 0{,}15 \\ 0{,}5 & 0{,}5 \\ 0{,}3 & 0{,}7 \end{pmatrix}.$$
-La reconstruction est $\sum_i\sum_kr_{ik}\ln\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)$, la KL au prior $\sum_i\mathrm{KL}(q_i \,\|\, \boldsymbol{\pi})$ ; on donne tout **en nats par mesure** (divisé par $n = 3$).
+$$\mathbf{R} = \begin{pmatrix} 0{,}85 & 0{,}15 \cr 0{,}5 & 0{,}5 \cr 0{,}3 & 0{,}7 \end{pmatrix}.$$
+La reconstruction est $\sum_i\sum_kr_{ik}\ln\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)$, la KL au prior $\sum_i\mathrm{KL}(q_i \thinspace\Vert\thinspace \boldsymbol{\pi})$ ; on donne tout **en nats par mesure** (divisé par $n = 3$).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -505,16 +505,16 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M25b.22 · 🔨 `gmm_log_likelihood(X, weights, means, covs)` et `gmm_elbo(X, resp, weights, means, covs)`.** Écris la log-vraisemblance (le même tableau $a$, le log-sum-exp de chaque ligne, puis la somme) et l'ELBO pour des lois $q_i$ quelconques, $\sum_i\sum_kr_{ik}(a_{ik} - \ln r_{ik})$ avec $0\ln 0 = 0$ ; lance les groupes de tests de ces deux fonctions. Ensuite : a) la log-vraisemblance des quatre résistances avant et après le pas M de M25b.21 a), à comparer à tes réponses e) et f) de M25b.3 ; b) pour les trois pièces du 🔗 M25b.23 : l'ELBO par mesure avec $\mathbf{R}$, puis avec les responsabilités de `gmm_e_step`, à comparer à tes réponses d) et g), et vrai ou faux, la seconde égale `gmm_log_likelihood(X, …) / 3` à $10^{-12}$ près ; c) la log-vraisemblance des cinq résistances (avec celle de 120 Ω), et vrai ou faux, elle est finie ; d) l'écart entre la log-vraisemblance des quatre résistances (paramètres de départ de M25b.3) et l'ELBO des responsabilités dures de M25b.21 b). Ce qu'il faut observer : l'ELBO reste sous la log-vraisemblance et la touche au posterior ; l'écart est une somme de KL.
 
-**M25b.24 · 📦 `scipy.linalg.subspace_angles` et `np.linalg.eigh`.** a) Lis la section *Returns* de la documentation de `scipy.linalg.subspace_angles` (`help(...)` ou la page en ligne) : combien d'angles rend-elle pour un plan et une droite de $\mathbb{R}^4$ ? b) Applique-la aux deux plans de M25b.10, donnés par leurs bases **non orthonormées** (les colonnes $\mathbf{a}_1$, $\mathbf{a}_2$ et $\mathbf{b}_1$, $\mathbf{b}_2$), puis aux deux droites : vrai ou faux : les cosinus des angles rendus, rangés par ordre décroissant (`np.sort(np.cos(angles))[::-1]`), sont égaux à tes valeurs singulières de M25b.10 d), recalculées exactement (ou par `np.linalg.svd` de ta $\mathbf{Q}_A^\top\mathbf{Q}_B$), à $10^{-12}$ près. c) On tire 500 candidats du modèle de M25b.9 : `X = sample_mvn(mu, C, 500, seed=6054)`, avec $\boldsymbol{\mu} = (12, 11, 13)$ et $\mathbf{C} = \mathbf{w}\mathbf{w}^\top + 3\,\mathbf{I}$. Avec la covariance du maximum de vraisemblance $\hat{\boldsymbol{\Sigma}}$ (`np.cov(X, rowvar=False, bias=True)`) et ses valeurs et vecteurs propres par `np.linalg.eigh` (rangés par ordre croissant : retourne-les), ajuste l'ACP probabiliste à $k = 1$ par Tipping et Bishop : $\hat\sigma^2$ et $\lVert\hat{\mathbf{w}}\rVert^2$ (2 décimales chacun), puis la log-vraisemblance moyenne par candidat sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\mathbf{w}}\hat{\mathbf{w}}^\top + \hat\sigma^2\mathbf{I})$, par ta `mvn_logpdf` (4 décimales) ; et trois vrai ou faux : elle est plus petite que sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}})$ ; elle baisse si l'on remplace $\hat\sigma^2$ par $1{,}1\,\hat\sigma^2$ (même $\hat{\mathbf{w}}$) ; elle est plus grande que sous les vrais paramètres $\mathcal{N}(\boldsymbol{\mu}, \mathbf{C})$. d) Le posterior du candidat noté $(15, 12, 15)$, dans le vrai modèle, comme loi conditionnelle de la loi jointe de $(z, \mathbf{x})$ en dimension 4, par ta `condition_gaussian` (moyenne $(0, \boldsymbol{\mu})$, covariance par blocs $\begin{pmatrix} 1 & \mathbf{w}^\top \\ \mathbf{w} & \mathbf{C} \end{pmatrix}$, indices `[1, 2, 3]`) : la moyenne et la variance (4 décimales), à comparer à ta réponse d) de M25b.9. Ce qu'il faut observer : la formule de Tipping et Bishop donne le maximum de vraisemblance parmi les modèles à un facteur ; le modèle complet a plus de paramètres et fait mieux sur ses propres données, comme l'estimation fait mieux que la vérité.
+**M25b.24 · 📦 `scipy.linalg.subspace_angles` et `np.linalg.eigh`.** a) Lis la section *Returns* de la documentation de `scipy.linalg.subspace_angles` (`help(...)` ou la page en ligne) : combien d'angles rend-elle pour un plan et une droite de $\mathbb{R}^4$ ? b) Applique-la aux deux plans de M25b.10, donnés par leurs bases **non orthonormées** (les colonnes $\mathbf{a}_1$, $\mathbf{a}_2$ et $\mathbf{b}_1$, $\mathbf{b}_2$), puis aux deux droites : vrai ou faux : les cosinus des angles rendus, rangés par ordre décroissant (`np.sort(np.cos(angles))[::-1]`), sont égaux à tes valeurs singulières de M25b.10 d), recalculées exactement (ou par `np.linalg.svd` de ta $\mathbf{Q}_A^\top\mathbf{Q}_B$), à $10^{-12}$ près. c) On tire 500 candidats du modèle de M25b.9 : `X = sample_mvn(mu, C, 500, seed=6054)`, avec $\boldsymbol{\mu} = (12, 11, 13)$ et $\mathbf{C} = \mathbf{w}\mathbf{w}^\top + 3\thinspace\mathbf{I}$. Avec la covariance du maximum de vraisemblance $\hat{\boldsymbol{\Sigma}}$ (`np.cov(X, rowvar=False, bias=True)`) et ses valeurs et vecteurs propres par `np.linalg.eigh` (rangés par ordre croissant : retourne-les), ajuste l'ACP probabiliste à $k = 1$ par Tipping et Bishop : $\hat\sigma^2$ et $\lVert\hat{\mathbf{w}}\rVert^2$ (2 décimales chacun), puis la log-vraisemblance moyenne par candidat sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\mathbf{w}}\hat{\mathbf{w}}^\top + \hat\sigma^2\mathbf{I})$, par ta `mvn_logpdf` (4 décimales) ; et trois vrai ou faux : elle est plus petite que sous $\mathcal{N}(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}})$ ; elle baisse si l'on remplace $\hat\sigma^2$ par $1{,}1\thinspace\hat\sigma^2$ (même $\hat{\mathbf{w}}$) ; elle est plus grande que sous les vrais paramètres $\mathcal{N}(\boldsymbol{\mu}, \mathbf{C})$. d) Le posterior du candidat noté $(15, 12, 15)$, dans le vrai modèle, comme loi conditionnelle de la loi jointe de $(z, \mathbf{x})$ en dimension 4, par ta `condition_gaussian` (moyenne $(0, \boldsymbol{\mu})$, covariance par blocs $\begin{pmatrix} 1 & \mathbf{w}^\top \cr \mathbf{w} & \mathbf{C} \end{pmatrix}$, indices `[1, 2, 3]`) : la moyenne et la variance (4 décimales), à comparer à ta réponse d) de M25b.9. Ce qu'il faut observer : la formule de Tipping et Bishop donne le maximum de vraisemblance parmi les modèles à un facteur ; le modèle complet a plus de paramètres et fait mieux sur ses propres données, comme l'estimation fait mieux que la vérité.
 
 **M25b.25 · 🔮 Prédire ce que devient la log-vraisemblance quand une composante se resserre sur un point, puis avec une régularisation, et mesurer.** On reprend les quatre résistances de M25b.3 et le mélange de poids $(0{,}48 ;\ 0{,}52)$ dont la composante 2 a pour moyenne 50,57 Ω et pour variance 2,36 Ω², et dont la composante 1 est **centrée sur la première mesure**, 46,0 Ω, avec l'écart-type $\sigma_1$. **Avant d'exécuter**, prédis : a) quand $\sigma_1$ passe de $10^{-1}$ à $10^{-3}$, la log-vraisemblance (A) augmente d'environ 46 ; (B) ne change presque pas ; (C) augmente d'environ 4,6 ; (D) baisse ; b) quand $\sigma_1$ passe de $10^{-3}$ à $10^{-6}$, elle (A) augmente d'environ 6,9 ; (B) augmente d'environ 4,6 ; (C) devient `inf` ; c) si l'on ajoute `reg = 0.01` à la variance de la composante 1, elle (A) augmente des mêmes quantités ; (B) baisse à chaque fois ; (C) ne bouge presque plus dès $\sigma_1 = 10^{-3}$. Puis mesure avec ta `gmm_log_likelihood`, pour $\sigma_1 = 10^{-1}$, $10^{-3}$ et $10^{-6}$, sans puis avec `reg`, et relève : d) la log-vraisemblance pour $\sigma_1 = 10^{-6}$ sans régularisation (2 décimales) ; e) les trois valeurs avec régularisation (3 décimales). Ce qu'il faut observer : chaque facteur 100 sur $\sigma_1$ ajoute environ $\ln 100$ nats, sans limite (une seule donnée expliquée par une aiguille) ; `reg` met un plancher sous la variance et borne la log-vraisemblance.
 
 **M25b.26 · 🔬 L'EM sur des longueurs de poissons de trois cohortes.** Les longueurs (en cm) de poissons d'un étang viennent de trois cohortes, d'un, deux et trois ans : proportions $(0{,}5 ;\ 0{,}3 ;\ 0{,}2)$, moyennes 12, 20 et 28 cm, écarts-types 1,5 ; 2 et 2,5 cm. La cellule de données les tire par un tirage ancestral : `rng = np.random.default_rng(6056)`, `z = rng.choice(3, size=300, p=(0.5, 0.3, 0.2))`, puis, pour chaque cohorte $k = 0, 1, 2$, les longueurs des lignes où `z == k` par `sample_mvn([mu_k], [[var_k]], n_k, seed=6057 + k)` ; `X` est de forme $(300, 1)$. Écris `em_trace_26(X, weights, means, covs, n_iter)`, qui fait `n_iter` itérations de l'EM sans régularisation et rend deux tableaux `ll` et `elbo` de longueur `2 * n_iter + 1` : la log-vraisemblance et l'ELBO après le premier pas E (le posterior des paramètres de départ), puis après chaque pas M et chaque pas E. Lance-la depuis dix initialisations : `rng = np.random.default_rng(6060)` puis, pour chacune, `idx = rng.choice(300, 3, replace=False)`, les moyennes `X[idx]`, trois variances égales à `X.var()`, des poids égaux, et `n_iter = 100`. Relève : a) vrai ou faux : dans les dix essais, aucun demi-pas ne fait baisser l'ELBO de plus de $10^{-9}(1 + \lvert\operatorname{ELBO}\rvert)$ ; b) vrai ou faux : après chaque pas E, l'ELBO et la log-vraisemblance diffèrent de moins de $10^{-9}(1 + \lvert\ell\rvert)$ ; c) la meilleure log-vraisemblance finale par poisson (4 décimales) ; d) le nombre d'essais dont la valeur finale par poisson est à moins de $10^{-3}$ de c) ; e) la valeur finale par poisson des autres essais (2 décimales) ; f) les trois moyennes du meilleur essai, dans l'ordre croissant (1 décimale). Trace, en fonction du demi-pas, sur les 30 premiers demi-pas, la log-vraisemblance et l'ELBO du meilleur essai et d'un des autres. Ce qu'il faut conclure : la log-vraisemblance monte en escalier et l'ELBO la touche après chaque pas E ; certaines initialisations restent longtemps près d'un moins bon point, où deux composantes se partagent les cohortes du haut : on relance depuis plusieurs initialisations.
 
-**M25b.27 · 🎨 Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p).** Écris `draw_kl_fits_27(ax_density, ax_kl, weights, means, variances)`, qui dessine sur les **axes reçus** (sans ouvrir de figure) : dans `ax_density`, la densité $p$ du mélange (les temps de trajet de M25b.13 sur $[0, 60]$ min), la gaussienne $q_\star$ des moments, et les gaussiennes $q_1$ et $q_2$ de M25b.13, avec une légende ; dans `ax_kl`, pour $m$ de 10 à 55 par pas de 0,25, la KL inverse $m \mapsto \mathrm{KL}(\mathcal{N}(m, 4) \,\|\, p)$ et la KL directe $m \mapsto \mathrm{KL}(p \,\|\, \mathcal{N}(m, \mathbb{V}_p(X)))$, calculées sur une grille de $x$ de $-30$ à 100 (260 001 points) par `np.trapezoid`, avec $\ln p$ par un log-sum-exp (sur cette grille, $p$ reste représentable, mais une bosse plus étroite ou une grille plus large la feraient sortir des flottants). La vérification l'appelle sur une figure de deux panneaux et l'affiche ; tes propres calculs servent à relever a) à e). Relève : a) les abscisses des minima locaux de la KL inverse sur la grille (1 décimale) ; b) leurs valeurs (3 décimales) ; c) $\mathrm{KL}(p \,\|\, q_\star)$ (4 décimales) ; d) $\mathrm{KL}(q_\star \,\|\, p)$ (2 décimales) ; e) vrai ou faux : $\mathrm{KL}(q_\star \,\|\, p)$ dépasse les deux minima de a). Puis minimise $\mathrm{KL}(\mathcal{N}(m, s^2) \,\|\, p)$ en $(m, s)$ par `scipy.optimize.minimize` avec la borne $s \ge 0{,}1$ (`method="L-BFGS-B"`), depuis $(22, 2)$ et depuis $(40 ;\ 2{,}5)$, et compare les deux minima à tes réponses c) et d) de M25b.13. Ce qu'il faut observer : la KL inverse a un minimum par itinéraire, le plus bas sur la bosse la plus lourde ; la KL directe n'en a qu'un, entre les bosses, là où $p$ est presque nulle.
+**M25b.27 · 🎨 Une gaussienne ajustée à un mélange bimodal par KL(p ‖ q) puis par KL(q ‖ p).** Écris `draw_kl_fits_27(ax_density, ax_kl, weights, means, variances)`, qui dessine sur les **axes reçus** (sans ouvrir de figure) : dans `ax_density`, la densité $p$ du mélange (les temps de trajet de M25b.13 sur $[0, 60]$ min), la gaussienne $q_\star$ des moments, et les gaussiennes $q_1$ et $q_2$ de M25b.13, avec une légende ; dans `ax_kl`, pour $m$ de 10 à 55 par pas de 0,25, la KL inverse $m \mapsto \mathrm{KL}(\mathcal{N}(m, 4) \thinspace\Vert\thinspace p)$ et la KL directe $m \mapsto \mathrm{KL}(p \thinspace\Vert\thinspace \mathcal{N}(m, \mathbb{V}  _p(X)))$, calculées sur une grille de $x$ de $-30$ à 100 (260 001 points) par `np.trapezoid`, avec $\ln p$ par un log-sum-exp (sur cette grille, $p$ reste représentable, mais une bosse plus étroite ou une grille plus large la feraient sortir des flottants). La vérification l'appelle sur une figure de deux panneaux et l'affiche ; tes propres calculs servent à relever a) à e). Relève : a) les abscisses des minima locaux de la KL inverse sur la grille (1 décimale) ; b) leurs valeurs (3 décimales) ; c) $\mathrm{KL}(p \thinspace\Vert\thinspace q  _\star)$ (4 décimales) ; d) $\mathrm{KL}(q _\star \thinspace\Vert\thinspace p)$ (2 décimales) ; e) vrai ou faux : $\mathrm{KL}(q _\star \thinspace\Vert\thinspace p)$ dépasse les deux minima de a). Puis minimise $\mathrm{KL}(\mathcal{N}(m, s^2) \thinspace\Vert\thinspace p)$ en $(m, s)$ par `scipy.optimize.minimize` avec la borne $s \ge 0{,}1$ (`method="L-BFGS-B"`), depuis $(22, 2)$ et depuis $(40 ;\ 2{,}5)$, et compare les deux minima à tes réponses c) et d) de M25b.13. Ce qu'il faut observer : la KL inverse a un minimum par itinéraire, le plus bas sur la bosse la plus lourde ; la KL directe n'en a qu'un, entre les bosses, là où $p$ est presque nulle.
 
 **M25b.28 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions pour des mesures en dimension 1 (`x` est un tableau 1-D, `sds` les écarts-types), chacune accompagnée d'une vérification qui passe.
-- (1) `machine_shares(x, weights, means, sds)` doit rendre les responsabilités, de forme $(n, K)$ ; elle calcule chaque $\pi_k\,\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)$ par `np.exp`, puis divise chaque ligne par sa somme. Il l'a vérifiée sur les quatre résistances de M25b.3 (paramètres de départ, `sds` = les racines de 1 et 2,5) : chaque ligne a pour somme 1 et toutes les valeurs sont dans $[0, 1]$. Il l'applique au bac qui contient aussi la résistance de 120 Ω.
+- (1) `machine_shares(x, weights, means, sds)` doit rendre les responsabilités, de forme $(n, K)$ ; elle calcule chaque $\pi_k\thinspace\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)$ par `np.exp`, puis divise chaque ligne par sa somme. Il l'a vérifiée sur les quatre résistances de M25b.3 (paramètres de départ, `sds` = les racines de 1 et 2,5) : chaque ligne a pour somme 1 et toutes les valeurs sont dans $[0, 1]$. Il l'applique au bac qui contient aussi la résistance de 120 Ω.
 - (2) `refit_machines(x, resp)` doit rendre le pas M, `(weights, means, variances)` ; elle calcule les poids $N_k/n$, les moyennes $\frac{1}{N_k}\sum_ir_{ik}x_i$, puis les variances $\frac1n\sum_ir_{ik}(x_i - \mu_k)^2$. Il l'a vérifiée avec une seule composante (une colonne de 1) : elle rend bien `np.mean(x)` et `np.var(x)`.
 - (3) `bound_of_evidence(x, resp, weights, means, sds)` doit rendre l'ELBO ; elle rend $\sum_i\sum_kr_{ik}\big(\ln\pi_k + \ln\mathcal{N}(x_i \mid \mu_k, \sigma_k^2)\big)$. Il l'a vérifiée sur 200 tableaux de responsabilités tirés au hasard (`np.random.default_rng(6066).dirichlet` : chaque ligne est un vecteur de probabilités tiré uniformément parmi ceux de taille $K$ ; la loi de Dirichlet n'est pas au programme, seule compte ici cette propriété) : elle reste toujours sous la log-vraisemblance des quatre résistances.
 

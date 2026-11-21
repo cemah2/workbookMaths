@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : la **hessienne** $\nabla^2 f$ est la matrice des dérivées secondes ; une **itération linéaire** s'écrit $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$ et son **écart** est $\mathbf{e}_k = \mathbf{x}_k - \mathbf{x}^\star$ ; l'**itération de Richardson** pour $\mathbf{A}\mathbf{x} = \mathbf{b}$ est $\mathbf{x}_{k+1} = \mathbf{x}_k + \omega(\mathbf{b} - \mathbf{A}\mathbf{x}_k)$, de pas $\omega$ ; le **conditionnement** d'une matrice symétrique définie positive est $\kappa = \lambda_{\max}/\lambda_{\min}$ ; une récurrence d'ordre 2 s'écrit $u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme caractéristique $r^2 - pr + q$. « Gagner $d$ décimales », c'est diviser la norme de l'écart par $10^d$. Les angles sont en radians. Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
+Dans tout le chapitre, comme dans la fiche : la **hessienne** $\nabla^2 f$ est la matrice des dérivées secondes ; une **itération linéaire** s'écrit $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x} _k + \mathbf{c}$ et son **écart** est $\mathbf{e} _k = \mathbf{x} _k - \mathbf{x}^\star$ ; l'**itération de Richardson** pour $\mathbf{A}\mathbf{x} = \mathbf{b}$ est $\mathbf{x} _{k+1} = \mathbf{x} _k + \omega(\mathbf{b} - \mathbf{A}\mathbf{x} _k)$, de pas $\omega$ ; le **conditionnement** d'une matrice symétrique définie positive est $\kappa = \lambda _{\max}/\lambda _{\min}$ ; une récurrence d'ordre 2 s'écrit $u _{k+2} = p\thinspace u _{k+1} - q\thinspace u_k$, de polynôme caractéristique $r^2 - pr + q$. « Gagner $d$ décimales », c'est diviser la norme de l'écart par $10^d$. Les angles sont en radians. Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
 
 <a id="quiz"></a>
 
@@ -34,7 +34,7 @@ En un point critique, la hessienne a les valeurs propres indiquées. Réponds : 
 2. $-2$ ; $-0{,}1$.
 3. $4$ ; $-1$ ; $2$.
 4. $2$ ; $0$ ; $5$.
-5. La hessienne vaut $\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$ (sans calculer ses valeurs propres : son déterminant ?).
+5. La hessienne vaut $\begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}$ (sans calculer ses valeurs propres : son déterminant ?).
 6. Vrai ou faux : en dimension 3, une hessienne de déterminant positif en un point critique signale un minimum.
 
 ### M19.Q3 — Converge ou pas : lire les valeurs propres de M 🧠 ★ ⏱️ 4 min
@@ -45,14 +45,14 @@ $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M}$ sym�
 1. $0{,}5$ et $-0{,}9$.
 2. $1{,}1$ et $0{,}2$.
 3. $-1$ et $0{,}3$.
-4. $\mathbf{M} = 0{,}5\,\mathbf{I}$ : combien de pas pour diviser l'écart par 1 000 ?
+4. $\mathbf{M} = 0{,}5\thinspace\mathbf{I}$ : combien de pas pour diviser l'écart par 1 000 ?
 5. Avec les valeurs propres $1{,}1$ et $0{,}2$, un départ dont l'écart est un vecteur propre de $0{,}2$ converge-t-il ?
 6. Vrai ou faux : si toutes les valeurs propres de $\mathbf{M}$ sont de module $< 1$, la limite dépend du départ.
 
 ### M19.Q4 — Le pas de Richardson : lire la convergence sur les valeurs propres de I − ωA 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, de valeurs propres $2$ et $4$.
+$\mathbf{A} = \begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}$, de valeurs propres $2$ et $4$.
 
 1. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ pour $\omega = 0{,}075$ ? Richardson converge-t-elle ?
 2. Le pas critique ?
@@ -68,7 +68,7 @@ $\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$, de valeurs propres 
 2. On multiplie $\mathbf{A}$ et $\mathbf{b}$ par 10. Qu'est-ce qui change : le conditionnement, le pas critique, le nombre d'itérations au meilleur pas ?
 3. Le facteur de Richardson au meilleur pas pour $\kappa = 100$ (3 décimales) ?
 4. Pour gagner 6 décimales avec ce facteur, il faut environ : (A) 7 itérations ; (B) 70 ; (C) 700 ; (D) 7 000.
-5. $\mathbf{A} = \begin{pmatrix} 9 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$ : la matrice $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ du préconditionnement diagonal, et son conditionnement ?
+5. $\mathbf{A} = \begin{pmatrix} 9 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$ : la matrice $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ du préconditionnement diagonal, et son conditionnement ?
 6. Vrai ou faux : remplacer les inconnues par $\mathbf{x} = \mathbf{Q}\mathbf{y}$, avec $\mathbf{Q}$ orthogonale, change le conditionnement.
 
 ### M19.Q6 — Module d'un nombre complexe et racines d'un trinôme 🧠 ★ ⏱️ 4 min
@@ -110,7 +110,7 @@ On estime le gradient d'une moyenne de $N$ termes par la moyenne des gradients d
 ### M19.R1 — Le théorème spectral et les valeurs propres d'une matrice symétrique (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §2 et §3 · parcours C, E*
 
-$\mathbf{S} = \begin{pmatrix} 6 & 2 \\ 2 & 3 \end{pmatrix}$.
+$\mathbf{S} = \begin{pmatrix} 6 & 2 \cr 2 & 3 \end{pmatrix}$.
 
 1. Les valeurs propres de $\mathbf{S}$ (trace et déterminant) ?
 2. Un vecteur propre unitaire pour chacune ?
@@ -122,11 +122,11 @@ $\mathbf{S} = \begin{pmatrix} 6 & 2 \\ 2 & 3 \end{pmatrix}$.
 ### M19.R2 — Suites géométriques et récurrences d'ordre 1 (R5) 🔁 ★ ⏱️ 5 min
 *Fiche §3 et §6 · parcours C, E*
 
-1. $u_{k+1} = 0{,}7\,u_k$, $u_0 = 4$ : $u_3$ ?
+1. $u_{k+1} = 0{,}7\thinspace u_k$, $u_0 = 4$ : $u_3$ ?
 2. Vers quoi tend $u_k$ ?
-3. $v_{k+1} = 0{,}5\,v_k + 3$ : son point fixe ? L'expression de $v_k$ en fonction de $v_0$ ?
+3. $v_{k+1} = 0{,}5\thinspace v_k + 3$ : son point fixe ? L'expression de $v_k$ en fonction de $v_0$ ?
 4. Le plus petit $k$ tel que $0{,}7^k < 0{,}01$ ?
-5. Vrai ou faux : $w_{k+1} = -1{,}2\,w_k + 1$ converge depuis tout départ.
+5. Vrai ou faux : $w_{k+1} = -1{,}2\thinspace w_k + 1$ converge depuis tout départ.
 
 ### M19.R3 — Le conditionnement par la SVD (M12d) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C*
@@ -185,20 +185,20 @@ $f(x, y, z) = x^3 + 3xy^2 - 15x - 12y + z^2 - 2z$.
 | f | la valeur de $f$ en son minimum local | un nombre |
 | g | vrai ou faux : $(-2, -1, 1)$ est un maximum local | `True` ou `False` |
 
-Dans ta copie : montre que $(x, y)$ vérifie $x^2 + y^2 = 5$ et $xy = 2$, et trouve les quatre solutions. Les valeurs propres de $\begin{pmatrix} 6x & 6y \\ 6y & 6x \end{pmatrix}$ sont $6x \pm 6y$ : pour quels vecteurs propres ? Pourquoi $f$ n'a-t-elle aucun maximum local ? Pour chaque point selle, donne une direction où $f$ descend. Le minimum est-il global ?
+Dans ta copie : montre que $(x, y)$ vérifie $x^2 + y^2 = 5$ et $xy = 2$, et trouve les quatre solutions. Les valeurs propres de $\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}$ sont $6x \pm 6y$ : pour quels vecteurs propres ? Pourquoi $f$ n'a-t-elle aucun maximum local ? Pour chaque point selle, donne une direction où $f$ descend. Le minimum est-il global ?
 
 ### Ex M19.3 — Une itération linéaire 2 × 2 : point fixe, erreur, et convergence par les valeurs propres ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer le point fixe et les itérés d'une itération linéaire, décomposer l'écart sur les vecteurs propres, et en tirer la vitesse de convergence.
 **Prérequis :** fiche §3 ; M12c ; R5 · **Parcours :** C, E
 
-$\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M} = \begin{pmatrix} 0{,}5 & 0{,}2 \\ 0{,}2 & 0{,}2 \end{pmatrix}$ et $\mathbf{c} = (1{,}6 ;\ 0{,}8)$. Les vecteurs $\mathbf{q}_1 = (2, 1)$ et $\mathbf{q}_2 = (1, -2)$ sont des vecteurs propres de $\mathbf{M}$ (non normés).
+$\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M} = \begin{pmatrix} 0{,}5 & 0{,}2 \cr 0{,}2 & 0{,}2 \end{pmatrix}$ et $\mathbf{c} = (1{,}6 ;\ 0{,}8)$. Les vecteurs $\mathbf{q}_1 = (2, 1)$ et $\mathbf{q}_2 = (1, -2)$ sont des vecteurs propres de $\mathbf{M}$ (non normés).
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le point fixe $\mathbf{x}^\star$ | une liste de 2 nombres |
 | b | $\mathbf{x}_1$ et $\mathbf{x}_2$ depuis $\mathbf{x}_0 = (0, 0)$ | une liste de 2 listes de 2 nombres |
 | c | les valeurs propres de $\mathbf{M}$ associées à $\mathbf{q}_1$ puis à $\mathbf{q}_2$ | une liste de 2 nombres |
-| d | depuis $\mathbf{x}_0 = (4, 7)$ : les coefficients $[a, b]$ de l'écart $\mathbf{e}_0 = a\,\mathbf{q}_1 + b\,\mathbf{q}_2$ | une liste de 2 nombres |
+| d | depuis $\mathbf{x}_0 = (4, 7)$ : les coefficients $[a, b]$ de l'écart $\mathbf{e}_0 = a\thinspace\mathbf{q}_1 + b\thinspace\mathbf{q}_2$ | une liste de 2 nombres |
 | e | $\mathbf{x}_3$ depuis $\mathbf{x}_0 = (4, 7)$ | une liste de 2 nombres |
 | f | le plus petit nombre de pas qui divise par 1 000 la norme de l'écart, quel que soit le départ | un entier |
 | g | vrai ou faux : depuis $\mathbf{x}_0 = (5, 0)$, la norme de l'écart est divisée exactement par 10 à chaque pas | `True` ou `False` |
@@ -209,7 +209,7 @@ Dans ta copie : vérifie que $\mathbf{x}_2 - \mathbf{x}^\star$ est un multiple d
 **Objectif :** faire trois pas de Richardson à la main, puis lire la convergence sur les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 5 & 3 \\ 3 & 5 \end{pmatrix}$ et $\mathbf{b} = (2 ;\ 6)$. On part de $\mathbf{x}_0 = \mathbf{0}$.
+$\mathbf{A} = \begin{pmatrix} 5 & 3 \cr 3 & 5 \end{pmatrix}$ et $\mathbf{b} = (2 ;\ 6)$. On part de $\mathbf{x}_0 = \mathbf{0}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -217,7 +217,7 @@ $\mathbf{A} = \begin{pmatrix} 5 & 3 \\ 3 & 5 \end{pmatrix}$ et $\mathbf{b} = (2 
 | b | $\mathbf{x}_1$, $\mathbf{x}_2$, $\mathbf{x}_3$ avec $\omega = 0{,}08$ | une liste de 3 listes de 2 nombres (6 décimales) |
 | c | le résidu $\mathbf{b} - \mathbf{A}\mathbf{x}_3$ | une liste de 2 nombres (6 décimales) |
 | d | les valeurs propres de $\mathbf{A}$, en ordre décroissant | une liste de 2 nombres |
-| e | les valeurs propres de $\mathbf{I} - 0{,}08\,\mathbf{A}$, dans le même ordre que d) | une liste de 2 nombres |
+| e | les valeurs propres de $\mathbf{I} - 0{,}08\thinspace\mathbf{A}$, dans le même ordre que d) | une liste de 2 nombres |
 | f | le pas critique | un nombre |
 | g | avec $\omega = 0{,}3$ : la valeur propre de $\mathbf{I} - \omega\mathbf{A}$ de plus grand module | un nombre |
 | h | vrai ou faux : avec $\omega = 0{,}3$, l'itération partie de $\mathbf{x}_0 = \mathbf{x}^\star + (1, -1)$ converge | `True` ou `False` |
@@ -228,7 +228,7 @@ Dans ta copie : la solution est loin de $\mathbf{x}_3$ ; quelle composante de l'
 **Objectif :** appliquer les formules du meilleur pas et du facteur de convergence, et chiffrer le nombre d'itérations selon le pas et le conditionnement.
 **Prérequis :** fiche §4 et §5 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \\ 6 & 7 & 0 \\ 0 & 0 & 7 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \cr 6 & 7 & 0 \cr 0 & 0 & 7 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -241,18 +241,18 @@ $\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \\ 6 & 7 & 0 \\ 0 & 0 & 7 \end{pmatrix}$
 | g | le plus petit nombre d'itérations qui gagne 6 décimales avec ce pas | un entier |
 | h | pour une matrice de valeurs propres extrêmes $1$ et $110$, le plus petit nombre d'itérations qui gagne 6 décimales au meilleur pas | un entier |
 
-Dans ta copie : vérifie d) avec la formule $\rho(\omega) = \max(\lvert 1 - \omega\lambda_{\min}\rvert, \lvert 1 - \omega\lambda_{\max}\rvert)$ du §4 ; pourquoi la valeur propre 7 ne compte-t-elle pas ? Compare e) et h) à l'approximation $1{,}15\,\kappa\,d$ de la fiche. Le pas prudent coûte combien de fois plus d'itérations ?
+Dans ta copie : vérifie d) avec la formule $\rho(\omega) = \max(\lvert 1 - \omega\lambda_{\min}\rvert, \lvert 1 - \omega\lambda_{\max}\rvert)$ du §4 ; pourquoi la valeur propre 7 ne compte-t-elle pas ? Compare e) et h) à l'approximation $1{,}15\thinspace\kappa\thinspace d$ de la fiche. Le pas prudent coûte combien de fois plus d'itérations ?
 
 ### Ex M19.6 — Une récurrence d'ordre 2 à racines réelles : terme général et convergence ✏️ ★★ ⏱️ 20 min
 **Objectif :** résoudre une récurrence d'ordre 2 par son polynôme caractéristique, et trouver un départ qui converge malgré une racine de module $> 1$.
 **Prérequis :** fiche §6 ; R3, R5 · **Parcours :** C, E
 
-$u_{k+2} = 0{,}7\,u_{k+1} - 0{,}1\,u_k$, avec $u_0 = 3$ et $u_1 = 1{,}2$ ; puis $v_{k+2} = 1{,}5\,v_{k+1} + v_k$.
+$u_{k+2} = 0{,}7\thinspace u_{k+1} - 0{,}1\thinspace u_k$, avec $u_0 = 3$ et $u_1 = 1{,}2$ ; puis $v_{k+2} = 1{,}5\thinspace v_{k+1} + v_k$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | les racines du polynôme caractéristique de $(u_k)$, en ordre décroissant | une liste de 2 nombres |
-| b | les coefficients $[\alpha, \beta]$ de $u_k = \alpha\,r_1^k + \beta\,r_2^k$, $r_1$ étant la plus grande racine | une liste de 2 nombres |
+| b | les coefficients $[\alpha, \beta]$ de $u_k = \alpha\thinspace r_1^k + \beta\thinspace r_2^k$, $r_1$ étant la plus grande racine | une liste de 2 nombres |
 | c | $[u_2, u_3]$ | une liste de 2 nombres |
 | d | $u_{10}$ | un nombre (6 décimales) |
 | e | les racines du polynôme caractéristique de $(v_k)$, en ordre décroissant | une liste de 2 nombres |
@@ -265,7 +265,7 @@ Dans ta copie : vérifie c) par la formule de b). Quel terme de $u_k$ l'emporte 
 **Objectif :** calculer les racines complexes d'une récurrence d'ordre 2, leur module et leur angle, et en tirer une oscillation amortie.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-$u_{k+2} = 0{,}5\,u_{k+1} - 0{,}4225\,u_k$, avec $u_0 = 1$ et $u_1 = 0{,}25$.
+$u_{k+2} = 0{,}5\thinspace u_{k+1} - 0{,}4225\thinspace u_k$, avec $u_0 = 1$ et $u_1 = 0{,}25$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -284,7 +284,7 @@ Dans ta copie : vérifie $u_4$ par la formule de f). Pourquoi $\lvert u_k\rvert 
 **Objectif :** calculer le gradient exact d'une moyenne et la dispersion des gradients individuels, puis la variance et l'erreur type d'une estimation sur un échantillon, avec et sans remise.
 **Prérequis :** fiche §7 ; M02c, M09b · **Parcours :** C, E
 
-On veut la résistance $a$ d'un composant, dont la tension vaut $U = a\,I$ (loi d'Ohm), à partir de quatre mesures $(I_k, U_k)$ : $(1, 2)$, $(2, 3)$, $(2, 5)$, $(3, 7)$. On minimise $F(a) = \frac14\sum_k(a\,I_k - U_k)^2$, et l'on note $g_k(a) = 2I_k(a\,I_k - U_k)$ la dérivée du terme $k$. On se place en $a = 2$.
+On veut la résistance $a$ d'un composant, dont la tension vaut $U = a\thinspace I$ (loi d'Ohm), à partir de quatre mesures $(I_k, U_k)$ : $(1, 2)$, $(2, 3)$, $(2, 5)$, $(3, 7)$. On minimise $F(a) = \frac14\sum_k(a\thinspace I_k - U_k)^2$, et l'on note $g_k(a) = 2I_k(a\thinspace I_k - U_k)$ la dérivée du terme $k$. On se place en $a = 2$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -333,7 +333,7 @@ $\mathbf{M}$ est symétrique, de valeurs propres $\lambda_1, \ldots, \lambda_n$ 
 2. Montre que $\mathbf{e}_k = \mathbf{M}^k\mathbf{e}_0$, puis, en écrivant $\mathbf{e}_0 = \sum_iy_i\mathbf{q}_i$, que $\mathbf{e}_k = \sum_i\lambda_i^ky_i\mathbf{q}_i$.
 3. Déduis-en $\lVert\mathbf{e}_k\rVert^2 = \sum_i\lambda_i^{2k}y_i^2 \le \rho^{2k}\lVert\mathbf{e}_0\rVert^2$, et conclus que $\mathbf{x}_k \to \mathbf{x}^\star$ depuis tout départ. Quand y a-t-il égalité ?
 4. Réciproquement, on suppose que l'itération converge vers un même point $\boldsymbol{\ell}$ depuis tout départ. Montre que $\boldsymbol{\ell}$ est un point fixe. Puis, en partant de $\boldsymbol{\ell} + \mathbf{q}_j$, montre que $\lambda_j^k\mathbf{q}_j$ doit tendre vers $\mathbf{0}$, donc que $\lvert\lambda_j\rvert < 1$. Pourquoi l'hypothèse « un même point » est-elle nécessaire (pense à $\mathbf{M} = \mathbf{I}$) ?
-5. Où la symétrie de $\mathbf{M}$ a-t-elle servi ? Pour $\mathbf{M} = \begin{pmatrix} 0{,}5 & 10 \\ 0 & 0{,}5 \end{pmatrix}$, calcule $\mathbf{M}^2\mathbf{e}_0$ pour $\mathbf{e}_0 = (0, 1)$ : la majoration du 3. vaut-elle encore ?
+5. Où la symétrie de $\mathbf{M}$ a-t-elle servi ? Pour $\mathbf{M} = \begin{pmatrix} 0{,}5 & 10 \cr 0 & 0{,}5 \end{pmatrix}$, calcule $\mathbf{M}^2\mathbf{e}_0$ pour $\mathbf{e}_0 = (0, 1)$ : la majoration du 3. vaut-elle encore ?
 
 ### Ex M19.11 — L'itération de Richardson converge si et seulement si 0 < ω < 2/λmax ∂ ★★ ⏱️ 15 min
 **Objectif :** appliquer le théorème des itérations linéaires à Richardson, et en tirer le pas critique.
@@ -351,10 +351,10 @@ $\mathbf{A}$ est symétrique définie positive, de valeurs propres $0 < \lambda_
 **Objectif :** démontrer que toutes les solutions d'une récurrence d'ordre 2 tendent vers 0 exactement quand ses racines sont de module $< 1$, et lire cette condition sur ses coefficients.
 **Prérequis :** fiche §6 ; R3 · **Parcours :** C
 
-$u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme $P(r) = r^2 - pr + q$ et de racines $r_1$, $r_2$ (réelles ou complexes conjuguées).
+$u_{k+2} = p\thinspace u_{k+1} - q\thinspace u_k$, de polynôme $P(r) = r^2 - pr + q$ et de racines $r_1$, $r_2$ (réelles ou complexes conjuguées).
 
 1. Racines distinctes : montre que, pour tous $u_0$, $u_1$, il existe un unique couple $(\alpha, \beta)$, éventuellement complexe, tel que $u_k = \alpha r_1^k + \beta r_2^k$ pour $k = 0$ et $k = 1$, puis, par récurrence, pour tout $k$.
-2. Montre que toutes les solutions réelles tendent vers 0 si et seulement si $\lvert r_1\rvert < 1$ et $\lvert r_2\rvert < 1$. Pour la réciproque, choisis un départ qui donne $(\alpha, \beta) = (1, 0)$ ; si les racines sont complexes, utilise plutôt la partie réelle de la suite $r_1^k$, qui est une solution réelle. Traite aussi la racine double $r \ne 0$ : vérifie que $k\,r^k$ est solution, puis que $u_k = (\alpha + \beta k)r^k$ (on admet que $k\,s^k \to 0$ pour $0 \le s < 1$).
+2. Montre que toutes les solutions réelles tendent vers 0 si et seulement si $\lvert r_1\rvert < 1$ et $\lvert r_2\rvert < 1$. Pour la réciproque, choisis un départ qui donne $(\alpha, \beta) = (1, 0)$ ; si les racines sont complexes, utilise plutôt la partie réelle de la suite $r_1^k$, qui est une solution réelle. Traite aussi la racine double $r \ne 0$ : vérifie que $k\thinspace r^k$ est solution, puis que $u_k = (\alpha + \beta k)r^k$ (on admet que $k\thinspace s^k \to 0$ pour $0 \le s < 1$).
 3. Racines complexes ($p^2 < 4q$) : montre que $\lvert r_1\rvert = \lvert r_2\rvert = \sqrt q$, puis que la condition équivaut à $q < 1$, et qu'alors $\lvert p\rvert < 2\sqrt q \le 1 + q$.
 4. Racines réelles ($p^2 \ge 4q$) : montre que les deux racines sont dans $]-1, 1[$ si et seulement si $P(1) > 0$, $P(-1) > 0$ et $-1 < \frac p2 < 1$. Traduis $P(1) > 0$ et $P(-1) > 0$ en $\lvert p\rvert < 1 + q$, puis montre que, avec $p^2 \ge 4q$, ces conditions donnent $\lvert q\rvert < 1$.
 5. Conclus : les deux racines sont de module $< 1$ si et seulement si $\lvert q\rvert < 1$ et $\lvert p\rvert < 1 + q$. Dessine la région dans le plan $(p, q)$.
@@ -363,13 +363,13 @@ $u_{k+2} = p\,u_{k+1} - q\,u_k$, de polynôme $P(r) = r^2 - pr + q$ et de racine
 **Objectif :** démontrer les formules de projection sur une boule et sur un pavé, et dire quand la seconde garde la direction.
 **Prérequis :** fiche §8 ; M07 (inégalité triangulaire) · **Parcours :** C
 
-On note $B_r = \{\mathbf{y} : \lVert\mathbf{y}\rVert \le r\}$ et $\mathbf{x}$ un vecteur avec $\lVert\mathbf{x}\rVert > r$.
+On note $B_r = \lbrace\mathbf{y} : \lVert\mathbf{y}\rVert \le r\rbrace$ et $\mathbf{x}$ un vecteur avec $\lVert\mathbf{x}\rVert > r$.
 
 1. Montre que, pour tout $\mathbf{y} \in B_r$, $\lVert\mathbf{x} - \mathbf{y}\rVert \ge \lVert\mathbf{x}\rVert - r$ (inégalité triangulaire).
-2. Montre que $\mathbf{y}^\star = r\,\mathbf{x}/\lVert\mathbf{x}\rVert$ atteint cette borne : c'est un point le plus proche.
+2. Montre que $\mathbf{y}^\star = r\thinspace\mathbf{x}/\lVert\mathbf{x}\rVert$ atteint cette borne : c'est un point le plus proche.
 3. Montre que c'est le seul : s'il y a égalité au 1., $\mathbf{y}$ est un multiple positif de $\mathbf{x}$ de norme $r$ (on admet le cas d'égalité de l'inégalité triangulaire : $\lVert\mathbf{a} + \mathbf{b}\rVert = \lVert\mathbf{a}\rVert + \lVert\mathbf{b}\rVert$ seulement si $\mathbf{a}$ et $\mathbf{b}$ sont des multiples positifs l'un de l'autre, ou si l'un est nul).
 4. Pour le pavé $[-c, c]^n$, montre que $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = \sum_i(x_i - y_i)^2$ est minimal pour $y_i = \min(\max(x_i, -c), c)$.
-5. Pour $\mathbf{x}$ hors du pavé, montre que sa projection est un multiple $t\,\mathbf{x}$ de $\mathbf{x}$ si et seulement si toutes les coordonnées non nulles de $\mathbf{x}$ ont la même valeur absolue.
+5. Pour $\mathbf{x}$ hors du pavé, montre que sa projection est un multiple $t\thinspace\mathbf{x}$ de $\mathbf{x}$ si et seulement si toutes les coordonnées non nulles de $\mathbf{x}$ ont la même valeur absolue.
 
 <a id="reflexion"></a>
 
@@ -385,7 +385,7 @@ $\mathbf{A}$ est symétrique définie positive, et $f(\mathbf{x}) = \frac12\math
 |---|---|---|
 | a | $\nabla f(\mathbf{x})$ : (A) $\mathbf{b} - \mathbf{A}\mathbf{x}$ ; (B) $\mathbf{A}\mathbf{x} - \mathbf{b}$ ; (C) $\frac12\mathbf{A}\mathbf{x} - \mathbf{b}$ ; (D) $\mathbf{A}^\top\mathbf{b}$ | une lettre entre guillemets |
 | b | $\nabla^2 f$ : (A) $\mathbf{b}$ ; (B) $\frac12\mathbf{A}$ ; (C) $\mathbf{A}$ ; (D) $2\mathbf{A}$ | une lettre entre guillemets |
-| c | le pas de Richardson $\mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x})$ s'écrit : (A) $\mathbf{x} - \omega\nabla f(\mathbf{x})$ ; (B) $\mathbf{x} + \omega\nabla f(\mathbf{x})$ ; (C) $\mathbf{x} - \omega f(\mathbf{x})$ ; (D) $\mathbf{x} - \omega\nabla^2 f\,\mathbf{x}$ | une lettre entre guillemets |
+| c | le pas de Richardson $\mathbf{x} + \omega(\mathbf{b} - \mathbf{A}\mathbf{x})$ s'écrit : (A) $\mathbf{x} - \omega\nabla f(\mathbf{x})$ ; (B) $\mathbf{x} + \omega\nabla f(\mathbf{x})$ ; (C) $\mathbf{x} - \omega f(\mathbf{x})$ ; (D) $\mathbf{x} - \omega\nabla^2 f\thinspace\mathbf{x}$ | une lettre entre guillemets |
 | d | dans le vocabulaire de workbookIA 19, $\omega$ est : (A) le learning rate ; (B) la taille du mini-batch ; (C) le nombre d'itérations ; (D) le conditionnement | une lettre entre guillemets |
 | e | le pas au-dessus duquel la descente sur $f$ diverge pour certains départs : (A) $1/\lambda_{\max}$ ; (B) $2/\lambda_{\max}$ ; (C) $2/\lambda_{\min}$ ; (D) $\frac{2}{\lambda_{\min} + \lambda_{\max}}$ | une lettre entre guillemets |
 | f | le résidu $\mathbf{b} - \mathbf{A}\mathbf{x}$ est : (A) le gradient de $f$ ; (B) l'opposé du gradient de $f$ ; (C) la hessienne de $f$ ; (D) la valeur de $f$ | une lettre entre guillemets |
@@ -397,7 +397,7 @@ Dans ta copie : pour les deux ressorts de la fiche, que représente $f$ ? Pourqu
 **Objectif :** mesurer ce que gagne une mise à l'échelle diagonale, et ce qu'elle ne peut pas corriger.
 **Prérequis :** fiche §5 ; Ex M19.5 · **Parcours :** C
 
-Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \begin{pmatrix} 16 & 1 \\ 1 & 0{,}25 \end{pmatrix}$ : ses deux inconnues vivent à des échelles très différentes. On note $\mathbf{D} = \operatorname{diag}(16 ;\ 0{,}25)$.
+Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \begin{pmatrix} 16 & 1 \cr 1 & 0{,}25 \end{pmatrix}$ : ses deux inconnues vivent à des échelles très différentes. On note $\mathbf{D} = \operatorname{diag}(16 ;\ 0{,}25)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -408,7 +408,7 @@ Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \be
 | e | le plus petit nombre d'itérations qui gagne 6 décimales au meilleur pas, pour $\mathbf{A}$ puis pour $\tilde{\mathbf{A}}$ | une liste de 2 entiers |
 | f | les nouvelles inconnues $\mathbf{y} = \mathbf{D}^{1/2}\mathbf{x}$ pour $\mathbf{x} = (0{,}5 ;\ 2)$ | une liste de 2 nombres |
 
-Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Pour $\begin{pmatrix} 1 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$, que fait la mise à l'échelle diagonale à son conditionnement, et pourquoi ? Le chapitre 19 de workbookIA retrouvera l'idée d'une mise à l'échelle diagonale : résume en une phrase, pour la relire alors, ce qu'elle peut et ne peut pas changer au conditionnement d'un système.
+Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Pour $\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$, que fait la mise à l'échelle diagonale à son conditionnement, et pourquoi ? Le chapitre 19 de workbookIA retrouvera l'idée d'une mise à l'échelle diagonale : résume en une phrase, pour la relire alors, ce qu'elle peut et ne peut pas changer au conditionnement d'un système.
 
 ### Ex M19.16 — MML §5.7 et §5.8 : dérivées d'ordre supérieur et Taylor à plusieurs variables, en anglais 📖 ★★ ⏱️ 35 min
 **Objectif :** lire deux sections de MML en anglais, et relier leurs notations à celles de la fiche.

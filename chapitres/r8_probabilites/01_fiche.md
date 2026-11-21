@@ -50,11 +50,11 @@ Parcours essentiel : tout sauf R8.Q7, R8.R3, R8.10, R8.11, R8.14, R8.17 et R8.22
 2. Une **probabilité** donne à chaque issue un poids positif, de somme 1 ; $P(A)$ est la somme des poids des issues de $A$. Quand les issues sont **équiprobables**, $P(A) = \frac{|A|}{|\Omega|}$.
 3. $P(\bar{A}) = 1 - P(A)$ ; $P(A \cup B) = P(A) + P(B) - P(A \cap B)$, qui devient $P(A) + P(B)$ quand $A$ et $B$ sont **incompatibles** ($A \cap B = \varnothing$). « Au moins un » se calcule presque toujours par le complémentaire, « aucun ».
 4. **Principe multiplicatif** : $a$ choix puis $b$ choix font $a \times b$ possibilités. $k$ choix avec répétition parmi $n$ : $n^k$ ; sans répétition, dans l'ordre : $n(n - 1)\cdots(n - k + 1)$ ; ranger $n$ objets : $n!$.
-5. $\binom{n}{k} = \frac{n!}{k!\,(n - k)!}$ compte les façons de **choisir** $k$ objets parmi $n$, sans ordre. Triangle de Pascal : $\binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}$.
+5. $\binom{n}{k} = \frac{n!}{k!\thinspace(n - k)!}$ compte les façons de **choisir** $k$ objets parmi $n$, sans ordre. Triangle de Pascal : $\binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}$.
 6. **Arbre pondéré** : les branches issues d'un même nœud ont une somme de 1 ; la probabilité d'un chemin est le **produit** des probabilités le long du chemin ; celle d'un événement, la **somme** des chemins qui y mènent.
-7. $A$ et $B$ sont **indépendants** si $P(A \cap B) = P(A)\,P(B)$ : savoir que $A$ s'est produit ne change pas la probabilité de $B$. Incompatibles et de probabilités non nulles, ils ne sont **jamais** indépendants.
+7. $A$ et $B$ sont **indépendants** si $P(A \cap B) = P(A)\thinspace P(B)$ : savoir que $A$ s'est produit ne change pas la probabilité de $B$. Incompatibles et de probabilités non nulles, ils ne sont **jamais** indépendants.
 8. Une **variable aléatoire** $X$ associe un nombre à chaque issue ; sa **loi** est le tableau des $P(X = x)$, de somme 1.
-9. $\mathbb{E}[X] = \sum x\,P(X = x)$ (la moyenne à long terme) ; $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ ; $\sigma = \sqrt{\mathbb{V}(X)}$. $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
+9. $\mathbb{E}[X] = \sum x\thinspace P(X = x)$ (la moyenne à long terme) ; $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$ ; $\sigma = \sqrt{\mathbb{V}(X)}$. $\mathbb{E}[aX + b] = a\thinspace\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$.
 10. **Loi des grands nombres** : sur $n$ répétitions indépendantes, la fréquence d'un événement se rapproche de sa probabilité quand $n$ grandit. Simuler (avec une **graine**, pour pouvoir refaire l'expérience) donne une estimation, qui permet de vérifier un calcul.
 
 ---
@@ -65,27 +65,27 @@ Parcours essentiel : tout sauf R8.Q7, R8.R3, R8.10, R8.11, R8.14, R8.17 et R8.22
 
 Une **expérience aléatoire** est une expérience dont on connaît tous les résultats possibles, sans pouvoir prédire celui qui sortira : lancer une pièce, faire tourner une roue, tirer une carte, mesurer le temps d'attente d'un bus. Chaque résultat possible est une **issue** (*outcome*) ; l'ensemble de toutes les issues est l'**univers** (*sample space*), noté $\Omega$ (« oméga »).
 
-- Une roue partagée en 8 secteurs numérotés de 1 à 8 : $\Omega = \{1, 2, 3, 4, 5, 6, 7, 8\}$, et $|\Omega| = 8$ (le **cardinal**, le nombre d'éléments, R4).
+- Une roue partagée en 8 secteurs numérotés de 1 à 8 : $\Omega = \lbrace1, 2, 3, 4, 5, 6, 7, 8\rbrace$, et $|\Omega| = 8$ (le **cardinal**, le nombre d'éléments, R4).
 - Trois lancers d'une pièce, en notant P pour pile et F pour face : une issue est une suite de trois lettres, et
-$$\Omega = \{\text{PPP}, \text{PPF}, \text{PFP}, \text{PFF}, \text{FPP}, \text{FPF}, \text{FFP}, \text{FFF}\}.$$
+$$\Omega = \lbrace\text{PPP}, \text{PPF}, \text{PFP}, \text{PFF}, \text{FPP}, \text{FPF}, \text{FFP}, \text{FFF}\rbrace.$$
 Il y a $2 \times 2 \times 2 = 8$ issues (§3). L'ordre compte : PPF (pile, pile, puis face) et FPP sont deux issues différentes.
 
-Choisir l'univers fait partie du travail. Pour trois lancers, on pourrait noter seulement le nombre de piles, $\{0, 1, 2, 3\}$ : c'est un univers plus petit, mais ses issues n'ont pas toutes les mêmes chances (§2). On préfère un univers dont les issues sont **équiprobables** quand c'est possible.
+Choisir l'univers fait partie du travail. Pour trois lancers, on pourrait noter seulement le nombre de piles, $\lbrace0, 1, 2, 3\rbrace$ : c'est un univers plus petit, mais ses issues n'ont pas toutes les mêmes chances (§2). On préfère un univers dont les issues sont **équiprobables** quand c'est possible.
 
 ### Événements
 
-Un **événement** (*event*) est une **partie** de l'univers : l'ensemble des issues pour lesquelles une phrase est vraie. Sur la roue, « le numéro est pair » est l'événement $A = \{2, 4, 6, 8\}$ ; « le numéro vaut au plus 3 » est $B = \{1, 2, 3\}$. On dit que $A$ « se réalise » quand l'issue obtenue est dans $A$.
+Un **événement** (*event*) est une **partie** de l'univers : l'ensemble des issues pour lesquelles une phrase est vraie. Sur la roue, « le numéro est pair » est l'événement $A = \lbrace2, 4, 6, 8\rbrace$ ; « le numéro vaut au plus 3 » est $B = \lbrace1, 2, 3\rbrace$. On dit que $A$ « se réalise » quand l'issue obtenue est dans $A$.
 
-Deux événements particuliers : $\Omega$ lui-même, l'événement **certain**, et l'ensemble vide $\varnothing$, l'événement **impossible** (« le numéro vaut 9 »). Un événement qui ne contient qu'une issue, comme $\{5\}$, est **élémentaire**.
+Deux événements particuliers : $\Omega$ lui-même, l'événement **certain**, et l'ensemble vide $\varnothing$, l'événement **impossible** (« le numéro vaut 9 »). Un événement qui ne contient qu'une issue, comme $\lbrace5\rbrace$, est **élémentaire**.
 
 Les mots de tous les jours deviennent les opérations sur les ensembles de R4 :
 
-| En mots | Notation | Sur la roue, avec $A = \{2, 4, 6, 8\}$ et $B = \{1, 2, 3\}$ |
+| En mots | Notation | Sur la roue, avec $A = \lbrace2, 4, 6, 8\rbrace$ et $B = \lbrace1, 2, 3\rbrace$ |
 |---|---|---|
-| non $A$ (le **contraire** de $A$) | $\bar{A}$ | $\{1, 3, 5, 7\}$ : « impair » |
-| $A$ **et** $B$ | $A \cap B$ | $\{2\}$ |
-| $A$ **ou** $B$ (l'un, l'autre, ou les deux) | $A \cup B$ | $\{1, 2, 3, 4, 6, 8\}$ |
-| ni $A$ ni $B$ | $\bar{A} \cap \bar{B}$ | $\{5, 7\}$ |
+| non $A$ (le **contraire** de $A$) | $\bar{A}$ | $\lbrace1, 3, 5, 7\rbrace$ : « impair » |
+| $A$ **et** $B$ | $A \cap B$ | $\lbrace2\rbrace$ |
+| $A$ **ou** $B$ (l'un, l'autre, ou les deux) | $A \cup B$ | $\lbrace1, 2, 3, 4, 6, 8\rbrace$ |
+| ni $A$ ni $B$ | $\bar{A} \cap \bar{B}$ | $\lbrace5, 7\rbrace$ |
 
 Le « ou » des probabilités est **inclusif** : le numéro 2, pair et inférieur ou égal à 3, est bien dans $A \cup B$. La dernière ligne utilise une loi de De Morgan (R4) : « ni $A$ ni $B$ » est le contraire de « $A$ ou $B$ », $\bar{A} \cap \bar{B} = \overline{A \cup B}$.
 
@@ -144,7 +144,7 @@ $$P(A \cup B) = \frac{1}{2} + \frac{3}{8} - \frac{1}{8} = \frac{6}{8} = \frac{3}
 
 ce que confirme le comptage direct : $A \cup B$ a 6 issues sur 8.
 
-⚠️ **Les issues d'un univers mal choisi ne sont pas équiprobables.** On lance deux pièces : « deux piles », « deux faces » ou « un de chaque » ont-ils chacun une chance sur trois ? Non. Dans l'univers $\{\text{PP}, \text{PF}, \text{FP}, \text{FF}\}$, dont les quatre issues sont équiprobables, « un de chaque » contient deux issues (PF et FP) : sa probabilité est $\frac{2}{4} = \frac{1}{2}$, contre $\frac{1}{4}$ pour chacune des deux autres. Le mathématicien d'Alembert lui-même s'y est trompé, au XVIIIᵉ siècle. Le remède : distinguer les objets (la première pièce, la seconde), même quand ils se ressemblent.
+⚠️ **Les issues d'un univers mal choisi ne sont pas équiprobables.** On lance deux pièces : « deux piles », « deux faces » ou « un de chaque » ont-ils chacun une chance sur trois ? Non. Dans l'univers $\lbrace\text{PP}, \text{PF}, \text{FP}, \text{FF}\rbrace$, dont les quatre issues sont équiprobables, « un de chaque » contient deux issues (PF et FP) : sa probabilité est $\frac{2}{4} = \frac{1}{2}$, contre $\frac{1}{4}$ pour chacune des deux autres. Le mathématicien d'Alembert lui-même s'y est trompé, au XVIIIᵉ siècle. Le remède : distinguer les objets (la première pièce, la seconde), même quand ils se ressemblent.
 
 ### « Au moins un » : passer par le contraire
 
@@ -177,7 +177,7 @@ Avec l'équiprobabilité, une probabilité est un rapport de deux nombres d'issu
 
 Si un choix se fait en plusieurs étapes, avec $a$ possibilités pour la première, $b$ pour la deuxième (quelle que soit la première), $c$ pour la troisième…, il y a $a \times b \times c \times \cdots$ possibilités en tout. Avec 3 pantalons, 4 t-shirts et 2 paires de chaussures, on compose $3 \times 4 \times 2 = 24$ tenues : un arbre à 3 branches, puis 4 sur chacune, puis 2 sur chacune, a 24 feuilles.
 
-**Avec répétition.** Un code de 3 lettres (26 lettres, une lettre peut revenir) : $26 \times 26 \times 26 = 26^3 = 17\,576$ codes. En général, $k$ choix successifs parmi $n$ possibilités, avec répétition, donnent $n^k$ suites : c'est pour cela qu'un mot de passe plus long est beaucoup plus difficile à deviner, chaque caractère multipliant le nombre de possibilités.
+**Avec répétition.** Un code de 3 lettres (26 lettres, une lettre peut revenir) : $26 \times 26 \times 26 = 26^3 = 17\thinspace576$ codes. En général, $k$ choix successifs parmi $n$ possibilités, avec répétition, donnent $n^k$ suites : c'est pour cela qu'un mot de passe plus long est beaucoup plus difficile à deviner, chaque caractère multipliant le nombre de possibilités.
 
 **Sans répétition, l'ordre compte** (arrangements). Parmi 5 candidats, on élit un président, puis un secrétaire, qui ne peut pas être le président : $5 \times 4 = 20$ bureaux possibles. En général, choisir $k$ objets parmi $n$, dans l'ordre, sans répétition, donne
 $$n \times (n - 1) \times \cdots \times (n - k + 1) \quad \text{possibilités ($k$ facteurs)}.$$
@@ -186,7 +186,7 @@ $$n \times (n - 1) \times \cdots \times (n - k + 1) \quad \text{possibilités ($
 
 Ranger $n$ objets distincts dans un ordre, c'est choisir le premier ($n$ possibilités), puis le deuxième ($n - 1$), et ainsi de suite jusqu'au dernier (1 possibilité) : il y a
 $$n! = n \times (n - 1) \times \cdots \times 2 \times 1$$
-rangements, et l'on lit $n!$ « factorielle $n$ » (*n factorial*). Les trois lettres A, B, C se rangent de $3! = 6$ façons : ABC, ACB, BAC, BCA, CAB, CBA. La factorielle grandit très vite : $12! = 479\,001\,600$, et les façons de mélanger un jeu de 52 cartes, $52! \approx 8 \times 10^{67}$, dépassent de loin le nombre d'atomes de la Terre.
+rangements, et l'on lit $n!$ « factorielle $n$ » (*n factorial*). Les trois lettres A, B, C se rangent de $3! = 6$ façons : ABC, ACB, BAC, BCA, CAB, CBA. La factorielle grandit très vite : $12! = 479\thinspace001\thinspace600$, et les façons de mélanger un jeu de 52 cartes, $52! \approx 8 \times 10^{67}$, dépassent de loin le nombre d'atomes de la Terre.
 
 Par convention, $0! = 1$ : il y a une seule façon de ranger zéro objet (ne rien faire), et c'est la valeur du produit vide, comme $x^0 = 1$ (R4). Avec elle, les formules qui suivent restent vraies pour $k = 0$ et $k = n$.
 
@@ -198,7 +198,7 @@ Souvent, l'ordre ne compte pas : une équipe de 3 joueurs parmi 9, une main de c
 
 Le même raisonnement, en général, donne le **coefficient binomial** (*binomial coefficient*), noté $\binom{n}{k}$ et lu « $k$ parmi $n$ » ($C_n^k$ est l'ancienne notation) : le nombre de façons de choisir $k$ objets parmi $n$, sans ordre ni répétition,
 
-$$\binom{n}{k} = \frac{n(n - 1)\cdots(n - k + 1)}{k!} = \frac{n!}{k!\,(n - k)!} \qquad (0 \le k \le n).$$
+$$\binom{n}{k} = \frac{n(n - 1)\cdots(n - k + 1)}{k!} = \frac{n!}{k!\thinspace(n - k)!} \qquad (0 \le k \le n).$$
 
 Quelques valeurs à connaître : $\binom{n}{0} = \binom{n}{n} = 1$ (ne rien prendre, ou tout prendre), $\binom{n}{1} = n$, et $\binom{n}{2} = \frac{n(n - 1)}{2}$, le nombre de **paires** parmi $n$ objets. **Symétrie** : $\binom{n}{k} = \binom{n}{n - k}$, car choisir les $k$ objets qu'on garde revient à choisir les $n - k$ qu'on laisse. Pour $k < 0$ ou $k > n$, il n'y a aucune façon de choisir, et l'on pose $\binom{n}{k} = 0$.
 
@@ -282,13 +282,13 @@ En mode **avec remise** (chaque morceau est tiré parmi les 6, même s'il vient 
 
 Deux événements sont **indépendants** (*independent*) quand savoir que l'un s'est réalisé ne change pas la probabilité de l'autre. Dans un arbre, cela veut dire que les branches du second niveau portent les mêmes probabilités quel que soit le premier : $P(B \mid A) = P(B)$. La règle du produit devient alors $P(A \cap B) = P(A) \times P(B)$, que l'on prend comme définition :
 
-$$A \text{ et } B \text{ sont indépendants} \iff P(A \cap B) = P(A)\,P(B).$$
+$$A \text{ et } B \text{ sont indépendants} \iff P(A \cap B) = P(A)\thinspace P(B).$$
 
 **Deux épreuves sans lien.** On fait tourner deux fois la roue de 8 secteurs. « Le premier numéro est pair » ($\frac{1}{2}$) et « le second vaut au plus 3 » ($\frac{3}{8}$) : parmi les $8 \times 8 = 64$ couples équiprobables, $4 \times 3 = 12$ réalisent les deux, et $\frac{12}{64} = \frac{3}{16} = \frac{1}{2} \times \frac{3}{8}$. Indépendants, comme on s'y attend : la roue n'a pas de mémoire.
 
-**Une seule épreuve.** L'indépendance n'est pas toujours une question de « lien physique » : elle se **calcule**. On fait tourner une seule fois la roue de 8 secteurs. Avec $A$ = « pair » $= \{2, 4, 6, 8\}$ et $B$ = « multiple de 3 » $= \{3, 6\}$ : $P(A \cap B) = P(\{6\}) = \frac{1}{8}$ et $P(A)\,P(B) = \frac{1}{2} \times \frac{1}{4} = \frac{1}{8}$. Les deux événements sont indépendants : savoir que le numéro est un multiple de 3 laisse une chance sur deux qu'il soit pair. Mais avec $B'$ = « multiple de 4 » $= \{4, 8\}$, $P(A \cap B') = \frac{2}{8} = \frac{1}{4}$ alors que $P(A)\,P(B') = \frac{1}{8}$ : savoir que le numéro est un multiple de 4 rend « pair » certain. Pas indépendants.
+**Une seule épreuve.** L'indépendance n'est pas toujours une question de « lien physique » : elle se **calcule**. On fait tourner une seule fois la roue de 8 secteurs. Avec $A$ = « pair » $= \lbrace2, 4, 6, 8\rbrace$ et $B$ = « multiple de 3 » $= \lbrace3, 6\rbrace$ : $P(A \cap B) = P(\lbrace6\rbrace) = \frac{1}{8}$ et $P(A)\thinspace P(B) = \frac{1}{2} \times \frac{1}{4} = \frac{1}{8}$. Les deux événements sont indépendants : savoir que le numéro est un multiple de 3 laisse une chance sur deux qu'il soit pair. Mais avec $B'$ = « multiple de 4 » $= \lbrace4, 8\rbrace$, $P(A \cap B') = \frac{2}{8} = \frac{1}{4}$ alors que $P(A)\thinspace P(B') = \frac{1}{8}$ : savoir que le numéro est un multiple de 4 rend « pair » certain. Pas indépendants.
 
-⚠️ **Indépendants n'est pas incompatibles.** Deux événements incompatibles, chacun de probabilité non nulle, ne sont **jamais** indépendants : $P(A \cap B) = 0$, alors que $P(A)\,P(B) > 0$. Si l'un se réalise, l'autre devient impossible : c'est le contraire de « ne rien changer ».
+⚠️ **Indépendants n'est pas incompatibles.** Deux événements incompatibles, chacun de probabilité non nulle, ne sont **jamais** indépendants : $P(A \cap B) = 0$, alors que $P(A)\thinspace P(B) > 0$. Si l'un se réalise, l'autre devient impossible : c'est le contraire de « ne rien changer ».
 
 Quand $A$ et $B$ sont indépendants, $\bar{A}$ et $B$ le sont aussi, ainsi que $A$ et $\bar{B}$, et $\bar{A}$ et $\bar{B}$ : savoir que $A$ ne s'est **pas** réalisé n'apprend rien non plus sur $B$.
 
@@ -314,14 +314,14 @@ Exemple : on lance deux dés à 4 faces (des tétraèdres, numérotés de 1 à 4
 
 ### La loi d'une variable aléatoire
 
-Pour chaque valeur $x$, $\{S = x\}$ (« $S$ vaut $x$ ») est un événement : l'ensemble des issues qui donnent $x$. La **loi** (*distribution*) de $S$ est le tableau des probabilités $P(S = x)$. On l'obtient en comptant les couples :
+Pour chaque valeur $x$, $\lbrace S = x\rbrace$ (« $S$ vaut $x$ ») est un événement : l'ensemble des issues qui donnent $x$. La **loi** (*distribution*) de $S$ est le tableau des probabilités $P(S = x)$. On l'obtient en comptant les couples :
 
 | $x$ | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|
 | couples | (1, 1) | (1, 2), (2, 1) | 3 couples | 4 couples | 3 couples | 2 couples | (4, 4) |
 | $P(S = x)$ | $\frac{1}{16}$ | $\frac{2}{16}$ | $\frac{3}{16}$ | $\frac{4}{16}$ | $\frac{3}{16}$ | $\frac{2}{16}$ | $\frac{1}{16}$ |
 
-Les probabilités d'une loi sont positives et ont une somme de 1 (ici $\frac{16}{16}$) : les événements $\{S = x\}$ sont incompatibles, et ensemble ils forment tout l'univers. Une loi permet de calculer la probabilité de tout événement qui porte sur $S$, en additionnant : $P(S \ge 6) = \frac{3 + 2 + 1}{16} = \frac{6}{16} = \frac{3}{8}$.
+Les probabilités d'une loi sont positives et ont une somme de 1 (ici $\frac{16}{16}$) : les événements $\lbrace S = x\rbrace$ sont incompatibles, et ensemble ils forment tout l'univers. Une loi permet de calculer la probabilité de tout événement qui porte sur $S$, en additionnant : $P(S \ge 6) = \frac{3 + 2 + 1}{16} = \frac{6}{16} = \frac{3}{8}$.
 
 On la représente par un **diagramme en bâtons** : un bâton de hauteur $P(S = x)$ au-dessus de chaque valeur $x$.
 
@@ -329,7 +329,7 @@ On la représente par un **diagramme en bâtons** : un bâton de hauteur $P(S = 
 
 Deux variables peuvent avoir la même loi sans être la même variable : le numéro du premier dé et celui du second valent chacun 1, 2, 3 ou 4 avec la probabilité $\frac{1}{4}$, mais ils diffèrent souvent lors d'un même lancer. Une loi décrit les **chances** de chaque valeur, pas la valeur obtenue.
 
-🔗 **Dans workbookIA** — la sortie d'un classifieur à $K$ classes est une loi sur $\{1, \dots, K\}$ (la loi catégorielle du chapitre 2) ; le nombre de bonnes réponses d'un modèle sur un jeu de test est une variable aléatoire, qui change avec le jeu de test tiré.
+🔗 **Dans workbookIA** — la sortie d'un classifieur à $K$ classes est une loi sur $\lbrace1, \dots, K\rbrace$ (la loi catégorielle du chapitre 2) ; le nombre de bonnes réponses d'un modèle sur un jeu de test est une variable aléatoire, qui change avec le jeu de test tiré.
 
 ---
 
@@ -339,7 +339,7 @@ Deux variables peuvent avoir la même loi sans être la même variable : le num�
 
 L'**espérance** (*expected value*) d'une variable aléatoire discrète est la moyenne de ses valeurs, **pondérée par leurs probabilités** :
 
-$$\mathbb{E}[X] = \sum_{x} x \, P(X = x).$$
+$$\mathbb{E}[X] = \sum_{x} x \thinspace P(X = x).$$
 
 Au lycée, on la note $E(X)$. Pour la somme de deux dés à 4 faces :
 
@@ -355,7 +355,7 @@ Le joueur perd en moyenne 25 centimes par partie. Si le 8 faisait gagner 7 €, 
 
 **Linéarité.** Si l'on multiplie toutes les valeurs par $a$ et qu'on ajoute $b$, l'espérance suit le même chemin :
 
-$$\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b.$$
+$$\mathbb{E}[aX + b] = a\thinspace\mathbb{E}[X] + b.$$
 
 Exemple : chaque point de la somme $S$ rapporte 2 €, et la partie coûte 9 € ; le gain $2S - 9$ a pour espérance $2 \times 5 - 9 = 1$ €. Plus généralement, l'espérance d'une **somme** de variables aléatoires est la somme de leurs espérances, $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$, même quand $X$ et $Y$ dépendent l'une de l'autre : tu le démontreras en R8.12.
 
@@ -363,7 +363,7 @@ Exemple : chaque point de la somme $S$ rapporte 2 €, et la partie coûte 9 €
 
 L'espérance ne dit rien de la **dispersion**. Une variable $T$ qui vaut 1, 5 ou 9 avec les probabilités $\frac{1}{4}$, $\frac{1}{2}$ et $\frac{1}{4}$ a, elle aussi, l'espérance 5 ; mais une fois sur deux, elle tombe à 4 unités de 5, alors que $S$ en reste souvent tout près. La **variance** (*variance*) mesure l'écart à l'espérance, élevé au carré et moyenné :
 
-$$\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \sum_x \big(x - \mathbb{E}[X]\big)^2\, P(X = x).$$
+$$\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \sum_x \big(x - \mathbb{E}[X]\big)^2\thinspace P(X = x).$$
 
 On la note $V(X)$ au lycée, $\mathrm{Var}(X)$ dans workbookIA. Le carré rend tous les écarts positifs ou nuls (sinon les écarts au-dessus et au-dessous de l'espérance se compenseraient, et la somme vaudrait toujours 0) et donne plus de poids aux grands écarts. Une variance est toujours positive ou nulle, et elle n'est nulle que si $X$ est constante.
 
@@ -379,7 +379,7 @@ Pour $T$, les écarts à 5 valent −4, 0 et 4 : $\mathbb{V}(T) = 16 \times \fra
 
 **Une formule plus rapide** (démontrée au chapitre 0B de workbookIA) :
 
-$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2, \qquad \text{où } \mathbb{E}[X^2] = \sum_x x^2\, P(X = x).$$
+$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2, \qquad \text{où } \mathbb{E}[X^2] = \sum_x x^2\thinspace P(X = x).$$
 
 Pour $S$ : $\mathbb{E}[S^2] = \frac{4 \times 1 + 9 \times 2 + 16 \times 3 + 25 \times 4 + 36 \times 3 + 49 \times 2 + 64 \times 1}{16} = \frac{440}{16} = 27{,}5$, et $\mathbb{V}(S) = 27{,}5 - 5^2 = 2{,}5$, comme avant. Pour le jeu de la roue : $\mathbb{E}[G^2] = 25 \times \frac{1}{8} + 1 \times \frac{7}{8} = \frac{32}{8} = 4$, donc $\mathbb{V}(G) = 4 - (-0{,}25)^2 = 3{,}9375$ et $\sigma(G) \approx 1{,}98$ €.
 
@@ -387,7 +387,7 @@ Pour $S$ : $\mathbb{E}[S^2] = \frac{4 \times 1 + 9 \times 2 + 16 \times 3 + 25 \
 
 **Changer d'échelle.** Pour tous nombres $a$ et $b$, on admet ici les règles
 
-$$\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X), \qquad \sigma(aX + b) = \lvert a \rvert\, \sigma(X).$$
+$$\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X), \qquad \sigma(aX + b) = \lvert a \rvert\thinspace \sigma(X).$$
 
 La constante $b$ ne change pas la dispersion, et le facteur $a$ compte au carré dans la variance. Pour le gain $2S - 9$ : $\mathbb{V} = 4 \times 2{,}5 = 10$ et $\sigma = 2 \times 1{,}58 \approx 3{,}16$ €.
 
@@ -456,10 +456,10 @@ Sur 10 tours, la fréquence peut être loin de 0,75 ; sur 10 000, elle en est pr
 | arbre | additionner le long d'un chemin | multiplier le long d'un chemin, additionner entre les chemins |
 | sans remise | garder les mêmes probabilités au second tirage | ce qui est tiré ne revient pas : $\frac{2}{6}$ puis $\frac{1}{5}$ |
 | indépendance | incompatibles, donc indépendants | incompatibles (non impossibles), donc **dépendants** |
-| indépendance | « pas de lien physique » ou « un lien », sans calculer | comparer $P(A \cap B)$ et $P(A)\,P(B)$ |
+| indépendance | « pas de lien physique » ou « un lien », sans calculer | comparer $P(A \cap B)$ et $P(A)\thinspace P(B)$ |
 | espérance | une valeur que $X$ peut prendre | une moyenne pondérée, pas forcément une valeur possible |
 | variance | $\mathbb{E}[X^2] = \mathbb{E}[X]^2$ | $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 \ge 0$ |
-| changement d'échelle | $\mathbb{V}(aX + b) = a\,\mathbb{V}(X) + b$ | $a^2\,\mathbb{V}(X)$ ; la constante $b$ disparaît |
+| changement d'échelle | $\mathbb{V}(aX + b) = a\thinspace\mathbb{V}(X) + b$ | $a^2\thinspace\mathbb{V}(X)$ ; la constante $b$ disparaît |
 | loi des grands nombres | après une série de piles, face devient plus probable | les lancers sont indépendants ; les écarts se diluent |
 | graine | recréer le générateur avec la même graine à chaque tirage | un seul générateur, créé une fois |
 

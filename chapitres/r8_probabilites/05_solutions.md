@@ -14,7 +14,7 @@
 3. « Au plus un pile » : zéro pile ou un pile.
 4. **Vrai** : $A \cap \bar{A} = \varnothing$, une issue ne peut pas être à la fois dans $A$ et hors de $A$.
 5. **Faux** : sur un dé, « obtenir 1 » et « obtenir 2 » sont incompatibles, mais le contraire de « obtenir 1 » est « obtenir 2, 3, 4, 5 ou 6 ».
-6. $C = \{1, 3, 5, 7\}$ et $D = \{6, 7, 8\}$ : $C \cap D = \{7\}$ et $C \cup D = \{1, 3, 5, 6, 7, 8\}$.
+6. $C = \lbrace1, 3, 5, 7\rbrace$ et $D = \lbrace6, 7, 8\rbrace$ : $C \cap D = \lbrace7\rbrace$ et $C \cup D = \lbrace1, 3, 5, 6, 7, 8\rbrace$.
 
 ### R8.Q2 — Propriétés d'une probabilité
 1. **Non** et **non** : une probabilité est toujours entre 0 et 1.
@@ -22,7 +22,7 @@
 3. $0{,}5 + 0{,}4 - 0{,}1 = 0{,}8$.
 4. **Faux** : seulement quand $A$ et $B$ sont incompatibles ; sinon on retire $P(A \cap B)$.
 5. **Non** : avec les 4 issues équiprobables FF, FG, GF, GG (on distingue l'aîné du cadet), « deux filles » et « deux garçons » ont chacun $\frac{1}{4}$, « une fille et un garçon » $\frac{2}{4} = \frac{1}{2}$.
-6. **Faux** : 5 est le nombre de piles **moyen** ; exactement 5 n'arrive qu'environ une fois sur quatre ($\binom{10}{5} / 2^{10} = \frac{252}{1\,024}$).
+6. **Faux** : 5 est le nombre de piles **moyen** ; exactement 5 n'arrive qu'environ une fois sur quatre ($\binom{10}{5} / 2^{10} = \frac{252}{1\thinspace024}$).
 
 ### R8.Q3 — Arrangement ou combinaison ?
 1. L'ordre compte, sans répétition : un **arrangement** de 3 coureurs parmi 10.
@@ -41,20 +41,20 @@
 6. **Faux** : on **multiplie** le long d'un chemin, on additionne entre les chemins.
 
 ### R8.Q5 — Indépendants ou incompatibles ?
-1. **Incompatibles**, et donc **pas indépendants** : $P(\{1\} \cap \{6\}) = 0$, alors que $\frac{1}{6} \times \frac{1}{6} > 0$.
+1. **Incompatibles**, et donc **pas indépendants** : $P(\lbrace1\rbrace \cap \lbrace6\rbrace) = 0$, alors que $\frac{1}{6} \times \frac{1}{6} > 0$.
 2. **Oui** : la pièce n'a pas de mémoire ; $P(\text{PP}) = \frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$.
-3. **Vrai** (fiche §5) : $P(\bar{A} \cap B) = P(B) - P(A \cap B) = P(B) - P(A)\,P(B) = \big(1 - P(A)\big)\,P(B) = P(\bar{A})\,P(B)$.
-4. $P(A \cap B) = P(A)\,P(B)$, donc $P(B) = \frac{0{,}1}{0{,}4} = 0{,}25$.
+3. **Vrai** (fiche §5) : $P(\bar{A} \cap B) = P(B) - P(A \cap B) = P(B) - P(A)\thinspace P(B) = \big(1 - P(A)\big)\thinspace P(B) = P(\bar{A})\thinspace P(B)$.
+4. $P(A \cap B) = P(A)\thinspace P(B)$, donc $P(B) = \frac{0{,}1}{0{,}4} = 0{,}25$.
 5. **Non** : $0{,}3 \times 0{,}5 = 0{,}15 \ne 0{,}2$.
-6. **Oui** : si $P(A) = 0$, alors $A \cap B$, inclus dans $A$, a aussi la probabilité 0, et $P(A \cap B) = 0 = P(A)\,P(B)$.
+6. **Oui** : si $P(A) = 0$, alors $A \cap B$, inclus dans $A$, a aussi la probabilité 0, et $P(A \cap B) = 0 = P(A)\thinspace P(B)$.
 
 ### R8.Q6 — Espérance et variance : vrai ou faux
 1. **Faux** : $S$ et $T$ de la fiche (§7) ont la même espérance 5, et des variances 2,5 et 8.
-2. **Vrai** : $\mathbb{E}[X - 3Y] = \mathbb{E}[X] - 3\,\mathbb{E}[Y] = 4 - 3 = 1$ (linéarité, fiche §7 et R8.12).
+2. **Vrai** : $\mathbb{E}[X - 3Y] = \mathbb{E}[X] - 3\thinspace\mathbb{E}[Y] = 4 - 3 = 1$ (linéarité, fiche §7 et R8.12).
 3. **Faux** : une moyenne de carrés n'est jamais négative.
 4. **Vrai** : $\sigma = \sqrt{9} = 3$.
 5. **Faux** : ajouter une constante ne change pas la dispersion, $\mathbb{V}(X + 10) = \mathbb{V}(X)$.
-6. **Faux** : $\mathbb{V}(-2X) = (-2)^2\,\mathbb{V}(X) = 4\,\mathbb{V}(X)$ ; une variance n'est jamais négative.
+6. **Faux** : $\mathbb{V}(-2X) = (-2)^2\thinspace\mathbb{V}(X) = 4\thinspace\mathbb{V}(X)$ ; une variance n'est jamais négative.
 7. **Vrai** : tous les écarts à l'espérance sont nuls.
 
 ### R8.Q7 — Ce que dit la loi des grands nombres
@@ -70,7 +70,7 @@
 ## 🔁 Rappels
 
 ### R8.R1 — Ensembles et complémentaire (R4)
-1. $A \cap B = \{c\}$ et $A \cup B = \{a, b, c, d\}$. 2. $\bar{A} = \{d, e, f\}$. 3. $3 + 2 - 1 = 4$. 4. $\bar{A} \cap \bar{B} = \{e, f\}$, le complémentaire de $\{a, b, c, d\}$.
+1. $A \cap B = \lbrace c\rbrace$ et $A \cup B = \lbrace a, b, c, d\rbrace$. 2. $\bar{A} = \lbrace d, e, f\rbrace$. 3. $3 + 2 - 1 = 4$. 4. $\bar{A} \cap \bar{B} = \lbrace e, f\rbrace$, le complémentaire de $\lbrace a, b, c, d\rbrace$.
 
 ### R8.R2 — Σ et Π (R4)
 1. $1 + 4 + 9 + 16 = 30$. 2. $0{,}5 + 0{,}9 + 2 = 3{,}4$. 3. $5! = 120$. 4. $0{,}9 \times 0{,}8 \times 0{,}7 = 0{,}504$.
@@ -140,17 +140,17 @@
 
 **Démarche.**
 - a) $26^6$ : 26 possibilités à chacune des 6 positions.
-- b) 6 voyelles pour la première lettre, puis 26 possibilités pour chacune des 5 autres : $6 \times 26^5 = 71\,288\,256$.
-- c) $7! = 1 \times 2 \times \cdots \times 7 = 5\,040$.
+- b) 6 voyelles pour la première lettre, puis 26 possibilités pour chacune des 5 autres : $6 \times 26^5 = 71\thinspace288\thinspace256$.
+- c) $7! = 1 \times 2 \times \cdots \times 7 = 5\thinspace040$.
 - d) $8 \times 7 \times 6 = 336$ : l'or, puis l'argent, puis le bronze.
 - e) $4 \times 5 \times 3 = 60$.
 - f) A est fixée en premier ; on range les 4 autres : $4! = 24$.
 - g) $\frac{9!}{7!} = 9 \times 8 = 72$ : les facteurs de 1 à 7 se simplifient.
-- h) $26 \times 26 \times 10 \times 10 \times 10 = 676\,000$.
+- h) $26 \times 26 \times 10 \times 10 \times 10 = 676\thinspace000$.
 
 **Erreurs fréquentes.** Additionner au lieu de multiplier (e) ; contraindre les six lettres à être des voyelles en b ; traiter un podium comme une combinaison (d) ; ranger aussi la tâche fixée (f).
 
-**Variante.** Combien de codes de 4 chiffres tous différents, dont le premier n'est pas 0 ? *Réponse* : $9 \times 9 \times 8 \times 7 = 4\,536$.
+**Variante.** Combien de codes de 4 chiffres tous différents, dont le premier n'est pas 0 ? *Réponse* : $9 \times 9 \times 8 \times 7 = 4\thinspace536$.
 
 ### Ex R8.5 — Combinaisons et triangle de Pascal
 
@@ -162,13 +162,13 @@
 - c) $\binom{20}{18} = \binom{20}{2} = \frac{20 \times 19}{2} = 190$.
 - d) À partir de la ligne 6 (1, 6, 15, 20, 15, 6, 1), chaque nombre est la somme des deux au-dessus : 1, 7, 21, 35, 35, 21, 7, 1.
 - e) La somme de la ligne $n$ vaut $2^n$ : $2^9 = 512$.
-- f) $\binom{32}{5} = \frac{32 \times 31 \times 30 \times 29 \times 28}{120} = 201\,376$.
-- g) Une main qui contient les 4 as se complète par une 5ᵉ carte parmi les 28 autres : 28 mains favorables. $\frac{28}{201\,376} = \frac{1}{7\,192}$.
+- f) $\binom{32}{5} = \frac{32 \times 31 \times 30 \times 29 \times 28}{120} = 201\thinspace376$.
+- g) Une main qui contient les 4 as se complète par une 5ᵉ carte parmi les 28 autres : 28 mains favorables. $\frac{28}{201\thinspace376} = \frac{1}{7\thinspace192}$.
 - h) Un chemin est une suite de 8 pas, dont 4 vers la droite ; il suffit de choisir lesquels : $\binom{8}{4} = 70$.
 
 **Erreurs fréquentes.** Oublier de diviser par $k!$ (répondre 210 en a ou en b) ; commencer à compter les lignes à 1 au lieu de 0 ; en g, croire qu'il n'y a qu'une main favorable, ou diviser par le nombre de mains de 4 cartes ; en h, compter 3 pas de chaque sorte au lieu de 4 (20).
 
-**Variante.** La probabilité qu'une main de 5 cartes parmi 32 contienne exactement 2 as ? *Réponse* : $\frac{\binom{4}{2}\binom{28}{3}}{\binom{32}{5}} = \frac{6 \times 3\,276}{201\,376} = \frac{351}{3\,596} \approx 0{,}098$.
+**Variante.** La probabilité qu'une main de 5 cartes parmi 32 contienne exactement 2 as ? *Réponse* : $\frac{\binom{4}{2}\binom{28}{3}}{\binom{32}{5}} = \frac{6 \times 3\thinspace276}{201\thinspace376} = \frac{351}{3\thinspace596} \approx 0{,}098$.
 
 ### Ex R8.6 — Arbres pondérés : épreuves successives
 
@@ -198,12 +198,12 @@ Dans ta copie : f vaut 0,71, un peu plus que les 0,7 du premier lancer. La joueu
 - a) et b) $A \cap B$ est l'as de cœur : $\frac{1}{32} = \frac{4}{32} \times \frac{8}{32} = \frac{1}{8} \times \frac{1}{4}$. Indépendants.
 - c) Une carte n'est jamais à la fois un as et un roi : $P(A \cap C) = 0 \ne \frac{1}{8} \times \frac{1}{8}$. Incompatibles, donc pas indépendants : savoir que la carte est un as rend « roi » impossible.
 - d) $A \cap D$ = {as de pique, as de trèfle} : $\frac{2}{32} = \frac{1}{16} = \frac{1}{8} \times \frac{1}{2}$. Indépendants : il y a autant d'as parmi les noires que parmi toutes les cartes (un sur huit).
-- e) et f) $E$ = {PFF, FPF, FFP} et $F$ = {FPP, FPF, FFP, FFF} : $E \cap F$ = {FPF, FFP}, de probabilité $\frac{2}{8} = \frac{1}{4}$, alors que $P(E)\,P(F) = \frac{3}{8} \times \frac{1}{2} = \frac{3}{16}$. Pas indépendants : savoir qu'il y a exactement un pile rend « la première donne face » plus probable ($\frac{2}{3}$ au lieu de $\frac{1}{2}$).
-- g) et h) $G \cap H$ contient toutes les issues sauf PPP et FFF : $\frac{6}{8} = \frac{3}{4}$, alors que $P(G)\,P(H) = \frac{7}{8} \times \frac{7}{8} = \frac{49}{64}$. Pas indépendants : savoir qu'il y a au moins un pile rend « au moins un face » un peu moins probable ($\frac{6}{7}$ au lieu de $\frac{7}{8}$), car FFF est exclu.
+- e) et f) $E$ = {PFF, FPF, FFP} et $F$ = {FPP, FPF, FFP, FFF} : $E \cap F$ = {FPF, FFP}, de probabilité $\frac{2}{8} = \frac{1}{4}$, alors que $P(E)\thinspace P(F) = \frac{3}{8} \times \frac{1}{2} = \frac{3}{16}$. Pas indépendants : savoir qu'il y a exactement un pile rend « la première donne face » plus probable ($\frac{2}{3}$ au lieu de $\frac{1}{2}$).
+- g) et h) $G \cap H$ contient toutes les issues sauf PPP et FFF : $\frac{6}{8} = \frac{3}{4}$, alors que $P(G)\thinspace P(H) = \frac{7}{8} \times \frac{7}{8} = \frac{49}{64}$. Pas indépendants : savoir qu'il y a au moins un pile rend « au moins un face » un peu moins probable ($\frac{6}{7}$ au lieu de $\frac{7}{8}$), car FFF est exclu.
 
 **Erreurs fréquentes.** Conclure « incompatibles, donc indépendants » en c ; décider sans calculer, sur l'impression d'un « lien » (d, f) ; comparer des arrondis au lieu des fractions exactes ($\frac{3}{4}$ et $\frac{49}{64}$ sont proches, mais différents).
 
-**Variante.** La roue de 8 secteurs, $A$ = « pair », $B$ = « au plus 4 » : indépendants ? *Réponse* : $P(A \cap B) = P(\{2, 4\}) = \frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$ : **oui**.
+**Variante.** La roue de 8 secteurs, $A$ = « pair », $B$ = « au plus 4 » : indépendants ? *Réponse* : $P(A \cap B) = P(\lbrace2, 4\rbrace) = \frac{1}{4} = \frac{1}{2} \times \frac{1}{2}$ : **oui**.
 
 ### Ex R8.8 — La loi d'une variable aléatoire
 
@@ -270,7 +270,7 @@ Dans ta copie : le jeu B rendu équitable fait gagner 3 € ou perdre 1 €, ave
 **Réponse modèle.**
 1. $\binom{6}{3} = 20$, $\binom{5}{2} = 10$ et $\binom{5}{3} = 10$ : $10 + 10 = 20$.
 2. Avec $k! = k \times (k - 1)!$ et $(n - k)! = (n - k) \times (n - k - 1)!$ :
-$$\binom{n - 1}{k - 1} + \binom{n - 1}{k} = \frac{(n - 1)!}{(k - 1)!\,(n - k)!} + \frac{(n - 1)!}{k!\,(n - k - 1)!} = \frac{(n - 1)!\,k}{k!\,(n - k)!} + \frac{(n - 1)!\,(n - k)}{k!\,(n - k)!} = \frac{(n - 1)!\,n}{k!\,(n - k)!} = \frac{n!}{k!\,(n - k)!}.$$
+$$\binom{n - 1}{k - 1} + \binom{n - 1}{k} = \frac{(n - 1)!}{(k - 1)!\thinspace(n - k)!} + \frac{(n - 1)!}{k!\thinspace(n - k - 1)!} = \frac{(n - 1)!\thinspace k}{k!\thinspace(n - k)!} + \frac{(n - 1)!\thinspace(n - k)}{k!\thinspace(n - k)!} = \frac{(n - 1)!\thinspace n}{k!\thinspace(n - k)!} = \frac{n!}{k!\thinspace(n - k)!}.$$
 3. Parmi les $\binom{n}{k}$ façons de choisir $k$ objets parmi $n$, celles qui **contiennent** le premier objet se complètent par $k - 1$ objets parmi les $n - 1$ autres : il y en a $\binom{n - 1}{k - 1}$. Celles qui **ne le contiennent pas** prennent leurs $k$ objets parmi les $n - 1$ autres : $\binom{n - 1}{k}$. Chaque choix est dans exactement un des deux cas, d'où la formule.
 4. $\binom{n}{k}$ compte les sous-ensembles à $k$ éléments d'un ensemble à $n$ éléments ; en additionnant sur $k$ de 0 à $n$, on compte **tous** ses sous-ensembles. Or un sous-ensemble se construit en décidant, pour chacun des $n$ éléments, s'il est pris ou non : $2 \times 2 \times \cdots \times 2 = 2^n$ façons (principe multiplicatif).
 5. Pour $k = 0$ ou $k = n$, l'un des deux termes de droite n'a pas de sens sans convention ($\binom{n - 1}{-1}$, $\binom{n - 1}{n}$). Avec la convention $\binom{m}{j} = 0$ hors de $0 \le j \le m$, la formule reste vraie : $\binom{n}{0} = 1 = 0 + \binom{n - 1}{0}$.
@@ -280,11 +280,11 @@ $$\binom{n - 1}{k - 1} + \binom{n - 1}{k} = \frac{(n - 1)!}{(k - 1)!\,(n - k)!} 
 ### Ex R8.12 — L'espérance d'une somme : E[X + Y] = E[X] + E[Y], même pour des variables liées
 
 **Réponse modèle.**
-1. Avec la loi : $\mathbb{E}[X] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{12}{8} = 1{,}5$. Avec les issues (PPP → 3, PPF → 2, PFP → 2, PFF → 1, FPP → 2, FPF → 1, FFP → 1, FFF → 0), chacune de poids $\frac{1}{8}$ : $\frac{3 + 2 + 2 + 1 + 2 + 1 + 1 + 0}{8} = \frac{12}{8}$. En général : les événements $\{X = x\}$, pour les différentes valeurs $x$, partagent $\Omega$ en morceaux disjoints. Dans la somme sur les issues, on regroupe celles de chaque morceau : leur contribution est $\sum_{\omega : X(\omega) = x} x\,p(\omega) = x \sum_{\omega : X(\omega) = x} p(\omega) = x\,P(X = x)$, et la somme de ces contributions sur toutes les valeurs $x$ est $\sum_x x\,P(X = x) = \mathbb{E}[X]$.
-2. $\mathbb{E}[X + Y] = \sum_\omega \big(X(\omega) + Y(\omega)\big)\,p(\omega) = \sum_\omega X(\omega)\,p(\omega) + \sum_\omega Y(\omega)\,p(\omega) = \mathbb{E}[X] + \mathbb{E}[Y]$ (une somme se sépare, R4 ; et 1 appliqué à $X + Y$, à $X$ et à $Y$). On n'a **jamais** supposé $X$ et $Y$ indépendantes : la formule vaut pour des variables liées.
+1. Avec la loi : $\mathbb{E}[X] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{12}{8} = 1{,}5$. Avec les issues (PPP → 3, PPF → 2, PFP → 2, PFF → 1, FPP → 2, FPF → 1, FFP → 1, FFF → 0), chacune de poids $\frac{1}{8}$ : $\frac{3 + 2 + 2 + 1 + 2 + 1 + 1 + 0}{8} = \frac{12}{8}$. En général : les événements $\lbrace X = x\rbrace$, pour les différentes valeurs $x$, partagent $\Omega$ en morceaux disjoints. Dans la somme sur les issues, on regroupe celles de chaque morceau : leur contribution est $\sum_{\omega : X(\omega) = x} x\thinspace p(\omega) = x \sum_{\omega : X(\omega) = x} p(\omega) = x\thinspace P(X = x)$, et la somme de ces contributions sur toutes les valeurs $x$ est $\sum_x x\thinspace P(X = x) = \mathbb{E}[X]$.
+2. $\mathbb{E}[X + Y] = \sum_\omega \big(X(\omega) + Y(\omega)\big)\thinspace p(\omega) = \sum_\omega X(\omega)\thinspace p(\omega) + \sum_\omega Y(\omega)\thinspace p(\omega) = \mathbb{E}[X] + \mathbb{E}[Y]$ (une somme se sépare, R4 ; et 1 appliqué à $X + Y$, à $X$ et à $Y$). On n'a **jamais** supposé $X$ et $Y$ indépendantes : la formule vaut pour des variables liées.
 3. Pour $n = 2$, c'est 2. Si la formule est vraie pour $n$ variables, alors pour $n + 1$ : $X_1 + \cdots + X_{n+1} = (X_1 + \cdots + X_n) + X_{n+1}$ est la somme de **deux** variables aléatoires, donc, par 2, $\mathbb{E}[X_1 + \cdots + X_{n+1}] = \mathbb{E}[X_1 + \cdots + X_n] + \mathbb{E}[X_{n+1}]$, puis, par l'hypothèse de récurrence, $= \mathbb{E}[X_1] + \cdots + \mathbb{E}[X_n] + \mathbb{E}[X_{n+1}]$. La formule est vraie pour tout $n \ge 2$.
 4. $N = X_1 + X_2 + \cdots + X_{20}$, et $\mathbb{E}[X_i] = 0 \times \frac{3}{4} + 1 \times \frac{1}{4} = \frac{1}{4}$. Par 3, $\mathbb{E}[N] = 20 \times \frac{1}{4} = 5$ bonnes réponses en moyenne, sans calculer la loi de $N$.
-5. $XY = X^2 = X$ (0 ou 1), donc $\mathbb{E}[XY] = \frac{1}{2}$, alors que $\mathbb{E}[X]\,\mathbb{E}[Y] = \frac{1}{4}$.
+5. $XY = X^2 = X$ (0 ou 1), donc $\mathbb{E}[XY] = \frac{1}{2}$, alors que $\mathbb{E}[X]\thinspace\mathbb{E}[Y] = \frac{1}{4}$.
 
 **Grille.** Une bonne démonstration : (1) calcule l'exemple des deux façons, et justifie l'égalité générale en partageant $\Omega$ selon les valeurs de $X$ ; (2) écrit $\mathbb{E}[X + Y]$ comme une somme sur les issues, la sépare en deux, et remarque qu'aucune indépendance n'a servi ; (3) rédige une récurrence complète : initialisation, hérédité qui écrit la somme de $n + 1$ termes comme la somme de deux variables, conclusion ; (4) décompose $N$ en une somme de variables qui valent 0 ou 1 ; (5) donne un contre-exemple chiffré pour le produit.
 
@@ -299,16 +299,16 @@ $$\binom{n - 1}{k - 1} + \binom{n - 1}{k} = \frac{(n - 1)!}{(k - 1)!\,(n - k)!} 
 **Démarche.**
 - a) $\binom{16}{2} = \frac{16 \times 15}{2} = 120$.
 - b) Deux matchs par paire : 240 (ce sont les couples ordonnés, $16 \times 15$).
-- c) $\binom{1\,000}{2} = \frac{1\,000 \times 999}{2} = 499\,500$.
-- d) $\frac{10\,000 \times 9\,999}{1\,000 \times 999} \approx 100{,}09$, soit 100.
-- e) $\binom{10^6}{2} \approx 5 \times 10^{11}$ comparaisons, soit $499\,999{,}5$ secondes, ou environ 138,9 heures (près de 6 jours).
-- f) $\binom{100}{3} = \frac{100 \times 99 \times 98}{6} = 161\,700$.
+- c) $\binom{1\thinspace000}{2} = \frac{1\thinspace000 \times 999}{2} = 499\thinspace500$.
+- d) $\frac{10\thinspace000 \times 9\thinspace999}{1\thinspace000 \times 999} \approx 100{,}09$, soit 100.
+- e) $\binom{10^6}{2} \approx 5 \times 10^{11}$ comparaisons, soit $499\thinspace999{,}5$ secondes, ou environ 138,9 heures (près de 6 jours).
+- f) $\binom{100}{3} = \frac{100 \times 99 \times 98}{6} = 161\thinspace700$.
 
 Dans ta copie : $\binom{n}{2} = \frac{n(n - 1)}{2}$, et pour $n$ grand, $n - 1 \approx n$. Multiplier $n$ par 10 multiplie la durée par environ 100 (près de deux mois), et le nombre de groupes de 3 par environ 1 000 ($\binom{n}{3} \approx \frac{n^3}{6}$).
 
 **Erreurs fréquentes.** Compter les couples ordonnés en a et en c ; croire que le travail est multiplié par 10 quand $n$ l'est (d) ; se tromper d'unité en e.
 
-**Variante.** Combien de paires dans un dataset de 50 000 exemples ? *Réponse* : $\frac{50\,000 \times 49\,999}{2} = 1\,249\,975\,000$, plus d'un milliard.
+**Variante.** Combien de paires dans un dataset de 50 000 exemples ? *Réponse* : $\frac{50\thinspace000 \times 49\thinspace999}{2} = 1\thinspace249\thinspace975\thinspace000$, plus d'un milliard.
 
 ### Ex R8.14 — Fermi : la probabilité de croiser quelqu'un que l'on connaît dans le métro
 
@@ -337,7 +337,7 @@ Dans ta copie : $\binom{n}{2} = \frac{n(n - 1)}{2}$, et pour $n$ grand, $n - 1 \
 
 **Réponses** : a) `[1, 1, 40320, 6227020800]` · b) `"ValueError"` · c) `[1, 12, 66, 220, 495, 792, 924, 792, 495, 220, 66, 12, 1]` · d) `[0, 0]` · e) `"int"`.
 
-**Démarche.** `factorial` : lever la `ValueError` si `n < 0`, puis multiplier `result` (qui part de 1) par 2, 3, …, `n` ; pour `n = 0` ou `1`, la boucle ne tourne pas et le résultat reste 1. `binomial` : renvoyer 0 hors de $0 \le k \le n$, puis calculer $\frac{n(n - 1)\cdots(n - k + 1)}{k!}$ en alternant multiplication et division entière `//` (chaque étape donne un entier, qui est un coefficient binomial). Pour la copie : `factorial(20) // factorial(18)` vaut $20 \times 19 = 380$ ; pour $\binom{10\,000}{3}$, trois multiplications suffisent, au lieu de trois factorielles géantes.
+**Démarche.** `factorial` : lever la `ValueError` si `n < 0`, puis multiplier `result` (qui part de 1) par 2, 3, …, `n` ; pour `n = 0` ou `1`, la boucle ne tourne pas et le résultat reste 1. `binomial` : renvoyer 0 hors de $0 \le k \le n$, puis calculer $\frac{n(n - 1)\cdots(n - k + 1)}{k!}$ en alternant multiplication et division entière `//` (chaque étape donne un entier, qui est un coefficient binomial). Pour la copie : `factorial(20) // factorial(18)` vaut $20 \times 19 = 380$ ; pour $\binom{10\thinspace000}{3}$, trois multiplications suffisent, au lieu de trois factorielles géantes.
 
 **Erreurs fréquentes.** `range(1, n)`, qui oublie le facteur `n` ; démarrer le produit à 0 ; la division `/`, qui renvoie un flottant arrondi pour les grands nombres.
 
@@ -377,7 +377,7 @@ Dans ta copie : $\binom{n}{2} = \frac{n(n - 1)}{2}$, et pour $n$ grand, $n - 1 \
 
 **Réponses** : a) `[0.694, 0.288, 0.0, 0.0]` · b) `0.3333` · c) `0`.
 
-**Démarche.** Une boucle sur `sizes`, un seul générateur créé avant elle, et à chaque tour la ligne de l'énoncé, puis `far.append(...)` ; on garde les fréquences de $n = 100$ et $n = 10\,000$ dans un dictionnaire pour les histogrammes. L'histogramme pour $n = 10\,000$ est beaucoup plus resserré autour de $\frac{1}{3}$ que celui pour $n = 100$. Pour la copie : la loi des grands nombres dit que la probabilité d'un écart donné entre fréquence et probabilité tend vers 0 quand $n$ grandit ; elle ne dit pas que la fréquence **égale** la probabilité, ni à partir de quel $n$. Pour un écart de 0,01 avec $n = 10\,000$, environ 3 % des séries resteraient au-delà : la proportion de a) ne tombe à 0 que pour des $n$ plus grands.
+**Démarche.** Une boucle sur `sizes`, un seul générateur créé avant elle, et à chaque tour la ligne de l'énoncé, puis `far.append(...)` ; on garde les fréquences de $n = 100$ et $n = 10\thinspace000$ dans un dictionnaire pour les histogrammes. L'histogramme pour $n = 10\thinspace000$ est beaucoup plus resserré autour de $\frac{1}{3}$ que celui pour $n = 100$. Pour la copie : la loi des grands nombres dit que la probabilité d'un écart donné entre fréquence et probabilité tend vers 0 quand $n$ grandit ; elle ne dit pas que la fréquence **égale** la probabilité, ni à partir de quel $n$. Pour un écart de 0,01 avec $n = 10\thinspace000$, environ 3 % des séries resteraient au-delà : la proportion de a) ne tombe à 0 que pour des $n$ plus grands.
 
 **Erreurs fréquentes.** Recréer le générateur à chaque tour de boucle ; oublier `np.abs` (seuls les écarts positifs comptent alors) ; confondre la fréquence des 500 séries avec la proportion de séries qui s'écartent.
 

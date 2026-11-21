@@ -77,8 +77,8 @@
 
 ### M05a.R2 — Suites définies par récurrence (R5)
 1. $u_1 = 2 + 1{,}2 = 3{,}2$ ; $u_2 = 1{,}28 + 1{,}2 = 2{,}48$.
-2. $0{,}6\,\ell = 1{,}2$ : $\ell = 2$.
-3. $u_{n+1} - 2 = 0{,}4\,u_n + 1{,}2 - 2 = 0{,}4\,(u_n - 2)$ : la suite $u_n - 2$ est géométrique de raison 0,4, donc $u_n - 2 = 3 \times 0{,}4^n$.
+2. $0{,}6\thinspace\ell = 1{,}2$ : $\ell = 2$.
+3. $u_{n+1} - 2 = 0{,}4\thinspace u_n + 1{,}2 - 2 = 0{,}4\thinspace(u_n - 2)$ : la suite $u_n - 2$ est géométrique de raison 0,4, donc $u_n - 2 = 3 \times 0{,}4^n$.
 4. $3 \times 0{,}4^6 \approx 0{,}0123$ et $3 \times 0{,}4^7 \approx 0{,}0049$ : **$n = 7$**.
 5. Une convergence **linéaire** (ou géométrique) : chaque pas gagne le même nombre de décimales (ici $\log_{10} 2{,}5 \approx 0{,}4$). Newton près d'une racine simple est **quadratique** : le nombre de décimales justes double à chaque pas.
 
@@ -107,7 +107,7 @@
 | $g$ | convexe | | concave | | convexe |
 
   $g$ est concave sur $[-1, 1]$ (aux bornes, $g'' = 0$ ne gêne pas), et $g''$ change de signe en $-1$ et en 1 : ce sont les deux points d'inflexion.
-- d) $w'(x) = 2x\,e^{x^2}$, puis, par la règle du produit, $w''(x) = 2e^{x^2} + 2x \cdot 2x\,e^{x^2} = (2 + 4x^2)e^{x^2}$, donc $w''(1) = 6e \approx 16{,}3097$ (et $w'' > 0$ partout : $w$ est convexe).
+- d) $w'(x) = 2x\thinspace e^{x^2}$, puis, par la règle du produit, $w''(x) = 2e^{x^2} + 2x \cdot 2x\thinspace e^{x^2} = (2 + 4x^2)e^{x^2}$, donc $w''(1) = 6e \approx 16{,}3097$ (et $w'' > 0$ partout : $w$ est convexe).
 - e) $v(x) = \frac{1}{1 + x^2}$ : $v'(x) = -\frac{2x}{(1 + x^2)^2}$, puis $v''(x) = \frac{6x^2 - 2}{(1 + x^2)^3}$. En 0, $v''(0) = -2 < 0$ : $v$ est concave près de 0, donc pas convexe sur $\mathbb{R}$ (elle ne l'est que pour $|x| \ge \frac{1}{\sqrt{3}}$). Sa courbe est une bosse : une corde entre $-1$ et 1 passe sous le sommet.
 - f) $h'(x) = \ln x + 1$, $h''(x) = \frac{1}{x}$ : $h''(2) = 0{,}5$.
 - g) $(x^3 + kx^2 + 1)'' = 6x + 2k$ ; elle s'annule en 2 si $12 + 2k = 0$, soit $k = -6$, et elle change alors bien de signe (c'est une fonction affine).
@@ -115,7 +115,7 @@
 
 Pour la copie : avec $\ln$ et les points 1 et 3, $\frac{\ln 1 + \ln 3}{2} - \ln 2 \approx 0{,}5493 - 0{,}6931 = -0{,}1438 < 0$ : pour une fonction concave, la corde est au-dessous.
 
-**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; oublier un des deux termes de la dérivée du produit $2x\,e^{x^2}$ en d) ; répondre `True` en e) parce que $\frac{1}{1 + x^2}$ est positive ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2)$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
+**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; oublier un des deux termes de la dérivée du produit $2x\thinspace e^{x^2}$ en d) ; répondre `True` en e) parce que $\frac{1}{1 + x^2}$ est positive ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2)$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
 
 **Variante.** Sur quel intervalle $x^3 - 6x^2 + 2$ est-elle convexe ? *Réponse* : $f''(x) = 6x - 12 \ge 0 \iff x \ge 2$ : sur $[2, +\infty[$, avec un point d'inflexion en 2.
 
@@ -170,8 +170,8 @@ Pour la copie : $p''(0) = 0$ parce que $p''$ a le facteur $x^2$, qui s'annule sa
 **Démarche.**
 - a) $\cos 0 = 1$, $\cos'(0) = -\sin 0 = 0$, $\cos''(0) = -\cos 0 = -1$ : $1 - \frac{x^2}{2}$.
 - b) $f = \ln(1 + x)$ : $f' = \frac{1}{1 + x}$, $f'' = -\frac{1}{(1 + x)^2}$, $f''' = \frac{2}{(1 + x)^3}$, soit $0, 1, -1, 2$ en 0 : $x - \frac{x^2}{2} + \frac{2}{6}x^3$.
-- c) La dérivée $k$-ième de $(1 - x)^{-1}$ est $k!\,(1 - x)^{-k-1}$, qui vaut $k!$ en 0 : tous les coefficients valent 1.
-- d) En $a = 1$, toutes les dérivées de $e^x$ valent $e$ : $e\,(1 + 0{,}1 + \frac{0{,}01}{2}) = 1{,}105\,e \approx 3{,}0037$, contre $e^{1{,}1} \approx 3{,}0042$.
+- c) La dérivée $k$-ième de $(1 - x)^{-1}$ est $k!\thinspace(1 - x)^{-k-1}$, qui vaut $k!$ en 0 : tous les coefficients valent 1.
+- d) En $a = 1$, toutes les dérivées de $e^x$ valent $e$ : $e\thinspace(1 + 0{,}1 + \frac{0{,}01}{2}) = 1{,}105\thinspace e \approx 3{,}0037$, contre $e^{1{,}1} \approx 3{,}0042$.
 - e) $0{,}1 - 0{,}005 + 0{,}000333 \approx 0{,}09533$, contre $\ln 1{,}1 \approx 0{,}09531$.
 - f) $\cos^{(4)} = \cos$, qui vaut 1 en 0 : $\frac{1}{4!} = \frac{1}{24}$.
 - g) $\sin\frac{\pi}{2} = 1$, $\cos\frac{\pi}{2} = 0$, $-\sin\frac{\pi}{2} = -1$ : $1 - \frac{0{,}3^2}{2} = 0{,}955$, contre $\sin(\frac{\pi}{2} + 0{,}3) = \cos 0{,}3 \approx 0{,}9553$.
@@ -190,7 +190,7 @@ Pour la copie : en développant h), $-x + 1 + x^2 - 2x + 1 + x^3 - 3x^2 + 3x - 1
 **Démarche.**
 - a) $0{,}5 - \frac{0{,}125}{6} \approx 0{,}479167$ ; b) $\sin 0{,}5 \approx 0{,}4794255$, d'où une erreur d'environ $0{,}0002589$.
 - c) Le coefficient de $x^4$ est nul ($\sin^{(4)}(0) = \sin 0 = 0$), donc $P_3 = P_4$ et l'on peut utiliser le reste d'ordre 4 : $\frac{0{,}5^5}{5!} \approx 0{,}0002604$, à peine au-dessus de l'erreur vraie. Le reste d'ordre 3 donnerait $\frac{0{,}5^4}{4!} \approx 0{,}0026$, dix fois trop large.
-- d) Il faut $(n + 1)! > 3 \times 10^6$ : $9! = 362\,880$ ne suffit pas, $10! = 3\,628\,800$ suffit, donc $n + 1 = 10$, **$n = 9$**.
+- d) Il faut $(n + 1)! > 3 \times 10^6$ : $9! = 362\thinspace880$ ne suffit pas, $10! = 3\thinspace628\thinspace800$ suffit, donc $n + 1 = 10$, **$n = 9$**.
 - e) $\frac{2}{3!} \times 0{,}1^3 \approx 0{,}000333$ (l'erreur vraie : $|\ln 1{,}1 - 0{,}095| \approx 0{,}000310$).
 - f) $P_2 = P_3$ pour $\cos$, et $|\cos^{(4)}| \le 1$ : $\frac{0{,}2^4}{4!} \approx 0{,}0000667$ (le reste d'ordre 2 donnerait $\frac{0{,}2^3}{3!} \approx 0{,}0013$, vingt fois plus large).
 - g) $\frac{x^3}{6} \le 0{,}001 \iff x^3 \le 0{,}006 \iff x \le 0{,}006^{1/3} \approx 0{,}1817$ : au-delà, la borne dépasse 0,001.
@@ -213,7 +213,7 @@ Pour la copie : en b) et c), la borne est très proche de l'erreur vraie (0,0002
 - g) $f'(0) = 0$ : la tangente en 0 est horizontale.
 - h) $g'(x) = \frac{1}{x}$ : $x_1 = 2 - \frac{\ln 2 - 1}{1/2} = 4 - 2\ln 2 \approx 2{,}6137$ ; la suite cherche la racine $e \approx 2{,}7183$.
 
-Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\,x_k}{2x_k} = \frac{(x_k - \sqrt{10})^2}{2x_k}$ exactement. Le rapport e) vaut donc $\frac{1}{2x_1} = \frac{3}{19} \approx 0{,}158$, très proche de la constante $\frac{f''}{2f'} = \frac{1}{2\sqrt{10}} \approx 0{,}158$ de la fiche (§4). L'erreur passe de 0,16 à 0,0044, puis $3 \times 10^{-6}$, puis $1{,}5 \times 10^{-12}$ : les décimales justes doublent.
+Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\thinspace x_k}{2x_k} = \frac{(x_k - \sqrt{10})^2}{2x_k}$ exactement. Le rapport e) vaut donc $\frac{1}{2x_1} = \frac{3}{19} \approx 0{,}158$, très proche de la constante $\frac{f''}{2f'} = \frac{1}{2\sqrt{10}} \approx 0{,}158$ de la fiche (§4). L'erreur passe de 0,16 à 0,0044, puis $3 \times 10^{-6}$, puis $1{,}5 \times 10^{-12}$ : les décimales justes doublent.
 
 **Erreurs fréquentes.** Un signe dans le pas ($x_1 = \frac{17}{6}$) ; repartir de $x_0$ pour calculer $x_2$ ; en h), diviser par $g'(2) = \frac{1}{2}$ comme si l'on multipliait.
 
@@ -227,7 +227,7 @@ Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\,x_k}{2x_k}
 - b) et c) $\sqrt{4{,}2} \approx 2{,}0493902$ : $\frac{0{,}0493902}{0{,}2} \approx 0{,}24695$, soit une erreur de $-0{,}00305$.
 - d) $\frac{0{,}2}{2} \times (-\frac{1}{32}) = -0{,}003125$ : la prévision est bonne à 2 % près.
 - e) $\sqrt{3{,}8} \approx 1{,}9493589$ : $\frac{2{,}0493902 - 1{,}9493589}{0{,}4} \approx 0{,}250078$, une erreur de $7{,}82 \times 10^{-5}$.
-- f) $\frac{0{,}04}{6} \times \frac{3}{256} = \frac{1}{12\,800} \approx 7{,}81 \times 10^{-5}$ : la prévision colle à l'erreur vraie.
+- f) $\frac{0{,}04}{6} \times \frac{3}{256} = \frac{1}{12\thinspace800} \approx 7{,}81 \times 10^{-5}$ : la prévision colle à l'erreur vraie.
 - g) L'erreur est proportionnelle à $h^2$ : diviser $h$ par 2 la divise par 4.
 - h) $\frac{2{,}0493902 - 4 + 1{,}9493589}{0{,}04} \approx -0{,}03127$ : elle approche $f''(4) = -0{,}03125$ à l'ordre 2 (M05a.11, question 5).
 
@@ -242,10 +242,10 @@ Pour la copie : $x_{k+1} - \sqrt{10} = \frac{x_k^2 + 10 - 2\sqrt{10}\,x_k}{2x_k}
 **Démarche.**
 - a) $0{,}625 \times 2 = 1{,}25$ (chiffre 1), $0{,}25 \times 2 = 0{,}5$ (chiffre 0), $0{,}5 \times 2 = 1$ (chiffre 1, fin) : $0{,}101$, soit les trois chiffres `"101"` ; en effet $\frac{1}{2} + \frac{1}{8} = 0{,}625$.
 - b) $0{,}2 = \frac{1}{5}$, $0{,}3 = \frac{3}{10}$, $0{,}6 = \frac{3}{5}$ ont le facteur 5 au dénominateur ; $0{,}4375 = \frac{7}{16}$ a pour dénominateur $2^4$ : $(0{,}0111)_2$. Seules les fractions dont le dénominateur (irréductible) est une puissance de 2 ont un développement binaire fini.
-- c) $0{,}3 \to 0{,}6$ (chiffre 0) $\to 1{,}2$ (1, on garde 0,2) $\to 0{,}4$ (0) $\to 0{,}8$ (0) $\to 1{,}6$ (1, on garde 0,6) $\to 1{,}2$ (1) $\to \ldots$ : les chiffres $0, 1, 0, 0, 1, 1, 0, 0, 1, \ldots$, soit $0{,}0\,1001\,1001\ldots$
+- c) $0{,}3 \to 0{,}6$ (chiffre 0) $\to 1{,}2$ (1, on garde 0,2) $\to 0{,}4$ (0) $\to 0{,}8$ (0) $\to 1{,}6$ (1, on garde 0,6) $\to 1{,}2$ (1) $\to \ldots$ : les chiffres $0, 1, 0, 0, 1, 1, 0, 0, 1, \ldots$, soit $0{,}0\thinspace1001\thinspace1001\ldots$
 - d) $0{,}25 = 2^{-2} \le 0{,}3 < 2^{-1}$ : l'écart vaut $2^{-2} \times 2^{-52} = 2^{-54}$.
 - e) $1024 = 2^{10}$ : entre $2^{10}$ et $2^{11}$, l'écart vaut $2^{10} \times 2^{-52} = 2^{-42}$.
-- f) `float32` garde 23 bits après la virgule, donc 24 bits significatifs : tous les entiers jusqu'à $2^{24}$ sont exacts ; le suivant, $2^{24} + 1 = 16\,777\,217$, demanderait 25 bits.
+- f) `float32` garde 23 bits après la virgule, donc 24 bits significatifs : tous les entiers jusqu'à $2^{24}$ sont exacts ; le suivant, $2^{24} + 1 = 16\thinspace777\thinspace217$, demanderait 25 bits.
 - g) $512 = 2^9 \le 1000 < 2^{10}$, et $\varepsilon = 2^{-10}$ en `float16` : l'écart vaut $2^9 \times 2^{-10} = \frac{1}{2}$. En `float16`, 1 000,25 n'existe pas.
 - h) $\frac{2^{-23}}{2} = 2^{-24}$.
 
@@ -260,18 +260,18 @@ Pour la copie : entre $2^e$ et $2^{e+1}$, les flottants sont $(1 + \frac{m}{2^{5
 **Réponses** : a) `1.414` · b) `2.828` · c) `0.01` · d) `1.5` · e) `0.1` · f) `0.01` · g) `0.0447` · h) `True`.
 
 **Démarche.**
-- a) $E'_{\text{avant}}(h) = \frac{M_2}{2} - \frac{2\delta}{h^2} = 0 \iff h^2 = \frac{4\delta}{M_2}$, donc $h^* = 2\sqrt{\frac{\delta}{M_2}} = 2\sqrt{5 \times 10^{-7}} \approx 1{,}414 \times 10^{-3}$. $E'$ est négative avant $h^*$ et positive après : c'est un minimum.
-- b) Au meilleur pas, les deux termes sont égaux : $E = 2 \times \frac{M_2}{2}h^* = 2\sqrt{M_2\delta} = 2\sqrt{2 \times 10^{-6}} \approx 2{,}828 \times 10^{-3}$.
-- c) $E'_{\text{centrée}}(h) = \frac{M_3}{3}h - \frac{\delta}{h^2} = 0 \iff h^3 = \frac{3\delta}{M_3} = 10^{-6}$, donc $h^* = 0{,}01$.
+- a) $E'_{\text{avant}}(h) = \frac{M_2}{2} - \frac{2\delta}{h^2} = 0 \iff h^2 = \frac{4\delta}{M_2}$, donc $h^\ast = 2\sqrt{\frac{\delta}{M_2}} = 2\sqrt{5 \times 10^{-7}} \approx 1{,}414 \times 10^{-3}$. $E'$ est négative avant $h^\ast$ et positive après : c'est un minimum.
+- b) Au meilleur pas, les deux termes sont égaux : $E = 2 \times \frac{M_2}{2}h^\ast = 2\sqrt{M_2\delta} = 2\sqrt{2 \times 10^{-6}} \approx 2{,}828 \times 10^{-3}$.
+- c) $E'_{\text{centrée}}(h) = \frac{M_3}{3}h - \frac{\delta}{h^2} = 0 \iff h^3 = \frac{3\delta}{M_3} = 10^{-6}$, donc $h^\ast = 0{,}01$.
 - d) $E = \frac{3}{6} \times 10^{-4} + \frac{10^{-6}}{10^{-2}} = 0{,}5 \times 10^{-4} + 10^{-4} = 1{,}5 \times 10^{-4}$.
-- e) $h^* = \big(\frac{3\delta}{M_3}\big)^{1/3}$ est proportionnel à $\delta^{1/3}$ : $(10^{-3})^{1/3} = 0{,}1$.
-- f) En remplaçant : $E(h^*) = \frac{M_3}{6}h^{*2} + \frac{\delta}{h^*} = \frac{3}{2}\big(\frac{M_3}{3}\big)^{1/3}\delta^{2/3}$, proportionnel à $\delta^{2/3}$ : $(10^{-3})^{2/3} = 0{,}01$.
-- g) $E'(h) = 2h - \frac{8\delta}{h^3} = 0 \iff h^4 = 4\delta = 4 \times 10^{-6}$, donc $h^* \approx 0{,}0447$.
+- e) $h^\ast = \big(\frac{3\delta}{M_3}\big)^{1/3}$ est proportionnel à $\delta^{1/3}$ : $(10^{-3})^{1/3} = 0{,}1$.
+- f) En remplaçant : $E(h^\ast) = \frac{M_3}{6}h^{\ast2} + \frac{\delta}{h^\ast} = \frac{3}{2}\big(\frac{M_3}{3}\big)^{1/3}\delta^{2/3}$, proportionnel à $\delta^{2/3}$ : $(10^{-3})^{2/3} = 0{,}01$.
+- g) $E'(h) = 2h - \frac{8\delta}{h^3} = 0 \iff h^4 = 4\delta = 4 \times 10^{-6}$, donc $h^\ast \approx 0{,}0447$.
 - h) $1{,}5 \times 10^{-4}$ contre $2{,}8 \times 10^{-3}$ : environ 19 fois plus précise.
 
 **Erreurs fréquentes.** Oublier le facteur 2 du bruit de la différence avant ; ne garder qu'un terme de la borne en b) ou d) ; croire que l'erreur au meilleur pas est proportionnelle à $\delta$ (f) ; prendre une racine carrée au lieu d'une racine quatrième en g).
 
-**Variante.** La différence avant avec $\delta = 10^{-8}$ et $M_2 = 2$ : meilleur pas et erreur ? *Réponse* : $h^* = 2\sqrt{5 \times 10^{-9}} \approx 1{,}41 \times 10^{-4}$, $E = 2\sqrt{2 \times 10^{-8}} \approx 2{,}83 \times 10^{-4}$ : un capteur 100 fois plus précis ne divise l'erreur que par 10 ($\sqrt{\delta}$).
+**Variante.** La différence avant avec $\delta = 10^{-8}$ et $M_2 = 2$ : meilleur pas et erreur ? *Réponse* : $h^\ast = 2\sqrt{5 \times 10^{-9}} \approx 1{,}41 \times 10^{-4}$, $E = 2\sqrt{2 \times 10^{-8}} \approx 2{,}83 \times 10^{-4}$ : un capteur 100 fois plus précis ne divise l'erreur que par 10 ($\sqrt{\delta}$).
 
 ### Ex M05a.10 — log-sum-exp à la main : la softmax stable de trois scores
 
@@ -312,9 +312,9 @@ Pour la copie : $802 \le 802{,}1277 \le 802 + \ln 3 \approx 803{,}0986$ ; g) tou
 **Réponse modèle.**
 1. $f(r) = f(x_k) + f'(x_k)(r - x_k) + \frac{f''(\xi_k)}{2}(r - x_k)^2$, avec $\xi_k$ entre $x_k$ et $r$.
 2. $f(r) = 0$ ; on divise par $f'(x_k) \ne 0$ : $\frac{f(x_k)}{f'(x_k)} + r - x_k = -\frac{f''(\xi_k)}{2f'(x_k)}e_k^2$. Or $\frac{f(x_k)}{f'(x_k)} = x_k - x_{k+1}$ (définition de Newton), donc le membre de gauche vaut $r - x_{k+1} = -e_{k+1}$, d'où $e_{k+1} = \frac{f''(\xi_k)}{2f'(x_k)}e_k^2$.
-3. $\xi_k$ et $x_k$ sont dans $I$ : $|f''(\xi_k)| \le M$ et $|f'(x_k)| \ge m$, donc $|e_{k+1}| \le \frac{M}{2m}e_k^2 = C\,e_k^2$.
+3. $\xi_k$ et $x_k$ sont dans $I$ : $|f''(\xi_k)| \le M$ et $|f'(x_k)| \ge m$, donc $|e_{k+1}| \le \frac{M}{2m}e_k^2 = C\thinspace e_k^2$.
 4. Avec $d_k = C|e_k|$ : $d_{k+1} \le C \cdot C e_k^2 = d_k^2$. Par récurrence, si $d_k \le d_0^{2^k}$, alors $d_{k+1} \le d_k^2 \le d_0^{2^{k+1}}$ (et c'est vrai pour $k = 0$). Avec $d_0 = 0{,}1$ : $d_k \le 10^{-2^k}$, et $10^{-2^k} \le 10^{-16} \iff 2^k \ge 16 \iff k \ge 4$ : **quatre pas**.
-5. $x_{k+1} = x_k - \frac{x_k^2 - c}{2x_k} = \frac{x_k^2 + c}{2x_k}$, donc $e_{k+1} = \frac{x_k^2 + c - 2\sqrt{c}\,x_k}{2x_k} = \frac{(x_k - \sqrt{c})^2}{2x_k}$. Si $x_k > 0$, alors $e_{k+1} \ge 0$, c'est-à-dire $x_{k+1} \ge \sqrt{c} > 0$. Depuis $x_0 > 0$, on obtient $x_1 \ge \sqrt{c}$, puis, par récurrence, $x_k \ge \sqrt{c}$ pour tout $k \ge 1$ : la suite reste au-dessus de $\sqrt{c}$ (et elle décroît vers lui).
+5. $x_{k+1} = x_k - \frac{x_k^2 - c}{2x_k} = \frac{x_k^2 + c}{2x_k}$, donc $e_{k+1} = \frac{x_k^2 + c - 2\sqrt{c}\thinspace x_k}{2x_k} = \frac{(x_k - \sqrt{c})^2}{2x_k}$. Si $x_k > 0$, alors $e_{k+1} \ge 0$, c'est-à-dire $x_{k+1} \ge \sqrt{c} > 0$. Depuis $x_0 > 0$, on obtient $x_1 \ge \sqrt{c}$, puis, par récurrence, $x_k \ge \sqrt{c}$ pour tout $k \ge 1$ : la suite reste au-dessus de $\sqrt{c}$ (et elle décroît vers lui).
 6. $f'(x) = 2(x - r)$, donc $x_{k+1} = x_k - \frac{(x_k - r)^2}{2(x_k - r)} = x_k - \frac{x_k - r}{2}$ et $e_{k+1} = \frac{e_k}{2}$ : une convergence **linéaire**, de rapport $\frac{1}{2}$. Gagner une décimale, c'est diviser l'erreur par 10 : $\log_2 10 \approx 3{,}3$ pas par décimale.
 7. $g'(x) = 2ax + b$ et $g''(x) = 2a$ : $x_1 = x_0 - \frac{2ax_0 + b}{2a} = -\frac{b}{2a}$, le sommet de la parabole, qui est son minimum puisque $a > 0$. La tangente à $g'$ (une droite) est $g'$ elle-même.
 
@@ -323,12 +323,12 @@ Pour la copie : $802 \le 802{,}1277 \le 802 + \ln 3 \approx 803{,}0986$ ; g) tou
 ### Ex M05a.13 — Encadrer le log-sum-exp : max ≤ LSE ≤ max + ln n
 
 **Réponse modèle.**
-1. Un des termes vaut $e^m$ et les autres sont positifs : $e^m \le \sum_i e^{v_i}$. Chaque terme est au plus $e^m$ ($\exp$ est croissante) : $\sum_i e^{v_i} \le n\,e^m$. Le logarithme, croissant, donne $m \le \text{LSE}(\mathbf{v}) \le m + \ln n$.
+1. Un des termes vaut $e^m$ et les autres sont positifs : $e^m \le \sum_i e^{v_i}$. Chaque terme est au plus $e^m$ ($\exp$ est croissante) : $\sum_i e^{v_i} \le n\thinspace e^m$. Le logarithme, croissant, donne $m \le \text{LSE}(\mathbf{v}) \le m + \ln n$.
 2. À droite, l'égalité demande que chaque $e^{v_i}$ vaille $e^m$ : **tous les $v_i$ égaux**. À gauche, il faudrait que les $n - 1$ autres termes soient nuls, impossible puisque $e^{v} > 0$ : jamais pour $n \ge 2$ (avec des valeurs finies).
 3. $\text{LSE}(\mathbf{v} + c) = \ln\sum_i e^{v_i}e^c = \ln\big(e^c\sum_i e^{v_i}\big) = c + \text{LSE}(\mathbf{v})$. Et $\frac{e^{v_i + c}}{\sum_j e^{v_j + c}} = \frac{e^c e^{v_i}}{e^c \sum_j e^{v_j}} = \text{softmax}(\mathbf{v})_i$.
 4. $v_i \le w_i$ donne $e^{v_i} \le e^{w_i}$, puis en sommant $\sum_i e^{v_i} \le \sum_i e^{w_i}$, puis $\ln$ croissante.
 5. Si $t \ge 0$ : $\ln(e^t + 1) - t = \ln(1 + e^{-t})$. Si $t < 0$ : $\ln(e^t + 1) - 0 = \ln(1 + e^{t})$. Dans les deux cas, $\ln(1 + e^{-|t|})$. Comme $e^{-|t|} \in\ ]0, 1]$, l'écart est au plus $\ln 2$ (atteint en $t = 0$), et il tend vers $\ln 1 = 0$ quand $|t| \to +\infty$.
-6. $\text{LSE}(\mathbf{v}) - m = \ln\big(1 + \sum_{i \ne i^*} e^{v_i - m}\big)$, où $i^*$ est l'indice du maximum. Chacun des $n - 1$ autres scores vérifie $v_i \le m - g$, donc $e^{v_i - m} \le e^{-g}$, et $\ln(1 + u) \le u$ donne $\text{LSE}(\mathbf{v}) - m \le (n - 1)e^{-g}$. Pour $(10, 3, 2)$ : $g = 7$, borne $2e^{-7} \approx 0{,}00182$, écart vrai $\ln(1 + e^{-7} + e^{-8}) \approx 0{,}00125$.
+6. $\text{LSE}(\mathbf{v}) - m = \ln\big(1 + \sum_{i \ne i^\ast} e^{v_i - m}\big)$, où $i^\ast$ est l'indice du maximum. Chacun des $n - 1$ autres scores vérifie $v_i \le m - g$, donc $e^{v_i - m} \le e^{-g}$, et $\ln(1 + u) \le u$ donne $\text{LSE}(\mathbf{v}) - m \le (n - 1)e^{-g}$. Pour $(10, 3, 2)$ : $g = 7$, borne $2e^{-7} \approx 0{,}00182$, écart vrai $\ln(1 + e^{-7} + e^{-8}) \approx 0{,}00125$.
 
 **Grille.** (1) les deux inégalités sur la somme, puis le logarithme croissant ; (2) les cas d'égalité ; (3) la factorisation par $e^c$, et la simplification dans la softmax ; (4) la monotonie, en trois temps ; (5) les deux cas selon le signe de $t$, et les deux conséquences ; (6) l'écriture avec $1 + \ldots$, la majoration de chaque terme et $\ln(1 + u) \le u$, puis l'application numérique.
 
@@ -371,10 +371,10 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Réponse modèle.**
 1. La somme finale vaut environ $n \times 1 = 10^6$ ; une somme partielle typique, environ la moitié, $5 \times 10^5$.
-2. Chaque addition fait une erreur d'au plus $u$ fois la somme partielle, donc au plus $u \times 10^6$. Sur $10^6$ additions, au pire $10^6 \times u \times 10^6$, soit une erreur relative d'au plus $n\,u$ (environ $\frac{n\,u}{2}$ avec la somme partielle moyenne) : en `float64`, $10^6 \times 1{,}1 \times 10^{-16} \approx 10^{-10}$ ; en `float32`, $10^6 \times 6 \times 10^{-8} = 0{,}06$, soit **6 %**.
-3. Avec des signes au hasard : $\sqrt{n}\,u$, soit $10^3 \times 1{,}1 \times 10^{-16} \approx 10^{-13}$ en `float64`, et $10^3 \times 6 \times 10^{-8} = 6 \times 10^{-5}$ en `float32`.
+2. Chaque addition fait une erreur d'au plus $u$ fois la somme partielle, donc au plus $u \times 10^6$. Sur $10^6$ additions, au pire $10^6 \times u \times 10^6$, soit une erreur relative d'au plus $n\thinspace u$ (environ $\frac{n\thinspace u}{2}$ avec la somme partielle moyenne) : en `float64`, $10^6 \times 1{,}1 \times 10^{-16} \approx 10^{-10}$ ; en `float32`, $10^6 \times 6 \times 10^{-8} = 0{,}06$, soit **6 %**.
+3. Avec des signes au hasard : $\sqrt{n}\thinspace u$, soit $10^3 \times 1{,}1 \times 10^{-16} \approx 10^{-13}$ en `float64`, et $10^3 \times 6 \times 10^{-8} = 6 \times 10^{-5}$ en `float32`.
 4. En `float32`, sur environ 7 chiffres : au pire **un seul** chiffre juste (6 %), dans le cas typique environ **quatre**.
-5. Chaque nombre ne traverse qu'environ $\log_2 10^6 \approx 20$ additions : la borne du pire cas devient $20\,u$, soit $1{,}2 \times 10^{-6}$ en `float32` et $2 \times 10^{-15}$ en `float64`.
+5. Chaque nombre ne traverse qu'environ $\log_2 10^6 \approx 20$ additions : la borne du pire cas devient $20\thinspace u$, soit $1{,}2 \times 10^{-6}$ en `float32` et $2 \times 10^{-15}$ en `float64`.
 6. Une somme courante de losses en `float32` perd des chiffres à mesure qu'elle grandit, et un terme plus petit que $2^{-24}$ fois la somme (environ $6 \times 10^{-8}$) est entièrement absorbé (fiche §6). Les frameworks accumulent donc en `float64`, additionnent par paires, ou font des moyennes par batch avant de les combiner.
 
 **Grille.** (1) l'ordre de grandeur de la somme ; (2) le raisonnement « $n$ erreurs de taille $u \times$ somme » et les deux valeurs ; (3) $\sqrt{n}$ et les deux valeurs ; (4) le nombre de chiffres justes ; (5) $\log_2 n$ ; (6) une conséquence concrète (absorption, accumulateur en `float64`). Un facteur 2 ou 3 près ne compte pas : c'est l'ordre de grandeur qui est demandé.
@@ -431,7 +431,7 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Réponses** : a) `True` · b) `-23.0` · c) `0.0009765625` · d) `"float"` · e) `True` · f) `9.0`.
 
-**Démarche.** `one, two, eps = dtype(1), dtype(2), dtype(1)`, puis `while dtype(one + dtype(eps / two)) != one: eps = dtype(eps / two)`, et `return float(eps)`. La boucle tourne 52, 23 et 10 fois. Pour la copie : e) $1 + \frac{\varepsilon}{2}$ est exactement au milieu de 1 et du flottant suivant ; l'arrondi « au plus proche, à égalité vers le chiffre pair » donne 1. f) $2^9 = 512 \le 1000 < 1024$ : l'écart après 1 000 vaut $2^9\,\varepsilon$.
+**Démarche.** `one, two, eps = dtype(1), dtype(2), dtype(1)`, puis `while dtype(one + dtype(eps / two)) != one: eps = dtype(eps / two)`, et `return float(eps)`. La boucle tourne 52, 23 et 10 fois. Pour la copie : e) $1 + \frac{\varepsilon}{2}$ est exactement au milieu de 1 et du flottant suivant ; l'arrondi « au plus proche, à égalité vers le chiffre pair » donne 1. f) $2^9 = 512 \le 1000 < 1024$ : l'écart après 1 000 vaut $2^9\thinspace\varepsilon$.
 
 **Erreurs fréquentes.** Mélanger les types (`1 + eps / 2` avec un `1` de Python peut calculer dans un autre type selon les versions de NumPy) ; renvoyer `eps / 2` (b : $-24$) ; renvoyer un `numpy.float32` (d).
 
@@ -447,7 +447,7 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Réponses** : a) `"2/15"` · b) `"1/16"` · c) `-14.0` · d) `-307.65` · e) `True` · f) `1.34399`.
 
-**Démarche.** a) `sp.series(sp.tan(x), x, 0, 7).removeO().coeff(x, 5)` ; b) de même avec `sp.sqrt(1 + x)` et `coeff(x, 3)` ; c) `math.log2(np.finfo(np.float16).tiny)` : le plus petit `float16` normal vaut $2^{-14} \approx 6{,}1 \times 10^{-5}$ ; d) `math.log10(np.finfo(float).tiny)` ; f) les dérivées de $e^{\sin x}$ en 0 valent $1, 1, 1, 0, -3$, et `mymath.approx.taylor_polynomial(derivatives, 0, 0.3)` donne $1{,}3439875$, contre $e^{\sin 0{,}3} \approx 1{,}34383$. Pour la copie : `float16` n'a que 5 bits d'exposant, d'où un maximum de $(2 - 2^{-10}) \times 2^{15} = 65\,504$ ; entre 0 et `tiny`, les nombres sous-normaux perdent peu à peu leurs chiffres significatifs.
+**Démarche.** a) `sp.series(sp.tan(x), x, 0, 7).removeO().coeff(x, 5)` ; b) de même avec `sp.sqrt(1 + x)` et `coeff(x, 3)` ; c) `math.log2(np.finfo(np.float16).tiny)` : le plus petit `float16` normal vaut $2^{-14} \approx 6{,}1 \times 10^{-5}$ ; d) `math.log10(np.finfo(float).tiny)` ; f) les dérivées de $e^{\sin x}$ en 0 valent $1, 1, 1, 0, -3$, et `mymath.approx.taylor_polynomial(derivatives, 0, 0.3)` donne $1{,}3439875$, contre $e^{\sin 0{,}3} \approx 1{,}34383$. Pour la copie : `float16` n'a que 5 bits d'exposant, d'où un maximum de $(2 - 2^{-10}) \times 2^{15} = 65\thinspace504$ ; entre 0 et `tiny`, les nombres sous-normaux perdent peu à peu leurs chiffres significatifs.
 
 **Erreurs fréquentes.** Lire le coefficient du mauvais degré ; confondre `tiny` et le plus petit sous-normal ($-24$ en c), $-323{,}31$ en d)) ou l'epsilon ; donner $e^{\sin 0{,}3}$ au lieu du polynôme en f).
 
@@ -489,6 +489,6 @@ Pour la copie : la loss est énorme parce que le modèle est sûr de lui et se t
 
 **Réponse** : `3.6840314986`.
 
-**Démarche.** `m, e = math.frexp(a)`, `q, r = divmod(e, 3)`, puis le départ $x_0 = (0{,}6 + 0{,}4\,m) \times 2^{r/3} \times 2^q$ (les trois valeurs $2^{r/3}$ calculées une fois) ; $0{,}6 + 0{,}4\,m$ approche $\sqrt[3]{m}$ à moins de 1 % près sur $[0{,}5 ;\ 1[$. Puis `x_new = (2 * x + a / (x * x)) / 3` jusqu'à `abs(x_new - x) <= 1e-15 * x_new`, en comptant les pas. Pour la copie : l'erreur relative est à peu près élevée au carré à chaque pas : $10^{-2} \to 10^{-4} \to 10^{-8} \to 10^{-16}$, trois pas, plus un quatrième qui constate que la valeur ne bouge plus. Depuis $x_0 = 1$ et pour $a = 10^{30}$, il en faut 118 : tant que $x^3 \gg a$, le pas vaut à peu près $x \leftarrow \frac{2x}{3}$, une décroissance géométrique lente, et la convergence quadratique ne commence qu'une fois arrivé près de $10^{10}$.
+**Démarche.** `m, e = math.frexp(a)`, `q, r = divmod(e, 3)`, puis le départ $x_0 = (0{,}6 + 0{,}4\thinspace m) \times 2^{r/3} \times 2^q$ (les trois valeurs $2^{r/3}$ calculées une fois) ; $0{,}6 + 0{,}4\thinspace m$ approche $\sqrt[3]{m}$ à moins de 1 % près sur $[0{,}5 ;\ 1[$. Puis `x_new = (2 * x + a / (x * x)) / 3` jusqu'à `abs(x_new - x) <= 1e-15 * x_new`, en comptant les pas. Pour la copie : l'erreur relative est à peu près élevée au carré à chaque pas : $10^{-2} \to 10^{-4} \to 10^{-8} \to 10^{-16}$, trois pas, plus un quatrième qui constate que la valeur ne bouge plus. Depuis $x_0 = 1$ et pour $a = 10^{30}$, il en faut 118 : tant que $x^3 \gg a$, le pas vaut à peu près $x \leftarrow \frac{2x}{3}$, une décroissance géométrique lente, et la convergence quadratique ne commence qu'une fois arrivé près de $10^{10}$.
 
 **Erreurs fréquentes.** Partir de $x_0 = a$ ou $x_0 = 1$ (plus de cent pas pour les nombres extrêmes, et même une `ZeroDivisionError` pour $a = 5 \times 10^{-300}$, où `x * x` s'efface à 0 : la vraie correction est le point de départ, pas un test de plus) ; un critère d'arrêt absolu (`abs(x_new - x) < 1e-12`), jamais atteint pour $a = 10^{300}$ (des racines de l'ordre de $10^{100}$, espacées de bien plus que $10^{-12}$) et trop lâche pour $a = 10^{-30}$ ; compter les pas de travers.

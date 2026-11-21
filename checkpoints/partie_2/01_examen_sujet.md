@@ -46,9 +46,9 @@ c) Avec un groupe de 2 mesures et un groupe de 6 mesures, un test par permutatio
 d) On fait 15 tests indépendants au seuil de 5 %, et l'hypothèse nulle de chacun est vraie : la probabilité d'obtenir au moins un faux positif dépasse $\frac{1}{2}$.
 e) Si $\mathbf{A}$ est une matrice de forme $(3, 4)$, le système $\mathbf{A}\mathbf{x} = \mathbf{0}$ a une infinité de solutions.
 f) Un système de 5 équations linéaires à 3 inconnues peut avoir exactement une solution.
-g) Ajuster par les moindres carrés le modèle $\hat{y} = w_0 + w_1 \sqrt{x} + w_2\,2^x$ (pour $x \ge 0$) revient à résoudre un système linéaire de 3 équations à 3 inconnues.
+g) Ajuster par les moindres carrés le modèle $\hat{y} = w_0 + w_1 \sqrt{x} + w_2\thinspace2^x$ (pour $x \ge 0$) revient à résoudre un système linéaire de 3 équations à 3 inconnues.
 h) Les features polynomiales de degré au plus 2 en 4 variables, constante comprise, sont au nombre de 14.
-i) L'ensemble $\{(x, y) : x \ge 0,\ y \ge \sqrt{x}\}$ est convexe.
+i) L'ensemble $\lbrace(x, y) : x \ge 0,\ y \ge \sqrt{x}\rbrace$ est convexe.
 j) Une variable aléatoire $X \ge 0$ de moyenne 2 peut vérifier $P(X \ge 10) = 0{,}25$.
 
 ### CP2.1 — Normes, cosinus, projection et distance à un hyperplan ✏️ ★★ ⏱️ 10 min · 1,75 point
@@ -104,9 +104,9 @@ Ensuite, trois modèles sont ajustés sur les mêmes $n = 60$ exemples :
 
 On résout le système $(S)$ par le pivot de Gauss, en éliminant d'abord $x$ ($L_2 \leftarrow L_2 - 3L_1$ et $L_3 \leftarrow L_3 + 2L_1$), puis $y$ dans la troisième ligne ($L_3 \leftarrow L_3 - 3L_2$) :
 
-$$(S) \quad \begin{cases} x + y + 2z = 3 \\ 3x + 4y + 5z = 7 \\ -2x + y + 3z = -2 \end{cases}$$
+$$(S) \quad \begin{cases} x + y + 2z = 3 \cr 3x + 4y + 5z = 7 \cr -2x + y + 3z = -2 \end{cases}$$
 
-Ensuite : $\mathbf{B} = \begin{pmatrix} 3 & 5 \\ 2 & 4 \end{pmatrix}$ et $\mathbf{C} = \begin{pmatrix} 1 & 2 & 0 & 3 \\ 2 & 4 & 1 & 7 \\ 3 & 6 & 1 & 10 \end{pmatrix}$.
+Ensuite : $\mathbf{B} = \begin{pmatrix} 3 & 5 \cr 2 & 4 \end{pmatrix}$ et $\mathbf{C} = \begin{pmatrix} 1 & 2 & 0 & 3 \cr 2 & 4 & 1 & 7 \cr 3 & 6 & 1 & 10 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -159,7 +159,7 @@ Sur ta copie : la formule de l'erreur quadratique moyenne en fonction du biais e
 
 ### CP2.7 — Convexité, enveloppe convexe et marge ✏️ ★★ ⏱️ 8 min · 1,5 point
 
-Six points du plan : $(0, 0)$, $(4, 0)$, $(5, 3)$, $(2, 5)$, $(1, 2)$, $(3, 2)$. Pour c) à e), deux nuages labellisés : la classe $+1$, $\{(4, 1), (6, 7), (8, 2)\}$, et la classe $-1$, $\{(2, 5), (0, 3), (1, 7)\}$. La marge géométrique d'un séparateur $(\mathbf{w}, b)$ est $\min_i \frac{y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$.
+Six points du plan : $(0, 0)$, $(4, 0)$, $(5, 3)$, $(2, 5)$, $(1, 2)$, $(3, 2)$. Pour c) à e), deux nuages labellisés : la classe $+1$, $\lbrace(4, 1), (6, 7), (8, 2)\rbrace$, et la classe $-1$, $\lbrace(2, 5), (0, 3), (1, 7)\rbrace$. La marge géométrique d'un séparateur $(\mathbf{w}, b)$ est $\min_i \frac{y_i\thinspace(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -167,7 +167,7 @@ Six points du plan : $(0, 0)$, $(4, 0)$, $(5, 3)$, $(2, 5)$, $(1, 2)$, $(3, 2)$.
 | b | le point $(3, 4)$ est-il dans l'enveloppe ? (justifie sur ta copie par des produits vectoriels) | `True` ou `False` |
 | c | la marge géométrique du séparateur $\mathbf{w} = (4, -1)$, $b = -8$ | un nombre (3 décimales) |
 | d | la plus grande marge possible entre les deux nuages **[0,5]** | un nombre (3 décimales) |
-| e | le séparateur de marge maximale, écrit sous forme canonique ($\min_i y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b) = 1$) | la liste $[w_1, w_2, b]$ |
+| e | le séparateur de marge maximale, écrit sous forme canonique ($\min_i y_i\thinspace(\mathbf{w} \cdot \mathbf{x}_i + b) = 1$) | la liste $[w_1, w_2, b]$ |
 
 Sur ta copie, pour d) : quels points des deux enveloppes convexes sont les plus proches (ce ne sont pas forcément des points des nuages), et le séparateur est-il la médiatrice de deux points des nuages ?
 
@@ -180,8 +180,8 @@ La hauteur de pluie $T$ tombée en une journée à une station météo, en dixi�
 | a | la borne de Markov sur $P(T \ge 300)$ | un nombre (1 décimale) |
 | b | la borne de Tchebychev sur $P(T \ge 300)$ | un nombre (4 décimales) |
 | c | le plus petit nombre $n$ de journées, supposées indépendantes, pour lequel Tchebychev garantit que leur moyenne $\bar{T}$ vérifie $P(\lvert \bar{T} - 120 \rvert \ge 5) \le 0{,}05$ | un entier |
-| d | avec $n = 1\,200$ ampoules et $\delta = 0{,}02$, le rayon de Hoeffding (bilatéral) de la proportion | un nombre (3 décimales) |
-| e | avec $n = 1\,200$, la borne de Hoeffding sur la probabilité que $\hat{p}$ s'écarte de $p$ d'au moins 0,045 | un nombre (4 décimales) |
+| d | avec $n = 1\thinspace200$ ampoules et $\delta = 0{,}02$, le rayon de Hoeffding (bilatéral) de la proportion | un nombre (3 décimales) |
+| e | avec $n = 1\thinspace200$, la borne de Hoeffding sur la probabilité que $\hat{p}$ s'écarte de $p$ d'au moins 0,045 | un nombre (4 décimales) |
 | f | le plus petit $n$ qui garantit un rayon de Hoeffding d'au plus 0,025 avec $\delta = 0{,}02$ | un entier |
 
 ### CP2.9 — Une démonstration courte, au choix parmi deux ∂ ★★★ ⏱️ 12 min · 2 points
@@ -189,15 +189,15 @@ La hauteur de pluie $T$ tombée en une journée à une station météo, en dixi�
 Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, chaque étape et la règle qui la justifie, ce que tu conclus.
 
 **Sujet A — La loss des moindres carrés est convexe.** Pour $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ et $t \in [0, 1]$ :
-1. Développe les deux membres pour montrer l'identité $\lVert (1 - t)\,\mathbf{u} + t\,\mathbf{v} \rVert^2 = (1 - t)\,\lVert \mathbf{u} \rVert^2 + t\,\lVert \mathbf{v} \rVert^2 - t\,(1 - t)\,\lVert \mathbf{u} - \mathbf{v} \rVert^2$. **[0,5]**
+1. Développe les deux membres pour montrer l'identité $\lVert (1 - t)\thinspace\mathbf{u} + t\thinspace\mathbf{v} \rVert^2 = (1 - t)\thinspace\lVert \mathbf{u} \rVert^2 + t\thinspace\lVert \mathbf{v} \rVert^2 - t\thinspace(1 - t)\thinspace\lVert \mathbf{u} - \mathbf{v} \rVert^2$. **[0,5]**
 2. Déduis-en que la fonction $g(\mathbf{z}) = \lVert \mathbf{z} \rVert^2$ est convexe sur $\mathbb{R}^n$, et qu'elle l'est strictement : l'inégalité est stricte dès que $\mathbf{u} \ne \mathbf{v}$ et $0 < t < 1$. **[0,5]**
-3. Soit $\mathbf{X}$ une matrice de forme $(n, p)$ et $\mathbf{y} \in \mathbb{R}^n$. Montre que $f(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ est convexe sur $\mathbb{R}^p$ (écris $\mathbf{y} - \mathbf{X}\big((1 - t)\,\mathbf{a} + t\,\mathbf{b}\big)$ comme une combinaison de $\mathbf{y} - \mathbf{X}\mathbf{a}$ et $\mathbf{y} - \mathbf{X}\mathbf{b}$). **[0,5]**
+3. Soit $\mathbf{X}$ une matrice de forme $(n, p)$ et $\mathbf{y} \in \mathbb{R}^n$. Montre que $f(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ est convexe sur $\mathbb{R}^p$ (écris $\mathbf{y} - \mathbf{X}\big((1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b}\big)$ comme une combinaison de $\mathbf{y} - \mathbf{X}\mathbf{a}$ et $\mathbf{y} - \mathbf{X}\mathbf{b}$). **[0,5]**
 4. Déduis-en que, pour $\lambda > 0$, la loss ridge $f(\mathbf{w}) + \lambda \lVert \mathbf{w} \rVert^2$ est strictement convexe, puis qu'elle atteint son minimum en **au plus un** point : suppose deux points distincts $\mathbf{a}$ et $\mathbf{b}$ où elle est minimale, et regarde leur milieu. **[0,5]**
 
 **Sujet B — La méthode de Chernoff pour une somme de pièces.** $S = X_1 + \cdots + X_n$, où les $X_i$ sont indépendantes, et valent chacune 0 ou 1 avec la probabilité $\frac{1}{2}$.
-1. Pour tout $\lambda > 0$ et tout réel $a$, montre que $P(S \ge a) \le e^{-\lambda a}\,\mathbb{E}\big[e^{\lambda S}\big]$, en nommant l'inégalité utilisée et en justifiant qu'elle s'applique. **[0,5]**
+1. Pour tout $\lambda > 0$ et tout réel $a$, montre que $P(S \ge a) \le e^{-\lambda a}\thinspace\mathbb{E}\big[e^{\lambda S}\big]$, en nommant l'inégalité utilisée et en justifiant qu'elle s'applique. **[0,5]**
 2. Montre que $\mathbb{E}\big[e^{\lambda S}\big] = \left(\frac{1 + e^\lambda}{2}\right)^n$ ; dis où sert l'indépendance. **[0,5]**
-3. On prend $a = \frac{3n}{4}$. Montre que la borne vaut $h(\lambda)^n$ avec $h(\lambda) = e^{-3\lambda/4}\,\frac{1 + e^\lambda}{2}$, puis trouve le $\lambda > 0$ qui la rend la plus petite (étudie $\ln h$), et la valeur de $h$ en ce point (4 décimales). **[0,75]**
+3. On prend $a = \frac{3n}{4}$. Montre que la borne vaut $h(\lambda)^n$ avec $h(\lambda) = e^{-3\lambda/4}\thinspace\frac{1 + e^\lambda}{2}$, puis trouve le $\lambda > 0$ qui la rend la plus petite (étudie $\ln h$), et la valeur de $h$ en ce point (4 décimales). **[0,75]**
 4. Compare à la borne unilatérale de Hoeffding pour le même écart, $P\left(\frac{S}{n} - \frac{1}{2} \ge \frac{1}{4}\right) \le e^{-n/8}$ : laquelle est la plus petite, et que valent les deux pour $n = 40$ (4 décimales) ? **[0,25]**
 
 ### CP2.10 — Corriger une copie : cinq erreurs 🐛 ★★ ⏱️ 8 min · 1,25 point
@@ -208,7 +208,7 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(B)** La similarité cosinus de $(1, 2)$ et $(-2, 1)$ vaut $-1$ : les deux vecteurs vont dans des sens opposés.
 - **(C)** Pour une statistique de test de loi symétrique sous $H_0$, la p-valeur unilatérale du côté observé vaut 0,11 : la p-valeur bilatérale vaut donc 0,055.
 - **(D)** Le produit d'une matrice de forme $(2, 3)$ par une matrice de forme $(3, 4)$ est une matrice de forme $(2, 4)$.
-- **(E)** L'inverse de $\begin{pmatrix} 6 & 4 \\ 1 & 1 \end{pmatrix}$ est $\begin{pmatrix} 1 & -4 \\ -1 & 6 \end{pmatrix}$.
+- **(E)** L'inverse de $\begin{pmatrix} 6 & 4 \cr 1 & 1 \end{pmatrix}$ est $\begin{pmatrix} 1 & -4 \cr -1 & 6 \end{pmatrix}$.
 - **(F)** Dans une régression par moindres carrés avec une colonne de 1 (une ordonnée à l'origine), la somme des résidus d'entraînement est nulle.
 - **(G)** L'ensemble des points $(x, y)$ tels que $x^2 + y^2 \le 4$ et $y \ge 1$ n'est pas convexe, parce qu'on y a coupé un disque par une droite.
 - **(H)** Dix modèles ont chacun un intervalle de confiance à 95 % de leur accuracy : la probabilité que les dix intervalles contiennent tous leur vraie accuracy est d'au moins 95 %.
@@ -224,7 +224,7 @@ Une équipe prédit le temps $y$ (en secondes) d'un traitement nocturne à parti
 |---|---|---|---|---|---|---|
 | $y$ | 7 | 9 | 14 | 15 | 18 | 27 |
 
-Le modèle $\hat{y} = a + b\,x$ s'ajuste par les moindres carrés, avec la matrice $\mathbf{X}$ dont la première colonne ne contient que des 1 et la seconde les valeurs de $x$. Pour comparer des modèles linéaires à bruit gaussien, on utilise ici $\mathrm{AIC} = n \ln\left(\frac{\mathrm{SCR}}{n}\right) + 2k$, où $k$ est le nombre de coefficients du modèle (la constante commune à tous les modèles est omise).
+Le modèle $\hat{y} = a + b\thinspace x$ s'ajuste par les moindres carrés, avec la matrice $\mathbf{X}$ dont la première colonne ne contient que des 1 et la seconde les valeurs de $x$. Pour comparer des modèles linéaires à bruit gaussien, on utilise ici $\mathrm{AIC} = n \ln\left(\frac{\mathrm{SCR}}{n}\right) + 2k$, où $k$ est le nombre de coefficients du modèle (la constante commune à tous les modèles est omise).
 
 | | Question | Réponse attendue |
 |---|---|---|

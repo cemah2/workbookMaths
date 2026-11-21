@@ -58,12 +58,12 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M06.Q5 — La KL n'est pas une distance 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
 
-1. Écris $\mathrm{KL}(p \,\|\, q)$ comme une différence d'une cross-entropy et d'une entropie.
-2. Que vaut $\mathrm{KL}(p \,\|\, q)$ quand $q = p$ ?
-3. $p = (\frac{2}{3}, \frac{1}{3}, 0)$ et $q = (\frac{1}{2}, \frac{1}{4}, \frac{1}{4})$ : $\mathrm{KL}(p \,\|\, q)$ est-elle finie ? Et $\mathrm{KL}(q \,\|\, p)$ ?
+1. Écris $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ comme une différence d'une cross-entropy et d'une entropie.
+2. Que vaut $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ quand $q = p$ ?
+3. $p = (\frac{2}{3}, \frac{1}{3}, 0)$ et $q = (\frac{1}{2}, \frac{1}{4}, \frac{1}{4})$ : $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ est-elle finie ? Et $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ ?
 4. Cite deux propriétés d'une distance que la divergence KL ne vérifie pas en général.
-5. Vrai ou faux : $\mathrm{KL}(p \,\|\, q)$ peut être négative.
-6. Dans $\mathrm{KL}(\text{données} \,\|\, \text{modèle})$, que mesure la KL, en bits par symbole ?
+5. Vrai ou faux : $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ peut être négative.
+6. Dans $\mathrm{KL}(\text{données} \thinspace\Vert\thinspace \text{modèle})$, que mesure la KL, en bits par symbole ?
 
 ### M06.Q6 — L'inégalité de Jensen 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C*
@@ -79,8 +79,8 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §7 · parcours C, E*
 
 1. Qu'est-ce qu'un code préfixe ? Pourquoi peut-on découper une suite de ses mots, écrits bout à bout, sans hésiter ?
-2. Le code $\{01, 10, 11, 001\}$ est-il préfixe ? Est-il complet ?
-3. Le code $\{0, 1, 10\}$ est-il préfixe ?
+2. Le code $\lbrace01, 10, 11, 001\rbrace$ est-il préfixe ? Est-il complet ?
+3. Le code $\lbrace0, 1, 10\rbrace$ est-il préfixe ?
 4. Des longueurs $(1, 3, 3, 3)$ sont-elles possibles pour un code préfixe binaire ?
 5. Combien de chiffres binaires faut-il à un code de longueur fixe pour 300 issues ?
 6. Vrai ou faux : un code de longueur fixe dont les mots sont tous différents est toujours préfixe.
@@ -234,7 +234,7 @@ Dans ta copie : vérifie que $H(X) + H(Y \mid X)$ et $H(Y) + H(X \mid Y)$ redonn
 | g | $H(X \mid Y)$ | un nombre (2 décimales) |
 | h | $X$ et $Y$ sont-elles indépendantes ? | `True` ou `False` |
 
-Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle case du tableau contribue le plus à la somme $\sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, et quelles cases y contribuent négativement ?
+Dans ta copie : calcule aussi $I(X ; Y)$ par $H(X) + H(Y) - H(X, Y)$. Quelle case du tableau contribue le plus à la somme $\sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\thinspace p(y)}$, et quelles cases y contribuent négativement ?
 
 ### Ex M06.6 — Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer une cross-entropy et une divergence KL, et les lire comme des bits par symbole et des bits perdus.
@@ -247,9 +247,9 @@ Une application enregistre cinq types d'événements. Son compresseur a été r�
 | a | $H(p)$ | un nombre (2 décimales) |
 | b | la longueur du mot du premier type, avec ce compresseur | un entier |
 | c | $H(p, q)$, la longueur moyenne d'un mot avec ce compresseur, sur les données d'aujourd'hui | un nombre (3 décimales) |
-| d | $\mathrm{KL}(p \,\|\, q)$ | un nombre (3 décimales) |
+| d | $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ | un nombre (3 décimales) |
 | e | le nombre de bits perdus, par rapport au meilleur code, sur 1 000 événements d'aujourd'hui | un entier |
-| f | $\mathrm{KL}(p \,\|\, q)$, en **nats** | un nombre (3 décimales) |
+| f | $\mathrm{KL}(p \thinspace\Vert\thinspace q)$, en **nats** | un nombre (3 décimales) |
 | g | le terme du premier type dans la somme $\sum_i p_i \log_2 \frac{p_i}{q_i}$ | un nombre (2 décimales) |
 
 Dans ta copie : vérifie que les longueurs du compresseur vérifient l'inégalité de Kraft (§7). Quels types coûtent plus cher qu'avec le meilleur code, et lesquels moins ? Quel est le signe de chaque terme de la somme de d), et pourquoi le total ne peut-il pas être négatif ?
@@ -289,7 +289,7 @@ Une somme de Kraft se donne en fraction irréductible, ou en entier si elle en e
 | d | celle des longueurs $(1, 3, 3, 3, 4, 4)$ | une fraction |
 | e | la somme de Kraft $\sum_i 3^{-\ell_i}$ des longueurs $(1, 1, 2, 2, 2)$, pour un alphabet de trois symboles | une fraction |
 | f | un code préfixe binaire a déjà deux mots, de longueurs 1 et 2 : combien de mots de longueur 3 peut-on lui ajouter, au plus ? | un entier |
-| g | le code $\{1, 10, 01\}$ est-il préfixe ? | `True` ou `False` |
+| g | le code $\lbrace1, 10, 01\rbrace$ est-il préfixe ? | `True` ou `False` |
 | h | la somme de Kraft des longueurs des mots du code de g) | une fraction |
 
 Dans ta copie : pour a) à e), dis si un code préfixe de ces longueurs existe ; pour ceux qui existent, écris-en un. Compare g) et h) : que dit l'inégalité de Kraft, et que ne dit-elle pas ?
@@ -298,7 +298,7 @@ Dans ta copie : pour a) à e), dis si un code préfixe de ces longueurs existe ;
 **Objectif :** calculer la longueur moyenne de plusieurs codes, la comparer à l'entropie, et construire les longueurs de Shannon.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-Une source émet six symboles avec les probabilités $p = (0{,}4 ;\ 0{,}2 ;\ 0{,}15 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}05)$, codés, dans cet ordre, par le code préfixe $\{00, 100, 01, 101, 110, 111\}$.
+Une source émet six symboles avec les probabilités $p = (0{,}4 ;\ 0{,}2 ;\ 0{,}15 ;\ 0{,}1 ;\ 0{,}1 ;\ 0{,}05)$, codés, dans cet ordre, par le code préfixe $\lbrace00, 100, 01, 101, 110, 111\rbrace$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -323,10 +323,10 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** relier les trois écritures de l'information mutuelle, et en déduire qu'en moyenne, conditionner ne peut qu'abaisser l'entropie.
 **Prérequis :** fiche §3 à §6 · **Parcours :** C
 
-On part de la définition $I(X ; Y) = \sum_{x, y} p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$, la somme portant sur les cases où $p(x, y) > 0$.
-1. En écrivant $p(x, y) = p(y)\,p(x \mid y)$, montre que $I(X ; Y) = H(X) - H(X \mid Y)$.
+On part de la définition $I(X ; Y) = \sum_{x, y} p(x, y) \log_2 \frac{p(x, y)}{p(x)\thinspace p(y)}$, la somme portant sur les cases où $p(x, y) > 0$.
+1. En écrivant $p(x, y) = p(y)\thinspace p(x \mid y)$, montre que $I(X ; Y) = H(X) - H(X \mid Y)$.
 2. Montre de même que $I(X ; Y) = H(Y) - H(Y \mid X)$, puis que $I(X ; Y) = H(X) + H(Y) - H(X, Y)$.
-3. Montre que $I(X ; Y) = \mathrm{KL}\big(p_{XY} \,\|\, p_X\,p_Y\big)$, où $p_X\,p_Y$ est la loi $(x, y) \mapsto p(x)\,p(y)$. On admet l'inégalité de Gibbs (fiche §6, démontrée en M06.11) : en déduire que $I(X ; Y) \ge 0$, avec égalité si et seulement si $X$ et $Y$ sont indépendantes.
+3. Montre que $I(X ; Y) = \mathrm{KL}\big(p_{XY} \thinspace\Vert\thinspace p_X\thinspace p_Y\big)$, où $p_X\thinspace p_Y$ est la loi $(x, y) \mapsto p(x)\thinspace p(y)$. On admet l'inégalité de Gibbs (fiche §6, démontrée en M06.11) : en déduire que $I(X ; Y) \ge 0$, avec égalité si et seulement si $X$ et $Y$ sont indépendantes.
 4. En déduire que $H(X \mid Y) \le H(X)$, et que $H(X, Y) \le H(X) + H(Y)$. Quand y a-t-il égalité ?
 5. Montre que $I(X ; X) = H(X)$.
 6. Donne un exemple de tableau 2 × 2 où, pour une valeur $y$, $H(X \mid Y = y) > H(X)$. Pourquoi ne contredit-il pas la question 4 ?
@@ -337,9 +337,9 @@ On part de la définition $I(X ; Y) = \sum_{x, y} p(x, y) \log_2 \frac{p(x, y)}{
 
 Soit $p$ et $q$ deux lois sur les mêmes issues, telles que $q(x) > 0$ pour toute issue $x$ où $p(x) > 0$. On admet l'inégalité de Jensen (fiche §6), avec son cas d'égalité pour une fonction strictement concave.
 1. Montre que $\log_2$ est strictement concave sur $]0, +\infty[$.
-2. Soit $X$ une variable de loi $p$, et $Z = \frac{q(X)}{p(X)}$ (bien définie : $X$ ne prend que des valeurs où $p > 0$). Écris $\mathbb{E}[\log_2 Z]$ à l'aide de $\mathrm{KL}(p \,\|\, q)$, puis montre que $\mathbb{E}[Z] \le 1$.
-3. Déduis-en que $\mathrm{KL}(p \,\|\, q) \ge 0$.
-4. À quelles conditions les inégalités utilisées en 3. sont-elles des égalités ? Déduis-en que $\mathrm{KL}(p \,\|\, q) = 0$ seulement si $p = q$.
+2. Soit $X$ une variable de loi $p$, et $Z = \frac{q(X)}{p(X)}$ (bien définie : $X$ ne prend que des valeurs où $p > 0$). Écris $\mathbb{E}[\log_2 Z]$ à l'aide de $\mathrm{KL}(p \thinspace\Vert\thinspace q)$, puis montre que $\mathbb{E}[Z] \le 1$.
+3. Déduis-en que $\mathrm{KL}(p \thinspace\Vert\thinspace q) \ge 0$.
+4. À quelles conditions les inégalités utilisées en 3. sont-elles des égalités ? Déduis-en que $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 0$ seulement si $p = q$.
 5. En déduire que la divergence de Jensen-Shannon est positive ou nulle, et nulle seulement si $p = q$.
 6. (L'inégalité log-somme.) Soit $a_1, \ldots, a_n$ et $b_1, \ldots, b_n$ des nombres strictement positifs, de sommes $A$ et $B$. En appliquant 3. aux lois $\big(\frac{a_i}{A}\big)_i$ et $\big(\frac{b_i}{B}\big)_i$, montre que $\sum_i a_i \log_2 \frac{a_i}{b_i} \ge A \log_2 \frac{A}{B}$.
 

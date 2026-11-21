@@ -58,7 +58,7 @@ Une espérance est une moyenne pondérée : elle tombe souvent entre deux valeur
 </details>
 <details><summary>Indice 3</summary>
 
-1 : l'espérance d'une Bernoulli de paramètre 0,3. 4 : $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$. 6 : compare $\frac{1}{\lambda}$ et $\sqrt{\frac{1}{\lambda^2}}$.
+1 : l'espérance d'une Bernoulli de paramètre 0,3. 4 : $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$. 6 : compare $\frac{1}{\lambda}$ et $\sqrt{\frac{1}{\lambda^2}}$.
 
 </details>
 
@@ -94,7 +94,7 @@ Une marginale : la somme d'une ligne ou d'une colonne. L'indépendance : chaque 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : compare $P(X = 1, Y = 1)$ à $P(X = 1)\,P(Y = 1)$. 6 : remplace la somme par une intégrale (fiche §7).
+3 : compare $P(X = 1, Y = 1)$ à $P(X = 1)\thinspace P(Y = 1)$. 6 : remplace la somme par une intégrale (fiche §7).
 
 </details>
 
@@ -147,12 +147,12 @@ Relis l'espérance et la variance de R8 §7.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[X] = \sum x\,P(X = x)$, $\mathbb{E}[X^2] = \sum x^2\,P(X = x)$, puis $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$.
+$\mathbb{E}[X] = \sum x\thinspace P(X = x)$, $\mathbb{E}[X^2] = \sum x^2\thinspace P(X = x)$, puis $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
+4 : $\mathbb{E}[aX + b] = a\thinspace\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$.
 
 </details>
 
@@ -170,7 +170,7 @@ Une densité : positive, d'intégrale totale 1. Pour une intégrale jusqu'à $+\
 </details>
 <details><summary>Indice 3</summary>
 
-3 : une primitive de $3x^{-4}$ est $-x^{-3}$. 4 : $\int_1^2 \frac{3}{x^4}\,dx$.
+3 : une primitive de $3x^{-4}$ est $-x^{-3}$. 4 : $\int_1^2 \frac{3}{x^4}\thinspace dx$.
 
 </details>
 
@@ -183,7 +183,7 @@ Relis les combinaisons de R8 §3.
 </details>
 <details><summary>Indice 2</summary>
 
-$\binom{n}{k} = \frac{n!}{k!\,(n - k)!}$, le nombre de façons de choisir $k$ objets parmi $n$.
+$\binom{n}{k} = \frac{n!}{k!\thinspace(n - k)!}$, le nombre de façons de choisir $k$ objets parmi $n$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -205,7 +205,7 @@ Relis « Binomiale : le nombre de succès en $n$ essais » (fiche §2) : $X \sim
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $P(X = k) = \binom{5}{k}\,0{,}8^k\,0{,}2^{5-k}$ pour chaque $k$ demandé ; l'espérance et la variance sont dans le tableau du §4.
+Écris $P(X = k) = \binom{5}{k}\thinspace0{,}8^k\thinspace0{,}2^{5-k}$ pour chaque $k$ demandé ; l'espérance et la variance sont dans le tableau du §4.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -228,7 +228,7 @@ $P(X = k) = q^{k-1}p$ et $P(X > k) = q^k$. Pour d, écris $S$ et $qS$ l'une sous
 </details>
 <details><summary>Indice 3</summary>
 
-d : $S - qS = 1 + q + q^2 + \cdots = \frac{1}{1 - q}$, donc $S = \frac{1}{(1 - q)^2}$. e : $\mathbb{E}[X] = \sum k\,q^{k-1}p = p\,S$. g : calcule $P(X \le 1)$, puis $P(X \le 2)$.
+d : $S - qS = 1 + q + q^2 + \cdots = \frac{1}{1 - q}$, donc $S = \frac{1}{(1 - q)^2}$. e : $\mathbb{E}[X] = \sum k\thinspace q^{k-1}p = p\thinspace S$. g : calcule $P(X \le 1)$, puis $P(X \le 2)$.
 
 </details>
 
@@ -295,12 +295,12 @@ Relis « L'espérance, discrète et continue » et « Le théorème de transfert
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[X] = \int_0^1 x \cdot 2(1 - x)\,dx$ et $\mathbb{E}[X^2] = \int_0^1 x^2 \cdot 2(1 - x)\,dx$ : développe, puis intègre terme à terme.
+$\mathbb{E}[X] = \int_0^1 x \cdot 2(1 - x)\thinspace dx$ et $\mathbb{E}[X^2] = \int_0^1 x^2 \cdot 2(1 - x)\thinspace dx$ : développe, puis intègre terme à terme.
 
 </details>
 <details><summary>Indice 3</summary>
 
-g : par parties avec $u = 1 - x$ et $v' = e^x$ : $\int (1 - x)e^x\,dx = (1 - x)e^x + \int e^x\,dx = (2 - x)e^x$, puis multiplie par 2. h : $e^{1/3} \approx 1{,}3956$.
+g : par parties avec $u = 1 - x$ et $v' = e^x$ : $\int (1 - x)e^x\thinspace dx = (1 - x)e^x + \int e^x\thinspace dx = (2 - x)e^x$, puis multiplie par 2. h : $e^{1/3} \approx 1{,}3956$.
 
 </details>
 
@@ -354,7 +354,7 @@ Un produit $g(x)h(y)$ : le produit de deux intégrales simples. Sinon, intègre 
 </details>
 <details><summary>Indice 3</summary>
 
-c : $\int_0^1 (x^2 + xy)\,dx = \frac{1}{3} + \frac{y}{2}$. d : l'intégrale de $f$ sur le rectangle vaut $c$ fois l'intégrale de a). e : $f_X(x) = \int_0^3 c\,x\,y^2\,dy$. h : le produit $\int_0^{1/2} f_X \times \int_0^1 f_Y$, puisque $X$ et $Y$ sont indépendantes.
+c : $\int_0^1 (x^2 + xy)\thinspace dx = \frac{1}{3} + \frac{y}{2}$. d : l'intégrale de $f$ sur le rectangle vaut $c$ fois l'intégrale de a). e : $f_X(x) = \int_0^3 c\thinspace x\thinspace y^2\thinspace dy$. h : le produit $\int_0^{1/2} f_X \times \int_0^1 f_Y$, puisque $X$ et $Y$ sont indépendantes.
 
 </details>
 
@@ -407,7 +407,7 @@ Relis « Les coordonnées polaires » et « L'intégrale de Gauss, enfin démont
 </details>
 <details><summary>Indice 2</summary>
 
-1 : $e^{-(x^2 + y^2)} = e^{-x^2}e^{-y^2}$, un produit. 2 : en polaires, $g = e^{-r^2}$ et $dx\,dy = r\,dr\,d\theta$ ; une primitive de $r\,e^{-r^2}$ est $-\frac{1}{2}e^{-r^2}$.
+1 : $e^{-(x^2 + y^2)} = e^{-x^2}e^{-y^2}$, un produit. 2 : en polaires, $g = e^{-r^2}$ et $dx\thinspace dy = r\thinspace dr\thinspace d\theta$ ; une primitive de $r\thinspace e^{-r^2}$ est $-\frac{1}{2}e^{-r^2}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -430,7 +430,7 @@ Relis « La loi des événements rares » (fiche §2), et les limites de R7.
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\frac{n - i}{n} = 1 - \frac{i}{n} \to 1$, et il y a $k$ facteurs, un nombre fixe. 3 : $n\ln(1 + h) = -\lambda\,\frac{\ln(1 + h)}{h} \to -\lambda$, puis l'exponentielle est continue.
+2 : $\frac{n - i}{n} = 1 - \frac{i}{n} \to 1$, et il y a $k$ facteurs, un nombre fixe. 3 : $n\ln(1 + h) = -\lambda\thinspace\frac{\ln(1 + h)}{h} \to -\lambda$, puis l'exponentielle est continue.
 
 </details>
 
@@ -447,12 +447,12 @@ Relis « Binomiale » et « La loi des événements rares » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$X \sim \mathcal{B}(2\,000 ;\ 0{,}002)$, approchée par $\mathcal{P}(\lambda)$ avec $\lambda = np$. Pour $Y$, même chose avec $n = 500$.
+$X \sim \mathcal{B}(2\thinspace000 ;\ 0{,}002)$, approchée par $\mathcal{P}(\lambda)$ avec $\lambda = np$. Pour $Y$, même chose avec $n = 500$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c : $0{,}998^{2\,000}$ à la calculatrice. g : $1 - e^{-0{,}002\,n} \ge 0{,}9$ équivaut à $n \ge \frac{\ln 10}{0{,}002}$ ; arrondis à l'entier supérieur.
+c : $0{,}998^{2\thinspace000}$ à la calculatrice. g : $1 - e^{-0{,}002\thinspace n} \ge 0{,}9$ équivaut à $n \ge \frac{\ln 10}{0{,}002}$ ; arrondis à l'entier supérieur.
 
 </details>
 
@@ -622,7 +622,7 @@ Somme de $n$ copies indépendantes : variance multipliée par $n$. Une variable 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\mathbb{V}\big(\frac{S}{4}\big) = \frac{1}{16}\,\mathbb{V}(S) = \frac{4\,\mathbb{V}(X)}{16}$. b : la racine de a.
+a : $\mathbb{V}\big(\frac{S}{4}\big) = \frac{1}{16}\thinspace\mathbb{V}(S) = \frac{4\thinspace\mathbb{V}(X)}{16}$. b : la racine de a.
 
 </details>
 

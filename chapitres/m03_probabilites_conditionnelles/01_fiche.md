@@ -57,8 +57,8 @@ Vocabulaire anglais de ce chapitre : *joint probability*, *marginal probability*
 
 1. Pour deux variables observées ensemble, le **tableau de contingence** range les comptages ; divisé par le total, il donne la **loi jointe** $P(X = x, Y = y)$. Les **marginales** sont les sommes des lignes et des colonnes.
 2. **Probabilité conditionnelle** : $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$ quand $P(B) > 0$. Dans un tableau : une case divisée par le total de **sa ligne** ou de **sa colonne**. $P(A \mid B) \ne P(B \mid A)$ en général.
-3. **Règle du produit** : $P(A \cap B) = P(A \mid B)\,P(B)$. **Indépendance** : $P(A \cap B) = P(A)\,P(B)$, soit $P(A \mid B) = P(A)$ ; pour deux variables, **chaque** case est le produit de ses deux marginales.
-4. **Probabilités totales** : si $B_1, \ldots, B_K$ découpent l'univers, $P(A) = \sum_k P(A \mid B_k)\,P(B_k)$. Un taux global est une moyenne des taux par groupe, **pondérée** par la taille des groupes : d'où le paradoxe de Simpson.
+3. **Règle du produit** : $P(A \cap B) = P(A \mid B)\thinspace P(B)$. **Indépendance** : $P(A \cap B) = P(A)\thinspace P(B)$, soit $P(A \mid B) = P(A)$ ; pour deux variables, **chaque** case est le produit de ses deux marginales.
+4. **Probabilités totales** : si $B_1, \ldots, B_K$ découpent l'univers, $P(A) = \sum_k P(A \mid B_k)\thinspace P(B_k)$. Un taux global est une moyenne des taux par groupe, **pondérée** par la taille des groupes : d'où le paradoxe de Simpson.
 5. La **matrice de confusion** est le tableau de contingence (vérité, prédiction). **Recall** $= P(\hat{Y} = 1 \mid Y = 1)$ et **spécificité** $= P(\hat{Y} = 0 \mid Y = 0)$ se lisent sur une ligne ; **precision** $= P(Y = 1 \mid \hat{Y} = 1)$ sur une colonne ; **accuracy** $= P(\hat{Y} = Y)$.
 6. $F_\beta$ est une moyenne harmonique **pondérée** de la precision et du recall ; macro (moyenne simple des classes), pondérée (par les effectifs), micro (on additionne les comptages : l'accuracy en multiclasse). **Balanced accuracy** : la moyenne des recalls. **MCC** : la corrélation entre $Y$ et $\hat{Y}$ codés 0 et 1.
 7. Le recall et la spécificité ne dépendent pas de la **prévalence** $\pi = P(Y = 1)$ ; la precision, si : $\frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$. Pour des probabilités calibrées, le seuil qui minimise le coût est $\frac{c_{FP}}{c_{FP} + c_{FN}}$.
@@ -137,31 +137,31 @@ En faisant varier la valeur de $Y$, on obtient toute la **loi conditionnelle** d
 
 En multipliant la définition par $P(B)$, on obtient la **règle du produit** (*product rule*) :
 
-$$P(A \cap B) = P(A \mid B)\,P(B) = P(B \mid A)\,P(A).$$
+$$P(A \cap B) = P(A \mid B)\thinspace P(B) = P(B \mid A)\thinspace P(A).$$
 
-C'est la règle des chemins des arbres de R8 : la probabilité d'un chemin est le produit de ses branches, et la seconde branche est une probabilité **sachant** la première. Elle donne une case du tableau à partir d'une marge et d'une conditionnelle : $P(\text{mobile} \cap \text{premium}) = P(\text{premium} \mid \text{mobile})\,P(\text{mobile}) = 0{,}1 \times 0{,}6 = 0{,}06$. Elle s'enchaîne : $P(A \cap B \cap C) = P(A)\,P(B \mid A)\,P(C \mid A \cap B)$, la probabilité d'une phrase mot après mot dans un modèle de langage.
+C'est la règle des chemins des arbres de R8 : la probabilité d'un chemin est le produit de ses branches, et la seconde branche est une probabilité **sachant** la première. Elle donne une case du tableau à partir d'une marge et d'une conditionnelle : $P(\text{mobile} \cap \text{premium}) = P(\text{premium} \mid \text{mobile})\thinspace P(\text{mobile}) = 0{,}1 \times 0{,}6 = 0{,}06$. Elle s'enchaîne : $P(A \cap B \cap C) = P(A)\thinspace P(B \mid A)\thinspace P(C \mid A \cap B)$, la probabilité d'une phrase mot après mot dans un modèle de langage.
 
 ### L'indépendance
 
 Deux événements sont **indépendants** quand savoir que l'un s'est produit ne change pas la probabilité de l'autre (R8 §5) :
 
-$$A \text{ et } B \text{ indépendants} \iff P(A \cap B) = P(A)\,P(B) \iff P(A \mid B) = P(A) \quad (\text{si } P(B) > 0).$$
+$$A \text{ et } B \text{ indépendants} \iff P(A \cap B) = P(A)\thinspace P(B) \iff P(A \mid B) = P(A) \quad (\text{si } P(B) > 0).$$
 
 Ici, $P(\text{premium}) = 0{,}16$ mais $P(\text{premium} \mid \text{mobile}) = 0{,}1$ : être sur mobile **diminue** la probabilité d'être premium. Les deux événements sont dépendants ; on le voit aussi par le produit, $0{,}6 \times 0{,}16 = 0{,}096 \ne 0{,}06$.
 
-Deux **variables** $X$ et $Y$ sont indépendantes si les événements $\{X = x\}$ et $\{Y = y\}$ le sont pour **toutes** les valeurs (M02b §5) : chaque case de la loi jointe est le produit de ses deux marginales, et toutes les lignes ont la même loi conditionnelle. Avec les marges de l'exemple, le tableau des 500 utilisateurs **si** l'appareil et l'abonnement étaient indépendants serait
+Deux **variables** $X$ et $Y$ sont indépendantes si les événements $\lbrace X = x\rbrace$ et $\lbrace Y = y\rbrace$ le sont pour **toutes** les valeurs (M02b §5) : chaque case de la loi jointe est le produit de ses deux marginales, et toutes les lignes ont la même loi conditionnelle. Avec les marges de l'exemple, le tableau des 500 utilisateurs **si** l'appareil et l'abonnement étaient indépendants serait
 
-$$\text{case} = \frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}} : \qquad \begin{array}{c|ccc} & \text{gratuit} & \text{standard} & \text{premium} \\ \hline \text{mobile} & 150 & 102 & 48 \\ \text{ordinateur} & 100 & 68 & 32 \end{array}$$
+$$\text{case} = \frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}} : \qquad \begin{array}{c|ccc} & \text{gratuit} & \text{standard} & \text{premium} \cr \hline \text{mobile} & 150 & 102 & 48 \cr \text{ordinateur} & 100 & 68 & 32 \end{array}$$
 
 On observe 30 premium sur mobile au lieu des 48 attendus : l'écart mesure la dépendance. (Le test du $\chi^2$, que M08 évoquera, décide si un tel écart peut venir du hasard de l'échantillon.)
 
-**Indépendance deux à deux ou mutuelle.** On lance deux pièces équilibrées ; $A$ = « la première tombe sur pile », $B$ = « la seconde tombe sur pile », $C$ = « les deux pièces tombent du même côté ». Chacun a la probabilité $\frac{1}{2}$, et chaque paire est indépendante : $P(A \cap C) = P(\text{pile, pile}) = \frac{1}{4} = P(A)\,P(C)$, de même pour $B$ et $C$. Pourtant, si l'on connaît $A$ **et** $B$, on connaît $C$ à coup sûr : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$. Les trois événements sont **indépendants deux à deux**, mais pas **mutuellement** indépendants. Regarder les variables deux par deux ne suffit pas à tout voir.
+**Indépendance deux à deux ou mutuelle.** On lance deux pièces équilibrées ; $A$ = « la première tombe sur pile », $B$ = « la seconde tombe sur pile », $C$ = « les deux pièces tombent du même côté ». Chacun a la probabilité $\frac{1}{2}$, et chaque paire est indépendante : $P(A \cap C) = P(\text{pile, pile}) = \frac{1}{4} = P(A)\thinspace P(C)$, de même pour $B$ et $C$. Pourtant, si l'on connaît $A$ **et** $B$, on connaît $C$ à coup sûr : $P(A \cap B \cap C) = \frac{1}{4} \ne \frac{1}{8}$. Les trois événements sont **indépendants deux à deux**, mais pas **mutuellement** indépendants. Regarder les variables deux par deux ne suffit pas à tout voir.
 
 ⚠️ **Erreur classique.** Confondre « indépendants » et « incompatibles » (R8 §5) : deux événements incompatibles de probabilités non nulles sont toujours dépendants, puisque l'un exclut l'autre. Autre piège : conclure à l'indépendance de deux variables sur une seule case ; il faut **toutes** les cases (ou toutes les lignes de même loi conditionnelle).
 
 💻 **Aujourd'hui en pratique** — `pd.crosstab(df["x"], df["y"], normalize="index")` divise chaque ligne par son total (les lois conditionnelles de $Y$ sachant $X$), `normalize="columns"` chaque colonne, `normalize="all"` tout le tableau. Sur des données, les cases ne sont jamais **exactement** des produits : on compare avec une tolérance (ta fonction `are_independent`, M03.20) ou par un test statistique.
 
-📖 **Dans MML** — §6.3 énonce la règle du produit, $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})$, et souligne qu'elle vaut dans les deux sens ; §6.4.5 (lu en M02b) définit l'indépendance par $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{x})\,p(\mathbf{y})$. Lecture et questions : M03.16.
+📖 **Dans MML** — §6.3 énonce la règle du produit, $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{y} \mid \mathbf{x})\thinspace p(\mathbf{x})$, et souligne qu'elle vaut dans les deux sens ; §6.4.5 (lu en M02b) définit l'indépendance par $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{x})\thinspace p(\mathbf{y})$. Lecture et questions : M03.16.
 
 🔗 **Dans workbookIA** — le chapitre 3 calcule des probabilités conditionnelles dans des tableaux, et le chapitre 4 passera de $P(B \mid A)$ à $P(A \mid B)$ (la règle de Bayes, M04) ; le classifieur bayésien naïf (chapitre 13) suppose les features indépendantes sachant la classe.
 
@@ -175,10 +175,10 @@ Un site marchand reçoit ses visiteurs de trois sources : la recherche (60 % des
 
 Les trois sources $B_1$, $B_2$, $B_3$ forment une **partition** : chaque visite vient d'une et une seule source. On découpe l'événement $A$ = « achat » selon la source, et chaque morceau se calcule par la règle du produit :
 
-$$P(A) = P(A \mid B_1)\,P(B_1) + P(A \mid B_2)\,P(B_2) + P(A \mid B_3)\,P(B_3) = 0{,}02 \times 0{,}6 + 0{,}05 \times 0{,}25 + 0{,}08 \times 0{,}15 = 0{,}0365.$$
+$$P(A) = P(A \mid B_1)\thinspace P(B_1) + P(A \mid B_2)\thinspace P(B_2) + P(A \mid B_3)\thinspace P(B_3) = 0{,}02 \times 0{,}6 + 0{,}05 \times 0{,}25 + 0{,}08 \times 0{,}15 = 0{,}0365.$$
 
 > **Formule des probabilités totales** (*law of total probability*). Si les événements $B_1, \ldots, B_K$, de probabilités non nulles, forment une partition de l'univers (deux à deux incompatibles, de réunion l'univers entier), alors pour tout événement $A$ :
-> $$P(A) = \sum_{k=1}^{K} P(A \mid B_k)\,P(B_k).$$
+> $$P(A) = \sum_{k=1}^{K} P(A \mid B_k)\thinspace P(B_k).$$
 
 C'est la règle 3 des arbres de R8 (on additionne les chemins qui mènent à $A$), et la règle de la somme du §1 écrite avec des conditionnelles : $P(A) = \sum_k P(A \cap B_k)$, puis chaque terme par la règle du produit. workbookIA 3 la démontre (∂ 3.4) ; on l'utilise ici.
 
@@ -256,11 +256,11 @@ array([[840,  40],
 
 ### F-beta : une moyenne harmonique pondérée
 
-Le **F1** résume precision $P$ et recall $R$ par leur **moyenne harmonique** (R1) : $F_1 = \frac{2PR}{P + R}$. Pour le modèle de pannes, $F_1 = \frac{2 \times 0{,}692 \times 0{,}75}{0{,}692 + 0{,}75} = 0{,}72$, ou directement avec les comptages, $\frac{2\,TP}{2\,TP + FP + FN} = \frac{180}{250} = 0{,}72$. La moyenne harmonique reste proche du plus petit des deux nombres : un modèle ne peut pas compenser un recall faible par une precision excellente.
+Le **F1** résume precision $P$ et recall $R$ par leur **moyenne harmonique** (R1) : $F_1 = \frac{2PR}{P + R}$. Pour le modèle de pannes, $F_1 = \frac{2 \times 0{,}692 \times 0{,}75}{0{,}692 + 0{,}75} = 0{,}72$, ou directement avec les comptages, $\frac{2\thinspace TP}{2\thinspace TP + FP + FN} = \frac{180}{250} = 0{,}72$. La moyenne harmonique reste proche du plus petit des deux nombres : un modèle ne peut pas compenser un recall faible par une precision excellente.
 
 Le **F-beta** donne plus de poids à l'un des deux. Son inverse est la moyenne **pondérée** des inverses :
 
-$$\frac{1}{F_\beta} = \frac{1}{1 + \beta^2}\cdot\frac{1}{P} + \frac{\beta^2}{1 + \beta^2}\cdot\frac{1}{R}, \qquad \text{soit} \qquad F_\beta = \frac{(1 + \beta^2)\,PR}{\beta^2 P + R} = \frac{(1 + \beta^2)\,TP}{(1 + \beta^2)\,TP + \beta^2\,FN + FP}.$$
+$$\frac{1}{F_\beta} = \frac{1}{1 + \beta^2}\cdot\frac{1}{P} + \frac{\beta^2}{1 + \beta^2}\cdot\frac{1}{R}, \qquad \text{soit} \qquad F_\beta = \frac{(1 + \beta^2)\thinspace PR}{\beta^2 P + R} = \frac{(1 + \beta^2)\thinspace TP}{(1 + \beta^2)\thinspace TP + \beta^2\thinspace FN + FP}.$$
 
 Le recall reçoit le poids $\frac{\beta^2}{1 + \beta^2}$ : avec $\beta = 2$, 80 % du poids, et chaque faux négatif compte $\beta^2 = 4$ fois plus qu'un faux positif au dénominateur. On choisit $\beta > 1$ quand manquer un positif coûte plus cher qu'une fausse alerte. Pour le modèle de pannes : $F_2 \approx 0{,}738$ et $F_{0{,}5} \approx 0{,}703$. Quand $\beta \to +\infty$, $F_\beta \to R$ ; quand $\beta \to 0$, $F_\beta \to P$.
 
@@ -300,7 +300,7 @@ $$\text{MCC} = \frac{TP \cdot TN - FP \cdot FN}{\sqrt{(TP + FP)(TP + FN)(TN + FP
 <details>
 <summary>Pourquoi cette formule est une corrélation</summary>
 
-Pour une variable qui vaut 0 ou 1, la moyenne est la proportion de 1, et la variance (divisée par $n$) vaut $p(1 - p)$ (M02b, Bernoulli). Avec $n = TP + FN + FP + TN$ : $P(Y = 1) = \frac{TP + FN}{n}$, $P(\hat{Y} = 1) = \frac{TP + FP}{n}$, et $P(Y = 1, \hat{Y} = 1) = \frac{TP}{n}$. La covariance $\overline{y\hat{y}} - \bar{y}\,\bar{\hat{y}}$ vaut donc
+Pour une variable qui vaut 0 ou 1, la moyenne est la proportion de 1, et la variance (divisée par $n$) vaut $p(1 - p)$ (M02b, Bernoulli). Avec $n = TP + FN + FP + TN$ : $P(Y = 1) = \frac{TP + FN}{n}$, $P(\hat{Y} = 1) = \frac{TP + FP}{n}$, et $P(Y = 1, \hat{Y} = 1) = \frac{TP}{n}$. La covariance $\overline{y\hat{y}} - \bar{y}\thinspace\bar{\hat{y}}$ vaut donc
 $$\frac{TP}{n} - \frac{(TP + FN)(TP + FP)}{n^2} = \frac{n \cdot TP - (TP + FN)(TP + FP)}{n^2} = \frac{TP \cdot TN - FP \cdot FN}{n^2},$$
 car $n \cdot TP - (TP + FN)(TP + FP) = TP(TP + FN + FP + TN) - TP^2 - TP \cdot FP - FN \cdot TP - FN \cdot FP = TP \cdot TN - FP \cdot FN$. Les variances valent $\frac{(TP + FN)(FP + TN)}{n^2}$ et $\frac{(TP + FP)(FN + TN)}{n^2}$ ; on divise la covariance par la racine de leur produit, et les $n^2$ se simplifient.
 </details>
@@ -335,13 +335,13 @@ Conséquence pratique : une precision mesurée sur un jeu de test ne vaut que po
 
 ### Classes déséquilibrées : repondérer à l'entraînement
 
-Un modèle entraîné à minimiser une erreur moyenne sur des données où 88 % des exemples sont négatifs apprend surtout à reconnaître les négatifs. On **repondère** souvent les exemples : chaque exemple de la classe $k$ reçoit le poids $w_k = \frac{n}{K\,n_k}$ ($n$ exemples, $K$ classes, $n_k$ exemples dans la classe $k$ ; l'option `class_weight="balanced"` de scikit-learn). Pour le modèle de pannes : $w_1 = \frac{1000}{2 \times 120} = \frac{25}{6} \approx 4{,}17$ et $w_0 = \frac{1000}{2 \times 880} = \frac{25}{44} \approx 0{,}57$. Les deux classes pèsent alors autant au total ($120 \times \frac{25}{6} = 880 \times \frac{25}{44} = 500$) : tout se passe comme si la prévalence valait $\frac{1}{2}$. Rééchantillonner (dupliquer des positifs, retirer des négatifs) a le même effet. Le prix : les probabilités du modèle sont alors celles d'un monde à 50 % de positifs, et ne sont plus **calibrées** pour la vraie prévalence (§8) ; M04 donnera la formule pour les corriger.
+Un modèle entraîné à minimiser une erreur moyenne sur des données où 88 % des exemples sont négatifs apprend surtout à reconnaître les négatifs. On **repondère** souvent les exemples : chaque exemple de la classe $k$ reçoit le poids $w_k = \frac{n}{K\thinspace n_k}$ ($n$ exemples, $K$ classes, $n_k$ exemples dans la classe $k$ ; l'option `class_weight="balanced"` de scikit-learn). Pour le modèle de pannes : $w_1 = \frac{1000}{2 \times 120} = \frac{25}{6} \approx 4{,}17$ et $w_0 = \frac{1000}{2 \times 880} = \frac{25}{44} \approx 0{,}57$. Les deux classes pèsent alors autant au total ($120 \times \frac{25}{6} = 880 \times \frac{25}{44} = 500$) : tout se passe comme si la prévalence valait $\frac{1}{2}$. Rééchantillonner (dupliquer des positifs, retirer des négatifs) a le même effet. Le prix : les probabilités du modèle sont alors celles d'un monde à 50 % de positifs, et ne sont plus **calibrées** pour la vraie prévalence (§8) ; M04 donnera la formule pour les corriger.
 
 ### Le seuil de décision
 
-La plupart des modèles donnent un **score**, souvent une probabilité $p$ que l'exemple soit positif, et l'on déclare positif quand $p \ge t$, pour un **seuil de décision** (*decision threshold*) $t$. Monter le seuil signale moins : la precision monte en général, le recall baisse. Le choix de $t$ dépend du **coût des erreurs**. Si un faux positif coûte $c_{FP}$ et un faux négatif $c_{FN}$, déclarer positif un exemple de probabilité $p$ coûte en moyenne $c_{FP}(1 - p)$ (s'il est négatif), et le déclarer négatif coûte $c_{FN}\,p$. On déclare positif quand c'est moins cher :
+La plupart des modèles donnent un **score**, souvent une probabilité $p$ que l'exemple soit positif, et l'on déclare positif quand $p \ge t$, pour un **seuil de décision** (*decision threshold*) $t$. Monter le seuil signale moins : la precision monte en général, le recall baisse. Le choix de $t$ dépend du **coût des erreurs**. Si un faux positif coûte $c_{FP}$ et un faux négatif $c_{FN}$, déclarer positif un exemple de probabilité $p$ coûte en moyenne $c_{FP}(1 - p)$ (s'il est négatif), et le déclarer négatif coûte $c_{FN}\thinspace p$. On déclare positif quand c'est moins cher :
 
-$$c_{FP}(1 - p) < c_{FN}\,p \iff p > \frac{c_{FP}}{c_{FP} + c_{FN}}.$$
+$$c_{FP}(1 - p) < c_{FN}\thinspace p \iff p > \frac{c_{FP}}{c_{FP} + c_{FN}}.$$
 
 Pour les disques, si une panne imprévue coûte 5 fois plus que le remplacement inutile d'un disque sain, le seuil vaut $\frac{1}{1 + 5} = \frac{1}{6} \approx 0{,}17$, bien en dessous de 0,5. Ce raisonnement suppose des probabilités **calibrées** (§8) ; sinon, on choisit le seuil sur un jeu de validation, en calculant le coût pour chaque seuil.
 
@@ -376,7 +376,7 @@ Cette aire a une lecture remarquable. Découpons le carré unité en $4 \times 4
 ![La courbe ROC en escalier sur la grille des paires, et la courbe precision-recall avec les rectangles de l'average precision](figures/roc_paires.png)
 
 > **L'AUC comme probabilité.** On tire au hasard un positif et un négatif ; l'AUC est la probabilité que le positif ait le score le plus élevé, un ex æquo comptant pour $\frac{1}{2}$ :
-> $$\text{AUC} = \frac{\#\{\text{paires bien classées}\} + \frac{1}{2}\,\#\{\text{ex æquo}\}}{n_+ \times n_-}.$$
+> $$\text{AUC} = \frac{\operatorname{card}\lbrace\text{paires bien classées}\rbrace + \frac{1}{2}\thinspace\operatorname{card}\lbrace\text{ex æquo}\rbrace}{n_+ \times n_-}.$$
 
 M03.12 démontre l'égalité de l'aire et de cette proportion ; ta fonction `auc_by_pairs` (M03.21) compte les paires. Un ex æquo entre un positif et un négatif fait monter et avancer la courbe **en même temps** : un segment en diagonale, sous lequel l'aire vaut la moitié de la case.
 
@@ -389,7 +389,7 @@ Trois conséquences :
 
 La courbe **precision-recall** place, pour chaque seuil, le recall en abscisse et la precision en ordonnée. Un modèle au hasard y donne une droite horizontale à la hauteur de la prévalence (sa precision vaut la part de positifs). L'**average precision** (AP) résume l'aire sous cette courbe par une somme en escalier :
 
-$$\text{AP} = \sum_j (R_j - R_{j-1})\,P_j,$$
+$$\text{AP} = \sum_j (R_j - R_{j-1})\thinspace P_j,$$
 
 où $(R_j, P_j)$ est le couple (recall, precision) au $j$-ième seuil, du plus haut au plus bas, et $R_0 = 0$. Seuls les seuils où le recall augmente comptent : chaque gain de recall est multiplié par la precision atteinte à ce moment. Pour les huit disques, le recall augmente aux seuils 0,95 (precision 1), 0,8 (precision 1), 0,6 (precision $\frac{3}{4}$) et 0,35 (precision $\frac{4}{6}$) : $\text{AP} = \frac{1}{4}\big(1 + 1 + \frac{3}{4} + \frac{2}{3}\big) \approx 0{,}854$.
 
@@ -436,7 +436,7 @@ Un modèle est utilisé sur deux groupes de personnes $G_1$ et $G_2$ (deux langu
 - l'**égalité des taux d'erreur** (*equalized odds*) : le même recall et le même taux de faux positifs dans chaque groupe ;
 - la **parité des precisions** (*predictive parity*) : la même precision $P(Y = 1 \mid \hat{Y} = 1, G = g)$. Elle ressemble à la calibration dans chaque groupe, mais n'en découle pas : la precision au seuil $t$ est la moyenne des scores (calibrés) supérieurs ou égaux à $t$, qui dépend de la répartition des scores dans le groupe.
 
-Ces critères ne peuvent pas tous être vrais à la fois quand les prévalences des groupes diffèrent. En écrivant $FP$ à partir de la precision ($\text{PPV} = \frac{TP}{TP + FP}$, donc $FP = TP\,\frac{1 - \text{PPV}}{\text{PPV}}$) et $TP = r\,n_+$ :
+Ces critères ne peuvent pas tous être vrais à la fois quand les prévalences des groupes diffèrent. En écrivant $FP$ à partir de la precision ($\text{PPV} = \frac{TP}{TP + FP}$, donc $FP = TP\thinspace\frac{1 - \text{PPV}}{\text{PPV}}$) et $TP = r\thinspace n_+$ :
 
 $$\text{FPR} = \frac{FP}{n_-} = \frac{\pi}{1 - \pi}\cdot\frac{1 - \text{PPV}}{\text{PPV}}\cdot r.$$
 

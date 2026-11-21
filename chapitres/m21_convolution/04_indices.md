@@ -17,7 +17,7 @@ Relis « Le lien : retourner le noyau » et l'encadré 📐 du §2.
 </details>
 <details><summary>Indice 2</summary>
 
-Le noyau retourné lit le noyau à l'envers. Un noyau antisymétrique vérifie $\tilde{\mathbf{w}} = -\mathbf{w}$. Dans $(\mathbf{a} * \mathbf{b})_m$, les deux indices ont pour somme $m$.
+Le noyau retourné lit le noyau à l'envers. Un noyau antisymétrique vérifie $\tilde{\mathbf{w}} = -\mathbf{w}$. Dans $(\mathbf{a} \ast \mathbf{b})_m$, les deux indices ont pour somme $m$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -35,12 +35,12 @@ Relis l'encadré « Propriétés » du §1 et le point de vue des polynômes.
 </details>
 <details><summary>Indice 2</summary>
 
-2. Évalue les deux polynômes en $X = 1$. 5. Écris $(\mathbf{a} * (0, 0, 1))_m$ avec la définition. 6. Sur une portion constante, chaque valeur complète vaut la constante fois une somme.
+2. Évalue les deux polynômes en $X = 1$. 5. Écris $(\mathbf{a} \ast (0, 0, 1))_m$ avec la définition. 6. Sur une portion constante, chaque valeur complète vaut la constante fois une somme.
 
 </details>
 <details><summary>Indice 3</summary>
 
-5. $(\mathbf{a} * (0, 0, 1))_m = a_{m-2}$ : la valeur d'indice $m$ est celle qui était à l'indice $m - 2$. 6. La somme du noyau vaut $0{,}5 + 2 - 1$.
+5. $(\mathbf{a} \ast (0, 0, 1)) _m = a _{m-2}$ : la valeur d'indice $m$ est celle qui était à l'indice $m - 2$. 6. La somme du noyau vaut $0{,}5 + 2 - 1$.
 
 </details>
 
@@ -76,7 +76,7 @@ Pour chaque application, remplace $\mathbf{x}$ par $\tau_t\mathbf{x}$, c'est-à-
 </details>
 <details><summary>Indice 3</summary>
 
-3. $(F(\tau_t\mathbf{x}))_i = i\,x_{i-t}$, alors que $(\tau_tF(\mathbf{x}))_i = (i - t)\,x_{i-t}$. 5. $(\tau_6\mathbf{x})_{3i} = x_{3i-6} = x_{3(i-2)}$ ; avec un décalage de 2, on lit $x_{3i-2}$.
+3. $(F(\tau_t\mathbf{x})) _i = i\thinspace x _{i-t}$, alors que $(\tau_tF(\mathbf{x})) _i = (i - t)\thinspace x _{i-t}$. 5. $(\tau_6\mathbf{x})  _{3i} = x  _{3i-6} = x _{3(i-2)}$ ; avec un décalage de 2, on lit $x _{3i-2}$.
 
 </details>
 
@@ -130,7 +130,7 @@ Le noyau équivalent de deux étages de pas 1 est la convolution des deux noyaux
 </details>
 <details><summary>Indice 3</summary>
 
-2. $(3, 1) * (1, -2)$ : trois termes. 4. $r$ passe de 1 à 2, puis la contribution de l'étage 2 est multipliée par 2, celle de l'étage 3 par 4. 6. Calcule $r$ dans les deux ordres.
+2. $(3, 1) \ast (1, -2)$ : trois termes. 4. $r$ passe de 1 à 2, puis la contribution de l'étage 2 est multipliée par 2, celle de l'étage 3 par 4. 6. Calcule $r$ dans les deux ordres.
 
 </details>
 
@@ -148,7 +148,7 @@ Boule L∞ → norme L1 de $\mathbf{g}$, en $\varepsilon\operatorname{signe}(\ma
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\lVert\mathbf{g}\rVert_1 = 1 + 4 + 2 + 0 + 2$. 2. Que vaut $g_4\delta_4$, quel que soit $\delta_4$ ? 3. $\lVert\mathbf{g}\rVert_2 = \sqrt{1 + 16 + 4 + 0 + 4}$. 6. Les deux pires écarts valent $0{,}3\,\lVert\mathbf{g}\rVert_1$ et $0{,}3\,\lVert\mathbf{g}\rVert_2$ ; ici, $\lVert\mathbf{g}\rVert_1 = 400$ et $\lVert\mathbf{g}\rVert_2 = \sqrt{400}$.
+1. $\lVert\mathbf{g}\rVert_1 = 1 + 4 + 2 + 0 + 2$. 2. Que vaut $g_4\delta_4$, quel que soit $\delta_4$ ? 3. $\lVert\mathbf{g}\rVert_2 = \sqrt{1 + 16 + 4 + 0 + 4}$. 6. Les deux pires écarts valent $0{,}3\thinspace\lVert\mathbf{g}\rVert_1$ et $0{,}3\thinspace\lVert\mathbf{g}\rVert_2$ ; ici, $\lVert\mathbf{g}\rVert_1 = 400$ et $\lVert\mathbf{g}\rVert_2 = \sqrt{400}$.
 
 </details>
 
@@ -170,7 +170,7 @@ Une moyenne mobile sur $k$ valeurs a une valeur complète par fenêtre de $k$ va
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac{12 + 3 + 9}{3}$, puis on glisse d'une valeur. 4. $\sum_i x_i\,h_{t-i}$ ne doit garder que $i = t - 2, t - 1, t$, chacun avec le poids $\frac13$. 5. Une moyenne complète d'une série constante : la constante fois la somme du noyau.
+1. $\frac{12 + 3 + 9}{3}$, puis on glisse d'une valeur. 4. $\sum_i x_i\thinspace h_{t-i}$ ne doit garder que $i = t - 2, t - 1, t$, chacun avec le poids $\frac13$. 5. Une moyenne complète d'une série constante : la constante fois la somme du noyau.
 
 </details>
 
@@ -201,7 +201,7 @@ Relis M12d : la décomposition en valeurs singulières, et Eckart-Young.
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{u}\mathbf{v}^\top)_{ij} = u_iv_j$ ; toutes ses lignes sont des multiples de $\mathbf{v}^\top$. $\mathbf{u}\mathbf{v}^\top = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\,\frac{\mathbf{u}}{\lVert\mathbf{u}\rVert}\frac{\mathbf{v}^\top}{\lVert\mathbf{v}\rVert}$.
+$(\mathbf{u}\mathbf{v}^\top)_{ij} = u_iv_j$ ; toutes ses lignes sont des multiples de $\mathbf{v}^\top$. $\mathbf{u}\mathbf{v}^\top = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\thinspace\frac{\mathbf{u}}{\lVert\mathbf{u}\rVert}\frac{\mathbf{v}^\top}{\lVert\mathbf{v}\rVert}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -241,7 +241,7 @@ Relis le §2 : la définition de la corrélation croisée, le lien par le noyau 
 </details>
 <details><summary>Indice 2</summary>
 
-a) La fenêtre $i$ couvre $x_i, x_{i+1}, x_{i+2}$, multipliés par $w_0, w_1, w_2$. b) $(\mathbf{x} * \mathbf{w})_m = \sum_i x_i\,w_{m-i}$, 9 valeurs. c) Les indices $k - 1$ à $n - 1$ de b). d) $n$ valeurs à partir de l'indice $\lfloor\frac{k-1}{2}\rfloor$ de b).
+a) La fenêtre $i$ couvre $x_i, x_{i+1}, x_{i+2}$, multipliés par $w_0, w_1, w_2$. b) $(\mathbf{x} \ast \mathbf{w}) _m = \sum_i x_i\thinspace w _{m-i}$, 9 valeurs. c) Les indices $k - 1$ à $n - 1$ de b). d) $n$ valeurs à partir de l'indice $\lfloor\frac{k-1}{2}\rfloor$ de b).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -331,12 +331,12 @@ Relis le §5 : « Sous-échantillonner, insérer des zéros » et « La convolut
 </details>
 <details><summary>Indice 2</summary>
 
-Taille : $(m - 1)s + k + p_{\text{out}}$ pour $p = 0$ et $d = 1$. Recette : insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$ ; ou poser $y_i\,\mathbf{w}$ à partir de la case $si$. La colonne $i$ de $\mathbf{C}^\top$ est le tampon de $y_i = 1$.
+Taille : $(m - 1)s + k + p_{\text{out}}$ pour $p = 0$ et $d = 1$. Recette : insérer $s - 1$ zéros entre les valeurs, puis convoluer en mode plein par $\mathbf{w}$ ; ou poser $y_i\thinspace\mathbf{w}$ à partir de la case $si$. La colonne $i$ de $\mathbf{C}^\top$ est le tampon de $y_i = 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) Les tampons $3\mathbf{w}$ sur les cases 0 à 4, $2\mathbf{w}$ sur 3 à 7, $-2\mathbf{w}$ sur 6 à 10 ; additionne case par case. e) Compte, pour chaque case $j$, les $i \in \{0, 1, 2\}$ tels que $0 \le j - 3i \le 4$. f) $\lfloor\frac{n - 5}{3}\rfloor + 1 = 3$.
+d) Les tampons $3\mathbf{w}$ sur les cases 0 à 4, $2\mathbf{w}$ sur 3 à 7, $-2\mathbf{w}$ sur 6 à 10 ; additionne case par case. e) Compte, pour chaque case $j$, les $i \in \lbrace0, 1, 2\rbrace$ tels que $0 \le j - 3i \le 4$. f) $\lfloor\frac{n - 5}{3}\rfloor + 1 = 3$.
 
 </details>
 
@@ -367,7 +367,7 @@ Relis l'encadré « Comptes » du §6 et son exemple de la grille météo.
 </details>
 <details><summary>Indice 2</summary>
 
-Paramètres : $C_{\text{out}}\big(\frac{C_{\text{in}}}{g}k_hk_w + 1\big)$. Coût : $H_{\text{out}}W_{\text{out}}\,C_{\text{out}}\frac{C_{\text{in}}}{g}k_hk_w$. Avec $p = 2$ et $k = 5$, la sortie de pas 1 garde la taille.
+Paramètres : $C_{\text{out}}\big(\frac{C_{\text{in}}}{g}k_hk_w + 1\big)$. Coût : $H_{\text{out}}W_{\text{out}}\thinspace C_{\text{out}}\frac{C_{\text{in}}}{g}k_hk_w$. Avec $p = 2$ et $k = 5$, la sortie de pas 1 garde la taille.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -385,12 +385,12 @@ Relis le §7 : « Deux filtres d'affilée », « Avec un pas » et le théorème
 </details>
 <details><summary>Indice 2</summary>
 
-Le noyau équivalent est $\mathbf{a} * \mathbf{b}$ (pas 1) ; avec un pas $s_1$, c'est $\mathbf{a} * (\mathbf{b}$ dilaté de $s_1)$. Pour la pile : $r_\ell = r_{\ell-1} + d_\ell(k_\ell - 1)J_{\ell-1}$, $J_\ell = J_{\ell-1}s_\ell$ ; la sortie $z_j$ va de la case $Sj$ à $Sj + r - 1$.
+Le noyau équivalent est $\mathbf{a} \ast \mathbf{b}$ (pas 1) ; avec un pas $s_1$, c'est $\mathbf{a} \ast (\mathbf{b}$ dilaté de $s_1)$. Pour la pile : $r_\ell = r_{\ell-1} + d_\ell(k_\ell - 1)J_{\ell-1}$, $J_\ell = J_{\ell-1}s_\ell$ ; la sortie $z_j$ va de la case $Sj$ à $Sj + r - 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $(1, 1) * (1, 1, 1)$, divisé par 6. c) $\mathbf{b}$ dilaté de 3 : $\frac13(1, 0, 0, 1, 0, 0, 1)$. e) Le tableau : $r = 1, 2, 10, \ldots$ avec $J = 1, 2, 8, 8$.
+a) $(1, 1) \ast (1, 1, 1)$, divisé par 6. c) $\mathbf{b}$ dilaté de 3 : $\frac13(1, 0, 0, 1, 0, 0, 1)$. e) Le tableau : $r = 1, 2, 10, \ldots$ avec $J = 1, 2, 8, 8$.
 
 </details>
 
@@ -408,7 +408,7 @@ Boule L∞ : $\varepsilon\lVert\mathbf{g}\rVert_1$, en $\varepsilon\operatorname
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\lVert\mathbf{g}\rVert_2 = \sqrt{4 + 25 + 1 + 9 + 1}$. e) Cinq coordonnées de 0,25. g) Les coefficients du pochoir sont $1, 1, 1, 1$ et $-4$. h) $\lVert\mathbf{g}\rVert_1 = 2\,500 \times 0{,}02$ et $\lVert\mathbf{g}\rVert_2 = \sqrt{2\,500 \times 0{,}02^2}$.
+d) $\lVert\mathbf{g}\rVert_2 = \sqrt{4 + 25 + 1 + 9 + 1}$. e) Cinq coordonnées de 0,25. g) Les coefficients du pochoir sont $1, 1, 1, 1$ et $-4$. h) $\lVert\mathbf{g}\rVert_1 = 2\thinspace500 \times 0{,}02$ et $\lVert\mathbf{g}\rVert_2 = \sqrt{2\thinspace500 \times 0{,}02^2}$.
 
 </details>
 
@@ -425,12 +425,12 @@ Relis le §1 (les propriétés et le point de vue des polynômes) et le lien du 
 </details>
 <details><summary>Indice 2</summary>
 
-1. Avec la convention « nul hors des indices », tu peux sommer sur tous les entiers. 3. Écris $(\widetilde{\mathbf{u} * \mathbf{v}})_m = (\mathbf{u} * \mathbf{v})_{n+k-2-m}$, puis change d'indice. 4. Pose $j = n - 1 - t$ dans la définition de la corrélation pleine.
+1. Avec la convention « nul hors des indices », tu peux sommer sur tous les entiers. 3. Écris $(\widetilde{\mathbf{u} \ast \mathbf{v}}) _m = (\mathbf{u} \ast \mathbf{v}) _{n+k-2-m}$, puis change d'indice. 4. Pose $j = n - 1 - t$ dans la définition de la corrélation pleine.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4. Pour la seconde égalité, applique 3 à $\tilde{\mathbf{a}} * \mathbf{b}$. 5. $(\mathbf{a} \star \mathbf{b}) \star \mathbf{c}$ s'écrit avec $\mathbf{a}$, et $\mathbf{a} \star (\mathbf{b} \star \mathbf{c})$ avec $\tilde{\mathbf{a}}$ : prends une suite $\mathbf{a}$ qui n'est pas symétrique, comme $(1, 0)$, et $\mathbf{b} = \mathbf{c} = (1)$.
+4. Pour la seconde égalité, applique 3 à $\tilde{\mathbf{a}} \ast \mathbf{b}$. 5. $(\mathbf{a} \star \mathbf{b}) \star \mathbf{c}$ s'écrit avec $\mathbf{a}$, et $\mathbf{a} \star (\mathbf{b} \star \mathbf{c})$ avec $\tilde{\mathbf{a}}$ : prends une suite $\mathbf{a}$ qui n'est pas symétrique, comme $(1, 0)$, et $\mathbf{b} = \mathbf{c} = (1)$.
 
 </details>
 
@@ -484,7 +484,7 @@ Relis le théorème du champ récepteur (§7), la définition du champ récepteu
 </details>
 <details><summary>Indice 3</summary>
 
-1. Les bornes : $J_{\ell-1}t_0 = J_\ell\,j$ et $J_{\ell-1}t_{k_\ell-1} + r_{\ell-1} - 1$. 4. $r_L = 1 + \sum_{\ell=1}^{L}3 \times 2^{\ell-1}$, et $J_L = 2^L$ ; deux sorties voisines commencent à $J_L$ cases l'une de l'autre. 5. Les intervalles lus par $t_u$ et $t_{u+1}$ commencent à $J_{\ell-1}d_\ell$ cases l'un de l'autre : quand se touchent-ils ?
+1. Les bornes : $J_{\ell-1}t_0 = J_\ell\thinspace j$ et $J_{\ell-1}t_{k_\ell-1} + r_{\ell-1} - 1$. 4. $r_L = 1 + \sum_{\ell=1}^{L}3 \times 2^{\ell-1}$, et $J_L = 2^L$ ; deux sorties voisines commencent à $J_L$ cases l'une de l'autre. 5. Les intervalles lus par $t_u$ et $t_{u+1}$ commencent à $J_{\ell-1}d_\ell$ cases l'un de l'autre : quand se touchent-ils ?
 
 </details>
 
@@ -497,7 +497,7 @@ Relis le théorème du §8 et son idée : sur la boule L∞, les coordonnées so
 </details>
 <details><summary>Indice 2</summary>
 
-1. Majore chaque terme : $g_i\delta_i \le \lvert g_i\rvert\,\lvert\delta_i\rvert$. 2. $g_i\operatorname{signe}(g_i) = \lvert g_i\rvert$. 3. La boule est symétrique par $\boldsymbol{\delta} \mapsto -\boldsymbol{\delta}$.
+1. Majore chaque terme : $g_i\delta_i \le \lvert g_i\rvert\thinspace\lvert\delta_i\rvert$. 2. $g_i\operatorname{signe}(g_i) = \lvert g_i\rvert$. 3. La boule est symétrique par $\boldsymbol{\delta} \mapsto -\boldsymbol{\delta}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -519,12 +519,12 @@ Relis le §6 : « Plusieurs canaux » (la formule à canaux, les formes) et l'en
 </details>
 <details><summary>Indice 2</summary>
 
-$Y_{o,i,j} = b_o + \sum_c\sum_u\sum_v W_{o,c,u,v}\,X_{c,i+u,j+v}$, sans retournement. Pour e), prends dans chaque canal la fenêtre $2 \times 2$ en haut à gauche. Pour g), `convolve2d` retourne d'un demi-tour le noyau qu'on lui donne : donne-lui le noyau déjà retourné.
+$Y_{o,i,j} = b_o + \sum_c\sum_u\sum_v W_{o,c,u,v}\thinspace X_{c,i+u,j+v}$, sans retournement. Pour e), prends dans chaque canal la fenêtre $2 \times 2$ en haut à gauche. Pour g), `convolve2d` retourne d'un demi-tour le noyau qu'on lui donne : donne-lui le noyau déjà retourné.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Trois produits case par case, de 4 termes chacun, puis le biais 1. g) Un demi-tour envoie la case $(u, v)$ en $(1 - u, 1 - v)$. h) $3 \times 4$ positions $\times$ 2 sorties $\times$ 12 poids. j) Calcule la convolution pleine $\mathbf{x} * (4, 1)$ (6 valeurs), puis garde-en 5 à partir de l'indice $\lfloor\frac{2 - 1}{2}\rfloor$.
+e) Trois produits case par case, de 4 termes chacun, puis le biais 1. g) Un demi-tour envoie la case $(u, v)$ en $(1 - u, 1 - v)$. h) $3 \times 4$ positions $\times$ 2 sorties $\times$ 12 poids. j) Calcule la convolution pleine $\mathbf{x} \ast (4, 1)$ (6 valeurs), puis garde-en 5 à partir de l'indice $\lfloor\frac{2 - 1}{2}\rfloor$.
 
 </details>
 
@@ -659,7 +659,7 @@ Fiche §7 (« Avec un pas » : l'étage suivant lit le signal avec des trous) ; 
 </details>
 <details><summary>Indice 2</summary>
 
-Pars de $\mathbf{K} = (1)$ et $S = 1$. Pour chaque étage : le noyau $\mathbf{w}_\ell$ écarté de $S - 1$ zéros entre ses coefficients, convolué avec $\mathbf{K}$ (ta `convolve`), puis $S \leftarrow S\,s_\ell$.
+Pars de $\mathbf{K} = (1)$ et $S = 1$. Pour chaque étage : le noyau $\mathbf{w} _\ell$ écarté de $S - 1$ zéros entre ses coefficients, convolué avec $\mathbf{K}$ (ta `convolve`), puis $S \leftarrow S\thinspace s _\ell$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -780,7 +780,7 @@ Fiche §3 (« La matrice des fenêtres » : la sortie est linéaire en $\mathbf{
 </details>
 <details><summary>Indice 2</summary>
 
-La convolution est commutative : $\mathbf{w} \star \mathbf{x} = \mathbf{x} * \tilde{\mathbf{w}} = \tilde{\mathbf{w}} * \mathbf{x}$, et la matrice pleine de $\mathbf{x}$ (pris comme noyau), pour des signaux de longueur 7, envoie $\tilde{\mathbf{w}}$ sur la convolution pleine ; garde ses lignes 6 à 1999 (une tranche de la matrice pleine : `toeplitz_matrix` refuse le mode valide quand $n < k$).
+La convolution est commutative : $\mathbf{w} \star \mathbf{x} = \mathbf{x} \ast \tilde{\mathbf{w}} = \tilde{\mathbf{w}} \ast \mathbf{x}$, et la matrice pleine de $\mathbf{x}$ (pris comme noyau), pour des signaux de longueur 7, envoie $\tilde{\mathbf{w}}$ sur la convolution pleine ; garde ses lignes 6 à 1999 (une tranche de la matrice pleine : `toeplitz_matrix` refuse le mode valide quand $n < k$).
 
 </details>
 <details><summary>Indice 3</summary>

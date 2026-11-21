@@ -9,7 +9,7 @@
 ## 🧠 Quiz
 
 ### M12a.Q1 — Sous-espace ou pas ?
-1. **Oui** : une droite par l'origine, $\{t\,(1, 3)\}$.
+1. **Oui** : une droite par l'origine, $\lbrace t\thinspace(1, 3)\rbrace$.
 2. **Non** : $(0, 0)$ ne vérifie pas $0 = 3 \times 0 + 1$.
 3. **Oui** : l'ensemble des solutions d'un système homogène (deux équations de second membre nul) ; c'est l'intersection de deux plans par l'origine, une droite.
 4. **Non** : $(1, 0)$ y est, mais $(-1) \times (1, 0) = (-1, 0)$ n'y est pas.
@@ -17,15 +17,15 @@
 6. **Non** : le polynôme nul n'est pas de degré 2 ; et $x^2 + x$ et $-x^2$ sont de degré 2, mais leur somme $x$ ne l'est pas. Les polynômes de degré **au plus** 2 forment, eux, un sous-espace.
 
 ### M12a.Q2 — Combinaison linéaire et famille génératrice
-1. **Oui** : $(-6, 4) = -2\,(3, -2)$.
-2. **Non** : $(3, -12) = -3\,(-1, 4)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
+1. **Oui** : $(-6, 4) = -2\thinspace(3, -2)$.
+2. **Non** : $(3, -12) = -3\thinspace(-1, 4)$, les deux vecteurs sont colinéaires et n'engendrent qu'une droite.
 3. **Quatre** : une famille génératrice de $\mathbb{R}^4$ a au moins $\dim\mathbb{R}^4 = 4$ vecteurs.
 4. Le **plan** $z = 0$ : les vecteurs $(x, y, 0)$.
 5. **Vrai** : la combinaison dont tous les coefficients sont nuls.
 6. **Vrai** : $\mathbf{u} + \mathbf{v}$ et $\mathbf{u} - \mathbf{v}$ sont dans le plan, et réciproquement $\mathbf{u} = \frac{1}{2}\big((\mathbf{u} + \mathbf{v}) + (\mathbf{u} - \mathbf{v})\big)$ et $\mathbf{v} = \frac{1}{2}\big((\mathbf{u} + \mathbf{v}) - (\mathbf{u} - \mathbf{v})\big)$ : les deux familles engendrent le même plan.
 
 ### M12a.Q3 — Libre ou liée ?
-1. **Liée** : $(4, -10) = -2\,(-2, 5)$.
+1. **Liée** : $(4, -10) = -2\thinspace(-2, 5)$.
 2. **Libre** : la matrice des trois vecteurs est triangulaire avec des 1 sur la diagonale, trois pivots.
 3. **Liée**, toujours : plus de 3 vecteurs de $\mathbb{R}^3$.
 4. **Liée** : $1 \cdot \mathbf{0} = \mathbf{0}$ est une combinaison nulle non triviale.
@@ -49,18 +49,18 @@
 6. **5** : les 6 lignes centrées ont une somme nulle, donc $\operatorname{rg} \le 6 - 1 = 5$ (et $\le 10$).
 
 ### M12a.Q6 — Linéaire, affine, ou ni l'un ni l'autre ?
-1. **Linéaire** : de matrice $\begin{pmatrix} 3 & -1 \\ 0 & 2 \end{pmatrix}$.
+1. **Linéaire** : de matrice $\begin{pmatrix} 3 & -1 \cr 0 & 2 \end{pmatrix}$.
 2. **Affine** : la translation de vecteur $(1, 0)$ ; pas linéaire, car $g(0, 0) = (1, 0) \ne \mathbf{0}$.
-3. **Ni l'un ni l'autre** : $h(2) = 4 \ne 2\,h(1)$, et ce n'est pas une droite.
+3. **Ni l'un ni l'autre** : $h(2) = 4 \ne 2\thinspace h(1)$, et ce n'est pas une droite.
 4. **Linéaire** : $(\lambda P + \mu Q)' = \lambda P' + \mu Q'$.
-5. **Ni l'un ni l'autre** : $\lVert -\mathbf{x} \rVert = \lVert \mathbf{x} \rVert \ne -\lVert \mathbf{x} \rVert$ ; et, le long de la droite $t\,\mathbf{x}$, elle vaut $|t|\,\lVert \mathbf{x} \rVert$, qui n'est pas affine en $t$.
+5. **Ni l'un ni l'autre** : $\lVert -\mathbf{x} \rVert = \lVert \mathbf{x} \rVert \ne -\lVert \mathbf{x} \rVert$ ; et, le long de la droite $t\thinspace\mathbf{x}$, elle vaut $|t|\thinspace\lVert \mathbf{x} \rVert$, qui n'est pas affine en $t$.
 6. **Affine** : partie linéaire $z \mapsto 4z$, translation $-7$.
 
 ### M12a.Q7 — Noyau et image : qui vit où ?
 1. $\mathbb{R}^5$ : l'espace de départ, celui des $\mathbf{x}$ (5 colonnes).
 2. $\mathbb{R}^3$ : l'espace d'arrivée (3 lignes).
 3. **2** : $\operatorname{rg}(\mathbf{A}) \le 3$, donc $\dim\ker\mathbf{A} = 5 - \operatorname{rg}(\mathbf{A}) \ge 2$.
-4. **Non** : son noyau n'est jamais réduit à $\{\mathbf{0}\}$.
+4. **Non** : son noyau n'est jamais réduit à $\lbrace\mathbf{0}\rbrace$.
 5. $\mathbb{R}^3$ tout entier : $\mathbf{A}$ est surjective.
 6. Les vecteurs $\mathbf{x}_p + \mathbf{h}$, avec $\mathbf{h} \in \ker\mathbf{A}$.
 
@@ -70,23 +70,23 @@
 3. Le **même** : $\mathbf{S}$ et $\mathbf{S}^{-1}$ sont inversibles.
 4. **Faux** en général ; vrai par exemple si $\mathbf{A} = \lambda\mathbf{I}$ (plus généralement si $\mathbf{A}\mathbf{S} = \mathbf{S}\mathbf{A}$).
 5. $\mathbf{I}$ : l'identité a la même matrice dans toutes les bases.
-6. $(5, 0, \ldots, 0)$ : $\mathbf{S}^{-1}\mathbf{A}\mathbf{s}_1 = \mathbf{S}^{-1}(5\,\mathbf{s}_1) = 5\,\mathbf{e}_1$, car $\mathbf{S}^{-1}\mathbf{s}_1 = \mathbf{e}_1$ (les coordonnées de $\mathbf{s}_1$ dans la base).
+6. $(5, 0, \ldots, 0)$ : $\mathbf{S}^{-1}\mathbf{A}\mathbf{s}_1 = \mathbf{S}^{-1}(5\thinspace\mathbf{s}_1) = 5\thinspace\mathbf{e}_1$, car $\mathbf{S}^{-1}\mathbf{s}_1 = \mathbf{e}_1$ (les coordonnées de $\mathbf{s}_1$ dans la base).
 
 <a id="rappels"></a>
 
 ## 🔁 Rappels
 
 ### M12a.R1 — Le pivot de Gauss et la forme échelonnée réduite (M09a)
-1. $L_1 \leftarrow \frac{1}{2}L_1$ donne $(1, 2, 1)$ ; $L_2 \leftarrow L_2 - L_1$ et $L_3 \leftarrow L_3 - L_1$ donnent $(0, 1, 1)$ et $(0, -1, -1)$ ; $L_3 \leftarrow L_3 + L_2$ annule la dernière ligne ; $L_1 \leftarrow L_1 - 2L_2$ donne $(1, 0, -1)$. Forme réduite : $\begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$.
+1. $L_1 \leftarrow \frac{1}{2}L_1$ donne $(1, 2, 1)$ ; $L_2 \leftarrow L_2 - L_1$ et $L_3 \leftarrow L_3 - L_1$ donnent $(0, 1, 1)$ et $(0, -1, -1)$ ; $L_3 \leftarrow L_3 + L_2$ annule la dernière ligne ; $L_1 \leftarrow L_1 - 2L_2$ donne $(1, 0, -1)$. Forme réduite : $\begin{pmatrix} 1 & 0 & -1 \cr 0 & 1 & 1 \cr 0 & 0 & 0 \end{pmatrix}$.
 2. Les colonnes 1 et 2.
 3. **2**.
 4. $x_3$.
-5. $x_3 = t$, $x_1 = t$, $x_2 = -t$ : les vecteurs $t\,(1, -1, 1)$, $t \in \mathbb{R}$. Vérification : $2 - 4 + 2 = 0$, $1 - 3 + 2 = 0$, $1 - 1 = 0$.
+5. $x_3 = t$, $x_1 = t$, $x_2 = -t$ : les vecteurs $t\thinspace(1, -1, 1)$, $t \in \mathbb{R}$. Vérification : $2 - 4 + 2 = 0$, $1 - 3 + 2 = 0$, $1 - 1 = 0$.
 6. Échanger deux lignes ; multiplier une ligne par un nombre non nul ; ajouter à une ligne un multiple d'une autre ligne.
 
 ### M12a.R2 — Produit matriciel et formes (M09a)
 1. $(2, 2)$.
-2. $\begin{pmatrix} 2 + 0 - 2 & 1 + 0 + 0 \\ 6 + 0 + 1 & 3 - 1 + 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 7 & 2 \end{pmatrix}$.
+2. $\begin{pmatrix} 2 + 0 - 2 & 1 + 0 + 0 \cr 6 + 0 + 1 & 3 - 1 + 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \cr 7 & 2 \end{pmatrix}$.
 3. $(3, 3)$.
 4. $(0, 1)$ : la deuxième colonne de $\mathbf{A}$.
 5. $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ : l'ordre s'inverse.
@@ -109,7 +109,7 @@
 **Démarche.**
 - a) $(0, 0, 0)$ vérifie $2x - y + 4z = 0$ ; si $\mathbf{u}$ et $\mathbf{v}$ la vérifient, $2(\lambda u_1 + \mu v_1) - (\lambda u_2 + \mu v_2) + 4(\lambda u_3 + \mu v_3) = \lambda \cdot 0 + \mu \cdot 0 = 0$. Un plan par l'origine.
 - b) $(0, 0, 0)$ donne $0 - 0 = 0 \ne 1$ : pas de vecteur nul.
-- c) $U_3 = \operatorname{Vect}\big((2, -1, 3)\big)$ : $t = 0$ donne $\mathbf{0}$, et $\lambda\,t\,\mathbf{d} + \mu\,s\,\mathbf{d} = (\lambda t + \mu s)\,\mathbf{d}$.
+- c) $U_3 = \operatorname{Vect}\big((2, -1, 3)\big)$ : $t = 0$ donne $\mathbf{0}$, et $\lambda\thinspace t\thinspace\mathbf{d} + \mu\thinspace s\thinspace\mathbf{d} = (\lambda t + \mu s)\thinspace\mathbf{d}$.
 - d) $(1, 0, 1)$ et $(0, 1, 1)$ sont dans $U_4$ ($1 + 0 = 1$), pas leur somme $(1, 1, 2)$ ($1 + 1 = 2 \ne 4$). La multiplication ne pose pas de problème : $(\lambda x)^2 + (\lambda y)^2 = \lambda^2(x^2 + y^2) = \lambda^2 z^2 = (\lambda z)^2$. C'est un cône, pas un plan.
 - e) $(0, 1, 0)$ y est ($0 \le 1$), mais $-1 \times (0, 1, 0) = (0, -1, 0)$ non ($0 > -1$) : un demi-espace (M07 §5).
 - f) Le polynôme nul s'annule en 1 ; et $(\lambda P + \mu Q)(1) = \lambda P(1) + \mu Q(1) = 0$.
@@ -118,7 +118,7 @@
 
 **Erreurs fréquentes.** Vérifier seulement la stabilité par addition (en e), la somme de deux vecteurs qui vérifient $x \le y$ la vérifie encore) ; répondre `True` en d) parce que l'équation « a l'air » d'un plan ; en h), prendre $t = 4$.
 
-**Variante.** $\{(x, y, z) : x = 2y \text{ et } z = 0\}$ est-il un sous-espace ? *Réponse* : oui, l'intersection de deux plans par l'origine (M12a.14) : la droite $\operatorname{Vect}\big((2, 1, 0)\big)$.
+**Variante.** $\lbrace(x, y, z) : x = 2y \text{ et } z = 0\rbrace$ est-il un sous-espace ? *Réponse* : oui, l'intersection de deux plans par l'origine (M12a.14) : la droite $\operatorname{Vect}\big((2, 1, 0)\big)$.
 
 ### Ex M12a.2 — Écrire un vecteur comme combinaison linéaire : un système à résoudre
 
@@ -132,7 +132,7 @@
 - e) $\mathbf{b} = 2\mathbf{u}_1 - \mathbf{u}_2$, donc $\mathbf{u}_2 = 2\mathbf{u}_1 - \mathbf{b}$ : chaque famille est faite de combinaisons de l'autre, et les deux engendrent le même plan.
 - f) $\mathbf{u}_1$ et $\mathbf{u}_2$ ne sont pas colinéaires : ils engendrent un plan ; un vecteur hors du plan suffit pour engendrer $\mathbb{R}^3$.
 
-Pour la copie : $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2) = \{(x, y, z) : -x + 5y + 3z = 0\}$. Pour b), $-1 + 5 + 3 = 7 \ne 0$ ; pour c), $-5 + 5k = 0$ donne $k = 1$. En a), trois équations pour deux inconnues : deux suffisent à trouver $\lambda_1$ et $\lambda_2$, et la troisième dit si $\mathbf{b}$ est vraiment dans le plan.
+Pour la copie : $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2) = \lbrace(x, y, z) : -x + 5y + 3z = 0\rbrace$. Pour b), $-1 + 5 + 3 = 7 \ne 0$ ; pour c), $-5 + 5k = 0$ donne $k = 1$. En a), trois équations pour deux inconnues : deux suffisent à trouver $\lambda_1$ et $\lambda_2$, et la troisième dit si $\mathbf{b}$ est vraiment dans le plan.
 
 **Erreurs fréquentes.** Résoudre deux équations et oublier de vérifier la troisième (b semble alors avoir une solution) ; inverser l'ordre de $\lambda_1$ et $\lambda_2$ ; un signe en c), où la deuxième coordonnée est $-\lambda_1$.
 
@@ -143,7 +143,7 @@ Pour la copie : $\operatorname{Vect}(\mathbf{u}_1, \mathbf{u}_2) = \{(x, y, z) :
 **Réponses** : a) `2` · b) `False` · c) `[2, -1]` · d) `[-2, 1, 1]` · e) `-7` · f) `True`.
 
 **Démarche.**
-- a) $\begin{pmatrix} 1 & 0 & 2 \\ 2 & 1 & 3 \\ -1 & 3 & -5 \end{pmatrix}$ : $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 + L_1$ donnent $(0, 1, -1)$ et $(0, 3, -3)$ ; $L_3 \leftarrow L_3 - 3L_2$ annule la dernière ligne ; $L_1$ reste $(1, 0, 2)$. Forme réduite $\begin{pmatrix} 1 & 0 & 2 \\ 0 & 1 & -1 \\ 0 & 0 & 0 \end{pmatrix}$ : deux pivots.
+- a) $\begin{pmatrix} 1 & 0 & 2 \cr 2 & 1 & 3 \cr -1 & 3 & -5 \end{pmatrix}$ : $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 + L_1$ donnent $(0, 1, -1)$ et $(0, 3, -3)$ ; $L_3 \leftarrow L_3 - 3L_2$ annule la dernière ligne ; $L_1$ reste $(1, 0, 2)$. Forme réduite $\begin{pmatrix} 1 & 0 & 2 \cr 0 & 1 & -1 \cr 0 & 0 & 0 \end{pmatrix}$ : deux pivots.
 - b) La troisième colonne n'a pas de pivot : liée.
 - c) La troisième colonne de la forme réduite, $(2, -1)$ : $\mathbf{v}_3 = 2\mathbf{v}_1 - \mathbf{v}_2$ ; vérification : $(2 - 0,\ 4 - 1,\ -2 - 3) = (2, 3, -5)$.
 - d) $2\mathbf{v}_1 - \mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$, et avec $x_3 = 1$ : $(-2, 1, 1)$.
@@ -161,7 +161,7 @@ Pour la copie : non, « deux à deux non colinéaires » ne suffisait pas : les 
 **Réponses** : a) `3` · b) `[1, 3, 5]` · c) `[1, 1]` · d) `2` · e) `[1, -2]` · f) `2`.
 
 **Démarche.**
-- a) et b) $\mathbf{a}_2 = 2\mathbf{a}_1$ (pas de pivot), $\mathbf{a}_3$ n'est pas un multiple de $\mathbf{a}_1$ (pivot), $\mathbf{a}_4 = \mathbf{a}_1 + \mathbf{a}_3$ (pas de pivot), $\mathbf{a}_5$ n'est pas dans le plan $\operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_3)$ : $x\mathbf{a}_1 + y\mathbf{a}_3 = (x, y, 2x + y)$ vaudrait $(1, -1, 1)$, pas $(1, -1, 0)$ (pivot). Forme réduite : $\begin{pmatrix} 1 & 2 & 0 & 1 & 0 \\ 0 & 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 1 \end{pmatrix}$.
+- a) et b) $\mathbf{a}_2 = 2\mathbf{a}_1$ (pas de pivot), $\mathbf{a}_3$ n'est pas un multiple de $\mathbf{a}_1$ (pivot), $\mathbf{a}_4 = \mathbf{a}_1 + \mathbf{a}_3$ (pas de pivot), $\mathbf{a}_5$ n'est pas dans le plan $\operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_3)$ : $x\mathbf{a}_1 + y\mathbf{a}_3 = (x, y, 2x + y)$ vaudrait $(1, -1, 1)$, pas $(1, -1, 0)$ (pivot). Forme réduite : $\begin{pmatrix} 1 & 2 & 0 & 1 & 0 \cr 0 & 0 & 1 & 1 & 0 \cr 0 & 0 & 0 & 0 & 1 \end{pmatrix}$.
 - c) La quatrième colonne de la forme réduite, $(1, 1, 0)$ : $\mathbf{a}_4 = \mathbf{a}_1 + \mathbf{a}_3$.
 - d) $\operatorname{Vect}(\mathbf{a}_1, \ldots, \mathbf{a}_4) = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_3)$ : un plan.
 - e) $\alpha = 1$ (première coordonnée), $2 + \beta = 0$, $\beta = -2$ ; vérification : $-2 + 2 = 0$.
@@ -196,13 +196,13 @@ Pour la copie : la matrice $[\mathbf{b}_1\ \mathbf{b}_2\ \mathbf{b}_3]$ a trois 
 **Réponses** : a) `2` · b) `2` · c) `2` · d) `3` · e) `1` · f) `3` · g) `2`.
 
 **Démarche.**
-- a) La ligne 3 est la somme des lignes 1 et 2, et les lignes 1 et 2 ne sont pas proportionnelles : rang 2. Côté colonnes : $\mathbf{a}_2 = 2\mathbf{a}_1$, et la forme réduite $\begin{pmatrix} 1 & 2 & 0 & -1 \\ 0 & 0 & 1 & 3 \\ 0 & 0 & 0 & 0 \end{pmatrix}$ a deux pivots.
+- a) La ligne 3 est la somme des lignes 1 et 2, et les lignes 1 et 2 ne sont pas proportionnelles : rang 2. Côté colonnes : $\mathbf{a}_2 = 2\mathbf{a}_1$, et la forme réduite $\begin{pmatrix} 1 & 2 & 0 & -1 \cr 0 & 0 & 1 & 3 \cr 0 & 0 & 0 & 0 \end{pmatrix}$ a deux pivots.
 - b) $\operatorname{rg}(\mathbf{A}^\top) = \operatorname{rg}(\mathbf{A})$.
 - c) $\operatorname{rg}(\mathbf{A}^\top\mathbf{A}) = \operatorname{rg}(\mathbf{A})$ (fiche §4 et §6), même si $\mathbf{A}^\top\mathbf{A}$ a la forme $(4, 4)$.
 - d) Les deux premières colonnes de $\mathbf{C}$, $(-2, 1, 0, 0)$ et $(1, 0, -3, 1)$, ne sont pas proportionnelles, et la troisième, $(1, 0, 0, 0)$, n'est pas dans leur plan (sa dernière coordonnée est nulle, ce qui forcerait le coefficient de la deuxième à 0, puis celui de la première à 0 par la deuxième coordonnée). Trois pivots.
 - e) Les deux premières colonnes de $\mathbf{C}$ sont dans le noyau de $\mathbf{A}$ : $\mathbf{A}(-2, 1, 0, 0) = -2\mathbf{a}_1 + \mathbf{a}_2 = \mathbf{0}$, et $\mathbf{A}(1, 0, -3, 1) = \mathbf{a}_1 - 3\mathbf{a}_3 + \mathbf{a}_4 = (1 - 0 - 1,\ 2 - 3 + 1,\ 3 - 3 + 0) = \mathbf{0}$. Donc $\mathbf{A}\mathbf{C} = [\mathbf{0}\ \ \mathbf{0}\ \ \mathbf{a}_1]$, de rang 1, sous la borne $\min(2, 3) = 2$.
 - f) Le pivot de Gauss donne trois pivots (M12c dira que le déterminant vaut 33, non nul).
-- g) Les moyennes des colonnes sont $(3, 1, 3)$ ; $\mathbf{X}_c = \begin{pmatrix} -1 & 0 & 2 \\ 1 & -1 & 0 \\ 0 & 1 & -2 \end{pmatrix}$, dont la troisième ligne est l'opposée de la somme des deux autres, et les deux premières ne sont pas proportionnelles : rang 2.
+- g) Les moyennes des colonnes sont $(3, 1, 3)$ ; $\mathbf{X}_c = \begin{pmatrix} -1 & 0 & 2 \cr 1 & -1 & 0 \cr 0 & 1 & -2 \end{pmatrix}$, dont la troisième ligne est l'opposée de la somme des deux autres, et les deux premières ne sont pas proportionnelles : rang 2.
 
 Pour la copie : $L_3 = L_1 + L_2$. Pour un tableau centré de $n$ exemples, la somme des $n$ lignes est nulle (chaque colonne a une moyenne nulle) : les lignes sont liées, $\operatorname{rg}(\mathbf{X}_c) \le n - 1$ ; centrer a fait perdre un rang au tableau de f).
 
@@ -220,31 +220,31 @@ Pour la copie : $L_3 = L_1 + L_2$. Pour un tableau centré de $n$ exemples, la s
 - c) $(2 - 2 - 1,\ 6 - 1) = (-1, 5)$.
 - d) $(2, 5)$ : 2 lignes pour l'arrivée, 5 colonnes pour le départ.
 - e) $\mathbf{e}_1 = \frac{1}{2}\big((1, 1) + (1, -1)\big)$ et $\mathbf{e}_2 = \frac{1}{2}\big((1, 1) - (1, -1)\big)$, donc, par linéarité, $g(\mathbf{e}_1) = \frac{1}{2}\big((3, 1) + (1, -3)\big) = (2, -1)$ et $g(\mathbf{e}_2) = \frac{1}{2}\big((3, 1) - (1, -3)\big) = (1, 2)$.
-- f) La projection sur la droite dirigée par $\mathbf{u} = (1, 1)$ (M07 §4) : $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\,\mathbf{u}$ ; pour $\mathbf{e}_1$ et pour $\mathbf{e}_2$, $\frac{1}{2}(1, 1)$.
+- f) La projection sur la droite dirigée par $\mathbf{u} = (1, 1)$ (M07 §4) : $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\thinspace\mathbf{u}$ ; pour $\mathbf{e}_1$ et pour $\mathbf{e}_2$, $\frac{1}{2}(1, 1)$.
 - g) $h(0, 0) = (0, 1) \ne \mathbf{0}$.
 
 Pour la copie : la projection garde $(1, 1)$, qui est sur la droite, et envoie $(1, -1)$, perpendiculaire, sur $\mathbf{0}$.
 
 **Erreurs fréquentes.** Ranger $f(\mathbf{e}_j)$ en lignes (on obtient la transposée, de forme $(3, 2)$) ; en e), prendre $g(1, 1)$ et $g(1, -1)$ pour les colonnes ; en d), $(5, 2)$.
 
-**Variante.** La matrice de la projection orthogonale sur l'axe des ordonnées ? *Réponse* : $\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$.
+**Variante.** La matrice de la projection orthogonale sur l'axe des ordonnées ? *Réponse* : $\begin{pmatrix} 0 & 0 \cr 0 & 1 \end{pmatrix}$.
 
 ### Ex M12a.8 — Composer deux applications du plan, c'est multiplier leurs matrices
 
 **Réponses** : a) `[[3, 2], [0, 1]]` · b) `[[3, 6], [0, 1]]` · c) `[5, 1]` · d) `False` · e) `[[1, 4], [0, 1]]` · f) `[[1, -2], [0, 1]]` · g) `[[0.3333, -2], [0, 1]]`.
 
-**Démarche.** $\mathbf{A} = \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}$, $\mathbf{B} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$.
-- a) « $a$, puis $b$ » : $\mathbf{B}\mathbf{A} = \begin{pmatrix} 3 & 2 \\ 0 & 1 \end{pmatrix}$.
-- b) $\mathbf{A}\mathbf{B} = \begin{pmatrix} 3 & 6 \\ 0 & 1 \end{pmatrix}$.
+**Démarche.** $\mathbf{A} = \begin{pmatrix} 3 & 0 \cr 0 & 1 \end{pmatrix}$, $\mathbf{B} = \begin{pmatrix} 1 & 2 \cr 0 & 1 \end{pmatrix}$.
+- a) « $a$, puis $b$ » : $\mathbf{B}\mathbf{A} = \begin{pmatrix} 3 & 2 \cr 0 & 1 \end{pmatrix}$.
+- b) $\mathbf{A}\mathbf{B} = \begin{pmatrix} 3 & 6 \cr 0 & 1 \end{pmatrix}$.
 - c) $a(1, 1) = (3, 1)$, puis $b(3, 1) = (3 + 2, 1) = (5, 1)$.
 - d) Les deux matrices diffèrent.
 - e) Deux cisaillements de 2 font un cisaillement de 4.
 - f) Défaire $(x, y) \mapsto (x + 2y, y)$ : $(u, v) \mapsto (u - 2v, v)$.
-- g) $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1} = \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} \frac{1}{3} & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} & -2 \\ 0 & 1 \end{pmatrix}$.
+- g) $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1} = \begin{pmatrix} 1 & -2 \cr 0 & 1 \end{pmatrix}\begin{pmatrix} \frac{1}{3} & 0 \cr 0 & 1 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} & -2 \cr 0 & 1 \end{pmatrix}$.
 
 Pour la copie : $(b \circ a)(\mathbf{x}) = \mathbf{B}(\mathbf{A}\mathbf{x}) = (\mathbf{B}\mathbf{A})\mathbf{x}$ : la matrice appliquée en premier est la plus proche de $\mathbf{x}$, à droite. $b^{-1}$ cisaille dans l'autre sens : il déplace chaque point horizontalement de $-2$ fois son ordonnée.
 
-**Erreurs fréquentes.** Écrire $\mathbf{A}\mathbf{B}$ pour « $a$ puis $b$ » ; en g), $\mathbf{A}^{-1}\mathbf{B}^{-1} = \begin{pmatrix} \frac{1}{3} & -\frac{2}{3} \\ 0 & 1 \end{pmatrix}$.
+**Erreurs fréquentes.** Écrire $\mathbf{A}\mathbf{B}$ pour « $a$ puis $b$ » ; en g), $\mathbf{A}^{-1}\mathbf{B}^{-1} = \begin{pmatrix} \frac{1}{3} & -\frac{2}{3} \cr 0 & 1 \end{pmatrix}$.
 
 **Variante.** $(a \circ b)(1, 1)$ ? *Réponse* : $b(1, 1) = (3, 1)$, puis $a(3, 1) = (9, 1)$.
 
@@ -253,7 +253,7 @@ Pour la copie : $(b \circ a)(\mathbf{x}) = \mathbf{B}(\mathbf{A}\mathbf{x}) = (\
 **Réponses** : a) `2` · b) `[1, 2]` · c) `2` · d) `[1, -2, 1, 0]` · e) `[-2, -1, 0, 1]` · f) `[[1, 1], [2, 1], [1, -1]]` · g) `[3, -2, 1]` · h) `True`.
 
 **Démarche.**
-- a) et b) $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 - L_1$ donnent $(0, -1, -2, -1)$ et $(0, -2, -4, -2)$, proportionnelles : la troisième s'annule. Puis $L_2 \leftarrow -L_2$ et $L_1 \leftarrow L_1 - L_2$ : forme réduite $\begin{pmatrix} 1 & 0 & -1 & 2 \\ 0 & 1 & 2 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$, pivots dans les colonnes 1 et 2.
+- a) et b) $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 - L_1$ donnent $(0, -1, -2, -1)$ et $(0, -2, -4, -2)$, proportionnelles : la troisième s'annule. Puis $L_2 \leftarrow -L_2$ et $L_1 \leftarrow L_1 - L_2$ : forme réduite $\begin{pmatrix} 1 & 0 & -1 & 2 \cr 0 & 1 & 2 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}$, pivots dans les colonnes 1 et 2.
 - c) $4 - 2 = 2$.
 - d) $x_3 = 1$, $x_4 = 0$ : $x_1 = -R_{13} = 1$, $x_2 = -R_{23} = -2$.
 - e) $x_3 = 0$, $x_4 = 1$ : $x_1 = -2$, $x_2 = -1$.
@@ -271,7 +271,7 @@ Pour la copie : d) dit $\mathbf{a}_1 - 2\mathbf{a}_2 + \mathbf{a}_3 = \mathbf{0}
 
 **Réponses** : a) `[4, -1, 0, 0]` · b) `2` · c) `[-2, 1, 1, 0]` · d) `[1, -3, 0, 1]` · e) `[-1, 4, 2, -1]` · f) `True` · g) `3` · h) `0`.
 
-**Démarche.** La ligne 3 de $[\mathbf{A} \mid \mathbf{b}]$ est la somme des deux autres ($1 + 0 = 1$, …, $4 - 1 = 3$) : elle s'annule, et la forme réduite est $\left(\begin{array}{cccc|c} 1 & 0 & 2 & -1 & 4 \\ 0 & 1 & -1 & 3 & -1 \\ 0 & 0 & 0 & 0 & 0 \end{array}\right)$.
+**Démarche.** La ligne 3 de $[\mathbf{A} \mid \mathbf{b}]$ est la somme des deux autres ($1 + 0 = 1$, …, $4 - 1 = 3$) : elle s'annule, et la forme réduite est $\left(\begin{array}{cccc|c} 1 & 0 & 2 & -1 & 4 \cr 0 & 1 & -1 & 3 & -1 \cr 0 & 0 & 0 & 0 & 0 \end{array}\right)$.
 - a) $x_3 = x_4 = 0$ : $x_1 = 4$, $x_2 = -1$.
 - b) Deux variables libres, $x_3$ et $x_4$.
 - c) et d) $x_p = -R_{ij}$ : $(-2, 1, 1, 0)$ et $(1, -3, 0, 1)$.
@@ -280,7 +280,7 @@ Pour la copie : d) dit $\mathbf{a}_1 - 2\mathbf{a}_2 + \mathbf{a}_3 = \mathbf{0}
 - g) La troisième ligne de $\mathbf{A}$ est la somme des deux autres : il faut $c = 4 + (-1)$.
 - h) $5 \ne 3$ : $\mathbf{b}$ n'est pas dans l'image, aucune solution.
 
-Pour la copie : les solutions sont $(4, -1, 0, 0) + s\,(-2, 1, 1, 0) + t\,(1, -3, 0, 1)$. f) est $\mathbf{x}_p + \mathbf{k}_1$ ($s = 1$, $t = 0$) : une autre solution particulière ; n'importe laquelle convient pour décrire l'ensemble. g) : la ligne 3 de $\mathbf{A}$ est la somme des deux autres, donc $c$ doit être la somme des deux premiers nombres du second membre.
+Pour la copie : les solutions sont $(4, -1, 0, 0) + s\thinspace(-2, 1, 1, 0) + t\thinspace(1, -3, 0, 1)$. f) est $\mathbf{x}_p + \mathbf{k}_1$ ($s = 1$, $t = 0$) : une autre solution particulière ; n'importe laquelle convient pour décrire l'ensemble. g) : la ligne 3 de $\mathbf{A}$ est la somme des deux autres, donc $c$ doit être la somme des deux premiers nombres du second membre.
 
 **Erreurs fréquentes.** Oublier la solution particulière en e) ; répondre « une infinité » en h) parce qu'il y a des variables libres (il faut d'abord que le système soit compatible) ; un signe dans le noyau.
 
@@ -291,12 +291,12 @@ Pour la copie : les solutions sont $(4, -1, 0, 0) + s\,(-2, 1, 1, 0) + t\,(1, -3
 **Réponses** : a) `[2, 2]` · b) `[6, 3]` · c) `[[-1, 2], [1, -1]]` · d) `[[2, 0], [0, 3]]` · e) `[1, 2]` · f) `[2, 6]` · g) `[14, 8]` · h) `[[3, 0], [0, 2]]`.
 
 **Démarche.**
-- a) $(4 - 2,\ 1 + 1) = (2, 2) = 2\,\mathbf{s}_1$.
-- b) $(8 - 2,\ 2 + 1) = (6, 3) = 3\,\mathbf{s}_2$.
-- c) $\det\mathbf{S} = 1 - 2 = -1$ : $\mathbf{S}^{-1} = \frac{1}{-1}\begin{pmatrix} 1 & -2 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ 1 & -1 \end{pmatrix}$.
-- d) Colonne $j$ : les coordonnées de $\mathbf{A}\mathbf{s}_j$, soit $(2, 0)$ et $(0, 3)$ par a) et b). Par le calcul : $\mathbf{A}\mathbf{S} = \begin{pmatrix} 2 & 6 \\ 2 & 3 \end{pmatrix}$, puis $\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} -2 + 4 & -6 + 6 \\ 2 - 2 & 6 - 3 \end{pmatrix}$.
+- a) $(4 - 2,\ 1 + 1) = (2, 2) = 2\thinspace\mathbf{s}_1$.
+- b) $(8 - 2,\ 2 + 1) = (6, 3) = 3\thinspace\mathbf{s}_2$.
+- c) $\det\mathbf{S} = 1 - 2 = -1$ : $\mathbf{S}^{-1} = \frac{1}{-1}\begin{pmatrix} 1 & -2 \cr -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \cr 1 & -1 \end{pmatrix}$.
+- d) Colonne $j$ : les coordonnées de $\mathbf{A}\mathbf{s}_j$, soit $(2, 0)$ et $(0, 3)$ par a) et b). Par le calcul : $\mathbf{A}\mathbf{S} = \begin{pmatrix} 2 & 6 \cr 2 & 3 \end{pmatrix}$, puis $\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} -2 + 4 & -6 + 6 \cr 2 - 2 & 6 - 3 \end{pmatrix}$.
 - e) $\mathbf{S}^{-1}(5, 3) = (-5 + 6,\ 5 - 3) = (1, 2)$.
-- f) $\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}(1, 2) = (2, 6)$.
+- f) $\begin{pmatrix} 2 & 0 \cr 0 & 3 \end{pmatrix}(1, 2) = (2, 6)$.
 - g) $\mathbf{S}(2, 6) = (2 + 12,\ 2 + 6)$.
 - h) Les vecteurs de base échangés : les nombres de la diagonale aussi.
 
@@ -313,7 +313,7 @@ Pour la copie : $\mathbf{A}$ ne fait que multiplier $\mathbf{s}_1$ par 2 et $\ma
 **Démarche.**
 - a) et b) $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ avec les coefficients de $x$ et $y$ dans $\mathbf{A}$, et $\mathbf{b} = \varphi(0, 0)$.
 - c) $(2 - 3 - 1,\ 1 - 2 + 4)$.
-- d) $\det\mathbf{A} = 4 - 3 = 1$ : $\mathbf{A}^{-1} = \begin{pmatrix} 2 & -3 \\ -1 & 2 \end{pmatrix}$.
+- d) $\det\mathbf{A} = 4 - 3 = 1$ : $\mathbf{A}^{-1} = \begin{pmatrix} 2 & -3 \cr -1 & 2 \end{pmatrix}$.
 - e) $-\mathbf{A}^{-1}\mathbf{b} = -\big(2 \times (-1) - 3 \times 4,\ -1 \times (-1) + 2 \times 4\big) = -(-14, 9) = (14, -9)$.
 - f) $\mathbf{A}^{-1}\big((3, 4) - (-1, 4)\big) = \mathbf{A}^{-1}(4, 0) = (8, -4)$.
 - g) $(2 + 3 - 1,\ 1 + 2 + 4)$.
@@ -352,7 +352,7 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 
 **Réponse modèle.**
 1. $\mathbf{0} \in U$ et $\mathbf{0} \in W$, donc $\mathbf{0} \in U \cap W$. Si $\mathbf{x}, \mathbf{y} \in U \cap W$ et $\lambda, \mu \in \mathbb{R}$ : $\lambda\mathbf{x} + \mu\mathbf{y} \in U$ ($U$ est un sous-espace) et $\in W$ (de même), donc $\in U \cap W$.
-2. $x = z$ et $x + y + z = 0$ donnent $y = -2x$ : les vecteurs $x\,(1, -2, 1)$. L'intersection est la droite $\operatorname{Vect}\big((1, -2, 1)\big)$.
+2. $x = z$ et $x + y + z = 0$ donnent $y = -2x$ : les vecteurs $x\thinspace(1, -2, 1)$. L'intersection est la droite $\operatorname{Vect}\big((1, -2, 1)\big)$.
 3. Si $U \subseteq W$, alors $U \cup W = W$, un sous-espace ; de même si $W \subseteq U$.
 4. Supposons $\mathbf{u} + \mathbf{w} \in U \cup W$. S'il est dans $U$, alors $\mathbf{w} = (\mathbf{u} + \mathbf{w}) - \mathbf{u} \in U$ (différence de deux vecteurs de $U$) : contradiction. S'il est dans $W$, alors $\mathbf{u} = (\mathbf{u} + \mathbf{w}) - \mathbf{w} \in W$ : contradiction. Donc $\mathbf{u} + \mathbf{w} \notin U \cup W$, et $U \cup W$ n'est pas stable par addition. Conclusion : $U \cup W$ est un sous-espace **si et seulement si** l'un des deux contient l'autre.
 5. Aucun des deux axes ne contient l'autre : avec $\mathbf{u} = (1, 0)$ et $\mathbf{w} = (0, 1)$, $(1, 1)$ n'est sur aucun axe.
@@ -362,10 +362,10 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 ### Ex M12a.15 — Les coordonnées dans une base sont uniques
 
 **Réponse modèle.**
-1. $\sum_i c_i\mathbf{b}_i - \sum_i d_i\mathbf{b}_i = \sum_i (c_i - d_i)\,\mathbf{b}_i = \mathbf{0}$. La famille est libre : tous les coefficients sont nuls, $c_i = d_i$.
-2. Le vecteur $\mathbf{0}$ s'écrit $0\,\mathbf{b}_1 + \cdots + 0\,\mathbf{b}_n$. Si $\lambda_1\mathbf{b}_1 + \cdots + \lambda_n\mathbf{b}_n = \mathbf{0}$, c'est une autre écriture de $\mathbf{0}$ ; par unicité, tous les $\lambda_i$ sont nuls : la famille est libre.
-3. $\mathbf{v} = \sum_i c_i(\mathbf{v})\,\mathbf{b}_i$ et $\mathbf{w} = \sum_i c_i(\mathbf{w})\,\mathbf{b}_i$, donc $\lambda\mathbf{v} + \mu\mathbf{w} = \sum_i \big(\lambda c_i(\mathbf{v}) + \mu c_i(\mathbf{w})\big)\,\mathbf{b}_i$ : c'est une écriture de $\lambda\mathbf{v} + \mu\mathbf{w}$ dans la base, donc **la** sienne, par unicité.
-4. $\mathbf{u}_3 = 0\,\mathbf{u}_1 + 0\,\mathbf{u}_2 + 1\,\mathbf{u}_3$ et $\mathbf{u}_3 = -2\,\mathbf{u}_1 + \mathbf{u}_2 + 0\,\mathbf{u}_3$. La question 2 : une famille où un vecteur a une seule écriture est libre ; celle-ci est liée, donc certaines écritures ne peuvent pas être uniques.
+1. $\sum_i c_i\mathbf{b}_i - \sum_i d_i\mathbf{b}_i = \sum_i (c_i - d_i)\thinspace\mathbf{b}_i = \mathbf{0}$. La famille est libre : tous les coefficients sont nuls, $c_i = d_i$.
+2. Le vecteur $\mathbf{0}$ s'écrit $0\thinspace\mathbf{b}_1 + \cdots + 0\thinspace\mathbf{b}_n$. Si $\lambda_1\mathbf{b}_1 + \cdots + \lambda_n\mathbf{b}_n = \mathbf{0}$, c'est une autre écriture de $\mathbf{0}$ ; par unicité, tous les $\lambda_i$ sont nuls : la famille est libre.
+3. $\mathbf{v} = \sum_i c_i(\mathbf{v})\thinspace\mathbf{b}_i$ et $\mathbf{w} = \sum_i c_i(\mathbf{w})\thinspace\mathbf{b}_i$, donc $\lambda\mathbf{v} + \mu\mathbf{w} = \sum_i \big(\lambda c_i(\mathbf{v}) + \mu c_i(\mathbf{w})\big)\thinspace\mathbf{b}_i$ : c'est une écriture de $\lambda\mathbf{v} + \mu\mathbf{w}$ dans la base, donc **la** sienne, par unicité.
+4. $\mathbf{u}_3 = 0\thinspace\mathbf{u}_1 + 0\thinspace\mathbf{u}_2 + 1\thinspace\mathbf{u}_3$ et $\mathbf{u}_3 = -2\thinspace\mathbf{u}_1 + \mathbf{u}_2 + 0\thinspace\mathbf{u}_3$. La question 2 : une famille où un vecteur a une seule écriture est libre ; celle-ci est liée, donc certaines écritures ne peuvent pas être uniques.
 
 **Grille.** (1) la différence des deux écritures, la libre famille invoquée ; (2) l'écriture triviale de $\mathbf{0}$, et l'unicité appliquée à $\mathbf{0}$ ; (3) l'écriture de la combinaison, et l'unicité pour conclure (pas seulement « c'est linéaire ») ; (4) deux écritures différentes vérifiées, et le lien avec la question 2.
 
@@ -376,8 +376,8 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 2. $\mathbf{0} \in \ker f$ par 1. Si $f(\mathbf{x}) = f(\mathbf{y}) = \mathbf{0}$, alors $f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y}) = \mathbf{0}$.
 3. $\mathbf{0} = f(\mathbf{0}) \in \operatorname{Im} f$. Si $\mathbf{y} = f(\mathbf{x})$ et $\mathbf{y}' = f(\mathbf{x}')$, alors $\lambda\mathbf{y} + \mu\mathbf{y}' = f(\lambda\mathbf{x} + \mu\mathbf{x}') \in \operatorname{Im} f$.
 4. Si $\mathbf{x} \in \ker f$, alors $f(\mathbf{x}) = \mathbf{0} = f(\mathbf{0})$, et l'injectivité donne $\mathbf{x} = \mathbf{0}$.
-5. Si $f(\mathbf{x}) = f(\mathbf{y})$, alors $f(\mathbf{x} - \mathbf{y}) = \mathbf{0}$, donc $\mathbf{x} - \mathbf{y} \in \ker f = \{\mathbf{0}\}$, et $\mathbf{x} = \mathbf{y}$.
-6. $\mathbf{A}\mathbf{x} = \mathbf{0}$ a $n$ inconnues et au plus $m < n$ pivots : il reste au moins $n - m \ge 1$ variable libre, d'où une solution non nulle (une variable libre à 1). Le noyau n'est pas $\{\mathbf{0}\}$, et par 4, $\mathbf{A}$ n'est pas injective.
+5. Si $f(\mathbf{x}) = f(\mathbf{y})$, alors $f(\mathbf{x} - \mathbf{y}) = \mathbf{0}$, donc $\mathbf{x} - \mathbf{y} \in \ker f = \lbrace\mathbf{0}\rbrace$, et $\mathbf{x} = \mathbf{y}$.
+6. $\mathbf{A}\mathbf{x} = \mathbf{0}$ a $n$ inconnues et au plus $m < n$ pivots : il reste au moins $n - m \ge 1$ variable libre, d'où une solution non nulle (une variable libre à 1). Le noyau n'est pas $\lbrace\mathbf{0}\rbrace$, et par 4, $\mathbf{A}$ n'est pas injective.
 
 **Grille.** (1) un calcul qui utilise la linéarité ; (2) et (3) les trois conditions de sous-espace, l'espace où chacun vit ; (4) le recours à $f(\mathbf{0}) = \mathbf{0}$ ; (5) le passage par $\mathbf{x} - \mathbf{y}$ ; (6) le comptage des pivots et la variable libre.
 
@@ -385,9 +385,9 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 
 **Réponse modèle.**
 1. $\mathbf{R}$ s'obtient par des opérations élémentaires sur les lignes, qui ne changent pas les solutions (M09a §6) ; ici le second membre est $\mathbf{0}$ et le reste.
-2. La ligne $i$ de $\mathbf{R}$ (une ligne à pivot, de pivot dans la colonne $p_i$) a un 1 en $p_i$, des 0 dans les autres colonnes à pivot, et des nombres $R_{ij'}$ dans les colonnes libres $j'$. Donc $(\mathbf{R}\mathbf{k}_j)_i = 1 \times (\mathbf{k}_j)_{p_i} + \sum_{j' \text{ libre}} R_{ij'}\,(\mathbf{k}_j)_{j'} = -R_{ij} + R_{ij} \times 1 = 0$ (seule la colonne libre $j$ a une coordonnée non nulle). Les lignes nulles de $\mathbf{R}$ donnent 0. Par 1, $\mathbf{k}_j \in \ker\mathbf{A}$.
-3. Si $\sum_j \lambda_j\mathbf{k}_j = \mathbf{0}$, regardons la coordonnée d'une colonne libre $j_0$ : seul $\mathbf{k}_{j_0}$ y a un 1, les autres un 0 ; elle vaut donc $\lambda_{j_0} = 0$. Tous les $\lambda_j$ sont nuls.
-4. Dans chaque colonne libre $j_0$, $\mathbf{y}$ a pour coordonnée $x_{j_0} - x_{j_0} \times 1 = 0$. $\mathbf{y} \in \ker\mathbf{A}$ (différence de vecteurs du noyau), donc $\mathbf{R}\mathbf{y} = \mathbf{0}$ ; la ligne $i$ donne $y_{p_i} + \sum_{j' \text{ libre}} R_{ij'}\,y_{j'} = y_{p_i} = 0$. Toutes les coordonnées de $\mathbf{y}$ sont nulles : $\mathbf{x} = \sum_j x_j\,\mathbf{k}_j$.
+2. La ligne $i$ de $\mathbf{R}$ (une ligne à pivot, de pivot dans la colonne $p_i$) a un 1 en $p_i$, des 0 dans les autres colonnes à pivot, et des nombres $R_{ij'}$ dans les colonnes libres $j'$. Donc $(\mathbf{R}\mathbf{k} _j) _i = 1 \times (\mathbf{k} _j) _{p_i} + \sum _{j' \text{ libre}} R _{ij'}\thinspace(\mathbf{k}  _j)  _{j'} = -R _{ij} + R _{ij} \times 1 = 0$ (seule la colonne libre $j$ a une coordonnée non nulle). Les lignes nulles de $\mathbf{R}$ donnent 0. Par 1, $\mathbf{k}_j \in \ker\mathbf{A}$.
+3. Si $\sum_j \lambda_j\mathbf{k} _j = \mathbf{0}$, regardons la coordonnée d'une colonne libre $j_0$ : seul $\mathbf{k}  _{j_0}$ y a un 1, les autres un 0 ; elle vaut donc $\lambda _{j_0} = 0$. Tous les $\lambda_j$ sont nuls.
+4. Dans chaque colonne libre $j_0$, $\mathbf{y}$ a pour coordonnée $x_{j_0} - x_{j_0} \times 1 = 0$. $\mathbf{y} \in \ker\mathbf{A}$ (différence de vecteurs du noyau), donc $\mathbf{R}\mathbf{y} = \mathbf{0}$ ; la ligne $i$ donne $y_{p_i} + \sum_{j' \text{ libre}} R_{ij'}\thinspace y_{j'} = y_{p_i} = 0$. Toutes les coordonnées de $\mathbf{y}$ sont nulles : $\mathbf{x} = \sum_j x_j\thinspace\mathbf{k}_j$.
 5. Les $\mathbf{k}_j$ forment une base de $\ker\mathbf{A}$ ; il y en a un par colonne libre, soit $n - r$, et $r = \operatorname{rg}(\mathbf{A})$.
 6. Pour $\mathbf{A}$ carrée de taille $n$ : injective $\iff$ $\dim\ker = 0$ $\iff$ $\operatorname{rg} = n$ $\iff$ $\operatorname{Im}\mathbf{A} = \mathbb{R}^n$ (un sous-espace de dimension $n$ de $\mathbb{R}^n$ est $\mathbb{R}^n$) $\iff$ surjective.
 
@@ -400,18 +400,18 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 2. $\operatorname{rg}(\mathbf{A}\mathbf{B}) = \operatorname{rg}\big((\mathbf{A}\mathbf{B})^\top\big) = \operatorname{rg}(\mathbf{B}^\top\mathbf{A}^\top) \le \operatorname{rg}(\mathbf{B}^\top) = \operatorname{rg}(\mathbf{B})$, par 1 appliqué à $\mathbf{B}^\top$ et $\mathbf{A}^\top$.
 3. Si $\mathbf{B}\mathbf{x} = \mathbf{0}$, alors $\mathbf{A}\mathbf{B}\mathbf{x} = \mathbf{0}$ : $\ker\mathbf{B} \subseteq \ker(\mathbf{A}\mathbf{B})$, donc $\dim\ker\mathbf{B} \le \dim\ker(\mathbf{A}\mathbf{B})$. Par le théorème du rang, $\operatorname{rg}(\mathbf{B}) = p - \dim\ker\mathbf{B} \ge p - \dim\ker(\mathbf{A}\mathbf{B}) = \operatorname{rg}(\mathbf{A}\mathbf{B})$.
 4. $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \operatorname{rg}(\mathbf{B})$ par 2 ; et $\mathbf{B} = \mathbf{A}^{-1}(\mathbf{A}\mathbf{B})$ donne, par 2 encore, $\operatorname{rg}(\mathbf{B}) \le \operatorname{rg}(\mathbf{A}\mathbf{B})$.
-5. Par exemple $\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ et $\mathbf{B} = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ : $\mathbf{A}\mathbf{B} = \mathbf{0}$, de rang 0, alors que $\min(1, 1) = 1$. La borne n'est pas toujours atteinte : l'image de $\mathbf{B}$ (l'axe des ordonnées) est ici le noyau de $\mathbf{A}$.
+5. Par exemple $\mathbf{A} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}$ et $\mathbf{B} = \begin{pmatrix} 0 & 0 \cr 0 & 1 \end{pmatrix}$ : $\mathbf{A}\mathbf{B} = \mathbf{0}$, de rang 0, alors que $\min(1, 1) = 1$. La borne n'est pas toujours atteinte : l'image de $\mathbf{B}$ (l'axe des ordonnées) est ici le noyau de $\mathbf{A}$.
 
 **Grille.** (1) la colonne $j$ de $\mathbf{A}\mathbf{B}$, l'inclusion des images, et la comparaison des dimensions ; (2) la transposition et $\operatorname{rg}(\mathbf{M}^\top) = \operatorname{rg}(\mathbf{M})$, cités ; (3) l'inclusion des noyaux, puis le théorème du rang avec le bon nombre de colonnes ; (4) les deux inégalités ; (5) un exemple **vérifié**, et l'explication par image et noyau. D'autres exemples sont justes.
 
 ### Ex M12a.19 — L'inverse d'une application affine bijective est affine
 
 **Réponse modèle.**
-1. $\varphi(\mathbf{x}) - \varphi(\mathbf{y}) = \mathbf{A}\mathbf{x} + \mathbf{b} - \mathbf{A}\mathbf{y} - \mathbf{b} = \mathbf{A}(\mathbf{x} - \mathbf{y})$ : il est nul si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$. Donc $\varphi$ est injective si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$ entraîne $\mathbf{x} = \mathbf{y}$, c'est-à-dire $\ker\mathbf{A} = \{\mathbf{0}\}$.
+1. $\varphi(\mathbf{x}) - \varphi(\mathbf{y}) = \mathbf{A}\mathbf{x} + \mathbf{b} - \mathbf{A}\mathbf{y} - \mathbf{b} = \mathbf{A}(\mathbf{x} - \mathbf{y})$ : il est nul si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$. Donc $\varphi$ est injective si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$ entraîne $\mathbf{x} = \mathbf{y}$, c'est-à-dire $\ker\mathbf{A} = \lbrace\mathbf{0}\rbrace$.
 2. $\varphi(\mathbf{x}) = \mathbf{y} \iff \mathbf{A}\mathbf{x} = \mathbf{y} - \mathbf{b}$ : $\mathbf{y}$ est atteint si et seulement si $\mathbf{y} - \mathbf{b} \in \operatorname{Im}\mathbf{A}$. Tous les $\mathbf{y}$ le sont si et seulement si $\operatorname{Im}\mathbf{A} = \mathbb{R}^n$ (quand $\mathbf{y}$ parcourt $\mathbb{R}^n$, $\mathbf{y} - \mathbf{b}$ aussi).
-3. $\varphi$ bijective $\iff$ $\ker\mathbf{A} = \{\mathbf{0}\}$ et $\operatorname{Im}\mathbf{A} = \mathbb{R}^n$ ; pour une matrice carrée, ces deux conditions sont équivalentes (théorème du rang, M12a.17), et équivalent à « $\mathbf{A}$ inversible » (M09a §8).
+3. $\varphi$ bijective $\iff$ $\ker\mathbf{A} = \lbrace\mathbf{0}\rbrace$ et $\operatorname{Im}\mathbf{A} = \mathbb{R}^n$ ; pour une matrice carrée, ces deux conditions sont équivalentes (théorème du rang, M12a.17), et équivalent à « $\mathbf{A}$ inversible » (M09a §8).
 4. $\mathbf{A}\mathbf{x} + \mathbf{b} = \mathbf{y} \iff \mathbf{x} = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b}) = \mathbf{A}^{-1}\mathbf{y} + (-\mathbf{A}^{-1}\mathbf{b})$ : une application affine, de partie linéaire $\mathbf{A}^{-1}$ et de translation $-\mathbf{A}^{-1}\mathbf{b}$.
-5. Si $\sum_i \lambda_i = 1$ : $\varphi\big(\sum_i \lambda_i\mathbf{x}_i\big) = \sum_i \lambda_i\mathbf{A}\mathbf{x}_i + \mathbf{b} = \sum_i \lambda_i\mathbf{A}\mathbf{x}_i + \big(\sum_i \lambda_i\big)\mathbf{b} = \sum_i \lambda_i\,\varphi(\mathbf{x}_i)$. Avec une somme $s \ne 1$, il reste $\sum_i \lambda_i\,\varphi(\mathbf{x}_i) = \varphi\big(\sum_i \lambda_i\mathbf{x}_i\big) + (s - 1)\,\mathbf{b}$, différent dès que $\mathbf{b} \ne \mathbf{0}$ : par exemple $\varphi(2\mathbf{x}) \ne 2\varphi(\mathbf{x})$.
+5. Si $\sum_i \lambda_i = 1$ : $\varphi\big(\sum_i \lambda_i\mathbf{x}_i\big) = \sum_i \lambda_i\mathbf{A}\mathbf{x}_i + \mathbf{b} = \sum_i \lambda_i\mathbf{A}\mathbf{x}_i + \big(\sum_i \lambda_i\big)\mathbf{b} = \sum_i \lambda_i\thinspace\varphi(\mathbf{x}_i)$. Avec une somme $s \ne 1$, il reste $\sum_i \lambda_i\thinspace\varphi(\mathbf{x}_i) = \varphi\big(\sum_i \lambda_i\mathbf{x}_i\big) + (s - 1)\thinspace\mathbf{b}$, différent dès que $\mathbf{b} \ne \mathbf{0}$ : par exemple $\varphi(2\mathbf{x}) \ne 2\varphi(\mathbf{x})$.
 
 **Grille.** (1) la différence $\varphi(\mathbf{x}) - \varphi(\mathbf{y})$ et les deux sens de l'équivalence ; (2) la réécriture $\mathbf{A}\mathbf{x} = \mathbf{y} - \mathbf{b}$ ; (3) le théorème du rang pour une matrice carrée, cité ; (4) la résolution, puis la partie linéaire et la translation nommées ; (5) le calcul avec $\sum_i \lambda_i = 1$ utilisé à l'endroit précis, et un contre-exemple.
 
@@ -431,7 +431,7 @@ Pour la copie : $\ker D$ = les constantes, $\operatorname{Im} D = \mathbb{R}_2[x
 - e) $\mathbf{w}' = (0{,}5 - 2,\ 1 - 2,\ 0 + 2) = (-1{,}5 ;\ -1 ;\ 2)$ ; première prédiction : $-18 - 30 + 84 = 36$ ; de même $(27{,}5 ;\ 54 ;\ 30)$, exactement $\mathbf{X}\mathbf{w}$.
 - f) Les colonnes trajet et sur place sont libres : $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$, est inversible (fiche §6).
 
-Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\mathbf{d} = \mathbf{X}\mathbf{w}$. Les coordonnées non nulles de $\mathbf{d}$ désignent les trois features liées. $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible (d). Les données ne voient que les prédictions : deux poids qui donnent les mêmes prédictions sur tous les exemples ne se distinguent pas (il faut une règle de plus : la plus petite norme, ou une pénalité ridge, workbookIA 9). Une colonne « total » chronométrée ne serait égale à la somme qu'à quelques secondes près : le rang serait 3 en exact, mais $\mathbf{X}^\top\mathbf{X}$ serait **presque** singulière, et les poids instables (M12a.31, M12d).
+Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\thinspace\mathbf{X}\mathbf{d} = \mathbf{X}\mathbf{w}$. Les coordonnées non nulles de $\mathbf{d}$ désignent les trois features liées. $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible (d). Les données ne voient que les prédictions : deux poids qui donnent les mêmes prédictions sur tous les exemples ne se distinguent pas (il faut une règle de plus : la plus petite norme, ou une pénalité ridge, workbookIA 9). Une colonne « total » chronométrée ne serait égale à la somme qu'à quelques secondes près : le rang serait 3 en exact, mais $\mathbf{X}^\top\mathbf{X}$ serait **presque** singulière, et les poids instables (M12a.31, M12d).
 
 **Erreurs fréquentes.** $(1, 1, -1)$ et $(-1, -1, 1)$ sont tous deux dans le noyau ; la vérification demande celui dont la dernière coordonnée vaut 1. En e), oublier $\mathbf{w}$ (on trouve $\mathbf{X}(2\mathbf{d}) = \mathbf{0}$).
 
@@ -443,7 +443,7 @@ Pour la copie : $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\ma
 
 **Démarche.**
 - a) Deux lignes non proportionnelles.
-- b) La forme réduite $\begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & -1 \end{pmatrix}$ ($L_1 \leftarrow L_1 - L_2$) : $x_3 = 1$, $x_1 = -1$, $x_2 = 1$.
+- b) La forme réduite $\begin{pmatrix} 1 & 0 & 1 \cr 0 & 1 & -1 \end{pmatrix}$ ($L_1 \leftarrow L_1 - L_2$) : $x_3 = 1$, $x_1 = -1$, $x_2 = 1$.
 - c) $(0 + 3,\ 3 - 1)$.
 - d) $\operatorname{rg}(\mathbf{D}'\mathbf{E}) \le \operatorname{rg}(\mathbf{E}) = 2 < 3 = \operatorname{rg}(\mathbf{I}_3)$.
 - e) $\mathbf{D}\mathbf{E}$, ligne par ligne : $(1, 1, 0) - (0, 1, -1)$, puis $(0, 1, -1)$, puis $\mathbf{0}$.
@@ -454,7 +454,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Erreurs fréquentes.** Calculer $\mathbf{E}\mathbf{D}$ (de forme $(2, 2)$) au lieu de $\mathbf{D}\mathbf{E}$ ; l'erreur dans le mauvais sens, $\mathbf{D}\mathbf{E}\mathbf{x} - \mathbf{x}$.
 
-**Variante.** L'erreur de reconstruction de $(2, 1, 1)$ ? *Réponse* : $\mathbf{D}\mathbf{E}(2, 1, 1) = (3, 0, 0)$, erreur $(-1, 1, 1)$ : pour ce décodeur, l'erreur vaut toujours $x_3\,(-1, 1, 1)$.
+**Variante.** L'erreur de reconstruction de $(2, 1, 1)$ ? *Réponse* : $\mathbf{D}\mathbf{E}(2, 1, 1) = (3, 0, 0)$, erreur $(-1, 1, 1)$ : pour ce décodeur, l'erreur vaut toujours $x_3\thinspace(-1, 1, 1)$.
 
 ### Ex M12a.22 — MML §2.4 et §2.5 : espaces vectoriels, sous-espaces et indépendance, en anglais
 
@@ -484,11 +484,11 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 ### Ex M12a.24 — Fermi : les paramètres d'une application linéaire, puis affine, d'images 32 × 32 en couleurs vers 100 classes
 
 **Réponse modèle.**
-1. $32 \times 32 \times 3 = 3\,072$ nombres par image (M09a.23) : de $\mathbb{R}^{3\,072}$ dans $\mathbb{R}^{100}$, une matrice de forme $(100, 3\,072)$ (ou $(3\,072, 100)$ dans la convention des lignes, $\mathbf{x}\mathbf{W}$).
-2. $3\,072 \times 100 = 307\,200 \approx 3 \times 10^5$ paramètres ; l'application affine en ajoute 100 : $307\,300$.
-3. Le rang est au plus $\min(100, 3\,072) = 100$ ; le noyau a une dimension au moins $3\,072 - 100 = 2\,972$. Un vecteur du noyau est une « image » (un motif de pixels) qu'on peut ajouter à n'importe quelle image sans changer **aucun** des 100 scores : le classifieur ne voit que 100 combinaisons des pixels et ignore toutes les autres directions.
+1. $32 \times 32 \times 3 = 3\thinspace072$ nombres par image (M09a.23) : de $\mathbb{R}^{3\thinspace072}$ dans $\mathbb{R}^{100}$, une matrice de forme $(100, 3\thinspace072)$ (ou $(3\thinspace072, 100)$ dans la convention des lignes, $\mathbf{x}\mathbf{W}$).
+2. $3\thinspace072 \times 100 = 307\thinspace200 \approx 3 \times 10^5$ paramètres ; l'application affine en ajoute 100 : $307\thinspace300$.
+3. Le rang est au plus $\min(100, 3\thinspace072) = 100$ ; le noyau a une dimension au moins $3\thinspace072 - 100 = 2\thinspace972$. Un vecteur du noyau est une « image » (un motif de pixels) qu'on peut ajouter à n'importe quelle image sans changer **aucun** des 100 scores : le classifieur ne voit que 100 combinaisons des pixels et ignore toutes les autres directions.
 4. $3 \times 10^5 \times 4 \approx 1{,}2 \times 10^6$ octets, environ 1,2 Mo.
-5. $\mathbf{B}$ de forme $(100, 16)$ et $\mathbf{C}$ de forme $(16, 3\,072)$ : $16 \times (100 + 3\,072) = 50\,752 \approx 5 \times 10^4$ paramètres, environ 6 fois moins. Le rang de $\mathbf{B}\mathbf{C}$ est au plus 16 : les 100 scores ne dépendent plus que de 16 combinaisons des pixels.
+5. $\mathbf{B}$ de forme $(100, 16)$ et $\mathbf{C}$ de forme $(16, 3\thinspace072)$ : $16 \times (100 + 3\thinspace072) = 50\thinspace752 \approx 5 \times 10^4$ paramètres, environ 6 fois moins. Le rang de $\mathbf{B}\mathbf{C}$ est au plus 16 : les 100 scores ne dépendent plus que de 16 combinaisons des pixels.
 
 **Grille.** (1) 3 072 et la forme de la matrice ; (2) le produit, puis les biais ; (3) la borne du rang, la dimension du noyau par le théorème du rang, et son sens ; (4) la multiplication par 4 octets ; (5) le nouveau compte, le facteur, et la borne du rang d'un produit.
 
@@ -536,7 +536,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Réponses** : a) `[[1.0, -2.0], [1.0, 0.0], [0.0, 3.0], [0.0, 1.0]]` · b) `[[-2.0], [1.0]]` · c) `[3, 0]` · d) la matrice identité de taille 3 · e) `[8, 3]` · f) `True` · g) `"ValueError"`.
 
-**Démarche.** `R, pivots = _rref(A, tol)`, `free = [j for j in range(n) if j not in pivots]`, `N = np.zeros((n, len(free)))`, puis pour chaque colonne libre `j`, d'indice `c` dans `free` : `N[j, c] = 1.0`, et pour chaque pivot `p` de la ligne `i`, `N[p, c] = -R[i, j]`. Le cas « noyau $\{\mathbf{0}\}$ » est automatique : `free` est vide et `N` a la forme $(n, 0)$. Pour la copie : a) dit $\mathbf{c}_1 + \mathbf{c}_2 = \mathbf{0}$ et $-2\mathbf{c}_1 + 3\mathbf{c}_3 + \mathbf{c}_4 = \mathbf{0}$ ; c) : l'identité est injective ; d) : la matrice nulle envoie tout sur $\mathbf{0}$, toutes les colonnes sont libres ; e) : rang 5, donc $8 - 5 = 3$.
+**Démarche.** `R, pivots = _rref(A, tol)`, `free = [j for j in range(n) if j not in pivots]`, `N = np.zeros((n, len(free)))`, puis pour chaque colonne libre `j`, d'indice `c` dans `free` : `N[j, c] = 1.0`, et pour chaque pivot `p` de la ligne `i`, `N[p, c] = -R[i, j]`. Le cas « noyau $\lbrace\mathbf{0}\rbrace$ » est automatique : `free` est vide et `N` a la forme $(n, 0)$. Pour la copie : a) dit $\mathbf{c}_1 + \mathbf{c}_2 = \mathbf{0}$ et $-2\mathbf{c}_1 + 3\mathbf{c}_3 + \mathbf{c}_4 = \mathbf{0}$ ; c) : l'identité est injective ; d) : la matrice nulle envoie tout sur $\mathbf{0}$, toutes les colonnes sont libres ; e) : rang 5, donc $8 - 5 = 3$.
 
 **Erreurs fréquentes.** Oublier le signe moins ; ranger les vecteurs en lignes (forme $(n - r, n)$) ; indexer `R` par le numéro de la colonne de pivot au lieu du numéro de sa ligne ; rendre une liste vide au lieu d'un tableau $(n, 0)$.
 
@@ -544,7 +544,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Réponses** : a) `[1.0, 2.0]` · b) `[3.0, 2.0]` · c) `"ValueError"` · d) `[[4.0, 0.0], [0.0, -1.0]]` · e) `[[0.5, 1.5, 0.5], [0.5, 0.5, -0.5]]` · f) `"ValueError"`.
 
-**Démarche.** `coordinates` : les copies, les formes (`v` à une dimension, autant de coordonnées que `B` a de lignes), `is_independent(B, tol)`, puis `c = np.linalg.solve(B.T @ B, B.T @ v)` et la vérification `np.linalg.norm(B @ c - v) <= tol * max(1.0, np.linalg.norm(v))`. `change_of_basis` : `T = S` si `T is None`, les formes $(n, n)$ et $(m, m)$, puis `is_independent(S)` et `is_independent(T)`, et enfin `np.linalg.solve(T, A @ S)`. Pour la copie : a) $(1, 1) + 2(2, 3) = (5, 7)$ ; c) : $(1, 1, 1)$ n'est pas dans le plan engendré ; d) : $\mathbf{A}(1, 0) = 4(1, 0)$ et $\mathbf{A}(1, -5) = -(1, -5)$, d'où une matrice diagonale ; $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ donnerait $\begin{pmatrix} 4 & 0{,}8 \\ 0 & -1 \end{pmatrix}$.
+**Démarche.** `coordinates` : les copies, les formes (`v` à une dimension, autant de coordonnées que `B` a de lignes), `is_independent(B, tol)`, puis `c = np.linalg.solve(B.T @ B, B.T @ v)` et la vérification `np.linalg.norm(B @ c - v) <= tol * max(1.0, np.linalg.norm(v))`. `change_of_basis` : `T = S` si `T is None`, les formes $(n, n)$ et $(m, m)$, puis `is_independent(S)` et `is_independent(T)`, et enfin `np.linalg.solve(T, A @ S)`. Pour la copie : a) $(1, 1) + 2(2, 3) = (5, 7)$ ; c) : $(1, 1, 1)$ n'est pas dans le plan engendré ; d) : $\mathbf{A}(1, 0) = 4(1, 0)$ et $\mathbf{A}(1, -5) = -(1, -5)$, d'où une matrice diagonale ; $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ donnerait $\begin{pmatrix} 4 & 0{,}8 \cr 0 & -1 \end{pmatrix}$.
 
 **Erreurs fréquentes.** `np.linalg.solve(B, v)`, qui refuse une matrice non carrée ; une vérification absolue (`<= tol`), qui rejette à tort un grand vecteur du sous-espace ; ne tester que `T` (une `S` singulière passe alors quand `T` est donnée) ; laisser passer la `LinAlgError` de NumPy au lieu de lever une `ValueError` (les tests et f) le refusent) ; calculer $\mathbf{S}\mathbf{A}\mathbf{S}^{-1}$.
 
@@ -552,7 +552,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Réponses** : a) `2` · b) `2` · c) `[-3, 1, 0, 0]` · d) `[[1, 0], [2, 1], [-1, 2]]` · e) `True` · f) `2`.
 
-**Démarche.** `P = sympy.Matrix(...)`, puis `P.rank()`, `len(P.nullspace())`, `list(P.nullspace()[0])`, `sympy.Matrix.hstack(*P.columnspace()).tolist()`, la comparaison `np.allclose(null_space_basis(P), np.array(sympy.Matrix.hstack(*P.nullspace()).tolist(), dtype=float))`, et `np.linalg.matrix_rank(np.array(P).T)`. Pour la copie : la forme réduite est $\begin{pmatrix} 1 & 3 & 0 & 2 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$ ; le noyau dit « colonne 2 = 3 × colonne 1 » et « colonne 4 = 2 × colonne 1 − colonne 3 ». f) donne 2 comme a) : $\operatorname{rg}(\mathbf{P}^\top) = \operatorname{rg}(\mathbf{P})$.
+**Démarche.** `P = sympy.Matrix(...)`, puis `P.rank()`, `len(P.nullspace())`, `list(P.nullspace()[0])`, `sympy.Matrix.hstack(*P.columnspace()).tolist()`, la comparaison `np.allclose(null_space_basis(P), np.array(sympy.Matrix.hstack(*P.nullspace()).tolist(), dtype=float))`, et `np.linalg.matrix_rank(np.array(P).T)`. Pour la copie : la forme réduite est $\begin{pmatrix} 1 & 3 & 0 & 2 \cr 0 & 0 & 1 & -1 \cr 0 & 0 & 0 & 0 \end{pmatrix}$ ; le noyau dit « colonne 2 = 3 × colonne 1 » et « colonne 4 = 2 × colonne 1 − colonne 3 ». f) donne 2 comme a) : $\operatorname{rg}(\mathbf{P}^\top) = \operatorname{rg}(\mathbf{P})$.
 
 **Erreurs fréquentes.** Mettre les vecteurs de `columnspace()` en lignes ; comparer avec `scipy.linalg.null_space`, qui rend une base orthonormée (d'autres vecteurs du même noyau).
 
@@ -560,7 +560,7 @@ Pour la copie : $\mathbf{E}(1, 2, 0) = (3, 2)$, comme $\mathbf{E}(0, 3, 1)$ : le
 
 **Réponses** : a) `1` · b) `2` · c) `1` · d) `3` · e) `3`.
 
-a) Rang 4 : une relation exacte entre des nombres tirés d'une loi continue a une probabilité nulle, et la matrice atteint $\min(4, 6)$. b) Rang 2 : $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le 2$, atteint. c) Rang 3 : la colonne ajoutée ne crée aucune direction. d) Rang 2 : trois lignes centrées de somme nulle. e) Rang 2 : la ligne $i$ vaut $i\,(1, \ldots, 1) + (1, 2, \ldots, 6)$, une combinaison de deux vecteurs fixes.
+a) Rang 4 : une relation exacte entre des nombres tirés d'une loi continue a une probabilité nulle, et la matrice atteint $\min(4, 6)$. b) Rang 2 : $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le 2$, atteint. c) Rang 3 : la colonne ajoutée ne crée aucune direction. d) Rang 2 : trois lignes centrées de somme nulle. e) Rang 2 : la ligne $i$ vaut $i\thinspace(1, \ldots, 1) + (1, 2, \ldots, 6)$, une combinaison de deux vecteurs fixes.
 
 ### Ex M12a.31 — Le rang numérique : une colonne presque redondante et le choix de la tolérance
 
@@ -572,7 +572,7 @@ a) Rang 4 : une relation exacte entre des nombres tirés d'une loi continue a un
 
 ### Ex M12a.32 — Une application linéaire du plan : l'image du carré unité, et ce qu'elle écrase quand son noyau n'est pas nul
 
-**Démarche.** Le carré : `np.array([[0, 0], [1, 0], [1, 1], [0, 1]]) @ M.T`, puis `ax.add_patch(Polygon(..., closed=True))`. `N = mymath.linmaps.null_space_basis(M)` : si `N.shape[1] == 0`, la matrice est inversible, et l'on s'arrête. Sinon `k = N[:, 0]`, `ax.plot(t * k[0], t * k[1], label="noyau")` pour `t` de $-2$ à 2 ; une colonne non nulle `c` de `M`, `ax.plot(s * c[0], s * c[1], label="image")` ; pour chaque sommet `p`, le segment `p + t k` en pointillés et le point `M @ p`. Pour la copie : par la matrice de rang 1, le carré devient un segment de la droite image ; chaque segment $\mathbf{p} + t\,\mathbf{k}$ est envoyé sur $\mathbf{M}\mathbf{p} + t\,\mathbf{M}\mathbf{k} = \mathbf{M}\mathbf{p}$, un seul point de l'image ; ces points ne peuvent plus être séparés, donc aucune application ne défait $\mathbf{M}$.
+**Démarche.** Le carré : `np.array([[0, 0], [1, 0], [1, 1], [0, 1]]) @ M.T`, puis `ax.add_patch(Polygon(..., closed=True))`. `N = mymath.linmaps.null_space_basis(M)` : si `N.shape[1] == 0`, la matrice est inversible, et l'on s'arrête. Sinon `k = N[:, 0]`, `ax.plot(t * k[0], t * k[1], label="noyau")` pour `t` de $-2$ à 2 ; une colonne non nulle `c` de `M`, `ax.plot(s * c[0], s * c[1], label="image")` ; pour chaque sommet `p`, le segment `p + t k` en pointillés et le point `M @ p`. Pour la copie : par la matrice de rang 1, le carré devient un segment de la droite image ; chaque segment $\mathbf{p} + t\thinspace\mathbf{k}$ est envoyé sur $\mathbf{M}\mathbf{p} + t\thinspace\mathbf{M}\mathbf{k} = \mathbf{M}\mathbf{p}$, un seul point de l'image ; ces points ne peuvent plus être séparés, donc aucune application ne défait $\mathbf{M}$.
 
 **Erreurs fréquentes.** `P @ M` au lieu de `P @ M.T` ; tracer le noyau pour une matrice inversible (un vecteur nul) ; prendre une colonne nulle pour diriger l'image ; ouvrir une figure dans la fonction.
 
@@ -580,7 +580,7 @@ a) Rang 4 : une relation exacte entre des nombres tirés d'une loi continue a un
 
 **Réponses** : a) `"ABD"` · b) `[3, -2, -1, 0, 1, 1]`.
 
-(A) $\mathbf{u} + \mathbf{v}$ est dans $\operatorname{Vect}(\mathbf{u}, \mathbf{v})$ : la « base » est liée, de rang 2 ; il faut un vecteur hors du plan, $\mathbf{e}_1$ par exemple, et une vraie base de $\mathbb{R}^3$ a pour rang 3. (B) Le signe : $x_1 = -R_{12} = -2$ ; $(2, 1, 0)$ n'est pas dans le noyau, $\mathbf{A}(2, 1, 0) = (4, 8)$. (C) Juste : $c_1 = 2$, $c_2 = 3$, $c_3 = 4 - 2 - 3 = -1$. (D) $\mathbf{S}\mathbf{M}\mathbf{S}^{-1} = \begin{pmatrix} 2 & 2 \\ 0 & 3 \end{pmatrix}$, alors que $\mathbf{S}^{-1}\mathbf{M}\mathbf{S} = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$ ; c'est la plus dangereuse : elle s'exécute et rend une matrice plausible. (E) Juste : $3 - 2 = 1$. (F) Juste : $\mathbf{M}^{-1}(4, 6) = (1, 2)$.
+(A) $\mathbf{u} + \mathbf{v}$ est dans $\operatorname{Vect}(\mathbf{u}, \mathbf{v})$ : la « base » est liée, de rang 2 ; il faut un vecteur hors du plan, $\mathbf{e} _1$ par exemple, et une vraie base de $\mathbb{R}^3$ a pour rang 3. (B) Le signe : $x_1 = -R _{12} = -2$ ; $(2, 1, 0)$ n'est pas dans le noyau, $\mathbf{A}(2, 1, 0) = (4, 8)$. (C) Juste : $c_1 = 2$, $c_2 = 3$, $c_3 = 4 - 2 - 3 = -1$. (D) $\mathbf{S}\mathbf{M}\mathbf{S}^{-1} = \begin{pmatrix} 2 & 2 \cr 0 & 3 \end{pmatrix}$, alors que $\mathbf{S}^{-1}\mathbf{M}\mathbf{S} = \begin{pmatrix} 2 & 0 \cr 0 & 3 \end{pmatrix}$ ; c'est la plus dangereuse : elle s'exécute et rend une matrice plausible. (E) Juste : $3 - 2 = 1$. (F) Juste : $\mathbf{M}^{-1}(4, 6) = (1, 2)$.
 
 ### Ex M12a.34 — Un test de propriété : A fois une base du noyau donne 0, et le théorème du rang sur des matrices aléatoires
 

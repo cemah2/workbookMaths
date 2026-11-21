@@ -22,7 +22,7 @@ Dans $\mathbf{x}_t$, l'entrée $\mathbf{u}_k$ est multipliée par $\mathbf{A}^{t
 </details>
 <details><summary>Indice 3</summary>
 
-1. $t = 5$, $k = 2$. 3. Quel état $\mathbf{u}_5$ sert-il à calculer ? 6. $y_{t+1} = (\mathbf{h} * \mathbf{u})_t$ avec $t = 3$ : $\sum_{k=0}^{3}h_{3-k}u_k$.
+1. $t = 5$, $k = 2$. 3. Quel état $\mathbf{u} _5$ sert-il à calculer ? 6. $y _{t+1} = (\mathbf{h} \ast \mathbf{u}) _t$ avec $t = 3$ : $\sum  _{k=0}^{3}h _{3-k}u_k$.
 
 </details>
 
@@ -125,12 +125,12 @@ Relis « La somme sur le temps » (§7) et l'exemple de la pêcherie.
 </details>
 <details><summary>Indice 2</summary>
 
-$s_T = \sum_{k=0}^{T-1}J_{T-1}\cdots J_{k+1}\,b_k$ : le terme $k$ est porté par les jacobiennes des pas **suivants** $k$.
+$s_T = \sum_{k=0}^{T-1}J_{T-1}\cdots J_{k+1}\thinspace b_k$ : le terme $k$ est porté par les jacobiennes des pas **suivants** $k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. Dérive $1{,}4\,(1 - \beta)\,x + 20$ par rapport à $x$. 5. Au premier ordre, $\Delta x_3 \approx s_3\,\Delta\beta$, avec $\Delta\beta = 0{,}02$. 6. C'est la récurrence $s_{t+1} = J_ts_t + b_t$.
+3. Dérive $1{,}4\thinspace(1 - \beta)\thinspace x + 20$ par rapport à $x$. 5. Au premier ordre, $\Delta x_3 \approx s_3\thinspace\Delta\beta$, avec $\Delta\beta = 0{,}02$. 6. C'est la récurrence $s_{t+1} = J_ts_t + b_t$.
 
 </details>
 
@@ -201,12 +201,12 @@ M17 §3 : la jacobienne d'une composée.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{J}_{f \circ g}(\mathbf{p}) = \mathbf{J}_f\big(g(\mathbf{p})\big)\,\mathbf{J}_g(\mathbf{p})$ : la fonction appliquée en dernier à gauche, évaluée au point où elle est appliquée.
+$\mathbf{J}_{f \circ g}(\mathbf{p}) = \mathbf{J}_f\big(g(\mathbf{p})\big)\thinspace\mathbf{J}_g(\mathbf{p})$ : la fonction appliquée en dernier à gauche, évaluée au point où elle est appliquée.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{J}_g = \begin{pmatrix} y & x \\ 1 & 1 \end{pmatrix}$ et $\mathbf{J}_f = \begin{pmatrix} 2u & 0 \\ 1 & -1 \end{pmatrix}$, en $(u, v) = g(-1, 4)$.
+$\mathbf{J}_g = \begin{pmatrix} y & x \cr 1 & 1 \end{pmatrix}$ et $\mathbf{J}_f = \begin{pmatrix} 2u & 0 \cr 1 & -1 \end{pmatrix}$, en $(u, v) = g(-1, 4)$.
 
 </details>
 
@@ -246,7 +246,7 @@ $h_k = \mathbf{C}\mathbf{A}^k\mathbf{B}$ : calcule $\mathbf{A}^k\mathbf{B}$ de p
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{A}\mathbf{B} = (0{,}4 ;\ 0{,}4)$. e) Les valeurs propres sont 0,4 et 0,3 ; $\mathbf{A}^k\mathbf{B} = \big(0{,}4^k ;\ c\,(0{,}4^k - 0{,}3^k)\big)$ : trouve $c$, puis somme deux séries géométriques. f) Seule la réponse libre $\mathbf{C}\mathbf{A}^4\mathbf{x}_0$ change.
+$\mathbf{A}\mathbf{B} = (0{,}4 ;\ 0{,}4)$. e) Les valeurs propres sont 0,4 et 0,3 ; $\mathbf{A}^k\mathbf{B} = \big(0{,}4^k ;\ c\thinspace(0{,}4^k - 0{,}3^k)\big)$ : trouve $c$, puis somme deux séries géométriques. f) Seule la réponse libre $\mathbf{C}\mathbf{A}^4\mathbf{x}_0$ change.
 
 </details>
 
@@ -259,7 +259,7 @@ Relis « Multiplier par un complexe : une rotation et une homothétie » (§2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$ est la multiplication par $a + ib$, de valeurs propres $a \pm ib$. Écris $a + ib = r\,e^{i\theta}$, puis $\mathbf{M}^t = r^t\,\mathbf{R}_{t\theta}$.
+$\begin{pmatrix} a & -b \cr b & a \end{pmatrix}$ est la multiplication par $a + ib$, de valeurs propres $a \pm ib$. Écris $a + ib = r\thinspace e^{i\theta}$, puis $\mathbf{M}^t = r^t\thinspace\mathbf{R}_{t\theta}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -313,7 +313,7 @@ Relis « Trois normes induites qui se calculent » et « Deux usages » (§4).
 </details>
 <details><summary>Indice 2</summary>
 
-Colonnes pour $\lVert\cdot\rVert_1$, lignes pour $\lVert\cdot\rVert_\infty$, la plus grande valeur propre de $\mathbf{A}^\top\mathbf{A}$ pour $\lVert\cdot\rVert_2$. $\lVert\mathbf{A}^5\mathbf{x}\rVert_p \le \lVert\mathbf{A}\rVert_p^5\,\lVert\mathbf{x}\rVert_p$, la même norme des deux côtés.
+Colonnes pour $\lVert\cdot\rVert_1$, lignes pour $\lVert\cdot\rVert_\infty$, la plus grande valeur propre de $\mathbf{A}^\top\mathbf{A}$ pour $\lVert\cdot\rVert_2$. $\lVert\mathbf{A}^5\mathbf{x}\rVert_p \le \lVert\mathbf{A}\rVert_p^5\thinspace\lVert\mathbf{x}\rVert_p$, la même norme des deux côtés.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,7 +349,7 @@ Relis « La jacobienne d'un état par rapport à un état antérieur » (§6).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{J}_f(x, y) = \begin{pmatrix} -2{,}8\,x & 1 \\ 0{,}3 & 0 \end{pmatrix}$ ; $\frac{\partial\mathbf{x}_3}{\partial\mathbf{x}_0} = \mathbf{J}_f(\mathbf{x}_2)\,\mathbf{J}_f(\mathbf{x}_1)\,\mathbf{J}_f(\mathbf{x}_0)$, chaque jacobienne au point où $f$ est appliquée.
+$\mathbf{J}_f(x, y) = \begin{pmatrix} -2{,}8\thinspace x & 1 \cr 0{,}3 & 0 \end{pmatrix}$ ; $\frac{\partial\mathbf{x}_3}{\partial\mathbf{x}_0} = \mathbf{J}_f(\mathbf{x}_2)\thinspace\mathbf{J}_f(\mathbf{x}_1)\thinspace\mathbf{J}_f(\mathbf{x}_0)$, chaque jacobienne au point où $f$ est appliquée.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -367,12 +367,12 @@ Relis « Une récurrence pour la dérivée » et « La somme sur le temps » (§
 </details>
 <details><summary>Indice 2</summary>
 
-$J_t = \frac{\partial f}{\partial x} = 1 + \beta$ et $b_t = \frac{\partial f}{\partial\beta} = x_t$ ; $s_4 = \sum_{k=0}^{3}J^{3-k}\,b_k$.
+$J_t = \frac{\partial f}{\partial x} = 1 + \beta$ et $b_t = \frac{\partial f}{\partial\beta} = x_t$ ; $s_4 = \sum_{k=0}^{3}J^{3-k}\thinspace b_k$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) Le terme de l'année 0 est $1{,}035^3 \times 2\,500$. f) $\Delta\beta = 0{,}002$. g) Recalcule $x_4$ avec $\beta = 0{,}037$.
+d) Le terme de l'année 0 est $1{,}035^3 \times 2\thinspace500$. f) $\Delta\beta = 0{,}002$. g) Recalcule $x_4$ avec $\beta = 0{,}037$.
 
 </details>
 
@@ -402,17 +402,17 @@ b) $\sqrt{16 + 49 + 16}$. e) Seul $\mathbf{w}_2$ dépasse 5. g) $\mathbf{w} \cdo
 
 <details><summary>Indice 1</summary>
 
-Relis la définition d'une norme induite et l'encadré des propriétés (§4) : tout repose sur $\lVert\mathbf{M}\mathbf{y}\rVert \le \lVert\mathbf{M}\rVert\,\lVert\mathbf{y}\rVert$.
+Relis la définition d'une norme induite et l'encadré des propriétés (§4) : tout repose sur $\lVert\mathbf{M}\mathbf{y}\rVert \le \lVert\mathbf{M}\rVert\thinspace\lVert\mathbf{y}\rVert$.
 
 </details>
 <details><summary>Indice 2</summary>
 
-1. $\lVert\mathbf{A}(\mathbf{B}\mathbf{x})\rVert$. 2. Multiplie $\mathbf{A}^\top\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ à gauche par $\mathbf{A}$. 3. Une majoration, puis un vecteur de base. 4. $\mathbf{A}\mathbf{z} = \mathbf{A}\mathbf{u} + i\,\mathbf{A}\mathbf{v}$, avec $\mathbf{A}\mathbf{u}$ et $\mathbf{A}\mathbf{v}$ réels.
+1. $\lVert\mathbf{A}(\mathbf{B}\mathbf{x})\rVert$. 2. Multiplie $\mathbf{A}^\top\mathbf{A}\mathbf{v} = \lambda\mathbf{v}$ à gauche par $\mathbf{A}$. 3. Une majoration, puis un vecteur de base. 4. $\mathbf{A}\mathbf{z} = \mathbf{A}\mathbf{u} + i\thinspace\mathbf{A}\mathbf{v}$, avec $\mathbf{A}\mathbf{u}$ et $\mathbf{A}\mathbf{v}$ réels.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ : sinon $\lambda\mathbf{v} = \mathbf{0}$. Contre-exemple : $\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$. 5. Applique 4 à un vecteur propre $\mathbf{v} \in \mathbb{C}^n$ de $\lambda$, avec $\lvert\lambda\rvert = \rho(\mathbf{A})$. 6. Une matrice nilpotente, puis une matrice diagonale.
+2. Pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ : sinon $\lambda\mathbf{v} = \mathbf{0}$. Contre-exemple : $\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$. 5. Applique 4 à un vecteur propre $\mathbf{v} \in \mathbb{C}^n$ de $\lambda$, avec $\lvert\lambda\rvert = \rho(\mathbf{A})$. 6. Une matrice nilpotente, puis une matrice diagonale.
 
 </details>
 
@@ -425,7 +425,7 @@ Imite la preuve de la fiche pour $\lVert\cdot\rVert_1$, ligne par ligne au lieu 
 </details>
 <details><summary>Indice 2</summary>
 
-1. $\lvert\sum_j a_{ij}x_j\rvert \le \sum_j\lvert a_{ij}\rvert\,\lvert x_j\rvert$, et $\lvert x_j\rvert \le \lVert\mathbf{x}\rVert_\infty$. 2. $a\operatorname{signe}(a) = \lvert a\rvert$.
+1. $\lvert\sum_j a_{ij}x_j\rvert \le \sum_j\lvert a_{ij}\rvert\thinspace\lvert x_j\rvert$, et $\lvert x_j\rvert \le \lVert\mathbf{x}\rVert_\infty$. 2. $a\operatorname{signe}(a) = \lvert a\rvert$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -443,12 +443,12 @@ Relis l'idée de la preuve après le théorème du §3.
 </details>
 <details><summary>Indice 2</summary>
 
-2. $(\mathbf{V}\mathbf{D}^t\mathbf{V}^{-1})_{jk} = \sum_iV_{ji}\lambda_i^t(\mathbf{V}^{-1})_{ik}$, puis l'inégalité triangulaire. 3. $\mathbf{A}^t\mathbf{v} = \lambda^t\mathbf{v}$, et regarde une coordonnée non nulle de $\mathbf{v}$.
+2. $(\mathbf{V}\mathbf{D}^t\mathbf{V}^{-1}) _{jk} = \sum_iV  _{ji}\lambda_i^t(\mathbf{V}^{-1}) _{ik}$, puis l'inégalité triangulaire. 3. $\mathbf{A}^t\mathbf{v} = \lambda^t\mathbf{v}$, et regarde une coordonnée non nulle de $\mathbf{v}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4. Vecteurs propres $(1, 1)$ et $(2, -3)$ ; $\mathbf{A}^t = 0{,}6^t\,\mathbf{v}_1\mathbf{r}_1 + (-0{,}4)^t\,\mathbf{v}_2\mathbf{r}_2$, avec $\mathbf{r}_1, \mathbf{r}_2$ les lignes de $\mathbf{V}^{-1}$. 6. $\mathbf{A}^t = \lambda^t\mathbf{I} + t\lambda^{t-1}\mathbf{U}$ : le facteur $t$.
+4. Vecteurs propres $(1, 1)$ et $(2, -3)$ ; $\mathbf{A}^t = 0{,}6^t\thinspace\mathbf{v}_1\mathbf{r}_1 + (-0{,}4)^t\thinspace\mathbf{v}_2\mathbf{r}_2$, avec $\mathbf{r}_1, \mathbf{r}_2$ les lignes de $\mathbf{V}^{-1}$. 6. $\mathbf{A}^t = \lambda^t\mathbf{I} + t\lambda^{t-1}\mathbf{U}$ : le facteur $t$.
 
 </details>
 
@@ -484,7 +484,7 @@ Relis « Une récurrence pour la dérivée » (§7), puis le théorème du §1 e
 </details>
 <details><summary>Indice 3</summary>
 
-4. Pars de $\mathbf{s}_0 \ne \mathbf{0}$ et suis la récurrence : quel terme contient $\mathbf{s}_0$ ? 6. $J_t = 0{,}84$, $b_t = -1{,}4\,x_t$, avec $x_0 = 40$, $x_1 = 53{,}6$, $x_2 = 65{,}024$.
+4. Pars de $\mathbf{s}_0 \ne \mathbf{0}$ et suis la récurrence : quel terme contient $\mathbf{s}_0$ ? 6. $J_t = 0{,}84$, $b_t = -1{,}4\thinspace x_t$, avec $x_0 = 40$, $x_1 = 53{,}6$, $x_2 = 65{,}024$.
 
 </details>
 
@@ -501,7 +501,7 @@ Relis le 📐 du §1, et la convention des jacobiennes de M17 (une ligne par coo
 </details>
 <details><summary>Indice 2</summary>
 
-a) $\mathbf{u}_t$ a la forme $(1, m)$, $\mathbf{u}_t\mathbf{B}$ celle d'un état $(1, n)$. d) Transpose : $(\mathbf{x}\mathbf{A})^\top = \mathbf{A}^\top\mathbf{x}^\top$. e) $(\mathbf{x}\mathbf{A})_j = \sum_ix_ia_{ij}$.
+a) $\mathbf{u}_t$ a la forme $(1, m)$, $\mathbf{u}_t\mathbf{B}$ celle d'un état $(1, n)$. d) Transpose : $(\mathbf{x}\mathbf{A})^\top = \mathbf{A}^\top\mathbf{x}^\top$. e) $(\mathbf{x}\mathbf{A}) _j = \sum_ix_ia _{ij}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -524,7 +524,7 @@ Le guide de lecture de MML de la fiche : lis le passage *Graphical Intuition in 
 </details>
 <details><summary>Indice 3</summary>
 
-2. La définition 4.6 cherche $\lambda$ dans $\mathbb{R}$. 3. $\mathbf{A}_2^t = \begin{pmatrix} 1 & t/2 \\ 0 & 1 \end{pmatrix}$. 6. Cherche les deux mots qui accompagnent *multiplicity* autour de l'exemple 4.6. 7. Les valeurs propres de $\begin{pmatrix} a & c \\ c & a \end{pmatrix}$ sont $a \pm c$.
+2. La définition 4.6 cherche $\lambda$ dans $\mathbb{R}$. 3. $\mathbf{A}_2^t = \begin{pmatrix} 1 & t/2 \cr 0 & 1 \end{pmatrix}$. 6. Cherche les deux mots qui accompagnent *multiplicity* autour de l'exemple 4.6. 7. Les valeurs propres de $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ sont $a \pm c$.
 
 </details>
 
@@ -604,7 +604,7 @@ Convertis avec `np.asarray(…, dtype=float)`, contrôle `A.ndim == 2` et `A.sha
 </details>
 <details><summary>Indice 3</summary>
 
-Ne fais jamais `x[:] = …` sur `x0` : `x = A @ x + B @ u` crée un nouveau tableau. Pour $T = 0$, `inputs` a la forme `(0, m)` et la boucle ne tourne pas. Dans le notebook, appelle ta fonction par `mymath.recurrence.linear_system_states(…)`. Ensuite, b) `states = mymath.recurrence.linear_system_states(A, B, x0, np.tile([20.0, 10.0], (60, 1)))` rend 61 lignes, de $\mathbf{x}_0$ à $\mathbf{x}_{60}$ : le printemps 15 est la ligne `states[15]`, dont tu fais la somme ; e) une impulsion `np.array([[1.0]] + [[0.0]] * 6)` (7 entrées), et `y = states @ C`.
+Ne fais jamais `x[:] = …` sur `x0` : `x = A @ x + B @ u` crée un nouveau tableau. Pour $T = 0$, `inputs` a la forme `(0, m)` et la boucle ne tourne pas. Dans le notebook, appelle ta fonction par `mymath.recurrence.linear_system_states(…)`. Ensuite, b) `states = mymath.recurrence.linear_system_states(A, B, x0, np.tile([20.0, 10.0], (60, 1)))` rend 61 lignes, de $\mathbf{x} _0$ à $\mathbf{x} _{60}$ : le printemps 15 est la ligne `states[15]`, dont tu fais la somme ; e) une impulsion `np.array([[1.0]] + [[0.0]] * 6)` (7 entrées), et `y = states @ C`.
 
 </details>
 
@@ -766,6 +766,6 @@ Une matrice triangulaire supérieure a ses valeurs propres sur sa diagonale : me
 </details>
 <details><summary>Indice 3</summary>
 
-Avec $\mathbf{A} = 0{,}85\,\mathbf{I} + \mathbf{U}$ et $\mathbf{U}$ triangulaire strictement supérieure, $\mathbf{U}^3 = \mathbf{0}$ et $\mathbf{A}^t = 0{,}85^t\mathbf{I} + t\,0{,}85^{t-1}\mathbf{U} + \binom t2 0{,}85^{t-2}\mathbf{U}^2$ : rends les coefficients de $\mathbf{U}$ aussi grands que possible, avec des signes qui ne se compensent pas dans $\mathbf{U}^2$.
+Avec $\mathbf{A} = 0{,}85\thinspace\mathbf{I} + \mathbf{U}$ et $\mathbf{U}$ triangulaire strictement supérieure, $\mathbf{U}^3 = \mathbf{0}$ et $\mathbf{A}^t = 0{,}85^t\mathbf{I} + t\thinspace0{,}85^{t-1}\mathbf{U} + \binom t2 0{,}85^{t-2}\mathbf{U}^2$ : rends les coefficients de $\mathbf{U}$ aussi grands que possible, avec des signes qui ne se compensent pas dans $\mathbf{U}^2$.
 
 </details>

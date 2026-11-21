@@ -107,7 +107,7 @@ Relis « Une notation scientifique en base 2 » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-$\varepsilon = 2^{-52}$ est l'écart après **1** ; entre $2^e$ et $2^{e+1}$, l'écart vaut $2^e\,\varepsilon$.
+$\varepsilon = 2^{-52}$ est l'écart après **1** ; entre $2^e$ et $2^{e+1}$, l'écart vaut $2^e\thinspace\varepsilon$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ Calcule $u_1$ et $u_2$ avec la formule, puis résous l'équation du point fixe.
 </details>
 <details><summary>Indice 2</summary>
 
-Soustrais $\ell = 0{,}4\,\ell + 1{,}2$ de $u_{n+1} = 0{,}4\,u_n + 1{,}2$.
+Soustrais $\ell = 0{,}4\thinspace\ell + 1{,}2$ de $u_{n+1} = 0{,}4\thinspace u_n + 1{,}2$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -205,7 +205,7 @@ Relis « La dérivée de la dérivée » et « Points d'inflexion » (fiche §1)
 </details>
 <details><summary>Indice 2</summary>
 
-a) Dérive $x e^{2x}$ comme un produit, deux fois. b) Factorise $g''(x) = 12x^2 - 12$ et dresse son tableau de signes. d) $w'(x) = 2x\,e^{x^2}$ est un produit. e) Dérive $(1 + x^2)^{-1}$ deux fois et regarde le signe en 0.
+a) Dérive $x e^{2x}$ comme un produit, deux fois. b) Factorise $g''(x) = 12x^2 - 12$ et dresse son tableau de signes. d) $w'(x) = 2x\thinspace e^{x^2}$ est un produit. e) Dérive $(1 + x^2)^{-1}$ deux fois et regarde le signe en 0.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -354,7 +354,7 @@ Dérive chaque borne par rapport à $h$ et résous $E'(h) = 0$ : $\big(\frac{1}{
 </details>
 <details><summary>Indice 3</summary>
 
-a) $h^2 = \frac{4\delta}{M_2}$. c) $h^3 = \frac{3\delta}{M_3}$. e) et f) Écris $h^*$ et $E(h^*)$ comme des puissances de $\delta$. g) Dérive $h^2 + \frac{4\delta}{h^2}$ et annule la dérivée : la puissance de $h$ qui apparaît dit quelle racine prendre.
+a) $h^2 = \frac{4\delta}{M_2}$. c) $h^3 = \frac{3\delta}{M_3}$. e) et f) Écris $h^\ast$ et $E(h^\ast)$ comme des puissances de $\delta$. g) Dérive $h^2 + \frac{4\delta}{h^2}$ et annule la dérivée : la puissance de $h$ qui apparaît dit quelle racine prendre.
 
 </details>
 
@@ -430,7 +430,7 @@ La somme $\sum_i e^{v_i}$ contient le terme $e^m$, et chacun de ses $n$ termes e
 </details>
 <details><summary>Indice 3</summary>
 
-5 : sépare les cas $t \ge 0$ et $t < 0$. 6 : écris $\text{LSE}(\mathbf{v}) - m = \ln\big(1 + \sum_{i \ne i^*} e^{v_i - m}\big)$, puis majore chaque terme par $e^{-g}$.
+5 : sépare les cas $t \ge 0$ et $t < 0$. 6 : écris $\text{LSE}(\mathbf{v}) - m = \ln\big(1 + \sum_{i \ne i^\ast} e^{v_i - m}\big)$, puis majore chaque terme par $e^{-g}$.
 
 </details>
 
@@ -488,7 +488,7 @@ Chaque addition fait une erreur d'au plus $u$ fois la somme partielle, qui est a
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $n$ erreurs de même signe s'additionnent : $n\,u$ en relatif. 3 : $n$ erreurs de signes au hasard : environ $\sqrt{n}$ fois une erreur. 5 : $\log_2 10^6 \approx 20$.
+2 : $n$ erreurs de même signe s'additionnent : $n\thinspace u$ en relatif. 3 : $n$ erreurs de signes au hasard : environ $\sqrt{n}$ fois une erreur. 5 : $\log_2 10^6 \approx 20$.
 
 </details>
 
@@ -581,7 +581,7 @@ Relis « L'extrapolation de Richardson » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Une fonction interne `centred(step)` qui renvoie $\frac{f(x + \text{step}) - f(x - \text{step})}{2\,\text{step}}$.
+Une fonction interne `centred(step)` qui renvoie $\frac{f(x + \text{step}) - f(x - \text{step})}{2\thinspace\text{step}}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -748,6 +748,6 @@ Dans l'ordre : tolérances négatives (`ValueError`), égalité exacte (`True`),
 </details>
 <details><summary>Indice 3</summary>
 
-Une droite qui approche $\sqrt[3]{m}$ sur $[0{,}5 ;\ 1[$ : elle passe par $(0{,}5 ;\ 0{,}8)$ et $(1 ;\ 1)$, soit $0{,}6 + 0{,}4\,m$. Puis `x_new = (2 * x + a / (x * x)) / 3` jusqu'à `abs(x_new - x) <= 1e-15 * x_new`.
+Une droite qui approche $\sqrt[3]{m}$ sur $[0{,}5 ;\ 1[$ : elle passe par $(0{,}5 ;\ 0{,}8)$ et $(1 ;\ 1)$, soit $0{,}6 + 0{,}4\thinspace m$. Puis `x_new = (2 * x + a / (x * x)) / 3` jusqu'à `abs(x_new - x) <= 1e-15 * x_new`.
 
 </details>

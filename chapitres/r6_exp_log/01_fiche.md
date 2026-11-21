@@ -46,7 +46,7 @@ Parcours essentiel : tout sauf R6.Q5, R6.R3, R6.6, R6.8, R6.10, R6.12, R6.16, R6
 
 ## L'essentiel en 10 lignes
 
-1. Pour $a > 0$, la fonction $x \mapsto a^x$ prolonge la suite géométrique $a^n$ à tous les réels : $a^0 = 1$, $a^{x+y} = a^x\,a^y$, $a^{-x} = \frac{1}{a^x}$, $(a^x)^y = a^{xy}$, et $a^x > 0$.
+1. Pour $a > 0$, la fonction $x \mapsto a^x$ prolonge la suite géométrique $a^n$ à tous les réels : $a^0 = 1$, $a^{x+y} = a^x\thinspace a^y$, $a^{-x} = \frac{1}{a^x}$, $(a^x)^y = a^{xy}$, et $a^x > 0$.
 2. $e = \lim_{n \to +\infty} \left(1 + \frac{1}{n}\right)^n \approx 2{,}718$ ; l'**exponentielle** est $\exp(x) = e^x$.
 3. Le **logarithme népérien** $\ln$ est la réciproque de exp : pour $x > 0$, $\ln x$ est le nombre $y$ tel que $e^y = x$. Donc $\ln(e^y) = y$, $e^{\ln x} = x$, $\ln 1 = 0$, $\ln e = 1$.
 4. $\ln(ab) = \ln a + \ln b$, $\ln \frac{a}{b} = \ln a - \ln b$, $\ln(a^k) = k \ln a$ ; mais $\ln(a + b)$ ne se simplifie pas.
@@ -54,8 +54,8 @@ Parcours essentiel : tout sauf R6.Q5, R6.R3, R6.6, R6.8, R6.10, R6.12, R6.16, R6
 6. $\log_b x$ est l'exposant $y$ tel que $b^y = x$ ; $\log_b x = \frac{\ln x}{\ln b}$. $\log_{10}$ compte les chiffres, $\log_2$ les doublements et les **bits** : un événement de probabilité $p$ apporte $-\log_2 p$ bits, ou $-\ln p$ nats.
 7. Pour $x$ très grand : $\ln x \ll x^k \ll a^x$ (avec $k > 0$, $a > 1$) : l'exponentielle finit toujours par gagner, le logarithme par perdre.
 8. Sur une **échelle logarithmique**, des écarts égaux sont des **rapports** égaux ; une exponentielle y devient une droite.
-9. **Sigmoïde** : $\sigma(x) = \frac{1}{1 + e^{-x}} \in\ ]0 \;;\; 1[$, $\sigma(0) = \frac{1}{2}$, $\sigma(-x) = 1 - \sigma(x)$. Sa réciproque est le **logit** $\ln \frac{p}{1 - p}$, le logarithme de la **cote**.
-10. **Tangente hyperbolique** : $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}} \in\ ]-1 \;;\; 1[$, impaire, et $\tanh x = 2\,\sigma(2x) - 1$.
+9. **Sigmoïde** : $\sigma(x) = \frac{1}{1 + e^{-x}} \in\ ]0 \mkern5mu ;\mkern5mu  1[$, $\sigma(0) = \frac{1}{2}$, $\sigma(-x) = 1 - \sigma(x)$. Sa réciproque est le **logit** $\ln \frac{p}{1 - p}$, le logarithme de la **cote**.
+10. **Tangente hyperbolique** : $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}} \in\ ]-1 \mkern5mu ;\mkern5mu  1[$, impaire, et $\tanh x = 2\thinspace\sigma(2x) - 1$.
 
 ---
 
@@ -75,9 +75,9 @@ La fonction $x \mapsto a^x$ s'appelle la **fonction exponentielle de base $a$**.
 
 Les règles des puissances entières de R1 restent vraies pour tous les exposants réels. Pour $a > 0$, $b > 0$ et tous réels $x$, $y$ :
 
-$$a^0 = 1 \qquad a^{x+y} = a^x\,a^y \qquad a^{x-y} = \frac{a^x}{a^y} \qquad a^{-x} = \frac{1}{a^x} \qquad (a^x)^y = a^{xy} \qquad (ab)^x = a^x\,b^x$$
+$$a^0 = 1 \qquad a^{x+y} = a^x\thinspace a^y \qquad a^{x-y} = \frac{a^x}{a^y} \qquad a^{-x} = \frac{1}{a^x} \qquad (a^x)^y = a^{xy} \qquad (ab)^x = a^x\thinspace b^x$$
 
-Et surtout : **$a^x > 0$ pour tout $x$**. Une exponentielle n'est jamais nulle ni négative, même pour un exposant très négatif ($2^{-20} \approx 0{,}000\,001$, petit mais positif).
+Et surtout : **$a^x > 0$ pour tout $x$**. Une exponentielle n'est jamais nulle ni négative, même pour un exposant très négatif ($2^{-20} \approx 0{,}000\thinspace001$, petit mais positif).
 
 Exemples : $5^{1{,}5} \times 5^{0{,}5} = 5^{2} = 25$ ; $\frac{4^{x+1}}{4^{x}} = 4$ ; $(9^x)^{1/2} = 9^{x/2} = 3^x$ ; $2^x \times 5^x = 10^x$.
 
@@ -87,7 +87,7 @@ Exemples : $5^{1{,}5} \times 5^{0{,}5} = 5^{2} = 25$ ; $\frac{4^{x+1}}{4^{x}} = 
 
 ![3ˣ, 2ˣ et 0,4ˣ : toutes positives, toutes égales à 1 en x = 0](figures/exponentielles.png)
 
-Toutes les courbes $y = a^x$ passent par le point $(0 \;;\; 1)$. Ensuite :
+Toutes les courbes $y = a^x$ passent par le point $(0 \mkern5mu ;\mkern5mu  1)$. Ensuite :
 - si $a > 1$, $a^x$ est **strictement croissante** ; elle tend vers $+\infty$ quand $x$ devient très grand, et vers 0 quand $x$ devient très négatif ;
 - si $0 < a < 1$, elle est **strictement décroissante**, et c'est l'inverse : $0{,}4^x = \frac{1}{2{,}5^x}$.
 
@@ -95,7 +95,7 @@ Parce qu'elle est strictement monotone, une exponentielle ne prend jamais deux f
 
 ### La croissance exponentielle
 
-Une grandeur a une **croissance exponentielle** quand elle est **multipliée** par le même nombre sur des durées égales : $N(t) = N_0\,a^t$. Une croissance linéaire (affine, R3), elle, **ajoute** la même quantité sur des durées égales. Un capital placé à 3 % par an vaut $C(t) = C_0 \times 1{,}03^t$ au bout de $t$ années, même pour $t = 0{,}5$ : au bout de six mois, $1{,}03^{0{,}5} \approx 1{,}0149$, soit un peu moins de la moitié de 3 %.
+Une grandeur a une **croissance exponentielle** quand elle est **multipliée** par le même nombre sur des durées égales : $N(t) = N_0\thinspace a^t$. Une croissance linéaire (affine, R3), elle, **ajoute** la même quantité sur des durées égales. Un capital placé à 3 % par an vaut $C(t) = C_0 \times 1{,}03^t$ au bout de $t$ années, même pour $t = 0{,}5$ : au bout de six mois, $1{,}03^{0{,}5} \approx 1{,}0149$, soit un peu moins de la moitié de 3 %.
 
 Si une grandeur double toutes les $T$ unités de temps, elle vaut $N(t) = N_0 \times 2^{t/T}$ : au bout de $T$, elle a doublé ; au bout de $2T$, quadruplé ; au bout de $\frac{T}{2}$, elle est multipliée par $\sqrt{2} \approx 1{,}414$. Le §3 dira comment trouver $T$ à partir du pourcentage de hausse.
 
@@ -116,7 +116,7 @@ Les derniers chiffres trahissent les arrondis des flottants (R1) : $27^{2/3}$ va
 
 ### Des intérêts de plus en plus fréquents
 
-Place 1 € à 100 % d'intérêts par an. Versés une fois par an, ils donnent 2 € au bout d'un an. Versés deux fois par an (50 % chaque semestre, R5 : intérêts composés), ils donnent $1{,}5^2 = 2{,}25$ €. Quatre fois (25 % par trimestre) : $1{,}25^4 \approx 2{,}441$ €. En général, $n$ versements de $\frac{100}{n}\,\%$ donnent $\left(1 + \frac{1}{n}\right)^n$ euros :
+Place 1 € à 100 % d'intérêts par an. Versés une fois par an, ils donnent 2 € au bout d'un an. Versés deux fois par an (50 % chaque semestre, R5 : intérêts composés), ils donnent $1{,}5^2 = 2{,}25$ €. Quatre fois (25 % par trimestre) : $1{,}25^4 \approx 2{,}441$ €. En général, $n$ versements de $\frac{100}{n}$ % donnent $\left(1 + \frac{1}{n}\right)^n$ euros :
 
 | $n$ | 1 | 2 | 4 | 12 | 365 | 1 000 000 |
 |---|---|---|---|---|---|---|
@@ -124,7 +124,7 @@ Place 1 € à 100 % d'intérêts par an. Versés une fois par an, ils donnent 2
 
 Le gain augmente, mais de moins en moins : la suite converge (R5 §5). Sa limite est un nombre célèbre, noté $e$ (en l'honneur d'Euler) :
 
-$$e = \lim_{n \to +\infty} \left(1 + \frac{1}{n}\right)^n \approx 2{,}718\,281\,828$$
+$$e = \lim_{n \to +\infty} \left(1 + \frac{1}{n}\right)^n \approx 2{,}718\thinspace281\thinspace828$$
 
 Comme $\pi$, $e$ n'est pas une fraction, et son écriture décimale ne s'arrête jamais.
 
@@ -132,15 +132,15 @@ Comme $\pi$, $e$ n'est pas une fraction, et son écriture décimale ne s'arrête
 
 La **fonction exponentielle** est l'exponentielle de base $e$ : $\exp(x) = e^x$. Elle a toutes les propriétés du §1 :
 
-$$e^0 = 1 \qquad e^{x+y} = e^x\,e^y \qquad e^{-x} = \frac{1}{e^x} \qquad (e^x)^y = e^{xy} \qquad e^x > 0$$
+$$e^0 = 1 \qquad e^{x+y} = e^x\thinspace e^y \qquad e^{-x} = \frac{1}{e^x} \qquad (e^x)^y = e^{xy} \qquad e^x > 0$$
 
 Elle est strictement croissante (car $e > 1$), tend vers $+\infty$ quand $x$ devient très grand et vers 0 quand $x$ devient très négatif. Quelques valeurs : $e^{0{,}5} \approx 1{,}649$, $e^{4} \approx 54{,}6$, $e^{-1{,}5} \approx 0{,}223$.
 
 Exemples de simplification : $e^{2x} \times e^{3 - x} = e^{x + 3}$ ; $\frac{e^{5}}{e^{2}} = e^{3}$ ; $\left(e^{x}\right)^2 = e^{2x}$ ; $e^{x} \times e^{-x} = e^{0} = 1$.
 
-Pourquoi cette base plutôt que 2 ou 10 ? Parce qu'elle simplifie l'analyse : la pente de la courbe de $e^x$ au point $(0 \;;\; 1)$ vaut exactement 1, et, plus généralement, la pente en tout point vaut $e^x$ elle-même. R7 le démontrera, à partir de la définition de $e$ comme limite. C'est pourquoi les mathématiques du ML (et NumPy) écrivent leurs exponentielles en base $e$.
+Pourquoi cette base plutôt que 2 ou 10 ? Parce qu'elle simplifie l'analyse : la pente de la courbe de $e^x$ au point $(0 \mkern5mu ;\mkern5mu  1)$ vaut exactement 1, et, plus généralement, la pente en tout point vaut $e^x$ elle-même. R7 le démontrera, à partir de la définition de $e$ comme limite. C'est pourquoi les mathématiques du ML (et NumPy) écrivent leurs exponentielles en base $e$.
 
-L'exemple des intérêts va plus loin : avec un taux annuel $r$ versé $n$ fois par an, pendant $t$ années, on obtient $\left(1 + \frac{r}{n}\right)^{nt}$, qui tend vers $e^{rt}$ quand $n$ grandit. C'est la **croissance continue** : $N(t) = N_0\,e^{rt}$.
+L'exemple des intérêts va plus loin : avec un taux annuel $r$ versé $n$ fois par an, pendant $t$ années, on obtient $\left(1 + \frac{r}{n}\right)^{nt}$, qui tend vers $e^{rt}$ quand $n$ grandit. C'est la **croissance continue** : $N(t) = N_0\thinspace e^{rt}$.
 
 ```python
 >>> import math
@@ -173,7 +173,7 @@ Valeurs à connaître : $\ln 1 = 0$ (car $e^0 = 1$), $\ln e = 1$, $\ln \frac{1}{
 Comme pour toute réciproque, la courbe de $\ln$ est la symétrique de celle de exp par rapport à la droite $y = x$ (figure). On y lit ses propriétés :
 - $\ln$ n'est définie que pour $x > 0$ : $\ln 0$ et $\ln(-3)$ n'existent pas (aucune puissance de $e$ ne vaut 0 ou un nombre négatif) ;
 - elle est strictement croissante ; $\ln x < 0$ pour $0 < x < 1$, $\ln x > 0$ pour $x > 1$ ;
-- elle tend vers $-\infty$ quand $x$ se rapproche de 0, et vers $+\infty$ quand $x$ devient très grand, mais **très lentement** : $\ln(1\,000\,000) \approx 13{,}8$.
+- elle tend vers $-\infty$ quand $x$ se rapproche de 0, et vers $+\infty$ quand $x$ devient très grand, mais **très lentement** : $\ln(1\thinspace000\thinspace000) \approx 13{,}8$.
 
 ### Des produits aux sommes
 
@@ -181,7 +181,7 @@ Le logarithme transforme les multiplications en additions. Pour tous $a > 0$, $b
 
 $$\ln(ab) = \ln a + \ln b \qquad \ln\frac{a}{b} = \ln a - \ln b \qquad \ln\frac{1}{b} = -\ln b \qquad \ln(a^k) = k \ln a \qquad \ln\sqrt{a} = \frac{1}{2}\ln a$$
 
-L'idée : $\ln a$ est l'exposant de $e$ qui donne $a$, $\ln b$ celui qui donne $b$ ; et multiplier deux puissances de $e$, c'est **additionner** leurs exposants ($e^{x}\,e^{y} = e^{x+y}$). Tu en feras la démonstration en R6.9.
+L'idée : $\ln a$ est l'exposant de $e$ qui donne $a$, $\ln b$ celui qui donne $b$ ; et multiplier deux puissances de $e$, c'est **additionner** leurs exposants ($e^{x}\thinspace e^{y} = e^{x+y}$). Tu en feras la démonstration en R6.9.
 
 Exemples : $\ln 12 = \ln(3 \times 4) = \ln 3 + 2 \ln 2$ ; $\ln \frac{e^4}{e^{1{,}5}} = 4 - 1{,}5 = 2{,}5$ ; $\ln 45 - \ln 5 = \ln 9 = 2 \ln 3$ ; $e^{3 \ln 2} = e^{\ln(2^3)} = 8$.
 
@@ -212,7 +212,7 @@ Une grandeur qui augmente de $r$ (en décimal : 5 % s'écrit 0,05) par période 
 
 $$T = \frac{\ln 2}{\ln(1 + r)}.$$
 
-À 5 % par an, $T = \frac{0{,}693}{\ln 1{,}05} \approx 14{,}2$ ans. Pour un petit taux, $\ln(1 + r) \approx r$, d'où la **règle de 70** : le temps de doublement vaut environ $\frac{70}{\text{taux en \%}}$, ici $\frac{70}{5} = 14$. De même, une grandeur qui **diminue** de $r$ par période est divisée par 2 au bout de sa **demi-vie** $\frac{\ln 0{,}5}{\ln(1 - r)}$ (deux logarithmes négatifs, un quotient positif). Pour une croissance continue $e^{rt}$, le temps de doublement vaut exactement $\frac{\ln 2}{r}$.
+À 5 % par an, $T = \frac{0{,}693}{\ln 1{,}05} \approx 14{,}2$ ans. Pour un petit taux, $\ln(1 + r) \approx r$, d'où la **règle de 70** : le temps de doublement vaut environ $\frac{70}{\text{taux en pour cent}}$, ici $\frac{70}{5} = 14$. De même, une grandeur qui **diminue** de $r$ par période est divisée par 2 au bout de sa **demi-vie** $\frac{\ln 0{,}5}{\ln(1 - r)}$ (deux logarithmes négatifs, un quotient positif). Pour une croissance continue $e^{rt}$, le temps de doublement vaut exactement $\frac{\ln 2}{r}$.
 
 ### Les log-probabilités
 
@@ -248,8 +248,8 @@ Ce que $\ln$ fait pour la base $e$, on peut le faire pour toute base $b > 0$, $b
 $\log_3 81 = 4$ car $3^4 = 81$ ; $\log_5 0{,}2 = -1$ car $5^{-1} = 0{,}2$ ; $\log_b 1 = 0$ et $\log_b b = 1$ pour toute base. Toutes les règles du §3 restent vraies : $\log_b(xy) = \log_b x + \log_b y$, $\log_b(x^k) = k \log_b x$, $\log_b(b^y) = y$, $b^{\log_b x} = x$.
 
 Deux bases ont un nom :
-- $\log_{10}$, le **logarithme décimal**, **compte les chiffres** : $\log_{10} 100\,000 = 5$, $\log_{10} 0{,}01 = -2$, et un entier qui s'écrit avec $d$ chiffres a un logarithme décimal entre $d - 1$ et $d$. Ainsi $\log_{10} 50\,000 \approx 4{,}70$ : 50 000 a 5 chiffres. Le nombre de chiffres d'un entier $N \ge 1$ vaut $\lfloor \log_{10} N \rfloor + 1$ (R1 : la partie entière) ;
-- $\log_2$, le **logarithme binaire**, **compte les doublements** : $\log_2 4\,096 = 12$, car il faut doubler 12 fois 1 pour atteindre 4 096 ; $\log_2 \frac{1}{16} = -4$.
+- $\log_{10}$, le **logarithme décimal**, **compte les chiffres** : $\log_{10} 100\thinspace000 = 5$, $\log_{10} 0{,}01 = -2$, et un entier qui s'écrit avec $d$ chiffres a un logarithme décimal entre $d - 1$ et $d$. Ainsi $\log_{10} 50\thinspace000 \approx 4{,}70$ : 50 000 a 5 chiffres. Le nombre de chiffres d'un entier $N \ge 1$ vaut $\lfloor \log_{10} N \rfloor + 1$ (R1 : la partie entière) ;
+- $\log_2$, le **logarithme binaire**, **compte les doublements** : $\log_2 4\thinspace096 = 12$, car il faut doubler 12 fois 1 pour atteindre 4 096 ; $\log_2 \frac{1}{16} = -4$.
 
 ### Changer de base
 
@@ -257,7 +257,7 @@ Tous les logarithmes sont proportionnels les uns aux autres. On les ramène à $
 
 $$\log_b x = \frac{\ln x}{\ln b}$$
 
-(workbookIA 0B.16 te la fera démontrer). Par exemple $\log_2 4\,096 = \frac{\ln 4\,096}{\ln 2} \approx \frac{8{,}318}{0{,}693} = 12$, et $\log_2 3 = \frac{\ln 3}{\ln 2} \approx 1{,}585$ : il faut à peu près 1,6 doublement pour tripler. C'est ainsi qu'on calcule un logarithme dans une base que la calculatrice n'a pas.
+(workbookIA 0B.16 te la fera démontrer). Par exemple $\log_2 4\thinspace096 = \frac{\ln 4\thinspace096}{\ln 2} \approx \frac{8{,}318}{0{,}693} = 12$, et $\log_2 3 = \frac{\ln 3}{\ln 2} \approx 1{,}585$ : il faut à peu près 1,6 doublement pour tripler. C'est ainsi qu'on calcule un logarithme dans une base que la calculatrice n'a pas.
 
 ⚠️ **Une base, deux calculs.** Avec deux arguments, `math.log(x, b)` divise deux logarithmes népériens, arrondis chacun : le quotient peut tomber à côté, et `math.log(125, 5)` renvoie `3.0000000000000004`. Les fonctions faites pour une base, `math.log2` et `math.log10`, n'ont pas cette division ; dans une autre base, arrondis le résultat quand tu sais qu'il doit être entier.
 
@@ -290,11 +290,11 @@ Quand deux événements **indépendants** se produisent, leurs probabilités se 
 
 ### Qui gagne à la fin ?
 
-Comparons une puissance et une exponentielle : $x^5$ et $1{,}1^x$. Pour $x = 10$, $x^5 = 100\,000$ et $1{,}1^{10} \approx 2{,}6$ : la puissance écrase l'exponentielle. Pour $x = 100$, $x^5 = 10^{10}$ et $1{,}1^{100} \approx 13\,781$ : toujours. Et pourtant, à partir d'environ $x = 299$, $1{,}1^x$ passe devant, et l'écart ne cesse plus de grandir.
+Comparons une puissance et une exponentielle : $x^5$ et $1{,}1^x$. Pour $x = 10$, $x^5 = 100\thinspace000$ et $1{,}1^{10} \approx 2{,}6$ : la puissance écrase l'exponentielle. Pour $x = 100$, $x^5 = 10^{10}$ et $1{,}1^{100} \approx 13\thinspace781$ : toujours. Et pourtant, à partir d'environ $x = 299$, $1{,}1^x$ passe devant, et l'écart ne cesse plus de grandir.
 
 ![x⁵ contre 1,1ˣ : la puissance mène longtemps, l'exponentielle gagne à partir de x ≈ 299](figures/croissances.png)
 
-Pour comparer deux nombres aussi grands, on compare leurs **logarithmes** : $\log_{10}(x^5) = 5 \log_{10} x$ grandit comme un logarithme, alors que $\log_{10}(1{,}1^x) = x \log_{10} 1{,}1 \approx 0{,}0414\,x$ grandit comme une droite. Une droite finit toujours par dépasser un logarithme : c'est la figure de droite.
+Pour comparer deux nombres aussi grands, on compare leurs **logarithmes** : $\log_{10}(x^5) = 5 \log_{10} x$ grandit comme un logarithme, alors que $\log_{10}(1{,}1^x) = x \log_{10} 1{,}1 \approx 0{,}0414\thinspace x$ grandit comme une droite. Une droite finit toujours par dépasser un logarithme : c'est la figure de droite.
 
 > **Croissances comparées** (quand $x$ devient très grand). Pour tous $k > 0$ et $a > 1$ :
 > - toute exponentielle $a^x$ finit par dépasser toute puissance $x^k$, et $\frac{x^k}{a^x} \to 0$ ;
@@ -328,13 +328,13 @@ Une échelle logarithmique sert quand les valeurs s'étalent sur plusieurs ordre
 
 ![y = 3 × 2ᵗ en échelle linéaire (seule la fin se voit) et en échelle logarithmique (une droite)](figures/echelle_log.png)
 
-Avec un axe vertical logarithmique (on parle de graphique **semi-logarithmique**), la courbe de $y = C\,a^t$ devient une **droite**, parce que
+Avec un axe vertical logarithmique (on parle de graphique **semi-logarithmique**), la courbe de $y = C\thinspace a^t$ devient une **droite**, parce que
 
 $$\log_{10} y = \log_{10} C + t \log_{10} a,$$
 
 une fonction affine de $t$ (R3), de pente $\log_{10} a$. Sur la figure, $y = 3 \times 2^t$ monte de $\log_{10} 2 \approx 0{,}30$ décade à chaque pas : une décade tous les 3,3 pas environ. C'est le test de la croissance exponentielle : des points alignés sur un graphique semi-logarithmique. Une courbe qui s'infléchit vers le bas sur ce graphique ralentit.
 
-Avec les **deux** axes logarithmiques (un graphique **log-log**), c'est une puissance $y = C\,x^k$ qui devient une droite, de pente $k$ : $\log y = \log C + k \log x$.
+Avec les **deux** axes logarithmiques (un graphique **log-log**), c'est une puissance $y = C\thinspace x^k$ qui devient une droite, de pente $k$ : $\log y = \log C + k \log x$.
 
 ### Les décibels
 
@@ -376,7 +376,7 @@ Quelques valeurs : $\sigma(0{,}5) \approx 0{,}622$, $\sigma(4) \approx 0{,}982$,
 
 $$1 - \sigma(x) = \frac{1 + e^{-x} - 1}{1 + e^{-x}} = \frac{e^{-x}}{1 + e^{-x}} = \frac{1}{e^{x} + 1} = \sigma(-x).$$
 
-Donc $\sigma(-x) = 1 - \sigma(x)$ : la courbe est symétrique par rapport au point $(0 \;;\; \frac{1}{2})$. Si $\sigma(x)$ est la probabilité d'un événement, $\sigma(-x)$ est celle de son contraire.
+Donc $\sigma(-x) = 1 - \sigma(x)$ : la courbe est symétrique par rapport au point $(0 \mkern5mu ;\mkern5mu  \frac{1}{2})$. Si $\sigma(x)$ est la probabilité d'un événement, $\sigma(-x)$ est celle de son contraire.
 
 ### La cote, le logit : remonter de la probabilité au score
 
@@ -388,7 +388,7 @@ $$\operatorname{logit}(p) = \ln \frac{p}{1 - p}.$$
 
 Le logit est la **réciproque de la sigmoïde** : si $\sigma(x) = p$, alors $1 + e^{-x} = \frac{1}{p}$, donc $e^{-x} = \frac{1 - p}{p}$, et $x = \ln \frac{p}{1 - p}$. Pour $p = 0{,}99$ : $x = \ln 99 \approx 4{,}595$, et l'on vérifie que $\sigma(\ln 99) = \frac{1}{1 + \frac{1}{99}} = 0{,}99$. En résumé : la sigmoïde transforme un **score** réel en probabilité ; le logit transforme une probabilité en score.
 
-Une remarque qui sert : ajouter $\ln 2$ au logit multiplie la cote par 2 ($e^{x + \ln 2} = 2\,e^x$), ajouter $\ln 3$ la multiplie par 3. Le logit transforme les multiplications de la cote en additions, comme tout logarithme.
+Une remarque qui sert : ajouter $\ln 2$ au logit multiplie la cote par 2 ($e^{x + \ln 2} = 2\thinspace e^x$), ajouter $\ln 3$ la multiplie par 3. Le logit transforme les multiplications de la cote en additions, comme tout logarithme.
 
 ⚠️ **Deux sens du mot « logit ».** En statistique, le logit est la fonction $\ln \frac{p}{1 - p}$. En deep learning, on appelle **logits** les scores bruts qu'un réseau produit **avant** la sigmoïde ou le softmax. Les deux sens se rejoignent : si $p = \sigma(z)$, le score $z$ est bien le logit de $p$.
 
@@ -403,7 +403,7 @@ $$\tanh x = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}.$$
 - elle est **impaire** : $\tanh(-x) = -\tanh x$ (échanger $x$ et $-x$ change le signe du numérateur, pas celui du dénominateur) ;
 - elle est strictement croissante. Quelques valeurs : $\tanh 1{,}5 \approx 0{,}905$, $\tanh 2 \approx 0{,}964$.
 
-C'est une sigmoïde agrandie et recentrée : $\tanh x = 2\,\sigma(2x) - 1$, un calcul de fractions que workbookIA te fera faire au chapitre 17. Elle va de −1 à 1 au lieu de 0 à 1, et elle est centrée en 0 au lieu de $\frac{1}{2}$. R6.10 te fera démontrer ses propriétés avec les seules règles de l'exponentielle.
+C'est une sigmoïde agrandie et recentrée : $\tanh x = 2\thinspace\sigma(2x) - 1$, un calcul de fractions que workbookIA te fera faire au chapitre 17. Elle va de −1 à 1 au lieu de 0 à 1, et elle est centrée en 0 au lieu de $\frac{1}{2}$. R6.10 te fera démontrer ses propriétés avec les seules règles de l'exponentielle.
 
 ```python
 >>> def sigmoid(x):

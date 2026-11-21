@@ -43,10 +43,10 @@
 ### M02b.Q5 — Jointe, marginale, indépendance
 1. $P(X = 1) = 0{,}2 + 0{,}4 = 0{,}6$.
 2. $P(Y = 1) = 0{,}3 + 0{,}4 = 0{,}7$.
-3. **Non** : $P(X = 1)\,P(Y = 1) = 0{,}6 \times 0{,}7 = 0{,}42 \ne 0{,}4 = P(X = 1, Y = 1)$. Une case suffit.
+3. **Non** : $P(X = 1)\thinspace P(Y = 1) = 0{,}6 \times 0{,}7 = 0{,}42 \ne 0{,}4 = P(X = 1, Y = 1)$. Une case suffit.
 4. **Vrai** (fiche §5, « Une conséquence »).
 5. **Faux** : beaucoup de lois jointes ont les mêmes marginales ; elles ne la déterminent que si l'on sait les variables indépendantes.
-6. En **intégrant** l'autre variable : $f_X(x) = \int_{-\infty}^{+\infty} f(x, y)\,dy$ (fiche §7).
+6. En **intégrant** l'autre variable : $f_X(x) = \int_{-\infty}^{+\infty} f(x, y)\thinspace dy$ (fiche §7).
 
 ### M02b.Q6 — La variance d'une somme
 1. $36 + 64 = 100$.
@@ -77,8 +77,8 @@
 ### M02b.R2 — Intégrales et densités (M02a)
 1. $\left[\frac{x^3}{3}\right]_0^3 = 9$.
 2. $\left[-\frac{e^{-4x}}{4}\right]_0^{+\infty} = \frac{1}{4}$.
-3. **Oui** : $f \ge 0$, et $\int_1^{+\infty} 3x^{-4}\,dx = \big[-x^{-3}\big]_1^{+\infty} = 0 - (-1) = 1$.
-4. $\int_1^2 3x^{-4}\,dx = \big[-x^{-3}\big]_1^2 = -\frac{1}{8} + 1 = \frac{7}{8}$.
+3. **Oui** : $f \ge 0$, et $\int_1^{+\infty} 3x^{-4}\thinspace dx = \big[-x^{-3}\big]_1^{+\infty} = 0 - (-1) = 1$.
+4. $\int_1^2 3x^{-4}\thinspace dx = \big[-x^{-3}\big]_1^2 = -\frac{1}{8} + 1 = \frac{7}{8}$.
 
 ### M02b.R3 — Coefficients binomiaux (R8)
 1. $\binom{6}{2} = \frac{6 \times 5}{2} = 15$.
@@ -96,7 +96,7 @@
 
 **Démarche.** $X \sim \mathcal{B}(5 ; 0{,}8)$ : 5 lancers indépendants, chacun réussi avec la probabilité 0,8.
 - a) $0{,}8^5 = 0{,}32768$.
-- b) $\binom{5}{3}\,0{,}8^3\,0{,}2^2 = 10 \times 0{,}512 \times 0{,}04 = 0{,}2048$.
+- b) $\binom{5}{3}\thinspace0{,}8^3\thinspace0{,}2^2 = 10 \times 0{,}512 \times 0{,}04 = 0{,}2048$.
 - c) $P(X = 4) + P(X = 5) = 5 \times 0{,}4096 \times 0{,}2 + 0{,}32768 = 0{,}4096 + 0{,}32768 = 0{,}73728$.
 - d) La loi complète : $P(X = 0, \ldots, 5) = 0{,}00032$ ; $0{,}0064$ ; $0{,}0512$ ; $0{,}2048$ ; $0{,}4096$ ; $0{,}32768$, de somme 1. La plus grande est $P(X = 4)$.
 - e) $np = 5 \times 0{,}8 = 4$. f) $np(1 - p) = 5 \times 0{,}8 \times 0{,}2 = 0{,}8$.
@@ -118,7 +118,7 @@ Pour la copie : le nombre d'échecs $5 - X$ suit $\mathcal{B}(5 ; 0{,}2)$, la m�
 - b) Les trois premières tentatives échouent : $0{,}6^3 = 0{,}216$.
 - c) $1 - P(X > 2) = 1 - 0{,}6^2 = 0{,}64$ (ou $0{,}4 + 0{,}24$).
 - d) $S = 1 + 2q + 3q^2 + 4q^3 + \cdots$ et $qS = q + 2q^2 + 3q^3 + \cdots$ ; en soustrayant terme à terme (rang par rang) : $S - qS = 1 + q + q^2 + \cdots = \frac{1}{1 - q}$ (R5). Donc $S = \frac{1}{(1 - q)^2} = \frac{1}{0{,}16} = 6{,}25$.
-- e) $\mathbb{E}[X] = \sum_k k\,q^{k-1}p = p\,S = 0{,}4 \times 6{,}25 = 2{,}5$.
+- e) $\mathbb{E}[X] = \sum_k k\thinspace q^{k-1}p = p\thinspace S = 0{,}4 \times 6{,}25 = 2{,}5$.
 - f) Les tentatives échouées sont $X - 1$ : $\mathbb{E}[X - 1] = \mathbb{E}[X] - 1 = 1{,}5$, par linéarité, sans nouveau calcul.
 - g) $P(X \le 1) = 0{,}4 < 0{,}5$ et $P(X \le 2) = 0{,}64 \ge 0{,}5$ : la médiane vaut 2.
 - h) Le même calcul avec $q = 1 - p$ : $\mathbb{E}[X] = \frac{p}{(1 - q)^2} = \frac{p}{p^2} = \frac{1}{p}$.
@@ -132,15 +132,15 @@ Pour la copie : le nombre d'échecs $5 - X$ suit $\mathcal{B}(5 ; 0{,}2)$, la m�
 **Réponses** : a) `0.2231` · b) `0.2510` · c) `0.4422` · d) `7.5` · e) `0.0183` · f) `0.0733` · g) `0.1465` · h) `4.0`.
 
 **Démarche.**
-- a) $e^{-1{,}5} \approx 0{,}2231$. b) $e^{-1{,}5}\frac{1{,}5^2}{2} = 1{,}125\,e^{-1{,}5} \approx 0{,}2510$.
-- c) $1 - P(X = 0) - P(X = 1) = 1 - e^{-1{,}5}(1 + 1{,}5) = 1 - 2{,}5\,e^{-1{,}5} \approx 0{,}4422$.
+- a) $e^{-1{,}5} \approx 0{,}2231$. b) $e^{-1{,}5}\frac{1{,}5^2}{2} = 1{,}125\thinspace e^{-1{,}5} \approx 0{,}2510$.
+- c) $1 - P(X = 0) - P(X = 1) = 1 - e^{-1{,}5}(1 + 1{,}5) = 1 - 2{,}5\thinspace e^{-1{,}5} \approx 0{,}4422$.
 - d) La linéarité : 5 fois l'espérance d'un jour, $5 \times 1{,}5 = 7{,}5$.
-- e) $P(X = 0)\,P(Y = 0) = e^{-1{,}5}e^{-2{,}5} = e^{-4} \approx 0{,}0183$.
+- e) $P(X = 0)\thinspace P(Y = 0) = e^{-1{,}5}e^{-2{,}5} = e^{-4} \approx 0{,}0183$.
 - f) $(X, Y) = (0, 1)$ ou $(1, 0)$ : $e^{-4}(2{,}5 + 1{,}5) = 4e^{-4} \approx 0{,}0733$.
 - g) $(0, 2)$, $(1, 1)$ ou $(2, 0)$ : $e^{-4}\left(\frac{2{,}5^2}{2} + 1{,}5 \times 2{,}5 + \frac{1{,}5^2}{2}\right) = e^{-4}(3{,}125 + 3{,}75 + 1{,}125) = 8e^{-4} \approx 0{,}1465$.
 - h) $e^{-4}$, $4e^{-4}$, $8e^{-4} = e^{-4}\frac{4^2}{2}$ : les probabilités de $\mathcal{P}(4)$. Le paramètre est la somme $1{,}5 + 2{,}5$.
 
-Pour la copie : $P(S = k) = \sum_{i=0}^{k} e^{-1{,}5}\frac{1{,}5^i}{i!}\,e^{-2{,}5}\frac{2{,}5^{k-i}}{(k-i)!} = \frac{e^{-4}}{k!}\sum_{i=0}^{k}\binom{k}{i}1{,}5^i\,2{,}5^{k-i} = e^{-4}\frac{4^k}{k!}$, par la formule du binôme (on a multiplié et divisé par $k!$, et $\frac{k!}{i!\,(k-i)!} = \binom{k}{i}$).
+Pour la copie : $P(S = k) = \sum_{i=0}^{k} e^{-1{,}5}\frac{1{,}5^i}{i!}\thinspace e^{-2{,}5}\frac{2{,}5^{k-i}}{(k-i)!} = \frac{e^{-4}}{k!}\sum_{i=0}^{k}\binom{k}{i}1{,}5^i\thinspace2{,}5^{k-i} = e^{-4}\frac{4^k}{k!}$, par la formule du binôme (on a multiplié et divisé par $k!$, et $\frac{k!}{i!\thinspace(k-i)!} = \binom{k}{i}$).
 
 **Erreurs fréquentes.** Oublier le $2!$ en b (0,5020) ; en c, ne retirer que $P(X = 0)$ ; en e, additionner les probabilités au lieu de les multiplier ; en g, oublier le couple $(1, 1)$.
 
@@ -186,13 +186,13 @@ Pour la copie : partir 34 minutes avant, c'est arriver à l'heure si la durée e
 
 **Réponses** : a) `"3/4"` · b) `"1/3"` · c) `"1/6"` · d) `"1/18"` · e) `"11/3"` · f) `"25/18"` · g) `1.4366` · h) `True`.
 
-**Démarche.** D'abord, $f \ge 0$ sur $[0 ; 1]$ et $\int_0^1 2(1 - x)\,dx = \big[2x - x^2\big]_0^1 = 1$ : c'est une densité.
+**Démarche.** D'abord, $f \ge 0$ sur $[0 ; 1]$ et $\int_0^1 2(1 - x)\thinspace dx = \big[2x - x^2\big]_0^1 = 1$ : c'est une densité.
 - a) $\big[2x - x^2\big]_0^{1/2} = 1 - \frac{1}{4} = \frac{3}{4}$.
-- b) $\int_0^1 (2x - 2x^2)\,dx = 1 - \frac{2}{3} = \frac{1}{3}$.
-- c) $\int_0^1 (2x^2 - 2x^3)\,dx = \frac{2}{3} - \frac{1}{2} = \frac{1}{6}$.
+- b) $\int_0^1 (2x - 2x^2)\thinspace dx = 1 - \frac{2}{3} = \frac{1}{3}$.
+- c) $\int_0^1 (2x^2 - 2x^3)\thinspace dx = \frac{2}{3} - \frac{1}{2} = \frac{1}{6}$.
 - d) $\frac{1}{6} - \frac{1}{9} = \frac{1}{18}$.
 - e) $5 \times \frac{1}{3} + 2 = \frac{11}{3}$. f) $25 \times \frac{1}{18} = \frac{25}{18}$.
-- g) Par parties, $u = 1 - x$, $v' = e^x$ : $\int (1 - x)e^x\,dx = (1 - x)e^x + \int e^x\,dx = (2 - x)e^x$. Donc $\mathbb{E}[e^X] = 2\big[(2 - x)e^x\big]_0^1 = 2(e - 2) = 2e - 4 \approx 1{,}4366$.
+- g) Par parties, $u = 1 - x$, $v' = e^x$ : $\int (1 - x)e^x\thinspace dx = (1 - x)e^x + \int e^x\thinspace dx = (2 - x)e^x$. Donc $\mathbb{E}[e^X] = 2\big[(2 - x)e^x\big]_0^1 = 2(e - 2) = 2e - 4 \approx 1{,}4366$.
 - h) $e^{1/3} \approx 1{,}3956 < 1{,}4366$ : **vrai**.
 
 Pour la copie : la médiane vérifie $2m - m^2 = \frac{1}{2}$, soit $m = 1 - \frac{1}{\sqrt{2}} \approx 0{,}293$, sous l'espérance $\frac{1}{3}$ (la queue de droite tire l'espérance). $\mathbb{E}[X^2] = \frac{1}{6} > \mathbb{E}[X]^2 = \frac{1}{9}$ : pour la fonction carré comme pour l'exponentielle, $g(\mathbb{E}[X]) \le \mathbb{E}[g(X)]$. C'est l'**inégalité de Jensen**, vraie pour toute fonction convexe (M05).
@@ -218,7 +218,7 @@ Pour la copie : n'importe quelle case suffit, par exemple $P(X = 2, Y = 2) = 0{,
 
 **Erreurs fréquentes.** En b, recopier une ligne au lieu de sommer les colonnes ; en c, la moyenne simple des valeurs (1) ; en f, conclure à l'indépendance après avoir vérifié une seule case qui marche ; en h, oublier de compléter la case manquante.
 
-**Variante.** $\mathbb{E}[X'Y']$ ? *Réponse* : par indépendance, $\mathbb{E}[X']\,\mathbb{E}[Y'] = 1{,}7 \times 0{,}7 = 1{,}19$.
+**Variante.** $\mathbb{E}[X'Y']$ ? *Réponse* : par indépendance, $\mathbb{E}[X']\thinspace\mathbb{E}[Y'] = 1{,}7 \times 0{,}7 = 1{,}19$.
 
 ### Ex M02b.8 — Linéarité et variance d'une somme : sommes et moyennes de variables
 
@@ -242,17 +242,17 @@ Pour la copie : deux exécutions **indépendantes** de la tâche 1 ont une duré
 **Réponses** : a) `"9/2"` · b) `2.9525` · c) `"7/12"` · d) `"2/9"` · e) `"2*x"` · f) `"y**2/9"` · g) `True` · h) `"1/108"`.
 
 **Démarche.**
-- a) Un produit : $\int_0^1 x\,dx \times \int_0^3 y^2\,dy = \frac{1}{2} \times 9 = \frac{9}{2}$.
+- a) Un produit : $\int_0^1 x\thinspace dx \times \int_0^3 y^2\thinspace dy = \frac{1}{2} \times 9 = \frac{9}{2}$.
 - b) $e^{x + y} = e^x e^y$ : $(e - 1)^2 \approx 2{,}9525$.
-- c) En $x$ d'abord : $\int_0^1 (x^2 + xy)\,dx = \frac{1}{3} + \frac{y}{2}$, puis $\int_0^1 \big(\frac{1}{3} + \frac{y}{2}\big)dy = \frac{1}{3} + \frac{1}{4} = \frac{7}{12}$. En $y$ d'abord : $\int_0^1 (x^2 + xy)\,dy = x^2 + \frac{x}{2}$, puis $\frac{1}{3} + \frac{1}{4}$ : le même résultat.
+- c) En $x$ d'abord : $\int_0^1 (x^2 + xy)\thinspace dx = \frac{1}{3} + \frac{y}{2}$, puis $\int_0^1 \big(\frac{1}{3} + \frac{y}{2}\big)dy = \frac{1}{3} + \frac{1}{4} = \frac{7}{12}$. En $y$ d'abord : $\int_0^1 (x^2 + xy)\thinspace dy = x^2 + \frac{x}{2}$, puis $\frac{1}{3} + \frac{1}{4}$ : le même résultat.
 - d) $c \times \frac{9}{2} = 1$, donc $c = \frac{2}{9}$.
-- e) $f_X(x) = \frac{2}{9}x\int_0^3 y^2\,dy = \frac{2}{9} \times 9x = 2x$. f) $f_Y(y) = \frac{2}{9}y^2\int_0^1 x\,dx = \frac{y^2}{9}$.
+- e) $f_X(x) = \frac{2}{9}x\int_0^3 y^2\thinspace dy = \frac{2}{9} \times 9x = 2x$. f) $f_Y(y) = \frac{2}{9}y^2\int_0^1 x\thinspace dx = \frac{y^2}{9}$.
 - g) $2x \times \frac{y^2}{9} = \frac{2}{9}xy^2 = f(x, y)$ : indépendantes.
-- h) $\int_0^{1/2} 2x\,dx \times \int_0^1 \frac{y^2}{9}\,dy = \frac{1}{4} \times \frac{1}{27} = \frac{1}{108}$.
+- h) $\int_0^{1/2} 2x\thinspace dx \times \int_0^1 \frac{y^2}{9}\thinspace dy = \frac{1}{4} \times \frac{1}{27} = \frac{1}{108}$.
 
 **Erreurs fréquentes.** En a, oublier le facteur $\frac{1}{2}$ ; en c, s'arrêter après la première intégrale ($\frac{1}{3} + \frac{y}{2}$ n'est pas un nombre) ; en e, oublier la constante $c$ ; en h, ne garder qu'un des deux facteurs.
 
-**Variante.** $P\big(X \le \frac{1}{2}\big)$ ? *Réponse* : $\int_0^{1/2} 2x\,dx = \frac{1}{4}$.
+**Variante.** $P\big(X \le \frac{1}{2}\big)$ ? *Réponse* : $\int_0^{1/2} 2x\thinspace dx = \frac{1}{4}$.
 
 ### Ex M02b.10 — Changement de variable : la loi de aX + b, et celle de X²
 
@@ -266,7 +266,7 @@ Pour la copie : deux exécutions **indépendantes** de la tâche 1 ont une duré
 - e) $X \ge 0$, donc $X^2 \le 4 \iff X \le 2$ : $\frac{2}{3}$.
 - f) $F_Y(y) = P(X \le \sqrt{y}) = \frac{\sqrt{y}}{3}$ pour $0 \le y \le 9$.
 - g) $f_Y(y) = \frac{1}{3} \times \frac{1}{2\sqrt{y}} = \frac{1}{6\sqrt{y}}$.
-- h) Avec g : $\int_0^9 y \times \frac{1}{6\sqrt{y}}\,dy = \frac{1}{6}\int_0^9 \sqrt{y}\,dy = \frac{1}{6} \times \frac{2}{3} \times 27 = 3$. Par transfert : $\int_0^3 x^2 \times \frac{1}{3}\,dx = \frac{27}{9} = 3$. Le transfert évite de chercher la loi de $Y$.
+- h) Avec g : $\int_0^9 y \times \frac{1}{6\sqrt{y}}\thinspace dy = \frac{1}{6}\int_0^9 \sqrt{y}\thinspace dy = \frac{1}{6} \times \frac{2}{3} \times 27 = 3$. Par transfert : $\int_0^3 x^2 \times \frac{1}{3}\thinspace dx = \frac{27}{9} = 3$. Le transfert évite de chercher la loi de $Y$.
 
 **Erreurs fréquentes.** En b, garder la densité $\frac{1}{2}$ de $X$ ou la multiplier par 3 ; en d, prendre l'écart-type 3 de $X$ ; en f, écrire $\frac{y}{9}$ (comme si $Y$ était uniforme sur $[0 ; 9]$) ; en g, une erreur de dérivée de $\sqrt{y}$.
 
@@ -279,12 +279,12 @@ Pour la copie : deux exécutions **indépendantes** de la tâche 1 ont une duré
 ### Ex M02b.11 — La variance d'une somme de variables indépendantes
 
 **Réponse modèle.**
-1. Notons $\mu = \mathbb{E}[X]$, un nombre. $(X - \mu)^2 = X^2 - 2\mu X + \mu^2$, donc par linéarité $\mathbb{V}(X) = \mathbb{E}[X^2] - 2\mu\,\mathbb{E}[X] + \mu^2 = \mathbb{E}[X^2] - 2\mu^2 + \mu^2 = \mathbb{E}[X^2] - \mu^2$.
-2. Par le théorème de transfert pour un couple, $\mathbb{E}[XY] = \sum_x\sum_y xy\,P(X = x, Y = y)$. L'indépendance donne $P(X = x, Y = y) = P(X = x)\,P(Y = y)$, donc $\mathbb{E}[XY] = \sum_x x\,P(X = x)\left(\sum_y y\,P(Y = y)\right) = \sum_x x\,P(X = x)\,\mathbb{E}[Y] = \mathbb{E}[X]\,\mathbb{E}[Y]$.
-3. Posons $A = X - \mathbb{E}[X]$ et $B = Y - \mathbb{E}[Y]$ ; alors $X + Y - \mathbb{E}[X + Y] = A + B$, et $\mathbb{V}(X + Y) = \mathbb{E}[(A + B)^2] = \mathbb{E}[A^2] + \mathbb{E}[B^2] + 2\,\mathbb{E}[AB]$. Or $\mathbb{E}[A^2] = \mathbb{V}(X)$, $\mathbb{E}[B^2] = \mathbb{V}(Y)$, et $AB = XY - \mathbb{E}[Y]X - \mathbb{E}[X]Y + \mathbb{E}[X]\mathbb{E}[Y]$, d'espérance $\mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$.
-4. Si $X$ et $Y$ sont indépendantes, le dernier terme est nul par 2, d'où $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$. $-Y$ est indépendante de $X$ : $P(X = x, -Y = y) = P(X = x, Y = -y) = P(X = x)\,P(Y = -y) = P(X = x)\,P(-Y = y)$. Donc $\mathbb{V}(X - Y) = \mathbb{V}(X) + \mathbb{V}(-Y) = \mathbb{V}(X) + \mathbb{V}(Y)$, car $\mathbb{V}(-Y) = (-1)^2\,\mathbb{V}(Y)$.
+1. Notons $\mu = \mathbb{E}[X]$, un nombre. $(X - \mu)^2 = X^2 - 2\mu X + \mu^2$, donc par linéarité $\mathbb{V}(X) = \mathbb{E}[X^2] - 2\mu\thinspace\mathbb{E}[X] + \mu^2 = \mathbb{E}[X^2] - 2\mu^2 + \mu^2 = \mathbb{E}[X^2] - \mu^2$.
+2. Par le théorème de transfert pour un couple, $\mathbb{E}[XY] = \sum_x\sum_y xy\thinspace P(X = x, Y = y)$. L'indépendance donne $P(X = x, Y = y) = P(X = x)\thinspace P(Y = y)$, donc $\mathbb{E}[XY] = \sum_x x\thinspace P(X = x)\left(\sum_y y\thinspace P(Y = y)\right) = \sum_x x\thinspace P(X = x)\thinspace\mathbb{E}[Y] = \mathbb{E}[X]\thinspace\mathbb{E}[Y]$.
+3. Posons $A = X - \mathbb{E}[X]$ et $B = Y - \mathbb{E}[Y]$ ; alors $X + Y - \mathbb{E}[X + Y] = A + B$, et $\mathbb{V}(X + Y) = \mathbb{E}[(A + B)^2] = \mathbb{E}[A^2] + \mathbb{E}[B^2] + 2\thinspace\mathbb{E}[AB]$. Or $\mathbb{E}[A^2] = \mathbb{V}(X)$, $\mathbb{E}[B^2] = \mathbb{V}(Y)$, et $AB = XY - \mathbb{E}[Y]X - \mathbb{E}[X]Y + \mathbb{E}[X]\mathbb{E}[Y]$, d'espérance $\mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]$.
+4. Si $X$ et $Y$ sont indépendantes, le dernier terme est nul par 2, d'où $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$. $-Y$ est indépendante de $X$ : $P(X = x, -Y = y) = P(X = x, Y = -y) = P(X = x)\thinspace P(Y = -y) = P(X = x)\thinspace P(-Y = y)$. Donc $\mathbb{V}(X - Y) = \mathbb{V}(X) + \mathbb{V}(-Y) = \mathbb{V}(X) + \mathbb{V}(Y)$, car $\mathbb{V}(-Y) = (-1)^2\thinspace\mathbb{V}(Y)$.
 5. Pour $n = 2$, c'est 4. Si la formule vaut au rang $n - 1$, on applique 4 à $S_{n-1} = X_1 + \cdots + X_{n-1}$ et $X_n$ (indépendantes, admis) : $\mathbb{V}(S_{n-1} + X_n) = \mathbb{V}(S_{n-1}) + \mathbb{V}(X_n) = \mathbb{V}(X_1) + \cdots + \mathbb{V}(X_n)$.
-6. Une binomiale est la somme de $n$ indicatrices indépendantes de variance $p(1 - p)$ : $\mathbb{V}(X) = np(1 - p)$. Pour la moyenne : $\mathbb{V}(\bar{X}) = \frac{1}{n^2}\,\mathbb{V}(X_1 + \cdots + X_n) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}$.
+6. Une binomiale est la somme de $n$ indicatrices indépendantes de variance $p(1 - p)$ : $\mathbb{V}(X) = np(1 - p)$. Pour la moyenne : $\mathbb{V}(\bar{X}) = \frac{1}{n^2}\thinspace\mathbb{V}(X_1 + \cdots + X_n) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}$.
 7. $X + Y = 2X$, de variance $4 \times \frac{1}{4} = 1$, alors que $\mathbb{V}(X) + \mathbb{V}(Y) = \frac{1}{2}$. Ici $\mathbb{E}[XY] = \mathbb{E}[X^2] = \frac{1}{2} \ne \frac{1}{4} = \mathbb{E}[X]\mathbb{E}[Y]$ : l'hypothèse d'indépendance manque (la variable est liée à elle-même).
 
 **Grille.** Une bonne démonstration : (1) traite $\mathbb{E}[X]$ comme une constante dans la linéarité ; (2) factorise la double somme grâce à l'indépendance ; (3) développe le carré et identifie le terme croisé, sans supposer l'indépendance ; (4) conclut, et justifie que $-Y$ reste indépendante de $X$ ; (5) rédige la récurrence (initialisation, hérédité), en notant que $X_1, \ldots, X_{n-1}$ restent mutuellement indépendantes ; (6) applique aux indicatrices et à la moyenne ; (7) explique le contre-exemple par le terme croisé.
@@ -292,23 +292,23 @@ Pour la copie : deux exécutions **indépendantes** de la tâche 1 ont une duré
 ### Ex M02b.12 — L'intégrale de Gauss par une intégrale double (changement en coordonnées polaires admis)
 
 **Réponse modèle.**
-1. $g(x, y) = e^{-x^2}e^{-y^2}$, un produit : sur le carré $C_R$, $\iint_{C_R} g = \int_{-R}^R e^{-x^2}\,dx \times \int_{-R}^R e^{-y^2}\,dy = I(R)^2$ (fiche §7, le cas d'un produit).
-2. En polaires, $x^2 + y^2 = r^2$ et $dx\,dy = r\,dr\,d\theta$ : $J(r) = \int_0^{2\pi}\left(\int_0^{r} e^{-s^2}s\,ds\right)d\theta = 2\pi\left[-\frac{1}{2}e^{-s^2}\right]_0^{r} = \pi\big(1 - e^{-r^2}\big)$.
+1. $g(x, y) = e^{-x^2}e^{-y^2}$, un produit : sur le carré $C_R$, $\iint_{C_R} g = \int_{-R}^R e^{-x^2}\thinspace dx \times \int_{-R}^R e^{-y^2}\thinspace dy = I(R)^2$ (fiche §7, le cas d'un produit).
+2. En polaires, $x^2 + y^2 = r^2$ et $dx\thinspace dy = r\thinspace dr\thinspace d\theta$ : $J(r) = \int_0^{2\pi}\left(\int_0^{r} e^{-s^2}s\thinspace ds\right)d\theta = 2\pi\left[-\frac{1}{2}e^{-s^2}\right]_0^{r} = \pi\big(1 - e^{-r^2}\big)$.
 3. Un point de $D_R$ est à une distance au plus $R$ de l'origine, donc ses deux coordonnées sont entre $-R$ et $R$ : il est dans $C_R$. Un point de $C_R$ a $x^2 + y^2 \le R^2 + R^2 = 2R^2$ : il est dans $D_{R\sqrt{2}}$ (le coin du carré est sur le cercle). Comme $g > 0$, $J(R) \le I(R)^2 \le J(R\sqrt{2})$, soit $\pi\big(1 - e^{-R^2}\big) \le I(R)^2 \le \pi\big(1 - e^{-2R^2}\big)$.
-4. Les deux bornes tendent vers $\pi$ quand $R \to +\infty$ ; par encadrement (théorème des gendarmes, R5), $I(R)^2 \to \pi$. Or $I(R) \to I = \int_{-\infty}^{+\infty} e^{-x^2}\,dx$ (M02a §4), donc $I^2 = \pi$. Comme $I > 0$ (l'intégrale d'une fonction strictement positive), $I = \sqrt{\pi}$.
-5. Avec $x = \frac{t}{\sqrt{2}}$, $dx = \frac{dt}{\sqrt{2}}$ et les bornes infinies restent infinies : $\int e^{-t^2/2}\,dt = \sqrt{2}\int e^{-x^2}\,dx = \sqrt{2\pi}$. Puis, avec $t = \frac{x - \mu}{\sigma}$ ($dx = \sigma\,dt$) : $\int \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2}}\,dx = \frac{1}{\sqrt{2\pi}}\int e^{-t^2/2}\,dt = 1$.
-6. $h \ge 0$ et $\iint h = \frac{1}{2\pi}\left(\int e^{-x^2/2}\,dx\right)^2 = \frac{2\pi}{2\pi} = 1$. Et $h(x, y) = \varphi(x)\,\varphi(y)$ : les deux coordonnées sont **indépendantes** (fiche §7), chacune de loi $\mathcal{N}(0, 1)$. Cette densité ne dépend que de $r^2 = x^2 + y^2$ : la loi est invariante par rotation, l'angle est uniforme. C'est l'idée de la méthode de Box-Muller (M02b.27).
+4. Les deux bornes tendent vers $\pi$ quand $R \to +\infty$ ; par encadrement (théorème des gendarmes, R5), $I(R)^2 \to \pi$. Or $I(R) \to I = \int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx$ (M02a §4), donc $I^2 = \pi$. Comme $I > 0$ (l'intégrale d'une fonction strictement positive), $I = \sqrt{\pi}$.
+5. Avec $x = \frac{t}{\sqrt{2}}$, $dx = \frac{dt}{\sqrt{2}}$ et les bornes infinies restent infinies : $\int e^{-t^2/2}\thinspace dt = \sqrt{2}\int e^{-x^2}\thinspace dx = \sqrt{2\pi}$. Puis, avec $t = \frac{x - \mu}{\sigma}$ ($dx = \sigma\thinspace dt$) : $\int \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2}}\thinspace dx = \frac{1}{\sqrt{2\pi}}\int e^{-t^2/2}\thinspace dt = 1$.
+6. $h \ge 0$ et $\iint h = \frac{1}{2\pi}\left(\int e^{-x^2/2}\thinspace dx\right)^2 = \frac{2\pi}{2\pi} = 1$. Et $h(x, y) = \varphi(x)\thinspace\varphi(y)$ : les deux coordonnées sont **indépendantes** (fiche §7), chacune de loi $\mathcal{N}(0, 1)$. Cette densité ne dépend que de $r^2 = x^2 + y^2$ : la loi est invariante par rotation, l'angle est uniforme. C'est l'idée de la méthode de Box-Muller (M02b.27).
 
-**Grille.** Une bonne démonstration : (1) passe d'un produit d'intégrales à une intégrale double sur le carré ; (2) calcule $J$ en polaires avec le facteur $r$, et trouve la primitive de $r\,e^{-r^2}$ ; (3) justifie les deux inclusions (le coin du carré), puis la comparaison des intégrales par la positivité ; (4) conclut par encadrement, en justifiant que $I(R)$ tend vers $I$ (l'intégrale impropre converge, par comparaison, M02a §4) et le signe de $I$ ; (5) enchaîne les deux changements de variable ; (6) reconnaît le produit de deux densités, donc l'indépendance.
+**Grille.** Une bonne démonstration : (1) passe d'un produit d'intégrales à une intégrale double sur le carré ; (2) calcule $J$ en polaires avec le facteur $r$, et trouve la primitive de $r\thinspace e^{-r^2}$ ; (3) justifie les deux inclusions (le coin du carré), puis la comparaison des intégrales par la positivité ; (4) conclut par encadrement, en justifiant que $I(R)$ tend vers $I$ (l'intégrale impropre converge, par comparaison, M02a §4) et le signe de $I$ ; (5) enchaîne les deux changements de variable ; (6) reconnaît le produit de deux densités, donc l'indépendance.
 
 ### Ex M02b.13 — La loi de Poisson, limite de lois binomiales
 
 **Réponse modèle.**
 1. $P(X_n = k) = \binom{n}{k}\left(\frac{\lambda}{n}\right)^k\left(1 - \frac{\lambda}{n}\right)^{n-k}$, avec $\binom{n}{k} = \frac{n(n-1)\cdots(n-k+1)}{k!}$ et $\left(1 - \frac{\lambda}{n}\right)^{n-k} = \left(1 - \frac{\lambda}{n}\right)^n\left(1 - \frac{\lambda}{n}\right)^{-k}$. En regroupant $\frac{n(n-1)\cdots(n-k+1)}{n^k}$, on obtient la formule.
 2. $\frac{n(n-1)\cdots(n-k+1)}{n^k} = 1 \times \left(1 - \frac{1}{n}\right) \times \cdots \times \left(1 - \frac{k-1}{n}\right)$ : un produit de $k$ facteurs (un nombre fixe), qui tendent chacun vers 1. Le produit tend vers 1.
-3. $\left(1 - \frac{\lambda}{n}\right)^n = \exp\big(n\ln(1 + h)\big)$ avec $h = -\frac{\lambda}{n} \to 0$, et $n\ln(1 + h) = -\lambda\,\frac{\ln(1 + h)}{h} \to -\lambda \times 1$. Par continuité de l'exponentielle, la puissance tend vers $e^{-\lambda}$.
+3. $\left(1 - \frac{\lambda}{n}\right)^n = \exp\big(n\ln(1 + h)\big)$ avec $h = -\frac{\lambda}{n} \to 0$, et $n\ln(1 + h) = -\lambda\thinspace\frac{\ln(1 + h)}{h} \to -\lambda \times 1$. Par continuité de l'exponentielle, la puissance tend vers $e^{-\lambda}$.
 4. $\left(1 - \frac{\lambda}{n}\right)^{-k} \to 1^{-k} = 1$ ($k$ est fixe). Donc $P(X_n = k) \to 1 \times \frac{\lambda^k}{k!} \times e^{-\lambda} \times 1 = e^{-\lambda}\frac{\lambda^k}{k!}$.
-5. $P(X_n = 0) = \left(1 - \frac{2}{n}\right)^n$ : 0,10737 pour $n = 10$, 0,13262 pour $n = 100$, 0,13506 pour $n = 1\,000$, contre $e^{-2} \approx 0{,}13534$. Écarts : 0,0280 ; 0,0027 ; 0,00027 : divisés par 10 quand $n$ est multiplié par 10, comme $\frac{1}{n}$.
+5. $P(X_n = 0) = \left(1 - \frac{2}{n}\right)^n$ : 0,10737 pour $n = 10$, 0,13262 pour $n = 100$, 0,13506 pour $n = 1\thinspace000$, contre $e^{-2} \approx 0{,}13534$. Écarts : 0,0280 ; 0,0027 ; 0,00027 : divisés par 10 quand $n$ est multiplié par 10, comme $\frac{1}{n}$.
 6. Sur une longue période découpée en beaucoup de petits intervalles, chacun contient rarement un événement, indépendamment des autres : c'est une binomiale de grand $n$ et de petit $p$, donc presque une loi de Poisson de paramètre $np$. Pour 10 lancers d'une pièce, $n = 10$ est petit et $p = \frac{1}{2}$ n'est pas petit : la loi est $\mathcal{B}(10 ; 0{,}5)$, que $\mathcal{P}(5)$ approche mal (elle donne une probabilité positive à 11 faces ou plus, et une variance de 5 au lieu de 2,5).
 
 **Grille.** Une bonne démonstration : (1) écrit le coefficient binomial avec le produit descendant et sépare la puissance (avec $n > \lambda$, $1 - \frac{\lambda}{n} > 0$) ; (2) remarque que le nombre de facteurs est fixe ; (3) passe par le logarithme et la limite $\frac{\ln(1 + h)}{h} \to 1$ ; (4) assemble les quatre limites ; (5) fait le calcul numérique et lit la vitesse en $\frac{1}{n}$ ; (6) relie l'hypothèse « $n$ grand, $p$ petit » à la situation.
@@ -321,12 +321,12 @@ Pour la copie : deux exécutions **indépendantes** de la tâche 1 ont une duré
 
 **Réponses** : a) `4` · b) `1.998` · c) `0.0182` · d) `0.0183` · e) `0.2381` · f) `0.6321` · g) `1152`.
 
-**Démarche.** $X \sim \mathcal{B}(2\,000 ;\ 0{,}002)$, approchée par $\mathcal{P}(4)$.
-- a) $np = 4$. b) $\sqrt{2\,000 \times 0{,}002 \times 0{,}998} = \sqrt{3{,}992} \approx 1{,}998$ (la loi de Poisson donnerait $\sqrt{4} = 2$ : presque pareil).
-- c) $0{,}998^{2\,000} \approx 0{,}01824$. d) $e^{-4} \approx 0{,}01832$ : un écart de $7 \times 10^{-5}$.
+**Démarche.** $X \sim \mathcal{B}(2\thinspace000 ;\ 0{,}002)$, approchée par $\mathcal{P}(4)$.
+- a) $np = 4$. b) $\sqrt{2\thinspace000 \times 0{,}002 \times 0{,}998} = \sqrt{3{,}992} \approx 1{,}998$ (la loi de Poisson donnerait $\sqrt{4} = 2$ : presque pareil).
+- c) $0{,}998^{2\thinspace000} \approx 0{,}01824$. d) $e^{-4} \approx 0{,}01832$ : un écart de $7 \times 10^{-5}$.
 - e) $e^{-4}\left(1 + 4 + \frac{4^2}{2}\right) = 13e^{-4} \approx 0{,}2381$ (la binomiale donne 0,2378).
 - f) $Y \approx \mathcal{P}(500 \times 0{,}002) = \mathcal{P}(1)$ : $1 - e^{-1} \approx 0{,}6321$.
-- g) $1 - e^{-0{,}002\,n} \ge 0{,}9 \iff n \ge \frac{\ln 10}{0{,}002} \approx 1\,151{,}3$, donc $n = 1\,152$ (la binomiale exacte, $0{,}998^n \le 0{,}1$, donne 1 151 : l'approximation coûte une image).
+- g) $1 - e^{-0{,}002\thinspace n} \ge 0{,}9 \iff n \ge \frac{\ln 10}{0{,}002} \approx 1\thinspace151{,}3$, donc $n = 1\thinspace152$ (la binomiale exacte, $0{,}998^n \le 0{,}1$, donne 1 151 : l'approximation coûte une image).
 
 Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation type de la loi des événements rares. Avec $p = 0{,}2$, $np = 400$ et la variance binomiale $np(1 - p) = 320$ n'est plus proche de 400 : l'approximation de Poisson ne vaut plus (on approchera alors par une loi normale, M02c). Des erreurs groupées violent l'**indépendance** (et la même probabilité pour chaque image) : la variance réelle du nombre d'erreurs devient plus grande que celle du modèle.
 
@@ -340,7 +340,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 1. Deux lectures : la probabilité comme **degré de croyance** d'un agent face à l'incertitude (lecture dite bayésienne), et comme **fréquence relative** d'un événement sur un très grand nombre de répétitions (lecture fréquentiste). Exemples : « je crois à 70 % qu'il pleuvra demain » ; « une pièce tombe sur pile une fois sur deux sur des milliers de lancers ».
 2. L'univers (*sample space*), l'ensemble des événements (*event space*) et la probabilité (*probability*). Le livre ajoute l'ensemble d'arrivée d'une variable aléatoire, le *target space* $\mathcal{T}$.
 3. Une *random variable* n'est ni aléatoire ni une variable : c'est une **fonction** (déterministe) des issues vers $\mathcal{T}$. Le hasard est dans le choix de l'issue, pas dans la fonction (fiche §1).
-4. $\Omega = \{PP, PF, FP, FF\}$, quatre issues équiprobables ; $X(PP) = 0$, $X(PF) = X(FP) = 1$, $X(FF) = 2$. La loi : $P(X = 0) = \frac{1}{4}$, $P(X = 1) = \frac{1}{2}$, $P(X = 2) = \frac{1}{4}$ (c'est $\mathcal{B}(2 ; 0{,}5)$).
+4. $\Omega = \lbrace PP, PF, FP, FF\rbrace$, quatre issues équiprobables ; $X(PP) = 0$, $X(PF) = X(FP) = 1$, $X(FF) = 2$. La loi : $P(X = 0) = \frac{1}{4}$, $P(X = 1) = \frac{1}{2}$, $P(X = 2) = \frac{1}{4}$ (c'est $\mathcal{B}(2 ; 0{,}5)$).
 5. On divise chaque comptage $n_{ij}$ par le total $N$ pour obtenir la loi jointe ; les marginales sont les sommes des lignes et des colonnes divisées par $N$ (la règle de la somme). Le tableau du stand de glaces est déjà divisé par $N$.
 6. *pmf* (fonction de masse), *pdf* (densité), *cdf* (fonction de répartition). Le livre écrit $p(x)$ dans les deux cas, pour alléger, en laissant le contexte dire s'il s'agit d'une probabilité ou d'une densité (fiche §1 et M02a).
 7. Personnel. Mots fréquents : *outcome* (issue), *event* (événement), *state* (valeur possible), *joint probability*, *marginal probability*, *quantity of interest*.
@@ -354,7 +354,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 4. $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$ ; $\mathbb{V}[X + Y] = \mathbb{V}[X] + \mathbb{V}[Y]$ plus deux termes de covariance (fiche §6). Pour des variables indépendantes, les covariances sont nulles et les variances s'additionnent.
 5. $F_Y(y) = P(\sqrt{X} \le y) = P(X \le y^2) = y^2$ pour $y$ dans $[0 ; 1]$, donc $f_Y(y) = 2y$.
 6. Si $F$ est continue et strictement croissante, $F(X)$ suit la loi uniforme sur $[0 ; 1]$. En sens inverse : partir d'une uniforme $U$ et appliquer $F^{-1}$ donne une variable de loi $F$, la simulation par inversion.
-7. $f_Y(y) = f_X\big(g^{-1}(y)\big)\,\big\lvert (g^{-1})'(y) \big\rvert$. Ici $g(x) = \sqrt{x}$, $g^{-1}(y) = y^2$, $(g^{-1})'(y) = 2y$, et $f_X = 1$ sur $[0 ; 1]$ : $f_Y(y) = 1 \times 2y = 2y$, comme en 5.
+7. $f_Y(y) = f_X\big(g^{-1}(y)\big)\thinspace\big\lvert (g^{-1})'(y) \big\rvert$. Ici $g(x) = \sqrt{x}$, $g^{-1}(y) = y^2$, $(g^{-1})'(y) = 2y$, et $f_X = 1$ sur $[0 ; 1]$ : $f_Y(y) = 1 \times 2y = 2y$, comme en 5.
 
 ### Ex M02b.17 — Expliquer la différence entre une variable aléatoire et sa loi
 
@@ -400,7 +400,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 **Réponses** : a) `6.369617` · b) `0.3328` · c) `4995` · d) `"ValueError"` · e) `5.0` · f) `0.2` · g) `"float64"` · h) `0.856492`.
 
-**Démarche.** `if n < 1: raise ValueError(...)`, puis `uniforms = np.random.default_rng(seed).random(n)` et `np.array([float(inverse_cdf(float(u))) for u in uniforms], dtype=float)`. Pour la copie : b) 0,3328 pour $\frac{1}{3}$, c) 4 995 pour $100\,000\,e^{-3} \approx 4\,979$, f) 0,200 : l'aléa de quelques millièmes attendu avec 100 000 ou 50 000 tirages. Pour la loi géométrique : $\ln(1 - p) < 0$, donc $\left\lceil \frac{\ln(1 - U)}{\ln(1 - p)} \right\rceil > k \iff \frac{\ln(1 - U)}{\ln(1 - p)} > k \iff \ln(1 - U) < k\ln(1 - p) \iff 1 - U < (1 - p)^k$, de probabilité $(1 - p)^k$ puisque $1 - U$ est uniforme : c'est $P(X > k)$.
+**Démarche.** `if n < 1: raise ValueError(...)`, puis `uniforms = np.random.default_rng(seed).random(n)` et `np.array([float(inverse_cdf(float(u))) for u in uniforms], dtype=float)`. Pour la copie : b) 0,3328 pour $\frac{1}{3}$, c) 4 995 pour $100\thinspace000\thinspace e^{-3} \approx 4\thinspace979$, f) 0,200 : l'aléa de quelques millièmes attendu avec 100 000 ou 50 000 tirages. Pour la loi géométrique : $\ln(1 - p) < 0$, donc $\left\lceil \frac{\ln(1 - U)}{\ln(1 - p)} \right\rceil > k \iff \frac{\ln(1 - U)}{\ln(1 - p)} > k \iff \ln(1 - U) < k\ln(1 - p) \iff 1 - U < (1 - p)^k$, de probabilité $(1 - p)^k$ puisque $1 - U$ est uniforme : c'est $P(X > k)$.
 
 **Erreurs fréquentes.** Appeler `inverse_cdf(uniforms)` sur tout l'array (cela marche pour `10 * u`, mais `math.log` refuse un array) ; créer un générateur sans la graine reçue ; renvoyer une liste ; un array d'entiers pour la loi géométrique.
 

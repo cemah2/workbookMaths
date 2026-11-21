@@ -104,7 +104,7 @@ Dérive :
 *Fiche §3 · parcours C, E*
 
 1. $(2, -1) \cdot (3, 4)$ ?
-2. $\|(2, -1)\|$ ?
+2. $\Vert(2, -1)\Vert$ ?
 3. Le vecteur unitaire de même direction et de même sens que $(8, 15)$ ?
 4. L'angle entre $(1, 0)$ et $(1, 1)$, en degrés ?
 5. Un vecteur non nul orthogonal à $(2, 5)$ ?
@@ -136,7 +136,7 @@ Soit $f_1(x, y) = 3x - y + 2$, $f_2(x, y) = x^2 + 9y^2$ et $f_3(x, y) = y - x^2$
 | | Question | Réponse attendue |
 |---|---|---|
 | a | l'ordonnée du point d'abscisse 2 de la ligne de niveau $f_1 = 5$ | un entier |
-| b | la pente $m$ des lignes de niveau de $f_1$, écrites $y = m\,x + p$ | un entier |
+| b | la pente $m$ des lignes de niveau de $f_1$, écrites $y = m\thinspace x + p$ | un entier |
 | c | où la ligne de niveau $f_2 = 36$ coupe-t-elle l'axe des $x$ ? Donne l'abscisse positive | un entier |
 | d | et l'axe des $y$ ? Donne l'ordonnée positive | un entier |
 | e | la valeur $c$ de la ligne de niveau de $f_2$ qui passe par $(2, 1)$ | un entier |
@@ -150,7 +150,7 @@ Dans ta copie : dessine trois lignes de niveau de chaque fonction (pour $f_2$ : 
 **Objectif :** calculer des dérivées partielles, y compris avec la règle de la chaîne et en trois variables.
 **Prérequis :** fiche §2 ; R7 · **Parcours :** C, E
 
-Soit $f(x, y) = 4x^3 y - y^2 + 7x$, $g(x, y) = e^{2x - y}$ et $h(x, y, z) = x\,y^2 z^3$.
+Soit $f(x, y) = 4x^3 y - y^2 + 7x$, $g(x, y) = e^{2x - y}$ et $h(x, y, z) = x\thinspace y^2 z^3$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -174,11 +174,11 @@ Soit $f(x, y) = x^2 y - 3y + 1$ et le point $P = (2, 3)$.
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\nabla f(P)$ | une liste de 2 entiers |
-| b | $\|\nabla f(P)\|$ | un nombre (4 décimales) |
+| b | $\Vert\nabla f(P)\Vert$ | un nombre (4 décimales) |
 | c | $\nabla f(0, 5)$ | une liste de 2 entiers |
 | d | les abscisses des points où $\nabla f = \mathbf{0}$, dans l'ordre croissant | une liste (3 décimales) |
 | e | le vecteur unitaire de même direction et de même sens que $\nabla f(P)$ | une liste (4 décimales) |
-| f | $\|\nabla f(1, 1)\|$ | un nombre (4 décimales) |
+| f | $\Vert\nabla f(1, 1)\Vert$ | un nombre (4 décimales) |
 
 Dans ta copie : écris le système $\frac{\partial f}{\partial x} = 0$, $\frac{\partial f}{\partial y} = 0$ et résous-le. Que vaut $f$ aux points trouvés en d) ?
 
@@ -198,7 +198,7 @@ Soit $f(x, y) = 3x^2 - 2xy + y^2$ et le point $P = (2, 1)$.
 | f | la plus grande dérivée directionnelle de $f$ en $P$ | un nombre (3 décimales) |
 | g | l'angle entre $\nabla f(P)$ et le vecteur $(1, 1)$, en degrés | un nombre (2 décimales) |
 
-Dans ta copie : vérifie d) par la formule $\|\nabla f\|\cos\theta$, avec l'angle de g). Dans quelles directions la pente est-elle nulle ? Dessine-les, avec le gradient.
+Dans ta copie : vérifie d) par la formule $\Vert\nabla f\Vert\cos\theta$, avec l'angle de g). Dans quelles directions la pente est-elle nulle ? Dessine-les, avec le gradient.
 
 ### Ex M05b.5 — Monter le plus vite : la direction et la valeur de la plus grande pente ✏️ ★★ ⏱️ 15 min
 **Objectif :** situer la direction de plus grande montée par son angle, la comparer à une autre direction, et écrire la tangente à une ligne de niveau.
@@ -213,9 +213,9 @@ La température d'une plaque vaut $T(x, y) = 50 - x^2 - 3y^2 + xy$ (en °C, avec
 | c | l'angle de la direction où $T$ augmente le plus vite, mesuré depuis l'axe des $x$ dans le sens inverse des aiguilles d'une montre, en degrés entre 0 et 360 | un nombre (2 décimales) |
 | d | le taux de variation de $T$ en $P$ dans la direction de $O$ (la dérivée directionnelle), en °C par cm | un nombre (3 décimales) |
 | e | l'angle entre la direction de d) et celle de plus grande montée, en degrés | un nombre (2 décimales) |
-| f | la pente $m$ de la tangente en $P$ à l'isotherme de $T$ (sa ligne de niveau) qui passe par $P$, écrite $y = m\,x + p$ | une fraction irréductible |
+| f | la pente $m$ de la tangente en $P$ à l'isotherme de $T$ (sa ligne de niveau) qui passe par $P$, écrite $y = m\thinspace x + p$ | une fraction irréductible |
 
-Dans ta copie : sur un croquis, place $P$, $O$, la flèche du gradient et la tangente de f). Pourquoi aller droit vers le point le plus chaud n'est-il pas la montée la plus rapide ? Vérifie d) par la formule $\|\nabla T\|\cos\theta$, avec l'angle de e).
+Dans ta copie : sur un croquis, place $P$, $O$, la flèche du gradient et la tangente de f). Pourquoi aller droit vers le point le plus chaud n'est-il pas la montée la plus rapide ? Vérifie d) par la formule $\Vert\nabla T\Vert\cos\theta$, avec l'angle de e).
 
 ### Ex M05b.6 — Le plan tangent et l'approximation d'une valeur ✏️ ★★ ⏱️ 20 min
 **Objectif :** écrire un plan tangent, s'en servir pour approcher une valeur, et mesurer l'erreur.
@@ -281,14 +281,14 @@ Soit $f(x, y) = x^2 y + y^2$ et le point $P = (1, 1)$, où $f(P) = 2$.
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\nabla f(P)$ | une liste de 2 entiers |
-| b | le point $P - \eta\,\nabla f(P)$, avec $\eta = 0{,}05$ | une liste (2 décimales) |
+| b | le point $P - \eta\thinspace\nabla f(P)$, avec $\eta = 0{,}05$ | une liste (2 décimales) |
 | c | la valeur de $f$ en ce point | un nombre (3 décimales) |
-| d | la prévision au premier ordre de cette valeur, $f(P) - \eta\,\|\nabla f(P)\|^2$ | un nombre (2 décimales) |
+| d | la prévision au premier ordre de cette valeur, $f(P) - \eta\thinspace\Vert\nabla f(P)\Vert^2$ | un nombre (2 décimales) |
 | e | la baisse réelle de $f$, $f(P)$ moins c) | un nombre (3 décimales) |
-| f | la valeur de $f$ après un pas de **montée** $P + \eta\,\nabla f(P)$, avec le même $\eta$ | un nombre (3 décimales) |
+| f | la valeur de $f$ après un pas de **montée** $P + \eta\thinspace\nabla f(P)$, avec le même $\eta$ | un nombre (3 décimales) |
 | g | la taille de pas $\eta$ pour laquelle le premier ordre prévoit une baisse de 0,1 exactement | une fraction irréductible |
 
-Dans ta copie : la baisse réelle e) est-elle plus grande ou plus petite que la prévision ? Et la hausse de f), comparée à $\eta\,\|\nabla f(P)\|^2$ ? Écris le développement $f(P + \mathbf{h}) \approx f(P) + \nabla f(P) \cdot \mathbf{h}$ pour $\mathbf{h} = -\eta\,\nabla f(P)$.
+Dans ta copie : la baisse réelle e) est-elle plus grande ou plus petite que la prévision ? Et la hausse de f), comparée à $\eta\thinspace\Vert\nabla f(P)\Vert^2$ ? Écris le développement $f(P + \mathbf{h}) \approx f(P) + \nabla f(P) \cdot \mathbf{h}$ pour $\mathbf{h} = -\eta\thinspace\nabla f(P)$.
 
 ### Ex M05b.10 — argmin et argmax sur un segment ✏️ ★★ ⏱️ 20 min
 **Objectif :** trouver le minimum et le maximum d'une fonction de deux variables sur un segment, en se ramenant à une variable, et comparer au minimum sur tout le plan.
@@ -319,13 +319,13 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer la formule de la dérivée directionnelle avec la règle de la chaîne, puis en déduire la direction de plus grande pente.
 **Prérequis :** fiche §3 et §4 ; R9 · **Parcours :** C
 
-Soit $f$ une fonction de deux variables dont les dérivées partielles sont continues, un point $\mathbf{p} = (a, b)$ et un vecteur unitaire $\mathbf{u} = (u_1, u_2)$. On admet la règle de la chaîne de la fiche (§3) : $\frac{d}{dt} f(x(t), y(t)) = \frac{\partial f}{\partial x}\,x'(t) + \frac{\partial f}{\partial y}\,y'(t)$.
+Soit $f$ une fonction de deux variables dont les dérivées partielles sont continues, un point $\mathbf{p} = (a, b)$ et un vecteur unitaire $\mathbf{u} = (u_1, u_2)$. On admet la règle de la chaîne de la fiche (§3) : $\frac{d}{dt} f(x(t), y(t)) = \frac{\partial f}{\partial x}\thinspace x'(t) + \frac{\partial f}{\partial y}\thinspace y'(t)$.
 1. On pose $g(t) = f(a + t u_1,\ b + t u_2)$. Explique pourquoi $D_{\mathbf{u}} f(\mathbf{p}) = g'(0)$.
 2. Montre que $g'(0) = \nabla f(\mathbf{p}) \cdot \mathbf{u}$.
-3. Montre que $-\|\nabla f(\mathbf{p})\| \le D_{\mathbf{u}} f(\mathbf{p}) \le \|\nabla f(\mathbf{p})\|$ pour tout vecteur unitaire $\mathbf{u}$.
-4. On suppose $\nabla f(\mathbf{p}) \ne \mathbf{0}$. Montre que la borne de droite est atteinte pour $\mathbf{u} = \frac{\nabla f(\mathbf{p})}{\|\nabla f(\mathbf{p})\|}$, et pour ce seul vecteur unitaire.
+3. Montre que $-\Vert\nabla f(\mathbf{p})\Vert \le D_{\mathbf{u}} f(\mathbf{p}) \le \Vert\nabla f(\mathbf{p})\Vert$ pour tout vecteur unitaire $\mathbf{u}$.
+4. On suppose $\nabla f(\mathbf{p}) \ne \mathbf{0}$. Montre que la borne de droite est atteinte pour $\mathbf{u} = \frac{\nabla f(\mathbf{p})}{\Vert\nabla f(\mathbf{p})\Vert}$, et pour ce seul vecteur unitaire.
 5. Montre que, si $\nabla f(\mathbf{p}) \ne \mathbf{0}$, il y a exactement deux vecteurs unitaires $\mathbf{u}$ pour lesquels $D_{\mathbf{u}} f(\mathbf{p}) = 0$, et donne-les en fonction des composantes du gradient.
-6. Vérifie la formule de 2 sur $f(x, y) = x\,e^{y}$ en $(1, 0)$, avec $\mathbf{u} = (0{,}28 ;\ 0{,}96)$ : calcule $g(t)$ explicitement et dérive-la.
+6. Vérifie la formule de 2 sur $f(x, y) = x\thinspace e^{y}$ en $(1, 0)$, avec $\mathbf{u} = (0{,}28 ;\ 0{,}96)$ : calcule $g(t)$ explicitement et dérive-la.
 
 ### Ex M05b.12 — Le gradient est orthogonal aux lignes de niveau ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer que le gradient est perpendiculaire aux lignes de niveau, en déduire l'équation d'une tangente à une ligne de niveau, et relier l'écart des lignes à la norme du gradient.
@@ -334,21 +334,21 @@ Soit $f$ une fonction de deux variables dont les dérivées partielles sont cont
 Soit $f$ comme en M05b.11, et $\boldsymbol{\gamma}(t) = (x(t), y(t))$ une courbe dérivable tracée sur la ligne de niveau $c$ : $f(\boldsymbol{\gamma}(t)) = c$ pour tout $t$, et $\boldsymbol{\gamma}'(t) \ne \mathbf{0}$.
 1. Montre que $\nabla f(\boldsymbol{\gamma}(t)) \cdot \boldsymbol{\gamma}'(t) = 0$ pour tout $t$. Conclus.
 2. Vérifie-le sur $f(x, y) = \frac{x^2}{4} + y^2$, la ligne de niveau 2 et $\boldsymbol{\gamma}(t) = (2\sqrt{2}\cos t,\ \sqrt{2}\sin t)$.
-3. On admet que, près de $(a, b)$, la ligne de niveau qui passe par $(a, b)$ est une courbe $\boldsymbol{\gamma}$ comme en 1, avec $\boldsymbol{\gamma}(t_0) = (a, b)$. Montre que sa tangente en $(a, b)$ a pour équation $f_x(a, b)\,(x - a) + f_y(a, b)\,(y - b) = 0$, si $\nabla f(a, b) \ne \mathbf{0}$.
+3. On admet que, près de $(a, b)$, la ligne de niveau qui passe par $(a, b)$ est une courbe $\boldsymbol{\gamma}$ comme en 1, avec $\boldsymbol{\gamma}(t_0) = (a, b)$. Montre que sa tangente en $(a, b)$ a pour équation $f_x(a, b)\thinspace(x - a) + f_y(a, b)\thinspace(y - b) = 0$, si $\nabla f(a, b) \ne \mathbf{0}$.
 4. Applique-le à la ligne de niveau de $k(x, y) = x^2 y + y^3$ qui passe par $(1, 1)$ : écris sa tangente sous la forme $y = mx + p$.
-5. Deux lignes de niveau voisines, $c$ et $c + \Delta c$, avec $\Delta c$ petit. En partant de $\mathbf{p}$ dans la direction du gradient, montre avec l'approximation linéaire que la distance à parcourir pour passer de l'une à l'autre vaut environ $\frac{\Delta c}{\|\nabla f(\mathbf{p})\|}$. Pourquoi est-ce la plus courte, parmi toutes les directions ?
+5. Deux lignes de niveau voisines, $c$ et $c + \Delta c$, avec $\Delta c$ petit. En partant de $\mathbf{p}$ dans la direction du gradient, montre avec l'approximation linéaire que la distance à parcourir pour passer de l'une à l'autre vaut environ $\frac{\Delta c}{\Vert\nabla f(\mathbf{p})\Vert}$. Pourquoi est-ce la plus courte, parmi toutes les directions ?
 
 ### Ex M05b.13 — Le test du second ordre pour ax² + bxy + cy² ∂ ★★★ ⏱️ 30 min
 **Objectif :** démontrer le test du second ordre sur une forme quadratique, en complétant le carré, puis voir pourquoi il ne conclut pas quand $D = 0$.
 **Prérequis :** fiche §6 et §7 ; R2 (forme canonique) · **Parcours :** C
 
-Soit $q(x, y) = a x^2 + b\,xy + c y^2$, avec $a$, $b$, $c$ réels.
-1. Montre que $(0, 0)$ est un point critique de $q$, et que $q_{xx}\,q_{yy} - q_{xy}^2 = 4ac - b^2$.
-2. On suppose $a \ne 0$. Montre que $4a\,q(x, y) = (2ax + by)^2 + (4ac - b^2)\,y^2$.
+Soit $q(x, y) = a x^2 + b\thinspace xy + c y^2$, avec $a$, $b$, $c$ réels.
+1. Montre que $(0, 0)$ est un point critique de $q$, et que $q_{xx}\thinspace q_{yy} - q_{xy}^2 = 4ac - b^2$.
+2. On suppose $a \ne 0$. Montre que $4a\thinspace q(x, y) = (2ax + by)^2 + (4ac - b^2)\thinspace y^2$.
 3. En déduire : si $4ac - b^2 > 0$ et $a > 0$, alors $q(x, y) > 0$ pour tout $(x, y) \ne (0, 0)$ ($q$ a un minimum strict en $(0, 0)$) ; et si $4ac - b^2 > 0$ et $a < 0$, un maximum strict.
 4. On suppose $4ac - b^2 < 0$ et $a \ne 0$. Trouve un point où $q$ a le signe de $a$, et un point où $q$ a le signe opposé. Conclus.
 5. Traite le cas $a = 0$ et $b \ne 0$ : montre que $(0, 0)$ est un point selle.
-6. Pour une fonction $f$ quelconque, près d'un point critique $\mathbf{p}$, la fiche (§7) donne $f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \frac{1}{2}\big(f_{xx}\Delta x^2 + 2f_{xy}\,\Delta x\,\Delta y + f_{yy}\Delta y^2\big)$. Avec quels $a$, $b$, $c$ ce terme est-il $\frac{1}{2}q$ ? Retrouve ainsi le test de la fiche.
+6. Pour une fonction $f$ quelconque, près d'un point critique $\mathbf{p}$, la fiche (§7) donne $f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \frac{1}{2}\big(f_{xx}\Delta x^2 + 2f_{xy}\thinspace\Delta x\thinspace\Delta y + f_{yy}\Delta y^2\big)$. Avec quels $a$, $b$, $c$ ce terme est-il $\frac{1}{2}q$ ? Retrouve ainsi le test de la fiche.
 7. Montre que $x^2 + y^4$ et $x^2 - y^4$ ont toutes deux $D = 0$ en $(0, 0)$, la première un minimum et la seconde un point selle. Pourquoi le test ne peut-il pas conclure quand $D = 0$ ?
 
 <a id="reflexion"></a>
@@ -372,7 +372,7 @@ $$L(w_1, w_2) = \frac{1}{2}\Big[\big(\hat{y}^{(1)} - y^{(1)}\big)^2 + \big(\hat{
 | e | la loss avec ces nouveaux poids | un nombre (4 décimales) |
 | f | les poids $(w_1, w_2)$ où le gradient de $L$ s'annule | une liste (4 décimales) |
 
-Dans ta copie : écris $\frac{\partial L}{\partial w_1}$ en général, sous la forme $\sum_i (\hat{y}^{(i)} - y^{(i)})\,x_1^{(i)}$ : que pèse chaque exemple dans le gradient ? Que vaut $L$ aux poids de f), et pourquoi ? Que deviendrait la loss si l'on avait trois exemples qu'aucun choix de deux poids ne peut prédire tous exactement ?
+Dans ta copie : écris $\frac{\partial L}{\partial w_1}$ en général, sous la forme $\sum_i (\hat{y}^{(i)} - y^{(i)})\thinspace x_1^{(i)}$ : que pèse chaque exemple dans le gradient ? Que vaut $L$ aux poids de f), et pourquoi ? Que deviendrait la loss si l'on avait trois exemples qu'aucun choix de deux poids ne peut prédire tous exactement ?
 
 ### Ex M05b.15 — MML §5.2 : dérivées partielles et gradient, la convention en ligne (lecture guidée) 📖 ★★ ⏱️ 30 min
 **Objectif :** lire en anglais la définition des dérivées partielles et du gradient, la convention du gradient en ligne, et la règle de la chaîne, puis refaire les exemples du livre avec d'autres fonctions.
@@ -384,7 +384,7 @@ Lis MML §5.2 (le début, puis §5.2.1 et §5.2.2). Réponds dans ta copie, **av
 3. Le livre calcule le gradient d'un polynôme de deux variables. Refais-le avec $f(x_1, x_2) = x_1^3 x_2 - x_1 x_2^2$, et donne le gradient en $(1, 2)$, dans la convention du livre.
 4. Le livre énonce les règles du produit, de la somme et de la chaîne pour les dérivées partielles. Vérifie la règle du produit sur $(x^2 + y)(x - y)$, en calculant $\frac{\partial}{\partial x}$ de deux façons.
 5. Le livre applique la règle de la chaîne quand $x_1$ et $x_2$ dépendent d'un paramètre $t$. Refais-le avec $f(x_1, x_2) = x_1^2 - x_2$, $x_1 = e^t$ et $x_2 = t^2$ : calcule $\frac{df}{dt}$ par la règle, puis en remplaçant d'abord, et compare.
-6. Pourquoi le livre préfère-t-il le gradient en ligne ? Comment s'écrit alors un pas de descente de gradient, $\mathbf{x} - \eta\,(\ldots)$, avec un vecteur $\mathbf{x}$ en colonne ?
+6. Pourquoi le livre préfère-t-il le gradient en ligne ? Comment s'écrit alors un pas de descente de gradient, $\mathbf{x} - \eta\thinspace(\ldots)$, avec un vecteur $\mathbf{x}$ en colonne ?
 7. Note trois mots ou tournures en anglais de cette section qui étaient nouveaux pour toi, avec leur traduction.
 
 ### Ex M05b.16 — Lire une carte de lignes de niveau : estimer une dérivée partielle 📈 ★ ⏱️ 15 min

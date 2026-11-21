@@ -72,11 +72,11 @@ Juste ou faux ?
 *Fiche §6 · parcours C, E*
 
 Vrai ou faux ?
-1. $0{,}006\,30$ a trois chiffres significatifs.
+1. $0{,}006\thinspace30$ a trois chiffres significatifs.
 2. $27 \times 10^{4}$ est écrit en notation scientifique.
 3. $4{,}1 \times 10^{-3} = 0{,}0041$.
-4. Arrondi à deux chiffres significatifs, $48\,615$ devient $49\,000$.
-5. L'ordre de grandeur de $8\,200$ est $10^3$.
+4. Arrondi à deux chiffres significatifs, $48\thinspace615$ devient $49\thinspace000$.
+5. L'ordre de grandeur de $8\thinspace200$ est $10^3$.
 6. En Python, `6.02e23` est un entier (`int`).
 
 ### R1.Q7 — Les pièges des évolutions successives 🧠 ★ ⏱️ 4 min
@@ -257,11 +257,11 @@ Simplifie d'abord avec les règles, puis donne la valeur.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $72\,500\,000$ en notation scientifique $m \times 10^k$ | la liste `[m, k]` |
-| b | $0{,}000\,090\,6$ en notation scientifique | la liste `[m, k]` |
-| c | $314\,159$ arrondi à deux chiffres significatifs, en écriture décimale | un entier |
-| d | $0{,}007\,849$ arrondi à deux chiffres significatifs | un décimal |
-| e | l'ordre de grandeur de $0{,}000\,3$ : l'entier $k$ tel qu'il vaille $10^k$ | un entier |
+| a | $72\thinspace500\thinspace000$ en notation scientifique $m \times 10^k$ | la liste `[m, k]` |
+| b | $0{,}000\thinspace090\thinspace6$ en notation scientifique | la liste `[m, k]` |
+| c | $314\thinspace159$ arrondi à deux chiffres significatifs, en écriture décimale | un entier |
+| d | $0{,}007\thinspace849$ arrondi à deux chiffres significatifs | un décimal |
+| e | l'ordre de grandeur de $0{,}000\thinspace3$ : l'entier $k$ tel qu'il vaille $10^k$ | un entier |
 | f | $\dfrac{8{,}4 \times 10^{-3}}{1{,}2 \times 10^{5}}$ en notation scientifique | la liste `[m, k]` |
 
 ### Ex R1.11 — Partie entière, arrondi au plus proche, arrondi supérieur ✏️ ★ ⏱️ 10 min
@@ -313,7 +313,7 @@ Donne les taux **en pourcentage, avec leur signe** : `-12` pour une baisse de 12
 |---|---|---|
 | a | les notes 13 (coefficient 4), 9 (coefficient 1) et 16 (coefficient 3) : la moyenne pondérée | un décimal |
 | b | un quatrième contrôle, de coefficient 2, s'ajoute aux trois notes de a : la note qu'il faut y avoir pour une moyenne de 14 | un décimal |
-| c | la sortie $z = \sum_i w_i x_i + b$ d'un neurone, avec $\mathbf{w} = (1{,}5 \;;\; -2 \;;\; 0{,}5)$, $\mathbf{x} = (2 \;;\; 0{,}5 \;;\; 6)$ et $b = -1$ | un nombre |
+| c | la sortie $z = \sum_i w_i x_i + b$ d'un neurone, avec $\mathbf{w} = (1{,}5 \mkern5mu ;\mkern5mu  -2 \mkern5mu ;\mkern5mu  0{,}5)$, $\mathbf{x} = (2 \mkern5mu ;\mkern5mu  0{,}5 \mkern5mu ;\mkern5mu  6)$ et $b = -1$ | un nombre |
 | d | une cycliste monte un col à 15 km/h et redescend par la même route à 45 km/h : sa vitesse moyenne sur l'aller-retour, en km/h | un décimal |
 
 <a id="demonstrations"></a>

@@ -336,7 +336,7 @@ La colonne $j$ est $f(\mathbf{e}_j)$. Pour e), écris $\mathbf{e}_1$ et $\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-f) La projection de $\mathbf{x}$ sur la droite dirigée par $\mathbf{u}$ est $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\,\mathbf{u}$ (M07 §4), avec $\mathbf{u} = (1, 1)$.
+f) La projection de $\mathbf{x}$ sur la droite dirigée par $\mathbf{u}$ est $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\thinspace\mathbf{u}$ (M07 §4), avec $\mathbf{u} = (1, 1)$.
 
 </details>
 
@@ -578,7 +578,7 @@ Additionne les deux premières colonnes et compare à la troisième.
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\,\mathbf{X}\mathbf{d}$.
+e) $\mathbf{X}\mathbf{w}' = \mathbf{X}\mathbf{w} + 2\thinspace\mathbf{X}\mathbf{d}$.
 
 </details>
 
@@ -650,7 +650,7 @@ Une application linéaire de $\mathbb{R}^n$ dans $\mathbb{R}^m$ a $mn$ paramètr
 </details>
 <details><summary>Indice 3</summary>
 
-5 : $\mathbf{B}$ de forme $(100, 16)$ et $\mathbf{C}$ de forme $(16, 3\,072)$.
+5 : $\mathbf{B}$ de forme $(100, 16)$ et $\mathbf{C}$ de forme $(16, 3\thinspace072)$.
 
 </details>
 

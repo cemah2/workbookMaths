@@ -90,7 +90,7 @@ Pour dire qu'un nombre **appartient** à un ensemble, on écrit $\in$ : $-3 \in 
 
 **Décimal ou pas ?** Un nombre est décimal quand il s'écrit $\frac{p}{10^k}$ : $2{,}05 = \frac{205}{10^2}$. Une fraction irréductible $\frac{p}{q}$ est décimale exactement quand son dénominateur $q$ n'a que 2 et 5 comme facteurs premiers : $\frac{7}{20} = 0{,}35$ (car $20 = 2^2 \times 5$), mais $\frac{1}{3} = 0{,}333\ldots$, avec des 3 à l'infini, n'est pas décimal.
 
-**Rationnel ou pas ?** L'écriture décimale d'un rationnel finit toujours par se répéter ($\frac{1}{3} = 0{,}333\ldots$, $\frac{5}{7} = 0{,}714285\,714285\ldots$). Celle de $\sqrt{2} = 1{,}41421356\ldots$ ou de $\pi = 3{,}14159265\ldots$ ne se répète jamais : ces nombres sont **irrationnels**. On démontrera en R4 que $\sqrt{2}$ n'est pas rationnel ; retiens pour l'instant que $\sqrt{n}$ est irrationnel dès que l'entier $n$ n'est pas un carré parfait.
+**Rationnel ou pas ?** L'écriture décimale d'un rationnel finit toujours par se répéter ($\frac{1}{3} = 0{,}333\ldots$, $\frac{5}{7} = 0{,}714285\thinspace714285\ldots$). Celle de $\sqrt{2} = 1{,}41421356\ldots$ ou de $\pi = 3{,}14159265\ldots$ ne se répète jamais : ces nombres sont **irrationnels**. On démontrera en R4 que $\sqrt{2}$ n'est pas rationnel ; retiens pour l'instant que $\sqrt{n}$ est irrationnel dès que l'entier $n$ n'est pas un carré parfait.
 
 > 🔗 **Dans workbookIA** — un ordinateur ne manipule que des décimaux binaires (R0 §2, les flottants) : $\frac{1}{3}$, $\sqrt{2}$ ou même $0{,}1$ y sont arrondis. C'est pourquoi on calcule exactement avec `fractions.Fraction` (§3) ou SymPy quand il le faut.
 
@@ -314,7 +314,7 @@ Les règles portent sur des **produits**, jamais sur des sommes :
 
 ### Puissances de 10 et préfixes
 
-Les puissances de 10 se lisent en comptant les zéros : $10^6 = 1\,000\,000$ (six zéros), $10^{-4} = 0{,}0001$ (le 1 est en quatrième position après la virgule). Multiplier par $10^k$ déplace la virgule de $k$ rangs vers la droite ; par $10^{-k}$, de $k$ rangs vers la gauche. Les règles s'appliquent : $10^7 \times 10^{-5} = 10^2$.
+Les puissances de 10 se lisent en comptant les zéros : $10^6 = 1\thinspace000\thinspace000$ (six zéros), $10^{-4} = 0{,}0001$ (le 1 est en quatrième position après la virgule). Multiplier par $10^k$ déplace la virgule de $k$ rangs vers la droite ; par $10^{-k}$, de $k$ rangs vers la gauche. Les règles s'appliquent : $10^7 \times 10^{-5} = 10^2$.
 
 Les préfixes du système international nomment les puissances de 10 qui vont de trois en trois :
 
@@ -396,8 +396,8 @@ Un nombre non nul s'écrit de façon unique sous la forme
 $$x = m \times 10^k \qquad \text{avec } 1 \le |m| < 10 \text{ et } k \text{ entier}$$
 
 $m$ s'appelle la **mantisse** et $k$ l'**exposant**. Pour l'obtenir, on déplace la virgule jusqu'à n'avoir qu'**un chiffre non nul avant elle**, et on compte les rangs :
-- $586\,000\,000 = 5{,}86 \times 10^8$ : la virgule a reculé de 8 rangs vers la gauche, l'exposant est positif ;
-- $0{,}000\,037\,2 = 3{,}72 \times 10^{-5}$ : la virgule a avancé de 5 rangs vers la droite, l'exposant est négatif.
+- $586\thinspace000\thinspace000 = 5{,}86 \times 10^8$ : la virgule a reculé de 8 rangs vers la gauche, l'exposant est positif ;
+- $0{,}000\thinspace037\thinspace2 = 3{,}72 \times 10^{-5}$ : la virgule a avancé de 5 rangs vers la droite, l'exposant est négatif.
 
 Repère : un nombre plus grand que 10 a un exposant positif, un nombre entre 0 et 1 un exposant négatif. $45{,}2 \times 10^3$ n'est **pas** en notation scientifique ($45{,}2 \ge 10$) : c'est $4{,}52 \times 10^4$.
 
@@ -416,11 +416,11 @@ En Python, `5.86e8` et `3.72e-5` sont des flottants écrits en notation scientif
 
 ### Chiffres significatifs et arrondis
 
-Les **chiffres significatifs** d'un nombre sont ses chiffres à partir du premier chiffre non nul : $0{,}040\,50$ a quatre chiffres significatifs (4, 0, 5, 0). Les zéros de tête ne comptent jamais. Les zéros de la fin comptent quand ils sont **après la virgule** : écrire $0{,}040\,50$ plutôt que $0{,}0405$, c'est dire qu'on connaît aussi le chiffre suivant. Dans un entier comme $2\,720\,000$, les zéros qui ne font que tenir la place des unités ne disent rien de la précision : on ne sait pas si on connaît ce nombre à l'unité près ou au millier près. La notation scientifique lève l'ambiguïté : les chiffres significatifs sont ceux de la mantisse, $4{,}050 \times 10^{-2}$ en a quatre, et $2{,}72 \times 10^6$ trois.
+Les **chiffres significatifs** d'un nombre sont ses chiffres à partir du premier chiffre non nul : $0{,}040\thinspace50$ a quatre chiffres significatifs (4, 0, 5, 0). Les zéros de tête ne comptent jamais. Les zéros de la fin comptent quand ils sont **après la virgule** : écrire $0{,}040\thinspace50$ plutôt que $0{,}0405$, c'est dire qu'on connaît aussi le chiffre suivant. Dans un entier comme $2\thinspace720\thinspace000$, les zéros qui ne font que tenir la place des unités ne disent rien de la précision : on ne sait pas si on connaît ce nombre à l'unité près ou au millier près. La notation scientifique lève l'ambiguïté : les chiffres significatifs sont ceux de la mantisse, $4{,}050 \times 10^{-2}$ en a quatre, et $2{,}72 \times 10^6$ trois.
 
 **Arrondir à $n$ chiffres significatifs** : on garde les $n$ premiers, et on regarde le suivant ; s'il vaut 5 ou plus, le dernier chiffre gardé monte de 1.
-- $2\,718\,281$ à 3 chiffres significatifs : 2, 7, 1, et le suivant est 8, donc $2\,720\,000 = 2{,}72 \times 10^6$ ;
-- $0{,}014\,96$ à 2 chiffres significatifs : 1, 4, puis 9, donc $0{,}015$ ;
+- $2\thinspace718\thinspace281$ à 3 chiffres significatifs : 2, 7, 1, et le suivant est 8, donc $2\thinspace720\thinspace000 = 2{,}72 \times 10^6$ ;
+- $0{,}014\thinspace96$ à 2 chiffres significatifs : 1, 4, puis 9, donc $0{,}015$ ;
 - quand l'arrondi « déborde » : $9{,}97$ à 2 chiffres significatifs donne $10$, qu'on écrit $1{,}0 \times 10^1$.
 
 **Arrondir à $n$ décimales** est un autre réglage : $3{,}14159$ à 2 décimales donne $3{,}14$. **Tronquer**, c'est couper sans regarder la suite : $3{,}149$ tronqué à 2 décimales donne $3{,}14$, arrondi $3{,}15$.
@@ -464,7 +464,7 @@ L'**ordre de grandeur** d'un nombre est la puissance de 10 la plus proche de lui
 - si $|m| < \sqrt{10}$ (environ 3,16), l'ordre de grandeur est $10^k$ ;
 - si $|m| \ge \sqrt{10}$, c'est $10^{k+1}$.
 
-Le seuil $\sqrt{10}$ vient de ce que « proche » se juge en **multipliant** : $\sqrt{10}$ est aussi loin de 1 que de 10, puisque $\frac{\sqrt{10}}{1} = \frac{10}{\sqrt{10}}$. Ainsi $586\,000\,000 = 5{,}86 \times 10^8$ a pour ordre de grandeur $10^9$, et $0{,}000\,024 = 2{,}4 \times 10^{-5}$ a pour ordre de grandeur $10^{-5}$. Certains manuels coupent à 5 au lieu de 3,16 ; les deux règles ne diffèrent que pour une mantisse entre 3,16 et 5, et les exercices du workbook évitent ce cas.
+Le seuil $\sqrt{10}$ vient de ce que « proche » se juge en **multipliant** : $\sqrt{10}$ est aussi loin de 1 que de 10, puisque $\frac{\sqrt{10}}{1} = \frac{10}{\sqrt{10}}$. Ainsi $586\thinspace000\thinspace000 = 5{,}86 \times 10^8$ a pour ordre de grandeur $10^9$, et $0{,}000\thinspace024 = 2{,}4 \times 10^{-5}$ a pour ordre de grandeur $10^{-5}$. Certains manuels coupent à 5 au lieu de 3,16 ; les deux règles ne diffèrent que pour une mantisse entre 3,16 et 5, et les exercices du workbook évitent ce cas.
 
 Comparer deux ordres de grandeur dit combien de **fois** l'un est plus grand que l'autre : de $10^3$ à $10^9$, il y a un facteur $10^6$, un million. C'est souvent tout ce qu'il faut savoir pour décider si un calcul tiendra en mémoire ou en temps.
 
@@ -490,7 +490,7 @@ La **règle de trois** (ou produit en croix) trouve une valeur manquante : si 6 
 
 ### Pourcentages
 
-**Un pourcentage est une fraction de dénominateur 100** : $15\,\% = \frac{15}{100} = 0{,}15$. Prendre 15 % de 80, c'est multiplier : $0{,}15 \times 80 = 12$.
+**Un pourcentage est une fraction de dénominateur 100** : 15 % $= \frac{15}{100} = 0{,}15$. Prendre 15 % de 80, c'est multiplier : $0{,}15 \times 80 = 12$.
 
 **Taux d'évolution.** Quand une valeur passe de $V_d$ (départ) à $V_a$ (arrivée), son **taux d'évolution** est
 
@@ -543,13 +543,13 @@ La **moyenne** de $n$ nombres $x_1, \dots, x_n$ est leur somme divisée par leur
 
 $$\bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
 
-La moyenne de 7, 11, 15 et 3 est $\frac{36}{4} = 9$. C'est le nombre qu'il faudrait mettre à la place de chacun pour garder la même somme. Elle est sensible aux valeurs extrêmes : la moyenne de 7, 11, 15 et 3 000 vaut $\frac{3\,033}{4} \approx 758$, un nombre qui ne ressemble à aucune des valeurs.
+La moyenne de 7, 11, 15 et 3 est $\frac{36}{4} = 9$. C'est le nombre qu'il faudrait mettre à la place de chacun pour garder la même somme. Elle est sensible aux valeurs extrêmes : la moyenne de 7, 11, 15 et 3 000 vaut $\frac{3\thinspace033}{4} \approx 758$, un nombre qui ne ressemble à aucune des valeurs.
 
 ### Moyenne pondérée
 
 Quand les valeurs n'ont pas la même importance, on leur donne des **poids** $w_i \ge 0$ (des coefficients) :
 
-$$\bar{x}_w = \frac{w_1 x_1 + w_2 x_2 + \dots + w_n x_n}{w_1 + w_2 + \dots + w_n} = \frac{\sum_{i} w_i x_i}{\sum_{i} w_i}$$
+$$\bar{x} _w = \frac{w_1 x_1 + w_2 x_2 + \dots + w_n x_n}{w_1 + w_2 + \dots + w_n} = \frac{\sum  _{i} w_i x_i}{\sum _{i} w_i}$$
 
 Un 8 de coefficient 1 et un 14 de coefficient 2 donnent $\frac{1 \times 8 + 2 \times 14}{1 + 2} = \frac{36}{3} = 12$. Tout se passe comme si le 14 comptait deux fois. On peut la voir comme le point d'équilibre d'un levier : chaque valeur est un poids posé sur une règle graduée.
 
@@ -568,7 +568,7 @@ Retire la division par la somme des poids, autorise des poids **négatifs**, ajo
 
 $$z = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b = \sum_{i=1}^{n} w_i x_i + b$$
 
-C'est exactement le calcul d'un neurone artificiel : les $x_i$ sont les entrées (les features), les $w_i$ les **poids**, $b$ le **biais**. Avec $\mathbf{w} = (0{,}4 \;;\; -1 \;;\; 2)$, $\mathbf{x} = (5 \;;\; 3 \;;\; 1{,}5)$ et $b = -0{,}5$ :
+C'est exactement le calcul d'un neurone artificiel : les $x_i$ sont les entrées (les features), les $w_i$ les **poids**, $b$ le **biais**. Avec $\mathbf{w} = (0{,}4 \mkern5mu ;\mkern5mu  -1 \mkern5mu ;\mkern5mu  2)$, $\mathbf{x} = (5 \mkern5mu ;\mkern5mu  3 \mkern5mu ;\mkern5mu  1{,}5)$ et $b = -0{,}5$ :
 
 $$z = 0{,}4 \times 5 + (-1) \times 3 + 2 \times 1{,}5 + (-0{,}5) = 2 - 3 + 3 - 0{,}5 = 1{,}5$$
 
@@ -609,7 +609,7 @@ Pour le cœur : environ 70 battements par minute, 60 minutes par heure, 24 heure
 
 $$70 \times 60 \times 24 \times 365 \times 80 \approx (7 \times 10^1) \times (6 \times 10^1) \times (2{,}4 \times 10^1) \times (3{,}65 \times 10^2) \times (8 \times 10^1)$$
 
-Les mantisses : $7 \times 6 \approx 40$, $\times 2{,}4 \approx 100$, $\times 3{,}65 \approx 365$, $\times 8 \approx 3\,000 = 3 \times 10^3$ ; les puissances de 10 : $10^{1+1+1+2+1} = 10^6$. Résultat : environ $3 \times 10^9$, **trois milliards** de battements.
+Les mantisses : $7 \times 6 \approx 40$, $\times 2{,}4 \approx 100$, $\times 3{,}65 \approx 365$, $\times 8 \approx 3\thinspace000 = 3 \times 10^3$ ; les puissances de 10 : $10^{1+1+1+2+1} = 10^6$. Résultat : environ $3 \times 10^9$, **trois milliards** de battements.
 
 Pourquoi ça marche ? Les erreurs se compensent souvent : on surestime un facteur, on en sous-estime un autre. Et on ne cherche qu'un ordre de grandeur : savoir que la réponse est de l'ordre du milliard, et non du million ou du billion, est déjà très utile.
 

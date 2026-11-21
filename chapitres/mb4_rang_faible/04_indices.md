@@ -111,7 +111,7 @@ M12d §3, « L'approximation de rang faible » ; fiche §2, le rappel de « Mesu
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert\mathbf{M}\rVert_F^2 = \sum_is_i^2$ ; l'erreur de $\mathbf{M}_k$ vaut $\sqrt{\sum_{i > k}s_i^2}$ en norme de Frobenius, et $s_{k+1}$ en norme spectrale.
+$\lVert\mathbf{M}\rVert_F^2 = \sum_is_i^2$ ; l'erreur de $\mathbf{M} _k$ vaut $\sqrt{\sum  _{i > k}s_i^2}$ en norme de Frobenius, et $s _{k+1}$ en norme spectrale.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -151,12 +151,12 @@ Fiche §1 : « La factorisation CR » (l'exemple des alliages), « Une factorisa
 </details>
 <details><summary>Indice 2</summary>
 
-Les deux premières colonnes ne sont pas proportionnelles. Écris chaque autre colonne comme $\alpha\,(\text{baguettes}) + \beta\,(\text{croissants})$ : deux lignes du tableau donnent un système $2 \times 2$, les deux autres servent de vérification. La colonne $j$ de $\mathbf{F}$ est $(\alpha, \beta)$ pour la colonne $j$ de $\mathbf{M}$.
+Les deux premières colonnes ne sont pas proportionnelles. Écris chaque autre colonne comme $\alpha\thinspace(\text{baguettes}) + \beta\thinspace(\text{croissants})$ : deux lignes du tableau donnent un système $2 \times 2$, les deux autres servent de vérification. La colonne $j$ de $\mathbf{F}$ est $(\alpha, \beta)$ pour la colonne $j$ de $\mathbf{M}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour les pains de campagne, les lignes Halles et Moulin donnent $12\alpha + 4\beta = 10$ et $16\alpha + 2\beta = 10$, d'où $(\alpha, \beta) = (\frac12, 1)$ ; fais de même pour les deux dernières colonnes. c) La colonne $j$ de $\mathbf{C}\mathbf{G}$ est $\mathbf{C}$ fois la colonne $j$ de $\mathbf{G}$. d) $\mathbf{G}^{-1} = \frac{1}{2}\begin{pmatrix} 2 & -1 \\ 0 & 1 \end{pmatrix}$. f) Retire $r^2$ à e).
+Pour les pains de campagne, les lignes Halles et Moulin donnent $12\alpha + 4\beta = 10$ et $16\alpha + 2\beta = 10$, d'où $(\alpha, \beta) = (\frac12, 1)$ ; fais de même pour les deux dernières colonnes. c) La colonne $j$ de $\mathbf{C}\mathbf{G}$ est $\mathbf{C}$ fois la colonne $j$ de $\mathbf{G}$. d) $\mathbf{G}^{-1} = \frac{1}{2}\begin{pmatrix} 2 & -1 \cr 0 & 1 \end{pmatrix}$. f) Retire $r^2$ à e).
 
 </details>
 
@@ -347,12 +347,12 @@ Fiche §6, « Un seul pertinent : H_n/n », et l'encadrement de $H_n$ par des re
 </details>
 <details><summary>Indice 2</summary>
 
-Le MRR d'un ordre au hasard vaut $\frac{H_n}{n}$, et $H_n$ est entre $\ln(n + 1)$ et $1 + \ln n$. Pour a), calcule ces deux bornes pour $n = 10$, puis divise par 10. Pour b) et c), compare $\ln 100$ et $\ln 1\,000$ : de combien $H_n$ grandit-il quand $n$ est multiplié par 10 ?
+Le MRR d'un ordre au hasard vaut $\frac{H_n}{n}$, et $H_n$ est entre $\ln(n + 1)$ et $1 + \ln n$. Pour a), calcule ces deux bornes pour $n = 10$, puis divise par 10. Pour b) et c), compare $\ln 100$ et $\ln 1\thinspace000$ : de combien $H_n$ grandit-il quand $n$ est multiplié par 10 ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\,000}/1\,000} = 10 \times \frac{H_{100}}{H_{1\,000}}$, et l'encadrement de la fiche donne $\frac{\ln 101}{1 + \ln 1\,000} \le \frac{H_{100}}{H_{1\,000}} \le \frac{1 + \ln 100}{\ln 1\,001}$. c) $n \times \text{MRR} = H_n$ : de combien $H_n$ augmente-t-il chaque fois que $n$ est multiplié par 10, et combien de fois $n$ l'est-il de 10 à 1 000 ? Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
+a) $\frac{\ln 11}{10} \approx 0{,}24$ et $\frac{1 + \ln 10}{10} \approx 0{,}33$ : laquelle des trois valeurs proposées tombe entre les deux ? b) $\frac{H_{100}/100}{H_{1\thinspace000}/1\thinspace000} = 10 \times \frac{H_{100}}{H_{1\thinspace000}}$, et l'encadrement de la fiche donne $\frac{\ln 101}{1 + \ln 1\thinspace000} \le \frac{H_{100}}{H_{1\thinspace000}} \le \frac{1 + \ln 100}{\ln 1\thinspace001}$. c) $n \times \text{MRR} = H_n$ : de combien $H_n$ augmente-t-il chaque fois que $n$ est multiplié par 10, et combien de fois $n$ l'est-il de 10 à 1 000 ? Pour la simulation : une liste des 20 000 valeurs de $\frac1R$ par $n$, sa moyenne, et l'erreur type `np.std(v, ddof=1) / np.sqrt(len(v))`.
 
 </details>
 
@@ -406,6 +406,6 @@ Ni un seuil fixe sur les valeurs singulières ni une part d'énergie ne suivent 
 </details>
 <details><summary>Indice 3</summary>
 
-Pars de $r = 0$. Estime $\hat\sigma^2 = \frac{\sum_{i > r}s_i^2}{(m - r)(n - r)}$, compte les $s_i$ au-dessus de $\tau\,\hat\sigma(\sqrt m + \sqrt n)$, et recommence avec ce nouveau $r$ jusqu'à ce qu'il ne change plus. Prends une marge $\tau$ un peu au-dessus de 1 : le bruit seul dépasse parfois légèrement $\sigma(\sqrt m + \sqrt n)$, mais un signal faible reste nettement au-dessus. Essaie ta fonction sur des tableaux que tu fabriques toi-même (un rang connu, un bruit d'écart-type choisi), dont un sans signal.
+Pars de $r = 0$. Estime $\hat\sigma^2 = \frac{\sum_{i > r}s_i^2}{(m - r)(n - r)}$, compte les $s_i$ au-dessus de $\tau\thinspace\hat\sigma(\sqrt m + \sqrt n)$, et recommence avec ce nouveau $r$ jusqu'à ce qu'il ne change plus. Prends une marge $\tau$ un peu au-dessus de 1 : le bruit seul dépasse parfois légèrement $\sigma(\sqrt m + \sqrt n)$, mais un signal faible reste nettement au-dessus. Essaie ta fonction sur des tableaux que tu fabriques toi-même (un rang connu, un bruit d'écart-type choisi), dont un sans signal.
 
 </details>

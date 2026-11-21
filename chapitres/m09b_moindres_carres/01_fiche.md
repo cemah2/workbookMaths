@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *linear regression*, *least squares*, *resi
 1. Régression linéaire : $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}$ ; on choisit $\mathbf{w}$ qui minimise le **risque empirique**, la moyenne d'une loss sur les exemples. Résidus $\mathbf{r} = \mathbf{y} - \mathbf{X}\mathbf{w}$.
 2. **MSE** $= \frac{1}{n}\lVert \mathbf{r} \rVert^2$, **RMSE** $= \sqrt{\mathrm{MSE}}$, **MAE** $= \frac{1}{n}\sum |r_i|$, **Huber** : quadratique sous $\delta$, linéaire au-dessus ; $R^2 = 1 - \frac{\mathrm{SCR}}{\mathrm{SCT}}$.
 3. Gradients : $\nabla_{\mathbf{w}}(\mathbf{a}^\top\mathbf{w}) = \mathbf{a}$, $\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ ($2\mathbf{A}\mathbf{w}$ si $\mathbf{A}$ est symétrique), $\nabla_{\mathbf{w}}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = -2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$.
-4. **Équations normales** : $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ ; solution unique quand $\mathbf{X}$ est de rang $p$.
+4. **Équations normales** : $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ ; solution unique quand $\mathbf{X}$ est de rang $p$.
 5. Le résidu est **orthogonal** aux colonnes de $\mathbf{X}$ : $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ est la **projection** de $\mathbf{y}$, avec $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, symétrique, $\mathbf{H}^2 = \mathbf{H}$, de trace $p$. Avec une colonne de 1 : résidus de moyenne nulle et $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$.
 6. **Features polynomiales** : le modèle reste linéaire **en $\mathbf{w}$** ; $p$ variables et le degré $d$ donnent $\binom{p + d}{d}$ monômes, constante comprise.
 7. **Ridge** : minimiser $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ donne $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, toujours soluble pour $\lambda > 0$ ; c'est le **MAP** d'un prior gaussien, avec $\lambda = \sigma^2/\tau^2$.
@@ -87,7 +87,7 @@ Avec l'exemple du chapitre et la droite $\hat{y} = 3 + 0{,}7x$ (on verra au §3 
 | $\hat{y} = 3 + 0{,}7x$ | 0,2 | 2,3 | 4,4 | 5,1 |
 | $r = y - \hat{y}$ | $-0{,}2$ | $0{,}7$ | $-1{,}4$ | $0{,}9$ |
 
-Ici $\mathbf{X} = \begin{pmatrix} 1 & -4 \\ 1 & -1 \\ 1 & 2 \\ 1 & 3 \end{pmatrix}$ (la colonne de 1, puis $x$) et $\mathbf{w} = (3 ;\ 0{,}7)$.
+Ici $\mathbf{X} = \begin{pmatrix} 1 & -4 \cr 1 & -1 \cr 1 & 2 \cr 1 & 3 \end{pmatrix}$ (la colonne de 1, puis $x$) et $\mathbf{w} = (3 ;\ 0{,}7)$.
 
 ### Le risque empirique
 
@@ -107,7 +107,7 @@ Sur l'exemple : $\sum r_i^2 = 0{,}04 + 0{,}49 + 1{,}96 + 0{,}81 = 3{,}3$, donc $
 
 La MSE élève chaque résidu au carré : un résidu dix fois plus grand pèse **cent** fois plus. Un seul point aberrant peut donc tirer toute la droite vers lui. La MAE le pèse seulement dix fois plus, mais $|r|$ n'est pas dérivable en 0. La **loss de Huber** combine les deux, avec un seuil $\delta > 0$ :
 
-$$\ell_\delta(r) = \begin{cases} \frac{1}{2}r^2 & \text{si } |r| \le \delta, \\ \delta\big(|r| - \frac{1}{2}\delta\big) & \text{si } |r| > \delta. \end{cases}$$
+$$\ell_\delta(r) = \begin{cases} \frac{1}{2}r^2 & \text{si } |r| \le \delta, \cr \delta\big(|r| - \frac{1}{2}\delta\big) & \text{si } |r| > \delta. \end{cases}$$
 
 Les deux morceaux se raccordent en $|r| = \delta$ (même valeur $\frac{\delta^2}{2}$, même pente $\delta$) : la loss est dérivable partout. Près de 0, elle se comporte comme la moitié d'un carré ; loin de 0, comme $\delta$ fois une valeur absolue, à une constante près. Avec $\delta = 1$, sur l'exemple : $-0{,}2$ donne $\frac{0{,}04}{2} = 0{,}02$ ; $0{,}7$ donne $0{,}245$ ; $|-1{,}4| > 1$ donne $1 \times (1{,}4 - 0{,}5) = 0{,}9$ ; $0{,}9$ donne $0{,}405$ : moyenne $\frac{1{,}57}{4} = 0{,}3925$.
 
@@ -139,17 +139,17 @@ C'est l'analogue de $(ax)' = a$.
 
 **2. Une forme quadratique.** Pour $\mathbf{A}$ de forme $(p, p)$, $f(\mathbf{w}) = \mathbf{w}^\top\mathbf{A}\mathbf{w} = \sum_i\sum_j a_{ij}w_iw_j$. Chaque terme où $w_k$ apparaît donne, en dérivant, $\sum_j a_{kj}w_j$ (quand $i = k$) et $\sum_i a_{ik}w_i$ (quand $j = k$) :
 
-$$\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\,\mathbf{w}, \qquad \text{soit } 2\mathbf{A}\mathbf{w} \text{ si } \mathbf{A} \text{ est symétrique.}$$
+$$\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\thinspace\mathbf{w}, \qquad \text{soit } 2\mathbf{A}\mathbf{w} \text{ si } \mathbf{A} \text{ est symétrique.}$$
 
-C'est l'analogue de $(ax^2)' = 2ax$ (M09b.13 le démontre). Exemple : $\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$, $f(\mathbf{w}) = 2w_1^2 + w_1w_2 + 3w_2^2$. En $\mathbf{w} = (1, 2)$, les dérivées partielles valent $4w_1 + w_2 = 6$ et $w_1 + 6w_2 = 13$, et la formule donne bien $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 4 & 1 \\ 1 & 6 \end{pmatrix}\begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 6 \\ 13 \end{pmatrix}$. Seule la partie symétrique de $\mathbf{A}$ compte : $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ne change pas si l'on remplace $\mathbf{A}$ par $\frac{1}{2}(\mathbf{A} + \mathbf{A}^\top)$.
+C'est l'analogue de $(ax^2)' = 2ax$ (M09b.13 le démontre). Exemple : $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 0 & 3 \end{pmatrix}$, $f(\mathbf{w}) = 2w_1^2 + w_1w_2 + 3w_2^2$. En $\mathbf{w} = (1, 2)$, les dérivées partielles valent $4w_1 + w_2 = 6$ et $w_1 + 6w_2 = 13$, et la formule donne bien $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 4 & 1 \cr 1 & 6 \end{pmatrix}\begin{pmatrix} 1 \cr 2 \end{pmatrix} = \begin{pmatrix} 6 \cr 13 \end{pmatrix}$. Seule la partie symétrique de $\mathbf{A}$ compte : $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ne change pas si l'on remplace $\mathbf{A}$ par $\frac{1}{2}(\mathbf{A} + \mathbf{A}^\top)$.
 
 **3. La somme des carrés des résidus.** En développant avec les règles de la transposée (M09a §4),
 
-$$\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = (\mathbf{y} - \mathbf{X}\mathbf{w})^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{y}^\top\mathbf{y} - 2\,(\mathbf{X}^\top\mathbf{y})^\top\mathbf{w} + \mathbf{w}^\top(\mathbf{X}^\top\mathbf{X})\mathbf{w},$$
+$$\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = (\mathbf{y} - \mathbf{X}\mathbf{w})^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{y}^\top\mathbf{y} - 2\thinspace(\mathbf{X}^\top\mathbf{y})^\top\mathbf{w} + \mathbf{w}^\top(\mathbf{X}^\top\mathbf{X})\mathbf{w},$$
 
 où l'on a utilisé $\mathbf{w}^\top\mathbf{X}^\top\mathbf{y} = \mathbf{y}^\top\mathbf{X}\mathbf{w}$ (un nombre est égal à sa transposée). Le premier terme ne dépend pas de $\mathbf{w}$, le deuxième est linéaire (identité 1, avec $\mathbf{a} = -2\mathbf{X}^\top\mathbf{y}$), le troisième est quadratique avec $\mathbf{X}^\top\mathbf{X}$ symétrique (identité 2) :
 
-$$\nabla_{\mathbf{w}}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = -2\mathbf{X}^\top\mathbf{y} + 2\mathbf{X}^\top\mathbf{X}\mathbf{w} = -2\,\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}).$$
+$$\nabla_{\mathbf{w}}\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 = -2\mathbf{X}^\top\mathbf{y} + 2\mathbf{X}^\top\mathbf{X}\mathbf{w} = -2\thinspace\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}).$$
 
 Retiens-le sous cette forme : **moins deux fois $\mathbf{X}^\top$ fois les résidus**. Pour la MSE, on divise par $n$ : $\nabla\mathrm{MSE} = -\frac{2}{n}\mathbf{X}^\top\mathbf{r}$. C'est le gradient qu'utilise une descente de gradient sur un modèle linéaire (M09b.20). Une vérification des formes : $\mathbf{X}^\top$ est $(p, n)$, $\mathbf{r}$ est de dimension $n$, le gradient est bien de dimension $p$, comme $\mathbf{w}$.
 
@@ -161,9 +161,9 @@ Retiens-le sous cette forme : **moins deux fois $\mathbf{X}^\top$ fois les rési
 
 La fonction $L(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ est un « bol » (une fonction convexe, M10 et M19) : son minimum est le point où le gradient s'annule. Le §2 donne :
 
-$$-2\,\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{0} \iff \boxed{\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}}$$
+$$-2\thinspace\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{0} \iff \boxed{\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top\mathbf{y}}$$
 
-Ce sont les **équations normales** (*normal equations*) : un système carré $p \times p$, quel que soit le nombre d'exemples. Sur l'exemple : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \\ 0 & 30 \end{pmatrix}$ (le nombre de points, $\sum x_i$ et $\sum x_i^2$) et $\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 12 \\ 21 \end{pmatrix}$ ($\sum y_i$ et $\sum x_iy_i$), d'où $\mathbf{w} = (3 ;\ 0{,}7)$ : la droite du §1. Ici $\mathbf{X}^\top\mathbf{X}$ est diagonale parce que les $x$ sont de somme nulle ; c'est l'intérêt de **centrer** une feature.
+Ce sont les **équations normales** (*normal equations*) : un système carré $p \times p$, quel que soit le nombre d'exemples. Sur l'exemple : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 30 \end{pmatrix}$ (le nombre de points, $\sum x_i$ et $\sum x_i^2$) et $\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}$ ($\sum y_i$ et $\sum x_iy_i$), d'où $\mathbf{w} = (3 ;\ 0{,}7)$ : la droite du §1. Ici $\mathbf{X}^\top\mathbf{X}$ est diagonale parce que les $x$ sont de somme nulle ; c'est l'intérêt de **centrer** une feature.
 
 **Quand la solution est-elle unique ?** Quand $\mathbf{X}^\top\mathbf{X}$ est inversible, c'est-à-dire quand les colonnes de $\mathbf{X}$ sont indépendantes ($\mathbf{X}$ de rang $p$, M09a §8 et M09b.14). Si une colonne combine les autres (une feature en double, une colonne de 1 avec un one-hot complet, plus de features que d'exemples), il y a une infinité de solutions, qui donnent toutes les mêmes prédictions $\hat{\mathbf{y}}$. Mais il y en a **toujours au moins une** : le point des prédictions possibles le plus proche de $\mathbf{y}$ existe toujours (c'est le pied d'une perpendiculaire, voir plus bas ; M12b le démontre), et il annule le gradient. Seule l'unicité peut manquer.
 
@@ -197,7 +197,7 @@ la **matrice chapeau** (*hat matrix* : elle « met un chapeau » sur $\mathbf{y}
 - sa **trace** (la somme de sa diagonale) vaut $p$, le nombre de colonnes : c'est le nombre de « degrés de liberté » du modèle ;
 - $\mathbf{I} - \mathbf{H}$ donne les résidus : $\mathbf{r} = (\mathbf{I} - \mathbf{H})\mathbf{y}$.
 
-Exemple avec une seule colonne $\mathbf{v} = (1, -1, 2)$ : $\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{6}\begin{pmatrix} 1 & -1 & 2 \\ -1 & 1 & -2 \\ 2 & -2 & 4 \end{pmatrix}$, de trace $\frac{1 + 1 + 4}{6} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
+Exemple avec une seule colonne $\mathbf{v} = (1, -1, 2)$ : $\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{6}\begin{pmatrix} 1 & -1 & 2 \cr -1 & 1 & -2 \cr 2 & -2 & 4 \end{pmatrix}$, de trace $\frac{1 + 1 + 4}{6} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
 
 ## §4 · Features polynomiales : compter les monômes
 
@@ -215,7 +215,7 @@ Avec $p$ variables $x_1, \ldots, x_p$, les **features polynomiales** de degré $
 
 Compter les monômes de degré exactement $k$, c'est compter les façons de répartir $k$ « unités de degré » entre $p$ variables : des **combinaisons avec répétition**. Écris $k$ étoiles et $p - 1$ barres de séparation ; chaque monôme correspond à une façon de placer les barres parmi les $k + p - 1$ positions : $\binom{k + p - 1}{k}$ monômes. En sommant de $k = 0$ à $d$ (M09b.19 le démontre),
 
-$$\#\{\text{monômes de degré} \le d \text{ en } p \text{ variables}\} = \binom{p + d}{d}, \quad \text{constante comprise.}$$
+$$\operatorname{card}\lbrace\text{monômes de degré} \le d \text{ en } p \text{ variables}\rbrace = \binom{p + d}{d}, \quad \text{constante comprise.}$$
 
 Pour $p = 3$ et $d = 3$ : 1 constante, 3 monômes de degré 1, 6 de degré 2, 10 de degré 3, soit $20 = \binom{6}{3}$ ; 19 colonnes sans la constante. Le nombre grandit vite, comme $\frac{p^d}{d!}$ quand $p$ est grand devant $d$ : la matrice $\mathbf{X}^\top\mathbf{X}$ a un nombre de cases égal au **carré** du nombre de colonnes (M09b.24). Et dès qu'il y a plus de colonnes que d'exemples, $\mathbf{X}^\top\mathbf{X}$ est singulière.
 
@@ -229,15 +229,15 @@ Les puissances successives d'une même variable se ressemblent de plus en plus. 
 
 Quand les colonnes sont presque dépendantes, ou nombreuses, les moindres carrés donnent des poids énormes, de signes opposés, qui s'ajustent au bruit. La **régression ridge** (*ridge regression*) ajoute une pénalité sur la taille des poids :
 
-$$L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\,\lVert \mathbf{w} \rVert^2, \qquad \lambda \ge 0.$$
+$$L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\thinspace\lVert \mathbf{w} \rVert^2, \qquad \lambda \ge 0.$$
 
-Le gradient de $\lambda\lVert \mathbf{w} \rVert^2 = \lambda\,\mathbf{w}^\top\mathbf{I}\mathbf{w}$ est $2\lambda\mathbf{w}$ (identité 2 du §2) ; annuler le gradient total donne
+Le gradient de $\lambda\lVert \mathbf{w} \rVert^2 = \lambda\thinspace\mathbf{w}^\top\mathbf{I}\mathbf{w}$ est $2\lambda\mathbf{w}$ (identité 2 du §2) ; annuler le gradient total donne
 
-$$\boxed{(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}}$$
+$$\boxed{(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\thinspace\mathbf{w} = \mathbf{X}^\top\mathbf{y}}$$
 
 On ajoute $\lambda$ sur la diagonale de $\mathbf{X}^\top\mathbf{X}$. Pour $\lambda > 0$, cette matrice est **inversible quel que soit $\mathbf{X}$**, de rang plein ou non : pour $\mathbf{v} \ne \mathbf{0}$, $\mathbf{v}^\top(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \lVert \mathbf{X}\mathbf{v} \rVert^2 + \lambda\lVert \mathbf{v} \rVert^2 > 0$, donc $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} \ne \mathbf{0}$ (M09b.16 rédige l'argument). Quand $\lambda$ grandit, les poids **rétrécissent** vers 0 (*shrinkage*) ; quand $\lambda \to 0$, on retrouve les moindres carrés.
 
-Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $\begin{pmatrix} 8 & 0 \\ 0 & 34 \end{pmatrix}\mathbf{w} = \begin{pmatrix} 12 \\ 21 \end{pmatrix}$, d'où $\mathbf{w} \approx (1{,}5 ;\ 0{,}618)$. La pente est passée de 0,7 à 0,618 ; mais l'ordonnée à l'origine a rétréci elle aussi, de 3 à 1,5, et la droite ne passe plus par le point moyen $(0, 3)$ : ses prédictions sont toutes trop basses. Le poids de la colonne de 1 ne mesure pas la complexité du modèle ; le pénaliser n'a pas de sens. La parade : **centrer** $\mathbf{X}$ (sans sa colonne de 1) et $\mathbf{y}$, résoudre ridge sur les données centrées, puis rendre l'ordonnée à l'origine (workbookIA 9 donne la recette complète). `solve_least_squares` de `mymath`, lui, pénalise **tous** les poids : c'est à toi de centrer avant.
+Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $\begin{pmatrix} 8 & 0 \cr 0 & 34 \end{pmatrix}\mathbf{w} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}$, d'où $\mathbf{w} \approx (1{,}5 ;\ 0{,}618)$. La pente est passée de 0,7 à 0,618 ; mais l'ordonnée à l'origine a rétréci elle aussi, de 3 à 1,5, et la droite ne passe plus par le point moyen $(0, 3)$ : ses prédictions sont toutes trop basses. Le poids de la colonne de 1 ne mesure pas la complexité du modèle ; le pénaliser n'a pas de sens. La parade : **centrer** $\mathbf{X}$ (sans sa colonne de 1) et $\mathbf{y}$, résoudre ridge sur les données centrées, puis rendre l'ordonnée à l'origine (workbookIA 9 donne la recette complète). `solve_least_squares` de `mymath`, lui, pénalise **tous** les poids : c'est à toi de centrer avant.
 
 ⚠️ **Erreur classique.** Appliquer ridge à des colonnes d'unités différentes. La pénalité $\lambda\sum_j w_j^2$ dépend de l'unité de chaque feature : exprimer une distance en kilomètres plutôt qu'en mètres divise ses valeurs par 1 000, multiplie son poids par 1 000, et sa pénalité par un million. Ridge rétrécit alors cette feature bien plus que les autres, pour une simple question d'unité. On standardise les colonnes d'abord (M09b.21 le montre sur un prix, en euros ou en dizaines d'euros).
 
@@ -245,7 +245,7 @@ Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $\begin{pmatri
 
 Dans une descente de gradient de pas $\eta$ sur $L_\lambda$, le terme de pénalité ajoute $2\lambda\mathbf{w}$ au gradient :
 
-$$\mathbf{w} \leftarrow \mathbf{w} - \eta\big(\nabla L(\mathbf{w}) + 2\lambda\mathbf{w}\big) = (1 - 2\eta\lambda)\,\mathbf{w} - \eta\,\nabla L(\mathbf{w}).$$
+$$\mathbf{w} \leftarrow \mathbf{w} - \eta\big(\nabla L(\mathbf{w}) + 2\lambda\mathbf{w}\big) = (1 - 2\eta\lambda)\thinspace\mathbf{w} - \eta\thinspace\nabla L(\mathbf{w}).$$
 
 À chaque pas, les poids sont d'abord multipliés par $1 - 2\eta\lambda$, un nombre un peu plus petit que 1 : ils « décroissent » (*weight decay*), sauf si les données les retiennent. C'est la forme sous laquelle la pénalité L2 apparaît dans les réseaux de neurones (workbookIA 19 et 20).
 
@@ -261,12 +261,12 @@ Maximiser ce log (le **MAP**, M04), c'est minimiser $\lVert \mathbf{y} - \mathbf
 
 Le **lasso** remplace la pénalité L2 par la norme L1 (M07) :
 
-$$\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\,\lVert \mathbf{w} \rVert_1, \qquad \lVert \mathbf{w} \rVert_1 = \sum_j |w_j|.$$
+$$\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\thinspace\lVert \mathbf{w} \rVert_1, \qquad \lVert \mathbf{w} \rVert_1 = \sum_j |w_j|.$$
 
 Sur le papier, des carrés ont seulement été remplacés par des valeurs absolues. Dans les solutions, l'effet se voit tout de suite : dès que $\lambda$ est assez grand, une partie des poids vaut **0 exactement**, alors que ridge les approche de 0 sans les y amener. Une feature de poids nul ne compte plus dans les prédictions : on dit que le modèle est **parcimonieux** (*sparse*). En ajustant ses poids, le lasso choisit donc aussi les features qu'il garde.
 
-**Pourquoi des zéros exacts ? Une question de pente.** Pars d'un poids $w_j = 0$, les autres étant fixés, et demande-toi s'il vaut la peine de le pousser à une petite valeur $\varepsilon > 0$. La somme des carrés baisse d'environ $g\,\varepsilon$, où $g$ est la pente avec laquelle elle descend dans cette direction (M05a : une fonction dérivable est presque une droite de près). La pénalité, elle, monte de :
-- $\lambda\varepsilon^2$ avec L2 : un coût **négligeable** devant $g\,\varepsilon$ quand $\varepsilon$ est petit. Pousser un peu est toujours rentable dès que $g \ne 0$ : un poids ridge n'est presque jamais exactement nul ;
+**Pourquoi des zéros exacts ? Une question de pente.** Pars d'un poids $w_j = 0$, les autres étant fixés, et demande-toi s'il vaut la peine de le pousser à une petite valeur $\varepsilon > 0$. La somme des carrés baisse d'environ $g\thinspace\varepsilon$, où $g$ est la pente avec laquelle elle descend dans cette direction (M05a : une fonction dérivable est presque une droite de près). La pénalité, elle, monte de :
+- $\lambda\varepsilon^2$ avec L2 : un coût **négligeable** devant $g\thinspace\varepsilon$ quand $\varepsilon$ est petit. Pousser un peu est toujours rentable dès que $g \ne 0$ : un poids ridge n'est presque jamais exactement nul ;
 - $\lambda\varepsilon$ avec L1 : un coût **du même ordre** que le gain. Pousser n'est rentable que si $g > \lambda$ ; sinon, le poids reste à 0.
 
 Toute la différence tient à la pente des deux pénalités en 0 : celle de $w^2$ y vaut 0, celle de $|w|$ vaut $\pm 1$ de chaque côté, aussi près de 0 que l'on soit. workbookIA 9 en donne l'image géométrique, avec les boules des deux normes (M09b.10 te les fait tracer).
@@ -305,24 +305,24 @@ la MSE d'entraînement. Sur l'exemple, $\hat{\sigma}^2 = \frac{3{,}3}{4} = 0{,}8
 
 Un estimateur $\hat{\theta}$, calculé sur un échantillon aléatoire, est lui-même aléatoire (M02c). Son **erreur quadratique moyenne** se décompose :
 
-$$\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \underbrace{\big(\mathbb{E}[\hat{\theta}] - \theta\big)^2}_{\text{biais}^2} + \underbrace{\mathbb{V}(\hat{\theta})}_{\text{variance}}.$$
+$$\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \underbrace{\big(\mathbb{E}[\hat{\theta}] - \theta\big)^2} _{\text{biais}^2} + \underbrace{\mathbb{V}(\hat{\theta})} _{\text{variance}}.$$
 
 Il suffit d'écrire $\hat{\theta} - \theta = (\hat{\theta} - \mathbb{E}[\hat{\theta}]) + (\mathbb{E}[\hat{\theta}] - \theta)$ et de développer le carré : le double produit a une espérance nulle, car $\mathbb{E}\big[\hat{\theta} - \mathbb{E}[\hat{\theta}]\big] = 0$.
 
-Un estimateur sans biais n'est donc pas forcément le meilleur : accepter un peu de biais peut faire baisser beaucoup la variance. Exemple : pour estimer la moyenne $\mu$ d'une loi de variance $\sigma^2$ avec $n$ observations, on peut prendre $c\,\bar{x}$ au lieu de $\bar{x}$, avec $0 < c < 1$ (un estimateur **rétréci**, comme les poids de ridge). Son biais vaut $(c - 1)\mu$ et sa variance $\frac{c^2\sigma^2}{n}$. Avec $\mu = 1$, $\sigma^2 = 4$ et $n = 4$ : $\bar{x}$ a une erreur de $0 + 1 = 1$, et $c = 0{,}8$ donne $0{,}04 + 0{,}64 = 0{,}68$, mieux. M09b.12 et M09b.31 cherchent le meilleur $c$.
+Un estimateur sans biais n'est donc pas forcément le meilleur : accepter un peu de biais peut faire baisser beaucoup la variance. Exemple : pour estimer la moyenne $\mu$ d'une loi de variance $\sigma^2$ avec $n$ observations, on peut prendre $c\thinspace\bar{x}$ au lieu de $\bar{x}$, avec $0 < c < 1$ (un estimateur **rétréci**, comme les poids de ridge). Son biais vaut $(c - 1)\mu$ et sa variance $\frac{c^2\sigma^2}{n}$. Avec $\mu = 1$, $\sigma^2 = 4$ et $n = 4$ : $\bar{x}$ a une erreur de $0 + 1 = 1$, et $c = 0{,}8$ donne $0{,}04 + 0{,}64 = 0{,}68$, mieux. M09b.12 et M09b.31 cherchent le meilleur $c$.
 
 ### La décomposition d'une erreur de prédiction
 
 Pour un modèle de régression, ce qu'on estime n'est plus un nombre : c'est une fonction $\hat{f}_D$, qui dépend du dataset $D$ tiré au hasard. On suppose $y = f(x) + \varepsilon$, avec un bruit de moyenne nulle et de variance $\sigma^2$, indépendant de $D$. En un point $x$, avec le modèle moyen $\bar{f}(x) = \mathbb{E}_D[\hat{f}_D(x)]$, l'erreur sur une nouvelle mesure se décompose (M09b.18) :
 
-$$\mathbb{E}\big[(y - \hat{f}_D(x))^2\big] = \underbrace{\big(\bar{f}(x) - f(x)\big)^2}_{\text{biais}^2} + \underbrace{\mathbb{E}_D\big[(\hat{f}_D(x) - \bar{f}(x))^2\big]}_{\text{variance}} + \underbrace{\sigma^2}_{\text{bruit}}.$$
+$$\mathbb{E}\big[(y - \hat{f} _D(x))^2\big] = \underbrace{\big(\bar{f}(x) - f(x)\big)^2} _{\text{biais}^2} + \underbrace{\mathbb{E} _D\big[(\hat{f} _D(x) - \bar{f}(x))^2\big]} _{\text{variance}} + \underbrace{\sigma^2} _{\text{bruit}}.$$
 
 Les trois termes sont positifs ou nuls, et chacun a sa cause :
 - $\sigma^2$ ne dépend pas du modèle : c'est la part de $y$ que $x$ ne détermine pas ;
 - le **biais²** est grand quand la famille de modèles ne contient rien de proche de $f$ : même en moyenne sur les datasets, le modèle reste loin. C'est l'**underfitting** ;
 - la **variance** est grande quand le modèle dépend beaucoup du dataset tiré, bruit compris : c'est l'**overfitting**.
 
-Ridge en est l'exemple type : quand $\lambda$ grandit, les poids rétrécissent vers 0 (le biais² monte) et bougent moins d'un dataset à l'autre (la variance baisse). L'estimateur $c\,\bar{x}$ ci-dessus en est la version à un seul nombre.
+Ridge en est l'exemple type : quand $\lambda$ grandit, les poids rétrécissent vers 0 (le biais² monte) et bougent moins d'un dataset à l'autre (la variance baisse). L'estimateur $c\thinspace\bar{x}$ ci-dessus en est la version à un seul nombre.
 
 ### La double descente (aperçu)
 

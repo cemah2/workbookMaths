@@ -108,7 +108,7 @@ Un service de calcul tourne sur 9 machines et tient la charge tant qu'**au moins
 | b | $P(X = 7)$ | un nombre (4 décimales) |
 | c | $\mathbb{E}[F]$ | un nombre |
 | d | $P(F \ge 3)$, la probabilité que le service tombe | un nombre (4 décimales) |
-| e | l'exposant $9\,\mathrm{KL}(1/3 \Vert 0{,}1)$ de la borne de Chernoff $e^{-9\,\mathrm{KL}(1/3 \Vert 0{,}1)}$ de $P(F \ge 3)$ | un nombre (4 décimales) |
+| e | l'exposant $9\thinspace\mathrm{KL}(1/3 \Vert 0{,}1)$ de la borne de Chernoff $e^{-9\thinspace\mathrm{KL}(1/3 \Vert 0{,}1)}$ de $P(F \ge 3)$ | un nombre (4 décimales) |
 | f | la borne de Hoeffding de $P(F \ge 3)$ : $e^{-2 \times 9 \times (1/3 - 0{,}1)^2}$ | un nombre (4 décimales) |
 | g | la borne de Markov de $P(F \ge 3)$ | un nombre (4 décimales) |
 | h | la probabilité que le service tienne avec 12 machines, s'il en faut au moins 10 | un nombre (4 décimales) |
@@ -120,18 +120,18 @@ Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la lo
 **Prérequis :** fiche §2 ; M02c ; M13b · **Parcours :** C, E
 
 Trois instruments mesurent la même masse. Leurs erreurs ont la matrice de covariance
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 3 & 1 & -1 \\ 1 & 5 & -1 \\ -1 & -1 & 2 \end{pmatrix}.$$
+$$\boldsymbol{\Sigma} = \begin{pmatrix} 3 & 1 & -1 \cr 1 & 5 & -1 \cr -1 & -1 & 2 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la variance de la moyenne simple des trois mesures | une fraction |
 | b | ce qu'on trouverait en oubliant les covariances | une fraction |
 | c | la variance de la moyenne pondérée de poids $\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{2}\right)$ | une fraction |
-| d | les poids $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, de somme 1, qui minimisent la variance | une liste de 3 fractions |
+| d | les poids $\mathbf{w}^\ast \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, de somme 1, qui minimisent la variance | une liste de 3 fractions |
 | e | la variance minimale | une fraction |
 | f | la corrélation des erreurs des instruments 1 et 2 | un nombre (4 décimales) |
 
-Dans ta copie : écris $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ comme une somme de 9 termes pour c). Pourquoi a) est-il plus petit que b) ? Retrouve $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$ par le lagrangien de $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ (M13b), et vérifie que e) $= \frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Pourquoi e) est-il plus petit que la variance du meilleur instrument seul ?
+Dans ta copie : écris $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ comme une somme de 9 termes pour c). Pourquoi a) est-il plus petit que b) ? Retrouve $\mathbf{w}^\ast \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$ par le lagrangien de $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ (M13b), et vérifie que e) $= \frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Pourquoi e) est-il plus petit que la variance du meilleur instrument seul ?
 
 ### Ex M14.3 — (1 + x/n)ⁿ pour quelques n, et des intérêts composés en continu ✏️ ★ ⏱️ 10 min
 **Objectif :** calculer $(1 + x/n)^n$, le comparer à $e^x$, et estimer l'erreur par $-\frac{x^2}{2n}$.
@@ -217,7 +217,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Prérequis :** fiche §2 ; M02c ; M07 · **Parcours :** C
 
 $X_1, \ldots, X_M$ ont chacune une variance au plus $\sigma^2$ ; $w_1, \ldots, w_M \ge 0$ et $\sum_i w_i = 1$.
-1. $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\,\mathbb{V}(Y)}$ est l'inégalité de Cauchy-Schwarz (∂ M07.14, ∂ M12b.13) pour la covariance, bilinéaire, symétrique et positive (M02c). Dis ce qui joue le rôle du produit scalaire et de la norme, et explique en deux phrases pourquoi la preuve par le discriminant de M07.14 marche encore quand $\mathbb{V}(Y) = 0$ sans que $Y$ soit nulle.
+1. $\lvert\operatorname{Cov}(X, Y)\rvert \le \sqrt{\mathbb{V}(X)\thinspace\mathbb{V}(Y)}$ est l'inégalité de Cauchy-Schwarz (∂ M07.14, ∂ M12b.13) pour la covariance, bilinéaire, symétrique et positive (M02c). Dis ce qui joue le rôle du produit scalaire et de la norme, et explique en deux phrases pourquoi la preuve par le discriminant de M07.14 marche encore quand $\mathbb{V}(Y) = 0$ sans que $Y$ soit nulle.
 2. Déduis-en $\operatorname{Cov}(X_i, X_j) \le \sigma^2$ pour tous $i, j$.
 3. Avec $\sigma_i^2 = \mathbb{V}(X_i)$, montre que $\mathbb{V}\big(\sum_i w_iX_i\big) \le \big(\sum_i w_i\sigma_i\big)^2$, puis que cette quantité est au plus $\sigma^2$.
 4. Quand y a-t-il égalité ? Donne un exemple où elle est atteinte avec $M = 2$ et des poids non nuls.
@@ -228,10 +228,10 @@ $X_1, \ldots, X_M$ ont chacune une variance au plus $\sigma^2$ ; $w_1, \ldots, w
 **Prérequis :** fiche §1 ; M06 ; M11 · **Parcours :** C
 
 $X$ suit la loi $\mathcal{B}(n, p)$ avec $0 < p < 1$, et $p < a < 1$.
-1. **Le point de départ (M11 §6, CP2.9 B).** La méthode de Chernoff donne, pour tout $\lambda > 0$, $P(X \ge na) \le e^{-\lambda na}\,(1 - p + pe^\lambda)^n$ : CP2.9 B l'a établie pour $p = \frac{1}{2}$. Dis en une phrase ce qui change pour un $p$ quelconque, puis écris la borne sous la forme $e^{n\,g(\lambda)}$, avec $g(\lambda) = -\lambda a + \ln(1 - p + pe^\lambda)$.
-2. Montre que $g$ atteint son minimum sur $]0, +\infty[$ en $\lambda^*$ tel que $e^{\lambda^*} = \frac{a(1 - p)}{p(1 - a)}$, et vérifie que $\lambda^* > 0$.
-3. Montre que $g(\lambda^*) = -\mathrm{KL}(a \Vert p)$, et conclus : $P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$.
-4. Pour $a = 1$, la formule de 2 ne s'applique plus. Montre directement que $P(X \ge n) = p^n = e^{-n\,\mathrm{KL}(1 \Vert p)}$ (avec $0\ln 0 = 0$) : la borne est alors exacte.
+1. **Le point de départ (M11 §6, CP2.9 B).** La méthode de Chernoff donne, pour tout $\lambda > 0$, $P(X \ge na) \le e^{-\lambda na}\thinspace(1 - p + pe^\lambda)^n$ : CP2.9 B l'a établie pour $p = \frac{1}{2}$. Dis en une phrase ce qui change pour un $p$ quelconque, puis écris la borne sous la forme $e^{n\thinspace g(\lambda)}$, avec $g(\lambda) = -\lambda a + \ln(1 - p + pe^\lambda)$.
+2. Montre que $g$ atteint son minimum sur $]0, +\infty[$ en $\lambda^\ast$ tel que $e^{\lambda^\ast} = \frac{a(1 - p)}{p(1 - a)}$, et vérifie que $\lambda^\ast > 0$.
+3. Montre que $g(\lambda^\ast) = -\mathrm{KL}(a \Vert p)$, et conclus : $P(X \ge na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$.
+4. Pour $a = 1$, la formule de 2 ne s'applique plus. Montre directement que $P(X \ge n) = p^n = e^{-n\thinspace\mathrm{KL}(1 \Vert p)}$ (avec $0\ln 0 = 0$) : la borne est alors exacte.
 5. **Chernoff contre Hoeffding.** $p$ est fixé. Pour $a \in\ ]0, 1[$, on pose $f(a) = \mathrm{KL}(a \Vert p) - 2(a - p)^2$. Calcule $f(p)$, $f'(p)$ et $f''(a)$, montre que $f'' \ge 0$, et conclus : $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (l'inégalité de Pinsker, pour deux lois de Bernoulli). Qu'en déduis-tu sur les bornes de Chernoff et de Hoeffding de $P(X \ge na)$ ?
 
 CP2.9 B a fait le cas $p = \frac{1}{2}$, $a = \frac{3}{4}$ : tu optimises ici pour tous $p$ et $a$.

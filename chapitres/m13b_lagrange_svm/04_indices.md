@@ -22,7 +22,7 @@ Au point optimal, la ligne de niveau de $f$ touche la contrainte sans la travers
 </details>
 <details><summary>Indice 3</summary>
 
-5 : $\frac{df^*}{dc} = -\lambda$ avec ce lagrangien. 6 : regarde ce que devient la courbe $g = 0$ là où son gradient s'annule.
+5 : $\frac{df^\ast}{dc} = -\lambda$ avec ce lagrangien. 6 : regarde ce que devient la courbe $g = 0$ là où son gradient s'annule.
 
 </details>
 
@@ -35,7 +35,7 @@ Relis « Active ou inactive » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-La complémentarité : $\mu\,g(\mathbf{x}^*) = 0$.
+La complémentarité : $\mu\thinspace g(\mathbf{x}^\ast) = 0$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -58,7 +58,7 @@ $D$ est un minimum, en $\mathbf{x}$, de fonctions affines des multiplicateurs.
 </details>
 <details><summary>Indice 3</summary>
 
-3 : la dualité faible, $D \le f^*$. 6 : chaque valeur de $D$ minore $f^*$, chaque valeur de $f$ admissible le majore.
+3 : la dualité faible, $D \le f^\ast$. 6 : chaque valeur de $D$ minore $f^\ast$, chaque valeur de $f$ admissible le majore.
 
 </details>
 
@@ -259,7 +259,7 @@ Relis « Le problème quadratique sous contraintes linéaires » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}$ : écris chacun de ses blocs.
+$\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}$ : écris chacun de ses blocs.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -367,7 +367,7 @@ Relis « Autoriser des violations », « La hinge loss » et « Le rôle de C »
 </details>
 <details><summary>Indice 2</summary>
 
-Score $s = x_1 - 0{,}5\,x_2 + 0{,}5$, puis $t = y\,s$, puis $\max(0, 1 - t)$.
+Score $s = x_1 - 0{,}5\thinspace x_2 + 0{,}5$, puis $t = y\thinspace s$, puis $\max(0, 1 - t)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -385,7 +385,7 @@ Relis « Le sous-gradient » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{g}_{\mathbf{w}} = \mathbf{w} - C\sum_{t_i < 1} y_i\mathbf{x}_i$ et $g_b = -C\sum_{t_i < 1} y_i$.
+$\mathbf{g} _{\mathbf{w}} = \mathbf{w} - C\sum _{t_i < 1} y_i\mathbf{x} _i$ et $g_b = -C\sum _{t_i < 1} y_i$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -426,7 +426,7 @@ Développe le carré d'une somme de trois termes : trois carrés et trois double
 </details>
 <details><summary>Indice 3</summary>
 
-d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\,\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante et les coordonnées de degré 1 changent. e) les monômes de degré **au plus** 2 en 9 variables.
+d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\thinspace\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante et les coordonnées de degré 1 changent. e) les monômes de degré **au plus** 2 en 9 variables.
 
 </details>
 
@@ -497,12 +497,12 @@ Relis le §5 de la fiche, et la définition d'une fonction convexe (M10).
 </details>
 <details><summary>Indice 2</summary>
 
-Applique la définition de la convexité au segment $[\mathbf{x}^*, \mathbf{y}]$.
+Applique la définition de la convexité au segment $[\mathbf{x}^\ast, \mathbf{y}]$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\lVert\mathbf{x}_\theta - \mathbf{x}^*\rVert = \theta\lVert\mathbf{y} - \mathbf{x}^*\rVert$. 4 : la stricte convexité au milieu.
+3 : $\lVert\mathbf{x}_\theta - \mathbf{x}^\ast\rVert = \theta\lVert\mathbf{y} - \mathbf{x}^\ast\rVert$. 4 : la stricte convexité au milieu.
 
 </details>
 
@@ -573,7 +573,7 @@ Relis « Des produits scalaires, puis des noyaux » (fiche §8).
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque vecteur de support : la distance au carré, puis $e^{-0{,}3\,d^2}$, puis le poids $\alpha_i y_i$.
+Pour chaque vecteur de support : la distance au carré, puis $e^{-0{,}3\thinspace d^2}$, puis le poids $\alpha_i y_i$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -685,7 +685,7 @@ Relis le §7 de la fiche et M13a §2.
 </details>
 <details><summary>Indice 2</summary>
 
-Écris les deux en fonction de $t = y\,s$, puis trace-les.
+Écris les deux en fonction de $t = y\thinspace s$, puis trace-les.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -730,7 +730,7 @@ Calcule d'un coup les marges `t = y * (X @ w + b)` ; `below = t < 1` (strictemen
 </details>
 <details><summary>Indice 3</summary>
 
-`g_w = w - C * (y[below] @ X[below])` et `g_b = -C * y[below].sum()`. Les contrôles : labels dans $\{-1, +1\}$ (`np.isin`), formes compatibles, $C > 0$. f) fais le pas sur $(\mathbf{w}, b)$ **ensemble**, puis recalcule $J$.
+`g_w = w - C * (y[below] @ X[below])` et `g_b = -C * y[below].sum()`. Les contrôles : labels dans $\lbrace-1, +1\rbrace$ (`np.isin`), formes compatibles, $C > 0$. f) fais le pas sur $(\mathbf{w}, b)$ **ensemble**, puis recalcule $J$.
 
 </details>
 
@@ -766,7 +766,7 @@ a) `fun = lambda x: 0.5 * x @ Q_25 @ x + C_25 @ x`, `grad = lambda x: Q_25 @ x +
 </details>
 <details><summary>Indice 3</summary>
 
-e) exécute `polynomial_kernel(P_28, R_28)[0, 0]` tel quel, puis compare à $(\frac{1}{4}\,\mathbf{x} \cdot \mathbf{z} + 1)^3$. h) `try: hinge_loss(S_28, Y_28)` / `except Exception as exc: name = type(exc).__name__`.
+e) exécute `polynomial_kernel(P_28, R_28)[0, 0]` tel quel, puis compare à $(\frac{1}{4}\thinspace\mathbf{x} \cdot \mathbf{z} + 1)^3$. h) `try: hinge_loss(S_28, Y_28)` / `except Exception as exc: name = type(exc).__name__`.
 
 </details>
 
@@ -779,7 +779,7 @@ Relis « Ce que vaut λ : un prix » (fiche §1).
 </details>
 <details><summary>Indice 2</summary>
 
-Avec ce lagrangien, $\frac{df^*}{dc} = -\lambda$. Pour c) et d), écris la nouvelle stationnarité et compare-la à l'ancienne.
+Avec ce lagrangien, $\frac{df^\ast}{dc} = -\lambda$. Pour c) et d), écris la nouvelle stationnarité et compare-la à l'ancienne.
 
 </details>
 <details><summary>Indice 3</summary>

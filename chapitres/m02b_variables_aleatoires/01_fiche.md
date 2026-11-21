@@ -61,11 +61,11 @@ Vocabulaire anglais de ce chapitre : *random variable*, *sample space*, *event s
 2. Lois discrètes : **Bernoulli** $\mathcal{B}(p)$ (0 ou 1), **binomiale** $\mathcal{B}(n, p)$ : $P(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$, **catégorielle** ($K$ classes), **géométrique** : $P(X = k) = (1-p)^{k-1}p$, **Poisson** $\mathcal{P}(\lambda)$ : $P(X = k) = e^{-\lambda}\frac{\lambda^k}{k!}$.
 3. Lois continues : **uniforme** sur $[a ; b]$ (densité $\frac{1}{b-a}$), **exponentielle** (densité $\lambda e^{-\lambda t}$, $t \ge 0$), **normale** $\mathcal{N}(\mu, \sigma^2)$ (densité $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$).
 4. On **standardise** : si $X \sim \mathcal{N}(\mu, \sigma^2)$, alors $Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$ et $P(X \le x) = \Phi\big(\frac{x - \mu}{\sigma}\big)$. Attention : le second paramètre est la **variance** $\sigma^2$.
-5. **Espérance** : $\mathbb{E}[X] = \sum_x x\,P(X = x)$ ou $\int x\,f(x)\,dx$. **Transfert** : $\mathbb{E}[g(X)] = \sum_x g(x)\,P(X = x)$ ou $\int g(x)\,f(x)\,dx$.
-6. **Variance** : $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, et $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
+5. **Espérance** : $\mathbb{E}[X] = \sum_x x\thinspace P(X = x)$ ou $\int x\thinspace f(x)\thinspace dx$. **Transfert** : $\mathbb{E}[g(X)] = \sum_x g(x)\thinspace P(X = x)$ ou $\int g(x)\thinspace f(x)\thinspace dx$.
+6. **Variance** : $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, et $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$.
 7. Un **couple** $(X, Y)$ a une **loi jointe** ; on obtient chaque **marginale** en sommant (ou en intégrant) l'autre variable. $X$ et $Y$ sont **indépendantes** si la loi jointe est le produit des marginales.
 8. $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$ toujours ; $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ si $X$ et $Y$ sont indépendantes : les **variances** s'additionnent, pas les écarts-types.
-9. Une **intégrale double** sur un rectangle se calcule en intégrant une variable après l'autre ; en coordonnées polaires, $dx\,dy$ devient $r\,dr\,d\theta$, d'où $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$.
+9. Une **intégrale double** sur un rectangle se calcule en intégrant une variable après l'autre ; en coordonnées polaires, $dx\thinspace dy$ devient $r\thinspace dr\thinspace d\theta$, d'où $\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi}$.
 10. Si $U$ est uniforme sur $[0 ; 1]$, $F^{-1}(U)$ suit la loi de fonction de répartition $F$ : c'est la **simulation par inversion**. Et $\mu + \sigma Z$ suit $\mathcal{N}(\mu, \sigma^2)$ quand $Z \sim \mathcal{N}(0, 1)$.
 
 ---
@@ -83,14 +83,14 @@ Quand $\Omega$ est fini, tout sous-ensemble est un événement, et c'est le cadr
 
 ### Une variable aléatoire est une fonction
 
-Une **variable aléatoire** (*random variable*) est une fonction $X : \Omega \to \mathbb{R}$ : elle associe un nombre à chaque issue. On note $\{X \le 3\}$ l'événement « $X$ vaut au plus 3 », c'est-à-dire l'ensemble des issues $\omega$ telles que $X(\omega) \le 3$, et $P(X \le 3)$ sa probabilité.
+Une **variable aléatoire** (*random variable*) est une fonction $X : \Omega \to \mathbb{R}$ : elle associe un nombre à chaque issue. On note $\lbrace X \le 3\rbrace$ l'événement « $X$ vaut au plus 3 », c'est-à-dire l'ensemble des issues $\omega$ telles que $X(\omega) \le 3$, et $P(X \le 3)$ sa probabilité.
 
 La **loi** (*distribution*) de $X$ est ce que $X$ fait des probabilités : pour chaque ensemble de nombres $B$, la probabilité $P(X \in B)$. On ne regarde plus les issues, seulement les valeurs. Deux variables différentes peuvent avoir la même loi. On lance une pièce équilibrée ; $X$ vaut 1 si elle tombe sur pile, 0 sinon, et $Y = 1 - X$. Les deux valent 0 ou 1 avec la probabilité $\frac{1}{2}$ : **même loi**. Pourtant $X$ et $Y$ ne sont **jamais** égales : quand l'une vaut 1, l'autre vaut 0. Une loi décrit les chances de chaque valeur, pas la valeur prise.
 
 ### Discrète ou continue
 
 - $X$ est **discrète** quand elle prend un nombre fini de valeurs, ou une suite de valeurs $x_1, x_2, \ldots$ (comme les entiers naturels). Sa loi est donnée par les probabilités $p(x) = P(X = x)$, la **fonction de masse** (*probability mass function*, *pmf*), positives et de somme 1.
-- $X$ est **à densité** (on dit souvent **continue**) quand $P(a \le X \le b) = \int_a^b f(x)\,dx$ pour une densité $f$ (M02a §6). Chaque valeur exacte a alors une probabilité nulle.
+- $X$ est **à densité** (on dit souvent **continue**) quand $P(a \le X \le b) = \int_a^b f(x)\thinspace dx$ pour une densité $f$ (M02a §6). Chaque valeur exacte a alors une probabilité nulle.
 
 Dans les deux cas, la **fonction de répartition** $F(x) = P(X \le x)$ décrit la loi. Elle croît de 0 à 1. Pour une loi discrète, c'est un **escalier**, qui saute de $P(X = x)$ en chaque valeur $x$ ; pour une loi à densité, une courbe **continue**, de dérivée $f$ (M02a §7).
 
@@ -122,7 +122,7 @@ Pour le clic : $\mathbb{E}[X] = 0{,}15$ et $\mathbb{V}(X) = 0{,}15 \times 0{,}85
 
 On répète $n$ fois, de façon **indépendante**, la même épreuve de Bernoulli de paramètre $p$, et $X$ compte les succès. $X$ suit la loi **binomiale** $\mathcal{B}(n, p)$ :
 
-$$P(X = k) = \binom{n}{k}\,p^k\,(1 - p)^{n - k}, \qquad k = 0, 1, \ldots, n.$$
+$$P(X = k) = \binom{n}{k}\thinspace p^k\thinspace(1 - p)^{n - k}, \qquad k = 0, 1, \ldots, n.$$
 
 Pourquoi ? Une suite de $n$ résultats qui contient $k$ succès et $n - k$ échecs a la probabilité $p^k(1 - p)^{n-k}$ (les essais sont indépendants, les probabilités se multiplient, R8 §5). Et il y a $\binom{n}{k}$ telles suites : autant que de façons de choisir les $k$ rangs des succès parmi $n$ (R8 §3). Les $n + 1$ probabilités ont bien une somme de 1 : par la **formule du binôme** $(a + b)^n = \sum_{k=0}^{n}\binom{n}{k}a^k b^{n-k}$ (admise ici ; elle se démontre par récurrence avec la formule de Pascal de R8), $\sum_k \binom{n}{k}p^k(1-p)^{n-k} = \big(p + (1 - p)\big)^n = 1$.
 
@@ -132,7 +132,7 @@ Exemple : un classifieur se trompe sur une image avec la probabilité 0,2, indé
 |---|---|---|---|---|---|---|---|
 | $P(X = k)$ | 0,262144 | 0,393216 | 0,24576 | 0,08192 | 0,01536 | 0,001536 | 0,000064 |
 
-Par exemple $P(X = 2) = \binom{6}{2}\,0{,}2^2\,0{,}8^4 = 15 \times 0{,}04 \times 0{,}4096 = 0{,}24576$, et $P(X \ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - 0{,}262144 - 0{,}393216 = 0{,}34464$. L'espérance vaut $np = 1{,}2$ et la variance $np(1 - p) = 0{,}96$ (démontrées au §6).
+Par exemple $P(X = 2) = \binom{6}{2}\thinspace0{,}2^2\thinspace0{,}8^4 = 15 \times 0{,}04 \times 0{,}4096 = 0{,}24576$, et $P(X \ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - 0{,}262144 - 0{,}393216 = 0{,}34464$. L'espérance vaut $np = 1{,}2$ et la variance $np(1 - p) = 0{,}96$ (démontrées au §6).
 
 ```python
 >>> import math
@@ -152,13 +152,13 @@ On rencontre aussi des probabilités **proportionnelles à des poids** positifs 
 
 On répète des épreuves de Bernoulli indépendantes de paramètre $p$ (avec $0 < p \le 1$) **jusqu'au premier succès**, et $X$ est le rang de ce succès. $X$ suit la loi **géométrique** de paramètre $p$ :
 
-$$P(X = k) = (1 - p)^{k - 1}\,p, \qquad k = 1, 2, 3, \ldots$$
+$$P(X = k) = (1 - p)^{k - 1}\thinspace p, \qquad k = 1, 2, 3, \ldots$$
 
-car $\{X = k\}$ veut dire $k - 1$ échecs puis un succès. $X$ prend une infinité de valeurs ; la somme des probabilités est une série géométrique de raison $q = 1 - p$ (R5) : $\sum_{k \ge 1} q^{k-1}p = p \times \frac{1}{1 - q} = 1$. Plus simple encore : $\{X > k\}$ veut dire « les $k$ premiers essais échouent », donc
+car $\lbrace X = k\rbrace$ veut dire $k - 1$ échecs puis un succès. $X$ prend une infinité de valeurs ; la somme des probabilités est une série géométrique de raison $q = 1 - p$ (R5) : $\sum_{k \ge 1} q^{k-1}p = p \times \frac{1}{1 - q} = 1$. Plus simple encore : $\lbrace X > k\rbrace$ veut dire « les $k$ premiers essais échouent », donc
 
 $$P(X > k) = (1 - p)^k.$$
 
-Exemple : on lance un dé jusqu'à obtenir un 6 ($p = \frac{1}{6}$). La probabilité qu'il faille plus de 6 lancers vaut $\left(\frac{5}{6}\right)^6 \approx 0{,}335$ : une fois sur trois environ, six lancers ne suffisent pas. En moyenne, il faut $\mathbb{E}[X] = \frac{1}{p} = 6$ lancers (tu le démontreras en M02b.2, avec une série). La loi est **sans mémoire** : $P(X > m + n) = (1 - p)^{m+n} = P(X > m)\,P(X > n)$. Avoir déjà raté $m$ fois ne rapproche pas le succès (M03 l'écrira avec une probabilité conditionnelle).
+Exemple : on lance un dé jusqu'à obtenir un 6 ($p = \frac{1}{6}$). La probabilité qu'il faille plus de 6 lancers vaut $\left(\frac{5}{6}\right)^6 \approx 0{,}335$ : une fois sur trois environ, six lancers ne suffisent pas. En moyenne, il faut $\mathbb{E}[X] = \frac{1}{p} = 6$ lancers (tu le démontreras en M02b.2, avec une série). La loi est **sans mémoire** : $P(X > m + n) = (1 - p)^{m+n} = P(X > m)\thinspace P(X > n)$. Avoir déjà raté $m$ fois ne rapproche pas le succès (M03 l'écrira avec une probabilité conditionnelle).
 
 ⚠️ **Erreur classique.** Certains livres (et `scipy.stats.geom`) comptent le rang du succès, comme ici ; d'autres comptent le nombre d'**échecs** avant le succès, $X - 1$, qui commence à 0. Vérifie toujours la convention.
 
@@ -166,7 +166,7 @@ Exemple : on lance un dé jusqu'à obtenir un 6 ($p = \frac{1}{6}$). La probabil
 
 Une variable de **Poisson** de paramètre $\lambda > 0$, notée $\mathcal{P}(\lambda)$, prend les valeurs entières $0, 1, 2, \ldots$ avec
 
-$$P(X = k) = e^{-\lambda}\,\frac{\lambda^k}{k!}.$$
+$$P(X = k) = e^{-\lambda}\thinspace\frac{\lambda^k}{k!}.$$
 
 Elle modélise le **nombre d'événements** survenus pendant une durée fixée, quand ils arrivent un par un, indépendamment les uns des autres et à un rythme moyen constant : les erreurs d'un serveur en une heure, les clics sur une page en une minute, les fautes de frappe d'une page. Le paramètre $\lambda$ est le nombre **moyen** d'événements : $\mathbb{E}[X] = \lambda$, et aussi $\mathbb{V}(X) = \lambda$ (§4).
 
@@ -176,7 +176,7 @@ $$e^{\lambda} = \sum_{k=0}^{+\infty}\frac{\lambda^k}{k!} = 1 + \lambda + \frac{\
 
 Exemple : un serveur produit en moyenne 3 erreurs par heure, et $N$ est le nombre d'erreurs pendant une heure donnée, $N \sim \mathcal{P}(3)$. Alors $P(N = 0) = e^{-3} \approx 0{,}0498$, et
 
-$$P(N \le 2) = e^{-3}\left(1 + 3 + \frac{3^2}{2}\right) = 8{,}5\,e^{-3} \approx 0{,}4232.$$
+$$P(N \le 2) = e^{-3}\left(1 + 3 + \frac{3^2}{2}\right) = 8{,}5\thinspace e^{-3} \approx 0{,}4232.$$
 
 ```python
 >>> round(sum(math.exp(-3) * 3 ** k / math.factorial(k) for k in range(3)), 4)   # P(N ≤ 2)
@@ -222,13 +222,13 @@ Elle modélise la durée jusqu'au **prochain** événement, quand les événemen
 
 $$P(T > 1) = e^{-3} \approx 0{,}0498 = P(N = 0) \quad \text{pour } N \sim \mathcal{P}(3).$$
 
-La probabilité d'une erreur dans les 10 prochaines minutes ($\frac{1}{6}$ d'heure) vaut $1 - e^{-3/6} = 1 - e^{-0{,}5} \approx 0{,}393$. Et la loi est **sans mémoire**, comme la loi géométrique : $P(T > s + t) = e^{-\lambda(s+t)} = P(T > s)\,P(T > t)$. Un serveur qui vient de passer deux heures sans erreur n'est pas « en retard » d'une erreur.
+La probabilité d'une erreur dans les 10 prochaines minutes ($\frac{1}{6}$ d'heure) vaut $1 - e^{-3/6} = 1 - e^{-0{,}5} \approx 0{,}393$. Et la loi est **sans mémoire**, comme la loi géométrique : $P(T > s + t) = e^{-\lambda(s+t)} = P(T > s)\thinspace P(T > t)$. Un serveur qui vient de passer deux heures sans erreur n'est pas « en retard » d'une erreur.
 
 ### Normale : la cloche
 
 $X$ suit la loi **normale** (ou **gaussienne**) $\mathcal{N}(\mu, \sigma^2)$, de paramètres $\mu$ réel et $\sigma > 0$, si sa densité est
 
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\,\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right).$$
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\thinspace\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right).$$
 
 - $\mu$ est le **centre** de la cloche, son axe de symétrie (et son espérance, §4) ;
 - $\sigma$ est sa **largeur** : la courbe a ses points d'inflexion en $\mu - \sigma$ et $\mu + \sigma$, et c'est l'écart-type (§4). Diviser $\sigma$ par 2 rend la cloche deux fois plus étroite et deux fois plus haute (l'aire reste 1) ;
@@ -238,7 +238,7 @@ $$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\,\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\r
 
 La loi $\mathcal{N}(0, 1)$ est la **loi normale centrée réduite** (ou standard). On note $\varphi$ sa densité et $\Phi$ sa fonction de répartition :
 
-$$\varphi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}, \qquad \Phi(z) = P(Z \le z) = \int_{-\infty}^{z}\varphi(t)\,dt.$$
+$$\varphi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}, \qquad \Phi(z) = P(Z \le z) = \int_{-\infty}^{z}\varphi(t)\thinspace dt.$$
 
 ![Quatre lois normales (μ déplace la cloche, σ l'élargit), et Φ(1) comme l'aire sous φ à gauche de 1](figures/normales.png)
 
@@ -282,38 +282,38 @@ La table donne aussi les proportions classiques autour de la moyenne : $P(\lvert
 
 ### L'espérance, discrète et continue
 
-R8 a défini l'espérance d'une variable discrète : $\mathbb{E}[X] = \sum_x x\,P(X = x)$. Pour une variable qui prend une infinité de valeurs, la somme est une série, qui doit converger (absolument : $\sum_x \lvert x \rvert\,P(X = x)$ finie). Pour une variable à densité, la somme devient une intégrale :
+R8 a défini l'espérance d'une variable discrète : $\mathbb{E}[X] = \sum_x x\thinspace P(X = x)$. Pour une variable qui prend une infinité de valeurs, la somme est une série, qui doit converger (absolument : $\sum_x \lvert x \rvert\thinspace P(X = x)$ finie). Pour une variable à densité, la somme devient une intégrale :
 
-$$\mathbb{E}[X] = \int_{-\infty}^{+\infty} x\,f(x)\,dx,$$
+$$\mathbb{E}[X] = \int_{-\infty}^{+\infty} x\thinspace f(x)\thinspace dx,$$
 
-à condition que $\int \lvert x \rvert f(x)\,dx$ converge. C'est le **centre de gravité** de la densité, la valeur moyenne qu'on obtiendrait sur un très grand nombre de tirages (la loi des grands nombres, R8 et M02c).
+à condition que $\int \lvert x \rvert f(x)\thinspace dx$ converge. C'est le **centre de gravité** de la densité, la valeur moyenne qu'on obtiendrait sur un très grand nombre de tirages (la loi des grands nombres, R8 et M02c).
 
-- **Uniforme** sur $[a ; b]$ : $\mathbb{E}[X] = \int_a^b \frac{x}{b - a}\,dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2}$, le milieu. Attente du bus : 6 minutes.
+- **Uniforme** sur $[a ; b]$ : $\mathbb{E}[X] = \int_a^b \frac{x}{b - a}\thinspace dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2}$, le milieu. Attente du bus : 6 minutes.
 - **Exponentielle** : par parties (M02a §3), avec $u = t$ et $v' = \lambda e^{-\lambda t}$, donc $v = -e^{-\lambda t}$ :
-$$\mathbb{E}[T] = \int_0^{+\infty} t\,\lambda e^{-\lambda t}\,dt = \Big[-t\,e^{-\lambda t}\Big]_0^{+\infty} + \int_0^{+\infty} e^{-\lambda t}\,dt = 0 + \frac{1}{\lambda} = \frac{1}{\lambda}$$
-(la limite de $t\,e^{-\lambda t}$ en $+\infty$ vaut 0, R6). Pour le serveur, $\mathbb{E}[T] = \frac{1}{3}$ d'heure : 20 minutes entre deux erreurs, en moyenne, ce qui est cohérent avec 3 erreurs par heure.
+$$\mathbb{E}[T] = \int_0^{+\infty} t\thinspace\lambda e^{-\lambda t}\thinspace dt = \Big[-t\thinspace e^{-\lambda t}\Big]_0^{+\infty} + \int_0^{+\infty} e^{-\lambda t}\thinspace dt = 0 + \frac{1}{\lambda} = \frac{1}{\lambda}$$
+(la limite de $t\thinspace e^{-\lambda t}$ en $+\infty$ vaut 0, R6). Pour le serveur, $\mathbb{E}[T] = \frac{1}{3}$ d'heure : 20 minutes entre deux erreurs, en moyenne, ce qui est cohérent avec 3 erreurs par heure.
 - **Normale** : $\mathbb{E}[X] = \mu$, par symétrie de la densité autour de $\mu$ (l'intégrale converge, grâce à la décroissance très rapide de $e^{-x^2}$).
 - **Poisson** : le terme $k = 0$ est nul, et $\frac{k}{k!} = \frac{1}{(k-1)!}$, d'où
-$$\mathbb{E}[X] = \sum_{k \ge 1} k\,e^{-\lambda}\frac{\lambda^k}{k!} = \lambda\,e^{-\lambda}\sum_{k \ge 1}\frac{\lambda^{k-1}}{(k-1)!} = \lambda\,e^{-\lambda}e^{\lambda} = \lambda.$$
+$$\mathbb{E}[X] = \sum_{k \ge 1} k\thinspace e^{-\lambda}\frac{\lambda^k}{k!} = \lambda\thinspace e^{-\lambda}\sum_{k \ge 1}\frac{\lambda^{k-1}}{(k-1)!} = \lambda\thinspace e^{-\lambda}e^{\lambda} = \lambda.$$
 
 ![L'espérance et la médiane de la loi exponentielle de paramètre 3 : l'espérance est plus loin, tirée par la queue de droite](figures/esperance_mediane.png)
 
 L'espérance n'est pas la médiane (M02a §7) : pour $\mathcal{E}(3)$, la médiane vaut $\frac{\ln 2}{3} \approx 0{,}231$ et l'espérance $\frac{1}{3} \approx 0{,}333$. Les rares longues attentes tirent la moyenne vers la droite.
 
-**Une espérance qui n'existe pas.** La fonction $f(x) = \frac{1}{x^2}$ sur $[1 ; +\infty[$ (et 0 ailleurs) est une densité : $\int_1^{+\infty}\frac{dx}{x^2} = 1$. Mais $\int_1^{+\infty} x \cdot \frac{1}{x^2}\,dx = \int_1^{+\infty}\frac{dx}{x}$ diverge (M02a §4) : cette variable n'a pas d'espérance. La moyenne de ses tirages ne se stabilise jamais, car de temps en temps tombe une valeur gigantesque. Ces lois « à queue lourde » existent (tailles de fichiers, richesses) ; elles rappellent qu'une espérance se vérifie.
+**Une espérance qui n'existe pas.** La fonction $f(x) = \frac{1}{x^2}$ sur $[1 ; +\infty[$ (et 0 ailleurs) est une densité : $\int_1^{+\infty}\frac{dx}{x^2} = 1$. Mais $\int_1^{+\infty} x \cdot \frac{1}{x^2}\thinspace dx = \int_1^{+\infty}\frac{dx}{x}$ diverge (M02a §4) : cette variable n'a pas d'espérance. La moyenne de ses tirages ne se stabilise jamais, car de temps en temps tombe une valeur gigantesque. Ces lois « à queue lourde » existent (tailles de fichiers, richesses) ; elles rappellent qu'une espérance se vérifie.
 
 ### Le théorème de transfert
 
 Pour calculer l'espérance d'une fonction de $X$, par exemple $X^2$ ou $e^X$, inutile de chercher la loi de $g(X)$ : on pondère les valeurs $g(x)$ par la loi de $X$.
 
 > **Théorème de transfert** (admis). Pour toute fonction $g$ (telle que la somme ou l'intégrale converge absolument) :
-> $$\mathbb{E}[g(X)] = \sum_x g(x)\,P(X = x) \quad \text{(discrète)}, \qquad \mathbb{E}[g(X)] = \int_{-\infty}^{+\infty} g(x)\,f(x)\,dx \quad \text{(à densité)}.$$
+> $$\mathbb{E}[g(X)] = \sum_x g(x)\thinspace P(X = x) \quad \text{(discrète)}, \qquad \mathbb{E}[g(X)] = \int_{-\infty}^{+\infty} g(x)\thinspace f(x)\thinspace dx \quad \text{(à densité)}.$$
 
 Pour une variable discrète, c'est simplement regrouper les valeurs (R8.12 l'a fait sur les issues). Pour une densité, la démonstration demande le §8 ; on l'admet. Exemple : pour l'attente du bus $W \sim \mathcal{U}([0 ; 12])$,
 
-$$\mathbb{E}[W^2] = \int_0^{12} w^2\,\frac{1}{12}\,dw = \frac{1}{12}\left[\frac{w^3}{3}\right]_0^{12} = \frac{1728}{36} = 48.$$
+$$\mathbb{E}[W^2] = \int_0^{12} w^2\thinspace\frac{1}{12}\thinspace dw = \frac{1}{12}\left[\frac{w^3}{3}\right]_0^{12} = \frac{1728}{36} = 48.$$
 
-⚠️ **Erreur classique.** $\mathbb{E}[g(X)] \ne g(\mathbb{E}[X])$ en général : $\mathbb{E}[W^2] = 48$, alors que $\mathbb{E}[W]^2 = 36$. L'égalité est vraie pour une fonction affine : $\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ (la linéarité de la somme ou de l'intégrale).
+⚠️ **Erreur classique.** $\mathbb{E}[g(X)] \ne g(\mathbb{E}[X])$ en général : $\mathbb{E}[W^2] = 48$, alors que $\mathbb{E}[W]^2 = 36$. L'égalité est vraie pour une fonction affine : $\mathbb{E}[aX + b] = a\thinspace\mathbb{E}[X] + b$ (la linéarité de la somme ou de l'intégrale).
 
 ### Variance et écart-type
 
@@ -321,14 +321,14 @@ Comme en R8, la **variance** mesure la dispersion autour de l'espérance $\mu = 
 
 $$\mathbb{V}(X) = \mathbb{E}\big[(X - \mu)^2\big] = \mathbb{E}[X^2] - \mu^2, \qquad \sigma(X) = \sqrt{\mathbb{V}(X)}.$$
 
-La seconde formule se démontre par linéarité : $\mathbb{E}[(X - \mu)^2] = \mathbb{E}[X^2] - 2\mu\,\mathbb{E}[X] + \mu^2 = \mathbb{E}[X^2] - \mu^2$. Pour le bus : $\mathbb{V}(W) = 48 - 6^2 = 12$, et $\sigma(W) = \sqrt{12} \approx 3{,}46$ minutes. On note aussi $\mathrm{Var}(X)$ (workbookIA, MML).
+La seconde formule se démontre par linéarité : $\mathbb{E}[(X - \mu)^2] = \mathbb{E}[X^2] - 2\mu\thinspace\mathbb{E}[X] + \mu^2 = \mathbb{E}[X^2] - \mu^2$. Pour le bus : $\mathbb{V}(W) = 48 - 6^2 = 12$, et $\sigma(W) = \sqrt{12} \approx 3{,}46$ minutes. On note aussi $\mathrm{Var}(X)$ (workbookIA, MML).
 
-**Changer d'échelle** : $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ et $\sigma(aX + b) = \lvert a \rvert\,\sigma(X)$. R8 l'a admis ; c'est maintenant un calcul : $aX + b - \mathbb{E}[aX + b] = a(X - \mu)$, dont le carré vaut $a^2(X - \mu)^2$. Passer des heures aux minutes multiplie l'écart-type par 60 et la variance par 3 600.
+**Changer d'échelle** : $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$ et $\sigma(aX + b) = \lvert a \rvert\thinspace\sigma(X)$. R8 l'a admis ; c'est maintenant un calcul : $aX + b - \mathbb{E}[aX + b] = a(X - \mu)$, dont le carré vaut $a^2(X - \mu)^2$. Passer des heures aux minutes multiplie l'écart-type par 60 et la variance par 3 600.
 
 **Deux variances continues.**
 - **Exponentielle** : deux intégrations par parties donnent $\mathbb{E}[T^2] = \frac{2}{\lambda^2}$, donc $\mathbb{V}(T) = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$ : l'écart-type est égal à l'espérance.
-- **Normale** : pour $Z \sim \mathcal{N}(0, 1)$, $\mathbb{E}[Z] = 0$ et, par parties avec $u = z$ et $v' = z\,\varphi(z)$ (donc $v = -\varphi(z)$, car $\varphi'(z) = -z\,\varphi(z)$) :
-$$\mathbb{V}(Z) = \int_{-\infty}^{+\infty} z^2\,\varphi(z)\,dz = \Big[-z\,\varphi(z)\Big]_{-\infty}^{+\infty} + \int_{-\infty}^{+\infty}\varphi(z)\,dz = 0 + 1 = 1.$$
+- **Normale** : pour $Z \sim \mathcal{N}(0, 1)$, $\mathbb{E}[Z] = 0$ et, par parties avec $u = z$ et $v' = z\thinspace\varphi(z)$ (donc $v = -\varphi(z)$, car $\varphi'(z) = -z\thinspace\varphi(z)$) :
+$$\mathbb{V}(Z) = \int_{-\infty}^{+\infty} z^2\thinspace\varphi(z)\thinspace dz = \Big[-z\thinspace\varphi(z)\Big] _{-\infty}^{+\infty} + \int _{-\infty}^{+\infty}\varphi(z)\thinspace dz = 0 + 1 = 1.$$
 Avec $X = \mu + \sigma Z$ (§8), $\mathbb{V}(X) = \sigma^2$ : le paramètre $\sigma$ est bien l'écart-type.
 
 ### Le tableau des lois usuelles
@@ -378,7 +378,7 @@ La loi de $X$ seule, sa **loi marginale** (*marginal distribution*), s'obtient e
 
 $$P(X = x) = \sum_y P(X = x, Y = y),$$
 
-car les événements $\{X = x, Y = y\}$, pour les différentes valeurs $y$, sont incompatibles et leur réunion est $\{X = x\}$. Dans le tableau : la somme de chaque **ligne** pour $X$ (0,30 ; 0,40 ; 0,30), de chaque **colonne** pour $Y$ (0,40 ; 0,60). Elles s'écrivent dans les marges du tableau, d'où leur nom. MML appelle cette opération la **règle de la somme** (*sum rule*).
+car les événements $\lbrace X = x, Y = y\rbrace$, pour les différentes valeurs $y$, sont incompatibles et leur réunion est $\lbrace X = x\rbrace$. Dans le tableau : la somme de chaque **ligne** pour $X$ (0,30 ; 0,40 ; 0,30), de chaque **colonne** pour $Y$ (0,40 ; 0,60). Elles s'écrivent dans les marges du tableau, d'où leur nom. MML appelle cette opération la **règle de la somme** (*sum rule*).
 
 ![La loi jointe du stand de glaces en carte de chaleur, avec ses deux lois marginales sur les bords](figures/loi_jointe.png)
 
@@ -386,27 +386,27 @@ car les événements $\{X = x, Y = y\}$, pour les différentes valeurs $y$, sont
 
 ### L'espérance d'une fonction du couple
 
-Le théorème de transfert s'étend aux couples : $\mathbb{E}[g(X, Y)] = \sum_x\sum_y g(x, y)\,P(X = x, Y = y)$. Pour le stand :
+Le théorème de transfert s'étend aux couples : $\mathbb{E}[g(X, Y)] = \sum_x\sum_y g(x, y)\thinspace P(X = x, Y = y)$. Pour le stand :
 
 $$\mathbb{E}[XY] = 1 \times 1 \times 0{,}25 + 2 \times 1 \times 0{,}25 = 0{,}75$$
 
-(les cases où $x = 0$ ou $y = 0$ donnent $xy = 0$), alors que $\mathbb{E}[X] = 0{,}40 + 2 \times 0{,}30 = 1$ et $\mathbb{E}[Y] = 0{,}60$, donc $\mathbb{E}[X]\,\mathbb{E}[Y] = 0{,}6$.
+(les cases où $x = 0$ ou $y = 0$ donnent $xy = 0$), alors que $\mathbb{E}[X] = 0{,}40 + 2 \times 0{,}30 = 1$ et $\mathbb{E}[Y] = 0{,}60$, donc $\mathbb{E}[X]\thinspace\mathbb{E}[Y] = 0{,}6$.
 
 ### L'indépendance
 
 Deux variables discrètes $X$ et $Y$ sont **indépendantes** si, pour **toutes** les valeurs $x$ et $y$,
 
-$$P(X = x, Y = y) = P(X = x)\,P(Y = y),$$
+$$P(X = x, Y = y) = P(X = x)\thinspace P(Y = y),$$
 
-c'est-à-dire si les événements $\{X = x\}$ et $\{Y = y\}$ sont indépendants (R8 §5) pour toutes les paires. La loi jointe est alors le produit des marginales : connaître la valeur de l'une ne change rien aux chances de l'autre.
+c'est-à-dire si les événements $\lbrace X = x\rbrace$ et $\lbrace Y = y\rbrace$ sont indépendants (R8 §5) pour toutes les paires. La loi jointe est alors le produit des marginales : connaître la valeur de l'une ne change rien aux chances de l'autre.
 
-Pour le stand : $P(X = 0, Y = 0) = 0{,}20$, mais $P(X = 0)\,P(Y = 0) = 0{,}30 \times 0{,}40 = 0{,}12$. Une seule case qui ne colle pas suffit : $X$ et $Y$ sont **dépendantes**, ce qu'on attendait (on vend plus de glaces quand il fait beau). Pour **montrer** l'indépendance, en revanche, il faut vérifier toutes les cases. Exemple : les numéros $X$ et $Y$ de deux dés lancés ensemble, $P(X = x, Y = y) = \frac{1}{36} = \frac{1}{6} \times \frac{1}{6}$ pour les 36 cases : indépendants.
+Pour le stand : $P(X = 0, Y = 0) = 0{,}20$, mais $P(X = 0)\thinspace P(Y = 0) = 0{,}30 \times 0{,}40 = 0{,}12$. Une seule case qui ne colle pas suffit : $X$ et $Y$ sont **dépendantes**, ce qu'on attendait (on vend plus de glaces quand il fait beau). Pour **montrer** l'indépendance, en revanche, il faut vérifier toutes les cases. Exemple : les numéros $X$ et $Y$ de deux dés lancés ensemble, $P(X = x, Y = y) = \frac{1}{36} = \frac{1}{6} \times \frac{1}{6}$ pour les 36 cases : indépendants.
 
-**Une conséquence.** Si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ : en factorisant la double somme, $\sum_x\sum_y xy\,P(X = x)P(Y = y) = \big(\sum_x x\,P(X = x)\big)\big(\sum_y y\,P(Y = y)\big)$. Pour le stand, $0{,}75 \ne 0{,}6$ : une autre preuve de la dépendance. La différence $\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$ s'appelle la **covariance** de $X$ et $Y$, notée $\operatorname{Cov}(X, Y)$ ; M02c l'étudiera. Elle revient au §6.
+**Une conséquence.** Si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\thinspace\mathbb{E}[Y]$ : en factorisant la double somme, $\sum_x\sum_y xy\thinspace P(X = x)P(Y = y) = \big(\sum_x x\thinspace P(X = x)\big)\big(\sum_y y\thinspace P(Y = y)\big)$. Pour le stand, $0{,}75 \ne 0{,}6$ : une autre preuve de la dépendance. La différence $\mathbb{E}[XY] - \mathbb{E}[X]\thinspace\mathbb{E}[Y]$ s'appelle la **covariance** de $X$ et $Y$, notée $\operatorname{Cov}(X, Y)$ ; M02c l'étudiera. Elle revient au §6.
 
-**Pour des variables quelconques**, l'indépendance se définit par $P(X \le x, Y \le y) = P(X \le x)\,P(Y \le y)$ pour tous $x$ et $y$ ; pour des variables à densité, cela revient à dire que la densité jointe est le produit des densités (§7). Plusieurs variables $X_1, \ldots, X_n$ sont (mutuellement) indépendantes quand la loi jointe des $n$ est le produit des $n$ marginales. Des variables indépendantes et de même loi sont dites **i.i.d.** : c'est l'hypothèse de base sur les exemples d'un dataset (M02c).
+**Pour des variables quelconques**, l'indépendance se définit par $P(X \le x, Y \le y) = P(X \le x)\thinspace P(Y \le y)$ pour tous $x$ et $y$ ; pour des variables à densité, cela revient à dire que la densité jointe est le produit des densités (§7). Plusieurs variables $X_1, \ldots, X_n$ sont (mutuellement) indépendantes quand la loi jointe des $n$ est le produit des $n$ marginales. Des variables indépendantes et de même loi sont dites **i.i.d.** : c'est l'hypothèse de base sur les exemples d'un dataset (M02c).
 
-📖 **Dans MML** — §6.2.1 présente une loi jointe discrète sous la forme d'un tableau de comptages, et en déduit les marginales en sommant lignes et colonnes ; §6.4.5 définit l'indépendance par $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{x})\,p(\mathbf{y})$ et en tire les conséquences sur les espérances et les variances. Le livre écrit $p(x, y)$ pour $P(X = x, Y = y)$. Lecture : M02b.15 et M02b.16.
+📖 **Dans MML** — §6.2.1 présente une loi jointe discrète sous la forme d'un tableau de comptages, et en déduit les marginales en sommant lignes et colonnes ; §6.4.5 définit l'indépendance par $p(\mathbf{x}, \mathbf{y}) = p(\mathbf{x})\thinspace p(\mathbf{y})$ et en tire les conséquences sur les espérances et les variances. Le livre écrit $p(x, y)$ pour $P(X = x, Y = y)$. Lecture : M02b.15 et M02b.16.
 
 🔗 **Dans workbookIA** — le chapitre 2 montre une variable qui dépend d'une autre, et suppose les exemples i.i.d. ; la matrice de confusion du chapitre 3 est une loi jointe (classe prédite, classe réelle), et le chapitre 4 (règle de Bayes) en tire des probabilités conditionnelles.
 
@@ -418,7 +418,7 @@ Pour le stand : $P(X = 0, Y = 0) = 0{,}20$, mais $P(X = 0)\,P(Y = 0) = 0{,}30 \t
 
 Pour toutes variables $X$ et $Y$ (définies sur le même univers, et qui ont une espérance) et tous nombres $a$, $b$, $c$ :
 
-$$\mathbb{E}[aX + bY + c] = a\,\mathbb{E}[X] + b\,\mathbb{E}[Y] + c.$$
+$$\mathbb{E}[aX + bY + c] = a\thinspace\mathbb{E}[X] + b\thinspace\mathbb{E}[Y] + c.$$
 
 R8.12 l'a démontré pour un univers fini, **sans** supposer l'indépendance ; on l'admet en général. Cette **linéarité** est l'outil le plus utile du chapitre : elle donne l'espérance d'une somme sans connaître sa loi.
 
@@ -428,7 +428,7 @@ R8.12 l'a démontré pour un univers fini, **sans** supposer l'indépendance ; o
 
 La variance, elle, n'est pas linéaire. En développant $\big((X - \mathbb{E}[X]) + (Y - \mathbb{E}[Y])\big)^2$ et en prenant l'espérance (M02b.11 le fait en détail) :
 
-$$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\,\operatorname{Cov}(X, Y), \qquad \operatorname{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y].$$
+$$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\thinspace\operatorname{Cov}(X, Y), \qquad \operatorname{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X]\thinspace\mathbb{E}[Y].$$
 
 > **Variance d'une somme de variables indépendantes.** Si $X$ et $Y$ sont indépendantes, $\operatorname{Cov}(X, Y) = 0$ (§5) et
 > $$\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y).$$
@@ -439,11 +439,11 @@ Ce sont les **variances** qui s'additionnent, pas les écarts-types. Exemple : u
 ![Deux durées normales indépendantes et leur somme : un écart-type de 5, pas de 7](figures/somme.png)
 
 Trois conséquences :
-- **Une différence** : $\mathbb{V}(X - Y) = \mathbb{V}(X) + (-1)^2\,\mathbb{V}(Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ pour $X$ et $Y$ indépendantes. Les variances s'additionnent aussi : l'écart entre deux durées indépendantes est plus dispersé que chacune.
-- **La variance de la binomiale** : les indicatrices $X_1, \ldots, X_n$ sont indépendantes (les essais le sont), donc $\mathbb{V}(X) = n\,p(1 - p)$.
+- **Une différence** : $\mathbb{V}(X - Y) = \mathbb{V}(X) + (-1)^2\thinspace\mathbb{V}(Y) = \mathbb{V}(X) + \mathbb{V}(Y)$ pour $X$ et $Y$ indépendantes. Les variances s'additionnent aussi : l'écart entre deux durées indépendantes est plus dispersé que chacune.
+- **La variance de la binomiale** : les indicatrices $X_1, \ldots, X_n$ sont indépendantes (les essais le sont), donc $\mathbb{V}(X) = n\thinspace p(1 - p)$.
 - **La moyenne de $n$ variables i.i.d.** d'espérance $\mu$ et de variance $\sigma^2$, $\bar{X} = \frac{X_1 + \cdots + X_n}{n}$ : $\mathbb{E}[\bar{X}] = \mu$ et $\mathbb{V}(\bar{X}) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}$, donc $\sigma(\bar{X}) = \frac{\sigma}{\sqrt{n}}$. Faire la moyenne de 100 mesures divise l'écart-type par 10 : c'est le cœur de M02c.
 
-⚠️ **Erreur classique.** $\mathbb{V}(X + X) = \mathbb{V}(2X) = 4\,\mathbb{V}(X)$, et non $2\,\mathbb{V}(X)$ : une variable n'est pas indépendante d'elle-même. Additionner $n$ copies **indépendantes** multiplie la variance par $n$ ; multiplier **une** variable par $n$ la multiplie par $n^2$.
+⚠️ **Erreur classique.** $\mathbb{V}(X + X) = \mathbb{V}(2X) = 4\thinspace\mathbb{V}(X)$, et non $2\thinspace\mathbb{V}(X)$ : une variable n'est pas indépendante d'elle-même. Additionner $n$ copies **indépendantes** multiplie la variance par $n$ ; multiplier **une** variable par $n$ la multiplie par $n^2$.
 
 **Sommes de lois connues** (résultats admis, sauf le premier, que M02b.3 vérifie) : la somme de deux variables de Poisson indépendantes de paramètres $\lambda$ et $\mu$ suit $\mathcal{P}(\lambda + \mu)$ ; la somme de deux binomiales indépendantes $\mathcal{B}(n, p)$ et $\mathcal{B}(m, p)$, de même $p$, suit $\mathcal{B}(n + m, p)$ ; la somme de deux normales indépendantes $\mathcal{N}(\mu_1, \sigma_1^2)$ et $\mathcal{N}(\mu_2, \sigma_2^2)$ suit $\mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$. Les deux trajets ci-dessus, s'ils sont normaux, donnent une durée totale de loi $\mathcal{N}(55, 5^2)$.
 
@@ -457,48 +457,48 @@ Trois conséquences :
 
 ### Intégrer une fonction de deux variables
 
-Une fonction de deux variables $f(x, y)$ se représente par une **surface** au-dessus du plan. Son **intégrale double** sur le rectangle $R = [a ; b] \times [c ; d]$, notée $\iint_R f(x, y)\,dx\,dy$, est le **volume** (algébrique) entre la surface et le plan, au-dessus de $R$ : la limite de sommes de volumes de petits pavés, comme les sommes de Riemann de M02a.
+Une fonction de deux variables $f(x, y)$ se représente par une **surface** au-dessus du plan. Son **intégrale double** sur le rectangle $R = [a ; b] \times [c ; d]$, notée $\iint_R f(x, y)\thinspace dx\thinspace dy$, est le **volume** (algébrique) entre la surface et le plan, au-dessus de $R$ : la limite de sommes de volumes de petits pavés, comme les sommes de Riemann de M02a.
 
 Pour la calculer, on intègre **une variable après l'autre** :
 
 > **Théorème de Fubini** (admis, pour $f$ continue sur le rectangle) :
-> $$\iint_{[a ; b] \times [c ; d]} f(x, y)\,dx\,dy = \int_a^b \left(\int_c^d f(x, y)\,dy\right)dx = \int_c^d \left(\int_a^b f(x, y)\,dx\right)dy.$$
+> $$\iint_{[a ; b] \times [c ; d]} f(x, y)\thinspace dx\thinspace dy = \int_a^b \left(\int_c^d f(x, y)\thinspace dy\right)dx = \int_c^d \left(\int_a^b f(x, y)\thinspace dx\right)dy.$$
 
 Dans l'intégrale intérieure, l'autre variable est une **constante**. Exemple :
 
-$$\int_0^1 \left(\int_0^2 (x + y)\,dy\right)dx = \int_0^1 \left[xy + \frac{y^2}{2}\right]_{y=0}^{y=2}dx = \int_0^1 (2x + 2)\,dx = \big[x^2 + 2x\big]_0^1 = 3.$$
+$$\int_0^1 \left(\int_0^2 (x + y)\thinspace dy\right)dx = \int_0^1 \left[xy + \frac{y^2}{2}\right]_{y=0}^{y=2}dx = \int_0^1 (2x + 2)\thinspace dx = \big[x^2 + 2x\big]_0^1 = 3.$$
 
-L'autre ordre donne le même résultat : $\int_0^2 \big(\int_0^1 (x + y)\,dx\big)dy = \int_0^2 \big(\frac{1}{2} + y\big)dy = 1 + 2 = 3$.
+L'autre ordre donne le même résultat : $\int_0^2 \big(\int_0^1 (x + y)\thinspace dx\big)dy = \int_0^2 \big(\frac{1}{2} + y\big)dy = 1 + 2 = 3$.
 
 ![Le volume sous la surface z = x + y au-dessus de [0 ; 1] × [0 ; 2], et l'élément d'aire en coordonnées polaires](figures/integrale_double.png)
 
-**Le cas d'un produit.** Si $f(x, y) = g(x)\,h(y)$, l'intégrale double est le **produit** de deux intégrales simples : dans l'intégrale intérieure en $y$, $g(x)$ sort comme une constante. Par exemple $\iint_{[0 ; 2] \times [0 ; 1]} xy\,dx\,dy = \int_0^2 x\,dx \times \int_0^1 y\,dy = 2 \times \frac{1}{2} = 1$. Cela vaut aussi pour des intervalles infinis, quand les intégrales convergent.
+**Le cas d'un produit.** Si $f(x, y) = g(x)\thinspace h(y)$, l'intégrale double est le **produit** de deux intégrales simples : dans l'intégrale intérieure en $y$, $g(x)$ sort comme une constante. Par exemple $\iint_{[0 ; 2] \times [0 ; 1]} xy\thinspace dx\thinspace dy = \int_0^2 x\thinspace dx \times \int_0^1 y\thinspace dy = 2 \times \frac{1}{2} = 1$. Cela vaut aussi pour des intervalles infinis, quand les intégrales convergent.
 
 ### Densité jointe
 
-Deux variables $X$ et $Y$ ont une **densité jointe** $f(x, y)$ si $f \ge 0$, $\iint_{\mathbb{R}^2} f = 1$, et si la probabilité que le point $(X, Y)$ tombe dans une région $D$ est le volume au-dessus de $D$ : $P\big((X, Y) \in D\big) = \iint_D f(x, y)\,dx\,dy$. Tout se transpose du §5, en remplaçant les sommes par des intégrales :
-- la **densité marginale** de $X$ : $f_X(x) = \int_{-\infty}^{+\infty} f(x, y)\,dy$ (on intègre l'autre variable) ;
-- $X$ et $Y$ sont **indépendantes** si et seulement si $f(x, y) = f_X(x)\,f_Y(y)$.
+Deux variables $X$ et $Y$ ont une **densité jointe** $f(x, y)$ si $f \ge 0$, $\iint_{\mathbb{R}^2} f = 1$, et si la probabilité que le point $(X, Y)$ tombe dans une région $D$ est le volume au-dessus de $D$ : $P\big((X, Y) \in D\big) = \iint_D f(x, y)\thinspace dx\thinspace dy$. Tout se transpose du §5, en remplaçant les sommes par des intégrales :
+- la **densité marginale** de $X$ : $f_X(x) = \int_{-\infty}^{+\infty} f(x, y)\thinspace dy$ (on intègre l'autre variable) ;
+- $X$ et $Y$ sont **indépendantes** si et seulement si $f(x, y) = f_X(x)\thinspace f_Y(y)$.
 
-Exemple : $f(x, y) = x + y$ sur $[0 ; 1]^2$ (et 0 ailleurs) est une densité jointe : elle est positive, et $\int_0^1\int_0^1 (x + y)\,dy\,dx = \int_0^1 \big(x + \frac{1}{2}\big)dx = \frac{1}{2} + \frac{1}{2} = 1$. Sa marginale est $f_X(x) = \int_0^1 (x + y)\,dy = x + \frac{1}{2}$ sur $[0 ; 1]$, et de même $f_Y(y) = y + \frac{1}{2}$. Comme $\big(x + \frac{1}{2}\big)\big(y + \frac{1}{2}\big) \ne x + y$ (en $x = y = 0$ : $\frac{1}{4} \ne 0$), $X$ et $Y$ sont dépendantes. Enfin
+Exemple : $f(x, y) = x + y$ sur $[0 ; 1]^2$ (et 0 ailleurs) est une densité jointe : elle est positive, et $\int_0^1\int_0^1 (x + y)\thinspace dy\thinspace dx = \int_0^1 \big(x + \frac{1}{2}\big)dx = \frac{1}{2} + \frac{1}{2} = 1$. Sa marginale est $f_X(x) = \int_0^1 (x + y)\thinspace dy = x + \frac{1}{2}$ sur $[0 ; 1]$, et de même $f_Y(y) = y + \frac{1}{2}$. Comme $\big(x + \frac{1}{2}\big)\big(y + \frac{1}{2}\big) \ne x + y$ (en $x = y = 0$ : $\frac{1}{4} \ne 0$), $X$ et $Y$ sont dépendantes. Enfin
 
-$$P\Big(X \le \frac{1}{2},\ Y \le \frac{1}{2}\Big) = \int_0^{1/2}\left(\int_0^{1/2}(x + y)\,dy\right)dx = \int_0^{1/2}\left(\frac{x}{2} + \frac{1}{8}\right)dx = \frac{1}{16} + \frac{1}{16} = \frac{1}{8}.$$
+$$P\Big(X \le \frac{1}{2},\ Y \le \frac{1}{2}\Big) = \int_0^{1/2}\left(\int_0^{1/2}(x + y)\thinspace dy\right)dx = \int_0^{1/2}\left(\frac{x}{2} + \frac{1}{8}\right)dx = \frac{1}{16} + \frac{1}{16} = \frac{1}{8}.$$
 
 ### Les coordonnées polaires
 
-Sur un disque, les rectangles ne sont pas pratiques. On repère un point par sa distance $r \ge 0$ à l'origine et son angle $\theta \in [0 ; 2\pi[$ (R9) : $x = r\cos\theta$, $y = r\sin\theta$, et $x^2 + y^2 = r^2$. Un petit « rectangle polaire », entre les rayons $r$ et $r + dr$ et les angles $\theta$ et $\theta + d\theta$, est presque un rectangle de côtés $dr$ et $r\,d\theta$ (un arc de cercle de rayon $r$ et d'angle $d\theta$ a pour longueur $r\,d\theta$, R9). D'où la règle, admise :
+Sur un disque, les rectangles ne sont pas pratiques. On repère un point par sa distance $r \ge 0$ à l'origine et son angle $\theta \in [0 ; 2\pi[$ (R9) : $x = r\cos\theta$, $y = r\sin\theta$, et $x^2 + y^2 = r^2$. Un petit « rectangle polaire », entre les rayons $r$ et $r + dr$ et les angles $\theta$ et $\theta + d\theta$, est presque un rectangle de côtés $dr$ et $r\thinspace d\theta$ (un arc de cercle de rayon $r$ et d'angle $d\theta$ a pour longueur $r\thinspace d\theta$, R9). D'où la règle, admise :
 
-$$dx\,dy \quad \text{devient} \quad r\,dr\,d\theta.$$
+$$dx\thinspace dy \quad \text{devient} \quad r\thinspace dr\thinspace d\theta.$$
 
 Le facteur $r$ est essentiel : loin de l'origine, les rectangles polaires sont plus grands. Exemples, sur le disque $D_R$ de centre $O$ et de rayon $R$ :
 
-$$\iint_{D_R} 1\,dx\,dy = \int_0^{2\pi}\left(\int_0^R r\,dr\right)d\theta = 2\pi \times \frac{R^2}{2} = \pi R^2, \qquad \iint_{D_R}(x^2 + y^2)\,dx\,dy = \int_0^{2\pi}\int_0^R r^2 \cdot r\,dr\,d\theta = \frac{\pi R^4}{2}.$$
+$$\iint_{D_R} 1\thinspace dx\thinspace dy = \int_0^{2\pi}\left(\int_0^R r\thinspace dr\right)d\theta = 2\pi \times \frac{R^2}{2} = \pi R^2, \qquad \iint_{D_R}(x^2 + y^2)\thinspace dx\thinspace dy = \int_0^{2\pi}\int_0^R r^2 \cdot r\thinspace dr\thinspace d\theta = \frac{\pi R^4}{2}.$$
 
 La première redonne l'aire du disque : la règle est cohérente.
 
 ### L'intégrale de Gauss, enfin démontrée
 
-M02a a admis $I = \int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$. L'idée de la démonstration tient en une ligne : calculer $I^2$ plutôt que $I$. Par le cas d'un produit, $I^2 = \int e^{-x^2}dx \times \int e^{-y^2}dy = \iint_{\mathbb{R}^2} e^{-(x^2 + y^2)}\,dx\,dy$, et cette intégrale double, qui dépend seulement de $x^2 + y^2 = r^2$, se calcule en coordonnées polaires, où le facteur $r$ fait apparaître la dérivée de $-\frac{1}{2}e^{-r^2}$. M02b.12 mène le calcul jusqu'au bout, avec soin (on intègre d'abord sur des carrés et des disques de taille finie, puis on fait tendre la taille vers l'infini). Conséquence (M02a §4) : $\int_{-\infty}^{+\infty} e^{-t^2/2}\,dt = \sqrt{2\pi}$, et la densité normale a bien une aire de 1.
+M02a a admis $I = \int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi}$. L'idée de la démonstration tient en une ligne : calculer $I^2$ plutôt que $I$. Par le cas d'un produit, $I^2 = \int e^{-x^2}dx \times \int e^{-y^2}dy = \iint_{\mathbb{R}^2} e^{-(x^2 + y^2)}\thinspace dx\thinspace dy$, et cette intégrale double, qui dépend seulement de $x^2 + y^2 = r^2$, se calcule en coordonnées polaires, où le facteur $r$ fait apparaître la dérivée de $-\frac{1}{2}e^{-r^2}$. M02b.12 mène le calcul jusqu'au bout, avec soin (on intègre d'abord sur des carrés et des disques de taille finie, puis on fait tendre la taille vers l'infini). Conséquence (M02a §4) : $\int_{-\infty}^{+\infty} e^{-t^2/2}\thinspace dt = \sqrt{2\pi}$, et la densité normale a bien une aire de 1.
 
 🔗 **Dans workbookIA** — les nuages de points à deux dimensions et leurs densités jointes (chapitre 2, puis les lois normales à plusieurs dimensions du chapitre 25) ; les espérances de la partie II sont souvent des intégrales multiples, approchées par des moyennes de tirages.
 
@@ -512,12 +512,12 @@ Si $X$ a une loi connue et $Y = g(X)$, quelle est la loi de $Y$ ? La méthode s�
 
 **Une transformation affine** $Y = aX + b$, avec $a > 0$ :
 
-$$F_Y(y) = P(aX + b \le y) = P\Big(X \le \frac{y - b}{a}\Big) = F_X\Big(\frac{y - b}{a}\Big), \qquad f_Y(y) = \frac{1}{a}\,f_X\Big(\frac{y - b}{a}\Big)$$
+$$F_Y(y) = P(aX + b \le y) = P\Big(X \le \frac{y - b}{a}\Big) = F_X\Big(\frac{y - b}{a}\Big), \qquad f_Y(y) = \frac{1}{a}\thinspace f_X\Big(\frac{y - b}{a}\Big)$$
 
 (dérivée d'une composée, R7). Pour $a < 0$, l'inégalité change de sens quand on divise par $a$, et l'on trouve $f_Y(y) = \frac{1}{\lvert a \rvert}f_X\big(\frac{y - b}{a}\big)$. Le facteur $\frac{1}{\lvert a \rvert}$ compense l'étirement : étirer une densité d'un facteur $a$ divise sa hauteur par $a$, et l'aire reste 1.
 
 Exemples :
-- **Changer d'unité.** $T \sim \mathcal{E}(3)$ en heures ; en minutes, $Y = 60T$ a pour densité $\frac{1}{60} \times 3e^{-3y/60} = 0{,}05\,e^{-0{,}05y}$ : $Y \sim \mathcal{E}(0{,}05)$, d'espérance 20 minutes.
+- **Changer d'unité.** $T \sim \mathcal{E}(3)$ en heures ; en minutes, $Y = 60T$ a pour densité $\frac{1}{60} \times 3e^{-3y/60} = 0{,}05\thinspace e^{-0{,}05y}$ : $Y \sim \mathcal{E}(0{,}05)$, d'espérance 20 minutes.
 - **Standardiser** (§3). Pour $X \sim \mathcal{N}(\mu, \sigma^2)$ et $Z = \frac{X - \mu}{\sigma}$ (soit $a = \frac{1}{\sigma}$, $b = -\frac{\mu}{\sigma}$), on a $\frac{z - b}{a} = \mu + \sigma z$, donc $f_Z(z) = \sigma \cdot \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(\sigma z)^2}{2\sigma^2}} = \varphi(z)$ : $Z \sim \mathcal{N}(0, 1)$.
 - **Dans l'autre sens**, $X = \mu + \sigma Z$ suit $\mathcal{N}(\mu, \sigma^2)$ quand $Z \sim \mathcal{N}(0, 1)$. C'est ainsi qu'on tire une normale quelconque à partir d'une normale standard. En deep learning, cette écriture s'appelle l'**astuce de reparamétrisation** : le hasard est dans $Z$, et $\mu$ et $\sigma$ deviennent des paramètres qu'on peut ajuster par gradient (workbookIA, chapitre 25).
 
@@ -529,7 +529,7 @@ C'est la loi du **khi-deux** à un degré de liberté, qui reviendra en statisti
 
 ![La loi de Z² : un histogramme de 100 000 tirages et la densité e^(−y/2)/√(2πy)](figures/loi_du_carre.png)
 
-**La formule générale** (admise) : si $g$ est strictement monotone et dérivable, de réciproque $g^{-1}$, alors $Y = g(X)$ a pour densité $f_Y(y) = f_X\big(g^{-1}(y)\big)\,\big\lvert (g^{-1})'(y) \big\rvert$. La méthode par $F$ reste la plus sûre : elle marche aussi pour $Z^2$, qui n'est pas monotone.
+**La formule générale** (admise) : si $g$ est strictement monotone et dérivable, de réciproque $g^{-1}$, alors $Y = g(X)$ a pour densité $f_Y(y) = f_X\big(g^{-1}(y)\big)\thinspace\big\lvert (g^{-1})'(y) \big\rvert$. La méthode par $F$ reste la plus sûre : elle marche aussi pour $Z^2$, qui n'est pas monotone.
 
 ### Simuler par inversion
 
@@ -582,10 +582,10 @@ La même idée donne la loi géométrique sans boucle (M02b.20) : $X > k$ équiv
 | standardiser | $\frac{x - \mu}{\sigma^2}$, ou $\Phi(-z) = -\Phi(z)$ | $z = \frac{x - \mu}{\sigma}$, et $\Phi(-z) = 1 - \Phi(z)$ |
 | densité | $P(T = 1) = f(1)$ | $P(T = 1) = 0$ ; $f(1)$ est une probabilité par unité de longueur |
 | transfert | $\mathbb{E}[g(X)] = g(\mathbb{E}[X])$ | vrai pour $g$ affine seulement : $\mathbb{E}[X^2] \ne \mathbb{E}[X]^2$ |
-| variance affine | $\mathbb{V}(aX + b) = a\,\mathbb{V}(X) + b$ | $a^2\,\mathbb{V}(X)$ : le décalage $b$ ne disperse pas |
+| variance affine | $\mathbb{V}(aX + b) = a\thinspace\mathbb{V}(X) + b$ | $a^2\thinspace\mathbb{V}(X)$ : le décalage $b$ ne disperse pas |
 | écart-type d'une somme | $\sigma(X + Y) = \sigma(X) + \sigma(Y)$ | si indépendantes : $\sigma(X + Y) = \sqrt{\sigma(X)^2 + \sigma(Y)^2}$ |
 | différence | $\mathbb{V}(X - Y) = \mathbb{V}(X) - \mathbb{V}(Y)$ | $\mathbb{V}(X) + \mathbb{V}(Y)$ si indépendantes |
-| $2X$ et $X_1 + X_2$ | $\mathbb{V}(2X) = 2\,\mathbb{V}(X)$ | $\mathbb{V}(2X) = 4\,\mathbb{V}(X)$ ; c'est $\mathbb{V}(X_1 + X_2)$, avec $X_1$, $X_2$ indépendantes de même loi, qui vaut $2\,\mathbb{V}(X)$ |
+| $2X$ et $X_1 + X_2$ | $\mathbb{V}(2X) = 2\thinspace\mathbb{V}(X)$ | $\mathbb{V}(2X) = 4\thinspace\mathbb{V}(X)$ ; c'est $\mathbb{V}(X_1 + X_2)$, avec $X_1$, $X_2$ indépendantes de même loi, qui vaut $2\thinspace\mathbb{V}(X)$ |
 | indépendance | vérifier une seule case de la loi jointe pour conclure à l'indépendance | une case fausse prouve la dépendance ; l'indépendance demande toutes les cases |
 | marginales | « les marginales donnent la loi jointe » | seulement si les variables sont indépendantes |
 | changement de variable | $f_Y(y) = f_X\big(\frac{y - b}{a}\big)$ | multiplier par $\frac{1}{\lvert a \rvert}$ : l'aire doit rester 1 |

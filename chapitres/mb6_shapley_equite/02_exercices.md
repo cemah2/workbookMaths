@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les joueurs d'un jeu sont nommés par des lettres ou numérotés de 1 à $n$ sur papier, de 0 à $n - 1$ dans le code ; $N$ est le grand groupe, $S$ une coalition de taille $s$, $\bar S$ son complément ; $v(\varnothing)$ n'est pas forcément nul, et l'efficacité s'écrit $\sum_i\varphi_i = v(N) - v(\varnothing)$ ($c$ pour un coût). $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$ est le poids d'**une** coalition de taille $s$ ; un vote pondéré s'écrit $[q ;\ \omega_1, \ldots, \omega_n]$ (quota $q$, voix $\omega_i$) ; $d_T$ est le dividende de Harsanyi de $T$, $u_T$ son jeu d'unanimité. Au §3, $\operatorname{PD}_j(v) = \mathbb{E}[f(v, \mathbf{X}_{-j})]$ est la moyenne marginale et $M_j(v) = \mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ la moyenne conditionnelle. Au §4, un chemin $\boldsymbol\gamma$ a pour paramètre $t \in [0, 1]$, $\mathbf{r}$ est la référence d'un partage et $\mathbf{h} = \mathbf{x} - \mathbf{r}$. Au §5, une grille de $h$ lignes devient une grille de $H$ lignes ; la case d'arrivée $u$ a la coordonnée d'origine $\xi(u)$, et les lignes et les colonnes sont numérotées à partir de 0. Au §6, $\rho_S$ est la corrélation de rangs de Spearman. Aux §7 et §8, $G$ est le groupe, $Y$ le label (1 : l'événement a lieu), $\hat Y$ la décision, $S$ le score, $p_g$ le taux de base du groupe $g$ ; le taux de détection est le TPR, le taux de fausses alertes le FPR ; au §8, $\theta_g$ est une proportion du groupe $g$ (son taux de détection) et $\hat\theta_g$ son estimation ; $q$ est la probabilité de tirer un seuil, $w(g, y)$ un poids de repondération. Les logarithmes sont népériens.
+Dans tout le chapitre, comme dans la fiche : les joueurs d'un jeu sont nommés par des lettres ou numérotés de 1 à $n$ sur papier, de 0 à $n - 1$ dans le code ; $N$ est le grand groupe, $S$ une coalition de taille $s$, $\bar S$ son complément ; $v(\varnothing)$ n'est pas forcément nul, et l'efficacité s'écrit $\sum_i\varphi_i = v(N) - v(\varnothing)$ ($c$ pour un coût). $w(s) = \frac{s!\thinspace(n - 1 - s)!}{n!}$ est le poids d'**une** coalition de taille $s$ ; un vote pondéré s'écrit $[q ;\ \omega_1, \ldots, \omega_n]$ (quota $q$, voix $\omega_i$) ; $d_T$ est le dividende de Harsanyi de $T$, $u_T$ son jeu d'unanimité. Au §3, $\operatorname{PD} _j(v) = \mathbb{E}[f(v, \mathbf{X} _{-j})]$ est la moyenne marginale et $M_j(v) = \mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ la moyenne conditionnelle. Au §4, un chemin $\boldsymbol\gamma$ a pour paramètre $t \in [0, 1]$, $\mathbf{r}$ est la référence d'un partage et $\mathbf{h} = \mathbf{x} - \mathbf{r}$. Au §5, une grille de $h$ lignes devient une grille de $H$ lignes ; la case d'arrivée $u$ a la coordonnée d'origine $\xi(u)$, et les lignes et les colonnes sont numérotées à partir de 0. Au §6, $\rho_S$ est la corrélation de rangs de Spearman. Aux §7 et §8, $G$ est le groupe, $Y$ le label (1 : l'événement a lieu), $\hat Y$ la décision, $S$ le score, $p_g$ le taux de base du groupe $g$ ; le taux de détection est le TPR, le taux de fausses alertes le FPR ; au §8, $\theta_g$ est une proportion du groupe $g$ (son taux de détection) et $\hat\theta_g$ son estimation ; $q$ est la probabilité de tirer un seuil, $w(g, y)$ un poids de repondération. Les logarithmes sont népériens.
 
 <a id="quiz"></a>
 
@@ -27,7 +27,7 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 ### MB6.Q2 — Fixer une variable : moyenne marginale ou conditionnelle, courbes ICE parallèles ou non 🧠 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
-1. Laquelle de ces quantités est la dépendance partielle $\operatorname{PD}_j(v)$ : (A) $\mathbb{E}[f(v, \mathbf{X}_{-j})]$ ; (B) $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ ; (C) $f(v, \mathbf{x}_{1,-j})$, pour le premier point $\mathbf{x}_1$ d'un échantillon ?
+1. Laquelle de ces quantités est la dépendance partielle $\operatorname{PD} _j(v)$ : (A) $\mathbb{E}[f(v, \mathbf{X}  _{-j})]$ ; (B) $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$ ; (C) $f(v, \mathbf{x} _{1,-j})$, pour le premier point $\mathbf{x}_1$ d'un échantillon ?
 2. À quelle condition sur la loi de $\mathbf{X}$ les fonctions $\operatorname{PD}_j$ et $M_j$ sont-elles égales, quelle que soit $f$ ?
 3. $f(x_1, x_2) = x_1 - 4x_2$, et $(X_1, X_2)$ est un couple gaussien de moyennes nulles, de variances 1 et de corrélation $0{,}6$. Quelles sont les pentes de $\operatorname{PD}_1$ et de $M_1$ ?
 4. Les courbes ICE de $x_1$ sont-elles parallèles pour $f(x_1, x_2) = \sin x_1 + x_2^2$ ? Pour $f(x_1, x_2) = e^{x_1 - x_2}$ ?
@@ -64,9 +64,9 @@ Une usine contrôle ses pièces sur deux lignes ($G$) : le contrôle rejette une
 *Fiche §8 · parcours C, E*
 
 Vrai ou faux ?
-1. Tirer pour chaque exemple, indépendamment de son label, le seuil A avec la probabilité $q$, et le seuil B sinon, donne le taux de détection $q\,\mathrm{TPR}_A + (1 - q)\,\mathrm{TPR}_B$.
+1. Tirer pour chaque exemple, indépendamment de son label, le seuil A avec la probabilité $q$, et le seuil B sinon, donne le taux de détection $q\thinspace\mathrm{TPR}_A + (1 - q)\thinspace\mathrm{TPR}_B$.
 2. En faisant varier $q$, ce tirage atteint tous les points du segment qui joint les points ROC de A et de B.
-3. Repondérer par $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$ change la part de chaque groupe dans l'ensemble des exemples.
+3. Repondérer par $w(g, y) = \frac{P(g)\thinspace P(y)}{P(g, y)}$ change la part de chaque groupe dans l'ensemble des exemples.
 4. L'erreur type de l'écart de deux taux estimés sur des échantillons indépendants est la somme de leurs erreurs types.
 5. Quadrupler l'effectif d'un seul des deux groupes divise par 2 l'erreur type de l'écart.
 
@@ -91,7 +91,7 @@ $f(x, y) = 2x^3y - y^3$ et le chemin $\boldsymbol\gamma(t) = (1 + t,\ 2 - t)$.
 2. $\boldsymbol\gamma(1)$ et $\boldsymbol\gamma'(t)$.
 3. $(f\circ\boldsymbol\gamma)'(1)$ par la règle de la chaîne.
 4. La dérivée directionnelle de $f$ en $(2, 1)$ dans la direction unitaire de $(1, 1)$ (3 décimales).
-5. $\frac{\partial^2f}{\partial x\,\partial y}$ et $\frac{\partial^2f}{\partial y\,\partial x}$ en $(2, 1)$ : que dit le théorème de Schwarz ?
+5. $\frac{\partial^2f}{\partial x\thinspace\partial y}$ et $\frac{\partial^2f}{\partial y\thinspace\partial x}$ en $(2, 1)$ : que dit le théorème de Schwarz ?
 
 ### MB6.R3 — La loi conditionnelle d'un couple gaussien : une moyenne affine en la valeur observée (M25a) 🔁 ★ ⏱️ 6 min
 *Fiche §3 · parcours C, E*
@@ -126,7 +126,7 @@ Un conseil de quartier a quatre membres, A, B, C et D, qui ont 8, 6, 3 et 1 voix
 | c | D obtient une voix de plus (2 voix ; le quota reste 11) : les nouveaux comptes de pivots | une liste de 4 entiers |
 | d | on estime l'indice d'un membre par la part des ordres où il est pivot, sur $m$ ordres tirés au hasard : le plus petit $m$ qui garantit, par l'inégalité de Hoeffding, une erreur d'au plus $0{,}05$ avec une probabilité au moins $0{,}96$ | un entier |
 
-Dans ta copie : vérifie que $v(S \cup \{B\}) = v(S \cup \{C\})$ pour les quatre coalitions $S \subseteq \{A, D\}$ ; dis pourquoi D est nul en a).
+Dans ta copie : vérifie que $v(S \cup \lbrace B\rbrace) = v(S \cup \lbrace C\rbrace)$ pour les quatre coalitions $S \subseteq \lbrace A, D\rbrace$ ; dis pourquoi D est nul en a).
 
 ### Ex MB6.2 — Trois hameaux partagent une conduite d'eau : la valeur de Shapley par les ordres, les dividendes de Harsanyi, le partage tronçon par tronçon, et les quatre axiomes vérifiés ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer une valeur de Shapley par les ordres et par les dividendes, et retrouver la règle de l'aéroport par les axiomes.
@@ -137,7 +137,7 @@ Trois hameaux, H1, H2 et H3, s'alignent dans une vallée, dans cet ordre depuis 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la part de chaque hameau (H1, H2, H3), par les six ordres | une liste de 3 nombres (1 décimale) |
-| b | les dividendes des trois paires $\{H1, H2\}$, $\{H1, H3\}$, $\{H2, H3\}$ | une liste de 3 nombres |
+| b | les dividendes des trois paires $\lbrace H1, H2\rbrace$, $\lbrace H1, H3\rbrace$, $\lbrace H2, H3\rbrace$ | une liste de 3 nombres |
 | c | le dividende des trois hameaux ensemble | un nombre |
 | d | le devis du tronçon de H1 à H2 augmente de 8 k€ : les nouvelles parts | une liste de 3 nombres (1 décimale) |
 
@@ -148,8 +148,8 @@ Dans ta copie : écris $c$ comme la somme de trois jeux de tronçon, et dis ce q
 **Prérequis :** fiche §3 ; M05b (dérivées croisées), M25a (loi conditionnelle d'un couple gaussien) · **Parcours :** C, E
 
 Le rendement d'une parcelle de blé (en t/ha) dépend de la pluie du printemps $p$ (en centaines de mm) et de l'engrais $e$ (en centaines de kg/ha). Deux modèles écrits :
-- modèle 1 : $f_1(p, e) = 1{,}5 + 0{,}6\,p + 2{,}4\,e - 0{,}4\,e^2$ ;
-- modèle 2 : $f_2(p, e) = 7{,}5 - 0{,}5\,(p - e - 3)^2$, où le rendement dépend de l'écart entre la pluie et l'engrais.
+- modèle 1 : $f_1(p, e) = 1{,}5 + 0{,}6\thinspace p + 2{,}4\thinspace e - 0{,}4\thinspace e^2$ ;
+- modèle 2 : $f_2(p, e) = 7{,}5 - 0{,}5\thinspace(p - e - 3)^2$, où le rendement dépend de l'écart entre la pluie et l'engrais.
 
 Trois parcelles reçoivent $p = 4$ ; $5{,}5$ et $7$. Puis, sur toute la région, (pluie, engrais) est un couple gaussien $(P, E)$ : $P \sim \mathcal{N}(5{,}5 ;\ 1{,}2^2)$, $E \sim \mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $0{,}35$.
 
@@ -157,7 +157,7 @@ Trois parcelles reçoivent $p = 4$ ; $5{,}5$ et $7$. Puis, sur toute la région,
 |---|---|---|
 | a | modèle 1 : le gain de rendement quand l'engrais passe de 1 à 2, pour les trois parcelles | une liste de 3 nombres (1 décimale) |
 | b | modèle 2 : le même gain, pour les trois parcelles | une liste de 3 nombres (1 décimale) |
-| c | la dérivée croisée $\frac{\partial^2f}{\partial p\,\partial e}$ du modèle 1, puis du modèle 2 | une liste de 2 nombres |
+| c | la dérivée croisée $\frac{\partial^2f}{\partial p\thinspace\partial e}$ du modèle 1, puis du modèle 2 | une liste de 2 nombres |
 | d | modèle 1 : la moyenne marginale $\operatorname{PD}(2) = \mathbb{E}[f_1(P, 2)]$, puis la moyenne conditionnelle $M(2) = \mathbb{E}[f_1(P, E) \mid E = 2]$ | une liste de 2 nombres (3 décimales) |
 | e | modèle 1 : la pente de l'écart $M(v) - \operatorname{PD}(v)$ | un nombre (3 décimales) |
 
@@ -183,7 +183,7 @@ Dans ta copie : compare a), b) et c) à $f(B) - f(A)$ ; dis ce que d) prouve sur
 **Objectif :** partager la variation d'un produit de trois facteurs le long du segment et par les chemins en escalier, et voir pourquoi les deux partages coïncident.
 **Prérequis :** fiche §4 ; M02a (intégrale d'un polynôme), MB6.2 · **Parcours :** C
 
-Une entreprise achète des pièces en dollars et paie en euros : $C = p\,q\,\tau$, avec le prix unitaire $p$ (en \$), la quantité $q$ et le taux de change $\tau$ (en €/\$). Au premier trimestre (la référence $\mathbf{r}$) : $p = 11{,}50$ \$, $q = 680$, $\tau = 0{,}93$ €/\$ ; au second (le point $\mathbf{x}$) : $p = 13{,}50$ \$, $q = 590$, $\tau = 0{,}87$ €/\$.
+Une entreprise achète des pièces en dollars et paie en euros : $C = p\thinspace q\thinspace\tau$, avec le prix unitaire $p$ (en \$), la quantité $q$ et le taux de change $\tau$ (en €/\$). Au premier trimestre (la référence $\mathbf{r}$) : $p = 11{,}50$ \$, $q = 680$, $\tau = 0{,}93$ €/\$ ; au second (le point $\mathbf{x}$) : $p = 13{,}50$ \$, $q = 590$, $\tau = 0{,}87$ €/\$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -199,7 +199,7 @@ Dans ta copie : dis pourquoi b) et d) coïncident.
 **Prérequis :** fiche §5 ; R3 (fonction affine par deux points), M05b (dérivée directionnelle) · **Parcours :** C, E
 
 Douze capteurs couvrent une région en 3 lignes et 4 colonnes ; ils relèvent la température moyenne de mars $T$ (en °C), et chaque case a une surface cultivée $a$ (en centaines d'hectares) :
-$$\mathbf{T} = \begin{pmatrix} 11{,}8 & 9{,}4 & 13{,}2 & 10{,}8 \\ 8{,}7 & 12{,}5 & 14{,}1 & 9{,}9 \\ 10{,}3 & 7{,}6 & 12{,}0 & 11{,}4 \end{pmatrix}, \qquad \mathbf{a} = \begin{pmatrix} 2 & 1 & 3 & 1 \\ 1 & 2 & 2 & 1 \\ 3 & 1 & 1 & 2 \end{pmatrix}.$$
+$$\mathbf{T} = \begin{pmatrix} 11{,}8 & 9{,}4 & 13{,}2 & 10{,}8 \cr 8{,}7 & 12{,}5 & 14{,}1 & 9{,}9 \cr 10{,}3 & 7{,}6 & 12{,}0 & 11{,}4 \end{pmatrix}, \qquad \mathbf{a} = \begin{pmatrix} 2 & 1 & 3 & 1 \cr 1 & 2 & 2 & 1 \cr 3 & 1 & 1 & 2 \end{pmatrix}.$$
 L'indice régional est $y = \sum_{i, j}a_{ij}\max(0,\ T_{ij} - 10)$ (des degrés au-dessus de 10 °C, pondérés par les surfaces). Puis on agrandit la grille $\mathbf{T}$ en $6 \times 8$ par interpolation bilinéaire.
 
 | | Question | Réponse attendue |
@@ -246,7 +246,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 On fixe $n$ joueurs. Un jeu est une fonction $v$ des $2^n$ coalitions dans $\mathbb{R}$ ; les jeux forment un espace vectoriel de dimension $2^n$. Pour $T \ne \varnothing$, $u_T$ vaut 1 sur les coalitions qui contiennent $T$, 0 ailleurs ; $u_\varnothing$ vaut 1 partout.
 1. Pour un jeu $v$, pose $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}v(S)$. Montre que $v(S) = \sum_{T \subseteq S}d_T$ pour toute coalition $S$.
 2. Déduis-en que les $2^n$ jeux $u_T$ forment une base de l'espace des jeux.
-3. Soit une règle de partage $\varphi$ qui vérifie l'efficacité, la symétrie et le joueur nul. Pour $T \ne \varnothing$ et un réel $c$, montre que $\varphi_i(c\,u_T) = \frac{c}{\lvert T\rvert}$ si $i \in T$, et 0 sinon. Que vaut $\varphi(c\,u_\varnothing)$ ?
+3. Soit une règle de partage $\varphi$ qui vérifie l'efficacité, la symétrie et le joueur nul. Pour $T \ne \varnothing$ et un réel $c$, montre que $\varphi_i(c\thinspace u_T) = \frac{c}{\lvert T\rvert}$ si $i \in T$, et 0 sinon. Que vaut $\varphi(c\thinspace u_\varnothing)$ ?
 4. On ajoute l'additivité. Montre que $\varphi_i(v) = \sum_{T \ni i}\frac{d_T}{\lvert T\rvert}$ pour tout jeu $v$.
 5. La valeur de Shapley vérifie les quatre axiomes (fiche §2). Conclus.
 
@@ -256,7 +256,7 @@ On fixe $n$ joueurs. Un jeu est une fonction $v$ des $2^n$ coalitions dans $\mat
 
 Dans un groupe, un score $S$ à valeurs dans $[0, 1]$ (en nombre fini) est **calibré** : $P(Y = 1 \mid S = s) = s$ pour chaque valeur $s$ qu'il prend. On note $p = P(Y = 1)$, avec $0 < p < 1$, $a = \mathbb{E}[S \mid Y = 1]$ et $b = \mathbb{E}[S \mid Y = 0]$ (a et b sont propres à cet exercice).
 1. Montre que $\mathbb{E}[S] = p$.
-2. En écrivant $\mathbb{E}[S]$ par l'espérance totale sachant $Y$, déduis-en $p\,(1 - a) = (1 - p)\,b$.
+2. En écrivant $\mathbb{E}[S]$ par l'espérance totale sachant $Y$, déduis-en $p\thinspace(1 - a) = (1 - p)\thinspace b$.
 3. Deux groupes ont des scores calibrés de mêmes $a$ et $b$. Montre que, si $1 - a + b \ne 0$, leurs taux de base sont égaux. Montre que $1 - a + b = 0$ impose $S = Y$ presque sûrement.
 4. Contrôle. Sur la ligne 1 de MB6.7, un score annonce pour chaque pièce une probabilité d'être défectueuse ; sur 1 000 pièces : 750 pièces à $0{,}02$, dont 15 défectueuses ; 150 à $0{,}1$, dont 15 ; 100 à $0{,}3$, dont 30. Vérifie la calibration, calcule $p$, $a$ et $b$, puis l'identité de 2. Si la ligne 2 (14 % de défauts) avait un score calibré de mêmes $a$ et $b$, quel serait son taux de base ?
 
@@ -265,7 +265,7 @@ Dans un groupe, un score $S$ à valeurs dans $[0, 1]$ (en nombre fini) est **cal
 **Prérequis :** fiche §7 et §8 ; M03 (probabilités totales, indépendance) · **Parcours :** C, E
 
 1. Deux groupes ont des taux de base $p_1 \ne p_2$ ; une décision a, dans le groupe $g$, le taux de détection $t_g$ et le taux de fausses alertes $f_g$. Écris $P(\hat Y = 1 \mid G = g)$ avec $p_g$, $t_g$ et $f_g$, et déduis-en que, si $p_1 = p_2$, la séparation entraîne l'indépendance. Montre que la séparation ($t_1 = t_2 = t$ et $f_1 = f_2 = f$) et l'indépendance ensemble imposent $t = f$, puis que $t = f$ signifie $\hat Y \perp Y$ dans chaque groupe. Réciproquement, une décision telle que $\hat Y \perp Y$ dans chaque groupe vérifie-t-elle l'indépendance et la séparation ?
-2. Toutes les cases d'une table $(g, y)$ ont $P(g, y) > 0$, et $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$. Montre que $Q(g, y) = w(g, y)\,P(g, y)$ est une loi de probabilité, qu'elle a les marges $P(g)$ et $P(y)$, et que $G$ et $Y$ y sont indépendants.
+2. Toutes les cases d'une table $(g, y)$ ont $P(g, y) > 0$, et $w(g, y) = \frac{P(g)\thinspace P(y)}{P(g, y)}$. Montre que $Q(g, y) = w(g, y)\thinspace P(g, y)$ est une loi de probabilité, qu'elle a les marges $P(g)$ et $P(y)$, et que $G$ et $Y$ y sont indépendants.
 
 <a id="pont"></a>
 
@@ -334,7 +334,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **MB6.13 · 🔨 `coalition_weights(n_players, exact=False)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (`n_players` un entier $\ge 1$, pas un booléen ni un flottant ; `exact` un booléen), puis rends les $n$ poids $w(0), \ldots, w(n - 1)$, en `Fraction` ou en flottants. Lance le groupe de tests. Ensuite : a) les 9 poids pour $n = 9$, exacts (une liste de 9 fractions) ; b) pour $n = 25$, le conseil du 🏆, le rapport $\frac{w(0)}{w(12)}$ (un entier). Ce qu'il faut regarder : pourquoi une coalition de taille moyenne pèse-t-elle si peu, alors que chaque taille pèse $\frac1n$ en tout ?
 
-**MB6.14 · 🔨 `harsanyi_dividends(v, n_players)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; appelle `v` une fois par coalition (taille par taille, avec `itertools.combinations`) et garde les valeurs ; puis, pour chaque $T$, la somme alternée sur ses parties ; rends le dictionnaire dans l'ordre de la docstring. Lance le groupe de tests. Ensuite : a) les hameaux de MB6.2 (numérotés 0, 1, 2, besoins 30, 51 et 68) : $d_{\{0, 1\}}$, $d_{\{0, 2\}}$, $d_{\{1, 2\}}$, $d_{\{0, 1, 2\}}$ (une liste de 4 nombres, à comparer à ta copie) ; b) quatre maraîchers partagent un stand au marché ; le notebook fournit `TABLE_14`, le bénéfice hebdomadaire $v(S)$ de chaque coalition (en centaines d'euros), un dictionnaire indexé par des `frozenset` : leurs valeurs de Shapley par $\varphi_i = \sum_{T \ni i}\frac{d_T}{\lvert T\rvert}$ (une liste de 4 nombres) ; c) $d_{\{1, 2\}}$ et $d_{\{0, 1, 3\}}$ (une liste de 2 nombres) ; d) le conseil de MB6.1 (A, B, C, D numérotés 0 à 3) : $d_{\{0, 1\}}$, $d_{\{0, 2\}}$, $d_{\{0, 1, 2\}}$ (une liste de 3 nombres). Ce qu'il faut regarder : quel dividende du stand est négatif, et que dit-il des maraîchers 1 et 2 ? Dans le conseil, pourquoi $d_{\{0, 1, 2\}}$ est-il négatif ?
+**MB6.14 · 🔨 `harsanyi_dividends(v, n_players)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; appelle `v` une fois par coalition (taille par taille, avec `itertools.combinations`) et garde les valeurs ; puis, pour chaque $T$, la somme alternée sur ses parties ; rends le dictionnaire dans l'ordre de la docstring. Lance le groupe de tests. Ensuite : a) les hameaux de MB6.2 (numérotés 0, 1, 2, besoins 30, 51 et 68) : $d_{\lbrace0, 1\rbrace}$, $d_{\lbrace0, 2\rbrace}$, $d_{\lbrace1, 2\rbrace}$, $d_{\lbrace0, 1, 2\rbrace}$ (une liste de 4 nombres, à comparer à ta copie) ; b) quatre maraîchers partagent un stand au marché ; le notebook fournit `TABLE_14`, le bénéfice hebdomadaire $v(S)$ de chaque coalition (en centaines d'euros), un dictionnaire indexé par des `frozenset` : leurs valeurs de Shapley par $\varphi_i = \sum_{T \ni i}\frac{d_T}{\lvert T\rvert}$ (une liste de 4 nombres) ; c) $d_{\lbrace1, 2\rbrace}$ et $d_{\lbrace0, 1, 3\rbrace}$ (une liste de 2 nombres) ; d) le conseil de MB6.1 (A, B, C, D numérotés 0 à 3) : $d_{\lbrace0, 1\rbrace}$, $d_{\lbrace0, 2\rbrace}$, $d_{\lbrace0, 1, 2\rbrace}$ (une liste de 3 nombres). Ce qu'il faut regarder : quel dividende du stand est négatif, et que dit-il des maraîchers 1 et 2 ? Dans le conseil, pourquoi $d_{\lbrace0, 1, 2\rbrace}$ est-il négatif ?
 
 **MB6.15 · 🔨 `line_integral(field, points, n_sub=20)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (des points 2-D finis, au moins deux lignes ; `n_sub` un entier pair $\ge 2$ ; ce que rend `field`) ; pour chaque segment de $\mathbf{a}$ à $\mathbf{b}$, la règle de Simpson (M02a) sur les $n_{\text{sub}} + 1$ valeurs de $t \mapsto \mathbf{F}(\mathbf{a} + t(\mathbf{b} - \mathbf{a}))\cdot(\mathbf{b} - \mathbf{a})$, en appelant `field` point par point ; la somme sur les segments. Lance le groupe de tests. Ensuite : a) $\mathbf{F}$ de MB6.4 le long du segment $[AB]$, puis de l'escalier $A \to (2, 0) \to B$ (une liste de 2 nombres) ; b) $\mathbf{G}$ de MB6.4 le long des deux mêmes chemins (une liste de 2 nombres) ; c) $\mathbf{G}$ le long de lignes brisées qui suivent l'arc $\boldsymbol\gamma(t) = (1 + t, t^2)$, avec 4, 16 et 64 segments de même pas en $t$ (une liste de 3 nombres ; l'intégrale de $\mathbf{G}$ le long de l'arc vaut $\frac{55}{6}$). Ce qu'il faut regarder : la ligne brisée s'approche-t-elle de $\frac{55}{6}$ quand les segments se multiplient ? Pourquoi $\mathbf{F}$ donne-t-il la même valeur pour toutes ces lignes brisées ?
 
@@ -342,9 +342,9 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **MB6.17 · 🔮 Une boucle triangulaire.** Le triangle $A = (1, 0)$, $B = (4, 1)$, $C = (2, 3)$, et deux champs : $\mathbf{F}$ de MB6.4 (un gradient) et le champ tournant $\mathbf{R}(x, y) = (-y, x)$. **Avant d'exécuter**, prédis (une lettre chacune) : a) l'intégrale de $\mathbf{F}$ le long de la boucle $A \to B \to C \to A$ : (A) 0 ; (B) l'aire du triangle ; (C) elle dépend du triangle choisi ; b) celle de $\mathbf{R}$ le long de $A \to B \to C \to A$ : (A) 0 ; (B) l'aire du triangle ; (C) deux fois l'aire du triangle ; c) celle de $\mathbf{R}$ le long de $A \to C \to B \to A$ : (A) la même qu'en b) ; (B) l'opposée de b) ; (C) 0 ; d) celle de $\mathbf{R}$ quand on fait deux fois le tour $A \to B \to C \to A$ : (A) la même qu'en b) ; (B) le double de b) ; (C) le carré de b). Puis mesure avec `line_integral` : e) les quatre intégrales de a) à d) (une liste de 4 nombres). Ce qu'il faut regarder (après l'expérience) : l'aire du triangle vaut-elle ce que tu pensais ? Qu'est-ce qui, dans $\mathbf{R}$, tourne avec la boucle ? Une boucle d'intégrale nulle suffirait-elle à prouver qu'un champ est un gradient ?
 
-**MB6.18 · 🔬 Deux mesures corrélées d'un réservoir.** En été, la température de l'eau $T$ (°C) et la concentration en phosphore $U$ (µg/L) d'un réservoir d'eau forment un couple gaussien : $T \sim \mathcal{N}(22, 3^2)$, $U \sim \mathcal{N}(70, 8^2)$, de corrélation $\rho$. Une fonction écrite donne la croissance relative des algues : $f(T, U) = \exp\big(0{,}1\,(T - 22) + 0{,}05\,(U - 70)\big)$. On fixe $T = 26$. Pour $\rho = 0$ ; $0{,}5$ et $0{,}9$ : a) calcule par les formules $\operatorname{PD}(26) = \mathbb{E}[f(26, U)]$ et $M(26) = \mathbb{E}[f(T, U) \mid T = 26]$ (une liste de 4 nombres : $\operatorname{PD}(26)$, puis $M(26)$ pour les trois $\rho$) ; tu peux utiliser $\mathbb{E}[e^{cZ}] = e^{c\mu + c^2\sigma^2/2}$ pour $Z \sim \mathcal{N}(\mu, \sigma^2)$ ; b) tire 300 000 couples pour chaque $\rho$ (le notebook fournit le générateur) ; estime $\operatorname{PD}(26)$ par la moyenne des $f(26, U_i)$, et $M(26)$ par la moyenne des $f(T_i, U_i)$ sur les points où $\lvert T_i - 26\rvert \le 0{,}25$ (une liste de 6 nombres : pour chaque $\rho$, l'estimation de $\operatorname{PD}$ puis celle de $M$). Ce qu'il faut regarder : pour quel $\rho$ les deux moyennes sont-elles égales ? Pourquoi l'estimation de $M$ est-elle plus dispersée que celle de $\operatorname{PD}$ ? Que deviendrait-elle avec une fenêtre dix fois plus étroite ?
+**MB6.18 · 🔬 Deux mesures corrélées d'un réservoir.** En été, la température de l'eau $T$ (°C) et la concentration en phosphore $U$ (µg/L) d'un réservoir d'eau forment un couple gaussien : $T \sim \mathcal{N}(22, 3^2)$, $U \sim \mathcal{N}(70, 8^2)$, de corrélation $\rho$. Une fonction écrite donne la croissance relative des algues : $f(T, U) = \exp\big(0{,}1\thinspace(T - 22) + 0{,}05\thinspace(U - 70)\big)$. On fixe $T = 26$. Pour $\rho = 0$ ; $0{,}5$ et $0{,}9$ : a) calcule par les formules $\operatorname{PD}(26) = \mathbb{E}[f(26, U)]$ et $M(26) = \mathbb{E}[f(T, U) \mid T = 26]$ (une liste de 4 nombres : $\operatorname{PD}(26)$, puis $M(26)$ pour les trois $\rho$) ; tu peux utiliser $\mathbb{E}[e^{cZ}] = e^{c\mu + c^2\sigma^2/2}$ pour $Z \sim \mathcal{N}(\mu, \sigma^2)$ ; b) tire 300 000 couples pour chaque $\rho$ (le notebook fournit le générateur) ; estime $\operatorname{PD}(26)$ par la moyenne des $f(26, U_i)$, et $M(26)$ par la moyenne des $f(T_i, U_i)$ sur les points où $\lvert T_i - 26\rvert \le 0{,}25$ (une liste de 6 nombres : pour chaque $\rho$, l'estimation de $\operatorname{PD}$ puis celle de $M$). Ce qu'il faut regarder : pour quel $\rho$ les deux moyennes sont-elles égales ? Pourquoi l'estimation de $M$ est-elle plus dispersée que celle de $\operatorname{PD}$ ? Que deviendrait-elle avec une fenêtre dix fois plus étroite ?
 
-**MB6.19 · 🎨 Deux chemins dans un paysage.** Le notebook fournit `f_19(x, y)` $= 3e^{-((x - 1)^2 + (y - 1)^2)} - 2e^{-((x + 1)^2 + y^2)/2} + 0{,}2\,x$ et son gradient `grad_19`. Écris `draw_19(ax_map, ax_cum)`, qui trace : dans `ax_map`, les lignes de niveau de $f$ sur $[-3, 3]^2$ et deux chemins de $A = (-2{,}5 ;\ -1)$ à $B = (2, 2)$, le segment et la ligne brisée $A \to (0, -2) \to (2{,}5 ;\ 0) \to B$, avec une légende ; dans `ax_cum`, pour chaque chemin, l'intégrale du gradient de $f$ depuis $A$ jusqu'au point courant (avec `line_integral` sur le début du chemin), en fonction de la longueur parcourue depuis $A$ (au moins 50 points par segment), avec des noms d'axes ; la fonction rend les deux tableaux de cumuls tracés (le segment, puis la ligne brisée). La vérification compare tes cumuls à ceux de `line_integral` de la référence, à $0{,}005$ près. Relève : a) $f(B) - f(A)$ (un nombre) ; b) le plus grand cumul le long du segment, puis le long de la ligne brisée (une liste de 2 nombres). Ce qu'il faut regarder : où chaque chemin monte-t-il et descend-il ? Pourquoi les deux cumuls finissent-ils au même nombre ?
+**MB6.19 · 🎨 Deux chemins dans un paysage.** Le notebook fournit `f_19(x, y)` $= 3e^{-((x - 1)^2 + (y - 1)^2)} - 2e^{-((x + 1)^2 + y^2)/2} + 0{,}2\thinspace x$ et son gradient `grad_19`. Écris `draw_19(ax_map, ax_cum)`, qui trace : dans `ax_map`, les lignes de niveau de $f$ sur $[-3, 3]^2$ et deux chemins de $A = (-2{,}5 ;\ -1)$ à $B = (2, 2)$, le segment et la ligne brisée $A \to (0, -2) \to (2{,}5 ;\ 0) \to B$, avec une légende ; dans `ax_cum`, pour chaque chemin, l'intégrale du gradient de $f$ depuis $A$ jusqu'au point courant (avec `line_integral` sur le début du chemin), en fonction de la longueur parcourue depuis $A$ (au moins 50 points par segment), avec des noms d'axes ; la fonction rend les deux tableaux de cumuls tracés (le segment, puis la ligne brisée). La vérification compare tes cumuls à ceux de `line_integral` de la référence, à $0{,}005$ près. Relève : a) $f(B) - f(A)$ (un nombre) ; b) le plus grand cumul le long du segment, puis le long de la ligne brisée (une liste de 2 nombres). Ce qu'il faut regarder : où chaque chemin monte-t-il et descend-il ? Pourquoi les deux cumuls finissent-ils au même nombre ?
 
 **MB6.20 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe.
 - (1) `weights_bad(n)` doit rendre les poids $w(s)$ de la valeur de Shapley ; les poids, comptés autant de fois qu'il y a de coalitions de chaque taille, ne somment pas à 1. Il l'a vérifiée pour $n = 1$.

@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : le lagrangien s'écrit $f + \sum_i \mu_i g_i + \sum_j \lambda_j h_j$ pour des contraintes $g_i(\mathbf{x}) \le 0$ et $h_j(\mathbf{x}) = 0$, avec $\mu_i \ge 0$ ; les multiplicateurs d'une SVM s'écrivent $\alpha_i$ ; la **marge** est $\rho = 1/\lVert\mathbf{w}\rVert$ et la **bande** a une largeur $2\rho$ ; la marge fonctionnelle d'un exemple est $t_i = y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, avec $y_i \in \{-1, +1\}$ ; l'objectif de la marge souple est $J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - t_i)$, une **somme** de hinges ; le noyau RBF est $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$. Quand un énoncé fixe une autre convention de signe, il le dit.
+Dans tout le chapitre, comme dans la fiche : le lagrangien s'écrit $f + \sum_i \mu_i g_i + \sum_j \lambda_j h_j$ pour des contraintes $g_i(\mathbf{x}) \le 0$ et $h_j(\mathbf{x}) = 0$, avec $\mu_i \ge 0$ ; les multiplicateurs d'une SVM s'écrivent $\alpha_i$ ; la **marge** est $\rho = 1/\lVert\mathbf{w}\rVert$ et la **bande** a une largeur $2\rho$ ; la marge fonctionnelle d'un exemple est $t_i = y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, avec $y_i \in \lbrace-1, +1\rbrace$ ; l'objectif de la marge souple est $J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \max(0, 1 - t_i)$, une **somme** de hinges ; le noyau RBF est $e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$. Quand un énoncé fixe une autre convention de signe, il le dit.
 
 <a id="quiz"></a>
 
@@ -23,12 +23,12 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 3. Le minimum **libre** de $f$ vérifie justement $g = 0$ : que vaut le multiplicateur ?
 4. Avec trois variables et deux contraintes d'égalité, combien d'inconnues compte le système de Lagrange ?
 5. Un multiplicateur vaut $\lambda = -5$ pour la contrainte $g(\mathbf{x}) = c$ (lagrangien $f + \lambda(g - c)$). Le minimum monte-t-il ou baisse-t-il quand $c$ augmente de 0,1, et d'environ combien ?
-6. Pourquoi le théorème demande-t-il $\nabla g(\mathbf{x}^*) \ne \mathbf{0}$ ?
+6. Pourquoi le théorème demande-t-il $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$ ?
 
 ### M13b.Q2 — Contrainte active ou inactive ? 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-1. Qu'appelle-t-on une contrainte d'inégalité **active** au point $\mathbf{x}^*$ ?
+1. Qu'appelle-t-on une contrainte d'inégalité **active** au point $\mathbf{x}^\ast$ ?
 2. Vrai ou faux : une contrainte inactive a toujours un multiplicateur nul.
 3. Vrai ou faux : une contrainte active a toujours un multiplicateur strictement positif.
 4. Minimiser $(x - 3)^2$ sous $x \le 5$ : la contrainte est-elle active ? Et sous $x \le 1$ ?
@@ -40,7 +40,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 
 1. Comment se définit la fonction duale $D(\boldsymbol{\mu})$ à partir du lagrangien ?
 2. Vrai ou faux : la fonction duale est concave, même quand le problème primal ne l'est pas.
-3. Un problème a pour minimum $f^* = 7$. La fonction duale peut-elle valoir 8 en un $\boldsymbol{\mu} \ge \mathbf{0}$ ? Et 5 ?
+3. Un problème a pour minimum $f^\ast = 7$. La fonction duale peut-elle valoir 8 en un $\boldsymbol{\mu} \ge \mathbf{0}$ ? Et 5 ?
 4. Qu'est-ce que le saut de dualité, et quand est-il nul ?
 5. Vrai ou faux : le dual a une variable par inconnue du primal.
 6. Un point admissible $\mathbf{x}$ et des multiplicateurs $\boldsymbol{\mu} \ge \mathbf{0}$ vérifient $f(\mathbf{x}) = D(\boldsymbol{\mu})$. Que peut-on en conclure ?
@@ -80,9 +80,9 @@ Pour chaque problème, dis s'il est convexe, et pourquoi en une phrase.
 *Fiche §8 · parcours C, E*
 
 Pour chacune des fonctions $k(\mathbf{x}, \mathbf{z})$ de $\mathbb{R}^p \times \mathbb{R}^p$, dis si c'est un noyau valide, en une phrase.
-1. $k(\mathbf{x}, \mathbf{z}) = 3\,\mathbf{x} \cdot \mathbf{z}$.
+1. $k(\mathbf{x}, \mathbf{z}) = 3\thinspace\mathbf{x} \cdot \mathbf{z}$.
 2. $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z} + 5$.
-3. $k(\mathbf{x}, \mathbf{z}) = -\,\mathbf{x} \cdot \mathbf{z}$.
+3. $k(\mathbf{x}, \mathbf{z}) = -\thinspace\mathbf{x} \cdot \mathbf{z}$.
 4. $k(\mathbf{x}, \mathbf{z}) = (\mathbf{x} \cdot \mathbf{z})^3 + e^{-2\lVert\mathbf{x} - \mathbf{z}\rVert^2}$.
 5. $k(\mathbf{x}, \mathbf{z}) = x_1 z_2$ (en dimension 2).
 6. Vrai ou faux : si deux des points sont confondus, la matrice de Gram RBF est singulière.
@@ -124,8 +124,8 @@ $f(x, y) = x^2 - xy + 2y^2$.
 ### M13b.R3 — Matrices définies positives (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §5 et §8 · parcours C, E*
 
-1. La matrice $\begin{pmatrix} 6 & 2 \\ 2 & 1 \end{pmatrix}$ est-elle définie positive ? (Trace et déterminant.)
-2. Et $\begin{pmatrix} 2 & 3 \\ 3 & 4 \end{pmatrix}$ ?
+1. La matrice $\begin{pmatrix} 6 & 2 \cr 2 & 1 \end{pmatrix}$ est-elle définie positive ? (Trace et déterminant.)
+2. Et $\begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}$ ?
 3. La matrice de Gram (des produits scalaires deux à deux) des vecteurs $(1, 2, 1)$, $(0, 1, -1)$ et $(1, 3, 0)$ ?
 4. Est-elle définie positive, semi-définie positive, ou ni l'un ni l'autre ? Pourquoi ?
 5. Pourquoi une matrice de Gram est-elle toujours semi-définie positive ?
@@ -138,19 +138,19 @@ $f(x, y) = x^2 - xy + 2y^2$.
 **Objectif :** résoudre un problème d'optimisation sous une contrainte d'égalité par le lagrangien, et lire le multiplicateur comme une sensibilité.
 **Prérequis :** fiche §1 · **Parcours :** C, E
 
-On maximise le produit $P = xyz$ de trois nombres positifs sous la contrainte $x + 2y + 4z = 24$. Lagrangien, pour ce maximum : $\mathcal{L} = xyz - \lambda(x + 2y + 4z - 24)$ (avec ce signe, $\lambda$ est la sensibilité $\frac{dP^*}{dc}$ du maximum quand le second membre $c = 24$ varie).
+On maximise le produit $P = xyz$ de trois nombres positifs sous la contrainte $x + 2y + 4z = 24$. Lagrangien, pour ce maximum : $\mathcal{L} = xyz - \lambda(x + 2y + 4z - 24)$ (avec ce signe, $\lambda$ est la sensibilité $\frac{dP^\ast}{dc}$ du maximum quand le second membre $c = 24$ varie).
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le point $(x, y, z)$ du maximum | une liste de 3 nombres |
-| b | le produit maximal $P^*$ | un nombre |
+| b | le produit maximal $P^\ast$ | un nombre |
 | c | le multiplicateur $\lambda$ | un nombre |
-| d | l'estimation de $P^*$ pour $x + 2y + 4z = 25$ par $P^* + \lambda \times 1$ | un nombre |
-| e | la vraie valeur de $P^*$ pour $x + 2y + 4z = 25$ | une fraction |
-| f | $\frac{dP^*}{dc}$ en $c = 24$, à partir de la formule de $P^*(c)$ | un nombre |
+| d | l'estimation de $P^\ast$ pour $x + 2y + 4z = 25$ par $P^\ast + \lambda \times 1$ | un nombre |
+| e | la vraie valeur de $P^\ast$ pour $x + 2y + 4z = 25$ | une fraction |
+| f | $\frac{dP^\ast}{dc}$ en $c = 24$, à partir de la formule de $P^\ast(c)$ | un nombre |
 | g | le produit au point admissible $(12, 2, 2)$ | un nombre |
 
-Dans ta copie : écris les quatre équations du système et résous-les (montre que $x = 2y = 4z$). Établis la formule de $P^*(c)$ pour tout $c > 0$. Pourquoi la condition de Lagrange seule ne prouve-t-elle pas que c'est un maximum, et comment g) aide-t-il à s'en convaincre ?
+Dans ta copie : écris les quatre équations du système et résous-les (montre que $x = 2y = 4z$). Établis la formule de $P^\ast(c)$ pour tout $c > 0$. Pourquoi la condition de Lagrange seule ne prouve-t-elle pas que c'est un maximum, et comment g) aide-t-il à s'en convaincre ?
 
 ### Ex M13b.2 — La distance d'un point à un plan, retrouvée par Lagrange ✏️ ★★ ⏱️ 20 min
 **Objectif :** retrouver la projection orthogonale et la distance d'un point à un plan en minimisant un carré de distance sous une contrainte d'égalité.
@@ -174,27 +174,27 @@ Dans ta copie : écris la stationnarité, déduis-en que $\mathbf{x} - \mathbf{x
 **Prérequis :** fiche §2 ; M09a ; M12c.19 · **Parcours :** C, E
 
 On minimise $f(\mathbf{x}) = \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, avec
-$$\mathbf{Q} = \begin{pmatrix} 4 & 1 & 0 \\ 1 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}, \quad \mathbf{c} = \begin{pmatrix} -2 \\ 0 \\ 1 \end{pmatrix}, \quad \mathbf{A} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 0 & -1 \end{pmatrix}, \quad \mathbf{b} = \begin{pmatrix} 3 \\ 1 \end{pmatrix},$$
+$$\mathbf{Q} = \begin{pmatrix} 4 & 1 & 0 \cr 1 & 2 & 0 \cr 0 & 0 & 2 \end{pmatrix}, \quad \mathbf{c} = \begin{pmatrix} -2 \cr 0 \cr 1 \end{pmatrix}, \quad \mathbf{A} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 0 & -1 \end{pmatrix}, \quad \mathbf{b} = \begin{pmatrix} 3 \cr 1 \end{pmatrix},$$
 et le lagrangien $f(\mathbf{x}) + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la taille $N$ de la matrice par blocs (elle est $N \times N$) | un entier |
-| b | la solution $\mathbf{x}^*$ | une liste de 3 fractions |
+| b | la solution $\mathbf{x}^\ast$ | une liste de 3 fractions |
 | c | les multiplicateurs $\boldsymbol{\lambda}$ | une liste de 2 fractions |
-| d | $f(\mathbf{x}^*)$ | une fraction |
+| d | $f(\mathbf{x}^\ast)$ | une fraction |
 | e | le déterminant de la matrice par blocs | un entier |
 | f | la solution sous la seule première contrainte $x_1 + x_2 + x_3 = 3$ | une liste de 3 nombres |
 | g | la valeur de $f$ en f) | un nombre |
 | h | la valeur minimale de $f$ sans contrainte | une fraction |
 
-Dans ta copie : écris le système par blocs en entier. Pourquoi h) < g) < d) ? Vérifie que $\mathbf{Q}$ est définie positive : qu'est-ce que cela garantit pour $\mathbf{x}^*$ ?
+Dans ta copie : écris le système par blocs en entier. Pourquoi h) < g) < d) ? Vérifie que $\mathbf{Q}$ est définie positive : qu'est-ce que cela garantit pour $\mathbf{x}^\ast$ ?
 
 ### Ex M13b.4 — Relire l'ACP par Lagrange : maximiser uᵀCu sous ‖u‖ = 1 ✏️ ★★ ⏱️ 20 min
 **Objectif :** retrouver les axes principaux d'une matrice de covariance par les multiplicateurs de Lagrange, le premier puis le deuxième.
 **Prérequis :** fiche §2 ; M12c ; M12d · **Parcours :** C
 
-La matrice de covariance de trois features : $\mathbf{C} = \begin{pmatrix} 2 & -3 & 1 \\ -3 & 10 & -3 \\ 1 & -3 & 8 \end{pmatrix}$. Ses valeurs propres sont des entiers.
+La matrice de covariance de trois features : $\mathbf{C} = \begin{pmatrix} 2 & -3 & 1 \cr -3 & 10 & -3 \cr 1 & -3 & 8 \end{pmatrix}$. Ses valeurs propres sont des entiers.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -220,9 +220,9 @@ On minimise $f(x, y) = x^2 + 2y^2 - 4x - 8y$ sous $2x + y \le c$, c'est-à-dire 
 | a | vrai ou faux : pour $c = 3$, le minimum libre de $f$ est admissible | `True` ou `False` |
 | b | pour $c = 3$, le multiplicateur $\mu$ | une fraction |
 | c | pour $c = 3$, le point du minimum | une liste de 2 fractions |
-| d | pour $c = 3$, le minimum $f^*$ | un nombre |
-| e | pour $c = 8$, le minimum $f^*$ | un nombre |
-| f | pour $c = 3$, la sensibilité $\frac{df^*}{dc}$ | une fraction |
+| d | pour $c = 3$, le minimum $f^\ast$ | un nombre |
+| e | pour $c = 8$, le minimum $f^\ast$ | un nombre |
+| f | pour $c = 3$, la sensibilité $\frac{df^\ast}{dc}$ | une fraction |
 | g | sous la contrainte **inverse** $2x + y \ge 3$, écrite $3 - 2x - y \le 0$ et supposée active : le multiplicateur obtenu | une fraction |
 
 Dans ta copie : écris les quatre conditions KKT pour $c = 3$ et vérifie-les une à une. Pour $c = 8$, que vaut $\mu$, et pourquoi ? En g), que dit le signe trouvé, et quelle est la vraie solution sous la contrainte inverse ?
@@ -237,13 +237,13 @@ On minimise $f(x, y) = x^2 + 2y^2$ sous $x + y \ge 6$, écrite $g(x, y) = 6 - x 
 |---|---|---|
 | a | la fonction duale $D(\mu)$, pour $\mu \ge 0$ | une expression en `mu` |
 | b | $D(4)$ | un nombre |
-| c | le $\mu^*$ qui maximise $D$ | un nombre |
-| d | $D(\mu^*)$ | un nombre |
-| e | le point $(x^*, y^*)$ qui minimise $\mathcal{L}(\cdot, \mu^*)$ | une liste de 2 nombres |
-| f | le minimum $f^*$ du problème | un nombre |
+| c | le $\mu^\ast$ qui maximise $D$ | un nombre |
+| d | $D(\mu^\ast)$ | un nombre |
+| e | le point $(x^\ast, y^\ast)$ qui minimise $\mathcal{L}(\cdot, \mu^\ast)$ | une liste de 2 nombres |
+| f | le minimum $f^\ast$ du problème | un nombre |
 | g | $D(12)$ | un nombre |
 
-Dans ta copie : écris le lagrangien, minimise-le en $(x, y)$ à $\mu$ fixé, et déduis $D$. Pourquoi b) et g) sont-ils plus petits que f) ? Vérifie que $(x^*, y^*, \mu^*)$ satisfait les conditions KKT. Le saut de dualité est-il nul ? Était-ce prévisible ?
+Dans ta copie : écris le lagrangien, minimise-le en $(x, y)$ à $\mu$ fixé, et déduis $D$. Pourquoi b) et g) sont-ils plus petits que f) ? Vérifie que $(x^\ast, y^\ast, \mu^\ast)$ satisfait les conditions KKT. Le saut de dualité est-il nul ? Était-ce prévisible ?
 
 ### Ex M13b.7 — Reconnaître un problème convexe : fonctions, contraintes, ensembles ✏️ ★ ⏱️ 15 min
 **Objectif :** décider si un problème d'optimisation est convexe en examinant son objectif et chacune de ses contraintes.
@@ -315,8 +315,8 @@ $\mathbf{w} = (0{,}5 ;\ 1)$, $b = -1$, $C = 0{,}5$, pas $\eta = 0{,}2$. Quatre e
 | b | $J(\mathbf{w}, b)$ | un nombre (4 décimales) |
 | c | $\mathbf{g}_{\mathbf{w}}$ | une liste de 2 nombres |
 | d | $g_b$ | un nombre |
-| e | le nouveau $\mathbf{w}$, après un pas $\mathbf{w} - \eta\,\mathbf{g}_{\mathbf{w}}$ | une liste de 2 nombres |
-| f | $J$ après le pas ($b$ change de $-\eta\,g_b$) | un nombre (4 décimales) |
+| e | le nouveau $\mathbf{w}$, après un pas $\mathbf{w} - \eta\thinspace\mathbf{g}_{\mathbf{w}}$ | une liste de 2 nombres |
+| f | $J$ après le pas ($b$ change de $-\eta\thinspace g_b$) | un nombre (4 décimales) |
 | g | $\mathbf{g}_{\mathbf{w}}$ si l'on compte aussi l'exemple de marge exactement 1 | une liste de 2 nombres |
 
 Dans ta copie : pourquoi g) est-il aussi un sous-gradient valide ? Après le pas, $J$ a-t-il baissé ? Est-ce garanti pour un pas plus grand ?
@@ -353,10 +353,10 @@ $k(\mathbf{x}, \mathbf{z}) = (1 + \mathbf{x} \cdot \mathbf{z})^2$, avec $\mathbf
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\varphi(\mathbf{x})$, dans l'ordre $(1, \sqrt{2}\,x_1, \sqrt{2}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
+| a | $\varphi(\mathbf{x})$, dans l'ordre $(1, \sqrt{2}\thinspace x_1, \sqrt{2}\thinspace x_2, x_1^2, \sqrt{2}\thinspace x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
 | b | $\varphi(\mathbf{z})$, dans le même ordre | une liste de 6 nombres (2 décimales) |
 | c | $k(\mathbf{x}, \mathbf{z})$ | un entier |
-| d | pour le noyau $(3 + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi(\mathbf{x})$ dans l'ordre $(3, \sqrt{6}\,x_1, \sqrt{6}\,x_2, x_1^2, \sqrt{2}\,x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
+| d | pour le noyau $(3 + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi(\mathbf{x})$ dans l'ordre $(3, \sqrt{6}\thinspace x_1, \sqrt{6}\thinspace x_2, x_1^2, \sqrt{2}\thinspace x_1x_2, x_2^2)$ | une liste de 6 nombres (2 décimales) |
 | e | le nombre de coordonnées de $\varphi$ pour $(1 + \mathbf{x} \cdot \mathbf{z})^2$ en dimension $p = 9$ | un entier |
 | f | le même pour $(1 + \mathbf{x} \cdot \mathbf{z})^3$ en dimension $p = 9$ | un entier |
 
@@ -389,12 +389,12 @@ Dans ta copie : que dit d) de la matrice $\mathbf{K}$ ? Pourquoi les distances d
 **Objectif :** démontrer la condition de Lagrange en dimension 2, à l'aide d'une courbe tracée dans la contrainte et de la règle de la chaîne.
 **Prérequis :** fiche §1 ; M05b.12 · **Parcours :** C
 
-$f$ et $g$ sont deux fonctions de $\mathbb{R}^2$ dans $\mathbb{R}$, à dérivées partielles continues. $\mathbf{x}^*$ est un minimum de $f$ sur la courbe $\{g = 0\}$, et $\nabla g(\mathbf{x}^*) \ne \mathbf{0}$. On admet qu'il existe une courbe dérivable $t \mapsto \mathbf{c}(t)$, définie près de $t = 0$, avec $\mathbf{c}(0) = \mathbf{x}^*$, $g(\mathbf{c}(t)) = 0$ pour tout $t$ et $\mathbf{c}'(0) \ne \mathbf{0}$.
-1. Dérive $t \mapsto g(\mathbf{c}(t))$ en $t = 0$ : que vaut $\nabla g(\mathbf{x}^*) \cdot \mathbf{c}'(0)$ ?
-2. Pourquoi la fonction $t \mapsto f(\mathbf{c}(t))$ a-t-elle un minimum en $t = 0$ ? Déduis-en $\nabla f(\mathbf{x}^*) \cdot \mathbf{c}'(0) = 0$.
-3. En dimension 2, deux vecteurs orthogonaux au même vecteur non nul sont colinéaires : conclus qu'il existe $\lambda$ avec $\nabla f(\mathbf{x}^*) + \lambda\nabla g(\mathbf{x}^*) = \mathbf{0}$.
-4. Où as-tu utilisé $\nabla g(\mathbf{x}^*) \ne \mathbf{0}$ ? Donne un exemple de contrainte où il s'annule et où la conclusion tombe.
-5. En dimension $n$ avec une contrainte, la même idée marche avec toutes les courbes de la contrainte qui passent par $\mathbf{x}^*$ : que dit-elle alors de $\nabla f(\mathbf{x}^*)$ ?
+$f$ et $g$ sont deux fonctions de $\mathbb{R}^2$ dans $\mathbb{R}$, à dérivées partielles continues. $\mathbf{x}^\ast$ est un minimum de $f$ sur la courbe $\lbrace g = 0\rbrace$, et $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$. On admet qu'il existe une courbe dérivable $t \mapsto \mathbf{c}(t)$, définie près de $t = 0$, avec $\mathbf{c}(0) = \mathbf{x}^\ast$, $g(\mathbf{c}(t)) = 0$ pour tout $t$ et $\mathbf{c}'(0) \ne \mathbf{0}$.
+1. Dérive $t \mapsto g(\mathbf{c}(t))$ en $t = 0$ : que vaut $\nabla g(\mathbf{x}^\ast) \cdot \mathbf{c}'(0)$ ?
+2. Pourquoi la fonction $t \mapsto f(\mathbf{c}(t))$ a-t-elle un minimum en $t = 0$ ? Déduis-en $\nabla f(\mathbf{x}^\ast) \cdot \mathbf{c}'(0) = 0$.
+3. En dimension 2, deux vecteurs orthogonaux au même vecteur non nul sont colinéaires : conclus qu'il existe $\lambda$ avec $\nabla f(\mathbf{x}^\ast) + \lambda\nabla g(\mathbf{x}^\ast) = \mathbf{0}$.
+4. Où as-tu utilisé $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$ ? Donne un exemple de contrainte où il s'annule et où la conclusion tombe.
+5. En dimension $n$ avec une contrainte, la même idée marche avec toutes les courbes de la contrainte qui passent par $\mathbf{x}^\ast$ : que dit-elle alors de $\nabla f(\mathbf{x}^\ast)$ ?
 
 ### Ex M13b.15 — La dualité faible : la fonction duale minore le minimum du primal ∂ ★★ ⏱️ 15 min
 **Objectif :** démontrer la dualité faible et la concavité de la fonction duale.
@@ -411,11 +411,11 @@ Problème : $\min f(\mathbf{x})$ sous $g_i(\mathbf{x}) \le 0$ ($i = 1, \ldots, m
 **Objectif :** démontrer que, pour un problème convexe, tout minimum local est global, et que la stricte convexité donne l'unicité.
 **Prérequis :** fiche §5 ; M10 · **Parcours :** C, E
 
-$K$ est un ensemble convexe, $f$ une fonction convexe sur $K$. $\mathbf{x}^* \in K$ est un minimum **local** : il existe $r > 0$ tel que $f(\mathbf{x}^*) \le f(\mathbf{x})$ pour tout $\mathbf{x} \in K$ avec $\lVert\mathbf{x} - \mathbf{x}^*\rVert < r$.
-1. Supposons qu'un $\mathbf{y} \in K$ vérifie $f(\mathbf{y}) < f(\mathbf{x}^*)$. Pourquoi les points $\mathbf{x}_\theta = (1 - \theta)\mathbf{x}^* + \theta\mathbf{y}$, $\theta \in\ ]0, 1]$, sont-ils dans $K$ ?
-2. Montre que $f(\mathbf{x}_\theta) < f(\mathbf{x}^*)$ pour tout $\theta \in\ ]0, 1]$.
-3. Choisis $\theta$ pour que $\lVert\mathbf{x}_\theta - \mathbf{x}^*\rVert < r$, et conclus.
-4. Si $f$ est strictement convexe, montre que deux minima $\mathbf{x}^*$ et $\mathbf{y}^*$ sont égaux (regarde leur milieu).
+$K$ est un ensemble convexe, $f$ une fonction convexe sur $K$. $\mathbf{x}^\ast \in K$ est un minimum **local** : il existe $r > 0$ tel que $f(\mathbf{x}^\ast) \le f(\mathbf{x})$ pour tout $\mathbf{x} \in K$ avec $\lVert\mathbf{x} - \mathbf{x}^\ast\rVert < r$.
+1. Supposons qu'un $\mathbf{y} \in K$ vérifie $f(\mathbf{y}) < f(\mathbf{x}^\ast)$. Pourquoi les points $\mathbf{x}_\theta = (1 - \theta)\mathbf{x}^\ast + \theta\mathbf{y}$, $\theta \in\ ]0, 1]$, sont-ils dans $K$ ?
+2. Montre que $f(\mathbf{x}_\theta) < f(\mathbf{x}^\ast)$ pour tout $\theta \in\ ]0, 1]$.
+3. Choisis $\theta$ pour que $\lVert\mathbf{x}_\theta - \mathbf{x}^\ast\rVert < r$, et conclus.
+4. Si $f$ est strictement convexe, montre que deux minima $\mathbf{x}^\ast$ et $\mathbf{y}^\ast$ sont égaux (regarde leur milieu).
 5. Pourquoi l'ensemble admissible d'un problème convexe (§5) est-il convexe ? Et que deviennent 1 à 3 si l'on maximise une fonction convexe ?
 
 ### Ex M13b.17 — Maximiser la marge revient à minimiser ½ ‖w‖² ∂ ★★ ⏱️ 20 min
@@ -433,11 +433,11 @@ Les données sont séparables. Pour un séparateur $(\mathbf{w}, b)$, $\mathbf{w
 **Objectif :** démontrer que le problème de la marge souple avec variables d'écart est le même que la minimisation de l'objectif avec la hinge loss, et regarder la limite $C \to \infty$.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-Problème (P) : $\min_{\mathbf{w}, b, \boldsymbol{\xi}} \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \xi_i$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i$ et $\xi_i \ge 0$. Problème (H) : $\min_{\mathbf{w}, b} J(\mathbf{w}, b)$, avec la hinge.
+Problème (P) : $\min_{\mathbf{w}, b, \boldsymbol{\xi}} \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_i \xi_i$ sous $y_i(\mathbf{w} \cdot \mathbf{x} _i + b) \ge 1 - \xi_i$ et $\xi_i \ge 0$. Problème (H) : $\min _{\mathbf{w}, b} J(\mathbf{w}, b)$, avec la hinge.
 1. À $(\mathbf{w}, b)$ fixés, quelles valeurs de $\xi_i$ sont admissibles ? Montre que la plus petite est $\max(0, 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b))$.
 2. Déduis-en que, à $(\mathbf{w}, b)$ fixés, le minimum de l'objectif de (P) en $\boldsymbol{\xi}$ est $J(\mathbf{w}, b)$.
 3. Conclus : (P) et (H) ont la même valeur optimale, et les mêmes $(\mathbf{w}, b)$ optimaux.
-4. Données séparables : montre que l'objectif optimal de (P) est au plus $\frac{1}{2}\lVert\mathbf{w}_{\mathrm{dure}}\rVert^2$, où $\mathbf{w}_{\mathrm{dure}}$ est la solution de la marge dure.
+4. Données séparables : montre que l'objectif optimal de (P) est au plus $\frac{1}{2}\lVert\mathbf{w} _{\mathrm{dure}}\rVert^2$, où $\mathbf{w} _{\mathrm{dure}}$ est la solution de la marge dure.
 5. Déduis de 4 que $\sum_i \xi_i \le \frac{\lVert\mathbf{w}_{\mathrm{dure}}\rVert^2}{2C}$ à l'optimum : que devient la somme des écarts quand $C \to \infty$ ?
 
 ### Ex M13b.19 — La somme et le produit de deux noyaux sont des noyaux ; une matrice de Gram est semi-définie positive ∂ ★★★ ⏱️ 25 min
@@ -445,10 +445,10 @@ Problème (P) : $\min_{\mathbf{w}, b, \boldsymbol{\xi}} \frac{1}{2}\lVert\mathbf
 **Prérequis :** fiche §8 ; M12c.17 · **Parcours :** C
 
 Un noyau est une fonction $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ pour une application $\varphi$ à valeurs dans un $\mathbb{R}^q$.
-1. Pour des points $\mathbf{x}_1, \ldots, \mathbf{x}_n$ et un vecteur $\mathbf{v} \in \mathbb{R}^n$, montre que $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert\sum_i v_i\,\varphi(\mathbf{x}_i)\rVert^2$. Conclus. (Compare avec M12c.17.)
-2. Soit $c > 0$ et $k$ un noyau. Montre que $c\,k$ est un noyau (donne sa fonction $\varphi$).
+1. Pour des points $\mathbf{x}_1, \ldots, \mathbf{x}_n$ et un vecteur $\mathbf{v} \in \mathbb{R}^n$, montre que $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert\sum_i v_i\thinspace\varphi(\mathbf{x}_i)\rVert^2$. Conclus. (Compare avec M12c.17.)
+2. Soit $c > 0$ et $k$ un noyau. Montre que $c\thinspace k$ est un noyau (donne sa fonction $\varphi$).
 3. Soient $k_1$ et $k_2$ des noyaux, de fonctions $\varphi_1 : \mathbb{R}^p \to \mathbb{R}^{q_1}$ et $\varphi_2 : \mathbb{R}^p \to \mathbb{R}^{q_2}$. Montre que $k_1 + k_2$ est un noyau (empile les deux vecteurs).
-4. Montre que $k_1 k_2$ est un noyau, de fonction $\varphi$ à $q_1 q_2$ coordonnées $\varphi_{1,a}(\mathbf{x})\,\varphi_{2,b}(\mathbf{x})$.
+4. Montre que $k_1 k_2$ est un noyau, de fonction $\varphi$ à $q_1 q_2$ coordonnées $\varphi_{1,a}(\mathbf{x})\thinspace\varphi_{2,b}(\mathbf{x})$.
 5. Déduis de 2 à 4, sans écrire $\varphi$, que $(\mathbf{x} \cdot \mathbf{z} + c)^d$ est un noyau pour $c \ge 0$ et $d \ge 1$ entier (le noyau constant égal à 1 en est un, de $\varphi \equiv 1$).
 6. Montre que $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert^2$ n'est pas un noyau.
 
@@ -460,7 +460,7 @@ Un noyau est une fonction $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot
 **Objectif :** calculer la décision d'une SVM à noyau RBF à partir de ses vecteurs de support, comme le fera une SVM entraînée avec scikit-learn.
 **Prérequis :** fiche §8 · **Parcours :** C, E
 
-Une SVM à noyau RBF, $\gamma = 0{,}3$, a trois vecteurs de support : $(-1, 1)$ de label $+1$ et $\alpha = 0{,}8$ ; $(2, -1)$ de label $-1$ et $\alpha = 0{,}5$ ; $(1, 3)$ de label $-1$ et $\alpha = 0{,}3$. Son biais vaut $b = -0{,}1$. La décision est $s(\mathbf{x}) = \sum_i \alpha_i y_i\,k(\mathbf{x}_i, \mathbf{x}) + b$.
+Une SVM à noyau RBF, $\gamma = 0{,}3$, a trois vecteurs de support : $(-1, 1)$ de label $+1$ et $\alpha = 0{,}8$ ; $(2, -1)$ de label $-1$ et $\alpha = 0{,}5$ ; $(1, 3)$ de label $-1$ et $\alpha = 0{,}3$. Son biais vaut $b = -0{,}1$. La décision est $s(\mathbf{x}) = \sum_i \alpha_i y_i\thinspace k(\mathbf{x}_i, \mathbf{x}) + b$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -501,7 +501,7 @@ Lis MML §12.2 à §12.5. Réponds dans ta copie, **avec tes mots**.
 **Objectif :** estimer la mémoire et le temps que demande la matrice de Gram d'une SVM à noyau, et en tirer la taille de dataset au-delà de laquelle elle devient impraticable.
 **Prérequis :** fiche §8 · **Parcours :** C
 
-Une SVM à noyau RBF sur $n = 100\,000$ exemples de $p = 50$ features.
+Une SVM à noyau RBF sur $n = 100\thinspace000$ exemples de $p = 50$ features.
 1. Combien de nombres dans la matrice de Gram ? Combien en faut-il vraiment, par symétrie ?
 2. Combien d'octets en `float64` pour la matrice entière ? Et en `float32` ? Compare à la mémoire vive d'un ordinateur portable (16 Go).
 3. Combien d'opérations pour calculer toutes les distances au carré ? À $10^9$ opérations par seconde, combien de temps ?
@@ -530,7 +530,7 @@ Prépare une réponse orale de **60 secondes**, que tu dirais à voix haute en e
 
 « Hinge loss ou log-loss : quelles différences ? »
 
-Prépare une réponse orale de **60 secondes**. Elle doit écrire les deux losses comme des fonctions de la marge $y\,s$, dire ce qu'elles ont en commun (convexes, majorent l'erreur après mise à l'échelle), puis trois différences : la dérivabilité, la valeur au-delà de la marge (exactement 0 ou jamais 0) et ce qu'elle entraîne (des vecteurs de support peu nombreux, ou tous les exemples qui comptent), et ce que le modèle donne en sortie (un score ou une probabilité). Termine par un critère de choix. Compare ensuite avec la réponse modèle de `05_solutions.md`.
+Prépare une réponse orale de **60 secondes**. Elle doit écrire les deux losses comme des fonctions de la marge $y\thinspace s$, dire ce qu'elles ont en commun (convexes, majorent l'erreur après mise à l'échelle), puis trois différences : la dérivabilité, la valeur au-delà de la marge (exactement 0 ou jamais 0) et ce qu'elle entraîne (des vecteurs de support peu nombreux, ou tous les exemples qui comptent), et ce que le modèle donne en sortie (un score ou une probabilité). Termine par un critère de choix. Compare ensuite avec la réponse modèle de `05_solutions.md`.
 
 <a id="notebook"></a>
 

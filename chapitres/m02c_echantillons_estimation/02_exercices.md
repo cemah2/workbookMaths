@@ -51,7 +51,7 @@ Pour chaque série, peut-on raisonnablement la modéliser comme un échantillon 
 *Fiche §4 et §5 · parcours C, E*
 
 1. Vrai ou faux : après 10 « pile » de suite avec une pièce équilibrée, « face » est plus probable au lancer suivant.
-2. On passe de $n = 100$ à $n = 10\,000$ tirages : par combien l'écart-type de la moyenne est-il divisé ?
+2. On passe de $n = 100$ à $n = 10\thinspace000$ tirages : par combien l'écart-type de la moyenne est-il divisé ?
 3. Vrai ou faux : d'après le théorème central limite, l'histogramme de 10 000 tirages d'une loi exponentielle a la forme d'une cloche.
 4. Une loi a pour espérance 5 et pour écart-type 2. Quelle est la loi approchée de la moyenne de 100 tirages ?
 5. Vrai ou faux : pour toute loi qui a une variance, $P(\lvert X - \mu \rvert \ge 2\sigma) \le 0{,}25$.
@@ -167,7 +167,7 @@ Dans tout l'exercice, l'écart-type est celui qui divise par $n$ ($s_n$).
 | c | le z-score de 31 | un nombre (2 décimales) |
 | d | la règle $\lvert z \rvert > 3$ signale-t-elle 31 ? | `True` ou `False` |
 | e | le premier quartile $Q_1$ (convention de la fiche) | un nombre (2 décimales) |
-| f | la barrière haute de Tukey, $Q_3 + 1{,}5\,\text{EI}$ | un nombre (3 décimales) |
+| f | la barrière haute de Tukey, $Q_3 + 1{,}5\thinspace\text{EI}$ | un nombre (3 décimales) |
 | g | la règle de Tukey signale-t-elle 31 ? | `True` ou `False` |
 | h | le z-score de 31 calculé avec la moyenne et l'écart-type ($s_n$) des **9 autres** valeurs | un nombre (1 décimale) |
 
@@ -211,7 +211,7 @@ Une urne contient 5 boules, numérotées $2, 4, 6, 8, 10$. On en tire $n = 2$ au
 | e | sans remise, $\mathbb{V}(\bar{X})$ | un entier |
 | f | sans remise, $\operatorname{Cov}(X_1, X_2)$ | un entier |
 | g | $\mathbb{V}(\bar{X})$ sans remise divisée par $\mathbb{V}(\bar{X})$ avec remise | une fraction irréductible |
-| h | le facteur $\frac{N - n}{N - 1}$ pour un sondage de $n = 100$ personnes dans une population de $N = 10\,000$ | un nombre (4 décimales) |
+| h | le facteur $\frac{N - n}{N - 1}$ pour un sondage de $n = 100$ personnes dans une population de $N = 10\thinspace000$ | un nombre (4 décimales) |
 
 Dans ta copie : vérifie e) en écrivant les paires de c) et la moyenne de chacune, puis en calculant directement la variance de ces moyennes. Que dit h) sur un sondage dans une grande population ?
 
@@ -334,7 +334,7 @@ Dans ta copie : retrouve h) avec la formule de la variance d'une somme. Dessine 
 
 Trois features $X_1$, $X_2$, $X_3$ ont pour matrice de covariance
 
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \\ 2 & 9 & 0 \\ -1 & 0 & 1 \end{pmatrix}.$$
+$$\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 0 \cr -1 & 0 & 1 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -349,7 +349,7 @@ $$\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \\ 2 & 9 & 0 \\ -1 & 0 & 1 \e
 
 Les trois tableaux de la question g) :
 
-$$\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 9 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 4 & -3 \\ -3 & 9 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 4 & 7 \\ 7 & 9 \end{pmatrix}.$$
+$$\mathbf{A} = \begin{pmatrix} 4 & 1 \cr 2 & 9 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 4 & -3 \cr -3 & 9 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 4 & 7 \cr 7 & 9 \end{pmatrix}.$$
 
 Dans ta copie : écris la matrice de corrélation de $X_1$, $X_2$, $X_3$. Pour chaque tableau refusé en g), dis quelle propriété il viole.
 
@@ -366,7 +366,7 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 $X_1, \ldots, X_n$ ($n \ge 2$) sont i.i.d., d'espérance $\mu$ et de variance $\sigma^2$. On note $\bar{X} = \frac{1}{n}\sum_i X_i$, $S_n^2 = \frac{1}{n}\sum_i (X_i - \bar{X})^2$ et $S^2 = \frac{1}{n - 1}\sum_i (X_i - \bar{X})^2$.
 1. Démontre que $\sum_{i=1}^{n}(X_i - \bar{X})^2 = \sum_{i=1}^{n}(X_i - \mu)^2 - n(\bar{X} - \mu)^2$ (l'identité du §1, avec $c = \mu$ ; refais le calcul).
 2. Que valent $\mathbb{E}\big[(X_i - \mu)^2\big]$ et $\mathbb{E}\big[(\bar{X} - \mu)^2\big]$ ? Justifie chacune.
-3. Déduis-en $\mathbb{E}\Big[\sum_i (X_i - \bar{X})^2\Big] = (n - 1)\,\sigma^2$, puis $\mathbb{E}[S_n^2]$ et $\mathbb{E}[S^2]$.
+3. Déduis-en $\mathbb{E}\Big[\sum_i (X_i - \bar{X})^2\Big] = (n - 1)\thinspace\sigma^2$, puis $\mathbb{E}[S_n^2]$ et $\mathbb{E}[S^2]$.
 4. Quel est le biais de $S_n^2$ ? Que devient-il quand $n \to +\infty$ ?
 5. Que valent $S_n^2$ et $S^2$ quand $n = 1$ ? Explique pourquoi aucune estimation de la dispersion n'est possible avec une seule valeur.
 6. À quelle étape l'indépendance des $X_i$ a-t-elle servi ? (Une étape suffit.)
@@ -393,7 +393,7 @@ $$\mathbb{V}(\bar{X}) = \sigma^2\Big(\frac{1}{n} + \Big(1 - \frac{1}{n}\Big)\rho
 **Objectif :** calculer un percentile élevé d'une mesure de latence, et chiffrer pourquoi il est plus incertain qu'une médiane.
 **Prérequis :** fiche §1 et §7 ; M02b §2 (binomiale) et §3 (loi exponentielle) · **Parcours :** C, E
 
-On a mesuré la latence de $n = 1\,000$ réponses d'un service de prédiction. Triées dans l'ordre croissant et numérotées de 0 à 999, les **onze plus grandes** valeurs, $x_{(989)}$ à $x_{(999)}$, sont (en ms) :
+On a mesuré la latence de $n = 1\thinspace000$ réponses d'un service de prédiction. Triées dans l'ordre croissant et numérotées de 0 à 999, les **onze plus grandes** valeurs, $x_{(989)}$ à $x_{(999)}$, sont (en ms) :
 
 $$179,\ 182,\ 186,\ 191,\ 197,\ 205,\ 214,\ 228,\ 247,\ 290,\ 412.$$
 

@@ -41,7 +41,7 @@ Pour chaque suite (on suppose que la règle des premiers termes continue), dis s
 *Fiche §4 · parcours C, E*
 
 Vrai ou faux ?
-1. $1 + 2 + \dots + 100 = 5\,050$.
+1. $1 + 2 + \dots + 100 = 5\thinspace050$.
 2. La somme $u_0 + u_1 + \dots + u_n$ compte $n$ termes.
 3. Pour tout réel $q$ et tout entier $n \ge 1$, $1 + q + \dots + q^{n-1} = \frac{1 - q^n}{1 - q}$.
 4. Si $q = 1$, $1 + q + \dots + q^{n-1} = n$.
@@ -74,7 +74,7 @@ Pour chaque suite : converge-t-elle (vers quelle limite ?), tend-elle vers $+\in
 ### R5.Q6 — Les poids d'une moyenne exponentielle 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C*
 
-On pose $v_0 = 0$ et $v_t = 0{,}7\,v_{t-1} + 0{,}3\,x_t$.
+On pose $v_0 = 0$ et $v_t = 0{,}7\thinspace v_{t-1} + 0{,}3\thinspace x_t$.
 1. Quel est le poids de $x_t$ dans $v_t$ ?
 2. Vrai ou faux : le poids de $x_{t-1}$ dans $v_t$ vaut 0,7 fois celui de $x_t$.
 3. Les poids de $x_t, x_{t-1}, x_{t-2}, \dots$ dans $v_t$ forment-ils une suite arithmétique ou géométrique ? De quelle raison ?
@@ -149,7 +149,7 @@ $(u_n)$ est la suite arithmétique de premier terme $u_0 = 7$ et de raison 4 ; $
 | b | $u_{25}$ | un nombre entier |
 | c | $a_{11}$ | un nombre |
 | d | le rang du premier terme strictement négatif de $(a_n)$ | un nombre entier |
-| e | le rang $n$ tel que $u_n = 2\,023$ | un nombre entier |
+| e | le rang $n$ tel que $u_n = 2\thinspace023$ | un nombre entier |
 | f | 2 026 est un terme de $(u_n)$ | vrai ou faux |
 | g | une bougie de 24 cm raccourcit de 1,5 cm par heure : au bout de combien d'heures est-elle entièrement consumée ? | un nombre entier |
 
@@ -167,7 +167,7 @@ $(v_n)$ est la suite géométrique de premier terme $v_0 = 5$ et de raison 3 ; $
 | d | $w_7$ | une fraction |
 | e | $p_3$ | un nombre entier |
 | f | $t_5$ | un nombre entier |
-| g | le plus petit entier $n$ tel que $p_n > 2\,000$ (essaie des valeurs de $n$) | un nombre entier |
+| g | le plus petit entier $n$ tel que $p_n > 2\thinspace000$ (essaie des valeurs de $n$) | un nombre entier |
 
 ### Ex R5.4 — Sommes arithmétiques et géométriques ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer des sommes de termes consécutifs d'une suite arithmétique ou géométrique avec les formules, en comptant d'abord les termes.
@@ -179,7 +179,7 @@ Pour chaque somme, écris dans ta copie le premier terme, le nombre de termes et
 |---|---|---|
 | a | le nombre de termes de $5 + 8 + 11 + \dots + 50$ | un nombre entier |
 | b | la somme $5 + 8 + 11 + \dots + 50$ | un nombre entier |
-| c | $\sum_{k=0}^{19} (2 + 0{,}5\,k)$ | un nombre |
+| c | $\sum_{k=0}^{19} (2 + 0{,}5\thinspace k)$ | un nombre |
 | d | $1 + 4 + 16 + \dots + 4^5$ | un nombre entier |
 | e | $81 + 54 + 36 + 24 + 16$, avec la formule (vérifie ensuite en additionnant) | un nombre entier |
 | f | $\sum_{k=3}^{8} 2^k$ | un nombre entier |
@@ -219,7 +219,7 @@ On place 3 000 € à 2,5 % par an, à intérêts composés. Arrondis les montan
 **Objectif :** calculer pas à pas une moyenne exponentielle et une moyenne mobile, et constater le démarrage trop bas de la première.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-On mesure les valeurs $x_1, \dots, x_5 = 10, 20, 15, 5, 25$. On calcule la moyenne exponentielle $v_0 = 0$, $v_t = 0{,}8\,v_{t-1} + 0{,}2\,x_t$.
+On mesure les valeurs $x_1, \dots, x_5 = 10, 20, 15, 5, 25$. On calcule la moyenne exponentielle $v_0 = 0$, $v_t = 0{,}8\thinspace v_{t-1} + 0{,}2\thinspace x_t$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -261,7 +261,7 @@ Soit $q$ un réel différent de 1. Pour tout entier $n \ge 1$, on note $P(n)$ : 
 2. Rédige l'initialisation.
 3. Rédige l'hérédité : suppose $P(n)$ vraie pour un entier $n \ge 1$ fixé, isole le dernier terme de $\sum_{k=0}^{n} q^k$, utilise $P(n)$ et réduis au même dénominateur pour obtenir $P(n + 1)$.
 4. Rédige la conclusion.
-5. Déduis-en, sans nouvelle récurrence, la somme $\sum_{k=0}^{n-1} u_0\,q^k$ (linéarité), puis la somme $\sum_{k=m}^{m+n-1} q^k$ de $n$ termes à partir du rang $m$ (mets $q^m$ en facteur).
+5. Déduis-en, sans nouvelle récurrence, la somme $\sum_{k=0}^{n-1} u_0\thinspace q^k$ (linéarité), puis la somme $\sum_{k=m}^{m+n-1} q^k$ de $n$ termes à partir du rang $m$ (mets $q^m$ en facteur).
 6. Pourquoi la démonstration ne marche-t-elle pas pour $q = 1$ ? Que vaut alors la somme, et pourquoi ?
 
 ### Ex R5.10 — La somme d'une suite arithmétique : l'astuce de Gauss ∂ ★★ ⏱️ 25 min
@@ -269,7 +269,7 @@ Soit $q$ un réel différent de 1. Pour tout entier $n \ge 1$, on note $P(n)$ : 
 **Prérequis :** fiche §2 et §4 · **Parcours :** C
 
 On raconte que le jeune Gauss, à qui l'on avait demandé d'additionner les entiers de 1 à 100, a écrit la somme deux fois, une fois à l'endroit et une fois à l'envers :
-$$\begin{array}{rcccccccc} S & = & 1 & + & 2 & + & \dots & + & 100 \\ S & = & 100 & + & 99 & + & \dots & + & 1 \end{array}$$
+$$\begin{array}{rcccccccc} S & = & 1 & + & 2 & + & \dots & + & 100 \cr S & = & 100 & + & 99 & + & \dots & + & 1 \end{array}$$
 1. Additionne les deux lignes **colonne par colonne** : que vaut chaque colonne, et combien y a-t-il de colonnes ? Déduis-en $2S$, puis $S$.
 2. Soit $(u_n)$ une suite arithmétique de raison $r$, et $S = u_0 + u_1 + \dots + u_{n-1}$. Montre que, pour tout $k$ de 0 à $n - 1$, $u_k + u_{n-1-k} = u_0 + u_{n-1}$ (écris les deux termes avec $u_0$ et $r$).
 3. En écrivant $S$ à l'endroit et à l'envers, déduis-en $S = n \times \frac{u_0 + u_{n-1}}{2}$.

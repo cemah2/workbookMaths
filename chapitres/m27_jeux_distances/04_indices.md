@@ -76,7 +76,7 @@ $t^\star(x) = \frac{\pi_1p_1(x)}{\pi_1p_1(x) + \pi_0p_0(x)}$. Pour des supports 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\pi_1 = 0{,}2$ et $\pi_0 = 0{,}8$ : $\frac{0{,}1}{0{,}1 + 0{,}08}$. 4. Chaque $\mathrm{KL}(\cdot \,\|\, m)$ vaut $\ln\frac{1}{1/2}$ ; en bits, divise par $\ln 2$. Pour $\mathrm{KL}(p \,\|\, q)$, regarde un point où $p > 0$ et $q = 0$.
+1. $\pi_1 = 0{,}2$ et $\pi_0 = 0{,}8$ : $\frac{0{,}1}{0{,}1 + 0{,}08}$. 4. Chaque $\mathrm{KL}(\cdot \thinspace\Vert\thinspace m)$ vaut $\ln\frac{1}{1/2}$ ; en bits, divise par $\ln 2$. Pour $\mathrm{KL}(p \thinspace\Vert\thinspace q)$, regarde un point où $p > 0$ et $q = 0$.
 
 </details>
 
@@ -120,7 +120,7 @@ Avec des covariances égales, la part des covariances est nulle. $\mathbb{E}\lVe
 
 <details><summary>Indice 1</summary>
 
-Fiche §10, « Ce que chacun mesure », et la borne $W_1 \le (b - a)\,\mathrm{KS}$.
+Fiche §10, « Ce que chacun mesure », et la borne $W_1 \le (b - a)\thinspace\mathrm{KS}$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -254,7 +254,7 @@ c) L'équipe des colonnes gagne en moyenne $3x$ avec X et $4(1 - x)$ avec Y. d) 
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 : $\mathbf{M}_s = \sqrt{1 + \eta^2}\,\mathbf{R}_\theta$, puis $\mathbf{M}_a$, son déterminant et sa trace ; M22 pour les valeurs propres complexes.
+Fiche §4 : $\mathbf{M} _s = \sqrt{1 + \eta^2}\thinspace\mathbf{R} _\theta$, puis $\mathbf{M}_a$, son déterminant et sa trace ; M22 pour les valeurs propres complexes.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -264,7 +264,7 @@ Le module de $1 \pm i\eta$ est $\sqrt{1 + \eta^2}$, son argument $\arctan\eta$. 
 </details>
 <details><summary>Indice 3</summary>
 
-c) Cherche le plus petit $k$ avec $1{,}36^{k/2} \ge 2$. e) Écris $y_{k+1} = y_k + b\,x_{k+1}$ en fonction de $x_k$ et $y_k$ pour obtenir la seconde ligne de la matrice alternée. f) La trace vaut $2 - ab = -4$ et le déterminant 1 : résous $\lambda^2 + 4\lambda + 1 = 0$.
+c) Cherche le plus petit $k$ avec $1{,}36^{k/2} \ge 2$. e) Écris $y_{k+1} = y_k + b\thinspace x_{k+1}$ en fonction de $x_k$ et $y_k$ pour obtenir la seconde ligne de la matrice alternée. f) La trace vaut $2 - ab = -4$ et le déterminant 1 : résous $\lambda^2 + 4\lambda + 1 = 0$.
 
 </details>
 
@@ -277,7 +277,7 @@ Fiche §5 : le théorème, l'exemple des pommes et la définition de $R(t)$.
 </details>
 <details><summary>Indice 2</summary>
 
-Commence par le tableau des probabilités jointes $P(X = x, Y = 1) = 0{,}32\,p_1(x)$ et $P(X = x, Y = 0) = 0{,}68\,p_0(x)$ ; tout le reste s'en déduit.
+Commence par le tableau des probabilités jointes $P(X = x, Y = 1) = 0{,}32\thinspace p_1(x)$ et $P(X = x, Y = 0) = 0{,}68\thinspace p_0(x)$ ; tout le reste s'en déduit.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -300,7 +300,7 @@ Pour $0 < \theta < 5$, $p$ et $q$ valent $\frac15$ sur leur fenêtre ; sur la pa
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathrm{KL}(p \,\|\, m) = \int p\ln\frac{p}{m}$ : seule la partie où $p$ est seule compte, de longueur $\theta$, et l'intégrand y vaut $\frac15\ln 2$. Pour $\theta \ge 5$, toute la fenêtre de $p$ est dans ce cas.
+$\mathrm{KL}(p \thinspace\Vert\thinspace m) = \int p\ln\frac{p}{m}$ : seule la partie où $p$ est seule compte, de longueur $\theta$, et l'intégrand y vaut $\frac15\ln 2$. Pour $\theta \ge 5$, toute la fenêtre de $p$ est dans ce cas.
 
 </details>
 
@@ -336,7 +336,7 @@ $F(x) = \frac{x}{4}$ sur $[0 ; 4]$, $G(x) = x - 1$ sur $[1 ; 2]$. Les quantiles 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Sur $[1 ; 2]$, $F - G = 1 - \frac{3x}{4}$ change de signe en $x = \frac43$ : coupe l'intégrale en ce point. Ou bien $\int_0^1\lvert 3u - 1\rvert\,\mathrm{d}u$, coupée en $u = \frac13$. b) $\int_0^1(3u - 1)^2\,\mathrm{d}u$. c) $\Delta\mu = 1{,}2$ et $\Delta\sigma = 0{,}5$.
+a) Sur $[1 ; 2]$, $F - G = 1 - \frac{3x}{4}$ change de signe en $x = \frac43$ : coupe l'intégrale en ce point. Ou bien $\int_0^1\lvert 3u - 1\rvert\thinspace\mathrm{d}u$, coupée en $u = \frac13$. b) $\int_0^1(3u - 1)^2\thinspace\mathrm{d}u$. c) $\Delta\mu = 1{,}2$ et $\Delta\sigma = 0{,}5$.
 
 </details>
 
@@ -407,7 +407,7 @@ Fiche §5 (l'idée de la preuve) ; M04 (Bayes, probabilités totales) ; M06 (l'i
 </details>
 <details><summary>Indice 2</summary>
 
-$R(t) = \sum_x\sum_yP(X = x, Y = y)\,\ell(t(x), y)$, et $P(X = x, Y = y) = P(X = x)\,P(Y = y \mid X = x)$.
+$R(t) = \sum_x\sum_yP(X = x, Y = y)\thinspace\ell(t(x), y)$, et $P(X = x, Y = y) = P(X = x)\thinspace P(Y = y \mid X = x)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -425,7 +425,7 @@ Fiche §6 (l'idée : $m \ge \frac{p}{2}$) ; M06 (Gibbs).
 </details>
 <details><summary>Indice 2</summary>
 
-Pour $p_k > 0$, $\frac{p_k}{m_k} \le 2$. $\mathrm{KL}(p \,\|\, m)$ est une moyenne de $\ln\frac{p_k}{m_k}$, pondérée par les $p_k$.
+Pour $p_k > 0$, $\frac{p_k}{m_k} \le 2$. $\mathrm{KL}(p \thinspace\Vert\thinspace m)$ est une moyenne de $\ln\frac{p_k}{m_k}$, pondérée par les $p_k$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -559,7 +559,7 @@ Fiche §9, « Le biais d'une distance estimée », et §10 (la p-valeur de KS).
 </details>
 <details><summary>Indice 2</summary>
 
-Le biais $\operatorname{tr}\boldsymbol{\Sigma}\,\big(\frac{1}{n_1} + \frac{1}{n_2}\big)$ dépend des tailles.
+Le biais $\operatorname{tr}\boldsymbol{\Sigma}\thinspace\big(\frac{1}{n_1} + \frac{1}{n_2}\big)$ dépend des tailles.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -756,12 +756,12 @@ Dans la fonction : `if solver is None: solver = mymath.distances.mixed_strategy_
 
 <details><summary>Indice 1</summary>
 
-Fiche §8 : $W_2^2 = \int_0^1\lvert F^{-1}(u) - G^{-1}(u)\rvert^2\,\mathrm{d}u$, et la fonction quantile $\mu + \sigma\Phi^{-1}(u)$ d'une loi normale.
+Fiche §8 : $W_2^2 = \int_0^1\lvert F^{-1}(u) - G^{-1}(u)\rvert^2\thinspace\mathrm{d}u$, et la fonction quantile $\mu + \sigma\Phi^{-1}(u)$ d'une loi normale.
 
 </details>
 <details><summary>Indice 2</summary>
 
-$W_2^2(\mu, \sigma)$ est un problème de moindres carrés : approcher la fonction $F^{-1}$ par une combinaison de 1 et de $\Phi^{-1}$ sur $]0, 1[$. Que valent $\int_0^1\Phi^{-1}(u)\,\mathrm{d}u$ et $\int_0^1\Phi^{-1}(u)^2\,\mathrm{d}u$ ?
+$W_2^2(\mu, \sigma)$ est un problème de moindres carrés : approcher la fonction $F^{-1}$ par une combinaison de 1 et de $\Phi^{-1}$ sur $]0, 1[$. Que valent $\int_0^1\Phi^{-1}(u)\thinspace\mathrm{d}u$ et $\int_0^1\Phi^{-1}(u)^2\thinspace\mathrm{d}u$ ?
 
 </details>
 <details><summary>Indice 3</summary>

@@ -112,7 +112,7 @@ Dans $a(x - \alpha)^2 + \beta$, le sommet est $(\alpha, \beta)$. Sur un interval
 </details>
 <details><summary>Indice 3</summary>
 
-1 : le sommet de $(x - 1)^2 + 2$ est $(1, 2)$ et $a > 0$, **vrai**. Pour 2, $(x + 3)^2 = (x - (-3))^2$. Pour 3, le carré est croissant sur $[1 \;;\; 5]$.
+1 : le sommet de $(x - 1)^2 + 2$ est $(1, 2)$ et $a > 0$, **vrai**. Pour 2, $(x + 3)^2 = (x - (-3))^2$. Pour 3, le carré est croissant sur $[1 \mkern5mu ;\mkern5mu  5]$.
 
 </details>
 
@@ -403,12 +403,12 @@ Relis « Fonctions définies par morceaux » (fiche §4) et « Maximum, minimum 
 </details>
 <details><summary>Indice 2</summary>
 
-Pour une fonction par morceaux, regarde d'abord dans quel morceau tombe $x$. Pour e, traite deux cas, $x \ge 0$ et $x < 0$. Pour f et g, $q$ a son sommet en $x = 2$, hors de $[3 \;;\; 6]$ : quel est son sens de variation sur cet intervalle ?
+Pour une fonction par morceaux, regarde d'abord dans quel morceau tombe $x$. Pour e, traite deux cas, $x \ge 0$ et $x < 0$. Pour f et g, $q$ a son sommet en $x = 2$, hors de $[3 \mkern5mu ;\mkern5mu  6]$ : quel est son sens de variation sur cet intervalle ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-e : pour $x \ge 0$, $r(x) = x$ et $r(-x) = 0$ ; pour $x < 0$, $r(x) = 0$ et $r(-x) = -x$. Quelle fonction de référence vaut $x$ à droite et $-x$ à gauche ? Pour f, $q$ est décroissante sur $[3 \;;\; 6]$. Pour h, les positions sont 0, 1, 2, 3, 4.
+e : pour $x \ge 0$, $r(x) = x$ et $r(-x) = 0$ ; pour $x < 0$, $r(x) = 0$ et $r(-x) = -x$. Quelle fonction de référence vaut $x$ à droite et $-x$ à gauche ? Pour f, $q$ est décroissante sur $[3 \mkern5mu ;\mkern5mu  6]$. Pour h, les positions sont 0, 1, 2, 3, 4.
 
 </details>
 

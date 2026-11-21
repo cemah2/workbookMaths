@@ -76,7 +76,7 @@ Vrai ou faux ?
 3. Une variance peut être négative.
 4. Si $\mathbb{V}(X) = 9$, alors $\sigma(X) = 3$.
 5. $\mathbb{V}(X + 10) = \mathbb{V}(X) + 10$.
-6. $\mathbb{V}(-2X) = -2\,\mathbb{V}(X)$.
+6. $\mathbb{V}(-2X) = -2\thinspace\mathbb{V}(X)$.
 7. Une variable aléatoire constante a une variance nulle.
 
 ### R8.Q7 — Ce que dit la loi des grands nombres 🧠 ★ ⏱️ 4 min
@@ -96,7 +96,7 @@ Vrai ou faux ?
 ### R8.R1 — Ensembles et complémentaire (R4) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-Dans $\Omega = \{a, b, c, d, e, f\}$, on pose $A = \{a, b, c\}$ et $B = \{c, d\}$.
+Dans $\Omega = \lbrace a, b, c, d, e, f\rbrace$, on pose $A = \lbrace a, b, c\rbrace$ et $B = \lbrace c, d\rbrace$.
 1. $A \cap B$ et $A \cup B$ ?
 2. $\bar{A}$ ?
 3. Retrouve $|A \cup B|$ avec la formule $|A| + |B| - |A \cap B|$.
@@ -106,7 +106,7 @@ Dans $\Omega = \{a, b, c, d, e, f\}$, on pose $A = \{a, b, c\}$ et $B = \{c, d\}
 *Fiche §7 · parcours C, E*
 
 1. $\sum_{k=1}^{4} k^2$ ?
-2. $\sum_{i=1}^{3} x_i\,p_i$ pour $x = (1, 3, 10)$ et $p = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ ?
+2. $\sum_{i=1}^{3} x_i\thinspace p_i$ pour $x = (1, 3, 10)$ et $p = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ ?
 3. $\prod_{k=1}^{5} k$ ?
 4. $\prod_{k=1}^{3} \left(1 - \frac{k}{10}\right)$ ?
 
@@ -328,7 +328,7 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 
 Soient $n \ge 2$ et $k$ deux entiers, avec $1 \le k \le n - 1$.
 1. Vérifie la formule sur un exemple : calcule $\binom{6}{3}$, $\binom{5}{2}$ et $\binom{5}{3}$.
-2. **Par le calcul.** Écris $\binom{n - 1}{k - 1}$ et $\binom{n - 1}{k}$ avec des factorielles, mets-les au même dénominateur $k!\,(n - k)!$ (utilise $k! = k \times (k - 1)!$ et $(n - k)! = (n - k) \times (n - k - 1)!$), puis additionne.
+2. **Par le calcul.** Écris $\binom{n - 1}{k - 1}$ et $\binom{n - 1}{k}$ avec des factorielles, mets-les au même dénominateur $k!\thinspace(n - k)!$ (utilise $k! = k \times (k - 1)!$ et $(n - k)! = (n - k) \times (n - k - 1)!$), puis additionne.
 3. **Par le comptage.** On choisit $k$ objets parmi $n$, et l'on regarde un objet particulier, le premier. Combien de choix le contiennent ? Combien ne le contiennent pas ? Conclus.
 4. Montre, par un raisonnement de comptage, que la somme de la ligne $n$ du triangle, $\sum_{k=0}^{n} \binom{n}{k}$, vaut $2^n$ (que compte chacun des deux membres ?).
 5. Pourquoi l'énoncé demande-t-il $1 \le k \le n - 1$ ? Que devient la formule pour $k = 0$ avec la convention $\binom{n - 1}{-1} = 0$ ?
@@ -338,11 +338,11 @@ Soient $n \ge 2$ et $k$ deux entiers, avec $1 \le k \le n - 1$.
 **Prérequis :** fiche §6 et §7 ; R4 (Σ, récurrence) · **Parcours :** C, E
 
 Un univers fini $\Omega$ porte une probabilité, de poids $p(\omega)$ pour chaque issue $\omega$, et une variable aléatoire $X$ associe un nombre $X(\omega)$ à chaque issue.
-1. On lance trois pièces équilibrées, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (la somme sur les valeurs de la fiche), puis avec la somme sur les 8 issues, $\sum_{\omega \in \Omega} X(\omega)\,p(\omega)$. Démontre ensuite que, pour toute variable aléatoire $X$ sur un univers fini, $\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\,p(\omega)$ (regroupe les issues qui donnent la même valeur de $X$).
+1. On lance trois pièces équilibrées, et $X$ est le nombre de piles. Calcule $\mathbb{E}[X]$ de deux façons : avec la loi de $X$ (la somme sur les valeurs de la fiche), puis avec la somme sur les 8 issues, $\sum_{\omega \in \Omega} X(\omega)\thinspace p(\omega)$. Démontre ensuite que, pour toute variable aléatoire $X$ sur un univers fini, $\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega)\thinspace p(\omega)$ (regroupe les issues qui donnent la même valeur de $X$).
 2. $X$ et $Y$ sont deux variables aléatoires définies sur le même univers. Démontre que $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$. As-tu supposé que $X$ et $Y$ sont indépendantes ?
 3. Démontre par récurrence sur $n \ge 2$ que $\mathbb{E}[X_1 + X_2 + \cdots + X_n] = \mathbb{E}[X_1] + \mathbb{E}[X_2] + \cdots + \mathbb{E}[X_n]$ pour $n$ variables aléatoires définies sur le même univers.
 4. Un QCM a 20 questions, chacune à 4 choix dont un seul est juste, et l'on répond à chacune au hasard. Pour $i$ de 1 à 20, $X_i$ vaut 1 si la réponse à la $i$-ème question est juste, 0 sinon. Écris le nombre $N$ de bonnes réponses à l'aide des $X_i$, et déduis $\mathbb{E}[N]$ de 3, sans calculer la loi de $N$.
-5. L'espérance d'un **produit** n'est pas toujours le produit des espérances : on lance une seule pièce équilibrée, et $X = Y$ vaut 1 si elle donne pile, 0 sinon. Compare $\mathbb{E}[XY]$ et $\mathbb{E}[X]\,\mathbb{E}[Y]$.
+5. L'espérance d'un **produit** n'est pas toujours le produit des espérances : on lance une seule pièce équilibrée, et $X = Y$ vaut 1 si elle donne pile, 0 sinon. Compare $\mathbb{E}[XY]$ et $\mathbb{E}[X]\thinspace\mathbb{E}[Y]$.
 
 <a id="reflexion"></a>
 
@@ -358,9 +358,9 @@ Un tournoi réunit 16 équipes, et chaque équipe rencontre chaque autre une foi
 |---|---|---|
 | a | le nombre de matchs du tournoi | un entier |
 | b | le nombre de matchs si chaque paire d'équipes joue un match aller et un match retour | un entier |
-| c | le nombre de comparaisons pour $n = 1\,000$ | un entier |
-| d | le rapport entre le nombre de comparaisons pour $n = 10\,000$ et celui pour $n = 1\,000$ | un entier (arrondi à l'unité) |
-| e | chaque comparaison prend une microseconde : la durée de toutes les comparaisons pour $n = 1\,000\,000$, en heures | un nombre (1 décimale) |
+| c | le nombre de comparaisons pour $n = 1\thinspace000$ | un entier |
+| d | le rapport entre le nombre de comparaisons pour $n = 10\thinspace000$ et celui pour $n = 1\thinspace000$ | un entier (arrondi à l'unité) |
+| e | chaque comparaison prend une microseconde : la durée de toutes les comparaisons pour $n = 1\thinspace000\thinspace000$, en heures | un nombre (1 décimale) |
 | f | le nombre de groupes de 3 exemples pour $n = 100$ | un entier |
 
 Dans ta copie : pourquoi $\binom{n}{2} \approx \frac{n^2}{2}$ quand $n$ est grand ? Que devient la durée de e si $n$ est multiplié par 10 ? Et le nombre de groupes de 3 ?

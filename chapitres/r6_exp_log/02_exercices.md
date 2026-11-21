@@ -96,7 +96,7 @@ Vrai ou faux ?
 *Fiche §3 · parcours C, E*
 
 1. On pose $f(x) = 2x + 3$. Donne l'expression de $f^{-1}(y)$.
-2. Quelle est la réciproque de la fonction carré sur $[0 \;;\; +\infty[$ ?
+2. Quelle est la réciproque de la fonction carré sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ ?
 3. Comment se placent l'une par rapport à l'autre les courbes de $f$ et de $f^{-1}$ ?
 4. Que vaut $f^{-1}(f(5))$ ?
 
@@ -206,7 +206,7 @@ Pour a, b, c, d et g, chaque expression s'écrit $e^{k}$ ou $2^{k}$ : donne l'ex
 | c | une substance perd 10 % de sa masse chaque année : sa demi-vie, en années | un nombre (2 décimales) |
 | d | une population de bactéries double toutes les 5 heures : par quel nombre est-elle multipliée en une heure ? | un nombre (4 décimales) |
 | e | la même population : par quel nombre est-elle multipliée en 12 heures ? | un nombre (2 décimales) |
-| f | une croissance continue $N(t) = N_{0}\,e^{0{,}04\,t}$ : son temps de doublement | un nombre (2 décimales) |
+| f | une croissance continue $N(t) = N_{0}\thinspace e^{0{,}04\thinspace t}$ : son temps de doublement | un nombre (2 décimales) |
 | g | un médicament a une demi-vie de 6 heures dans le sang : quelle part de la dose reste-t-il au bout de 24 heures ? | une fraction |
 
 ### Ex R6.7 — La cote et le logit : d'une probabilité à un score, et retour ✏️ ★★ ⏱️ 20 min
@@ -250,7 +250,7 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer les propriétés du logarithme à partir de la définition de ln et des propriétés de exp.
 **Prérequis :** fiche §2 et §3 ; R4 §7 (récurrence) · **Parcours :** C, E
 
-On utilise seulement : pour $x > 0$, $\ln x$ est l'unique réel $y$ tel que $e^{y} = x$ ; $e^{0} = 1$ ; et $e^{u + v} = e^{u}\,e^{v}$ pour tous réels $u$, $v$.
+On utilise seulement : pour $x > 0$, $\ln x$ est l'unique réel $y$ tel que $e^{y} = x$ ; $e^{0} = 1$ ; et $e^{u + v} = e^{u}\thinspace e^{v}$ pour tous réels $u$, $v$.
 1. Soient $a > 0$ et $b > 0$. Que valent $e^{\ln a}$ et $e^{\ln b}$ ? Calcule $e^{\ln a + \ln b}$.
 2. Déduis-en que $\ln(ab) = \ln a + \ln b$ (en citant le mot « unique » de la définition).
 3. Montre que $\ln \frac{1}{b} = -\ln b$ (applique 2 à $b$ et $\frac{1}{b}$), puis que $\ln \frac{a}{b} = \ln a - \ln b$.
@@ -300,7 +300,7 @@ Dans ta copie : que mesure $-\ln p$ quand $p$ est la probabilité donnée à ce 
 **Objectif :** calculer deux mesures du ML qui utilisent un logarithme, et voir ce que le logarithme y fait.
 **Prérequis :** fiche §3, §4 et §6 · **Parcours :** C
 
-**TF-IDF.** Dans une collection de $N = 2\,000$ documents, le poids d'un mot $t$ dans un document est $\mathrm{tf}(t) \times \mathrm{idf}(t)$, où $\mathrm{tf}(t)$ est le nombre de fois qu'il y apparaît et $\mathrm{idf}(t) = \ln \frac{N}{\mathrm{df}(t)}$, avec $\mathrm{df}(t)$ le nombre de documents qui contiennent le mot (la version la plus simple de l'idf ; scikit-learn y ajoute des 1).
+**TF-IDF.** Dans une collection de $N = 2\thinspace000$ documents, le poids d'un mot $t$ dans un document est $\mathrm{tf}(t) \times \mathrm{idf}(t)$, où $\mathrm{tf}(t)$ est le nombre de fois qu'il y apparaît et $\mathrm{idf}(t) = \ln \frac{N}{\mathrm{df}(t)}$, avec $\mathrm{df}(t)$ le nombre de documents qui contiennent le mot (la version la plus simple de l'idf ; scikit-learn y ajoute des 1).
 
 **PSNR.** Pour des images dont les pixels vont de 0 à 255, on mesure la qualité d'une image reconstruite par le PSNR, en décibels : $\mathrm{PSNR} = 10 \log_{10} \frac{255^{2}}{\mathrm{MSE}}$, où MSE est la moyenne des carrés des écarts entre les pixels de l'image reconstruite et ceux de l'originale.
 

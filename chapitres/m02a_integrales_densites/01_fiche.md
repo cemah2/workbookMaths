@@ -51,15 +51,15 @@ Vocabulaire anglais de ce chapitre : *integral*, *antiderivative* (primitive), *
 
 ## L'essentiel en 10 lignes
 
-1. L'**intégrale** $\int_a^b f(x)\,dx$ est l'aire **algébrique** entre la courbe de $f$ et l'axe des abscisses, de $a$ à $b$ : ce qui est sous l'axe compte négativement.
+1. L'**intégrale** $\int_a^b f(x)\thinspace dx$ est l'aire **algébrique** entre la courbe de $f$ et l'axe des abscisses, de $a$ à $b$ : ce qui est sous l'axe compte négativement.
 2. On l'approche par des **sommes de Riemann** : $n$ rectangles de largeur $h = \frac{b - a}{n}$, de hauteur lue à gauche, à droite ou au milieu ; quand $n$ grandit, elles tendent vers l'intégrale.
-3. Une **primitive** de $f$ est une fonction $F$ telle que $F' = f$. **Théorème fondamental** : $\int_a^b f(x)\,dx = F(b) - F(a)$, noté $\big[F(x)\big]_a^b$.
+3. Une **primitive** de $f$ est une fonction $F$ telle que $F' = f$. **Théorème fondamental** : $\int_a^b f(x)\thinspace dx = F(b) - F(a)$, noté $\big[F(x)\big]_a^b$.
 4. Primitives à connaître : $x^n \to \frac{x^{n+1}}{n+1}$ ($n \ne -1$), $\frac{1}{x} \to \ln \lvert x \rvert$, $e^{ax} \to \frac{e^{ax}}{a}$, $\cos \to \sin$, $\sin \to -\cos$ ; l'intégrale est **linéaire**.
-5. **Par parties** : $\int_a^b u v' = \big[uv\big]_a^b - \int_a^b u' v$. **Changement de variable** : $\int_a^b f(g(x))\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du$.
-6. Une intégrale **impropre** est une limite : $\int_1^{+\infty} \frac{dx}{x^p}$ converge si et seulement si $p > 1$ ; $\int_0^1 \frac{dx}{x^p}$ si et seulement si $p < 1$. **Gauss** : $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$.
+5. **Par parties** : $\int_a^b u v' = \big[uv\big] _a^b - \int_a^b u' v$. **Changement de variable** : $\int_a^b f(g(x))\thinspace g'(x)\thinspace dx = \int _{g(a)}^{g(b)} f(u)\thinspace du$.
+6. Une intégrale **impropre** est une limite : $\int_1^{+\infty} \frac{dx}{x^p}$ converge si et seulement si $p > 1$ ; $\int_0^1 \frac{dx}{x^p}$ si et seulement si $p < 1$. **Gauss** : $\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi}$.
 7. **Méthodes numériques** : rectangles (erreur en $h$), trapèzes et point milieu (en $h^2$), Simpson (en $h^4$) ; diviser le pas par 2 divise l'erreur par environ 2, 4 et 16, pour une fonction régulière.
-8. Une **densité** $f$ est positive, d'intégrale totale 1, et $P(a \le X \le b) = \int_a^b f(x)\,dx$. Une valeur exacte a une probabilité nulle ; une densité peut dépasser 1.
-9. La **fonction de répartition** $F(x) = P(X \le x) = \int_{-\infty}^x f(t)\,dt$ croît de 0 à 1, et $F' = f$. Le **quantile** d'ordre $p$ est le plus petit $x$ tel que $F(x) \ge p$ : la médiane pour $p = 0{,}5$, le percentile 90 pour $p = 0{,}9$.
+8. Une **densité** $f$ est positive, d'intégrale totale 1, et $P(a \le X \le b) = \int_a^b f(x)\thinspace dx$. Une valeur exacte a une probabilité nulle ; une densité peut dépasser 1.
+9. La **fonction de répartition** $F(x) = P(X \le x) = \int_{-\infty}^x f(t)\thinspace dt$ croît de 0 à 1, et $F' = f$. Le **quantile** d'ordre $p$ est le plus petit $x$ tel que $F(x) \ge p$ : la médiane pour $p = 0{,}5$, le percentile 90 pour $p = 0{,}9$.
 10. Deux aires du ML : l'**AUC**, l'aire sous la courbe ROC ; la **valeur moyenne** $\frac{1}{b-a}\int_a^b f$, la hauteur du rectangle de même aire.
 
 ---
@@ -76,7 +76,7 @@ C'est l'idée de tout le chapitre : une grandeur qui s'accumule (une distance, u
 
 Soit $f$ une fonction continue sur $[a ; b]$. On découpe l'intervalle en $n$ morceaux de même largeur
 
-$$h = \frac{b - a}{n}, \qquad x_i = a + i\,h \quad (i = 0, 1, \ldots, n),$$
+$$h = \frac{b - a}{n}, \qquad x_i = a + i\thinspace h \quad (i = 0, 1, \ldots, n),$$
 
 de sorte que $x_0 = a$ et $x_n = b$. Sur chaque morceau $[x_i ; x_{i+1}]$, on dresse un rectangle de largeur $h$ dont la hauteur est une valeur de $f$ : on la lit **à gauche** ($f(x_i)$), **à droite** ($f(x_{i+1})$) ou **au milieu** ($f\big(x_i + \frac{h}{2}\big)$). La somme des aires des $n$ rectangles est une **somme de Riemann** (*Riemann sum*) :
 
@@ -114,9 +114,9 @@ Quand $n$ grandit, les rectangles deviennent plus étroits et les trois sommes s
 
 Pour une fonction **continue** sur $[a ; b]$, les trois sommes ont la même limite quand $n \to +\infty$ (le théorème est admis ; M02a.12 le démontre pour une fonction croissante). Cette limite est l'**intégrale** (*integral*) de $f$ de $a$ à $b$ :
 
-$$\int_a^b f(x)\,dx = \lim_{n \to +\infty} h \sum_{i=0}^{n-1} f(x_i).$$
+$$\int_a^b f(x)\thinspace dx = \lim_{n \to +\infty} h \sum_{i=0}^{n-1} f(x_i).$$
 
-Le signe $\int$ est un S allongé, celui de « somme » ; $f(x)\,dx$ rappelle l'aire $f(x_i) \times h$ d'un rectangle, et $dx$ la largeur qui devient infiniment petite. La lettre $x$ est **muette** : $\int_0^2 x^2\,dx = \int_0^2 t^2\,dt$. Les nombres $a$ et $b$ sont les **bornes** de l'intégrale.
+Le signe $\int$ est un S allongé, celui de « somme » ; $f(x)\thinspace dx$ rappelle l'aire $f(x_i) \times h$ d'un rectangle, et $dx$ la largeur qui devient infiniment petite. La lettre $x$ est **muette** : $\int_0^2 x^2\thinspace dx = \int_0^2 t^2\thinspace dt$. Les nombres $a$ et $b$ sont les **bornes** de l'intégrale.
 
 📐 On lit « intégrale de $a$ à $b$ de $f$ de $x$, $dx$ » (`annexes/symboles.md`).
 
@@ -140,7 +140,7 @@ Pour obtenir l'aire **géométrique** (toujours positive) d'une région qui trav
 
 Une **primitive** (*antiderivative*) d'une fonction $f$ sur un intervalle est une fonction $F$ dont la dérivée est $f$ : $F' = f$. Chercher une primitive, c'est dériver à l'envers.
 
-Exemple : $F(x) = \frac{x^3}{3}$ est une primitive de $f(x) = x^2$, car $F'(x) = \frac{3x^2}{3} = x^2$. Mais $\frac{x^3}{3} + 5$ aussi, et $\frac{x^3}{3} - 1$ : ajouter une constante ne change pas la dérivée. Sur un **intervalle**, deux primitives d'une même fonction diffèrent toujours d'une constante (une fonction de dérivée nulle sur un intervalle est constante, R7). On écrit souvent « les primitives de $x^2$ sont les $\frac{x^3}{3} + C$ », $C$ étant une constante quelconque, ou $\int x^2\,dx = \frac{x^3}{3} + C$ (une **intégrale indéfinie**, sans bornes).
+Exemple : $F(x) = \frac{x^3}{3}$ est une primitive de $f(x) = x^2$, car $F'(x) = \frac{3x^2}{3} = x^2$. Mais $\frac{x^3}{3} + 5$ aussi, et $\frac{x^3}{3} - 1$ : ajouter une constante ne change pas la dérivée. Sur un **intervalle**, deux primitives d'une même fonction diffèrent toujours d'une constante (une fonction de dérivée nulle sur un intervalle est constante, R7). On écrit souvent « les primitives de $x^2$ sont les $\frac{x^3}{3} + C$ », $C$ étant une constante quelconque, ou $\int x^2\thinspace dx = \frac{x^3}{3} + C$ (une **intégrale indéfinie**, sans bornes).
 
 | $f(x)$ | une primitive $F(x)$ | sur |
 |---|---|---|
@@ -152,7 +152,7 @@ Exemple : $F(x) = \frac{x^3}{3}$ est une primitive de $f(x) = x^2$, car $F'(x) =
 | $\sin x$ | $-\cos x$ | $\mathbb{R}$ |
 | $f(ax + b)$, $a \ne 0$ | $\frac{1}{a} F(ax + b)$ | |
 
-La deuxième ligne couvre les racines et les inverses de puissances : $\sqrt{x} = x^{1/2}$ a pour primitive $\frac{x^{3/2}}{3/2} = \frac{2}{3}x^{3/2}$, et $\frac{1}{x^2} = x^{-2}$ a pour primitive $\frac{x^{-1}}{-1} = -\frac{1}{x}$. La dernière ligne vient de la règle de la chaîne (R7) : la dérivée de $\frac{1}{a}F(ax + b)$ est $\frac{1}{a} \times a\,f(ax + b) = f(ax + b)$. Par exemple, une primitive de $e^{-3x}$ est $-\frac{1}{3}e^{-3x}$.
+La deuxième ligne couvre les racines et les inverses de puissances : $\sqrt{x} = x^{1/2}$ a pour primitive $\frac{x^{3/2}}{3/2} = \frac{2}{3}x^{3/2}$, et $\frac{1}{x^2} = x^{-2}$ a pour primitive $\frac{x^{-1}}{-1} = -\frac{1}{x}$. La dernière ligne vient de la règle de la chaîne (R7) : la dérivée de $\frac{1}{a}F(ax + b)$ est $\frac{1}{a} \times a\thinspace f(ax + b) = f(ax + b)$. Par exemple, une primitive de $e^{-3x}$ est $-\frac{1}{3}e^{-3x}$.
 
 **Vérifier une primitive est facile** : il suffit de la dériver. C'est le réflexe à prendre, à la main ou avec SymPy :
 
@@ -169,24 +169,24 @@ La deuxième ligne couvre les racines et les inverses de puissances : $\sqrt{x} 
 
 Voici le pont entre les aires du §1 et les primitives. Pour $f$ continue sur $[a ; b]$ et $F$ une primitive de $f$ :
 
-$$\int_a^b f(x)\,dx = F(b) - F(a), \qquad \text{noté} \quad \big[F(x)\big]_a^b.$$
+$$\int_a^b f(x)\thinspace dx = F(b) - F(a), \qquad \text{noté} \quad \big[F(x)\big]_a^b.$$
 
 Le choix de la primitive n'importe pas : la constante $C$ disparaît dans la différence. Pour $x^2$ sur $[0 ; 2]$ :
 
-$$\int_0^2 x^2\,dx = \left[\frac{x^3}{3}\right]_0^2 = \frac{8}{3} - 0 = \frac{8}{3} \approx 2{,}667,$$
+$$\int_0^2 x^2\thinspace dx = \left[\frac{x^3}{3}\right]_0^2 = \frac{8}{3} - 0 = \frac{8}{3} \approx 2{,}667,$$
 
 la valeur vers laquelle tendaient les sommes de Riemann du §1. De même, $\int_1^e \frac{dx}{x} = \big[\ln x\big]_1^e = 1 - 0 = 1$.
 
-**Pourquoi ?** Considère la **fonction aire** $A(x) = \int_a^x f(t)\,dt$, l'aire de $a$ jusqu'à $x$. Quand $x$ avance de $h$, l'aire gagne une bande étroite, presque un rectangle de largeur $h$ et de hauteur $f(x)$ : $A(x + h) - A(x) \approx f(x)\,h$. En divisant par $h$ et en faisant tendre $h$ vers 0, on trouve $A'(x) = f(x)$ : **la fonction aire est une primitive de $f$**. Elle vaut 0 en $a$, donc $A(x) = F(x) - F(a)$ pour toute primitive $F$, et $\int_a^b f = A(b) = F(b) - F(a)$. Tu rédigeras cette démonstration en M02a.11.
+**Pourquoi ?** Considère la **fonction aire** $A(x) = \int_a^x f(t)\thinspace dt$, l'aire de $a$ jusqu'à $x$. Quand $x$ avance de $h$, l'aire gagne une bande étroite, presque un rectangle de largeur $h$ et de hauteur $f(x)$ : $A(x + h) - A(x) \approx f(x)\thinspace h$. En divisant par $h$ et en faisant tendre $h$ vers 0, on trouve $A'(x) = f(x)$ : **la fonction aire est une primitive de $f$**. Elle vaut 0 en $a$, donc $A(x) = F(x) - F(a)$ pour toute primitive $F$, et $\int_a^b f = A(b) = F(b) - F(a)$. Tu rédigeras cette démonstration en M02a.11.
 
 ![La bande ajoutée vaut presque f(x) h : la pente de la fonction aire est f(x)](figures/fonction_aire.png)
 
-Conséquence remarquable : même sans formule pour une intégrale, on connaît la dérivée de la fonction aire. La dérivée de $x \mapsto \int_0^x e^{-t^2}\,dt$ est $e^{-x^2}$, alors qu'aucune formule usuelle ne donne cette intégrale (§4).
+Conséquence remarquable : même sans formule pour une intégrale, on connaît la dérivée de la fonction aire. La dérivée de $x \mapsto \int_0^x e^{-t^2}\thinspace dt$ est $e^{-x^2}$, alors qu'aucune formule usuelle ne donne cette intégrale (§4).
 
 ### Les règles de calcul
 
 Pour $f$ et $g$ continues, et des nombres $a$, $b$, $c$, $\lambda$ :
-- **linéarité** : $\int_a^b \big(f(x) + g(x)\big)\,dx = \int_a^b f + \int_a^b g$ et $\int_a^b \lambda f = \lambda \int_a^b f$ ;
+- **linéarité** : $\int_a^b \big(f(x) + g(x)\big)\thinspace dx = \int_a^b f + \int_a^b g$ et $\int_a^b \lambda f = \lambda \int_a^b f$ ;
 - **relation de Chasles** : $\int_a^b f + \int_b^c f = \int_a^c f$ (les aires s'ajoutent bout à bout) ;
 - **bornes inversées** : $\int_b^a f = -\int_a^b f$, et $\int_a^a f = 0$ ;
 - **positivité** : si $a \le b$ et $f \ge 0$ sur $[a ; b]$, alors $\int_a^b f \ge 0$ ; si $a \le b$ et $f \le g$ sur $[a ; b]$, alors $\int_a^b f \le \int_a^b g$.
@@ -195,7 +195,7 @@ Pour $f$ et $g$ continues, et des nombres $a$, $b$, $c$, $\lambda$ :
 
 ### L'aire entre deux courbes
 
-Si $f \le g$ sur $[a ; b]$, l'aire de la région comprise entre les deux courbes est $\int_a^b \big(g(x) - f(x)\big)\,dx$ : la courbe du haut moins celle du bas, que les courbes soient au-dessus ou au-dessous de l'axe. Exemple : entre $y = x^3$ et $y = x$ sur $[0 ; 1]$ (où $x^3 \le x$), l'aire vaut $\int_0^1 (x - x^3)\,dx = \frac{1}{2} - \frac{1}{4} = \frac{1}{4}$. Les bornes sont souvent les abscisses des points d'intersection : on les trouve en résolvant $f(x) = g(x)$.
+Si $f \le g$ sur $[a ; b]$, l'aire de la région comprise entre les deux courbes est $\int_a^b \big(g(x) - f(x)\big)\thinspace dx$ : la courbe du haut moins celle du bas, que les courbes soient au-dessus ou au-dessous de l'axe. Exemple : entre $y = x^3$ et $y = x$ sur $[0 ; 1]$ (où $x^3 \le x$), l'aire vaut $\int_0^1 (x - x^3)\thinspace dx = \frac{1}{2} - \frac{1}{4} = \frac{1}{4}$. Les bornes sont souvent les abscisses des points d'intersection : on les trouve en résolvant $f(x) = g(x)$.
 
 🔗 **Dans workbookIA** — le chapitre 2 te dira « la probabilité est une aire, tu n'auras pas à la calculer » : désormais, tu sauras la calculer.
 
@@ -207,35 +207,35 @@ Trois méthodes couvrent la plupart des intégrales que tu croiseras. Le premier
 
 $$\int_1^2 \left(3x^2 - \frac{2}{x}\right)dx = \big[x^3 - 2\ln x\big]_1^2 = (8 - 2\ln 2) - (1 - 0) = 7 - 2\ln 2 \approx 5{,}614.$$
 
-⚠️ **Erreur de calcul classique.** L'intégrale d'un **produit** n'est pas le produit des intégrales : $\int_0^1 x \cdot x\,dx = \frac{1}{3}$, alors que $\int_0^1 x\,dx \times \int_0^1 x\,dx = \frac{1}{4}$. Pour un produit, il faut l'une des deux méthodes qui suivent.
+⚠️ **Erreur de calcul classique.** L'intégrale d'un **produit** n'est pas le produit des intégrales : $\int_0^1 x \cdot x\thinspace dx = \frac{1}{3}$, alors que $\int_0^1 x\thinspace dx \times \int_0^1 x\thinspace dx = \frac{1}{4}$. Pour un produit, il faut l'une des deux méthodes qui suivent.
 
 ### Intégration par parties
 
 La règle du produit $(uv)' = u'v + uv'$ (R7), intégrée de $a$ à $b$ (pour $u$ et $v$ dérivables, de dérivées continues), donne $\big[uv\big]_a^b = \int_a^b u'v + \int_a^b uv'$, soit
 
-$$\int_a^b u(x)\,v'(x)\,dx = \big[u(x)\,v(x)\big]_a^b - \int_a^b u'(x)\,v(x)\,dx.$$
+$$\int_a^b u(x)\thinspace v'(x)\thinspace dx = \big[u(x)\thinspace v(x)\big]_a^b - \int_a^b u'(x)\thinspace v(x)\thinspace dx.$$
 
-On échange une intégrale contre une autre, plus simple si $u$ se **simplifie en dérivant** et si $v'$ **s'intègre facilement**. Exemple : $\int_0^1 x\,e^{-x}\,dx$. On choisit $u = x$ (dérivée $u' = 1$, plus simple) et $v' = e^{-x}$ (primitive $v = -e^{-x}$) :
+On échange une intégrale contre une autre, plus simple si $u$ se **simplifie en dérivant** et si $v'$ **s'intègre facilement**. Exemple : $\int_0^1 x\thinspace e^{-x}\thinspace dx$. On choisit $u = x$ (dérivée $u' = 1$, plus simple) et $v' = e^{-x}$ (primitive $v = -e^{-x}$) :
 
-$$\int_0^1 x\,e^{-x}\,dx = \big[-x\,e^{-x}\big]_0^1 - \int_0^1 1 \times (-e^{-x})\,dx = -e^{-1} + \big[-e^{-x}\big]_0^1 = -e^{-1} + 1 - e^{-1} = 1 - \frac{2}{e} \approx 0{,}264.$$
+$$\int_0^1 x\thinspace e^{-x}\thinspace dx = \big[-x\thinspace e^{-x}\big]_0^1 - \int_0^1 1 \times (-e^{-x})\thinspace dx = -e^{-1} + \big[-e^{-x}\big]_0^1 = -e^{-1} + 1 - e^{-1} = 1 - \frac{2}{e} \approx 0{,}264.$$
 
 Le choix inverse ($u = e^{-x}$, $v' = x$) mènerait à $\int x^2 e^{-x}$, plus compliquée. Règle pratique : on **dérive** le polynôme ou le logarithme, on **intègre** l'exponentielle, le sinus ou le cosinus. Pour $x^2 e^{-x}$, il faut deux intégrations par parties successives, chacune abaissant le degré du polynôme de 1.
 
 ### Changement de variable
 
-La règle de la chaîne $\big(F(g(x))\big)' = F'(g(x))\,g'(x)$ (R7), intégrée, donne la formule du **changement de variable** (*substitution*), pour $f$ continue et $g$ dérivable, de dérivée continue :
+La règle de la chaîne $\big(F(g(x))\big)' = F'(g(x))\thinspace g'(x)$ (R7), intégrée, donne la formule du **changement de variable** (*substitution*), pour $f$ continue et $g$ dérivable, de dérivée continue :
 
-$$\int_a^b f\big(g(x)\big)\,g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du.$$
+$$\int_a^b f\big(g(x)\big)\thinspace g'(x)\thinspace dx = \int_{g(a)}^{g(b)} f(u)\thinspace du.$$
 
-En pratique : on repère une fonction $g(x)$ dont la dérivée apparaît en facteur, on pose $u = g(x)$, on remplace $g'(x)\,dx$ par $du$, et **on change les bornes** : quand $x$ va de $a$ à $b$, $u$ va de $g(a)$ à $g(b)$.
+En pratique : on repère une fonction $g(x)$ dont la dérivée apparaît en facteur, on pose $u = g(x)$, on remplace $g'(x)\thinspace dx$ par $du$, et **on change les bornes** : quand $x$ va de $a$ à $b$, $u$ va de $g(a)$ à $g(b)$.
 
-Exemple, qui reviendra au §4 et au §6 : $\int_0^a x\,e^{-x^2/2}\,dx$, pour un nombre $a > 0$. On pose $u = \frac{x^2}{2}$ : $du = x\,dx$, et $u$ va de 0 à $\frac{a^2}{2}$. Donc
+Exemple, qui reviendra au §4 et au §6 : $\int_0^a x\thinspace e^{-x^2/2}\thinspace dx$, pour un nombre $a > 0$. On pose $u = \frac{x^2}{2}$ : $du = x\thinspace dx$, et $u$ va de 0 à $\frac{a^2}{2}$. Donc
 
-$$\int_0^a x\,e^{-x^2/2}\,dx = \int_0^{a^2/2} e^{-u}\,du = \big[-e^{-u}\big]_0^{a^2/2} = 1 - e^{-a^2/2}.$$
+$$\int_0^a x\thinspace e^{-x^2/2}\thinspace dx = \int_0^{a^2/2} e^{-u}\thinspace du = \big[-e^{-u}\big]_0^{a^2/2} = 1 - e^{-a^2/2}.$$
 
 Pour $a = 2$ : $1 - e^{-2} \approx 0{,}865$.
 
-⚠️ **Erreur de calcul classique.** Changer de variable sans changer les bornes : dans l'exemple, $\int_0^2 e^{-u}\,du = 1 - e^{-2}$ tombe juste par hasard pour $a = 2$, mais pas pour $a = 3$ (la vraie borne est $\frac{9}{2}$, pas 3). Autre oubli : remplacer $dx$ par $du$ sans le facteur $g'(x)$.
+⚠️ **Erreur de calcul classique.** Changer de variable sans changer les bornes : dans l'exemple, $\int_0^2 e^{-u}\thinspace du = 1 - e^{-2}$ tombe juste par hasard pour $a = 2$, mais pas pour $a = 3$ (la vraie borne est $\frac{9}{2}$, pas 3). Autre oubli : remplacer $dx$ par $du$ sans le facteur $g'(x)$.
 
 💻 **Aujourd'hui en pratique** — SymPy calcule les intégrales usuelles (`sp.integrate(x * sp.exp(-x), (x, 0, 1))` rend `1 - 2*exp(-1)`), et les ingénieurs vérifient leurs calculs ainsi. Savoir les deux méthodes reste utile : pour reconnaître la forme d'un résultat, et pour les démonstrations des chapitres suivants (l'espérance d'une loi exponentielle en M02b, par parties ; la loi normale, par changement de variable).
 
@@ -247,7 +247,7 @@ Pour $a = 2$ : $1 - e^{-2} \approx 0{,}865$.
 
 Les lois de probabilité ont souvent des valeurs possibles jusqu'à l'infini (une durée d'attente n'a pas de maximum). Il faut donc des intégrales sur $[a ; +\infty[$. On les définit comme des **limites** :
 
-$$\int_a^{+\infty} f(x)\,dx = \lim_{b \to +\infty} \int_a^b f(x)\,dx.$$
+$$\int_a^{+\infty} f(x)\thinspace dx = \lim_{b \to +\infty} \int_a^b f(x)\thinspace dx.$$
 
 Si la limite existe et est finie, l'intégrale **converge** ; sinon, elle **diverge** (*improper integral*, *converges*, *diverges*).
 
@@ -257,9 +257,9 @@ Deux exemples, que la figure compare :
 
 ![1/x² a une aire finie de 1 à +∞, pas 1/x](figures/queues.png)
 
-Plus généralement, $\int_1^b x^{-p}\,dx = \frac{b^{1-p} - 1}{1 - p}$ pour $p \ne 1$ : cette quantité a une limite finie, $\frac{1}{p - 1}$, si et seulement si $p > 1$. Retiens : **$\int_1^{+\infty} \frac{dx}{x^p}$ converge si et seulement si $p > 1$**. Il ne suffit pas que la fonction tende vers 0 : il faut qu'elle tende vers 0 **assez vite**.
+Plus généralement, $\int_1^b x^{-p}\thinspace dx = \frac{b^{1-p} - 1}{1 - p}$ pour $p \ne 1$ : cette quantité a une limite finie, $\frac{1}{p - 1}$, si et seulement si $p > 1$. Retiens : **$\int_1^{+\infty} \frac{dx}{x^p}$ converge si et seulement si $p > 1$**. Il ne suffit pas que la fonction tende vers 0 : il faut qu'elle tende vers 0 **assez vite**.
 
-L'exponentielle décroît plus vite que toute puissance (R6) : pour $\lambda > 0$, $\int_0^b e^{-\lambda x}\,dx = \frac{1 - e^{-\lambda b}}{\lambda} \to \frac{1}{\lambda}$. Et l'exemple du §3 se prolonge : $\int_0^{+\infty} x\,e^{-x^2/2}\,dx = \lim_{a \to +\infty} \big(1 - e^{-a^2/2}\big) = 1$.
+L'exponentielle décroît plus vite que toute puissance (R6) : pour $\lambda > 0$, $\int_0^b e^{-\lambda x}\thinspace dx = \frac{1 - e^{-\lambda b}}{\lambda} \to \frac{1}{\lambda}$. Et l'exemple du §3 se prolonge : $\int_0^{+\infty} x\thinspace e^{-x^2/2}\thinspace dx = \lim_{a \to +\infty} \big(1 - e^{-a^2/2}\big) = 1$.
 
 Sur $]-\infty ; +\infty[$, on coupe en un point (0, par exemple), et l'intégrale converge si **les deux moitiés** convergent : $\int_{-\infty}^{+\infty} f = \int_{-\infty}^0 f + \int_0^{+\infty} f$.
 
@@ -267,7 +267,7 @@ Sur $]-\infty ; +\infty[$, on coupe en un point (0, par exemple), et l'intégral
 
 L'autre cas d'intégrale impropre est une fonction **non bornée** près d'une borne, comme $\frac{1}{\sqrt{x}}$ près de 0. On coupe un petit morceau, puis on passe à la limite :
 
-$$\int_0^1 \frac{dx}{\sqrt{x}} = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 x^{-1/2}\,dx = \lim_{\varepsilon \to 0^+} \big(2 - 2\sqrt{\varepsilon}\big) = 2.$$
+$$\int_0^1 \frac{dx}{\sqrt{x}} = \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 x^{-1/2}\thinspace dx = \lim_{\varepsilon \to 0^+} \big(2 - 2\sqrt{\varepsilon}\big) = 2.$$
 
 Ici la règle est inversée : **$\int_0^1 \frac{dx}{x^p}$ converge si et seulement si $p < 1$** (la fonction doit exploser **assez lentement**). Pour $p = 1$, les deux intégrales, vers 0 et vers $+\infty$, divergent.
 
@@ -277,15 +277,15 @@ Ici la règle est inversée : **$\int_0^1 \frac{dx}{x^p}$ converge si et seuleme
 
 La fonction $e^{-x^2}$, une « cloche », n'a **pas de primitive** qui s'écrive avec les fonctions usuelles (c'est un théorème, admis). Pourtant son intégrale sur toute la droite se calcule, par une astuce que tu verras en M02b (une intégrale double, M02b.12) :
 
-$$\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi} \approx 1{,}7725.$$
+$$\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi} \approx 1{,}7725.$$
 
 Admets-la pour l'instant, et vérifie-la numériquement (M02a.19, M02a.21). Pourquoi converge-t-elle ? Par une **règle de comparaison**, admise : si $0 \le f \le g$ sur $[a ; +\infty[$ et si $\int_a^{+\infty} g$ converge, alors $\int_a^{+\infty} f$ converge aussi, et $\int_a^{+\infty} f \le \int_a^{+\infty} g$ (une aire coincée sous une aire finie est finie). Ici, pour $\lvert x \rvert \ge 1$, $e^{-x^2} \le e^{-\lvert x \rvert}$, dont l'intégrale converge.
 
 Par le changement de variable $x = \frac{t}{\sqrt{2}}$ (donc $dx = \frac{dt}{\sqrt{2}}$), on en déduit
 
-$$\int_{-\infty}^{+\infty} e^{-t^2/2}\,dt = \sqrt{2} \int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{2\pi}.$$
+$$\int_{-\infty}^{+\infty} e^{-t^2/2}\thinspace dt = \sqrt{2} \int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{2\pi}.$$
 
-C'est l'origine du facteur $\frac{1}{\sqrt{2\pi}}$ de la **loi normale** : la fonction $\varphi(t) = \frac{1}{\sqrt{2\pi}}\,e^{-t^2/2}$ a une aire totale de 1, ce qu'exige une densité (§6).
+C'est l'origine du facteur $\frac{1}{\sqrt{2\pi}}$ de la **loi normale** : la fonction $\varphi(t) = \frac{1}{\sqrt{2\pi}}\thinspace e^{-t^2/2}$ a une aire totale de 1, ce qu'exige une densité (§6).
 
 ```python
 >>> import math
@@ -357,17 +357,17 @@ Le temps d'attente d'un bus, la taille d'une personne ou le score d'un modèle p
 
 Une **densité de probabilité** (*probability density function*, *pdf*) est une fonction $f$ telle que :
 1. $f(x) \ge 0$ pour tout $x$ ;
-2. $\int_{-\infty}^{+\infty} f(x)\,dx = 1$ (l'aire totale vaut 1).
+2. $\int_{-\infty}^{+\infty} f(x)\thinspace dx = 1$ (l'aire totale vaut 1).
 
 Une variable aléatoire $X$ **a pour densité** $f$ si, pour tous $a \le b$,
 
-$$P(a \le X \le b) = \int_a^b f(x)\,dx.$$
+$$P(a \le X \le b) = \int_a^b f(x)\thinspace dx.$$
 
 L'ensemble où $f$ n'est pas nulle s'appelle le **support** de la loi : en dehors, $X$ ne tombe qu'avec une probabilité nulle. Quand $f$ est nulle hors d'un intervalle $[c ; d]$, l'intégrale totale se réduit à $\int_c^d f$.
 
-Exemple : $f(x) = c\,(1 - x^2)$ sur $[-1 ; 1]$, et 0 ailleurs. Pour quelle constante $c$ est-ce une densité ? Elle est positive pour $c > 0$, et
+Exemple : $f(x) = c\thinspace(1 - x^2)$ sur $[-1 ; 1]$, et 0 ailleurs. Pour quelle constante $c$ est-ce une densité ? Elle est positive pour $c > 0$, et
 
-$$\int_{-1}^1 c\,(1 - x^2)\,dx = c\left[x - \frac{x^3}{3}\right]_{-1}^1 = c\left(\frac{2}{3} + \frac{2}{3}\right) = \frac{4c}{3} = 1 \iff c = \frac{3}{4}.$$
+$$\int_{-1}^1 c\thinspace(1 - x^2)\thinspace dx = c\left[x - \frac{x^3}{3}\right]_{-1}^1 = c\left(\frac{2}{3} + \frac{2}{3}\right) = \frac{4c}{3} = 1 \iff c = \frac{3}{4}.$$
 
 Alors $P\big(0 \le X \le \frac{1}{2}\big) = \frac{3}{4}\left[x - \frac{x^3}{3}\right]_0^{1/2} = \frac{3}{4}\left(\frac{1}{2} - \frac{1}{24}\right) = \frac{3}{4} \times \frac{11}{24} = \frac{11}{32} \approx 0{,}344$.
 
@@ -376,18 +376,18 @@ Alors $P\big(0 \le X \le \frac{1}{2}\big) = \frac{3}{4}\left[x - \frac{x^3}{3}\r
 ### Trois conséquences qui surprennent
 
 - **Une valeur exacte a une probabilité nulle** : $P(X = a) = \int_a^a f = 0$. Donc $P(a \le X \le b) = P(a < X < b)$ : les inégalités larges ou strictes donnent la même probabilité, contrairement à une loi discrète (R8).
-- **$f(x)$ n'est pas une probabilité.** C'est une probabilité **par unité de longueur** : pour un petit $h$, $P(x \le X \le x + h) \approx f(x)\,h$ (l'aire d'un rectangle étroit). Comme la densité de masse d'un matériau, en grammes par centimètre cube, n'est pas une masse.
+- **$f(x)$ n'est pas une probabilité.** C'est une probabilité **par unité de longueur** : pour un petit $h$, $P(x \le X \le x + h) \approx f(x)\thinspace h$ (l'aire d'un rectangle étroit). Comme la densité de masse d'un matériau, en grammes par centimètre cube, n'est pas une masse.
 - **Une densité peut dépasser 1.** Seule l'aire doit valoir 1. La loi uniforme sur $[2 ; 2{,}25]$ a pour densité 4 sur cet intervalle (et 0 ailleurs) : $4 \times 0{,}25 = 1$. Plus la loi est concentrée, plus sa densité est haute.
 
 ⚠️ **Erreur de calcul classique.** Lire $f(x)$ comme $P(X = x)$. Pour comparer deux valeurs d'une variable continue, on compare leurs densités : elles disent laquelle a le plus de probabilité **autour d'elle** (M02a.E1).
 
 ### Une densité sur une demi-droite
 
-La durée d'attente $T$ (en minutes) d'un service qui répond en moyenne toutes les 2 minutes est souvent modélisée par la **densité exponentielle** $f(t) = 0{,}5\,e^{-0{,}5t}$ pour $t \ge 0$, et 0 pour $t < 0$ (M02b étudiera cette loi en détail). C'est une densité : $f \ge 0$ et, par le §4, $\int_0^{+\infty} 0{,}5\,e^{-0{,}5t}\,dt = 0{,}5 \times \frac{1}{0{,}5} = 1$. La probabilité d'attendre plus de 3 minutes est
+La durée d'attente $T$ (en minutes) d'un service qui répond en moyenne toutes les 2 minutes est souvent modélisée par la **densité exponentielle** $f(t) = 0{,}5\thinspace e^{-0{,}5t}$ pour $t \ge 0$, et 0 pour $t < 0$ (M02b étudiera cette loi en détail). C'est une densité : $f \ge 0$ et, par le §4, $\int_0^{+\infty} 0{,}5\thinspace e^{-0{,}5t}\thinspace dt = 0{,}5 \times \frac{1}{0{,}5} = 1$. La probabilité d'attendre plus de 3 minutes est
 
-$$P(T > 3) = \int_3^{+\infty} 0{,}5\,e^{-0{,}5t}\,dt = \lim_{b \to +\infty} \big[-e^{-0{,}5t}\big]_3^b = e^{-1{,}5} \approx 0{,}223.$$
+$$P(T > 3) = \int_3^{+\infty} 0{,}5\thinspace e^{-0{,}5t}\thinspace dt = \lim_{b \to +\infty} \big[-e^{-0{,}5t}\big]_3^b = e^{-1{,}5} \approx 0{,}223.$$
 
-De même, $\int_0^{+\infty} x\,e^{-x^2/2}\,dx = 1$ (§4) : la fonction $x\,e^{-x^2/2}$ sur $[0 ; +\infty[$ est une densité, celle de la distance au centre d'un tir visé au hasard autour d'une cible (une loi de Rayleigh).
+De même, $\int_0^{+\infty} x\thinspace e^{-x^2/2}\thinspace dx = 1$ (§4) : la fonction $x\thinspace e^{-x^2/2}$ sur $[0 ; +\infty[$ est une densité, celle de la distance au centre d'un tir visé au hasard autour d'une cible (une loi de Rayleigh).
 
 **Un histogramme estime une densité.** Avec beaucoup de valeurs tirées d'une loi continue, un histogramme dont les barres ont une **aire** égale à la proportion de valeurs qu'elles contiennent (`density=True` en matplotlib) dessine une courbe proche de la densité : workbookIA 2 en construit un.
 
@@ -405,7 +405,7 @@ La **fonction de répartition** (*cumulative distribution function*, *cdf*) d'un
 
 $$F(x) = P(X \le x).$$
 
-Pour une variable à densité $f$, c'est l'aire à gauche de $x$ : $F(x) = \int_{-\infty}^x f(t)\,dt$. Ses propriétés :
+Pour une variable à densité $f$, c'est l'aire à gauche de $x$ : $F(x) = \int_{-\infty}^x f(t)\thinspace dt$. Ses propriétés :
 - $F$ est **croissante** (au sens large), avec $\lim_{x \to -\infty} F(x) = 0$ et $\lim_{x \to +\infty} F(x) = 1$ ;
 - **$F' = f$** là où $f$ est continue : c'est le théorème fondamental (§2), $F$ étant une fonction aire ;
 - $P(a < X \le b) = F(b) - F(a)$, et $P(X > a) = 1 - F(a)$.
@@ -414,11 +414,11 @@ Une seule fonction, $F$, donne donc toutes les probabilités d'intervalles, sans
 
 Pour la densité $\frac{3}{4}(1 - x^2)$ du §6 : $F(x) = 0$ pour $x < -1$, $F(x) = 1$ pour $x > 1$, et entre les deux
 
-$$F(x) = \int_{-1}^x \frac{3}{4}(1 - t^2)\,dt = \frac{3}{4}\left[t - \frac{t^3}{3}\right]_{-1}^x = \frac{1}{2} + \frac{3}{4}\left(x - \frac{x^3}{3}\right).$$
+$$F(x) = \int_{-1}^x \frac{3}{4}(1 - t^2)\thinspace dt = \frac{3}{4}\left[t - \frac{t^3}{3}\right]_{-1}^x = \frac{1}{2} + \frac{3}{4}\left(x - \frac{x^3}{3}\right).$$
 
 Vérifications : $F(-1) = \frac{1}{2} - \frac{1}{2} = 0$, $F(1) = 1$, et $F\big(\frac{1}{2}\big) = \frac{1}{2} + \frac{11}{32} = \frac{27}{32}$. On retrouve $P\big(0 \le X \le \frac{1}{2}\big) = F\big(\frac{1}{2}\big) - F(0) = \frac{27}{32} - \frac{16}{32} = \frac{11}{32}$.
 
-Pour la densité exponentielle $0{,}5\,e^{-0{,}5t}$ : $F(t) = \int_0^t 0{,}5\,e^{-0{,}5s}\,ds = 1 - e^{-0{,}5t}$ pour $t \ge 0$.
+Pour la densité exponentielle $0{,}5\thinspace e^{-0{,}5t}$ : $F(t) = \int_0^t 0{,}5\thinspace e^{-0{,}5s}\thinspace ds = 1 - e^{-0{,}5t}$ pour $t \ge 0$.
 
 ![Deux fonctions de répartition, et trois quantiles de la loi exponentielle](figures/repartition.png)
 
@@ -432,7 +432,7 @@ Le **quantile d'ordre $p$** (*quantile*), pour $0 < p < 1$, est la valeur sous l
 - Les **quartiles** sont $q_{0{,}25}$, $q_{0{,}5}$ et $q_{0{,}75}$ ; les **déciles**, $q_{0{,}1}, \ldots, q_{0{,}9}$.
 - Le **percentile** $k$ (*percentile*) est le quantile d'ordre $\frac{k}{100}$ : le percentile 90 est $q_{0{,}9}$.
 
-Pour la loi exponentielle de densité $0{,}5\,e^{-0{,}5t}$, on résout $1 - e^{-0{,}5t} = p$ : $e^{-0{,}5t} = 1 - p$, donc
+Pour la loi exponentielle de densité $0{,}5\thinspace e^{-0{,}5t}$, on résout $1 - e^{-0{,}5t} = p$ : $e^{-0{,}5t} = 1 - p$, donc
 
 $$q_p = -\frac{\ln(1 - p)}{0{,}5} = -2\ln(1 - p).$$
 
@@ -463,11 +463,11 @@ Pour la densité $\frac{3}{4}(1 - x^2)$, la médiane vaut 0, par symétrie : la 
 
 Un classifieur qui donne un score à chaque exemple se juge, à tous les seuils à la fois, par sa **courbe ROC** : tu la construiras en M03 et au chapitre 3 de workbookIA. Il suffit ici de savoir qu'elle relie deux taux, tous deux entre 0 et 1 : en abscisse le taux de faux positifs (*FPR*), en ordonnée le taux de vrais positifs (*TPR*). La courbe part de $(0 ; 0)$ et monte jusqu'à $(1 ; 1)$. Son aire, l'**AUC** (*area under the curve*), est une intégrale :
 
-$$\text{AUC} = \int_0^1 \text{TPR}\;d(\text{FPR}).$$
+$$\text{AUC} = \int_0^1 \text{TPR}\mkern5mu  d(\text{FPR}).$$
 
-Un classifieur qui répond au hasard a pour courbe la diagonale $\text{TPR} = \text{FPR}$, et une AUC de $\int_0^1 x\,dx = \frac{1}{2}$. Un classifieur parfait monte tout de suite à 1 : son AUC vaut 1. Pour une courbe idéalisée $\text{TPR} = \sqrt{\text{FPR}}$ :
+Un classifieur qui répond au hasard a pour courbe la diagonale $\text{TPR} = \text{FPR}$, et une AUC de $\int_0^1 x\thinspace dx = \frac{1}{2}$. Un classifieur parfait monte tout de suite à 1 : son AUC vaut 1. Pour une courbe idéalisée $\text{TPR} = \sqrt{\text{FPR}}$ :
 
-$$\text{AUC} = \int_0^1 \sqrt{x}\,dx = \left[\frac{2}{3}x^{3/2}\right]_0^1 = \frac{2}{3}.$$
+$$\text{AUC} = \int_0^1 \sqrt{x}\thinspace dx = \left[\frac{2}{3}x^{3/2}\right]_0^1 = \frac{2}{3}.$$
 
 ![L'aire sous une courbe ROC idéalisée, comparée à celle du hasard](figures/roc_aire.png)
 
@@ -477,7 +477,7 @@ Avec de vraies données, la courbe ROC n'a pas de formule : c'est une ligne bris
 
 La **valeur moyenne** de $f$ sur $[a ; b]$ est
 
-$$\bar{f} = \frac{1}{b - a}\int_a^b f(x)\,dx.$$
+$$\bar{f} = \frac{1}{b - a}\int_a^b f(x)\thinspace dx.$$
 
 C'est la hauteur du rectangle de base $[a ; b]$ qui a la même aire que la région sous la courbe. Elle prolonge la moyenne de $n$ nombres (R1) : la somme devient une intégrale, et le nombre de valeurs devient la longueur de l'intervalle. Exemple : $g(t) = e^{t/2}$ sur $[0 ; 2]$, d'intégrale $\big[2e^{t/2}\big]_0^2 = 2(e - 1)$, a pour valeur moyenne $\frac{2(e - 1)}{2} = e - 1 \approx 1{,}718$.
 
@@ -509,7 +509,7 @@ Deux liens avec la suite :
 | primitive de $e^{ax}$ | $e^{ax}$ | $\frac{e^{ax}}{a}$ (dérive pour vérifier) |
 | primitive d'une puissance | $x^n \to (n+1)x^{n+1}$, ou $nx^{n-1}$ | $\frac{x^{n+1}}{n+1}$ ; $nx^{n-1}$ est la dérivée |
 | produit | $\int fg = \int f \times \int g$ | par parties, ou un changement de variable |
-| changement de variable | garder les anciennes bornes, ou oublier $g'(x)$ | $u$ va de $g(a)$ à $g(b)$, et $g'(x)\,dx$ devient $du$ |
+| changement de variable | garder les anciennes bornes, ou oublier $g'(x)$ | $u$ va de $g(a)$ à $g(b)$, et $g'(x)\thinspace dx$ devient $du$ |
 | intégrale impropre | « $\frac{1}{x} \to 0$, donc $\int_1^{+\infty} \frac{dx}{x}$ converge » | il faut décroître assez vite : $\frac{1}{x^p}$ avec $p > 1$ |
 | fonction qui explose | $\int_{-1}^1 \frac{dx}{x^2} = -2$ | $\frac{1}{x^2}$ n'est pas bornée près de 0, et $\int_0^1 \frac{dx}{x^2}$ diverge ($p = 2 \ge 1$) : l'intégrale diverge |
 | Simpson | un nombre impair d'intervalles | $n$ pair ; poids $1, 4, 2, 4, \ldots, 4, 1$, le tout fois $\frac{h}{3}$ |
@@ -522,7 +522,7 @@ Deux liens avec la suite :
 
 ## Et maintenant
 
-**Dans ce dépôt** : M02b, juste après, se sert de ce chapitre à chaque page : les lois uniforme, exponentielle et normale, l'**espérance** d'une variable continue ($\int x\,f(x)\,dx$), la variance, la démonstration de l'intégrale de Gauss par une intégrale double, et la simulation par la fonction quantile. M02c passera des lois aux échantillons. M05a expliquera l'ordre des méthodes du §5 avec les polynômes de Taylor.
+**Dans ce dépôt** : M02b, juste après, se sert de ce chapitre à chaque page : les lois uniforme, exponentielle et normale, l'**espérance** d'une variable continue ($\int x\thinspace f(x)\thinspace dx$), la variance, la démonstration de l'intégrale de Gauss par une intégrale double, et la simulation par la fonction quantile. M02c passera des lois aux échantillons. M05a expliquera l'ordre des méthodes du §5 avec les polynômes de Taylor.
 
 **Dans workbookIA** : après M02b et M02c, le chapitre 2 présente les lois usuelles par leurs densités, et calcule des percentiles de données ; tu sauras ce que ces aires et ces quantiles veulent dire. Le chapitre 3 calculera l'AUC d'un classifieur par la méthode des trapèzes.
 
@@ -531,4 +531,4 @@ Deux liens avec la suite :
 - J. K. Blitzstein et J. Hwang, *Introduction to Probability* (2ᵉ éd., en ligne gratuitement, `annexes/ressources.md`), chapitre 5 : les variables aléatoires continues, densité et fonction de répartition.
 - Exo7 (Université de Lille), cours « Intégrales » et « Calculs d'intégrales » (primitives, parties, changement de variable), niveau première année d'université (`annexes/ressources.md`).
 - Maths et tiques (Yvan Monka), cours et vidéos de terminale sur les primitives et le calcul intégral : [maths-et-tiques.fr](https://www.maths-et-tiques.fr).
-- `annexes/symboles.md` (lire $\int_a^b f(x)\,dx$, $\big[F(x)\big]_a^b$, $+\infty$, $q_p$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
+- `annexes/symboles.md` (lire $\int_a^b f(x)\thinspace dx$, $\big[F(x)\big]_a^b$, $+\infty$, $q_p$ à voix haute), `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.

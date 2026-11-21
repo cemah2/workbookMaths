@@ -188,7 +188,7 @@ Une évolution de $t$ multiplie par $1 + t$ ; les coefficients successifs se mul
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $1 - 0{,}15$. Pour 3, $1{,}2 \times 0{,}8$. Pour 5, le prix de départ $p$ vérifie $1{,}25\,p = 100$.
+1 : $1 - 0{,}15$. Pour 3, $1{,}2 \times 0{,}8$. Pour 5, le prix de départ $p$ vérifie $1{,}25\thinspace p = 100$.
 
 </details>
 
@@ -426,7 +426,7 @@ a : une inconnue suffit, la largeur $\ell$ ; la longueur vaut $\ell + 7$. b : le
 </details>
 <details><summary>Indice 3</summary>
 
-a : le périmètre vaut $2(\ell + \ell + 7) = 46$. Pour b, $0{,}8\,p = 56$. Pour c, avec $q$ tables de 4 et $s$ tables de 6 : $q + s = 22$ et $4q + 6s = 108$. Relis ce que demande chaque question.
+a : le périmètre vaut $2(\ell + \ell + 7) = 46$. Pour b, $0{,}8\thinspace p = 56$. Pour c, avec $q$ tables de 4 et $s$ tables de 6 : $q + s = 22$ et $4q + 6s = 108$. Relis ce que demande chaque question.
 
 </details>
 
@@ -496,17 +496,17 @@ Pour 1, $d \times (ax + by) - b \times (cx + dy) = de - bf$ ; développe et rega
 
 <details><summary>Indice 1</summary>
 
-Chaque mesure $(u, T)$ donne une équation $T = a\,u + b$, dont les inconnues sont $a$ et $b$ (et non $u$ et $T$).
+Chaque mesure $(u, T)$ donne une équation $T = a\thinspace u + b$, dont les inconnues sont $a$ et $b$ (et non $u$ et $T$).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Écris les deux équations $12 = 0{,}8\,a + b$ et $42 = 2a + b$, puis soustrais-les : $b$ disparaît. Pour c, calcule la prédiction en $u = 2{,}4$, puis l'écart.
+Écris les deux équations $12 = 0{,}8\thinspace a + b$ et $42 = 2a + b$, puis soustrais-les : $b$ disparaît. Pour c, calcule la prédiction en $u = 2{,}4$, puis l'écart.
 
 </details>
 <details><summary>Indice 3</summary>
 
-La soustraction donne $30 = 1{,}2\,a$. Pour d, la troisième mesure est-elle exactement sur la droite trouvée en a ? Si non, aucun couple $(a, b)$ ne colle aux trois mesures : que fait-on alors quand on a mille mesures ?
+La soustraction donne $30 = 1{,}2\thinspace a$. Pour d, la troisième mesure est-elle exactement sur la droite trouvée en a ? Si non, aucun couple $(a, b)$ ne colle aux trois mesures : que fait-on alors quand on a mille mesures ?
 
 </details>
 

@@ -53,8 +53,8 @@
 1. **Vrai** : 6, 3 et le zéro final (les zéros de tête ne comptent pas, celui de la fin oui).
 2. **Faux** : la mantisse 27 dépasse 10 ; c'est $2{,}7 \times 10^5$.
 3. **Vrai** : la virgule recule de 3 rangs.
-4. **Vrai** : 4, 8, puis 6 : le 8 monte à 9, et $48\,615 \approx 49\,000$.
-5. **Faux** : $8\,200 = 8{,}2 \times 10^3$ et $8{,}2 \ge 3{,}16$ : l'ordre de grandeur est $10^4$.
+4. **Vrai** : 4, 8, puis 6 : le 8 monte à 9, et $48\thinspace615 \approx 49\thinspace000$.
+5. **Faux** : $8\thinspace200 = 8{,}2 \times 10^3$ et $8{,}2 \ge 3{,}16$ : l'ordre de grandeur est $10^4$.
 6. **Faux** : `6.02e23` est un flottant (`float`), même s'il représente un très grand nombre.
 
 ### R1.Q7 — Les pièges des évolutions successives
@@ -206,7 +206,7 @@
 - a) $7^{5 + (-2) - 2} = 7^1 = 7$.
 - b) $(2^3)^2 = 2^6$, puis $2^{6 - 4} = 2^2 = 4$.
 - c) $5^2 \times 5 = 5^3$ (car $5 = 5^1$), puis $5^{3 - 4} = 5^{-1} = \frac{1}{5}$.
-- d) $4^3 \times 25^3 = (4 \times 25)^3 = 100^3 = 1\,000\,000$.
+- d) $4^3 \times 25^3 = (4 \times 25)^3 = 100^3 = 1\thinspace000\thinspace000$.
 - e) $\frac{3^3}{2^3} = \frac{27}{8}$.
 - f) L'exposant 2027 est impair, donc $(-1)^{2027} = -1$.
 
@@ -226,7 +226,7 @@
 **Démarche.**
 - a) $4^{-2} = \frac{1}{4^2} = \frac{1}{16}$.
 - b) Un exposant négatif retourne la fraction : $\left(\frac{1}{3}\right)^{-2} = 3^2 = 9$.
-- c) $10^{-2 + (-3)} = 10^{-5} = 0{,}000\,01$.
+- c) $10^{-2 + (-3)} = 10^{-5} = 0{,}000\thinspace01$.
 - d) $(2 \times 10^{-3})^2 = 2^2 \times (10^{-3})^2 = 4 \times 10^{-6}$.
 - e) $10^{9 - (-3)} = 10^{12}$.
 - f) $0{,}5 = \frac{1}{2}$, donc $0{,}5^{-3} = 2^3 = 8$.
@@ -267,9 +267,9 @@
 **Démarche.**
 - a) La virgule recule de 7 rangs : $7{,}25 \times 10^7$.
 - b) La virgule avance de 5 rangs jusqu'au 9 : $9{,}06 \times 10^{-5}$.
-- c) Deux chiffres significatifs : 3 et 1 ; le suivant est 4, on ne monte pas : $310\,000$.
+- c) Deux chiffres significatifs : 3 et 1 ; le suivant est 4, on ne monte pas : $310\thinspace000$.
 - d) Les chiffres significatifs commencent au 7 : 7, 8, puis 4 ; on ne monte pas : $0{,}0078$.
-- e) $0{,}000\,3 = 3 \times 10^{-4}$, et $3 < 3{,}16$ : l'ordre de grandeur est $10^{-4}$.
+- e) $0{,}000\thinspace3 = 3 \times 10^{-4}$, et $3 < 3{,}16$ : l'ordre de grandeur est $10^{-4}$.
 - f) $\frac{8{,}4}{1{,}2} = 7$ et $\frac{10^{-3}}{10^{5}} = 10^{-8}$ : $7 \times 10^{-8}$.
 
 **Erreurs fréquentes.**
@@ -279,7 +279,7 @@
 - d) Arrondir en deux fois ($0{,}00785$ puis $0{,}0079$) : on arrondit une seule fois, depuis la valeur complète.
 - f) Ajouter les exposants au lieu de les soustraire ($10^{2}$).
 
-**Variante.** Écris $0{,}000\,004\,07$ en notation scientifique, arrondis $9\,876$ à deux chiffres significatifs, et donne l'ordre de grandeur de $23\,000$. *Réponses* : $4{,}07 \times 10^{-6}$ ; $9\,900$ ; $10^4$ (car $2{,}3 < 3{,}16$).
+**Variante.** Écris $0{,}000\thinspace004\thinspace07$ en notation scientifique, arrondis $9\thinspace876$ à deux chiffres significatifs, et donne l'ordre de grandeur de $23\thinspace000$. *Réponses* : $4{,}07 \times 10^{-6}$ ; $9\thinspace900$ ; $10^4$ (car $2{,}3 < 3{,}16$).
 
 ### Ex R1.11 — Partie entière, arrondi au plus proche, arrondi supérieur
 
@@ -311,11 +311,11 @@
 - c) $1{,}1 \times 1{,}2 = 1{,}32$, soit +32 %.
 - d) $0{,}9^3 = 0{,}729$, soit $0{,}729 - 1 = -0{,}271$ : −27,1 %.
 - e) $\frac{1}{1{,}6} = 0{,}625$, soit $0{,}625 - 1 = -0{,}375$ : −37,5 %.
-- f) $\frac{1}{0{,}7} \approx 1{,}428\,57$, soit +42,86 %.
+- f) $\frac{1}{0{,}7} \approx 1{,}428\thinspace57$, soit +42,86 %.
 
 **Erreurs fréquentes.**
 - a) Ajouter 12,5 € au lieu de 12,5 % du prix.
-- b) Diviser par la valeur d'arrivée ($\frac{-250}{1000} = -25\,\%$).
+- b) Diviser par la valeur d'arrivée ($\frac{-250}{1000} = -25$ %).
 - c) et d) Additionner les taux (+30 %, −30 %).
 - e) et f) Prendre l'opposé du taux (−60 %, +30 %) au lieu de l'inverse du coefficient.
 
@@ -354,7 +354,7 @@
 - c) Oublier le biais (5), ou le signe du poids négatif (6).
 - d) Faire la moyenne des vitesses (30) : la cycliste passe trois fois plus de temps à monter.
 
-**Variante.** Les notes 10 (coefficient 1) et 15 (coefficient 4) ; et un neurone avec $\mathbf{w} = (2 \;;\; -1)$, $\mathbf{x} = (1 \;;\; 3)$, $b = 0{,}5$. *Réponses* : $\frac{10 + 60}{5} = 14$ ; $z = 2 - 3 + 0{,}5 = -0{,}5$.
+**Variante.** Les notes 10 (coefficient 1) et 15 (coefficient 4) ; et un neurone avec $\mathbf{w} = (2 \mkern5mu ;\mkern5mu  -1)$, $\mathbf{x} = (1 \mkern5mu ;\mkern5mu  3)$, $b = 0{,}5$. *Réponses* : $\frac{10 + 60}{5} = 14$ ; $z = 2 - 3 + 0{,}5 = -0{,}5$.
 
 <a id="demonstrations"></a>
 
@@ -403,17 +403,17 @@
 **Réponses** : a) `60200` · b) `70454` · c) `5` · d) `[2.8, 5]` · e) `260`.
 
 **Démarche.**
-- a) Chacun des 200 neurones a 300 poids et 1 biais : $200 \times (300 + 1) = 60\,200$.
-- b) Deuxième couche : $50 \times (200 + 1) = 10\,050$ ; sortie : $4 \times (50 + 1) = 204$. Total : $60\,200 + 10\,050 + 204 = 70\,454$.
-- c) $70\,454 \approx 7{,}05 \times 10^4$, et $7{,}05 \ge 3{,}16$ : l'ordre de grandeur est $10^5$.
-- d) $70\,454 \times 4 = 281\,816$ octets $\approx 2{,}8 \times 10^5$ octets, soit environ 280 ko.
+- a) Chacun des 200 neurones a 300 poids et 1 biais : $200 \times (300 + 1) = 60\thinspace200$.
+- b) Deuxième couche : $50 \times (200 + 1) = 10\thinspace050$ ; sortie : $4 \times (50 + 1) = 204$. Total : $60\thinspace200 + 10\thinspace050 + 204 = 70\thinspace454$.
+- c) $70\thinspace454 \approx 7{,}05 \times 10^4$, et $7{,}05 \ge 3{,}16$ : l'ordre de grandeur est $10^5$.
+- d) $70\thinspace454 \times 4 = 281\thinspace816$ octets $\approx 2{,}8 \times 10^5$ octets, soit environ 280 ko.
 - e) $1{,}3 \times 10^{11} \times 2 = 2{,}6 \times 10^{11}$ octets $= 260 \times 10^9$ octets $= 260$ Go.
 
 **Erreurs fréquentes.** Oublier les biais ; ne compter que la première couche ; oublier que la couche suivante reçoit les **sorties** de la précédente (200, pas 300) ; en e), confondre bits et octets (16 bits font 2 octets).
 
 **Ce que ça montre.** Presque tous les paramètres sont dans la première couche, celle qui relie le plus de neurones. Et un vrai modèle de langage est un million de fois plus gros que ce petit réseau : il ne tient pas dans la mémoire d'un ordinateur portable ordinaire.
 
-**Variante.** Un réseau $100 \to 10 \to 1$ : combien de paramètres ? *Réponse* : $10 \times 101 + 1 \times 11 = 1\,021$.
+**Variante.** Un réseau $100 \to 10 \to 1$ : combien de paramètres ? *Réponse* : $10 \times 101 + 1 \times 11 = 1\thinspace021$.
 
 ### Ex R1.18 — Fermi : combien de mots lis-tu dans une vie ?
 
@@ -541,7 +541,7 @@
 
 **Réponses** : `successive_changes([0.3, -0.2, 0.05])` vaut environ `0.092` ; `weighted_mean([11, 17, 8], [2, 3, 5])` vaut `11.3`.
 
-**Démarche.** a) le coefficient global $1{,}3 \times 0{,}8 \times 1{,}05 = 1{,}092$, donc un taux de $+9{,}2\,\%$ : on part de `coefficient = 1.0`, on multiplie par `1 + rate` à chaque tour (après avoir vérifié `rate >= -1`), on renvoie `coefficient - 1`. b) $\frac{22 + 51 + 40}{10} = 11{,}3$, après les trois vérifications de la docstring.
+**Démarche.** a) le coefficient global $1{,}3 \times 0{,}8 \times 1{,}05 = 1{,}092$, donc un taux de $+9{,}2$ % : on part de `coefficient = 1.0`, on multiplie par `1 + rate` à chaque tour (après avoir vérifié `rate >= -1`), on renvoie `coefficient - 1`. b) $\frac{22 + 51 + 40}{10} = 11{,}3$, après les trois vérifications de la docstring.
 
 **Erreurs fréquentes.** Additionner les taux (0,15) ; renvoyer le coefficient (1,092) au lieu du taux ; diviser par le nombre de valeurs ; tester seulement `sum(weights) == 0` sans vérifier les poids négatifs.
 

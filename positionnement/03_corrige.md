@@ -21,7 +21,7 @@
 
 - a) $3^{6 + (-2) - 3} = 3^1 = 3$.
 - b) $\sqrt{72} = \sqrt{36 \times 2} = 6\sqrt{2}$.
-- c) $\frac{6}{3} \times 10^{5 - (-2)} = 2 \times 10^{7} = 20\,000\,000$.
+- c) $\frac{6}{3} \times 10^{5 - (-2)} = 2 \times 10^{7} = 20\thinspace000\thinspace000$.
 - d) $10^{-3}$ est un millième : $2{,}5 \times 10^{-3} = 0{,}0025$ (la virgule recule de 3 rangs).
 
 **Erreur fréquente** : en a, traiter $3^{-2}$ comme $3^{2}$ ; en c, soustraire $-2$ comme si c'était $+2$ ($2 \times 10^{3}$) ; en d, reculer la virgule de 4 rangs. **Où c'est enseigné** : R1 §4 (puissances), §5 (racines) et §6 (notation scientifique).
@@ -146,7 +146,7 @@
 **Réponses** : a) `"10*x**4 - 6*x"` · b) `"x*exp(x)"` · c) `"-6*(5 - 2*x)**2"`.
 
 - a) $(x^5)' = 5x^4$ et $(x^2)' = 2x$ : $2 \times 5x^4 - 3 \times 2x = 10x^4 - 6x$ ; la dérivée de la constante 1 est 0.
-- b) Produit : $(uv)' = u'v + uv'$ avec $u = x - 1$ et $v = e^x$ : $e^x + (x - 1)e^x = x\,e^x$.
+- b) Produit : $(uv)' = u'v + uv'$ avec $u = x - 1$ et $v = e^x$ : $e^x + (x - 1)e^x = x\thinspace e^x$.
 - c) Règle de la chaîne : $3(5 - 2x)^2 \times (-2) = -6(5 - 2x)^2$.
 
 **Erreur fréquente** : en b, dériver chaque facteur et multiplier ($1 \times e^x$) ; en c, oublier le facteur $-2$, la dérivée de l'intérieur, ou son signe. **Où c'est enseigné** : R7 §5 (dérivées usuelles), §6 (produit) et §7 (règle de la chaîne).
@@ -199,6 +199,6 @@
 
 - a) $180°$ correspondent à $\pi$ : $150° = \frac{150}{180}\pi = \frac{5}{6}\pi$.
 - b) $\frac{\pi}{6}$ correspond à $30°$, et $\sin 30° = \frac{1}{2}$.
-- c) $\vec{u} \cdot \vec{v} = 2$, $\|\vec{u}\| = 2$ et $\|\vec{v}\| = \sqrt{1 + 3} = 2$ : $\cos\theta = \frac{2}{2 \times 2} = \frac{1}{2}$, donc $\theta = 60°$.
+- c) $\vec{u} \cdot \vec{v} = 2$, $\Vert\vec{u}\Vert = 2$ et $\Vert\vec{v}\Vert = \sqrt{1 + 3} = 2$ : $\cos\theta = \frac{2}{2 \times 2} = \frac{1}{2}$, donc $\theta = 60°$.
 
 **Erreur fréquente** : en a, inverser le rapport ($\frac{6}{5}$) ; en c, répondre le cosinus au lieu de l'angle, ou confondre cosinus et sinus ($30°$). **Où c'est enseigné** : R9 §6 (radians, cosinus) et §7 (angle entre deux vecteurs).

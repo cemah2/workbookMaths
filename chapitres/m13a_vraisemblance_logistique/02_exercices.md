@@ -112,7 +112,7 @@ Pour chaque fonction, dis si elle est convexe, et pourquoi en une ligne.
 *Fiche §2 et §6 · parcours C, E*
 
 1. L'entropie, en bits, de la loi $(0{,}25 ;\ 0{,}25 ;\ 0{,}25 ;\ 0{,}125 ;\ 0{,}125)$ ?
-2. $\mathbf{p} = (0{,}85 ;\ 0{,}15)$ et $\mathbf{q} = (0{,}6 ;\ 0{,}4)$ : la cross-entropy $H(\mathbf{p}, \mathbf{q})$ et la divergence $\mathrm{KL}(\mathbf{p} \,\Vert\, \mathbf{q})$, en bits ?
+2. $\mathbf{p} = (0{,}85 ;\ 0{,}15)$ et $\mathbf{q} = (0{,}6 ;\ 0{,}4)$ : la cross-entropy $H(\mathbf{p}, \mathbf{q})$ et la divergence $\mathrm{KL}(\mathbf{p} \thinspace\Vert\thinspace \mathbf{q})$, en bits ?
 3. Énonce l'inégalité de Gibbs.
 4. $I(X ; Y) = 0$ : que peux-tu dire de $X$ et $Y$ ?
 5. Comment passer d'une entropie en nats à la même en bits ?
@@ -124,7 +124,7 @@ Pour chaque fonction, dis si elle est convexe, et pourquoi en une ligne.
 2. Une fonction affine est-elle convexe ? Strictement convexe ?
 3. Pourquoi une somme de fonctions convexes est-elle convexe ?
 4. Pourquoi la norme euclidienne est-elle convexe ?
-5. Pour une fonction convexe, l'ensemble $\{\mathbf{x} : f(\mathbf{x}) \le c\}$ a quelle propriété ?
+5. Pour une fonction convexe, l'ensemble $\lbrace\mathbf{x} : f(\mathbf{x}) \le c\rbrace$ a quelle propriété ?
 
 <a id="papier"></a>
 
@@ -185,7 +185,7 @@ Quatre exemples, de labels $(1, 1, 0, 0)$, reçoivent les probabilités $\hat{p}
 | g | un exemple à trois classes, de classe observée 3, reçoit la loi prédite $(0{,}2 ;\ 0{,}5 ;\ 0{,}3)$ : son terme de cross-entropy | un nombre (4 décimales) |
 | h | la log-loss des quatre exemples si la deuxième probabilité passe de 0,45 à 0,85 | un nombre (4 décimales) |
 
-Dans ta copie : écris chaque terme de a) comme une cross-entropy entre deux lois sur $\{0, 1\}$. Compare b) et h), puis l'accuracy dans les deux cas : que mesure la log-loss que l'accuracy ne mesure pas ?
+Dans ta copie : écris chaque terme de a) comme une cross-entropy entre deux lois sur $\lbrace0, 1\rbrace$. Compare b) et h), puis l'accuracy dans les deux cas : que mesure la log-loss que l'accuracy ne mesure pas ?
 
 ### Ex M13a.4 — Le poids d'un seul exemple mal prédit : la log-loss quand p tend vers 0 ✏️ ★ ⏱️ 15 min
 **Objectif :** mesurer le poids d'un seul exemple dont le label observé a reçu une probabilité presque nulle, et comprendre pourquoi les bibliothèques écrêtent.
@@ -294,7 +294,7 @@ Une feature $x$. Classe 0 : $x \sim \mathcal{N}(-1, 4)$ ; classe 1 : $x \sim \ma
 |---|---|---|
 | a | le poids $w$ de l'écriture $P(Y = 1 \mid x) = \sigma(wx + b)$ | un nombre |
 | b | le biais $b$ | un nombre (4 décimales) |
-| c | la frontière $x^*$ où $P(Y = 1 \mid x) = 0{,}5$ | un nombre (4 décimales) |
+| c | la frontière $x^\ast$ où $P(Y = 1 \mid x) = 0{,}5$ | un nombre (4 décimales) |
 | d | $P(Y = 1 \mid x = 1)$ | un nombre (4 décimales) |
 | e | $P(Y = 1 \mid x = 3)$ | un nombre (3 décimales) |
 | f | la frontière si les classes étaient équiprobables | un nombre |
@@ -346,7 +346,7 @@ Cent trajets domicile-travail, selon le mode de transport $X$ et l'arrivée à l
 | g | la baisse de l'indice de Gini de $Y$ quand on connaît $X$ (Gini de $Y$ moins la moyenne pondérée des Gini des lignes) | un nombre (4 décimales) |
 | h | l'information mutuelle si chaque ligne avait les proportions 65 % et 35 % | un nombre |
 
-Dans ta copie : retrouve e) avec la formule $\sum_{x, y} p(x, y)\log_2\frac{p(x, y)}{p(x)\,p(y)}$. Quelle ligne contribue le plus à la baisse d'entropie ? Que signifierait $I(X ; Y) = H(Y)$ ?
+Dans ta copie : retrouve e) avec la formule $\sum_{x, y} p(x, y)\log_2\frac{p(x, y)}{p(x)\thinspace p(y)}$. Quelle ligne contribue le plus à la baisse d'entropie ? Que signifierait $I(X ; Y) = H(Y)$ ?
 
 ### Ex M13a.12 — La variance d'un groupe coupé en deux : variance intra plus variance inter ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer et démontrer la décomposition de la variance d'un groupe coupé en deux.
@@ -386,10 +386,10 @@ $N$ observations d'une variable à $K$ valeurs, de comptages $n_1, \ldots, n_K$,
 **Objectif :** démontrer l'équivalence entre minimiser la log-loss et maximiser la vraisemblance des labels, et la relire en cross-entropy.
 **Prérequis :** fiche §2 ; M06 §5 · **Parcours :** C, E
 
-Un classifieur donne à chaque exemple $i$ la probabilité $\hat{p}_i$ du label 1 ; les labels $y_i \in \{0, 1\}$ sont supposés indépendants sachant les features.
+Un classifieur donne à chaque exemple $i$ la probabilité $\hat{p}_i$ du label 1 ; les labels $y_i \in \lbrace0, 1\rbrace$ sont supposés indépendants sachant les features.
 1. Écris la probabilité du label $y_i$ selon le modèle, en une seule formule valable pour $y_i = 0$ et $y_i = 1$.
 2. Déduis-en la vraisemblance $L$ des $n$ labels, puis montre que la log-loss vaut $-\frac{1}{n}\ln L$.
-3. Montre que le terme d'un exemple est la cross-entropy $H(\mathbf{e}_{y_i}, \hat{\mathbf{q}}_i)$, où $\mathbf{e}_{y_i}$ met toute la masse sur le label observé et $\hat{\mathbf{q}}_i = (1 - \hat{p}_i, \hat{p}_i)$.
+3. Montre que le terme d'un exemple est la cross-entropy $H(\mathbf{e}_{y_i}, \hat{\mathbf{q}} _i)$, où $\mathbf{e} _{y_i}$ met toute la masse sur le label observé et $\hat{\mathbf{q}}_i = (1 - \hat{p}_i, \hat{p}_i)$.
 4. Généralise à $K$ classes : quelle est la log-loss, et quelle loi des labels suppose-t-elle ?
 5. Pourquoi minimiser la log-loss, la somme $-\ln L$ ou la log-loss en bits donne-t-il les mêmes paramètres ?
 
@@ -397,9 +397,9 @@ Un classifieur donne à chaque exemple $i$ la probabilité $\hat{p}_i$ du label 
 **Objectif :** démontrer la convexité de log-somme-exp par sa restriction à une droite, et en déduire celle de la softplus et de la log-loss logistique.
 **Prérequis :** fiche §3 et §4 ; M05a ; M10 ; M02b · **Parcours :** C, E
 
-$\mathrm{LSE}(\mathbf{u}) = \ln\sum_{k=1}^K e^{u_k}$. On fixe $\mathbf{a}, \mathbf{d} \in \mathbb{R}^K$ et l'on pose $g(t) = \mathrm{LSE}(\mathbf{a} + t\,\mathbf{d})$ et $\pi_k(t) = \frac{e^{a_k + t d_k}}{\sum_j e^{a_j + t d_j}}$.
-1. Montre que les $\pi_k(t)$ forment une loi de probabilité sur $\{1, \ldots, K\}$.
-2. Montre que $g'(t) = \sum_k \pi_k(t)\,d_k$ : la moyenne des $d_k$ sous cette loi.
+$\mathrm{LSE}(\mathbf{u}) = \ln\sum_{k=1}^K e^{u_k}$. On fixe $\mathbf{a}, \mathbf{d} \in \mathbb{R}^K$ et l'on pose $g(t) = \mathrm{LSE}(\mathbf{a} + t\thinspace\mathbf{d})$ et $\pi_k(t) = \frac{e^{a_k + t d_k}}{\sum_j e^{a_j + t d_j}}$.
+1. Montre que les $\pi_k(t)$ forment une loi de probabilité sur $\lbrace1, \ldots, K\rbrace$.
+2. Montre que $g'(t) = \sum_k \pi_k(t)\thinspace d_k$ : la moyenne des $d_k$ sous cette loi.
 3. Calcule $\pi_k'(t)$, puis montre que $g''(t) = \sum_k \pi_k d_k^2 - \big(\sum_k \pi_k d_k\big)^2$. Reconnais une variance, et conclus que $g'' \ge 0$.
 4. Explique pourquoi la convexité de $g$ pour tous $\mathbf{a}$ et $\mathbf{d}$ entraîne celle de $\mathrm{LSE}$ (définition de M10).
 5. Déduis-en que la softplus est convexe, puis que $(\mathbf{w}, b) \mapsto s(\mathbf{w} \cdot \mathbf{x} + b) - y(\mathbf{w} \cdot \mathbf{x} + b)$ l'est, pour $\mathbf{x}$ et $y$ fixés.
@@ -421,7 +421,7 @@ $\mathbf{p} = (p_1, \ldots, p_K)$ est une loi de probabilité, et $G(\mathbf{p})
 **Prérequis :** fiche §6 ; M06 §6 · **Parcours :** C
 
 $\mathbf{p}$ est une loi sur $K$ valeurs, $\mathbf{u}$ la loi uniforme, et les logarithmes sont en base 2.
-1. Montre que $\mathrm{KL}(\mathbf{p} \,\Vert\, \mathbf{u}) = \log_2 K - H(\mathbf{p})$.
+1. Montre que $\mathrm{KL}(\mathbf{p} \thinspace\Vert\thinspace \mathbf{u}) = \log_2 K - H(\mathbf{p})$.
 2. Conclus : $H(\mathbf{p}) \le \log_2 K$, avec égalité si et seulement si $\mathbf{p} = \mathbf{u}$.
 3. Montre que $H(\mathbf{p}) \ge 0$, avec égalité si et seulement si une valeur a la probabilité 1.
 4. Une loi sur $K = 8$ valeurs a une entropie de 3 bits : que peux-tu en dire ?
@@ -437,7 +437,7 @@ $\mathbf{p}$ est une loi sur $K$ valeurs, $\mathbf{u}$ la loi uniforme, et les l
 
 Un réseau déjà entraîné, laissé tel quel, a produit les représentations de dimension 3 de six exemples, rangées en lignes d'une matrice, avec leurs labels :
 
-$$\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \\ 0 & 1 & 0 \\ 1 & 1 & 0{,}5 \\ 0 & 2 & 1 \\ 1 & 0 & 1 \\ 0 & 1 & 0{,}5 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0, 1, 0).$$
+$$\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \cr 0 & 1 & 0 \cr 1 & 1 & 0{,}5 \cr 0 & 2 & 1 \cr 1 & 0 & 1 \cr 0 & 1 & 0{,}5 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0, 1, 0).$$
 
 Une sonde linéaire de poids $\mathbf{w} = (0{,}4 ;\ -0{,}9 ;\ 1{,}6)$ et de biais $b = -0{,}2$ calcule les scores $\mathbf{z} = \mathbf{H}\mathbf{w} + b$, puis les probabilités $\sigma(\mathbf{z})$.
 

@@ -54,7 +54,7 @@ Vocabulaire anglais de ce chapitre : *convex set*, *line segment*, *convex combi
 ## L'essentiel en 10 lignes
 
 1. $C$ est **convexe** si, avec deux points, il contient tout le segment qui les joint : $(1 - t)\mathbf{a} + t\mathbf{b} \in C$ pour $t \in [0, 1]$.
-2. Un demi-espace $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b \ge 0\}$ est convexe ; une intersection de convexes aussi ; une union, en général non.
+2. Un demi-espace $\lbrace\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b \ge 0\rbrace$ est convexe ; une intersection de convexes aussi ; une union, en général non.
 3. L'**enveloppe convexe** d'un nuage est le plus petit convexe qui le contient : l'ensemble des **combinaisons convexes** $\sum t_i \mathbf{x}_i$, $t_i \ge 0$, $\sum t_i = 1$. Dans le plan, un polygone dont les sommets sont des points du nuage.
 4. Le **produit vectoriel** du plan $(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o})$ dit si l'on tourne à gauche ($> 0$), à droite ($< 0$) ou tout droit ($= 0$) ; la **chaîne monotone d'Andrew** en tire l'enveloppe après un tri.
 5. Deux nuages sont **linéairement séparables** s'il existe $(\mathbf{w}, b)$ avec $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour tout $i$ ; on peut alors exiger $\ge 1$, ce qui se teste par un **programme linéaire**.
@@ -70,7 +70,7 @@ Vocabulaire anglais de ce chapitre : *convex set*, *line segment*, *convex combi
 
 Le **segment** qui joint deux points $\mathbf{a}$ et $\mathbf{b}$ de $\mathbb{R}^n$ est l'ensemble des points
 
-$$(1 - t)\,\mathbf{a} + t\,\mathbf{b} = \mathbf{a} + t\,(\mathbf{b} - \mathbf{a}), \qquad t \in [0, 1] :$$
+$$(1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b} = \mathbf{a} + t\thinspace(\mathbf{b} - \mathbf{a}), \qquad t \in [0, 1] :$$
 
 on part de $\mathbf{a}$ ($t = 0$) et l'on avance vers $\mathbf{b}$ ($t = 1$) ; $t = \frac{1}{2}$ donne le milieu. Avec $\mathbf{a} = (2, 1)$ et $\mathbf{b} = (6, 3)$, $t = \frac{1}{4}$ donne $(2, 1) + \frac{1}{4}(4, 2) = (3 ;\ 1{,}5)$.
 
@@ -82,7 +82,7 @@ Sont convexes : un disque, une boule de n'importe quelle norme (M07), un triangl
 
 ### Demi-espaces et intersections
 
-Un **demi-espace** fermé (*half-space*) est l'ensemble $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b \ge 0\}$, d'un côté d'un hyperplan, l'hyperplan compris (M07 §5). Il est convexe : si $\mathbf{w} \cdot \mathbf{a} + b \ge 0$ et $\mathbf{w} \cdot \mathbf{b} + b \ge 0$, la valeur du score en $(1 - t)\mathbf{a} + t\mathbf{b}$ est un mélange de ces deux nombres positifs, donc positive (M10.6 le rédige). Le demi-espace ouvert ($> 0$) l'est aussi.
+Un **demi-espace** fermé (*half-space*) est l'ensemble $\lbrace\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b \ge 0\rbrace$, d'un côté d'un hyperplan, l'hyperplan compris (M07 §5). Il est convexe : si $\mathbf{w} \cdot \mathbf{a} + b \ge 0$ et $\mathbf{w} \cdot \mathbf{b} + b \ge 0$, la valeur du score en $(1 - t)\mathbf{a} + t\mathbf{b}$ est un mélange de ces deux nombres positifs, donc positive (M10.6 le rédige). Le demi-espace ouvert ($> 0$) l'est aussi.
 
 > **Intersection.** Si $C_1, C_2, \ldots, C_m$ sont convexes, leur intersection $C_1 \cap C_2 \cap \cdots \cap C_m$ est convexe.
 
@@ -95,18 +95,18 @@ En effet, si $\mathbf{a}$ et $\mathbf{b}$ sont dans l'intersection, ils sont dan
 Une **combinaison convexe** (*convex combination*) des points $\mathbf{x}_1, \ldots, \mathbf{x}_m$ est un point $t_1\mathbf{x}_1 + \cdots + t_m\mathbf{x}_m$ avec des poids $t_i \ge 0$ de somme 1. Avec deux points, c'est le segment ; le barycentre de M07 en est une (tous les poids valent $\frac{1}{m}$). Avec les poids $(\frac{1}{2}, \frac{1}{4}, \frac{1}{4})$, les points $(0, 0)$, $(4, 0)$ et $(0, 2)$ donnent $(1 ;\ 0{,}5)$, à l'intérieur du triangle.
 
 Un convexe contient **toutes** les combinaisons convexes de ses points, pas seulement les segments. Par récurrence sur $m$ (R4) : pour $m = 2$, c'est la définition ; ensuite, si $t_m < 1$, on écrit
-$$\sum_{i=1}^{m} t_i\mathbf{x}_i = (1 - t_m)\,\underbrace{\sum_{i=1}^{m-1} \frac{t_i}{1 - t_m}\,\mathbf{x}_i}_{\text{dans } C \text{ par hypothèse}} + t_m\,\mathbf{x}_m,$$
+$$\sum_{i=1}^{m} t_i\mathbf{x} _i = (1 - t_m)\thinspace\underbrace{\sum _{i=1}^{m-1} \frac{t_i}{1 - t_m}\thinspace\mathbf{x} _i} _{\text{dans } C \text{ par hypothèse}} + t_m\thinspace\mathbf{x}_m,$$
 un point du segment entre un point de $C$ et $\mathbf{x}_m$ (les poids $\frac{t_i}{1 - t_m}$ sont positifs, de somme 1) ; si $t_m = 1$, le point est $\mathbf{x}_m$ lui-même.
 
 ### Ensembles convexes et fonctions convexes
 
 En M05a, une fonction $f$ d'une variable était convexe quand ses cordes passent au-dessus de sa courbe. La définition s'écrit telle quelle en plusieurs variables : $f : \mathbb{R}^n \to \mathbb{R}$ est **convexe** (*convex function*) si
 
-$$f\big((1 - t)\,\mathbf{a} + t\,\mathbf{b}\big) \le (1 - t)\,f(\mathbf{a}) + t\,f(\mathbf{b}) \quad \text{pour tous } \mathbf{a}, \mathbf{b} \in \mathbb{R}^n \text{ et tout } t \in [0, 1],$$
+$$f\big((1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b}\big) \le (1 - t)\thinspace f(\mathbf{a}) + t\thinspace f(\mathbf{b}) \quad \text{pour tous } \mathbf{a}, \mathbf{b} \in \mathbb{R}^n \text{ et tout } t \in [0, 1],$$
 
-et **strictement convexe** (*strictly convex*) si l'inégalité est stricte dès que $\mathbf{a} \ne \mathbf{b}$ et $0 < t < 1$. Une fonction affine, comme le score $\mathbf{x} \mapsto \mathbf{w} \cdot \mathbf{x} + b$ d'un classifieur, est convexe, avec égalité pour tous les points et tout $t$ : elle ne l'est donc pas strictement. La norme est convexe, par l'inégalité triangulaire et la règle $\lVert \lambda\,\mathbf{x} \rVert = \lvert \lambda \rvert\,\lVert \mathbf{x} \rVert$ de M07 : $\lVert (1 - t)\,\mathbf{a} + t\,\mathbf{b} \rVert \le (1 - t)\,\lVert \mathbf{a} \rVert + t\,\lVert \mathbf{b} \rVert$. Une somme de fonctions convexes est convexe (on additionne les inégalités), et elle est strictement convexe si l'une d'elles l'est (l'une des inégalités additionnées est stricte).
+et **strictement convexe** (*strictly convex*) si l'inégalité est stricte dès que $\mathbf{a} \ne \mathbf{b}$ et $0 < t < 1$. Une fonction affine, comme le score $\mathbf{x} \mapsto \mathbf{w} \cdot \mathbf{x} + b$ d'un classifieur, est convexe, avec égalité pour tous les points et tout $t$ : elle ne l'est donc pas strictement. La norme est convexe, par l'inégalité triangulaire et la règle $\lVert \lambda\thinspace\mathbf{x} \rVert = \lvert \lambda \rvert\thinspace\lVert \mathbf{x} \rVert$ de M07 : $\lVert (1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b} \rVert \le (1 - t)\thinspace\lVert \mathbf{a} \rVert + t\thinspace\lVert \mathbf{b} \rVert$. Une somme de fonctions convexes est convexe (on additionne les inégalités), et elle est strictement convexe si l'une d'elles l'est (l'une des inégalités additionnées est stricte).
 
-Les deux notions se rejoignent : $f$ est convexe si et seulement si la région **au-dessus** de son graphe, $\{(\mathbf{x}, y) : y \ge f(\mathbf{x})\}$ (son *épigraphe*, une partie de $\mathbb{R}^{n+1}$), est un ensemble convexe. Et pour une fonction convexe, chaque ensemble $\{\mathbf{x} : f(\mathbf{x}) \le c\}$ est convexe : la boule $\lVert \mathbf{x} \rVert \le r$ en est un cas, la norme étant convexe. La convexité des losses reviendra en M12c (par les dérivées secondes) et en M19 (pour l'optimisation).
+Les deux notions se rejoignent : $f$ est convexe si et seulement si la région **au-dessus** de son graphe, $\lbrace(\mathbf{x}, y) : y \ge f(\mathbf{x})\rbrace$ (son *épigraphe*, une partie de $\mathbb{R}^{n+1}$), est un ensemble convexe. Et pour une fonction convexe, chaque ensemble $\lbrace\mathbf{x} : f(\mathbf{x}) \le c\rbrace$ est convexe : la boule $\lVert \mathbf{x} \rVert \le r$ en est un cas, la norme étant convexe. La convexité des losses reviendra en M12c (par les dérivées secondes) et en M19 (pour l'optimisation).
 
 ⚠️ **Erreur classique.** Dire qu'une fonction convexe a une courbe « convexe ». La courbe d'une fonction est une ligne, qui n'est presque jamais un ensemble convexe (la parabole $y = x^2$ ne contient pas le segment entre deux de ses points) ; c'est la région au-dessus d'elle qui l'est.
 
@@ -132,7 +132,7 @@ le déterminant de la matrice de colonnes $\mathbf{u}$ et $\mathbf{v}$ (M09a). I
 
 Pour trois points $\mathbf{o}$, $\mathbf{a}$, $\mathbf{b}$, le signe de $(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o})$ dit si le chemin $\mathbf{o} \to \mathbf{a} \to \mathbf{b}$ tourne à gauche ($> 0$), à droite ($< 0$), ou va tout droit ($= 0$) : c'est le **test d'orientation** (*orientation test*), la seule opération dont a besoin l'algorithme qui suit. Exemple : $\mathbf{o} = (4, 3)$, $\mathbf{a} = (8, 3)$, $\mathbf{b} = (8, 7)$ donnent $(4, 0) \times (4, 4) = 4 \times 4 - 0 \times 4 = 16 > 0$ : à gauche. Avec $\mathbf{b} = (6, 3)$ à la place, $(4, 0) \times (2, 0) = 0$ : les trois points sont alignés.
 
-Le même test dit si un point $\mathbf{p}$ est **dans** un polygone convexe dont les sommets sont rangés dans le sens direct : il faut et il suffit que $\mathbf{p}$ soit à gauche de chaque côté, ou dessus ($(\mathbf{s}_{j+1} - \mathbf{s}_j) \times (\mathbf{p} - \mathbf{s}_j) \ge 0$ pour chaque côté $\mathbf{s}_j \to \mathbf{s}_{j+1}$). Le polygone est l'intersection de ces demi-plans (§1).
+Le même test dit si un point $\mathbf{p}$ est **dans** un polygone convexe dont les sommets sont rangés dans le sens direct : il faut et il suffit que $\mathbf{p}$ soit à gauche de chaque côté, ou dessus ($(\mathbf{s}_{j+1} - \mathbf{s}_j) \times (\mathbf{p} - \mathbf{s}_j) \ge 0$ pour chaque côté $\mathbf{s} _j \to \mathbf{s} _{j+1}$). Le polygone est l'intersection de ces demi-plans (§1).
 
 ### La chaîne monotone d'Andrew
 
@@ -162,16 +162,16 @@ La chaîne du haut, de droite à gauche, finit en $(8, 7)$, $(5, 7)$, $(4, 3)$ (
 
 ### Séparable par un hyperplan
 
-On donne $n$ points $\mathbf{x}_i$ de $\mathbb{R}^d$ et leurs labels $y_i \in \{-1, +1\}$.
+On donne $n$ points $\mathbf{x}_i$ de $\mathbb{R}^d$ et leurs labels $y_i \in \lbrace-1, +1\rbrace$.
 
 > **Séparabilité linéaire.** Les deux classes sont **linéairement séparables** (*linearly separable*) s'il existe $\mathbf{w} \in \mathbb{R}^d$ et $b \in \mathbb{R}$ tels que $\mathbf{w} \cdot \mathbf{x}_i + b > 0$ pour chaque point de label $+1$ et $\mathbf{w} \cdot \mathbf{x}_i + b < 0$ pour chaque point de label $-1$, c'est-à-dire
-> $$y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b) > 0 \quad \text{pour tout } i.$$
+> $$y_i\thinspace(\mathbf{w} \cdot \mathbf{x}_i + b) > 0 \quad \text{pour tout } i.$$
 > L'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ est alors un **hyperplan séparateur** (*separating hyperplane*).
 
 Le produit $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ est positif exactement quand le point est du côté de son label : une seule inégalité au lieu de deux. Sur l'exemple, la droite $x_1 + x_2 - 6 = 0$ sépare $A$ et $B$ : les scores $x_1 + x_2 - 6$ valent $1, 5, 9, 6, 3, 5$ sur $A$ et $-7, -3, -2, -3, -5$ sur $B$.
 
 **Une marge de 1, sans perte de généralité.** Si $(\mathbf{w}, b)$ sépare, le plus petit des $n$ nombres $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ est un nombre $m > 0$ (il y en a un nombre fini). En divisant $\mathbf{w}$ et $b$ par $m$, on garde le même hyperplan et l'on obtient $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ pour tout $i$. Donc : les classes sont séparables **si et seulement si** le système d'inégalités
-$$y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1, \qquad i = 1, \ldots, n,$$
+$$y_i\thinspace(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1, \qquad i = 1, \ldots, n,$$
 a une solution $(\mathbf{w}, b)$. Ces inégalités sont **linéaires** en les inconnues $(\mathbf{w}, b)$ : décider si elles ont une solution est un problème de **programmation linéaire** (*linear program*), dit de **faisabilité** (*feasibility*), que `scipy.optimize.linprog` résout (M10.13). Le « $\ge 1$ » compte : avec « $\ge 0$ », le choix $\mathbf{w} = \mathbf{0}$, $b = 0$ marcherait toujours, et le test ne dirait rien.
 
 ### Le critère des enveloppes convexes
@@ -201,7 +201,7 @@ donne $b = -0{,}2$, $w_1 = -0{,}4$, $w_2 = 0{,}4$. Avec un point de plus, ce n'e
 Une droite qui frôle un point le sépare de justesse ; une droite qui passe loin de tous les points laisse de la place à l'erreur (un point un peu déplacé, une mesure un peu bruitée). La distance signée d'un point à l'hyperplan (M07 §5) mesure cette place.
 
 > **Marge géométrique.** La **marge géométrique** (*geometric margin*) du séparateur $(\mathbf{w}, b)$ sur les points labellisés est
-> $$\gamma(\mathbf{w}, b) = \min_i \frac{y_i\,(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert} :$$
+> $$\gamma(\mathbf{w}, b) = \min_i \frac{y_i\thinspace(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert} :$$
 > la distance signée du point le plus mal placé, positive si et seulement si $(\mathbf{w}, b)$ sépare les deux classes.
 
 Le numérateur seul, $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, s'appelle la **marge fonctionnelle** (*functional margin*) du point $i$ : elle double quand on double $\mathbf{w}$ et $b$, alors que la marge géométrique ne bouge pas (M10.8). Pour $x_1 + x_2 - 6 = 0$, le point le plus proche est $(4, 3)$, de score 1, et $\lVert (1, 1) \rVert = \sqrt{2}$ : $\gamma = \frac{1}{\sqrt{2}} \approx 0{,}707$.
@@ -213,15 +213,15 @@ Le numérateur seul, $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$, s'appelle la **ma
 Peut-on faire mieux en changeant aussi la direction $\mathbf{w}$ ? La réponse est géométrique.
 
 > **Théorème (plus grande marge).** Si $\operatorname{conv}(A)$ et $\operatorname{conv}(B)$ sont disjointes, la plus grande marge géométrique possible vaut la **moitié de la distance** entre les deux enveloppes,
-> $$\gamma^\star = \frac{1}{2}\,\min\{\lVert \mathbf{p} - \mathbf{q} \rVert : \mathbf{p} \in \operatorname{conv}(A),\ \mathbf{q} \in \operatorname{conv}(B)\},$$
+> $$\gamma^\star = \frac{1}{2}\thinspace\min\lbrace\lVert \mathbf{p} - \mathbf{q} \rVert : \mathbf{p} \in \operatorname{conv}(A),\ \mathbf{q} \in \operatorname{conv}(B)\rbrace,$$
 > et elle est atteinte par la **médiatrice** du segment $[\mathbf{p}, \mathbf{q}]$ qui réalise ce minimum : l'hyperplan perpendiculaire à $\mathbf{p} - \mathbf{q}$ qui passe par son milieu.
 
 <details><summary>Pourquoi (démonstration)</summary>
 
 *Aucun séparateur ne fait mieux.* Prenons un séparateur $(\mathbf{w}, b)$ de marge $\gamma > 0$, avec $\lVert \mathbf{w} \rVert = 1$ (on peut diviser par $\lVert \mathbf{w} \rVert$). Les scores valent au moins $\gamma$ sur $A$, au plus $-\gamma$ sur $B$ ; comme au critère des enveloppes, ils le restent sur $\operatorname{conv}(A)$ et $\operatorname{conv}(B)$. Pour $\mathbf{p} \in \operatorname{conv}(A)$ et $\mathbf{q} \in \operatorname{conv}(B)$, Cauchy-Schwarz donne
-$$2\gamma \le (\mathbf{w} \cdot \mathbf{p} + b) - (\mathbf{w} \cdot \mathbf{q} + b) = \mathbf{w} \cdot (\mathbf{p} - \mathbf{q}) \le \lVert \mathbf{w} \rVert\,\lVert \mathbf{p} - \mathbf{q} \rVert = \lVert \mathbf{p} - \mathbf{q} \rVert.$$
+$$2\gamma \le (\mathbf{w} \cdot \mathbf{p} + b) - (\mathbf{w} \cdot \mathbf{q} + b) = \mathbf{w} \cdot (\mathbf{p} - \mathbf{q}) \le \lVert \mathbf{w} \rVert\thinspace\lVert \mathbf{p} - \mathbf{q} \rVert = \lVert \mathbf{p} - \mathbf{q} \rVert.$$
 
-*La médiatrice atteint la borne.* Soit $(\mathbf{p}, \mathbf{q})$ un couple qui réalise la distance minimale $\delta = \lVert \mathbf{p} - \mathbf{q} \rVert$ (il en existe un : on l'admet), $\mathbf{u} = \mathbf{p} - \mathbf{q}$ et $\mathbf{m} = \frac{\mathbf{p} + \mathbf{q}}{2}$. Pour $\mathbf{a} \in \operatorname{conv}(A)$, le segment de $\mathbf{p}$ vers $\mathbf{a}$ reste dans $\operatorname{conv}(A)$, et la fonction $f(t) = \lVert \mathbf{p} + t(\mathbf{a} - \mathbf{p}) - \mathbf{q} \rVert^2$ est minimale en $t = 0$ sur $[0, 1]$ ; sa dérivée en 0, $2\,\mathbf{u} \cdot (\mathbf{a} - \mathbf{p})$, est donc $\ge 0$ (sinon $f$ descendrait en partant de 0). D'où le score de $\mathbf{a}$ par rapport à la médiatrice :
+*La médiatrice atteint la borne.* Soit $(\mathbf{p}, \mathbf{q})$ un couple qui réalise la distance minimale $\delta = \lVert \mathbf{p} - \mathbf{q} \rVert$ (il en existe un : on l'admet), $\mathbf{u} = \mathbf{p} - \mathbf{q}$ et $\mathbf{m} = \frac{\mathbf{p} + \mathbf{q}}{2}$. Pour $\mathbf{a} \in \operatorname{conv}(A)$, le segment de $\mathbf{p}$ vers $\mathbf{a}$ reste dans $\operatorname{conv}(A)$, et la fonction $f(t) = \lVert \mathbf{p} + t(\mathbf{a} - \mathbf{p}) - \mathbf{q} \rVert^2$ est minimale en $t = 0$ sur $[0, 1]$ ; sa dérivée en 0, $2\thinspace\mathbf{u} \cdot (\mathbf{a} - \mathbf{p})$, est donc $\ge 0$ (sinon $f$ descendrait en partant de 0). D'où le score de $\mathbf{a}$ par rapport à la médiatrice :
 $$\mathbf{u} \cdot (\mathbf{a} - \mathbf{m}) = \mathbf{u} \cdot (\mathbf{a} - \mathbf{p}) + \mathbf{u} \cdot (\mathbf{p} - \mathbf{m}) \ge 0 + \frac{\delta^2}{2},$$
 soit une distance au moins $\frac{\delta}{2}$. Le même calcul vaut pour $B$, de l'autre côté. La médiatrice a donc une marge d'au moins $\frac{\delta}{2}$, et la première partie interdit de faire mieux. Ce raisonnement prouve au passage la réciproque du théorème de l'hyperplan séparateur, une fois admise l'existence du couple le plus proche.
 
@@ -248,16 +248,16 @@ Par récurrence (R4) : vrai pour $k = 0$ (la somme est vide) ; si $a_k \le a_0 +
 ### Deux bornes pour la norme
 
 **La borne de l'inégalité triangulaire, toujours vraie.** Développons (M07) :
-$$\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\,\mathbf{v} \cdot \mathbf{d} + \lVert \mathbf{d} \rVert^2 \le \lVert \mathbf{v} \rVert^2 + 2\,\lVert \mathbf{v} \rVert\,\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2 = \big(\lVert \mathbf{v} \rVert + \lVert \mathbf{d} \rVert\big)^2,$$
+$$\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\thinspace\mathbf{v} \cdot \mathbf{d} + \lVert \mathbf{d} \rVert^2 \le \lVert \mathbf{v} \rVert^2 + 2\thinspace\lVert \mathbf{v} \rVert\thinspace\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2 = \big(\lVert \mathbf{v} \rVert + \lVert \mathbf{d} \rVert\big)^2,$$
 par Cauchy-Schwarz : c'est l'**inégalité triangulaire** $\lVert \mathbf{v} + \mathbf{d} \rVert \le \lVert \mathbf{v} \rVert + \lVert \mathbf{d} \rVert$. Avec des pas de longueur au plus $L$, le lemme appliqué aux normes donne $\lVert \mathbf{v}_k \rVert \le \lVert \mathbf{v}_0 \rVert + kL$ : une croissance **linéaire**, atteinte quand tous les pas vont dans la direction de la position.
 
 **La borne pas à pas sur le carré, quand les pas ne poussent pas vers l'extérieur.** Dans le développement, le terme du milieu dépend de l'angle entre le pas et la position :
 - pas **perpendiculaire** ($\mathbf{v} \cdot \mathbf{d} = 0$) : $\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + \lVert \mathbf{d} \rVert^2$, c'est Pythagore ;
 - angle **obtus** ($\mathbf{v} \cdot \mathbf{d} < 0$) : le carré de la norme augmente de moins que $\lVert \mathbf{d} \rVert^2$ ;
-- angle **aigu** ($\mathbf{v} \cdot \mathbf{d} > 0$) : il augmente de plus, jusqu'à $2\lVert \mathbf{v} \rVert\,\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2$ quand le pas va droit devant.
+- angle **aigu** ($\mathbf{v} \cdot \mathbf{d} > 0$) : il augmente de plus, jusqu'à $2\lVert \mathbf{v} \rVert\thinspace\lVert \mathbf{d} \rVert + \lVert \mathbf{d} \rVert^2$ quand le pas va droit devant.
 
-Si chaque pas fait un angle droit ou obtus avec la position courante ($\mathbf{v}_k \cdot \mathbf{d}_k \le 0$), on a donc $\lVert \mathbf{v}_{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + \lVert \mathbf{d}_k \rVert^2$, et le lemme, appliqué aux **carrés** avec $c_k = \lVert \mathbf{d}_k \rVert^2$, donne
-$$\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + \lVert \mathbf{d}_0 \rVert^2 + \cdots + \lVert \mathbf{d}_{k-1} \rVert^2, \qquad \text{et, si } \lVert \mathbf{d}_j \rVert \le L, \qquad \lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}.$$
+Si chaque pas fait un angle droit ou obtus avec la position courante ($\mathbf{v}_k \cdot \mathbf{d} _k \le 0$), on a donc $\lVert \mathbf{v} _{k+1} \rVert^2 \le \lVert \mathbf{v}_k \rVert^2 + \lVert \mathbf{d}_k \rVert^2$, et le lemme, appliqué aux **carrés** avec $c_k = \lVert \mathbf{d}_k \rVert^2$, donne
+$$\lVert \mathbf{v}_k \rVert^2 \le \lVert \mathbf{v}_0 \rVert^2 + \lVert \mathbf{d} _0 \rVert^2 + \cdots + \lVert \mathbf{d} _{k-1} \rVert^2, \qquad \text{et, si } \lVert \mathbf{d}_j \rVert \le L, \qquad \lVert \mathbf{v}_k \rVert \le \sqrt{\lVert \mathbf{v}_0 \rVert^2 + kL^2}.$$
 
 Exemple : $\mathbf{v}_0 = (2, 0)$, puis $\mathbf{d}_0 = (0, 1)$, perpendiculaire à $\mathbf{v}_0$ : $\mathbf{v}_1 = (2, 1)$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 = 4 + 1$, la borne est atteinte. Puis $\mathbf{d}_1 = (-0{,}6 ;\ 0{,}8)$, de longueur 1, avec $\mathbf{v}_1 \cdot \mathbf{d}_1 = -1{,}2 + 0{,}8 = -0{,}4 \le 0$ : $\mathbf{v}_2 = (1{,}4 ;\ 1{,}8)$ et $\lVert \mathbf{v}_2 \rVert^2 = 1{,}96 + 3{,}24 = 5{,}2$, sous la borne $4 + 2 = 6$ (exactement $5 - 0{,}8 + 1$).
 
@@ -281,7 +281,7 @@ Un classifieur linéaire calcule un **score** $z = \mathbf{w} \cdot \mathbf{x} +
 
 **La sortie ne dépend de $\mathbf{x}$ qu'à travers le score.** Deux points de même score ont la même sortie, quelle que soit l'activation. Les **lignes de niveau** de $\mathbf{x} \mapsto f(\mathbf{w} \cdot \mathbf{x} + b)$ (*level sets*, M05b) sont donc des hyperplans $\mathbf{w} \cdot \mathbf{x} + b = c$, tous **parallèles** à la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$, à la distance signée $\frac{c}{\lVert \mathbf{w} \rVert}$ d'elle. Seule la façon dont la sortie varie d'une ligne à l'autre change : en une marche pour le seuil, doucement pour la sigmoïde et tanh, en rampe pour ReLU.
 
-**Une activation croissante garde la frontière.** Si $f$ est strictement croissante, l'ensemble $\{\mathbf{x} : f(\mathbf{w} \cdot \mathbf{x} + b) > f(0)\}$ est le demi-espace $\{\mathbf{w} \cdot \mathbf{x} + b > 0\}$ : décider « $\sigma(z) > \frac{1}{2}$ » ou « $\tanh(z) > 0$ », c'est décider « $z > 0$ ». C'est vrai aussi pour le seuil et ReLU, qui valent 0 pour tout $z \le 0$ et sont positifs au-delà. Plus généralement, pour une activation croissante, la région où la sortie dépasse un niveau donné est un demi-espace (ou, pour certains niveaux, tout l'espace ou rien) : un convexe (§1). Un seul neurone ne peut donc pas répondre « oui » sur une région qui n'est pas convexe.
+**Une activation croissante garde la frontière.** Si $f$ est strictement croissante, l'ensemble $\lbrace\mathbf{x} : f(\mathbf{w} \cdot \mathbf{x} + b) > f(0)\rbrace$ est le demi-espace $\lbrace\mathbf{w} \cdot \mathbf{x} + b > 0\rbrace$ : décider « $\sigma(z) > \frac{1}{2}$ » ou « $\tanh(z) > 0$ », c'est décider « $z > 0$ ». C'est vrai aussi pour le seuil et ReLU, qui valent 0 pour tout $z \le 0$ et sont positifs au-delà. Plus généralement, pour une activation croissante, la région où la sortie dépasse un niveau donné est un demi-espace (ou, pour certains niveaux, tout l'espace ou rien) : un convexe (§1). Un seul neurone ne peut donc pas répondre « oui » sur une région qui n'est pas convexe.
 
 Sur l'exemple, le séparateur de plus grande marge sous forme canonique, $z = \frac{4x_1 + 3x_2 - 18{,}5}{6{,}5}$, donne $z = \frac{14{,}5}{6{,}5} \approx 2{,}23$ en $(6, 3)$ : $H = 1$, $\sigma \approx 0{,}903$, $\tanh \approx 0{,}977$, $\operatorname{ReLU} \approx 2{,}23$ ; en $(1, 0)$, $z \approx -2{,}23$ : $0$, $0{,}097$, $-0{,}977$ et $0$. En $(4, 3)$, $z = 1$ : la ligne de niveau de la sortie qui passe par ce point est la droite $z = 1$, parallèle à la frontière, à la distance $\frac{1}{\lVert \mathbf{w} \rVert} = 1{,}3$ d'elle : le bord de la marge, quelle que soit l'activation.
 

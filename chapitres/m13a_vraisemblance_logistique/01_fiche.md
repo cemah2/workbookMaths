@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *likelihood*, *log-likelihood*, *negative l
 1. Pour des observations indépendantes, la vraisemblance est un produit, la **log-vraisemblance** $\ell(\boldsymbol{\theta}) = \sum_i \ln p(x_i \mid \boldsymbol{\theta})$ une somme ; l'**estimation du maximum de vraisemblance** la rend maximale.
 2. Bernoulli : $\hat{p}$ = la proportion de 1 ; catégorielle : $\hat{p}_k = n_k/N$ (avec lissage : $\frac{n_k + \alpha}{N + K\alpha}$) ; normale : $\hat{\mu}$ = la moyenne, $\hat{\sigma}^2 = \frac{1}{n}\sum_i (x_i - \hat{\mu})^2$, en $n$ et non $n - 1$.
 3. La **log-loss** d'un classifieur est moins sa log-vraisemblance divisée par $n$ : minimiser l'une, c'est maximiser l'autre.
-4. La log-loss récompense les probabilités **honnêtes** : pour un label de probabilité $\pi$, sa valeur moyenne $H(\pi) + \mathrm{KL}(\pi \,\Vert\, q)$ est la plus petite en $q = \pi$.
+4. La log-loss récompense les probabilités **honnêtes** : pour un label de probabilité $\pi$, sa valeur moyenne $H(\pi) + \mathrm{KL}(\pi \thinspace\Vert\thinspace q)$ est la plus petite en $q = \pi$.
 5. La **sigmoïde** $\sigma(z) = \frac{1}{1 + e^{-z}}$ envoie $\mathbb{R}$ sur $]0, 1[$ ; la **softplus** $s(z) = \ln(1 + e^z)$ vérifie $-\ln \sigma(z) = s(-z)$ et $s(z) - s(-z) = z$.
 6. **Log-somme-exp** est convexe (sur une droite, sa dérivée seconde est une variance) ; la softplus aussi, et donc la log-loss d'un modèle logistique, en $(\mathbf{w}, b)$.
 7. **Régression logistique** : $P(Y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ ; le score est la log-cote ; la frontière $\mathbf{w} \cdot \mathbf{x} + b = 0$ est un hyperplan.
@@ -79,7 +79,7 @@ $$L(\boldsymbol{\theta}) = \prod_{i=1}^n p(x_i \mid \boldsymbol{\theta}), \qquad
 
 L'**estimation du maximum de vraisemblance** (*maximum likelihood estimate*, MLE) est la valeur $\hat{\boldsymbol{\theta}}$ qui rend $\ell$ maximale. On travaille toujours avec $\ell$ : le logarithme est croissant, donc le maximum est au même endroit ; une somme se dérive terme à terme ; et un produit de milliers de probabilités tomberait à 0 en flottants (M04 §7), alors que leur somme de logarithmes reste un nombre ordinaire. Minimiser $-\ell$, ou $-\frac{1}{n}\ell$, revient au même : c'est la forme qu'on retrouvera comme loss.
 
-**Bernoulli.** Huit visiteurs d'une page ont cliqué (1) ou non (0) sur un bouton : $(0, 1, 1, 0, 1, 0, 1, 1)$. Le modèle : chaque visiteur clique avec une probabilité $p$, indépendamment des autres. Une observation $y \in \{0, 1\}$ a la probabilité $p^y (1 - p)^{1 - y}$ ($p$ si $y = 1$, $1 - p$ si $y = 0$), donc
+**Bernoulli.** Huit visiteurs d'une page ont cliqué (1) ou non (0) sur un bouton : $(0, 1, 1, 0, 1, 0, 1, 1)$. Le modèle : chaque visiteur clique avec une probabilité $p$, indépendamment des autres. Une observation $y \in \lbrace0, 1\rbrace$ a la probabilité $p^y (1 - p)^{1 - y}$ ($p$ si $y = 1$, $1 - p$ si $y = 0$), donc
 
 $$\ell(p) = \sum_i \big[y_i \ln p + (1 - y_i)\ln(1 - p)\big] = k\ln p + (n - k)\ln(1 - p),$$
 
@@ -130,7 +130,7 @@ Presque toutes les losses que tu minimiseras sont des log-vraisemblances changé
 
 Un classifieur probabiliste donne, pour chaque exemple $\mathbf{x}_i$, une probabilité $\hat{p}_i$ que son label soit 1. Si l'on suppose les labels indépendants sachant les features, le modèle attribue aux labels observés la vraisemblance
 
-$$L = \prod_{i=1}^n \hat{p}_i^{\,y_i}\,(1 - \hat{p}_i)^{1 - y_i}, \qquad -\frac{1}{n}\ln L = -\frac{1}{n}\sum_{i=1}^n \big[y_i \ln \hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big].$$
+$$L = \prod_{i=1}^n \hat{p}_i^{\thinspace y_i}\thinspace(1 - \hat{p} _i)^{1 - y_i}, \qquad -\frac{1}{n}\ln L = -\frac{1}{n}\sum _{i=1}^n \big[y_i \ln \hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big].$$
 
 À droite, tu reconnais la **log-loss** de M06 §5. Minimiser la log-loss d'un classifieur, c'est maximiser la vraisemblance de ses labels (∂ M13a.14 rédige l'équivalence et sa lecture en cross-entropy). Chaque terme est la cross-entropy $H(\mathbf{y}_i, \hat{\mathbf{q}}_i)$ entre la loi du label observé (tout sur $y_i$) et la loi prédite $(1 - \hat{p}_i, \hat{p}_i)$ : d'où le nom de *binary cross-entropy*.
 
@@ -144,13 +144,13 @@ Le terme d'un exemple est $-\ln q$, où $q$ est la probabilité donnée au label
 
 Un exemple a, en vérité, la probabilité $\pi$ d'avoir le label 1, et le modèle annonce $q$. La log-loss **moyenne** de cet exemple, sur ses deux labels possibles, est
 
-$$-\pi\ln q - (1 - \pi)\ln(1 - q) = H(\pi) + \mathrm{KL}(\pi \,\Vert\, q),$$
+$$-\pi\ln q - (1 - \pi)\ln(1 - q) = H(\pi) + \mathrm{KL}(\pi \thinspace\Vert\thinspace q),$$
 
 où $H(\pi)$ et $\mathrm{KL}$ sont l'entropie et la divergence de M06, en nats, appliquées aux lois $(1 - \pi, \pi)$ et $(1 - q, q)$. Le premier terme ne dépend pas de $q$, le second est positif et ne s'annule qu'en $q = \pi$ (M06 §6) : la log-loss moyenne est la plus petite quand le modèle annonce **la vraie probabilité**. Avec $\pi = 0{,}7$ : $0{,}693$ pour $q = 0{,}5$, $0{,}611$ pour $q = 0{,}7$, $0{,}765$ pour $q = 0{,}9$. Exagérer sa confiance coûte, la sous-estimer aussi. On dit que la log-loss est une **règle de score propre** (*proper scoring rule*). Le taux d'erreur, lui, ne regarde que le côté de 0,5 où tombe $q$ : il donne la même note à $q = 0{,}51$ et à $q = 0{,}99$.
 
 Deux conséquences :
 - **Le meilleur modèle constant.** Un modèle qui répond la même probabilité $q$ à tous les exemples a une log-loss égale à moins la log-vraisemblance de Bernoulli du §1 divisée par $n$ : elle est la plus petite en $q = \hat{p}$, la fréquence des 1, et vaut alors l'**entropie** de cette fréquence, en nats. Pour les huit visiteurs : $\frac{5{,}293}{8} \approx 0{,}662$, contre $\ln 2 \approx 0{,}693$ pour $q = 0{,}5$. C'est le niveau qu'un modèle qui regarde les features doit battre.
-- **Maximum de vraisemblance et KL.** Pour des données discrètes de loi empirique $\hat{P}$ (les fréquences), $-\frac{1}{n}\ell(\boldsymbol{\theta}) = H(\hat{P}, Q_{\boldsymbol{\theta}}) = H(\hat{P}) + \mathrm{KL}(\hat{P} \,\Vert\, Q_{\boldsymbol{\theta}})$ : le maximum de vraisemblance choisit, dans le modèle, la loi la plus proche des fréquences observées au sens de la KL.
+- **Maximum de vraisemblance et KL.** Pour des données discrètes de loi empirique $\hat{P}$ (les fréquences), $-\frac{1}{n}\ell(\boldsymbol{\theta}) = H(\hat{P}, Q_{\boldsymbol{\theta}}) = H(\hat{P}) + \mathrm{KL}(\hat{P} \thinspace\Vert\thinspace Q_{\boldsymbol{\theta}})$ : le maximum de vraisemblance choisit, dans le modèle, la loi la plus proche des fréquences observées au sens de la KL.
 
 ![Pour un exemple de label 1, la log-loss en bits du score z, log₂(1 + e⁻ᶻ), passe au-dessus de l'erreur, qui vaut 1 si z ≤ 0 et 0 sinon ; elles se touchent en z = 0](figures/logloss_erreur.png)
 
@@ -187,7 +187,7 @@ Ses propriétés se lisent sur la formule, et sur la figure :
 
 **Le lien avec la log-loss.** Comme $\sigma(z) = \frac{1}{1 + e^{-z}}$, on a $-\ln\sigma(z) = \ln(1 + e^{-z}) = s(-z)$ ; et, par la symétrie, $-\ln(1 - \sigma(z)) = -\ln\sigma(-z) = s(z)$. Pour un exemple de score $z$ et de label $y$, avec $\hat{p} = \sigma(z)$ :
 
-$$-\big[y\ln\hat{p} + (1 - y)\ln(1 - \hat{p})\big] = \begin{cases} s(-z) & \text{si } y = 1, \\ s(z) & \text{si } y = 0, \end{cases} \qquad = s(z) - y\,z \ \text{ dans les deux cas}.$$
+$$-\big[y\ln\hat{p} + (1 - y)\ln(1 - \hat{p})\big] = \begin{cases} s(-z) & \text{si } y = 1, \cr s(z) & \text{si } y = 0, \end{cases} \qquad = s(z) - y\thinspace z \ \text{ dans les deux cas}.$$
 
 (Pour $y = 1$, $s(z) - z = s(-z)$ par la troisième propriété.) La log-loss s'écrit donc directement avec les scores, sans calculer $\hat{p}$. C'est plus précis : si $\sigma(z)$ s'arrondit à 1 en flottants (ce qui arrive pour un score de quelques dizaines), $\ln(1 - \hat{p})$ vaut $-\infty$, alors que $s(z)$ reste un nombre ordinaire.
 
@@ -207,9 +207,9 @@ M04 §7 s'en servait pour normaliser des log-probabilités ; c'est aussi une ver
 
 **Théorème.** $\mathrm{LSE}$ est une fonction convexe sur $\mathbb{R}^K$.
 
-L'idée de la démonstration (∂ M13a.15) : une fonction de plusieurs variables est convexe si et seulement si elle l'est sur chaque droite, c'est-à-dire si, pour tous $\mathbf{a}$ et $\mathbf{d}$, la fonction d'une variable $g(t) = \mathrm{LSE}(\mathbf{a} + t\,\mathbf{d})$ est convexe (la définition de M10 ne fait intervenir que des points d'un même segment). On calcule $g''(t)$, et on reconnaît la **variance** des nombres $d_1, \ldots, d_K$ sous des probabilités proportionnelles aux $e^{a_k + t d_k}$ : une variance est positive ou nulle, donc $g'' \ge 0$, et $g$ est convexe (M05a).
+L'idée de la démonstration (∂ M13a.15) : une fonction de plusieurs variables est convexe si et seulement si elle l'est sur chaque droite, c'est-à-dire si, pour tous $\mathbf{a}$ et $\mathbf{d}$, la fonction d'une variable $g(t) = \mathrm{LSE}(\mathbf{a} + t\thinspace\mathbf{d})$ est convexe (la définition de M10 ne fait intervenir que des points d'un même segment). On calcule $g''(t)$, et on reconnaît la **variance** des nombres $d_1, \ldots, d_K$ sous des probabilités proportionnelles aux $e^{a_k + t d_k}$ : une variance est positive ou nulle, donc $g'' \ge 0$, et $g$ est convexe (M05a).
 
-**Composer avec une application affine.** Si $f$ est convexe et $A$ affine, $f \circ A$ est convexe : $A$ envoie le point $(1 - t)\,\mathbf{a} + t\,\mathbf{b}$ sur $(1 - t)\,A(\mathbf{a}) + t\,A(\mathbf{b})$, et l'inégalité de convexité de $f$ s'applique à ces deux images. Or $s(z) = \mathrm{LSE}(0, z)$ est $\mathrm{LSE}$ composée avec l'application affine $z \mapsto (0, z)$ : **la softplus est convexe**.
+**Composer avec une application affine.** Si $f$ est convexe et $A$ affine, $f \circ A$ est convexe : $A$ envoie le point $(1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b}$ sur $(1 - t)\thinspace A(\mathbf{a}) + t\thinspace A(\mathbf{b})$, et l'inégalité de convexité de $f$ s'applique à ces deux images. Or $s(z) = \mathrm{LSE}(0, z)$ est $\mathrm{LSE}$ composée avec l'application affine $z \mapsto (0, z)$ : **la softplus est convexe**.
 
 ⚠️ **Erreur classique.** Croire que $\ln(1 + e^z) \approx z$ « pour tout $z$ un peu grand » et l'écrire ainsi dans un code : pour $z = 1$, l'écart vaut $\ln(1 + e^{-1}) \approx 0{,}313$. L'écriture stable est exacte pour tout $z$.
 
@@ -233,11 +233,11 @@ avec un vecteur de poids $\mathbf{w}$ et un biais $b$. Le **score** $z = \mathbf
 - Pour $\mathbf{x} = (2 ;\ 0{,}5)$ : $z = 2{,}4 - 0{,}4 - 0{,}4 = 1{,}6$, la cote vaut $e^{1{,}6} \approx 4{,}95$ (« 4,95 contre 1 »), et la probabilité $\sigma(1{,}6) = \frac{4{,}95}{5{,}95} \approx 0{,}832$.
 - Pour $\mathbf{x} = (0{,}5 ;\ 1)$ : $z = -0{,}6$ et $\sigma(-0{,}6) \approx 0{,}354$ ; pour $\mathbf{x} = (1, 2)$ : $z = -0{,}8$ et $\approx 0{,}310$.
 
-**La cote est multiplicative.** La cote vaut $e^{z} = e^{b}\,e^{w_1x_1}\cdots e^{w_px_p}$ : un produit de facteurs, un par feature. Passer de $x_j$ à $x_j + 1$, les autres features fixées, multiplie donc la cote par le même facteur $e^{w_j}$, quel que soit le point de départ. Ici, $x_1 + 1$ multiplie la cote par $e^{1{,}2} \approx 3{,}32$, et $x_2 + 1$ par $e^{-0{,}8} \approx 0{,}449$. La probabilité, elle, change plus ou moins selon l'endroit : beaucoup près de 0,5, peu près de 0 ou de 1.
+**La cote est multiplicative.** La cote vaut $e^{z} = e^{b}\thinspace e^{w_1x_1}\cdots e^{w_px_p}$ : un produit de facteurs, un par feature. Passer de $x_j$ à $x_j + 1$, les autres features fixées, multiplie donc la cote par le même facteur $e^{w_j}$, quel que soit le point de départ. Ici, $x_1 + 1$ multiplie la cote par $e^{1{,}2} \approx 3{,}32$, et $x_2 + 1$ par $e^{-0{,}8} \approx 0{,}449$. La probabilité, elle, change plus ou moins selon l'endroit : beaucoup près de 0,5, peu près de 0 ou de 1.
 
 ### La frontière et les lignes de niveau
 
-Le modèle prédit la classe 1 quand $P(Y = 1 \mid \mathbf{x}) > 0{,}5$, c'est-à-dire quand $z > 0$ : la **frontière de décision** est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ (M07), ici la droite $1{,}2\,x_1 - 0{,}8\,x_2 - 0{,}4 = 0$, soit $x_2 = 1{,}5\,x_1 - 0{,}5$. Plus généralement, l'ensemble des points de probabilité $c$ est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = \operatorname{logit}(c)$ : les lignes de niveau de la probabilité sont **parallèles** à la frontière, et $\mathbf{w}$ leur est orthogonal et pointe vers la classe 1. Le score d'un point est sa distance signée à la frontière multipliée par $\lVert \mathbf{w} \rVert$ (M07) : plus $\lVert \mathbf{w} \rVert$ est grand, plus la probabilité passe vite de 0 à 1 quand on traverse la frontière.
+Le modèle prédit la classe 1 quand $P(Y = 1 \mid \mathbf{x}) > 0{,}5$, c'est-à-dire quand $z > 0$ : la **frontière de décision** est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ (M07), ici la droite $1{,}2\thinspace x_1 - 0{,}8\thinspace x_2 - 0{,}4 = 0$, soit $x_2 = 1{,}5\thinspace x_1 - 0{,}5$. Plus généralement, l'ensemble des points de probabilité $c$ est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = \operatorname{logit}(c)$ : les lignes de niveau de la probabilité sont **parallèles** à la frontière, et $\mathbf{w}$ leur est orthogonal et pointe vers la classe 1. Le score d'un point est sa distance signée à la frontière multipliée par $\lVert \mathbf{w} \rVert$ (M07) : plus $\lVert \mathbf{w} \rVert$ est grand, plus la probabilité passe vite de 0 à 1 quand on traverse la frontière.
 
 ![Les probabilités du modèle w = (1,2 ; −0,8), b = −0,4 : la frontière P = 0,5 et les droites P = 0,3 et P = 0,7, parallèles, w orthogonal à elles, et les trois points de l'exemple](figures/logistique_plan.png)
 
@@ -245,7 +245,7 @@ Le modèle prédit la classe 1 quand $P(Y = 1 \mid \mathbf{x}) > 0{,}5$, c'est-�
 
 Sur des données $(\mathbf{x}_i, y_i)$, on choisit $(\mathbf{w}, b)$ par maximum de vraisemblance, donc en minimisant la log-loss :
 
-$$J(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \big[s(z_i) - y_i\,z_i\big], \qquad z_i = \mathbf{w} \cdot \mathbf{x}_i + b.$$
+$$J(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \big[s(z_i) - y_i\thinspace z_i\big], \qquad z_i = \mathbf{w} \cdot \mathbf{x}_i + b.$$
 
 **$J$ est convexe en $(\mathbf{w}, b)$** : chaque $z_i$ est une fonction affine de $(\mathbf{w}, b)$ ; $s(z_i)$ est donc la softplus composée avec une application affine, convexe (§3) ; $-y_i z_i$ est affine ; et une somme de fonctions convexes est convexe (M10). Conséquence : tout minimum local est un minimum global, il n'y a qu'un niveau minimal à atteindre. Il n'y a pas de formule pour le minimum, contrairement aux moindres carrés (M09b) : on le cherche numériquement. Le calcul du gradient et la descente elle-même sont le sujet de workbookIA 13.
 
@@ -271,13 +271,13 @@ La régression logistique est le premier modèle à essayer sur une classificati
 
 La régression logistique modélise **directement** $P(Y \mid \mathbf{x})$ : c'est un modèle **discriminant** (*discriminative*). Un modèle **génératif** (*generative*) modélise l'autre sens : la loi des features **dans chaque classe**, $p(\mathbf{x} \mid Y = k)$, et la proportion des classes, $\pi_k = P(Y = k)$. Il en déduit ce qu'on veut par la formule de Bayes (M04 §1) :
 
-$$P(Y = k \mid \mathbf{x}) = \frac{\pi_k\,p(\mathbf{x} \mid Y = k)}{\sum_j \pi_j\,p(\mathbf{x} \mid Y = j)}.$$
+$$P(Y = k \mid \mathbf{x}) = \frac{\pi_k\thinspace p(\mathbf{x} \mid Y = k)}{\sum_j \pi_j\thinspace p(\mathbf{x} \mid Y = j)}.$$
 
 Un modèle génératif sait faire plus (simuler des exemples d'une classe, repérer un $\mathbf{x}$ improbable dans toutes les classes) ; il doit en contrepartie modéliser toute la loi des features, ce qui est difficile en grande dimension.
 
 ### L'hypothèse naïve
 
-Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 7 features à 3 valeurs, déjà $3^7 - 1 = 2\,186$, et il faudrait des milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
+Avec $p$ features à $m$ valeurs chacune, la loi complète de $\mathbf{x}$ dans une classe a $m^p$ cases, donc $m^p - 1$ probabilités à estimer : pour 7 features à 3 valeurs, déjà $3^7 - 1 = 2\thinspace186$, et il faudrait des milliers d'exemples par classe pour les estimer. **Naïve Bayes** (*naive Bayes*) suppose les features **indépendantes sachant la classe** (*conditional independence*) :
 
 $$p(\mathbf{x} \mid Y = k) = \prod_{j=1}^p p(x_j \mid Y = k).$$
 
@@ -300,9 +300,9 @@ Pour décider, on additionne des **log-probabilités** : $\ln\hat{\pi}_k + \sum_
 
 Une seule feature réelle $x$. Dans la classe 0, $x \sim \mathcal{N}(\mu_0, \sigma^2)$ ; dans la classe 1, $x \sim \mathcal{N}(\mu_1, \sigma^2)$, avec la **même** variance ; les proportions sont $\pi_0$ et $\pi_1$. La log-cote a posteriori est
 
-$$\ln\frac{P(Y = 1 \mid x)}{P(Y = 0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - \mu_1)^2 - (x - \mu_0)^2}{2\sigma^2} = \underbrace{\frac{\mu_1 - \mu_0}{\sigma^2}}_{w}\,x + \underbrace{\frac{\mu_0^2 - \mu_1^2}{2\sigma^2} + \ln\frac{\pi_1}{\pi_0}}_{b} :$$
+$$\ln\frac{P(Y = 1 \mid x)}{P(Y = 0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \frac{(x - \mu_1)^2 - (x - \mu_0)^2}{2\sigma^2} = \underbrace{\frac{\mu_1 - \mu_0}{\sigma^2}} _{w}\thinspace x + \underbrace{\frac{\mu_0^2 - \mu_1^2}{2\sigma^2} + \ln\frac{\pi_1}{\pi_0}} _{b} :$$
 
-les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}36$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}36}{0{,}64} \approx -3{,}3333 - 0{,}5754 \approx -3{,}909$, et la frontière $x^* = -\frac{b}{w} \approx 2{,}93$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
+les termes en $x^2$ s'annulent parce que les variances sont égales. Donc $P(Y = 1 \mid x) = \sigma(wx + b)$ : **exactement la forme de la régression logistique.** Avec $\mu_0 = 1$, $\mu_1 = 4$, $\sigma = 1{,}5$ et $\pi_1 = 0{,}36$ : $w = \frac{3}{2{,}25} \approx 1{,}333$, $b = \frac{1 - 16}{4{,}5} + \ln\frac{0{,}36}{0{,}64} \approx -3{,}3333 - 0{,}5754 \approx -3{,}909$, et la frontière $x^\ast = -\frac{b}{w} \approx 2{,}93$ : plus près de la classe rare que le milieu 2,5 des deux moyennes, puisque la classe 0, plus fréquente, l'emporte tant que les densités sont comparables.
 
 ![À gauche, 0,64 × N(1 ; 1,5²) et 0,36 × N(4 ; 1,5²), qui se croisent en x* ≈ 2,93 ; à droite, l'a posteriori de la classe 1, une sigmoïde de 1,333 x − 3,909](figures/bayes_gaussien.png)
 
@@ -327,9 +327,9 @@ La seconde écriture de Gini a une lecture utile : $p_k(1 - p_k)$ est la varianc
 
 **Les maxima.** Les deux impuretés sont maximales pour la loi uniforme $p_k = \frac{1}{K}$ : $H_{\max} = \log_2 K$ (l'inégalité de Gibbs de M06, ∂ M13a.17) et $G_{\max} = 1 - \frac{1}{K}$ (∂ M13a.16). Pour $K = 5$ : $\log_2 5 \approx 2{,}32$ bits et $0{,}8$. Elles grandissent avec $K$ : comparer l'impureté de deux nœuds n'a de sens qu'avec le même nombre de classes.
 
-**La concavité.** Les deux impuretés sont des fonctions **concaves** de $\mathbf{p}$ (l'opposé d'une fonction convexe) : $-\sum_k p_k^2$ est concave comme opposé d'une somme de carrés, et $-p\log_2 p$ a une dérivée seconde $-\frac{1}{p\ln 2} < 0$. Conséquence : l'impureté d'un **mélange** est au moins la moyenne des impuretés de ses parties. Si l'on coupe un groupe en deux sous-groupes, de proportions $\mathbf{p}^{(1)}$ et $\mathbf{p}^{(2)}$ et de poids $t$ et $1 - t$, la loi du groupe entier est $t\,\mathbf{p}^{(1)} + (1 - t)\,\mathbf{p}^{(2)}$, et
+**La concavité.** Les deux impuretés sont des fonctions **concaves** de $\mathbf{p}$ (l'opposé d'une fonction convexe) : $-\sum_k p_k^2$ est concave comme opposé d'une somme de carrés, et $-p\log_2 p$ a une dérivée seconde $-\frac{1}{p\ln 2} < 0$. Conséquence : l'impureté d'un **mélange** est au moins la moyenne des impuretés de ses parties. Si l'on coupe un groupe en deux sous-groupes, de proportions $\mathbf{p}^{(1)}$ et $\mathbf{p}^{(2)}$ et de poids $t$ et $1 - t$, la loi du groupe entier est $t\thinspace\mathbf{p}^{(1)} + (1 - t)\thinspace\mathbf{p}^{(2)}$, et
 
-$$I\big(t\,\mathbf{p}^{(1)} + (1 - t)\,\mathbf{p}^{(2)}\big) \ge t\,I(\mathbf{p}^{(1)}) + (1 - t)\,I(\mathbf{p}^{(2)}) :$$
+$$I\big(t\thinspace\mathbf{p}^{(1)} + (1 - t)\thinspace\mathbf{p}^{(2)}\big) \ge t\thinspace I(\mathbf{p}^{(1)}) + (1 - t)\thinspace I(\mathbf{p}^{(2)}) :$$
 
 couper ne fait jamais monter l'impureté moyenne pondérée.
 
@@ -365,7 +365,7 @@ Les arbres de décision, et donc les forêts aléatoires et le gradient boosting
 
 Pour une cible réelle, un groupe d'exemples se résume par la **moyenne** de ses cibles : c'est la constante qui minimise la somme des carrés des écarts (M07), donc la prédiction d'une feuille d'un arbre de régression. Son impureté naturelle est la **variance** des cibles du groupe. Coupons un groupe de $n$ cibles, de moyenne $m$ et de variance $V$ (en $\frac{1}{n}$), en deux sous-groupes A et B, de tailles $n_A$ et $n_B$, de moyennes $m_A$ et $m_B$, de variances $V_A$ et $V_B$. Alors
 
-$$\boxed{V = \underbrace{\frac{n_A}{n}V_A + \frac{n_B}{n}V_B}_{\text{variance intra-groupes}} + \underbrace{\frac{n_A}{n}(m_A - m)^2 + \frac{n_B}{n}(m_B - m)^2}_{\text{variance inter-groupes}}.}$$
+$$\boxed{V = \underbrace{\frac{n_A}{n}V_A + \frac{n_B}{n}V_B} _{\text{variance intra-groupes}} + \underbrace{\frac{n_A}{n}(m_A - m)^2 + \frac{n_B}{n}(m_B - m)^2} _{\text{variance inter-groupes}}.}$$
 
 C'est la **décomposition de la variance** : dans chaque groupe, on écrit $y - m = (y - m_A) + (m_A - m)$ ; en développant le carré, le terme croisé $2(m_A - m)\sum_{y \in A}(y - m_A)$ est nul, puisque les écarts à la moyenne du groupe ont une somme nulle (✏️ M13a.12 rédige le calcul). La **réduction de variance** (*variance reduction*) d'une coupe est $V$ moins la variance intra-groupes, c'est-à-dire la variance **inter**-groupes : elle est positive ou nulle, et d'autant plus grande que les moyennes des deux groupes s'écartent.
 
@@ -397,7 +397,7 @@ Un arbre de régression choisit, à chaque nœud, la coupe qui fait le plus bais
 | Calculer $\ln(1 + e^z)$ ou $\ln\sigma(z)$ tels quels pour un grand score | $s(z) = \max(z, 0) + \ln(1 + e^{-\lvert z \rvert})$, avec `np.log1p` |
 | Lire un poids logistique comme un effet sur la probabilité | c'est un effet sur la log-cote : la cote est multipliée par $e^{w_j}$ |
 | Croire que Naïve Bayes suppose les features indépendantes | indépendantes **sachant la classe** |
-| Oublier les proportions des classes dans un modèle génératif | $P(Y = k \mid \mathbf{x}) \propto \pi_k\,p(\mathbf{x} \mid Y = k)$ |
+| Oublier les proportions des classes dans un modèle génératif | $P(Y = k \mid \mathbf{x}) \propto \pi_k\thinspace p(\mathbf{x} \mid Y = k)$ |
 | Moyenner des impuretés sans pondérer par les tailles | pondérer par $\frac{n_A}{n}$ et $\frac{n_B}{n}$ |
 | Comparer des impuretés de nœuds à nombres de classes différents | les maxima $\log_2 K$ et $1 - \frac{1}{K}$ dépendent de $K$ |
 

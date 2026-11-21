@@ -95,7 +95,7 @@ Exemple : pour un entier $n$, on pose P = « $n$ est pair » et Q = « $n > 10$ 
 
 Que veut dire « il est faux que $n$ soit pair **et** plus grand que 10 » ? Que l'une des deux conditions au moins manque : $n$ est impair, **ou** $n \le 10$. De même, « il est faux que $n$ soit pair **ou** plus grand que 10 » veut dire que $n$ est impair **et** $n \le 10$. Ce sont les **lois de De Morgan** :
 
-$$\text{non}\,(P \text{ et } Q) = (\text{non } P) \text{ ou } (\text{non } Q) \qquad \text{non}\,(P \text{ ou } Q) = (\text{non } P) \text{ et } (\text{non } Q)$$
+$$\text{non}\thinspace(P \text{ et } Q) = (\text{non } P) \text{ ou } (\text{non } Q) \qquad \text{non}\thinspace(P \text{ ou } Q) = (\text{non } P) \text{ et } (\text{non } Q)$$
 
 On les démontre avec une table de vérité : on calcule les deux colonnes, et on constate qu'elles sont **égales sur les quatre lignes** (c'est R4.1). Deux propositions qui ont la même table de vérité sont dites **équivalentes** : on peut remplacer l'une par l'autre dans tout raisonnement.
 
@@ -181,7 +181,7 @@ Le domaine compte : la même phrase peut être vraie sur $\mathbb{R}$ et fausse 
 
 Pour montrer qu'il est **faux** que « tous les élèves ont rendu leur devoir », il suffit d'**un** élève qui ne l'a pas rendu. La négation de « pour tout » est « il existe… qui ne… pas » :
 
-$$\text{non}\,\big(\forall x,\ P(x)\big) = \exists x,\ \text{non } P(x) \qquad \text{non}\,\big(\exists x,\ P(x)\big) = \forall x,\ \text{non } P(x)$$
+$$\text{non}\thinspace\big(\forall x,\ P(x)\big) = \exists x,\ \text{non } P(x) \qquad \text{non}\thinspace\big(\exists x,\ P(x)\big) = \forall x,\ \text{non } P(x)$$
 
 Exemples :
 - non ($\forall x \in \mathbb{R},\ x^2 \ge x$) = ($\exists x \in \mathbb{R},\ x^2 < x$). La négation est vraie ($x = 0{,}5$ donne $0{,}25 < 0{,}5$), donc la phrase de départ est fausse.
@@ -206,25 +206,25 @@ Pour nier une phrase à plusieurs quantificateurs, on avance de gauche à droite
 ### Écrire un ensemble
 
 Un **ensemble** est une collection d'objets, ses **éléments**, sans ordre et sans répétition. On l'écrit :
-- **en extension**, en listant ses éléments entre accolades : $A = \{2, 3, 5, 7\}$, les nombres premiers inférieurs à 10 ;
-- **en compréhension**, par une propriété : $B = \{n \in \mathbb{N} \mid n < 10 \text{ et } n \text{ impair}\} = \{1, 3, 5, 7, 9\}$ ; la barre verticale se lit « tels que ».
+- **en extension**, en listant ses éléments entre accolades : $A = \lbrace2, 3, 5, 7\rbrace$, les nombres premiers inférieurs à 10 ;
+- **en compréhension**, par une propriété : $B = \lbrace n \in \mathbb{N} \mid n < 10 \text{ et } n \text{ impair}\rbrace = \lbrace1, 3, 5, 7, 9\rbrace$ ; la barre verticale se lit « tels que ».
 
-$x \in A$ se lit « $x$ appartient à $A$ » ($3 \in A$), et $x \notin A$ le contraire ($4 \notin A$). L'**ensemble vide** $\varnothing$ n'a aucun élément. Le **cardinal** $\lvert A \rvert$ est le nombre d'éléments d'un ensemble fini : $\lvert A \rvert = 4$. Comme il n'y a pas de répétition, $\{1, 1, 2\} = \{1, 2\}$, de cardinal 2, et comme il n'y a pas d'ordre, $\{1, 2\} = \{2, 1\}$.
+$x \in A$ se lit « $x$ appartient à $A$ » ($3 \in A$), et $x \notin A$ le contraire ($4 \notin A$). L'**ensemble vide** $\varnothing$ n'a aucun élément. Le **cardinal** $\lvert A \rvert$ est le nombre d'éléments d'un ensemble fini : $\lvert A \rvert = 4$. Comme il n'y a pas de répétition, $\lbrace1, 1, 2\rbrace = \lbrace1, 2\rbrace$, de cardinal 2, et comme il n'y a pas d'ordre, $\lbrace1, 2\rbrace = \lbrace2, 1\rbrace$.
 
-Un ensemble $X$ est **inclus** dans un ensemble $Y$ ($X \subset Y$) si **tout** élément de $X$ est aussi dans $Y$. Par exemple, $\{3, 5\} \subset A$. Ne confonds pas $3 \in A$ (un élément) et $\{3\} \subset A$ (un ensemble à un élément, inclus dans $A$). L'ensemble vide est inclus dans tout ensemble. Deux ensembles sont **égaux** quand chacun est inclus dans l'autre.
+Un ensemble $X$ est **inclus** dans un ensemble $Y$ ($X \subset Y$) si **tout** élément de $X$ est aussi dans $Y$. Par exemple, $\lbrace3, 5\rbrace \subset A$. Ne confonds pas $3 \in A$ (un élément) et $\lbrace3\rbrace \subset A$ (un ensemble à un élément, inclus dans $A$). L'ensemble vide est inclus dans tout ensemble. Deux ensembles sont **égaux** quand chacun est inclus dans l'autre.
 
-Les **ensembles de nombres** s'emboîtent : $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$ (entiers naturels, entiers relatifs, rationnels, réels ; R1). Les **intervalles** de R2 sont des ensembles de réels : $[2 \;;\; 5[\, = \{x \in \mathbb{R} \mid 2 \le x < 5\}$.
+Les **ensembles de nombres** s'emboîtent : $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$ (entiers naturels, entiers relatifs, rationnels, réels ; R1). Les **intervalles** de R2 sont des ensembles de réels : $[2 \mkern5mu ;\mkern5mu  5[\thinspace = \lbrace x \in \mathbb{R} \mid 2 \le x < 5\rbrace$.
 
 ### Les opérations
 
-On travaille dans un **univers** $E$, l'ensemble de tous les objets dont on parle. Ici, $E = \{0, 1, \dots, 9\}$, $A = \{2, 3, 5, 7\}$ et $B = \{1, 3, 5, 7, 9\}$.
+On travaille dans un **univers** $E$, l'ensemble de tous les objets dont on parle. Ici, $E = \lbrace0, 1, \dots, 9\rbrace$, $A = \lbrace2, 3, 5, 7\rbrace$ et $B = \lbrace1, 3, 5, 7, 9\rbrace$.
 
 | Opération | Notation | Contient | Logique | Sur l'exemple |
 |---|---|---|---|---|
-| union | $A \cup B$ | les éléments de $A$ **ou** de $B$ | ou | $\{1, 2, 3, 5, 7, 9\}$ |
-| intersection | $A \cap B$ | les éléments de $A$ **et** de $B$ | et | $\{3, 5, 7\}$ |
-| complémentaire | $\bar{A}$ | les éléments de $E$ qui ne sont **pas** dans $A$ | non | $\{0, 1, 4, 6, 8, 9\}$ |
-| différence | $A \setminus B$ | les éléments de $A$ qui ne sont pas dans $B$ | et non | $\{2\}$ |
+| union | $A \cup B$ | les éléments de $A$ **ou** de $B$ | ou | $\lbrace1, 2, 3, 5, 7, 9\rbrace$ |
+| intersection | $A \cap B$ | les éléments de $A$ **et** de $B$ | et | $\lbrace3, 5, 7\rbrace$ |
+| complémentaire | $\bar{A}$ | les éléments de $E$ qui ne sont **pas** dans $A$ | non | $\lbrace0, 1, 4, 6, 8, 9\rbrace$ |
+| différence | $A \setminus B$ | les éléments de $A$ qui ne sont pas dans $B$ | et non | $\lbrace2\rbrace$ |
 
 ![Union, intersection, différence et complémentaire en diagrammes de Venn](figures/venn.png)
 
@@ -246,11 +246,11 @@ Exemple sans liste : dans un groupe de 40 personnes, 18 parlent anglais, 11 parl
 
 ### Le produit cartésien
 
-Le **produit cartésien** $A \times B$ est l'ensemble des **couples** $(a, b)$ avec $a \in A$ et $b \in B$. Un couple est **ordonné** : $(1, 2) \ne (2, 1)$, contrairement à l'ensemble $\{1, 2\} = \{2, 1\}$. Avec $A = \{\text{pile}, \text{face}\}$ et $B = \{1, 2, 3\}$ :
+Le **produit cartésien** $A \times B$ est l'ensemble des **couples** $(a, b)$ avec $a \in A$ et $b \in B$. Un couple est **ordonné** : $(1, 2) \ne (2, 1)$, contrairement à l'ensemble $\lbrace1, 2\rbrace = \lbrace2, 1\rbrace$. Avec $A = \lbrace\text{pile}, \text{face}\rbrace$ et $B = \lbrace1, 2, 3\rbrace$ :
 
-$$A \times B = \{(\text{pile}, 1), (\text{pile}, 2), (\text{pile}, 3), (\text{face}, 1), (\text{face}, 2), (\text{face}, 3)\}$$
+$$A \times B = \lbrace(\text{pile}, 1), (\text{pile}, 2), (\text{pile}, 3), (\text{face}, 1), (\text{face}, 2), (\text{face}, 3)\rbrace$$
 
-Il y a 2 choix pour la première coordonnée et, pour chacun, 3 pour la seconde : $\lvert A \times B \rvert = \lvert A \rvert \times \lvert B \rvert = 6$. Le plan $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ est l'ensemble des couples de réels, les points d'un repère (R9). Et $\{V, F\}^n$, les $n$-uplets de valeurs de vérité, a $2^n$ éléments : ce sont les lignes d'une table de vérité.
+Il y a 2 choix pour la première coordonnée et, pour chacun, 3 pour la seconde : $\lvert A \times B \rvert = \lvert A \rvert \times \lvert B \rvert = 6$. Le plan $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ est l'ensemble des couples de réels, les points d'un repère (R9). Et $\lbrace V, F\rbrace^n$, les $n$-uplets de valeurs de vérité, a $2^n$ éléments : ce sont les lignes d'une table de vérité.
 
 En Python (workbookIA 0A §100.3.4), un `set` est un ensemble : `|` pour l'union, `&` pour l'intersection, `-` pour la différence, `len` pour le cardinal, `in` pour l'appartenance.
 
@@ -282,7 +282,7 @@ $$\sum_{k=1}^{4} (5k - 2) = 3 + 8 + 13 + 18 = 42 \qquad \sum_{j=2}^{5} \frac{1}{
 Trois remarques qui évitent la plupart des erreurs :
 - **le nombre de termes** de $\sum_{k=m}^{n}$ est $n - m + 1$, pas $n - m$ : de 2 à 6, il y a 5 termes (2, 3, 4, 5, 6) ;
 - **l'indice est muet** : $\sum_{k=1}^{4} k^3$ et $\sum_{i=1}^{4} i^3$ sont le même nombre, la lettre ne sert qu'à l'intérieur ;
-- **quand le terme ne dépend pas de $k$**, la somme vaut le nombre de termes multiplié par ce terme : $\sum_{k=1}^{n} c = c + c + \dots + c = n\,c$ (il y a bien $n$ termes, même si $k$ n'apparaît pas).
+- **quand le terme ne dépend pas de $k$**, la somme vaut le nombre de termes multiplié par ce terme : $\sum_{k=1}^{n} c = c + c + \dots + c = n\thinspace c$ (il y a bien $n$ termes, même si $k$ n'apparaît pas).
 
 Quand $n < m$, la somme ne contient aucun terme : c'est une **somme vide**, et elle vaut 0 (l'élément neutre de l'addition).
 
@@ -317,7 +317,7 @@ Par exemple, $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$ (réduis au même 
 
 Le symbole $\Pi$ (pi majuscule, le P de « produit ») fait la même chose pour la multiplication : $\prod_{k=m}^{n} a_k = a_m \times a_{m+1} \times \dots \times a_n$. Par exemple $\prod_{k=1}^{3} (k + 4) = 5 \times 6 \times 7 = 210$. La **factorielle** est un produit : $n! = \prod_{k=1}^{n} k$, et $6! = 720$. Un **produit vide** vaut 1, l'élément neutre de la multiplication (c'est pourquoi $0! = 1$).
 
-⚠️ **Une constante sort à la puissance $n$.** $\prod_{k=1}^{n} (c\,a_k) = c^n \prod_{k=1}^{n} a_k$, car $c$ apparaît dans chacun des $n$ facteurs. Le logarithme (R6) transformera un produit en somme : c'est ainsi que workbookIA calcule la probabilité d'un dataset.
+⚠️ **Une constante sort à la puissance $n$.** $\prod_{k=1}^{n} (c\thinspace a_k) = c^n \prod_{k=1}^{n} a_k$, car $c$ apparaît dans chacun des $n$ facteurs. Le logarithme (R6) transformera un produit en somme : c'est ainsi que workbookIA calcule la probabilité d'un dataset.
 
 ### Les sommes doubles
 
@@ -329,7 +329,7 @@ On calcule la somme intérieure (sur $j$, à $i$ fixé), puis l'extérieure. Pou
 
 ![Le tableau de i + j : par lignes ou par colonnes, le même total](figures/somme_double.png)
 
-Quand le terme est un produit d'un facteur qui ne dépend que de $i$ et d'un facteur qui ne dépend que de $j$, la somme double se **factorise** : $\sum_{i} \sum_{j} x_i\,y_j = \left(\sum_{i} x_i\right)\left(\sum_{j} y_j\right)$. Ce n'est pas la même chose que la règle interdite plus haut : ici, on additionne **tous** les produits $x_i y_j$, pas seulement ceux de même indice.
+Quand le terme est un produit d'un facteur qui ne dépend que de $i$ et d'un facteur qui ne dépend que de $j$, la somme double se **factorise** : $\sum_{i} \sum_{j} x_i\thinspace y_j = \left(\sum_{i} x_i\right)\left(\sum_{j} y_j\right)$. Ce n'est pas la même chose que la règle interdite plus haut : ici, on additionne **tous** les produits $x_i y_j$, pas seulement ceux de même indice.
 
 En Python, une somme est une boucle ou un `sum` sur un `range`, dont la borne de droite est **exclue** : $\sum_{k=m}^{n}$ s'écrit avec `range(m, n + 1)`.
 
@@ -495,8 +495,8 @@ Dans un notebook ou un fichier Markdown, une démonstration s'écrit en texte, a
 | négation d'une implication | non ($P \Rightarrow Q$) = (non P ⇒ non Q) | P **et** non Q |
 | nier « pour tout » | non (tous sont rouges) = aucun n'est rouge | **il existe** un qui n'est pas rouge |
 | nier une inégalité | non ($x > 2$) = $x < 2$ | $x \le 2$ |
-| ordre des quantificateurs | $\forall x\, \exists y$ = $\exists y\, \forall x$ | le $y$ ne peut dépendre de $x$ que dans $\forall x\, \exists y$ |
-| élément et sous-ensemble | $\{3\} \in \{2, 3, 5\}$ | $3 \in \{2, 3, 5\}$ et $\{3\} \subset \{2, 3, 5\}$ |
+| ordre des quantificateurs | $\forall x\thinspace \exists y$ = $\exists y\thinspace \forall x$ | le $y$ ne peut dépendre de $x$ que dans $\forall x\thinspace \exists y$ |
+| élément et sous-ensemble | $\lbrace3\rbrace \in \lbrace2, 3, 5\rbrace$ | $3 \in \lbrace2, 3, 5\rbrace$ et $\lbrace3\rbrace \subset \lbrace2, 3, 5\rbrace$ |
 | cardinal d'une union | $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert$ | retirer $\lvert A \cap B \rvert$ |
 | nombre de termes | $\sum_{k=2}^{6}$ a 4 termes | $6 - 2 + 1 = 5$ termes |
 | somme d'une constante | $\sum_{k=1}^{n} 4 = 4$ | $4n$ |

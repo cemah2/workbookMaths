@@ -150,7 +150,7 @@
 
 ### Ex R5.7 — Une moyenne exponentielle à la main sur cinq valeurs
 
-| $t$ | $x_t$ | $v_t = 0{,}8\,v_{t-1} + 0{,}2\,x_t$ |
+| $t$ | $x_t$ | $v_t = 0{,}8\thinspace v_{t-1} + 0{,}2\thinspace x_t$ |
 |---|---|---|
 | 0 | | 0 |
 | 1 | 10 | |

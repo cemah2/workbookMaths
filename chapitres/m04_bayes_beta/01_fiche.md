@@ -56,7 +56,7 @@ Vocabulaire anglais de ce chapitre : *Bayes' theorem*, *prior*, *likelihood*, *e
 
 ## L'essentiel en 10 lignes
 
-1. **Formule de Bayes** : $P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}$, avec $P(O) = \sum_k P(O \mid H_k)\,P(H_k)$ (probabilités totales). En mots : **a posteriori = vraisemblance × a priori / évidence**.
+1. **Formule de Bayes** : $P(H \mid O) = \frac{P(O \mid H)\thinspace P(H)}{P(O)}$, avec $P(O) = \sum_k P(O \mid H_k)\thinspace P(H_k)$ (probabilités totales). En mots : **a posteriori = vraisemblance × a priori / évidence**.
 2. Avec plusieurs hypothèses, l'a posteriori est **proportionnel** au produit vraisemblance × a priori ; on normalise en divisant par la somme. La vraisemblance n'est pas une loi sur les hypothèses : elle n'a pas à sommer à 1.
 3. **Mises à jour successives** : l'a posteriori d'une observation sert d'a priori à la suivante, à condition que les observations soient indépendantes **sachant** l'hypothèse ; l'ordre n'a alors pas d'importance.
 4. **Vraisemblance** d'un paramètre : $L(\theta) = P(\text{données} \mid \theta)$, une fonction de $\theta$. Le **maximum de vraisemblance** se trouve en annulant la dérivée de $\ell = \ln L$ ; pour $k$ succès sur $n$ essais, $\hat{\theta} = \frac{k}{n}$.
@@ -87,7 +87,7 @@ Avec des effectifs, sur les 1 000 roulements : 20 sont usés, dont $0{,}9 \times
 
 Le calcul en effectifs est la **formule de Bayes** (*Bayes' theorem*). Pour une hypothèse $H$ et une observation $O$ de probabilité non nulle :
 
-$$P(H \mid O) = \frac{P(O \mid H)\,P(H)}{P(O)}, \qquad P(O) = P(O \mid H)\,P(H) + P(O \mid \text{non } H)\,P(\text{non } H).$$
+$$P(H \mid O) = \frac{P(O \mid H)\thinspace P(H)}{P(O)}, \qquad P(O) = P(O \mid H)\thinspace P(H) + P(O \mid \text{non } H)\thinspace P(\text{non } H).$$
 
 Le numérateur est la probabilité de l'intersection, par la règle du produit (M03 §2) ; le dénominateur, la probabilité de l'observation par les probabilités totales (M03 §3). Ici :
 
@@ -108,7 +108,7 @@ Le mot « évidence » est un faux ami : c'est un nombre, la probabilité de l'o
 
 ⚠️ **Erreur classique.** Prendre la vraisemblance pour l'a posteriori (« le capteur détecte 90 % des roulements usés, donc une alerte signifie 90 % de chances d'usure »), ou oublier de diviser par l'évidence. Le contrôle : un a posteriori est une probabilité, et les a posteriori de toutes les hypothèses ont une somme de 1.
 
-📖 **Dans MML** — la fin du §6.3 énonce le théorème de Bayes pour des variables quelconques, $p(\mathbf{x} \mid \mathbf{y}) = \frac{p(\mathbf{y} \mid \mathbf{x})\,p(\mathbf{x})}{p(\mathbf{y})}$, nomme ses termes et remarque que l'évidence est une intégrale souvent impossible à calculer exactement. Lecture et questions : M04.15.
+📖 **Dans MML** — la fin du §6.3 énonce le théorème de Bayes pour des variables quelconques, $p(\mathbf{x} \mid \mathbf{y}) = \frac{p(\mathbf{y} \mid \mathbf{x})\thinspace p(\mathbf{x})}{p(\mathbf{y})}$, nomme ses termes et remarque que l'évidence est une intégrale souvent impossible à calculer exactement. Lecture et questions : M04.15.
 
 🔗 **Dans workbookIA** — le chapitre 4 met à jour des hypothèses avec cette formule, d'abord avec des effectifs, puis par le calcul, et la programme dans `mylearn` ; le classifieur bayésien naïf (chapitre 13) l'applique à des milliers de features.
 
@@ -120,7 +120,7 @@ Le mot « évidence » est un faux ami : c'est un nombre, la probabilité de l'o
 
 Avec $K$ hypothèses $H_1, \ldots, H_K$ qui s'excluent et couvrent tous les cas, l'évidence est une somme de $K$ termes, et chaque a posteriori est **proportionnel** au produit de sa vraisemblance et de son a priori :
 
-$$P(H_i \mid O) = \frac{P(O \mid H_i)\,P(H_i)}{\sum_{k=1}^{K} P(O \mid H_k)\,P(H_k)} \propto P(O \mid H_i)\,P(H_i).$$
+$$P(H_i \mid O) = \frac{P(O \mid H_i)\thinspace P(H_i)}{\sum_{k=1}^{K} P(O \mid H_k)\thinspace P(H_k)} \propto P(O \mid H_i)\thinspace P(H_i).$$
 
 (Le symbole $\propto$ se lit « est proportionnel à » : égal, à un facteur près qui ne dépend pas de $i$.) Le calcul se range dans un tableau. Un professeur veut savoir si un élève a révisé : **bien** (a priori 0,5), **un peu** (0,3) ou **pas du tout** (0,2). Il estime qu'à une question du quiz, un élève qui a bien révisé répond juste avec la probabilité 0,9, un peu révisé 0,6, pas révisé 0,25 (une chance sur quatre au hasard). L'élève répond **juste** à la première question :
 
@@ -189,15 +189,15 @@ La méthode est générale. Pour des durées $x_1, \ldots, x_n$ supposées tiré
 
 Une proportion inconnue $\theta$ vit dans $[0, 1]$. Pour dire ce qu'on en croit, on lui donne une densité sur $[0, 1]$ (M02a §6). La famille la plus utilisée est la **loi Beta** (*Beta distribution*) : pour deux paramètres $a > 0$ et $b > 0$,
 
-$$f(\theta) = \frac{\theta^{a-1}(1 - \theta)^{b-1}}{B(a, b)} \quad \text{pour } 0 < \theta < 1, \qquad B(a, b) = \int_0^1 t^{a-1}(1 - t)^{b-1}\,dt.$$
+$$f(\theta) = \frac{\theta^{a-1}(1 - \theta)^{b-1}}{B(a, b)} \quad \text{pour } 0 < \theta < 1, \qquad B(a, b) = \int_0^1 t^{a-1}(1 - t)^{b-1}\thinspace dt.$$
 
 Aux bords, la densité vaut 0 si l'exposant est positif ($a > 1$ en 0, $b > 1$ en 1), tend vers l'infini s'il est négatif ($a < 1$ en 0, $b < 1$ en 1), et vaut $\frac{1}{B(1, b)} = b$ en 0 si $a = 1$ (de même $a$ en 1 si $b = 1$). On note $\Theta$ la proportion vue comme une variable aléatoire et $\theta$ ses valeurs ; quand il n'y a pas d'ambiguïté, on écrit aussi $P(\theta \le 0{,}1)$ ou $P(\theta_B > \theta_A)$.
 
-La **fonction Beta** $B(a, b)$ (*Beta function*) est la constante qui donne à la densité une aire de 1. On la calcule avec la **fonction Gamma** (*Gamma function*), qui prolonge la factorielle aux réels positifs : $\Gamma(x + 1) = x\,\Gamma(x)$, $\Gamma(1) = 1$, donc $\Gamma(n) = (n - 1)!$ pour un entier $n \ge 1$ (et $\Gamma(\frac{1}{2}) = \sqrt{\pi}$, la constante de l'intégrale de Gauss de M02a). On admet que
+La **fonction Beta** $B(a, b)$ (*Beta function*) est la constante qui donne à la densité une aire de 1. On la calcule avec la **fonction Gamma** (*Gamma function*), qui prolonge la factorielle aux réels positifs : $\Gamma(x + 1) = x\thinspace\Gamma(x)$, $\Gamma(1) = 1$, donc $\Gamma(n) = (n - 1)!$ pour un entier $n \ge 1$ (et $\Gamma(\frac{1}{2}) = \sqrt{\pi}$, la constante de l'intégrale de Gauss de M02a). On admet que
 
-$$B(a, b) = \frac{\Gamma(a)\,\Gamma(b)}{\Gamma(a + b)}, \qquad \text{soit, pour des entiers,} \qquad B(a, b) = \frac{(a - 1)!\,(b - 1)!}{(a + b - 1)!}.$$
+$$B(a, b) = \frac{\Gamma(a)\thinspace\Gamma(b)}{\Gamma(a + b)}, \qquad \text{soit, pour des entiers,} \qquad B(a, b) = \frac{(a - 1)!\thinspace(b - 1)!}{(a + b - 1)!}.$$
 
-Exemple : $\mathrm{Beta}(3, 6)$ a pour constante $B(3, 6) = \frac{2!\,5!}{8!} = \frac{240}{40\,320} = \frac{1}{168}$, donc pour densité $168\,\theta^2(1 - \theta)^5$. (M04.5 retrouve une telle constante par l'intégration par parties de M02a.)
+Exemple : $\mathrm{Beta}(3, 6)$ a pour constante $B(3, 6) = \frac{2!\thinspace5!}{8!} = \frac{240}{40\thinspace320} = \frac{1}{168}$, donc pour densité $168\thinspace\theta^2(1 - \theta)^5$. (M04.5 retrouve une telle constante par l'intégration par parties de M02a.)
 
 ```python
 >>> import math
@@ -212,7 +212,7 @@ Exemple : $\mathrm{Beta}(3, 6)$ a pour constante $B(3, 6) = \frac{2!\,5!}{8!} = 
 
 $$\mathbb{E}[\Theta] = \frac{a}{a + b}, \qquad \mathbb{V}(\Theta) = \frac{ab}{(a + b)^2(a + b + 1)}, \qquad \text{mode} = \frac{a - 1}{a + b - 2} \ \ (a > 1,\ b > 1).$$
 
-La moyenne se démontre en une ligne : $\mathbb{E}[\Theta] = \int_0^1 \theta\,\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a, b)}\,d\theta = \frac{B(a + 1, b)}{B(a, b)} = \frac{\Gamma(a + 1)\,\Gamma(a + b)}{\Gamma(a)\,\Gamma(a + b + 1)} = \frac{a}{a + b}$, par $\Gamma(x + 1) = x\,\Gamma(x)$. La variance se calcule de même avec $\mathbb{E}[\Theta^2] = \frac{B(a + 2, b)}{B(a, b)}$, puis $\mathbb{V} = \mathbb{E}[\Theta^2] - \mathbb{E}[\Theta]^2$ (M02b). Le mode est le maximum de la densité ; M04.13 le trouve en dérivant, cas limites compris. Pour $\mathrm{Beta}(3, 6)$ : moyenne $\frac{1}{3}$, variance $\frac{18}{81 \times 10} = \frac{1}{45}$ (écart-type $\approx 0{,}149$), mode $\frac{2}{7} \approx 0{,}286$.
+La moyenne se démontre en une ligne : $\mathbb{E}[\Theta] = \int_0^1 \theta\thinspace\frac{\theta^{a-1}(1-\theta)^{b-1}}{B(a, b)}\thinspace d\theta = \frac{B(a + 1, b)}{B(a, b)} = \frac{\Gamma(a + 1)\thinspace\Gamma(a + b)}{\Gamma(a)\thinspace\Gamma(a + b + 1)} = \frac{a}{a + b}$, par $\Gamma(x + 1) = x\thinspace\Gamma(x)$. La variance se calcule de même avec $\mathbb{E}[\Theta^2] = \frac{B(a + 2, b)}{B(a, b)}$, puis $\mathbb{V} = \mathbb{E}[\Theta^2] - \mathbb{E}[\Theta]^2$ (M02b). Le mode est le maximum de la densité ; M04.13 le trouve en dérivant, cas limites compris. Pour $\mathrm{Beta}(3, 6)$ : moyenne $\frac{1}{3}$, variance $\frac{18}{81 \times 10} = \frac{1}{45}$ (écart-type $\approx 0{,}149$), mode $\frac{2}{7} \approx 0{,}286$.
 
 ### Les formes de la loi Beta
 
@@ -238,12 +238,12 @@ La moyenne se démontre en une ligne : $\mathbb{E}[\Theta] = \int_0^1 \theta\,\f
 On reprend l'imprimante. Avant de l'utiliser, un technicien estime que ce modèle rate environ une impression sur cinq, avec l'assurance qu'il aurait après une dizaine d'essais : il choisit l'a priori $\mathrm{Beta}(2, 8)$, de moyenne 0,2. Puis on observe 2 échecs sur 12.
 
 > **Bayes et probabilités totales pour un paramètre continu.** Quand le paramètre $\Theta$ a une densité $f(\theta)$, la somme sur les hypothèses du §2 devient une intégrale (M02a) :
-> $$f(\theta \mid \text{données}) = \frac{P(\text{données} \mid \theta)\,f(\theta)}{P(\text{données})}, \qquad P(\text{données}) = \int P(\text{données} \mid \theta)\,f(\theta)\,d\theta.$$
+> $$f(\theta \mid \text{données}) = \frac{P(\text{données} \mid \theta)\thinspace f(\theta)}{P(\text{données})}, \qquad P(\text{données}) = \int P(\text{données} \mid \theta)\thinspace f(\theta)\thinspace d\theta.$$
 > La seconde formule, ce sont les probabilités totales (M03 §3) avec une densité : une moyenne de $P(\text{données} \mid \theta)$ pondérée par $f$. On les admet ; comme au §2, le dénominateur ne dépend pas de $\theta$ et l'a posteriori est **proportionnel** à la vraisemblance fois l'a priori.
 
 Ici :
 
-$$f(\theta \mid \text{données}) \propto \underbrace{\theta^{2}(1 - \theta)^{10}}_{\text{vraisemblance}} \times \underbrace{\theta^{2 - 1}(1 - \theta)^{8 - 1}}_{\text{a priori}} = \theta^{4 - 1}(1 - \theta)^{18 - 1}.$$
+$$f(\theta \mid \text{données}) \propto \underbrace{\theta^{2}(1 - \theta)^{10}} _{\text{vraisemblance}} \times \underbrace{\theta^{2 - 1}(1 - \theta)^{8 - 1}} _{\text{a priori}} = \theta^{4 - 1}(1 - \theta)^{18 - 1}.$$
 
 On reconnaît, à la constante près, la densité de $\mathrm{Beta}(4, 18)$ : la constante est forcément $\frac{1}{B(4, 18)}$, puisque l'aire doit valoir 1. En général :
 
@@ -269,9 +269,9 @@ C'est le **lissage de Laplace** (*Laplace smoothing*) : on ajoute un succès et 
 
 ### La loi prédictive
 
-Pourquoi la probabilité du prochain résultat est-elle la moyenne de l'a posteriori ? Par les probabilités totales (M03 §3), en faisant la moyenne de $P(\text{succès} \mid \theta) = \theta$ sur toutes les valeurs de $\theta$, pondérées par l'a posteriori : $\int_0^1 \theta\,f(\theta \mid \text{données})\,d\theta = \mathbb{E}[\Theta \mid \text{données}]$. Pour $m$ essais futurs, le même raisonnement donne la **loi prédictive a posteriori** (*posterior predictive distribution*) : si $\Theta$ suit $\mathrm{Beta}(a, b)$,
+Pourquoi la probabilité du prochain résultat est-elle la moyenne de l'a posteriori ? Par les probabilités totales (M03 §3), en faisant la moyenne de $P(\text{succès} \mid \theta) = \theta$ sur toutes les valeurs de $\theta$, pondérées par l'a posteriori : $\int_0^1 \theta\thinspace f(\theta \mid \text{données})\thinspace d\theta = \mathbb{E}[\Theta \mid \text{données}]$. Pour $m$ essais futurs, le même raisonnement donne la **loi prédictive a posteriori** (*posterior predictive distribution*) : si $\Theta$ suit $\mathrm{Beta}(a, b)$,
 
-$$P(j \text{ succès sur les } m \text{ prochains essais}) = \binom{m}{j}\,\frac{B(a + j,\ b + m - j)}{B(a, b)},$$
+$$P(j \text{ succès sur les } m \text{ prochains essais}) = \binom{m}{j}\thinspace\frac{B(a + j,\ b + m - j)}{B(a, b)},$$
 
 la loi **bêta-binomiale**. Avec l'a posteriori $\mathrm{Beta}(4, 18)$ de l'imprimante ($\theta$ est le taux d'**échec**, et $a = 4$ compte les échecs), la probabilité qu'aucune des 3 prochaines impressions ne rate ($j = 0$ échec sur $m = 3$) vaut $\frac{B(4,\ 18 + 3)}{B(4, 18)} \approx 0{,}563$. En remplaçant $\theta$ par sa moyenne, on trouverait $\big(1 - \frac{4}{22}\big)^3 \approx 0{,}548$ : un autre nombre, parce que ce calcul oublie l'incertitude sur $\theta$. Les deux se rapprochent quand l'a posteriori se resserre.
 
@@ -287,7 +287,7 @@ la loi **bêta-binomiale**. Avec l'a posteriori $\mathrm{Beta}(4, 18)$ de l'impr
 
 Un a posteriori est une loi entière. Pour la résumer par un nombre, on a le choix :
 - le **maximum de vraisemblance**, $\frac{k}{n}$, qui ignore l'a priori : $\frac{2}{12} \approx 0{,}167$ ;
-- le **maximum a posteriori** (*maximum a posteriori*, MAP), le **mode** de l'a posteriori : $\hat{\theta}_{\text{MAP}} = \arg\max_\theta f(\theta \mid \text{données})$. ($\arg\max_\theta$ désigne la valeur de $\theta$ qui rend la quantité maximale, pas ce maximum.) Pour $\mathrm{Beta}(4, 18)$ : $\frac{4 - 1}{4 + 18 - 2} = \frac{3}{20} = 0{,}15$ ;
+- le **maximum a posteriori** (*maximum a posteriori*, MAP), le **mode** de l'a posteriori : $\hat{\theta} _{\text{MAP}} = \arg\max  _\theta f(\theta \mid \text{données})$. ($\arg\max _\theta$ désigne la valeur de $\theta$ qui rend la quantité maximale, pas ce maximum.) Pour $\mathrm{Beta}(4, 18)$ : $\frac{4 - 1}{4 + 18 - 2} = \frac{3}{20} = 0{,}15$ ;
 - la **moyenne a posteriori**, $\frac{a}{a + b}$ : $\frac{4}{22} \approx 0{,}182$, celle qui minimise l'erreur quadratique moyenne (M02c §6) quand on croit l'a posteriori.
 
 Avec l'a priori uniforme $\mathrm{Beta}(1, 1)$, l'a posteriori est $\mathrm{Beta}(k + 1, n - k + 1)$, dont le mode vaut $\frac{k}{n}$ : **le MAP sous un a priori uniforme est le maximum de vraisemblance**. Un a priori non uniforme tire le MAP vers les valeurs qu'il favorise, d'autant moins que $n$ est grand. Comme le logarithme de l'a posteriori est $\ell(\theta) + \ln f(\theta) + \text{constante}$, chercher le MAP revient à maximiser la log-vraisemblance **plus** un terme qui vient de l'a priori : c'est l'origine des termes de régularisation du ML (la régression ridge de M09b est un MAP).
@@ -357,7 +357,7 @@ Le même problème touche la fonction Beta : $B(500, 700)$ vaut environ $10^{-35
 
 Beaucoup de lois usuelles s'écrivent sous la même forme, dite de la **famille exponentielle** (*exponential family*) :
 
-$$p(x \mid \eta) = h(x)\,\exp\big(\eta\,T(x) - A(\eta)\big),$$
+$$p(x \mid \eta) = h(x)\thinspace\exp\big(\eta\thinspace T(x) - A(\eta)\big),$$
 
 où $\eta$ est le **paramètre naturel**, $T(x)$ une **statistique suffisante** (*sufficient statistic* : ce qu'il faut garder des données pour estimer le paramètre) et $A(\eta)$ la fonction qui normalise. Par exemple, la loi de Bernoulli $\theta^x(1 - \theta)^{1 - x}$ s'écrit $\exp\big(x\ln\frac{\theta}{1 - \theta} + \ln(1 - \theta)\big)$ : $\eta = \ln\frac{\theta}{1 - \theta}$, le **logit** de R6, $T(x) = x$, et $A(\eta) = \ln(1 + e^\eta)$. La loi normale de variance connue et la loi Beta elle-même en font partie (pour la loi Beta, en $\theta$, $T(\theta) = (\ln\theta, \ln(1 - \theta))$). Deux conséquences, admises ici : pour $n$ observations, il suffit de garder $\sum_i T(x_i)$ (pour Bernoulli, le nombre de succès) ; et chaque loi de la famille a un a priori conjugué, que l'on trouve en donnant à l'a priori la même forme en $\eta$ que la vraisemblance. La conjugaison Beta-Bernoulli en est le premier exemple.
 

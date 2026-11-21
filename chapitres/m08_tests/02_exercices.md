@@ -69,7 +69,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §7 · parcours C*
 
 1. Écris l'AIC et le BIC d'un modèle à $k$ paramètres, de log-vraisemblance maximale $\ln L$, sur $n$ observations.
-2. Pour $n = 1\,000$, lequel des deux pénalise le plus chaque paramètre ?
+2. Pour $n = 1\thinspace000$, lequel des deux pénalise le plus chaque paramètre ?
 3. Vrai ou faux : on préfère le modèle de plus grand AIC.
 4. Le facteur de Bayes $\mathrm{BF}_{12}$ vaut 5, et les deux modèles avaient la même probabilité a priori. Quelle est la probabilité a posteriori de $M_1$ (si ce sont les deux seuls modèles en lice) ?
 5. Vrai ou faux : ajouter un paramètre à un modèle (qui contient l'ancien) ne peut pas faire baisser sa vraisemblance maximale.
@@ -314,15 +314,15 @@ Un test rejette $H_0$ pour les grandes valeurs d'une statistique $T$. Sous $H_0$
 3. On fait $m$ tests, chacun au seuil $\frac{\alpha}{m}$ ; $m_0$ des hypothèses nulles sont vraies. Montre que la probabilité de rejeter à tort au moins l'une d'elles est au plus $\alpha$. Où as-tu utilisé l'indépendance des tests ?
 4. Quand l'inégalité de Boole est-elle une égalité ?
 5. Si les $m$ hypothèses nulles sont vraies, que les tests sont indépendants et que chacun rejette à tort avec la probabilité $\frac{\alpha}{m}$, la probabilité d'au moins un faux positif vaut $1 - \big(1 - \frac{\alpha}{m}\big)^m$. Montre par récurrence que $(1 - x)^m \ge 1 - mx$ pour $x \in [0, 1]$, et retrouve la garantie de 3.
-6. Montre que, pour $\alpha < 1$, « $\min(1, m\,p_i) \le \alpha$ » équivaut à « $p_i \le \frac{\alpha}{m}$ » : les p-valeurs ajustées et les seuils divisés prennent les mêmes décisions.
+6. Montre que, pour $\alpha < 1$, « $\min(1, m\thinspace p_i) \le \alpha$ » équivaut à « $p_i \le \frac{\alpha}{m}$ » : les p-valeurs ajustées et les seuils divisés prennent les mêmes décisions.
 
 ### Ex M08.12 — L'intervalle de Wilson, en inversant le test d'une proportion ∂ ★★★ ⏱️ 25 min
 **Objectif :** retrouver la formule de l'intervalle de Wilson en résolvant une inéquation du second degré.
 **Prérequis :** fiche §5 ; R3 (second degré, discriminant) · **Parcours :** C
 
 Après $k$ succès en $n$ essais, $\hat{p} = \frac{k}{n}$. L'intervalle de Wilson est l'ensemble des valeurs $p_0 \in [0, 1]$ que le test « $|\hat{p} - p_0| \le z\sqrt{\frac{p_0(1 - p_0)}{n}}$ » accepte.
-1. Montre que cette condition équivaut à $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\,p_0(1 - p_0)$.
-2. Écris-la sous la forme $a\,p_0^2 + b\,p_0 + c \le 0$, avec $a$, $b$ et $c$ en fonction de $\hat{p}$, $z$ et $n$.
+1. Montre que cette condition équivaut à $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\thinspace p_0(1 - p_0)$.
+2. Écris-la sous la forme $a\thinspace p_0^2 + b\thinspace p_0 + c \le 0$, avec $a$, $b$ et $c$ en fonction de $\hat{p}$, $z$ et $n$.
 3. Calcule le discriminant, vérifie qu'il est positif ou nul, et déduis-en les deux bornes : retrouve la formule de la fiche.
 4. Montre que les deux bornes sont dans $[0, 1]$ (indication : le signe du trinôme en 0 et en 1, et la position de son sommet).
 5. Que deviennent les bornes quand $k = 0$ ?

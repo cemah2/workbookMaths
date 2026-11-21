@@ -18,11 +18,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M02a.Q1 — Aire, signe et intégrale 🧠 ★ ⏱️ 4 min
 *Fiche §1 et §2 · parcours C, E*
 
-1. Vrai ou faux : si $f \ge 0$ sur $[a ; b]$ (avec $a < b$), alors $\int_a^b f(x)\,dx$ est l'aire de la région entre la courbe et l'axe des abscisses.
-2. Sans calcul, que vaut $\int_{-1}^1 x^3\,dx$ ? Pourquoi ?
-3. Si $f(x) < 0$ pour tout $x$ de $[a ; b]$ (avec $a < b$), quel est le signe de $\int_a^b f(x)\,dx$ ?
-4. Que vaut $\int_2^2 f(x)\,dx$, pour n'importe quelle fonction $f$ continue ?
-5. Vrai ou faux : $\int_3^1 f(x)\,dx = -\int_1^3 f(x)\,dx$.
+1. Vrai ou faux : si $f \ge 0$ sur $[a ; b]$ (avec $a < b$), alors $\int_a^b f(x)\thinspace dx$ est l'aire de la région entre la courbe et l'axe des abscisses.
+2. Sans calcul, que vaut $\int_{-1}^1 x^3\thinspace dx$ ? Pourquoi ?
+3. Si $f(x) < 0$ pour tout $x$ de $[a ; b]$ (avec $a < b$), quel est le signe de $\int_a^b f(x)\thinspace dx$ ?
+4. Que vaut $\int_2^2 f(x)\thinspace dx$, pour n'importe quelle fonction $f$ continue ?
+5. Vrai ou faux : $\int_3^1 f(x)\thinspace dx = -\int_1^3 f(x)\thinspace dx$.
 6. Pour une fonction croissante, la somme de Riemann avec les rectangles à gauche est-elle trop petite ou trop grande ?
 
 ### M02a.Q2 — Primitives : vrai ou faux 🧠 ★ ⏱️ 4 min
@@ -41,11 +41,11 @@ Vrai ou faux ?
 
 Pour chaque intégrale, quelle méthode choisirais-tu : (T) la table et la linéarité, (P) une intégration par parties, (C) un changement de variable ? Pour (C), donne aussi le $u$ que tu poserais.
 1. $\int \left(3x^2 - \frac{4}{x}\right)dx$
-2. $\int x \ln x\,dx$
-3. $\int \frac{2x}{x^2 + 1}\,dx$
-4. $\int x\,e^{3x}\,dx$
-5. $\int \frac{e^x}{1 + e^x}\,dx$
-6. $\int (x + 1)^2\,dx$ (deux méthodes conviennent : lesquelles ?)
+2. $\int x \ln x\thinspace dx$
+3. $\int \frac{2x}{x^2 + 1}\thinspace dx$
+4. $\int x\thinspace e^{3x}\thinspace dx$
+5. $\int \frac{e^x}{1 + e^x}\thinspace dx$
+6. $\int (x + 1)^2\thinspace dx$ (deux méthodes conviennent : lesquelles ?)
 
 ### M02a.Q4 — Converge ou diverge ? 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
@@ -54,9 +54,9 @@ Converge ou diverge ?
 1. $\int_1^{+\infty} \frac{dx}{x^3}$
 2. $\int_1^{+\infty} \frac{dx}{\sqrt{x}}$
 3. $\int_0^1 \frac{dx}{x^2}$
-4. $\int_0^{+\infty} e^{-3x}\,dx$
+4. $\int_0^{+\infty} e^{-3x}\thinspace dx$
 5. $\int_0^1 \frac{dx}{x^{1/3}}$
-6. $\int_{-\infty}^{+\infty} e^{-x^2}\,dx$
+6. $\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx$
 
 ### M02a.Q5 — Rectangles, trapèzes, Simpson 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
@@ -77,7 +77,7 @@ $X$ est une variable aléatoire de densité $f$. Vrai ou faux ?
 3. $P(X \le 2) = P(X < 2)$.
 4. La fonction qui vaut 5 sur $[1 ; 1{,}2]$ et 0 ailleurs est une densité.
 5. Si $f$ est une densité, $2f$ en est une aussi.
-6. Pour un petit nombre $h > 0$, $P(x \le X \le x + h) \approx f(x)\,h$ (là où $f$ est continue).
+6. Pour un petit nombre $h > 0$, $P(x \le X \le x + h) \approx f(x)\thinspace h$ (là où $f$ est continue).
 
 ### M02a.Q7 — Lire une fonction de répartition 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
@@ -106,7 +106,7 @@ La variable $X$ a pour fonction de répartition $F(x) = 0$ pour $x < 0$, $F(x) =
 *Fiche §1 · parcours C, E*
 
 1. $\sum_{k=1}^{3} (k^2 + k)$ ?
-2. $\sum_{i=1}^{5} 0{,}1\,i$ ?
+2. $\sum_{i=1}^{5} 0{,}1\thinspace i$ ?
 3. Écris $0{,}5 \times \big(f(0) + f(0{,}5) + f(1) + f(1{,}5)\big)$ avec le symbole $\Sigma$.
 4. $\sum_{k=0}^{9} 3$ ? (Combien de termes ?)
 
@@ -114,7 +114,7 @@ La variable $X$ a pour fonction de répartition $F(x) = 0$ pour $x < 0$, $F(x) =
 *Fiche §4 · parcours C*
 
 1. $\lim_{x \to +\infty} e^{-x}$ ?
-2. $\lim_{x \to +\infty} x\,e^{-x}$ ?
+2. $\lim_{x \to +\infty} x\thinspace e^{-x}$ ?
 3. $e^{\ln 5}$ et $\ln(e^{-2})$ ?
 4. La solution de $e^{-2x} = \frac{1}{4}$ ?
 
@@ -171,14 +171,14 @@ Donne **une** primitive de chaque fonction (sans la constante), sur l'intervalle
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\int_1^4 (2x - 1)\,dx$ | un entier |
-| b | $\int_0^{\ln 3} e^x\,dx$ | un entier |
-| c | $\int_1^{e^3} \frac{2}{x}\,dx$ | un entier |
-| d | $\int_{-1}^{2} (x^2 - 2x)\,dx$ | un entier |
+| a | $\int_1^4 (2x - 1)\thinspace dx$ | un entier |
+| b | $\int_0^{\ln 3} e^x\thinspace dx$ | un entier |
+| c | $\int_1^{e^3} \frac{2}{x}\thinspace dx$ | un entier |
+| d | $\int_{-1}^{2} (x^2 - 2x)\thinspace dx$ | un entier |
 | e | l'aire géométrique de la région comprise entre la courbe de $x^2 - 2x$ et l'axe des abscisses, pour $x$ de $-1$ à $2$ | une fraction irréductible |
 | f | les abscisses des points d'intersection des courbes $y = 2x$ et $y = x^2$ | une liste, dans l'ordre croissant |
 | g | l'aire de la région comprise entre ces deux courbes | une fraction irréductible |
-| h | $\int_0^{\pi/3} \sin x\,dx$ | une fraction irréductible |
+| h | $\int_0^{\pi/3} \sin x\thinspace dx$ | une fraction irréductible |
 
 Dans ta copie : dessine la courbe de $x^2 - 2x$ sur $[-1 ; 2]$, et explique pourquoi d) et e) diffèrent.
 
@@ -188,12 +188,12 @@ Dans ta copie : dessine la courbe de $x^2 - 2x$ sur $[-1 ; 2]$, et explique pour
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | dans $\int x\,e^{2x}\,dx$, le facteur à dériver (le $u$ de la formule) : 1 pour $x$, 2 pour $e^{2x}$ | 1 ou 2 |
-| b | $\int_0^1 x\,e^{2x}\,dx$ | un nombre (4 décimales) |
+| a | dans $\int x\thinspace e^{2x}\thinspace dx$, le facteur à dériver (le $u$ de la formule) : 1 pour $x$, 2 pour $e^{2x}$ | 1 ou 2 |
+| b | $\int_0^1 x\thinspace e^{2x}\thinspace dx$ | un nombre (4 décimales) |
 | c | une primitive de $x\cos x$ sur $\mathbb{R}$ | une expression en $x$ |
-| d | $\int_1^e \ln x\,dx$ (écris $\ln x = \ln x \times 1$) | un entier |
+| d | $\int_1^e \ln x\thinspace dx$ (écris $\ln x = \ln x \times 1$) | un entier |
 | e | une primitive de $x \ln x$ sur $]0 ; +\infty[$ | une expression en $x$ |
-| f | $\int_0^1 x^2 e^x\,dx$ (deux intégrations par parties) | un nombre (4 décimales) |
+| f | $\int_0^1 x^2 e^x\thinspace dx$ (deux intégrations par parties) | un nombre (4 décimales) |
 
 ### Ex M02a.5 — Changement de variable ✏️ ★★ ⏱️ 20 min
 **Objectif :** repérer le changement de variable qui simplifie une intégrale, et changer les bornes avec lui.
@@ -201,12 +201,12 @@ Dans ta copie : dessine la courbe de $x^2 - 2x$ sur $[-1 ; 2]$, et explique pour
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | dans $\int_0^1 (2x + 3)^5\,dx$, on pose $u = 2x + 3$ : les nouvelles bornes, dans l'ordre | une liste |
-| b | $\int_0^1 3x^2 (x^3 + 1)^4\,dx$ | une fraction irréductible |
+| a | dans $\int_0^1 (2x + 3)^5\thinspace dx$, on pose $u = 2x + 3$ : les nouvelles bornes, dans l'ordre | une liste |
+| b | $\int_0^1 3x^2 (x^3 + 1)^4\thinspace dx$ | une fraction irréductible |
 | c | une primitive de $\frac{x}{x^2 + 4}$ sur $\mathbb{R}$ | une expression en $x$ |
-| d | $\int_0^1 e^{2x + 1}\,dx$ | un nombre (4 décimales) |
-| e | $\int_0^2 x\,e^{-x^2}\,dx$ | un nombre (4 décimales) |
-| f | $\int_1^e \frac{(\ln x)^2}{x}\,dx$ | une fraction irréductible |
+| d | $\int_0^1 e^{2x + 1}\thinspace dx$ | un nombre (4 décimales) |
+| e | $\int_0^2 x\thinspace e^{-x^2}\thinspace dx$ | un nombre (4 décimales) |
+| f | $\int_1^e \frac{(\ln x)^2}{x}\thinspace dx$ | une fraction irréductible |
 
 ### Ex M02a.6 — Intégrales impropres : converge, diverge, valeur ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer une intégrale impropre comme une limite, et reconnaître les intégrales qui convergent.
@@ -215,19 +215,19 @@ Dans ta copie : dessine la courbe de $x^2 - 2x$ sur $[-1 ; 2]$, et explique pour
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\int_3^{+\infty} \frac{dx}{x^2}$ | une fraction irréductible |
-| b | $\int_0^{+\infty} e^{-x/3}\,dx$ | un entier |
+| b | $\int_0^{+\infty} e^{-x/3}\thinspace dx$ | un entier |
 | c | $\int_0^4 \frac{dx}{\sqrt{x}}$ | un entier |
 | d | $\int_1^{+\infty} \frac{dx}{x^{0{,}9}}$ converge | vrai ou faux |
-| e | $\int_{-\infty}^0 e^{2x}\,dx$ | une fraction irréductible |
+| e | $\int_{-\infty}^0 e^{2x}\thinspace dx$ | une fraction irréductible |
 | f | l'ensemble des nombres $p$ pour lesquels $\int_1^{+\infty} \frac{dx}{x^p}$ converge | un intervalle |
 | g | $\int_1^{+\infty} \frac{dx}{x^5}$ | une fraction irréductible |
-| h | $\int_0^{+\infty} e^{-x^2}\,dx$, avec l'intégrale de Gauss | une valeur exacte |
+| h | $\int_0^{+\infty} e^{-x^2}\thinspace dx$, avec l'intégrale de Gauss | une valeur exacte |
 
 ### Ex M02a.7 — Trapèzes et Simpson à la main, et leurs erreurs ✏️ ★★ ⏱️ 20 min
 **Objectif :** appliquer les méthodes des trapèzes et de Simpson à la main, et mesurer leurs erreurs.
 **Prérequis :** fiche §5 · **Parcours :** C
 
-On admet que $\int_0^1 \frac{4}{1 + x^2}\,dx = \pi$. On note $T_n$ et $S_n$ les approximations par les trapèzes et par Simpson avec $n$ intervalles. Garde 6 chiffres après la virgule dans les calculs intermédiaires.
+On admet que $\int_0^1 \frac{4}{1 + x^2}\thinspace dx = \pi$. On note $T_n$ et $S_n$ les approximations par les trapèzes et par Simpson avec $n$ intervalles. Garde 6 chiffres après la virgule dans les calculs intermédiaires.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -238,7 +238,7 @@ On admet que $\int_0^1 \frac{4}{1 + x^2}\,dx = \pi$. On note $T_n$ et $S_n$ les 
 | e | le rapport des erreurs $\frac{\lvert T_2 - \pi \rvert}{\lvert T_4 - \pi \rvert}$ | un nombre (1 décimale) |
 | f | $S_4$ | un nombre (5 décimales) |
 | g | le nombre d'évaluations de la fonction pour calculer $S_4$ | un entier |
-| h | la méthode des trapèzes donne la valeur exacte de $\int_0^3 (5 - 2x)\,dx$, quel que soit $n$ | vrai ou faux |
+| h | la méthode des trapèzes donne la valeur exacte de $\int_0^3 (5 - 2x)\thinspace dx$, quel que soit $n$ | vrai ou faux |
 
 ### Ex M02a.8 — Vérifier qu'une fonction est une densité, trouver sa constante ✏️ ★ ⏱️ 20 min
 **Objectif :** trouver la constante qui fait d'une fonction une densité, et reconnaître une densité.
@@ -248,10 +248,10 @@ Chaque fonction est nulle en dehors de l'intervalle indiqué. La constante $c$ e
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | la constante $c$ qui fait de $c\,x$ sur $[0 ; 4]$ une densité | une fraction irréductible |
-| b | la constante $c$ qui fait de $c\,e^{-2x}$ sur $[0 ; +\infty[$ une densité | un entier |
+| a | la constante $c$ qui fait de $c\thinspace x$ sur $[0 ; 4]$ une densité | une fraction irréductible |
+| b | la constante $c$ qui fait de $c\thinspace e^{-2x}$ sur $[0 ; +\infty[$ une densité | un entier |
 | c | la constante $c$ qui fait de $\frac{c}{x^2}$ sur $[1 ; +\infty[$ une densité | un entier |
-| d | la constante $c$ qui fait de $c\,(3 - x)$ sur $[0 ; 3]$ une densité | une fraction irréductible |
+| d | la constante $c$ qui fait de $c\thinspace(3 - x)$ sur $[0 ; 3]$ une densité | une fraction irréductible |
 | e | $g(x) = x - 1$ sur $[0 ; 2]$ est une densité | vrai ou faux |
 | f | $h(x) = 3$ sur $\left[0 ; \frac{1}{3}\right]$ est une densité | vrai ou faux |
 | g | pour la densité de a), $P(1 \le X \le 3)$ | une fraction irréductible |
@@ -261,7 +261,7 @@ Chaque fonction est nulle en dehors de l'intervalle indiqué. La constante $c$ e
 **Objectif :** calculer des probabilités d'intervalles avec une densité, et la valeur moyenne d'une fonction.
 **Prérequis :** fiche §4, §6 et §8 · **Parcours :** C, E
 
-La variable $X$ a pour densité $f(x) = \frac{3}{8}x^2$ sur $[0 ; 2]$ (et 0 ailleurs). Le temps $T$ (en minutes) entre deux appels reçus par un standard téléphonique a pour densité $0{,}2\,e^{-0{,}2t}$ pour $t \ge 0$ (et 0 pour $t < 0$). Garde les valeurs exactes ($e^{-2}$, $e^{-1}$) jusqu'au calcul final, puis arrondis.
+La variable $X$ a pour densité $f(x) = \frac{3}{8}x^2$ sur $[0 ; 2]$ (et 0 ailleurs). Le temps $T$ (en minutes) entre deux appels reçus par un standard téléphonique a pour densité $0{,}2\thinspace e^{-0{,}2t}$ pour $t \ge 0$ (et 0 pour $t < 0$). Garde les valeurs exactes ($e^{-2}$, $e^{-1}$) jusqu'au calcul final, puis arrondis.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -278,7 +278,7 @@ La variable $X$ a pour densité $f(x) = \frac{3}{8}x^2$ sur $[0 ; 2]$ (et 0 aill
 **Objectif :** calculer une fonction de répartition, puis des quantiles en résolvant $F(x) = p$.
 **Prérequis :** fiche §4 et §7 ; R6 (équations avec exp et ln) · **Parcours :** C, E
 
-La variable $X$ a pour densité $\frac{2}{x^3}$ sur $[1 ; +\infty[$ (et 0 ailleurs). La durée de vie $D$ (en années) d'un composant a pour densité $0{,}25\,e^{-0{,}25t}$ pour $t \ge 0$ (et 0 pour $t < 0$).
+La variable $X$ a pour densité $\frac{2}{x^3}$ sur $[1 ; +\infty[$ (et 0 ailleurs). La durée de vie $D$ (en années) d'un composant a pour densité $0{,}25\thinspace e^{-0{,}25t}$ pour $t \ge 0$ (et 0 pour $t < 0$).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -301,22 +301,22 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer que la fonction aire est une primitive, et en déduire le calcul d'une intégrale par une primitive.
 **Prérequis :** fiche §1 et §2 ; R7 (taux d'accroissement, dérivée) · **Parcours :** C
 
-Soit $f$ une fonction continue et **croissante** sur un intervalle $[a ; b]$, et $A(x) = \int_a^x f(t)\,dt$ pour $x$ dans $[a ; b]$ (l'aire de $a$ à $x$ quand $f \ge 0$).
-1. Soit $x$ dans $[a ; b[$ et $h > 0$ tel que $x + h \le b$. Justifie que $A(x + h) - A(x) = \int_x^{x+h} f(t)\,dt$.
-2. Pourquoi a-t-on $h\,f(x) \le \int_x^{x+h} f(t)\,dt \le h\,f(x + h)$ ? Fais un dessin.
+Soit $f$ une fonction continue et **croissante** sur un intervalle $[a ; b]$, et $A(x) = \int_a^x f(t)\thinspace dt$ pour $x$ dans $[a ; b]$ (l'aire de $a$ à $x$ quand $f \ge 0$).
+1. Soit $x$ dans $[a ; b[$ et $h > 0$ tel que $x + h \le b$. Justifie que $A(x + h) - A(x) = \int_x^{x+h} f(t)\thinspace dt$.
+2. Pourquoi a-t-on $h\thinspace f(x) \le \int_x^{x+h} f(t)\thinspace dt \le h\thinspace f(x + h)$ ? Fais un dessin.
 3. Déduis-en un encadrement du taux d'accroissement $\frac{A(x + h) - A(x)}{h}$, puis sa limite quand $h \to 0^+$ (utilise la continuité de $f$). Le cas $h < 0$ se traite de la même façon : on l'admet.
-4. Conclus : $A$ est une primitive de $f$. Puis montre que $\int_a^b f(t)\,dt = F(b) - F(a)$ pour **toute** primitive $F$ de $f$ (deux primitives sur un intervalle diffèrent d'une constante).
+4. Conclus : $A$ est une primitive de $f$. Puis montre que $\int_a^b f(t)\thinspace dt = F(b) - F(a)$ pour **toute** primitive $F$ de $f$ (deux primitives sur un intervalle diffèrent d'une constante).
 
 On a supposé $f$ croissante pour simplifier ; le théorème reste vrai pour toute fonction continue (on encadre alors par le minimum et le maximum de $f$ sur $[x ; x + h]$), et pour $x < a$ (avec la convention $\int_a^x = -\int_x^a$). La question 5 s'en sert.
 
-5. Application : soit $G(x) = \int_0^x e^{-t^2}\,dt$, pour tout réel $x$ ($e^{-t^2}$ n'est pas croissante : c'est la version générale du théorème qui s'applique). Calcule $G'(x)$, puis $G'(1)$, alors que tu ne sais pas calculer $G(x)$. Que dit le signe de $G'$ sur le sens de variation de $G$ ?
+5. Application : soit $G(x) = \int_0^x e^{-t^2}\thinspace dt$, pour tout réel $x$ ($e^{-t^2}$ n'est pas croissante : c'est la version générale du théorème qui s'applique). Calcule $G'(x)$, puis $G'(1)$, alors que tu ne sais pas calculer $G(x)$. Que dit le signe de $G'$ sur le sens de variation de $G$ ?
 
 ### Ex M02a.12 — Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante) ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer que les sommes de Riemann d'une fonction croissante tendent vers l'intégrale, avec une borne de l'erreur.
 **Prérequis :** fiche §1, §2 et §5 · **Parcours :** C
 
 Soit $f$ continue et croissante sur $[a ; b]$, $h = \frac{b - a}{n}$, $x_i = a + ih$, et $L_n$, $R_n$ les sommes à gauche et à droite.
-1. Sur un intervalle $[x_i ; x_{i+1}]$, compare $h\,f(x_i)$, $\int_{x_i}^{x_{i+1}} f$ et $h\,f(x_{i+1})$. En additionnant ces encadrements (Chasles), démontre que $L_n \le \int_a^b f \le R_n$.
+1. Sur un intervalle $[x_i ; x_{i+1}]$, compare $h\thinspace f(x_i)$, $\int_{x_i}^{x_{i+1}} f$ et $h\thinspace f(x_{i+1})$. En additionnant ces encadrements (Chasles), démontre que $L_n \le \int_a^b f \le R_n$.
 2. Démontre que $R_n - L_n = \frac{(b - a)\big(f(b) - f(a)\big)}{n}$. (Écris les deux sommes l'une sous l'autre : presque tous les termes se simplifient.)
 3. Déduis-en que $L_n$ et $R_n$ tendent vers $\int_a^b f$ quand $n \to +\infty$, et que l'erreur de chacune est au plus $\frac{(b - a)\big(f(b) - f(a)\big)}{n}$.
 4. Combien de rectangles faut-il, d'après cette borne, pour que la somme à gauche de $e^x$ sur $[0 ; 1]$ approche $e - 1$ à $10^{-3}$ près ?

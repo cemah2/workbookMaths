@@ -64,7 +64,7 @@ Vocabulaire anglais de ce chapitre : *second derivative*, *convex*, *concave*, *
 6. **Différences finies** (Taylor) : la différence **avant** $\frac{f(x + h) - f(x)}{h}$ a une erreur $\approx \frac{h}{2}f''(x)$ (ordre 1), la différence **centrée** $\frac{f(x + h) - f(x - h)}{2h}$ une erreur $\approx \frac{h^2}{6}f'''(x)$ (ordre 2). **Richardson** : $\frac{4D(h/2) - D(h)}{3}$ annule le terme en $h^2$.
 7. **Flottants** (`float64`) : $\pm 1{,}b_1 b_2 \ldots b_{52} \times 2^e$ en base 2. **Epsilon machine** $\varepsilon = 2^{-52} \approx 2{,}2 \times 10^{-16}$ : l'écart entre 1 et le flottant suivant ; chaque opération arrondit avec une erreur relative d'au plus $\frac{\varepsilon}{2}$ (hors overflow et underflow). `float32` : $\varepsilon = 2^{-23}$ ; `float16` : $2^{-10}$.
 8. **Annulation** : soustraire deux nombres presque égaux fait perdre des chiffres ; on réécrit la formule pour l'éviter.
-9. **Le pas $h$** : l'erreur d'une différence finie additionne une troncature (qui diminue avec $h$) et un arrondi en $\frac{\delta}{h}$ (qui augmente) ; le meilleur pas minimise leur somme : $h^* = \big(\frac{3\delta}{M_3}\big)^{1/3}$ pour la différence centrée.
+9. **Le pas $h$** : l'erreur d'une différence finie additionne une troncature (qui diminue avec $h$) et un arrondi en $\frac{\delta}{h}$ (qui augmente) ; le meilleur pas minimise leur somme : $h^\ast = \big(\frac{3\delta}{M_3}\big)^{1/3}$ pour la différence centrée.
 10. **log-sum-exp** : $\ln \sum_i e^{v_i} = m + \ln \sum_i e^{v_i - m}$ avec $m = \max_i v_i$, compris entre $m$ et $m + \ln n$. **Softmax** stable : $\frac{e^{v_i - m}}{\sum_j e^{v_j - m}}$ ; log-softmax : $v_i - \text{LSE}(\mathbf{v})$.
 
 ---
@@ -85,7 +85,7 @@ La pente de $f$ augmente partout, de $-1$ (loin à gauche) à $+1$ (loin à droi
 
 Une fonction $f$ est **convexe** (*convex*) sur un intervalle $I$ si, pour deux points $a$ et $b$ de $I$, la **corde** qui joint $(a, f(a))$ et $(b, f(b))$ est au-dessus de la courbe entre eux :
 
-$$f\big(t\,a + (1 - t)\,b\big) \le t\,f(a) + (1 - t)\,f(b) \quad \text{pour tout } t \in [0, 1].$$
+$$f\big(t\thinspace a + (1 - t)\thinspace b\big) \le t\thinspace f(a) + (1 - t)\thinspace f(b) \quad \text{pour tout } t \in [0, 1].$$
 
 Elle est **concave** si $-f$ est convexe (chaque corde est au-dessous). On l'admet ici, un dessin suffit à s'en convaincre : pour une fonction deux fois dérivable,
 
@@ -171,7 +171,7 @@ Sur la figure, en $x = 1{,}5$ : $P_2 = -0{,}125$, $P_4 \approx 0{,}0859$, $P_6 \
 
 L'erreur $R_n(x) = f(x) - P_n(x)$ s'appelle le **reste** (*remainder*). On admet sa forme de **Lagrange** : si $f$ est $n + 1$ fois dérivable, il existe un point $\xi$ entre $a$ et $x$ tel que
 
-$$R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}, \qquad \text{donc} \qquad |R_n(x)| \le \frac{M}{(n+1)!}\,|x - a|^{n+1} \quad \text{si } |f^{(n+1)}| \le M \text{ entre } a \text{ et } x.$$
+$$R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - a)^{n+1}, \qquad \text{donc} \qquad |R_n(x)| \le \frac{M}{(n+1)!}\thinspace|x - a|^{n+1} \quad \text{si } |f^{(n+1)}| \le M \text{ entre } a \text{ et } x.$$
 
 On ne connaît pas $\xi$ ; on borne la dérivée sur tout l'intervalle. Pour $\sqrt{1 + x}$ : $f'''(t) = \frac{3}{8}(1 + t)^{-5/2}$, qui vaut au plus $\frac{3}{8}$ pour $t \ge 0$ ; avec $x = 0{,}2$, $|R_2| \le \frac{3/8}{6} \times 0{,}2^3 = 0{,}0005$. L'erreur vraie, $0{,}00045$, est bien sous la borne. Avec la notation de R7 §9 : $f(x) = P_n(x) + O\big((x - a)^{n+1}\big)$ quand $x \to a$.
 
@@ -221,7 +221,7 @@ True
 
 Près d'une racine $r$ **simple** ($f'(r) \ne 0$), Taylor à l'ordre 2 donne (M05a.12) :
 
-$$e_{k+1} \approx \frac{f''(r)}{2f'(r)}\,e_k^2, \qquad \text{où } e_k = x_k - r.$$
+$$e_{k+1} \approx \frac{f''(r)}{2f'(r)}\thinspace e_k^2, \qquad \text{où } e_k = x_k - r.$$
 
 L'erreur est **élevée au carré** à chaque pas : c'est la **convergence quadratique**. Avec $e^x - 3$, $\frac{f''(r)}{2f'(r)} = \frac{1}{2}$, et en effet $e_4 \approx \frac{1}{2} \times (9{,}0 \times 10^{-4})^2 \approx 4{,}1 \times 10^{-7}$. Comparaison : la dichotomie de R7 §2 divise l'erreur par 2 à chaque pas, environ trois pas par décimale ; Newton double les décimales, mais il lui faut la dérivée, et un point de départ assez proche.
 
@@ -244,7 +244,7 @@ C'est pourquoi une bonne implémentation teste $f'(x_k)$ avant de diviser, et s'
 
 Une **différence finie** (*finite difference*) approche une dérivée avec un pas $h > 0$ fixé, sans limite. Pour savoir combien elle se trompe, on écrit Taylor en $x$ :
 
-$$f(x \pm h) = f(x) \pm h\,f'(x) + \frac{h^2}{2}f''(x) \pm \frac{h^3}{6}f'''(x) + \frac{h^4}{24}f^{(4)}(x) \pm \cdots$$
+$$f(x \pm h) = f(x) \pm h\thinspace f'(x) + \frac{h^2}{2}f''(x) \pm \frac{h^3}{6}f'''(x) + \frac{h^4}{24}f^{(4)}(x) \pm \cdots$$
 
 (le signe du haut pour $x + h$, celui du bas pour $x - h$ : les termes de degré impair en $h$ changent de signe, les autres non).
 
@@ -265,13 +265,13 @@ Exemple : $f = \ln$ en $x = 2$, où $f'(2) = \frac{1}{2}$, $f''(2) = -\frac{1}{4
 
 ### L'extrapolation de Richardson
 
-Si l'on sait que $D(h) = f'(x) + c\,h^2 + O(h^4)$, avec $c$ inconnu, alors $D(\frac{h}{2}) = f'(x) + c\,\frac{h^2}{4} + O(h^4)$, et la combinaison qui fait disparaître $c$ est
+Si l'on sait que $D(h) = f'(x) + c\thinspace h^2 + O(h^4)$, avec $c$ inconnu, alors $D(\frac{h}{2}) = f'(x) + c\thinspace\frac{h^2}{4} + O(h^4)$, et la combinaison qui fait disparaître $c$ est
 
-$$\frac{4\,D(h/2) - D(h)}{3} = f'(x) + O(h^4).$$
+$$\frac{4\thinspace D(h/2) - D(h)}{3} = f'(x) + O(h^4).$$
 
 C'est l'**extrapolation de Richardson** (*Richardson extrapolation*) : deux calculs imprécis, combinés, en donnent un bien plus précis. Sur l'exemple : $D(0{,}05) \approx 0{,}5001042$, et $\frac{4 \times 0{,}5001042 - 0{,}5004173}{3} \approx 0{,}4999998$, juste à $2 \times 10^{-7}$ près, au lieu de $4 \times 10^{-4}$. L'idée sert partout où l'on connaît la forme de l'erreur (`richardson_derivative`, M05a.20).
 
-**D'où viennent les ordres des méthodes d'intégration de M02a.** Le même calcul explique les ordres admis en M02a §5. Sur un petit intervalle $[x, x + h]$, Taylor donne $\int_0^h f(x + t)\,dt = h f(x) + \frac{h^2}{2}f'(x) + \frac{h^3}{6}f''(x) + O(h^4)$, alors que le trapèze vaut $\frac{h}{2}\big(f(x) + f(x + h)\big) = h f(x) + \frac{h^2}{2}f'(x) + \frac{h^3}{4}f''(x) + O(h^4)$ : l'écart est $-\frac{h^3}{12}f''(x)$ par intervalle. Avec $n = \frac{b - a}{h}$ intervalles, il reste une erreur de l'ordre de $n \times h^3 = (b - a)h^2$ : la méthode des trapèzes est d'ordre 2.
+**D'où viennent les ordres des méthodes d'intégration de M02a.** Le même calcul explique les ordres admis en M02a §5. Sur un petit intervalle $[x, x + h]$, Taylor donne $\int_0^h f(x + t)\thinspace dt = h f(x) + \frac{h^2}{2}f'(x) + \frac{h^3}{6}f''(x) + O(h^4)$, alors que le trapèze vaut $\frac{h}{2}\big(f(x) + f(x + h)\big) = h f(x) + \frac{h^2}{2}f'(x) + \frac{h^3}{4}f''(x) + O(h^4)$ : l'écart est $-\frac{h^3}{12}f''(x)$ par intervalle. Avec $n = \frac{b - a}{h}$ intervalles, il reste une erreur de l'ordre de $n \times h^3 = (b - a)h^2$ : la méthode des trapèzes est d'ordre 2.
 
 ⚠️ **Erreur classique.** Diviser la différence centrée par $h$ au lieu de $2h$ (les deux points sont à $2h$ l'un de l'autre), ou croire que la différence avant et la centrée ont la même précision « parce que ce sont deux différences ».
 
@@ -281,7 +281,7 @@ C'est l'**extrapolation de Richardson** (*Richardson extrapolation*) : deux calc
 
 Un `float` de Python (un `float64` de NumPy) est écrit en notation scientifique (R1), mais **en base 2** :
 
-$$x = \pm\,(1{,}b_1 b_2 \ldots b_{52})_2 \times 2^e,$$
+$$x = \pm\thinspace(1{,}b_1 b_2 \ldots b_{52})_2 \times 2^e,$$
 
 avec 52 chiffres binaires $b_i$ après la virgule (la **mantisse**, *significand*), et un **exposant** entier $e$ entre $-1022$ et $1023$, rangé sur 11 bits ; avec le bit de signe, cela fait $1 + 11 + 52 = 64$ bits (le 1 avant la virgule n'est pas rangé : il est toujours là). Trois conséquences :
 1. Entre deux puissances de 2 consécutives, il y a exactement $2^{52}$ flottants, **également espacés** ; l'écart double à chaque puissance de 2 (figure, sur un format jouet à 3 bits). Les flottants sont serrés près de 0 et espacés loin de 0 : leur précision est **relative**.
@@ -290,7 +290,7 @@ avec 52 chiffres binaires $b_i$ après la virgule (la **mantisse**, *significand
 
 ![Les nombres positifs d'un format jouet (un 1, puis 3 bits après la virgule) : 8 nombres également espacés entre deux puissances de 2, et l'écart double à chaque puissance](figures/flottants.png)
 
-**Pourquoi 0,1 n'est pas exact.** $0{,}375 = \frac{1}{4} + \frac{1}{8} = (0{,}011)_2$ s'écrit avec trois chiffres binaires. Mais 0,1 : en multipliant par 2 et en gardant la partie entière à chaque fois, on obtient $0{,}2 \to 0$, $0{,}4 \to 0$, $0{,}8 \to 0$, $1{,}6 \to 1$, $1{,}2 \to 1$ (on garde 0,2), puis tout recommence : $0{,}1 = (0{,}0\,0011\,0011\,0011\ldots)_2$, un développement infini, comme $\frac{1}{3} = 0{,}333\ldots$ en base 10. Il est arrondi au flottant le plus proche, qui garde 52 chiffres après le premier 1 (et vaut ici un peu plus que 0,1, de $5{,}6 \times 10^{-18}$ environ) : c'est l'arrondi que R0 a rencontré avec `0.1 + 0.2`.
+**Pourquoi 0,1 n'est pas exact.** $0{,}375 = \frac{1}{4} + \frac{1}{8} = (0{,}011)_2$ s'écrit avec trois chiffres binaires. Mais 0,1 : en multipliant par 2 et en gardant la partie entière à chaque fois, on obtient $0{,}2 \to 0$, $0{,}4 \to 0$, $0{,}8 \to 0$, $1{,}6 \to 1$, $1{,}2 \to 1$ (on garde 0,2), puis tout recommence : $0{,}1 = (0{,}0\thinspace0011\thinspace0011\thinspace0011\ldots)_2$, un développement infini, comme $\frac{1}{3} = 0{,}333\ldots$ en base 10. Il est arrondi au flottant le plus proche, qui garde 52 chiffres après le premier 1 (et vaut ici un peu plus que 0,1, de $5{,}6 \times 10^{-18}$ environ) : c'est l'arrondi que R0 a rencontré avec `0.1 + 0.2`.
 
 | type | bits de mantisse | $\varepsilon$ | plus grand nombre |
 |---|---|---|---|
@@ -334,17 +334,17 @@ Avec $x = 10^{12}$, la formule directe n'a que 5 chiffres justes, la formule ré
 
 ### Deux erreurs qui varient en sens contraire
 
-Dans une différence finie, les valeurs $f(x \pm h)$ ne sont jamais exactes : elles sont arrondies, ou mesurées avec du bruit. Supposons chacune juste à $\delta$ près ($\delta \approx u\,|f(x)|$ pour un calcul en flottants, ou la précision d'un capteur). Le numérateur $f(x + h) - f(x - h)$ peut alors être faux de $2\delta$, et, divisé par $2h$, il donne une **erreur d'arrondi** (*round-off error*) d'au plus $\frac{\delta}{h}$, qui **augmente** quand $h$ diminue. Avec la troncature du §5, si $|f'''| \le M_3$ :
+Dans une différence finie, les valeurs $f(x \pm h)$ ne sont jamais exactes : elles sont arrondies, ou mesurées avec du bruit. Supposons chacune juste à $\delta$ près ($\delta \approx u\thinspace|f(x)|$ pour un calcul en flottants, ou la précision d'un capteur). Le numérateur $f(x + h) - f(x - h)$ peut alors être faux de $2\delta$, et, divisé par $2h$, il donne une **erreur d'arrondi** (*round-off error*) d'au plus $\frac{\delta}{h}$, qui **augmente** quand $h$ diminue. Avec la troncature du §5, si $|f'''| \le M_3$ :
 
-$$E(h) \le \underbrace{\frac{M_3}{6}h^2}_{\text{troncature}} + \underbrace{\frac{\delta}{h}}_{\text{arrondi}}.$$
+$$E(h) \le \underbrace{\frac{M_3}{6}h^2} _{\text{troncature}} + \underbrace{\frac{\delta}{h}} _{\text{arrondi}}.$$
 
 Un $h$ trop grand rend la troncature grande ; un $h$ trop petit rend l'arrondi grand. Le meilleur pas est entre les deux : on minimise la borne en annulant sa dérivée (R7 §8) :
 
-$$E'(h) = \frac{M_3}{3}h - \frac{\delta}{h^2} = 0 \iff h^* = \Big(\frac{3\delta}{M_3}\Big)^{1/3}, \qquad E(h^*) = \frac{3}{2}\Big(\frac{M_3}{3}\Big)^{1/3}\delta^{2/3}.$$
+$$E'(h) = \frac{M_3}{3}h - \frac{\delta}{h^2} = 0 \iff h^\ast = \Big(\frac{3\delta}{M_3}\Big)^{1/3}, \qquad E(h^\ast) = \frac{3}{2}\Big(\frac{M_3}{3}\Big)^{1/3}\delta^{2/3}.$$
 
-Pour la différence avant, le même calcul avec $E(h) \le \frac{M_2}{2}h + \frac{2\delta}{h}$ donne $h^* = 2\sqrt{\frac{\delta}{M_2}}$ et $E(h^*) = 2\sqrt{M_2\,\delta}$ : l'erreur au meilleur pas est en $\delta^{1/2}$, contre $\delta^{2/3}$ pour la centrée. Comme $\delta$ est petit, $\delta^{2/3}$ est bien plus petit que $\delta^{1/2}$ : même chacune à son meilleur pas, la centrée l'emporte.
+Pour la différence avant, le même calcul avec $E(h) \le \frac{M_2}{2}h + \frac{2\delta}{h}$ donne $h^\ast = 2\sqrt{\frac{\delta}{M_2}}$ et $E(h^\ast) = 2\sqrt{M_2\thinspace\delta}$ : l'erreur au meilleur pas est en $\delta^{1/2}$, contre $\delta^{2/3}$ pour la centrée. Comme $\delta$ est petit, $\delta^{2/3}$ est bien plus petit que $\delta^{1/2}$ : même chacune à son meilleur pas, la centrée l'emporte.
 
-**Exemple en `float32`**, la précision habituelle des réseaux : pour $f = \sin$ autour de $x = 1$, $\delta \approx 10^{-7}$ et $M_3 = 1$. La différence centrée a son meilleur pas vers $h^* = (3 \times 10^{-7})^{1/3} \approx 6{,}7 \times 10^{-3}$, avec une erreur d'environ $2{,}2 \times 10^{-5}$ ; la différence avant ($M_2 = 1$) vers $h^* = 2\sqrt{10^{-7}} \approx 6{,}3 \times 10^{-4}$, avec une erreur d'environ $6{,}3 \times 10^{-4}$. En `float32`, une dérivée numérique n'a donc que quatre ou cinq chiffres justes, quel que soit le pas.
+**Exemple en `float32`**, la précision habituelle des réseaux : pour $f = \sin$ autour de $x = 1$, $\delta \approx 10^{-7}$ et $M_3 = 1$. La différence centrée a son meilleur pas vers $h^\ast = (3 \times 10^{-7})^{1/3} \approx 6{,}7 \times 10^{-3}$, avec une erreur d'environ $2{,}2 \times 10^{-5}$ ; la différence avant ($M_2 = 1$) vers $h^\ast = 2\sqrt{10^{-7}} \approx 6{,}3 \times 10^{-4}$, avec une erreur d'environ $6{,}3 \times 10^{-4}$. En `float32`, une dérivée numérique n'a donc que quatre ou cinq chiffres justes, quel que soit le pas.
 
 Ces bornes sont des majorations, avec des constantes qu'on ne connaît qu'à peu près : elles donnent l'**ordre de grandeur** du bon pas, et la façon dont il varie avec $\delta$, pas sa valeur exacte. En `float64`, workbookIA 5 mesure la vraie courbe d'erreur.
 

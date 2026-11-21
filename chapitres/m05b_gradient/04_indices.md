@@ -53,7 +53,7 @@ Relis « La direction de plus grande pente » et « Le gradient est orthogonal a
 </details>
 <details><summary>Indice 2</summary>
 
-La pente dans la direction $\mathbf{u}$ vaut $\|\nabla f\|\cos\theta$ : quand est-elle la plus grande ?
+La pente dans la direction $\mathbf{u}$ vaut $\Vert\nabla f\Vert\cos\theta$ : quand est-elle la plus grande ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -125,12 +125,12 @@ Relis « Descendre la plus grande pente » (fiche §8).
 </details>
 <details><summary>Indice 2</summary>
 
-Descendre : retirer $\eta\,\nabla f$ ; monter : l'ajouter. La baisse prévue vient de l'approximation linéaire.
+Descendre : retirer $\eta\thinspace\nabla f$ ; monter : l'ajouter. La baisse prévue vient de l'approximation linéaire.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\nabla f = (2x, 8y)$ en $(1, 1)$. 4 : de quoi dépend la longueur d'un pas, $\eta\,\nabla f$ ? 6 : une somme de carrés est nulle quand chaque carré l'est.
+3 : $\nabla f = (2x, 8y)$ en $(1, 1)$. 4 : de quoi dépend la longueur d'un pas, $\eta\thinspace\nabla f$ ? 6 : une somme de carrés est nulle quand chaque carré l'est.
 
 </details>
 
@@ -142,7 +142,7 @@ Descendre : retirer $\eta\,\nabla f$ ; monter : l'ajouter. La baisse prévue vie
 
 <details><summary>Indice 1</summary>
 
-$(g(u))' = g'(u)\,u'$ : la dérivée de l'extérieur, prise en $u$, fois la dérivée de l'intérieur.
+$(g(u))' = g'(u)\thinspace u'$ : la dérivée de l'extérieur, prise en $u$, fois la dérivée de l'intérieur.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -152,7 +152,7 @@ $(g(u))' = g'(u)\,u'$ : la dérivée de l'extérieur, prise en $u$, fois la dér
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $(e^u)' = u'\,e^u$, avec $u = 3x^2 - x$. 4 : l'intérieur $4 - x$ a pour dérivée $-1$.
+2 : $(e^u)' = u'\thinspace e^u$, avec $u = 3x^2 - x$. 4 : l'intérieur $4 - x$ a pour dérivée $-1$.
 
 </details>
 
@@ -160,12 +160,12 @@ $(g(u))' = g'(u)\,u'$ : la dérivée de l'extérieur, prise en $u$, fois la dér
 
 <details><summary>Indice 1</summary>
 
-$(a, b) \cdot (c, d) = ac + bd$ et $\|(a, b)\| = \sqrt{a^2 + b^2}$.
+$(a, b) \cdot (c, d) = ac + bd$ et $\Vert(a, b)\Vert = \sqrt{a^2 + b^2}$.
 
 </details>
 <details><summary>Indice 2</summary>
 
-Un vecteur unitaire : le vecteur divisé par sa norme. L'angle : $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|}$.
+Un vecteur unitaire : le vecteur divisé par sa norme. L'angle : $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert\mathbf{u}\Vert\thinspace\Vert\mathbf{v}\Vert}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -228,7 +228,7 @@ Pour $\frac{\partial}{\partial x}$, traite $y$ comme un nombre, et inversement. 
 </details>
 <details><summary>Indice 3</summary>
 
-e) et f) Calcule d'abord $2x - y$ au point : il vaut 0. g) et h) $h = x\,y^2 z^3$ : seule la puissance de la variable dérivée descend.
+e) et f) Calcule d'abord $2x - y$ au point : il vaut 0. g) et h) $h = x\thinspace y^2 z^3$ : seule la puissance de la variable dérivée descend.
 
 </details>
 
@@ -264,7 +264,7 @@ $\nabla f(P)$ d'abord ; puis, pour chaque direction, un vecteur **unitaire** et 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\|(7, 24)\| = 25$. e) La direction de $P$ vers $Q$ est celle du vecteur $Q - P$. g) $\cos\theta = \frac{\nabla f \cdot (1, 1)}{\|\nabla f\|\,\sqrt{2}}$, puis l'arc cosinus, en degrés.
+c) $\Vert(7, 24)\Vert = 25$. e) La direction de $P$ vers $Q$ est celle du vecteur $Q - P$. g) $\cos\theta = \frac{\nabla f \cdot (1, 1)}{\Vert\nabla f\Vert\thinspace\sqrt{2}}$, puis l'arc cosinus, en degrés.
 
 </details>
 
@@ -277,12 +277,12 @@ Relis « La direction de plus grande pente » et l'exemple du dôme (fiche §4) 
 </details>
 <details><summary>Indice 2</summary>
 
-Le terme $xy$ compte dans les deux dérivées partielles. La plus grande pente vaut $\|\nabla T\|$. Pour d), un vecteur unitaire qui va de $P$ vers $O$.
+Le terme $xy$ compte dans les deux dérivées partielles. La plus grande pente vaut $\Vert\nabla T\Vert$. Pour d), un vecteur unitaire qui va de $P$ vers $O$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) Dans quel quadrant pointe le gradient ? Pars de l'angle aigu $\arctan\frac{3}{5}$. e) $\cos\theta = \frac{\nabla T \cdot \mathbf{w}}{\|\nabla T\|\,\|\mathbf{w}\|}$. f) La tangente à l'isotherme est orthogonale au gradient : trouve un vecteur qui la dirige.
+c) Dans quel quadrant pointe le gradient ? Pars de l'angle aigu $\arctan\frac{3}{5}$. e) $\cos\theta = \frac{\nabla T \cdot \mathbf{w}}{\Vert\nabla T\Vert\thinspace\Vert\mathbf{w}\Vert}$. f) La tangente à l'isotherme est orthogonale au gradient : trouve un vecteur qui la dirige.
 
 </details>
 
@@ -295,7 +295,7 @@ Relis « Le plan qui touche la surface » et l'exemple de $\sqrt{x^2 + y^2}$ (fi
 </details>
 <details><summary>Indice 2</summary>
 
-Dérive $x^2\sqrt{y}$ par rapport à chaque variable, l'autre restant un nombre ($\sqrt{y}$ se dérive comme $y^{1/2}$). Le plan : $z = f(3, 4) + f_x\,(x - 3) + f_y\,(y - 4)$.
+Dérive $x^2\sqrt{y}$ par rapport à chaque variable, l'autre restant un nombre ($\sqrt{y}$ se dérive comme $y^{1/2}$). Le plan : $z = f(3, 4) + f_x\thinspace(x - 3) + f_y\thinspace(y - 4)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -313,7 +313,7 @@ Relis « Quatre dérivées secondes » et « La courbure dans une direction » (
 </details>
 <details><summary>Indice 2</summary>
 
-Écris d'abord $f_x$ et $f_y$. Pour $f_{xy}$, dérive $f_x$ par rapport à $y$ ; $y\,e^{xy}$ est un produit de deux fonctions de $y$.
+Écris d'abord $f_x$ et $f_y$. Pour $f_{xy}$, dérive $f_x$ par rapport à $y$ ; $y\thinspace e^{xy}$ est un produit de deux fonctions de $y$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,12 +349,12 @@ Relis « Pourquoi la fonction baisse » (fiche §8).
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule $\nabla f(P)$ (les deux dérivées partielles en $P$) ; un pas de descente retire $\eta\,\nabla f(P)$, un pas de montée l'ajoute.
+Calcule $\nabla f(P)$ (les deux dérivées partielles en $P$) ; un pas de descente retire $\eta\thinspace\nabla f(P)$, un pas de montée l'ajoute.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\|\nabla f(P)\|^2$, le carré de la norme. g) La baisse prévue vaut $\eta\,\|\nabla f(P)\|^2$ : écris l'équation en $\eta$.
+d) $\Vert\nabla f(P)\Vert^2$, le carré de la norme. g) La baisse prévue vaut $\eta\thinspace\Vert\nabla f(P)\Vert^2$ : écris l'équation en $\eta$.
 
 </details>
 
@@ -394,7 +394,7 @@ Relis « D'où vient cette formule » (fiche §3) et le §4.
 </details>
 <details><summary>Indice 3</summary>
 
-4 : pour l'unicité, calcule $\|\mathbf{u} - \mathbf{u}^*\|^2$ en développant. 5 : les vecteurs orthogonaux à $(A, B)$ sont les multiples de $(B, -A)$ ; lesquels ont pour norme 1 ?
+4 : pour l'unicité, calcule $\Vert\mathbf{u} - \mathbf{u}^\ast\Vert^2$ en développant. 5 : les vecteurs orthogonaux à $(A, B)$ sont les multiples de $(B, -A)$ ; lesquels ont pour norme 1 ?
 
 </details>
 
@@ -412,7 +412,7 @@ Relis « Le gradient est orthogonal aux lignes de niveau » (fiche §4).
 </details>
 <details><summary>Indice 3</summary>
 
-5 : avance d'une distance $s$ dans la direction $\mathbf{u}$ ; au premier ordre, $f$ change de $s\,\nabla f \cdot \mathbf{u}$. Quand ce changement vaut-il $\Delta c$ ?
+5 : avance d'une distance $s$ dans la direction $\mathbf{u}$ ; au premier ordre, $f$ change de $s\thinspace\nabla f \cdot \mathbf{u}$. Quand ce changement vaut-il $\Delta c$ ?
 
 </details>
 
@@ -430,7 +430,7 @@ Relis « Trois natures » (fiche §7) ; la forme canonique, R2.
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $q(tx, ty) = t^2 q(x, y)$ permet de s'approcher de l'origine. 5 : factorise $q = y\,(bx + cy)$ et regarde $q$ sur une droite $x = ky$. 6 : $a = f_{xx}$, $b = 2f_{xy}$, $c = f_{yy}$.
+4 : $q(tx, ty) = t^2 q(x, y)$ permet de s'approcher de l'origine. 5 : factorise $q = y\thinspace(bx + cy)$ et regarde $q$ sur une droite $x = ky$. 6 : $a = f_{xx}$, $b = 2f_{xy}$, $c = f_{yy}$.
 
 </details>
 
@@ -470,7 +470,7 @@ Lis le début du §5.2 et ses exemples avant de répondre ; le guide de lecture 
 </details>
 <details><summary>Indice 3</summary>
 
-6 : quelle est la forme d'un produit (ligne) × (colonne) ? Et pour que $\mathbf{x} - \eta\,(\ldots)$ ait un sens, quelle forme faut-il au gradient ?
+6 : quelle est la forme d'un produit (ligne) × (colonne) ? Et pour que $\mathbf{x} - \eta\thinspace(\ldots)$ ait un sens, quelle forme faut-il au gradient ?
 
 </details>
 
@@ -528,7 +528,7 @@ Relis le §4 de la fiche et la démonstration M05b.11.
 </details>
 <details><summary>Indice 3</summary>
 
-Pour la descente : l'approximation linéaire avec $\mathbf{h} = -\eta\,\nabla f$.
+Pour la descente : l'approximation linéaire avec $\mathbf{h} = -\eta\thinspace\nabla f$.
 
 </details>
 
@@ -617,12 +617,12 @@ Relis le §4 de la fiche : que vaut la pente à angle droit du gradient ?
 </details>
 <details><summary>Indice 2</summary>
 
-Pour b), une pente nulle ne veut pas dire une fonction constante : calcule $f(P + t\,\mathbf{u})$ en fonction de $t$.
+Pour b), une pente nulle ne veut pas dire une fonction constante : calcule $f(P + t\thinspace\mathbf{u})$ en fonction de $t$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) La pente vaut $\|\nabla f\|\cos\theta$ : pour combien d'angles $\theta$ (entre 0° et 360°) le cosinus est-il nul ?
+d) La pente vaut $\Vert\nabla f\Vert\cos\theta$ : pour combien d'angles $\theta$ (entre 0° et 360°) le cosinus est-il nul ?
 
 </details>
 
@@ -635,7 +635,7 @@ Relis « L'approximation linéaire » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Le vecteur unitaire, le point $q = \mathbf{p} + r\,\mathbf{u}$, les coefficients du plan tangent, puis l'écart en valeur absolue.
+Le vecteur unitaire, le point $q = \mathbf{p} + r\thinspace\mathbf{u}$, les coefficients du plan tangent, puis l'écart en valeur absolue.
 
 </details>
 <details><summary>Indice 3</summary>

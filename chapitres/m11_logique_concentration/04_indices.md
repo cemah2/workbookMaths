@@ -241,7 +241,7 @@ Relis « Une phrase, une inclusion » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-Écris les ensembles en extension : $A = \{6, 12, 18, 24, 30\}$, puis $B$, $P$ et $Q$.
+Écris les ensembles en extension : $A = \lbrace6, 12, 18, 24, 30\rbrace$, puis $B$, $P$ et $Q$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -264,7 +264,7 @@ Raisonne sur 10 000 capteurs : 300 défectueux, dont combien signalés ? 9 700 b
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}03 \times 0{,}92 + 0{,}97 \times 0{,}06$. e) Le nouveau taux de base est la réponse de b) : refais le même calcul avec lui. f) Résous $0{,}92\,\pi = 0{,}06\,(1 - \pi)$.
+a) $0{,}03 \times 0{,}92 + 0{,}97 \times 0{,}06$. e) Le nouveau taux de base est la réponse de b) : refais le même calcul avec lui. f) Résous $0{,}92\thinspace\pi = 0{,}06\thinspace(1 - \pi)$.
 
 </details>
 
@@ -318,7 +318,7 @@ Rayon bilatéral : $\sqrt{\frac{\ln(2/\delta)}{2n}}$ pour des variables dans $[0
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\sqrt{\frac{\ln 40}{2\,000}}$. h) Le rayon unilatéral remplace $\ln(2/\delta)$ par $\ln(1/\delta)$. f) Tchebychev avec $\sigma^2 = \frac{1}{4}$.
+a) $\sqrt{\frac{\ln 40}{2\thinspace000}}$. h) Le rayon unilatéral remplace $\ln(2/\delta)$ par $\ln(1/\delta)$. f) Tchebychev avec $\sigma^2 = \frac{1}{4}$.
 
 </details>
 
@@ -367,7 +367,7 @@ Relis « ε-greedy : la loi de l'option choisie » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-$P(A_t = k) = (1 - \varepsilon)\,\mathbf{1}_{k = g} + \frac{\varepsilon}{K}$ ; le regret d'un pas est $\sum_k \Delta_k\,P(A_t = k)$, avec $\Delta_k = 0{,}62 - \mu_k$.
+$P(A_t = k) = (1 - \varepsilon)\thinspace\mathbf{1}_{k = g} + \frac{\varepsilon}{K}$ ; le regret d'un pas est $\sum_k \Delta_k\thinspace P(A_t = k)$, avec $\Delta_k = 0{,}62 - \mu_k$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -425,7 +425,7 @@ Relis « Le problème, et ce qu'on mesure » et « ε-greedy » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-1 : $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_k (\mu^\star - \mu_k)\,P(A_t = k)$ ; $N_k(T) = \sum_t \mathbf{1}_{A_t = k}$. 2 : le tirage au hasard donne déjà $\frac{\varepsilon}{K}$.
+1 : $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_k (\mu^\star - \mu_k)\thinspace P(A_t = k)$ ; $N_k(T) = \sum_t \mathbf{1}_{A_t = k}$. 2 : le tirage au hasard donne déjà $\frac{\varepsilon}{K}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -599,7 +599,7 @@ Relis les §4 à §6 : chaque borne utilise une information différente (la moye
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule de tête l'ordre de grandeur de chacune : $\frac{p}{p + t}$, $\frac{p(1 - p)}{100\,t^2}$, $e^{-200t^2}$.
+Calcule de tête l'ordre de grandeur de chacune : $\frac{p}{p + t}$, $\frac{p(1 - p)}{100\thinspace t^2}$, $e^{-200t^2}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -635,7 +635,7 @@ Relis « L'échantillonnage de Thompson » (fiche §7), et `integrate.quad`.
 </details>
 <details><summary>Indice 2</summary>
 
-Simulation : deux tableaux de tirages, dans l'ordre de l'énoncé, puis la proportion des `x2 > x1`. Intégrale : $\int_0^1 f_2(x) F_1(x)\,dx$.
+Simulation : deux tableaux de tirages, dans l'ordre de l'énoncé, puis la proportion des `x2 > x1`. Intégrale : $\int_0^1 f_2(x) F_1(x)\thinspace dx$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -707,7 +707,7 @@ Commence par la probabilité exacte pour un $n$ : `stats.binom.pmf(k, n, 0.5)` s
 </details>
 <details><summary>Indice 2</summary>
 
-Pour éviter les flottants, écris la condition $\lvert \frac{k}{n} - \frac{1}{2} \rvert \ge \frac{1}{20}$ avec des entiers : $10\,\lvert 2k - n \rvert \ge n$.
+Pour éviter les flottants, écris la condition $\lvert \frac{k}{n} - \frac{1}{2} \rvert \ge \frac{1}{20}$ avec des entiers : $10\thinspace\lvert 2k - n \rvert \ge n$.
 
 </details>
 <details><summary>Indice 3</summary>

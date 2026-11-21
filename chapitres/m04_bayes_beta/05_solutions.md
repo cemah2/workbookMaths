@@ -13,7 +13,7 @@
 2. $P(O \mid H) = 0{,}98$ : la **vraisemblance** de l'hypothèse $H$ pour l'observation $O$.
 3. $P(O) = 0{,}05$ : l'**évidence** (la probabilité de l'observation, toutes hypothèses confondues).
 4. $P(H \mid O) = 0{,}59$ : l'**a posteriori**.
-5. $\frac{P(O \mid H)\,P(H)}{P(O)} = \frac{0{,}98 \times 0{,}03}{0{,}05} = 0{,}588 \approx 0{,}59$ : cohérents. On en déduit même $P(O \mid \text{non } H) = \frac{0{,}05 - 0{,}0294}{0{,}97} \approx 0{,}021$.
+5. $\frac{P(O \mid H)\thinspace P(H)}{P(O)} = \frac{0{,}98 \times 0{,}03}{0{,}05} = 0{,}588 \approx 0{,}59$ : cohérents. On en déduit même $P(O \mid \text{non } H) = \frac{0{,}05 - 0{,}0294}{0{,}97} \approx 0{,}021$.
 6. **Faux** : l'évidence est la même, $P(O)$ ; d'ailleurs $P(\text{non } H \mid O) = 1 - P(H \mid O) = 0{,}41$.
 
 ### M04.Q2 — Mettre à jour deux fois
@@ -28,7 +28,7 @@
 1. $L(\theta) = \theta^4(1 - \theta)^6$.
 2. En $\theta = \frac{4}{10} = $ **0,4**.
 3. **Faux** : $L$ n'est pas une densité en $\theta$ ; ici $\int_0^1 L = B(5, 7) = \frac{1}{2310}$.
-4. **Vrai** : $c\,L$ a les mêmes variations que $L$ si $c > 0$.
+4. **Vrai** : $c\thinspace L$ a les mêmes variations que $L$ si $c > 0$.
 5. Le logarithme change le produit en somme ($4\ln\theta + 6\ln(1 - \theta)$), plus simple à dériver, et il évite l'underflow d'un produit de nombreuses probabilités (fiche §7). Comme $\ln$ est croissante, $\ln L$ a le même maximum que $L$.
 6. En $\theta = 0$ : $L(\theta) = (1 - \theta)^6$ décroît. Ce n'est pas raisonnable : après 6 essais, on affirmerait que le succès est **impossible**. C'est ce que corrige un a priori (le lissage de Laplace donne $\frac{1}{8}$, fiche §5).
 
@@ -78,8 +78,8 @@
 ### M04.R2 — Intégrales et densités (M02a)
 1. $\frac{1}{3}$.
 2. $\frac{1}{2} - \frac{1}{3} = \frac{1}{6}$.
-3. $c = 6$ (l'intégrale de $c\,x(1 - x)$ doit valoir 1).
-4. $\int_0^1 6x^2(1 - x)\,dx = 6\big(\frac{1}{3} - \frac{1}{4}\big) = \frac{1}{2}$ (la densité est symétrique autour de $\frac{1}{2}$).
+3. $c = 6$ (l'intégrale de $c\thinspace x(1 - x)$ doit valoir 1).
+4. $\int_0^1 6x^2(1 - x)\thinspace dx = 6\big(\frac{1}{3} - \frac{1}{4}\big) = \frac{1}{2}$ (la densité est symétrique autour de $\frac{1}{2}$).
 5. $\big[-\frac{(1 - x)^5}{5}\big]_0^1 = \frac{1}{5}$.
 
 ### M04.R3 — Loi binomiale (M02b)
@@ -109,7 +109,7 @@
 - c) Avec « ne sonne pas » : produits $0{,}01 \times 0{,}05 = 0{,}0005$ et $0{,}99 \times 0{,}97$, évidence $1 - 0{,}0392 = 0{,}9608$ ; $\frac{0{,}0005}{0{,}9608} \approx 0{,}00052$, soit 5,2 pour 10 000.
 - d) $1000 \times 0{,}0392$. e) $1000 \times 0{,}99 \times 0{,}03$.
 - f) Les deux capteurs sonnent : vraisemblances $0{,}95^2 = 0{,}9025$ et $0{,}03^2 = 0{,}0009$ ; $\frac{0{,}009025}{0{,}009025 + 0{,}000891} \approx 0{,}910$. On obtient la même chose en reprenant b) comme a priori pour le second capteur.
-- g) Avec $x = P(\text{sonne} \mid \text{pas de fuite})$ : $\frac{0{,}0095}{0{,}0095 + 0{,}99\,x} \ge 0{,}5 \iff 0{,}99\,x \le 0{,}0095 \iff x \le \frac{0{,}0095}{0{,}99} = \frac{19}{1980} \approx 0{,}0096$ (arrondir par excès franchirait la limite : d'où la fraction).
+- g) Avec $x = P(\text{sonne} \mid \text{pas de fuite})$ : $\frac{0{,}0095}{0{,}0095 + 0{,}99\thinspace x} \ge 0{,}5 \iff 0{,}99\thinspace x \le 0{,}0095 \iff x \le \frac{0{,}0095}{0{,}99} = \frac{19}{1980} \approx 0{,}0096$ (arrondir par excès franchirait la limite : d'où la fraction).
 - h) $\frac{0{,}05 \times 0{,}95}{0{,}05 \times 0{,}95 + 0{,}95 \times 0{,}03} = \frac{0{,}0475}{0{,}076} = 0{,}625$.
 
 Pour la copie : sur 1 000 nuits, 10 fuites, dont 9,5 font sonner le capteur, et 29,7 fausses alertes : parmi les 39,2 alertes, $\frac{9{,}5}{39{,}2} \approx 0{,}242$. Les fuites sont si rares que les fausses alertes, même à 3 %, sont trois fois plus nombreuses que les vraies. Une détection parfaite (1 au lieu de 0,95) ne donnerait que $\frac{0{,}01}{0{,}0397} \approx 0{,}252$ ; des fausses alertes dix fois plus rares (0,003) donneraient $\frac{0{,}0095}{0{,}0095 + 0{,}00297} \approx 0{,}762$ : c'est elles qu'il faut améliorer.
@@ -149,7 +149,7 @@ Pour la copie : un régulier ne manque une semaine qu'avec la probabilité 0,1, 
 - a) La fréquence : $\frac{3}{20}$.
 - b) $\frac{L(0{,}15)}{L(0{,}10)} = 1{,}5^3 \times \big(\frac{0{,}85}{0{,}9}\big)^{17} \approx 3{,}375 \times 0{,}378 \approx 1{,}277$.
 - c) $3\ln 0{,}15 + 17\ln 0{,}85 \approx -5{,}691 - 2{,}763 = -8{,}454$.
-- d) $\binom{20}{3}\,L(0{,}15) = 1140 \times e^{-8{,}454} \approx 0{,}2428$.
+- d) $\binom{20}{3}\thinspace L(0{,}15) = 1140 \times e^{-8{,}454} \approx 0{,}2428$.
 - e) $2^3 \times \big(\frac{0{,}7}{0{,}85}\big)^{17} \approx 8 \times 0{,}0369 \approx 0{,}295$.
 - f) 3 clics sur 21 : $\frac{1}{7} \approx 0{,}1429$. g) $\frac{3 + 2}{20 + 30}$ : la vraisemblance des deux jours est le produit $\theta^5(1 - \theta)^{45}$.
 - h) Vrai : chaque suite a la vraisemblance $\theta^3(1 - \theta)^{17}$.
@@ -179,14 +179,14 @@ Pour la copie : $\ell(\lambda) = n\ln\lambda - \lambda\sum_i x_i$, $\ell'(\lambd
 **Réponses** : a) `"1/30"` · b) `2.4576` · c) `"2/7"` · d) `0.2` · e) `"5/196"` · f) `0.8906` · g) `12` · h) `[2, 6]`.
 
 **Démarche.**
-- a) $B(2, 5) = \frac{\Gamma(2)\Gamma(5)}{\Gamma(7)} = \frac{1 \times 24}{720} = \frac{1}{30}$. Par le changement de variable $u = 1 - \theta$ : $\int_0^1 \theta(1 - \theta)^4\,d\theta = \int_0^1 (1 - u)u^4\,du = \frac{1}{5} - \frac{1}{6} = \frac{1}{30}$.
+- a) $B(2, 5) = \frac{\Gamma(2)\Gamma(5)}{\Gamma(7)} = \frac{1 \times 24}{720} = \frac{1}{30}$. Par le changement de variable $u = 1 - \theta$ : $\int_0^1 \theta(1 - \theta)^4\thinspace d\theta = \int_0^1 (1 - u)u^4\thinspace du = \frac{1}{5} - \frac{1}{6} = \frac{1}{30}$.
 - b) $30 \times 0{,}2 \times 0{,}8^4 = 2{,}4576$. c) $\frac{2}{7}$. d) $\frac{2 - 1}{2 + 5 - 2} = \frac{1}{5}$.
 - e) $\frac{2 \times 5}{7^2 \times 8} = \frac{10}{392} = \frac{5}{196}$.
-- f) $30\int_{0{,}5}^1 (1 - u)u^4\,du = 30\Big[\frac{u^5}{5} - \frac{u^6}{6}\Big]_{0{,}5}^1 = 1 - 30\Big(\frac{0{,}5^5}{5} - \frac{0{,}5^6}{6}\Big) = 1 - \frac{7}{64} = \frac{57}{64} \approx 0{,}8906$.
-- g) $\int_0^1 \theta^2(1 - \theta)\,d\theta = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$ : $c = 12 = \frac{1}{B(3, 2)}$.
+- f) $30\int_{0{,}5}^1 (1 - u)u^4\thinspace du = 30\Big[\frac{u^5}{5} - \frac{u^6}{6}\Big]_{0{,}5}^1 = 1 - 30\Big(\frac{0{,}5^5}{5} - \frac{0{,}5^6}{6}\Big) = 1 - \frac{7}{64} = \frac{57}{64} \approx 0{,}8906$.
+- g) $\int_0^1 \theta^2(1 - \theta)\thinspace d\theta = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$ : $c = 12 = \frac{1}{B(3, 2)}$.
 - h) $\frac{a}{8} = 0{,}25$ : $a = 2$, $b = 6$.
 
-**Erreurs fréquentes.** $B(a, b) = \frac{a!\,b!}{(a + b)!}$ ($\frac{1}{21}$) au lieu de $\frac{(a - 1)!\,(b - 1)!}{(a + b - 1)!}$ ; les exposants $a$ et $b$ au lieu de $a - 1$ et $b - 1$ ; échanger mode et moyenne ; f) calculé comme la densité en 0,5.
+**Erreurs fréquentes.** $B(a, b) = \frac{a!\thinspace b!}{(a + b)!}$ ($\frac{1}{21}$) au lieu de $\frac{(a - 1)!\thinspace(b - 1)!}{(a + b - 1)!}$ ; les exposants $a$ et $b$ au lieu de $a - 1$ et $b - 1$ ; échanger mode et moyenne ; f) calculé comme la densité en 0,5.
 
 **Variante.** Pour $\mathrm{Beta}(3, 4)$ : $B(3, 4)$, la moyenne et le mode ? *Réponse* : $\frac{1}{60}$, $\frac{3}{7}$ et $\frac{2}{5}$.
 
@@ -228,7 +228,7 @@ Pour la copie : le maximum de vraisemblance donnerait 0 et 1, « jamais d'achat 
 **Démarche.**
 - a) $\frac{9}{10}$. b) $\mathrm{Beta}(14, 6)$ : $\frac{13}{18} \approx 0{,}7222$. c) $\frac{14}{20}$. d) $\mathrm{Beta}(10, 2)$ : $\frac{9}{10}$. e) $\frac{10}{12}$. f) $0{,}7 < 0{,}722 < 0{,}9$.
 - g) $\mathrm{Beta}(2, 5)$ : $\frac{1}{5}$ (le maximum de vraisemblance vaudrait 0).
-- h) $\mathrm{Beta}(5 + n, 5)$ : $\frac{4 + n}{8 + n} > 0{,}8 \iff 4 + n > 6{,}4 + 0{,}8\,n \iff n > 12$, donc 13 ($n = 12$ donne exactement $\frac{16}{20} = 0{,}8$).
+- h) $\mathrm{Beta}(5 + n, 5)$ : $\frac{4 + n}{8 + n} > 0{,}8 \iff 4 + n > 6{,}4 + 0{,}8\thinspace n \iff n > 12$, donc 13 ($n = 12$ donne exactement $\frac{16}{20} = 0{,}8$).
 
 Pour la copie : moyenne $<$ MAP $<$ maximum de vraisemblance. L'a priori tire vers 0,5 ; la moyenne $\frac{5 + 9}{10 + 10}$ se comporte comme 10 pseudo-observations, le MAP $\frac{4 + 9}{8 + 10}$ comme 8 : la moyenne est tirée un peu plus fort. Avec 900 adoptions sur 1 000 : 0,9 ; $\frac{904}{1008} \approx 0{,}897$ ; $\frac{905}{1010} \approx 0{,}896$ : l'a priori ne compte presque plus.
 
@@ -246,7 +246,7 @@ Pour la copie : moyenne $<$ MAP $<$ maximum de vraisemblance. L'a priori tire ve
 - e) $x = 1 - 0{,}05^{1/9} \approx 0{,}2831$. f) $x = 1 - 0{,}5^{1/9} \approx 0{,}0741$.
 - g) $x^3 = 0{,}025$ et $x^3 = 0{,}975$ : $0{,}2924$ et $0{,}9916$.
 
-Pour la copie : $F(x) = \int_0^x 9(1 - t)^8\,dt = \big[-(1 - t)^9\big]_0^x = 1 - (1 - x)^9$. La densité $9(1 - \theta)^8$ décroît : la masse est tassée près de 0, avec une longue queue à droite ; la médiane (0,074) est sous la moyenne $\frac{1}{10}$, et l'intervalle s'étend bien plus à droite. Le maximum de vraisemblance dirait 0, « jamais de défaut » ; l'intervalle dit qu'un taux jusqu'à 34 % reste plausible après 8 fabrications seulement.
+Pour la copie : $F(x) = \int_0^x 9(1 - t)^8\thinspace dt = \big[-(1 - t)^9\big]_0^x = 1 - (1 - x)^9$. La densité $9(1 - \theta)^8$ décroît : la masse est tassée près de 0, avec une longue queue à droite ; la médiane (0,074) est sous la moyenne $\frac{1}{10}$, et l'intervalle s'étend bien plus à droite. Le maximum de vraisemblance dirait 0, « jamais de défaut » ; l'intervalle dit qu'un taux jusqu'à 34 % reste plausible après 8 fabrications seulement.
 
 **Erreurs fréquentes.** Échanger les bornes basse et haute (résoudre $F(x) = 0{,}975$ pour la borne basse) ; écrire $F(x) = (1 - x)^b$ ; donner la moyenne pour la médiane.
 
@@ -276,9 +276,9 @@ Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul di
 ### Ex M04.11 — La conjugaison Beta-binomiale, démontrée
 
 **Réponse modèle.**
-1. $P(K = k \mid \theta) = \binom{n}{k}\theta^k(1 - \theta)^{n - k}$ et $f(\theta) = \frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$, donc $P(K = k \mid \theta)\,f(\theta) = \frac{\binom{n}{k}}{B(a, b)}\,\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$.
-2. $P(K = k)$ est une intégrale sur $\theta$ : elle ne dépend pas de $\theta$. Donc $f(\theta \mid k) = c\,\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$, avec $c = \frac{\binom{n}{k}}{B(a, b)\,P(K = k)}$, une constante.
-3. $f(\theta \mid k)$ est une densité sur $[0, 1]$ : son intégrale vaut 1. Or $\int_0^1 \theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}\,d\theta = B(a + k,\ b + n - k)$, donc $c = \frac{1}{B(a + k,\ b + n - k)}$ : c'est la densité de $\mathrm{Beta}(a + k,\ b + n - k)$. L'argument : une densité est déterminée par sa forme, la constante est fixée par l'aire 1.
+1. $P(K = k \mid \theta) = \binom{n}{k}\theta^k(1 - \theta)^{n - k}$ et $f(\theta) = \frac{\theta^{a - 1}(1 - \theta)^{b - 1}}{B(a, b)}$, donc $P(K = k \mid \theta)\thinspace f(\theta) = \frac{\binom{n}{k}}{B(a, b)}\thinspace\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$.
+2. $P(K = k)$ est une intégrale sur $\theta$ : elle ne dépend pas de $\theta$. Donc $f(\theta \mid k) = c\thinspace\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$, avec $c = \frac{\binom{n}{k}}{B(a, b)\thinspace P(K = k)}$, une constante.
+3. $f(\theta \mid k)$ est une densité sur $[0, 1]$ : son intégrale vaut 1. Or $\int_0^1 \theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}\thinspace d\theta = B(a + k,\ b + n - k)$, donc $c = \frac{1}{B(a + k,\ b + n - k)}$ : c'est la densité de $\mathrm{Beta}(a + k,\ b + n - k)$. L'argument : une densité est déterminée par sa forme, la constante est fixée par l'aire 1.
 4. En égalant les deux expressions de $c$ : $P(K = k) = \binom{n}{k}\frac{B(a + k,\ b + n - k)}{B(a, b)}$, la loi prédictive (bêta-binomiale) de la fiche (§5).
 5. $\frac{a + k}{a + b + n} = \frac{a + b}{a + b + n} \cdot \frac{a}{a + b} + \frac{n}{a + b + n} \cdot \frac{k}{n}$ : poids $\frac{a + b}{a + b + n}$ pour la moyenne a priori, $\frac{n}{a + b + n}$ pour la fréquence.
 6. Le poids des données tend vers 1 : la moyenne tend vers $p$. La variance $\frac{(a + k)(b + n - k)}{(a + b + n)^2(a + b + n + 1)}$ se comporte comme $\frac{np \cdot n(1 - p)}{n^3} = \frac{p(1 - p)}{n}$ : elle tend vers 0. L'a priori est oublié, et l'a posteriori se concentre autour de la fréquence, avec un écart-type en $\frac{1}{\sqrt{n}}$.
@@ -302,11 +302,11 @@ Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul di
 ### Ex M04.13 — Le mode de la loi Beta
 
 **Réponse modèle.**
-1. $g'(\theta) = \frac{a - 1}{\theta} - \frac{b - 1}{1 - \theta} = \frac{(a - 1) - (a + b - 2)\theta}{\theta(1 - \theta)}$, nulle en $\theta^* = \frac{a - 1}{a + b - 2} \in\ ]0, 1[$, positive avant, négative après. La densité $\frac{e^{g}}{B(a, b)}$ a les variations de $g$ : maximum en $\theta^*$. Aux bords, $\theta^{a - 1} \to 0$ et $(1 - \theta)^{b - 1} \to 0$ : la densité vaut 0.
+1. $g'(\theta) = \frac{a - 1}{\theta} - \frac{b - 1}{1 - \theta} = \frac{(a - 1) - (a + b - 2)\theta}{\theta(1 - \theta)}$, nulle en $\theta^\ast = \frac{a - 1}{a + b - 2} \in\ ]0, 1[$, positive avant, négative après. La densité $\frac{e^{g}}{B(a, b)}$ a les variations de $g$ : maximum en $\theta^\ast$. Aux bords, $\theta^{a - 1} \to 0$ et $(1 - \theta)^{b - 1} \to 0$ : la densité vaut 0.
 2. Les dénominateurs étant positifs : $\frac{a - 1}{a + b - 2} < \frac{a}{a + b} \iff (a - 1)(a + b) < a(a + b - 2) \iff -a - b < -2a \iff a < b$. Si $a = b$, mode et moyenne valent $\frac{1}{2}$.
 3. $B(1, b) = \frac{1}{b}$, donc la densité est $b(1 - \theta)^{b - 1}$, décroissante car $b - 1 > 0$ : mode 0.
 4. $\theta^{a - 1} \to +\infty$ en $0^+$ (exposant négatif). $g'(\theta) = \frac{a - 1}{\theta} - \frac{b - 1}{1 - \theta}$ est une somme de deux termes négatifs : la densité décroît, et son maximum est au bord 0 (où elle est infinie) : mode 0.
-5. $g'$ s'annule en $\theta^* = \frac{1 - a}{2 - a - b} \in\ ]0, 1[$. Son numérateur $(a - 1) - (a + b - 2)\theta$ vaut $a - 1 < 0$ en 0 et croît (le coefficient de $\theta$, $2 - a - b$, est positif) : $g$ décroît puis croît, $\theta^*$ est un **minimum**. La densité tend vers l'infini en 0 et en 1 : deux modes, aux bords.
+5. $g'$ s'annule en $\theta^\ast = \frac{1 - a}{2 - a - b} \in\ ]0, 1[$. Son numérateur $(a - 1) - (a + b - 2)\theta$ vaut $a - 1 < 0$ en 0 et croît (le coefficient de $\theta$, $2 - a - b$, est positif) : $g$ décroît puis croît, $\theta^\ast$ est un **minimum**. La densité tend vers l'infini en 0 et en 1 : deux modes, aux bords.
 6. La densité vaut 1 partout : chaque point est un maximum.
 7. Si $0 < k < n$, les deux paramètres de $\mathrm{Beta}(k + 1,\ n - k + 1)$ dépassent 1 : mode $\frac{k}{n}$, le maximum de vraisemblance. Si $k = 0$ (et $n \ge 1$) : $a = 1 < b = n + 1$, mode $0 = \frac{0}{n}$ par 3. De même, $k = n$ donne 1.
 
@@ -324,7 +324,7 @@ Pour la copie : $e^{-1000} \approx 10^{-434}$ vaut 0 en `float64` : le calcul di
 - a) $\mathrm{Beta}(1 + 30,\ 1 + 270)$ ; pour B, $\mathrm{Beta}(46, 256)$. b) $\frac{46}{302}$.
 - c) $\sqrt{\frac{46 \times 256}{302^2 \times 303}} = \sqrt{0{,}000426} \approx 0{,}0206$. d) $\sqrt{\frac{31 \times 271}{302^2 \times 303}} = \sqrt{0{,}000304} \approx 0{,}0174$.
 - e) $\theta_B - \theta_A$ est approchée par une loi normale de moyenne $\frac{46 - 31}{302} \approx 0{,}0497$ et d'écart-type $\sqrt{0{,}000426 + 0{,}000304} \approx 0{,}0270$ ; $P(\theta_B - \theta_A > 0) = \Phi\big(\frac{0{,}0497}{0{,}0270}\big) = \Phi(1{,}84) \approx 0{,}97$.
-- f) et g) La simulation : 0,9687 et 0,04976. La valeur exacte, par intégration numérique, est 0,9674 : l'approximation normale (0,9670) en est ici plus proche que la simulation, dont l'erreur type vaut $\sqrt{\frac{0{,}967 \times 0{,}033}{100\,000}} \approx 0{,}0006$ ; l'écart de 0,0013 fait environ 2,3 erreurs types, ce qui arrive environ une fois sur cinquante.
+- f) et g) La simulation : 0,9687 et 0,04976. La valeur exacte, par intégration numérique, est 0,9674 : l'approximation normale (0,9670) en est ici plus proche que la simulation, dont l'erreur type vaut $\sqrt{\frac{0{,}967 \times 0{,}033}{100\thinspace000}} \approx 0{,}0006$ ; l'écart de 0,0013 fait environ 2,3 erreurs types, ce qui arrive environ une fois sur cinquante.
 
 Pour la copie : la différence de deux variables normales indépendantes est normale (M02b), de variance la somme des variances (M02c, l'indépendance). Une proportion estimée sur 100 000 tirages a une erreur type d'environ 0,0006 : e) et f) diffèrent de 0,0017, de l'ordre de quelques erreurs types, et la simulation n'est pas « plus exacte » par principe. Pour l'équipe : « Sachant ces données, la page B a environ 97 % de chances d'avoir un meilleur taux de conversion que la page A, avec un gain moyen d'environ 5 points. » Tout basculer sur B reste un pari : 3 % de chances qu'elle soit moins bonne, et un gain encore incertain (écart-type de 2,7 points). L'échantillonnage de Thompson montrerait B environ 97 % du temps et A environ 3 % : il exploite déjà B tout en continuant d'apprendre.
 
@@ -358,7 +358,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Réponse modèle.**
 
-> Ce calcul est la moyenne a posteriori avec l'a priori $\mathrm{Beta}(2, 8)$ : avant toute donnée, on fait comme si l'on avait déjà vu 10 affichages, dont 2 clics, ce qui dit « un taux autour de 20 % », d'après nos autres publicités. Ce n'est pas truquer, c'est écrire ce qu'on sait déjà. Ces 10 affichages imaginaires pèsent 10 contre $n$ vrais : après 1 000 affichages, ils ne changent presque rien. Ils servent au début : avec 1 clic sur 2 affichages, la fréquence dirait 50 %, alors que $\frac{1 + 2}{2 + 10} = 25\,\%$ est plus raisonnable, et 0 clic sur 3 ne donne pas un taux nul. Si l'on ne sait rien, on prend 1 et 2 (Laplace).
+> Ce calcul est la moyenne a posteriori avec l'a priori $\mathrm{Beta}(2, 8)$ : avant toute donnée, on fait comme si l'on avait déjà vu 10 affichages, dont 2 clics, ce qui dit « un taux autour de 20 % », d'après nos autres publicités. Ce n'est pas truquer, c'est écrire ce qu'on sait déjà. Ces 10 affichages imaginaires pèsent 10 contre $n$ vrais : après 1 000 affichages, ils ne changent presque rien. Ils servent au début : avec 1 clic sur 2 affichages, la fréquence dirait 50 %, alors que $\frac{1 + 2}{2 + 10} = 25$ % est plus raisonnable, et 0 clic sur 3 ne donne pas un taux nul. Si l'on ne sait rien, on prend 1 et 2 (Laplace).
 
 **Grille.** (1) l'a priori $\mathrm{Beta}(2, 8)$ et la lecture « 2 clics sur 10 affichages déjà vus » ; (2) le poids qui diminue quand les données s'accumulent ; (3) l'utilité au début (peu de données, comptages nuls) ; (4) huit lignes au plus, sans formule compliquée.
 
@@ -406,7 +406,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Réponses** : a) `840` · b) `True` · c) `-1011.54` · d) `-439.31` · e) `0.1602` · f) `1.1447`.
 
-**Démarche.** Voir `05_solutions.ipynb`. a) $B(4, 7) = \frac{3!\,6!}{10!} = \frac{1}{840}$. b) $B(600, 900) \approx 10^{-439}$ : 0 en `float64`. c) `special.betaln(600, 900)`. d) c) divisé par $\ln 10$. e) `math.exp(special.betaln(602, 900) - special.betaln(600, 900))` $= \frac{600 \times 601}{1500 \times 1501} \approx 0{,}1602$, comme `posterior_predictive(600, 900, 2, 2)`. f) $\ln \pi$. Pour la copie : le quotient direct vaut $\frac{0}{0}$, donc `nan` ; l'exponentielle de f) vaut $\pi = B(\frac{1}{2}, \frac{1}{2})$.
+**Démarche.** Voir `05_solutions.ipynb`. a) $B(4, 7) = \frac{3!\thinspace6!}{10!} = \frac{1}{840}$. b) $B(600, 900) \approx 10^{-439}$ : 0 en `float64`. c) `special.betaln(600, 900)`. d) c) divisé par $\ln 10$. e) `math.exp(special.betaln(602, 900) - special.betaln(600, 900))` $= \frac{600 \times 601}{1500 \times 1501} \approx 0{,}1602$, comme `posterior_predictive(600, 900, 2, 2)`. f) $\ln \pi$. Pour la copie : le quotient direct vaut $\frac{0}{0}$, donc `nan` ; l'exponentielle de f) vaut $\pi = B(\frac{1}{2}, \frac{1}{2})$.
 
 **Erreurs fréquentes.** Croire `special.beta(600, 900)` positif ; prendre $\log_{10}$ pour c) ; calculer e) par le quotient direct.
 

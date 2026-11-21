@@ -22,7 +22,7 @@ Un entier $N \ge 1$ a $k$ chiffres en base $b$ quand $b^{k-1} \le N < b^k$. Un c
 </details>
 <details><summary>Indice 3</summary>
 
-1. Encadre $100\,000$ entre deux puissances de 2, puis de 16 ($2^{16} = 16^4 = 65\,536$). 2. A vaut 10, D vaut 13 et E vaut 14. 3. Encadre 26 et 1 000 entre deux puissances de 2 consécutives. 4. 12 bits font combien de groupes de 4 ?
+1. Encadre $100\thinspace000$ entre deux puissances de 2, puis de 16 ($2^{16} = 16^4 = 65\thinspace536$). 2. A vaut 10, D vaut 13 et E vaut 14. 3. Encadre 26 et 1 000 entre deux puissances de 2 consécutives. 4. 12 bits font combien de groupes de 4 ?
 
 </details>
 
@@ -35,12 +35,12 @@ Fiche §2 : la définition de la PMI et de la PPMI, le lift dans « Plus souvent
 </details>
 <details><summary>Indice 2</summary>
 
-Lift $= \frac{p(x, y)}{p(x)\,p(y)}$ et $\operatorname{PMI} = \ln(\text{lift})$. $\operatorname{PMI}(x, y) \le \min(-\ln p(x), -\ln p(y))$. L'information mutuelle est une divergence KL (M06).
+Lift $= \frac{p(x, y)}{p(x)\thinspace p(y)}$ et $\operatorname{PMI} = \ln(\text{lift})$. $\operatorname{PMI}(x, y) \le \min(-\ln p(x), -\ln p(y))$. L'information mutuelle est une divergence KL (M06).
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Multiplie le lift par $p(x)\,p(y)$ ; la PMI est le logarithme népérien du lift. 2. $\ln 0$ et $\max(0, -\infty)$. 3. $-\ln 0{,}05$ ; quand $p(x, y) = p(y)$. 4. Que fait $\max(0, \cdot)$ aux termes négatifs d'une moyenne ? 5. Une KL peut-elle être négative ?
+1. Multiplie le lift par $p(x)\thinspace p(y)$ ; la PMI est le logarithme népérien du lift. 2. $\ln 0$ et $\max(0, -\infty)$. 3. $-\ln 0{,}05$ ; quand $p(x, y) = p(y)$. 4. Que fait $\max(0, \cdot)$ aux termes négatifs d'une moyenne ? 5. Une KL peut-elle être négative ?
 
 </details>
 
@@ -53,7 +53,7 @@ Fiche §3 : « Remonter les colonnes rares » (le lien avec la loi tempérée de
 </details>
 <details><summary>Indice 2</summary>
 
-$\frac{p_\alpha(y)}{p(y)}$ est proportionnel à $p(y)^{\alpha - 1}$. $\operatorname{PMI}_\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p_\alpha(y)}{p(y)}$ : un décalage qui ne dépend que de la colonne.
+$\frac{p_\alpha(y)}{p(y)}$ est proportionnel à $p(y)^{\alpha - 1}$. $\operatorname{PMI} _\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p _\alpha(y)}{p(y)}$ : un décalage qui ne dépend que de la colonne.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -152,7 +152,7 @@ $s_i = \sqrt{\lambda_i(\mathbf{M}^\top\mathbf{M})}$, $\mathbf{v}_i$ un vecteur p
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\begin{pmatrix} a & c \\ c & a \end{pmatrix}$ a pour valeurs propres $a + c$ (vecteur $(1, 1)$) et $a - c$ (vecteur $(1, -1)$). 2. $\mathbf{M}\frac{(1, 1)}{\sqrt2} = \frac{(4, 8, 0)}{\sqrt2}$. 3. $s_1\mathbf{u}_1\mathbf{v}_1^\top$ répète une même ligne, à des facteurs près. 4. Calcule $\mathbf{M} - \mathbf{M}_1$ : une seule ligne non nulle.
+1. $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ a pour valeurs propres $a + c$ (vecteur $(1, 1)$) et $a - c$ (vecteur $(1, -1)$). 2. $\mathbf{M}\frac{(1, 1)}{\sqrt2} = \frac{(4, 8, 0)}{\sqrt2}$. 3. $s_1\mathbf{u}_1\mathbf{v}_1^\top$ répète une même ligne, à des facteurs près. 4. Calcule $\mathbf{M} - \mathbf{M}_1$ : une seule ligne non nulle.
 
 </details>
 
@@ -192,7 +192,7 @@ Divise par 2 jusqu'à un quotient nul, et lis les restes **du dernier au premier
 </details>
 <details><summary>Indice 3</summary>
 
-a) $214 = 2 \times 107 + 0$, $107 = 2 \times 53 + 1$, … (huit divisions). b) $214 = 16 \times 13 + 6$. c) $128 + 64 + 8 + 2 + 1$. d) 4A, 7C, 59 : A vaut 10 et C vaut 12. e) $2^{12} = 4\,096$. f) Le premier chiffre hexadécimal est le champ haut ; les trois autres, B4D, le champ bas. g) Écris 200 en base 16 sur **trois** chiffres, et place le 9 devant.
+a) $214 = 2 \times 107 + 0$, $107 = 2 \times 53 + 1$, … (huit divisions). b) $214 = 16 \times 13 + 6$. c) $128 + 64 + 8 + 2 + 1$. d) 4A, 7C, 59 : A vaut 10 et C vaut 12. e) $2^{12} = 4\thinspace096$. f) Le premier chiffre hexadécimal est le champ haut ; les trois autres, B4D, le champ bas. g) Écris 200 en base 16 sur **trois** chiffres, et place le 9 devant.
 
 </details>
 
@@ -205,7 +205,7 @@ Fiche §2 : « Plus souvent que par hasard ? » (la PMI, le lift, la forme avec 
 </details>
 <details><summary>Indice 2</summary>
 
-Avec les comptes : $\operatorname{PMI}(x, y) = \ln\frac{n(x, y)\,N}{n(x)\,n(y)}$, avec $N = 100$. Une case vide a une PMI de $-\infty$ ; la PPMI garde les PMI strictement positives. $I(X ; Y) = \sum p(x, y)\operatorname{PMI}(x, y)$ sur les cases non vides.
+Avec les comptes : $\operatorname{PMI}(x, y) = \ln\frac{n(x, y)\thinspace N}{n(x)\thinspace n(y)}$, avec $N = 100$. Une case vide a une PMI de $-\infty$ ; la PPMI garde les PMI strictement positives. $I(X ; Y) = \sum p(x, y)\operatorname{PMI}(x, y)$ sur les cases non vides.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -223,7 +223,7 @@ Fiche §3 : « Remonter les colonnes rares » et « Une constante par colonne »
 </details>
 <details><summary>Indice 2</summary>
 
-$p_\alpha(y) = \frac{n(y)^{1/3}}{\sum_{y'}n(y')^{1/3}}$, et $\operatorname{PMI}_\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p_\alpha(y)}{p(y)}$. Les comptes 1, 8, 27 et 64 sont des cubes.
+$p_\alpha(y) = \frac{n(y)^{1/3}}{\sum_{y'}n(y')^{1/3}}$, et $\operatorname{PMI} _\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p _\alpha(y)}{p(y)}$. Les comptes 1, 8, 27 et 64 sont des cubes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -241,12 +241,12 @@ Fiche §4 : « Rappel : SVD compacte et Eckart-Young » (la vérification d'une 
 </details>
 <details><summary>Indice 2</summary>
 
-La case $(i, j)$ du terme $k$ vaut $s_k\,(\mathbf{u}_k)_i\,(\mathbf{v}_k)_j$. $\mathbf{U}_2\mathbf{S}_2^\beta$ multiplie la première colonne de $\mathbf{U}_2$ par $399^\beta$ et la seconde par $133^\beta$ ; $\mathbf{V}_2\mathbf{S}_2^{1-\beta}$ fait de même avec $1 - \beta$. Un cosinus ne change pas si l'on multiplie ses deux vecteurs par un même nombre positif.
+La case $(i, j)$ du terme $k$ vaut $s_k\thinspace(\mathbf{u}_k)_i\thinspace(\mathbf{v}_k)_j$. $\mathbf{U}_2\mathbf{S}_2^\beta$ multiplie la première colonne de $\mathbf{U}_2$ par $399^\beta$ et la seconde par $133^\beta$ ; $\mathbf{V}_2\mathbf{S}_2^{1-\beta}$ fait de même avec $1 - \beta$. Un cosinus ne change pas si l'on multiplie ses deux vecteurs par un même nombre positif.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $399 \times \frac47 \times \frac{10}{19}$ et $133 \times \big(-\frac17\big) \times \frac{6}{19}$. b) Les lignes de $\mathbf{U}_2$, avec leurs deux coordonnées multipliées par 399 et par 133. c) Les lignes de $\mathbf{V}_2$, multipliées de même. d) Les lignes 1 et 4 de $\mathbf{A}_\beta$ sont $\frac47(399^\beta, -133^\beta)$ et $\frac47(399^\beta, 133^\beta)$ ; divise par $133^\beta$ et pose $t = 3^\beta$. e) Les lignes 1 et 2 : $\frac17(4 \times 399^\beta, -4 \times 133^\beta)$ et $\frac17(399^\beta, 4 \times 133^\beta)$. f) $\mathbf{S}_2^\beta\mathbf{S}_2^{1-\beta}$.
+a) $399 \times \frac47 \times \frac{10}{19}$ et $133 \times \big(-\frac17\big) \times \frac{6}{19}$. b) Les lignes de $\mathbf{U}_2$, avec leurs deux coordonnées multipliées par 399 et par 133. c) Les lignes de $\mathbf{V} _2$, multipliées de même. d) Les lignes 1 et 4 de $\mathbf{A} _\beta$ sont $\frac47(399^\beta, -133^\beta)$ et $\frac47(399^\beta, 133^\beta)$ ; divise par $133^\beta$ et pose $t = 3^\beta$. e) Les lignes 1 et 2 : $\frac17(4 \times 399^\beta, -4 \times 133^\beta)$ et $\frac17(399^\beta, 4 \times 133^\beta)$. f) $\mathbf{S}_2^\beta\mathbf{S}_2^{1-\beta}$.
 
 </details>
 
@@ -264,7 +264,7 @@ Le logit de vraisemblance maximale de $a$ succès et $b$ échecs est $\ln\frac{a
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{50}{3\,200}$, simplifié. b) $\ln\frac{50}{3\,150}$. c) $\frac{3\,150}{9}$ non-clics gardés, puis $\ln\frac{50}{350}$. d) c) − b). e) $\frac{50}{50 + 350}$. f) La cote lue est $\frac{0{,}2}{0{,}8}$ ; divise-la par 9, puis repasse en probabilité, $\frac{\text{cote}}{1 + \text{cote}}$.
+a) $\frac{50}{3\thinspace200}$, simplifié. b) $\ln\frac{50}{3\thinspace150}$. c) $\frac{3\thinspace150}{9}$ non-clics gardés, puis $\ln\frac{50}{350}$. d) c) − b). e) $\frac{50}{50 + 350}$. f) La cote lue est $\frac{0{,}2}{0{,}8}$ ; divise-la par 9, puis repasse en probabilité, $\frac{\text{cote}}{1 + \text{cote}}$.
 
 </details>
 
@@ -295,12 +295,12 @@ Fiche §7 : « Projeter sur le complément d'une droite » (Pythagore, le centra
 </details>
 <details><summary>Indice 2</summary>
 
-$G_{ij} = \mathbf{d}_i\cdot\mathbf{d}_j$. Si $\mathbf{D}\mathbf{D}^\top\mathbf{w} = \lambda\mathbf{w}$, l'axe est dirigé par $\mathbf{D}^\top\mathbf{w}$, qu'on normalise. Retirer $\mathbf{u}$ : $\mathbf{x} - (\mathbf{x}\cdot\mathbf{u})\,\mathbf{u}$ pour $\mathbf{u}$ unitaire.
+$G_{ij} = \mathbf{d}_i\cdot\mathbf{d}_j$. Si $\mathbf{D}\mathbf{D}^\top\mathbf{w} = \lambda\mathbf{w}$, l'axe est dirigé par $\mathbf{D}^\top\mathbf{w}$, qu'on normalise. Retirer $\mathbf{u}$ : $\mathbf{x} - (\mathbf{x}\cdot\mathbf{u})\thinspace\mathbf{u}$ pour $\mathbf{u}$ unitaire.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $4 + 16 + 9$ et $8 + 8 + 9$. b) $\begin{pmatrix} a & c \\ c & a \end{pmatrix}$ a pour valeurs propres $a \pm c$. c) $\mathbf{D}^\top(1, 1) = (6, 6, 6)$. d) Pour $\mathbf{u} = \frac{1}{\sqrt3}(1, 1, 1)$, $(\mathbf{x}\cdot\mathbf{u})\,\mathbf{u}$ est la moyenne des coordonnées de $\mathbf{x}$ fois $(1, 1, 1)$. e) $\mathbf{x}_1 - \mathbf{x}_3$, puis la différence des deux animaux corrigés. f) $(\mathbf{x}_1 - \mathbf{x}_3)\cdot\mathbf{u} = -\frac{3}{\sqrt3}$.
+a) $4 + 16 + 9$ et $8 + 8 + 9$. b) $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ a pour valeurs propres $a \pm c$. c) $\mathbf{D}^\top(1, 1) = (6, 6, 6)$. d) Pour $\mathbf{u} = \frac{1}{\sqrt3}(1, 1, 1)$, $(\mathbf{x}\cdot\mathbf{u})\thinspace\mathbf{u}$ est la moyenne des coordonnées de $\mathbf{x}$ fois $(1, 1, 1)$. e) $\mathbf{x}_1 - \mathbf{x}_3$, puis la différence des deux animaux corrigés. f) $(\mathbf{x}_1 - \mathbf{x}_3)\cdot\mathbf{u} = -\frac{3}{\sqrt3}$.
 
 </details>
 
@@ -340,7 +340,7 @@ Fiche §4, « Deux facteurs, un exposant ». Les puissances d'une matrice diagon
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{S}_k^\beta\mathbf{S}_k^{1-\beta}$ a pour coefficients $s_i^\beta s_i^{1-\beta}$. 2. $\mathbf{U}_k\mathbf{S}_k\mathbf{V}_k^\top\mathbf{V}_k\mathbf{S}_k\mathbf{U}_k^\top$. 3. $\mathbf{A}_\beta = s^\beta\mathbf{U}_k$ ; pour l'exemple, reprends d) de MB2.4. 4. Garde les $r$ valeurs propres non nulles : $\mathbf{Q}_r\boldsymbol{\Lambda}_r\mathbf{Q}_r^\top$ a la forme d'une SVD compacte ; alors $\mathbf{A}_{1/2}$ et $\mathbf{B}_{1/2}$ valent tous deux $\mathbf{Q}_k\boldsymbol{\Lambda}_k^{1/2}$.
+1. $\mathbf{S}_k^\beta\mathbf{S}_k^{1-\beta}$ a pour coefficients $s_i^\beta s_i^{1-\beta}$. 2. $\mathbf{U}_k\mathbf{S}_k\mathbf{V}_k^\top\mathbf{V}_k\mathbf{S}_k\mathbf{U} _k^\top$. 3. $\mathbf{A} _\beta = s^\beta\mathbf{U}_k$ ; pour l'exemple, reprends d) de MB2.4. 4. Garde les $r$ valeurs propres non nulles : $\mathbf{Q}_r\boldsymbol{\Lambda} _r\mathbf{Q} _r^\top$ a la forme d'une SVD compacte ; alors $\mathbf{A} _{1/2}$ et $\mathbf{B} _{1/2}$ valent tous deux $\mathbf{Q}_k\boldsymbol{\Lambda}_k^{1/2}$.
 
 </details>
 
@@ -478,7 +478,7 @@ a) Chaque oiseau est une huppe avec la probabilité 0,01 : la probabilité qu'au
 </details>
 <details><summary>Indice 3</summary>
 
-Pour (prairie, huppe) sans lissage, $\ln\frac{n(x, y)\,N}{n(x)\,n(y)}$ se simplifie : il ne reste que $\ln\frac{N}{n(\text{prairie})}$. Avec le lissage, $\hat p_\alpha(\text{huppe})$ ne contient plus que $n(\text{huppe})^{1/3}$ : la simplification disparaît. Dans `pmi_samples_15`, `counts = rng.multinomial(n_obs, P.ravel()).reshape(3, 4)`, puis `pmi(counts / n_obs)` et, pour le lissage, `temper(Ph.sum(axis=0), 3)` ; garde les cases dans l'ordre de l'énoncé.
+Pour (prairie, huppe) sans lissage, $\ln\frac{n(x, y)\thinspace N}{n(x)\thinspace n(y)}$ se simplifie : il ne reste que $\ln\frac{N}{n(\text{prairie})}$. Avec le lissage, $\hat p_\alpha(\text{huppe})$ ne contient plus que $n(\text{huppe})^{1/3}$ : la simplification disparaît. Dans `pmi_samples_15`, `counts = rng.multinomial(n_obs, P.ravel()).reshape(3, 4)`, puis `pmi(counts / n_obs)` et, pour le lissage, `temper(Ph.sum(axis=0), 3)` ; garde les cases dans l'ordre de l'énoncé.
 
 </details>
 
@@ -514,7 +514,7 @@ Pour chaque fonction, demande-toi ce que la vérification du collègue avait de 
 </details>
 <details><summary>Indice 3</summary>
 
-(1) $\frac{n(x, y)}{n(x)\,n(y)} = \frac{p(x, y)}{p(x)\,p(y)}\cdot\frac1N$ : il manque $\ln N$. (2) $\mathbf{S}^\beta\mathbf{S}^\beta = \mathbf{S}^{2\beta}$, égal à $\mathbf{S}$ seulement pour $\beta = \frac12$. (3) $(\mathbf{x}\cdot\mathbf{u})\,\mathbf{u}$ n'est la projection que si $\mathbf{u}\cdot\mathbf{u} = 1$.
+(1) $\frac{n(x, y)}{n(x)\thinspace n(y)} = \frac{p(x, y)}{p(x)\thinspace p(y)}\cdot\frac1N$ : il manque $\ln N$. (2) $\mathbf{S}^\beta\mathbf{S}^\beta = \mathbf{S}^{2\beta}$, égal à $\mathbf{S}$ seulement pour $\beta = \frac12$. (3) $(\mathbf{x}\cdot\mathbf{u})\thinspace\mathbf{u}$ n'est la projection que si $\mathbf{u}\cdot\mathbf{u} = 1$.
 
 </details>
 
@@ -550,6 +550,6 @@ Regarde les cinq cases que choisit l'estimation directe : leurs comptes, et les 
 </details>
 <details><summary>Indice 3</summary>
 
-Deux pistes : n'accepter que les cases d'au moins une dizaine de ventes ; ou rapprocher chaque case de l'indépendance, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = \frac{n(x)\,n(y)}{N}$ le compte qu'on aurait à l'indépendance et $\kappa$ de l'ordre de quelques unités. Essaie ta méthode sur des tables que tu tires toi-même, avec des lignes et des colonnes rares.
+Deux pistes : n'accepter que les cases d'au moins une dizaine de ventes ; ou rapprocher chaque case de l'indépendance, $\ln\frac{n(x, y) + \kappa}{e(x, y) + \kappa}$, avec $e(x, y) = \frac{n(x)\thinspace n(y)}{N}$ le compte qu'on aurait à l'indépendance et $\kappa$ de l'ordre de quelques unités. Essaie ta méthode sur des tables que tu tires toi-même, avec des lignes et des colonnes rares.
 
 </details>

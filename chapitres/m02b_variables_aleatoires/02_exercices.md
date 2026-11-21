@@ -44,7 +44,7 @@ Vrai ou faux ?
 1. L'espérance d'une variable aléatoire est toujours une valeur qu'elle peut prendre.
 2. $\mathbb{V}(X) \ge 0$, et $\mathbb{V}(X) = 0$ seulement si $X$ est constante.
 3. $\mathbb{E}[X^2] = \mathbb{E}[X]^2$.
-4. $\mathbb{V}(3X + 5) = 9\,\mathbb{V}(X)$.
+4. $\mathbb{V}(3X + 5) = 9\thinspace\mathbb{V}(X)$.
 5. Toute variable à densité a une espérance.
 6. Pour une loi exponentielle, l'espérance et l'écart-type sont égaux.
 
@@ -61,11 +61,11 @@ Vrai ou faux ?
 ### M02b.Q5 — Jointe, marginale, indépendance 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
 
-Deux variables $X$ et $Y$, à valeurs dans $\{0, 1\}$, ont la loi jointe : $P(X = 0, Y = 0) = 0{,}1$ ; $P(X = 0, Y = 1) = 0{,}3$ ; $P(X = 1, Y = 0) = 0{,}2$ ; $P(X = 1, Y = 1) = 0{,}4$.
+Deux variables $X$ et $Y$, à valeurs dans $\lbrace0, 1\rbrace$, ont la loi jointe : $P(X = 0, Y = 0) = 0{,}1$ ; $P(X = 0, Y = 1) = 0{,}3$ ; $P(X = 1, Y = 0) = 0{,}2$ ; $P(X = 1, Y = 1) = 0{,}4$.
 1. $P(X = 1)$ ?
 2. $P(Y = 1)$ ?
 3. $X$ et $Y$ sont-elles indépendantes ? Justifie par un calcul.
-4. Vrai ou faux : si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$.
+4. Vrai ou faux : si $X$ et $Y$ sont indépendantes, $\mathbb{E}[XY] = \mathbb{E}[X]\thinspace\mathbb{E}[Y]$.
 5. Vrai ou faux : les deux lois marginales suffisent à retrouver la loi jointe.
 6. Comment obtient-on la densité marginale de $X$ à partir d'une densité jointe $f(x, y)$ ?
 
@@ -107,8 +107,8 @@ $X$ prend les valeurs $-2$, $0$ et $3$ avec les probabilités 0,3 ; 0,5 et 0,2.
 ### M02b.R2 — Intégrales et densités (M02a) 🔁 ★ ⏱️ 5 min
 *Fiche §3 et §4 · parcours C, E*
 
-1. $\int_0^3 x^2\,dx$ ?
-2. $\int_0^{+\infty} e^{-4x}\,dx$ ?
+1. $\int_0^3 x^2\thinspace dx$ ?
+2. $\int_0^{+\infty} e^{-4x}\thinspace dx$ ?
 3. La fonction $f(x) = \frac{3}{x^4}$ sur $[1 ; +\infty[$ (et 0 ailleurs) est-elle une densité ?
 4. Pour cette fonction, que vaut $P(X \le 2)$ ?
 
@@ -160,8 +160,8 @@ Un programme tente de se connecter à un serveur surchargé. Chaque tentative r�
 | a | $P(X = 3)$ | un nombre (3 décimales) |
 | b | $P(X > 3)$ | un nombre (3 décimales) |
 | c | $P(X \le 2)$ | un nombre (2 décimales) |
-| d | la somme $S = \sum_{k=1}^{+\infty} k\,q^{k-1}$ pour $q = 0{,}6$ : calcule $S - qS$, reconnais une série géométrique, puis déduis $S$ | un nombre (2 décimales) |
-| e | $\mathbb{E}[X] = \sum_{k \ge 1} k\,P(X = k)$, avec d | un nombre (1 décimale) |
+| d | la somme $S = \sum_{k=1}^{+\infty} k\thinspace q^{k-1}$ pour $q = 0{,}6$ : calcule $S - qS$, reconnais une série géométrique, puis déduis $S$ | un nombre (2 décimales) |
+| e | $\mathbb{E}[X] = \sum_{k \ge 1} k\thinspace P(X = k)$, avec d | un nombre (1 décimale) |
 | f | le nombre moyen de tentatives **échouées** avant la réussite | un nombre (1 décimale) |
 | g | la médiane de $X$ : le plus petit entier $k$ tel que $P(X \le k) \ge 0{,}5$ | un entier |
 | h | $\mathbb{E}[X]$ pour une probabilité de réussite $p$ quelconque ($0 < p \le 1$), avec la même méthode | une expression en $p$ |
@@ -185,7 +185,7 @@ Chaque jour, le dépôt d'une bibliothèque de code reçoit $X$ signalements de 
 | g | $P(S = 2)$ (trois cas) | un nombre (4 décimales) |
 | h | e, f et g sont les probabilités $e^{-\lambda}\frac{\lambda^k}{k!}$ d'une même loi de Poisson : laquelle ? Donne $\lambda$ | un nombre (1 décimale) |
 
-Dans ta copie : démontre que $P(S = k) = e^{-4}\frac{4^k}{k!}$ pour tout entier $k \ge 0$, en écrivant $P(S = k) = \sum_{i=0}^{k} P(X = i)\,P(Y = k - i)$ et en utilisant la formule du binôme (fiche §2).
+Dans ta copie : démontre que $P(S = k) = e^{-4}\frac{4^k}{k!}$ pour tout entier $k \ge 0$, en écrivant $P(S = k) = \sum_{i=0}^{k} P(X = i)\thinspace P(Y = k - i)$ et en utilisant la formule du binôme (fiche §2).
 
 ### Ex M02b.4 — Lois uniforme et exponentielle : probabilités et espérance ✏️ ★ ⏱️ 20 min
 **Objectif :** calculer probabilités, espérance et écart-type pour une loi uniforme et une loi exponentielle.
@@ -255,7 +255,7 @@ On choisit au hasard un utilisateur d'une application. $X$ est son nombre d'appa
 | $X = 1$ | 0,15 | 0,25 | 0,10 |
 | $X = 2$ | 0,05 | 0,15 | 0,30 |
 
-Ensuite, deux variables $X'$ et $Y'$ sont **indépendantes**, avec $P(X' = 1) = 0{,}3$, $P(X' = 2) = 0{,}7$, et $P(Y' = 0) = 0{,}5$, $P(Y' = 1) = 0{,}3$, $P(Y' = 2) = 0{,}2$. Enfin, deux variables $U$ et $V$ à valeurs dans $\{0, 1\}$ ont pour loi jointe $P(U = 0, V = 0) = 0{,}12$, $P(U = 0, V = 1) = 0{,}28$, $P(U = 1, V = 0) = 0{,}18$, la dernière case étant à compléter.
+Ensuite, deux variables $X'$ et $Y'$ sont **indépendantes**, avec $P(X' = 1) = 0{,}3$, $P(X' = 2) = 0{,}7$, et $P(Y' = 0) = 0{,}5$, $P(Y' = 1) = 0{,}3$, $P(Y' = 2) = 0{,}2$. Enfin, deux variables $U$ et $V$ à valeurs dans $\lbrace0, 1\rbrace$ ont pour loi jointe $P(U = 0, V = 0) = 0{,}12$, $P(U = 0, V = 1) = 0{,}28$, $P(U = 1, V = 0) = 0{,}18$, la dernière case étant à compléter.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -263,7 +263,7 @@ Ensuite, deux variables $X'$ et $Y'$ sont **indépendantes**, avec $P(X' = 1) = 
 | b | la loi marginale de $Y$ : $[P(Y = 0), P(Y = 1), P(Y = 2)]$ | une liste (2 décimales) |
 | c | $\mathbb{E}[Y]$ | un nombre (2 décimales) |
 | d | $\mathbb{E}[XY]$ | un nombre (2 décimales) |
-| e | $\mathbb{E}[X]\,\mathbb{E}[Y]$ | un nombre (2 décimales) |
+| e | $\mathbb{E}[X]\thinspace\mathbb{E}[Y]$ | un nombre (2 décimales) |
 | f | $X$ et $Y$ sont indépendantes | vrai ou faux |
 | g | $P(X' = 2, Y' = 1)$ | un nombre (2 décimales) |
 | h | $U$ et $V$ sont indépendantes | vrai ou faux |
@@ -295,11 +295,11 @@ Dans ta copie : explique la différence entre h et la variance de la durée tota
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\iint_{[0 ; 1] \times [0 ; 3]} x\,y^2\,dx\,dy$ | une fraction irréductible |
-| b | $\iint_{[0 ; 1] \times [0 ; 1]} e^{x + y}\,dx\,dy$ | un nombre (4 décimales) |
-| c | $\iint_{[0 ; 1] \times [0 ; 1]} (x^2 + xy)\,dx\,dy$ | une fraction irréductible |
+| a | $\iint_{[0 ; 1] \times [0 ; 3]} x\thinspace y^2\thinspace dx\thinspace dy$ | une fraction irréductible |
+| b | $\iint_{[0 ; 1] \times [0 ; 1]} e^{x + y}\thinspace dx\thinspace dy$ | un nombre (4 décimales) |
+| c | $\iint_{[0 ; 1] \times [0 ; 1]} (x^2 + xy)\thinspace dx\thinspace dy$ | une fraction irréductible |
 
-On pose $f(x, y) = c\,x\,y^2$ pour $(x, y)$ dans $[0 ; 1] \times [0 ; 3]$, et 0 ailleurs.
+On pose $f(x, y) = c\thinspace x\thinspace y^2$ pour $(x, y)$ dans $[0 ; 1] \times [0 ; 3]$, et 0 ailleurs.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -342,23 +342,23 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 
 $X$ et $Y$ sont deux variables aléatoires discrètes qui prennent un nombre fini de valeurs, définies sur le même univers. On utilise la linéarité de l'espérance (fiche §6).
 1. Démontre que $\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2$, à partir de la définition $\mathbb{V}(X) = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big]$.
-2. On suppose $X$ et $Y$ indépendantes. Démontre que $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$, en écrivant $\mathbb{E}[XY]$ comme une double somme sur les valeurs $x$ et $y$ (théorème de transfert pour un couple, fiche §5).
-3. Sans supposer l'indépendance, développe $\big(X + Y - \mathbb{E}[X] - \mathbb{E}[Y]\big)^2$ et démontre que $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\big(\mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]\big)$.
+2. On suppose $X$ et $Y$ indépendantes. Démontre que $\mathbb{E}[XY] = \mathbb{E}[X]\thinspace\mathbb{E}[Y]$, en écrivant $\mathbb{E}[XY]$ comme une double somme sur les valeurs $x$ et $y$ (théorème de transfert pour un couple, fiche §5).
+3. Sans supposer l'indépendance, développe $\big(X + Y - \mathbb{E}[X] - \mathbb{E}[Y]\big)^2$ et démontre que $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\big(\mathbb{E}[XY] - \mathbb{E}[X]\thinspace\mathbb{E}[Y]\big)$.
 4. Conclus : si $X$ et $Y$ sont indépendantes, $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y)$. Que vaut alors $\mathbb{V}(X - Y)$ ? (Commence par justifier que $X$ et $-Y$ sont indépendantes.)
 5. Démontre par récurrence sur $n \ge 2$ que $\mathbb{V}(X_1 + \cdots + X_n) = \mathbb{V}(X_1) + \cdots + \mathbb{V}(X_n)$ pour des variables mutuellement indépendantes (on admet que $X_1 + \cdots + X_{n-1}$ est alors indépendante de $X_n$).
 6. Applications : déduis-en la variance de la loi binomiale $\mathcal{B}(n, p)$ (fiche §6, les indicatrices), puis la variance de la moyenne $\bar{X}$ de $n$ variables i.i.d. de variance $\sigma^2$.
 7. Un contre-exemple : $X$ suit la loi de Bernoulli de paramètre $\frac{1}{2}$, et $Y = X$. Compare $\mathbb{V}(X + Y)$ et $\mathbb{V}(X) + \mathbb{V}(Y)$. Quelle hypothèse manque ?
 
 ### Ex M02b.12 — L'intégrale de Gauss par une intégrale double (changement en coordonnées polaires admis) ∂ ★★★ ⏱️ 30 min
-**Objectif :** démontrer que $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$, la valeur admise en M02a, et en déduire que la densité normale a une aire de 1.
+**Objectif :** démontrer que $\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi}$, la valeur admise en M02a, et en déduire que la densité normale a une aire de 1.
 **Prérequis :** fiche §7 ; M02a §4 (intégrales impropres, règle de comparaison) · **Parcours :** C
 
-Pour $R > 0$, on pose $I(R) = \int_{-R}^{R} e^{-x^2}\,dx$, $C_R$ le carré $[-R ; R] \times [-R ; R]$, et $D_r$ le disque de centre $O$ et de rayon $r$. On note $g(x, y) = e^{-(x^2 + y^2)}$.
-1. Démontre que $I(R)^2 = \iint_{C_R} g(x, y)\,dx\,dy$ (le cas d'un produit, fiche §7).
-2. On pose $J(r) = \iint_{D_r} g(x, y)\,dx\,dy$. En passant en coordonnées polaires (fiche §7, admis), démontre que $J(r) = \pi\big(1 - e^{-r^2}\big)$.
+Pour $R > 0$, on pose $I(R) = \int_{-R}^{R} e^{-x^2}\thinspace dx$, $C_R$ le carré $[-R ; R] \times [-R ; R]$, et $D_r$ le disque de centre $O$ et de rayon $r$. On note $g(x, y) = e^{-(x^2 + y^2)}$.
+1. Démontre que $I(R)^2 = \iint_{C_R} g(x, y)\thinspace dx\thinspace dy$ (le cas d'un produit, fiche §7).
+2. On pose $J(r) = \iint_{D_r} g(x, y)\thinspace dx\thinspace dy$. En passant en coordonnées polaires (fiche §7, admis), démontre que $J(r) = \pi\big(1 - e^{-r^2}\big)$.
 3. Fais un dessin, puis justifie que $D_R \subset C_R \subset D_{R\sqrt{2}}$. Comme $g$ est positive, l'intégrale sur une région plus grande est plus grande (admis) : déduis-en un encadrement de $I(R)^2$ entre deux valeurs de $J$.
-4. Fais tendre $R$ vers $+\infty$ et conclus que $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$. Pourquoi peut-on prendre la racine carrée, sans signe $\pm$ ?
-5. Par le changement de variable $x = \frac{t}{\sqrt{2}}$ (M02a §3), déduis-en $\int_{-\infty}^{+\infty} e^{-t^2/2}\,dt = \sqrt{2\pi}$, puis que la densité de $\mathcal{N}(\mu, \sigma^2)$ a une aire totale de 1 (un second changement de variable, $t = \frac{x - \mu}{\sigma}$).
+4. Fais tendre $R$ vers $+\infty$ et conclus que $\int_{-\infty}^{+\infty} e^{-x^2}\thinspace dx = \sqrt{\pi}$. Pourquoi peut-on prendre la racine carrée, sans signe $\pm$ ?
+5. Par le changement de variable $x = \frac{t}{\sqrt{2}}$ (M02a §3), déduis-en $\int_{-\infty}^{+\infty} e^{-t^2/2}\thinspace dt = \sqrt{2\pi}$, puis que la densité de $\mathcal{N}(\mu, \sigma^2)$ a une aire totale de 1 (un second changement de variable, $t = \frac{x - \mu}{\sigma}$).
 6. Pour aller plus loin : montre que $h(x, y) = \frac{1}{2\pi}e^{-(x^2 + y^2)/2}$ est une densité jointe sur $\mathbb{R}^2$, et qu'elle est le produit de deux densités $\varphi$. Que peut-on en dire des deux coordonnées d'un point de densité $h$ ?
 
 ### Ex M02b.13 — La loi de Poisson, limite de lois binomiales ∂ ★★ ⏱️ 25 min
@@ -371,7 +371,7 @@ $$P(X_n = k) = \frac{n(n-1)\cdots(n-k+1)}{n^k} \times \frac{\lambda^k}{k!} \time
 2. Démontre que le premier facteur tend vers 1 quand $n \to +\infty$ ($k$ est fixé : combien de facteurs y a-t-il ?).
 3. Démontre que $\left(1 - \frac{\lambda}{n}\right)^n$ tend vers $e^{-\lambda}$. Indication : écris-le $\exp\big(n \ln(1 - \frac{\lambda}{n})\big)$, pose $h = -\frac{\lambda}{n}$, et utilise $\lim_{h \to 0}\frac{\ln(1 + h)}{h} = 1$ (le nombre dérivé de $\ln$ en 1, R7).
 4. Que devient le dernier facteur ? Conclus : $P(X_n = k) \to e^{-\lambda}\frac{\lambda^k}{k!}$.
-5. Application numérique : pour $\lambda = 2$, calcule $P(X_n = 0)$ pour $n = 10$, $n = 100$ et $n = 1\,000$, et compare avec $e^{-2}$. L'écart diminue-t-il à peu près comme $\frac{1}{n}$ ?
+5. Application numérique : pour $\lambda = 2$, calcule $P(X_n = 0)$ pour $n = 10$, $n = 100$ et $n = 1\thinspace000$, et compare avec $e^{-2}$. L'écart diminue-t-il à peu près comme $\frac{1}{n}$ ?
 6. Explique en deux phrases pourquoi la loi de Poisson modélise bien un nombre d'événements rares sur une longue période (des pannes, des clics), et pourquoi elle modélise mal le nombre de faces en 10 lancers d'une pièce.
 
 <a id="reflexion"></a>

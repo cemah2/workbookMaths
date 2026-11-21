@@ -22,7 +22,7 @@ Un facteur par nœud, sachant ses parents. $V \to B \leftarrow C$ est une collis
 </details>
 <details><summary>Indice 3</summary>
 
-1. $p(V)\,p(C)\,p(B \mid V, C)\,p(A \mid B)$. Pour 4 et 5, demande-toi si l'on observe l'effet commun ou un de ses descendants ; pour 6, si le nœud du milieu de la chaîne est observé.
+1. $p(V)\thinspace p(C)\thinspace p(B \mid V, C)\thinspace p(A \mid B)$. Pour 4 et 5, demande-toi si l'on observe l'effet commun ou un de ses descendants ; pour 6, si le nœud du milieu de la chaîne est observé.
 
 </details>
 
@@ -35,7 +35,7 @@ Fiche §2 : la vraisemblance marginale, le posterior, puis les lois de l'espéra
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(X)$ = la variance moyenne dans les groupes + la variance des moyennes. $p(x) = \sum_z p(z)\,p(x \mid z)$ et $P(Z = 1 \mid x) = \frac{p(Z = 1)\,p(x \mid Z = 1)}{p(x)}$.
+$\mathbb{V}(X)$ = la variance moyenne dans les groupes + la variance des moyennes. $p(x) = \sum_z p(z)\thinspace p(x \mid z)$ et $P(Z = 1 \mid x) = \frac{p(Z = 1)\thinspace p(x \mid Z = 1)}{p(x)}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -53,7 +53,7 @@ Fiche §3 : « Les responsabilités, calculées en log », « Une vraisemblance 
 </details>
 <details><summary>Indice 2</summary>
 
-$\ln r_{ik} = a_{ik} - \operatorname{LSE}_j\,a_{ij}$ ; avec deux termes, $r_{i1} = \frac{1}{1 + e^{a_{i2} - a_{i1}}}$. Une seule gaussienne doit expliquer **toutes** les données à la fois.
+$\ln r_{ik} = a_{ik} - \operatorname{LSE}  _j\thinspace a  _{ij}$ ; avec deux termes, $r _{i1} = \frac{1}{1 + e^{a  _{i2} - a _{i1}}}$. Une seule gaussienne doit expliquer **toutes** les données à la fois.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -89,7 +89,7 @@ Fiche §5, le théorème et « Deux autres lectures » ; le §7 pour la question
 </details>
 <details><summary>Indice 2</summary>
 
-$\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$, pour toute loi $q$.
+$\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \thinspace\Vert\thinspace p(\mathbf{z} \mid \mathbf{x}))$, pour toute loi $q$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -125,7 +125,7 @@ Fiche §7 : « Le sens de la KL », « L'inférence amortie », « Dériver une 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathrm{KL}(q \,\|\, p)$ est énorme là où $q$ met de la masse et $p$ presque pas ; $\mathrm{KL}(p \,\|\, q)$ apparie les moments pour une $q$ gaussienne. Les hypothèses du théorème : continuité, coins de probabilité nulle, domination.
+$\mathrm{KL}(q \thinspace\Vert\thinspace p)$ est énorme là où $q$ met de la masse et $p$ presque pas ; $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ apparie les moments pour une $q$ gaussienne. Les hypothèses du théorème : continuité, coins de probabilité nulle, domination.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -143,7 +143,7 @@ Fiche §8 : « β est une pente », « Le bruit joue le rôle de β », le poste
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathcal{R}^{\star\prime}(B) = \beta$ ; seul $2\sigma^2\beta$ compte ; $\mathbb{E}_{\mathbf{x}}\mathrm{KL} = I(X ; Z) + \mathrm{KL}(q(\mathbf{z}) \,\|\, p(\mathbf{z}))$.
+$\mathcal{R}^{\star\prime}(B) = \beta$ ; seul $2\sigma^2\beta$ compte ; $\mathbb{E}_{\mathbf{x}}\mathrm{KL} = I(X ; Z) + \mathrm{KL}(q(\mathbf{z}) \thinspace\Vert\thinspace p(\mathbf{z}))$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ M04 (probabilités totales, règle de Bayes) et M05a (le log-sum-exp stable).
 </details>
 <details><summary>Indice 2</summary>
 
-$P(D) = \sum_\ell P(\ell)\,P(D \mid \ell)$ et $P(\ell \mid D) = \frac{P(\ell)\,P(D \mid \ell)}{P(D)}$. $\ln(e^a + e^b) = m + \ln(e^{a - m} + e^{b - m})$ avec $m = \max(a, b)$.
+$P(D) = \sum_\ell P(\ell)\thinspace P(D \mid \ell)$ et $P(\ell \mid D) = \frac{P(\ell)\thinspace P(D \mid \ell)}{P(D)}$. $\ln(e^a + e^b) = m + \ln(e^{a - m} + e^{b - m})$ avec $m = \max(a, b)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -188,7 +188,7 @@ Pour une fonction concave $f$, $f(\mathbb{E}[X]) \ge \mathbb{E}[f(X)]$. Entre de
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbb{E}[X] = 17$ et $\mathbb{E}[\ln X] = \frac12\ln 64$. 2. $\frac{3^2}{2 \times 3}$. 3. Écris $-\mathrm{KL}(p \,\|\, q)$ comme $\mathbb{E}_p\big[\ln\frac qp\big]$. 4. Calcule $h$ d'une gaussienne de très petite variance. 5. Pour des variables indépendantes, $p(x, y) = p(x)\,p(y)$.
+1. $\mathbb{E}[X] = 17$ et $\mathbb{E}[\ln X] = \frac12\ln 64$. 2. $\frac{3^2}{2 \times 3}$. 3. Écris $-\mathrm{KL}(p \thinspace\Vert\thinspace q)$ comme $\mathbb{E}_p\big[\ln\frac qp\big]$. 4. Calcule $h$ d'une gaussienne de très petite variance. 5. Pour des variables indépendantes, $p(x, y) = p(x)\thinspace p(y)$.
 
 </details>
 
@@ -241,7 +241,7 @@ Fiche §2 : « Les lois de l'espérance et de la variance totales », et la form
 </details>
 <details><summary>Indice 2</summary>
 
-$\boldsymbol{\Sigma} = \sum_k\pi_k\boldsymbol{\Sigma}_k + \sum_k\pi_k(\boldsymbol{\mu}_k - \boldsymbol{\mu})(\boldsymbol{\mu}_k - \boldsymbol{\mu})^\top$ ; la corrélation est $\frac{\Sigma_{12}}{\sqrt{\Sigma_{11}\Sigma_{22}}}$.
+$\boldsymbol{\Sigma} = \sum_k\pi_k\boldsymbol{\Sigma} _k + \sum_k\pi_k(\boldsymbol{\mu} _k - \boldsymbol{\mu})(\boldsymbol{\mu} _k - \boldsymbol{\mu})^\top$ ; la corrélation est $\frac{\Sigma _{12}}{\sqrt{\Sigma _{11}\Sigma _{22}}}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -313,7 +313,7 @@ Fiche §6 : « Les angles principaux entre deux sous-espaces » ; M12b pour Gram
 </details>
 <details><summary>Indice 2</summary>
 
-Les valeurs singulières de $\mathbf{M} = \mathbf{Q}_A^\top\mathbf{Q}_B$ sont les racines des valeurs propres de $\mathbf{M}^\top\mathbf{M}$ ; les angles sont leurs arccosinus. Pour deux droites, $\cos\phi = \frac{\lvert\mathbf{u}^\top\mathbf{v}\rvert}{\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert}$.
+Les valeurs singulières de $\mathbf{M} = \mathbf{Q}_A^\top\mathbf{Q}_B$ sont les racines des valeurs propres de $\mathbf{M}^\top\mathbf{M}$ ; les angles sont leurs arccosinus. Pour deux droites, $\cos\phi = \frac{\lvert\mathbf{u}^\top\mathbf{v}\rvert}{\lVert\mathbf{u}\rVert\thinspace\lVert\mathbf{v}\rVert}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -331,12 +331,12 @@ Fiche §7 : « Dériver une espérance par rapport à un paramètre de la loi »
 </details>
 <details><summary>Indice 2</summary>
 
-$\psi(\mu, \varepsilon) = (\mu + \sigma\varepsilon - c)^+$ : sa dérivée en $\mu$ est l'indicatrice $\mathbb{1}\{\varepsilon > z\}$, sa dérivée en $\sigma$ est $\varepsilon\,\mathbb{1}\{\varepsilon > z\}$. Pour la formule fermée, $(D - c)^+ = \sigma(\varepsilon - z)$ sur $\{\varepsilon > z\}$.
+$\psi(\mu, \varepsilon) = (\mu + \sigma\varepsilon - c)^+$ : sa dérivée en $\mu$ est l'indicatrice $\mathbb{1}\lbrace\varepsilon > z\rbrace$, sa dérivée en $\sigma$ est $\varepsilon\thinspace\mathbb{1}\lbrace\varepsilon > z\rbrace$. Pour la formule fermée, $(D - c)^+ = \sigma(\varepsilon - z)$ sur $\lbrace\varepsilon > z\rbrace$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\sigma\int_z^{+\infty}(u - z)\varphi(u)\,\mathrm{d}u$, avec $\int_z^{+\infty}u\,\varphi(u)\,\mathrm{d}u = \varphi(z)$ (une primitive de $u\varphi(u)$ est $-\varphi(u)$). b) $P(\varepsilon > 0{,}3)$. c) $\mathbb{E}[\varepsilon\,\mathbb{1}\{\varepsilon > z\}]$, par la même primitive. f) $\hat g_\mu$ ne prend que les valeurs 0 et 1.
+a) $\sigma\int_z^{+\infty}(u - z)\varphi(u)\thinspace\mathrm{d}u$, avec $\int_z^{+\infty}u\thinspace\varphi(u)\thinspace\mathrm{d}u = \varphi(z)$ (une primitive de $u\varphi(u)$ est $-\varphi(u)$). b) $P(\varepsilon > 0{,}3)$. c) $\mathbb{E}[\varepsilon\thinspace\mathbb{1}\lbrace\varepsilon > z\rbrace]$, par la même primitive. f) $\hat g_\mu$ ne prend que les valeurs 0 et 1.
 
 </details>
 
@@ -354,7 +354,7 @@ Sous $q_1$, $\ln p(x) \approx \ln 0{,}7 + \ln q_1(x)$, donc $\ln q_1 - \ln p \ap
 </details>
 <details><summary>Indice 3</summary>
 
-a) Variance dans les groupes $0{,}7 \times 4 + 0{,}3 \times 6{,}25$, entre les groupes $0{,}7 \times 5{,}4^2 + 0{,}3 \times 12{,}6^2$. c) L'espérance d'une constante est la constante : écris $-\ln 0{,}7$ comme un logarithme positif. f) $\mathbb{E}_p[(X - 22)^2] = 72{,}715 + 5{,}4^2$. h) $\mathrm{KL}(p \,\|\, q) = -h(p) - \mathbb{E}_p[\ln q]$ : compare f) et g).
+a) Variance dans les groupes $0{,}7 \times 4 + 0{,}3 \times 6{,}25$, entre les groupes $0{,}7 \times 5{,}4^2 + 0{,}3 \times 12{,}6^2$. c) L'espérance d'une constante est la constante : écris $-\ln 0{,}7$ comme un logarithme positif. f) $\mathbb{E}_p[(X - 22)^2] = 72{,}715 + 5{,}4^2$. h) $\mathrm{KL}(p \thinspace\Vert\thinspace q) = -h(p) - \mathbb{E}_p[\ln q]$ : compare f) et g).
 
 </details>
 
@@ -367,12 +367,12 @@ Fiche §8 : le posterior agrégé, le théorème « KL moyenne au prior » et so
 </details>
 <details><summary>Indice 2</summary>
 
-$q(z) = \sum_xp(x)\,q(z \mid x)$ ; $I(X ; Z) = \sum_{x,z}p(x)\,q(z \mid x)\ln\frac{q(z \mid x)}{q(z)}$ ; $\mathrm{KL}(q(\cdot \mid x) \,\|\, p) = \sum_zq(z \mid x)\ln\frac{q(z \mid x)}{p(z)}$.
+$q(z) = \sum_xp(x)\thinspace q(z \mid x)$ ; $I(X ; Z) = \sum_{x,z}p(x)\thinspace q(z \mid x)\ln\frac{q(z \mid x)}{q(z)}$ ; $\mathrm{KL}(q(\cdot \mid x) \thinspace\Vert\thinspace p) = \sum_zq(z \mid x)\ln\frac{q(z \mid x)}{p(z)}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $q(z = 1) = 0{,}5 \times 0{,}85 + 0{,}3 \times 0{,}35 + 0{,}2 \times 0{,}15$. b) Pour $a$ : $0{,}85\ln\frac{0{,}85}{0{,}8} + 0{,}15\ln\frac{0{,}15}{0{,}2}$ ; fais de même pour $b$ et $c$. d) Six termes, chacun pondéré par $p(x)\,q(z \mid x)$, avec $q(z)$ de a) au dénominateur.
+a) $q(z = 1) = 0{,}5 \times 0{,}85 + 0{,}3 \times 0{,}35 + 0{,}2 \times 0{,}15$. b) Pour $a$ : $0{,}85\ln\frac{0{,}85}{0{,}8} + 0{,}15\ln\frac{0{,}15}{0{,}2}$ ; fais de même pour $b$ et $c$. d) Six termes, chacun pondéré par $p(x)\thinspace q(z \mid x)$, avec $q(z)$ de a) au dénominateur.
 
 </details>
 
@@ -425,7 +425,7 @@ Fiche §5 : « L'EM, une montée par coordonnées » et « Le gradient de ln p(x
 </details>
 <details><summary>Indice 2</summary>
 
-Par ∂ M25b.5, $\operatorname{ELBO}(q, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t) - \sum_i\mathrm{KL}(q_i \,\|\, p(\cdot \mid \mathbf{x}_i, \boldsymbol{\theta}_t))$. Pour le gradient : $\nabla p = p\,\nabla\ln p$, puis la règle de Bayes.
+Par ∂ M25b.5, $\operatorname{ELBO}(q, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t) - \sum_i\mathrm{KL}(q_i \thinspace\Vert\thinspace p(\cdot \mid \mathbf{x}_i, \boldsymbol{\theta}_t))$. Pour le gradient : $\nabla p = p\thinspace\nabla\ln p$, puis la règle de Bayes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -461,12 +461,12 @@ Fiche §7 : le théorème, son idée et le contre-exemple discret ; M19 §7 pour
 </details>
 <details><summary>Indice 2</summary>
 
-Le taux d'accroissement est $\frac1t\int_\theta^{\theta + t}\partial_\theta\psi(u, \xi)\,\mathrm{d}u$, donc majoré par $G(\xi)$. Pour $\mathbb{E}[\varepsilon\,e^{t\varepsilon}]$ : $-\frac{u^2}{2} + tu = -\frac{(u - t)^2}{2} + \frac{t^2}{2}$.
+Le taux d'accroissement est $\frac1t\int_\theta^{\theta + t}\partial_\theta\psi(u, \xi)\thinspace\mathrm{d}u$, donc majoré par $G(\xi)$. Pour $\mathbb{E}[\varepsilon\thinspace e^{t\varepsilon}]$ : $-\frac{u^2}{2} + tu = -\frac{(u - t)^2}{2} + \frac{t^2}{2}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. $G(\varepsilon) = \lvert\varepsilon\rvert\,e^{\lvert\mu\rvert + s_0\lvert\varepsilon\rvert}$ convient. Après la complétion du carré, $\mathbb{E}[\varepsilon\,e^{t\varepsilon}] = e^{t^2/2}$ fois la moyenne de $\mathcal{N}(t, 1)$. 3. Même calcul avec le moment d'ordre 2 de $\mathcal{N}(t, 1)$, et $t = 2\sigma$ pour $\hat g^2$. 4. Où se trouve le saut de $\mu \mapsto \mathbb{1}\{\mu + \sigma\varepsilon > c\}$ ? Pour la vraie dérivée, dérive $1 - \Phi\big(\frac{c - \mu}{\sigma}\big)$ en $\mu$ ; puis cherche l'étape de 1 qui suppose que $\psi(\cdot, \xi)$ ne saute pas.
+2. $G(\varepsilon) = \lvert\varepsilon\rvert\thinspace e^{\lvert\mu\rvert + s_0\lvert\varepsilon\rvert}$ convient. Après la complétion du carré, $\mathbb{E}[\varepsilon\thinspace e^{t\varepsilon}] = e^{t^2/2}$ fois la moyenne de $\mathcal{N}(t, 1)$. 3. Même calcul avec le moment d'ordre 2 de $\mathcal{N}(t, 1)$, et $t = 2\sigma$ pour $\hat g^2$. 4. Où se trouve le saut de $\mu \mapsto \mathbb{1}\lbrace\mu + \sigma\varepsilon > c\rbrace$ ? Pour la vraie dérivée, dérive $1 - \Phi\big(\frac{c - \mu}{\sigma}\big)$ en $\mu$ ; puis cherche l'étape de 1 qui suppose que $\psi(\cdot, \xi)$ ne saute pas.
 
 </details>
 
@@ -484,7 +484,7 @@ $h(\mathcal{N}(m, \sigma^2)) = \frac12\ln(2\pi e\sigma^2)$, et $Z \sim \mathcal{
 </details>
 <details><summary>Indice 3</summary>
 
-2. La covariance de $(X, Z)$ est $\begin{pmatrix} s^2 & s^2 \\ s^2 & s^2 + v \end{pmatrix}$ ; puis $e^{2I} = 1 + \frac{s^2}{v}$ pour éliminer $v$. 3. $\mathcal{L}'(I) = \beta - 2s^2e^{-2I}$ : regarde son signe en $I = 0$ et son sens de variation.
+2. La covariance de $(X, Z)$ est $\begin{pmatrix} s^2 & s^2 \cr s^2 & s^2 + v \end{pmatrix}$ ; puis $e^{2I} = 1 + \frac{s^2}{v}$ pour éliminer $v$. 3. $\mathcal{L}'(I) = \beta - 2s^2e^{-2I}$ : regarde son signe en $I = 0$ et son sens de variation.
 
 </details>
 
@@ -595,7 +595,7 @@ Fiche §5 (« L'EM, une montée par coordonnées ») et §4 (« Ce qui est garan
 </details>
 <details><summary>Indice 2</summary>
 
-Construis la réponse autour de la chaîne $\ell(\boldsymbol{\theta}_{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t)$, dite avec des mots.
+Construis la réponse autour de la chaîne $\ell(\boldsymbol{\theta} _{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta} _{t+1}) \ge \operatorname{ELBO}(q_t, \boldsymbol{\theta}_t) = \ell(\boldsymbol{\theta}_t)$, dite avec des mots.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -725,7 +725,7 @@ Fiche §7, « Le sens de la KL » ; ✏️ M25b.13 pour $q_\star$, $q_1$ et $q_2
 </details>
 <details><summary>Indice 2</summary>
 
-Sur la grille `x = np.linspace(-30, 100, 260001)`, $\ln p(x)$ = `scipy.special.logsumexp(np.log(weights) + scipy.stats.norm.logpdf(x[:, None], means, np.sqrt(variances)), axis=1)`. Pour $q = \mathcal{N}(m, s^2)$ : $\mathrm{KL}(q \,\|\, p)$ = `np.trapezoid(q * (lq - lp), x)` et $\mathrm{KL}(p \,\|\, q)$ = `np.trapezoid(p * (lp - lq), x)`.
+Sur la grille `x = np.linspace(-30, 100, 260001)`, $\ln p(x)$ = `scipy.special.logsumexp(np.log(weights) + scipy.stats.norm.logpdf(x[:, None], means, np.sqrt(variances)), axis=1)`. Pour $q = \mathcal{N}(m, s^2)$ : $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ = `np.trapezoid(q * (lq - lp), x)` et $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ = `np.trapezoid(p * (lp - lq), x)`.
 
 </details>
 <details><summary>Indice 3</summary>

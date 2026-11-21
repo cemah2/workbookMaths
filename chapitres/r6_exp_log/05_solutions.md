@@ -28,11 +28,11 @@
 
 ### R6.Q3 — Combien de bits ?
 1. **4** questions ($2^{4} = 16$).
-2. **20** questions : $2^{19} = 524\,288$ ne suffit pas, $2^{20} = 1\,048\,576$ suffit.
+2. **20** questions : $2^{19} = 524\thinspace288$ ne suffit pas, $2^{20} = 1\thinspace048\thinspace576$ suffit.
 3. **5** bits ($-\log_{2} \frac{1}{32} = 5$).
 4. **0** bit : un événement certain n'apprend rien.
 5. $2^{7} = $ **128** possibilités.
-6. **Vrai** : 1 bit ≈ 0,693 nat, donc une quantité de $I$ bits vaut $0{,}693\,I$ nats, un nombre plus petit (4 bits ≈ 2,77 nats).
+6. **Vrai** : 1 bit ≈ 0,693 nat, donc une quantité de $I$ bits vaut $0{,}693\thinspace I$ nats, un nombre plus petit (4 bits ≈ 2,77 nats).
 
 ### R6.Q4 — Qui grandit le plus vite ?
 1. $1{,}01^{x}$ (exponentielle contre puissance).
@@ -40,7 +40,7 @@
 3. $3^{x}$ ($\frac{3^{x}}{2^{x}} = 1{,}5^{x} \to +\infty$).
 4. $e^{x}$.
 5. $\sqrt{x}$ ($100 \ln x$ reste devant longtemps, mais une puissance finit par gagner).
-6. **Vrai** : $10^{3} = 1\,000$ et $1{,}01^{10} \approx 1{,}10$. « Finit par » ne dit rien des petites valeurs.
+6. **Vrai** : $10^{3} = 1\thinspace000$ et $1{,}01^{10} \approx 1{,}10$. « Finit par » ne dit rien des petites valeurs.
 
 ### R6.Q5 — Lire une échelle logarithmique
 1. **Oui** : chaque intervalle est un facteur 10, une décade.
@@ -122,10 +122,10 @@
 - d) Domaine : $x - 1 > 0$ et $x + 1 > 0$, donc $x > 1$. Puis $\ln\big((x - 1)(x + 1)\big) = \ln 8 \iff x^{2} - 1 = 8 \iff x^{2} = 9$ : $x = 3$ ou $x = -3$, et seul 3 est dans le domaine.
 - e) $1{,}04^{n} > 1{,}6 \iff n > \frac{\ln 1{,}6}{\ln 1{,}04} \approx 11{,}98$ : $n = 12$. Contrôle : $5 \times 1{,}04^{11} \approx 7{,}70$ et $5 \times 1{,}04^{12} \approx 8{,}005$.
 - f) $n \ln 0{,}85 < \ln 0{,}05 \iff n > \frac{\ln 0{,}05}{\ln 0{,}85} \approx 18{,}43$ ($\ln 0{,}85 < 0$ : le sens change) : $n = 19$.
-- g) Domaine : $x > 1$ ; puis $\ln(x - 1) \le 0 = \ln 1 \iff x - 1 \le 1 \iff x \le 2$ : $]1 \;;\; 2]$.
+- g) Domaine : $x > 1$ ; puis $\ln(x - 1) \le 0 = \ln 1 \iff x - 1 \le 1 \iff x \le 2$ : $]1 \mkern5mu ;\mkern5mu  2]$.
 - h) Avec $X = e^{x}$ : $X^{2} - 5X + 6 = (X - 2)(X - 3) = 0$, donc $e^{x} = 2$ ou $e^{x} = 3$ : $x = \ln 2 \approx 0{,}6931$ ou $x = \ln 3 \approx 1{,}0986$.
 
-**Erreurs fréquentes.** Prendre le logarithme avant d'avoir isolé $e^{x}$ (a) ; un signe perdu en divisant par $-2$ (b) ; $x = \ln 2{,}5$ en c ; garder $-3$ en d, ou écrire $\ln(x - 1) + \ln(x + 1) = \ln(2x)$ ; oublier de changer le sens de l'inégalité en f ; oublier le domaine en g (et répondre $]-\infty \;;\; 2]$) ; en h, s'arrêter à $X = 2$ et $X = 3$.
+**Erreurs fréquentes.** Prendre le logarithme avant d'avoir isolé $e^{x}$ (a) ; un signe perdu en divisant par $-2$ (b) ; $x = \ln 2{,}5$ en c ; garder $-3$ en d, ou écrire $\ln(x - 1) + \ln(x + 1) = \ln(2x)$ ; oublier de changer le sens de l'inégalité en f ; oublier le domaine en g (et répondre $]-\infty \mkern5mu ;\mkern5mu  2]$) ; en h, s'arrêter à $X = 2$ et $X = 3$.
 
 **Variante.** Résous $e^{2x} = 10$ et trouve le plus petit $n$ tel que $0{,}7^{n} < 0{,}5$. *Réponse* : $x = \frac{\ln 10}{2} \approx 1{,}15$ ; $n > \frac{\ln 0{,}5}{\ln 0{,}7} \approx 1{,}94$, donc $n = 2$.
 
@@ -149,7 +149,7 @@
 
 **Démarche.**
 - a) $2^{8} = 256 < 300 \le 512 = 2^{9}$ : 9 questions. b) $\frac{\ln 300}{\ln 2} \approx 8{,}23$ : un peu plus de 8 bits, d'où 9 questions entières.
-- c) $26^{3} = 17\,576$ codes également probables : $\log_{2}(26^{3}) = 3 \log_{2} 26 \approx 3 \times 4{,}700 = 14{,}10$ bits. Chaque lettre apporte $\log_{2} 26$ bits, et les informations s'additionnent.
+- c) $26^{3} = 17\thinspace576$ codes également probables : $\log_{2}(26^{3}) = 3 \log_{2} 26 \approx 3 \times 4{,}700 = 14{,}10$ bits. Chaque lettre apporte $\log_{2} 26$ bits, et les informations s'additionnent.
 - d) $n \log_{2} 26 \ge 50 \iff n \ge \frac{50}{4{,}700} \approx 10{,}64$ : 11 lettres (10 lettres n'apportent que 47 bits).
 - e) $\log_{2} 52 \approx 5{,}70$ bits.
 - f) $p = \frac{12}{52}$ : $-\log_{2} \frac{12}{52} = \log_{2} \frac{52}{12} \approx 2{,}12$ bits, moins qu'en e : savoir que c'est une figure apprend moins que connaître la carte.
@@ -158,7 +158,7 @@
 
 **Erreurs fréquentes.** Répondre 8 en a ($2^{8} = 256$ ne suffit pas) ; $\log_{2}(26 \times 3)$ en c ; 10 en d ; $\log_{2} 12$ en f (le nombre de figures, pas la probabilité) ; diviser par $\ln 2$ pour passer des bits aux nats ; $p = 2^{-3}$ en g (des bits, pas des nats).
 
-**Variante.** Combien de questions oui ou non pour un nombre choisi entre 1 et 2 000, et combien de bits apporte « la carte est un as » (4 cartes sur 52) ? *Réponse* : 11 ($2^{11} = 2\,048$) ; $\log_{2} 13 \approx 3{,}70$ bits.
+**Variante.** Combien de questions oui ou non pour un nombre choisi entre 1 et 2 000, et combien de bits apporte « la carte est un as » (4 cartes sur 52) ? *Réponse* : 11 ($2^{11} = 2\thinspace048$) ; $\log_{2} 13 \approx 3{,}70$ bits.
 
 ### Ex R6.6 — Temps de doublement et demi-vie
 
@@ -169,7 +169,7 @@
 - c) $0{,}9^{n} = \frac{1}{2} \iff n = \frac{\ln 0{,}5}{\ln 0{,}9} \approx 6{,}58$ ans.
 - d) $m^{5} = 2 \iff m = 2^{1/5} \approx 1{,}1487$ (une hausse d'environ 14,9 % par heure).
 - e) $2^{12/5} = 2^{2{,}4} \approx 5{,}28$.
-- f) $e^{0{,}04\,t} = 2 \iff t = \frac{\ln 2}{0{,}04} \approx 17{,}33$.
+- f) $e^{0{,}04\thinspace t} = 2 \iff t = \frac{\ln 2}{0{,}04} \approx 17{,}33$.
 - g) 24 heures font 4 demi-vies : $\left(\frac{1}{2}\right)^{4} = \frac{1}{16}$.
 
 **Erreurs fréquentes.** Confondre la valeur exacte et la règle de 70 (a, b) ; $\ln 1{,}1$ au lieu de $\ln 0{,}9$ pour une baisse ; $2 \times \frac{12}{5}$ au lieu de $2^{12/5}$ ; $\frac{\ln 2}{\ln 1{,}04}$ pour une croissance continue.
@@ -197,7 +197,7 @@
 **Réponses** : a) `10` · b) `16.5` · c) `3.5` · d) `31.62` · e) `3.98`.
 
 **Démarche.**
-- a) $5 \times \log_{10} 100 = 10$ cm. b) $5 \times \log_{10} 2\,000 \approx 5 \times 3{,}301 \approx 16{,}5$ cm. c) $5 \times \log_{10} 5 \approx 5 \times 0{,}699 \approx 3{,}5$ cm.
+- a) $5 \times \log_{10} 100 = 10$ cm. b) $5 \times \log_{10} 2\thinspace000 \approx 5 \times 3{,}301 \approx 16{,}5$ cm. c) $5 \times \log_{10} 5 \approx 5 \times 0{,}699 \approx 3{,}5$ cm.
 - d) $7{,}5$ cm $= 1{,}5$ décade : $10^{1{,}5} \approx 31{,}62$.
 - e) 3 cm $= 0{,}6$ décade : un rapport $10^{0{,}6} \approx 3{,}98$.
 
@@ -278,21 +278,21 @@ Dans ta copie : $-\ln p$ est l'information, en nats, de ce qui s'est produit, la
 **Démarche.**
 - a) $\ln \frac{2000}{2000} = \ln 1 = 0$. b) $\ln 100 \approx 4{,}605$. c) $\ln 10 \approx 2{,}303$.
 - d) $2 \ln 100 \approx 9{,}210$ et $5 \ln 10 \approx 11{,}513$ (avec l'arrondi 2,303, on trouverait 11,515 : on garde les valeurs exactes jusqu'au bout). Le mot fréquent dans le document l'emporte, malgré un idf plus petit.
-- e) $\frac{255^{2}}{65{,}025} = \frac{65\,025}{65{,}025} = 1\,000$, et $10 \log_{10} 1\,000 = 30$ dB.
+- e) $\frac{255^{2}}{65{,}025} = \frac{65\thinspace025}{65{,}025} = 1\thinspace000$, et $10 \log_{10} 1\thinspace000 = 30$ dB.
 - f) Diviser la MSE par 5 multiplie le rapport par 5 : $+10 \log_{10} 5 \approx 6{,}99$ dB.
-- g) $10 \log_{10} R = 40 \iff R = 10^{4}$, donc $\mathrm{MSE} = \frac{65\,025}{10\,000} = 6{,}5025$.
+- g) $10 \log_{10} R = 40 \iff R = 10^{4}$, donc $\mathrm{MSE} = \frac{65\thinspace025}{10\thinspace000} = 6{,}5025$.
 
 Dans ta copie : un mot présent partout ne distingue aucun document (son idf vaut $\ln 1 = 0$) ; le logarithme du PSNR change les rapports en écarts : multiplier le rapport par un même nombre ajoute toujours le même nombre de décibels, quelle que soit la qualité de départ, et des erreurs de tailles très différentes deviennent comparables.
 
 **Erreurs fréquentes.** $\log_{10}$ au lieu de $\ln$ dans l'idf ; oublier le facteur 10 du PSNR ; inverser le rapport en g.
 
-**Variante.** L'idf d'un mot présent dans 400 documents, et le PSNR d'une MSE de 26,01 ? *Réponse* : $\ln 5 \approx 1{,}609$ ; $10 \log_{10} 2\,500 \approx 33{,}98$ dB.
+**Variante.** L'idf d'un mot présent dans 400 documents, et le PSNR d'une MSE de 26,01 ? *Réponse* : $\ln 5 \approx 1{,}609$ ; $10 \log_{10} 2\thinspace500 \approx 33{,}98$ dB.
 
 ### Ex R6.13 — Expliquer ce que compte un logarithme : des chiffres, des doublements, des bits
 
 **Exemple de réponse.**
 
-> Un logarithme répond à une seule question : « à quelle puissance faut-il élever la base pour obtenir ce nombre ? ». Par exemple $\log_{10} 100\,000 = 5$, parce que $10^{5} = 100\,000$. En base 10, il compte donc à peu près les chiffres : un nombre de 5 chiffres a un $\log_{10}$ entre 4 et 5. En base 2, il compte les doublements : $\log_{2} 4\,096 = 12$, il faut doubler 12 fois 1 pour atteindre 4 096. C'est aussi le nombre de questions oui ou non pour retrouver un objet parmi 4 096, en coupant à chaque fois en deux : 12 bits. Et comme multiplier deux puissances revient à additionner leurs exposants, le logarithme d'un produit est la somme des logarithmes : il transforme les multiplications en additions.
+> Un logarithme répond à une seule question : « à quelle puissance faut-il élever la base pour obtenir ce nombre ? ». Par exemple $\log_{10} 100\thinspace000 = 5$, parce que $10^{5} = 100\thinspace000$. En base 10, il compte donc à peu près les chiffres : un nombre de 5 chiffres a un $\log_{10}$ entre 4 et 5. En base 2, il compte les doublements : $\log_{2} 4\thinspace096 = 12$, il faut doubler 12 fois 1 pour atteindre 4 096. C'est aussi le nombre de questions oui ou non pour retrouver un objet parmi 4 096, en coupant à chaque fois en deux : 12 bits. Et comme multiplier deux puissances revient à additionner leurs exposants, le logarithme d'un produit est la somme des logarithmes : il transforme les multiplications en additions.
 
 **Grille.** Une bonne réponse : (1) la question « à quelle puissance… ? » avec un exemple ; (2) les chiffres pour $\log_{10}$ ; (3) les doublements, puis les questions oui ou non, pour $\log_{2}$ ; (4) le produit qui devient une somme, avec sa raison (les exposants s'additionnent) ; (5) huit lignes au plus.
 
@@ -344,7 +344,7 @@ Dans ta copie : un mot présent partout ne distingue aucun document (son idf vau
 
 **Réponses** : a) `57` · b) `59` · c) `271.03` · d) `36` · e) `3269018`.
 
-**Démarche.** `gap = n * math.log(2) - 10 * np.log(n)` et `race = 0.1 * t - np.log(t)`. a) $2^{n} \le n^{10}$ pour $n = 2, \dots, 58$ : 57 entiers. b) À partir de 59, $2^{n}$ reste devant. c) $1000 \log_{10} 2 - 10 \log_{10} 1000 = 301{,}03 - 30 = 271{,}03$. d) $0{,}1\,t > \ln t$ pour la première fois à partir de $t = 36$ (à $t = 35$, $3{,}5 < \ln 35 \approx 3{,}555$). e) $e^{15} \approx 3\,269\,017{,}4$, donc $k = 3\,269\,018$. Pour la copie : $x^{0{,}1}$ ne dépasse $\ln x$ que pour $x \ge e^{36} \approx 4 \times 10^{15}$.
+**Démarche.** `gap = n * math.log(2) - 10 * np.log(n)` et `race = 0.1 * t - np.log(t)`. a) $2^{n} \le n^{10}$ pour $n = 2, \dots, 58$ : 57 entiers. b) À partir de 59, $2^{n}$ reste devant. c) $1000 \log_{10} 2 - 10 \log_{10} 1000 = 301{,}03 - 30 = 271{,}03$. d) $0{,}1\thinspace t > \ln t$ pour la première fois à partir de $t = 36$ (à $t = 35$, $3{,}5 < \ln 35 \approx 3{,}555$). e) $e^{15} \approx 3\thinspace269\thinspace017{,}4$, donc $k = 3\thinspace269\thinspace018$. Pour la copie : $x^{0{,}1}$ ne dépasse $\ln x$ que pour $x \ge e^{36} \approx 4 \times 10^{15}$.
 
 **Erreurs fréquentes.** Calculer $2^{n}$ et $n^{10}$ directement (ça marche en Python avec des entiers, mais pas avec des flottants au-delà de $2^{1023}$) ; compter les $n$ où $2^{n}$ gagne en a ; diviser par $\ln 10$ en oubliant les $\ln$ (c).
 
@@ -360,7 +360,7 @@ Dans ta copie : un mot présent partout ne distingue aucun document (son idf vau
 
 **Réponses** : a) `"AEF"` · b) `"ValueError"` · c) `[-1.6094, 1.6094, 164.8721]`.
 
-**Démarche.** (A) une somme part de 0 ; (E) `math.log(a + b)` ; (F) `start * math.exp(rate * t1) * math.exp(rate * t2)` (ou `math.exp(rate * (t1 + t2))`). b) `math.log(0)` lève `ValueError: math domain error`. c) $\ln(0{,}5 \times 0{,}4) = \ln 0{,}2$, $\ln 5$, $100\,e^{0{,}05 \times 10} = 100\,e^{0{,}5}$. Pour la copie : $\ln 0$ n'existe pas ($-\infty$ à la limite) ; un modèle qui donne la probabilité 0 à ce qui arrive vraiment a une log-vraisemblance de $-\infty$ : aucune autre réponse juste ne peut rattraper cette erreur.
+**Démarche.** (A) une somme part de 0 ; (E) `math.log(a + b)` ; (F) `start * math.exp(rate * t1) * math.exp(rate * t2)` (ou `math.exp(rate * (t1 + t2))`). b) `math.log(0)` lève `ValueError: math domain error`. c) $\ln(0{,}5 \times 0{,}4) = \ln 0{,}2$, $\ln 5$, $100\thinspace e^{0{,}05 \times 10} = 100\thinspace e^{0{,}5}$. Pour la copie : $\ln 0$ n'existe pas ($-\infty$ à la limite) ; un modèle qui donne la probabilité 0 à ce qui arrive vraiment a une log-vraisemblance de $-\infty$ : aucune autre réponse juste ne peut rattraper cette erreur.
 
 **Erreurs fréquentes.** Accuser (C), qui est juste ; oublier (A) (le code rend une valeur décalée de 1, sans erreur) ; répondre `-inf` en b (c'est NumPy, pas `math`).
 

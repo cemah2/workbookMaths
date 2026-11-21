@@ -59,13 +59,13 @@ Vocabulaire anglais de ce chapitre : *vector space*, *vector subspace*, *closure
 ## L'essentiel en 10 lignes
 
 1. Un **espace vectoriel** est un ensemble où l'on additionne des vecteurs et où on les multiplie par des nombres, avec les règles de calcul habituelles : $\mathbb{R}^n$, les polynômes, les matrices d'une forme donnée. Un **sous-espace** contient $\mathbf{0}$ et est stable par combinaison linéaire.
-2. $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ est l'ensemble des combinaisons $\lambda_1\mathbf{v}_1 + \cdots + \lambda_k\mathbf{v}_k$ : le plus petit sous-espace qui contient ces vecteurs. Savoir si $\mathbf{b}$ y est, c'est résoudre le système $[\mathbf{v}_1 \cdots \mathbf{v}_k]\,\boldsymbol{\lambda} = \mathbf{b}$.
+2. $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ est l'ensemble des combinaisons $\lambda_1\mathbf{v}_1 + \cdots + \lambda_k\mathbf{v}_k$ : le plus petit sous-espace qui contient ces vecteurs. Savoir si $\mathbf{b}$ y est, c'est résoudre le système $[\mathbf{v}_1 \cdots \mathbf{v}_k]\thinspace\boldsymbol{\lambda} = \mathbf{b}$.
 3. Une famille est **libre** si la seule combinaison nulle est celle dont tous les coefficients sont nuls ; sinon, l'un des vecteurs combine les autres. Test : chaque colonne de $[\mathbf{v}_1 \cdots \mathbf{v}_k]$ porte un pivot.
 4. Une **base** est une famille libre et génératrice ; tout vecteur s'y écrit d'une seule façon, et ses coefficients sont ses **coordonnées**. Toutes les bases ont le même nombre de vecteurs : la **dimension**.
 5. Le **rang** de $\mathbf{A}$ est la dimension de l'espace engendré par ses colonnes, égale à celle de l'espace engendré par ses lignes : $\operatorname{rg}(\mathbf{A}) = \operatorname{rg}(\mathbf{A}^\top) \le \min(m, n)$ ; $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$.
 6. Une application **linéaire** respecte sommes et multiples : $f(\lambda\mathbf{x} + \mu\mathbf{y}) = \lambda f(\mathbf{x}) + \mu f(\mathbf{y})$. De $\mathbb{R}^n$ dans $\mathbb{R}^m$, c'est $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$, et la colonne $j$ de $\mathbf{A}$ est $f(\mathbf{e}_j)$ ; composer, c'est multiplier les matrices.
-7. Le **noyau** $\ker\mathbf{A} = \{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\}$ vit dans $\mathbb{R}^n$, l'**image** $\operatorname{Im}\mathbf{A}$ (l'espace des colonnes) dans $\mathbb{R}^m$. **Théorème du rang** : $\dim\ker\mathbf{A} + \operatorname{rg}\mathbf{A} = n$, le nombre de colonnes.
-8. Les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$, s'il y en a, sont $\mathbf{x}_p + \ker\mathbf{A}$ : une solution particulière plus le noyau. $\mathbf{A}$ est injective si et seulement si $\ker\mathbf{A} = \{\mathbf{0}\}$.
+7. Le **noyau** $\ker\mathbf{A} = \lbrace\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{0}\rbrace$ vit dans $\mathbb{R}^n$, l'**image** $\operatorname{Im}\mathbf{A}$ (l'espace des colonnes) dans $\mathbb{R}^m$. **Théorème du rang** : $\dim\ker\mathbf{A} + \operatorname{rg}\mathbf{A} = n$, le nombre de colonnes.
+8. Les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$, s'il y en a, sont $\mathbf{x}_p + \ker\mathbf{A}$ : une solution particulière plus le noyau. $\mathbf{A}$ est injective si et seulement si $\ker\mathbf{A} = \lbrace\mathbf{0}\rbrace$.
 9. **Changer de base** : si les colonnes de $\mathbf{S}$ sont la nouvelle base, $\mathbf{x} = \mathbf{S}\mathbf{x}'$, et l'application $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ a pour matrice $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ dans la nouvelle base ($\mathbf{T}^{-1}\mathbf{A}\mathbf{S}$ entre deux espaces).
 10. Une application **affine** est $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ ; elle est bijective si et seulement si $\mathbf{A}$ est inversible, et alors $\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$ est encore affine.
 
@@ -75,7 +75,7 @@ Vocabulaire anglais de ce chapitre : *vector space*, *vector subspace*, *closure
 
 ### Ce qu'on demande à un ensemble de vecteurs
 
-Dans $\mathbb{R}^n$ (M07), on additionne deux vecteurs et on multiplie un vecteur par un nombre, coordonnée par coordonnée. Bien d'autres objets se calculent de la même façon : les polynômes ($(1 + 2x) + 3(x - x^2) = 1 + 5x - 3x^2$), les matrices d'une même forme (M09a), les fonctions de $\mathbb{R}$ dans $\mathbb{R}$. Un **espace vectoriel** (*vector space*) sur $\mathbb{R}$ est un ensemble $V$ muni d'une addition et d'une multiplication par un réel, dont les résultats restent dans $V$, et qui respectent huit règles : l'addition est associative et commutative ; il existe un **vecteur nul** $\mathbf{0}$ avec $\mathbf{x} + \mathbf{0} = \mathbf{x}$ ; chaque $\mathbf{x}$ a un opposé $-\mathbf{x}$ ; enfin $\lambda(\mathbf{x} + \mathbf{y}) = \lambda\mathbf{x} + \lambda\mathbf{y}$, $(\lambda + \mu)\mathbf{x} = \lambda\mathbf{x} + \mu\mathbf{x}$, $\lambda(\mu\mathbf{x}) = (\lambda\mu)\mathbf{x}$ et $1\,\mathbf{x} = \mathbf{x}$. Ce sont exactement les règles que tu appliques sans y penser dans $\mathbb{R}^n$ : la définition dit seulement qu'on peut calculer de la même façon ailleurs. Les éléments de $V$ s'appellent des **vecteurs**, même quand ce sont des polynômes ou des matrices.
+Dans $\mathbb{R}^n$ (M07), on additionne deux vecteurs et on multiplie un vecteur par un nombre, coordonnée par coordonnée. Bien d'autres objets se calculent de la même façon : les polynômes ($(1 + 2x) + 3(x - x^2) = 1 + 5x - 3x^2$), les matrices d'une même forme (M09a), les fonctions de $\mathbb{R}$ dans $\mathbb{R}$. Un **espace vectoriel** (*vector space*) sur $\mathbb{R}$ est un ensemble $V$ muni d'une addition et d'une multiplication par un réel, dont les résultats restent dans $V$, et qui respectent huit règles : l'addition est associative et commutative ; il existe un **vecteur nul** $\mathbf{0}$ avec $\mathbf{x} + \mathbf{0} = \mathbf{x}$ ; chaque $\mathbf{x}$ a un opposé $-\mathbf{x}$ ; enfin $\lambda(\mathbf{x} + \mathbf{y}) = \lambda\mathbf{x} + \lambda\mathbf{y}$, $(\lambda + \mu)\mathbf{x} = \lambda\mathbf{x} + \mu\mathbf{x}$, $\lambda(\mu\mathbf{x}) = (\lambda\mu)\mathbf{x}$ et $1\thinspace\mathbf{x} = \mathbf{x}$. Ce sont exactement les règles que tu appliques sans y penser dans $\mathbb{R}^n$ : la définition dit seulement qu'on peut calculer de la même façon ailleurs. Les éléments de $V$ s'appellent des **vecteurs**, même quand ce sont des polynômes ou des matrices.
 
 Exemples : $\mathbb{R}^n$ ; $\mathbb{R}_d[x]$, les polynômes de degré **au plus** $d$ (avec « au plus », la somme de deux d'entre eux y reste) ; $\mathbb{R}^{m \times n}$, les matrices de forme $(m, n)$ ; l'ensemble des suites réelles.
 
@@ -88,9 +88,9 @@ Un **sous-espace vectoriel** (*vector subspace*) de $V$ est une partie $U \subse
 
 Les règles de calcul sont héritées de $V$. Les points 2 et 3 se vérifient d'un coup : $\lambda\mathbf{x} + \mu\mathbf{y} \in U$ pour tous $\mathbf{x}, \mathbf{y} \in U$ et tous réels $\lambda, \mu$.
 
-**Exemples dans $\mathbb{R}^3$.** Le plan $P = \{(x, y, z) : x - 3y + 2z = 0\}$ est un sous-espace : $(0, 0, 0)$ vérifie l'équation, et si $\mathbf{u}$ et $\mathbf{v}$ la vérifient, $\lambda\mathbf{u} + \mu\mathbf{v}$ aussi, car le membre de gauche est linéaire en $(x, y, z)$. De même, toute droite **par l'origine**, $\{t\,\mathbf{d} : t \in \mathbb{R}\}$, et plus généralement l'ensemble des solutions d'un système **homogène** $\mathbf{A}\mathbf{x} = \mathbf{0}$ (§6). Les deux sous-espaces extrêmes sont $\{\mathbf{0}\}$ et $\mathbb{R}^3$ lui-même. En revanche :
+**Exemples dans $\mathbb{R}^3$.** Le plan $P = \lbrace(x, y, z) : x - 3y + 2z = 0\rbrace$ est un sous-espace : $(0, 0, 0)$ vérifie l'équation, et si $\mathbf{u}$ et $\mathbf{v}$ la vérifient, $\lambda\mathbf{u} + \mu\mathbf{v}$ aussi, car le membre de gauche est linéaire en $(x, y, z)$. De même, toute droite **par l'origine**, $\lbrace t\thinspace\mathbf{d} : t \in \mathbb{R}\rbrace$, et plus généralement l'ensemble des solutions d'un système **homogène** $\mathbf{A}\mathbf{x} = \mathbf{0}$ (§6). Les deux sous-espaces extrêmes sont $\lbrace\mathbf{0}\rbrace$ et $\mathbb{R}^3$ lui-même. En revanche :
 - le plan $x - 3y + 2z = 5$ ne contient pas $\mathbf{0}$ : ce n'est **pas** un sous-espace (c'est un sous-espace **affine**, §8) ;
-- l'octant $\{x \ge 0,\ y \ge 0,\ z \ge 0\}$ est stable par addition, mais $(-1) \cdot (1, 0, 0)$ en sort ;
+- l'octant $\lbrace x \ge 0,\ y \ge 0,\ z \ge 0\rbrace$ est stable par addition, mais $(-1) \cdot (1, 0, 0)$ en sort ;
 - la boule $\lVert \mathbf{x} \rVert \le 1$ n'est stable ni par addition ni par multiplication ;
 - la réunion de deux droites distinctes par l'origine est stable par multiplication, mais pas par addition (M12a.14).
 
@@ -108,7 +108,7 @@ Les prédictions $\mathbf{X}\mathbf{w}$ d'un modèle linéaire, quand $\mathbf{w
 
 Une **combinaison linéaire** (*linear combination*) de $\mathbf{v}_1, \ldots, \mathbf{v}_k$ est un vecteur $\lambda_1\mathbf{v}_1 + \cdots + \lambda_k\mathbf{v}_k$ (M07). L'ensemble de toutes ces combinaisons s'appelle le **sous-espace engendré** (*span*) :
 
-$$\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = \{\lambda_1\mathbf{v}_1 + \cdots + \lambda_k\mathbf{v}_k : \lambda_1, \ldots, \lambda_k \in \mathbb{R}\}.$$
+$$\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = \lbrace\lambda_1\mathbf{v}_1 + \cdots + \lambda_k\mathbf{v}_k : \lambda_1, \ldots, \lambda_k \in \mathbb{R}\rbrace.$$
 
 C'est un sous-espace (une combinaison de combinaisons est une combinaison), et le plus petit qui contient $\mathbf{v}_1, \ldots, \mathbf{v}_k$. On dit que la famille $(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ est **génératrice** (*generating set*, *spanning set*) de $V$ quand $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = V$ : tout vecteur de $V$ en est une combinaison. Dans le plan, un vecteur non nul engendre une droite par l'origine ; deux vecteurs non colinéaires engendrent tout le plan.
 
@@ -126,7 +126,7 @@ la seule façon d'obtenir $\mathbf{0}$ est la combinaison triviale. Sinon, elle 
 
 **Le test par le pivot de Gauss.** $\mathbf{V}\boldsymbol{\lambda} = \mathbf{0}$ n'a que la solution nulle si et seulement s'il n'y a pas de variable libre, c'est-à-dire si **chaque colonne de $\mathbf{V}$ porte un pivot** : $\operatorname{rg}(\mathbf{V}) = k$. Exemple, $\mathbf{u}_1 = (1, 0, 1)$, $\mathbf{u}_2 = (2, 1, 0)$, $\mathbf{u}_3 = (0, 1, -2)$ :
 
-$$\begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & -2 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & -2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}.$$
+$$\begin{pmatrix} 1 & 2 & 0 \cr 0 & 1 & 1 \cr 1 & 0 & -2 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & -2 \cr 0 & 1 & 1 \cr 0 & 0 & 0 \end{pmatrix}.$$
 
 La troisième colonne n'a pas de pivot : la famille est liée. La forme réduite donne même la relation (comme en M09a §8) : sa troisième colonne, $(-2, 1)$, dit $\mathbf{u}_3 = -2\mathbf{u}_1 + \mathbf{u}_2$ ; vérifie-le.
 
@@ -151,7 +151,7 @@ Une base est à la fois une famille génératrice **minimale** (retirer un vecte
 
 ### Dimension
 
-**Théorème** (admis ; MML §2.6.1). Toutes les bases d'un même espace ont le même nombre de vecteurs. Ce nombre est la **dimension** (*dimension*) de l'espace, notée $\dim V$. Ainsi $\dim\mathbb{R}^n = n$, $\dim\mathbb{R}_d[x] = d + 1$ (attention au $+1$ du terme constant), $\dim\mathbb{R}^{m \times n} = mn$, $\dim\{\mathbf{0}\} = 0$ (la famille vide est une base). Une droite par l'origine est de dimension 1, un plan par l'origine de dimension 2.
+**Théorème** (admis ; MML §2.6.1). Toutes les bases d'un même espace ont le même nombre de vecteurs. Ce nombre est la **dimension** (*dimension*) de l'espace, notée $\dim V$. Ainsi $\dim\mathbb{R}^n = n$, $\dim\mathbb{R}_d[x] = d + 1$ (attention au $+1$ du terme constant), $\dim\mathbb{R}^{m \times n} = mn$, $\dim\lbrace\mathbf{0}\rbrace = 0$ (la famille vide est une base). Une droite par l'origine est de dimension 1, un plan par l'origine de dimension 2.
 
 Dans un espace de dimension $n$ :
 - une famille libre a **au plus** $n$ vecteurs, une famille génératrice **au moins** $n$ ;
@@ -174,7 +174,7 @@ et $\mathbf{c} = \mathbf{B}^{-1}\mathbf{v}$ : $\mathbf{B}$ est carrée et invers
 
 ![Les coordonnées de v = (0, 6) dans la base b₁ = (1, 2), b₂ = (−1, 1) : on avance de 2 fois b₁, puis de 2 fois b₂](figures/coordonnees.png)
 
-Si la base est celle d'un **sous-espace** $U$ de $\mathbb{R}^m$ ($\mathbf{B}$ de forme $(m, k)$ avec $k < m$), le système $\mathbf{B}\mathbf{c} = \mathbf{v}$ a plus d'équations que d'inconnues : il a une solution unique si $\mathbf{v} \in U$, aucune sinon. On le résout par Gauss sur $[\mathbf{B} \mid \mathbf{v}]$, ou par $\mathbf{B}^\top\mathbf{B}\,\mathbf{c} = \mathbf{B}^\top\mathbf{v}$ (une matrice carrée $k \times k$, inversible car les colonnes de $\mathbf{B}$ sont libres, §6), en vérifiant ensuite que $\mathbf{B}\mathbf{c}$ redonne bien $\mathbf{v}$ : c'est ce que fait `coordinates`.
+Si la base est celle d'un **sous-espace** $U$ de $\mathbb{R}^m$ ($\mathbf{B}$ de forme $(m, k)$ avec $k < m$), le système $\mathbf{B}\mathbf{c} = \mathbf{v}$ a plus d'équations que d'inconnues : il a une solution unique si $\mathbf{v} \in U$, aucune sinon. On le résout par Gauss sur $[\mathbf{B} \mid \mathbf{v}]$, ou par $\mathbf{B}^\top\mathbf{B}\thinspace\mathbf{c} = \mathbf{B}^\top\mathbf{v}$ (une matrice carrée $k \times k$, inversible car les colonnes de $\mathbf{B}$ sont libres, §6), en vérifiant ensuite que $\mathbf{B}\mathbf{c}$ redonne bien $\mathbf{v}$ : c'est ce que fait `coordinates`.
 
 ```python
 >>> import numpy as np
@@ -195,7 +195,7 @@ L'**espace des colonnes** (*column space*) d'une matrice $\mathbf{A}$ de forme $
 
 Exemple :
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 & 0 \\ 2 & 4 & 0 & 2 \\ 0 & 0 & 1 & -1 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{A}) = 2.$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 & 0 \cr 2 & 4 & 0 & 2 \cr 0 & 0 & 1 & -1 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & -1 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{A}) = 2.$$
 
 Côté colonnes : $\mathbf{a}_2 = 2\mathbf{a}_1$ et $\mathbf{a}_4 = \mathbf{a}_1 - \mathbf{a}_3$ (lis-le dans les colonnes 2 et 4 de la forme réduite). Côté lignes : la ligne 2 vaut deux fois la ligne 1 moins deux fois la ligne 3. Deux colonnes libres, deux lignes libres.
 
@@ -238,13 +238,13 @@ Exemples : $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ pour toute matrice $\mathbf
 
 **De $\mathbb{R}^n$ dans $\mathbb{R}^m$**, toute application linéaire s'écrit $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$ pour une seule matrice $\mathbf{A}$ de forme $(m, n)$ : sa **colonne $j$ est $f(\mathbf{e}_j)$**. C'est la lecture en colonnes de M09a §2, à l'envers : $\mathbf{A}\mathbf{x} = x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$. Exemple, $f(x, y) = (x + y,\ x - y,\ 2x)$ de $\mathbb{R}^2$ dans $\mathbb{R}^3$ : $f(\mathbf{e}_1) = (1, 1, 2)$ et $f(\mathbf{e}_2) = (1, -1, 0)$, donc
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}, \qquad \text{de forme } (3, 2) : \ m = 3 \text{ lignes pour l'arrivée, } n = 2 \text{ colonnes pour le départ.}$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -1 \cr 2 & 0 \end{pmatrix}, \qquad \text{de forme } (3, 2) : \ m = 3 \text{ lignes pour l'arrivée, } n = 2 \text{ colonnes pour le départ.}$$
 
-Dans le plan : la rotation d'un quart de tour, qui envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$, a pour matrice $\mathbf{R} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ ; la projection sur l'axe des abscisses, $\mathbf{P} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$.
+Dans le plan : la rotation d'un quart de tour, qui envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$, a pour matrice $\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ ; la projection sur l'axe des abscisses, $\mathbf{P} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}$.
 
 **Dans d'autres bases** (MML §2.7.1, *transformation matrix*). Si $(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ est une base de $V$ et $(\mathbf{c}_1, \ldots, \mathbf{c}_m)$ une base de $W$, la matrice de $f$ dans ces bases a pour colonne $j$ les **coordonnées** de $f(\mathbf{b}_j)$ dans la base $(\mathbf{c}_i)$. Exemple, sur $\mathbb{R}_2[x]$ muni de la base $(1, x, x^2)$, l'application $T(P)(x) = P(x + 1)$ (décaler d'une unité) : $T(1) = 1$, $T(x) = 1 + x$, $T(x^2) = 1 + 2x + x^2$, donc
 
-$$\mathbf{M}_T = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}.$$
+$$\mathbf{M}_T = \begin{pmatrix} 1 & 1 & 1 \cr 0 & 1 & 2 \cr 0 & 0 & 1 \end{pmatrix}.$$
 
 Pour $P = 3 - x + 2x^2$, de coordonnées $(3, -1, 2)$ : $\mathbf{M}_T(3, -1, 2) = (4, 3, 2)$, et en effet $P(x + 1) = 3 - (x + 1) + 2(x + 1)^2 = 4 + 3x + 2x^2$. Une fois une base choisie, calculer sur des polynômes revient à calculer sur des vecteurs de $\mathbb{R}^3$.
 
@@ -252,7 +252,7 @@ Pour $P = 3 - x + 2x^2$, de coordonnées $(3, -1, 2)$ : $\mathbf{M}_T(3, -1, 2) 
 
 Si $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$ et $g(\mathbf{y}) = \mathbf{B}\mathbf{y}$, alors $(g \circ f)(\mathbf{x}) = g(f(\mathbf{x})) = \mathbf{B}(\mathbf{A}\mathbf{x}) = (\mathbf{B}\mathbf{A})\mathbf{x}$ : la matrice de « $f$, **puis** $g$ » est $\mathbf{B}\mathbf{A}$, la dernière appliquée **à gauche**. C'est la raison d'être de la définition du produit matriciel, et de son associativité. Avec $\mathbf{R}$ et $\mathbf{P}$ ci-dessus :
 
-$$\underbrace{\mathbf{R}\mathbf{P} = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}}_{\text{projeter, puis tourner}} \qquad \ne \qquad \underbrace{\mathbf{P}\mathbf{R} = \begin{pmatrix} 0 & -1 \\ 0 & 0 \end{pmatrix}}_{\text{tourner, puis projeter}} .$$
+$$\underbrace{\mathbf{R}\mathbf{P} = \begin{pmatrix} 0 & 0 \cr 1 & 0 \end{pmatrix}} _{\text{projeter, puis tourner}} \qquad \ne \qquad \underbrace{\mathbf{P}\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 0 & 0 \end{pmatrix}} _{\text{tourner, puis projeter}} .$$
 
 La première envoie tout le plan sur l'axe des ordonnées, la seconde sur l'axe des abscisses : l'ordre compte, et c'est la non-commutativité du produit (M09a §3). Une application linéaire bijective a pour réciproque l'application de matrice $\mathbf{A}^{-1}$ ; défaire « $f$ puis $g$ », c'est défaire $g$ puis $f$ : $(\mathbf{B}\mathbf{A})^{-1} = \mathbf{A}^{-1}\mathbf{B}^{-1}$.
 
@@ -267,8 +267,8 @@ Une couche dense **sans biais ni activation**, $\mathbf{x} \mapsto \mathbf{x}\ma
 ### Deux sous-espaces attachés à une application
 
 Pour une application linéaire $f : V \to W$ :
-- le **noyau** (*kernel*, *null space*) $\ker f = \{\mathbf{x} \in V : f(\mathbf{x}) = \mathbf{0}\}$ est un sous-espace de l'espace de **départ** $V$ (M12a.16) ;
-- l'**image** (*image*, *range*) $\operatorname{Im} f = \{f(\mathbf{x}) : \mathbf{x} \in V\}$ est un sous-espace de l'espace d'**arrivée** $W$.
+- le **noyau** (*kernel*, *null space*) $\ker f = \lbrace\mathbf{x} \in V : f(\mathbf{x}) = \mathbf{0}\rbrace$ est un sous-espace de l'espace de **départ** $V$ (M12a.16) ;
+- l'**image** (*image*, *range*) $\operatorname{Im} f = \lbrace f(\mathbf{x}) : \mathbf{x} \in V\rbrace$ est un sous-espace de l'espace d'**arrivée** $W$.
 
 Pour $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$, avec $\mathbf{A}$ de forme $(m, n)$ : $\ker\mathbf{A} \subseteq \mathbb{R}^n$ est l'ensemble des solutions du système homogène $\mathbf{A}\mathbf{x} = \mathbf{0}$, et $\operatorname{Im}\mathbf{A} \subseteq \mathbb{R}^m$ est l'espace des colonnes, de dimension $\operatorname{rg}(\mathbf{A})$.
 
@@ -278,7 +278,7 @@ On réduit $\mathbf{A}$. **L'image** : les colonnes de $\mathbf{A}$ (pas celles 
 - $x_2 = 1$, $x_4 = 0$ : $x_1 = -2$, $x_3 = 0$, d'où $\mathbf{k}_1 = (-2, 1, 0, 0)$ ;
 - $x_2 = 0$, $x_4 = 1$ : $x_1 = -1$, $x_3 = 1$, d'où $\mathbf{k}_2 = (-1, 0, 1, 1)$.
 
-Vérifie : $\mathbf{A}\mathbf{k}_1 = -2\mathbf{a}_1 + \mathbf{a}_2 = \mathbf{0}$ et $\mathbf{A}\mathbf{k}_2 = -\mathbf{a}_1 + \mathbf{a}_3 + \mathbf{a}_4 = \mathbf{0}$ : chaque vecteur du noyau **est** une relation entre les colonnes. L'image est le plan de $\mathbb{R}^3$ engendré par $\mathbf{a}_1 = (1, 2, 0)$ et $\mathbf{a}_3 = (1, 0, 1)$ ; un vecteur orthogonal à ces deux, $(2, -1, -2)$, en donne une équation : $\operatorname{Im}\mathbf{A} = \{\mathbf{y} : 2y_1 - y_2 - 2y_3 = 0\}$ (M07 §5).
+Vérifie : $\mathbf{A}\mathbf{k}_1 = -2\mathbf{a}_1 + \mathbf{a}_2 = \mathbf{0}$ et $\mathbf{A}\mathbf{k}_2 = -\mathbf{a}_1 + \mathbf{a}_3 + \mathbf{a}_4 = \mathbf{0}$ : chaque vecteur du noyau **est** une relation entre les colonnes. L'image est le plan de $\mathbb{R}^3$ engendré par $\mathbf{a}_1 = (1, 2, 0)$ et $\mathbf{a}_3 = (1, 0, 1)$ ; un vecteur orthogonal à ces deux, $(2, -1, -2)$, en donne une équation : $\operatorname{Im}\mathbf{A} = \lbrace\mathbf{y} : 2y_1 - y_2 - 2y_3 = 0\rbrace$ (M07 §5).
 
 ```python
 >>> import sympy
@@ -297,19 +297,19 @@ $$\dim\ker\mathbf{A} + \operatorname{rg}(\mathbf{A}) = n \qquad (\text{le nombre
 
 ### Injective, surjective, bijective
 
-$f$ est **injective** (*injective* : deux vecteurs distincts ont des images distinctes) si et seulement si $\ker f = \{\mathbf{0}\}$ (M12a.16) : si $f(\mathbf{x}) = f(\mathbf{y})$, alors $f(\mathbf{x} - \mathbf{y}) = \mathbf{0}$. Elle est **surjective** (*surjective* : tout vecteur de $W$ est atteint) si et seulement si $\operatorname{Im} f = W$, c'est-à-dire $\operatorname{rg} = \dim W$. Pour $\mathbf{A}$ de forme $(m, n)$ : injective si et seulement si $\operatorname{rg}\mathbf{A} = n$ (colonnes libres), surjective si et seulement si $\operatorname{rg}\mathbf{A} = m$. Par le théorème du rang, une matrice **carrée** est injective si et seulement si elle est surjective, si et seulement si elle est inversible (M09a §8). Une matrice plus large que haute ($n > m$) n'est jamais injective : son noyau a une dimension au moins $n - m$.
+$f$ est **injective** (*injective* : deux vecteurs distincts ont des images distinctes) si et seulement si $\ker f = \lbrace\mathbf{0}\rbrace$ (M12a.16) : si $f(\mathbf{x}) = f(\mathbf{y})$, alors $f(\mathbf{x} - \mathbf{y}) = \mathbf{0}$. Elle est **surjective** (*surjective* : tout vecteur de $W$ est atteint) si et seulement si $\operatorname{Im} f = W$, c'est-à-dire $\operatorname{rg} = \dim W$. Pour $\mathbf{A}$ de forme $(m, n)$ : injective si et seulement si $\operatorname{rg}\mathbf{A} = n$ (colonnes libres), surjective si et seulement si $\operatorname{rg}\mathbf{A} = m$. Par le théorème du rang, une matrice **carrée** est injective si et seulement si elle est surjective, si et seulement si elle est inversible (M09a §8). Une matrice plus large que haute ($n > m$) n'est jamais injective : son noyau a une dimension au moins $n - m$.
 
 ### Toutes les solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$
 
 Si $\mathbf{x}_p$ est **une** solution (une solution **particulière**), les solutions sont exactement les vecteurs $\mathbf{x}_p + \mathbf{h}$ avec $\mathbf{h} \in \ker\mathbf{A}$ (M09a.17) :
 
-$$\{\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{b}\} = \mathbf{x}_p + \ker\mathbf{A}.$$
+$$\lbrace\mathbf{x} : \mathbf{A}\mathbf{x} = \mathbf{b}\rbrace = \mathbf{x}_p + \ker\mathbf{A}.$$
 
-Le système a une solution si et seulement si $\mathbf{b} \in \operatorname{Im}\mathbf{A}$. Avec la matrice $\mathbf{A}$ du §4 et $\mathbf{b} = (1, 2, 0) = \mathbf{a}_1$ (qui vérifie $2 - 2 - 0 = 0$), $\mathbf{x}_p = \mathbf{e}_1$ convient, et toutes les solutions sont $(1, 0, 0, 0) + s\,(-2, 1, 0, 0) + t\,(-1, 0, 1, 1)$, $s, t \in \mathbb{R}$ : un plan de $\mathbb{R}^4$ qui ne passe pas par l'origine. Le nombre de paramètres libres est $\dim\ker\mathbf{A} = n - \operatorname{rg}\mathbf{A}$, comme l'annonçait M09a §8.
+Le système a une solution si et seulement si $\mathbf{b} \in \operatorname{Im}\mathbf{A}$. Avec la matrice $\mathbf{A}$ du §4 et $\mathbf{b} = (1, 2, 0) = \mathbf{a}_1$ (qui vérifie $2 - 2 - 0 = 0$), $\mathbf{x}_p = \mathbf{e}_1$ convient, et toutes les solutions sont $(1, 0, 0, 0) + s\thinspace(-2, 1, 0, 0) + t\thinspace(-1, 0, 1, 1)$, $s, t \in \mathbb{R}$ : un plan de $\mathbb{R}^4$ qui ne passe pas par l'origine. Le nombre de paramètres libres est $\dim\ker\mathbf{A} = n - \operatorname{rg}\mathbf{A}$, comme l'annonçait M09a §8.
 
 ### En machine learning : des poids qui ne servent à rien
 
-Si $\mathbf{X}\mathbf{d} = \mathbf{0}$ avec $\mathbf{d} \ne \mathbf{0}$, une feature est une combinaison des autres, et les poids $\mathbf{w}$ et $\mathbf{w} + t\,\mathbf{d}$ donnent **exactement les mêmes prédictions** pour tout $t$ : les poids d'un modèle linéaire ne sont plus uniques, et le vecteur $\mathbf{d}$ du noyau dit quelles features sont en cause (ses coordonnées non nulles). C'est le cas d'un tableau dont la première colonne vaut 1 (pour le biais), suivie de trois colonnes indicatrices d'une équipe de travail (matin, après-midi, nuit : un 1 dans la colonne de l'équipe, des 0 ailleurs) : sur chaque ligne, les trois indicatrices ont pour somme 1, et $\mathbf{d} = (1, -1, -1, -1)$ est dans le noyau (M09a §8 l'a vu avec deux catégories). Le lien avec $\mathbf{X}^\top\mathbf{X}$ :
+Si $\mathbf{X}\mathbf{d} = \mathbf{0}$ avec $\mathbf{d} \ne \mathbf{0}$, une feature est une combinaison des autres, et les poids $\mathbf{w}$ et $\mathbf{w} + t\thinspace\mathbf{d}$ donnent **exactement les mêmes prédictions** pour tout $t$ : les poids d'un modèle linéaire ne sont plus uniques, et le vecteur $\mathbf{d}$ du noyau dit quelles features sont en cause (ses coordonnées non nulles). C'est le cas d'un tableau dont la première colonne vaut 1 (pour le biais), suivie de trois colonnes indicatrices d'une équipe de travail (matin, après-midi, nuit : un 1 dans la colonne de l'équipe, des 0 ailleurs) : sur chaque ligne, les trois indicatrices ont pour somme 1, et $\mathbf{d} = (1, -1, -1, -1)$ est dans le noyau (M09a §8 l'a vu avec deux catégories). Le lien avec $\mathbf{X}^\top\mathbf{X}$ :
 
 $$\ker(\mathbf{X}^\top\mathbf{X}) = \ker\mathbf{X}, \qquad \text{donc} \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = \operatorname{rg}(\mathbf{X}).$$
 
@@ -331,13 +331,13 @@ $\mathbf{S}$ fait passer des **nouvelles** coordonnées aux **anciennes** (canon
 
 Soit $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$ de $\mathbb{R}^n$ dans lui-même. Pour calculer l'image en nouvelles coordonnées : on revient aux anciennes ($\mathbf{S}\mathbf{x}'$), on applique $\mathbf{A}$, on repasse aux nouvelles ($\mathbf{S}^{-1}$) :
 
-$$\mathbf{x}' \longmapsto \mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{x}', \qquad \mathbf{A}' = \mathbf{S}^{-1}\mathbf{A}\mathbf{S}.$$
+$$\mathbf{x}' \longmapsto \mathbf{S}^{-1}\mathbf{A}\mathbf{S}\thinspace\mathbf{x}', \qquad \mathbf{A}' = \mathbf{S}^{-1}\mathbf{A}\mathbf{S}.$$
 
 Deux matrices liées ainsi sont dites **semblables** (*similar*) : elles représentent la même application dans deux bases. Le produit se lit de droite à gauche, comme une composée (§5). La colonne $j$ de $\mathbf{A}'$ contient les coordonnées de $\mathbf{A}\mathbf{s}_j$ dans la nouvelle base.
 
-**Pourquoi changer de base : une base adaptée simplifie tout.** La symétrie $f$ par rapport à la droite $y = 2x$ a, dans la base canonique, une matrice peu parlante, $\mathbf{A} = \frac{1}{5}\begin{pmatrix} -3 & 4 \\ 4 & 3 \end{pmatrix}$. Prenons la base $\mathbf{s}_1 = (1, 2)$ (sur la droite) et $\mathbf{s}_2 = (-2, 1)$ (perpendiculaire) : la symétrie garde $\mathbf{s}_1$ et retourne $\mathbf{s}_2$, $\mathbf{A}\mathbf{s}_1 = \mathbf{s}_1$ et $\mathbf{A}\mathbf{s}_2 = -\mathbf{s}_2$ (vérifie-le). Donc
+**Pourquoi changer de base : une base adaptée simplifie tout.** La symétrie $f$ par rapport à la droite $y = 2x$ a, dans la base canonique, une matrice peu parlante, $\mathbf{A} = \frac{1}{5}\begin{pmatrix} -3 & 4 \cr 4 & 3 \end{pmatrix}$. Prenons la base $\mathbf{s}_1 = (1, 2)$ (sur la droite) et $\mathbf{s}_2 = (-2, 1)$ (perpendiculaire) : la symétrie garde $\mathbf{s}_1$ et retourne $\mathbf{s}_2$, $\mathbf{A}\mathbf{s}_1 = \mathbf{s}_1$ et $\mathbf{A}\mathbf{s}_2 = -\mathbf{s}_2$ (vérifie-le). Donc
 
-$$\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} :$$
+$$\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} 1 & 0 \cr 0 & -1 \end{pmatrix} :$$
 
 dans la bonne base, la matrice est **diagonale**, et l'on voit d'un coup d'œil ce que fait l'application. Par exemple, $\mathbf{x} = (3, 1)$ a pour coordonnées $\mathbf{x}' = \mathbf{S}^{-1}\mathbf{x} = (1, -1)$ ; son image a pour coordonnées $(1, 1)$, c'est-à-dire $\mathbf{S}(1, 1) = (-1, 3)$ ; et directement, $\mathbf{A}\mathbf{x} = \frac{1}{5}(-9 + 4,\ 12 + 3) = (-1, 3)$. M12c cherchera systématiquement de telles bases.
 
@@ -361,7 +361,7 @@ Les features d'un exemple sont ses coordonnées dans la base canonique. D'autres
 
 ### Sous-espaces affines
 
-Un **sous-espace affine** (*affine subspace*) est un sous-espace vectoriel déplacé : $L = \mathbf{x}_0 + U = \{\mathbf{x}_0 + \mathbf{u} : \mathbf{u} \in U\}$, avec $U$ un sous-espace vectoriel (la **direction** de $L$) et $\mathbf{x}_0$ un point de $L$ (MML : *support point*). Sa dimension est celle de $U$. Une droite ou un plan qui ne passe pas par l'origine en est un ; l'ensemble des solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$ aussi, de direction $\ker\mathbf{A}$ (§6). Le plan $x - 3y + 2z = 5$ du §1 est le plan $P$ déplacé : $(5, 0, 0) + P$.
+Un **sous-espace affine** (*affine subspace*) est un sous-espace vectoriel déplacé : $L = \mathbf{x}_0 + U = \lbrace\mathbf{x}_0 + \mathbf{u} : \mathbf{u} \in U\rbrace$, avec $U$ un sous-espace vectoriel (la **direction** de $L$) et $\mathbf{x}_0$ un point de $L$ (MML : *support point*). Sa dimension est celle de $U$. Une droite ou un plan qui ne passe pas par l'origine en est un ; l'ensemble des solutions de $\mathbf{A}\mathbf{x} = \mathbf{b}$ aussi, de direction $\ker\mathbf{A}$ (§6). Le plan $x - 3y + 2z = 5$ du §1 est le plan $P$ déplacé : $(5, 0, 0) + P$.
 
 ### Applications affines
 
@@ -383,9 +383,9 @@ La composée de deux applications affines est affine, de partie linéaire le pro
 
 $$\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b}) = \mathbf{A}^{-1}\mathbf{y} - \mathbf{A}^{-1}\mathbf{b},$$
 
-encore une application affine, de partie linéaire $\mathbf{A}^{-1}$ et de translation $-\mathbf{A}^{-1}\mathbf{b}$ (M12a.19). Pour défaire, on retire d'abord la translation, puis on défait la partie linéaire : l'ordre inverse de l'aller. Exemple : $\varphi(x, y) = (2x + y + 1,\ x + y - 2)$, de partie linéaire $\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ (déterminant 1, inverse $\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$) et de translation $\mathbf{b} = (1, -2)$. Alors
+encore une application affine, de partie linéaire $\mathbf{A}^{-1}$ et de translation $-\mathbf{A}^{-1}\mathbf{b}$ (M12a.19). Pour défaire, on retire d'abord la translation, puis on défait la partie linéaire : l'ordre inverse de l'aller. Exemple : $\varphi(x, y) = (2x + y + 1,\ x + y - 2)$, de partie linéaire $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}$ (déterminant 1, inverse $\begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}$) et de translation $\mathbf{b} = (1, -2)$. Alors
 
-$$\varphi^{-1}(u, v) = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}\begin{pmatrix} u - 1 \\ v + 2 \end{pmatrix} = (u - v - 3,\ -u + 2v + 5).$$
+$$\varphi^{-1}(u, v) = \begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}\begin{pmatrix} u - 1 \cr v + 2 \end{pmatrix} = (u - v - 3,\ -u + 2v + 5).$$
 
 Vérification : $\varphi(1, 1) = (4, 0)$, et $\varphi^{-1}(4, 0) = (4 - 0 - 3,\ -4 + 0 + 5) = (1, 1)$.
 

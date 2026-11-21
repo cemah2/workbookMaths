@@ -91,12 +91,12 @@ Un nombre a **toujours une seule image** (c'est la définition d'une fonction), 
 ### Ensemble de définition
 
 L'**ensemble de définition** (*domain*) de $f$, noté $\mathcal{D}_f$, est l'ensemble des $x$ pour lesquels $f(x)$ a un sens. Deux interdits seulement dans ce chapitre :
-- **on ne divise pas par 0** : $f(x) = \frac{1}{x + 2}$ demande $x + 2 \ne 0$, donc $\mathcal{D}_f = \mathbb{R} \setminus \{-2\} = \;]-\infty \;;\; -2[ \;\cup\; ]-2 \;;\; +\infty[$ ;
-- **on ne prend pas la racine carrée d'un négatif** : $g(x) = \sqrt{x - 5}$ demande $x - 5 \ge 0$, donc $\mathcal{D}_g = [5 \;;\; +\infty[$.
+- **on ne divise pas par 0** : $f(x) = \frac{1}{x + 2}$ demande $x + 2 \ne 0$, donc $\mathcal{D}_f = \mathbb{R} \setminus \lbrace-2\rbrace = \mkern5mu ]-\infty \mkern5mu ;\mkern5mu  -2[ \mkern5mu \cup\mkern5mu  ]-2 \mkern5mu ;\mkern5mu  +\infty[$ ;
+- **on ne prend pas la racine carrée d'un négatif** : $g(x) = \sqrt{x - 5}$ demande $x - 5 \ge 0$, donc $\mathcal{D}_g = [5 \mkern5mu ;\mkern5mu  +\infty[$.
 
-Quand les deux se combinent, on écrit **toutes** les conditions : $h(x) = \frac{\sqrt{x}}{x - 3}$ demande $x \ge 0$ **et** $x \ne 3$, donc $\mathcal{D}_h = [0 \;;\; 3[ \;\cup\; ]3 \;;\; +\infty[$. Un polynôme, lui, est défini partout : $\mathcal{D} = \mathbb{R}$.
+Quand les deux se combinent, on écrit **toutes** les conditions : $h(x) = \frac{\sqrt{x}}{x - 3}$ demande $x \ge 0$ **et** $x \ne 3$, donc $\mathcal{D}_h = [0 \mkern5mu ;\mkern5mu  3[ \mkern5mu \cup\mkern5mu  ]3 \mkern5mu ;\mkern5mu  +\infty[$. Un polynôme, lui, est défini partout : $\mathcal{D} = \mathbb{R}$.
 
-On écrit $\mathbb{R} \setminus \{-2\}$ (« R privé de $-2$ ») pour tous les réels sauf $-2$. Pour `wbm.check`, on tape la réunion, `"]-oo ; -2[ U ]-2 ; +oo["`, ou l'écriture courte `"R \\ {-2}"`.
+On écrit $\mathbb{R} \setminus \lbrace-2\rbrace$ (« R privé de $-2$ ») pour tous les réels sauf $-2$. Pour `wbm.check`, on tape la réunion, `"]-oo ; -2[ U ]-2 ; +oo["`, ou l'écriture courte `"R \\ {-2}"`.
 
 ## §2 · Représentation graphique et lecture graphique
 
@@ -118,13 +118,13 @@ Sur la figure :
 - **lire une image** : on part de $x$ sur l'axe horizontal, on monte (ou on descend) jusqu'à la courbe, on lit l'ordonnée. Ici $f(4) = 1$ ;
 - **lire les antécédents de $y$** : on trace la droite horizontale d'ordonnée $y$, et on lit les abscisses de **tous** ses points d'intersection avec la courbe. Les antécédents de 0 sont trois nombres : environ 0,27, exactement 2 et environ 3,73 ;
 - **résoudre graphiquement $f(x) = k$** : c'est la même chose, les antécédents de $k$ ;
-- **résoudre graphiquement $f(x) \ge k$** : on garde les $x$ où la courbe est **au-dessus** (ou sur) la droite $y = k$. Ici $f(x) \ge 1$ pour $x = 1$ et pour $x \ge 4$ : l'ensemble des solutions est $\{1\} \cup [4 \;;\; 4{,}5]$ sur la fenêtre tracée.
+- **résoudre graphiquement $f(x) \ge k$** : on garde les $x$ où la courbe est **au-dessus** (ou sur) la droite $y = k$. Ici $f(x) \ge 1$ pour $x = 1$ et pour $x \ge 4$ : l'ensemble des solutions est $\lbrace1\rbrace \cup [4 \mkern5mu ;\mkern5mu  4{,}5]$ sur la fenêtre tracée.
 
 Une lecture graphique est **approchée** : 0,27 est une lecture, pas une valeur exacte. Quand on veut la valeur exacte, on la calcule (§5 pour le second degré).
 
 ### Lire les variations
 
-En suivant la courbe de gauche à droite, elle monte de $x = -0{,}5$ à $x = 1$, descend de $x = 1$ à $x = 3$, puis remonte : $f$ est **croissante** sur $[-0{,}5 \;;\; 1]$, **décroissante** sur $[1 \;;\; 3]$, croissante sur $[3 \;;\; 4{,}5]$ (§6 donne les définitions). On le résume dans un **tableau de variations** :
+En suivant la courbe de gauche à droite, elle monte de $x = -0{,}5$ à $x = 1$, descend de $x = 1$ à $x = 3$, puis remonte : $f$ est **croissante** sur $[-0{,}5 \mkern5mu ;\mkern5mu  1]$, **décroissante** sur $[1 \mkern5mu ;\mkern5mu  3]$, croissante sur $[3 \mkern5mu ;\mkern5mu  4{,}5]$ (§6 donne les définitions). On le résume dans un **tableau de variations** :
 
 | $x$ | $-0{,}5$ | | $1$ | | $3$ | | $4{,}5$ |
 |---|---|---|---|---|---|---|---|
@@ -168,9 +168,9 @@ Si $x_1 = x_2$, les deux points sont l'un au-dessus de l'autre : la droite est v
 
 Des durées de visionnage vont de 2 à 10 minutes. On veut les ramener entre 0 et 1, en envoyant 2 sur 0 et 10 sur 1, avec une fonction affine. C'est la droite qui passe par $(2, 0)$ et $(10, 1)$ :
 
-$$N(x) = \frac{x - \min}{\max - \min} = \frac{x - 2}{8} = 0{,}125\,x - 0{,}25$$
+$$N(x) = \frac{x - \min}{\max - \min} = \frac{x - 2}{8} = 0{,}125\thinspace x - 0{,}25$$
 
-Une durée de 6 minutes devient $N(6) = \frac{4}{8} = 0{,}5$, exactement au milieu. C'est la **normalisation min-max** (*min-max scaling*) : une fonction affine de pente $\frac{1}{\max - \min}$, qui garde l'ordre des valeurs et les proportions entre leurs écarts. Pour revenir aux minutes, on la **défait** (§8) : $x = 8\,N + 2$.
+Une durée de 6 minutes devient $N(6) = \frac{4}{8} = 0{,}5$, exactement au milieu. C'est la **normalisation min-max** (*min-max scaling*) : une fonction affine de pente $\frac{1}{\max - \min}$, qui garde l'ordre des valeurs et les proportions entre leurs écarts. Pour revenir aux minutes, on la **défait** (§8) : $x = 8\thinspace N + 2$.
 
 > 🔗 **Dans workbookIA** — le chapitre 12 met les features à la même échelle avant d'entraîner un modèle ; la normalisation min-max y est l'une des deux transformations de base, et revenir aux unités d'origine (`inverse_transform`) est une réciproque. Privé de sa fonction d'activation, un neurone (chapitre 10) ne ferait qu'une somme pondérée de ses entrées plus un biais : vu comme une fonction d'une seule de ses entrées, c'est une fonction affine.
 
@@ -182,18 +182,18 @@ Quatre fonctions dont il faut connaître l'**allure** par cœur, parce que tant 
 
 | Fonction | Définie sur | Variations | À retenir |
 |---|---|---|---|
-| carré, $x^2$ | $\mathbb{R}$ | décroissante sur $]-\infty \;;\; 0]$, croissante sur $[0 \;;\; +\infty[$ | toujours $\ge 0$ ; $(-x)^2 = x^2$ : courbe symétrique par rapport à l'axe vertical (une **parabole**) |
-| inverse, $\frac{1}{x}$ | $\mathbb{R} \setminus \{0\}$ | décroissante sur $]-\infty \;;\; 0[$ et sur $]0 \;;\; +\infty[$ | du signe de $x$ ; grande en valeur absolue quand $x$ est proche de 0 ; une **hyperbole** en deux morceaux |
-| racine carrée, $\sqrt{x}$ | $[0 \;;\; +\infty[$ | croissante | $\sqrt{x^2} = \lvert x \rvert$ (R2 §6) ; elle « défait » le carré sur $[0 \;;\; +\infty[$ (§8) |
-| valeur absolue, $\lvert x \rvert$ | $\mathbb{R}$ | décroissante sur $]-\infty \;;\; 0]$, croissante sur $[0 \;;\; +\infty[$ | un « V » ; c'est la distance à 0 (R2 §6) |
+| carré, $x^2$ | $\mathbb{R}$ | décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0]$, croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ | toujours $\ge 0$ ; $(-x)^2 = x^2$ : courbe symétrique par rapport à l'axe vertical (une **parabole**) |
+| inverse, $\frac{1}{x}$ | $\mathbb{R} \setminus \lbrace0\rbrace$ | décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0[$ et sur $]0 \mkern5mu ;\mkern5mu  +\infty[$ | du signe de $x$ ; grande en valeur absolue quand $x$ est proche de 0 ; une **hyperbole** en deux morceaux |
+| racine carrée, $\sqrt{x}$ | $[0 \mkern5mu ;\mkern5mu  +\infty[$ | croissante | $\sqrt{x^2} = \lvert x \rvert$ (R2 §6) ; elle « défait » le carré sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ (§8) |
+| valeur absolue, $\lvert x \rvert$ | $\mathbb{R}$ | décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0]$, croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ | un « V » ; c'est la distance à 0 (R2 §6) |
 
 ### S'en servir pour comparer et résoudre
 
 Le sens de variation permet de comparer sans calculer, et de résoudre des inéquations :
 - $-1{,}5 < -0{,}5$, et le carré est **décroissant** sur les négatifs : il **retourne** l'ordre, donc $(-1{,}5)^2 > (-0{,}5)^2$ (en effet $2{,}25 > 0{,}25$) ;
-- $x^2 \le 4 \iff -2 \le x \le 2$ : les nombres dont le carré ne dépasse pas 4 sont entre $-2$ et $2$, soit $[-2 \;;\; 2]$ ;
+- $x^2 \le 4 \iff -2 \le x \le 2$ : les nombres dont le carré ne dépasse pas 4 sont entre $-2$ et $2$, soit $[-2 \mkern5mu ;\mkern5mu  2]$ ;
 - pour $x > 0$, $\frac{1}{x} < \frac{1}{2} \iff x > 2$ : l'inverse est décroissant, il retourne l'ordre ;
-- l'image de l'intervalle $[-3 \;;\; 1]$ par le carré n'est **pas** $[1 \;;\; 9]$ : le carré passe par 0 en $x = 0$. C'est $[0 \;;\; 9]$. Trace la courbe avant de conclure.
+- l'image de l'intervalle $[-3 \mkern5mu ;\mkern5mu  1]$ par le carré n'est **pas** $[1 \mkern5mu ;\mkern5mu  9]$ : le carré passe par 0 en $x = 0$. C'est $[0 \mkern5mu ;\mkern5mu  9]$. Trace la courbe avant de conclure.
 
 > ⚠️ **Erreur de calcul classique** — Croire que $\frac{1}{x}$ est décroissante « partout » et en déduire $\frac{1}{-1} > \frac{1}{1}$. Elle est décroissante sur **chacun** des deux morceaux, pas d'un morceau à l'autre : $-1 < 1$ et $\frac{1}{-1} = -1 < 1 = \frac{1}{1}$.
 
@@ -201,7 +201,7 @@ Le sens de variation permet de comparer sans calculer, et de résoudre des inéq
 
 Une fonction peut suivre une formule sur une partie de son ensemble de définition, et une autre ailleurs. Trois exemples qui reviennent sans cesse en ML :
 
-$$\max(0, x) = \begin{cases} 0 & \text{si } x < 0 \\ x & \text{si } x \ge 0 \end{cases} \qquad H(x) = \begin{cases} 0 & \text{si } x < 0 \\ 1 & \text{si } x \ge 0 \end{cases} \qquad |x| = \begin{cases} -x & \text{si } x < 0 \\ x & \text{si } x \ge 0 \end{cases}$$
+$$\max(0, x) = \begin{cases} 0 & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases} \qquad H(x) = \begin{cases} 0 & \text{si } x < 0 \cr 1 & \text{si } x \ge 0 \end{cases} \qquad |x| = \begin{cases} -x & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases}$$
 
 ![max(0, x), la marche et la valeur absolue](figures/par_morceaux.png)
 
@@ -271,7 +271,7 @@ Les deux autres paraboles de la figure : $x^2 + 4x + 4$ a $\Delta = 16 - 16 = 0$
 
 ### Le signe
 
-Une fois les racines connues, le signe se lit sur la parabole : **$f(x)$ est du signe de $a$, sauf entre les racines**. Pour $2x^2 + 4x - 6$ ($a = 2 > 0$) : $f(x) > 0$ sur $]-\infty \;;\; -3[ \;\cup\; ]1 \;;\; +\infty[$, $f(x) < 0$ sur $]-3 \;;\; 1[$. Si $\Delta < 0$, $f(x)$ a le signe de $a$ partout.
+Une fois les racines connues, le signe se lit sur la parabole : **$f(x)$ est du signe de $a$, sauf entre les racines**. Pour $2x^2 + 4x - 6$ ($a = 2 > 0$) : $f(x) > 0$ sur $]-\infty \mkern5mu ;\mkern5mu  -3[ \mkern5mu \cup\mkern5mu  ]1 \mkern5mu ;\mkern5mu  +\infty[$, $f(x) < 0$ sur $]-3 \mkern5mu ;\mkern5mu  1[$. Si $\Delta < 0$, $f(x)$ a le signe de $a$ partout.
 
 ```python
 >>> import sympy as sp
@@ -293,9 +293,9 @@ Soit $f$ définie sur un intervalle $I$.
 - $f$ est **décroissante** sur $I$ si, pour tous $a < b$ dans $I$, $f(a) \ge f(b)$ : elle retourne l'ordre.
 - Avec des inégalités strictes ($f(a) < f(b)$), on dit **strictement** croissante (ou décroissante).
 
-Ce qu'il faut bien voir : ces mots portent sur un **intervalle**. « Le carré est croissant » est faux ; « le carré est croissant sur $[0 \;;\; +\infty[$ » est vrai.
+Ce qu'il faut bien voir : ces mots portent sur un **intervalle**. « Le carré est croissant » est faux ; « le carré est croissant sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ » est vrai.
 
-Pour le second degré, le sommet sépare les deux sens : si $a > 0$, $f$ est décroissante sur $]-\infty \;;\; \alpha]$ et croissante sur $[\alpha \;;\; +\infty[$ ; si $a < 0$, c'est l'inverse. Pour $2x^2 + 4x - 6$ :
+Pour le second degré, le sommet sépare les deux sens : si $a > 0$, $f$ est décroissante sur $]-\infty \mkern5mu ;\mkern5mu  \alpha]$ et croissante sur $[\alpha \mkern5mu ;\mkern5mu  +\infty[$ ; si $a < 0$, c'est l'inverse. Pour $2x^2 + 4x - 6$ :
 
 | $x$ | $-\infty$ | | $-1$ | | $+\infty$ |
 |---|---|---|---|---|---|
@@ -310,7 +310,7 @@ R7 donnera un outil général pour les variations : la dérivée.
 
 Pour $2x^2 + 4x - 6$ sur $\mathbb{R}$ : le minimum vaut $-8$, l'argmin est $-1$, et il n'y a pas de maximum (la parabole monte sans fin).
 
-**Sur un intervalle fermé**, le sommet n'est pas forcément dedans : les extremums peuvent être aux **bornes**. Sur $[0 \;;\; 2]$, $2x^2 + 4x - 6$ est croissante (on est à droite du sommet), donc son minimum est $f(0) = -6$ et son maximum $f(2) = 8 + 8 - 6 = 10$. Méthode : regarder les variations sur l'intervalle, puis comparer le sommet (s'il est dedans) et les deux bornes.
+**Sur un intervalle fermé**, le sommet n'est pas forcément dedans : les extremums peuvent être aux **bornes**. Sur $[0 \mkern5mu ;\mkern5mu  2]$, $2x^2 + 4x - 6$ est croissante (on est à droite du sommet), donc son minimum est $f(0) = -6$ et son maximum $f(2) = 8 + 8 - 6 = 10$. Méthode : regarder les variations sur l'intervalle, puis comparer le sommet (s'il est dedans) et les deux bornes.
 
 ### Le maximum d'une liste
 
@@ -381,9 +381,9 @@ $$f^{-1}(y) = \frac{y - 2}{3} \qquad\text{et}\qquad f^{-1}(f(x)) = x, \quad f(f^
 
 ### Quand une réciproque existe-t-elle ?
 
-Il faut que chaque $y$ atteint ait **un seul** antécédent ; sinon, on ne saurait pas lequel rendre. Le carré sur $\mathbb{R}$ n'a pas de réciproque : 4 a deux antécédents, $-2$ et $2$. Mais **restreint à** $[0 \;;\; +\infty[$, le carré est strictement croissant, chaque $y \ge 0$ a un seul antécédent positif, et la réciproque est la racine carrée : $\sqrt{x^2} = x$ pour $x \ge 0$.
+Il faut que chaque $y$ atteint ait **un seul** antécédent ; sinon, on ne saurait pas lequel rendre. Le carré sur $\mathbb{R}$ n'a pas de réciproque : 4 a deux antécédents, $-2$ et $2$. Mais **restreint à** $[0 \mkern5mu ;\mkern5mu  +\infty[$, le carré est strictement croissant, chaque $y \ge 0$ a un seul antécédent positif, et la réciproque est la racine carrée : $\sqrt{x^2} = x$ pour $x \ge 0$.
 
-En général, une fonction **strictement monotone** (strictement croissante ou strictement décroissante) sur un intervalle a une réciproque. Son ensemble de définition est l'ensemble des valeurs prises par $f$ : pour le carré sur $[0 \;;\; +\infty[$, c'est $[0 \;;\; +\infty[$.
+En général, une fonction **strictement monotone** (strictement croissante ou strictement décroissante) sur un intervalle a une réciproque. Son ensemble de définition est l'ensemble des valeurs prises par $f$ : pour le carré sur $[0 \mkern5mu ;\mkern5mu  +\infty[$, c'est $[0 \mkern5mu ;\mkern5mu  +\infty[$.
 
 ![Le carré sur les positifs et sa réciproque, la racine carrée](figures/reciproque.png)
 
@@ -440,16 +440,16 @@ Donc $p(2) = 14$. **Vérification** directe : $16 + 4 - 10 + 4 = 14$. C'est le *
 | un seul antécédent | $x^2 = 4 \Rightarrow x = 2$ | deux antécédents : $-2$ et $2$ |
 | ensemble de définition | oublier une condition (racine **et** dénominateur) | écrire toutes les conditions, puis les combiner |
 | ordre des points | $m = \frac{y_2 - y_1}{x_1 - x_2}$ | même ordre en haut et en bas |
-| variations sans intervalle | « $x^2$ est croissante » | croissante sur $[0 \;;\; +\infty[$ |
+| variations sans intervalle | « $x^2$ est croissante » | croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ |
 | l'inverse « décroissante partout » | $\frac{1}{-1} > \frac{1}{1}$ | décroissante sur chaque morceau seulement |
-| image d'un intervalle | carré de $[-3 \;;\; 1]$ = $[1 \;;\; 9]$ | $[0 \;;\; 9]$ : la courbe passe par 0 |
+| image d'un intervalle | carré de $[-3 \mkern5mu ;\mkern5mu  1]$ = $[1 \mkern5mu ;\mkern5mu  9]$ | $[0 \mkern5mu ;\mkern5mu  9]$ : la courbe passe par 0 |
 | $b$ négatif | $b = -4$ : $b^2 = -16$, $-b = -4$ | $b^2 = 16$, $-b = 4$ |
 | la formule des racines | $-b \pm \frac{\sqrt{\Delta}}{2a}$ | $\frac{-b \pm \sqrt{\Delta}}{2a}$ |
 | maximum et argmax | « le maximum est en $x = 2$ » pour une valeur | maximum = valeur de $f$ ; argmax = valeur de $x$ |
 | extremum sur un intervalle | prendre le sommet hors de l'intervalle | comparer les bornes (et le sommet s'il est dedans) |
 | ordre d'une composée | $(f \circ g)(x)$ : $f$ puis $g$ | $g$ d'abord : $f(g(x))$ |
 | réciproque | $f^{-1} = \frac{1}{f}$ | $f^{-1}$ défait $f$ : $f^{-1}(f(x)) = x$ |
-| réciproque sans restriction | le carré a pour réciproque $\sqrt{\phantom{x}}$ sur $\mathbb{R}$ | seulement sur $[0 \;;\; +\infty[$ |
+| réciproque sans restriction | le carré a pour réciproque $\sqrt{\phantom{x}}$ sur $\mathbb{R}$ | seulement sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ |
 
 ## Et maintenant
 

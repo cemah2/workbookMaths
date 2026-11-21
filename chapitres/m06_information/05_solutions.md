@@ -14,7 +14,7 @@
 3. $1{,}5 + 2 = 3{,}5$ bits : les informations d'événements indépendants s'additionnent.
 4. **Faux** : $0 < p \le 1$, donc $\log_2 p \le 0$ et $-\log_2 p \ge 0$. Elle est nulle pour un événement certain.
 5. $2 \ln 2 \approx 1{,}39$ nat (1 bit vaut $\ln 2 \approx 0{,}693$ nat).
-6. Pour que les informations d'événements indépendants **s'additionnent** : la probabilité des deux est le produit $p\,q$, et le logarithme change un produit en somme, $-\log(p\,q) = -\log p - \log q$. Avec $\frac{1}{p}$, elles se multiplieraient, et un événement certain apporterait 1 au lieu de 0.
+6. Pour que les informations d'événements indépendants **s'additionnent** : la probabilité des deux est le produit $p\thinspace q$, et le logarithme change un produit en somme, $-\log(p\thinspace q) = -\log p - \log q$. Avec $\frac{1}{p}$, elles se multiplieraient, et un événement certain apporterait 1 au lieu de 0.
 
 ### M06.Q2 — L'entropie : vrai ou faux
 1. **Faux** : c'est une moyenne de termes $-\log_2 p \ge 0$.
@@ -22,7 +22,7 @@
 3. **Faux** : une issue de probabilité 0 ajoute $0 \log 0 = 0$.
 4. **Faux** : l'entropie ne dépend que des probabilités, pas des valeurs. Multiplier les valeurs par 2 ne change aucune probabilité.
 5. **Faux** : $(0{,}97 ;\ 0{,}03)$ est presque certaine, son entropie est petite (environ 0,19 bit) ; $(0{,}53 ;\ 0{,}47)$ est presque équilibrée, son entropie est proche de 1 bit.
-6. **Vrai** : $H(X) = \sum p(x)\,\big(-\log_2 p(x)\big) = \mathbb{E}[-\log_2 p(X)]$, la surprise moyenne.
+6. **Vrai** : $H(X) = \sum p(x)\thinspace\big(-\log_2 p(x)\big) = \mathbb{E}[-\log_2 p(X)]$, la surprise moyenne.
 
 ### M06.Q3 — Conjointe et conditionnelle
 1. $H(X, Y) = H(X) + H(Y \mid X) = H(Y) + H(X \mid Y)$.
@@ -41,10 +41,10 @@
 6. **Faux** : la corrélation ne voit que les liens linéaires. La figure des deux nuages de points (fiche §4) montre une dépendance forte avec une corrélation presque nulle, alors que l'information mutuelle n'est nulle que pour des variables indépendantes.
 
 ### M06.Q5 — La KL n'est pas une distance
-1. $\mathrm{KL}(p \,\|\, q) = H(p, q) - H(p)$.
+1. $\mathrm{KL}(p \thinspace\Vert\thinspace q) = H(p, q) - H(p)$.
 2. 0.
-3. $\mathrm{KL}(p \,\|\, q) = \frac{2}{3}\log_2 \frac{2/3}{1/2} + \frac{1}{3}\log_2 \frac{1/3}{1/4} = \log_2 \frac{4}{3} \approx 0{,}415$ bit : **finie** (la troisième issue, de probabilité 0 sous $p$, ne compte pas). $\mathrm{KL}(q \,\|\, p)$ contient le terme $\frac{1}{4}\log_2 \frac{1/4}{0}$ : elle est **infinie**.
-4. La symétrie ($\mathrm{KL}(p \,\|\, q) \ne \mathrm{KL}(q \,\|\, p)$ en général) et l'inégalité triangulaire. (La positivité, elle, est vraie.)
+3. $\mathrm{KL}(p \thinspace\Vert\thinspace q) = \frac{2}{3}\log_2 \frac{2/3}{1/2} + \frac{1}{3}\log_2 \frac{1/3}{1/4} = \log_2 \frac{4}{3} \approx 0{,}415$ bit : **finie** (la troisième issue, de probabilité 0 sous $p$, ne compte pas). $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ contient le terme $\frac{1}{4}\log_2 \frac{1/4}{0}$ : elle est **infinie**.
+4. La symétrie ($\mathrm{KL}(p \thinspace\Vert\thinspace q) \ne \mathrm{KL}(q \thinspace\Vert\thinspace p)$ en général) et l'inégalité triangulaire. (La positivité, elle, est vraie.)
 5. **Faux** : c'est l'inégalité de Gibbs (fiche §6, M06.11).
 6. Le nombre moyen de bits **perdus** par symbole quand on code les données avec un code fait pour le modèle, au lieu du meilleur code pour les données.
 
@@ -145,7 +145,7 @@ Pour la copie : $H(X) + H(Y \mid X) \approx 0{,}9710 + 0{,}9488 = 1{,}9198$ et $
 
 **Erreurs fréquentes.** Calculer l'entropie des cases de la ligne sans les diviser par $P(\text{payant})$ (b : 1,391), ou diviser l'entropie par $P(\text{payant})$ (b : 2,318) ; oublier la ligne « gratuit » dans la moyenne (c : 1,581) ; répondre $H(Y \mid X)$ ou $I(X ; Y)$ en e) ; l'écart dans le mauvais ordre en f).
 
-**Variante.** Pour la loi jointe $\begin{pmatrix} \frac{1}{4} & 0 \\ \frac{1}{4} & \frac{1}{2} \end{pmatrix}$ (lignes : $X$), que vaut $H(Y \mid X)$ ? *Réponse* : $\frac{1}{4} \times 0 + \frac{3}{4} \times H\big(\frac{1}{3}, \frac{2}{3}\big) \approx 0{,}75 \times 0{,}918 = 0{,}689$.
+**Variante.** Pour la loi jointe $\begin{pmatrix} \frac{1}{4} & 0 \cr \frac{1}{4} & \frac{1}{2} \end{pmatrix}$ (lignes : $X$), que vaut $H(Y \mid X)$ ? *Réponse* : $\frac{1}{4} \times 0 + \frac{3}{4} \times H\big(\frac{1}{3}, \frac{2}{3}\big) \approx 0{,}75 \times 0{,}918 = 0{,}689$.
 
 ### Ex M06.4 — La règle de la chaîne de l'entropie, vérifiée
 
@@ -180,11 +180,11 @@ Pour la copie : $H(X) + H(Y \mid X) = 1 + 0{,}926 = 1{,}926$ et $H(Y) + H(X \mid
 - g) $H(X \mid Y) = H(X) - I \approx 1{,}4197 - 0{,}5334 = 0{,}8863$, soit 0,89.
 - h) **Non** : $I > 0$ ; par exemple $P(\text{rouge et ne freine pas}) = 0 \ne \frac{1}{4} \times \frac{9}{16}$.
 
-Pour la copie : $H(X, Y) = \frac{1}{16} \times 4 + \frac{1}{2} \times 1 + \frac{1}{8} \times 3 + \frac{1}{16} \times 4 + \frac{1}{4} \times 2 = 1{,}875$, et $H(X) + H(Y) - H(X, Y) \approx 1{,}4197 + 0{,}9887 - 1{,}875 = 0{,}5334$. La case (vert, ne freine pas) contribue le plus : $\frac{1}{2}\log_2 \frac{1/2}{(9/16)(9/16)} = \frac{1}{2}\log_2 \frac{128}{81} \approx 0{,}330$ ; puis (rouge, freine), $\frac{1}{4}\log_2 \frac{16}{7} \approx 0{,}298$. Deux cases contribuent négativement, là où $p(x, y) < p(x)\,p(y)$ : (vert, freine), $\frac{1}{16}\log_2 \frac{16}{63} \approx -0{,}124$, et (orange, ne freine pas), $\frac{1}{16}\log_2 \frac{16}{27} \approx -0{,}047$. Le total, lui, est toujours positif ou nul.
+Pour la copie : $H(X, Y) = \frac{1}{16} \times 4 + \frac{1}{2} \times 1 + \frac{1}{8} \times 3 + \frac{1}{16} \times 4 + \frac{1}{4} \times 2 = 1{,}875$, et $H(X) + H(Y) - H(X, Y) \approx 1{,}4197 + 0{,}9887 - 1{,}875 = 0{,}5334$. La case (vert, ne freine pas) contribue le plus : $\frac{1}{2}\log_2 \frac{1/2}{(9/16)(9/16)} = \frac{1}{2}\log_2 \frac{128}{81} \approx 0{,}330$ ; puis (rouge, freine), $\frac{1}{4}\log_2 \frac{16}{7} \approx 0{,}298$. Deux cases contribuent négativement, là où $p(x, y) < p(x)\thinspace p(y)$ : (vert, freine), $\frac{1}{16}\log_2 \frac{16}{63} \approx -0{,}124$, et (orange, ne freine pas), $\frac{1}{16}\log_2 \frac{16}{27} \approx -0{,}047$. Le total, lui, est toujours positif ou nul.
 
 **Erreurs fréquentes.** Additionner la mauvaise colonne (a : `"9/16"`) ; oublier de diviser la ligne par $P(\text{vert})$ (c : 0,75) ; ne pas pondérer les lignes (d : la moyenne simple 0,474, ou la somme 1,422) ; répondre $H(Y \mid X)$ en g).
 
-**Variante.** Que vaut $I(X ; Y)$ pour la loi jointe $\begin{pmatrix} \frac{1}{2} & \frac{1}{4} \\ 0 & \frac{1}{4} \end{pmatrix}$ ? *Réponse* : $H(Y) = 1$, $H(Y \mid X) = \frac{3}{4}\,H(\frac{2}{3}, \frac{1}{3}) \approx 0{,}689$, donc $I \approx 0{,}311$ bit.
+**Variante.** Que vaut $I(X ; Y)$ pour la loi jointe $\begin{pmatrix} \frac{1}{2} & \frac{1}{4} \cr 0 & \frac{1}{4} \end{pmatrix}$ ? *Réponse* : $H(Y) = 1$, $H(Y \mid X) = \frac{3}{4}\thinspace H(\frac{2}{3}, \frac{1}{3}) \approx 0{,}689$, donc $I \approx 0{,}311$ bit.
 
 ### Ex M06.6 — Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi
 
@@ -194,16 +194,16 @@ Pour la copie : $H(X, Y) = \frac{1}{16} \times 4 + \frac{1}{2} \times 1 + \frac{
 - a) $3 \times \frac{1}{4} \times 2 + 2 \times \frac{1}{8} \times 3 = 1{,}5 + 0{,}75 = 2{,}25$.
 - b) $-\log_2 \frac{1}{2} = 1$ bit.
 - c) Les longueurs du compresseur sont $(1, 2, 4, 4, 3)$ : $H(p, q) = \frac{1}{4} \times 1 + \frac{1}{4} \times 2 + \frac{1}{4} \times 4 + \frac{1}{8} \times 4 + \frac{1}{8} \times 3 = 2{,}625$ bits.
-- d) $\mathrm{KL}(p \,\|\, q) = H(p, q) - H(p) = 2{,}625 - 2{,}25 = 0{,}375$ bit.
-- e) $1\,000 \times 0{,}375 = 375$ bits perdus.
+- d) $\mathrm{KL}(p \thinspace\Vert\thinspace q) = H(p, q) - H(p) = 2{,}625 - 2{,}25 = 0{,}375$ bit.
+- e) $1\thinspace000 \times 0{,}375 = 375$ bits perdus.
 - f) $0{,}375 \times \ln 2 \approx 0{,}260$ nat.
 - g) $\frac{1}{4}\log_2 \frac{1/4}{1/2} = \frac{1}{4} \times (-1) = -0{,}25$.
 
 Pour la copie : les longueurs $(1, 2, 4, 4, 3)$ vérifient Kraft, $\frac{1}{2} + \frac{1}{4} + \frac{1}{16} + \frac{1}{16} + \frac{1}{8} = 1$. Le premier type coûte 1 bit au lieu de 2 (moins cher), le deuxième 2 bits, comme avec le meilleur code, le troisième 4 au lieu de 2 et le quatrième 4 au lieu de 3 (plus chers), le cinquième 3, comme avec le meilleur code. Les termes de la somme valent $-0{,}25$ ; 0 ; $+0{,}5$ ; $+0{,}125$ ; 0. Un terme est négatif quand $p_i < q_i$, mais le total ne peut pas l'être : c'est l'inégalité de Gibbs (fiche §6, M06.11), aucun code ne fait mieux que l'entropie en moyenne.
 
-**Erreurs fréquentes.** Prendre $-\log_2 p$ pour la longueur du compresseur (b : 2) ; pondérer les longueurs par $q$ (c : 1,875, l'entropie de $q$) ou calculer $H(q, p)$ (c : 2,1875) ; calculer $\mathrm{KL}(q \,\|\, p)$ (d : 0,3125) ; compter la longueur totale au lieu des bits perdus (e : 2 625) ; un signe faux en g).
+**Erreurs fréquentes.** Prendre $-\log_2 p$ pour la longueur du compresseur (b : 2) ; pondérer les longueurs par $q$ (c : 1,875, l'entropie de $q$) ou calculer $H(q, p)$ (c : 2,1875) ; calculer $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ (d : 0,3125) ; compter la longueur totale au lieu des bits perdus (e : 2 625) ; un signe faux en g).
 
-**Variante.** $\mathrm{KL}(p \,\|\, q)$ pour $p = (\frac{1}{3}, \frac{2}{3})$ et $q = (\frac{1}{2}, \frac{1}{2})$ ? *Réponse* : $\frac{1}{3}\log_2 \frac{2}{3} + \frac{2}{3}\log_2 \frac{4}{3} \approx -0{,}195 + 0{,}277 = 0{,}082$ bit.
+**Variante.** $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ pour $p = (\frac{1}{3}, \frac{2}{3})$ et $q = (\frac{1}{2}, \frac{1}{2})$ ? *Réponse* : $\frac{1}{3}\log_2 \frac{2}{3} + \frac{2}{3}\log_2 \frac{4}{3} \approx -0{,}195 + 0{,}277 = 0{,}082$ bit.
 
 ### Ex M06.7 — L'inégalité de Jensen sur trois exemples
 
@@ -220,7 +220,7 @@ Pour la copie : $x^2$ et $e^x$ sont convexes (écarts positifs : 2 et 0,2104) ; 
 
 **Erreurs fréquentes.** Calculer $(\mathbb{E}[X])^2$ au lieu de $\mathbb{E}[X^2]$ (b : 9) ; l'écart dans le mauvais ordre (c : $-2$) ; $\ln$ au lieu de $\log_2$ (f : 0,9163).
 
-**Variante.** $X$ vaut 2 ou 8, une fois sur deux, et $f = \sqrt{\,\cdot\,}$ : l'écart de Jensen ? *Réponse* : $\frac{\sqrt{2} + \sqrt{8}}{2} - \sqrt{5} = \frac{3\sqrt{2}}{2} - \sqrt{5} \approx -0{,}115$ (négatif : $\sqrt{\,\cdot\,}$ est concave).
+**Variante.** $X$ vaut 2 ou 8, une fois sur deux, et $f = \sqrt{\thinspace\cdot\thinspace}$ : l'écart de Jensen ? *Réponse* : $\frac{\sqrt{2} + \sqrt{8}}{2} - \sqrt{5} = \frac{3\sqrt{2}}{2} - \sqrt{5} \approx -0{,}115$ (négatif : $\sqrt{\thinspace\cdot\thinspace}$ est concave).
 
 ### Ex M06.8 — Kraft : ces longueurs de code sont-elles possibles ?
 
@@ -269,24 +269,24 @@ Pour la copie : un code de longueurs h) : 0, 100, 101, 110, 1110, 1111 (somme de
 ### Ex M06.10 — I(X ; Y) = H(X) − H(X | Y), et l'information mutuelle est positive
 
 **Réponse modèle.**
-1. Sur les cases où $p(x, y) > 0$, $\frac{p(x, y)}{p(x)\,p(y)} = \frac{p(y)\,p(x \mid y)}{p(x)\,p(y)} = \frac{p(x \mid y)}{p(x)}$. Donc $I(X ; Y) = \sum p(x, y) \log_2 p(x \mid y) - \sum p(x, y) \log_2 p(x)$. La première somme vaut $-H(X \mid Y)$ (fiche §3). Dans la seconde, on regroupe les cases d'une même valeur $x$ : $\sum_y p(x, y) = p(x)$, et elle vaut $\sum_x p(x) \log_2 p(x) = -H(X)$. D'où $I(X ; Y) = H(X) - H(X \mid Y)$.
-2. En écrivant $p(x, y) = p(x)\,p(y \mid x)$, le même calcul donne $I(X ; Y) = H(Y) - H(Y \mid X)$. Avec la règle de la chaîne, $H(X \mid Y) = H(X, Y) - H(Y)$, donc $I(X ; Y) = H(X) + H(Y) - H(X, Y)$.
-3. $\mathrm{KL}\big(p_{XY} \,\|\, p_X\,p_Y\big) = \sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\,p(y)}$ sur les cases où $p(x, y) > 0$ : c'est la définition de $I(X ; Y)$. Elle est finie, car $p(x) \ge p(x, y) > 0$ et $p(y) \ge p(x, y) > 0$ sur ces cases. Par l'inégalité de Gibbs, $I(X ; Y) \ge 0$, avec égalité si et seulement si $p(x, y) = p(x)\,p(y)$ pour tous $x$ et $y$, c'est-à-dire si $X$ et $Y$ sont indépendantes.
+1. Sur les cases où $p(x, y) > 0$, $\frac{p(x, y)}{p(x)\thinspace p(y)} = \frac{p(y)\thinspace p(x \mid y)}{p(x)\thinspace p(y)} = \frac{p(x \mid y)}{p(x)}$. Donc $I(X ; Y) = \sum p(x, y) \log_2 p(x \mid y) - \sum p(x, y) \log_2 p(x)$. La première somme vaut $-H(X \mid Y)$ (fiche §3). Dans la seconde, on regroupe les cases d'une même valeur $x$ : $\sum_y p(x, y) = p(x)$, et elle vaut $\sum_x p(x) \log_2 p(x) = -H(X)$. D'où $I(X ; Y) = H(X) - H(X \mid Y)$.
+2. En écrivant $p(x, y) = p(x)\thinspace p(y \mid x)$, le même calcul donne $I(X ; Y) = H(Y) - H(Y \mid X)$. Avec la règle de la chaîne, $H(X \mid Y) = H(X, Y) - H(Y)$, donc $I(X ; Y) = H(X) + H(Y) - H(X, Y)$.
+3. $\mathrm{KL}\big(p_{XY} \thinspace\Vert\thinspace p_X\thinspace p_Y\big) = \sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\thinspace p(y)}$ sur les cases où $p(x, y) > 0$ : c'est la définition de $I(X ; Y)$. Elle est finie, car $p(x) \ge p(x, y) > 0$ et $p(y) \ge p(x, y) > 0$ sur ces cases. Par l'inégalité de Gibbs, $I(X ; Y) \ge 0$, avec égalité si et seulement si $p(x, y) = p(x)\thinspace p(y)$ pour tous $x$ et $y$, c'est-à-dire si $X$ et $Y$ sont indépendantes.
 4. $H(X \mid Y) = H(X) - I(X ; Y) \le H(X)$, et $H(X, Y) = H(X) + H(Y) - I(X ; Y) \le H(X) + H(Y)$ ; égalité dans les deux cas si et seulement si $I = 0$, donc pour des variables indépendantes.
 5. $H(X \mid X) = 0$ (connaître $X$, c'est connaître $X$), donc $I(X ; X) = H(X) - 0 = H(X)$.
-6. Par exemple la loi jointe $\begin{pmatrix} 0{,}62 & 0{,}08 \\ 0{,}18 & 0{,}12 \end{pmatrix}$ (lignes : $X$, colonnes : $Y$). $X$ a la loi $(0{,}7 ;\ 0{,}3)$, d'entropie environ 0,881. Sachant que $Y$ vaut la deuxième colonne, $X$ a la loi $(0{,}4 ;\ 0{,}6)$, d'entropie environ 0,971, plus grande. Pas de contradiction : la question 4 porte sur la **moyenne** $H(X \mid Y)$, pondérée par les probabilités des colonnes ; la première colonne, de probabilité 0,8, donne à $X$ la loi $(0{,}775 ;\ 0{,}225)$, d'entropie environ 0,769, et la moyenne vaut $0{,}8 \times 0{,}769 + 0{,}2 \times 0{,}971 \approx 0{,}809 < 0{,}881$.
+6. Par exemple la loi jointe $\begin{pmatrix} 0{,}62 & 0{,}08 \cr 0{,}18 & 0{,}12 \end{pmatrix}$ (lignes : $X$, colonnes : $Y$). $X$ a la loi $(0{,}7 ;\ 0{,}3)$, d'entropie environ 0,881. Sachant que $Y$ vaut la deuxième colonne, $X$ a la loi $(0{,}4 ;\ 0{,}6)$, d'entropie environ 0,971, plus grande. Pas de contradiction : la question 4 porte sur la **moyenne** $H(X \mid Y)$, pondérée par les probabilités des colonnes ; la première colonne, de probabilité 0,8, donne à $X$ la loi $(0{,}775 ;\ 0{,}225)$, d'entropie environ 0,769, et la moyenne vaut $0{,}8 \times 0{,}769 + 0{,}2 \times 0{,}971 \approx 0{,}809 < 0{,}881$.
 
-**Grille.** (1) la factorisation $p(x, y) = p(y)\,p(x \mid y)$, puis le regroupement $\sum_y p(x, y) = p(x)$ ; (2) la symétrie et la règle de la chaîne ; (3) $I = \mathrm{KL}(p_{XY} \,\|\, p_X p_Y)$, sa finitude, Gibbs et le cas d'égalité, traduit en indépendance ; (4) les deux inégalités et leur cas d'égalité ; (5) $H(X \mid X) = 0$ ; (6) un tableau qui marche, et la distinction entre une valeur et la moyenne.
+**Grille.** (1) la factorisation $p(x, y) = p(y)\thinspace p(x \mid y)$, puis le regroupement $\sum_y p(x, y) = p(x)$ ; (2) la symétrie et la règle de la chaîne ; (3) $I = \mathrm{KL}(p_{XY} \thinspace\Vert\thinspace p_X p_Y)$, sa finitude, Gibbs et le cas d'égalité, traduit en indépendance ; (4) les deux inégalités et leur cas d'égalité ; (5) $H(X \mid X) = 0$ ; (6) un tableau qui marche, et la distinction entre une valeur et la moyenne.
 
 ### Ex M06.11 — La KL est positive : la preuve par l'inégalité de Jensen
 
 **Réponse modèle.**
 1. $\log_2 x = \frac{\ln x}{\ln 2}$, de dérivée seconde $-\frac{1}{x^2 \ln 2} < 0$ sur $]0, +\infty[$ : $\log_2$ est strictement concave.
-2. $\mathbb{E}[\log_2 Z] = \sum_{p(x) > 0} p(x) \log_2 \frac{q(x)}{p(x)} = -\sum_{p(x) > 0} p(x) \log_2 \frac{p(x)}{q(x)} = -\mathrm{KL}(p \,\|\, q)$. Et $\mathbb{E}[Z] = \sum_{p(x) > 0} p(x)\,\frac{q(x)}{p(x)} = \sum_{p(x) > 0} q(x) \le \sum_x q(x) = 1$.
-3. Pour une fonction concave, l'inégalité de Jensen s'écrit $\mathbb{E}[\log_2 Z] \le \log_2 \mathbb{E}[Z]$ ; et $\log_2 \mathbb{E}[Z] \le \log_2 1 = 0$, puisque $\log_2$ est croissante. Donc $-\mathrm{KL}(p \,\|\, q) \le 0$, soit $\mathrm{KL}(p \,\|\, q) \ge 0$.
-4. Si $p = q$, chaque terme vaut $p(x) \log_2 1 = 0$. Réciproquement, si $\mathrm{KL}(p \,\|\, q) = 0$, les deux inégalités de 3. sont des égalités. Celle de Jensen, pour une fonction strictement concave, impose que $Z$ soit constante : $q(x) = c\,p(x)$ pour toutes les issues où $p(x) > 0$. La seconde impose $\mathbb{E}[Z] = 1$, c'est-à-dire $\sum_{p(x) > 0} q(x) = 1$ : $q$ n'a aucune masse là où $p = 0$, et $c \sum_{p(x) > 0} p(x) = c = 1$. Donc $q = p$.
-5. Avec $m = \frac{p + q}{2}$, $\mathrm{JS}(p, q) = \frac{1}{2}\mathrm{KL}(p \,\|\, m) + \frac{1}{2}\mathrm{KL}(q \,\|\, m)$. Là où $p(x) > 0$, $m(x) \ge \frac{p(x)}{2} > 0$ : la question 3 s'applique, et de même pour $q$. Les deux termes sont positifs ou nuls, donc $\mathrm{JS} \ge 0$. Si $\mathrm{JS} = 0$, les deux KL sont nulles, donc $p = m$ et $q = m$ (question 4) : $p = q$.
-6. Les lois $P_i = \frac{a_i}{A}$ et $Q_i = \frac{b_i}{B}$ sont strictement positives et somment à 1. Par 3., $0 \le \mathrm{KL}(P \,\|\, Q) = \sum_i \frac{a_i}{A} \log_2 \frac{a_i / A}{b_i / B} = \frac{1}{A}\sum_i a_i \log_2 \frac{a_i}{b_i} - \log_2 \frac{A}{B} \sum_i \frac{a_i}{A} = \frac{1}{A}\sum_i a_i \log_2 \frac{a_i}{b_i} - \log_2 \frac{A}{B}$. En multipliant par $A > 0$ : $\sum_i a_i \log_2 \frac{a_i}{b_i} \ge A \log_2 \frac{A}{B}$.
+2. $\mathbb{E}[\log_2 Z] = \sum_{p(x) > 0} p(x) \log_2 \frac{q(x)}{p(x)} = -\sum_{p(x) > 0} p(x) \log_2 \frac{p(x)}{q(x)} = -\mathrm{KL}(p \thinspace\Vert\thinspace q)$. Et $\mathbb{E}[Z] = \sum_{p(x) > 0} p(x)\thinspace\frac{q(x)}{p(x)} = \sum_{p(x) > 0} q(x) \le \sum_x q(x) = 1$.
+3. Pour une fonction concave, l'inégalité de Jensen s'écrit $\mathbb{E}[\log_2 Z] \le \log_2 \mathbb{E}[Z]$ ; et $\log_2 \mathbb{E}[Z] \le \log_2 1 = 0$, puisque $\log_2$ est croissante. Donc $-\mathrm{KL}(p \thinspace\Vert\thinspace q) \le 0$, soit $\mathrm{KL}(p \thinspace\Vert\thinspace q) \ge 0$.
+4. Si $p = q$, chaque terme vaut $p(x) \log_2 1 = 0$. Réciproquement, si $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 0$, les deux inégalités de 3. sont des égalités. Celle de Jensen, pour une fonction strictement concave, impose que $Z$ soit constante : $q(x) = c\thinspace p(x)$ pour toutes les issues où $p(x) > 0$. La seconde impose $\mathbb{E}[Z] = 1$, c'est-à-dire $\sum_{p(x) > 0} q(x) = 1$ : $q$ n'a aucune masse là où $p = 0$, et $c \sum_{p(x) > 0} p(x) = c = 1$. Donc $q = p$.
+5. Avec $m = \frac{p + q}{2}$, $\mathrm{JS}(p, q) = \frac{1}{2}\mathrm{KL}(p \thinspace\Vert\thinspace m) + \frac{1}{2}\mathrm{KL}(q \thinspace\Vert\thinspace m)$. Là où $p(x) > 0$, $m(x) \ge \frac{p(x)}{2} > 0$ : la question 3 s'applique, et de même pour $q$. Les deux termes sont positifs ou nuls, donc $\mathrm{JS} \ge 0$. Si $\mathrm{JS} = 0$, les deux KL sont nulles, donc $p = m$ et $q = m$ (question 4) : $p = q$.
+6. Les lois $P_i = \frac{a_i}{A}$ et $Q_i = \frac{b_i}{B}$ sont strictement positives et somment à 1. Par 3., $0 \le \mathrm{KL}(P \thinspace\Vert\thinspace Q) = \sum_i \frac{a_i}{A} \log_2 \frac{a_i / A}{b_i / B} = \frac{1}{A}\sum_i a_i \log_2 \frac{a_i}{b_i} - \log_2 \frac{A}{B} \sum_i \frac{a_i}{A} = \frac{1}{A}\sum_i a_i \log_2 \frac{a_i}{b_i} - \log_2 \frac{A}{B}$. En multipliant par $A > 0$ : $\sum_i a_i \log_2 \frac{a_i}{b_i} \ge A \log_2 \frac{A}{B}$.
 
 **Grille.** (1) la dérivée seconde négative ; (2) $\mathbb{E}[\log_2 Z] = -\mathrm{KL}$, et $\mathbb{E}[Z] \le 1$ parce que $q$ peut avoir de la masse là où $p = 0$ ; (3) Jensen dans le bon sens (concave), puis la croissance de $\log_2$ ; (4) les deux sens de l'équivalence, avec les **deux** cas d'égalité ($Z$ constante, et $\mathbb{E}[Z] = 1$) ; (5) $m > 0$ là où il faut, la somme de deux termes positifs, et le cas d'égalité ; (6) le changement de lois, le logarithme du quotient séparé en deux termes, et la multiplication par $A$.
 
@@ -319,17 +319,17 @@ Pour la copie : l'image 3 coûte le plus cher : le classifieur y donne 0,5 à la
 **Démarche.** Dans les trois tableaux, $Y$ a la loi $(\frac{1}{2}, \frac{1}{2})$ : $H(Y) = 1$, et $I(F ; Y) = 1 - H(Y \mid F)$.
 - a) Chaque ligne de $F_1$, divisée par 10, a la loi $(0{,}7 ;\ 0{,}3)$, d'entropie 0,8813 : $I = 1 - 0{,}8813 \approx 0{,}1187$.
 - b) Chaque ligne de $F_2$ a la loi $(0{,}6 ;\ 0{,}4)$, d'entropie 0,9710 : $I \approx 0{,}0290$.
-- c) $H(Y \mid F_3) = \frac{4}{20} \times 0 + \frac{6}{20}\,H\big(\frac{1}{3}, \frac{2}{3}\big) + \frac{10}{20}\,H(0{,}4 ;\ 0{,}6) \approx 0{,}2755 + 0{,}4855 = 0{,}7610$, donc $I \approx 0{,}2390$.
+- c) $H(Y \mid F_3) = \frac{4}{20} \times 0 + \frac{6}{20}\thinspace H\big(\frac{1}{3}, \frac{2}{3}\big) + \frac{10}{20}\thinspace H(0{,}4 ;\ 0{,}6) \approx 0{,}2755 + 0{,}4855 = 0{,}7610$, donc $I \approx 0{,}2390$.
 - d) $F_3$.
 - e) $H(Y \mid F_3) \approx 0{,}7610$ (calculée en c)).
 - f) $0{,}1187 \times \ln 2 \approx 0{,}0823$ nat.
-- g) **Non** : en regroupant « moyen » et « senior » (6 achats sur 16), $H(Y \mid F_3') = \frac{4}{20} \times 0 + \frac{16}{20}\,H\big(\frac{6}{16}, \frac{10}{16}\big) \approx 0{,}8 \times 0{,}9544 = 0{,}7635$, et l'information mutuelle tombe à environ 0,2365, un peu moins que c). Regrouper deux valeurs ne peut jamais faire monter l'information mutuelle : on efface une distinction.
+- g) **Non** : en regroupant « moyen » et « senior » (6 achats sur 16), $H(Y \mid F_3') = \frac{4}{20} \times 0 + \frac{16}{20}\thinspace H\big(\frac{6}{16}, \frac{10}{16}\big) \approx 0{,}8 \times 0{,}9544 = 0{,}7635$, et l'information mutuelle tombe à environ 0,2365, un peu moins que c). Regrouper deux valeurs ne peut jamais faire monter l'information mutuelle : on efface une distinction.
 
 Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \mid F) = 0$, donc $I(F ; Y) = H(Y) = 1$ bit, le maximum. Il « explique » parfaitement les 20 achats observés, mais un nouveau client a un numéro jamais vu : la feature n'apprend rien de général, elle ne fait que mémoriser. Comparer des features qui n'ont pas le même nombre de valeurs n'est pas équitable : plus de valeurs, c'est plus de cases, des fréquences plus libres de s'écarter de l'indépendance, et une information mutuelle estimée qui monte sur peu de données (M06.20 e)). Ici, $F_3$ est aussi réellement informative (les jeunes achètent tous), mais 20 clients ne suffisent pas pour en être sûr.
 
 **Erreurs fréquentes.** Oublier de diviser les comptages par 20, ou chaque ligne par son total ; répondre $H(Y \mid F)$ au lieu de $I(F ; Y)$ (a : 0,8813) ; faire la moyenne simple des entropies des lignes de $F_3$ (c et e) ; prendre $I$ pour $H(Y \mid F_3)$ en e) ; donner f) en bits.
 
-**Variante.** Une feature égale à $Y$ (un tableau diagonal $\begin{pmatrix} 10 & 0 \\ 0 & 10 \end{pmatrix}$) : son information mutuelle avec $Y$ ? *Réponse* : $H(Y) = 1$ bit.
+**Variante.** Une feature égale à $Y$ (un tableau diagonal $\begin{pmatrix} 10 & 0 \cr 0 & 10 \end{pmatrix}$) : son information mutuelle avec $Y$ ? *Réponse* : $H(Y) = 1$ bit.
 
 ### Ex M06.14 — Fermi : combien de bits pour un génome humain ?
 
@@ -337,7 +337,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 1. Quatre lettres : 2 bits par base (00, 01, 10, 11). $3 \times 10^9 \times 2 = 6 \times 10^9$ bits, soit $\frac{6 \times 10^9}{8} = 7{,}5 \times 10^8$ octets, environ **750 Mo**.
 2. $H = 2 \times 0{,}3 \log_2 \frac{1}{0{,}3} + 2 \times 0{,}2 \log_2 5 \approx 1{,}042 + 0{,}929 = 1{,}971$ bit par base. On gagnerait moins de 1,5 %, environ 11 Mo : presque rien.
 3. Les bases voisines ne sont pas indépendantes : des motifs se répètent (de longues répétitions, des paires CG rares…). Un compresseur qui regarde le **contexte** code chaque base avec l'incertitude qui reste sachant les précédentes, une entropie conditionnelle, plus petite que l'entropie de 2., qui traite chaque base comme tirée au hasard, indépendamment des autres.
-4. $0{,}1\,\% \times 3 \times 10^9 = 3 \times 10^6$ différences ; à $32 + 2 = 34$ bits chacune, environ $10^8$ bits, soit **13 Mo** environ.
+4. 0,1 % de $3 \times 10^9$, soit $3 \times 10^6$ différences ; à $32 + 2 = 34$ bits chacune, environ $10^8$ bits, soit **13 Mo** environ.
 5. Quelques photos de téléphone : près de 60 fois moins qu'en 1.
 6. Ce qu'il faut décrire, c'est l'incertitude qui reste **sachant** la référence, une entropie conditionnelle : deux génomes humains ont une information mutuelle énorme. Plus un message connu est lié à celui qu'on veut transmettre, moins il reste de bits à envoyer.
 
@@ -379,7 +379,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Réponses** : a) `0.1805` · b) `True` · c) `0.0` · d) `1.361` · e) `0.1251` · f) `"ValueError"` · g) `"float"`.
 
-**Démarche.** `product = np.outer(table.sum(axis=1), table.sum(axis=0))` donne $p(x)\,p(y)$ case par case ; sur les cases `table > 0`, `np.sum(p * np.log(p / product[positive])) / math.log(base)`, puis `0.0` si le résultat est entre $-10^{-12}$ et 0. Ou bien $H(Y) - H(Y \mid X)$ avec les fonctions de M06.16. Pour la copie : `np.outer` construit la loi jointe de deux variables **indépendantes**, d'où c) $= 0$ ; le tableau diagonal de d) dit que $Y = X$ : $H(Y \mid X) = 0$ et $I = H(0{,}1 ;\ 0{,}4 ;\ 0{,}5) \approx 1{,}3610$. f) : `nan < 0` est faux, donc `np.any(table < 0)` ne voit pas `nan` ; `np.all(table >= 0)` le refuse.
+**Démarche.** `product = np.outer(table.sum(axis=1), table.sum(axis=0))` donne $p(x)\thinspace p(y)$ case par case ; sur les cases `table > 0`, `np.sum(p * np.log(p / product[positive])) / math.log(base)`, puis `0.0` si le résultat est entre $-10^{-12}$ et 0. Ou bien $H(Y) - H(Y \mid X)$ avec les fonctions de M06.16. Pour la copie : `np.outer` construit la loi jointe de deux variables **indépendantes**, d'où c) $= 0$ ; le tableau diagonal de d) dit que $Y = X$ : $H(Y \mid X) = 0$ et $I = H(0{,}1 ;\ 0{,}4 ;\ 0{,}5) \approx 1{,}3610$. f) : `nan < 0` est faux, donc `np.any(table < 0)` ne voit pas `nan` ; `np.all(table >= 0)` le refuse.
 
 **Erreurs fréquentes.** Multiplier par la marge de la ligne seulement ; écrire $H(Y) - H(X \mid Y)$ (a : $-0{,}390$) ; oublier un terme dans $H(X) + H(Y) - H(X, Y)$ ; une valeur négative minuscule ($-10^{-17}$) au lieu de 0 en c).
 
@@ -403,7 +403,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Réponses** : a) `0.3356` · b) `0.4842` · c) `1.0889` · d) `False` · e) `0.0923`.
 
-**Démarche.** a) `mutual_info_score(x_20, y_20)` ; b) divisé par `math.log(2)` ; c) `mutual_info_score(x_20, x_20)` donne $I(X ; X) = H(X)$, en nats : l'entropie de $(0{,}3 ;\ 0{,}3 ;\ 0{,}4)$ ; d) `mutual_info_score(np.array(["rouge", "vert", "bleu"])[x_20], y_20)` donne la même valeur : seules comptent les observations qui ont la même valeur ; e) `rng = np.random.default_rng(620)` puis `mutual_info_score(x_20, rng.permutation(y_20))`. Pour la copie : après le mélange, les variables sont indépendantes, mais les fréquences de 40 observations, réparties dans 9 cases, s'écartent toujours un peu du produit des marges ; l'information mutuelle estimée, positive ou nulle, ne peut se tromper que vers le haut. Son biais est d'environ $\frac{(3 - 1)(3 - 1)}{2n} = 0{,}05$ nat pour $n = 40$, 100 fois moins pour $n = 4\,000$. Sur peu de données, une feature à beaucoup de valeurs paraît donc informative même quand elle ne l'est pas (M06.13).
+**Démarche.** a) `mutual_info_score(x_20, y_20)` ; b) divisé par `math.log(2)` ; c) `mutual_info_score(x_20, x_20)` donne $I(X ; X) = H(X)$, en nats : l'entropie de $(0{,}3 ;\ 0{,}3 ;\ 0{,}4)$ ; d) `mutual_info_score(np.array(["rouge", "vert", "bleu"])[x_20], y_20)` donne la même valeur : seules comptent les observations qui ont la même valeur ; e) `rng = np.random.default_rng(620)` puis `mutual_info_score(x_20, rng.permutation(y_20))`. Pour la copie : après le mélange, les variables sont indépendantes, mais les fréquences de 40 observations, réparties dans 9 cases, s'écartent toujours un peu du produit des marges ; l'information mutuelle estimée, positive ou nulle, ne peut se tromper que vers le haut. Son biais est d'environ $\frac{(3 - 1)(3 - 1)}{2n} = 0{,}05$ nat pour $n = 40$, 100 fois moins pour $n = 4\thinspace000$. Sur peu de données, une feature à beaucoup de valeurs paraît donc informative même quand elle ne l'est pas (M06.13).
 
 **Erreurs fréquentes.** Convertir a) en bits ; oublier que scikit-learn travaille en nats (b et c) ; appeler `rng.permutation` deux fois (e : 0,0635), ou mélanger `x_20` au lieu de `y_20` (e : 0,1481).
 
@@ -431,7 +431,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Réponses** : a) `"ACD"` · b) `[1.406, 0.974, 1.75, 0.344, 3.0, 3.364]`.
 
-**Démarche.** (A) $0 \times \log_2 0$ vaut `nan` pour NumPy ($0 \times (-\infty)$) : la somme est `nan`. Il faut garder les probabilités non nulles (ou `xlogy`, M06.25) : $H(p) = 0{,}5 + 0{,}375\log_2 \frac{8}{3} + 0{,}375 \approx 1{,}406$. (C) `log10` donne la cross-entropy en base 10, $1{,}75 \log_{10} 2 \approx 0{,}527$ : il faut `log2`, $H(p, q) = 0{,}5 \times 2 + 0{,}375 \times 1 + 0{,}125 \times 3 = 1{,}75$. (D) Les deux lois sont échangées : c'est $\mathrm{KL}(q \,\|\, p)$, infinie ici (`inf`), car $q$ donne une probabilité à la 4ᵉ issue et $p$ non ; $\mathrm{KL}(p \,\|\, q) = 1{,}75 - 1{,}406 \approx 0{,}344$. (B), (E) et (F) sont justes : $1{,}406 \ln 2 \approx 0{,}974$ nat, $-\log_2 0{,}125 = 3$ bits, $2^{1{,}75} \approx 3{,}364$. Pour la copie : `nan` et `inf` se voient, mais (C) renvoie un nombre plausible, et passe inaperçue si l'on ne vérifie pas l'unité.
+**Démarche.** (A) $0 \times \log_2 0$ vaut `nan` pour NumPy ($0 \times (-\infty)$) : la somme est `nan`. Il faut garder les probabilités non nulles (ou `xlogy`, M06.25) : $H(p) = 0{,}5 + 0{,}375\log_2 \frac{8}{3} + 0{,}375 \approx 1{,}406$. (C) `log10` donne la cross-entropy en base 10, $1{,}75 \log_{10} 2 \approx 0{,}527$ : il faut `log2`, $H(p, q) = 0{,}5 \times 2 + 0{,}375 \times 1 + 0{,}125 \times 3 = 1{,}75$. (D) Les deux lois sont échangées : c'est $\mathrm{KL}(q \thinspace\Vert\thinspace p)$, infinie ici (`inf`), car $q$ donne une probabilité à la 4ᵉ issue et $p$ non ; $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 1{,}75 - 1{,}406 \approx 0{,}344$. (B), (E) et (F) sont justes : $1{,}406 \ln 2 \approx 0{,}974$ nat, $-\log_2 0{,}125 = 3$ bits, $2^{1{,}75} \approx 3{,}364$. Pour la copie : `nan` et `inf` se voient, mais (C) renvoie un nombre plausible, et passe inaperçue si l'on ne vérifie pas l'unité.
 
 **Erreurs fréquentes.** Croire (B) fausse (elle convertit bien des bits en nats) ; ne pas voir (A) parce que la formule est celle de la fiche : c'est la probabilité nulle qui la casse ; croire (F) fausse parce qu'elle utilise $H(p, q)$ et pas $H(p)$ : la perplexité d'un modèle se calcule avec sa cross-entropy.
 

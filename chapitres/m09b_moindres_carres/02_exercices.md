@@ -45,7 +45,7 @@ Puis : 7. $\mathbf{X}$ a la forme $(200, 6)$ ; combien de coordonnées a le grad
 ### M09b.Q3 — Équations normales : quand la solution est-elle unique ? 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-Combien de solutions ont les équations normales $\mathbf{X}^\top\mathbf{X}\,\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ (une, ou une infinité) quand :
+Combien de solutions ont les équations normales $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ (une, ou une infinité) quand :
 1. $\mathbf{X}$ a la forme $(50, 4)$ et des colonnes indépendantes ?
 2. $\mathbf{X}$ a la forme $(3, 5)$ ?
 3. une colonne de $\mathbf{X}$ est le triple d'une autre ?
@@ -113,11 +113,11 @@ On ajuste des polynômes de degré croissant à des datasets de même taille, ti
 ### M09b.R1 — Le pivot de Gauss et l'inverse (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
-1. Résous $\begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}\mathbf{x} = \begin{pmatrix} 7 \\ 4 \end{pmatrix}$.
-2. Donne l'inverse de $\begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}$.
+1. Résous $\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}\mathbf{x} = \begin{pmatrix} 7 \cr 4 \end{pmatrix}$.
+2. Donne l'inverse de $\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}$.
 3. Pour résoudre ce système, vaut-il mieux calculer l'inverse ou faire le pivot de Gauss ? Pourquoi, en une phrase ?
 4. Une matrice carrée dont une colonne est la somme de deux autres est-elle inversible ?
-5. Le rang de $\begin{pmatrix} 1 & -2 \\ 3 & -6 \\ -2 & 4 \end{pmatrix}$ ?
+5. Le rang de $\begin{pmatrix} 1 & -2 \cr 3 & -6 \cr -2 & 4 \end{pmatrix}$ ?
 
 ### M09b.R2 — Maximum de vraisemblance et MAP (M04) 🔁 ★ ⏱️ 5 min
 *Fiche §5 et §7 · parcours C, E*
@@ -188,7 +188,7 @@ Dans ta copie : vérifie que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour l
 **Objectif :** calculer trois gradients en dérivant coordonnée par coordonnée, et vérifier les trois identités de la fiche.
 **Prérequis :** fiche §2 ; M05b (dérivées partielles) · **Parcours :** C, E
 
-$$\mathbf{a} = (4, -3), \qquad \mathbf{A} = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \\ 1 & -1 \end{pmatrix}, \qquad \mathbf{y} = (3, 1, 2), \qquad \mathbf{w} = (2, -1).$$
+$$\mathbf{a} = (4, -3), \qquad \mathbf{A} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & 1 \cr 1 & -1 \end{pmatrix}, \qquad \mathbf{y} = (3, 1, 2), \qquad \mathbf{w} = (2, -1).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -208,7 +208,7 @@ Dans ta copie : développe $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ en un polynôme
 
 Un modèle sans ordonnée à l'origine, $\hat{y} = w_1x_1 + w_2x_2$, sur quatre exemples :
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 2 \\ 2 & 1 \\ 1 & 0 \\ 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (3, 4, 1, 1).$$
+$$\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 2 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (3, 4, 1, 1).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -244,17 +244,17 @@ Dans ta copie : vérifie que la droite de c) passe par le point de f). Écris $\
 **Objectif :** calculer une matrice chapeau à la main et vérifier ses propriétés de projection.
 **Prérequis :** fiche §3 ; M09a (inverse d'une matrice 2 × 2) · **Parcours :** C
 
-Trois points d'abscisses $x = 0, 1, 3$ ; on ajuste une droite avec ordonnée à l'origine, donc $\mathbf{X} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 1 & 3 \end{pmatrix}$, et $\mathbf{y} = (2, 1, 5)$.
+Trois points d'abscisses $x = 0, 1, 3$ ; on ajuste une droite avec ordonnée à l'origine, donc $\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 1 & 1 \cr 1 & 3 \end{pmatrix}$, et $\mathbf{y} = (2, 1, 5)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\mathbf{X}^\top\mathbf{X}$ | une matrice |
-| b | $14\,(\mathbf{X}^\top\mathbf{X})^{-1}$ (des entiers) | une matrice |
-| c | $14\,\mathbf{H}$, avec $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$ (des entiers) | une matrice |
+| b | $14\thinspace(\mathbf{X}^\top\mathbf{X})^{-1}$ (des entiers) | une matrice |
+| c | $14\thinspace\mathbf{H}$, avec $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$ (des entiers) | une matrice |
 | d | la trace de $\mathbf{H}$ | un nombre |
 | e | le numéro (de 1 à 3) du point de plus grand levier $h_{ii}$ | un entier |
-| f | $7\,\hat{\mathbf{y}}$, avec $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ (des entiers) | une liste de 3 nombres |
-| g | $7\,\mathbf{r}$, avec $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ (des entiers) | une liste de 3 nombres |
+| f | $7\thinspace\hat{\mathbf{y}}$, avec $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ (des entiers) | une liste de 3 nombres |
+| g | $7\thinspace\mathbf{r}$, avec $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ (des entiers) | une liste de 3 nombres |
 
 Dans ta copie : vérifie que $\mathbf{H}\mathbf{H} = \mathbf{H}$ en calculant au moins une ligne de $\mathbf{H}\mathbf{H}$, et que $\mathbf{r}$ est orthogonal aux deux colonnes de $\mathbf{X}$. Pourquoi le point de e) est-il celui-là ? Vérifie que $\mathbf{H}$ laisse inchangés la colonne de 1 et le vecteur $(0, 1, 3)$ : pourquoi ?
 
@@ -278,7 +278,7 @@ Dans ta copie : écris la liste des monômes de a), et celle de f) (range-les pa
 **Objectif :** résoudre un problème ridge à la main, et suivre la taille des poids et l'erreur d'entraînement quand $\lambda$ grandit.
 **Prérequis :** fiche §5 ; M09a (inverse d'une matrice 2 × 2) · **Parcours :** C, E
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \\ 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, -2).$$
+$$\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, -2).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -290,7 +290,7 @@ $$\mathbf{X} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \\ 0 & 1 \end{pmatrix}, \qquad \ma
 | f | $\mathrm{SCR}$ pour $\lambda = 0$ et pour $\lambda = 2$ | une liste de 2 nombres (2 décimales) |
 | g | la limite de $\mathbf{w}$ quand $\lambda \to +\infty$ | une liste de 2 nombres |
 
-Dans ta copie : quelle est la limite de $\lambda\,\mathbf{w}$ quand $\lambda \to +\infty$ ? Pourquoi f) augmente-t-il avec $\lambda$, alors que ridge est « meilleur » ?
+Dans ta copie : quelle est la limite de $\lambda\thinspace\mathbf{w}$ quand $\lambda \to +\infty$ ? Pourquoi f) augmente-t-il avec $\lambda$, alors que ridge est « meilleur » ?
 
 ### Ex M09b.9 — Ridge comme MAP : un prior gaussien et λ = σ²/τ² ✏️ ★★ ⏱️ 20 min
 **Objectif :** traduire un bruit et un prior gaussiens en une pénalité ridge, et calculer l'estimation MAP.
@@ -298,7 +298,7 @@ Dans ta copie : quelle est la limite de $\lambda\,\mathbf{w}$ quand $\lambda \to
 
 Le modèle : $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$, avec $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$, et un prior $w_j \sim \mathcal{N}(0, \tau^2)$, tous indépendants. Pour c) à e), le dataset est
 
-$$\mathbf{X} = \begin{pmatrix} 2 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, 1).$$
+$$\mathbf{X} = \begin{pmatrix} 2 & 0 \cr 0 & 1 \cr 1 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, 1).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -326,7 +326,7 @@ Trois vecteurs de poids : $\mathbf{u} = (3, 0, 0)$, $\mathbf{v} = (1, 1, 1)$ et 
 | d | parmi A $(0{,}5 ;\ 0{,}5)$, B $(1 ;\ 0)$, C $(0{,}6 ;\ 0{,}6)$ et D $(-0{,}25 ;\ 0{,}75)$, les points du bord de la boule unité L1 de $\mathbb{R}^2$ (où $\lVert \mathbf{w} \rVert_1 = 1$) | des lettres |
 | e | sur ce bord, la plus grande et la plus petite valeur de $\lVert \mathbf{w} \rVert$ | une liste de 2 nombres (4 décimales) |
 | f | le nombre de coins de la boule unité L1 de $\mathbb{R}^3$ | un entier |
-| g | les pénalités $0{,}1\,\lVert \mathbf{w} \rVert_1$ et $0{,}1\,\lVert \mathbf{w} \rVert^2$ pour $\mathbf{w} = (0{,}5 ;\ -2 ;\ 0 ;\ 1{,}5)$ | une liste de 2 nombres (2 décimales) |
+| g | les pénalités $0{,}1\thinspace\lVert \mathbf{w} \rVert_1$ et $0{,}1\thinspace\lVert \mathbf{w} \rVert^2$ pour $\mathbf{w} = (0{,}5 ;\ -2 ;\ 0 ;\ 1{,}5)$ | une liste de 2 nombres (2 décimales) |
 
 Dans ta copie : dessine la boule unité L1 et la boule unité L2 de $\mathbb{R}^2$ sur la même figure, et place les points de d). Où sont les points de e) ? Que disent a) et b) sur la façon dont chaque pénalité juge un poids concentré sur une feature ou réparti sur plusieurs ?
 
@@ -352,13 +352,13 @@ Dans ta copie : montre que c) vaut $-\frac{n}{2}\big(\ln(2\pi\hat{\sigma}^2) + 1
 **Objectif :** calculer le biais, la variance et l'erreur quadratique d'un estimateur rétréci, et trouver le facteur de rétrécissement optimal.
 **Prérequis :** fiche §8 ; M02c (moyenne empirique) · **Parcours :** C
 
-On observe $n = 9$ valeurs indépendantes d'une loi de moyenne $\mu = 2$ et de variance $\sigma^2 = 9$, et l'on estime $\mu$ par $c\,\bar{x}$, avec $0 < c \le 1$.
+On observe $n = 9$ valeurs indépendantes d'une loi de moyenne $\mu = 2$ et de variance $\sigma^2 = 9$, et l'on estime $\mu$ par $c\thinspace\bar{x}$, avec $0 < c \le 1$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le biais de $c\,\bar{x}$ pour $c = 0{,}5$ | un nombre |
-| b | la variance de $c\,\bar{x}$ pour $c = 0{,}5$ | un nombre (2 décimales) |
-| c | l'erreur quadratique moyenne de $c\,\bar{x}$ pour $c = 0{,}5$ | un nombre (2 décimales) |
+| a | le biais de $c\thinspace\bar{x}$ pour $c = 0{,}5$ | un nombre |
+| b | la variance de $c\thinspace\bar{x}$ pour $c = 0{,}5$ | un nombre (2 décimales) |
+| c | l'erreur quadratique moyenne de $c\thinspace\bar{x}$ pour $c = 0{,}5$ | un nombre (2 décimales) |
 | d | l'erreur quadratique moyenne de $\bar{x}$ ($c = 1$) | un nombre |
 | e | le $c$ qui minimise l'erreur quadratique moyenne | un nombre (2 décimales) |
 | f | l'erreur quadratique moyenne en ce $c$ | un nombre (2 décimales) |
@@ -391,8 +391,8 @@ Soit $\mathbf{A} = (a_{ij})$ une matrice carrée de taille $p$, et $f(\mathbf{w}
 Soit $\mathbf{X}$ de forme $(n, p)$, $\mathbf{y} \in \mathbb{R}^n$ et $L(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$.
 1. Développe $L(\mathbf{w})$, en justifiant $\mathbf{w}^\top\mathbf{X}^\top\mathbf{y} = \mathbf{y}^\top\mathbf{X}\mathbf{w}$.
 2. Calcule $\nabla L(\mathbf{w})$ avec M09b.13, et écris les équations d'un point critique.
-3. Soit $\mathbf{w}^*$ une solution des équations normales et $\mathbf{v} \in \mathbb{R}^p$. Montre que $L(\mathbf{w}^* + \mathbf{v}) = L(\mathbf{w}^*) + \lVert \mathbf{X}\mathbf{v} \rVert^2$ (indication : $\mathbf{y} - \mathbf{X}(\mathbf{w}^* + \mathbf{v}) = \mathbf{r}^* - \mathbf{X}\mathbf{v}$, avec $\mathbf{X}^\top\mathbf{r}^* = \mathbf{0}$).
-4. Déduis-en que $\mathbf{w}^*$ est un minimum global de $L$ (pas seulement un point critique).
+3. Soit $\mathbf{w}^\ast$ une solution des équations normales et $\mathbf{v} \in \mathbb{R}^p$. Montre que $L(\mathbf{w}^\ast + \mathbf{v}) = L(\mathbf{w}^\ast) + \lVert \mathbf{X}\mathbf{v} \rVert^2$ (indication : $\mathbf{y} - \mathbf{X}(\mathbf{w}^\ast + \mathbf{v}) = \mathbf{r}^\ast - \mathbf{X}\mathbf{v}$, avec $\mathbf{X}^\top\mathbf{r}^\ast = \mathbf{0}$).
+4. Déduis-en que $\mathbf{w}^\ast$ est un minimum global de $L$ (pas seulement un point critique).
 5. Montre que, si les colonnes de $\mathbf{X}$ sont indépendantes ($\mathbf{X}\mathbf{v} = \mathbf{0} \Rightarrow \mathbf{v} = \mathbf{0}$), ce minimum est unique.
 6. Sinon, montre que tous les minimums donnent les mêmes prédictions $\mathbf{X}\mathbf{w}$.
 
@@ -417,7 +417,7 @@ Soit $\mathbf{X}$ de forme $(n, p)$, quelconque, et $\lambda > 0$.
 2. Soit $\mathbf{v}$ tel que $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$. En multipliant à gauche par $\mathbf{v}^\top$, montre que $\mathbf{v} = \mathbf{0}$.
 3. Conclus que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ est inversible (M09a §8 : si $\mathbf{M}\mathbf{v} = \mathbf{0}$ n'a que la solution $\mathbf{v} = \mathbf{0}$, aucune colonne de la matrice carrée $\mathbf{M}$ n'est une combinaison des autres).
 4. Calcule le gradient de $L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ et montre que son unique point critique est la solution de ridge.
-5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 3 \\ 2 & 6 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
+5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 3 \cr 2 & 6 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
 6. Trouve, pour cette matrice, une valeur de $\lambda < 0$ pour laquelle $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ n'est pas inversible.
 
 ### Ex M09b.17 — Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance ∂ ★★ ⏱️ 20 min
@@ -439,14 +439,14 @@ On suppose $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ pour $i = 1, \l
 2. On suppose $y = f(x) + \varepsilon$ en un point $x$ fixé, avec $\mathbb{E}[\varepsilon] = 0$, $\mathbb{V}(\varepsilon) = \sigma^2$, et $\varepsilon$ indépendant du dataset $D$ qui a servi à apprendre $\hat{f}_D$. On note $\bar{f}(x) = \mathbb{E}_D[\hat{f}_D(x)]$. Écris $y - \hat{f}_D(x)$ comme la somme de trois termes : le bruit, l'écart du modèle moyen à $f$, l'écart de $\hat{f}_D$ au modèle moyen.
 3. Développe le carré de cette somme, et montre que l'espérance de chacun des trois doubles produits est nulle (dis quelle hypothèse sert pour chacun).
 4. Conclus : $\mathbb{E}[(y - \hat{f}_D(x))^2] = \text{biais}^2 + \text{variance} + \sigma^2$.
-5. Applique la question 1 à l'estimateur $c\,\bar{x}$ de M09b.12, et retrouve la formule du $c$ optimal.
+5. Applique la question 1 à l'estimateur $c\thinspace\bar{x}$ de M09b.12, et retrouve la formule du $c$ optimal.
 
 ### Ex M09b.19 — Le nombre de monômes de degré au plus d en p variables : C(p + d, d) ∂ ★★★ ⏱️ 25 min
 **Objectif :** démontrer la formule du nombre de features polynomiales, par un dénombrement d'étoiles et de barres.
 **Prérequis :** fiche §4 ; R8 (combinaisons) · **Parcours :** C
 
 1. Explique pourquoi les monômes $x_1^{k_1}\cdots x_p^{k_p}$ de degré exactement $k$ correspondent aux $p$-uplets d'entiers $(k_1, \ldots, k_p) \ge 0$ de somme $k$.
-2. Représente un tel $p$-uplet par une suite de $k$ étoiles et de $p - 1$ barres (par exemple, pour $p = 3$ et $k = 4$, $\star\star|\,|\star\star$ code $(2, 0, 2)$). Montre que c'est une bijection, et déduis-en qu'il y a $\binom{k + p - 1}{k}$ monômes de degré exactement $k$.
+2. Représente un tel $p$-uplet par une suite de $k$ étoiles et de $p - 1$ barres (par exemple, pour $p = 3$ et $k = 4$, $\star\star|\thinspace|\star\star$ code $(2, 0, 2)$). Montre que c'est une bijection, et déduis-en qu'il y a $\binom{k + p - 1}{k}$ monômes de degré exactement $k$.
 3. Un monôme de degré **au plus** $d$ en $p$ variables correspond à un $(p+1)$-uplet $(k_0, k_1, \ldots, k_p)$ de somme exactement $d$ : lequel ? Déduis-en qu'il y en a $\binom{p + d}{d}$.
 4. Vérifie la formule pour $p = 2$ et $d = 2$ en écrivant tous les monômes.
 5. Déduis de 2 et 3 l'identité $\sum_{k=0}^{d}\binom{k + p - 1}{k} = \binom{p + d}{d}$.
@@ -462,7 +462,7 @@ On suppose $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ pour $i = 1, \l
 
 Un modèle linéaire avec ordonnée à l'origine, $\hat{y} = w_0 + w_1x_1 + w_2x_2$, reçoit un batch de quatre exemples :
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 2 & 1 \\ 1 & 0 & -1 \\ 1 & 1 & 3 \\ 1 & -1 & 0 \end{pmatrix}, \qquad \mathbf{y} = (3, 0, 1, 1), \qquad \mathbf{w} = (0{,}5 ;\ 1 ;\ -1).$$
+$$\mathbf{X} = \begin{pmatrix} 1 & 2 & 1 \cr 1 & 0 & -1 \cr 1 & 1 & 3 \cr 1 & -1 & 0 \end{pmatrix}, \qquad \mathbf{y} = (3, 0, 1, 1), \qquad \mathbf{w} = (0{,}5 ;\ 1 ;\ -1).$$
 
 | | Question | Réponse attendue |
 |---|---|---|

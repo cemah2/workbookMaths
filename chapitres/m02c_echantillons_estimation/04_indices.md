@@ -35,7 +35,7 @@ Relis le §2 en entier.
 </details>
 <details><summary>Indice 2</summary>
 
-Le z-score compte des écarts-types. Les barrières de Tukey sont à $1{,}5\,\text{EI}$ des quartiles.
+Le z-score compte des écarts-types. Les barrières de Tukey sont à $1{,}5\thinspace\text{EI}$ des quartiles.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -76,7 +76,7 @@ L'écart-type de la moyenne vaut $\frac{\sigma}{\sqrt{n}}$. Le théorème centra
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\sqrt{\frac{10\,000}{100}}$. 5 : Bienaymé-Tchebychev avec $\varepsilon = 2\sigma$. 6 : l'hypothèse indispensable du §4.
+2 : $\sqrt{\frac{10\thinspace000}{100}}$. 5 : Bienaymé-Tchebychev avec $\varepsilon = 2\sigma$. 6 : l'hypothèse indispensable du §4.
 
 </details>
 
@@ -107,7 +107,7 @@ Relis « Comment le lire » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-L'intervalle est $\bar{x} \pm 1{,}96\,\text{SE}$ : son centre est la moyenne, sa demi-largeur $1{,}96$ erreurs types.
+L'intervalle est $\bar{x} \pm 1{,}96\thinspace\text{SE}$ : son centre est la moyenne, sa demi-largeur $1{,}96$ erreurs types.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -188,7 +188,7 @@ $\sqrt{ab} = \sqrt{a}\sqrt{b}$ et $\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $0{,}0144 = \frac{144}{10\,000}$. 5 : isole $\sqrt{n}$, puis élève au carré.
+1 : $0{,}0144 = \frac{144}{10\thinspace000}$. 5 : isole $\sqrt{n}$, puis élève au carré.
 
 </details>
 
@@ -277,12 +277,12 @@ Relis « Quelle taille d'échantillon ? » (fiche §7) et l'exemple de Monte-Car
 </details>
 <details><summary>Indice 2</summary>
 
-Demi-largeur à 95 % : $1{,}96\,\frac{\sigma}{\sqrt{n}}$. Bienaymé-Tchebychev pour la moyenne : $P(\lvert \bar{X} - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{n\varepsilon^2}$.
+Demi-largeur à 95 % : $1{,}96\thinspace\frac{\sigma}{\sqrt{n}}$. Bienaymé-Tchebychev pour la moyenne : $P(\lvert \bar{X} - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{n\varepsilon^2}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c : $1{,}96 \times \frac{2}{\sqrt{n}} \le 0{,}5$ donne $\sqrt{n} \ge 7{,}84$, puis arrondis au-dessus. e : $\frac{4}{0{,}25\,n} \le 0{,}05$.
+c : $1{,}96 \times \frac{2}{\sqrt{n}} \le 0{,}5$ donne $\sqrt{n} \ge 7{,}84$, puis arrondis au-dessus. e : $\frac{4}{0{,}25\thinspace n} \le 0{,}05$.
 
 </details>
 
@@ -295,12 +295,12 @@ Relis l'exemple des 64 fichiers (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Calcule d'abord $\mathbb{E}[X]$ et $\mathbb{E}[X^2]$, puis $\mathbb{V}(X)$. La somme $S$ a pour espérance $100\,\mathbb{E}[X]$ et pour variance $100\,\mathbb{V}(X)$ ; standardise avec son écart-type.
+Calcule d'abord $\mathbb{E}[X]$ et $\mathbb{E}[X^2]$, puis $\mathbb{V}(X)$. La somme $S$ a pour espérance $100\thinspace\mathbb{E}[X]$ et pour variance $100\thinspace\mathbb{V}(X)$ ; standardise avec son écart-type.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e : $z = \frac{49 - 30}{19}$. h : $P(S_n > 0) \approx \Phi\big(\frac{0{,}3\,n}{1{,}9\sqrt{n}}\big)$ ; résous $\frac{0{,}3\sqrt{n}}{1{,}9} \ge 1{,}96$.
+e : $z = \frac{49 - 30}{19}$. h : $P(S_n > 0) \approx \Phi\big(\frac{0{,}3\thinspace n}{1{,}9\sqrt{n}}\big)$ ; résous $\frac{0{,}3\sqrt{n}}{1{,}9} \ge 1{,}96$.
 
 </details>
 
@@ -331,7 +331,7 @@ Relis « L'erreur type », « L'intervalle de confiance » et « L'erreur type d
 </details>
 <details><summary>Indice 2</summary>
 
-$\text{SE} = \frac{s}{\sqrt{n}}$ ; intervalle $\bar{x} \pm z\,\text{SE}$, avec $z = 1{,}96$ à 95 % et $1{,}645$ à 90 %. Pour une accuracy : $\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$.
+$\text{SE} = \frac{s}{\sqrt{n}}$ ; intervalle $\bar{x} \pm z\thinspace\text{SE}$, avec $z = 1{,}96$ à 95 % et $1{,}645$ à 90 %. Pour une accuracy : $\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -18,10 +18,10 @@
 
 ### M13a.Q2 — Log-loss et cross-entropy : la même chose ?
 1. $-\ln 0{,}75 \approx 0{,}288$ nat.
-2. Log-loss $= -\frac{1}{n}\,\ell$ : moins la log-vraisemblance des labels, divisée par $n$.
-3. **Vrai** : chaque terme est la cross-entropy entre la loi du label observé (toute la masse sur lui) et la loi prédite sur $\{0, 1\}$.
+2. Log-loss $= -\frac{1}{n}\thinspace\ell$ : moins la log-vraisemblance des labels, divisée par $n$.
+3. **Vrai** : chaque terme est la cross-entropy entre la loi du label observé (toute la masse sur lui) et la loi prédite sur $\lbrace0, 1\rbrace$.
 4. Non : chaque terme vaut $-\ln 0{,}5$, quel que soit le label ; la log-loss vaut $\ln 2 \approx 0{,}693$.
-5. 0,2 : la log-loss moyenne $H(0{,}2) + \mathrm{KL}(0{,}2 \,\Vert\, q)$ est la plus petite en $q = 0{,}2$. Le taux d'erreur, non : toutes les probabilités sous 0,5 donnent la même décision (label 0) et la même erreur moyenne, 0,2.
+5. 0,2 : la log-loss moyenne $H(0{,}2) + \mathrm{KL}(0{,}2 \thinspace\Vert\thinspace q)$ est la plus petite en $q = 0{,}2$. Le taux d'erreur, non : toutes les probabilités sous 0,5 donnent la même décision (label 0) et la même erreur moyenne, 0,2.
 6. L'accuracy ne regarde que le côté de 0,5 ; la log-loss regarde la probabilité elle-même : un modèle qui répond 0,51 et un autre qui répond 0,99 sur les mêmes bons exemples ont la même accuracy, pas la même log-loss.
 
 ### M13a.Q3 — Les propriétés de la sigmoïde et de la softplus
@@ -84,16 +84,16 @@
 
 ### M13a.R2 — Entropie, cross-entropy et information mutuelle (M06)
 1. $3 \times 0{,}25 \times 2 + 2 \times 0{,}125 \times 3 = 1{,}5 + 0{,}75 = 2{,}25$ bits.
-2. $H(\mathbf{p}, \mathbf{q}) = 0{,}85\log_2\frac{1}{0{,}6} + 0{,}15\log_2\frac{1}{0{,}4} \approx 0{,}825$ bit ; $H(\mathbf{p}) \approx 0{,}610$ ; $\mathrm{KL}(\mathbf{p} \,\Vert\, \mathbf{q}) = H(\mathbf{p}, \mathbf{q}) - H(\mathbf{p}) \approx 0{,}215$ bit.
-3. Pour deux lois $\mathbf{p}$ et $\mathbf{q}$ : $H(\mathbf{p}, \mathbf{q}) \ge H(\mathbf{p})$, autrement dit $\mathrm{KL}(\mathbf{p} \,\Vert\, \mathbf{q}) \ge 0$, avec égalité si et seulement si $\mathbf{p} = \mathbf{q}$.
+2. $H(\mathbf{p}, \mathbf{q}) = 0{,}85\log_2\frac{1}{0{,}6} + 0{,}15\log_2\frac{1}{0{,}4} \approx 0{,}825$ bit ; $H(\mathbf{p}) \approx 0{,}610$ ; $\mathrm{KL}(\mathbf{p} \thinspace\Vert\thinspace \mathbf{q}) = H(\mathbf{p}, \mathbf{q}) - H(\mathbf{p}) \approx 0{,}215$ bit.
+3. Pour deux lois $\mathbf{p}$ et $\mathbf{q}$ : $H(\mathbf{p}, \mathbf{q}) \ge H(\mathbf{p})$, autrement dit $\mathrm{KL}(\mathbf{p} \thinspace\Vert\thinspace \mathbf{q}) \ge 0$, avec égalité si et seulement si $\mathbf{p} = \mathbf{q}$.
 4. $X$ et $Y$ sont indépendantes (et réciproquement).
 5. Diviser par $\ln 2 \approx 0{,}693$ (multiplier par environ 1,443).
 
 ### M13a.R3 — Fonctions convexes de plusieurs variables (M10)
-1. Pour tous $\mathbf{a}, \mathbf{b}$ et tout $t \in [0, 1]$ : $f\big((1 - t)\,\mathbf{a} + t\,\mathbf{b}\big) \le (1 - t)\,f(\mathbf{a}) + t\,f(\mathbf{b})$.
+1. Pour tous $\mathbf{a}, \mathbf{b}$ et tout $t \in [0, 1]$ : $f\big((1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b}\big) \le (1 - t)\thinspace f(\mathbf{a}) + t\thinspace f(\mathbf{b})$.
 2. Convexe (avec égalité partout), pas strictement convexe.
 3. On additionne les deux inégalités de convexité, terme à terme.
-4. Par l'inégalité triangulaire et $\lVert \lambda\mathbf{x} \rVert = \lvert\lambda\rvert\,\lVert \mathbf{x} \rVert$ : $\lVert (1 - t)\,\mathbf{a} + t\,\mathbf{b} \rVert \le (1 - t)\lVert \mathbf{a} \rVert + t\lVert \mathbf{b} \rVert$.
+4. Par l'inégalité triangulaire et $\lVert \lambda\mathbf{x} \rVert = \lvert\lambda\rvert\thinspace\lVert \mathbf{x} \rVert$ : $\lVert (1 - t)\thinspace\mathbf{a} + t\thinspace\mathbf{b} \rVert \le (1 - t)\lVert \mathbf{a} \rVert + t\lVert \mathbf{b} \rVert$.
 5. Il est convexe.
 
 <a id="papier"></a>
@@ -116,7 +116,7 @@ Pour la copie : un 21ᵉ client qui choisit le troisième forfait ajoute $\ln\ha
 
 **Réponses** : a) `256` · b) `458` · c) `76.3333` · d) `91.6` · e) `8.7369` · f) `-21.519` · g) `-21.5659` · h) `5/6`.
 
-**Démarche.** $\sum x_i = 1\,536$, $\hat{\mu} = 256$ ; écarts $-11, 6, -5, 14, -8, 4$, carrés $121, 36, 25, 196, 64, 16$, $S = 458$. c) $\frac{458}{6}$. d) $\frac{458}{5}$. e) $\sqrt{76{,}333}$. f) $-\frac{6}{2}\big(\ln(2\pi \times 76{,}333) + 1\big) \approx -3 \times 7{,}173$. g) $-3\ln(2\pi \times 91{,}6) - \frac{458}{2 \times 91{,}6}$. h) $\frac{n - 1}{n} = \frac{5}{6}$ (M02c).
+**Démarche.** $\sum x_i = 1\thinspace536$, $\hat{\mu} = 256$ ; écarts $-11, 6, -5, 14, -8, 4$, carrés $121, 36, 25, 196, 64, 16$, $S = 458$. c) $\frac{458}{6}$. d) $\frac{458}{5}$. e) $\sqrt{76{,}333}$. f) $-\frac{6}{2}\big(\ln(2\pi \times 76{,}333) + 1\big) \approx -3 \times 7{,}173$. g) $-3\ln(2\pi \times 91{,}6) - \frac{458}{2 \times 91{,}6}$. h) $\frac{n - 1}{n} = \frac{5}{6}$ (M02c).
 
 Pour la copie : $\frac{\partial \ell}{\partial \mu} = \frac{1}{v}\sum_i (x_i - \mu) = 0$ donne $\hat{\mu} = \bar{x}$ ; $\frac{\partial \ell}{\partial v} = -\frac{n}{2v} + \frac{S}{2v^2} = 0$ donne $v = \frac{S}{n}$, positif avant, négatif après. En $(\hat{\mu}, \hat{\sigma}^2)$, $\frac{S}{2\hat{\sigma}^2} = \frac{n}{2}$, d'où la formule. g) est plus petit parce que f) est **le** maximum de $\ell$ : toute autre variance, même l'estimation sans biais, rend les données moins probables.
 
@@ -140,9 +140,9 @@ Pour la copie : le terme du premier exemple est $H\big((0, 1), (0{,}2 ;\ 0{,}8)\
 
 **Réponses** : a) `0.0202` · b) `0.0294` · c) `0.0478` · d) `20.18` · e) `0.0547` · f) `13.2877` · g) `False`.
 
-**Démarche.** Les 999 exemples pèsent $999 \times (-\ln 0{,}98) \approx 20{,}18$. b) $\frac{20{,}18 + 9{,}21}{1\,000}$. c) $\frac{20{,}18 + 27{,}63}{1\,000}$. d) $-\ln q = 999 \times 0{,}020\,203 \approx 20{,}18$ (soit $q \approx 1{,}7 \times 10^{-9}$) : garde assez de chiffres de a), le facteur 999 grossit l'arrondi. e) $\frac{20{,}18 + 34{,}54}{1\,000}$. f) $\log_2 10^4 \approx 13{,}29$ bits. g) $-\ln q \to +\infty$.
+**Démarche.** Les 999 exemples pèsent $999 \times (-\ln 0{,}98) \approx 20{,}18$. b) $\frac{20{,}18 + 9{,}21}{1\thinspace000}$. c) $\frac{20{,}18 + 27{,}63}{1\thinspace000}$. d) $-\ln q = 999 \times 0{,}020\thinspace203 \approx 20{,}18$ (soit $q \approx 1{,}7 \times 10^{-9}$) : garde assez de chiffres de a), le facteur 999 grossit l'arrondi. e) $\frac{20{,}18 + 34{,}54}{1\thinspace000}$. f) $\log_2 10^4 \approx 13{,}29$ bits. g) $-\ln q \to +\infty$.
 
-Pour la copie : le taux d'erreur vaut $\frac{1}{1\,000}$ dans b) et c) (un exemple du mauvais côté) et 0 dans a) ; il ne distingue pas b) de c). Une probabilité exactement 0 donne $-\ln 0 = +\infty$ : la log-loss devient infinie et inutilisable ; l'écrêtage remplace 0 par un tout petit nombre, ce qui garde un nombre fini mais énorme. Un modèle a donc intérêt à ne jamais annoncer 0 ou 1 exactement.
+Pour la copie : le taux d'erreur vaut $\frac{1}{1\thinspace000}$ dans b) et c) (un exemple du mauvais côté) et 0 dans a) ; il ne distingue pas b) de c). Une probabilité exactement 0 donne $-\ln 0 = +\infty$ : la log-loss devient infinie et inutilisable ; l'écrêtage remplace 0 par un tout petit nombre, ce qui garde un nombre fini mais énorme. Un modèle a donc intérêt à ne jamais annoncer 0 ou 1 exactement.
 
 **Erreurs fréquentes.** Oublier de diviser par 1 000 ; confondre $q$ et $-\ln q$ ; des nats au lieu de bits pour f).
 
@@ -176,7 +176,7 @@ Pour la copie : $s(z) - s(-z) = \ln\frac{1 + e^z}{1 + e^{-z}} = \ln e^z = z$, et
 
 **Réponses** : a) `-1.4` · b) `0.1978` · c) `1.4918` · d) `3.0042` · e) `1.6364` · f) `3.2133` · g) `0.3068` · h) `0.0392`.
 
-**Démarche.** a) $0{,}7 + 1{,}1 - 3{,}2$. b) $\sigma(-1{,}4)$. c) $z_B = 1{,}4 + 2{,}2 - 3{,}2 = 0{,}4$, cote $e^{0{,}4}$. d) $e^{1{,}1}$. e) $0{,}7 \times 2 + 1{,}1\,x_2 - 3{,}2 = 0$ : $x_2 = \frac{1{,}8}{1{,}1}$. f) $1{,}4 + 1{,}1\,x_2 - 3{,}2 = \ln\frac{0{,}85}{0{,}15}$ : $x_2 = \frac{1{,}8 + 1{,}7346}{1{,}1}$. g) $\frac{z_B}{\lVert \mathbf{w} \rVert} = \frac{0{,}4}{\sqrt{0{,}49 + 1{,}21}}$. h) $\sigma(-3{,}2)$.
+**Démarche.** a) $0{,}7 + 1{,}1 - 3{,}2$. b) $\sigma(-1{,}4)$. c) $z_B = 1{,}4 + 2{,}2 - 3{,}2 = 0{,}4$, cote $e^{0{,}4}$. d) $e^{1{,}1}$. e) $0{,}7 \times 2 + 1{,}1\thinspace x_2 - 3{,}2 = 0$ : $x_2 = \frac{1{,}8}{1{,}1}$. f) $1{,}4 + 1{,}1\thinspace x_2 - 3{,}2 = \ln\frac{0{,}85}{0{,}15}$ : $x_2 = \frac{1{,}8 + 1{,}7346}{1{,}1}$. g) $\frac{z_B}{\lVert \mathbf{w} \rVert} = \frac{0{,}4}{\sqrt{0{,}49 + 1{,}21}}$. h) $\sigma(-3{,}2)$.
 
 Pour la copie : $P = 0{,}85$ équivaut à $\mathbf{w} \cdot \mathbf{x} + b = \operatorname{logit}(0{,}85)$, une droite de même vecteur normal $\mathbf{w}$ que la frontière : elles sont parallèles. La probabilité augmente le plus vite dans la direction de $\mathbf{w}$, orthogonale aux lignes de niveau.
 
@@ -206,7 +206,7 @@ Pour la copie : $\ln\frac{P(1 \mid x)}{P(0 \mid x)} = \ln\frac{\pi_1}{\pi_0} - \
 
 **Erreurs fréquentes.** Diviser par $\sigma$ au lieu de $\sigma^2$ ; oublier $\ln\frac{\pi_1}{\pi_0}$ ; placer la frontière au milieu des moyennes malgré des classes inégales.
 
-**Variante.** Avec $\sigma^2 = 1$ (même proportions) : $w$ et $x^*$ ? *Réponse* : $w = 4$, $b = -4 - 0{,}619$, $x^* \approx 1{,}155$ : la frontière se rapproche du milieu quand les classes se séparent mieux.
+**Variante.** Avec $\sigma^2 = 1$ (même proportions) : $w$ et $x^\ast$ ? *Réponse* : $w = 4$, $b = -4 - 0{,}619$, $x^\ast \approx 1{,}155$ : la frontière se rapproche du milieu quand les classes se séparent mieux.
 
 ### Ex M13a.10 — L'entropie et l'indice de Gini de quelques distributions
 
@@ -226,7 +226,7 @@ Pour la copie : par entropie, $\mathbf{p}_1 < \mathbf{p}_2 < \mathbf{p}_3$ (0,29
 
 **Démarche.** b) $H(0{,}65 ;\ 0{,}35)$. Lignes : bus $(0{,}55 ;\ 0{,}45)$, $H \approx 0{,}9928$ ; vélo $(\frac{26}{30}, \frac{4}{30})$, $H \approx 0{,}5665$ ; voiture $(\frac{17}{30}, \frac{13}{30})$, $H \approx 0{,}9871$. d) $0{,}4 \times 0{,}9928 + 0{,}3 \times 0{,}5665 + 0{,}3 \times 0{,}9871$ (garde 4 décimales dans les intermédiaires). e) b) − d). f) $H(0{,}4 ;\ 0{,}3 ;\ 0{,}3)$. g) $G(Y) = 1 - 0{,}65^2 - 0{,}35^2 = 0{,}455$, moyenne pondérée des Gini des lignes $0{,}4 \times 0{,}495 + 0{,}3 \times 0{,}231 + 0{,}3 \times 0{,}491 \approx 0{,}4147$. h) indépendance : $I = 0$.
 
-Pour la copie : la formule somme six termes $p(x, y)\log_2\frac{p(x, y)}{p(x)\,p(y)}$ et redonne $0{,}0709$. C'est la ligne « vélo » qui fait baisser l'entropie : la seule qui s'écarte nettement de $(0{,}65 ;\ 0{,}35)$. $I(X ; Y) = H(Y)$ voudrait dire $H(Y \mid X) = 0$ : connaître le mode de transport suffirait à savoir si l'on arrive à l'heure.
+Pour la copie : la formule somme six termes $p(x, y)\log_2\frac{p(x, y)}{p(x)\thinspace p(y)}$ et redonne $0{,}0709$. C'est la ligne « vélo » qui fait baisser l'entropie : la seule qui s'écarte nettement de $(0{,}65 ;\ 0{,}35)$. $I(X ; Y) = H(Y)$ voudrait dire $H(Y \mid X) = 0$ : connaître le mode de transport suffirait à savoir si l'on arrive à l'heure.
 
 **Erreurs fréquentes.** Des nats ; la moyenne non pondérée des entropies des lignes ; donner $H(Y \mid X)$ au lieu de la baisse.
 
@@ -252,9 +252,9 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 **Réponse modèle.**
 1. $\frac{1}{N}\ell(\mathbf{p}) = \sum_k \frac{n_k}{N}\ln p_k = \sum_k \hat{p}_k\ln p_k = -H(\hat{\mathbf{p}}, \mathbf{p})$.
-2. Gibbs : $H(\hat{\mathbf{p}}, \mathbf{p}) \ge H(\hat{\mathbf{p}}, \hat{\mathbf{p}}) = H(\hat{\mathbf{p}})$, avec égalité si et seulement si $\mathbf{p} = \hat{\mathbf{p}}$. En multipliant par $-N$ : $\ell(\mathbf{p}) \le -N\,H(\hat{\mathbf{p}}) = \ell(\hat{\mathbf{p}})$.
+2. Gibbs : $H(\hat{\mathbf{p}}, \mathbf{p}) \ge H(\hat{\mathbf{p}}, \hat{\mathbf{p}}) = H(\hat{\mathbf{p}})$, avec égalité si et seulement si $\mathbf{p} = \hat{\mathbf{p}}$. En multipliant par $-N$ : $\ell(\mathbf{p}) \le -N\thinspace H(\hat{\mathbf{p}}) = \ell(\hat{\mathbf{p}})$.
 3. Si $n_k = 0$, $\hat{p}_k = 0$ : $\hat{\mathbf{p}}$ sort du domaine des lois à valeurs strictement positives, et l'on étend $\ell$ par la convention $0\ln 0 = 0$ (le terme $n_k\ln p_k$ vaut alors 0 pour tout $p_k$) ; avec $0\ln 0 = 0$, l'inégalité de Gibbs reste vraie (elle somme sur les $k$ où $\hat{p}_k > 0$), et le maximum met $p_k = 0$ : toute masse donnée à une valeur jamais vue est perdue pour les autres.
-4. $\ell(\mathbf{p}) - \ell(\hat{\mathbf{p}}) = -N\big(H(\hat{\mathbf{p}}, \mathbf{p}) - H(\hat{\mathbf{p}})\big) = -N\,\mathrm{KL}(\hat{\mathbf{p}} \,\Vert\, \mathbf{p})$.
+4. $\ell(\mathbf{p}) - \ell(\hat{\mathbf{p}}) = -N\big(H(\hat{\mathbf{p}}, \mathbf{p}) - H(\hat{\mathbf{p}})\big) = -N\thinspace\mathrm{KL}(\hat{\mathbf{p}} \thinspace\Vert\thinspace \mathbf{p})$.
 5. Le même raisonnement avec les comptages $n_k + \alpha$ (de total $N + K\alpha$) : $\sum_k (n_k + \alpha)\ln p_k$ est maximale en $p_k = \frac{n_k + \alpha}{N + K\alpha}$. Le lissage est un maximum de vraisemblance sur des données augmentées de $\alpha$ observations fictives de chaque valeur.
 
 **Grille.** (1) la réécriture en cross-entropy avec $\hat{p}_k = n_k/N$ ; (2) Gibbs et le cas d'égalité, le signe en multipliant par $-N$ ; (3) le cas $n_k = 0$ traité ; (4) la KL ; (5) les pseudo-comptages.
@@ -262,9 +262,9 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 ### Ex M13a.14 — La log-loss moyenne est moins la log-vraisemblance divisée par n
 
 **Réponse modèle.**
-1. $P(y_i) = \hat{p}_i^{\,y_i}(1 - \hat{p}_i)^{1 - y_i}$ : cela vaut $\hat{p}_i$ si $y_i = 1$ et $1 - \hat{p}_i$ si $y_i = 0$.
-2. Par indépendance sachant les features, $L = \prod_i \hat{p}_i^{\,y_i}(1 - \hat{p}_i)^{1 - y_i}$, $\ln L = \sum_i \big[y_i\ln\hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big]$, et la log-loss est $-\frac{1}{n}\ln L$.
-3. $H(\mathbf{e}_{y_i}, \hat{\mathbf{q}}_i) = -\sum_{c \in \{0, 1\}} e_{y_i}(c)\ln\hat{q}_i(c) = -\ln\hat{q}_i(y_i)$, la même chose.
+1. $P(y_i) = \hat{p}_i^{\thinspace y_i}(1 - \hat{p}_i)^{1 - y_i}$ : cela vaut $\hat{p}_i$ si $y_i = 1$ et $1 - \hat{p}_i$ si $y_i = 0$.
+2. Par indépendance sachant les features, $L = \prod_i \hat{p}_i^{\thinspace y_i}(1 - \hat{p}_i)^{1 - y_i}$, $\ln L = \sum_i \big[y_i\ln\hat{p}_i + (1 - y_i)\ln(1 - \hat{p}_i)\big]$, et la log-loss est $-\frac{1}{n}\ln L$.
+3. $H(\mathbf{e} _{y_i}, \hat{\mathbf{q}} _i) = -\sum _{c \in \lbrace0, 1\rbrace} e _{y_i}(c)\ln\hat{q}_i(c) = -\ln\hat{q}_i(y_i)$, la même chose.
 4. $-\frac{1}{n}\sum_i \ln\hat{q}_i(y_i)$, avec $\hat{\mathbf{q}}_i$ la loi prédite sur les $K$ classes : elle suppose chaque label tiré d'une loi catégorielle de paramètres $\hat{\mathbf{q}}_i$, indépendamment.
 5. Multiplier une fonction par une constante positive ($\frac{1}{n}$, ou $\frac{1}{\ln 2}$ pour passer en bits) ne change pas l'endroit où elle est minimale.
 
@@ -274,8 +274,8 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 
 **Réponse modèle.**
 1. Les $\pi_k(t)$ sont strictement positifs et leur somme vaut $\frac{\sum_k e^{a_k + t d_k}}{\sum_j e^{a_j + t d_j}} = 1$.
-2. $g(t) = \ln S(t)$ avec $S(t) = \sum_j e^{a_j + t d_j}$, $S'(t) = \sum_j d_j e^{a_j + t d_j}$, donc $g'(t) = \frac{S'(t)}{S(t)} = \sum_k \pi_k(t)\,d_k$.
-3. $\pi_k = \frac{e^{a_k + t d_k}}{S}$ donne $\pi_k' = \frac{d_k e^{a_k + t d_k}S - e^{a_k + t d_k}S'}{S^2} = \pi_k\,(d_k - g'(t))$. Alors $g''(t) = \sum_k \pi_k'\,d_k = \sum_k \pi_k d_k^2 - g'(t)\sum_k \pi_k d_k = \sum_k \pi_k d_k^2 - \big(\sum_k \pi_k d_k\big)^2$ : la variance des $d_k$ sous la loi $\boldsymbol{\pi}(t)$ (l'espérance du carré moins le carré de l'espérance, M02b), positive ou nulle. $g$ est convexe (M05a).
+2. $g(t) = \ln S(t)$ avec $S(t) = \sum_j e^{a_j + t d_j}$, $S'(t) = \sum_j d_j e^{a_j + t d_j}$, donc $g'(t) = \frac{S'(t)}{S(t)} = \sum_k \pi_k(t)\thinspace d_k$.
+3. $\pi_k = \frac{e^{a_k + t d_k}}{S}$ donne $\pi_k' = \frac{d_k e^{a_k + t d_k}S - e^{a_k + t d_k}S'}{S^2} = \pi_k\thinspace(d_k - g'(t))$. Alors $g''(t) = \sum_k \pi_k'\thinspace d_k = \sum_k \pi_k d_k^2 - g'(t)\sum_k \pi_k d_k = \sum_k \pi_k d_k^2 - \big(\sum_k \pi_k d_k\big)^2$ : la variance des $d_k$ sous la loi $\boldsymbol{\pi}(t)$ (l'espérance du carré moins le carré de l'espérance, M02b), positive ou nulle. $g$ est convexe (M05a).
 4. La définition de M10 ne compare $f$ qu'en des points d'un même segment $[\mathbf{a}, \mathbf{b}]$, et ce segment est l'image de $[0, 1]$ par $t \mapsto \mathbf{a} + t(\mathbf{b} - \mathbf{a})$ : l'inégalité pour LSE est l'inégalité de convexité de $g$ avec $\mathbf{d} = \mathbf{b} - \mathbf{a}$.
 5. $s(z) = \mathrm{LSE}(0, z)$, composée de LSE et de l'application affine $z \mapsto (0, z)$ : convexe. Puis $(\mathbf{w}, b) \mapsto z = \mathbf{w} \cdot \mathbf{x} + b$ est affine, donc $s(z)$ est convexe en $(\mathbf{w}, b)$, et $-yz$ est affine : la somme est convexe.
 6. $g'' = 0$ quand les $d_k$ sont tous égaux (une variance nulle, puisque tous les $\pi_k > 0$). Avec $\mathbf{d} = (1, \ldots, 1)$, $g(t) = \mathrm{LSE}(\mathbf{a}) + t$ : $g$ est affine, et LSE n'est pas strictement convexe (ajouter la même constante à tous les $u_k$ l'augmente de cette constante).
@@ -289,16 +289,16 @@ Pour la copie : dans $A$, $\sum_{y \in A}(y - m)^2 = \sum_{y \in A}(y - m_A)^2 +
 2. $G = 1 - \sum_k p_k^2 \le 1 - \frac{1}{K}$, avec égalité si et seulement si la somme de carrés du point 1 est nulle, c'est-à-dire $p_k = \frac{1}{K}$ pour tout $k$.
 3. Cauchy-Schwarz : $\big(\sum_k p_k \times 1\big)^2 \le \big(\sum_k p_k^2\big)\big(\sum_k 1^2\big)$, soit $1 \le K\sum_k p_k^2$.
 4. $p_k^2 \le p_k$ (car $0 \le p_k \le 1$), donc $\sum_k p_k^2 \le 1$ et $G \ge 0$ ; égalité si et seulement si chaque $p_k$ vaut 0 ou 1, c'est-à-dire une classe de probabilité 1.
-5. $\mathbf{p} \mapsto \sum_k p_k^2$ est convexe (une somme de fonctions convexes, M10), donc $G$, une constante moins elle, est concave : $G\big(t\,\mathbf{p} + (1 - t)\,\mathbf{q}\big) \ge t\,G(\mathbf{p}) + (1 - t)\,G(\mathbf{q})$.
+5. $\mathbf{p} \mapsto \sum_k p_k^2$ est convexe (une somme de fonctions convexes, M10), donc $G$, une constante moins elle, est concave : $G\big(t\thinspace\mathbf{p} + (1 - t)\thinspace\mathbf{q}\big) \ge t\thinspace G(\mathbf{p}) + (1 - t)\thinspace G(\mathbf{q})$.
 
 **Grille.** (1) le développement ; (2) la borne et le cas d'égalité ; (3) Cauchy-Schwarz avec le bon vecteur ; (4) le minimum et son cas d'égalité ; (5) la concavité et l'inégalité du mélange.
 
 ### Ex M13a.17 — L'entropie est maximale pour la loi uniforme, par l'inégalité de Gibbs
 
 **Réponse modèle.**
-1. $\mathrm{KL}(\mathbf{p} \,\Vert\, \mathbf{u}) = \sum_k p_k\log_2\frac{p_k}{1/K} = \sum_k p_k\log_2 p_k + \log_2 K\sum_k p_k = \log_2 K - H(\mathbf{p})$.
+1. $\mathrm{KL}(\mathbf{p} \thinspace\Vert\thinspace \mathbf{u}) = \sum_k p_k\log_2\frac{p_k}{1/K} = \sum_k p_k\log_2 p_k + \log_2 K\sum_k p_k = \log_2 K - H(\mathbf{p})$.
 2. $\mathrm{KL} \ge 0$ (Gibbs), donc $H(\mathbf{p}) \le \log_2 K$, avec égalité si et seulement si $\mathbf{p} = \mathbf{u}$.
-3. Chaque terme $-p_k\log_2 p_k$ est positif ou nul (pour $0 \le p_k \le 1$), nul si et seulement si $p_k \in \{0, 1\}$ : $H = 0$ si et seulement si une valeur a la probabilité 1.
+3. Chaque terme $-p_k\log_2 p_k$ est positif ou nul (pour $0 \le p_k \le 1$), nul si et seulement si $p_k \in \lbrace0, 1\rbrace$ : $H = 0$ si et seulement si une valeur a la probabilité 1.
 4. $\log_2 8 = 3$ : c'est le maximum, donc la loi est uniforme, $p_k = \frac{1}{8}$.
 5. Une loi uniforme sur $K = 2^m$ valeurs demande $m$ questions oui/non (couper en deux à chaque fois) ; aucune loi sur $K$ valeurs n'en demande plus, en moyenne, avec un bon code (M06 §7), et l'entropie mesure ce nombre moyen.
 
@@ -419,7 +419,7 @@ En 3 phrases : « Le taux d'erreur ne voit que le côté de 50 % où tombe la pr
 
 **Réponses** : a) `[0.09272, 0.04606, 0.02373]` · b) `[0.09165, 0.04583, 0.02291]` · c) `True` · d) `[2.01, 1.94]` · e) `2`.
 
-**Démarche.** `phat_samples` : `(rng.random((N_SAMPLES_27, n)) < P_27).mean(axis=1)` ; `spread_table` crée **un** générateur et appelle `phat_samples` pour 25, 100 puis 400. Pour la copie : $\hat{p}$ est la moyenne de $n$ variables de Bernoulli indépendantes de variance $p(1 - p)$, donc de variance $\frac{p(1 - p)}{n}$ (M02c) ; les écarts mesurés (1 %, 0,5 %, 3,6 %) sont de l'ordre de l'incertitude d'un écart-type estimé sur 2 000 valeurs. Pour un écart-type sous 0,01 : $n \ge 0{,}21/10^{-4} = 2\,100$. Les histogrammes sont des cloches (le théorème central limite, M02c) de largeur divisée par 2 quand $n$ est multiplié par 4, comme la log-vraisemblance de la fiche §1 se creuse. Sur 25 exemples, « 0,32 » est à $\pm 0{,}09$ près : le deuxième chiffre ne veut rien dire.
+**Démarche.** `phat_samples` : `(rng.random((N_SAMPLES_27, n)) < P_27).mean(axis=1)` ; `spread_table` crée **un** générateur et appelle `phat_samples` pour 25, 100 puis 400. Pour la copie : $\hat{p}$ est la moyenne de $n$ variables de Bernoulli indépendantes de variance $p(1 - p)$, donc de variance $\frac{p(1 - p)}{n}$ (M02c) ; les écarts mesurés (1 %, 0,5 %, 3,6 %) sont de l'ordre de l'incertitude d'un écart-type estimé sur 2 000 valeurs. Pour un écart-type sous 0,01 : $n \ge 0{,}21/10^{-4} = 2\thinspace100$. Les histogrammes sont des cloches (le théorème central limite, M02c) de largeur divisée par 2 quand $n$ est multiplié par 4, comme la log-vraisemblance de la fiche §1 se creuse. Sur 25 exemples, « 0,32 » est à $\pm 0{,}09$ près : le deuxième chiffre ne veut rien dire.
 
 **Erreurs fréquentes.** Un générateur recréé pour chaque $n$ (d'autres nombres que ceux de la vérification) ; la variance au lieu de l'écart-type ; oublier la racine en b) ; les rapports inversés en d) ; 4 en e).
 

@@ -27,9 +27,9 @@
 ### M02a.Q3 — Quelle méthode de calcul pour quelle intégrale ?
 1. (T) : $x^3 - 4\ln \lvert x \rvert$.
 2. (P) : $u = \ln x$ (qui se simplifie en dérivant), $v' = x$.
-3. (C) : $u = x^2 + 1$, $du = 2x\,dx$ ; on obtient $\ln(x^2 + 1)$.
+3. (C) : $u = x^2 + 1$, $du = 2x\thinspace dx$ ; on obtient $\ln(x^2 + 1)$.
 4. (P) : $u = x$, $v' = e^{3x}$.
-5. (C) : $u = 1 + e^x$, $du = e^x\,dx$ ; on obtient $\ln(1 + e^x)$.
+5. (C) : $u = 1 + e^x$, $du = e^x\thinspace dx$ ; on obtient $\ln(1 + e^x)$.
 6. (T) en développant $(x + 1)^2 = x^2 + 2x + 1$, de primitive $\frac{x^3}{3} + x^2 + x$, ou (C) avec $u = x + 1$ : $\frac{(x + 1)^3}{3}$. Les deux résultats diffèrent d'une constante ($\frac{1}{3}$).
 
 ### M02a.Q4 — Converge ou diverge ?
@@ -61,7 +61,7 @@
 2. $1 - F(1) = \frac{3}{4}$.
 3. $F(2) - F(1) = 1 - \frac{1}{4} = \frac{3}{4}$.
 4. $\frac{m^2}{4} = \frac{1}{2}$, donc $m = \sqrt{2} \approx 1{,}414$.
-5. $F'(x) = \frac{x}{2}$ (et l'on vérifie que $\int_0^2 \frac{x}{2}\,dx = 1$).
+5. $F'(x) = \frac{x}{2}$ (et l'on vérifie que $\int_0^2 \frac{x}{2}\thinspace dx = 1$).
 6. **Faux** : $F(x) = P(X \le x)$ ne peut que croître quand $x$ augmente.
 
 <a id="rappels"></a>
@@ -77,7 +77,7 @@
 ### M02a.R2 — Sommes Σ (R4)
 1. $2 + 6 + 12 = 20$.
 2. $0{,}1 + 0{,}2 + 0{,}3 + 0{,}4 + 0{,}5 = 1{,}5$ (ou $0{,}1 \times 15$).
-3. $0{,}5\sum_{i=0}^{3} f(0{,}5\,i)$ : une somme de Riemann à gauche, avec $h = 0{,}5$.
+3. $0{,}5\sum_{i=0}^{3} f(0{,}5\thinspace i)$ : une somme de Riemann à gauche, avec $h = 0{,}5$.
 4. Dix termes égaux à 3 ($k$ va de 0 à 9) : 30. C'est le calcul d'une somme de Riemann d'une fonction constante.
 
 ### M02a.R3 — Exponentielle et logarithme (R6)
@@ -101,8 +101,8 @@
 - d) Aux milieux $0{,}25$ ; $0{,}75$ ; $1{,}25$ ; $1{,}75$ : $f = 1{,}75^3 = 5{,}359375$ ; $1{,}25^3 = 1{,}953125$ ; $0{,}75^3 = 0{,}421875$ ; $0{,}25^3 = 0{,}015625$, de somme $7{,}75$, d'où $M_4 = 3{,}875$.
 - e) $6{,}25 - 2{,}25 = 4$.
 - f) $h = 0{,}25$ ; les huit hauteurs à gauche ($x = 0$ à $1{,}75$) valent $8$ ; $5{,}359375$ ; $3{,}375$ ; $1{,}953125$ ; $1$ ; $0{,}421875$ ; $0{,}125$ ; $0{,}015625$, de somme $20{,}25$, d'où $L_8 = 5{,}0625$.
-- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\,f(0)$) et le dernier de $R_n$ ($h\,f(2)$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 8 = \frac{16}{n}$. Puis $\frac{16}{n} \le 0{,}1 \iff n \ge 160$.
-- h) $f$ décroît : les rectangles à gauche dépassent la courbe, ceux de droite sont dessous. L'aire exacte, $\int_0^2 (2 - x)^3\,dx = \left[-\frac{(2 - x)^4}{4}\right]_0^2 = 4$, est bien entre 2,25 et 6,25, et le point milieu (3,875) en est le plus proche.
+- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\thinspace f(0)$) et le dernier de $R_n$ ($h\thinspace f(2)$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 8 = \frac{16}{n}$. Puis $\frac{16}{n} \le 0{,}1 \iff n \ge 160$.
+- h) $f$ décroît : les rectangles à gauche dépassent la courbe, ceux de droite sont dessous. L'aire exacte, $\int_0^2 (2 - x)^3\thinspace dx = \left[-\frac{(2 - x)^4}{4}\right]_0^2 = 4$, est bien entre 2,25 et 6,25, et le point milieu (3,875) en est le plus proche.
 
 **Erreurs fréquentes.** Oublier de multiplier par $h$ (12,5 et 4,5) ; inverser gauche et droite ; en g, prendre $h = \frac{1}{n}$ (on trouve alors 80).
 
@@ -138,12 +138,12 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 - d) $\left[\frac{x^3}{3} - x^2\right]_{-1}^{2} = \left(\frac{8}{3} - 4\right) - \left(-\frac{1}{3} - 1\right) = -\frac{4}{3} + \frac{4}{3} = 0$.
 - e) $x^2 - 2x = x(x - 2)$ est positive sur $[-1 ; 0]$ et négative sur $[0 ; 2]$ : $\int_{-1}^0 = \frac{4}{3}$ et $\int_0^2 = -\frac{4}{3}$, d'où l'aire $\frac{4}{3} + \frac{4}{3} = \frac{8}{3}$. L'intégrale de d) est nulle parce que les deux morceaux se compensent.
 - f) $2x = x^2 \iff x(x - 2) = 0$ : $x = 0$ ou $x = 2$.
-- g) Sur $[0 ; 2]$, $2x \ge x^2$ (essaie $x = 1$) : $\int_0^2 (2x - x^2)\,dx = 4 - \frac{8}{3} = \frac{4}{3}$.
+- g) Sur $[0 ; 2]$, $2x \ge x^2$ (essaie $x = 1$) : $\int_0^2 (2x - x^2)\thinspace dx = 4 - \frac{8}{3} = \frac{4}{3}$.
 - h) $\big[-\cos x\big]_0^{\pi/3} = -\cos\frac{\pi}{3} - (-\cos 0) = -\frac{1}{2} + 1 = \frac{1}{2}$.
 
 **Erreurs fréquentes.** Répondre 0 à e (l'intégrale au lieu de l'aire) ; inverser les courbes en g ($-\frac{4}{3}$) ; prendre $\cos$ pour primitive de $\sin$ en h ($-\frac{1}{2}$).
 
-**Variante.** L'aire entre $y = x^2$ et $y = 4$ ? *Réponse* : intersections en $\pm 2$, $\int_{-2}^2 (4 - x^2)\,dx = \frac{32}{3}$.
+**Variante.** L'aire entre $y = x^2$ et $y = 4$ ? *Réponse* : intersections en $\pm 2$, $\int_{-2}^2 (4 - x^2)\thinspace dx = \frac{32}{3}$.
 
 ### Ex M02a.4 — Intégration par parties
 
@@ -151,15 +151,15 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 **Démarche.**
 - a) On dérive $x$ (il devient 1) et on intègre $e^{2x}$.
-- b) $u = x$, $v = \frac{e^{2x}}{2}$ : $\left[\frac{x\,e^{2x}}{2}\right]_0^1 - \int_0^1 \frac{e^{2x}}{2}\,dx = \frac{e^2}{2} - \frac{e^2 - 1}{4} = \frac{e^2 + 1}{4} \approx 2{,}0973$.
-- c) $u = x$, $v = \sin x$ : $x\sin x - \int \sin x\,dx = x\sin x + \cos x$.
-- d) $u = \ln x$, $v' = 1$, $v = x$ : $\big[x\ln x\big]_1^e - \int_1^e 1\,dx = e - (e - 1) = 1$. Au passage : une primitive de $\ln x$ est $x\ln x - x$.
-- e) $u = \ln x$, $v = \frac{x^2}{2}$ : $\frac{x^2\ln x}{2} - \int \frac{1}{x} \times \frac{x^2}{2}\,dx = \frac{x^2\ln x}{2} - \frac{x^2}{4}$.
-- f) $u = x^2$, $v = e^x$ : $\big[x^2 e^x\big]_0^1 - 2\int_0^1 x\,e^x\,dx$ ; puis $\int_0^1 x\,e^x\,dx = \big[(x - 1)e^x\big]_0^1 = 0 - (-1) = 1$. Total : $e - 2 \approx 0{,}7183$.
+- b) $u = x$, $v = \frac{e^{2x}}{2}$ : $\left[\frac{x\thinspace e^{2x}}{2}\right]_0^1 - \int_0^1 \frac{e^{2x}}{2}\thinspace dx = \frac{e^2}{2} - \frac{e^2 - 1}{4} = \frac{e^2 + 1}{4} \approx 2{,}0973$.
+- c) $u = x$, $v = \sin x$ : $x\sin x - \int \sin x\thinspace dx = x\sin x + \cos x$.
+- d) $u = \ln x$, $v' = 1$, $v = x$ : $\big[x\ln x\big]_1^e - \int_1^e 1\thinspace dx = e - (e - 1) = 1$. Au passage : une primitive de $\ln x$ est $x\ln x - x$.
+- e) $u = \ln x$, $v = \frac{x^2}{2}$ : $\frac{x^2\ln x}{2} - \int \frac{1}{x} \times \frac{x^2}{2}\thinspace dx = \frac{x^2\ln x}{2} - \frac{x^2}{4}$.
+- f) $u = x^2$, $v = e^x$ : $\big[x^2 e^x\big]_0^1 - 2\int_0^1 x\thinspace e^x\thinspace dx$ ; puis $\int_0^1 x\thinspace e^x\thinspace dx = \big[(x - 1)e^x\big]_0^1 = 0 - (-1) = 1$. Total : $e - 2 \approx 0{,}7183$.
 
 **Erreurs fréquentes.** Choisir $u = e^{2x}$ (l'intégrale devient plus compliquée) ; oublier le facteur $\frac{1}{2}$ de la primitive de $e^{2x}$ ; un signe dans la seconde intégrale ; en f, oublier le facteur 2 (on trouve $e - 1$).
 
-**Variante.** $\int_0^{\pi} x\sin x\,dx$ ? *Réponse* : $\big[-x\cos x\big]_0^{\pi} + \int_0^{\pi} \cos x\,dx = \pi + 0 = \pi$.
+**Variante.** $\int_0^{\pi} x\sin x\thinspace dx$ ? *Réponse* : $\big[-x\cos x\big]_0^{\pi} + \int_0^{\pi} \cos x\thinspace dx = \pi + 0 = \pi$.
 
 ### Ex M02a.5 — Changement de variable
 
@@ -167,15 +167,15 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 **Démarche.**
 - a) $u(0) = 3$ et $u(1) = 5$.
-- b) $u = x^3 + 1$, $du = 3x^2\,dx$, $u$ de 1 à 2 : $\int_1^2 u^4\,du = \frac{32 - 1}{5} = \frac{31}{5}$.
-- c) $u = x^2 + 4$, $du = 2x\,dx$ : $\frac{1}{2}\int \frac{du}{u} = \frac{1}{2}\ln(x^2 + 4)$ (positif, pas de valeur absolue).
-- d) $u = 2x + 1$, $du = 2\,dx$, $u$ de 1 à 3 : $\frac{1}{2}\int_1^3 e^u\,du = \frac{e^3 - e}{2} \approx 8{,}6836$.
-- e) $u = x^2$, $du = 2x\,dx$, $u$ de 0 à 4 : $\frac{1}{2}\int_0^4 e^{-u}\,du = \frac{1 - e^{-4}}{2} \approx 0{,}4908$.
-- f) $u = \ln x$, $du = \frac{dx}{x}$, $u$ de 0 à 1 : $\int_0^1 u^2\,du = \frac{1}{3}$.
+- b) $u = x^3 + 1$, $du = 3x^2\thinspace dx$, $u$ de 1 à 2 : $\int_1^2 u^4\thinspace du = \frac{32 - 1}{5} = \frac{31}{5}$.
+- c) $u = x^2 + 4$, $du = 2x\thinspace dx$ : $\frac{1}{2}\int \frac{du}{u} = \frac{1}{2}\ln(x^2 + 4)$ (positif, pas de valeur absolue).
+- d) $u = 2x + 1$, $du = 2\thinspace dx$, $u$ de 1 à 3 : $\frac{1}{2}\int_1^3 e^u\thinspace du = \frac{e^3 - e}{2} \approx 8{,}6836$.
+- e) $u = x^2$, $du = 2x\thinspace dx$, $u$ de 0 à 4 : $\frac{1}{2}\int_0^4 e^{-u}\thinspace du = \frac{1 - e^{-4}}{2} \approx 0{,}4908$.
+- f) $u = \ln x$, $du = \frac{dx}{x}$, $u$ de 0 à 1 : $\int_0^1 u^2\thinspace du = \frac{1}{3}$.
 
-**Erreurs fréquentes.** Garder les anciennes bornes ($\frac{1}{5}$ en b) ; oublier le facteur $\frac{1}{2}$ venu de $du = 2x\,dx$ ; poser un $u$ dont la dérivée n'apparaît pas.
+**Erreurs fréquentes.** Garder les anciennes bornes ($\frac{1}{5}$ en b) ; oublier le facteur $\frac{1}{2}$ venu de $du = 2x\thinspace dx$ ; poser un $u$ dont la dérivée n'apparaît pas.
 
-**Variante.** $\int_0^{\pi/2} \sin x\,\cos^2 x\,dx$ ? *Réponse* : $u = \cos x$, $du = -\sin x\,dx$, $u$ de 1 à 0 : $\int_0^1 u^2\,du = \frac{1}{3}$.
+**Variante.** $\int_0^{\pi/2} \sin x\thinspace\cos^2 x\thinspace dx$ ? *Réponse* : $u = \cos x$, $du = -\sin x\thinspace dx$, $u$ de 1 à 0 : $\int_0^1 u^2\thinspace du = \frac{1}{3}$.
 
 ### Ex M02a.6 — Intégrales impropres : converge, diverge, valeur
 
@@ -183,10 +183,10 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 **Démarche.**
 - a) $\int_3^b \frac{dx}{x^2} = \frac{1}{3} - \frac{1}{b} \to \frac{1}{3}$.
-- b) $\int_0^b e^{-x/3}\,dx = 3\big(1 - e^{-b/3}\big) \to 3$.
-- c) $\int_\varepsilon^4 x^{-1/2}\,dx = 4 - 2\sqrt{\varepsilon} \to 4$.
-- d) $p = 0{,}9 \le 1$ : $\int_1^b x^{-0{,}9}\,dx = 10\big(b^{0{,}1} - 1\big) \to +\infty$. Elle diverge, très lentement.
-- e) $\int_a^0 e^{2x}\,dx = \frac{1 - e^{2a}}{2} \to \frac{1}{2}$ quand $a \to -\infty$.
+- b) $\int_0^b e^{-x/3}\thinspace dx = 3\big(1 - e^{-b/3}\big) \to 3$.
+- c) $\int_\varepsilon^4 x^{-1/2}\thinspace dx = 4 - 2\sqrt{\varepsilon} \to 4$.
+- d) $p = 0{,}9 \le 1$ : $\int_1^b x^{-0{,}9}\thinspace dx = 10\big(b^{0{,}1} - 1\big) \to +\infty$. Elle diverge, très lentement.
+- e) $\int_a^0 e^{2x}\thinspace dx = \frac{1 - e^{2a}}{2} \to \frac{1}{2}$ quand $a \to -\infty$.
 - f) $p > 1$ : pour $p = 1$, $\ln b \to +\infty$ ; pour $p < 1$, $b^{1-p} \to +\infty$.
 - g) $\frac{1}{p - 1} = \frac{1}{4}$.
 - h) $e^{-x^2}$ est paire : les deux moitiés de l'intégrale de Gauss sont égales, donc $\frac{\sqrt{\pi}}{2}$.
@@ -211,25 +211,25 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 
 **Erreurs fréquentes.** Compter les extrémités entièrement ; les poids de Simpson inversés (2 aux indices impairs) ; oublier le $\frac{h}{3}$.
 
-**Variante.** $T_1$ et $S_2$ pour $\int_0^2 x^3\,dx = 4$ ? *Réponse* : $T_1 = 2 \times \frac{0 + 8}{2} = 8$, $S_2 = \frac{1}{3}(0 + 4 + 8) = 4$ (exact : degré 3).
+**Variante.** $T_1$ et $S_2$ pour $\int_0^2 x^3\thinspace dx = 4$ ? *Réponse* : $T_1 = 2 \times \frac{0 + 8}{2} = 8$, $S_2 = \frac{1}{3}(0 + 4 + 8) = 4$ (exact : degré 3).
 
 ### Ex M02a.8 — Vérifier qu'une fonction est une densité, trouver sa constante
 
 **Réponses** : a) `"1/8"` · b) `2` · c) `1` · d) `"2/9"` · e) `False` · f) `True` · g) `"1/2"` · h) `2`.
 
 **Démarche.**
-- a) $\int_0^4 x\,dx = 8$, donc $8c = 1$.
-- b) $\int_0^{+\infty} e^{-2x}\,dx = \frac{1}{2}$, donc $c = 2$.
+- a) $\int_0^4 x\thinspace dx = 8$, donc $8c = 1$.
+- b) $\int_0^{+\infty} e^{-2x}\thinspace dx = \frac{1}{2}$, donc $c = 2$.
 - c) $\int_1^{+\infty} \frac{dx}{x^2} = 1$, donc $c = 1$.
-- d) $\int_0^3 (3 - x)\,dx = 9 - \frac{9}{2} = \frac{9}{2}$, donc $c = \frac{2}{9}$.
+- d) $\int_0^3 (3 - x)\thinspace dx = 9 - \frac{9}{2} = \frac{9}{2}$, donc $c = \frac{2}{9}$.
 - e) $g$ est négative sur $[0 ; 1[$ ($g(0) = -1$) : ce n'est pas une densité, même si $\int_0^2 g = 0$… et l'aire totale devrait de toute façon valoir 1.
 - f) Positive, d'aire $3 \times \frac{1}{3} = 1$ : c'est une densité (qui vaut 3).
-- g) $\int_1^3 \frac{x}{8}\,dx = \left[\frac{x^2}{16}\right]_1^3 = \frac{9 - 1}{16} = \frac{1}{2}$.
+- g) $\int_1^3 \frac{x}{8}\thinspace dx = \left[\frac{x^2}{16}\right]_1^3 = \frac{9 - 1}{16} = \frac{1}{2}$.
 - h) $2e^{-2x}$ décroît : son maximum est en 0, et vaut 2.
 
 **Erreurs fréquentes.** Prendre l'intégrale au lieu de son inverse (8 en a) ; oublier la condition de positivité (e) ; croire qu'une densité ne dépasse jamais 1 (f, h).
 
-**Variante.** La constante $c$ qui fait de $c\sqrt{x}$ sur $[0 ; 1]$ une densité ? *Réponse* : $\int_0^1 \sqrt{x}\,dx = \frac{2}{3}$, donc $c = \frac{3}{2}$.
+**Variante.** La constante $c$ qui fait de $c\sqrt{x}$ sur $[0 ; 1]$ une densité ? *Réponse* : $\int_0^1 \sqrt{x}\thinspace dx = \frac{2}{3}$, donc $c = \frac{3}{2}$.
 
 ### Ex M02a.9 — La probabilité d'un intervalle, et la valeur moyenne d'une fonction
 
@@ -240,9 +240,9 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 - b) $F(2) - F(1) = 1 - \frac{1}{8} = \frac{7}{8}$.
 - c) Une valeur exacte : probabilité nulle.
 - d) $F(1{,}5) - F(0{,}5) = \frac{3{,}375 - 0{,}125}{8} = \frac{3{,}25}{8} = \frac{13}{32}$.
-- e) $\int_{10}^{+\infty} 0{,}2\,e^{-0{,}2t}\,dt = e^{-2} \approx 0{,}1353$.
+- e) $\int_{10}^{+\infty} 0{,}2\thinspace e^{-0{,}2t}\thinspace dt = e^{-2} \approx 0{,}1353$.
 - f) $e^{-1} - e^{-2} \approx 0{,}367879 - 0{,}135335 = 0{,}232544 \approx 0{,}2325$ (en arrondissant d'abord à 4 décimales, on trouverait 0,2326 : on n'arrondit qu'à la fin).
-- g) $\frac{1}{3}\int_0^3 x^2\,dx = \frac{9}{3} = 3$.
+- g) $\frac{1}{3}\int_0^3 x^2\thinspace dx = \frac{9}{3} = 3$.
 - h) $\frac{1}{e - 1}\int_1^e \frac{dx}{x} = \frac{1}{e - 1} \approx 0{,}5820$.
 
 **Erreurs fréquentes.** Lire la densité en un point pour une probabilité (a : $\frac{3}{8}$) ; en e, donner $P(T \le 10)$ ; oublier de diviser par la longueur de l'intervalle (g : 9).
@@ -254,7 +254,7 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 **Réponses** : a) `"3/4"` · b) `"1 - 1/x**2"` · c) `"sqrt(2)"` · d) `10` · e) `"1/25"` · f) `2.7726` · g) `1.1507` · h) `9.2103`.
 
 **Démarche.**
-- b) $F(x) = \int_1^x \frac{2}{t^3}\,dt = \left[-\frac{1}{t^2}\right]_1^x = 1 - \frac{1}{x^2}$.
+- b) $F(x) = \int_1^x \frac{2}{t^3}\thinspace dt = \left[-\frac{1}{t^2}\right]_1^x = 1 - \frac{1}{x^2}$.
 - a) $F(2) = 1 - \frac{1}{4} = \frac{3}{4}$.
 - c) $1 - \frac{1}{m^2} = \frac{1}{2} \iff m^2 = 2 \iff m = \sqrt{2}$ (positif).
 - d) $\frac{1}{x^2} = 0{,}01 \iff x = 10$.
@@ -274,8 +274,8 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 ### Ex M02a.11 — Le théorème fondamental : la dérivée d'une aire
 
 **Réponse modèle.**
-1. Par la relation de Chasles, $\int_a^{x+h} f = \int_a^x f + \int_x^{x+h} f$, donc $A(x + h) - A(x) = \int_x^{x+h} f(t)\,dt$.
-2. $f$ est croissante : pour $t$ dans $[x ; x + h]$, $f(x) \le f(t) \le f(x + h)$. Par positivité de l'intégrale (appliquée aux différences), $\int_x^{x+h} f(x)\,dt \le \int_x^{x+h} f(t)\,dt \le \int_x^{x+h} f(x + h)\,dt$, et l'intégrale d'une constante $k$ sur un intervalle de longueur $h$ vaut $kh$. Sur le dessin : la bande est entre le rectangle de hauteur $f(x)$ et celui de hauteur $f(x + h)$.
+1. Par la relation de Chasles, $\int_a^{x+h} f = \int_a^x f + \int_x^{x+h} f$, donc $A(x + h) - A(x) = \int_x^{x+h} f(t)\thinspace dt$.
+2. $f$ est croissante : pour $t$ dans $[x ; x + h]$, $f(x) \le f(t) \le f(x + h)$. Par positivité de l'intégrale (appliquée aux différences), $\int_x^{x+h} f(x)\thinspace dt \le \int_x^{x+h} f(t)\thinspace dt \le \int_x^{x+h} f(x + h)\thinspace dt$, et l'intégrale d'une constante $k$ sur un intervalle de longueur $h$ vaut $kh$. Sur le dessin : la bande est entre le rectangle de hauteur $f(x)$ et celui de hauteur $f(x + h)$.
 3. En divisant par $h > 0$ : $f(x) \le \frac{A(x + h) - A(x)}{h} \le f(x + h)$. Quand $h \to 0^+$, $f(x + h) \to f(x)$ par continuité, donc, par encadrement, le taux d'accroissement tend vers $f(x)$.
 4. Avec le cas $h < 0$ (admis), $A$ est dérivable et $A' = f$ : $A$ est une primitive de $f$. Si $F$ est une autre primitive, $F - A$ a une dérivée nulle sur l'intervalle, donc $F = A + C$. Alors $F(b) - F(a) = A(b) - A(a) = \int_a^b f - 0$.
 5. $f(t) = e^{-t^2}$ est continue (mais pas croissante) : par la version générale du théorème, valable aussi pour $x < 0$, $G'(x) = e^{-x^2}$ et $G'(1) = e^{-1} \approx 0{,}368$. $G' > 0$ partout : $G$ est strictement croissante (logique : on ajoute de l'aire positive).
@@ -285,10 +285,10 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 ### Ex M02a.12 — Encadrer une aire par des rectangles : pourquoi les sommes de Riemann convergent (fonction croissante)
 
 **Réponse modèle.**
-1. Sur $[x_i ; x_{i+1}]$, $f(x_i) \le f(t) \le f(x_{i+1})$ (croissance), donc $h\,f(x_i) \le \int_{x_i}^{x_{i+1}} f \le h\,f(x_{i+1})$. En additionnant pour $i = 0$ à $n - 1$ (Chasles réunit les intégrales) : $L_n \le \int_a^b f \le R_n$.
+1. Sur $[x_i ; x_{i+1}]$, $f(x_i) \le f(t) \le f(x_{i+1})$ (croissance), donc $h\thinspace f(x_i) \le \int_{x_i}^{x_{i+1}} f \le h\thinspace f(x_{i+1})$. En additionnant pour $i = 0$ à $n - 1$ (Chasles réunit les intégrales) : $L_n \le \int_a^b f \le R_n$.
 2. $R_n - L_n = h\big(f(x_1) + \cdots + f(x_n)\big) - h\big(f(x_0) + \cdots + f(x_{n-1})\big)$ : les termes $f(x_1)$ à $f(x_{n-1})$ se simplifient, il reste $h\big(f(x_n) - f(x_0)\big) = \frac{b - a}{n}\big(f(b) - f(a)\big)$.
 3. $L_n$ et $R_n$ encadrent l'intégrale, et leur écart tend vers 0 ; chacune est donc à au plus $R_n - L_n$ de l'intégrale, et tend vers elle.
-4. $\frac{(1 - 0)(e - 1)}{n} \le 10^{-3} \iff n \ge 1\,000(e - 1) \approx 1\,718{,}3$ : $n = 1\,719$ suffit. (C'est une borne : l'erreur réelle de $L_n$ est environ la moitié.)
+4. $\frac{(1 - 0)(e - 1)}{n} \le 10^{-3} \iff n \ge 1\thinspace000(e - 1) \approx 1\thinspace718{,}3$ : $n = 1\thinspace719$ suffit. (C'est une borne : l'erreur réelle de $L_n$ est environ la moitié.)
 5. Pour une fonction décroissante, les inégalités s'inversent ($R_n \le \int \le L_n$) et l'écart vaut $\frac{(b - a)(f(a) - f(b))}{n}$ : même conclusion. Pour $\sin$ sur $[0 ; \pi]$, on coupe en $[0 ; \frac{\pi}{2}]$ (croissante) et $[\frac{\pi}{2} ; \pi]$ (décroissante), avec $n$ pair pour que $\frac{\pi}{2}$ soit un point de la subdivision, et on applique le résultat à chaque morceau. Pour une fonction continue quelconque, la preuve demande un outil de plus (la continuité uniforme), admis.
 
 **Grille.** Une bonne démonstration : (1) encadre sur chaque petit intervalle, puis additionne avec Chasles ; (2) montre la simplification télescopique ; (3) conclut par encadrement, avec la borne de l'erreur ; (4) résout l'inégalité et arrondit $n$ vers le haut ; (5) adapte l'argument (décroissante, puis découpage en morceaux monotones).
@@ -302,12 +302,12 @@ Vérifie chacune en la dérivant : c'est rapide, et c'est le seul contrôle sûr
 **Réponses** : a) `"3/4"` · b) `"4/5"` · c) `"B"` · d) `0.875` · e) `0.8409` · f) `False` · g) `0.6875` · h) `"1/3"`.
 
 **Démarche.**
-- a) $\int_0^1 \big(1 - (1 - x)^3\big)\,dx = 1 - \int_0^1 (1 - x)^3\,dx = 1 - \left[-\frac{(1 - x)^4}{4}\right]_0^1 = 1 - \frac{1}{4} = \frac{3}{4}$.
+- a) $\int_0^1 \big(1 - (1 - x)^3\big)\thinspace dx = 1 - \int_0^1 (1 - x)^3\thinspace dx = 1 - \left[-\frac{(1 - x)^4}{4}\right]_0^1 = 1 - \frac{1}{4} = \frac{3}{4}$.
 - b) $\left[\frac{x^{5/4}}{5/4}\right]_0^1 = \frac{4}{5}$.
 - d) $1 - 0{,}5^3 = 0{,}875$. e) $0{,}5^{1/4} \approx 0{,}8409$.
 - f) Au FPR 0,5, A fait mieux que B, alors que l'AUC de B est plus grande : les courbes se croisent.
 - g) $0{,}5 \times \left(\frac{0}{2} + 0{,}875 + \frac{1}{2}\right) = 0{,}6875$ : trois points ne suffisent pas (0,75 en vrai).
-- h) $\int_0^1 x^2\,dx = \frac{1}{3}$.
+- h) $\int_0^1 x^2\thinspace dx = \frac{1}{3}$.
 
 Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{,}271$ et $\text{TPR}_B = 0{,}1^{1/4} \approx 0{,}562$ : on choisit B. Le modèle C est **sous** la diagonale : il classe moins bien que le hasard (son AUC est inférieure à $\frac{1}{2}$) ; tu verras en M03 qu'inverser ses scores le rendrait meilleur que le hasard.
 
@@ -320,7 +320,7 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 **Éléments de réponse** (ta formulation compte, pas la nôtre).
 1. La définition est donnée pour une fonction $f$ ; le livre écrit ensuite souvent $p(x)$, pour une loi discrète comme pour une densité. Mots : *probability density function* (*pdf*), *cumulative distribution function* (*cdf*) ; pour une loi discrète, *probability mass function* (*pmf*).
 2. La fonction est positive ou nulle partout, et son intégrale sur tout l'ensemble des valeurs vaut 1 : les deux conditions du §6 de la fiche. Le livre les écrit pour des variables à plusieurs dimensions, $\mathbf{x} \in \mathbb{R}^D$ : l'intégrale est alors une intégrale multiple (M02b en donne un premier contact).
-3. $F(x) = \int_{-\infty}^x f(t)\,dt$.
+3. $F(x) = \int_{-\infty}^x f(t)\thinspace dt$.
 4. Une densité peut prendre des valeurs supérieures à 1, contrairement aux probabilités d'une loi discrète. Avec une loi uniforme sur un intervalle de longueur 0,4, par exemple $[3 ; 3{,}4]$ : la densité vaut $\frac{1}{0{,}4} = 2{,}5$, et l'aire $2{,}5 \times 0{,}4 = 1$.
 5. Une loi discrète : sa fonction de répartition monte par marches et n'a pas de densité (aucune fonction ne donne une probabilité positive à un seul point par une intégrale).
 6. Personnel. Mots fréquents : *support*, *univariate* (à une variable), *non-negative*, *integrable*, *state space* (l'ensemble des valeurs).
@@ -329,7 +329,7 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 
 **Exemple de réponse.**
 
-> Pour une durée, qui peut prendre toutes les valeurs, on ne lit pas la probabilité en un point mais sur un intervalle : c'est l'aire sous la courbe de la densité, $P(a \le X \le b) = \int_a^b f(x)\,dx$. Au-dessus d'un seul instant, la « bande » a une largeur nulle, donc une aire nulle : la probabilité que le bus arrive à 8 h 03 min 00 s exactement, à l'infini de décimales près, vaut 0. Mais une minute entière, de 8 h 03 à 8 h 04, a une aire positive : le bus arrive bien dans un intervalle, il n'arrive simplement jamais « pile » à un instant fixé à l'avance. Une infinité d'instants de probabilité nulle peuvent former un intervalle de probabilité positive : on ne peut pas additionner une infinité continue de zéros. Conséquence pratique : $P(X \le a) = P(X < a)$, le point $a$ ne compte pas.
+> Pour une durée, qui peut prendre toutes les valeurs, on ne lit pas la probabilité en un point mais sur un intervalle : c'est l'aire sous la courbe de la densité, $P(a \le X \le b) = \int_a^b f(x)\thinspace dx$. Au-dessus d'un seul instant, la « bande » a une largeur nulle, donc une aire nulle : la probabilité que le bus arrive à 8 h 03 min 00 s exactement, à l'infini de décimales près, vaut 0. Mais une minute entière, de 8 h 03 à 8 h 04, a une aire positive : le bus arrive bien dans un intervalle, il n'arrive simplement jamais « pile » à un instant fixé à l'avance. Une infinité d'instants de probabilité nulle peuvent former un intervalle de probabilité positive : on ne peut pas additionner une infinité continue de zéros. Conséquence pratique : $P(X \le a) = P(X < a)$, le point $a$ ne compte pas.
 
 **Grille.** Une bonne réponse : (1) la probabilité est une aire sous la densité ; (2) au-dessus d'un point, la largeur est nulle ; (3) un intervalle a une probabilité positive : rien d'impossible ; (4) l'infinité de points ne s'additionne pas ; (5) $\le$ et $<$ donnent la même probabilité ; (6) huit lignes au plus, une seule formule.
 
@@ -341,9 +341,9 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 
 **Réponse modèle (60 secondes).**
 
-> On compare les **densités**, pas des probabilités de points. La densité $f(x)$ est une probabilité par unité de longueur : pour un petit intervalle de largeur $h$ autour de $x$, la probabilité vaut environ $f(x)\,h$. Dire que 1,8 est plus vraisemblable que 2,5, c'est dire que $f(1{,}8) > f(2{,}5)$ : un petit intervalle autour de 1,8 a plus de chances qu'un intervalle de même largeur autour de 2,5. Le rapport $\frac{f(1{,}8)}{f(2{,}5)}$ ne dépend même pas de $h$. C'est ce que font les modèles qui maximisent une vraisemblance continue, ou un modèle génératif qui donne une « log-densité ». Et une densité peut dépasser 1 sans problème : seule son aire totale doit valoir 1 ; une loi très concentrée a une densité très haute.
+> On compare les **densités**, pas des probabilités de points. La densité $f(x)$ est une probabilité par unité de longueur : pour un petit intervalle de largeur $h$ autour de $x$, la probabilité vaut environ $f(x)\thinspace h$. Dire que 1,8 est plus vraisemblable que 2,5, c'est dire que $f(1{,}8) > f(2{,}5)$ : un petit intervalle autour de 1,8 a plus de chances qu'un intervalle de même largeur autour de 2,5. Le rapport $\frac{f(1{,}8)}{f(2{,}5)}$ ne dépend même pas de $h$. C'est ce que font les modèles qui maximisent une vraisemblance continue, ou un modèle génératif qui donne une « log-densité ». Et une densité peut dépasser 1 sans problème : seule son aire totale doit valoir 1 ; une loi très concentrée a une densité très haute.
 
-**Grille.** (1) densité, et non probabilité d'un point ; (2) $P(x \le X \le x + h) \approx f(x)\,h$ ; (3) comparer deux densités, c'est comparer deux petits intervalles de même largeur ; (4) densité supérieure à 1 : normale, seule l'aire compte ; (5) un exemple ML (vraisemblance, modèle génératif).
+**Grille.** (1) densité, et non probabilité d'un point ; (2) $P(x \le X \le x + h) \approx f(x)\thinspace h$ ; (3) comparer deux densités, c'est comparer deux petits intervalles de même largeur ; (4) densité supérieure à 1 : normale, seule l'aire compte ; (5) un exemple ML (vraisemblance, modèle génératif).
 
 <a id="notebook"></a>
 
@@ -377,7 +377,7 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 
 **Réponses** : a) `1.772454` · b) `True` · c) `1` · d) `"pi"` · e) `2.0` · f) `"erf"`.
 
-**Démarche.** `value, error = quad(lambda t: math.exp(-t ** 2), -math.inf, math.inf)` ; `sp.integrate(x * sp.exp(-x), (x, 0, sp.oo))` ; `str(sp.integrate(4 / (1 + x ** 2), (x, 0, 1)))` ; `quad(lambda t: 1 / math.sqrt(t), 0, 1)[0]` ; `sp.integrate(sp.exp(-x ** 2), x)` rend `sqrt(pi)*erf(x)/2`. Pour la copie : `erf` est un **nom** donné à l'intégrale $\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\,dt$, pas une formule avec les fonctions usuelles : pas de contradiction.
+**Démarche.** `value, error = quad(lambda t: math.exp(-t ** 2), -math.inf, math.inf)` ; `sp.integrate(x * sp.exp(-x), (x, 0, sp.oo))` ; `str(sp.integrate(4 / (1 + x ** 2), (x, 0, 1)))` ; `quad(lambda t: 1 / math.sqrt(t), 0, 1)[0]` ; `sp.integrate(sp.exp(-x ** 2), x)` rend `sqrt(pi)*erf(x)/2`. Pour la copie : `erf` est un **nom** donné à l'intégrale $\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\thinspace dt$, pas une formule avec les fonctions usuelles : pas de contradiction.
 
 **Erreurs fréquentes.** Rendre le couple de `quad` entier ; oublier `sp.oo` (SymPy attend son infini) ; une primitive au lieu d'une intégrale en d.
 
@@ -393,7 +393,7 @@ Pour la copie : à 10 % de faux positifs, $\text{TPR}_A = 1 - 0{,}9^3 \approx 0{
 
 **Réponses** : a) `1.4936` · b) `4` · c) `0.999978` · d) `2.5066`.
 
-**Démarche.** `I(B) = quad(lambda x: math.exp(-x ** 2), -B, B)[0]` ; b) les écarts valent 0,28 ; 0,0083 ; 3,9e-5 ; 2,7e-8 ; 2,7e-12 pour $B = 1$ à 5 ; d) $\sqrt{2\pi} \approx 2{,}5066$. Pour la copie : $\sqrt{\pi} - I(B) = 2\int_B^{+\infty} e^{-x^2}\,dx \le 2\int_B^{+\infty} e^{-Bx}\,dx = \frac{2e^{-B^2}}{B}$, soit $5{,}6 \times 10^{-8}$ pour $B = 4$ : la borne est proche de l'écart réel. Au-delà de 6 écarts types, la densité normale n'a plus qu'environ $2 \times 10^{-9}$ de sa masse : couper à 6 ne change rien.
+**Démarche.** `I(B) = quad(lambda x: math.exp(-x ** 2), -B, B)[0]` ; b) les écarts valent 0,28 ; 0,0083 ; 3,9e-5 ; 2,7e-8 ; 2,7e-12 pour $B = 1$ à 5 ; d) $\sqrt{2\pi} \approx 2{,}5066$. Pour la copie : $\sqrt{\pi} - I(B) = 2\int_B^{+\infty} e^{-x^2}\thinspace dx \le 2\int_B^{+\infty} e^{-Bx}\thinspace dx = \frac{2e^{-B^2}}{B}$, soit $5{,}6 \times 10^{-8}$ pour $B = 4$ : la borne est proche de l'écart réel. Au-delà de 6 écarts types, la densité normale n'a plus qu'environ $2 \times 10^{-9}$ de sa masse : couper à 6 ne change rien.
 
 **Erreurs fréquentes.** Intégrer de 0 à $B$ (on trouve la moitié) ; prendre $e^{-x^2}$ au lieu de $e^{-x^2/2}$ en d.
 

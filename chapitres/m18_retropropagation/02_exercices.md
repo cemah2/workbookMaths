@@ -69,7 +69,7 @@ La résistance équivalente de M18.Q1, calculée dans l'ordre $r_1, r_2, u_1, u_
 2. $\mathbf{f} : \mathbb{R}^2 \to \mathbb{R}^{300}$. Combien de passes pour sa jacobienne entière dans chaque mode ?
 3. $\mathbf{f} : \mathbb{R}^{50} \to \mathbb{R}^{50}$ : même nombre de passes ; quel mode demande le moins de mémoire ?
 4. Vrai ou faux : le mode inverse doit garder les valeurs de la passe avant.
-5. Vrai ou faux : pour une fonction de $20\,000$ variables, le gradient en mode inverse coûte environ $20\,000$ fois le calcul de la fonction.
+5. Vrai ou faux : pour une fonction de $20\thinspace000$ variables, le gradient en mode inverse coûte environ $20\thinspace000$ fois le calcul de la fonction.
 6. Combien de passes directes faut-il pour la dérivée de $f : \mathbb{R}^{500} \to \mathbb{R}$ dans une seule direction $\mathbf{v}$ ?
 
 ### M18.Q6 — La forme d'un gradient par rapport à une matrice 🧠 ★ ⏱️ 4 min
@@ -92,7 +92,7 @@ Les matrices ont les formes qui rendent chaque produit possible.
 3. $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{A})\operatorname{tr}(\mathbf{B})$.
 4. $\mathbf{a}^\top\mathbf{X}\mathbf{b} = \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X})$.
 5. $\sum_{ij}G_{ij}H_{ij} = \operatorname{tr}(\mathbf{G}^\top\mathbf{H})$.
-6. Si $\mathrm{d}f = \operatorname{tr}(\mathbf{M}\,\mathrm{d}\mathbf{X})$, alors $\nabla_{\mathbf{X}}f = \mathbf{M}$.
+6. Si $\mathrm{d}f = \operatorname{tr}(\mathbf{M}\thinspace\mathrm{d}\mathbf{X})$, alors $\nabla_{\mathbf{X}}f = \mathbf{M}$.
 
 ### M18.Q8 — Gradient d'une moyenne, moyenne des gradients 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C, E*
@@ -122,7 +122,7 @@ $\mathbf{f}(x, y) = (x - y,\ xy)$ et $g(u, v) = uv + v^2$ ; $h = g \circ \mathbf
 ### M18.R2 — Le gradient de wᵀAw (M09b) 🔁 ★ ⏱️ 5 min
 *Fiche §7 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 3 \\ -1 & 2 \end{pmatrix}$ et $\mathbf{w} = (2, 1)$.
+$\mathbf{A} = \begin{pmatrix} 1 & 3 \cr -1 & 2 \end{pmatrix}$ et $\mathbf{w} = (2, 1)$.
 
 1. $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ?
 2. $\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w})$ en $\mathbf{w}$ ?
@@ -156,8 +156,8 @@ Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'a
 **Prérequis :** fiche §1 ; M16 · **Parcours :** C, E
 
 Un pendule de masse $m$ (en kg), au bout d'un fil de longueur $\ell$ (en m), écarté de l'angle $\theta$ de la verticale et tournant à la vitesse angulaire $\omega$ (en rad/s), a l'énergie mécanique
-$$E = \tfrac12\,m\,\ell^2\omega^2 + m\,g\,\ell\,(1 - \cos\theta), \qquad g = 10,$$
-calculée en onze opérations : $u_1 = \ell^2$, $u_2 = \omega^2$, $u_3 = u_1u_2$, $u_4 = m\,u_3$, $u_5 = u_4/2$, $u_6 = \cos\theta$, $u_7 = 1 - u_6$, $u_8 = m\,\ell$, $u_9 = 10\,u_8$, $u_{10} = u_9u_7$, $E = u_5 + u_{10}$ (le carré est une opération à un argument). On prend $m = 2$, $\ell = 0{,}5$, $\theta = \frac{\pi}{3}$, $\omega = 4$.
+$$E = \tfrac12\thinspace m\thinspace\ell^2\omega^2 + m\thinspace g\thinspace\ell\thinspace(1 - \cos\theta), \qquad g = 10,$$
+calculée en onze opérations : $u_1 = \ell^2$, $u_2 = \omega^2$, $u_3 = u_1u_2$, $u_4 = m\thinspace u_3$, $u_5 = u_4/2$, $u_6 = \cos\theta$, $u_7 = 1 - u_6$, $u_8 = m\thinspace\ell$, $u_9 = 10\thinspace u_8$, $u_{10} = u_9u_7$, $E = u_5 + u_{10}$ (le carré est une opération à un argument). On prend $m = 2$, $\ell = 0{,}5$, $\theta = \frac{\pi}{3}$, $\omega = 4$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -244,7 +244,7 @@ Dans ta copie : écris les dérivées locales des dix arêtes. Pour g), combien 
 **Objectif :** calculer le gradient d'une forme bilinéaire par rapport à une matrice, coordonnée par coordonnée, et le ranger comme la matrice.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-$\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $\mathbf{X} = \begin{pmatrix} 1 & 0 \\ 2 & -1 \\ 0 & 4 \end{pmatrix}$, et $f(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}\mathbf{b} = \sum_{ij}a_iX_{ij}b_j$.
+$\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 2 & -1 \cr 0 & 4 \end{pmatrix}$, et $f(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}\mathbf{b} = \sum_{ij}a_iX_{ij}b_j$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -252,7 +252,7 @@ $\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $\mathbf{X} = \begin{pma
 | b | $\frac{\partial f}{\partial X_{21}}$ | un nombre |
 | c | $\nabla_{\mathbf{X}}f$ | une matrice |
 | d | sa forme | une liste de 2 entiers |
-| e | le changement prévu par le gradient pour le déplacement $\mathbf{H} = \begin{pmatrix} 0 & 0 \\ 0 & 0{,}1 \\ -0{,}2 & 0 \end{pmatrix}$ | un nombre |
+| e | le changement prévu par le gradient pour le déplacement $\mathbf{H} = \begin{pmatrix} 0 & 0 \cr 0 & 0{,}1 \cr -0{,}2 & 0 \end{pmatrix}$ | un nombre |
 | f | $f(\mathbf{X} + \mathbf{H})$ | un nombre |
 
 Dans ta copie : écris $\frac{\partial f}{\partial X_{ij}}$ en général et reconnais $\mathbf{a}\mathbf{b}^\top$. Pourquoi le gradient ne dépend-il pas de $\mathbf{X}$ ? Pourquoi la prévision e) est-elle exacte ici ?
@@ -261,7 +261,7 @@ Dans ta copie : écris $\frac{\partial f}{\partial X_{ij}}$ en général et reco
 **Objectif :** établir les gradients de deux traces en écrivant les sommes, puis les vérifier par les identités de la fiche.
 **Prérequis :** fiche §7 ; M12c · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$, $\mathbf{X} = \begin{pmatrix} 1 & 2 \\ 0 & -1 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -1 & 3 \end{pmatrix}$, $\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -270,7 +270,7 @@ $\mathbf{A} = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}$, $\mathbf{X} = \beg
 | c | $\frac{\partial}{\partial X_{12}}\operatorname{tr}(\mathbf{A}\mathbf{X})$ | un nombre |
 | d | $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | un nombre |
 | e | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | une matrice |
-| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$ | un nombre |
+| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$ | un nombre |
 
 Dans ta copie : écris $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$ et déduis-en b) ; écris $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ et dérive par rapport à $X_{pq}$. Pourquoi $2\mathbf{A}\mathbf{X}$ serait-il faux ici ? Que devient e) quand $\mathbf{X}$ n'a qu'une colonne (M09b) ?
 
@@ -278,7 +278,7 @@ Dans ta copie : écris $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{j
 **Objectif :** dériver le déterminant et son logarithme coordonnée par coordonnée, puis retrouver la formule $\mathbf{X}^{-\top}$.
 **Prérequis :** fiche §6 et §7 ; M09a · **Parcours :** C
 
-$\mathbf{X} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$, et $\ln$ est le logarithme népérien (le « log det » de MML et de NumPy).
+$\mathbf{X} = \begin{pmatrix} 4 & 1 \cr 2 & 3 \end{pmatrix}$, et $\ln$ est le logarithme népérien (le « log det » de MML et de NumPy).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -286,8 +286,8 @@ $\mathbf{X} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$, et $\ln$ est le log
 | b | $\nabla_{\mathbf{X}}\det\mathbf{X}$, coordonnée par coordonnée | une matrice |
 | c | $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ | une matrice |
 | d | $\mathbf{X}^{-1}$ | une matrice |
-| e | la dérivée en 0 de $s \mapsto \ln\det(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 2 \\ 0 & -1 \end{pmatrix}$ | un nombre |
-| f | $\ln\det(\mathbf{X} + 0{,}01\,\mathbf{H}) - \ln\det\mathbf{X}$, calculé comme $\ln\frac{\det(\mathbf{X} + 0{,}01\,\mathbf{H})}{\det\mathbf{X}}$ (sinon, la différence de deux logarithmes voisins perd des chiffres) | un nombre (5 décimales) |
+| e | la dérivée en 0 de $s \mapsto \ln\det(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}$ | un nombre |
+| f | $\ln\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) - \ln\det\mathbf{X}$, calculé comme $\ln\frac{\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H})}{\det\mathbf{X}}$ (sinon, la différence de deux logarithmes voisins perd des chiffres) | un nombre (5 décimales) |
 
 Dans ta copie : comparer c) et d) : lequel est la transposée de l'autre, et pourquoi ce n'est pas un hasard ? Reconnais la comatrice dans b). Pourquoi f) est-il proche de $0{,}01 \times$ e) ?
 
@@ -312,7 +312,7 @@ Dans ta copie : trouve le point d'intersection des diagonales. Pourquoi les grad
 **Objectif :** calculer des différentielles avec la règle du produit, et y lire des gradients qui demandent une transposée.
 **Prérequis :** fiche §6 et §7 · **Parcours :** C
 
-$\mathbf{X} = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix}$, $\mathbf{a} = (1, 0)$, $\mathbf{b} = (0, 1)$. On étudie $f(\mathbf{X}) = \operatorname{tr}(\mathbf{X}^2)$ et $g(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}^2\mathbf{b}$.
+$\mathbf{X} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}$, $\mathbf{a} = (1, 0)$, $\mathbf{b} = (0, 1)$. On étudie $f(\mathbf{X}) = \operatorname{tr}(\mathbf{X}^2)$ et $g(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}^2\mathbf{b}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -321,9 +321,9 @@ $\mathbf{X} = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix}$, $\mathbf{a} = (1, 
 | c | $\frac{\partial f}{\partial X_{12}}$ | un nombre |
 | d | $g(\mathbf{X})$ | un nombre |
 | e | $\nabla_{\mathbf{X}}g$ | une matrice |
-| f | la dérivée en 0 de $s \mapsto f(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}$ | un nombre |
+| f | la dérivée en 0 de $s \mapsto f(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & -1 \end{pmatrix}$ | un nombre |
 
-Dans ta copie : montre que $\mathrm{d}f = 2\operatorname{tr}(\mathbf{X}\,\mathrm{d}\mathbf{X})$ (règle du produit, puis cyclicité de la trace) et lis $\nabla f = 2\mathbf{X}^\top$. Vérifie c) en écrivant $\operatorname{tr}(\mathbf{X}^2) = \sum_{i,j}X_{ij}X_{ji}$. Montre que $\mathrm{d}g = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\,\mathrm{d}\mathbf{X})$ et déduis-en $\nabla g = \mathbf{a}\mathbf{b}^\top\mathbf{X}^\top + \mathbf{X}^\top\mathbf{a}\mathbf{b}^\top$. Vérifie e) sur $g(\mathbf{X}) = (\mathbf{X}^2)_{12} = X_{11}X_{12} + X_{12}X_{22}$.
+Dans ta copie : montre que $\mathrm{d}f = 2\operatorname{tr}(\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ (règle du produit, puis cyclicité de la trace) et lis $\nabla f = 2\mathbf{X}^\top$. Vérifie c) en écrivant $\operatorname{tr}(\mathbf{X}^2) = \sum_{i,j}X_{ij}X_{ji}$. Montre que $\mathrm{d}g = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ et déduis-en $\nabla g = \mathbf{a}\mathbf{b}^\top\mathbf{X}^\top + \mathbf{X}^\top\mathbf{a}\mathbf{b}^\top$. Vérifie e) sur $g(\mathbf{X}) = (\mathbf{X}^2)  _{12} = X  _{11}X _{12} + X  _{12}X _{22}$.
 
 <a id="demonstrations"></a>
 
@@ -335,9 +335,9 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer la formule de la somme sur les chemins, par récurrence dans l'ordre du calcul.
 **Prérequis :** fiche §1 et §2 ; M16, M17 ; R4 (récurrence) · **Parcours :** C, E
 
-Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul : $u_1, \ldots, u_n$ sont les entrées, sans prédécesseur, et chaque $u_k$ ($k > n$) vaut $\varphi_k$ de ses prédécesseurs, qui ont tous un numéro plus petit ; les $\varphi_k$ sont différentiables (M17, ∂ M17.8), et $y = u_N$. On fixe une entrée $x = u_i$ et on note $\dot{u}_k$ la dérivée de $u_k$ par rapport à $x$, les autres entrées restant fixes. $D_{jk} = \frac{\partial\varphi_k}{\partial u_j}$ est la dérivée locale de l'arête $u_j \to u_k$ (et $D_{jk} = 0$ sans arête).
+Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul : $u_1, \ldots, u_n$ sont les entrées, sans prédécesseur, et chaque $u_k$ ($k > n$) vaut $\varphi_k$ de ses prédécesseurs, qui ont tous un numéro plus petit ; les $\varphi_k$ sont différentiables (M17, ∂ M17.8), et $y = u_N$. On fixe une entrée $x = u_i$ et on note $\dot{u} _k$ la dérivée de $u_k$ par rapport à $x$, les autres entrées restant fixes. $D  _{jk} = \frac{\partial\varphi_k}{\partial u_j}$ est la dérivée locale de l'arête $u_j \to u_k$ (et $D _{jk} = 0$ sans arête).
 
-1. Montre que $\dot{u}_k = \sum_{j < k}D_{jk}\,\dot{u}_j$ pour $k > n$ (règle de la chaîne de M17), et donne $\dot{u}_j$ pour les entrées.
+1. Montre que $\dot{u} _k = \sum  _{j < k}D _{jk}\thinspace\dot{u}_j$ pour $k > n$ (règle de la chaîne de M17), et donne $\dot{u}_j$ pour les entrées.
 2. On note $S_k$ la somme, sur les chemins de $x$ à $u_k$, des produits des dérivées locales (avec la convention : le chemin vide de $x$ à lui-même compte pour 1). Montre par récurrence sur $k$ que $\dot{u}_k = S_k$. Pour l'hérédité, classe les chemins de $x$ à $u_k$ selon leur **dernière** arête.
 3. Conclus pour $\frac{\partial y}{\partial x}$.
 4. Où la numérotation sert-elle dans la récurrence ? Que se passerait-il avec un cycle ?
@@ -347,14 +347,14 @@ Un calcul a les nœuds $u_1, \ldots, u_N$, numérotés dans un ordre de calcul :
 **Objectif :** démontrer que l'arithmétique des nombres duaux suit les règles de dérivation, et que la partie en ε d'un calcul est la dérivée.
 **Prérequis :** fiche §3 ; R7 · **Parcours :** C, E
 
-Une fonction $f$ écrite avec des opérations s'évalue en un nombre dual $a + b\varepsilon$ en faisant chaque opération avec les règles des nombres duaux. On dit que $f$ (dérivable sur un intervalle) est **compatible** si le résultat vaut $f(a) + b\,f'(a)\,\varepsilon$ pour tous les réels $a$ (de l'intervalle) et $b$. On pose $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$ pour $g = \exp$, $\ln$, $\sin$, $\cos$ : ces fonctions sont compatibles par définition.
+Une fonction $f$ écrite avec des opérations s'évalue en un nombre dual $a + b\varepsilon$ en faisant chaque opération avec les règles des nombres duaux. On dit que $f$ (dérivable sur un intervalle) est **compatible** si le résultat vaut $f(a) + b\thinspace f'(a)\thinspace\varepsilon$ pour tous les réels $a$ (de l'intervalle) et $b$. On pose $g(a + b\varepsilon) = g(a) + g'(a)\thinspace b\thinspace\varepsilon$ pour $g = \exp$, $\ln$, $\sin$, $\cos$ : ces fonctions sont compatibles par définition.
 
-1. Montre que $(a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\,\varepsilon$, et que $\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\,\varepsilon$ pour $c \ne 0$ (vérifie en multipliant par $c + d\varepsilon$).
+1. Montre que $(a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\thinspace\varepsilon$, et que $\frac{a + b\varepsilon}{c + d\varepsilon} = \frac{a}{c} + \frac{bc - ad}{c^2}\thinspace\varepsilon$ pour $c \ne 0$ (vérifie en multipliant par $c + d\varepsilon$).
 2. Montre que $x \mapsto x$ et les constantes sont compatibles ; puis que, si $f$ et $g$ sont compatibles, $f + g$, $fg$ et $f/g$ (là où $g \ne 0$) le sont.
 3. Montre que, si $f$ et $g$ sont compatibles, $g \circ f$ l'est.
-4. Conclus : pour toute fonction $f$ construite à partir de $x$ et de constantes par sommes, produits, quotients et les quatre fonctions ci-dessus, $f(a + \varepsilon) = f(a) + f'(a)\,\varepsilon$.
-5. Montre directement, avec la formule du binôme, que $(a + b\varepsilon)^n = a^n + n\,a^{n-1}b\,\varepsilon$ pour tout entier $n \ge 1$. (Pour un exposant réel $p$ et $a > 0$, $x^p = e^{p\ln x}$ est une composée : 3. et 4. s'appliquent.)
-6. Pourquoi la définition $e^{a + b\varepsilon} = e^a + e^ab\,\varepsilon$ est-elle naturelle ? (Écris $e^{a + b\varepsilon} = e^ae^{b\varepsilon}$ et utilise la série de l'exponentielle.)
+4. Conclus : pour toute fonction $f$ construite à partir de $x$ et de constantes par sommes, produits, quotients et les quatre fonctions ci-dessus, $f(a + \varepsilon) = f(a) + f'(a)\thinspace\varepsilon$.
+5. Montre directement, avec la formule du binôme, que $(a + b\varepsilon)^n = a^n + n\thinspace a^{n-1}b\thinspace\varepsilon$ pour tout entier $n \ge 1$. (Pour un exposant réel $p$ et $a > 0$, $x^p = e^{p\ln x}$ est une composée : 3. et 4. s'appliquent.)
+6. Pourquoi la définition $e^{a + b\varepsilon} = e^a + e^ab\thinspace\varepsilon$ est-elle naturelle ? (Écris $e^{a + b\varepsilon} = e^ae^{b\varepsilon}$ et utilise la série de l'exponentielle.)
 
 ### Ex M18.13 — Le mode inverse calcule tout le gradient en un passage : l'adjoint d'un nœud est la somme, sur ses successeurs, des adjoints fois les dérivées locales ∂ ★★★ ⏱️ 20 min
 **Objectif :** démontrer la formule des adjoints, et en tirer qu'une seule passe arrière donne tout le gradient.
@@ -362,7 +362,7 @@ Une fonction $f$ écrite avec des opérations s'évalue en un nombre dual $a + b
 
 Mêmes notations qu'en M18.11. Pour chaque nœud $u_j$, on note $T_j$ la somme, sur les chemins de $u_j$ à $y = u_N$, des produits des dérivées locales ($T_N = 1$, le chemin vide).
 
-1. Montre que $T_j = \sum_{k > j}D_{jk}\,T_k$ pour $j < N$, en classant les chemins de $u_j$ à $y$ selon leur **première** arête.
+1. Montre que $T_j = \sum_{k > j}D_{jk}\thinspace T_k$ pour $j < N$, en classant les chemins de $u_j$ à $y$ selon leur **première** arête.
 2. Montre qu'en calculant les $T_j$ pour $j = N, N - 1, \ldots, 1$, chaque $T_k$ du membre de droite est déjà connu.
 3. Déduis de M18.11 que $T_i = \frac{\partial y}{\partial x_i}$ pour chaque entrée : une seule passe arrière donne tout le gradient.
 4. Montre que, pour un nœud intermédiaire, $T_j$ est la dérivée de $y$ par rapport à $u_j$ quand on considère $u_j$ comme une entrée libre et qu'on recalcule tout ce qui vient après lui : c'est l'adjoint $\bar{u}_j$. (Pense à un nouveau calcul dont les entrées sont $u_1, \ldots, u_j$, et applique-lui M18.11.)
@@ -373,14 +373,14 @@ Mêmes notations qu'en M18.11. Pour chaque nœud $u_j$, on note $T_j$ la somme, 
 **Objectif :** démontrer que le gradient du déterminant est la comatrice, et en déduire le gradient de $\ln\det$.
 **Prérequis :** fiche §7 ; M12c · **Parcours :** C
 
-$\mathbf{X}$ est une matrice carrée $n \times n$ ; $C_{ij}$ est son cofacteur $(i, j)$, et $\operatorname{com}(\mathbf{X})$ la matrice des cofacteurs. On admet le développement selon une ligne, $\det\mathbf{X} = \sum_jX_{ij}C_{ij}$ pour chaque $i$, et l'identité $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$ (fiche §7).
+$\mathbf{X}$ est une matrice carrée $n \times n$ ; $C_{ij}$ est son cofacteur $(i, j)$, et $\operatorname{com}(\mathbf{X})$ la matrice des cofacteurs. On admet le développement selon une ligne, $\det\mathbf{X} = \sum_jX_{ij}C_{ij}$ pour chaque $i$, et l'identité $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\mkern5mu \mathbf{I}$ (fiche §7).
 
 1. Pourquoi $C_{ij}$ ne dépend-il d'aucun coefficient de la ligne $i$ de $\mathbf{X}$ ?
 2. Déduis-en $\frac{\partial\det\mathbf{X}}{\partial X_{ij}} = C_{ij}$, c'est-à-dire $\nabla_{\mathbf{X}}\det\mathbf{X} = \operatorname{com}(\mathbf{X})$.
-3. Pour $\det\mathbf{X} \ne 0$, montre que $\operatorname{com}(\mathbf{X}) = \det\mathbf{X}\;\mathbf{X}^{-\top}$.
+3. Pour $\det\mathbf{X} \ne 0$, montre que $\operatorname{com}(\mathbf{X}) = \det\mathbf{X}\mkern5mu \mathbf{X}^{-\top}$.
 4. Déduis-en $\nabla_{\mathbf{X}}\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ pour $\det\mathbf{X} > 0$. Que dire de $\ln\lvert\det\mathbf{X}\rvert$ quand $\det\mathbf{X} < 0$ ?
-5. Vérifie 2. et 4. sur $\mathbf{X} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$.
-6. Pour $\det\mathbf{X} \ne 0$, déduis-en la différentielle $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\,\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
+5. Vérifie 2. et 4. sur $\mathbf{X} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$.
+6. Pour $\det\mathbf{X} \ne 0$, déduis-en la différentielle $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\thinspace\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
 
 <a id="reflexion"></a>
 
@@ -407,14 +407,14 @@ Dans ta copie : quel mode choisirais-tu pour cette simulation, et pourquoi ? Le 
 **Objectif :** passer d'une convention de gradient à l'autre, pour un vecteur puis pour une matrice.
 **Prérequis :** fiche §6 ; M17 §4 · **Parcours :** C
 
-$f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}$ avec $\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 0 & 3 \end{pmatrix}$, $\mathbf{b} = (1, -1)$, au point $\mathbf{x} = (1, 2)$.
+$f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}$ avec $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}$, $\mathbf{b} = (1, -1)$, au point $\mathbf{x} = (1, 2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le gradient de $f$ dans la convention de MML (une ligne) | une matrice d'une ligne : `[[a, b]]` |
 | b | la forme de ce gradient dans NumPy, pour un vecteur `x` à une seule dimension, de longueur 2 | une liste d'un entier |
 | c | pour une fonction réelle d'une matrice de forme $(3, 4)$ : la forme de son gradient dans NumPy, puis celle de sa jacobienne si l'on aplatit la matrice en un vecteur de 12 coordonnées | une liste de 2 listes de 2 entiers |
-| d | le point $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}125$ | une liste de 2 nombres |
+| d | le point $\mathbf{x} - \eta\thinspace\nabla f(\mathbf{x})$ après un pas de descente de gradient, avec $\eta = 0{,}125$ | une liste de 2 nombres |
 | e | la forme du gradient d'une fonction réelle d'un tableau de forme $(5, 3, 2)$ dans NumPy | une liste de 3 entiers |
 
 Dans ta copie : écris le gradient de a) en ligne, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) + \mathbf{b}^\top$, puis en colonne. Pourquoi faut-il transposer la ligne de MML avant de faire le pas d) ? Quand chaque gradient a la forme de sa variable, quelle vérification simple, sur les formes, repère une transposée oubliée dans une formule de gradient ?
@@ -446,7 +446,7 @@ Lis MML §5.6 (*Backpropagation and Automatic Differentiation*), crayon en main 
 **Objectif :** expliquer, avec des mots, pourquoi le mode inverse donne toutes les dérivées en une seule passe.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-Une amie a fait la règle de la chaîne en terminale : $(g \circ f)'(x) = g'(f(x))\,f'(x)$. Elle demande comment un ordinateur obtient d'un coup les dérivées d'un résultat par rapport à des milliers de données d'entrée. Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur une image concrète (une recette, un réseau de rivières…) : ce que mesure l'adjoint d'une étape (« de combien le résultat bouge si cette étape bouge un peu »), pourquoi on part de la fin, pourquoi une étape qui sert à plusieurs suivantes additionne ce qu'elle reçoit, pourquoi il faut avoir gardé les valeurs de l'aller, et pourquoi une seule remontée suffit pour toutes les entrées. Puis réécris ta réponse en 3 phrases.
+Une amie a fait la règle de la chaîne en terminale : $(g \circ f)'(x) = g'(f(x))\thinspace f'(x)$. Elle demande comment un ordinateur obtient d'un coup les dérivées d'un résultat par rapport à des milliers de données d'entrée. Réponds-lui en 6 à 10 phrases, sans formule, en t'appuyant sur une image concrète (une recette, un réseau de rivières…) : ce que mesure l'adjoint d'une étape (« de combien le résultat bouge si cette étape bouge un peu »), pourquoi on part de la fin, pourquoi une étape qui sert à plusieurs suivantes additionne ce qu'elle reçoit, pourquoi il faut avoir gardé les valeurs de l'aller, et pourquoi une seule remontée suffit pour toutes les entrées. Puis réécris ta réponse en 3 phrases.
 
 <a id="entretien"></a>
 

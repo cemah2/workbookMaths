@@ -17,7 +17,7 @@ Fiche §1 : la définition, « La loi après n pas », Chapman-Kolmogorov, et «
 </details>
 <details><summary>Indice 2</summary>
 
-Ligne = état de départ, colonne = état d'arrivée. $(\boldsymbol{\mu}\mathbf{P})\mathbf{1} = \boldsymbol{\mu}(\mathbf{P}\mathbf{1})$. $(\mathbf{P}^2)_{ij} = \sum_kp_{ik}p_{kj}$.
+Ligne = état de départ, colonne = état d'arrivée. $(\boldsymbol{\mu}\mathbf{P})\mathbf{1} = \boldsymbol{\mu}(\mathbf{P}\mathbf{1})$. $(\mathbf{P}^2) _{ij} = \sum_kp  _{ik}p _{kj}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -58,7 +58,7 @@ $\mathbb{E}[X \mid Y] = m(Y)$. Conditionner sur plus, puis moyenner le surplus, 
 </details>
 <details><summary>Indice 3</summary>
 
-5. $t = 1 + 0{,}8\,t$.
+5. $t = 1 + 0{,}8\thinspace t$.
 
 </details>
 
@@ -71,7 +71,7 @@ Fiche §4 : « γ, une probabilité de continuer », puis la définition d'un MD
 </details>
 <details><summary>Indice 2</summary>
 
-$P(N \ge t) = \gamma^t$ et $\mathbb{E}[N + 1] = \frac{1}{1 - \gamma}$. Les deux lectures ont la même espérance. $r_\pi(s) = \sum_a\pi(a \mid s)\,r(s, a)$.
+$P(N \ge t) = \gamma^t$ et $\mathbb{E}[N + 1] = \frac{1}{1 - \gamma}$. Les deux lectures ont la même espérance. $r_\pi(s) = \sum_a\pi(a \mid s)\thinspace r(s, a)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -94,7 +94,7 @@ $\lVert\gamma\mathbf{P}\rVert_\infty = \gamma$ et $\rho \le \lVert\cdot\rVert$ (
 </details>
 <details><summary>Indice 3</summary>
 
-5. $V = 1{,}2 + 0{,}6\,V$.
+5. $V = 1{,}2 + 0{,}6\thinspace V$.
 
 </details>
 
@@ -107,7 +107,7 @@ Fiche §6 : le théorème, les bornes d'erreur, et les deux sortes d'itérations
 </details>
 <details><summary>Indice 2</summary>
 
-A priori : $\gamma^k\lVert\mathbf{V}_0 - \mathbf{V}\rVert_\infty$. A posteriori : $\frac{\gamma}{1 - \gamma}\lVert\mathbf{V}_k - \mathbf{V}_{k-1}\rVert_\infty$.
+A priori : $\gamma^k\lVert\mathbf{V} _0 - \mathbf{V}\rVert _\infty$. A posteriori : $\frac{\gamma}{1 - \gamma}\lVert\mathbf{V} _k - \mathbf{V}  _{k-1}\rVert _\infty$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ M12c : valeurs propres, diagonalisation, méthode de la puissance.
 </details>
 <details><summary>Indice 2</summary>
 
-Le polynôme caractéristique d'une matrice $2 \times 2$ est $\lambda^2 - \operatorname{tr}(\mathbf{A})\,\lambda + \det\mathbf{A}$. La méthode de la puissance tend vers le vecteur propre de la plus grande valeur propre, au rythme $\lvert\lambda_2/\lambda_1\rvert$.
+Le polynôme caractéristique d'une matrice $2 \times 2$ est $\lambda^2 - \operatorname{tr}(\mathbf{A})\thinspace\lambda + \det\mathbf{A}$. La méthode de la puissance tend vers le vecteur propre de la plus grande valeur propre, au rythme $\lvert\lambda_2/\lambda_1\rvert$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -201,7 +201,7 @@ M03 (probabilités totales) ; M02b (loi géométrique).
 </details>
 <details><summary>Indice 2</summary>
 
-$P(A) = \sum_iP(B_i)\,P(A \mid B_i)$ ; $\mathbb{E}[X] = \frac1p$ et $P(X > k) = (1 - p)^k$.
+$P(A) = \sum_iP(B_i)\thinspace P(A \mid B_i)$ ; $\mathbb{E}[X] = \frac1p$ et $P(X > k) = (1 - p)^k$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -218,17 +218,17 @@ $P(A) = \sum_iP(B_i)\,P(A \mid B_i)$ ; $\mathbb{E}[X] = \frac1p$ et $P(X > k) = 
 
 <details><summary>Indice 1</summary>
 
-Fiche §1 : la boutique (sa matrice, $\boldsymbol{\mu}_1$, $\boldsymbol{\mu}_2$, $(\mathbf{P}^2)_{20}$ par les chemins, $\mathbf{P}\mathbf{f}$), avec ici une loi de départ qui n'est pas concentrée.
+Fiche §1 : la boutique (sa matrice, $\boldsymbol{\mu}_1$, $\boldsymbol{\mu} _2$, $(\mathbf{P}^2) _{20}$ par les chemins, $\mathbf{P}\mathbf{f}$), avec ici une loi de départ qui n'est pas concentrée.
 
 </details>
 <details><summary>Indice 2</summary>
 
-La ligne $i$ de $\mathbf{P}$ est la station du matin. $\boldsymbol{\mu}_{n+1} = \boldsymbol{\mu}_n\mathbf{P}$ : la coordonnée $j$ est $\sum_i\mu_n(i)\,p_{ij}$. $(\mathbf{P}^2)_{BC} = \sum_kp_{Bk}\,p_{kC}$. $(\mathbf{P}\mathbf{f})_i = \sum_jp_{ij}\,f(j)$.
+La ligne $i$ de $\mathbf{P}$ est la station du matin. $\boldsymbol{\mu} _{n+1} = \boldsymbol{\mu} _n\mathbf{P}$ : la coordonnée $j$ est $\sum_i\mu_n(i)\thinspace p  _{ij}$. $(\mathbf{P}^2)  _{BC} = \sum_kp _{Bk}\thinspace p _{kC}$. $(\mathbf{P}\mathbf{f}) _i = \sum_jp _{ij}\thinspace f(j)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$\boldsymbol{\mu}_1 = (0{,}44 ;\ 0{,}32 ;\ 0{,}24)$. Pour f), chaque vélo coûte en moyenne $(\mathbf{P}\mathbf{f})_i$ s'il est en $i$ ce matin : $200\,\boldsymbol{\mu}_0(\mathbf{P}\mathbf{f})$.
+$\boldsymbol{\mu}_1 = (0{,}44 ;\ 0{,}32 ;\ 0{,}24)$. Pour f), chaque vélo coûte en moyenne $(\mathbf{P}\mathbf{f})_i$ s'il est en $i$ ce matin : $200\thinspace\boldsymbol{\mu}_0(\mathbf{P}\mathbf{f})$.
 
 </details>
 
@@ -241,12 +241,12 @@ Fiche §2 : « Le calcul par un système linéaire ». Ici, on résout par le pi
 </details>
 <details><summary>Indice 2</summary>
 
-L'équation $j$ de $(\mathbf{P}^\top - \mathbf{I})\boldsymbol{\pi}^\top = \mathbf{0}$ est $\pi_j = \sum_i\pi_i\,p_{ij}$ (la colonne $j$ de $\mathbf{P}$). Multiplie les deux premières par 20 pour n'avoir que des entiers. Pour d), la règle de Bayes en régime stationnaire.
+L'équation $j$ de $(\mathbf{P}^\top - \mathbf{I})\boldsymbol{\pi}^\top = \mathbf{0}$ est $\pi_j = \sum_i\pi_i\thinspace p_{ij}$ (la colonne $j$ de $\mathbf{P}$). Multiplie les deux premières par 20 pour n'avoir que des entiers. Pour d), la règle de Bayes en régime stationnaire.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$-2\pi_0 + \pi_1 + 4\pi_2 = 0$, $\pi_0 - 3\pi_1 + 3\pi_2 = 0$, $\pi_0 + \pi_1 + \pi_2 = 1$ ; élimine $\pi_0$, tu trouves $\pi_1 = 2\pi_2$. d) $P(S_t = C \mid S_{t+1} = A) = \frac{\pi_C\,p_{CA}}{\pi_A}$.
+$-2\pi_0 + \pi_1 + 4\pi_2 = 0$, $\pi_0 - 3\pi_1 + 3\pi_2 = 0$, $\pi_0 + \pi_1 + \pi_2 = 1$ ; élimine $\pi_0$, tu trouves $\pi_1 = 2\pi_2$. d) $P(S_t = C \mid S_{t+1} = A) = \frac{\pi_C\thinspace p_{CA}}{\pi_A}$.
 
 </details>
 
@@ -254,7 +254,7 @@ $-2\pi_0 + \pi_1 + 4\pi_2 = 0$, $\pi_0 - 3\pi_1 + 3\pi_2 = 0$, $\pi_0 + \pi_1 + 
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : « Unicité et convergence », ses deux contre-exemples et les définitions. Une chaîne à deux états $\begin{pmatrix} 1 - a & a \\ b & 1 - b \end{pmatrix}$ a pour loi stationnaire $\big(\frac{b}{a+b}, \frac{a}{a+b}\big)$.
+Fiche §2 : « Unicité et convergence », ses deux contre-exemples et les définitions. Une chaîne à deux états $\begin{pmatrix} 1 - a & a \cr b & 1 - b \end{pmatrix}$ a pour loi stationnaire $\big(\frac{b}{a+b}, \frac{a}{a+b}\big)$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -264,7 +264,7 @@ Le bac : regarde les ports du nord deux traversées à la fois (le produit du bl
 </details>
 <details><summary>Indice 3</summary>
 
-La chaîne du nord a pour matrice $\begin{pmatrix} 0{,}72 & 0{,}28 \\ 0{,}51 & 0{,}49 \end{pmatrix}$. La loi stationnaire du bac met la masse $\frac12$ au nord (proportionnelle à la loi de cette chaîne) et $\frac12$ au sud (son image après une traversée).
+La chaîne du nord a pour matrice $\begin{pmatrix} 0{,}72 & 0{,}28 \cr 0{,}51 & 0{,}49 \end{pmatrix}$. La loi stationnaire du bac met la masse $\frac12$ au nord (proportionnelle à la loi de cette chaîne) et $\frac12$ au sud (son image après une traversée).
 
 </details>
 
@@ -313,12 +313,12 @@ Fiche §4 (la boutique comme MDP, la chaîne induite, la valeur d'une action) et
 </details>
 <details><summary>Indice 2</summary>
 
-$r(s, a) = \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$. Chaque ligne de $\mathbf{P}_\pi$ vient de l'action que $\pi$ choisit. Écris $(\mathbf{I} - 0{,}6\,\mathbf{P}_\pi)\mathbf{V} = \mathbf{r}_\pi$.
+$r(s, a) = \sum_{s'}\mathbf{P} _a(s, s')\thinspace r(s, a, s')$. Chaque ligne de $\mathbf{P} _\pi$ vient de l'action que $\pi$ choisit. Écris $(\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi)\mathbf{V} = \mathbf{r} _\pi$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $\pi_A$ : $0{,}58\,V_0 - 0{,}18\,V_1 = 10$, $0{,}61\,V_1 - 0{,}21\,V_2 = 4{,}95$, $-0{,}48\,V_0 + 0{,}88\,V_2 = -8$. e) $2 + 0{,}6\,\big(0{,}95\,V^{\pi_B}(0) + 0{,}05\,V^{\pi_B}(2)\big)$ ; pour le « pourquoi », écris $V^{\pi_B}(1)$ comme une moyenne des $Q^{\pi_B}(1, a)$. f) Le second terme de l'expression de e).
+Pour $\pi_A$ : $0{,}58\thinspace V_0 - 0{,}18\thinspace V_1 = 10$, $0{,}61\thinspace V_1 - 0{,}21\thinspace V_2 = 4{,}95$, $-0{,}48\thinspace V_0 + 0{,}88\thinspace V_2 = -8$. e) $2 + 0{,}6\thinspace\big(0{,}95\thinspace V^{\pi_B}(0) + 0{,}05\thinspace V^{\pi_B}(2)\big)$ ; pour le « pourquoi », écris $V^{\pi_B}(1)$ comme une moyenne des $Q^{\pi_B}(1, a)$. f) Le second terme de l'expression de e).
 
 </details>
 
@@ -331,7 +331,7 @@ Fiche §6 : l'exemple de la boutique (synchrones, puis en place), les bornes et 
 </details>
 <details><summary>Indice 2</summary>
 
-Synchrone : $\mathbf{V}_{k+1} = \mathbf{r} + 0{,}6\,\mathbf{P}\mathbf{V}_k$, les trois coordonnées à partir des anciennes. En place : $V(0)$, puis $V(1)$ avec le nouveau $V(0)$, puis $V(2)$ avec les deux nouvelles valeurs. A priori : $0{,}6^k\lVert\mathbf{V}^{\pi_A}\rVert_\infty \le 10^{-3}$.
+Synchrone : $\mathbf{V}_{k+1} = \mathbf{r} + 0{,}6\thinspace\mathbf{P}\mathbf{V} _k$, les trois coordonnées à partir des anciennes. En place : $V(0)$, puis $V(1)$ avec le nouveau $V(0)$, puis $V(2)$ avec les deux nouvelles valeurs. A priori : $0{,}6^k\lVert\mathbf{V}^{\pi_A}\rVert _\infty \le 10^{-3}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -354,7 +354,7 @@ $\mathbb{E}[\max(X, C)]$ dépend de la place de $C$ parmi les offres : les offre
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $4\,000 \le C \le 5\,000$, $\mathbb{E}[\max(X, C)] = 0{,}6\,C + 2\,400$. e) La règle fixe ses décisions : $C_r = c + \gamma\,(0{,}3\,C_r + 0{,}3 \times 4\,000 + 0{,}2 \times 5\,000 + 0{,}2 \times 7\,000)$.
+Pour $4\thinspace000 \le C \le 5\thinspace000$, $\mathbb{E}[\max(X, C)] = 0{,}6\thinspace C + 2\thinspace400$. e) La règle fixe ses décisions : $C_r = c + \gamma\thinspace(0{,}3\thinspace C_r + 0{,}3 \times 4\thinspace000 + 0{,}2 \times 5\thinspace000 + 0{,}2 \times 7\thinspace000)$.
 
 </details>
 
@@ -430,7 +430,7 @@ Fiche §6 (la contraction démontrée) et §7 (le lemme du maximum et sa démons
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\lvert U'_i - W'_i\rvert \le \gamma\big(\sum_{j < i}p_{ij}\,\gamma\delta + \sum_{j \ge i}p_{ij}\,\delta\big)$. 5 : $f(e) \le g(e) + \delta \le \sup_Eg + \delta$ pour tout $e$.
+3 : $\lvert U' _i - W' _i\rvert \le \gamma\big(\sum  _{j < i}p  _{ij}\thinspace\gamma\delta + \sum _{j \ge i}p _{ij}\thinspace\delta\big)$. 5 : $f(e) \le g(e) + \delta \le \sup_Eg + \delta$ pour tout $e$.
 
 </details>
 
@@ -465,12 +465,12 @@ Fiche §4 (MDP, chaîne induite, valeur d'une action) ; M20 (axes, réductions, 
 </details>
 <details><summary>Indice 2</summary>
 
-`(P * R).sum(axis=2)[a, s]` $= \sum_{s'}\mathbf{P}_a(s, s')\,r(s, a, s')$. $\mathbf{P}_\pi(s, \cdot) = \sum_a\pi(a \mid s)$ `P[a, s, :]`. L'état « parti » a une valeur nulle.
+`(P * R).sum(axis=2)[a, s]` $= \sum_{s'}\mathbf{P} _a(s, s')\thinspace r(s, a, s')$. $\mathbf{P} _\pi(s, \cdot) = \sum_a\pi(a \mid s)$ `P[a, s, :]`. L'état « parti » a une valeur nulle.
 
 </details>
 <details><summary>Indice 3</summary>
 
-`r_sa` $= \begin{pmatrix} 30 & 21 & 0 \\ 21 & ? & 0 \end{pmatrix}$. e) $0{,}235\,V_0 - 0{,}085\,V_1 = 30$ et $-0{,}34\,V_0 + 0{,}677\,V_1 = r_\pi(1)$. f) $r(0, \text{rien}) + \gamma\sum_{s'}\mathbf{P}_{\text{rien}}(0, s')\,V^\pi(s')$ ; pour le « pourquoi », écris $V^\pi(0)$ comme une moyenne des $Q^\pi(0, a)$.
+`r_sa` $= \begin{pmatrix} 30 & 21 & 0 \cr 21 & ? & 0 \end{pmatrix}$. e) $0{,}235\thinspace V_0 - 0{,}085\thinspace V_1 = 30$ et $-0{,}34\thinspace V_0 + 0{,}677\thinspace V_1 = r_\pi(1)$. f) $r(0, \text{rien}) + \gamma\sum_{s'}\mathbf{P}_{\text{rien}}(0, s')\thinspace V^\pi(s')$ ; pour le « pourquoi », écris $V^\pi(0)$ comme une moyenne des $Q^\pi(0, a)$.
 
 </details>
 
@@ -676,7 +676,7 @@ Les quatre ⚠️ des §1, §2 et §5 de la fiche.
 </details>
 <details><summary>Indice 3</summary>
 
-Corrections : `mu = mu @ P` ; diviser par la somme ; $r(s) = $ `monthly_fee` si $s = 1$, plus `closing_fee` $\times\,p_{s2}$, et 0 pour l'état résilié ; `if np.linalg.matrix_rank(np.eye(m) - P) < m: raise ValueError(...)`.
+Corrections : `mu = mu @ P` ; diviser par la somme ; $r(s) = $ `monthly_fee` si $s = 1$, plus `closing_fee` $\times\thinspace p_{s2}$, et 0 pour l'état résilié ; `if np.linalg.matrix_rank(np.eye(m) - P) < m: raise ValueError(...)`.
 
 </details>
 

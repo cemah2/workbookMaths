@@ -45,15 +45,15 @@ MML §3.9 (*Rotations*) donne des définitions et des matrices : il lit les imag
 MML ne parle ni d'horloges, ni de moyennes pondérées, ni de softmax en ligne : pour les §4 à §9, la fiche est le cours. Exercice du livre conseillé : 3.10.
 
 📐 **Notations.**
-- **Écarts avec MML.** MML écrit $\mathbf{R}(\theta)$ ; la fiche, $\mathbf{R}_\theta$. MML note $\Phi$ l'application linéaire (la fiche n'en a pas besoin) et, comme ici, $\mathbf{R}_{ij}(\theta)$ la rotation de Givens. Les coordonnées sont numérotées à partir de 1 dans la fiche et dans MML, à partir de 0 dans `positional.py` : `givens_rotation(n, i - 1, j - 1, θ)` est $\mathbf{R}_{ij}(\theta)$. MML écrit $\log$ pour $\ln$.
+- **Écarts avec MML.** MML écrit $\mathbf{R}(\theta)$ ; la fiche, $\mathbf{R} _\theta$. MML note $\Phi$ l'application linéaire (la fiche n'en a pas besoin) et, comme ici, $\mathbf{R}  _{ij}(\theta)$ la rotation de Givens. Les coordonnées sont numérotées à partir de 1 dans la fiche et dans MML, à partir de 0 dans `positional.py` : `givens_rotation(n, i - 1, j - 1, θ)` est $\mathbf{R} _{ij}(\theta)$. MML écrit $\log$ pour $\ln$.
 - **§1 et §2.** $a$, $b$, $\alpha$, $\beta$, $\theta$, $\varphi$ sont des angles, en radians (en degrés quand un énoncé le dit), positifs dans le sens inverse des aiguilles d'une montre ; les vecteurs sont des colonnes, $\mathbf{R}_\theta\mathbf{x}$ ; $\mathbf{u}_a = (\cos a, \sin a)$ est le point d'angle $a$ du cercle unité. $i$ est l'unité imaginaire, $i^2 = -1$ ; $e^{i\theta} = \cos\theta + i\sin\theta$ est ici une **définition** ; $\bar z$ est le conjugué de $z$. $\mathbf{Q}$ est une matrice orthogonale.
-- **§3.** $\mathbf{e}_1, \ldots, \mathbf{e}_n$ est la base canonique de $\mathbb{R}^n$ ; $\mathbf{R}_{ij}(\theta)$ tourne $\mathbf{e}_i$ vers $\mathbf{e}_j$. $\sigma$ est une permutation de $\{1, \ldots, n\}$ et $\mathbf{P}$ sa matrice, de lignes $\mathbf{e}_{\sigma(1)}^\top, \ldots, \mathbf{e}_{\sigma(n)}^\top$, si bien que $(\mathbf{P}\mathbf{x})_k = x_{\sigma(k)}$. $\mathbf{A}$ et $\mathbf{B}$ sont deux matrices découpées en blocs. $\mathbf{D}$ est une matrice diagonale par blocs de $r$ rotations planes, et $r_{ij}$ un coefficient de $\mathbf{R}_{ij}(\theta)$.
+- **§3.** $\mathbf{e} _1, \ldots, \mathbf{e} _n$ est la base canonique de $\mathbb{R}^n$ ; $\mathbf{R} _{ij}(\theta)$ tourne $\mathbf{e} _i$ vers $\mathbf{e} _j$. $\sigma$ est une permutation de $\lbrace1, \ldots, n\rbrace$ et $\mathbf{P}$ sa matrice, de lignes $\mathbf{e} _{\sigma(1)}^\top, \ldots, \mathbf{e} _{\sigma(n)}^\top$, si bien que $(\mathbf{P}\mathbf{x}) _k = x _{\sigma(k)}$. $\mathbf{A}$ et $\mathbf{B}$ sont deux matrices découpées en blocs. $\mathbf{D}$ est une matrice diagonale par blocs de $r$ rotations planes, et $r  _{ij}$ un coefficient de $\mathbf{R} _{ij}(\theta)$.
 - **§4.** $t$ est une valeur d'une variable cyclique de **période** (*period*) $\tau$, $\omega = 2\pi/\tau$ sa **pulsation** (*angular frequency*), $\mathbf{e}(t) = (\cos\omega t, \sin\omega t)$ son encodage ; $\delta$ est un décalage, $\rho$ la longueur d'un vecteur moyen.
 - **§5.** $s_1, \ldots, s_n$ sont des **scores**, des réels qu'on passe à la softmax (pas le score d'un classifieur, ni ceux de MB5 et MB8) ; $p_i$ est un poids, $y_i$ un nombre (ou un vecteur) moyenné, $\hat y$ la moyenne pondérée ; $\mathbf{x}_i$ (ou $x_i$ en dimension 1) sont les points de mesure, $\mathbf{x}$ le point de la prévision, $K(\mathbf{x}, \mathbf{x}_i)$ le **noyau**, $h > 0$ la **largeur de bande** ; $b$ est une constante ajoutée à tous les scores ; $E_i$ est une énergie (M17), $\eta$ et $L_i$ le learning rate et la loss cumulée de Hedge (M14).
 - **§6.** $S$ est un sous-ensemble d'indices et $p(i \mid S)$ la loi conditionnelle ; $T$ est un nombre de jours, $t$ et $u$ sont des jours ; $\lambda \in\ ]0, 1[$ est le facteur d'une moyenne exponentielle (le $\beta$ de R5) ; $\mathbf{S}$, $\mathbf{C}$, $\mathbf{X}$ et $\mathbf{Y}$ sont les matrices des scores, des poids, des points et des nombres moyennés, une ligne par point.
 - **§7.** $n$ compte des contributions de variance $v$ ; $c > 0$ multiplie les scores ; $K$ est le nombre de scores, $p_{\max}$ le plus grand poids, $\Delta$ l'écart entre le plus grand score et le suivant.
 - **§8.** L'**état** est $(m, l, a)$ : $m$ le plus grand score lu, $l$ et $a$ deux sommes ; le code l'écrit `(m, l, acc)`. $v_j$ est le nombre (ou le vecteur de longueur $k$) associé au score $s_j$, `values` dans le code. $B$ est la taille d'un bloc, $N$ le nombre de blocs, $X$ un nombre de remises à l'échelle, $H_N = 1 + \frac12 + \cdots + \frac1N$.
-- **Lettres à double sens.** $i$ est l'unité imaginaire aux §1 et §2, un indice ailleurs (dans $\mathbf{R}_{ij}$, $x_i$ ou $p_i$). $e$ est la base de l'exponentielle, $\mathbf{e}_i$ (en gras, indicé) un vecteur de base aux §2 et §3, $\mathbf{e}(t)$ un encodage au §4 et $\mathbf{E}(t)$ un encodage à plusieurs horloges ; $E_i$ est une énergie aux §5 et §7, $\mathbb{E}$ l'espérance au §8. $a$ et $b$ sont des angles aux §1 et §2 et des coefficients de $\mathbf{A}$ et de $\mathbf{B}$ au §3 ; $b$ est une constante au §5 et un numéro de bloc au §8, $a$ la troisième composante de l'état au §8. $\mathbf{A}$, $\mathbf{B}$ (en gras) sont des matrices au §3, $B$ une taille de bloc aux §8 et §9. $r_{ij}$ est un coefficient de $\mathbf{R}_{ij}(\theta)$ et $r$ un nombre de blocs, tous deux au §3. $K$ est le noyau au §5, un nombre de scores au §7. $k$ est un indice aux §3 et §6, indexe une horloge au §4 et compte les coordonnées d'un $v_j$ au §8. $n$ est la dimension au §3, un nombre de valeurs au §4, de points aux §5 et §6, de contributions au §7, de clients au §9. $t$ est un entier (un exposant) aux §1 et §2 et le temps d'une onde dans la figure du §1, une valeur d'une variable cyclique au §4, un jour au §6 ; $u$ est un indice au §3 et un jour au §6 ; $\mathbf{u}_a$ (en gras) est un point du cercle aux §1 et §2, et $\mathbf{u}$, $\mathbf{v}$ deux vecteurs quelconques au §1. $v$ est une variance au §7, $v_j$ un nombre moyenné au §8. $w$ est un complexe au §2, un indice au §3. $x$ et $y$ sont des coordonnées aux §1 à §3, $x_i$ et $y_i$ un point et une mesure aux §5 et §6. $T$ est une température aux §5 et §7, un nombre de jours au §6. $h$ (en italique) est une largeur de bande, « h » (droit) l'heure. $\mathbf{S}$ (en gras) est la matrice des scores, $S$ un sous-ensemble (§6). $\mathbf{P}$ (en gras) est une matrice de permutation, $p$ un poids, $P(\cdot)$ une probabilité (§8). $\mathbf{X}$ (en gras) est la matrice des points au §6, $X$ un nombre aléatoire au §8. $\mathbf{I}$ (en gras) est l'identité, $I_b$ une indicatrice au §8. $\sigma$ est une permutation, jamais un écart-type ici. Le contexte tranche.
+- **Lettres à double sens.** $i$ est l'unité imaginaire aux §1 et §2, un indice ailleurs (dans $\mathbf{R} _{ij}$, $x_i$ ou $p_i$). $e$ est la base de l'exponentielle, $\mathbf{e} _i$ (en gras, indicé) un vecteur de base aux §2 et §3, $\mathbf{e}(t)$ un encodage au §4 et $\mathbf{E}(t)$ un encodage à plusieurs horloges ; $E_i$ est une énergie aux §5 et §7, $\mathbb{E}$ l'espérance au §8. $a$ et $b$ sont des angles aux §1 et §2 et des coefficients de $\mathbf{A}$ et de $\mathbf{B}$ au §3 ; $b$ est une constante au §5 et un numéro de bloc au §8, $a$ la troisième composante de l'état au §8. $\mathbf{A}$, $\mathbf{B}$ (en gras) sont des matrices au §3, $B$ une taille de bloc aux §8 et §9. $r _{ij}$ est un coefficient de $\mathbf{R} _{ij}(\theta)$ et $r$ un nombre de blocs, tous deux au §3. $K$ est le noyau au §5, un nombre de scores au §7. $k$ est un indice aux §3 et §6, indexe une horloge au §4 et compte les coordonnées d'un $v_j$ au §8. $n$ est la dimension au §3, un nombre de valeurs au §4, de points aux §5 et §6, de contributions au §7, de clients au §9. $t$ est un entier (un exposant) aux §1 et §2 et le temps d'une onde dans la figure du §1, une valeur d'une variable cyclique au §4, un jour au §6 ; $u$ est un indice au §3 et un jour au §6 ; $\mathbf{u}_a$ (en gras) est un point du cercle aux §1 et §2, et $\mathbf{u}$, $\mathbf{v}$ deux vecteurs quelconques au §1. $v$ est une variance au §7, $v_j$ un nombre moyenné au §8. $w$ est un complexe au §2, un indice au §3. $x$ et $y$ sont des coordonnées aux §1 à §3, $x_i$ et $y_i$ un point et une mesure aux §5 et §6. $T$ est une température aux §5 et §7, un nombre de jours au §6. $h$ (en italique) est une largeur de bande, « h » (droit) l'heure. $\mathbf{S}$ (en gras) est la matrice des scores, $S$ un sous-ensemble (§6). $\mathbf{P}$ (en gras) est une matrice de permutation, $p$ un poids, $P(\cdot)$ une probabilité (§8). $\mathbf{X}$ (en gras) est la matrice des points au §6, $X$ un nombre aléatoire au §8. $\mathbf{I}$ (en gras) est l'identité, $I_b$ une indicatrice au §8. $\sigma$ est une permutation, jamais un écart-type ici. Le contexte tranche.
 
 Vocabulaire anglais de ce chapitre : *angle addition formulas*, *double-angle formulas*, *half-angle formulas*, *product-to-sum formulas*, *beats*, *counterclockwise*, *reflection*, *Givens rotation*, *commute*, *block-diagonal matrix*, *permutation matrix*, *cyclical feature*, *cyclic encoding*, *angular frequency*, *mean direction*, *mean resultant length*, *convex combination*, *kernel regression*, *Nadaraya-Watson estimator*, *bandwidth*, *nearest neighbor*, *leave-one-out*, *mask*, *filtering*, *smoothing*, *causal*, *permutation equivariant*, *saturation*, *online softmax*, *rescaling*, *invariant*, *merge*, *neutral element*, *record*, *indicator*, *harmonic number*.
 
@@ -72,8 +72,8 @@ Vocabulaire anglais de ce chapitre : *angle addition formulas*, *double-angle fo
 ## L'essentiel en 9 lignes
 
 1. **Formules d'addition** (∂ MB3.8, par $\mathbf{u}_a\cdot\mathbf{u}_b = \cos(a - b)$) : $\cos(a \pm b) = \cos a\cos b \mp \sin a\sin b$, $\sin(a \pm b) = \sin a\cos b \pm \cos a\sin b$ ; duplication ; $\cos a\cos b = \frac12[\cos(a - b) + \cos(a + b)]$ ; $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$.
-2. **Plan** : $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta} = \mathbf{R}_\beta\mathbf{R}_\alpha$, $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$ ; une même rotation conserve produits scalaires, normes, distances et angles ; orthogonale $2 \times 2$ : rotation ou symétrie selon le déterminant ; multiplier par $e^{i\theta}$, c'est tourner de $\theta$ ; $\operatorname{Re}(\bar zw)$ est le produit scalaire.
-3. **$\mathbb{R}^n$** : $\mathbf{R}_{ij}(\theta)$ tourne le plan $(i, j)$ ; même plan ou plans disjoints : elles commutent, en général pas sinon ; une matrice diagonale par blocs tourne chaque plan de son angle ; un produit par blocs est une somme de produits ; $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ tourne le plan $(\sigma(i), \sigma(j))$.
+2. **Plan** : $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta} = \mathbf{R} _\beta\mathbf{R} _\alpha$, $\mathbf{R} _\theta^{-1} = \mathbf{R} _\theta^\top = \mathbf{R} _{-\theta}$ ; une même rotation conserve produits scalaires, normes, distances et angles ; orthogonale $2 \times 2$ : rotation ou symétrie selon le déterminant ; multiplier par $e^{i\theta}$, c'est tourner de $\theta$ ; $\operatorname{Re}(\bar zw)$ est le produit scalaire.
+3. **$\mathbb{R}^n$** : $\mathbf{R} _{ij}(\theta)$ tourne le plan $(i, j)$ ; même plan ou plans disjoints : elles commutent, en général pas sinon ; une matrice diagonale par blocs tourne chaque plan de son angle ; un produit par blocs est une somme de produits ; $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}$ tourne le plan $(\sigma(i), \sigma(j))$.
 4. **Horloges** : $\mathbf{e}(t) = (\cos\omega t, \sin\omega t)$, $\lVert\mathbf{e}(t) - \mathbf{e}(t')\rVert^2 = 2 - 2\cos\omega(t - t')$, $\mathbf{e}(t + \delta) = \mathbf{R}_{\omega\delta}\mathbf{e}(t)$ ; plusieurs horloges : $\sum_k\cos\omega_k(t - t')$ ; direction moyenne : l'argument du vecteur moyen.
 5. **Moyenne pondérée** : $\hat y = \sum_ip_iy_i$, $p_i = e^{s_i}/\sum_je^{s_j}$, dans l'enveloppe convexe, inchangée si l'on ajoute $b$ aux scores. **Nadaraya-Watson** : softmax de $-\lVert\mathbf{x} - \mathbf{x}_i\rVert^2/(2h^2)$ ; $h \to 0$ : plus proche voisin ; $h \to \infty$ : moyenne ; à normes égales, softmax de $\mathbf{x}\cdot\mathbf{x}_i/h^2$.
 6. **Masques** : un score $-\infty$ avant la softmax donne la loi conditionnelle ; un poids mis à 0 après n'en donne pas ; sous-ensemble vide : $0/0$ ; masque triangulaire : $\frac{T(T + 1)}{2}$ cases. **Équivariance** (∂ MB3.9) : renuméroter les points renumérote les sorties, sauf masque triangulaire ou score lié aux numéros.
@@ -94,13 +94,13 @@ Notons $\mathbf{u}_a = (\cos a, \sin a)$ le point d'angle $a$ du cercle unité (
 > **Propriété** (∂ MB3.8). Pour tous réels $a$ et $b$,
 > $$\cos(a - b) = \cos a\cos b + \sin a\sin b .$$
 
-L'idée : calculer le produit scalaire $\mathbf{u}_a\cdot\mathbf{u}_b$ de deux façons. En coordonnées, il vaut $\cos a\cos b + \sin a\sin b$. Par l'angle (R9 §7), il vaut $\lVert\mathbf{u}_a\rVert\,\lVert\mathbf{u}_b\rVert\cos\varphi = \cos\varphi$, où $\varphi \in [0, \pi]$ est l'angle des deux vecteurs ; or $\varphi$ est égal à $a - b$ au signe et à un multiple de $2\pi$ près, ce que la parité et la périodicité du cosinus effacent. Le ∂ MB3.8 rédige ce dernier point.
+L'idée : calculer le produit scalaire $\mathbf{u}_a\cdot\mathbf{u}_b$ de deux façons. En coordonnées, il vaut $\cos a\cos b + \sin a\sin b$. Par l'angle (R9 §7), il vaut $\lVert\mathbf{u}_a\rVert\thinspace\lVert\mathbf{u}_b\rVert\cos\varphi = \cos\varphi$, où $\varphi \in [0, \pi]$ est l'angle des deux vecteurs ; or $\varphi$ est égal à $a - b$ au signe et à un multiple de $2\pi$ près, ce que la parité et la périodicité du cosinus effacent. Le ∂ MB3.8 rédige ce dernier point.
 
-**Pas de cercle vicieux.** R9 §7 a obtenu $\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert\cos\varphi$ en admettant qu'une rotation conserve le produit scalaire, ce que le §2 veut établir. Mais la formule sort aussi d'Al-Kashi, démontrée en R9.12 par une hauteur, sans rotation : dans le triangle de côtés $\mathbf{u}$, $\mathbf{v}$, $\mathbf{u} - \mathbf{v}$, compare Al-Kashi au développement $\lVert\mathbf{u} - \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2 - 2\,\mathbf{u}\cdot\mathbf{v}$ (M07). Si $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires, il n'y a pas de triangle, mais $\varphi$ vaut 0 ou $\pi$ et les deux membres valent $\pm\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert$.
+**Pas de cercle vicieux.** R9 §7 a obtenu $\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\thinspace\lVert\mathbf{v}\rVert\cos\varphi$ en admettant qu'une rotation conserve le produit scalaire, ce que le §2 veut établir. Mais la formule sort aussi d'Al-Kashi, démontrée en R9.12 par une hauteur, sans rotation : dans le triangle de côtés $\mathbf{u}$, $\mathbf{v}$, $\mathbf{u} - \mathbf{v}$, compare Al-Kashi au développement $\lVert\mathbf{u} - \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2 - 2\thinspace\mathbf{u}\cdot\mathbf{v}$ (M07). Si $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires, il n'y a pas de triangle, mais $\varphi$ vaut 0 ou $\pi$ et les deux membres valent $\pm\lVert\mathbf{u}\rVert\thinspace\lVert\mathbf{v}\rVert$.
 
-**Exemple : deux points à coordonnées rationnelles.** Le point $\mathbf{u}_a = \big(\frac{35}{37}, \frac{12}{37}\big)$ est sur le cercle unité, puisque $35^2 + 12^2 = 1\,369 = 37^2$ ; de même $\mathbf{u}_b = \big(\frac{28}{53}, \frac{45}{53}\big)$, car $28^2 + 45^2 = 2\,809 = 53^2$. Leurs angles valent $a \approx 18{,}92°$ et $b \approx 58{,}11°$. Alors
-$$\cos(b - a) = \frac{28}{53}\cdot\frac{35}{37} + \frac{45}{53}\cdot\frac{12}{37} = \frac{980 + 540}{1\,961} = \frac{1\,520}{1\,961} \approx 0{,}7751,$$
-le cosinus de $b - a$ : vérifie à la calculatrice que $\arccos\frac{1\,520}{1\,961} \approx 39{,}18°$.
+**Exemple : deux points à coordonnées rationnelles.** Le point $\mathbf{u}_a = \big(\frac{35}{37}, \frac{12}{37}\big)$ est sur le cercle unité, puisque $35^2 + 12^2 = 1\thinspace369 = 37^2$ ; de même $\mathbf{u}_b = \big(\frac{28}{53}, \frac{45}{53}\big)$, car $28^2 + 45^2 = 2\thinspace809 = 53^2$. Leurs angles valent $a \approx 18{,}92°$ et $b \approx 58{,}11°$. Alors
+$$\cos(b - a) = \frac{28}{53}\cdot\frac{35}{37} + \frac{45}{53}\cdot\frac{12}{37} = \frac{980 + 540}{1\thinspace961} = \frac{1\thinspace520}{1\thinspace961} \approx 0{,}7751,$$
+le cosinus de $b - a$ : vérifie à la calculatrice que $\arccos\frac{1\thinspace520}{1\thinspace961} \approx 39{,}18°$.
 
 ### Les trois autres, et ce qu'on en tire
 
@@ -110,17 +110,17 @@ le cosinus de $b - a$ : vérifie à la calculatrice que $\arccos\frac{1\,520}{1\
 
 L'idée, que le ∂ MB3.8 rédige : la parité de $\cos$ et de $\sin$ ramène $\cos(a + b)$ à la formule de $\cos(a - b)$, et le cas $a = \frac\pi2$ de celle-ci, $\cos(\frac\pi2 - x) = \sin x$, ramène les sinus aux cosinus.
 
-Pour l'exemple : $\sin(b - a) = \frac{45 \times 35 - 28 \times 12}{1\,961} = \frac{1\,239}{1\,961}$, $\cos(a + b) = \frac{980 - 540}{1\,961} = \frac{440}{1\,961}$ et $\sin(a + b) = \frac{336 + 1\,575}{1\,961} = \frac{1\,911}{1\,961}$ ; contrôle : $440^2 + 1\,911^2 = 1\,961^2$.
+Pour l'exemple : $\sin(b - a) = \frac{45 \times 35 - 28 \times 12}{1\thinspace961} = \frac{1\thinspace239}{1\thinspace961}$, $\cos(a + b) = \frac{980 - 540}{1\thinspace961} = \frac{440}{1\thinspace961}$ et $\sin(a + b) = \frac{336 + 1\thinspace575}{1\thinspace961} = \frac{1\thinspace911}{1\thinspace961}$ ; contrôle : $440^2 + 1\thinspace911^2 = 1\thinspace961^2$.
 
 **Duplication** (*double-angle formulas*), que le ∂ MB3.8 tire des formules d'addition :
 $$\cos 2a = \cos^2a - \sin^2a = 2\cos^2a - 1 = 1 - 2\sin^2a, \qquad \sin 2a = 2\sin a\cos a .$$
-Pour $\mathbf{u}_a$ : $\cos 2a = \frac{1\,225 - 144}{1\,369} = \frac{1\,081}{1\,369}$ et $\sin 2a = \frac{2 \times 12 \times 35}{1\,369} = \frac{840}{1\,369}$. Lue à l'envers, $\cos^2a = \frac{1 + \cos 2a}{2}$ donne l'**angle moitié** (*half-angle formulas*) : avec $\cos\frac\pi4 = \frac{\sqrt2}{2}$,
+Pour $\mathbf{u}_a$ : $\cos 2a = \frac{1\thinspace225 - 144}{1\thinspace369} = \frac{1\thinspace081}{1\thinspace369}$ et $\sin 2a = \frac{2 \times 12 \times 35}{1\thinspace369} = \frac{840}{1\thinspace369}$. Lue à l'envers, $\cos^2a = \frac{1 + \cos 2a}{2}$ donne l'**angle moitié** (*half-angle formulas*) : avec $\cos\frac\pi4 = \frac{\sqrt2}{2}$,
 $$\cos\frac\pi8 = \sqrt{\frac{1 + \frac{\sqrt2}{2}}{2}} = \frac{\sqrt{2 + \sqrt2}}{2} \approx 0{,}9239, \qquad \sin\frac\pi8 = \frac{\sqrt{2 - \sqrt2}}{2} \approx 0{,}3827,$$
 où l'on prend les racines positives, puisque $\frac\pi8$ est dans le premier quadrant.
 
 **Produits en sommes** (*product-to-sum formulas*). En ajoutant, puis en retranchant, les formules de $\cos(a - b)$ et de $\cos(a + b)$ (M28 §4 l'a tirée des formules de soustraction de M25a ; la voici à partir des quatre formules) :
 $$\cos a\cos b = \tfrac12\big[\cos(a - b) + \cos(a + b)\big], \qquad \sin a\sin b = \tfrac12\big[\cos(a - b) - \cos(a + b)\big].$$
-Vérifie : $\frac{35}{37}\cdot\frac{28}{53} = \frac{980}{1\,961} = \frac12\cdot\frac{1\,520 + 440}{1\,961}$. Le produit de deux ondes de pulsations voisines est la demi-somme d'une onde lente, de pulsation la différence, et d'une onde rapide, de pulsation la somme (figure, à droite). Lue à l'envers, avec $a = \frac{\alpha + \beta}{2}$ et $b = \frac{\alpha - \beta}{2}$, la formule donne $\cos\alpha + \cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ : deux notes presque à l'unisson qui sonnent ensemble s'additionnent en une note rapide dont l'amplitude varie lentement, ce sont les **battements** (*beats*).
+Vérifie : $\frac{35}{37}\cdot\frac{28}{53} = \frac{980}{1\thinspace961} = \frac12\cdot\frac{1\thinspace520 + 440}{1\thinspace961}$. Le produit de deux ondes de pulsations voisines est la demi-somme d'une onde lente, de pulsation la différence, et d'une onde rapide, de pulsation la somme (figure, à droite). Lue à l'envers, avec $a = \frac{\alpha + \beta}{2}$ et $b = \frac{\alpha - \beta}{2}$, la formule donne $\cos\alpha + \cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ : deux notes presque à l'unisson qui sonnent ensemble s'additionnent en une note rapide dont l'amplitude varie lentement, ce sont les **battements** (*beats*).
 
 ![À gauche, u_a = (35/37, 12/37), u_b = (28/53, 45/53) et l'angle b − a : leur produit scalaire, 1520/1961, est cos(b − a). À droite, cos 7t cos 6t : une oscillation rapide autour de l'onde lente ½ cos t](figures/addition.png)
 
@@ -130,7 +130,7 @@ Définissons $e^{i\theta} = \cos\theta + i\sin\theta$ (M22 l'admettait comme for
 
 > **Propriété** (∂ MB3.8). $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$ : la règle que M22 admettait n'est que les formules d'addition.
 
-Pour l'exemple, $\frac{35 + 12i}{37}\cdot\frac{28 + 45i}{53} = \frac{440 + 1\,911\,i}{1\,961}$, le nombre $e^{i(a + b)}$. La formule de Moivre de M22, $(e^{i\theta})^t = e^{it\theta}$ pour un entier $t \ge 0$, s'en déduit par récurrence (R4).
+Pour l'exemple, $\frac{35 + 12i}{37}\cdot\frac{28 + 45i}{53} = \frac{440 + 1\thinspace911\thinspace i}{1\thinspace961}$, le nombre $e^{i(a + b)}$. La formule de Moivre de M22, $(e^{i\theta})^t = e^{it\theta}$ pour un entier $t \ge 0$, s'en déduit par récurrence (R4).
 
 💻 **Aujourd'hui en pratique** — `sympy.expand_trig(sympy.cos(a - b))` développe la formule, `sympy.cos(sympy.pi / 8)` rend une valeur exacte, et `sympy.simplify` vérifie une identité.
 
@@ -143,52 +143,52 @@ Pour l'exemple, $\frac{35 + 12i}{37}\cdot\frac{28 + 45i}{53} = \frac{440 + 1\,91
 ### La matrice d'une rotation
 
 > **Définition** (MML §3.9.1). La **rotation** d'angle $\theta$ du plan, autour de l'origine, a pour matrice
-> $$\mathbf{R}_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} :$$
-> ses colonnes sont les images $\mathbf{R}_\theta\mathbf{e}_1 = (\cos\theta, \sin\theta)$ et $\mathbf{R}_\theta\mathbf{e}_2 = (-\sin\theta, \cos\theta)$ des vecteurs de base, tournés de $\theta$ dans le sens direct.
+> $$\mathbf{R} _\theta = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} :$$
+> ses colonnes sont les images $\mathbf{R} _\theta\mathbf{e} _1 = (\cos\theta, \sin\theta)$ et $\mathbf{R} _\theta\mathbf{e}_2 = (-\sin\theta, \cos\theta)$ des vecteurs de base, tournés de $\theta$ dans le sens direct.
 
-Les formules d'addition, ligne par ligne, donnent $\mathbf{R}_\theta\mathbf{u}_a = \mathbf{u}_{a + \theta}$ : le point d'angle $a$ va au point d'angle $a + \theta$.
+Les formules d'addition, ligne par ligne, donnent $\mathbf{R}_\theta\mathbf{u} _a = \mathbf{u} _{a + \theta}$ : le point d'angle $a$ va au point d'angle $a + \theta$.
 
 ### Composer, inverser
 
 > **Propriétés** (∂ MB3.8).
-> 1. **Composer** : $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$. Donc $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_\beta\mathbf{R}_\alpha$ : deux rotations du plan **commutent** (*commute*).
-> 2. **Inverser** : $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$, et $\det\mathbf{R}_\theta = 1$.
+> 1. **Composer** : $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta}$. Donc $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R}  _\beta\mathbf{R} _\alpha$ : deux rotations du plan **commutent** (*commute*).
+> 2. **Inverser** : $\mathbf{R} _\theta^{-1} = \mathbf{R} _\theta^\top = \mathbf{R} _{-\theta}$, et $\det\mathbf{R} _\theta = 1$.
 
-L'idée, que le ∂ MB3.8 rédige : chaque coefficient du produit $\mathbf{R}_\alpha\mathbf{R}_\beta$ est l'une des formules d'addition du §1 ; pour l'inverse, compare $\mathbf{R}_\theta^\top$ et $\mathbf{R}_{-\theta}$ coefficient par coefficient. Par récurrence, $(\mathbf{R}_\theta)^t = \mathbf{R}_{t\theta}$ pour tout entier $t \ge 0$.
+L'idée, que le ∂ MB3.8 rédige : chaque coefficient du produit $\mathbf{R} _\alpha\mathbf{R} _\beta$ est l'une des formules d'addition du §1 ; pour l'inverse, compare $\mathbf{R} _\theta^\top$ et $\mathbf{R} _{-\theta}$ coefficient par coefficient. Par récurrence, $(\mathbf{R} _\theta)^t = \mathbf{R} _{t\theta}$ pour tout entier $t \ge 0$.
 
 **Exemple.** Avec $\cos a = \frac{35}{37}$ et $\cos b = \frac{28}{53}$ du §1,
-$$\mathbf{R}_a\mathbf{R}_b = \frac{1}{1\,961}\begin{pmatrix} 35 & -12 \\ 12 & 35 \end{pmatrix}\begin{pmatrix} 28 & -45 \\ 45 & 28 \end{pmatrix} = \frac{1}{1\,961}\begin{pmatrix} 440 & -1\,911 \\ 1\,911 & 440 \end{pmatrix} = \mathbf{R}_{a + b},$$
-et l'autre ordre donne la même matrice. De même, $\mathbf{R}_a^2 = \frac{1}{1\,369}\begin{pmatrix} 1\,081 & -840 \\ 840 & 1\,081 \end{pmatrix} = \mathbf{R}_{2a}$ : on retrouve les nombres de la duplication.
+$$\mathbf{R}_a\mathbf{R} _b = \frac{1}{1\thinspace961}\begin{pmatrix} 35 & -12 \cr 12 & 35 \end{pmatrix}\begin{pmatrix} 28 & -45 \cr 45 & 28 \end{pmatrix} = \frac{1}{1\thinspace961}\begin{pmatrix} 440 & -1\thinspace911 \cr 1\thinspace911 & 440 \end{pmatrix} = \mathbf{R} _{a + b},$$
+et l'autre ordre donne la même matrice. De même, $\mathbf{R} _a^2 = \frac{1}{1\thinspace369}\begin{pmatrix} 1\thinspace081 & -840 \cr 840 & 1\thinspace081 \end{pmatrix} = \mathbf{R} _{2a}$ : on retrouve les nombres de la duplication.
 
 ![À gauche, un drapeau tourné par R_a, R_b, R_b R_a (tirets) et R_a R_b = R_{a+b} (noir) : les deux derniers, confondus, ont tourné de a + b ≈ 77,03°. À droite, le drapeau tourné par une rotation (dét. 1) et retourné par la symétrie ((35, 12), (12, −35))/37 (dét. −1), d'axe d'angle a/2 ≈ 9,46°](figures/rotation_plan.png)
 
 ### Ce qu'une rotation conserve
 
-> **Propriété** (MML §3.9.4, et (3.31)-(3.32) pour une matrice orthogonale). Une rotation conserve les **produits scalaires** : $(\mathbf{R}_\theta\mathbf{x})\cdot(\mathbf{R}_\theta\mathbf{y}) = \mathbf{x}\cdot\mathbf{y}$ pour tous vecteurs $\mathbf{x}$ et $\mathbf{y}$ du plan. Donc aussi les **normes**, les **distances** et les **angles**.
+> **Propriété** (MML §3.9.4, et (3.31)-(3.32) pour une matrice orthogonale). Une rotation conserve les **produits scalaires** : $(\mathbf{R} _\theta\mathbf{x})\cdot(\mathbf{R} _\theta\mathbf{y}) = \mathbf{x}\cdot\mathbf{y}$ pour tous vecteurs $\mathbf{x}$ et $\mathbf{y}$ du plan. Donc aussi les **normes**, les **distances** et les **angles**.
 
-En effet $(\mathbf{R}_\theta\mathbf{x})^\top(\mathbf{R}_\theta\mathbf{y}) = \mathbf{x}^\top\mathbf{R}_\theta^\top\mathbf{R}_\theta\mathbf{y} = \mathbf{x}^\top\mathbf{y}$ (M09a, M12b) ; les normes s'en déduisent avec $\mathbf{y} = \mathbf{x}$, les distances par $\mathbf{x} - \mathbf{y}$, les angles par leur cosinus. Les deux vecteurs sont tournés par **la même** rotation.
+En effet $(\mathbf{R} _\theta\mathbf{x})^\top(\mathbf{R} _\theta\mathbf{y}) = \mathbf{x}^\top\mathbf{R} _\theta^\top\mathbf{R} _\theta\mathbf{y} = \mathbf{x}^\top\mathbf{y}$ (M09a, M12b) ; les normes s'en déduisent avec $\mathbf{y} = \mathbf{x}$, les distances par $\mathbf{x} - \mathbf{y}$, les angles par leur cosinus. Les deux vecteurs sont tournés par **la même** rotation.
 
-**Exemple : deux repères sur un plateau tournant**, en $\mathbf{x} = (5, 3)$ et $\mathbf{y} = (-1, 3)$ : $\mathbf{x}\cdot\mathbf{y} = 4$ et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = 36$. Le plateau tourne de $a$ : $\mathbf{R}_a\mathbf{x} = \frac{1}{37}(139, 165)$ et $\mathbf{R}_a\mathbf{y} = \frac{1}{37}(-71, 93)$. Leur produit scalaire vaut $\frac{-9\,869 + 15\,345}{1\,369} = 4$, et leur distance au carré $\frac{210^2 + 72^2}{1\,369} = \frac{49\,284}{1\,369} = 36$.
+**Exemple : deux repères sur un plateau tournant**, en $\mathbf{x} = (5, 3)$ et $\mathbf{y} = (-1, 3)$ : $\mathbf{x}\cdot\mathbf{y} = 4$ et $\lVert\mathbf{x} - \mathbf{y}\rVert^2 = 36$. Le plateau tourne de $a$ : $\mathbf{R}_a\mathbf{x} = \frac{1}{37}(139, 165)$ et $\mathbf{R}_a\mathbf{y} = \frac{1}{37}(-71, 93)$. Leur produit scalaire vaut $\frac{-9\thinspace869 + 15\thinspace345}{1\thinspace369} = 4$, et leur distance au carré $\frac{210^2 + 72^2}{1\thinspace369} = \frac{49\thinspace284}{1\thinspace369} = 36$.
 
 ### Rotation ou symétrie
 
 > **Propriété.** Une matrice orthogonale $\mathbf{Q}$ de forme $(2, 2)$ ($\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$) s'écrit, pour un angle $\theta$,
-> $$\mathbf{Q} = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} = \mathbf{R}_\theta \qquad\text{ou}\qquad \mathbf{Q} = \begin{pmatrix} \cos\theta & \sin\theta \\ \sin\theta & -\cos\theta \end{pmatrix}.$$
+> $$\mathbf{Q} = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} = \mathbf{R}_\theta \qquad\text{ou}\qquad \mathbf{Q} = \begin{pmatrix} \cos\theta & \sin\theta \cr \sin\theta & -\cos\theta \end{pmatrix}.$$
 > La première, de déterminant 1, est une rotation ; la seconde, de déterminant $-1$, est la **symétrie** (*reflection*) par rapport à la droite d'angle $\frac\theta2$ passant par l'origine.
 
-*Démonstration.* La première colonne de $\mathbf{Q}$ est unitaire : c'est un point $(\cos\theta, \sin\theta)$ du cercle. La seconde est unitaire et orthogonale à la première : les seuls vecteurs qui conviennent sont $(-\sin\theta, \cos\theta)$ et son opposé. Le premier choix donne $\mathbf{R}_\theta$, de déterminant 1 ; le second donne la seconde matrice, de déterminant $-\cos^2\theta - \sin^2\theta = -1$. Par les formules de soustraction, celle-ci envoie $\mathbf{u}_\varphi$ sur $\mathbf{u}_{\theta - \varphi}$ : elle fixe $\mathbf{u}_{\theta/2}$ et change $\mathbf{u}_{\theta/2 + \pi/2}$ en $\mathbf{u}_{\theta/2 - \pi/2}$, son opposé. C'est la symétrie annoncée. $\square$
+*Démonstration.* La première colonne de $\mathbf{Q}$ est unitaire : c'est un point $(\cos\theta, \sin\theta)$ du cercle. La seconde est unitaire et orthogonale à la première : les seuls vecteurs qui conviennent sont $(-\sin\theta, \cos\theta)$ et son opposé. Le premier choix donne $\mathbf{R} _\theta$, de déterminant 1 ; le second donne la seconde matrice, de déterminant $-\cos^2\theta - \sin^2\theta = -1$. Par les formules de soustraction, celle-ci envoie $\mathbf{u} _\varphi$ sur $\mathbf{u} _{\theta - \varphi}$ : elle fixe $\mathbf{u} _{\theta/2}$ et change $\mathbf{u} _{\theta/2 + \pi/2}$ en $\mathbf{u} _{\theta/2 - \pi/2}$, son opposé. C'est la symétrie annoncée. $\square$
 
-Une rotation garde l'**orientation**, une symétrie la renverse. La matrice $\frac{1}{37}\begin{pmatrix} 35 & 12 \\ 12 & -35 \end{pmatrix}$ est la symétrie par rapport à la droite d'angle $\frac a2 \approx 9{,}46°$. L'échange des deux coordonnées, $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, est une matrice de permutation : c'est la symétrie par rapport à la droite $y = x$ ($\theta = \frac\pi2$), pas une rotation.
+Une rotation garde l'**orientation**, une symétrie la renverse. La matrice $\frac{1}{37}\begin{pmatrix} 35 & 12 \cr 12 & -35 \end{pmatrix}$ est la symétrie par rapport à la droite d'angle $\frac a2 \approx 9{,}46°$. L'échange des deux coordonnées, $\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}$, est une matrice de permutation : c'est la symétrie par rapport à la droite $y = x$ ($\theta = \frac\pi2$), pas une rotation.
 
 ### La multiplication par e^{iθ}
 
-Identifions le complexe $z = x + iy$ au point $(x, y)$. M22 §2 a montré que multiplier par $\cos\theta + i\sin\theta$ a pour matrice $\mathbf{R}_\theta$ : **multiplier par $e^{i\theta}$, c'est tourner de $\theta$**, et la règle $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$ est $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$ écrite avec des nombres ; en particulier $\lvert e^{i\theta}z\rvert = \lvert z\rvert$.
+Identifions le complexe $z = x + iy$ au point $(x, y)$. M22 §2 a montré que multiplier par $\cos\theta + i\sin\theta$ a pour matrice $\mathbf{R} _\theta$ : **multiplier par $e^{i\theta}$, c'est tourner de $\theta$**, et la règle $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$ est $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta}$ écrite avec des nombres ; en particulier $\lvert e^{i\theta}z\rvert = \lvert z\rvert$.
 
 Le produit scalaire se lit aussi sur les complexes. Pour $z = x_1 + iy_1$ et $w = x_2 + iy_2$, la partie réelle de $\bar zw = (x_1 - iy_1)(x_2 + iy_2)$ vaut $x_1x_2 + y_1y_2$ :
-$$\operatorname{Re}(\bar z\,w) = (x_1, y_1)\cdot(x_2, y_2).$$
-Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i}{37}\cdot\frac{28 + 45i}{53}\Big) = \frac{980 + 540}{1\,961} = \frac{1\,520}{1\,961}$, le $\cos(b - a)$ du §1.
+$$\operatorname{Re}(\bar z\thinspace w) = (x_1, y_1)\cdot(x_2, y_2).$$
+Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i}{37}\cdot\frac{28 + 45i}{53}\Big) = \frac{980 + 540}{1\thinspace961} = \frac{1\thinspace520}{1\thinspace961}$, le $\cos(b - a)$ du §1.
 
-⚠️ **Erreur classique.** Écrire $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha\beta}$. Croire qu'une matrice orthogonale est toujours une rotation. Croire qu'une rotation conserve le produit scalaire de deux vecteurs tournés d'angles **différents**. Pour placer le signe moins de $\mathbf{R}_\theta$ sans hésiter, relire ses colonnes : les images de $\mathbf{e}_1$ et de $\mathbf{e}_2$, $(\cos\theta, \sin\theta)$ et $(-\sin\theta, \cos\theta)$.
+⚠️ **Erreur classique.** Écrire $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha\beta}$. Croire qu'une matrice orthogonale est toujours une rotation. Croire qu'une rotation conserve le produit scalaire de deux vecteurs tournés d'angles **différents**. Pour placer le signe moins de $\mathbf{R} _\theta$ sans hésiter, relire ses colonnes : les images de $\mathbf{e}_1$ et de $\mathbf{e}_2$, $(\cos\theta, \sin\theta)$ et $(-\sin\theta, \cos\theta)$.
 
 🔗 **Dans workbookIA** — le chapitre B3 se sert de matrices de rotation $2 \times 2$, de leur composition et de leur transposée pour coder des positions ; il énonce ces propriétés, que ce paragraphe et le ∂ MB3.8 démontrent.
 
@@ -196,29 +196,29 @@ Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i
 
 ### Les rotations autour des axes de l'espace
 
-Dans l'espace, une rotation tourne un plan autour d'un axe fixe. Autour de $\mathbf{e}_3$, le plan $(x_1, x_2)$ tourne comme au §2 ; autour de $\mathbf{e}_1$, le plan $(x_2, x_3)$ (MML §3.9.2) :
-$$\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} \mathbf{R}_\theta & \mathbf{0} \\ \mathbf{0}^\top & 1 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}.$$
+Dans l'espace, une rotation tourne un plan autour d'un axe fixe. Autour de $\mathbf{e}_3$, le plan $(x_1, x_2)$ tourne comme au §2 ; autour de $\mathbf{e} _1$, le plan $(x_2, x_3)$ (MML §3.9.2) :
+$$\begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} \mathbf{R} _\theta & \mathbf{0} \cr \mathbf{0}^\top & 1 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{pmatrix}.$$
 Le sens positif se lit en regardant l'axe depuis sa pointe vers l'origine.
 
 ### Les rotations de Givens
 
-> **Définition** (MML §3.9.3, Définition 3.11). Pour $1 \le i < j \le n$ et un angle $\theta$, la **rotation de Givens** (*Givens rotation*) $\mathbf{R}_{ij}(\theta)$ est la matrice identité $n \times n$ dont on a changé quatre coefficients :
-> $$r_{ii} = r_{jj} = \cos\theta, \qquad r_{ij} = -\sin\theta, \qquad r_{ji} = \sin\theta .$$
-> Elle tourne de $\theta$ le plan des coordonnées $(x_i, x_j)$, en envoyant $\mathbf{e}_i$ sur $\cos\theta\,\mathbf{e}_i + \sin\theta\,\mathbf{e}_j$ (vers $\mathbf{e}_j$), et fixe les $n - 2$ autres vecteurs de base.
+> **Définition** (MML §3.9.3, Définition 3.11). Pour $1 \le i < j \le n$ et un angle $\theta$, la **rotation de Givens** (*Givens rotation*) $\mathbf{R}  _{ij}(\theta)$ est la matrice identité $n \times n$ dont on a changé quatre coefficients :
+> $$r  _{ii} = r _{jj} = \cos\theta, \qquad r  _{ij} = -\sin\theta, \qquad r _{ji} = \sin\theta .$$
+> Elle tourne de $\theta$ le plan des coordonnées $(x_i, x_j)$, en envoyant $\mathbf{e}_i$ sur $\cos\theta\thinspace\mathbf{e}_i + \sin\theta\thinspace\mathbf{e}_j$ (vers $\mathbf{e}_j$), et fixe les $n - 2$ autres vecteurs de base.
 
-Seules les coordonnées $i$ et $j$ changent, et tout le §2 se transporte dans le plan $(i, j)$ : $\mathbf{R}_{ij}(\theta)$ est orthogonale, de déterminant 1, d'inverse $\mathbf{R}_{ij}(\theta)^\top = \mathbf{R}_{ij}(-\theta)$, et $\mathbf{R}_{ij}(\alpha)\mathbf{R}_{ij}(\beta) = \mathbf{R}_{ij}(\alpha + \beta)$. Pour $n = 2$, $\mathbf{R}_{12}(\theta) = \mathbf{R}_\theta$ ; dans l'espace, $\mathbf{R}_{12}$ et $\mathbf{R}_{23}$ tournent autour de $\mathbf{e}_3$ et de $\mathbf{e}_1$. `givens_rotation(n, i, j, theta)` (🔨 MB3.14) construit cette matrice, avec des indices à partir de 0 ; échanger $i$ et $j$ y change $\theta$ en $-\theta$.
+Seules les coordonnées $i$ et $j$ changent, et tout le §2 se transporte dans le plan $(i, j)$ : $\mathbf{R} _{ij}(\theta)$ est orthogonale, de déterminant 1, d'inverse $\mathbf{R} _{ij}(\theta)^\top = \mathbf{R} _{ij}(-\theta)$, et $\mathbf{R} _{ij}(\alpha)\mathbf{R} _{ij}(\beta) = \mathbf{R} _{ij}(\alpha + \beta)$. Pour $n = 2$, $\mathbf{R} _{12}(\theta) = \mathbf{R} _\theta$ ; dans l'espace, $\mathbf{R} _{12}$ et $\mathbf{R} _{23}$ tournent autour de $\mathbf{e}_3$ et de $\mathbf{e}_1$. `givens_rotation(n, i, j, theta)` (🔨 MB3.14) construit cette matrice, avec des indices à partir de 0 ; échanger $i$ et $j$ y change $\theta$ en $-\theta$.
 
 ### Quand deux rotations commutent
 
 > **Propriété.**
-> 1. Deux rotations **du même plan** commutent : $\mathbf{R}_{ij}(\alpha)\mathbf{R}_{ij}(\beta) = \mathbf{R}_{ij}(\alpha + \beta)$.
-> 2. Deux rotations de **plans disjoints**, $\mathbf{R}_{ij}(\alpha)$ et $\mathbf{R}_{i'j'}(\beta)$ avec $\{i, j\} \cap \{i', j'\} = \varnothing$, commutent : chacune ne touche que ses deux coordonnées.
-> 3. Deux rotations de plans **qui partagent une coordonnée**, comme $\mathbf{R}_{12}(\alpha)$ et $\mathbf{R}_{23}(\beta)$, ne commutent pas en général : elles commutent seulement si l'une est l'identité, ou si toutes deux sont des demi-tours ($\alpha$ et $\beta$ multiples de $\pi$).
+> 1. Deux rotations **du même plan** commutent : $\mathbf{R} _{ij}(\alpha)\mathbf{R}  _{ij}(\beta) = \mathbf{R} _{ij}(\alpha + \beta)$.
+> 2. Deux rotations de **plans disjoints**, $\mathbf{R} _{ij}(\alpha)$ et $\mathbf{R} _{i'j'}(\beta)$ avec $\lbrace i, j\rbrace \cap \lbrace i', j'\rbrace = \varnothing$, commutent : chacune ne touche que ses deux coordonnées.
+> 3. Deux rotations de plans **qui partagent une coordonnée**, comme $\mathbf{R} _{12}(\alpha)$ et $\mathbf{R} _{23}(\beta)$, ne commutent pas en général : elles commutent seulement si l'une est l'identité, ou si toutes deux sont des demi-tours ($\alpha$ et $\beta$ multiples de $\pi$).
 
 Pour le point 3, la différence des deux produits a des coefficients $\pm\sin\alpha\sin\beta$, $(1 - \cos\beta)\sin\alpha$, $(1 - \cos\alpha)\sin\beta$.
 
-**Exemple : deux quarts de tour.** $\mathbf{R}_{12}(\frac\pi2)$ envoie $\mathbf{e}_1$ sur $\mathbf{e}_2$, et $\mathbf{e}_2$ sur $-\mathbf{e}_1$ ; $\mathbf{R}_{23}(\frac\pi2)$ envoie $\mathbf{e}_2$ sur $\mathbf{e}_3$ et fixe $\mathbf{e}_1$. Dans un produit, la matrice de **droite** s'applique la première :
-$$\mathbf{R}_{23}\mathbf{R}_{12}\,\mathbf{e}_1 = \mathbf{R}_{23}\,\mathbf{e}_2 = \mathbf{e}_3, \qquad \mathbf{R}_{12}\mathbf{R}_{23}\,\mathbf{e}_1 = \mathbf{R}_{12}\,\mathbf{e}_1 = \mathbf{e}_2 .$$
+**Exemple : deux quarts de tour.** $\mathbf{R}_{12}(\frac\pi2)$ envoie $\mathbf{e}_1$ sur $\mathbf{e}_2$, et $\mathbf{e}_2$ sur $-\mathbf{e} _1$ ; $\mathbf{R} _{23}(\frac\pi2)$ envoie $\mathbf{e}_2$ sur $\mathbf{e} _3$ et fixe $\mathbf{e} _1$. Dans un produit, la matrice de **droite** s'applique la première :
+$$\mathbf{R} _{23}\mathbf{R} _{12}\thinspace\mathbf{e} _1 = \mathbf{R} _{23}\thinspace\mathbf{e} _2 = \mathbf{e} _3, \qquad \mathbf{R} _{12}\mathbf{R} _{23}\thinspace\mathbf{e} _1 = \mathbf{R} _{12}\thinspace\mathbf{e}_1 = \mathbf{e}_2 .$$
 Fais-le avec un livre posé à plat : il ne finit pas orienté de la même façon.
 
 ![À gauche, d'abord R₁₂, puis R₂₃ : e₁ tourne vers e₂ (arc bleu), puis vers e₃ (arc orange). À droite, d'abord R₂₃, qui laisse e₁ en place (point bleu), puis R₁₂ : e₁ finit en e₂](figures/ordre_rotations.png)
@@ -226,39 +226,39 @@ Fais-le avec un livre posé à plat : il ne finit pas orienté de la même faço
 ### Les matrices diagonales par blocs
 
 > **Propriété.** Une matrice **diagonale par blocs** (*block-diagonal matrix*) de rotations planes, avec des zéros hors des blocs,
-> $$\mathbf{D} = \begin{pmatrix} \mathbf{R}_{\theta_1} & & \\ & \ddots & \\ & & \mathbf{R}_{\theta_r} \end{pmatrix},$$
-> tourne le plan des coordonnées $(1, 2)$ de $\theta_1$, celui de $(3, 4)$ de $\theta_2$, et ainsi de suite : c'est le produit $\mathbf{R}_{12}(\theta_1)\mathbf{R}_{34}(\theta_2)\cdots$ des rotations de Givens de ces plans disjoints, pris dans n'importe quel ordre.
+> $$\mathbf{D} = \begin{pmatrix} \mathbf{R} _{\theta_1} & & \cr & \ddots & \cr & & \mathbf{R} _{\theta_r} \end{pmatrix},$$
+> tourne le plan des coordonnées $(1, 2)$ de $\theta_1$, celui de $(3, 4)$ de $\theta_2$, et ainsi de suite : c'est le produit $\mathbf{R} _{12}(\theta_1)\mathbf{R} _{34}(\theta_2)\cdots$ des rotations de Givens de ces plans disjoints, pris dans n'importe quel ordre.
 
 On peut y ajouter des blocs $1 \times 1$ égaux à 1 (des coordonnées fixes), comme la rotation autour de $\mathbf{e}_3$. Inverse, puissances et produits se calculent bloc par bloc.
 
 ### Le produit par blocs
 
-> **Rappel et généralisation** (M09a §3 : $\mathbf{A}\mathbf{B} = \sum_k$ (colonne $k$ de $\mathbf{A}$)(ligne $k$ de $\mathbf{B}$), des blocs d'une seule colonne). Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \\ \vdots \\ \mathbf{B}_r \end{pmatrix}$, alors
+> **Rappel et généralisation** (M09a §3 : $\mathbf{A}\mathbf{B} = \sum_k$ (colonne $k$ de $\mathbf{A}$)(ligne $k$ de $\mathbf{B}$), des blocs d'une seule colonne). Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \cr \vdots \cr \mathbf{B}_r \end{pmatrix}$, alors
 > $$\mathbf{A}\mathbf{B} = \mathbf{A}_1\mathbf{B}_1 + \mathbf{A}_2\mathbf{B}_2 + \cdots + \mathbf{A}_r\mathbf{B}_r .$$
 
-En effet, le coefficient $(\mathbf{AB})_{uw} = \sum_k a_{uk}b_{kw}$ est une somme sur les colonnes de $\mathbf{A}$, qu'on coupe en morceaux, un par bloc (M25a découpait aussi les lignes et les colonnes).
+En effet, le coefficient $(\mathbf{AB}) _{uw} = \sum_k a  _{uk}b _{kw}$ est une somme sur les colonnes de $\mathbf{A}$, qu'on coupe en morceaux, un par bloc (M25a découpait aussi les lignes et les colonnes).
 
 **Exemple : une commande rayon par rayon.** Deux clients achètent quatre produits ; $\mathbf{A}$ donne leurs quantités, $\mathbf{B}$ le prix (en euros) et la masse (en kg) de chaque produit :
-$$\mathbf{A} = \begin{pmatrix} 2 & 1 & 0 & 3 \\ 1 & 0 & 4 & 2 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 3 & 1 \\ 5 & 2 \\ 2 & 1 \\ 4 & 3 \end{pmatrix}, \qquad \mathbf{A}\mathbf{B} = \begin{pmatrix} 23 & 13 \\ 19 & 11 \end{pmatrix} :$$
-le premier client paie 23 € pour 13 kg. Les produits 1 et 2 sont au rayon frais, les produits 3 et 4 à l'épicerie : $\mathbf{A}_1\mathbf{B}_1 = \begin{pmatrix} 11 & 4 \\ 3 & 1 \end{pmatrix}$ et $\mathbf{A}_2\mathbf{B}_2 = \begin{pmatrix} 12 & 9 \\ 16 & 10 \end{pmatrix}$ sont les sous-totaux des deux rayons, et leur somme redonne le total.
+$$\mathbf{A} = \begin{pmatrix} 2 & 1 & 0 & 3 \cr 1 & 0 & 4 & 2 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 3 & 1 \cr 5 & 2 \cr 2 & 1 \cr 4 & 3 \end{pmatrix}, \qquad \mathbf{A}\mathbf{B} = \begin{pmatrix} 23 & 13 \cr 19 & 11 \end{pmatrix} :$$
+le premier client paie 23 € pour 13 kg. Les produits 1 et 2 sont au rayon frais, les produits 3 et 4 à l'épicerie : $\mathbf{A}_1\mathbf{B}_1 = \begin{pmatrix} 11 & 4 \cr 3 & 1 \end{pmatrix}$ et $\mathbf{A}_2\mathbf{B}_2 = \begin{pmatrix} 12 & 9 \cr 16 & 10 \end{pmatrix}$ sont les sous-totaux des deux rayons, et leur somme redonne le total.
 
 ### Renuméroter les coordonnées
 
-Soit $\mathbf{P}$ la matrice de la permutation $\sigma$ (📐) : $(\mathbf{P}\mathbf{x})_k = x_{\sigma(k)}$, et $\mathbf{P}^{-1} = \mathbf{P}^\top$ (M12b ; M16 renumérotait ainsi les nœuds d'un graphe).
+Soit $\mathbf{P}$ la matrice de la permutation $\sigma$ (📐) : $(\mathbf{P}\mathbf{x}) _k = x _{\sigma(k)}$, et $\mathbf{P}^{-1} = \mathbf{P}^\top$ (M12b ; M16 renumérotait ainsi les nœuds d'un graphe).
 
-> **Propriété.** Pour $i < j$, $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ est la rotation d'angle $\theta$ dans le plan des coordonnées $(\sigma(i), \sigma(j))$, qui tourne $\mathbf{e}_{\sigma(i)}$ vers $\mathbf{e}_{\sigma(j)}$ : c'est **la même rotation**, transportée dans un autre plan de coordonnées. Si $\sigma(i) > \sigma(j)$, c'est $\mathbf{R}_{\sigma(j)\sigma(i)}(-\theta)$ dans la convention $i < j$ de MML.
+> **Propriété.** Pour $i < j$, $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}$ est la rotation d'angle $\theta$ dans le plan des coordonnées $(\sigma(i), \sigma(j))$, qui tourne $\mathbf{e} _{\sigma(i)}$ vers $\mathbf{e} _{\sigma(j)}$ : c'est **la même rotation**, transportée dans un autre plan de coordonnées. Si $\sigma(i) > \sigma(j)$, c'est $\mathbf{R} _{\sigma(j)\sigma(i)}(-\theta)$ dans la convention $i < j$ de MML.
 
-*Démonstration.* La coordonnée $u$ de $\mathbf{P}\mathbf{e}_{\sigma(k)}$ vaut 1 si $\sigma(u) = \sigma(k)$, c'est-à-dire si $u = k$, et 0 sinon : $\mathbf{P}\mathbf{e}_{\sigma(k)} = \mathbf{e}_k$, donc $\mathbf{P}^\top\mathbf{e}_k = \mathbf{e}_{\sigma(k)}$. Alors $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}\,\mathbf{e}_{\sigma(i)} = \mathbf{P}^\top(\cos\theta\,\mathbf{e}_i + \sin\theta\,\mathbf{e}_j) = \cos\theta\,\mathbf{e}_{\sigma(i)} + \sin\theta\,\mathbf{e}_{\sigma(j)}$ ; de même pour $\mathbf{e}_{\sigma(j)}$, et les autres $\mathbf{e}_{\sigma(k)}$ restent fixes. $\square$
+*Démonstration.* La coordonnée $u$ de $\mathbf{P}\mathbf{e} _{\sigma(k)}$ vaut 1 si $\sigma(u) = \sigma(k)$, c'est-à-dire si $u = k$, et 0 sinon : $\mathbf{P}\mathbf{e} _{\sigma(k)} = \mathbf{e} _k$, donc $\mathbf{P}^\top\mathbf{e} _k = \mathbf{e} _{\sigma(k)}$. Alors $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}\thinspace\mathbf{e} _{\sigma(i)} = \mathbf{P}^\top(\cos\theta\thinspace\mathbf{e} _i + \sin\theta\thinspace\mathbf{e} _j) = \cos\theta\thinspace\mathbf{e} _{\sigma(i)} + \sin\theta\thinspace\mathbf{e} _{\sigma(j)}$ ; de même pour $\mathbf{e}  _{\sigma(j)}$, et les autres $\mathbf{e} _{\sigma(k)}$ restent fixes. $\square$
 
 **Exemple dans l'espace.** Avec $\sigma(1) = 2$, $\sigma(2) = 3$ et $\sigma(3) = 1$,
-$$\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}, \qquad \mathbf{P}^\top\mathbf{R}_{12}(\theta)\,\mathbf{P} = \mathbf{R}_{23}(\theta) :$$
+$$\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 0 & 0 & 1 \cr 1 & 0 & 0 \end{pmatrix}, \qquad \mathbf{P}^\top\mathbf{R} _{12}(\theta)\thinspace\mathbf{P} = \mathbf{R} _{23}(\theta) :$$
 la rotation autour de $\mathbf{e}_3$ devient celle de même angle autour de $\mathbf{e}_1$.
 
 ![Trois matrices en carte de couleurs : R₂₅(θ) dans ℝ⁵ (cos θ = 35/37), l'identité sauf quatre cases ; R₁₂(α) R₃₄(β) dans ℝ⁵ (α = 0,6 et β = 1,3 rad), deux blocs 2 × 2 puis un 1 ; Pᵀ R₁₂(θ) P = R₂₃(θ) dans ℝ³](figures/givens.png)
 
 💻 **Aujourd'hui en pratique** — `scipy.spatial.transform.Rotation` compose les rotations de l'espace. Une suite de rotations de Givens, qui annulent chacune un coefficient, donne la décomposition QR de M12b pour des matrices creuses (LAPACK préfère Householder pour les matrices pleines).
 
-⚠️ **Erreur classique.** Lire le produit $\mathbf{R}_{23}\mathbf{R}_{12}$ de gauche à droite : la matrice de droite s'applique la première (🐛 MB3.20). Croire que toutes les rotations commutent, comme dans le plan. Se tromper d'indices entre la fiche (à partir de 1) et le code (à partir de 0). Confondre $\mathbf{P}^\top\mathbf{R}\mathbf{P}$ et $\mathbf{P}\mathbf{R}\mathbf{P}^\top$.
+⚠️ **Erreur classique.** Lire le produit $\mathbf{R} _{23}\mathbf{R} _{12}$ de gauche à droite : la matrice de droite s'applique la première (🐛 MB3.20). Croire que toutes les rotations commutent, comme dans le plan. Se tromper d'indices entre la fiche (à partir de 1) et le code (à partir de 0). Confondre $\mathbf{P}^\top\mathbf{R}\mathbf{P}$ et $\mathbf{P}\mathbf{R}\mathbf{P}^\top$.
 
 🔗 **Dans workbookIA** — le chapitre B3 tourne des vecteurs de grande dimension plan par plan, avec des matrices diagonales par blocs de rotations ; ce paragraphe en donne les propriétés.
 
@@ -282,15 +282,15 @@ la distance ne dépend que de l'**écart** $t - t'$, et elle est la même pour u
 
 ### Un décalage est une rotation
 
-> **Propriété.** Pour tout décalage $\delta$ et tout $t$, $\mathbf{e}(t + \delta) = \mathbf{R}_{\omega\delta}\,\mathbf{e}(t)$ : décaler la variable, c'est tourner son encodage de l'angle $\omega\delta$, **le même pour tout $t$**.
+> **Propriété.** Pour tout décalage $\delta$ et tout $t$, $\mathbf{e}(t + \delta) = \mathbf{R}_{\omega\delta}\thinspace\mathbf{e}(t)$ : décaler la variable, c'est tourner son encodage de l'angle $\omega\delta$, **le même pour tout $t$**.
 
-C'est $\mathbf{R}_\theta\mathbf{u}_a = \mathbf{u}_{a + \theta}$ (§2), avec $a = \omega t$ et $\theta = \omega\delta$ : trois mois plus tard, l'encodage a tourné d'un quart de tour, quel que soit le mois de départ. Une horloge seule ne distingue pas $t$ de $t + \tau$ : c'est voulu pour une variable cyclique, gênant pour distinguer deux années.
+C'est $\mathbf{R}_\theta\mathbf{u} _a = \mathbf{u} _{a + \theta}$ (§2), avec $a = \omega t$ et $\theta = \omega\delta$ : trois mois plus tard, l'encodage a tourné d'un quart de tour, quel que soit le mois de départ. Une horloge seule ne distingue pas $t$ de $t + \tau$ : c'est voulu pour une variable cyclique, gênant pour distinguer deux années.
 
 ### Plusieurs horloges
 
 On met bout à bout plusieurs horloges, de pulsations $\omega_1, \omega_2, \ldots$ : $\mathbf{E}(t) = (\cos\omega_1t, \sin\omega_1t, \cos\omega_2t, \sin\omega_2t, \ldots)$. Horloge par horloge, le §1 donne
 $$\mathbf{E}(t)\cdot\mathbf{E}(t') = \sum_k\cos\omega_k(t - t'),$$
-une fonction du seul écart ; et un décalage $\delta$ tourne chaque horloge de son propre angle $\omega_k\delta$ : c'est la matrice diagonale par blocs $\operatorname{diag}(\mathbf{R}_{\omega_1\delta}, \mathbf{R}_{\omega_2\delta}, \ldots)$ du §3, la même pour tout $t$. L'encodage ne revient à lui-même que lorsque l'écart est un multiple de **toutes** les périodes à la fois.
+une fonction du seul écart ; et un décalage $\delta$ tourne chaque horloge de son propre angle $\omega_k\delta$ : c'est la matrice diagonale par blocs $\operatorname{diag}(\mathbf{R} _{\omega_1\delta}, \mathbf{R} _{\omega_2\delta}, \ldots)$ du §3, la même pour tout $t$. L'encodage ne revient à lui-même que lorsque l'écart est un multiple de **toutes** les périodes à la fois.
 
 **Exemple : une horloge à deux aiguilles.** Pour un instant $t$ compté en minutes, l'aiguille des minutes a la période 60 min et celle des heures 720 min (12 h) : $\omega_1 = \frac{2\pi}{60}$ et $\omega_2 = \frac{2\pi}{720}$ par minute. L'aiguille des minutes seule ne distingue pas 3 h 10 de 4 h 10. Avec les deux, le produit scalaire de deux encodages distants d'une heure vaut $\cos 2\pi + \cos\frac\pi6 = 1 + \frac{\sqrt3}{2} \approx 1{,}866$, contre 2 pour deux instants égaux ; il revient à 2 pour un écart de 12 h, le premier multiple commun des deux périodes : les deux aiguilles ne distinguent pas le matin du soir.
 
@@ -306,7 +306,7 @@ La moyenne de valeurs cycliques se fait sur les **vecteurs**, pas sur les numér
 $$\Big(\tfrac12 + \tfrac{\sqrt3}{2} + \tfrac{\sqrt3}{2} + \tfrac12,\ -\tfrac{\sqrt3}{2} - \tfrac12 + \tfrac12 + \tfrac{\sqrt3}{2}\Big) = (1 + \sqrt3,\ 0) :$$
 $\bar{\mathbf{e}} = \big(\frac{1 + \sqrt3}{4}, 0\big)$, d'angle 0, c'est-à-dire décembre, et de longueur $\rho \approx 0{,}683$.
 
-💻 **Aujourd'hui en pratique** — on ajoute à un tableau de features les colonnes $\cos(2\pi\,\text{heure}/24)$ et $\sin(2\pi\,\text{heure}/24)$ ; `np.arctan2(y, x)` rend un argument, `scipy.stats.circmean` une direction moyenne.
+💻 **Aujourd'hui en pratique** — on ajoute à un tableau de features les colonnes $\cos(2\pi\thinspace\text{heure}/24)$ et $\sin(2\pi\thinspace\text{heure}/24)$ ; `np.arctan2(y, x)` rend un argument, `scipy.stats.circmean` une direction moyenne.
 
 ⚠️ **Erreur classique.** Ne garder qu'une coordonnée : deux valeurs différentes ont alors le même code. Se tromper de période : les heures de 0 à 23 ont la période 24, pas 23. Faire la moyenne des numéros ou des angles au lieu de celle des vecteurs (🐛 MB3.20).
 
@@ -329,7 +329,7 @@ $\bar{\mathbf{e}} = \big(\frac{1 + \sqrt3}{4}, 0\big)$, d'angle 0, c'est-à-dire
 Pour prévoir une quantité en $\mathbf{x}$ à partir de mesures $(\mathbf{x}_i, y_i)$, on fait la moyenne des $y_i$ en donnant plus de poids aux mesures prises près de $\mathbf{x}$.
 
 > **Définition.** Avec un **noyau** (*kernel*) $K(\mathbf{x}, \mathbf{x}_i) \ge 0$, grand quand $\mathbf{x}_i$ est proche de $\mathbf{x}$, l'**estimateur de Nadaraya-Watson** (*Nadaraya-Watson estimator*, une **régression à noyau**, *kernel regression*) est
-> $$\hat y(\mathbf{x}) = \frac{\sum_iK(\mathbf{x}, \mathbf{x}_i)\,y_i}{\sum_jK(\mathbf{x}, \mathbf{x}_j)} .$$
+> $$\hat y(\mathbf{x}) = \frac{\sum_iK(\mathbf{x}, \mathbf{x}_i)\thinspace y_i}{\sum_jK(\mathbf{x}, \mathbf{x}_j)} .$$
 > (il faut $\sum_jK(\mathbf{x}, \mathbf{x}_j) > 0$, ce qui est toujours vrai pour le noyau gaussien). Avec le **noyau gaussien** $K(\mathbf{x}, \mathbf{x}_i) = \exp\big(-\lVert\mathbf{x} - \mathbf{x}_i\rVert^2/(2h^2)\big)$, de **largeur de bande** (*bandwidth*) $h > 0$, c'est une moyenne pondérée par une softmax, de scores $s_i = -\frac{\lVert\mathbf{x} - \mathbf{x}_i\rVert^2}{2h^2}$.
 
 Une constante qui multiplie le noyau se simplifie (la constante d'une densité gaussienne n'importe pas).
@@ -385,17 +385,17 @@ Pour lisser une série de relevés quotidiens $y_1, \ldots, y_T$, chaque jour $t
 Un tel filtre est **causal** (*causal*) : changer le relevé du jour $u$ ne change aucune sortie des jours $t < u$, puisque leurs poids sur $y_u$ sont nuls.
 
 **La moyenne exponentielle normalisée.** Avec un facteur $\lambda \in\ ]0, 1[$, elle donne au jour $u \le t$ le poids $\lambda^{t - u}$, normalisé :
-$$\hat y_t = \frac{\sum_{u \le t}\lambda^{t - u}\,y_u}{\sum_{u \le t}\lambda^{t - u}} .$$
+$$\hat y_t = \frac{\sum_{u \le t}\lambda^{t - u}\thinspace y_u}{\sum_{u \le t}\lambda^{t - u}} .$$
 Ses poids forment une suite géométrique (R5). Comme $\lambda^{t - u} = e^{-(t - u)\ln(1/\lambda)}$, c'est une softmax, sur le passé, des scores $s_u = u\ln\frac1\lambda$, **linéaires en le temps** : le terme $-t\ln\frac1\lambda$, commun à tous les $u$, se simplifie. Le relevé le plus récent a le plus grand score.
 
 ### L'équivariance par permutation
 
-Prenons $n$ points (des capteurs, des maisons), situés en $\mathbf{x}_i$, de mesures $\mathbf{y}_i$. Chaque point calcule une moyenne pondérée des mesures,
-$$\hat{\mathbf{y}}_i = \sum_jp_{ij}\,\mathbf{y}_j, \qquad (p_{i1}, \ldots, p_{in}) = \operatorname{softmax}\big(s(\mathbf{x}_i, \mathbf{x}_1), \ldots, s(\mathbf{x}_i, \mathbf{x}_n)\big),$$
+Prenons $n$ points (des capteurs, des maisons), situés en $\mathbf{x}_i$, de mesures $\mathbf{y} _i$. Chaque point calcule une moyenne pondérée des mesures,
+$$\hat{\mathbf{y}} _i = \sum_jp _{ij}\thinspace\mathbf{y} _j, \qquad (p _{i1}, \ldots, p _{in}) = \operatorname{softmax}\big(s(\mathbf{x}_i, \mathbf{x}_1), \ldots, s(\mathbf{x}_i, \mathbf{x}_n)\big),$$
 où le score $s(\mathbf{x}_i, \mathbf{x}_j)$ ne dépend que de la **paire** de points, comme le noyau gaussien du §5. En matrices, avec un point par ligne : $\mathbf{S} = (s(\mathbf{x}_i, \mathbf{x}_j))$, $\mathbf{C}$ la softmax de chaque ligne de $\mathbf{S}$, et $\hat{\mathbf{Y}} = \mathbf{C}\mathbf{Y}$. Renumérotons les points par une permutation $\sigma$ : le nouveau point $k$ est l'ancien point $\sigma(k)$, si bien que les matrices des points et des mesures deviennent $\mathbf{P}\mathbf{X}$ et $\mathbf{P}\mathbf{Y}$ (§3).
 
 > **Propriété** (∂ MB3.9). Si chaque score ne dépend que de la paire de points, renuméroter les points renumérote les sorties de la même façon :
-> $$\hat{\mathbf{Y}}(\mathbf{P}\mathbf{X}, \mathbf{P}\mathbf{Y}) = \mathbf{P}\,\hat{\mathbf{Y}}(\mathbf{X}, \mathbf{Y}).$$
+> $$\hat{\mathbf{Y}}(\mathbf{P}\mathbf{X}, \mathbf{P}\mathbf{Y}) = \mathbf{P}\thinspace\hat{\mathbf{Y}}(\mathbf{X}, \mathbf{Y}).$$
 > La moyenne pondérée est **équivariante par permutation** (*permutation equivariant*) : elle traite les points comme un **ensemble**.
 
 L'idée : la softmax traite toutes ses coordonnées de la même façon, $\operatorname{softmax}(\mathbf{P}\mathbf{s}) = \mathbf{P}\operatorname{softmax}(\mathbf{s})$ pour un vecteur $\mathbf{s}$, et $\mathbf{P}^\top\mathbf{P} = \mathbf{I}$ ; le ∂ MB3.9 assemble ces deux remarques.
@@ -422,9 +422,9 @@ Pourquoi tenir l'échelle ? Ajouter une constante aux scores ne change rien (§5
 
 ### Multiplier les scores par c
 
-Pour $c > 0$, $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{e^{cs_i}}{\sum_je^{cs_j}} = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ est la loi pour $c = 1$ : c'est la **loi tempérée** de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$. Avec une loi de Boltzmann, $cs_i = -E_i/(T/c)$ : **multiplier les scores par $c$, c'est diviser la température par $c$** (M17).
+Pour $c > 0$, $\operatorname{softmax}(c\thinspace\mathbf{s})_i = \frac{e^{cs_i}}{\sum_je^{cs_j}} = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ est la loi pour $c = 1$ : c'est la **loi tempérée** de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$. Avec une loi de Boltzmann, $cs_i = -E_i/(T/c)$ : **multiplier les scores par $c$, c'est diviser la température par $c$** (M17).
 
-> **Propriété.** Soit $\mathbf{p} = \operatorname{softmax}(c\,\mathbf{s})$, pour des scores non tous égaux. Quand $c$ croît, le plus grand poids $p_{\max}$ croît et l'entropie de $\mathbf{p}$ décroît (M28 : l'entropie croît avec la température). Quand $c \to 0$, $\mathbf{p}$ tend vers la loi uniforme ; quand $c \to \infty$, vers le **one-hot** du plus grand score s'il est unique, et vers la loi uniforme sur les plus grands scores s'ils sont plusieurs.
+> **Propriété.** Soit $\mathbf{p} = \operatorname{softmax}(c\thinspace\mathbf{s})$, pour des scores non tous égaux. Quand $c$ croît, le plus grand poids $p_{\max}$ croît et l'entropie de $\mathbf{p}$ décroît (M28 : l'entropie croît avec la température). Quand $c \to 0$, $\mathbf{p}$ tend vers la loi uniforme ; quand $c \to \infty$, vers le **one-hot** du plus grand score s'il est unique, et vers la loi uniforme sur les plus grands scores s'ils sont plusieurs.
 
 Pour $p_{\max}$ : $\ln p_{\max} = cs_{\max} - \ln\sum_je^{cs_j}$ a pour dérivée en $c$ la quantité $s_{\max} - \sum_jp_js_j$, positive puisqu'une moyenne pondérée des $s_j$ ne dépasse pas le plus grand.
 
@@ -434,11 +434,11 @@ Pour $p_{\max}$ : $\ln p_{\max} = cs_{\max} - \ln\sum_je^{cs_j}$ a pour dérivé
 
 Cette matrice, une covariance pour M17, est aussi la jacobienne de la softmax, calculée au chapitre 17 de workbookIA : son coefficient diagonal $p_i(1 - p_i)$ dit de combien bouge $p_i$ quand $s_i$ seul bouge un peu. Quand la sensibilité est proche de 0, la softmax est **saturée** (*saturation*) : de petits changements des scores ne changent presque plus les poids.
 
-> **Propriété** (borne de saturation). Soit $K \ge 2$ scores dont le plus grand, $s_{\max}$, est unique, et $\Delta > 0$ l'écart entre $s_{\max}$ et le score suivant. Pour $\mathbf{p} = \operatorname{softmax}(c\,\mathbf{s})$,
-> $$1 - p_{\max} \le (K - 1)\,e^{-c\Delta}, \qquad 1 - \sum_ip_i^2 \le 2\,(1 - p_{\max}) \le 2(K - 1)\,e^{-c\Delta} .$$
+> **Propriété** (borne de saturation). Soit $K \ge 2$ scores dont le plus grand, $s_{\max}$, est unique, et $\Delta > 0$ l'écart entre $s_{\max}$ et le score suivant. Pour $\mathbf{p} = \operatorname{softmax}(c\thinspace\mathbf{s})$,
+> $$1 - p_{\max} \le (K - 1)\thinspace e^{-c\Delta}, \qquad 1 - \sum_ip_i^2 \le 2\thinspace(1 - p_{\max}) \le 2(K - 1)\thinspace e^{-c\Delta} .$$
 > La distance au one-hot et la sensibilité tendent vers 0 **exponentiellement vite** en $c$.
 
-*Démonstration.* Pour tout $j$ autre que l'indice du plus grand score, $\frac{p_j}{p_{\max}} = e^{c(s_j - s_{\max})} \le e^{-c\Delta}$. En sommant ces $K - 1$ inégalités, $1 - p_{\max} = \sum_jp_j \le (K - 1)\,e^{-c\Delta}\,p_{\max} \le (K - 1)\,e^{-c\Delta}$. Ensuite $\sum_ip_i^2 \ge p_{\max}^2$, donc $1 - \sum_ip_i^2 \le 1 - p_{\max}^2 = (1 - p_{\max})(1 + p_{\max}) \le 2(1 - p_{\max})$. $\square$
+*Démonstration.* Pour tout $j$ autre que l'indice du plus grand score, $\frac{p_j}{p_{\max}} = e^{c(s_j - s_{\max})} \le e^{-c\Delta}$. En sommant ces $K - 1$ inégalités, $1 - p_{\max} = \sum_jp_j \le (K - 1)\thinspace e^{-c\Delta}\thinspace p_{\max} \le (K - 1)\thinspace e^{-c\Delta}$. Ensuite $\sum_ip_i^2 \ge p_{\max}^2$, donc $1 - \sum_ip_i^2 \le 1 - p_{\max}^2 = (1 - p_{\max})(1 + p_{\max}) \le 2(1 - p_{\max})$. $\square$
 
 En échelle logarithmique, la borne est une droite de pente $-\Delta$ (R6) ; elle ne dit rien pour de petits $c$, mais donne la vitesse.
 
@@ -459,13 +459,13 @@ En échelle logarithmique, la borne est une droite de pente $-\Delta$ (R6) ; ell
 On veut $\sum_jp_jv_j$, avec $p_j = \operatorname{softmax}(\mathbf{s})_j$, pour des millions de scores qui arrivent **par blocs** : on ne peut ni tout garder, ni relire. La recette de M05a, retrancher le plus grand score, demande de le connaître d'avance ; la **softmax en ligne** (*online softmax*) le découvre en chemin.
 
 > **Définition.** L'**état** (*state*) des scores lus jusqu'ici, et des nombres $v_j$ qui les accompagnent, est le triplet
-> $$m = \max_js_j, \qquad l = \sum_je^{s_j - m}, \qquad a = \sum_je^{s_j - m}\,v_j .$$
+> $$m = \max_js_j, \qquad l = \sum_je^{s_j - m}, \qquad a = \sum_je^{s_j - m}\thinspace v_j .$$
 > L'**état vide**, celui d'aucun score (ou de scores tous égaux à $-\infty$), est $(-\infty, 0, 0)$.
 
 Dès que $m$ est fini, $l \ge 1$ (le plus grand score apporte $e^0 = 1$). D'un état, on tire la moyenne $a/l = \sum_jp_jv_j$, le log-sum-exp $m + \ln l$ (M05a) et les poids $p_j = e^{s_j - m}/l$.
 
 > **Mise à jour par un bloc.** Pour lire un bloc $\mathcal{B}$ de scores, on pose $m' = \max\big(m, \max_{j \in \mathcal{B}}s_j\big)$, puis
-> $$l' = l\,e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}, \qquad a' = a\,e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}\,v_j .$$
+> $$l' = l\thinspace e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}, \qquad a' = a\thinspace e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}\thinspace v_j .$$
 > Le facteur $e^{m - m'} \le 1$ **remet à l'échelle** (*rescaling*) ce qui était accumulé quand le maximum change ; il vaut 1 sinon, et 0 au premier bloc qui contient un score fini, où $m = -\infty$ (et $l = a = 0$). Un bloc dont tous les scores valent $-\infty$ ne change rien.
 
 Tous les exposants sont négatifs ou nuls : **aucune exponentielle d'un nombre positif**, donc aucun overflow.
@@ -484,7 +484,7 @@ L'idée, que le ∂ MB3.10 rédige par récurrence sur les blocs : le facteur $e
 Avec $e^{-1} \approx 0{,}3679$ et $e^{-2} \approx 0{,}1353$ :
 - **page 1** (avis 1 à 3) : $m = 2$, $l = 1 + e^{-2} + e^{-1} \approx 1{,}5032$ et $a = 7 + 4e^{-2} + 8e^{-1} \approx 10{,}4844$ ;
 - **page 2** (avis 4 à 6) : le maximum reste 2 et le facteur vaut 1 ; l'avis 5 n'apporte rien ; $l \approx 1{,}5032 + e^{-1} + 1 \approx 2{,}8711$ et $a \approx 10{,}4844 + 9e^{-1} + 6 \approx 19{,}7953$ ;
-- **page 3** (avis 7) : $m' = 3$, et le facteur vaut $e^{2 - 3} = e^{-1}$ ; $l \approx 2{,}8711\,e^{-1} + 1 \approx 2{,}0562$ et $a \approx 19{,}7953\,e^{-1} + 5 \approx 12{,}2823$.
+- **page 3** (avis 7) : $m' = 3$, et le facteur vaut $e^{2 - 3} = e^{-1}$ ; $l \approx 2{,}8711\thinspace e^{-1} + 1 \approx 2{,}0562$ et $a \approx 19{,}7953\thinspace e^{-1} + 5 \approx 12{,}2823$.
 
 La note pondérée vaut $a/l \approx 5{,}9732$, et $m + \ln l \approx 3{,}7209$ ; le calcul en une fois donne les mêmes nombres. L'avis 7, le plus fiable, a le poids $1/l \approx 0{,}4863$.
 
@@ -523,11 +523,11 @@ Avec $B = 1$, ce sont les **records** (*records*) : le score $b$ dépasse tous l
 
 ### La mémoire de toutes les paires
 
-Pour chacun de $n = 30\,000$ clients, on veut une moyenne pondérée par une softmax de scores tirés de ses distances aux clients, $-d^2/(2h^2)$ : un Nadaraya-Watson sur tous les clients (§5). La matrice $n \times n$ des distances compte $n^2 = 9 \times 10^8$ nombres ; en `float64` (8 octets), $7{,}2 \times 10^9$ octets, soit 7,2 Go (1 Go $= 10^9$ octets).
+Pour chacun de $n = 30\thinspace000$ clients, on veut une moyenne pondérée par une softmax de scores tirés de ses distances aux clients, $-d^2/(2h^2)$ : un Nadaraya-Watson sur tous les clients (§5). La matrice $n \times n$ des distances compte $n^2 = 9 \times 10^8$ nombres ; en `float64` (8 octets), $7{,}2 \times 10^9$ octets, soit 7,2 Go (1 Go $= 10^9$ octets).
 
 > **Propriété.** La mémoire d'une matrice $n \times n$ est proportionnelle à $n^2$ : doubler $n$ la multiplie par 4. En échelles logarithmiques, $\ln(8n^2) = 2\ln n + \ln 8$ : une **droite de pente 2** (R6).
 
-Pour $n = 60\,000$ clients, il faudrait 28,8 Go.
+Pour $n = 60\thinspace000$ clients, il faudrait 28,8 Go.
 
 ### Calculer par blocs
 

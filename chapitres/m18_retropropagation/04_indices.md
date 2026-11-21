@@ -53,7 +53,7 @@ Relis « Les nombres duaux » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Développe comme un polynôme en $\varepsilon$, puis efface tout terme en $\varepsilon^2$. Pour une fonction $g$, $g(a + b\varepsilon) = g(a) + g'(a)\,b\,\varepsilon$.
+Développe comme un polynôme en $\varepsilon$, puis efface tout terme en $\varepsilon^2$. Pour une fonction $g$, $g(a + b\varepsilon) = g(a) + g'(a)\thinspace b\thinspace\varepsilon$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -130,7 +130,7 @@ La trace est cyclique : on peut faire passer le dernier facteur en tête, pas é
 </details>
 <details><summary>Indice 3</summary>
 
-2. : $\mathbf{A} = \mathbf{E}_{12}$, $\mathbf{B} = \mathbf{E}_{21}$, $\mathbf{C} = \mathbf{E}_{11}$. 6. : relis « La différentielle » : on lit $\mathbf{G} = \mathbf{M}^\top$.
+2. : $\mathbf{A} = \mathbf{E} _{12}$, $\mathbf{B} = \mathbf{E}  _{21}$, $\mathbf{C} = \mathbf{E} _{11}$. 6. : relis « La différentielle » : on lit $\mathbf{G} = \mathbf{M}^\top$.
 
 </details>
 
@@ -165,12 +165,12 @@ Relis M17 §3 et §4.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{J}_g$ s'évalue au point intermédiaire $\mathbf{f}(3, 1)$ ; en ligne, le gradient de $h$ est $\mathbf{J}_g\,\mathbf{J}_{\mathbf{f}}$.
+$\mathbf{J}_g$ s'évalue au point intermédiaire $\mathbf{f}(3, 1)$ ; en ligne, le gradient de $h$ est $\mathbf{J} _g\thinspace\mathbf{J} _{\mathbf{f}}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{J}_g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}$ ; $\mathbf{J}_{\mathbf{f}}(x, y) = \begin{pmatrix} 1 & -1 \\ y & x \end{pmatrix}$.
+$\mathbf{J} _g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}$ ; $\mathbf{J} _{\mathbf{f}}(x, y) = \begin{pmatrix} 1 & -1 \cr y & x \end{pmatrix}$.
 
 </details>
 
@@ -188,7 +188,7 @@ $\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathb
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{A}\mathbf{w} = (5, 0)$ et $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 4 \end{pmatrix}$.
+$\mathbf{A}\mathbf{w} = (5, 0)$ et $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 4 \end{pmatrix}$.
 
 </details>
 
@@ -264,7 +264,7 @@ La graine porte la partie en $\varepsilon$ : $x = 2 + \varepsilon$ et $y = -1$ (
 </details>
 <details><summary>Indice 3</summary>
 
-$\ln(1 + b\varepsilon) = \ln 1 + \frac{1}{1}\,b\,\varepsilon = b\,\varepsilon$. f) $x^2y = (4 + 4\varepsilon)(-1 + 2\varepsilon)$ et $x + y = 1 + 3\varepsilon$. g) La règle du quotient avec $a = 3$, $b = 2$, $c = 1$, $d = -1$.
+$\ln(1 + b\varepsilon) = \ln 1 + \frac{1}{1}\thinspace b\thinspace\varepsilon = b\thinspace\varepsilon$. f) $x^2y = (4 + 4\varepsilon)(-1 + 2\varepsilon)$ et $x + y = 1 + 3\varepsilon$. g) La règle du quotient avec $a = 3$, $b = 2$, $c = 1$, $d = -1$.
 
 </details>
 
@@ -331,12 +331,12 @@ Relis les identités 2 et 3 du §7 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_i(\mathbf{A}\mathbf{X})_{ii} = \sum_{i,j}A_{ij}X_{ji}$ : repère le coefficient de $X_{pq}$.
+$\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_i(\mathbf{A}\mathbf{X})  _{ii} = \sum  _{i,j}A _{ij}X  _{ji}$ : repère le coefficient de $X _{pq}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \\ 0 & 6 \end{pmatrix}$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{11}$ et $G_{12}$.
+b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \cr 0 & 6 \end{pmatrix}$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{11}$ et $G_{12}$.
 
 </details>
 
@@ -354,7 +354,7 @@ $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21}$ : dérive par rapport à chaque c
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\begin{pmatrix} x_{22} & -x_{21} \\ -x_{12} & x_{11} \end{pmatrix}$. d) $\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \\ -x_{21} & x_{11} \end{pmatrix}$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\,\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$ ; divise par $\det\mathbf{X}$ avant de prendre le logarithme.
+b) $\begin{pmatrix} x_{22} & -x_{21} \cr -x_{12} & x_{11} \end{pmatrix}$. d) $\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \cr -x_{21} & x_{11} \end{pmatrix}$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$ ; divise par $\det\mathbf{X}$ avant de prendre le logarithme.
 
 </details>
 
@@ -385,12 +385,12 @@ Relis « La différentielle » (fiche §7) : la règle du produit, sans changer 
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathrm{d}(\mathbf{X}^2) = \mathrm{d}\mathbf{X}\,\mathbf{X} + \mathbf{X}\,\mathrm{d}\mathbf{X}$. Pour $f$, $\operatorname{tr}(\mathrm{d}\mathbf{X}\,\mathbf{X}) = \operatorname{tr}(\mathbf{X}\,\mathrm{d}\mathbf{X})$. Pour $g$, écris chaque terme $\mathbf{a}^\top\cdots\mathbf{b}$ comme une trace, et fais passer $\mathrm{d}\mathbf{X}$ à la fin.
+$\mathrm{d}(\mathbf{X}^2) = \mathrm{d}\mathbf{X}\thinspace\mathbf{X} + \mathbf{X}\thinspace\mathrm{d}\mathbf{X}$. Pour $f$, $\operatorname{tr}(\mathrm{d}\mathbf{X}\thinspace\mathbf{X}) = \operatorname{tr}(\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$. Pour $g$, écris chaque terme $\mathbf{a}^\top\cdots\mathbf{b}$ comme une trace, et fais passer $\mathrm{d}\mathbf{X}$ à la fin.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathrm{d}f = \operatorname{tr}(2\mathbf{X}\,\mathrm{d}\mathbf{X})$ donne $\mathbf{G} = (2\mathbf{X})^\top$. $\mathrm{d}g = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\,\mathrm{d}\mathbf{X})$ : transpose chacune des deux matrices devant $\mathrm{d}\mathbf{X}$.
+$\mathrm{d}f = \operatorname{tr}(2\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ donne $\mathbf{G} = (2\mathbf{X})^\top$. $\mathrm{d}g = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ : transpose chacune des deux matrices devant $\mathrm{d}\mathbf{X}$.
 
 </details>
 
@@ -412,7 +412,7 @@ Récurrence **forte** sur $k$ : suppose $\dot{u}_j = S_j$ pour tous les $j < k$.
 </details>
 <details><summary>Indice 3</summary>
 
-$S_k = \sum_{j < k}D_{jk}\,S_j$ (on classe les chemins par leur dernière arête), et la question 1 donne la même formule pour $\dot{u}_k$. Pour 5., écris la coordonnée $k$ de $\mathbf{D}^\top\dot{\mathbf{u}}$ : c'est $\sum_jD_{jk}\,\dot{u}_j$.
+$S_k = \sum_{j < k}D_{jk}\thinspace S_j$ (on classe les chemins par leur dernière arête), et la question 1 donne la même formule pour $\dot{u} _k$. Pour 5., écris la coordonnée $k$ de $\mathbf{D}^\top\dot{\mathbf{u}}$ : c'est $\sum_jD _{jk}\thinspace\dot{u}_j$.
 
 </details>
 
@@ -430,7 +430,7 @@ Pour 2., remplace $f(a + b\varepsilon)$ et $g(a + b\varepsilon)$ par leurs forme
 </details>
 <details><summary>Indice 3</summary>
 
-Produit : $\big(f(a) + bf'(a)\varepsilon\big)\big(g(a) + bg'(a)\varepsilon\big) = f(a)g(a) + b\,(f'g + fg')(a)\,\varepsilon$. Composée : applique la compatibilité de $g$ au point $f(a)$, avec la partie en $\varepsilon$ égale à $bf'(a)$.
+Produit : $\big(f(a) + bf'(a)\varepsilon\big)\big(g(a) + bg'(a)\varepsilon\big) = f(a)g(a) + b\thinspace(f'g + fg')(a)\thinspace\varepsilon$. Composée : applique la compatibilité de $g$ au point $f(a)$, avec la partie en $\varepsilon$ égale à $bf'(a)$.
 
 </details>
 
@@ -466,7 +466,7 @@ Le développement selon la ligne $i$ est **affine** en les coefficients de cette
 </details>
 <details><summary>Indice 3</summary>
 
-$\frac{\partial\det\mathbf{X}}{\partial X_{ij}} = C_{ij}$. Puis $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\;\mathbf{I}$ donne $\mathbf{X}^{-1} = \frac{\operatorname{com}(\mathbf{X})^\top}{\det\mathbf{X}}$ : transpose.
+$\frac{\partial\det\mathbf{X}}{\partial X_{ij}} = C_{ij}$. Puis $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\mkern5mu \mathbf{I}$ donne $\mathbf{X}^{-1} = \frac{\operatorname{com}(\mathbf{X})^\top}{\det\mathbf{X}}$ : transpose.
 
 </details>
 
@@ -488,7 +488,7 @@ La jacobienne a une ligne par sortie et une colonne par entrée ; le mode direct
 </details>
 <details><summary>Indice 3</summary>
 
-a) $(3, 2\,000)$. d) Toutes les émissions qui augmentent ensemble, c'est une seule direction : un produit jacobienne-vecteur. e) La somme des sorties, c'est une seule combinaison des lignes : un produit vecteur-jacobienne. f) $10^6 \times 8$ octets.
+a) $(3, 2\thinspace000)$. d) Toutes les émissions qui augmentent ensemble, c'est une seule direction : un produit jacobienne-vecteur. e) La somme des sorties, c'est une seule combinaison des lignes : un produit vecteur-jacobienne. f) $10^6 \times 8$ octets.
 
 </details>
 
@@ -506,7 +506,7 @@ En ligne, $\nabla(\mathbf{x}^\top\mathbf{A}\mathbf{x}) = \mathbf{x}^\top(\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \\ 2 & 6 \end{pmatrix}$. c) Une matrice $(3, 4)$ aplatie a 12 coordonnées : sa jacobienne est une ligne de 12.
+$\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 6 \end{pmatrix}$. c) Une matrice $(3, 4)$ aplatie a 12 coordonnées : sa jacobienne est une ligne de 12.
 
 </details>
 
@@ -748,7 +748,7 @@ Fiche §4 (un nœud qui a plusieurs successeurs), §7 (le gradient de $\operator
 </details>
 <details><summary>Indice 3</summary>
 
-a) Refais la passe de `adjoints_27` en $(1{,}5 ;\ -0{,}5)$ : $u_1 = xy = -0{,}75$, $u_2 = \sin u_1$, $\bar{u}_2 = x = 1{,}5$, $\bar{u}_1 = 1{,}5\cos(-0{,}75)$, puis sa ligne de `x_bar`. (2) Dans `adjoints_27_fixed`, la ligne de `x_bar` doit avoir deux termes : celui du chemin direct $x \to f$, $\bar{f}\,u_2$, et celui qui passe par $u_1$. (1) La fiche §7 donne le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$ ; vérifie la forme sur une matrice $\mathbf{A}$ qui n'est pas carrée.
+a) Refais la passe de `adjoints_27` en $(1{,}5 ;\ -0{,}5)$ : $u_1 = xy = -0{,}75$, $u_2 = \sin u_1$, $\bar{u}_2 = x = 1{,}5$, $\bar{u}_1 = 1{,}5\cos(-0{,}75)$, puis sa ligne de `x_bar`. (2) Dans `adjoints_27_fixed`, la ligne de `x_bar` doit avoir deux termes : celui du chemin direct $x \to f$, $\bar{f}\thinspace u_2$, et celui qui passe par $u_1$. (1) La fiche §7 donne le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$ ; vérifie la forme sur une matrice $\mathbf{A}$ qui n'est pas carrée.
 
 </details>
 
@@ -779,7 +779,7 @@ Fiche §3 : une boucle écrite avec les opérations de `Dual` se dérive comme u
 </details>
 <details><summary>Indice 2</summary>
 
-Tout se joue au départ. Écris $a = m \cdot 4^k$ avec $\frac12 \le m < 2$ : alors $\sqrt{a} = \sqrt{m}\,2^k$, et $2^k$ est à moins d'un facteur $\sqrt2$ de $\sqrt{a}$. `math.frexp(a)` donne $a = m \cdot 2^e$ (rends l'exposant pair), et `math.ldexp(1.0, k)` vaut $2^k$ ; une boucle qui divise par 4 marche aussi.
+Tout se joue au départ. Écris $a = m \cdot 4^k$ avec $\frac12 \le m < 2$ : alors $\sqrt{a} = \sqrt{m}\thinspace2^k$, et $2^k$ est à moins d'un facteur $\sqrt2$ de $\sqrt{a}$. `math.frexp(a)` donne $a = m \cdot 2^e$ (rends l'exposant pair), et `math.ldexp(1.0, k)` vaut $2^k$ ; une boucle qui divise par 4 marche aussi.
 
 </details>
 <details><summary>Indice 3</summary>

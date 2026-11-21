@@ -22,7 +22,7 @@ L'information d'un événement de probabilité $p$ est $-\log_2 p$ bits ; pour d
 </details>
 <details><summary>Indice 3</summary>
 
-2 : résous $-\log_2 p = 11$, soit $p = 2^{-11}$. 5 : 1 bit vaut $\ln 2$ nat. 6 : que devient $-\log(p\,q)$ ?
+2 : résous $-\log_2 p = 11$, soit $p = 2^{-11}$. 5 : 1 bit vaut $\ln 2$ nat. 6 : que devient $-\log(p\thinspace q)$ ?
 
 </details>
 
@@ -89,12 +89,12 @@ Relis « Coder avec la mauvaise loi » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathrm{KL}(p \,\|\, q) = \sum p \log_2 \frac{p}{q}$, sur les issues où $p > 0$ ; un terme où $p > 0$ et $q = 0$ est infini.
+$\mathrm{KL}(p \thinspace\Vert\thinspace q) = \sum p \log_2 \frac{p}{q}$, sur les issues où $p > 0$ ; un terme où $p > 0$ et $q = 0$ est infini.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : dans $\mathrm{KL}(q \,\|\, p)$, la troisième issue a $q > 0$ et $p = 0$. 4 : qu'exige-t-on d'une distance, en plus d'être positive ?
+3 : dans $\mathrm{KL}(q \thinspace\Vert\thinspace p)$, la troisième issue a $q > 0$ et $p = 0$. 4 : qu'exige-t-on d'une distance, en plus d'être positive ?
 
 </details>
 
@@ -371,12 +371,12 @@ Relis la fiche §3 (l'entropie conditionnelle comme double somme) et §5 (la KL)
 </details>
 <details><summary>Indice 2</summary>
 
-Question 1 : remplace $p(x, y)$ par $p(y)\,p(x \mid y)$ dans le quotient, sépare le logarithme en deux sommes, et regroupe les cases d'une même valeur $x$.
+Question 1 : remplace $p(x, y)$ par $p(y)\thinspace p(x \mid y)$ dans le quotient, sépare le logarithme en deux sommes, et regroupe les cases d'une même valeur $x$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Question 3 : compare la définition de $I$ à celle de $\mathrm{KL}(p \,\|\, q)$ avec $q(x, y) = p(x)\,p(y)$. Question 6 : cherche une colonne où $X$ est plus incertain que dans sa loi marginale.
+Question 3 : compare la définition de $I$ à celle de $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ avec $q(x, y) = p(x)\thinspace p(y)$. Question 6 : cherche une colonne où $X$ est plus incertain que dans sa loi marginale.
 
 </details>
 
@@ -389,12 +389,12 @@ Relis l'inégalité de Jensen et son cas d'égalité (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[\log_2 Z] = \sum_{p(x) > 0} p(x) \log_2 \frac{q(x)}{p(x)}$ : c'est $-\mathrm{KL}(p \,\|\, q)$. Et $\mathbb{E}[Z]$ se simplifie en une somme de valeurs de $q$.
+$\mathbb{E}[\log_2 Z] = \sum_{p(x) > 0} p(x) \log_2 \frac{q(x)}{p(x)}$ : c'est $-\mathrm{KL}(p \thinspace\Vert\thinspace q)$. Et $\mathbb{E}[Z]$ se simplifie en une somme de valeurs de $q$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Question 3 : Jensen pour une fonction concave, puis la croissance de $\log_2$. Question 6 : écris $\mathrm{KL}(P \,\|\, Q)$ pour $P_i = \frac{a_i}{A}$ et $Q_i = \frac{b_i}{B}$, et sépare le logarithme du quotient en deux.
+Question 3 : Jensen pour une fonction concave, puis la croissance de $\log_2$. Question 6 : écris $\mathrm{KL}(P \thinspace\Vert\thinspace Q)$ pour $P_i = \frac{a_i}{A}$ et $Q_i = \frac{b_i}{B}$, et sépare le logarithme du quotient en deux.
 
 </details>
 
@@ -452,7 +452,7 @@ Un code de longueur fixe pour 4 lettres prend 2 bits ; 8 bits font un octet.
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $H(0{,}3 ;\ 0{,}3 ;\ 0{,}2 ;\ 0{,}2)$. 4 : $0{,}1\,\%$ de $3 \times 10^9$, fois 34 bits, divisé par 8.
+2 : $H(0{,}3 ;\ 0{,}3 ;\ 0{,}2 ;\ 0{,}2)$. 4 : $0{,}1$ % de $3 \times 10^9$, fois 34 bits, divisé par 8.
 
 </details>
 
@@ -527,7 +527,7 @@ Relis la fiche §4.
 </details>
 <details><summary>Indice 2</summary>
 
-`np.outer(table.sum(axis=1), table.sum(axis=0))` donne $p(x)\,p(y)$ dans chaque case.
+`np.outer(table.sum(axis=1), table.sum(axis=0))` donne $p(x)\thinspace p(y)$ dans chaque case.
 
 </details>
 <details><summary>Indice 3</summary>

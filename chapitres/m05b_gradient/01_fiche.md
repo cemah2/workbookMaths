@@ -41,7 +41,7 @@ Parcours essentiel : tout sauf M05b.Q4, M05b.Q5, M05b.R3, M05b.6, M05b.7, M05b.1
 
 Les sections suivantes du livre (§5.3 et après : gradients de fonctions à valeurs vectorielles, jacobiennes, matrices) viendront avec M17 et M18.
 
-📐 **Notations.** Comme depuis M02c §8, les vecteurs sont en gras ($\mathbf{x}$, là où R9 écrivait $\vec{x}$). La fiche écrit le gradient comme un **vecteur colonne**, $\nabla f = \big(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\big)$, ce qui permet d'écrire un pas de descente $\mathbf{x} - \eta\,\nabla f(\mathbf{x})$ comme une différence de deux vecteurs du même type. MML, lui, range les dérivées partielles en **ligne** : il écrit $\nabla_{\mathbf{x}} f = \frac{df}{d\mathbf{x}} = \big[\frac{\partial f}{\partial x_1} \cdots \frac{\partial f}{\partial x_n}\big]$, un tableau d'une ligne et $n$ colonnes (une matrice $1 \times n$, M09a), parce que ce choix rend la règle de la chaîne plus simple pour les fonctions à valeurs vectorielles (M17). Les deux écritures contiennent les mêmes nombres ; seule la forme change (M05b.15). On note aussi $f_x$ pour $\frac{\partial f}{\partial x}$, et $\partial_x f$.
+📐 **Notations.** Comme depuis M02c §8, les vecteurs sont en gras ($\mathbf{x}$, là où R9 écrivait $\vec{x}$). La fiche écrit le gradient comme un **vecteur colonne**, $\nabla f = \big(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\big)$, ce qui permet d'écrire un pas de descente $\mathbf{x} - \eta\thinspace\nabla f(\mathbf{x})$ comme une différence de deux vecteurs du même type. MML, lui, range les dérivées partielles en **ligne** : il écrit $\nabla_{\mathbf{x}} f = \frac{df}{d\mathbf{x}} = \big[\frac{\partial f}{\partial x_1} \cdots \frac{\partial f}{\partial x_n}\big]$, un tableau d'une ligne et $n$ colonnes (une matrice $1 \times n$, M09a), parce que ce choix rend la règle de la chaîne plus simple pour les fonctions à valeurs vectorielles (M17). Les deux écritures contiennent les mêmes nombres ; seule la forme change (M05b.15). On note aussi $f_x$ pour $\frac{\partial f}{\partial x}$, et $\partial_x f$.
 
 Vocabulaire anglais de ce chapitre : *function of several variables*, *surface*, *level curve* (*level set*, *contour line*), *contour plot*, *partial derivative*, *gradient*, *directional derivative*, *unit vector*, *steepest ascent* et *steepest descent*, *tangent plane*, *linear approximation*, *second-order partial derivatives*, *mixed partial derivatives*, *Hessian*, *critical point* (*stationary point*), *saddle point*, *second derivative test*, *gradient descent*, *gradient ascent*, *step size*, *argmin*, *argmax*.
 
@@ -62,11 +62,11 @@ Vocabulaire anglais de ce chapitre : *function of several variables*, *surface*,
 2. **Dérivée partielle** : $\frac{\partial f}{\partial x}$ se calcule en dérivant en $x$, $y$ étant traité comme une constante ; c'est la pente de la tranche $x \mapsto f(x, b)$.
 3. **Gradient** : $\nabla f = \big(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\big)$, un vecteur en chaque point.
 4. **Dérivée directionnelle** dans la direction d'un vecteur **unitaire** $\mathbf{u}$ : $D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}$. Un vecteur non unitaire se divise d'abord par sa norme.
-5. **Plus grande pente** : $D_{\mathbf{u}} f = \|\nabla f\| \cos\theta$ ; la montée la plus raide suit $\frac{\nabla f}{\|\nabla f\|}$, avec la pente $\|\nabla f\|$ ; la descente la plus raide suit $-\nabla f$ ; le gradient est **orthogonal** aux lignes de niveau.
+5. **Plus grande pente** : $D_{\mathbf{u}} f = \Vert\nabla f\Vert \cos\theta$ ; la montée la plus raide suit $\frac{\nabla f}{\Vert\nabla f\Vert}$, avec la pente $\Vert\nabla f\Vert$ ; la descente la plus raide suit $-\nabla f$ ; le gradient est **orthogonal** aux lignes de niveau.
 6. **Plan tangent** en $(a, b)$ : $z = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)$ ; près du point, $f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \nabla f(\mathbf{p}) \cdot \mathbf{h}$.
 7. **Dérivées secondes** : $f_{xx}$, $f_{yy}$, $f_{xy} = f_{yx}$ (théorème de Schwarz) ; la courbure dans la direction $\mathbf{u}$ vaut $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2$.
 8. **Point critique** : $\nabla f = \mathbf{0}$. Avec $D = f_{xx}f_{yy} - f_{xy}^2$ : $D > 0$ et $f_{xx} > 0$, minimum local ; $D > 0$ et $f_{xx} < 0$, maximum local ; $D < 0$, point selle ; $D = 0$, on ne peut pas conclure.
-9. **Descente de gradient** : $\mathbf{x} \leftarrow \mathbf{x} - \eta\,\nabla f(\mathbf{x})$, car au premier ordre $f(\mathbf{x} - \eta\nabla f) \approx f(\mathbf{x}) - \eta\|\nabla f\|^2$ ; la **montée**, $\mathbf{x} + \eta\,\nabla f$, cherche un maximum.
+9. **Descente de gradient** : $\mathbf{x} \leftarrow \mathbf{x} - \eta\thinspace\nabla f(\mathbf{x})$, car au premier ordre $f(\mathbf{x} - \eta\nabla f) \approx f(\mathbf{x}) - \eta\Vert\nabla f\Vert^2$ ; la **montée**, $\mathbf{x} + \eta\thinspace\nabla f$, cherche un maximum.
 10. $\min f$ est une **valeur** ; $\arg\min f$ est le **point** où elle est atteinte (de même pour max et argmax).
 
 ---
@@ -120,13 +120,13 @@ Exemple : $f(x, y) = x^3 y + 2y^2$.
 
 ![Les deux tranches de x³y + 2y² par le point (1, 2) : leurs pentes sont les dérivées partielles 6 et 9](figures/tranches.png)
 
-Avec une composée, la règle de la chaîne s'applique comme d'habitude. Pour $g(x, y) = e^{xy^2}$ : $\frac{\partial g}{\partial x} = y^2 e^{xy^2}$ (la dérivée de $xy^2$ en $x$ est $y^2$) et $\frac{\partial g}{\partial y} = 2xy\,e^{xy^2}$. Et en trois variables, pour la distance à l'origine $r(x, y, z) = \sqrt{x^2 + y^2 + z^2}$ : $\frac{\partial r}{\partial x} = \frac{2x}{2\sqrt{x^2 + y^2 + z^2}} = \frac{x}{r}$, et de même $\frac{y}{r}$ et $\frac{z}{r}$.
+Avec une composée, la règle de la chaîne s'applique comme d'habitude. Pour $g(x, y) = e^{xy^2}$ : $\frac{\partial g}{\partial x} = y^2 e^{xy^2}$ (la dérivée de $xy^2$ en $x$ est $y^2$) et $\frac{\partial g}{\partial y} = 2xy\thinspace e^{xy^2}$. Et en trois variables, pour la distance à l'origine $r(x, y, z) = \sqrt{x^2 + y^2 + z^2}$ : $\frac{\partial r}{\partial x} = \frac{2x}{2\sqrt{x^2 + y^2 + z^2}} = \frac{x}{r}$, et de même $\frac{y}{r}$ et $\frac{z}{r}$.
 
 ### Sur ordinateur
 
 Une dérivée partielle se calcule comme une dérivée ordinaire, par une **différence centrée** (M05a §5), en ne bougeant **qu'une** coordonnée :
 
-$$\frac{\partial f}{\partial x_i}(\mathbf{p}) \approx \frac{f(\mathbf{p} + h\,\mathbf{e}_i) - f(\mathbf{p} - h\,\mathbf{e}_i)}{2h},$$
+$$\frac{\partial f}{\partial x_i}(\mathbf{p}) \approx \frac{f(\mathbf{p} + h\thinspace\mathbf{e}_i) - f(\mathbf{p} - h\thinspace\mathbf{e}_i)}{2h},$$
 
 où $\mathbf{e}_i$ est le $i$-ième vecteur de la base, qui vaut 1 à la place $i$ et 0 ailleurs. L'erreur est en $h^2$, comme en M05a. C'est la fonction `partial_derivative` de `mymath` (M05b.18).
 
@@ -149,21 +149,21 @@ Le **gradient** de $f$ au point $\mathbf{p}$ est le vecteur de ses dérivées pa
 
 $$\nabla f(\mathbf{p}) = \Big(\frac{\partial f}{\partial x}(\mathbf{p}),\ \frac{\partial f}{\partial y}(\mathbf{p})\Big), \qquad \text{et en } n \text{ variables, } \nabla f = \Big(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\Big).$$
 
-Le symbole $\nabla$ se lit « nabla ». Le gradient est un **champ de vecteurs** : en chaque point du plan, une flèche. Pour $f(x, y) = x^3 y + 2y^2$ en $(1, 2)$ : $\nabla f(1, 2) = (6, 9)$, de norme $\|\nabla f(1, 2)\| = \sqrt{36 + 81} = \sqrt{117} \approx 10{,}82$ (R9).
+Le symbole $\nabla$ se lit « nabla ». Le gradient est un **champ de vecteurs** : en chaque point du plan, une flèche. Pour $f(x, y) = x^3 y + 2y^2$ en $(1, 2)$ : $\nabla f(1, 2) = (6, 9)$, de norme $\Vert\nabla f(1, 2)\Vert = \sqrt{36 + 81} = \sqrt{117} \approx 10{,}82$ (R9).
 
 ### La pente dans une direction
 
-Les dérivées partielles donnent la pente quand on se déplace parallèlement à un axe. Pour une direction quelconque, donnée par un **vecteur unitaire** $\mathbf{u} = (u_1, u_2)$ (de norme 1), on regarde la fonction d'une variable $t \mapsto f(\mathbf{p} + t\,\mathbf{u})$ : ce que l'on voit en marchant en ligne droite depuis $\mathbf{p}$, dans la direction $\mathbf{u}$. Sa dérivée en $t = 0$ est la **dérivée directionnelle** :
+Les dérivées partielles donnent la pente quand on se déplace parallèlement à un axe. Pour une direction quelconque, donnée par un **vecteur unitaire** $\mathbf{u} = (u_1, u_2)$ (de norme 1), on regarde la fonction d'une variable $t \mapsto f(\mathbf{p} + t\thinspace\mathbf{u})$ : ce que l'on voit en marchant en ligne droite depuis $\mathbf{p}$, dans la direction $\mathbf{u}$. Sa dérivée en $t = 0$ est la **dérivée directionnelle** :
 
-$$D_{\mathbf{u}} f(\mathbf{p}) = \lim_{t \to 0} \frac{f(\mathbf{p} + t\,\mathbf{u}) - f(\mathbf{p})}{t}.$$
+$$D_{\mathbf{u}} f(\mathbf{p}) = \lim_{t \to 0} \frac{f(\mathbf{p} + t\thinspace\mathbf{u}) - f(\mathbf{p})}{t}.$$
 
 Pour une fonction assez régulière (dont les dérivées partielles sont continues, ce qui est le cas de toutes celles de ce chapitre), elle se calcule avec le gradient :
 
-$$\boxed{D_{\mathbf{u}} f(\mathbf{p}) = \nabla f(\mathbf{p}) \cdot \mathbf{u} = \frac{\partial f}{\partial x}(\mathbf{p})\,u_1 + \frac{\partial f}{\partial y}(\mathbf{p})\,u_2.}$$
+$$\boxed{D_{\mathbf{u}} f(\mathbf{p}) = \nabla f(\mathbf{p}) \cdot \mathbf{u} = \frac{\partial f}{\partial x}(\mathbf{p})\thinspace u_1 + \frac{\partial f}{\partial y}(\mathbf{p})\thinspace u_2.}$$
 
 **D'où vient cette formule.** Elle découle de la **règle de la chaîne** pour une fonction de plusieurs variables, que l'on admet (MML §5.2.2) : si $x(t)$ et $y(t)$ sont dérivables, alors
 
-$$\frac{d}{dt} f\big(x(t), y(t)\big) = \frac{\partial f}{\partial x}\,x'(t) + \frac{\partial f}{\partial y}\,y'(t).$$
+$$\frac{d}{dt} f\big(x(t), y(t)\big) = \frac{\partial f}{\partial x}\thinspace x'(t) + \frac{\partial f}{\partial y}\thinspace y'(t).$$
 
 Chaque variable contribue par sa dérivée partielle, multipliée par la vitesse à laquelle elle change. Avec $x(t) = a + t u_1$ et $y(t) = b + t u_2$, on a $x' = u_1$ et $y' = u_2$, d'où la formule (M05b.11 la rédige).
 
@@ -174,19 +174,19 @@ Exemples, avec $\nabla f(1, 2) = (6, 9)$ :
 
 **Sur ordinateur**, il y a deux façons : calculer le gradient (une différence centrée par variable) puis le produit scalaire avec $\mathbf{u}$, ou faire **une seule** différence centrée le long de $\mathbf{u}$, $\frac{f(\mathbf{p} + h\mathbf{u}) - f(\mathbf{p} - h\mathbf{u})}{2h}$. La seconde ne coûte que deux évaluations de $f$, quel que soit le nombre de variables (`directional_derivative`, M05b.19).
 
-⚠️ **Erreur classique.** Calculer $\nabla f \cdot \mathbf{v}$ avec un vecteur $\mathbf{v}$ qui n'est pas unitaire. Le résultat est multiplié par $\|\mathbf{v}\|$ : avec $\mathbf{v} = (7, 24)$ au lieu de $(0{,}28 ;\ 0{,}96)$, on trouverait 258 au lieu de 10,32. Une **direction** se donne par un vecteur unitaire.
+⚠️ **Erreur classique.** Calculer $\nabla f \cdot \mathbf{v}$ avec un vecteur $\mathbf{v}$ qui n'est pas unitaire. Le résultat est multiplié par $\Vert\mathbf{v}\Vert$ : avec $\mathbf{v} = (7, 24)$ au lieu de $(0{,}28 ;\ 0{,}96)$, on trouverait 258 au lieu de 10,32. Une **direction** se donne par un vecteur unitaire.
 
 ## §4 · La plus grande pente ; le gradient et les lignes de niveau
 
 ### La direction de plus grande pente
 
-Avec la formule du produit scalaire (R9), si $\theta$ est l'angle entre $\mathbf{u}$ et $\nabla f(\mathbf{p})$ (et $\|\mathbf{u}\| = 1$) :
+Avec la formule du produit scalaire (R9), si $\theta$ est l'angle entre $\mathbf{u}$ et $\nabla f(\mathbf{p})$ (et $\Vert\mathbf{u}\Vert = 1$) :
 
-$$D_{\mathbf{u}} f(\mathbf{p}) = \|\nabla f(\mathbf{p})\|\,\|\mathbf{u}\|\cos\theta = \|\nabla f(\mathbf{p})\|\cos\theta.$$
+$$D_{\mathbf{u}} f(\mathbf{p}) = \Vert\nabla f(\mathbf{p})\Vert\thinspace\Vert\mathbf{u}\Vert\cos\theta = \Vert\nabla f(\mathbf{p})\Vert\cos\theta.$$
 
 Comme $\cos\theta$ varie entre $-1$ et 1 :
-- la pente est **maximale** pour $\theta = 0$, c'est-à-dire pour $\mathbf{u} = \frac{\nabla f(\mathbf{p})}{\|\nabla f(\mathbf{p})\|}$ : **le gradient pointe dans la direction de plus grande montée**, et cette pente maximale vaut $\|\nabla f(\mathbf{p})\|$ ;
-- elle est **minimale**, égale à $-\|\nabla f(\mathbf{p})\|$, pour $\theta = \pi$ : la **plus grande descente** suit $-\nabla f(\mathbf{p})$ ;
+- la pente est **maximale** pour $\theta = 0$, c'est-à-dire pour $\mathbf{u} = \frac{\nabla f(\mathbf{p})}{\Vert\nabla f(\mathbf{p})\Vert}$ : **le gradient pointe dans la direction de plus grande montée**, et cette pente maximale vaut $\Vert\nabla f(\mathbf{p})\Vert$ ;
+- elle est **minimale**, égale à $-\Vert\nabla f(\mathbf{p})\Vert$, pour $\theta = \pi$ : la **plus grande descente** suit $-\nabla f(\mathbf{p})$ ;
 - elle est **nulle** pour $\theta = \frac{\pi}{2}$ : dans les deux directions orthogonales au gradient, la fonction ne change pas au premier ordre.
 
 Le gradient a donc une **direction** (celle de la montée la plus raide) et une **longueur** (la pente dans cette direction). Si $\nabla f(\mathbf{p}) = \mathbf{0}$, toutes les pentes sont nulles : $\mathbf{p}$ est un point critique (§7), et il n'y a pas de direction de plus grande pente (`steepest_ascent_direction` lève alors une erreur).
@@ -199,7 +199,7 @@ Ce dernier point a une conséquence géométrique : **en chaque point, le gradie
 
 ![Le dôme T(x, y) = 100 − x² − 2y² : les flèches du gradient montent vers le sommet en coupant les lignes de niveau à angle droit](figures/gradient_niveaux.png)
 
-**Lignes serrées, gradient long.** Entre deux lignes de niveau voisines, $c$ et $c + \Delta c$, il faut monter de $\Delta c$ ; dans la direction du gradient, on monte de $\|\nabla f\|$ par unité de longueur. L'écart entre les deux lignes vaut donc environ $\frac{\Delta c}{\|\nabla f\|}$ : plus le gradient est long, plus les lignes sont serrées. Sur le dôme, entre les lignes 88 et 92 près de $(3, 1)$, l'écart vaut environ $\frac{4}{7{,}21} \approx 0{,}55$.
+**Lignes serrées, gradient long.** Entre deux lignes de niveau voisines, $c$ et $c + \Delta c$, il faut monter de $\Delta c$ ; dans la direction du gradient, on monte de $\Vert\nabla f\Vert$ par unité de longueur. L'écart entre les deux lignes vaut donc environ $\frac{\Delta c}{\Vert\nabla f\Vert}$ : plus le gradient est long, plus les lignes sont serrées. Sur le dôme, entre les lignes 88 et 92 près de $(3, 1)$, l'écart vaut environ $\frac{4}{7{,}21} \approx 0{,}55$.
 
 🔗 **Dans workbookIA** — le chapitre 5 calcule le gradient d'une loss sur ordinateur, le dessine sur des cartes de lignes de niveau et s'en sert pour descendre. Tu y retrouveras les trois faits de ce paragraphe : le gradient monte, il est orthogonal aux lignes de niveau, et sa longueur mesure la pente.
 
@@ -211,9 +211,9 @@ Ce dernier point a une conséquence géométrique : **en chaque point, le gradie
 
 En une variable, la tangente approche la courbe près d'un point (R7). En deux variables, c'est un plan : le **plan tangent** à la surface $z = f(x, y)$ au point $(a, b, f(a, b))$ est le plan qui passe par ce point et qui a les mêmes pentes que la surface dans les deux directions des axes :
 
-$$\boxed{z = f(a, b) + \frac{\partial f}{\partial x}(a, b)\,(x - a) + \frac{\partial f}{\partial y}(a, b)\,(y - b).}$$
+$$\boxed{z = f(a, b) + \frac{\partial f}{\partial x}(a, b)\thinspace(x - a) + \frac{\partial f}{\partial y}(a, b)\thinspace(y - b).}$$
 
-Coupé par le plan $y = b$, il donne la tangente de la tranche $x \mapsto f(x, b)$ ; coupé par $x = a$, celle de l'autre tranche. Développé, il s'écrit $z = A\,x + B\,y + C$, avec $A = f_x(a, b)$, $B = f_y(a, b)$ et $C = f(a, b) - A\,a - B\,b$ (`tangent_plane`, M05b.20).
+Coupé par le plan $y = b$, il donne la tangente de la tranche $x \mapsto f(x, b)$ ; coupé par $x = a$, celle de l'autre tranche. Développé, il s'écrit $z = A\thinspace x + B\thinspace y + C$, avec $A = f_x(a, b)$, $B = f_y(a, b)$ et $C = f(a, b) - A\thinspace a - B\thinspace b$ (`tangent_plane`, M05b.20).
 
 ![La surface z = 2x² + y² et son plan tangent au point (0,5 ; 1)](figures/plan_tangent.png)
 
@@ -221,15 +221,15 @@ Coupé par le plan $y = b$, il donne la tangente de la tranche $x \mapsto f(x, b
 
 Près de $\mathbf{p} = (a, b)$, la surface et son plan tangent sont proches : pour un petit déplacement $\mathbf{h} = (\Delta x, \Delta y)$,
 
-$$f(a + \Delta x,\ b + \Delta y) \approx f(a, b) + f_x(a, b)\,\Delta x + f_y(a, b)\,\Delta y = f(\mathbf{p}) + \nabla f(\mathbf{p}) \cdot \mathbf{h}.$$
+$$f(a + \Delta x,\ b + \Delta y) \approx f(a, b) + f_x(a, b)\thinspace\Delta x + f_y(a, b)\thinspace\Delta y = f(\mathbf{p}) + \nabla f(\mathbf{p}) \cdot \mathbf{h}.$$
 
-C'est le polynôme de Taylor d'ordre 1 (M05a §3) en deux variables. L'erreur commise est d'ordre 2 : elle se comporte comme $\|\mathbf{h}\|^2$, et diviser le déplacement par 2 la divise à peu près par 4 (M05b.23).
+C'est le polynôme de Taylor d'ordre 1 (M05a §3) en deux variables. L'erreur commise est d'ordre 2 : elle se comporte comme $\Vert\mathbf{h}\Vert^2$, et diviser le déplacement par 2 la divise à peu près par 4 (M05b.23).
 
-Exemple : $f(x, y) = \sqrt{x^2 + y^2}$, la distance à l'origine, en $(3, 4)$ : $f(3, 4) = 5$, $f_x = \frac{x}{\sqrt{x^2 + y^2}} = 0{,}6$ et $f_y = 0{,}8$. Le plan tangent est $z = 5 + 0{,}6\,(x - 3) + 0{,}8\,(y - 4)$, soit $z = 0{,}6\,x + 0{,}8\,y$. Pour approcher $f(3{,}1 ;\ 3{,}9)$ : $5 + 0{,}6 \times 0{,}1 + 0{,}8 \times (-0{,}1) = 4{,}98$, alors que la valeur exacte est $\sqrt{24{,}82} \approx 4{,}98197$ : une erreur d'environ $2 \times 10^{-3}$, pour un déplacement de norme $0{,}14$.
+Exemple : $f(x, y) = \sqrt{x^2 + y^2}$, la distance à l'origine, en $(3, 4)$ : $f(3, 4) = 5$, $f_x = \frac{x}{\sqrt{x^2 + y^2}} = 0{,}6$ et $f_y = 0{,}8$. Le plan tangent est $z = 5 + 0{,}6\thinspace(x - 3) + 0{,}8\thinspace(y - 4)$, soit $z = 0{,}6\thinspace x + 0{,}8\thinspace y$. Pour approcher $f(3{,}1 ;\ 3{,}9)$ : $5 + 0{,}6 \times 0{,}1 + 0{,}8 \times (-0{,}1) = 4{,}98$, alors que la valeur exacte est $\sqrt{24{,}82} \approx 4{,}98197$ : une erreur d'environ $2 \times 10^{-3}$, pour un déplacement de norme $0{,}14$.
 
 **Quand il n'y a pas de plan tangent.** Une fonction peut avoir des dérivées partielles sans avoir de plan tangent : il faut que la surface soit « lisse » au point. Ce même $\sqrt{x^2 + y^2}$ est un cône dont la pointe est en $(0, 0)$ : aucun plan ne l'y touche, comme $|x|$ n'a pas de tangente en 0. Les fonctions de ce chapitre sont lisses partout où on les dérive.
 
-⚠️ **Erreur classique.** Oublier les décalages : écrire $z = f(a, b) + f_x(a, b)\,x + f_y(a, b)\,y$, sans les $(x - a)$ et $(y - b)$. Ce plan ne passe pas par le point de contact (sauf si $a = b = 0$).
+⚠️ **Erreur classique.** Oublier les décalages : écrire $z = f(a, b) + f_x(a, b)\thinspace x + f_y(a, b)\thinspace y$, sans les $(x - a)$ et $(y - b)$. Ce plan ne passe pas par le point de contact (sauf si $a = b = 0$).
 
 ## §6 · Dérivées partielles secondes
 
@@ -248,13 +248,13 @@ Exemple : $f(x, y) = x^3 y + 2y^2$, avec $f_x = 3x^2 y$ et $f_y = x^3 + 4y$ :
 
 ### La courbure dans une direction
 
-Comme pour la pente, on regarde la tranche $g(t) = f(\mathbf{p} + t\,\mathbf{u})$ dans la direction du vecteur unitaire $\mathbf{u}$. En dérivant deux fois avec la règle de la chaîne, on trouve
+Comme pour la pente, on regarde la tranche $g(t) = f(\mathbf{p} + t\thinspace\mathbf{u})$ dans la direction du vecteur unitaire $\mathbf{u}$. En dérivant deux fois avec la règle de la chaîne, on trouve
 
-$$g''(0) = f_{xx}\,u_1^2 + 2\,f_{xy}\,u_1 u_2 + f_{yy}\,u_2^2,$$
+$$g''(0) = f_{xx}\thinspace u_1^2 + 2\thinspace f_{xy}\thinspace u_1 u_2 + f_{yy}\thinspace u_2^2,$$
 
 les dérivées secondes étant prises en $\mathbf{p}$. C'est la **courbure** de la surface dans la direction $\mathbf{u}$, au sens de ce chapitre (la dérivée seconde de la tranche ; la courbure géométrique d'une courbe est une notion voisine, mais différente) : positive, la tranche tourne vers le haut (M05a §1) ; négative, vers le bas. Dans l'exemple, en $(1, 2)$ : dans la direction $(1, 0)$, $g''(0) = 12$ ; dans la direction $(0, 1)$, 4 ; dans la direction $\frac{(1, -1)}{\sqrt{2}}$, $\frac{12 - 2 \times 3 + 4}{2} = 5$. La courbure dépend de la direction.
 
-On range les dérivées secondes dans la **matrice hessienne** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$, symétrique grâce à Schwarz ; la courbure dans la direction $\mathbf{u}$ s'écrit alors $\mathbf{u}^\top H\,\mathbf{u}$. Les matrices et ce produit viendront en M09a, puis la hessienne elle-même en M12c (définition) et M19 ; ici, on garde la formule développée.
+On range les dérivées secondes dans la **matrice hessienne** $H = \begin{pmatrix} f_{xx} & f_{xy} \cr f_{xy} & f_{yy} \end{pmatrix}$, symétrique grâce à Schwarz ; la courbure dans la direction $\mathbf{u}$ s'écrit alors $\mathbf{u}^\top H\thinspace\mathbf{u}$. Les matrices et ce produit viendront en M09a, puis la hessienne elle-même en M12c (définition) et M19 ; ici, on garde la formule développée.
 
 ⚠️ **Erreur classique.** Oublier le facteur 2 du terme croisé dans la courbure, ou prendre $f_{xy}$ pour le produit $f_x \times f_y$ : c'est la dérivée de $f_x$ par rapport à $y$.
 
@@ -268,11 +268,11 @@ Un **point critique** (ou point stationnaire) est un point où le gradient s'ann
 
 Près d'un point critique $\mathbf{p}$, le terme d'ordre 1 de Taylor s'annule, et c'est le terme d'ordre 2 qui décide :
 
-$$f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \tfrac{1}{2}\big(f_{xx}\,\Delta x^2 + 2\,f_{xy}\,\Delta x\,\Delta y + f_{yy}\,\Delta y^2\big).$$
+$$f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \tfrac{1}{2}\big(f_{xx}\thinspace\Delta x^2 + 2\thinspace f_{xy}\thinspace\Delta x\thinspace\Delta y + f_{yy}\thinspace\Delta y^2\big).$$
 
-Si la parenthèse est positive dans toutes les directions, $f$ monte autour de $\mathbf{p}$ : c'est un **minimum local**. Si elle est négative partout, un **maximum local**. Si elle est positive dans certaines directions et négative dans d'autres, $f$ monte d'un côté et descend de l'autre : c'est un **point selle** (*saddle point*), comme un col de montagne ou une selle de cheval. Plus généralement, on appelle point selle tout point critique près duquel $f$ prend, aussi près de $\mathbf{p}$ qu'on le veut, des valeurs plus grandes **et** des valeurs plus petites que $f(\mathbf{p})$ : ni minimum, ni maximum local. M05b.13 montre que le signe de la parenthèse se lit sur un seul nombre, $D = f_{xx}\,f_{yy} - f_{xy}^2$ (le déterminant de la hessienne).
+Si la parenthèse est positive dans toutes les directions, $f$ monte autour de $\mathbf{p}$ : c'est un **minimum local**. Si elle est négative partout, un **maximum local**. Si elle est positive dans certaines directions et négative dans d'autres, $f$ monte d'un côté et descend de l'autre : c'est un **point selle** (*saddle point*), comme un col de montagne ou une selle de cheval. Plus généralement, on appelle point selle tout point critique près duquel $f$ prend, aussi près de $\mathbf{p}$ qu'on le veut, des valeurs plus grandes **et** des valeurs plus petites que $f(\mathbf{p})$ : ni minimum, ni maximum local. M05b.13 montre que le signe de la parenthèse se lit sur un seul nombre, $D = f_{xx}\thinspace f_{yy} - f_{xy}^2$ (le déterminant de la hessienne).
 
-> **Test du second ordre.** En un point critique $\mathbf{p}$, avec $D = f_{xx}(\mathbf{p})\,f_{yy}(\mathbf{p}) - f_{xy}(\mathbf{p})^2$ :
+> **Test du second ordre.** En un point critique $\mathbf{p}$, avec $D = f_{xx}(\mathbf{p})\thinspace f_{yy}(\mathbf{p}) - f_{xy}(\mathbf{p})^2$ :
 > - $D > 0$ et $f_{xx}(\mathbf{p}) > 0$ : **minimum local** ;
 > - $D > 0$ et $f_{xx}(\mathbf{p}) < 0$ : **maximum local** ;
 > - $D < 0$ : **point selle** ;
@@ -298,29 +298,29 @@ Exemple : $f(x, y) = x^3 + y^3 - 3xy$.
 
 ### min et argmin
 
-Pour une fonction $f$, $\min f$ est la plus petite **valeur** qu'elle prend, et $\arg\min f$ le **point** (ou l'ensemble des points) où elle l'atteint ; de même pour $\max$ et $\arg\max$. Pour $f(x, y) = (x - 3)^2 + 2\,(y + 1)^2$ : $\min f = 0$ et $\arg\min f = (3, -1)$ ; pour le dôme $T$ : $\max T = 100$ et $\arg\max T = (0, 0)$. En machine learning, on cherche surtout l'argmin : les **poids** qui minimisent la loss, plus que la valeur de la loss elle-même.
+Pour une fonction $f$, $\min f$ est la plus petite **valeur** qu'elle prend, et $\arg\min f$ le **point** (ou l'ensemble des points) où elle l'atteint ; de même pour $\max$ et $\arg\max$. Pour $f(x, y) = (x - 3)^2 + 2\thinspace(y + 1)^2$ : $\min f = 0$ et $\arg\min f = (3, -1)$ ; pour le dôme $T$ : $\max T = 100$ et $\arg\max T = (0, 0)$. En machine learning, on cherche surtout l'argmin : les **poids** qui minimisent la loss, plus que la valeur de la loss elle-même.
 
 ### Descendre la plus grande pente
 
 Résoudre $\nabla f = \mathbf{0}$ à la main n'est possible que pour des fonctions simples. Pour une loss à des millions de poids, on procède autrement : on part d'un point et l'on fait de petits pas vers le bas. La direction la plus naturelle est celle de la plus grande descente, $-\nabla f$ (§4). C'est la **descente de gradient** :
 
-$$\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\,\nabla f(\mathbf{x}_k),$$
+$$\mathbf{x}_{k+1} = \mathbf{x}_k - \eta\thinspace\nabla f(\mathbf{x}_k),$$
 
 où $\eta > 0$ est la **taille du pas** (le *learning rate* en machine learning).
 
-**Pourquoi la fonction baisse.** Avec l'approximation linéaire du §5 et le déplacement $\mathbf{h} = -\eta\,\nabla f(\mathbf{x})$ :
+**Pourquoi la fonction baisse.** Avec l'approximation linéaire du §5 et le déplacement $\mathbf{h} = -\eta\thinspace\nabla f(\mathbf{x})$ :
 
-$$f\big(\mathbf{x} - \eta\,\nabla f(\mathbf{x})\big) \approx f(\mathbf{x}) + \nabla f(\mathbf{x}) \cdot \big(-\eta\,\nabla f(\mathbf{x})\big) = f(\mathbf{x}) - \eta\,\|\nabla f(\mathbf{x})\|^2.$$
+$$f\big(\mathbf{x} - \eta\thinspace\nabla f(\mathbf{x})\big) \approx f(\mathbf{x}) + \nabla f(\mathbf{x}) \cdot \big(-\eta\thinspace\nabla f(\mathbf{x})\big) = f(\mathbf{x}) - \eta\thinspace\Vert\nabla f(\mathbf{x})\Vert^2.$$
 
-Tant que le gradient n'est pas nul, $\eta\,\|\nabla f\|^2 > 0$ : **pour un pas assez petit**, la fonction diminue. L'approximation n'est valable que pour un petit déplacement : un pas trop grand peut sauter par-dessus le creux. Le choix de $\eta$ est l'objet de workbookIA 5, puis de M19.
+Tant que le gradient n'est pas nul, $\eta\thinspace\Vert\nabla f\Vert^2 > 0$ : **pour un pas assez petit**, la fonction diminue. L'approximation n'est valable que pour un petit déplacement : un pas trop grand peut sauter par-dessus le creux. Le choix de $\eta$ est l'objet de workbookIA 5, puis de M19.
 
-Exemple : $f(x, y) = (x - 3)^2 + 2\,(y + 1)^2$, de gradient $\nabla f = \big(2(x - 3),\ 4(y + 1)\big)$, depuis $(0, 0)$ avec $\eta = 0{,}1$.
+Exemple : $f(x, y) = (x - 3)^2 + 2\thinspace(y + 1)^2$, de gradient $\nabla f = \big(2(x - 3),\ 4(y + 1)\big)$, depuis $(0, 0)$ avec $\eta = 0{,}1$.
 - En $(0, 0)$ : $f = 9 + 2 = 11$ et $\nabla f = (-6, 4)$. Le pas mène à $(0, 0) - 0{,}1 \times (-6, 4) = (0{,}6 ;\ -0{,}4)$, où $f = 2{,}4^2 + 2 \times 0{,}6^2 = 6{,}48$. Le premier ordre prévoyait $11 - 0{,}1 \times 52 = 5{,}8$ : la fonction a bien baissé, un peu moins que prévu.
 - En $(0{,}6 ;\ -0{,}4)$ : $\nabla f = (-4{,}8 ;\ 2{,}4)$, et le pas mène à $(1{,}08 ;\ -0{,}64)$, où $f \approx 3{,}95$.
 
 ![Quelques pas de descente de gradient vers le minimum (3, −1)](figures/descente.png)
 
-**La montée de gradient** cherche un maximum en faisant le pas dans l'autre sens, $\mathbf{x}_{k+1} = \mathbf{x}_k + \eta\,\nabla f(\mathbf{x}_k)$ ; maximiser $f$ revient à minimiser $-f$. On s'en sert pour maximiser une vraisemblance (M04) ou une récompense (workbookIA, apprentissage par renforcement).
+**La montée de gradient** cherche un maximum en faisant le pas dans l'autre sens, $\mathbf{x}_{k+1} = \mathbf{x}_k + \eta\thinspace\nabla f(\mathbf{x}_k)$ ; maximiser $f$ revient à minimiser $-f$. On s'en sert pour maximiser une vraisemblance (M04) ou une récompense (workbookIA, apprentissage par renforcement).
 
 **Où s'arrête-t-on ?** Un pas ne bouge presque plus quand le gradient est presque nul, c'est-à-dire près d'un point critique. Rien ne garantit que ce soit un minimum global : la descente peut s'arrêter dans un creux local, ou ralentir près d'une selle. Pour une fonction **convexe** (M05a §1, en plusieurs variables en M19), tout point critique est un minimum global, et la descente, bien réglée, y mène.
 
@@ -328,7 +328,7 @@ Exemple : $f(x, y) = (x - 3)^2 + 2\,(y + 1)^2$, de gradient $\nabla f = \big(2(x
 
 💻 **Aujourd'hui en pratique** — personne ne calcule à la main le gradient d'un réseau, ni par différences finies (deux évaluations de la loss par poids, beaucoup trop cher) : les bibliothèques le calculent par **différentiation automatique** (PyTorch, JAX), qui applique la règle de la chaîne aux opérations enregistrées. Les dérivées partielles par différence centrée de ce chapitre servent à vérifier ces calculs sur de petits exemples.
 
-⚠️ **Erreur classique.** Se tromper de signe : $\mathbf{x} + \eta\,\nabla f$ monte, il ne descend pas. Et confondre $\min f$ (une valeur) avec $\arg\min f$ (un point).
+⚠️ **Erreur classique.** Se tromper de signe : $\mathbf{x} + \eta\thinspace\nabla f$ monte, il ne descend pas. Et confondre $\min f$ (une valeur) avec $\arg\min f$ (un point).
 
 ## Les pièges classiques ⚠️ (récapitulatif)
 
@@ -337,12 +337,12 @@ Exemple : $f(x, y) = (x - 3)^2 + 2\,(y + 1)^2$, de gradient $\nabla f = \big(2(x
 | La variable « fixée » oubliée dans une dérivée partielle | $\frac{\partial}{\partial x}(x^3 y) = 3x^2 y$ : $y$ reste en facteur |
 | Une direction donnée par un vecteur non unitaire | diviser par la norme avant le produit scalaire avec le gradient |
 | Le gradient pris pour la direction du sommet, ou d'une ligne de niveau | il suit la montée la plus raide, à angle droit des lignes de niveau |
-| Le plan tangent sans les décalages $(x - a)$ et $(y - b)$ | $z = f(a, b) + f_x\,(x - a) + f_y\,(y - b)$ |
+| Le plan tangent sans les décalages $(x - a)$ et $(y - b)$ | $z = f(a, b) + f_x\thinspace(x - a) + f_y\thinspace(y - b)$ |
 | Le facteur 2 du terme croisé oublié dans la courbure | $f_{xx}u_1^2 + 2f_{xy}u_1u_2 + f_{yy}u_2^2$ |
 | « $f_{xx} > 0$ et $f_{yy} > 0$, donc minimum » | calculer $D = f_{xx}f_{yy} - f_{xy}^2$ ; $D < 0$ est une selle |
 | Le test du second ordre appliqué quand $D = 0$, ou hors d'un point critique | $D = 0$ : regarder la fonction ; le test suppose $\nabla f = \mathbf{0}$ |
 | Les bords oubliés pour un extremum global sur un domaine borné | comparer les points critiques intérieurs **et** le bord |
-| Le signe du pas de descente | descendre : $\mathbf{x} - \eta\,\nabla f$ ; monter : $\mathbf{x} + \eta\,\nabla f$ |
+| Le signe du pas de descente | descendre : $\mathbf{x} - \eta\thinspace\nabla f$ ; monter : $\mathbf{x} + \eta\thinspace\nabla f$ |
 | $\min f$ et $\arg\min f$ confondus | une valeur, un point |
 
 ## Et maintenant

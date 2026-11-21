@@ -61,8 +61,8 @@ Vocabulaire anglais de ce chapitre : *hypothesis test*, *null hypothesis*, *alte
 3. **Test binomial** : $k$ succès sur $n$ essais, $K \sim \mathcal{B}(n, p_0)$ sous $H_0$ ; p-valeur unilatérale $P(K \ge k)$, bilatérale = somme des issues au plus aussi probables que celle observée.
 4. **Test par permutation** : sous $H_0$ (« même loi »), les deux groupes sont interchangeables ; on rebat la répartition des valeurs et l'on compte les répartitions au moins aussi extrêmes ; p-valeur $\frac{C + 1}{B + 1}$ avec $B$ permutations tirées au hasard.
 5. **Type I** : rejeter $H_0$ à tort (probabilité $\alpha$, le seuil). **Type II** : ne pas la rejeter alors qu'elle est fausse (probabilité $\beta$). **Puissance** $= 1 - \beta$ ; elle grandit avec l'effet et avec $n$.
-6. Taille d'échantillon (moyenne, $\sigma$ connu, test unilatéral) : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\big)^2$.
-7. **Wald** : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux quand il y a peu de succès ; **Wilson** l'améliore en inversant un test. **Mesures appariées** : on travaille sur les différences, $\bar{d} \pm t\,\frac{s_d}{\sqrt{n}}$ (Student).
+6. Taille d'échantillon (moyenne, $\sigma$ connu, test unilatéral) : $n \ge \big(\frac{(z_{1-\alpha} + z_{1-\beta})\thinspace\sigma}{\delta}\big)^2$.
+7. **Wald** : $\hat{p} \pm z\sqrt{\hat{p}(1 - \hat{p})/n}$, faux quand il y a peu de succès ; **Wilson** l'améliore en inversant un test. **Mesures appariées** : on travaille sur les différences, $\bar{d} \pm t\thinspace\frac{s_d}{\sqrt{n}}$ (Student).
 8. Avec $m$ tests au seuil $\alpha$, la probabilité d'au moins un faux positif peut atteindre $1 - (1 - \alpha)^m$ ; **Bonferroni** teste chacun au seuil $\frac{\alpha}{m}$ et garantit $\le \alpha$, sans hypothèse d'indépendance.
 9. **AIC** $= 2k - 2\ln L$, **BIC** $= k \ln n - 2\ln L$ : le plus petit gagne ; le BIC pénalise plus les paramètres dès $n \ge 8$. Le **facteur de Bayes** est le rapport des évidences de deux modèles.
 10. Un score de validation est une **estimation bruitée** : il change avec les exemples, le découpage et la graine, et un écart entre deux modèles se juge face à cette variabilité.
@@ -88,7 +88,7 @@ Une équipe propose une nouvelle formulation des messages d'erreur d'un logiciel
 
 Pour $H_1 : p > \frac{1}{2}$, « au moins aussi extrême » veut dire « au moins 12 votes » :
 
-$$P(K \ge 12) = \frac{\binom{15}{12} + \binom{15}{13} + \binom{15}{14} + \binom{15}{15}}{2^{15}} = \frac{455 + 105 + 15 + 1}{32\,768} = \frac{576}{32\,768} = \frac{9}{512} \approx 0{,}0176.$$
+$$P(K \ge 12) = \frac{\binom{15}{12} + \binom{15}{13} + \binom{15}{14} + \binom{15}{15}}{2^{15}} = \frac{455 + 105 + 15 + 1}{32\thinspace768} = \frac{576}{32\thinspace768} = \frac{9}{512} \approx 0{,}0176.$$
 
 Si les testeurs n'avaient aucune préférence, un score de 12 ou plus n'arriverait qu'environ **une fois sur 57**. Deux lectures sont alors possibles : ou bien un événement rare s'est produit, ou bien $H_0$ est fausse. Le test ne tranche pas avec certitude ; il dit **combien** l'observation serait surprenante sous $H_0$.
 
@@ -143,7 +143,7 @@ Avec 12 votes sur 15 : $z = \frac{12 - 7{,}5}{\sqrt{3{,}75}} \approx 2{,}32$, d'
 
 Deux groupes de mesures : 5 plants qui ont reçu un engrais, de hauteurs 14,2 ; 15,1 ; 13,8 ; 16,0 ; 15,4 cm, et 4 plants témoins, de hauteurs 13,1 ; 12,6 ; 14,0 ; 13,5 cm. La statistique naturelle est l'écart des moyennes,
 
-$$t = \bar{x}_{\text{engrais}} - \bar{x}_{\text{témoin}} = 14{,}9 - 13{,}3 = 1{,}6 \text{ cm}.$$
+$$t = \bar{x} _{\text{engrais}} - \bar{x} _{\text{témoin}} = 14{,}9 - 13{,}3 = 1{,}6 \text{ cm}.$$
 
 L'hypothèse nulle est cette fois : « l'engrais ne change rien, les 9 hauteurs viennent de la même loi ». Si elle est vraie, le groupe d'un plant, « engrais » ou « témoin », ne dit rien de sa hauteur : n'importe quelle répartition des 9 valeurs en un groupe de 5 et un groupe de 4 était **aussi probable** que celle qu'on observe (les valeurs sont **échangeables**, *exchangeable*). On obtient la loi nulle de $t$ sans aucune hypothèse de loi normale : on **rebat** la répartition des valeurs entre les deux groupes.
 
@@ -157,7 +157,7 @@ Avec de petits groupes, la plus petite p-valeur possible est $\frac{1}{\binom{n}
 
 ### Le test par tirage au hasard
 
-Dès que les groupes grandissent, le nombre de répartitions explose ($\binom{40}{20} \approx 1{,}4 \times 10^{11}$). On en tire alors $B$ **au hasard** (par exemple $B = 9\,999$), on compte le nombre $C$ de tirages au moins aussi extrêmes que l'observation, et l'on prend
+Dès que les groupes grandissent, le nombre de répartitions explose ($\binom{40}{20} \approx 1{,}4 \times 10^{11}$). On en tire alors $B$ **au hasard** (par exemple $B = 9\thinspace999$), on compte le nombre $C$ de tirages au moins aussi extrêmes que l'observation, et l'on prend
 
 $$p = \frac{C + 1}{B + 1}.$$
 
@@ -202,7 +202,7 @@ $$1 - \beta = \Phi\Big(\frac{\delta\sqrt{n}}{\sigma} - z_{1-\alpha}\Big),$$
 
 et elle atteint $1 - \beta$ dès que
 
-$$n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\Big)^2.$$
+$$n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\thinspace\sigma}{\delta}\Big)^2.$$
 
 **Exemple.** $\sigma = 10$, $\delta = 3$, $\alpha = 0{,}05$, puissance 80 % : $n \ge \big(\frac{(1{,}645 + 0{,}842) \times 10}{3}\big)^2 \approx 68{,}7$, donc **69** mesures. Pour un test bilatéral, $z_{1-\alpha}$ devient $z_{1-\alpha/2}$. Deux leçons : la taille croît comme $\frac{1}{\delta^2}$ (un effet deux fois plus petit demande quatre fois plus de données) ; et une étude trop petite a peu de chances de trouver ce qu'elle cherche, même si l'effet existe.
 
@@ -242,7 +242,7 @@ Quand chaque unité est mesurée **deux fois** (avant et après, avec et sans), 
 
 Avec si peu de valeurs, remplacer $\sigma$ par $s_d$ rend la loi normale trop optimiste (M02c) : on utilise la **loi de Student** (*Student's t-distribution*) à $n - 1$ **degrés de liberté** (*degrees of freedom*), plus étalée. Si les différences suivent à peu près une loi normale,
 
-$$\bar{d} \pm t_{n-1}\,\frac{s_d}{\sqrt{n}}$$
+$$\bar{d} \pm t_{n-1}\thinspace\frac{s_d}{\sqrt{n}}$$
 
 est un intervalle de confiance pour la différence moyenne, où $t_{n-1}$ est le quantile d'ordre $\frac{1 + \text{niveau}}{2}$ de la loi de Student. Ici, $t_4 \approx 2{,}776$ à 95 %, et l'intervalle vaut $0{,}7 \pm 0{,}421$, soit $[0{,}279 ;\ 1{,}121]$ heure : il ne contient pas 0, la mise à jour allonge l'autonomie.
 
@@ -276,7 +276,7 @@ $$P(A_1 \cup \cdots \cup A_m) \le P(A_1) + \cdots + P(A_m).$$
 
 Si $A_i$ est l'événement « le test $i$ rejette à tort », chaque $P(A_i)$ est au plus $\frac{\alpha}{m}$, et la somme au plus $\alpha$ (M08.11 le démontre). Avec $m = 10$, chaque test au seuil 0,005 : la probabilité d'au moins un faux positif, pour des tests indépendants, devient $1 - 0{,}995^{10} \approx 0{,}049$.
 
-On présente souvent la correction sous forme de **p-valeurs ajustées** $\min(1, m\,p_i)$, à comparer directement à $\alpha$ : c'est ce que rend `bonferroni` (M08.19).
+On présente souvent la correction sous forme de **p-valeurs ajustées** $\min(1, m\thinspace p_i)$, à comparer directement à $\alpha$ : c'est ce que rend `bonferroni` (M08.19).
 
 **Le prix.** Bonferroni est prudente : en abaissant le seuil, elle diminue la puissance de chaque test. D'autres corrections (Holm, ou le contrôle de la proportion de fausses découvertes de Benjamini et Hochberg) perdent moins de puissance ; elles sont hors programme ici.
 
@@ -306,7 +306,7 @@ On préfère le modèle de **plus petit** critère. Les deux ont le même terme 
 
 La voie bayésienne (M04) compare deux modèles $M_1$ et $M_2$ par la probabilité que chacun donnait aux données, leur **évidence** (*evidence*, ou *marginal likelihood*, la vraisemblance marginale) $p(\mathcal{D} \mid M_i)$. Leur rapport est le **facteur de Bayes** (*Bayes factor*) :
 
-$$\mathrm{BF}_{12} = \frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}, \qquad \frac{P(M_1 \mid \mathcal{D})}{P(M_2 \mid \mathcal{D})} = \mathrm{BF}_{12} \times \frac{P(M_1)}{P(M_2)}.$$
+$$\mathrm{BF} _{12} = \frac{p(\mathcal{D} \mid M_1)}{p(\mathcal{D} \mid M_2)}, \qquad \frac{P(M_1 \mid \mathcal{D})}{P(M_2 \mid \mathcal{D})} = \mathrm{BF} _{12} \times \frac{P(M_1)}{P(M_2)}.$$
 
 En mots : **cote a posteriori = facteur de Bayes × cote a priori** (*posterior odds*, *prior odds*), la formule de Bayes de M04 écrite pour deux hypothèses. Un facteur de 1 ne départage rien ; on parle souvent d'une preuve « substantielle » au-delà de 3, « forte » au-delà de 10 (une échelle indicative, due à H. Jeffreys).
 

@@ -50,9 +50,9 @@ Parcours essentiel : tout sauf R7.Q8, R7.R3, R7.2, R7.13, R7.18, R7.21, R7.23 et
 
 1. $\lim_{x \to +\infty} f(x) = L$ : $f(x)$ se rapproche de $L$ autant qu'on veut quand $x$ est assez grand. Une limite finie en l'infini donne une **asymptote horizontale** $y = L$ ; une limite infinie en un point $a$, une **asymptote verticale** $x = a$.
 2. Pour une fraction de polynômes en l'infini, on met en facteur le terme de plus haut degré en haut et en bas. Les croissances comparées de R6 lèvent les autres formes indéterminées.
-3. $f$ est **continue** en $a$ si $\lim_{x \to a} f(x) = f(a)$. Une fonction continue sur $[a \;;\; b]$ qui change de signe s'y annule (**valeurs intermédiaires**) ; la **dichotomie** trouve ce zéro en coupant l'intervalle en deux à chaque pas.
+3. $f$ est **continue** en $a$ si $\lim_{x \to a} f(x) = f(a)$. Une fonction continue sur $[a \mkern5mu ;\mkern5mu  b]$ qui change de signe s'y annule (**valeurs intermédiaires**) ; la **dichotomie** trouve ce zéro en coupant l'intervalle en deux à chaque pas.
 4. Le **taux d'accroissement** $\frac{f(a + h) - f(a)}{h}$ est la pente de la sécante ; sa limite quand $h \to 0$ est le **nombre dérivé** $f'(a)$, la pente de la tangente.
-5. Tangente en $a$ : $y = f(a) + f'(a)(x - a)$. Près de $a$, $f(a + h) \approx f(a) + f'(a)\,h$.
+5. Tangente en $a$ : $y = f(a) + f'(a)(x - a)$. Près de $a$, $f(a + h) \approx f(a) + f'(a)\thinspace h$.
 6. Dérivées usuelles : $(x^n)' = n x^{n-1}$, $(\sqrt{x})' = \frac{1}{2\sqrt{x}}$, $(\frac{1}{x})' = -\frac{1}{x^2}$, $(e^x)' = e^x$, $(\ln x)' = \frac{1}{x}$.
 7. $(u + v)' = u' + v'$, $(ku)' = k u'$, $(uv)' = u'v + uv'$, $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$.
 8. **Règle de la chaîne** : $\big(g(u(x))\big)' = g'(u(x)) \times u'(x)$, ou $\frac{dz}{dx} = \frac{dz}{du} \times \frac{du}{dx}$ : on dérive chaque étage, et on multiplie.
@@ -65,7 +65,7 @@ Parcours essentiel : tout sauf R7.Q8, R7.R3, R7.2, R7.13, R7.18, R7.21, R7.23 et
 
 ### Quand x devient très grand
 
-En R5, la suite $u_n = \frac{1}{n}$ se rapprochait de 0. Pour une fonction, $x$ n'avance plus d'entier en entier, mais l'idée est la même : $\frac{1}{x}$ vaut 0,1 pour $x = 10$, 0,001 pour $x = 1\,000$, et devient aussi proche de 0 qu'on veut, pourvu que $x$ soit assez grand. On écrit
+En R5, la suite $u_n = \frac{1}{n}$ se rapprochait de 0. Pour une fonction, $x$ n'avance plus d'entier en entier, mais l'idée est la même : $\frac{1}{x}$ vaut 0,1 pour $x = 10$, 0,001 pour $x = 1\thinspace000$, et devient aussi proche de 0 qu'on veut, pourvu que $x$ soit assez grand. On écrit
 
 $$\lim_{x \to +\infty} \frac{1}{x} = 0,$$
 
@@ -148,7 +148,7 @@ Les fonctions usuelles (polynômes, $\sqrt{x}$, $\frac{1}{x}$, $e^x$, $\ln x$, $
 
 ### Le théorème des valeurs intermédiaires
 
-> **Théorème des valeurs intermédiaires** (admis). Si $f$ est continue sur $[a \;;\; b]$, elle prend toutes les valeurs comprises entre $f(a)$ et $f(b)$. En particulier, si $f(a)$ et $f(b)$ sont de **signes contraires**, $f$ s'annule au moins une fois entre $a$ et $b$.
+> **Théorème des valeurs intermédiaires** (admis). Si $f$ est continue sur $[a \mkern5mu ;\mkern5mu  b]$, elle prend toutes les valeurs comprises entre $f(a)$ et $f(b)$. En particulier, si $f(a)$ et $f(b)$ sont de **signes contraires**, $f$ s'annule au moins une fois entre $a$ et $b$.
 
 C'est l'évidence du crayon : pour passer d'en dessous de l'axe à au-dessus sans le lever, il faut traverser l'axe. Sans continuité, c'est faux : la fonction marche passe de 0 à 1 sans jamais valoir 0,5.
 
@@ -160,10 +160,10 @@ Le théorème dit qu'un zéro existe, pas où il est. La **dichotomie** (*bisect
 
 | Étape | Intervalle | Milieu $m$ | $f(m)$ | On garde |
 |---|---|---|---|---|
-| 1 | $[0 \;;\; 1]$ | 0,5 | −0,375 | $[0{,}5 \;;\; 1]$ |
-| 2 | $[0{,}5 \;;\; 1]$ | 0,75 | 0,172 | $[0{,}5 \;;\; 0{,}75]$ |
-| 3 | $[0{,}5 \;;\; 0{,}75]$ | 0,625 | −0,131 | $[0{,}625 \;;\; 0{,}75]$ |
-| 4 | $[0{,}625 \;;\; 0{,}75]$ | 0,6875 | 0,012 | $[0{,}625 \;;\; 0{,}6875]$ |
+| 1 | $[0 \mkern5mu ;\mkern5mu  1]$ | 0,5 | −0,375 | $[0{,}5 \mkern5mu ;\mkern5mu  1]$ |
+| 2 | $[0{,}5 \mkern5mu ;\mkern5mu  1]$ | 0,75 | 0,172 | $[0{,}5 \mkern5mu ;\mkern5mu  0{,}75]$ |
+| 3 | $[0{,}5 \mkern5mu ;\mkern5mu  0{,}75]$ | 0,625 | −0,131 | $[0{,}625 \mkern5mu ;\mkern5mu  0{,}75]$ |
+| 4 | $[0{,}625 \mkern5mu ;\mkern5mu  0{,}75]$ | 0,6875 | 0,012 | $[0{,}625 \mkern5mu ;\mkern5mu  0{,}6875]$ |
 
 Après 4 étapes, le zéro est dans un intervalle de longueur $\frac{1}{16}$ ; il vaut environ 0,6823. À chaque étape, la longueur est **divisée par 2** : après $n$ étapes, elle vaut $\frac{b - a}{2^n}$. Pour descendre sous $10^{-6}$ en partant d'un intervalle de longueur 1, il faut $2^n \ge 10^6$, soit $n \ge \log_2(10^6) \approx 19{,}9$ : **20 étapes** (R6 §4). La dichotomie est lente mais sûre : elle marche pour toute fonction continue qui change de signe. Tu la programmeras en R7.19.
 
@@ -183,7 +183,7 @@ Pour une fonction $f$, le **taux d'accroissement** entre $a$ et $a + h$ ($h \ne 
 
 $$\frac{f(a + h) - f(a)}{h} :$$
 
-la variation de $f$ divisée par la variation de $x$. C'est la **pente de la sécante**, la droite qui passe par les points $(a \;;\; f(a))$ et $(a + h \;;\; f(a + h))$ de la courbe. Si $f$ est une position, c'est une vitesse moyenne.
+la variation de $f$ divisée par la variation de $x$. C'est la **pente de la sécante**, la droite qui passe par les points $(a \mkern5mu ;\mkern5mu  f(a))$ et $(a + h \mkern5mu ;\mkern5mu  f(a + h))$ de la courbe. Si $f$ est une position, c'est une vitesse moyenne.
 
 ### Le nombre dérivé
 
@@ -200,7 +200,7 @@ Quand $h$ se rapproche de 0, de part et d'autre, le taux se rapproche de 4.
 > **Définition.** $f$ est **dérivable en $a$** si le taux d'accroissement a une limite finie quand $h$ tend vers 0. Cette limite est le **nombre dérivé** de $f$ en $a$ :
 > $$f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}.$$
 
-Ici, $f'(3) = 4$. Géométriquement, quand $h \to 0$, la sécante pivote autour du point $(a \;;\; f(a))$ et se rapproche d'une droite limite, la **tangente** (§4) : $f'(a)$ est sa pente.
+Ici, $f'(3) = 4$. Géométriquement, quand $h \to 0$, la sécante pivote autour du point $(a \mkern5mu ;\mkern5mu  f(a))$ et se rapproche d'une droite limite, la **tangente** (§4) : $f'(a)$ est sa pente.
 
 ![Trois sécantes issues du point (3 ; 3), qui pivotent vers la tangente à mesure que h rétrécit](figures/secantes.png)
 
@@ -235,11 +235,11 @@ Une courbe peut aussi avoir une tangente **verticale** : pour $\sqrt{x}$ en 0, l
 
 ### L'équation de la tangente
 
-La tangente en $a$ passe par le point $(a \;;\; f(a))$ et a pour pente $f'(a)$. Une droite de pente $m$ qui passe par $(a \;;\; b)$ a pour équation $y = b + m(x - a)$ (R3), d'où :
+La tangente en $a$ passe par le point $(a \mkern5mu ;\mkern5mu  f(a))$ et a pour pente $f'(a)$. Une droite de pente $m$ qui passe par $(a \mkern5mu ;\mkern5mu  b)$ a pour équation $y = b + m(x - a)$ (R3), d'où :
 
 $$y = f(a) + f'(a)(x - a).$$
 
-Pour $f(x) = x^2 - 2x$ en $a = 3$ : $f(3) = 3$ et $f'(3) = 4$, donc $y = 3 + 4(x - 3) = 4x - 9$. Elle touche la courbe en $(3 \;;\; 3)$ et reste en dessous partout ailleurs (la parabole est tournée vers le haut).
+Pour $f(x) = x^2 - 2x$ en $a = 3$ : $f(3) = 3$ et $f'(3) = 4$, donc $y = 3 + 4(x - 3) = 4x - 9$. Elle touche la courbe en $(3 \mkern5mu ;\mkern5mu  3)$ et reste en dessous partout ailleurs (la parabole est tournée vers le haut).
 
 Une tangente **horizontale** a une pente nulle : elle se trouve là où $f'(a) = 0$. On s'en servira au §8 pour trouver les sommets et les creux d'une courbe.
 
@@ -247,7 +247,7 @@ Une tangente **horizontale** a une pente nulle : elle se trouve là où $f'(a) =
 
 Près de $a$, la courbe et sa tangente se confondent presque. D'où l'**approximation affine** (ou linéaire) :
 
-$$f(a + h) \approx f(a) + f'(a)\,h \quad \text{pour } h \text{ petit}.$$
+$$f(a + h) \approx f(a) + f'(a)\thinspace h \quad \text{pour } h \text{ petit}.$$
 
 Un exemple concret : un carré a un côté de 3 m, qui s'allonge de 2 cm. Son aire $x^2$ a pour dérivée $2x$, qui vaut 6 en 3 : l'aire augmente d'environ $6 \times 0{,}02 = 0{,}12$ m². La vraie augmentation est $3{,}02^2 - 9 = 0{,}1204$ m² : l'erreur, $0{,}0004 = 0{,}02^2$, est le petit carré du coin, bien plus petit que le pas lui-même. Quand on divise le pas par 10, l'erreur est divisée par 100 : c'est tout l'intérêt de l'approximation.
 
@@ -277,22 +277,22 @@ Repasser par la limite à chaque fois serait long. On calcule une fois pour tout
 |---|---|---|
 | $k$ (une constante) | $0$ | $\mathbb{R}$ |
 | $x$ | $1$ | $\mathbb{R}$ |
-| $x^n$ ($n$ entier) | $n\,x^{n-1}$ | $\mathbb{R}$ (sauf 0 si $n < 0$) |
-| $x^r$ ($r$ réel) | $r\,x^{r-1}$ | $]0 \;;\; +\infty[$ |
+| $x^n$ ($n$ entier) | $n\thinspace x^{n-1}$ | $\mathbb{R}$ (sauf 0 si $n < 0$) |
+| $x^r$ ($r$ réel) | $r\thinspace x^{r-1}$ | $]0 \mkern5mu ;\mkern5mu  +\infty[$ |
 | $\frac{1}{x}$ | $-\frac{1}{x^2}$ | $x \ne 0$ |
-| $\sqrt{x}$ | $\frac{1}{2\sqrt{x}}$ | $]0 \;;\; +\infty[$ |
+| $\sqrt{x}$ | $\frac{1}{2\sqrt{x}}$ | $]0 \mkern5mu ;\mkern5mu  +\infty[$ |
 | $e^x$ | $e^x$ | $\mathbb{R}$ |
-| $\ln x$ | $\frac{1}{x}$ | $]0 \;;\; +\infty[$ |
+| $\ln x$ | $\frac{1}{x}$ | $]0 \mkern5mu ;\mkern5mu  +\infty[$ |
 
 Une constante ne varie pas : sa dérivée est nulle. Une droite $y = mx + p$ a partout la pente $m$.
 
 ### Les puissances
 
-La règle $(x^n)' = n\,x^{n-1}$ : l'exposant descend devant, et diminue de 1. $(x^5)' = 5x^4$, $(x^{-2})' = -2x^{-3}$. Elle reste vraie pour un exposant réel, sur $]0 \;;\; +\infty[$ : $(x^{3/2})' = \frac{3}{2}x^{1/2}$. Les cas $\frac{1}{x} = x^{-1}$ et $\sqrt{x} = x^{1/2}$ en sont des exemples : $(x^{-1})' = -x^{-2}$ et $(x^{1/2})' = \frac{1}{2}x^{-1/2}$. Pour les entiers positifs, tu la démontreras en R7.13 ; on l'admet pour les autres exposants.
+La règle $(x^n)' = n\thinspace x^{n-1}$ : l'exposant descend devant, et diminue de 1. $(x^5)' = 5x^4$, $(x^{-2})' = -2x^{-3}$. Elle reste vraie pour un exposant réel, sur $]0 \mkern5mu ;\mkern5mu  +\infty[$ : $(x^{3/2})' = \frac{3}{2}x^{1/2}$. Les cas $\frac{1}{x} = x^{-1}$ et $\sqrt{x} = x^{1/2}$ en sont des exemples : $(x^{-1})' = -x^{-2}$ et $(x^{1/2})' = \frac{1}{2}x^{-1/2}$. Pour les entiers positifs, tu la démontreras en R7.13 ; on l'admet pour les autres exposants.
 
 **Deux démonstrations par la définition.** Pour $\frac{1}{x}$ :
 
-$$\frac{\frac{1}{x + h} - \frac{1}{x}}{h} = \frac{x - (x + h)}{h\,x(x + h)} = \frac{-1}{x(x + h)} \xrightarrow[h \to 0]{} -\frac{1}{x^2}.$$
+$$\frac{\frac{1}{x + h} - \frac{1}{x}}{h} = \frac{x - (x + h)}{h\thinspace x(x + h)} = \frac{-1}{x(x + h)} \xrightarrow[h \to 0]{} -\frac{1}{x^2}.$$
 
 Pour $\sqrt{x}$, avec la **quantité conjuguée** (on multiplie en haut et en bas par $\sqrt{x + h} + \sqrt{x}$, et $(\sqrt{A} - \sqrt{B})(\sqrt{A} + \sqrt{B}) = A - B$) :
 
@@ -318,7 +318,7 @@ On admet deux encadrements de $e$ par des suites de R5 : $\left(1 + \frac{1}{n}\
 
 $$1 + h \le e^h \le \frac{n}{n - 1} = \frac{1}{1 - h}.$$
 
-En retirant 1 et en divisant par $h > 0$ : $1 \le \frac{e^h - 1}{h} \le \frac{1}{h}\left(\frac{1}{1 - h} - 1\right) = \frac{1}{1 - h}$. Quand $h \to 0$, le majorant tend vers 1 : le taux, coincé entre 1 et un nombre qui tend vers 1, tend lui aussi vers 1 (c'est le théorème d'encadrement, dit « des gendarmes », que l'on admet). Cela prouve la limite pour $h$ de la forme $\frac{1}{n}$ ; on admet que l'encadrement reste vrai pour tout $h$ de $]0 \;;\; 1[$, et un calcul semblable traite les $h$ négatifs.
+En retirant 1 et en divisant par $h > 0$ : $1 \le \frac{e^h - 1}{h} \le \frac{1}{h}\left(\frac{1}{1 - h} - 1\right) = \frac{1}{1 - h}$. Quand $h \to 0$, le majorant tend vers 1 : le taux, coincé entre 1 et un nombre qui tend vers 1, tend lui aussi vers 1 (c'est le théorème d'encadrement, dit « des gendarmes », que l'on admet). Cela prouve la limite pour $h$ de la forme $\frac{1}{n}$ ; on admet que l'encadrement reste vrai pour tout $h$ de $]0 \mkern5mu ;\mkern5mu  1[$, et un calcul semblable traite les $h$ négatifs.
 </details>
 
 ### Le logarithme
@@ -341,17 +341,17 @@ La seconde explique la règle de 70 de R6 : le temps de doublement $\frac{\ln 2}
 
 ### Somme et constante
 
-> $(u + v)' = u' + v'$ et $(k\,u)' = k\,u'$ pour une constante $k$.
+> $(u + v)' = u' + v'$ et $(k\thinspace u)' = k\thinspace u'$ pour une constante $k$.
 
 On dérive terme à terme, et une constante multiplicative reste devant. Ainsi tout polynôme se dérive d'un coup : $(6x^4 - x^3 + 9)' = 24x^3 - 3x^2$. Une constante ajoutée disparaît : $f$ et $f + 7$ ont la même dérivée (leurs courbes sont décalées verticalement, avec les mêmes pentes).
 
 ### Produit
 
-> $(u\,v)' = u'\,v + u\,v'$.
+> $(u\thinspace v)' = u'\thinspace v + u\thinspace v'$.
 
 ⚠️ **Produit de fonctions, pas produit de dérivées.** $x^3 = x^2 \times x$ a pour dérivée $3x^2$, alors que $(x^2)' \times (x)' = 2x \times 1 = 2x$ : multiplier les dérivées ne donne pas la bonne réponse.
 
-L'idée : pense à un rectangle de côtés $u$ et $v$. Si $u$ grandit de $du$ et $v$ de $dv$, l'aire $uv$ grandit de deux bandes, $du \times v$ et $u \times dv$, plus un petit coin $du \times dv$, négligeable quand les deux variations sont petites. D'où $d(uv) \approx v\,du + u\,dv$. Tu en feras la démonstration en R7.13.
+L'idée : pense à un rectangle de côtés $u$ et $v$. Si $u$ grandit de $du$ et $v$ de $dv$, l'aire $uv$ grandit de deux bandes, $du \times v$ et $u \times dv$, plus un petit coin $du \times dv$, négligeable quand les deux variations sont petites. D'où $d(uv) \approx v\thinspace du + u\thinspace dv$. Tu en feras la démonstration en R7.13.
 
 Exemple : $f(x) = (3x + 2) \ln x$, avec $u = 3x + 2$ ($u' = 3$) et $v = \ln x$ ($v' = \frac{1}{x}$) :
 
@@ -359,7 +359,7 @@ $$f'(x) = 3 \ln x + (3x + 2) \times \frac{1}{x} = 3 \ln x + 3 + \frac{2}{x}.$$
 
 ### Quotient
 
-> $\left(\frac{u}{v}\right)' = \frac{u'\,v - u\,v'}{v^2}$, là où $v \ne 0$. En particulier $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
+> $\left(\frac{u}{v}\right)' = \frac{u'\thinspace v - u\thinspace v'}{v^2}$, là où $v \ne 0$. En particulier $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$.
 
 L'ordre compte au numérateur (un signe moins) : $u'v$ **moins** $uv'$. Tu la déduiras de la règle du produit en R7.14.
 
@@ -367,7 +367,7 @@ Exemple : $f(x) = \frac{3x + 1}{x - 2}$, avec $u' = 3$ et $v' = 1$ :
 
 $$f'(x) = \frac{3(x - 2) - (3x + 1) \times 1}{(x - 2)^2} = \frac{-7}{(x - 2)^2}.$$
 
-La dérivée est toujours négative : $f$ décroît sur chacun des intervalles $]-\infty \;;\; 2[$ et $]2 \;;\; +\infty[$.
+La dérivée est toujours négative : $f$ décroît sur chacun des intervalles $]-\infty \mkern5mu ;\mkern5mu  2[$ et $]2 \mkern5mu ;\mkern5mu  +\infty[$.
 
 Avant d'utiliser la règle du quotient, regarde si une écriture plus simple existe : $\frac{x^2 + 1}{x} = x + \frac{1}{x}$ se dérive en $1 - \frac{1}{x^2}$, sans quotient.
 
@@ -406,7 +406,7 @@ Demande-toi quelle opération tu ferais **en dernier** pour calculer $f(x)$ à l
 
 Exemple : $f(x) = (x^2 + 3)^4$. On pose $u = x^2 + 3$ et $z = u^4$. Alors $\frac{dz}{du} = 4u^3$ et $\frac{du}{dx} = 2x$, donc
 
-$$f'(x) = 4(x^2 + 3)^3 \times 2x = 8x\,(x^2 + 3)^3.$$
+$$f'(x) = 4(x^2 + 3)^3 \times 2x = 8x\thinspace(x^2 + 3)^3.$$
 
 L'erreur classique : oublier la dérivée de l'intérieur, et écrire $4(x^2 + 3)^3$. Développer $(x^2 + 3)^4$ pour dériver terme à terme donnerait le même résultat, mais au prix de calculs bien plus longs.
 
@@ -414,11 +414,11 @@ L'erreur classique : oublier la dérivée de l'intérieur, et écrire $4(x^2 + 3
 
 | Composée | Dérivée | Exemple |
 |---|---|---|
-| $u^n$ | $n\,u^{n-1} \times u'$ | $\big((x^2 + 3)^4\big)' = 8x(x^2 + 3)^3$ |
+| $u^n$ | $n\thinspace u^{n-1} \times u'$ | $\big((x^2 + 3)^4\big)' = 8x(x^2 + 3)^3$ |
 | $e^{u}$ | $u' \times e^{u}$ | $(e^{3x})' = 3e^{3x}$ |
 | $\ln u$ | $\frac{u'}{u}$ ($u > 0$) | $\big(\ln(2x + 5)\big)' = \frac{2}{2x + 5}$ |
 | $\sqrt{u}$ | $\frac{u'}{2\sqrt{u}}$ ($u > 0$) | $\big(\sqrt{x^2 + 9}\big)' = \frac{2x}{2\sqrt{x^2 + 9}} = \frac{x}{\sqrt{x^2 + 9}}$ |
-| $g(ax + b)$ | $a\,g'(ax + b)$ | $\left(e^{2 - x}\right)' = -e^{2 - x}$ |
+| $g(ax + b)$ | $a\thinspace g'(ax + b)$ | $\left(e^{2 - x}\right)' = -e^{2 - x}$ |
 
 La dernière ligne, une fonction d'une expression affine, revient sans cesse : l'intérieur a pour dérivée la constante $a$.
 
@@ -426,9 +426,9 @@ La dernière ligne, une fonction d'une expression affine, revient sans cesse : l
 
 Les étages s'enchaînent : on multiplie toutes les dérivées. Pour $f(x) = \ln(1 + \sqrt{x})$, trois étages : $v = \sqrt{x}$, $u = 1 + v$, $z = \ln u$.
 
-$$\frac{dz}{dx} = \frac{dz}{du} \times \frac{du}{dv} \times \frac{dv}{dx} = \frac{1}{1 + \sqrt{x}} \times 1 \times \frac{1}{2\sqrt{x}} = \frac{1}{2\sqrt{x}\,(1 + \sqrt{x})}.$$
+$$\frac{dz}{dx} = \frac{dz}{du} \times \frac{du}{dv} \times \frac{dv}{dx} = \frac{1}{1 + \sqrt{x}} \times 1 \times \frac{1}{2\sqrt{x}} = \frac{1}{2\sqrt{x}\thinspace(1 + \sqrt{x})}.$$
 
-⚠️ **L'ordre de la composition compte.** $(e^x)^2 = e^{2x}$ et $e^{x^2}$ sont deux fonctions différentes, avec des dérivées différentes ($2e^{2x}$ et $2x\,e^{x^2}$). Avant de dériver, demande-toi quelle opération est faite **en dernier** : c'est l'étage extérieur.
+⚠️ **L'ordre de la composition compte.** $(e^x)^2 = e^{2x}$ et $e^{x^2}$ sont deux fonctions différentes, avec des dérivées différentes ($2e^{2x}$ et $2x\thinspace e^{x^2}$). Avant de dériver, demande-toi quelle opération est faite **en dernier** : c'est l'étage extérieur.
 
 ### Deux conséquences
 
@@ -442,7 +442,7 @@ Une formule contient souvent plusieurs lettres. Quand on dérive **par rapport �
 
 Exemple : une somme placée à $r$ par an vaut $p = p_0(1 + r)^t$ au bout de $t$ années (R6).
 - Par rapport à $t$ ($p_0$ et $r$ fixés), c'est une exponentielle de base $1 + r$ : $\frac{dp}{dt} = p_0(1 + r)^t \ln(1 + r)$.
-- Par rapport à $r$ ($p_0$ et $t$ fixés), c'est une puissance de $1 + r$ : $\frac{dp}{dr} = p_0\,t\,(1 + r)^{t - 1}$ (règle de la chaîne, avec $u = 1 + r$ et $\frac{du}{dr} = 1$).
+- Par rapport à $r$ ($p_0$ et $t$ fixés), c'est une puissance de $1 + r$ : $\frac{dp}{dr} = p_0\thinspace t\thinspace(1 + r)^{t - 1}$ (règle de la chaîne, avec $u = 1 + r$ et $\frac{du}{dr} = 1$).
 
 La même formule, dérivée par rapport à deux lettres différentes, donne deux dérivées qui n'ont rien à voir : la première dit l'effet d'une année de plus, la seconde celui d'un taux un peu plus élevé. Quand une grandeur dépend de plusieurs lettres, on écrit souvent $\partial$ (« d rond ») au lieu de $d$ : $\frac{\partial p}{\partial r}$. Ce sont les **dérivées partielles** de workbookIA 0B et de M05b ; ce chapitre garde le $d$.
 
@@ -466,7 +466,7 @@ La même formule, dérivée par rapport à deux lettres différentes, donne deux
 > - si $f'(x) < 0$ partout (même réserve), $f$ y est **strictement décroissante** ;
 > - si $f'(x) = 0$ partout, $f$ y est **constante**.
 
-C'est le lien entre la pente locale et le comportement global : une route dont la pente est positive en chaque point ne fait que monter. Attention au mot « intervalle » : $f(x) = \frac{1}{x}$ a une dérivée négative partout où elle est définie, mais elle n'est pas décroissante sur $]-\infty \;;\; 0[ \cup ]0 \;;\; +\infty[$ tout entier ($f(-1) = -1 < f(1) = 1$) : elle décroît sur chacun des deux intervalles séparément.
+C'est le lien entre la pente locale et le comportement global : une route dont la pente est positive en chaque point ne fait que monter. Attention au mot « intervalle » : $f(x) = \frac{1}{x}$ a une dérivée négative partout où elle est définie, mais elle n'est pas décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0[ \cup ]0 \mkern5mu ;\mkern5mu  +\infty[$ tout entier ($f(-1) = -1 < f(1) = 1$) : elle décroît sur chacun des deux intervalles séparément.
 
 ### Le tableau de variations
 
@@ -493,18 +493,18 @@ $f$ monte jusqu'à 5 en $x = 1$, descend jusqu'à 1 en $x = 3$, puis remonte : u
 ⚠️ **La réciproque est fausse.** $f(x) = x^5$ a pour dérivée $5x^4$, nulle en 0 ; mais $5x^4 \ge 0$ partout : $f$ ne fait que monter, et 0 n'est ni un maximum ni un minimum. Pour conclure, il faut que $f'$ **change de signe** : de $+$ à $-$, un maximum ; de $-$ à $+$, un minimum.
 
 Et un extremum peut se trouver **ailleurs** qu'en un point où $f' = 0$ :
-- **au bord** de l'intervalle : sur $[0 \;;\; 5]$, notre $f$ vaut $f(0) = 1$ et $f(5) = 21$ ; son maximum sur cet intervalle est 21, atteint au bord $x = 5$, et non 5 ; son minimum, 1, est atteint deux fois, en 0 et en 3 ;
+- **au bord** de l'intervalle : sur $[0 \mkern5mu ;\mkern5mu  5]$, notre $f$ vaut $f(0) = 1$ et $f(5) = 21$ ; son maximum sur cet intervalle est 21, atteint au bord $x = 5$, et non 5 ; son minimum, 1, est atteint deux fois, en 0 et en 3 ;
 - **en un point où $f$ n'est pas dérivable** : $\lvert x \rvert$ a son minimum en 0, où elle fait un coin.
 
-Pour trouver le **maximum global** sur $[a \;;\; b]$ d'une fonction dérivable, on compare donc les valeurs aux points où $f' = 0$ **et** aux bords.
+Pour trouver le **maximum global** sur $[a \mkern5mu ;\mkern5mu  b]$ d'une fonction dérivable, on compare donc les valeurs aux points où $f' = 0$ **et** aux bords.
 
 ### Un problème d'optimisation
 
-Une boîte de conserve doit contenir 1 litre (1 000 cm³). Quel rayon $r$ demande le moins de métal ? Avec une hauteur $h$, le volume vaut $\pi r^2 h = 1\,000$, donc $h = \frac{1\,000}{\pi r^2}$ ; la surface de métal (deux disques et un tube) vaut
+Une boîte de conserve doit contenir 1 litre (1 000 cm³). Quel rayon $r$ demande le moins de métal ? Avec une hauteur $h$, le volume vaut $\pi r^2 h = 1\thinspace000$, donc $h = \frac{1\thinspace000}{\pi r^2}$ ; la surface de métal (deux disques et un tube) vaut
 
-$$S(r) = 2\pi r^2 + 2\pi r h = 2\pi r^2 + \frac{2\,000}{r}.$$
+$$S(r) = 2\pi r^2 + 2\pi r h = 2\pi r^2 + \frac{2\thinspace000}{r}.$$
 
-Alors $S'(r) = 4\pi r - \frac{2\,000}{r^2}$, qui s'annule quand $4\pi r^3 = 2\,000$, soit $r = \sqrt[3]{\frac{500}{\pi}} \approx 5{,}42$ cm. $S'$ est négative avant (le terme $-\frac{2\,000}{r^2}$ domine pour $r$ petit), positive après : c'est un minimum. La hauteur vaut alors $h \approx 10{,}84$ cm $= 2r$ : la boîte la plus économe est aussi haute que large.
+Alors $S'(r) = 4\pi r - \frac{2\thinspace000}{r^2}$, qui s'annule quand $4\pi r^3 = 2\thinspace000$, soit $r = \sqrt[3]{\frac{500}{\pi}} \approx 5{,}42$ cm. $S'$ est négative avant (le terme $-\frac{2\thinspace000}{r^2}$ domine pour $r$ petit), positive après : c'est un minimum. La hauteur vaut alors $h \approx 10{,}84$ cm $= 2r$ : la boîte la plus économe est aussi haute que large.
 
 Les étapes sont toujours les mêmes : exprimer la grandeur à optimiser en fonction d'**une seule** variable (ici, grâce à la contrainte du volume), préciser son domaine, dériver, chercher où la dérivée s'annule, vérifier qu'il s'agit bien du minimum (ou du maximum) cherché.
 
@@ -518,7 +518,7 @@ Les étapes sont toujours les mêmes : exprimer la grandeur à optimiser en fonc
 
 Pour dire qu'une quantité « ne grandit pas plus vite qu'une autre », sans s'encombrer des constantes, on utilise la notation de Landau.
 
-> **Définition.** $f(n) = O\big(g(n)\big)$ (« grand O de $g$ ») s'il existe une constante $C$ telle que $\lvert f(n) \rvert \le C\,\lvert g(n) \rvert$ pour tout $n$ assez grand.
+> **Définition.** $f(n) = O\big(g(n)\big)$ (« grand O de $g$ ») s'il existe une constante $C$ telle que $\lvert f(n) \rvert \le C\thinspace\lvert g(n) \rvert$ pour tout $n$ assez grand.
 
 Exemple : $4n^2 + 3n + 10 = O(n^2)$. En effet, pour $n \ge 5$, $3n + 10 \le n^2$ (pour $n = 5$ : $25 \le 25$, et l'écart ne fait que grandir), donc $4n^2 + 3n + 10 \le 5n^2$ : $C = 5$ convient. On ne garde que le terme qui domine, et on oublie son coefficient.
 
@@ -532,7 +532,7 @@ $$1 \ll \log n \ll \sqrt{n} \ll n \ll n \log n \ll n^2 \ll n^3 \ll 2^n.$$
 
 Le grand O sert surtout à dire comment le **temps de calcul** d'un algorithme grandit avec la taille $n$ des données, sans dépendre de la machine :
 
-| Coût | Exemple | $n = 1\,000$ | $n = 1\,000\,000$ |
+| Coût | Exemple | $n = 1\thinspace000$ | $n = 1\thinspace000\thinspace000$ |
 |---|---|---|---|
 | $O(\log n)$ | chercher dans une liste triée en coupant en deux, l'idée de la dichotomie (§2) | 10 étapes | 20 étapes |
 | $O(n)$ | parcourir une liste une fois (une somme, un maximum) | $10^3$ | $10^6$ |
@@ -572,11 +572,11 @@ La notation sert aussi près de 0, avec $h \to 0$ au lieu de $n \to +\infty$ : l
 | inverse | $\left(\frac{1}{x}\right)' = \frac{1}{x^2}$ ou $\ln x$ | $-\frac{1}{x^2}$ (et c'est $\ln x$ qui a pour dérivée $\frac{1}{x}$) |
 | produit | $(uv)' = u'v'$ | $(uv)' = u'v + uv'$ |
 | quotient | $\left(\frac{u}{v}\right)' = \frac{u'}{v'}$, ou $\frac{uv' - u'v}{v^2}$ | $\frac{u'v - uv'}{v^2}$ |
-| règle de la chaîne | $\big((x^2 + 3)^4\big)' = 4(x^2 + 3)^3$ | multiplier par la dérivée de l'intérieur : $\times\, 2x$ |
+| règle de la chaîne | $\big((x^2 + 3)^4\big)' = 4(x^2 + 3)^3$ | multiplier par la dérivée de l'intérieur : $\times\thinspace 2x$ |
 | exponentielle composée | $(e^{3x})' = e^{3x}$ | $3e^{3x}$ |
-| ordre de composition | $(e^x)^2$ et $e^{x^2}$ ont la même dérivée | $2e^{2x}$ et $2x\,e^{x^2}$ |
+| ordre de composition | $(e^x)^2$ et $e^{x^2}$ ont la même dérivée | $2e^{2x}$ et $2x\thinspace e^{x^2}$ |
 | dérivée nulle | $f'(c) = 0$, donc extremum | il faut que $f'$ change de signe ($x^5$ en 0) |
-| extremum sur $[a \;;\; b]$ | seulement là où $f' = 0$ | aussi aux bords, et aux points non dérivables |
+| extremum sur $[a \mkern5mu ;\mkern5mu  b]$ | seulement là où $f' = 0$ | aussi aux bords, et aux points non dérivables |
 | tangente | $y = f'(a)(x - a)$ | $y = f(a) + f'(a)(x - a)$ |
 | plusieurs lettres | dériver $p_0(1 + r)^t$ « en tout » | dire par rapport à quelle lettre ; les autres sont des constantes |
 

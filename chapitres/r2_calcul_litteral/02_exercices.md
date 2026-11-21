@@ -30,12 +30,12 @@ Vrai ou faux ?
 *Fiche §2 · parcours C, E*
 
 Pour chaque transformation, dis si c'est un **développement** ou une **factorisation**, puis si elle est **juste** ou **fausse**.
-1. $4x^2 - 6x \;\longrightarrow\; 2x(2x - 3)$
-2. $(x - 1)(x + 5) \;\longrightarrow\; x^2 + 4x - 5$
-3. $3x(x + 2) \;\longrightarrow\; 3x^2 + 2$
-4. $x^2 - 25 \;\longrightarrow\; (x - 5)^2$
-5. $6x + 9 \;\longrightarrow\; 3(2x + 3)$
-6. $-2(x - 3) \;\longrightarrow\; -2x - 6$
+1. $4x^2 - 6x \mkern5mu \longrightarrow\mkern5mu  2x(2x - 3)$
+2. $(x - 1)(x + 5) \mkern5mu \longrightarrow\mkern5mu  x^2 + 4x - 5$
+3. $3x(x + 2) \mkern5mu \longrightarrow\mkern5mu  3x^2 + 2$
+4. $x^2 - 25 \mkern5mu \longrightarrow\mkern5mu  (x - 5)^2$
+5. $6x + 9 \mkern5mu \longrightarrow\mkern5mu  3(2x + 3)$
+6. $-2(x - 3) \mkern5mu \longrightarrow\mkern5mu  -2x - 6$
 
 ### R2.Q3 — Identités remarquables : vrai ou faux 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
@@ -68,8 +68,8 @@ Vrai ou faux ?
 3. $\dfrac{x}{-2} > 1 \iff x < -2$.
 4. $x + 4 < 1 \iff x < -3$.
 5. $5 - x > 0 \iff x > 5$.
-6. $[2 \;;\; +\infty]$ est une écriture correcte de l'ensemble des réels supérieurs ou égaux à 2.
-7. « $x > 1$ et $x < 4$ » s'écrit $]1 \;;\; +\infty[ \;\cup\; ]-\infty \;;\; 4[$.
+6. $[2 \mkern5mu ;\mkern5mu  +\infty]$ est une écriture correcte de l'ensemble des réels supérieurs ou égaux à 2.
+7. « $x > 1$ et $x < 4$ » s'écrit $]1 \mkern5mu ;\mkern5mu  +\infty[ \mkern5mu \cup\mkern5mu  ]-\infty \mkern5mu ;\mkern5mu  4[$.
 
 ### R2.Q6 — Valeur absolue et distance 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C*
@@ -87,11 +87,11 @@ Vrai ou faux ?
 *Fiche §7 · parcours C, E*
 
 Combien de solutions chaque système a-t-il ? Réponds par **aucune**, **une seule** ou **une infinité**, sans résoudre en entier.
-1. $\begin{cases} x + y = 1 \\ x + y = 2 \end{cases}$
-2. $\begin{cases} x + y = 1 \\ x - y = 1 \end{cases}$
-3. $\begin{cases} x - 2y = 3 \\ 2x - 4y = 6 \end{cases}$
-4. $\begin{cases} y = 3x + 1 \\ y = 3x - 4 \end{cases}$
-5. $\begin{cases} 2x = 4 \\ 3y = 9 \end{cases}$
+1. $\begin{cases} x + y = 1 \cr x + y = 2 \end{cases}$
+2. $\begin{cases} x + y = 1 \cr x - y = 1 \end{cases}$
+3. $\begin{cases} x - 2y = 3 \cr 2x - 4y = 6 \end{cases}$
+4. $\begin{cases} y = 3x + 1 \cr y = 3x - 4 \end{cases}$
+5. $\begin{cases} 2x = 4 \cr 3y = 9 \end{cases}$
 6. Un système de deux équations du premier degré à deux inconnues peut-il avoir **exactement deux** solutions ?
 
 ### R2.Q8 — Quelle équation pour ce problème ? 🧠 ★ ⏱️ 4 min
@@ -100,7 +100,7 @@ Combien de solutions chaque système a-t-il ? Réponds par **aucune**, **une seu
 Pour chaque problème, choisis la bonne mise en équation (a, b ou c).
 
 1. « Un nombre augmenté de 7 vaut le triple de ce nombre. » — a) $x + 7 = 3$ ; b) $x + 7 = 3x$ ; c) $7x = x + 3$.
-2. « Après une baisse de 25 %, un article coûte 30 €. » Avec $p$ le prix de départ : a) $p - 25 = 30$ ; b) $0{,}75\,p = 30$ ; c) $p = 30 \times 1{,}25$.
+2. « Après une baisse de 25 %, un article coûte 30 €. » Avec $p$ le prix de départ : a) $p - 25 = 30$ ; b) $0{,}75\thinspace p = 30$ ; c) $p = 30 \times 1{,}25$.
 3. « Deux nombres ont pour somme 50 et pour différence 12. » — a) $x + y = 50$ et $x - y = 12$ ; b) $x + y = 12$ et $x - y = 50$ ; c) $x + 12 = 50$.
 4. « Le périmètre d'un carré de côté $c$ dépasse son côté de 18 cm. » — a) $c^2 = c + 18$ ; b) $4c = c + 18$ ; c) $4c + 18 = c$.
 5. « Pierre a 5 ans de plus que Lou ; à eux deux, ils ont 41 ans. » Avec $x$ l'âge de Lou : a) $x + 5 = 41$ ; b) $2x + 5 = 41$ ; c) $x + (x - 5) = 41$.
@@ -132,14 +132,14 @@ Sans regarder R1 :
 *Fiche R0 §3 · parcours C*
 
 Sans regarder R0, écris ce que tu taperais dans le notebook pour que `wbm.check` lise :
-1. l'intervalle $]-\infty \;;\; 5]$ ;
+1. l'intervalle $]-\infty \mkern5mu ;\mkern5mu  5]$ ;
 2. les réels $x$ tels que $-1 < x \le 0$ ;
 3. l'expression $3x^2 - x$ ;
 4. les réels strictement négatifs **ou** strictement supérieurs à 2.
 
 Et une question à part :
 
-5. Pourquoi `wbm.check` refuse-t-il l'écriture $[1 \;;\; +\infty]$ ?
+5. Pourquoi `wbm.check` refuse-t-il l'écriture $[1 \mkern5mu ;\mkern5mu  +\infty]$ ?
 
 <a id="papier"></a>
 
@@ -161,7 +161,7 @@ Fais-les **à la main**, en écrivant ta démarche dans ta copie de `06_mes_repo
 | a | la valeur de $2x^2 - 3x + 1$ pour $x = -3$ | un nombre |
 | b | la valeur de $(a - b)^2 - ab$ pour $a = 2$ et $b = -1$ | un nombre |
 | c | $5x - 3 + 2x^2 - 7x + 4 - x^2$ réduite, sous la forme $\alpha x^2 + \beta x + \gamma$ | la liste $[\alpha, \beta, \gamma]$ |
-| d | $4xy - 2x + 3xy + 5x$ réduite, sous la forme $\alpha\, xy + \beta x$ | la liste $[\alpha, \beta]$ |
+| d | $4xy - 2x + 3xy + 5x$ réduite, sous la forme $\alpha\thinspace xy + \beta x$ | la liste $[\alpha, \beta]$ |
 | e | la valeur de $\dfrac{x + 1}{x - 1}$ pour $x = \frac{1}{2}$ | un nombre |
 
 ### Ex R2.2 — Développer ✏️ ★ ⏱️ 15 min
@@ -257,10 +257,10 @@ Donne chaque ensemble sous la forme la plus simple : un seul intervalle quand c'
 
 | | Ensemble |
 |---|---|
-| a | $[-2 \;;\; 5] \cap [1 \;;\; 8]$ |
-| b | $]-\infty \;;\; 3[ \;\cap\; [0 \;;\; +\infty[$ |
-| c | $[-4 \;;\; 1] \cup [0 \;;\; 6[$ |
-| d | $]-\infty \;;\; -1] \;\cap\; [2 \;;\; +\infty[$ |
+| a | $[-2 \mkern5mu ;\mkern5mu  5] \cap [1 \mkern5mu ;\mkern5mu  8]$ |
+| b | $]-\infty \mkern5mu ;\mkern5mu  3[ \mkern5mu \cap\mkern5mu  [0 \mkern5mu ;\mkern5mu  +\infty[$ |
+| c | $[-4 \mkern5mu ;\mkern5mu  1] \cup [0 \mkern5mu ;\mkern5mu  6[$ |
+| d | $]-\infty \mkern5mu ;\mkern5mu  -1] \mkern5mu \cap\mkern5mu  [2 \mkern5mu ;\mkern5mu  +\infty[$ |
 | e | les réels $x$ tels que $x < -2$ **ou** $x \ge 3$ |
 | f | les réels $x$ tels que $2x - 1 > 3$ **et** $3x < 15$ |
 
@@ -286,23 +286,23 @@ Résous chaque système (au moins un par substitution, au moins un par combinais
 
 | | Système |
 |---|---|
-| a | $\begin{cases} x + 2y = 8 \\ 3x - y = 3 \end{cases}$ |
-| b | $\begin{cases} 5x + 2y = 1 \\ 3x + 4y = -5 \end{cases}$ |
-| c | $\begin{cases} 4x - 3y = 17 \\ 2x + y = 1 \end{cases}$ |
-| d | $\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4 \\ x - y = 3 \end{cases}$ |
+| a | $\begin{cases} x + 2y = 8 \cr 3x - y = 3 \end{cases}$ |
+| b | $\begin{cases} 5x + 2y = 1 \cr 3x + 4y = -5 \end{cases}$ |
+| c | $\begin{cases} 4x - 3y = 17 \cr 2x + y = 1 \end{cases}$ |
+| d | $\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4 \cr x - y = 3 \end{cases}$ |
 
 ### Ex R2.11 — Système 2 × 2 par la formule de Cramer ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer un déterminant 2 × 2, appliquer la formule de Cramer, et conclure quand le déterminant est nul.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-On note $(S)$ le système $\begin{cases} 2x + 5y = 1 \\ 3x - y = 10 \end{cases}$.
+On note $(S)$ le système $\begin{cases} 2x + 5y = 1 \cr 3x - y = 10 \end{cases}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le déterminant $D$ de $(S)$ | un nombre |
 | b | la solution de $(S)$, par la formule de Cramer | la liste $[x, y]$ |
-| c | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \\ -4x + 6y = -8 \end{cases}$ | 1, 2 ou 3 |
-| d | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \\ -4x + 6y = 1 \end{cases}$ | 1, 2 ou 3 |
+| c | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \cr -4x + 6y = -8 \end{cases}$ | 1, 2 ou 3 |
+| d | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \cr -4x + 6y = 1 \end{cases}$ | 1, 2 ou 3 |
 
 ### Ex R2.12 — Mettre en équation : trois problèmes ✏️ ★★ ⏱️ 25 min
 **Objectif :** choisir l'inconnue, traduire l'énoncé, résoudre, vérifier dans l'énoncé.
@@ -350,12 +350,12 @@ Soient $a$ et $b$ deux réels tels que $a < b$.
 **Objectif :** démontrer qu'un système 2 × 2 a une seule solution exactement quand son déterminant n'est pas nul, et décrire les deux autres cas.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-On étudie le système $(S)$ : $\begin{cases} ax + by = e \\ cx + dy = f \end{cases}$, de déterminant $D = ad - bc$.
-1. Soit $(x, y)$ une solution de $(S)$. En multipliant la première équation par $d$, la seconde par $b$, puis en soustrayant, montre que $D\,x = ed - bf$. Montre de même que $D\,y = af - ec$.
+On étudie le système $(S)$ : $\begin{cases} ax + by = e \cr cx + dy = f \end{cases}$, de déterminant $D = ad - bc$.
+1. Soit $(x, y)$ une solution de $(S)$. En multipliant la première équation par $d$, la seconde par $b$, puis en soustrayant, montre que $D\thinspace x = ed - bf$. Montre de même que $D\thinspace y = af - ec$.
 2. On suppose $D \ne 0$. Déduis de 1 que $(S)$ a **au plus** une solution, puis vérifie, en le substituant dans la **première** équation, que le couple de Cramer est bien solution (la seconde se vérifie de la même façon ; tu peux l'admettre). Conclus.
 3. On suppose $D = 0$, avec $a \ne 0$ (les cas où $a = 0$ se traitent en échangeant les rôles des équations ou des inconnues : tu peux les admettre). Pose $k = \dfrac{c}{a}$. Montre que $c = ka$ et $d = kb$ (utilise $ad = bc$) : la seconde équation s'écrit $k(ax + by) = f$.
 4. Toujours avec $D = 0$ et $a \ne 0$ : montre que si $f = ke$, tout couple qui vérifie la première équation vérifie aussi la seconde (une infinité de solutions), et que si $f \ne ke$, aucun couple ne vérifie les deux (aucune solution).
-5. Conclus : « $(S)$ a une seule solution si et seulement si $D \ne 0$ ». Applique le critère au système $\begin{cases} 6x - 4y = 2 \\ -9x + 6y = m \end{cases}$ : pour quelle valeur de $m$ a-t-il une infinité de solutions ?
+5. Conclus : « $(S)$ a une seule solution si et seulement si $D \ne 0$ ». Applique le critère au système $\begin{cases} 6x - 4y = 2 \cr -9x + 6y = m \end{cases}$ : pour quelle valeur de $m$ a-t-il une infinité de solutions ?
 
 <a id="reflexion"></a>
 
@@ -365,7 +365,7 @@ On étudie le système $(S)$ : $\begin{cases} ax + by = e \\ cx + dy = f \end{ca
 **Objectif :** retrouver les deux paramètres d'un modèle affine à partir de deux mesures, et voir ce qui change avec une troisième.
 **Prérequis :** fiche §7 et §8 · **Parcours :** C, E
 
-Un capteur de température renvoie une tension $u$, en volts. Son fabricant indique que la température vaut $T = a\,u + b$ (en °C), mais ne donne ni $a$ ni $b$. Pour **étalonner** le capteur, on fait deux mesures : quand $u = 0{,}8$ V, un thermomètre de référence indique $T = 12$ °C ; quand $u = 2$ V, il indique $T = 42$ °C.
+Un capteur de température renvoie une tension $u$, en volts. Son fabricant indique que la température vaut $T = a\thinspace u + b$ (en °C), mais ne donne ni $a$ ni $b$. Pour **étalonner** le capteur, on fait deux mesures : quand $u = 0{,}8$ V, un thermomètre de référence indique $T = 12$ °C ; quand $u = 2$ V, il indique $T = 42$ °C.
 
 | | Question | Réponse attendue |
 |---|---|---|

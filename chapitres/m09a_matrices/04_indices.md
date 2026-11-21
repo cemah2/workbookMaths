@@ -112,7 +112,7 @@ Un système linéaire a 0, 1 ou une infinité de solutions ; un système homogè
 </details>
 <details><summary>Indice 3</summary>
 
-2 : pense à M09a.17. 5 : que dit la ligne $(0 \;\; 0 \;\; 0 \mid 5)$ ? 6 : combien de pivots au plus, pour combien d'inconnues ?
+2 : pense à M09a.17. 5 : que dit la ligne $(0 \mkern5mu \mkern5mu  0 \mkern5mu \mkern5mu  0 \mid 5)$ ? 6 : combien de pivots au plus, pour combien d'inconnues ?
 
 </details>
 
@@ -277,7 +277,7 @@ Relis « Le coût d'un produit, et l'ordre des parenthèses » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Un produit $(n, p) \times (p, m)$ coûte $n\,p\,m$ multiplications ; pour un produit de trois matrices, additionne les coûts des deux produits, avec la forme du résultat intermédiaire.
+Un produit $(n, p) \times (p, m)$ coûte $n\thinspace p\thinspace m$ multiplications ; pour un produit de trois matrices, additionne les coûts des deux produits, avec la forme du résultat intermédiaire.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -300,7 +300,7 @@ $\mathbf{X}\mathbf{W}$ a une ligne par exemple et une colonne par neurone ; $\ma
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{X}\mathbf{W} = \begin{pmatrix} 4 & 5 \\ -1 & 7 \end{pmatrix}$. f) PyTorch range une ligne par neurone.
+$\mathbf{X}\mathbf{W} = \begin{pmatrix} 4 & 5 \cr -1 & 7 \end{pmatrix}$. f) PyTorch range une ligne par neurone.
 
 </details>
 
@@ -367,7 +367,7 @@ Relis « Trois cas, et seulement trois » (fiche §5) et « La forme échelonné
 </details>
 <details><summary>Indice 2</summary>
 
-Applique les opérations de l'énoncé aux deux systèmes : seule la dernière colonne change. Une ligne $(0 \;\; 0 \;\; 0 \mid c)$ avec $c \ne 0$ n'a pas de solution.
+Applique les opérations de l'énoncé aux deux systèmes : seule la dernière colonne change. Une ligne $(0 \mkern5mu \mkern5mu  0 \mkern5mu \mkern5mu  0 \mid c)$ avec $c \ne 0$ n'a pas de solution.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -403,7 +403,7 @@ Relis « Le cas $2 \times 2$ » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
+$\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -444,7 +444,7 @@ Relis la fiche §8.
 </details>
 <details><summary>Indice 3</summary>
 
-b) et e) Écris $(2, -1, 1) = a\,(1, 0, 1) + b\,(0, 1, 1)$. c) Essaie d'écrire les colonnes 3 et 4 de $\mathbf{M}_3$ avec les colonnes 1 et 2. g) Rang des lignes et rang des colonnes.
+b) et e) Écris $(2, -1, 1) = a\thinspace(1, 0, 1) + b\thinspace(0, 1, 1)$. c) Essaie d'écrire les colonnes 3 et 4 de $\mathbf{M}_3$ avec les colonnes 1 et 2. g) Rang des lignes et rang des colonnes.
 
 </details>
 
@@ -479,12 +479,12 @@ Relis les définitions du produit (fiche §3) et de la transposée (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{M}^\top)_{ij} = m_{ji}$ et $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$.
+$(\mathbf{M}^\top) _{ij} = m _{ji}$ et $(\mathbf{A}\mathbf{B}) _{ij} = \sum_k a  _{ik}b _{kj}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\big((\mathbf{A}\mathbf{B})^\top\big)_{ij} = (\mathbf{A}\mathbf{B})_{ji}$. 3 : $(\mathbf{B}^\top)_{ik} = b_{ki}$ et $(\mathbf{A}^\top)_{kj} = a_{jk}$. 6 : $(\mathbf{X}^\top)^\top = \mathbf{X}$.
+2 : $\big((\mathbf{A}\mathbf{B})^\top\big) _{ij} = (\mathbf{A}\mathbf{B}) _{ji}$. 3 : $(\mathbf{B}^\top) _{ik} = b _{ki}$ et $(\mathbf{A}^\top) _{kj} = a _{jk}$. 6 : $(\mathbf{X}^\top)^\top = \mathbf{X}$.
 
 </details>
 
@@ -515,7 +515,7 @@ Relis « Trois cas, et seulement trois » (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Le produit est distributif : $\mathbf{A}(\mathbf{u} + t\,\mathbf{v}) = \mathbf{A}\mathbf{u} + t\,\mathbf{A}\mathbf{v}$.
+Le produit est distributif : $\mathbf{A}(\mathbf{u} + t\thinspace\mathbf{v}) = \mathbf{A}\mathbf{u} + t\thinspace\mathbf{A}\mathbf{v}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -560,7 +560,7 @@ Suis les formes : $(64, 3) \to (64, 5) \to (64, 2)$. Chaque couche a un poids pa
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{x}\mathbf{W}_1 = 1 \times (1, 0, 2) - 1 \times (-1, 1, 1)$, puis $+\,\mathbf{b}_1$, puis ReLU. g) $(2, 3) \times (3, 1)$ : un produit scalaire par ligne de $\mathbf{W}_1$ avec la colonne $\mathbf{W}_2$.
+e) $\mathbf{x}\mathbf{W}_1 = 1 \times (1, 0, 2) - 1 \times (-1, 1, 1)$, puis $+\thinspace\mathbf{b}_1$, puis ReLU. g) $(2, 3) \times (3, 1)$ : un produit scalaire par ligne de $\mathbf{W}_1$ avec la colonne $\mathbf{W}_2$.
 
 </details>
 
@@ -627,12 +627,12 @@ Relis « Le coût d'un produit » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Pour une image, une couche de $n_{\text{in}}$ entrées et $n_{\text{out}}$ neurones coûte $n_{\text{in}}\,n_{\text{out}}$ multiplications.
+Pour une image, une couche de $n_{\text{in}}$ entrées et $n_{\text{out}}$ neurones coûte $n_{\text{in}}\thinspace n_{\text{out}}$ multiplications.
 
 </details>
 <details><summary>Indice 3</summary>
 
-$3\,072 \times 1\,024 + 1\,024 \times 256 + 256 \times 10$. 4 : réduire une couche cachée change deux produits, celui qui y entre et celui qui en sort.
+$3\thinspace072 \times 1\thinspace024 + 1\thinspace024 \times 256 + 256 \times 10$. 4 : réduire une couche cachée change deux produits, celui qui y entre et celui qui en sort.
 
 </details>
 
@@ -667,7 +667,7 @@ Relis « Le coût d'un produit, et l'ordre des parenthèses » (fiche §3) et M0
 </details>
 <details><summary>Indice 2</summary>
 
-Le coût : $n\,p\,m$. Le parallélisme : les $n\,m$ produits scalaires sont indépendants.
+Le coût : $n\thinspace p\thinspace m$. Le parallélisme : les $n\thinspace m$ produits scalaires sont indépendants.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -797,7 +797,7 @@ Relis « Le coût d'un produit » (fiche §3) et R6 (logarithmes).
 </details>
 <details><summary>Indice 2</summary>
 
-Si $t \approx c\,n^3$, alors $\ln t \approx 3\ln n + \ln c$ : une droite de pente 3 en fonction de $\ln n$.
+Si $t \approx c\thinspace n^3$, alors $\ln t \approx 3\ln n + \ln c$ : une droite de pente 3 en fonction de $\ln n$.
 
 </details>
 <details><summary>Indice 3</summary>

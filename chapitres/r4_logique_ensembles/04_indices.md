@@ -76,7 +76,7 @@ $\in$ relie un **élément** à un ensemble, $\subset$ un **ensemble** à un ens
 </details>
 <details><summary>Indice 3</summary>
 
-1 : 4 est un élément de $A$, **vrai**. Pour 2, $\{4\}$ est un ensemble : est-il un élément de $A$ ? Pour 7, 1 est-il dans $]0 \;;\; 1[$ ?
+1 : 4 est un élément de $A$, **vrai**. Pour 2, $\lbrace4\rbrace$ est un ensemble : est-il un élément de $A$ ? Pour 7, 1 est-il dans $]0 \mkern5mu ;\mkern5mu  1[$ ?
 
 </details>
 
@@ -282,7 +282,7 @@ Relis « Les opérations » et « Compter une union » (fiche §4).
 </details>
 <details><summary>Indice 3</summary>
 
-$A = \{1, 4, 9, 16, 25\}$ et $B = \{2, 3, 5, 7, 11, 13, 17, 19, 23\}$ : a, un carré peut-il être premier ? Pour g, calcule d'abord $\lvert A \cup C \rvert$ (25 est dans les deux). Pour h, représente l'association par un diagramme de Venn.
+$A = \lbrace1, 4, 9, 16, 25\rbrace$ et $B = \lbrace2, 3, 5, 7, 11, 13, 17, 19, 23\rbrace$ : a, un carré peut-il être premier ? Pour g, calcule d'abord $\lvert A \cup C \rvert$ (25 est dans les deux). Pour h, représente l'association par un diagramme de Venn.
 
 </details>
 

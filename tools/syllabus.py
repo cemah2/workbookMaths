@@ -48,6 +48,10 @@ if str(ROOT / "src") not in sys.path:
 
 from wbm import chapters as wch  # noqa: E402
 
+if str(ROOT / "tools") not in sys.path:
+    sys.path.insert(0, str(ROOT / "tools"))
+from mdmath import fix_text  # noqa: E402
+
 DATA = ROOT / "docs" / "syllabus" / "data"
 SNAPSHOT = ROOT / "docs" / "syllabus" / "workbookia_notions.json"
 STUBS = ROOT / "templates" / "mymath_stubs"
@@ -697,7 +701,8 @@ def render(chapters: dict, warnings: list[str], coverage: dict, snapshot: dict, 
         if published(ch, root):
             sections += ["", dashboard_chapter_section(cid, ch)]
     files[board] = "\n".join(sections) + "\n"
-    return files
+    # formulas that GitHub displays as Colab does (tools/mdmath.py, BIBLE §24, session 79)
+    return {path: fix_text(text) if path.suffix == ".md" else text for path, text in files.items()}
 
 
 def build(chapters: dict | None = None, out=print) -> int:

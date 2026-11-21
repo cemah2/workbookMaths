@@ -54,11 +54,11 @@ j) Si un traitement a un meilleur taux de réussite qu'un autre dans chacun de d
 
 ### CP1.1 — Intégrales et densité : une aire, une fonction de répartition, un quantile ✏️ ★★ ⏱️ 10 min · 1,5 point
 
-La question a) est indépendante de la suite. Pour b) à f), on pose $f(x) = c\,(x + 1)$ pour $0 \le x \le 2$, et $f(x) = 0$ ailleurs ; $X$ est une variable aléatoire de densité $f$.
+La question a) est indépendante de la suite. Pour b) à f), on pose $f(x) = c\thinspace(x + 1)$ pour $0 \le x \le 2$, et $f(x) = 0$ ailleurs ; $X$ est une variable aléatoire de densité $f$.
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\displaystyle\int_0^2 x\,e^{x/2}\,dx$ (par parties) | un nombre (valeur exacte, ou 3 décimales) |
+| a | $\displaystyle\int_0^2 x\thinspace e^{x/2}\thinspace dx$ (par parties) | un nombre (valeur exacte, ou 3 décimales) |
 | b | la constante $c$ qui fait de $f$ une densité | une fraction irréductible |
 | c | la fonction de répartition $F(x) = P(X \le x)$, pour $0 \le x \le 2$ | une expression en $x$ |
 | d | $P(1 < X \le 2)$ | une fraction irréductible |
@@ -178,7 +178,7 @@ Les entropies se calculent en bits. Valeurs utiles : $\log_2 3 \approx 1{,}5850$
 |---|---|---|
 | a | $H(p)$ | un nombre (3 décimales) |
 | b | la cross-entropy $H(p, q)$ | un nombre (3 décimales) |
-| c | $\mathrm{KL}(p \,\|\, q)$ | un nombre (3 décimales) |
+| c | $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ | un nombre (3 décimales) |
 | d | $P(\text{question} \mid F = 1)$ | une fraction irréductible |
 | e | $H(Y \mid F)$ | un nombre (2 décimales) |
 | f | l'information mutuelle $I(F ; Y)$ | un nombre (2 décimales) |
@@ -187,14 +187,14 @@ Les entropies se calculent en bits. Valeurs utiles : $\log_2 3 \approx 1{,}5850$
 
 Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, chaque étape et la règle qui la justifie, ce que tu conclus.
 
-**Sujet A — Combiner deux mesures.** Deux balances pèsent le même colis, de masse $\mu$. Leurs mesures $X_1$ et $X_2$ sont indépendantes, avec $\mathbb{E}[X_1] = \mathbb{E}[X_2] = \mu$, $\mathbb{V}(X_1) = \sigma_1^2$ et $\mathbb{V}(X_2) = \sigma_2^2$ (deux réels strictement positifs). Pour un réel $w$, on pose $T_w = w\,X_1 + (1 - w)\,X_2$.
+**Sujet A — Combiner deux mesures.** Deux balances pèsent le même colis, de masse $\mu$. Leurs mesures $X_1$ et $X_2$ sont indépendantes, avec $\mathbb{E}[X_1] = \mathbb{E}[X_2] = \mu$, $\mathbb{V}(X_1) = \sigma_1^2$ et $\mathbb{V}(X_2) = \sigma_2^2$ (deux réels strictement positifs). Pour un réel $w$, on pose $T_w = w\thinspace X_1 + (1 - w)\thinspace X_2$.
 1. Montre que $T_w$ est un estimateur sans biais de $\mu$, quel que soit $w$. **[0,25]**
 2. Montre que $\mathbb{V}(T_w) = w^2 \sigma_1^2 + (1 - w)^2 \sigma_2^2$, en nommant les règles utilisées. **[0,5]**
-3. Trouve le $w^*$ qui rend $\mathbb{V}(T_w)$ la plus petite possible, et justifie que c'est bien un minimum. **[0,5]**
-4. Montre que $\mathbb{V}(T_{w^*}) = \dfrac{\sigma_1^2\,\sigma_2^2}{\sigma_1^2 + \sigma_2^2}$, et que cette variance est plus petite que $\sigma_1^2$ et que $\sigma_2^2$. **[0,5]**
-5. Que deviennent $w^*$ et $\mathbb{V}(T_{w^*})$ quand $\sigma_1 = \sigma_2$ ? Quel résultat du cours retrouves-tu ? **[0,25]**
+3. Trouve le $w^\ast$ qui rend $\mathbb{V}(T_w)$ la plus petite possible, et justifie que c'est bien un minimum. **[0,5]**
+4. Montre que $\mathbb{V}(T_{w^\ast}) = \dfrac{\sigma_1^2\thinspace\sigma_2^2}{\sigma_1^2 + \sigma_2^2}$, et que cette variance est plus petite que $\sigma_1^2$ et que $\sigma_2^2$. **[0,5]**
+5. Que deviennent $w^\ast$ et $\mathbb{V}(T_{w^\ast})$ quand $\sigma_1 = \sigma_2$ ? Quel résultat du cours retrouves-tu ? **[0,25]**
 
-**Sujet B — Une courbe convexe est au-dessus de ses tangentes.** Soit $f$ une fonction deux fois dérivable sur $\mathbb{R}$, avec $f''(x) \ge 0$ pour tout $x$, et $a$ un réel. On pose $g(x) = f(x) - \big[f(a) + f'(a)\,(x - a)\big]$.
+**Sujet B — Une courbe convexe est au-dessus de ses tangentes.** Soit $f$ une fonction deux fois dérivable sur $\mathbb{R}$, avec $f''(x) \ge 0$ pour tout $x$, et $a$ un réel. On pose $g(x) = f(x) - \big[f(a) + f'(a)\thinspace(x - a)\big]$.
 1. Calcule $g(a)$, $g'(x)$, $g'(a)$ et $g''(x)$. **[0,5]**
 2. Déduis-en le sens de variation de $g'$, puis le signe de $g'(x)$ selon que $x < a$ ou $x > a$, puis que $g(x) \ge 0$ pour tout réel $x$. Traduis ce résultat en une phrase sur la courbe de $f$. **[0,75]**
 3. Déduis-en que $e^x \ge 1 + x$ pour tout réel $x$. **[0,25]**
@@ -205,12 +205,12 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
 - **(A)** Si $X$ suit la loi normale de moyenne 12 et de variance 0,25, alors $P(X > 12{,}6) = P(Z > 2{,}4)$, où $Z$ suit la loi normale centrée réduite.
-- **(B)** $\displaystyle\int_0^1 2x\,e^{x^2}\,dx = e - 1$.
+- **(B)** $\displaystyle\int_0^1 2x\thinspace e^{x^2}\thinspace dx = e - 1$.
 - **(C)** 25 mesures indépendantes ont un écart-type de 10 : l'erreur type de leur moyenne vaut $\frac{10}{25} = 0{,}4$.
 - **(D)** $P(A) = 0{,}2$, $P(B) = 0{,}5$ et $P(B \mid A) = 0{,}6$, donc $P(A \mid B) = 0{,}6$.
 - **(E)** Avec l'a priori $\mathrm{Beta}(2, 2)$, après 3 succès en 5 essais, l'a posteriori est $\mathrm{Beta}(5, 4)$.
 - **(F)** Pour résoudre $x^3 - 2 = 0$ par la méthode de Newton depuis $x_0 = 1$ : $x_1 = 1 - \frac{3}{-1} = 4$.
-- **(G)** Pour $p = (0{,}6 ;\ 0{,}4)$ et $q = (0{,}3 ;\ 0{,}7)$ : $\mathrm{KL}(p \,\|\, q) = 0{,}6 \log_2 \frac{0{,}3}{0{,}6} + 0{,}4 \log_2 \frac{0{,}7}{0{,}4} \approx -0{,}277$ bit.
+- **(G)** Pour $p = (0{,}6 ;\ 0{,}4)$ et $q = (0{,}3 ;\ 0{,}7)$ : $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 0{,}6 \log_2 \frac{0{,}3}{0{,}6} + 0{,}4 \log_2 \frac{0{,}7}{0{,}4} \approx -0{,}277$ bit.
 - **(H)** Pour $y > 0$, la dérivée partielle de $x \ln y$ par rapport à $y$ vaut $\frac{x}{y}$.
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
@@ -220,7 +220,7 @@ b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en
 
 Un service de vélos en libre-service ne garde dans son journal que les jours où au moins un vélo a été signalé en panne. On modélise le nombre de signalements d'un jour par une loi de Poisson de paramètre $\lambda > 0$ ; un jour n'apparaît dans le journal que s'il compte au moins un signalement, si bien que le nombre de signalements d'un jour **du journal** suit la loi
 
-$$P(X = k) = \frac{e^{-\lambda}\,\lambda^k}{k!\,\left(1 - e^{-\lambda}\right)}, \qquad k = 1, 2, 3, \ldots$$
+$$P(X = k) = \frac{e^{-\lambda}\thinspace\lambda^k}{k!\thinspace\left(1 - e^{-\lambda}\right)}, \qquad k = 1, 2, 3, \ldots$$
 
 Le journal compte 20 jours, et 32 signalements en tout. On cherche le maximum de vraisemblance $\hat{\lambda}$.
 
@@ -228,7 +228,7 @@ Le journal compte 20 jours, et 32 signalements en tout. On cherche le maximum de
 |---|---|---|
 | a | $P(X = 1)$ quand $\lambda = 2$ | un nombre (3 décimales) |
 | b | écris la log-vraisemblance $\ell(\lambda)$ des 20 jours (à une constante près) sur ta copie, puis donne $\ell'(\lambda)$ | une expression en $\lambda$ (écrite `lam`) |
-| c | montre sur ta copie que, pour $\lambda > 0$, $\ell'(\lambda) = 0$ équivaut à $g(\lambda) = \lambda - 1{,}6\,\left(1 - e^{-\lambda}\right) = 0$, puis fais un pas de la méthode de Newton sur $g$ depuis $\lambda_0 = 1{,}6$ : $\lambda_1$ | un nombre (3 décimales) |
+| c | montre sur ta copie que, pour $\lambda > 0$, $\ell'(\lambda) = 0$ équivaut à $g(\lambda) = \lambda - 1{,}6\thinspace\left(1 - e^{-\lambda}\right) = 0$, puis fais un pas de la méthode de Newton sur $g$ depuis $\lambda_0 = 1{,}6$ : $\lambda_1$ | un nombre (3 décimales) |
 | d | le pas suivant, $\lambda_2$ | un nombre (3 décimales) |
 | e | l'estimation $\hat{\lambda}$, en continuant les pas | un nombre (3 décimales) |
 | f | vrai ou faux : $\ell'(1) > 0$ (sur ta copie : que dit le signe de $\ell'$ de part et d'autre de $\hat{\lambda}$ ?) | `True` ou `False` |

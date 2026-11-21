@@ -68,11 +68,11 @@ Vocabulaire anglais de ce chapitre : *linear Gaussian recursion*, *autoregressiv
 ## L'essentiel en 9 lignes
 
 1. **Récurrence** $x_t = a_tx_{t-1} + b_t\varepsilon_t$ : $m_t = a_tm_{t-1}$, $v_t = a_t^2v_{t-1} + b_t^2$ ; sachant $x_0$, moyenne $(a_1\cdots a_t)x_0$, variance $\sum_kb_k^2(a_{k+1}\cdots a_t)^2$. **AR(1)** : pour $\lvert a\rvert < 1$, loi stationnaire $\mathcal{N}\big(0, \frac{b^2}{1 - a^2}\big)$, écarts en $\lvert a\rvert^t$ et $a^{2t}$ ; aucune pour $\lvert a\rvert \ge 1$. **Survie** : $e^{-H - \sum h_k^2} \le \prod(1 - h_k) \le e^{-H}$ pour des $h_k \le \frac12$.
-2. **Pont** d'une marche aléatoire : $x_s \mid x_0, x_T \sim \mathcal{N}\big(x_0 + \frac{V_s}{V_T}(x_T - x_0), \frac{V_s(V_T - V_s)}{V_T}\big)$. **Couplages** : $\sqrt{\omega^2 - \sigma^2}\,U + \sigma Z \sim \mathcal{N}(0, \omega^2)$ ; les marges ne fixent pas les corrélations.
+2. **Pont** d'une marche aléatoire : $x_s \mid x_0, x_T \sim \mathcal{N}\big(x_0 + \frac{V_s}{V_T}(x_T - x_0), \frac{V_s(V_T - V_s)}{V_T}\big)$. **Couplages** : $\sqrt{\omega^2 - \sigma^2}\thinspace U + \sigma Z \sim \mathcal{N}(0, \omega^2)$ ; les marges ne fixent pas les corrélations.
 3. **SNR** $= \frac{a^2}{b^2} = \frac{\gamma}{1 - \gamma}$, $\ln\operatorname{SNR} = \operatorname{logit}\gamma$, $10\log_{10}\operatorname{SNR}$ dB ; $\hat x = \frac{y - b\hat n}{a}$, erreur sur $x$ = erreur sur $n$ divisée par $\sqrt{\operatorname{SNR}}$, au signe près.
 4. **MSE** : $\mathbb{E}[(Y - g(X))^2] = \mathbb{E}[\mathbb{V}(Y \mid X)] + \mathbb{E}[(\mathbb{E}[Y \mid X] - g(X))^2]$ (∂ MB5.11) : la MSE apprend $\mathbb{E}[Y \mid X]$, entre les modes ; la MAE une médiane.
-5. **Score** $(\ln p)'(x)$ ; **Tweedie** : $\mathbb{E}[n \mid y] = -b\,s_Y(y)$, $\mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}$ (∂ MB5.12) ; mélange : responsabilités et moyennes a posteriori ; un nuage de points est recopié quand $b \to 0$. **Langevin** : $x_{k+1} = x_k + \frac h2(\ln p)'(x_k) + \sqrt h\,\varepsilon_k$.
-6. **ELBO d'une chaîne** $=$ reconstruction $-$ KL finale $- \sum_{t \ge 2}\mathbb{E}_q\big[\mathrm{KL}(q(z_{t-1} \mid z_t, x) \,\|\, p(z_{t-1} \mid z_t))\big]$ (∂ MB5.13) ; de même variance $\sigma^2$, une KL gaussienne vaut $\frac{(\mu_q - \mu_p)^2}{2\sigma^2}$.
+5. **Score** $(\ln p)'(x)$ ; **Tweedie** : $\mathbb{E}[n \mid y] = -b\thinspace s_Y(y)$, $\mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}$ (∂ MB5.12) ; mélange : responsabilités et moyennes a posteriori ; un nuage de points est recopié quand $b \to 0$. **Langevin** : $x_{k+1} = x_k + \frac h2(\ln p)'(x_k) + \sqrt h\thinspace\varepsilon_k$.
+6. **ELBO d'une chaîne** $=$ reconstruction $-$ KL finale $- \sum_{t \ge 2}\mathbb{E} _q\big[\mathrm{KL}(q(z  _{t-1} \mid z_t, x) \thinspace\Vert\thinspace p(z _{t-1} \mid z_t))\big]$ (∂ MB5.13) ; de même variance $\sigma^2$, une KL gaussienne vaut $\frac{(\mu_q - \mu_p)^2}{2\sigma^2}$.
 7. **Guider** : $(1 + w)\nabla\ln p_c - w\nabla\ln p_u = \nabla\ln(p_c^{1+w}p_u^{-w})$ ; deux gaussiennes : précision $\frac{1 + w}{\sigma_c^2} - \frac{w}{\sigma_u^2}$, positive pour tout $w \ge 0$ si $\sigma_c \le \sigma_u$, sinon jusqu'à $w^\star = \frac{\sigma_u^2}{\sigma_c^2 - \sigma_u^2}$.
 8. **Euler** $x_{k+1} = x_k + hf(t_k, x_k)$, $h < 0$ pour remonter ; erreur d'un pas $\frac12h^2x''(\xi)$, ordre 1 ; **point milieu** : deux évaluations par pas, exact pour une vitesse affine en $t$, ordre 2.
 9. **Flow matching** : $x_s = (1 - s)x_0 + s\varepsilon$, $v(x, s) = \mathbb{E}[\varepsilon - x_0 \mid x_s = x] = \frac{x - \mathbb{E}[x_0 \mid x_s = x]}{s}$ ; données $\mathcal{N}(m, \tau^2)$ : $x(s) = (1 - s)m + \sigma(s)z$, $\sigma(s)^2 = (1 - s)^2\tau^2 + s^2$ ; un seul pas d'Euler depuis $s = 1$ rend $m$.
@@ -96,7 +96,7 @@ C'est le **pas de prédiction** (*prediction step*) d'un **filtre de Kalman** (*
 **Exemple.** Le voilier part d'un écart connu $x_0 = 8$, puis traverse trois minutes de mer hachée, avec $a = (0{,}55 ;\ 0{,}45 ;\ 0{,}62)$ et $b^2 = (3 ;\ 1{,}5 ;\ 2)$. Les moyennes valent $8$, $4{,}4$, $1{,}98$, $1{,}2276$ ; les variances $0$, $3$, $0{,}2025 \times 3 + 1{,}5 = 2{,}1075$, puis $0{,}3844 \times 2{,}1075 + 2 \approx 2{,}810$. Après trois minutes, $x_3 \sim \mathcal{N}(1{,}23 ;\ 2{,}81)$.
 
 > **Théorème** (∂ MB5.10). Pour des coefficients quelconques, sachant $x_0$,
-> $$x_t \sim \mathcal{N}\Big((a_1\cdots a_t)\,x_0,\ \sum_{k=1}^t b_k^2\,(a_{k+1}\cdots a_t)^2\Big)$$
+> $$x_t \sim \mathcal{N}\Big((a_1\cdots a_t)\thinspace x_0,\ \sum_{k=1}^t b_k^2\thinspace(a_{k+1}\cdots a_t)^2\Big)$$
 > (un produit vide vaut 1).
 
 Chaque bruit est porté jusqu'à l'instant $t$ par les coefficients des pas suivants, au carré. Les outils : le déroulé de M22 §5 (une récurrence affine à facteurs variables) et la variance d'une somme de variables indépendantes ; le ∂ MB5.10 rédige la preuve. Dans l'exemple, les trois bruits apportent $3 \times (0{,}45 \times 0{,}62)^2 \approx 0{,}234$, $1{,}5 \times 0{,}62^2 \approx 0{,}577$ et $2$ : on retrouve $2{,}810$, et le bruit le plus récent pèse le plus, les autres ayant été atténués.
@@ -118,10 +118,10 @@ Pour la course : $H = 0{,}36$ et $\sum h_k^2 = 0{,}038$, d'où $e^{-0{,}398} \ap
 
 ### La loi stationnaire d'un processus autorégressif
 
-Par mer régulière, le pilote garde chaque minute $a = 0{,}7$ de l'écart, et la houle ajoute un écart d'écart-type $b = 1$ degré. La variance suit $v_t = 0{,}49\,v_{t-1} + 1$ : la récurrence affine de R5 §5, de point fixe $\frac{1}{0{,}51}$.
+Par mer régulière, le pilote garde chaque minute $a = 0{,}7$ de l'écart, et la houle ajoute un écart d'écart-type $b = 1$ degré. La variance suit $v_t = 0{,}49\thinspace v_{t-1} + 1$ : la récurrence affine de R5 §5, de point fixe $\frac{1}{0{,}51}$.
 
 > **Théorème** (∂ MB5.10). Soit $x_t = ax_{t-1} + b\varepsilon_t$, avec $b \ne 0$.
-> 1. **Sachant un instant passé** $x_s$, pour $t > s$ : $x_t \sim \mathcal{N}\Big(a^{t-s}x_s,\ b^2\,\dfrac{1 - a^{2(t-s)}}{1 - a^2}\Big)$ si $a^2 \ne 1$, et de variance $(t - s)\,b^2$ si $a^2 = 1$.
+> 1. **Sachant un instant passé** $x_s$, pour $t > s$ : $x_t \sim \mathcal{N}\Big(a^{t-s}x_s,\ b^2\thinspace\dfrac{1 - a^{2(t-s)}}{1 - a^2}\Big)$ si $a^2 \ne 1$, et de variance $(t - s)\thinspace b^2$ si $a^2 = 1$.
 > 2. Si $\lvert a\rvert < 1$, la loi $\mathcal{N}\big(0, v_\infty\big)$, $v_\infty = \frac{b^2}{1 - a^2}$, est **stationnaire** (*stationary distribution*) : si $x_0$ la suit, chaque $x_t$ la suit. Depuis tout départ $\mathcal{N}(m_0, v_0)$, $m_t = a^tm_0$ et $v_t - v_\infty = a^{2t}(v_0 - v_\infty)$ : la loi de $x_t$ tend vers la loi stationnaire, et le processus **oublie son départ**.
 > 3. Si $\lvert a\rvert \ge 1$, aucune loi de variance finie n'est stationnaire : $v_t \ge v_{t-1} + b^2$ croît sans borne (pour $a = 1$, $v_t = v_0 + tb^2$ : la **marche aléatoire**, *random walk*).
 
@@ -160,14 +160,14 @@ La moyenne parcourt le segment de $x_0$ à $x_T$ au rythme des **variances cumul
 
 Une autre montre, portée tous les jours (variance 4 s² par jour), est mise à l'heure au jour 0 : $x_t \sim \mathcal{N}(0, 4t)$. Trois façons de simuler des scénarios de dérive qui ont **cette loi chaque jour** :
 - **A** : la marche aléatoire, un bruit frais ajouté chaque jour, $x_t = x_{t-1} + 2\varepsilon_t$ ;
-- **B** : un seul tirage $U \sim \mathcal{N}(0, 1)$ pour tous les jours, $x_t = 2\sqrt t\,U$ : une fois $U$ tiré, le scénario est une courbe fixée, une **trajectoire déterministe** ;
-- **C** : un tirage frais chaque jour, $x_t = 2\sqrt t\,Z_t$, avec des $Z_t$ indépendants.
+- **B** : un seul tirage $U \sim \mathcal{N}(0, 1)$ pour tous les jours, $x_t = 2\sqrt t\thinspace U$ : une fois $U$ tiré, le scénario est une courbe fixée, une **trajectoire déterministe** ;
+- **C** : un tirage frais chaque jour, $x_t = 2\sqrt t\thinspace Z_t$, avec des $Z_t$ indépendants.
 
 Les trois ont la même **loi marginale** (*marginal distribution*) $\mathcal{N}(0, 4t)$ chaque jour : un relevé pris un seul jour ne les distingue pas. Leurs **lois jointes** (*joint distributions*) diffèrent. Pour A et $0 < s < t$, $x_t = x_s + (\text{des bruits frais})$, donc $\operatorname{Cov}(x_s, x_t) = \mathbb{V}(x_s)$ et la corrélation vaut $\sqrt{s/t}$ ; pour B, elle vaut 1 ; pour C, 0. Chaque façon de simuler est un **couplage** (*coupling*) des lois de chaque jour, au sens de M27 §7 : une loi jointe qui a ces lois pour marges.
 
-> **Lemme** (garder une marge en mêlant deux tirages). Si $U$ et $Z$ sont indépendants de loi $\mathcal{N}(0, 1)$ et $0 \le \sigma \le \omega$, alors $\sqrt{\omega^2 - \sigma^2}\,U + \sigma Z$ suit $\mathcal{N}(0, \omega^2)$.
+> **Lemme** (garder une marge en mêlant deux tirages). Si $U$ et $Z$ sont indépendants de loi $\mathcal{N}(0, 1)$ et $0 \le \sigma \le \omega$, alors $\sqrt{\omega^2 - \sigma^2}\thinspace U + \sigma Z$ suit $\mathcal{N}(0, \omega^2)$.
 
-C'est une somme de deux gaussiennes indépendantes (M25a §2), de variance $(\omega^2 - \sigma^2) + \sigma^2 = \omega^2$. Avec $\sigma = 0$, on réutilise le seul tirage $U$ (B) ; avec $\sigma = \omega$, on prend un bruit frais (C) ; entre les deux, on règle la part de hasard nouveau sans toucher à la marge. Par exemple, $x_t = \sqrt{2t}\,U + \sqrt{2t}\,Z_t$ (la moitié de la variance, fraîche chaque jour) a encore la loi $\mathcal{N}(0, 4t)$ chaque jour, avec des corrélations entre celles de B et celles de C.
+C'est une somme de deux gaussiennes indépendantes (M25a §2), de variance $(\omega^2 - \sigma^2) + \sigma^2 = \omega^2$. Avec $\sigma = 0$, on réutilise le seul tirage $U$ (B) ; avec $\sigma = \omega$, on prend un bruit frais (C) ; entre les deux, on règle la part de hasard nouveau sans toucher à la marge. Par exemple, $x_t = \sqrt{2t}\thinspace U + \sqrt{2t}\thinspace Z_t$ (la moitié de la variance, fraîche chaque jour) a encore la loi $\mathcal{N}(0, 4t)$ chaque jour, avec des corrélations entre celles de B et celles de C.
 
 **La corrélation entre deux instants n'est pas fixée par les lois marginales.** En revanche, ce qui ne regarde qu'un instant à la fois ne dépend que d'elles.
 
@@ -201,7 +201,7 @@ L'échelle logarithmique étire les deux bouts : quand $\gamma$ passe de $0{,}5$
 
 Connaissant $y$, $a$ et $b$, connaître $x$ revient à connaître $n$ : $x = \frac{y - bn}{a}$ et $n = \frac{y - ax}{b}$. Une estimation $\hat n$ du bruit donne donc une estimation du signal, $\hat x = \frac{y - b\hat n}{a}$, et réciproquement.
 
-> **Propriété.** $\hat x - x = -\frac ba(\hat n - n)$ : en valeur absolue, l'erreur sur $x$ est l'erreur sur $n$ divisée par $\sqrt{\operatorname{SNR}}$. En moyenne quadratique, $\mathbb{E}[(\hat x - x)^2] = \frac{1}{\operatorname{SNR}}\,\mathbb{E}[(\hat n - n)^2]$ : une MSE sur $x$ est une MSE sur $n$ **pondérée** par $\frac{1}{\operatorname{SNR}}$.
+> **Propriété.** $\hat x - x = -\frac ba(\hat n - n)$ : en valeur absolue, l'erreur sur $x$ est l'erreur sur $n$ divisée par $\sqrt{\operatorname{SNR}}$. En moyenne quadratique, $\mathbb{E}[(\hat x - x)^2] = \frac{1}{\operatorname{SNR}}\thinspace\mathbb{E}[(\hat n - n)^2]$ : une MSE sur $x$ est une MSE sur $n$ **pondérée** par $\frac{1}{\operatorname{SNR}}$.
 
 Quand le SNR est petit (une source faible), retrouver le signal à partir d'une estimation du bruit amplifie l'erreur ; quand il est grand, cela la réduit.
 
@@ -227,7 +227,7 @@ Douze appartements de trois pièces ont été vendus dans trois quartiers (prix 
 | Centre | 290, 310, 330 | 310 |
 | Port | 240, 250, 260, 270, 280 | 260 |
 
-Quelle fonction $g$ du quartier rend la plus petite MSE, $\frac{1}{12}\sum_i(y_i - g(x_i))^2$ ? Dans chaque quartier, la meilleure constante est la moyenne (rappel de M02c §1), la prédiction d'une feuille d'un arbre de régression (M13a §7). La MSE vaut alors $\frac{650 + 800 + 1\,000}{12} \approx 204{,}2$ (une RMSE de $14{,}3$), contre $\approx 1\,972{,}9$ pour la meilleure constante, $252{,}5$ (une RMSE de $44{,}4$). La différence, $1\,768{,}75$, est la variance entre les quartiers (M25b §2, M13a §7).
+Quelle fonction $g$ du quartier rend la plus petite MSE, $\frac{1}{12}\sum_i(y_i - g(x_i))^2$ ? Dans chaque quartier, la meilleure constante est la moyenne (rappel de M02c §1), la prédiction d'une feuille d'un arbre de régression (M13a §7). La MSE vaut alors $\frac{650 + 800 + 1\thinspace000}{12} \approx 204{,}2$ (une RMSE de $14{,}3$), contre $\approx 1\thinspace972{,}9$ pour la meilleure constante, $252{,}5$ (une RMSE de $44{,}4$). La différence, $1\thinspace768{,}75$, est la variance entre les quartiers (M25b §2, M13a §7).
 
 ### La meilleure prédiction quadratique
 
@@ -237,7 +237,7 @@ Quelle fonction $g$ du quartier rend la plus petite MSE, $\frac{1}{12}\sum_i(y_i
 
 Les outils : l'identité de M02c §1 et la propriété de la tour (M26 §3) ; le ∂ MB5.11 rédige la preuve pour une variable $X$ discrète.
 
-Sur un échantillon, on prend la loi empirique (chaque appartement de poids $\frac{1}{12}$) : $\mathbb{E}[Y \mid X = \text{quartier}]$ est la moyenne du quartier, et le théorème redonne l'exemple, $1\,972{,}9 \approx 204{,}2 + 1\,768{,}75$. Un modèle entraîné à la MSE, assez souple et sur assez de données, approche $\mathbb{E}[Y \mid X]$ : **la MSE apprend l'espérance conditionnelle** (*conditional expectation*), ce que M02c §1 annonçait pour une constante.
+Sur un échantillon, on prend la loi empirique (chaque appartement de poids $\frac{1}{12}$) : $\mathbb{E}[Y \mid X = \text{quartier}]$ est la moyenne du quartier, et le théorème redonne l'exemple, $1\thinspace972{,}9 \approx 204{,}2 + 1\thinspace768{,}75$. Un modèle entraîné à la MSE, assez souple et sur assez de données, approche $\mathbb{E}[Y \mid X]$ : **la MSE apprend l'espérance conditionnelle** (*conditional expectation*), ce que M02c §1 annonçait pour une constante.
 
 ### Une moyenne n'est pas la valeur la plus probable
 
@@ -271,25 +271,25 @@ D'autres losses apprennent d'autres résumés de la loi de $Y$ sachant $X$ : la 
 On mesure $y = ax + bn$, avec $b > 0$ et un bruit $n \sim \mathcal{N}(0, 1)$ indépendant d'un signal $x$ de loi **quelconque**. Notons $p_Y$ la densité de $y$ (toujours dérivable et strictement positive, grâce au bruit) et $s_Y = (\ln p_Y)'$ son score.
 
 > **Théorème** (formule de **Tweedie**, *Tweedie's formula*, ∂ MB5.12). En dimension 1,
-> $$\mathbb{E}[n \mid y] = -b\,s_Y(y), \qquad\text{et, si } a \ne 0, \qquad \mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}.$$
+> $$\mathbb{E}[n \mid y] = -b\thinspace s_Y(y), \qquad\text{et, si } a \ne 0, \qquad \mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}.$$
 > En dimension $d$ ($y = ax + bn$, $n \sim \mathcal{N}(0, \mathbf{I})$), les mêmes formules tiennent avec le gradient $\nabla\ln p_Y$ (énoncé).
 
 L'outil : dériver $p_Y(y) = \mathbb{E}_x\big[\mathcal{N}(y \mid ax, b^2)\big]$ sous l'espérance (M25b §7 ; une somme finie si $x$ est discrète) ; le ∂ MB5.12 rédige la preuve et la vérifie quand $x$ est gaussien.
 
-Tout ce qu'il faut savoir de la loi de $x$ pour débruiter $y$ est dans le score de la loi de $y$. Et **estimer le bruit, c'est estimer le score de la loi bruitée** : $\mathbb{E}[n \mid y] = -b\,s_Y(y)$.
+Tout ce qu'il faut savoir de la loi de $x$ pour débruiter $y$ est dans le score de la loi de $y$. Et **estimer le bruit, c'est estimer le score de la loi bruitée** : $\mathbb{E}[n \mid y] = -b\thinspace s_Y(y)$.
 
 **Exemple.** Dans une forêt, la hauteur vraie d'un épicéa suit $x \sim \mathcal{N}(12, 9)$ (en mètres) ; un relevé par drone ajoute une erreur $2n$ ($a = 1$, $b = 2$). La hauteur relevée $y = x + 2n$ suit $\mathcal{N}(12, 13)$, de score $s_Y(y) = -\frac{y - 12}{13}$. Pour un arbre relevé à 18 m : $\mathbb{E}[x \mid y = 18] = 18 + 4 \times\big(-\frac{6}{13}\big) \approx 16{,}15$ m, la valeur que donne le modèle linéaire gaussien de M25a §5, $12 + \frac{9}{13} \times 6$. Et $\mathbb{E}[n \mid y = 18] = \frac{12}{13} \approx 0{,}92$ : le relevé a été, en moyenne, trop grand de $\frac{24}{13} \approx 1{,}85$ m. Les arbres relevés les plus hauts sont en moyenne moins hauts qu'on ne l'a relevé : c'est le biais du maximum de M26 §8, qu'Efron appelle biais de sélection (*selection bias* ; un autre sens que le biais de sélection d'un échantillon, M11), et qu'il corrige avec cette formule, en estimant $p_Y$ sur les hauteurs relevées elles-mêmes.
 
 ### Le débruiteur optimal d'un mélange
 
-D'après le §4, $\mathbb{E}[x \mid y]$ est le **débruiteur optimal** (*optimal denoiser*) : aucune fonction de $y$ n'a une plus petite MSE. Quand $x$ suit un mélange $\sum_k\pi_k\,\mathcal{N}(\mu_k, v_k)$, il se calcule en trois temps.
+D'après le §4, $\mathbb{E}[x \mid y]$ est le **débruiteur optimal** (*optimal denoiser*) : aucune fonction de $y$ n'a une plus petite MSE. Quand $x$ suit un mélange $\sum_k\pi_k\thinspace\mathcal{N}(\mu_k, v_k)$, il se calcule en trois temps.
 1. **Sachant la composante $k$**, $(x, y)$ est un modèle linéaire gaussien (M25a §5) : $y \sim \mathcal{N}(a\mu_k, a^2v_k + b^2)$, et $\mathbb{E}[x \mid y, k] = \mu_k + \frac{av_k(y - a\mu_k)}{a^2v_k + b^2}$.
-2. **La composante est inconnue** : sa **responsabilité** (*responsibility*, M25b §3) est $r_k(y) \propto \pi_k\,\mathcal{N}(y \mid a\mu_k, a^2v_k + b^2)$, une softmax calculée en logarithmes (log-sum-exp, M05a §8).
-3. **L'espérance totale** (M25b §2) : $\mathbb{E}[x \mid y] = \sum_kr_k(y)\,\mathbb{E}[x \mid y, k]$.
+2. **La composante est inconnue** : sa **responsabilité** (*responsibility*, M25b §3) est $r_k(y) \propto \pi_k\thinspace\mathcal{N}(y \mid a\mu_k, a^2v_k + b^2)$, une softmax calculée en logarithmes (log-sum-exp, M05a §8).
+3. **L'espérance totale** (M25b §2) : $\mathbb{E}[x \mid y] = \sum_kr_k(y)\thinspace\mathbb{E}[x \mid y, k]$.
 
-**Exemple.** Une parcelle mêle de jeunes et de vieux arbres : $x \sim 0{,}6\,\mathcal{N}(8, 4) + 0{,}4\,\mathcal{N}(15, 1)$, relevés par le même drone ($a = 1$, $b = 2$). Pour $y = 12$ : sachant le groupe, jeunes ou vieux arbres, $y$ suit $\mathcal{N}(8, 8)$ ou $\mathcal{N}(15, 5)$, et $\mathbb{E}[x \mid y, 1] = 8 + \frac{4 \times 4}{8} = 10$, $\mathbb{E}[x \mid y, 2] = 15 - \frac{3}{5} = 14{,}4$. Les logarithmes de $0{,}6\,\mathcal{N}(12 \mid 8, 8)$ et $0{,}4\,\mathcal{N}(12 \mid 15, 5)$ valent environ $-3{,}469$ et $-3{,}540$ : $r \approx (0{,}518 ;\ 0{,}482)$, et $\mathbb{E}[x \mid y = 12] \approx 0{,}518 \times 10 + 0{,}482 \times 14{,}4 \approx 12{,}12$. Le débruiteur hésite entre deux corrections de sens opposés.
+**Exemple.** Une parcelle mêle de jeunes et de vieux arbres : $x \sim 0{,}6\thinspace\mathcal{N}(8, 4) + 0{,}4\thinspace\mathcal{N}(15, 1)$, relevés par le même drone ($a = 1$, $b = 2$). Pour $y = 12$ : sachant le groupe, jeunes ou vieux arbres, $y$ suit $\mathcal{N}(8, 8)$ ou $\mathcal{N}(15, 5)$, et $\mathbb{E}[x \mid y, 1] = 8 + \frac{4 \times 4}{8} = 10$, $\mathbb{E}[x \mid y, 2] = 15 - \frac{3}{5} = 14{,}4$. Les logarithmes de $0{,}6\thinspace\mathcal{N}(12 \mid 8, 8)$ et $0{,}4\thinspace\mathcal{N}(12 \mid 15, 5)$ valent environ $-3{,}469$ et $-3{,}540$ : $r \approx (0{,}518 ;\ 0{,}482)$, et $\mathbb{E}[x \mid y = 12] \approx 0{,}518 \times 10 + 0{,}482 \times 14{,}4 \approx 12{,}12$. Le débruiteur hésite entre deux corrections de sens opposés.
 
-**Un nuage de points.** Une variance $v_k = 0$ est une masse au point $\mu_k$ : un nuage de points pondérés (une loi empirique) est un mélange. Alors $\mathbb{E}[x \mid y, k] = \mu_k$, et $\mathbb{E}[x \mid y] = \sum_kr_k(y)\,\mu_k$ avec $r_k \propto \pi_k\exp\big(-\frac{(y - a\mu_k)^2}{2b^2}\big)$ : pour $a \ne 0$, une moyenne des points pondérée par une softmax de scores $\ln\pi_k - \frac{a^2}{2b^2}\big(\mu_k - \frac ya\big)^2$, où plus un point est proche de $\frac ya$, plus il pèse, comme dans l'estimateur de Nadaraya-Watson de MB3 §5.
+**Un nuage de points.** Une variance $v_k = 0$ est une masse au point $\mu_k$ : un nuage de points pondérés (une loi empirique) est un mélange. Alors $\mathbb{E}[x \mid y, k] = \mu_k$, et $\mathbb{E}[x \mid y] = \sum_kr_k(y)\thinspace\mu_k$ avec $r_k \propto \pi_k\exp\big(-\frac{(y - a\mu_k)^2}{2b^2}\big)$ : pour $a \ne 0$, une moyenne des points pondérée par une softmax de scores $\ln\pi_k - \frac{a^2}{2b^2}\big(\mu_k - \frac ya\big)^2$, où plus un point est proche de $\frac ya$, plus il pèse, comme dans l'estimateur de Nadaraya-Watson de MB3 §5.
 
 > **Propriété.** Pour un nuage de points de poids $\pi_k > 0$ et $a \ne 0$, quand $b \to 0$, $\mathbb{E}[x \mid y]$ tend vers le point du nuage le plus proche de $\frac ya$ ; si $\frac ya$ est à égale distance de deux points $\mu_i$ et $\mu_j$ plus proches que tous les autres, vers $\frac{\pi_i\mu_i + \pi_j\mu_j}{\pi_i + \pi_j}$. Pour $a = 0$, $\mathbb{E}[x \mid y]$ est la moyenne du nuage, $\sum_k\pi_k\mu_k$, quel que soit $y$. C'est la limite $h \to 0$ de l'estimateur de Nadaraya-Watson (MB3 §5), avec des poids.
 
@@ -300,8 +300,8 @@ Le débruiteur optimal d'un nuage **recopie** ses points : il ne fabrique rien d
 ### La dynamique de Langevin (aperçu)
 
 M26 promettait une chaîne de Markov qui converge vers sa loi stationnaire pour **fabriquer** des données. La **dynamique de Langevin** (*Langevin dynamics*) avance vers les régions probables en suivant le score, et ajoute un bruit frais ; avec un pas $h > 0$,
-$$x_{k+1} = x_k + \frac h2(\ln p)'(x_k) + \sqrt h\,\varepsilon_k .$$
-C'est une chaîne de Markov à états continus ; on admet que, pour une densité $p$ assez régulière, sa loi stationnaire approche $p$ quand $h \to 0$. Pour $p = \mathcal{N}(\mu, \sigma^2)$, le score est $-\frac{x - \mu}{\sigma^2}$, et $x_{k+1} - \mu = \big(1 - \frac{h}{2\sigma^2}\big)(x_k - \mu) + \sqrt h\,\varepsilon_k$ : un AR(1) du §1, de coefficient $1 - \frac{h}{2\sigma^2}$. Pour $0 < h < 4\sigma^2$, sa loi stationnaire est $\mathcal{N}\big(\mu, \frac{\sigma^2}{1 - h/(4\sigma^2)}\big)$, qui tend vers $\mathcal{N}(\mu, \sigma^2)$ quand $h \to 0$. Partir d'un bruit et laisser converger la chaîne fabrique des tirages de $p$ ; il suffit de connaître le score, et la constante de normalisation n'intervient pas.
+$$x_{k+1} = x_k + \frac h2(\ln p)'(x_k) + \sqrt h\thinspace\varepsilon_k .$$
+C'est une chaîne de Markov à états continus ; on admet que, pour une densité $p$ assez régulière, sa loi stationnaire approche $p$ quand $h \to 0$. Pour $p = \mathcal{N}(\mu, \sigma^2)$, le score est $-\frac{x - \mu}{\sigma^2}$, et $x_{k+1} - \mu = \big(1 - \frac{h}{2\sigma^2}\big)(x_k - \mu) + \sqrt h\thinspace\varepsilon_k$ : un AR(1) du §1, de coefficient $1 - \frac{h}{2\sigma^2}$. Pour $0 < h < 4\sigma^2$, sa loi stationnaire est $\mathcal{N}\big(\mu, \frac{\sigma^2}{1 - h/(4\sigma^2)}\big)$, qui tend vers $\mathcal{N}(\mu, \sigma^2)$ quand $h \to 0$. Partir d'un bruit et laisser converger la chaîne fabrique des tirages de $p$ ; il suffit de connaître le score, et la constante de normalisation n'intervient pas.
 
 💻 **Aujourd'hui en pratique** — `posterior_mean_mixture` (🔨 MB5.17) calcule $\mathbb{E}[x \mid y]$ pour un mélange, points compris, avec un log-sum-exp (sa docstring écrit $s_k^2$ pour $v_k$, $s$ étant ici le score) ; pour des composantes de variance positive, `scipy.integrate.quad` le vérifie en intégrant $x$ sous la loi a posteriori.
 
@@ -314,19 +314,19 @@ C'est une chaîne de Markov à états continus ; on admet que, pour une densité
 ### Une chaîne de latents
 
 M25b §5 bornait $\ln p(x)$ par l'ELBO d'un latent. Ici, le latent est une **chaîne** (*latent chain*) $z_1, \ldots, z_T$, discrète ou continue.
-- Un **processus aller** (*forward process*) fixé et markovien abîme $x$ pas à pas : $q(z_{1:T} \mid x) = q(z_1 \mid x)\,q(z_2 \mid z_1)\cdots q(z_T \mid z_{T-1})$.
-- Un **modèle retour** (*reverse model*) part de $z_T$ et remonte la chaîne (le tirage ancestral de M25b §1) : $p(x, z_{1:T}) = p(z_T)\,p(z_{T-1} \mid z_T)\cdots p(z_1 \mid z_2)\,p(x \mid z_1)$.
+- Un **processus aller** (*forward process*) fixé et markovien abîme $x$ pas à pas : $q(z_{1:T} \mid x) = q(z_1 \mid x)\thinspace q(z_2 \mid z_1)\cdots q(z_T \mid z_{T-1})$.
+- Un **modèle retour** (*reverse model*) part de $z_T$ et remonte la chaîne (le tirage ancestral de M25b §1) : $p(x, z_{1:T}) = p(z_T)\thinspace p(z_{T-1} \mid z_T)\cdots p(z_1 \mid z_2)\thinspace p(x \mid z_1)$.
 
-L'ELBO de M25b §5, avec toute la chaîne pour latent, est $\operatorname{ELBO} = \mathbb{E}_q\big[\ln p(x, z_{1:T}) - \ln q(z_{1:T} \mid x)\big] \le \ln p(x)$, et l'écart est $\mathrm{KL}\big(q(z_{1:T} \mid x) \,\|\, p(z_{1:T} \mid x)\big)$.
+L'ELBO de M25b §5, avec toute la chaîne pour latent, est $\operatorname{ELBO} = \mathbb{E}  _q\big[\ln p(x, z  _{1:T}) - \ln q(z _{1:T} \mid x)\big] \le \ln p(x)$, et l'écart est $\mathrm{KL}\big(q(z  _{1:T} \mid x) \thinspace\Vert\thinspace p(z _{1:T} \mid x)\big)$.
 
 > **Théorème** (∂ MB5.13). Pour des latents discrets ou continus,
-> $$\operatorname{ELBO} = \mathbb{E}_q\big[\ln p(x \mid z_1)\big] - \mathrm{KL}\big(q(z_T \mid x) \,\|\, p(z_T)\big) - \sum_{t=2}^T\mathbb{E}_q\Big[\mathrm{KL}\big(q(z_{t-1} \mid z_t, x) \,\|\, p(z_{t-1} \mid z_t)\big)\Big].$$
+> $$\operatorname{ELBO} = \mathbb{E} _q\big[\ln p(x \mid z_1)\big] - \mathrm{KL}\big(q(z_T \mid x) \thinspace\Vert\thinspace p(z_T)\big) - \sum _{t=2}^T\mathbb{E} _q\Big[\mathrm{KL}\big(q(z  _{t-1} \mid z_t, x) \thinspace\Vert\thinspace p(z _{t-1} \mid z_t)\big)\Big].$$
 
 Les outils : la propriété de Markov et la formule de Bayes, qui réécrivent chaque pas aller en un pas retour qui connaît $x$, puis une somme télescopique (R4 §5) ; le ∂ MB5.13 rédige la démonstration.
 
 **Lecture des termes.**
 - $\mathbb{E}_q[\ln p(x \mid z_1)]$ est une **reconstruction** : le dernier pas du modèle redonne-t-il $x$ ?
-- $\mathrm{KL}(q(z_T \mid x) \,\|\, p(z_T))$ est la **KL finale** : la fin du processus aller contre le départ du modèle. Quand $p(z_T)$ est fixée, comme le processus aller, elle n'a aucun paramètre : une constante.
+- $\mathrm{KL}(q(z_T \mid x) \thinspace\Vert\thinspace p(z_T))$ est la **KL finale** : la fin du processus aller contre le départ du modèle. Quand $p(z_T)$ est fixée, comme le processus aller, elle n'a aucun paramètre : une constante.
 - Chaque terme du milieu compare le pas retour du modèle, $p(z_{t-1} \mid z_t)$, au **pas retour qui connaît $x$**, $q(z_{t-1} \mid z_t, x)$, la loi a posteriori du processus aller. Ce dernier se calcule pour une chaîne qu'on choisit ; c'est la cible de chaque pas du modèle.
 
 ### Une case qui s'efface
@@ -351,7 +351,7 @@ Si $q(z_{t-1} \mid z_t, x)$ et $p(z_{t-1} \mid z_t)$ sont deux lois gaussiennes 
 
 💻 **Aujourd'hui en pratique** — des modèles de diffusion discrets emploient des chaînes de ce type, avec un état « effacé » qui absorbe, comme la case ; leur ELBO se décompose de la même façon.
 
-⚠️ **Erreur classique.** Ajouter les KL au lieu de les retirer ; écrire $\mathrm{KL}(p \,\|\, q)$ au lieu de $\mathrm{KL}(q \,\|\, p)$ ; prendre pour cible du pas retour $q(z_{t-1} \mid z_t)$, sans $x$, qui en général ne se calcule pas ; croire que la KL finale s'apprend.
+⚠️ **Erreur classique.** Ajouter les KL au lieu de les retirer ; écrire $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ au lieu de $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ ; prendre pour cible du pas retour $q(z_{t-1} \mid z_t)$, sans $x$, qui en général ne se calcule pas ; croire que la KL finale s'apprend.
 
 🔗 **Dans workbookIA** — le chapitre B5 écrit l'ELBO de sa chaîne de bruitage sous cette forme, avec des pas gaussiens, l'admet, et en tire sa loss.
 
@@ -360,17 +360,17 @@ Si $q(z_{t-1} \mid z_t, x)$ et $p(z_{t-1} \mid z_t)$ sont deux lois gaussiennes 
 ### Interpoler ou extrapoler
 
 Pour deux points (ou deux vecteurs) $y_c$ et $y_u$ et un réel $w$,
-$$(1 + w)\,y_c - w\,y_u = y_c + w\,(y_c - y_u).$$
-Les coefficients $1 + w$ et $-w$ ont pour somme 1 : c'est un **barycentre** (M07 §6) à coefficients de signes quelconques, sur la droite qui passe par $y_c$ et $y_u$. Pour $w \in [-1, 0]$, les deux coefficients sont positifs ou nuls : le point est sur le segment $[y_u, y_c]$, on **interpole** (*interpolation*). Pour $w > 0$, il est au-delà de $y_c$, du côté opposé à $y_u$, à la distance $w\,\lVert y_c - y_u\rVert$ de $y_c$ : on **extrapole**. Par exemple, $y_c = 4$, $y_u = 1$ et $w = 1{,}5$ donnent $8{,}5$.
+$$(1 + w)\thinspace y_c - w\thinspace y_u = y_c + w\thinspace(y_c - y_u).$$
+Les coefficients $1 + w$ et $-w$ ont pour somme 1 : c'est un **barycentre** (M07 §6) à coefficients de signes quelconques, sur la droite qui passe par $y_c$ et $y_u$. Pour $w \in [-1, 0]$, les deux coefficients sont positifs ou nuls : le point est sur le segment $[y_u, y_c]$, on **interpole** (*interpolation*). Pour $w > 0$, il est au-delà de $y_c$, du côté opposé à $y_u$, à la distance $w\thinspace\lVert y_c - y_u\rVert$ de $y_c$ : on **extrapole**. Par exemple, $y_c = 4$, $y_u = 1$ et $w = 1{,}5$ donnent $8{,}5$.
 
 ### Bayes en logarithmes : une combinaison de scores
 
-Pour une **condition** $c$ (une classe, une saison…), la formule de Bayes $p(x \mid c) = \frac{p(c \mid x)\,p(x)}{p(c)}$ donne, en logarithmes puis en dérivant en $x$ ($p(c)$ ne dépend pas de $x$),
+Pour une **condition** $c$ (une classe, une saison…), la formule de Bayes $p(x \mid c) = \frac{p(c \mid x)\thinspace p(x)}{p(c)}$ donne, en logarithmes puis en dérivant en $x$ ($p(c)$ ne dépend pas de $x$),
 $$\nabla_x\ln p(x \mid c) - \nabla_x\ln p(x) = \nabla_x\ln p(c \mid x) :$$
 le score conditionnel est le score sans condition plus le gradient du log d'un classifieur. Notons $p_c(x) = p(x \mid c)$ et $p_u(x) = p(x)$ ($u$ pour *unconditional*).
 
 > **Propriété.** Pour tout réel $w$,
-> $$(1 + w)\nabla\ln p_c - w\nabla\ln p_u = \nabla\ln\big(p_c^{1+w}\,p_u^{-w}\big), \qquad p_c^{1+w}\,p_u^{-w} = p_c\Big(\frac{p_c}{p_u}\Big)^w \propto p_c\cdot p(c \mid x)^w .$$
+> $$(1 + w)\nabla\ln p_c - w\nabla\ln p_u = \nabla\ln\big(p_c^{1+w}\thinspace p_u^{-w}\big), \qquad p_c^{1+w}\thinspace p_u^{-w} = p_c\Big(\frac{p_c}{p_u}\Big)^w \propto p_c\cdot p(c \mid x)^w .$$
 > Une combinaison affine de scores est le score d'un **produit de puissances de densités** (*product of powers*).
 
 Normalisé, quand son intégrale est finie, ce produit est la **loi guidée** (*guided distribution*). Pour $w > 0$, elle renforce les $x$ que le classifieur attribue à $c$.
@@ -379,7 +379,7 @@ Normalisé, quand son intégrale est finie, ce produit est la **loi guidée** (*
 
 Pour $p_c = \mathcal{N}(\mu_c, \sigma_c^2)$ et $p_u = \mathcal{N}(\mu_u, \sigma_u^2)$, le logarithme de $p_c^{1+w}p_u^{-w}$ est un polynôme du second degré en $x$ (comme en M25a §5, avec des puissances au lieu d'un produit), de coefficient de $-\frac{x^2}{2}$ la **précision**
 $$\lambda(w) = \frac{1 + w}{\sigma_c^2} - \frac{w}{\sigma_u^2} .$$
-Si $\lambda(w) > 0$, la loi guidée est $\mathcal{N}\big(\mu(w), \frac{1}{\lambda(w)}\big)$, avec $\lambda(w)\,\mu(w) = \frac{(1 + w)\mu_c}{\sigma_c^2} - \frac{w\mu_u}{\sigma_u^2}$, soit $\mu(w) - \mu_c = \frac{w(\mu_c - \mu_u)}{\sigma_u^2\,\lambda(w)}$. Si $\lambda(w) \le 0$, le coefficient de $x^2$ du logarithme est positif ou nul, et son exponentielle n'a pas d'intégrale finie sur $\mathbb{R}$ : il n'y a plus de densité.
+Si $\lambda(w) > 0$, la loi guidée est $\mathcal{N}\big(\mu(w), \frac{1}{\lambda(w)}\big)$, avec $\lambda(w)\thinspace\mu(w) = \frac{(1 + w)\mu_c}{\sigma_c^2} - \frac{w\mu_u}{\sigma_u^2}$, soit $\mu(w) - \mu_c = \frac{w(\mu_c - \mu_u)}{\sigma_u^2\thinspace\lambda(w)}$. Si $\lambda(w) \le 0$, le coefficient de $x^2$ du logarithme est positif ou nul, et son exponentielle n'a pas d'intégrale finie sur $\mathbb{R}$ : il n'y a plus de densité.
 
 > **Propriété.** Pour $w \ge 0$ :
 > - si $\sigma_c \le \sigma_u$, $\lambda(w) \ge \frac{1}{\sigma_c^2} > 0$ : une densité pour tout $w$ ;
@@ -392,7 +392,7 @@ Si $\lambda(w) > 0$, la loi guidée est $\mathcal{N}\big(\mu(w), \frac{1}{\lambd
 
 ![À gauche, l'eau de mer : la loi de l'année (N(16, 16)), celle d'août (N(22, 4)) et les lois guidées pour w = 0,75, 1,5 et 2,5, de plus en plus étroites et décalées vers les eaux chaudes. Au milieu, une condition plus dispersée que l'ensemble (σ_c² = 5σ_u²) : les lois guidées pour w = 0,07, 0,17 et 0,22 s'élargissent quand w approche 1/4. À droite, la précision λ(w) dans les deux cas : elle croît dans le premier, et s'annule en w* = 1/4 dans le second](figures/guidance.png)
 
-💻 **Aujourd'hui en pratique** — on ne normalise pas la loi guidée : pour en tirer des points (la dynamique de Langevin du §5), son score $(1 + w)\,s_c - w\,s_u$ suffit, et il ne demande que deux scores.
+💻 **Aujourd'hui en pratique** — on ne normalise pas la loi guidée : pour en tirer des points (la dynamique de Langevin du §5), son score $(1 + w)\thinspace s_c - w\thinspace s_u$ suffit, et il ne demande que deux scores.
 
 ⚠️ **Erreur classique.** Croire que la loi guidée existe pour tout $w$ ; additionner des densités au lieu de leurs logarithmes (une combinaison de scores n'est pas un mélange).
 
@@ -404,37 +404,37 @@ Si $\lambda(w) > 0$, la loi guidée est $\mathcal{N}\big(\mu(w), \frac{1}{\lambd
 
 Une **équation différentielle** (*ordinary differential equation*, ODE) du premier ordre donne la vitesse d'un point $x(t)$ selon le temps et sa position : $x'(t) = f(t, x(t))$. Avec une **condition initiale** (*initial condition*) $x(t_0) = x_0$, une solution est une **trajectoire** (*trajectory*) $t \mapsto x(t)$. M20 §6 n'avait qu'un champ $F(x)$, sans le temps.
 
-> **Théorème de Cauchy-Lipschitz** (énoncé). Si $f$ est continue sur $I \times \mathbb{R}$ ($I$ un intervalle de temps) et **lipschitzienne en $x$** (*Lipschitz*) — il existe $L$ tel que $\lvert f(t, x) - f(t, y)\rvert \le L\,\lvert x - y\rvert$ pour tous $t$, $x$, $y$ (M27 §7, avec $L = 1$) —, alors pour toute condition initiale il existe une solution sur $I$, et une seule.
+> **Théorème de Cauchy-Lipschitz** (énoncé). Si $f$ est continue sur $I \times \mathbb{R}$ ($I$ un intervalle de temps) et **lipschitzienne en $x$** (*Lipschitz*) — il existe $L$ tel que $\lvert f(t, x) - f(t, y)\rvert \le L\thinspace\lvert x - y\rvert$ pour tous $t$, $x$, $y$ (M27 §7, avec $L = 1$) —, alors pour toute condition initiale il existe une solution sur $I$, et une seule.
 
 Deux trajectoires ne se croisent donc jamais : sinon, deux solutions partiraient d'un même point. Trois solutions exactes :
-- **$x' = g(t)$** : $x(t) = x_0 + \int_{t_0}^tg(u)\,\mathrm{d}u$, une primitive (M02a §2) ;
-- **le refroidissement** (loi de Newton) $x' = -r(x - c)$, vers la température $c$ de la pièce : $x(t) = c + (x_0 - c)\,e^{-r(t - t_0)}$ ;
-- **la croissance logistique** (*logistic growth*) $x' = rx\big(1 - \frac xK\big)$, pour $0 < x_0 < K$ : $x(t) = \dfrac{K}{1 + (K/x_0 - 1)\,e^{-r(t - t_0)}}$ ; pour $K = 1$ (la part d'une population qui a adopté une nouveauté), c'est $\sigma\big(r(t - t_0) + \operatorname{logit}x_0\big)$, la sigmoïde de R6 §7.
+- **$x' = g(t)$** : $x(t) = x_0 + \int_{t_0}^tg(u)\thinspace\mathrm{d}u$, une primitive (M02a §2) ;
+- **le refroidissement** (loi de Newton) $x' = -r(x - c)$, vers la température $c$ de la pièce : $x(t) = c + (x_0 - c)\thinspace e^{-r(t - t_0)}$ ;
+- **la croissance logistique** (*logistic growth*) $x' = rx\big(1 - \frac xK\big)$, pour $0 < x_0 < K$ : $x(t) = \dfrac{K}{1 + (K/x_0 - 1)\thinspace e^{-r(t - t_0)}}$ ; pour $K = 1$ (la part d'une population qui a adopté une nouveauté), c'est $\sigma\big(r(t - t_0) + \operatorname{logit}x_0\big)$, la sigmoïde de R6 §7.
 
-**Exemple.** Un pain sort du four à 95 °C dans une pièce à 22 °C, et refroidit selon $x' = -0{,}05(x - 22)$, $t$ en minutes : $x(t) = 22 + 73\,e^{-0{,}05t}$, et $x(20) = 22 + 73\,e^{-1} \approx 48{,}86$ °C.
+**Exemple.** Un pain sort du four à 95 °C dans une pièce à 22 °C, et refroidit selon $x' = -0{,}05(x - 22)$, $t$ en minutes : $x(t) = 22 + 73\thinspace e^{-0{,}05t}$, et $x(20) = 22 + 73\thinspace e^{-1} \approx 48{,}86$ °C.
 
 ### La méthode d'Euler, dans les deux sens du temps
 
 Pour aller de $t_0$ à un instant final $t_N$ en $N$ pas de durée $h = \frac{t_N - t_0}{N}$, avec les instants $t_k = t_0 + kh$, la **méthode d'Euler** (*Euler's method*, M20 §6) avance par
-$$x_{k+1} = x_k + h\,f(t_k, x_k) :$$
+$$x_{k+1} = x_k + h\thinspace f(t_k, x_k) :$$
 elle lit la vitesse au début du pas et la garde tout le pas ; elle suit la **tangente** (R7). Si $t_N < t_0$, le pas $h$ est négatif, et la méthode **remonte le temps** sur le même champ.
 
 **Pour le pain**, avec $h = 10$ (deux pas) : $95 - 10 \times 0{,}05 \times 73 = 58{,}5$, puis $58{,}5 - 10 \times 0{,}05 \times 36{,}5 = 40{,}25$ ; l'erreur vaut $8{,}6$ °C. Chaque pas multiplie $x - 22$ par $1 - rh$, et $N$ pas par $(1 - \frac{rT}{N})^N$, qui tend vers $e^{-rT}$ (M14, M20 §6). **À rebours**, pour retrouver la température d'il y a $T$ minutes à partir de celle d'aujourd'hui, on prend $h = -\frac TN$ : chaque pas multiplie alors $x - 22$ par $1 + r\lvert h\rvert$.
 
 **Exacte pour une vitesse constante.** Si $f(t, x(t))$ garde la même valeur le long de la trajectoire ($x$ affine en $t$, une trajectoire droite), chaque pas d'Euler suit la trajectoire exactement : un seul pas suffit.
 
-> **L'erreur d'un pas** (Taylor, M05a §3). Si la solution est deux fois dérivable, $x(t + h) = x(t) + h\,x'(t) + \frac12h^2x''(\xi)$ pour un $\xi$ entre $t$ et $t + h$ : en partant du vrai $x(t)$, un pas d'Euler se trompe de $\frac12h^2x''(\xi)$. Cette **erreur locale** (*local error*) vient de la **courbure** (*curvature*) de la trajectoire ; elle est nulle pour une trajectoire droite.
+> **L'erreur d'un pas** (Taylor, M05a §3). Si la solution est deux fois dérivable, $x(t + h) = x(t) + h\thinspace x'(t) + \frac12h^2x''(\xi)$ pour un $\xi$ entre $t$ et $t + h$ : en partant du vrai $x(t)$, un pas d'Euler se trompe de $\frac12h^2x''(\xi)$. Cette **erreur locale** (*local error*) vient de la **courbure** (*curvature*) de la trajectoire ; elle est nulle pour une trajectoire droite.
 >
-> **L'erreur au temps final** (*global error* ; énoncé). Pour un champ régulier, sur un horizon fixé, $\lvert x_N - x(t_N)\rvert \le C\,\lvert h\rvert$ : la méthode est **d'ordre 1** (*first-order method*).
+> **L'erreur au temps final** (*global error* ; énoncé). Pour un champ régulier, sur un horizon fixé, $\lvert x_N - x(t_N)\rvert \le C\thinspace\lvert h\rvert$ : la méthode est **d'ordre 1** (*first-order method*).
 
 L'idée : $N = \frac{t_N - t_0}{h}$ pas, chacun ajoutant une erreur de l'ordre de $h^2$, que les pas suivants transportent sans trop l'amplifier (au plus d'un facteur de l'ordre de $e^{L\lvert t_N - t_0\rvert}$, comme en M20 §6) : en tout, de l'ordre de $h$.
 
-**Pour $x' = g(t)$**, le champ ne dépend pas de $x$ : Euler calcule $x_0 + h\sum_kg(t_k)$, la somme de Riemann **à gauche** de M02a §1, d'ordre 1 comme les rectangles (M02a §5). Un cycliste freine à la vitesse $6 - 0{,}4\,t$ (en m/s) pendant 10 s : il parcourt $\int_0^{10}(6 - 0{,}4u)\,\mathrm{d}u = 40$ m ; Euler à deux pas donne $5 \times (6 + 4) = 50$ m.
+**Pour $x' = g(t)$**, le champ ne dépend pas de $x$ : Euler calcule $x_0 + h\sum_kg(t_k)$, la somme de Riemann **à gauche** de M02a §1, d'ordre 1 comme les rectangles (M02a §5). Un cycliste freine à la vitesse $6 - 0{,}4\thinspace t$ (en m/s) pendant 10 s : il parcourt $\int_0^{10}(6 - 0{,}4u)\thinspace\mathrm{d}u = 40$ m ; Euler à deux pas donne $5 \times (6 + 4) = 50$ m.
 
 ### Le point milieu
 
 > **Méthode du point milieu** (*midpoint method*). Un demi-pas d'Euler estime le point au milieu du pas, $x_{k+1/2} = x_k + \frac h2f(t_k, x_k)$ ; puis la vitesse en $\big(t_k + \frac h2, x_{k+1/2}\big)$ sert pour tout le pas :
-> $$x_{k+1} = x_k + h\,f\big(t_k + \tfrac h2,\ x_{k+1/2}\big).$$
+> $$x_{k+1} = x_k + h\thinspace f\big(t_k + \tfrac h2,\ x_{k+1/2}\big).$$
 
 Deux évaluations du champ par pas, au lieu d'une. Pour $x' = g(t)$, le demi-pas ne sert à rien, et c'est la **règle du point milieu** de M02a §1, exacte pour une fonction affine (M02a §5) : le point milieu est **exact pour une vitesse affine en $t$**, $f(t, x) = \kappa_0 + \kappa_1t$. Le cycliste, en un seul pas : $10 \times (6 - 0{,}4 \times 5) = 40$ m. Son erreur au temps final est **d'ordre 2** (énoncé) : diviser le pas par 2 divise l'erreur par 4 environ.
 
@@ -455,11 +455,11 @@ Deux évaluations du champ par pas, au lieu d'une. Pour $x' = g(t)$, le demi-pas
 ### Un chemin droit
 
 Soit une donnée $x_0$, de loi quelconque, et un bruit $\varepsilon \sim \mathcal{N}(0, 1)$ indépendant. Le **chemin droit** (*straight path*) qui les relie est
-$$x_s = (1 - s)\,x_0 + s\,\varepsilon, \qquad s \in [0, 1] :$$
+$$x_s = (1 - s)\thinspace x_0 + s\thinspace\varepsilon, \qquad s \in [0, 1] :$$
 $s = 0$ est la donnée, $s = 1$ le bruit.
 - Sa vitesse, $\frac{\mathrm{d}x_s}{\mathrm{d}s} = \varepsilon - x_0 = u$, est **constante sur chaque chemin**.
 - $x_s$ est une mesure du §3 de gains $a = 1 - s$ et $b = s$ : pour une donnée de variance 1, $\operatorname{SNR} = \big(\frac{1 - s}{s}\big)^2$, de $+\infty$ en $s = 0$ à 0 en $s = 1$.
-- Connaissant $x_s$ et $u$ : $x_0 = x_s - s\,u$ et $\varepsilon = x_s + (1 - s)\,u$.
+- Connaissant $x_s$ et $u$ : $x_0 = x_s - s\thinspace u$ et $\varepsilon = x_s + (1 - s)\thinspace u$.
 
 Pour générer, on part d'un bruit sans connaître $x_0$, donc sans connaître $u$.
 
@@ -476,7 +476,7 @@ Comme $\varepsilon - x_0 = \frac{x_s - x_0}{s}$, $v(x, s) = \frac{x - \mathbb{E}
 ### Des données gaussiennes
 
 Pour $x_0 \sim \mathcal{N}(m, \tau^2)$, $x_s$ suit $\mathcal{N}\big((1 - s)m, \sigma(s)^2\big)$ avec $\sigma(s)^2 = (1 - s)^2\tau^2 + s^2$, et $\mathbb{E}[x_0 \mid x_s]$ vient du modèle linéaire gaussien (M25a §5) : $v$ est **affine en $x$**. On vérifie, en dérivant, que les trajectoires de $x' = v(x, s)$ sont
-$$x(s) = (1 - s)\,m + \sigma(s)\,z, \qquad z = x(1) :$$
+$$x(s) = (1 - s)\thinspace m + \sigma(s)\thinspace z, \qquad z = x(1) :$$
 chaque point garde sa position réduite $z$ dans la loi de $x_s$. En $s = 1$, $x = z \sim \mathcal{N}(0, 1)$ ; en $s = 0$, $x = m + \tau z \sim \mathcal{N}(m, \tau^2)$ : le transport est vérifié.
 - Ces trajectoires sont **courbes** dès que $\tau > 0$ (sauf celle de $z = 0$) : $\sigma(s)$ n'est pas affine en $s$. Pour $\tau = 0$, une donnée certaine $m$, $\sigma(s) = s$ et elles sont droites.
 - **Un seul pas d'Euler depuis $s = 1$** ($h = -1$) rend $m$ pour tout départ, parce qu'en $s = 1$, $x_s$ ne dit rien de $x_0$ (✏️ MB5.9 en fait le calcul). Le nuage de départ devient un seul point : un écart-type 0 au lieu de $\tau$.

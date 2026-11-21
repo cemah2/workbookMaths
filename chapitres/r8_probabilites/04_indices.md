@@ -89,12 +89,12 @@ Relis la définition et l'encadré ⚠️ du §5.
 </details>
 <details><summary>Indice 2</summary>
 
-Incompatibles : $P(A \cap B) = 0$. Indépendants : $P(A \cap B) = P(A)\,P(B)$. Compare les deux définitions quand $P(A)$ et $P(B)$ ne sont pas nulles.
+Incompatibles : $P(A \cap B) = 0$. Indépendants : $P(A \cap B) = P(A)\thinspace P(B)$. Compare les deux définitions quand $P(A)$ et $P(B)$ ne sont pas nulles.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : « 1 » et « 6 » ne peuvent pas arriver ensemble ; compare $0$ et $\frac{1}{6} \times \frac{1}{6}$. Pour 4, écris $P(A \cap B) = P(A)\,P(B)$ et isole $P(B)$. Pour 6, que vaut $P(A \cap B)$ quand $P(A) = 0$ ?
+1 : « 1 » et « 6 » ne peuvent pas arriver ensemble ; compare $0$ et $\frac{1}{6} \times \frac{1}{6}$. Pour 4, écris $P(A \cap B) = P(A)\thinspace P(B)$ et isole $P(B)$. Pour 6, que vaut $P(A \cap B)$ quand $P(A) = 0$ ?
 
 </details>
 
@@ -107,7 +107,7 @@ Relis le §7 : « L'espérance », « La variance et l'écart-type », « Change
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[aX + b] = a\,\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$ ; une variance est une moyenne de carrés.
+$\mathbb{E}[aX + b] = a\thinspace\mathbb{E}[X] + b$ et $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$ ; une variance est une moyenne de carrés.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -313,7 +313,7 @@ Relis la définition du §5 et son encadré ⚠️.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque couple, calcule $P(A \cap B)$ en comptant les issues communes, puis compare avec le produit $P(A)\,P(B)$ : égalité exacte, ou pas.
+Pour chaque couple, calcule $P(A \cap B)$ en comptant les issues communes, puis compare avec le produit $P(A)\thinspace P(B)$ : égalité exacte, ou pas.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,7 +349,7 @@ Relis le §7 : l'espérance, la définition de la variance, la formule $\mathbb{
 </details>
 <details><summary>Indice 2</summary>
 
-Pour a, deux équations : la somme des probabilités vaut 1, et l'espérance vaut 2. Puis $\mathbb{E}[X^2] = \sum x^2\,P(X = x)$, la variance, l'écart-type, et les formules de $aX + b$.
+Pour a, deux équations : la somme des probabilités vaut 1, et l'espérance vaut 2. Puis $\mathbb{E}[X^2] = \sum x^2\thinspace P(X = x)$, la variance, l'écart-type, et les formules de $aX + b$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -389,12 +389,12 @@ Relis « Les combinaisons » et « Le triangle de Pascal » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Par le calcul : réduis les deux fractions au dénominateur $k!\,(n - k)!$, puis additionne. Par le comptage : partage les choix selon qu'ils contiennent ou non le premier objet.
+Par le calcul : réduis les deux fractions au dénominateur $k!\thinspace(n - k)!$, puis additionne. Par le comptage : partage les choix selon qu'ils contiennent ou non le premier objet.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\frac{(n - 1)!}{(k - 1)!\,(n - k)!} = \frac{(n - 1)! \times k}{k!\,(n - k)!}$ ; fais de même pour le second terme, puis factorise $(n - 1)!$. Pour 4, que compte $\sum_k \binom{n}{k}$ ? Chaque élément est pris ou non.
+2 : $\frac{(n - 1)!}{(k - 1)!\thinspace(n - k)!} = \frac{(n - 1)! \times k}{k!\thinspace(n - k)!}$ ; fais de même pour le second terme, puis factorise $(n - 1)!$. Pour 4, que compte $\sum_k \binom{n}{k}$ ? Chaque élément est pris ou non.
 
 </details>
 
@@ -407,12 +407,12 @@ Relis « L'espérance » et « Linéarité » (fiche §7), et les règles des so
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $\mathbb{E}[X + Y]$ comme une somme sur les issues : $\sum_\omega \big(X(\omega) + Y(\omega)\big)\,p(\omega)$, puis sépare la somme. Pour 4, une somme de variables qui valent 0 ou 1 compte des succès.
+Écris $\mathbb{E}[X + Y]$ comme une somme sur les issues : $\sum_\omega \big(X(\omega) + Y(\omega)\big)\thinspace p(\omega)$, puis sépare la somme. Pour 4, une somme de variables qui valent 0 ou 1 compte des succès.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : écris la valeur de $X$ pour chacune des 8 suites, puis regroupe celles qui donnent la même valeur ; en général, les événements $\{X = x\}$ partagent $\Omega$. Pour 3, écris $X_1 + \cdots + X_{n+1}$ comme la somme de deux variables, $X_1 + \cdots + X_n$ et $X_{n+1}$. Pour 5, $X$ ne vaut que 0 ou 1 : que vaut $X \times X$ ?
+1 : écris la valeur de $X$ pour chacune des 8 suites, puis regroupe celles qui donnent la même valeur ; en général, les événements $\lbrace X = x\rbrace$ partagent $\Omega$. Pour 3, écris $X_1 + \cdots + X_{n+1}$ comme la somme de deux variables, $X_1 + \cdots + X_n$ et $X_{n+1}$. Pour 5, $X$ ne vaut que 0 ou 1 : que vaut $X \times X$ ?
 
 </details>
 

@@ -40,7 +40,7 @@ Un vecteur est gaussien si **toute** combinaison linéaire de ses coordonnées e
 </details>
 <details><summary>Indice 3</summary>
 
-2. Pense au signe aléatoire de la fiche. 3. Calcule la covariance de $\begin{pmatrix} \mathbf{I} & -\mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \mathbf{y} \end{pmatrix}$. 5. Écris $\alpha_1x_1 + \alpha_2x_2$ en fonction de $z$, puis calcule le déterminant de la covariance.
+2. Pense au signe aléatoire de la fiche. 3. Calcule la covariance de $\begin{pmatrix} \mathbf{I} & -\mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix}$. 5. Écris $\alpha_1x_1 + \alpha_2x_2$ en fonction de $z$, puis calcule le déterminant de la covariance.
 
 </details>
 
@@ -71,12 +71,12 @@ Relis « Les lois marginales », « Décorrélé équivaut à indépendant », �
 </details>
 <details><summary>Indice 2</summary>
 
-Marginale : garder les sous-blocs. Conditionnelle : $\boldsymbol{\Sigma}_{aa} - \boldsymbol{\Sigma}_{ab}\boldsymbol{\Sigma}_{bb}^{-1}\boldsymbol{\Sigma}_{ba}$, qui ne dépend pas de la valeur lue. $\det\mathbf{M} = \det\mathbf{M}_{bb}\cdot\det(\mathbf{M}/\mathbf{M}_{bb})$.
+Marginale : garder les sous-blocs. Conditionnelle : $\boldsymbol{\Sigma} _{aa} - \boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma} _{bb}^{-1}\boldsymbol{\Sigma} _{ba}$, qui ne dépend pas de la valeur lue. $\det\mathbf{M} = \det\mathbf{M} _{bb}\cdot\det(\mathbf{M}/\mathbf{M} _{bb})$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. $a = \{1\}$, $b = \{2\}$ : $4 - \frac{2 \times 2}{3}$. 4. Prends $a = \{1, 3\}$, $b = \{2\}$ et calcule le coefficient hors diagonale du complément de Schur. 7. Calcule $(\boldsymbol{\Sigma}^{-1})_{11}$ par le cofacteur, ou comme l'inverse de la variance de $x_1$ sachant $x_2$ et $x_3$.
+3. $a = \lbrace1\rbrace$, $b = \lbrace2\rbrace$ : $4 - \frac{2 \times 2}{3}$. 4. Prends $a = \lbrace1, 3\rbrace$, $b = \lbrace2\rbrace$ et calcule le coefficient hors diagonale du complément de Schur. 7. Calcule $(\boldsymbol{\Sigma}^{-1})_{11}$ par le cofacteur, ou comme l'inverse de la variance de $x_1$ sachant $x_2$ et $x_3$.
 
 </details>
 
@@ -89,7 +89,7 @@ Relis « Le produit de deux densités », « Fusionner des mesures », « Le mod
 </details>
 <details><summary>Indice 2</summary>
 
-Les précisions $\frac1{\sigma^2}$ s'additionnent ; la moyenne est pondérée par les précisions. Pour $y = Ax + w$ : $\mathbb{V}(y) = A^2\mathbb{V}(x) + \mathbb{V}(w)$ et $\operatorname{Cov}(x, y) = A\,\mathbb{V}(x)$.
+Les précisions $\frac1{\sigma^2}$ s'additionnent ; la moyenne est pondérée par les précisions. Pour $y = Ax + w$ : $\mathbb{V}(y) = A^2\mathbb{V}(x) + \mathbb{V}(w)$ et $\operatorname{Cov}(x, y) = A\thinspace\mathbb{V}(x)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -112,7 +112,7 @@ $\mathbf{S}$ est une somme de $n$ matrices de rang 1 dont les vecteurs ont une s
 </details>
 <details><summary>Indice 3</summary>
 
-3. Les trois points sont-ils alignés ? 4. Sans argument, `np.cov` prend chaque ligne pour une variable et chaque colonne pour une observation. 7. $\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S} = n\,\hat{\boldsymbol{\Sigma}}^{-1}\hat{\boldsymbol{\Sigma}}$.
+3. Les trois points sont-ils alignés ? 4. Sans argument, `np.cov` prend chaque ligne pour une variable et chaque colonne pour une observation. 7. $\hat{\boldsymbol{\Sigma}}^{-1}\mathbf{S} = n\thinspace\hat{\boldsymbol{\Sigma}}^{-1}\hat{\boldsymbol{\Sigma}}$.
 
 </details>
 
@@ -148,7 +148,7 @@ Le milieu de la ligne droite entre deux vecteurs unitaires a pour norme $\cos\fr
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\cos 50°$. 3. $0{,}3 \times 100°$. 6. Entre $t = 0{,}2$ et $t = 0{,}7$, le point tourne de $(0{,}7 - 0{,}2)\,\Omega$ ; convertis en radians. 7. Regarde la figure du §8, panneau de droite.
+2. $\cos 50°$. 3. $0{,}3 \times 100°$. 6. Entre $t = 0{,}2$ et $t = 0{,}7$, le point tourne de $(0{,}7 - 0{,}2)\thinspace\Omega$ ; convertis en radians. 7. Regarde la figure du §8, panneau de droite.
 
 </details>
 
@@ -165,12 +165,12 @@ M02b §7 (coordonnées polaires) et §8 (changement de variable) ; le §2 de la 
 </details>
 <details><summary>Indice 2</summary>
 
-$f_Y(y) = f_X\big(g^{-1}(y)\big)\,\lvert(g^{-1})'(y)\rvert$ ; en coordonnées polaires, $x = r\cos\theta$, $y = r\sin\theta$ et l'élément d'aire gagne un facteur $r$.
+$f_Y(y) = f_X\big(g^{-1}(y)\big)\thinspace\lvert(g^{-1})'(y)\rvert$ ; en coordonnées polaires, $x = r\cos\theta$, $y = r\sin\theta$ et l'élément d'aire gagne un facteur $r$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $g^{-1}(y) = \frac{y + 2}{3}$. 2. $g^{-1}(y) = e^{-y}$, pour $y \ge 0$. 5. Une primitive de $r\,e^{-r^2/2}$ est $-e^{-r^2/2}$.
+1. $g^{-1}(y) = \frac{y + 2}{3}$. 2. $g^{-1}(y) = e^{-y}$, pour $y \ge 0$. 5. Une primitive de $r\thinspace e^{-r^2/2}$ est $-e^{-r^2/2}$.
 
 </details>
 
@@ -223,7 +223,7 @@ Fiche §1 : la densité, la log-densité par Cholesky, et l'exemple du GPS.
 </details>
 <details><summary>Indice 2</summary>
 
-$\boldsymbol{\Sigma}^{-1} = \frac{1}{\det\boldsymbol{\Sigma}}\begin{pmatrix} \Sigma_{22} & -\Sigma_{12} \\ -\Sigma_{12} & \Sigma_{11} \end{pmatrix}$ ; $\ln p = -\ln(2\pi) - \frac12\ln\det\boldsymbol{\Sigma} - \frac12\Delta^2$ en dimension 2. Le rapport de deux densités de la même loi est $e^{-(\Delta_Q^2 - \Delta_P^2)/2}$.
+$\boldsymbol{\Sigma}^{-1} = \frac{1}{\det\boldsymbol{\Sigma}}\begin{pmatrix} \Sigma_{22} & -\Sigma_{12} \cr -\Sigma_{12} & \Sigma_{11} \end{pmatrix}$ ; $\ln p = -\ln(2\pi) - \frac12\ln\det\boldsymbol{\Sigma} - \frac12\Delta^2$ en dimension 2. Le rapport de deux densités de la même loi est $e^{-(\Delta_Q^2 - \Delta_P^2)/2}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -246,7 +246,7 @@ Colonne par colonne : $l_{11} = \sqrt{\Sigma_{11}}$, $l_{i1} = \frac{\Sigma_{i1}
 </details>
 <details><summary>Indice 3</summary>
 
-a) $l_{11} = 3$, $l_{21} = 1$, $l_{31} = -3$, $l_{22} = \sqrt{10 - 1}$. c) $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_iw_i^2\Sigma_{ii} + 2\sum_{i<j}w_iw_j\Sigma_{ij}$. e) $\operatorname{Cov}(c, \delta) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{v}$ avec $\mathbf{v} = (-1, 1, 0)$. g) La covariance de $\mathbf{M}\boldsymbol{\varepsilon}$ est $\mathbf{M}\mathbf{M}^\top$ ; ici $\mathbf{M} = \mathbf{L}^\top$.
+a) $l_{11} = 3$, $l_{21} = 1$, $l_{31} = -3$, $l_{22} = \sqrt{10 - 1}$. c) $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_iw_i^2\Sigma_{ii} + 2\sum_{i\lt j}w_iw_j\Sigma_{ij}$. e) $\operatorname{Cov}(c, \delta) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{v}$ avec $\mathbf{v} = (-1, 1, 0)$. g) La covariance de $\mathbf{M}\boldsymbol{\varepsilon}$ est $\mathbf{M}\mathbf{M}^\top$ ; ici $\mathbf{M} = \mathbf{L}^\top$.
 
 </details>
 
@@ -277,12 +277,12 @@ Fiche §4 : « Découper un vecteur en deux blocs », « La loi conditionnelle �
 </details>
 <details><summary>Indice 2</summary>
 
-$\boldsymbol{\Sigma}_{bb}$ est le bloc des capteurs 1 et 3 (lignes et colonnes 1 et 3) ; $\boldsymbol{\Sigma}_{ab}$ est la ligne 2, colonnes 1 et 3. Moyenne : $\mu_2 + \boldsymbol{\Sigma}_{ab}\boldsymbol{\Sigma}_{bb}^{-1}(\mathbf{x}_b - \boldsymbol{\mu}_b)$ ; variance : $\Sigma_{22} - \boldsymbol{\Sigma}_{ab}\boldsymbol{\Sigma}_{bb}^{-1}\boldsymbol{\Sigma}_{ba}$.
+$\boldsymbol{\Sigma} _{bb}$ est le bloc des capteurs 1 et 3 (lignes et colonnes 1 et 3) ; $\boldsymbol{\Sigma} _{ab}$ est la ligne 2, colonnes 1 et 3. Moyenne : $\mu_2 + \boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma} _{bb}^{-1}(\mathbf{x} _b - \boldsymbol{\mu} _b)$ ; variance : $\Sigma _{22} - \boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma} _{bb}^{-1}\boldsymbol{\Sigma} _{ba}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Sigma}_{bb} = \begin{pmatrix} 4 & 1 \\ 1 & 4 \end{pmatrix}$, de déterminant 15. b) $(3, 2)$ fois $\boldsymbol{\Sigma}_{bb}^{-1}$. d) Les écarts lus sont $19{,}5 - 18$ et $14 - 15$. f) Avec un seul voisin, le poids est $\frac{\Sigma_{21}}{\Sigma_{11}}$. h) $\Lambda_{22}$ est l'inverse de la variance de $x_2$ sachant toutes les autres.
+a) $\boldsymbol{\Sigma}  _{bb} = \begin{pmatrix} 4 & 1 \cr 1 & 4 \end{pmatrix}$, de déterminant 15. b) $(3, 2)$ fois $\boldsymbol{\Sigma}  _{bb}^{-1}$. d) Les écarts lus sont $19{,}5 - 18$ et $14 - 15$. f) Avec un seul voisin, le poids est $\frac{\Sigma _{21}}{\Sigma  _{11}}$. h) $\Lambda _{22}$ est l'inverse de la variance de $x_2$ sachant toutes les autres.
 
 </details>
 
@@ -313,12 +313,12 @@ Fiche §5 : « Le modèle linéaire gaussien », « La régression linéaire bay
 </details>
 <details><summary>Indice 2</summary>
 
-Évidence : $\mathcal{N}(\boldsymbol{\Phi}\mathbf{m}_0, \boldsymbol{\Phi}\mathbf{S}_0\boldsymbol{\Phi}^\top + \sigma^2\mathbf{I})$ ; covariance croisée $\mathbf{S}_0\boldsymbol{\Phi}^\top$ ; $\mathbf{S}_N^{-1} = \mathbf{S}_0^{-1} + \sigma^{-2}\boldsymbol{\Phi}^\top\boldsymbol{\Phi}$, $\mathbf{m}_N = \mathbf{S}_N\sigma^{-2}\boldsymbol{\Phi}^\top\mathbf{e}$ ici ($\mathbf{m}_0 = \mathbf{0}$) ; prédictive $\mathcal{N}(\boldsymbol{\phi}_\star^\top\mathbf{m}_N, \boldsymbol{\phi}_\star^\top\mathbf{S}_N\boldsymbol{\phi}_\star + \sigma^2)$.
+Évidence : $\mathcal{N}(\boldsymbol{\Phi}\mathbf{m}_0, \boldsymbol{\Phi}\mathbf{S}_0\boldsymbol{\Phi}^\top + \sigma^2\mathbf{I})$ ; covariance croisée $\mathbf{S}_0\boldsymbol{\Phi}^\top$ ; $\mathbf{S}_N^{-1} = \mathbf{S}_0^{-1} + \sigma^{-2}\boldsymbol{\Phi}^\top\boldsymbol{\Phi}$, $\mathbf{m}_N = \mathbf{S}_N\sigma^{-2}\boldsymbol{\Phi}^\top\mathbf{e}$ ici ($\mathbf{m} _0 = \mathbf{0}$) ; prédictive $\mathcal{N}(\boldsymbol{\phi} _\star^\top\mathbf{m} _N, \boldsymbol{\phi} _\star^\top\mathbf{S} _N\boldsymbol{\phi} _\star + \sigma^2)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Phi}\mathbf{S}_0\boldsymbol{\Phi}^\top = \begin{pmatrix} 0{,}25 & 0{,}25 \\ 0{,}25 & 1{,}25 \end{pmatrix}$, puis ajoute le bruit. c) La log-densité en dimension 2 de $\mathbf{e}$, de moyenne nulle. d) $\sigma^{-2} = 25$ et $\boldsymbol{\Phi}^\top\boldsymbol{\Phi} = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$. f) $\boldsymbol{\phi}_\star = (1 ;\ 0{,}5)$ ; g) $\boldsymbol{\phi}_\star = (1, 2)$.
+a) $\boldsymbol{\Phi}\mathbf{S} _0\boldsymbol{\Phi}^\top = \begin{pmatrix} 0{,}25 & 0{,}25 \cr 0{,}25 & 1{,}25 \end{pmatrix}$, puis ajoute le bruit. c) La log-densité en dimension 2 de $\mathbf{e}$, de moyenne nulle. d) $\sigma^{-2} = 25$ et $\boldsymbol{\Phi}^\top\boldsymbol{\Phi} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}$. f) $\boldsymbol{\phi}  _\star = (1 ;\ 0{,}5)$ ; g) $\boldsymbol{\phi} _\star = (1, 2)$.
 
 </details>
 
@@ -349,12 +349,12 @@ Fiche §7 : le théorème de la KL entre deux gaussiennes et ses exemples.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathrm{KL}(p_0 \,\|\, p_1) = \frac12\big[\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0) + \boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta} - d + \ln\frac{\det\boldsymbol{\Sigma}_1}{\det\boldsymbol{\Sigma}_0}\big]$ ; dans l'autre sens, on échange les indices 0 et 1 partout (et $\boldsymbol{\delta}$ change de signe).
+$\mathrm{KL}(p_0 \thinspace\Vert\thinspace p_1) = \frac12\big[\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0) + \boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta} - d + \ln\frac{\det\boldsymbol{\Sigma}_1}{\det\boldsymbol{\Sigma}_0}\big]$ ; dans l'autre sens, on échange les indices 0 et 1 partout (et $\boldsymbol{\delta}$ change de signe).
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Sigma}_1^{-1} = \frac1{11}\begin{pmatrix} 2 & 1 \\ 1 & 6 \end{pmatrix}$ ; pour deux matrices symétriques, $\operatorname{tr}(\mathbf{A}\mathbf{B})$ est la somme des produits des coefficients de même position. b) $\boldsymbol{\delta} = (1, -1)$. h) Même covariance $\boldsymbol{\Sigma}_0$ : $\frac12\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\delta}$.
+a) $\boldsymbol{\Sigma}_1^{-1} = \frac1{11}\begin{pmatrix} 2 & 1 \cr 1 & 6 \end{pmatrix}$ ; pour deux matrices symétriques, $\operatorname{tr}(\mathbf{A}\mathbf{B})$ est la somme des produits des coefficients de même position. b) $\boldsymbol{\delta} = (1, -1)$. h) Même covariance $\boldsymbol{\Sigma}_0$ : $\frac12\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\delta}$.
 
 </details>
 
@@ -412,7 +412,7 @@ Après blanchiment, l'ellipse devient un disque ; en polaires, l'intégrande dev
 </details>
 <details><summary>Indice 3</summary>
 
-2. $\int_0^{2\pi}\mathrm{d}\theta = 2\pi$, puis une primitive de $r\,e^{-r^2/2}$. 4. $\frac{4\pi}{(2\pi)^{3/2}} = \sqrt{\frac2\pi}$ ; par parties, $u = r$ et $v' = r\,e^{-r^2/2}$. 5. $\frac{\mathrm{d}}{\mathrm{d}r}\ln f_d = \frac{d - 1}{r} - r$. 6. Dans le rapport $\frac{f_{17}(4)}{f_{17}(1)}$, la constante $C_{17}$ se simplifie.
+2. $\int_0^{2\pi}\mathrm{d}\theta = 2\pi$, puis une primitive de $r\thinspace e^{-r^2/2}$. 4. $\frac{4\pi}{(2\pi)^{3/2}} = \sqrt{\frac2\pi}$ ; par parties, $u = r$ et $v' = r\thinspace e^{-r^2/2}$. 5. $\frac{\mathrm{d}}{\mathrm{d}r}\ln f_d = \frac{d - 1}{r} - r$. 6. Dans le rapport $\frac{f_{17}(4)}{f_{17}(1)}$, la constante $C_{17}$ se simplifie.
 
 </details>
 
@@ -448,7 +448,7 @@ $f(x) \ge f(m) + f'(m)(x - m)$, puis l'espérance. Pour la KL, $\mathrm{KL} = -\
 </details>
 <details><summary>Indice 3</summary>
 
-3. $\mathbb{E}_p\big[\frac qp\big] = \int_{p > 0}q$. 5. $\iint p_1(\mathbf{x})p_2(\mathbf{y})h(\mathbf{x})\,\mathrm{d}\mathbf{x}\,\mathrm{d}\mathbf{y} = \int p_1h$. 6. $\int_0^1(2y - 1)\,\mathrm{d}y = 0$ ; pour la KL, utilise la question 4.
+3. $\mathbb{E} _p\big[\frac qp\big] = \int _{p > 0}q$. 5. $\iint p_1(\mathbf{x})p_2(\mathbf{y})h(\mathbf{x})\thinspace\mathrm{d}\mathbf{x}\thinspace\mathrm{d}\mathbf{y} = \int p_1h$. 6. $\int_0^1(2y - 1)\thinspace\mathrm{d}y = 0$ ; pour la KL, utilise la question 4.
 
 </details>
 
@@ -466,7 +466,7 @@ Lemme : développe avec $\mathbf{x} - \mathbf{m} = (\mathbf{x} - \boldsymbol{\mu
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbb{E}\big[(\mathbf{x} - \boldsymbol{\mu})^\top\mathbf{A}(\mathbf{x} - \boldsymbol{\mu})\big] = \operatorname{tr}\big(\mathbf{A}\,\mathbb{E}[(\mathbf{x} - \boldsymbol{\mu})(\mathbf{x} - \boldsymbol{\mu})^\top]\big)$. 3. Avec $\mathbf{A} = \boldsymbol{\Sigma}_0^{-1}$, $\mathbf{m} = \boldsymbol{\mu}_0$, on trouve $d$. 5. $\mathbb{E}[\Delta^2] = d$. 7. $\mathbf{L}_1^{-1}\boldsymbol{\Sigma}_0\mathbf{L}_1^{-\top}$ a la même trace et le même déterminant que $\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0$.
+1. $\mathbb{E}\big[(\mathbf{x} - \boldsymbol{\mu})^\top\mathbf{A}(\mathbf{x} - \boldsymbol{\mu})\big] = \operatorname{tr}\big(\mathbf{A}\thinspace\mathbb{E}[(\mathbf{x} - \boldsymbol{\mu})(\mathbf{x} - \boldsymbol{\mu})^\top]\big)$. 3. Avec $\mathbf{A} = \boldsymbol{\Sigma}_0^{-1}$, $\mathbf{m} = \boldsymbol{\mu}_0$, on trouve $d$. 5. $\mathbb{E}[\Delta^2] = d$. 7. $\mathbf{L}_1^{-1}\boldsymbol{\Sigma}_0\mathbf{L}_1^{-\top}$ a la même trace et le même déterminant que $\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0$.
 
 </details>
 
@@ -761,7 +761,7 @@ Fiche §2 (la loi de $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$) et
 </details>
 <details><summary>Indice 2</summary>
 
-a) Une comparaison échoue à tort avec la probabilité $2(1 - \Phi(k))$ ; la borne de la réunion pour 5 comparaisons demande $5 \times 2(1 - \Phi(k)) \le 0{,}01$. e) Un écart de $0{,}02\,\Sigma_{jj}$ doit dépasser $k\,\Sigma_{jj}\sqrt{2/n}$.
+a) Une comparaison échoue à tort avec la probabilité $2(1 - \Phi(k))$ ; la borne de la réunion pour 5 comparaisons demande $5 \times 2(1 - \Phi(k)) \le 0{,}01$. e) Un écart de $0{,}02\thinspace\Sigma_{jj}$ doit dépasser $k\thinspace\Sigma_{jj}\sqrt{2/n}$.
 
 </details>
 <details><summary>Indice 3</summary>

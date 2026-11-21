@@ -39,7 +39,7 @@ Parcours essentiel : tout sauf MB2.9, MB2.E1, MB2.15, MB2.16, MB2.18 et MB2.19.
 - **§4.** $\mathbf{M}$ est une table $(m, n)$ ; sa SVD compacte est $\mathbf{U}\mathbf{S}\mathbf{V}^\top$, de valeurs singulières $s_1 \ge s_2 \ge \cdots$ (M12d) ; $\mathbf{U}_k$, $\mathbf{S}_k$, $\mathbf{V}_k$ en gardent les $k$ premières colonnes et valeurs singulières : $k$ est le **rang** gardé, comme en M12d. L'exposant de répartition est $\beta \in [0, 1]$ ; workbookIA B2 le note $p$, une lettre réservée ici aux probabilités, et note $d$ le rang.
 - **§5.** Le label vaut 1 (positif) ou 0 (négatif) ; $a$ et $b$ sont des **nombres d'exemples** positifs et négatifs ; $s_1$ et $s_0$ sont les **taux de sélection** des deux classes, et $K = s_1/s_0$ ; $z$ est un score, $\sigma(z) = 1/(1 + e^{-z})$ la sigmoïde, $\theta_0$ et $\theta_1$ les paramètres d'un modèle logistique $z = \theta_0 + \theta_1x$.
 - **§6 et §7.** Des vecteurs en gras : $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, $\mathbf{d}$ ceux d'une analogie, $\mathbf{q} = \mathbf{b} - \mathbf{a} + \mathbf{c}$ la requête, $\hat{\mathbf{x}} = \mathbf{x}/\lVert\mathbf{x}\rVert$ le vecteur unitaire de $\mathbf{x}$, $\varphi$ un angle ; $\mathbf{u}$ la direction retirée, $\mathbf{D}$ la matrice dont les lignes $\mathbf{d}_i$ sont des différences, $\mathbf{g}$ un vecteur propre de sa matrice de Gram ; $L$ et $m$ la longueur et la masse d'un poisson.
-- **§8.** $\mathbf{h}_1, \ldots, \mathbf{h}_L$ une suite de vecteurs complétée jusqu'à la longueur $L$, $m_t \in \{0, 1\}$ son masque, $\bar{\mathbf{h}}$ sa moyenne masquée, $n$ un nombre d'éléments, $\mathbf{R}$ la matrice $(n, d)$ de leurs résumés normalisés.
+- **§8.** $\mathbf{h}_1, \ldots, \mathbf{h}_L$ une suite de vecteurs complétée jusqu'à la longueur $L$, $m_t \in \lbrace0, 1\rbrace$ son masque, $\bar{\mathbf{h}}$ sa moyenne masquée, $n$ un nombre d'éléments, $\mathbf{R}$ la matrice $(n, d)$ de leurs résumés normalisés.
 - **Lettres à double sens.** $k$ est un nombre de chiffres ou de bits au §1 et le rang gardé au §4 ; $b$ est une base au §1 et un nombre de négatifs au §5, alors que $a$ y est un nombre de positifs, et $\mathbf{a}$ et $\mathbf{b}$ (en gras) sont des vecteurs au §6 ; $c_i$ est un chiffre au §1, $\mathbf{c}$ un vecteur au §6 et $c$ un réel non nul au §7 ; $s_i$ est une valeur singulière au §4, mais $s_1$ et $s_0$ sont des taux de sélection au §5 ; $N$ est l'entier écrit en base $b$ et un nombre de valeurs au §1, un nombre d'observations au §2 ; $n$ compte des colonnes au §4 et des éléments au §8, et $n(y)$ des observations ; $m$ compte les lignes de $\mathbf{M}$ au §4, c'est une masse au §7, et $m_t$ est un masque au §8 ; $\mathbf{u}_i$ est un vecteur singulier au §4 et $\mathbf{u}$ la direction retirée au §7 ; $\mathbf{d}$ est le quatrième point d'une analogie au §6, $\mathbf{d}_i$ une différence au §7, et $d$ la longueur des résumés au §8 ; $x$ est une valeur de $X$ au §2, une feature au §5, et $\mathbf{x}$ un vecteur aux §6 et §7 ; $w$ est un mot de bits au §1, $\mathbf{w}$ une couleur au §6 et la direction du complément au §7 ; $\mathbf{e}$ est une couleur au §6, $\mathbf{e}_i$ un vecteur one-hot au §4 ; $L$ est la longueur d'un poisson au §7 et celle des suites complétées au §8 ; $r$ est un rang au §4, $\mathbf{r}$ un reste au §7 et $\mathbf{R}$ la matrice des résumés au §8. $K$ (§5) et $k$ (§1, §4) ne se confondent pas. Le contexte tranche.
 
 Vocabulaire anglais de ce chapitre : *binary*, *hexadecimal*, *bit*, *byte*, *bit field*, *bit mask*, *shift*, *pointwise mutual information (PMI)*, *positive PMI (PPMI)*, *lift*, *association rule*, *normalized PMI*, *mutual information*, *smoothing*, *tempered distribution*, *truncated SVD*, *compact SVD*, *low-rank approximation*, *sparse matrix*, *dense matrix*, *centering*, *odds*, *log-odds*, *intercept*, *case-control study*, *subsampling*, *prior correction*, *cosine similarity*, *dot product*, *unit vector*, *nearest neighbor*, *analogy*, *parallelogram*, *query*, *orthogonal complement*, *allometry*, *condition factor*, *padding*, *mask*, *masked mean*, *pairwise comparisons*.
@@ -72,7 +72,7 @@ Vocabulaire anglais de ce chapitre : *binary*, *hexadecimal*, *bit*, *byte*, *bi
 
 ### Les chiffres d'un entier
 
-En base 10, $3\,708 = 3 \times 10^3 + 7 \times 10^2 + 0 \times 10 + 8$ : chaque chiffre compte autant de fois la puissance de 10 de sa position. Rien n'oblige à prendre 10.
+En base 10, $3\thinspace708 = 3 \times 10^3 + 7 \times 10^2 + 0 \times 10 + 8$ : chaque chiffre compte autant de fois la puissance de 10 de sa position. Rien n'oblige à prendre 10.
 
 > **Définition.** Soit $b \ge 2$. Écrire un entier $N \ge 0$ en **base** $b$, c'est trouver ses **chiffres** $c_0, c_1, \ldots, c_{k-1}$, entiers de $0$ à $b - 1$, tels que
 > $$N = c_{k-1}b^{k-1} + \cdots + c_1b + c_0 = \sum_{i=0}^{k-1}c_ib^i .$$
@@ -93,15 +93,15 @@ L'écriture existe, et elle est unique si l'on interdit les zéros en tête ($c_
 | 2 = 2 × 1 + 0 | 1 | 0 |
 | 1 = 2 × 0 + 1 | 0 | 1 |
 
-En lisant les restes de bas en haut : $157 = 1001\,1101$ en base 2. Vérifie dans l'autre sens : $128 + 16 + 8 + 4 + 1 = 157$.
+En lisant les restes de bas en haut : $157 = 1001\thinspace1101$ en base 2. Vérifie dans l'autre sens : $128 + 16 + 8 + 4 + 1 = 157$.
 
 **Le nombre de chiffres.** Un entier $N \ge 1$ a $k$ chiffres en base $b$ quand $b^{k-1} \le N < b^k$, c'est-à-dire $k = \lfloor\log_b N\rfloor + 1$. Ici $2^7 = 128 \le 157 < 256 = 2^8$ : 8 bits.
 
 ### Base 16 : un chiffre pour quatre bits
 
-Comme $16 = 2^4$, un chiffre hexadécimal correspond exactement à un groupe de **4 bits** : de $0000 = 0$ à $1111 = 15 = \mathrm{F}$. Pour passer de la base 2 à la base 16, on groupe les bits par quatre **en partant de la droite** : $1001\,1101$ donne $1001 = 9$ et $1101 = 13 = \mathrm{D}$, donc $157 = \texttt{0x9D}$. Vérifie : $9 \times 16 + 13 = 157$, ce que donnent aussi les divisions successives par 16. Dans l'autre sens, chaque chiffre se développe en 4 bits : $\texttt{0x78} = 0111\,1000 = 7 \times 16 + 8 = 120$.
+Comme $16 = 2^4$, un chiffre hexadécimal correspond exactement à un groupe de **4 bits** : de $0000 = 0$ à $1111 = 15 = \mathrm{F}$. Pour passer de la base 2 à la base 16, on groupe les bits par quatre **en partant de la droite** : $1001\thinspace1101$ donne $1001 = 9$ et $1101 = 13 = \mathrm{D}$, donc $157 = \texttt{0x9D}$. Vérifie : $9 \times 16 + 13 = 157$, ce que donnent aussi les divisions successives par 16. Dans l'autre sens, chaque chiffre se développe en 4 bits : $\texttt{0x78} = 0111\thinspace1000 = 7 \times 16 + 8 = 120$.
 
-Un **octet** (*byte*) compte 8 bits : deux chiffres hexadécimaux, de $\texttt{0x00} = 0$ à $\texttt{0xFF} = 255$, soit $2^8 = 256$ valeurs. Une **couleur** `#RRGGBB` aligne trois octets, le rouge, le vert et le bleu : `#781E28` est $(\texttt{0x78}, \texttt{0x1E}, \texttt{0x28}) = (120, 30, 40)$, un rouge sombre. Trois octets font $2^{24} = 16\,777\,216$ couleurs.
+Un **octet** (*byte*) compte 8 bits : deux chiffres hexadécimaux, de $\texttt{0x00} = 0$ à $\texttt{0xFF} = 255$, soit $2^8 = 256$ valeurs. Une **couleur** `#RRGGBB` aligne trois octets, le rouge, le vert et le bleu : `#781E28` est $(\texttt{0x78}, \texttt{0x1E}, \texttt{0x28}) = (120, 30, 40)$, un rouge sombre. Trois octets font $2^{24} = 16\thinspace777\thinspace216$ couleurs.
 
 ### Combien de bits pour N valeurs ?
 
@@ -109,14 +109,14 @@ Un **octet** (*byte*) compte 8 bits : deux chiffres hexadécimaux, de $\texttt{0
 
 ### Découper un mot de bits en champs
 
-Un écran à $65\,536$ couleurs range chaque couleur dans un mot de 16 bits, au format **RGB565** : 5 bits de rouge, 6 de vert (l'œil y est plus sensible) et 5 de bleu, dans cet ordre. Chaque morceau est un **champ** (*bit field*). Pour coder `#781E28`, on garde les bits de poids fort de chaque octet : $\lfloor 120/8\rfloor = 15$ sur 5 bits, $\lfloor 30/4\rfloor = 7$ sur 6 bits, $\lfloor 40/8\rfloor = 5$ sur 5 bits. Le mot vaut
-$$w = 15 \times 2^{11} + 7 \times 2^5 + 5 = 30\,949 = \underbrace{01111}_{15}\,\underbrace{000111}_{7}\,\underbrace{00101}_{5} = \texttt{0x78E5} .$$
+Un écran à $65\thinspace536$ couleurs range chaque couleur dans un mot de 16 bits, au format **RGB565** : 5 bits de rouge, 6 de vert (l'œil y est plus sensible) et 5 de bleu, dans cet ordre. Chaque morceau est un **champ** (*bit field*). Pour coder `#781E28`, on garde les bits de poids fort de chaque octet : $\lfloor 120/8\rfloor = 15$ sur 5 bits, $\lfloor 30/4\rfloor = 7$ sur 6 bits, $\lfloor 40/8\rfloor = 5$ sur 5 bits. Le mot vaut
+$$w = 15 \times 2^{11} + 7 \times 2^5 + 5 = 30\thinspace949 = \underbrace{01111} _{15}\thinspace\underbrace{000111}  _{7}\thinspace\underbrace{00101} _{5} = \texttt{0x78E5} .$$
 Pour le relire, on enlève les champs de droite par une division et l'on coupe ceux de gauche par un reste :
 
 > **Propriété.** Le champ de $\ell$ bits qui commence au bit $i$ (le bit 0 est le plus à droite) d'un mot $w$ vaut
 > $$\Big\lfloor\frac{w}{2^i}\Big\rfloor \bmod 2^\ell .$$
 
-Ici $\lfloor 30\,949/2^{11}\rfloor = 15$, $\lfloor 30\,949/2^5\rfloor \bmod 64 = 967 \bmod 64 = 7$ et $30\,949 \bmod 32 = 5$. Revenue sur trois octets, la couleur devient $(15 \times 8, 7 \times 4, 5 \times 8) = (120, 28, 40)$ : le vert a perdu ses deux bits de poids faible.
+Ici $\lfloor 30\thinspace949/2^{11}\rfloor = 15$, $\lfloor 30\thinspace949/2^5\rfloor \bmod 64 = 967 \bmod 64 = 7$ et $30\thinspace949 \bmod 32 = 5$. Revenue sur trois octets, la couleur devient $(15 \times 8, 7 \times 4, 5 \times 8) = (120, 28, 40)$ : le vert a perdu ses deux bits de poids faible.
 
 💻 **Aujourd'hui en pratique** — `bin(157)` et `hex(157)` rendent `'0b10011101'` et `'0x9d'`, `int("78", 16)` rend 120, et `f"{157:08b}"` écrit les 8 bits. Les programmes découpent les champs par des **décalages** (*shift*) et des **masques** (*bit mask*) : `(w >> 5) & 0b111111` est $\lfloor w/2^5\rfloor \bmod 2^6$.
 
@@ -140,13 +140,13 @@ Un capteur acoustique surveille une pompe. Pendant 98 heures, on note à chaque 
 Divisée par $N$, c'est une **table jointe** (M03) : $p(x, y) = n(x, y)/N$. L'alerte arrive-t-elle plus souvent en régime rapide que si régime et signal étaient indépendants ? À l'indépendance, $p(x, y) = p(x)p(y)$ : il suffit de comparer les deux.
 
 > **Définition.** L'**information mutuelle ponctuelle** (*pointwise mutual information*, PMI) de la case $(x, y)$ d'une table jointe est
-> $$\operatorname{PMI}(x, y) = \ln\frac{p(x, y)}{p(x)\,p(y)} = \ln\frac{P(Y = y \mid X = x)}{P(Y = y)} = \ln\frac{P(X = x \mid Y = y)}{P(X = x)} .$$
+> $$\operatorname{PMI}(x, y) = \ln\frac{p(x, y)}{p(x)\thinspace p(y)} = \ln\frac{P(Y = y \mid X = x)}{P(Y = y)} = \ln\frac{P(X = x \mid Y = y)}{P(X = x)} .$$
 > Elle est **positive** quand $x$ et $y$ arrivent ensemble plus souvent qu'à l'indépendance, **nulle** quand c'est aussi souvent, **négative** quand c'est moins souvent. Une case vide, $p(x, y) = 0$, a par convention une PMI de $-\infty$. La **PPMI** (*positive PMI*) est $\operatorname{PPMI}(x, y) = \max(0, \operatorname{PMI}(x, y))$ : elle vaut 0 sur les cases négatives et sur les cases vides.
 
 Le rapport $\frac{P(y \mid x)}{P(y)}$ a un nom dans l'analyse des tickets de caisse. Une **règle d'association** (*association rule*) « $x \Rightarrow y$ » (« qui achète $x$ achète $y$ ») a pour **confiance** (*confidence*) $P(y \mid x)$ et pour **lift** $P(y \mid x)/P(y)$ : combien la règle fait mieux que de deviner $y$ au hasard. La PMI est le logarithme du lift.
 
 **Exemple : la règle « rapide ⇒ alerte ».** En régime rapide, 6 heures sur 15 ont une alerte : $P(\text{alerte} \mid \text{rapide}) = 0{,}4$, contre $P(\text{alerte}) = 16/98 \approx 0{,}163$ en tout. Le lift vaut $0{,}4 \times 98/16 = 2{,}45$ et
-$$\operatorname{PMI}(\text{rapide}, \text{alerte}) = \ln\frac{n(x, y)\,N}{n(x)\,n(y)} = \ln\frac{6 \times 98}{15 \times 16} = \ln 2{,}45 \approx 0{,}896 .$$
+$$\operatorname{PMI}(\text{rapide}, \text{alerte}) = \ln\frac{n(x, y)\thinspace N}{n(x)\thinspace n(y)} = \ln\frac{6 \times 98}{15 \times 16} = \ln 2{,}45 \approx 0{,}896 .$$
 La forme avec les comptes, où le total $N$ apparaît une fois en haut, évite de calculer les trois probabilités. Les neuf cases :
 
 | PMI | arrêt | alerte | RAS |
@@ -160,7 +160,7 @@ En régime lent, une alerte arrive quatre fois moins souvent que par hasard ($2 
 ### L'information mutuelle, moyenne des PMI
 
 > **Rappel** (M06). L'information mutuelle est la **moyenne des PMI** sous la loi jointe :
-> $$I(X ; Y) = \sum_{p(x, y) > 0}p(x, y)\,\ln\frac{p(x, y)}{p(x)\,p(y)} = \sum_{p(x, y) > 0}p(x, y)\operatorname{PMI}(x, y),$$
+> $$I(X ; Y) = \sum_{p(x, y) > 0}p(x, y)\thinspace\ln\frac{p(x, y)}{p(x)\thinspace p(y)} = \sum_{p(x, y) > 0}p(x, y)\operatorname{PMI}(x, y),$$
 > la somme ne portant que sur les cases non vides. C'est la divergence KL entre la loi jointe et le produit de ses marges : elle est **positive**, nulle seulement à l'indépendance, bien que certaines PMI soient négatives.
 
 Pour la pompe, les sept termes sont, en nats, $-0{,}028$ et $0{,}071$ (lent), $0{,}030$ et $-0{,}021$ (normal), $0{,}019$, $0{,}055$ et $-0{,}036$ (rapide) : $I(X ; Y) \approx 0{,}0906$ nat (0,090 avec les termes arrondis), soit $\approx 0{,}131$ bit. La case de l'arrêt a la plus grande PMI, mais elle ne pèse que $\frac{1}{98}$ dans la moyenne. `mutual_information(joint)` de M06 rend des **bits** par défaut ; en nats, c'est `mutual_information(joint, base=math.e)`.
@@ -179,7 +179,7 @@ La borne dit surtout qui **ne peut pas** avoir une grande PMI. La colonne RAS, d
 
 La table n'est qu'un échantillon de 98 heures. Une probabilité estimée $\hat{p} = n/N$ a une erreur relative de l'ordre de $\sqrt{(1 - p)/(Np)}$ (l'erreur type de M02c divisée par $p$). Pour l'alerte, $Np = 16$ et l'erreur relative vaut $\approx 0{,}23$ ; pour l'arrêt, $Np \approx 1$ et elle vaut $\approx 0{,}99$, autant que la valeur elle-même. Pire : si la vraie probabilité d'un arrêt est $\frac{1}{98}$, 98 autres heures n'en montrent **aucun** avec la probabilité $(1 - \frac{1}{98})^{98} \approx 0{,}366$, et la PMI estimée de la case passe à $-\infty$. D'un échantillon à l'autre, la PMI d'une case rare saute entre $-\infty$ et des valeurs proches de sa borne : les cases rares ont à la fois les PMI les plus grandes et les plus mal estimées. Le 🔮 MB2.15 le mesure ; le §3 dit ce que le lissage change, et ce qu'il ne change pas.
 
-⚠️ **Erreur classique.** Oublier le total $N$ : $\frac{n(x, y)}{n(x)\,n(y)}$ n'est pas le lift, il lui manque le facteur $N$ (🐛 MB2.17). Prendre $\log_2$ ou $\log_{10}$ au lieu de $\ln$ : la PMI change d'unité, pas de signe. Faire la moyenne des **PPMI** pour obtenir l'information mutuelle : c'est la moyenne des PMI, termes négatifs compris. Croire qu'une PMI de $-\infty$ signale une erreur de calcul : c'est une case qui n'est jamais arrivée.
+⚠️ **Erreur classique.** Oublier le total $N$ : $\frac{n(x, y)}{n(x)\thinspace n(y)}$ n'est pas le lift, il lui manque le facteur $N$ (🐛 MB2.17). Prendre $\log_2$ ou $\log_{10}$ au lieu de $\ln$ : la PMI change d'unité, pas de signe. Faire la moyenne des **PPMI** pour obtenir l'information mutuelle : c'est la moyenne des PMI, termes négatifs compris. Croire qu'une PMI de $-\infty$ signale une erreur de calcul : c'est une case qui n'est jamais arrivée.
 
 🔗 **Dans workbookIA** — le chapitre B2 calcule la PMI et la PPMI de grandes tables de comptes qu'il construit lui-même ; ce paragraphe étudie la PMI d'une table jointe donnée, et dit d'avance pourquoi les colonnes rares y dominent.
 
@@ -191,9 +191,9 @@ Pour retirer aux colonnes rares leur avantage, on **lisse** (*smoothing*) la mar
 
 > **Définition.** Pour $0 < \alpha < 1$, la marge lissée est
 > $$p_\alpha(y) = \frac{n(y)^\alpha}{\sum_{y'}n(y')^\alpha},$$
-> et la PMI lissée est $\operatorname{PMI}_\alpha(x, y) = \ln\dfrac{p(x, y)}{p(x)\,p_\alpha(y)}$ : seule la marge des colonnes change.
+> et la PMI lissée est $\operatorname{PMI} _\alpha(x, y) = \ln\dfrac{p(x, y)}{p(x)\thinspace p _\alpha(y)}$ : seule la marge des colonnes change.
 
-Comme $n(y) = N\,p(y)$, $p_\alpha(y) \propto p(y)^\alpha = p(y)^{1/T}$ avec $T = 1/\alpha > 1$ : c'est la **loi tempérée** de M28 à la température $T$, `temper(p_y, 1 / alpha)`. Tu connais ses propriétés : l'ordre des colonnes ne change pas, les rapports $p_\alpha(y)/p_\alpha(y')$ sont ceux de $p$ élevés à la puissance $\alpha$, donc plus proches de 1 ; les colonnes rares **gagnent**, les fréquentes **perdent**, et une colonne vide reste vide.
+Comme $n(y) = N\thinspace p(y)$, $p_\alpha(y) \propto p(y)^\alpha = p(y)^{1/T}$ avec $T = 1/\alpha > 1$ : c'est la **loi tempérée** de M28 à la température $T$, `temper(p_y, 1 / alpha)`. Tu connais ses propriétés : l'ordre des colonnes ne change pas, les rapports $p_\alpha(y)/p_\alpha(y')$ sont ceux de $p$ élevés à la puissance $\alpha$, donc plus proches de 1 ; les colonnes rares **gagnent**, les fréquentes **perdent**, et une colonne vide reste vide.
 
 **Exemple : $\alpha = \frac14$, donc $T = 4$.** Les comptes des colonnes, 1, 16 et 81, ont pour racines quatrièmes 1, 2 et 3, de somme 6 :
 $$p = \Big(\frac{1}{98} ;\ \frac{16}{98} ;\ \frac{81}{98}\Big), \qquad p_{1/4} = \Big(\frac16 ;\ \frac13 ;\ \frac12\Big).$$
@@ -201,8 +201,8 @@ La probabilité de l'arrêt est multipliée par $\frac{98}{6} \approx 16{,}3$, c
 
 ### Une constante par colonne
 
-$$\operatorname{PMI}_\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p_\alpha(y)}{p(y)} :$$
-le **décalage** $-\ln\frac{p_\alpha(y)}{p(y)}$ ne dépend que de la colonne. Ici : $-\ln\frac{98}{6} \approx -2{,}793$ pour l'arrêt, $-\ln\frac{98}{48} \approx -0{,}714$ pour l'alerte, $+\ln\frac{81}{49} \approx +0{,}503$ pour RAS. La table devient
+$$\operatorname{PMI} _\alpha(x, y) = \operatorname{PMI}(x, y) - \ln\frac{p  _\alpha(y)}{p(y)} :$$
+le **décalage** $-\ln\frac{p _\alpha(y)}{p(y)}$ ne dépend que de la colonne. Ici : $-\ln\frac{98}{6} \approx -2{,}793$ pour l'arrêt, $-\ln\frac{98}{48} \approx -0{,}714$ pour l'alerte, $+\ln\frac{81}{49} \approx +0{,}503$ pour RAS. La table devient
 
 | $\operatorname{PMI}_{1/4}$ | arrêt | alerte | RAS |
 |---|---|---|---|
@@ -214,7 +214,7 @@ Deux conséquences, qui valent pour toute table.
 - **Dans une colonne**, toutes les cases bougent de la même quantité : l'ordre des lignes ne change jamais. Le régime rapide reste celui de l'alerte.
 - **Dans une ligne**, les cases bougent de quantités différentes : l'ordre des colonnes peut changer. En régime rapide, l'ordre arrêt (1,877), alerte (0,896), RAS (−0,438) devient alerte (0,182), RAS (0,065), arrêt (−0,916) : l'arrêt, premier sur une seule heure, passe dernier, et sa PPMI tombe à 0.
 
-Une table **carrée et symétrique**, dont les lignes et les colonnes sont les mêmes événements, n'est plus symétrique une fois lissée sur ses seules colonnes : $\operatorname{PMI}_\alpha(x, y)$ et $\operatorname{PMI}_\alpha(y, x)$ ne reçoivent pas le même décalage dès que $p(x) \ne p(y)$.
+Une table **carrée et symétrique**, dont les lignes et les colonnes sont les mêmes événements, n'est plus symétrique une fois lissée sur ses seules colonnes : $\operatorname{PMI} _\alpha(x, y)$ et $\operatorname{PMI} _\alpha(y, x)$ ne reçoivent pas le même décalage dès que $p(x) \ne p(y)$.
 
 Le lissage ne rend pas plus précise l'estimation de $p(x, y)$ : il retire aux colonnes rares l'avantage que leur donnait la borne du §2. Avec $\alpha \to 0$, la marge lissée tend vers la loi uniforme sur les colonnes non vides ; avec $\alpha = 1$, rien ne change.
 
@@ -228,15 +228,15 @@ Le lissage ne rend pas plus précise l'estimation de $p(x, y)$ : il retire aux c
 
 ### Rappel : SVD compacte et Eckart-Young
 
-Une table $\mathbf{M}$ de forme $(m, n)$ et de rang $r$ s'écrit $\mathbf{M} = \mathbf{U}\mathbf{S}\mathbf{V}^\top = \sum_{i=1}^r s_i\,\mathbf{u}_i\mathbf{v}_i^\top$ (SVD compacte, M12d). En ne gardant que les $k$ premiers termes,
-$$\mathbf{M}_k = \sum_{i=1}^{k}s_i\,\mathbf{u}_i\mathbf{v}_i^\top = \mathbf{U}_k\mathbf{S}_k\mathbf{V}_k^\top$$
-est la **SVD tronquée** (*truncated SVD*), la meilleure approximation de rang $k$ au sens de la norme de Frobenius, d'erreur au carré $\sum_{i > k}s_i^2$ (Eckart-Young, M12d §3). Ce sont `svd` et `low_rank_approximation` de M12d, avec leur convention de signe : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive.
+Une table $\mathbf{M}$ de forme $(m, n)$ et de rang $r$ s'écrit $\mathbf{M} = \mathbf{U}\mathbf{S}\mathbf{V}^\top = \sum_{i=1}^r s_i\thinspace\mathbf{u}_i\mathbf{v}_i^\top$ (SVD compacte, M12d). En ne gardant que les $k$ premiers termes,
+$$\mathbf{M} _k = \sum _{i=1}^{k}s_i\thinspace\mathbf{u}_i\mathbf{v}_i^\top = \mathbf{U}_k\mathbf{S}_k\mathbf{V} _k^\top$$
+est la **SVD tronquée** (*truncated SVD*), la meilleure approximation de rang $k$ au sens de la norme de Frobenius, d'erreur au carré $\sum _{i > k}s_i^2$ (Eckart-Young, M12d §3). Ce sont `svd` et `low_rank_approximation` de M12d, avec leur convention de signe : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive.
 
 **Exemple : trois mangeoires.** Un matin, on compte les visites de trois espèces (verdier, chardonneret, sittelle) à trois mangeoires A, B et C, de la plus proche des maisons à la plus proche du bois :
-$$\mathbf{M} = \begin{pmatrix} 8 & 9 & 10 \\ 4 & 8 & 12 \\ 0 & 7 & 14 \end{pmatrix}.$$
+$$\mathbf{M} = \begin{pmatrix} 8 & 9 & 10 \cr 4 & 8 & 12 \cr 0 & 7 & 14 \end{pmatrix}.$$
 La ligne B est la moyenne des lignes A et C : $\mathbf{M}$ est de rang 2. Sa SVD compacte a pour valeurs singulières $s_1 = 4\sqrt{42} \approx 25{,}92$ et $s_2 = \sqrt{42} \approx 6{,}48$, avec
-$$\mathbf{u}_1 = \tfrac{1}{\sqrt3}(1, 1, 1), \quad \mathbf{u}_2 = \tfrac{1}{\sqrt2}(1, 0, -1), \qquad \mathbf{v}_1 = \tfrac{1}{\sqrt{14}}(1, 2, 3), \quad \mathbf{v}_2 = \tfrac{1}{\sqrt{21}}(4, 1, -2).$$
-Vérifie une case : $M_{A,\text{verdier}} = 4\sqrt{42}\cdot\frac{1}{\sqrt3}\cdot\frac{1}{\sqrt{14}} + \sqrt{42}\cdot\frac{1}{\sqrt2}\cdot\frac{4}{\sqrt{21}} = 4 + 4 = 8$. La première couche, $s_1\mathbf{u}_1\mathbf{v}_1^\top = 4\,(1, 1, 1)^\top(1, 2, 3)$, répète la ligne $(4, 8, 12)$, la moyenne des trois lignes ; son erreur au carré vaut $s_2^2 = 42$.
+$$\mathbf{u}_1 = \tfrac{1}{\sqrt3}(1, 1, 1), \quad \mathbf{u}_2 = \tfrac{1}{\sqrt2}(1, 0, -1), \qquad \mathbf{v}_1 = \tfrac{1}{\sqrt{14}}(1, 2, 3), \quad \mathbf{v} _2 = \tfrac{1}{\sqrt{21}}(4, 1, -2).$$
+Vérifie une case : $M _{A,\text{verdier}} = 4\sqrt{42}\cdot\frac{1}{\sqrt3}\cdot\frac{1}{\sqrt{14}} + \sqrt{42}\cdot\frac{1}{\sqrt2}\cdot\frac{4}{\sqrt{21}} = 4 + 4 = 8$. La première couche, $s_1\mathbf{u}_1\mathbf{v}_1^\top = 4\thinspace(1, 1, 1)^\top(1, 2, 3)$, répète la ligne $(4, 8, 12)$, la moyenne des trois lignes ; son erreur au carré vaut $s_2^2 = 42$.
 
 ### Deux facteurs, un exposant
 
@@ -291,13 +291,13 @@ Un piège photographique se déclenche au moindre mouvement. Sur une saison, de 
 > **Rappel** (M13a). Pour $a$ succès et $b$ échecs indépendants de même probabilité $p$, la vraisemblance $p^a(1 - p)^b$ est maximale en $\hat{p} = \frac{a}{a + b}$. Son logit, le **logit de vraisemblance maximale**, est
 > $$\ln\frac{\hat{p}}{1 - \hat{p}} = \ln\frac{a}{b} .$$
 
-De jour, $\hat{p} = \frac{25}{1\,250} = 0{,}02$ et le logit vaut $\ln\frac{25}{1\,225} = -\ln 49 \approx -3{,}892$. De nuit, 100 animaux et 1 225 photos vides : $\ln\frac{100}{1\,225} = \ln\frac{4}{49} \approx -2{,}506$. Un modèle logistique $z = \theta_0 + \theta_1x$, avec $x = 1$ la nuit et $x = 0$ le jour, a un paramètre par groupe : son maximum de vraisemblance redonne les deux logits, $\hat{\theta}_0 = -\ln 49$ et $\hat{\theta}_1 = \ln\frac{4}{49} + \ln 49 = \ln 4 \approx 1{,}386$. La nuit multiplie la cote par 4.
+De jour, $\hat{p} = \frac{25}{1\thinspace250} = 0{,}02$ et le logit vaut $\ln\frac{25}{1\thinspace225} = -\ln 49 \approx -3{,}892$. De nuit, 100 animaux et 1 225 photos vides : $\ln\frac{100}{1\thinspace225} = \ln\frac{4}{49} \approx -2{,}506$. Un modèle logistique $z = \theta_0 + \theta_1x$, avec $x = 1$ la nuit et $x = 0$ le jour, a un paramètre par groupe : son maximum de vraisemblance redonne les deux logits, $\hat{\theta}_0 = -\ln 49$ et $\hat{\theta}_1 = \ln\frac{4}{49} + \ln 49 = \ln 4 \approx 1{,}386$. La nuit multiplie la cote par 4.
 
 ### Sous-échantillonner une classe : l'étude cas-témoins
 
 Trier les photos coûte cher. On garde **toutes** les photos avec un animal et l'on **sous-échantillonne** (*subsampling*) les autres : **une photo vide sur 25**, tirée au hasard, sans regarder si elle est de jour ou de nuit. En médecine, on appelle cela une **étude cas-témoins** (*case-control study*) : on garde les **cas** (label 1) avec la probabilité $s_1$ et les **témoins** (label 0) avec la probabilité $s_0$, sans regarder les features. Ici $s_1 = 1$ et $s_0 = \frac{1}{25}$.
 
-En moyenne, l'échantillon garde, de jour, 25 animaux et $\frac{1\,225}{25} = 49$ photos vides ; de nuit, 100 et 49. Les logits observés deviennent $\ln\frac{25}{49} \approx -0{,}673$ et $\ln\frac{100}{49} \approx 0{,}713$ : tous deux ont augmenté de $\ln 25 \approx 3{,}219$, et leur écart vaut toujours $\ln 4$. Ajusté sur l'échantillon, le modèle trouve $\hat{\theta}_0 = \ln\frac{25}{49}$ et le même $\hat{\theta}_1 = \ln 4$. Lu tel quel, il annonce de jour une probabilité $\sigma(\ln\frac{25}{49}) = \frac{25}{74} \approx 0{,}338$ au lieu de 0,02.
+En moyenne, l'échantillon garde, de jour, 25 animaux et $\frac{1\thinspace225}{25} = 49$ photos vides ; de nuit, 100 et 49. Les logits observés deviennent $\ln\frac{25}{49} \approx -0{,}673$ et $\ln\frac{100}{49} \approx 0{,}713$ : tous deux ont augmenté de $\ln 25 \approx 3{,}219$, et leur écart vaut toujours $\ln 4$. Ajusté sur l'échantillon, le modèle trouve $\hat{\theta}_0 = \ln\frac{25}{49}$ et le même $\hat{\theta}_1 = \ln 4$. Lu tel quel, il annonce de jour une probabilité $\sigma(\ln\frac{25}{49}) = \frac{25}{74} \approx 0{,}338$ au lieu de 0,02.
 
 > **Propriété** (∂ MB2.10, par la formule de Bayes). Si l'on garde chaque positif avec la probabilité $s_1$ et chaque négatif avec la probabilité $s_0$, indépendamment des features, la cote d'un positif dans l'échantillon est celle de la population multipliée par $K = s_1/s_0$. Dans un modèle logistique, seule l'**ordonnée à l'origine** (*intercept*) bouge, de $\ln K$ ; les autres coefficients ne changent pas. Garder un négatif sur $K$ et tous les positifs décale donc l'ordonnée à l'origine de $+\ln K$, et l'on corrige en retirant $\ln K$.
 
@@ -315,10 +315,10 @@ La condition compte : si la sélection dépendait aussi de $x$ (garder plus de p
 
 Les couleurs du §1 sont des vecteurs de $\mathbb{R}^3$. Le cosinus de deux couleurs, $\cos(\mathbf{x}, \mathbf{y}) = \frac{\mathbf{x}\cdot\mathbf{y}}{\lVert\mathbf{x}\rVert\lVert\mathbf{y}\rVert}$ (M07), ne regarde que leur **teinte** : une couleur et la même deux fois plus sombre ont un cosinus de 1. Le produit scalaire, lui, vaut $\lVert\mathbf{x}\rVert\lVert\mathbf{y}\rVert\cos(\mathbf{x}, \mathbf{y})$ : à cosinus égal, il préfère les vecteurs **longs**.
 
-**Exemple.** On cherche la couleur la plus proche de $\mathbf{q} = (120, 20, 64)$, de norme $\sqrt{18\,896} \approx 137{,}5$, entre $\mathbf{e} = \frac12\mathbf{q} = (60, 10, 32)$, la même teinte plus sombre, et un lilas très pâle, `#DCC8E6`, $\mathbf{w} = (220, 200, 230)$. Le produit scalaire choisit le lilas : $\mathbf{q}\cdot\mathbf{w} = 45\,120$ contre $\mathbf{q}\cdot\mathbf{e} = 9\,448$. Le cosinus choisit $\mathbf{e}$ : 1, contre $\cos(\mathbf{q}, \mathbf{w}) = \frac{45\,120}{\sqrt{18\,896}\,\sqrt{141\,300}} \approx 0{,}873$.
+**Exemple.** On cherche la couleur la plus proche de $\mathbf{q} = (120, 20, 64)$, de norme $\sqrt{18\thinspace896} \approx 137{,}5$, entre $\mathbf{e} = \frac12\mathbf{q} = (60, 10, 32)$, la même teinte plus sombre, et un lilas très pâle, `#DCC8E6`, $\mathbf{w} = (220, 200, 230)$. Le produit scalaire choisit le lilas : $\mathbf{q}\cdot\mathbf{w} = 45\thinspace120$ contre $\mathbf{q}\cdot\mathbf{e} = 9\thinspace448$. Le cosinus choisit $\mathbf{e}$ : 1, contre $\cos(\mathbf{q}, \mathbf{w}) = \frac{45\thinspace120}{\sqrt{18\thinspace896}\thinspace\sqrt{141\thinspace300}} \approx 0{,}873$.
 
 Pour des **vecteurs unitaires** $\hat{\mathbf{x}} = \mathbf{x}/\lVert\mathbf{x}\rVert$, en développant le carré (M07),
-$$\lVert\hat{\mathbf{x}} - \hat{\mathbf{y}}\rVert^2 = 1 + 1 - 2\,\hat{\mathbf{x}}\cdot\hat{\mathbf{y}} = 2 - 2\cos(\mathbf{x}, \mathbf{y}).$$
+$$\lVert\hat{\mathbf{x}} - \hat{\mathbf{y}}\rVert^2 = 1 + 1 - 2\thinspace\hat{\mathbf{x}}\cdot\hat{\mathbf{y}} = 2 - 2\cos(\mathbf{x}, \mathbf{y}).$$
 Classer des voisins par cosinus décroissant, ou leurs vecteurs unitaires par distance croissante, donne le **même classement**, donc le même **plus proche voisin** (*nearest neighbor*).
 
 ### Le parallélogramme d'une analogie
@@ -331,7 +331,7 @@ et l'on cherche le point le plus proche de $\mathbf{q}$ au sens du cosinus. Le *
 
 ### Pourquoi on exclut a, b et c
 
-Mais $\mathbf{c}$ lui-même est très proche de $\mathbf{q}$ : $\cos(\mathbf{q}, \mathbf{c}) = \frac{17\,560}{\sqrt{18\,896} \times 130} \approx 0{,}983$. Ce n'est pas un hasard.
+Mais $\mathbf{c}$ lui-même est très proche de $\mathbf{q}$ : $\cos(\mathbf{q}, \mathbf{c}) = \frac{17\thinspace560}{\sqrt{18\thinspace896} \times 130} \approx 0{,}983$. Ce n'est pas un hasard.
 
 > **Lemme.** Soit $\mathbf{x} \ne \mathbf{0}$ et $\mathbf{q}$ tel que $\lVert\mathbf{q} - \mathbf{x}\rVert \le \varepsilon\lVert\mathbf{x}\rVert$, avec $0 \le \varepsilon < 1$. Alors
 > $$\cos(\mathbf{q}, \mathbf{x}) \ge \sqrt{1 - \varepsilon^2}.$$
@@ -354,28 +354,28 @@ Pour les couleurs, $\lVert\mathbf{b} - \mathbf{a}\rVert = 26$ et $\lVert\mathbf{
 ### Projeter sur le complément d'une droite
 
 Retirer d'un vecteur $\mathbf{x}$ sa composante le long d'une direction $\mathbf{u} \ne \mathbf{0}$, c'est lui retirer sa projection sur la droite $\mathbb{R}\mathbf{u}$ (M07) :
-$$\mathbf{r} = \mathbf{x} - \frac{\mathbf{x}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\,\mathbf{u}.$$
-C'est la **projection orthogonale sur le complément** de la droite (*orthogonal complement*, M12b). Tu connais ses propriétés : $\mathbf{r}$ est orthogonal à $\mathbf{u}$ ; retirer deux fois la même direction ne change rien ; un vecteur parallèle à $\mathbf{u}$ devient nul ; $c\,\mathbf{u}$ donne le même résultat pour tout $c \ne 0$. Et la distance se partage selon Pythagore :
+$$\mathbf{r} = \mathbf{x} - \frac{\mathbf{x}\cdot\mathbf{u}}{\mathbf{u}\cdot\mathbf{u}}\thinspace\mathbf{u}.$$
+C'est la **projection orthogonale sur le complément** de la droite (*orthogonal complement*, M12b). Tu connais ses propriétés : $\mathbf{r}$ est orthogonal à $\mathbf{u}$ ; retirer deux fois la même direction ne change rien ; un vecteur parallèle à $\mathbf{u}$ devient nul ; $c\thinspace\mathbf{u}$ donne le même résultat pour tout $c \ne 0$. Et la distance se partage selon Pythagore :
 
-> **Propriété.** Si $\mathbf{r}_\mathbf{x}$ et $\mathbf{r}_\mathbf{y}$ sont les restes de $\mathbf{x}$ et $\mathbf{y}$,
-> $$\lVert\mathbf{x} - \mathbf{y}\rVert^2 = \lVert\mathbf{r}_\mathbf{x} - \mathbf{r}_\mathbf{y}\rVert^2 + \frac{\big((\mathbf{x} - \mathbf{y})\cdot\mathbf{u}\big)^2}{\mathbf{u}\cdot\mathbf{u}} :$$
+> **Propriété.** Si $\mathbf{r} _\mathbf{x}$ et $\mathbf{r} _\mathbf{y}$ sont les restes de $\mathbf{x}$ et $\mathbf{y}$,
+> $$\lVert\mathbf{x} - \mathbf{y}\rVert^2 = \lVert\mathbf{r} _\mathbf{x} - \mathbf{r} _\mathbf{y}\rVert^2 + \frac{\big((\mathbf{x} - \mathbf{y})\cdot\mathbf{u}\big)^2}{\mathbf{u}\cdot\mathbf{u}} :$$
 > seule la composante de la différence le long de $\mathbf{u}$ disparaît.
 
-En effet $\mathbf{r}_\mathbf{x} - \mathbf{r}_\mathbf{y}$ est le reste de $\mathbf{x} - \mathbf{y}$, orthogonal à sa projection. Retirer $\mathbf{u} = (1, \ldots, 1)$ revient à **centrer** chaque vecteur : $\mathbf{x} - \bar{x}\,(1, \ldots, 1)$, où $\bar{x}$ est la moyenne de ses coordonnées (M20). `remove_direction(X, u)` (🔨 MB2.14) retire une direction donnée de chaque ligne d'une matrice.
+En effet $\mathbf{r} _\mathbf{x} - \mathbf{r} _\mathbf{y}$ est le reste de $\mathbf{x} - \mathbf{y}$, orthogonal à sa projection. Retirer $\mathbf{u} = (1, \ldots, 1)$ revient à **centrer** chaque vecteur : $\mathbf{x} - \bar{x}\thinspace(1, \ldots, 1)$, où $\bar{x}$ est la moyenne de ses coordonnées (M20). `remove_direction(X, u)` (🔨 MB2.14) retire une direction donnée de chaque ligne d'une matrice.
 
 ### Estimer la direction : le premier axe de différences
 
 Souvent, la direction n'est pas donnée : on l'estime. Chez les poissons d'un même étang, la masse croît à peu près comme le cube de la longueur : en logarithmes, $\ln m \approx 3\ln L + \text{constante}$. C'est une **allométrie** (*allometry*). Mesurons trois paires de truites, chaque fois une petite et une grande, en $(\ln L, \ln m)$, avec $L$ en cm et $m$ en g. Les trois différences « grande − petite » forment les lignes de
-$$\mathbf{D} = \begin{pmatrix} 0{,}08 & 0{,}14 \\ 0{,}10 & 0{,}30 \\ 0{,}02 & 0{,}16 \end{pmatrix}.$$
-Le **premier axe** des différences est la direction unitaire $\mathbf{u}$ qui rend $\sum_i(\mathbf{d}_i\cdot\mathbf{u})^2 = \mathbf{u}^\top\mathbf{D}^\top\mathbf{D}\,\mathbf{u}$ maximal : un vecteur propre unitaire de la plus grande valeur propre de $\mathbf{D}^\top\mathbf{D}$, comme l'axe principal de M12d, mais sans centrage, car une différence nulle a un sens. Ici
-$$\mathbf{D}^\top\mathbf{D} = \begin{pmatrix} 0{,}0168 & 0{,}0444 \\ 0{,}0444 & 0{,}1352 \end{pmatrix}, \qquad \mathbf{D}^\top\mathbf{D}\begin{pmatrix} 1 \\ 3 \end{pmatrix} = \begin{pmatrix} 0{,}15 \\ 0{,}45 \end{pmatrix} = 0{,}15\begin{pmatrix} 1 \\ 3 \end{pmatrix} :$$
+$$\mathbf{D} = \begin{pmatrix} 0{,}08 & 0{,}14 \cr 0{,}10 & 0{,}30 \cr 0{,}02 & 0{,}16 \end{pmatrix}.$$
+Le **premier axe** des différences est la direction unitaire $\mathbf{u}$ qui rend $\sum_i(\mathbf{d}_i\cdot\mathbf{u})^2 = \mathbf{u}^\top\mathbf{D}^\top\mathbf{D}\thinspace\mathbf{u}$ maximal : un vecteur propre unitaire de la plus grande valeur propre de $\mathbf{D}^\top\mathbf{D}$, comme l'axe principal de M12d, mais sans centrage, car une différence nulle a un sens. Ici
+$$\mathbf{D}^\top\mathbf{D} = \begin{pmatrix} 0{,}0168 & 0{,}0444 \cr 0{,}0444 & 0{,}1352 \end{pmatrix}, \qquad \mathbf{D}^\top\mathbf{D}\begin{pmatrix} 1 \cr 3 \end{pmatrix} = \begin{pmatrix} 0{,}15 \cr 0{,}45 \end{pmatrix} = 0{,}15\begin{pmatrix} 1 \cr 3 \end{pmatrix} :$$
 $\mathbf{u} = \frac{1}{\sqrt{10}}(1, 3)$, de valeur propre 0,15 ; l'autre vaut $0{,}1520 - 0{,}15 = 0{,}002$ (la trace). La pente 3 de l'allométrie est retrouvée. Quand les différences sont peu nombreuses et les coordonnées très nombreuses, on forme plutôt leur matrice de Gram $\mathbf{D}\mathbf{D}^\top$, la plus petite des deux (M28) : elle a les mêmes valeurs propres non nulles, et si $\mathbf{g}$ est un vecteur propre de sa plus grande valeur propre, l'axe est dirigé par $\mathbf{D}^\top\mathbf{g}$.
 
 ### Ce qui reste
 
-Trois truites : $\mathbf{x}_1 = (3{,}0 ;\ 4{,}5)$, $\mathbf{x}_2 = (3{,}2 ;\ 5{,}1)$ et $\mathbf{x}_3 = (3{,}1 ;\ 5{,}1)$, soit environ 20 cm et 90 g, 25 cm et 164 g, 22 cm et 164 g. On retire la direction de taille $\mathbf{u}$. Le reste est porté par $\mathbf{w} = \frac{1}{\sqrt{10}}(3, -1)$ : $\mathbf{r} = (\mathbf{x}\cdot\mathbf{w})\,\mathbf{w}$, et
+Trois truites : $\mathbf{x}_1 = (3{,}0 ;\ 4{,}5)$, $\mathbf{x}_2 = (3{,}2 ;\ 5{,}1)$ et $\mathbf{x}_3 = (3{,}1 ;\ 5{,}1)$, soit environ 20 cm et 90 g, 25 cm et 164 g, 22 cm et 164 g. On retire la direction de taille $\mathbf{u}$. Le reste est porté par $\mathbf{w} = \frac{1}{\sqrt{10}}(3, -1)$ : $\mathbf{r} = (\mathbf{x}\cdot\mathbf{w})\thinspace\mathbf{w}$, et
 $$\mathbf{r}_1 = \mathbf{r}_2 = \tfrac{4{,}5}{10}(3, -1) = (1{,}35 ;\ -0{,}45), \qquad \mathbf{r}_3 = \tfrac{4{,}2}{10}(3, -1) = (1{,}26 ;\ -0{,}42).$$
-Les truites 1 et 2 se confondent : $\mathbf{x}_2 - \mathbf{x}_1 = 0{,}2\,(1, 3)$ est tout entier le long de $\mathbf{u}$, et leur distance passe de $0{,}2\sqrt{10} \approx 0{,}632$ à 0. Entre les truites 1 et 3, elle passe de $\sqrt{0{,}37} \approx 0{,}608$ à $\frac{0{,}3}{\sqrt{10}} \approx 0{,}095$, et Pythagore se vérifie : $0{,}37 = 0{,}009 + \frac{1{,}9^2}{10}$. Ce qui reste est la **corpulence** : la coordonnée $\mathbf{x}\cdot\mathbf{w} = (3\ln L - \ln m)/\sqrt{10}$ est, au signe, à un facteur et à une constante près, le logarithme du **coefficient de condition** de Fulton (*condition factor*) $100\,m/L^3$, qui vaut environ 1,11 pour les truites 1 et 2 et 1,50 pour la truite 3, plus ronde.
+Les truites 1 et 2 se confondent : $\mathbf{x}_2 - \mathbf{x}_1 = 0{,}2\thinspace(1, 3)$ est tout entier le long de $\mathbf{u}$, et leur distance passe de $0{,}2\sqrt{10} \approx 0{,}632$ à 0. Entre les truites 1 et 3, elle passe de $\sqrt{0{,}37} \approx 0{,}608$ à $\frac{0{,}3}{\sqrt{10}} \approx 0{,}095$, et Pythagore se vérifie : $0{,}37 = 0{,}009 + \frac{1{,}9^2}{10}$. Ce qui reste est la **corpulence** : la coordonnée $\mathbf{x}\cdot\mathbf{w} = (3\ln L - \ln m)/\sqrt{10}$ est, au signe, à un facteur et à une constante près, le logarithme du **coefficient de condition** de Fulton (*condition factor*) $100\thinspace m/L^3$, qui vaut environ 1,11 pour les truites 1 et 2 et 1,50 pour la truite 3, plus ronde.
 
 **Ce que le retrait ne fait pas.** Il efface la composante le long de $\mathbf{u}$, et elle seule. Si la taille se lit aussi ailleurs, par une mesure de plus qui grandit avec elle sans être exactement le long de $\mathbf{u}$ (l'âge, la longueur d'une nageoire), elle reste devinable après le retrait : on retire une **direction**, pas une information. Et une direction estimée sur peu de différences n'est elle-même qu'une estimation.
 
@@ -391,8 +391,8 @@ Les truites 1 et 2 se confondent : $\mathbf{x}_2 - \mathbf{x}_1 = 0{,}2\,(1, 3)$
 
 Des capteurs de ruches relèvent, chaque jour, la température intérieure (°C) et la masse de la ruche (kg). Les ruches n'ont pas le même nombre de relevés. Pour les ranger dans un même tableau de forme $(\text{ruches}, L, 2)$, on **complète** chaque suite par des zéros jusqu'à la longueur $L$ de la plus longue (*padding*), et l'on garde un **masque** (*mask*) $m_t$, qui vaut 1 pour un vrai relevé et 0 pour un zéro ajouté.
 
-> **Définition.** La **moyenne masquée** (*masked mean*) d'une suite complétée $\mathbf{h}_1, \ldots, \mathbf{h}_L$ de masque $m_1, \ldots, m_L$, avec au moins un $m_t = 1$, est
-> $$\bar{\mathbf{h}} = \frac{\sum_{t=1}^{L}m_t\,\mathbf{h}_t}{\sum_{t=1}^{L}m_t} .$$
+> **Définition.** La **moyenne masquée** (*masked mean*) d'une suite complétée $\mathbf{h}_1, \ldots, \mathbf{h} _L$ de masque $m_1, \ldots, m_L$, avec au moins un $m_t = 1$, est
+> $$\bar{\mathbf{h}} = \frac{\sum _{t=1}^{L}m_t\thinspace\mathbf{h} _t}{\sum _{t=1}^{L}m_t} .$$
 > Elle ne dépend pas du remplissage : ajouter des $\mathbf{h}_t$ de masque 0, quels qu'ils soient, ne change ni le numérateur ni le dénominateur.
 
 **Exemple.** Une ruche a quatre relevés, $(34, 41)$, $(35, 42)$, $(35, 43)$ et $(36, 42)$, complétés par deux zéros pour atteindre $L = 6$, de masque $(1, 1, 1, 1, 0, 0)$. La moyenne masquée vaut $\frac14(140, 168) = (35, 42)$. La moyenne des six lignes, $\frac16(140, 168) \approx (23{,}3 ;\ 28)$, mélange les vrais relevés aux zéros : une ruche à 23 °C serait morte. Pour toutes les ruches à la fois, c'est une somme le long de l'axe des relevés, divisée par la somme du masque le long du même axe (M20).
@@ -403,7 +403,7 @@ Pour trouver les ruches qui se ressemblent, on peut comparer leurs séries **par
 $$\binom{n}{2} = \frac{n(n - 1)}{2}$$
 paires (R8) : un coût **quadratique**. On peut aussi **résumer** chaque série une fois en un vecteur (sa moyenne masquée, par exemple), puis obtenir tous les cosinus d'un coup : on normalise les résumés, on les range en lignes d'une matrice $\mathbf{R}$ de forme $(n, d)$, et $\mathbf{R}\mathbf{R}^\top$, la matrice de Gram de M28, contient les $n^2$ produits scalaires.
 
-Pour 1 200 ruches, $\binom{1\,200}{2} = 719\,400$ comparaisons, contre 1 200 résumés et un produit matriciel. En contrepartie, une comparaison qui voit les deux séries ensemble peut les aligner, ce qu'un résumé fait séparément ne peut plus faire.
+Pour 1 200 ruches, $\binom{1\thinspace200}{2} = 719\thinspace400$ comparaisons, contre 1 200 résumés et un produit matriciel. En contrepartie, une comparaison qui voit les deux séries ensemble peut les aligner, ce qu'un résumé fait séparément ne peut plus faire.
 
 ⚠️ **Erreur classique.** Diviser par la longueur $L$ du tableau au lieu du nombre de vrais relevés $\sum_t m_t$. Oublier que le masque sert aussi à toute autre réduction : un maximum sur des températures négatives serait faussé par les zéros ajoutés. Compter $n^2$ paires au lieu de $\binom{n}{2}$, ou oublier que le nombre de paires croît comme $n^2/2$.
 

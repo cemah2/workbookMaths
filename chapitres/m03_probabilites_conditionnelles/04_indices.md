@@ -53,12 +53,12 @@ Relis « L'indépendance » (fiche §2) et son ⚠️.
 </details>
 <details><summary>Indice 2</summary>
 
-Indépendants : $P(A \cap B) = P(A)\,P(B)$. Incompatibles : $P(A \cap B) = 0$.
+Indépendants : $P(A \cap B) = P(A)\thinspace P(B)$. Incompatibles : $P(A \cap B) = 0$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $A \cap B = \{2\}$. 5 : écris $P(E \cap \text{non } F) = P(E) - P(E \cap F)$. 6 : l'exemple des deux pièces.
+1 : $A \cap B = \lbrace2\rbrace$. 5 : écris $P(E \cap \text{non } F) = P(E) - P(E \cap F)$. 6 : l'exemple des deux pièces.
 
 </details>
 
@@ -264,7 +264,7 @@ Remplis d'abord la matrice : TP = 64 ; les faux négatifs sont les défauts non 
 </details>
 <details><summary>Indice 3</summary>
 
-TN $= 2\,000 - 64 - 16 - 96$. f : le total de la colonne « non signalée ». h : $\frac{2\,TP}{2\,TP + FP + FN}$.
+TN $= 2\thinspace000 - 64 - 16 - 96$. f : le total de la colonne « non signalée ». h : $\frac{2\thinspace TP}{2\thinspace TP + FP + FN}$.
 
 </details>
 
@@ -313,7 +313,7 @@ Relis « La precision dépend de la prévalence » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$. Ou bien : un tableau de 10 000 comptes, avec $10\,000\pi$ comptes piratés.
+precision $= \frac{r\pi}{r\pi + (1 - s)(1 - \pi)}$. Ou bien : un tableau de 10 000 comptes, avec $10\thinspace000\pi$ comptes piratés.
 
 </details>
 <details><summary>Indice 3</summary>

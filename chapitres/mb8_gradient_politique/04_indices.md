@@ -17,7 +17,7 @@ Fiche §1 : « Dériver par rapport au paramètre », « Une espérance nulle »
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $\ln p_\theta(x)$, puis dérive en $\theta$, $x$ restant fixé. $I(\theta) = \mathbb{V}(s_\theta) = -\mathbb{E}[\partial^2_\theta\ln p_\theta]$ ; $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) \approx \frac12I(\theta)(\theta' - \theta)^2$. L'erreur type d'une moyenne de $n$ tirages indépendants est $\frac{\sigma}{\sqrt n}$. Pour 5, regarde comment $X = F_\theta^{-1}(U)$ varie avec $\theta$, $U$ restant fixé.
+Écris $\ln p_\theta(x)$, puis dérive en $\theta$, $x$ restant fixé. $I(\theta) = \mathbb{V}(s_\theta) = -\mathbb{E}[\partial^2_\theta\ln p_\theta]$ ; $\mathrm{KL}(p_\theta \thinspace\Vert\thinspace p_{\theta'}) \approx \frac12I(\theta)(\theta' - \theta)^2$. L'erreur type d'une moyenne de $n$ tirages indépendants est $\frac{\sigma}{\sqrt n}$. Pour 5, regarde comment $X = F_\theta^{-1}(U)$ varie avec $\theta$, $U$ restant fixé.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -35,12 +35,12 @@ Fiche §3 : « Une variable de contrôle », « Une baseline pour l'estimateur s
 </details>
 <details><summary>Indice 2</summary>
 
-$c^\star = \frac{\operatorname{Cov}(f, h)}{\mathbb{V}(h)}$, et la variance devient $(1 - \rho^2)\,\mathbb{V}(f) = \mathbb{V}(f) - \frac{\operatorname{Cov}(f, h)^2}{\mathbb{V}(h)}$. Une baseline constante ne change l'espérance que de $b\,\mathbb{E}[s]$. La moyenne des autres valeurs ne dépend pas du tirage ; la moyenne du batch, si.
+$c^\star = \frac{\operatorname{Cov}(f, h)}{\mathbb{V}(h)}$, et la variance devient $(1 - \rho^2)\thinspace\mathbb{V}(f) = \mathbb{V}(f) - \frac{\operatorname{Cov}(f, h)^2}{\mathbb{V}(h)}$. Une baseline constante ne change l'espérance que de $b\thinspace\mathbb{E}[s]$. La moyenne des autres valeurs ne dépend pas du tirage ; la moyenne du batch, si.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\frac54$, puis $10 - \frac{25}{4}$. 2. $\rho^2 = 0{,}81$. 3. $\mathbb{E}[s] = 0$ ; la variance est un trinôme en $b$ (fiche §3). 4. Écris $\bar f$ avec $f(x_i)$ et la moyenne $b_i$ des sept autres : $f(x_i) - \bar f = \ ? \times (f(x_i) - b_i)$. 5. Que vaut $\mathbb{E}[f - c\,(h - m)]$ si $m \ne \mathbb{E}[h]$ ?
+1. $\frac54$, puis $10 - \frac{25}{4}$. 2. $\rho^2 = 0{,}81$. 3. $\mathbb{E}[s] = 0$ ; la variance est un trinôme en $b$ (fiche §3). 4. Écris $\bar f$ avec $f(x_i)$ et la moyenne $b_i$ des sept autres : $f(x_i) - \bar f = \ ? \times (f(x_i) - b_i)$. 5. Que vaut $\mathbb{E}[f - c\thinspace(h - m)]$ si $m \ne \mathbb{E}[h]$ ?
 
 </details>
 
@@ -53,7 +53,7 @@ Fiche §4 : « Rappel de M26 : une politique et ses valeurs » et « Dériver le
 </details>
 <details><summary>Indice 2</summary>
 
-$V(s) = \sum_a\pi(a \mid s)\,Q(s, a)$ et $A = Q - V$. $\mathbf{M} = \sum_t\gamma^t\mathbf{P}_\pi^t$, et un état visité au pas $t$ pèse $(1 - \gamma)\gamma^t$ dans $\boldsymbol\nu_{s_0}$. Le retour à $k$ pas pèse $(1 - \lambda)\lambda^{k-1}$ dans le λ-retour. Avec des valeurs fausses de $\mathbf{e}$, le retour à $k$ pas a le biais $\gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$.
+$V(s) = \sum_a\pi(a \mid s)\thinspace Q(s, a)$ et $A = Q - V$. $\mathbf{M} = \sum_t\gamma^t\mathbf{P} _\pi^t$, et un état visité au pas $t$ pèse $(1 - \gamma)\gamma^t$ dans $\boldsymbol\nu  _{s_0}$. Le retour à $k$ pas pèse $(1 - \lambda)\lambda^{k-1}$ dans le λ-retour. Avec des valeurs fausses de $\mathbf{e}$, le retour à $k$ pas a le biais $\gamma^k(\mathbf{P} _\pi^k\mathbf{e})(s)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -71,12 +71,12 @@ Fiche §6 : « Changer de loi », « Normaliser, mesurer, tronquer » et « Esti
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}_q[wf] = \int_{q > 0}p\,f$. La taille effective vaut $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$. $\min(w, c) \le w$. $k_1 = -\ln w$ et $k_3 = (w - 1) - \ln w$.
+$\mathbb{E} _q[wf] = \int _{q > 0}p\thinspace f$. La taille effective vaut $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$. $\min(w, c) \le w$. $k_1 = -\ln w$ et $k_3 = (w - 1) - \ln w$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Les tirages de $q$ tombent-ils dans $[0, 1]$ ? Compare $\int_{q > 0}p\,f$ et $\int p\,f$. 2. $\frac{6^2}{9 + 1 + 1 + 1}$ ; puis un facteur commun au numérateur et au dénominateur. 3. Si un poids dépasse $c$ là où $f > 0$, l'espérance bouge-t-elle ? 4. $\ln 1{,}55 \approx 0{,}438$ ; pour le signe de $k_3$, la tangente de $\ln$ en 1.
+1. Les tirages de $q$ tombent-ils dans $[0, 1]$ ? Compare $\int_{q > 0}p\thinspace f$ et $\int p\thinspace f$. 2. $\frac{6^2}{9 + 1 + 1 + 1}$ ; puis un facteur commun au numérateur et au dénominateur. 3. Si un poids dépasse $c$ là où $f > 0$, l'espérance bouge-t-elle ? 4. $\ln 1{,}55 \approx 0{,}438$ ; pour le signe de $k_3$, la tangente de $\ln$ en 1.
 
 </details>
 
@@ -89,7 +89,7 @@ Fiche §7 : « Le modèle », « Quand les forces existent » et « La cote Elo 
 </details>
 <details><summary>Indice 2</summary>
 
-$\sigma(\beta_i - \beta_j)$ ne dépend que des différences de forces. Les forces existent si et seulement si le graphe des victoires est fortement connexe ; elles vérifient alors « victoires observées = victoires attendues ». Elo : $R_i \leftarrow R_i + k\,(S - E)$, avec $E = \frac{1}{1 + 10^{(R_j - R_i)/400}}$.
+$\sigma(\beta_i - \beta_j)$ ne dépend que des différences de forces. Les forces existent si et seulement si le graphe des victoires est fortement connexe ; elles vérifient alors « victoires observées = victoires attendues ». Elo : $R_i \leftarrow R_i + k\thinspace(S - E)$, avec $E = \frac{1}{1 + 10^{(R_j - R_i)/400}}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -107,12 +107,12 @@ Fiche §8 : « Un compromis » et « Les deux limites ».
 </details>
 <details><summary>Indice 2</summary>
 
-$\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$, et le maximum de $F$ vaut $\beta\ln Z$. Quand $\beta \to 0$, $e^{r/\beta}$ est dominé par la plus grande satisfaction ; quand $\beta \to +\infty$, $e^{r/\beta} \to 1$.
+$\pi^\star \propto \pi_{\mathrm{ref}}\thinspace e^{r/\beta}$, et le maximum de $F$ vaut $\beta\ln Z$. Quand $\beta \to 0$, $e^{r/\beta}$ est dominé par la plus grande satisfaction ; quand $\beta \to +\infty$, $e^{r/\beta} \to 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $e^{r/\beta} = e^{r\ln 2} = 2^r$, puis normalise. 3. Un facteur nul reste nul. 4. $F(\pi) = \beta\ln Z - \beta\,\mathrm{KL}(\pi \,\|\, \pi^\star)$ : compare avec $F(\pi_{\mathrm{ref}})$ et avec $F$ d'une loi concentrée sur la meilleure issue.
+1. $e^{r/\beta} = e^{r\ln 2} = 2^r$, puis normalise. 3. Un facteur nul reste nul. 4. $F(\pi) = \beta\ln Z - \beta\thinspace\mathrm{KL}(\pi \thinspace\Vert\thinspace \pi^\star)$ : compare avec $F(\pi_{\mathrm{ref}})$ et avec $F$ d'une loi concentrée sur la meilleure issue.
 
 </details>
 
@@ -129,12 +129,12 @@ M17 §7 (la loi de Boltzmann, et diag(p) − pᵀp comme covariance d'un vecteur
 </details>
 <details><summary>Indice 2</summary>
 
-$\frac{\partial p_i}{\partial z_j} = p_i(\mathbf{1}\{i = j\} - p_j)$. Pour un vecteur à une seule coordonnée égale à 1 : $Y_iY_j = 0$ si $i \ne j$, et $Y_i^2 = Y_i$. La loi de Boltzmann : $p_i \propto e^{-E_i/T}$.
+$\frac{\partial p_i}{\partial z_j} = p_i(\mathbf{1}\lbrace i = j\rbrace - p_j)$. Pour un vecteur à une seule coordonnée égale à 1 : $Y_iY_j = 0$ si $i \ne j$, et $Y_i^2 = Y_i$. La loi de Boltzmann : $p_i \propto e^{-E_i/T}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. La diagonale $p_i(1 - p_i)$ : $0{,}6 \times 0{,}4 = 0{,}24$ ; hors de la diagonale, $-p_ip_j$ : $-0{,}6 \times 0{,}1 = -0{,}06$ ; complète. 2. Que deviennent les $p_i$ si l'on ajoute un même nombre $t$ à tous les logits ? Dérive en $t$. 3. $\operatorname{Cov}(\mathbf{Y}) = \mathbb{E}[\mathbf{Y}\mathbf{Y}^\top] - \mathbb{E}[\mathbf{Y}]\,\mathbb{E}[\mathbf{Y}]^\top$. 4. $e^0$, $e^{-1{,}5}$, $e^{-3}$, puis divise par leur somme.
+1. La diagonale $p_i(1 - p_i)$ : $0{,}6 \times 0{,}4 = 0{,}24$ ; hors de la diagonale, $-p_ip_j$ : $-0{,}6 \times 0{,}1 = -0{,}06$ ; complète. 2. Que deviennent les $p_i$ si l'on ajoute un même nombre $t$ à tous les logits ? Dérive en $t$. 3. $\operatorname{Cov}(\mathbf{Y}) = \mathbb{E}[\mathbf{Y}\mathbf{Y}^\top] - \mathbb{E}[\mathbf{Y}]\thinspace\mathbb{E}[\mathbf{Y}]^\top$. 4. $e^0$, $e^{-1{,}5}$, $e^{-3}$, puis divise par leur somme.
 
 </details>
 
@@ -147,12 +147,12 @@ M26 §5 (le système de Bellman, la loi d'occupation actualisée) et §8 (l'erre
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V} = \mathbf{r}_\pi$ ; $\boldsymbol\nu_0 = (1 - \gamma) \times$ la ligne 0 de $\mathbf{M}$ ; $\mathbb{E}[\delta_t \mid S_t = 0] = r_\pi(0) + \gamma\,(\mathbf{P}_\pi\mathbf{W})(0) - W(0)$.
+$(\mathbf{I} - \gamma\mathbf{P}  _\pi)\thinspace\mathbf{V} = \mathbf{r}  _\pi$ ; $\boldsymbol\nu_0 = (1 - \gamma) \times$ la ligne 0 de $\mathbf{M}$ ; $\mathbb{E}[\delta_t \mid S_t = 0] = r _\pi(0) + \gamma\thinspace(\mathbf{P} _\pi\mathbf{W})(0) - W(0)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{I} - 0{,}6\,\mathbf{P}_\pi = \begin{pmatrix} 0{,}58 & -0{,}18 \\ -0{,}12 & 0{,}52 \end{pmatrix}$, de déterminant $0{,}28$ ; l'inverse d'une matrice $2 \times 2$. 2. La ligne 0 de $\mathbf{M}$ : $\frac{(0{,}52 ;\ 0{,}18)}{0{,}28}$. 3. $8 + 0{,}6\,(0{,}7 \times 16 + 0{,}3 \times 5) - 16$. 4. Écris chaque $\delta_{t+k}$, multiplie par $\gamma^k$ et somme : les termes en $W$ se compensent deux à deux.
+1. $\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}58 & -0{,}18 \cr -0{,}12 & 0{,}52 \end{pmatrix}$, de déterminant $0{,}28$ ; l'inverse d'une matrice $2 \times 2$. 2. La ligne 0 de $\mathbf{M}$ : $\frac{(0{,}52 ;\ 0{,}18)}{0{,}28}$. 3. $8 + 0{,}6\thinspace(0{,}7 \times 16 + 0{,}3 \times 5) - 16$. 4. Écris chaque $\delta _{t+k}$, multiplie par $\gamma^k$ et somme : les termes en $W$ se compensent deux à deux.
 
 </details>
 
@@ -170,7 +170,7 @@ Dérive $(\theta + U)^2$ en $\theta$, $U$ restant fixé, puis prends l'espéranc
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbb{E}[2(\theta + U)] = 2\theta + 1$ ; et $\mathbb{E}_\theta[X^2] = \theta^2 + \theta + \frac13$. 3. Pour $1 \le \theta \le 2$, $P(U > 2 - \theta) = \theta - 1$. Que vaut la dérivée en $\theta$ de $\mathbf{1}\{\theta + u > 2\}$, $u$ fixé, hors du saut ?
+1. $\mathbb{E}[2(\theta + U)] = 2\theta + 1$ ; et $\mathbb{E}_\theta[X^2] = \theta^2 + \theta + \frac13$. 3. Pour $1 \le \theta \le 2$, $P(U > 2 - \theta) = \theta - 1$. Que vaut la dérivée en $\theta$ de $\mathbf{1}\lbrace\theta + u > 2\rbrace$, $u$ fixé, hors du saut ?
 
 </details>
 
@@ -187,12 +187,12 @@ Fiche §2 : « La méthode du score » et « Le score contre le chemin » ; M02b
 </details>
 <details><summary>Indice 2</summary>
 
-$s_\theta(x) = \frac1\theta - x$ et $P(X > c) = e^{-\theta c}$. $\mathbb{E}[g(X)] = \frac1\theta P(X > c) - \mathbb{E}[X\,\mathbf{1}\{X > c\}]$ ; sachant $X > c$, $X - c$ suit encore la loi exponentielle de taux $\theta$. Par le chemin, dérive $\frac\xi\theta$ en $\theta$, $\xi$ restant fixé. Pour e), écris $X = c + Y$ sachant $X > c$.
+$s_\theta(x) = \frac1\theta - x$ et $P(X > c) = e^{-\theta c}$. $\mathbb{E}[g(X)] = \frac1\theta P(X > c) - \mathbb{E}[X\thinspace\mathbf{1}\lbrace X > c\rbrace]$ ; sachant $X > c$, $X - c$ suit encore la loi exponentielle de taux $\theta$. Par le chemin, dérive $\frac\xi\theta$ en $\theta$, $\xi$ restant fixé. Pour e), écris $X = c + Y$ sachant $X > c$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $e^{-1{,}8}$. b) $-c\,e^{-\theta c}$. c) $\frac1\theta e^{-\theta c}$, puis $(c + \frac1\theta)\,e^{-\theta c}$ ; leur différence doit redonner b). d) $-\frac{\xi}{\theta^2} = -\frac X\theta$, d'espérance $-\frac{1}{\theta^2}$ ; et l'indicatrice ? e) $\mathbb{E}[(\frac1\theta - X)^2 \mid X > c] = c^2 + \mathbb{V}(Y)$, puis $\mathbb{V}(g) = \mathbb{E}[g^2] - (\text{b})^2$.
+a) $e^{-1{,}8}$. b) $-c\thinspace e^{-\theta c}$. c) $\frac1\theta e^{-\theta c}$, puis $(c + \frac1\theta)\thinspace e^{-\theta c}$ ; leur différence doit redonner b). d) $-\frac{\xi}{\theta^2} = -\frac X\theta$, d'espérance $-\frac{1}{\theta^2}$ ; et l'indicatrice ? e) $\mathbb{E}[(\frac1\theta - X)^2 \mid X > c] = c^2 + \mathbb{V}(Y)$, puis $\mathbb{V}(g) = \mathbb{E}[g^2] - (\text{b})^2$.
 
 </details>
 
@@ -205,12 +205,12 @@ Fiche §1 (le score d'une loi binomiale) et §3 : « Une baseline pour l'estimat
 </details>
 <details><summary>Indice 2</summary>
 
-$\ln p_\theta(x) = \ln\binom2x + x\ln\theta + (2 - x)\ln(1 - \theta)$ ; les probabilités valent $\big(\frac{1}{16} ;\ \frac{6}{16} ;\ \frac{9}{16}\big)$. La variance de $(f - b)\,s$ est $\mathbb{E}[(f - b)^2s^2] - D^2$, avec $D$ la réponse b) ; développe-la en $b$ : $\mathbb{E}[f^2s^2] - 2b\,\mathbb{E}[fs^2] + b^2\,\mathbb{E}[s^2] - D^2$.
+$\ln p_\theta(x) = \ln\binom2x + x\ln\theta + (2 - x)\ln(1 - \theta)$ ; les probabilités valent $\big(\frac{1}{16} ;\ \frac{6}{16} ;\ \frac{9}{16}\big)$. La variance de $(f - b)\thinspace s$ est $\mathbb{E}[(f - b)^2s^2] - D^2$, avec $D$ la réponse b) ; développe-la en $b$ : $\mathbb{E}[f^2s^2] - 2b\thinspace\mathbb{E}[fs^2] + b^2\thinspace\mathbb{E}[s^2] - D^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $s_\theta(x) = \frac{x - 2\theta}{\theta(1 - \theta)}$, avec $\theta(1 - \theta) = \frac{3}{16}$. b) Dérive $3{,}5 \times 2\theta(1 - \theta) + 5\theta^2$, ou calcule $\mathbb{E}[fs]$. c) $\mathbb{E}[f^2s^2] - D^2$. d), e) Calcule $\mathbb{E}[s^2]$ et $\mathbb{E}[fs^2]$, puis $b^\star$ et la variance minimale ; pour tout $b$, la variance vaut la variance minimale plus $(b - b^\star)^2\,\mathbb{E}[s^2]$.
+a) $s_\theta(x) = \frac{x - 2\theta}{\theta(1 - \theta)}$, avec $\theta(1 - \theta) = \frac{3}{16}$. b) Dérive $3{,}5 \times 2\theta(1 - \theta) + 5\theta^2$, ou calcule $\mathbb{E}[fs]$. c) $\mathbb{E}[f^2s^2] - D^2$. d), e) Calcule $\mathbb{E}[s^2]$ et $\mathbb{E}[fs^2]$, puis $b^\star$ et la variance minimale ; pour tout $b$, la variance vaut la variance minimale plus $(b - b^\star)^2\thinspace\mathbb{E}[s^2]$.
 
 </details>
 
@@ -223,12 +223,12 @@ Fiche §4 : « Rappel de M26 : une politique et ses valeurs », « Une politique
 </details>
 <details><summary>Indice 2</summary>
 
-$\pi(\text{rester} \mid \text{marché}) = \frac{e^{\ln 3}}{e^{\ln 3} + 1}$. La ligne du marché de $\mathbf{P}_\pi$ mélange les lignes de rester et de partir avec les probabilités $\pi$ ; celle du parc est fixe ; $\mathbf{r}_\pi$ de même. $\mathbf{V} = \mathbf{M}\,\mathbf{r}_\pi$, avec l'inverse d'une matrice $2 \times 2$. $Q(\text{marché}, a) = r(\text{marché}, a) + \gamma\sum_t\mathbf{P}[a, \text{marché}, t]\,V(t)$ et $A = Q - V(\text{marché})$ ; puis $\frac{\partial V(s_0)}{\partial z(\text{marché}, a)} = \mathbf{M}[s_0, \text{marché}]\,\pi(a \mid \text{marché})\,A(\text{marché}, a)$.
+$\pi(\text{rester} \mid \text{marché}) = \frac{e^{\ln 3}}{e^{\ln 3} + 1}$. La ligne du marché de $\mathbf{P} _\pi$ mélange les lignes de rester et de partir avec les probabilités $\pi$ ; celle du parc est fixe ; $\mathbf{r}  _\pi$ de même. $\mathbf{V} = \mathbf{M}\thinspace\mathbf{r} _\pi$, avec l'inverse d'une matrice $2 \times 2$. $Q(\text{marché}, a) = r(\text{marché}, a) + \gamma\sum_t\mathbf{P}[a, \text{marché}, t]\thinspace V(t)$ et $A = Q - V(\text{marché})$ ; puis $\frac{\partial V(s_0)}{\partial z(\text{marché}, a)} = \mathbf{M}[s_0, \text{marché}]\thinspace\pi(a \mid \text{marché})\thinspace A(\text{marché}, a)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}75\,(0{,}86 ;\ 0{,}14) + 0{,}25\,(0 ;\ 1)$. b) $\mathbf{I} - 0{,}7\,\mathbf{P}_\pi = \begin{pmatrix} 0{,}5485 & -0{,}2485 \\ -0{,}21 & 0{,}51 \end{pmatrix}$, son déterminant, puis $\mathbf{M}\,\mathbf{r}_\pi$. c) La colonne du marché de $\mathbf{M}$ : $\frac{(0{,}51 ;\ 0{,}21)}{\det}$. d) $Q(\text{marché}, \text{rester}) = 3 + 0{,}7\,(0{,}86\,V(\text{marché}) + 0{,}14\,V(\text{parc}))$ et $Q(\text{marché}, \text{partir}) = 0{,}7\,V(\text{parc})$. e) Quatre produits ; contrôle : les deux dérivées d'un même départ ont une somme nulle.
+a) $0{,}75\thinspace(0{,}86 ;\ 0{,}14) + 0{,}25\thinspace(0 ;\ 1)$. b) $\mathbf{I} - 0{,}7\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}5485 & -0{,}2485 \cr -0{,}21 & 0{,}51 \end{pmatrix}$, son déterminant, puis $\mathbf{M}\thinspace\mathbf{r} _\pi$. c) La colonne du marché de $\mathbf{M}$ : $\frac{(0{,}51 ;\ 0{,}21)}{\det}$. d) $Q(\text{marché}, \text{rester}) = 3 + 0{,}7\thinspace(0{,}86\thinspace V(\text{marché}) + 0{,}14\thinspace V(\text{parc}))$ et $Q(\text{marché}, \text{partir}) = 0{,}7\thinspace V(\text{parc})$. e) Quatre produits ; contrôle : les deux dérivées d'un même départ ont une somme nulle.
 
 </details>
 
@@ -241,12 +241,12 @@ Fiche §5 : « Des retours qui s'arrêtent », « Le λ-retour » et « Ce que v
 </details>
 <details><summary>Indice 2</summary>
 
-Le biais du retour à $k$ pas depuis $s$ est $\gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$ : l'erreur de l'état atteint au pas $k$, en moyenne, actualisée $k$ fois. Le retour à $k$ pas pèse $(1 - \lambda)\lambda^{k-1}$ ; les retours de plus de $k$ pas pèsent ensemble $\lambda^k$. Pour d), une erreur constante vérifie $\mathbf{P}_\pi^k\mathbf{e} = \mathbf{e}$.
+Le biais du retour à $k$ pas depuis $s$ est $\gamma^k(\mathbf{P} _\pi^k\mathbf{e})(s)$ : l'erreur de l'état atteint au pas $k$, en moyenne, actualisée $k$ fois. Le retour à $k$ pas pèse $(1 - \lambda)\lambda^{k-1}$ ; les retours de plus de $k$ pas pèsent ensemble $\lambda^k$. Pour d), une erreur constante vérifie $\mathbf{P} _\pi^k\mathbf{e} = \mathbf{e}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{P}_\pi\mathbf{e} = (0{,}85 \times 3 ;\ 0{,}3 \times 2 ;\ 0{,}85 \times 3 + 0{,}15 \times 2)$, puis $\times\,0{,}6$. b) $\mathbf{P}_\pi(\mathbf{P}_\pi\mathbf{e})$, puis $\times\,0{,}36$. c) $0{,}3 \times 0{,}7^4$ ; cherche le premier $k$ tel que $0{,}7^k < 0{,}05$. d) $\sum_k(1 - \lambda)\lambda^{k-1}\,2\gamma^k$ : une série géométrique de raison $\gamma\lambda$.
+a) $\mathbf{P} _\pi\mathbf{e} = (0{,}85 \times 3 ;\ 0{,}3 \times 2 ;\ 0{,}85 \times 3 + 0{,}15 \times 2)$, puis $\times\thinspace0{,}6$. b) $\mathbf{P}  _\pi(\mathbf{P} _\pi\mathbf{e})$, puis $\times\thinspace0{,}36$. c) $0{,}3 \times 0{,}7^4$ ; cherche le premier $k$ tel que $0{,}7^k < 0{,}05$. d) $\sum_k(1 - \lambda)\lambda^{k-1}\thinspace2\gamma^k$ : une série géométrique de raison $\gamma\lambda$.
 
 </details>
 
@@ -259,12 +259,12 @@ Fiche §6 : « Changer de loi », « Normaliser, mesurer, tronquer » et « Esti
 </details>
 <details><summary>Indice 2</summary>
 
-$w = \frac pq$ classe par classe ; $\mathbb{E}_q[wf] = \sum q\,w\,f = \sum p\,f$. Kish : $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$ sur les six panélistes. Tronquer : $\min(w, c)$ classe par classe ; le biais se compare à la moyenne repondérée exacte. $\mathrm{KL}(q \,\|\, p) = \sum q\ln\frac qp$ ; $k_1 = -\ln w$ ; $k_3 = (w - 1) - \ln w$.
+$w = \frac pq$ classe par classe ; $\mathbb{E}_q[wf] = \sum q\thinspace w\thinspace f = \sum p\thinspace f$. Kish : $\frac{(\sum_iw_i)^2}{\sum_iw_i^2}$ sur les six panélistes. Tronquer : $\min(w, c)$ classe par classe ; le biais se compare à la moyenne repondérée exacte. $\mathrm{KL}(q \thinspace\Vert\thinspace p) = \sum q\ln\frac qp$ ; $k_1 = -\ln w$ ; $k_3 = (w - 1) - \ln w$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\,f$, puis $\sum p\,f$. c) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. d) $\min(w, 1{,}6) = (0{,}52 ;\ 1{,}6 ;\ 1{,}32)$. e) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ f), g) Classe par classe ; contrôle : $\sum q\,k_1$ et $\sum q\,k_3$ redonnent e).
+a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\thinspace f$, puis $\sum p\thinspace f$. c) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. d) $\min(w, 1{,}6) = (0{,}52 ;\ 1{,}6 ;\ 1{,}32)$. e) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ f), g) Classe par classe ; contrôle : $\sum q\thinspace k_1$ et $\sum q\thinspace k_3$ redonnent e).
 
 </details>
 
@@ -277,12 +277,12 @@ Fiche §7 : « Le modèle », « Quand les forces existent » et « La cote Elo 
 </details>
 <details><summary>Indice 2</summary>
 
-Deux clubs seuls : l'équation de vraisemblance d'une paire, $n\,\sigma(d) = $ les victoires de A. Avec $p_i = e^{\beta_i}$, $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, et les victoires attendues de $i$ contre $j$ valent $n_{ij}\,\sigma(\beta_i - \beta_j)$. Centrer : retrancher la moyenne des $\ln p_i$. Elo : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et C gagne $k\,(1 - E)$.
+Deux clubs seuls : l'équation de vraisemblance d'une paire, $n\thinspace\sigma(d) = $ les victoires de A. Avec $p_i = e^{\beta_i}$, $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, et les victoires attendues de $i$ contre $j$ valent $n_{ij}\thinspace\sigma(\beta_i - \beta_j)$. Centrer : retrancher la moyenne des $\ln p_i$. Elo : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et C gagne $k\thinspace(1 - E)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\sigma(d) = \frac27$, donc $d = \ln\frac{2/7}{5/7}$. b) $7 \times \frac47$ ; $10 \times \frac45$ ; $4 \times \frac34$ ; puis somme par club et compare aux totaux du tableau. c) $\ln 4$, $\ln 3$, 0, moins leur moyenne. d) $\frac{1}{1 + 4}$. e) $400\log_{10}4$ ; $32 \times (1 - 0{,}2)$. Pour D : écris son équation du maximum de vraisemblance, $4 = 2\,\sigma(\beta_D - \beta_A) + 2\,\sigma(\beta_D - \beta_C)$ ; une force finie peut-elle la vérifier ?
+a) $\sigma(d) = \frac27$, donc $d = \ln\frac{2/7}{5/7}$. b) $7 \times \frac47$ ; $10 \times \frac45$ ; $4 \times \frac34$ ; puis somme par club et compare aux totaux du tableau. c) $\ln 4$, $\ln 3$, 0, moins leur moyenne. d) $\frac{1}{1 + 4}$. e) $400\log_{10}4$ ; $32 \times (1 - 0{,}2)$. Pour D : écris son équation du maximum de vraisemblance, $4 = 2\thinspace\sigma(\beta_D - \beta_A) + 2\thinspace\sigma(\beta_D - \beta_C)$ ; une force finie peut-elle la vérifier ?
 
 </details>
 
@@ -295,12 +295,12 @@ Fiche §8 : « Un compromis » et « Les deux limites » ; M05a §8 (log-sum-exp
 </details>
 <details><summary>Indice 2</summary>
 
-$\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$, $Z = \sum_x\pi_{\mathrm{ref}}(x)\,e^{r(x)/\beta}$, et la valeur maximale est $\beta\ln Z$. $F(\pi_{\mathrm{ref}}) = \mathbb{E}_{\mathrm{ref}}[r]$ (KL nulle) ; pour la loi qui ne sert que le plat $x$, la KL vaut $\ln\frac{1}{\pi_{\mathrm{ref}}(x)}$.
+$\pi^\star \propto \pi_{\mathrm{ref}}\thinspace e^{r/\beta}$, $Z = \sum_x\pi_{\mathrm{ref}}(x)\thinspace e^{r(x)/\beta}$, et la valeur maximale est $\beta\ln Z$. $F(\pi_{\mathrm{ref}}) = \mathbb{E} _{\mathrm{ref}}[r]$ (KL nulle) ; pour la loi qui ne sert que le plat $x$, la KL vaut $\ln\frac{1}{\pi _{\mathrm{ref}}(x)}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Les trois produits $\pi_{\mathrm{ref}}(x)\,e^{r(x)}$, divisés par leur somme $Z$. b) $\ln Z$. c) $0{,}45 \times 2 + 0{,}40 \times 4 + 0{,}15 \times 5$ ; puis $5 - \ln\frac{1}{0{,}15}$. d) $e^{r/3}$, la même démarche, et $3\ln Z$. Contrôle : $\mathbb{E}_{\pi^\star}[r] - \beta\,\mathrm{KL}(\pi^\star \,\|\, \pi_{\mathrm{ref}}) = \beta\ln Z$.
+a) Les trois produits $\pi_{\mathrm{ref}}(x)\thinspace e^{r(x)}$, divisés par leur somme $Z$. b) $\ln Z$. c) $0{,}45 \times 2 + 0{,}40 \times 4 + 0{,}15 \times 5$ ; puis $5 - \ln\frac{1}{0{,}15}$. d) $e^{r/3}$, la même démarche, et $3\ln Z$. Contrôle : $\mathbb{E} _{\pi^\star}[r] - \beta\thinspace\mathrm{KL}(\pi^\star \thinspace\Vert\thinspace \pi _{\mathrm{ref}}) = \beta\ln Z$.
 
 </details>
 
@@ -317,12 +317,12 @@ Fiche §1 : « Une espérance nulle » et « L'information de Fisher » ; M25b �
 </details>
 <details><summary>Indice 2</summary>
 
-Sur $S$, $\partial_\theta p_\theta = p_\theta\,s_\theta$. Dérive $\int_Sp_\theta = 1$ une fois, puis deux fois. Pour la loi uniforme, calcule $\int_0^\theta\partial_\theta p_\theta(x)\,\mathrm{d}x$ et compare-le à ce que donnerait l'étape 1.
+Sur $S$, $\partial_\theta p_\theta = p_\theta\thinspace s_\theta$. Dérive $\int_Sp_\theta = 1$ une fois, puis deux fois. Pour la loi uniforme, calcule $\int_0^\theta\partial_\theta p_\theta(x)\thinspace\mathrm{d}x$ et compare-le à ce que donnerait l'étape 1.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\,s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, et une seule formule, par exemple $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; $\int_0^\theta\partial_\theta p_\theta = -\frac1\theta$ : où l'étape 1 a-t-elle utilisé un support fixe ?
+1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\thinspace s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, et une seule formule, par exemple $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; $\int_0^\theta\partial_\theta p_\theta = -\frac1\theta$ : où l'étape 1 a-t-elle utilisé un support fixe ?
 
 </details>
 
@@ -340,7 +340,7 @@ $\mathbb{E}[s] = 0$ donne l'absence de biais. Développe $\mathbb{E}[(f - b)^2s^
 </details>
 <details><summary>Indice 3</summary>
 
-1. Le trinôme $\mathbb{E}[s^2]\,b^2 - 2\,\mathbb{E}[fs^2]\,b + \mathbb{E}[f^2s^2] - D^2$ est minimal en $b = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$. 2. $\mathbb{E}[fs^2] = \mathbb{E}[f]\,\mathbb{E}[s^2]$ : une covariance nulle. 3. Par indépendance, $\mathbb{E}[b_i\,s(x_i)] = \mathbb{E}[b_i]\,\mathbb{E}[s(x_i)]$. 4. $n\bar f = f(x_i) + (n - 1)\,b_i$ ; remplace dans $f(x_i) - \bar f$.
+1. Le trinôme $\mathbb{E}[s^2]\thinspace b^2 - 2\thinspace\mathbb{E}[fs^2]\thinspace b + \mathbb{E}[f^2s^2] - D^2$ est minimal en $b = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$. 2. $\mathbb{E}[fs^2] = \mathbb{E}[f]\thinspace\mathbb{E}[s^2]$ : une covariance nulle. 3. Par indépendance, $\mathbb{E}[b_i\thinspace s(x_i)] = \mathbb{E}[b_i]\thinspace\mathbb{E}[s(x_i)]$. 4. $n\bar f = f(x_i) + (n - 1)\thinspace b_i$ ; remplace dans $f(x_i) - \bar f$.
 
 </details>
 
@@ -353,12 +353,12 @@ Fiche §4 : « Rappel de M26 : une politique et ses valeurs » et « Dériver le
 </details>
 <details><summary>Indice 2</summary>
 
-Dérive le produit $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V}$. $\frac{\partial\pi(b \mid s')}{\partial z(s, a)}$ est nul si $s' \ne s$. En $s$, regroupe $r(s, b) + \gamma(\mathbf{P}[b]\mathbf{V})(s) = Q(s, b)$. Pour 5 : $\partial_\theta\pi = \pi\,\partial_\theta\ln\pi$, et $\sum_a\pi(a \mid s) = 1$.
+Dérive le produit $(\mathbf{I} - \gamma\mathbf{P} _\pi)\thinspace\mathbf{V}$. $\frac{\partial\pi(b \mid s')}{\partial z(s, a)}$ est nul si $s' \ne s$. En $s$, regroupe $r(s, b) + \gamma(\mathbf{P}[b]\mathbf{V})(s) = Q(s, b)$. Pour 5 : $\partial  _\theta\pi = \pi\thinspace\partial _\theta\ln\pi$, et $\sum_a\pi(a \mid s) = 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $-\gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V} + (\mathbf{I} - \gamma\mathbf{P}_\pi)\,\partial\mathbf{V} = \partial\mathbf{r}_\pi$, puis multiplie par $\mathbf{M}$. 2. $\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)$. 3. $\sum_b\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)\,Q(s, b) = \pi(a \mid s)\big(Q(s, a) - \sum_b\pi(b \mid s)\,Q(s, b)\big)$. 4. $\mathbf{M}$ fois un vecteur qui n'a que la coordonnée $s$ ; $\mathbf{M}[s_0, s] = \frac{\nu_{s_0}(s)}{1 - \gamma}$. 5. $\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,V(s) = V(s)\,\partial_\theta\sum_a\pi(a \mid s)$.
+1. $-\gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V} + (\mathbf{I} - \gamma\mathbf{P} _\pi)\thinspace\partial\mathbf{V} = \partial\mathbf{r}  _\pi$, puis multiplie par $\mathbf{M}$. 2. $\pi(b \mid s)\big(\mathbf{1}\lbrace b = a\rbrace - \pi(a \mid s)\big)$. 3. $\sum_b\pi(b \mid s)\big(\mathbf{1}\lbrace b = a\rbrace - \pi(a \mid s)\big)\thinspace Q(s, b) = \pi(a \mid s)\big(Q(s, a) - \sum_b\pi(b \mid s)\thinspace Q(s, b)\big)$. 4. $\mathbf{M}$ fois un vecteur qui n'a que la coordonnée $s$ ; $\mathbf{M}[s_0, s] = \frac{\nu  _{s_0}(s)}{1 - \gamma}$. 5. $\sum_a\pi(a \mid s)\thinspace\partial _\theta\ln\pi(a \mid s)\thinspace V(s) = V(s)\thinspace\partial _\theta\sum_a\pi(a \mid s)$.
 
 </details>
 
@@ -375,12 +375,12 @@ Fiche §2 : « La méthode du score » ; §3 : « Des baselines tirées de l'éc
 </details>
 <details><summary>Indice 2</summary>
 
-$\ln p_\theta(x) = x\ln\theta - \theta - \ln x!$. Les $f(x_i)$ et $b$ sont des constantes : $\frac{\mathrm{d}L}{\mathrm{d}\theta} = -\frac1n\sum_i(f(x_i) - b)\,s_\theta(x_i)$. Compare $\sum_is_\theta(x_i)$ à 0.
+$\ln p_\theta(x) = x\ln\theta - \theta - \ln x!$. Les $f(x_i)$ et $b$ sont des constantes : $\frac{\mathrm{d}L}{\mathrm{d}\theta} = -\frac1n\sum_i(f(x_i) - b)\thinspace s_\theta(x_i)$. Compare $\sum_is_\theta(x_i)$ à 0.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{x_i}{2{,}5} - 1$. Les $f(x_i)$ : $(1, 0, 2, 0, 3, 0, 1, 2)$. c) $\sum_if(x_i)\,s_\theta(x_i) = 5{,}8$, donc $-\frac{5{,}8}{8}$. b) $\sum_i(f(x_i) - 1)\,s_\theta(x_i) = \sum_if(x_i)\,s_\theta(x_i) - \sum_is_\theta(x_i)$. Pour la standardisation : le centrage est une baseline (laquelle ? ∂ MB8.9) ; et la division, que fait-elle à l'espérance de l'estimateur ?
+a) $\frac{x_i}{2{,}5} - 1$. Les $f(x_i)$ : $(1, 0, 2, 0, 3, 0, 1, 2)$. c) $\sum_if(x_i)\thinspace s_\theta(x_i) = 5{,}8$, donc $-\frac{5{,}8}{8}$. b) $\sum_i(f(x_i) - 1)\thinspace s_\theta(x_i) = \sum_if(x_i)\thinspace s_\theta(x_i) - \sum_is_\theta(x_i)$. Pour la standardisation : le centrage est une baseline (laquelle ? ∂ MB8.9) ; et la division, que fait-elle à l'espérance de l'estimateur ?
 
 </details>
 
@@ -424,7 +424,7 @@ Quatre temps : pourquoi le chemin échoue (une indicatrice, une loi discrète) ;
 </details>
 <details><summary>Indice 3</summary>
 
-Une phrase par temps : « la dérivée d'une indicatrice est nulle presque partout » ; « la dérivée de $\mathbb{E}_\theta[f]$ est $\mathbb{E}_\theta[f\,s_\theta]$, si le support ne dépend pas de $\theta$ » ; « la moyenne des $f\,s_\theta$, sans biais mais bruitée » ; « une baseline (la meilleure constante, ou la moyenne des autres tirages) ou une variable de contrôle d'espérance connue ; pas la moyenne du batch, tirage compris ».
+Une phrase par temps : « la dérivée d'une indicatrice est nulle presque partout » ; « la dérivée de $\mathbb{E}  _\theta[f]$ est $\mathbb{E}  _\theta[f\thinspace s _\theta]$, si le support ne dépend pas de $\theta$ » ; « la moyenne des $f\thinspace s _\theta$, sans biais mais bruitée » ; « une baseline (la meilleure constante, ou la moyenne des autres tirages) ou une variable de contrôle d'espérance connue ; pas la moyenne du batch, tirage compris ».
 
 </details>
 
@@ -441,7 +441,7 @@ Fiche §2 : « La méthode du score » ; §3 : « Une baseline pour l'estimateur
 </details>
 <details><summary>Indice 2</summary>
 
-Les contrôles : `np.asarray(f_values, dtype=float)` à une dimension, au moins deux valeurs finies ; les scores à une ou deux dimensions, avec $n$ lignes ; `isinstance(baseline, bool)` avant tout, puis un nombre fini ou la chaîne `"leave-one-out"`. Les baselines : la constante, ou $\frac{\sum_jf_j - f_i}{n - 1}$. Les termes $g_i = (f_i - b_i)\,s_i$ (pour des scores à deux dimensions, la ligne $i$ fois $f_i - b_i$) ; leur moyenne et leur écart-type (`ddof=1`) sur l'axe 0, divisé par $\sqrt n$. Rends deux `float` pour des scores à une dimension.
+Les contrôles : `np.asarray(f_values, dtype=float)` à une dimension, au moins deux valeurs finies ; les scores à une ou deux dimensions, avec $n$ lignes ; `isinstance(baseline, bool)` avant tout, puis un nombre fini ou la chaîne `"leave-one-out"`. Les baselines : la constante, ou $\frac{\sum_jf_j - f_i}{n - 1}$. Les termes $g_i = (f_i - b_i)\thinspace s_i$ (pour des scores à deux dimensions, la ligne $i$ fois $f_i - b_i$) ; leur moyenne et leur écart-type (`ddof=1`) sur l'axe 0, divisé par $\sqrt n$. Rends deux `float` pour des scores à une dimension.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -465,7 +465,7 @@ Fiche §4 : « Une politique softmax tabulaire » et « Dériver le système de 
 </details>
 <details><summary>Indice 2</summary>
 
-Les contrôles : les formes $(K, m, m)$, $(K, m)$ et $(m, K)$ ; des $\mathbf{P}[a]$ positifs, de lignes de somme au plus $1 + 10^{-9}$ ; $\gamma$ réel de $[0, 1]$, pas un booléen. $\pi$ : `z - z.max(axis=1, keepdims=True)`, l'exponentielle, divisée par la somme de sa ligne. $\mathbf{P}_\pi$ et $\mathbf{r}_\pi$ par `np.einsum`. $\mathbf{M}$ par `np.linalg.solve(I - gamma * P_pi, I)` ; pour $\gamma = 1$, refuse si `np.linalg.matrix_rank(I - P_pi) < m`. $\mathbf{V} = \mathbf{M}\,\mathbf{r}_\pi$, $Q[s, a] = r[a, s] + \gamma\,(\mathbf{P}[a]\,\mathbf{V})[s]$, $A = Q - V$. a) Au parc, deux actions identiques : `P[0, 1]` et `P[1, 1]` valent $(0{,}3 ;\ 0{,}7)$, `r[0, 1]` et `r[1, 1]` valent 4.
+Les contrôles : les formes $(K, m, m)$, $(K, m)$ et $(m, K)$ ; des $\mathbf{P}[a]$ positifs, de lignes de somme au plus $1 + 10^{-9}$ ; $\gamma$ réel de $[0, 1]$, pas un booléen. $\pi$ : `z - z.max(axis=1, keepdims=True)`, l'exponentielle, divisée par la somme de sa ligne. $\mathbf{P} _\pi$ et $\mathbf{r}  _\pi$ par `np.einsum`. $\mathbf{M}$ par `np.linalg.solve(I - gamma * P_pi, I)` ; pour $\gamma = 1$, refuse si `np.linalg.matrix_rank(I - P_pi) < m`. $\mathbf{V} = \mathbf{M}\thinspace\mathbf{r} _\pi$, $Q[s, a] = r[a, s] + \gamma\thinspace(\mathbf{P}[a]\thinspace\mathbf{V})[s]$, $A = Q - V$. a) Au parc, deux actions identiques : `P[0, 1]` et `P[1, 1]` valent $(0{,}3 ;\ 0{,}7)$, `r[0, 1]` et `r[1, 1]` valent 4.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -542,7 +542,7 @@ Les trois estimateurs ont la même espérance (∂ MB8.9 pour la moyenne des aut
 </details>
 <details><summary>Indice 3</summary>
 
-Ta prédiction, raisonnée : place $0$, $\mathbb{E}[f]$ et $b^\star$ sur une droite, en te demandant pour quels tirages $s^2$ est grand et si $f$ y vaut 0 ou 1 ; puis compare les distances à $b^\star$. Pour b), le rapport des écarts-types est la racine du rapport des variances. Pour mesurer : une boucle sur les 2 000 lignes de `DRAWS_17` (ne tire pas de nouveaux échantillons : la vérification attend les écarts-types de ces lignes-là), $f = \mathbf{1}\{x \ge 5\}$, $s = \frac{x}{3{,}5} - 1$, trois appels de `score_function_gradient`, puis l'écart-type des 2 000 estimations de chaque baseline.
+Ta prédiction, raisonnée : place $0$, $\mathbb{E}[f]$ et $b^\star$ sur une droite, en te demandant pour quels tirages $s^2$ est grand et si $f$ y vaut 0 ou 1 ; puis compare les distances à $b^\star$. Pour b), le rapport des écarts-types est la racine du rapport des variances. Pour mesurer : une boucle sur les 2 000 lignes de `DRAWS_17` (ne tire pas de nouveaux échantillons : la vérification attend les écarts-types de ces lignes-là), $f = \mathbf{1}\lbrace x \ge 5\rbrace$, $s = \frac{x}{3{,}5} - 1$, trois appels de `score_function_gradient`, puis l'écart-type des 2 000 estimations de chaque baseline.
 
 </details>
 
@@ -555,7 +555,7 @@ Fiche §6 : « Changer de loi » et « Normaliser, mesurer, tronquer » ; ton `i
 </details>
 <details><summary>Indice 2</summary>
 
-Naïf : la moyenne de $\mathbf{1}\{z > 4\}$ sur 100 000 tirages. Importance : des $z$ tirés de $\mathcal{N}(4, 1)$, `importance_weights(norm.logpdf(z), norm.logpdf(z, 4, 1))`, puis la moyenne de $w\,\mathbf{1}\{z > 4\}$ et son erreur type. Troncature : `max_weight=c` ; pour chaque $c$, 400 répétitions ; le biais relatif (moyenne moins vraie valeur, divisé par la vraie valeur) et l'écart-type relatif.
+Naïf : la moyenne de $\mathbf{1}\lbrace z > 4\rbrace$ sur 100 000 tirages. Importance : des $z$ tirés de $\mathcal{N}(4, 1)$, `importance_weights(norm.logpdf(z), norm.logpdf(z, 4, 1))`, puis la moyenne de $w\thinspace\mathbf{1}\lbrace z > 4\rbrace$ et son erreur type. Troncature : `max_weight=c` ; pour chaque $c$, 400 répétitions ; le biais relatif (moyenne moins vraie valeur, divisé par la vraie valeur) et l'écart-type relatif.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -591,7 +591,7 @@ Fiche §4 : « Dériver le système de Bellman » (la vérification par différe
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test tire plusieurs MDP : `rng.dirichlet(np.ones(m), size=(K, m))` pour les $\mathbf{P}[a]$, `rng.normal` pour les récompenses et les logits, $\gamma$ parmi $0{,}6$ et $0{,}7$. Les différences finies : pour chaque $(s, a)$, les valeurs par `np.linalg.solve` en $z \pm h$ sur ce seul logit, puis $\frac{V^+ - V^-}{2h}$, avec ta propre fonction des valeurs ($\pi$, $\mathbf{P}_\pi$, $\mathbf{r}_\pi$), pas `policy_gradient_exact` de la référence. Compare à $10^{-6}$ près : `np.abs(fd - grad).max() <= 1e-6` (la vérification essaie des méthodes fausses de quelques $10^{-6}$ en valeur relative, que `np.allclose` laisserait passer). La somme : `np.abs(grad.sum(axis=2)).max() <= 1e-10`. Rends un booléen Python.
+Chaque test tire plusieurs MDP : `rng.dirichlet(np.ones(m), size=(K, m))` pour les $\mathbf{P}[a]$, `rng.normal` pour les récompenses et les logits, $\gamma$ parmi $0{,}6$ et $0{,}7$. Les différences finies : pour chaque $(s, a)$, les valeurs par `np.linalg.solve` en $z \pm h$ sur ce seul logit, puis $\frac{V^+ - V^-}{2h}$, avec ta propre fonction des valeurs ($\pi$, $\mathbf{P} _\pi$, $\mathbf{r} _\pi$), pas `policy_gradient_exact` de la référence. Compare à $10^{-6}$ près : `np.abs(fd - grad).max() <= 1e-6` (la vérification essaie des méthodes fausses de quelques $10^{-6}$ en valeur relative, que `np.allclose` laisserait passer). La somme : `np.abs(grad.sum(axis=2)).max() <= 1e-10`. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -609,11 +609,11 @@ Fiche §2 : « La méthode du score » et « Le score contre le chemin » ; §3 
 </details>
 <details><summary>Indice 2</summary>
 
-`draw(k)` rend les tirages et leurs scores : l'estimateur score se calcule sans connaître la loi. Avec $f = \mathbf{1}\{x > c\}$, sa variance à un tirage est $\mathbb{E}[(f - b)^2s^2] - D^2$ : que vaut-elle pour $b = 0$ quand $P(X > c)$ est proche de 1 ? La baseline qui la réduit le plus est $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ (fiche §3) : que vaut-elle quand $f$ vaut presque toujours 1 ? Elle doit rester sans biais : une constante, ou la moyenne des autres tirages. Ne gaspille pas le budget : les tirages à $\delta \ne 0$ coûtent autant que les autres.
+`draw(k)` rend les tirages et leurs scores : l'estimateur score se calcule sans connaître la loi. Avec $f = \mathbf{1}\lbrace x > c\rbrace$, sa variance à un tirage est $\mathbb{E}[(f - b)^2s^2] - D^2$ : que vaut-elle pour $b = 0$ quand $P(X > c)$ est proche de 1 ? La baseline qui la réduit le plus est $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ (fiche §3) : que vaut-elle quand $f$ vaut presque toujours 1 ? Elle doit rester sans biais : une constante, ou la moyenne des autres tirages. Ne gaspille pas le budget : les tirages à $\delta \ne 0$ coûtent autant que les autres.
 
 </details>
 <details><summary>Indice 3</summary>
 
-La baseline optimale s'estime sur les tirages, $\hat b = \frac{\sum_if_is_i^2}{\sum_is_i^2}$, au prix d'un petit biais, comme pour $c^\star$ estimé sur les tirages (fiche §3, 💻) ; ou bien la moyenne des autres tirages, sans biais. Un seul appel `x, s = draw(budget)`, puis la moyenne des $(f_i - b_i)\,s_i$. Contrôle sur le cas d'essai : la dérivée exacte est ta réponse à MB8.1 b.
+La baseline optimale s'estime sur les tirages, $\hat b = \frac{\sum_if_is_i^2}{\sum_is_i^2}$, au prix d'un petit biais, comme pour $c^\star$ estimé sur les tirages (fiche §3, 💻) ; ou bien la moyenne des autres tirages, sans biais. Un seul appel `x, s = draw(budget)`, puis la moyenne des $(f_i - b_i)\thinspace s_i$. Contrôle sur le cas d'essai : la dérivée exacte est ta réponse à MB8.1 b.
 
 </details>

@@ -18,17 +18,17 @@
 
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures
 1. $3 \times 2 + 1 \times (-1) = 5$ : le produit scalaire de la ligne 1 avec $\mathbf{x}$.
-2. $\mathbf{A}\mathbf{x} = 2\begin{pmatrix} 3 \\ -2 \end{pmatrix} - 1\begin{pmatrix} 1 \\ 4 \end{pmatrix} = \begin{pmatrix} 5 \\ -8 \end{pmatrix}$.
+2. $\mathbf{A}\mathbf{x} = 2\begin{pmatrix} 3 \cr -2 \end{pmatrix} - 1\begin{pmatrix} 1 \cr 4 \end{pmatrix} = \begin{pmatrix} 5 \cr -8 \end{pmatrix}$.
 3. $(1, 4)$ : la **colonne 2** de $\mathbf{A}$.
-4. $m\,n$ : une multiplication par élément de la matrice.
+4. $m\thinspace n$ : une multiplication par élément de la matrice.
 5. **Vrai** : si $\mathbf{a}_j = 2\mathbf{a}_k$, le vecteur $\mathbf{x}$ qui vaut 2 en position $k$, $-1$ en position $j$ et 0 ailleurs donne $\mathbf{A}\mathbf{x} = 2\mathbf{a}_k - \mathbf{a}_j = \mathbf{0}$.
 
 ### M09a.Q3 — Produit matriciel : vrai ou faux
 1. **Faux** en général (fiche §3), même pour des matrices carrées ; parfois vrai (avec $\mathbf{I}$, ou deux matrices diagonales).
 2. **Vrai** : le produit est associatif.
-3. **Faux** : $\mathbf{N} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ n'est pas nulle, et $\mathbf{N}\mathbf{N} = \mathbf{0}$.
+3. **Faux** : $\mathbf{N} = \begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}$ n'est pas nulle, et $\mathbf{N}\mathbf{N} = \mathbf{0}$.
 4. **Faux** : $(\mathbf{A} + \mathbf{B})^2 = \mathbf{A}^2 + \mathbf{A}\mathbf{B} + \mathbf{B}\mathbf{A} + \mathbf{B}^2$ ; l'identité remarquable ne vaut que si $\mathbf{A}\mathbf{B} = \mathbf{B}\mathbf{A}$.
-5. **Vrai** : $n\,m$ éléments, chacun un produit scalaire de longueur $p$.
+5. **Vrai** : $n\thinspace m$ éléments, chacun un produit scalaire de longueur $p$.
 6. **Faux** : le résultat est le même, le coût peut changer énormément (M09a.4 : un facteur de près de 43).
 
 ### M09a.Q4 — Hadamard ou produit matriciel ?
@@ -124,7 +124,7 @@ Pour la copie : une ligne est un exemple (un capteur), une colonne une feature (
 **Démarche.**
 - b) Par les lignes : $6 + 1 + 6 + 0 = 13$ ; $2 - 4 - 6 + 5 = -3$ ; $-4 + 0 + 3 + 3 = 2$.
 - c) $3 \times 4$ : une multiplication par élément de $\mathbf{A}$.
-- d) $\mathbf{A}\mathbf{e}_3 = 0\,\mathbf{a}_1 + 0\,\mathbf{a}_2 + 1\,\mathbf{a}_3 + 0\,\mathbf{a}_4 = \mathbf{a}_3$.
+- d) $\mathbf{A}\mathbf{e}_3 = 0\thinspace\mathbf{a}_1 + 0\thinspace\mathbf{a}_2 + 1\thinspace\mathbf{a}_3 + 0\thinspace\mathbf{a}_4 = \mathbf{a}_3$.
 - e) $\mathbf{A}\mathbf{y} = y_1\mathbf{a}_1 + \cdots + y_4\mathbf{a}_4$ : il faut $y_1 = 1$, $y_4 = 2$, et 0 ailleurs.
 - f) $\mathbf{A}$ a 4 colonnes : elle ne multiplie que des vecteurs de $\mathbb{R}^4$.
 - g) Une prédiction par ligne de $\mathbf{X}$ : $(3 - 0{,}5 + 0 - 2,\ -1{,}5 - 1{,}5 + 2 - 2) = (0{,}5 ;\ -3)$.
@@ -140,13 +140,13 @@ Pour la copie : par les colonnes, $2(3, 1, -2) - (-1, 4, 0) + 3(2, -2, 1) + (0, 
 **Réponses** : a) `[2, 2]` · b) `[[5, 9], [-2, 4]]` · c) `[3, 3]` · d) `-2` · e) `False` · f) `[[1, 5, 4], [-1, 4, -1]]` · g) `[[-4, 19], [-6, 0]]`.
 
 **Démarche.**
-- b) $(\mathbf{A}\mathbf{B})_{11} = 2 + 1 + 2 = 5$, $(\mathbf{A}\mathbf{B})_{12} = 1 + 0 + 8 = 9$, $(\mathbf{A}\mathbf{B})_{21} = 0 - 3 + 1 = -2$, $(\mathbf{A}\mathbf{B})_{22} = 0 + 0 + 4 = 4$.
+- b) $(\mathbf{A}\mathbf{B}) _{11} = 2 + 1 + 2 = 5$, $(\mathbf{A}\mathbf{B}) _{12} = 1 + 0 + 8 = 9$, $(\mathbf{A}\mathbf{B}) _{21} = 0 - 3 + 1 = -2$, $(\mathbf{A}\mathbf{B}) _{22} = 0 + 0 + 4 = 4$.
 - d) La ligne 2 de $\mathbf{B}$, $(-1, 0)$, avec la colonne 3 de $\mathbf{A}$, $(2, 1)$ : $-2$.
 - e) $(2, 3) \times (2, 2)$ : les dimensions intérieures, 3 et 2, diffèrent.
 - f) $\mathbf{C}\mathbf{A}$ : $(1 + 0,\ -1 + 6,\ 2 + 2)$ et $(-1 + 0,\ 1 + 3,\ -2 + 1)$.
-- g) $\begin{pmatrix} 5 & 9 \\ -2 & 4 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 5 - 9 & 10 + 9 \\ -2 - 4 & -4 + 4 \end{pmatrix}$.
+- g) $\begin{pmatrix} 5 & 9 \cr -2 & 4 \end{pmatrix}\begin{pmatrix} 1 & 2 \cr -1 & 1 \end{pmatrix} = \begin{pmatrix} 5 - 9 & 10 + 9 \cr -2 - 4 & -4 + 4 \end{pmatrix}$.
 
-Pour la copie : $\mathbf{B}\mathbf{C} = \begin{pmatrix} 1 & 5 \\ -1 & -2 \\ -3 & 6 \end{pmatrix}$, puis $\mathbf{A}(\mathbf{B}\mathbf{C}) = \begin{pmatrix} -4 & 19 \\ -6 & 0 \end{pmatrix}$ : le même résultat que g), par associativité. $\mathbf{A}\mathbf{B}$ est $(2, 2)$ et $\mathbf{B}\mathbf{A}$ est $(3, 3)$ : deux matrices de formes différentes ne peuvent pas être égales.
+Pour la copie : $\mathbf{B}\mathbf{C} = \begin{pmatrix} 1 & 5 \cr -1 & -2 \cr -3 & 6 \end{pmatrix}$, puis $\mathbf{A}(\mathbf{B}\mathbf{C}) = \begin{pmatrix} -4 & 19 \cr -6 & 0 \end{pmatrix}$ : le même résultat que g), par associativité. $\mathbf{A}\mathbf{B}$ est $(2, 2)$ et $\mathbf{B}\mathbf{A}$ est $(3, 3)$ : deux matrices de formes différentes ne peuvent pas être égales.
 
 **Erreurs fréquentes.** Calculer $\mathbf{B}\mathbf{A}$ en b) ; prendre la ligne 2 de $\mathbf{A}$ et la colonne 3 de $\mathbf{B}$ (qui n'existe pas) en d) ; répondre `True` en e) parce que $\mathbf{C}\mathbf{A}$ existe ; mettre $\mathbf{C}$ à gauche en g).
 
@@ -157,25 +157,25 @@ Pour la copie : $\mathbf{B}\mathbf{C} = \begin{pmatrix} 1 & 5 \\ -1 & -2 \\ -3 &
 **Réponses** : a) `40000` · b) `70000` · c) `3000000` · d) `42.9` · e) `[20, 300]` · f) `23000` · g) `27`.
 
 **Démarche.**
-- a) $20 \times 400 \times 5 = 40\,000$.
-- b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$ ; $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $20 \times 5 \times 300 = 30\,000$ de plus.
-- c) $\mathbf{B}\mathbf{C}$ coûte $400 \times 5 \times 300 = 600\,000$ et a la forme $(400, 300)$ ; $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $20 \times 400 \times 300 = 2\,400\,000$ de plus.
-- d) $\frac{3\,000\,000}{70\,000} \approx 42{,}9$ : le rapport des deux coûts.
-- f) $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{D}))$ : $\mathbf{C}\mathbf{D}$, de forme $(5, 2)$, coûte $5 \times 300 \times 2 = 3\,000$ ; puis $\mathbf{B}(\mathbf{C}\mathbf{D})$, de forme $(400, 2)$, $400 \times 5 \times 2 = 4\,000$ ; puis $20 \times 400 \times 2 = 16\,000$.
-- g) $(3n)^3 = 27\,n^3$.
+- a) $20 \times 400 \times 5 = 40\thinspace000$.
+- b) $\mathbf{A}\mathbf{B}$ a la forme $(20, 5)$ ; $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $20 \times 5 \times 300 = 30\thinspace000$ de plus.
+- c) $\mathbf{B}\mathbf{C}$ coûte $400 \times 5 \times 300 = 600\thinspace000$ et a la forme $(400, 300)$ ; $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $20 \times 400 \times 300 = 2\thinspace400\thinspace000$ de plus.
+- d) $\frac{3\thinspace000\thinspace000}{70\thinspace000} \approx 42{,}9$ : le rapport des deux coûts.
+- f) $\mathbf{A}(\mathbf{B}(\mathbf{C}\mathbf{D}))$ : $\mathbf{C}\mathbf{D}$, de forme $(5, 2)$, coûte $5 \times 300 \times 2 = 3\thinspace000$ ; puis $\mathbf{B}(\mathbf{C}\mathbf{D})$, de forme $(400, 2)$, $400 \times 5 \times 2 = 4\thinspace000$ ; puis $20 \times 400 \times 2 = 16\thinspace000$.
+- g) $(3n)^3 = 27\thinspace n^3$.
 
-Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice intermédiaire ; ici, $\mathbf{B}\mathbf{C}$, de forme $(400, 300)$, est énorme, alors que $\mathbf{A}\mathbf{B}$, $(20, 5)$, est minuscule. En f), $\mathbf{D}$ n'a que 2 colonnes : en partant de la droite, chaque résultat intermédiaire n'a que 2 colonnes. $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{D}$ coûte $40\,000 + 30\,000 + 12\,000 = 82\,000$, et $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{D})$ coûte $43\,200$. Le résultat est le même dans tous les ordres : le produit est associatif.
+Pour la copie : la règle simple est d'éviter de fabriquer une grande matrice intermédiaire ; ici, $\mathbf{B}\mathbf{C}$, de forme $(400, 300)$, est énorme, alors que $\mathbf{A}\mathbf{B}$, $(20, 5)$, est minuscule. En f), $\mathbf{D}$ n'a que 2 colonnes : en partant de la droite, chaque résultat intermédiaire n'a que 2 colonnes. $((\mathbf{A}\mathbf{B})\mathbf{C})\mathbf{D}$ coûte $40\thinspace000 + 30\thinspace000 + 12\thinspace000 = 82\thinspace000$, et $(\mathbf{A}\mathbf{B})(\mathbf{C}\mathbf{D})$ coûte $43\thinspace200$. Le résultat est le même dans tous les ordres : le produit est associatif.
 
-**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\,p\,m$ ; oublier le second produit ; inverser le rapport en d) (0,023), ou donner le surcoût relatif (41,9) ; calculer de gauche à droite en f) (82 000) ; répondre 9 en g).
+**Erreurs fréquentes.** Compter $n \times m$ (le nombre d'éléments du résultat) au lieu de $n\thinspace p\thinspace m$ ; oublier le second produit ; inverser le rapport en d) (0,023), ou donner le surcoût relatif (41,9) ; calculer de gauche à droite en f) (82 000) ; répondre 9 en g).
 
-**Variante.** Avec $\mathbf{C}$ de forme $(5, 3000)$ ? *Réponse* : $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $40\,000 + 300\,000 = 340\,000$, $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $6\,000\,000 + 24\,000\,000 = 30\,000\,000$, 88 fois plus.
+**Variante.** Avec $\mathbf{C}$ de forme $(5, 3000)$ ? *Réponse* : $(\mathbf{A}\mathbf{B})\mathbf{C}$ coûte $40\thinspace000 + 300\thinspace000 = 340\thinspace000$, $\mathbf{A}(\mathbf{B}\mathbf{C})$ coûte $6\thinspace000\thinspace000 + 24\thinspace000\thinspace000 = 30\thinspace000\thinspace000$, 88 fois plus.
 
 ### Ex M09a.5 — Une couche dense Z = XW + b à la main : deux exemples, trois entrées, deux sorties
 
 **Réponses** : a) `[3, 2]` · b) `[[3, 5.5], [-2, 7.5]]` · c) `-2` · d) `[[3, 5.5], [0, 7.5]]` · e) `8` · f) `[2, 3]` · g) `12`.
 
 **Démarche.**
-- b) $\mathbf{X}\mathbf{W} = \begin{pmatrix} 2 + 0 + 2 & -1 + 0 + 6 \\ -2 + 0 + 1 & 1 + 3 + 3 \end{pmatrix} = \begin{pmatrix} 4 & 5 \\ -1 & 7 \end{pmatrix}$, puis on ajoute $(-1 ;\ 0{,}5)$ à **chaque ligne**.
+- b) $\mathbf{X}\mathbf{W} = \begin{pmatrix} 2 + 0 + 2 & -1 + 0 + 6 \cr -2 + 0 + 1 & 1 + 3 + 3 \end{pmatrix} = \begin{pmatrix} 4 & 5 \cr -1 & 7 \end{pmatrix}$, puis on ajoute $(-1 ;\ 0{,}5)$ à **chaque ligne**.
 - c) Ligne 2 (l'exemple 2), colonne 1 (le neurone 1).
 - d) Seul $-2$ est négatif : il devient 0.
 - e) $3 \times 2 = 6$ poids et 2 biais.
@@ -209,8 +209,8 @@ Pour la copie : en pratique, on lit la ligne (`E[3]` en Python) : sélectionner 
 **Réponses** : a) `[3, 3]` · b) `[[2, -1, 5], [8, 5, -7], [0, -1, 3]]` · c) `[[6, 2], [-4, 4]]` · d) `False` · e) `[[6, 1, 1], [1, 6, 0], [1, 0, 6]]` · f) `[4, 4]` · g) `0`.
 
 **Démarche.**
-- b) $\mathbf{A}\mathbf{B} = \begin{pmatrix} 2 & 8 & 0 \\ -1 & 5 & -1 \\ 5 & -7 & 3 \end{pmatrix}$, dont on échange lignes et colonnes.
-- c) $\mathbf{B}\mathbf{A} = \begin{pmatrix} 2 + 4 + 0 & 0 - 4 + 0 \\ 4 - 1 - 1 & 0 + 1 + 3 \end{pmatrix} = \begin{pmatrix} 6 & -4 \\ 2 & 4 \end{pmatrix}$, puis sa transposée.
+- b) $\mathbf{A}\mathbf{B} = \begin{pmatrix} 2 & 8 & 0 \cr -1 & 5 & -1 \cr 5 & -7 & 3 \end{pmatrix}$, dont on échange lignes et colonnes.
+- c) $\mathbf{B}\mathbf{A} = \begin{pmatrix} 2 + 4 + 0 & 0 - 4 + 0 \cr 4 - 1 - 1 & 0 + 1 + 3 \end{pmatrix} = \begin{pmatrix} 6 & -4 \cr 2 & 4 \end{pmatrix}$, puis sa transposée.
 - d) $\mathbf{A}^\top\mathbf{B}^\top$ a la forme $(2, 3) \times (3, 2) = (2, 2)$, et $(\mathbf{A}\mathbf{B})^\top$ la forme $(3, 3)$ : la bonne règle est $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$. (D'ailleurs $\mathbf{A}^\top\mathbf{B}^\top = (\mathbf{B}\mathbf{A})^\top$, la réponse c).)
 - e) L'élément $(i, j)$ de $\mathbf{X}^\top\mathbf{X}$ est le produit scalaire des colonnes $i$ et $j$ de $\mathbf{X}$ : les colonnes $(1, 0, 2, 1)$, $(-1, 2, 1, 0)$, $(2, 1, 0, -1)$ ont chacune un carré de norme 6, et leurs produits scalaires valent 1, 1 et 0.
 - g) Le produit scalaire des lignes 1 et 2 : $0 - 2 + 2 = 0$.
@@ -231,7 +231,7 @@ Pour la copie : $\mathbf{B}^\top\mathbf{A}^\top$, calculé directement, redonne 
 - e) $z = 10 \times \frac{3}{10} = 3$.
 - f) $3y - 15 = -21$, $y = -2$ ; $x + 2 + 6 = 9$, $x = 1$.
 
-Pour la copie : la forme échelonnée est $\left(\begin{array}{ccc|c} 1 & -1 & 2 & 9 \\ 0 & 3 & -5 & -21 \\ 0 & 0 & \frac{10}{3} & 10 \end{array}\right)$, la forme réduite $\left(\begin{array}{ccc|c} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & -2 \\ 0 & 0 & 1 & 3 \end{array}\right)$. Vérification : $2 - 2 - 3 = -3$, $1 + 2 + 6 = 9$, $3 - 4 + 3 = 2$. L'échange ne change pas les solutions : ce sont les mêmes équations, écrites dans un autre ordre.
+Pour la copie : la forme échelonnée est $\left(\begin{array}{ccc|c} 1 & -1 & 2 & 9 \cr 0 & 3 & -5 & -21 \cr 0 & 0 & \frac{10}{3} & 10 \end{array}\right)$, la forme réduite $\left(\begin{array}{ccc|c} 1 & 0 & 0 & 1 \cr 0 & 1 & 0 & -2 \cr 0 & 0 & 1 & 3 \end{array}\right)$. Vérification : $2 - 2 - 3 = -3$, $1 + 2 + 6 = 9$, $3 - 4 + 3 = 2$. L'échange ne change pas les solutions : ce sont les mêmes équations, écrites dans un autre ordre.
 
 **Erreurs fréquentes.** Oublier le second membre dans une opération ; ajouter au lieu de retrancher ; prendre $\frac{3}{5}$ en d) ; donner la solution dans l'ordre $(z, y, x)$.
 
@@ -249,7 +249,7 @@ Pour la copie : la forme échelonnée est $\left(\begin{array}{ccc|c} 1 & -1 & 2
 - e) et f) $x = -3 + 7z$ et $y = 2 - 3z$.
 - g) La troisième ligne des coefficients est la somme des deux premières : le système n'a de solution que si son second membre est aussi la somme, $1 + 4 = 5$.
 
-Pour la copie : la solution générale de $(S_2)$ est $(-3, 2, 0) + t\,(7, -3, 1)$, $t \in \mathbb{R}$. La différence $(4, -1, 1) - (-3, 2, 0) = (7, -3, 1)$ vérifie $7 - 6 - 1 = 0$, $14 - 15 + 1 = 0$ et $21 - 21 = 0$ : elle résout le système homogène (M09a.17).
+Pour la copie : la solution générale de $(S_2)$ est $(-3, 2, 0) + t\thinspace(7, -3, 1)$, $t \in \mathbb{R}$. La différence $(4, -1, 1) - (-3, 2, 0) = (7, -3, 1)$ vérifie $7 - 6 - 1 = 0$, $14 - 15 + 1 = 0$ et $21 - 21 = 0$ : elle résout le système homogène (M09a.17).
 
 **Erreurs fréquentes.** Oublier le second membre dans les opérations (a : une ligne nulle) ; s'arrêter à la forme échelonnée en c) ; des signes faux en passant les termes en $z$ de l'autre côté (e, f).
 
@@ -266,7 +266,7 @@ Pour la copie : la solution générale de $(S_2)$ est $(-3, 2, 0) + t\,(7, -3, 1
 - f) Le système homogène : $x = -3z$, $y = -z$.
 - g) $x = 3 - 3 \times (-1) = 6$ et $y = 2 - (-1) = 3$ : oui.
 
-Pour la copie : la solution générale est $(3, 2, 0) + t\,(-3, -1, 1)$. La variable $z$ est libre : sa colonne n'a pas de pivot, et on peut lui donner n'importe quelle valeur.
+Pour la copie : la solution générale est $(3, 2, 0) + t\thinspace(-3, -1, 1)$. La variable $z$ est libre : sa colonne n'a pas de pivot, et on peut lui donner n'importe quelle valeur.
 
 **Erreurs fréquentes.** Oublier d'annuler le $-1$ au-dessus du second pivot (a) ; numéroter les colonnes à partir de 0 (b) ; prendre le second membre dans le système homogène (f : $(0, 1, 1)$).
 
@@ -278,18 +278,18 @@ Pour la copie : la solution générale est $(3, 2, 0) + t\,(-3, -1, 1)$. La vari
 
 **Démarche.**
 - a) $2 \times 5 - 3 \times 2 = 4$.
-- b) $\frac{1}{4}\begin{pmatrix} 5 & -3 \\ -2 & 2 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
-- c) $\mathbf{A}^{-1}\begin{pmatrix} 9 \\ 11 \end{pmatrix} = \begin{pmatrix} 11{,}25 - 8{,}25 \\ -4{,}5 + 5{,}5 \end{pmatrix}$.
-- d) On multiplie $\mathbf{A}\mathbf{X} = \mathbf{C}$ **à gauche** par $\mathbf{A}^{-1}$ : $\mathbf{X} = \mathbf{A}^{-1}\mathbf{C} = \frac{1}{4}\begin{pmatrix} 15 - 15 & 25 - 21 \\ -6 + 10 & -10 + 14 \end{pmatrix}$.
+- b) $\frac{1}{4}\begin{pmatrix} 5 & -3 \cr -2 & 2 \end{pmatrix}$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
+- c) $\mathbf{A}^{-1}\begin{pmatrix} 9 \cr 11 \end{pmatrix} = \begin{pmatrix} 11{,}25 - 8{,}25 \cr -4{,}5 + 5{,}5 \end{pmatrix}$.
+- d) On multiplie $\mathbf{A}\mathbf{X} = \mathbf{C}$ **à gauche** par $\mathbf{A}^{-1}$ : $\mathbf{X} = \mathbf{A}^{-1}\mathbf{C} = \frac{1}{4}\begin{pmatrix} 15 - 15 & 25 - 21 \cr -6 + 10 & -10 + 14 \end{pmatrix}$.
 - e) $(2\mathbf{A})^{-1} = \frac{1}{2}\mathbf{A}^{-1}$, car $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1}) = \mathbf{I}$.
 - f) $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$ (M09a.16).
-- g) $\mathbf{A}^2 = \begin{pmatrix} 10 & 21 \\ 14 & 31 \end{pmatrix}$, et $ad - bc = 310 - 294 = 16$ : $(\mathbf{A}^2)^{-1} = \frac{1}{16}\begin{pmatrix} 31 & -21 \\ -14 & 10 \end{pmatrix}$.
+- g) $\mathbf{A}^2 = \begin{pmatrix} 10 & 21 \cr 14 & 31 \end{pmatrix}$, et $ad - bc = 310 - 294 = 16$ : $(\mathbf{A}^2)^{-1} = \frac{1}{16}\begin{pmatrix} 31 & -21 \cr -14 & 10 \end{pmatrix}$.
 
-Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \frac{1}{4}\begin{pmatrix} 10 - 6 & -6 + 6 \\ 10 - 10 & -6 + 10 \end{pmatrix} = \mathbf{I}$, et de même $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$. En d), $\mathbf{C}\mathbf{A}^{-1}$ résoudrait $\mathbf{X}\mathbf{A} = \mathbf{C}$ : le produit n'est pas commutatif, et l'inverse se place du même côté que $\mathbf{A}$. En g), $(\mathbf{A}\mathbf{A})^{-1} = \mathbf{A}^{-1}\mathbf{A}^{-1}$ par la règle de l'inverse d'un produit, et le 16 est $4^2$ : le nombre $ad - bc$ de $\mathbf{A}^2$ est le carré de celui de $\mathbf{A}$ (le déterminant d'un produit est le produit des déterminants, M12c).
+Pour la copie : $\mathbf{A}\mathbf{A}^{-1} = \frac{1}{4}\begin{pmatrix} 10 - 6 & -6 + 6 \cr 10 - 10 & -6 + 10 \end{pmatrix} = \mathbf{I}$, et de même $\mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$. En d), $\mathbf{C}\mathbf{A}^{-1}$ résoudrait $\mathbf{X}\mathbf{A} = \mathbf{C}$ : le produit n'est pas commutatif, et l'inverse se place du même côté que $\mathbf{A}$. En g), $(\mathbf{A}\mathbf{A})^{-1} = \mathbf{A}^{-1}\mathbf{A}^{-1}$ par la règle de l'inverse d'un produit, et le 16 est $4^2$ : le nombre $ad - bc$ de $\mathbf{A}^2$ est le carré de celui de $\mathbf{A}$ (le déterminant d'un produit est le produit des déterminants, M12c).
 
 **Erreurs fréquentes.** $ad + bc$ (16) ; oublier de diviser par $ad - bc$, ou de changer les signes ; $\mathbf{C}\mathbf{A}^{-1}$ en d) ; $2\mathbf{A}^{-1}$ en e) ; oublier de transposer en f) ; transposer en g).
 
-**Variante.** L'inverse de $\begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ ? *Réponse* : $ad - bc = 1$, d'où $\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$.
+**Variante.** L'inverse de $\begin{pmatrix} 3 & 5 \cr 1 & 2 \end{pmatrix}$ ? *Réponse* : $ad - bc = 1$, d'où $\begin{pmatrix} 2 & -5 \cr -1 & 3 \end{pmatrix}$.
 
 ### Ex M09a.12 — L'inverse d'une matrice 3 × 3 par Gauss-Jordan
 
@@ -314,13 +314,13 @@ Pour la copie : c) $\mathbf{A}^{-1}\mathbf{e}_2$ sélectionne la colonne 2 (fich
 
 **Démarche.**
 - a) Les lignes 2 et 3 sont des multiples de la ligne 1 : un pivot.
-- b) et e) $2\,(1, 0, 1) - (0, 1, 1) = (2, -1, 1)$ : la colonne 3 combine les deux premières. Deux pivots.
+- b) et e) $2\thinspace(1, 0, 1) - (0, 1, 1) = (2, -1, 1)$ : la colonne 3 combine les deux premières. Deux pivots.
 - c) Les colonnes 1 et 2 ne sont pas proportionnelles ; les colonnes 3 et 4 les combinent : rang 2.
 - d) Les pivots sont sur la diagonale, non nuls : 3.
 - f) Une matrice carrée de taille 3 et de rang 2 n'est pas inversible.
 - g) Le rang de $\mathbf{M}^\top$ est celui de $\mathbf{M}$.
 
-Pour la copie : $(0, 1, -2) = (2, 1, 0) - 2\,(1, 0, 1)$ et $(3, 1, 1) = (2, 1, 0) + (1, 0, 1)$. $\mathbf{M}_4$ est déjà échelonnée : on compte ses trois pivots sans calcul.
+Pour la copie : $(0, 1, -2) = (2, 1, 0) - 2\thinspace(1, 0, 1)$ et $(3, 1, 1) = (2, 1, 0) + (1, 0, 1)$. $\mathbf{M}_4$ est déjà échelonnée : on compte ses trois pivots sans calcul.
 
 **Erreurs fréquentes.** Compter les lignes non nulles avant l'élimination ; croire que le rang de $\mathbf{M}_3$, qui a 4 colonnes, peut dépasser 3 ; échanger $a$ et $b$ en e).
 
@@ -332,9 +332,9 @@ Pour la copie : $(0, 1, -2) = (2, 1, 0) - 2\,(1, 0, 1)$ et $(3, 1, 1) = (2, 1, 0
 
 **Démarche.**
 - a) Une ligne par nutriment (N, P, K), une colonne par engrais : la colonne $j$ est ce qu'apporte un kilogramme de l'engrais $j$. C'est la transposée du tableau de l'énoncé.
-- b) Le pivot de Gauss (ou une substitution) donne $(4, 3, 2)$ ; vérification : $800 + 300 = 1\,100$, $400 + 300 = 700$, $600 + 200 = 800$.
+- b) Le pivot de Gauss (ou une substitution) donne $(4, 3, 2)$ ; vérification : $800 + 300 = 1\thinspace100$, $400 + 300 = 700$, $600 + 200 = 800$.
 - d) $y = 11 - 2x$ et $x = 7 - 1{,}5z$ ; la troisième équation, $2y + z = 10$, donne $4x - z = 12$, puis $28 - 7z = 12$ : $z = \frac{16}{7}$.
-- e) $100x = 700$, puis $200 \times 7 + 100y = 1\,100$.
+- e) $100x = 700$, puis $200 \times 7 + 100y = 1\thinspace100$.
 
 Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impossible d'avoir exactement les trois apports. Une matrice $\mathbf{A}$ singulière aurait voulu dire qu'un engrais est un mélange des deux autres : selon les besoins, aucun mélange exact, ou une infinité.
 
@@ -350,8 +350,8 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 
 **Réponse modèle.**
 1. $\mathbf{A}\mathbf{B}$ a la forme $(n, m)$, donc $(\mathbf{A}\mathbf{B})^\top$ la forme $(m, n)$. $\mathbf{B}^\top$ a la forme $(m, p)$ et $\mathbf{A}^\top$ la forme $(p, n)$ : leur produit existe et a la forme $(m, n)$.
-2. $\big((\mathbf{A}\mathbf{B})^\top\big)_{ij} = (\mathbf{A}\mathbf{B})_{ji} = \sum_{k=1}^{p} a_{jk}\,b_{ki}$.
-3. $(\mathbf{B}^\top\mathbf{A}^\top)_{ij} = \sum_{k=1}^{p} (\mathbf{B}^\top)_{ik}\,(\mathbf{A}^\top)_{kj} = \sum_{k=1}^{p} b_{ki}\,a_{jk}$.
+2. $\big((\mathbf{A}\mathbf{B})^\top\big)  _{ij} = (\mathbf{A}\mathbf{B})  _{ji} = \sum _{k=1}^{p} a  _{jk}\thinspace b _{ki}$.
+3. $(\mathbf{B}^\top\mathbf{A}^\top) _{ij} = \sum  _{k=1}^{p} (\mathbf{B}^\top)  _{ik}\thinspace(\mathbf{A}^\top)  _{kj} = \sum _{k=1}^{p} b _{ki}\thinspace a _{jk}$.
 4. Les deux sommes ont les mêmes termes (le produit de deux nombres est commutatif). Les deux matrices ont la même forme et les mêmes éléments : $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$.
 5. $(\mathbf{A}\mathbf{B}\mathbf{C})^\top = \big((\mathbf{A}\mathbf{B})\mathbf{C}\big)^\top = \mathbf{C}^\top(\mathbf{A}\mathbf{B})^\top = \mathbf{C}^\top\mathbf{B}^\top\mathbf{A}^\top$, en appliquant deux fois la règle.
 6. $(\mathbf{X}^\top\mathbf{X})^\top = \mathbf{X}^\top(\mathbf{X}^\top)^\top = \mathbf{X}^\top\mathbf{X}$ : la matrice est égale à sa transposée.
@@ -365,7 +365,7 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 2. $(\mathbf{A}\mathbf{B})(\mathbf{B}^{-1}\mathbf{A}^{-1}) = \mathbf{A}(\mathbf{B}\mathbf{B}^{-1})\mathbf{A}^{-1} = \mathbf{A}\mathbf{A}^{-1} = \mathbf{I}$, et $(\mathbf{B}^{-1}\mathbf{A}^{-1})(\mathbf{A}\mathbf{B}) = \mathbf{B}^{-1}(\mathbf{A}^{-1}\mathbf{A})\mathbf{B} = \mathbf{B}^{-1}\mathbf{B} = \mathbf{I}$. Par 1, c'est **l'**inverse de $\mathbf{A}\mathbf{B}$.
 3. Par M09a.15, $\mathbf{A}^\top(\mathbf{A}^{-1})^\top = (\mathbf{A}^{-1}\mathbf{A})^\top = \mathbf{I}^\top = \mathbf{I}$, et $(\mathbf{A}^{-1})^\top\mathbf{A}^\top = (\mathbf{A}\mathbf{A}^{-1})^\top = \mathbf{I}$.
 4. On multiplie à gauche par $\mathbf{A}^{-1}$ : $\mathbf{A}^{-1}\mathbf{A}\mathbf{B} = \mathbf{A}^{-1}\mathbf{A}\mathbf{C}$, soit $\mathbf{B} = \mathbf{C}$.
-5. $\mathbf{A} = \begin{pmatrix} 1 & 3 \\ 2 & 6 \end{pmatrix}$, $\mathbf{B} = \mathbf{0}$ et $\mathbf{C} = \begin{pmatrix} 3 & 6 \\ -1 & -2 \end{pmatrix}$ : $\mathbf{A}\mathbf{C} = \mathbf{0} = \mathbf{A}\mathbf{B}$. Pas de contradiction : $\mathbf{A}$ n'est pas inversible (ses colonnes sont proportionnelles), et la question 4 suppose qu'elle l'est. Sans inverse, on ne peut pas « simplifier » par $\mathbf{A}$.
+5. $\mathbf{A} = \begin{pmatrix} 1 & 3 \cr 2 & 6 \end{pmatrix}$, $\mathbf{B} = \mathbf{0}$ et $\mathbf{C} = \begin{pmatrix} 3 & 6 \cr -1 & -2 \end{pmatrix}$ : $\mathbf{A}\mathbf{C} = \mathbf{0} = \mathbf{A}\mathbf{B}$. Pas de contradiction : $\mathbf{A}$ n'est pas inversible (ses colonnes sont proportionnelles), et la question 4 suppose qu'elle l'est. Sans inverse, on ne peut pas « simplifier » par $\mathbf{A}$.
 
 **Grille.** (1) la chaîne d'égalités, avec l'associativité citée ; (2) **les deux** produits, et le renvoi à l'unicité ; (3) l'usage de M09a.15 et de $\mathbf{I}^\top = \mathbf{I}$, dans les deux sens ; (4) la multiplication **à gauche** (à droite, $\mathbf{A}\mathbf{B}\mathbf{A}^{-1}$ ne se simplifie pas) ; (5) un exemple vérifié par le calcul, et l'hypothèse manquante nommée. D'autres exemples sont justes.
 
@@ -373,8 +373,8 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 
 **Réponse modèle.**
 1. $\mathbf{A}\mathbf{d} = \mathbf{A}\mathbf{y} - \mathbf{A}\mathbf{x} = \mathbf{b} - \mathbf{b} = \mathbf{0}$ (le produit est distributif).
-2. $\mathbf{A}(\mathbf{x} + t\,\mathbf{d}) = \mathbf{A}\mathbf{x} + t\,\mathbf{A}\mathbf{d} = \mathbf{b} + \mathbf{0} = \mathbf{b}$.
-3. Si $t \ne t'$, $(\mathbf{x} + t\,\mathbf{d}) - (\mathbf{x} + t'\,\mathbf{d}) = (t - t')\,\mathbf{d} \ne \mathbf{0}$, car $t - t' \ne 0$ et $\mathbf{d} \ne \mathbf{0}$. Il y a autant de solutions que de réels $t$ : une infinité. Un système linéaire a donc 0, 1 ou une infinité de solutions, jamais exactement 2.
+2. $\mathbf{A}(\mathbf{x} + t\thinspace\mathbf{d}) = \mathbf{A}\mathbf{x} + t\thinspace\mathbf{A}\mathbf{d} = \mathbf{b} + \mathbf{0} = \mathbf{b}$.
+3. Si $t \ne t'$, $(\mathbf{x} + t\thinspace\mathbf{d}) - (\mathbf{x} + t'\thinspace\mathbf{d}) = (t - t')\thinspace\mathbf{d} \ne \mathbf{0}$, car $t - t' \ne 0$ et $\mathbf{d} \ne \mathbf{0}$. Il y a autant de solutions que de réels $t$ : une infinité. Un système linéaire a donc 0, 1 ou une infinité de solutions, jamais exactement 2.
 4. Si $\mathbf{y}$ est une solution, $\mathbf{h} = \mathbf{y} - \mathbf{x}$ vérifie $\mathbf{A}\mathbf{h} = \mathbf{0}$ (question 1) et $\mathbf{y} = \mathbf{x} + \mathbf{h}$. Réciproquement, si $\mathbf{A}\mathbf{h} = \mathbf{0}$, $\mathbf{A}(\mathbf{x} + \mathbf{h}) = \mathbf{b} + \mathbf{0} = \mathbf{b}$.
 5. Si $\mathbf{x}$ et $\mathbf{y}$ sont deux solutions, $\mathbf{y} - \mathbf{x}$ résout le système homogène, donc vaut $\mathbf{0}$ : $\mathbf{y} = \mathbf{x}$.
 
@@ -383,9 +383,9 @@ Pour la copie : $y = -3$ est une masse négative ; sans l'engrais 3, il est impo
 ### Ex M09a.18 — Une matrice dont une colonne combine les autres n'est pas inversible
 
 **Réponse modèle.**
-1. $\mathbf{c} = (\lambda_1, \ldots, \lambda_{n-1}, -1)$ : par la lecture en colonnes, $\mathbf{A}\mathbf{c} = \lambda_1\mathbf{a}_1 + \cdots + \lambda_{n-1}\mathbf{a}_{n-1} - \mathbf{a}_n = \mathbf{0}$, et $\mathbf{c} \ne \mathbf{0}$ (sa dernière coordonnée vaut $-1$).
+1. $\mathbf{c} = (\lambda_1, \ldots, \lambda_{n-1}, -1)$ : par la lecture en colonnes, $\mathbf{A}\mathbf{c} = \lambda_1\mathbf{a} _1 + \cdots + \lambda  _{n-1}\mathbf{a} _{n-1} - \mathbf{a}_n = \mathbf{0}$, et $\mathbf{c} \ne \mathbf{0}$ (sa dernière coordonnée vaut $-1$).
 2. Si $\mathbf{A}$ avait une inverse, $\mathbf{c} = \mathbf{A}^{-1}\mathbf{A}\mathbf{c} = \mathbf{A}^{-1}\mathbf{0} = \mathbf{0}$ : contradiction.
-3. Si le système a une solution $\mathbf{x}$, alors $\mathbf{x} + t\,\mathbf{c}$ en est une pour tout $t$ (M09a.17, avec $\mathbf{A}\mathbf{c} = \mathbf{0}$), et ces solutions sont distinctes : une infinité. Sinon, aucune.
+3. Si le système a une solution $\mathbf{x}$, alors $\mathbf{x} + t\thinspace\mathbf{c}$ en est une pour tout $t$ (M09a.17, avec $\mathbf{A}\mathbf{c} = \mathbf{0}$), et ces solutions sont distinctes : une infinité. Sinon, aucune.
 4. Pour $\mathbf{M}_2$, la colonne 3 vaut $2\mathbf{a}_1 - \mathbf{a}_2$ : $\mathbf{c} = (2, -1, -1)$. Ligne par ligne : $2 - 0 - 2 = 0$, $0 - 1 + 1 = 0$, $2 - 1 - 1 = 0$.
 5. Les colonnes du one-hot ont pour somme la colonne de 1 : avec $\mathbf{c} = (1, -1, \ldots, -1)$ (1 pour la colonne de 1, $-1$ pour chaque colonne du one-hot), $\mathbf{X}\mathbf{c} = \mathbf{0}$, donc $\mathbf{X}^\top\mathbf{X}\mathbf{c} = \mathbf{X}^\top\mathbf{0} = \mathbf{0}$ avec $\mathbf{c} \ne \mathbf{0}$. Par l'argument de la question 2, la matrice carrée $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible. On retire donc une catégorie du one-hot quand le modèle a déjà une colonne de 1.
 
@@ -421,10 +421,10 @@ Pour la copie : $\mathbf{b}_1\mathbf{W}_2 + b_2 = 0 + 1 + 1 + 0{,}5 = 2{,}5$. Sa
 - b) $\mathbf{1}\boldsymbol{\mu}^\top$ : $(3, 1) \times (1, 2) = (3, 2)$, chaque ligne vaut $\boldsymbol{\mu}^\top$.
 - d) $\sigma_1 = \sqrt{\frac{4 + 0 + 4}{3}} = \sqrt{\frac{8}{3}} \approx 1{,}633$ et $\sigma_2 = \sqrt{\frac{100 + 100 + 0}{3}} \approx 8{,}165$ ; $\mathbf{D}^{-1}$ a pour diagonale leurs inverses.
 - e) $-\frac{2}{\sigma_1} = -\frac{2}{\sqrt{8/3}} = -\sqrt{\frac{3}{2}}$ et $-\frac{10}{\sigma_2} = -\frac{10}{\sqrt{200/3}} = -\sqrt{\frac{3}{2}}$, soit $-1{,}225$ deux fois.
-- f) $\frac{1}{3}\begin{pmatrix} 4 + 0 + 4 & 20 + 0 + 0 \\ 20 & 100 + 100 + 0 \end{pmatrix}$.
+- f) $\frac{1}{3}\begin{pmatrix} 4 + 0 + 4 & 20 + 0 + 0 \cr 20 & 100 + 100 + 0 \end{pmatrix}$.
 - g) $\frac{20/3}{\sigma_1\sigma_2} = \frac{6{,}667}{13{,}333} = 0{,}5$.
 
-Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}(\mathbf{D}^{-1})_{kj} = \frac{(\mathbf{X}_c)_{ij}}{\sigma_j}$ : seul le terme $k = j$ reste, et la colonne $j$ est divisée par $\sigma_j$ (multiplier à gauche diviserait les **lignes**). La diagonale de $\frac{1}{3}\mathbf{X}_s^\top\mathbf{X}_s$ vaut 1 : la variance d'une colonne standardisée. L'élément de g) est le **coefficient de corrélation** des deux features.
+Pour la copie : $(\mathbf{X} _c\mathbf{D}^{-1}) _{ij} = \sum_k (\mathbf{X} _c)  _{ik}(\mathbf{D}^{-1}) _{kj} = \frac{(\mathbf{X} _c) _{ij}}{\sigma_j}$ : seul le terme $k = j$ reste, et la colonne $j$ est divisée par $\sigma_j$ (multiplier à gauche diviserait les **lignes**). La diagonale de $\frac{1}{3}\mathbf{X}_s^\top\mathbf{X}_s$ vaut 1 : la variance d'une colonne standardisée. L'élément de g) est le **coefficient de corrélation** des deux features.
 
 **Erreurs fréquentes.** $\mathrm{ddof} = 1$ en d) et e) (e : $(-1, -1)$) ; centrer avec la moyenne des lignes ; oublier le facteur $\frac{1}{3}$ en f) ; écrire $\mathbf{D}^{-1}\mathbf{X}_c$, qui n'existe pas ici.
 
@@ -448,7 +448,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 1. Une solution particulière est **une** solution de $\mathbf{A}\mathbf{x} = \mathbf{b}$ ; la solution générale les décrit **toutes**. Trois étapes : trouver une solution particulière ; trouver toutes les solutions de $\mathbf{A}\mathbf{x} = \mathbf{0}$ ; les additionner (M09a.17).
 2. Échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter à une ligne un multiple d'une autre. Une forme échelonnée a ses lignes nulles en bas, et le premier nombre non nul d'une ligne (le **pivot**) est strictement à droite de celui de la ligne du dessus. Les variables des colonnes à pivot sont **de base**, les autres **libres**.
 3. La forme réduite demande en plus que chaque pivot vaille 1 et soit le seul nombre non nul de sa colonne : comme la fiche §6.
-4. On complète la forme réduite en une matrice carrée en insérant des lignes $(0, \ldots, 0, -1, 0, \ldots, 0)$, pour que la diagonale ne contienne que des 1 et des $-1$ ; les colonnes qui ont un $-1$ sur la diagonale sont des solutions du système homogène, et elles les engendrent toutes. Ici, la matrice complétée est $\begin{pmatrix} 1 & 2 & 0 & -1 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & 1 & 3 \\ 0 & 0 & 0 & -1 \end{pmatrix}$, et les colonnes 2 et 4 donnent $(2, -1, 0, 0)$ et $(-1, 0, 3, -1)$. Vérification : $2 - 2 = 0$ et $0 = 0$ ; $-1 + 1 = 0$ et $3 - 3 = 0$.
+4. On complète la forme réduite en une matrice carrée en insérant des lignes $(0, \ldots, 0, -1, 0, \ldots, 0)$, pour que la diagonale ne contienne que des 1 et des $-1$ ; les colonnes qui ont un $-1$ sur la diagonale sont des solutions du système homogène, et elles les engendrent toutes. Ici, la matrice complétée est $\begin{pmatrix} 1 & 2 & 0 & -1 \cr 0 & -1 & 0 & 0 \cr 0 & 0 & 1 & 3 \cr 0 & 0 & 0 & -1 \end{pmatrix}$, et les colonnes 2 et 4 donnent $(2, -1, 0, 0)$ et $(-1, 0, 3, -1)$. Vérification : $2 - 2 = 0$ et $0 = 0$ ; $-1 + 1 = 0$ et $3 - 3 = 0$.
 5. Le pivot de Gauss coûte de l'ordre de $n^3$ opérations : trop pour des millions d'inconnues. On utilise alors des méthodes **itératives**, qui améliorent une solution approchée pas à pas (et des décompositions, plus loin dans le livre).
 6. Par exemple : *particular solution*, *general solution*, *row-echelon form*, *pivot*, *free variable*, *elementary transformations*.
 
@@ -457,10 +457,10 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 ### Ex M09a.23 — Fermi : combien de multiplications pour une passe avant sur un million d'images ?
 
 **Réponse modèle.**
-1. $32 \times 32 \times 3 = 3\,072$ nombres par image. Couche par couche : $3\,072 \times 1\,024 \approx 3{,}1 \times 10^6$, $1\,024 \times 256 \approx 2{,}6 \times 10^5$, $256 \times 10 \approx 2{,}6 \times 10^3$ ; en tout $3\,410\,432 \approx 3{,}4 \times 10^6$ multiplications.
+1. $32 \times 32 \times 3 = 3\thinspace072$ nombres par image. Couche par couche : $3\thinspace072 \times 1\thinspace024 \approx 3{,}1 \times 10^6$, $1\thinspace024 \times 256 \approx 2{,}6 \times 10^5$, $256 \times 10 \approx 2{,}6 \times 10^3$ ; en tout $3\thinspace410\thinspace432 \approx 3{,}4 \times 10^6$ multiplications.
 2. $3{,}4 \times 10^{12}$, de l'ordre de $10^{12}$.
-3. La première couche : plus de 90 % du coût, car elle relie les plus grands nombres d'entrées et de sorties ($3\,072 \times 1\,024$).
-4. Avec 512 neurones : $3\,072 \times 512 + 512 \times 256 + 256 \times 10 \approx 1{,}7 \times 10^6$, environ deux fois moins (la première couche est divisée par 2, et la deuxième aussi). Réduire plutôt la seconde de 256 à 128 neurones ne fait gagner que 4 % environ : $1\,024 \times 128 + 128 \times 10$ au lieu de $1\,024 \times 256 + 256 \times 10$, sur un total dominé par la première couche.
+3. La première couche : plus de 90 % du coût, car elle relie les plus grands nombres d'entrées et de sorties ($3\thinspace072 \times 1\thinspace024$).
+4. Avec 512 neurones : $3\thinspace072 \times 512 + 512 \times 256 + 256 \times 10 \approx 1{,}7 \times 10^6$, environ deux fois moins (la première couche est divisée par 2, et la deuxième aussi). Réduire plutôt la seconde de 256 à 128 neurones ne fait gagner que 4 % environ : $1\thinspace024 \times 128 + 128 \times 10$ au lieu de $1\thinspace024 \times 256 + 256 \times 10$, sur un total dominé par la première couche.
 5. Environ $3{,}4 \times 10^6$ poids (plus 1 290 biais), à 4 octets : de l'ordre de $1{,}4 \times 10^7$ octets, environ 14 Mo.
 
 **Grille.** (1) le nombre d'entrées et les trois produits, avec le total ; (2) la multiplication par $10^6$ ; (3) la première couche, avec sa raison ; (4) les deux nouveaux totaux, et l'explication par la couche dominante ; (5) le nombre de poids fois 4 octets.
@@ -481,9 +481,9 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 **Réponse modèle (60 secondes).**
 
-> Un produit d'une matrice $(n, p)$ par une matrice $(p, m)$ contient $n\,m$ nombres, chacun un produit scalaire de longueur $p$ : $n\,p\,m$ multiplications, et autant d'additions. Pour deux matrices carrées de taille $n$, c'est $n^3$ : doubler la taille multiplie le travail par huit. Ces $n\,m$ produits scalaires sont indépendants les uns des autres : on peut tous les calculer en même temps. Un GPU a des milliers d'unités de calcul simples, et des circuits spécialisés dans les produits de petits blocs de matrices ; il réutilise chaque bloc chargé en mémoire pour beaucoup de multiplications. Dans un réseau dense, presque tout le temps de calcul est dans les produits $\mathbf{X}\mathbf{W}$ de chaque couche, et la première couche, qui relie le plus d'entrées au plus de neurones, domine souvent. Un piège : dans un produit de trois matrices, l'ordre des parenthèses ne change pas le résultat mais peut changer le coût d'un facteur 40 ou plus ; et, devant un vecteur, on multiplie de droite à gauche.
+> Un produit d'une matrice $(n, p)$ par une matrice $(p, m)$ contient $n\thinspace m$ nombres, chacun un produit scalaire de longueur $p$ : $n\thinspace p\thinspace m$ multiplications, et autant d'additions. Pour deux matrices carrées de taille $n$, c'est $n^3$ : doubler la taille multiplie le travail par huit. Ces $n\thinspace m$ produits scalaires sont indépendants les uns des autres : on peut tous les calculer en même temps. Un GPU a des milliers d'unités de calcul simples, et des circuits spécialisés dans les produits de petits blocs de matrices ; il réutilise chaque bloc chargé en mémoire pour beaucoup de multiplications. Dans un réseau dense, presque tout le temps de calcul est dans les produits $\mathbf{X}\mathbf{W}$ de chaque couche, et la première couche, qui relie le plus d'entrées au plus de neurones, domine souvent. Un piège : dans un produit de trois matrices, l'ordre des parenthèses ne change pas le résultat mais peut changer le coût d'un facteur 40 ou plus ; et, devant un vecteur, on multiplie de droite à gauche.
 
-**Grille.** (1) $n\,p\,m$, et $n^3$ pour des matrices carrées ; (2) l'indépendance des produits scalaires, donc le parallélisme ; (3) ce qu'apporte le GPU (beaucoup d'unités, des blocs réutilisés) ; (4) un exemple de réseau où le produit domine ; (5) le piège des parenthèses.
+**Grille.** (1) $n\thinspace p\thinspace m$, et $n^3$ pour des matrices carrées ; (2) l'indépendance des produits scalaires, donc le parallélisme ; (3) ce qu'apporte le GPU (beaucoup d'unités, des blocs réutilisés) ; (4) un exemple de réseau où le produit domine ; (5) le piège des parenthèses.
 
 <a id="notebook"></a>
 
@@ -493,7 +493,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 **Réponses** : a) `[[2.0, 10.0], [7.0, 0.0]]` · b) `[[-3.0]]` · c) `[[1.5, 0.0, 3.0], [-2.0, 4.0, 1.0]]` · d) `"ValueError"` · e) `"ndarray"` · f) `True`.
 
-**Démarche.** `A = np.array(A, dtype=float)` (une copie de flottants), de même pour `B` ; une `ValueError` si `A.ndim != 2` ou `B.ndim != 2`, ou si `A.shape[1] != B.shape[0]` ; puis `C = np.zeros((n, m))` et, pour chaque ligne, `C[i] = np.sum(A[i][:, None] * B, axis=0)` : la ligne $i$ de $\mathbf{A}$, mise en colonne, pondère les lignes de $\mathbf{B}$, et la somme sur l'axe 0 donne la ligne $i$ du produit. `transpose` : `T = np.zeros((m, n))` et `T[:, i] = A[i]` pour chaque ligne (ou `T[j] = A[:, j]` pour chaque colonne). Pour la copie : a) $\begin{pmatrix} 2 & 10 \\ 7 & 0 \end{pmatrix}$, $2 \times 3 \times 2 = 12$ multiplications ; b) $2 - 2 - 3 = -3$. `transpose` rend un nouveau tableau : une vue partagerait ses nombres avec la matrice reçue, et modifier le résultat modifierait la matrice de l'appelant.
+**Démarche.** `A = np.array(A, dtype=float)` (une copie de flottants), de même pour `B` ; une `ValueError` si `A.ndim != 2` ou `B.ndim != 2`, ou si `A.shape[1] != B.shape[0]` ; puis `C = np.zeros((n, m))` et, pour chaque ligne, `C[i] = np.sum(A[i][:, None] * B, axis=0)` : la ligne $i$ de $\mathbf{A}$, mise en colonne, pondère les lignes de $\mathbf{B}$, et la somme sur l'axe 0 donne la ligne $i$ du produit. `transpose` : `T = np.zeros((m, n))` et `T[:, i] = A[i]` pour chaque ligne (ou `T[j] = A[:, j]` pour chaque colonne). Pour la copie : a) $\begin{pmatrix} 2 & 10 \cr 7 & 0 \end{pmatrix}$, $2 \times 3 \times 2 = 12$ multiplications ; b) $2 - 2 - 3 = -3$. `transpose` rend un nouveau tableau : une vue partagerait ses nombres avec la matrice reçue, et modifier le résultat modifierait la matrice de l'appelant.
 
 **Erreurs fréquentes.** `A * B` (Hadamard) ; oublier `axis=0` dans la somme ; rendre une liste ; accepter des formes incompatibles (NumPy lève alors une autre erreur que `ValueError`, ou pas d'erreur du tout avec le broadcasting) ; `A.reshape(m, n)` au lieu d'une transposée (les formes sont justes, les nombres non).
 
@@ -517,7 +517,7 @@ Pour la copie : $(\mathbf{X}_c\mathbf{D}^{-1})_{ij} = \sum_k (\mathbf{X}_c)_{ik}
 
 **Réponses** : a) `[[0.25, 0.5, -0.25], [-0.25, 0.5, 0.25], [0.5, -1.0, 0.5]]` · b) `[[0.0, 1.0, 0.0], [0.0, 0.0, 1.0], [1.0, 0.0, 0.0]]` · c) `"ValueError"` · d) `"ValueError"` · e) `True`.
 
-**Démarche.** Une `ValueError` si la matrice n'est pas carrée ; `R, pivots = rref(np.hstack([A, np.eye(n)]))` ; si `pivots[:n] != tuple(range(n))`, la partie gauche n'est pas l'identité : une `ValueError` ; sinon `return R[:, n:]`. Pour la copie : a) $\mathbf{A}^{-1} = \frac{1}{4}\begin{pmatrix} 1 & 2 & -1 \\ -1 & 2 & 1 \\ 2 & -4 & 2 \end{pmatrix}$. b) L'inverse de cette matrice de permutation est sa transposée (une matrice orthogonale, M12b). c) La colonne 3 vaut 3 fois la colonne 1 plus la colonne 2 : $(3 - 1,\ 0 + 1,\ 3 + 0) = (2, 1, 3)$.
+**Démarche.** Une `ValueError` si la matrice n'est pas carrée ; `R, pivots = rref(np.hstack([A, np.eye(n)]))` ; si `pivots[:n] != tuple(range(n))`, la partie gauche n'est pas l'identité : une `ValueError` ; sinon `return R[:, n:]`. Pour la copie : a) $\mathbf{A}^{-1} = \frac{1}{4}\begin{pmatrix} 1 & 2 & -1 \cr -1 & 2 & 1 \cr 2 & -4 & 2 \end{pmatrix}$. b) L'inverse de cette matrice de permutation est sa transposée (une matrice orthogonale, M12b). c) La colonne 3 vaut 3 fois la colonne 1 plus la colonne 2 : $(3 - 1,\ 0 + 1,\ 3 + 0) = (2, 1, 3)$.
 
 **Erreurs fréquentes.** Rendre `R` entière ; regarder seulement le nombre de pivots (une matrice singulière peut avoir $n$ pivots dans $[\mathbf{A} \mid \mathbf{I}]$, dont certains à droite) ; transposer la partie droite.
 
@@ -555,7 +555,7 @@ La vérification de c) rend 0 si aucune erreur ne dépasse $10^{-2}$.
 
 ### Ex M09a.33 — Une matrice 2 × 2 comme transformation du plan : la grille et le carré unité
 
-**Démarche.** `M = np.asarray(M, dtype=float)` ; pour chaque $c$ de $-2$ à 2, les deux extrémités de la ligne verticale, $(c, -2)$ et $(c, 2)$, et de l'horizontale, $(-2, c)$ et $(2, c)$, rangées en lignes dans un tableau `P` ; leurs images sont les lignes de `P @ M.T` (l'image d'un point $\mathbf{x}$ est $\mathbf{M}\mathbf{x}$) ; `ax.plot(...)` en gris. Le carré : `np.array([[0, 0], [1, 0], [1, 1], [0, 1]]) @ M.T`, puis `ax.add_patch(Polygon(..., closed=True))`. Pour la copie : les colonnes de $\mathbf{M}$ sont les images de $\mathbf{e}_1$ et $\mathbf{e}_2$. La rotation envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$ ; le cisaillement garde $\mathbf{e}_1$ et penche $\mathbf{e}_2$ en $(1{,}5 ;\ 1)$ ; la dilatation étire l'axe des $x$ par 2 et écrase celui des $y$ par 2. La matrice singulière a deux colonnes proportionnelles, $(1 ;\ 0{,}5)$ et $(2, 1)$ : tout le plan est envoyé sur une droite, et le carré unité devient un segment. Aucune matrice ne peut défaire cela : c'est pourquoi elle n'a pas d'inverse. La rotation d'un quart de tour dans l'autre sens, $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$, défait la première : c'est son inverse, et aussi sa transposée.
+**Démarche.** `M = np.asarray(M, dtype=float)` ; pour chaque $c$ de $-2$ à 2, les deux extrémités de la ligne verticale, $(c, -2)$ et $(c, 2)$, et de l'horizontale, $(-2, c)$ et $(2, c)$, rangées en lignes dans un tableau `P` ; leurs images sont les lignes de `P @ M.T` (l'image d'un point $\mathbf{x}$ est $\mathbf{M}\mathbf{x}$) ; `ax.plot(...)` en gris. Le carré : `np.array([[0, 0], [1, 0], [1, 1], [0, 1]]) @ M.T`, puis `ax.add_patch(Polygon(..., closed=True))`. Pour la copie : les colonnes de $\mathbf{M}$ sont les images de $\mathbf{e}_1$ et $\mathbf{e}_2$. La rotation envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$ ; le cisaillement garde $\mathbf{e}_1$ et penche $\mathbf{e}_2$ en $(1{,}5 ;\ 1)$ ; la dilatation étire l'axe des $x$ par 2 et écrase celui des $y$ par 2. La matrice singulière a deux colonnes proportionnelles, $(1 ;\ 0{,}5)$ et $(2, 1)$ : tout le plan est envoyé sur une droite, et le carré unité devient un segment. Aucune matrice ne peut défaire cela : c'est pourquoi elle n'a pas d'inverse. La rotation d'un quart de tour dans l'autre sens, $\begin{pmatrix} 0 & 1 \cr -1 & 0 \end{pmatrix}$, défait la première : c'est son inverse, et aussi sa transposée.
 
 **Erreurs fréquentes.** `P @ M` au lieu de `P @ M.T` (on applique alors $\mathbf{M}^\top$) ; ouvrir une figure dans la fonction ; tracer le carré dans l'ordre $(0, 0), (1, 0), (0, 1), (1, 1)$ (un polygone croisé).
 

@@ -29,16 +29,16 @@
 2. $\exists x \in \mathbb{R},\ x^2 + 1 \le 0$ (et cette négation est fausse : la phrase de départ est vraie).
 3. $\forall n \in \mathbb{N},\ n \le 100$ ou $n$ est impair (« et » devient « ou », par De Morgan).
 4. **Faux** : la négation de $x > 2$ est $x \le 2$.
-5. **Vrai** : à $x$ donné, $y = -x$ convient ; $y$ dépend de $x$, ce qui est permis dans $\forall x\, \exists y$.
+5. **Vrai** : à $x$ donné, $y = -x$ convient ; $y$ dépend de $x$, ce qui est permis dans $\forall x\thinspace \exists y$.
 
 ### R4.Q4 — Ensembles : vrai ou faux
 1. **Vrai**.
-2. **Faux** : $\{4\}$ est un ensemble ; $\{4\} \subset A$, mais ce n'est pas un élément de $A$.
+2. **Faux** : $\lbrace4\rbrace$ est un ensemble ; $\lbrace4\rbrace \subset A$, mais ce n'est pas un élément de $A$.
 3. **Vrai** : l'ensemble vide est inclus dans tout ensemble.
 4. **Faux** : $A \cap \varnothing = \varnothing$.
-5. **Faux** : $\{1, 1, 4\} = \{1, 4\}$, de cardinal 2.
+5. **Faux** : $\lbrace1, 1, 4\rbrace = \lbrace1, 4\rbrace$, de cardinal 2.
 6. **Vrai**.
-7. **Vrai** : 1 n'est pas dans $]0 \;;\; 1[$, et c'est le seul nombre de $[1 \;;\; 2]$ qui aurait pu y être.
+7. **Vrai** : 1 n'est pas dans $]0 \mkern5mu ;\mkern5mu  1[$, et c'est le seul nombre de $[1 \mkern5mu ;\mkern5mu  2]$ qui aurait pu y être.
 
 ### R4.Q5 — Lire une somme Σ
 1. $10 - 4 + 1 = $ **7** termes.
@@ -74,9 +74,9 @@
 ## 🔁 Rappels
 
 ### R4.R1 — Résoudre une inéquation (R2)
-1. $7 - 3x < 1 \iff -3x < -6 \iff x > 2$ (division par $-3$ : le sens change). Solutions : $]2 \;;\; +\infty[$.
-2. $2x - 2 \ge 5x + 4 \iff -3x \ge 6 \iff x \le -2$ : $]-\infty \;;\; -2]$.
-3. La négation est $x < 2$, vérifiée par $]-\infty \;;\; 2[$ : c'est le **complémentaire** de $[2 \;;\; +\infty[$ dans $\mathbb{R}$.
+1. $7 - 3x < 1 \iff -3x < -6 \iff x > 2$ (division par $-3$ : le sens change). Solutions : $]2 \mkern5mu ;\mkern5mu  +\infty[$.
+2. $2x - 2 \ge 5x + 4 \iff -3x \ge 6 \iff x \le -2$ : $]-\infty \mkern5mu ;\mkern5mu  -2]$.
+3. La négation est $x < 2$, vérifiée par $]-\infty \mkern5mu ;\mkern5mu  2[$ : c'est le **complémentaire** de $[2 \mkern5mu ;\mkern5mu  +\infty[$ dans $\mathbb{R}$.
 
 ### R4.R2 — Composer deux fonctions (R3)
 1. $(f \circ g)(2) = f(5) = -2$ et $(g \circ f)(2) = g(1) = 2$.
@@ -139,7 +139,7 @@
 - b) Vraie : à $x$ donné, $y = x + 1$ convient. (Sa négation, « un réel plus grand ou égal à tous les réels », est fausse.)
 - c) ∃M devient ∀M, ∀x devient ∃x, et $x^2 \le M$ devient $x^2 > M$.
 - d) Fausse : pour tout $M$, $x = \lvert M \rvert + 1$ donne $x^2 \ge x > \lvert M \rvert \ge M$. Le carré n'est pas majoré.
-- e) La première est fausse : $x = -1$ n'est le carré d'aucun réel. La seconde est vraie : $y = 0$ donne $x \times 0 = 0$ pour tout $x$. Un $\exists y\, \forall x$ peut être vrai, quand un même $y$ convient à tous les $x$.
+- e) La première est fausse : $x = -1$ n'est le carré d'aucun réel. La seconde est vraie : $y = 0$ donne $x \times 0 = 0$ pour tout $x$. Un $\exists y\thinspace \forall x$ peut être vrai, quand un même $y$ convient à tous les $x$.
 - f) « Pour tout $\varepsilon > 0$ » devient « il existe $\varepsilon > 0$ » : la condition $\varepsilon > 0$ fait partie du domaine du quantificateur, elle ne se nie pas. « Il existe $N$ » devient « pour tout $N$ », et $\frac{1}{N} < \varepsilon$ devient $\frac{1}{N} \ge \varepsilon$.
 - g) Vraie : à $\varepsilon > 0$ donné, tout entier $N > \frac{1}{\varepsilon}$ donne $\frac{1}{N} < \varepsilon$. C'est la phrase « $\frac{1}{N}$ devient aussi petit qu'on veut », que R5 appellera « $\frac{1}{N}$ tend vers 0 ».
 
@@ -151,12 +151,12 @@
 
 **Réponses** : a) `[]` · b) `14` · c) `[17, 19, 23]` · d) `16` · e) `15` · f) `[1, 4, 9, 16]` · g) `12` · h) `11`.
 
-**Démarche.** $A = \{1, 4, 9, 16, 25\}$ (5 éléments), $B = \{2, 3, 5, 7, 11, 13, 17, 19, 23\}$ (9 éléments), $C = \{17, 18, \dots, 25\}$ (9 éléments).
+**Démarche.** $A = \lbrace1, 4, 9, 16, 25\rbrace$ (5 éléments), $B = \lbrace2, 3, 5, 7, 11, 13, 17, 19, 23\rbrace$ (9 éléments), $C = \lbrace17, 18, \dots, 25\rbrace$ (9 éléments).
 - a) Un carré $k^2$ avec $k \ge 2$ a le diviseur $k$, et 1 n'est pas premier : $A \cap B = \varnothing$.
 - b) $5 + 9 - 0 = 14$.
 - c) Les premiers de 17 à 25 : 17, 19, 23.
 - d) $25 - 9 = 16$.
-- e) $9 + 9 - 3 = 15$ ; en listant : $\{2, 3, 5, 7, 11, 13\}$ et les 9 éléments de $C$, soit 15.
+- e) $9 + 9 - 3 = 15$ ; en listant : $\lbrace2, 3, 5, 7, 11, 13\rbrace$ et les 9 éléments de $C$, soit 15.
 - f) On retire de $A$ ce qui est dans $C$, c'est-à-dire 25.
 - g) $\lvert A \cup C \rvert = 5 + 9 - 1 = 13$ (25 est dans les deux), donc $\lvert \overline{A \cup C} \rvert = 25 - 13 = 12$. Par De Morgan, c'est aussi $\lvert \bar{A} \cap \bar{C} \rvert$ : les nombres de 1 à 16 qui ne sont pas des carrés, $16 - 4 = 12$.
 - h) $22 + 15 - 8 = 29$ membres ont un vélo ou une voiture ; $40 - 29 = 11$.
@@ -178,7 +178,7 @@
 - f) $3 \times 4 \times 2 = 24$ menus.
 - g) $(0, 2) \in A \times B$, mais $(0, 2) \notin B \times A$ (la première coordonnée d'un couple de $B \times A$ est dans $B$).
 
-**Erreurs fréquentes.** Additionner au lieu de multiplier ; compter $(1, 1)$ dans c (l'inégalité est stricte) ; confondre le couple $(1, 0)$ et l'ensemble $\{0, 1\}$.
+**Erreurs fréquentes.** Additionner au lieu de multiplier ; compter $(1, 1)$ dans c (l'inégalité est stricte) ; confondre le couple $(1, 0)$ et l'ensemble $\lbrace0, 1\rbrace$.
 
 **Variante.** $\lvert B \times B \rvert$, et combien de ses couples ont deux coordonnées égales ? *Réponse* : 9 couples, dont 3 de la forme $(x, x)$.
 
@@ -231,7 +231,7 @@
 - e) Une somme impaire demande un premier pair, donc 2 : la plus petite est $2 + 3 = 5$.
 - f) $(x + 1)^2 = x^2 + 2x + 1$, donc l'égalité équivaut à $2x = 0$ : seulement $x = 0$.
 
-**Erreurs fréquentes.** Oublier que l'inégalité de a est stricte ; répondre $[0 \;;\; 1]$ en c (en 0 et en 1, $x^2 = x$, donc $x^2 \ge x$ est vraie) ; répondre 24 en d.
+**Erreurs fréquentes.** Oublier que l'inégalité de a est stricte ; répondre $[0 \mkern5mu ;\mkern5mu  1]$ en c (en 0 et en 1, $x^2 = x$, donc $x^2 \ge x$ est vraie) ; répondre 24 en d.
 
 **Variante.** « Pour tout entier $n \ge 1$, $n^2 + 1$ est premier » : le plus petit contre-exemple ? *Réponse* : 3 ($n = 1$ donne 2, $n = 2$ donne 5, mais $n = 3$ donne $10 = 2 \times 5$).
 
@@ -343,7 +343,7 @@ en utilisant $P(n)$ à la deuxième égalité. C'est $P(n + 1)$.
 
 **Réponses** : a) `-1` · b) `15` · c) `3` · d) `"7/5"` (ou `1.4`) · e) `False` · f) `4` · g) `"18/5"` (ou `3.6`).
 
-**Démarche.** $\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y}_i - y_i)^2$ et $\text{MAE} = \frac{1}{n}\sum_{i=1}^{n} \lvert \hat{y}_i - y_i \rvert$. Les erreurs sont $e = (2, -1, 0, -3, 1)$.
+**Démarche.** $\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} (\hat{y} _i - y_i)^2$ et $\text{MAE} = \frac{1}{n}\sum _{i=1}^{n} \lvert \hat{y}_i - y_i \rvert$. Les erreurs sont $e = (2, -1, 0, -3, 1)$.
 - a) $2 - 1 + 0 - 3 + 1 = -1$.
 - b) $4 + 1 + 0 + 9 + 1 = 15$.
 - c) $\frac{15}{5} = 3$.
@@ -391,7 +391,7 @@ La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes c
 
 ### Ex R4.18 — Σ et Π en Python · `sum_over`, `prod_over`
 
-**Réponses** : a) `[85, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\,024}$).
+**Réponses** : a) `[85, 0, 1024, 1]` · b) `0.9990234375` ($1 - \frac{1}{1\thinspace024}$).
 
 **Démarche.** `total = 0`, puis `for k in range(start, stop + 1): total = total + f(k)` ; `prod_over` part de `1` et multiplie. Une somme vide reste à 0, un produit vide à 1, sans cas particulier à écrire.
 
@@ -399,9 +399,9 @@ La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes c
 
 ### Ex R4.19 — Chercher un contre-exemple de 0 à N · `find_counterexample`
 
-**Réponses** : a) `10` ($9! = 362\,880 < 10^6 \le 10! = 3\,628\,800$) · b) `None` · c) `0` · d) `20`.
+**Réponses** : a) `10` ($9! = 362\thinspace880 < 10^6 \le 10! = 3\thinspace628\thinspace800$) · b) `None` · c) `0` · d) `20`.
 
-**Démarche.** `for n in range(n_max + 1):` puis `if not predicate(n): return n`, et `return None` après la boucle. Pour la copie : $n^3 - n = (n - 1)\,n\,(n + 1)$ est le produit de trois entiers consécutifs ; l'un d'eux est divisible par 3 (selon que $n$ laisse le reste 0, 1 ou 2, c'est $n$, $n - 1$ ou $n + 1$), donc le produit aussi. La réponse de b) ne démontrait rien au-delà de 1 000.
+**Démarche.** `for n in range(n_max + 1):` puis `if not predicate(n): return n`, et `return None` après la boucle. Pour la copie : $n^3 - n = (n - 1)\thinspace n\thinspace(n + 1)$ est le produit de trois entiers consécutifs ; l'un d'eux est divisible par 3 (selon que $n$ laisse le reste 0, 1 ou 2, c'est $n$, $n - 1$ ou $n + 1$), donc le produit aussi. La réponse de b) ne démontrait rien au-delà de 1 000.
 
 **Erreurs fréquentes.** `range(1, n_max + 1)` (0 n'est pas essayé), `range(n_max)` ($n_{\max}$ n'est pas essayé) ; rendre `False` au lieu de `None` ; rendre le dernier $n$ où la propriété est vraie.
 
@@ -417,13 +417,13 @@ La moyenne des erreurs signées ne mesure pas l'erreur : des erreurs de signes c
 
 **Réponses** : a) `False` · b) `40` · c) `40`.
 
-**Démarche.** Les valeurs pour $n = 0$ à 39 sont toutes premières ; pour $n = 40$, $40^2 + 40 + 41 = 40 \times 41 + 41 = 41^2 = 1\,681$. Pour $n = 41$ : $41^2 + 41 + 41 = 41 \times 43$, divisible par 41 sans calcul. Quarante succès de suite, et la phrase « pour tout $n$ » est fausse.
+**Démarche.** Les valeurs pour $n = 0$ à 39 sont toutes premières ; pour $n = 40$, $40^2 + 40 + 41 = 40 \times 41 + 41 = 41^2 = 1\thinspace681$. Pour $n = 41$ : $41^2 + 41 + 41 = 41 \times 43$, divisible par 41 sans calcul. Quarante succès de suite, et la phrase « pour tout $n$ » est fausse.
 
 **Erreurs fréquentes.** Conclure « toujours premier » après quelques essais ; compter 39 nombres de 0 à 39.
 
 ### Ex R4.22 — Vérifier une formule de somme de 1 à 1 000, puis la démontrer
 
-**Réponses** : a) `250500250000` (c'est $500\,500^2$) · b) `0` · c) `4`.
+**Réponses** : a) `250500250000` (c'est $500\thinspace500^2$) · b) `0` · c) `4`.
 
 **Démarche.** `sum_of_cubes(n)` : `sum(k**3 for k in range(1, n + 1))` ; `formula_a(n)` : `(n * (n + 1) // 2) ** 2` ; `formula_b(n)` : `n**2 * (n + 1) ** 2 // 4 + (n - 1) * (n - 2) * (n - 3)`. La formule B est juste en $n = 1, 2, 3$, où le produit $(n - 1)(n - 2)(n - 3)$ est nul, puis fausse dès $n = 4$.
 

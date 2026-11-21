@@ -17,12 +17,12 @@ Fiche §1 : « Les trois autres, et ce qu'on en tire » ; §2 : « Composer, inv
 </details>
 <details><summary>Indice 2</summary>
 
-Un moins dans $\cos(a + b)$, un plus dans $\cos(a - b)$ ; le sinus garde le signe de l'opération. $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$ et $\mathbf{R}_\theta^{-1} = \mathbf{R}_\theta^\top = \mathbf{R}_{-\theta}$. Une matrice orthogonale $2 \times 2$ est une rotation si son déterminant vaut 1, une symétrie s'il vaut $-1$.
+Un moins dans $\cos(a + b)$, un plus dans $\cos(a - b)$ ; le sinus garde le signe de l'opération. $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta}$ et $\mathbf{R} _\theta^{-1} = \mathbf{R} _\theta^\top = \mathbf{R} _{-\theta}$. Une matrice orthogonale $2 \times 2$ est une rotation si son déterminant vaut 1, une symétrie s'il vaut $-1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Mets $\frac{2\pi}{9}$ et $\frac{5\pi}{18}$ au même dénominateur. 3. Deux angles qui diffèrent de $2\pi$ donnent la même matrice. 4. Calcule $\frac{9 \times 9 \pm 40 \times 40}{1\,681}$ ; l'axe de la symétrie est la droite d'angle $\frac\theta2$, où $\cos\theta = \frac{9}{41}$ : essaie le vecteur $(1 + \cos\theta, \sin\theta)$, proportionnel à $(50, 40)$.
+2. Mets $\frac{2\pi}{9}$ et $\frac{5\pi}{18}$ au même dénominateur. 3. Deux angles qui diffèrent de $2\pi$ donnent la même matrice. 4. Calcule $\frac{9 \times 9 \pm 40 \times 40}{1\thinspace681}$ ; l'axe de la symétrie est la droite d'angle $\frac\theta2$, où $\cos\theta = \frac{9}{41}$ : essaie le vecteur $(1 + \cos\theta, \sin\theta)$, proportionnel à $(50, 40)$.
 
 </details>
 
@@ -35,12 +35,12 @@ Fiche §3 : « Quand deux rotations commutent », « Les matrices diagonales par
 </details>
 <details><summary>Indice 2</summary>
 
-Même plan ou plans disjoints : elles commutent ; plans qui partagent une coordonnée : pas en général. $\mathbf{R}_{ij}(\theta)$ ne change que les coordonnées $i$ et $j$. Le déterminant et l'inverse d'une matrice diagonale par blocs se calculent bloc par bloc. $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ tourne le plan $(\sigma(i), \sigma(j))$.
+Même plan ou plans disjoints : elles commutent ; plans qui partagent une coordonnée : pas en général. $\mathbf{R} _{ij}(\theta)$ ne change que les coordonnées $i$ et $j$. Le déterminant et l'inverse d'une matrice diagonale par blocs se calculent bloc par bloc. $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}$ tourne le plan $(\sigma(i), \sigma(j))$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Les rotations autour de $\mathbf{e}_1$ et de $\mathbf{e}_3$ sont $\mathbf{R}_{23}$ et $\mathbf{R}_{12}$ : quelle coordonnée partagent-elles ? 3. Quelles coordonnées $\mathbf{R}_{24}(\theta)$ ne touche-t-elle pas ? 5. Ici $\sigma(1) = 1$ et $\sigma(2) = 3$.
+1. Les rotations autour de $\mathbf{e} _1$ et de $\mathbf{e} _3$ sont $\mathbf{R} _{23}$ et $\mathbf{R}  _{12}$ : quelle coordonnée partagent-elles ? 3. Quelles coordonnées $\mathbf{R} _{24}(\theta)$ ne touche-t-elle pas ? 5. Ici $\sigma(1) = 1$ et $\sigma(2) = 3$.
 
 </details>
 
@@ -89,7 +89,7 @@ Fiche §5 : « Des poids par une softmax » ; §7 : « Multiplier les scores par
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{softmax}(\mathbf{s} + b) = \operatorname{softmax}(\mathbf{s})$, et $\operatorname{softmax}(c\,\mathbf{s})_i = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ : la loi tempérée de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$.
+$\operatorname{softmax}(\mathbf{s} + b) = \operatorname{softmax}(\mathbf{s})$, et $\operatorname{softmax}(c\thinspace\mathbf{s})_i = \frac{(p^{(1)}_i)^c}{\sum_j(p^{(1)}_j)^c}$, où $\mathbf{p}^{(1)} = \operatorname{softmax}(\mathbf{s})$ : la loi tempérée de M28, celle de $\mathbf{p}^{(1)}$ à la température $T = \frac1c$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -107,7 +107,7 @@ Fiche §8 : « Le problème » (l'état et la mise à jour par un bloc) et « La
 </details>
 <details><summary>Indice 2</summary>
 
-$m' = \max(m, \max_{j \in \mathcal{B}}s_j)$ ; $l' = l\,e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}$, et de même pour $a$. Le log-sum-exp vaut $m + \ln l$.
+$m' = \max(m, \max_{j \in \mathcal{B}}s_j)$ ; $l' = l\thinspace e^{m - m'} + \sum_{j \in \mathcal{B}}e^{s_j - m'}$, et de même pour $a$. Le log-sum-exp vaut $m + \ln l$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -187,12 +187,12 @@ Fiche §1 : « Les trois autres, et ce qu'on en tire » ; §2 : « Composer, inv
 </details>
 <details><summary>Indice 2</summary>
 
-$105° = 60° + 45°$ : $\cos(a + b) = \cos a\cos b - \sin a\sin b$ et $\sin(a + b) = \sin a\cos b + \cos a\sin b$. $\mathbf{R}_\theta(r, 0) = (r\cos\theta, r\sin\theta)$. $\mathbf{R}_\alpha\mathbf{R}_\beta = \mathbf{R}_{\alpha + \beta}$, $\mathbf{R}_{60°}^\top = \mathbf{R}_{-60°}$, et une rotation conserve les normes.
+$105° = 60° + 45°$ : $\cos(a + b) = \cos a\cos b - \sin a\sin b$ et $\sin(a + b) = \sin a\cos b + \cos a\sin b$. $\mathbf{R} _\theta(r, 0) = (r\cos\theta, r\sin\theta)$. $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta}$, $\mathbf{R} _{60°}^\top = \mathbf{R} _{-60°}$, et une rotation conserve les normes.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\mathbf{p} = (4\cos 60° + 2\cos 105°,\ 4\sin 60° + 2\sin 105°)$. f) $\mathbf{R}_{-60°}\mathbf{p} = \mathbf{R}_{-60°}\mathbf{R}_{60°}(4, 0) + \mathbf{R}_{-60°}\mathbf{R}_{105°}(2, 0)$ : simplifie chaque produit de rotations. g) La norme de f) est celle de $\mathbf{p}$.
+c) $\mathbf{p} = (4\cos 60° + 2\cos 105°,\ 4\sin 60° + 2\sin 105°)$. f) $\mathbf{R} _{-60°}\mathbf{p} = \mathbf{R} _{-60°}\mathbf{R} _{60°}(4, 0) + \mathbf{R}  _{-60°}\mathbf{R} _{105°}(2, 0)$ : simplifie chaque produit de rotations. g) La norme de f) est celle de $\mathbf{p}$.
 
 </details>
 
@@ -205,12 +205,12 @@ Fiche §3 : « Les rotations de Givens », « Quand deux rotations commutent » 
 </details>
 <details><summary>Indice 2</summary>
 
-La matrice de droite agit la première. $\mathbf{R}_{ij}(\theta)$ envoie $\mathbf{e}_i$ sur $\cos\theta\,\mathbf{e}_i + \sin\theta\,\mathbf{e}_j$ et $\mathbf{e}_j$ sur $-\sin\theta\,\mathbf{e}_i + \cos\theta\,\mathbf{e}_j$. $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P}$ tourne $\mathbf{e}_{\sigma(i)}$ vers $\mathbf{e}_{\sigma(j)}$.
+La matrice de droite agit la première. $\mathbf{R}_{ij}(\theta)$ envoie $\mathbf{e}_i$ sur $\cos\theta\thinspace\mathbf{e}_i + \sin\theta\thinspace\mathbf{e}_j$ et $\mathbf{e} _j$ sur $-\sin\theta\thinspace\mathbf{e} _i + \cos\theta\thinspace\mathbf{e} _j$. $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}$ tourne $\mathbf{e} _{\sigma(i)}$ vers $\mathbf{e} _{\sigma(j)}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\mathbf{R}_{12}(\frac\pi3)\mathbf{e}_2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R}_{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R}_{23}(\frac\pi2)$ de $\mathbf{e}_2$, et $\mathbf{R}_{12}$ de $\mathbf{e}_3$ ? f) $\sigma(1) = 1$ et $\sigma(2) = 4$ : $\mathbf{R}_{12}(\frac\pi3)$ devient $\mathbf{R}_{14}(\frac\pi3)$, qui tourne $\mathbf{e}_1$ vers $\mathbf{e}_4$ ; fais de même pour $\mathbf{R}_{34}(\frac\pi2)$, sans changer l'ordre $(\sigma(3), \sigma(4))$. g) La fiche, « Renuméroter les coordonnées » : si $\sigma(i) > \sigma(j)$, $\mathbf{P}^\top\mathbf{R}_{ij}(\theta)\mathbf{P} = \mathbf{R}_{\sigma(j)\sigma(i)}(-\theta)$.
+a) $\mathbf{R} _{12}(\frac\pi3)\mathbf{e} _2 = (-\frac{\sqrt3}{2}, \frac12, 0)$, puis $\mathbf{R} _{23}(\frac\pi2)$ envoie $(x_1, x_2, x_3)$ sur $(x_1, -x_3, x_2)$. b) Que fait $\mathbf{R} _{23}(\frac\pi2)$ de $\mathbf{e} _2$, et $\mathbf{R} _{12}$ de $\mathbf{e} _3$ ? f) $\sigma(1) = 1$ et $\sigma(2) = 4$ : $\mathbf{R} _{12}(\frac\pi3)$ devient $\mathbf{R} _{14}(\frac\pi3)$, qui tourne $\mathbf{e} _1$ vers $\mathbf{e} _4$ ; fais de même pour $\mathbf{R} _{34}(\frac\pi2)$, sans changer l'ordre $(\sigma(3), \sigma(4))$. g) La fiche, « Renuméroter les coordonnées » : si $\sigma(i) > \sigma(j)$, $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P} = \mathbf{R} _{\sigma(j)\sigma(i)}(-\theta)$.
 
 </details>
 
@@ -246,7 +246,7 @@ Les scores sont $s_i = -\frac{(x - x_i)^2}{2h^2}$ ; on retranche le plus grand, 
 </details>
 <details><summary>Indice 3</summary>
 
-Les écarts valent $-600$, $-200$, 400 et 800 m. Pour $h = 200$ m, $2h^2 = 80\,000$ ; pour $h = 400$ m, $2h^2 = 320\,000$. Après le décalage par le plus grand score, les scores de $h = 200$ m valent $(-4 ;\ 0 ;\ -1{,}5 ;\ -7{,}5)$.
+Les écarts valent $-600$, $-200$, 400 et 800 m. Pour $h = 200$ m, $2h^2 = 80\thinspace000$ ; pour $h = 400$ m, $2h^2 = 320\thinspace000$. Après le décalage par le plus grand score, les scores de $h = 200$ m valent $(-4 ;\ 0 ;\ -1{,}5 ;\ -7{,}5)$.
 
 </details>
 
@@ -322,7 +322,7 @@ Fiche §1 : « Le cosinus d'une différence » (et son paragraphe « Pas de cerc
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{u}_a\cdot\mathbf{u}_b$ vaut $\cos a\cos b + \sin a\sin b$ en coordonnées, et $\cos\varphi$ par l'angle, avec $\cos\varphi = \cos\lvert a - b\rvert = \cos(a - b)$. 4. $\cos(-\theta) = \cos\theta$ et $\sin(-\theta) = -\sin\theta$, puis $\mathbf{R}_{-\theta}\mathbf{R}_\theta = \mathbf{R}_0$. 5. Développe le produit avec $i^2 = -1$ et reconnais 2. 6. Le déterminant de $\begin{pmatrix} c & -s \\ s & c \end{pmatrix}$ vaut $c^2 + s^2$ ; pour la duplication, prends $b = a$ dans les formules de 2, puis remplace $\sin^2a$ (ou $\cos^2a$) grâce à $\cos^2a + \sin^2a = 1$.
+1. $\mathbf{u} _a\cdot\mathbf{u} _b$ vaut $\cos a\cos b + \sin a\sin b$ en coordonnées, et $\cos\varphi$ par l'angle, avec $\cos\varphi = \cos\lvert a - b\rvert = \cos(a - b)$. 4. $\cos(-\theta) = \cos\theta$ et $\sin(-\theta) = -\sin\theta$, puis $\mathbf{R} _{-\theta}\mathbf{R} _\theta = \mathbf{R}_0$. 5. Développe le produit avec $i^2 = -1$ et reconnais 2. 6. Le déterminant de $\begin{pmatrix} c & -s \cr s & c \end{pmatrix}$ vaut $c^2 + s^2$ ; pour la duplication, prends $b = a$ dans les formules de 2, puis remplace $\sin^2a$ (ou $\cos^2a$) grâce à $\cos^2a + \sin^2a = 1$.
 
 </details>
 
@@ -335,7 +335,7 @@ Fiche §6 : « L'équivariance par permutation » ; §3 : « Renuméroter les co
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{P}\mathbf{s})_k = s_{\sigma(k)}$ et $(\mathbf{P}\mathbf{S}\mathbf{P}^\top)_{kw} = S_{\sigma(k)\sigma(w)}$. Une somme sur tous les indices ne change pas quand on les renumérote. $\mathbf{P}^\top\mathbf{P} = \mathbf{I}$.
+$(\mathbf{P}\mathbf{s}) _k = s _{\sigma(k)}$ et $(\mathbf{P}\mathbf{S}\mathbf{P}^\top) _{kw} = S _{\sigma(k)\sigma(w)}$. Une somme sur tous les indices ne change pas quand on les renumérote. $\mathbf{P}^\top\mathbf{P} = \mathbf{I}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -353,12 +353,12 @@ Fiche §8 : « Le problème » (la mise à jour et l'invariant) et « La fusion 
 </details>
 <details><summary>Indice 2</summary>
 
-Le nouveau maximum $m'$ est le plus grand score de $J \cup \mathcal{B}$. La clé : $e^{s_j - m_J}\,e^{m_J - m'} = e^{s_j - m'}$. L'état vide se traite avec la convention $e^{-\infty} = 0$.
+Le nouveau maximum $m'$ est le plus grand score de $J \cup \mathcal{B}$. La clé : $e^{s_j - m_J}\thinspace e^{m_J - m'} = e^{s_j - m'}$. L'état vide se traite avec la convention $e^{-\infty} = 0$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Écris $l_J\,e^{m_J - m'}$ comme une somme sur $J$, puis ajoute la somme sur $\mathcal{B}$. 2. Initialisation : le bloc 1 depuis l'état vide ; à la fin, multiplie $a$ et $l$ par $e^m$. 4. Le calcul de 1 marche pour deux états quelconques de réunions disjointes : la commutativité et l'associativité viennent de celles de la réunion. 5. Que vaudrait $e^{-\infty - (-\infty)}$ ?
+1. Écris $l_J\thinspace e^{m_J - m'}$ comme une somme sur $J$, puis ajoute la somme sur $\mathcal{B}$. 2. Initialisation : le bloc 1 depuis l'état vide ; à la fin, multiplie $a$ et $l$ par $e^m$. 4. Le calcul de 1 marche pour deux états quelconques de réunions disjointes : la commutativité et l'associativité viennent de celles de la réunion. 5. Que vaudrait $e^{-\infty - (-\infty)}$ ?
 
 </details>
 
@@ -375,12 +375,12 @@ Fiche §5 : « À normes égales, des produits scalaires » ; §7 : « Multiplie
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\,\mathbf{x}\cdot\mathbf{x}_i + \lVert\mathbf{x}_i\rVert^2$, et ici les deux normes valent 5. Une constante commune à tous les scores disparaît dans la softmax.
+$\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\thinspace\mathbf{x}\cdot\mathbf{x}_i + \lVert\mathbf{x}_i\rVert^2$, et ici les deux normes valent 5. Une constante commune à tous les scores disparaît dans la softmax.
 
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = 50 - 2\,\mathbf{x}\cdot\mathbf{x}_i$. c) Les scores $-\frac{\lVert\mathbf{x} - \mathbf{x}_i\rVert^2}{50}$ valent $\frac{\mathbf{x}\cdot\mathbf{x}_i}{25} - 1$. f) Avec $h = 2{,}5$ km, $\frac{1}{h^2}$ est 4 fois plus grand.
+b) $\lVert\mathbf{x} - \mathbf{x}_i\rVert^2 = 50 - 2\thinspace\mathbf{x}\cdot\mathbf{x}_i$. c) Les scores $-\frac{\lVert\mathbf{x} - \mathbf{x}_i\rVert^2}{50}$ valent $\frac{\mathbf{x}\cdot\mathbf{x}_i}{25} - 1$. f) Avec $h = 2{,}5$ km, $\frac{1}{h^2}$ est 4 fois plus grand.
 
 </details>
 
@@ -393,7 +393,7 @@ Le guide de lecture de MML de la fiche, puis fiche §2 (« La matrice d'une rota
 </details>
 <details><summary>Indice 2</summary>
 
-La rotation de Givens $\mathbf{R}_{ij}(\theta)$ a $-\sin\theta$ à la ligne $i$, colonne $j$, et $\sin\theta$ à la ligne $j$, colonne $i$. Compare (3.78) à $\mathbf{R}_{13}(\theta)$ : où sont les signes ?
+La rotation de Givens $\mathbf{R} _{ij}(\theta)$ a $-\sin\theta$ à la ligne $i$, colonne $j$, et $\sin\theta$ à la ligne $j$, colonne $i$. Compare (3.78) à $\mathbf{R} _{13}(\theta)$ : où sont les signes ?
 
 </details>
 <details><summary>Indice 3</summary>

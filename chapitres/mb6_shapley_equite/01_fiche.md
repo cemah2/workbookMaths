@@ -53,11 +53,11 @@ Vocabulaire anglais de ce chapitre : *cooperative game*, *coalition*, *character
 
 ## L'essentiel en 8 lignes
 
-1. **Shapley** : $\varphi_i = \frac{1}{n!}\sum_\pi\big[v(S_\pi(i) \cup \{i\}) - v(S_\pi(i))\big] = \sum_{S \not\ni i}w(s)\big[v(S \cup \{i\}) - v(S)\big]$, $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$ ; chaque ordre partage $v(N) - v(\varnothing)$ ; $m \ge \frac{(b - a)^2\ln(2/\delta)}{2\varepsilon^2}$ ordres tirés suffisent ; vote pondéré : la part des ordres où $i$ est pivot.
+1. **Shapley** : $\varphi_i = \frac{1}{n!}\sum_\pi\big[v(S_\pi(i) \cup \lbrace i\rbrace) - v(S_\pi(i))\big] = \sum_{S \not\ni i}w(s)\big[v(S \cup \lbrace i\rbrace) - v(S)\big]$, $w(s) = \frac{s!\thinspace(n - 1 - s)!}{n!}$ ; chaque ordre partage $v(N) - v(\varnothing)$ ; $m \ge \frac{(b - a)^2\ln(2/\delta)}{2\varepsilon^2}$ ordres tirés suffisent ; vote pondéré : la part des ordres où $i$ est pivot.
 2. **Axiomes** : efficacité, symétrie, joueur nul, additivité. $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}v(S)$, $v = \sum_Td_Tu_T$, $\varphi_i = \sum_{T \ni i}\frac{d_T}{\lvert T\rvert}$, la seule règle qui respecte les axiomes (∂ MB6.8).
-3. **Fixer $x_j$** : $\mathbb{E}[f(v, \mathbf{X}_{-j})]$ ou $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$, égales si $X_j \perp \mathbf{X}_{-j}$ ; $f = g(x_j) + h(\mathbf{x}_{-j})$ ⇔ ICE parallèles ⇔ $\partial_j\partial_kf = 0$ pour $k \ne j$.
-4. **Chemins** : $\int_{\boldsymbol\gamma}\mathbf{F}\cdot\mathrm{d}\boldsymbol\gamma = \int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\,\mathrm{d}t$ ; $\int_{\boldsymbol\gamma}\nabla f\cdot\mathrm{d}\boldsymbol\gamma = f(\text{fin}) - f(\text{début})$, 0 sur une boucle ; dérivées croisées différentes : pas un gradient.
-5. **Partager $f(\mathbf{x}) - f(\mathbf{r})$** : le segment, $h_i\int_0^1\partial_if(\mathbf{r} + t\mathbf{h})\,\mathrm{d}t$, ou la valeur de Shapley de $v(S) = f(\mathbf{x}_S, \mathbf{r}_{\bar S})$ ; égaux si $f$ est multilinéaire ; ils dépendent de $\mathbf{r}$. **Euler** : $\sum_ix_i\partial_if = kf$, part $\frac{x_i\partial_if(\mathbf{x})}{k}$ depuis $\mathbf{0}$.
+3. **Fixer $x_j$** : $\mathbb{E}[f(v, \mathbf{X} _{-j})]$ ou $\mathbb{E}[f(\mathbf{X}) \mid X_j = v]$, égales si $X_j \perp \mathbf{X}  _{-j}$ ; $f = g(x_j) + h(\mathbf{x} _{-j})$ ⇔ ICE parallèles ⇔ $\partial_j\partial_kf = 0$ pour $k \ne j$.
+4. **Chemins** : $\int_{\boldsymbol\gamma}\mathbf{F}\cdot\mathrm{d}\boldsymbol\gamma = \int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\thinspace\mathrm{d}t$ ; $\int_{\boldsymbol\gamma}\nabla f\cdot\mathrm{d}\boldsymbol\gamma = f(\text{fin}) - f(\text{début})$, 0 sur une boucle ; dérivées croisées différentes : pas un gradient.
+5. **Partager $f(\mathbf{x}) - f(\mathbf{r})$** : le segment, $h_i\int_0^1\partial_if(\mathbf{r} + t\mathbf{h})\thinspace\mathrm{d}t$, ou la valeur de Shapley de $v(S) = f(\mathbf{x} _S, \mathbf{r} _{\bar S})$ ; égaux si $f$ est multilinéaire ; ils dépendent de $\mathbf{r}$. **Euler** : $\sum_ix_i\partial_if = kf$, part $\frac{x_i\partial_if(\mathbf{x})}{k}$ depuis $\mathbf{0}$.
 6. **Grille** : $\frac{1}{HW}\sum\frac{\partial y}{\partial A_{ij}}$ = dérivée par un décalage uniforme, divisée par $HW$. Agrandir $h \to H$ : $\xi(u) = (u + \frac12)\frac hH - \frac12$ (centres) ou $u\frac{h - 1}{H - 1}$ (coins), au plus $\frac12(1 - \frac hH)$ pas d'écart.
 7. **Spearman** : Pearson des rangs (rangs moyens aux ex aequo) $= 1 - \frac{6\sum d_i^2}{n(n^2 - 1)}$ sans ex aequo ; invariant par une transformation strictement croissante ; aveugle à l'ampleur des écarts.
 8. **Équité** : $\hat Y \perp G$, $\hat Y \perp G \mid Y$, $Y \perp G \mid \hat Y$ ; taux de base différents : indépendance et séparation imposent $\hat Y \perp Y \mid G$ ; scores calibrés de mêmes moyennes chez les positifs et chez les négatifs : taux de base égaux ou score parfait. Corde ROC ; $w(g, y) = \frac{P(g)P(y)}{P(g, y)}$ ; erreur type de l'écart de deux proportions, $\sqrt{\sum_g\frac{\theta_g(1 - \theta_g)}{n_g}}$.
@@ -74,12 +74,12 @@ Un bar organise un concert de jazz. Sans musicien, 20 habitués viennent ; le pi
 
 Comment partager les $108 - 20 = 88$ entrées que le trio ajoute ?
 
-> **Définitions.** Un **jeu coopératif** (*cooperative game*) à $n$ joueurs est une fonction $v$, la **fonction caractéristique** (*characteristic function*), qui donne un nombre $v(S)$ à chaque **coalition** $S \subseteq N$. La **contribution marginale** (*marginal contribution*) de $i \notin S$ à $S$ est $v(S \cup \{i\}) - v(S)$.
+> **Définitions.** Un **jeu coopératif** (*cooperative game*) à $n$ joueurs est une fonction $v$, la **fonction caractéristique** (*characteristic function*), qui donne un nombre $v(S)$ à chaque **coalition** $S \subseteq N$. La **contribution marginale** (*marginal contribution*) de $i \notin S$ à $S$ est $v(S \cup \lbrace i\rbrace) - v(S)$.
 
 P apporte 30 au bar vide, 45 à C, 55 à B, 58 au duo CB : cela dépend de qui est là. On fait donc arriver les joueurs un par un, dans un **ordre** $\pi$ ; chacun reçoit ce qu'il ajoute, et $S_\pi(i)$ est l'ensemble des joueurs arrivés avant $i$.
 
 > **Définition** (Shapley, 1953). La **valeur de Shapley** (*Shapley value*) de $i$ est la moyenne de ses contributions sur les $n!$ ordres :
-> $$\varphi_i = \frac{1}{n!}\sum_\pi\Big[v\big(S_\pi(i) \cup \{i\}\big) - v\big(S_\pi(i)\big)\Big].$$
+> $$\varphi_i = \frac{1}{n!}\sum_\pi\Big[v\big(S_\pi(i) \cup \lbrace i\rbrace\big) - v\big(S_\pi(i)\big)\Big].$$
 
 | ordre | PCB | PBC | CPB | CBP | BPC | BCP | moyenne |
 |---|---|---|---|---|---|---|---|
@@ -95,9 +95,9 @@ Chaque colonne somme à 88 : dans un ordre, les contributions se **télescopent*
 
 Une contribution ne dépend que de l'ensemble $S$ des joueurs arrivés avant $i$. Les ordres qui placent exactement $S$ avant $i$ se comptent : $s!$ façons de ranger $S$, puis $i$, puis $(n - 1 - s)!$ façons de ranger les autres (R8 §3).
 
-> **Propriété.** $\displaystyle\varphi_i = \sum_{S \subseteq N \setminus\{i\}}w(s)\big[v(S \cup \{i\}) - v(S)\big]$, avec le **poids d'une coalition** de taille $s$ : $\displaystyle w(s) = \frac{s!\,(n - 1 - s)!}{n!} = \frac{1}{n\binom{n-1}{s}}$.
+> **Propriété.** $\displaystyle\varphi_i = \sum_{S \subseteq N \setminus\lbrace i\rbrace}w(s)\big[v(S \cup \lbrace i\rbrace) - v(S)\big]$, avec le **poids d'une coalition** de taille $s$ : $\displaystyle w(s) = \frac{s!\thinspace(n - 1 - s)!}{n!} = \frac{1}{n\binom{n-1}{s}}$.
 
-**Lecture probabiliste.** Dans un ordre uniforme, le nombre de joueurs arrivés avant $i$ est uniforme sur $\{0, \ldots, n - 1\}$ et, sachant ce nombre $s$, leur ensemble est uniforme parmi les $\binom{n-1}{s}$ possibles. D'où $w(s) = \frac1n\cdot\frac{1}{\binom{n-1}{s}}$, $\sum_s\binom{n-1}{s}w(s) = 1$ et $w(s) = w(n - 1 - s)$.
+**Lecture probabiliste.** Dans un ordre uniforme, le nombre de joueurs arrivés avant $i$ est uniforme sur $\lbrace0, \ldots, n - 1\rbrace$ et, sachant ce nombre $s$, leur ensemble est uniforme parmi les $\binom{n-1}{s}$ possibles. D'où $w(s) = \frac1n\cdot\frac{1}{\binom{n-1}{s}}$, $\sum_s\binom{n-1}{s}w(s) = 1$ et $w(s) = w(n - 1 - s)$.
 
 Pour $n = 3$, $w = (\frac13, \frac16, \frac13)$ ; pour P : $\frac13(50 - 20) + \frac16\big[(75 - 30) + (90 - 35)\big] + \frac13(108 - 50) = 10 + \frac{50}{3} + \frac{58}{3} = 46$. Pour $n = 5$, $w = (\frac15, \frac1{20}, \frac1{30}, \frac1{20}, \frac15)$, pour $1, 4, 6, 4, 1$ coalitions : chaque taille porte $\frac15$ en tout (figure, à droite).
 
@@ -105,11 +105,11 @@ Pour $n = 3$, $w = (\frac13, \frac16, \frac13)$ ; pour P : $\frac13(50 - 20) + \
 
 ### Estimer par des ordres tirés au hasard
 
-La moyenne $\hat\varphi_i$ des contributions de $i$ sur $m$ ordres tirés uniformément et indépendamment est **sans biais** (M02c §6) : chacune a pour espérance $\varphi_i$. Chaque ordre se télescope : $\sum_i\hat\varphi_i = v(N) - v(\varnothing)$ **exactement**. Si les contributions sont dans $[a, b]$, Hoeffding (M11 §6) donne $P(\lvert\hat\varphi_i - \varphi_i\rvert \ge \varepsilon) \le 2e^{-2m\varepsilon^2/(b - a)^2}$ : $m \ge \frac{(b - a)^2\ln(2/\delta)}{2\varepsilon^2}$ ordres suffisent pour un risque $\delta$. Contributions de 0 ou 1, $\varepsilon = 0{,}02$, $\delta = 0{,}02$ : $\frac{\ln 100}{0{,}0008} \approx 5\,756{,}5$, soit 5 757 ordres, quel que soit $n$.
+La moyenne $\hat\varphi_i$ des contributions de $i$ sur $m$ ordres tirés uniformément et indépendamment est **sans biais** (M02c §6) : chacune a pour espérance $\varphi_i$. Chaque ordre se télescope : $\sum_i\hat\varphi_i = v(N) - v(\varnothing)$ **exactement**. Si les contributions sont dans $[a, b]$, Hoeffding (M11 §6) donne $P(\lvert\hat\varphi_i - \varphi_i\rvert \ge \varepsilon) \le 2e^{-2m\varepsilon^2/(b - a)^2}$ : $m \ge \frac{(b - a)^2\ln(2/\delta)}{2\varepsilon^2}$ ordres suffisent pour un risque $\delta$. Contributions de 0 ou 1, $\varepsilon = 0{,}02$, $\delta = 0{,}02$ : $\frac{\ln 100}{0{,}0008} \approx 5\thinspace756{,}5$, soit 5 757 ordres, quel que soit $n$.
 
 ### Voter avec des poids
 
-> **Définition.** Le **jeu de vote pondéré** (*weighted voting game*) $[q ;\ \omega_1, \ldots, \omega_n]$ donne $v(S) = 1$ si $\sum_{j \in S}\omega_j \ge q$, 0 sinon. La contribution de $i$ vaut 1 quand $S$ perd et $S \cup \{i\}$ gagne : $i$ est **pivot** (*pivotal player*). Sa valeur de Shapley, la part des ordres où il est pivot, est son **indice de Shapley-Shubik** (*Shapley-Shubik index*, 1954).
+> **Définition.** Le **jeu de vote pondéré** (*weighted voting game*) $[q ;\ \omega_1, \ldots, \omega_n]$ donne $v(S) = 1$ si $\sum_{j \in S}\omega_j \ge q$, 0 sinon. La contribution de $i$ vaut 1 quand $S$ perd et $S \cup \lbrace i\rbrace$ gagne : $i$ est **pivot** (*pivotal player*). Sa valeur de Shapley, la part des ordres où il est pivot, est son **indice de Shapley-Shubik** (*Shapley-Shubik index*, 1954).
 
 **Le poids n'est pas le pouvoir.** Une copropriété vote à 51 % ; ses trois propriétaires ont 48, 47 et 5 % des voix : $[51 ;\ 48, 47, 5]$. Aucun ne gagne seul, toute paire gagne : le pivot est toujours le deuxième arrivé, et chacun l'est dans deux ordres sur six. Indices : $\frac13$, $\frac13$, $\frac13$. À l'inverse, au Conseil des ministres de la Communauté économique européenne, en 1958, $[12 ;\ 4, 4, 4, 2, 2, 1]$, le Luxembourg n'était jamais pivot : les sommes des voix des autres sont paires, aucune ne vaut 11, la seule que sa voix ferait passer à 12. Son indice était nul.
 
@@ -133,11 +133,11 @@ Les 400 premiers mètres (120 k€) servent les trois : 40 chacun ; les 300 suiv
 
 Une **règle de partage** (*allocation rule*) associe à tout jeu $v$ à $n$ joueurs des parts $\varphi_1(v), \ldots, \varphi_n(v)$. Quatre propriétés :
 - **efficacité** (*efficiency*) : $\sum_i\varphi_i(v) = v(N) - v(\varnothing)$ ;
-- **symétrie** (*symmetry*) : si $v(S \cup \{i\}) = v(S \cup \{j\})$ pour toute $S$ qui ne contient ni $i$ ni $j$, alors $\varphi_i = \varphi_j$ ;
-- **joueur nul** (*null player*) : si $v(S \cup \{i\}) = v(S)$ pour toute $S$, alors $\varphi_i = 0$ ;
+- **symétrie** (*symmetry*) : si $v(S \cup \lbrace i\rbrace) = v(S \cup \lbrace j\rbrace)$ pour toute $S$ qui ne contient ni $i$ ni $j$, alors $\varphi_i = \varphi_j$ ;
+- **joueur nul** (*null player*) : si $v(S \cup \lbrace i\rbrace) = v(S)$ pour toute $S$, alors $\varphi_i = 0$ ;
 - **additivité** (*additivity*) : $\varphi_i(v + v') = \varphi_i(v) + \varphi_i(v')$.
 
-La valeur de Shapley les vérifie : télescopage ; échanger $i$ et $j$ dans tous les ordres échange leurs contributions ; un joueur nul n'apporte rien dans aucun ordre ; chaque contribution est linéaire en $v$. Pour $n = 1$, $\varphi_1 = v(\{1\}) - v(\varnothing)$ ; dans un jeu constant, tous les joueurs sont nuls. Un joueur nul n'ajoute rien à **aucune** coalition (le Luxembourg).
+La valeur de Shapley les vérifie : télescopage ; échanger $i$ et $j$ dans tous les ordres échange leurs contributions ; un joueur nul n'apporte rien dans aucun ordre ; chaque contribution est linéaire en $v$. Pour $n = 1$, $\varphi_1 = v(\lbrace1\rbrace) - v(\varnothing)$ ; dans un jeu constant, tous les joueurs sont nuls. Un joueur nul n'ajoute rien à **aucune** coalition (le Luxembourg).
 
 **Un jeu additif.** Si $v(S) = v(\varnothing) + \sum_{j \in S}a_j$, la contribution de $i$ vaut $a_i$ dans tout ordre : $\varphi_i = a_i$.
 
@@ -149,9 +149,9 @@ La valeur de Shapley les vérifie : télescopage ; échanger $i$ et $j$ dans tou
 
 Dans $u_T$, la contribution de $i \in T$ vaut 1 quand $i$ est le dernier membre de $T$ à arriver ; dans un ordre uniforme, chaque membre l'est avec la même probabilité. Donc $\varphi_i(u_T) = \frac{1}{\lvert T\rvert}$ pour $i \in T$, 0 sinon, et $\varphi_i(u_\varnothing) = 0$.
 
-> **Définition et propriété** (Harsanyi, 1963). Les **dividendes de Harsanyi** (*Harsanyi dividends*) sont $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}\,v(S)$. Ce sont les seuls nombres tels que $v(S) = \sum_{T \subseteq S}d_T$ pour toute $S$ (une **inversion de Möbius**, *Möbius inversion*, sur les parties) : $v = \sum_Td_T\,u_T$.
+> **Définition et propriété** (Harsanyi, 1963). Les **dividendes de Harsanyi** (*Harsanyi dividends*) sont $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}\thinspace v(S)$. Ce sont les seuls nombres tels que $v(S) = \sum_{T \subseteq S}d_T$ pour toute $S$ (une **inversion de Möbius**, *Möbius inversion*, sur les parties) : $v = \sum_Td_T\thinspace u_T$.
 
-Ainsi $d_\varnothing = v(\varnothing)$, $d_{\{i\}} = v(\{i\}) - v(\varnothing)$, $d_{\{i, j\}} = v(\{i, j\}) - v(\{i\}) - v(\{j\}) + v(\varnothing)$ : ce que $T$ crée au-delà des coalitions plus petites qu'elle contient, une **interaction**. L'inversion se démontre dans ∂ MB6.8.
+Ainsi $d_\varnothing = v(\varnothing)$, $d_{\lbrace i\rbrace} = v(\lbrace i\rbrace) - v(\varnothing)$, $d_{\lbrace i, j\rbrace} = v(\lbrace i, j\rbrace) - v(\lbrace i\rbrace) - v(\lbrace j\rbrace) + v(\varnothing)$ : ce que $T$ crée au-delà des coalitions plus petites qu'elle contient, une **interaction**. L'inversion se démontre dans ∂ MB6.8.
 
 Pour le trio : $d_\varnothing = 20$ ; $d_P = 30$, $d_C = 10$, $d_B = 15$ ; $d_{PC} = 75 - 50 - 30 + 20 = 15$, $d_{PB} = 25$, $d_{CB} = 5$ ; $d_{PCB} = 108 - 75 - 90 - 50 + 50 + 30 + 35 - 20 = -12$. Sans la limite de la salle, les dividendes des paires prévoyaient $20 + 30 + 10 + 15 + 15 + 25 + 5 = 120$ entrées : l'interaction des trois est négative. Contrôle : $v(PC) = 20 + 30 + 10 + 15 = 75$.
 
@@ -165,7 +165,7 @@ P : $30 + \frac{15}{2} + \frac{25}{2} - \frac{12}{3} = 46$ ; C : $10 + \frac{15}
 
 L'outil : la décomposition $v = \sum_Td_Tu_T$, sur laquelle on fait agir les axiomes ; ∂ MB6.8 la rédige.
 
-💻 **Aujourd'hui en pratique** — `harsanyi_dividends` (🔨 MB6.14) appelle $v$ une fois par coalition, puis fait les sommes alternées : $\sum_T2^{\lvert T\rvert} = 3^n$ termes (le binôme) ; une transformée de Möbius rapide, coordonnée par coordonnée, en fait $n\,2^{n-1}$. KernelSHAP, dans workbookIA, estime des valeurs de Shapley par une régression pondérée sur des coalitions tirées au hasard.
+💻 **Aujourd'hui en pratique** — `harsanyi_dividends` (🔨 MB6.14) appelle $v$ une fois par coalition, puis fait les sommes alternées : $\sum_T2^{\lvert T\rvert} = 3^n$ termes (le binôme) ; une transformée de Möbius rapide, coordonnée par coordonnée, en fait $n\thinspace2^{n-1}$. KernelSHAP, dans workbookIA, estime des valeurs de Shapley par une régression pondérée sur des coalitions tirées au hasard.
 
 ⚠️ **Erreur classique.** Donner une interaction $d_T$ à un seul de ses membres ; oublier qu'un dividende peut être négatif.
 
@@ -177,11 +177,11 @@ L'outil : la décomposition $v = \sum_Td_Tu_T$, sur laquelle on fait agir les ax
 
 Soit $f(x_1, \ldots, x_d)$ une fonction et $\mathbf{X}$ un vecteur aléatoire. On fixe la coordonnée $j$ à $v$ ; que faire des autres, $\mathbf{X}_{-j}$ ?
 
-> **Définitions.** La **moyenne marginale**, ou **dépendance partielle** (*partial dependence*), est $\operatorname{PD}_j(v) = \mathbb{E}\big[f(v, \mathbf{X}_{-j})\big]$ : les autres coordonnées gardent leur loi marginale. La **moyenne conditionnelle** est $M_j(v) = \mathbb{E}\big[f(\mathbf{X}) \mid X_j = v\big]$ : elles prennent leur loi **sachant** $X_j = v$.
+> **Définitions.** La **moyenne marginale**, ou **dépendance partielle** (*partial dependence*), est $\operatorname{PD} _j(v) = \mathbb{E}\big[f(v, \mathbf{X} _{-j})\big]$ : les autres coordonnées gardent leur loi marginale. La **moyenne conditionnelle** est $M_j(v) = \mathbb{E}\big[f(\mathbf{X}) \mid X_j = v\big]$ : elles prennent leur loi **sachant** $X_j = v$.
 
-Si $X_j \perp \mathbf{X}_{-j}$, la loi de $\mathbf{X}_{-j}$ sachant $X_j = v$ est sa loi marginale, et $M_j = \operatorname{PD}_j$. Sinon, elles diffèrent en général (pas toujours : si $f$ ne dépend que de $x_j$, toutes deux valent $f(v)$).
+Si $X_j \perp \mathbf{X} _{-j}$, la loi de $\mathbf{X} _{-j}$ sachant $X_j = v$ est sa loi marginale, et $M_j = \operatorname{PD}_j$. Sinon, elles diffèrent en général (pas toujours : si $f$ ne dépend que de $x_j$, toutes deux valent $f(v)$).
 
-**Un chalutier** consomme $f(x_1, x_2) = 100 + 0{,}5\,x_1^2 + 20\,x_2$ litres de gazole par heure, selon le vent $x_1$ (m/s) et la houle $x_2$ (m). Le vent et la houle forment un couple gaussien : le vent suit $\mathcal{N}(8, 3^2)$, la houle $\mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $\rho = 0{,}8$ (le vent lève la houle). Fixons la houle.
+**Un chalutier** consomme $f(x_1, x_2) = 100 + 0{,}5\thinspace x_1^2 + 20\thinspace x_2$ litres de gazole par heure, selon le vent $x_1$ (m/s) et la houle $x_2$ (m). Le vent et la houle forment un couple gaussien : le vent suit $\mathcal{N}(8, 3^2)$, la houle $\mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $\rho = 0{,}8$ (le vent lève la houle). Fixons la houle.
 - **Marginale** : $\mathbb{E}[X_1^2] = 8^2 + 3^2 = 73$, donc $\operatorname{PD}_2(v) = 136{,}5 + 20v$.
 - **Conditionnelle** (M25a §4) : $X_1 \mid X_2 = v \sim \mathcal{N}\big(8 + 0{,}8 \times \frac{3}{0{,}5}(v - 1{,}5) ;\ 9(1 - 0{,}64)\big) = \mathcal{N}\big(8 + 4{,}8(v - 1{,}5) ;\ 3{,}24\big)$, et $\mathbb{E}[X_1^2 \mid X_2 = v]$ est sa variance plus le carré de sa moyenne : en $v = 2{,}5$, $3{,}24 + 12{,}8^2 = 167{,}08$, et $M_2 = 100 + 83{,}54 + 50 = 233{,}54$.
 
@@ -192,20 +192,20 @@ Si $X_j \perp \mathbf{X}_{-j}$, la loi de $\mathbf{X}_{-j}$ sachant $X_j = v$ es
 
 La moyenne conditionnelle prête à la houle l'effet du vent qui l'accompagne : elle répond à « que consomme le chalutier les jours de forte houle ? », la marginale à « que changerait la houle seule, au vent habituel ? ».
 
-De même, le jeu « marginal » d'une fonction, $S \mapsto \mathbb{E}\big[f(\mathbf{x}_S, \mathbf{X}_{\bar S})\big]$, et son jeu « conditionnel », $S \mapsto \mathbb{E}\big[f(\mathbf{X}) \mid \mathbf{X}_S = \mathbf{x}_S\big]$, ont en général des valeurs de Shapley différentes quand les coordonnées sont dépendantes.
+De même, le jeu « marginal » d'une fonction, $S \mapsto \mathbb{E}\big[f(\mathbf{x} _S, \mathbf{X} _{\bar S})\big]$, et son jeu « conditionnel », $S \mapsto \mathbb{E}\big[f(\mathbf{X}) \mid \mathbf{X}_S = \mathbf{x}_S\big]$, ont en général des valeurs de Shapley différentes quand les coordonnées sont dépendantes.
 
 ![Le chalutier : la moyenne marginale de la houle (une droite) et la moyenne conditionnelle (une parabole plus raide), 186,5 contre 233,54 en v = 2,5 ; le panneau solaire : trois courbes ICE décalées et leur moyenne, bien plus plate](figures/marginale_ice.png)
 
 ### Les courbes ICE
 
-> **Définition.** Pour des points $\mathbf{x}_1, \ldots, \mathbf{x}_m$, la **courbe ICE** (*individual conditional expectation*) du point $i$ est $v \mapsto f(v, \mathbf{x}_{i,-j})$. La dépendance partielle estimée sur ces points est la **moyenne** des courbes.
+> **Définition.** Pour des points $\mathbf{x}_1, \ldots, \mathbf{x} _m$, la **courbe ICE** (*individual conditional expectation*) du point $i$ est $v \mapsto f(v, \mathbf{x} _{i,-j})$. La dépendance partielle estimée sur ces points est la **moyenne** des courbes.
 
 > **Théorème.** Soit $f$ de classe $C^2$ sur un pavé (un produit d'intervalles). Sont équivalents :
 > 1. $f(\mathbf{x}) = g(x_j) + h(\mathbf{x}_{-j})$ ;
 > 2. les courbes ICE de $x_j$, une pour chaque $\mathbf{x}_{-j}$ du pavé, sont **parallèles** : deux d'entre elles diffèrent d'une constante ;
 > 3. $\dfrac{\partial^2f}{\partial x_j\partial x_k} = 0$ partout, pour tout $k \ne j$.
 
-*Démonstration.* (1 ⇒ 2) $f(v, \mathbf{x}_{-j}) - f(v, \mathbf{x}'_{-j}) = h(\mathbf{x}_{-j}) - h(\mathbf{x}'_{-j})$ ne dépend pas de $v$. (2 ⇒ 3) Cette différence étant constante en $v$, sa dérivée en $v$ est nulle : $\partial_jf(v, \mathbf{x}_{-j})$ ne dépend pas de $\mathbf{x}_{-j}$, donc $\partial_k\partial_jf = 0$, et $\partial_j\partial_kf = 0$ par Schwarz (M05b §6). (3 ⇒ 1) Par Schwarz, $\partial_k(\partial_jf) = 0$ pour $k \ne j$ ; sur un pavé, faire varier la seule coordonnée $x_k$ ne sort pas du pavé, et $\partial_jf$ y est constante (M02a §2) : $\partial_jf(\mathbf{x}) = \psi(x_j)$. Si $g$ est une primitive de $\psi$, $f - g(x_j)$ a une dérivée nulle en $x_j$, donc ne dépend que de $\mathbf{x}_{-j}$ : c'est $h$. $\square$
+*Démonstration.* (1 ⇒ 2) $f(v, \mathbf{x} _{-j}) - f(v, \mathbf{x}' _{-j}) = h(\mathbf{x} _{-j}) - h(\mathbf{x}' _{-j})$ ne dépend pas de $v$. (2 ⇒ 3) Cette différence étant constante en $v$, sa dérivée en $v$ est nulle : $\partial_jf(v, \mathbf{x} _{-j})$ ne dépend pas de $\mathbf{x}  _{-j}$, donc $\partial_k\partial_jf = 0$, et $\partial_j\partial_kf = 0$ par Schwarz (M05b §6). (3 ⇒ 1) Par Schwarz, $\partial_k(\partial_jf) = 0$ pour $k \ne j$ ; sur un pavé, faire varier la seule coordonnée $x_k$ ne sort pas du pavé, et $\partial_jf$ y est constante (M02a §2) : $\partial_jf(\mathbf{x}) = \psi(x_j)$. Si $g$ est une primitive de $\psi$, $f - g(x_j)$ a une dérivée nulle en $x_j$, donc ne dépend que de $\mathbf{x} _{-j}$ : c'est $h$. $\square$
 
 Le chalutier est séparable en la houle : ses courbes ICE de $x_2$ sont parallèles (de pente 20), et ses deux moyennes diffèrent pourtant : l'écart vient de la corrélation, pas d'une interaction.
 
@@ -223,7 +223,7 @@ Le chalutier est séparable en la houle : ses courbes ICE de $x_2$ sont parallè
 
 Un **chemin** est une fonction $\boldsymbol\gamma : [0, 1] \to \mathbb{R}^d$, de vitesse $\boldsymbol\gamma'(t)$ (le segment de $\mathbf{a}$ à $\mathbf{b}$ : $\mathbf{a} + t(\mathbf{b} - \mathbf{a})$). Rappel (M05b §3, M17 §3) : $(f\circ\boldsymbol\gamma)'(t) = \nabla f(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$.
 
-> **Définition.** L'**intégrale** d'un **champ de vecteurs** (*vector field*) $\mathbf{F}$ le long de $\boldsymbol\gamma$ (*line integral*) est $\displaystyle\int_{\boldsymbol\gamma}\mathbf{F}\cdot\mathrm{d}\boldsymbol\gamma = \int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\,\mathrm{d}t$ ; le long d'une **ligne brisée** (*polygonal path*), la somme des intégrales de ses segments.
+> **Définition.** L'**intégrale** d'un **champ de vecteurs** (*vector field*) $\mathbf{F}$ le long de $\boldsymbol\gamma$ (*line integral*) est $\displaystyle\int_{\boldsymbol\gamma}\mathbf{F}\cdot\mathrm{d}\boldsymbol\gamma = \int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\thinspace\mathrm{d}t$ ; le long d'une **ligne brisée** (*polygonal path*), la somme des intégrales de ses segments.
 
 Pour une force, c'est son **travail**. Parcourir le chemin à l'envers, $\boldsymbol\gamma(1 - t)$, change le signe de l'intégrale, pour tout champ.
 
@@ -236,9 +236,9 @@ Pour un champ de gradient, l'intégrale ne dépend que des extrémités (**indé
 **Exemple.** Une boîte à base carrée de côté $x_1$ et de hauteur $x_2$ (dm) a pour volume $f = x_1^2x_2$ litres, de gradient $(2x_1x_2,\ x_1^2)$. Le long du segment de $\mathbf{r} = (3, 1)$ à $\mathbf{x} = (4, 2)$, $\boldsymbol\gamma(t) = (3 + t, 1 + t)$, $\boldsymbol\gamma' = (1, 1)$, et l'intégrande $2(3 + t)(1 + t) + (3 + t)^2 = 3t^2 + 14t + 15$ a pour intégrale $1 + 7 + 15 = 23 = 32 - 9$ ; les chemins en escalier aussi (figure).
 
 **Un champ qui n'est pas un gradient.** Si $\mathbf{F} = \nabla f$ avec $f$ de classe $C^2$, Schwarz (M05b §6) impose $\frac{\partial F_1}{\partial x_2} = \frac{\partial F_2}{\partial x_1}$ : des **dérivées croisées** (*mixed partial derivatives*) différentes prouvent que $\mathbf{F}$ n'est pas un gradient. Pour $\mathbf{F} = (x_1x_2,\ x_2^2)$, elles valent $x_1$ et 0. De $(0, 1)$ à $(2, 2)$ :
-- $x_1$ d'abord : $\int_0^2x_1\,\mathrm{d}x_1 + \int_1^2x_2^2\,\mathrm{d}x_2 = 2 + \frac73 = \frac{13}{3}$ ;
-- $x_2$ d'abord : $\int_1^2x_2^2\,\mathrm{d}x_2 + \int_0^22x_1\,\mathrm{d}x_1 = \frac73 + 4 = \frac{19}{3}$ ;
-- le segment $(2t, 1 + t)$ : $\int_0^1\big[2t(1 + t) \times 2 + (1 + t)^2\big]\,\mathrm{d}t = \int_0^1(1 + 6t + 5t^2)\,\mathrm{d}t = \frac{17}{3}$.
+- $x_1$ d'abord : $\int_0^2x_1\thinspace\mathrm{d}x_1 + \int_1^2x_2^2\thinspace\mathrm{d}x_2 = 2 + \frac73 = \frac{13}{3}$ ;
+- $x_2$ d'abord : $\int_1^2x_2^2\thinspace\mathrm{d}x_2 + \int_0^22x_1\thinspace\mathrm{d}x_1 = \frac73 + 4 = \frac{19}{3}$ ;
+- le segment $(2t, 1 + t)$ : $\int_0^1\big[2t(1 + t) \times 2 + (1 + t)^2\big]\thinspace\mathrm{d}t = \int_0^1(1 + 6t + 5t^2)\thinspace\mathrm{d}t = \frac{17}{3}$.
 
 Aller par le premier et revenir par le deuxième fait une boucle d'intégrale $-2$. Réciproquement, sur un domaine convexe, un champ de classe $C^1$ aux dérivées croisées égales partout est un gradient (admis) ; une seule boucle d'intégrale nulle ne prouve rien.
 
@@ -251,37 +251,37 @@ Aller par le premier et revenir par le deuxième fait une boucle d'intégrale $-
 On partage $f(\mathbf{x}) - f(\mathbf{r})$ entre les coordonnées, depuis une **référence** (*reference point*) $\mathbf{r}$ ; $\mathbf{h} = \mathbf{x} - \mathbf{r}$.
 
 **Le long du segment** $\mathbf{r} + t\mathbf{h}$, le théorème du gradient s'écrit coordonnée par coordonnée :
-$$f(\mathbf{x}) - f(\mathbf{r}) = \sum_i\underbrace{h_i\int_0^1\partial_if(\mathbf{r} + t\mathbf{h})\,\mathrm{d}t}_{\text{part de la coordonnée } i}.$$
+$$f(\mathbf{x}) - f(\mathbf{r}) = \sum_i\underbrace{h_i\int_0^1\partial_if(\mathbf{r} + t\mathbf{h})\thinspace\mathrm{d}t}_{\text{part de la coordonnée } i}.$$
 
-**Le long d'un chemin en escalier**, les coordonnées passent une à une de $r_i$ à $x_i$, dans un ordre $\pi$. La marche de $i$ rapporte sa contribution marginale dans le jeu $v(S) = f(\mathbf{x}_S, \mathbf{r}_{\bar S})$ (les coordonnées de $S$ en $\mathbf{x}$, les autres en $\mathbf{r}$), où $v(\varnothing) = f(\mathbf{r})$ et $v(N) = f(\mathbf{x})$. La moyenne sur les $d!$ ordres est donc la **valeur de Shapley** de ce jeu.
+**Le long d'un chemin en escalier**, les coordonnées passent une à une de $r_i$ à $x_i$, dans un ordre $\pi$. La marche de $i$ rapporte sa contribution marginale dans le jeu $v(S) = f(\mathbf{x} _S, \mathbf{r} _{\bar S})$ (les coordonnées de $S$ en $\mathbf{x}$, les autres en $\mathbf{r}$), où $v(\varnothing) = f(\mathbf{r})$ et $v(N) = f(\mathbf{x})$. La moyenne sur les $d!$ ordres est donc la **valeur de Shapley** de ce jeu.
 
-Pour la boîte : côté d'abord, $f(4, 1) - f(3, 1) = 7$, puis $f(4, 2) - f(4, 1) = 16$ ; hauteur d'abord, $f(3, 2) - f(3, 1) = 9$, puis $14$. Valeur de Shapley : 10,5 pour le côté, 12,5 pour la hauteur. Le segment : $\int_0^12(3 + t)(1 + t)\,\mathrm{d}t = \frac{32}{3} \approx 10{,}67$ et $\int_0^1(3 + t)^2\,\mathrm{d}t = \frac{37}{3} \approx 12{,}33$. **Deux partages de 23 qui diffèrent** : le volume n'est pas affine en $x_1$.
+Pour la boîte : côté d'abord, $f(4, 1) - f(3, 1) = 7$, puis $f(4, 2) - f(4, 1) = 16$ ; hauteur d'abord, $f(3, 2) - f(3, 1) = 9$, puis $14$. Valeur de Shapley : 10,5 pour le côté, 12,5 pour la hauteur. Le segment : $\int_0^12(3 + t)(1 + t)\thinspace\mathrm{d}t = \frac{32}{3} \approx 10{,}67$ et $\int_0^1(3 + t)^2\thinspace\mathrm{d}t = \frac{37}{3} \approx 12{,}33$. **Deux partages de 23 qui diffèrent** : le volume n'est pas affine en $x_1$.
 
-> **Théorème** (fonctions multilinéaires). Si $f$ est **multilinéaire**, affine en chaque coordonnée quand les autres sont fixées, soit $f(\mathbf{x}) = \sum_Tc_T\prod_{i \in T}x_i$, alors, pour toute référence, la part de chaque coordonnée le long du segment est sa valeur de Shapley dans le jeu $v(S) = f(\mathbf{x}_S, \mathbf{r}_{\bar S})$.
+> **Théorème** (fonctions multilinéaires). Si $f$ est **multilinéaire**, affine en chaque coordonnée quand les autres sont fixées, soit $f(\mathbf{x}) = \sum_Tc_T\prod_{i \in T}x_i$, alors, pour toute référence, la part de chaque coordonnée le long du segment est sa valeur de Shapley dans le jeu $v(S) = f(\mathbf{x} _S, \mathbf{r} _{\bar S})$.
 
 <details><summary>Démonstration (par les jeux d'unanimité ; hors parcours essentiel)</summary>
 
 Les deux partages sont linéaires en $f$ : il suffit de traiter un monôme $f(\mathbf{x}) = \prod_{j \in T}x_j$ et une coordonnée $i \in T$ (hors de $T$, les deux parts sont nulles). Écrivons $x_j = r_j + h_j$.
 
-*Le jeu.* $v(S) = \prod_{j \in T}\big(r_j + h_j\,\mathbb{1}[j \in S]\big)$. En développant, on choisit pour chaque $j$ le terme $r_j$ ou $h_j\mathbb{1}[j \in S]$ ; si $U \subseteq T$ est l'ensemble des seconds choix, le terme vaut $\kappa_U\,\mathbb{1}[U \subseteq S]$, avec $\kappa_U = \prod_{j \in T \setminus U}r_j\prod_{j \in U}h_j$. Donc $v = \sum_{U \subseteq T}\kappa_U\,u_U$ : les dividendes sont les $\kappa_U$, et le §2 donne $\varphi_i = \sum_{U \ni i}\frac{\kappa_U}{\lvert U\rvert}$.
+*Le jeu.* $v(S) = \prod_{j \in T}\big(r_j + h_j\thinspace\mathbb{1}[j \in S]\big)$. En développant, on choisit pour chaque $j$ le terme $r_j$ ou $h_j\mathbb{1}[j \in S]$ ; si $U \subseteq T$ est l'ensemble des seconds choix, le terme vaut $\kappa_U\thinspace\mathbb{1}[U \subseteq S]$, avec $\kappa_U = \prod_{j \in T \setminus U}r_j\prod_{j \in U}h_j$. Donc $v = \sum_{U \subseteq T}\kappa_U\thinspace u_U$ : les dividendes sont les $\kappa_U$, et le §2 donne $\varphi_i = \sum_{U \ni i}\frac{\kappa_U}{\lvert U\rvert}$.
 
-*Le segment.* $\partial_if(\boldsymbol\gamma(t))\,h_i = h_i\prod_{j \in T \setminus\{i\}}(r_j + t\,h_j)$. En développant de même, chaque $U \ni i$ donne $\kappa_U\,t^{\lvert U\rvert - 1}$, et $\int_0^1t^{\lvert U\rvert - 1}\,\mathrm{d}t = \frac{1}{\lvert U\rvert}$ : la part de $i$ vaut aussi $\sum_{U \ni i}\frac{\kappa_U}{\lvert U\rvert}$. $\square$
+*Le segment.* $\partial_if(\boldsymbol\gamma(t))\thinspace h_i = h_i\prod_{j \in T \setminus\lbrace i\rbrace}(r_j + t\thinspace h_j)$. En développant de même, chaque $U \ni i$ donne $\kappa_U\thinspace t^{\lvert U\rvert - 1}$, et $\int_0^1t^{\lvert U\rvert - 1}\thinspace\mathrm{d}t = \frac{1}{\lvert U\rvert}$ : la part de $i$ vaut aussi $\sum_{U \ni i}\frac{\kappa_U}{\lvert U\rvert}$. $\square$
 
 </details>
 
 Ils coïncident aussi pour $g(x_i)$, une fonction d'une seule coordonnée (part $g(x_i) - g(r_i)$ dans les deux), donc pour une somme de telles fonctions et d'une fonction multilinéaire ; ailleurs, ils diffèrent en général. Le partage le long du segment est la **valeur d'Aumann-Shapley** (*Aumann-Shapley value* ; 1974).
 
-**La référence compte, et la saturation.** Un barème rembourse 0,30 € par kilomètre et 5 € par nuit, plafonnés à 60 € : $f(x_1, x_2) = \min(0{,}3\,x_1 + 5\,x_2,\ 60)$. Un déplacement de 160 km et 4 nuits vaudrait $48 + 20 = 68$ € : plafonné, $f$ y a **deux dérivées partielles nulles**. Depuis $\mathbf{r} = (0, 0)$, $f$ vaut $68t$ jusqu'au plafond, atteint en $t = \frac{15}{17}$ ($f$ n'est pas dérivable sur la droite du plafond, que le segment ne croise qu'en un point : les intégrales n'en changent pas) : les parts valent $48 \times \frac{15}{17} \approx 42{,}35$ € (kilomètres) et $20 \times \frac{15}{17} \approx 17{,}65$ € (nuits). Depuis $\mathbf{r} = (80, 2)$, $f(\mathbf{r}) = 34$, le plafond arrive en $t = \frac{13}{17}$, et les 26 € se partagent en $24 \times \frac{13}{17} \approx 18{,}35$ et $10 \times \frac{13}{17} \approx 7{,}65$. Des coordonnées de dérivée nulle en $\mathbf{x}$ reçoivent des parts, qui changent avec $\mathbf{r}$.
+**La référence compte, et la saturation.** Un barème rembourse 0,30 € par kilomètre et 5 € par nuit, plafonnés à 60 € : $f(x_1, x_2) = \min(0{,}3\thinspace x_1 + 5\thinspace x_2,\ 60)$. Un déplacement de 160 km et 4 nuits vaudrait $48 + 20 = 68$ € : plafonné, $f$ y a **deux dérivées partielles nulles**. Depuis $\mathbf{r} = (0, 0)$, $f$ vaut $68t$ jusqu'au plafond, atteint en $t = \frac{15}{17}$ ($f$ n'est pas dérivable sur la droite du plafond, que le segment ne croise qu'en un point : les intégrales n'en changent pas) : les parts valent $48 \times \frac{15}{17} \approx 42{,}35$ € (kilomètres) et $20 \times \frac{15}{17} \approx 17{,}65$ € (nuits). Depuis $\mathbf{r} = (80, 2)$, $f(\mathbf{r}) = 34$, le plafond arrive en $t = \frac{13}{17}$, et les 26 € se partagent en $24 \times \frac{13}{17} \approx 18{,}35$ et $10 \times \frac{13}{17} \approx 7{,}65$. Des coordonnées de dérivée nulle en $\mathbf{x}$ reçoivent des parts, qui changent avec $\mathbf{r}$.
 
 ![Les partages des 23 litres de la boîte : segment, côté d'abord, hauteur d'abord, et leur moyenne (Shapley) ; le barème plafonné le long du segment depuis deux références, plafond atteint en t = 15/17 ou 13/17](figures/partages.png)
 
 ### Les fonctions homogènes
 
-> **Théorème** (Euler). Si $f$ est **homogène de degré $k$** (*homogeneous function*), $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ pour tout $\lambda > 0$, et dérivable aux points $\lambda\mathbf{x}$, alors $\sum_ix_i\,\partial_if(\mathbf{x}) = k\,f(\mathbf{x})$ ; et si $k > 0$, la part de $x_i$ le long du segment depuis $\mathbf{0}$ vaut $\frac{x_i\,\partial_if(\mathbf{x})}{k}$.
+> **Théorème** (Euler). Si $f$ est **homogène de degré $k$** (*homogeneous function*), $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ pour tout $\lambda > 0$, et dérivable aux points $\lambda\mathbf{x}$, alors $\sum_ix_i\thinspace\partial_if(\mathbf{x}) = k\thinspace f(\mathbf{x})$ ; et si $k > 0$, la part de $x_i$ le long du segment depuis $\mathbf{0}$ vaut $\frac{x_i\thinspace\partial_if(\mathbf{x})}{k}$.
 
-*Démonstration.* Dériver $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ en $\lambda = 1$ donne l'identité (M18.26 l'a vue pour $k = 1$) ; la dériver en $x_i$ donne $\lambda\,\partial_if(\lambda\mathbf{x}) = \lambda^k\partial_if(\mathbf{x})$ : $\partial_if$ est homogène de degré $k - 1$, et la part vaut $x_i\int_0^1t^{k-1}\partial_if(\mathbf{x})\,\mathrm{d}t = \frac{x_i\partial_if(\mathbf{x})}{k}$. $\square$
+*Démonstration.* Dériver $f(\lambda\mathbf{x}) = \lambda^kf(\mathbf{x})$ en $\lambda = 1$ donne l'identité (M18.26 l'a vue pour $k = 1$) ; la dériver en $x_i$ donne $\lambda\thinspace\partial_if(\lambda\mathbf{x}) = \lambda^k\partial_if(\mathbf{x})$ : $\partial_if$ est homogène de degré $k - 1$, et la part vaut $x_i\int_0^1t^{k-1}\partial_if(\mathbf{x})\thinspace\mathrm{d}t = \frac{x_i\partial_if(\mathbf{x})}{k}$. $\square$
 
-**Une Cobb-Douglas.** La production $Q = K^{1/4}L^{1/2}$ (capital $K$, travail $L$) est homogène de degré $\frac34$. En $(16, 9)$, $Q = 6$, $K\partial_KQ = \frac Q4 = 1{,}5$ et $L\partial_LQ = \frac Q2 = 3$ (somme $4{,}5 = \frac34 \times 6$) ; depuis $\mathbf{0}$, les parts le long du segment valent 2 et 4, proportionnelles aux exposants. Les chemins en escalier partagent autrement : $Q$ est nulle dès qu'un facteur l'est, le jeu est $6\,u_{\{K, L\}}$, d'où 3 et 3.
+**Une Cobb-Douglas.** La production $Q = K^{1/4}L^{1/2}$ (capital $K$, travail $L$) est homogène de degré $\frac34$. En $(16, 9)$, $Q = 6$, $K\partial_KQ = \frac Q4 = 1{,}5$ et $L\partial_LQ = \frac Q2 = 3$ (somme $4{,}5 = \frac34 \times 6$) ; depuis $\mathbf{0}$, les parts le long du segment valent 2 et 4, proportionnelles aux exposants. Les chemins en escalier partagent autrement : $Q$ est nulle dès qu'un facteur l'est, le jeu est $6\thinspace u_{\lbrace K, L\rbrace}$, d'où 3 et 3.
 
 💻 **Aujourd'hui en pratique** — `line_integral` (🔨 MB6.15) intègre un champ le long d'une ligne brisée par Simpson sur chaque segment (oracle : `scipy.integrate.quad`). Les **gradients intégrés** de workbookIA approchent les parts le long du segment par une somme sur une grille de $t$ ; SHAP, des valeurs de Shapley d'un jeu de la fonction, avec des références tirées d'un échantillon.
 
@@ -294,18 +294,18 @@ Ils coïncident aussi pour $g(x_i)$, une fonction d'une seule coordonnée (part 
 ### La moyenne d'un gradient
 
 Soit $y$ une fonction d'une grille $\mathbf{A}$ de $H$ lignes et $W$ colonnes, et $\mathbf{1}$ la grille de 1. Par la règle de la chaîne, ajouter $\varepsilon$ à toutes les cases donne
-$$\frac{\mathrm{d}}{\mathrm{d}\varepsilon}\,y(\mathbf{A} + \varepsilon\mathbf{1})\Big|_{\varepsilon = 0} = \sum_{i, j}\frac{\partial y}{\partial A_{ij}} :$$
+$$\frac{\mathrm{d}}{\mathrm{d}\varepsilon}\thinspace y(\mathbf{A} + \varepsilon\mathbf{1})\Big| _{\varepsilon = 0} = \sum  _{i, j}\frac{\partial y}{\partial A _{ij}} :$$
 la **moyenne d'un gradient** sur la grille est la dérivée de $y$ par un **décalage uniforme**, divisée par $HW$, une dérivée directionnelle (M05b §3) dans la direction de $\mathbf{1}$, non unitaire.
 
-**Exemple.** Une ferme de $2 \times 3$ hydroliennes, dans un courant de marée de vitesses $\mathbf{A} = \begin{pmatrix} 2 & 3 & 3 \\ 1 & 4 & 2 \end{pmatrix}$ m/s, produit (dans un modèle simplifié) $y = \sum A_{ij}^3 = 135$ kW. Comme $\frac{\partial y}{\partial A_{ij}} = 3A_{ij}^2$, la dérivée de $y$ par un renforcement uniforme du courant vaut $3 \times 43 = 129$ kW par m/s (au premier ordre), et la moyenne du gradient vaut $\frac{129}{6} = 21{,}5$.
+**Exemple.** Une ferme de $2 \times 3$ hydroliennes, dans un courant de marée de vitesses $\mathbf{A} = \begin{pmatrix} 2 & 3 & 3 \cr 1 & 4 & 2 \end{pmatrix}$ m/s, produit (dans un modèle simplifié) $y = \sum A_{ij}^3 = 135$ kW. Comme $\frac{\partial y}{\partial A_{ij}} = 3A_{ij}^2$, la dérivée de $y$ par un renforcement uniforme du courant vaut $3 \times 43 = 129$ kW par m/s (au premier ordre), et la moyenne du gradient vaut $\frac{129}{6} = 21{,}5$.
 
 **La partie positive est positivement homogène** : $\max(0, \lambda z) = \lambda\max(0, z)$ pour $\lambda > 0$ (les deux valent $\lambda z$ si $z \ge 0$, 0 sinon) ; pour $\lambda < 0$, c'est faux : $\max(0, -2 \times 3) = 0 \ne -6$.
 
 ### Interpoler sur une case
 
-L'**interpolation linéaire** entre $q_0$ (en 0) et $q_1$ (en 1) vaut $(1 - t)\,q_0 + t\,q_1$ en $t \in [0, 1]$ : la fonction affine qui passe par les deux points (R3).
+L'**interpolation linéaire** entre $q_0$ (en 0) et $q_1$ (en 1) vaut $(1 - t)\thinspace q_0 + t\thinspace q_1$ en $t \in [0, 1]$ : la fonction affine qui passe par les deux points (R3).
 
-> **Définition.** L'**interpolation bilinéaire** (*bilinear interpolation*) sur une case de coins $q_{00}, q_{01}$ (en haut) et $q_{10}, q_{11}$ (en bas), en $(s, t) \in [0, 1]^2$ ($s$ vers le bas, $t$ vers la droite), vaut $(1 - s)(1 - t)\,q_{00} + (1 - s)\,t\,q_{01} + s\,(1 - t)\,q_{10} + s\,t\,q_{11}$.
+> **Définition.** L'**interpolation bilinéaire** (*bilinear interpolation*) sur une case de coins $q_{00}, q_{01}$ (en haut) et $q_{10}, q_{11}$ (en bas), en $(s, t) \in [0, 1]^2$ ($s$ vers le bas, $t$ vers la droite), vaut $(1 - s)(1 - t)\thinspace q_{00} + (1 - s)\thinspace t\thinspace q_{01} + s\thinspace(1 - t)\thinspace q_{10} + s\thinspace t\thinspace q_{11}$.
 
 C'est deux interpolations linéaires, dans un ordre **ou dans l'autre** (en $t$ sur chaque ligne puis en $s$, ou l'inverse : même développement). Des profondeurs $4$, $7$ (en haut), $6$, $9$ m (en bas), en $(s, t) = (\frac13, \frac12)$ : lignes d'abord, $5{,}5$ et $7{,}5$, puis $\frac23 \times 5{,}5 + \frac13 \times 7{,}5 = \frac{37}{6}$ ; colonnes d'abord, $\frac{14}{3}$ et $\frac{23}{3}$, puis leur moyenne, $\frac{37}{6} \approx 6{,}17$. Les poids, $\frac13, \frac13, \frac16, \frac16$, somment à 1.
 
@@ -401,7 +401,7 @@ La relation de M03 §8 (à precision et recall égaux, des prévalences différe
 L'outil : la formule des probabilités totales (M03) pour le taux d'alerte de chaque groupe. Alerter aussi souvent dans les deux régions, quand il pleut deux fois plus dans l'une, avec des taux d'erreur égaux : seulement des alertes qui ignorent le temps.
 
 > **Théorème** (Kleinberg, Mullainathan et Raghavan, 2017 ; ∂ MB6.9). Soit un score calibré dans chaque groupe, de taux de base $0 < p_g < 1$.
-> 1. $\mathbb{E}[S \mid G = g] = p_g$, et $p_g\big(1 - \mathbb{E}[S \mid Y = 1, G = g]\big) = (1 - p_g)\,\mathbb{E}[S \mid Y = 0, G = g]$.
+> 1. $\mathbb{E}[S \mid G = g] = p_g$, et $p_g\big(1 - \mathbb{E}[S \mid Y = 1, G = g]\big) = (1 - p_g)\thinspace\mathbb{E}[S \mid Y = 0, G = g]$.
 > 2. Si deux groupes ont la même moyenne de scores chez leurs positifs, et la même chez leurs négatifs, alors leurs taux de base sont égaux, ou le score est parfait ($S = Y$).
 
 L'outil : l'espérance totale (M25b §2), en conditionnant par le score, puis par le label. C'est la forme « scores » de l'impossibilité, dont M03 §8 donnait la forme « décisions ». Aucun de ces résultats ne dit quel critère choisir : ils disent qu'il faut choisir.
@@ -418,7 +418,7 @@ L'outil : l'espérance totale (M25b §2), en conditionnant par le score, puis pa
 
 La probabilité annoncée ne prend que quelques valeurs : chaque seuil donne un point (taux de fausses alertes, taux de détection) de la **courbe ROC** (M03 §7), rien entre deux seuils voisins. Dans la région 1, le seuil A donne $(0{,}02 ;\ 0{,}71)$, le seuil B $(0{,}32 ;\ 0{,}95)$. Pour détecter 89 % des jours de pluie, tire au sort chaque jour, indépendamment de tout le reste : A avec la probabilité $q$, B sinon.
 
-> **Propriété.** La décision tirée au sort a pour taux de détection $q\,\mathrm{TPR}_A + (1 - q)\,\mathrm{TPR}_B$ et pour taux de fausses alertes $q\,\mathrm{FPR}_A + (1 - q)\,\mathrm{FPR}_B$ : quand $q$ va de 0 à 1, le point parcourt la **corde** (*chord*) entre les deux points de la courbe.
+> **Propriété.** La décision tirée au sort a pour taux de détection $q\thinspace\mathrm{TPR}_A + (1 - q)\thinspace\mathrm{TPR}_B$ et pour taux de fausses alertes $q\thinspace\mathrm{FPR}_A + (1 - q)\thinspace\mathrm{FPR}_B$ : quand $q$ va de 0 à 1, le point parcourt la **corde** (*chord*) entre les deux points de la courbe.
 
 C'est la formule des probabilités totales, en conditionnant par le seuil tiré. Ici, $0{,}71q + 0{,}95(1 - q) = 0{,}89$ donne $q = \frac{0{,}06}{0{,}24} = 0{,}25$, et le taux de fausses alertes vaut $0{,}25 \times 0{,}02 + 0{,}75 \times 0{,}32 = 0{,}245$. Entre deux seuils qui ne sont pas voisins, la corde passe sous le seuil intermédiaire si la courbe est concave en ce point, au-dessus sinon : les meilleurs points atteignables forment l'enveloppe concave des points de la courbe (Hardt, Price et Srebro, 2016). Pour donner à deux groupes le même taux de détection, chacun tire entre ses propres seuils.
 
@@ -428,9 +428,9 @@ C'est la formule des probabilités totales, en conditionnant par le seuil tiré.
 
 Les 1 000 jours forment une table région × temps : 222 jours de pluie et 378 secs dans la région 1, 68 et 332 dans la région 2 ; $P(\text{pluie}) = 0{,}29$. Région et pluie sont dépendantes. On donne à chaque jour un **poids** selon sa case (M03 §6 repondérait les classes ; ici, les cases groupe × label) : c'est **repondérer** (*reweighing*).
 
-> **Théorème** (∂ MB6.10). Si chaque case a $P(g, y) > 0$, les poids $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$ définissent une loi pondérée qui garde les deux marges et rend $G$ et $Y$ **indépendants**.
+> **Théorème** (∂ MB6.10). Si chaque case a $P(g, y) > 0$, les poids $w(g, y) = \frac{P(g)\thinspace P(y)}{P(g, y)}$ définissent une loi pondérée qui garde les deux marges et rend $G$ et $Y$ **indépendants**.
 
-L'outil : calculer la loi pondérée case par case, puis ses marges. Ici, $w(1, \text{pluie}) = \frac{600 \times 290}{1\,000 \times 222} \approx 0{,}784$, $w(1, \text{sec}) \approx 1{,}127$, $w(2, \text{pluie}) \approx 1{,}706$, $w(2, \text{sec}) \approx 0{,}855$ ; les comptes pondérés deviennent 174 et 426, puis 116 et 284 : 29 % de pluie dans chaque région, toujours 600 et 400 jours, 290 de pluie. Diviser par la probabilité d'une case, c'est le geste de l'estimateur de Horvitz-Thompson (M20 §5). Si une case est **vide** alors que $P(g)P(y) > 0$, le poids n'est pas défini, et aucune repondération des jours observés qui garde les deux marges ne rend $G$ et $Y$ indépendants.
+L'outil : calculer la loi pondérée case par case, puis ses marges. Ici, $w(1, \text{pluie}) = \frac{600 \times 290}{1\thinspace000 \times 222} \approx 0{,}784$, $w(1, \text{sec}) \approx 1{,}127$, $w(2, \text{pluie}) \approx 1{,}706$, $w(2, \text{sec}) \approx 0{,}855$ ; les comptes pondérés deviennent 174 et 426, puis 116 et 284 : 29 % de pluie dans chaque région, toujours 600 et 400 jours, 290 de pluie. Diviser par la probabilité d'une case, c'est le geste de l'estimateur de Horvitz-Thompson (M20 §5). Si une case est **vide** alors que $P(g)P(y) > 0$, le poids n'est pas défini, et aucune repondération des jours observés qui garde les deux marges ne rend $G$ et $Y$ indépendants.
 
 ### L'écart de deux taux
 

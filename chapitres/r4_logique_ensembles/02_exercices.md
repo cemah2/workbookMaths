@@ -49,14 +49,14 @@ On part de l'implication « s'il pleut, alors le sol est mouillé ».
 ### R4.Q4 — Ensembles : vrai ou faux 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
 
-On pose $A = \{1, 4, 9\}$. Vrai ou faux ?
+On pose $A = \lbrace1, 4, 9\rbrace$. Vrai ou faux ?
 1. $4 \in A$.
-2. $\{4\} \in A$.
+2. $\lbrace4\rbrace \in A$.
 3. $\varnothing \subset A$.
 4. $A \cap \varnothing = A$.
-5. $\lvert \{1, 1, 4\} \rvert = 3$.
+5. $\lvert \lbrace1, 1, 4\rbrace \rvert = 3$.
 6. $\mathbb{N} \subset \mathbb{Z}$.
-7. $]0 \;;\; 1[\, \cap\, [1 \;;\; 2] = \varnothing$.
+7. $]0 \mkern5mu ;\mkern5mu  1[\thinspace \cap\thinspace [1 \mkern5mu ;\mkern5mu  2] = \varnothing$.
 
 ### R4.Q5 — Lire une somme Σ 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
@@ -106,7 +106,7 @@ Que reproches-tu à chacune de ces « démonstrations » ?
 
 1. Résous $7 - 3x < 1$ et donne l'ensemble des solutions sous forme d'intervalle.
 2. Résous $2(x - 1) \ge 5x + 4$.
-3. Écris la négation de « $x \ge 2$ », puis l'ensemble des réels qui la vérifient : comment s'appelle cet ensemble par rapport à $[2 \;;\; +\infty[$ ?
+3. Écris la négation de « $x \ge 2$ », puis l'ensemble des réels qui la vérifient : comment s'appelle cet ensemble par rapport à $[2 \mkern5mu ;\mkern5mu  +\infty[$ ?
 
 ### R4.R2 — Composer deux fonctions (R3) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C*
@@ -191,7 +191,7 @@ Pour chacune des quatre implications, écris dans ta copie, en français, sa ré
 
 **d)** La phrase de départ de c) est-elle vraie ?
 
-**e)** Donne la liste des valeurs de vérité des deux phrases « $\forall x \in \mathbb{R},\ \exists y \in \mathbb{R},\ y^2 = x$ » et « $\exists y \in \mathbb{R},\ \forall x \in \mathbb{R},\ x\,y = 0$ », dans cet ordre.
+**e)** Donne la liste des valeurs de vérité des deux phrases « $\forall x \in \mathbb{R},\ \exists y \in \mathbb{R},\ y^2 = x$ » et « $\exists y \in \mathbb{R},\ \forall x \in \mathbb{R},\ x\thinspace y = 0$ », dans cet ordre.
 
 **f)** Quelle est la négation de « pour tout $\varepsilon > 0$, il existe un entier $N \ge 1$ tel que $\frac{1}{N} < \varepsilon$ » ?
 1. Il existe $\varepsilon > 0$ tel que, pour tout entier $N \ge 1$, $\frac{1}{N} \ge \varepsilon$.
@@ -207,7 +207,7 @@ Pour a, c et f, la réponse est le numéro choisi ; pour b, d et g, vrai ou faux
 **Objectif :** décrire en extension des ensembles définis par une propriété, les combiner, et compter leurs éléments sans tout lister.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-Dans l'univers $E = \{1, 2, \dots, 25\}$, on pose $A$ l'ensemble des carrés parfaits de $E$ (les carrés d'entiers), $B$ celui des nombres premiers de $E$ (1 n'est pas premier) et $C = \{n \in E \mid n \ge 17\}$.
+Dans l'univers $E = \lbrace1, 2, \dots, 25\rbrace$, on pose $A$ l'ensemble des carrés parfaits de $E$ (les carrés d'entiers), $B$ celui des nombres premiers de $E$ (1 n'est pas premier) et $C = \lbrace n \in E \mid n \ge 17\rbrace$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -224,7 +224,7 @@ Dans l'univers $E = \{1, 2, \dots, 25\}$, on pose $A$ l'ensemble des carrés par
 **Objectif :** dénombrer les couples d'un produit cartésien, et ne pas confondre couple et ensemble.
 **Prérequis :** fiche §4 · **Parcours :** C
 
-On pose $A = \{0, 1\}$ et $B = \{1, 2, 3\}$.
+On pose $A = \lbrace0, 1\rbrace$ et $B = \lbrace1, 2, 3\rbrace$.
 
 | | Question | Réponse attendue |
 |---|---|---|

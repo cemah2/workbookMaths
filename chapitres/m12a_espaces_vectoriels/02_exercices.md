@@ -19,11 +19,11 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §1 · parcours C, E*
 
 Lesquels sont des sous-espaces vectoriels ? Réponds par oui ou non, et justifie chaque non par un contre-exemple.
-1. $\{(x, y) : y = 3x\}$ dans $\mathbb{R}^2$.
-2. $\{(x, y) : y = 3x + 1\}$ dans $\mathbb{R}^2$.
-3. $\{(x, y, z) : x + y + z = 0 \text{ et } z = 2y\}$ dans $\mathbb{R}^3$.
-4. $\{(x, y) : x \ge 0\}$ dans $\mathbb{R}^2$.
-5. $\{(x, y) : xy = 0\}$ dans $\mathbb{R}^2$.
+1. $\lbrace(x, y) : y = 3x\rbrace$ dans $\mathbb{R}^2$.
+2. $\lbrace(x, y) : y = 3x + 1\rbrace$ dans $\mathbb{R}^2$.
+3. $\lbrace(x, y, z) : x + y + z = 0 \text{ et } z = 2y\rbrace$ dans $\mathbb{R}^3$.
+4. $\lbrace(x, y) : x \ge 0\rbrace$ dans $\mathbb{R}^2$.
+5. $\lbrace(x, y) : xy = 0\rbrace$ dans $\mathbb{R}^2$.
 6. Les polynômes de degré **exactement** 2.
 
 ### M12a.Q2 — Combinaison linéaire et famille génératrice 🧠 ★ ⏱️ 4 min
@@ -96,7 +96,7 @@ Les colonnes de la matrice inversible $\mathbf{S}$ forment une base $(\mathbf{s}
 3. Le rang de cette nouvelle matrice, comparé à celui de $\mathbf{A}$ ?
 4. Vrai ou faux : $\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \mathbf{A}$ pour toute $\mathbf{S}$.
 5. Que vaut $\mathbf{S}^{-1}\mathbf{I}\mathbf{S}$ ?
-6. Si $\mathbf{A}\mathbf{s}_1 = 5\,\mathbf{s}_1$, quelle est la première colonne de $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ ?
+6. Si $\mathbf{A}\mathbf{s}_1 = 5\thinspace\mathbf{s}_1$, quelle est la première colonne de $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ ?
 
 <a id="rappels"></a>
 
@@ -105,7 +105,7 @@ Les colonnes de la matrice inversible $\mathbf{S}$ forment une base $(\mathbf{s}
 ### M12a.R1 — Le pivot de Gauss et la forme échelonnée réduite (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §2 · parcours C, E*
 
-$\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \\ 1 & 3 & 2 \\ 1 & 1 & 0 \end{pmatrix}$.
+$\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \cr 1 & 3 & 2 \cr 1 & 1 & 0 \end{pmatrix}$.
 1. La forme échelonnée réduite de $\mathbf{M}$ ?
 2. Les colonnes qui portent un pivot ?
 3. Le rang de $\mathbf{M}$ ?
@@ -116,7 +116,7 @@ $\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \\ 1 & 3 & 2 \\ 1 & 1 & 0 \end{pmatrix}$
 ### M12a.R2 — Produit matriciel et formes (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 0 & -2 \\ 3 & 1 & 1 \end{pmatrix}$ et $\mathbf{B} = \begin{pmatrix} 2 & 1 \\ 0 & -1 \\ 1 & 0 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 1 & 0 & -2 \cr 3 & 1 & 1 \end{pmatrix}$ et $\mathbf{B} = \begin{pmatrix} 2 & 1 \cr 0 & -1 \cr 1 & 0 \end{pmatrix}$.
 1. La forme de $\mathbf{A}\mathbf{B}$ ?
 2. $\mathbf{A}\mathbf{B}$ ?
 3. La forme de $\mathbf{B}\mathbf{A}$ ?
@@ -147,13 +147,13 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $U_1 = \{(x, y, z) : 2x - y + 4z = 0\}$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
-| b | $U_2 = \{(x, y, z) : x - y = 1\}$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
-| c | $U_3 = \{(2t, -t, 3t) : t \in \mathbb{R}\}$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
-| d | $U_4 = \{(x, y, z) : x^2 + y^2 = z^2\}$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
-| e | $U_5 = \{(x, y, z) : x \le y\}$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
-| f | $\{P \in \mathbb{R}_3[x] : P(1) = 0\}$ est un sous-espace de $\mathbb{R}_3[x]$ | `True` ou `False` |
-| g | $\{P \in \mathbb{R}_3[x] : P(0) = 1\}$ est un sous-espace de $\mathbb{R}_3[x]$ | `True` ou `False` |
+| a | $U_1 = \lbrace(x, y, z) : 2x - y + 4z = 0\rbrace$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
+| b | $U_2 = \lbrace(x, y, z) : x - y = 1\rbrace$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
+| c | $U_3 = \lbrace(2t, -t, 3t) : t \in \mathbb{R}\rbrace$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
+| d | $U_4 = \lbrace(x, y, z) : x^2 + y^2 = z^2\rbrace$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
+| e | $U_5 = \lbrace(x, y, z) : x \le y\rbrace$ est un sous-espace de $\mathbb{R}^3$ | `True` ou `False` |
+| f | $\lbrace P \in \mathbb{R}_3[x] : P(1) = 0\rbrace$ est un sous-espace de $\mathbb{R}_3[x]$ | `True` ou `False` |
+| g | $\lbrace P \in \mathbb{R}_3[x] : P(0) = 1\rbrace$ est un sous-espace de $\mathbb{R}_3[x]$ | `True` ou `False` |
 | h | le vecteur de $U_3$ dont la première coordonnée vaut 4 | une liste de 3 nombres |
 
 Dans ta copie : pour chaque réponse `True`, vérifie les trois conditions ; pour chaque `False`, donne un contre-exemple précis (deux vecteurs dont la somme sort, ou un vecteur et un nombre). Pour d), examine séparément la stabilité par multiplication et la stabilité par addition.
@@ -185,7 +185,7 @@ $\mathbf{v}_1 = (1, 2, -1)$, $\mathbf{v}_2 = (0, 1, 3)$ et $\mathbf{v}_3 = (2, 3
 |---|---|---|
 | a | le rang de la matrice $[\mathbf{v}_1 \ \mathbf{v}_2 \ \mathbf{v}_3]$ | un entier |
 | b | vrai ou faux : la famille $(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)$ est libre | `True` ou `False` |
-| c | les nombres $(a, b)$ tels que $\mathbf{v}_3 = a\,\mathbf{v}_1 + b\,\mathbf{v}_2$ | une liste de 2 nombres |
+| c | les nombres $(a, b)$ tels que $\mathbf{v}_3 = a\thinspace\mathbf{v}_1 + b\thinspace\mathbf{v}_2$ | une liste de 2 nombres |
 | d | le vecteur $(x_1, x_2, x_3)$ tel que $x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + x_3\mathbf{v}_3 = \mathbf{0}$ et $x_3 = 1$ | une liste de 3 nombres |
 | e | le nombre $k$ pour lequel la famille $(\mathbf{v}_1, \mathbf{v}_2, (1, 0, k))$ est liée | un nombre |
 | f | vrai ou faux : la famille $(\mathbf{v}_1, \mathbf{v}_2, (2, 3, -4))$ est libre | `True` ou `False` |
@@ -202,9 +202,9 @@ $\mathbf{a}_1 = (1, 0, 2)$, $\mathbf{a}_2 = (2, 0, 4)$, $\mathbf{a}_3 = (0, 1, 1
 |---|---|---|
 | a | le rang de la matrice $[\mathbf{a}_1 \ \cdots \ \mathbf{a}_5]$ | un entier |
 | b | les numéros (à partir de 1) de ses colonnes à pivot | une liste d'entiers |
-| c | les nombres $(x, y)$ tels que $\mathbf{a}_4 = x\,\mathbf{a}_1 + y\,\mathbf{a}_3$ | une liste de 2 nombres |
+| c | les nombres $(x, y)$ tels que $\mathbf{a}_4 = x\thinspace\mathbf{a}_1 + y\thinspace\mathbf{a}_3$ | une liste de 2 nombres |
 | d | $\dim\operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3, \mathbf{a}_4)$ | un entier |
-| e | les nombres $(\alpha, \beta)$ tels que $\mathbf{e}_1 = \alpha\,\mathbf{u} + \beta\,\mathbf{v}$ | une liste de 2 nombres |
+| e | les nombres $(\alpha, \beta)$ tels que $\mathbf{e}_1 = \alpha\thinspace\mathbf{u} + \beta\thinspace\mathbf{v}$ | une liste de 2 nombres |
 | f | le plus petit $j$ tel que $(\mathbf{u}, \mathbf{v}, \mathbf{e}_j)$ soit une base de $\mathbb{R}^3$ | un entier |
 
 Dans ta copie : que forment les colonnes à pivot trouvées en b) ? Faut-il vérifier qu'elles engendrent ? Que dit e) sur le choix à faire en f) ?
@@ -230,7 +230,7 @@ Dans ta copie : vérifie que $(\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3)$ est un
 **Objectif :** calculer des rangs, comparer celui d'un produit à la borne du cours, et voir le rang perdu en centrant.
 **Prérequis :** fiche §4 ; M02c (centrer) · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & -1 \\ 2 & 4 & 1 & 1 \\ 3 & 6 & 1 & 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} -2 & 1 & 1 \\ 1 & 0 & 0 \\ 0 & -3 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 2 & 1 & 5 \\ 4 & 0 & 3 \\ 3 & 2 & 1 \end{pmatrix}$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & -1 \cr 2 & 4 & 1 & 1 \cr 3 & 6 & 1 & 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} -2 & 1 & 1 \cr 1 & 0 & 0 \cr 0 & -3 & 0 \cr 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 2 & 1 & 5 \cr 4 & 0 & 3 \cr 3 & 2 & 1 \end{pmatrix}$$
 
 ($\mathbf{X}$ : 3 exemples, 3 features ; $\mathbf{X}_c$ est $\mathbf{X}$ centré colonne par colonne).
 
@@ -286,7 +286,7 @@ Dans ta copie : vérifie c) en appliquant $a$ puis $b$ au point $(1, 1)$. Pourqu
 **Objectif :** calculer une base du noyau et une base de l'image, et vérifier le théorème du rang.
 **Prérequis :** fiche §6 ; M07 §5 (équation d'un plan) · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 1 & 1 & 3 \\ 2 & 1 & 0 & 5 \\ 1 & -1 & -3 & 1 \end{pmatrix}.$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 1 & 1 & 3 \cr 2 & 1 & 0 & 5 \cr 1 & -1 & -3 & 1 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -305,7 +305,7 @@ Dans ta copie : vérifie $\mathbf{A}\mathbf{x} = \mathbf{0}$ pour d) et e), et l
 **Objectif :** décrire toutes les solutions d'un système comme une solution particulière plus le noyau, et dire quand il y en a.
 **Prérequis :** fiche §6 ; M09a §6 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \\ 0 & 1 & -1 & 3 \\ 1 & 1 & 1 & 2 \end{pmatrix}, \qquad \mathbf{b} = (4, -1, 3).$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \cr 0 & 1 & -1 & 3 \cr 1 & 1 & 1 & 2 \end{pmatrix}, \qquad \mathbf{b} = (4, -1, 3).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -318,13 +318,13 @@ $$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \\ 0 & 1 & -1 & 3 \\ 1 & 1 & 1 & 2
 | g | le nombre $c$ pour lequel $\mathbf{A}\mathbf{x} = (4, -1, c)$ a des solutions | un nombre |
 | h | le nombre de solutions de $\mathbf{A}\mathbf{x} = (4, -1, 5)$ | un entier |
 
-Dans ta copie : écris l'ensemble des solutions sous la forme $\mathbf{x}_p + s\,\mathbf{k}_1 + t\,\mathbf{k}_2$. Si f) est une solution, écris-la sous la forme $\mathbf{x}_p + s\,\mathbf{k}_1 + t\,\mathbf{k}_2$. Quelle relation entre les lignes de $\mathbf{A}$ explique g) ?
+Dans ta copie : écris l'ensemble des solutions sous la forme $\mathbf{x}_p + s\thinspace\mathbf{k}_1 + t\thinspace\mathbf{k}_2$. Si f) est une solution, écris-la sous la forme $\mathbf{x}_p + s\thinspace\mathbf{k}_1 + t\thinspace\mathbf{k}_2$. Quelle relation entre les lignes de $\mathbf{A}$ explique g) ?
 
 ### Ex M12a.11 — Une base adaptée qui rend diagonale la matrice d'une application : S⁻¹AS ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer la matrice d'une application dans une nouvelle base, et s'en servir pour calculer une image.
 **Prérequis :** fiche §7 ; M09a §7 (inverse $2 \times 2$) · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix}$ ; la nouvelle base est $\mathbf{s}_1 = (1, 1)$, $\mathbf{s}_2 = (2, 1)$, et $\mathbf{S} = [\mathbf{s}_1 \ \mathbf{s}_2]$.
+$\mathbf{A} = \begin{pmatrix} 4 & -2 \cr 1 & 1 \end{pmatrix}$ ; la nouvelle base est $\mathbf{s}_1 = (1, 1)$, $\mathbf{s}_2 = (2, 1)$, et $\mathbf{S} = [\mathbf{s}_1 \ \mathbf{s}_2]$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -401,7 +401,7 @@ $U$ et $W$ sont deux sous-espaces d'un espace vectoriel $V$.
 $(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ est une famille de vecteurs de $V$.
 1. On suppose la famille libre, et $\mathbf{v} = \sum_i c_i\mathbf{b}_i = \sum_i d_i\mathbf{b}_i$. Montre que $c_i = d_i$ pour tout $i$.
 2. Réciproquement, on suppose que tout vecteur de $\operatorname{Vect}(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ s'écrit d'une seule façon comme combinaison des $\mathbf{b}_i$. Montre que la famille est libre (pense au vecteur $\mathbf{0}$).
-3. On suppose maintenant que $(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ est une base, et l'on note $c(\mathbf{v})$ les coordonnées de $\mathbf{v}$. Montre que $c(\lambda\mathbf{v} + \mu\mathbf{w}) = \lambda\,c(\mathbf{v}) + \mu\,c(\mathbf{w})$.
+3. On suppose maintenant que $(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ est une base, et l'on note $c(\mathbf{v})$ les coordonnées de $\mathbf{v}$. Montre que $c(\lambda\mathbf{v} + \mu\mathbf{w}) = \lambda\thinspace c(\mathbf{v}) + \mu\thinspace c(\mathbf{w})$.
 4. Avec la famille liée $(\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3)$ de la fiche (§2), écris le vecteur $\mathbf{u}_3$ de deux façons différentes comme combinaison de $\mathbf{u}_1$, $\mathbf{u}_2$, $\mathbf{u}_3$. Quelle question montre que c'était inévitable ?
 
 ### Ex M12a.16 — Le noyau est un sous-espace, et une application linéaire est injective si et seulement si son noyau est {0} ∂ ★★ ⏱️ 20 min
@@ -412,19 +412,19 @@ $f : V \to W$ est une application linéaire.
 1. Montre que $f(\mathbf{0}) = \mathbf{0}$.
 2. Montre que $\ker f$ est un sous-espace de $V$.
 3. Montre que $\operatorname{Im} f$ est un sous-espace de $W$.
-4. Montre que, si $f$ est injective, alors $\ker f = \{\mathbf{0}\}$.
-5. Réciproquement, montre que, si $\ker f = \{\mathbf{0}\}$, alors $f$ est injective (pars de $f(\mathbf{x}) = f(\mathbf{y})$).
+4. Montre que, si $f$ est injective, alors $\ker f = \lbrace\mathbf{0}\rbrace$.
+5. Réciproquement, montre que, si $\ker f = \lbrace\mathbf{0}\rbrace$, alors $f$ est injective (pars de $f(\mathbf{x}) = f(\mathbf{y})$).
 6. Déduis-en qu'une matrice $\mathbf{A}$ de forme $(m, n)$ avec $n > m$ n'est jamais injective (pense aux variables libres de $\mathbf{A}\mathbf{x} = \mathbf{0}$).
 
 ### Ex M12a.17 — Le théorème du rang : dim ker + rang = nombre de colonnes ∂ ★★★ ⏱️ 25 min
 **Objectif :** démontrer que les vecteurs construits à partir des colonnes libres forment une base du noyau, et en déduire le théorème du rang.
 **Prérequis :** fiche §4 et §6 ; M09a §6 (opérations élémentaires) · **Parcours :** C
 
-$\mathbf{A}$ a la forme $(m, n)$, $\mathbf{R}$ est sa forme échelonnée réduite, avec $r$ pivots. Pour chaque colonne libre $j$, on note $\mathbf{k}_j$ le vecteur construit comme dans la fiche (§6) : $x_j = 1$, les autres variables libres à 0, et $x_p = -R_{ij}$ pour le pivot de la ligne $i$, dans la colonne $p$.
+$\mathbf{A}$ a la forme $(m, n)$, $\mathbf{R}$ est sa forme échelonnée réduite, avec $r$ pivots. Pour chaque colonne libre $j$, on note $\mathbf{k} _j$ le vecteur construit comme dans la fiche (§6) : $x_j = 1$, les autres variables libres à 0, et $x_p = -R _{ij}$ pour le pivot de la ligne $i$, dans la colonne $p$.
 1. Montre que $\mathbf{A}\mathbf{x} = \mathbf{0}$ et $\mathbf{R}\mathbf{x} = \mathbf{0}$ ont les mêmes solutions.
 2. Montre que $\mathbf{R}\mathbf{k}_j = \mathbf{0}$ (écris la ligne $i$ de $\mathbf{R}\mathbf{k}_j$). Déduis-en $\mathbf{k}_j \in \ker\mathbf{A}$.
 3. Montre que les $\mathbf{k}_j$ forment une famille libre (regarde leurs coordonnées libres).
-4. Soit $\mathbf{x} \in \ker\mathbf{A}$, et $\mathbf{y} = \mathbf{x} - \sum_{j \text{ libre}} x_j\,\mathbf{k}_j$. Montre que les coordonnées libres de $\mathbf{y}$ sont nulles, puis que $\mathbf{y} = \mathbf{0}$ (utilise $\mathbf{R}\mathbf{y} = \mathbf{0}$, ligne par ligne). Conclus que les $\mathbf{k}_j$ engendrent $\ker\mathbf{A}$.
+4. Soit $\mathbf{x} \in \ker\mathbf{A}$, et $\mathbf{y} = \mathbf{x} - \sum_{j \text{ libre}} x_j\thinspace\mathbf{k}_j$. Montre que les coordonnées libres de $\mathbf{y}$ sont nulles, puis que $\mathbf{y} = \mathbf{0}$ (utilise $\mathbf{R}\mathbf{y} = \mathbf{0}$, ligne par ligne). Conclus que les $\mathbf{k}_j$ engendrent $\ker\mathbf{A}$.
 5. Déduis-en $\dim\ker\mathbf{A} + \operatorname{rg}(\mathbf{A}) = n$.
 6. Déduis-en qu'une matrice carrée est injective si et seulement si elle est surjective.
 
@@ -444,7 +444,7 @@ $\mathbf{A}$ a la forme $(m, n)$ et $\mathbf{B}$ la forme $(n, p)$.
 **Prérequis :** fiche §6 et §8 ; Ex M12a.16 · **Parcours :** C
 
 $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$, de $\mathbb{R}^n$ dans $\mathbb{R}^n$.
-1. Montre que $\varphi(\mathbf{x}) = \varphi(\mathbf{y})$ si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$. Déduis-en : $\varphi$ injective $\iff$ $\ker\mathbf{A} = \{\mathbf{0}\}$.
+1. Montre que $\varphi(\mathbf{x}) = \varphi(\mathbf{y})$ si et seulement si $\mathbf{x} - \mathbf{y} \in \ker\mathbf{A}$. Déduis-en : $\varphi$ injective $\iff$ $\ker\mathbf{A} = \lbrace\mathbf{0}\rbrace$.
 2. Montre que $\mathbf{y}$ est atteint par $\varphi$ si et seulement si $\mathbf{y} - \mathbf{b} \in \operatorname{Im}\mathbf{A}$. Déduis-en : $\varphi$ surjective $\iff$ $\operatorname{Im}\mathbf{A} = \mathbb{R}^n$.
 3. Conclus : $\varphi$ est bijective si et seulement si $\mathbf{A}$ est inversible (utilise le théorème du rang).
 4. On suppose $\mathbf{A}$ inversible. Résous $\varphi(\mathbf{x}) = \mathbf{y}$, et montre que $\varphi^{-1}$ est affine ; donne sa partie linéaire et sa translation.
@@ -460,7 +460,7 @@ $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$, de $\mathbb{R}^n$ dan
 
 Un tableau décrit quatre livraisons par le temps de trajet (min), le temps passé sur place (min) et le temps total (min) :
 
-$$\mathbf{X} = \begin{pmatrix} 12 & 30 & 42 \\ 25 & 15 & 40 \\ 8 & 50 & 58 \\ 20 & 20 & 40 \end{pmatrix}.$$
+$$\mathbf{X} = \begin{pmatrix} 12 & 30 & 42 \cr 25 & 15 & 40 \cr 8 & 50 & 58 \cr 20 & 20 & 40 \end{pmatrix}.$$
 
 Un modèle linéaire sans biais prédit $\mathbf{X}\mathbf{w}$, avec par exemple $\mathbf{w} = (0{,}5 ;\ 1 ;\ 0)$.
 
@@ -470,7 +470,7 @@ Un modèle linéaire sans biais prédit $\mathbf{X}\mathbf{w}$, avec par exemple
 | b | $\operatorname{rg}(\mathbf{X}^\top\mathbf{X})$ | un entier |
 | c | le vecteur de base de $\ker\mathbf{X}$ dont la dernière coordonnée vaut 1 | une liste de 3 nombres |
 | d | $\dim\ker(\mathbf{X}^\top\mathbf{X})$ | un entier |
-| e | les quatre prédictions $\mathbf{X}\mathbf{w}'$ des poids $\mathbf{w}' = \mathbf{w} + 2\,\mathbf{d}$, où $\mathbf{d}$ est le vecteur de c) | une liste de 4 nombres (1 décimale) |
+| e | les quatre prédictions $\mathbf{X}\mathbf{w}'$ des poids $\mathbf{w}' = \mathbf{w} + 2\thinspace\mathbf{d}$, où $\mathbf{d}$ est le vecteur de c) | une liste de 4 nombres (1 décimale) |
 | f | vrai ou faux : après avoir retiré la colonne du temps total, $\mathbf{X}^\top\mathbf{X}$ (alors de forme $(2, 2)$) est inversible | `True` ou `False` |
 
 Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mathbf{d}$ sur les features en cause ? $\mathbf{X}^\top\mathbf{X}$ est-elle inversible ? Une méthode peut-elle choisir entre $\mathbf{w}$ et $\mathbf{w}'$ au vu des seules données, et pourquoi ? Que changerait une colonne « temps total » mesurée au chronomètre, qui ne serait égale à la somme qu'à quelques secondes près ?
@@ -481,7 +481,7 @@ Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mat
 
 Un « encodeur » résume un vecteur de $\mathbb{R}^3$ en deux nombres, $\mathbf{E}\mathbf{x}$, et un « décodeur » tente de le reconstruire, $\mathbf{D}\mathbf{E}\mathbf{x}$ :
 
-$$\mathbf{E} = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & -1 \end{pmatrix}, \qquad \mathbf{D} = \begin{pmatrix} 1 & -1 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}.$$
+$$\mathbf{E} = \begin{pmatrix} 1 & 1 & 0 \cr 0 & 1 & -1 \end{pmatrix}, \qquad \mathbf{D} = \begin{pmatrix} 1 & -1 \cr 0 & 1 \cr 0 & 0 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|

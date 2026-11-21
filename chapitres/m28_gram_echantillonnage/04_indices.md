@@ -17,7 +17,7 @@ Fiche §1 : « Deux lectures », « Diviser par le nombre d'échantillons », «
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{X}\mathbf{X}^\top$ est $n \times n$ et coûte de l'ordre de $n^2d$ multiplications ; $\mathbf{X}^\top\mathbf{X}$ est $d \times d$ et en coûte $d^2n$. $\lVert\mathbf{x}_i - \mathbf{x}_j\rVert^2 = G_{ii} + G_{jj} - 2G_{ij}$ et $\cos\theta_{ij} = G_{ij}/\sqrt{G_{ii}G_{jj}}$. Une matrice de Gram est semi-définie positive.
+$\mathbf{X}\mathbf{X}^\top$ est $n \times n$ et coûte de l'ordre de $n^2d$ multiplications ; $\mathbf{X}^\top\mathbf{X}$ est $d \times d$ et en coûte $d^2n$. $\lVert\mathbf{x}  _i - \mathbf{x}  _j\rVert^2 = G  _{ii} + G  _{jj} - 2G _{ij}$ et $\cos\theta _{ij} = G _{ij}/\sqrt{G  _{ii}G _{jj}}$. Une matrice de Gram est semi-définie positive.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -40,7 +40,7 @@ $\operatorname{rms}(\mathbf{g}) = \sqrt{\frac1n\sum_ig_i^2}$ ; $\operatorname{si
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\lVert\mathbf{g}\rVert = 17$ et $\operatorname{rms}(\mathbf{g}) = 8{,}5$ ; deux de ces vecteurs sont des multiples positifs de $\mathbf{g}$. 2. Calcule $\mathbf{x} + 0{,}5\,\mathbf{g}$, puis ramène chaque coordonnée dans $[0, 1]$. 3. Garde la première et la troisième coordonnée de $\mathbf{g}$. 4. Relis l'exemple du drone. 5. Que devient la longueur du pas quand $\mathbf{g}$ tend vers $\mathbf{0}$ ?
+1. $\lVert\mathbf{g}\rVert = 17$ et $\operatorname{rms}(\mathbf{g}) = 8{,}5$ ; deux de ces vecteurs sont des multiples positifs de $\mathbf{g}$. 2. Calcule $\mathbf{x} + 0{,}5\thinspace\mathbf{g}$, puis ramène chaque coordonnée dans $[0, 1]$. 3. Garde la première et la troisième coordonnée de $\mathbf{g}$. 4. Relis l'exemple du drone. 5. Que devient la longueur du pas quand $\mathbf{g}$ tend vers $\mathbf{0}$ ?
 
 </details>
 
@@ -174,7 +174,7 @@ $G_{ij} = \mathbf{x}_i^\top\mathbf{x}_j$. Les échantillons sont les lignes : la
 </details>
 <details><summary>Indice 3</summary>
 
-a) $G_{11} = 3^2 + 1^2 = 10$ et $G_{12} = 3 \times 1 + 1 \times 3 = 6$ ; continue de même. b) Calcule d'abord $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$. c) Une matrice $\begin{pmatrix} a & b \\ b & a \end{pmatrix}$ a pour valeurs propres $a \pm b$. d) $G_{11} + G_{jj} - 2G_{1j}$. e) $\cos\theta = G_{12}/\sqrt{G_{11}G_{22}}$.
+a) $G_{11} = 3^2 + 1^2 = 10$ et $G_{12} = 3 \times 1 + 1 \times 3 = 6$ ; continue de même. b) Calcule d'abord $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$. c) Une matrice $\begin{pmatrix} a & b \cr b & a \end{pmatrix}$ a pour valeurs propres $a \pm b$. d) $G_{11} + G_{jj} - 2G_{1j}$. e) $\cos\theta = G_{12}/\sqrt{G_{11}G_{22}}$.
 
 </details>
 
@@ -187,12 +187,12 @@ Fiche §2 : « Des distances à la matrice de Gram : le double centrage » (la f
 </details>
 <details><summary>Indice 2</summary>
 
-Élève d'abord chaque distance au carré : $29^2 = 841$, $40^2 = 1\,600$, $42^2 = 1\,764$. $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$. Dans l'ordre A, C, B, D, $\mathbf{G}$ a deux blocs de la forme $\begin{pmatrix} a & -a \\ -a & a \end{pmatrix}$. Pour e), un point à égale distance de B et de D est sur l'hyperplan médiateur de [BD].
+Élève d'abord chaque distance au carré : $29^2 = 841$, $40^2 = 1\thinspace600$, $42^2 = 1\thinspace764$. $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$. Dans l'ordre A, C, B, D, $\mathbf{G}$ a deux blocs de la forme $\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}$. Pour e), un point à égale distance de B et de D est sur l'hyperplan médiateur de [BD].
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) La ligne de A vaut $(0, 841, 1\,600, 841)$, de moyenne 820,5 ; fais de même pour B, puis moyenne les quatre moyennes. b) $G_{AA} = -\frac12(0 - 2 \times 820{,}5 + s)$. c) $\begin{pmatrix} a & -a \\ -a & a \end{pmatrix}$ a pour valeurs propres $2a$ (vecteur $(1, -1)$) et 0. d) Écris chaque vecteur propre dans l'ordre A, B, C, D, normalise-le, multiplie-le par la racine de sa valeur propre, puis applique la convention de signe. e) Avec M le milieu de [BD], calcule MA par Pythagore.
+a) La ligne de A vaut $(0, 841, 1\thinspace600, 841)$, de moyenne 820,5 ; fais de même pour B, puis moyenne les quatre moyennes. b) $G_{AA} = -\frac12(0 - 2 \times 820{,}5 + s)$. c) $\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}$ a pour valeurs propres $2a$ (vecteur $(1, -1)$) et 0. d) Écris chaque vecteur propre dans l'ordre A, B, C, D, normalise-le, multiplie-le par la racine de sa valeur propre, puis applique la convention de signe. e) Avec M le milieu de [BD], calcule MA par Pythagore.
 
 </details>
 
@@ -205,12 +205,12 @@ Fiche §3 : « Rester dans un pavé : la montée projetée » et « Ce que trouv
 </details>
 <details><summary>Indice 2</summary>
 
-Sur la boule, Cauchy-Schwarz ; sur le pavé, les termes $w_ix_i$ se règlent un par un. $\nabla f = \mathbf{w}$ est constant : chaque pas ajoute $\eta\,\mathbf{w}$, puis coupe. Sur la sphère, le maximum de $\mathbf{x}^\top\mathbf{A}\mathbf{x}$ est la plus grande valeur propre ; les valeurs propres d'une matrice à blocs sont celles de ses blocs.
+Sur la boule, Cauchy-Schwarz ; sur le pavé, les termes $w_ix_i$ se règlent un par un. $\nabla f = \mathbf{w}$ est constant : chaque pas ajoute $\eta\thinspace\mathbf{w}$, puis coupe. Sur la sphère, le maximum de $\mathbf{x}^\top\mathbf{A}\mathbf{x}$ est la plus grande valeur propre ; les valeurs propres d'une matrice à blocs sont celles de ses blocs.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\lVert\mathbf{w}\rVert$. b) Le signe de chaque $w_i$ décide. c) $\mathbf{x}_0 + 0{,}2\,\mathbf{w} = (0{,}7 ;\ 0{,}1 ;\ 1 ;\ 1{,}72)$ : coupe, puis recommence. d) Pour la première coordonnée, il faut $0{,}3 + 2\eta \ge 1$ ; écris la condition de chaque coordonnée (pour la deuxième, $0{,}3 - \eta \le 0$). e) Le second bloc a pour trace 16 et pour déterminant 39. f) $E$ est une somme d'une fonction de $(x_1, x_2)$ et d'une fonction de $(x_3, x_4)$ : maximise chacune sur les quatre sommets de son carré.
+a) $\lVert\mathbf{w}\rVert$. b) Le signe de chaque $w_i$ décide. c) $\mathbf{x}_0 + 0{,}2\thinspace\mathbf{w} = (0{,}7 ;\ 0{,}1 ;\ 1 ;\ 1{,}72)$ : coupe, puis recommence. d) Pour la première coordonnée, il faut $0{,}3 + 2\eta \ge 1$ ; écris la condition de chaque coordonnée (pour la deuxième, $0{,}3 - \eta \le 0$). e) Le second bloc a pour trace 16 et pour déterminant 39. f) $E$ est une somme d'une fonction de $(x_1, x_2)$ et d'une fonction de $(x_3, x_4)$ : maximise chacune sur les quatre sommets de son carré.
 
 </details>
 
@@ -223,12 +223,12 @@ Fiche §4 : « Une forme quadratique : le laplacien de la grille », « Descendr
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{L}\mathbf{x})_j = \deg(j)\,x_j - \sum_{\text{voisines}}x_l$, avec $\deg = 1$ aux bouts et 2 ailleurs. Un pas : $\mathbf{x} - \eta \cdot 2\mathbf{L}\mathbf{x}$. $\eta^\star = 1/\lambda_{\max}(\mathbf{L})$, avec $\lambda_{\max}$ donné par la formule admise pour $k = n - 1$. Une marche étalée sur $n$ pas coûte $\frac{h^2}{n}$ au carré et $h$ en valeur absolue.
+$(\mathbf{L}\mathbf{x})  _j = \deg(j)\thinspace x_j - \sum  _{\text{voisines}}x_l$, avec $\deg = 1$ aux bouts et 2 ailleurs. Un pas : $\mathbf{x} - \eta \cdot 2\mathbf{L}\mathbf{x}$. $\eta^\star = 1/\lambda _{\max}(\mathbf{L})$, avec $\lambda _{\max}$ donné par la formule admise pour $k = n - 1$. Une marche étalée sur $n$ pas coûte $\frac{h^2}{n}$ au carré et $h$ en valeur absolue.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Les différences valent $-2, 1, -4, -2$. b) $(\mathbf{L}\mathbf{x})_0 = 8 - 6 = 2$ et $(\mathbf{L}\mathbf{x})_1 = 2 \times 6 - 8 - 7 = -3$ ; continue, puis double. c) Retire $0{,}15 \times 2\mathbf{L}\mathbf{x}$. e) $\lambda_{\max} = 4\sin^2\frac{4\pi}{10}$. f) Quatre différences de $\frac64$. g) Résous $\frac{36}{n} < 1$ dans les entiers.
+a) Les différences valent $-2, 1, -4, -2$. b) $(\mathbf{L}\mathbf{x})_0 = 8 - 6 = 2$ et $(\mathbf{L}\mathbf{x}) _1 = 2 \times 6 - 8 - 7 = -3$ ; continue, puis double. c) Retire $0{,}15 \times 2\mathbf{L}\mathbf{x}$. e) $\lambda _{\max} = 4\sin^2\frac{4\pi}{10}$. f) Quatre différences de $\frac64$. g) Résous $\frac{36}{n} < 1$ dans les entiers.
 
 </details>
 
@@ -259,7 +259,7 @@ Fiche §5 : « La température », « Tronquer, c'est conditionner », « Le co�
 </details>
 <details><summary>Indice 2</summary>
 
-À $T = \frac13$, on élève au cube puis on renormalise. Range les catégories par probabilité décroissante et cumule. $\mathbf{p}_S = \mathbf{p}/P(S)$ sur $S$, 0 ailleurs ; $\mathrm{KL}(\mathbf{p}_S \,\|\, \mathbf{p}) = -\ln P(S)$ et $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1 = 1 - P(S)$. Le top-p garde $k$ catégories quand la masse des $k - 1$ premières est sous $m$ et celle des $k$ premières atteint $m$.
+À $T = \frac13$, on élève au cube puis on renormalise. Range les catégories par probabilité décroissante et cumule. $\mathbf{p}_S = \mathbf{p}/P(S)$ sur $S$, 0 ailleurs ; $\mathrm{KL}(\mathbf{p}_S \thinspace\Vert\thinspace \mathbf{p}) = -\ln P(S)$ et $\frac12\lVert\mathbf{p}_S - \mathbf{p}\rVert_1 = 1 - P(S)$. Le top-p garde $k$ catégories quand la masse des $k - 1$ premières est sous $m$ et celle des $k$ premières atteint $m$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -322,7 +322,7 @@ La restriction d'une fonction convexe à un segment est convexe. Sur un segment 
 </details>
 <details><summary>Indice 3</summary>
 
-1 : écris $t = (1 - \theta)l_k + \theta u_k$ avec $\theta = \frac{t - l_k}{u_k - l_k}$, et applique la convexité au point $\mathbf{x}(t) = (1 - \theta)\,\mathbf{x}(l_k) + \theta\,\mathbf{x}(u_k)$. 2 : à chaque coordonnée, choisis la borne où $\varphi$ est la plus grande ; $f$ ne baisse jamais. 3 : par 2, toute valeur de $f$ sur $P$ est majorée par le maximum de $f$ sur les sommets. 4 : une fonction constante ; une fonction concave maximale au centre.
+1 : écris $t = (1 - \theta)l_k + \theta u_k$ avec $\theta = \frac{t - l_k}{u_k - l_k}$, et applique la convexité au point $\mathbf{x}(t) = (1 - \theta)\thinspace\mathbf{x}(l_k) + \theta\thinspace\mathbf{x}(u_k)$. 2 : à chaque coordonnée, choisis la borne où $\varphi$ est la plus grande ; $f$ ne baisse jamais. 3 : par 2, toute valeur de $f$ sur $P$ est majorée par le maximum de $f$ sur les sommets. 4 : une fonction constante ; une fonction concave maximale au centre.
 
 </details>
 
@@ -455,7 +455,7 @@ Fiche §3 : « Le pas normalisé » (l'invariance d'échelle, le revers près d'
 </details>
 <details><summary>Indice 2</summary>
 
-$\nabla(1\,000f) = 1\,000\,\nabla f$, avec $\nabla f(\mathbf{x}) = -2(\mathbf{x} - \mathbf{c})$. Pour b), calcule $\mathbf{x}_0 + \eta \times 1\,000 \times (-2)(\mathbf{x}_0 - \mathbf{c})$, puis projette. Pour d), le pas normalisé avance de $\eta$ en ligne droite vers $\mathbf{c}$.
+$\nabla(1\thinspace000f) = 1\thinspace000\thinspace\nabla f$, avec $\nabla f(\mathbf{x}) = -2(\mathbf{x} - \mathbf{c})$. Pour b), calcule $\mathbf{x}_0 + \eta \times 1\thinspace000 \times (-2)(\mathbf{x}_0 - \mathbf{c})$, puis projette. Pour d), le pas normalisé avance de $\eta$ en ligne droite vers $\mathbf{c}$.
 
 </details>
 <details><summary>Indice 3</summary>

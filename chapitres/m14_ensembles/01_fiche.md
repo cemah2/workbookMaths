@@ -53,10 +53,10 @@ Vocabulaire anglais de ce chapitre : *ensemble (of models)*, *binomial tail*, *k
 ## L'essentiel en 10 lignes
 
 1. Si $X$ suit la loi $\mathcal{B}(n, p)$, sa **queue** est $P(X \ge k) = \sum_{j \ge k}\binom{n}{j}p^j(1 - p)^{n-j}$ ; attention à $P(X \ge k) = P(X > k - 1)$.
-2. **Borne de Chernoff** : pour $a > p$, $P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$, avec $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$. Elle vient de Markov appliqué à $e^{\lambda X}$, avec le meilleur $\lambda$.
+2. **Borne de Chernoff** : pour $a > p$, $P(X \ge na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$, avec $\mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p}$. Elle vient de Markov appliqué à $e^{\lambda X}$, avec le meilleur $\lambda$.
 3. Comme $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ (Pinsker), Chernoff fait toujours au moins aussi bien que Hoeffding, et beaucoup mieux pour les événements rares.
 4. $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_{i,j}w_iw_j\operatorname{Cov}(X_i, X_j) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ : les covariances comptent autant que les variances.
-5. Des prédictions indépendantes de même variance $\sigma^2$ : leur moyenne a la variance $\frac{\sigma^2}{M}$. Si chacune contient une **part commune** $a_iZ$, la variance de la moyenne reste au-dessus de $\bar{a}^2\,\mathbb{V}(Z)$ quel que soit $M$ : un **plancher**, fixé par les covariances.
+5. Des prédictions indépendantes de même variance $\sigma^2$ : leur moyenne a la variance $\frac{\sigma^2}{M}$. Si chacune contient une **part commune** $a_iZ$, la variance de la moyenne reste au-dessus de $\bar{a}^2\thinspace\mathbb{V}(Z)$ quel que soit $M$ : un **plancher**, fixé par les covariances.
 6. $\left(1 + \frac{x}{n}\right)^n \to e^x$ pour tout réel $x$, car $n\ln\left(1 + \frac{x}{n}\right) \to x$ ; l'erreur relative vaut environ $-\frac{x^2}{2n}$.
 7. **Hedge** : $K$ experts, des losses dans $[0, 1]$ ; avant le tour $t$, le poids de l'expert $k$ est proportionnel à $e^{-\eta L_t[k]}$, où $L_t[k]$ est sa loss cumulée. On retranche la plus petite loss cumulée avant l'exponentielle.
 8. **Regret** de Hedge : $R_T \le \frac{\ln K}{\eta} + \frac{\eta T}{8}$ ; avec $\eta = \sqrt{8\ln K/T}$, $R_T \le \sqrt{\frac{T\ln K}{2}}$, et le regret moyen tend vers 0.
@@ -71,7 +71,7 @@ $n$ essais indépendants réussissent chacun avec la probabilité $p$ ; le nombr
 $$P(X \ge k) = \sum_{j=k}^{n}\binom{n}{j}p^j(1 - p)^{n-j}.$$
 
 **Exemple : un système « $k$ parmi $n$ »** (*k-out-of-n system*). Une grappe de stockage a 11 disques, et elle fonctionne tant qu'au moins 8 disques fonctionnent. Chaque disque fonctionne toute l'année avec la probabilité $0{,}85$, indépendamment des autres. Avec $X$ le nombre de disques qui fonctionnent, de loi $\mathcal{B}(11 ;\ 0{,}85)$, la grappe fonctionne avec la probabilité
-$$P(X \ge 8) = \sum_{j=8}^{11}\binom{11}{j}0{,}85^j\,0{,}15^{11-j} \approx 0{,}1517 + 0{,}2866 + 0{,}3248 + 0{,}1673 \approx 0{,}9306.$$
+$$P(X \ge 8) = \sum_{j=8}^{11}\binom{11}{j}0{,}85^j\thinspace0{,}15^{11-j} \approx 0{,}1517 + 0{,}2866 + 0{,}3248 + 0{,}1673 \approx 0{,}9306.$$
 Elle tombe en panne si au moins 4 disques sur 11 lâchent : le nombre de pannes suit la loi $\mathcal{B}(11 ;\ 0{,}15)$, et $P(\text{panne}) \approx 0{,}0694$. Trois disques de réserve font passer d'une fiabilité de $0{,}85$ par disque à $0{,}93$ pour le système (✏️ M14.1).
 
 ⚠️ **Erreur classique.** $P(X \ge k)$ n'est pas $P(X > k)$ : la fonction de survie de SciPy, `binom.sf(m, n, p)`, rend $P(X > m)$, donc $P(X \ge k)$ = `binom.sf(k - 1, n, p)`. Avec M08, `testing.binomial_test(k, n, p, alternative="greater")` rend aussi $P(X \ge k)$ (🐛 M14.15).
@@ -82,19 +82,19 @@ La somme se calcule exactement, mais elle ne dit pas **à quelle vitesse** la qu
 - **Markov** (M11) : $P(X \ge na) \le \frac{\mathbb{E}[X]}{na} = \frac{p}{a}$ ; cette borne ne dépend pas de $n$, elle ne voit pas que la queue diminue ;
 - **Hoeffding** (M11), pour la moyenne $\frac{X}{n}$ de $n$ variables à valeurs dans $[0, 1]$ : $P(X \ge na) \le e^{-2n(a - p)^2}$ ;
 - **Chernoff** :
-$$\boxed{P(X \ge na) \le e^{-n\,\mathrm{KL}(a \Vert p)}, \qquad \mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p},}$$
+$$\boxed{P(X \ge na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}, \qquad \mathrm{KL}(a \Vert p) = a\ln\frac{a}{p} + (1 - a)\ln\frac{1 - a}{1 - p},}$$
 la divergence de Kullback-Leibler (M06) entre les lois de Bernoulli de paramètres $a$ et $p$ ($0\ln 0$ compte pour 0). M06 la comptait en bits, avec $\log_2$ ; ici, le logarithme est népérien et la divergence est en **nats**.
 
 **D'où vient la borne de Chernoff.** C'est la méthode de M11 : Markov appliqué à $e^{\lambda X}$, pour un $\lambda > 0$ à choisir. Comme $x \mapsto e^{\lambda x}$ est croissante,
-$$P(X \ge na) = P\big(e^{\lambda X} \ge e^{\lambda na}\big) \le e^{-\lambda na}\,\mathbb{E}\big[e^{\lambda X}\big] = e^{-\lambda na}\,\big(1 - p + pe^\lambda\big)^n :$$
+$$P(X \ge na) = P\big(e^{\lambda X} \ge e^{\lambda na}\big) \le e^{-\lambda na}\thinspace\mathbb{E}\big[e^{\lambda X}\big] = e^{-\lambda na}\thinspace\big(1 - p + pe^\lambda\big)^n :$$
 $X$ est la somme de $n$ variables de Bernoulli indépendantes, et $\mathbb{E}[e^{\lambda X_i}] = (1 - p) \times e^0 + p \times e^\lambda$ ; l'indépendance transforme l'espérance du produit en produit des espérances. Chaque $\lambda > 0$ donne une borne. La meilleure annule la dérivée du logarithme, $-na + \frac{npe^\lambda}{1 - p + pe^\lambda}$, en
-$$e^{\lambda^*} = \frac{a(1 - p)}{p(1 - a)},$$
-et, reportée dans la borne, elle donne exactement $e^{-n\,\mathrm{KL}(a \Vert p)}$ (∂ M14.8 fait le calcul). CP2.9 B l'avait faite dans un cas particulier.
+$$e^{\lambda^\ast} = \frac{a(1 - p)}{p(1 - a)},$$
+et, reportée dans la borne, elle donne exactement $e^{-n\thinspace\mathrm{KL}(a \Vert p)}$ (∂ M14.8 fait le calcul). CP2.9 B l'avait faite dans un cas particulier.
 
-**Exemple.** $p = 0{,}25$ et $a = 0{,}4$ : $e^{\lambda^*} = \frac{0{,}4 \times 0{,}75}{0{,}25 \times 0{,}6} = 2$, soit $\lambda^* = \ln 2$, et
+**Exemple.** $p = 0{,}25$ et $a = 0{,}4$ : $e^{\lambda^\ast} = \frac{0{,}4 \times 0{,}75}{0{,}25 \times 0{,}6} = 2$, soit $\lambda^\ast = \ln 2$, et
 $$\mathrm{KL}(0{,}4 \Vert 0{,}25) = 0{,}4\ln\frac{0{,}4}{0{,}25} + 0{,}6\ln\frac{0{,}6}{0{,}75} \approx 0{,}0541, \qquad 2(a - p)^2 = 0{,}045.$$
 
-| $n$ | queue exacte $P(X \ge 0{,}4\,n)$ | Chernoff $e^{-0{,}0541\,n}$ | Hoeffding $e^{-0{,}045\,n}$ |
+| $n$ | queue exacte $P(X \ge 0{,}4\thinspace n)$ | Chernoff $e^{-0{,}0541\thinspace n}$ | Hoeffding $e^{-0{,}045\thinspace n}$ |
 |---|---|---|---|
 | 20 | 0,102 | 0,339 | 0,407 |
 | 40 | 0,0262 | 0,115 | 0,165 |
@@ -102,15 +102,15 @@ $$\mathrm{KL}(0{,}4 \Vert 0{,}25) = 0{,}4\ln\frac{0{,}4}{0{,}25} + 0{,}6\ln\frac
 
 ![La queue exacte de B(n ; 0,25) au-delà de 0,4 n et ses bornes de Hoeffding et de Chernoff, en échelle logarithmique : trois droites, Chernoff entre les deux autres](figures/queue_binomiale.png)
 
-Les trois courbes sont presque des droites en échelle logarithmique : la queue décroît **exponentiellement** en $n$. La borne de Chernoff a presque la bonne pente : la queue exacte vaut $e^{-n\,\mathrm{KL}(a \Vert p)}$ à un facteur près qui ne décroît que comme une puissance de $n$. Ni Markov ni Tchebychev ne voient cette décroissance exponentielle.
+Les trois courbes sont presque des droites en échelle logarithmique : la queue décroît **exponentiellement** en $n$. La borne de Chernoff a presque la bonne pente : la queue exacte vaut $e^{-n\thinspace\mathrm{KL}(a \Vert p)}$ à un facteur près qui ne décroît que comme une puissance de $n$. Ni Markov ni Tchebychev ne voient cette décroissance exponentielle.
 
 **Chernoff contre Hoeffding.** L'**inégalité de Pinsker** (*Pinsker's inequality*), que ∂ M14.8 démontre pour deux lois de Bernoulli, dit que $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ : la borne de Chernoff est toujours au moins aussi bonne. L'écart est grand pour les **événements rares**, quand $p$ est près de 0 ou de 1 : pour $p = 0{,}01$ et $a = 0{,}05$, $\mathrm{KL} \approx 0{,}0413$, treize fois $2(a - p)^2 = 0{,}0032$. Hoeffding n'utilise que l'intervalle $[0, 1]$ des valeurs ; Chernoff utilise la loi exacte.
 
-**De l'autre côté.** Pour $a < p$, la même méthode appliquée à $n - X$ (le nombre d'échecs, de loi $\mathcal{B}(n, 1 - p)$) donne $P(X \le na) \le e^{-n\,\mathrm{KL}(a \Vert p)}$.
+**De l'autre côté.** Pour $a < p$, la même méthode appliquée à $n - X$ (le nombre d'échecs, de loi $\mathcal{B}(n, 1 - p)$) donne $P(X \le na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$.
 
 ### Des décisions indépendantes qui se trompent ensemble
 
-La borne dit à quelle vitesse il devient improbable que **beaucoup d'essais indépendants échouent à la fois**. Si $n$ décisions indépendantes sont chacune justes avec une probabilité $q > \frac{1}{2}$, la probabilité que la majorité se trompe est au plus $e^{-n\,\mathrm{KL}(1/2 \Vert 1 - q)}$ : elle tend vers 0 exponentiellement en $n$. C'est la forme générale du **théorème du jury** de Condorcet. Tout repose sur l'**indépendance** : avec des décisions corrélées, la majorité se trompe ensemble, et le §2 dit ce que la corrélation coûte.
+La borne dit à quelle vitesse il devient improbable que **beaucoup d'essais indépendants échouent à la fois**. Si $n$ décisions indépendantes sont chacune justes avec une probabilité $q > \frac{1}{2}$, la probabilité que la majorité se trompe est au plus $e^{-n\thinspace\mathrm{KL}(1/2 \Vert 1 - q)}$ : elle tend vers 0 exponentiellement en $n$. C'est la forme générale du **théorème du jury** de Condorcet. Tout repose sur l'**indépendance** : avec des décisions corrélées, la majorité se trompe ensemble, et le §2 dit ce que la corrélation coûte.
 
 **Notations.** Ici, comme en M02b et M08, $p$ est la probabilité de succès d'un essai, et $n$ le nombre d'essais. workbookIA 14 note $q$ la probabilité qu'un votant ait raison (chez lui, $p$ est le nombre de features), et $M$ le nombre de modèles : c'est la lettre du §2.
 
@@ -122,14 +122,14 @@ La borne dit à quelle vitesse il devient improbable que **beaucoup d'essais ind
 
 $X_1, \ldots, X_M$ sont des variables (les prédictions de $M$ modèles pour un même exemple, ou $M$ mesures d'une même grandeur), de matrice de covariance $\boldsymbol{\Sigma}$ : $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$, et $\Sigma_{ii} = \mathbb{V}(X_i)$ (M02c). Pour des poids $w_1, \ldots, w_M$, la covariance est bilinéaire, donc
 $$\boxed{\mathbb{V}\Big(\sum_{i=1}^M w_iX_i\Big) = \sum_{i=1}^M\sum_{j=1}^M w_iw_j\operatorname{Cov}(X_i, X_j) = \mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}.}$$
-Sur la diagonale, les variances, pondérées par $w_i^2$ ; hors de la diagonale, chaque paire $i < j$ apparaît deux fois ($\Sigma_{ij} = \Sigma_{ji}$) : $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_i w_i^2\,\mathbb{V}(X_i) + 2\sum_{i < j}w_iw_j\operatorname{Cov}(X_i, X_j)$. Une covariance positive **augmente** la variance de la moyenne, une covariance négative la **diminue**.
+Sur la diagonale, les variances, pondérées par $w_i^2$ ; hors de la diagonale, chaque paire $i < j$ apparaît deux fois ($\Sigma_{ij} = \Sigma_{ji}$) : $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_i w_i^2\thinspace\mathbb{V}(X_i) + 2\sum_{i < j}w_iw_j\operatorname{Cov}(X_i, X_j)$. Une covariance positive **augmente** la variance de la moyenne, une covariance négative la **diminue**.
 
 **Exemple : trois capteurs.** Trois capteurs mesurent la même température, avec des erreurs de matrice de covariance
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 2 & -1 & 0 \\ -1 & 6 & 2 \\ 0 & 2 & 3 \end{pmatrix}.$$
+$$\boldsymbol{\Sigma} = \begin{pmatrix} 2 & -1 & 0 \cr -1 & 6 & 2 \cr 0 & 2 & 3 \end{pmatrix}.$$
 - La **moyenne simple** ($w_i = \frac{1}{3}$) : $\frac{1}{9}$ fois la somme de toutes les cases, $\frac{13}{9} \approx 1{,}44$. Sans les covariances, on aurait trouvé $\frac{2 + 6 + 3}{9} = \frac{11}{9} \approx 1{,}22$ : la covariance $+2$ coûte plus que ce que la covariance $-1$ rapporte.
-- Avec les poids $\mathbf{w} = (0{,}5 ;\ 0{,}2 ;\ 0{,}3)$ : $0{,}25 \times 2 + 0{,}04 \times 6 + 0{,}09 \times 3 + 2\,(-0{,}5 \times 0{,}2 \times 1 + 0{,}2 \times 0{,}3 \times 2) = 1{,}01 + 0{,}04 = 1{,}05$, presque deux fois moins que le meilleur capteur seul (variance 2).
+- Avec les poids $\mathbf{w} = (0{,}5 ;\ 0{,}2 ;\ 0{,}3)$ : $0{,}25 \times 2 + 0{,}04 \times 6 + 0{,}09 \times 3 + 2\thinspace(-0{,}5 \times 0{,}2 \times 1 + 0{,}2 \times 0{,}3 \times 2) = 1{,}01 + 0{,}04 = 1{,}05$, presque deux fois moins que le meilleur capteur seul (variance 2).
 
-**Les meilleurs poids.** Minimiser $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ est un problème de Lagrange (M13b) : $2\boldsymbol{\Sigma}\mathbf{w} = \lambda\mathbf{1}$, donc $\mathbf{w}^* \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, et la variance minimale vaut $\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Ici, $\boldsymbol{\Sigma}\,(3, 1, 1)^\top = (5, 5, 5)^\top$ : $\mathbf{w}^* = \left(\frac{3}{5}, \frac{1}{5}, \frac{1}{5}\right)$, et la variance vaut 1. Pour des variables **indépendantes**, $\boldsymbol{\Sigma}$ est diagonale et $w_i^* \propto \frac{1}{\sigma_i^2}$ : la **pondération par l'inverse de la variance** (*inverse-variance weighting*), que CP1.10 A a utilisée pour deux mesures.
+**Les meilleurs poids.** Minimiser $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w}$ sous $\sum_i w_i = 1$ est un problème de Lagrange (M13b) : $2\boldsymbol{\Sigma}\mathbf{w} = \lambda\mathbf{1}$, donc $\mathbf{w}^\ast \propto \boldsymbol{\Sigma}^{-1}\mathbf{1}$, et la variance minimale vaut $\frac{1}{\mathbf{1}^\top\boldsymbol{\Sigma}^{-1}\mathbf{1}}$. Ici, $\boldsymbol{\Sigma}\thinspace(3, 1, 1)^\top = (5, 5, 5)^\top$ : $\mathbf{w}^\ast = \left(\frac{3}{5}, \frac{1}{5}, \frac{1}{5}\right)$, et la variance vaut 1. Pour des variables **indépendantes**, $\boldsymbol{\Sigma}$ est diagonale et $w_i^\ast \propto \frac{1}{\sigma_i^2}$ : la **pondération par l'inverse de la variance** (*inverse-variance weighting*), que CP1.10 A a utilisée pour deux mesures.
 
 **Une borne générale.** Si chaque $X_i$ a une variance au plus $\sigma^2$, toute moyenne pondérée (poids positifs de somme 1) a une variance au plus $\sigma^2$ : moyenner ne fait jamais pire que le pire des $X_i$ (∂ M14.7, avec $\lvert\operatorname{Cov}(X_i, X_j)\rvert \le \sigma_i\sigma_j$).
 
@@ -159,13 +159,13 @@ Une **forêt aléatoire** (*random forest*) vise ce terme-là : elle rend ses ar
 $$n\ln\left(1 + \frac{x}{n}\right) = x - \frac{x^2}{2n} + \cdots \xrightarrow[n \to +\infty]{} x,$$
 et l'exponentielle est continue. ∂ M02b.13 a fait ce calcul pour $x = -\lambda$ ; ∂ M14.6 le rend rigoureux pour tout $x$, en encadrant $\ln(1 + u)$, et il en tire la vitesse.
 
-**La vitesse.** Le même calcul donne $\left(1 + \frac{x}{n}\right)^n \approx e^x\,e^{-x^2/(2n)} \approx e^x\left(1 - \frac{x^2}{2n}\right)$ : l'erreur relative vaut environ $-\frac{x^2}{2n}$. Il faut que $n$ soit grand **devant $x^2$**, pas seulement grand. Pour $x = 2{,}5$ ($e^{2{,}5} \approx 12{,}1825$) :
+**La vitesse.** Le même calcul donne $\left(1 + \frac{x}{n}\right)^n \approx e^x\thinspace e^{-x^2/(2n)} \approx e^x\left(1 - \frac{x^2}{2n}\right)$ : l'erreur relative vaut environ $-\frac{x^2}{2n}$. Il faut que $n$ soit grand **devant $x^2$**, pas seulement grand. Pour $x = 2{,}5$ ($e^{2{,}5} \approx 12{,}1825$) :
 
 | $n$ | 1 | 5 | 50 | 500 | 5 000 |
 |---|---|---|---|---|---|
 | $(1 + 2{,}5/n)^n$ | 3,5 | 7,5938 | 11,4674 | 12,1068 | 12,1749 |
-| erreur relative | $-71\,\%$ | $-38\,\%$ | $-5{,}87\,\%$ | $-0{,}621\,\%$ | $-0{,}062\,\%$ |
-| $-x^2/(2n)$ | | | $-6{,}25\,\%$ | $-0{,}625\,\%$ | $-0{,}0625\,\%$ |
+| erreur relative | $-71$ % | $-38$ % | $-5{,}87$ % | $-0{,}621$ % | $-0{,}062$ % |
+| $-x^2/(2n)$ | | | $-6{,}25$ % | $-0{,}625$ % | $-0{,}0625$ % |
 
 La suite **croît** vers $e^{2{,}5}$ ; l'approximation de l'erreur devient bonne dès que $\frac{x^2}{n}$ est petit.
 
@@ -173,9 +173,9 @@ La suite **croît** vers $e^{2{,}5}$ ; l'approximation de l'erreur devient bonne
 
 ### Deux usages
 
-**Des intérêts composés en continu** (*continuous compounding*, déjà vus en R6 §2). Un placement à 6 % par an, dont les intérêts sont versés $n$ fois par an (chaque fois $\frac{6}{n}$ %), est multiplié en un an par $\left(1 + \frac{0{,}06}{n}\right)^n$ : 1,06 pour $n = 1$, $1{,}005^{12} \approx 1{,}061678$ pour un versement mensuel, et au plus $e^{0{,}06} \approx 1{,}061837$, quel que soit $n$. L'erreur relative du versement mensuel, $\approx -0{,}015\,\%$, est bien proche de $-\frac{0{,}06^2}{24} = -0{,}015\,\%$.
+**Des intérêts composés en continu** (*continuous compounding*, déjà vus en R6 §2). Un placement à 6 % par an, dont les intérêts sont versés $n$ fois par an (chaque fois $\frac{6}{n}$ %), est multiplié en un an par $\left(1 + \frac{0{,}06}{n}\right)^n$ : 1,06 pour $n = 1$, $1{,}005^{12} \approx 1{,}061678$ pour un versement mensuel, et au plus $e^{0{,}06} \approx 1{,}061837$, quel que soit $n$. L'erreur relative du versement mensuel, $\approx -0{,}015$ %, est bien proche de $-\frac{0{,}06^2}{24} = -0{,}015$ %.
 
-**Une survie.** Une journée est coupée en $n$ créneaux ; dans chacun, une panne survient avec la probabilité $\frac{1{,}5}{n}$, indépendamment. La probabilité d'une journée sans panne, $\left(1 - \frac{1{,}5}{n}\right)^n$, tend vers $e^{-1{,}5} \approx 0{,}2231$ : c'est la probabilité de 0 pour la loi de Poisson de paramètre $1{,}5$, limite de $\mathcal{B}\left(n, \frac{1{,}5}{n}\right)$ (∂ M02b.13). La vitesse dit combien de créneaux suffisent : pour $n = 60$, $0{,}975^{60} \approx 0{,}2189$, une erreur relative de $-1{,}89\,\%$, et l'approximation annonçait $-\frac{1{,}5^2}{120} = -1{,}875\,\%$.
+**Une survie.** Une journée est coupée en $n$ créneaux ; dans chacun, une panne survient avec la probabilité $\frac{1{,}5}{n}$, indépendamment. La probabilité d'une journée sans panne, $\left(1 - \frac{1{,}5}{n}\right)^n$, tend vers $e^{-1{,}5} \approx 0{,}2231$ : c'est la probabilité de 0 pour la loi de Poisson de paramètre $1{,}5$, limite de $\mathcal{B}\left(n, \frac{1{,}5}{n}\right)$ (∂ M02b.13). La vitesse dit combien de créneaux suffisent : pour $n = 60$, $0{,}975^{60} \approx 0{,}2189$, une erreur relative de $-1{,}89$ %, et l'approximation annonçait $-\frac{1{,}5^2}{120} = -1{,}875$ %.
 
 **Multiplicatif et exponentiel.** Pour $\eta$ petit, $1 - \eta \approx e^{-\eta}$, donc multiplier $L$ fois un poids par $1 - \eta$ revient presque à le multiplier par $e^{-\eta L}$ : les poids **multiplicatifs** et les poids **exponentiels** du §4 sont presque les mêmes.
 
@@ -188,7 +188,7 @@ La suite **croît** vers $e^{2{,}5}$ ; l'approximation de l'erreur devient bonne
 $K$ **experts** (des modèles, des règles, des prévisionnistes) font chacun une prédiction à chaque tour. Au tour $t$, avant de voir le résultat, tu choisis une loi $\mathbf{w}_t$ sur les experts (tu suis l'expert $k$ avec la probabilité $w_t[k]$, ou tu mélanges leurs avis avec ces poids). Puis chaque expert reçoit une loss $\ell_t[k] \in [0, 1]$, et tu subis la loss moyenne $\mathbf{w}_t \cdot \boldsymbol{\ell}_t$. On ne suppose rien sur la façon dont les losses sont produites : elles peuvent même être choisies contre toi.
 
 Ton **regret** après $T$ tours compare ta loss totale à celle du meilleur expert, choisi après coup :
-$$R_T = \sum_{t=1}^T \mathbf{w}_t \cdot \boldsymbol{\ell}_t - \min_k L_{T+1}[k], \qquad L_t[k] = \sum_{s < t}\ell_s[k].$$
+$$R_T = \sum_{t=1}^T \mathbf{w} _t \cdot \boldsymbol{\ell} _t - \min_k L _{T+1}[k], \qquad L_t[k] = \sum _{s < t}\ell_s[k].$$
 C'est le regret de M11, dans un cadre plus riche : en M11, on ne voyait que la récompense de l'option choisie (un bandit) ; ici, on voit les losses de **tous** les experts (information complète, *full information*).
 
 ### Les poids exponentiels
@@ -197,7 +197,7 @@ C'est le regret de M11, dans un cadre plus riche : en M11, on ne voyait que la r
 $$w_t[k] = \frac{e^{-\eta L_t[k]}}{\sum_{j=1}^K e^{-\eta L_t[j]}},$$
 avec un **learning rate** $\eta > 0$. Avant le premier tour, toutes les losses cumulées sont nulles : les poids sont uniformes. D'un tour à l'autre, chaque poids est multiplié par $e^{-\eta\ell_t[k]}$, puis tous sont renormalisés (une mise à jour **multiplicative**). Ce $\eta$ règle la vitesse à laquelle les poids réagissent aux losses ; il ne faut le confondre ni avec le pas d'une descente sur les paramètres d'un modèle, ni avec le learning rate d'un boosting.
 
-**Ce que prédit le mélange.** Si l'expert $k$ annonce un nombre $x_t[k]$, le mélange annonce $\sum_k w_t[k]\,x_t[k]$ : une **moyenne pondérée** des avis, à poids positifs de somme 1, qui reste entre le plus petit et le plus grand avis. Si les avis sont des classes, tirer un expert selon $\mathbf{w}_t$ donne la classe $c$ avec la probabilité $\sum_k w_t[k]\,\mathbb{1}[x_t[k] = c]$ ; prédire la classe la plus probable, c'est le **vote pondéré** de workbookIA 14.
+**Ce que prédit le mélange.** Si l'expert $k$ annonce un nombre $x_t[k]$, le mélange annonce $\sum_k w_t[k]\thinspace x_t[k]$ : une **moyenne pondérée** des avis, à poids positifs de somme 1, qui reste entre le plus petit et le plus grand avis. Si les avis sont des classes, tirer un expert selon $\mathbf{w}_t$ donne la classe $c$ avec la probabilité $\sum_k w_t[k]\thinspace\mathbb{1}[x_t[k] = c]$ ; prédire la classe la plus probable, c'est le **vote pondéré** de workbookIA 14.
 
 **Le calcul en pratique.** Pour de grandes losses, tous les $e^{-\eta L_t[k]}$ deviennent 0 en flottants (*underflow*), et la normalisation divise 0 par 0. On retranche donc la plus petite loss cumulée, $L_t[k] - \min_j L_t[j]$, avant l'exponentielle : la normalisation annule ce facteur commun, et le meilleur expert garde l'exposant 0 (l'astuce de log-somme-exp, M04 et M05a).
 
@@ -219,7 +219,7 @@ Au tour 2, $e^{-0{,}5 \times (0 ;\ 1 ;\ 0{,}5)} = (1 ;\ 0{,}607 ;\ 0{,}779)$, de
 
 <details><summary>L'idée de la démonstration (facultatif)</summary>
 
-On suit le « potentiel » $\Phi_t = \ln\sum_k e^{-\eta L_t[k]}$. Au départ, $\Phi_1 = \ln K$. À chaque tour, $\Phi_{t+1} - \Phi_t = \ln\sum_k w_t[k]\,e^{-\eta\ell_t[k]}$ : c'est le logarithme de l'espérance de $e^{-\eta\ell}$ quand on tire un expert selon $\mathbf{w}_t$. Le lemme de Hoeffding (M11) le majore par $-\eta\,\mathbf{w}_t \cdot \boldsymbol{\ell}_t + \frac{\eta^2}{8}$. En sommant sur les $T$ tours, $\Phi_{T+1} - \ln K \le -\eta\sum_t \mathbf{w}_t \cdot \boldsymbol{\ell}_t + \frac{T\eta^2}{8}$. Enfin, la somme qui définit $\Phi_{T+1}$ est au moins son plus grand terme : $\Phi_{T+1} \ge -\eta\min_k L_{T+1}[k]$. On réunit les deux inégalités et on divise par $\eta$.
+On suit le « potentiel » $\Phi_t = \ln\sum_k e^{-\eta L_t[k]}$. Au départ, $\Phi_1 = \ln K$. À chaque tour, $\Phi_{t+1} - \Phi_t = \ln\sum_k w_t[k]\thinspace e^{-\eta\ell_t[k]}$ : c'est le logarithme de l'espérance de $e^{-\eta\ell}$ quand on tire un expert selon $\mathbf{w}_t$. Le lemme de Hoeffding (M11) le majore par $-\eta\thinspace\mathbf{w} _t \cdot \boldsymbol{\ell} _t + \frac{\eta^2}{8}$. En sommant sur les $T$ tours, $\Phi _{T+1} - \ln K \le -\eta\sum_t \mathbf{w} _t \cdot \boldsymbol{\ell} _t + \frac{T\eta^2}{8}$. Enfin, la somme qui définit $\Phi _{T+1}$ est au moins son plus grand terme : $\Phi _{T+1} \ge -\eta\min_k L _{T+1}[k]$. On réunit les deux inégalités et on divise par $\eta$.
 </details>
 
 Sur l'exemple : $\frac{\ln 3}{0{,}5} + \frac{0{,}5 \times 4}{8} \approx 2{,}45$, au-dessus du regret $0{,}909$.
@@ -242,18 +242,18 @@ Sur $n$ exemples d'entraînement, un modèle produit un **vecteur de prédiction
 $$\mathcal{L}(\mathbf{F}) = \sum_{i=1}^n \ell(y_i, F_i).$$
 (On l'écrit $\mathcal{L}$, et non $L$ comme ailleurs, parce que $L_t[k]$ désigne déjà les losses cumulées de Hedge au §4 ; rien à voir avec le lagrangien $\mathcal{L}$ de M13b.)
 Chaque terme ne dépend que d'une coordonnée de $\mathbf{F}$ : la coordonnée $i$ du gradient (M05b) est la dérivée d'une fonction d'une variable,
-$$\big(\nabla_{\mathbf{F}}\mathcal{L}\big)_i = \frac{\partial\ell}{\partial F}(y_i, F_i).$$
-Sa coordonnée $i$ est la pente de la loss de l'exemple $i$ en sa prédiction : au premier ordre, déplacer $F_i$ de $\varepsilon$ change la loss de $\varepsilon\,(\nabla_{\mathbf{F}}\mathcal{L})_i$.
+$$\big(\nabla_{\mathbf{F}}\mathcal{L}\big) _i = \frac{\partial\ell}{\partial F}(y_i, F_i).$$
+Sa coordonnée $i$ est la pente de la loss de l'exemple $i$ en sa prédiction : au premier ordre, déplacer $F_i$ de $\varepsilon$ change la loss de $\varepsilon\thinspace(\nabla _{\mathbf{F}}\mathcal{L})_i$.
 
 ### La loss exponentielle : des poids exponentiels sur les exemples
 
-Pour des labels $y_i \in \{-1, +1\}$ (avec des classes codées 0 et 1, on pose $y = 2 \times \text{classe} - 1$) et un score $F_i$, la **loss exponentielle** (*exponential loss*) vaut $\ell(y, F) = e^{-yF}$ : elle est petite quand la marge $yF$ est grande, et énorme quand l'exemple est nettement mal classé. Sa dérivée en $F$ vaut
-$$\frac{\partial}{\partial F}e^{-yF} = -y\,e^{-yF} :$$
+Pour des labels $y_i \in \lbrace-1, +1\rbrace$ (avec des classes codées 0 et 1, on pose $y = 2 \times \text{classe} - 1$) et un score $F_i$, la **loss exponentielle** (*exponential loss*) vaut $\ell(y, F) = e^{-yF}$ : elle est petite quand la marge $yF$ est grande, et énorme quand l'exemple est nettement mal classé. Sa dérivée en $F$ vaut
+$$\frac{\partial}{\partial F}e^{-yF} = -y\thinspace e^{-yF} :$$
 le gradient a le signe de $-y$ : un pas **contre** lui pousse chaque prédiction vers son label, avec une force égale à la **loss actuelle** de l'exemple.
 
 **Exemple.** Quatre exemples, de labels $\mathbf{y} = (+1, -1, +1, -1)$ et de scores $\mathbf{F} = (0{,}5 ;\ 0{,}2 ;\ -0{,}6 ;\ -0{,}8)$. Les marges valent $0{,}5$, $-0{,}2$, $-0{,}6$ et $0{,}8$ ; les losses $e^{-yF}$, $0{,}607$, $1{,}221$, $1{,}822$ et $0{,}449$ ; le gradient, $(-0{,}607 ;\ 1{,}221 ;\ -1{,}822 ;\ 0{,}449)$. Normalisées, les losses donnent les poids $(0{,}148 ;\ 0{,}298 ;\ 0{,}444 ;\ 0{,}110)$ : l'exemple le plus mal classé (le troisième) pèse quatre fois plus que le mieux classé (le quatrième). Ce sont des **poids exponentiels**, comme au §4, mais sur les **exemples**, avec la marge à la place de la loss cumulée.
 
-**Une mise à jour multiplicative.** Si l'on ajoute aux scores un modèle $h$ multiplié par un coefficient $\alpha > 0$, la loss de l'exemple $i$ devient $e^{-y_i(F_i + \alpha h_i)} = e^{-y_iF_i}\,e^{-\alpha y_ih_i}$ : chaque poids est **multiplié** par $e^{-\alpha y_ih_i}$, plus grand que 1 si $h$ se trompe sur l'exemple, plus petit sinon, puis renormalisé. C'est la même mécanique qu'au §4.
+**Une mise à jour multiplicative.** Si l'on ajoute aux scores un modèle $h$ multiplié par un coefficient $\alpha > 0$, la loss de l'exemple $i$ devient $e^{-y_i(F_i + \alpha h_i)} = e^{-y_iF_i}\thinspace e^{-\alpha y_ih_i}$ : chaque poids est **multiplié** par $e^{-\alpha y_ih_i}$, plus grand que 1 si $h$ se trompe sur l'exemple, plus petit sinon, puis renormalisé. C'est la même mécanique qu'au §4.
 
 ### La loss de Huber : une force bornée
 
@@ -265,7 +265,7 @@ où $\operatorname{clip}(r, -\delta, \delta)$ ramène $r$ dans $[-\delta, \delta
 
 ### Ajouter des modèles le long de ce gradient (idée)
 
-Ajouter à l'ensemble un modèle $h$, multiplié par un coefficient $\alpha > 0$, change le vecteur des prédictions de $\alpha\,\mathbf{h}$, où $\mathbf{h} = (h_1, \ldots, h_n)$ sont ses prédictions sur les exemples. Au premier ordre (M05b, dérivée directionnelle), $\mathcal{L}(\mathbf{F} + \alpha\mathbf{h}) \approx \mathcal{L}(\mathbf{F}) + \alpha\,\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h}$ : la loss baisse dès que $\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h} < 0$, c'est-à-dire dès que $\mathbf{h}$ fait un angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$, et elle baisse le plus, à norme de $\mathbf{h}$ fixée, quand $\mathbf{h}$ est un multiple positif de $-\nabla_{\mathbf{F}}\mathcal{L}$ (Cauchy-Schwarz, M07). Le coefficient $\alpha$ doit rester petit pour que ce premier ordre reste une bonne approximation. On parle de **gradient fonctionnel** (*functional gradient*). La loss fixe la direction : la loss exponentielle insiste sur les exemples mal classés, la loss de Huber ne laisse pas un point aberrant tout décider. Comment workbookIA 14 choisit le modèle $h$ : ∂ 14.4.
+Ajouter à l'ensemble un modèle $h$, multiplié par un coefficient $\alpha > 0$, change le vecteur des prédictions de $\alpha\thinspace\mathbf{h}$, où $\mathbf{h} = (h_1, \ldots, h_n)$ sont ses prédictions sur les exemples. Au premier ordre (M05b, dérivée directionnelle), $\mathcal{L}(\mathbf{F} + \alpha\mathbf{h}) \approx \mathcal{L}(\mathbf{F}) + \alpha\thinspace\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h}$ : la loss baisse dès que $\nabla_{\mathbf{F}}\mathcal{L} \cdot \mathbf{h} < 0$, c'est-à-dire dès que $\mathbf{h}$ fait un angle aigu avec $-\nabla_{\mathbf{F}}\mathcal{L}$, et elle baisse le plus, à norme de $\mathbf{h}$ fixée, quand $\mathbf{h}$ est un multiple positif de $-\nabla_{\mathbf{F}}\mathcal{L}$ (Cauchy-Schwarz, M07). Le coefficient $\alpha$ doit rester petit pour que ce premier ordre reste une bonne approximation. On parle de **gradient fonctionnel** (*functional gradient*). La loss fixe la direction : la loss exponentielle insiste sur les exemples mal classés, la loss de Huber ne laisse pas un point aberrant tout décider. Comment workbookIA 14 choisit le modèle $h$ : ∂ 14.4.
 
 ⚠️ **Erreur classique.** $\nabla_{\mathbf{F}}\mathcal{L}$ a une coordonnée par **exemple** ; le gradient de M05b par rapport aux coefficients d'un modèle en a une par **coefficient**. La règle de la chaîne passe de l'un à l'autre (M18).
 
@@ -275,8 +275,8 @@ Ajouter à l'ensemble un modèle $h$, multiplié par un coefficient $\alpha > 0$
 
 - **$P(X \ge k)$ ou $P(X > k)$.** `binom.sf(k - 1, n, p)` pour « au moins $k$ ».
 - **Le sens de la divergence.** La borne de Chernoff utilise $\mathrm{KL}(a \Vert p)$ : d'abord la proportion de l'événement, puis le paramètre de la loi. $\mathrm{KL}$ n'est pas symétrique.
-- **La formule pour $a \le p$.** Pour $a < p$, $e^{-n\,\mathrm{KL}(a \Vert p)}$ n'est **pas** une borne de $P(X \ge na)$, qui tend vers 1 : la méthode ne donne alors que la borne triviale 1 (ce que rend `chernoff_bound`).
-- **Oublier les covariances.** $\mathbb{V}(\sum w_iX_i) \ne \sum w_i^2\,\mathbb{V}(X_i)$ dès que les variables sont corrélées.
+- **La formule pour $a \le p$.** Pour $a < p$, $e^{-n\thinspace\mathrm{KL}(a \Vert p)}$ n'est **pas** une borne de $P(X \ge na)$, qui tend vers 1 : la méthode ne donne alors que la borne triviale 1 (ce que rend `chernoff_bound`).
+- **Oublier les covariances.** $\mathbb{V}(\sum w_iX_i) \ne \sum w_i^2\thinspace\mathbb{V}(X_i)$ dès que les variables sont corrélées.
 - **$\frac{\sigma^2}{M}$ pour des modèles corrélés.** Le terme en $\frac{1}{M}$ ne concerne que les parts propres ; les covariances laissent un plancher.
 - **$(1 + x/n)^n$ pour $n$ « grand ».** Il faut $n$ grand devant $x^2$.
 - **Des poids non renormalisés, ou qui débordent.** Divise par la somme ; retranche la plus petite loss cumulée avant l'exponentielle.

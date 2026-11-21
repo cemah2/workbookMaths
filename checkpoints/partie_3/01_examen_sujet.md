@@ -46,7 +46,7 @@ d) La matrice centrée $\mathbf{X}_c$ d'un nuage de points de $\mathbb{R}^2$ a p
 e) Si deux des $n$ exemples ont les mêmes features mais des labels différents, la log-loss moyenne d'une régression logistique sur ces données ne peut pas être rendue aussi petite qu'on veut : quels que soient $\mathbf{w}$ et $b$, elle reste au-dessus d'une constante strictement positive qui ne dépend que de $n$.
 f) Le minimum de $x^2 + y^2$ sous la contrainte $x + 2y = 5$ a un multiplicateur de Lagrange nul.
 g) La matrice de Gram du noyau linéaire $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z}$ sur trois points distincts de $\mathbb{R}^2$ est inversible.
-h) Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}35)$, la probabilité $P(X \ge 0{,}45\,n)$ tend vers 0, quand $n \to +\infty$, plus vite que toute puissance de $\frac{1}{n}$.
+h) Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}35)$, la probabilité $P(X \ge 0{,}45\thinspace n)$ tend vers 0, quand $n \to +\infty$, plus vite que toute puissance de $\frac{1}{n}$.
 i) Pour tout entier $n \ge 1$, $\left(1 - \frac{0{,}3}{n}\right)^n > e^{-0{,}3}$.
 j) Avec l'algorithme Hedge et $\eta = 0{,}4$, un expert dont la loss cumulée dépasse de 5 celle du meilleur expert reçoit moins du cinquième du poids du meilleur.
 
@@ -54,15 +54,15 @@ j) Avec l'algorithme Hedge et $\eta = 0{,}4$, un expert dont la loss cumulée d�
 
 On note $\mathbf{c}_1, \ldots, \mathbf{c}_5$ les colonnes de la matrice
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & 3 & -1 \\ 0 & 1 & -3 & 2 & 4 \\ 2 & -1 & 7 & 4 & -6 \end{pmatrix}.$$
+$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & 3 & -1 \cr 0 & 1 & -3 & 2 & 4 \cr 2 & -1 & 7 & 4 & -6 \end{pmatrix}.$$
 
-Pour g) et h), $\mathbb{R}_2[X]$ est l'espace des polynômes de degré au plus 2, $V = \{P \in \mathbb{R}_2[X] : P(2) = P(-1)\}$ et $W = \{P \in V : P(0) = 0\}$.
+Pour g) et h), $\mathbb{R}_2[X]$ est l'espace des polynômes de degré au plus 2, $V = \lbrace P \in \mathbb{R}_2[X] : P(2) = P(-1)\rbrace$ et $W = \lbrace P \in V : P(0) = 0\rbrace$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le rang de $\mathbf{A}$ | un entier |
 | b | la dimension du noyau de $\mathbf{A}$ | un entier |
-| c | les réels $\alpha$ et $\beta$ tels que $\mathbf{c}_3 = \alpha\,\mathbf{c}_1 + \beta\,\mathbf{c}_2$ | la liste $[\alpha, \beta]$ |
+| c | les réels $\alpha$ et $\beta$ tels que $\mathbf{c}_3 = \alpha\thinspace\mathbf{c}_1 + \beta\thinspace\mathbf{c}_2$ | la liste $[\alpha, \beta]$ |
 | d | les coordonnées de $\mathbf{c}_5$ dans la base $(\mathbf{c}_1, \mathbf{c}_2)$ de l'image | une liste de 2 nombres |
 | e | un vecteur $\mathbf{z} = (z_1, z_2, z_3)$ non nul tel que $\mathbf{A}^\top\mathbf{z} = \mathbf{0}$, avec $z_1 = 2$ | une liste de 3 nombres |
 | f | le système $\mathbf{A}\mathbf{x} = (3, 1, 4)$ a-t-il au moins une solution ? | `True` ou `False` |
@@ -79,7 +79,7 @@ Dans $\mathbb{R}^4$ : $\mathbf{v}_1 = (1, 1, 3, 5)$, $\mathbf{v}_2 = (6, 0, 10, 
 |---|---|---|
 | a | $\lVert \mathbf{v}_1 \rVert$ | un nombre |
 | b | le coefficient $r_{12} = \mathbf{q}_1 \cdot \mathbf{v}_2$ | un nombre |
-| c | le vecteur $\mathbf{v}_2 - r_{12}\,\mathbf{q}_1$, avant normalisation | une liste de 4 nombres |
+| c | le vecteur $\mathbf{v} _2 - r _{12}\thinspace\mathbf{q}_1$, avant normalisation | une liste de 4 nombres |
 | d | la matrice $\mathbf{R}$, ligne par ligne | la liste $[[\cdot, \cdot], [\cdot, \cdot]]$ |
 | e | le vecteur $\mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
 | f | la projection orthogonale $\hat{\mathbf{y}} = \mathbf{Q}\mathbf{Q}^\top\mathbf{y}$ de $\mathbf{y}$ sur le plan engendré par $\mathbf{v}_1$ et $\mathbf{v}_2$ | une liste de 4 nombres |
@@ -90,7 +90,7 @@ Sur ta copie : vérifie que $\hat{\mathbf{y}} = \mathbf{X}\hat{\mathbf{x}}$, pui
 
 ### CP3.3 — Valeurs propres, matrice définie positive et Cholesky ✏️ ★★ ⏱️ 10 min · 2 points
 
-$$\mathbf{S} = \begin{pmatrix} 11 & 15 \\ 15 & 27 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 9 & 3 & -6 \\ 3 & 5 & 0 \\ -6 & 0 & 9 \end{pmatrix}.$$
+$$\mathbf{S} = \begin{pmatrix} 11 & 15 \cr 15 & 27 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 9 & 3 & -6 \cr 3 & 5 & 0 \cr -6 & 0 & 9 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -101,13 +101,13 @@ $$\mathbf{S} = \begin{pmatrix} 11 & 15 \\ 15 & 27 \end{pmatrix}, \qquad \mathbf{
 | e | le facteur de Cholesky $\mathbf{L}$ de $\mathbf{B}$ (triangulaire inférieur, diagonale positive, $\mathbf{B} = \mathbf{L}\mathbf{L}^\top$), ligne par ligne | une liste de 3 listes |
 | f | $\det \mathbf{B}$, à partir de e) | un nombre |
 | g | $\mathbf{x}^\top\mathbf{B}\mathbf{x}$ pour $\mathbf{x} = (1, -1, 1)$, calculé comme $\lVert \mathbf{L}^\top\mathbf{x} \rVert^2$ | un nombre |
-| h | l'ensemble des réels $a$ pour lesquels $\begin{pmatrix} 2 & a \\ a & 8 \end{pmatrix}$ est définie positive | un intervalle, écrit comme `"]-1 ; 2["` |
+| h | l'ensemble des réels $a$ pour lesquels $\begin{pmatrix} 2 & a \cr a & 8 \end{pmatrix}$ est définie positive | un intervalle, écrit comme `"]-1 ; 2["` |
 
 Sur ta copie, pour e) : vérifie ton facteur en recalculant une ligne de $\mathbf{L}\mathbf{L}^\top$.
 
 ### CP3.4 — SVD, rang faible et variance expliquée ✏️ ★★ ⏱️ 10 min · 2 points
 
-$$\mathbf{A} = \begin{pmatrix} 9 & 6 \\ 2 & -6 \end{pmatrix} = s_1\,\mathbf{u}_1\mathbf{v}_1^\top + s_2\,\mathbf{u}_2\mathbf{v}_2^\top \qquad (s_1 \ge s_2 \ge 0,\ \text{SVD}).$$
+$$\mathbf{A} = \begin{pmatrix} 9 & 6 \cr 2 & -6 \end{pmatrix} = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top + s_2\thinspace\mathbf{u}_2\mathbf{v}_2^\top \qquad (s_1 \ge s_2 \ge 0,\ \text{SVD}).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -116,7 +116,7 @@ $$\mathbf{A} = \begin{pmatrix} 9 & 6 \\ 2 & -6 \end{pmatrix} = s_1\,\mathbf{u}_1
 | c | le vecteur singulier à droite $\mathbf{v}_1$, unitaire, de première coordonnée positive | une liste (3 décimales) |
 | d | $\mathbf{u}_1 = \frac{\mathbf{A}\mathbf{v}_1}{s_1}$ | une liste (3 décimales) |
 | e | la solution de $\mathbf{A}\mathbf{x} = (99, -22)$, en écrivant $(99, -22)$ à l'aide de $\mathbf{u}_1$ | une liste de 2 nombres |
-| f | l'erreur $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_F$ de la meilleure approximation de rang 1, $\mathbf{A}_1 = s_1\,\mathbf{u}_1\mathbf{v}_1^\top$ | un nombre |
+| f | l'erreur $\lVert \mathbf{A} - \mathbf{A}_1 \rVert_F$ de la meilleure approximation de rang 1, $\mathbf{A}_1 = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top$ | un nombre |
 | g | la part de $\lVert \mathbf{A} \rVert_F^2$ gardée par $\mathbf{A}_1$ | un nombre (3 décimales) |
 | h | le conditionnement $\kappa_2(\mathbf{A})$ | un nombre (3 décimales) |
 
@@ -168,7 +168,7 @@ Un logiciel de transcription automatique transcrit une phrase de 18 mots ; chaqu
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $P(X \ge 5)$ | un nombre (5 décimales) |
-| b | l'exposant $n\,\mathrm{KL}(a \Vert p)$ de la borne de Chernoff $P(X \ge 5) \le e^{-n\,\mathrm{KL}(a \Vert p)}$ | un nombre (3 décimales) |
+| b | l'exposant $n\thinspace\mathrm{KL}(a \Vert p)$ de la borne de Chernoff $P(X \ge 5) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$ | un nombre (3 décimales) |
 | c | la borne de Hoeffding $e^{-2n(a - p)^2}$ de $P(X \ge 5)$ | un nombre (2 décimales) |
 | d | $\left(1 - \frac{2{,}4}{45}\right)^{45}$ | un nombre (4 décimales) |
 | e | l'écart des logarithmes entre d) et sa limite $e^{-2{,}4}$, c'est-à-dire $45\ln\left(1 - \frac{2{,}4}{45}\right) + 2{,}4$ | un nombre (4 décimales) |
@@ -180,13 +180,13 @@ Sur ta copie : calcule le rapport $\frac{\mathrm{KL}(a \Vert p)}{2(a - p)^2}$ de
 
 Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, chaque étape et la règle qui la justifie, ce que tu conclus.
 
-**Sujet A — Le système de Lagrange d'un problème quadratique est inversible.** On minimise $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, où $\mathbf{Q}$ est symétrique définie positive de taille $n \times n$ et $\mathbf{A}$ de forme $(m, n)$, de rang $m$. On pose $\mathbf{M} = \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}$, de taille $(n + m) \times (n + m)$.
-1. Avec le lagrangien $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$, montre que les conditions de Lagrange s'écrivent $\mathbf{M}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}$. **[0,5]**
-2. Soit $(\mathbf{u}, \boldsymbol{\mu})$, avec $\mathbf{u} \in \mathbb{R}^n$ et $\boldsymbol{\mu} \in \mathbb{R}^m$, tel que $\mathbf{M}\begin{pmatrix} \mathbf{u} \\ \boldsymbol{\mu} \end{pmatrix} = \mathbf{0}$. Montre que $\mathbf{A}\mathbf{u} = \mathbf{0}$, puis que $\mathbf{u}^\top\mathbf{Q}\mathbf{u} = 0$. **[0,5]**
+**Sujet A — Le système de Lagrange d'un problème quadratique est inversible.** On minimise $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, où $\mathbf{Q}$ est symétrique définie positive de taille $n \times n$ et $\mathbf{A}$ de forme $(m, n)$, de rang $m$. On pose $\mathbf{M} = \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}$, de taille $(n + m) \times (n + m)$.
+1. Avec le lagrangien $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$, montre que les conditions de Lagrange s'écrivent $\mathbf{M}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}$. **[0,5]**
+2. Soit $(\mathbf{u}, \boldsymbol{\mu})$, avec $\mathbf{u} \in \mathbb{R}^n$ et $\boldsymbol{\mu} \in \mathbb{R}^m$, tel que $\mathbf{M}\begin{pmatrix} \mathbf{u} \cr \boldsymbol{\mu} \end{pmatrix} = \mathbf{0}$. Montre que $\mathbf{A}\mathbf{u} = \mathbf{0}$, puis que $\mathbf{u}^\top\mathbf{Q}\mathbf{u} = 0$. **[0,5]**
 3. Déduis-en $\mathbf{u} = \mathbf{0}$, puis $\boldsymbol{\mu} = \mathbf{0}$ (dis à quoi sert le rang de $\mathbf{A}$), et conclus : $\mathbf{M}$ est inversible et le système de Lagrange a une solution unique. **[0,5]**
-4. L'hypothèse « $\mathbf{Q}$ définie positive » ne peut pas être remplacée par « $\mathbf{Q}$ semi-définie positive ». Avec $n = 2$, $m = 1$ et $\mathbf{Q} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ : pour $\mathbf{A} = (1\ \ 0)$, donne un vecteur non nul du noyau de $\mathbf{M}$ ; pour $\mathbf{A} = (0\ \ 1)$, montre que $\mathbf{M}$ est inversible. Dis ce qui, dans la démonstration, distingue les deux cas. **[0,5]**
+4. L'hypothèse « $\mathbf{Q}$ définie positive » ne peut pas être remplacée par « $\mathbf{Q}$ semi-définie positive ». Avec $n = 2$, $m = 1$ et $\mathbf{Q} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}$ : pour $\mathbf{A} = (1\ \ 0)$, donne un vecteur non nul du noyau de $\mathbf{M}$ ; pour $\mathbf{A} = (0\ \ 1)$, montre que $\mathbf{M}$ est inversible. Dis ce qui, dans la démonstration, distingue les deux cas. **[0,5]**
 
-**Sujet B — Les poids de Hedge minimisent une loss régularisée par l'entropie.** $K$ experts ont des losses cumulées $L_1, \ldots, L_K$ ; $\eta > 0$. Sur l'ensemble $\Delta = \{\mathbf{w} \in \mathbb{R}^K : w_k > 0 \text{ pour tout } k,\ \sum_k w_k = 1\}$, on pose
+**Sujet B — Les poids de Hedge minimisent une loss régularisée par l'entropie.** $K$ experts ont des losses cumulées $L_1, \ldots, L_K$ ; $\eta > 0$. Sur l'ensemble $\Delta = \lbrace\mathbf{w} \in \mathbb{R}^K : w_k > 0 \text{ pour tout } k,\ \sum_k w_k = 1\rbrace$, on pose
 $$F(\mathbf{w}) = \eta \sum_{k=1}^K w_k L_k + \sum_{k=1}^K w_k \ln w_k .$$
 1. Écris le lagrangien de la contrainte $\sum_k w_k = 1$ (sans t'occuper de la positivité), et montre que son unique point critique est $w_k = \frac{e^{-\eta L_k}}{\sum_j e^{-\eta L_j}}$ : les poids de Hedge. **[0,5]**
 2. Montre que $F$ est strictement convexe sur $\Delta$ (calcule sa hessienne), que $\Delta$ est convexe, et déduis-en que ce point est l'unique minimum de $F$ sur $\Delta$ ; cite le résultat de M13b que tu utilises. **[0,5]**
@@ -199,12 +199,12 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 
 - **(A)** Avec $\mathbf{u} = (1, 2, 0)$, $\mathbf{v} = (3, 1)$, $\mathbf{w} = (2, 4, 0)$ et $\mathbf{z} = (0, 1)$, la matrice $\mathbf{u}\mathbf{v}^\top + \mathbf{w}\mathbf{z}^\top$, de forme $(3, 2)$, est de rang 2 : c'est la somme de deux matrices de rang 1.
 - **(B)** Pour toute matrice carrée inversible $\mathbf{A}$, $\kappa_2(\mathbf{A}^{-1}) = \kappa_2(\mathbf{A})$.
-- **(C)** La projection orthogonale de $\mathbf{v} = (2, 1, 0)$ sur la droite dirigée par $\mathbf{a} = (1, 1, 1)$ est $(\mathbf{a} \cdot \mathbf{v})\,\mathbf{a} = (3, 3, 3)$.
-- **(D)** $\begin{pmatrix} 3 & 5 \\ 0 & 1 \end{pmatrix}$ a pour valeurs propres 3 et 1, $\begin{pmatrix} 2 & 0 \\ 5 & 4 \end{pmatrix}$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
+- **(C)** La projection orthogonale de $\mathbf{v} = (2, 1, 0)$ sur la droite dirigée par $\mathbf{a} = (1, 1, 1)$ est $(\mathbf{a} \cdot \mathbf{v})\thinspace\mathbf{a} = (3, 3, 3)$.
+- **(D)** $\begin{pmatrix} 3 & 5 \cr 0 & 1 \end{pmatrix}$ a pour valeurs propres 3 et 1, $\begin{pmatrix} 2 & 0 \cr 5 & 4 \end{pmatrix}$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
 - **(E)** Dans une régression logistique où le poids de $x_j$ vaut 0,7, augmenter $x_j$ de 1, les autres features fixées, multiplie la cote $\frac{p}{1 - p}$ par $e^{0{,}7} \approx 2{,}01$.
-- **(F)** Un exemple de marge $y\,(\mathbf{w} \cdot \mathbf{x} + b) = 2$ a une hinge loss de $1 - 2 = -1$ : il fait baisser l'objectif de la SVM.
-- **(G)** Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}2)$, la borne de Chernoff de $P(X \ge 0{,}4\,n)$ vaut $e^{-n\,\mathrm{KL}(0{,}4 \Vert 0{,}2)}$, avec $\mathrm{KL}(0{,}4 \Vert 0{,}2) \approx 0{,}10465$ nat.
-- **(H)** $\begin{pmatrix} 3 & 4 \\ 4 & 2 \end{pmatrix}$ est symétrique et tous ses coefficients sont positifs : elle est définie positive.
+- **(F)** Un exemple de marge $y\thinspace(\mathbf{w} \cdot \mathbf{x} + b) = 2$ a une hinge loss de $1 - 2 = -1$ : il fait baisser l'objectif de la SVM.
+- **(G)** Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}2)$, la borne de Chernoff de $P(X \ge 0{,}4\thinspace n)$ vaut $e^{-n\thinspace\mathrm{KL}(0{,}4 \Vert 0{,}2)}$, avec $\mathrm{KL}(0{,}4 \Vert 0{,}2) \approx 0{,}10465$ nat.
+- **(H)** $\begin{pmatrix} 3 & 4 \cr 4 & 2 \end{pmatrix}$ est symétrique et tous ses coefficients sont positifs : elle est définie positive.
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[0,75]** (0,15 par ligne)
@@ -221,8 +221,8 @@ Six exemples, trois features $(x_1, x_2, x_3)$ et une cible $y$ :
 | $y$ | 18 | 18 | 27 | 20 | 24 | 13 |
 
 Une ACP (données centrées, covariance avec $n - 1$) a rendu les trois axes principaux, orthonormés (tu n'as pas à le vérifier) :
-$$\mathbf{u}_1 = \tfrac{1}{21}(19, -4, -8), \qquad \mathbf{u}_2 = \tfrac{1}{21}(4, -13, 16), \qquad \mathbf{u}_3 = \tfrac{1}{21}(8, 16, 11).$$
-Le **score** de l'exemple $i$ sur l'axe $j$ est $t_{ij} = \mathbf{u}_j \cdot (\mathbf{x}_i - \bar{\mathbf{x}})$. Voici les scores des exemples 2 à 6 :
+$$\mathbf{u}_1 = \tfrac{1}{21}(19, -4, -8), \qquad \mathbf{u}_2 = \tfrac{1}{21}(4, -13, 16), \qquad \mathbf{u} _3 = \tfrac{1}{21}(8, 16, 11).$$
+Le **score** de l'exemple $i$ sur l'axe $j$ est $t _{ij} = \mathbf{u}_j \cdot (\mathbf{x}_i - \bar{\mathbf{x}})$. Voici les scores des exemples 2 à 6 :
 
 | exemple | 1 | 2 | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|---|---|

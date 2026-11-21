@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les points sont des **lignes**, une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ s'écrit $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ avec $\mathbf{W}$ de forme $(n, m)$ et $\mathbf{b}$ de forme $(m,)$ ; sa matrice homogène est $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$, et $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$. La matrice d'adjacence d'un graphe orienté a $A_{ij} = 1$ quand il y a une arête $i \to j$ ; un chemin de longueur $k$ est une suite de $k$ arêtes consécutives (un nœud peut revenir). Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
+Dans tout le chapitre, comme dans la fiche : les points sont des **lignes**, une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ s'écrit $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ avec $\mathbf{W}$ de forme $(n, m)$ et $\mathbf{b}$ de forme $(m,)$ ; sa matrice homogène est $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$, et $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$. La matrice d'adjacence d'un graphe orienté a $A_{ij} = 1$ quand il y a une arête $i \to j$ ; un chemin de longueur $k$ est une suite de $k$ arêtes consécutives (un nœud peut revenir). Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
 
 <a id="quiz"></a>
 
@@ -29,8 +29,8 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 *Fiche §2 · parcours C, E*
 
 1. Quelle est la forme de la matrice homogène d'une application affine de $\mathbb{R}^3$ dans $\mathbb{R}^2$ ?
-2. Vrai ou faux : la dernière coordonnée de $[\mathbf{x}, 1]\,\mathbf{H}$ vaut toujours 1.
-3. Vrai ou faux : avec des lignes, appliquer $f_1$ puis $f_2$ s'écrit $[\mathbf{x}, 1]\,\mathbf{H}_2\mathbf{H}_1$.
+2. Vrai ou faux : la dernière coordonnée de $[\mathbf{x}, 1]\thinspace\mathbf{H}$ vaut toujours 1.
+3. Vrai ou faux : avec des lignes, appliquer $f_1$ puis $f_2$ s'écrit $[\mathbf{x}, 1]\thinspace\mathbf{H}_2\mathbf{H}_1$.
 4. Écris la matrice homogène de la translation du plan de vecteur $(a, b)$.
 5. Vrai ou faux : pour deux translations du plan, $\mathbf{H}_1\mathbf{H}_2 = \mathbf{H}_2\mathbf{H}_1$.
 6. Vrai ou faux : la matrice homogène d'une application affine de $\mathbb{R}^2$ dans $\mathbb{R}^2$ est toujours inversible.
@@ -38,7 +38,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M16.Q3 — Lire une matrice d'adjacence : degrés, arêtes, chemins, cycles 🧠 ★ ⏱️ 4 min
 *Fiche §3 et §4 · parcours C, E*
 
-Un graphe à 4 nœuds a pour matrice d'adjacence $\mathbf{A} = \begin{pmatrix} 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$.
+Un graphe à 4 nœuds a pour matrice d'adjacence $\mathbf{A} = \begin{pmatrix} 0 & 1 & 0 & 1 \cr 0 & 0 & 1 & 0 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}$.
 1. Combien d'arêtes a-t-il ?
 2. Quel est le degré entrant du nœud 4 ? Son degré sortant ?
 3. Combien de chemins de longueur 2 vont du nœud 1 au nœud 4 ? Et de longueur 3 ?
@@ -51,7 +51,7 @@ Un graphe à 4 nœuds a pour matrice d'adjacence $\mathbf{A} = \begin{pmatrix} 0
 
 1. $X$ et $Y$ sont indépendantes, $\mathbb{E}[X] = 2$ et $\mathbb{E}[Y] = -1$ : que vaut $\mathbb{E}[XY]$ ?
 2. $X$ et $Y$ sont indépendantes et centrées, $\mathbb{V}(X) = 4$ et $\mathbb{V}(Y) = 9$ : que vaut $\mathbb{V}(XY)$ ?
-3. Vrai ou faux : pour $X$ et $Y$ indépendantes, $\mathbb{V}(XY) \ge \mathbb{V}(X)\,\mathbb{V}(Y)$.
+3. Vrai ou faux : pour $X$ et $Y$ indépendantes, $\mathbb{V}(XY) \ge \mathbb{V}(X)\thinspace\mathbb{V}(Y)$.
 4. $\varepsilon$ vaut $\pm 1$ avec la probabilité $\frac{1}{2}$ chacun, indépendamment de $x$, et $\mathbb{E}[x^2] = 5$ : que vaut $\mathbb{V}(\varepsilon x)$ ?
 5. Vrai ou faux : pour que $\mathbb{V}(Z_1 + Z_2 + Z_3) = \mathbb{V}(Z_1) + \mathbb{V}(Z_2) + \mathbb{V}(Z_3)$, il faut que les $Z_i$ soient indépendantes.
 6. Vrai ou faux : si $x_2 = x_1$, les produits $\varepsilon_1x_1$ et $\varepsilon_2x_2$, avec des signes $\varepsilon_1$, $\varepsilon_2$ indépendants, centrés et indépendants de $x_1$, sont décorrélés.
@@ -82,11 +82,11 @@ Dans tout le rappel, $X$ et $Y$ sont indépendantes, $\mathbb{E}[X] = 1$, $\math
 ### M16.R3 — Les valeurs propres d'une matrice triangulaire (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C*
 
-1. Les valeurs propres de $\begin{pmatrix} 2 & 5 & -1 \\ 0 & -3 & 4 \\ 0 & 0 & 7 \end{pmatrix}$ ?
+1. Les valeurs propres de $\begin{pmatrix} 2 & 5 & -1 \cr 0 & -3 & 4 \cr 0 & 0 & 7 \end{pmatrix}$ ?
 2. Son déterminant ?
 3. Les valeurs propres d'une matrice strictement triangulaire supérieure ?
 4. Vrai ou faux : une matrice dont toutes les valeurs propres sont nulles est la matrice nulle.
-5. Calcule $\mathbf{N}^2$ et $\mathbf{N}^3$ pour $\mathbf{N} = \begin{pmatrix} 0 & 1 & 2 \\ 0 & 0 & 3 \\ 0 & 0 & 0 \end{pmatrix}$.
+5. Calcule $\mathbf{N}^2$ et $\mathbf{N}^3$ pour $\mathbf{N} = \begin{pmatrix} 0 & 1 & 2 \cr 0 & 0 & 3 \cr 0 & 0 & 0 \end{pmatrix}$.
 
 <a id="papier"></a>
 
@@ -185,7 +185,7 @@ Une coopérative vend chaque semaine une quantité $Q$ de pommes (en kilos), au 
 | c | $\mathbb{E}[Q^2]$ | un nombre |
 | d | $\mathbb{V}(R)$ | un nombre |
 | e | l'écart-type de $R$ | un nombre (2 décimales) |
-| f | ce que donnerait la formule fausse $\mathbb{V}(P)\,\mathbb{V}(Q)$ | un nombre |
+| f | ce que donnerait la formule fausse $\mathbb{V}(P)\thinspace\mathbb{V}(Q)$ | un nombre |
 | g | le coefficient de variation de $R$, $\frac{\sigma_R}{\mathbb{E}[R]}$ | un nombre (4 décimales) |
 | h | la variance de $R$ si le prix était fixé à 3 € | un nombre |
 
@@ -195,7 +195,7 @@ Dans ta copie : écris d) comme la somme des trois termes de la fiche, et dis le
 **Objectif :** calculer la variance d'une somme de produits par des multiplicateurs aléatoires centrés, et voir les covariances disparaître ou revenir selon les hypothèses.
 **Prérequis :** fiche §6 ; M02c · **Parcours :** C, E
 
-Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $\begin{pmatrix} 4 & 5 & 1 \\ 5 & 9 & 2 \\ 1 & 2 & 1 \end{pmatrix}$. Trois multiplicateurs $\varepsilon_1 = \pm 1$, $\varepsilon_2 = \pm 0{,}5$, $\varepsilon_3 = \pm 2$ prennent chacun leurs deux valeurs avec la probabilité $\frac{1}{2}$, indépendamment entre eux et des mesures. $S = \varepsilon_1x_1 + \varepsilon_2x_2 + \varepsilon_3x_3$.
+Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $\begin{pmatrix} 4 & 5 & 1 \cr 5 & 9 & 2 \cr 1 & 2 & 1 \end{pmatrix}$. Trois multiplicateurs $\varepsilon_1 = \pm 1$, $\varepsilon_2 = \pm 0{,}5$, $\varepsilon_3 = \pm 2$ prennent chacun leurs deux valeurs avec la probabilité $\frac{1}{2}$, indépendamment entre eux et des mesures. $S = \varepsilon_1x_1 + \varepsilon_2x_2 + \varepsilon_3x_3$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -221,7 +221,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 
 $\mathbf{A}$ est la matrice d'adjacence d'un graphe orienté à $n$ nœuds ; on note $c_k(i, j)$ le nombre de chemins de longueur $k$ de $i$ à $j$.
 1. Vérifie l'énoncé pour $k = 1$.
-2. Un chemin de longueur $k + 1$ de $i$ à $j$ se termine par une arête $l \to j$. Montre que $c_{k+1}(i, j) = \sum_{l=1}^n c_k(i, l)\,A_{lj}$ (dis pourquoi chaque chemin est compté exactement une fois).
+2. Un chemin de longueur $k + 1$ de $i$ à $j$ se termine par une arête $l \to j$. Montre que $c_{k+1}(i, j) = \sum_{l=1}^n c_k(i, l)\thinspace A_{lj}$ (dis pourquoi chaque chemin est compté exactement une fois).
 3. Conclus par récurrence : $(\mathbf{A}^k)_{ij} = c_k(i, j)$ pour tout $k \ge 1$.
 4. Avec des poids $A_{ij}$ sur les arêtes, adapte la démonstration : $(\mathbf{A}^k)_{ij}$ est la somme, sur les chemins de longueur $k$ de $i$ à $j$, des produits des poids.
 5. Que compte la somme de la ligne $i$ de $\mathbf{A}^k$ ? Et la trace de $\mathbf{A}^k$ ?
@@ -242,10 +242,10 @@ $\mathbf{A}$ est la matrice d'adjacence d'un graphe orienté à $n$ nœuds. On a
 **Prérequis :** fiche §5 ; M02b · **Parcours :** C
 
 $X$ et $Y$ sont deux variables aléatoires discrètes indépendantes, qui ont une variance.
-1. Montre que $X^2$ et $Y^2$ sont indépendantes : pour toutes valeurs $u$ et $v$, exprime l'événement $\{X^2 = u\}$ avec des valeurs de $X$, et utilise l'indépendance de $X$ et $Y$.
-2. Déduis-en $\mathbb{E}[X^2Y^2] = \mathbb{E}[X^2]\,\mathbb{E}[Y^2]$ (M02b §5), puis $\mathbb{V}(XY) = \mathbb{E}[X^2]\,\mathbb{E}[Y^2] - \mathbb{E}[X]^2\,\mathbb{E}[Y]^2$.
-3. Développe pour obtenir $\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$.
-4. Montre que $\mathbb{V}(XY) \ge \mathbb{V}(X)\,\mathbb{V}(Y)$, et dis exactement quand il y a égalité.
+1. Montre que $X^2$ et $Y^2$ sont indépendantes : pour toutes valeurs $u$ et $v$, exprime l'événement $\lbrace X^2 = u\rbrace$ avec des valeurs de $X$, et utilise l'indépendance de $X$ et $Y$.
+2. Déduis-en $\mathbb{E}[X^2Y^2] = \mathbb{E}[X^2]\thinspace\mathbb{E}[Y^2]$ (M02b §5), puis $\mathbb{V}(XY) = \mathbb{E}[X^2]\thinspace\mathbb{E}[Y^2] - \mathbb{E}[X]^2\thinspace\mathbb{E}[Y]^2$.
+3. Développe pour obtenir $\mathbb{V}(XY) = \mathbb{V}(X)\thinspace\mathbb{V}(Y) + \mathbb{V}(X)\thinspace\mathbb{E}[Y]^2 + \mathbb{V}(Y)\thinspace\mathbb{E}[X]^2$.
+4. Montre que $\mathbb{V}(XY) \ge \mathbb{V}(X)\thinspace\mathbb{V}(Y)$, et dis exactement quand il y a égalité.
 5. Si $\mathbb{E}[X] \ne 0$ et $\mathbb{E}[Y] \ne 0$, montre que $1 + c_{XY}^2 = (1 + c_X^2)(1 + c_Y^2)$, où $c_Z = \frac{\sigma_Z}{\lvert\mathbb{E}[Z]\rvert}$.
 
 <a id="reflexion"></a>
@@ -256,7 +256,7 @@ $X$ et $Y$ sont deux variables aléatoires discrètes indépendantes, qui ont un
 **Objectif :** appliquer une application affine à plusieurs points d'un seul produit, avec le terme $\mathbf{1}\mathbf{b}^\top$, puis en coordonnées homogènes.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
-$\mathbf{W} = \begin{pmatrix} 2 & -1 & 0 \\ 1 & 3 & 1 \end{pmatrix}$, $\mathbf{b} = (1, 0, -2)$, et quatre points rangés en lignes dans $\mathbf{X} = \begin{pmatrix} 1 & 1 \\ 0 & 2 \\ -1 & 1 \\ 2 & 0 \end{pmatrix}$.
+$\mathbf{W} = \begin{pmatrix} 2 & -1 & 0 \cr 1 & 3 & 1 \end{pmatrix}$, $\mathbf{b} = (1, 0, -2)$, et quatre points rangés en lignes dans $\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 0 & 2 \cr -1 & 1 \cr 2 & 0 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -264,7 +264,7 @@ $\mathbf{W} = \begin{pmatrix} 2 & -1 & 0 \\ 1 & 3 & 1 \end{pmatrix}$, $\mathbf{b
 | b | la matrice $\mathbf{1}\mathbf{b}^\top$ | une matrice (liste de lignes) |
 | c | $\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top$ | une matrice (liste de lignes) |
 | d | la matrice homogène $\mathbf{H}$ de $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ | une matrice (liste de lignes) |
-| e | le produit $[\mathbf{X} \mid \mathbf{1}]\,\mathbf{H}$, où $[\mathbf{X} \mid \mathbf{1}]$ ajoute une colonne de uns à $\mathbf{X}$ | une matrice (liste de lignes) |
+| e | le produit $[\mathbf{X} \mid \mathbf{1}]\thinspace\mathbf{H}$, où $[\mathbf{X} \mid \mathbf{1}]$ ajoute une colonne de uns à $\mathbf{X}$ | une matrice (liste de lignes) |
 | f | le nombre de multiplications de $\mathbf{X}\mathbf{W}$ | un entier |
 
 Dans ta copie : pourquoi $\mathbf{1}\mathbf{b}^\top$ est-elle une matrice $4 \times 3$, et que fait NumPy à la place quand on écrit `X @ W + b` ? Que devient c) si l'on ajoute un cinquième point : quelles lignes changent ? Que montre e) ?

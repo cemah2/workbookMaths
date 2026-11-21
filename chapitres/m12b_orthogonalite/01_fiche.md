@@ -62,13 +62,13 @@ Vocabulaire anglais de ce chapitre : *inner product*, *bilinear mapping*, *symme
 1. Un **produit scalaire** est une application $\langle \cdot, \cdot \rangle$ **bilinéaire**, **symétrique** et **définie positive** ($\langle \mathbf{x}, \mathbf{x} \rangle > 0$ si $\mathbf{x} \ne \mathbf{0}$). Sur $\mathbb{R}^n$, ce sont exactement les $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top\mathbf{M}\mathbf{y}$ avec $\mathbf{M}$ symétrique définie positive. Il donne une norme, des distances, des angles, et Cauchy-Schwarz reste vrai.
 2. Une famille **orthonormée** est faite de vecteurs unitaires deux à deux orthogonaux ; une famille orthogonale de vecteurs non nuls est libre. Dans une **base orthonormée**, les coordonnées sont des produits scalaires : $c_i = \langle \mathbf{v}, \mathbf{q}_i \rangle$, et $\lVert \mathbf{v} \rVert^2 = \sum c_i^2$.
 3. Une matrice carrée $\mathbf{Q}$ est **orthogonale** si $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$ : ses colonnes sont orthonormées, $\mathbf{Q}^{-1} = \mathbf{Q}^\top$, et elle conserve produits scalaires, normes, angles et distances.
-4. **Gram-Schmidt** : à chaque vecteur $\mathbf{a}_k$, retirer ses projections sur $\mathbf{q}_1, \ldots, \mathbf{q}_{k-1}$, puis normer. On obtient une base orthonormée du même sous-espace.
+4. **Gram-Schmidt** : à chaque vecteur $\mathbf{a}_k$, retirer ses projections sur $\mathbf{q} _1, \ldots, \mathbf{q} _{k-1}$, puis normer. On obtient une base orthonormée du même sous-espace.
 5. Le **complément orthogonal** $U^\perp$ est l'ensemble des vecteurs orthogonaux à tout $U$ : un sous-espace, de dimension $n - \dim U$, et $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top$.
 6. Le **projeté orthogonal** $\mathbf{p}$ de $\mathbf{v}$ sur $U$ est l'unique point de $U$ tel que $\mathbf{v} - \mathbf{p} \perp U$ ; c'est le point de $U$ **le plus proche** de $\mathbf{v}$ (Pythagore).
-7. Avec une base orthonormée $\mathbf{Q}$ de $U$ : $\mathbf{p} = \mathbf{Q}\mathbf{Q}^\top\mathbf{v}$. Avec une base quelconque $\mathbf{A}$ : $\mathbf{A}^\top\mathbf{A}\,\mathbf{c} = \mathbf{A}^\top\mathbf{v}$ et $\mathbf{p} = \mathbf{A}\mathbf{c}$. La matrice de projection vérifie $\mathbf{P}^2 = \mathbf{P}$ et $\mathbf{P}^\top = \mathbf{P}$.
-8. Les **moindres carrés** cherchent le point de $\operatorname{Im}\mathbf{X}$ le plus proche de $\mathbf{y}$ : $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^*$ est le projeté de $\mathbf{y}$, et « résidu orthogonal aux colonnes » donne les équations normales.
+7. Avec une base orthonormée $\mathbf{Q}$ de $U$ : $\mathbf{p} = \mathbf{Q}\mathbf{Q}^\top\mathbf{v}$. Avec une base quelconque $\mathbf{A}$ : $\mathbf{A}^\top\mathbf{A}\thinspace\mathbf{c} = \mathbf{A}^\top\mathbf{v}$ et $\mathbf{p} = \mathbf{A}\mathbf{c}$. La matrice de projection vérifie $\mathbf{P}^2 = \mathbf{P}$ et $\mathbf{P}^\top = \mathbf{P}$.
+8. Les **moindres carrés** cherchent le point de $\operatorname{Im}\mathbf{X}$ le plus proche de $\mathbf{y}$ : $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^\ast$ est le projeté de $\mathbf{y}$, et « résidu orthogonal aux colonnes » donne les équations normales.
 9. **QR** : $\mathbf{A} = \mathbf{Q}\mathbf{R}$, colonnes de $\mathbf{Q}$ orthonormées (Gram-Schmidt), $\mathbf{R}$ triangulaire supérieure à diagonale positive. Les moindres carrés deviennent $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$, sans former $\mathbf{X}^\top\mathbf{X}$.
-10. Sur les fonctions continues de $[a ; b]$, $\langle f, g \rangle = \int_a^b f(x)\,g(x)\,dx$ est un produit scalaire : on y orthogonalise des polynômes et l'on y projette une fonction sur un sous-espace.
+10. Sur les fonctions continues de $[a ; b]$, $\langle f, g \rangle = \int_a^b f(x)\thinspace g(x)\thinspace dx$ est un produit scalaire : on y orthogonalise des polynômes et l'on y projette une fonction sur un sous-espace.
 
 ---
 
@@ -83,28 +83,28 @@ En M07, le produit scalaire usuel $\mathbf{x} \cdot \mathbf{y} = \sum_i x_iy_i$ 
 
 Un espace muni d'un produit scalaire est un **espace préhilbertien** (*inner product space*) ; en dimension finie, on dit aussi **espace euclidien**. Avec n'importe quel produit scalaire, on pose $\lVert \mathbf{x} \rVert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, $d(\mathbf{x}, \mathbf{y}) = \lVert \mathbf{x} - \mathbf{y} \rVert$, et l'**inégalité de Cauchy-Schwarz** reste vraie (M12b.13) :
 
-$$|\langle \mathbf{x}, \mathbf{y} \rangle| \le \lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert,$$
+$$|\langle \mathbf{x}, \mathbf{y} \rangle| \le \lVert \mathbf{x} \rVert\thinspace\lVert \mathbf{y} \rVert,$$
 
-ce qui permet de définir l'**angle** $\theta \in [0 ; \pi]$ par $\cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert}$, et l'orthogonalité par $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. L'inégalité triangulaire en découle. Changer de produit scalaire change donc les longueurs, les angles, et **ce qui est orthogonal**.
+ce qui permet de définir l'**angle** $\theta \in [0 ; \pi]$ par $\cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\lVert \mathbf{x} \rVert\thinspace\lVert \mathbf{y} \rVert}$, et l'orthogonalité par $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. L'inégalité triangulaire en découle. Changer de produit scalaire change donc les longueurs, les angles, et **ce qui est orthogonal**.
 
 ### Les produits scalaires de ℝⁿ : une matrice symétrique définie positive
 
 Soit $\mathbf{M}$ une matrice carrée **symétrique** ($\mathbf{M}^\top = \mathbf{M}$). On pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$. Cette formule est bilinéaire (c'est un produit de matrices) et symétrique ($\mathbf{x}^\top\mathbf{M}\mathbf{y}$ est un nombre, égal à sa transposée $\mathbf{y}^\top\mathbf{M}^\top\mathbf{x} = \mathbf{y}^\top\mathbf{M}\mathbf{x}$). C'est un produit scalaire exactement quand $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour tout $\mathbf{x} \ne \mathbf{0}$ : on dit que $\mathbf{M}$ est **symétrique définie positive** (*symmetric, positive definite*). Réciproquement, tout produit scalaire de $\mathbb{R}^n$ s'écrit ainsi, avec $M_{ij} = \langle \mathbf{e}_i, \mathbf{e}_j \rangle$ : développe $\langle \sum_i x_i\mathbf{e}_i, \sum_j y_j\mathbf{e}_j \rangle$ par bilinéarité. Le produit scalaire usuel est le cas $\mathbf{M} = \mathbf{I}$.
 
-**En dimension 2**, $\mathbf{M} = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ est définie positive si et seulement si $a > 0$ et $ac - b^2 > 0$. En effet, pour $a > 0$, en complétant le carré (R2) :
+**En dimension 2**, $\mathbf{M} = \begin{pmatrix} a & b \cr b & c \end{pmatrix}$ est définie positive si et seulement si $a > 0$ et $ac - b^2 > 0$. En effet, pour $a > 0$, en complétant le carré (R2) :
 
-$$\mathbf{x}^\top\mathbf{M}\mathbf{x} = a x_1^2 + 2b x_1x_2 + c x_2^2 = a\Big(x_1 + \frac{b}{a}x_2\Big)^2 + \frac{ac - b^2}{a}\,x_2^2,$$
+$$\mathbf{x}^\top\mathbf{M}\mathbf{x} = a x_1^2 + 2b x_1x_2 + c x_2^2 = a\Big(x_1 + \frac{b}{a}x_2\Big)^2 + \frac{ac - b^2}{a}\thinspace x_2^2,$$
 
 une somme de deux carrés à coefficients positifs, nulle seulement si $x_2 = 0$ puis $x_1 = 0$. Si $a \le 0$, $\mathbf{e}_1$ donne $a \le 0$ ; si $ac - b^2 \le 0$, le vecteur $(-b, a)$ donne $a(ac - b^2) \le 0$. (En dimension $n$, le critère passe par les valeurs propres : M12c.)
 
-**Exemple.** $\mathbf{M} = \begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$ : $a = 1 > 0$ et $ac - b^2 = 5 - 4 = 1 > 0$. En effet, $\mathbf{x}^\top\mathbf{M}\mathbf{x} = x_1^2 + 4x_1x_2 + 5x_2^2 = (x_1 + 2x_2)^2 + x_2^2$. Pour ce produit scalaire :
-- $\langle \mathbf{e}_1, \mathbf{e}_2 \rangle_{\mathbf{M}} = M_{12} = 2$ : $\mathbf{e}_1$ et $\mathbf{e}_2$ **ne sont pas** orthogonaux ;
-- $\lVert \mathbf{e}_1 \rVert_{\mathbf{M}} = 1$, $\lVert \mathbf{e}_2 \rVert_{\mathbf{M}} = \sqrt{5}$, et $\cos\theta = \frac{2}{\sqrt{5}} \approx 0{,}894$ : un angle d'environ $26{,}6°$ ;
-- $\mathbf{u} = (-2, 1)$ vérifie $\langle \mathbf{e}_1, \mathbf{u} \rangle_{\mathbf{M}} = (1, 0)\,\mathbf{M}\,(-2, 1)^\top = (1, 0) \cdot (0, 1) = 0$ et $\lVert \mathbf{u} \rVert_{\mathbf{M}}^2 = (-2 + 2)^2 + 1^2 = 1$ : $(\mathbf{e}_1, \mathbf{u})$ est une base **orthonormée** pour ce produit scalaire, alors que $\mathbf{e}_1$ et $\mathbf{u}$ font un angle obtus pour le produit usuel.
+**Exemple.** $\mathbf{M} = \begin{pmatrix} 1 & 2 \cr 2 & 5 \end{pmatrix}$ : $a = 1 > 0$ et $ac - b^2 = 5 - 4 = 1 > 0$. En effet, $\mathbf{x}^\top\mathbf{M}\mathbf{x} = x_1^2 + 4x_1x_2 + 5x_2^2 = (x_1 + 2x_2)^2 + x_2^2$. Pour ce produit scalaire :
+- $\langle \mathbf{e} _1, \mathbf{e} _2 \rangle _{\mathbf{M}} = M _{12} = 2$ : $\mathbf{e}_1$ et $\mathbf{e}_2$ **ne sont pas** orthogonaux ;
+- $\lVert \mathbf{e} _1 \rVert _{\mathbf{M}} = 1$, $\lVert \mathbf{e} _2 \rVert _{\mathbf{M}} = \sqrt{5}$, et $\cos\theta = \frac{2}{\sqrt{5}} \approx 0{,}894$ : un angle d'environ $26{,}6°$ ;
+- $\mathbf{u} = (-2, 1)$ vérifie $\langle \mathbf{e} _1, \mathbf{u} \rangle  _{\mathbf{M}} = (1, 0)\thinspace\mathbf{M}\thinspace(-2, 1)^\top = (1, 0) \cdot (0, 1) = 0$ et $\lVert \mathbf{u} \rVert _{\mathbf{M}}^2 = (-2 + 2)^2 + 1^2 = 1$ : $(\mathbf{e}_1, \mathbf{u})$ est une base **orthonormée** pour ce produit scalaire, alors que $\mathbf{e}_1$ et $\mathbf{u}$ font un angle obtus pour le produit usuel.
 
 ![À gauche, les vecteurs de norme 1 pour le produit usuel forment un cercle ; à droite, pour le produit défini par M, une ellipse, sur laquelle e₁ et (−2, 1) sont orthonormés](figures/produit_scalaire.png)
 
-**Contre-exemples.** $\mathbf{N} = \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix}$ est symétrique à coefficients positifs, mais $ac - b^2 = -1 < 0$ : pour $\mathbf{x} = (2, -1)$, $\mathbf{x}^\top\mathbf{N}\mathbf{x} = 4 - 8 + 3 = -1$. Un « produit » qui donne une norme au carré négative n'est pas un produit scalaire. À l'inverse, $\begin{pmatrix} 4 & -1 \\ -1 & 1 \end{pmatrix}$ a un coefficient négatif et définit un produit scalaire ($4 > 0$, $4 - 1 = 3 > 0$). Et $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1$ sur $\mathbb{R}^2$ est bilinéaire et symétrique, mais $\langle \mathbf{e}_2, \mathbf{e}_2 \rangle = 0$ : il n'est pas défini positif.
+**Contre-exemples.** $\mathbf{N} = \begin{pmatrix} 1 & 2 \cr 2 & 3 \end{pmatrix}$ est symétrique à coefficients positifs, mais $ac - b^2 = -1 < 0$ : pour $\mathbf{x} = (2, -1)$, $\mathbf{x}^\top\mathbf{N}\mathbf{x} = 4 - 8 + 3 = -1$. Un « produit » qui donne une norme au carré négative n'est pas un produit scalaire. À l'inverse, $\begin{pmatrix} 4 & -1 \cr -1 & 1 \end{pmatrix}$ a un coefficient négatif et définit un produit scalaire ($4 > 0$, $4 - 1 = 3 > 0$). Et $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1$ sur $\mathbb{R}^2$ est bilinéaire et symétrique, mais $\langle \mathbf{e}_2, \mathbf{e}_2 \rangle = 0$ : il n'est pas défini positif.
 
 ### En machine learning
 
@@ -120,7 +120,7 @@ une somme de deux carrés à coefficients positifs, nulle seulement si $x_2 = 0$
 
 Pour un produit scalaire donné, $\mathbf{x}$ et $\mathbf{y}$ sont **orthogonaux** (*orthogonal*) si $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Une famille $(\mathbf{u}_1, \ldots, \mathbf{u}_k)$ est **orthogonale** si ses vecteurs sont deux à deux orthogonaux, **orthonormée** (*orthonormal*) si de plus chacun est de norme 1 :
 
-$$\langle \mathbf{q}_i, \mathbf{q}_j \rangle = \begin{cases} 1 & \text{si } i = j, \\ 0 & \text{sinon.} \end{cases}$$
+$$\langle \mathbf{q}_i, \mathbf{q}_j \rangle = \begin{cases} 1 & \text{si } i = j, \cr 0 & \text{sinon.} \end{cases}$$
 
 Avec le produit usuel et les vecteurs en colonnes d'une matrice $\mathbf{Q}$, cela s'écrit d'un coup : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}_k$, puisque l'élément $(i, j)$ de $\mathbf{Q}^\top\mathbf{Q}$ est $\mathbf{q}_i \cdot \mathbf{q}_j$.
 
@@ -147,7 +147,7 @@ Une matrice **carrée** $\mathbf{Q}$ est **orthogonale** (*orthogonal matrix*) s
 - $\mathbf{Q}$ **conserve le produit scalaire** : $(\mathbf{Q}\mathbf{x}) \cdot (\mathbf{Q}\mathbf{y}) = \mathbf{x}^\top\mathbf{Q}^\top\mathbf{Q}\mathbf{y} = \mathbf{x} \cdot \mathbf{y}$, donc les normes, les distances et les angles (M12b.3) ;
 - un produit de matrices orthogonales est orthogonal, l'inverse aussi.
 
-La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \\ 2 & -2 & 1 \\ 1 & 2 & 2 \end{pmatrix}$ (les colonnes $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$), est orthogonale, et les coordonnées de $\mathbf{v}$ étaient $\mathbf{Q}^{-1}\mathbf{v} = \mathbf{Q}^\top\mathbf{v}$. Dans le plan, les rotations $\begin{pmatrix} \cos t & -\sin t \\ \sin t & \cos t \end{pmatrix}$ et les symétries par rapport à une droite par l'origine sont orthogonales ; dans $\mathbb{R}^n$, les matrices de permutation aussi.
+La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}$ (les colonnes $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$), est orthogonale, et les coordonnées de $\mathbf{v}$ étaient $\mathbf{Q}^{-1}\mathbf{v} = \mathbf{Q}^\top\mathbf{v}$. Dans le plan, les rotations $\begin{pmatrix} \cos t & -\sin t \cr \sin t & \cos t \end{pmatrix}$ et les symétries par rapport à une droite par l'origine sont orthogonales ; dans $\mathbb{R}^n$, les matrices de permutation aussi.
 
 **Des colonnes orthonormées, sans être carrée.** Si $\mathbf{Q}$ a la forme $(m, k)$ avec $k < m$ et des colonnes orthonormées, $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}_k$ reste vrai, mais $\mathbf{Q}\mathbf{Q}^\top \ne \mathbf{I}_m$ : c'est une matrice de rang $k$, et c'est la projection sur l'espace des colonnes (§5).
 
@@ -157,7 +157,7 @@ La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \\ 
 - Changer de base orthonormée pour exprimer des données est le cœur de l'ACP (workbookIA 12, M12d) : les nouvelles coordonnées sont des produits scalaires avec les nouveaux axes, et Parseval dit que la norme de chaque exemple (centré) est conservée quand on garde tous les axes.
 - En calcul numérique, multiplier par une matrice orthogonale n'amplifie pas les erreurs d'arrondi (les normes sont conservées) : c'est ce qui rend QR (§7) plus sûre que les équations normales. On initialise aussi certains réseaux avec des matrices orthogonales (workbookIA 16).
 
-⚠️ **Erreur classique.** Appeler « orthogonale » une matrice dont les colonnes sont seulement orthogonales : $\begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$ a des colonnes orthogonales de norme $\sqrt{2}$, et $\mathbf{A}^\top\mathbf{A} = 2\mathbf{I} \ne \mathbf{I}$. Il faut des colonnes **orthonormées**. Et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ n'a de sens que si $\mathbf{Q}$ est carrée.
+⚠️ **Erreur classique.** Appeler « orthogonale » une matrice dont les colonnes sont seulement orthogonales : $\begin{pmatrix} 1 & 1 \cr -1 & 1 \end{pmatrix}$ a des colonnes orthogonales de norme $\sqrt{2}$, et $\mathbf{A}^\top\mathbf{A} = 2\mathbf{I} \ne \mathbf{I}$. Il faut des colonnes **orthonormées**. Et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ n'a de sens que si $\mathbf{Q}$ est carrée.
 
 ## §3 · Le procédé de Gram-Schmidt
 
@@ -165,9 +165,9 @@ La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \\ 
 
 On part de vecteurs libres $\mathbf{a}_1, \ldots, \mathbf{a}_k$, et l'on veut une famille orthonormée $\mathbf{q}_1, \ldots, \mathbf{q}_k$ qui engendre les mêmes sous-espaces : $\operatorname{Vect}(\mathbf{q}_1, \ldots, \mathbf{q}_j) = \operatorname{Vect}(\mathbf{a}_1, \ldots, \mathbf{a}_j)$ pour chaque $j$. Le **procédé de Gram-Schmidt** (*Gram-Schmidt orthogonalization*) traite les vecteurs dans l'ordre :
 
-$$\mathbf{v}_k = \mathbf{a}_k - \sum_{j < k} \langle \mathbf{a}_k, \mathbf{q}_j \rangle\,\mathbf{q}_j, \qquad \mathbf{q}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}.$$
+$$\mathbf{v}_k = \mathbf{a} _k - \sum _{j < k} \langle \mathbf{a}_k, \mathbf{q}_j \rangle\thinspace\mathbf{q}_j, \qquad \mathbf{q}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}.$$
 
-À chaque étape, on retire de $\mathbf{a}_k$ ses projections sur les directions déjà construites (la partie de $\mathbf{a}_k$ « déjà expliquée » par $\mathbf{a}_1, \ldots, \mathbf{a}_{k-1}$) ; ce qui reste, $\mathbf{v}_k$, est orthogonal à $\mathbf{q}_1, \ldots, \mathbf{q}_{k-1}$, et on le norme. Si $\mathbf{v}_k = \mathbf{0}$, c'est que $\mathbf{a}_k$ combinait les précédents : la famille était liée. La démonstration complète (orthogonalité, même sous-espace, $\mathbf{v}_k \ne \mathbf{0}$) est M12b.15.
+À chaque étape, on retire de $\mathbf{a}_k$ ses projections sur les directions déjà construites (la partie de $\mathbf{a}_k$ « déjà expliquée » par $\mathbf{a} _1, \ldots, \mathbf{a} _{k-1}$) ; ce qui reste, $\mathbf{v}_k$, est orthogonal à $\mathbf{q} _1, \ldots, \mathbf{q} _{k-1}$, et on le norme. Si $\mathbf{v}_k = \mathbf{0}$, c'est que $\mathbf{a}_k$ combinait les précédents : la famille était liée. La démonstration complète (orthogonalité, même sous-espace, $\mathbf{v}_k \ne \mathbf{0}$) est M12b.15.
 
 ![Une étape de Gram-Schmidt dans le plan : a₂ moins sa projection sur q₁ donne v₂, orthogonal à q₁, puis q₂ = v₂/‖v₂‖](figures/gram_schmidt.png)
 
@@ -182,17 +182,17 @@ On retrouve la base orthonormée du §2. Vérifie à chaque étape que $\mathbf{
 
 ### Classique ou modifié : le même calcul, pas les mêmes arrondis
 
-La formule ci-dessus calcule toutes les projections de $\mathbf{a}_k$ **d'origine** : c'est le procédé **classique**. Le procédé **modifié** retire les projections **une à une** du vecteur courant : $\mathbf{v} \leftarrow \mathbf{a}_k$, puis, pour $j = 1, \ldots, k-1$, $\mathbf{v} \leftarrow \mathbf{v} - \langle \mathbf{v}, \mathbf{q}_j \rangle\,\mathbf{q}_j$. En calcul exact, c'est identique (le $\mathbf{q}_j$ est orthogonal à ce qu'on a déjà retiré). En virgule flottante, quand les vecteurs sont **presque dépendants**, le classique perd vite l'orthogonalité ($\mathbf{Q}^\top\mathbf{Q}$ s'éloigne de $\mathbf{I}$), le modifié beaucoup moins : M12b.28 et M12b.29 le mesurent. Le coût est le même, environ $2mk^2$ opérations pour $k$ vecteurs de $\mathbb{R}^m$ (M12b.22).
+La formule ci-dessus calcule toutes les projections de $\mathbf{a}_k$ **d'origine** : c'est le procédé **classique**. Le procédé **modifié** retire les projections **une à une** du vecteur courant : $\mathbf{v} \leftarrow \mathbf{a}_k$, puis, pour $j = 1, \ldots, k-1$, $\mathbf{v} \leftarrow \mathbf{v} - \langle \mathbf{v}, \mathbf{q}_j \rangle\thinspace\mathbf{q}_j$. En calcul exact, c'est identique (le $\mathbf{q}_j$ est orthogonal à ce qu'on a déjà retiré). En virgule flottante, quand les vecteurs sont **presque dépendants**, le classique perd vite l'orthogonalité ($\mathbf{Q}^\top\mathbf{Q}$ s'éloigne de $\mathbf{I}$), le modifié beaucoup moins : M12b.28 et M12b.29 le mesurent. Le coût est le même, environ $2mk^2$ opérations pour $k$ vecteurs de $\mathbb{R}^m$ (M12b.22).
 
 Gram-Schmidt marche pour **n'importe quel** produit scalaire : il suffit de remplacer partout $\cdot$ par $\langle \cdot, \cdot \rangle$ (M12b.5, et les fonctions au §8).
 
 ### En machine learning
 
 - **Ce qu'une feature apporte de nouveau.** Le vecteur $\mathbf{v}_k$ est la partie de la feature $\mathbf{a}_k$ que les précédentes n'expliquent pas linéairement. Si $\mathbf{v}_k$ est presque nul, la feature est presque redondante (M12a §4 et §6) ; M12b.18 s'en sert.
-- **Centrer, c'est une étape de Gram-Schmidt.** Si $\mathbf{a}_1 = \mathbf{1}$ (la colonne de 1 d'un modèle avec biais), $\mathbf{q}_1 = \mathbf{1}/\sqrt{n}$ et $\langle \mathbf{x}, \mathbf{q}_1 \rangle\,\mathbf{q}_1 = \bar{x}\,\mathbf{1}$ : retirer cette projection, c'est **centrer** la colonne (§7).
+- **Centrer, c'est une étape de Gram-Schmidt.** Si $\mathbf{a}_1 = \mathbf{1}$ (la colonne de 1 d'un modèle avec biais), $\mathbf{q}_1 = \mathbf{1}/\sqrt{n}$ et $\langle \mathbf{x}, \mathbf{q}_1 \rangle\thinspace\mathbf{q}_1 = \bar{x}\thinspace\mathbf{1}$ : retirer cette projection, c'est **centrer** la colonne (§7).
 - **Des features polynomiales.** $x, x^2, x^3, \ldots$ sont fortement liées sur un intervalle ; les orthogonaliser (§8) donne des features qui ne se « marchent pas dessus ».
 
-⚠️ **Erreur classique.** Oublier de normer $\mathbf{v}_k$, puis utiliser $\langle \mathbf{a}, \mathbf{v}_k \rangle\,\mathbf{v}_k$ comme si $\mathbf{v}_k$ était unitaire : la projection est fausse d'un facteur $\lVert \mathbf{v}_k \rVert^2$. Ou projeter sur les $\mathbf{a}_j$ d'origine au lieu des $\mathbf{q}_j$ : la somme de projections sur des vecteurs **non orthogonaux** n'est pas une projection.
+⚠️ **Erreur classique.** Oublier de normer $\mathbf{v}_k$, puis utiliser $\langle \mathbf{a}, \mathbf{v}_k \rangle\thinspace\mathbf{v}_k$ comme si $\mathbf{v}_k$ était unitaire : la projection est fausse d'un facteur $\lVert \mathbf{v}_k \rVert^2$. Ou projeter sur les $\mathbf{a}_j$ d'origine au lieu des $\mathbf{q}_j$ : la somme de projections sur des vecteurs **non orthogonaux** n'est pas une projection.
 
 ## §4 · Le complément orthogonal
 
@@ -200,7 +200,7 @@ Gram-Schmidt marche pour **n'importe quel** produit scalaire : il suffit de remp
 
 Soit $U$ un sous-espace de $\mathbb{R}^n$. Son **complément orthogonal** (*orthogonal complement*) est
 
-$$U^\perp = \{\mathbf{x} \in \mathbb{R}^n : \langle \mathbf{x}, \mathbf{u} \rangle = 0 \text{ pour tout } \mathbf{u} \in U\}.$$
+$$U^\perp = \lbrace\mathbf{x} \in \mathbb{R}^n : \langle \mathbf{x}, \mathbf{u} \rangle = 0 \text{ pour tout } \mathbf{u} \in U\rbrace.$$
 
 Il suffit de tester les vecteurs d'une famille génératrice de $U$ : si $\mathbf{x}$ est orthogonal à $\mathbf{a}_1, \ldots, \mathbf{a}_k$, il l'est à toute combinaison (bilinéarité). Avec le produit usuel et $U = \operatorname{Im}\mathbf{A}$ ($\mathbf{A} = [\mathbf{a}_1 \cdots \mathbf{a}_k]$), « $\mathbf{a}_j \cdot \mathbf{x} = 0$ pour tout $j$ » s'écrit $\mathbf{A}^\top\mathbf{x} = \mathbf{0}$ :
 
@@ -209,7 +209,7 @@ $$(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}^\top \qquad \text{(M12b.1
 Calculer un complément orthogonal, c'est donc calculer un **noyau**, par le pivot de Gauss (M12a §6).
 
 **Propriétés.**
-- $U^\perp$ est un sous-espace (c'est un noyau), et $U \cap U^\perp = \{\mathbf{0}\}$ : un vecteur orthogonal à lui-même est nul.
+- $U^\perp$ est un sous-espace (c'est un noyau), et $U \cap U^\perp = \lbrace\mathbf{0}\rbrace$ : un vecteur orthogonal à lui-même est nul.
 - $\dim U + \dim U^\perp = n$ : par le théorème du rang appliqué à $\mathbf{A}^\top$, de forme $(k, n)$ et de rang $\dim U$.
 - Tout $\mathbf{v}$ s'écrit **d'une seule façon** $\mathbf{v} = \mathbf{u} + \mathbf{w}$ avec $\mathbf{u} \in U$ et $\mathbf{w} \in U^\perp$ (le $\mathbf{u}$ est le projeté du §5) : on dit que $\mathbb{R}^n$ est la **somme directe orthogonale** de $U$ et $U^\perp$.
 - $(U^\perp)^\perp = U$.
@@ -220,7 +220,7 @@ Calculer un complément orthogonal, c'est donc calculer un **noyau**, par le piv
 
 ### En machine learning
 
-Un hyperplan par l'origine $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} = 0\}$ (la frontière d'un classifieur linéaire sans biais, M07, M10) est le complément orthogonal de la droite $\operatorname{Vect}(\mathbf{w})$ : $\mathbf{w}$ est son vecteur normal. Et dans une régression, les directions $\mathbf{y}$ que **aucun** choix de poids ne peut atteindre forment $(\operatorname{Im}\mathbf{X})^\perp = \ker\mathbf{X}^\top$ : c'est là que vit le résidu (§6).
+Un hyperplan par l'origine $\lbrace\mathbf{x} : \mathbf{w} \cdot \mathbf{x} = 0\rbrace$ (la frontière d'un classifieur linéaire sans biais, M07, M10) est le complément orthogonal de la droite $\operatorname{Vect}(\mathbf{w})$ : $\mathbf{w}$ est son vecteur normal. Et dans une régression, les directions $\mathbf{y}$ que **aucun** choix de poids ne peut atteindre forment $(\operatorname{Im}\mathbf{X})^\perp = \ker\mathbf{X}^\top$ : c'est là que vit le résidu (§6).
 
 ⚠️ **Erreur classique.** Confondre $U^\perp$ avec le **complémentaire** $\mathbb{R}^n \setminus U$ (tout ce qui n'est pas dans $U$). $U^\perp$ est un sous-espace, qui contient $\mathbf{0}$, et il est bien plus petit : pour un plan de $\mathbb{R}^3$, c'est une seule droite.
 
@@ -228,7 +228,7 @@ Un hyperplan par l'origine $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} = 0\}$ (l
 
 ### Sur une droite (rappel de M07)
 
-Le projeté de $\mathbf{v}$ sur la droite $\operatorname{Vect}(\mathbf{u})$ est $\mathbf{p} = \frac{\langle \mathbf{v}, \mathbf{u} \rangle}{\langle \mathbf{u}, \mathbf{u} \rangle}\,\mathbf{u}$, et $\mathbf{v} - \mathbf{p}$ est orthogonal à $\mathbf{u}$. Si $\mathbf{u}$ est unitaire, $\mathbf{p} = \langle \mathbf{v}, \mathbf{u} \rangle\,\mathbf{u}$ : le nombre $\langle \mathbf{v}, \mathbf{u} \rangle$ est la **coordonnée** de $\mathbf{p}$ sur la droite.
+Le projeté de $\mathbf{v}$ sur la droite $\operatorname{Vect}(\mathbf{u})$ est $\mathbf{p} = \frac{\langle \mathbf{v}, \mathbf{u} \rangle}{\langle \mathbf{u}, \mathbf{u} \rangle}\thinspace\mathbf{u}$, et $\mathbf{v} - \mathbf{p}$ est orthogonal à $\mathbf{u}$. Si $\mathbf{u}$ est unitaire, $\mathbf{p} = \langle \mathbf{v}, \mathbf{u} \rangle\thinspace\mathbf{u}$ : le nombre $\langle \mathbf{v}, \mathbf{u} \rangle$ est la **coordonnée** de $\mathbf{p}$ sur la droite.
 
 ### Sur un sous-espace : la caractérisation
 
@@ -246,20 +246,20 @@ avec égalité seulement si $\mathbf{u} = \mathbf{p}$ (M12b.17). La **distance**
 
 **Avec une base orthonormée** $\mathbf{q}_1, \ldots, \mathbf{q}_k$ de $U$ (les colonnes de $\mathbf{Q}$) : on additionne les projections sur chaque droite,
 
-$$\mathbf{p} = \sum_{i=1}^k \langle \mathbf{v}, \mathbf{q}_i \rangle\,\mathbf{q}_i = \mathbf{Q}\mathbf{Q}^\top\mathbf{v}.$$
+$$\mathbf{p} = \sum_{i=1}^k \langle \mathbf{v}, \mathbf{q}_i \rangle\thinspace\mathbf{q}_i = \mathbf{Q}\mathbf{Q}^\top\mathbf{v}.$$
 
-En effet, $\mathbf{p} \in U$, et $\langle \mathbf{v} - \mathbf{p}, \mathbf{q}_j \rangle = \langle \mathbf{v}, \mathbf{q}_j \rangle - \langle \mathbf{v}, \mathbf{q}_j \rangle = 0$ pour chaque $j$. Avec une base seulement **orthogonale**, $\mathbf{p} = \sum_i \frac{\langle \mathbf{v}, \mathbf{u}_i \rangle}{\lVert \mathbf{u}_i \rVert^2}\,\mathbf{u}_i$.
+En effet, $\mathbf{p} \in U$, et $\langle \mathbf{v} - \mathbf{p}, \mathbf{q}_j \rangle = \langle \mathbf{v}, \mathbf{q}_j \rangle - \langle \mathbf{v}, \mathbf{q}_j \rangle = 0$ pour chaque $j$. Avec une base seulement **orthogonale**, $\mathbf{p} = \sum_i \frac{\langle \mathbf{v}, \mathbf{u}_i \rangle}{\lVert \mathbf{u}_i \rVert^2}\thinspace\mathbf{u}_i$.
 
 **Avec une base quelconque** $\mathbf{a}_1, \ldots, \mathbf{a}_k$ (les colonnes de $\mathbf{A}$) : on cherche $\mathbf{p} = \mathbf{A}\mathbf{c}$, et « $\mathbf{v} - \mathbf{A}\mathbf{c}$ orthogonal à chaque colonne » s'écrit $\mathbf{A}^\top(\mathbf{v} - \mathbf{A}\mathbf{c}) = \mathbf{0}$ :
 
-$$\mathbf{A}^\top\mathbf{A}\,\mathbf{c} = \mathbf{A}^\top\mathbf{v}, \qquad \mathbf{p} = \mathbf{A}\mathbf{c} = \mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top\mathbf{v}.$$
+$$\mathbf{A}^\top\mathbf{A}\thinspace\mathbf{c} = \mathbf{A}^\top\mathbf{v}, \qquad \mathbf{p} = \mathbf{A}\mathbf{c} = \mathbf{A}(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top\mathbf{v}.$$
 
 $\mathbf{A}^\top\mathbf{A}$ est inversible car les colonnes sont libres (M09b). Ce sont les équations normales de M09b ; le §6 dit pourquoi.
 
 **Exemple.** On projette $\mathbf{v} = (2, 1, 6)$ sur le plan $U = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2)$ du §3.
 - *Avec la base orthonormée* : $\mathbf{v} \cdot \mathbf{q}_1 = \frac{1}{3}(4 + 2 + 6) = 4$ et $\mathbf{v} \cdot \mathbf{q}_2 = \frac{1}{3}(2 - 2 + 12) = 4$, donc $\mathbf{p} = 4\mathbf{q}_1 + 4\mathbf{q}_2 = \frac{4}{3}(3, 0, 3) = (4, 0, 4)$.
-- *Avec la base $\mathbf{a}_1, \mathbf{a}_2$* : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 9 & 3 \\ 3 & 17 \end{pmatrix}$ et $\mathbf{A}^\top\mathbf{v} = (12, 20)$ ; le système donne $\mathbf{c} = (1, 1)$, et $\mathbf{p} = \mathbf{a}_1 + \mathbf{a}_2 = (4, 0, 4)$.
-- *Par le complément* : $\mathbf{v} - \mathbf{p} = (-2, 1, 2)$ est bien sur la droite $U^\perp$ du §4 ; la distance de $\mathbf{v}$ au plan vaut $\lVert (-2, 1, 2) \rVert = 3$. On pouvait aussi retirer la composante normale : $\mathbf{p} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{q}_3)\,\mathbf{q}_3$, avec $\mathbf{v} \cdot \mathbf{q}_3 = 3$.
+- *Avec la base $\mathbf{a}_1, \mathbf{a}_2$* : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 9 & 3 \cr 3 & 17 \end{pmatrix}$ et $\mathbf{A}^\top\mathbf{v} = (12, 20)$ ; le système donne $\mathbf{c} = (1, 1)$, et $\mathbf{p} = \mathbf{a}_1 + \mathbf{a}_2 = (4, 0, 4)$.
+- *Par le complément* : $\mathbf{v} - \mathbf{p} = (-2, 1, 2)$ est bien sur la droite $U^\perp$ du §4 ; la distance de $\mathbf{v}$ au plan vaut $\lVert (-2, 1, 2) \rVert = 3$. On pouvait aussi retirer la composante normale : $\mathbf{p} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{q}_3)\thinspace\mathbf{q}_3$, avec $\mathbf{v} \cdot \mathbf{q}_3 = 3$.
 
 ![Le projeté p = (4, 0, 4) de v = (2, 1, 6) sur le plan U : v − p est orthogonal au plan, de longueur 3](figures/projection_plan.png)
 
@@ -271,11 +271,11 @@ $\mathbf{P} = \mathbf{Q}\mathbf{Q}^\top = \mathbf{A}(\mathbf{A}^\top\mathbf{A})^
 - $\mathbf{I} - \mathbf{P}$ est la projection sur $U^\perp$ ;
 - $\operatorname{Im}\mathbf{P} = U$, $\ker\mathbf{P} = U^\perp$, et $\operatorname{tr}\mathbf{P} = \operatorname{rg}\mathbf{P} = \dim U$ ($\operatorname{tr}(\mathbf{Q}\mathbf{Q}^\top) = \operatorname{tr}(\mathbf{Q}^\top\mathbf{Q}) = \operatorname{tr}\mathbf{I}_k = k$).
 
-Pour le plan de l'exemple, $\mathbf{P} = \mathbf{I} - \mathbf{q}_3\mathbf{q}_3^\top = \frac{1}{9}\begin{pmatrix} 5 & 2 & 4 \\ 2 & 8 & -2 \\ 4 & -2 & 5 \end{pmatrix}$, de trace $\frac{18}{9} = 2$. Une matrice idempotente mais **non symétrique**, comme $\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$, est une projection **oblique** : elle envoie sur une droite, mais pas perpendiculairement.
+Pour le plan de l'exemple, $\mathbf{P} = \mathbf{I} - \mathbf{q}_3\mathbf{q}_3^\top = \frac{1}{9}\begin{pmatrix} 5 & 2 & 4 \cr 2 & 8 & -2 \cr 4 & -2 & 5 \end{pmatrix}$, de trace $\frac{18}{9} = 2$. Une matrice idempotente mais **non symétrique**, comme $\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$, est une projection **oblique** : elle envoie sur une droite, mais pas perpendiculairement.
 
 ### En machine learning
 
-- **Centrer, c'est projeter.** Avec $\mathbf{1} = (1, \ldots, 1)$, la projection de $\mathbf{x}$ sur $\operatorname{Vect}(\mathbf{1})$ est $\bar{x}\,\mathbf{1}$ (le coefficient $\frac{\mathbf{x} \cdot \mathbf{1}}{n}$ est la moyenne), et $\mathbf{x} - \bar{x}\,\mathbf{1} = (\mathbf{I} - \frac{1}{n}\mathbf{1}\mathbf{1}^\top)\,\mathbf{x}$ est la projection sur $\mathbf{1}^\perp$. Un tableau centré vit dans $\mathbf{1}^\perp$, de dimension $n - 1$ : c'est pourquoi il perd un rang (M12a §4).
+- **Centrer, c'est projeter.** Avec $\mathbf{1} = (1, \ldots, 1)$, la projection de $\mathbf{x}$ sur $\operatorname{Vect}(\mathbf{1})$ est $\bar{x}\thinspace\mathbf{1}$ (le coefficient $\frac{\mathbf{x} \cdot \mathbf{1}}{n}$ est la moyenne), et $\mathbf{x} - \bar{x}\thinspace\mathbf{1} = (\mathbf{I} - \frac{1}{n}\mathbf{1}\mathbf{1}^\top)\thinspace\mathbf{x}$ est la projection sur $\mathbf{1}^\perp$. Un tableau centré vit dans $\mathbf{1}^\perp$, de dimension $n - 1$ : c'est pourquoi il perd un rang (M12a §4).
 - **Projeter, puis reconstruire.** Garder les coordonnées $\mathbf{Q}^\top\mathbf{x}$ sur $k$ directions orthonormées, c'est compresser $\mathbf{x}$ en $k$ nombres ; $\mathbf{Q}\mathbf{Q}^\top\mathbf{x}$ est la reconstruction, et l'erreur $\mathbf{x} - \mathbf{Q}\mathbf{Q}^\top\mathbf{x}$ est orthogonale aux directions gardées (M12b.19). L'ACP (workbookIA 12, M12d) choisit ces directions ; ce chapitre en donne la géométrie.
 
 ⚠️ **Erreur classique.** Écrire $\mathbf{P} = \mathbf{A}\mathbf{A}^\top$ avec une base $\mathbf{A}$ qui n'est pas orthonormée : ce n'est pas une projection ($\mathbf{P}^2 \ne \mathbf{P}$). $\mathbf{A}\mathbf{A}^\top$ n'est la projection que si $\mathbf{A}^\top\mathbf{A} = \mathbf{I}$ ; sinon, il faut le facteur $(\mathbf{A}^\top\mathbf{A})^{-1}$, ou orthonormaliser d'abord.
@@ -286,11 +286,11 @@ Pour le plan de l'exemple, $\mathbf{P} = \mathbf{I} - \mathbf{q}_3\mathbf{q}_3^\
 
 En M09b, on cherchait les poids $\mathbf{w}$ qui minimisent $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$, et le gradient donnait les équations normales. Voici la même chose sans dérivée. Quand $\mathbf{w}$ parcourt $\mathbb{R}^p$, les prédictions $\mathbf{X}\mathbf{w}$ parcourent le sous-espace $\operatorname{Im}\mathbf{X}$ de $\mathbb{R}^n$ (les combinaisons des colonnes, M12a). Minimiser $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$, c'est chercher **le point de $\operatorname{Im}\mathbf{X}$ le plus proche de $\mathbf{y}$** : c'est le projeté orthogonal (§5),
 
-$$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^* = \pi_{\operatorname{Im}\mathbf{X}}(\mathbf{y}).$$
+$$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^\ast = \pi_{\operatorname{Im}\mathbf{X}}(\mathbf{y}).$$
 
-Le résidu $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ est orthogonal à chaque colonne de $\mathbf{X}$ : $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$, ce qui **est** l'équation normale $\mathbf{X}^\top\mathbf{X}\,\mathbf{w}^* = \mathbf{X}^\top\mathbf{y}$. La matrice chapeau de M09b, $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, est la matrice de la projection sur $\operatorname{Im}\mathbf{X}$ : on comprend maintenant pourquoi $\mathbf{H}^2 = \mathbf{H}$, $\mathbf{H}^\top = \mathbf{H}$ et $\operatorname{tr}\mathbf{H} = p$. C'est le point de vue de MML §9.4 : l'estimateur des moindres carrés est une projection orthogonale.
+Le résidu $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ est orthogonal à chaque colonne de $\mathbf{X}$ : $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^\ast) = \mathbf{0}$, ce qui **est** l'équation normale $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w}^\ast = \mathbf{X}^\top\mathbf{y}$. La matrice chapeau de M09b, $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, est la matrice de la projection sur $\operatorname{Im}\mathbf{X}$ : on comprend maintenant pourquoi $\mathbf{H}^2 = \mathbf{H}$, $\mathbf{H}^\top = \mathbf{H}$ et $\operatorname{tr}\mathbf{H} = p$. C'est le point de vue de MML §9.4 : l'estimateur des moindres carrés est une projection orthogonale.
 
-**Exemple.** Quatre points $(x_i, y_i)$ : $x = (0, 1, 2, 3)$, $y = (2, 1, 4, 5)$, et une droite avec biais, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$. $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \\ 6 & 14 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (12, 24)$, d'où $\mathbf{w}^* = (1{,}2 ;\ 1{,}2)$ : la droite $1{,}2 + 1{,}2\,x$. Les prédictions sont $\hat{\mathbf{y}} = (1{,}2 ;\ 2{,}4 ;\ 3{,}6 ;\ 4{,}8)$ et le résidu $\mathbf{r} = (0{,}8 ;\ -1{,}4 ;\ 0{,}4 ;\ 0{,}2)$. Vérification de l'orthogonalité : $\mathbf{r} \cdot \mathbf{1} = 0{,}8 - 1{,}4 + 0{,}4 + 0{,}2 = 0$ et $\mathbf{r} \cdot \mathbf{x} = 0 - 1{,}4 + 0{,}8 + 0{,}6 = 0$. Et Pythagore : $\lVert \mathbf{y} \rVert^2 = 46 = 43{,}2 + 2{,}8 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{r} \rVert^2$.
+**Exemple.** Quatre points $(x_i, y_i)$ : $x = (0, 1, 2, 3)$, $y = (2, 1, 4, 5)$, et une droite avec biais, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$. $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \cr 6 & 14 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (12, 24)$, d'où $\mathbf{w}^\ast = (1{,}2 ;\ 1{,}2)$ : la droite $1{,}2 + 1{,}2\thinspace x$. Les prédictions sont $\hat{\mathbf{y}} = (1{,}2 ;\ 2{,}4 ;\ 3{,}6 ;\ 4{,}8)$ et le résidu $\mathbf{r} = (0{,}8 ;\ -1{,}4 ;\ 0{,}4 ;\ 0{,}2)$. Vérification de l'orthogonalité : $\mathbf{r} \cdot \mathbf{1} = 0{,}8 - 1{,}4 + 0{,}4 + 0{,}2 = 0$ et $\mathbf{r} \cdot \mathbf{x} = 0 - 1{,}4 + 0{,}8 + 0{,}6 = 0$. Et Pythagore : $\lVert \mathbf{y} \rVert^2 = 46 = 43{,}2 + 2{,}8 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{r} \rVert^2$.
 
 ![À gauche, les quatre points, la droite ajustée et les résidus verticaux ; à droite, le schéma dans ℝⁿ : ŷ est le projeté de y sur le sous-espace Im X, et le résidu lui est orthogonal](figures/moindres_carres.png)
 
@@ -311,31 +311,31 @@ Le résidu $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ est orthogonal à chaque
 
 Appliquons Gram-Schmidt aux colonnes libres $\mathbf{a}_1, \ldots, \mathbf{a}_n$ d'une matrice $\mathbf{A}$ de forme $(m, n)$. Chaque $\mathbf{a}_k$ est dans $\operatorname{Vect}(\mathbf{q}_1, \ldots, \mathbf{q}_k)$, et ses coordonnées dans la base orthonormée sont des produits scalaires :
 
-$$\mathbf{a}_k = \sum_{j \le k} r_{jk}\,\mathbf{q}_j, \qquad r_{jk} = \langle \mathbf{q}_j, \mathbf{a}_k \rangle \ (j < k), \qquad r_{kk} = \lVert \mathbf{v}_k \rVert > 0.$$
+$$\mathbf{a} _k = \sum  _{j \le k} r _{jk}\thinspace\mathbf{q} _j, \qquad r _{jk} = \langle \mathbf{q}_j, \mathbf{a} _k \rangle \ (j < k), \qquad r _{kk} = \lVert \mathbf{v}_k \rVert > 0.$$
 
-Rangé en matrices : $\mathbf{A} = \mathbf{Q}\mathbf{R}$, avec $\mathbf{Q} = [\mathbf{q}_1 \cdots \mathbf{q}_n]$ de forme $(m, n)$, à colonnes orthonormées, et $\mathbf{R}$ de forme $(n, n)$, **triangulaire supérieure** à diagonale positive. C'est la **décomposition QR** (*QR decomposition*), forme réduite. On a aussi $\mathbf{R} = \mathbf{Q}^\top\mathbf{A}$ (multiplie $\mathbf{A} = \mathbf{Q}\mathbf{R}$ par $\mathbf{Q}^\top$). Avec la convention $r_{kk} > 0$, elle est unique.
+Rangé en matrices : $\mathbf{A} = \mathbf{Q}\mathbf{R}$, avec $\mathbf{Q} = [\mathbf{q}_1 \cdots \mathbf{q} _n]$ de forme $(m, n)$, à colonnes orthonormées, et $\mathbf{R}$ de forme $(n, n)$, **triangulaire supérieure** à diagonale positive. C'est la **décomposition QR** (*QR decomposition*), forme réduite. On a aussi $\mathbf{R} = \mathbf{Q}^\top\mathbf{A}$ (multiplie $\mathbf{A} = \mathbf{Q}\mathbf{R}$ par $\mathbf{Q}^\top$). Avec la convention $r _{kk} > 0$, elle est unique.
 
-**Exemple.** Pour la matrice $\mathbf{A} = [\mathbf{a}_1\ \mathbf{a}_2\ \mathbf{a}_3]$ du §3, les coefficients sont ceux qu'on a calculés : $r_{11} = 3$ ; $r_{12} = 1$ et $r_{22} = 4$ ; $r_{13} = 3$, $r_{23} = 2$ et $r_{33} = 1$ :
+**Exemple.** Pour la matrice $\mathbf{A} = [\mathbf{a} _1\ \mathbf{a} _2\ \mathbf{a} _3]$ du §3, les coefficients sont ceux qu'on a calculés : $r  _{11} = 3$ ; $r  _{12} = 1$ et $r  _{22} = 4$ ; $r _{13} = 3$, $r _{23} = 2$ et $r _{33} = 1$ :
 
-$$\begin{pmatrix} 2 & 2 & 2 \\ 2 & -2 & 1 \\ 1 & 3 & 3 \end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \\ 2 & -2 & 1 \\ 1 & 2 & 2 \end{pmatrix}\begin{pmatrix} 3 & 1 & 3 \\ 0 & 4 & 2 \\ 0 & 0 & 1 \end{pmatrix}.$$
+$$\begin{pmatrix} 2 & 2 & 2 \cr 2 & -2 & 1 \cr 1 & 3 & 3 \end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}\begin{pmatrix} 3 & 1 & 3 \cr 0 & 4 & 2 \cr 0 & 0 & 1 \end{pmatrix}.$$
 
-La colonne 2 de $\mathbf{R}$ dit $\mathbf{a}_2 = 1\,\mathbf{q}_1 + 4\,\mathbf{q}_2$ : vérifie-le.
+La colonne 2 de $\mathbf{R}$ dit $\mathbf{a}_2 = 1\thinspace\mathbf{q}_1 + 4\thinspace\mathbf{q}_2$ : vérifie-le.
 
 La forme **complète** ajoute des colonnes à $\mathbf{Q}$ jusqu'à une matrice orthogonale $(m, m)$ (une base orthonormée de $(\operatorname{Im}\mathbf{A})^\perp$) et des lignes nulles à $\mathbf{R}$ ; `np.linalg.qr(A)` rend la forme réduite, et `mode="complete"` la forme complète.
 
 ### Les moindres carrés par QR
 
-Avec $\mathbf{X} = \mathbf{Q}\mathbf{R}$ : $\mathbf{X}^\top\mathbf{X} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{Q}\mathbf{R} = \mathbf{R}^\top\mathbf{R}$ et $\mathbf{X}^\top\mathbf{y} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{y}$. Les équations normales deviennent $\mathbf{R}^\top\mathbf{R}\,\mathbf{w} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{y}$, et comme $\mathbf{R}^\top$ est inversible :
+Avec $\mathbf{X} = \mathbf{Q}\mathbf{R}$ : $\mathbf{X}^\top\mathbf{X} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{Q}\mathbf{R} = \mathbf{R}^\top\mathbf{R}$ et $\mathbf{X}^\top\mathbf{y} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{y}$. Les équations normales deviennent $\mathbf{R}^\top\mathbf{R}\thinspace\mathbf{w} = \mathbf{R}^\top\mathbf{Q}^\top\mathbf{y}$, et comme $\mathbf{R}^\top$ est inversible :
 
-$$\mathbf{R}\,\mathbf{w}^* = \mathbf{Q}^\top\mathbf{y}.$$
+$$\mathbf{R}\thinspace\mathbf{w}^\ast = \mathbf{Q}^\top\mathbf{y}.$$
 
 C'est un système **triangulaire supérieur** : la dernière ligne donne $w_p$, l'avant-dernière $w_{p-1}$, et ainsi de suite en **remontant** (*back substitution*). Géométriquement, $\mathbf{Q}^\top\mathbf{y}$ sont les coordonnées du projeté $\hat{\mathbf{y}}$ dans la base orthonormée $\mathbf{q}_1, \ldots, \mathbf{q}_p$ de $\operatorname{Im}\mathbf{X}$, et $\mathbf{R}$ les traduit en poids.
 
 **Exemple : la droite du §6 par QR.** $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$, $\mathbf{x} = (0, 1, 2, 3)$.
-1. $\lVert \mathbf{1} \rVert = 2$ : $\mathbf{q}_1 = \frac{1}{2}(1, 1, 1, 1)$, $r_{11} = 2$.
-2. $r_{12} = \mathbf{q}_1 \cdot \mathbf{x} = \frac{6}{2} = 3$, et $\mathbf{v}_2 = \mathbf{x} - 3\,\mathbf{q}_1 = \mathbf{x} - 1{,}5 \cdot \mathbf{1} = (-1{,}5 ;\ -0{,}5 ;\ 0{,}5 ;\ 1{,}5)$ : **la colonne $\mathbf{x}$ centrée** ; $r_{22} = \lVert \mathbf{v}_2 \rVert = \sqrt{5}$ et $\mathbf{q}_2 = \mathbf{v}_2/\sqrt{5}$.
+1. $\lVert \mathbf{1} \rVert = 2$ : $\mathbf{q} _1 = \frac{1}{2}(1, 1, 1, 1)$, $r _{11} = 2$.
+2. $r_{12} = \mathbf{q}_1 \cdot \mathbf{x} = \frac{6}{2} = 3$, et $\mathbf{v}_2 = \mathbf{x} - 3\thinspace\mathbf{q} _1 = \mathbf{x} - 1{,}5 \cdot \mathbf{1} = (-1{,}5 ;\ -0{,}5 ;\ 0{,}5 ;\ 1{,}5)$ : **la colonne $\mathbf{x}$ centrée** ; $r _{22} = \lVert \mathbf{v}_2 \rVert = \sqrt{5}$ et $\mathbf{q}_2 = \mathbf{v}_2/\sqrt{5}$.
 3. $\mathbf{Q}^\top\mathbf{y} = \big(\frac{12}{2},\ \frac{\mathbf{v}_2 \cdot \mathbf{y}}{\sqrt{5}}\big) = \big(6,\ \frac{6}{\sqrt{5}}\big)$, car $\mathbf{v}_2 \cdot \mathbf{y} = -3 - 0{,}5 + 2 + 7{,}5 = 6$.
-4. On remonte : $\sqrt{5}\,w_2 = \frac{6}{\sqrt{5}}$ donne $w_2 = 1{,}2$ ; puis $2w_1 + 3 \times 1{,}2 = 6$ donne $w_1 = 1{,}2$. C'est bien la droite du §6.
+4. On remonte : $\sqrt{5}\thinspace w_2 = \frac{6}{\sqrt{5}}$ donne $w_2 = 1{,}2$ ; puis $2w_1 + 3 \times 1{,}2 = 6$ donne $w_1 = 1{,}2$. C'est bien la droite du §6.
 
 ### Pourquoi QR plutôt que les équations normales
 
@@ -355,20 +355,20 @@ Les régressions linéaires des bibliothèques ne forment jamais $\mathbf{X}^\to
 
 Sur l'espace des fonctions continues sur $[a ; b]$ (un espace vectoriel, M12a §1), on pose
 
-$$\langle f, g \rangle = \int_a^b f(x)\,g(x)\,dx.$$
+$$\langle f, g \rangle = \int_a^b f(x)\thinspace g(x)\thinspace dx.$$
 
 C'est un produit scalaire : bilinéaire (linéarité de l'intégrale, M02a), symétrique, et $\langle f, f \rangle = \int_a^b f^2 > 0$ pour une fonction continue non nulle (une fonction continue positive d'intégrale nulle est nulle). C'est le prolongement naturel de $\sum_i f_ig_i$ quand l'indice $i$ devient une variable continue $x$. On en tire une norme, $\lVert f \rVert = \sqrt{\int_a^b f^2}$, et une distance, $\lVert f - g \rVert$, qui mesure un écart **moyen** sur tout l'intervalle. Tout le chapitre s'applique : orthogonalité, Gram-Schmidt, projection.
 
 **Exemple, sur $[0 ; 1]$.**
-- $\langle 1, x \rangle = \int_0^1 x\,dx = \frac{1}{2}$ : les fonctions $1$ et $x$ ne sont pas orthogonales. $\lVert 1 \rVert = 1$ et $\lVert x \rVert^2 = \int_0^1 x^2\,dx = \frac{1}{3}$.
-- Gram-Schmidt : $q_0 = 1$, puis $x - \langle x, 1 \rangle\,1 = x - \frac{1}{2}$, orthogonal à 1 ($\int_0^1 (x - \frac{1}{2})\,dx = 0$), de norme au carré $\int_0^1 (x - \frac{1}{2})^2\,dx = \frac{1}{12}$.
-- Projeter $x^2$ sur $\operatorname{Vect}(1, x)$, avec la base orthogonale $(1, x - \frac{1}{2})$ : $\frac{\langle x^2, 1 \rangle}{\lVert 1 \rVert^2} = \frac{1}{3}$ et $\frac{\langle x^2, x - 1/2 \rangle}{\lVert x - 1/2 \rVert^2} = \frac{1/4 - 1/6}{1/12} = 1$. Le projeté est $\frac{1}{3} + (x - \frac{1}{2}) = x - \frac{1}{6}$ : **la droite la plus proche de $x^2$** sur $[0 ; 1]$, au sens où $\int_0^1 (x^2 - g(x))^2\,dx$ est minimal parmi les fonctions affines $g$. L'écart vaut $\int_0^1 (x^2 - x + \frac{1}{6})^2\,dx = \frac{1}{180}$.
+- $\langle 1, x \rangle = \int_0^1 x\thinspace dx = \frac{1}{2}$ : les fonctions $1$ et $x$ ne sont pas orthogonales. $\lVert 1 \rVert = 1$ et $\lVert x \rVert^2 = \int_0^1 x^2\thinspace dx = \frac{1}{3}$.
+- Gram-Schmidt : $q_0 = 1$, puis $x - \langle x, 1 \rangle\thinspace1 = x - \frac{1}{2}$, orthogonal à 1 ($\int_0^1 (x - \frac{1}{2})\thinspace dx = 0$), de norme au carré $\int_0^1 (x - \frac{1}{2})^2\thinspace dx = \frac{1}{12}$.
+- Projeter $x^2$ sur $\operatorname{Vect}(1, x)$, avec la base orthogonale $(1, x - \frac{1}{2})$ : $\frac{\langle x^2, 1 \rangle}{\lVert 1 \rVert^2} = \frac{1}{3}$ et $\frac{\langle x^2, x - 1/2 \rangle}{\lVert x - 1/2 \rVert^2} = \frac{1/4 - 1/6}{1/12} = 1$. Le projeté est $\frac{1}{3} + (x - \frac{1}{2}) = x - \frac{1}{6}$ : **la droite la plus proche de $x^2$** sur $[0 ; 1]$, au sens où $\int_0^1 (x^2 - g(x))^2\thinspace dx$ est minimal parmi les fonctions affines $g$. L'écart vaut $\int_0^1 (x^2 - x + \frac{1}{6})^2\thinspace dx = \frac{1}{180}$.
 
 C'est exactement une régression aux moindres carrés, avec une infinité de « points » répartis sur $[0 ; 1]$ : comparer avec M12b.10, qui fait la même chose avec cinq points.
 
 ![À gauche, 1 et x ne sont pas orthogonales sur [0 ; 1], mais 1 et x − 1/2 le sont ; à droite, x² et son projeté x − 1/6 sur les fonctions affines](figures/fonctions.png)
 
-**L'intervalle fait partie du produit scalaire.** Sur $[-1 ; 1]$, $\langle 1, x \rangle = 0$ : les fonctions paires et impaires y sont orthogonales, et orthogonaliser $1, x, x^2, \ldots$ y donne d'autres polynômes (M12b.12). On peut aussi mettre un poids dans l'intégrale, $\int_a^b f\,g\,\omega$, comme les poids des exemples au §1. MML §3.7 donne un autre exemple célèbre de famille orthogonale, faite de fonctions trigonométriques : c'est le point de départ des séries de Fourier.
+**L'intervalle fait partie du produit scalaire.** Sur $[-1 ; 1]$, $\langle 1, x \rangle = 0$ : les fonctions paires et impaires y sont orthogonales, et orthogonaliser $1, x, x^2, \ldots$ y donne d'autres polynômes (M12b.12). On peut aussi mettre un poids dans l'intégrale, $\int_a^b f\thinspace g\thinspace\omega$, comme les poids des exemples au §1. MML §3.7 donne un autre exemple célèbre de famille orthogonale, faite de fonctions trigonométriques : c'est le point de départ des séries de Fourier.
 
 ### En machine learning
 
@@ -376,7 +376,7 @@ C'est exactement une régression aux moindres carrés, avec une infinité de « 
 - **Approcher une fonction**, c'est la projeter sur un sous-espace de fonctions simples ; l'erreur au sens de $\int (f - g)^2$ est une erreur quadratique moyenne sur tout l'intervalle.
 - **Les encodages par des sinus et des cosinus** (de positions, de temps) utilisent des familles de fonctions presque orthogonales, qui se distinguent bien les unes des autres.
 
-⚠️ **Erreur classique.** Croire que deux fonctions sont orthogonales « en soi ». L'orthogonalité dépend de l'intervalle (et du poids) : $x$ et $x^2$ sont orthogonales sur $[-1 ; 1]$ ($\int_{-1}^1 x^3\,dx = 0$), pas sur $[0 ; 1]$ ($\int_0^1 x^3\,dx = \frac{1}{4}$).
+⚠️ **Erreur classique.** Croire que deux fonctions sont orthogonales « en soi ». L'orthogonalité dépend de l'intervalle (et du poids) : $x$ et $x^2$ sont orthogonales sur $[-1 ; 1]$ ($\int_{-1}^1 x^3\thinspace dx = 0$), pas sur $[0 ; 1]$ ($\int_0^1 x^3\thinspace dx = \frac{1}{4}$).
 
 🔗 **Dans workbookIA** — le chapitre 12 projette des données sur des directions orthonormées (l'ACP), mesure ce qu'on perd en reconstruisant, et centre les colonnes avant tout. Ce chapitre t'en a donné la géométrie : bases orthonormées et coordonnées par produits scalaires (§2), projection et point le plus proche (§5), Pythagore, centrage comme projection. Le choix des directions (les valeurs propres) vient en M12c, la SVD en M12d.
 

@@ -61,7 +61,7 @@
 ## 🔁 Rappels
 
 ### M08.R1 — La loi binomiale (M02b)
-1. $\binom{5}{2}\,0{,}4^2 \times 0{,}6^3 = 10 \times 0{,}16 \times 0{,}216 = 0{,}3456$.
+1. $\binom{5}{2}\thinspace0{,}4^2 \times 0{,}6^3 = 10 \times 0{,}16 \times 0{,}216 = 0{,}3456$.
 2. $np = 2$.
 3. $np(1 - p) = 1{,}2$.
 4. $1 - 0{,}6^5 = 1 - 0{,}07776 = 0{,}92224$.
@@ -128,10 +128,10 @@ Pour la copie : quelles que soient les mesures (toutes différentes), la répart
 **Réponses** : a) `"235/8192"` · b) `0.698` · c) `0.302` · d) `"1471/16384"` · e) `0.870` · f) `11`.
 
 **Démarche.** Sous $H_0$, $K \sim \mathcal{B}(14, \frac{1}{2})$ ; sous l'alternative, $K \sim \mathcal{B}(14 ;\ 0{,}8)$.
-- a) $P_{H_0}(K \ge 11) = \frac{\binom{14}{11} + \binom{14}{12} + \binom{14}{13} + \binom{14}{14}}{2^{14}} = \frac{364 + 91 + 14 + 1}{16\,384} = \frac{470}{16\,384} = \frac{235}{8192} \approx 0{,}0287$.
-- b) $P_{0{,}8}(K \ge 11) = \sum_{j=11}^{14}\binom{14}{j}0{,}8^j\,0{,}2^{14-j} \approx 0{,}2501 + 0{,}2501 + 0{,}1539 + 0{,}0440 \approx 0{,}698$.
+- a) $P_{H_0}(K \ge 11) = \frac{\binom{14}{11} + \binom{14}{12} + \binom{14}{13} + \binom{14}{14}}{2^{14}} = \frac{364 + 91 + 14 + 1}{16\thinspace384} = \frac{470}{16\thinspace384} = \frac{235}{8192} \approx 0{,}0287$.
+- b) $P_{0{,}8}(K \ge 11) = \sum_{j=11}^{14}\binom{14}{j}0{,}8^j\thinspace0{,}2^{14-j} \approx 0{,}2501 + 0{,}2501 + 0{,}1539 + 0{,}0440 \approx 0{,}698$.
 - c) $\beta = 1 - 0{,}698 = 0{,}302$.
-- d) On ajoute $K = 10$ : $\frac{470 + 1001}{16\,384} = \frac{1471}{16\,384} \approx 0{,}0898$.
+- d) On ajoute $K = 10$ : $\frac{470 + 1001}{16\thinspace384} = \frac{1471}{16\thinspace384} \approx 0{,}0898$.
 - e) On ajoute $P_{0{,}8}(K = 10) \approx 0{,}1720$ : $\approx 0{,}870$.
 - f) La règle $K \ge 10$ a un risque de 0,090 > 0,05, la règle $K \ge 11$ de 0,029 : $c = 11$.
 
@@ -145,7 +145,7 @@ Pour la copie : passer de $K \ge 11$ à $K \ge 10$ gagne de la puissance (0,698 
 
 **Réponses** : a) `1.645` · b) `0.842` · c) `99` · d) `126` · e) `396` · f) `0.44`.
 
-**Démarche.** La formule de la fiche (§4) : $n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\Big)^2$.
+**Démarche.** La formule de la fiche (§4) : $n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\thinspace\sigma}{\delta}\Big)^2$.
 - a) $z_{0{,}95} \approx 1{,}645$ ; b) $z_{0{,}80} \approx 0{,}842$.
 - c) $\big((1{,}645 + 0{,}842) \times \frac{8}{2}\big)^2 = (9{,}948)^2 \approx 98{,}96$ : on arrondit **au-dessus**, 99.
 - d) En bilatéral, $z_{0{,}975} = 1{,}960$ : $\big(2{,}802 \times 4\big)^2 \approx 125{,}6$, soit 126.
@@ -235,8 +235,8 @@ Pour la copie : $\mathrm{AIC}_1 - \mathrm{AIC}_2 = 2(\ln L_2 - \ln L_1) - 2(k_2 
 **Réponses** : a) `0.107` · b) `0.125` · c) `1.17` · d) `0.28` · e) `"1/41"` · f) `4.4`.
 
 **Démarche.**
-- a) $P(6 \mid M_A) = \binom{40}{6}\,0{,}1^6\,0{,}9^{34} \approx 3\,838\,380 \times 10^{-6} \times 0{,}02781 \approx 0{,}107$.
-- b) $\binom{40}{6}\,0{,}2^6\,0{,}8^{34} \approx 0{,}125$.
+- a) $P(6 \mid M_A) = \binom{40}{6}\thinspace0{,}1^6\thinspace0{,}9^{34} \approx 3\thinspace838\thinspace380 \times 10^{-6} \times 0{,}02781 \approx 0{,}107$.
+- b) $\binom{40}{6}\thinspace0{,}2^6\thinspace0{,}8^{34} \approx 0{,}125$.
 - c) $\mathrm{BF}_{BA} = \frac{0{,}1246}{0{,}1068} \approx 1{,}17$ (le coefficient binomial se simplifie : $2^6 \times \big(\frac{8}{9}\big)^{34}$).
 - d) Cote a posteriori $= 1{,}167 \times \frac{1}{3} \approx 0{,}389$, probabilité $\frac{0{,}389}{1{,}389} \approx 0{,}28$.
 - e) En moyennant $\binom{40}{6}p^6(1 - p)^{34}$ sur $p$ uniforme, on trouve la même valeur pour chacun des 41 résultats possibles (0 à 40 clics), comme pour la pièce de la fiche : $\frac{1}{41}$.
@@ -256,7 +256,7 @@ Pour la copie : la vraisemblance est maximale en $\hat{p} = \frac{6}{40} = 0{,}1
 
 **Réponse modèle.**
 1. Pour une observation $t$, la p-valeur est $P_{H_0}(T \ge t) = 1 - P_{H_0}(T < t) = 1 - F(t)$, car $P(T = t) = 0$ pour une loi continue. Vue comme une variable aléatoire (on remplace $t$ par $T$) : $P = 1 - F(T)$.
-2. $F$ est continue et strictement croissante : c'est une bijection de l'ensemble des valeurs de $T$ sur $]0, 1[$. Pour $v \in\, ]0, 1[$, $F(T) \le v \iff T \le F^{-1}(v)$, donc $P\big(F(T) \le v\big) = F\big(F^{-1}(v)\big) = v$ ; pour $v = 0$ et $v = 1$, les deux membres valent 0 et 1. Alors $P(P \le u) = P\big(F(T) \ge 1 - u\big) = 1 - P\big(F(T) < 1 - u\big) = 1 - (1 - u) = u$, car $F(T)$ a une loi continue (uniforme), et $P\big(F(T) = 1 - u\big) = 0$. La p-valeur suit la loi uniforme sur $[0, 1]$.
+2. $F$ est continue et strictement croissante : c'est une bijection de l'ensemble des valeurs de $T$ sur $]0, 1[$. Pour $v \in\thinspace ]0, 1[$, $F(T) \le v \iff T \le F^{-1}(v)$, donc $P\big(F(T) \le v\big) = F\big(F^{-1}(v)\big) = v$ ; pour $v = 0$ et $v = 1$, les deux membres valent 0 et 1. Alors $P(P \le u) = P\big(F(T) \ge 1 - u\big) = 1 - P\big(F(T) < 1 - u\big) = 1 - (1 - u) = u$, car $F(T)$ a une loi continue (uniforme), et $P\big(F(T) = 1 - u\big) = 0$. La p-valeur suit la loi uniforme sur $[0, 1]$.
 3. Le risque de type I est $P_{H_0}(\text{rejeter}) = P_{H_0}(P \le \alpha) = \alpha$, exactement.
 4. Pour $K \sim \mathcal{B}(3, \frac{1}{2})$ : $k = 0$ donne $p = 1$ (probabilité $\frac{1}{8}$), $k = 1$ donne $\frac{7}{8}$ (probabilité $\frac{3}{8}$), $k = 2$ donne $\frac{1}{2}$ ($\frac{3}{8}$), $k = 3$ donne $\frac{1}{8}$ ($\frac{1}{8}$). $P(P \le 0{,}2) = P(K = 3) = \frac{1}{8} = 0{,}125 < 0{,}2$. Pour une loi discrète, on a seulement $P(P \le u) \le u$ : le test est **conservateur**, son risque réel est au plus le seuil annoncé.
 5. Sous $H_0$, un histogramme **plat** (aux fluctuations près, environ 500 p-valeurs par barre de largeur 0,05). Sous une alternative, les p-valeurs s'entassent près de 0, d'autant plus que la puissance est grande (M08.21).
@@ -268,18 +268,18 @@ Pour la copie : la vraisemblance est maximale en $\hat{p} = \frac{6}{40} = 0{,}1
 **Réponse modèle.**
 1. $A \cup B$ est la réunion **disjointe** de $A$ et de $B \setminus A$ : $P(A \cup B) = P(A) + P(B \setminus A) \le P(A) + P(B)$, car $B \setminus A \subset B$.
 2. Pour $m = 1$, c'est une égalité. Si l'inégalité est vraie pour $m$ événements, alors $P(A_1 \cup \cdots \cup A_{m+1}) = P\big((A_1 \cup \cdots \cup A_m) \cup A_{m+1}\big) \le P(A_1 \cup \cdots \cup A_m) + P(A_{m+1}) \le P(A_1) + \cdots + P(A_{m+1})$, par 1 puis par l'hypothèse de récurrence.
-3. Pour chacune des $m_0$ hypothèses nulles vraies, soit $A_i$ l'événement « on rejette $H_{0,i}$ » : comme le test est au seuil $\frac{\alpha}{m}$ et que $H_{0,i}$ est vraie, $P(A_i) \le \frac{\alpha}{m}$. Par 2, $P(\text{au moins un faux rejet}) \le m_0\,\frac{\alpha}{m} \le \alpha$. L'indépendance n'a servi **nulle part** : l'inégalité de Boole est vraie pour des événements quelconques.
+3. Pour chacune des $m_0$ hypothèses nulles vraies, soit $A_i$ l'événement « on rejette $H_{0,i}$ » : comme le test est au seuil $\frac{\alpha}{m}$ et que $H_{0,i}$ est vraie, $P(A_i) \le \frac{\alpha}{m}$. Par 2, $P(\text{au moins un faux rejet}) \le m_0\thinspace\frac{\alpha}{m} \le \alpha$. L'indépendance n'a servi **nulle part** : l'inégalité de Boole est vraie pour des événements quelconques.
 4. Quand les événements sont deux à deux incompatibles (plus précisément, quand $P(A_i \cap A_j) = 0$ pour $i \ne j$) : rien n'est compté deux fois.
 5. Pour $m = 1$, égalité. Si $(1 - x)^m \ge 1 - mx$, alors, comme $1 - x \ge 0$, $(1 - x)^{m+1} \ge (1 - mx)(1 - x) = 1 - (m + 1)x + mx^2 \ge 1 - (m + 1)x$. Avec $x = \frac{\alpha}{m}$ : $1 - \big(1 - \frac{\alpha}{m}\big)^m \le 1 - (1 - \alpha) = \alpha$, la même garantie.
-6. Si $m\,p_i \ge 1$, la p-valeur ajustée vaut 1, plus grand que $\alpha$, et $p_i \ge \frac{1}{m} > \frac{\alpha}{m}$ : les deux règles ne rejettent pas. Sinon, $\min(1, m\,p_i) = m\,p_i \le \alpha \iff p_i \le \frac{\alpha}{m}$. Les deux règles prennent les mêmes décisions.
+6. Si $m\thinspace p_i \ge 1$, la p-valeur ajustée vaut 1, plus grand que $\alpha$, et $p_i \ge \frac{1}{m} > \frac{\alpha}{m}$ : les deux règles ne rejettent pas. Sinon, $\min(1, m\thinspace p_i) = m\thinspace p_i \le \alpha \iff p_i \le \frac{\alpha}{m}$. Les deux règles prennent les mêmes décisions.
 
 **Grille.** (1) la réunion disjointe ; (2) une récurrence complète (initialisation, hérédité, utilisation de 1) ; (3) les événements bien définis, $m_0 \le m$, et la remarque sur l'indépendance ; (4) le cas d'égalité ; (5) la récurrence, avec l'argument $1 - x \ge 0$ pour multiplier une inégalité ; (6) les deux cas.
 
 ### Ex M08.12 — L'intervalle de Wilson, en inversant le test d'une proportion
 
 **Réponse modèle.**
-1. Les deux membres de $|\hat{p} - p_0| \le z\sqrt{\frac{p_0(1 - p_0)}{n}}$ sont positifs ou nuls : on peut les élever au carré sans changer le sens, $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\,p_0(1 - p_0)$.
-2. $\hat{p}^2 - 2\hat{p}p_0 + p_0^2 \le \frac{z^2}{n}p_0 - \frac{z^2}{n}p_0^2$, soit $a\,p_0^2 + b\,p_0 + c \le 0$ avec $a = 1 + \frac{z^2}{n}$, $b = -\big(2\hat{p} + \frac{z^2}{n}\big)$, $c = \hat{p}^2$.
+1. Les deux membres de $|\hat{p} - p_0| \le z\sqrt{\frac{p_0(1 - p_0)}{n}}$ sont positifs ou nuls : on peut les élever au carré sans changer le sens, $(\hat{p} - p_0)^2 \le \frac{z^2}{n}\thinspace p_0(1 - p_0)$.
+2. $\hat{p}^2 - 2\hat{p}p_0 + p_0^2 \le \frac{z^2}{n}p_0 - \frac{z^2}{n}p_0^2$, soit $a\thinspace p_0^2 + b\thinspace p_0 + c \le 0$ avec $a = 1 + \frac{z^2}{n}$, $b = -\big(2\hat{p} + \frac{z^2}{n}\big)$, $c = \hat{p}^2$.
 3. $\Delta = \big(2\hat{p} + \frac{z^2}{n}\big)^2 - 4\big(1 + \frac{z^2}{n}\big)\hat{p}^2 = \frac{4z^2}{n}\hat{p}(1 - \hat{p}) + \frac{z^4}{n^2} = 4z^2\Big(\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}\Big) \ge 0$. Comme $a > 0$, le trinôme est négatif ou nul entre ses racines : $p_0 = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$, la formule de la fiche.
 4. Le trinôme vaut $c = \hat{p}^2 \ge 0$ en 0 et $a + b + c = (1 - \hat{p})^2 \ge 0$ en 1. Son sommet, $-\frac{b}{2a} = \frac{2\hat{p} + z^2/n}{2(1 + z^2/n)}$, est entre 0 et 1 (car $2\hat{p} \le 2 + \frac{z^2}{n}$). Le trinôme est négatif entre les racines et positif ou nul en 0 et en 1, de part et d'autre du sommet : 0 est à gauche de la petite racine, et 1 à droite de la grande. Les deux bornes sont dans $[0, 1]$.
 5. Pour $k = 0$, $c = 0$ : les racines sont 0 et $\frac{z^2/n}{1 + z^2/n} = \frac{z^2}{n + z^2}$. L'intervalle est $\big[0 ;\ \frac{z^2}{n + z^2}\big]$, de largeur non nulle (Wald donnait $[0, 0]$).
@@ -316,7 +316,7 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 2. Le livre met une loi a priori sur les **modèles** eux-mêmes, en plus de celle des paramètres de chaque modèle. Il compare les modèles par leur probabilité a posteriori, proportionnelle à la loi a priori du modèle fois $p(\mathcal{D} \mid M_k)$, la vraisemblance moyennée sur les paramètres : l'*evidence* (*model evidence*) ou *marginal likelihood*.
 3. Un modèle très souple peut expliquer beaucoup de datasets différents : sa probabilité, qui fait 1 au total, est répartie sur eux tous, et chacun en reçoit peu. Pour la pièce de la fiche (7 faces sur 10), le modèle « probabilité inconnue » donne $\frac{1}{11}$ à chacun des 11 résultats, alors que le modèle « pièce équilibrée » concentre sa probabilité près de 5 faces et donne 0,117 à 7 faces : le modèle simple l'emporte, sans pénalité ajoutée à la main.
 4. Cote a posteriori $=$ facteur de Bayes $\times$ cote a priori : $4 \times \frac{1}{2} = 2$, et la probabilité a posteriori du premier modèle vaut $\frac{2}{1 + 2} = \frac{2}{3}$.
-5. L'**intégrale** sur les paramètres, $\int p(\mathcal{D} \mid \boldsymbol{\theta})\,p(\boldsymbol{\theta} \mid M)\,d\boldsymbol{\theta}$, souvent impossible à calculer exactement en grande dimension. $M_A$ et $M_B$ n'ont aucun paramètre libre (le taux est fixé) : leur évidence est simplement la vraisemblance.
+5. L'**intégrale** sur les paramètres, $\int p(\mathcal{D} \mid \boldsymbol{\theta})\thinspace p(\boldsymbol{\theta} \mid M)\thinspace d\boldsymbol{\theta}$, souvent impossible à calculer exactement en grande dimension. $M_A$ et $M_B$ n'ont aucun paramètre libre (le taux est fixé) : leur évidence est simplement la vraisemblance.
 6. Par exemple *nested cross-validation* (validation croisée imbriquée), *marginal likelihood* (vraisemblance marginale), *prior odds* et *posterior odds* (cotes a priori et a posteriori), *Occam's razor* (rasoir d'Occam).
 
 **Grille.** (1) le rôle des deux boucles, et les données sur lesquelles la boucle extérieure mesure la performance ; (2) la loi a priori sur les modèles et les deux noms de $p(\mathcal{D} \mid M)$ ; (3) l'argument « la probabilité totale vaut 1 » et l'exemple de la pièce ; (4) la relation et les deux calculs ; (5) l'intégrale, et l'absence de paramètre libre pour $M_A$ et $M_B$ ; (6) trois mots traduits. Les réponses sont écrites avec tes mots, pas recopiées.
@@ -349,7 +349,7 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 
 **Réponses** : a) `0.0106` · b) `0.0213` · c) `0.0142` · d) `0.02` · e) `"ValueError"` · f) `"float"`.
 
-**Démarche.** Les vérifications d'abord (`n` entier au moins 1, `k` entier entre 0 et `n`, `0 < p < 1`, `alternative` connue) ; puis les probabilités $P(K = j)$ avec `math.comb(n, j) * p ** j * (1 - p) ** (n - j)`. `"greater"` : la somme pour $j \ge k$ ; `"less"` : pour $j \le k$ ; `"two-sided"` : la somme des $P(K = j)$ qui vérifient `P(K = j) <= P(K = k) * (1 + 1e-7)`, puis `min(1.0, ...)`. Pour la copie : a) $\frac{560 + 120 + 16 + 1}{65\,536} = \frac{697}{65\,536}$ ; b) le double, car la loi $\mathcal{B}(16, \frac{1}{2})$ est symétrique ; d) la loi $\mathcal{B}(15 ;\ 0{,}3)$ ne l'est pas : seules $j = 0$ et $j = 9$ à 15 sont au plus aussi probables que $j = 9$, d'où 0,0200 et non $2 \times 0{,}0152 = 0{,}0305$.
+**Démarche.** Les vérifications d'abord (`n` entier au moins 1, `k` entier entre 0 et `n`, `0 < p < 1`, `alternative` connue) ; puis les probabilités $P(K = j)$ avec `math.comb(n, j) * p ** j * (1 - p) ** (n - j)`. `"greater"` : la somme pour $j \ge k$ ; `"less"` : pour $j \le k$ ; `"two-sided"` : la somme des $P(K = j)$ qui vérifient `P(K = j) <= P(K = k) * (1 + 1e-7)`, puis `min(1.0, ...)`. Pour la copie : a) $\frac{560 + 120 + 16 + 1}{65\thinspace536} = \frac{697}{65\thinspace536}$ ; b) le double, car la loi $\mathcal{B}(16, \frac{1}{2})$ est symétrique ; d) la loi $\mathcal{B}(15 ;\ 0{,}3)$ ne l'est pas : seules $j = 0$ et $j = 9$ à 15 sont au plus aussi probables que $j = 9$, d'où 0,0200 et non $2 \times 0{,}0152 = 0{,}0305$.
 
 **Erreurs fréquentes.** Commencer la somme à $k + 1$ (a : 0,0021) ; doubler la p-valeur unilatérale pour $p \ne \frac{1}{2}$ (d : 0,0305) ; oublier le plafond à 1 ; comparer les probabilités avec `<` strict ou sans tolérance (les arrondis font perdre l'issue observée elle-même, ou une issue de même probabilité de l'autre côté) ; ne pas lever d'erreur pour $k > n$ (`math.comb(3, 4)` vaut 0, et la fonction renverrait un nombre).
 
@@ -357,7 +357,7 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 
 **Réponses** : a) `0.019` · b) `0.026` · c) `0.002` · d) `"ValueError"` · e) `"float"`.
 
-**Démarche.** Les deux échantillons en tableaux de flottants (une `ValueError` s'ils sont vides), les vérifications de `n_permutations` et de `alternative`, puis : `observed = x.mean() - y.mean()`, `pooled = np.concatenate([x, y])`, `rng = np.random.default_rng(seed)` **une seule fois** ; dans la boucle, `perm = rng.permutation(pooled)` et `t_perm = perm[:len(x)].mean() - perm[len(x):].mean()` ; le compte selon `alternative` avec la tolérance $10^{-9}$ ; enfin `float((count + 1) / (n_permutations + 1))`. Pour la copie : $C = 37$ en a), d'où $\frac{38}{2000}$, contre $\frac{2}{126} \approx 0{,}0159$ exactement : l'écart (0,003) vaut un peu plus d'une erreur type, $\sqrt{0{,}0159 \times 0{,}984/1999} \approx 0{,}0028$. En c), aucun tirage n'atteint l'écart observé : $\frac{0 + 1}{500}$, la plus petite p-valeur possible avec 499 permutations. Pour descendre plus bas, il faut plus de permutations (ou parcourir les $\binom{16}{8} = 12\,870$ répartitions).
+**Démarche.** Les deux échantillons en tableaux de flottants (une `ValueError` s'ils sont vides), les vérifications de `n_permutations` et de `alternative`, puis : `observed = x.mean() - y.mean()`, `pooled = np.concatenate([x, y])`, `rng = np.random.default_rng(seed)` **une seule fois** ; dans la boucle, `perm = rng.permutation(pooled)` et `t_perm = perm[:len(x)].mean() - perm[len(x):].mean()` ; le compte selon `alternative` avec la tolérance $10^{-9}$ ; enfin `float((count + 1) / (n_permutations + 1))`. Pour la copie : $C = 37$ en a), d'où $\frac{38}{2000}$, contre $\frac{2}{126} \approx 0{,}0159$ exactement : l'écart (0,003) vaut un peu plus d'une erreur type, $\sqrt{0{,}0159 \times 0{,}984/1999} \approx 0{,}0028$. En c), aucun tirage n'atteint l'écart observé : $\frac{0 + 1}{500}$, la plus petite p-valeur possible avec 499 permutations. Pour descendre plus bas, il faut plus de permutations (ou parcourir les $\binom{16}{8} = 12\thinspace870$ répartitions).
 
 **Erreurs fréquentes.** Recréer le générateur à chaque tour de boucle (toutes les permutations sont alors identiques) ; mélanger les indices au lieu des valeurs, ou mélanger `x` et `y` séparément (la suite des tirages change, et les tests de la procédure échouent) ; oublier le $+1$ (c : 0) ; comparer sans tolérance (une permutation égale à l'observation peut être perdue par un arrondi) ; prendre la valeur absolue en unilatéral.
 
@@ -373,7 +373,7 @@ Pour la copie : mélanger une colonne garde ses valeurs (sa moyenne, sa dispersi
 
 **Réponses** : a) `[0.008, 0.12, 0.8, 0.044]` · b) `[1.0, 1.0]` · c) `[122.6, 133.75]` · d) `"ValueError"` · e) `"ndarray"`.
 
-**Démarche.** `bonferroni` : `p = np.array(p_values, dtype=float)`, les vérifications (une dimension, non vide, chaque valeur dans $[0, 1]$), puis `np.minimum(1.0, p * p.size)`. `aic_bic` : `(float(2 * k - 2 * ll), float(k * math.log(n) - 2 * ll))`. Pour la copie : au risque de la famille de 5 %, le premier et le quatrième test rejettent (0,008 et 0,044). $m\,p_i$ peut dépasser 1, qui n'est pas une probabilité. En c), le BIC fait payer chaque paramètre $\ln 120 \approx 4{,}79$, l'AIC 2 : $\ln n > 2$ dès que $n \ge 8$.
+**Démarche.** `bonferroni` : `p = np.array(p_values, dtype=float)`, les vérifications (une dimension, non vide, chaque valeur dans $[0, 1]$), puis `np.minimum(1.0, p * p.size)`. `aic_bic` : `(float(2 * k - 2 * ll), float(k * math.log(n) - 2 * ll))`. Pour la copie : au risque de la famille de 5 %, le premier et le quatrième test rejettent (0,008 et 0,044). $m\thinspace p_i$ peut dépasser 1, qui n'est pas une probabilité. En c), le BIC fait payer chaque paramètre $\ln 120 \approx 4{,}79$, l'AIC 2 : $\ln n > 2$ dès que $n \ge 8$.
 
 **Erreurs fréquentes.** Diviser au lieu de multiplier (a) ; oublier le plafond (b : 1,4) ; `math.log10` au lieu de `math.log` (c) ; un signe perdu devant $2\ln L$ ; l'ordre (BIC, AIC).
 
@@ -409,7 +409,7 @@ Sous $H_0$, la p-valeur d'un test à statistique continue est uniforme (M08.10) 
 
 **Réponses** : a) `"ACE"` · b) `[0.001, 0.015, 0.012, 1.96, 0.072, 0.127]`.
 
-**Démarche.** (A) annonce $\frac{0}{999} = 0$ : la bonne p-valeur est $\frac{C + 1}{B + 1} = 0{,}001$. (B) est juste : $\frac{3060 + 816 + 153 + 18 + 1}{2^{18}} = \frac{4048}{262\,144} \approx 0{,}015$. (C) divise au lieu de multiplier : $\min(1, 3 \times 0{,}004) = 0{,}012$. (D) est juste : 1,960. (E) ne compte qu'un côté : $2\big(1 - \Phi(1{,}8)\big) \approx 0{,}072$, pas 0,036. (F) est juste : $1{,}96\sqrt{0{,}21/50} \approx 0{,}127$. Pour la copie : prendre toujours le côté où tombe $z$, c'est choisir le test unilatéral après coup ; la règle « rejeter si $1 - \Phi(|z|) \le 0{,}05$ » rejette dès que $|z| \ge 1{,}645$, ce qui arrive avec la probabilité 0,10 sous $H_0$ : le double du seuil annoncé.
+**Démarche.** (A) annonce $\frac{0}{999} = 0$ : la bonne p-valeur est $\frac{C + 1}{B + 1} = 0{,}001$. (B) est juste : $\frac{3060 + 816 + 153 + 18 + 1}{2^{18}} = \frac{4048}{262\thinspace144} \approx 0{,}015$. (C) divise au lieu de multiplier : $\min(1, 3 \times 0{,}004) = 0{,}012$. (D) est juste : 1,960. (E) ne compte qu'un côté : $2\big(1 - \Phi(1{,}8)\big) \approx 0{,}072$, pas 0,036. (F) est juste : $1{,}96\sqrt{0{,}21/50} \approx 0{,}127$. Pour la copie : prendre toujours le côté où tombe $z$, c'est choisir le test unilatéral après coup ; la règle « rejeter si $1 - \Phi(|z|) \le 0{,}05$ » rejette dès que $|z| \ge 1{,}645$, ce qui arrive avec la probabilité 0,10 sous $H_0$ : le double du seuil annoncé.
 
 **Erreurs fréquentes.** Citer (B) parce que la somme commence à 14 (elle doit commencer à 14 pour $P(K \ge 14)$) ; citer (D) en pensant au 1,645 d'un test unilatéral ; oublier (E), qui « a l'air » d'une p-valeur.
 

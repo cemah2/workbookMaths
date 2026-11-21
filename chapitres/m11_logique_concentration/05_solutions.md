@@ -25,7 +25,7 @@
 6. **Faux** : si les prémisses sont contradictoires (« $P$ ; non $P$ »), aucune ligne ne les rend vraies, et l'argument est valide sans qu'aucune ligne ne compte.
 
 ### M11.Q3 — Diagrammes de Venn et quantificateurs
-1. **Oui** : $A = \{10, 20, 30, 40\}$, tous multiples de 5.
+1. **Oui** : $A = \lbrace10, 20, 30, 40\rbrace$, tous multiples de 5.
 2. **Non** : 5 est multiple de 5 et n'est pas multiple de 10 (15, 25 et 35 aussi).
 3. $A \cap C = \varnothing$ : un élément commun serait multiple de 70, et $E$ s'arrête à 40.
 4. **Faux** : 14 est multiple de 7 et pair (28 aussi).
@@ -33,12 +33,12 @@
 6. $\lvert A \cup C \rvert = 4 + 5 - 0 = 9$.
 
 ### M11.Q4 — Les pièges de l'induction
-1. **Non** : $40^2 + 40 + 41 = 1\,681 = 41^2$. Quarante exemples ne démontrent pas un « pour tout ».
+1. **Non** : $40^2 + 40 + 41 = 1\thinspace681 = 41^2$. Quarante exemples ne démontrent pas un « pour tout ».
 2. **Faux** : 95 % est $P(\text{alerte} \mid \text{cas})$ ; la part des alertes vraies, $P(\text{cas} \mid \text{alerte})$, dépend du taux de base, et peut être faible si les cas sont rares.
 3. Par exemple : les entreprises déjà en croissance ont les moyens d'adopter de nouveaux outils (un facteur de confusion, ou la causalité dans l'autre sens) ; on ne regarde que les entreprises encore ouvertes (un biais du survivant) ; tout le marché a progressé cette année-là (une évolution qui aurait eu lieu de toute façon).
 4. **Faux** : des volontaires ne sont pas tirés au hasard ; le biais de sélection ne diminue pas avec la taille.
 5. **Faux** : une récurrence est une déduction (l'hérédité est démontrée pour tout $n$).
-6. À 95 %, $p$ est inférieur à environ $\frac{3}{300} = 1\,\%$ ; on ne peut pas dire qu'il est nul.
+6. À 95 %, $p$ est inférieur à environ $\frac{3}{300} = 1$ % ; on ne peut pas dire qu'il est nul.
 
 ### M11.Q5 — Markov ou Tchebychev : quelle borne s'applique ?
 1. $\frac{5}{20} = 0{,}25$.
@@ -52,7 +52,7 @@
 1. **Faux** : aucune loi n'est supposée, seulement des variables bornées et indépendantes.
 2. **Vrai**.
 3. Il est **divisé par 2** (le rayon est en $\frac{1}{\sqrt{n}}$).
-4. Par $\frac{\ln(2/0{,}0005)}{\ln(2/0{,}05)} = \frac{\ln 4\,000}{\ln 40} \approx 2{,}25$ : diviser le risque par 100 ne coûte qu'un peu plus du double.
+4. Par $\frac{\ln(2/0{,}0005)}{\ln(2/0{,}05)} = \frac{\ln 4\thinspace000}{\ln 40} \approx 2{,}25$ : diviser le risque par 100 ne coûte qu'un peu plus du double.
 5. **Faux** : l'accuracy du meilleur des 25 n'est pas celle d'un modèle fixé d'avance ; il faut la borne de l'union, avec $\frac{0{,}05}{25} = 0{,}002$ pour chacun.
 6. **Faux** : Hoeffding demande un intervalle $[a, b]$ connu à l'avance.
 
@@ -62,7 +62,7 @@
 3. **Vrai** : le bonus $\sqrt{2\ln t / N}$ diminue quand $N$ augmente (à $t$ donné).
 4. **Faux** : Thompson **tire** une valeur dans chaque loi a posteriori ; une option de moyenne plus basse mais incertaine gagne parfois le tirage.
 5. **Vrai** : $\frac{\ln T}{T} \to 0$.
-6. **Faux** : $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$, avec chaque $\Delta_k \ge 0$ : le regret est une espérance qui compare des **moyennes**, pas les récompenses tirées ; la chance change les récompenses, pas le regret.
+6. **Faux** : $R_T = \sum_k \Delta_k\thinspace\mathbb{E}[N_k(T)]$, avec chaque $\Delta_k \ge 0$ : le regret est une espérance qui compare des **moyennes**, pas les récompenses tirées ; la chance change les récompenses, pas le regret.
 
 <a id="rappels"></a>
 
@@ -78,14 +78,14 @@
 ### M11.R2 — Espérance et variance (M02b)
 1. $\mathbb{E}[T] = \frac{1}{0{,}5} = 2$ et $\mathbb{V}(T) = \frac{1}{0{,}5^2} = 4$.
 2. $p$ et $p(1 - p)$ ; la variance est la plus grande pour $p = \frac{1}{2}$, où elle vaut $\frac{1}{4}$.
-3. $\mathbb{V}(aX + b) = a^2\,\mathbb{V}(X)$.
+3. $\mathbb{V}(aX + b) = a^2\thinspace\mathbb{V}(X)$.
 4. $\mathbb{E}[\bar{X}] = \mu$ et $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}$.
 5. $\mathbb{E}[S] = 40 \times 0{,}3 = 12$ et $\mathbb{V}(S) = 40 \times 0{,}3 \times 0{,}7 = 8{,}4$.
 
 ### M11.R3 — La loi Beta a posteriori (M04)
 1. $\mathrm{Beta}(3, 10)$.
 2. $\frac{3}{13} \approx 0{,}231$.
-3. $\frac{3 \times 10}{13^2 \times 14} = \frac{30}{2\,366} \approx 0{,}0127$.
+3. $\frac{3 \times 10}{13^2 \times 14} = \frac{30}{2\thinspace366} \approx 0{,}0127$.
 4. $\mathrm{Beta}(28, 50)$, de moyenne $\frac{28}{78} \approx 0{,}359$ ; sa variance, $\frac{28 \times 50}{78^2 \times 79} \approx 0{,}0029$, est plus de quatre fois plus petite : $a + b$ a grandi, et l'incertitude sur $\theta$ diminue avec les données.
 5. `rng = np.random.default_rng(0)`, puis `rng.beta(3, 10)`.
 
@@ -134,12 +134,12 @@ Pour la copie : non $S_1$ : « il existe un modèle et un dataset sur lequel ce 
 **Réponses** : a) `[5, 10]` · b) `True` · c) `3` · d) `5` · e) `[3]` · f) `True` · g) `5` · h) `10`.
 
 **Démarche.**
-- a) $A = \{6, 12, 18, 24, 30\}$ ; $B = \{3, 6, \ldots, 30\}$, dix éléments.
+- a) $A = \lbrace6, 12, 18, 24, 30\rbrace$ ; $B = \lbrace3, 6, \ldots, 30\rbrace$, dix éléments.
 - b) $6k = 3 \times 2k$ : $A \subset B$.
-- c) et d) $B \setminus A = \{3, 9, 15, 21, 27\}$, les multiples de 3 impairs ; le plus petit est 3.
+- c) et d) $B \setminus A = \lbrace3, 9, 15, 21, 27\rbrace$, les multiples de 3 impairs ; le plus petit est 3.
 - e) Le seul premier multiple de 3 est 3.
 - f) Un multiple de 6 est divisible par 2 et par 3 : jamais premier. $P \cap A = \varnothing$.
-- g) $Q = \{4, 8, 12, 16, 20, 24, 28\}$ ; $Q \cap A = \{12, 24\}$ ; $Q \setminus A$ a 5 éléments.
+- g) $Q = \lbrace4, 8, 12, 16, 20, 24, 28\rbrace$ ; $Q \cap A = \lbrace12, 24\rbrace$ ; $Q \setminus A$ a 5 éléments.
 - h) $\lvert A \cup Q \rvert = 5 + 7 - 2 = 10$.
 
 Pour la copie : b) $A \subset B$ ; réciproque $B \subset A$ ; f) $P \cap A = \varnothing$ ; g) « tout multiple de 4 est multiple de 6 » s'écrit $Q \subset A$. La contraposée de b) : $\bar{B} \subset \bar{A}$, « un nombre de $E$ qui n'est pas multiple de 3 n'est pas multiple de 6 ».
@@ -155,10 +155,10 @@ Pour la copie : b) $A \subset B$ ; réciproque $B \subset A$ ; f) $P \cap A = \v
 **Démarche.**
 - a) $0{,}03 \times 0{,}92 + 0{,}97 \times 0{,}06 = 0{,}0276 + 0{,}0582 = 0{,}0858$ (probabilités totales).
 - b) $\frac{0{,}0276}{0{,}0858} \approx 0{,}3217$ (Bayes).
-- c) $10\,000 \times 0{,}97 \times 0{,}06 = 582$, contre $276$ capteurs défectueux signalés.
+- c) $10\thinspace000 \times 0{,}97 \times 0{,}06 = 582$, contre $276$ capteurs défectueux signalés.
 - d) $\frac{0{,}03 \times 0{,}08}{1 - 0{,}0858} = \frac{0{,}0024}{0{,}9142} \approx 0{,}0026$.
-- e) Avec le taux de base $q = 0{,}3217$ : $\frac{0{,}92\,q}{0{,}92\,q + 0{,}06\,(1 - q)} \approx 0{,}8791$.
-- f) $0{,}92\,\pi = 0{,}06\,(1 - \pi)$ donne $\pi = \frac{0{,}06}{0{,}98} \approx 0{,}0612$.
+- e) Avec le taux de base $q = 0{,}3217$ : $\frac{0{,}92\thinspace q}{0{,}92\thinspace q + 0{,}06\thinspace(1 - q)} \approx 0{,}8791$.
+- f) $0{,}92\thinspace\pi = 0{,}06\thinspace(1 - \pi)$ donne $\pi = \frac{0{,}06}{0{,}98} \approx 0{,}0612$.
 - g) $50 \times 0{,}3217 \approx 16{,}1$.
 
 Pour la copie : sur 10 000 capteurs, 276 défectueux sont signalés, mais aussi 582 bons, parce que les bons sont 32 fois plus nombreux ; un capteur signalé n'est donc défectueux qu'environ une fois sur trois. Le technicien a confondu $P(\text{signalé} \mid \text{défectueux}) = 0{,}92$ et $P(\text{défectueux} \mid \text{signalé})$.
@@ -176,7 +176,7 @@ Pour la copie : sur 10 000 capteurs, 276 défectueux sont signalés, mais aussi 
 - b) $\frac{1{,}5}{1} = 1{,}5 > 1$ : la borne vaut 1, elle n'apprend rien.
 - c) $\frac{1{,}5}{a} \le 0{,}05$ donne $a \ge 30$.
 - d) $P(T \ge 6) = e^{-6/1{,}5} = e^{-4} \approx 0{,}0183$.
-- e) $\frac{0{,}25}{e^{-4}} = 0{,}25\,e^{4} \approx 13{,}6$ (avec la valeur arrondie 0,0183, on trouve 13,7, accepté aussi ; la valeur exacte reste la référence).
+- e) $\frac{0{,}25}{e^{-4}} = 0{,}25\thinspace e^{4} \approx 13{,}6$ (avec la valeur arrondie 0,0183, on trouve 13,7, accepté aussi ; la valeur exacte reste la référence).
 - f) La loi qui vaut 6 avec la probabilité $p$ et 0 sinon a pour moyenne $6p = 1{,}5$ : $p = 0{,}25$, et $P(T = 0) = 0{,}75$.
 - g) Trois durées sur huit (2,0 ; 2,6 ; 3,3) : $0{,}375$.
 - h) $P(T \ge 6) = P(T^2 \ge 36) \le \frac{4{,}5}{36} = 0{,}125$.
@@ -193,7 +193,7 @@ Pour la copie : la moyenne des huit durées vaut $\frac{12}{8} = 1{,}5$, et la b
 
 **Démarche.**
 - a) $\frac{(2 - 0)^2}{4} = 1$, atteinte par la loi qui vaut 0 ou 2 avec la probabilité $\frac{1}{2}$.
-- b) $n \ge \frac{1}{0{,}05 \times 0{,}1^2} = 2\,000$.
+- b) $n \ge \frac{1}{0{,}05 \times 0{,}1^2} = 2\thinspace000$.
 - c) $n \ge \frac{0{,}09}{0{,}05 \times 0{,}01} = 180$.
 - d) $\frac{0{,}09}{180 \times 0{,}05^2} = \frac{0{,}09}{0{,}45} = 0{,}2$.
 - e) $\frac{\sigma^2}{n \times 9\sigma^2 / n} = \frac{1}{9}$.
@@ -205,21 +205,21 @@ Pour la copie : a) se démontre par $\mathbb{V}(X) \le \mathbb{E}[(X - 1)^2] \le
 
 **Erreurs fréquentes.** Prendre $(b - a)^2$ ou $\frac{b - a}{2}$ pour la variance maximale ; mettre $\sigma$ au lieu de $\sigma^2$ en c) ; garder $t = 0{,}1$ en d) ; répondre 3 en h) (c'est le rayon, à risque fixé, qui est divisé par 3).
 
-**Variante.** Valeurs dans $[0, 5]$, même précision et même risque, sans rien savoir de la variance ? *Réponse* : variance au plus $6{,}25$, et $n \ge 12\,500$.
+**Variante.** Valeurs dans $[0, 5]$, même précision et même risque, sans rien savoir de la variance ? *Réponse* : variance au plus $6{,}25$, et $n \ge 12\thinspace500$.
 
 ### Ex M11.7 — Hoeffding : rayon de confiance et taille d'échantillon d'une proportion
 
 **Réponses** : a) `0.0429` · b) `[0.0941, 0.1799]` · c) `2050` · d) `2944` · e) `0.0135` · f) `0.1` · g) `0.0215` · h) `0.0387`.
 
 **Démarche.**
-- a) $\sqrt{\frac{\ln 40}{2\,000}} = \sqrt{0{,}001844} \approx 0{,}0429$.
+- a) $\sqrt{\frac{\ln 40}{2\thinspace000}} = \sqrt{0{,}001844} \approx 0{,}0429$.
 - b) $0{,}137 \pm 0{,}0429$ : $[0{,}0941 ;\ 0{,}1799]$.
-- c) $n \ge \frac{\ln 40}{2 \times 0{,}03^2} = \frac{3{,}6889}{0{,}0018} \approx 2\,049{,}4$, donc 2 050.
-- d) $\frac{\ln 200}{0{,}0018} = \frac{5{,}2983}{0{,}0018} \approx 2\,943{,}5$, donc 2 944.
-- e) $2e^{-2 \times 1\,000 \times 0{,}0025} = 2e^{-5} \approx 0{,}0135$.
-- f) $\frac{0{,}25}{1\,000 \times 0{,}0025} = 0{,}1$.
+- c) $n \ge \frac{\ln 40}{2 \times 0{,}03^2} = \frac{3{,}6889}{0{,}0018} \approx 2\thinspace049{,}4$, donc 2 050.
+- d) $\frac{\ln 200}{0{,}0018} = \frac{5{,}2983}{0{,}0018} \approx 2\thinspace943{,}5$, donc 2 944.
+- e) $2e^{-2 \times 1\thinspace000 \times 0{,}0025} = 2e^{-5} \approx 0{,}0135$.
+- f) $\frac{0{,}25}{1\thinspace000 \times 0{,}0025} = 0{,}1$.
 - g) $\frac{0{,}0429}{2} \approx 0{,}0215$ : quatre fois plus de requêtes, un rayon deux fois plus petit.
-- h) $\sqrt{\frac{\ln 20}{2\,000}} \approx 0{,}0387$.
+- h) $\sqrt{\frac{\ln 20}{2\thinspace000}} \approx 0{,}0387$.
 
 Pour la copie : « avec une probabilité au moins 0,95 sur le tirage des 1 000 requêtes, l'intervalle ainsi construit contient la vraie proportion $p$ » ; ce n'est pas « $p$ a 95 % de chances d'être dans $[0{,}0941 ;\ 0{,}1799]$ » ($p$ n'est pas aléatoire). Diviser le risque par 5 ne fait passer $\ln(2/\delta)$ que de 3,69 à 5,30 : $n$ n'est multiplié que par 1,44. Hoeffding (0,0135) bat Tchebychev (0,1) d'un facteur 7.
 
@@ -236,7 +236,7 @@ Pour la copie : « avec une probabilité au moins 0,95 sur le tirage des 1 000 r
 - b) $\mathbb{V}(S) = 100 \times 0{,}2 \times 0{,}8 = 16$ ; $P(S \ge 30) \le P(\lvert S - 20 \rvert \ge 10) \le \frac{16}{100} = 0{,}16$.
 - c) $S \ge 30$ équivaut à $\bar{X} - 0{,}2 \ge 0{,}1$ : $e^{-2 \times 100 \times 0{,}01} = e^{-2} \approx 0{,}1353$.
 - d) $z = \frac{30 - 20}{4} = 2{,}5$ ; $P(Z \ge 2{,}5) \approx 0{,}0062$.
-- e) $P(S \ge 30) = \sum_{k=30}^{100} \binom{100}{k} 0{,}2^k\,0{,}8^{100-k} \approx 0{,}0112$.
+- e) $P(S \ge 30) = \sum_{k=30}^{100} \binom{100}{k} 0{,}2^k\thinspace0{,}8^{100-k} \approx 0{,}0112$.
 - f) Hoeffding (0,135) est la plus proche de 0,0112 ; Tchebychev (0,16) suit, Markov (0,67) est loin.
 - g) $S \ge 25$ : écart $t = 0{,}05$, $e^{-2 \times 100 \times 0{,}0025} = e^{-0{,}5} \approx 0{,}6065$ (la valeur exacte est 0,13).
 - h) $e^{-0{,}02 n} \le 0{,}01$ donne $n \ge \frac{\ln 100}{0{,}02} \approx 230{,}3$, donc 231.
@@ -257,9 +257,9 @@ Pour la copie : Markov n'utilise que la moyenne, et la loi qui l'atteint (0 ou 3
 - c) $0{,}62 + 0{,}5257 = 1{,}1457$.
 - d) $0{,}45 + \sqrt{\frac{13{,}8155}{8}} \approx 0{,}45 + 1{,}3141 = 1{,}7641$.
 - e) L'option 2, de borne supérieure la plus haute, malgré une moyenne observée plus basse.
-- f) $\sqrt{\frac{2\ln t}{N}} < 0{,}1$ équivaut à $N > 200\ln(10\,000) \approx 1\,842{,}07$ : $N = 1\,843$.
+- f) $\sqrt{\frac{2\ln t}{N}} < 0{,}1$ équivaut à $N > 200\ln(10\thinspace000) \approx 1\thinspace842{,}07$ : $N = 1\thinspace843$.
 - g) $\sum_{t \ge 1} t^{-4} = \frac{\pi^4}{90} \approx 1{,}0823$ ; sans le terme $t = 1$ : $0{,}0823$.
-- h) $\ln(1/\delta_t) = 2\ln t$ : $\sqrt{\frac{\ln 1\,000}{50}} \approx 0{,}3717$.
+- h) $\ln(1/\delta_t) = 2\ln t$ : $\sqrt{\frac{\ln 1\thinspace000}{50}} \approx 0{,}3717$.
 
 Pour la copie : b) est le calcul général. g) : par la borne de l'union, la probabilité qu'une borne supérieure soit fausse au moins une fois entre le pas 2 et l'infini (pour une option et un nombre de choix donnés) est au plus 0,08 (la preuve complète d'UCB1 fait aussi la borne de l'union sur les valeurs de $N$, au plus $t$, et sur les $K$ options, d'où le choix d'un risque qui décroît vite) ; le risque décroît assez vite pour que la somme reste petite. f) : le seuil $\frac{8\ln t}{\Delta^2}$ ne croît que comme $\ln t$ ; au-delà, la borne de l'option d'écart $\Delta$ passe sous $\mu^\star$ (si les bornes sont justes), et UCB ne la choisit plus.
 
@@ -277,8 +277,8 @@ Pour la copie : b) est le calcul général. g) : par la borne de l'union, la pro
 - c) $0{,}88 \times 0{,}07 + 0{,}03 \times (0{,}32 + 0 + 0{,}14 + 0{,}12) = 0{,}0616 + 0{,}0174 = 0{,}079$.
 - d) $\frac{\varepsilon}{5} \times 0{,}65 = 0{,}01$ donne $\varepsilon = \frac{0{,}05}{0{,}65} \approx 0{,}0769$.
 - e) $0{,}03 \times 0{,}65 = 0{,}0195$ par pas, soit 390 sur 20 000 pas.
-- f) $\sum_{t=1}^{20\,000} \frac{1}{t} \times \frac{0{,}65}{5} = 0{,}13 \times 10{,}4807 \approx 1{,}3625$.
-- g) $20\,000 \times 0{,}03 = 600$.
+- f) $\sum_{t=1}^{20\thinspace000} \frac{1}{t} \times \frac{0{,}65}{5} = 0{,}13 \times 10{,}4807 \approx 1{,}3625$.
+- g) $20\thinspace000 \times 0{,}03 = 600$.
 
 Pour la copie : e) croît linéairement (390 sur 20 000 pas, 1 950 sur 100 000), f) comme $\ln T$ (à peine 1,57 sur 100 000 pas). Mais f) suppose un choix glouton juste dès le départ ; si le glouton est faux, comme en a), il faut explorer assez pour le corriger, et un ε qui décroît trop vite peut laisser l'option 1 choisie pour toujours.
 
@@ -293,10 +293,10 @@ Pour la copie : e) croît linéairement (390 sur 20 000 pas, 1 950 sur 100 000),
 ### Ex M11.11 — L'inégalité de Markov
 
 **Réponse modèle.**
-1. Si $X \ge a$, $a\,\mathbf{1}_{X \ge a} = a \le X$. Si $X < a$, $a\,\mathbf{1}_{X \ge a} = 0 \le X$ car $X \ge 0$. L'espérance est **croissante** (si $U \le V$, $\mathbb{E}[U] \le \mathbb{E}[V]$) et **linéaire**, et $\mathbb{E}[\mathbf{1}_{X \ge a}] = P(X \ge a)$ : $a\,P(X \ge a) \le \mathbb{E}[X]$, puis on divise par $a > 0$.
+1. Si $X \ge a$, $a\thinspace\mathbf{1} _{X \ge a} = a \le X$. Si $X < a$, $a\thinspace\mathbf{1}  _{X \ge a} = 0 \le X$ car $X \ge 0$. L'espérance est **croissante** (si $U \le V$, $\mathbb{E}[U] \le \mathbb{E}[V]$) et **linéaire**, et $\mathbb{E}[\mathbf{1} _{X \ge a}] = P(X \ge a)$ : $a\thinspace P(X \ge a) \le \mathbb{E}[X]$, puis on divise par $a > 0$.
 2. $\mathbb{E}[Y] = a \times p + 0 \times (1 - p) = pa$ et $P(Y \ge a) = p = \frac{\mathbb{E}[Y]}{a}$. Pour toute valeur $m \in [0, a]$ de l'espérance, la loi $Y$ avec $p = \frac{m}{a}$ a cette espérance et atteint la borne : aucune borne qui n'utilise que $\mathbb{E}[X]$ ne peut être plus petite.
 3. $X = 10$ ou $-10$ avec la probabilité $\frac{1}{2}$ : $\mathbb{E}[X] = 0$, mais $P(X \ge 5) = \frac{1}{2} > \frac{0}{5}$.
-4. $\varphi$ croissante : $X \ge a$ entraîne $\varphi(X) \ge \varphi(a)$, donc $P(X \ge a) \le P(\varphi(X) \ge \varphi(a))$. La variable $\varphi(X)$ est positive, et la question 1 au seuil $\varphi(a) > 0$ donne $P(\varphi(X) \ge \varphi(a)) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$. Avec $\varphi(x) = e^{\lambda x}$ : $P(X \ge a) \le e^{-\lambda a}\,\mathbb{E}[e^{\lambda X}]$ (la méthode de Chernoff, fiche §6).
+4. $\varphi$ croissante : $X \ge a$ entraîne $\varphi(X) \ge \varphi(a)$, donc $P(X \ge a) \le P(\varphi(X) \ge \varphi(a))$. La variable $\varphi(X)$ est positive, et la question 1 au seuil $\varphi(a) > 0$ donne $P(\varphi(X) \ge \varphi(a)) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$. Avec $\varphi(x) = e^{\lambda x}$ : $P(X \ge a) \le e^{-\lambda a}\thinspace\mathbb{E}[e^{\lambda X}]$ (la méthode de Chernoff, fiche §6).
 5. La question 1 au seuil $a = k\mu > 0$ : $P(X \ge k\mu) \le \frac{\mu}{k\mu} = \frac{1}{k}$.
 
 **Grille.** (1) les deux cas, l'usage de $X \ge 0$ dans le second, la croissance et la linéarité de l'espérance, $\mathbb{E}[\mathbf{1}_A] = P(A)$ ; (2) le calcul pour la loi à deux valeurs et l'argument « on ne peut pas faire mieux » ; (3) un contre-exemple vérifié ; (4) l'inclusion des événements grâce à la croissance de $\varphi$, puis la question 1 appliquée à $\varphi(X)$ ; (5) le bon seuil.
@@ -315,8 +315,8 @@ Pour la copie : e) croît linéairement (390 sur 20 000 pas, 1 950 sur 100 000),
 ### Ex M11.13 — Avec ε fixé, le regret attendu d'ε-greedy croît au moins linéairement
 
 **Réponse modèle.**
-1. $\mu^\star - \mu_{A_t} = \sum_k \Delta_k\,\mathbf{1}_{A_t = k}$ (une seule indicatrice vaut 1) ; l'espérance donne $\sum_k \Delta_k\,P(A_t = k)$. En sommant sur $t$ et en échangeant les sommes : $R_T = \sum_k \Delta_k \sum_t P(A_t = k) = \sum_k \Delta_k\,\mathbb{E}\big[\sum_t \mathbf{1}_{A_t = k}\big] = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$.
-2. Par la formule des probabilités totales sur le résultat de la pièce : $P(A_t = k) = \varepsilon \times \frac{1}{K} + (1 - \varepsilon)\,P(\text{glouton} = k) \ge \frac{\varepsilon}{K}$.
+1. $\mu^\star - \mu_{A_t} = \sum_k \Delta_k\thinspace\mathbf{1} _{A_t = k}$ (une seule indicatrice vaut 1) ; l'espérance donne $\sum_k \Delta_k\thinspace P(A_t = k)$. En sommant sur $t$ et en échangeant les sommes : $R_T = \sum_k \Delta_k \sum_t P(A_t = k) = \sum_k \Delta_k\thinspace\mathbb{E}\big[\sum_t \mathbf{1} _{A_t = k}\big] = \sum_k \Delta_k\thinspace\mathbb{E}[N_k(T)]$.
+2. Par la formule des probabilités totales sur le résultat de la pièce : $P(A_t = k) = \varepsilon \times \frac{1}{K} + (1 - \varepsilon)\thinspace P(\text{glouton} = k) \ge \frac{\varepsilon}{K}$.
 3. $\mathbb{E}[\mu^\star - \mu_{A_t}] \ge \frac{\varepsilon}{K}\sum_k \Delta_k$ à chaque pas, donc $R_T \ge \frac{\varepsilon T}{K}\sum_k \Delta_k$. Si une option au moins n'est pas la meilleure, $\sum_k \Delta_k > 0$ et le regret croît au moins linéairement : la proportion de pas mal employés ne tend pas vers 0.
 4. Les tirages au hasard du pas $t$ coûtent en espérance $\varepsilon_t \times \frac{1}{K}\sum_k \Delta_k \le \frac{c}{t} \times \frac{1}{K}\sum_k \Delta_k$ ; on somme sur $t$. Pour $t \ge 2$, $\frac{1}{t} \le \frac{1}{x}$ sur $[t - 1, t]$, donc $\frac{1}{t} \le \int_{t-1}^{t} \frac{dx}{x}$ ; en sommant de 2 à $T$, $\sum_{t=2}^{T} \frac{1}{t} \le \int_1^T \frac{dx}{x} = \ln T$, et $\sum_{t=1}^{T} \frac{1}{t} \le 1 + \ln T$.
 5. Il reste la part des pas où la pièce dit « glouton » et où le choix glouton n'est pas la meilleure option. Elle dépend de la qualité des estimations ; avec trop peu d'exploration, une option mal estimée au début peut rester le choix glouton longtemps, et cette part peut croître linéairement. Il faudrait montrer que les estimations deviennent justes assez vite (c'est possible si $c$ est assez grand, ce qu'on ne fait pas ici).
@@ -332,18 +332,18 @@ Pour la copie : e) croît linéairement (390 sur 20 000 pas, 1 950 sur 100 000),
 **Réponses** : a) `4612` · b) `0.0248` · c) `0.8517` · d) `0.0334` · e) `0.0119` · f) `8198`.
 
 **Démarche.**
-- a) $n \ge \frac{\ln 40}{2 \times 0{,}0004} \approx 4\,611{,}1$, donc 4 612.
-- b) $\sqrt{\frac{\ln 40}{6\,000}} \approx 0{,}0248$.
-- c) Le rayon unilatéral vaut $\sqrt{\frac{\ln 20}{6\,000}} \approx 0{,}0223$ : avec une probabilité au moins 0,95, l'accuracy de A est au moins $0{,}874 - 0{,}0223 \approx 0{,}8517$.
-- d) $\sqrt{\frac{\ln(2 / 0{,}0025)}{6\,000}} = \sqrt{\frac{\ln 800}{6\,000}} \approx 0{,}0334$.
-- e) $1{,}96\sqrt{\frac{0{,}874 \times 0{,}126}{3\,000}} \approx 1{,}96 \times 0{,}00606 \approx 0{,}0119$.
-- f) $\frac{\ln 40}{2 \times 0{,}015^2} \approx 8\,197{,}5$, donc 8 198.
+- a) $n \ge \frac{\ln 40}{2 \times 0{,}0004} \approx 4\thinspace611{,}1$, donc 4 612.
+- b) $\sqrt{\frac{\ln 40}{6\thinspace000}} \approx 0{,}0248$.
+- c) Le rayon unilatéral vaut $\sqrt{\frac{\ln 20}{6\thinspace000}} \approx 0{,}0223$ : avec une probabilité au moins 0,95, l'accuracy de A est au moins $0{,}874 - 0{,}0223 \approx 0{,}8517$.
+- d) $\sqrt{\frac{\ln(2 / 0{,}0025)}{6\thinspace000}} = \sqrt{\frac{\ln 800}{6\thinspace000}} \approx 0{,}0334$.
+- e) $1{,}96\sqrt{\frac{0{,}874 \times 0{,}126}{3\thinspace000}} \approx 1{,}96 \times 0{,}00606 \approx 0{,}0119$.
+- f) $\frac{\ln 40}{2 \times 0{,}015^2} \approx 8\thinspace197{,}5$, donc 8 198.
 
 Pour la copie : Hoeffding suppose le pire cas, une variance $\frac{1}{4}$, quand la vraie vaut $0{,}874 \times 0{,}126 \approx 0{,}11$, et elle vaut pour tout $n$ sans approximation : elle est donc plus large que l'intervalle normal. La correction de d) protège contre le choix sur le test : parmi 20 modèles, l'un a pu avoir de la chance sur ce jeu, et son accuracy est optimiste. La garantie de c) : « avec une probabilité au moins 0,95 sur le tirage des 3 000 exemples, l'accuracy de A sur les données de service est au moins 0,8517 ». On ne borne que le côté que l'on craint (une accuracy trop basse) : tout le risque $\delta$ va de ce côté, d'où $\ln(1/\delta)$ au lieu de $\ln(2/\delta)$ et une borne un peu plus serrée.
 
 **Erreurs fréquentes.** Arrondir $n$ au-dessous ; diviser par $n$ au lieu de $2n$ ; mettre le 20 de d) devant la racine au lieu de dans le logarithme ; en c), garder $\ln(2/\delta)$, ou rendre le rayon au lieu de la borne basse.
 
-**Variante.** Le rayon de Hoeffding pour 10 000 exemples de test, avec $\delta = 0{,}05$ ? *Réponse* : $\sqrt{\frac{\ln 40}{20\,000}} \approx 0{,}0136$.
+**Variante.** Le rayon de Hoeffding pour 10 000 exemples de test, avec $\delta = 0{,}05$ ? *Réponse* : $\sqrt{\frac{\ln 40}{20\thinspace000}} \approx 0{,}0136$.
 
 ### Ex M11.15 — Corrélation, causalité et induction : trois titres de presse à démonter
 
@@ -392,7 +392,7 @@ Règle générale : pour conclure qu'une chose en cause une autre, il faut compa
 
 **Réponses** : a) `0.0815` · b) `0.8987` · c) `0.0547` · d) `0.1095` · e) `0.1` · f) `"ValueError"` · g) `"ValueError"`.
 
-**Démarche.** Une fonction auxiliaire vérifie `n >= 1` et `a < b` ; la borne vaut `min(1.0, 2 * math.exp(-2 * n * t ** 2 / (b - a) ** 2))` après le contrôle de `t > 0` ; le rayon `(b - a) * math.sqrt(math.log(2 / delta) / (2 * n))` après le contrôle de `0 < delta < 1`. a) $2e^{-3{,}2} \approx 0{,}0815$ ; b) $2e^{-0{,}8} \approx 0{,}8987$ ; c) $\sqrt{\frac{\ln 20}{1\,000}} \approx 0{,}0547$ ; d) le double. Pour la copie : e) le rayon est défini comme l'écart où la borne vaut $\delta$ ; b) est plus grand que a) parce qu'un écart de 0,08 sur $[0, 2]$ ne vaut qu'un écart de 0,04 sur $[0, 1]$.
+**Démarche.** Une fonction auxiliaire vérifie `n >= 1` et `a < b` ; la borne vaut `min(1.0, 2 * math.exp(-2 * n * t ** 2 / (b - a) ** 2))` après le contrôle de `t > 0` ; le rayon `(b - a) * math.sqrt(math.log(2 / delta) / (2 * n))` après le contrôle de `0 < delta < 1`. a) $2e^{-3{,}2} \approx 0{,}0815$ ; b) $2e^{-0{,}8} \approx 0{,}8987$ ; c) $\sqrt{\frac{\ln 20}{1\thinspace000}} \approx 0{,}0547$ ; d) le double. Pour la copie : e) le rayon est défini comme l'écart où la borne vaut $\delta$ ; b) est plus grand que a) parce qu'un écart de 0,08 sur $[0, 2]$ ne vaut qu'un écart de 0,04 sur $[0, 1]$.
 
 **Erreurs fréquentes.** Oublier le facteur 2, le carré de $b - a$, ou la racine du rayon ; `math.log(1 / delta)` ; accepter $\delta = 1$ ou $n = 0$.
 
@@ -441,7 +441,7 @@ Pour la copie : Markov utilise la moyenne seule (elle gagne quand la moyenne est
 
 **Réponses** : a) `0.667175` · b) `0.6667` · c) `0.46982` · d) `0.4725` · e) `0.2693`.
 
-**Démarche.** Simulation : `x1 = rng.beta(a1, b1, size)`, `x2 = rng.beta(a2, b2, size)`, `float(np.mean(x2 > x1))`. Intégrale : $P(\theta_2 > \theta_1) = \int_0^1 f_2(x)\,P(\theta_1 < x)\,dx$, par `integrate.quad`. b) Pour $\theta_1$ uniforme, $P(\theta_1 < \theta_2) = \mathbb{E}[\theta_2] = \frac{2}{3}$. Pour la copie : $\mathrm{Beta}(4, 3)$, tirée de 5 essais, est très étalée (écart-type 0,17) ; $\mathrm{Beta}(13, 9)$ l'est moins (0,10) : leurs tirages se croisent souvent, et Thompson choisit l'option 2 presque une fois sur deux, ce qui l'aide à apprendre si elle vaut mieux. En e), l'option 2 a 58 essais : sa loi se resserre autour de 0,52, sous l'option 1, et la probabilité tombe à 0,27.
+**Démarche.** Simulation : `x1 = rng.beta(a1, b1, size)`, `x2 = rng.beta(a2, b2, size)`, `float(np.mean(x2 > x1))`. Intégrale : $P(\theta_2 > \theta_1) = \int_0^1 f_2(x)\thinspace P(\theta_1 < x)\thinspace dx$, par `integrate.quad`. b) Pour $\theta_1$ uniforme, $P(\theta_1 < \theta_2) = \mathbb{E}[\theta_2] = \frac{2}{3}$. Pour la copie : $\mathrm{Beta}(4, 3)$, tirée de 5 essais, est très étalée (écart-type 0,17) ; $\mathrm{Beta}(13, 9)$ l'est moins (0,10) : leurs tirages se croisent souvent, et Thompson choisit l'option 2 presque une fois sur deux, ce qui l'aide à apprendre si elle vaut mieux. En e), l'option 2 a 58 essais : sa loi se resserre autour de 0,52, sous l'option 1, et la probabilité tombe à 0,27.
 
 **Erreurs fréquentes.** Tirer `x2` avant `x1` (d'autres tirages) ; la proportion des `x1 > x2` ; intégrer $f_1 F_2$ (on obtient $P(\theta_1 > \theta_2)$).
 
@@ -473,6 +473,6 @@ Pour la copie : Markov utilise la moyenne seule (elle gagne quand la moyenne est
 
 **Réponse** : `681`.
 
-**Démarche.** Pour chaque $n$ de 1 à 3 000, la probabilité exacte : `stats.binom.pmf(k, n, 0.5)` sur `k = np.arange(n + 1)`, sommée sur les $k$ tels que $10\,\lvert 2k - n \rvert \ge n$ (la condition $\lvert \frac{k}{n} - \frac{1}{2} \rvert \ge 0{,}05$ écrite en entiers). Puis on part de 3 000 et l'on descend tant que la probabilité reste au plus 0,01. La probabilité passe une première fois sous 1 % à $n = 651$, mais remonte au-dessus pour $n$ = 665, 667, 669, 678 et 680 (des $n$ où un $k$ tombe pile sur la frontière, et compte) ; d'où $n_0 = 681$. En flottants, $\lvert k/n - 0{,}5 \rvert$ vaut parfois 0,04999999… au lieu de 0,05, et l'on trouve 679. Hoeffding demande 1 060, plus d'une fois et demie plus : elle vaut pour **toute** loi de $[0, 1]$ et pour tout $n$, avec une marge ; l'approximation normale (664) tombe près de la vraie valeur, sans garantie. Pour $n_0 = 681$, la probabilité vaut 0,0091 pour $p = 0{,}5$, 0,0044 pour $p = 0{,}3$ et 0,00002 pour $p = 0{,}1$ : la loi la plus dispersée est la plus défavorable.
+**Démarche.** Pour chaque $n$ de 1 à 3 000, la probabilité exacte : `stats.binom.pmf(k, n, 0.5)` sur `k = np.arange(n + 1)`, sommée sur les $k$ tels que $10\thinspace\lvert 2k - n \rvert \ge n$ (la condition $\lvert \frac{k}{n} - \frac{1}{2} \rvert \ge 0{,}05$ écrite en entiers). Puis on part de 3 000 et l'on descend tant que la probabilité reste au plus 0,01. La probabilité passe une première fois sous 1 % à $n = 651$, mais remonte au-dessus pour $n$ = 665, 667, 669, 678 et 680 (des $n$ où un $k$ tombe pile sur la frontière, et compte) ; d'où $n_0 = 681$. En flottants, $\lvert k/n - 0{,}5 \rvert$ vaut parfois 0,04999999… au lieu de 0,05, et l'on trouve 679. Hoeffding demande 1 060, plus d'une fois et demie plus : elle vaut pour **toute** loi de $[0, 1]$ et pour tout $n$, avec une marge ; l'approximation normale (664) tombe près de la vraie valeur, sans garantie. Pour $n_0 = 681$, la probabilité vaut 0,0091 pour $p = 0{,}5$, 0,0044 pour $p = 0{,}3$ et 0,00002 pour $p = 0{,}1$ : la loi la plus dispersée est la plus défavorable.
 
 **Erreurs fréquentes.** S'arrêter au premier $n$ qui marche (651) ; comparer des flottants à la frontière (679) ; rendre la valeur de Hoeffding ou du TCL ; oublier un des deux côtés de l'écart.

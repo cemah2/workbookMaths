@@ -22,7 +22,7 @@ Fixer un indice enlève l'axe correspondant ; `:` le garde. Un remodelage garde 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $600 \times 800 \times 3$. 2. `img[100]` fixe l'indice de ligne. 4. $-1$ vaut $\frac{1\,440\,000}{3}$. 5. Écris la première « ligne » de 800 nombres du remodelage : ce sont les intensités des 266 premiers pixels et deux tiers, pas un canal. 6. $(0 \times 7 + 1) \times 24 + 0$.
+1. $600 \times 800 \times 3$. 2. `img[100]` fixe l'indice de ligne. 4. $-1$ vaut $\frac{1\thinspace440\thinspace000}{3}$. 5. Écris la première « ligne » de 800 nombres du remodelage : ce sont les intensités des 266 premiers pixels et deux tiers, pas un canal. 6. $(0 \times 7 + 1) \times 24 + 0$.
 
 </details>
 
@@ -76,7 +76,7 @@ Relis l'encadré « Horvitz-Thompson », « L'estimateur naïf » et l'erreur cl
 </details>
 <details><summary>Indice 3</summary>
 
-1. $1\,200/0{,}05$. 6. $\mathbb{E}[\hat Y] = \sum_{i \ne j}\pi_i\,\frac{y_i}{\pi_i}$.
+1. $1\thinspace200/0{,}05$. 6. $\mathbb{E}[\hat Y] = \sum_{i \ne j}\pi_i\thinspace\frac{y_i}{\pi_i}$.
 
 </details>
 
@@ -98,7 +98,7 @@ La moyenne vaut 6 ; la somme des carrés des écarts se divise par $N - \text{dd
 </details>
 <details><summary>Indice 3</summary>
 
-Les écarts : $-2, 4, 1, -4, 1$, de carrés de somme 38. 5. $\frac{N}{N - 1} < 1{,}05$ s'écrit $N > 1{,}05\,(N - 1)$.
+Les écarts : $-2, 4, 1, -4, 1$, de carrés de somme 38. 5. $\frac{N}{N - 1} < 1{,}05$ s'écrit $N > 1{,}05\thinspace(N - 1)$.
 
 </details>
 
@@ -111,12 +111,12 @@ Relis la projection sur une droite de M12b, et « La matrice de centrage » (fic
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{p} = \frac{\mathbf{a}^\top\mathbf{x}}{\mathbf{a}^\top\mathbf{a}}\,\mathbf{a}$. La trace de $\mathbf{a}\mathbf{a}^\top$ vaut $\mathbf{a}^\top\mathbf{a}$.
+$\mathbf{p} = \frac{\mathbf{a}^\top\mathbf{x}}{\mathbf{a}^\top\mathbf{a}}\thinspace\mathbf{a}$. La trace de $\mathbf{a}\mathbf{a}^\top$ vaut $\mathbf{a}^\top\mathbf{a}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{a}^\top\mathbf{x} = 9$ et $\mathbf{a}^\top\mathbf{a} = 9$. 4. $\frac{\mathbf{1}^\top\mathbf{x}}{3}\,\mathbf{1}$ : la moyenne fois $\mathbf{1}$.
+1. $\mathbf{a}^\top\mathbf{x} = 9$ et $\mathbf{a}^\top\mathbf{a} = 9$. 4. $\frac{\mathbf{1}^\top\mathbf{x}}{3}\thinspace\mathbf{1}$ : la moyenne fois $\mathbf{1}$.
 
 </details>
 
@@ -156,7 +156,7 @@ d) Les pas de la file sont $28 \times 24$, $24$ et $1$. e) Divise d'abord par $2
 </details>
 <details><summary>Indice 3</summary>
 
-d) $(3 \times 28 + 10) \times 24 + 5$. e) $1\,000 = 1 \times 672 + 328$, puis $328 = 13 \times 24 + 16$. f) La semaine 1, le jour de la semaine 3. g) L'axe 1 de `R` est celui des semaines.
+d) $(3 \times 28 + 10) \times 24 + 5$. e) $1\thinspace000 = 1 \times 672 + 328$, puis $328 = 13 \times 24 + 16$. f) La semaine 1, le jour de la semaine 3. g) L'axe 1 de `R` est celui des semaines.
 
 </details>
 
@@ -169,7 +169,7 @@ Fiche §3 : les deux tableaux de traductions, et « Le coût d'une contraction �
 </details>
 <details><summary>Indice 2</summary>
 
-c) $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \sum_i(\mathbf{A}\mathbf{B})_{ii} = A_{ij}B_{ji}$ : avec les axes de $\mathbf{A}$ notés `ij`, ceux de $\mathbf{B}$ sont `ji`. f) Calcule d'abord $\mathbf{M}\mathbf{y}$. g) Pour chaque $s$, la ligne $s$ du résultat est $\mathbf{M}_s\mathbf{v}_s$. h) Le produit des longueurs de $s$, $i$, $j$, $k$. i) Un produit $(m, n) \times (n, p)$ coûte $mnp$ ; il y en a deux.
+c) $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \sum_i(\mathbf{A}\mathbf{B}) _{ii} = A  _{ij}B _{ji}$ : avec les axes de $\mathbf{A}$ notés `ij`, ceux de $\mathbf{B}$ sont `ji`. f) Calcule d'abord $\mathbf{M}\mathbf{y}$. g) Pour chaque $s$, la ligne $s$ du résultat est $\mathbf{M}_s\mathbf{v}_s$. h) Le produit des longueurs de $s$, $i$, $j$, $k$. i) Un produit $(m, n) \times (n, p)$ coûte $mnp$ ; il y en a deux.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -187,7 +187,7 @@ Fiche §4 : « La matrice de centrage », « Pourquoi m − 1 », l'encadré « 
 </details>
 <details><summary>Indice 2</summary>
 
-$C_{ii} = 1 - \frac1m$, $C_{ij} = -\frac1m$. $\mathbf{C}\mathbf{x} = \mathbf{x} - \bar x\,\mathbf{1}$. $\lVert\bar x\,\mathbf{1}\rVert^2 = m\,\bar x^2$. Avec ddof = 1, $s^2 = \lVert\mathbf{C}\mathbf{x}\rVert^2/(m - 1)$.
+$C_{ii} = 1 - \frac1m$, $C_{ij} = -\frac1m$. $\mathbf{C}\mathbf{x} = \mathbf{x} - \bar x\thinspace\mathbf{1}$. $\lVert\bar x\thinspace\mathbf{1}\rVert^2 = m\thinspace\bar x^2$. Avec ddof = 1, $s^2 = \lVert\mathbf{C}\mathbf{x}\rVert^2/(m - 1)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -223,12 +223,12 @@ Fiche §6 : « Un pas d'Euler et sa jacobienne », « Le cas linéaire », l'exe
 </details>
 <details><summary>Indice 2</summary>
 
-c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\,\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $\begin{pmatrix} 0 & 1 \\ -\cos x & 0 \end{pmatrix}$, et $h = 0{,}05$.
+c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\thinspace\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $\begin{pmatrix} 0 & 1 \cr -\cos x & 0 \end{pmatrix}$, et $h = 0{,}05$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$, calculé directement (passer par $\sqrt{1{,}04}$ arrondi fait perdre la troisième décimale de justesse). h) $(1 + 4 \times 10^{-4})^{50}$. k) $\det\begin{pmatrix} 1 & h \\ -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x$.
+c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$, calculé directement (passer par $\sqrt{1{,}04}$ arrondi fait perdre la troisième décimale de justesse). h) $(1 + 4 \times 10^{-4})^{50}$. k) $\det\begin{pmatrix} 1 & h \cr -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x$.
 
 </details>
 
@@ -245,12 +245,12 @@ Relis « La matrice de centrage » et « Pourquoi m − 1 » (fiche §4), et la 
 </details>
 <details><summary>Indice 2</summary>
 
-1. Développe $\left(\mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top\right)^2$ ; le produit $\mathbf{1}\mathbf{1}^\top\mathbf{1}\mathbf{1}^\top$ contient $\mathbf{1}^\top\mathbf{1} = m$. 3. Écris $\mathbf{x} - \mathbf{C}\mathbf{x} = \bar x\,\mathbf{1}$. 4. Un vecteur de $H$ et $\mathbf{1}$ sont des vecteurs propres. 5. Pythagore sur $\mathbf{x} = \bar x\,\mathbf{1} + \mathbf{C}\mathbf{x}$.
+1. Développe $\left(\mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top\right)^2$ ; le produit $\mathbf{1}\mathbf{1}^\top\mathbf{1}\mathbf{1}^\top$ contient $\mathbf{1}^\top\mathbf{1} = m$. 3. Écris $\mathbf{x} - \mathbf{C}\mathbf{x} = \bar x\thinspace\mathbf{1}$. 4. Un vecteur de $H$ et $\mathbf{1}$ sont des vecteurs propres. 5. Pythagore sur $\mathbf{x} = \bar x\thinspace\mathbf{1} + \mathbf{C}\mathbf{x}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{C}^2 = \mathbf{I} - \frac2m\mathbf{1}\mathbf{1}^\top + \frac{1}{m^2}\mathbf{1}(\mathbf{1}^\top\mathbf{1})\mathbf{1}^\top$. 3. Pour $\mathbf{v} \in H$, $\mathbf{v}^\top(\bar x\,\mathbf{1}) = \bar x\,(\mathbf{1}^\top\mathbf{v}) = 0$. 4. $H$ est de dimension $m - 1$ (le noyau d'une forme linéaire non nulle). 6. Une colonne de $\mathbf{C}_m\mathbf{X}$ est $\mathbf{C}_m$ fois la colonne de $\mathbf{X}$.
+1. $\mathbf{C}^2 = \mathbf{I} - \frac2m\mathbf{1}\mathbf{1}^\top + \frac{1}{m^2}\mathbf{1}(\mathbf{1}^\top\mathbf{1})\mathbf{1}^\top$. 3. Pour $\mathbf{v} \in H$, $\mathbf{v}^\top(\bar x\thinspace\mathbf{1}) = \bar x\thinspace(\mathbf{1}^\top\mathbf{v}) = 0$. 4. $H$ est de dimension $m - 1$ (le noyau d'une forme linéaire non nulle). 6. Une colonne de $\mathbf{C}_m\mathbf{X}$ est $\mathbf{C}_m$ fois la colonne de $\mathbf{X}$.
 
 </details>
 
@@ -263,12 +263,12 @@ Relis l'encadré « Horvitz-Thompson » (fiche §5), et l'espérance et la varia
 </details>
 <details><summary>Indice 2</summary>
 
-1. Linéarité de l'espérance, et $\mathbb{E}[I_i] = \pi_i$. 2. La variance d'une somme de variables indépendantes est la somme des variances, et la variance d'une Bernoulli est connue (M02b). 3. Écris $\hat V = \sum_i I_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$. 4. Remplace $\pi_i$ par $c\,y_i$ dans la formule de la question 2. 5. L'unité $j$ n'apparaît jamais dans la somme.
+1. Linéarité de l'espérance, et $\mathbb{E}[I_i] = \pi_i$. 2. La variance d'une somme de variables indépendantes est la somme des variances, et la variance d'une Bernoulli est connue (M02b). 3. Écris $\hat V = \sum_i I_i\thinspace y_i^2\thinspace\frac{1 - \pi_i}{\pi_i^2}$. 4. Remplace $\pi_i$ par $c\thinspace y_i$ dans la formule de la question 2. 5. L'unité $j$ n'apparaît jamais dans la somme.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Sors la constante $y_i/\pi_i$ de la variance, au carré. 3. $\mathbb{E}[\hat V] = \sum_i\pi_i\,y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ ; la formule de la question 2 demande les $y_i$ des unités **non** tirées. 4. Chaque unité tirée apporte $1/c$ : $\hat Y = n/c$, où $n$ est le nombre d'unités tirées.
+2. Sors la constante $y_i/\pi_i$ de la variance, au carré. 3. $\mathbb{E}[\hat V] = \sum_i\pi_i\thinspace y_i^2\thinspace\frac{1 - \pi_i}{\pi_i^2}$ ; la formule de la question 2 demande les $y_i$ des unités **non** tirées. 4. Chaque unité tirée apporte $1/c$ : $\hat Y = n/c$, où $n$ est le nombre d'unités tirées.
 
 </details>
 
@@ -440,7 +440,7 @@ Fiche §5 (l'estimateur, sa variance, l'estimateur naïf et son biais, « Choisi
 </details>
 <details><summary>Indice 2</summary>
 
-Une ligne de `DRAWS_14` est le tableau `included` d'un échantillon : une boucle sur les lignes, un appel de `horvitz_thompson_total` par ligne, avec les probabilités du plan qui a tiré ces lignes. L'estimateur naïf n'utilise pas les probabilités : `Y_14[row]` sélectionne les chiffres d'affaires tirés. Pour les biais et écarts types relatifs, divise par `TOTAL_14` (l'écart type avec `ddof=1`), puis multiplie par 100, sans arrondir ; l'erreur type divise encore l'écart type relatif par $\sqrt{3\,000}$.
+Une ligne de `DRAWS_14` est le tableau `included` d'un échantillon : une boucle sur les lignes, un appel de `horvitz_thompson_total` par ligne, avec les probabilités du plan qui a tiré ces lignes. L'estimateur naïf n'utilise pas les probabilités : `Y_14[row]` sélectionne les chiffres d'affaires tirés. Pour les biais et écarts types relatifs, divise par `TOTAL_14` (l'écart type avec `ddof=1`), puis multiplie par 100, sans arrondir ; l'erreur type divise encore l'écart type relatif par $\sqrt{3\thinspace000}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -530,7 +530,7 @@ Fiche §5 (« Choisir les probabilités » : les unités prises d'office, le tir
 </details>
 <details><summary>Indice 2</summary>
 
-Garde un tableau de booléens des communes prises d'office, vide au départ. À chaque tour, les autres reçoivent $(n - k)\,\frac{x_i}{\sum_{\text{autres}} x_j}$, où $k$ est le nombre de communes déjà prises d'office ; celles dont la probabilité dépasse 1 les rejoignent, et l'on recommence ; on s'arrête quand aucune ne dépasse. Pour la simulation : un seul générateur, créé avant la boucle, un appel de `systematic_sample` par tirage ; l'estimation d'un tirage est la somme des $y_i/\pi_i$ des communes tirées.
+Garde un tableau de booléens des communes prises d'office, vide au départ. À chaque tour, les autres reçoivent $(n - k)\thinspace\frac{x_i}{\sum_{\text{autres}} x_j}$, où $k$ est le nombre de communes déjà prises d'office ; celles dont la probabilité dépasse 1 les rejoignent, et l'on recommence ; on s'arrête quand aucune ne dépasse. Pour la simulation : un seul générateur, créé avant la boucle, un appel de `systematic_sample` par tirage ; l'estimation d'un tirage est la somme des $y_i/\pi_i$ des communes tirées.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -22,7 +22,7 @@ Relis le §1 de la fiche : « Au moins $k$ sur $n$ » et « Majorer la queue : t
 </details>
 <details><summary>Indice 3</summary>
 
-3 : l'inégalité de Pinsker. 4 : que vaut la proportion de succès en moyenne ? 5 : $e^{-2n\,\mathrm{KL}}$, c'est quoi par rapport à $e^{-n\,\mathrm{KL}}$ ? 6 : calcule les deux (R1).
+3 : l'inégalité de Pinsker. 4 : que vaut la proportion de succès en moyenne ? 5 : $e^{-2n\thinspace\mathrm{KL}}$, c'est quoi par rapport à $e^{-n\thinspace\mathrm{KL}}$ ? 6 : calcule les deux (R1).
 
 </details>
 
@@ -174,7 +174,7 @@ a) $\frac{1}{9}$ fois la somme des neuf cases. d) Résous $\boldsymbol{\Sigma}\m
 </details>
 <details><summary>Indice 3</summary>
 
-Essaie $\mathbf{v}$ proportionnel à $(6, 3, 10)$ : calcule $\boldsymbol{\Sigma}\,(6, 3, 10)^\top$.
+Essaie $\mathbf{v}$ proportionnel à $(6, 3, 10)$ : calcule $\boldsymbol{\Sigma}\thinspace(6, 3, 10)^\top$.
 
 </details>
 
@@ -223,7 +223,7 @@ Relis le §5 de la fiche (ses deux exemples).
 </details>
 <details><summary>Indice 2</summary>
 
-La coordonnée $i$ du gradient est $-y_i\,e^{-y_iF_i}$ ; pour Huber, $-\operatorname{clip}(y_i - F_i, -\delta, \delta)$.
+La coordonnée $i$ du gradient est $-y_i\thinspace e^{-y_iF_i}$ ; pour Huber, $-\operatorname{clip}(y_i - F_i, -\delta, \delta)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -281,12 +281,12 @@ Relis « D'où vient la borne de Chernoff » (fiche §1), et M11 pour Markov.
 </details>
 <details><summary>Indice 2</summary>
 
-1 : relis CP2.9 B ; seule l'espérance de $e^{\lambda X_i}$ change. 2 : annule $g'$, puis regarde le signe de $g''$. 3 : calcule d'abord $1 - p + pe^{\lambda^*}$.
+1 : relis CP2.9 B ; seule l'espérance de $e^{\lambda X_i}$ change. 2 : annule $g'$, puis regarde le signe de $g''$. 3 : calcule d'abord $1 - p + pe^{\lambda^\ast}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $1 - p + pe^{\lambda^*} = \frac{1 - p}{1 - a}$, puis $\ln\frac{a(1 - p)}{p(1 - a)} = \ln\frac{a}{p} + \ln\frac{1 - p}{1 - a}$. 5 : $f''(a) = \frac{1}{a(1 - a)} - 4$, et $a(1 - a) \le \frac{1}{4}$.
+3 : $1 - p + pe^{\lambda^\ast} = \frac{1 - p}{1 - a}$, puis $\ln\frac{a(1 - p)}{p(1 - a)} = \ln\frac{a}{p} + \ln\frac{1 - p}{1 - a}$. 5 : $f''(a) = \frac{1}{a(1 - a)} - 4$, et $a(1 - a) \le \frac{1}{4}$.
 
 </details>
 
@@ -478,6 +478,6 @@ Un $\eta$ constant fait un compromis pour **un** horizon : petit, il apprend tro
 </details>
 <details><summary>Indice 3</summary>
 
-Garde les losses cumulées $L$ et le numéro $t$ du tour qui vient (1 avant le premier tour) ; `weights()` rend `softmax` de $-\eta_t(L - \min L)$ avec $\eta_t = \sqrt{8\ln K/t}$, écrit avec `np.exp` ; `update` ajoute les losses à $L$ et incrémente $t$. Le η constant réglé pour $T = 1\,000$ paie $\frac{\ln K}{\eta} \approx 17$ dès le départ : trop pour la borne du tour 50.
+Garde les losses cumulées $L$ et le numéro $t$ du tour qui vient (1 avant le premier tour) ; `weights()` rend `softmax` de $-\eta_t(L - \min L)$ avec $\eta_t = \sqrt{8\ln K/t}$, écrit avec `np.exp` ; `update` ajoute les losses à $L$ et incrémente $t$. Le η constant réglé pour $T = 1\thinspace000$ paie $\frac{\ln K}{\eta} \approx 17$ dès le départ : trop pour la borne du tour 50.
 
 </details>

@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : $s_\theta(x) = \partial_\theta\ln p_\theta(x)$ est le score **en $\theta$** ; la loi exponentielle est donnée par son **taux** $\theta$ (densité $\theta e^{-\theta x}$ sur $[0, +\infty[$, moyenne $\frac1\theta$), la loi de Poisson par sa moyenne $\theta$. Aux §1 à §3, $f$ est la fonction dont on dérive l'espérance, $b$ une baseline et $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ la baseline optimale ; au §2 (MB8.1, MB8.21), $c$ est un seuil (une durée en MB8.1), au §3 le coefficient d'une variable de contrôle $h$, au §6 le seuil de troncature des poids. Aux §4 et §5, $s$ est un état, $a$ une action ; $\mathbf{P}_\pi$, $\mathbf{r}_\pi$, $V$, $Q$, $A$ et $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P}_\pi)^{-1}$ sont ceux de la fiche §4, $z(s, a)$ un logit, $\boldsymbol\nu_{s_0} = (1 - \gamma)\,\mathbf{M}[s_0, \cdot]$ la loi d'occupation actualisée ; au §5, $\mathbf{W} = \mathbf{V}^\pi + \mathbf{e}$ sont des valeurs estimées, $\mathbf{e}$ leurs erreurs, $G^{(k)}_t$ le retour à $k$ pas et $\lambda$ le paramètre du λ-retour. Au §6, les tirages viennent de la proposition $q$, la cible est $p$, $w = \frac pq$, et la KL estimée est $\mathrm{KL}(q \,\|\, p)$. Au §7, $\beta_i$ est la force du club $i$ et $p_i = e^{\beta_i}$, $R_i$ sa cote Elo, $k$ le coefficient d'Elo, $E$ un résultat espéré. Au §8, $\pi_{\mathrm{ref}}$ est la loi actuelle, $r$ la satisfaction, $\beta$ le poids de la KL et $Z = \mathbb{E}_{\mathrm{ref}}[e^{r/\beta}]$. Les logarithmes sont népériens, sauf $\log_{10}$ (Elo).
+Dans tout le chapitre, comme dans la fiche : $s_\theta(x) = \partial_\theta\ln p_\theta(x)$ est le score **en $\theta$** ; la loi exponentielle est donnée par son **taux** $\theta$ (densité $\theta e^{-\theta x}$ sur $[0, +\infty[$, moyenne $\frac1\theta$), la loi de Poisson par sa moyenne $\theta$. Aux §1 à §3, $f$ est la fonction dont on dérive l'espérance, $b$ une baseline et $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ la baseline optimale ; au §2 (MB8.1, MB8.21), $c$ est un seuil (une durée en MB8.1), au §3 le coefficient d'une variable de contrôle $h$, au §6 le seuil de troncature des poids. Aux §4 et §5, $s$ est un état, $a$ une action ; $\mathbf{P} _\pi$, $\mathbf{r} _\pi$, $V$, $Q$, $A$ et $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P} _\pi)^{-1}$ sont ceux de la fiche §4, $z(s, a)$ un logit, $\boldsymbol\nu _{s_0} = (1 - \gamma)\thinspace\mathbf{M}[s_0, \cdot]$ la loi d'occupation actualisée ; au §5, $\mathbf{W} = \mathbf{V}^\pi + \mathbf{e}$ sont des valeurs estimées, $\mathbf{e}$ leurs erreurs, $G^{(k)} _t$ le retour à $k$ pas et $\lambda$ le paramètre du λ-retour. Au §6, les tirages viennent de la proposition $q$, la cible est $p$, $w = \frac pq$, et la KL estimée est $\mathrm{KL}(q \thinspace\Vert\thinspace p)$. Au §7, $\beta_i$ est la force du club $i$ et $p_i = e^{\beta_i}$, $R_i$ sa cote Elo, $k$ le coefficient d'Elo, $E$ un résultat espéré. Au §8, $\pi _{\mathrm{ref}}$ est la loi actuelle, $r$ la satisfaction, $\beta$ le poids de la KL et $Z = \mathbb{E} _{\mathrm{ref}}[e^{r/\beta}]$. Les logarithmes sont népériens, sauf $\log _{10}$ (Elo).
 
 <a id="quiz"></a>
 
@@ -19,17 +19,17 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 *Fiche §1 et §2 · parcours C, E*
 
 1. $X$ suit la loi normale $\mathcal{N}(\theta, 4)$ (variance 4, connue). Son score $s_\theta(x)$ ? Son information de Fisher $I(\theta)$ ?
-2. Pour la loi binomiale $\mathcal{B}(10, \theta)$, $I(\theta) = \frac{10}{\theta(1 - \theta)}$. Une valeur approchée de $\mathrm{KL}(p_{0{,}5} \,\|\, p_{0{,}52})$ ?
+2. Pour la loi binomiale $\mathcal{B}(10, \theta)$, $I(\theta) = \frac{10}{\theta(1 - \theta)}$. Une valeur approchée de $\mathrm{KL}(p_{0{,}5} \thinspace\Vert\thinspace p_{0{,}52})$ ?
 3. La densité $p_\theta(x) = e^{-(x - \theta)}$ pour $x \ge \theta$ (0 sinon). Son score sur $[\theta, +\infty[$ ? Son espérance est-elle nulle ? Pourquoi ?
 4. Un estimateur à un tirage a la variance $1{,}44$. Combien de tirages indépendants faut-il pour que leur moyenne ait une erreur type de $0{,}05$ ?
-5. Vrai ou faux : $X$ suit la loi de Poisson de moyenne $\theta$, tirée par inversion, $X = F_\theta^{-1}(U)$ avec $U$ uniforme ; la dérivée par le chemin de $\mathbb{E}_\theta[X^2]$ donne $\frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[X^2] = 1 + 2\theta$.
+5. Vrai ou faux : $X$ suit la loi de Poisson de moyenne $\theta$, tirée par inversion, $X = F_\theta^{-1}(U)$ avec $U$ uniforme ; la dérivée par le chemin de $\mathbb{E} _\theta[X^2]$ donne $\frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E} _\theta[X^2] = 1 + 2\theta$.
 
 ### MB8.Q2 — Variables de contrôle et baselines : ce qui garde l'espérance, ce qui réduit la variance, ce qui biaise 🧠 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
 1. $\mathbb{V}(f) = 10$, $\mathbb{V}(h) = 4$, $\operatorname{Cov}(f, h) = 5$, et $\mathbb{E}[h]$ est connue. Le coefficient $c^\star$ de la variable de contrôle, puis la variance de $f - c^\star(h - \mathbb{E}[h])$ ?
 2. Une variable de contrôle a la corrélation $-0{,}9$ avec $f$. Par quel facteur la variance est-elle multipliée ?
-3. Pour une baseline constante $b$, que vaut l'espérance de $(f(X) - b)\,s_\theta(X)$ ? Pour quelle valeur de $b$ sa variance est-elle la plus petite ?
+3. Pour une baseline constante $b$, que vaut l'espérance de $(f(X) - b)\thinspace s_\theta(X)$ ? Pour quelle valeur de $b$ sa variance est-elle la plus petite ?
 4. Sur un batch de $n = 8$ tirages, la baseline de chaque tirage est la moyenne des huit valeurs $f$, la sienne comprise. Par quel facteur l'espérance de l'estimateur est-elle multipliée ? Et avec la moyenne des sept autres valeurs ?
 5. Vrai ou faux : on peut prendre pour variable de contrôle une variable dont on ne connaît pas l'espérance.
 
@@ -64,7 +64,7 @@ Sans la fiche, en 4 à 5 minutes chacun. Réponds vite, puis vérifie dans `05_s
 1. $\pi_{\mathrm{ref}} = (\frac12 ;\ \frac12)$, $r = (1 ;\ 0)$ et $\beta = \frac{1}{\ln 2}$. Que vaut $\pi^\star$ ?
 2. Vers quelle loi tend $\pi^\star$ quand $\beta \to 0$ ? Quand $\beta \to +\infty$ ?
 3. Vrai ou faux : $\pi^\star$ peut donner une probabilité positive à une issue que $\pi_{\mathrm{ref}}$ exclut.
-4. Que vaut $\beta\ln Z$ par rapport à l'objectif $F(\pi) = \mathbb{E}_\pi[r] - \beta\,\mathrm{KL}(\pi \,\|\, \pi_{\mathrm{ref}})$ ? Entre quelles valeurs se trouve-t-il ?
+4. Que vaut $\beta\ln Z$ par rapport à l'objectif $F(\pi) = \mathbb{E} _\pi[r] - \beta\thinspace\mathrm{KL}(\pi \thinspace\Vert\thinspace \pi _{\mathrm{ref}})$ ? Entre quelles valeurs se trouve-t-il ?
 
 <a id="rappels"></a>
 
@@ -82,7 +82,7 @@ En un point $\mathbf{z}$, la softmax vaut $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}3
 ### MB8.R2 — Le système de Bellman d'une politique fixée, la loi d'occupation actualisée et le télescopage des erreurs TD (M26) 🔁 ★ ⏱️ 7 min
 *Fiche §4 et §5 · parcours C, E*
 
-Une chaîne à deux états : $\mathbf{P}_\pi = \begin{pmatrix} 0{,}7 & 0{,}3 \\ 0{,}2 & 0{,}8 \end{pmatrix}$, $\mathbf{r}_\pi = (8 ;\ 1)$, $\gamma = 0{,}6$.
+Une chaîne à deux états : $\mathbf{P} _\pi = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}2 & 0{,}8 \end{pmatrix}$, $\mathbf{r} _\pi = (8 ;\ 1)$, $\gamma = 0{,}6$.
 1. Les valeurs $\mathbf{V}$ (le système de Bellman).
 2. La loi d'occupation actualisée $\boldsymbol\nu_0$ depuis l'état 0 ; vérifie $V(0) = \frac{\boldsymbol\nu_0\mathbf{r}_\pi}{1 - \gamma}$.
 3. Avec des valeurs estimées $\mathbf{W} = (16 ;\ 5)$, l'espérance de l'erreur TD $\delta_t = R_t + \gamma W(S_{t+1}) - W(S_t)$ sachant $S_t = 0$.
@@ -92,9 +92,9 @@ Une chaîne à deux états : $\mathbf{P}_\pi = \begin{pmatrix} 0{,}7 & 0{,}3 \\ 
 *Fiche §2 · parcours C, E*
 
 $X = \theta + U$, avec $U$ uniforme sur $[0, 1]$, et $\theta = 1{,}5$.
-1. La dérivée par le chemin de $\mathbb{E}_\theta[X^2]$ ; vérifie-la en calculant $\mathbb{E}_\theta[X^2]$.
+1. La dérivée par le chemin de $\mathbb{E} _\theta[X^2]$ ; vérifie-la en calculant $\mathbb{E} _\theta[X^2]$.
 2. Quelle hypothèse justifie d'échanger la dérivée et l'espérance (M25b §7) ?
-3. $P_\theta(X > 2)$ et sa dérivée en $\theta = 1{,}5$. Que donne la dérivée par le chemin de $\mathbf{1}\{X > 2\}$ ? Pourquoi ?
+3. $P_\theta(X > 2)$ et sa dérivée en $\theta = 1{,}5$. Que donne la dérivée par le chemin de $\mathbf{1}\lbrace X > 2\rbrace$ ? Pourquoi ?
 
 <a id="papier"></a>
 
@@ -110,23 +110,23 @@ Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'a
 **Objectif :** dériver une probabilité par rapport au paramètre d'une loi de trois façons, voir le chemin échouer sur une indicatrice, et chiffrer le bruit de l'estimateur score.
 **Prérequis :** fiche §2 ; M02b (loi exponentielle), M25b §7 (dérivée par le chemin) · **Parcours :** C, E
 
-Le service client d'un fournisseur d'énergie mesure l'attente $X$ (en minutes) avant qu'un conseiller décroche. On la modélise par une loi exponentielle de taux $\theta = 0{,}1$ par minute (moyenne $\frac1\theta = 10$ minutes). Au-delà de $c = 18$ minutes, le fournisseur offre un bon d'achat : on s'intéresse à $P_\theta(X > c) = \mathbb{E}_\theta[f(X)]$, avec $f(x) = \mathbf{1}\{x > c\}$, et à sa dérivée par rapport au taux $\theta$. L'estimateur score à un tirage est $g(X) = f(X)\,s_\theta(X)$.
+Le service client d'un fournisseur d'énergie mesure l'attente $X$ (en minutes) avant qu'un conseiller décroche. On la modélise par une loi exponentielle de taux $\theta = 0{,}1$ par minute (moyenne $\frac1\theta = 10$ minutes). Au-delà de $c = 18$ minutes, le fournisseur offre un bon d'achat : on s'intéresse à $P_\theta(X > c) = \mathbb{E} _\theta[f(X)]$, avec $f(x) = \mathbf{1}\lbrace x > c\rbrace$, et à sa dérivée par rapport au taux $\theta$. L'estimateur score à un tirage est $g(X) = f(X)\thinspace s _\theta(X)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $P(X > c)$ | un nombre (4 décimales) |
 | b | $\frac{\mathrm{d}}{\mathrm{d}\theta}P(X > c)$, par la formule fermée | un nombre (4 décimales) |
-| c | les deux termes de $\mathbb{E}[g(X)]$ : $\frac1\theta\,\mathbb{E}[\mathbf{1}\{X > c\}]$, puis $\mathbb{E}[X\,\mathbf{1}\{X > c\}]$ | une liste de 2 nombres (4 décimales) |
+| c | les deux termes de $\mathbb{E}[g(X)]$ : $\frac1\theta\thinspace\mathbb{E}[\mathbf{1}\lbrace X > c\rbrace]$, puis $\mathbb{E}[X\thinspace\mathbf{1}\lbrace X > c\rbrace]$ | une liste de 2 nombres (4 décimales) |
 | d | les dérivées par le chemin $X = \xi/\theta$ ($\xi$ exponentielle de taux 1) de $\mathbb{E}[X]$, puis de $P(X > c)$ | une liste de 2 nombres (2 décimales) |
 | e | la variance de $g(X)$, à un tirage | un nombre (2 décimales) |
 
-Dans ta copie : écris $s_\theta(x)$ ; montre que $\mathbb{E}[X\,\mathbf{1}\{X > c\}] = (c + \frac1\theta)\,e^{-\theta c}$ ; dis pourquoi d) ne donne pas b) pour la probabilité.
+Dans ta copie : écris $s_\theta(x)$ ; montre que $\mathbb{E}[X\thinspace\mathbf{1}\lbrace X > c\rbrace] = (c + \frac1\theta)\thinspace e^{-\theta c}$ ; dis pourquoi d) ne donne pas b) pour la probabilité.
 
 ### Ex MB8.2 — Deux graines par godet (une loi binomiale B(2, θ)) et un prix selon le nombre de pousses : la dérivée de la recette moyenne, puis l'estimateur score sans baseline, avec b = E[f] et avec la baseline optimale, et leurs variances ✏️ ★★ ⏱️ 35 min
 **Objectif :** calculer l'estimateur score d'une loi discrète et sa variance pour trois baselines, et voir que la baseline optimale n'est pas la moyenne.
 **Prérequis :** fiche §3 ; M02b (loi binomiale), M02c (variance) · **Parcours :** C, E
 
-Une pépinière sème deux graines par godet ; chacune lève avec la probabilité $\theta = 0{,}75$, indépendamment : le nombre de pousses $X$ suit la loi binomiale $\mathcal{B}(2, \theta)$. Un godet se vend $f(0) = 0$ € (on le jette), $f(1) = 3{,}50$ € et $f(2) = 5$ € (la seconde pousse est repiquée à part). On cherche la dérivée de la recette moyenne $\mathbb{E}_\theta[f(X)]$ par rapport à $\theta$, et l'on étudie l'estimateur score à un tirage $(f(X) - b)\,s_\theta(X)$.
+Une pépinière sème deux graines par godet ; chacune lève avec la probabilité $\theta = 0{,}75$, indépendamment : le nombre de pousses $X$ suit la loi binomiale $\mathcal{B}(2, \theta)$. Un godet se vend $f(0) = 0$ € (on le jette), $f(1) = 3{,}50$ € et $f(2) = 5$ € (la seconde pousse est repiquée à part). On cherche la dérivée de la recette moyenne $\mathbb{E} _\theta[f(X)]$ par rapport à $\theta$, et l'on étudie l'estimateur score à un tirage $(f(X) - b)\thinspace s _\theta(X)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -136,7 +136,7 @@ Une pépinière sème deux graines par godet ; chacune lève avec la probabilit�
 | d | la variance avec la baseline $b = \mathbb{E}[f(X)]$, à un tirage | un nombre (2 décimales) |
 | e | la baseline optimale $b^\star$, puis la variance avec $b^\star$, à un tirage | une liste de 2 nombres (3 décimales) |
 
-Dans ta copie : vérifie que $\mathbb{E}[s_\theta(X)] = 0$ et que $\mathbb{E}[f(X)\,s_\theta(X)]$ redonne b) ; compare $b^\star$ à $\mathbb{E}[f(X)]$.
+Dans ta copie : vérifie que $\mathbb{E}[s_\theta(X)] = 0$ et que $\mathbb{E}[f(X)\thinspace s_\theta(X)]$ redonne b) ; compare $b^\star$ à $\mathbb{E}[f(X)]$.
 
 ### Ex MB8.3 — Un camion de crêpes entre deux emplacements, une politique softmax dans l'un d'eux : la chaîne induite, les valeurs, la loi d'occupation actualisée, les valeurs et les avantages des deux actions, puis le gradient de la valeur par rapport aux deux logits ✏️ ★★ ⏱️ 40 min
 **Objectif :** dérouler sur un petit MDP la formule du gradient de la valeur : la chaîne, les valeurs, $\mathbf{M}$, les avantages, puis les dérivées par rapport aux logits.
@@ -156,14 +156,14 @@ Au parc, elle n'a pas le choix (la mairie fixe la rotation) : elle vend pour 4 e
 | d | $Q(\text{marché}, \text{rester})$, $Q(\text{marché}, \text{partir})$, puis les avantages $A(\text{marché}, \text{rester})$, $A(\text{marché}, \text{partir})$ | une liste de 4 nombres (4 décimales) |
 | e | $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{partir})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{partir})}$ | une liste de 4 nombres (4 décimales) |
 
-Pour d) et e), repars des valeurs non arrondies de b) et c). Dans ta copie : calcule la loi d'occupation actualisée $\boldsymbol\nu_{\text{marché}}$ ; vérifie que $\sum_a\pi(a \mid \text{marché})\,A(\text{marché}, a) = 0$ ; dis pourquoi un logit du marché change $V(\text{parc})$.
+Pour d) et e), repars des valeurs non arrondies de b) et c). Dans ta copie : calcule la loi d'occupation actualisée $\boldsymbol\nu_{\text{marché}}$ ; vérifie que $\sum_a\pi(a \mid \text{marché})\thinspace A(\text{marché}, a) = 0$ ; dis pourquoi un logit du marché change $V(\text{parc})$.
 
 ### Ex MB8.4 — L'état d'une route (bonne, usée, en travaux) et des valeurs estimées fausses : le biais des retours à 1 et 2 pas, les poids (1 − λ)λ^{k−1} d'un λ-retour, et son biais quand l'erreur est la même partout ✏️ ★★ ⏱️ 30 min
 **Objectif :** calculer le biais qu'un retour à $k$ pas hérite de valeurs estimées fausses, puis celui d'un λ-retour.
 **Prérequis :** fiche §5 ; M26 §1 (loi à $k$ pas d'une chaîne), R5 (série géométrique) · **Parcours :** C, E
 
 Chaque mois, un tronçon de route à péage est **bon**, **usé** ou **en travaux**. Sous la politique d'entretien de la société concessionnaire, fixée, son état suit la chaîne
-$$\mathbf{P}_\pi = \begin{pmatrix} 0{,}85 & 0{,}15 & 0 \\ 0 & 0{,}7 & 0{,}3 \\ 0{,}85 & 0 & 0{,}15 \end{pmatrix} \quad (\text{lignes et colonnes : bon, usé, en travaux}),$$
+$$\mathbf{P}_\pi = \begin{pmatrix} 0{,}85 & 0{,}15 & 0 \cr 0 & 0{,}7 & 0{,}3 \cr 0{,}85 & 0 & 0{,}15 \end{pmatrix} \quad (\text{lignes et colonnes : bon, usé, en travaux}),$$
 et les mois sont actualisés par $\gamma = 0{,}6$. Un bureau d'études a estimé la valeur de chaque état (la recette de péage actualisée à venir, en centaines de milliers d'euros) ; ses estimations $\mathbf{W} = \mathbf{V}^\pi + \mathbf{e}$ sont fausses de $\mathbf{e} = (3 ;\ 0 ;\ 2)$ : trop hautes de 3 pour un tronçon bon, justes pour un tronçon usé, trop hautes de 2 pour un tronçon en travaux. On amorce avec $\mathbf{W}$ des retours à $k$ pas, et un λ-retour avec $\lambda = 0{,}7$. Le biais d'un retour à $k$ pas $G_t^{(k)}$ (fiche §5) depuis l'état $s$ est $\mathbb{E}\big[G_t^{(k)} \mid S_t = s\big] - V^\pi(s)$, et de même pour le λ-retour $G_t^\lambda$ ; les recettes du mois n'y interviennent pas.
 
 | | Question | Réponse attendue |
@@ -194,8 +194,8 @@ On suppose que la dépense ne dépend que de la classe d'âge. Un panéliste tir
 | a | les poids $w = \frac pq$ des trois classes | une liste de 3 nombres (2 décimales) |
 | b | la dépense moyenne du panel brut, $\mathbb{E}_q[f]$ (sous $q$, pas sur les six panélistes), puis la dépense moyenne repondérée $\mathbb{E}_q[wf]$ | une liste de 2 nombres (2 décimales) |
 | c | la taille effective de Kish des six panélistes | un nombre (2 décimales) |
-| d | l'espérance repondérée avec les poids tronqués à $c = 1{,}6$, $\mathbb{E}_q[\min(w, c)\,f]$, puis son biais | une liste de 2 nombres (2 décimales) |
-| e | $\mathrm{KL}(q \,\Vert\, p)$ | un nombre (5 décimales) |
+| d | l'espérance repondérée avec les poids tronqués à $c = 1{,}6$, $\mathbb{E}_q[\min(w, c)\thinspace f]$, puis son biais | une liste de 2 nombres (2 décimales) |
+| e | $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ | un nombre (5 décimales) |
 | f | $k_1$ pour un panéliste de chaque classe | une liste de 3 nombres (4 décimales) |
 | g | $k_3$ pour un panéliste de chaque classe | une liste de 3 nombres (4 décimales) |
 
@@ -213,7 +213,7 @@ Trois clubs de babyfoot, A, B et C, se rencontrent pendant une saison. Le tablea
 | B | 5 | — | 1 |
 | C | 0 | 3 | — |
 
-Dans le modèle de Bradley-Terry, le club $i$ bat le club $j$ avec la probabilité $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, où $p_i = e^{\beta_i}$. D'abord, A et B seuls : on oublie C et les matchs contre lui. Puis tout le tournoi : on propose $p_A = 4$, $p_B = 3$, $p_C = 1$ (à un facteur commun près). Enfin, la cote Elo (base 10, échelle 400) : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et après un match, le club $i$ gagne $k\,(S - E)$ points, avec $k = 32$, $S = 1$ s'il gagne, 0 s'il perd, et $E$ sa probabilité de victoire.
+Dans le modèle de Bradley-Terry, le club $i$ bat le club $j$ avec la probabilité $\sigma(\beta_i - \beta_j) = \frac{p_i}{p_i + p_j}$, où $p_i = e^{\beta_i}$. D'abord, A et B seuls : on oublie C et les matchs contre lui. Puis tout le tournoi : on propose $p_A = 4$, $p_B = 3$, $p_C = 1$ (à un facteur commun près). Enfin, la cote Elo (base 10, échelle 400) : $R_A - R_C = \frac{400}{\ln 10}(\beta_A - \beta_C)$, et après un match, le club $i$ gagne $k\thinspace(S - E)$ points, avec $k = 32$, $S = 1$ s'il gagne, 0 s'il perd, et $E$ sa probabilité de victoire.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -229,7 +229,7 @@ Dans ta copie : avec b), vérifie que chaque club a autant de victoires attendue
 **Objectif :** appliquer le principe de Gibbs : la loi optimale, sa valeur, et ce qu'elle gagne sur deux lois simples.
 **Prérequis :** fiche §8 ; M06 (divergence KL), M05a §8 (log-sum-exp) · **Parcours :** C, E
 
-Une cantine scolaire sert chaque midi un plat parmi trois : gratin, couscous ou lasagnes, aujourd'hui dans les proportions $\pi_{\mathrm{ref}} = (0{,}45 ;\ 0{,}40 ;\ 0{,}15)$. Une enquête donne leur satisfaction moyenne $r = (2 ;\ 4 ;\ 5)$ (sur 5). Changer brutalement les menus a un coût (les fournisseurs, les habitudes) : le gestionnaire cherche la loi de service $\pi$ qui maximise $F(\pi) = \mathbb{E}_\pi[r] - \beta\,\mathrm{KL}(\pi \,\|\, \pi_{\mathrm{ref}})$, pour $\beta = 1$, puis pour $\beta = 3$.
+Une cantine scolaire sert chaque midi un plat parmi trois : gratin, couscous ou lasagnes, aujourd'hui dans les proportions $\pi_{\mathrm{ref}} = (0{,}45 ;\ 0{,}40 ;\ 0{,}15)$. Une enquête donne leur satisfaction moyenne $r = (2 ;\ 4 ;\ 5)$ (sur 5). Changer brutalement les menus a un coût (les fournisseurs, les habitudes) : le gestionnaire cherche la loi de service $\pi$ qui maximise $F(\pi) = \mathbb{E} _\pi[r] - \beta\thinspace\mathrm{KL}(\pi \thinspace\Vert\thinspace \pi _{\mathrm{ref}})$, pour $\beta = 1$, puis pour $\beta = 3$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -250,32 +250,32 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 **Objectif :** démontrer les deux identités du score, les appliquer, et voir pourquoi un support qui bouge avec $\theta$ les fait tomber.
 **Prérequis :** fiche §1 ; M02b (lois de Poisson, exponentielle et uniforme), M25b §7 (dériver sous l'intégrale) · **Parcours :** C, E
 
-Une famille de densités $p_\theta$ sur $\mathbb{R}$, de paramètre réel $\theta$ dans un intervalle ouvert, est strictement positive sur un ensemble $S$ qui ne dépend pas de $\theta$, et nulle ailleurs ; $\theta \mapsto p_\theta(x)$ est deux fois dérivable pour tout $x \in S$, et l'on admet qu'on peut dériver deux fois $\int_Sp_\theta(x)\,\mathrm{d}x$ sous le signe intégrale (une hypothèse de domination).
-1. En dérivant $\int_Sp_\theta(x)\,\mathrm{d}x = 1$, montre que $\mathbb{E}_\theta[s_\theta(X)] = 0$.
-2. Écris $\partial^2_\theta\ln p_\theta$ avec $p_\theta$, $\partial_\theta p_\theta$ et $\partial^2_\theta p_\theta$. En dérivant une seconde fois, montre que $\mathbb{V}(s_\theta(X)) = -\mathbb{E}_\theta[\partial^2_\theta\ln p_\theta(X)]$.
+Une famille de densités $p_\theta$ sur $\mathbb{R}$, de paramètre réel $\theta$ dans un intervalle ouvert, est strictement positive sur un ensemble $S$ qui ne dépend pas de $\theta$, et nulle ailleurs ; $\theta \mapsto p_\theta(x)$ est deux fois dérivable pour tout $x \in S$, et l'on admet qu'on peut dériver deux fois $\int_Sp_\theta(x)\thinspace\mathrm{d}x$ sous le signe intégrale (une hypothèse de domination).
+1. En dérivant $\int_Sp_\theta(x)\thinspace\mathrm{d}x = 1$, montre que $\mathbb{E} _\theta[s _\theta(X)] = 0$.
+2. Écris $\partial^2_\theta\ln p_\theta$ avec $p_\theta$, $\partial_\theta p_\theta$ et $\partial^2_\theta p_\theta$. En dérivant une seconde fois, montre que $\mathbb{V}(s_\theta(X)) = -\mathbb{E} _\theta[\partial^2  _\theta\ln p _\theta(X)]$.
 3. Applique les deux identités à la loi de Poisson de moyenne $\theta$ (une somme remplace l'intégrale) : son score, et son information de Fisher par les deux formules ; puis donne le score de la loi exponentielle de taux $\theta$, et son information de Fisher par la formule de ton choix.
-4. La loi uniforme sur $[0, \theta]$, $\theta > 0$ : son score sur $[0, \theta[$, puis $\mathbb{E}_\theta[s_\theta(X)]$, $\mathbb{V}(s_\theta(X))$ et $-\mathbb{E}_\theta[\partial^2_\theta\ln p_\theta(X)]$. Quelle étape de 1 tombe, et pourquoi ?
+4. La loi uniforme sur $[0, \theta]$, $\theta > 0$ : son score sur $[0, \theta[$, puis $\mathbb{E} _\theta[s  _\theta(X)]$, $\mathbb{V}(s _\theta(X))$ et $-\mathbb{E} _\theta[\partial^2  _\theta\ln p _\theta(X)]$. Quelle étape de 1 tombe, et pourquoi ?
 
 ### Ex MB8.9 — La baseline optimale b* = E[f s²]/E[s²] d'un estimateur score ; sur n tirages, la moyenne des autres est une baseline sans biais, et la moyenne du groupe multiplie l'estimateur par (n − 1)/n ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer la baseline optimale, puis séparer exactement une baseline sans biais d'une baseline qui biaise.
 **Prérequis :** fiche §3 ; M02c (variance, covariance, estimateur sans biais) · **Parcours :** C
 
-On estime $D = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[f(X)] = \mathbb{E}[f(X)\,s(X)]$, où $s = s_\theta$ ; on suppose $\mathbb{E}[s(X)] = 0$, $0 < \mathbb{E}[s(X)^2] < +\infty$, $\mathbb{E}[f(X)^2s(X)^2] < +\infty$ et $\mathbb{E}[\lvert f(X)\rvert] < +\infty$.
-1. Pour une constante $b$, montre que $(f(X) - b)\,s(X)$ est sans biais, et que sa variance est un trinôme du second degré en $b$. Déduis-en $b^\star$ et la variance minimale.
+On estime $D = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E} _\theta[f(X)] = \mathbb{E}[f(X)\thinspace s(X)]$, où $s = s _\theta$ ; on suppose $\mathbb{E}[s(X)] = 0$, $0 < \mathbb{E}[s(X)^2] < +\infty$, $\mathbb{E}[f(X)^2s(X)^2] < +\infty$ et $\mathbb{E}[\lvert f(X)\rvert] < +\infty$.
+1. Pour une constante $b$, montre que $(f(X) - b)\thinspace s(X)$ est sans biais, et que sa variance est un trinôme du second degré en $b$. Déduis-en $b^\star$ et la variance minimale.
 2. Donne une condition sous laquelle $b^\star = \mathbb{E}[f(X)]$, puis dis pourquoi ✏️ MB8.2 ne la vérifie pas.
-3. On tire $x_1, \ldots, x_n$ indépendants ($n \ge 2$), et $b_i = \frac{1}{n - 1}\sum_{j \ne i}f(x_j)$. Montre que $\frac1n\sum_i\big(f(x_i) - b_i\big)\,s(x_i)$ est sans biais.
-4. Avec la moyenne du groupe $\bar f = \frac1n\sum_jf(x_j)$, montre que $f(x_i) - \bar f = \frac{n - 1}{n}\big(f(x_i) - b_i\big)$ pour tout $i$. Déduis-en l'espérance de $\frac1n\sum_i\big(f(x_i) - \bar f\big)\,s(x_i)$. D'où vient le biais ?
+3. On tire $x_1, \ldots, x_n$ indépendants ($n \ge 2$), et $b_i = \frac{1}{n - 1}\sum_{j \ne i}f(x_j)$. Montre que $\frac1n\sum_i\big(f(x_i) - b_i\big)\thinspace s(x_i)$ est sans biais.
+4. Avec la moyenne du groupe $\bar f = \frac1n\sum_jf(x_j)$, montre que $f(x_i) - \bar f = \frac{n - 1}{n}\big(f(x_i) - b_i\big)$ pour tout $i$. Déduis-en l'espérance de $\frac1n\sum_i\big(f(x_i) - \bar f\big)\thinspace s(x_i)$. D'où vient le biais ?
 
 ### Ex MB8.10 — Le gradient de la valeur d'une politique sous forme matricielle : dériver V = r_π + γP_πV, faire apparaître la loi d'occupation actualisée et la valeur des actions, puis remplacer Q^π par l'avantage ∂ ★★★ ⏱️ 40 min
 **Objectif :** démontrer le théorème de la fiche §4 en dérivant le système de Bellman, puis sa forme score avec l'avantage.
 **Prérequis :** fiche §4 ; M18 §7 (règle du produit), M26 §5 (système de Bellman) ; MB8.R1 · **Parcours :** C, E
 
-Un MDP a $m$ états et $K$ actions, $\gamma < 1$, et une politique softmax tabulaire a les logits $z(s, a)$ ; $\mathbf{P}_\pi$, $\mathbf{r}_\pi$, $V$, $Q$, $A$ et $\mathbf{M}$ sont ceux de la fiche §4. On admet que $\mathbf{V}$ est une fonction dérivable des logits.
-1. La matrice $\mathbf{I} - \gamma\mathbf{P}_\pi$ est inversible (M26 §5). Dérive $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V} = \mathbf{r}_\pi$ par rapport à un paramètre réel de la politique, et montre que $\partial\mathbf{V} = \mathbf{M}\big(\partial\mathbf{r}_\pi + \gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V}\big)$.
+Un MDP a $m$ états et $K$ actions, $\gamma < 1$, et une politique softmax tabulaire a les logits $z(s, a)$ ; $\mathbf{P} _\pi$, $\mathbf{r} _\pi$, $V$, $Q$, $A$ et $\mathbf{M}$ sont ceux de la fiche §4. On admet que $\mathbf{V}$ est une fonction dérivable des logits.
+1. La matrice $\mathbf{I} - \gamma\mathbf{P} _\pi$ est inversible (M26 §5). Dérive $(\mathbf{I} - \gamma\mathbf{P} _\pi)\thinspace\mathbf{V} = \mathbf{r} _\pi$ par rapport à un paramètre réel de la politique, et montre que $\partial\mathbf{V} = \mathbf{M}\big(\partial\mathbf{r}  _\pi + \gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V}\big)$.
 2. Calcule $\frac{\partial\pi(b \mid s')}{\partial z(s, a)}$ pour tous les états $s'$ et toutes les actions $b$.
-3. Déduis-en que le vecteur $\partial\mathbf{r}_\pi + \gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V}$ (la dérivée étant prise par rapport à $z(s, a)$) n'a qu'une coordonnée non nulle, celle de $s$, et qu'elle vaut $\pi(a \mid s)\,A(s, a)$.
-4. Conclus : $\frac{\partial V(s_0)}{\partial z(s, a)} = \mathbf{M}[s_0, s]\,\pi(a \mid s)\,A(s, a) = \frac{\nu_{s_0}(s)}{1 - \gamma}\,\pi(a \mid s)\,A(s, a)$, et vérifie que la somme de ces dérivées sur les actions $a$ est nulle.
-5. Pour une politique qui dépend d'un paramètre réel $\theta$ de façon quelconque (dérivable, de probabilités positives), écris le résultat de 1 sous la forme $\partial_\theta V(s_0) = \sum_s\mathbf{M}[s_0, s]\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,Q(s, a)$, puis montre qu'on peut y remplacer $Q(s, a)$ par $A(s, a)$.
+3. Déduis-en que le vecteur $\partial\mathbf{r} _\pi + \gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V}$ (la dérivée étant prise par rapport à $z(s, a)$) n'a qu'une coordonnée non nulle, celle de $s$, et qu'elle vaut $\pi(a \mid s)\thinspace A(s, a)$.
+4. Conclus : $\frac{\partial V(s_0)}{\partial z(s, a)} = \mathbf{M}[s_0, s]\thinspace\pi(a \mid s)\thinspace A(s, a) = \frac{\nu_{s_0}(s)}{1 - \gamma}\thinspace\pi(a \mid s)\thinspace A(s, a)$, et vérifie que la somme de ces dérivées sur les actions $a$ est nulle.
+5. Pour une politique qui dépend d'un paramètre réel $\theta$ de façon quelconque (dérivable, de probabilités positives), écris le résultat de 1 sous la forme $\partial_\theta V(s_0) = \sum_s\mathbf{M}[s_0, s]\sum_a\pi(a \mid s)\thinspace\partial_\theta\ln\pi(a \mid s)\thinspace Q(s, a)$, puis montre qu'on peut y remplacer $Q(s, a)$ par $A(s, a)$.
 
 <a id="pont"></a>
 
@@ -340,11 +340,11 @@ Les exercices suivants se font dans `03_notebook.ipynb` (ta copie : `mon_travail
 
 Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le notebook). Les quatre 🔨 complètent ta copie `mon_travail/mymath/policy_gradient.py` (**mymath :** `policy_gradient.py`), dont la docstring du module dit ce qui est permis : NumPy et le module `math` ; de `np.linalg`, seulement `solve` et `matrix_rank` (dans `policy_gradient_exact`) ; ni SciPy (`scipy.optimize`, `scipy.special`…), ni scikit-learn : les tests comparent tes résultats à des sommes exactes, à des différences finies de valeurs calculées par `np.linalg.solve`, à `scipy.optimize.minimize` et à scikit-learn ; l'import relatif de ta fonction de M26 est permis (`from .markov import bellman_linear_solve`) ; rien n'y tire au hasard ; ne jamais modifier les tableaux reçus. Chaque 🔨 lance le groupe de tests de sa fonction dans `tests/test_mb8_policy_gradient.py`, puis s'en sert ; dans le notebook, tu l'appelles par `mymath.policy_gradient.<nom>(…)`. Hors de `mymath`, le notebook peut se servir de tout NumPy et de SciPy. Les données des exercices papier sont recopiées dans une cellule du notebook.
 
-**MB8.13 · 🔨 `score_function_gradient(f_values, scores, baseline=0.0)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (au moins deux valeurs finies ; des scores à 1 ou 2 dimensions, avec une ligne par valeur ; une baseline qui est un nombre fini ou `"leave-one-out"`, pas un booléen) ; puis les termes $g_i = (f_i - b_i)\,s_i$, leur moyenne, et leur écart-type (`ddof=1`) divisé par $\sqrt n$. Lance le groupe de tests. Ensuite, le notebook tire 2 000 attentes au téléphone de ✏️ MB8.1 (taux $0{,}1$ par minute, seuil 18 minutes ; graine fixée) et calcule les $f(x_i)$ et les scores : a) l'estimation sans baseline et son erreur type (une liste de 2 nombres) ; b) l'estimation avec la moyenne des autres tirages et son erreur type (une liste de 2 nombres) ; c) le rapport de l'estimation avec la moyenne du groupe, `baseline=float(np.mean(f))`, à celle de b) (un nombre). Ce qu'il faut regarder : la dérivée exacte (ta réponse à MB8.1 b) est-elle à moins de deux erreurs types de a) ? de b) ? Pourquoi l'erreur type de b) est-elle plus petite ? Pourquoi le rapport c) ne dépend-il pas du tirage ?
+**MB8.13 · 🔨 `score_function_gradient(f_values, scores, baseline=0.0)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments (au moins deux valeurs finies ; des scores à 1 ou 2 dimensions, avec une ligne par valeur ; une baseline qui est un nombre fini ou `"leave-one-out"`, pas un booléen) ; puis les termes $g_i = (f_i - b_i)\thinspace s_i$, leur moyenne, et leur écart-type (`ddof=1`) divisé par $\sqrt n$. Lance le groupe de tests. Ensuite, le notebook tire 2 000 attentes au téléphone de ✏️ MB8.1 (taux $0{,}1$ par minute, seuil 18 minutes ; graine fixée) et calcule les $f(x_i)$ et les scores : a) l'estimation sans baseline et son erreur type (une liste de 2 nombres) ; b) l'estimation avec la moyenne des autres tirages et son erreur type (une liste de 2 nombres) ; c) le rapport de l'estimation avec la moyenne du groupe, `baseline=float(np.mean(f))`, à celle de b) (un nombre). Ce qu'il faut regarder : la dérivée exacte (ta réponse à MB8.1 b) est-elle à moins de deux erreurs types de a) ? de b) ? Pourquoi l'erreur type de b) est-elle plus petite ? Pourquoi le rapport c) ne dépend-il pas du tirage ?
 
-**MB8.14 · 🔨 `policy_gradient_exact(P, r, logits, gamma)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; $\pi$, la softmax de chaque ligne des logits (retranche d'abord le maximum de la ligne) ; $\mathbf{P}_\pi$ et $\mathbf{r}_\pi$ ; $\mathbf{M}$ par `np.linalg.solve` ; $\mathbf{V}$, $Q$, puis la formule de la fiche §4 pour tous les $(s_0, s, a)$ d'un coup ; refuse $\gamma = 1$ quand $\mathbf{I} - \mathbf{P}_\pi$ est singulière. Lance le groupe de tests. Ensuite : a) le camion de crêpes de MB8.3, écrit comme un MDP à deux actions (au parc, les deux actions font la même chose) : $V(\text{marché})$, $V(\text{parc})$, puis les dérivées de $V(\text{marché})$ et de $V(\text{parc})$ par rapport aux deux logits du marché (une liste de 6 nombres, à comparer à ta copie) ; b) le notebook fournit `P_14`, `R_14` et `LOGITS_14`, un MDP à trois états et deux actions, avec $\gamma = 0{,}6$ : les dérivées de $V(0)$ par rapport aux six logits, état par état (une liste de 6 nombres) ; c) celles de $V(2)$ (une liste de 6 nombres). Ce qu'il faut regarder : pourquoi, en b), les dérivées par rapport aux logits de l'état 2 sont-elles nulles, et pas en c) ? Pourquoi les deux dérivées d'un même état ont-elles une somme nulle ? Pourquoi, en a), les logits du parc ne comptent-ils pas ?
+**MB8.14 · 🔨 `policy_gradient_exact(P, r, logits, gamma)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; $\pi$, la softmax de chaque ligne des logits (retranche d'abord le maximum de la ligne) ; $\mathbf{P} _\pi$ et $\mathbf{r}  _\pi$ ; $\mathbf{M}$ par `np.linalg.solve` ; $\mathbf{V}$, $Q$, puis la formule de la fiche §4 pour tous les $(s_0, s, a)$ d'un coup ; refuse $\gamma = 1$ quand $\mathbf{I} - \mathbf{P} _\pi$ est singulière. Lance le groupe de tests. Ensuite : a) le camion de crêpes de MB8.3, écrit comme un MDP à deux actions (au parc, les deux actions font la même chose) : $V(\text{marché})$, $V(\text{parc})$, puis les dérivées de $V(\text{marché})$ et de $V(\text{parc})$ par rapport aux deux logits du marché (une liste de 6 nombres, à comparer à ta copie) ; b) le notebook fournit `P_14`, `R_14` et `LOGITS_14`, un MDP à trois états et deux actions, avec $\gamma = 0{,}6$ : les dérivées de $V(0)$ par rapport aux six logits, état par état (une liste de 6 nombres) ; c) celles de $V(2)$ (une liste de 6 nombres). Ce qu'il faut regarder : pourquoi, en b), les dérivées par rapport aux logits de l'état 2 sont-elles nulles, et pas en c) ? Pourquoi les deux dérivées d'un même état ont-elles une somme nulle ? Pourquoi, en a), les logits du parc ne comptent-ils pas ?
 
-**MB8.15 · 🔨 `importance_weights(log_target, log_proposal, self_normalize=False, max_weight=None)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; les différences $d_i = \ln p(x_i) - \ln q(x_i)$, ramenées à $\ln c$ au plus avec `max_weight` $= c$ ; la taille effective à partir de $e^{d_i - \max d}$ ; puis les poids $e^{d_i}$, ou divisés par leur somme. Lance le groupe de tests. Ensuite : a) les six panélistes de MB8.5 ($\ln p$ et $\ln q$ de leurs classes) : le plus grand poids auto-normalisé, puis la taille effective (une liste de 2 nombres, à comparer à ta copie) ; b) le notebook fournit `LOG_P_15` et `LOG_Q_15`, les log-densités de cinq tirages d'une proposition en dimension 900, de l'ordre de $-1\,300$ : calcule d'abord `np.exp(LOG_P_15) / np.exp(LOG_Q_15)` et regarde ce que rend NumPy ; puis, avec `self_normalize=True`, le plus grand poids normalisé et la taille effective (une liste de 2 nombres). Ce qu'il faut regarder : pourquoi le quotient direct ne donne-t-il rien d'utilisable ? Pourquoi les poids de b) sont-ils pourtant bien définis ? Que dit la taille effective trouvée, pour cinq tirages ?
+**MB8.15 · 🔨 `importance_weights(log_target, log_proposal, self_normalize=False, max_weight=None)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; les différences $d_i = \ln p(x_i) - \ln q(x_i)$, ramenées à $\ln c$ au plus avec `max_weight` $= c$ ; la taille effective à partir de $e^{d_i - \max d}$ ; puis les poids $e^{d_i}$, ou divisés par leur somme. Lance le groupe de tests. Ensuite : a) les six panélistes de MB8.5 ($\ln p$ et $\ln q$ de leurs classes) : le plus grand poids auto-normalisé, puis la taille effective (une liste de 2 nombres, à comparer à ta copie) ; b) le notebook fournit `LOG_P_15` et `LOG_Q_15`, les log-densités de cinq tirages d'une proposition en dimension 900, de l'ordre de $-1\thinspace300$ : calcule d'abord `np.exp(LOG_P_15) / np.exp(LOG_Q_15)` et regarde ce que rend NumPy ; puis, avec `self_normalize=True`, le plus grand poids normalisé et la taille effective (une liste de 2 nombres). Ce qu'il faut regarder : pourquoi le quotient direct ne donne-t-il rien d'utilisable ? Pourquoi les poids de b) sont-ils pourtant bien définis ? Que dit la taille effective trouvée, pour cinq tirages ?
 
 **MB8.16 · 🔨 `bradley_terry_fit(wins, tol=1e-10, max_iter=10_000)`.** Écris la fonction, en suivant sa docstring : contrôle les arguments ; la forte connexité (la matrice booléenne « $i$ atteint $j$ » et ses produits par elle-même, M16) ; puis les balayages de Zermelo sur $p = e^\beta$, centrés à chaque balayage, jusqu'à ce que le plus grand changement de $\beta$ passe sous `tol`. Lance le groupe de tests. Ensuite : a) le tournoi de MB8.6 (une liste de 3 nombres, à comparer à ta copie) ; b) le notebook fournit `WINS_16`, une saison de six clubs, qui n'ont pas tous joué le même nombre de matchs : les six forces, puis la probabilité que le club 0 batte le club 5 (une liste de 7 nombres) ; c) dans une copie de `WINS_16`, mets à 0 toutes les défaites du club 1 (sa colonne) : que fait ta fonction ? (la vérification attend une `ValueError`). Ce qu'il faut regarder : la probabilité que le club 0 batte le club 5 vaut-elle la part de ses victoires contre lui, 6 sur 7 ? Pourquoi le modèle ne recopie-t-il pas cette part ?
 
@@ -355,7 +355,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 **MB8.19 · 🐛 Chasse à l'erreur.** Un collègue a écrit quatre fonctions, chacune accompagnée d'une vérification qui passe.
 - (1) `score_exp_bad(x, theta)` doit rendre le score $s_\theta(x)$ de la loi exponentielle de taux $\theta$ en chaque point de `x`. Sur 100 000 tirages au taux $0{,}4$, la moyenne des scores est loin de 0. Il l'a vérifiée au taux 1, où la moyenne des scores est proche de 0.
 - (2) `weights_bad(log_p, log_q)` doit rendre les poids d'importance de tirages de $q$. Avec la cible $\mathcal{N}(0{,}8 ;\ 1)$ et la proposition $\mathcal{N}(0 ;\ 1{,}5^2)$, la moyenne des $w_ix_i$, qui devrait estimer $\mathbb{E}_p[X] = 0{,}8$, est énorme et négative. Il l'a vérifiée avec la même loi pour $p$ et pour $q$.
-- (3) `estimate_bad(f, s)` doit rendre l'estimateur score d'un batch, avec pour chaque tirage une baseline calculée sur le batch, et rester sans biais. Sur 20 000 batches de 4 tirages (loi de Poisson de moyenne $1{,}5$, $f(x) = \mathbf{1}\{x \ge 2\}$), la moyenne des estimations reste nettement sous la dérivée exacte, $1{,}5\,e^{-1{,}5}$. Il l'a vérifiée sur un seul batch de 10 000 tirages.
+- (3) `estimate_bad(f, s)` doit rendre l'estimateur score d'un batch, avec pour chaque tirage une baseline calculée sur le batch, et rester sans biais. Sur 20 000 batches de 4 tirages (loi de Poisson de moyenne $1{,}5$, $f(x) = \mathbf{1}\lbrace x \ge 2\rbrace$), la moyenne des estimations reste nettement sous la dérivée exacte, $1{,}5\thinspace e^{-1{,}5}$. Il l'a vérifiée sur un seul batch de 10 000 tirages.
 - (4) `strongest_bad(wins_a, wins_b)` doit dire quel est le club le plus fort de deux tournois réunis, A (clubs A0, A1, A2) et B (clubs B0, B1, B2), ou lever une `ValueError` quand les données ne permettent pas de le dire. Quand on ajoute au tournoi B un club faible, B3, sans rien changer aux matchs des autres, sa réponse change. Il l'a vérifiée en lui donnant deux fois le même tableau de matchs : elle a bien désigné le meilleur club de ce tableau.
 
 Trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `score_exp_fixed`, `weights_fixed`, `estimate_fixed` et `strongest_fixed`, avec les mêmes arguments, et n'appellent ni `mymath` ni la référence `ref_pg` dont se sert le collègue (la vérification le contrôle, copies de leur code comprises). Puis réponds : a) la moyenne des scores au taux $0{,}4$, avec la fonction corrigée, puis avec la fonction fautive (une liste de 2 nombres) ; b) l'estimation de $\mathbb{E}_p[X]$, corrigée puis fautive (une liste de 2 nombres) ; c) la moyenne des 20 000 estimations, corrigée puis fautive (une liste de 2 nombres) ; d) les réponses de la fonction fautive avant puis après l'ajout de B3 (une liste de 2 noms de clubs). Pour chacune des quatre erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas. La vérification essaie aussi tes fonctions corrigées sur des cas cachés.

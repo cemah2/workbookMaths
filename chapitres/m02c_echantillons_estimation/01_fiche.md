@@ -59,13 +59,13 @@ Vocabulaire anglais de ce chapitre : *sample*, *population*, *i.i.d.* (*independ
 ## L'essentiel en 10 lignes
 
 1. Pour une série $x_1, \ldots, x_n$ : moyenne $\bar{x} = \frac{1}{n}\sum x_i$, **médiane** (la valeur du milieu), **quantiles** (par interpolation entre valeurs triées), variance $\frac{1}{n}\sum(x_i - \bar{x})^2$ ou, avec $n - 1$ au dénominateur, $s^2$. La médiane et les quartiles résistent aux valeurs extrêmes ; la moyenne et la variance, non.
-2. **z-score** : $z = \frac{x - \bar{x}}{s}$. Valeurs aberrantes : $\lvert z \rvert > 3$, ou hors de $[Q_1 - 1{,}5\,\text{EI} ;\ Q_3 + 1{,}5\,\text{EI}]$ avec $\text{EI} = Q_3 - Q_1$ (règle de Tukey, plus robuste).
+2. **z-score** : $z = \frac{x - \bar{x}}{s}$. Valeurs aberrantes : $\lvert z \rvert > 3$, ou hors de $[Q_1 - 1{,}5\thinspace\text{EI} ;\ Q_3 + 1{,}5\thinspace\text{EI}]$ avec $\text{EI} = Q_3 - Q_1$ (règle de Tukey, plus robuste).
 3. Un **échantillon i.i.d.** : $X_1, \ldots, X_n$ indépendantes et de même loi. Tirer **avec remise** dans une population donne un échantillon i.i.d. ; **sans remise**, les tirages sont dépendants et $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}\cdot\frac{N - n}{N - 1}$.
 4. $\mathbb{E}[\bar{X}_n] = \mu$ et $\mathbb{V}(\bar{X}_n) = \frac{\sigma^2}{n}$. **Bienaymé-Tchebychev** : $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}$, d'où la **loi des grands nombres** : $\bar{X}_n$ se rapproche de $\mu$ quand $n$ grandit.
 5. **Théorème central limite** : pour $n$ grand, $\bar{X}_n$ suit à peu près $\mathcal{N}\big(\mu, \frac{\sigma^2}{n}\big)$, et la somme $S_n$ à peu près $\mathcal{N}(n\mu, n\sigma^2)$, **quelle que soit** la loi des $X_i$ (pourvu qu'elle ait une variance).
 6. Un **estimateur** $\hat{\theta}$ est une fonction de l'échantillon. **Biais** $= \mathbb{E}[\hat{\theta}] - \theta$ ; **erreur quadratique** $\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \text{biais}^2 + \mathbb{V}(\hat{\theta})$.
 7. La variance divisée par $n$ sous-estime $\sigma^2$ en moyenne : $\mathbb{E}[S_n^2] = \frac{n - 1}{n}\sigma^2$. Diviser par $n - 1$ (`ddof=1`) donne un estimateur **sans biais**, $S^2$.
-8. **Erreur type** de la moyenne : $\frac{s}{\sqrt{n}}$. **Intervalle de confiance** à 95 % : $\bar{x} \pm 1{,}96\,\frac{s}{\sqrt{n}}$ ; pour une proportion, $\hat{p} \pm 1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$. « 95 % » décrit la **méthode** : 95 % des échantillons donnent un intervalle qui contient la vraie valeur.
+8. **Erreur type** de la moyenne : $\frac{s}{\sqrt{n}}$. **Intervalle de confiance** à 95 % : $\bar{x} \pm 1{,}96\thinspace\frac{s}{\sqrt{n}}$ ; pour une proportion, $\hat{p} \pm 1{,}96\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$. « 95 % » décrit la **méthode** : 95 % des échantillons donnent un intervalle qui contient la vraie valeur.
 9. **Covariance** empirique $\frac{1}{n}\sum(x_i - \bar{x})(y_i - \bar{y})$ ; **corrélation** $r = \frac{\operatorname{Cov}(x, y)}{s_x s_y} \in [-1 ; 1]$ (relation **linéaire** seulement ; $\rho$ pour deux variables aléatoires). $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\operatorname{Cov}(X, Y)$.
 10. La **matrice de covariance** $\boldsymbol{\Sigma}$ range les variances sur sa diagonale et les covariances ailleurs ; elle est symétrique, et $\mathbb{V}\big(\sum_i w_iX_i\big) = \sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$.
 
@@ -123,15 +123,15 @@ On divise souvent par $n - 1$ au lieu de $n$ :
 
 $$s^2 = \frac{1}{n - 1}\sum_{i=1}^{n}(x_i - \bar{x})^2 = \frac{564}{8} = 70{,}5, \qquad s \approx 8{,}40.$$
 
-Le §6 explique pourquoi : quand la série est un échantillon et qu'on veut estimer la variance de la loi, $s_n^2$ est en moyenne trop petit. Dans NumPy, `np.var(x)` divise par $n$, et `np.var(x, ddof=1)` par $n - 1$ : `ddof` (*delta degrees of freedom*) est le nombre qu'on retranche à $n$. Une seule valeur (38) fournit $\frac{484}{564} \approx 86\,\%$ de la somme des carrés : la variance est encore moins robuste que la moyenne.
+Le §6 explique pourquoi : quand la série est un échantillon et qu'on veut estimer la variance de la loi, $s_n^2$ est en moyenne trop petit. Dans NumPy, `np.var(x)` divise par $n$, et `np.var(x, ddof=1)` par $n - 1$ : `ddof` (*delta degrees of freedom*) est le nombre qu'on retranche à $n$. Une seule valeur (38) fournit $\frac{484}{564} \approx 86$ % de la somme des carrés : la variance est encore moins robuste que la moyenne.
 
-**Transformation affine.** Si $y_i = a x_i + b$, alors $\bar{y} = a\bar{x} + b$ et $s_y = \lvert a \rvert\,s_x$ : décaler les données ne change pas leur dispersion, les multiplier par $a$ multiplie l'écart-type par $\lvert a \rvert$ (et la variance par $a^2$), comme pour une variable aléatoire en M02b.
+**Transformation affine.** Si $y_i = a x_i + b$, alors $\bar{y} = a\bar{x} + b$ et $s_y = \lvert a \rvert\thinspace s_x$ : décaler les données ne change pas leur dispersion, les multiplier par $a$ multiplie l'écart-type par $\lvert a \rvert$ (et la variance par $a^2$), comme pour une variable aléatoire en M02b.
 
 ### Quantiles d'une série
 
 M02a a défini le quantile d'ordre $p$ d'une **loi**. Pour une **série** de $n$ valeurs, il y a plusieurs conventions ; le workbook suit celle de NumPy (`np.percentile` et `np.quantile`, méthode linéaire par défaut) :
 1. trier les valeurs : $x_{(0)} \le x_{(1)} \le \cdots \le x_{(n-1)}$ (numérotées à partir de 0, comme en Python) ;
-2. calculer la **position** $h = p\,(n - 1)$ ;
+2. calculer la **position** $h = p\thinspace(n - 1)$ ;
 3. si $h$ est un entier, le quantile est $x_{(h)}$ ; sinon, on **interpole** entre les deux voisines : avec $k$ la partie entière de $h$, $q_p = x_{(k)} + (h - k)\big(x_{(k+1)} - x_{(k)}\big)$.
 
 Pour les neuf durées triées ($n - 1 = 8$) :
@@ -187,7 +187,7 @@ C'est la standardisation de M02b, appliquée à des données : on remplace $\mu$
 
 Une **valeur aberrante** (*outlier*) est une valeur très éloignée des autres : erreur de mesure, unité mal saisie, ou cas réellement exceptionnel. Deux règles courantes :
 - **le z-score** : on signale $\lvert z \rvert > 3$, ce qui est très rare pour des données normales (la probabilité $2\big(1 - \Phi(3)\big)$ se lit dans la table de M02b) ;
-- **l'écart interquartile** (règle de **Tukey**) : on signale les valeurs hors de l'intervalle $[Q_1 - 1{,}5\,\text{EI} ;\ Q_3 + 1{,}5\,\text{EI}]$, dont les bornes s'appellent des **barrières** (*fences*).
+- **l'écart interquartile** (règle de **Tukey**) : on signale les valeurs hors de l'intervalle $[Q_1 - 1{,}5\thinspace\text{EI} ;\ Q_3 + 1{,}5\thinspace\text{EI}]$, dont les bornes s'appellent des **barrières** (*fences*).
 
 Pour les durées : $\lvert z \rvert \approx 2{,}78 < 3$, donc le z-score **ne signale pas** 38. La règle de Tukey donne les barrières $12 - 1{,}5 \times 3 = 7{,}5$ et $15 + 1{,}5 \times 3 = 19{,}5$ : 38 est **signalée**.
 
@@ -228,7 +228,7 @@ On tire $n$ fois au hasard une valeur parmi les $N$ valeurs d'une **population f
 
 Sans remettre, chaque tirage a toujours la même loi (par symétrie, la valeur du $i$-ème tirage est n'importe laquelle des $N$ avec la probabilité $\frac{1}{N}$), mais les tirages sont **dépendants** : si le premier tire une grande valeur, il en reste moins pour le second.
 
-Exemple : la population $\{1, 2, 6, 7\}$ ($N = 4$, $\mu = 4$, $\sigma^2 = \frac{9 + 4 + 4 + 9}{4} = 6{,}5$), et $n = 2$ tirages sans remise. Les 6 paires possibles, équiprobables, donnent pour moyennes 1,5 ; 3,5 ; 4 ; 4 ; 4,5 ; 6,5. Leur moyenne vaut bien $\mu = 4$, et leur variance $\frac{6{,}25 + 0{,}25 + 0 + 0 + 0{,}25 + 6{,}25}{6} = \frac{13}{6} \approx 2{,}17$, **plus petite** que les $\frac{6{,}5}{2} = 3{,}25$ d'un tirage avec remise. Normal : sans remise, les paires extrêmes $(1, 1)$ et $(7, 7)$ sont impossibles.
+Exemple : la population $\lbrace1, 2, 6, 7\rbrace$ ($N = 4$, $\mu = 4$, $\sigma^2 = \frac{9 + 4 + 4 + 9}{4} = 6{,}5$), et $n = 2$ tirages sans remise. Les 6 paires possibles, équiprobables, donnent pour moyennes 1,5 ; 3,5 ; 4 ; 4 ; 4,5 ; 6,5. Leur moyenne vaut bien $\mu = 4$, et leur variance $\frac{6{,}25 + 0{,}25 + 0 + 0 + 0{,}25 + 6{,}25}{6} = \frac{13}{6} \approx 2{,}17$, **plus petite** que les $\frac{6{,}5}{2} = 3{,}25$ d'un tirage avec remise. Normal : sans remise, les paires extrêmes $(1, 1)$ et $(7, 7)$ sont impossibles.
 
 > **Tirages sans remise.** Pour deux tirages distincts $i \ne j$, $\operatorname{Cov}(X_i, X_j) = -\frac{\sigma^2}{N - 1}$, et
 > $$\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}\cdot\frac{N - n}{N - 1}.$$
@@ -238,7 +238,7 @@ Exemple : la population $\{1, 2, 6, 7\}$ ($N = 4$, $\mu = 4$, $\sigma^2 = \frac{
 <summary>Démonstration</summary>
 
 Toutes les paires de tirages distincts jouent le même rôle : notons $c$ leur covariance commune. La variance d'une somme (M02b §6, avec les covariances) donne, pour $n$ tirages :
-$$\mathbb{V}(X_1 + \cdots + X_n) = n\sigma^2 + n(n - 1)\,c,$$
+$$\mathbb{V}(X_1 + \cdots + X_n) = n\sigma^2 + n(n - 1)\thinspace c,$$
 car il y a $n$ variances et $n(n - 1)$ couples $(i, j)$ avec $i \ne j$. Appliquons-la à $n = N$ : on tire **toute** la population, et la somme vaut $a_1 + \cdots + a_N$ quel que soit l'ordre. Elle n'est plus aléatoire, sa variance est nulle : $N\sigma^2 + N(N - 1)c = 0$, d'où $c = -\frac{\sigma^2}{N - 1}$. Pour $n$ quelconque, on divise par $n^2$ :
 $$\mathbb{V}(\bar{X}) = \frac{1}{n^2}\Big(n\sigma^2 - \frac{n(n - 1)\sigma^2}{N - 1}\Big) = \frac{\sigma^2}{n}\Big(1 - \frac{n - 1}{N - 1}\Big) = \frac{\sigma^2}{n}\cdot\frac{N - n}{N - 1}.$$
 Pour l'exemple : $\frac{6{,}5}{2} \times \frac{2}{3} = \frac{13}{6}$.
@@ -270,7 +270,7 @@ En mots : une variable ne peut pas être souvent loin de sa moyenne si sa varian
 <details>
 <summary>Démonstrations</summary>
 
-**Markov** (cas discret ; le cas à densité est identique avec des intégrales) : $\mathbb{E}[X] = \sum_x x\,P(X = x) \ge \sum_{x \ge a} x\,P(X = x) \ge \sum_{x \ge a} a\,P(X = x) = a\,P(X \ge a)$. On a enlevé des termes positifs, puis remplacé $x$ par plus petit que lui.
+**Markov** (cas discret ; le cas à densité est identique avec des intégrales) : $\mathbb{E}[X] = \sum_x x\thinspace P(X = x) \ge \sum_{x \ge a} x\thinspace P(X = x) \ge \sum_{x \ge a} a\thinspace P(X = x) = a\thinspace P(X \ge a)$. On a enlevé des termes positifs, puis remplacé $x$ par plus petit que lui.
 
 **Bienaymé-Tchebychev** : on applique Markov à la variable positive $Y = (X - \mu)^2$ et à $a = \varepsilon^2$. L'événement $\lvert X - \mu \rvert \ge \varepsilon$ est le même que $Y \ge \varepsilon^2$, donc $P(\lvert X - \mu \rvert \ge \varepsilon) \le \frac{\mathbb{E}[Y]}{\varepsilon^2} = \frac{\sigma^2}{\varepsilon^2}$.
 </details>
@@ -279,15 +279,15 @@ En mots : une variable ne peut pas être souvent loin de sa moyenne si sa varian
 
 Appliquons Bienaymé-Tchebychev à $\bar{X}_n$, d'espérance $\mu$ et de variance $\frac{\sigma^2}{n}$ :
 
-$$P\big(\lvert \bar{X}_n - \mu \rvert \ge \varepsilon\big) \le \frac{\sigma^2}{n\,\varepsilon^2} \xrightarrow[n \to +\infty]{} 0.$$
+$$P\big(\lvert \bar{X}_n - \mu \rvert \ge \varepsilon\big) \le \frac{\sigma^2}{n\thinspace\varepsilon^2} \xrightarrow[n \to +\infty]{} 0.$$
 
 > **Loi des grands nombres** (*law of large numbers*). Si $X_1, X_2, \ldots$ sont i.i.d. d'espérance $\mu$ et de variance finie, alors pour tout $\varepsilon > 0$, $P\big(\lvert \bar{X}_n - \mu \rvert \ge \varepsilon\big) \to 0$ quand $n \to +\infty$ : la moyenne de l'échantillon se rapproche de l'espérance.
 
 Cas particulier : si $X_i$ vaut 1 quand un événement $A$ se produit et 0 sinon (une Bernoulli de paramètre $P(A)$), $\bar{X}_n$ est la **fréquence** de $A$ sur $n$ essais, et elle tend vers $P(A)$. C'est le résultat que R8 avait observé.
 
-**Exemple : la méthode de Monte-Carlo.** Pour estimer l'aire sous la parabole $y = x^2$ entre 0 et 1 (elle vaut $\frac{1}{3}$, M02a), on tire $n$ points $(u, v)$ uniformes dans le carré $[0 ; 1]^2$ et on compte la proportion de points sous la courbe ($v < u^2$). Chaque point est une Bernoulli de paramètre $p = \frac{1}{3}$, d'écart-type $\sigma = \sqrt{p(1 - p)} = \frac{\sqrt{2}}{3} \approx 0{,}471$. Avec $n = 10\,000$ points, la proportion a pour écart-type $\frac{0{,}471}{100} \approx 0{,}0047$. Bienaymé-Tchebychev garantit :
+**Exemple : la méthode de Monte-Carlo.** Pour estimer l'aire sous la parabole $y = x^2$ entre 0 et 1 (elle vaut $\frac{1}{3}$, M02a), on tire $n$ points $(u, v)$ uniformes dans le carré $[0 ; 1]^2$ et on compte la proportion de points sous la courbe ($v < u^2$). Chaque point est une Bernoulli de paramètre $p = \frac{1}{3}$, d'écart-type $\sigma = \sqrt{p(1 - p)} = \frac{\sqrt{2}}{3} \approx 0{,}471$. Avec $n = 10\thinspace000$ points, la proportion a pour écart-type $\frac{0{,}471}{100} \approx 0{,}0047$. Bienaymé-Tchebychev garantit :
 
-$$P\big(\lvert \bar{X}_n - \tfrac{1}{3} \rvert \ge 0{,}01\big) \le \frac{2/9}{10\,000 \times 0{,}01^2} \approx 0{,}22.$$
+$$P\big(\lvert \bar{X}_n - \tfrac{1}{3} \rvert \ge 0{,}01\big) \le \frac{2/9}{10\thinspace000 \times 0{,}01^2} \approx 0{,}22.$$
 
 ```python
 >>> rng = np.random.default_rng(0)
@@ -359,7 +359,7 @@ $$\text{biais}(\hat{\theta}) = \mathbb{E}[\hat{\theta}] - \theta, \qquad \mathbb
 <summary>Démonstration</summary>
 
 Notons $m = \mathbb{E}[\hat{\theta}]$. On écrit $\hat{\theta} - \theta = (\hat{\theta} - m) + (m - \theta)$ et on développe :
-$$\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \mathbb{E}\big[(\hat{\theta} - m)^2\big] + 2(m - \theta)\,\mathbb{E}[\hat{\theta} - m] + (m - \theta)^2.$$
+$$\mathbb{E}\big[(\hat{\theta} - \theta)^2\big] = \mathbb{E}\big[(\hat{\theta} - m)^2\big] + 2(m - \theta)\thinspace\mathbb{E}[\hat{\theta} - m] + (m - \theta)^2.$$
 Le premier terme est $\mathbb{V}(\hat{\theta})$, le dernier le carré du biais ($m - \theta$ est un nombre), et le terme du milieu est nul car $\mathbb{E}[\hat{\theta} - m] = m - m = 0$. C'est la même idée que l'identité du §1 : un écart se coupe en deux morceaux dont le produit croisé s'annule en moyenne.
 </details>
 
@@ -375,13 +375,13 @@ $$S_n^2 = \frac{1}{n}\sum_{i=1}^{n}(X_i - \bar{X}_n)^2.$$
 
 Elle est **biaisée** : on montre que
 
-$$\mathbb{E}[S_n^2] = \frac{n - 1}{n}\,\sigma^2 < \sigma^2.$$
+$$\mathbb{E}[S_n^2] = \frac{n - 1}{n}\thinspace\sigma^2 < \sigma^2.$$
 
 Pourquoi trop petite ? Les écarts sont mesurés à $\bar{X}_n$, et non à la vraie moyenne $\mu$ qu'on ne connaît pas. Or $\bar{X}_n$ est, par construction, le nombre qui rend $\sum (X_i - c)^2$ **le plus petit possible** (§1) : mesurés depuis $\bar{X}_n$, les écarts sont systématiquement plus petits que mesurés depuis $\mu$. L'identité du §1, avec $c = \mu$, dit de combien ; M02c.11 en tire la démonstration complète.
 
 Pour corriger, on divise par $n - 1$ :
 
-$$S^2 = \frac{1}{n - 1}\sum_{i=1}^{n}(X_i - \bar{X}_n)^2 = \frac{n}{n - 1}\,S_n^2, \qquad \mathbb{E}[S^2] = \sigma^2.$$
+$$S^2 = \frac{1}{n - 1}\sum_{i=1}^{n}(X_i - \bar{X}_n)^2 = \frac{n}{n - 1}\thinspace S_n^2, \qquad \mathbb{E}[S^2] = \sigma^2.$$
 
 $S^2$ est la **variance d'échantillon sans biais** (`ddof=1`). Le nombre $n - 1$ s'appelle le nombre de **degrés de liberté** : les $n$ écarts $X_i - \bar{X}_n$ ont une somme nulle, donc $n - 1$ d'entre eux suffisent à donner le dernier. Pour $n = 5$, $S_n^2$ sous-estime $\sigma^2$ de 20 % en moyenne ; pour $n = 1000$, de 0,1 % : la différence ne compte que pour les petits échantillons.
 
@@ -399,8 +399,8 @@ Pour $\theta = 10$, le calcul (dans le bloc suivant) donne des EQM d'environ 6,6
 <details>
 <summary>Le calcul pour le maximum</summary>
 
-Le maximum est inférieur à $t$ si et seulement si **tous** les tirages le sont ; par indépendance, $P(M \le t) = \big(\frac{t}{\theta}\big)^n$ pour $0 \le t \le \theta$. En dérivant (M02a §7), $M$ a pour densité $\frac{n\,t^{n-1}}{\theta^n}$ sur $[0 ; \theta]$, d'où
-$$\mathbb{E}[M] = \int_0^\theta t\,\frac{n\,t^{n-1}}{\theta^n}\,dt = \frac{n}{n + 1}\,\theta, \qquad \mathbb{E}[M^2] = \frac{n}{n + 2}\,\theta^2, \qquad \mathbb{V}(M) = \frac{n\,\theta^2}{(n + 1)^2(n + 2)}.$$
+Le maximum est inférieur à $t$ si et seulement si **tous** les tirages le sont ; par indépendance, $P(M \le t) = \big(\frac{t}{\theta}\big)^n$ pour $0 \le t \le \theta$. En dérivant (M02a §7), $M$ a pour densité $\frac{n\thinspace t^{n-1}}{\theta^n}$ sur $[0 ; \theta]$, d'où
+$$\mathbb{E}[M] = \int_0^\theta t\thinspace\frac{n\thinspace t^{n-1}}{\theta^n}\thinspace dt = \frac{n}{n + 1}\thinspace\theta, \qquad \mathbb{E}[M^2] = \frac{n}{n + 2}\thinspace\theta^2, \qquad \mathbb{V}(M) = \frac{n\thinspace\theta^2}{(n + 1)^2(n + 2)}.$$
 Pour $n = 5$ et $\theta = 10$ : $\mathbb{E}[M] \approx 8{,}33$ (biais $\approx -1{,}67$), $\mathbb{V}(M) \approx 1{,}98$, d'où $\text{EQM}(M) \approx 1{,}67^2 + 1{,}98 \approx 4{,}76$. Le maximum corrigé $\frac{6}{5}M$ est sans biais, de variance $\frac{36}{25} \times 1{,}98 \approx 2{,}86$. Et $2\bar{X}_n$ a pour variance $\frac{100}{15} \approx 6{,}67$.
 </details>
 
@@ -428,10 +428,10 @@ Ne confonds pas l'**écart-type des données** $s$ (la dispersion des valeurs, q
 
 Par le théorème central limite, $\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}$ suit à peu près $\mathcal{N}(0, 1)$, donc $P\big(-1{,}96 \le \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le 1{,}96\big) \approx 0{,}95$ ($\Phi(1{,}96) \approx 0{,}975$, M02b). En isolant $\mu$ :
 
-$$P\Big(\bar{X}_n - 1{,}96\,\frac{\sigma}{\sqrt{n}} \le \mu \le \bar{X}_n + 1{,}96\,\frac{\sigma}{\sqrt{n}}\Big) \approx 0{,}95.$$
+$$P\Big(\bar{X}_n - 1{,}96\thinspace\frac{\sigma}{\sqrt{n}} \le \mu \le \bar{X}_n + 1{,}96\thinspace\frac{\sigma}{\sqrt{n}}\Big) \approx 0{,}95.$$
 
 > **Intervalle de confiance à 95 % d'une moyenne** (*confidence interval*), pour $n$ assez grand :
-> $$\Big[\bar{x} - 1{,}96\,\frac{s}{\sqrt{n}}\ ;\ \bar{x} + 1{,}96\,\frac{s}{\sqrt{n}}\Big].$$
+> $$\Big[\bar{x} - 1{,}96\thinspace\frac{s}{\sqrt{n}}\ ;\ \bar{x} + 1{,}96\thinspace\frac{s}{\sqrt{n}}\Big].$$
 > Pour un autre niveau, on remplace 1,96 par le quantile $z$ tel que $2\Phi(z) - 1$ soit ce niveau : $z = 1{,}645$ à 90 %, $1{,}96$ à 95 %, $2{,}576$ à 99 %.
 
 **Exemple.** La durée d'une epoch d'entraînement, mesurée $n = 64$ fois : $\bar{x} = 40{,}2$ secondes, $s = 4{,}8$ secondes. L'erreur type vaut $\frac{4{,}8}{\sqrt{64}} = 0{,}6$, la demi-largeur à 95 % $1{,}96 \times 0{,}6 = 1{,}176$, et l'intervalle $[39{,}024 ;\ 41{,}376]$ secondes.
@@ -440,7 +440,7 @@ $$P\Big(\bar{X}_n - 1{,}96\,\frac{\sigma}{\sqrt{n}} \le \mu \le \bar{X}_n + 1{,}
 
 ![50 intervalles à 95 % calculés sur 50 échantillons de 25 valeurs : quelques-uns ne contiennent pas la vraie moyenne](figures/intervalles.png)
 
-**Quelle taille d'échantillon ?** La demi-largeur vaut $E = z\,\frac{\sigma}{\sqrt{n}}$ ; pour l'obtenir, il faut $n \ge \big(\frac{z\,\sigma}{E}\big)^2$. Pour la durée d'epoch ($\sigma \approx 4{,}8$), une demi-largeur de 0,5 seconde demande $n \ge \big(\frac{1{,}96 \times 4{,}8}{0{,}5}\big)^2 \approx 354{,}04$, donc 355 mesures. Pour **diviser la largeur par 2, il faut 4 fois plus** de données.
+**Quelle taille d'échantillon ?** La demi-largeur vaut $E = z\thinspace\frac{\sigma}{\sqrt{n}}$ ; pour l'obtenir, il faut $n \ge \big(\frac{z\thinspace\sigma}{E}\big)^2$. Pour la durée d'epoch ($\sigma \approx 4{,}8$), une demi-largeur de 0,5 seconde demande $n \ge \big(\frac{1{,}96 \times 4{,}8}{0{,}5}\big)^2 \approx 354{,}04$, donc 355 mesures. Pour **diviser la largeur par 2, il faut 4 fois plus** de données.
 
 **Petits échantillons.** Avec peu de valeurs, remplacer $\sigma$ par $s$ ajoute de l'incertitude, et le théorème central limite est moins précis. Pour des données à peu près normales, on remplace 1,96 par un quantile de la **loi de Student** (admis ici) : 2,262 pour $n = 10$ à 95 %. Pour des données très asymétriques et peu nombreuses, aucune formule simple n'est sûre ; M02c.28 en fait un défi.
 
@@ -483,7 +483,7 @@ Ses limites : le bootstrap ne crée pas d'information. Il suppose que l'échanti
 
 On mesure deux grandeurs sur les mêmes individus : des couples $(x_1, y_1), \ldots, (x_n, y_n)$. Varient-elles ensemble ? La **covariance empirique** est la moyenne des produits des écarts :
 
-$$\operatorname{Cov}(x, y) = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y}) = \overline{xy} - \bar{x}\,\bar{y}.$$
+$$\operatorname{Cov}(x, y) = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y}) = \overline{xy} - \bar{x}\thinspace\bar{y}.$$
 
 Chaque produit est **positif** quand $x_i$ et $y_i$ sont du même côté de leur moyenne (tous deux au-dessus ou tous deux en dessous), **négatif** sinon. Une covariance positive dit que les deux grandeurs ont tendance à monter ensemble.
 
@@ -491,17 +491,17 @@ Exemple : les quatre points $(2, 1)$, $(4, 5)$, $(6, 4)$, $(8, 8)$. Les moyennes
 
 ![Les quatre points, le centre (x̄, ȳ) et l'aire signée de chaque produit d'écarts](figures/covariance.png)
 
-C'est l'analogue, pour des données, de la covariance de deux variables aléatoires de M02b : $\operatorname{Cov}(X, Y) = \mathbb{E}\big[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])\big] = \mathbb{E}[XY] - \mathbb{E}[X]\,\mathbb{E}[Y]$.
+C'est l'analogue, pour des données, de la covariance de deux variables aléatoires de M02b : $\operatorname{Cov}(X, Y) = \mathbb{E}\big[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])\big] = \mathbb{E}[XY] - \mathbb{E}[X]\thinspace\mathbb{E}[Y]$.
 
 ### Les règles de calcul
 
 Pour des variables aléatoires (et de même pour des données), avec $a, b, c, d$ des nombres :
 - $\operatorname{Cov}(X, X) = \mathbb{V}(X)$ et $\operatorname{Cov}(X, Y) = \operatorname{Cov}(Y, X)$ ;
 - $\operatorname{Cov}(aX + bY, Z) = a\operatorname{Cov}(X, Z) + b\operatorname{Cov}(Y, Z)$ (la covariance est **linéaire** en chaque variable) ;
-- $\operatorname{Cov}(X + c, Y) = \operatorname{Cov}(X, Y)$ : une constante ajoutée disparaît dans les écarts à la moyenne ; d'où $\operatorname{Cov}(aX + b, cY + d) = ac\,\operatorname{Cov}(X, Y)$ ;
+- $\operatorname{Cov}(X + c, Y) = \operatorname{Cov}(X, Y)$ : une constante ajoutée disparaît dans les écarts à la moyenne ; d'où $\operatorname{Cov}(aX + b, cY + d) = ac\thinspace\operatorname{Cov}(X, Y)$ ;
 - si $X$ et $Y$ sont indépendantes, $\operatorname{Cov}(X, Y) = 0$ (M02b §5). La **réciproque est fausse** : une covariance nulle ne garantit pas l'indépendance ;
 - **variance d'une combinaison** :
-$$\mathbb{V}(aX + bY) = a^2\,\mathbb{V}(X) + b^2\,\mathbb{V}(Y) + 2ab\,\operatorname{Cov}(X, Y).$$
+$$\mathbb{V}(aX + bY) = a^2\thinspace\mathbb{V}(X) + b^2\thinspace\mathbb{V}(Y) + 2ab\thinspace\operatorname{Cov}(X, Y).$$
 
 La dernière vient des précédentes : $\mathbb{V}(aX + bY) = \operatorname{Cov}(aX + bY, aX + bY)$, qu'on développe comme un produit. Exemples : $\mathbb{V}(X + Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2\operatorname{Cov}(X, Y)$ et $\mathbb{V}(X - Y) = \mathbb{V}(X) + \mathbb{V}(Y) - 2\operatorname{Cov}(X, Y)$. Une covariance positive **augmente** la variance d'une somme et **diminue** celle d'une différence. C'est pourquoi on compare deux modèles sur le **même** jeu de test : leurs erreurs sont positivement corrélées, et la différence de leurs scores varie moins que chaque score.
 
@@ -509,7 +509,7 @@ La dernière vient des précédentes : $\mathbb{V}(aX + bY) = \operatorname{Cov}
 
 La covariance dépend des unités : des durées en secondes au lieu de minutes la multiplient par 60. On la normalise par les écarts-types :
 
-$$r = \frac{\operatorname{Cov}(x, y)}{s_x\,s_y}, \qquad \text{et pour des variables : } \rho(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sigma(X)\,\sigma(Y)}.$$
+$$r = \frac{\operatorname{Cov}(x, y)}{s_x\thinspace s_y}, \qquad \text{et pour des variables : } \rho(X, Y) = \frac{\operatorname{Cov}(X, Y)}{\sigma(X)\thinspace\sigma(Y)}.$$
 
 C'est la **corrélation** (coefficient de corrélation linéaire de Pearson, *correlation*), où la covariance et les deux écarts-types divisent par le même nombre ($n$, ou $n - 1$). Pour les quatre points, avec les variances divisées par $n$ comme la covariance : $\frac{9 + 1 + 1 + 9}{4} = 5$ pour $x$, $\frac{12{,}25 + 0{,}25 + 0{,}25 + 12{,}25}{4} = 6{,}25$ pour $y$, donc $r = \frac{5}{\sqrt{5 \times 6{,}25}} = \frac{5}{\sqrt{31{,}25}} = \frac{2}{\sqrt{5}} \approx 0{,}894$. Diviser partout par $n - 1$ donne le même $r$ : le facteur se simplifie.
 
@@ -519,9 +519,9 @@ Ses propriétés :
 - $r$ ne change pas quand on change d'unité ($x \mapsto ax + b$ avec $a > 0$, de même pour $y$) : résultat admis ici, que workbookIA 2 démontre ;
 - $r$ mesure une relation **linéaire** : des points sur une parabole symétrique peuvent avoir $r = 0$ tout en dépendant exactement l'un de l'autre ; et une seule valeur aberrante peut créer ou détruire une corrélation. **Regarde toujours le nuage de points.**
 
-**La corrélation est un cosinus.** Les vecteurs s'écrivent désormais en gras, comme dans workbookIA et MML (R9 les écrivait avec une flèche, $\vec{u}$). Posons $\mathbf{u} = (x_1 - \bar{x}, \ldots, x_n - \bar{x})$ et $\mathbf{v} = (y_1 - \bar{y}, \ldots, y_n - \bar{y})$, les vecteurs des écarts, dans $\mathbb{R}^n$. Alors $n\operatorname{Cov}(x, y) = \mathbf{u} \cdot \mathbf{v}$, $n\,s_x^2 = \lVert \mathbf{u} \rVert^2$, $n\,s_y^2 = \lVert \mathbf{v} \rVert^2$, et
+**La corrélation est un cosinus.** Les vecteurs s'écrivent désormais en gras, comme dans workbookIA et MML (R9 les écrivait avec une flèche, $\vec{u}$). Posons $\mathbf{u} = (x_1 - \bar{x}, \ldots, x_n - \bar{x})$ et $\mathbf{v} = (y_1 - \bar{y}, \ldots, y_n - \bar{y})$, les vecteurs des écarts, dans $\mathbb{R}^n$. Alors $n\operatorname{Cov}(x, y) = \mathbf{u} \cdot \mathbf{v}$, $n\thinspace s_x^2 = \lVert \mathbf{u} \rVert^2$, $n\thinspace s_y^2 = \lVert \mathbf{v} \rVert^2$, et
 
-$$r = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert} = \cos(\mathbf{u}, \mathbf{v}).$$
+$$r = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert} = \cos(\mathbf{u}, \mathbf{v}).$$
 
 C'est le cosinus de l'angle entre les deux vecteurs d'écarts (R9 l'a fait dans le plan, M07 le fera dans $\mathbb{R}^n$). D'où $-1 \le r \le 1$, et $\lvert r \rvert = 1$ quand $\mathbf{v}$ est un multiple de $\mathbf{u}$, c'est-à-dire quand les points sont alignés. Pour les quatre points : $\mathbf{u} = (-3, -1, 1, 3)$, $\mathbf{v} = (-3{,}5 ;\ 0{,}5 ;\ -0{,}5 ;\ 3{,}5)$, $\mathbf{u} \cdot \mathbf{v} = 20$, $\lVert \mathbf{u} \rVert = \sqrt{20}$, $\lVert \mathbf{v} \rVert = \sqrt{25} = 5$, et $\frac{20}{5\sqrt{20}} = \frac{2}{\sqrt{5}}$.
 
@@ -537,15 +537,15 @@ Sa diagonale contient les **variances** ($\Sigma_{ii} = \mathbb{V}(X_i)$), et el
 
 Exemple : trois features d'un dataset, de matrice de covariance
 
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 49 & 30 & 5 \\ 30 & 100 & -8 \\ 5 & -8 & 16 \end{pmatrix}.$$
+$$\boldsymbol{\Sigma} = \begin{pmatrix} 49 & 30 & 5 \cr 30 & 100 & -8 \cr 5 & -8 & 16 \end{pmatrix}.$$
 
 Les écarts-types sont $\sqrt{49} = 7$, $\sqrt{100} = 10$, $\sqrt{16} = 4$ ; les corrélations $\rho_{12} = \frac{30}{7 \times 10} \approx 0{,}429$, $\rho_{13} = \frac{5}{7 \times 4} \approx 0{,}179$ et $\rho_{23} = \frac{-8}{10 \times 4} = -0{,}2$. Les features 1 et 2 montent ensemble ; les features 2 et 3 varient un peu en sens contraire.
 
 **La variance d'une combinaison.** Pour des nombres $w_1, \ldots, w_p$, en développant comme ci-dessus :
 
-$$\mathbb{V}\Big(\sum_{i=1}^{p} w_iX_i\Big) = \sum_{i=1}^{p}\sum_{j=1}^{p} w_i\,w_j\,\Sigma_{ij}.$$
+$$\mathbb{V}\Big(\sum_{i=1}^{p} w_iX_i\Big) = \sum_{i=1}^{p}\sum_{j=1}^{p} w_i\thinspace w_j\thinspace\Sigma_{ij}.$$
 
-Avec $\mathbf{w} = (1, 1, 0)$ : $\mathbb{V}(X_1 + X_2) = 49 + 100 + 2 \times 30 = 209$. Avec $\mathbf{w} = (1, 0, -1)$ : $\mathbb{V}(X_1 - X_3) = 49 + 16 - 2 \times 5 = 55$. En partie II, cette double somme s'écrira $\mathbf{w}^\top\boldsymbol{\Sigma}\,\mathbf{w}$, un produit de matrices. Comme une variance est toujours positive ou nulle, **une matrice de covariance vérifie $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ pour tous les $w_i$** : on dit qu'elle est **semi-définie positive** (M12c). Un tableau symétrique qui contient une « corrélation » de 1,2, ou une variance négative, ne peut pas être une matrice de covariance.
+Avec $\mathbf{w} = (1, 1, 0)$ : $\mathbb{V}(X_1 + X_2) = 49 + 100 + 2 \times 30 = 209$. Avec $\mathbf{w} = (1, 0, -1)$ : $\mathbb{V}(X_1 - X_3) = 49 + 16 - 2 \times 5 = 55$. En partie II, cette double somme s'écrira $\mathbf{w}^\top\boldsymbol{\Sigma}\thinspace\mathbf{w}$, un produit de matrices. Comme une variance est toujours positive ou nulle, **une matrice de covariance vérifie $\sum_i\sum_j w_iw_j\Sigma_{ij} \ge 0$ pour tous les $w_i$** : on dit qu'elle est **semi-définie positive** (M12c). Un tableau symétrique qui contient une « corrélation » de 1,2, ou une variance négative, ne peut pas être une matrice de covariance.
 
 **Sur des données.** Pour un tableau $\mathbf{X}$ de forme $(n, p)$ ($n$ exemples, $p$ features), la matrice de covariance empirique a pour case $(i, j)$ la covariance empirique des colonnes $i$ et $j$. NumPy la calcule avec `np.cov`, et la matrice de corrélation avec `np.corrcoef`.
 
@@ -570,7 +570,7 @@ Avec $\mathbf{w} = (1, 1, 0)$ : $\mathbb{V}(X_1 + X_2) = 49 + 100 + 2 \times 30 
 Un dataset réel a des **trous** : capteur en panne, champ non rempli. Beaucoup d'algorithmes refusent les valeurs manquantes ; on les **impute**, c'est-à-dire qu'on les remplace par une valeur, le plus souvent la moyenne ou la médiane des valeurs observées de la colonne. Que devient la série ?
 
 Supposons $m$ valeurs observées, de moyenne $\bar{x}$ et de variance (divisée par $m$) $s_m^2$, et $n - m$ valeurs manquantes.
-- **Par la moyenne** : la moyenne ne change pas (on ajoute des valeurs égales à $\bar{x}$). La somme des carrés des écarts non plus (chaque valeur ajoutée a un écart nul), mais elle est maintenant divisée par $n$ au lieu de $m$ : la variance devient $\frac{m}{n}\,s_m^2$, et l'écart-type est multiplié par $\sqrt{\frac{m}{n}}$. La série paraît **moins dispersée** qu'elle ne l'est.
+- **Par la moyenne** : la moyenne ne change pas (on ajoute des valeurs égales à $\bar{x}$). La somme des carrés des écarts non plus (chaque valeur ajoutée a un écart nul), mais elle est maintenant divisée par $n$ au lieu de $m$ : la variance devient $\frac{m}{n}\thinspace s_m^2$, et l'écart-type est multiplié par $\sqrt{\frac{m}{n}}$. La série paraît **moins dispersée** qu'elle ne l'est.
 - **Par la médiane** : la médiane change peu (on ajoute des valeurs au milieu), mais la moyenne bouge si la série est asymétrique, et la variance baisse aussi.
 
 Dans la figure, 8 valeurs sur 40 manquent : l'imputation par la moyenne empile 8 valeurs identiques au centre, et l'écart-type passe de 10,6 à 9,5, soit un facteur $\sqrt{\frac{32}{40}} \approx 0{,}894$.
@@ -594,7 +594,7 @@ Les données de ML ont souvent des centaines ou des milliers de features : chaqu
 
 **Presque tout le volume est près du bord.** Dans le cube $[-1 ; 1]^d$, de côté 2, les points à **plus** de 0,05 du bord forment le cube $[-0{,}95 ; 0{,}95]^d$, de côté 1,9. Son volume est une fraction $\big(\frac{1{,}9}{2}\big)^d = 0{,}95^d$ du grand cube. La part du volume **à moins de 0,05 du bord** vaut donc $1 - 0{,}95^d$ : 10 % en dimension 2, 40 % en dimension 10, **99,4 %** en dimension 100. Un point tiré uniformément dans un cube de dimension 100 est presque sûrement collé à une face.
 
-**La boule inscrite devient minuscule.** La boule de rayon 1 centrée en 0 touche les faces du cube. Elle en occupe une fraction $\frac{\pi}{4} \approx 0{,}785$ en dimension 2 (disque d'aire $\pi$ dans un carré d'aire 4), $\frac{4\pi/3}{8} = \frac{\pi}{6} \approx 0{,}524$ en dimension 3, puis environ 0,0025 en dimension 10, par la formule, admise ici, $\frac{\pi^{d/2}}{\Gamma(d/2 + 1)\,2^d}$ : la fonction $\Gamma$ prolonge la factorielle aux réels positifs ($\Gamma(k + 1) = k!$ pour un entier $k$, $\Gamma(x + 1) = x\,\Gamma(x)$ pour tout $x > 0$, $\Gamma(\frac{1}{2}) = \sqrt{\pi}$ ; M04 la présentera) et `math.gamma` la calcule. Le centre du cube est « vide » : M02c.24 le vérifie par simulation.
+**La boule inscrite devient minuscule.** La boule de rayon 1 centrée en 0 touche les faces du cube. Elle en occupe une fraction $\frac{\pi}{4} \approx 0{,}785$ en dimension 2 (disque d'aire $\pi$ dans un carré d'aire 4), $\frac{4\pi/3}{8} = \frac{\pi}{6} \approx 0{,}524$ en dimension 3, puis environ 0,0025 en dimension 10, par la formule, admise ici, $\frac{\pi^{d/2}}{\Gamma(d/2 + 1)\thinspace2^d}$ : la fonction $\Gamma$ prolonge la factorielle aux réels positifs ($\Gamma(k + 1) = k!$ pour un entier $k$, $\Gamma(x + 1) = x\thinspace\Gamma(x)$ pour tout $x > 0$, $\Gamma(\frac{1}{2}) = \sqrt{\pi}$ ; M04 la présentera) et `math.gamma` la calcule. Le centre du cube est « vide » : M02c.24 le vérifie par simulation.
 
 ![La part du volume du cube dans la boule inscrite (échelle logarithmique) et à moins de 0,05 du bord, en fonction de la dimension](figures/grande_dimension.png)
 

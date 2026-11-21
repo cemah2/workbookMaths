@@ -53,7 +53,7 @@ Relis « Nœuds, arêtes, degrés » et « Les puissances de A comptent les chem
 </details>
 <details><summary>Indice 2</summary>
 
-Une ligne : les successeurs ; une colonne : les prédécesseurs. $(\mathbf{A}^2)_{ij} = \sum_l A_{il}A_{lj}$.
+Une ligne : les successeurs ; une colonne : les prédécesseurs. $(\mathbf{A}^2) _{ij} = \sum_l A  _{il}A _{lj}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -71,7 +71,7 @@ Relis la formule du §5 et le lemme du §6.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(XY) = \mathbb{V}(X)\,\mathbb{V}(Y) + \mathbb{V}(X)\,\mathbb{E}[Y]^2 + \mathbb{V}(Y)\,\mathbb{E}[X]^2$ ; la variance d'une somme ne fait intervenir que des covariances.
+$\mathbb{V}(XY) = \mathbb{V}(X)\thinspace\mathbb{V}(Y) + \mathbb{V}(X)\thinspace\mathbb{E}[Y]^2 + \mathbb{V}(Y)\thinspace\mathbb{E}[X]^2$ ; la variance d'une somme ne fait intervenir que des covariances.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -111,12 +111,12 @@ M02b §4 et §6.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(aX + bY) = a^2\,\mathbb{V}(X) + b^2\,\mathbb{V}(Y)$ pour des variables indépendantes ; $\mathbb{E}[X^2] = \mathbb{V}(X) + \mathbb{E}[X]^2$.
+$\mathbb{V}(aX + bY) = a^2\thinspace\mathbb{V}(X) + b^2\thinspace\mathbb{V}(Y)$ pour des variables indépendantes ; $\mathbb{E}[X^2] = \mathbb{V}(X) + \mathbb{E}[X]^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-4 : $\mathbb{V}(10X) = 100\,\mathbb{V}(X)$, alors que dix copies indépendantes donnent $10\,\mathbb{V}(X)$. 5 : la loi uniforme sur $[a ; b]$ a la variance $\frac{(b - a)^2}{12}$.
+4 : $\mathbb{V}(10X) = 100\thinspace\mathbb{V}(X)$, alors que dix copies indépendantes donnent $10\thinspace\mathbb{V}(X)$. 5 : la loi uniforme sur $[a ; b]$ a la variance $\frac{(b - a)^2}{12}$.
 
 </details>
 
@@ -187,7 +187,7 @@ Relis le §3 : la matrice, les degrés, puis le théorème sur $\mathbf{A}^k$.
 </details>
 <details><summary>Indice 2</summary>
 
-$A_{ij} = 1$ pour une rue $i \to j$ : la ligne 3 a trois 1 (vers 1, 4 et 5). $(\mathbf{A}^2)_{ij} = \sum_l A_{il}A_{lj}$.
+$A_{ij} = 1$ pour une rue $i \to j$ : la ligne 3 a trois 1 (vers 1, 4 et 5). $(\mathbf{A}^2) _{ij} = \sum_l A  _{il}A _{lj}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -223,12 +223,12 @@ Relis la formule du §5 et l'exemple du chiffre d'affaires.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{E}[P^2] = \mathbb{V}(P) + \mathbb{E}[P]^2$, puis $\mathbb{V}(R) = \mathbb{E}[P^2]\,\mathbb{E}[Q^2] - \mathbb{E}[R]^2$.
+$\mathbb{E}[P^2] = \mathbb{V}(P) + \mathbb{E}[P]^2$, puis $\mathbb{V}(R) = \mathbb{E}[P^2]\thinspace\mathbb{E}[Q^2] - \mathbb{E}[R]^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $9{,}16 \times 14\,800 - 360^2$. h) Avec un prix fixe, $R = 3Q$.
+d) $9{,}16 \times 14\thinspace800 - 360^2$. h) Avec un prix fixe, $R = 3Q$.
 
 </details>
 
@@ -241,12 +241,12 @@ Relis le §6 : le lemme et sa conséquence.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(\pm a) = a^2$ ; $\mathbb{V}\big(\sum\varepsilon_ix_i\big) = \sum\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$ ; a) est la somme de toutes les cases de la matrice de covariance.
+$\mathbb{V}(\pm a) = a^2$ ; $\mathbb{V}\big(\sum\varepsilon_ix_i\big) = \sum\mathbb{V}(\varepsilon_i)\thinspace\mathbb{E}[x_i^2]$ ; a) est la somme de toutes les cases de la matrice de covariance.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbb{E}[x_1^2] = \mathbb{V}(x_1) + \mathbb{E}[x_1]^2$. d) $\varepsilon_1^2 = 1$. f) Un seul signe : $\mathbb{V}(\varepsilon T) = \mathbb{E}[\varepsilon^2]\,\mathbb{E}[T^2]$. g) La somme vaut $T + S$, deux morceaux décorrélés : leurs variances s'ajoutent.
+e) $\mathbb{E}[x_1^2] = \mathbb{V}(x_1) + \mathbb{E}[x_1]^2$. d) $\varepsilon_1^2 = 1$. f) Un seul signe : $\mathbb{V}(\varepsilon T) = \mathbb{E}[\varepsilon^2]\thinspace\mathbb{E}[T^2]$. g) La somme vaut $T + S$, deux morceaux décorrélés : leurs variances s'ajoutent.
 
 </details>
 
@@ -294,17 +294,17 @@ Un chemin de $n$ arêtes visite $n + 1$ nœuds. Un cycle de longueur $m$ parcour
 
 <details><summary>Indice 1</summary>
 
-M02b §5 donne $\mathbb{E}[XY] = \mathbb{E}[X]\,\mathbb{E}[Y]$ pour des variables indépendantes : applique-le deux fois.
+M02b §5 donne $\mathbb{E}[XY] = \mathbb{E}[X]\thinspace\mathbb{E}[Y]$ pour des variables indépendantes : applique-le deux fois.
 
 </details>
 <details><summary>Indice 2</summary>
 
-$\{X^2 = u\}$ est la réunion de $\{X = \sqrt{u}\}$ et $\{X = -\sqrt{u}\}$.
+$\lbrace X^2 = u\rbrace$ est la réunion de $\lbrace X = \sqrt{u}\rbrace$ et $\lbrace X = -\sqrt{u}\rbrace$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : développe $(\mathbb{V}(X) + \mathbb{E}[X]^2)(\mathbb{V}(Y) + \mathbb{E}[Y]^2)$. 5 : divise par $\mathbb{E}[X]^2\,\mathbb{E}[Y]^2$.
+3 : développe $(\mathbb{V}(X) + \mathbb{E}[X]^2)(\mathbb{V}(Y) + \mathbb{E}[Y]^2)$. 5 : divise par $\mathbb{E}[X]^2\thinspace\mathbb{E}[Y]^2$.
 
 </details>
 
@@ -326,7 +326,7 @@ $\mathbf{1}\mathbf{b}^\top$ : une colonne de 4 uns fois la ligne $\mathbf{b}^\to
 </details>
 <details><summary>Indice 3</summary>
 
-e) C'est c) avec une colonne de uns en plus : $[\mathbf{x}, 1]\,\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ pour chaque ligne.
+e) C'est c) avec une colonne de uns en plus : $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ pour chaque ligne.
 
 </details>
 
@@ -378,7 +378,7 @@ Ajoute le rôle des signes aléatoires (§6) et la conséquence pour une moyenne
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \\ \mathbf{b} & 1 \end{pmatrix}$.
+Fiche §2 : $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -442,7 +442,7 @@ Des mesures égales : la somme vaut 25 fois une mesure. Des mesures indépendant
 </details>
 <details><summary>Indice 3</summary>
 
-Avec des multiplicateurs centrés et indépendants, la fiche §6 donne $\sum_i\mathbb{V}(\varepsilon_i)\,\mathbb{E}[x_i^2]$, que les mesures soient corrélées ou non ; $\mathbb{V}(\pm 5) = 25$.
+Avec des multiplicateurs centrés et indépendants, la fiche §6 donne $\sum_i\mathbb{V}(\varepsilon_i)\thinspace\mathbb{E}[x_i^2]$, que les mesures soient corrélées ou non ; $\mathbb{V}(\pm 5) = 25$.
 
 </details>
 
@@ -504,7 +504,7 @@ Fiche, les ⚠️ des §2, §4 et §5.
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : $[\mathbf{x}, 1]\,\mathbf{H}_1\mathbf{H}_2 = [f_2(f_1(\mathbf{x})), 1]$.
+Fiche §2 : $[\mathbf{x}, 1]\thinspace\mathbf{H}_1\mathbf{H}_2 = [f_2(f_1(\mathbf{x})), 1]$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -532,6 +532,6 @@ Pour $u \le z$, $P(V \le \frac{z}{u}) = 1$ ; pour $u > z$, elle vaut $\frac{z}{u
 </details>
 <details><summary>Indice 3</summary>
 
-$P(UV \le z) = z + \int_z^1\frac{z}{u}\,du$ ; dérive pour la densité ; la médiane résout une équation qu'on résout par dichotomie (R7).
+$P(UV \le z) = z + \int_z^1\frac{z}{u}\thinspace du$ ; dérive pour la densité ; la médiane résout une équation qu'on résout par dichotomie (R7).
 
 </details>

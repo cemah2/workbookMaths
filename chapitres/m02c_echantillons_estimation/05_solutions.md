@@ -11,7 +11,7 @@
 ### M02c.Q1 — Résumer une série : vrai ou faux
 1. **Faux** : avec un nombre pair de valeurs, la médiane est la moyenne des deux valeurs du milieu, souvent absente de la série (43,5 en M02c.1).
 2. **Faux** : la variance ne change pas ; décaler les valeurs ne les disperse pas.
-3. **Vrai** : $s_{ax} = \lvert a \rvert\,s_x$ (et la variance est multipliée par 9).
+3. **Vrai** : $s_{ax} = \lvert a \rvert\thinspace s_x$ (et la variance est multipliée par 9).
 4. **Vrai** : la moyenne suit la valeur changée sans limite ; la médiane, la 6ᵉ des 11 valeurs triées, ne peut que passer à une valeur voisine dans la série triée.
 5. **Vrai** : $\sum (x_i - \bar{x}) = \sum x_i - n\bar{x} = 0$.
 6. **Faux** : $Q_1 \ge \min$ et $Q_3 \le \max$, donc $Q_3 - Q_1 \le \max - \min$.
@@ -34,7 +34,7 @@
 
 ### M02c.Q4 — Grands nombres et TCL : ce qu'ils disent, ce qu'ils ne disent pas
 1. **Faux** : les lancers sont indépendants ; la loi des grands nombres dilue les écarts, elle ne les compense pas.
-2. Par **10** : $\sqrt{\frac{10\,000}{100}} = 10$.
+2. Par **10** : $\sqrt{\frac{10\thinspace000}{100}} = 10$.
 3. **Faux** : les tirages gardent la loi exponentielle ; c'est la **moyenne** de beaucoup de tirages qui devient normale.
 4. À peu près $\mathcal{N}(5 ;\ 0{,}2^2)$ : espérance 5, écart-type $\frac{2}{\sqrt{100}} = 0{,}2$ (variance 0,04).
 5. **Vrai** : Bienaymé-Tchebychev avec $\varepsilon = 2\sigma$ donne $\frac{1}{4}$.
@@ -105,7 +105,7 @@
 - g) Position $0{,}75 \times 7 = 5{,}25$ : entre $x_{(5)} = 47$ et $x_{(6)} = 51$, $47 + 0{,}25 \times 4 = 48$.
 - h) $48 - 39{,}75 = 8{,}25$.
 
-Pour la copie : $\overline{x^2} = \frac{16\,528}{8} = 2\,066$ et $2\,066 - 45^2 = 41$. À la main, la méthode des écarts manipule de petits nombres et se vérifie (somme nulle) : elle est plus sûre ; la formule $\overline{x^2} - \bar{x}^2$ soustrait deux grands nombres voisins.
+Pour la copie : $\overline{x^2} = \frac{16\thinspace528}{8} = 2\thinspace066$ et $2\thinspace066 - 45^2 = 41$. À la main, la méthode des écarts manipule de petits nombres et se vérifie (somme nulle) : elle est plus sûre ; la formule $\overline{x^2} - \bar{x}^2$ soustrait deux grands nombres voisins.
 
 **Erreurs fréquentes.** Lire la médiane sur la série non triée (42,5) ; diviser par 7 pour la moyenne ; prendre les quartiles « à la Tukey » (médianes des moitiés : 39,5 et 49), une autre convention ; confondre écart interquartile et étendue (20).
 
@@ -158,9 +158,9 @@ Pour la copie : la série est asymétrique (la valeur 24 tire la moyenne au-dess
 - d) Chaque tirage a la loi uniforme sur la population : $\mathbb{E}[\bar{X}] = \mu = 6$.
 - e) $\frac{\sigma^2}{n} \cdot \frac{N - n}{N - 1} = 4 \times \frac{3}{4} = 3$.
 - f) $-\frac{\sigma^2}{N - 1} = -\frac{8}{4} = -2$. g) $\frac{3}{4}$, le facteur de correction.
-- h) $\frac{9\,900}{9\,999} \approx 0{,}9901$.
+- h) $\frac{9\thinspace900}{9\thinspace999} \approx 0{,}9901$.
 
-Pour la copie : les 10 paires ont pour moyennes $3, 4, 5, 6, 5, 6, 7, 7, 8, 9$ (pour $\{2, 4\}, \{2, 6\}, \{2, 8\}, \{2, 10\}, \{4, 6\}, \{4, 8\}, \{4, 10\}, \{6, 8\}, \{6, 10\}, \{8, 10\}$), de moyenne 6 ; écarts au carré $9, 4, 1, 0, 1, 0, 1, 1, 4, 9$, de somme 30 : variance $\frac{30}{10} = 3$. h) Un sondage de 100 personnes dans 10 000 se calcule presque comme un échantillon i.i.d. : 1 % de variance en moins.
+Pour la copie : les 10 paires ont pour moyennes $3, 4, 5, 6, 5, 6, 7, 7, 8, 9$ (pour $\lbrace2, 4\rbrace, \lbrace2, 6\rbrace, \lbrace2, 8\rbrace, \lbrace2, 10\rbrace, \lbrace4, 6\rbrace, \lbrace4, 8\rbrace, \lbrace4, 10\rbrace, \lbrace6, 8\rbrace, \lbrace6, 10\rbrace, \lbrace8, 10\rbrace$), de moyenne 6 ; écarts au carré $9, 4, 1, 0, 1, 0, 1, 1, 4, 9$, de somme 30 : variance $\frac{30}{10} = 3$. h) Un sondage de 100 personnes dans 10 000 se calcule presque comme un échantillon i.i.d. : 1 % de variance en moins.
 
 **Erreurs fréquentes.** Diviser par $N - 1$ en a) (10) ; compter les paires ordonnées (20) ; oublier le facteur de correction ; donner une covariance positive.
 
@@ -174,7 +174,7 @@ Pour la copie : les 10 paires ont pour moyennes $3, 4, 5, 6, 5, 6, 7, 7, 8, 9$ (
 - a) $\frac{2}{\sqrt{16}} = 0{,}5$. b) $1{,}96 \times 0{,}5 = 0{,}98$.
 - c) $1{,}96 \times \frac{2}{\sqrt{n}} \le 0{,}5 \iff \sqrt{n} \ge 7{,}84 \iff n \ge 61{,}47$ : $n = 62$.
 - d) $\frac{\sigma^2}{n\varepsilon^2} = \frac{4}{62 \times 0{,}25} \approx 0{,}258$.
-- e) $\frac{4}{0{,}25\,n} \le 0{,}05 \iff n \ge 320$.
+- e) $\frac{4}{0{,}25\thinspace n} \le 0{,}05 \iff n \ge 320$.
 - f) La demi-largeur varie en $\frac{1}{\sqrt{n}}$ : 4 fois plus de mesures.
 - g) $\frac{2}{20} = 0{,}1$. h) $\big(\frac{1{,}96 \times 4}{0{,}5}\big)^2 \approx 245{,}86$ : $n = 246$ (4 fois plus qu'en c, car $\sigma$ est doublé).
 
@@ -195,7 +195,7 @@ Pour la copie : c) donne une probabilité d'environ 5 % de se tromper de plus de
 - e) $1 - \Phi\big(\frac{49 - 30}{19}\big) = 1 - \Phi(1) = 0{,}1587$.
 - f) $\Phi(1) - \Phi(-1) = 2 \times 0{,}8413 - 1 \approx 0{,}683$.
 - g) $\frac{1{,}9}{\sqrt{100}} = 0{,}19$.
-- h) $P(S_n > 0) \approx \Phi\big(\frac{0{,}3\,n}{1{,}9\sqrt{n}}\big) = \Phi\big(\frac{0{,}3\sqrt{n}}{1{,}9}\big) \ge 0{,}975 \iff \frac{0{,}3\sqrt{n}}{1{,}9} \ge 1{,}96 \iff n \ge 154{,}09$ : $n = 155$.
+- h) $P(S_n > 0) \approx \Phi\big(\frac{0{,}3\thinspace n}{1{,}9\sqrt{n}}\big) = \Phi\big(\frac{0{,}3\sqrt{n}}{1{,}9}\big) \ge 0{,}975 \iff \frac{0{,}3\sqrt{n}}{1{,}9} \ge 1{,}96 \iff n \ge 154{,}09$ : $n = 155$.
 
 Pour la copie : $S$ est une somme de 100 variables i.i.d. de variance finie : le théorème central limite s'applique, quelle que soit l'asymétrie de $X$ (100 termes suffisent largement ici). Un seul jour ne prend que trois valeurs : la loi normale n'a aucun sens pour lui.
 
@@ -284,7 +284,7 @@ Pour la copie : la matrice de corrélation a des 1 sur la diagonale, $\rho_{12} 
 **Réponse modèle.**
 1. On écrit $X_i - \mu = (X_i - \bar{X}) + (\bar{X} - \mu)$ et on développe : $\sum_i (X_i - \mu)^2 = \sum_i (X_i - \bar{X})^2 + 2(\bar{X} - \mu)\sum_i (X_i - \bar{X}) + n(\bar{X} - \mu)^2$. Le terme du milieu est nul car $\sum_i (X_i - \bar{X}) = \sum_i X_i - n\bar{X} = 0$. D'où l'identité.
 2. $\mathbb{E}\big[(X_i - \mu)^2\big] = \mathbb{V}(X_i) = \sigma^2$ par définition de la variance ; $\mathbb{E}\big[(\bar{X} - \mu)^2\big] = \mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}$, car $\mathbb{E}[\bar{X}] = \mu$ et, les $X_i$ étant **indépendantes**, $\mathbb{V}(\bar{X}) = \frac{n\sigma^2}{n^2}$ (fiche §3).
-3. Par linéarité de l'espérance appliquée à l'identité : $\mathbb{E}\big[\sum_i (X_i - \bar{X})^2\big] = n\sigma^2 - n\,\frac{\sigma^2}{n} = (n - 1)\sigma^2$. Donc $\mathbb{E}[S_n^2] = \frac{n - 1}{n}\sigma^2$ et $\mathbb{E}[S^2] = \frac{(n - 1)\sigma^2}{n - 1} = \sigma^2$.
+3. Par linéarité de l'espérance appliquée à l'identité : $\mathbb{E}\big[\sum_i (X_i - \bar{X})^2\big] = n\sigma^2 - n\thinspace\frac{\sigma^2}{n} = (n - 1)\sigma^2$. Donc $\mathbb{E}[S_n^2] = \frac{n - 1}{n}\sigma^2$ et $\mathbb{E}[S^2] = \frac{(n - 1)\sigma^2}{n - 1} = \sigma^2$.
 4. $\text{biais}(S_n^2) = \frac{n - 1}{n}\sigma^2 - \sigma^2 = -\frac{\sigma^2}{n}$, qui tend vers 0 : $S_n^2$ sous-estime $\sigma^2$, de moins en moins.
 5. Avec $n = 1$ : $\bar{X} = X_1$, donc $S_n^2 = 0$, et $S^2 = \frac{0}{0}$ n'est pas défini. Une seule valeur ne dit rien de l'écart entre les valeurs : l'écart à $\bar{X}$ est nul par construction, et l'écart à $\mu$ est inconnu.
 6. Au calcul de $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n}$ (question 2), qui utilise $\mathbb{V}(\sum X_i) = \sum \mathbb{V}(X_i)$.
@@ -296,7 +296,7 @@ Pour la copie : la matrice de corrélation a des 1 sur la diagonale, $\rho_{12} 
 
 **Réponse modèle.**
 1. Par linéarité de l'espérance, $\mathbb{E}[\bar{X}] = \frac{1}{n}\sum_i \mathbb{E}[X_i] = \frac{n\mu}{n} = \mu$. La linéarité ne demande **pas** l'indépendance.
-2. $\mathbb{V}(\bar{X}) = \mathbb{V}\big(\frac{1}{n}\sum_i X_i\big) = \frac{1}{n^2}\,\mathbb{V}\big(\sum_i X_i\big)$ (une constante sort au carré) $= \frac{1}{n^2}\sum_i \mathbb{V}(X_i)$ (variables indépendantes, M02b §6) $= \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}$.
+2. $\mathbb{V}(\bar{X}) = \mathbb{V}\big(\frac{1}{n}\sum_i X_i\big) = \frac{1}{n^2}\thinspace\mathbb{V}\big(\sum_i X_i\big)$ (une constante sort au carré) $= \frac{1}{n^2}\sum_i \mathbb{V}(X_i)$ (variables indépendantes, M02b §6) $= \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}$.
 3. $\sigma(\bar{X}) = \frac{\sigma}{\sqrt{n}}$ ; $\sigma$ est inconnu, on le remplace par son estimation $s$, d'où $\frac{s}{\sqrt{n}}$. Avec 100 fois plus de données, $s$ reste du même ordre (il estime la dispersion des données, qui ne change pas), tandis que l'erreur type est divisée par $\sqrt{100} = 10$.
 4. $\mathbb{V}\big(\sum_i X_i\big) = \sum_i \mathbb{V}(X_i) + \sum_{i \ne j}\operatorname{Cov}(X_i, X_j) = n\sigma^2 + n(n - 1)\rho\sigma^2$ ($n(n - 1)$ couples ordonnés, chacun de covariance $\rho\sigma^2$). En divisant par $n^2$ : $\mathbb{V}(\bar{X}) = \frac{\sigma^2}{n} + \frac{n - 1}{n}\rho\sigma^2 = \sigma^2\big(\frac{1}{n} + (1 - \frac{1}{n})\rho\big)$.
 5. Elle tend vers $\rho\sigma^2$, et non vers 0 : la part commune des erreurs ne se moyenne pas. Moyenner 1 000 modèles très corrélés ($\rho = 0{,}9$) laisse 90 % de la variance d'un seul : il faut des modèles **peu corrélés** (c'est l'idée des forêts aléatoires, chapitre 14 de workbookIA).
@@ -315,10 +315,10 @@ Pour la copie : la matrice de corrélation a des 1 sur la diagonale, $\rho_{12} 
 **Démarche.**
 - a) $0{,}99 \times 999 = 989{,}01$. b) Entre $x_{(989)} = 179$ et $x_{(990)} = 182$ : $179 + 0{,}01 \times 3 = 179{,}03$ ms.
 - c) Position $0{,}999 \times 999 = 998{,}001$ : $290 + 0{,}001 \times 122 = 290{,}122$ ms.
-- d) Chaque mesure dépasse $q_{0{,}99}$ avec la probabilité 0,01 : en moyenne $1\,000 \times 0{,}01 = 10$.
-- e) Ce nombre suit $\mathcal{B}(1\,000 ;\ 0{,}01)$ : $\sqrt{1\,000 \times 0{,}01 \times 0{,}99} = \sqrt{9{,}9} \approx 3{,}146$.
+- d) Chaque mesure dépasse $q_{0{,}99}$ avec la probabilité 0,01 : en moyenne $1\thinspace000 \times 0{,}01 = 10$.
+- e) Ce nombre suit $\mathcal{B}(1\thinspace000 ;\ 0{,}01)$ : $\sqrt{1\thinspace000 \times 0{,}01 \times 0{,}99} = \sqrt{9{,}9} \approx 3{,}146$.
 - f) $P(T > q) = e^{-q/40} = 0{,}01$, donc $q = 40\ln 100 \approx 184{,}21$ ms.
-- g) $n \times 0{,}001 = 10$ : $n = 10\,000$.
+- g) $n \times 0{,}001 = 10$ : $n = 10\thinspace000$.
 
 Pour la copie : le p99,9 de 1 000 mesures repose sur les **deux** plus grandes (290 et 412), et presque entièrement sur la 999ᵉ. Une heure sans requête exceptionnelle, puis une heure avec une seule réponse à 400 ms, et le p99,9 saute de 100 ms. On propose : l'afficher seulement sur des fenêtres de plus de 10 000 mesures, l'accompagner d'un intervalle (bootstrap, fiche §7), ou suivre le p99, plus stable.
 
@@ -465,6 +465,6 @@ Pour la copie : f) est plus petit parce que la valeur 20 elle-même a tiré la m
 
 ### Ex M02c.28 — Défi : un intervalle à 95 % avec dix valeurs d'une loi asymétrique
 
-**Démarche.** La remarque clé : $\frac{X_i}{\mu}$ suit la loi exponentielle de moyenne 1, donc la loi de $\frac{\bar{X}}{\mu}$ est **la même pour tous les $\mu$** (un **pivot**). On la simule une fois (200 000 moyennes de 10 exponentielles de moyenne 1 ; avec quelques milliers seulement, l'aléa sur les percentiles fait sortir la couverture de la fenêtre environ une fois sur 13 avec 2 000 moyennes, une fois sur 4 avec 1 000), on lit ses quantiles $q_{0{,}025} \approx 0{,}48$ et $q_{0{,}975} \approx 1{,}71$, et $q_{0{,}025} \le \frac{\bar{X}}{\mu} \le q_{0{,}975}$ s'inverse en $\frac{\bar{X}}{q_{0{,}975}} \le \mu \le \frac{\bar{X}}{q_{0{,}025}}$, soit environ $[0{,}58\,\bar{x} ;\ 2{,}09\,\bar{x}]$. Couverture mesurée : 0,949, largeur moyenne 1,51 $\mu$. La loi de $\frac{\bar{X}}{\mu}$ a d'ailleurs une formule, une loi gamma (`stats.gamma(10, scale=1/10)`), qui donne les mêmes quantiles. Pour la copie : l'intervalle est asymétrique, plus long vers le haut, comme la loi elle-même ; le bootstrap des percentiles couvre environ 86 fois sur 100, car la loi empirique de 10 valeurs n'a presque jamais la longue queue de la vraie loi.
+**Démarche.** La remarque clé : $\frac{X_i}{\mu}$ suit la loi exponentielle de moyenne 1, donc la loi de $\frac{\bar{X}}{\mu}$ est **la même pour tous les $\mu$** (un **pivot**). On la simule une fois (200 000 moyennes de 10 exponentielles de moyenne 1 ; avec quelques milliers seulement, l'aléa sur les percentiles fait sortir la couverture de la fenêtre environ une fois sur 13 avec 2 000 moyennes, une fois sur 4 avec 1 000), on lit ses quantiles $q_{0{,}025} \approx 0{,}48$ et $q_{0{,}975} \approx 1{,}71$, et $q_{0{,}025} \le \frac{\bar{X}}{\mu} \le q_{0{,}975}$ s'inverse en $\frac{\bar{X}}{q_{0{,}975}} \le \mu \le \frac{\bar{X}}{q_{0{,}025}}$, soit environ $[0{,}58\thinspace\bar{x} ;\ 2{,}09\thinspace\bar{x}]$. Couverture mesurée : 0,949, largeur moyenne 1,51 $\mu$. La loi de $\frac{\bar{X}}{\mu}$ a d'ailleurs une formule, une loi gamma (`stats.gamma(10, scale=1/10)`), qui donne les mêmes quantiles. Pour la copie : l'intervalle est asymétrique, plus long vers le haut, comme la loi elle-même ; le bootstrap des percentiles couvre environ 86 fois sur 100, car la loi empirique de 10 valeurs n'a presque jamais la longue queue de la vraie loi.
 
-**Erreurs fréquentes.** Le bootstrap des percentiles ou l'intervalle de Student (couverture 0,86 et 0,90) ; un bootstrap écrit avec une boucle Python sur les rééchantillons (plus d'une minute : `sample[rng.integers(0, 10, (2000, 10))]` les tire d'un coup) ; un intervalle d'une seule borne $[0 ;\ c\,\bar{x}]$, qui couvre mais est trop large (environ 1,85 $\mu$) ; simuler le pivot à chaque appel (lent) ; un intervalle qui dépend d'une échelle fixée d'avance.
+**Erreurs fréquentes.** Le bootstrap des percentiles ou l'intervalle de Student (couverture 0,86 et 0,90) ; un bootstrap écrit avec une boucle Python sur les rééchantillons (plus d'une minute : `sample[rng.integers(0, 10, (2000, 10))]` les tire d'un coup) ; un intervalle d'une seule borne $[0 ;\ c\thinspace\bar{x}]$, qui couvre mais est trop large (environ 1,85 $\mu$) ; simuler le pivot à chaque appel (lent) ; un intervalle qui dépend d'une échelle fixée d'avance.

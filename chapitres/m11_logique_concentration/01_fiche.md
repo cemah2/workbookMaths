@@ -63,7 +63,7 @@ Vocabulaire anglais de ce chapitre : *argument*, *premise*, *conclusion*, *valid
 6. **Tchebychev** : $P(\lvert X - \mu \rvert \ge t) \le \frac{\sigma^2}{t^2}$ ; pour une moyenne de $n$ variables indépendantes, $\frac{\sigma^2}{n t^2}$, d'où la **loi faible des grands nombres**. Une variable dans $[a, b]$ a une variance au plus $\frac{(b - a)^2}{4}$.
 7. **Hoeffding** : pour $n$ variables indépendantes à valeurs dans $[a, b]$, $P(\lvert \bar{X} - \mu \rvert \ge t) \le 2\exp\big(-\frac{2nt^2}{(b - a)^2}\big)$ : une décroissance **exponentielle** en $n$, sans connaître la loi.
 8. **Rayon de confiance** : avec une probabilité au moins $1 - \delta$, $\lvert \bar{X} - \mu \rvert < (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}$ ; il faut 4 fois plus d'exemples pour un rayon 2 fois plus petit. Pour $K$ quantités regardées ensemble, on remplace $\delta$ par $\frac{\delta}{K}$.
-9. **Regret** : $R_T = \sum_k \Delta_k\,\mathbb{E}[N_k(T)]$, l'écart $\Delta_k$ de chaque option à la meilleure fois le nombre attendu de fois qu'on la choisit. Avec ε fixé, ε-greedy a un regret au moins linéaire en $T$.
+9. **Regret** : $R_T = \sum_k \Delta_k\thinspace\mathbb{E}[N_k(T)]$, l'écart $\Delta_k$ de chaque option à la meilleure fois le nombre attendu de fois qu'on la choisit. Avec ε fixé, ε-greedy a un regret au moins linéaire en $T$.
 10. **UCB** choisit l'option dont la **borne supérieure** de confiance (Hoeffding, avec un risque qui décroît avec $t$) est la plus haute : c'est l'**optimisme face à l'incertitude**. **Thompson** tire une valeur dans chaque loi a posteriori et choisit la plus grande.
 
 ---
@@ -124,7 +124,7 @@ Pour réfuter « pour tout $x$ de $E$, $P(x)$ », il suffit d'**un** $x$ de $E$ 
 
 ### Une phrase, une inclusion
 
-Une phrase qui parle des éléments d'un ensemble $E$ se traduit en relation entre des parties de $E$. Notons $A = \{x \in E : x \text{ a la propriété } A\}$, et de même pour $B$ :
+Une phrase qui parle des éléments d'un ensemble $E$ se traduit en relation entre des parties de $E$. Notons $A = \lbrace x \in E : x \text{ a la propriété } A\rbrace$, et de même pour $B$ :
 
 | Phrase | En ensembles | Ce qui la réfute |
 |---|---|---|
@@ -135,11 +135,11 @@ Une phrase qui parle des éléments d'un ensemble $E$ se traduit en relation ent
 
 La dernière ligne est la **négation** de la première : nier une inclusion, c'est exhiber un contre-exemple. Et la logique du §1 se lit en ensembles : l'implication « si $x \in A$, alors $x \in B$ » **est** l'inclusion $A \subset B$ ; sa contraposée est l'inclusion des complémentaires, $\bar{B} \subset \bar{A}$ (ce qui n'est pas dans $B$ n'est pas dans $A$) ; sa réciproque est l'autre inclusion, $B \subset A$.
 
-**Exemple.** $E = \{1, \ldots, 24\}$, $A$ les multiples de 4, $B$ les nombres pairs, $C$ les multiples de 3.
-- « Tout multiple de 4 est pair » : $A = \{4, 8, 12, 16, 20, 24\} \subset B$, vrai.
+**Exemple.** $E = \lbrace1, \ldots, 24\rbrace$, $A$ les multiples de 4, $B$ les nombres pairs, $C$ les multiples de 3.
+- « Tout multiple de 4 est pair » : $A = \lbrace4, 8, 12, 16, 20, 24\rbrace \subset B$, vrai.
 - La réciproque, « tout nombre pair est multiple de 4 » : $B \subset A$, fausse ; $2 \in B \setminus A$ est un contre-exemple, et il y en a 6 ($|B \setminus A| = 12 - 6$).
 - « Tout multiple de 3 est impair » : faux, $6 \in C \setminus \bar{B}$.
-- $A \cap C = \{12, 24\}$ : « au moins un multiple de 4 est multiple de 3 » est vrai, avec deux témoins.
+- $A \cap C = \lbrace12, 24\rbrace$ : « au moins un multiple de 4 est multiple de 3 » est vrai, avec deux témoins.
 - Contraposée de la première phrase : $\bar{B}$ (les 12 impairs) est inclus dans $\bar{A}$ (les 18 non-multiples de 4).
 
 ![Deux diagrammes de Venn : à gauche A inclus dans B, la région de A hors de B est vide ; à droite A n'est pas inclus dans B, et un point de A hors de B est un contre-exemple](figures/venn.png)
@@ -148,7 +148,7 @@ La dernière ligne est la **négation** de la première : nier une inclusion, c'
 
 **Compter.** Le cardinal d'une réunion se compte sans double compte (R4) : $\lvert A \cup C \rvert = \lvert A \rvert + \lvert C \rvert - \lvert A \cap C \rvert = 6 + 8 - 2 = 12$. C'est aussi ce qui fait les probabilités : avec un élément tiré au hasard dans $E$, $P(A \cup C) = \frac{12}{24}$.
 
-⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $D$ » donnent « au moins un élément de $A$ est dans $D$ ». Les deux témoins peuvent être différents : avec $D = \{10, 22\}$, on a $4 \in A \cap B$ et $10 \in B \cap D$, et pourtant $A \cap D = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset D$ donnent $A \subset D$.
+⚠️ **Erreur classique.** Croire que « au moins un élément de $A$ est dans $B$ » et « au moins un élément de $B$ est dans $D$ » donnent « au moins un élément de $A$ est dans $D$ ». Les deux témoins peuvent être différents : avec $D = \lbrace10, 22\rbrace$, on a $4 \in A \cap B$ et $10 \in B \cap D$, et pourtant $A \cap D = \varnothing$. Seule une inclusion se transmet : $A \subset B$ et $B \subset D$ donnent $A \subset D$.
 
 ## §3 · L'induction et ses pièges
 
@@ -160,9 +160,9 @@ Une **déduction** valide transporte la vérité des prémisses à la conclusion
 
 ### Piège 1 : des exemples qui ne prouvent rien
 
-Le polynôme $n^2 + n + 41$ donne un nombre premier pour $n = 0, 1, 2, \ldots, 39$ : quarante exemples sur quarante. Pourtant $40^2 + 40 + 41 = 1\,681 = 41^2$ n'est pas premier. Aucune liste d'exemples ne démontre une phrase en « pour tout » sur un ensemble infini ; **un** contre-exemple la réfute. C'est l'asymétrie du §2 : prouver une inclusion demande un argument, la réfuter demande un témoin.
+Le polynôme $n^2 + n + 41$ donne un nombre premier pour $n = 0, 1, 2, \ldots, 39$ : quarante exemples sur quarante. Pourtant $40^2 + 40 + 41 = 1\thinspace681 = 41^2$ n'est pas premier. Aucune liste d'exemples ne démontre une phrase en « pour tout » sur un ensemble infini ; **un** contre-exemple la réfute. C'est l'asymétrie du §2 : prouver une inclusion demande un argument, la réfuter demande un témoin.
 
-Quand l'induction porte sur une fréquence, le nombre d'exemples compte. Un événement de probabilité $p$ n'arrive jamais en $n$ essais indépendants avec la probabilité $(1 - p)^n$. Si l'on n'a vu **aucune** panne en $n$ essais, les valeurs de $p$ pour lesquelles ce résultat avait moins de 5 % de chances d'arriver sont celles où $(1 - p)^n < 0{,}05$, soit, comme $\ln(1 - p) \approx -p$ pour $p$ petit, $p > \frac{-\ln 0{,}05}{n} \approx \frac{3}{n}$. C'est la **règle de trois** : zéro panne en 150 essais permet seulement de dire, à 95 %, que $p$ est inférieur à environ $\frac{3}{150} = 2\,\%$, et non qu'il est nul.
+Quand l'induction porte sur une fréquence, le nombre d'exemples compte. Un événement de probabilité $p$ n'arrive jamais en $n$ essais indépendants avec la probabilité $(1 - p)^n$. Si l'on n'a vu **aucune** panne en $n$ essais, les valeurs de $p$ pour lesquelles ce résultat avait moins de 5 % de chances d'arriver sont celles où $(1 - p)^n < 0{,}05$, soit, comme $\ln(1 - p) \approx -p$ pour $p$ petit, $p > \frac{-\ln 0{,}05}{n} \approx \frac{3}{n}$. C'est la **règle de trois** : zéro panne en 150 essais permet seulement de dire, à 95 %, que $p$ est inférieur à environ $\frac{3}{150} = 2$ %, et non qu'il est nul.
 
 ### Piège 2 : oublier le taux de base
 
@@ -195,7 +195,7 @@ M02c a énoncé et démontré cette inégalité pour en tirer la loi des grands 
 > **Inégalité de Markov** (*Markov's inequality*). Si $X \ge 0$ a une espérance, alors pour tout $a > 0$ :
 > $$P(X \ge a) \le \frac{\mathbb{E}[X]}{a}.$$
 
-**Preuve par une indicatrice.** Notons $\mathbf{1}_{X \ge a}$ la variable qui vaut 1 si $X \ge a$ et 0 sinon (son espérance est $P(X \ge a)$). Pour toute valeur de $X$ : si $X \ge a$, $a\,\mathbf{1}_{X \ge a} = a \le X$ ; si $X < a$, $a\,\mathbf{1}_{X \ge a} = 0 \le X$, car $X \ge 0$. Donc $a\,\mathbf{1}_{X \ge a} \le X$ partout, et l'espérance, qui respecte l'ordre, donne $a\,P(X \ge a) \le \mathbb{E}[X]$.
+**Preuve par une indicatrice.** Notons $\mathbf{1} _{X \ge a}$ la variable qui vaut 1 si $X \ge a$ et 0 sinon (son espérance est $P(X \ge a)$). Pour toute valeur de $X$ : si $X \ge a$, $a\thinspace\mathbf{1} _{X \ge a} = a \le X$ ; si $X < a$, $a\thinspace\mathbf{1} _{X \ge a} = 0 \le X$, car $X \ge 0$. Donc $a\thinspace\mathbf{1} _{X \ge a} \le X$ partout, et l'espérance, qui respecte l'ordre, donne $a\thinspace P(X \ge a) \le \mathbb{E}[X]$.
 
 **Exemple.** Un serveur reçoit $N$ requêtes par seconde, $N \ge 0$, avec $\mathbb{E}[N] = 40$. Sans rien savoir d'autre : $P(N \ge 200) \le \frac{40}{200} = 0{,}2$. Autre écriture : une variable positive dépasse $k$ fois sa moyenne avec une probabilité au plus $\frac{1}{k}$.
 
@@ -215,7 +215,7 @@ Avec $\varphi(x) = x^2$ (pour $X \ge 0$) on obtient une borne en $\frac{\mathbb{
 
 ### La queue empirique
 
-Avec un échantillon $x_1, \ldots, x_n$, la proportion des valeurs au moins égales à $a$, $\frac{1}{n}\#\{i : x_i \ge a\}$, est la **queue empirique** (*empirical tail*), une estimation de $P(X \ge a)$ (`empirical_tail` dans `mymath`). Elle vérifie elle-même Markov : la loi qui donne le poids $\frac{1}{n}$ à chaque $x_i$ est une loi comme une autre, d'espérance $\bar{x}$. Pour des valeurs positives, la queue empirique ne dépasse donc jamais $\frac{\bar{x}}{a}$ (M11.5 g, M11.19).
+Avec un échantillon $x_1, \ldots, x_n$, la proportion des valeurs au moins égales à $a$, $\frac{1}{n}\operatorname{card}\lbrace i : x_i \ge a\rbrace$, est la **queue empirique** (*empirical tail*), une estimation de $P(X \ge a)$ (`empirical_tail` dans `mymath`). Elle vérifie elle-même Markov : la loi qui donne le poids $\frac{1}{n}$ à chaque $x_i$ est une loi comme une autre, d'espérance $\bar{x}$. Pour des valeurs positives, la queue empirique ne dépasse donc jamais $\frac{\bar{x}}{a}$ (M11.5 g, M11.19).
 
 ⚠️ **Erreur classique.** Appliquer Markov à une variable qui peut être négative (un bénéfice, un écart à la moyenne, un score centré). Il faut d'abord se ramener à une variable positive : $\lvert X \rvert$, $(X - \mu)^2$, ou $X - m$ si $X \ge m$.
 
@@ -228,7 +228,7 @@ Avec un échantillon $x_1, \ldots, x_n$, la proportion des valeurs au moins éga
 
 C'est Markov appliquée à $(X - \mu)^2 \ge 0$ et au seuil $t^2$ (M02c, M11.12). Avec $t = k\sigma$ : au plus $\frac{1}{k^2}$ de chances d'être à $k$ écarts-types ou plus, pour **toute** loi. **Exemple.** Les requêtes du §4 ont aussi une variance de 100 (écart-type 10) : $P(N \ge 200) \le P(\lvert N - 40 \rvert \ge 160) \le \frac{100}{160^2} \approx 0{,}0039$, cinquante fois mieux que Markov, parce qu'on connaît un moment de plus.
 
-**Elle est atteinte.** La variable qui vaut $\mu - t$ et $\mu + t$ avec la probabilité $\frac{p}{2}$ chacune, et $\mu$ sinon, a pour variance $p\,t^2$ et vérifie $P(\lvert X - \mu \rvert \ge t) = p = \frac{\sigma^2}{t^2}$.
+**Elle est atteinte.** La variable qui vaut $\mu - t$ et $\mu + t$ avec la probabilité $\frac{p}{2}$ chacune, et $\mu$ sinon, a pour variance $p\thinspace t^2$ et vérifie $P(\lvert X - \mu \rvert \ge t) = p = \frac{\sigma^2}{t^2}$.
 
 ### La moyenne de $n$ variables
 
@@ -237,7 +237,7 @@ Si $X_1, \ldots, X_n$ sont indépendantes (il suffit qu'elles soient deux à deu
 $$P\big(\lvert \bar{X} - \mu \rvert \ge t\big) \le \frac{\sigma^2}{n t^2} \xrightarrow[n \to +\infty]{} 0.$$
 
 C'est la **loi faible des grands nombres** (*weak law of large numbers*) : pour tout $t > 0$, la probabilité que la moyenne soit à $t$ ou plus de $\mu$ tend vers 0. La borne dit aussi **combien** d'exemples suffisent : pour garantir $P(\lvert \bar{X} - \mu \rvert \ge t) \le \delta$, il suffit que
-$$n \ge \frac{\sigma^2}{\delta\, t^2}.$$
+$$n \ge \frac{\sigma^2}{\delta\thinspace t^2}.$$
 
 ### Borner une variance inconnue
 
@@ -245,7 +245,7 @@ Souvent $\sigma^2$ est inconnue, mais les valeurs sont bornées. Si $X$ prend se
 $$\mathbb{V}(X) \le \frac{(b - a)^2}{4},$$
 avec égalité pour la loi qui met la moitié de sa masse en $a$ et l'autre en $b$. Preuve courte : la variance est la plus petite valeur de $\mathbb{E}[(X - c)^2]$ quand $c$ varie (elle est atteinte en $c = \mu$, M02b), donc $\mathbb{V}(X) \le \mathbb{E}\big[(X - \frac{a + b}{2})^2\big] \le \big(\frac{b - a}{2}\big)^2$, puisque $X$ est à au plus $\frac{b - a}{2}$ du milieu. Pour une variable qui vaut 0 ou 1 (une proportion), on retrouve $p(1 - p) \le \frac{1}{4}$.
 
-**Exemple.** On veut une proportion inconnue $p$ à $\pm 0{,}04$, avec un risque d'au plus 5 %. Tchebychev, avec $\sigma^2 \le \frac{1}{4}$ : $n \ge \frac{0{,}25}{0{,}05 \times 0{,}04^2} = 3\,125$. L'approximation normale (M02c) disait $n \approx \big(\frac{1{,}96 \times 0{,}5}{0{,}04}\big)^2 \approx 601$ : Tchebychev demande cinq fois plus, prix d'une garantie valable pour toute loi et tout $n$, là où le TCL n'est qu'une approximation.
+**Exemple.** On veut une proportion inconnue $p$ à $\pm 0{,}04$, avec un risque d'au plus 5 %. Tchebychev, avec $\sigma^2 \le \frac{1}{4}$ : $n \ge \frac{0{,}25}{0{,}05 \times 0{,}04^2} = 3\thinspace125$. L'approximation normale (M02c) disait $n \approx \big(\frac{1{,}96 \times 0{,}5}{0{,}04}\big)^2 \approx 601$ : Tchebychev demande cinq fois plus, prix d'une garantie valable pour toute loi et tout $n$, là où le TCL n'est qu'une approximation.
 
 ⚠️ **Erreur classique.** Diviser par $t$ au lieu de $t^2$, ou par $n$ au lieu de $n t^2$. Un contrôle rapide : diviser $t$ par 2 doit multiplier la taille d'échantillon par 4.
 
@@ -260,13 +260,13 @@ Tchebychev décroît comme $\frac{1}{n}$. Quand les variables sont **bornées**,
 
 Les variables n'ont pas besoin d'avoir la même loi ; il faut seulement qu'elles soient indépendantes et toutes dans le même intervalle. La borne bilatérale additionne les deux côtés (« $\bar{X} - \mu \ge t$ » et « $\mu - \bar{X} \ge t$ »), d'où le facteur 2. Elle ne dépend que de $\frac{t}{b - a}$ : un écart de 1,5 pour des variables dans $[-3, 3]$ vaut un écart de 0,25 pour des variables dans $[0, 1]$.
 
-**Exemple.** Une proportion ($[a, b] = [0, 1]$), $n = 500$, $t = 0{,}05$ : $2e^{-2 \times 500 \times 0{,}0025} = 2e^{-2{,}5} \approx 0{,}164$. Tchebychev, avec $\sigma^2 \le \frac{1}{4}$, donnait $\frac{0{,}25}{500 \times 0{,}0025} = 0{,}2$. À $n = 2\,000$, Hoeffding donne $2e^{-10} \approx 9 \times 10^{-5}$, Tchebychev $0{,}05$ : l'exponentielle finit toujours par l'emporter.
+**Exemple.** Une proportion ($[a, b] = [0, 1]$), $n = 500$, $t = 0{,}05$ : $2e^{-2 \times 500 \times 0{,}0025} = 2e^{-2{,}5} \approx 0{,}164$. Tchebychev, avec $\sigma^2 \le \frac{1}{4}$, donnait $\frac{0{,}25}{500 \times 0{,}0025} = 0{,}2$. À $n = 2\thinspace000$, Hoeffding donne $2e^{-10} \approx 9 \times 10^{-5}$, Tchebychev $0{,}05$ : l'exponentielle finit toujours par l'emporter.
 
 <details>
 <summary>D'où vient l'exponentielle (idée de la preuve)</summary>
 
 On applique Markov (§4) à $\varphi(x) = e^{\lambda x}$, pour un $\lambda > 0$ à choisir : avec $S = \sum (X_i - \mathbb{E}[X_i])$,
-$$P(\bar{X} - \mu \ge t) = P\big(e^{\lambda S} \ge e^{\lambda n t}\big) \le e^{-\lambda n t}\,\mathbb{E}\big[e^{\lambda S}\big] = e^{-\lambda n t} \prod_{i=1}^{n} \mathbb{E}\big[e^{\lambda (X_i - \mathbb{E}[X_i])}\big],$$
+$$P(\bar{X} - \mu \ge t) = P\big(e^{\lambda S} \ge e^{\lambda n t}\big) \le e^{-\lambda n t}\thinspace\mathbb{E}\big[e^{\lambda S}\big] = e^{-\lambda n t} \prod_{i=1}^{n} \mathbb{E}\big[e^{\lambda (X_i - \mathbb{E}[X_i])}\big],$$
 la dernière égalité grâce à l'indépendance (l'espérance d'un produit de variables indépendantes est le produit des espérances). Un lemme de Hoeffding, que l'on admet, borne chaque facteur : pour une variable centrée à valeurs dans un intervalle de longueur $b - a$, $\mathbb{E}[e^{\lambda Y}] \le e^{\lambda^2 (b - a)^2 / 8}$. D'où
 $$P(\bar{X} - \mu \ge t) \le \exp\Big(-\lambda n t + \frac{n \lambda^2 (b - a)^2}{8}\Big).$$
 L'exposant est un polynôme du second degré en $\lambda$, minimal en $\lambda = \frac{4t}{(b - a)^2}$, où il vaut $-\frac{2nt^2}{(b - a)^2}$. Cette méthode (Markov sur une exponentielle, puis le meilleur $\lambda$) s'appelle la **méthode de Chernoff**.
@@ -279,11 +279,11 @@ $$r = (b - a)\sqrt{\frac{\ln(2/\delta)}{2n}}.$$
 
 > **Rayon de confiance de Hoeffding.** Avec une probabilité au moins $1 - \delta$, $\lvert \bar{X} - \mu \rvert < r$ : l'intervalle $]\bar{X} - r, \bar{X} + r[$ contient $\mu$. C'est un intervalle de confiance valable pour **toute** loi à valeurs dans $[a, b]$ et pour **tout** $n$, sans approximation.
 
-**Exemple.** $n = 500$ et $\delta = 0{,}05$, pour une proportion : $r = \sqrt{\frac{\ln 40}{1\,000}} \approx 0{,}061$. Pour le rayon unilatéral (seulement $\bar{X} - \mu$), on remplace $\ln(2/\delta)$ par $\ln(1/\delta)$.
+**Exemple.** $n = 500$ et $\delta = 0{,}05$, pour une proportion : $r = \sqrt{\frac{\ln 40}{1\thinspace000}} \approx 0{,}061$. Pour le rayon unilatéral (seulement $\bar{X} - \mu$), on remplace $\ln(2/\delta)$ par $\ln(1/\delta)$.
 
 Dans l'autre sens, pour obtenir un rayon $t$ avec un risque $\delta$, il suffit que
 $$n \ge \frac{(b - a)^2 \ln(2/\delta)}{2t^2}.$$
-Pour la proportion du §5 ($t = 0{,}04$, $\delta = 0{,}05$) : $n \ge \frac{\ln 40}{2 \times 0{,}0016} \approx 1\,152{,}8$, donc 1 153, contre 3 125 avec Tchebychev. Trois propriétés à retenir :
+Pour la proportion du §5 ($t = 0{,}04$, $\delta = 0{,}05$) : $n \ge \frac{\ln 40}{2 \times 0{,}0016} \approx 1\thinspace152{,}8$, donc 1 153, contre 3 125 avec Tchebychev. Trois propriétés à retenir :
 - le rayon décroît comme $\frac{1}{\sqrt{n}}$ : **quatre fois plus** d'exemples pour un rayon **deux fois** plus petit ;
 - le risque n'entre que par un **logarithme** : diviser $\delta$ par 10 coûte peu ($\ln 400 \approx 6{,}0$ au lieu de $\ln 40 \approx 3{,}7$) ;
 - la largeur $b - a$ compte au carré dans $n$.
@@ -315,14 +315,14 @@ Elle ne suppose ni loi normale, ni $n$ grand, ni variance connue : c'est sa forc
 On dispose de $K$ options, qu'on appelle des **bras** (*arms*) ; ce cadre porte le nom de **bandit manchot** (*multi-armed bandit*). L'option $k$ donne, chaque fois qu'on la choisit, une récompense aléatoire dans $[0, 1]$, de moyenne $\mu_k$ inconnue. À chaque pas $t = 1, 2, \ldots, T$, on choisit une option $A_t$ et l'on observe sa récompense ; on veut accumuler le plus possible. Choisir l'option qui a le mieux réussi jusqu'ici rapporte tout de suite ; essayer une option peu connue renseigne pour la suite. Ce compromis entre **exploitation** et **exploration** n'a pas de solution parfaite, mais il se mesure, et ce paragraphe en donne les outils mathématiques ; les stratégies elles-mêmes se programment dans workbookIA.
 
 Notons $\mu^\star = \max_k \mu_k$ et $\Delta_k = \mu^\star - \mu_k \ge 0$ l'**écart** (*gap*) de l'option $k$ à la meilleure. Le **regret** (*regret*) après $T$ pas est ce qu'on a gagné en moins, en moyenne, que si l'on avait choisi la meilleure option à chaque pas :
-$$R_T = \sum_{t=1}^{T} \mathbb{E}\big[\mu^\star - \mu_{A_t}\big] = \sum_{k=1}^{K} \Delta_k\,\mathbb{E}[N_k(T)],$$
+$$R_T = \sum_{t=1}^{T} \mathbb{E}\big[\mu^\star - \mu_{A_t}\big] = \sum_{k=1}^{K} \Delta_k\thinspace\mathbb{E}[N_k(T)],$$
 où $N_k(T)$ est le nombre de fois que l'option $k$ a été choisie en $T$ pas. La seconde écriture (M11.13) regroupe les pas par option : chaque choix de l'option $k$ coûte $\Delta_k$. Une bonne stratégie choisit **rarement** les options de grand écart. Chaque terme étant positif, $R_T$ grandit avec $T$ ; s'il ne croît que comme $\ln T$, la proportion de pas mal employés, $\frac{R_T}{T}$, tend vers 0.
 
 ### ε-greedy : la loi de l'option choisie
 
 La stratégie **ε-greedy** lance d'abord une pièce truquée : avec la probabilité $\varepsilon$, elle tire une option au hasard, uniformément ; sinon, elle prend l'option de meilleure moyenne observée, le choix « glouton ». Si le glouton désigne l'option $g$, les deux cas s'additionnent :
-$$P(A_t = k) = (1 - \varepsilon)\,\mathbf{1}_{k = g} + \frac{\varepsilon}{K}.$$
-Chaque option, même la pire, est donc choisie avec une probabilité au moins $\frac{\varepsilon}{K}$, à chaque pas. Le regret d'un pas vaut au moins $\frac{\varepsilon}{K}\sum_k \Delta_k$, et sur $T$ pas il croît **au moins linéairement** (M11.13). Faire décroître l'exploration, par exemple $\varepsilon_t = \frac{1}{t}$, change l'ordre de grandeur : la part du regret due à l'exploration devient $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{1}{t}$, et cette **somme harmonique** (*harmonic number*, la somme partielle de la *harmonic series*) ne croît que comme $\ln T$ : comparée à l'aire sous la courbe de $\frac{1}{x}$ (M02a), elle reste entre $\ln T$ et $1 + \ln T$ (M11.13 démontre la borne $1 + \ln T$, M11.10 s'en sert).
+$$P(A_t = k) = (1 - \varepsilon)\thinspace\mathbf{1} _{k = g} + \frac{\varepsilon}{K}.$$
+Chaque option, même la pire, est donc choisie avec une probabilité au moins $\frac{\varepsilon}{K}$, à chaque pas. Le regret d'un pas vaut au moins $\frac{\varepsilon}{K}\sum_k \Delta_k$, et sur $T$ pas il croît **au moins linéairement** (M11.13). Faire décroître l'exploration, par exemple $\varepsilon_t = \frac{1}{t}$, change l'ordre de grandeur : la part du regret due à l'exploration devient $\frac{1}{K}\sum_k \Delta_k \sum _{t=1}^{T} \frac{1}{t}$, et cette **somme harmonique** (*harmonic number*, la somme partielle de la *harmonic series*) ne croît que comme $\ln T$ : comparée à l'aire sous la courbe de $\frac{1}{x}$ (M02a), elle reste entre $\ln T$ et $1 + \ln T$ (M11.13 démontre la borne $1 + \ln T$, M11.10 s'en sert).
 
 ### UCB : une borne supérieure de confiance par option
 
@@ -340,7 +340,7 @@ celui de la stratégie **UCB1** (Auer, Cesa-Bianchi et Fischer, 2002). Sur la fi
 
 Pour des récompenses 0 ou 1, la moyenne $\theta_k$ de l'option $k$ a, après $s$ succès et $f$ échecs et avec un a priori uniforme, la loi a posteriori $\mathrm{Beta}(1 + s, 1 + f)$ (M04). L'**échantillonnage de Thompson** (*Thompson sampling*, 1933) tire au hasard une moyenne plausible pour chaque option, selon sa loi a posteriori, et prend l'option dont le tirage est le plus haut. Résultat : une option est choisie exactement aussi souvent qu'elle a de chances, a posteriori, d'être la meilleure. Pour deux options, cette probabilité est $P(\theta_2 > \theta_1)$, avec deux variables Beta indépendantes.
 
-**Exemple.** Une option sans aucune donnée, $\theta_1 \sim \mathrm{Beta}(1, 1)$, la loi uniforme, et une autre après un succès, $\theta_2 \sim \mathrm{Beta}(2, 1)$, de densité $2x$ sur $[0, 1]$. Comme $P(\theta_1 < x) = x$, $P(\theta_1 < \theta_2) = \mathbb{E}[\theta_2] = \int_0^1 x \cdot 2x\,dx = \frac{2}{3}$. Thompson choisit la seconde deux fois sur trois, la première une fois sur trois : l'option inconnue garde sa chance. Pour des paramètres plus grands, on calcule cette probabilité par une intégrale ou par simulation (M11.23).
+**Exemple.** Une option sans aucune donnée, $\theta_1 \sim \mathrm{Beta}(1, 1)$, la loi uniforme, et une autre après un succès, $\theta_2 \sim \mathrm{Beta}(2, 1)$, de densité $2x$ sur $[0, 1]$. Comme $P(\theta_1 < x) = x$, $P(\theta_1 < \theta_2) = \mathbb{E}[\theta_2] = \int_0^1 x \cdot 2x\thinspace dx = \frac{2}{3}$. Thompson choisit la seconde deux fois sur trois, la première une fois sur trois : l'option inconnue garde sa chance. Pour des paramètres plus grands, on calcule cette probabilité par une intégrale ou par simulation (M11.23).
 
 ![Le regret attendu en fonction de T : linéaire pour ε-greedy à ε fixé, logarithmique pour la borne d'UCB1 ; à long terme, une croissance en ln T finit toujours sous une droite](figures/regrets.png)
 

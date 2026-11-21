@@ -181,7 +181,7 @@ On transforme l'équation en équations **équivalentes** (qui ont exactement le
 - **ajouter** (ou soustraire) le même nombre, ou la même expression, aux deux membres ;
 - **multiplier** (ou diviser) les deux membres par le même nombre **non nul**.
 
-Pour $7x - 4 = 3x + 10$ : on retire $3x$ aux deux membres, $4x - 4 = 10$ ; on ajoute 4, $4x = 14$ ; on divise par 4, $x = \frac{14}{4} = \frac{7}{2}$. **On vérifie** : $7 \times 3{,}5 - 4 = 20{,}5$ et $3 \times 3{,}5 + 10 = 20{,}5$. L'ensemble des solutions est $\left\{\frac{7}{2}\right\}$.
+Pour $7x - 4 = 3x + 10$ : on retire $3x$ aux deux membres, $4x - 4 = 10$ ; on ajoute 4, $4x = 14$ ; on divise par 4, $x = \frac{14}{4} = \frac{7}{2}$. **On vérifie** : $7 \times 3{,}5 - 4 = 20{,}5$ et $3 \times 3{,}5 + 10 = 20{,}5$. L'ensemble des solutions est $\left\lbrace\frac{7}{2}\right\rbrace$.
 
 ### L'équation $ax + b = 0$
 
@@ -242,12 +242,12 @@ L'ensemble des solutions d'une inéquation s'écrit avec un **intervalle**. Le c
 
 | Inégalité | Intervalle | Pour `wbm.check` |
 |---|---|---|
-| $-2 \le x < 2$ | $[-2 \;;\; 2[$ | `"[-2 ; 2["` |
-| $x < -2$ | $]-\infty \;;\; -2[$ | `"]-oo ; -2["` |
-| $x \ge 1{,}5$ | $[1{,}5 \;;\; +\infty[$ | `"[1.5 ; +oo["` |
-| tous les réels | $]-\infty \;;\; +\infty[ = \mathbb{R}$ | `"]-oo ; +oo["` |
+| $-2 \le x < 2$ | $[-2 \mkern5mu ;\mkern5mu  2[$ | `"[-2 ; 2["` |
+| $x < -2$ | $]-\infty \mkern5mu ;\mkern5mu  -2[$ | `"]-oo ; -2["` |
+| $x \ge 1{,}5$ | $[1{,}5 \mkern5mu ;\mkern5mu  +\infty[$ | `"[1.5 ; +oo["` |
+| tous les réels | $]-\infty \mkern5mu ;\mkern5mu  +\infty[ = \mathbb{R}$ | `"]-oo ; +oo["` |
 
-Les solutions de $4 - 3x > 10$ forment donc $]-\infty \;;\; -2[$. (En anglais, les crochets ouverts s'écrivent avec des parenthèses : $(-\infty, -2)$.)
+Les solutions de $4 - 3x > 10$ forment donc $]-\infty \mkern5mu ;\mkern5mu  -2[$. (En anglais, les crochets ouverts s'écrivent avec des parenthèses : $(-\infty, -2)$.)
 
 ### Intersection et réunion
 
@@ -256,7 +256,7 @@ Les solutions de $4 - 3x > 10$ forment donc $]-\infty \;;\; -2[$. (En anglais, l
 
 ![Intersection et réunion de deux intervalles](figures/intervalles.png)
 
-Avec $A = [-1 \;;\; 4]$ et $B = [2 \;;\; 6]$ : $A \cap B = [2 \;;\; 4]$ et $A \cup B = [-1 \;;\; 6]$. Deux intervalles sans point commun ont une intersection vide, notée $\varnothing$ : $]-\infty \;;\; 0[ \;\cap\; [3 \;;\; +\infty[ = \varnothing$. Leur réunion ne se simplifie pas et s'écrit telle quelle : $]-\infty \;;\; 0[ \;\cup\; [3 \;;\; +\infty[$ (pour `wbm.check` : `"]-oo ; 0[ U [3 ; +oo["`).
+Avec $A = [-1 \mkern5mu ;\mkern5mu  4]$ et $B = [2 \mkern5mu ;\mkern5mu  6]$ : $A \cap B = [2 \mkern5mu ;\mkern5mu  4]$ et $A \cup B = [-1 \mkern5mu ;\mkern5mu  6]$. Deux intervalles sans point commun ont une intersection vide, notée $\varnothing$ : $]-\infty \mkern5mu ;\mkern5mu  0[ \mkern5mu \cap\mkern5mu  [3 \mkern5mu ;\mkern5mu  +\infty[ = \varnothing$. Leur réunion ne se simplifie pas et s'écrit telle quelle : $]-\infty \mkern5mu ;\mkern5mu  0[ \mkern5mu \cup\mkern5mu  [3 \mkern5mu ;\mkern5mu  +\infty[$ (pour `wbm.check` : `"]-oo ; 0[ U [3 ; +oo["`).
 
 Deux inéquations reliées par « et » donnent une intersection ; reliées par « ou », une réunion.
 
@@ -288,15 +288,15 @@ Lire $|x - a|$ comme « la distance de $x$ à $a$ » résout tout :
 | $\lvert x - a \rvert = c$ avec $c > 0$ | les points à distance $c$ de $a$ | $a - c$ et $a + c$ |
 | $\lvert x - a \rvert = 0$ | le point à distance 0 de $a$ | $a$ seul |
 | $\lvert x - a \rvert = c$ avec $c < 0$ | une distance négative | aucune |
-| $\lvert x - a \rvert \le r$ | les points à au plus $r$ de $a$ | $[a - r \;;\; a + r]$ |
-| $\lvert x - a \rvert > r$ | les points à plus de $r$ de $a$ | $]-\infty \;;\; a - r[ \;\cup\; ]a + r \;;\; +\infty[$ |
+| $\lvert x - a \rvert \le r$ | les points à au plus $r$ de $a$ | $[a - r \mkern5mu ;\mkern5mu  a + r]$ |
+| $\lvert x - a \rvert > r$ | les points à plus de $r$ de $a$ | $]-\infty \mkern5mu ;\mkern5mu  a - r[ \mkern5mu \cup\mkern5mu  ]a + r \mkern5mu ;\mkern5mu  +\infty[$ |
 
 ![Une équation et une inéquation avec une valeur absolue, lues comme des distances](figures/valeur_absolue.png)
 
 Exemples :
 - $|x + 2| = 5$ : on écrit $x + 2 = x - (-2)$, la distance de $x$ à $-2$ ; les solutions sont $-2 - 5 = -7$ et $-2 + 5 = 3$ ;
-- $|x - 3| < 1{,}5$ : les points à moins de 1,5 de 3 forment $]1{,}5 \;;\; 4{,}5[$ ;
-- $|x - 1| \ge 2$ : les points à au moins 2 de 1 forment $]-\infty \;;\; -1] \cup [3 \;;\; +\infty[$.
+- $|x - 3| < 1{,}5$ : les points à moins de 1,5 de 3 forment $]1{,}5 \mkern5mu ;\mkern5mu  4{,}5[$ ;
+- $|x - 1| \ge 2$ : les points à au moins 2 de 1 forment $]-\infty \mkern5mu ;\mkern5mu  -1] \cup [3 \mkern5mu ;\mkern5mu  +\infty[$.
 
 Quand le coefficient de $x$ n'est pas 1, on revient à la définition : $|2x - 1| = 7$ veut dire $2x - 1 = 7$ ou $2x - 1 = -7$, soit $x = 4$ ou $x = -3$.
 
@@ -323,7 +323,7 @@ Avec elle, tout nombre s'écrit $x = \operatorname{sign}(x) \times |x|$ : $-8 = 
 
 Un **système de deux équations à deux inconnues** demande les couples $(x, y)$ qui vérifient **les deux** équations à la fois :
 
-$$\begin{cases} 3x + 2y = 11 \\ x - 4y = 13 \end{cases}$$
+$$\begin{cases} 3x + 2y = 11 \cr x - 4y = 13 \end{cases}$$
 
 Le couple $(5, -2)$ est solution : $3 \times 5 + 2 \times (-2) = 11$ et $5 - 4 \times (-2) = 13$. Trois méthodes pour le trouver.
 
@@ -345,7 +345,7 @@ On multiplie les équations par des nombres bien choisis pour qu'une inconnue **
 
 ### Par la formule de Cramer
 
-Pour le système $\begin{cases} ax + by = e \\ cx + dy = f \end{cases}$, le nombre
+Pour le système $\begin{cases} ax + by = e \cr cx + dy = f \end{cases}$, le nombre
 
 $$D = ad - bc$$
 
@@ -397,7 +397,7 @@ C'est souvent l'étape la plus difficile : le calcul vient après. **La méthode
 - Vérification : $70 + 50 = 120$ places, et $630 + 300 = 930$ €.
 - Réponse : 70 places ont été vendues à plein tarif.
 
-**Exemple 2, un pourcentage (R1 §7).** Après une hausse de 15 %, un abonnement coûte 69 €. Quel était son prix ? Avec $p$ le prix de départ : $1{,}15\,p = 69$, donc $p = \frac{69}{1{,}15} = 60$ €. (Et non $69 - 15\,\%$ de 69 : la hausse portait sur $p$.)
+**Exemple 2, un pourcentage (R1 §7).** Après une hausse de 15 %, un abonnement coûte 69 €. Quel était son prix ? Avec $p$ le prix de départ : $1{,}15\thinspace p = 69$, donc $p = \frac{69}{1{,}15} = 60$ €. (Et non $69 - 15$ % de 69 : la hausse portait sur $p$.)
 
 **Exemple 3, des entiers consécutifs.** Trois entiers consécutifs ont pour somme 72. Avec $n$ le plus petit : $n + (n + 1) + (n + 2) = 72$, $3n + 3 = 72$, $n = 23$. Les entiers sont 23, 24 et 25.
 

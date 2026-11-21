@@ -59,10 +59,10 @@ Vocabulaire anglais de ce chapitre : *constrained optimization*, *equality / ine
 
 ## L'essentiel en 10 lignes
 
-1. Au minimum de $f$ sous une contrainte $g(\mathbf{x}) = 0$, les gradients sont colinéaires : $\nabla f + \lambda\,\nabla g = 0$ pour un certain $\lambda$, le **multiplicateur de Lagrange**. On annule le gradient du **lagrangien** $\mathcal{L} = f + \lambda g$.
+1. Au minimum de $f$ sous une contrainte $g(\mathbf{x}) = 0$, les gradients sont colinéaires : $\nabla f + \lambda\thinspace\nabla g = 0$ pour un certain $\lambda$, le **multiplicateur de Lagrange**. On annule le gradient du **lagrangien** $\mathcal{L} = f + \lambda g$.
 2. $-\lambda$ est la **sensibilité** du minimum quand on déplace la contrainte : un prix.
 3. Minimiser $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est résoudre un seul système linéaire par blocs ; maximiser $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous $\lVert\mathbf{u}\rVert = 1$ redonne l'ACP : $\mathbf{C}\mathbf{u} = \lambda\mathbf{u}$.
-4. **KKT** (contraintes $g_i \le 0$) : stationnarité, faisabilité, $\mu_i \ge 0$, et $\mu_i\,g_i(\mathbf{x}) = 0$ : une contrainte non atteinte a un multiplicateur nul.
+4. **KKT** (contraintes $g_i \le 0$) : stationnarité, faisabilité, $\mu_i \ge 0$, et $\mu_i\thinspace g_i(\mathbf{x}) = 0$ : une contrainte non atteinte a un multiplicateur nul.
 5. La **fonction duale** $D(\boldsymbol{\mu}) = \inf_{\mathbf{x}} \mathcal{L}(\mathbf{x}, \boldsymbol{\mu})$ minore toujours le minimum (dualité faible) ; pour un problème convexe raisonnable, son maximum l'atteint (dualité forte).
 6. **Problème convexe** : objectif convexe, inégalités convexes, égalités affines. Tout minimum local y est global, et les conditions KKT suffisent.
 7. **SVM à marge dure** : $\min \frac{1}{2}\lVert\mathbf{w}\rVert^2$ sous $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ ; marge $\rho = 1/\lVert\mathbf{w}\rVert$ ; $\mathbf{w}$ est unique.
@@ -90,8 +90,8 @@ Regarde les lignes de niveau de $f$, ici des ellipses (M05b), et la droite $x + 
 
 Or le gradient de $f$ est orthogonal à ses lignes de niveau (M05b), et celui de $g$ à la courbe $g = 0$, qui est aussi une ligne de niveau (de $g$). Deux vecteurs orthogonaux à la même tangente sont **colinéaires** :
 
-> **Théorème (multiplicateurs de Lagrange).** Si $\mathbf{x}^*$ est un minimum (ou un maximum) de $f$ sous la contrainte $g(\mathbf{x}) = 0$, si $f$ et $g$ ont des dérivées partielles continues, et si $\nabla g(\mathbf{x}^*) \ne \mathbf{0}$, alors il existe un nombre $\lambda$ tel que
-> $$\nabla f(\mathbf{x}^*) + \lambda\,\nabla g(\mathbf{x}^*) = \mathbf{0}.$$
+> **Théorème (multiplicateurs de Lagrange).** Si $\mathbf{x}^\ast$ est un minimum (ou un maximum) de $f$ sous la contrainte $g(\mathbf{x}) = 0$, si $f$ et $g$ ont des dérivées partielles continues, et si $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$, alors il existe un nombre $\lambda$ tel que
+> $$\nabla f(\mathbf{x}^\ast) + \lambda\thinspace\nabla g(\mathbf{x}^\ast) = \mathbf{0}.$$
 > $\lambda$ s'appelle le **multiplicateur de Lagrange** (*Lagrange multiplier*) de la contrainte.
 
 La démonstration (∂ M13b.14) suit une courbe tracée dans la contrainte et utilise la règle de la chaîne, comme M05b.12. Ce théorème donne une condition **nécessaire** : il dit où chercher, pas que le point trouvé est un minimum. On compare ensuite les candidats (ou l'on invoque la convexité, §5).
@@ -99,22 +99,22 @@ La démonstration (∂ M13b.14) suit une courbe tracée dans la contrainte et ut
 ### Le lagrangien
 
 On range la condition dans une seule fonction de $n + 1$ variables, le **lagrangien** (*Lagrangian*) :
-$$\mathcal{L}(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda\,g(\mathbf{x}).$$
+$$\mathcal{L}(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda\thinspace g(\mathbf{x}).$$
 Annuler toutes ses dérivées partielles donne exactement le système voulu : $\nabla_{\mathbf{x}}\mathcal{L} = \nabla f + \lambda\nabla g = \mathbf{0}$ (la colinéarité) et $\frac{\partial\mathcal{L}}{\partial\lambda} = g(\mathbf{x}) = 0$ (la contrainte). Un problème avec contrainte est devenu la recherche d'un point critique sans contrainte, au prix d'une inconnue de plus.
 
 Sur l'exemple, $\mathcal{L} = x^2 + 3y^2 + \lambda(x + y - 8)$ :
 $$2x + \lambda = 0, \qquad 6y + \lambda = 0, \qquad x + y = 8.$$
-Les deux premières donnent $x = -\frac{\lambda}{2}$ et $y = -\frac{\lambda}{6}$, donc $x = 3y$ ; la troisième, $4y = 8$ : $y = 2$, $x = 6$, $\lambda = -12$. En $(6, 2)$, $\nabla f = (12, 12) = -\lambda\,(1, 1) = 12\,\nabla g$ : les gradients sont bien colinéaires.
+Les deux premières donnent $x = -\frac{\lambda}{2}$ et $y = -\frac{\lambda}{6}$, donc $x = 3y$ ; la troisième, $4y = 8$ : $y = 2$, $x = 6$, $\lambda = -12$. En $(6, 2)$, $\nabla f = (12, 12) = -\lambda\thinspace(1, 1) = 12\thinspace\nabla g$ : les gradients sont bien colinéaires.
 
 ⚠️ **Erreur classique.** Le signe de $\lambda$ dépend de la convention : avec $\mathcal{L} = f - \lambda g$ (celle de MML §10.2 pour l'ACP), on trouve $\lambda = +12$ au même point. Pour une contrainte d'**égalité**, le signe de $\lambda$ ne dit rien sur la solution ; il n'a de sens que pour une inégalité (§3).
 
 ### Ce que vaut λ : un prix
 
-Déplaçons la contrainte : $x + y = b$ au lieu de $8$. La même méthode donne $x = \frac{3b}{4}$, $y = \frac{b}{4}$ et le minimum $f^*(b) = \frac{9b^2}{16} + \frac{3b^2}{16} = \frac{3b^2}{4}$, de dérivée $\frac{3b}{2}$, qui vaut 12 en $b = 8$ : exactement $-\lambda$. En général :
+Déplaçons la contrainte : $x + y = b$ au lieu de $8$. La même méthode donne $x = \frac{3b}{4}$, $y = \frac{b}{4}$ et le minimum $f^\ast(b) = \frac{9b^2}{16} + \frac{3b^2}{16} = \frac{3b^2}{4}$, de dérivée $\frac{3b}{2}$, qui vaut 12 en $b = 8$ : exactement $-\lambda$. En général :
 
-> **Sensibilité.** Pour la contrainte $g(\mathbf{x}) = c$ et le lagrangien $f + \lambda(g - c)$, la valeur du minimum vérifie $\dfrac{df^*}{dc} = -\lambda$.
+> **Sensibilité.** Pour la contrainte $g(\mathbf{x}) = c$ et le lagrangien $f + \lambda(g - c)$, la valeur du minimum vérifie $\dfrac{df^\ast}{dc} = -\lambda$.
 
-Déplacer la contrainte de $0{,}1$ (passer à $x + y = 8{,}1$) fait monter le minimum d'environ $12 \times 0{,}1 = 1{,}2$ : on trouve $f^*(8{,}1) = 49{,}2075$. Le multiplicateur est le **prix** d'une unité de contrainte (*shadow price*) : ce que coûte, ou rapporte, à l'objectif un déplacement d'un cran de la contrainte. Un multiplicateur nul dit que la contrainte ne coûte rien (🗣️ M13b.24, 🔮 M13b.29).
+Déplacer la contrainte de $0{,}1$ (passer à $x + y = 8{,}1$) fait monter le minimum d'environ $12 \times 0{,}1 = 1{,}2$ : on trouve $f^\ast(8{,}1) = 49{,}2075$. Le multiplicateur est le **prix** d'une unité de contrainte (*shadow price*) : ce que coûte, ou rapporte, à l'objectif un déplacement d'un cran de la contrainte. Un multiplicateur nul dit que la contrainte ne coûte rien (🗣️ M13b.24, 🔮 M13b.29).
 
 ### Une promesse tenue : le maximum de vraisemblance catégoriel
 
@@ -127,19 +127,19 @@ En M13a §1, l'estimation $\hat{p}_k = \frac{n_k}{N}$ d'une loi catégorielle a 
 ### Un multiplicateur par contrainte
 
 Avec $m$ contraintes d'égalité $g_1(\mathbf{x}) = 0, \ldots, g_m(\mathbf{x}) = 0$, on prend un multiplicateur par contrainte :
-$$\mathcal{L}(\mathbf{x}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_{j=1}^m \lambda_j\,g_j(\mathbf{x}), \qquad \nabla f(\mathbf{x}^*) + \sum_j \lambda_j\,\nabla g_j(\mathbf{x}^*) = \mathbf{0},$$
-à condition que les gradients $\nabla g_j(\mathbf{x}^*)$ soient **linéairement indépendants** (la version à plusieurs contraintes de $\nabla g \ne \mathbf{0}$). Géométriquement : au minimum, $\nabla f$ appartient à l'espace engendré par les gradients des contraintes.
+$$\mathcal{L}(\mathbf{x}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_{j=1}^m \lambda_j\thinspace g_j(\mathbf{x}), \qquad \nabla f(\mathbf{x}^\ast) + \sum_j \lambda_j\thinspace\nabla g_j(\mathbf{x}^\ast) = \mathbf{0},$$
+à condition que les gradients $\nabla g_j(\mathbf{x}^\ast)$ soient **linéairement indépendants** (la version à plusieurs contraintes de $\nabla g \ne \mathbf{0}$). Géométriquement : au minimum, $\nabla f$ appartient à l'espace engendré par les gradients des contraintes.
 
 ### Le problème quadratique sous contraintes linéaires
 
 Le cas le plus utile : un objectif quadratique et des contraintes affines,
 $$\min_{\mathbf{x}} \ \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} \quad \text{sous} \quad \mathbf{A}\mathbf{x} = \mathbf{b},$$
 avec $\mathbf{Q}$ symétrique $n \times n$, $\mathbf{A}$ de forme $(m, n)$. Le gradient de l'objectif est $\mathbf{Q}\mathbf{x} + \mathbf{c}$ (M12c.19), celui de la contrainte $j$ est la ligne $j$ de $\mathbf{A}$ : le lagrangien $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$ donne
-$$\mathbf{Q}\mathbf{x} + \mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda} = \mathbf{0}, \qquad \mathbf{A}\mathbf{x} = \mathbf{b} \qquad \Longleftrightarrow \qquad \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \\ \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \\ \mathbf{b} \end{pmatrix}.$$
+$$\mathbf{Q}\mathbf{x} + \mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda} = \mathbf{0}, \qquad \mathbf{A}\mathbf{x} = \mathbf{b} \qquad \Longleftrightarrow \qquad \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}.$$
 **Un seul système linéaire** de $n + m$ équations (M09a). Quand $\mathbf{Q}$ est définie positive et que les lignes de $\mathbf{A}$ sont indépendantes, la matrice par blocs est inversible : la solution est unique, et c'est le minimum (§5). C'est ce que calcule `lagrange_equality_qp` (🔨 M13b.25).
 
-**Exemple.** Le problème du §1 s'écrit ainsi avec $\mathbf{Q} = \begin{pmatrix} 2 & 0 \\ 0 & 6 \end{pmatrix}$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (1 \ \ 1)$, $b = 8$ :
-$$\begin{pmatrix} 2 & 0 & 1 \\ 0 & 6 & 1 \\ 1 & 1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y \\ \lambda \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 8 \end{pmatrix}, \qquad (x, y, \lambda) = (6, 2, -12).$$
+**Exemple.** Le problème du §1 s'écrit ainsi avec $\mathbf{Q} = \begin{pmatrix} 2 & 0 \cr 0 & 6 \end{pmatrix}$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (1 \ \ 1)$, $b = 8$ :
+$$\begin{pmatrix} 2 & 0 & 1 \cr 0 & 6 & 1 \cr 1 & 1 & 0 \end{pmatrix}\begin{pmatrix} x \cr y \cr \lambda \end{pmatrix} = \begin{pmatrix} 0 \cr 0 \cr 8 \end{pmatrix}, \qquad (x, y, \lambda) = (6, 2, -12).$$
 
 💻 **Aujourd'hui en pratique** — les solveurs de programmes quadratiques (ceux de `scipy.optimize`, les bibliothèques d'optimisation convexe) résolvent ce système par blocs, ou une version qui tient compte des inégalités (§3) ; personne n'élimine les variables à la main.
 
@@ -147,9 +147,9 @@ $$\begin{pmatrix} 2 & 0 & 1 \\ 0 & 6 & 1 \\ 1 & 1 & 0 \end{pmatrix}\begin{pmatri
 
 En M12c et M12d, le premier axe principal d'une matrice de covariance $\mathbf{C}$ est le vecteur unitaire qui rend $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ (la variance des projections) le plus grand, et le quotient de Rayleigh a montré que c'est un vecteur propre de la plus grande valeur propre. Lagrange y mène directement. On maximise $f(\mathbf{u}) = \mathbf{u}^\top\mathbf{C}\mathbf{u}$ sous $g(\mathbf{u}) = \mathbf{u}^\top\mathbf{u} - 1 = 0$. Avec $\mathcal{L}(\mathbf{u}, \lambda) = \mathbf{u}^\top\mathbf{C}\mathbf{u} - \lambda(\mathbf{u}^\top\mathbf{u} - 1)$ (le signe moins rend la suite plus lisible), et les gradients $\nabla(\mathbf{u}^\top\mathbf{C}\mathbf{u}) = 2\mathbf{C}\mathbf{u}$, $\nabla(\mathbf{u}^\top\mathbf{u}) = 2\mathbf{u}$ (M12c),
 $$2\mathbf{C}\mathbf{u} - 2\lambda\mathbf{u} = \mathbf{0} \quad \Longleftrightarrow \quad \mathbf{C}\mathbf{u} = \lambda\mathbf{u} :$$
-les points critiques sont les **vecteurs propres unitaires** de $\mathbf{C}$, et le multiplicateur est la **valeur propre**. En un tel point, l'objectif vaut $\mathbf{u}^\top\mathbf{C}\mathbf{u} = \lambda\,\mathbf{u}^\top\mathbf{u} = \lambda$ : le maximum est la plus grande valeur propre, atteint en son vecteur propre.
+les points critiques sont les **vecteurs propres unitaires** de $\mathbf{C}$, et le multiplicateur est la **valeur propre**. En un tel point, l'objectif vaut $\mathbf{u}^\top\mathbf{C}\mathbf{u} = \lambda\thinspace\mathbf{u}^\top\mathbf{u} = \lambda$ : le maximum est la plus grande valeur propre, atteint en son vecteur propre.
 
-**Exemple.** $\mathbf{C} = \begin{pmatrix} 10 & 3 \\ 3 & 2 \end{pmatrix}$ : trace 12, déterminant 11, valeurs propres 11 et 1. Pour 11 : $(10 - 11)u_1 + 3u_2 = 0$, donc $\mathbf{u} \propto (3, 1)$, et $\mathbf{C}(3, 1) = (33, 11) = 11\,(3, 1)$. Le premier axe est $\frac{1}{\sqrt{10}}(3, 1)$, de variance 11 ; le point critique de valeur 1, $\frac{1}{\sqrt{10}}(-1, 3)$, est le minimum de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur le cercle unité.
+**Exemple.** $\mathbf{C} = \begin{pmatrix} 10 & 3 \cr 3 & 2 \end{pmatrix}$ : trace 12, déterminant 11, valeurs propres 11 et 1. Pour 11 : $(10 - 11)u_1 + 3u_2 = 0$, donc $\mathbf{u} \propto (3, 1)$, et $\mathbf{C}(3, 1) = (33, 11) = 11\thinspace(3, 1)$. Le premier axe est $\frac{1}{\sqrt{10}}(3, 1)$, de variance 11 ; le point critique de valeur 1, $\frac{1}{\sqrt{10}}(-1, 3)$, est le minimum de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur le cercle unité.
 
 Le deuxième axe s'obtient en ajoutant la contrainte $\mathbf{u} \cdot \mathbf{u}_1 = 0$, avec un second multiplicateur : ✏️ M13b.4 calcule ce multiplicateur, et l'on retombe sur le deuxième vecteur propre. MML §10.2 fait la même dérivation ; M12d.23 l'avait survolée.
 
@@ -160,32 +160,32 @@ Le deuxième axe s'obtient en ajoutant la contrainte $\mathbf{u} \cdot \mathbf{u
 ### Active ou inactive
 
 Une contrainte d'inégalité $g(\mathbf{x}) \le 0$ autorise toute une région. Deux situations se présentent au minimum :
-- le minimum libre de $f$ est **dans** la région : la contrainte ne joue aucun rôle, elle est **inactive** (*inactive*), et $\nabla f(\mathbf{x}^*) = \mathbf{0}$ ;
+- le minimum libre de $f$ est **dans** la région : la contrainte ne joue aucun rôle, elle est **inactive** (*inactive*), et $\nabla f(\mathbf{x}^\ast) = \mathbf{0}$ ;
 - le minimum libre est **hors** de la région : le minimum contraint est sur le bord $g(\mathbf{x}) = 0$, la contrainte est **active** (*active*), et l'on retrouve Lagrange, avec une information de plus sur le signe.
 
 **Exemple.** Minimiser $f(x, y) = (x - 6)^2 + (y - 5)^2$, le carré de la distance au point $(6, 5)$, sous $x + 3y \le c$.
 - Pour $c = 25$ : $(6, 5)$ vérifie $6 + 15 = 21 \le 25$, il est admissible ; c'est le minimum, et la contrainte est inactive.
-- Pour $c = 11$ : $21 > 11$, $(6, 5)$ n'est pas admissible. Le minimum est le projeté orthogonal de $(6, 5)$ sur la droite $x + 3y = 11$ (M07) : $(6, 5) - \frac{21 - 11}{10}(1, 3) = (5, 2)$, à la distance $\sqrt{10}$, donc $f^* = 10$. En $(5, 2)$, $\nabla f = 2\,(5 - 6, 2 - 5) = (-2, -6) = -2\,(1, 3) = -2\,\nabla g$.
+- Pour $c = 11$ : $21 > 11$, $(6, 5)$ n'est pas admissible. Le minimum est le projeté orthogonal de $(6, 5)$ sur la droite $x + 3y = 11$ (M07) : $(6, 5) - \frac{21 - 11}{10}(1, 3) = (5, 2)$, à la distance $\sqrt{10}$, donc $f^\ast = 10$. En $(5, 2)$, $\nabla f = 2\thinspace(5 - 6, 2 - 5) = (-2, -6) = -2\thinspace(1, 3) = -2\thinspace\nabla g$.
 
 ![À gauche, la contrainte x + 3y ≤ 11 coupe le minimum libre (6, 5) : la solution (5, 2) est sur le bord, où ∇f = −2 ∇g ; à droite, x + 3y ≤ 25 laisse (6, 5) admissible : la contrainte est inactive](figures/kkt_active_inactive.png)
 
-Au point actif, $\nabla f = -\mu\,\nabla g$ avec $\mu = 2 > 0$ : le gradient de $f$ pointe **vers l'intérieur** de la région ($-\nabla g$ est la direction où $g$ diminue). C'est forcé : si $\nabla f$ pointait vers l'extérieur, on pourrait faire baisser $f$ en rentrant dans la région, et le point ne serait pas un minimum. D'où le signe : **un multiplicateur d'inégalité est positif ou nul**.
+Au point actif, $\nabla f = -\mu\thinspace\nabla g$ avec $\mu = 2 > 0$ : le gradient de $f$ pointe **vers l'intérieur** de la région ($-\nabla g$ est la direction où $g$ diminue). C'est forcé : si $\nabla f$ pointait vers l'extérieur, on pourrait faire baisser $f$ en rentrant dans la région, et le point ne serait pas un minimum. D'où le signe : **un multiplicateur d'inégalité est positif ou nul**.
 
 ### Les conditions KKT
 
 > **Conditions de Karush-Kuhn-Tucker (KKT).** Pour le problème
 > $$\min_{\mathbf{x}} f(\mathbf{x}) \quad \text{sous} \quad g_i(\mathbf{x}) \le 0 \ (i = 1, \ldots, m), \qquad h_j(\mathbf{x}) = 0 \ (j = 1, \ldots, r),$$
-> et son lagrangien $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_i \mu_i\,g_i(\mathbf{x}) + \sum_j \lambda_j\,h_j(\mathbf{x})$, un minimum $\mathbf{x}^*$ vérifie, pour des multiplicateurs $\boldsymbol{\mu}$ et $\boldsymbol{\lambda}$ :
-> 1. **stationnarité** : $\nabla f(\mathbf{x}^*) + \sum_i \mu_i\,\nabla g_i(\mathbf{x}^*) + \sum_j \lambda_j\,\nabla h_j(\mathbf{x}^*) = \mathbf{0}$ ;
-> 2. **faisabilité** : $g_i(\mathbf{x}^*) \le 0$ et $h_j(\mathbf{x}^*) = 0$ ;
+> et son lagrangien $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_i \mu_i\thinspace g_i(\mathbf{x}) + \sum_j \lambda_j\thinspace h_j(\mathbf{x})$, un minimum $\mathbf{x}^\ast$ vérifie, pour des multiplicateurs $\boldsymbol{\mu}$ et $\boldsymbol{\lambda}$ :
+> 1. **stationnarité** : $\nabla f(\mathbf{x}^\ast) + \sum_i \mu_i\thinspace\nabla g_i(\mathbf{x}^\ast) + \sum_j \lambda_j\thinspace\nabla h_j(\mathbf{x}^\ast) = \mathbf{0}$ ;
+> 2. **faisabilité** : $g_i(\mathbf{x}^\ast) \le 0$ et $h_j(\mathbf{x}^\ast) = 0$ ;
 > 3. **signe** : $\mu_i \ge 0$ (les $\lambda_j$ sont de signe quelconque) ;
-> 4. **complémentarité** (*complementary slackness*) : $\mu_i\,g_i(\mathbf{x}^*) = 0$ pour chaque $i$.
+> 4. **complémentarité** (*complementary slackness*) : $\mu_i\thinspace g_i(\mathbf{x}^\ast) = 0$ pour chaque $i$.
 >
 > C'est vrai sous une **condition de qualification des contraintes**, toujours remplie quand elles sont affines, et pour un problème convexe qui a un point strictement admissible (§5).
 
 La complémentarité résume les deux situations : pour chaque inégalité, ou bien elle est active ($g_i = 0$), ou bien son multiplicateur est nul ($\mu_i = 0$), ou les deux. Une contrainte non atteinte ne pousse pas. Sur l'exemple, $c = 11$ donne $\mu = 2$, $g = 0$ ; $c = 25$ donne $\mu = 0$, $g = 21 - 25 < 0$.
 
-**Le prix, encore.** Pour $c = 11$, le minimum vaut $f^*(c) = \frac{(21 - c)^2}{10}$ tant que $c \le 21$ : sa dérivée en $c = 11$ est $-2 = -\mu$. Desserrer une contrainte active fait baisser le minimum de $\mu$ par unité ; desserrer une contrainte inactive ne change rien, et son prix est 0.
+**Le prix, encore.** Pour $c = 11$, le minimum vaut $f^\ast(c) = \frac{(21 - c)^2}{10}$ tant que $c \le 21$ : sa dérivée en $c = 11$ est $-2 = -\mu$. Desserrer une contrainte active fait baisser le minimum de $\mu$ par unité ; desserrer une contrainte inactive ne change rien, et son prix est 0.
 
 **Trouver une solution.** On choisit quelles contraintes sont actives (l'**ensemble actif**), on résout le système de Lagrange avec ces contraintes en égalité et des multiplicateurs nuls pour les autres, puis on vérifie : les autres contraintes sont-elles respectées, les $\mu_i$ positifs ? Si oui, c'est un point KKT. Sinon, on change d'ensemble actif. Avec $m$ inégalités, il y a $2^m$ ensembles possibles : les vrais solveurs s'y prennent plus habilement, mais à la main, sur deux ou trois contraintes, c'est la méthode (✏️ M13b.5, 🛠️ M13b.33).
 
@@ -203,9 +203,9 @@ C'est la **fonction duale** (*dual function*). L'infimum $\inf$ est la plus gran
 
 L'idée : en un point admissible, $\mu_i g_i(\mathbf{x}) \le 0$ et $\lambda_j h_j(\mathbf{x}) = 0$, donc $\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}, \boldsymbol{\lambda}) \le f(\mathbf{x})$ ; et $D$ est un minimum de $\mathcal{L}$ (∂ M13b.15 rédige la preuve). Le **problème dual** (*dual problem*) cherche la meilleure minoration : $\max D(\boldsymbol{\mu}, \boldsymbol{\lambda})$ sous $\boldsymbol{\mu} \ge \mathbf{0}$. L'écart $\min f - \max D \ge 0$ est le **saut de dualité** (*duality gap*).
 
-**Exemple.** Minimiser $x^2$ sous $x \ge 2$, c'est-à-dire $g(x) = 2 - x \le 0$. Le minimum est $f^* = 4$, en $x = 2$. Le lagrangien $x^2 + \mu(2 - x)$ est minimal en $x = \frac{\mu}{2}$, d'où
+**Exemple.** Minimiser $x^2$ sous $x \ge 2$, c'est-à-dire $g(x) = 2 - x \le 0$. Le minimum est $f^\ast = 4$, en $x = 2$. Le lagrangien $x^2 + \mu(2 - x)$ est minimal en $x = \frac{\mu}{2}$, d'où
 $$D(\mu) = \frac{\mu^2}{4} + 2\mu - \frac{\mu^2}{2} = 2\mu - \frac{\mu^2}{4}.$$
-Pour tout $\mu \ge 0$, $D(\mu) \le 4$ : par exemple $D(1) = 1{,}75$, $D(6) = 3$. Le maximum, en $\mu = 4$, vaut $D(4) = 4 = f^*$ : ici, pas de saut. Et $\mu = 4$ est le multiplicateur KKT : en $x = 2$, $f'(2) + \mu\,g'(2) = 4 - \mu = 0$.
+Pour tout $\mu \ge 0$, $D(\mu) \le 4$ : par exemple $D(1) = 1{,}75$, $D(6) = 3$. Le maximum, en $\mu = 4$, vaut $D(4) = 4 = f^\ast$ : ici, pas de saut. Et $\mu = 4$ est le multiplicateur KKT : en $x = 2$, $f'(2) + \mu\thinspace g'(2) = 4 - \mu = 0$.
 
 > **Dualité forte (énoncé).** Pour un problème **convexe** (§5) qui a un point **strictement** admissible ($g_i(\mathbf{x}) < 0$ pour toutes les inégalités non affines : la **condition de Slater**), $\max D = \min f$, et les multiplicateurs qui atteignent le maximum de $D$ sont ceux des conditions KKT.
 
@@ -213,7 +213,7 @@ Pour tout $\mu \ge 0$, $D(\mu) \le 4$ : par exemple $D(1) = 1{,}75$, $D(6) = 3$.
 
 ### Contrainte ou pénalité
 
-Minimiser une loss $L(\mathbf{w})$ sous la contrainte $\lVert\mathbf{w}\rVert^2 \le t$ (une boule de rayon $\sqrt{t}$) a pour stationnarité KKT $\nabla L(\mathbf{w}) + 2\mu\,\mathbf{w} = \mathbf{0}$ : c'est exactement le point critique de $L(\mathbf{w}) + \mu\,\lVert\mathbf{w}\rVert^2$, la loss **pénalisée** de la régression ridge. Le poids de la pénalité est le multiplicateur de la contrainte : à chaque rayon $t$ (avec une contrainte active) correspond un poids $\mu \ge 0$, et réciproquement. C'est le lien que le chapitre 9 de workbookIA énonce entre contrainte et pénalité.
+Minimiser une loss $L(\mathbf{w})$ sous la contrainte $\lVert\mathbf{w}\rVert^2 \le t$ (une boule de rayon $\sqrt{t}$) a pour stationnarité KKT $\nabla L(\mathbf{w}) + 2\mu\thinspace\mathbf{w} = \mathbf{0}$ : c'est exactement le point critique de $L(\mathbf{w}) + \mu\thinspace\lVert\mathbf{w}\rVert^2$, la loss **pénalisée** de la régression ridge. Le poids de la pénalité est le multiplicateur de la contrainte : à chaque rayon $t$ (avec une contrainte active) correspond un poids $\mu \ge 0$, et réciproquement. C'est le lien que le chapitre 9 de workbookIA énonce entre contrainte et pénalité.
 
 ## §5 · L'optimisation convexe
 
@@ -223,7 +223,7 @@ Rappels de M10 : un ensemble est **convexe** s'il contient tout segment entre de
 
 > **Problème convexe.** Le problème $\min f(\mathbf{x})$ sous $g_i(\mathbf{x}) \le 0$ et $h_j(\mathbf{x}) = 0$ est **convexe** si $f$ est convexe, chaque $g_i$ convexe et chaque $h_j$ **affine**.
 
-Les conditions garantissent que l'ensemble admissible est convexe : $\{g_i \le 0\}$ est convexe pour $g_i$ convexe (une ligne de niveau inférieure d'une fonction convexe), $\{h_j = 0\}$ est un hyperplan, et une intersection de convexes est convexe (M10).
+Les conditions garantissent que l'ensemble admissible est convexe : $\lbrace g_i \le 0\rbrace$ est convexe pour $g_i$ convexe (une ligne de niveau inférieure d'une fonction convexe), $\lbrace h_j = 0\rbrace$ est un hyperplan, et une intersection de convexes est convexe (M10).
 
 Deux familles reviennent sans cesse : les **programmes linéaires** (objectif et contraintes affines, M10 s'en est servi pour décider la séparabilité) et les **programmes quadratiques** (objectif $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ avec $\mathbf{Q}$ semi-définie positive, contraintes affines). La SVM est un programme quadratique (§6).
 
@@ -247,7 +247,7 @@ C'est pour cela que la convexité est une si bonne nouvelle (💼 M13b.E1) : un 
 
 ### De la marge au problème
 
-Des exemples $\mathbf{x}_1, \ldots, \mathbf{x}_n$ de $\mathbb{R}^p$, de labels $y_i \in \{-1, +1\}$, sont **linéairement séparables** (M10 §3). Un séparateur $(\mathbf{w}, b)$ classe $\mathbf{x}$ par le signe du score $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$, et chaque exemple a une **marge fonctionnelle** $y_i\,s(\mathbf{x}_i)$, positive s'il est bien classé. M10 a montré qu'on peut choisir l'échelle de $(\mathbf{w}, b)$ pour que la plus petite marge fonctionnelle vaille 1 (la **forme canonique**) ; la marge géométrique vaut alors
+Des exemples $\mathbf{x}_1, \ldots, \mathbf{x}_n$ de $\mathbb{R}^p$, de labels $y_i \in \lbrace-1, +1\rbrace$, sont **linéairement séparables** (M10 §3). Un séparateur $(\mathbf{w}, b)$ classe $\mathbf{x}$ par le signe du score $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$, et chaque exemple a une **marge fonctionnelle** $y_i\thinspace s(\mathbf{x}_i)$, positive s'il est bien classé. M10 a montré qu'on peut choisir l'échelle de $(\mathbf{w}, b)$ pour que la plus petite marge fonctionnelle vaille 1 (la **forme canonique**) ; la marge géométrique vaut alors
 $$\rho = \frac{1}{\lVert\mathbf{w}\rVert}.$$
 Chercher la plus grande marge, c'est chercher le plus petit $\lVert\mathbf{w}\rVert$ sous ces contraintes (∂ M10.8). On minimise plutôt $\frac{1}{2}\lVert\mathbf{w}\rVert^2$, qui a le même minimiseur (le carré est croissant sur les nombres positifs) et qui est une fonction quadratique, dérivable et strictement convexe en $\mathbf{w}$ (∂ M13b.17 reprend le passage de « maximiser la marge » à ce problème) :
 
@@ -258,13 +258,13 @@ Les $n$ contraintes sont affines en $(\mathbf{w}, b)$ : c'est un **programme qua
 
 ### Les conditions KKT de la SVM
 
-Chaque contrainte s'écrit $1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \le 0$, avec un multiplicateur $\alpha_i \ge 0$ :
-$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + \sum_{i=1}^n \alpha_i\big(1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big).$$
+Chaque contrainte s'écrit $1 - y_i(\mathbf{w} \cdot \mathbf{x} _i + b) \le 0$, avec un multiplicateur $\alpha_i \ge 0$ :
+$$\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + \sum _{i=1}^n \alpha_i\big(1 - y_i(\mathbf{w} \cdot \mathbf{x} _i + b)\big).$$
 La stationnarité en $\mathbf{w}$ et en $b$ donne :
-$$\mathbf{w} = \sum_{i=1}^n \alpha_i\,y_i\,\mathbf{x}_i, \qquad \sum_{i=1}^n \alpha_i\,y_i = 0,$$
+$$\mathbf{w} = \sum _{i=1}^n \alpha_i\thinspace y_i\thinspace\mathbf{x} _i, \qquad \sum _{i=1}^n \alpha_i\thinspace y_i = 0,$$
 et la complémentarité, $\alpha_i\big(y_i(\mathbf{w} \cdot \mathbf{x}_i + b) - 1\big) = 0$. Conséquences :
 - un exemple dont la marge fonctionnelle dépasse 1 a $\alpha_i = 0$ : il n'entre pas dans $\mathbf{w}$ ;
-- les exemples où $\alpha_i > 0$ sont **sur les bords de la bande** ($y_i\,s(\mathbf{x}_i) = 1$) : ce sont les **vecteurs de support** (*support vectors*), que M10 a rencontrés sans les nommer. $\mathbf{w}$ est une combinaison d'eux seuls ;
+- les exemples où $\alpha_i > 0$ sont **sur les bords de la bande** ($y_i\thinspace s(\mathbf{x}_i) = 1$) : ce sont les **vecteurs de support** (*support vectors*), que M10 a rencontrés sans les nommer. $\mathbf{w}$ est une combinaison d'eux seuls ;
 - la condition $\sum_i \alpha_i y_i = 0$ équilibre les poids des deux classes : il y a au moins un vecteur de support de chaque côté.
 
 ### Un exemple résolu
@@ -285,15 +285,15 @@ Six exemples : label $+1$ pour $(6, 1)$, $(7, 3)$, $(8, 0)$ ; label $-1$ pour $(
 
 ### Autoriser des violations
 
-Des données réelles ne sont presque jamais séparables, et même quand elles le sont, un seul point aberrant peut imposer une bande très étroite. La **marge souple** (*soft margin*) relâche chaque contrainte en $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i$, avec une **variable d'écart** (*slack variable*) $\xi_i \ge 0$ par exemple, et ajoute $C\sum_i \xi_i$ à l'objectif :
-$$\min_{\mathbf{w}, b, \boldsymbol{\xi}} \ \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_{i=1}^n \xi_i \quad \text{sous} \quad y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i, \quad \xi_i \ge 0.$$
+Des données réelles ne sont presque jamais séparables, et même quand elles le sont, un seul point aberrant peut imposer une bande très étroite. La **marge souple** (*soft margin*) relâche chaque contrainte en $y_i(\mathbf{w} \cdot \mathbf{x} _i + b) \ge 1 - \xi_i$, avec une **variable d'écart** (*slack variable*) $\xi_i \ge 0$ par exemple, et ajoute $C\sum_i \xi_i$ à l'objectif :
+$$\min  _{\mathbf{w}, b, \boldsymbol{\xi}} \ \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum _{i=1}^n \xi_i \quad \text{sous} \quad y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1 - \xi_i, \quad \xi_i \ge 0.$$
 $C > 0$ règle l'échange entre une bande large ($\lVert\mathbf{w}\rVert$ petit) et peu de manques. C'est encore un programme quadratique convexe, en $p + 1 + n$ variables.
 
 ### La hinge loss
 
-À $(\mathbf{w}, b)$ fixés, le meilleur $\xi_i$ est le plus petit qui respecte les deux contraintes, $\xi_i = \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big)$ (∂ M13b.18 en fait une démonstration). Le problème devient donc un problème **sans contrainte** :
-$$J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum_{i=1}^n \ell\big(y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big), \qquad \ell(t) = \max(0, 1 - t),$$
-où $\ell$ est la **hinge loss** (« charnière »), une fonction de la marge fonctionnelle $t = y\,s$. Elle est nulle dès que $t \ge 1$, vaut $1 - t$ en dessous, et majore l'erreur de classification (1 si $t \le 0$, 0 sinon). Comme maximum de deux fonctions affines, elle est convexe ; $J$, somme de fonctions convexes, l'est aussi.
+À $(\mathbf{w}, b)$ fixés, le meilleur $\xi_i$ est le plus petit qui respecte les deux contraintes, $\xi_i = \max\big(0,\ 1 - y_i(\mathbf{w} \cdot \mathbf{x} _i + b)\big)$ (∂ M13b.18 en fait une démonstration). Le problème devient donc un problème **sans contrainte** :
+$$J(\mathbf{w}, b) = \frac{1}{2}\lVert\mathbf{w}\rVert^2 + C\sum _{i=1}^n \ell\big(y_i(\mathbf{w} \cdot \mathbf{x}_i + b)\big), \qquad \ell(t) = \max(0, 1 - t),$$
+où $\ell$ est la **hinge loss** (« charnière »), une fonction de la marge fonctionnelle $t = y\thinspace s$. Elle est nulle dès que $t \ge 1$, vaut $1 - t$ en dessous, et majore l'erreur de classification (1 si $t \le 0$, 0 sinon). Comme maximum de deux fonctions affines, elle est convexe ; $J$, somme de fonctions convexes, l'est aussi.
 
 ![La loss 0-1 (l'erreur), la hinge max(0, 1 − t) et la log-loss log₂(1 + e⁻ᵗ), en fonction de la marge t : la hinge et la log-loss majorent l'erreur, mais seule la hinge s'annule, dès t ≥ 1](figures/pertes_hinge.png)
 
@@ -304,7 +304,7 @@ où $\ell$ est la **hinge loss** (« charnière »), une fonction de la marge fo
 ### Le rôle de C
 
 En divisant $J$ par $nC$, on retrouve la forme « loss moyenne plus pénalité » des chapitres de régression :
-$$\frac{J(\mathbf{w}, b)}{nC} = \frac{1}{n}\sum_{i=1}^n \ell\big(y_i\,s(\mathbf{x}_i)\big) + \frac{\lambda}{2}\lVert\mathbf{w}\rVert^2, \qquad \lambda = \frac{1}{nC} :$$
+$$\frac{J(\mathbf{w}, b)}{nC} = \frac{1}{n}\sum_{i=1}^n \ell\big(y_i\thinspace s(\mathbf{x}_i)\big) + \frac{\lambda}{2}\lVert\mathbf{w}\rVert^2, \qquad \lambda = \frac{1}{nC} :$$
 doubler $C$ divise $\lambda$ par 2. Quand $C$ grandit, $\lVert\mathbf{w}\rVert$ grandit (ou reste égal), donc la bande se rétrécit ; si les données sont séparables, la solution tend vers celle de la marge dure quand $C \to \infty$.
 
 <details><summary>Pourquoi ‖w‖ grandit avec C</summary>
@@ -323,14 +323,14 @@ $J$ n'est pas dérivable aux points où une marge fonctionnelle vaut exactement 
 
 Là où $f$ est dérivable, le seul sous-gradient est $\nabla f(\mathbf{u})$ (la tangente). À un coude, il y en a toute une famille : pour la hinge en $t = 1$, toute pente entre $-1$ et $0$ convient. Et $\mathbf{0} \in \partial f(\mathbf{u})$ si et seulement si $\mathbf{u}$ est un minimum : c'est la condition d'optimalité qui remplace $\nabla f = \mathbf{0}$.
 
-Pour $J$, la somme des sous-gradients des termes en est un. Le terme $\ell(y_i\,s(\mathbf{x}_i))$ a pour gradient en $(\mathbf{w}, b)$ le vecteur $(-y_i\mathbf{x}_i, -y_i)$ si $y_i\,s(\mathbf{x}_i) < 1$, et $\mathbf{0}$ si $y_i\,s(\mathbf{x}_i) > 1$ ; au coude, on choisit $\mathbf{0}$ (c'est un sous-gradient valide). D'où un sous-gradient de $J$, celui que calcule `svm_subgradient` :
-$$\mathbf{g}_{\mathbf{w}} = \mathbf{w} - C\sum_{i\,:\,y_i s(\mathbf{x}_i) < 1} y_i\,\mathbf{x}_i, \qquad g_b = -C\sum_{i\,:\,y_i s(\mathbf{x}_i) < 1} y_i.$$
+Pour $J$, la somme des sous-gradients des termes en est un. Le terme $\ell(y_i\thinspace s(\mathbf{x}_i))$ a pour gradient en $(\mathbf{w}, b)$ le vecteur $(-y_i\mathbf{x}_i, -y_i)$ si $y_i\thinspace s(\mathbf{x} _i) < 1$, et $\mathbf{0}$ si $y_i\thinspace s(\mathbf{x} _i) > 1$ ; au coude, on choisit $\mathbf{0}$ (c'est un sous-gradient valide). D'où un sous-gradient de $J$, celui que calcule `svm_subgradient` :
+$$\mathbf{g} _{\mathbf{w}} = \mathbf{w} - C\sum _{i\thinspace:\thinspace y_i s(\mathbf{x}_i) < 1} y_i\thinspace\mathbf{x} _i, \qquad g_b = -C\sum _{i\thinspace:\thinspace y_i s(\mathbf{x}_i) < 1} y_i.$$
 
 **Exemple.** Avec les huit exemples ci-dessus, $C = 1$ et le même $(\mathbf{w}, b)$ : seuls $(4, 4)$ et $(5, 5)$ ont une marge fonctionnelle **strictement** sous 1 (les deux vecteurs de support du §6 sont exactement à 1 et ne comptent pas). $\mathbf{g}_{\mathbf{w}} = (0{,}6 ;\ -0{,}2) - \big[(+1)(4, 4) + (-1)(5, 5)\big] = (1{,}6 ;\ 0{,}8)$ et $g_b = -(1 - 1) = 0$.
 
 ### La descente de sous-gradient
 
-On remplace le gradient par un sous-gradient : $(\mathbf{w}, b) \leftarrow (\mathbf{w}, b) - \eta_t\,\mathbf{g}_t$. Deux différences avec la descente de gradient de M05b :
+On remplace le gradient par un sous-gradient : $(\mathbf{w}, b) \leftarrow (\mathbf{w}, b) - \eta_t\thinspace\mathbf{g}_t$. Deux différences avec la descente de gradient de M05b :
 - un pas dans la direction opposée à un sous-gradient **peut faire monter** $J$, même petit : ce n'est pas une méthode de descente. On garde en mémoire le meilleur point rencontré ;
 - avec un pas **constant**, l'algorithme finit par osciller autour du minimum sans s'en approcher davantage ; avec un pas **décroissant** (par exemple $\eta_t = \eta_0/\sqrt{t}$), le meilleur point converge vers le minimum, lentement (🔬 M13b.30).
 
@@ -345,12 +345,12 @@ On remplace le gradient par un sous-gradient : $(\mathbf{w}, b) \leftarrow (\mat
 Reprenons le lagrangien du §6 et remplaçons $\mathbf{w}$ par $\sum_i \alpha_i y_i \mathbf{x}_i$, en utilisant $\sum_i \alpha_i y_i = 0$ : le terme en $b$ disparaît, et il reste une fonction des seuls $\alpha_i$.
 
 > **Dual de la SVM.**
-> $$\max_{\boldsymbol{\alpha}} \ \sum_{i=1}^n \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \alpha_i\alpha_j\,y_iy_j\,(\mathbf{x}_i \cdot \mathbf{x}_j) \quad \text{sous} \quad \sum_{i=1}^n \alpha_i y_i = 0, \quad 0 \le \alpha_i \le C.$$
+> $$\max_{\boldsymbol{\alpha}} \ \sum_{i=1}^n \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \alpha_i\alpha_j\thinspace y_iy_j\thinspace(\mathbf{x}_i \cdot \mathbf{x} _j) \quad \text{sous} \quad \sum _{i=1}^n \alpha_i y_i = 0, \quad 0 \le \alpha_i \le C.$$
 > Pour la marge dure, on enlève la borne $\alpha_i \le C$ (c'est le cas $C = \infty$).
 
 <details><summary>Le calcul</summary>
 
-Avec $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x}_i$ : $\frac{1}{2}\lVert\mathbf{w}\rVert^2 = \frac{1}{2}\sum_{i,j}\alpha_i\alpha_jy_iy_j\,\mathbf{x}_i \cdot \mathbf{x}_j$, et $\sum_i \alpha_i y_i\,\mathbf{w} \cdot \mathbf{x}_i = \lVert\mathbf{w}\rVert^2$. Le lagrangien vaut donc $\frac{1}{2}\lVert\mathbf{w}\rVert^2 + \sum_i\alpha_i - \lVert\mathbf{w}\rVert^2 - b\sum_i\alpha_iy_i = \sum_i\alpha_i - \frac{1}{2}\lVert\mathbf{w}\rVert^2$. Pour la marge souple, les multiplicateurs $\beta_i \ge 0$ des contraintes $\xi_i \ge 0$ et la stationnarité en $\xi_i$, $C - \alpha_i - \beta_i = 0$, ajoutent seulement la borne $\alpha_i \le C$.
+Avec $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x} _i$ : $\frac{1}{2}\lVert\mathbf{w}\rVert^2 = \frac{1}{2}\sum _{i,j}\alpha_i\alpha_jy_iy_j\thinspace\mathbf{x}_i \cdot \mathbf{x}_j$, et $\sum_i \alpha_i y_i\thinspace\mathbf{w} \cdot \mathbf{x}_i = \lVert\mathbf{w}\rVert^2$. Le lagrangien vaut donc $\frac{1}{2}\lVert\mathbf{w}\rVert^2 + \sum_i\alpha_i - \lVert\mathbf{w}\rVert^2 - b\sum_i\alpha_iy_i = \sum_i\alpha_i - \frac{1}{2}\lVert\mathbf{w}\rVert^2$. Pour la marge souple, les multiplicateurs $\beta_i \ge 0$ des contraintes $\xi_i \ge 0$ et la stationnarité en $\xi_i$, $C - \alpha_i - \beta_i = 0$, ajoutent seulement la borne $\alpha_i \le C$.
 
 </details>
 
@@ -360,7 +360,7 @@ C'est un programme quadratique à maximiser, d'objectif concave, en $n$ variable
 
 Les conditions KKT de la marge souple classent les exemples en trois groupes :
 
-| $\alpha_i$ | Marge fonctionnelle $y_i\,s(\mathbf{x}_i)$ | Position |
+| $\alpha_i$ | Marge fonctionnelle $y_i\thinspace s(\mathbf{x}_i)$ | Position |
 |---|---|---|
 | $\alpha_i = 0$ | $\ge 1$ | au-delà du bord de sa classe, ou dessus : n'entre pas dans $\mathbf{w}$ |
 | $0 < \alpha_i < C$ | $= 1$ | sur le bord de sa classe : vecteur de support « libre » |
@@ -372,11 +372,11 @@ Les **vecteurs de support** sont les exemples où $\alpha_i > 0$. Une fois $\bol
 
 ### Des produits scalaires, puis des noyaux
 
-Regarde où sont les données dans le dual : **seulement dans les produits scalaires** $\mathbf{x}_i \cdot \mathbf{x}_j$. Et dans la décision aussi :
-$$s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \sum_{i} \alpha_i y_i\,(\mathbf{x}_i \cdot \mathbf{x}) + b,$$
+Regarde où sont les données dans le dual : **seulement dans les produits scalaires** $\mathbf{x}_i \cdot \mathbf{x} _j$. Et dans la décision aussi :
+$$s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b = \sum _{i} \alpha_i y_i\thinspace(\mathbf{x}_i \cdot \mathbf{x}) + b,$$
 une somme sur les seuls vecteurs de support. Si l'on transformait d'abord chaque exemple par une application $\varphi : \mathbb{R}^p \to \mathbb{R}^q$ (des features construites, comme les features polynomiales de M09b), tout s'écrirait avec des $\varphi(\mathbf{x}_i) \cdot \varphi(\mathbf{x}_j)$. Si l'on sait calculer ce produit scalaire **directement** à partir de $\mathbf{x}_i$ et $\mathbf{x}_j$, le calcul se passe entièrement de $\varphi$ :
 
-> **Noyau** (*kernel*). Une fonction $k(\mathbf{x}, \mathbf{z})$ telle que $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ pour une certaine application $\varphi$ (*feature map*). La SVM à noyau remplace chaque $\mathbf{x}_i \cdot \mathbf{x}_j$ du dual par $k(\mathbf{x}_i, \mathbf{x}_j)$, et décide par $s(\mathbf{x}) = \sum_i \alpha_i y_i\,k(\mathbf{x}_i, \mathbf{x}) + b$.
+> **Noyau** (*kernel*). Une fonction $k(\mathbf{x}, \mathbf{z})$ telle que $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ pour une certaine application $\varphi$ (*feature map*). La SVM à noyau remplace chaque $\mathbf{x}_i \cdot \mathbf{x}_j$ du dual par $k(\mathbf{x}_i, \mathbf{x}_j)$, et décide par $s(\mathbf{x}) = \sum_i \alpha_i y_i\thinspace k(\mathbf{x}_i, \mathbf{x}) + b$.
 
 C'est l'**astuce du noyau** (*kernel trick*) : une SVM linéaire dans l'espace des $\varphi(\mathbf{x})$, qui donne une frontière **non linéaire** dans l'espace de départ, pour le prix d'évaluations de $k$. La **matrice de Gram** des exemples, $\mathbf{K}_{ij} = k(\mathbf{x}_i, \mathbf{x}_j)$, de taille $n \times n$, contient tout ce dont l'entraînement a besoin (🧮 M13b.23 en estime le coût). Avec le noyau linéaire $k(\mathbf{x}, \mathbf{z}) = \mathbf{x} \cdot \mathbf{z}$, $\mathbf{K} = \mathbf{X}\mathbf{X}^\top$.
 
@@ -387,16 +387,16 @@ C'est l'**astuce du noyau** (*kernel trick*) : une SVM linéaire dans l'espace d
 > $$k(\mathbf{x}, \mathbf{z}) = (\mathbf{x} \cdot \mathbf{z} + c)^d, \qquad c \ge 0, \ d \ge 1 \text{ entier}.$$
 
 En dimension 1, avec $c = 1$ et $d = 2$ :
-$$(1 + xz)^2 = 1 + 2xz + x^2z^2 = \big(1,\ \sqrt{2}\,x,\ x^2\big) \cdot \big(1,\ \sqrt{2}\,z,\ z^2\big) :$$
-$\varphi(x) = (1, \sqrt{2}\,x, x^2)$ a trois coordonnées, et les $\sqrt{2}$ sont là pour que le terme croisé $2xz$ sorte d'un produit scalaire. En dimension $p$, le développement de $(1 + \mathbf{x} \cdot \mathbf{z})^d$ fait apparaître **tous les monômes** des $x_j$ de degré au plus $d$, chacun avec un coefficient : $\varphi$ a autant de coordonnées que `count_monomials(p, d, include_constant=True)` en compte (M09b). Pour $p = 50$ et $d = 3$, c'est déjà $\binom{53}{3} = 23\,426$ coordonnées, et autant de produits pour $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ ; $k$, lui, se calcule en une cinquantaine de multiplications. ✏️ M13b.12 écrit $\varphi$ en dimension 2.
+$$(1 + xz)^2 = 1 + 2xz + x^2z^2 = \big(1,\ \sqrt{2}\thinspace x,\ x^2\big) \cdot \big(1,\ \sqrt{2}\thinspace z,\ z^2\big) :$$
+$\varphi(x) = (1, \sqrt{2}\thinspace x, x^2)$ a trois coordonnées, et les $\sqrt{2}$ sont là pour que le terme croisé $2xz$ sorte d'un produit scalaire. En dimension $p$, le développement de $(1 + \mathbf{x} \cdot \mathbf{z})^d$ fait apparaître **tous les monômes** des $x_j$ de degré au plus $d$, chacun avec un coefficient : $\varphi$ a autant de coordonnées que `count_monomials(p, d, include_constant=True)` en compte (M09b). Pour $p = 50$ et $d = 3$, c'est déjà $\binom{53}{3} = 23\thinspace426$ coordonnées, et autant de produits pour $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$ ; $k$, lui, se calcule en une cinquantaine de multiplications. ✏️ M13b.12 écrit $\varphi$ en dimension 2.
 
 ### Le noyau RBF
 
 > **Noyau RBF** (gaussien, *radial basis function*). $k(\mathbf{x}, \mathbf{z}) = e^{-\gamma\lVert\mathbf{x} - \mathbf{z}\rVert^2}$, avec $\gamma > 0$.
 
 Il ne dépend que de la distance $d = \lVert\mathbf{x} - \mathbf{z}\rVert$, et passe sous 1 % dès que $\gamma d^2 > \ln 100 \approx 4{,}61$, soit $d > 2{,}15/\sqrt{\gamma}$ : $1/\sqrt{\gamma}$ est l'échelle de longueur du noyau. Son $\varphi$ a une **suite infinie** de coordonnées. En dimension 1 :
-$$e^{-\gamma(x - z)^2} = e^{-\gamma x^2}\,e^{-\gamma z^2}\,e^{2\gamma xz} = \sum_{m=0}^{\infty} \Big(e^{-\gamma x^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,x^m\Big)\Big(e^{-\gamma z^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\,z^m\Big),$$
-par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(2\gamma)^m/m!}\;x^m$, pour $m = 0, 1, 2, \ldots$ Aucune machine ne calculerait $\varphi$, mais $k$ se calcule en une ligne.
+$$e^{-\gamma(x - z)^2} = e^{-\gamma x^2}\thinspace e^{-\gamma z^2}\thinspace e^{2\gamma xz} = \sum_{m=0}^{\infty} \Big(e^{-\gamma x^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\thinspace x^m\Big)\Big(e^{-\gamma z^2}\sqrt{\tfrac{(2\gamma)^m}{m!}}\thinspace z^m\Big),$$
+par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(2\gamma)^m/m!}\mkern5mu  x^m$, pour $m = 0, 1, 2, \ldots$ Aucune machine ne calculerait $\varphi$, mais $k$ se calcule en une ligne.
 
 **Distances dans l'espace des features.** Pour tout noyau, $\lVert\varphi(\mathbf{x}) - \varphi(\mathbf{z})\rVert^2 = k(\mathbf{x}, \mathbf{x}) - 2k(\mathbf{x}, \mathbf{z}) + k(\mathbf{z}, \mathbf{z})$ (développe le carré). Pour le RBF, où $k(\mathbf{x}, \mathbf{x}) = e^0 = 1$, c'est $2 - 2k(\mathbf{x}, \mathbf{z})$ : les images sont toutes sur une sphère de rayon 1, à moins de $\sqrt{2}$ les unes des autres.
 
@@ -406,9 +406,9 @@ par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(
 
 ### Quelles fonctions sont des noyaux ?
 
-Si $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$, toute matrice de Gram $\mathbf{K}$ est **symétrique** et **semi-définie positive** : pour tout vecteur $\mathbf{v}$, $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert\sum_i v_i\,\varphi(\mathbf{x}_i)\rVert^2 \ge 0$ (comme $\mathbf{X}^\top\mathbf{X}$ en M12c.17 ; ∂ M13b.19). La réciproque est vraie (on l'admet) : une fonction symétrique dont toutes les matrices de Gram, sur tous les ensembles finis de points, sont semi-définies positives, est un noyau. C'est le critère pratique d'un **noyau valide**.
+Si $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$, toute matrice de Gram $\mathbf{K}$ est **symétrique** et **semi-définie positive** : pour tout vecteur $\mathbf{v}$, $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert\sum_i v_i\thinspace\varphi(\mathbf{x}_i)\rVert^2 \ge 0$ (comme $\mathbf{X}^\top\mathbf{X}$ en M12c.17 ; ∂ M13b.19). La réciproque est vraie (on l'admet) : une fonction symétrique dont toutes les matrices de Gram, sur tous les ensembles finis de points, sont semi-définies positives, est un noyau. C'est le critère pratique d'un **noyau valide**.
 
-Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n'en est pas un : pour deux points distincts à la distance $d$, sa matrice de Gram $\begin{pmatrix} 0 & d \\ d & 0 \end{pmatrix}$ a la valeur propre $-d < 0$. À l'inverse, la somme et le produit de deux noyaux sont des noyaux (∂ M13b.19), une constante positive aussi : c'est une façon de démontrer que le noyau polynomial en est un, sans écrire $\varphi$.
+Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n'en est pas un : pour deux points distincts à la distance $d$, sa matrice de Gram $\begin{pmatrix} 0 & d \cr d & 0 \end{pmatrix}$ a la valeur propre $-d < 0$. À l'inverse, la somme et le produit de deux noyaux sont des noyaux (∂ M13b.19), une constante positive aussi : c'est une façon de démontrer que le noyau polynomial en est un, sans écrire $\varphi$.
 
 ⚠️ **Erreur classique.** Les fonctions de scikit-learn `sklearn.metrics.pairwise.rbf_kernel` et `polynomial_kernel` prennent par défaut $\gamma = 1/p$ (et `polynomial_kernel` un degré 3, avec un facteur $\gamma$ devant le produit scalaire) : comparer leurs sorties aux tiennes demande de passer les paramètres explicitement (📦 M13b.28).
 
@@ -422,7 +422,7 @@ Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n
 - **Une égalité non affine dans un « problème convexe ».** $\lVert\mathbf{u}\rVert = 1$ ne définit pas un ensemble convexe.
 - **Marge, bande, $\lVert\mathbf{w}\rVert$.** $\rho = 1/\lVert\mathbf{w}\rVert$, la bande fait $2\rho$ ; et $\gamma$ n'est plus la marge dans ce chapitre.
 - **La hinge en somme ou en moyenne.** $C$ multiplie la **somme** des hinges dans $J$ ; diviser par $n$ change le sens de $C$.
-- **Le coude.** Au point où $y_i\,s(\mathbf{x}_i) = 1$, la hinge n'a pas de dérivée : choisis un sous-gradient et dis lequel (`svm_subgradient` ne compte que les marges **strictement** sous 1).
+- **Le coude.** Au point où $y_i\thinspace s(\mathbf{x}_i) = 1$, la hinge n'a pas de dérivée : choisis un sous-gradient et dis lequel (`svm_subgradient` ne compte que les marges **strictement** sous 1).
 - **Une descente de sous-gradient qui remonte.** C'est normal : garde le meilleur point.
 - **$b$ lu sur un vecteur de support borné.** Seul un vecteur libre ($0 < \alpha_i < C$) est exactement sur un bord.
 - **Une matrice de Gram non symétrique, ou mal orientée.** $\mathbf{K}_{ij} = k(\mathbf{x}_i, \mathbf{z}_j)$ : ligne $i$ pour le $i$-ième point du premier ensemble.

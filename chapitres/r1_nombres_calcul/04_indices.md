@@ -112,7 +112,7 @@ La mantisse est entre 1 et 10 ; les zéros de tête ne sont pas significatifs, c
 </details>
 <details><summary>Indice 3</summary>
 
-1 est **vrai** : 6, 3 et le zéro final. Pour 2, regarde la mantisse. Pour 5, écris $8\,200$ en notation scientifique, puis applique la règle de l'ordre de grandeur.
+1 est **vrai** : 6, 3 et le zéro final. Pour 2, regarde la mantisse. Pour 5, écris $8\thinspace200$ en notation scientifique, puis applique la règle de l'ordre de grandeur.
 
 </details>
 
@@ -354,7 +354,7 @@ Déplace la virgule jusqu'à un seul chiffre non nul devant elle, et compte les 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $72\,500\,000 = 7{,}25 \times 10^{?}$ : compte de combien de rangs la virgule recule. Pour d, les chiffres significatifs commencent au 7. Pour f, divise les mantisses, puis soustrais les exposants.
+a : $72\thinspace500\thinspace000 = 7{,}25 \times 10^{?}$ : compte de combien de rangs la virgule recule. Pour d, les chiffres significatifs commencent au 7. Pour f, divise les mantisses, puis soustrais les exposants.
 
 </details>
 
@@ -390,7 +390,7 @@ Relis « Coefficient multiplicateur », « Évolutions successives » et « Évo
 </details>
 <details><summary>Indice 3</summary>
 
-a : $+12{,}5\,\%$, c'est $\times 1{,}125$. Pour b, $\frac{1000 - 1250}{1250}$. Pour d, le coefficient global est $0{,}9^3$. Pour e, calcule $\frac{1}{1{,}6}$.
+a : $+12{,}5$ %, c'est $\times 1{,}125$. Pour b, $\frac{1000 - 1250}{1250}$. Pour d, le coefficient global est $0{,}9^3$. Pour e, calcule $\frac{1}{1{,}6}$.
 
 </details>
 

@@ -25,8 +25,8 @@
 6. **Faux** : un point ajouté loin du nuage peut faire disparaître plusieurs sommets d'un coup (M10.2 g en fait disparaître un, sans en changer le nombre).
 
 ### M10.Q3 — Séparable ou non ?
-1. **Oui** : le seuil $x = 3$ sépare $\{1, 2\}$ de $\{4, 7\}$.
-2. **Non** : $3$ est dans l'intervalle $[0, 6] = \operatorname{conv}(\{0, 6\})$.
+1. **Oui** : le seuil $x = 3$ sépare $\lbrace1, 2\rbrace$ de $\lbrace4, 7\rbrace$.
+2. **Non** : $3$ est dans l'intervalle $[0, 6] = \operatorname{conv}(\lbrace0, 6\rbrace)$.
 3. **Non** : $(1, 2)$ vérifie $x \ge 0$, $y \ge 0$ et $x + y \le 4$ : il est dans le triangle de la classe $+1$.
 4. **Non** : le centre est le milieu de deux points diamétralement opposés (les huit points sont régulièrement répartis), donc dans l'enveloppe de la classe $+1$.
 5. **Oui** : $d + 1 = 3$ points en position générale sont séparables quels que soient leurs labels (fiche §3).
@@ -52,10 +52,10 @@
 5. $\mathbf{0} - \frac{-3}{9}(2, -1, 2) = \big(\frac{2}{3}, -\frac{1}{3}, \frac{2}{3}\big)$ ; vérification : $\frac{4}{3} + \frac{1}{3} + \frac{4}{3} - 3 = 0$.
 
 ### M10.R2 — L'inégalité de Cauchy-Schwarz (M07)
-1. $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
+1. $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$.
 2. $\mathbf{u} \cdot \mathbf{v} = 4 + 3 - 12 = -5$, $\lVert \mathbf{u} \rVert = \sqrt{4 + 9 + 36} = 7$, $\lVert \mathbf{v} \rVert = 3$ : $5 \le 21$.
 3. Quand $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires (l'un est un multiple de l'autre).
-4. Cauchy-Schwarz pour $(1, 1, 1)$ et $(a, b, c)$ : $|a + b + c| \le \sqrt{3}\,\sqrt{a^2 + b^2 + c^2}$, puis on élève au carré (deux nombres positifs). Égalité si et seulement si $(a, b, c)$ est colinéaire à $(1, 1, 1)$ : $a = b = c$.
+4. Cauchy-Schwarz pour $(1, 1, 1)$ et $(a, b, c)$ : $|a + b + c| \le \sqrt{3}\thinspace\sqrt{a^2 + b^2 + c^2}$, puis on élève au carré (deux nombres positifs). Égalité si et seulement si $(a, b, c)$ est colinéaire à $(1, 1, 1)$ : $a = b = c$.
 5. $2a + 3b + 6c = (2, 3, 6) \cdot (a, b, c) \le 7 \times 2 = \mathbf{14}$, atteint pour $(a, b, c) = \frac{2}{7}(2, 3, 6) = \big(\frac{4}{7}, \frac{6}{7}, \frac{12}{7}\big)$.
 
 ### M10.R3 — La sigmoïde et tanh (R6)
@@ -74,7 +74,7 @@
 **Réponses** : a) `[-1, 1]` · b) `0.75` · c) `"ACEF"` · d) `[3, 2]` · e) `4` · f) `"PS"` · g) `[1.4, 1.0]`.
 
 **Démarche.**
-- a) $\mathbf{b} - \mathbf{a} = (8, -4)$, et $\mathbf{a} + 0{,}25\,(8, -4) = (-3 + 2,\ 2 - 1) = (-1, 1)$.
+- a) $\mathbf{b} - \mathbf{a} = (8, -4)$, et $\mathbf{a} + 0{,}25\thinspace(8, -4) = (-3 + 2,\ 2 - 1) = (-1, 1)$.
 - b) $(-3 + 8t,\ 2 - 4t) = (3, -1)$ donne $t = 0{,}75$ par les deux coordonnées (si elles donnaient deux $t$ différents, le point ne serait pas sur la droite).
 - c) $A$ est une boule, $C$ la région au-dessus de la courbe convexe $x^2$, $E$ une boule d'une norme (un losange), $F$ la région au-dessus de la courbe de $\frac{1}{x}$, convexe sur $]0, +\infty[$. $B$ a un trou : $(-1, 0)$ et $(1, 0)$ en font partie, pas leur milieu. $D$ : $(-1, 1)$ et $(1, 1)$ en font partie, pas $(0, 1)$. $G$ : $(3, 0)$ et $(0, 3)$ en font partie, pas $(1{,}5 ;\ 1{,}5)$.
 - d) $2x + y = 8$ et $x + 2y = 7$ : en retranchant deux fois la seconde de la première, $-3y = -6$, $y = 2$, puis $x = 3$. Ce point vérifie bien $x \ge 0$ et $y \ge 0$.
@@ -154,13 +154,13 @@ Pour la copie : $\mathbf{p}$ est du côté positif de $\Delta$ (score 3), $\math
 **Démarche.**
 - a) $1 + 4 = 5$.
 - b) $\mathbf{v}_1 = (3, 1)$, et $(3, 1) \cdot (-1, 2) = -3 + 2 = -1$.
-- c) $\mathbf{v}_2 = (2, 3)$, de carré de norme 13 ; ou bien $\lVert \mathbf{v}_1 \rVert^2 + 2\,\mathbf{v}_1 \cdot \mathbf{d}_1 + \lVert \mathbf{d}_1 \rVert^2 = 10 - 2 + 5 = 13$.
+- c) $\mathbf{v}_2 = (2, 3)$, de carré de norme 13 ; ou bien $\lVert \mathbf{v}_1 \rVert^2 + 2\thinspace\mathbf{v}_1 \cdot \mathbf{d}_1 + \lVert \mathbf{d}_1 \rVert^2 = 10 - 2 + 5 = 13$.
 - d) Le lemme avec $c = 5$ : $\lVert \mathbf{v}_2 \rVert^2 \le 5 + 2 \times 5 = 15$.
-- e) $\lVert \mathbf{v}_{100} \rVert^2 \le 5 + 100 \times 5 = 505$, donc $\lVert \mathbf{v}_{100} \rVert \le \sqrt{505} \approx 22{,}47$.
+- e) $\lVert \mathbf{v} _{100} \rVert^2 \le 5 + 100 \times 5 = 505$, donc $\lVert \mathbf{v} _{100} \rVert \le \sqrt{505} \approx 22{,}47$.
 - f) Le lemme, appliqué aux carrés avec $c_k = \lVert \mathbf{d}_k \rVert^2 \le (k + 1)^2$ : $\lVert \mathbf{v}_6 \rVert^2 \le 9 + 1 + 4 + 9 + 16 + 25 + 36 = 9 + 91 = 100$, donc $\lVert \mathbf{v}_6 \rVert \le 10$.
-- g) Pendant les 5 premiers pas, $\mathbf{v}_{k+1} = \mathbf{v}_k\big(1 + \frac{1}{\lVert \mathbf{v}_k \rVert}\big)$ : la norme gagne exactement 1 à chaque pas, $\lVert \mathbf{v}_5 \rVert = 6$. Pendant les 5 suivants, perpendiculaires, Pythagore donne $\lVert \mathbf{v}_{k+1} \rVert^2 = \lVert \mathbf{v}_k \rVert^2 + 1$ : $\lVert \mathbf{v}_{10} \rVert^2 = 36 + 5 = 41$, et $\lVert \mathbf{v}_{10} \rVert = \sqrt{41} \approx 6{,}40$.
+- g) Pendant les 5 premiers pas, $\mathbf{v}_{k+1} = \mathbf{v}_k\big(1 + \frac{1}{\lVert \mathbf{v} _k \rVert}\big)$ : la norme gagne exactement 1 à chaque pas, $\lVert \mathbf{v} _5 \rVert = 6$. Pendant les 5 suivants, perpendiculaires, Pythagore donne $\lVert \mathbf{v} _{k+1} \rVert^2 = \lVert \mathbf{v} _k \rVert^2 + 1$ : $\lVert \mathbf{v} _{10} \rVert^2 = 36 + 5 = 41$, et $\lVert \mathbf{v} _{10} \rVert = \sqrt{41} \approx 6{,}40$.
 
-Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\,\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En f), l'inégalité triangulaire ne donne que $\lVert \mathbf{v}_6 \rVert \le 3 + (1 + 2 + \cdots + 6) = 24$ : elle vaut pour n'importe quels pas, alors que la borne pas à pas, 10, se sert de l'hypothèse $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. Elle est atteinte : partir de $\mathbf{v}_0 = (3, 0)$ et faire chaque pas perpendiculaire à la position courante, de longueur exactement $k + 1$ ; par Pythagore, le carré de la norme gagne exactement $(k + 1)^2$ à chaque pas. En g), pendant les cinq premiers pas, $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement ; ensuite elle ne gagne plus que comme $\sqrt{k}$.
+Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf{v}_1 \rVert^2 = 5 + 0 + 5 = 10$ : la borne est atteinte au premier pas, perpendiculaire, mais pas au second, où le terme $2\thinspace\mathbf{v}_1 \cdot \mathbf{d}_1 = -2$ est strictement négatif. En f), l'inégalité triangulaire ne donne que $\lVert \mathbf{v}_6 \rVert \le 3 + (1 + 2 + \cdots + 6) = 24$ : elle vaut pour n'importe quels pas, alors que la borne pas à pas, 10, se sert de l'hypothèse $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. Elle est atteinte : partir de $\mathbf{v}_0 = (3, 0)$ et faire chaque pas perpendiculaire à la position courante, de longueur exactement $k + 1$ ; par Pythagore, le carré de la norme gagne exactement $(k + 1)^2$ à chaque pas. En g), pendant les cinq premiers pas, $\mathbf{v}_k \cdot \mathbf{d}_k = \lVert \mathbf{v}_k \rVert > 0$ : l'hypothèse du lemme n'est pas vérifiée, et la norme croît linéairement ; ensuite elle ne gagne plus que comme $\sqrt{k}$.
 
 **Erreurs fréquentes.** En c), donner la borne au lieu de la valeur exacte ; en e), oublier $\lVert \mathbf{v}_0 \rVert^2$ ou la racine ; en f), répondre 24 (l'inégalité triangulaire), 100 (la borne du carré), 15 (six fois le plus long pas) ou $\sqrt{91}$ (sans $\lVert \mathbf{v}_0 \rVert^2$) ; en g), appliquer la même règle aux dix pas (11, ou $\sqrt{11}$).
 
@@ -173,7 +173,7 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 ### Ex M10.6 — Un demi-espace est convexe, et une intersection de convexes aussi
 
 **Réponse modèle.**
-1. $s\big((1 - t)\mathbf{a} + t\mathbf{b}\big) = (1 - t)\,\mathbf{w} \cdot \mathbf{a} + t\,\mathbf{w} \cdot \mathbf{b} + b = (1 - t)(\mathbf{w} \cdot \mathbf{a} + b) + t(\mathbf{w} \cdot \mathbf{b} + b)$, en écrivant $b = (1 - t)b + tb$.
+1. $s\big((1 - t)\mathbf{a} + t\mathbf{b}\big) = (1 - t)\thinspace\mathbf{w} \cdot \mathbf{a} + t\thinspace\mathbf{w} \cdot \mathbf{b} + b = (1 - t)(\mathbf{w} \cdot \mathbf{a} + b) + t(\mathbf{w} \cdot \mathbf{b} + b)$, en écrivant $b = (1 - t)b + tb$.
 2. Si $s(\mathbf{a}) \ge 0$ et $s(\mathbf{b}) \ge 0$, alors, pour $t \in [0, 1]$, $1 - t \ge 0$ et $t \ge 0$, donc $s\big((1 - t)\mathbf{a} + t\mathbf{b}\big) \ge 0$ : le segment reste dans le demi-espace. Pour l'inégalité stricte, l'un des deux poids est strictement positif, et l'on obtient $> 0$.
 3. Si $\mathbf{a}, \mathbf{b} \in C_1 \cap C_2$, le segment est dans $C_1$ (convexe) et dans $C_2$ (convexe), donc dans l'intersection. Par récurrence : $C_1 \cap \cdots \cap C_{m+1} = (C_1 \cap \cdots \cap C_m) \cap C_{m+1}$, intersection de deux convexes.
 4. $|x| \le 1$ et $|y| \le 1$ équivalent à $x \le 1$, $-x \le 1$, $y \le 1$, $-y \le 1$ : quatre demi-plans fermés, donc une intersection de convexes.
@@ -197,8 +197,8 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 ### Ex M10.8 — La marge géométrique ne change pas quand on multiplie (w, b) par un réel positif
 
 **Réponse modèle.**
-1. $\frac{y_i(c\mathbf{w} \cdot \mathbf{x}_i + cb)}{\lVert c\mathbf{w} \rVert} = \frac{c\,y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{c\,\lVert \mathbf{w} \rVert}$ car $c > 0$ ; chaque terme est inchangé, donc le minimum aussi.
-2. Sur la classe $+1$, les termes valent $\frac{\mathbf{w} \cdot \mathbf{x}_i + b}{\lVert \mathbf{w} \rVert} \ge \frac{m_+ + b}{\lVert \mathbf{w} \rVert}$, avec égalité pour le point qui réalise $m_+$ ; sur la classe $-1$, $\frac{-\mathbf{w} \cdot \mathbf{x}_i - b}{\lVert \mathbf{w} \rVert} \ge \frac{-M_- - b}{\lVert \mathbf{w} \rVert}$. Donc $\gamma(\mathbf{w}, b) = \min\big(\frac{m_+ + b}{\lVert \mathbf{w} \rVert}, \frac{-M_- - b}{\lVert \mathbf{w} \rVert}\big)$, le minimum de deux fonctions affines de $b$. Un minimum de fonctions affines est concave : chacune vérifie $f(\lambda b + (1 - \lambda)b') = \lambda f(b) + (1 - \lambda)f(b') \ge \lambda\gamma(b) + (1 - \lambda)\gamma(b')$ pour $\lambda \in [0, 1]$, et le minimum aussi. La première croît, la seconde décroît : le minimum est le plus grand là où elles se croisent, $m_+ + b = -M_- - b$, soit $b^\star = -\frac{m_+ + M_-}{2}$, le milieu de l'intervalle $]-m_+, -M_-[$ des $b$ qui séparent (les deux termes y sont $> 0$). La valeur : $\frac{m_+ - M_-}{2\lVert \mathbf{w} \rVert}$.
+1. $\frac{y_i(c\mathbf{w} \cdot \mathbf{x}_i + cb)}{\lVert c\mathbf{w} \rVert} = \frac{c\thinspace y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{c\thinspace\lVert \mathbf{w} \rVert}$ car $c > 0$ ; chaque terme est inchangé, donc le minimum aussi.
+2. Sur la classe $+1$, les termes valent $\frac{\mathbf{w} \cdot \mathbf{x}  _i + b}{\lVert \mathbf{w} \rVert} \ge \frac{m   _+ + b}{\lVert \mathbf{w} \rVert}$, avec égalité pour le point qui réalise $m  _+$ ; sur la classe $-1$, $\frac{-\mathbf{w} \cdot \mathbf{x}   _i - b}{\lVert \mathbf{w} \rVert} \ge \frac{-M   _- - b}{\lVert \mathbf{w} \rVert}$. Donc $\gamma(\mathbf{w}, b) = \min\big(\frac{m  _+ + b}{\lVert \mathbf{w} \rVert}, \frac{-M  _- - b}{\lVert \mathbf{w} \rVert}\big)$, le minimum de deux fonctions affines de $b$. Un minimum de fonctions affines est concave : chacune vérifie $f(\lambda b + (1 - \lambda)b') = \lambda f(b) + (1 - \lambda)f(b') \ge \lambda\gamma(b) + (1 - \lambda)\gamma(b')$ pour $\lambda \in [0, 1]$, et le minimum aussi. La première croît, la seconde décroît : le minimum est le plus grand là où elles se croisent, $m  _+ + b = -M _- - b$, soit $b^\star = -\frac{m _+ + M _-}{2}$, le milieu de l'intervalle $]-m _+, -M _-[$ des $b$ qui séparent (les deux termes y sont $> 0$). La valeur : $\frac{m _+ - M _-}{2\lVert \mathbf{w} \rVert}$.
 3. Elles sont multipliées par $c$. Si $(\mathbf{w}, b)$ sépare, $m = \min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ ; avec $c = \frac{1}{m}$, le nouveau minimum vaut 1, et l'hyperplan (comme la marge géométrique, par 1) n'a pas changé.
 4. $\gamma = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert} = \frac{1}{\lVert \mathbf{w} \rVert}\min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) = \frac{1}{\lVert \mathbf{w} \rVert}$. Tout séparateur a une forme canonique, de même marge ; les formes canoniques sont exactement les couples qui vérifient les contraintes avec au moins une égalité. Pour un couple qui vérifie les contraintes $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$, la marge vaut au moins $\frac{1}{\lVert \mathbf{w} \rVert}$, avec égalité pour une forme canonique : la plus grande marge est donc $\frac{1}{\min \lVert \mathbf{w} \rVert}$, le minimum portant sur les couples qui vérifient les contraintes.
 5. Un minimum pris sur un terme de plus est plus petit ou égal. Il ne change pas si et seulement si $\frac{y(\mathbf{w} \cdot \mathbf{x} + b)}{\lVert \mathbf{w} \rVert} \ge \gamma(\mathbf{w}, b)$ pour le nouvel exemple : il est du bon côté, au moins aussi loin que le plus mal placé.
@@ -222,7 +222,7 @@ Pour la copie : $\mathbf{v}_0 \cdot \mathbf{d}_0 = 2 - 2 = 0$ et $\lVert \mathbf
 - f) $\lVert \mathbf{w} \rVert = \sqrt{16 + 9} = 5$ : un point à la distance signée $0{,}5$ a pour score $z = 0{,}5 \times 5 = 2{,}5$, et $\sigma(2{,}5) \approx 0{,}9241$, en tout point de cette droite.
 - g) $\sigma(z) = 0{,}85$ donne $1 + e^{-z} = \frac{1}{0{,}85}$, $e^{-z} = \frac{0{,}15}{0{,}85} = \frac{3}{17}$, $z = \ln\frac{17}{3} \approx 1{,}7346$ ; la ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = \ln\frac{17}{3}$, à la distance $\frac{1{,}7346}{5} \approx 0{,}3469$ de la frontière.
 
-Pour la copie : la sortie ne dépend que du score, et $\{\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\}$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -1{,}75$), $\mathbf{p}_1$ ($0{,}75$), $\mathbf{p}_2$ ($2{,}25$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil ne garde l'ordre qu'au sens large : il met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
+Pour la copie : la sortie ne dépend que du score, et $\lbrace\mathbf{x} : \mathbf{w} \cdot \mathbf{x} + b = c\rbrace$ est une droite parallèle à la frontière (même normale $\mathbf{w}$). Par sortie croissante de la sigmoïde : $\mathbf{p}_3$ ($z = -1{,}75$), $\mathbf{p}_1$ ($0{,}75$), $\mathbf{p}_2$ ($2{,}25$) ; tanh, strictement croissante, donne le même classement, et ReLU aussi sur ces trois points ; le seuil ne garde l'ordre qu'au sens large : il met $\mathbf{p}_1$ et $\mathbf{p}_2$ à égalité. Une activation croissante garde l'ordre des scores ; seule une activation strictement croissante n'en confond aucun. La région « sortie $> \frac{1}{2}$ » est le demi-plan $z > 0$ pour la sigmoïde ; pour le seuil, c'est aussi $z > 0$ ; pour tanh, c'est $z > \operatorname{artanh}(0{,}5) \approx 0{,}55$ (le niveau neutre de tanh est 0, pas $\frac{1}{2}$) ; pour ReLU, $z > \frac{1}{2}$.
 
 **Erreurs fréquentes.** Oublier $b$ dans les scores ; un seuil qui vaut $-1$ pour les scores négatifs (celui de l'énoncé vaut 0) ; $\tanh(z) = 2\sigma(z) - 1$ (le facteur 2 dans l'argument manque) ; en f), prendre la distance pour le score ($\sigma(0{,}5)$) ; en g), prendre le logarithme avant d'isoler $e^{-z}$, ou oublier de diviser par $\lVert \mathbf{w} \rVert$.
 

@@ -49,9 +49,9 @@ Donne les fractions sous forme **irréductible**.
 
 ### POS.4 — Un système de deux équations à deux inconnues ✏️ ⏱️ 8 min
 
-a) Résous le système $\begin{cases} 2x + 3y = 12 \\ x - y = 1 \end{cases}$ et donne la liste `[x, y]`.
+a) Résous le système $\begin{cases} 2x + 3y = 12 \cr x - y = 1 \end{cases}$ et donne la liste `[x, y]`.
 
-b) Combien de solutions le système $\begin{cases} x + 3y = 2 \\ 2x + 6y = 5 \end{cases}$ a-t-il ? Réponds par le numéro : 1. aucune ; 2. une seule ; 3. une infinité.
+b) Combien de solutions le système $\begin{cases} x + 3y = 2 \cr 2x + 6y = 5 \end{cases}$ a-t-il ? Réponds par le numéro : 1. aucune ; 2. une seule ; 3. une infinité.
 
 ## R3 · Fonctions
 
@@ -87,7 +87,7 @@ On pose $p(x) = 2x^2 + 2x - 12$.
 |---|---|
 | a | $\displaystyle\sum_{k=1}^{5} (2k + 1)$ |
 | b | $\displaystyle\sum_{i=0}^{3} 10^i$ |
-| c | $\displaystyle\sum_{i=1}^{2} \sum_{j=1}^{3} i\,j$ |
+| c | $\displaystyle\sum_{i=1}^{2} \sum_{j=1}^{3} i\thinspace j$ |
 | d | $\displaystyle\prod_{k=1}^{3} (2k)$ |
 
 ### POS.8 — La négation d'une phrase avec « pour tout » ✏️ ⏱️ 5 min
@@ -148,7 +148,7 @@ Donne chaque dérivée sous forme d'expression en $x$ (entre guillemets ; `exp(x
 | | Fonction |
 |---|---|
 | a | $f(x) = 2x^5 - 3x^2 + 1$ |
-| b | $g(x) = (x - 1)\,e^{x}$ |
+| b | $g(x) = (x - 1)\thinspace e^{x}$ |
 | c | $h(x) = (5 - 2x)^3$ |
 
 ### POS.14 — Tangente, variations et une limite ✏️ ⏱️ 10 min

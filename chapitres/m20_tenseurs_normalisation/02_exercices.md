@@ -132,8 +132,8 @@ Dans ta copie : que contient `R.mean(axis=1)`, en mots ? Pour obtenir ce résult
 **Objectif :** traduire des calculs matriciels en notation d'Einstein et en formules d'`einsum`, les calculer à la main, et compter leur coût.
 **Prérequis :** fiche §3 ; M09a, M12c · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 0 & -1 \\ 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 0 & 1 \\ 1 & -1 & 4 \end{pmatrix}, \qquad \mathbf{M} = \begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix}, \qquad \mathbf{x} = (1, 2), \quad \mathbf{y} = (4, -1).$$
-Le tableau `Ms` de forme $(3, 2, 2)$ empile les trois matrices $\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$, $\begin{pmatrix} 2 & 0 \\ 1 & 3 \end{pmatrix}$, $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, et `vs` de forme $(3, 2)$ les trois vecteurs $(1, 1)$, $(2, -1)$, $(3, 2)$.
+$$\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \cr 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 0 & 1 \cr 1 & -1 & 4 \end{pmatrix}, \qquad \mathbf{M} = \begin{pmatrix} 2 & -1 \cr 0 & 3 \end{pmatrix}, \qquad \mathbf{x} = (1, 2), \quad \mathbf{y} = (4, -1).$$
+Le tableau `Ms` de forme $(3, 2, 2)$ empile les trois matrices $\begin{pmatrix} 1 & 2 \cr 0 & 1 \end{pmatrix}$, $\begin{pmatrix} 2 & 0 \cr 1 & 3 \end{pmatrix}$, $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$, et `vs` de forme $(3, 2)$ les trois vecteurs $(1, 1)$, $(2, -1)$, $(3, 2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -163,11 +163,11 @@ $m = 6$ et $\mathbf{x} = (3, 7, 4, 9, 5, 8)$. La standardisation utilise ici l'�
 | c | $\mathbf{C}\mathbf{x}$ | une liste de 6 nombres |
 | d | $\operatorname{tr}\mathbf{C}$ | un entier |
 | e | $\lVert\mathbf{C}\mathbf{x}\rVert^2$ | un nombre |
-| f | $\lVert\bar x\,\mathbf{1}\rVert^2$ | un nombre |
+| f | $\lVert\bar x\thinspace\mathbf{1}\rVert^2$ | un nombre |
 | g | l'écart type $s$ de $\mathbf{x}$ (ddof = 1) | un nombre (4 décimales) |
 | h | le z-score $z_6$ de la sixième coordonnée | un nombre (4 décimales) |
-| i | le z-score de la sixième coordonnée de $2{,}5\,\mathbf{x} - 4\,\mathbf{1}$ | un nombre (4 décimales) |
-| j | le z-score de la sixième coordonnée de $-2\,\mathbf{x} + \mathbf{1}$ | un nombre (4 décimales) |
+| i | le z-score de la sixième coordonnée de $2{,}5\thinspace\mathbf{x} - 4\thinspace\mathbf{1}$ | un nombre (4 décimales) |
+| j | le z-score de la sixième coordonnée de $-2\thinspace\mathbf{x} + \mathbf{1}$ | un nombre (4 décimales) |
 | k | vrai ou faux : ajouter 10 à la seule première coordonnée de $\mathbf{x}$ ne change pas ses z-scores | `True` ou `False` |
 
 Dans ta copie : vérifie que $\lVert\mathbf{x}\rVert^2$ est la somme de e) et f), et nomme le théorème. Calcule la première ligne de $\mathbf{C}^2$ et compare-la à celle de $\mathbf{C}$. Justifie i) et j) sans refaire le calcul. Pour k), quels z-scores changent ?
@@ -176,14 +176,14 @@ Dans ta copie : vérifie que $\lVert\mathbf{x}\rVert^2$ est la somme de e) et f)
 **Objectif :** calculer une estimation de Horvitz-Thompson, son espérance et sa variance, et la comparer à l'estimateur naïf.
 **Prérequis :** fiche §5 ; M02b · **Parcours :** C, E
 
-Un institut veut le chiffre d'affaires total de 6 entreprises, qu'il ne connaît pas : $\mathbf{y} = (2, 5, 12, 30, 8, 3)$, en millions d'euros. Il tire chaque entreprise indépendamment, avec les probabilités $\boldsymbol\pi = (0{,}05 ;\ 0{,}1 ;\ 0{,}3 ;\ 0{,}9 ;\ 0{,}15 ;\ 0{,}05)$, fixées d'après leurs effectifs. Il obtient l'échantillon $S = \{1, 4, 6\}$.
+Un institut veut le chiffre d'affaires total de 6 entreprises, qu'il ne connaît pas : $\mathbf{y} = (2, 5, 12, 30, 8, 3)$, en millions d'euros. Il tire chaque entreprise indépendamment, avec les probabilités $\boldsymbol\pi = (0{,}05 ;\ 0{,}1 ;\ 0{,}3 ;\ 0{,}9 ;\ 0{,}15 ;\ 0{,}05)$, fixées d'après leurs effectifs. Il obtient l'échantillon $S = \lbrace1, 4, 6\rbrace$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la taille moyenne de l'échantillon, $\sum_i \pi_i$ | un nombre |
 | b | le poids de sondage de l'entreprise 5 | un nombre (3 décimales) |
 | c | l'estimation de Horvitz-Thompson du total, sur $S$ | un nombre (3 décimales) |
-| d | l'estimation naïve $N\,\bar y_S$ (6 fois la moyenne des valeurs tirées) | un nombre |
+| d | l'estimation naïve $N\thinspace\bar y_S$ (6 fois la moyenne des valeurs tirées) | un nombre |
 | e | $\mathbb{E}[\hat Y]$ | un nombre |
 | f | $\mathbb{V}(\hat Y)$ | un nombre (3 décimales) |
 | g | l'écart type de $\hat Y$ | un nombre (3 décimales) |
@@ -199,9 +199,9 @@ Dans ta copie : pourquoi cette entreprise, et pas celle qui a le plus grand chif
 
 **En dimension 1.** $x' = \lambda x$ avec $\lambda = -1{,}2$, sur l'horizon $T = 2$, en $L$ pas de durée $h = T/L$.
 
-**Une rotation.** $\mathbf{x}' = \mathbf{J}\mathbf{x}$ avec $\mathbf{J} = \begin{pmatrix} 0 & -2 \\ 2 & 0 \end{pmatrix}$, sur l'horizon $T = 1$.
+**Une rotation.** $\mathbf{x}' = \mathbf{J}\mathbf{x}$ avec $\mathbf{J} = \begin{pmatrix} 0 & -2 \cr 2 & 0 \end{pmatrix}$, sur l'horizon $T = 1$.
 
-**Un pendule.** $F(x, v) = (v,\ -\sin x)$ ($x$ l'angle, $v$ la vitesse angulaire), un pas $\Phi_h(x, v) = (x, v) + h\,F(x, v)$ avec $h = 0{,}05$.
+**Un pendule.** $F(x, v) = (v,\ -\sin x)$ ($x$ l'angle, $v$ la vitesse angulaire), un pas $\Phi_h(x, v) = (x, v) + h\thinspace F(x, v)$ avec $h = 0{,}05$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -217,7 +217,7 @@ Dans ta copie : pourquoi cette entreprise, et pas celle qui a le plus grand chif
 | j | le pendule : la jacobienne de $\Phi_h$ au point $(\pi/3,\ 0)$ | une matrice |
 | k | son déterminant | un nombre |
 
-Dans ta copie : pour la rotation, montre que $(\mathbf{I} + h\mathbf{J})^\top(\mathbf{I} + h\mathbf{J}) = (1 + 4h^2)\,\mathbf{I}$ et déduis-en g). Pour le pendule, pars cette fois de $\mathbf{x}_0 = (\pi/3,\ 1)$ : calcule $\mathbf{x}_1 = \Phi_h(\mathbf{x}_0)$, puis écris la jacobienne de deux pas depuis $\mathbf{x}_0$ comme un produit de deux matrices, dans le bon ordre, et compare-le au produit dans l'autre ordre. Calcule $K$, le maximum de $\lVert\mathbf{J}_F\rVert$ ; que dit la fiche sur les valeurs singulières de la jacobienne de deux pas, en fonction de $hK$ ?
+Dans ta copie : pour la rotation, montre que $(\mathbf{I} + h\mathbf{J})^\top(\mathbf{I} + h\mathbf{J}) = (1 + 4h^2)\thinspace\mathbf{I}$ et déduis-en g). Pour le pendule, pars cette fois de $\mathbf{x}_0 = (\pi/3,\ 1)$ : calcule $\mathbf{x}_1 = \Phi_h(\mathbf{x}_0)$, puis écris la jacobienne de deux pas depuis $\mathbf{x}_0$ comme un produit de deux matrices, dans le bon ordre, et compare-le au produit dans l'autre ordre. Calcule $K$, le maximum de $\lVert\mathbf{J}_F\rVert$ ; que dit la fiche sur les valeurs singulières de la jacobienne de deux pas, en fonction de $hK$ ?
 
 <a id="demonstrations"></a>
 
@@ -229,25 +229,25 @@ Rédige chaque preuve dans ta copie, puis relis-la avec la grille de `05_solutio
 **Objectif :** démontrer que le centrage est une projection orthogonale, et en tirer la trace, les valeurs propres et la formule de König-Huygens.
 **Prérequis :** fiche §4 ; M12b, M12c · **Parcours :** C
 
-Soit $m \ge 2$, $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ et $H = \{\mathbf{v} \in \mathbb{R}^m : \mathbf{1}^\top\mathbf{v} = 0\}$.
+Soit $m \ge 2$, $\mathbf{C} = \mathbf{I} - \frac1m\mathbf{1}\mathbf{1}^\top$ et $H = \lbrace\mathbf{v} \in \mathbb{R}^m : \mathbf{1}^\top\mathbf{v} = 0\rbrace$.
 
 1. Montre que $\mathbf{C}^\top = \mathbf{C}$ et que $\mathbf{C}^2 = \mathbf{C}$ (utilise $\mathbf{1}^\top\mathbf{1} = m$).
 2. Montre que $\mathbf{C}\mathbf{1} = \mathbf{0}$ et que $\mathbf{C}\mathbf{v} = \mathbf{v}$ pour tout $\mathbf{v} \in H$.
 3. Déduis-en que, pour tout $\mathbf{x}$, $\mathbf{C}\mathbf{x} \in H$ et $\mathbf{x} - \mathbf{C}\mathbf{x}$ est orthogonal à $H$ : $\mathbf{C}\mathbf{x}$ est la projection orthogonale de $\mathbf{x}$ sur $H$ (M12b). Quel lien avec la projection sur la droite engendrée par $\mathbf{1}$ ?
 4. Donne les valeurs propres de $\mathbf{C}$ avec leurs multiplicités, sa trace et son rang.
-5. Démontre $\sum_i x_i^2 = m\,\bar x^2 + \sum_i (x_i - \bar x)^2$.
+5. Démontre $\sum_i x_i^2 = m\thinspace\bar x^2 + \sum_i (x_i - \bar x)^2$.
 6. Pour un tableau $\mathbf{X}$ de forme $(m, n)$, que calculent $\mathbf{C}_m\mathbf{X}$ et $\mathbf{X}\mathbf{C}_n$ (où $\mathbf{C}_k$ est la matrice de centrage de taille $k$) ? Écris chacun avec une moyenne NumPy et la diffusion.
 
 ### Ex M20.7 — L'estimateur de Horvitz-Thompson est sans biais, et sa variance quand les inclusions sont indépendantes ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer les deux résultats du §5, et construire un estimateur sans biais de la variance.
 **Prérequis :** fiche §5 ; M02b · **Parcours :** C, E
 
-Une population de $N$ unités de valeurs $y_1, \ldots, y_N$, de total $Y$ ; l'unité $i$ entre dans l'échantillon avec la probabilité $\pi_i$ ; $I_i$ est son indicatrice et $\hat Y = \sum_i I_i\,y_i/\pi_i$.
+Une population de $N$ unités de valeurs $y_1, \ldots, y_N$, de total $Y$ ; l'unité $i$ entre dans l'échantillon avec la probabilité $\pi_i$ ; $I_i$ est son indicatrice et $\hat Y = \sum_i I_i\thinspace y_i/\pi_i$.
 
 1. On suppose seulement $\mathbb{P}(I_i = 1) = \pi_i > 0$ pour tout $i$, sans hypothèse sur la dépendance entre les tirages. Montre que $\mathbb{E}[\hat Y] = Y$.
-2. On suppose maintenant les $I_i$ indépendantes. Montre que $\mathbb{V}(\hat Y) = \sum_i y_i^2\,\frac{1 - \pi_i}{\pi_i}$.
-3. Montre que $\hat V = \sum_{i \in S} y_i^2\,\frac{1 - \pi_i}{\pi_i^2}$ est un estimateur sans biais de $\mathbb{V}(\hat Y)$. Pourquoi ne peut-on pas simplement calculer la formule de la question 2 ?
-4. Les $y_i$ sont $> 0$, et l'on prend $\pi_i = c\,y_i \le 1$ pour toutes les unités. Que vaut chaque terme $y_i/\pi_i$ d'une unité tirée ? Écris $\mathbb{V}(\hat Y)$ en fonction de $Y$, $c$ et $\sum_i y_i^2$. Pourquoi n'est-elle pas nulle avec un tirage de Poisson ?
+2. On suppose maintenant les $I_i$ indépendantes. Montre que $\mathbb{V}(\hat Y) = \sum_i y_i^2\thinspace\frac{1 - \pi_i}{\pi_i}$.
+3. Montre que $\hat V = \sum_{i \in S} y_i^2\thinspace\frac{1 - \pi_i}{\pi_i^2}$ est un estimateur sans biais de $\mathbb{V}(\hat Y)$. Pourquoi ne peut-on pas simplement calculer la formule de la question 2 ?
+4. Les $y_i$ sont $> 0$, et l'on prend $\pi_i = c\thinspace y_i \le 1$ pour toutes les unités. Que vaut chaque terme $y_i/\pi_i$ d'une unité tirée ? Écris $\mathbb{V}(\hat Y)$ en fonction de $Y$, $c$ et $\sum_i y_i^2$. Pourquoi n'est-elle pas nulle avec un tirage de Poisson ?
 5. Une unité $j$ a $\pi_j = 0$ (les autres $\pi_i > 0$) ; on garde $\hat Y = \sum_{i \in S} y_i/\pi_i$, l'unité $j$ n'étant jamais dans $S$. Que vaut $\mathbb{E}[\hat Y]$ ? À quelle condition sur $y_j$ l'estimateur reste-t-il sans biais ?
 
 <a id="reflexion"></a>

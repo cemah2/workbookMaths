@@ -228,7 +228,7 @@ Le risque de type I se calcule sous $p = \frac{1}{2}$, la puissance sous $p = 0{
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\binom{14}{11} = 364$, $\binom{14}{12} = 91$, $\binom{14}{13} = 14$. b) $\binom{14}{j}0{,}8^j\,0{,}2^{14-j}$ pour $j = 11$ à 14. d) $\binom{14}{10} = 1001$.
+a) $\binom{14}{11} = 364$, $\binom{14}{12} = 91$, $\binom{14}{13} = 14$. b) $\binom{14}{j}0{,}8^j\thinspace0{,}2^{14-j}$ pour $j = 11$ à 14. d) $\binom{14}{10} = 1001$.
 
 </details>
 
@@ -241,7 +241,7 @@ Relis « La taille d'échantillon » (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-$n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\,\sigma}{\delta}\Big)^2$, et la puissance $\Phi\big(\frac{\delta\sqrt{n}}{\sigma} - z_{1-\alpha}\big)$.
+$n \ge \Big(\frac{(z_{1-\alpha} + z_{1-\beta})\thinspace\sigma}{\delta}\Big)^2$, et la puissance $\Phi\big(\frac{\delta\sqrt{n}}{\sigma} - z_{1-\alpha}\big)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -376,7 +376,7 @@ $A \cup B = A \cup (B \setminus A)$, une réunion disjointe. Pour la récurrence
 </details>
 <details><summary>Indice 3</summary>
 
-3 : un événement par hypothèse nulle **vraie**, chacun de probabilité au plus $\frac{\alpha}{m}$. 5 : multiplie l'hypothèse de récurrence par $1 - x \ge 0$. 6 : distingue $m\,p_i \ge 1$ et $m\,p_i < 1$.
+3 : un événement par hypothèse nulle **vraie**, chacun de probabilité au plus $\frac{\alpha}{m}$. 5 : multiplie l'hypothèse de récurrence par $1 - x \ge 0$. 6 : distingue $m\thinspace p_i \ge 1$ et $m\thinspace p_i < 1$.
 
 </details>
 

@@ -53,7 +53,7 @@ Relis « Le nombre dérivé » (fiche §3) et « L'approximation affine » (fich
 </details>
 <details><summary>Indice 2</summary>
 
-$f'(a)$ est la pente de la tangente ; $f(a + h) \approx f(a) + f'(a)\,h$ ; l'unité d'une dérivée est celle de $f$ divisée par celle de $x$.
+$f'(a)$ est la pente de la tangente ; $f(a + h) \approx f(a) + f'(a)\thinspace h$ ; l'unité d'une dérivée est celle de $f$ divisée par celle de $x$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -354,7 +354,7 @@ Factorise $f'(x)$, étudie son signe, puis calcule $f$ aux points où il change 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $f'(x) = 4x^3 - 12x^2$ ; mets $4x^2$ en facteur. Un carré n'est jamais négatif : quel facteur décide du signe ? Pour f, calcule $f$ aux bords −1 et 4, et aux points de $[-1 \;;\; 4]$ où $f'$ s'annule. Pour g, $g'(x) = 1 - \frac{2}{x}$.
+a : $f'(x) = 4x^3 - 12x^2$ ; mets $4x^2$ en facteur. Un carré n'est jamais négatif : quel facteur décide du signe ? Pour f, calcule $f$ aux bords −1 et 4, et aux points de $[-1 \mkern5mu ;\mkern5mu  4]$ où $f'$ s'annule. Pour g, $g'(x) = 1 - \frac{2}{x}$.
 
 </details>
 
@@ -408,7 +408,7 @@ Toutes les lettres autres que celle par rapport à laquelle on dérive sont des 
 </details>
 <details><summary>Indice 3</summary>
 
-a : par rapport à $t$, $A$ reste devant et $(e^{kt})' = k\,e^{kt}$. Pour b, l'exposant $kt$ a pour dérivée $t$ par rapport à $k$. Pour d, $\pi h$ est une constante.
+a : par rapport à $t$, $A$ reste devant et $(e^{kt})' = k\thinspace e^{kt}$. Pour b, l'exposant $kt$ a pour dérivée $t$ par rapport à $k$. Pour d, $\pi h$ est une constante.
 
 </details>
 
@@ -488,7 +488,7 @@ Dérive, résous $E'(a) = 0$ dans le domaine $a > 0$, puis vérifie le signe de 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $(2a)' = 2$ et $\left(\frac{8}{a}\right)' = -\frac{8}{a^2}$. Pour e, $e^t - 4e^{-t} = 0$ donne $e^{2t} = 4$. Pour g, calcule $L$ en $t^* - 0{,}1$ et en $t^* + 0{,}1$ à la calculatrice.
+a : $(2a)' = 2$ et $\left(\frac{8}{a}\right)' = -\frac{8}{a^2}$. Pour e, $e^t - 4e^{-t} = 0$ donne $e^{2t} = 4$. Pour g, calcule $L$ en $t^\ast - 0{,}1$ et en $t^\ast + 0{,}1$ à la calculatrice.
 
 </details>
 

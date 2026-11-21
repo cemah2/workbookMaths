@@ -40,7 +40,7 @@ Log-loss $= -\frac{1}{n}\ell$ ; chaque terme est $-\ln$ de la probabilité du la
 </details>
 <details><summary>Indice 3</summary>
 
-5 : la log-loss moyenne vaut $H(\pi) + \mathrm{KL}(\pi \,\Vert\, q)$ ; le taux d'erreur ne dépend que du côté de 0,5.
+5 : la log-loss moyenne vaut $H(\pi) + \mathrm{KL}(\pi \thinspace\Vert\thinspace q)$ ; le taux d'erreur ne dépend que du côté de 0,5.
 
 </details>
 
@@ -331,7 +331,7 @@ Relis le §4 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-Le score $z = 0{,}7\,x_1 + 1{,}1\,x_2 - 3{,}2$ ; la cote est $e^z$ ; la frontière, $z = 0$.
+Le score $z = 0{,}7\thinspace x_1 + 1{,}1\thinspace x_2 - 3{,}2$ ; la cote est $e^z$ ; la frontière, $z = 0$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -354,7 +354,7 @@ Calcule les marginales de $x_1$ et $x_2$ dans chaque classe, puis les produits.
 </details>
 <details><summary>Indice 3</summary>
 
-Classe 1 : $P(x_1 = 1) = P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. a posteriori : $\frac{0{,}4\,P(\mathbf{x} \mid 1)}{0{,}4\,P(\mathbf{x} \mid 1) + 0{,}6\,P(\mathbf{x} \mid 0)}$.
+Classe 1 : $P(x_1 = 1) = P(x_2 = 1) = 0{,}7$ ; classe 0 : $0{,}38$ et $0{,}38$. a posteriori : $\frac{0{,}4\thinspace P(\mathbf{x} \mid 1)}{0{,}4\thinspace P(\mathbf{x} \mid 1) + 0{,}6\thinspace P(\mathbf{x} \mid 0)}$.
 
 </details>
 
@@ -403,7 +403,7 @@ Relis « Le gain d'information est une information mutuelle » (fiche §6).
 </details>
 <details><summary>Indice 2</summary>
 
-$H(Y \mid X) = \sum_x P(X = x)\,H(Y \mid X = x)$, avec les lignes du tableau.
+$H(Y \mid X) = \sum_x P(X = x)\thinspace H(Y \mid X = x)$, avec les lignes du tableau.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -461,7 +461,7 @@ Relis le §2 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-$P(y_i) = \hat{p}_i^{\,y_i}(1 - \hat{p}_i)^{1 - y_i}$.
+$P(y_i) = \hat{p}_i^{\thinspace y_i}(1 - \hat{p}_i)^{1 - y_i}$.
 
 </details>
 <details><summary>Indice 3</summary>

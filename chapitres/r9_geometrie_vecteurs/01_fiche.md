@@ -49,12 +49,12 @@ Parcours essentiel : tout sauf R9.Q7, R9.R3, R9.6, R9.11, R9.12, R9.18, R9.22 et
 
 1. Dans un **repère orthonormé**, un point est repéré par ses **coordonnées** $(x ; y)$. La **distance** entre $A$ et $B$ vient de Pythagore : $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ ; le **milieu** de $[AB]$ a pour coordonnées les moyennes de celles de $A$ et $B$.
 2. Le **vecteur** $\overrightarrow{AB}$ (un déplacement) a pour coordonnées $(x_B - x_A ; y_B - y_A)$. On **additionne** deux vecteurs et on les **multiplie par un nombre** coordonnée par coordonnée ; $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ (Chasles).
-3. La **norme** $\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}$ est la longueur du vecteur ; $\lVert k\vec{u} \rVert = \lvert k \rvert\,\lVert \vec{u} \rVert$, et $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ est **unitaire** (de norme 1). La distance $AB$ est la norme de $\overrightarrow{AB}$.
+3. La **norme** $\lVert \vec{u} \rVert = \sqrt{x^2 + y^2}$ est la longueur du vecteur ; $\lVert k\vec{u} \rVert = \lvert k \rvert\thinspace\lVert \vec{u} \rVert$, et $\frac{\vec{u}}{\lVert \vec{u} \rVert}$ est **unitaire** (de norme 1). La distance $AB$ est la norme de $\overrightarrow{AB}$.
 4. Une droite a une **équation réduite** $y = mx + p$ (sauf si elle est verticale, $x = k$) et une **équation cartésienne** $ax + by + c = 0$ ; $(-b ; a)$ est un **vecteur directeur**, $(a ; b)$ un **vecteur normal**.
 5. Le **produit scalaire** $\vec{u} \cdot \vec{v} = xx' + yy'$ est un **nombre** ; $\vec{u} \cdot \vec{u} = \lVert \vec{u} \rVert^2$. Deux vecteurs sont **orthogonaux** quand leur produit scalaire est nul.
 6. Un tour complet vaut $2\pi$ **radians** : $180° = \pi$ rad. Sur le **cercle trigonométrique** (rayon 1), le point d'angle $\theta$ a pour coordonnées $(\cos\theta ; \sin\theta)$, et $\cos^2\theta + \sin^2\theta = 1$.
 7. À connaître : $\cos 0 = 1$, $\cos\frac{\pi}{6} = \frac{\sqrt{3}}{2}$, $\cos\frac{\pi}{4} = \frac{\sqrt{2}}{2}$, $\cos\frac{\pi}{3} = \frac{1}{2}$, $\cos\frac{\pi}{2} = 0$ (et les sinus dans l'ordre inverse) ; cos et sin sont **périodiques** de période $2\pi$ ; $\arccos$ rend un angle de $[0 ; \pi]$.
-8. **Angle** entre deux vecteurs non nuls : $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert \cos\theta$, donc $\theta = \arccos \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ ; le quotient est la **similarité cosinus**, entre $-1$ et $1$.
+8. **Angle** entre deux vecteurs non nuls : $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert \cos\theta$, donc $\theta = \arccos \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}$ ; le quotient est la **similarité cosinus**, entre $-1$ et $1$.
 9. Le signe du produit scalaire donne la nature de l'angle : positif, **aigu** ; nul, **droit** ; négatif, **obtus**.
 10. Avec $n$ coordonnées, rien ne change : $\lVert \mathbf{x} \rVert = \sqrt{\sum x_i^2}$, $\mathbf{x} \cdot \mathbf{y} = \sum x_i y_i$, et le même cosinus. En Python : `np.linalg.norm(x)` et `x @ y`.
 
@@ -160,7 +160,7 @@ Un vecteur s'écrit comme un tuple de nombres. Mais l'opérateur `+` de Python, 
 [7, -9]
 ```
 
-🔗 **Dans workbookIA** — chaque pas de la descente de gradient (chapitre 19) remplace le vecteur des poids $\mathbf{w}$ par $\mathbf{w} - \eta\,\mathbf{g}$ : un vecteur moins un multiple d'un autre, calculé coordonnée par coordonnée.
+🔗 **Dans workbookIA** — chaque pas de la descente de gradient (chapitre 19) remplace le vecteur des poids $\mathbf{w}$ par $\mathbf{w} - \eta\thinspace\mathbf{g}$ : un vecteur moins un multiple d'un autre, calculé coordonnée par coordonnée.
 
 ---
 
@@ -176,7 +176,7 @@ La distance entre deux points est la norme du vecteur qui les relie : $AB = \lVe
 
 Trois propriétés :
 - $\lVert \vec{u} \rVert \ge 0$, et $\lVert \vec{u} \rVert = 0$ seulement pour le vecteur nul ;
-- $\lVert k\vec{u} \rVert = \lvert k \rvert\,\lVert \vec{u} \rVert$ : $\lVert -2\vec{u} \rVert = 2\sqrt{10}$, jamais $-2\sqrt{10}$ ;
+- $\lVert k\vec{u} \rVert = \lvert k \rvert\thinspace\lVert \vec{u} \rVert$ : $\lVert -2\vec{u} \rVert = 2\sqrt{10}$, jamais $-2\sqrt{10}$ ;
 - l'**inégalité triangulaire** $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ : un côté d'un triangle est plus court que la somme des deux autres. Ici, $\lVert \vec{u} + \vec{v} \rVert = \lVert (1 ; 3) \rVert = \sqrt{10} \approx 3{,}16$, bien moins que $\sqrt{10} + 2\sqrt{5} \approx 7{,}63$. L'égalité n'a lieu que si l'un des deux vecteurs est nul, ou s'ils ont la même direction et le même sens.
 
 ⚠️ **La norme d'une somme n'est pas la somme des normes**, sauf pour deux vecteurs de même direction et de même sens.
@@ -225,7 +225,7 @@ Donc $(AB) : y = 2x - 3$. Vérification avec $B$ : $2 \times 4 - 3 = 5$.
 
 Un **vecteur directeur** (*direction vector*) d'une droite est un vecteur non nul qui a sa direction : $\overrightarrow{AB} = (3 ; 6)$ en est un, et tous ses multiples non nuls aussi, comme $(1 ; 2)$. Pour la droite $y = mx + p$, le vecteur $(1 ; m)$ est directeur : un pas de 1 vers la droite fait monter de $m$.
 
-Une droite est donc déterminée par un point et un vecteur directeur : les points de la droite passant par $A$ et dirigée par $\vec{d}$ sont les points $A + t\,\vec{d}$, pour tous les nombres $t$. Avec $A(1 ; -1)$ et $\vec{d} = (1 ; 2)$ : $t = 3$ donne le point $(4 ; 5)$, c'est-à-dire $B$ ; $t = -1$ donne $(0 ; -3)$, le point d'abscisse 0. Cette écriture marche aussi pour les droites verticales, et pour les droites de l'espace (§8).
+Une droite est donc déterminée par un point et un vecteur directeur : les points de la droite passant par $A$ et dirigée par $\vec{d}$ sont les points $A + t\thinspace\vec{d}$, pour tous les nombres $t$. Avec $A(1 ; -1)$ et $\vec{d} = (1 ; 2)$ : $t = 3$ donne le point $(4 ; 5)$, c'est-à-dire $B$ ; $t = -1$ donne $(0 ; -3)$, le point d'abscisse 0. Cette écriture marche aussi pour les droites verticales, et pour les droites de l'espace (§8).
 
 Deux droites sont **parallèles** quand leurs vecteurs directeurs sont colinéaires (§2), c'est-à-dire, pour deux droites non verticales, quand elles ont la même pente.
 
@@ -265,7 +265,7 @@ On multiplie les coordonnées de même rang, puis on additionne. Avec $\vec{u} =
 
 Les règles de calcul se vérifient directement sur les coordonnées :
 - **symétrie** : $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$ ;
-- **linéarité** : $(k\vec{u}) \cdot \vec{v} = k\,(\vec{u} \cdot \vec{v})$ et $\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$ ;
+- **linéarité** : $(k\vec{u}) \cdot \vec{v} = k\thinspace(\vec{u} \cdot \vec{v})$ et $\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$ ;
 - **lien avec la norme** : $\vec{u} \cdot \vec{u} = x^2 + y^2 = \lVert \vec{u} \rVert^2$, qui n'est jamais négatif. Pour $\vec{u}$ : $\vec{u} \cdot \vec{u} = 9 + 1 = 10 = (\sqrt{10})^2$.
 
 ⚠️ Le produit scalaire de deux vecteurs est un **nombre**, et l'on ne « simplifie » pas par un vecteur : $\vec{u} \cdot \vec{v} = \vec{u} \cdot \vec{w}$ n'entraîne pas $\vec{v} = \vec{w}$.
@@ -282,7 +282,7 @@ Par convention, le vecteur nul est orthogonal à tout vecteur. C'est aussi ce qu
 
 ### Le signe du produit scalaire
 
-Le produit scalaire mesure à quel point deux vecteurs vont dans le même sens. Le §7 montrera que $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert \cos\theta$, où $\theta$ est l'angle entre eux ; son signe est celui du cosinus :
+Le produit scalaire mesure à quel point deux vecteurs vont dans le même sens. Le §7 montrera que $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert \cos\theta$, où $\theta$ est l'angle entre eux ; son signe est celui du cosinus :
 - $\vec{u} \cdot \vec{v} > 0$ : l'angle est **aigu** (moins de 90°), les vecteurs vont plutôt dans le même sens ;
 - $\vec{u} \cdot \vec{v} = 0$ : l'angle est **droit** ;
 - $\vec{u} \cdot \vec{v} < 0$ : l'angle est **obtus** (plus de 90°), les vecteurs vont plutôt en sens contraires.
@@ -293,9 +293,9 @@ Pour $\vec{u} \cdot \vec{v} = -10$ : un angle obtus, ce que confirme la figure d
 
 Éclaire $\vec{v}$ par une lumière perpendiculaire à $\vec{u}$ : son ombre sur la direction de $\vec{u}$ est la **projection** de $\vec{v}$ sur cette direction,
 
-$$\vec{p} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\,\vec{u}.$$
+$$\vec{p} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert^2}\thinspace\vec{u}.$$
 
-C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\,\lVert \vec{u} \rVert^2 = 0$. Sa longueur est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$ ; sans la valeur absolue, $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert}$ est positif quand $\vec{p}$ a le sens de $\vec{u}$ (un angle aigu), négatif pour un angle obtus, nul pour un angle droit.
+C'est le seul multiple de $\vec{u}$ tel que le reste $\vec{v} - \vec{p}$ soit orthogonal à $\vec{u}$ : avec $\vec{p} = k\vec{u}$, la condition $(\vec{v} - k\vec{u}) \cdot \vec{u} = 0$ donne $\vec{u} \cdot \vec{v} - k\thinspace\lVert \vec{u} \rVert^2 = 0$. Sa longueur est $\frac{\lvert \vec{u} \cdot \vec{v} \rvert}{\lVert \vec{u} \rVert}$ ; sans la valeur absolue, $\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert}$ est positif quand $\vec{p}$ a le sens de $\vec{u}$ (un angle aigu), négatif pour un angle obtus, nul pour un angle droit.
 
 Exemple : $\vec{u} = (4 ; 2)$ et $\vec{v} = (1 ; 3)$. $\vec{u} \cdot \vec{v} = 4 + 6 = 10$ et $\lVert \vec{u} \rVert^2 = 20$, donc $\vec{p} = \frac{10}{20}(4 ; 2) = (2 ; 1)$. Le reste $\vec{v} - \vec{p} = (-1 ; 2)$ vérifie bien $(-1) \times 4 + 2 \times 2 = 0$.
 
@@ -394,13 +394,13 @@ Quand l'angle est en radians, $\sin' = \cos$ et $\cos' = -\sin$. Avec la règle 
 
 L'**angle** $\theta$ entre deux vecteurs non nuls est l'angle entre leurs flèches, posées à partir d'un même point ; on le prend entre 0 et $\pi$ (entre 0° et 180°). Le produit scalaire le contient :
 
-$$\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert \cos\theta.$$
+$$\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert \cos\theta.$$
 
-**Pourquoi.** Choisissons les axes pour que $\vec{u}$ soit sur l'axe des abscisses, dans le sens positif : $\vec{u} = (\lVert \vec{u} \rVert ; 0)$. Le vecteur $\vec{v}$ fait l'angle $\theta$ avec cet axe, donc $\vec{v} = \lVert \vec{v} \rVert\,(\cos\theta ; \sin\theta)$ s'il est au-dessus de l'axe, ou $\lVert \vec{v} \rVert\,(\cos\theta ; -\sin\theta)$ s'il est en dessous (§6, sur un cercle de rayon $\lVert \vec{v} \rVert$ au lieu de 1). Dans les deux cas, $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert\cos\theta + 0$. On admet ici que faire tourner les deux vecteurs du même angle ne change pas leur produit scalaire, ce qui permet de choisir ainsi les axes.
+**Pourquoi.** Choisissons les axes pour que $\vec{u}$ soit sur l'axe des abscisses, dans le sens positif : $\vec{u} = (\lVert \vec{u} \rVert ; 0)$. Le vecteur $\vec{v}$ fait l'angle $\theta$ avec cet axe, donc $\vec{v} = \lVert \vec{v} \rVert\thinspace(\cos\theta ; \sin\theta)$ s'il est au-dessus de l'axe, ou $\lVert \vec{v} \rVert\thinspace(\cos\theta ; -\sin\theta)$ s'il est en dessous (§6, sur un cercle de rayon $\lVert \vec{v} \rVert$ au lieu de 1). Dans les deux cas, $\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert\cos\theta + 0$. On admet ici que faire tourner les deux vecteurs du même angle ne change pas leur produit scalaire, ce qui permet de choisir ainsi les axes.
 
 On en tire l'angle :
 
-$$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}, \qquad \theta = \arccos\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}.$$
+$$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}, \qquad \theta = \arccos\frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}.$$
 
 Exemple : $\vec{u} = (3 ; -1)$ et $\vec{v} = (-2 ; 4)$. $\vec{u} \cdot \vec{v} = -10$, $\lVert \vec{u} \rVert = \sqrt{10}$, $\lVert \vec{v} \rVert = \sqrt{20}$, donc
 
@@ -410,12 +410,12 @@ $$\cos\theta = \frac{-10}{\sqrt{10}\sqrt{20}} = \frac{-10}{\sqrt{200}} = \frac{-
 
 ### La similarité cosinus
 
-Le nombre $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ s'appelle la **similarité cosinus** (*cosine similarity*) de $\vec{u}$ et $\vec{v}$. Elle compare les **directions** des deux vecteurs :
+Le nombre $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}$ s'appelle la **similarité cosinus** (*cosine similarity*) de $\vec{u}$ et $\vec{v}$. Elle compare les **directions** des deux vecteurs :
 - elle vaut 1 quand ils ont la même direction et le même sens ;
 - 0 quand ils sont orthogonaux ;
 - $-1$ quand ils ont la même direction et des sens contraires.
 
-Et puisque $\lvert \cos\theta \rvert \le 1$, la formule du produit scalaire donne aussitôt une majoration utile, l'**inégalité de Cauchy-Schwarz** : le produit scalaire de deux vecteurs ne dépasse jamais, en valeur absolue, le produit de leurs normes, $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\,\lVert \vec{v} \rVert$.
+Et puisque $\lvert \cos\theta \rvert \le 1$, la formule du produit scalaire donne aussitôt une majoration utile, l'**inégalité de Cauchy-Schwarz** : le produit scalaire de deux vecteurs ne dépasse jamais, en valeur absolue, le produit de leurs normes, $\lvert \vec{u} \cdot \vec{v} \rvert \le \lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert$.
 
 ### La formule d'Al-Kashi
 
@@ -456,13 +456,13 @@ La norme vient de Pythagore appliqué deux fois : la diagonale de la base de la 
 
 L'angle se calcule avec la même formule, et deux vecteurs de produit scalaire nul sont orthogonaux : $\vec{v} = (3 ; -2 ; 0)$ vérifie $\vec{u} \cdot \vec{v} = 6 - 6 + 0 = 0$.
 
-Une différence : dans l'espace, une équation $ax + by + cz + d = 0$ (avec $a$, $b$, $c$ non tous nuls) décrit un **plan**, pas une droite. Une droite de l'espace se décrit par un point et un vecteur directeur, $A + t\,\vec{d}$ (§4).
+Une différence : dans l'espace, une équation $ax + by + cz + d = 0$ (avec $a$, $b$, $c$ non tous nuls) décrit un **plan**, pas une droite. Une droite de l'espace se décrit par un point et un vecteur directeur, $A + t\thinspace\vec{d}$ (§4).
 
 ### $n$ coordonnées
 
 Rien n'oblige à s'arrêter à trois. Une liste ordonnée de $n$ nombres, $\mathbf{x} = (x_1, x_2, \dots, x_n)$, est un vecteur de **dimension** $n$ ; on dit que $\mathbf{x}$ appartient à $\mathbb{R}^n$. On ne le dessine plus, mais on calcule exactement de la même façon, avec les sommes Σ de R4 :
 
-$$\lVert \mathbf{x} \rVert = \sqrt{\sum_{i=1}^{n} x_i^2}, \qquad \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^{n} x_i y_i, \qquad d(\mathbf{x}, \mathbf{y}) = \lVert \mathbf{x} - \mathbf{y} \rVert, \qquad \cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert}.$$
+$$\lVert \mathbf{x} \rVert = \sqrt{\sum_{i=1}^{n} x_i^2}, \qquad \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^{n} x_i y_i, \qquad d(\mathbf{x}, \mathbf{y}) = \lVert \mathbf{x} - \mathbf{y} \rVert, \qquad \cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\lVert \mathbf{x} \rVert\thinspace\lVert \mathbf{y} \rVert}.$$
 
 Exemple dans $\mathbb{R}^4$ : $\mathbf{x} = (1, 0, 2, -1)$ et $\mathbf{y} = (3, 1, 0, 1)$. $\mathbf{x} \cdot \mathbf{y} = 3 + 0 + 0 - 1 = 2$ ; $\mathbf{x} - \mathbf{y} = (-2, -1, 2, -2)$, donc $d(\mathbf{x}, \mathbf{y}) = \sqrt{4 + 1 + 4 + 4} = \sqrt{13} \approx 3{,}61$ ; $\lVert \mathbf{x} \rVert = \sqrt{6}$ et $\lVert \mathbf{y} \rVert = \sqrt{11}$, d'où $\cos\theta = \frac{2}{\sqrt{66}} \approx 0{,}246$, un angle d'environ 76°. Les normes L1 et L∞ du §3 se prolongent de même : $\lVert \mathbf{x} \rVert_1 = \sum \lvert x_i \rvert$ et $\lVert \mathbf{x} \rVert_\infty = \max_i \lvert x_i \rvert$.
 
@@ -495,7 +495,7 @@ Tu écriras tes propres versions, en Python pur, dans `mymath/plane.py` (R9.16 e
 | distance | $AB = (x_B - x_A) + (y_B - y_A)$, ou $\sqrt{a^2 + b^2} = a + b$ | $AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$ |
 | coordonnées d'un vecteur | $\overrightarrow{AB} = A - B$ | arrivée moins départ : $B - A$ |
 | somme en Python | `(3, -1) + (-2, 4)` additionne | elle met les tuples bout à bout : additionner coordonnée par coordonnée, ou NumPy |
-| norme d'un multiple | $\lVert -2\vec{u} \rVert = -2\lVert \vec{u} \rVert$ | $\lvert -2 \rvert\,\lVert \vec{u} \rVert = 2\lVert \vec{u} \rVert$ |
+| norme d'un multiple | $\lVert -2\vec{u} \rVert = -2\lVert \vec{u} \rVert$ | $\lvert -2 \rvert\thinspace\lVert \vec{u} \rVert = 2\lVert \vec{u} \rVert$ |
 | norme d'une somme | $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ | $\le$ (inégalité triangulaire) |
 | vecteur directeur | $(a ; b)$ dirige la droite $ax + by + c = 0$ | $(-b ; a)$ la dirige ; $(a ; b)$ lui est normal |
 | droite verticale | $x = 4$ a une pente infinie, ou pas d'équation | pas d'équation réduite, mais une équation cartésienne $x - 4 = 0$ |
@@ -506,7 +506,7 @@ Tu écriras tes propres versions, en Python pur, dans `mymath/plane.py` (R9.16 e
 | valeurs remarquables | $\cos\frac{\pi}{3} = \frac{\sqrt{3}}{2}$ | $\frac{1}{2}$ ; c'est $\sin\frac{\pi}{3}$ qui vaut $\frac{\sqrt{3}}{2}$ |
 | signe | $\sin\frac{7\pi}{6} = \frac{1}{2}$ | dessine le point : sous l'axe horizontal, le sinus est négatif |
 | arccos | $\arccos(\cos\theta) = \theta$ toujours | seulement pour $\theta \in [0 ; \pi]$ |
-| angle de deux vecteurs | oublier de diviser par les normes | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\,\lVert \vec{v} \rVert}$ |
+| angle de deux vecteurs | oublier de diviser par les normes | $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert\thinspace\lVert \vec{v} \rVert}$ |
 | flottants | `math.acos(1.0000000000000002)` | ramener le quotient dans $[-1 ; 1]$ avant `math.acos` |
 
 ## Et maintenant

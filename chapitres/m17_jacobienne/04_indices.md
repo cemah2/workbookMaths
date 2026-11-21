@@ -53,7 +53,7 @@ Relis « L'énoncé » au §3.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{J}_{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$, de formes $(m, p) \times (p, n)$.
+$\mathbf{J} _{\mathbf{g} \circ \mathbf{f}}(\mathbf{x}) = \mathbf{J}  _{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\thinspace\mathbf{J} _{\mathbf{f}}(\mathbf{x})$, de formes $(m, p) \times (p, n)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -71,7 +71,7 @@ Relis le §4.
 </details>
 <details><summary>Indice 2</summary>
 
-En ligne : $\nabla_{\mathbf{y}}L\,\mathbf{J}_{\mathbf{f}}$ ; en colonne : $\mathbf{J}_{\mathbf{f}}^\top\nabla_{\mathbf{y}}L$.
+En ligne : $\nabla_{\mathbf{y}}L\thinspace\mathbf{J} _{\mathbf{f}}$ ; en colonne : $\mathbf{J}  _{\mathbf{f}}^\top\nabla _{\mathbf{y}}L$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -147,7 +147,7 @@ R7 §7.
 </details>
 <details><summary>Indice 2</summary>
 
-$(g \circ f)'(x) = g'(f(x))\,f'(x)$ : la dérivée de l'extérieure, **évaluée en l'intérieure**, fois la dérivée de l'intérieure.
+$(g \circ f)'(x) = g'(f(x))\thinspace f'(x)$ : la dérivée de l'extérieure, **évaluée en l'intérieure**, fois la dérivée de l'intérieure.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ M02c §8.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \sum_{i,j}v_iv_j\,\operatorname{Cov}(X_i, X_j)$.
+$\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \sum_{i,j}v_iv_j\thinspace\operatorname{Cov}(X_i, X_j)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -192,7 +192,7 @@ Ligne 1 : les dérivées de $r\cos\theta$ par rapport à $r$ puis à $\theta$ ; 
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\mathbf{f}(4, \frac{\pi}{6}) + \mathbf{J}\,(0{,}1 ;\ 0{,}05)$. g) $\lvert\det\mathbf{J}\rvert$ fois l'aire du rectangle, $0{,}01 \times 0{,}02$.
+d) $\mathbf{f}(4, \frac{\pi}{6}) + \mathbf{J}\thinspace(0{,}1 ;\ 0{,}05)$. g) $\lvert\det\mathbf{J}\rvert$ fois l'aire du rectangle, $0{,}01 \times 0{,}02$.
 
 </details>
 
@@ -210,7 +210,7 @@ La diagonale est $g'(\mathbf{x})$, avec $g'(t) = \frac{2t}{1 + t^2}$ ; $\mathbf{
 </details>
 <details><summary>Indice 3</summary>
 
-c) 12 coefficients hors de la diagonale, plus les zéros de la diagonale. f) La règle du produit : $(t\,g(t))' = g(t) + t\,g'(t)$.
+c) 12 coefficients hors de la diagonale, plus les zéros de la diagonale. f) La règle du produit : $(t\thinspace g(t))' = g(t) + t\thinspace g'(t)$.
 
 </details>
 
@@ -228,7 +228,7 @@ $\mathbf{f}_1(1, 2) = (3, 2, -1)$, puis $\mathbf{f}_2(3, 2, -1)$ ; chaque jacobi
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{J}_{f_3}\mathbf{J}_{\mathbf{f}_2}$ d'abord (une ligne de 3), puis fois $\mathbf{J}_{\mathbf{f}_1}$. f) Un produit $(a, b) \times (b, c)$ coûte $abc$ multiplications.
+e) $\mathbf{J} _{f_3}\mathbf{J} _{\mathbf{f} _2}$ d'abord (une ligne de 3), puis fois $\mathbf{J} _{\mathbf{f}_1}$. f) Un produit $(a, b) \times (b, c)$ coûte $abc$ multiplications.
 
 </details>
 
@@ -264,7 +264,7 @@ $\nabla_{\mathbf{y}}L = (2y_1,\ 3,\ -1)$, évalué en $\mathbf{y} = \mathbf{f}(\
 </details>
 <details><summary>Indice 3</summary>
 
-d) $(6, 3, -1)\,\mathbf{J}_{\mathbf{f}}$, une ligne de 2. f) Le produit scalaire du gradient et de $(1, 1)$.
+d) $(6, 3, -1)\thinspace\mathbf{J}_{\mathbf{f}}$, une ligne de 2. f) Le produit scalaire du gradient et de $(1, 1)$.
 
 </details>
 
@@ -282,7 +282,7 @@ b) et c) : les pentes des morceaux de chaque côté. d) $c(x) = 40$ en un point 
 </details>
 <details><summary>Indice 3</summary>
 
-f) $\prod_{k=0}^{6}g'(x_k)$ avec $g'(x) = -\frac{1}{(1 + x)^2}$ : écris les $1 + x_k$ en fractions, leurs numérateurs et dénominateurs se simplifient deux à deux. g) Au point fixe, $x^*(1 + x^*) = 1$.
+f) $\prod_{k=0}^{6}g'(x_k)$ avec $g'(x) = -\frac{1}{(1 + x)^2}$ : écris les $1 + x_k$ en fractions, leurs numérateurs et dénominateurs se simplifient deux à deux. g) Au point fixe, $x^\ast(1 + x^\ast) = 1$.
 
 </details>
 
@@ -335,12 +335,12 @@ a) $\frac{1}{\sum_j e^{-\Delta_j/4}}$. d) Deux tournées distinctes : additionne
 </details>
 <details><summary>Indice 2</summary>
 
-Le terme difficile est $\boldsymbol{\varepsilon}_{\mathbf{g}}(\mathbf{k})\,\lVert\mathbf{k}\rVert$ : il faut d'abord montrer que $\lVert\mathbf{k}\rVert$ est au plus proportionnel à $\lVert\mathbf{h}\rVert$.
+Le terme difficile est $\boldsymbol{\varepsilon}_{\mathbf{g}}(\mathbf{k})\thinspace\lVert\mathbf{k}\rVert$ : il faut d'abord montrer que $\lVert\mathbf{k}\rVert$ est au plus proportionnel à $\lVert\mathbf{h}\rVert$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Divise le reste par $\lVert\mathbf{h}\rVert$ : $\mathbf{J}_{\mathbf{g}}\boldsymbol{\varepsilon}_{\mathbf{f}}(\mathbf{h}) + \boldsymbol{\varepsilon}_{\mathbf{g}}(\mathbf{k})\frac{\lVert\mathbf{k}\rVert}{\lVert\mathbf{h}\rVert}$, et majore le second terme par $C\lVert\boldsymbol{\varepsilon}_{\mathbf{g}}(\mathbf{k})\rVert$.
+Divise le reste par $\lVert\mathbf{h}\rVert$ : $\mathbf{J} _{\mathbf{g}}\boldsymbol{\varepsilon} _{\mathbf{f}}(\mathbf{h}) + \boldsymbol{\varepsilon} _{\mathbf{g}}(\mathbf{k})\frac{\lVert\mathbf{k}\rVert}{\lVert\mathbf{h}\rVert}$, et majore le second terme par $C\lVert\boldsymbol{\varepsilon} _{\mathbf{g}}(\mathbf{k})\rVert$.
 
 </details>
 
@@ -353,7 +353,7 @@ $f_i$ ne dépend que de $x_i$.
 </details>
 <details><summary>Indice 2</summary>
 
-$(\mathbf{J}\mathbf{v})_i = \sum_jJ_{ij}v_j$ : un seul terme non nul.
+$(\mathbf{J}\mathbf{v}) _i = \sum_jJ _{ij}v_j$ : un seul terme non nul.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -371,7 +371,7 @@ Chaque $Y_i$ est une variable de Bernoulli ; deux coordonnées distinctes ne val
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\,\mathbb{E}[Y_j]$ ; pour la semi-définie positivité, pense à $\mathbb{V}(\mathbf{v} \cdot \mathbf{Y})$.
+$\operatorname{Cov}(Y_i, Y_j) = \mathbb{E}[Y_iY_j] - \mathbb{E}[Y_i]\thinspace\mathbb{E}[Y_j]$ ; pour la semi-définie positivité, pense à $\mathbb{V}(\mathbf{v} \cdot \mathbf{Y})$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -527,7 +527,7 @@ Fiche §3 : les formes, puis les dépendances.
 </details>
 <details><summary>Indice 2</summary>
 
-Écris le motif des zéros de $\mathbf{J}_{\mathbf{f}}$ et de $\mathbf{J}_{\mathbf{g}}$, puis celui de leur produit.
+Écris le motif des zéros de $\mathbf{J} _{\mathbf{f}}$ et de $\mathbf{J} _{\mathbf{g}}$, puis celui de leur produit.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -545,12 +545,12 @@ Fiche §6, « Longues compositions ».
 </details>
 <details><summary>Indice 2</summary>
 
-Une boucle qui garde $x_k$ et $D_k$ : $D_{k+1} = D_k\,\varphi'(x_k)$, puis $x_{k+1} = \varphi(x_k)$ — dans cet ordre.
+Une boucle qui garde $x_k$ et $D_k$ : $D_{k+1} = D_k\thinspace\varphi'(x_k)$, puis $x_{k+1} = \varphi(x_k)$ — dans cet ordre.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Pour $c = 2{,}6$, $x^* = 1 - \frac{1}{c}$ et $\varphi'(x^*) = c(1 - 2x^*)$.
+Pour $c = 2{,}6$, $x^\ast = 1 - \frac{1}{c}$ et $\varphi'(x^\ast) = c(1 - 2x^\ast)$.
 
 </details>
 
@@ -586,7 +586,7 @@ Fiche, les ⚠️ des §1, §3 et §4.
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\mathbf{J}_{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\,\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ avec $\mathbf{f}(\mathbf{x}) = (1, 3)$.
+c) $\mathbf{J} _{\mathbf{g}}(\mathbf{f}(\mathbf{x}))\thinspace\mathbf{J} _{\mathbf{f}}(\mathbf{x})$ avec $\mathbf{f}(\mathbf{x}) = (1, 3)$.
 
 </details>
 
@@ -617,7 +617,7 @@ Dérive l'identité $X X^{-1} = I$ dans une direction $H$ : la dérivée d'un pr
 </details>
 <details><summary>Indice 2</summary>
 
-Tu obtiens $H X^{-1} + X\,D = 0$, où $D$ est la dérivée de $X^{-1}$ dans la direction $H$ : résous en $D$.
+Tu obtiens $H X^{-1} + X\thinspace D = 0$, où $D$ est la dérivée de $X^{-1}$ dans la direction $H$ : résous en $D$.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -98,7 +98,7 @@ Distance signée : $\frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rV
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $\mathbf{w} = (2, -1, 2)$, de norme 3. 5 : le point le plus proche est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$, avec $\mathbf{x} = \mathbf{0}$.
+1 : $\mathbf{w} = (2, -1, 2)$, de norme 3. 5 : le point le plus proche est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\thinspace\mathbf{w}$, avec $\mathbf{x} = \mathbf{0}$.
 
 </details>
 
@@ -111,7 +111,7 @@ Relis M07, l'inégalité de Cauchy-Schwarz.
 </details>
 <details><summary>Indice 2</summary>
 
-$|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$, avec égalité quand les vecteurs sont colinéaires.
+$|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$, avec égalité quand les vecteurs sont colinéaires.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -192,7 +192,7 @@ Calcule d'abord $\mathbf{w} \cdot P_i$ pour les six points ; la marge est le plu
 </details>
 <details><summary>Indice 3</summary>
 
-c) Le projeté de $\mathbf{x}$ sur la droite est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$ (M07). d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
+c) Le projeté de $\mathbf{x}$ sur la droite est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\thinspace\mathbf{w}$ (M07). d) Il faut $\min_{+1} \mathbf{w} \cdot \mathbf{x} + b > 0$ et $\max_{-1} \mathbf{w} \cdot \mathbf{x} + b < 0$. g) Dessine les deux triangles : leur couple de points le plus proche est formé de deux sommets.
 
 </details>
 
@@ -223,7 +223,7 @@ Relis « Une borne qui s'accumule » et « Deux bornes pour la norme » (fiche �
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\,\mathbf{v} \cdot \mathbf{d} + \lVert \mathbf{d} \rVert^2$ ; la borne oublie le terme du milieu, qui est $\le 0$.
+$\lVert \mathbf{v} + \mathbf{d} \rVert^2 = \lVert \mathbf{v} \rVert^2 + 2\thinspace\mathbf{v} \cdot \mathbf{d} + \lVert \mathbf{d} \rVert^2$ ; la borne oublie le terme du milieu, qui est $\le 0$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -281,7 +281,7 @@ Relis « La marge d'un séparateur » et « La forme canonique » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert c\mathbf{w} \rVert = |c|\,\lVert \mathbf{w} \rVert$. Pour 2, sépare les termes de la classe $+1$ de ceux de la classe $-1$.
+$\lVert c\mathbf{w} \rVert = |c|\thinspace\lVert \mathbf{w} \rVert$. Pour 2, sépare les termes de la classe $+1$ de ceux de la classe $-1$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -308,7 +308,7 @@ Calcule d'abord les trois scores ; chaque activation ne regarde que le score.
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{p}_1$ donne $z = 4 - 2{,}25 - 1$. f) À la distance signée $d$ de la frontière, le score vaut $d\,\lVert \mathbf{w} \rVert$, avec $\lVert \mathbf{w} \rVert = 5$. g) $\frac{1}{1 + e^{-z}} = 0{,}85$ donne $e^{-z} = \frac{0{,}15}{0{,}85}$ ; la ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z_{0{,}85}$, à la distance $\frac{z_{0{,}85}}{\lVert \mathbf{w} \rVert}$ de la frontière.
+$\mathbf{p} _1$ donne $z = 4 - 2{,}25 - 1$. f) À la distance signée $d$ de la frontière, le score vaut $d\thinspace\lVert \mathbf{w} \rVert$, avec $\lVert \mathbf{w} \rVert = 5$. g) $\frac{1}{1 + e^{-z}} = 0{,}85$ donne $e^{-z} = \frac{0{,}15}{0{,}85}$ ; la ligne de niveau est la droite $\mathbf{w} \cdot \mathbf{x} + b = z  _{0{,}85}$, à la distance $\frac{z _{0{,}85}}{\lVert \mathbf{w} \rVert}$ de la frontière.
 
 </details>
 

@@ -102,10 +102,10 @@ Soit $f(x) = x\ln x - x$ sur $]0, +\infty[$.
 ### M05a.R2 — Suites définies par récurrence (R5) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-Soit $u_0 = 5$ et $u_{n+1} = 0{,}4\,u_n + 1{,}2$.
+Soit $u_0 = 5$ et $u_{n+1} = 0{,}4\thinspace u_n + 1{,}2$.
 1. Calcule $u_1$ et $u_2$.
-2. Si la suite converge, quelle est sa limite $\ell$ ? (Résous $\ell = 0{,}4\,\ell + 1{,}2$.)
-3. Montre que $u_{n+1} - \ell = 0{,}4\,(u_n - \ell)$, et déduis-en $u_n - \ell$ en fonction de $n$.
+2. Si la suite converge, quelle est sa limite $\ell$ ? (Résous $\ell = 0{,}4\thinspace\ell + 1{,}2$.)
+3. Montre que $u_{n+1} - \ell = 0{,}4\thinspace(u_n - \ell)$, et déduis-en $u_n - \ell$ en fonction de $n$.
 4. Quel est le plus petit $n$ tel que $|u_n - \ell| < 0{,}01$ ?
 5. L'erreur est multipliée par 0,4 à chaque pas. Comment appelle-t-on ce type de convergence, par opposition à celle de Newton ?
 
@@ -133,13 +133,13 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | pour $f(x) = x\,e^{2x}$ : $f''(0)$ | un entier |
+| a | pour $f(x) = x\thinspace e^{2x}$ : $f''(0)$ | un entier |
 | b | pour $g(x) = x^4 - 6x^2 + 1$ : le plus grand intervalle **fermé** sur lequel $g$ est concave | un intervalle entre guillemets |
 | c | les abscisses des points d'inflexion de $g$, dans l'ordre croissant | une liste |
 | d | pour $w(x) = e^{x^2}$ : $w''(1)$ | un nombre (4 décimales) |
 | e | $\frac{1}{1 + x^2}$ est-elle convexe sur tout $\mathbb{R}$ ? | `True` ou `False` |
 | f | pour $h(x) = x\ln x$ sur $]0, +\infty[$ : $h''(2)$ | un nombre (1 décimale) |
-| g | la valeur de $k$ pour laquelle $x^3 + k\,x^2 + 1$ a un point d'inflexion en $x = 2$ | un entier |
+| g | la valeur de $k$ pour laquelle $x^3 + k\thinspace x^2 + 1$ a un point d'inflexion en $x = 2$ | un entier |
 | h | pour l'exponentielle : l'écart $\frac{e^0 + e^2}{2} - e^1$, entre le milieu de la corde et la courbe | un nombre (4 décimales) |
 
 Dans ta copie : pour $g$, dresse le tableau de signes de $g''$. Que dit le signe de h) ? Refais le calcul de h) pour la fonction concave $\ln$, avec les points 1 et 3 : quel est le signe de l'écart ?
@@ -279,12 +279,12 @@ $$E_{\text{avant}}(h) = \frac{M_2}{2}h + \frac{2\delta}{h}, \qquad E_{\text{cent
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | le pas $h^*$ qui minimise $E_{\text{avant}}$, multiplié par 1 000 | un nombre (3 décimales) |
-| b | $E_{\text{avant}}(h^*)$, multipliée par 1 000 | un nombre (3 décimales) |
-| c | le pas $h^*$ qui minimise $E_{\text{centrée}}$ | un nombre (3 décimales) |
-| d | $E_{\text{centrée}}(h^*)$, multipliée par $10^4$ | un nombre (2 décimales) |
-| e | avec un capteur 1 000 fois plus précis ($\delta = 10^{-9}$) : par combien le $h^*$ de la différence centrée est-il multiplié ? | un nombre (1 décimale) |
-| f | et par combien $E_{\text{centrée}}(h^*)$ est-elle multipliée ? | un nombre (2 décimales) |
+| a | le pas $h^\ast$ qui minimise $E_{\text{avant}}$, multiplié par 1 000 | un nombre (3 décimales) |
+| b | $E_{\text{avant}}(h^\ast)$, multipliée par 1 000 | un nombre (3 décimales) |
+| c | le pas $h^\ast$ qui minimise $E_{\text{centrée}}$ | un nombre (3 décimales) |
+| d | $E_{\text{centrée}}(h^\ast)$, multipliée par $10^4$ | un nombre (2 décimales) |
+| e | avec un capteur 1 000 fois plus précis ($\delta = 10^{-9}$) : par combien le $h^\ast$ de la différence centrée est-il multiplié ? | un nombre (1 décimale) |
+| f | et par combien $E_{\text{centrée}}(h^\ast)$ est-elle multipliée ? | un nombre (2 décimales) |
 | g | pour la différence seconde, avec la borne $E(h) = h^2 + \frac{4\delta}{h^2}$ et $\delta = 10^{-6}$ : le pas qui la minimise | un nombre (4 décimales) |
 | h | avec ce capteur ($\delta = 10^{-6}$), la différence centrée à son meilleur pas est-elle plus précise que la différence avant à son meilleur pas ? | `True` ou `False` |
 
@@ -333,8 +333,8 @@ Soit $f$ trois fois dérivable, de dérivée troisième continue, sur un interva
 
 Soit $f$ deux fois dérivable, de dérivée seconde continue, et $r$ une racine **simple** : $f(r) = 0$ et $f'(r) \ne 0$. On note $e_k = x_k - r$ l'erreur de la suite de Newton.
 1. Écris le développement de Taylor d'ordre 1 de $f$ en $x_k$, évalué en $r$, avec le reste de Lagrange (un point $\xi_k$ entre $x_k$ et $r$).
-2. Déduis-en $e_{k+1} = \frac{f''(\xi_k)}{2f'(x_k)}\,e_k^2$ (si $f'(x_k) \ne 0$).
-3. On suppose que, sur un intervalle $I$ qui contient $r$ et les $x_k$, $|f''| \le M$ et $|f'| \ge m > 0$. Avec $C = \frac{M}{2m}$, montre que $|e_{k+1}| \le C\,e_k^2$.
+2. Déduis-en $e_{k+1} = \frac{f''(\xi_k)}{2f'(x_k)}\thinspace e_k^2$ (si $f'(x_k) \ne 0$).
+3. On suppose que, sur un intervalle $I$ qui contient $r$ et les $x_k$, $|f''| \le M$ et $|f'| \ge m > 0$. Avec $C = \frac{M}{2m}$, montre que $|e_{k+1}| \le C\thinspace e_k^2$.
 4. Montre par récurrence que $C|e_k| \le (C|e_0|)^{2^k}$. Si $C|e_0| = 0{,}1$, à partir de quel pas $k$ a-t-on $C|e_k| \le 10^{-16}$ ?
 5. Pour $f(x) = x^2 - c$ ($c > 0$), montre que $e_{k+1} = \frac{e_k^2}{2x_k}$ exactement. Déduis-en que, depuis n'importe quel $x_0 > 0$, on a $x_k \ge \sqrt{c}$ pour tout $k \ge 1$.
 6. Pour $f(x) = (x - r)^2$, une racine **double**, montre que $e_{k+1} = \frac{e_k}{2}$. Comment s'appelle cette convergence ? Combien de pas faut-il pour gagner une décimale ?
@@ -350,7 +350,7 @@ Soit $\mathbf{v} = (v_1, \ldots, v_n)$ des réels, $m = \max_i v_i$, et $\text{L
 3. Montre que $\text{LSE}(\mathbf{v} + c) = \text{LSE}(\mathbf{v}) + c$ pour tout réel $c$ (ajouté à chaque $v_i$), puis que $\text{softmax}(\mathbf{v} + c) = \text{softmax}(\mathbf{v})$.
 4. Montre que si $v_i \le w_i$ pour tout $i$, alors $\text{LSE}(\mathbf{v}) \le \text{LSE}(\mathbf{w})$.
 5. Pour $n = 2$, montre que $\text{LSE}(t, 0) - \max(t, 0) = \ln\big(1 + e^{-|t|}\big)$. Déduis-en que cet écart est au plus $\ln 2$, et qu'il tend vers 0 quand $|t| \to +\infty$.
-6. On note $g = m - v_{(2)}$ l'écart entre le plus grand score et le deuxième. Avec $\ln(1 + u) \le u$, montre que $\text{LSE}(\mathbf{v}) - m \le (n - 1)\,e^{-g}$. Applique à $\mathbf{v} = (10, 3, 2)$ : compare la borne à l'écart vrai.
+6. On note $g = m - v_{(2)}$ l'écart entre le plus grand score et le deuxième. Avec $\ln(1 + u) \le u$, montre que $\text{LSE}(\mathbf{v}) - m \le (n - 1)\thinspace e^{-g}$. Applique à $\mathbf{v} = (10, 3, 2)$ : compare la borne à l'écart vrai.
 
 <a id="reflexion"></a>
 

@@ -32,7 +32,7 @@ Vrai ou faux ?
 1. Si $\overrightarrow{AB} = \overrightarrow{DC}$, alors $ABCD$ est un parallélogramme.
 2. $(2 ; -6)$ et $(-1 ; 3)$ sont colinéaires.
 3. $\lVert \vec{u} + \vec{v} \rVert = \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$ pour tous vecteurs $\vec{u}$ et $\vec{v}$.
-4. $\lVert -0{,}5\,\vec{u} \rVert = 0{,}5\,\lVert \vec{u} \rVert$.
+4. $\lVert -0{,}5\thinspace\vec{u} \rVert = 0{,}5\thinspace\lVert \vec{u} \rVert$.
 5. $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$ pour tous points $A$, $B$ et $C$.
 6. Un vecteur unitaire a toutes ses coordonnées égales à 1.
 
@@ -53,7 +53,7 @@ Vrai ou faux ?
 2. Que vaut $(1 ; 2) \cdot (-2 ; 1)$ ? Que peut-on en dire ?
 3. Vrai ou faux : $\vec{u} \cdot \vec{u}$ peut être négatif.
 4. Vrai ou faux : le produit scalaire de $\vec{u} = (x ; y)$ et de $\vec{v} = (x' ; y')$ est le vecteur $(xx' ; yy')$.
-5. Vrai ou faux : $(3\vec{u}) \cdot \vec{v} = 3\,(\vec{u} \cdot \vec{v})$.
+5. Vrai ou faux : $(3\vec{u}) \cdot \vec{v} = 3\thinspace(\vec{u} \cdot \vec{v})$.
 6. Vrai ou faux : si $\vec{u} \cdot \vec{v} = 0$ et $\vec{u} \ne \vec{0}$, alors $\vec{v} = \vec{0}$.
 
 ### R9.Q5 — Radians et valeurs remarquables 🧠 ★ ⏱️ 4 min

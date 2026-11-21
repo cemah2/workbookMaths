@@ -60,11 +60,11 @@ Vocabulaire anglais de ce chapitre : *vector*, *real-valued vector*, *component*
 1. Un **vecteur de $\mathbb{R}^n$** est une liste de $n$ nombres ; on additionne et on multiplie par un nombre **coordonnée par coordonnée**. Un exemple décrit par $p$ features est un vecteur de $\mathbb{R}^p$ ; un **one-hot** est un vecteur de la base canonique $\mathbf{e}_k$.
 2. **Produit scalaire** : $\mathbf{u} \cdot \mathbf{v} = \sum_i u_i v_i$, un nombre ; symétrique, linéaire, $\mathbf{u} \cdot \mathbf{u} = \lVert \mathbf{u} \rVert^2$. Un neurone calcule $z = \mathbf{w} \cdot \mathbf{x} + b$.
 3. **Normes** : $\lVert \mathbf{x} \rVert_1 = \sum |x_i|$, $\lVert \mathbf{x} \rVert_2 = \sqrt{\sum x_i^2}$, $\lVert \mathbf{x} \rVert_\infty = \max |x_i|$ ; $\lVert \mathbf{x} \rVert_\infty \le \lVert \mathbf{x} \rVert_2 \le \lVert \mathbf{x} \rVert_1$. **Distance** : $d(\mathbf{x}, \mathbf{y}) = \lVert \mathbf{x} - \mathbf{y} \rVert$.
-4. **Cauchy-Schwarz** : $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$, avec égalité si et seulement si les vecteurs sont colinéaires. Elle donne l'**inégalité triangulaire** $\lVert \mathbf{u} + \mathbf{v} \rVert \le \lVert \mathbf{u} \rVert + \lVert \mathbf{v} \rVert$.
-5. **Angle** et **similarité cosinus** : $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert} \in [-1, 1]$ ; orthogonaux si $\mathbf{u} \cdot \mathbf{v} = 0$. Le cosinus ignore les longueurs.
-6. **Projection** sur la droite dirigée par $\mathbf{u}$ : $\frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\,\mathbf{u}$ ; le reste est orthogonal à $\mathbf{u}$.
+4. **Cauchy-Schwarz** : $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$, avec égalité si et seulement si les vecteurs sont colinéaires. Elle donne l'**inégalité triangulaire** $\lVert \mathbf{u} + \mathbf{v} \rVert \le \lVert \mathbf{u} \rVert + \lVert \mathbf{v} \rVert$.
+5. **Angle** et **similarité cosinus** : $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert} \in [-1, 1]$ ; orthogonaux si $\mathbf{u} \cdot \mathbf{v} = 0$. Le cosinus ignore les longueurs.
+6. **Projection** sur la droite dirigée par $\mathbf{u}$ : $\frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\thinspace\mathbf{u}$ ; le reste est orthogonal à $\mathbf{u}$.
 7. **Hyperplan** : $\mathbf{w} \cdot \mathbf{x} + b = 0$, de vecteur normal $\mathbf{w}$ ; le signe de $\mathbf{w} \cdot \mathbf{x} + b$ dit de quel côté est $\mathbf{x}$, et la distance vaut $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$.
-8. **Barycentre** : $\bar{\mathbf{x}} = \frac{1}{n}\sum \mathbf{x}_i$ minimise $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$, et $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + n\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ (König-Huygens).
+8. **Barycentre** : $\bar{\mathbf{x}} = \frac{1}{n}\sum \mathbf{x}_i$ minimise $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$, et $\sum \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + n\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ (König-Huygens).
 9. **k-means** alterne une affectation au centre le plus proche et une mise à jour au barycentre ; aucune des deux étapes n'augmente l'**inertie**. La **silhouette** $s = \frac{b - a}{\max(a, b)}$ juge un découpage ; **k-means++** tire chaque nouveau centre avec une probabilité proportionnelle à $D^2$.
 10. **Grande dimension** : la diagonale du cube unité mesure $\sqrt{n}$ et fait avec chaque axe un angle qui tend vers 90° ; deux vecteurs aléatoires sont presque orthogonaux ; un vecteur gaussien a une norme proche de $\sqrt{n}$, à peu près la même pour tous les tirages.
 
@@ -88,7 +88,7 @@ Une expression comme $3\mathbf{u} - 2\mathbf{v}$ est une **combinaison linéaire
 
 ### La base canonique et les vecteurs one-hot
 
-Les $n$ vecteurs $\mathbf{e}_1 = (1, 0, \ldots, 0)$, $\mathbf{e}_2 = (0, 1, 0, \ldots, 0)$, …, $\mathbf{e}_n = (0, \ldots, 0, 1)$ forment la **base canonique** (*standard basis*) de $\mathbb{R}^n$ : $\mathbf{e}_k$ vaut 1 à la place $k$ et 0 ailleurs. Tout vecteur en est une combinaison linéaire, dont les coefficients sont ses coordonnées : $(2, -1, 0, 3) = 2\mathbf{e}_1 - \mathbf{e}_2 + 0\,\mathbf{e}_3 + 3\mathbf{e}_4$.
+Les $n$ vecteurs $\mathbf{e}_1 = (1, 0, \ldots, 0)$, $\mathbf{e}_2 = (0, 1, 0, \ldots, 0)$, …, $\mathbf{e}_n = (0, \ldots, 0, 1)$ forment la **base canonique** (*standard basis*) de $\mathbb{R}^n$ : $\mathbf{e}_k$ vaut 1 à la place $k$ et 0 ailleurs. Tout vecteur en est une combinaison linéaire, dont les coefficients sont ses coordonnées : $(2, -1, 0, 3) = 2\mathbf{e}_1 - \mathbf{e}_2 + 0\thinspace\mathbf{e}_3 + 3\mathbf{e}_4$.
 
 Un **vecteur one-hot** (*one-hot vector*) est un vecteur de la base canonique utilisé pour coder une **catégorie**. Pour les trois couleurs {rouge, vert, bleu}, dans cet ordre : rouge $= (1, 0, 0)$, vert $= (0, 1, 0)$, bleu $= (0, 0, 1)$. Trois remarques :
 - la somme des one-hot de plusieurs exemples **compte** les catégories : deux rouges et un bleu donnent $(2, 0, 1)$ ; divisée par le nombre d'exemples, elle donne leurs proportions, $\big(\frac{2}{3}, 0, \frac{1}{3}\big)$ ;
@@ -116,13 +116,13 @@ array([0., 1., 0.])
 
 Le **produit scalaire** (*dot product*) de deux vecteurs de $\mathbb{R}^n$ est le **nombre**
 
-$$\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i\,v_i = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n.$$
+$$\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n} u_i\thinspace v_i = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n.$$
 
 C'est la formule de R9, avec $n$ termes au lieu de deux. Avec $\mathbf{u} = (2, -1, 0, 3)$ et $\mathbf{v} = (1, 4, -2, 0)$ : $\mathbf{u} \cdot \mathbf{v} = 2 - 4 + 0 + 0 = -2$.
 
 Ses règles se vérifient coordonnée par coordonnée :
 - **symétrie** : $\mathbf{u} \cdot \mathbf{v} = \mathbf{v} \cdot \mathbf{u}$ ;
-- **linéarité** : $(k\mathbf{u}) \cdot \mathbf{v} = k\,(\mathbf{u} \cdot \mathbf{v})$ et $(\mathbf{u} + \mathbf{w}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + \mathbf{w} \cdot \mathbf{v}$ ;
+- **linéarité** : $(k\mathbf{u}) \cdot \mathbf{v} = k\thinspace(\mathbf{u} \cdot \mathbf{v})$ et $(\mathbf{u} + \mathbf{w}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + \mathbf{w} \cdot \mathbf{v}$ ;
 - **positivité** : $\mathbf{u} \cdot \mathbf{u} = \sum u_i^2 \ge 0$, et $\mathbf{u} \cdot \mathbf{u} = 0$ seulement si $\mathbf{u} = \mathbf{0}$ (une somme de carrés n'est nulle que si chaque carré l'est).
 
 On définit la **norme** (euclidienne) par $\lVert \mathbf{u} \rVert = \sqrt{\mathbf{u} \cdot \mathbf{u}}$ : $\lVert \mathbf{u} \rVert^2 = 4 + 1 + 0 + 9 = 14$ et $\lVert \mathbf{v} \rVert^2 = 1 + 16 + 4 + 0 = 21$. Le §3 en présente d'autres.
@@ -133,7 +133,7 @@ Avec un vecteur de la base canonique, le produit scalaire **lit une coordonnée*
 
 La linéarité permet de développer comme une identité remarquable :
 
-$$\lVert \mathbf{u} + \mathbf{v} \rVert^2 = (\mathbf{u} + \mathbf{v}) \cdot (\mathbf{u} + \mathbf{v}) = \lVert \mathbf{u} \rVert^2 + 2\,\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert^2.$$
+$$\lVert \mathbf{u} + \mathbf{v} \rVert^2 = (\mathbf{u} + \mathbf{v}) \cdot (\mathbf{u} + \mathbf{v}) = \lVert \mathbf{u} \rVert^2 + 2\thinspace\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert^2.$$
 
 Vérification : $\mathbf{u} + \mathbf{v} = (3, 3, -2, 3)$ a pour norme au carré $9 + 9 + 4 + 9 = 31$, et $14 + 2 \times (-2) + 21 = 31$. Avec $-\mathbf{v}$ à la place de $\mathbf{v}$, on retrouve la version avec un moins, déjà vue dans workbookIA 0B. En additionnant les deux versions, les doubles produits s'annulent, ce qui donne l'**identité du parallélogramme**, et en les soustrayant, on isole le produit scalaire :
 
@@ -185,7 +185,7 @@ Plus généralement, pour un réel $p \ge 1$, la **norme $L^p$** est $\lVert \ma
 
 Une **norme** est une fonction qui associe à chaque vecteur un nombre et vérifie trois propriétés, pour tous vecteurs $\mathbf{x}$, $\mathbf{y}$ et tout réel $\lambda$ :
 1. **positivité** : $\lVert \mathbf{x} \rVert \ge 0$, et $\lVert \mathbf{x} \rVert = 0$ seulement si $\mathbf{x} = \mathbf{0}$ ;
-2. **homogénéité** : $\lVert \lambda\mathbf{x} \rVert = |\lambda|\,\lVert \mathbf{x} \rVert$ (doubler un vecteur double sa longueur, le retourner ne la change pas) ;
+2. **homogénéité** : $\lVert \lambda\mathbf{x} \rVert = |\lambda|\thinspace\lVert \mathbf{x} \rVert$ (doubler un vecteur double sa longueur, le retourner ne la change pas) ;
 3. **inégalité triangulaire** : $\lVert \mathbf{x} + \mathbf{y} \rVert \le \lVert \mathbf{x} \rVert + \lVert \mathbf{y} \rVert$.
 
 Les trois normes ci-dessus les vérifient ; pour L1 et L∞, l'inégalité triangulaire vient de celle des nombres, $|a + b| \le |a| + |b|$, coordonnée par coordonnée ; pour L2, elle demande l'inégalité de Cauchy-Schwarz du §4 (M07.15 rédige les trois). Pour $p < 1$, la formule $\big(\sum |x_i|^p\big)^{1/p}$ n'est **pas** une norme : avec $p = \frac{1}{2}$, $\mathbf{e}_1$ et $\mathbf{e}_2$ ont chacun la « longueur » 1, mais $\mathbf{e}_1 + \mathbf{e}_2$ a la « longueur » $(1 + 1)^2 = 4 > 1 + 1$.
@@ -198,7 +198,7 @@ La **boule unité** (*unit ball*) d'une norme est l'ensemble des vecteurs de nor
 
 Pour tout $\mathbf{x} \in \mathbb{R}^n$ :
 
-$$\lVert \mathbf{x} \rVert_\infty \le \lVert \mathbf{x} \rVert_2 \le \lVert \mathbf{x} \rVert_1 \le \sqrt{n}\,\lVert \mathbf{x} \rVert_2 \le n\,\lVert \mathbf{x} \rVert_\infty.$$
+$$\lVert \mathbf{x} \rVert_\infty \le \lVert \mathbf{x} \rVert_2 \le \lVert \mathbf{x} \rVert_1 \le \sqrt{n}\thinspace\lVert \mathbf{x} \rVert_2 \le n\thinspace\lVert \mathbf{x} \rVert_\infty.$$
 
 Pour $(2, -6, 3)$ : $6 \le 7 \le 11 \le 7\sqrt{3} \approx 12{,}12 \le 18$. Les deux premières viennent de ce qu'un carré est plus petit qu'une somme de carrés positifs ; la troisième, de Cauchy-Schwarz (M07.14) ; la dernière, de ce que chaque $|x_i|$ est au plus le maximum.
 
@@ -225,20 +225,20 @@ Un vecteur non nul divisé par sa norme L2 devient **unitaire** (*unit vector*) 
 ### L'inégalité de Cauchy-Schwarz
 
 > **Inégalité de Cauchy-Schwarz** (*Cauchy-Schwarz inequality*). Pour tous vecteurs $\mathbf{u}$ et $\mathbf{v}$ de $\mathbb{R}^n$,
-> $$|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert,$$
+> $$|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert,$$
 > avec égalité si et seulement si l'un est un multiple de l'autre (ils sont **colinéaires**).
 
 En R9, elle venait de $|\cos\theta| \le 1$, avec un angle qu'on pouvait dessiner. En dimension $n$, on ne dessine plus : il faut la démontrer autrement, et c'est elle qui permettra ensuite de **définir** l'angle. L'idée de la preuve : la fonction $t \mapsto \lVert \mathbf{u} + t\mathbf{v} \rVert^2$ est un polynôme du second degré en $t$ (développe-le avec le §2), qui n'est jamais négatif, puisque c'est un carré de norme. Un trinôme toujours positif ou nul a un discriminant négatif ou nul (R3), et ce discriminant s'écrit $4(\mathbf{u} \cdot \mathbf{v})^2 - 4\lVert \mathbf{u} \rVert^2\lVert \mathbf{v} \rVert^2$. M07.14 rédige la démonstration et le cas d'égalité.
 
-Exemple : $\mathbf{a} = (1, 1, 0, 1)$ et $\mathbf{b} = (1, 0, 1, 1)$. $\mathbf{a} \cdot \mathbf{b} = 1 + 0 + 0 + 1 = 2$ et $\lVert \mathbf{a} \rVert\,\lVert \mathbf{b} \rVert = \sqrt{3}\sqrt{3} = 3$ : on a bien $2 \le 3$.
+Exemple : $\mathbf{a} = (1, 1, 0, 1)$ et $\mathbf{b} = (1, 0, 1, 1)$. $\mathbf{a} \cdot \mathbf{b} = 1 + 0 + 0 + 1 = 2$ et $\lVert \mathbf{a} \rVert\thinspace\lVert \mathbf{b} \rVert = \sqrt{3}\sqrt{3} = 3$ : on a bien $2 \le 3$.
 
 Une conséquence utile : avec $\mathbf{v} = (1, 1, \ldots, 1)$, Cauchy-Schwarz donne $\big(\sum_i x_i\big)^2 \le n \sum_i x_i^2$ ; autrement dit, le carré de la moyenne ne dépasse pas la moyenne des carrés, $\bar{x}^2 \le \overline{x^2}$, ce qui redit qu'une variance $\overline{x^2} - \bar{x}^2$ n'est jamais négative (M02c).
 
 ### Angle et similarité cosinus
 
-Puisque $-1 \le \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert} \le 1$ pour deux vecteurs non nuls, ce nombre est le cosinus d'un unique angle $\theta \in [0, \pi]$. C'est la définition de l'**angle** entre deux vecteurs de $\mathbb{R}^n$ :
+Puisque $-1 \le \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert} \le 1$ pour deux vecteurs non nuls, ce nombre est le cosinus d'un unique angle $\theta \in [0, \pi]$. C'est la définition de l'**angle** entre deux vecteurs de $\mathbb{R}^n$ :
 
-$$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert}, \qquad \theta = \arccos\frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert}.$$
+$$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert}, \qquad \theta = \arccos\frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert}.$$
 
 En dimension 2 ou 3, elle donne l'angle de R9. Pour $\mathbf{a}$ et $\mathbf{b}$ ci-dessus : $\cos\theta = \frac{2}{3}$ et $\theta \approx 48{,}19°$.
 
@@ -250,20 +250,20 @@ Deux vecteurs non nuls de coordonnées toutes positives ou nulles ont un produit
 
 La droite qui passe par l'origine et dirigée par un vecteur non nul $\mathbf{u}$ est l'ensemble des multiples $t\mathbf{u}$. La **projection orthogonale** (*orthogonal projection*) de $\mathbf{x}$ sur cette droite est le multiple $\mathbf{p} = t\mathbf{u}$ tel que le reste $\mathbf{x} - \mathbf{p}$ soit orthogonal à $\mathbf{u}$. La condition $(\mathbf{x} - t\mathbf{u}) \cdot \mathbf{u} = 0$ donne $t = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}$, d'où
 
-$$\mathbf{p} = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\,\mathbf{u}.$$
+$$\mathbf{p} = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\thinspace\mathbf{u}.$$
 
 C'est la formule de R9, valable en toute dimension. Exemple : $\mathbf{x} = (3, 1, 2)$ et $\mathbf{u} = (1, 1, 0)$. $\mathbf{x} \cdot \mathbf{u} = 4$ et $\mathbf{u} \cdot \mathbf{u} = 2$, donc $\mathbf{p} = 2\mathbf{u} = (2, 2, 0)$. Le reste $\mathbf{x} - \mathbf{p} = (1, -1, 2)$ vérifie $(1, -1, 2) \cdot (1, 1, 0) = 0$.
 
 Trois propriétés :
 - **Pythagore** : $\mathbf{x} = \mathbf{p} + (\mathbf{x} - \mathbf{p})$ avec deux termes orthogonaux, donc $\lVert \mathbf{x} \rVert^2 = \lVert \mathbf{p} \rVert^2 + \lVert \mathbf{x} - \mathbf{p} \rVert^2$ ; ici $14 = 8 + 6$ ;
 - **le point le plus proche** : $\mathbf{p}$ est le point de la droite le plus proche de $\mathbf{x}$, car pour tout autre point $t\mathbf{u}$, $\lVert \mathbf{x} - t\mathbf{u} \rVert^2 = \lVert \mathbf{x} - \mathbf{p} \rVert^2 + \lVert \mathbf{p} - t\mathbf{u} \rVert^2$ (Pythagore encore) ;
-- **seule compte la direction** : remplacer $\mathbf{u}$ par $3\mathbf{u}$ ou $-\mathbf{u}$ ne change pas $\mathbf{p}$ (les facteurs se simplifient). Avec un vecteur **unitaire** $\mathbf{u}$, la formule se simplifie en $\mathbf{p} = (\mathbf{x} \cdot \mathbf{u})\,\mathbf{u}$, et le nombre $\mathbf{x} \cdot \mathbf{u}$ est la **composante** de $\mathbf{x}$ le long de $\mathbf{u}$ (une longueur avec un signe).
+- **seule compte la direction** : remplacer $\mathbf{u}$ par $3\mathbf{u}$ ou $-\mathbf{u}$ ne change pas $\mathbf{p}$ (les facteurs se simplifient). Avec un vecteur **unitaire** $\mathbf{u}$, la formule se simplifie en $\mathbf{p} = (\mathbf{x} \cdot \mathbf{u})\thinspace\mathbf{u}$, et le nombre $\mathbf{x} \cdot \mathbf{u}$ est la **composante** de $\mathbf{x}$ le long de $\mathbf{u}$ (une longueur avec un signe).
 
 ![La projection de x sur la droite dirigée par u : le reste est orthogonal à u, et p est le point de la droite le plus proche de x](figures/projection.png)
 
 **En machine learning.** Une projection garde la partie d'un vecteur qui va « dans une direction » et jette le reste. L'ACP (workbookIA 12, M12d) projette les données sur les directions où elles varient le plus ; la régression linéaire (M09b) projette le vecteur des cibles sur l'ensemble des prédictions possibles.
 
-⚠️ **Erreur classique.** Diviser par $\lVert \mathbf{u} \rVert$ au lieu de $\lVert \mathbf{u} \rVert^2$ dans la projection. La formule $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}$ donne la composante (un nombre) ; le vecteur projeté demande $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\,\mathbf{u}$, ou la composante fois le vecteur **unitaire**.
+⚠️ **Erreur classique.** Diviser par $\lVert \mathbf{u} \rVert$ au lieu de $\lVert \mathbf{u} \rVert^2$ dans la projection. La formule $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}$ donne la composante (un nombre) ; le vecteur projeté demande $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\thinspace\mathbf{u}$, ou la composante fois le vecteur **unitaire**.
 
 ## §5 · Hyperplans et demi-espaces
 
@@ -271,7 +271,7 @@ Trois propriétés :
 
 Dans le plan, une droite a une équation $ax + by + c = 0$, et $(a ; b)$ est un vecteur normal (R9). La même écriture marche en dimension $n$ : pour un vecteur non nul $\mathbf{w} \in \mathbb{R}^n$ et un nombre $b$, l'ensemble
 
-$$H = \{\mathbf{x} \in \mathbb{R}^n : \mathbf{w} \cdot \mathbf{x} + b = 0\}$$
+$$H = \lbrace\mathbf{x} \in \mathbb{R}^n : \mathbf{w} \cdot \mathbf{x} + b = 0\rbrace$$
 
 est un **hyperplan** (*hyperplane*) : une droite dans le plan, un plan dans l'espace, et, en dimension $n$, un « plan » de dimension $n - 1$, qui ne laisse qu'un degré de liberté de moins que l'espace. Le vecteur $\mathbf{w}$ est **normal** à $H$ (*normal vector*) : il est orthogonal à tout vecteur qui joint deux points de $H$, car si $\mathbf{w} \cdot \mathbf{x} + b = 0$ et $\mathbf{w} \cdot \mathbf{y} + b = 0$, la différence donne $\mathbf{w} \cdot (\mathbf{x} - \mathbf{y}) = 0$.
 
@@ -287,7 +287,7 @@ Un hyperplan coupe l'espace en deux **demi-espaces** (*half-spaces*) : celui où
 
 > **Distance d'un point à un hyperplan.** La distance de $\mathbf{x}$ à l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ vaut
 > $$d(\mathbf{x}, H) = \frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert},$$
-> et le point de $H$ le plus proche de $\mathbf{x}$ est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$.
+> et le point de $H$ le plus proche de $\mathbf{x}$ est $\mathbf{x} - \frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert^2}\thinspace\mathbf{w}$.
 
 L'idée : pour aller de $\mathbf{x}$ à l'hyperplan par le plus court chemin, on se déplace le long de la normale $\mathbf{w}$, et le coefficient se trouve en écrivant que le point d'arrivée vérifie l'équation de $H$ (M07.17 le démontre, et montre que tout autre point de $H$ est plus loin). Sans la valeur absolue, $\frac{\mathbf{w} \cdot \mathbf{x} + b}{\lVert \mathbf{w} \rVert}$ est la **distance signée** : positive du côté de $\mathbf{w}$, négative de l'autre.
 
@@ -320,7 +320,7 @@ Pour les quatre points $(1, 2)$, $(3, 0)$, $(4, 4)$ et $(0, 2)$ du plan : $\bar{
 L'**inertie** (*inertia*) du nuage autour d'un point $\mathbf{c}$ est la somme des carrés des distances, $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2$. Autour du barycentre $(2, 2)$ de l'exemple, elle vaut $1 + 5 + 8 + 4 = 18$ ; autour de l'origine, $5 + 9 + 32 + 4 = 50$.
 
 > **Formule de König-Huygens.** Pour tout point $\mathbf{c}$,
-> $$\sum_{i=1}^{m} \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_{i=1}^{m} \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2.$$
+> $$\sum_{i=1}^{m} \lVert \mathbf{x} _i - \mathbf{c} \rVert^2 = \sum _{i=1}^{m} \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2.$$
 > L'inertie est donc la plus petite en $\mathbf{c} = \bar{\mathbf{x}}$, et seulement là.
 
 Vérification : $18 + 4 \times \lVert (2, 2) \rVert^2 = 18 + 4 \times 8 = 50$. L'idée de la preuve : on écrit $\mathbf{x}_i - \mathbf{c} = (\mathbf{x}_i - \bar{\mathbf{x}}) + (\bar{\mathbf{x}} - \mathbf{c})$, on développe le carré de la norme (§2), et les doubles produits disparaissent, parce que $\sum_i (\mathbf{x}_i - \bar{\mathbf{x}}) = \mathbf{0}$ (M07.16 rédige la démonstration, et la refait avec le gradient de M05b). En dimension 1, c'est le résultat de workbookIA 0B : la moyenne minimise la somme des carrés des écarts. Avec des poids, le minimum est atteint au barycentre pondéré.
@@ -341,7 +341,7 @@ Sans labels, **k-means** cherche $k$ groupes, ou **clusters**, chacun représent
 
 Exemple d'affectation, avec les centres $(0, 1)$ et $(4, 2)$ : le point $(1, 0)$ est à la distance au carré $1 + 1 = 2$ du premier et $9 + 4 = 13$ du second, il rejoint le premier ; le point $(5, 1)$ est à 25 et 2, il rejoint le second.
 
-La qualité d'un découpage se mesure par son **inertie** : la somme, sur tous les points, des carrés des distances à leur centre, $J = \sum_i \lVert \mathbf{x}_i - \boldsymbol{\mu}_{c_i} \rVert^2$, où $c_i$ est le cluster du point $i$. **Aucune des deux étapes ne peut augmenter $J$** : l'affectation choisit pour chaque point le centre qui rend son terme le plus petit, et la mise à jour place chaque centre au point qui minimise la somme des carrés des distances de son cluster, le barycentre, par König-Huygens. L'inertie ne fait donc que baisser ou stagner, et l'algorithme s'arrête quand les affectations ne changent plus (M07.18 le démontre). Mais il s'arrête sur un **minimum local** : depuis de mauvais centres de départ, il peut rester bloqué sur un découpage médiocre.
+La qualité d'un découpage se mesure par son **inertie** : la somme, sur tous les points, des carrés des distances à leur centre, $J = \sum_i \lVert \mathbf{x} _i - \boldsymbol{\mu} _{c_i} \rVert^2$, où $c_i$ est le cluster du point $i$. **Aucune des deux étapes ne peut augmenter $J$** : l'affectation choisit pour chaque point le centre qui rend son terme le plus petit, et la mise à jour place chaque centre au point qui minimise la somme des carrés des distances de son cluster, le barycentre, par König-Huygens. L'inertie ne fait donc que baisser ou stagner, et l'algorithme s'arrête quand les affectations ne changent plus (M07.18 le démontre). Mais il s'arrête sur un **minimum local** : depuis de mauvais centres de départ, il peut rester bloqué sur un découpage médiocre.
 
 ### Juger un découpage : la silhouette
 
@@ -353,7 +353,7 @@ La première ne compte pas le point lui-même ; la seconde retient, parmi les au
 
 $$s(i) = \frac{b(i) - a(i)}{\max\big(a(i), b(i)\big)} \in [-1, 1].$$
 
-Le signe de $s(i)$ est celui de $b(i) - a(i)$ : positif quand $i$ est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négatif dans le cas contraire. Quand $b(i) \ge a(i)$, $s(i) = 1 - \frac{a(i)}{b(i)}$, qui approche 1 quand $a(i)$ est petit devant $b(i)$. Un cluster d'un seul point n'a pas de $a(i)$ : on pose alors $s(i) = 0$. Exemple : les clusters $\{(0, 0), (0, 2)\}$ et $\{(3, 0), (4, 1)\}$. Pour $(0, 0)$ : $a = 2$, $b = \frac{3 + \sqrt{17}}{2} \approx 3{,}562$, d'où $s \approx \frac{1{,}562}{3{,}562} \approx 0{,}438$. La moyenne des $s(i)$ sur tous les points résume le découpage en un seul nombre.
+Le signe de $s(i)$ est celui de $b(i) - a(i)$ : positif quand $i$ est en moyenne plus près des points de son cluster que de ceux du cluster voisin, négatif dans le cas contraire. Quand $b(i) \ge a(i)$, $s(i) = 1 - \frac{a(i)}{b(i)}$, qui approche 1 quand $a(i)$ est petit devant $b(i)$. Un cluster d'un seul point n'a pas de $a(i)$ : on pose alors $s(i) = 0$. Exemple : les clusters $\lbrace(0, 0), (0, 2)\rbrace$ et $\lbrace(3, 0), (4, 1)\rbrace$. Pour $(0, 0)$ : $a = 2$, $b = \frac{3 + \sqrt{17}}{2} \approx 3{,}562$, d'où $s \approx \frac{1{,}562}{3{,}562} \approx 0{,}438$. La moyenne des $s(i)$ sur tous les points résume le découpage en un seul nombre.
 
 ### Bien partir : k-means++
 
@@ -375,13 +375,13 @@ Au-delà de trois dimensions, l'intuition du plan et de l'espace trompe. Quelque
 
 La diagonale du cube unité $[0, 1]^n$ va de $\mathbf{0}$ à $\mathbf{1} = (1, \ldots, 1)$ : sa longueur vaut $\lVert \mathbf{1} \rVert = \sqrt{n}$. Elle grandit sans limite, alors que chaque arête reste de longueur 1. L'angle $\theta_n$ entre la diagonale et un axe vérifie
 
-$$\cos\theta_n = \frac{\mathbf{1} \cdot \mathbf{e}_1}{\lVert \mathbf{1} \rVert\,\lVert \mathbf{e}_1 \rVert} = \frac{1}{\sqrt{n}} :$$
+$$\cos\theta_n = \frac{\mathbf{1} \cdot \mathbf{e}_1}{\lVert \mathbf{1} \rVert\thinspace\lVert \mathbf{e}_1 \rVert} = \frac{1}{\sqrt{n}} :$$
 
 45° en dimension 2, 54,7° en dimension 3, 84,3° en dimension 100, et la limite est 90°. En grande dimension, la diagonale est presque **perpendiculaire** à tous les axes à la fois.
 
 ### Deux directions au hasard sont presque orthogonales
 
-Tirons deux vecteurs $\mathbf{X}$ et $\mathbf{Y}$ de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 1)$. Leur produit scalaire $\sum_i X_i Y_i$ est une somme de $n$ termes indépendants, d'espérance 0 et de variance 1 (M02b) : il est de l'ordre de $\sqrt{n}$, alors que chaque norme est de l'ordre de $\sqrt{n}$ aussi (ci-dessous). Leur cosinus est donc de l'ordre de $\frac{\sqrt{n}}{\sqrt{n}\,\sqrt{n}} = \frac{1}{\sqrt{n}}$ : une simulation donne un écart-type d'environ 0,58 en dimension 3, 0,18 en dimension 30, et 0,018 en dimension 3 000. En grande dimension, deux directions prises au hasard font presque toujours un angle proche de 90°. On peut ainsi loger dans $\mathbb{R}^{1000}$ des milliers de directions presque orthogonales deux à deux, beaucoup plus que les 1 000 vecteurs de la base canonique.
+Tirons deux vecteurs $\mathbf{X}$ et $\mathbf{Y}$ de $\mathbb{R}^n$ dont les coordonnées sont des variables indépendantes de loi $\mathcal{N}(0, 1)$. Leur produit scalaire $\sum_i X_i Y_i$ est une somme de $n$ termes indépendants, d'espérance 0 et de variance 1 (M02b) : il est de l'ordre de $\sqrt{n}$, alors que chaque norme est de l'ordre de $\sqrt{n}$ aussi (ci-dessous). Leur cosinus est donc de l'ordre de $\frac{\sqrt{n}}{\sqrt{n}\thinspace\sqrt{n}} = \frac{1}{\sqrt{n}}$ : une simulation donne un écart-type d'environ 0,58 en dimension 3, 0,18 en dimension 30, et 0,018 en dimension 3 000. En grande dimension, deux directions prises au hasard font presque toujours un angle proche de 90°. On peut ainsi loger dans $\mathbb{R}^{1000}$ des milliers de directions presque orthogonales deux à deux, beaucoup plus que les 1 000 vecteurs de la base canonique.
 
 ### La norme d'un vecteur gaussien
 
@@ -391,7 +391,7 @@ M02c (§9) l'a déjà rencontrée. Pour $\mathbf{X}$ comme ci-dessus, $\mathbb{E
 
 ### Les distances entre points tirés au hasard
 
-Tirons maintenant deux vecteurs gaussiens $\mathbf{X}$ et $\mathbf{Y}$ indépendants. Chaque coordonnée de $\mathbf{X} - \mathbf{Y}$ est la différence de deux variables indépendantes de loi $\mathcal{N}(0, 1)$, donc de loi $\mathcal{N}(0, 2)$ (M02b) : $\mathbf{X} - \mathbf{Y}$ a la loi de $\sqrt{2}\,\mathbf{Z}$, pour un vecteur gaussien $\mathbf{Z}$. Sa norme, la distance entre les deux points, vaut donc environ $\sqrt{2n}$, à environ $\sqrt{2} \times 0{,}71 \approx 1$ près, quelle que soit la dimension. Rapportées à leur taille, les distances entre points tirés ainsi sont presque toutes égales : c'est la **concentration des distances**. WorkbookIA 7 rassemble ces surprises sous le nom de **malédiction de la dimension** (*curse of dimensionality*), en tire les conséquences pour les méthodes fondées sur les distances, et discute ce qui change pour de vraies données.
+Tirons maintenant deux vecteurs gaussiens $\mathbf{X}$ et $\mathbf{Y}$ indépendants. Chaque coordonnée de $\mathbf{X} - \mathbf{Y}$ est la différence de deux variables indépendantes de loi $\mathcal{N}(0, 1)$, donc de loi $\mathcal{N}(0, 2)$ (M02b) : $\mathbf{X} - \mathbf{Y}$ a la loi de $\sqrt{2}\thinspace\mathbf{Z}$, pour un vecteur gaussien $\mathbf{Z}$. Sa norme, la distance entre les deux points, vaut donc environ $\sqrt{2n}$, à environ $\sqrt{2} \times 0{,}71 \approx 1$ près, quelle que soit la dimension. Rapportées à leur taille, les distances entre points tirés ainsi sont presque toutes égales : c'est la **concentration des distances**. WorkbookIA 7 rassemble ces surprises sous le nom de **malédiction de la dimension** (*curse of dimensionality*), en tire les conséquences pour les méthodes fondées sur les distances, et discute ce qui change pour de vraies données.
 
 🔗 **Dans workbookIA** — le chapitre 7 mesure la densité des échantillons, les bizarreries de la grande dimension et la concentration des distances ; les *embeddings* des chapitres bonus vivent dans des espaces de centaines de dimensions, où l'on compare des cosinus.
 
@@ -406,7 +406,7 @@ Tirons maintenant deux vecteurs gaussiens $\mathbf{X}$ et $\mathbf{Y}$ indépend
 | $\lVert \mathbf{u} + \mathbf{v} \rVert = \lVert \mathbf{u} \rVert + \lVert \mathbf{v} \rVert$ | seulement pour deux vecteurs de même direction et de même sens ; en général, développer $\lVert \mathbf{u} + \mathbf{v} \rVert^2$ |
 | Une formule $L^p$ avec $p < 1$ prise pour une norme | elle viole l'inégalité triangulaire |
 | Des distances entre features d'unités différentes | standardiser chaque colonne d'abord |
-| La projection divisée par $\lVert \mathbf{u} \rVert$ | $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\,\mathbf{u}$, ou la composante fois le vecteur unitaire |
+| La projection divisée par $\lVert \mathbf{u} \rVert$ | $\frac{\mathbf{x} \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert^2}\thinspace\mathbf{u}$, ou la composante fois le vecteur unitaire |
 | Le score $\mathbf{w} \cdot \mathbf{x} + b$ pris pour une distance | le diviser par $\lVert \mathbf{w} \rVert$ |
 | $(\mathbf{w}, b)$ et $(-\mathbf{w}, -b)$ jugés identiques en tout | même hyperplan, côtés échangés |
 | L'inertie calculée avec les distances, sans les carrés | la somme des **carrés** des distances : c'est elle que minimise le barycentre |

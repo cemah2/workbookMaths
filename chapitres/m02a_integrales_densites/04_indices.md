@@ -142,7 +142,7 @@ $P(X \le a) = F(a)$, $P(X > a) = 1 - F(a)$, $P(a < X \le b) = F(b) - F(a)$ ; la 
 
 <details><summary>Indice 1</summary>
 
-Relis la règle de la chaîne (R7) : $(g(u(x)))' = g'(u(x))\,u'(x)$.
+Relis la règle de la chaîne (R7) : $(g(u(x)))' = g'(u(x))\thinspace u'(x)$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -210,7 +210,7 @@ Commence par le tableau des valeurs de $f(x) = (2 - x)^3$ aux points $0$ ; $0{,}
 </details>
 <details><summary>Indice 3</summary>
 
-g : écris $L_n$ et $R_n$ l'une sous l'autre : tous les termes sont communs sauf $h\,f(0)$ et $h\,f(2)$, et $h = \frac{2}{n}$. h : $f$ est décroissante.
+g : écris $L_n$ et $R_n$ l'une sous l'autre : tous les termes sont communs sauf $h\thinspace f(0)$ et $h\thinspace f(2)$, et $h = \frac{2}{n}$. h : $f$ est décroissante.
 
 </details>
 
@@ -254,7 +254,7 @@ e : $x^2 - 2x = x(x - 2)$ change de signe en 0. g : sur $[0 ; 2]$, laquelle des 
 
 <details><summary>Indice 1</summary>
 
-Relis « Intégration par parties » (fiche §3) et son exemple $\int_0^1 x\,e^{-x}\,dx$.
+Relis « Intégration par parties » (fiche §3) et son exemple $\int_0^1 x\thinspace e^{-x}\thinspace dx$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -277,7 +277,7 @@ Relis « Changement de variable » (fiche §3) et son exemple.
 </details>
 <details><summary>Indice 2</summary>
 
-Repère une expression $g(x)$ dont la dérivée apparaît en facteur ; pose $u = g(x)$, remplace $g'(x)\,dx$ par $du$, et change les bornes.
+Repère une expression $g(x)$ dont la dérivée apparaît en facteur ; pose $u = g(x)$, remplace $g'(x)\thinspace dx$ par $du$, et change les bornes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -326,7 +326,7 @@ b : $\frac{0{,}5}{3}(4 + 4 \times 3{,}2 + 2)$, à écrire en fraction. e : divis
 
 <details><summary>Indice 1</summary>
 
-Relis « Définition » (fiche §6) et l'exemple de $c\,(1 - x^2)$.
+Relis « Définition » (fiche §6) et l'exemple de $c\thinspace(1 - x^2)$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -336,7 +336,7 @@ Calcule l'intégrale sans la constante, puis choisis $c$ pour que $c \times$ (ce
 </details>
 <details><summary>Indice 3</summary>
 
-b : $\int_0^{+\infty} e^{-2x}\,dx = \frac{1}{2}$ (fiche §4). e : regarde le signe de $g$ en $x = 0{,}5$. g : avec $c = \frac{1}{8}$, une primitive de $\frac{x}{8}$ est $\frac{x^2}{16}$.
+b : $\int_0^{+\infty} e^{-2x}\thinspace dx = \frac{1}{2}$ (fiche §4). e : regarde le signe de $g$ en $x = 0{,}5$. g : avec $c = \frac{1}{8}$, une primitive de $\frac{x}{8}$ est $\frac{x^2}{16}$.
 
 </details>
 
@@ -349,7 +349,7 @@ Relis le §6 (probabilité d'un intervalle) et « La valeur moyenne d'une foncti
 </details>
 <details><summary>Indice 2</summary>
 
-Pour $X$, une primitive de $\frac{3}{8}x^2$ est $\frac{x^3}{8}$. Pour $T$, une primitive de $0{,}2\,e^{-0{,}2t}$ est $-e^{-0{,}2t}$. Valeur moyenne : l'intégrale divisée par la longueur de l'intervalle.
+Pour $X$, une primitive de $\frac{3}{8}x^2$ est $\frac{x^3}{8}$. Pour $T$, une primitive de $0{,}2\thinspace e^{-0{,}2t}$ est $-e^{-0{,}2t}$. Valeur moyenne : l'intégrale divisée par la longueur de l'intervalle.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -367,7 +367,7 @@ Relis « La fonction de répartition » et « Quantiles, médiane, percentiles �
 </details>
 <details><summary>Indice 2</summary>
 
-$F(x) = \int_1^x \frac{2}{t^3}\,dt$ ; un quantile se trouve en résolvant $F(x) = p$. Pour $D$, $F(t) = 1 - e^{-0{,}25t}$.
+$F(x) = \int_1^x \frac{2}{t^3}\thinspace dt$ ; un quantile se trouve en résolvant $F(x) = p$. Pour $D$, $F(t) = 1 - e^{-0{,}25t}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -487,7 +487,7 @@ Relis « Trois conséquences qui surprennent » (fiche §6), la deuxième.
 </details>
 <details><summary>Indice 2</summary>
 
-La densité est une probabilité par unité de longueur : $P(x \le X \le x + h) \approx f(x)\,h$.
+La densité est une probabilité par unité de longueur : $P(x \le X \le x + h) \approx f(x)\thinspace h$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -509,7 +509,7 @@ Relis les formules de $L_n$, $R_n$, $M_n$ (fiche §1) et de $T_n$ (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-Les trois règles ne diffèrent que par le point où l'on lit la hauteur : $a + (i + \text{décalage})\,h$, avec un décalage de 0, 1 ou 0,5. Teste `n` et `rule` avant de calculer.
+Les trois règles ne diffèrent que par le point où l'on lit la hauteur : $a + (i + \text{décalage})\thinspace h$, avec un décalage de 0, 1 ou 0,5. Teste `n` et `rule` avant de calculer.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -604,7 +604,7 @@ Relis « L'intégrale de Gauss » (fiche §4) et M02a.19 pour `quad`.
 </details>
 <details><summary>Indice 3</summary>
 
-b : `next(B for B in bounds if abs(I(B) - gauss) < 1e-6)`. Pour la borne de la copie : $\int_B^{+\infty} e^{-Bx}\,dx = \frac{e^{-B^2}}{B}$.
+b : `next(B for B in bounds if abs(I(B) - gauss) < 1e-6)`. Pour la borne de la copie : $\int_B^{+\infty} e^{-Bx}\thinspace dx = \frac{e^{-B^2}}{B}$.
 
 </details>
 
@@ -676,6 +676,6 @@ Pour aller plus loin, abandonne les points réguliers : la quadrature de Gauss-L
 </details>
 <details><summary>Indice 3</summary>
 
-Changement de variable affine (§3) : $x = \frac{a + b}{2} + \frac{b - a}{2}t$, donc $\int_a^b f(x)\,dx = \frac{b - a}{2}\int_{-1}^1 f\big(\tfrac{a + b}{2} + \tfrac{b - a}{2}t\big)\,dt \approx \frac{b - a}{2}\sum_i w_i\,f\big(\tfrac{a + b}{2} + \tfrac{b - a}{2}t_i\big)$.
+Changement de variable affine (§3) : $x = \frac{a + b}{2} + \frac{b - a}{2}t$, donc $\int_a^b f(x)\thinspace dx = \frac{b - a}{2}\int_{-1}^1 f\big(\tfrac{a + b}{2} + \tfrac{b - a}{2}t\big)\thinspace dt \approx \frac{b - a}{2}\sum_i w_i\thinspace f\big(\tfrac{a + b}{2} + \tfrac{b - a}{2}t_i\big)$.
 
 </details>

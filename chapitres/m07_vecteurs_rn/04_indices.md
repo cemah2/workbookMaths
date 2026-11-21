@@ -22,7 +22,7 @@ Un exemple décrit par $n$ nombres est un vecteur de $\mathbb{R}^n$ ; on additio
 </details>
 <details><summary>Indice 3</summary>
 
-3 : calcule d'abord $2\,(1, 0, -3)$. 6 : les coefficients devant $\mathbf{e}_1$, $\mathbf{e}_2$, $\mathbf{e}_3$ sont les coordonnées elles-mêmes.
+3 : calcule d'abord $2\thinspace(1, 0, -3)$. 6 : les coefficients devant $\mathbf{e}_1$, $\mathbf{e}_2$, $\mathbf{e}_3$ sont les coordonnées elles-mêmes.
 
 </details>
 
@@ -71,12 +71,12 @@ Relis « L'inégalité de Cauchy-Schwarz » et « Angle et similarité cosinus �
 </details>
 <details><summary>Indice 2</summary>
 
-$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert}$ ; regarde ce que devient chaque morceau quand on multiplie $\mathbf{u}$ par un nombre $\lambda$, positif ou négatif.
+$\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert}$ ; regarde ce que devient chaque morceau quand on multiplie $\mathbf{u}$ par un nombre $\lambda$, positif ou négatif.
 
 </details>
 <details><summary>Indice 3</summary>
 
-2 : $\lVert -10\,\mathbf{u} \rVert = 10\,\lVert \mathbf{u} \rVert$, mais le produit scalaire change de signe. 6 : compare $\mathbf{u}$ et $2\mathbf{u}$.
+2 : $\lVert -10\thinspace\mathbf{u} \rVert = 10\thinspace\lVert \mathbf{u} \rVert$, mais le produit scalaire change de signe. 6 : compare $\mathbf{u}$ et $2\mathbf{u}$.
 
 </details>
 
@@ -130,7 +130,7 @@ La diagonale du cube unité de $\mathbb{R}^n$ mesure $\sqrt{n}$ ; son cosinus av
 </details>
 <details><summary>Indice 3</summary>
 
-3 : $\frac{1}{\sqrt{10\,000}}$. 4 : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2]$. 5 : pour que $\frac{1}{\sqrt{n}}$ soit 10 fois plus petit, par combien faut-il multiplier $\sqrt{n}$ ? 6 : la norme au carré est la somme des $n$ carrés des coordonnées.
+3 : $\frac{1}{\sqrt{10\thinspace000}}$. 4 : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = \sum_i \mathbb{E}[X_i^2]$. 5 : pour que $\frac{1}{\sqrt{n}}$ soit 10 fois plus petit, par combien faut-il multiplier $\sqrt{n}$ ? 6 : la norme au carré est la somme des $n$ carrés des coordonnées.
 
 </details>
 
@@ -147,7 +147,7 @@ Relis R9 (produit scalaire dans le plan, angle, vecteur unitaire).
 </details>
 <details><summary>Indice 2</summary>
 
-$(x ; y) \cdot (x' ; y') = xx' + yy'$, $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert}$, et le vecteur unitaire de même sens que $\mathbf{u}$ est $\frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}$.
+$(x ; y) \cdot (x' ; y') = xx' + yy'$, $\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert}$, et le vecteur unitaire de même sens que $\mathbf{u}$ est $\frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -223,12 +223,12 @@ Relis « Définition » et « Développer une norme au carré » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\lVert \mathbf{u} + \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert^2 + 2\,\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert^2$, et avec un signe moins pour $\lVert \mathbf{u} - \mathbf{v} \rVert^2$.
+$\lVert \mathbf{u} + \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert^2 + 2\thinspace\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert^2$, et avec un signe moins pour $\lVert \mathbf{u} - \mathbf{v} \rVert^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-d) Développe $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v})$ par linéarité : quatre termes, dont deux égaux. e) Écris $(\mathbf{u} + t\,\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\,\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
+d) Développe $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v})$ par linéarité : quatre termes, dont deux égaux. e) Écris $(\mathbf{u} + t\thinspace\mathbf{v}) \cdot \mathbf{v} = 0$ et développe. f) Soustrais les deux développements : il reste $4\thinspace\mathbf{a} \cdot \mathbf{b}$. g) L'égalité dit seulement $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$.
 
 </details>
 
@@ -259,7 +259,7 @@ Relis « Angle et similarité cosinus » (fiche §4) et « Distances » (fiche �
 </details>
 <details><summary>Indice 2</summary>
 
-$\cos = \frac{A \cdot C}{\lVert A \rVert\,\lVert C \rVert}$ ; l'angle est son arccosinus, en degrés. Regarde bien $E$ : que vaut $E$ en fonction de $A$ ?
+$\cos = \frac{A \cdot C}{\lVert A \rVert\thinspace\lVert C \rVert}$ ; l'angle est son arccosinus, en degrés. Regarde bien $E$ : que vaut $E$ en fonction de $A$ ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -277,7 +277,7 @@ Relis « Projeter sur une droite » (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{p} = t\,\mathbf{u}$ avec $t = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}$ ; le reste $\mathbf{r} = \mathbf{x} - \mathbf{p}$ est orthogonal à $\mathbf{u}$.
+$\mathbf{p} = t\thinspace\mathbf{u}$ avec $t = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}$ ; le reste $\mathbf{r} = \mathbf{x} - \mathbf{p}$ est orthogonal à $\mathbf{u}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -300,7 +300,7 @@ Le vecteur normal se lit sur les coefficients de $x$, $y$, $z$ ; la distance sig
 </details>
 <details><summary>Indice 3</summary>
 
-En $B$, l'expression vaut 3. g) Pars de $B$ et recule de $\frac{3}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$ (le point $\mathbf{x}_H$ de M07.17). h) Écris que $B$ vérifie la nouvelle équation.
+En $B$, l'expression vaut 3. g) Pars de $B$ et recule de $\frac{3}{\lVert \mathbf{w} \rVert^2}\thinspace\mathbf{w}$ (le point $\mathbf{x}_H$ de M07.17). h) Écris que $B$ vérifie la nouvelle équation.
 
 </details>
 
@@ -331,12 +331,12 @@ Relis « Le barycentre d'un nuage de points » et « La moyenne minimise la somm
 </details>
 <details><summary>Indice 2</summary>
 
-König-Huygens : $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$.
+König-Huygens : $\sum_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + m\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le barycentre est $(2, 1)$ et l'inertie autour de lui vaut 20. g) Les cinq anciens points, autour du nouveau barycentre $(3, 2)$ : $20 + 5\,\lVert (2, 1) - (3, 2) \rVert^2$ ; ajoute le carré de la distance du sixième point.
+Le barycentre est $(2, 1)$ et l'inertie autour de lui vaut 20. g) Les cinq anciens points, autour du nouveau barycentre $(3, 2)$ : $20 + 5\thinspace\lVert (2, 1) - (3, 2) \rVert^2$ ; ajoute le carré de la distance du sixième point.
 
 </details>
 
@@ -421,7 +421,7 @@ Relis « La norme d'un vecteur gaussien » (fiche §7), M02c §9 (le même calcu
 </details>
 <details><summary>Indice 2</summary>
 
-a) Par parties, avec $u = z^3$ et $v' = z\,\varphi(z)$, donc $v = -\varphi(z)$. b) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2$. c) et d) $X_i^2 = 9Z_i^2$ : son espérance est 9 fois celle de $Z^2$, sa variance 81 fois celle de $Z^2$.
+a) Par parties, avec $u = z^3$ et $v' = z\thinspace\varphi(z)$, donc $v = -\varphi(z)$. b) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2$. c) et d) $X_i^2 = 9Z_i^2$ : son espérance est 9 fois celle de $Z^2$, sa variance 81 fois celle de $Z^2$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -461,7 +461,7 @@ Relis « Ce qu'est une norme » (fiche §3) et M07.14.
 </details>
 <details><summary>Indice 2</summary>
 
-1 : majore $\mathbf{u} \cdot \mathbf{v}$ par $\lVert \mathbf{u} \rVert_2\,\lVert \mathbf{v} \rVert_2$ dans le développement, puis reconnais un carré. 2 et 3 : travaille coordonnée par coordonnée.
+1 : majore $\mathbf{u} \cdot \mathbf{v}$ par $\lVert \mathbf{u} \rVert_2\thinspace\lVert \mathbf{v} \rVert_2$ dans le développement, puis reconnais un carré. 2 et 3 : travaille coordonnée par coordonnée.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -484,7 +484,7 @@ Développe $\lVert (\mathbf{x}_i - \bar{\mathbf{x}}) + (\bar{\mathbf{x}} - \math
 </details>
 <details><summary>Indice 3</summary>
 
-3 : seul le terme $m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ dépend de $\mathbf{c}$. 4 : $\sum_i \omega_i (\mathbf{x}_i - \bar{\mathbf{x}}_\omega) = \mathbf{0}$. 5 : $J(\mathbf{c}) = \sum_i \sum_j (x_{ij} - c_j)^2$, dérive par rapport à $c_j$.
+3 : seul le terme $m\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$ dépend de $\mathbf{c}$. 4 : $\sum_i \omega_i (\mathbf{x} _i - \bar{\mathbf{x}}  _\omega) = \mathbf{0}$. 5 : $J(\mathbf{c}) = \sum_i \sum_j (x _{ij} - c_j)^2$, dérive par rapport à $c_j$.
 
 </details>
 
@@ -497,7 +497,7 @@ Relis « La distance à un hyperplan » (fiche §5) et « Orthogonalité » (fic
 </details>
 <details><summary>Indice 2</summary>
 
-1 : écris que $\mathbf{x}_0 - t\,\mathbf{w}$ vérifie l'équation de $H$, et isole $t$. 3 : deux points de $H$ ont la même valeur de $\mathbf{w} \cdot \mathbf{x}$.
+1 : écris que $\mathbf{x}_0 - t\thinspace\mathbf{w}$ vérifie l'équation de $H$, et isole $t$. 3 : deux points de $H$ ont la même valeur de $\mathbf{w} \cdot \mathbf{x}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -636,7 +636,7 @@ La frontière est l'hyperplan $\mathbf{w} \cdot \mathbf{x} + b = 0$ : quel est s
 </details>
 <details><summary>Indice 3</summary>
 
-Pars d'un point $\mathbf{x}_0$ de la frontière et avance de $\delta\,\frac{\mathbf{w}}{\lVert \mathbf{w} \rVert}$ : calcule le nouveau score. Que relie-t-il, la distance à la frontière et $\lVert \mathbf{w} \rVert$ ?
+Pars d'un point $\mathbf{x}_0$ de la frontière et avance de $\delta\thinspace\frac{\mathbf{w}}{\lVert \mathbf{w} \rVert}$ : calcule le nouveau score. Que relie-t-il, la distance à la frontière et $\lVert \mathbf{w} \rVert$ ?
 
 </details>
 

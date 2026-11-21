@@ -30,8 +30,8 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 *Fiche §2 · parcours C, E*
 
 1. $(2, -5)$ et $(5, 2)$ sont-ils orthogonaux ? orthonormés ?
-2. Les colonnes de $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ forment-elles une base orthonormée de $\mathbb{R}^2$ ?
-3. $\begin{pmatrix} 2 & 0 \\ 0 & 1/2 \end{pmatrix}$ est-elle orthogonale ?
+2. Les colonnes de $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ forment-elles une base orthonormée de $\mathbb{R}^2$ ?
+3. $\begin{pmatrix} 2 & 0 \cr 0 & 1/2 \end{pmatrix}$ est-elle orthogonale ?
 4. Si $\mathbf{Q}$ est orthogonale, que vaut $\mathbf{Q}^{-1}$ ?
 5. Vrai ou faux : une matrice orthogonale conserve les distances entre points.
 6. $\mathbf{Q}$ a la forme $(3, 2)$ et des colonnes orthonormées. Que vaut $\mathbf{Q}^\top\mathbf{Q}$ ? A-t-on $\mathbf{Q}\mathbf{Q}^\top = \mathbf{I}_3$ ?
@@ -41,7 +41,7 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 
 1. À l'étape $k$, que retire-t-on de $\mathbf{a}_k$ ?
 2. Pourquoi divise-t-on $\mathbf{v}_k$ par sa norme ?
-3. Que se passe-t-il si $\mathbf{a}_k$ est une combinaison de $\mathbf{a}_1, \ldots, \mathbf{a}_{k-1}$ ?
+3. Que se passe-t-il si $\mathbf{a}_k$ est une combinaison de $\mathbf{a} _1, \ldots, \mathbf{a} _{k-1}$ ?
 4. Le résultat de Gram-Schmidt sur $\big((3, 0), (1, 2)\big)$ ?
 5. Vrai ou faux : changer l'ordre des vecteurs ne change pas la base orthonormée obtenue.
 6. Vrai ou faux : $\operatorname{Vect}(\mathbf{q}_1, \mathbf{q}_2) = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2)$.
@@ -50,7 +50,7 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 *Fiche §4 · parcours C, E*
 
 1. Le complément orthogonal d'un plan de $\mathbb{R}^3$ est une droite.
-2. $\{\mathbf{0}\}^\perp = \mathbb{R}^n$ et $(\mathbb{R}^n)^\perp = \{\mathbf{0}\}$.
+2. $\lbrace\mathbf{0}\rbrace^\perp = \mathbb{R}^n$ et $(\mathbb{R}^n)^\perp = \lbrace\mathbf{0}\rbrace$.
 3. $U^\perp$ contient tous les vecteurs qui ne sont pas dans $U$.
 4. $(\operatorname{Im}\mathbf{A})^\perp = \ker\mathbf{A}$.
 5. Si $U$ est un sous-espace de dimension 3 de $\mathbb{R}^5$, alors $\dim U^\perp = 2$.
@@ -59,18 +59,18 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 ### M12b.Q5 — Une matrice de projection : sur quoi, et quelles propriétés ? 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
 
-$\mathbf{P} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$.
+$\mathbf{P} = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 0 \end{pmatrix}$.
 1. Sur quel sous-espace $\mathbf{P}$ projette-t-elle ?
 2. Que valent $\mathbf{P}^2$ et $\mathbf{P}^\top$ ?
 3. Sa trace et son rang ?
-4. Sur quoi projette $\frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$ ?
+4. Sur quoi projette $\frac{1}{2}\begin{pmatrix} 1 & 1 \cr 1 & 1 \end{pmatrix}$ ?
 5. Vrai ou faux : une matrice de projection orthogonale autre que $\mathbf{I}$ est inversible.
 6. Vrai ou faux : si $\mathbf{P}$ est une projection orthogonale, $\mathbf{I} - \mathbf{P}$ en est une aussi.
 
 ### M12b.Q6 — Moindres carrés et projection 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C, E*
 
-1. $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^*$ est le projeté de quel vecteur, sur quel sous-espace ?
+1. $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^\ast$ est le projeté de quel vecteur, sur quel sous-espace ?
 2. Le résidu $\mathbf{y} - \hat{\mathbf{y}}$ est orthogonal à quoi ?
 3. Le modèle a une colonne de 1. Que vaut la somme des résidus ?
 4. Si $\mathbf{y} \in \operatorname{Im}\mathbf{X}$, que vaut le résidu ?
@@ -91,12 +91,12 @@ $\mathbf{A}$ a la forme $(5, 3)$ et des colonnes libres ; $\mathbf{A} = \mathbf{
 ### M12b.Q8 — Des fonctions orthogonales 🧠 ★ ⏱️ 4 min
 *Fiche §8 · parcours C*
 
-Avec $\langle f, g \rangle = \int_{-1}^{1} f(x)\,g(x)\,dx$ :
+Avec $\langle f, g \rangle = \int_{-1}^{1} f(x)\thinspace g(x)\thinspace dx$ :
 1. $1$ et $x$ sont-elles orthogonales ?
 2. $x$ et $x^3$ ?
 3. Une fonction paire et une fonction impaire ?
 4. $\lVert 1 \rVert$ ?
-5. Et avec $\langle f, g \rangle = \int_0^1 f(x)\,g(x)\,dx$, $1$ et $x$ sont-elles orthogonales ?
+5. Et avec $\langle f, g \rangle = \int_0^1 f(x)\thinspace g(x)\thinspace dx$, $1$ et $x$ sont-elles orthogonales ?
 6. Pourquoi $\int_{-1}^1 f^2 > 0$ pour une fonction continue $f$ non nulle ?
 
 <a id="rappels"></a>
@@ -117,10 +117,10 @@ $\mathbf{u} = (1, 1, 2)$ et $\mathbf{x} = (1, 3, 4)$.
 ### M12b.R2 — Les équations normales et la matrice chapeau (M09b) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
 
-Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $\mathbf{X} = \begin{pmatrix} 1 & -2 \\ 1 & 0 \\ 1 & 2 \end{pmatrix}$, et $\mathbf{y} = (1, 4, 4)$.
+Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $\mathbf{X} = \begin{pmatrix} 1 & -2 \cr 1 & 0 \cr 1 & 2 \end{pmatrix}$, et $\mathbf{y} = (1, 4, 4)$.
 1. $\mathbf{X}^\top\mathbf{X}$ ?
 2. $\mathbf{X}^\top\mathbf{y}$ ?
-3. Les poids $\mathbf{w}^*$ ?
+3. Les poids $\mathbf{w}^\ast$ ?
 4. Les prédictions $\hat{\mathbf{y}}$ et le résidu ?
 5. La trace de la matrice chapeau $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$ ?
 6. Que valent $\mathbf{H}^2$ et $\mathbf{H}^\top$ ?
@@ -128,7 +128,7 @@ Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $\mathbf{X
 ### M12b.R3 — Base, rang et noyau (M12a) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & 1 \\ 2 & 4 & 1 & 1 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & 1 \cr 2 & 4 & 1 & 1 \end{pmatrix}$.
 1. $\operatorname{rg}(\mathbf{A})$ ?
 2. $\dim\ker\mathbf{A}$ ?
 3. Une base de $\ker\mathbf{A}$ (avec la convention de M12a : une colonne libre à 1, les autres à 0) ?
@@ -148,18 +148,18 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 **Objectif :** vérifier qu'une matrice symétrique définit un produit scalaire, et y calculer normes, angles et orthogonalité.
 **Prérequis :** fiche §1 ; M07 §3 et §4 · **Parcours :** C, E
 
-Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$, avec $\mathbf{M} = \begin{pmatrix} 3 & 1 \\ 1 & 1 \end{pmatrix}$.
+Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$, avec $\mathbf{M} = \begin{pmatrix} 3 & 1 \cr 1 & 1 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | vrai ou faux : $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ est un produit scalaire | `True` ou `False` |
-| b | $\langle \mathbf{e}_1, \mathbf{e}_2 \rangle_{\mathbf{M}}$ | un nombre |
-| c | $\lVert \mathbf{e}_1 \rVert_{\mathbf{M}}$ | un nombre (3 décimales) |
-| d | le cosinus de l'angle entre $\mathbf{e}_1$ et $\mathbf{e}_2$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre (3 décimales) |
+| b | $\langle \mathbf{e}_1, \mathbf{e} _2 \rangle _{\mathbf{M}}$ | un nombre |
+| c | $\lVert \mathbf{e} _1 \rVert _{\mathbf{M}}$ | un nombre (3 décimales) |
+| d | le cosinus de l'angle entre $\mathbf{e}_1$ et $\mathbf{e} _2$ pour $\langle \cdot, \cdot \rangle _{\mathbf{M}}$ | un nombre (3 décimales) |
 | e | $\lVert (2, -1) \rVert_{\mathbf{M}}$ | un nombre |
-| f | vrai ou faux : $(1, -1)$ et $\mathbf{e}_2$ sont orthogonaux pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | `True` ou `False` |
+| f | vrai ou faux : $(1, -1)$ et $\mathbf{e} _2$ sont orthogonaux pour $\langle \cdot, \cdot \rangle _{\mathbf{M}}$ | `True` ou `False` |
 | g | le nombre $k$ tel que $(1, k)$ soit orthogonal à $(1, 1)$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre |
-| h | vrai ou faux : $\mathbf{N} = \begin{pmatrix} 2 & 3 \\ 3 & 4 \end{pmatrix}$ définit aussi un produit scalaire | `True` ou `False` |
+| h | vrai ou faux : $\mathbf{N} = \begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}$ définit aussi un produit scalaire | `True` ou `False` |
 
 Dans ta copie : écris $\mathbf{x}^\top\mathbf{M}\mathbf{x}$ comme une somme de deux carrés. Compare f) avec le produit scalaire usuel de ces deux vecteurs. Avec f), écris une base orthonormée pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ qui contient $\mathbf{e}_2$. Pour h), donne un vecteur précis qui empêche $\mathbf{N}$ de convenir.
 
@@ -184,7 +184,7 @@ Dans ta copie : vérifie au moins deux autres paires orthogonales et une autre n
 **Objectif :** reconnaître une matrice orthogonale, vérifier qu'elle conserve normes et produits scalaires, et l'inverser en la transposant.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-$$\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \\ 3 & 2 & -6 \\ 6 & -3 & 2 \end{pmatrix}, \qquad \mathbf{x} = (1, 0, 1), \qquad \mathbf{y} = (0, 1, -1).$$
+$$\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \cr 3 & 2 & -6 \cr 6 & -3 & 2 \end{pmatrix}, \qquad \mathbf{x} = (1, 0, 1), \qquad \mathbf{y} = (0, 1, -1).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -194,7 +194,7 @@ $$\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \\ 3 & 2 & -6 \\ 6 & -3 & 2 
 | d | $(\mathbf{Q}\mathbf{x}) \cdot (\mathbf{Q}\mathbf{y})$ | un nombre |
 | e | la solution $\mathbf{z}$ de $\mathbf{Q}\mathbf{z} = (7, 0, 0)$ | une liste de 3 nombres |
 | f | vrai ou faux : $2\mathbf{Q}$ est orthogonale | `True` ou `False` |
-| g | vrai ou faux : $\mathbf{Q}\mathbf{P}$ est orthogonale, avec $\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$ | `True` ou `False` |
+| g | vrai ou faux : $\mathbf{Q}\mathbf{P}$ est orthogonale, avec $\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 1 & 0 & 0 \cr 0 & 0 & 1 \end{pmatrix}$ | `True` ou `False` |
 
 Dans ta copie : compare c) avec $\lVert \mathbf{x} \rVert$ et d) avec $\mathbf{x} \cdot \mathbf{y}$ ; calcule l'angle entre $\mathbf{x}$ et $\mathbf{y}$, puis entre $\mathbf{Q}\mathbf{x}$ et $\mathbf{Q}\mathbf{y}$. Pourquoi e) ne demande-t-il aucun pivot de Gauss ? $\mathbf{Q}$ est-elle symétrique, et cela changerait-il e) ?
 
@@ -208,7 +208,7 @@ $\mathbf{a}_1 = (4, 1, 8)$, $\mathbf{a}_2 = (1, 1, -4)$, $\mathbf{a}_3 = (-1, 3,
 |---|---|---|
 | a | $\lVert \mathbf{a}_1 \rVert$ | un nombre |
 | b | $\mathbf{a}_2 \cdot \mathbf{q}_1$ | un nombre |
-| c | $\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\,\mathbf{q}_1$ | une liste de 3 nombres (4 décimales) |
+| c | $\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\thinspace\mathbf{q}_1$ | une liste de 3 nombres (4 décimales) |
 | d | $\lVert \mathbf{v}_2 \rVert$ | un nombre |
 | e | $\mathbf{q}_2$ | une liste de 3 nombres (4 décimales) |
 | f | les produits scalaires $(\mathbf{a}_3 \cdot \mathbf{q}_1,\ \mathbf{a}_3 \cdot \mathbf{q}_2)$ | une liste de 2 nombres |
@@ -225,16 +225,16 @@ Sur $\mathbb{R}^3$, on pondère la deuxième coordonnée par 2 (comme un exemple
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | $\langle \mathbf{a}_1, \mathbf{a}_2 \rangle_{\mathbf{D}}$ | un nombre |
-| b | $\lVert \mathbf{a}_1 \rVert_{\mathbf{D}}$ | un nombre |
+| a | $\langle \mathbf{a}_1, \mathbf{a} _2 \rangle _{\mathbf{D}}$ | un nombre |
+| b | $\lVert \mathbf{a} _1 \rVert _{\mathbf{D}}$ | un nombre |
 | c | $\mathbf{q}_1$ | une liste de 3 nombres (1 décimale) |
-| d | $\mathbf{v}_2 = \mathbf{a}_2 - \langle \mathbf{a}_2, \mathbf{q}_1 \rangle_{\mathbf{D}}\,\mathbf{q}_1$ | une liste de 3 nombres (1 décimale) |
-| e | $\lVert \mathbf{v}_2 \rVert_{\mathbf{D}}$ | un nombre |
+| d | $\mathbf{v}_2 = \mathbf{a}_2 - \langle \mathbf{a}_2, \mathbf{q} _1 \rangle _{\mathbf{D}}\thinspace\mathbf{q}_1$ | une liste de 3 nombres (1 décimale) |
+| e | $\lVert \mathbf{v} _2 \rVert _{\mathbf{D}}$ | un nombre |
 | f | $\mathbf{q}_2$ | une liste de 3 nombres (4 décimales) |
-| g | les coordonnées $\big(\langle \mathbf{x}, \mathbf{q}_1 \rangle_{\mathbf{D}},\ \langle \mathbf{x}, \mathbf{q}_2 \rangle_{\mathbf{D}}\big)$ | une liste de 2 nombres |
+| g | les coordonnées $\big(\langle \mathbf{x}, \mathbf{q} _1 \rangle _{\mathbf{D}},\ \langle \mathbf{x}, \mathbf{q} _2 \rangle _{\mathbf{D}}\big)$ | une liste de 2 nombres |
 | h | le projeté de $\mathbf{x}$ sur $U$ pour $\langle \cdot, \cdot \rangle_{\mathbf{D}}$ | une liste de 3 nombres |
 
-Dans ta copie : vérifie $\langle \mathbf{q}_1, \mathbf{q}_2 \rangle_{\mathbf{D}} = 0$ et $\lVert \mathbf{q}_2 \rVert_{\mathbf{D}} = 1$, puis calcule $\mathbf{q}_1 \cdot \mathbf{q}_2$ pour le produit usuel. Vérifie que $\mathbf{x}$ moins h) est orthogonal à $\mathbf{a}_1$ et à $\mathbf{a}_2$ pour $\langle \cdot, \cdot \rangle_{\mathbf{D}}$ ; l'est-il pour le produit usuel ?
+Dans ta copie : vérifie $\langle \mathbf{q}_1, \mathbf{q} _2 \rangle _{\mathbf{D}} = 0$ et $\lVert \mathbf{q} _2 \rVert _{\mathbf{D}} = 1$, puis calcule $\mathbf{q}_1 \cdot \mathbf{q}_2$ pour le produit usuel. Vérifie que $\mathbf{x}$ moins h) est orthogonal à $\mathbf{a}_1$ et à $\mathbf{a} _2$ pour $\langle \cdot, \cdot \rangle _{\mathbf{D}}$ ; l'est-il pour le produit usuel ?
 
 ### Ex M12b.6 — Une base du complément orthogonal d'un plan de ℝ⁴ ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer un complément orthogonal comme un noyau, et s'en servir pour tester l'appartenance à un sous-espace.
@@ -276,7 +276,7 @@ Dans ta copie : retrouve d) avec e). Vérifie que $\mathbf{q}_1$ et $\mathbf{q}_
 **Objectif :** reconnaître une matrice de projection orthogonale à ses propriétés, et retrouver le sous-espace sur lequel elle projette.
 **Prérequis :** fiche §5 ; M12a §4 · **Parcours :** C
 
-$$\mathbf{P} = \frac{1}{3}\begin{pmatrix} 2 & -1 & 1 \\ -1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$$
+$$\mathbf{P} = \frac{1}{3}\begin{pmatrix} 2 & -1 & 1 \cr -1 & 2 & 1 \cr 1 & 1 & 2 \end{pmatrix}$$
 
 On veut savoir si $\mathbf{P}$ est la matrice d'une projection orthogonale de $\mathbb{R}^3$, et, si oui, sur quel sous-espace.
 
@@ -289,7 +289,7 @@ On veut savoir si $\mathbf{P}$ est la matrice d'une projection orthogonale de $\
 | e | $\operatorname{tr}\mathbf{P}$ | un nombre |
 | f | $\operatorname{rg}\mathbf{P}$ | un entier |
 | g | $(\mathbf{I} - \mathbf{P})(3, 0, 0)$ | une liste de 3 nombres |
-| h | vrai ou faux : $\mathbf{M} = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$ est la matrice d'une projection orthogonale | `True` ou `False` |
+| h | vrai ou faux : $\mathbf{M} = \begin{pmatrix} 1 & 0 \cr 1 & 0 \end{pmatrix}$ est la matrice d'une projection orthogonale | `True` ou `False` |
 
 Dans ta copie : écris le calcul de $\mathbf{P}^2$. Que concluent a) et b) ensemble ? Déduis de c) le sous-espace $U$ sur lequel $\mathbf{P}$ projette (une équation), et explique pourquoi d) était prévisible. Relie e) et f) à la dimension de $U$. Sur quelle droite projette $\mathbf{I} - \mathbf{P}$ ? $\mathbf{P}$ est-elle inversible ? Pour h), calcule $\mathbf{M}^2$ et $\mathbf{M}^\top$, puis dessine ce que fait $\mathbf{M}$ : vers quelle droite, et le long de quelle direction ?
 
@@ -316,13 +316,13 @@ Dans ta copie : vérifie que e) est orthogonal à $\mathbf{u}_1$ et à $\mathbf{
 **Objectif :** ajuster une droite par les équations normales, et lire le résultat comme une projection : résidu orthogonal, Pythagore.
 **Prérequis :** fiche §5 et §6 ; M09b §3 · **Parcours :** C, E
 
-Cinq exemples : $x = (1, 2, 4, 5, 8)$ et $y = (0, 2, 2, 3, 4)$. On ajuste une droite avec biais : $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$, de forme $(5, 2)$, et $\mathbf{w}^* = (w_0, w_1)$ (biais, puis pente).
+Cinq exemples : $x = (1, 2, 4, 5, 8)$ et $y = (0, 2, 2, 3, 4)$. On ajuste une droite avec biais : $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$, de forme $(5, 2)$, et $\mathbf{w}^\ast = (w_0, w_1)$ (biais, puis pente).
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | $\mathbf{X}^\top\mathbf{X}$ | une matrice |
 | b | $\mathbf{X}^\top\mathbf{y}$ | une liste de 2 nombres |
-| c | $\mathbf{w}^*$ | une liste de 2 nombres (1 décimale) |
+| c | $\mathbf{w}^\ast$ | une liste de 2 nombres (1 décimale) |
 | d | les prédictions $\hat{\mathbf{y}}$ | une liste de 5 nombres (1 décimale) |
 | e | le résidu $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ | une liste de 5 nombres (1 décimale) |
 | f | $\mathbf{X}^\top\mathbf{r}$ | une liste de 2 nombres |
@@ -335,7 +335,7 @@ Dans ta copie : que dit la première coordonnée de f) des résidus, et pourquoi
 **Objectif :** calculer une décomposition QR par Gram-Schmidt, puis résoudre des moindres carrés par un système triangulaire.
 **Prérequis :** fiche §3 et §7 · **Parcours :** C
 
-$$\mathbf{A} = \begin{pmatrix} 2 & 2 \\ 6 & 3 \\ 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (11, 3, 20).$$
+$$\mathbf{A} = \begin{pmatrix} 2 & 2 \cr 6 & 3 \cr 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (11, 3, 20).$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -345,16 +345,16 @@ $$\mathbf{A} = \begin{pmatrix} 2 & 2 \\ 6 & 3 \\ 9 & 0 \end{pmatrix}, \qquad \ma
 | d | $\mathbf{q}_2$ | une liste de 3 nombres (4 décimales) |
 | e | $\mathbf{R}$ | une matrice |
 | f | $\mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres |
-| g | les poids $\mathbf{w}^*$ des moindres carrés, par $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres (4 décimales) |
-| h | le résidu $\mathbf{y} - \mathbf{A}\mathbf{w}^*$ | une liste de 3 nombres |
+| g | les poids $\mathbf{w}^\ast$ des moindres carrés, par $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ | une liste de 2 nombres (4 décimales) |
+| h | le résidu $\mathbf{y} - \mathbf{A}\mathbf{w}^\ast$ | une liste de 3 nombres |
 
-Dans ta copie : vérifie $\mathbf{A} = \mathbf{Q}\mathbf{R}$ colonne par colonne. Résous aussi les équations normales $\mathbf{A}^\top\mathbf{A}\,\mathbf{w} = \mathbf{A}^\top\mathbf{y}$ et compare. Vérifie que h) est orthogonal aux colonnes de $\mathbf{A}$. Quelle ligne de $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ as-tu résolue en premier, et pourquoi ?
+Dans ta copie : vérifie $\mathbf{A} = \mathbf{Q}\mathbf{R}$ colonne par colonne. Résous aussi les équations normales $\mathbf{A}^\top\mathbf{A}\thinspace\mathbf{w} = \mathbf{A}^\top\mathbf{y}$ et compare. Vérifie que h) est orthogonal aux colonnes de $\mathbf{A}$. Quelle ligne de $\mathbf{R}\mathbf{w} = \mathbf{Q}^\top\mathbf{y}$ as-tu résolue en premier, et pourquoi ?
 
 ### Ex M12b.12 — Le produit scalaire de fonctions sur [−1 ; 1] : orthogonaliser 1, x et x² ✏️ ★★ ⏱️ 25 min
 **Objectif :** calculer des produits scalaires de fonctions, orthogonaliser des polynômes, et projeter une fonction sur les polynômes de degré au plus 2.
 **Prérequis :** fiche §3, §5 et §8 ; M02a (intégrales) · **Parcours :** C
 
-Sur les fonctions continues de $[-1 ; 1]$, $\langle f, g \rangle = \int_{-1}^{1} f(x)\,g(x)\,dx$. On orthogonalise $1, x, x^2$ par Gram-Schmidt **sans normer** : $p_0 = 1$, $p_1 = x - \frac{\langle x, p_0 \rangle}{\langle p_0, p_0 \rangle}\,p_0$, puis $p_2 = x^2 - \frac{\langle x^2, p_0 \rangle}{\langle p_0, p_0 \rangle}\,p_0 - \frac{\langle x^2, p_1 \rangle}{\langle p_1, p_1 \rangle}\,p_1$.
+Sur les fonctions continues de $[-1 ; 1]$, $\langle f, g \rangle = \int_{-1}^{1} f(x)\thinspace g(x)\thinspace dx$. On orthogonalise $1, x, x^2$ par Gram-Schmidt **sans normer** : $p_0 = 1$, $p_1 = x - \frac{\langle x, p_0 \rangle}{\langle p_0, p_0 \rangle}\thinspace p_0$, puis $p_2 = x^2 - \frac{\langle x^2, p_0 \rangle}{\langle p_0, p_0 \rangle}\thinspace p_0 - \frac{\langle x^2, p_1 \rangle}{\langle p_1, p_1 \rangle}\thinspace p_1$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -379,11 +379,11 @@ Rédige chaque démonstration dans ta copie : hypothèses, étapes justifiées, 
 **Prérequis :** fiche §1 et §5 ; M07.14 · **Parcours :** C
 
 $\langle \cdot, \cdot \rangle$ est un produit scalaire sur un espace $V$, et $\lVert \mathbf{x} \rVert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$. M07.14 démontrait l'inégalité pour le produit usuel par un discriminant ; on la démontre ici par une projection, en n'utilisant que les trois propriétés de la fiche (§1).
-1. Soit $\mathbf{y} \ne \mathbf{0}$ et $t$ un réel. Développe $\lVert \mathbf{x} - t\,\mathbf{y} \rVert^2$ par bilinéarité et symétrie.
-2. Prends $t = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\lVert \mathbf{y} \rVert^2}$. Montre que $\mathbf{x} - t\,\mathbf{y}$ est orthogonal à $\mathbf{y}$, puis que $\lVert \mathbf{x} - t\,\mathbf{y} \rVert^2 = \lVert \mathbf{x} \rVert^2 - \frac{\langle \mathbf{x}, \mathbf{y} \rangle^2}{\lVert \mathbf{y} \rVert^2}$. Déduis-en $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \lVert \mathbf{x} \rVert\,\lVert \mathbf{y} \rVert$. Traite aussi le cas $\mathbf{y} = \mathbf{0}$.
+1. Soit $\mathbf{y} \ne \mathbf{0}$ et $t$ un réel. Développe $\lVert \mathbf{x} - t\thinspace\mathbf{y} \rVert^2$ par bilinéarité et symétrie.
+2. Prends $t = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\lVert \mathbf{y} \rVert^2}$. Montre que $\mathbf{x} - t\thinspace\mathbf{y}$ est orthogonal à $\mathbf{y}$, puis que $\lVert \mathbf{x} - t\thinspace\mathbf{y} \rVert^2 = \lVert \mathbf{x} \rVert^2 - \frac{\langle \mathbf{x}, \mathbf{y} \rangle^2}{\lVert \mathbf{y} \rVert^2}$. Déduis-en $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \lVert \mathbf{x} \rVert\thinspace\lVert \mathbf{y} \rVert$. Traite aussi le cas $\mathbf{y} = \mathbf{0}$.
 3. Montre qu'il y a égalité si et seulement si $\mathbf{x}$ et $\mathbf{y}$ sont colinéaires.
 4. Déduis-en l'inégalité triangulaire $\lVert \mathbf{x} + \mathbf{y} \rVert \le \lVert \mathbf{x} \rVert + \lVert \mathbf{y} \rVert$.
-5. Avec le produit scalaire de fonctions sur $[0 ; 1]$ et $g = 1$, montre que $\left(\int_0^1 f(x)\,dx\right)^2 \le \int_0^1 f(x)^2\,dx$ pour toute fonction continue $f$. Pour quelles fonctions y a-t-il égalité ? Que dit cette inégalité de la moyenne et de la moyenne des carrés d'une fonction ?
+5. Avec le produit scalaire de fonctions sur $[0 ; 1]$ et $g = 1$, montre que $\left(\int_0^1 f(x)\thinspace dx\right)^2 \le \int_0^1 f(x)^2\thinspace dx$ pour toute fonction continue $f$. Pour quelles fonctions y a-t-il égalité ? Que dit cette inégalité de la moyenne et de la moyenne des carrés d'une fonction ?
 
 ### Ex M12b.14 — Une famille orthogonale de vecteurs non nuls est libre ∂ ★ ⏱️ 15 min
 **Objectif :** démontrer qu'une famille orthogonale de vecteurs non nuls est libre, et en tirer les coordonnées et l'égalité de Parseval.
@@ -416,18 +416,18 @@ $\mathbf{A}$ a la forme $(m, n)$ ; le produit scalaire est le produit usuel.
 2. De la même façon, montre que $\ker\mathbf{A} = (\operatorname{Im}\mathbf{A}^\top)^\perp$ : le noyau est l'orthogonal des lignes.
 3. Avec le théorème du rang et $\operatorname{rg}\mathbf{A}^\top = \operatorname{rg}\mathbf{A}$, montre que $\dim(\operatorname{Im}\mathbf{A})^\perp = m - \operatorname{rg}\mathbf{A}$. Déduis-en, pour tout sous-espace $U$ de $\mathbb{R}^m$, $\dim U + \dim U^\perp = m$.
 4. Montre que si $\mathbf{A}\mathbf{x} = \mathbf{b}$ a une solution, alors $\mathbf{b}$ est orthogonal à $\ker\mathbf{A}^\top$. (La réciproque est vraie aussi, admise ici : elle découle de 3.)
-5. Application : $\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 2 & 4 \\ 0 & 1 \end{pmatrix}$. Calcule $\ker\mathbf{A}^\top$, puis dis pour quels $t$ le système $\mathbf{A}\mathbf{x} = (1, t, 0)$ a une solution.
+5. Application : $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 2 & 4 \cr 0 & 1 \end{pmatrix}$. Calcule $\ker\mathbf{A}^\top$, puis dis pour quels $t$ le système $\mathbf{A}\mathbf{x} = (1, t, 0)$ a une solution.
 
 ### Ex M12b.17 — Le projeté orthogonal est le point le plus proche (Pythagore) ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer l'existence et l'unicité du projeté, qu'il est le point le plus proche, et en déduire les équations normales sans dérivée.
 **Prérequis :** fiche §5 et §6 ; M07.17 · **Parcours :** C, E
 
-$U$ est un sous-espace de $\mathbb{R}^m$, de base orthonormée $\mathbf{q}_1, \ldots, \mathbf{q}_k$, et $\mathbf{v} \in \mathbb{R}^m$. On pose $\mathbf{p} = \sum_i \langle \mathbf{v}, \mathbf{q}_i \rangle\,\mathbf{q}_i$.
+$U$ est un sous-espace de $\mathbb{R}^m$, de base orthonormée $\mathbf{q}_1, \ldots, \mathbf{q}_k$, et $\mathbf{v} \in \mathbb{R}^m$. On pose $\mathbf{p} = \sum_i \langle \mathbf{v}, \mathbf{q}_i \rangle\thinspace\mathbf{q}_i$.
 1. Montre que $\mathbf{p} \in U$ et que $\mathbf{v} - \mathbf{p}$ est orthogonal à chaque $\mathbf{q}_j$, donc à tout $U$.
 2. Démontre Pythagore : si $\mathbf{a} \perp \mathbf{b}$, alors $\lVert \mathbf{a} + \mathbf{b} \rVert^2 = \lVert \mathbf{a} \rVert^2 + \lVert \mathbf{b} \rVert^2$.
 3. Soit $\mathbf{u} \in U$. En écrivant $\mathbf{v} - \mathbf{u} = (\mathbf{v} - \mathbf{p}) + (\mathbf{p} - \mathbf{u})$, montre que $\lVert \mathbf{v} - \mathbf{u} \rVert \ge \lVert \mathbf{v} - \mathbf{p} \rVert$, avec égalité si et seulement si $\mathbf{u} = \mathbf{p}$.
 4. Montre l'unicité : si $\mathbf{p}' \in U$ vérifie aussi $\mathbf{v} - \mathbf{p}' \perp U$, alors $\mathbf{p}' = \mathbf{p}$ (que peut-on dire de $\mathbf{p} - \mathbf{p}'$ ?).
-5. Application aux moindres carrés : $U = \operatorname{Im}\mathbf{X}$, colonnes libres (une base orthonormée de $U$ existe : M12b.15). Déduis de 1, 3 et 4 que $\mathbf{w}^*$ minimise $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ si et seulement si $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^*) = \mathbf{0}$, sans calculer de gradient.
+5. Application aux moindres carrés : $U = \operatorname{Im}\mathbf{X}$, colonnes libres (une base orthonormée de $U$ existe : M12b.15). Déduis de 1, 3 et 4 que $\mathbf{w}^\ast$ minimise $\lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert$ si et seulement si $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^\ast) = \mathbf{0}$, sans calculer de gradient.
 
 <a id="reflexion"></a>
 
@@ -443,9 +443,9 @@ Un tableau de 4 exemples a deux features, $\mathbf{x}_1 = (2, 2, 1, 1)$ et $\mat
 |---|---|---|
 | a | le coefficient $t = \frac{\mathbf{x}_2 \cdot \mathbf{x}_1}{\lVert \mathbf{x}_1 \rVert^2}$ | un nombre |
 | b | le projeté de $\mathbf{x}_2$ sur $\operatorname{Vect}(\mathbf{x}_1)$ | une liste de 4 nombres |
-| c | le résidu $\mathbf{r} = \mathbf{x}_2 - t\,\mathbf{x}_1$ | une liste de 4 nombres |
+| c | le résidu $\mathbf{r} = \mathbf{x}_2 - t\thinspace\mathbf{x}_1$ | une liste de 4 nombres |
 | d | $\mathbf{r} \cdot \mathbf{x}_1$ | un nombre |
-| e | la part de $\lVert \mathbf{x}_2 \rVert^2$ expliquée par $\mathbf{x}_1$ : $\frac{\lVert t\,\mathbf{x}_1 \rVert^2}{\lVert \mathbf{x}_2 \rVert^2}$ | un nombre (4 décimales) |
+| e | la part de $\lVert \mathbf{x}_2 \rVert^2$ expliquée par $\mathbf{x}_1$ : $\frac{\lVert t\thinspace\mathbf{x}_1 \rVert^2}{\lVert \mathbf{x}_2 \rVert^2}$ | un nombre (4 décimales) |
 | f | $\frac{\mathbf{y} \cdot \mathbf{r}}{\lVert \mathbf{r} \rVert^2}$ | un nombre (2 décimales) |
 | g | les poids $(w_1, w_2)$ de la régression de $\mathbf{y}$ sur $\mathbf{x}_1$ et $\mathbf{x}_2$ | une liste de 2 nombres (2 décimales) |
 
@@ -501,8 +501,8 @@ Lis MML §3.8, puis §9.4. Réponds dans ta copie, **avec tes mots**.
 **Objectif :** estimer le nombre d'opérations et la mémoire de Gram-Schmidt sur une matrice de données réaliste, et le comparer aux équations normales.
 **Prérequis :** fiche §3 et §7 · **Parcours :** C
 
-Une matrice de données $\mathbf{X}$ a $m = 100\,000$ lignes et $n = 50$ colonnes. Ordres de grandeur seulement.
-1. Pour la colonne $k$, combien de produits scalaires de vecteurs de $\mathbb{R}^m$ et combien de mises à jour $\mathbf{v} \leftarrow \mathbf{v} - c\,\mathbf{q}$ fait Gram-Schmidt ? Combien en tout, pour les 50 colonnes ?
+Une matrice de données $\mathbf{X}$ a $m = 100\thinspace000$ lignes et $n = 50$ colonnes. Ordres de grandeur seulement.
+1. Pour la colonne $k$, combien de produits scalaires de vecteurs de $\mathbb{R}^m$ et combien de mises à jour $\mathbf{v} \leftarrow \mathbf{v} - c\thinspace\mathbf{q}$ fait Gram-Schmidt ? Combien en tout, pour les 50 colonnes ?
 2. Un produit scalaire ou une mise à jour de longueur $m$ coûte environ $2m$ opérations (une multiplication et une addition par coordonnée). Combien d'opérations pour Gram-Schmidt ? Retrouve la formule $\approx 2mn^2$.
 3. À $10^9$ opérations par seconde, combien de temps ?
 4. Combien de mémoire occupent $\mathbf{X}$ et $\mathbf{Q}$ en `float64` (8 octets par nombre) ?

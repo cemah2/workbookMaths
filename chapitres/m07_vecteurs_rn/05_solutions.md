@@ -14,7 +14,7 @@
 3. $(2, 0, -6) - (0, 4, 1) = (2, -4, -7)$.
 4. $(0, 1, 0)$ : le 1 à la deuxième place, celle de « avion ».
 5. **Vrai** : un seul 1, et des 0 ailleurs.
-6. $(4, -2, 5) = 4\,\mathbf{e}_1 - 2\,\mathbf{e}_2 + 5\,\mathbf{e}_3$ : les coefficients sont les coordonnées.
+6. $(4, -2, 5) = 4\thinspace\mathbf{e}_1 - 2\thinspace\mathbf{e}_2 + 5\thinspace\mathbf{e}_3$ : les coefficients sont les coordonnées.
 
 ### M07.Q2 — Ce que mesure un produit scalaire
 1. $4 + 0 - 3 = 1$.
@@ -28,7 +28,7 @@
 1. 5, 5 et 5 : avec une seule coordonnée non nulle, les trois normes valent sa valeur absolue.
 2. L1 : un **losange** (un carré posé sur la pointe, de sommets $(\pm 1, 0)$ et $(0, \pm 1)$) ; L∞ : un **carré** de côté 2 centré à l'origine.
 3. **Vrai** (fiche §3) : un maximum est au plus la racine de la somme des carrés, qui est au plus la somme des valeurs absolues.
-4. $\lVert -3\mathbf{x} \rVert = 3\,\lVert \mathbf{x} \rVert$ (homogénéité : la valeur absolue de $-3$).
+4. $\lVert -3\mathbf{x} \rVert = 3\thinspace\lVert \mathbf{x} \rVert$ (homogénéité : la valeur absolue de $-3$).
 5. $|-1 - 4| + |3 - 1| = 5 + 2 = 7$.
 6. Elle viole l'**inégalité triangulaire** : $\mathbf{e}_1$ et $\mathbf{e}_2$ ont chacun la valeur 1, mais $\mathbf{e}_1 + \mathbf{e}_2$ a la valeur $(1 + 1)^2 = 4 > 2$.
 
@@ -54,12 +54,12 @@
 3. Au **barycentre** du nuage, et seulement là (König-Huygens).
 4. L'affectation rattache chaque point au centre le plus proche ; la mise à jour remplace chaque centre par le barycentre des points qui lui sont rattachés.
 5. **Vrai** : $b(i) < a(i)$, le point est en moyenne plus près de l'autre cluster que du sien.
-6. $\frac{2\,(0, 0) + 1\,(6, 3)}{2 + 1} = \frac{(6, 3)}{3} = (2, 1)$ : le barycentre est deux fois plus près du point de poids 2.
+6. $\frac{2\thinspace(0, 0) + 1\thinspace(6, 3)}{2 + 1} = \frac{(6, 3)}{3} = (2, 1)$ : le barycentre est deux fois plus près du point de poids 2.
 
 ### M07.Q7 — Intuitions de la grande dimension
 1. $\sqrt{100} = 10$.
 2. **Vrai** : $\cos\theta = \frac{1}{\sqrt{n}}$ tend vers 0.
-3. (B) : le cosinus est de l'ordre de $\frac{1}{\sqrt{10\,000}} = 0{,}01$.
+3. (B) : le cosinus est de l'ordre de $\frac{1}{\sqrt{10\thinspace000}} = 0{,}01$.
 4. Environ $\sqrt{n}$ : $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = n$, et la norme se concentre autour de $\sqrt{n}$.
 5. **Vrai** : diviser $\frac{1}{\sqrt{n}}$ par 10 demande de multiplier $\sqrt{n}$ par 10, donc $n$ par 100.
 6. $\sqrt{n \times \frac{1}{n}} = 1$ : un vecteur unitaire de grande dimension peut n'avoir que de toutes petites coordonnées.
@@ -99,8 +99,8 @@
 
 **Démarche.** Tout se fait coordonnée par coordonnée.
 - b) $2\mathbf{u} = (2, -4, 0, 8)$ et $3\mathbf{v} = (9, 3, -3, 6)$, d'où $(-7, -7, 3, 2)$.
-- d) $a\,(1, -2, 0, 4) + b\,(3, 1, -1, 2) = (5, -3, -1, 10)$ donne quatre équations : $a + 3b = 5$, $-2a + b = -3$, $-b = -1$, $4a + 2b = 10$. La troisième donne $b = 1$, la première $a = 2$ ; les deux autres sont vérifiées ($-4 + 1 = -3$, $8 + 2 = 10$).
-- f) La somme des one-hot compte chaque mode : $4\,(1, 0, 0, 0) + 3\,(0, 1, 0, 0) + 3\,(0, 0, 0, 1)$.
+- d) $a\thinspace(1, -2, 0, 4) + b\thinspace(3, 1, -1, 2) = (5, -3, -1, 10)$ donne quatre équations : $a + 3b = 5$, $-2a + b = -3$, $-b = -1$, $4a + 2b = 10$. La troisième donne $b = 1$, la première $a = 2$ ; les deux autres sont vérifiées ($-4 + 1 = -3$, $8 + 2 = 10$).
+- f) La somme des one-hot compte chaque mode : $4\thinspace(1, 0, 0, 0) + 3\thinspace(0, 1, 0, 0) + 3\thinspace(0, 0, 0, 1)$.
 - g) Divisé par 10, le vecteur des proportions, de somme 1.
 
 Pour la copie : deux équations suffisent à trouver $a$ et $b$ ; les deux autres **vérifient** que le vecteur est bien une combinaison de $\mathbf{u}$ et $\mathbf{v}$ (un vecteur de $\mathbb{R}^4$ pris au hasard ne l'est pas : le système n'aurait pas de solution). Coder les modes par 1, 2, 3, 4 mettrait un ordre et des distances entre eux (le métro « entre » le bus et la marche) qui n'existent pas.
@@ -115,9 +115,9 @@ Pour la copie : deux équations suffisent à trouver $a$ et $b$ ; les deux autre
 
 **Démarche.**
 - a) $2 + 3 - 2 + 0 = 3$ ; b) $4 + 1 + 4 + 0 = 9$ ; c) $1 + 9 + 1 + 1 = 12$.
-- d) Par linéarité : $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v}) = \mathbf{u} \cdot \mathbf{u} - 4\,\mathbf{u} \cdot \mathbf{v} + 4\,\mathbf{v} \cdot \mathbf{v} = 9 - 12 + 48 = 45$. Vérification : $\mathbf{u} - 2\mathbf{v} = (0, -5, -4, 2)$, et $0 + 25 + 16 + 4 = 45$.
-- e) $(\mathbf{u} + t\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + t\,\mathbf{v} \cdot \mathbf{v} = 3 + 12t = 0$, d'où $t = -\frac{1}{4}$.
-- f) $\lVert \mathbf{a} + \mathbf{b} \rVert^2 - \lVert \mathbf{a} - \mathbf{b} \rVert^2 = 4\,\mathbf{a} \cdot \mathbf{b}$, donc $\mathbf{a} \cdot \mathbf{b} = \frac{50 - 18}{4} = 8$.
+- d) Par linéarité : $(\mathbf{u} - 2\mathbf{v}) \cdot (\mathbf{u} - 2\mathbf{v}) = \mathbf{u} \cdot \mathbf{u} - 4\thinspace\mathbf{u} \cdot \mathbf{v} + 4\thinspace\mathbf{v} \cdot \mathbf{v} = 9 - 12 + 48 = 45$. Vérification : $\mathbf{u} - 2\mathbf{v} = (0, -5, -4, 2)$, et $0 + 25 + 16 + 4 = 45$.
+- e) $(\mathbf{u} + t\mathbf{v}) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} + t\thinspace\mathbf{v} \cdot \mathbf{v} = 3 + 12t = 0$, d'où $t = -\frac{1}{4}$.
+- f) $\lVert \mathbf{a} + \mathbf{b} \rVert^2 - \lVert \mathbf{a} - \mathbf{b} \rVert^2 = 4\thinspace\mathbf{a} \cdot \mathbf{b}$, donc $\mathbf{a} \cdot \mathbf{b} = \frac{50 - 18}{4} = 8$.
 - g) **Faux** : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{w}$ dit seulement que $\mathbf{u} \cdot (\mathbf{v} - \mathbf{w}) = 0$. Contre-exemple : $\mathbf{u} = (1, 0)$, $\mathbf{v} = (0, 1)$, $\mathbf{w} = (0, 2)$ ; les deux produits valent 0.
 
 **Erreurs fréquentes.** Un signe perdu dans $(-2) \times 1$ (a : 7) ; donner la norme au lieu de son carré (b : 3) ; oublier d'élever le coefficient 2 au carré (d : 21), oublier le double produit (d : 57), se tromper de signe (d : 69) ou ne le compter qu'une fois (d : 51) ; utiliser $\mathbf{u} \cdot \mathbf{u}$ au lieu de $\mathbf{v} \cdot \mathbf{v}$ en e) ; oublier de diviser par 4 en f).
@@ -169,7 +169,7 @@ Pour la copie : $E$ a **exactement** les goûts de $A$ (les mêmes proportions d
 - c) $\mathbf{p} = 2\mathbf{u} = (4, 0, 2, 4)$ ; d) $\mathbf{r} = (5 - 4, -1 - 0, 2 - 2, 3 - 4) = (1, -1, 0, -1)$.
 - e) $\mathbf{r} \cdot \mathbf{u} = 2 + 0 + 0 - 2 = 0$ : le reste est orthogonal à $\mathbf{u}$, comme il se doit.
 - f) $\lVert \mathbf{p} \rVert^2 = 36$ et $\lVert \mathbf{r} \rVert^2 = 3$ : $39$.
-- g) Avec $-3\mathbf{u}$ : $\frac{\mathbf{x} \cdot (-3\mathbf{u})}{(-3\mathbf{u}) \cdot (-3\mathbf{u})}\,(-3\mathbf{u}) = \frac{-54}{81}\,(-3\mathbf{u}) = 2\mathbf{u}$, la même projection : seule compte la droite.
+- g) Avec $-3\mathbf{u}$ : $\frac{\mathbf{x} \cdot (-3\mathbf{u})}{(-3\mathbf{u}) \cdot (-3\mathbf{u})}\thinspace(-3\mathbf{u}) = \frac{-54}{81}\thinspace(-3\mathbf{u}) = 2\mathbf{u}$, la même projection : seule compte la droite.
 - h) $\frac{18}{\lVert \mathbf{u} \rVert} = \frac{18}{3} = 6$, la longueur de $\mathbf{p}$ (positive, car $\mathbf{p}$ a le sens de $\mathbf{u}$).
 
 Pour la copie : $\lVert \mathbf{x} \rVert^2 = 25 + 1 + 4 + 9 = 39$. C'est le théorème de Pythagore : $\mathbf{x} = \mathbf{p} + \mathbf{r}$ avec $\mathbf{p} \perp \mathbf{r}$. Le point de la droite le plus proche de $\mathbf{x}$ est $\mathbf{p}$, à la distance $\lVert \mathbf{r} \rVert = \sqrt{3}$.
@@ -208,11 +208,11 @@ Pour la copie : $O$ et $C$ donnent des scores négatifs, ils sont du même côt�
 - f) $\lVert \mathbf{w} \rVert = \sqrt{2{,}25 + 4 + 0{,}25} = \sqrt{6{,}5} \approx 2{,}550$, et $\frac{\mathbf{w}}{\lVert \mathbf{w} \rVert} \approx (0{,}588 ;\ 0{,}784 ;\ -0{,}196)$.
 - g) $\frac{2{,}5}{\sqrt{6{,}5}} \approx 0{,}9806$.
 
-Pour la copie : $M_3$ est sur la frontière, la décision se joue à rien. Le poids négatif de la troisième feature dit que, toutes choses égales par ailleurs, une révision ancienne fait **baisser** le score : c'est le contraire de ce qu'on attendrait, et un poids de signe surprenant mérite toujours d'être questionné (des features corrélées, un biais des données). La frontière a pour équation $1{,}5\,x_1 + 2\,x_2 - 0{,}5\,x_3 - 2 = 0$ ; avec $x_1 = x_2 = 0$, $-0{,}5\,t - 2 = 0$ donne le point $(0, 0, -4)$.
+Pour la copie : $M_3$ est sur la frontière, la décision se joue à rien. Le poids négatif de la troisième feature dit que, toutes choses égales par ailleurs, une révision ancienne fait **baisser** le score : c'est le contraire de ce qu'on attendrait, et un poids de signe surprenant mérite toujours d'être questionné (des features corrélées, un biais des données). La frontière a pour équation $1{,}5\thinspace x_1 + 2\thinspace x_2 - 0{,}5\thinspace x_3 - 2 = 0$ ; avec $x_1 = x_2 = 0$, $-0{,}5\thinspace t - 2 = 0$ donne le point $(0, 0, -4)$.
 
 **Erreurs fréquentes.** Oublier le biais (a : 1,5 ; b : 4,5) ; prendre $\mathbf{w}$ lui-même pour la direction unitaire (f) ; donner le score au lieu de la distance (g : 2,5) ; diviser par $\lVert \mathbf{w} \rVert^2$ (g : 0,3846).
 
-**Variante.** Quelle valeur de la température met $M_1$ sur la frontière, les autres features fixées ? *Réponse* : $1{,}5\,x_1 + 1 - 1 - 2 = 0$, soit $x_1 = \frac{4}{3}$.
+**Variante.** Quelle valeur de la température met $M_1$ sur la frontière, les autres features fixées ? *Réponse* : $1{,}5\thinspace x_1 + 1 - 1 - 2 = 0$, soit $x_1 = \frac{4}{3}$.
 
 ### Ex M07.8 — Centroïde, inertie et formule de König-Huygens
 
@@ -238,12 +238,12 @@ Pour la copie : un point lointain ajoute le **carré** de sa distance (50 à lui
 **Réponses** : a) `6` · b) `[1.6667, 1.3333]` · c) `"146/3"` · d) `"164/3"` · e) `False`.
 
 **Démarche.**
-- b) $\frac{3\,(0, 0) + 1\,(6, 0) + 2\,(2, 4)}{6} = \frac{(10, 8)}{6} = \big(\frac{5}{3}, \frac{4}{3}\big)$.
+- b) $\frac{3\thinspace(0, 0) + 1\thinspace(6, 0) + 2\thinspace(2, 4)}{6} = \frac{(10, 8)}{6} = \big(\frac{5}{3}, \frac{4}{3}\big)$.
 - c) $3 \times \frac{41}{9} + 1 \times \frac{185}{9} + 2 \times \frac{65}{9} = \frac{123 + 185 + 130}{9} = \frac{438}{9} = \frac{146}{3}$.
 - d) Le barycentre non pondéré est $\big(\frac{8}{3}, \frac{4}{3}\big)$, à la distance 1 du barycentre pondéré ; König-Huygens avec des poids : $\frac{146}{3} + 6 \times 1^2 = \frac{164}{3}$.
 - e) **Faux** : doubler les poids double le numérateur et le dénominateur du barycentre pondéré.
 
-Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert S_i - \bar{S}_\omega \rVert^2 + \Omega\,\lVert \bar{S}_\omega - \mathbf{c} \rVert^2$, avec $\Omega = \sum \omega_i$ (M07.16). Un coût en carrés fait payer très cher les magasins lointains ; pour des trajets, la somme des distances (non au carré) est plus réaliste. Avec les livraisons comme poids, elle est minimisée par la médiane géométrique **pondérée** (M07.35, avec des poids), ou, si l'on roule sur un quadrillage de rues, par la médiane pondérée coordonnée par coordonnée, qui minimise la somme pondérée des distances L1 (M07.31).
+Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert S_i - \bar{S} _\omega \rVert^2 + \Omega\thinspace\lVert \bar{S} _\omega - \mathbf{c} \rVert^2$, avec $\Omega = \sum \omega_i$ (M07.16). Un coût en carrés fait payer très cher les magasins lointains ; pour des trajets, la somme des distances (non au carré) est plus réaliste. Avec les livraisons comme poids, elle est minimisée par la médiane géométrique **pondérée** (M07.35, avec des poids), ou, si l'on roule sur un quadrillage de rues, par la médiane pondérée coordonnée par coordonnée, qui minimise la somme pondérée des distances L1 (M07.31).
 
 **Erreurs fréquentes.** Oublier les poids (b : $\big(\frac{8}{3}, \frac{4}{3}\big)$) ; oublier de multiplier le terme de König-Huygens par la somme des poids (d : $\frac{149}{3}$).
 
@@ -305,14 +305,14 @@ Pour la copie : en dimension $d$, ce cosinus vaut $\frac{d - 2}{d}$, qui tend ve
 **Réponses** : a) `3` · b) `2` · c) `450` · d) `8100` · e) `0.2` · f) `0.025`.
 
 **Démarche.**
-- a) Avec $u = z^3$ et $v' = z\,\varphi(z)$, donc $v = -\varphi(z)$ : $\mathbb{E}[Z^4] = \big[-z^3\varphi(z)\big]_{-\infty}^{+\infty} + \int 3z^2\,\varphi(z)\,dz = 0 + 3\,\mathbb{E}[Z^2] = 3$.
+- a) Avec $u = z^3$ et $v' = z\thinspace\varphi(z)$, donc $v = -\varphi(z)$ : $\mathbb{E}[Z^4] = \big[-z^3\varphi(z)\big]_{-\infty}^{+\infty} + \int 3z^2\thinspace\varphi(z)\thinspace dz = 0 + 3\thinspace\mathbb{E}[Z^2] = 3$.
 - b) $\mathbb{V}(Z^2) = \mathbb{E}[Z^4] - \mathbb{E}[Z^2]^2 = 3 - 1 = 2$ : la valeur que M02c admettait.
 - c) $X_i^2 = 9Z_i^2$, d'espérance 9 ; par linéarité, $\mathbb{E}\big[\lVert \mathbf{X} \rVert^2\big] = 9n = 450$.
-- d) $\mathbb{V}(X_i^2) = 81\,\mathbb{V}(Z_i^2) = 162$ ; les $X_i^2$ sont indépendantes, leurs variances s'additionnent : $162n = 8\,100$.
-- e) $\frac{\sqrt{8\,100}}{450} = \frac{90}{450} = 0{,}2$ ; en général $\frac{9\sqrt{2n}}{9n} = \sqrt{\frac{2}{n}}$.
-- f) $\mathbb{V} = 162 \times 8\,000 = 1\,296\,000$ et $\varepsilon = \frac{9 \times 8\,000}{10} = 7\,200$ : $\frac{1\,296\,000}{7\,200^2} = 0{,}025$ (en général $\frac{200}{n}$).
+- d) $\mathbb{V}(X_i^2) = 81\thinspace\mathbb{V}(Z_i^2) = 162$ ; les $X_i^2$ sont indépendantes, leurs variances s'additionnent : $162n = 8\thinspace100$.
+- e) $\frac{\sqrt{8\thinspace100}}{450} = \frac{90}{450} = 0{,}2$ ; en général $\frac{9\sqrt{2n}}{9n} = \sqrt{\frac{2}{n}}$.
+- f) $\mathbb{V} = 162 \times 8\thinspace000 = 1\thinspace296\thinspace000$ et $\varepsilon = \frac{9 \times 8\thinspace000}{10} = 7\thinspace200$ : $\frac{1\thinspace296\thinspace000}{7\thinspace200^2} = 0{,}025$ (en général $\frac{200}{n}$).
 
-Pour la copie : la variance d'une somme est la somme des variances quand les termes sont indépendants (M02b), et chaque $X_i^2$ ne dépend que de sa coordonnée. L'écart-type 3 multiplie l'espérance par 9 et l'écart-type de $\lVert \mathbf{X} \rVert^2$ par 9 aussi : leur quotient ne change pas, et f) non plus. La dispersion relative $\sqrt{\frac{2}{n}}$ est au plus 1 % dès $n = 20\,000$. Avec la tangente, $\lVert \mathbf{X} \rVert \approx \sqrt{m} + \frac{\lVert \mathbf{X} \rVert^2 - m}{2\sqrt{m}}$ avec $m = 9n$, d'où un écart-type d'environ $\frac{9\sqrt{2n}}{2 \times 3\sqrt{n}} = \frac{3}{\sqrt{2}} \approx 2{,}12$, quelle que soit la dimension : trois fois l'écart-type d'environ 0,71 du cas $\mathcal{N}(0, 1)$ (fiche §7, M07.30). La norme vaut donc $3\sqrt{n}$ à environ 2 près : rapportée à sa taille, sa dispersion tend vers 0.
+Pour la copie : la variance d'une somme est la somme des variances quand les termes sont indépendants (M02b), et chaque $X_i^2$ ne dépend que de sa coordonnée. L'écart-type 3 multiplie l'espérance par 9 et l'écart-type de $\lVert \mathbf{X} \rVert^2$ par 9 aussi : leur quotient ne change pas, et f) non plus. La dispersion relative $\sqrt{\frac{2}{n}}$ est au plus 1 % dès $n = 20\thinspace000$. Avec la tangente, $\lVert \mathbf{X} \rVert \approx \sqrt{m} + \frac{\lVert \mathbf{X} \rVert^2 - m}{2\sqrt{m}}$ avec $m = 9n$, d'où un écart-type d'environ $\frac{9\sqrt{2n}}{2 \times 3\sqrt{n}} = \frac{3}{\sqrt{2}} \approx 2{,}12$, quelle que soit la dimension : trois fois l'écart-type d'environ 0,71 du cas $\mathcal{N}(0, 1)$ (fiche §7, M07.30). La norme vaut donc $3\sqrt{n}$ à environ 2 près : rapportée à sa taille, sa dispersion tend vers 0.
 
 **Erreurs fréquentes.** S'arrêter à $\mathbb{E}[Z^2]$ (a : 1) ; oublier de retrancher $\mathbb{E}[Z^2]^2$ (b : 3) ou prendre $\mathbb{V}(Z)^2$ (b : 1) ; oublier l'écart-type 3 (c : 50 ; d : 100) ou ne le compter qu'une fois (c : 150 ; d : 900) ; diviser la variance par l'espérance (e : 18) ; oublier le 2 de $\mathbb{V}(Z^2)$ (e : 0,141) ; diviser par $\varepsilon$ au lieu de $\varepsilon^2$ en f) (180, une « probabilité » plus grande que 1), ou l'écart-type au lieu de la variance (f : 0,158).
 
@@ -325,55 +325,55 @@ Pour la copie : la variance d'une somme est la somme des variances quand les ter
 ### Ex M07.14 — L'inégalité de Cauchy-Schwarz, par le discriminant
 
 **Réponse modèle.**
-1. Par la linéarité du produit scalaire : $q(t) = (\mathbf{u} + t\mathbf{v}) \cdot (\mathbf{u} + t\mathbf{v}) = \lVert \mathbf{v} \rVert^2\,t^2 + 2\,(\mathbf{u} \cdot \mathbf{v})\,t + \lVert \mathbf{u} \rVert^2$. Donc $\alpha = \lVert \mathbf{v} \rVert^2$, $\beta = 2\,\mathbf{u} \cdot \mathbf{v}$, $\gamma = \lVert \mathbf{u} \rVert^2$.
-2. $q(t)$ est le carré d'une norme, donc $q(t) \ge 0$ pour tout $t$. Comme $\alpha > 0$ ($\mathbf{v} \ne \mathbf{0}$), $q$ est un trinôme du second degré ; s'il avait un discriminant strictement positif, il aurait deux racines distinctes et serait strictement négatif entre elles (R3). Donc $\Delta = 4(\mathbf{u} \cdot \mathbf{v})^2 - 4\lVert \mathbf{u} \rVert^2\lVert \mathbf{v} \rVert^2 \le 0$, soit $(\mathbf{u} \cdot \mathbf{v})^2 \le \lVert \mathbf{u} \rVert^2\lVert \mathbf{v} \rVert^2$, et, en prenant les racines carrées de ces nombres positifs, $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$.
-3. Si $\mathbf{v} = \mathbf{0}$, les deux membres sont nuls : l'inégalité est vraie, avec égalité (et $\mathbf{v} = 0\,\mathbf{u}$ est colinéaire à $\mathbf{u}$).
-4. Si $\mathbf{u} = \lambda\mathbf{v}$, alors $|\mathbf{u} \cdot \mathbf{v}| = |\lambda|\,\lVert \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert$ : égalité. Réciproquement, si l'égalité a lieu (avec $\mathbf{v} \ne \mathbf{0}$), alors $\Delta = 0$ : $q$ a une racine double $t_0$, et $q(t_0) = \lVert \mathbf{u} + t_0\mathbf{v} \rVert^2 = 0$, donc $\mathbf{u} = -t_0\,\mathbf{v}$ : $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires.
-5. Avec ces vecteurs, $\mathbf{u} \cdot \mathbf{v} = \sum_i |x_i| = \lVert \mathbf{x} \rVert_1$, $\lVert \mathbf{u} \rVert = \sqrt{\sum x_i^2} = \lVert \mathbf{x} \rVert_2$ et $\lVert \mathbf{v} \rVert = \sqrt{n}$. Cauchy-Schwarz donne $\lVert \mathbf{x} \rVert_1 \le \sqrt{n}\,\lVert \mathbf{x} \rVert_2$, avec égalité si et seulement si $(|x_1|, \ldots, |x_n|)$ est colinéaire à $(1, \ldots, 1)$ : toutes les coordonnées ont la même valeur absolue.
-6. $\mathbf{u} \cdot \mathbf{v} = 2 + 0 + 3 = 5$ et $\lVert \mathbf{u} \rVert\,\lVert \mathbf{v} \rVert = \sqrt{11}\sqrt{5} = \sqrt{55} \approx 7{,}42$ : $5 \le 7{,}42$. Et $\lVert \mathbf{u} \rVert_1 = 5 \le \sqrt{3}\sqrt{11} = \sqrt{33} \approx 5{,}74$.
+1. Par la linéarité du produit scalaire : $q(t) = (\mathbf{u} + t\mathbf{v}) \cdot (\mathbf{u} + t\mathbf{v}) = \lVert \mathbf{v} \rVert^2\thinspace t^2 + 2\thinspace(\mathbf{u} \cdot \mathbf{v})\thinspace t + \lVert \mathbf{u} \rVert^2$. Donc $\alpha = \lVert \mathbf{v} \rVert^2$, $\beta = 2\thinspace\mathbf{u} \cdot \mathbf{v}$, $\gamma = \lVert \mathbf{u} \rVert^2$.
+2. $q(t)$ est le carré d'une norme, donc $q(t) \ge 0$ pour tout $t$. Comme $\alpha > 0$ ($\mathbf{v} \ne \mathbf{0}$), $q$ est un trinôme du second degré ; s'il avait un discriminant strictement positif, il aurait deux racines distinctes et serait strictement négatif entre elles (R3). Donc $\Delta = 4(\mathbf{u} \cdot \mathbf{v})^2 - 4\lVert \mathbf{u} \rVert^2\lVert \mathbf{v} \rVert^2 \le 0$, soit $(\mathbf{u} \cdot \mathbf{v})^2 \le \lVert \mathbf{u} \rVert^2\lVert \mathbf{v} \rVert^2$, et, en prenant les racines carrées de ces nombres positifs, $|\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$.
+3. Si $\mathbf{v} = \mathbf{0}$, les deux membres sont nuls : l'inégalité est vraie, avec égalité (et $\mathbf{v} = 0\thinspace\mathbf{u}$ est colinéaire à $\mathbf{u}$).
+4. Si $\mathbf{u} = \lambda\mathbf{v}$, alors $|\mathbf{u} \cdot \mathbf{v}| = |\lambda|\thinspace\lVert \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert$ : égalité. Réciproquement, si l'égalité a lieu (avec $\mathbf{v} \ne \mathbf{0}$), alors $\Delta = 0$ : $q$ a une racine double $t_0$, et $q(t_0) = \lVert \mathbf{u} + t_0\mathbf{v} \rVert^2 = 0$, donc $\mathbf{u} = -t_0\thinspace\mathbf{v}$ : $\mathbf{u}$ et $\mathbf{v}$ sont colinéaires.
+5. Avec ces vecteurs, $\mathbf{u} \cdot \mathbf{v} = \sum_i |x_i| = \lVert \mathbf{x} \rVert_1$, $\lVert \mathbf{u} \rVert = \sqrt{\sum x_i^2} = \lVert \mathbf{x} \rVert_2$ et $\lVert \mathbf{v} \rVert = \sqrt{n}$. Cauchy-Schwarz donne $\lVert \mathbf{x} \rVert_1 \le \sqrt{n}\thinspace\lVert \mathbf{x} \rVert_2$, avec égalité si et seulement si $(|x_1|, \ldots, |x_n|)$ est colinéaire à $(1, \ldots, 1)$ : toutes les coordonnées ont la même valeur absolue.
+6. $\mathbf{u} \cdot \mathbf{v} = 2 + 0 + 3 = 5$ et $\lVert \mathbf{u} \rVert\thinspace\lVert \mathbf{v} \rVert = \sqrt{11}\sqrt{5} = \sqrt{55} \approx 7{,}42$ : $5 \le 7{,}42$. Et $\lVert \mathbf{u} \rVert_1 = 5 \le \sqrt{3}\sqrt{11} = \sqrt{33} \approx 5{,}74$.
 
 **Grille.** (1) le développement juste, avec $\alpha$, $\beta$ et $\gamma$ ; (2) l'argument « trinôme toujours positif, donc discriminant négatif ou nul », en utilisant $\alpha > 0$, et le passage aux racines carrées ; (3) le cas $\mathbf{v} = \mathbf{0}$ ; (4) les **deux** sens de l'équivalence ; (5) le choix des vecteurs, le calcul des trois quantités, le cas d'égalité ; (6) les deux vérifications numériques.
 
 ### Ex M07.15 — L'inégalité triangulaire pour L2, L1 et L∞
 
 **Réponse modèle.**
-1. $\lVert \mathbf{u} + \mathbf{v} \rVert_2^2 = \lVert \mathbf{u} \rVert_2^2 + 2\,\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert_2^2 \le \lVert \mathbf{u} \rVert_2^2 + 2\,\lVert \mathbf{u} \rVert_2\lVert \mathbf{v} \rVert_2 + \lVert \mathbf{v} \rVert_2^2 = \big(\lVert \mathbf{u} \rVert_2 + \lVert \mathbf{v} \rVert_2\big)^2$, par Cauchy-Schwarz ($\mathbf{u} \cdot \mathbf{v} \le |\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert_2\lVert \mathbf{v} \rVert_2$). Les deux membres sont positifs : on peut prendre les racines carrées.
+1. $\lVert \mathbf{u} + \mathbf{v} \rVert_2^2 = \lVert \mathbf{u} \rVert_2^2 + 2\thinspace\mathbf{u} \cdot \mathbf{v} + \lVert \mathbf{v} \rVert_2^2 \le \lVert \mathbf{u} \rVert_2^2 + 2\thinspace\lVert \mathbf{u} \rVert_2\lVert \mathbf{v} \rVert_2 + \lVert \mathbf{v} \rVert_2^2 = \big(\lVert \mathbf{u} \rVert_2 + \lVert \mathbf{v} \rVert_2\big)^2$, par Cauchy-Schwarz ($\mathbf{u} \cdot \mathbf{v} \le |\mathbf{u} \cdot \mathbf{v}| \le \lVert \mathbf{u} \rVert_2\lVert \mathbf{v} \rVert_2$). Les deux membres sont positifs : on peut prendre les racines carrées.
 2. Pour chaque $i$, $|u_i + v_i| \le |u_i| + |v_i|$ ; en additionnant, $\lVert \mathbf{u} + \mathbf{v} \rVert_1 \le \lVert \mathbf{u} \rVert_1 + \lVert \mathbf{v} \rVert_1$.
 3. Pour chaque $i$, $|u_i + v_i| \le |u_i| + |v_i| \le \lVert \mathbf{u} \rVert_\infty + \lVert \mathbf{v} \rVert_\infty$ ; le plus grand des $|u_i + v_i|$ est donc lui aussi au plus $\lVert \mathbf{u} \rVert_\infty + \lVert \mathbf{v} \rVert_\infty$.
 4. $\lVert \mathbf{u} \rVert = \lVert (\mathbf{u} - \mathbf{v}) + \mathbf{v} \rVert \le \lVert \mathbf{u} - \mathbf{v} \rVert + \lVert \mathbf{v} \rVert$, donc $\lVert \mathbf{u} \rVert - \lVert \mathbf{v} \rVert \le \lVert \mathbf{u} - \mathbf{v} \rVert$. En échangeant les rôles, $\lVert \mathbf{v} \rVert - \lVert \mathbf{u} \rVert \le \lVert \mathbf{v} - \mathbf{u} \rVert = \lVert \mathbf{u} - \mathbf{v} \rVert$. Les deux ensemble donnent la valeur absolue.
-5. $N(\mathbf{x}) \ge 0$, et $N(\mathbf{x}) = 0$ seulement si $\sqrt{|x_1|} + \sqrt{|x_2|} = 0$, c'est-à-dire $\mathbf{x} = \mathbf{0}$. $N(\lambda\mathbf{x}) = \big(\sqrt{|\lambda|}\sqrt{|x_1|} + \sqrt{|\lambda|}\sqrt{|x_2|}\big)^2 = |\lambda|\,N(\mathbf{x})$. Mais $N(\mathbf{e}_1) = N(\mathbf{e}_2) = 1$ et $N(\mathbf{e}_1 + \mathbf{e}_2) = (1 + 1)^2 = 4 > 2$ : l'inégalité triangulaire est fausse.
+5. $N(\mathbf{x}) \ge 0$, et $N(\mathbf{x}) = 0$ seulement si $\sqrt{|x_1|} + \sqrt{|x_2|} = 0$, c'est-à-dire $\mathbf{x} = \mathbf{0}$. $N(\lambda\mathbf{x}) = \big(\sqrt{|\lambda|}\sqrt{|x_1|} + \sqrt{|\lambda|}\sqrt{|x_2|}\big)^2 = |\lambda|\thinspace N(\mathbf{x})$. Mais $N(\mathbf{e}_1) = N(\mathbf{e}_2) = 1$ et $N(\mathbf{e}_1 + \mathbf{e}_2) = (1 + 1)^2 = 4 > 2$ : l'inégalité triangulaire est fausse.
 
 **Grille.** (1) le développement, Cauchy-Schwarz au bon endroit, la justification du passage aux racines ; (2) l'inégalité des réels coordonnée par coordonnée, puis la somme ; (3) la majoration de **chaque** coordonnée avant le maximum ; (4) l'écriture $\mathbf{u} = (\mathbf{u} - \mathbf{v}) + \mathbf{v}$, et les deux sens ; (5) positivité, homogénéité, puis un contre-exemple chiffré.
 
 ### Ex M07.16 — La moyenne minimise la somme des carrés des distances, en dimension n
 
 **Réponse modèle.**
-1. $\sum_i (\mathbf{x}_i - \bar{\mathbf{x}}) = \sum_i \mathbf{x}_i - m\,\bar{\mathbf{x}} = m\,\bar{\mathbf{x}} - m\,\bar{\mathbf{x}} = \mathbf{0}$.
-2. $\lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + 2\,(\mathbf{x}_i - \bar{\mathbf{x}}) \cdot (\bar{\mathbf{x}} - \mathbf{c}) + \lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$. En additionnant sur $i$, le terme du milieu donne $2\,\big(\sum_i (\mathbf{x}_i - \bar{\mathbf{x}})\big) \cdot (\bar{\mathbf{x}} - \mathbf{c}) = 2\,\mathbf{0} \cdot (\bar{\mathbf{x}} - \mathbf{c}) = 0$ (linéarité, et 1), et le dernier, qui ne dépend pas de $i$, est compté $m$ fois.
-3. Dans la formule, le premier terme ne dépend pas de $\mathbf{c}$, et le second, $m\,\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$, est positif ou nul, nul seulement si $\mathbf{c} = \bar{\mathbf{x}}$. Le minimum est donc atteint en $\bar{\mathbf{x}}$ et en ce seul point.
-4. $\sum_i \omega_i \lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert \mathbf{x}_i - \bar{\mathbf{x}}_\omega \rVert^2 + \Omega\,\lVert \bar{\mathbf{x}}_\omega - \mathbf{c} \rVert^2$. Même preuve : $\sum_i \omega_i (\mathbf{x}_i - \bar{\mathbf{x}}_\omega) = \sum_i \omega_i \mathbf{x}_i - \Omega\,\bar{\mathbf{x}}_\omega = \mathbf{0}$ par définition de $\bar{\mathbf{x}}_\omega$, ce qui annule les doubles produits, et le dernier terme se compte avec les poids, $\sum_i \omega_i = \Omega$.
-5. $J(\mathbf{c}) = \sum_i \sum_j (x_{ij} - c_j)^2$, donc $\frac{\partial J}{\partial c_j} = -2\sum_i (x_{ij} - c_j) = -2\big(\sum_i x_{ij} - m\,c_j\big)$, nul si et seulement si $c_j = \frac{1}{m}\sum_i x_{ij}$ : l'unique point critique est $\bar{\mathbf{x}}$. C'est un minimum : $J$ est une somme, sur les coordonnées $j$, de paraboles tournées vers le haut en $c_j$ (les dérivées secondes valent $2m > 0$ et les dérivées croisées sont nulles), et $J$ tend vers l'infini quand $\mathbf{c}$ s'éloigne.
+1. $\sum_i (\mathbf{x}_i - \bar{\mathbf{x}}) = \sum_i \mathbf{x}_i - m\thinspace\bar{\mathbf{x}} = m\thinspace\bar{\mathbf{x}} - m\thinspace\bar{\mathbf{x}} = \mathbf{0}$.
+2. $\lVert \mathbf{x}_i - \mathbf{c} \rVert^2 = \lVert \mathbf{x}_i - \bar{\mathbf{x}} \rVert^2 + 2\thinspace(\mathbf{x}_i - \bar{\mathbf{x}}) \cdot (\bar{\mathbf{x}} - \mathbf{c}) + \lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$. En additionnant sur $i$, le terme du milieu donne $2\thinspace\big(\sum_i (\mathbf{x}_i - \bar{\mathbf{x}})\big) \cdot (\bar{\mathbf{x}} - \mathbf{c}) = 2\thinspace\mathbf{0} \cdot (\bar{\mathbf{x}} - \mathbf{c}) = 0$ (linéarité, et 1), et le dernier, qui ne dépend pas de $i$, est compté $m$ fois.
+3. Dans la formule, le premier terme ne dépend pas de $\mathbf{c}$, et le second, $m\thinspace\lVert \bar{\mathbf{x}} - \mathbf{c} \rVert^2$, est positif ou nul, nul seulement si $\mathbf{c} = \bar{\mathbf{x}}$. Le minimum est donc atteint en $\bar{\mathbf{x}}$ et en ce seul point.
+4. $\sum_i \omega_i \lVert \mathbf{x} _i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert \mathbf{x} _i - \bar{\mathbf{x}} _\omega \rVert^2 + \Omega\thinspace\lVert \bar{\mathbf{x}} _\omega - \mathbf{c} \rVert^2$. Même preuve : $\sum_i \omega_i (\mathbf{x} _i - \bar{\mathbf{x}} _\omega) = \sum_i \omega_i \mathbf{x} _i - \Omega\thinspace\bar{\mathbf{x}}  _\omega = \mathbf{0}$ par définition de $\bar{\mathbf{x}} _\omega$, ce qui annule les doubles produits, et le dernier terme se compte avec les poids, $\sum_i \omega_i = \Omega$.
+5. $J(\mathbf{c}) = \sum_i \sum_j (x_{ij} - c_j)^2$, donc $\frac{\partial J}{\partial c_j} = -2\sum_i (x_{ij} - c_j) = -2\big(\sum_i x_{ij} - m\thinspace c_j\big)$, nul si et seulement si $c_j = \frac{1}{m}\sum_i x_{ij}$ : l'unique point critique est $\bar{\mathbf{x}}$. C'est un minimum : $J$ est une somme, sur les coordonnées $j$, de paraboles tournées vers le haut en $c_j$ (les dérivées secondes valent $2m > 0$ et les dérivées croisées sont nulles), et $J$ tend vers l'infini quand $\mathbf{c}$ s'éloigne.
 
 **Grille.** (1) le calcul de la somme ; (2) le découpage, le développement, l'annulation du double produit **justifiée** par 1, le facteur $m$ ; (3) le minimum **et** son unicité ; (4) l'énoncé avec $\Omega$ et la propriété qui annule les doubles produits ; (5) le gradient, l'unique point critique, et un argument pour le minimum.
 
 ### Ex M07.17 — La distance d'un point à un hyperplan vaut |w · x + b| / ‖w‖
 
 **Réponse modèle.**
-1. $\mathbf{w} \cdot (\mathbf{x}_0 - t\,\mathbf{w}) + b = 0$ s'écrit $\mathbf{w} \cdot \mathbf{x}_0 + b - t\,\lVert \mathbf{w} \rVert^2 = 0$, d'où $t = \frac{\mathbf{w} \cdot \mathbf{x}_0 + b}{\lVert \mathbf{w} \rVert^2}$ (on peut diviser : $\mathbf{w} \ne \mathbf{0}$) et $\mathbf{x}_H = \mathbf{x}_0 - \frac{\mathbf{w} \cdot \mathbf{x}_0 + b}{\lVert \mathbf{w} \rVert^2}\,\mathbf{w}$.
-2. $\lVert \mathbf{x}_0 - \mathbf{x}_H \rVert = |t|\,\lVert \mathbf{w} \rVert = \frac{|\mathbf{w} \cdot \mathbf{x}_0 + b|}{\lVert \mathbf{w} \rVert}$.
-3. $\mathbf{w} \cdot \mathbf{y} + b = 0$ et $\mathbf{w} \cdot \mathbf{x}_H + b = 0$ : en soustrayant, $\mathbf{w} \cdot (\mathbf{x}_H - \mathbf{y}) = 0$. Or $\mathbf{x}_0 - \mathbf{y} = (\mathbf{x}_0 - \mathbf{x}_H) + (\mathbf{x}_H - \mathbf{y})$, où $\mathbf{x}_0 - \mathbf{x}_H = t\,\mathbf{w}$ est orthogonal à $\mathbf{x}_H - \mathbf{y}$. Par Pythagore (fiche §2), $\lVert \mathbf{x}_0 - \mathbf{y} \rVert^2 = \lVert \mathbf{x}_0 - \mathbf{x}_H \rVert^2 + \lVert \mathbf{x}_H - \mathbf{y} \rVert^2 \ge \lVert \mathbf{x}_0 - \mathbf{x}_H \rVert^2$, avec égalité seulement pour $\mathbf{y} = \mathbf{x}_H$. La plus petite distance de $\mathbf{x}_0$ à un point de $H$ est donc $\lVert \mathbf{x}_0 - \mathbf{x}_H \rVert$, la valeur de 2.
-4. $\frac{|\lambda\,\mathbf{w} \cdot \mathbf{x}_0 + \lambda b|}{\lVert \lambda\mathbf{w} \rVert} = \frac{|\lambda|\,|\mathbf{w} \cdot \mathbf{x}_0 + b|}{|\lambda|\,\lVert \mathbf{w} \rVert}$ : le facteur se simplifie (c'est heureux : $(\lambda\mathbf{w}, \lambda b)$ décrit le même hyperplan).
+1. $\mathbf{w} \cdot (\mathbf{x}_0 - t\thinspace\mathbf{w}) + b = 0$ s'écrit $\mathbf{w} \cdot \mathbf{x}_0 + b - t\thinspace\lVert \mathbf{w} \rVert^2 = 0$, d'où $t = \frac{\mathbf{w} \cdot \mathbf{x}_0 + b}{\lVert \mathbf{w} \rVert^2}$ (on peut diviser : $\mathbf{w} \ne \mathbf{0}$) et $\mathbf{x}_H = \mathbf{x}_0 - \frac{\mathbf{w} \cdot \mathbf{x}_0 + b}{\lVert \mathbf{w} \rVert^2}\thinspace\mathbf{w}$.
+2. $\lVert \mathbf{x}_0 - \mathbf{x}_H \rVert = |t|\thinspace\lVert \mathbf{w} \rVert = \frac{|\mathbf{w} \cdot \mathbf{x}_0 + b|}{\lVert \mathbf{w} \rVert}$.
+3. $\mathbf{w} \cdot \mathbf{y} + b = 0$ et $\mathbf{w} \cdot \mathbf{x}_H + b = 0$ : en soustrayant, $\mathbf{w} \cdot (\mathbf{x}_H - \mathbf{y}) = 0$. Or $\mathbf{x}_0 - \mathbf{y} = (\mathbf{x}_0 - \mathbf{x}_H) + (\mathbf{x}_H - \mathbf{y})$, où $\mathbf{x}_0 - \mathbf{x}_H = t\thinspace\mathbf{w}$ est orthogonal à $\mathbf{x}_H - \mathbf{y}$. Par Pythagore (fiche §2), $\lVert \mathbf{x}_0 - \mathbf{y} \rVert^2 = \lVert \mathbf{x}_0 - \mathbf{x}_H \rVert^2 + \lVert \mathbf{x}_H - \mathbf{y} \rVert^2 \ge \lVert \mathbf{x}_0 - \mathbf{x}_H \rVert^2$, avec égalité seulement pour $\mathbf{y} = \mathbf{x}_H$. La plus petite distance de $\mathbf{x}_0$ à un point de $H$ est donc $\lVert \mathbf{x}_0 - \mathbf{x}_H \rVert$, la valeur de 2.
+4. $\frac{|\lambda\thinspace\mathbf{w} \cdot \mathbf{x}_0 + \lambda b|}{\lVert \lambda\mathbf{w} \rVert} = \frac{|\lambda|\thinspace|\mathbf{w} \cdot \mathbf{x}_0 + b|}{|\lambda|\thinspace\lVert \mathbf{w} \rVert}$ : le facteur se simplifie (c'est heureux : $(\lambda\mathbf{w}, \lambda b)$ décrit le même hyperplan).
 5. Un point $\mathbf{x}_0$ du premier hyperplan vérifie $\mathbf{w} \cdot \mathbf{x}_0 = -b_1$ ; sa distance au second est $\frac{|-b_1 + b_2|}{\lVert \mathbf{w} \rVert} = \frac{|b_1 - b_2|}{\lVert \mathbf{w} \rVert}$, la même pour tous les points du premier : c'est la distance entre les deux hyperplans.
 
-**Grille.** (1) l'équation en $t$, la division justifiée par $\mathbf{w} \ne \mathbf{0}$ ; (2) la norme de $t\,\mathbf{w}$ avec la valeur absolue ; (3) l'orthogonalité de $\mathbf{x}_H - \mathbf{y}$ à $\mathbf{w}$, Pythagore, et la conclusion « le plus proche » ; (4) la simplification, valable aussi pour $\lambda < 0$ ; (5) un point du premier hyperplan et la formule.
+**Grille.** (1) l'équation en $t$, la division justifiée par $\mathbf{w} \ne \mathbf{0}$ ; (2) la norme de $t\thinspace\mathbf{w}$ avec la valeur absolue ; (3) l'orthogonalité de $\mathbf{x}_H - \mathbf{y}$ à $\mathbf{w}$, Pythagore, et la conclusion « le plus proche » ; (4) la simplification, valable aussi pour $\lambda < 0$ ; (5) un point du premier hyperplan et la formule.
 
 ### Ex M07.18 — Les deux étapes de k-means font baisser l'inertie, ou la laissent égale
 
 **Réponse modèle.**
-1. Les centres étant fixés, $J = \sum_i \lVert \mathbf{x}_i - \boldsymbol{\mu}_{c_i} \rVert^2$ est une somme dont chaque terme ne dépend que de $c_i$. L'affectation choisit pour chaque $i$ le centre le plus proche, donc un terme au plus égal à l'ancien : la somme ne peut pas augmenter.
+1. Les centres étant fixés, $J = \sum_i \lVert \mathbf{x} _i - \boldsymbol{\mu} _{c_i} \rVert^2$ est une somme dont chaque terme ne dépend que de $c_i$. L'affectation choisit pour chaque $i$ le centre le plus proche, donc un terme au plus égal à l'ancien : la somme ne peut pas augmenter.
 2. L'affectation étant fixée, $J = \sum_{j=1}^{k} \sum_{i : c_i = j} \lVert \mathbf{x}_i - \boldsymbol{\mu}_j \rVert^2$ : chaque centre n'intervient que dans la somme de son cluster. Par M07.16, cette somme est la plus petite quand $\boldsymbol{\mu}_j$ est le barycentre du cluster : remplacer chaque centre par ce barycentre ne peut pas augmenter $J$. Un cluster vide n'a aucun terme : son centre peut rester où il est sans changer $J$.
 3. La suite des inerties décroît (au sens large) et reste positive : elle converge. Avec la règle « un point garde son centre en cas d'égalité », une affectation qui change fait strictement baisser $J$ (au moins un point passe à un centre strictement plus proche), puis la mise à jour ne le fait pas remonter. Après chaque mise à jour, l'inertie ne dépend que de l'affectation (les centres sont les barycentres de ses clusters ; un cluster vide n'a aucun terme). Tant que l'affectation change, cette inertie baisse strictement : une affectation déjà rencontrée ne peut donc pas revenir, elle redonnerait la même inertie. Comme il n'y a que $k^m$ affectations possibles au plus, l'algorithme s'arrête après $k^m$ étapes au plus.
-4. Avec les centres $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ : $(0, 0)$ et $(5, 0)$ sont à la distance au carré $6{,}25$ du premier et $7{,}25$ du second, ils le rejoignent ; $(0, 1)$ et $(5, 1)$ rejoignent le second. Les barycentres sont $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ : les centres ne bougent plus, et l'inertie vaut $4 \times 6{,}25 = 25$. Le découpage en deux côtés courts, $\{(0, 0), (0, 1)\}$ et $\{(5, 0), (5, 1)\}$, de centres $(0 ;\ 0{,}5)$ et $(5 ;\ 0{,}5)$, a l'inertie $4 \times 0{,}25 = 1$. k-means peut donc s'arrêter sur un découpage 25 fois moins bon que le meilleur : c'est un **minimum local**. D'où l'intérêt de bons départs (k-means++) et de plusieurs lancers.
+4. Avec les centres $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ : $(0, 0)$ et $(5, 0)$ sont à la distance au carré $6{,}25$ du premier et $7{,}25$ du second, ils le rejoignent ; $(0, 1)$ et $(5, 1)$ rejoignent le second. Les barycentres sont $(2{,}5 ;\ 0)$ et $(2{,}5 ;\ 1)$ : les centres ne bougent plus, et l'inertie vaut $4 \times 6{,}25 = 25$. Le découpage en deux côtés courts, $\lbrace(0, 0), (0, 1)\rbrace$ et $\lbrace(5, 0), (5, 1)\rbrace$, de centres $(0 ;\ 0{,}5)$ et $(5 ;\ 0{,}5)$, a l'inertie $4 \times 0{,}25 = 1$. k-means peut donc s'arrêter sur un découpage 25 fois moins bon que le meilleur : c'est un **minimum local**. D'où l'intérêt de bons départs (k-means++) et de plusieurs lancers.
 
 **Grille.** (1) l'argument terme par terme ; (2) le regroupement par cluster, l'appel à M07.16, le cas du cluster vide ; (3) la convergence de la suite, et l'argument de finitude (baisse stricte, nombre fini d'affectations) ; (4) le point fixe vérifié (affectation puis mise à jour), les deux inerties, la conclusion sur les minima locaux.
 
@@ -448,7 +448,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 > La frontière de décision est l'ensemble des points où le score $\mathbf{w} \cdot \mathbf{x} + b$ est nul : un hyperplan, une droite en dimension 2. Le vecteur $\mathbf{w}$ en est un vecteur normal, et c'est aussi le gradient du score : la direction dans laquelle il monte le plus vite. Si je m'éloigne de la frontière d'une distance $\delta$ dans cette direction, le score augmente de $\lVert \mathbf{w} \rVert$ fois $\delta$. Le score est donc la distance signée à la frontière, multipliée par $\lVert \mathbf{w} \rVert$ : divisé par $\lVert \mathbf{w} \rVert$, il dit si un point est classé de justesse ou largement. Et la norme de $\mathbf{w}$ mesure la pente du score quand on traverse la frontière : plus elle est grande, plus le score change vite près d'elle.
 
-**Grille.** (1) la frontière, un hyperplan, et $\mathbf{w}$ normal à elle ; (2) $\mathbf{w}$, direction de plus forte croissance du score ; (3) un pas $\delta$ perpendiculaire à la frontière change le score de $\lVert \mathbf{w} \rVert\,\delta$ ; (4) $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$ comme distance à la frontière ; (5) $\lVert \mathbf{w} \rVert$, la pente du score de part et d'autre de la frontière.
+**Grille.** (1) la frontière, un hyperplan, et $\mathbf{w}$ normal à elle ; (2) $\mathbf{w}$, direction de plus forte croissance du score ; (3) un pas $\delta$ perpendiculaire à la frontière change le score de $\lVert \mathbf{w} \rVert\thinspace\delta$ ; (4) $\frac{|\mathbf{w} \cdot \mathbf{x} + b|}{\lVert \mathbf{w} \rVert}$ comme distance à la frontière ; (5) $\lVert \mathbf{w} \rVert$, la pente du score de part et d'autre de la frontière.
 
 <a id="notebook"></a>
 
@@ -458,7 +458,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 **Réponses** : a) `9.0` · b) `5.0` · c) `4.0` · d) `4.327` · e) `"ValueError"` · f) `0.4714` · g) `"ValueError"` · h) `"float"`.
 
-**Démarche.** `norm_p` : `x = np.array(x, dtype=float)`, une `ValueError` si `x.ndim != 1` ou `x.size == 0`, ou si `not p >= 1` (ce test refuse aussi `nan`) ; puis trois cas : `p` infini (`math.isinf(p)`) donne `float(np.max(np.abs(x)))`, `p == 1` donne la somme des valeurs absolues, sinon `float(np.sum(np.abs(x) ** p) ** (1 / p))`. `cosine_similarity` : les deux vecteurs en flottants, une `ValueError` si les longueurs diffèrent ou si une norme est nulle, puis `float(np.clip(np.sum(u * v) / (nu * nv), -1, 1))`. Pour la copie : a) $1 + 2 + 2 + 4 = 9$ ; b) $\sqrt{25} = 5$ ; c) 4 ; d) $81^{1/3} \approx 4{,}327$ ; f) $\frac{3 + 2 + 0 - 1}{\sqrt{6}\,\sqrt{12}} = \frac{4}{\sqrt{72}} \approx 0{,}4714$. La norme diminue quand $p$ augmente : la plus grande coordonnée pèse de plus en plus. Sans `np.clip`, le cosinus d'un vecteur avec lui-même vaut souvent 1,0000000000000002 (les arrondis du numérateur et du dénominateur ne se compensent pas exactement : environ un vecteur gaussien sur quatre en dimension 5), et `np.arccos` de ce nombre donne `nan`.
+**Démarche.** `norm_p` : `x = np.array(x, dtype=float)`, une `ValueError` si `x.ndim != 1` ou `x.size == 0`, ou si `not p >= 1` (ce test refuse aussi `nan`) ; puis trois cas : `p` infini (`math.isinf(p)`) donne `float(np.max(np.abs(x)))`, `p == 1` donne la somme des valeurs absolues, sinon `float(np.sum(np.abs(x) ** p) ** (1 / p))`. `cosine_similarity` : les deux vecteurs en flottants, une `ValueError` si les longueurs diffèrent ou si une norme est nulle, puis `float(np.clip(np.sum(u * v) / (nu * nv), -1, 1))`. Pour la copie : a) $1 + 2 + 2 + 4 = 9$ ; b) $\sqrt{25} = 5$ ; c) 4 ; d) $81^{1/3} \approx 4{,}327$ ; f) $\frac{3 + 2 + 0 - 1}{\sqrt{6}\thinspace\sqrt{12}} = \frac{4}{\sqrt{72}} \approx 0{,}4714$. La norme diminue quand $p$ augmente : la plus grande coordonnée pèse de plus en plus. Sans `np.clip`, le cosinus d'un vecteur avec lui-même vaut souvent 1,0000000000000002 (les arrondis du numérateur et du dénominateur ne se compensent pas exactement : environ un vecteur gaussien sur quatre en dimension 5), et `np.arccos` de ce nombre donne `nan`.
 
 **Erreurs fréquentes.** Oublier les valeurs absolues (d : avec des signes, $|1 - 8 + 8 - 64|^{1/3}$) ; oublier la puissance $\frac{1}{p}$ (d : 81) ; tester `p == float("inf")` sur un `np.inf` (cela marche, mais `math.isinf` est plus sûr) ; diviser par une seule des deux normes (f : 1, ramené par `np.clip`) ou par le carré d'une seule (f : 0,6667 ou 0,3333) ; laisser passer un vecteur nul (g : `nan` ou `ZeroDivisionError`) ; renvoyer un `numpy.float64` (h).
 
@@ -474,7 +474,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 **Réponses** : a) `[2.0, 3.0]` · b) `[0.2, 2.0]` · c) `40.0` · d) `92.0` · e) `"ValueError"` · f) `"float"`.
 
-**Démarche.** `centroid` : `points` en tableau 2-D (une `ValueError` s'il est vide), des poids égaux à 1 par défaut, une `ValueError` si leur forme n'est pas `(n,)`, si l'un est négatif (`not np.all(w >= 0)`, qui refuse aussi `nan`) ou si leur somme n'est pas positive ; puis `np.sum(w[:, None] * points, axis=0) / w.sum()`. `sum_sq_distances_to` : `float(np.sum((points - c) ** 2))`, après avoir vérifié que `c` a une coordonnée par colonne. Pour la copie : a) $\big(\frac{8}{4}, \frac{12}{4}\big) = (2, 3)$ ; b) $\frac{(1, 4) + (3, 0) + 3\,(-1, 2)}{5} = (0{,}2 ;\ 2)$ : le dernier point a un poids nul, il disparaît du numérateur, et le dénominateur est la somme des poids, 5 ; c) $2 + 10 + 10 + 18 = 40$ ; d) $17 + 9 + 5 + 61 = 92 = 40 + 4 \times 13$ (König-Huygens, avec $\lVert (2, 3) \rVert^2 = 13$).
+**Démarche.** `centroid` : `points` en tableau 2-D (une `ValueError` s'il est vide), des poids égaux à 1 par défaut, une `ValueError` si leur forme n'est pas `(n,)`, si l'un est négatif (`not np.all(w >= 0)`, qui refuse aussi `nan`) ou si leur somme n'est pas positive ; puis `np.sum(w[:, None] * points, axis=0) / w.sum()`. `sum_sq_distances_to` : `float(np.sum((points - c) ** 2))`, après avoir vérifié que `c` a une coordonnée par colonne. Pour la copie : a) $\big(\frac{8}{4}, \frac{12}{4}\big) = (2, 3)$ ; b) $\frac{(1, 4) + (3, 0) + 3\thinspace(-1, 2)}{5} = (0{,}2 ;\ 2)$ : le dernier point a un poids nul, il disparaît du numérateur, et le dénominateur est la somme des poids, 5 ; c) $2 + 10 + 10 + 18 = 40$ ; d) $17 + 9 + 5 + 61 = 92 = 40 + 4 \times 13$ (König-Huygens, avec $\lVert (2, 3) \rVert^2 = 13$).
 
 **Erreurs fréquentes.** Oublier `[:, None]` (les poids ne se multiplient pas ligne par ligne) ; diviser par le nombre de points au lieu de la somme des poids (b : `[0.25, 2.5]`) ; additionner des distances au lieu de leurs carrés (c) ; accepter un poids négatif (e).
 
@@ -526,7 +526,7 @@ Pour la copie : en tonnes, la masse varie de quelques dixièmes, la puissance de
 
 **Réponses** : a) `"ACE"` · b) `[6.403, 11, -0.175, 4.583, -0.802, 4]`.
 
-**Démarche.** (A) oublie la racine : la somme des carrés vaut 41, la distance $\sqrt{41} \approx 6{,}403$. (C) ne divise que par $\lVert \mathbf{a} \rVert$ : $\mathbf{a} \cdot \mathbf{b} = 4 - 3 - 4 = -3$, d'où le cosinus $\frac{-3}{\sqrt{14}\sqrt{21}} \approx -0{,}175$. (E) divise par $\lVert \mathbf{a} \rVert^2$ : c'est le **coefficient** $t$ de la projection ($\mathbf{p} = t\,\mathbf{a}$) ; la composante, une longueur avec un signe, vaut $\frac{-3}{\sqrt{14}} \approx -0{,}802$. (B) $3 + 4 + 4 = 11$, (D) $\sqrt{21} \approx 4{,}583$ et (F) $\max(3, 4, 4) = 4$ sont justes.
+**Démarche.** (A) oublie la racine : la somme des carrés vaut 41, la distance $\sqrt{41} \approx 6{,}403$. (C) ne divise que par $\lVert \mathbf{a} \rVert$ : $\mathbf{a} \cdot \mathbf{b} = 4 - 3 - 4 = -3$, d'où le cosinus $\frac{-3}{\sqrt{14}\sqrt{21}} \approx -0{,}175$. (E) divise par $\lVert \mathbf{a} \rVert^2$ : c'est le **coefficient** $t$ de la projection ($\mathbf{p} = t\thinspace\mathbf{a}$) ; la composante, une longueur avec un signe, vaut $\frac{-3}{\sqrt{14}} \approx -0{,}802$. (B) $3 + 4 + 4 = 11$, (D) $\sqrt{21} \approx 4{,}583$ et (F) $\max(3, 4, 4) = 4$ sont justes.
 
 **Erreurs fréquentes.** Croire (E) juste parce que la formule ressemble à celle de la projection ; citer (D), qui est juste.
 

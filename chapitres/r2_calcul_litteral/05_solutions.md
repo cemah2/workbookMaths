@@ -47,8 +47,8 @@
 3. **Vrai** : on multiplie par $-2$, le sens change : $x < -2$.
 4. **Vrai** : on retire 4, le sens ne change pas.
 5. **Faux** : $5 - x > 0 \iff -x > -5 \iff x < 5$. Vérifie avec $x = 0$ : $5 > 0$, vrai, et 0 n'est pas supérieur à 5.
-6. **Faux** : du côté de l'infini, le crochet est toujours ouvert : $[2 \;;\; +\infty[$.
-7. **Faux** : « et » donne l'intersection, $]1 \;;\; 4[$. La réunion écrite contient tous les réels.
+6. **Faux** : du côté de l'infini, le crochet est toujours ouvert : $[2 \mkern5mu ;\mkern5mu  +\infty[$.
+7. **Faux** : « et » donne l'intersection, $]1 \mkern5mu ;\mkern5mu  4[$. La réunion écrite contient tous les réels.
 
 ### R2.Q6 — Valeur absolue et distance
 1. **Vrai** : $|-9| = 9$ ; une valeur absolue n'est jamais négative.
@@ -175,7 +175,7 @@
 - d) $(x - a)^2 = x^2 - 2ax + a^2$ ; on identifie $2a = 14$ et $a^2 = 49$ : $a = 7$ (les deux conditions sont compatibles).
 - e) $25x^2 - 9 = (5x)^2 - 3^2 = (5x - 3)(5x + 3)$.
 - f) $4x^2 = (2x)^2$, $25 = 5^2$, et le terme du milieu est bien $2 \times 2x \times 5 = 20x$ : $(2x + 5)^2$.
-- g) $(100 + 1)^2 = 10\,000 + 200 + 1 = 10\,201$.
+- g) $(100 + 1)^2 = 10\thinspace000 + 200 + 1 = 10\thinspace201$.
 - h) $(60 - 1)(60 + 1) = 3600 - 1 = 3599$.
 
 **Erreurs fréquentes.**
@@ -242,7 +242,7 @@
 
 **Erreurs fréquentes.** Garder le sens en divisant par un négatif (b) ; un crochet fermé pour une inégalité stricte (a) ; oublier la parenthèse autour de $x - 3$ (e).
 
-**Variante.** Résous $5 - 2x \le 11$ et $-1 \le \frac{x + 1}{2} < 3$. *Réponses* : $[-3 \;;\; +\infty[$ ; $-2 \le x + 1 < 6$, soit $[-3 \;;\; 5[$.
+**Variante.** Résous $5 - 2x \le 11$ et $-1 \le \frac{x + 1}{2} < 3$. *Réponses* : $[-3 \mkern5mu ;\mkern5mu  +\infty[$ ; $-2 \le x + 1 < 6$, soit $[-3 \mkern5mu ;\mkern5mu  5[$.
 
 ### Ex R2.8 — Réunion et intersection d'intervalles
 
@@ -258,7 +258,7 @@
 
 **Erreurs fréquentes.** Confondre $\cap$ et $\cup$ ; garder un crochet fermé pour une borne exclue de l'un des deux intervalles (b) ; laisser la réunion c) en deux morceaux qui se chevauchent.
 
-**Variante.** $[0 ; 4[ \cap\, ]2 ; 7]$ et $[0 ; 4[ \cup\, ]2 ; 7]$ ? *Réponses* : $]2 ; 4[$ ; $[0 ; 7]$.
+**Variante.** $[0 ; 4[ \cap\thinspace ]2 ; 7]$ et $[0 ; 4[ \cup\thinspace ]2 ; 7]$ ? *Réponses* : $]2 ; 4[$ ; $[0 ; 7]$.
 
 ### Ex R2.9 — Équations et inéquations avec une valeur absolue, et la fonction signe
 
@@ -275,7 +275,7 @@
 
 **Erreurs fréquentes.** Une seule solution en a) ou b) ; lire $|x + 1|$ comme la distance à 1 (d) ; prendre l'intérieur au lieu de l'extérieur en e) ; répondre $-5$ en g) au lieu du **signe** de $-5$.
 
-**Variante.** Résous $|x + 4| = 1$ et $|x - 1| < 2$. *Réponses* : $\{-5 ; -3\}$ ; $]-1 \;;\; 3[$.
+**Variante.** Résous $|x + 4| = 1$ et $|x - 1| < 2$. *Réponses* : $\lbrace-5 ; -3\rbrace$ ; $]-1 \mkern5mu ;\mkern5mu  3[$.
 
 ### Ex R2.10 — Système 2 × 2 par substitution et par combinaison
 
@@ -289,7 +289,7 @@
 
 **Erreurs fréquentes.** Donner $[y, x]$ ; oublier de multiplier le second membre en combinant ; ne vérifier le couple que dans une seule équation (celle qui a servi à calculer la seconde inconnue le vérifie forcément).
 
-**Variante.** $\begin{cases} 2x + y = 7 \\ x - 3y = 7 \end{cases}$. *Réponse* : $y = 7 - 2x$, puis $7x - 21 = 7$, $x = 4$, $y = -1$.
+**Variante.** $\begin{cases} 2x + y = 7 \cr x - 3y = 7 \end{cases}$. *Réponse* : $y = 7 - 2x$, puis $7x - 21 = 7$, $x = 4$, $y = -1$.
 
 ### Ex R2.11 — Système 2 × 2 par la formule de Cramer
 
@@ -303,7 +303,7 @@
 
 **Erreurs fréquentes.** Oublier le signe de $d = -1$ ; calculer $ad + bc$ ; conclure « une solution » sans regarder le déterminant ; diviser par un $D$ nul.
 
-**Variante.** $\begin{cases} 4x + 3y = 10 \\ 2x - y = 0 \end{cases}$ par Cramer. *Réponse* : $D = -10$, $x = \frac{-10}{-10} = 1$, $y = \frac{-20}{-10} = 2$.
+**Variante.** $\begin{cases} 4x + 3y = 10 \cr 2x - y = 0 \end{cases}$ par Cramer. *Réponse* : $D = -10$, $x = \frac{-10}{-10} = 1$, $y = \frac{-20}{-10} = 2$.
 
 ### Ex R2.12 — Mettre en équation : trois problèmes
 
@@ -311,12 +311,12 @@
 
 **Démarche.**
 - a) Inconnue : la largeur $\ell$, en cm ; la longueur vaut $\ell + 7$. Périmètre : $2(\ell + \ell + 7) = 46$, soit $4\ell + 14 = 46$, $\ell = 8$, puis la longueur 15. Vérification : $2 \times (8 + 15) = 46$. Réponse : l'aire vaut $8 \times 15 = 120$ cm².
-- b) Inconnue : le prix $p$ avant la baisse. Une baisse de 20 % multiplie par 0,8 : $0{,}8\,p = 56$, $p = 70$. Vérification : 20 % de 70 valent 14, et $70 - 14 = 56$. Réponse : le casque coûtait 70 €.
+- b) Inconnue : le prix $p$ avant la baisse. Une baisse de 20 % multiplie par 0,8 : $0{,}8\thinspace p = 56$, $p = 70$. Vérification : 20 % de 70 valent 14, et $70 - 14 = 56$. Réponse : le casque coûtait 70 €.
 - c) Inconnues : $q$ tables de 4 places, $s$ tables de 6. $q + s = 22$ et $4q + 6s = 108$. Par substitution, $4(22 - s) + 6s = 108$, soit $2s = 20$, $s = 10$, puis $q = 12$. Vérification : $48 + 60 = 108$. Réponse : il y a 10 tables de 6 places.
 
 **Erreurs fréquentes.** a) Écrire le périmètre $\ell + (\ell + 7) = 46$, ou répondre la longueur au lieu de l'aire. b) Calculer $56 \times 1{,}2$ : la baisse de 20 % portait sur le prix de départ, pas sur 56 €. c) Répondre 12, le nombre de tables de **4** places.
 
-**Variante.** Après une hausse de 30 %, un abonnement coûte 104 € : quel était son prix ? *Réponse* : $1{,}3\,p = 104$, $p = 80$ €.
+**Variante.** Après une hausse de 30 %, un abonnement coûte 104 € : quel était son prix ? *Réponse* : $1{,}3\thinspace p = 104$, $p = 80$ €.
 
 <a id="demonstrations"></a>
 
@@ -364,7 +364,7 @@
 ### Ex R2.15 — Quand un système 2 × 2 a-t-il une seule solution ?
 
 **Démonstration.**
-1. Si $(x, y)$ est solution, $d(ax + by) - b(cx + dy) = de - bf$, soit $adx + bdy - bcx - bdy = de - bf$ : les termes en $y$ s'annulent, et $(ad - bc)x = ed - bf$, c'est-à-dire $D\,x = ed - bf$. De même, $a(cx + dy) - c(ax + by) = af - ce$ donne $(ad - bc)y = af - ec$.
+1. Si $(x, y)$ est solution, $d(ax + by) - b(cx + dy) = de - bf$, soit $adx + bdy - bcx - bdy = de - bf$ : les termes en $y$ s'annulent, et $(ad - bc)x = ed - bf$, c'est-à-dire $D\thinspace x = ed - bf$. De même, $a(cx + dy) - c(ax + by) = af - ce$ donne $(ad - bc)y = af - ec$.
 2. Si $D \ne 0$, toute solution vérifie $x = \frac{ed - bf}{D}$ et $y = \frac{af - ec}{D}$ : il y en a **au plus** une. Réciproquement, ce couple est solution : $a \cdot \frac{ed - bf}{D} + b \cdot \frac{af - ec}{D} = \frac{aed - abf + abf - bec}{D} = \frac{e(ad - bc)}{D} = e$. (La seconde : $c(ed - bf) + d(af - ec) = f(ad - bc)$, donc elle vaut $f$.) Le système a donc **exactement une** solution.
 3. On suppose $D = 0$ et $a \ne 0$ ; on pose $k = \frac{c}{a}$, donc $c = ka$. De $ad = bc = b \cdot ka$, on tire, en divisant par $a \ne 0$, $d = kb$. La seconde équation s'écrit $kax + kby = f$, soit $k(ax + by) = f$.
 4. Si $f = ke$ : tout couple qui vérifie $ax + by = e$ vérifie $k(ax + by) = ke = f$, donc la seconde équation. Or la première a une infinité de solutions (une droite, puisque $a \ne 0$ : pour chaque $y$, $x = \frac{e - by}{a}$). Une infinité de solutions. Si $f \ne ke$ : un couple solution donnerait $f = k(ax + by) = ke$, ce qui est faux. Aucune solution. (Le cas $k = 0$ est compris : la seconde équation devient $0 = f$.)
@@ -378,7 +378,7 @@
 
 **Erreurs fréquentes.** Croire que 1 suffit à prouver l'existence d'une solution (1 suppose qu'une solution existe) ; diviser par $D$ sans avoir supposé $D \ne 0$ ; en 5, chercher la valeur de $m$ qui annule le déterminant (il est nul pour tout $m$).
 
-**Variante.** Montre que si $D \ne 0$, le système $\begin{cases} ax + by = 0 \\ cx + dy = 0 \end{cases}$ n'a que la solution $(0, 0)$. *Réponse* : par 1, $D\,x = 0$ et $D\,y = 0$, donc $x = y = 0$ ; et $(0, 0)$ est bien solution.
+**Variante.** Montre que si $D \ne 0$, le système $\begin{cases} ax + by = 0 \cr cx + dy = 0 \end{cases}$ n'a que la solution $(0, 0)$. *Réponse* : par 1, $D\thinspace x = 0$ et $D\thinspace y = 0$, donc $x = y = 0$ ; et $(0, 0)$ est bien solution.
 
 <a id="reflexion"></a>
 
@@ -389,10 +389,10 @@
 **Réponses** : a) `[25, -8]` · b) `27` · c) `-0.5` · d) `1` (aucun couple).
 
 **Démarche.**
-- a) Chaque mesure donne une équation d'inconnues $a$ et $b$ : $0{,}8\,a + b = 12$ et $2a + b = 42$. En soustrayant la première de la seconde, $1{,}2\,a = 30$, donc $a = 25$ ; puis $b = 12 - 0{,}8 \times 25 = -8$. Vérification : $2 \times 25 - 8 = 42$.
+- a) Chaque mesure donne une équation d'inconnues $a$ et $b$ : $0{,}8\thinspace a + b = 12$ et $2a + b = 42$. En soustrayant la première de la seconde, $1{,}2\thinspace a = 30$, donc $a = 25$ ; puis $b = 12 - 0{,}8 \times 25 = -8$. Vérification : $2 \times 25 - 8 = 42$.
 - b) $T = 25 \times 1{,}4 - 8 = 27$ °C.
 - c) Le modèle prédit $25 \times 2{,}4 - 8 = 52$ °C ; l'écart vaut $51{,}5 - 52 = -0{,}5$ °C.
-- d) La troisième équation, $2{,}4\,a + b = 51{,}5$, n'est pas vérifiée par l'unique couple $(25, -8)$ des deux premières : aucun couple ne vérifie les trois. Trois points qui ne sont pas alignés ne sont sur aucune droite.
+- d) La troisième équation, $2{,}4\thinspace a + b = 51{,}5$, n'est pas vérifiée par l'unique couple $(25, -8)$ des deux premières : aucun couple ne vérifie les trois. Trois points qui ne sont pas alignés ne sont sur aucune droite.
 
 **Ce que disent c et d.** Avec deux mesures, on trouve toujours une droite qui passe exactement par les deux points (si leurs $u$ diffèrent). Avec plus de mesures, toutes un peu bruitées, aucune droite ne passe par tous les points : le système a plus d'équations que d'inconnues, et pas de solution. On cherche alors la droite qui rend les écarts (comme celui de c) **les plus petits possible** dans leur ensemble : c'est la méthode des moindres carrés, que workbookIA développe (régression linéaire, chapitre 9), et l'écart de c s'appelle un **résidu**.
 
@@ -450,13 +450,13 @@
 
 ### Ex R2.19 — Résoudre ax + b ≤ 0 et rendre l'intervalle des solutions · `solve_linear_inequality`
 
-**Réponses** : `solve_linear_inequality(-4, -6, ">=")` vaut `(False, -inf, -1.5, True)`, soit $]-\infty \;;\; -1{,}5]$ ; `solve_linear_inequality(0, 3, ">")` vaut `(False, -inf, inf, False)`, toute la droite ($3 > 0$ est vrai pour tout $x$).
+**Réponses** : `solve_linear_inequality(-4, -6, ">=")` vaut `(False, -inf, -1.5, True)`, soit $]-\infty \mkern5mu ;\mkern5mu  -1{,}5]$ ; `solve_linear_inequality(0, 3, ">")` vaut `(False, -inf, inf, False)`, toute la droite ($3 > 0$ est vrai pour tout $x$).
 
 **Démarche.** Pour $-4x - 6 \ge 0$ : la borne est $-\frac{-6}{-4} = -1{,}5$ ; $a < 0$, donc `">="` devient `"<="`, et l'ensemble est $]-\infty ; -1{,}5]$. Le code complet (un dictionnaire pour retourner le sens, un autre pour le cas $a = 0$) est dans `05_solutions.ipynb`.
 
 **Erreurs fréquentes.** Oublier de retourner le sens quand `a < 0` ; un crochet fermé à l'infini (`True` en première position avec `-inf`) ; ne pas lever `ValueError` pour un sens inconnu ; traiter `a == 0` en divisant, ou en ne pensant qu'aux sens `"<"` et `"<="` (pour `">"`, c'est $b > 0$ qu'il faut tester) ; oublier `import math` (le squelette ne l'importe pas).
 
-**Variante.** `solve_linear_inequality(2, -5, ">")` ? *Réponse* : `(False, 2.5, inf, False)`, soit $]2{,}5 \;;\; +\infty[$.
+**Variante.** `solve_linear_inequality(2, -5, ">")` ? *Réponse* : `(False, 2.5, inf, False)`, soit $]2{,}5 \mkern5mu ;\mkern5mu  +\infty[$.
 
 ### Ex R2.20 — Résoudre |x − a| = c · `solve_abs_equation`
 
@@ -470,7 +470,7 @@
 
 ### Ex R2.23 — Résoudre avec `sympy.solve` et lire son résultat
 
-**Réponses** : a) `4` · b) `0` · c) `Reals`, soit $]-\infty \;;\; +\infty[$ · d) `[1, 2]`.
+**Réponses** : a) `4` · b) `0` · c) `Reals`, soit $]-\infty \mkern5mu ;\mkern5mu  +\infty[$ · d) `[1, 2]`.
 
 **Démarche.** a) `sp.solve(4*x - 7 - (x + 5), x)` renvoie `[4]`, dont on prend le premier élément. b) SymPy simplifie $3(x - 2) - (3x - 6)$ en 0, et `sp.solve(0, x)` renvoie `[]` : une liste vide, comme pour $5(x - 1) = 5x - 2$, qui n'a **aucune** solution, alors que la première équation en a une **infinité**. c) `sp.solveset` distingue les deux cas : `Reals` pour la première, `EmptySet` pour la seconde. d) `sp.solve([7*x - 2*y - 3, x + y - 3], [x, y])` renvoie `{x: 1, y: 2}`.
 
@@ -506,7 +506,7 @@ def check_solve_linear(solve_linear):
 
 ### Ex R2.26 — Un système, deux droites : voir la solution
 
-**Réponse** : les deux droites se coupent en $(-1 \;;\; 2)$ ; la seconde, $2x = -2$, est la droite verticale $x = -1$. La figure de référence est dans `05_solutions.ipynb`.
+**Réponse** : les deux droites se coupent en $(-1 \mkern5mu ;\mkern5mu  2)$ ; la seconde, $2x = -2$, est la droite verticale $x = -1$. La figure de référence est dans `05_solutions.ipynb`.
 
 **Ce qu'on regarde dans ta figure.** Deux droites distinctes (styles ou couleurs), la verticale tracée avec `axvline`, le point commun marqué, un titre qui donne ses coordonnées, une légende avec les deux équations, des axes nommés et une fenêtre fixe ($[-5 ; 5]$ en $x$ et en $y$). La cellule de vérifications automatiques regarde seulement que les deux droites et le titre sont dans l'axe donné, même pour un déterminant nul.
 
@@ -516,7 +516,7 @@ def check_solve_linear(solve_linear):
 
 **Réponses** : $S_1$ : `1` (aucune) · $S_2$ : `2` (une seule) · $S_3$ : `3` (une infinité).
 
-**Démarche.** $S_1$ : les coefficients de la seconde équation sont le double de ceux de la première, mais $7 \ne 2 \times 2$ : droites parallèles. $S_2$ : $1 \times (-1) - 2 \times 3 = -7 \ne 0$, une seule solution, $(2 \;;\; 1)$. $S_3$ : la seconde équation est la première multipliée par $-2$, second membre compris : la même droite.
+**Démarche.** $S_1$ : les coefficients de la seconde équation sont le double de ceux de la première, mais $7 \ne 2 \times 2$ : droites parallèles. $S_2$ : $1 \times (-1) - 2 \times 3 = -7 \ne 0$, une seule solution, $(2 \mkern5mu ;\mkern5mu  1)$. $S_3$ : la seconde équation est la première multipliée par $-2$, second membre compris : la même droite.
 
 **Erreur fréquente.** S'arrêter à « les coefficients sont proportionnels, donc aucune solution » sans comparer les seconds membres ($S_3$).
 

@@ -42,7 +42,7 @@ Deux hypothèses $H_1$ et $H_2$, d'a priori 0,5 chacune. Une observation $O$ a l
 
 1. On observe 4 succès en 10 essais indépendants (dans un ordre donné), de probabilité de succès $\theta$. Écris la vraisemblance $L(\theta)$.
 2. Où est son maximum ?
-3. Vrai ou faux : $\int_0^1 L(\theta)\,d\theta = 1$.
+3. Vrai ou faux : $\int_0^1 L(\theta)\thinspace d\theta = 1$.
 4. Vrai ou faux : multiplier $L$ par une constante qui ne dépend pas de $\theta$ ne change pas son maximum.
 5. Pourquoi dérive-t-on $\ln L$ plutôt que $L$ ?
 6. On observe 0 succès en 6 essais. Où est le maximum de vraisemblance ? Est-ce une estimation raisonnable ?
@@ -105,11 +105,11 @@ Sur 200 utilisateurs d'une application, 120 sont sur Android et 80 sur iOS ; 30 
 ### M04.R2 — Intégrales et densités (M02a) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-1. $\int_0^1 x^2\,dx$ ?
-2. $\int_0^1 x(1 - x)\,dx$ ?
-3. Pour quelle constante $c$ la fonction $c\,x(1 - x)$ est-elle une densité sur $[0, 1]$ ?
+1. $\int_0^1 x^2\thinspace dx$ ?
+2. $\int_0^1 x(1 - x)\thinspace dx$ ?
+3. Pour quelle constante $c$ la fonction $c\thinspace x(1 - x)$ est-elle une densité sur $[0, 1]$ ?
 4. Que vaut l'espérance de cette densité ?
-5. $\int_0^1 (1 - x)^4\,dx$ ?
+5. $\int_0^1 (1 - x)^4\thinspace dx$ ?
 
 ### M04.R3 — Loi binomiale (M02b) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C*
@@ -225,10 +225,10 @@ On étudie la loi $\mathrm{Beta}(2, 5)$.
 | d | le mode | un nombre (2 décimales) |
 | e | la variance | une fraction irréductible |
 | f | $P(\Theta \le 0{,}5)$ | un nombre (4 décimales) |
-| g | la constante $c$ pour laquelle $c\,\theta^2(1 - \theta)$ est une densité sur $[0, 1]$ | un entier |
+| g | la constante $c$ pour laquelle $c\thinspace\theta^2(1 - \theta)$ est une densité sur $[0, 1]$ | un entier |
 | h | les paramètres `[a, b]` de la loi Beta de moyenne 0,25 telle que $a + b = 8$ | une liste de 2 entiers |
 
-Dans ta copie : retrouve a) en calculant l'intégrale $\int_0^1 \theta(1 - \theta)^4\,d\theta$ par parties (ou par le changement de variable $u = 1 - \theta$). Pour f), calcule $\int_0^{0{,}5}$ de la densité de la même façon.
+Dans ta copie : retrouve a) en calculant l'intégrale $\int_0^1 \theta(1 - \theta)^4\thinspace d\theta$ par parties (ou par le changement de variable $u = 1 - \theta$). Pour f), calcule $\int_0^{0{,}5}$ de la densité de la même façon.
 
 ### Ex M04.6 — Conjugaison : de Beta(a, b) à Beta(a + k, b + n − k) ✏️ ★ ⏱️ 20 min
 **Objectif :** mettre à jour une loi Beta par conjugaison, lire la moyenne a posteriori comme une moyenne pondérée, et mesurer le poids de l'a priori.
@@ -328,8 +328,8 @@ Une démonstration se rédige en phrases : ce qu'on suppose, chaque étape et sa
 **Objectif :** démontrer que l'a posteriori d'une loi Beta après des essais binomiaux est une loi Beta, et en tirer la loi prédictive.
 **Prérequis :** fiche §4 et §5 ; M02b (loi binomiale) · **Parcours :** C
 
-Une proportion $\Theta$ a pour a priori $\mathrm{Beta}(a, b)$. Sachant $\Theta = \theta$, on fait $n \ge 1$ essais indépendants de probabilité de succès $\theta$ : le nombre $K$ de succès suit la loi binomiale $\mathcal{B}(n, \theta)$. La formule de Bayes pour une densité s'écrit $f(\theta \mid k) = \frac{P(K = k \mid \theta)\,f(\theta)}{P(K = k)}$, avec $P(K = k) = \int_0^1 P(K = k \mid \theta)\,f(\theta)\,d\theta$.
-1. Écris $P(K = k \mid \theta)$ et $f(\theta)$, puis le produit $P(K = k \mid \theta)\,f(\theta)$.
+Une proportion $\Theta$ a pour a priori $\mathrm{Beta}(a, b)$. Sachant $\Theta = \theta$, on fait $n \ge 1$ essais indépendants de probabilité de succès $\theta$ : le nombre $K$ de succès suit la loi binomiale $\mathcal{B}(n, \theta)$. La formule de Bayes pour une densité s'écrit $f(\theta \mid k) = \frac{P(K = k \mid \theta)\thinspace f(\theta)}{P(K = k)}$, avec $P(K = k) = \int_0^1 P(K = k \mid \theta)\thinspace f(\theta)\thinspace d\theta$.
+1. Écris $P(K = k \mid \theta)$ et $f(\theta)$, puis le produit $P(K = k \mid \theta)\thinspace f(\theta)$.
 2. Montre que $f(\theta \mid k)$ est proportionnelle à $\theta^{a + k - 1}(1 - \theta)^{b + n - k - 1}$, avec un coefficient qui ne dépend pas de $\theta$.
 3. Déduis-en, sans calculer d'intégrale, que l'a posteriori est $\mathrm{Beta}(a + k,\ b + n - k)$. Quel argument fixe la constante ?
 4. Calcule $P(K = k)$ et reconnais la loi bêta-binomiale de la fiche (§5) : la loi prédictive, calculée ici avec l'a priori.
@@ -341,7 +341,7 @@ Une proportion $\Theta$ a pour a priori $\mathrm{Beta}(a, b)$. Sachant $\Theta =
 **Objectif :** démontrer que la fréquence observée maximise la vraisemblance, cas limites compris, et étudier cet estimateur.
 **Prérequis :** fiche §3 ; R7 ; M02c §6 et §7 (biais, variance, erreur type) · **Parcours :** C
 
-$X_1, \ldots, X_n$ sont indépendantes, de loi de Bernoulli de paramètre $\theta \in [0, 1]$ ; on observe $x_1, \ldots, x_n$ dans $\{0, 1\}$, et l'on note $k = \sum_i x_i$.
+$X_1, \ldots, X_n$ sont indépendantes, de loi de Bernoulli de paramètre $\theta \in [0, 1]$ ; on observe $x_1, \ldots, x_n$ dans $\lbrace0, 1\rbrace$, et l'on note $k = \sum_i x_i$.
 1. Montre que $L(\theta) = \prod_i \theta^{x_i}(1 - \theta)^{1 - x_i} = \theta^k(1 - \theta)^{n - k}$ (avec la convention $0^0 = 1$, pour $\theta = 0$ ou 1). Que faut-il retenir des données pour connaître $L$ ?
 2. On suppose $0 < k < n$. Calcule $\ell'(\theta)$ sur $]0, 1[$, résous $\ell'(\theta) = 0$, et démontre que la solution est le maximum de $L$ sur $[0, 1]$ (pense aussi aux bords, où $L$ vaut 0).
 3. Traite les cas $k = 0$ et $k = n$ sans dériver $\ell$ : où $L$ est-elle maximale ? Conclus que, dans tous les cas, $\hat{\theta} = \frac{k}{n}$.

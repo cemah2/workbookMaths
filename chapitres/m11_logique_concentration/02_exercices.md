@@ -40,7 +40,7 @@ Vrai ou faux ?
 ### M11.Q3 — Diagrammes de Venn et quantificateurs 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C*
 
-$E = \{1, \ldots, 40\}$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ celui des multiples de 5, $C$ celui des multiples de 7.
+$E = \lbrace1, \ldots, 40\rbrace$ ; $A$ est l'ensemble des multiples de 10 de $E$, $B$ celui des multiples de 5, $C$ celui des multiples de 7.
 1. A-t-on $A \subset B$ ?
 2. A-t-on $B \subset A$ ? Si non, un contre-exemple.
 3. Écris $A \cap C$ en extension (il peut être vide).
@@ -185,7 +185,7 @@ Dans ta copie : écris la négation de $S_1$, de $S_3$ et de $S_6$, avec « pour
 **Objectif :** traduire des phrases en relations entre ensembles, les décider par le calcul, et compter les contre-exemples.
 **Prérequis :** fiche §2 ; R4 (ensembles, cardinal d'une réunion) · **Parcours :** C
 
-$E = \{1, 2, \ldots, 30\}$. Dans $E$ : $A$ est l'ensemble des multiples de 6, $B$ celui des multiples de 3, $P$ celui des nombres premiers et $Q$ celui des multiples de 4.
+$E = \lbrace1, 2, \ldots, 30\rbrace$. Dans $E$ : $A$ est l'ensemble des multiples de 6, $B$ celui des multiples de 3, $P$ celui des nombres premiers et $Q$ celui des multiples de 4.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -264,14 +264,14 @@ On veut connaître la proportion $p$ des requêtes d'un serveur qui durent plus 
 
 | | Question | Réponse attendue |
 |---|---|---|
-| a | pour $n = 1\,000$ et $\delta = 0{,}05$, le rayon de Hoeffding | un nombre (4 décimales) |
+| a | pour $n = 1\thinspace000$ et $\delta = 0{,}05$, le rayon de Hoeffding | un nombre (4 décimales) |
 | b | sur ces 1 000 requêtes, la proportion observée vaut 0,137 : les deux bornes de l'intervalle de confiance de Hoeffding | une liste de 2 nombres (4 décimales) |
 | c | le plus petit $n$ qui garantit un rayon d'au plus 0,03 avec $\delta = 0{,}05$ | un entier |
 | d | même question avec $\delta = 0{,}01$ | un entier |
-| e | pour $n = 1\,000$, la borne de Hoeffding sur $P(\lvert \bar{X} - p \rvert \ge 0{,}05)$ | un nombre (4 décimales) |
+| e | pour $n = 1\thinspace000$, la borne de Hoeffding sur $P(\lvert \bar{X} - p \rvert \ge 0{,}05)$ | un nombre (4 décimales) |
 | f | la borne de Tchebychev pour la même probabilité, avec la variance la plus grande possible | un nombre |
-| g | pour $n = 4\,000$ et $\delta = 0{,}05$, le rayon de Hoeffding | un nombre (4 décimales) |
-| h | pour $n = 1\,000$ et $\delta = 0{,}05$, le rayon **unilatéral** (seulement pour $\bar{X} - p$) | un nombre (4 décimales) |
+| g | pour $n = 4\thinspace000$ et $\delta = 0{,}05$, le rayon de Hoeffding | un nombre (4 décimales) |
+| h | pour $n = 1\thinspace000$ et $\delta = 0{,}05$, le rayon **unilatéral** (seulement pour $\bar{X} - p$) | un nombre (4 décimales) |
 
 Dans ta copie : écris la phrase exacte que garantit l'intervalle de b). Compare c) et d) : pourquoi diviser le risque par 5 coûte-t-il si peu ? Compare e) et f).
 
@@ -303,13 +303,13 @@ Les récompenses sont dans $[0, 1]$. Une option a été choisie $N$ fois, de moy
 | | Question | Réponse attendue |
 |---|---|---|
 | a | pour $N = 50$ et un risque $\delta = 0{,}01$, le rayon unilatéral $r$ tel que $P(\mu \ge \hat{\mu} + r) \le \delta$ | un nombre (4 décimales) |
-| b | avec le risque $\delta_t = t^{-4}$, le bonus au pas $t = 1\,000$ pour $N = 50$ | un nombre (4 décimales) |
-| c | au pas $t = 1\,000$, la borne supérieure UCB1 d'une option 1 de moyenne observée 0,62 après 50 choix | un nombre (4 décimales) |
+| b | avec le risque $\delta_t = t^{-4}$, le bonus au pas $t = 1\thinspace000$ pour $N = 50$ | un nombre (4 décimales) |
+| c | au pas $t = 1\thinspace000$, la borne supérieure UCB1 d'une option 1 de moyenne observée 0,62 après 50 choix | un nombre (4 décimales) |
 | d | au même pas, celle d'une option 2 de moyenne observée 0,45 après 8 choix | un nombre (4 décimales) |
 | e | l'option que choisit UCB1 entre ces deux-là | un entier |
-| f | au pas $t = 10\,000$, le plus petit $N$ pour lequel le bonus d'une option est inférieur à $\frac{\Delta}{2}$, avec $\Delta = 0{,}2$ | un entier |
+| f | au pas $t = 10\thinspace000$, le plus petit $N$ pour lequel le bonus d'une option est inférieur à $\frac{\Delta}{2}$, avec $\Delta = 0{,}2$ | un entier |
 | g | la somme des risques $\sum_{t=2}^{+\infty} t^{-4}$ (on admet que $\sum_{t=1}^{+\infty} t^{-4} = \frac{\pi^4}{90}$) | un nombre (4 décimales) |
-| h | avec le risque $\delta_t = t^{-2}$ à la place de $t^{-4}$, le bonus au pas $t = 1\,000$ pour $N = 50$ | un nombre (4 décimales) |
+| h | avec le risque $\delta_t = t^{-2}$ à la place de $t^{-4}$, le bonus au pas $t = 1\thinspace000$ pour $N = 50$ | un nombre (4 décimales) |
 
 Dans ta copie : montre que le rayon unilatéral pour le risque $t^{-4}$ est $\sqrt{\frac{2\ln t}{N}}$. Que dit g) sur la probabilité que la borne supérieure d'une option donnée, après un nombre de choix $N$ donné, soit fausse au moins une fois entre le pas 2 et l'infini ? (La preuve complète d'UCB1 doit aussi faire la borne de l'union sur les valeurs de $N$ et sur les options.) Pourquoi f) donne-t-il un nombre de choix qui croît comme $\ln t$ ?
 
@@ -325,8 +325,8 @@ Cinq options, numérotées de 1 à 5, ont pour moyennes $\mu = (0{,}55 ;\ 0{,}30
 | b | la probabilité qu'elle choisisse l'option 3 | un nombre |
 | c | le regret attendu de ce pas, $\mathbb{E}[\mu^\star - \mu_{A_t}]$ | un nombre |
 | d | si le choix glouton devient la vraie meilleure option, la valeur de $\varepsilon$ pour laquelle le regret attendu d'un pas vaut 0,01 | un nombre (4 décimales) |
-| e | avec $\varepsilon = 0{,}15$ et un choix glouton juste dès le premier pas, le regret attendu après $T = 20\,000$ pas | un nombre |
-| f | avec un choix glouton toujours juste et $\varepsilon_t = \frac{1}{t}$ au pas $t$, le regret attendu après 20 000 pas (la somme $\sum_{t=1}^{20\,000} \frac{1}{t}$ vaut environ 10,4807) | un nombre (4 décimales) |
+| e | avec $\varepsilon = 0{,}15$ et un choix glouton juste dès le premier pas, le regret attendu après $T = 20\thinspace000$ pas | un nombre |
+| f | avec un choix glouton toujours juste et $\varepsilon_t = \frac{1}{t}$ au pas $t$, le regret attendu après 20 000 pas (la somme $\sum_{t=1}^{20\thinspace000} \frac{1}{t}$ vaut environ 10,4807) | un nombre (4 décimales) |
 | g | dans la situation de e), le nombre attendu de choix de l'option 2 en 20 000 pas | un nombre |
 
 Dans ta copie : compare e) et f). Pourquoi faire décroître ε trop vite est-il risqué quand le choix glouton peut être faux, comme en a) ?
@@ -342,7 +342,7 @@ Rédige chaque démonstration dans ta copie : hypothèses, étapes justifiées, 
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
 $X$ est une variable aléatoire qui a une espérance, et $a > 0$. On note $\mathbf{1}_{X \ge a}$ la variable qui vaut 1 si $X \ge a$ et 0 sinon.
-1. On suppose $X \ge 0$. Montre que $a\,\mathbf{1}_{X \ge a} \le X$, en distinguant les cas $X \ge a$ et $X < a$. Déduis-en $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ ; dis quelles propriétés de l'espérance tu utilises.
+1. On suppose $X \ge 0$. Montre que $a\thinspace\mathbf{1}_{X \ge a} \le X$, en distinguant les cas $X \ge a$ et $X < a$. Déduis-en $P(X \ge a) \le \frac{\mathbb{E}[X]}{a}$ ; dis quelles propriétés de l'espérance tu utilises.
 2. Pour $p \in [0, 1]$, la variable $Y$ vaut $a$ avec la probabilité $p$ et 0 sinon. Montre que $Y$ atteint la borne. Pourquoi, connaissant seulement $\mathbb{E}[X]$, ne peut-on pas faire mieux ?
 3. Montre par un exemple que l'hypothèse $X \ge 0$ est nécessaire.
 4. Soit $\varphi$ une fonction croissante et positive sur $\mathbb{R}$, avec $\varphi(a) > 0$. Montre que $P(X \ge a) \le \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$, pour une $X$ quelconque (si $\mathbb{E}[\varphi(X)]$ est infinie, l'inégalité est vraie mais ne dit rien). Écris ce que cela donne pour $\varphi(x) = e^{\lambda x}$, avec $\lambda > 0$.
@@ -364,9 +364,9 @@ $X$ a une espérance $\mu$ et une variance $\sigma^2$ ; $t > 0$.
 **Prérequis :** fiche §7 ; M02a (l'intégrale de $\frac{1}{x}$) · **Parcours :** C
 
 $K$ options de moyennes $\mu_1, \ldots, \mu_K$ ; $\mu^\star = \max_k \mu_k$, $\Delta_k = \mu^\star - \mu_k$ ; $N_k(T)$ est le nombre de fois que l'option $k$ est choisie en $T$ pas, $A_t$ l'option choisie au pas $t$. À chaque pas, ε-greedy tire, avec la probabilité $\varepsilon$, une option uniformément parmi les $K$ ; sinon, elle prend son choix glouton (quel qu'il soit).
-1. Montre que $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,P(A_t = k)$, puis que $R_T = \sum_{t=1}^{T}\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\,\mathbb{E}[N_k(T)]$ (écris $N_k(T)$ comme une somme d'indicatrices).
+1. Montre que $\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\thinspace P(A_t = k)$, puis que $R_T = \sum_{t=1}^{T}\mathbb{E}[\mu^\star - \mu_{A_t}] = \sum_{k=1}^{K} \Delta_k\thinspace\mathbb{E}[N_k(T)]$ (écris $N_k(T)$ comme une somme d'indicatrices).
 2. Montre que $P(A_t = k) \ge \frac{\varepsilon}{K}$ pour toute option $k$ et tout pas $t$.
-3. Déduis-en $R_T \ge \frac{\varepsilon\,T}{K}\sum_k \Delta_k$. Que veut dire ce résultat, si au moins une option n'est pas la meilleure ?
+3. Déduis-en $R_T \ge \frac{\varepsilon\thinspace T}{K}\sum_k \Delta_k$. Que veut dire ce résultat, si au moins une option n'est pas la meilleure ?
 4. On remplace ε par $\varepsilon_t = \min(1, \frac{c}{t})$, avec $c > 0$. Au pas $t$, le tirage au hasard a lieu avec la probabilité $\varepsilon_t$ et coûte en moyenne $\frac{1}{K}\sum_k \Delta_k$ ; on appelle **part du regret due aux tirages au hasard** la somme $\sum_{t=1}^{T} \varepsilon_t \cdot \frac{1}{K}\sum_k \Delta_k$. Montre qu'elle est au plus $\frac{1}{K}\sum_k \Delta_k \sum_{t=1}^{T} \frac{c}{t}$, puis que $\sum_{t=1}^{T} \frac{1}{t} \le 1 + \ln T$ (compare $\frac{1}{t}$ à $\int_{t-1}^{t} \frac{dx}{x}$ pour $t \ge 2$).
 5. Pourquoi ce résultat ne suffit-il pas à garantir un regret logarithmique ? Quelle autre part du regret faudrait-il borner ?
 

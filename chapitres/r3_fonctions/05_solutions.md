@@ -13,15 +13,15 @@
 2. **Vrai** : $x^2 - 5 = 4 \iff x^2 = 9 \iff x = -3$ ou $x = 3$.
 3. **Faux** : $x^2 - 5 = -6$ donnerait $x^2 = -1$, impossible.
 4. **Faux** : c'est la définition même d'une fonction, une seule image par nombre.
-5. **Faux** : seule la valeur $-1$ est interdite ; l'ensemble de définition est $\mathbb{R} \setminus \{-1\}$, qui contient aussi les nombres plus petits que $-1$.
+5. **Faux** : seule la valeur $-1$ est interdite ; l'ensemble de définition est $\mathbb{R} \setminus \lbrace-1\rbrace$, qui contient aussi les nombres plus petits que $-1$.
 6. **Vrai** : $x - 2 \ge 0 \iff x \ge 2$.
 
 ### R3.Q2 — Lire un graphique
-1. **Vrai** : au-dessus de $x = 1$, la courbe est à la hauteur 1 (c'est son point le plus haut sur $[0 \;;\; 3]$).
+1. **Vrai** : au-dessus de $x = 1$, la courbe est à la hauteur 1 (c'est son point le plus haut sur $[0 \mkern5mu ;\mkern5mu  3]$).
 2. **Vrai** : la droite $y = 1$ touche la courbe en $x = 1$ et la recoupe en $x = 4$ ; à gauche de 1, la courbe est en dessous.
-3. **Faux** : $f$ est croissante sur $[0 \;;\; 1]$, puis décroissante sur $[1 \;;\; 3]$.
-4. **Vrai** : $f(0) = -1$ et $f(3) = -1$, et la courbe ne descend jamais plus bas sur $[0 \;;\; 4]$.
-5. **Faux** : sur $[0 \;;\; 4]$, $f$ ne descend pas sous $-1$.
+3. **Faux** : $f$ est croissante sur $[0 \mkern5mu ;\mkern5mu  1]$, puis décroissante sur $[1 \mkern5mu ;\mkern5mu  3]$.
+4. **Vrai** : $f(0) = -1$ et $f(3) = -1$, et la courbe ne descend jamais plus bas sur $[0 \mkern5mu ;\mkern5mu  4]$.
+5. **Faux** : sur $[0 \mkern5mu ;\mkern5mu  4]$, $f$ ne descend pas sous $-1$.
 6. **Vrai** : $f(2) = 0$ et $f(3) = -1$.
 
 ### R3.Q3 — Pente et ordonnée à l'origine
@@ -33,11 +33,11 @@
 6. **Vrai** : la pente vaut $\frac{7 - 1}{2 - 0} = 3$, donc $f(x) = 3x + 1$ et $f(1) = 4$ (le milieu, pour une droite).
 
 ### R3.Q4 — Fonctions de référence : allure et variations
-1. **Faux** : décroissante sur $]-\infty \;;\; 0]$, croissante sur $[0 \;;\; +\infty[$.
-2. **Vrai** : l'inverse est décroissant sur $]0 \;;\; +\infty[$ : il retourne l'ordre.
+1. **Faux** : décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0]$, croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$.
+2. **Vrai** : l'inverse est décroissant sur $]0 \mkern5mu ;\mkern5mu  +\infty[$ : il retourne l'ordre.
 3. **Faux** : $\sqrt{x}$ demande $x \ge 0$.
 4. **Faux** : $\sqrt{(-3)^2} = 3 \ne -3$ ; en général, $\sqrt{x^2} = |x|$.
-5. **Vrai** : sur $]-\infty \;;\; 0]$, $|x| = -x$, une fonction affine de pente $-1$.
+5. **Vrai** : sur $]-\infty \mkern5mu ;\mkern5mu  0]$, $|x| = -x$, une fonction affine de pente $-1$.
 6. **Vrai** : pour $x \ge 0$, $\max(0, x) = x$.
 7. **Faux** : $9 > 1$. Le carré est décroissant sur les négatifs : il retourne l'ordre.
 
@@ -53,10 +53,10 @@
 ### R3.Q6 — Croissante, décroissante, extremum
 1. **Vrai** : forme canonique, $a = 1 > 0$, sommet $(1, 2)$.
 2. **Faux** : $-(x + 3)^2 + 4 = -(x - (-3))^2 + 4$ : le maximum 4 est atteint en $x = -3$.
-3. **Faux** : le carré est croissant sur $[1 \;;\; 5]$, son minimum y vaut $1^2 = 1$. Le 0 est atteint en $x = 0$, hors de l'intervalle.
+3. **Faux** : le carré est croissant sur $[1 \mkern5mu ;\mkern5mu  5]$, son minimum y vaut $1^2 = 1$. Le 0 est atteint en $x = 0$, hors de l'intervalle.
 4. **Vrai** : $f(b) - f(a) = -2(b - a) < 0$ pour $a < b$ (R3.14).
 5. **Faux** : le maximum est une valeur de $f$, l'argmax une valeur de $x$.
-6. **Vrai** : pour tout $x$ de $[0 \;;\; 4]$, $x \le 4$ donc $f(x) \le f(4)$.
+6. **Vrai** : pour tout $x$ de $[0 \mkern5mu ;\mkern5mu  4]$, $x \le 4$ donc $f(x) \le f(4)$.
 
 ### R3.Q7 — f∘g ou g∘f ?
 1. **Vrai** : $g(0) = 9$, puis $f(9) = 3$.
@@ -86,11 +86,11 @@
 5. 16 : $x^2 - 8x + 16 = (x - 4)^2$. C'est exactement le geste de la forme canonique (fiche §5).
 
 ### R3.R2 — Inéquations et intervalles (R2)
-1. $3x > 9 \iff x > 3$ : $]3 \;;\; +\infty[$.
-2. $-2x \ge -4 \iff x \le 2$ (le sens change) : $]-\infty \;;\; 2]$.
-3. $]2 \;;\; 4]$.
-4. $]-\infty \;;\; 3[ \;\cup\; ]3 \;;\; +\infty[$, c'est-à-dire $\mathbb{R} \setminus \{3\}$.
-5. Les points à moins de 4 de 1 : $]-3 \;;\; 5[$.
+1. $3x > 9 \iff x > 3$ : $]3 \mkern5mu ;\mkern5mu  +\infty[$.
+2. $-2x \ge -4 \iff x \le 2$ (le sens change) : $]-\infty \mkern5mu ;\mkern5mu  2]$.
+3. $]2 \mkern5mu ;\mkern5mu  4]$.
+4. $]-\infty \mkern5mu ;\mkern5mu  3[ \mkern5mu \cup\mkern5mu  ]3 \mkern5mu ;\mkern5mu  +\infty[$, c'est-à-dire $\mathbb{R} \setminus \lbrace3\rbrace$.
+5. Les points à moins de 4 de 1 : $]-3 \mkern5mu ;\mkern5mu  5[$.
 
 ### R3.R3 — Puissances et racines (R1)
 1. 7.
@@ -115,7 +115,7 @@
 - e) $4x - 5 = 7 \iff 4x = 12 \iff x = 3$.
 - f) $x - 4 \ne 0 \iff x \ne 4$.
 - g) $6 - 2x \ge 0 \iff -2x \ge -6 \iff x \le 3$ (on divise par $-2$ : le sens change).
-- h) deux conditions : $x + 2 \ge 0$, soit $x \ge -2$, **et** $x \ne 1$. On garde $[-2 \;;\; +\infty[$ privé de 1.
+- h) deux conditions : $x + 2 \ge 0$, soit $x \ge -2$, **et** $x \ne 1$. On garde $[-2 \mkern5mu ;\mkern5mu  +\infty[$ privé de 1.
 
 **Erreurs fréquentes.**
 - a) $3 \times -2^2 = -12$ : sans parenthèses, le carré ne porte que sur 2.
@@ -124,7 +124,7 @@
 - g) Garder le sens en divisant par $-2$.
 - h) Oublier une des deux conditions, ou exclure $-2$ alors que $\sqrt{0} = 0$ existe.
 
-**Variante.** L'ensemble de définition de $x \mapsto \frac{1}{\sqrt{x - 1}}$ ? *Réponse* : $x - 1 > 0$ (strictement : la racine est au dénominateur), soit $]1 \;;\; +\infty[$.
+**Variante.** L'ensemble de définition de $x \mapsto \frac{1}{\sqrt{x - 1}}$ ? *Réponse* : $x - 1 > 0$ (strictement : la racine est au dénominateur), soit $]1 \mkern5mu ;\mkern5mu  +\infty[$.
 
 ### Ex R3.2 — Lire des valeurs, des solutions et des variations sur un graphique
 
@@ -136,12 +136,12 @@
 - c) La droite $y = 2$ coupe le premier segment en $x = -3$, le deuxième en $x = -1$ et le dernier en $x = 4$.
 - d) La courbe est sur l'axe horizontal à son extrémité gauche ($x = -4$), en $x = 0$ et au point anguleux $(3, 0)$.
 - e) et f) La plus grande hauteur est 4, atteinte en $x = -2$ **et** en $x = 5$ (l'extrémité droite).
-- g) La courbe monte de $x = 1$ à $x = 3$, puis continue de monter, plus vite, jusqu'à $x = 5$ : elle est croissante sur tout $[1 \;;\; 5]$. Elle monte aussi sur $[-4 \;;\; -2]$, mais cet intervalle est plus court.
+- g) La courbe monte de $x = 1$ à $x = 3$, puis continue de monter, plus vite, jusqu'à $x = 5$ : elle est croissante sur tout $[1 \mkern5mu ;\mkern5mu  5]$. Elle monte aussi sur $[-4 \mkern5mu ;\mkern5mu  -2]$, mais cet intervalle est plus court.
 - h) La courbe est au-dessus de $y = 2$ (ou dessus) de $-3$ à $-1$, puis de 4 à 5.
 
 **Erreurs fréquentes.** Oublier les extrémités et les points anguleux (d, f) ; donner une ordonnée pour une question sur les $x$ (f) ; en g), s'arrêter au point anguleux $x = 3$ alors que la courbe continue de monter ; exclure des bornes où l'égalité $f(x) = 2$ a lieu (h).
 
-**Variante.** Sur la même courbe, les solutions de $f(x) < 0$ ? *Réponse* : la courbe est sous l'axe entre $x = 0$ et $x = 3$, soit $]0 \;;\; 3[$.
+**Variante.** Sur la même courbe, les solutions de $f(x) < 0$ ? *Réponse* : la courbe est sous l'axe entre $x = 0$ et $x = 3$, soit $]0 \mkern5mu ;\mkern5mu  3[$.
 
 ### Ex R3.3 — La fonction affine qui passe par deux points
 
@@ -165,7 +165,7 @@
 **Réponses** : a) `[0.01, -0.2]` · b) `0.45` · c) `[100, 20]` · d) `100` · e) `[0.1, -2]`.
 
 **Démarche.**
-- a) $N(x) = \frac{x - 20}{120 - 20} = \frac{x - 20}{100} = 0{,}01\,x - 0{,}2$. Vérification : $N(20) = 0$, $N(120) = 1$.
+- a) $N(x) = \frac{x - 20}{120 - 20} = \frac{x - 20}{100} = 0{,}01\thinspace x - 0{,}2$. Vérification : $N(20) = 0$, $N(120) = 1$.
 - b) $N(65) = \frac{45}{100} = 0{,}45$.
 - c) $y = \frac{x - 20}{100} \iff x = 100y + 20$.
 - d) $100 \times 0{,}8 + 20 = 100$ m².
@@ -187,9 +187,9 @@
 - f) Quand $x$ va de $-2$ à 1, $x^2$ descend de 4 à 0 (en $x = 0$), puis remonte à 1 : les valeurs prises vont de 0 à 4.
 - g) $\frac{1}{-0{,}3} \approx -3{,}33$ et $\frac{1}{-0{,}2} = -5$ : oui, $-3{,}33 > -5$. L'inverse est décroissant sur les négatifs : $-0{,}3 < -0{,}2$ donne $\frac{1}{-0{,}3} > \frac{1}{-0{,}2}$.
 
-**Erreurs fréquentes.** b) Oublier les négatifs ; c) inclure les négatifs, ou garder l'ordre ; f) répondre $[1 \;;\; 4]$ en ne calculant que les images des bornes.
+**Erreurs fréquentes.** b) Oublier les négatifs ; c) inclure les négatifs, ou garder l'ordre ; f) répondre $[1 \mkern5mu ;\mkern5mu  4]$ en ne calculant que les images des bornes.
 
-**Variante.** L'ensemble des valeurs de $x^2$ pour $x \in [-4 \;;\; 2]$ ? *Réponse* : $[0 \;;\; 16]$ (le plus grand carré est en $x = -4$).
+**Variante.** L'ensemble des valeurs de $x^2$ pour $x \in [-4 \mkern5mu ;\mkern5mu  2]$ ? *Réponse* : $[0 \mkern5mu ;\mkern5mu  16]$ (le plus grand carré est en $x = -4$).
 
 ### Ex R3.6 — Forme canonique et sommet d'une parabole
 
@@ -233,7 +233,7 @@
 **Démarche.**
 - a) et b) Les deux côtés perpendiculaires au mur mesurent $x$, le troisième $40 - 2x$. L'aire vaut $A(x) = x(40 - 2x) = -2x^2 + 40x$, une parabole tournée vers le bas : son maximum est au sommet, $\alpha = -\frac{40}{2 \times (-2)} = 10$, et $A(10) = 10 \times 20 = 200$ m².
 - c) $-2x^2 + 40x = 150 \iff x^2 - 20x + 75 = 0$, $\Delta = 400 - 300 = 100$, $x = \frac{20 \pm 10}{2}$ : 5 ou 15 (de part et d'autre du sommet, par symétrie).
-- d) et e) La recette est $R(p) = p(200 - 4p) = -4p^2 + 200p$ ; sommet en $p = -\frac{200}{-8} = 25$ €, et $R(25) = 25 \times 100 = 2\,500$ €.
+- d) et e) La recette est $R(p) = p(200 - 4p) = -4p^2 + 200p$ ; sommet en $p = -\frac{200}{-8} = 25$ €, et $R(25) = 25 \times 100 = 2\thinspace500$ €.
 
 **Erreurs fréquentes.** Écrire l'aire $x(40 - x)$ ou $x(20 - x)$ (le mur ne compte pas) ; confondre la valeur de $x$ et l'aire ; ne garder qu'une solution en c).
 
@@ -282,12 +282,12 @@
 - c) $r(x) = 0$ pour tous les $x \le 0$, 0 compris.
 - d) $H(0) = 1$ par convention, $H(-0{,}1) = 0$ : la somme vaut 1.
 - e) Pour $x \ge 0$ : $x + 0 = x$ ; pour $x < 0$ : $0 + (-x) = -x$. C'est la définition de $|x|$.
-- f) et g) $q$ a son sommet en $x = 2$ ($a = -1 < 0$, un maximum), hors de $[3 \;;\; 6]$. À droite du sommet, $q$ est décroissante : sur $[3 \;;\; 6]$, son maximum est en $x = 3$, et vaut $q(3) = -1 + 3 = 2$.
+- f) et g) $q$ a son sommet en $x = 2$ ($a = -1 < 0$, un maximum), hors de $[3 \mkern5mu ;\mkern5mu  6]$. À droite du sommet, $q$ est décroissante : sur $[3 \mkern5mu ;\mkern5mu  6]$, son maximum est en $x = 3$, et vaut $q(3) = -1 + 3 = 2$.
 - h) Le maximum 9 est aux positions 2 et 4 ; NumPy rend la première, 2.
 
 **Erreurs fréquentes.** f) répondre 3, le maximum de $q$ sur $\mathbb{R}$ (atteint hors de l'intervalle) ; g) répondre 2, l'abscisse du sommet ; h) compter à partir de 1, ou donner la valeur 9.
 
-**Variante.** Le maximum de $q$ sur $[0 \;;\; 1]$ ? *Réponse* : $q$ est croissante sur $[0 \;;\; 1]$ (à gauche du sommet) : maximum $q(1) = 2$, atteint en $x = 1$.
+**Variante.** Le maximum de $q$ sur $[0 \mkern5mu ;\mkern5mu  1]$ ? *Réponse* : $q$ est croissante sur $[0 \mkern5mu ;\mkern5mu  1]$ (à gauche du sommet) : maximum $q(1) = 2$, atteint en $x = 1$.
 
 ### Ex R3.12 — Évaluer un polynôme par le schéma de Horner
 
@@ -343,7 +343,7 @@
 
 **Erreurs fréquentes.** Vérifier sur deux exemples au lieu de prendre $a$ et $b$ quelconques ; oublier le cas $a = 0$ en 4 (alors $\sqrt{a} = 0$, et c'est $\sqrt{b} > 0$ qui empêche la division par 0).
 
-**Variante.** Montre que $x \mapsto \frac{1}{x}$ est strictement décroissante sur $]0 \;;\; +\infty[$. *Réponse* : pour $0 < a < b$, $\frac{1}{b} - \frac{1}{a} = \frac{a - b}{ab}$, négatif sur positif : $\frac{1}{b} < \frac{1}{a}$.
+**Variante.** Montre que $x \mapsto \frac{1}{x}$ est strictement décroissante sur $]0 \mkern5mu ;\mkern5mu  +\infty[$. *Réponse* : pour $0 < a < b$, $\frac{1}{b} - \frac{1}{a} = \frac{a - b}{ab}$, négatif sur positif : $\frac{1}{b} < \frac{1}{a}$.
 
 <a id="reflexion"></a>
 
@@ -356,14 +356,14 @@
 **Démarche.**
 - a) $E(10) = 0{,}02 \times 100 - 12 + 25 = 15$ %.
 - b) et c) $\alpha = -\frac{-1{,}2}{2 \times 0{,}02} = \frac{1{,}2}{0{,}04} = 30$ epochs, et $E(30) = 18 - 36 + 25 = 7$ %.
-- d) $a > 0$ : $E$ décroît jusqu'au sommet, puis croît : $[0 \;;\; 30]$.
-- e) $E(t) \le 9 \iff 0{,}02t^2 - 1{,}2t + 16 \le 0 \iff t^2 - 60t + 800 \le 0$ (en multipliant par 50). $\Delta = 3600 - 3200 = 400$, racines $\frac{60 \pm 20}{2}$ : 20 et 40. Le polynôme est négatif entre ses racines : $[20 \;;\; 40]$.
+- d) $a > 0$ : $E$ décroît jusqu'au sommet, puis croît : $[0 \mkern5mu ;\mkern5mu  30]$.
+- e) $E(t) \le 9 \iff 0{,}02t^2 - 1{,}2t + 16 \le 0 \iff t^2 - 60t + 800 \le 0$ (en multipliant par 50). $\Delta = 3600 - 3200 = 400$, racines $\frac{60 \pm 20}{2}$ : 20 et 40. Le polynôme est négatif entre ses racines : $[20 \mkern5mu ;\mkern5mu  40]$.
 
 **Ce que dit la remontée.** Après 30 epochs, l'erreur de validation augmente alors que l'entraînement continue : le modèle commence à apprendre des détails propres aux données d'entraînement, qui ne se retrouvent pas sur de nouvelles données (l'overfitting, chapitre 9 de workbookIA). Une ingénieure arrêterait l'entraînement vers le minimum, ou garderait la version du modèle qui l'atteint (l'early stopping). Sur des mesures réelles, la courbe est bruitée : la parabole n'en est qu'un modèle simplifié.
 
 **Erreurs fréquentes.** Confondre l'argmin (30) et le minimum (7) ; en e), prendre l'extérieur des racines, ou exclure les bornes (« ne dépasse pas » veut dire $\le$).
 
-**Variante.** Pour quels $t$ l'erreur est-elle inférieure à 15 % ? *Réponse* : $t^2 - 60t + 500 < 0$, racines 10 et 50 : $]10 \;;\; 50[$.
+**Variante.** Pour quels $t$ l'erreur est-elle inférieure à 15 % ? *Réponse* : $t^2 - 60t + 500 < 0$, racines 10 et 50 : $]10 \mkern5mu ;\mkern5mu  50[$.
 
 ### Ex R3.16 — Expliquer ce qu'est une fonction à quelqu'un qui n'aime pas les maths
 
@@ -383,11 +383,11 @@
 
 **Démarche.** a) Pour $x > 0$ : $\sqrt{x} > x \iff x > x^2$ (on élève au carré deux nombres positifs) $\iff x(1 - x) > 0 \iff 0 < x < 1$. b) $x^2 - x = x(x - 1) > 0$ quand les deux facteurs ont le même signe : $x < 0$ ou $x > 1$. c) $\frac{1}{x} = x \iff x^2 = 1$ ($x \ne 0$) : $x = -1$ ou $x = 1$.
 
-**Erreurs fréquentes.** Relier les deux branches de $\frac{1}{x}$ par un trait vertical (un seul tracé sur $[-3 \;;\; 3]$) ; répondre b) d'après la seule figure de gauche, qui ne montre pas les négatifs.
+**Erreurs fréquentes.** Relier les deux branches de $\frac{1}{x}$ par un trait vertical (un seul tracé sur $[-3 \mkern5mu ;\mkern5mu  3]$) ; répondre b) d'après la seule figure de gauche, qui ne montre pas les négatifs.
 
 ### Ex R3.26 — Un graphique propre : titre, axes, légende
 
-**Ce qu'on attend.** La parabole $C$ sur $[0 \;;\; 40]$, la droite du budget, le minimum $(20 \;;\; 100)$ marqué et annoté, un titre, des axes nommés **avec unités** (tonnes, milliers d'euros), une légende et une grille. Le budget est respecté de 10 à 30 tonnes : $q^2 - 40q + 300 \le 0$ entre les racines 10 et 30.
+**Ce qu'on attend.** La parabole $C$ sur $[0 \mkern5mu ;\mkern5mu  40]$, la droite du budget, le minimum $(20 \mkern5mu ;\mkern5mu  100)$ marqué et annoté, un titre, des axes nommés **avec unités** (tonnes, milliers d'euros), une légende et une grille. Le budget est respecté de 10 à 30 tonnes : $q^2 - 40q + 300 \le 0$ entre les racines 10 et 30.
 
 **Erreurs fréquentes.** Dessiner avec `plt.plot` dans une autre figure au lieu de l'axe `ax` donné ; oublier les unités ; une légende sans `label=` dans les tracés.
 
@@ -413,7 +413,7 @@
 
 ### Ex R3.22 — Faire varier a, b et c : déformer une parabole
 
-**Ce qu'on attend.** $a$ ouvre ou ferme la parabole, et la retourne s'il est négatif ; $c$ la translate verticalement ; $h$ la translate horizontalement (vers la droite quand $h > 0$). Donc $y = 2(x - 3)^2 - 1$ est la parabole $y = x^2$ resserrée d'un facteur 2, décalée de 3 vers la droite et de 1 vers le bas, de sommet $(3 \;;\; -1)$. Le coefficient $b$ ne se lit pas directement : il déplace le sommet en biais, en changeant à la fois $\alpha = -\frac{b}{2a}$ et $\beta$. C'est l'intérêt de la forme canonique.
+**Ce qu'on attend.** $a$ ouvre ou ferme la parabole, et la retourne s'il est négatif ; $c$ la translate verticalement ; $h$ la translate horizontalement (vers la droite quand $h > 0$). Donc $y = 2(x - 3)^2 - 1$ est la parabole $y = x^2$ resserrée d'un facteur 2, décalée de 3 vers la droite et de 1 vers le bas, de sommet $(3 \mkern5mu ;\mkern5mu  -1)$. Le coefficient $b$ ne se lit pas directement : il déplace le sommet en biais, en changeant à la fois $\alpha = -\frac{b}{2a}$ et $\beta$. C'est l'intérêt de la forme canonique.
 
 ### Ex R3.24 — Combien de racines ? Le signe du discriminant sur une grille de paramètres
 

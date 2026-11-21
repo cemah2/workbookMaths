@@ -56,7 +56,7 @@ Une matrice $\mathbf{A}$ de forme $(100, 80)$ a pour valeurs singulières non nu
 1. Si $\mathbf{A}$ est carrée et inversible, que vaut $\mathbf{A}^+$ ?
 2. $\mathbf{D} = \operatorname{diag}(4, 0, 2)$ : que vaut $\mathbf{D}^+$ ?
 3. Si $\mathbf{A}$ est de forme $(3, 5)$, quelle est la forme de $\mathbf{A}^+$ ?
-4. Le conditionnement de $\mathbf{D}$ ? De $\operatorname{diag}(5, -2)$ ? De $7\,\mathbf{I}_4$ ?
+4. Le conditionnement de $\mathbf{D}$ ? De $\operatorname{diag}(5, -2)$ ? De $7\thinspace\mathbf{I}_4$ ?
 5. Vrai ou faux : un déterminant de $10^{-6}$ prouve que le système est mal conditionné.
 6. $\kappa(\mathbf{A}) = 10^4$ : combien de chiffres significatifs peut-on perdre sur la solution de $\mathbf{A}\mathbf{x} = \mathbf{b}$ ? Et en passant par les équations normales $\mathbf{A}^\top\mathbf{A}\mathbf{x} = \mathbf{A}^\top\mathbf{b}$ ?
 7. $\mathbf{A}\mathbf{A}^+$ est la projection orthogonale sur quel sous-espace ?
@@ -67,7 +67,7 @@ Une matrice $\mathbf{A}$ de forme $(100, 80)$ a pour valeurs singulières non nu
 1. Pour une direction unitaire $\mathbf{u}$, quelle est la variance des coordonnées $t_i = \mathbf{u}^\top(\mathbf{x}_i - \boldsymbol{\mu})$ ?
 2. Le maximum de cette variance sur la sphère unité, et où est-il atteint ?
 3. Vrai ou faux : le premier axe principal est toujours la direction de la feature de plus grande variance.
-4. $\mathbf{C} = \begin{pmatrix} 4 & 0 & 0 \\ 0 & 2 & 2 \\ 0 & 2 & 5 \end{pmatrix}$ : les axes principaux et les variances le long des axes ?
+4. $\mathbf{C} = \begin{pmatrix} 4 & 0 & 0 \cr 0 & 2 & 2 \cr 0 & 2 & 5 \end{pmatrix}$ : les axes principaux et les variances le long des axes ?
 5. Que vaut la somme des variances le long des $p$ axes ?
 6. Pourquoi les axes principaux sont-ils orthogonaux deux à deux ?
 7. Deux logiciels rendent des premiers axes opposés : l'un des deux se trompe-t-il ?
@@ -99,7 +99,7 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 1. Laquelle des trois méthodes garde les grandes distances ? Lesquelles gardent les voisinages ?
 2. Vrai ou faux : t-SNE, comme l'ACP, définit une fonction de $\mathbb{R}^p$ dans $\mathbb{R}^2$.
 3. Que veut dire une perplexité de 5 pour un point ?
-4. Calcule $p\log_2(p/q)$ pour un couple de voisins ($p = 0{,}04$) que la carte place trop loin ($q = 0{,}005$), puis pour un couple lointain ($p = 0{,}000\,5$) qu'elle place trop près ($q = 0{,}004$). Lequel coûte le plus ?
+4. Calcule $p\log_2(p/q)$ pour un couple de voisins ($p = 0{,}04$) que la carte place trop loin ($q = 0{,}005$), puis pour un couple lointain ($p = 0{,}000\thinspace5$) qu'elle place trop près ($q = 0{,}004$). Lequel coûte le plus ?
 5. Pourquoi t-SNE mesure-t-il les voisinages de la carte avec une loi de Student plutôt qu'une gaussienne ?
 6. Que dit la divergence de l'écart entre deux groupes bien séparés d'une carte t-SNE ?
 
@@ -110,7 +110,7 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 ### M12d.R1 — Valeurs propres et théorème spectral (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-$\mathbf{K} = \begin{pmatrix} -2 & 5 \\ 5 & 22 \end{pmatrix}$.
+$\mathbf{K} = \begin{pmatrix} -2 & 5 \cr 5 & 22 \end{pmatrix}$.
 1. Sa trace, son déterminant, puis ses valeurs propres.
 2. Ses vecteurs propres unitaires (convention de la fiche).
 3. Écris $\mathbf{K} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ et vérifie $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$.
@@ -123,7 +123,7 @@ $\mathbf{K} = \begin{pmatrix} -2 & 5 \\ 5 & 22 \end{pmatrix}$.
 $\mathbf{u} = \frac{1}{17}(8, 9, 12)$ et $\mathbf{x} = (11, 9, 10)$.
 1. Vérifie que $\mathbf{u}$ est unitaire.
 2. La coordonnée $t = \mathbf{u}^\top\mathbf{x}$ de $\mathbf{x}$ le long de $\mathbf{u}$.
-3. La projection $\mathbf{p} = t\,\mathbf{u}$, et le résidu $\mathbf{r} = \mathbf{x} - \mathbf{p}$. Vérifie $\mathbf{r} \perp \mathbf{u}$.
+3. La projection $\mathbf{p} = t\thinspace\mathbf{u}$, et le résidu $\mathbf{r} = \mathbf{x} - \mathbf{p}$. Vérifie $\mathbf{r} \perp \mathbf{u}$.
 4. Vérifie $\lVert \mathbf{x} \rVert^2 = t^2 + \lVert \mathbf{r} \rVert^2$.
 5. La matrice $\mathbf{P} = \mathbf{u}\mathbf{u}^\top$ : son rang ? Que vaut $\mathbf{P}^2$ ?
 
@@ -145,7 +145,7 @@ Quatre exemples à deux features : $(2, 35)$, $(4, 55)$, $(6, 40)$, $(8, 50)$.
 **Objectif :** calculer la SVD d'une matrice carrée non symétrique par les valeurs et vecteurs propres de $\mathbf{A}^\top\mathbf{A}$, avec la convention de signe.
 **Prérequis :** fiche §1 ; M12c §3 et §6 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 10 & 10 \\ 5 & 2 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 10 & 10 \cr 5 & 2 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -164,7 +164,7 @@ Dans ta copie : calcule $\mathbf{u}_2$ et vérifie $s_1\mathbf{u}_1\mathbf{v}_1^
 **Objectif :** reconnaître une matrice de rang 1, écrire sa SVD compacte, et y appliquer la convention de signe.
 **Prérequis :** fiche §1 ; M12a §5 · **Parcours :** C
 
-$\mathbf{A} = \begin{pmatrix} 2 & -10 \\ 10 & -50 \\ 11 & -55 \end{pmatrix}$.
+$\mathbf{A} = \begin{pmatrix} 2 & -10 \cr 10 & -50 \cr 11 & -55 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -177,13 +177,13 @@ $\mathbf{A} = \begin{pmatrix} 2 & -10 \\ 10 & -50 \\ 11 & -55 \end{pmatrix}$.
 | g | $\lVert \mathbf{A} \rVert_F^2$ | un nombre |
 | h | le vecteur unitaire $\mathbf{v}_2$ qui engendre le noyau de $\mathbf{A}$ (convention de la fiche) | une liste de 2 nombres (4 décimales) |
 
-Dans ta copie : écris $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec des vecteurs entiers, et déduis-en $s_1 = \lVert \mathbf{a} \rVert\,\lVert \mathbf{b} \rVert$ sans calculer $\mathbf{A}^\top\mathbf{A}$. Écris la SVD compacte $\mathbf{U}_1\mathbf{S}_1\mathbf{V}_1^\top$ : combien de nombres contient-elle, contre combien pour la SVD complète ? Pourquoi $\mathbf{u}_1$ a-t-il des coordonnées négatives ?
+Dans ta copie : écris $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec des vecteurs entiers, et déduis-en $s_1 = \lVert \mathbf{a} \rVert\thinspace\lVert \mathbf{b} \rVert$ sans calculer $\mathbf{A}^\top\mathbf{A}$. Écris la SVD compacte $\mathbf{U}_1\mathbf{S}_1\mathbf{V}_1^\top$ : combien de nombres contient-elle, contre combien pour la SVD complète ? Pourquoi $\mathbf{u}_1$ a-t-il des coordonnées négatives ?
 
 ### Ex M12d.3 — Le cercle unité devient une ellipse : axes et demi-axes ✏️ ★ ⏱️ 15 min
 **Objectif :** lire sur la SVD l'image du cercle unité : les demi-axes, leurs directions, les points du cercle qui y arrivent, l'aire.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-$\mathbf{B} = \begin{pmatrix} 1 & 8 \\ 4 & -4 \end{pmatrix}$ envoie le cercle unité sur une ellipse.
+$\mathbf{B} = \begin{pmatrix} 1 & 8 \cr 4 & -4 \end{pmatrix}$ envoie le cercle unité sur une ellipse.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -202,7 +202,7 @@ Dans ta copie : dessine le cercle, l'ellipse, ses deux demi-axes et les images d
 **Objectif :** calculer une SVD $3 \times 3$ quand $\mathbf{A}^\top\mathbf{A}$ est par blocs, en déduire la meilleure approximation de rang 1 et son erreur (Eckart-Young).
 **Prérequis :** fiche §1 et §3 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \\ 4 & 2 & -1 \\ 1 & 4 & 0 \end{pmatrix}$ (trois clients, trois produits : une note de $-5$ à $5$ par case).
+$\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \cr 4 & 2 & -1 \cr 1 & 4 & 0 \end{pmatrix}$ (trois clients, trois produits : une note de $-5$ à $5$ par case).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -221,7 +221,7 @@ Dans ta copie : pourquoi la troisième colonne de $\mathbf{A}$ donne-t-elle à e
 **Objectif :** compter ce que coûte une approximation de rang $k$, et trouver le rang au-delà duquel elle ne fait plus rien gagner.
 **Prérequis :** fiche §3 · **Parcours :** C
 
-Une photo en niveaux de gris a $900 \times 1\,600$ pixels. On la stocke par son approximation de rang $k$ : les $k$ vecteurs $\mathbf{u}_i$, les $k$ vecteurs $\mathbf{v}_i$ et les $k$ valeurs singulières.
+Une photo en niveaux de gris a $900 \times 1\thinspace600$ pixels. On la stocke par son approximation de rang $k$ : les $k$ vecteurs $\mathbf{u}_i$, les $k$ vecteurs $\mathbf{v}_i$ et les $k$ valeurs singulières.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -230,8 +230,8 @@ Une photo en niveaux de gris a $900 \times 1\,600$ pixels. On la stocke par son 
 | c | la part que cela représente | un nombre (4 décimales) |
 | d | le plus grand $k$ pour lequel le stockage de rang $k$ est plus petit que l'image | un entier |
 | e | le plus grand $k$ qui tient dans 2 % des nombres de l'image | un entier |
-| f | une photo **couleur** de même taille (trois canaux de $900 \times 1\,600$), chaque canal stocké en rang 40 : le nombre total | un entier |
-| g | la même photo, les trois canaux mis côte à côte en une matrice $900 \times 4\,800$ stockée en rang 40 | un entier |
+| f | une photo **couleur** de même taille (trois canaux de $900 \times 1\thinspace600$), chaque canal stocké en rang 40 : le nombre total | un entier |
+| g | la même photo, les trois canaux mis côte à côte en une matrice $900 \times 4\thinspace800$ stockée en rang 40 | un entier |
 
 Dans ta copie : f) et g) gardent-ils la même information ? Lequel serait, à ton avis, le meilleur à nombre égal, et pourquoi (les trois canaux d'une photo se ressemblent-ils) ? Pourquoi un vrai format d'image compte-t-il des bits plutôt que des nombres ?
 
@@ -239,14 +239,14 @@ Dans ta copie : f) et g) gardent-ils la même information ? Lequel serait, à to
 **Objectif :** calculer la pseudo-inverse d'une matrice de rang 1, la solution de norme minimale d'un système qui en a une infinité, et la solution des moindres carrés d'un système qui n'en a pas.
 **Prérequis :** fiche §4 ; M09b §3 ; M12b §5 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \\ 5 & -20 & 40 \end{pmatrix}$, $\mathbf{y} = (18, 45)$, $\mathbf{y}' = (1, 0)$.
+$\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \cr 5 & -20 & 40 \end{pmatrix}$, $\mathbf{y} = (18, 45)$, $\mathbf{y}' = (1, 0)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le rang de $\mathbf{A}$ | un entier |
 | b | $s_1$ | un nombre (4 décimales) |
 | c | $\lVert \mathbf{A} \rVert_F^2$ | un nombre |
-| d | $1\,000\,\mathbf{A}^+$ | une matrice (4 décimales) |
+| d | $1\thinspace000\thinspace\mathbf{A}^+$ | une matrice (4 décimales) |
 | e | $\mathbf{x}^+ = \mathbf{A}^+\mathbf{y}$ | une liste de 3 nombres (4 décimales) |
 | f | $\lVert \mathbf{x}^+ \rVert$ | un nombre |
 | g | la norme de la solution $\mathbf{x} = (9, 0, 0)$ de $\mathbf{A}\mathbf{x} = \mathbf{y}$ | un nombre |
@@ -258,7 +258,7 @@ Dans ta copie : écris $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ et montre que $\
 **Objectif :** calculer des conditionnements, en tirer la borne sur l'erreur relative d'une solution, et constater que le déterminant ne dit rien de la sensibilité.
 **Prérequis :** fiche §2 et §4 · **Parcours :** C, E
 
-$\mathbf{P} = \begin{pmatrix} 0 & 5 \\ -2 & 0 \end{pmatrix}$, $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 5 & -12 \\ 12 & 5 \end{pmatrix}$, $\mathbf{R} = \begin{pmatrix} 8 & 3 \\ 5 & 2 \end{pmatrix}$.
+$\mathbf{P} = \begin{pmatrix} 0 & 5 \cr -2 & 0 \end{pmatrix}$, $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 5 & -12 \cr 12 & 5 \end{pmatrix}$, $\mathbf{R} = \begin{pmatrix} 8 & 3 \cr 5 & 2 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -269,7 +269,7 @@ $\mathbf{P} = \begin{pmatrix} 0 & 5 \\ -2 & 0 \end{pmatrix}$, $\mathbf{Q} = \fra
 | e | la solution de $\mathbf{R}\mathbf{x} = (14, 9)$ | une liste de 2 nombres |
 | f | pour $\delta\mathbf{b} = (0{,}01 ;\ 0)$, le rapport $\dfrac{\lVert \delta\mathbf{x} \rVert / \lVert \mathbf{x} \rVert}{\lVert \delta\mathbf{b} \rVert / \lVert \mathbf{b} \rVert}$ | un nombre (2 décimales) |
 | g | $\kappa(\mathbf{R}^\top\mathbf{R})$ | un nombre (1 décimale) |
-| h | vrai ou faux : $\kappa(1\,000\,\mathbf{R}) = \kappa(\mathbf{R})$ | `True` ou `False` |
+| h | vrai ou faux : $\kappa(1\thinspace000\thinspace\mathbf{R}) = \kappa(\mathbf{R})$ | `True` ou `False` |
 
 Dans ta copie : pour c), utilise $s_1^2 + s_2^2 = \lVert \mathbf{R} \rVert_F^2$ et $s_1 s_2 = \lvert\det\mathbf{R}\rvert$ : pourquoi $\kappa + \frac{1}{\kappa} = 102$ ici ? Compare f) à c). Quelle perturbation $\delta\mathbf{b}$ (de quelle direction) atteindrait la borne ? $\det\mathbf{R} = 1$ et $\det\mathbf{P} = 10$ : qu'en conclure ?
 
@@ -278,7 +278,7 @@ Dans ta copie : pour c), utilise $s_1^2 + s_2^2 = \lVert \mathbf{R} \rVert_F^2$ 
 **Prérequis :** fiche §5 et §6 ; M12c §3 ; M02c · **Parcours :** C, E
 
 Sept objets, trois mesures chacun (dans la même unité), en lignes :
-$$\mathbf{X} = \begin{pmatrix} 10 & 8 & 3 \\ 9 & 14 & 7 \\ 15 & 4 & 9 \\ 10 & 6 & 4 \\ 16 & 11 & 6 \\ 18 & 10 & 6 \\ 20 & 10 & 7 \end{pmatrix}.$$
+$$\mathbf{X} = \begin{pmatrix} 10 & 8 & 3 \cr 9 & 14 & 7 \cr 15 & 4 & 9 \cr 10 & 6 & 4 \cr 16 & 11 & 6 \cr 18 & 10 & 6 \cr 20 & 10 & 7 \end{pmatrix}.$$
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -310,7 +310,7 @@ Le nuage de M12d.8, avec ses trois axes principaux. On garde $k = 2$ composantes
 | g | l'erreur de reconstruction moyenne avec $k = 1$ | un nombre (4 décimales) |
 | h | la part de variance gardée avec $k = 2$ | un nombre (4 décimales) |
 
-Dans ta copie : vérifie que les scores de c) sont de moyenne nulle, et que leur covariance avec ceux de $\mathbf{u}_2$ est nulle. Montre que e) vaut $\lambda_1$ fois la première coordonnée de $\mathbf{u}_1$ (écris la covariance comme $\mathbf{u}_1^\top\mathbf{C}\,\mathbf{e}_1$). Vérifie f) directement, en calculant les sept scores sur $\mathbf{u}_3$ (multipliés par $\sqrt{17}$, ce sont des entiers) et la moyenne de leurs carrés. D'où vient le facteur $\frac{n-1}{n}$ ? Compare $\hat{\mathbf{x}}_7$ à $\mathbf{x}_7$ : quelle mesure n'a pas bougé, et pourquoi ?
+Dans ta copie : vérifie que les scores de c) sont de moyenne nulle, et que leur covariance avec ceux de $\mathbf{u}_2$ est nulle. Montre que e) vaut $\lambda_1$ fois la première coordonnée de $\mathbf{u}_1$ (écris la covariance comme $\mathbf{u}_1^\top\mathbf{C}\thinspace\mathbf{e}_1$). Vérifie f) directement, en calculant les sept scores sur $\mathbf{u}_3$ (multipliés par $\sqrt{17}$, ce sont des entiers) et la moyenne de leurs carrés. D'où vient le facteur $\frac{n-1}{n}$ ? Compare $\hat{\mathbf{x}}_7$ à $\mathbf{x}_7$ : quelle mesure n'a pas bougé, et pourquoi ?
 
 ### Ex M12d.10 — La variance expliquée cumulée : combien de composantes pour 95 % ? ✏️ ★ ⏱️ 15 min
 **Objectif :** calculer des parts de variance expliquée, choisir un nombre de composantes par un seuil, et le comparer au coude de la courbe.
@@ -334,7 +334,7 @@ Dans ta copie : trace la courbe des variances et celle des parts cumulées. Où 
 **Objectif :** faire une ACP par la SVD de la matrice centrée, sans former la covariance : valeurs singulières, variances, axes et scores.
 **Prérequis :** fiche §1 et §6 · **Parcours :** C
 
-Quatre exemples de $\mathbb{R}^3$, en lignes : $\mathbf{X} = \begin{pmatrix} 3 & 1 & 3 \\ 3 & 4 & 6 \\ 9 & 4 & 8 \\ 9 & 7 & 3 \end{pmatrix}$. On note $\mathbf{X}_c$ la matrice centrée et $\mathbf{X}_c = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ sa SVD compacte. Les vecteurs $(5, 3, 1)$, $(0, -1, 3)$ et $(-2, 3, 1)$ sont orthogonaux deux à deux.
+Quatre exemples de $\mathbb{R}^3$, en lignes : $\mathbf{X} = \begin{pmatrix} 3 & 1 & 3 \cr 3 & 4 & 6 \cr 9 & 4 & 8 \cr 9 & 7 & 3 \end{pmatrix}$. On note $\mathbf{X}_c$ la matrice centrée et $\mathbf{X}_c = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ sa SVD compacte. Les vecteurs $(5, 3, 1)$, $(0, -1, 3)$ et $(-2, 3, 1)$ sont orthogonaux deux à deux.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -353,7 +353,7 @@ Dans ta copie : vérifie que h) est $s_1\mathbf{u}_1$, que sa moyenne est nulle 
 **Objectif :** faire l'ACP de trois exemples de $\mathbb{R}^5$ par la matrice $3 \times 3$ $\mathbf{X}_c\mathbf{X}_c^\top$, et remonter aux axes principaux.
 **Prérequis :** fiche §1 et §7 · **Parcours :** C
 
-Trois exemples de $\mathbb{R}^5$, en lignes : $\mathbf{X} = \begin{pmatrix} 8 & 8 & 4 & 6 & 5 \\ 3 & 8 & 3 & 2 & 7 \\ 4 & 2 & 2 & 4 & 9 \end{pmatrix}$.
+Trois exemples de $\mathbb{R}^5$, en lignes : $\mathbf{X} = \begin{pmatrix} 8 & 8 & 4 & 6 & 5 \cr 3 & 8 & 3 & 2 & 7 \cr 4 & 2 & 2 & 4 & 9 \end{pmatrix}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -410,18 +410,18 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ est de forme $(m, n)$, de val
 1. Écris $\mathbf{x} = \sum_i c_i\mathbf{v}_i$ dans la base orthonormée des $\mathbf{v}_i$. Exprime $\lVert \mathbf{x} \rVert^2$, puis $\mathbf{A}\mathbf{x}$ et $\lVert \mathbf{A}\mathbf{x} \rVert^2$, avec les $c_i$ et les $s_i$.
 2. Déduis-en $s_n\lVert \mathbf{x} \rVert \le \lVert \mathbf{A}\mathbf{x} \rVert \le s_1\lVert \mathbf{x} \rVert$, et les cas d'égalité.
 3. Retrouve le résultat autrement : $\lVert \mathbf{A}\mathbf{x} \rVert^2/\lVert \mathbf{x} \rVert^2$ est un quotient de Rayleigh. De quelle matrice ?
-4. Montre que $\lVert \mathbf{A}\mathbf{B} \rVert_2 \le \lVert \mathbf{A} \rVert_2\,\lVert \mathbf{B} \rVert_2$ (en appliquant deux fois l'inégalité de droite de 2., qui vaut pour toute forme, sans l'hypothèse $n \le m$).
+4. Montre que $\lVert \mathbf{A}\mathbf{B} \rVert_2 \le \lVert \mathbf{A} \rVert_2\thinspace\lVert \mathbf{B} \rVert_2$ (en appliquant deux fois l'inégalité de droite de 2., qui vaut pour toute forme, sans l'hypothèse $n \le m$).
 5. Une matrice orthogonale $\mathbf{Q}$ : que valent $\lVert \mathbf{Q} \rVert_2$ et $\lVert \mathbf{Q}\mathbf{A} \rVert_2$ ?
 
 ### Ex M12d.16 — L'erreur de l'approximation de rang k vaut la somme des s² oubliés (Frobenius) ∂ ★★★ ⏱️ 25 min
 **Objectif :** démontrer l'égalité d'Eckart-Young pour l'erreur de $\mathbf{A}_k$ (la minimalité restant admise), en norme de Frobenius et en norme spectrale.
 **Prérequis :** fiche §3 ; M12c §2 · **Parcours :** C
 
-$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A}_k = \sum_{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$ pour $k < r$.
+$\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$, de rang $r$, et $\mathbf{A} _k = \sum _{i \le k} s_i\mathbf{u}_i\mathbf{v}_i^\top$ pour $k < r$.
 1. Montre que $\lVert \mathbf{M} \rVert_F^2 = \operatorname{tr}(\mathbf{M}^\top\mathbf{M})$, puis que $\lVert \mathbf{Q}\mathbf{M} \rVert_F = \lVert \mathbf{M} \rVert_F$ pour toute matrice orthogonale $\mathbf{Q}$.
 2. Montre aussi $\lVert \mathbf{M}\mathbf{Q} \rVert_F = \lVert \mathbf{M} \rVert_F$ (par $\operatorname{tr}(\mathbf{X}\mathbf{Y}) = \operatorname{tr}(\mathbf{Y}\mathbf{X})$, M12c).
-3. Écris $\mathbf{A} - \mathbf{A}_k = \mathbf{U}\mathbf{D}\mathbf{V}^\top$ avec une matrice $\mathbf{D}$ que tu préciseras. Conclus : $\lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = s_{k+1}^2 + \cdots + s_r^2$.
-4. Montre que $\lVert \mathbf{A} - \mathbf{A}_k \rVert_2 = s_{k+1}$ (avec M12d.15).
+3. Écris $\mathbf{A} - \mathbf{A}_k = \mathbf{U}\mathbf{D}\mathbf{V}^\top$ avec une matrice $\mathbf{D}$ que tu préciseras. Conclus : $\lVert \mathbf{A} - \mathbf{A} _k \rVert_F^2 = s _{k+1}^2 + \cdots + s_r^2$.
+4. Montre que $\lVert \mathbf{A} - \mathbf{A} _k \rVert_2 = s _{k+1}$ (avec M12d.15).
 5. Montre que $\lVert \mathbf{A}_k \rVert_F^2 + \lVert \mathbf{A} - \mathbf{A}_k \rVert_F^2 = \lVert \mathbf{A} \rVert_F^2$ : quel théorème reconnais-tu, et quelles deux matrices sont orthogonales **entre elles** pour le produit scalaire $\langle \mathbf{X}, \mathbf{Y} \rangle = \operatorname{tr}(\mathbf{X}^\top\mathbf{Y})$ ?
 
 ### Ex M12d.17 — La pseudo-inverse donne la solution des moindres carrés de plus petite norme ∂ ★★ ⏱️ 20 min
@@ -439,19 +439,19 @@ $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ (SVD complète) est de forme 
 **Objectif :** démontrer la formule de l'erreur de reconstruction moyenne d'une ACP à $k$ composantes, et le partage de la variance totale entre ce que l'on garde et ce que l'on perd.
 **Prérequis :** fiche §5 à §7 ; M12b §2 · **Parcours :** C, E
 
-$n$ exemples $\mathbf{x}_i$ de $\mathbb{R}^p$, de moyenne $\boldsymbol{\mu}$ et de covariance $\mathbf{C}$ (en $\frac{1}{n-1}$), d'axes principaux $\mathbf{u}_1, \ldots, \mathbf{u}_p$ et de variances $\lambda_1 \ge \cdots \ge \lambda_p$ ; $t_{ij} = \mathbf{u}_j^\top(\mathbf{x}_i - \boldsymbol{\mu})$ et $\hat{\mathbf{x}}_i = \boldsymbol{\mu} + \sum_{j \le k} t_{ij}\mathbf{u}_j$.
-1. Montre que $\mathbf{x}_i - \boldsymbol{\mu} = \sum_{j \le p} t_{ij}\mathbf{u}_j$, puis que $\lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \sum_{j > k} t_{ij}^2$.
-2. Les scores $t_{ij}$ sont de moyenne nulle, et leur variance vaut $\mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_j$ (la règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ de M12c §8, avec la ligne $\mathbf{A} = \mathbf{u}_j^\top$). Déduis-en $\frac{1}{n - 1}\sum_i t_{ij}^2 = \lambda_j$.
-3. Conclus : $\frac{1}{n}\sum_i \lVert \mathbf{x}_i - \hat{\mathbf{x}}_i \rVert^2 = \frac{n - 1}{n}\sum_{j > k}\lambda_j$.
-4. Montre de même que $\frac{1}{n}\sum_i \lVert \hat{\mathbf{x}}_i - \boldsymbol{\mu} \rVert^2 = \frac{n-1}{n}\sum_{j \le k}\lambda_j$, et déduis-en que la dispersion gardée et l'erreur ont pour somme $\frac{n-1}{n}\operatorname{tr}\mathbf{C}$.
+$n$ exemples $\mathbf{x}_i$ de $\mathbb{R}^p$, de moyenne $\boldsymbol{\mu}$ et de covariance $\mathbf{C}$ (en $\frac{1}{n-1}$), d'axes principaux $\mathbf{u}_1, \ldots, \mathbf{u} _p$ et de variances $\lambda_1 \ge \cdots \ge \lambda_p$ ; $t _{ij} = \mathbf{u}_j^\top(\mathbf{x} _i - \boldsymbol{\mu})$ et $\hat{\mathbf{x}} _i = \boldsymbol{\mu} + \sum _{j \le k} t _{ij}\mathbf{u}_j$.
+1. Montre que $\mathbf{x} _i - \boldsymbol{\mu} = \sum  _{j \le p} t _{ij}\mathbf{u}_j$, puis que $\lVert \mathbf{x} _i - \hat{\mathbf{x}} _i \rVert^2 = \sum _{j > k} t _{ij}^2$.
+2. Les scores $t_{ij}$ sont de moyenne nulle, et leur variance vaut $\mathbf{u}_j^\top\mathbf{C}\thinspace\mathbf{u}_j$ (la règle $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ de M12c §8, avec la ligne $\mathbf{A} = \mathbf{u} _j^\top$). Déduis-en $\frac{1}{n - 1}\sum_i t _{ij}^2 = \lambda_j$.
+3. Conclus : $\frac{1}{n}\sum_i \lVert \mathbf{x}_i - \hat{\mathbf{x}} _i \rVert^2 = \frac{n - 1}{n}\sum _{j > k}\lambda_j$.
+4. Montre de même que $\frac{1}{n}\sum_i \lVert \hat{\mathbf{x}} _i - \boldsymbol{\mu} \rVert^2 = \frac{n-1}{n}\sum _{j \le k}\lambda_j$, et déduis-en que la dispersion gardée et l'erreur ont pour somme $\frac{n-1}{n}\operatorname{tr}\mathbf{C}$.
 5. Pourquoi, à $k$ fixé, prendre les $k$ **premiers** axes rend-il cette erreur la plus petite parmi les choix de $k$ axes principaux ? (La minimalité parmi **tous** les sous-espaces est admise, fiche §7.)
 
 ### Ex M12d.19 — Les scores de deux composantes principales sont décorrélés ∂ ★★ ⏱️ 15 min
 **Objectif :** démontrer que les scores sur deux axes principaux distincts ont une covariance nulle, et que ce n'est pas vrai pour deux directions orthogonales quelconques.
 **Prérequis :** fiche §5 et §6 ; M12c §6 et §8 · **Parcours :** C
 
-Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$, et $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$, avec $\mathbf{W}_k = (\mathbf{u}_1 \mid \cdots \mid \mathbf{u}_k)$, la matrice des scores sur les $k$ premiers axes. Les scores d'un exemple, $\mathbf{z}_i = \mathbf{W}_k^\top(\mathbf{x}_i - \boldsymbol{\mu})$, sont une transformation affine de $\mathbf{x}_i$ : par la règle de M12c §8, ils sont de moyenne nulle et de covariance $\mathbf{W}_k^\top\mathbf{C}\,\mathbf{W}_k$.
-1. Lis le coefficient $(j, l)$ de cette matrice : $\operatorname{Cov}(\mathbf{t}_j, \mathbf{t}_l) = \mathbf{u}_j^\top\mathbf{C}\,\mathbf{u}_l$. Montre qu'il vaut $\lambda_j$ si $j = l$, et 0 si $j \ne l$ ; écris la matrice de covariance de $\mathbf{Z}$.
+Mêmes notations que M12d.18 ; $\mathbf{t}_j = \mathbf{X}_c\mathbf{u}_j$ est la colonne des scores sur l'axe $j$, et $\mathbf{Z} = \mathbf{X}_c\mathbf{W}_k$, avec $\mathbf{W}_k = (\mathbf{u}_1 \mid \cdots \mid \mathbf{u}_k)$, la matrice des scores sur les $k$ premiers axes. Les scores d'un exemple, $\mathbf{z}_i = \mathbf{W}_k^\top(\mathbf{x}_i - \boldsymbol{\mu})$, sont une transformation affine de $\mathbf{x}_i$ : par la règle de M12c §8, ils sont de moyenne nulle et de covariance $\mathbf{W}_k^\top\mathbf{C}\thinspace\mathbf{W}_k$.
+1. Lis le coefficient $(j, l)$ de cette matrice : $\operatorname{Cov}(\mathbf{t}_j, \mathbf{t}_l) = \mathbf{u}_j^\top\mathbf{C}\thinspace\mathbf{u}_l$. Montre qu'il vaut $\lambda_j$ si $j = l$, et 0 si $j \ne l$ ; écris la matrice de covariance de $\mathbf{Z}$.
 2. Un score combiné $c_i = \mathbf{a}^\top\mathbf{z}_i$, avec $\mathbf{a} \in \mathbb{R}^k$ : sa variance ? Pourquoi est-elle si simple ?
 3. Contre-exemple : avec $\mathbf{C} = \operatorname{diag}(4, 1)$, calcule la covariance des coordonnées le long des deux directions orthogonales $\frac{1}{13}(5, 12)$ et $\frac{1}{13}(-12, 5)$. Qu'est-ce qui, dans 1., a servi en plus de l'orthogonalité ?
 
@@ -494,7 +494,7 @@ Un changement d'unités multiplie chaque feature $j$ par un nombre $d_j > 0$ : l
 | g | la matrice de covariance des données standardisées (après le changement) | une matrice (4 décimales) |
 | h | vrai ou faux : pour toute matrice diagonale $\mathbf{D}$ à éléments strictement positifs, la covariance des données standardisées est la même pour $\mathbf{X}$ et pour $\mathbf{X}\mathbf{D}$ | `True` ou `False` |
 
-Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})_{ij} = d_id_j\Sigma_{ij}$, puis que la corrélation $\Sigma_{ij}/\sqrt{\Sigma_{ii}\Sigma_{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ?
+Dans ta copie : calcule la corrélation des mesures 1 et 3 après le changement. Montre que $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})  _{ij} = d_id_j\Sigma  _{ij}$, puis que la corrélation $\Sigma _{ij}/\sqrt{\Sigma  _{ii}\Sigma _{jj}}$ ne change pas : c'est h) en général. Compare c) au premier axe de M12d.8 : qui a « décidé » de la direction ?
 
 ### Ex M12d.22 — MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices 📖 ★★ ⏱️ 45 min
 **Objectif :** lire en anglais la SVD, sa géométrie, sa construction et l'approximation de rang faible, et situer les décompositions de M12a à M12d.
@@ -531,7 +531,7 @@ Lis MML §10.1 à §10.6 ; au §10.2, survole la dérivation par les multiplicat
 Ordres de grandeur seulement. Un tableau de $n = 10^6$ clients et $p = 250$ features, en `float64` (8 octets par nombre) ; une machine fait environ $10^{10}$ opérations par seconde sur des produits de matrices.
 1. La mémoire du tableau ? En `float32` ?
 2. Former $\mathbf{X}_c^\top\mathbf{X}_c$ demande environ $np^2$ multiplications-additions. Combien, et combien de temps ?
-3. La mémoire de la matrice de covariance, et le coût de sa diagonalisation (de l'ordre de $10\,p^3$ opérations) ?
+3. La mémoire de la matrice de covariance, et le coût de sa diagonalisation (de l'ordre de $10\thinspace p^3$ opérations) ?
 4. La SVD compacte de $\mathbf{X}_c$ coûte quelques $np^2$ : pourquoi la préférer quand même à la covariance (fiche §4 et §6) ?
 5. La mémoire des scores avec $k = 20$ composantes ?
 6. Si le tableau ne tient pas en mémoire, comment calculer $\boldsymbol{\mu}$ et $\mathbf{C}$ en le lisant par morceaux de $10^4$ lignes ?

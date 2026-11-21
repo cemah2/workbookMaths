@@ -58,11 +58,11 @@ Vocabulaire anglais de ce chapitre : *matrix*, *entry*, *row*, *column*, *shape*
 ## L'essentiel en 10 lignes
 
 1. Une **matrice** $\mathbf{A} \in \mathbb{R}^{m \times n}$ a $m$ lignes et $n$ colonnes ; un **dataset** est une matrice $(n_{\text{exemples}}, n_{\text{features}})$ : une ligne par exemple, une colonne par feature.
-2. **Produit matrice-vecteur** : $(\mathbf{A}\mathbf{x})_i = \sum_j a_{ij}x_j$, le produit scalaire de la ligne $i$ avec $\mathbf{x}$ ; c'est aussi la **combinaison des colonnes** de $\mathbf{A}$ de coefficients $x_1, \ldots, x_n$.
-3. **Produit matriciel** : $(n, p) \times (p, m) \to (n, m)$, $(\mathbf{A}\mathbf{B})_{ij} = \sum_k a_{ik}b_{kj}$ ; il coûte $n\,p\,m$ multiplications ; il est **associatif**, mais **pas commutatif**.
+2. **Produit matrice-vecteur** : $(\mathbf{A}\mathbf{x}) _i = \sum_j a _{ij}x_j$, le produit scalaire de la ligne $i$ avec $\mathbf{x}$ ; c'est aussi la **combinaison des colonnes** de $\mathbf{A}$ de coefficients $x_1, \ldots, x_n$.
+3. **Produit matriciel** : $(n, p) \times (p, m) \to (n, m)$, $(\mathbf{A}\mathbf{B}) _{ij} = \sum_k a  _{ik}b _{kj}$ ; il coûte $n\thinspace p\thinspace m$ multiplications ; il est **associatif**, mais **pas commutatif**.
 4. **Hadamard** $\mathbf{A} \odot \mathbf{B}$ : élément par élément, même forme (`*` en NumPy) ; le produit matriciel est `@`.
 5. Une couche dense : $\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}$, $\mathbf{X}$ de forme (batch, $n_{\text{in}}$), $\mathbf{W}$ de forme ($n_{\text{in}}$, $n_{\text{out}}$), une colonne de $\mathbf{W}$ par neurone. Un embedding : $\mathbf{e}_k^\top\mathbf{E}$ = la ligne $k$ de $\mathbf{E}$.
-6. **Transposée** : $(\mathbf{A}^\top)_{ij} = a_{ji}$ ; $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ ; $\mathbf{X}^\top\mathbf{X}$ est carrée, symétrique, et contient les produits scalaires des colonnes de $\mathbf{X}$.
+6. **Transposée** : $(\mathbf{A}^\top) _{ij} = a _{ji}$ ; $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ ; $\mathbf{X}^\top\mathbf{X}$ est carrée, symétrique, et contient les produits scalaires des colonnes de $\mathbf{X}$.
 7. Un **système linéaire** $\mathbf{A}\mathbf{x} = \mathbf{b}$ a **zéro, une ou une infinité** de solutions, jamais exactement deux.
 8. **Pivot de Gauss** : échanger deux lignes, multiplier une ligne par un nombre non nul, ajouter un multiple d'une ligne à une autre ne changent pas les solutions ; on arrive à une forme **échelonnée**, puis à la forme **échelonnée réduite**, unique, où se lisent toutes les solutions.
 9. **Inverse** : $\mathbf{A}\mathbf{A}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}$, pour une matrice carrée de rang plein ; elle se calcule par Gauss-Jordan sur $[\mathbf{A} \mid \mathbf{I}]$ ; pour résoudre un système, on ne l'utilise pas : on fait Gauss.
@@ -78,7 +78,7 @@ Une **matrice** $\mathbf{A} \in \mathbb{R}^{m \times n}$ est un tableau de $m \t
 
 Un **dataset** est une matrice : une **ligne par exemple** et une **colonne par feature**. Quatre séances d'une application de sport, avec la durée (min), la distance (km) et le dénivelé (m) :
 
-$$\mathbf{X} = \begin{pmatrix} 30 & 6 & 50 \\ 50 & 9 & 120 \\ 20 & 3 & 20 \\ 60 & 10 & 130 \end{pmatrix} \qquad \text{forme } (4, 3), \quad x_{23} = 120.$$
+$$\mathbf{X} = \begin{pmatrix} 30 & 6 & 50 \cr 50 & 9 & 120 \cr 20 & 3 & 20 \cr 60 & 10 & 130 \end{pmatrix} \qquad \text{forme } (4, 3), \quad x_{23} = 120.$$
 
 La ligne 2, $(50, 9, 120)$, décrit la deuxième séance ; la colonne 3, $(50, 120, 20, 130)$, décrit le dénivelé de toutes les séances.
 
@@ -90,7 +90,7 @@ La ligne 2, $(50, 9, 120)$, décrit la deuxième séance ; la colonne 3, $(50, 1
 
 Centré, le tableau devient
 
-$$\mathbf{X} - \bar{\mathbf{x}} = \begin{pmatrix} -10 & -1 & -30 \\ 10 & 2 & 40 \\ -20 & -4 & -60 \\ 20 & 3 & 50 \end{pmatrix} :$$
+$$\mathbf{X} - \bar{\mathbf{x}} = \begin{pmatrix} -10 & -1 & -30 \cr 10 & 2 & 40 \cr -20 & -4 & -60 \cr 20 & 3 & 50 \end{pmatrix} :$$
 
 on retire le **même** vecteur $\bar{\mathbf{x}}$ à chaque ligne. NumPy le fait d'un geste, par **broadcasting** (le vecteur de forme `(3,)` est répété sur les 4 lignes) :
 
@@ -114,11 +114,11 @@ La matrice **nulle** $\mathbf{0}$ ; une matrice **diagonale** n'a de nombres non
 
 Le produit d'une matrice $\mathbf{A}$ de forme $(m, n)$ par un vecteur $\mathbf{x}$ de $\mathbb{R}^n$ est le vecteur $\mathbf{A}\mathbf{x}$ de $\mathbb{R}^m$ défini par
 
-$$(\mathbf{A}\mathbf{x})_i = \sum_{j=1}^{n} a_{ij}\,x_j = (\text{ligne } i \text{ de } \mathbf{A}) \cdot \mathbf{x}.$$
+$$(\mathbf{A}\mathbf{x}) _i = \sum  _{j=1}^{n} a _{ij}\thinspace x_j = (\text{ligne } i \text{ de } \mathbf{A}) \cdot \mathbf{x}.$$
 
 Il n'existe que si $\mathbf{A}$ a **autant de colonnes** que $\mathbf{x}$ a de coordonnées. Exemple :
 
-$$\begin{pmatrix} 1 & -2 & 4 \\ 3 & 0 & -1 \end{pmatrix}\begin{pmatrix} 2 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 - 2 + 4 \\ 6 + 0 - 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 5 \end{pmatrix}.$$
+$$\begin{pmatrix} 1 & -2 & 4 \cr 3 & 0 & -1 \end{pmatrix}\begin{pmatrix} 2 \cr 1 \cr 1 \end{pmatrix} = \begin{pmatrix} 2 - 2 + 4 \cr 6 + 0 - 1 \end{pmatrix} = \begin{pmatrix} 4 \cr 5 \end{pmatrix}.$$
 
 Il coûte $m \times n$ multiplications : $n$ par ligne. Une matrice **diagonale** agit plus simplement encore : $\mathbf{D}\mathbf{x}$ multiplie chaque coordonnée de $\mathbf{x}$ par le nombre correspondant de la diagonale, et $\mathbf{I}\mathbf{x} = \mathbf{x}$.
 
@@ -126,9 +126,9 @@ Il coûte $m \times n$ multiplications : $n$ par ligne. Une matrice **diagonale*
 
 Le même produit se lit autrement : $\mathbf{A}\mathbf{x}$ est la **combinaison des colonnes** de $\mathbf{A}$, avec les coefficients $x_1, \ldots, x_n$,
 
-$$\mathbf{A}\mathbf{x} = x_1\,\mathbf{a}_1 + x_2\,\mathbf{a}_2 + \cdots + x_n\,\mathbf{a}_n \qquad (\mathbf{a}_j \text{ la colonne } j).$$
+$$\mathbf{A}\mathbf{x} = x_1\thinspace\mathbf{a}_1 + x_2\thinspace\mathbf{a}_2 + \cdots + x_n\thinspace\mathbf{a}_n \qquad (\mathbf{a}_j \text{ la colonne } j).$$
 
-Ici, $2\begin{pmatrix} 1 \\ 3 \end{pmatrix} + 1\begin{pmatrix} -2 \\ 0 \end{pmatrix} + 1\begin{pmatrix} 4 \\ -1 \end{pmatrix} = \begin{pmatrix} 4 \\ 5 \end{pmatrix}$. Les deux lectures donnent toujours le même résultat : ce sont les mêmes $m \times n$ produits $a_{ij}x_j$, additionnés dans un autre ordre. La seconde est la plus utile pour comprendre : **résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est chercher comment fabriquer $\mathbf{b}$ avec les colonnes de $\mathbf{A}$** (§5).
+Ici, $2\begin{pmatrix} 1 \cr 3 \end{pmatrix} + 1\begin{pmatrix} -2 \cr 0 \end{pmatrix} + 1\begin{pmatrix} 4 \cr -1 \end{pmatrix} = \begin{pmatrix} 4 \cr 5 \end{pmatrix}$. Les deux lectures donnent toujours le même résultat : ce sont les mêmes $m \times n$ produits $a_{ij}x_j$, additionnés dans un autre ordre. La seconde est la plus utile pour comprendre : **résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est chercher comment fabriquer $\mathbf{b}$ avec les colonnes de $\mathbf{A}$** (§5).
 
 ![Le produit matrice-vecteur comme combinaison des colonnes : 2a₁ + 1a₂ + 1a₃ = (4, 5)](figures/combinaison_colonnes.png)
 
@@ -136,7 +136,7 @@ Ici, $2\begin{pmatrix} 1 \\ 3 \end{pmatrix} + 1\begin{pmatrix} -2 \\ 0 \end{pmat
 
 Un modèle linéaire calcule $\hat{y}_i = \mathbf{w} \cdot \mathbf{x}_i + b$ pour l'exemple $i$ (M07). Les exemples étant les lignes de $\mathbf{X}$, de forme $(n, p)$, ces $n$ produits scalaires sont exactement les coordonnées d'un produit matrice-vecteur, par la lecture en lignes :
 
-$$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b\,\mathbf{1}, \qquad \text{de forme } (n,) :$$
+$$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b\thinspace\mathbf{1}, \qquad \text{de forme } (n,) :$$
 
 un produit scalaire par ligne, plus le même biais partout.
 
@@ -148,11 +148,11 @@ un produit scalaire par ligne, plus le même biais partout.
 
 Le produit de $\mathbf{A}$, de forme $(n, p)$, par $\mathbf{B}$, de forme $(p, m)$, est la matrice $\mathbf{A}\mathbf{B}$ de forme $(n, m)$ :
 
-$$(\mathbf{A}\mathbf{B})_{ij} = \sum_{k=1}^{p} a_{ik}\,b_{kj} = (\text{ligne } i \text{ de } \mathbf{A}) \cdot (\text{colonne } j \text{ de } \mathbf{B}).$$
+$$(\mathbf{A}\mathbf{B})  _{ij} = \sum  _{k=1}^{p} a _{ik}\thinspace b _{kj} = (\text{ligne } i \text{ de } \mathbf{A}) \cdot (\text{colonne } j \text{ de } \mathbf{B}).$$
 
 **Règle des formes** : $(n, p) \times (p, m) \to (n, m)$. Les deux dimensions **intérieures** doivent être égales ; il reste les deux extérieures. Exemple, $(2, 2) \times (2, 3) \to (2, 3)$ :
 
-$$\begin{pmatrix} 3 & -1 \\ 1 & 2 \end{pmatrix}\begin{pmatrix} 1 & 0 & 2 \\ -1 & 4 & 1 \end{pmatrix} = \begin{pmatrix} 3 + 1 & 0 - 4 & 6 - 1 \\ 1 - 2 & 0 + 8 & 2 + 2 \end{pmatrix} = \begin{pmatrix} 4 & -4 & 5 \\ -1 & 8 & 4 \end{pmatrix},$$
+$$\begin{pmatrix} 3 & -1 \cr 1 & 2 \end{pmatrix}\begin{pmatrix} 1 & 0 & 2 \cr -1 & 4 & 1 \end{pmatrix} = \begin{pmatrix} 3 + 1 & 0 - 4 & 6 - 1 \cr 1 - 2 & 0 + 8 & 2 + 2 \end{pmatrix} = \begin{pmatrix} 4 & -4 & 5 \cr -1 & 8 & 4 \end{pmatrix},$$
 
 et le produit dans l'autre ordre, $(2, 3) \times (2, 2)$, n'existe pas.
 
@@ -163,24 +163,24 @@ et le produit dans l'autre ordre, $(2, 3) \times (2, 2)$, n'existe pas.
 
 ### Les règles de calcul
 
-- **Pas commutatif** : en général $\mathbf{A}\mathbf{B} \ne \mathbf{B}\mathbf{A}$, même quand les deux existent. Avec $\mathbf{C} = \begin{pmatrix} 1 & 3 \\ 0 & 2 \end{pmatrix}$ et $\mathbf{D} = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}$ : $\mathbf{C}\mathbf{D} = \begin{pmatrix} 5 & 3 \\ 2 & 2 \end{pmatrix}$ mais $\mathbf{D}\mathbf{C} = \begin{pmatrix} 2 & 6 \\ 1 & 5 \end{pmatrix}$.
+- **Pas commutatif** : en général $\mathbf{A}\mathbf{B} \ne \mathbf{B}\mathbf{A}$, même quand les deux existent. Avec $\mathbf{C} = \begin{pmatrix} 1 & 3 \cr 0 & 2 \end{pmatrix}$ et $\mathbf{D} = \begin{pmatrix} 2 & 0 \cr 1 & 1 \end{pmatrix}$ : $\mathbf{C}\mathbf{D} = \begin{pmatrix} 5 & 3 \cr 2 & 2 \end{pmatrix}$ mais $\mathbf{D}\mathbf{C} = \begin{pmatrix} 2 & 6 \cr 1 & 5 \end{pmatrix}$.
 - **Associatif** : $(\mathbf{A}\mathbf{B})\mathbf{C} = \mathbf{A}(\mathbf{B}\mathbf{C})$ ; **distributif** : $\mathbf{A}(\mathbf{B} + \mathbf{C}) = \mathbf{A}\mathbf{B} + \mathbf{A}\mathbf{C}$ ; $(\lambda\mathbf{A})\mathbf{B} = \lambda(\mathbf{A}\mathbf{B})$.
 - **Identité** : $\mathbf{I}_n\mathbf{A} = \mathbf{A}\mathbf{I}_p = \mathbf{A}$ pour $\mathbf{A}$ de forme $(n, p)$ : l'identité doit avoir la bonne taille de chaque côté.
 - On **ne simplifie pas** : $\mathbf{A}\mathbf{B} = \mathbf{A}\mathbf{C}$ n'entraîne pas $\mathbf{B} = \mathbf{C}$, et $\mathbf{A}\mathbf{B} = \mathbf{0}$ n'entraîne pas $\mathbf{A} = \mathbf{0}$ ou $\mathbf{B} = \mathbf{0}$ (sauf si $\mathbf{A}$ est inversible, §7).
 
 ### Le coût d'un produit, et l'ordre des parenthèses
 
-Chacun des $n \times m$ éléments de $\mathbf{A}\mathbf{B}$ demande $p$ multiplications : **un produit $(n, p) \times (p, m)$ coûte $n\,p\,m$ multiplications** (et presque autant d'additions). Pour deux matrices carrées de taille $n$, c'est $n^3$ : doubler $n$ multiplie le temps par 8.
+Chacun des $n \times m$ éléments de $\mathbf{A}\mathbf{B}$ demande $p$ multiplications : **un produit $(n, p) \times (p, m)$ coûte $n\thinspace p\thinspace m$ multiplications** (et presque autant d'additions). Pour deux matrices carrées de taille $n$, c'est $n^3$ : doubler $n$ multiplie le temps par 8.
 
 L'associativité laisse le choix des parenthèses, et le coût en dépend énormément. Avec $\mathbf{A}$ de forme $(10, 1000)$, $\mathbf{B}$ de forme $(1000, 20)$ et $\mathbf{C}$ de forme $(20, 500)$ :
-- $(\mathbf{A}\mathbf{B})\mathbf{C}$ : $10 \times 1000 \times 20 + 10 \times 20 \times 500 = 300\,000$ multiplications ;
-- $\mathbf{A}(\mathbf{B}\mathbf{C})$ : $1000 \times 20 \times 500 + 10 \times 1000 \times 500 = 15\,000\,000$, cinquante fois plus, pour le même résultat.
+- $(\mathbf{A}\mathbf{B})\mathbf{C}$ : $10 \times 1000 \times 20 + 10 \times 20 \times 500 = 300\thinspace000$ multiplications ;
+- $\mathbf{A}(\mathbf{B}\mathbf{C})$ : $1000 \times 20 \times 500 + 10 \times 1000 \times 500 = 15\thinspace000\thinspace000$, cinquante fois plus, pour le même résultat.
 
 La règle : faire d'abord le produit qui donne la plus **petite** matrice intermédiaire.
 
 ### Le produit de Hadamard
 
-Le **produit de Hadamard** (*element-wise product*) de deux matrices de **même forme** se fait élément par élément : $(\mathbf{A} \odot \mathbf{B})_{ij} = a_{ij}\,b_{ij}$. Par exemple $\begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix} \odot \begin{pmatrix} 4 & 5 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} 8 & -5 \\ 0 & 3 \end{pmatrix}$. Il est commutatif, et sert à appliquer un masque, à pondérer des erreurs exemple par exemple, ou dans les calculs de gradients (M16). En NumPy :
+Le **produit de Hadamard** (*element-wise product*) de deux matrices de **même forme** se fait élément par élément : $(\mathbf{A} \odot \mathbf{B}) _{ij} = a  _{ij}\thinspace b _{ij}$. Par exemple $\begin{pmatrix} 2 & -1 \cr 0 & 3 \end{pmatrix} \odot \begin{pmatrix} 4 & 5 \cr -2 & 1 \end{pmatrix} = \begin{pmatrix} 8 & -5 \cr 0 & 3 \end{pmatrix}$. Il est commutatif, et sert à appliquer un masque, à pondérer des erreurs exemple par exemple, ou dans les calculs de gradients (M16). En NumPy :
 
 ```python
 >>> A, B = np.array([[2, -1], [0, 3]]), np.array([[4, 5], [-2, 1]])
@@ -202,7 +202,7 @@ $$\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b} \qquad (n, n_{\text{in}}) \time
 
 où $\mathbf{b}$ est ajouté à **chaque ligne** (broadcasting) : $z_{ij} = \mathbf{x}_i \cdot \mathbf{w}_j + b_j$ est la sortie du neurone $j$ pour l'exemple $i$. Exemple, trois exemples, deux entrées, deux neurones :
 
-$$\begin{pmatrix} 1 & 2 \\ 0 & -1 \\ 2 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1 \\ 2 & 0 \end{pmatrix} + \begin{pmatrix} 0{,}5 & -1 \end{pmatrix} = \begin{pmatrix} 5 & -1 \\ -2 & 0 \\ 4 & -2 \end{pmatrix} + \begin{pmatrix} 0{,}5 & -1 \end{pmatrix} = \begin{pmatrix} 5{,}5 & -2 \\ -1{,}5 & -1 \\ 4{,}5 & -3 \end{pmatrix}.$$
+$$\begin{pmatrix} 1 & 2 \cr 0 & -1 \cr 2 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1 \cr 2 & 0 \end{pmatrix} + \begin{pmatrix} 0{,}5 & -1 \end{pmatrix} = \begin{pmatrix} 5 & -1 \cr -2 & 0 \cr 4 & -2 \end{pmatrix} + \begin{pmatrix} 0{,}5 & -1 \end{pmatrix} = \begin{pmatrix} 5{,}5 & -2 \cr -1{,}5 & -1 \cr 4{,}5 & -3 \end{pmatrix}.$$
 
 Une couche est donc **un seul produit matriciel** pour tout le batch : c'est ce que les GPU savent faire très vite (des milliers de multiplications indépendantes à la fois). Un réseau à deux couches enchaîne deux produits, avec une fonction d'activation appliquée élément par élément entre les deux (M09a.19).
 
@@ -211,7 +211,7 @@ Une couche est donc **un seul produit matriciel** pour tout le batch : c'est ce 
 | Où | Un exemple est | Les poids | La couche |
 |---|---|---|---|
 | cette fiche, `mylearn` | une ligne de $\mathbf{X}$ | $\mathbf{W}$, $(n_{\text{in}}, n_{\text{out}})$ | $\mathbf{X}\mathbf{W} + \mathbf{b}$ |
-| PyTorch (`nn.Linear`) | une ligne de $\mathbf{X}$ | `weight`, $(n_{\text{out}}, n_{\text{in}})$, c'est-à-dire $\mathbf{W}^\top$ | $\mathbf{X}\,\mathtt{weight}^\top + \mathbf{b}$ |
+| PyTorch (`nn.Linear`) | une ligne de $\mathbf{X}$ | `weight`, $(n_{\text{out}}, n_{\text{in}})$, c'est-à-dire $\mathbf{W}^\top$ | $\mathbf{X}\thinspace\mathtt{weight}^\top + \mathbf{b}$ |
 | MML et les manuels | une colonne $\mathbf{x}$ | $\mathbf{W}^\top$, $(n_{\text{out}}, n_{\text{in}})$ | $\mathbf{W}^\top\mathbf{x} + \mathbf{b}$ |
 
 Pour un seul exemple, $(\mathbf{x}^\top\mathbf{W})^\top = \mathbf{W}^\top\mathbf{x}$ : les deux premières lignes et la dernière calculent les mêmes nombres.
@@ -220,7 +220,7 @@ Pour un seul exemple, $(\mathbf{x}^\top\mathbf{W})^\top = \mathbf{W}^\top\mathbf
 
 Une catégorie parmi $V$ se code par un vecteur one-hot $\mathbf{e}_k$ (M07). Une **table d'embedding** $\mathbf{E}$, de forme $(V, d)$, range un vecteur de $\mathbb{R}^d$ par catégorie. Le produit de la ligne one-hot $\mathbf{e}_k^\top$, de forme $(1, V)$, par $\mathbf{E}$ **sélectionne la ligne $k$** de $\mathbf{E}$ : tous les termes de la somme sont nuls sauf un. Pour $V = 4$ couleurs et $d = 2$,
 
-$$\begin{pmatrix} 0 & 0 & 1 & 0 \end{pmatrix}\begin{pmatrix} 0{,}2 & -1 \\ 1{,}5 & 0{,}3 \\ -0{,}7 & 0{,}8 \\ 0 & 2{,}1 \end{pmatrix} = \begin{pmatrix} -0{,}7 & 0{,}8 \end{pmatrix}.$$
+$$\begin{pmatrix} 0 & 0 & 1 & 0 \end{pmatrix}\begin{pmatrix} 0{,}2 & -1 \cr 1{,}5 & 0{,}3 \cr -0{,}7 & 0{,}8 \cr 0 & 2{,}1 \end{pmatrix} = \begin{pmatrix} -0{,}7 & 0{,}8 \end{pmatrix}.$$
 
 En pratique, on ne fait pas le produit (il coûterait $V \times d$ multiplications, presque toutes par 0) : on lit directement la ligne, `E[k]`. Mais l'écriture en produit dit que l'embedding est une couche dense sans biais, appliquée à des entrées one-hot.
 
@@ -230,11 +230,11 @@ En pratique, on ne fait pas le produit (il coûterait $V \times d$ multiplicatio
 
 ### Définition et règles
 
-La **transposée** $\mathbf{A}^\top$ de $\mathbf{A}$, de forme $(m, n)$, est la matrice de forme $(n, m)$ obtenue en échangeant les lignes et les colonnes : $(\mathbf{A}^\top)_{ij} = a_{ji}$. La ligne $i$ de $\mathbf{A}$ devient la colonne $i$ de $\mathbf{A}^\top$. Ses règles :
+La **transposée** $\mathbf{A}^\top$ de $\mathbf{A}$, de forme $(m, n)$, est la matrice de forme $(n, m)$ obtenue en échangeant les lignes et les colonnes : $(\mathbf{A}^\top) _{ij} = a _{ji}$. La ligne $i$ de $\mathbf{A}$ devient la colonne $i$ de $\mathbf{A}^\top$. Ses règles :
 
 $$(\mathbf{A}^\top)^\top = \mathbf{A}, \qquad (\mathbf{A} + \mathbf{B})^\top = \mathbf{A}^\top + \mathbf{B}^\top, \qquad (\lambda\mathbf{A})^\top = \lambda\mathbf{A}^\top, \qquad (\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top.$$
 
-La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple $(2, 2) \times (2, 3)$ du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 4 & -1 \\ -4 & 8 \\ 5 & 4 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
+La dernière **inverse l'ordre** (M09a.15 la démontre). Les formes le disent déjà : si $\mathbf{A}$ est $(n, p)$ et $\mathbf{B}$ est $(p, m)$, $(\mathbf{A}\mathbf{B})^\top$ est $(m, n)$, et seul $\mathbf{B}^\top\mathbf{A}^\top$, $(m, p) \times (p, n)$, a cette forme. Avec les matrices de l'exemple $(2, 2) \times (2, 3)$ du §3, $\big(\mathbf{A}\mathbf{B}\big)^\top = \begin{pmatrix} 4 & -1 \cr -4 & 8 \cr 5 & 4 \end{pmatrix} = \mathbf{B}^\top\mathbf{A}^\top$.
 
 **Vecteurs lignes et colonnes.** En écrivant un vecteur comme une colonne, de forme $(n, 1)$, le produit scalaire devient un produit matriciel : $\mathbf{u} \cdot \mathbf{v} = \mathbf{u}^\top\mathbf{v}$, de forme $(1, n) \times (n, 1) \to (1, 1)$ (c'est la notation de MML). Dans l'autre ordre, $\mathbf{u}\mathbf{v}^\top$ est une matrice $(n, n)$, le **produit extérieur**.
 
@@ -244,11 +244,11 @@ Une matrice carrée est **symétrique** si $\mathbf{A}^\top = \mathbf{A}$ : $a_{
 
 Pour un dataset $\mathbf{X}$ de forme $(n, p)$, la matrice $\mathbf{X}^\top\mathbf{X}$ a la forme $(p, p)$ : une ligne et une colonne par **feature**. Son élément $(j, k)$ est
 
-$$(\mathbf{X}^\top\mathbf{X})_{jk} = \sum_{i=1}^{n} x_{ij}\,x_{ik} = (\text{colonne } j) \cdot (\text{colonne } k) :$$
+$$(\mathbf{X}^\top\mathbf{X})  _{jk} = \sum  _{i=1}^{n} x _{ij}\thinspace x _{ik} = (\text{colonne } j) \cdot (\text{colonne } k) :$$
 
 le **produit scalaire de deux colonnes**. Elle est symétrique ($(\mathbf{X}^\top\mathbf{X})^\top = \mathbf{X}^\top(\mathbf{X}^\top)^\top = \mathbf{X}^\top\mathbf{X}$), et sa diagonale contient les sommes des carrés de chaque colonne. Exemple :
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 2 \\ 3 & -1 \\ 0 & 4 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 1 + 9 + 0 & 2 - 3 + 0 \\ 2 - 3 + 0 & 4 + 1 + 16 \end{pmatrix} = \begin{pmatrix} 10 & -1 \\ -1 & 21 \end{pmatrix}.$$
+$$\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 3 & -1 \cr 0 & 4 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 1 + 9 + 0 & 2 - 3 + 0 \cr 2 - 3 + 0 & 4 + 1 + 16 \end{pmatrix} = \begin{pmatrix} 10 & -1 \cr -1 & 21 \end{pmatrix}.$$
 
 Pour des colonnes **centrées**, $\frac{1}{n}\mathbf{X}^\top\mathbf{X}$ est la matrice des covariances des features (M02c ; M12d s'en sert pour l'ACP) : sa diagonale contient leurs variances. Et $\mathbf{X}\mathbf{X}^\top$, de forme $(n, n)$, contient les produits scalaires des **exemples** deux à deux. Cette matrice $\mathbf{X}^\top\mathbf{X}$ est au cœur de la régression linéaire par les moindres carrés (M09b).
 
@@ -288,15 +288,15 @@ Chacune se défait par une opération du même type (échanger à nouveau, multi
 
 Le **pivot de Gauss** (*Gaussian elimination*) fait apparaître des zéros sous la diagonale, colonne par colonne : dans la colonne courante, on choisit une ligne dont l'élément est non nul, le **pivot**, et l'on retranche des multiples de cette ligne aux lignes du dessous pour annuler leurs éléments. On arrive à une **forme échelonnée** (*row echelon form*) : chaque ligne commence par plus de zéros que la précédente, en escalier ; on résout alors de bas en haut (**remontée**, *back substitution*). Exemple :
 
-$$\left\{\begin{array}{rcl} x + 2y + z &=& 3 \\ 2x - y + 3z &=& 14 \\ 3x + y - z &=& 2 \end{array}\right. \qquad \left(\begin{array}{ccc|c} 1 & 2 & 1 & 3 \\ 2 & -1 & 3 & 14 \\ 3 & 1 & -1 & 2 \end{array}\right).$$
+$$\left\lbrace\begin{array}{rcl} x + 2y + z &=& 3 \cr 2x - y + 3z &=& 14 \cr 3x + y - z &=& 2 \end{array}\right. \qquad \left(\begin{array}{ccc|c} 1 & 2 & 1 & 3 \cr 2 & -1 & 3 & 14 \cr 3 & 1 & -1 & 2 \end{array}\right).$$
 
 $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 - 3L_1$ donnent $(0, -5, 1 \mid 8)$ et $(0, -5, -4 \mid -7)$ ; puis $L_3 \leftarrow L_3 - L_2$ donne $(0, 0, -5 \mid -15)$. La dernière ligne dit $-5z = -15$, donc $z = 3$ ; la deuxième, $-5y + 3 = 8$, donc $y = -1$ ; la première, $x - 2 + 3 = 3$, donc $x = 2$. Vérifie toujours dans les équations de départ : $2 - 2 + 3 = 3$, $4 + 1 + 9 = 14$, $6 - 1 - 3 = 2$.
 
 ### La forme échelonnée réduite
 
-En continuant, on divise chaque ligne par son pivot (les pivots valent 1), puis on annule aussi les éléments **au-dessus** de chaque pivot (**Gauss-Jordan**). On obtient la **forme échelonnée réduite** (*reduced row echelon form*) : chaque pivot vaut 1 et c'est le seul nombre non nul de sa colonne. Pour l'exemple, $\left(\begin{array}{ccc|c} 1 & 0 & 0 & 2 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 1 & 3 \end{array}\right)$ : la solution se lit directement. Contrairement aux formes échelonnées, qui dépendent des choix de pivots, **la forme échelonnée réduite est unique** : c'est pourquoi `mymath` la calcule (`rref`), et pourquoi elle se teste contre SymPy.
+En continuant, on divise chaque ligne par son pivot (les pivots valent 1), puis on annule aussi les éléments **au-dessus** de chaque pivot (**Gauss-Jordan**). On obtient la **forme échelonnée réduite** (*reduced row echelon form*) : chaque pivot vaut 1 et c'est le seul nombre non nul de sa colonne. Pour l'exemple, $\left(\begin{array}{ccc|c} 1 & 0 & 0 & 2 \cr 0 & 1 & 0 & -1 \cr 0 & 0 & 1 & 3 \end{array}\right)$ : la solution se lit directement. Contrairement aux formes échelonnées, qui dépendent des choix de pivots, **la forme échelonnée réduite est unique** : c'est pourquoi `mymath` la calcule (`rref`), et pourquoi elle se teste contre SymPy.
 
-**Lire toutes les solutions.** Les colonnes qui portent un pivot correspondent aux **variables de base** ; les autres aux **variables libres**, qui deviennent des paramètres. Exemple : $x + 2y + z = 4$ et $2x + 4y + 3z = 11$ ont pour forme réduite $\left(\begin{array}{ccc|c} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & 3 \end{array}\right)$ ; les pivots sont dans les colonnes de $x$ et de $z$, $y$ est libre : $y = t$, $x = 1 - 2t$, $z = 3$, pour tout réel $t$. Et une ligne de la forme $(0 \;\; 0 \;\; \cdots \;\; 0 \mid c)$ avec $c \ne 0$ dit $0 = c$ : **aucune solution**. En résumé, sur la forme réduite de $[\mathbf{A} \mid \mathbf{b}]$ :
+**Lire toutes les solutions.** Les colonnes qui portent un pivot correspondent aux **variables de base** ; les autres aux **variables libres**, qui deviennent des paramètres. Exemple : $x + 2y + z = 4$ et $2x + 4y + 3z = 11$ ont pour forme réduite $\left(\begin{array}{ccc|c} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & 3 \end{array}\right)$ ; les pivots sont dans les colonnes de $x$ et de $z$, $y$ est libre : $y = t$, $x = 1 - 2t$, $z = 3$, pour tout réel $t$. Et une ligne de la forme $(0 \mkern5mu \mkern5mu  0 \mkern5mu \mkern5mu  \cdots \mkern5mu \mkern5mu  0 \mid c)$ avec $c \ne 0$ dit $0 = c$ : **aucune solution**. En résumé, sur la forme réduite de $[\mathbf{A} \mid \mathbf{b}]$ :
 - une ligne $(0 \cdots 0 \mid c \ne 0)$ : aucune solution ;
 - sinon, un pivot dans chaque colonne de $\mathbf{A}$ : une solution unique ;
 - sinon : une infinité de solutions, avec un paramètre par variable libre.
@@ -323,15 +323,15 @@ Cette inverse est **unique** (M09a.16). Une matrice qui n'a pas d'inverse est di
 
 ### Le cas $2 \times 2$
 
-$$\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}, \qquad \text{à condition que } ad - bc \ne 0.$$
+$$\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}, \qquad \text{à condition que } ad - bc \ne 0.$$
 
-Le nombre $ad - bc$ est le **déterminant** (M12c) ; s'il est nul, la matrice est singulière (ses deux colonnes sont proportionnelles). Exemple : $\begin{pmatrix} 4 & 3 \\ 2 & 2 \end{pmatrix}$ a pour déterminant $8 - 6 = 2$, et pour inverse $\frac{1}{2}\begin{pmatrix} 2 & -3 \\ -2 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1{,}5 \\ -1 & 2 \end{pmatrix}$. Vérification : $\begin{pmatrix} 4 & 3 \\ 2 & 2 \end{pmatrix}\begin{pmatrix} 1 & -1{,}5 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 4 - 3 & -6 + 6 \\ 2 - 2 & -3 + 4 \end{pmatrix} = \mathbf{I}_2$.
+Le nombre $ad - bc$ est le **déterminant** (M12c) ; s'il est nul, la matrice est singulière (ses deux colonnes sont proportionnelles). Exemple : $\begin{pmatrix} 4 & 3 \cr 2 & 2 \end{pmatrix}$ a pour déterminant $8 - 6 = 2$, et pour inverse $\frac{1}{2}\begin{pmatrix} 2 & -3 \cr -2 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1{,}5 \cr -1 & 2 \end{pmatrix}$. Vérification : $\begin{pmatrix} 4 & 3 \cr 2 & 2 \end{pmatrix}\begin{pmatrix} 1 & -1{,}5 \cr -1 & 2 \end{pmatrix} = \begin{pmatrix} 4 - 3 & -6 + 6 \cr 2 - 2 & -3 + 4 \end{pmatrix} = \mathbf{I}_2$.
 
 ### Gauss-Jordan sur $[\mathbf{A} \mid \mathbf{I}]$
 
 En taille quelconque, on met côte à côte $\mathbf{A}$ et $\mathbf{I}_n$, et l'on réduit $[\mathbf{A} \mid \mathbf{I}_n]$ par Gauss-Jordan. Si la partie gauche devient $\mathbf{I}_n$, la partie droite est $\mathbf{A}^{-1}$ : on a résolu d'un coup les $n$ systèmes $\mathbf{A}\mathbf{x} = \mathbf{e}_j$, dont les solutions sont les colonnes de $\mathbf{A}^{-1}$. Sinon, une ligne de zéros apparaît à gauche, et $\mathbf{A}$ est singulière. Exemple :
 
-$$\left(\begin{array}{ccc|ccc} 1 & 0 & 2 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 & 1 & 0 \\ 1 & 0 & 3 & 0 & 0 & 1 \end{array}\right) \xrightarrow{L_3 \leftarrow L_3 - L_1} \left(\begin{array}{ccc|ccc} 1 & 0 & 2 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 & 1 & 0 \\ 0 & 0 & 1 & -1 & 0 & 1 \end{array}\right) \xrightarrow{L_1 \leftarrow L_1 - 2L_3} \left(\begin{array}{ccc|ccc} 1 & 0 & 0 & 3 & 0 & -2 \\ 0 & 1 & 0 & 0 & 1 & 0 \\ 0 & 0 & 1 & -1 & 0 & 1 \end{array}\right).$$
+$$\left(\begin{array}{ccc|ccc} 1 & 0 & 2 & 1 & 0 & 0 \cr 0 & 1 & 0 & 0 & 1 & 0 \cr 1 & 0 & 3 & 0 & 0 & 1 \end{array}\right) \xrightarrow{L_3 \leftarrow L_3 - L_1} \left(\begin{array}{ccc|ccc} 1 & 0 & 2 & 1 & 0 & 0 \cr 0 & 1 & 0 & 0 & 1 & 0 \cr 0 & 0 & 1 & -1 & 0 & 1 \end{array}\right) \xrightarrow{L_1 \leftarrow L_1 - 2L_3} \left(\begin{array}{ccc|ccc} 1 & 0 & 0 & 3 & 0 & -2 \cr 0 & 1 & 0 & 0 & 1 & 0 \cr 0 & 0 & 1 & -1 & 0 & 1 \end{array}\right).$$
 
 ### Pourquoi on ne calcule pas l'inverse pour résoudre un système
 
@@ -347,9 +347,9 @@ Le **rang** d'une matrice $\mathbf{A}$, noté $\operatorname{rg}(\mathbf{A})$ (*
 
 Le rang compte les colonnes vraiment **indépendantes** : une colonne qui est une combinaison des autres n'ajoute pas de pivot. Exemple : dans
 
-$$\mathbf{M} = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 1 \\ 2 & 1 & 3 \end{pmatrix},$$
+$$\mathbf{M} = \begin{pmatrix} 1 & 2 & 3 \cr 0 & 1 & 1 \cr 2 & 1 & 3 \end{pmatrix},$$
 
-la troisième colonne est la somme des deux premières ; la forme réduite est $\begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$, avec deux pivots : $\operatorname{rg}(\mathbf{M}) = 2$. La dernière colonne de la forme réduite, $(1, 1, 0)$, donne même la recette : colonne 3 = 1 × colonne 1 + 1 × colonne 2. Le rang est aussi le nombre de lignes indépendantes (MML §2.6.2, M12a).
+la troisième colonne est la somme des deux premières ; la forme réduite est $\begin{pmatrix} 1 & 0 & 1 \cr 0 & 1 & 1 \cr 0 & 0 & 0 \end{pmatrix}$, avec deux pivots : $\operatorname{rg}(\mathbf{M}) = 2$. La dernière colonne de la forme réduite, $(1, 1, 0)$, donne même la recette : colonne 3 = 1 × colonne 1 + 1 × colonne 2. Le rang est aussi le nombre de lignes indépendantes (MML §2.6.2, M12a).
 
 ### Rang, inverse et solutions
 
@@ -361,7 +361,7 @@ Pour une matrice **carrée** de taille $n$, les affirmations suivantes sont équ
 
 Si une feature d'un dataset est une combinaison des autres (la même mesure en deux unités, une somme de colonnes, ou des colonnes one-hot de **toutes** les catégories à côté d'une colonne de 1 pour le biais), $\mathbf{X}$ n'est pas de rang plein, et la matrice $\mathbf{X}^\top\mathbf{X}$ du §4 est **singulière**. Par exemple, avec une colonne de 1 et le one-hot de deux catégories,
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 & 2 \\ 2 & 2 & 0 \\ 2 & 0 & 2 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = 2 :$$
+$$\mathbf{X} = \begin{pmatrix} 1 & 1 & 0 \cr 1 & 0 & 1 \cr 1 & 1 & 0 \cr 1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 & 2 \cr 2 & 2 & 0 \cr 2 & 0 & 2 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{X}^\top\mathbf{X}) = 2 :$$
 
 la première colonne est la somme des deux autres. Les systèmes construits avec $\mathbf{X}^\top\mathbf{X}$ n'ont alors pas de solution unique : zéro ou une infinité (§5). Devant une matrice singulière, `np.linalg.solve` lève une `LinAlgError` ; mais si les arrondis la font paraître inversible (un pivot de $10^{-16}$ au lieu de 0), il rend un vecteur sans aucun message, souvent aux coordonnées énormes : **une** solution parmi l'infinité, ou un vecteur qui n'est pas solution. Quand il y a une infinité de solutions, on en choisit une par une règle de plus, le plus souvent celle de plus petite norme $\lVert \mathbf{x} \rVert$, que rend `np.linalg.lstsq` (M09b s'en sert, M12d explique pourquoi). M09b et workbookIA 9 reviennent sur ces systèmes, avec la régularisation.
 

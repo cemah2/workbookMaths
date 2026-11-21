@@ -18,18 +18,18 @@
 7. **Faux** : pour $x < 0$ proche de 0, $\frac{1}{x}$ est très négatif : la limite à gauche est $-\infty$.
 
 ### R7.Q2 — Continue ou pas ?
-1. **Oui** : $\frac{1}{x}$ est continue sur $]-\infty \;;\; 0[$ et sur $]0 \;;\; +\infty[$. En 0, elle n'est pas définie : la question ne s'y pose pas (et la courbe y est coupée en deux morceaux).
+1. **Oui** : $\frac{1}{x}$ est continue sur $]-\infty \mkern5mu ;\mkern5mu  0[$ et sur $]0 \mkern5mu ;\mkern5mu  +\infty[$. En 0, elle n'est pas définie : la question ne s'y pose pas (et la courbe y est coupée en deux morceaux).
 2. **Non** en 0, où elle saute de 0 à 1 ; **oui** en 0,5, où elle vaut 1 tout autour.
 3. **Oui** : 3 est entre $-2$ et 5, et $f$ est continue (théorème des valeurs intermédiaires).
-4. **Faux** : sans continuité, rien n'oblige à passer par 0. La fonction qui vaut −1 sur $[0 \;;\; 0{,}5[$ et 1 sur $[0{,}5 \;;\; 1]$ ne s'annule jamais.
-5. $\frac{1}{2^{10}} = \frac{1}{1\,024} \approx 0{,}001$.
+4. **Faux** : sans continuité, rien n'oblige à passer par 0. La fonction qui vaut −1 sur $[0 \mkern5mu ;\mkern5mu  0{,}5[$ et 1 sur $[0{,}5 \mkern5mu ;\mkern5mu  1]$ ne s'annule jamais.
+5. $\frac{1}{2^{10}} = \frac{1}{1\thinspace024} \approx 0{,}001$.
 6. **Faux** : $x^2$ vaut 1 en −1 et 4 en 2, sans changement de signe ; la dichotomie n'a rien à couper (et `bisection` lève une `ValueError`), bien que 0 soit un zéro. Un zéro où la courbe touche l'axe sans le traverser lui échappe.
 
 ### R7.Q3 — Le nombre dérivé est une pente
-1. **Vrai** : c'est la pente de la **sécante** qui passe par $(a \;;\; f(a))$ et $(a + h \;;\; f(a + h))$.
+1. **Vrai** : c'est la pente de la **sécante** qui passe par $(a \mkern5mu ;\mkern5mu  f(a))$ et $(a + h \mkern5mu ;\mkern5mu  f(a + h))$.
 2. Elle **monte** : la pente de sa tangente en −1 est positive.
 3. $f(5{,}1) \approx f(5) + f'(5) \times 0{,}1 = 2 + 0{,}4 = $ **2,4**.
-4. **Faux** : $y = f(a) + f'(a)(x - a)$ ; sans $f(a)$, la droite passe par $(a \;;\; 0)$ au lieu du point de la courbe.
+4. **Faux** : $y = f(a) + f'(a)(x - a)$ ; sans $f(a)$, la droite passe par $(a \mkern5mu ;\mkern5mu  0)$ au lieu du point de la courbe.
 5. **Faux** : $\lvert x \rvert$ est continue en 0, mais n'y est pas dérivable (R7.12).
 6. Des **km/h** : une distance divisée par une durée.
 
@@ -51,9 +51,9 @@
 ### R7.Q7 — Dérivée nulle, extremum ?
 1. **Non** : $(x^3 + x)' = 3x^2 + 1 > 0$ partout ; la fonction ne fait que monter, et sa dérivée ne s'annule même pas.
 2. Un **maximum** local : $f$ monte, puis descend.
-3. **En 4** : $f$ est strictement croissante sur $[0 \;;\; 4]$, son maximum est au bord droit.
+3. **En 4** : $f$ est strictement croissante sur $[0 \mkern5mu ;\mkern5mu  4]$, son maximum est au bord droit.
 4. **Vrai** : $\lvert x \rvert \ge 0 = \lvert 0 \rvert$ ; un extremum peut se trouver en un coin.
-5. $f(0{,}5) > f(1{,}5)$ : $f$ décroît sur $]0 \;;\; 2[$.
+5. $f(0{,}5) > f(1{,}5)$ : $f$ décroît sur $]0 \mkern5mu ;\mkern5mu  2[$.
 6. **Faux** : il est le plus grand **au voisinage** du point ; ailleurs, $f$ peut prendre des valeurs plus grandes (fiche §8 : le maximum local 5, alors que $f(5) = 21$).
 
 ### R7.Q8 — Qui domine qui ?
@@ -75,7 +75,7 @@
 1. $\frac{2n + 1}{n} = 2 + \frac{1}{n} \to$ **2**. 2. **0** ($0 < 0{,}9 < 1$). 3. $e \approx 2{,}718$.
 
 ### R7.R3 — Sommet d'une parabole (R3)
-1. $x = -\frac{b}{2a} = 3$, $y = 9 - 18 + 5 = -4$ : le sommet est $(3 \;;\; -4)$.
+1. $x = -\frac{b}{2a} = 3$, $y = 9 - 18 + 5 = -4$ : le sommet est $(3 \mkern5mu ;\mkern5mu  -4)$.
 2. $x = -\frac{8}{2 \times (-2)} = 2$ : le maximum vaut $-8 + 16 = 8$, atteint en 2.
 3. Un **minimum** ($a = 3 > 0$), qui vaut 2, en $x = 1$.
 
@@ -146,7 +146,7 @@
 - c) $y = \ln 2 + \frac{1}{2}(x - 2) = \frac{x}{2} + \ln 2 - 1 \approx 0{,}5x - 0{,}307$.
 - d) $\sqrt{4} = 2$ et $\frac{1}{2\sqrt{4}} = \frac{1}{4}$ : $y = 2 + \frac{x - 4}{4} = \frac{x}{4} + 1$.
 - e) $\frac{4{,}2}{4} + 1 = 2{,}05$.
-- f) $\sqrt{4{,}2} \approx 2{,}049\,39$, donc l'écart vaut environ $0{,}000\,61$ : la tangente est un peu au-dessus de la courbe.
+- f) $\sqrt{4{,}2} \approx 2{,}049\thinspace39$, donc l'écart vaut environ $0{,}000\thinspace61$ : la tangente est un peu au-dessus de la courbe.
 - g) $2x - 5 = 0$ pour $x = 2{,}5$.
 - h) En 1 : $y = 1 + 3(x - 1) = 3x - 2$, qui s'annule en $x = \frac{2}{3}$.
 
@@ -179,7 +179,7 @@
 - c) $\frac{1}{2\sqrt{x}} \ln x + \sqrt{x} \times \frac{1}{x} = \frac{\ln x}{2\sqrt{x}} + \frac{1}{\sqrt{x}}$.
 - d) $\frac{1 \times (2x + 1) - (x - 4) \times 2}{(2x + 1)^2} = \frac{9}{(2x + 1)^2}$.
 - e) $\frac{(x^2 + 1) - x \times 2x}{(x^2 + 1)^2} = \frac{1 - x^2}{(x^2 + 1)^2}$.
-- f) $\frac{e^x (x + 1) - e^x \times 1}{(x + 1)^2} = \frac{x\,e^x}{(x + 1)^2}$.
+- f) $\frac{e^x (x + 1) - e^x \times 1}{(x + 1)^2} = \frac{x\thinspace e^x}{(x + 1)^2}$.
 - g) En 1 : $e \ln 1 + \frac{e}{1} = 0 + e \approx 2{,}718$.
 - h) $-\frac{e^x + 1}{(e^x + x)^2}$, avec $\left(\frac{1}{v}\right)' = -\frac{v'}{v^2}$ et $v = e^x + x$.
 
@@ -211,7 +211,7 @@
 
 **Démarche.**
 - a) et b) $f'(x) = 4x^3 - 12x^2 = 4x^2(x - 3)$, nulle en 0 et en 3.
-- c) $4x^2 \ge 0$ : $f'$ a le signe de $x - 3$. Elle est négative avant 3 (sauf en 0, où elle s'annule sans changer de signe), positive après. $f$ décroît sur $]-\infty \;;\; 3]$.
+- c) $4x^2 \ge 0$ : $f'$ a le signe de $x - 3$. Elle est négative avant 3 (sauf en 0, où elle s'annule sans changer de signe), positive après. $f$ décroît sur $]-\infty \mkern5mu ;\mkern5mu  3]$.
 
 | $x$ | $-\infty$ | | $0$ | | $3$ | | $+\infty$ |
 |---|---|---|---|---|---|---|---|
@@ -220,13 +220,13 @@
 
 - d) Un seul extremum local, le minimum en 3. En 0, la tangente est horizontale, mais $f$ continue de descendre : pas d'extremum (comme $x^5$ en 0, fiche §8).
 - e) $f(3) = 81 - 108 + 10 = -17$ : $f$ décroît jusqu'à 3 puis croît, c'est sa plus petite valeur sur $\mathbb{R}$.
-- f) Sur $[-1 \;;\; 4]$ : $f(-1) = 1 + 4 + 10 = 15$, $f(0) = 10$, $f(3) = -17$, $f(4) = 256 - 256 + 10 = 10$. Le maximum, 15, est atteint au bord gauche.
-- g) $g'(x) = 1 - \frac{2}{x} = \frac{x - 2}{x}$ : négatif sur $]0 \;;\; 2[$, positif ensuite ; minimum en 2.
+- f) Sur $[-1 \mkern5mu ;\mkern5mu  4]$ : $f(-1) = 1 + 4 + 10 = 15$, $f(0) = 10$, $f(3) = -17$, $f(4) = 256 - 256 + 10 = 10$. Le maximum, 15, est atteint au bord gauche.
+- g) $g'(x) = 1 - \frac{2}{x} = \frac{x - 2}{x}$ : négatif sur $]0 \mkern5mu ;\mkern5mu  2[$, positif ensuite ; minimum en 2.
 - h) $g(2) = 2 - 2\ln 2 \approx 0{,}614$.
 
 **Erreurs fréquentes.** Oublier la racine 0 du facteur $x^2$ (b) ; compter 0 comme un extremum (d) ; oublier les bords en f (répondre 10) ; donner l'abscisse au lieu de la valeur (e, h).
 
-**Variante.** Le minimum de $x^2 - 8\ln x$ sur $]0 \;;\; +\infty[$ ? *Réponse* : $2x - \frac{8}{x} = \frac{2(x^2 - 4)}{x}$, négative avant 2 et positive après : minimum $4 - 8\ln 2 \approx -1{,}545$ en 2.
+**Variante.** Le minimum de $x^2 - 8\ln x$ sur $]0 \mkern5mu ;\mkern5mu  +\infty[$ ? *Réponse* : $2x - \frac{8}{x} = \frac{2(x^2 - 4)}{x}$, négative avant 2 et positive après : minimum $4 - 8\ln 2 \approx -1{,}545$ en 2.
 
 ### Ex R7.9 — Optimiser : la boîte de volume maximal
 
@@ -235,11 +235,11 @@
 **Démarche.**
 - a) Il faut $x > 0$ et $10 - 2x > 0$ (le côté le plus court) : $0 < x < 5$.
 - b) $(16 - 2x)(10 - 2x) = 160 - 52x + 4x^2$, puis on multiplie par $x$.
-- c) et d) $V'(x) = 12x^2 - 104x + 160 = 4(3x^2 - 26x + 40) = 4(3x - 20)(x - 2)$ : nulle en 2 et en $\frac{20}{3} \approx 6{,}67$, hors du domaine. $V'$ est positive sur $]0 \;;\; 2[$, négative sur $]2 \;;\; 5[$ : maximum en 2.
+- c) et d) $V'(x) = 12x^2 - 104x + 160 = 4(3x^2 - 26x + 40) = 4(3x - 20)(x - 2)$ : nulle en 2 et en $\frac{20}{3} \approx 6{,}67$, hors du domaine. $V'$ est positive sur $]0 \mkern5mu ;\mkern5mu  2[$, négative sur $]2 \mkern5mu ;\mkern5mu  5[$ : maximum en 2.
 - e) $V(2) = 2 \times 12 \times 6 = 144$ cm³.
 - f) Longueur $16 - 4 = 12$, largeur $10 - 4 = 6$, hauteur 2.
 
-**Erreurs fréquentes.** Garder la racine $\frac{20}{3}$ ; un domaine $]0 \;;\; 8[$ (oublier que le côté de 10 cm limite) ; retirer $x$ au lieu de $2x$ à chaque côté.
+**Erreurs fréquentes.** Garder la racine $\frac{20}{3}$ ; un domaine $]0 \mkern5mu ;\mkern5mu  8[$ (oublier que le côté de 10 cm limite) ; retirer $x$ au lieu de $2x$ à chaque côté.
 
 **Variante.** La même boîte dans un carré de 12 cm de côté ? *Réponse* : $V(x) = x(12 - 2x)^2$, $V'(x) = (12 - 2x)(12 - 6x)$, maximum en $x = 2$ : $V = 2 \times 8^2 = 128$ cm³.
 
@@ -255,7 +255,7 @@
 - e) $5(x^2 - 3)^4 \times 2x$ en 2 : $5 \times 1 \times 4 = 20$.
 - f) $(\ln u)' = \frac{u'}{u}$ avec $u = x^2 + e^x$ et $u' = 2x + e^x$ : en 1, $\frac{2 + e}{1 + e} \approx 1{,}269$.
 - g) $\frac{2e^{2x}}{2\sqrt{e^{2x} + 3}} = \frac{e^{2x}}{\sqrt{e^{2x} + 3}}$ en 0 : $\frac{1}{\sqrt{4}} = 0{,}5$.
-- h) $(e^x)^2 = e^{2x}$ a pour dérivée $2e^{2x}$, soit $2e^4 \approx 109{,}196$ en 2 ; $e^{x^2}$ a pour dérivée $2x\,e^{x^2}$, soit $4e^4 \approx 218{,}393$.
+- h) $(e^x)^2 = e^{2x}$ a pour dérivée $2e^{2x}$, soit $2e^4 \approx 109{,}196$ en 2 ; $e^{x^2}$ a pour dérivée $2x\thinspace e^{x^2}$, soit $4e^4 \approx 218{,}393$.
 
 **Erreurs fréquentes.** S'arrêter à deux étages en a ; oublier le 2 de l'exposant en d ou en g ; oublier $u'$ en f ; confondre $(e^x)^2$ et $e^{x^2}$ en h.
 
@@ -266,10 +266,10 @@
 **Réponses** : a) `"A*k*exp(k*t)"` · b) `"A*t*exp(k*t)"` · c) `"exp(k*t)"` · d) `"2*pi*r*h"` · e) `"pi*r**2"` · f) `188.50` · g) `"m*v"` · h) `"v**2/2"`.
 
 **Démarche.**
-- a) Par rapport à $t$ : $A$ est un facteur constant, et $(e^{kt})' = k\,e^{kt}$ (l'intérieur $kt$ a pour dérivée $k$).
+- a) Par rapport à $t$ : $A$ est un facteur constant, et $(e^{kt})' = k\thinspace e^{kt}$ (l'intérieur $kt$ a pour dérivée $k$).
 - b) Par rapport à $k$ : l'intérieur $kt$ a pour dérivée $t$.
 - c) Par rapport à $A$ : $N = A \times e^{kt}$, une constante fois $A$.
-- d) $\pi h$ est une constante : $(\pi h)\,(r^2)' = 2\pi r h$. e) $\pi r^2$ est une constante, $(h)' = 1$.
+- d) $\pi h$ est une constante : $(\pi h)\thinspace(r^2)' = 2\pi r h$. e) $\pi r^2$ est une constante, $(h)' = 1$.
 - f) $2\pi \times 3 \times 10 = 60\pi \approx 188{,}50$.
 - g) $\frac{1}{2} m \times 2v = mv$. h) $\frac{1}{2}v^2 \times 1$.
 
@@ -360,11 +360,11 @@ Quand $h \to 0$, le premier quotient tend vers $u'(a)$, $v(a + h)$ tend vers $v(
 - f) $L(\ln 2) = 2 + 4 \times \frac{1}{2} = 4$.
 - g) Les deux valeurs voisines valent environ 4,020, plus que 4 : un minimum, et les deux côtés sont symétriques ($L(\ln 2 \pm d) = 2e^{d} + 2e^{-d}$).
 
-Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat ($x^5$ en 0). Ici, $E'(a) = \frac{2(a^2 - 4)}{a^2}$ est négative sur $]0 \;;\; 2[$ et positive ensuite : $E$ décroît puis croît sur tout son domaine, donc $E(2)$ est la plus petite valeur **partout**, pas seulement au voisinage. De même, $L'(t) = e^{-t}(e^{2t} - 4)$ a le signe de $e^{2t} - 4$ : négative avant $\ln 2$, positive après.
+Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat ($x^5$ en 0). Ici, $E'(a) = \frac{2(a^2 - 4)}{a^2}$ est négative sur $]0 \mkern5mu ;\mkern5mu  2[$ et positive ensuite : $E$ décroît puis croît sur tout son domaine, donc $E(2)$ est la plus petite valeur **partout**, pas seulement au voisinage. De même, $L'(t) = e^{-t}(e^{2t} - 4)$ a le signe de $e^{2t} - 4$ : négative avant $\ln 2$, positive après.
 
 **Erreurs fréquentes.** Garder $a = -2$ ; oublier le signe de $\left(\frac{8}{a}\right)'$ ; en e, s'arrêter à $\ln 4$ ; affirmer « minimum » sans étudier le signe.
 
-**Variante.** Minimise $E(a) = a + \frac{9}{a}$ sur $]0 \;;\; +\infty[$. *Réponse* : $1 - \frac{9}{a^2} = 0$ en $a = 3$, minimum $E(3) = 6$.
+**Variante.** Minimise $E(a) = a + \frac{9}{a}$ sur $]0 \mkern5mu ;\mkern5mu  +\infty[$. *Réponse* : $1 - \frac{9}{a^2} = 0$ en $a = 3$, minimum $E(3) = 6$.
 
 ### Ex R7.16 — Expliquer ce qu'est une dérivée sans écrire de formule
 
@@ -382,7 +382,7 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 **Réponses** : a) `[0.2361, 0.2485, 0.2498]` · b) `0.2502` · c) `"ValueError"` · d) `1.000`.
 
-**Démarche.** Le test `if h == 0: raise ValueError(...)`, puis `return float((f(a + h) - f(a)) / h)`. Pour la copie : les taux se rapprochent de $\frac{1}{2\sqrt{4}} = 0{,}25$, par en dessous pour $h > 0$ et par au-dessus pour $h < 0$ ; et $x^x = e^{x\ln x}$ a pour dérivée $(\ln x + 1)\,e^{x\ln x}$, qui vaut 1 en 1.
+**Démarche.** Le test `if h == 0: raise ValueError(...)`, puis `return float((f(a + h) - f(a)) / h)`. Pour la copie : les taux se rapprochent de $\frac{1}{2\sqrt{4}} = 0{,}25$, par en dessous pour $h > 0$ et par au-dessus pour $h < 0$ ; et $x^x = e^{x\ln x}$ a pour dérivée $(\ln x + 1)\thinspace e^{x\ln x}$, qui vaut 1 en 1.
 
 **Erreurs fréquentes.** Oublier la division par $h$ ; diviser par `abs(h)` ; laisser Python lever `ZeroDivisionError` au lieu de la `ValueError` demandée.
 
@@ -404,9 +404,9 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 ### Ex R7.20 — Vérifier ses dérivées avec `sympy.diff`
 
-**Réponses** : a) $(x^2 + 2x - 3)\,e^x$ · b) `[-3, 1]` · c) `[True, True, False]` · d) `1/4`.
+**Réponses** : a) $(x^2 + 2x - 3)\thinspace e^x$ · b) `[-3, 1]` · c) `[True, True, False]` · d) `1/4`.
 
-**Démarche.** a) `sp.diff((x**2 - 3) * sp.exp(x), x)`, qui affiche $2x e^x + (x^2 - 3)e^x$ ; b) `sorted(int(v) for v in sp.solve(..., x))` : $(x^2 + 2x - 3)e^x = (x + 3)(x - 1)e^x$ s'annule en −3 et en 1 ; c) `sp.simplify(sp.diff(f, x) - proposed) == 0` pour chaque couple ; d) `sp.limit((sp.sqrt(x + 4) - 2) / x, x, 0)`, le nombre dérivé de $\sqrt{x}$ en 4. La troisième dérivée proposée est fausse : $\left(\sqrt{x}\,e^{2x}\right)' = \frac{e^{2x}}{2\sqrt{x}} + 2\sqrt{x}\,e^{2x}$ (le facteur 2 de la règle de la chaîne manque). Avec `==`, la première, juste pourtant, serait déclarée fausse : `==` compare des écritures.
+**Démarche.** a) `sp.diff((x**2 - 3) * sp.exp(x), x)`, qui affiche $2x e^x + (x^2 - 3)e^x$ ; b) `sorted(int(v) for v in sp.solve(..., x))` : $(x^2 + 2x - 3)e^x = (x + 3)(x - 1)e^x$ s'annule en −3 et en 1 ; c) `sp.simplify(sp.diff(f, x) - proposed) == 0` pour chaque couple ; d) `sp.limit((sp.sqrt(x + 4) - 2) / x, x, 0)`, le nombre dérivé de $\sqrt{x}$ en 4. La troisième dérivée proposée est fausse : $\left(\sqrt{x}\thinspace e^{2x}\right)' = \frac{e^{2x}}{2\sqrt{x}} + 2\sqrt{x}\thinspace e^{2x}$ (le facteur 2 de la règle de la chaîne manque). Avec `==`, la première, juste pourtant, serait déclarée fausse : `==` compare des écritures.
 
 **Erreurs fréquentes.** Comparer avec `==` deux écritures de la même dérivée ; oublier les parenthèses autour de $x^2 - 3$ ; chercher les zéros de la fonction au lieu de ceux de la dérivée ; `math.exp` au lieu de `sp.exp` (une erreur, car $x$ est un symbole).
 
@@ -432,7 +432,7 @@ Dans ta copie : une dérivée nulle peut aussi signaler un maximum ou un replat 
 
 **Réponses** : a) `[-1, 0, 1]` · b) `1`.
 
-**Démarche.** Dans `axes[0]` : la courbe, puis pour chaque $p$ le segment `f(p) + df(p) * (s - p)` sur $[p - 0{,}3 \;;\; p + 0{,}3]$ et le point $(p \;;\; f(p))$ ; dans `axes[1]` : `df` et `axhline(0)`. $f'(x) = 6x(x^2 - 1)^2$ s'annule en −1, 0 et 1, mais le facteur $(x^2 - 1)^2$ n'est jamais négatif : $f'$ a le signe de $x$, et ne change de signe qu'en 0. Un seul minimum local, $f(0) = -1$.
+**Démarche.** Dans `axes[0]` : la courbe, puis pour chaque $p$ le segment `f(p) + df(p) * (s - p)` sur $[p - 0{,}3 \mkern5mu ;\mkern5mu  p + 0{,}3]$ et le point $(p \mkern5mu ;\mkern5mu  f(p))$ ; dans `axes[1]` : `df` et `axhline(0)`. $f'(x) = 6x(x^2 - 1)^2$ s'annule en −1, 0 et 1, mais le facteur $(x^2 - 1)^2$ n'est jamais négatif : $f'$ a le signe de $x$, et ne change de signe qu'en 0. Un seul minimum local, $f(0) = -1$.
 
 **Pour la copie.** $f$ monte là où la courbe de droite est au-dessus de l'axe, ici pour $x > 0$. La tangente en 1 est horizontale, mais $f$ n'y a pas d'extremum : la courbe traverse sa tangente (elle monte avant 1 et après 1), et la courbe de $f'$ touche l'axe en 1 sans le traverser.
 

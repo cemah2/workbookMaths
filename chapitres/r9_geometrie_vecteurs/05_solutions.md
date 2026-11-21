@@ -20,7 +20,7 @@
 1. **Vrai** : c'est la caractérisation du parallélogramme $ABCD$ (fiche §2), éventuellement aplati si les quatre points sont alignés.
 2. **Vrai** : $(2 ; -6) = -2 \times (-1 ; 3)$ ; le déterminant $2 \times 3 - (-1) \times (-6) = 0$.
 3. **Faux** : l'égalité n'a lieu que si l'un des deux vecteurs est nul, ou s'ils ont la même direction et le même sens ; en général, $\lVert \vec{u} + \vec{v} \rVert \le \lVert \vec{u} \rVert + \lVert \vec{v} \rVert$.
-4. **Vrai** : $\lVert -0{,}5\,\vec{u} \rVert = \lvert -0{,}5 \rvert\,\lVert \vec{u} \rVert = 0{,}5\,\lVert \vec{u} \rVert$ ; une norme n'est jamais négative, d'où la valeur absolue.
+4. **Vrai** : $\lVert -0{,}5\thinspace\vec{u} \rVert = \lvert -0{,}5 \rvert\thinspace\lVert \vec{u} \rVert = 0{,}5\thinspace\lVert \vec{u} \rVert$ ; une norme n'est jamais négative, d'où la valeur absolue.
 5. **Vrai** : la relation de Chasles.
 6. **Faux** : c'est sa **norme** qui vaut 1 ; $(1 ; 1)$ a pour norme $\sqrt{2}$, et $(0{,}6 ; 0{,}8)$ est unitaire.
 
@@ -108,7 +108,7 @@
 - d) Arrivée moins départ : $(-3 - 1 ; 5 - 2) = (-4 ; 3)$.
 - e) $C = A + \vec{u} = (1 + 4 ; 2 - 1) = (5 ; 1)$.
 - f) $ABCD$ est un parallélogramme quand $\overrightarrow{AB} = \overrightarrow{DC}$, c'est-à-dire $D = C - \overrightarrow{AB} = (5 + 4 ; 1 - 3) = (9 ; -2)$.
-- g) Déterminant : $4 \times 1{,}5 - (-6) \times (-1) = 6 - 6 = 0$ ; en effet $\vec{w} = -1{,}5\,\vec{u}$.
+- g) Déterminant : $4 \times 1{,}5 - (-6) \times (-1) = 6 - 6 = 0$ ; en effet $\vec{w} = -1{,}5\thinspace\vec{u}$.
 - h) $k \times (-2) = 5$ et $k \times 3 = -7{,}5$ : $k = -2{,}5$, qui convient pour les deux coordonnées.
 
 **Erreurs fréquentes.** Départ moins arrivée en d ; $-2 \times (-2) = -4$ en c ; en f, construire $ABDC$ au lieu de $ABCD$ (les sommets d'un parallélogramme se lisent dans l'ordre du tour).
@@ -391,7 +391,7 @@ Dans ta copie : les deux droites sont parallèles. Leurs équations $x_1 + 3x_2 
 
 **Réponses** : a) `"ADE"` · b) `[0.7071, 0.7071, 60.0, 60.0, 0.5236]`.
 
-**Démarche.** (A) `math.sin` attend des radians : `math.sin(45)` est le sinus de 45 radians (environ 0,851) ; le sinus de 45° vaut $\frac{\sqrt{2}}{2} \approx 0{,}7071$. (D) `math.acos` rend des radians : $\frac{\pi}{3} \approx 1{,}0472$, qui vaut bien 60°, mais pas le nombre 60 ; il fallait `math.degrees(math.acos(0.5))`. (E) La conversion est à l'envers : $30 \times \frac{\pi}{180} = \frac{\pi}{6} \approx 0{,}5236$, alors que $30 \times \frac{180}{\pi} \approx 1\,718{,}9$. (B) convertit avant d'appeler `math.sin`, et (C) multiplie bien par $\frac{180}{\pi}$ pour aller vers les degrés (60, aux arrondis près) : justes. Les cinq bonnes valeurs : $\frac{\sqrt{2}}{2}$ deux fois, 60 deux fois, et $\frac{\pi}{6}$.
+**Démarche.** (A) `math.sin` attend des radians : `math.sin(45)` est le sinus de 45 radians (environ 0,851) ; le sinus de 45° vaut $\frac{\sqrt{2}}{2} \approx 0{,}7071$. (D) `math.acos` rend des radians : $\frac{\pi}{3} \approx 1{,}0472$, qui vaut bien 60°, mais pas le nombre 60 ; il fallait `math.degrees(math.acos(0.5))`. (E) La conversion est à l'envers : $30 \times \frac{\pi}{180} = \frac{\pi}{6} \approx 0{,}5236$, alors que $30 \times \frac{180}{\pi} \approx 1\thinspace718{,}9$. (B) convertit avant d'appeler `math.sin`, et (C) multiplie bien par $\frac{180}{\pi}$ pour aller vers les degrés (60, aux arrondis près) : justes. Les cinq bonnes valeurs : $\frac{\sqrt{2}}{2}$ deux fois, 60 deux fois, et $\frac{\pi}{6}$.
 
 **Erreurs fréquentes.** Accuser (C), qui multiplie par $\frac{180}{\pi}$ comme (E), mais dans le bon sens ; croire (D) juste parce que l'angle vaut « 60 degrés ».
 

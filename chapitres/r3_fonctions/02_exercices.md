@@ -23,8 +23,8 @@ On pose $f(x) = x^2 - 5$. Vrai ou faux ?
 2. Le nombre 4 a deux antécédents par $f$.
 3. Le nombre $-6$ a un antécédent par $f$.
 4. Un nombre peut avoir deux images par une même fonction.
-5. L'ensemble de définition de $x \mapsto \frac{1}{x + 1}$ est $]-1 \;;\; +\infty[$.
-6. L'ensemble de définition de $x \mapsto \sqrt{x - 2}$ est $[2 \;;\; +\infty[$.
+5. L'ensemble de définition de $x \mapsto \frac{1}{x + 1}$ est $]-1 \mkern5mu ;\mkern5mu  +\infty[$.
+6. L'ensemble de définition de $x \mapsto \sqrt{x - 2}$ est $[2 \mkern5mu ;\mkern5mu  +\infty[$.
 
 ### R3.Q2 — Lire un graphique 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
@@ -32,9 +32,9 @@ On pose $f(x) = x^2 - 5$. Vrai ou faux ?
 Sur la figure « Lire une image et des antécédents sur une courbe » de la fiche (§2), vrai ou faux ?
 1. $f(1) = 1$.
 2. Sur la fenêtre tracée, le nombre 1 a exactement deux antécédents.
-3. $f$ est croissante sur $[0 \;;\; 3]$.
-4. Le minimum de $f$ sur $[0 \;;\; 4]$ vaut $-1$.
-5. L'équation $f(x) = -2$ a une solution dans $[0 \;;\; 4]$.
+3. $f$ est croissante sur $[0 \mkern5mu ;\mkern5mu  3]$.
+4. Le minimum de $f$ sur $[0 \mkern5mu ;\mkern5mu  4]$ vaut $-1$.
+5. L'équation $f(x) = -2$ a une solution dans $[0 \mkern5mu ;\mkern5mu  4]$.
 6. $f(2) > f(3)$.
 
 ### R3.Q3 — Pente et ordonnée à l'origine 🧠 ★ ⏱️ 4 min
@@ -56,7 +56,7 @@ Vrai ou faux ?
 2. Si $0 < a < b$, alors $\frac{1}{a} > \frac{1}{b}$.
 3. $\sqrt{x}$ est définie pour $x = -4$.
 4. Pour tout réel $x$, $\sqrt{x^2} = x$.
-5. $x \mapsto |x|$ est décroissante sur $]-\infty \;;\; 0]$.
+5. $x \mapsto |x|$ est décroissante sur $]-\infty \mkern5mu ;\mkern5mu  0]$.
 6. $\max(0, x) = x$ pour tout $x \ge 0$.
 7. $-3 < -1$, donc $(-3)^2 < (-1)^2$.
 
@@ -69,7 +69,7 @@ Combien de racines réelles ? Réponds par **aucune**, **une** ou **deux**, en c
 3. $4x^2 - 4x + 1$
 4. $-2x^2 + x + 1$
 5. $x^2 + 7$
-6. un polynôme du second degré dont la parabole est tournée vers le haut et a pour sommet $(-1 \;;\; -2)$
+6. un polynôme du second degré dont la parabole est tournée vers le haut et a pour sommet $(-1 \mkern5mu ;\mkern5mu  -2)$
 7. $3x^2 + bx - 5$, quel que soit le nombre $b$
 
 ### R3.Q6 — Croissante, décroissante, extremum 🧠 ★ ⏱️ 4 min
@@ -78,10 +78,10 @@ Combien de racines réelles ? Réponds par **aucune**, **une** ou **deux**, en c
 Vrai ou faux ?
 1. $f(x) = (x - 1)^2 + 2$ a pour minimum 2.
 2. $g(x) = -(x + 3)^2 + 4$ a pour maximum 4, atteint en $x = 3$.
-3. Sur $[1 \;;\; 5]$, le minimum de $x \mapsto x^2$ est 0.
+3. Sur $[1 \mkern5mu ;\mkern5mu  5]$, le minimum de $x \mapsto x^2$ est 0.
 4. Une fonction affine de pente $-2$ est décroissante sur $\mathbb{R}$.
 5. Le maximum de $f$ et l'argmax de $f$ désignent la même chose.
-6. Si $f$ est croissante sur $[0 \;;\; 4]$, son maximum sur $[0 \;;\; 4]$ est $f(4)$.
+6. Si $f$ est croissante sur $[0 \mkern5mu ;\mkern5mu  4]$, son maximum sur $[0 \mkern5mu ;\mkern5mu  4]$ est $f(4)$.
 
 ### R3.Q7 — f∘g ou g∘f ? 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
@@ -102,7 +102,7 @@ On pose $f(x) = 2x + 6$. Vrai ou faux ?
 2. $f^{-1}(x) = \frac{1}{2x + 6}$.
 3. $f^{-1}(f(5)) = 5$.
 4. $x \mapsto x^2$, définie sur $\mathbb{R}$, a une réciproque.
-5. La réciproque de $x \mapsto \sqrt{x}$ (sur $[0 \;;\; +\infty[$) est $x \mapsto x^2$ sur $[0 \;;\; +\infty[$.
+5. La réciproque de $x \mapsto \sqrt{x}$ (sur $[0 \mkern5mu ;\mkern5mu  +\infty[$) est $x \mapsto x^2$ sur $[0 \mkern5mu ;\mkern5mu  +\infty[$.
 6. Les courbes de $f$ et de $f^{-1}$ sont symétriques par rapport à l'axe des abscisses.
 
 <a id="rappels"></a>
@@ -125,7 +125,7 @@ Sans regarder R2 :
 Donne chaque ensemble en intervalle (ou en réunion d'intervalles).
 1. Les solutions de $3x - 2 > 7$.
 2. Les solutions de $-2x + 5 \ge 1$.
-3. $[-1 \;;\; 4] \cap\, ]2 \;;\; 6]$.
+3. $[-1 \mkern5mu ;\mkern5mu  4] \cap\thinspace ]2 \mkern5mu ;\mkern5mu  6]$.
 4. Les réels différents de 3.
 5. Les solutions de $|x - 1| < 4$.
 
@@ -171,7 +171,7 @@ On pose $f(x) = 3x^2 - x - 4$, $g(x) = \dfrac{2x + 1}{x - 3}$, $h(x) = x^2 + 1$ 
 **Objectif :** lire une image, des antécédents, un extremum, un sens de variation et les solutions d'une inéquation sur une courbe.
 **Prérequis :** fiche §2 et §6 · **Parcours :** C, E
 
-Voici la courbe d'une fonction $f$ définie sur $[-4 \;;\; 5]$. Toutes les réponses se lisent exactement sur le quadrillage.
+Voici la courbe d'une fonction $f$ définie sur $[-4 \mkern5mu ;\mkern5mu  5]$. Toutes les réponses se lisent exactement sur le quadrillage.
 
 ![La courbe de f sur [−4 ; 5] : une ligne brisée de quatre segments, sur un quadrillage d'unité 1](figures/r3_2_graphique.png)
 
@@ -181,7 +181,7 @@ Voici la courbe d'une fonction $f$ définie sur $[-4 \;;\; 5]$. Toutes les répo
 | b | $f(0)$ | un nombre |
 | c | les antécédents de 2 | une liste |
 | d | les solutions de $f(x) = 0$ | une liste |
-| e | le maximum de $f$ sur $[-4 \;;\; 5]$ | un nombre |
+| e | le maximum de $f$ sur $[-4 \mkern5mu ;\mkern5mu  5]$ | un nombre |
 | f | les valeurs de $x$ où ce maximum est atteint | une liste |
 | g | le plus grand intervalle sur lequel $f$ est croissante | un intervalle |
 | h | les solutions de $f(x) \ge 2$ | une réunion d'intervalles |
@@ -225,7 +225,7 @@ Les appartements d'un dataset ont des surfaces de 20 m² (la plus petite) à 120
 | c | les solutions de $\dfrac{1}{x} > 2$ | un intervalle |
 | d | les solutions de $\sqrt{x} \le 3$ | un intervalle |
 | e | les solutions de $\lvert x \rvert \ge 2$ | une réunion d'intervalles |
-| f | l'ensemble des valeurs prises par $x^2$ quand $x$ parcourt $[-2 \;;\; 1]$ | un intervalle |
+| f | l'ensemble des valeurs prises par $x^2$ quand $x$ parcourt $[-2 \mkern5mu ;\mkern5mu  1]$ | un intervalle |
 | g | a-t-on $\dfrac{1}{-0{,}3} > \dfrac{1}{-0{,}2}$ ? | `True` ou `False` |
 
 ### Ex R3.6 — Forme canonique et sommet d'une parabole ✏️ ★★ ⏱️ 20 min
@@ -238,7 +238,7 @@ Les appartements d'un dataset ont des surfaces de 20 m² (la plus petite) à 120
 | b | la forme canonique de $2x^2 - 12x + 13$ | la liste `[a, alpha, beta]` |
 | c | la forme canonique de $-x^2 + 4x + 1$ | la liste `[a, alpha, beta]` |
 | d | le sommet de la parabole $y = 3x^2 + 6x - 2$ | la liste `[alpha, beta]` |
-| e | la parabole de sommet $(-2 \;;\; 3)$ et de coefficient $a = 2$, sous forme développée $ax^2 + bx + c$ | la liste `[a, b, c]` |
+| e | la parabole de sommet $(-2 \mkern5mu ;\mkern5mu  3)$ et de coefficient $a = 2$, sous forme développée $ax^2 + bx + c$ | la liste `[a, b, c]` |
 | f | le nombre $a$ pour lequel la parabole $y = a(x - 1)^2 + 4$ passe par le point $(3, 12)$ | un nombre |
 
 ### Ex R3.7 — Racines par le discriminant et factorisation ✏️ ★★ ⏱️ 20 min
@@ -292,7 +292,7 @@ On pose $f(x) = x - 4$ et $g(x) = 2x^2 + 1$.
 **Objectif :** calculer une réciproque en résolvant $y = f(x)$, et dire où elle est définie.
 **Prérequis :** fiche §8 · **Parcours :** C, E
 
-On pose $f(x) = 4x - 3$ sur $\mathbb{R}$, $g(x) = \dfrac{2}{x - 1}$ pour $x \ne 1$, et $h(x) = x^2 + 3$ sur $[0 \;;\; +\infty[$.
+On pose $f(x) = 4x - 3$ sur $\mathbb{R}$, $g(x) = \dfrac{2}{x - 1}$ pour $x \ne 1$, et $h(x) = x^2 + 3$ sur $[0 \mkern5mu ;\mkern5mu  +\infty[$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -317,8 +317,8 @@ On note $r(x) = \max(0, x)$ et $H$ la marche, avec la convention $H(0) = 1$ ($H(
 | c | les réels $x$ tels que $r(x) = 0$ | un intervalle |
 | d | $H(0) + H(-0{,}1)$ | un nombre |
 | e | $r(x) + r(-x)$ est égal, pour tout $x$, à une fonction de référence : son expression | une expression en `x`, entre guillemets |
-| f | le maximum de $q$ sur $[3 \;;\; 6]$ | un nombre |
-| g | l'argmax de $q$ sur $[3 \;;\; 6]$ | un nombre |
+| f | le maximum de $q$ sur $[3 \mkern5mu ;\mkern5mu  6]$ | un nombre |
+| g | l'argmax de $q$ sur $[3 \mkern5mu ;\mkern5mu  6]$ | un nombre |
 | h | la position du maximum de la liste $[6, 2, 9, 4, 9]$, en comptant à partir de 0 et en prenant la première, comme NumPy | un entier |
 
 ### Ex R3.12 — Évaluer un polynôme par le schéma de Horner ✏️ ★ ⏱️ 10 min
@@ -359,7 +359,7 @@ On rappelle les définitions : $f$ est croissante sur $I$ si, pour tous $a < b$ 
 1. Soit $f(x) = mx + c$ avec $m > 0$, et $a < b$ deux réels. Calcule $f(b) - f(a)$ et montre que $f$ est strictement croissante sur $\mathbb{R}$.
 2. Que se passe-t-il si $m < 0$ ? Et si $m = 0$ ?
 3. Réciproquement, montre que si une fonction affine $f(x) = mx + c$ est croissante sur $\mathbb{R}$, alors $m \ge 0$ (regarde $f(0)$ et $f(1)$).
-4. Montre que $x \mapsto \sqrt{x}$ est strictement croissante sur $[0 \;;\; +\infty[$ : pour $0 \le a < b$, écris $\sqrt{b} - \sqrt{a} = \dfrac{b - a}{\sqrt{b} + \sqrt{a}}$ (justifie cette égalité) et conclus.
+4. Montre que $x \mapsto \sqrt{x}$ est strictement croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ : pour $0 \le a < b$, écris $\sqrt{b} - \sqrt{a} = \dfrac{b - a}{\sqrt{b} + \sqrt{a}}$ (justifie cette égalité) et conclus.
 5. Soient $f$ et $g$ deux fonctions définies sur $\mathbb{R}$. Montre que si $f$ et $g$ sont croissantes, alors $f \circ g$ est croissante ; et que si $f$ est croissante et $g$ décroissante, alors $f \circ g$ est décroissante.
 
 <a id="reflexion"></a>
@@ -372,7 +372,7 @@ On rappelle les définitions : $f$ est croissante sur $I$ si, pour tous $a < b$ 
 
 Une ingénieure entraîne un modèle et mesure, après chaque epoch, son erreur sur des données de validation. Sur ses mesures, elle ajuste la formule
 
-$$E(t) = 0{,}02\,t^2 - 1{,}2\,t + 25$$
+$$E(t) = 0{,}02\thinspace t^2 - 1{,}2\thinspace t + 25$$
 
 où $t \ge 0$ est le nombre d'epochs et $E(t)$ l'erreur, en pourcentage.
 
@@ -381,7 +381,7 @@ où $t \ge 0$ est le nombre d'epochs et $E(t)$ l'erreur, en pourcentage.
 | a | l'erreur après 10 epochs | un nombre |
 | b | le nombre d'epochs qui rend l'erreur minimale (l'argmin) | un nombre |
 | c | cette erreur minimale | un nombre |
-| d | le plus grand intervalle de $[0 \;;\; +\infty[$ sur lequel l'erreur diminue | un intervalle |
+| d | le plus grand intervalle de $[0 \mkern5mu ;\mkern5mu  +\infty[$ sur lequel l'erreur diminue | un intervalle |
 | e | les nombres d'epochs pour lesquels l'erreur ne dépasse pas 9 % | un intervalle |
 
 Dans ta copie, explique en deux phrases ce que veut dire le fait que $E$ remonte après son minimum, et ce qu'une ingénieure en ferait.

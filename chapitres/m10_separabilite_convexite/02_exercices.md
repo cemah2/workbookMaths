@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les points sont $\mathbf{x}_i \in \mathbb{R}^d$, leurs labels $y_i \in \{-1, +1\}$ ; le **score** d'un point pour le couple $(\mathbf{w}, b)$ est $\mathbf{w} \cdot \mathbf{x} + b$ ; un couple **sépare** les deux classes quand $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour tout $i$ ; sa **marge** (géométrique) est $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$. Le **produit vectoriel** de deux vecteurs du plan est $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ (fiche §2).
+Dans tout le chapitre, comme dans la fiche : les points sont $\mathbf{x}_i \in \mathbb{R}^d$, leurs labels $y_i \in \lbrace-1, +1\rbrace$ ; le **score** d'un point pour le couple $(\mathbf{w}, b)$ est $\mathbf{w} \cdot \mathbf{x} + b$ ; un couple **sépare** les deux classes quand $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) > 0$ pour tout $i$ ; sa **marge** (géométrique) est $\min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$. Le **produit vectoriel** de deux vecteurs du plan est $\mathbf{u} \times \mathbf{v} = u_1v_2 - u_2v_1$ (fiche §2).
 
 <a id="quiz"></a>
 
@@ -115,7 +115,7 @@ On note $\mathbf{a} = (-3, 2)$ et $\mathbf{b} = (5, -2)$. Pour c) : $A$ est le d
 | d | le sommet de $K$ qui n'est sur aucun des deux axes | une liste de 2 nombres |
 | e | le nombre de sommets de $K$ | un entier |
 | f | les lettres des points qui appartiennent à $K$, parmi $P = (2{,}5 ;\ 2)$, $Q = (1 ;\ 3{,}2)$, $R = (3{,}8 ;\ 0{,}5)$ et $S = (0 ;\ 3{,}5)$ | des lettres |
-| g | la combinaison convexe $0{,}5\,(2, 0) + 0{,}3\,(0, 2) + 0{,}2\,(2, 2)$ | une liste de 2 nombres (1 décimale) |
+| g | la combinaison convexe $0{,}5\thinspace(2, 0) + 0{,}3\thinspace(0, 2) + 0{,}2\thinspace(2, 2)$ | une liste de 2 nombres (1 décimale) |
 
 Dans ta copie : dessine $K$. Pour chaque ensemble non convexe de c), donne deux points dont le segment sort de l'ensemble. Vérifie que les trois points de g) sont dans $K$ : pourquoi leur combinaison convexe y est-elle aussi, sans rien calculer ?
 
@@ -177,7 +177,7 @@ Dans ta copie : de quel côté de $\Delta$ est chacun des trois points ? Écris 
 **Objectif :** suivre la norme d'une suite de vecteurs construite pas à pas, la borner par récurrence, et comparer la borne pas à pas à celle de l'inégalité triangulaire.
 **Prérequis :** fiche §4 ; M07 (produit scalaire, Cauchy-Schwarz) ; R4 (récurrence) · **Parcours :** C
 
-Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = \mathbf{v}_k + \mathbf{d}_k$, avec $\mathbf{d}_0 = (2, -1)$ et $\mathbf{d}_1 = (-1, 2)$.
+Une suite part de $\mathbf{v} _0 = (1, 2)$ et fait deux pas, $\mathbf{v} _{k+1} = \mathbf{v}_k + \mathbf{d}_k$, avec $\mathbf{d}_0 = (2, -1)$ et $\mathbf{d}_1 = (-1, 2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -187,7 +187,7 @@ Une suite part de $\mathbf{v}_0 = (1, 2)$ et fait deux pas, $\mathbf{v}_{k+1} = 
 | d | la borne de $\lVert \mathbf{v}_2 \rVert^2$ que donne le lemme de sommation de la fiche, sachant seulement $\lVert \mathbf{v}_0 \rVert^2$ et que chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$ et $\lVert \mathbf{d}_k \rVert^2 \le 5$ | un nombre |
 | e | la suite continue jusqu'à 100 pas, chacun avec les mêmes hypothèses qu'en d) : la borne de $\lVert \mathbf{v}_{100} \rVert$ | un nombre (2 décimales) |
 | f | une autre suite part d'un $\mathbf{v}_0$ de norme 3 et fait six pas $\mathbf{d}_0, \dots, \mathbf{d}_5$ de longueurs au plus 1, 2, …, 6 : $\lVert \mathbf{d}_k \rVert \le k + 1$ (le premier pas mesure au plus 1, le sixième au plus 6), et chaque pas vérifie $\mathbf{v}_k \cdot \mathbf{d}_k \le 0$. La borne de $\lVert \mathbf{v}_6 \rVert$ que donne le lemme de sommation | un nombre |
-| g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait 10 pas de longueur 1 : les 5 premiers **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v}_k \rVert}$), les 5 suivants **perpendiculaires** à la position. $\lVert \mathbf{v}_{10} \rVert$ | un nombre (2 décimales) |
+| g | une troisième suite part d'un $\mathbf{v}_0$ de norme 1 et fait 10 pas de longueur 1 : les 5 premiers **dans la direction de la position** ($\mathbf{d}_k = \frac{\mathbf{v}_k}{\lVert \mathbf{v} _k \rVert}$), les 5 suivants **perpendiculaires** à la position. $\lVert \mathbf{v} _{10} \rVert$ | un nombre (2 décimales) |
 
 Dans ta copie : vérifie que $\mathbf{v}_0 \cdot \mathbf{d}_0 = 0$ ; que vaut $\lVert \mathbf{v}_1 \rVert^2$, et pourquoi la borne est-elle atteinte au premier pas mais pas au second ? Pour f), compare avec la borne que donne l'inégalité triangulaire, $3 + (1 + 2 + \cdots + 6) = 24$ : laquelle est la meilleure ? Décris une suite du plan qui atteint la borne de f). Pour g), pourquoi la borne de la fiche ne s'applique-t-elle pas aux cinq premiers pas ?
 
@@ -202,10 +202,10 @@ Rédige chaque démonstration dans ta copie : hypothèses, étapes justifiées, 
 **Prérequis :** fiche §1 et §3 · **Parcours :** C, E
 
 On note $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$.
-1. Montre que, pour tous $\mathbf{a}, \mathbf{b}$ et tout $t \in [0, 1]$, $s\big((1 - t)\mathbf{a} + t\mathbf{b}\big) = (1 - t)\,s(\mathbf{a}) + t\,s(\mathbf{b})$.
-2. Déduis-en que le demi-espace $\{\mathbf{x} : s(\mathbf{x}) \ge 0\}$ est convexe, puis que $\{\mathbf{x} : s(\mathbf{x}) > 0\}$ l'est aussi.
+1. Montre que, pour tous $\mathbf{a}, \mathbf{b}$ et tout $t \in [0, 1]$, $s\big((1 - t)\mathbf{a} + t\mathbf{b}\big) = (1 - t)\thinspace s(\mathbf{a}) + t\thinspace s(\mathbf{b})$.
+2. Déduis-en que le demi-espace $\lbrace\mathbf{x} : s(\mathbf{x}) \ge 0\rbrace$ est convexe, puis que $\lbrace\mathbf{x} : s(\mathbf{x}) > 0\rbrace$ l'est aussi.
 3. Montre que l'intersection de deux convexes est convexe, puis, par récurrence, celle de $m$ convexes.
-4. Déduis-en que le carré $\{(x, y) : |x| \le 1 \text{ et } |y| \le 1\}$ est convexe, en l'écrivant comme une intersection de quatre demi-plans.
+4. Déduis-en que le carré $\lbrace(x, y) : |x| \le 1 \text{ et } |y| \le 1\rbrace$ est convexe, en l'écrivant comme une intersection de quatre demi-plans.
 5. Des points $\mathbf{x}_i$ et leurs labels $y_i$ étant fixés, montre que l'ensemble des couples $(\mathbf{w}, b) \in \mathbb{R}^{d+1}$ tels que $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$ pour tout $i$ est convexe (dans l'espace des paramètres).
 6. Montre, par un contre-exemple dessiné, que la réunion de deux demi-plans n'est pas toujours convexe.
 
@@ -214,10 +214,10 @@ On note $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$.
 **Prérequis :** fiche §1 à §3 ; Ex M10.6 · **Parcours :** C, E
 
 Soit $A$ et $B$ deux ensembles finis de points de $\mathbb{R}^d$, et $s(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$ avec $s > 0$ sur $A$ et $s < 0$ sur $B$.
-1. Montre que $s\big(\sum_i t_i\mathbf{x}_i\big) = \sum_i t_i\,s(\mathbf{x}_i)$ dès que $\sum_i t_i = 1$. Où te sers-tu de cette hypothèse ?
+1. Montre que $s\big(\sum_i t_i\mathbf{x}_i\big) = \sum_i t_i\thinspace s(\mathbf{x}_i)$ dès que $\sum_i t_i = 1$. Où te sers-tu de cette hypothèse ?
 2. Déduis-en que $s > 0$ sur tout $\operatorname{conv}(A)$ et $s < 0$ sur tout $\operatorname{conv}(B)$ (où te sers-tu de $t_i \ge 0$ ?).
 3. Conclus : $\operatorname{conv}(A) \cap \operatorname{conv}(B) = \varnothing$.
-4. Énonce la contraposée. Applique-la à $A = \{(0, 0), (6, 0), (2, 6)\}$ (label $+1$) et $B = \{(2, 2), (7, 5)\}$ (label $-1$) : écris $(2, 2)$ comme une combinaison convexe des points de $A$ (trouve les poids), et conclus.
+4. Énonce la contraposée. Applique-la à $A = \lbrace(0, 0), (6, 0), (2, 6)\rbrace$ (label $+1$) et $B = \lbrace(2, 2), (7, 5)\rbrace$ (label $-1$) : écris $(2, 2)$ comme une combinaison convexe des points de $A$ (trouve les poids), et conclus.
 5. Montre que, si $A$ et $B$ sont séparés par un hyperplan, leurs barycentres sont strictement de part et d'autre de cet hyperplan.
 6. En dimension 1, démontre directement la réciproque : si les intervalles $\operatorname{conv}(A)$ et $\operatorname{conv}(B)$ sont disjoints, donne un $(w, b)$ qui sépare $A$ et $B$.
 
@@ -227,7 +227,7 @@ Soit $A$ et $B$ deux ensembles finis de points de $\mathbb{R}^d$, et $s(\mathbf{
 
 On note $\gamma(\mathbf{w}, b) = \min_i \frac{y_i(\mathbf{w} \cdot \mathbf{x}_i + b)}{\lVert \mathbf{w} \rVert}$, pour $\mathbf{w} \ne \mathbf{0}$.
 1. Montre que $\gamma(c\mathbf{w}, cb) = \gamma(\mathbf{w}, b)$ pour tout $c > 0$.
-2. On fixe $\mathbf{w}$ et l'on fait varier $b$. On note $m_+ = \min \mathbf{w} \cdot \mathbf{x}_i$ sur la classe $+1$ et $M_- = \max \mathbf{w} \cdot \mathbf{x}_i$ sur la classe $-1$, avec $m_+ > M_-$. Écris $\gamma(\mathbf{w}, b)$ comme le minimum de deux fonctions affines de $b$, et déduis-en que $b \mapsto \gamma(\mathbf{w}, b)$ est concave. Montre que son maximum est atteint au milieu de l'intervalle des $b$ qui séparent, et vaut $\frac{m_+ - M_-}{2\lVert \mathbf{w} \rVert}$.
+2. On fixe $\mathbf{w}$ et l'on fait varier $b$. On note $m_+ = \min \mathbf{w} \cdot \mathbf{x} _i$ sur la classe $+1$ et $M  _- = \max \mathbf{w} \cdot \mathbf{x}  _i$ sur la classe $-1$, avec $m  _+ > M _-$. Écris $\gamma(\mathbf{w}, b)$ comme le minimum de deux fonctions affines de $b$, et déduis-en que $b \mapsto \gamma(\mathbf{w}, b)$ est concave. Montre que son maximum est atteint au milieu de l'intervalle des $b$ qui séparent, et vaut $\frac{m _+ - M _-}{2\lVert \mathbf{w} \rVert}$.
 3. Que deviennent les marges fonctionnelles $y_i(\mathbf{w} \cdot \mathbf{x}_i + b)$ quand on multiplie $(\mathbf{w}, b)$ par $c > 0$ ? Déduis-en que tout séparateur peut être choisi avec $\min_i y_i(\mathbf{w} \cdot \mathbf{x}_i + b) = 1$.
 4. Sous cette forme, montre que $\gamma(\mathbf{w}, b) = \frac{1}{\lVert \mathbf{w} \rVert}$. Déduis-en que maximiser la marge revient à minimiser $\lVert \mathbf{w} \rVert$ sous les contraintes $y_i(\mathbf{w} \cdot \mathbf{x}_i + b) \ge 1$.
 5. On ajoute un exemple. Montre que la marge d'un couple fixé ne peut que baisser ou rester égale, et donne une condition pour qu'elle ne change pas.

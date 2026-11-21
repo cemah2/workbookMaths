@@ -53,7 +53,7 @@ Relis « L'idée : retirer ce qui est déjà expliqué » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{v}_k = \mathbf{a}_k - \sum_{j<k} \langle \mathbf{a}_k, \mathbf{q}_j \rangle\,\mathbf{q}_j$.
+$\mathbf{v}_k = \mathbf{a} _k - \sum _{j\lt k} \langle \mathbf{a}_k, \mathbf{q}_j \rangle\thinspace\mathbf{q}_j$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ Relis la projection sur une droite (M07 §4).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{p} = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\,\mathbf{u}$.
+$\mathbf{p} = \frac{\mathbf{x} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}}\thinspace\mathbf{u}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -300,7 +300,7 @@ Toutes les formules de Gram-Schmidt, avec $\langle \cdot, \cdot \rangle_{\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-$\lVert \mathbf{a}_1 \rVert_{\mathbf{D}}^2 = 1 + 2 + 1$ ; $\langle \mathbf{a}_2, \mathbf{q}_1 \rangle_{\mathbf{D}} = -1$.
+$\lVert \mathbf{a} _1 \rVert _{\mathbf{D}}^2 = 1 + 2 + 1$ ; $\langle \mathbf{a}_2, \mathbf{q} _1 \rangle _{\mathbf{D}} = -1$.
 
 </details>
 
@@ -331,12 +331,12 @@ Relis « Deux façons de calculer » et l'exemple (fiche §5).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{A}^\top\mathbf{A}\,\mathbf{c} = \mathbf{A}^\top\mathbf{v}$ : un système $2 \times 2$ ; son déterminant vaut 81.
+$\mathbf{A}^\top\mathbf{A}\thinspace\mathbf{c} = \mathbf{A}^\top\mathbf{v}$ : un système $2 \times 2$ ; son déterminant vaut 81.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) Puis $\mathbf{p} = (\mathbf{v} \cdot \mathbf{q}_1)\,\mathbf{q}_1 + (\mathbf{v} \cdot \mathbf{q}_2)\,\mathbf{q}_2$, pour vérifier d).
+e) Puis $\mathbf{p} = (\mathbf{v} \cdot \mathbf{q}_1)\thinspace\mathbf{q}_1 + (\mathbf{v} \cdot \mathbf{q}_2)\thinspace\mathbf{q}_2$, pour vérifier d).
 
 </details>
 
@@ -385,12 +385,12 @@ Relis l'exemple du §6 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x_i \\ \sum x_i & \sum x_i^2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (\sum y_i, \sum x_iy_i)$.
+$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x_i \cr \sum x_i & \sum x_i^2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (\sum y_i, \sum x_iy_i)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le déterminant vaut 150 ; $\mathbf{w}^* = \frac{1}{150}\begin{pmatrix} 110 & -20 \\ -20 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}$.
+Le déterminant vaut 150 ; $\mathbf{w}^\ast = \frac{1}{150}\begin{pmatrix} 110 & -20 \cr -20 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}$.
 
 </details>
 
@@ -403,7 +403,7 @@ Relis « Gram-Schmidt écrit avec des matrices » et « Les moindres carrés par
 </details>
 <details><summary>Indice 2</summary>
 
-$r_{11} = \lVert \mathbf{a}_1 \rVert$, $r_{12} = \mathbf{q}_1 \cdot \mathbf{a}_2$, $r_{22} = \lVert \mathbf{a}_2 - r_{12}\mathbf{q}_1 \rVert$ ; tout est en onzièmes.
+$r_{11} = \lVert \mathbf{a} _1 \rVert$, $r _{12} = \mathbf{q}_1 \cdot \mathbf{a} _2$, $r _{22} = \lVert \mathbf{a} _2 - r _{12}\mathbf{q}_1 \rVert$ ; tout est en onzièmes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -426,7 +426,7 @@ Sur $[-1 ; 1]$, l'intégrale d'une fonction impaire est nulle, celle d'une fonct
 </details>
 <details><summary>Indice 3</summary>
 
-f) $\int_{-1}^1 |x|\,x^2\,dx = 2\int_0^1 x^3\,dx$. g) Les trois coefficients sur $1, x, p_2$, puis développe.
+f) $\int_{-1}^1 |x|\thinspace x^2\thinspace dx = 2\int_0^1 x^3\thinspace dx$. g) Les trois coefficients sur $1, x, p_2$, puis développe.
 
 </details>
 
@@ -479,7 +479,7 @@ Relis le §3 de la fiche, et la récurrence (R4).
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 3, utilise que $\mathbf{q}_1, \ldots, \mathbf{q}_{j-1}$ sont orthonormés (l'hypothèse de récurrence).
+Pour 3, utilise que $\mathbf{q} _1, \ldots, \mathbf{q} _{j-1}$ sont orthonormés (l'hypothèse de récurrence).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -542,7 +542,7 @@ $t = \frac{10}{10}$ ; $\mathbf{r} = \mathbf{x}_2 - \mathbf{x}_1$.
 </details>
 <details><summary>Indice 3</summary>
 
-g) Les équations normales $\begin{pmatrix} 10 & 10 \\ 10 & 14 \end{pmatrix}\mathbf{w} = (23, 29)$.
+g) Les équations normales $\begin{pmatrix} 10 & 10 \cr 10 & 14 \end{pmatrix}\mathbf{w} = (23, 29)$.
 
 </details>
 

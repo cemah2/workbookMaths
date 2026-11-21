@@ -83,11 +83,11 @@ La figure montre trois droites : $D_1$ d'équation $3x + y = 9$, $D_2$ d'équati
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la solution du système formé par les équations de $D_1$ et $D_2$ | la liste $[x, y]$ |
-| b | le déterminant de ce système, $\begin{vmatrix} 3 & 1 \\ 1 & -2 \end{vmatrix}$ | un nombre |
+| b | le déterminant de ce système, $\begin{vmatrix} 3 & 1 \cr 1 & -2 \end{vmatrix}$ | un nombre |
 | c | la pente de $D_2$ | une fraction irréductible |
 | d | l'équation réduite $y = mx + p$ de $D_3$, lue sur la figure | la liste $[m, p]$ |
 | e | le point d'intersection de $D_1$ et $D_3$, **par le calcul** (la figure sert à vérifier) | la liste $[x, y]$ (1 décimale) |
-| f | le nombre de solutions du système $\begin{cases} 3x + y = 9 \\ 6x + 2y = 18 \end{cases}$ : 1. aucune ; 2. une seule ; 3. une infinité | le numéro 1, 2 ou 3 |
+| f | le nombre de solutions du système $\begin{cases} 3x + y = 9 \cr 6x + 2y = 18 \end{cases}$ : 1. aucune ; 2. une seule ; 3. une infinité | le numéro 1, 2 ou 3 |
 
 ### CP0.4 — Second degré : racines et sommet ✏️ ★★ ⏱️ 10 min · 1,5 point
 
@@ -164,7 +164,7 @@ La suite $(u_n)$ est définie par $u_0 = 1$ et $u_{n+1} = 2u_n + 5$ pour tout en
 1. Calcule $u_1$, $u_2$ et $u_3$. **[0,25]**
 2. Démontre par récurrence que, pour tout entier $n \ge 0$, $u_n = 6 \times 2^n - 5$. Rédige l'initialisation, l'hérédité et la conclusion. **[0,75]**
 3. Déduis-en la limite de la suite $(u_n)$. **[0,25]**
-4. Quel est le plus petit entier $n$ tel que $u_n > 1\,000$ ? Justifie. **[0,25]**
+4. Quel est le plus petit entier $n$ tel que $u_n > 1\thinspace000$ ? Justifie. **[0,25]**
 
 ### CP0.10 — Corriger une copie : cinq erreurs 🐛 ★★ ⏱️ 8 min · 1,25 point
 
@@ -200,8 +200,8 @@ Un modèle n'a qu'un seul paramètre, $w$, un réel quelconque. Sa fonction de c
 |---|---|---|
 | a | $L(0)$ | un nombre |
 | b | $L'(w)$ | une expression en $w$ |
-| c | le nombre $w^*$ où $L'$ s'annule | une valeur exacte, avec `ln` |
-| d | le coût minimal $L(w^*)$ | un nombre (3 décimales) |
+| c | le nombre $w^\ast$ où $L'$ s'annule | une valeur exacte, avec `ln` |
+| d | le coût minimal $L(w^\ast)$ | un nombre (3 décimales) |
 | e | le plus grand intervalle sur lequel $L$ est décroissante | un intervalle |
 | f | la limite de $L(w)$ quand $w$ tend vers $+\infty$ | un nombre, ou `"+oo"` |
 | g | l'équation de la tangente à la courbe de $L$ au point d'abscisse 0, sous la forme $y = mw + p$ | la liste $[m, p]$ |

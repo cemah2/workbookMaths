@@ -17,12 +17,12 @@ Fiche §1 : « Un gain créé ensemble », « Les poids des coalitions », « Es
 </details>
 <details><summary>Indice 2</summary>
 
-Un ordre de 7 joueurs : combien de façons de les ranger ? Si $i$ est premier, il reste à ranger les 6 autres. Le poids d'**une** coalition de taille $s$ est $w(s) = \frac{s!\,(n - 1 - s)!}{n!}$, et il y a $\binom{n-1}{s}$ coalitions de taille $s$ sans $i$. Pour 4, cherche un petit conseil où un membre de 2 voix n'est jamais plus utile qu'un membre d'une voix. Pour 5, dans un même ordre, que donne la somme des contributions ?
+Un ordre de 7 joueurs : combien de façons de les ranger ? Si $i$ est premier, il reste à ranger les 6 autres. Le poids d'**une** coalition de taille $s$ est $w(s) = \frac{s!\thinspace(n - 1 - s)!}{n!}$, et il y a $\binom{n-1}{s}$ coalitions de taille $s$ sans $i$. Pour 4, cherche un petit conseil où un membre de 2 voix n'est jamais plus utile qu'un membre d'une voix. Pour 5, dans un même ordre, que donne la somme des contributions ?
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $7!$, puis $6!$. 2. $\frac{2!\,4!}{7!}$, puis multiplie par $\binom62 = 15$. 3. Les quatre noms : efficacité, symétrie, joueur nul, additivité. 4. Essaie $[5 ;\ 4, 2, 1, 1]$ : compte les ordres où le membre de 2 voix est pivot, puis ceux d'un membre d'une voix. 5. Les contributions d'un ordre se télescopent : de $v(\varnothing)$ à $v(N)$.
+1. $7!$, puis $6!$. 2. $\frac{2!\thinspace4!}{7!}$, puis multiplie par $\binom62 = 15$. 3. Les quatre noms : efficacité, symétrie, joueur nul, additivité. 4. Essaie $[5 ;\ 4, 2, 1, 1]$ : compte les ordres où le membre de 2 voix est pivot, puis ceux d'un membre d'une voix. 5. Les contributions d'un ordre se télescopent : de $v(\varnothing)$ à $v(N)$.
 
 </details>
 
@@ -40,7 +40,7 @@ $\operatorname{PD}_j(v)$ moyenne $f$ sur la loi **marginale** des autres variabl
 </details>
 <details><summary>Indice 3</summary>
 
-1. (C) ne garde qu'un point. 3. Avec des moyennes nulles et des variances 1, $\mathbb{E}[X_2 \mid X_1 = v] = \rho\,v$ ; $\operatorname{PD}_1(v) = v - 4\,\mathbb{E}[X_2]$ et $M_1(v) = v - 4\,\mathbb{E}[X_2 \mid X_1 = v]$. 4. Calcule $\frac{\partial^2f}{\partial x_1\,\partial x_2}$ pour chaque fonction. 5. L'estimation de la fiche : $\frac1n\sum_if(v, \mathbf{x}_{i,-j})$.
+1. (C) ne garde qu'un point. 3. Avec des moyennes nulles et des variances 1, $\mathbb{E}[X_2 \mid X_1 = v] = \rho\thinspace v$ ; $\operatorname{PD} _1(v) = v - 4\thinspace\mathbb{E}[X_2]$ et $M_1(v) = v - 4\thinspace\mathbb{E}[X_2 \mid X_1 = v]$. 4. Calcule $\frac{\partial^2f}{\partial x_1\thinspace\partial x_2}$ pour chaque fonction. 5. L'estimation de la fiche : $\frac1n\sum_if(v, \mathbf{x} _{i,-j})$.
 
 </details>
 
@@ -53,12 +53,12 @@ Fiche §4 : « Un chemin et une intégrale » (le théorème du gradient, le che
 </details>
 <details><summary>Indice 2</summary>
 
-Le théorème du gradient : $\int\nabla f\cdot\mathrm{d}\boldsymbol\gamma = f(\text{fin}) - f(\text{début})$. Parcourir un chemin à l'envers change le signe de la vitesse, pour tout champ. Un gradient de classe $C^1$ a $\frac{\partial F_1}{\partial y} = \frac{\partial F_2}{\partial x}$. Euler : $\sum_ix_i\,\partial_if = k\,f$ ; depuis $\mathbf{r} = \mathbf{0}$, la part de $x_i$ le long du segment est $\frac{x_i\,\partial_if(\mathbf{x})}{k}$.
+Le théorème du gradient : $\int\nabla f\cdot\mathrm{d}\boldsymbol\gamma = f(\text{fin}) - f(\text{début})$. Parcourir un chemin à l'envers change le signe de la vitesse, pour tout champ. Un gradient de classe $C^1$ a $\frac{\partial F_1}{\partial y} = \frac{\partial F_2}{\partial x}$. Euler : $\sum_ix_i\thinspace\partial_if = k\thinspace f$ ; depuis $\mathbf{r} = \mathbf{0}$, la part de $x_i$ le long du segment est $\frac{x_i\thinspace\partial_if(\mathbf{x})}{k}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. Compare $\frac{\partial F_1}{\partial y}$ et $\frac{\partial F_2}{\partial x}$ pour chacun des trois champs. 4. $\partial_xf = 3x\sqrt{x^2 + y^2}$ et $\partial_yf = 3y\sqrt{x^2 + y^2}$ ; en $(3, 4)$, la racine vaut 5 ; divise $x\,\partial_xf$ et $y\,\partial_yf$ par 3, et vérifie que la somme fait $f(3, 4)$. 5. Le théorème de la fiche §4 suppose $f$ multilinéaire.
+3. Compare $\frac{\partial F_1}{\partial y}$ et $\frac{\partial F_2}{\partial x}$ pour chacun des trois champs. 4. $\partial_xf = 3x\sqrt{x^2 + y^2}$ et $\partial_yf = 3y\sqrt{x^2 + y^2}$ ; en $(3, 4)$, la racine vaut 5 ; divise $x\thinspace\partial_xf$ et $y\thinspace\partial_yf$ par 3, et vérifie que la somme fait $f(3, 4)$. 5. Le théorème de la fiche §4 suppose $f$ multilinéaire.
 
 </details>
 
@@ -71,7 +71,7 @@ Fiche §5 : « Interpoler sur une case » et « Agrandir une grille : deux conve
 </details>
 <details><summary>Indice 2</summary>
 
-Les poids bilinéaires sont $(1 - s)(1 - t)$, $s(1 - t)$, $(1 - s)\,t$ et $s\,t$. Centres alignés : $\xi(u) = (u + \frac12)\frac hH - \frac12$ ; coins alignés : $\xi(u) = u\,\frac{h - 1}{H - 1}$. Les rangs : trie, numérote à partir de 1, et donne aux ex aequo la moyenne de leurs places. $\rho_S$ ne dépend que de l'ordre de chaque échantillon.
+Les poids bilinéaires sont $(1 - s)(1 - t)$, $s(1 - t)$, $(1 - s)\thinspace t$ et $s\thinspace t$. Centres alignés : $\xi(u) = (u + \frac12)\frac hH - \frac12$ ; coins alignés : $\xi(u) = u\thinspace\frac{h - 1}{H - 1}$. Les rangs : trie, numérote à partir de 1, et donne aux ex aequo la moyenne de leurs places. $\rho_S$ ne dépend que de l'ordre de chaque échantillon.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -94,7 +94,7 @@ Indépendance : $\hat Y \perp G$ (le taux de rejet de chaque ligne). Séparation
 </details>
 <details><summary>Indice 3</summary>
 
-1 à 4 : demande-toi **sachant quoi** on compare les deux lignes : rien, $Y$, $\hat Y$ ou le score. 5. Sous la séparation, le taux de rejet de la ligne $g$ vaut $f + (t - f)\,p_g$ ; l'indépendance l'égale sur les deux lignes, avec $p_1 \ne p_2$.
+1 à 4 : demande-toi **sachant quoi** on compare les deux lignes : rien, $Y$, $\hat Y$ ou le score. 5. Sous la séparation, le taux de rejet de la ligne $g$ vaut $f + (t - f)\thinspace p_g$ ; l'indépendance l'égale sur les deux lignes, avec $p_1 \ne p_2$.
 
 </details>
 
@@ -107,12 +107,12 @@ Fiche §8 : « Tirer au sort entre deux seuils », « Repondérer » et « L'éc
 </details>
 <details><summary>Indice 2</summary>
 
-Le seuil tiré est indépendant du label : les probabilités totales. Le tirage fait une moyenne pondérée des deux points ROC. La repondération $\frac{P(g)\,P(y)}{P(g, y)}$ garde les deux marges. Les **variances** de deux estimations indépendantes s'ajoutent.
+Le seuil tiré est indépendant du label : les probabilités totales. Le tirage fait une moyenne pondérée des deux points ROC. La repondération $\frac{P(g)\thinspace P(y)}{P(g, y)}$ garde les deux marges. Les **variances** de deux estimations indépendantes s'ajoutent.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $P(\hat Y = 1 \mid Y = 1) = q\,P(\hat Y = 1 \mid Y = 1, A) + (1 - q)\,P(\hat Y = 1 \mid Y = 1, B)$. 2. Le point $(\mathrm{FPR}, \mathrm{TPR})$ du tirage, quand $q$ va de 0 à 1. 3. Somme les probabilités pondérées d'un groupe : $\sum_yP(g)\,P(y) = \ ?$ 4. Compare $\sqrt{a^2 + b^2}$ et $a + b$. 5. Seul le terme $\frac{\theta(1 - \theta)}{n}$ de ce groupe est divisé par 4.
+1. $P(\hat Y = 1 \mid Y = 1) = q\thinspace P(\hat Y = 1 \mid Y = 1, A) + (1 - q)\thinspace P(\hat Y = 1 \mid Y = 1, B)$. 2. Le point $(\mathrm{FPR}, \mathrm{TPR})$ du tirage, quand $q$ va de 0 à 1. 3. Somme les probabilités pondérées d'un groupe : $\sum_yP(g)\thinspace P(y) = \ ?$ 4. Compare $\sqrt{a^2 + b^2}$ et $a + b$. 5. Seul le terme $\frac{\theta(1 - \theta)}{n}$ de ce groupe est divisé par 4.
 
 </details>
 
@@ -129,7 +129,7 @@ R4 (les parties d'un ensemble) et R8 (factorielles, combinaisons, la somme d'une
 </details>
 <details><summary>Indice 2</summary>
 
-Une partie : chaque élément y est ou n'y est pas. $\binom nk = \frac{n!}{k!\,(n - k)!}$. Ranger $n$ objets : $n!$ façons. $\sum_k\binom nk = (1 + 1)^n$.
+Une partie : chaque élément y est ou n'y est pas. $\binom nk = \frac{n!}{k!\thinspace(n - k)!}$. Ranger $n$ objets : $n!$ façons. $\sum_k\binom nk = (1 + 1)^n$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -165,7 +165,7 @@ M25a : la loi conditionnelle d'un couple gaussien.
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{Cov}(X, Y) = \rho\,\sigma_X\sigma_Y$. $\mathbb{E}[Y \mid X = x] = \mu_Y + \rho\,\frac{\sigma_Y}{\sigma_X}(x - \mu_X)$ et $\mathbb{V}(Y \mid X = x) = \sigma_Y^2(1 - \rho^2)$.
+$\operatorname{Cov}(X, Y) = \rho\thinspace\sigma_X\sigma_Y$. $\mathbb{E}[Y \mid X = x] = \mu_Y + \rho\thinspace\frac{\sigma_Y}{\sigma_X}(x - \mu_X)$ et $\mathbb{V}(Y \mid X = x) = \sigma_Y^2(1 - \rho^2)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -205,12 +205,12 @@ Fiche §1 : « Partager un coût » ; §2 : « Quatre règles de partage » et �
 </details>
 <details><summary>Indice 2</summary>
 
-Dans un ordre, un hameau paie ce qu'il ajoute : le prolongement de la conduite au-delà du plus éloigné des hameaux déjà raccordés, ou 0 s'il est en deçà. Les dividendes : $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}c(S)$ ; pour un hameau seul, $d_{\{i\}} = c(\{i\})$. Pour d), l'additivité : le nouveau coût est l'ancien plus 8 fois le jeu « payer le tronçon de H1 à H2 ».
+Dans un ordre, un hameau paie ce qu'il ajoute : le prolongement de la conduite au-delà du plus éloigné des hameaux déjà raccordés, ou 0 s'il est en deçà. Les dividendes : $d_T = \sum_{S \subseteq T}(-1)^{\lvert T\rvert - \lvert S\rvert}c(S)$ ; pour un hameau seul, $d_{\lbrace i\rbrace} = c(\lbrace i\rbrace)$. Pour d), l'additivité : le nouveau coût est l'ancien plus 8 fois le jeu « payer le tronçon de H1 à H2 ».
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) Ordre H1 H2 H3 : $(30, 21, 17)$ ; un ordre où H3 arrive le premier : H3 paie 68, les autres rien. Fais les six ordres, puis la moyenne de chaque hameau. b) $d_{\{1, 2\}} = c(\{1, 2\}) - c(\{1\}) - c(\{2\})$. c) $c(N)$, moins la somme des paires, plus la somme des hameaux seuls. d) Quels hameaux utilisent le tronçon de H1 à H2 ?
+a) Ordre H1 H2 H3 : $(30, 21, 17)$ ; un ordre où H3 arrive le premier : H3 paie 68, les autres rien. Fais les six ordres, puis la moyenne de chaque hameau. b) $d_{\lbrace1, 2\rbrace} = c(\lbrace1, 2\rbrace) - c(\lbrace1\rbrace) - c(\lbrace2\rbrace)$. c) $c(N)$, moins la somme des paires, plus la somme des hameaux seuls. d) Quels hameaux utilisent le tronçon de H1 à H2 ?
 
 </details>
 
@@ -223,12 +223,12 @@ Fiche §3 : « Les courbes ICE » (parallèles ou non, la dérivée croisée) et
 </details>
 <details><summary>Indice 2</summary>
 
-Le gain est $f(p, 2) - f(p, 1)$, parcelle par parcelle. Pour le modèle 2, la différence de deux carrés se factorise. $\frac{\partial^2f}{\partial p\,\partial e}$ : dérive par $e$, puis par $p$. $\operatorname{PD}(2) = \mathbb{E}[f_1(P, 2)]$ : $f_1$ est affine en $p$, remplace $P$ par sa moyenne. $M(2)$ : remplace $P$ par $\mathbb{E}[P \mid E = 2] = \mu_P + \rho\,\frac{\sigma_P}{\sigma_E}(2 - \mu_E)$.
+Le gain est $f(p, 2) - f(p, 1)$, parcelle par parcelle. Pour le modèle 2, la différence de deux carrés se factorise. $\frac{\partial^2f}{\partial p\thinspace\partial e}$ : dérive par $e$, puis par $p$. $\operatorname{PD}(2) = \mathbb{E}[f_1(P, 2)]$ : $f_1$ est affine en $p$, remplace $P$ par sa moyenne. $M(2)$ : remplace $P$ par $\mathbb{E}[P \mid E = 2] = \mu_P + \rho\thinspace\frac{\sigma_P}{\sigma_E}(2 - \mu_E)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $2{,}4 \times (2 - 1) - 0{,}4 \times (2^2 - 1^2)$ : $p$ n'y figure pas. b) $f_2(p, 2) - f_2(p, 1) = -0{,}5\big[(p - 5)^2 - (p - 4)^2\big]$, une fonction affine de $p$. c) $\partial_ef_2 = p - e - 3$. d) $\mathbb{E}[P \mid E = 2] = 5{,}5 + 0{,}35 \times \frac{1{,}2}{0{,}5} \times 0{,}5$. e) $M(v) - \operatorname{PD}(v) = 0{,}6\,\big(\mathbb{E}[P \mid E = v] - 5{,}5\big)$.
+a) $2{,}4 \times (2 - 1) - 0{,}4 \times (2^2 - 1^2)$ : $p$ n'y figure pas. b) $f_2(p, 2) - f_2(p, 1) = -0{,}5\big[(p - 5)^2 - (p - 4)^2\big]$, une fonction affine de $p$. c) $\partial_ef_2 = p - e - 3$. d) $\mathbb{E}[P \mid E = 2] = 5{,}5 + 0{,}35 \times \frac{1{,}2}{0{,}5} \times 0{,}5$. e) $M(v) - \operatorname{PD}(v) = 0{,}6\thinspace\big(\mathbb{E}[P \mid E = v] - 5{,}5\big)$.
 
 </details>
 
@@ -241,7 +241,7 @@ Fiche §4 : « Un chemin et une intégrale » (le théorème du gradient, le tes
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque chemin : un paramétrage $\boldsymbol\gamma(t)$, sa vitesse $\boldsymbol\gamma'(t)$, puis $\int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\,\mathrm{d}t$. Sur un morceau horizontal, il ne reste que $F_1\,\mathrm{d}x$ ; sur un vertical, $F_2\,\mathrm{d}y$. $\mathbf{F} = \nabla f$ : $f(B) - f(A)$ contrôle a), b) et c).
+Pour chaque chemin : un paramétrage $\boldsymbol\gamma(t)$, sa vitesse $\boldsymbol\gamma'(t)$, puis $\int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\thinspace\mathrm{d}t$. Sur un morceau horizontal, il ne reste que $F_1\thinspace\mathrm{d}x$ ; sur un vertical, $F_2\thinspace\mathrm{d}y$. $\mathbf{F} = \nabla f$ : $f(B) - f(A)$ contrôle a), b) et c).
 
 </details>
 <details><summary>Indice 3</summary>
@@ -259,12 +259,12 @@ Fiche §4 : « Partager une variation entre les coordonnées » (les parts le lo
 </details>
 <details><summary>Indice 2</summary>
 
-Le long du segment $\mathbf{r} + t\,\mathbf{h}$, avec $\mathbf{h} = \mathbf{x} - \mathbf{r}$, la part de $p$ est $h_p\int_0^1q(t)\,\tau(t)\,\mathrm{d}t$, l'intégrale d'un polynôme de degré 2 en $t$ ; de même pour $q$ et $\tau$. Dans un chemin en escalier, un facteur passe de sa valeur du premier trimestre à celle du second quand vient son tour : sa contribution est sa variation fois le produit des deux autres, à leurs valeurs de ce moment.
+Le long du segment $\mathbf{r} + t\thinspace\mathbf{h}$, avec $\mathbf{h} = \mathbf{x} - \mathbf{r}$, la part de $p$ est $h_p\int_0^1q(t)\thinspace\tau(t)\thinspace\mathrm{d}t$, l'intégrale d'un polynôme de degré 2 en $t$ ; de même pour $q$ et $\tau$. Dans un chemin en escalier, un facteur passe de sa valeur du premier trimestre à celle du second quand vient son tour : sa contribution est sa variation fois le produit des deux autres, à leurs valeurs de ce moment.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $13{,}5 \times 590 \times 0{,}87 - 11{,}5 \times 680 \times 0{,}93$. b) $\mathbf{h} = (2 ;\ -90 ;\ -0{,}06)$ ; développe $(680 - 90t)(0{,}93 - 0{,}06t)$ et intègre terme à terme, avec $\int_0^1t^2\,\mathrm{d}t = \frac13$. c) $\tau$ en dernier : $p$ et $q$ valent déjà $13{,}5$ et 590 ; $\tau$ en premier : $11{,}5$ et 680. d) Dans les six ordres, $\tau$ est premier deux fois, dernier deux fois, deuxième après $p$ une fois, après $q$ une fois.
+a) $13{,}5 \times 590 \times 0{,}87 - 11{,}5 \times 680 \times 0{,}93$. b) $\mathbf{h} = (2 ;\ -90 ;\ -0{,}06)$ ; développe $(680 - 90t)(0{,}93 - 0{,}06t)$ et intègre terme à terme, avec $\int_0^1t^2\thinspace\mathrm{d}t = \frac13$. c) $\tau$ en dernier : $p$ et $q$ valent déjà $13{,}5$ et 590 ; $\tau$ en premier : $11{,}5$ et 680. d) Dans les six ordres, $\tau$ est premier deux fois, dernier deux fois, deuxième après $p$ une fois, après $q$ une fois.
 
 </details>
 
@@ -282,7 +282,7 @@ $\max(0, T - 10)$ est nul sous 10 °C et vaut $T - 10$ au-dessus : seules les ca
 </details>
 <details><summary>Indice 3</summary>
 
-a) Huit cases sont au-dessus de 10 °C : $11{,}8$ ; $13{,}2$ ; $10{,}8$ ; $12{,}5$ ; $14{,}1$ ; $10{,}3$ ; $12{,}0$ ; $11{,}4$. b) Leurs surfaces. c) Après $+1$ °C, quelles cases passent au-dessus de 10 ? d) $(u + \frac12)\frac36 - \frac12$. e) $u\,\frac25$. f) La ligne $\xi(4)$ et la colonne $\xi(5)$ (avec $\frac48$ pour les colonnes en centres alignés, $\frac37$ en coins alignés) tombent entre les lignes 1 et 2 et les colonnes 2 et 3 : interpole sur chaque ligne, puis entre les deux lignes.
+a) Huit cases sont au-dessus de 10 °C : $11{,}8$ ; $13{,}2$ ; $10{,}8$ ; $12{,}5$ ; $14{,}1$ ; $10{,}3$ ; $12{,}0$ ; $11{,}4$. b) Leurs surfaces. c) Après $+1$ °C, quelles cases passent au-dessus de 10 ? d) $(u + \frac12)\frac36 - \frac12$. e) $u\thinspace\frac25$. f) La ligne $\xi(4)$ et la colonne $\xi(5)$ (avec $\frac48$ pour les colonnes en centres alignés, $\frac37$ en coins alignés) tombent entre les lignes 1 et 2 et les colonnes 2 et 3 : interpole sur chaque ligne, puis entre les deux lignes.
 
 </details>
 
@@ -295,12 +295,12 @@ Fiche §7 : « Ce qui est incompatible » ; §8 : « Tirer au sort entre deux se
 </details>
 <details><summary>Indice 2</summary>
 
-Taux de rejet d'une ligne $= \mathrm{TPR}\times p_g + \mathrm{FPR}\times(1 - p_g)$. Le tirage donne $\mathrm{TPR} = q\,\mathrm{TPR}_A + (1 - q)\,\mathrm{TPR}_B$, et le FPR avec le **même** $q$. $w(g, y) = \frac{P(g)\,P(y)}{P(g, y)}$, avec les probabilités lues sur toute la table (2 400 pièces). Le taux de défauts pondéré d'une ligne : ses défectueuses pondérées divisées par ses pièces pondérées.
+Taux de rejet d'une ligne $= \mathrm{TPR}\times p_g + \mathrm{FPR}\times(1 - p_g)$. Le tirage donne $\mathrm{TPR} = q\thinspace\mathrm{TPR}_A + (1 - q)\thinspace\mathrm{TPR}_B$, et le FPR avec le **même** $q$. $w(g, y) = \frac{P(g)\thinspace P(y)}{P(g, y)}$, avec les probabilités lues sur toute la table (2 400 pièces). Le taux de défauts pondéré d'une ligne : ses défectueuses pondérées divisées par ses pièces pondérées.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}88 \times 0{,}06 + 0{,}04 \times 0{,}94$, puis la ligne 2. b) $0{,}74\,q + 0{,}96\,(1 - q) = 0{,}90$. c) $q \times 0{,}03 + (1 - q) \times 0{,}09$, avec le $q$ de b) gardé en fraction. d) 232 pièces défectueuses en tout ; par exemple $w(1, \text{défaut}) = \frac{1\,300}{2\,400} \times \frac{232}{2\,400} \Big/ \frac{78}{2\,400}$. e) $\frac{78\,w(1, \text{défaut})}{78\,w(1, \text{défaut}) + 1\,222\,w(1, \text{sans défaut})}$.
+a) $0{,}88 \times 0{,}06 + 0{,}04 \times 0{,}94$, puis la ligne 2. b) $0{,}74\thinspace q + 0{,}96\thinspace(1 - q) = 0{,}90$. c) $q \times 0{,}03 + (1 - q) \times 0{,}09$, avec le $q$ de b) gardé en fraction. d) 232 pièces défectueuses en tout ; par exemple $w(1, \text{défaut}) = \frac{1\thinspace300}{2\thinspace400} \times \frac{232}{2\thinspace400} \Big/ \frac{78}{2\thinspace400}$. e) $\frac{78\thinspace w(1, \text{défaut})}{78\thinspace w(1, \text{défaut}) + 1\thinspace222\thinspace w(1, \text{sans défaut})}$.
 
 </details>
 
@@ -317,12 +317,12 @@ Fiche §2 : « Quatre règles de partage » et « Les jeux d'unanimité et les d
 </details>
 <details><summary>Indice 2</summary>
 
-1. Remplace $d_T$ par sa définition et échange les deux sommes : pour $R \subseteq S$, compte les $T$ entre $R$ et $S$, avec leur signe. 2. $2^n$ jeux qui engendrent un espace de dimension $2^n$. 3. Dans $c\,u_T$ : quels joueurs sont nuls, lesquels sont symétriques ? Puis l'efficacité. 4. L'additivité sur la somme finie $v = \sum_Td_T\,u_T$.
+1. Remplace $d_T$ par sa définition et échange les deux sommes : pour $R \subseteq S$, compte les $T$ entre $R$ et $S$, avec leur signe. 2. $2^n$ jeux qui engendrent un espace de dimension $2^n$. 3. Dans $c\thinspace u_T$ : quels joueurs sont nuls, lesquels sont symétriques ? Puis l'efficacité. 4. L'additivité sur la somme finie $v = \sum_Td_T\thinspace u_T$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. Avec $m = \lvert S\rvert - \lvert R\rvert$, la somme intérieure vaut $\sum_k\binom mk(-1)^k = (1 - 1)^m$ : nulle sauf si $R = S$. 2. Évalue $\sum_Td_T\,u_T$ en $S$. 3. Pour $i \notin T$ : $S \cup \{i\}$ contient $T$ si et seulement si $S$ le contient. Pour $i, j \in T$ et $S$ sans $i$ ni $j$ : ni $S \cup \{i\}$ ni $S \cup \{j\}$ ne contient $T$. La somme des parts vaut $c\,u_T(N) - c\,u_T(\varnothing)$. Le jeu constant $c\,u_\varnothing$ : tous les joueurs sont nuls. 4. $\varphi_i(v) = \sum_T\varphi_i(d_T\,u_T)$. 5. L'existence et l'unicité.
+1. Avec $m = \lvert S\rvert - \lvert R\rvert$, la somme intérieure vaut $\sum_k\binom mk(-1)^k = (1 - 1)^m$ : nulle sauf si $R = S$. 2. Évalue $\sum_Td_T\thinspace u_T$ en $S$. 3. Pour $i \notin T$ : $S \cup \lbrace i\rbrace$ contient $T$ si et seulement si $S$ le contient. Pour $i, j \in T$ et $S$ sans $i$ ni $j$ : ni $S \cup \lbrace i\rbrace$ ni $S \cup \lbrace j\rbrace$ ne contient $T$. La somme des parts vaut $c\thinspace u_T(N) - c\thinspace u_T(\varnothing)$. Le jeu constant $c\thinspace u_\varnothing$ : tous les joueurs sont nuls. 4. $\varphi_i(v) = \sum_T\varphi_i(d_T\thinspace u_T)$. 5. L'existence et l'unicité.
 
 </details>
 
@@ -335,12 +335,12 @@ Fiche §7 : « Ce qui est incompatible » (l'identité d'un score calibré) ; M2
 </details>
 <details><summary>Indice 2</summary>
 
-1. Conditionne par $S$ : $\mathbb{E}[S] = \sum_ss\,P(S = s)$, et la calibration remplace $s$ par $P(Y = 1 \mid S = s)$. 2. Conditionne par $Y$ : $\mathbb{E}[S] = p\,a + (1 - p)\,b$. 3. Isole $p$ ; pour le cas $1 - a + b = 0$, $0 \le S \le 1$ donne $a \le 1$ et $b \ge 0$. 4. Calibré : à chaque valeur du score, la part de pièces défectueuses égale cette valeur.
+1. Conditionne par $S$ : $\mathbb{E}[S] = \sum_ss\thinspace P(S = s)$, et la calibration remplace $s$ par $P(Y = 1 \mid S = s)$. 2. Conditionne par $Y$ : $\mathbb{E}[S] = p\thinspace a + (1 - p)\thinspace b$. 3. Isole $p$ ; pour le cas $1 - a + b = 0$, $0 \le S \le 1$ donne $a \le 1$ et $b \ge 0$. 4. Calibré : à chaque valeur du score, la part de pièces défectueuses égale cette valeur.
 
 </details>
 <details><summary>Indice 3</summary>
 
-3. $p\,(1 - a + b) = b$. Si $1 - a + b = 0$ : $1 - a \ge 0$ et $b \ge 0$ ont une somme nulle, donc $a = 1$ et $b = 0$ ; une variable positive d'espérance nulle est nulle presque sûrement : applique-le à $S$ sachant $Y = 0$, puis à $1 - S$ sachant $Y = 1$. 4. $a = \frac{15 \times 0{,}02 + 15 \times 0{,}1 + 30 \times 0{,}3}{60}$ ; $b$ sur les 940 bonnes pièces (735, 135 et 70) ; puis $\frac{b}{1 - a + b}$.
+3. $p\thinspace(1 - a + b) = b$. Si $1 - a + b = 0$ : $1 - a \ge 0$ et $b \ge 0$ ont une somme nulle, donc $a = 1$ et $b = 0$ ; une variable positive d'espérance nulle est nulle presque sûrement : applique-le à $S$ sachant $Y = 0$, puis à $1 - S$ sachant $Y = 1$. 4. $a = \frac{15 \times 0{,}02 + 15 \times 0{,}1 + 30 \times 0{,}3}{60}$ ; $b$ sur les 940 bonnes pièces (735, 135 et 70) ; puis $\frac{b}{1 - a + b}$.
 
 </details>
 
@@ -353,12 +353,12 @@ Fiche §7 : « Ce qui est incompatible » ; §8 : « Repondérer » ; M03 (proba
 </details>
 <details><summary>Indice 2</summary>
 
-1. $P(\hat Y = 1 \mid G = g) = t_g\,p_g + f_g\,(1 - p_g)$. Sous la séparation, c'est $f + (t - f)\,p_g$ : égal pour $g = 1$ et 2 si et seulement si $(t - f)(p_1 - p_2) = 0$. 2. Écris $Q(g, y) = P(g)\,P(y)$, puis sa somme et ses deux marges.
+1. $P(\hat Y = 1 \mid G = g) = t_g\thinspace p_g + f_g\thinspace(1 - p_g)$. Sous la séparation, c'est $f + (t - f)\thinspace p_g$ : égal pour $g = 1$ et 2 si et seulement si $(t - f)(p_1 - p_2) = 0$. 2. Écris $Q(g, y) = P(g)\thinspace P(y)$, puis sa somme et ses deux marges.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $t = f$ se lit $P(\hat Y = 1 \mid Y = 1, G = g) = P(\hat Y = 1 \mid Y = 0, G = g)$. Pour la réciproque, prends une décision qui ignore le label mais rejette plus souvent sur une ligne que sur l'autre : vérifie-t-elle l'indépendance ? 2. $\sum_yP(g)\,P(y) = P(g)$ ; et $Q$ est le produit de ses marges.
+1. $t = f$ se lit $P(\hat Y = 1 \mid Y = 1, G = g) = P(\hat Y = 1 \mid Y = 0, G = g)$. Pour la réciproque, prends une décision qui ignore le label mais rejette plus souvent sur une ligne que sur l'autre : vérifie-t-elle l'indépendance ? 2. $\sum_yP(g)\thinspace P(y) = P(g)$ ; et $Q$ est le produit de ses marges.
 
 </details>
 
@@ -446,7 +446,7 @@ Les contrôles d'abord : `isinstance(n_players, bool)` avant tout, puis un entie
 </details>
 <details><summary>Indice 3</summary>
 
-$w(s) = \frac{1}{n\binom{n-1}{s}}$, donc $\frac{w(0)}{w(s)} = \binom{n-1}{s}$ : b) est $\binom{24}{12}$. Contrôle : $\sum_s\binom{n-1}{s}\,w(s) = 1$ et $w(s) = w(n - 1 - s)$. Ce qu'il faut regarder : chaque taille pèse $\frac1n$ en tout, partagé entre ses $\binom{n-1}{s}$ coalitions.
+$w(s) = \frac{1}{n\binom{n-1}{s}}$, donc $\frac{w(0)}{w(s)} = \binom{n-1}{s}$ : b) est $\binom{24}{12}$. Contrôle : $\sum_s\binom{n-1}{s}\thinspace w(s) = 1$ et $w(s) = w(n - 1 - s)$. Ce qu'il faut regarder : chaque taille pèse $\frac1n$ en tout, partagé entre ses $\binom{n-1}{s}$ coalitions.
 
 </details>
 
@@ -557,12 +557,12 @@ Fiche §3 : « Deux façons de fixer une variable » ; M25a (la loi conditionnel
 </details>
 <details><summary>Indice 2</summary>
 
-$\operatorname{PD}(26) = e^{0{,}4}\,\mathbb{E}\big[e^{0{,}05(U - 70)}\big]$ avec $U \sim \mathcal{N}(70, 64)$. Pour $M(26)$, sachant $T = 26$, $U \sim \mathcal{N}\big(70 + \rho\frac83(26 - 22),\ 64(1 - \rho^2)\big)$. Puis $\mathbb{E}[e^{cZ}] = e^{c\mu + c^2\sigma^2/2}$. Pour b), la fenêtre $\lvert T_i - 26\rvert \le 0{,}25$ garde peu de points : compte-les.
+$\operatorname{PD}(26) = e^{0{,}4}\thinspace\mathbb{E}\big[e^{0{,}05(U - 70)}\big]$ avec $U \sim \mathcal{N}(70, 64)$. Pour $M(26)$, sachant $T = 26$, $U \sim \mathcal{N}\big(70 + \rho\frac83(26 - 22),\ 64(1 - \rho^2)\big)$. Puis $\mathbb{E}[e^{cZ}] = e^{c\mu + c^2\sigma^2/2}$. Pour b), la fenêtre $\lvert T_i - 26\rvert \le 0{,}25$ garde peu de points : compte-les.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\operatorname{PD}(26) = \exp\big(0{,}4 + \frac12 \times 0{,}05^2 \times 64\big)$ et $M(26) = \exp\big(0{,}4 + 0{,}05\,(m_\rho - 70) + \frac12 \times 0{,}05^2 \times 64(1 - \rho^2)\big)$, avec $m_\rho = 70 + \frac{32}{3}\rho$. b) `keep = np.abs(T - 26) <= 0.25`, puis la moyenne de `f(T[keep], U[keep])` ; pour PD, la moyenne de `f(26, U)`. Compare `keep.sum()` à 300 000.
+a) $\operatorname{PD}(26) = \exp\big(0{,}4 + \frac12 \times 0{,}05^2 \times 64\big)$ et $M(26) = \exp\big(0{,}4 + 0{,}05\thinspace(m_\rho - 70) + \frac12 \times 0{,}05^2 \times 64(1 - \rho^2)\big)$, avec $m_\rho = 70 + \frac{32}{3}\rho$. b) `keep = np.abs(T - 26) <= 0.25`, puis la moyenne de `f(T[keep], U[keep])` ; pour PD, la moyenne de `f(26, U)`. Compare `keep.sum()` à 300 000.
 
 </details>
 
@@ -593,12 +593,12 @@ Fiche §1 : « Les poids des coalitions » ; §6 : « Des rangs au lieu des vale
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque fonction, trouve d'abord ce qui est faux, sur un petit cas comparé à la définition ($n = 2$ ; deux valeurs égales ; $t = 0$ et $t = 1$), puis pourquoi l'entrée choisie par le collègue le cache : $n = 1$, un échantillon sans ex aequo, $t = \frac12$. Corrige le code du collègue lui-même, sans appeler `mymath`. Contrôle (1) par $\sum_s\binom{n-1}{s}\,w(s) = 1$, et (3) par les valeurs en $t = 0$ et $t = 1$.
+Pour chaque fonction, trouve d'abord ce qui est faux, sur un petit cas comparé à la définition ($n = 2$ ; deux valeurs égales ; $t = 0$ et $t = 1$), puis pourquoi l'entrée choisie par le collègue le cache : $n = 1$, un échantillon sans ex aequo, $t = \frac12$. Corrige le code du collègue lui-même, sans appeler `mymath`. Contrôle (1) par $\sum_s\binom{n-1}{s}\thinspace w(s) = 1$, et (3) par les valeurs en $t = 0$ et $t = 1$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-(1) `math.factorial(n)` au dénominateur. (2) Les places de chaque groupe de valeurs égales, puis leur moyenne pour chacune, comme dans `spearman_rho`. (3) $(1 - t)\,a + t\,b$. a) `sum(math.comb(6, s) * w[s] for s in range(7))` avec chaque fonction. b) Pearson sur `ranks_fixed(X_20)` et `ranks_fixed(Y_20)`, puis sur les rangs fautifs. c) $t = 0{,}3$, $a = 12$, $b = 20$.
+(1) `math.factorial(n)` au dénominateur. (2) Les places de chaque groupe de valeurs égales, puis leur moyenne pour chacune, comme dans `spearman_rho`. (3) $(1 - t)\thinspace a + t\thinspace b$. a) `sum(math.comb(6, s) * w[s] for s in range(7))` avec chaque fonction. b) Pearson sur `ranks_fixed(X_20)` et `ranks_fixed(Y_20)`, puis sur les rangs fautifs. c) $t = 0{,}3$, $a = 12$, $b = 20$.
 
 </details>
 
@@ -629,7 +629,7 @@ Fiche §1 : « Voter avec des poids » et « Les poids des coalitions » ; ✏�
 </details>
 <details><summary>Indice 2</summary>
 
-Le membre $i$ est pivot après une coalition $S$ des autres membres si son poids total $t$ vérifie $q - \omega_i \le t \le q - 1$. Donc $\varphi_i = \sum_sw(s)\,N_i(s)$, où $N_i(s)$ compte les coalitions de $s$ autres membres de poids total dans cette fenêtre. Ne les liste pas : compte-les dans un tableau indexé par la taille et le poids total, rempli membre par membre. Un poids total $\ge q$ ne sert jamais : $n \times q$ cases suffisent.
+Le membre $i$ est pivot après une coalition $S$ des autres membres si son poids total $t$ vérifie $q - \omega_i \le t \le q - 1$. Donc $\varphi_i = \sum_sw(s)\thinspace N_i(s)$, où $N_i(s)$ compte les coalitions de $s$ autres membres de poids total dans cette fenêtre. Ne les liste pas : compte-les dans un tableau indexé par la taille et le poids total, rempli membre par membre. Un poids total $\ge q$ ne sert jamais : $n \times q$ cases suffisent.
 
 </details>
 <details><summary>Indice 3</summary>

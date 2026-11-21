@@ -58,7 +58,7 @@ Le facteur au pire est le plus grand module. 3. Une composante multipliée par $
 </details>
 <details><summary>Indice 3</summary>
 
-4. Cherche le plus petit $k$ avec $0{,}5^k \le 10^{-3}$, c'est-à-dire $2^k \ge 1\,000$.
+4. Cherche le plus petit $k$ avec $0{,}5^k \le 10^{-3}$, c'est-à-dire $2^k \ge 1\thinspace000$.
 
 </details>
 
@@ -89,12 +89,12 @@ Relis le §5 : « Le meilleur pas, et le prix du conditionnement » et « Ce qui
 </details>
 <details><summary>Indice 2</summary>
 
-2. Multiplier $\mathbf{A}$ par 10 multiplie toutes ses valeurs propres par 10. 4. Le nombre d'itérations est $\frac{6\ln 10}{-\ln\rho^\star}$, ou à peu près $1{,}15\,\kappa\,d$.
+2. Multiplier $\mathbf{A}$ par 10 multiplie toutes ses valeurs propres par 10. 4. Le nombre d'itérations est $\frac{6\ln 10}{-\ln\rho^\star}$, ou à peu près $1{,}15\thinspace\kappa\thinspace d$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-5. $\tilde a_{12} = \frac{0{,}9}{\sqrt{9 \times 1}}$, puis les valeurs propres d'une matrice $\begin{pmatrix} 1 & c \\ c & 1 \end{pmatrix}$ sont $1 \pm c$. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
+5. $\tilde a_{12} = \frac{0{,}9}{\sqrt{9 \times 1}}$, puis les valeurs propres d'une matrice $\begin{pmatrix} 1 & c \cr c & 1 \end{pmatrix}$ sont $1 \pm c$. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
 
 </details>
 
@@ -178,12 +178,12 @@ Trace 9, déterminant $18 - 4 = 14$. Pour un vecteur propre de $\lambda$, résou
 
 <details><summary>Indice 1</summary>
 
-R5 §3 et §5 : $u_k = u_0\,m^k$ ; une suite $v_{k+1} = m\,v_k + c$ se ramène à une suite géométrique par l'écart à son point fixe.
+R5 §3 et §5 : $u_k = u_0\thinspace m^k$ ; une suite $v_{k+1} = m\thinspace v_k + c$ se ramène à une suite géométrique par l'écart à son point fixe.
 
 </details>
 <details><summary>Indice 2</summary>
 
-3. Le point fixe vérifie $\ell = 0{,}5\,\ell + 3$ ; l'écart $v_k - \ell$ est multiplié par $0{,}5$ à chaque pas.
+3. Le point fixe vérifie $\ell = 0{,}5\thinspace\ell + 3$ ; l'écart $v_k - \ell$ est multiplié par $0{,}5$ à chaque pas.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -246,7 +246,7 @@ $\frac{\partial f}{\partial x} = 3x^2 + 3y^2 - 15$, $\frac{\partial f}{\partial 
 </details>
 <details><summary>Indice 3</summary>
 
-$x^2 + y^2 = 5$ et $xy = 2$ donnent $(x + y)^2 = 9$ et $(x - y)^2 = 1$. Le bloc $\begin{pmatrix} 6x & 6y \\ 6y & 6x \end{pmatrix}$ a pour valeurs propres $6x + 6y$ (vecteur $(1, 1)$) et $6x - 6y$ (vecteur $(1, -1)$).
+$x^2 + y^2 = 5$ et $xy = 2$ donnent $(x + y)^2 = 9$ et $(x - y)^2 = 1$. Le bloc $\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}$ a pour valeurs propres $6x + 6y$ (vecteur $(1, 1)$) et $6x - 6y$ (vecteur $(1, -1)$).
 
 </details>
 
@@ -259,12 +259,12 @@ Relis le §3 : point fixe, écart, et décomposition de l'écart sur les vecteur
 </details>
 <details><summary>Indice 2</summary>
 
-a) Résous $(\mathbf{I} - \mathbf{M})\mathbf{x}^\star = \mathbf{c}$. c) Calcule $\mathbf{M}\mathbf{q}_1$ et $\mathbf{M}\mathbf{q}_2$. d) $\mathbf{e}_0 = \mathbf{x}_0 - \mathbf{x}^\star$, puis résous $a\,\mathbf{q}_1 + b\,\mathbf{q}_2 = \mathbf{e}_0$.
+a) Résous $(\mathbf{I} - \mathbf{M})\mathbf{x}^\star = \mathbf{c}$. c) Calcule $\mathbf{M}\mathbf{q}_1$ et $\mathbf{M}\mathbf{q}_2$. d) $\mathbf{e}_0 = \mathbf{x}_0 - \mathbf{x}^\star$, puis résous $a\thinspace\mathbf{q}_1 + b\thinspace\mathbf{q}_2 = \mathbf{e}_0$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{x}_3 = \mathbf{x}^\star + a\,\lambda_1^3\,\mathbf{q}_1 + b\,\lambda_2^3\,\mathbf{q}_2$. f) Le plus petit $k$ tel que $0{,}6^k \le 10^{-3}$. g) Calcule l'écart de départ $(5, 0) - \mathbf{x}^\star$.
+e) $\mathbf{x}_3 = \mathbf{x}^\star + a\thinspace\lambda_1^3\thinspace\mathbf{q}_1 + b\thinspace\lambda_2^3\thinspace\mathbf{q}_2$. f) Le plus petit $k$ tel que $0{,}6^k \le 10^{-3}$. g) Calcule l'écart de départ $(5, 0) - \mathbf{x}^\star$.
 
 </details>
 
@@ -282,7 +282,7 @@ Calcule à chaque pas $\mathbf{A}\mathbf{x}_k$, puis le résidu, puis le pas. Le
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{x}_1 = 0{,}08\,\mathbf{b}$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}24 ;\ 2{,}88)$. d) $5 \pm 3$. g) $1 - 0{,}3 \times 8$. h) L'écart de départ $(1, -1)$ est un vecteur propre : de quelle valeur propre de $\mathbf{I} - 0{,}3\,\mathbf{A}$ ?
+b) $\mathbf{x}_1 = 0{,}08\thinspace\mathbf{b}$ ; $\mathbf{A}\mathbf{x}_1 = (2{,}24 ;\ 2{,}88)$. d) $5 \pm 3$. g) $1 - 0{,}3 \times 8$. h) L'écart de départ $(1, -1)$ est un vecteur propre : de quelle valeur propre de $\mathbf{I} - 0{,}3\thinspace\mathbf{A}$ ?
 
 </details>
 
@@ -295,7 +295,7 @@ Relis l'encadré « Énoncé » du §5 et la formule $k \ge \frac{d\ln 10}{-\ln\
 </details>
 <details><summary>Indice 2</summary>
 
-a) Le bloc $\begin{pmatrix} 7 & 6 \\ 6 & 7 \end{pmatrix}$ a pour valeurs propres $7 \pm 6$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
+a) Le bloc $\begin{pmatrix} 7 & 6 \cr 6 & 7 \end{pmatrix}$ a pour valeurs propres $7 \pm 6$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -313,7 +313,7 @@ Relis « Le polynôme caractéristique » (fiche §6) et son exemple.
 </details>
 <details><summary>Indice 2</summary>
 
-$r^2 - 0{,}7r + 0{,}1 = 0$ : somme $0{,}7$, produit $0{,}1$. Puis $\alpha + \beta = u_0$ et $\alpha r_1 + \beta r_2 = u_1$. Pour $(v_k)$, attention aux signes : $v_{k+2} = 1{,}5\,v_{k+1} + v_k$ donne $r^2 - 1{,}5r - 1$.
+$r^2 - 0{,}7r + 0{,}1 = 0$ : somme $0{,}7$, produit $0{,}1$. Puis $\alpha + \beta = u_0$ et $\alpha r_1 + \beta r_2 = u_1$. Pour $(v_k)$, attention aux signes : $v_{k+2} = 1{,}5\thinspace v_{k+1} + v_k$ donne $r^2 - 1{,}5r - 1$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,7 +349,7 @@ Relis le §7 et son exemple du capteur : la dérivée exacte est la moyenne des 
 </details>
 <details><summary>Indice 2</summary>
 
-En $a = 2$, les résidus $a\,I_k - U_k$ valent $0$, $1$, $-1$, $-1$. La variance avec remise est $\sigma^2/B$ ; sans remise, multiplie par $\frac{N - B}{N - 1}$.
+En $a = 2$, les résidus $a\thinspace I_k - U_k$ valent $0$, $1$, $-1$, $-1$. La variance avec remise est $\sigma^2/B$ ; sans remise, multiplie par $\frac{N - B}{N - 1}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -372,7 +372,7 @@ b) $\lVert\mathbf{x}\rVert > 2{,}8$ : multiplie $\mathbf{x}$ par $2{,}8/7$. c) C
 </details>
 <details><summary>Indice 3</summary>
 
-d) $\mathbf{x} - (2, -2, 2) = (4, -1, 0)$. e) $\cos = \frac{\mathbf{x}\cdot\mathbf{y}}{\lVert\mathbf{x}\rVert\,\lVert\mathbf{y}\rVert}$ avec $\lVert(2, -2, 2)\rVert = 2\sqrt3$.
+d) $\mathbf{x} - (2, -2, 2) = (4, -1, 0)$. e) $\cos = \frac{\mathbf{x}\cdot\mathbf{y}}{\lVert\mathbf{x}\rVert\thinspace\lVert\mathbf{y}\rVert}$ avec $\lVert(2, -2, 2)\rVert = 2\sqrt3$.
 
 </details>
 
@@ -389,7 +389,7 @@ Relis le §3 : l'écart vérifie $\mathbf{e}_{k+1} = \mathbf{M}\mathbf{e}_k$, et
 </details>
 <details><summary>Indice 2</summary>
 
-1. $\mathbf{I} - \mathbf{M}$ a pour valeurs propres les $1 - \lambda_i$. 3. Les $\mathbf{q}_i$ sont orthonormés : $\lVert\sum_ic_i\mathbf{q}_i\rVert^2 = \sum_ic_i^2$ (Pythagore, M12b). 4. Passe à la limite dans $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$.
+1. $\mathbf{I} - \mathbf{M}$ a pour valeurs propres les $1 - \lambda_i$. 3. Les $\mathbf{q}_i$ sont orthonormés : $\lVert\sum_ic_i\mathbf{q} _i\rVert^2 = \sum_ic_i^2$ (Pythagore, M12b). 4. Passe à la limite dans $\mathbf{x} _{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -425,7 +425,7 @@ Relis « Quand tend-elle vers 0 ? » (fiche §6) et le triangle de la figure.
 </details>
 <details><summary>Indice 2</summary>
 
-1. Le système $\alpha + \beta = u_0$, $\alpha r_1 + \beta r_2 = u_1$ a pour déterminant $r_2 - r_1 \ne 0$ ; pour l'hérédité, $r_i^2 = p\,r_i - q$. 3. $q = r_1r_2 = r\bar r = \lvert r\rvert^2$, et $(1 - \sqrt q)^2 \ge 0$. 4. Une parabole tournée vers le haut a ses deux racines dans $]-1, 1[$ exactement quand elle est positive en $-1$ et en $1$ et que son sommet est entre les deux.
+1. Le système $\alpha + \beta = u_0$, $\alpha r_1 + \beta r_2 = u_1$ a pour déterminant $r_2 - r_1 \ne 0$ ; pour l'hérédité, $r_i^2 = p\thinspace r_i - q$. 3. $q = r_1r_2 = r\bar r = \lvert r\rvert^2$, et $(1 - \sqrt q)^2 \ge 0$. 4. Une parabole tournée vers le haut a ses deux racines dans $]-1, 1[$ exactement quand elle est positive en $-1$ et en $1$ et que son sommet est entre les deux.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -448,7 +448,7 @@ Relis le §8 ; pour 1., écris $\mathbf{x} = (\mathbf{x} - \mathbf{y}) + \mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-5. Si $P(\mathbf{x}) = t\,\mathbf{x}$ avec $t < 1$ (puisque $\mathbf{x}$ est hors du pavé) : une coordonnée coupée vérifie $c = t\lvert x_i\rvert$ ; une coordonnée non coupée vérifie $x_i = t\,x_i$, donc $x_i = 0$.
+5. Si $P(\mathbf{x}) = t\thinspace\mathbf{x}$ avec $t < 1$ (puisque $\mathbf{x}$ est hors du pavé) : une coordonnée coupée vérifie $c = t\lvert x_i\rvert$ ; une coordonnée non coupée vérifie $x_i = t\thinspace x_i$, donc $x_i = 0$.
 
 </details>
 
@@ -488,7 +488,7 @@ a) Trace $16{,}25$, déterminant $4 - 1 = 3$ ; pour ne pas perdre de chiffres, c
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\,x_i$. Dans ta copie : regarde la diagonale de $\begin{pmatrix} 1 & 0{,}9 \\ 0{,}9 & 1 \end{pmatrix}$.
+c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\thinspace x_i$. Dans ta copie : regarde la diagonale de $\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$.
 
 </details>
 

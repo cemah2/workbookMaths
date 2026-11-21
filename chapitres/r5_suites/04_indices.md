@@ -58,7 +58,7 @@ Compte les termes avant tout. Dans la formule géométrique, l'exposant est le n
 </details>
 <details><summary>Indice 3</summary>
 
-1 : $100 \times \frac{1 + 100}{2} = 5\,050$, **vrai**. Pour 2, compte les rangs de 0 à $n$. Pour 7, quel est le premier terme de la somme, et combien y a-t-il de termes ?
+1 : $100 \times \frac{1 + 100}{2} = 5\thinspace050$, **vrai**. Pour 2, compte les rangs de 0 à $n$. Pour 7, quel est le premier terme de la somme, et combien y a-t-il de termes ?
 
 </details>
 
@@ -112,7 +112,7 @@ Développe $v_t$ en remplaçant $v_{t-1}$, puis $v_{t-2}$ : chaque pas en arriè
 </details>
 <details><summary>Indice 3</summary>
 
-1 : 0,3. Pour 2, développe $v_t = 0{,}3\,x_t + 0{,}7\,v_{t-1}$ et regarde avec quel poids $x_{t-1}$ entre dans $v_{t-1}$. Pour 6, que reste-t-il de $v_{t-1}$ ?
+1 : 0,3. Pour 2, développe $v_t = 0{,}3\thinspace x_t + 0{,}7\thinspace v_{t-1}$ et regarde avec quel poids $x_{t-1}$ entre dans $v_{t-1}$. Pour 6, que reste-t-il de $v_{t-1}$ ?
 
 </details>
 
@@ -165,7 +165,7 @@ Relis les pourcentages et les coefficients multiplicateurs (fiche de R1).
 </details>
 <details><summary>Indice 2</summary>
 
-Une hausse de $t\,\%$ multiplie par $1 + \frac{t}{100}$, une baisse par $1 - \frac{t}{100}$ ; des évolutions successives multiplient leurs coefficients.
+Une hausse de $t$ % multiplie par $1 + \frac{t}{100}$, une baisse par $1 - \frac{t}{100}$ ; des évolutions successives multiplient leurs coefficients.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -205,12 +205,12 @@ Relis « On ajoute toujours le même nombre » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$u_n = u_0 + n\,r$ ; pour une suite qui commence au rang 1, $a_n = a_1 + (n - 1)\,r$. Pour savoir si un nombre est un terme, résous l'équation en $n$ et regarde si $n$ est un entier positif.
+$u_n = u_0 + n\thinspace r$ ; pour une suite qui commence au rang 1, $a_n = a_1 + (n - 1)\thinspace r$. Pour savoir si un nombre est un terme, résous l'équation en $n$ et regarde si $n$ est un entier positif.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $u_n = 7 + 4n$. Pour d, résous $12 - 2{,}5(n - 1) < 0$, puis prends le premier entier qui convient. Pour g, la hauteur après $n$ heures est $24 - 1{,}5\,n$.
+a : $u_n = 7 + 4n$. Pour d, résous $12 - 2{,}5(n - 1) < 0$, puis prends le premier entier qui convient. Pour g, la hauteur après $n$ heures est $24 - 1{,}5\thinspace n$.
 
 </details>
 
@@ -223,7 +223,7 @@ Relis « On multiplie toujours par le même nombre » et « Pourcentages et int�
 </details>
 <details><summary>Indice 2</summary>
 
-$v_n = v_0\,q^n$ ; pour une suite qui commence au rang 1, $w_n = w_1\,q^{n-1}$. Une hausse de 20 % multiplie par 1,2.
+$v_n = v_0\thinspace q^n$ ; pour une suite qui commence au rang 1, $w_n = w_1\thinspace q^{n-1}$. Une hausse de 20 % multiplie par 1,2.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -277,12 +277,12 @@ Relis « Pourcentages et intérêts composés » (fiche §3).
 </details>
 <details><summary>Indice 2</summary>
 
-Intérêts composés : $C_n = 3\,000 \times 1{,}025^n$ ; simples : $3\,000 + 75\,n$. Actualiser, c'est diviser par $1{,}025^n$. Pour f, le coefficient annuel est $1{,}01^{12}$.
+Intérêts composés : $C_n = 3\thinspace000 \times 1{,}025^n$ ; simples : $3\thinspace000 + 75\thinspace n$. Actualiser, c'est diviser par $1{,}025^n$. Pour f, le coefficient annuel est $1{,}01^{12}$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $3\,000 \times 1{,}025 = 3\,075$ €. Pour d, calcule $C_{11}$ et $C_{12}$. Pour e, résous $x \times 1{,}025^6 = 5\,000$.
+a : $3\thinspace000 \times 1{,}025 = 3\thinspace075$ €. Pour d, calcule $C_{11}$ et $C_{12}$. Pour e, résous $x \times 1{,}025^6 = 5\thinspace000$.
 
 </details>
 
@@ -295,7 +295,7 @@ Relis « La moyenne exponentielle » et « Ses poids forment une suite géométr
 </details>
 <details><summary>Indice 2</summary>
 
-Applique la règle pas à pas, en partant de $v_0 = 0$ : $v_t = 0{,}8\,v_{t-1} + 0{,}2\,x_t$. Pour e, développe $v_3$ comme dans la fiche.
+Applique la règle pas à pas, en partant de $v_0 = 0$ : $v_t = 0{,}8\thinspace v_{t-1} + 0{,}2\thinspace x_t$. Pour e, développe $v_3$ comme dans la fiche.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -353,7 +353,7 @@ Relis la somme des premiers entiers (fiche de R4, §5) et la somme arithmétique
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $u_k = u_0 + k\,r$ et $u_{n-1-k} = u_0 + (n - 1 - k)\,r$, puis additionne : les $k$ disparaissent.
+Écris $u_k = u_0 + k\thinspace r$ et $u_{n-1-k} = u_0 + (n - 1 - k)\thinspace r$, puis additionne : les $k$ disparaissent.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -375,12 +375,12 @@ Relis la fin de « Pourcentages et intérêts composés » (fiche §3) et la som
 </details>
 <details><summary>Indice 2</summary>
 
-Le versement de l'année $k$ vaut aujourd'hui $\frac{1\,000}{1{,}04^k}$. Ces valeurs forment une suite géométrique : son premier terme (année 1), sa raison, son nombre de termes.
+Le versement de l'année $k$ vaut aujourd'hui $\frac{1\thinspace000}{1{,}04^k}$. Ces valeurs forment une suite géométrique : son premier terme (année 1), sa raison, son nombre de termes.
 
 </details>
 <details><summary>Indice 3</summary>
 
-a : $\frac{1\,000}{1{,}04} \approx 961{,}54$. Pour c, le premier terme est la réponse de a, la raison celle de b, et il y a 8 termes. Pour e, refais c) avec 1,06.
+a : $\frac{1\thinspace000}{1{,}04} \approx 961{,}54$. Pour c, le premier terme est la réponse de a, la raison celle de b, et il y a 8 termes. Pour e, refais c) avec 1,06.
 
 </details>
 
@@ -433,7 +433,7 @@ Relis le terme général (fiche §2) et la somme géométrique (fiche §4).
 </details>
 <details><summary>Indice 2</summary>
 
-`arithmetic_term` : une ligne, la formule $u_0 + n\,r$. `geometric_sum` : traite d'abord le cas `q == 1` (la somme vaut `n` fois `u0`), puis applique la formule ; `n` est le nombre de termes.
+`arithmetic_term` : une ligne, la formule $u_0 + n\thinspace r$. `geometric_sum` : traite d'abord le cas `q == 1` (la somme vaut `n` fois `u0`), puis applique la formule ; `n` est le nombre de termes.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -520,12 +520,12 @@ a : `np.cumsum(4 + 3 * np.arange(10))`. Pour c, multiplie 1 000 par les produits
 
 <details><summary>Indice 1</summary>
 
-Relis « Une récurrence affine : $u_{n+1} = a\,u_n + b$ » (fiche §5).
+Relis « Une récurrence affine : $u_{n+1} = a\thinspace u_n + b$ » (fiche §5).
 
 </details>
 <details><summary>Indice 2</summary>
 
-Deux questions à te poser : quelle est la solution de $\ell = 0{,}75\,\ell + 2$ ? Et par quoi l'écart à cette valeur est-il multiplié à chaque pas ?
+Deux questions à te poser : quelle est la solution de $\ell = 0{,}75\thinspace\ell + 2$ ? Et par quoi l'écart à cette valeur est-il multiplié à chaque pas ?
 
 </details>
 <details><summary>Indice 3</summary>
