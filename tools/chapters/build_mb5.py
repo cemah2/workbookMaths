@@ -2302,15 +2302,19 @@ with checked("MB5.24"):
     report_24(passes("MB5.24a", on_ref_c24), "tes trois tests, sur euler_ode et midpoint_ode de la référence",
               "tes trois tests ne rendent pas, sur euler_ode et midpoint_ode de la référence, ce que dit la fiche §8 de "
               "ces deux méthodes : relis les propriétés de chacune (et, pour error_halves_24, prends N assez grand)")
-    REF_FILE_C24 = REF.gaussian_paths.__file__
+    LIBRARY_FILES_C24 = [REF.gaussian_paths.__file__]
+    try:
+        LIBRARY_FILES_C24.append(mymath.gaussian_paths.__file__)          # your own gaussian_paths.py too
+    except Exception:  # noqa: BLE001 - no module of yours yet: only the reference is watched
+        pass
 
     def no_reference_c24(label, method):
-        """The verdicts on a method that never calls the reference: a call of the reference comes from the test."""
-        with code_from([REF_FILE_C24]) as seen:
+        """The verdicts on a method that never calls gaussian_paths.py: a call comes from the test."""
+        with code_from(LIBRARY_FILES_C24) as seen:
             got = verdicts_c24(label, method)
         if seen:
-            print(f"❌ Ex MB5.24 : un de tes tests appelle la référence ({seen[0]}) : il doit comparer la méthode à la "
-                  "solution exacte de son champ, pas à euler_ode ou midpoint_ode de la référence")
+            print(f"❌ Ex MB5.24 : un de tes tests appelle {seen[0]} : il doit comparer la méthode à la solution exacte "
+                  "de son champ, pas à euler_ode ou midpoint_ode (ceux de la référence ou les tiens)")
             raise StopCheck
         return got
 
@@ -2342,7 +2346,7 @@ MB5_24 = ex(
 - `affine_is_exact_24(method)` vérifie de même qu'avec un champ $f(t, x) = \kappa_0 + \kappa_1t$, chaque point rendu est sur la parabole exacte, à $10^{-9}$ près en valeur absolue ;
 - `error_halves_24(method)` vérifie que, pour un champ qui dépend de $t$ et de $x$ dont tu connais la solution exacte, l'erreur au temps final est divisée par un nombre entre $1{,}8$ et $2{,}2$ quand le nombre de pas passe de $N$ à $2N$ (avec $N$ assez grand).
 
-La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses champs et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode, ni la pile d'appels, ni les noms de la vérification, et n'appelle pas `euler_ode` ni `midpoint_ode` de la référence (la vérification le contrôle). Relève :
+La vérification lance tes trois tests sur `euler_ode` et `midpoint_ode` de la référence (`ref_gp.euler_ode`, `ref_gp.midpoint_ode`), sur deux autres écritures justes de ces méthodes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses champs et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode, ni la pile d'appels, ni les noms de la vérification, et n'appelle pas `euler_ode` ni `midpoint_ode` (ni ceux de la référence, ni les tiens : la vérification le contrôle). Relève :
 - a) les résultats de tes trois tests sur `euler_ode`, puis sur `midpoint_ode` de la référence (deux listes de 3 booléens, dans l'ordre constant, affine, erreur).""",
     todo='''def constant_is_exact_24(method):
     """True when, for constant velocity fields (several values, several numbers of steps, t0 < t1), every point returned

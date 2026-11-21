@@ -2167,15 +2167,20 @@ with checked("MB6.21"):
     # a test runs the method: it reads neither the method, nor the stack, nor the names of this cell
     refuse_peeking("MB6.21", TESTS_C21, globals(), private=("_c21", "_C21"))
 
-    REF_FILE_C21 = REF.attribution.__file__
+    LIBRARY_FILES_C21 = [REF.attribution.__file__]
+    try:
+        LIBRARY_FILES_C21.append(mymath.attribution.__file__)          # your own attribution.py too
+    except Exception:  # noqa: BLE001 - no module of yours yet: only the reference is watched
+        pass
 
     def no_reference_c21(label, method):
-        """The verdicts on a method that never calls the reference: a call of the reference comes from the test."""
-        with code_from([REF_FILE_C21]) as seen:
+        """The verdicts on a method that never calls attribution.py: a call comes from the test."""
+        with code_from(LIBRARY_FILES_C21) as seen:
             got = verdicts_c21(label, method)
         if seen:
-            print(f"❌ Ex MB6.21 : un de tes tests appelle line_integral de la référence ({seen[0]}) : il doit comparer "
-                  "la méthode à −valeur, à la valeur sans le sommet ajouté, ou à f(fin) − f(début), pas à la référence")
+            print(f"❌ Ex MB6.21 : un de tes tests appelle {seen[0]} : il doit comparer la méthode à −valeur, à la valeur "
+                  "sans le sommet ajouté, ou à f(fin) − f(début), pas à une autre version de line_integral (celle de la "
+                  "référence ou la tienne)")
             raise StopCheck
         return got
 
@@ -2214,7 +2219,7 @@ MB6_21 = ex(
 
 Chaque comparaison se fait à $10^{-9}$ près en valeur relative, plus finement que la tolérance par défaut de `np.allclose` (`rtol=1e-5`, `atol=1e-8`). Choisis tes champs pour que chaque propriété tienne à l'arrondi près pour `line_integral` de la référence (`ref_att.line_integral`) : parcourir un segment à l'envers garde les mêmes points de Simpson, pour tout champ, mais une méthode aux points non symétriques ne se voit que si $\mathbf{F}\cdot\boldsymbol\gamma'$ varie le long d'un segment (ce n'est pas le cas du champ tournant $(-y, x)$) ; la règle de Simpson n'est exacte que si $t \mapsto \mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$ est un polynôme de degré au plus 3 sur chaque segment, et, pour un autre champ, couper un segment en deux change le résultat d'environ $10^{-5}$ : pour les deux derniers tests, prends des champs dont les coordonnées sont des polynômes de degré 2 ou 3.
 
-La vérification lance tes trois tests sur `line_integral` de la référence, sur deux autres méthodes justes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses lignes brisées et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode ni la pile d'appels, et n'appelle pas `line_integral` de la référence (la vérification le contrôle). Relève :
+La vérification lance tes trois tests sur `line_integral` de la référence, sur deux autres méthodes justes, puis sur des méthodes fausses cachées, passées sous un nom neutre (un test juge ce que fait la méthode, pas son nom), une par clause de l'énoncé, que chaque test doit refuser quand sa propriété est fausse. Un test exécute la méthode sur ses lignes brisées et compare ses résultats à ce que dit la propriété : il ne lit ni la méthode ni la pile d'appels, et n'appelle pas `line_integral` (ni celle de la référence, ni la tienne : la vérification le contrôle). Relève :
 - a) les résultats de tes trois tests sur `line_integral` de la référence (une liste de 3 booléens, dans l'ordre sens inversé, segment coupé, gradient).""",
     todo='''def reversed_changes_sign_21(method):
     """True when, on several polylines drawn at random and a field that is not a gradient, method(field, points[::-1])

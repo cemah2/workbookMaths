@@ -462,7 +462,8 @@ FORBIDDEN = {"sklearn", "torch", "scipy", "sympy", "tensorflow", "jax", "statsmo
 
 
 def function_bodies(path):
-    """{name: the syntax tree of the function, without its docstring} for each function of a Python file."""
+    """{name: (the syntax tree of the function without its docstring, its number of statements)} for each function
+    of a Python file."""
     found = {}
     for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
@@ -470,18 +471,19 @@ def function_bodies(path):
             if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
                     and isinstance(body[0].value.value, str):
                 body = body[1:]                                  # the docstring
-            found[node.name] = ast.dump(node.args) + "".join(ast.dump(statement) for statement in body)
+            found[node.name] = (ast.dump(node.args) + "".join(ast.dump(statement) for statement in body), len(body))
     return found
 
 
 def copied_functions(mine_path, ref_path):
     """The functions of your module whose code is that of the reference, docstrings, comments and spaces aside (a
-    function pasted from solutions/mymath_ref/ into the file of the stub)."""
+    function pasted from solutions/mymath_ref/ into the file of the stub); never a function of one statement, which
+    the docstring of the stub often gives word for word (sigmoid)."""
     try:
         mine, ref = function_bodies(mine_path), function_bodies(ref_path)
     except SyntaxError:                                          # your file does not parse: its tests say where
         return set()
-    return {name for name, tree in mine.items() if ref.get(name) == tree}
+    return {name for name, (tree, size) in mine.items() if size > 1 and ref.get(name, ("", 0))[0] == tree}
 
 
 def mymath_calls(tree):

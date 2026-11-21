@@ -207,7 +207,7 @@ IMPLEMENTATION = r"""
 
 📝 **PS.6** (3 points) · Présente `algo.py` : ses fonctions publiques, la formule de §3 que chacune calcule, les fonctions de `mymath` qu'il appelle et ce qu'elles font dans le calcul, et le coût d'un appel (en fonction de $n$ et $p$, M18 §5 si c'est une rétropropagation).
 
-La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si le code de cette fonction est celui de la référence, aux docstrings, aux commentaires et aux espaces près (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
+La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si le code de cette fonction est celui de la référence, aux docstrings, aux commentaires et aux espaces près (une fonction d'une seule instruction, que sa docstring donne souvent mot pour mot, n'est jamais marquée) (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
 """
 
 CONTROL_CODE = r'''
@@ -219,7 +219,8 @@ MYMATH_MODULES = {}   # module of mymath -> the test file of its chapter
 
 
 def function_bodies(path):
-    """{name: the syntax tree of the function, without its docstring} for each function of a Python file."""
+    """{name: (the syntax tree of the function without its docstring, its number of statements)} for each function
+    of a Python file."""
     found = {}
     for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
@@ -227,18 +228,19 @@ def function_bodies(path):
             if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
                     and isinstance(body[0].value.value, str):
                 body = body[1:]                                  # the docstring
-            found[node.name] = ast.dump(node.args) + "".join(ast.dump(statement) for statement in body)
+            found[node.name] = (ast.dump(node.args) + "".join(ast.dump(statement) for statement in body), len(body))
     return found
 
 
 def copied_functions(mine_path, ref_path):
     """The functions of your module whose code is that of the reference, docstrings, comments and spaces aside (a
-    function pasted from solutions/mymath_ref/ into the file of the stub)."""
+    function pasted from solutions/mymath_ref/ into the file of the stub); never a function of one statement, which
+    the docstring of the stub often gives word for word (sigmoid)."""
     try:
         mine, ref = function_bodies(mine_path), function_bodies(ref_path)
     except SyntaxError:                                          # your file does not parse: its tests say where
         return set()
-    return {name for name, tree in mine.items() if ref.get(name) == tree}
+    return {name for name, (tree, size) in mine.items() if size > 1 and ref.get(name, ("", 0))[0] == tree}
 
 
 def mymath_calls(tree):

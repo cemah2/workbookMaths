@@ -31,6 +31,6 @@ Le notebook s'ouvre dans Jupyter depuis ce dossier, ou sur Colab depuis ton Driv
 
 ## Trois règles à garder en tête
 
-- **Ton module appelle ta librairie** : au moins trois fonctions de `mymath` que tu as écrites, chacune utile au calcul. La cellule « Contrôle du module » de §6 marque chaque fonction « à toi » ou « référence » (un module absent de `mon_travail/mymath/` est pris dans la référence, et une fonction recopiée de la référence (aux docstrings, aux commentaires et aux espaces près) est marquée « copie de la référence » : ni l'un ni l'autre ne compte).
+- **Ton module appelle ta librairie** : au moins trois fonctions de `mymath` que tu as écrites, chacune utile au calcul. La cellule « Contrôle du module » de §6 marque chaque fonction « à toi » ou « référence » (un module absent de `mon_travail/mymath/` est pris dans la référence, et une fonction de plus d'une instruction recopiée de la référence (aux docstrings, aux commentaires et aux espaces près) est marquée « copie de la référence » : ni l'un ni l'autre ne compte).
 - **Tes tests ont un oracle indépendant** : NumPy, SciPy, SymPy, scikit-learn ou PyTorch, jamais une autre de tes fonctions ni ta formule recopiée. Ils appellent `algo.<fonction>(...)` par la fixture `algo` (jamais `from algo import ...`, que la mutation n'atteindrait pas).
 - **Le code est prêt** quand `pytest -rfs` ne saute plus rien, que la mutation fait échouer un test, et que « Run all » finit sans erreur en moins de 5 minutes, sorties conservées.

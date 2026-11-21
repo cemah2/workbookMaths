@@ -444,7 +444,9 @@ def test_watched_sees_each_of_two_functions_of_the_same_source_in_two_files(tmp_
 # refuse_peeking: a 🛠️ test or a 🏆 function that reads instead of running (audit of part VII, session 78)
 # ---------------------------------------------------------------------------
 NOTEBOOK_PEEK = '''
+import functools
 import sys
+from sys import _getframe as up_24
 
 WRONG_C24 = [("wrong", "euler_wrong")]
 
@@ -503,6 +505,29 @@ def private_24(method):
 
 def oracle_24(method):
     return passes("MB5.24", method)
+
+
+class Caller24:
+    def __call__(self, method):
+        return method.__closure__
+
+
+caller_24 = Caller24()
+closed_24 = (lambda f: lambda method: f(method))(closure_24)
+partial_24 = functools.partial(lambda read, method: read(method), closure_24)
+
+
+@functools.cache
+def cached_24(method):
+    return method.__closure__[0].cell_contents.__name__
+
+
+def alias_24(method):
+    return up_24(1)
+
+
+def set_attr_24(method):
+    setattr(method, "".join(["__na", "me__"]), "method")
 '''
 
 
@@ -529,6 +554,25 @@ def test_peeked_finds_what_a_function_reads_instead_of_running():
     assert peeked(nb["private_24"], nb, private=("_c24", "_C24")) == {"WRONG_C24"}   # a name of the check cell
     assert peeked(nb["oracle_24"], nb) == set()
     assert peeked(nb["oracle_24"], nb, names=frozenset({"passes"})) == {"passes"}
+
+
+@pytest.mark.parametrize("name, expected", [
+    ("caller_24", {"__closure__"}),                                  # an object of the notebook with __call__
+    ("closed_24", {"__closure__", "cell_contents", "__name__"}),     # a function held in a closure
+    ("partial_24", {"__closure__", "cell_contents", "__name__"}),    # functools.partial
+    ("cached_24", {"__closure__", "cell_contents", "__name__"}),     # functools.cache
+    ("alias_24", {"_getframe"}),                                     # from sys import _getframe as up_24
+    ("set_attr_24", {"setattr"}),                                    # an attribute of a name built, written
+])
+def test_peeked_follows_what_a_function_holds_wraps_or_renames(name, expected):
+    """Relecture of the corrections of session 78 (R1): a trick wrapped in a callable object, a closure, functools.partial
+    or functools.cache, or reached by an alias of import, is still seen; setattr is in the list."""
+    from wbm.nbtools import peeked, refuse_peeking
+
+    nb = notebook_peek()
+    assert peeked(nb[name], nb) == expected
+    with pytest.raises(StopCheck):
+        refuse_peeking("MB5.24", {name: nb[name]}, nb)
 
 
 def test_refuse_peeking_prints_one_line_and_stops_the_check(capsys):
