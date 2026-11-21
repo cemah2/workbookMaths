@@ -94,7 +94,9 @@ PAPER = [
          "[-1 / RATE_1 ** 2, 0.0]",
          '''decimals=2,
            mistakes={"1/θ est une puissance de θ : sa dérivée n'est pas −1/θ": [-1 / RATE_1, 0.0],
-                     "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne": [1.0, 0.0]}'''),
+                     "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne": [1.0, 0.0],
+                     "la dérivée par le chemin dérive l'indicatrice tirage par tirage, ξ fixé : regarde comment varie "
+                     "1{ξ/θ > c} quand θ bouge un peu, au lieu de reprendre b)": [-1 / RATE_1 ** 2, DERIV_1]}'''),
         ("e", "a number (2 decimals): the variance of g(X), at one draw", "SQUARE_1 - DERIV_1 ** 2",
          '''decimals=2,
            mistakes={"une variance retranche le carré de l'espérance de l'estimateur": SQUARE_1,
@@ -134,7 +136,9 @@ PAPER = [
            mistakes={"les espérances de b* sont pondérées par les probabilités des trois issues":
                          floats([bstar_2(weighted=False), variance_2(bstar_2(weighted=False))]),
                      "une variance retranche le carré de la dérivée, même avec la baseline optimale":
-                         floats([bstar_2(), variance_2(bstar_2()) + DERIV_2 ** 2])}'''),
+                         floats([bstar_2(), variance_2(bstar_2()) + DERIV_2 ** 2]),
+                     "c'est la baseline b = E[f] de d) : b* pondère chaque issue par s²":
+                         floats([mean_2(PRICE_2), variance_2(mean_2(PRICE_2))])}'''),
     ]),
 
     Paper("MB8.3", syllabus_entry("MB8.3")[3], [
@@ -149,7 +153,9 @@ PAPER = [
            mistakes={"V(s) somme les récompenses actualisées de tous les jours à venir, pas seulement celle du jour":
                          R_3.tolist(),
                      "le camion passe d'un emplacement à l'autre : V = r_π + γ P_π V couple les deux équations":
-                         (R_3 / (1 - GAMMA_3)).tolist()}'''),
+                         (R_3 / (1 - GAMMA_3)).tolist(),
+                     "les journées du camion sont actualisées par γ = 0,7 (0,6 est le γ du barrage de la fiche)":
+                         np.linalg.solve(np.eye(2) - 0.6 * P_3, R_3).tolist()}'''),
         ("c", "a list of 2 numbers (3 decimals): M[market, market], then M[park, market]", "M_3[:, 0].tolist()",
          '''decimals=3,
            mistakes={"la question demande (I − γ P_π)⁻¹ elle-même, sans le facteur 1 − γ de la loi d'occupation":
@@ -223,7 +229,9 @@ PAPER = [
            mistakes={"la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés":
                          floats(sum(W_5[k] for k in SAMPLE_5)),
                      "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des "
-                     "poids": floats(sum(W_5[k] ** 2 for k in SAMPLE_5) / sum(W_5[k] for k in SAMPLE_5))}'''),
+                     "poids": floats(sum(W_5[k] ** 2 for k in SAMPLE_5) / sum(W_5[k] for k in SAMPLE_5)),
+                     "6 est le nombre de panélistes : la taille effective tient compte de l'inégalité de leurs poids":
+                         float(len(SAMPLE_5))}'''),
         ("d", "a list of 2 numbers (2 decimals): the reweighted mean with the weights min(w, 1.6), then its bias",
          "floats([capped_5(), capped_5() - mean_5([w * f for w, f in zip(W_5, F_5)])])",
          '''decimals=2,
@@ -236,7 +244,9 @@ PAPER = [
            mistakes={"la KL moyenne les ln(q/p) avec les poids q de chaque classe":
                          sum(math.log(q / p) for q, p in zip(Q_5, P_5)),
                      "la KL moyenne des logarithmes de rapports, pas les rapports moins 1":
-                         sum(float(q) * float(q / p - 1) for q, p in zip(Q_5, P_5))}'''),
+                         sum(float(q) * float(q / p - 1) for q, p in zip(Q_5, P_5)),
+                     "c'est KL(p ‖ q) : la question demande KL(q ‖ p)":
+                         sum(float(p) * math.log(float(p / q)) for q, p in zip(Q_5, P_5))}'''),
         ("f", "a list of 3 numbers (4 decimals): k1 for a panelist of each class", "K1_5",
          '''decimals=4,
            mistakes={"k₁ est la valeur d'un tirage de la classe, pas sa contribution q k₁ à la moyenne":
@@ -256,20 +266,27 @@ PAPER = [
            mistakes={"les forces sont des logits : la différence des parts de victoires n'est pas la différence des forces":
                          float((WINS_6[0, 1] - WINS_6[1, 0]) / MATCHES_6[0, 1]),
                      "σ(d) = 2/7 : retrouver d demande la réciproque de la sigmoïde, pas le seul logarithme":
-                         math.log(WINS_6[0, 1] / MATCHES_6[0, 1])}'''),
+                         math.log(WINS_6[0, 1] / MATCHES_6[0, 1]),
+                     "2/7 est la probabilité σ(β_A − β_B) que A batte B : la question demande la différence des forces":
+                         float(WINS_6[0, 1] / MATCHES_6[0, 1])}'''),
         ("b", "a list of 3 numbers (2 decimals): the expected wins of A against B, of A against C, of B against C",
          "expected_6(PROPOSED_6)",
          '''decimals=2,
            mistakes={"les victoires attendues se calculent avec les forces proposées, pas en recopiant le tableau":
                          [WINS_6[0, 1], WINS_6[0, 2], WINS_6[1, 2]],
                      "les nombres proposés sont les p_i = e^{β_i}, pas les forces β_i elles-mêmes":
-                         expected_6(np.exp(PROPOSED_6))}'''),
+                         expected_6(np.exp(PROPOSED_6)),
+                     "ce sont les victoires attendues du second club de chaque paire (B contre A, C contre A, C contre B)":
+                         [MATCHES_6[0, 1] - expected_6(PROPOSED_6)[0], MATCHES_6[0, 2] - expected_6(PROPOSED_6)[1],
+                          MATCHES_6[1, 2] - expected_6(PROPOSED_6)[2]]}'''),
         ("c", "a list of 3 numbers (4 decimals): the centred strengths beta_A, beta_B, beta_C", "BETA_6.tolist()",
          '''decimals=4,
            mistakes={"chaque paire seule ne suffit pas : les forces se lisent sur toutes les rencontres du tournoi à la fois":
                          centred_6([math.log(WINS_6[0, 1] / WINS_6[1, 0]), 0.0, math.log(WINS_6[2, 1] / WINS_6[1, 2])]),
                      "le rapport victoires sur défaites de chaque club ne tient pas compte de la force de ses adversaires":
-                         centred_6(np.log(WINS_6.sum(axis=1) / WINS_6.sum(axis=0)))}'''),
+                         centred_6(np.log(WINS_6.sum(axis=1) / WINS_6.sum(axis=0))),
+                     "ce sont les ln p_i : les forces centrées retranchent leur moyenne, pour que β_A + β_B + β_C = 0":
+                         np.log(np.asarray(PROPOSED_6, dtype=float)).tolist()}'''),
         ("d", "a number (4 decimals): the probability that C beats A at a next match",
          "PROPOSED_6[2] / (PROPOSED_6[2] + PROPOSED_6[0])",
          '''decimals=4,
@@ -307,7 +324,9 @@ PAPER = [
            mistakes={"la valeur retranche β KL(π* ‖ π_ref) à la satisfaction moyenne sous π*":
                          gibbs_7(3.0)[0].tolist() + [float(gibbs_7(3.0)[0] @ R_7)],
                      "avec β = 3, les exposants sont r/β, pas β r": gibbs_7(1 / 3.0)[0].tolist() + [3 * math.log(
-                         float((REF_7 * np.exp(3 * R_7)).sum()))]}'''),
+                         float((REF_7 * np.exp(3 * R_7)).sum()))],
+                     "β pèse la KL comme une température : les exposants divisent r par β, et la valeur multiplie ln Z "
+                     "par β": gibbs_7(1 / 3.0)[0].tolist() + [math.log(float((REF_7 * np.exp(3 * R_7)).sum())) / 3]}'''),
     ]),
 
     Paper("MB8.11", syllabus_entry("MB8.11")[3], [
@@ -2278,7 +2297,7 @@ MB8_21 = ex(
     "MB8.21", "estimer avec un budget de tirages la dérivée d'une probabilité de dépassement pour une loi qu'on ne "
     "connaît pas, et le vérifier sur des lois cachées.", "fiche §2 et §3 ; Ex MB8.1, MB8.13, MB8.17", note=NOTE_21,
     given=GIVEN_21,
-    body=r"""Écris `derivative_21(draw, c, budget)`, qui estime $J'(\theta) = \frac{\mathrm{d}}{\mathrm{d}\theta}P_\theta(X > c)$ pour une loi $p_\theta$ que tu ne connais pas. Ta fonction peut appeler `draw(k, delta=0.0)`, qui rend deux tableaux de `k` flottants : `k` tirages indépendants $x_i$ de $p_{\theta + \delta}$, puis leurs scores $s_{\theta + \delta}(x_i)$, au paramètre du tirage ; ses appels réunis ne doivent pas dépasser `budget` tirages (au-delà, `draw` rend des `nan`, et le cas échoue). Ni la famille de la loi ni $\theta$ ne sont donnés : la loi est exponentielle, de Poisson, normale ou binomiale, et le seuil $c$ donne une probabilité $P_\theta(X > c)$ qui va de presque 0 à presque 1. Le notebook fournit un cas d'essai, les attentes au téléphone de MB8.1 (`TRIAL_21` : taux $0{,}1$, seuil 18 minutes, budget de 10 000 tirages), et une fonction `draw` pour lui (`trial_draw_21()` en rend une nouvelle, qui compte ses tirages).
+    body=r"""Écris `derivative_21(draw, c, budget)`, qui estime $J'(\theta) = \frac{\mathrm{d}}{\mathrm{d}\theta}P_\theta(X > c)$ pour une loi $p_\theta$ que tu ne connais pas. Ta fonction peut appeler `draw(k, delta=0.0)` : $k$ tirages, un décalage $\delta$ de $\theta$ (propre à cet exercice). Elle rend deux tableaux de `k` flottants : `k` tirages indépendants $x_i$ de $p_{\theta + \delta}$, puis leurs scores $s_{\theta + \delta}(x_i)$, au paramètre du tirage ; ses appels réunis ne doivent pas dépasser `budget` tirages (au-delà, `draw` rend des `nan`, et le cas échoue). Ni la famille de la loi ni $\theta$ ne sont donnés : la loi est exponentielle, de Poisson, normale ou binomiale, et le seuil $c$ donne une probabilité $P_\theta(X > c)$ qui va de presque 0 à presque 1. Le notebook fournit un cas d'essai, les attentes au téléphone de MB8.1 (`TRIAL_21` : taux $0{,}1$, seuil 18 minutes, budget de 10 000 tirages), et une fonction `draw` pour lui (`trial_draw_21()` en rend une nouvelle, qui compte ses tirages).
 
 **Critère de réussite :** ton estimation est à 10 % près (en valeur relative) de $J'(\theta)$ pour le cas d'essai, et pour au moins 90 % des 120 cas cachés (douze séries de dix), tirés à nouveau à chaque exécution par un processus à part, qui sert les tirages et compte ceux de chaque cas. Ta fonction ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb8_21.py`), ni lancer un autre processus : la vérification le contrôle. Relève :
 - a) ton estimation pour le cas d'essai (un nombre ; la vérification la compare à la dérivée exacte, à 10 % près).

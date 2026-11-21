@@ -119501,7 +119501,8 @@
       "kind": "array",
       "mistakes": {
         "3316a96ae90bf7a7bbeb3332d2ebc92729cbcd2f86763ac6ec9b2999a947ad7c": "1/θ est une puissance de θ : sa dérivée n'est pas −1/θ",
-        "735883b5fa958e260c43b3bac404f157bfba42e57274b73c1ba2faf16b507ab5": "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne"
+        "735883b5fa958e260c43b3bac404f157bfba42e57274b73c1ba2faf16b507ab5": "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne",
+        "b65b927899b91cced04e5b6ad1945e4993584aaf2d10cc28c721655f6e746330": "la dérivée par le chemin dérive l'indicatrice tirage par tirage, ξ fixé : regarde comment varie 1{ξ/θ > c} quand θ bouge un peu, au lieu de reprendre b)"
       },
       "shape": [
         2
@@ -119649,6 +119650,7 @@
       "kind": "array",
       "mistakes": {
         "0d39b5d3223fdae9833be14073e595a069214e6d4ff0d9d2f16dd8f540202bd9": "les espérances de b* sont pondérées par les probabilités des trois issues",
+        "116be2ad678b654401031fe1a0ec16b7579150d71574d6118eaba920a9154281": "c'est la baseline b = E[f] de d) : b* pondère chaque issue par s²",
         "30980a00a18274a41a78c052b992d0a176c1d42805411d850e7c1b4369bd51e0": "une variance retranche le carré de la dérivée, même avec la baseline optimale"
       },
       "shape": [
@@ -119732,7 +119734,8 @@
       "kind": "array",
       "mistakes": {
         "7416d58731de031c227abb9f1a12cf7a261c4984490d442174445d878438cb25": "V(s) somme les récompenses actualisées de tous les jours à venir, pas seulement celle du jour",
-        "99f831aef2796da3f0c72efe6aa3d0d54bd21d34f6e07f9da9cf10fc4b75ad57": "le camion passe d'un emplacement à l'autre : V = r_π + γ P_π V couple les deux équations"
+        "99f831aef2796da3f0c72efe6aa3d0d54bd21d34f6e07f9da9cf10fc4b75ad57": "le camion passe d'un emplacement à l'autre : V = r_π + γ P_π V couple les deux équations",
+        "f44dba1522385b080caf44460a77a3446ea5a92bc026847468db18f1fcd7714f": "les journées du camion sont actualisées par γ = 0,7 (0,6 est le γ du barrage de la fiche)"
       },
       "shape": [
         2
@@ -120117,7 +120120,8 @@
       "magnitude": 0,
       "mistakes": {
         "0366e4468a06ae4b6f8784602636d6c6fb583f4b4a8bd622f08524c99cb171aa": "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des poids",
-        "20086d80ca7bd2f4fb2a77195c2c1add9ec5848f6166e5e17a6c3997f32b6d9b": "la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés"
+        "20086d80ca7bd2f4fb2a77195c2c1add9ec5848f6166e5e17a6c3997f32b6d9b": "la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés",
+        "2c540aac34a095a9435d0fc13e450e765d39536a9a2247df20d7cf7df0cc20e1": "6 est le nombre de panélistes : la taille effective tient compte de l'inégalité de leurs poids"
       },
       "sign": 1,
       "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
@@ -120173,6 +120177,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
+        "41b532b543373fbf8627458ac0a1e8e6a115736b361b642e0a24dda536ddef01": "c'est KL(p ‖ q) : la question demande KL(q ‖ p)",
         "7783f1ff68468a8028a60c7e4400619d3e1ff48e6952be9dbb5c8f35e677a61a": "la KL moyenne les ln(q/p) avec les poids q de chaque classe",
         "a0134bc65a0806f0d077c4ac4f073a2ab148f0b53066473ea9104dbd429dfc29": "la KL moyenne des logarithmes de rapports, pas les rapports moins 1"
       },
@@ -120286,7 +120291,8 @@
       "magnitude": -1,
       "mistakes": {
         "07f41293ed2c8071e03a017803c353a84f54a3af0df5885d745e6eb52c385169": "σ(d) = 2/7 : retrouver d demande la réciproque de la sigmoïde, pas le seul logarithme",
-        "57157022fbdb1a060fe09dae4195b4f0a5628605e6536b9078b00786f7c42a08": "les forces sont des logits : la différence des parts de victoires n'est pas la différence des forces"
+        "57157022fbdb1a060fe09dae4195b4f0a5628605e6536b9078b00786f7c42a08": "les forces sont des logits : la différence des parts de victoires n'est pas la différence des forces",
+        "a4652dd080ab979a4ac83c00b0a1207bb7e0ae565cf9a65d2efd220acf573c16": "2/7 est la probabilité σ(β_A − β_B) que A batte B : la question demande la différence des forces"
       },
       "sign": -1,
       "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
@@ -120323,6 +120329,7 @@
       "hash": "abb9d10d152cd16eaa8066bb7beee6dc5881387a9b32a9ed9f2a594372bac51a",
       "kind": "array",
       "mistakes": {
+        "0753c6dcfe25e34104812f1f3f773f7aa429cd04f851f7a05cdffb849cec38d1": "ce sont les victoires attendues du second club de chaque paire (B contre A, C contre A, C contre B)",
         "1bfd016eced6d3e32e34559881558fbb64375d819491497db570ffb5da515f49": "les nombres proposés sont les p_i = e^{β_i}, pas les forces β_i elles-mêmes",
         "ca68542ee8d788ec70c09d725a4a3e2e0076184b7373a60deecef199ce17f49d": "les victoires attendues se calculent avec les forces proposées, pas en recopiant le tableau"
       },
@@ -120369,6 +120376,7 @@
       "kind": "array",
       "mistakes": {
         "70122985e7d2dbcf18de9b6c2462553584f8bae34f7acf67c04654afb7d83c2b": "le rapport victoires sur défaites de chaque club ne tient pas compte de la force de ses adversaires",
+        "a9789017ca58326dcb2a5e777469ae8229602005b130298ab27d371e393ab705": "ce sont les ln p_i : les forces centrées retranchent leur moyenne, pour que β_A + β_B + β_C = 0",
         "ae793ea0dc80938500be830359a75298e84b742a7ea594030f76f1ce3f9372da": "chaque paire seule ne suffit pas : les forces se lisent sur toutes les rencontres du tournoi à la fois"
       },
       "shape": [
@@ -120567,6 +120575,7 @@
       "hash": "6e0cfef44dbc84a3112bd60601aa516e434cbbc991b56630482c69d12620eaf4",
       "kind": "array",
       "mistakes": {
+        "4fdee7d8beba30e61ded185048f1e8529a534c7c63bcfc9625a1d3ceb939ebc2": "β pèse la KL comme une température : les exposants divisent r par β, et la valeur multiplie ln Z par β",
         "c6a4e852f4b9e249a52c1c882376b3f32671456da4073ad3d53762d0d5743d87": "avec β = 3, les exposants sont r/β, pas β r",
         "df9bb84d2176be021cd62e921fe8ef40794f68b7db7038a56bc2817bd82328cf": "la valeur retranche β KL(π* ‖ π_ref) à la satisfaction moyenne sous π*"
       },
