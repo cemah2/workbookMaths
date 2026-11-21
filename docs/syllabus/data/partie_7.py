@@ -2048,7 +2048,7 @@ CHAPTERS = [
                     "variables de contrôle (control variates) : f − c(h − E[h]) sans biais, c* = Cov(f, h)/Var(h), "
                     "variance (1 − ρ²)Var(f) ; pour l'estimateur score, toute constante b donne (f − b)s sans biais (E[s] "
                     "= 0) ; baseline optimale b* = E[f s²]/E[s²] (une moyenne de f pondérée par s²), différente de E[f] en "
-                    "général ; une mauvaise baseline augmente la variance",
+                    "général ; Var((f − b)s) est un trinôme en b, minimal en b* (à la génération, session 75 : « une mauvaise baseline augmente la variance » n'est pas écrit, c'est l'erreur fréquente du corrigé de ∂ B8.7 ; la figure du trinôme suffit)",
                     "baselines de groupe : sur n tirages i.i.d., la moyenne des n − 1 autres f est une baseline sans biais "
                     "; la moyenne des n, tirage compris, multiplie l'estimateur par (n − 1)/n ; diviser par l'écart-type "
                     "du groupe garde le signe de chaque terme, mais l'espérance n'est plus exactement proportionnelle à la "
@@ -2083,20 +2083,25 @@ CHAPTERS = [
                     "M06) ; le maximum β ln Z ; les limites β → 0 (le meilleur choix) et β → ∞ (π_ref) ; r déterminée par "
                     "π* et π_ref à une constante près ; les cas particuliers déjà vus : Boltzmann (M17), Hedge (M14), la "
                     "température d'une loi (M28)"],
-        "requires": [("dérivée d'un logarithme et d'une composée", "R7"),
+        "requires": [("fonction du second degré (trinôme) et son minimum", "R3"),
+                     ("suite et série géométriques", "R5"),
+                     ("dérivée d'un logarithme et d'une composée", "R7"),
+                     ("intégration par parties", "M02a"),
                      ("lois de Bernoulli, binomiale, de Poisson, exponentielle et normale ; espérance, variance, variance "
-                      "d'une somme de variables indépendantes", "M02b"),
+                      "d'une somme de variables indépendantes ; simulation par inversion", "M02b"),
                      ("estimateur sans biais, erreur type d'une moyenne, covariance et corrélation, loi des grands nombres",
                       "M02c"),
                      ("maximum de vraisemblance, log-probabilités, famille exponentielle (aperçu)", "M04"),
                      ("différences finies centrées et choix du pas, Taylor d'ordre 2, une fonction convexe est au-dessus "
                       "de ses tangentes, log-sum-exp", "M05a"),
                      ("divergence KL et sa positivité (inégalité de Gibbs), entropie", "M06"),
+                     ("inégalité de Cauchy-Schwarz", "M07"),
                      ("sigmoïde, logit, log-loss, régression logistique comme modèle probabiliste ; la convexité de "
                       "log-somme-exp (sa dérivée seconde est une variance)", "M13a"),
                      ("poids exponentiels : l'algorithme Hedge", "M14"),
                      ("puissances d'une matrice d'adjacence et chemins d'un graphe", "M16"),
                      ("loi de Boltzmann et température, jacobienne de la softmax diag(p) − ppᵀ", "M17"),
+                     ("règle du produit pour des fonctions à valeurs matricielles", "M18"),
                      ("gradient estimé sans biais sur un échantillon, variance d'une moyenne de B tirages", "M19"),
                      ("estimateur de Horvitz-Thompson ; tableaux à trois axes et einsum", "M20"),
                      ("dériver une espérance par rapport à un paramètre de la loi : la dérivée par le chemin, l'hypothèse "

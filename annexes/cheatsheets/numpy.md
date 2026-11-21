@@ -1,6 +1,6 @@
 # Cheatsheet NumPy pour les maths
 
-Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, équations différentielles et décibels, coalitions, rangs moyens et grilles agrandies, calcul numérique.
+Les bases de NumPy (tableaux, formes, broadcasting) sont dans le chapitre 0A de workbookIA et son `annexes/cheatsheets/numpy.md`. Ici, ce qui sert aux maths : vecteurs, matrices, algèbre linéaire, convolutions, récurrences, lois gaussiennes, mélanges, chaînes de Markov, distances entre lois, matrices de Gram et motifs sur une grille, bases 2 et 16, tables creuses, rotations de l'espace, horloges et softmax en ligne, rangs et classements, équations différentielles et décibels, coalitions, rangs moyens et grilles agrandies, lois données par leur taux et log-sum-exp pondéré, calcul numérique.
 
 ```python
 import numpy as np
@@ -250,6 +250,18 @@ Des joueurs `0, …, n - 1` ; deux échantillons appariés `x` et `y` ; un profi
 | agrandir un profil par interpolation linéaire | `scipy.ndimage.zoom(a, H / h, order=1)` aligne les coins (`grid_mode=False`, par défaut : le premier et le dernier centre restent en place) ; `scipy.ndimage.zoom(a, H / h, order=1, grid_mode=True, mode="nearest")` aligne les centres (les bords coïncident) ; `order=3`, le réglage par défaut, interpole par des polynômes de degré 3, pas linéairement ; sur un tableau à deux dimensions, l'interpolation est bilinéaire |
 
 Dans `mymath/attribution.py`, la docstring du module dit ce qui est permis : NumPy et les modules `math`, `fractions` et `itertools`, mais ni SciPy (`spearmanr`, `rankdata`, `pearsonr`, `scipy.integrate`), ni `np.corrcoef`, ni `np.cov`, ni le module `statistics`, ni pandas : les tests comparent tes résultats aux leurs ; les imports relatifs de tes propres modules sont permis (`from .integrate import simpson`, M02a). Un jeu est une fonction qui reçoit un `frozenset`, et une fonction ne modifie jamais les tableaux qu'elle reçoit. Les poids des coalitions, les dividendes, la règle de Simpson et les rangs moyens sont dans la fiche (§1, §2, §4 et §6) ; les coder est le travail des 🔨 MB6.13 à MB6.16.
+
+## Lois données par leur taux, log-sum-exp pondéré (MB8)
+
+Un paramètre `theta` de loi ; des gains `r` et une loi de référence `pi_ref` de même longueur ; un `beta > 0`.
+
+| Je veux… | Code |
+|---|---|
+| tirer une loi exponentielle de taux $\theta$ | `rng.exponential(scale=1/theta, size=n)` : NumPy prend l'**échelle**, la moyenne $\frac1\theta$, et non le taux (`rng.exponential(theta)` tirerait la loi de moyenne $\theta$) ; de même `scipy.stats.expon(scale=1/theta)` ; la densité en `x` : `theta * np.exp(-theta * x)` |
+| tirer une loi de Poisson, une binomiale, une normale | `rng.poisson(theta, size=n)` (de moyenne `theta`), `rng.binomial(m, theta, size=n)` (`m` essais de probabilité `theta`), `rng.normal(mu, sigma, size=n)` (le second argument est l'**écart-type**) |
+| $\beta\ln\sum_x\pi_{\mathrm{ref}}(x)\,e^{r(x)/\beta}$, sans débordement | `beta * scipy.special.logsumexp(r / beta, b=pi_ref)` : l'argument `b` multiplie chaque exponentielle ; une issue où `pi_ref` vaut 0 ne compte pas, même si son `r` est très grand |
+
+Dans `mymath/policy_gradient.py`, la docstring du module dit ce qui est permis : NumPy et le module `math`, de `np.linalg` seulement `solve` et `matrix_rank` (dans `policy_gradient_exact`), et ni SciPy ni scikit-learn (`scipy.optimize`, `scipy.special`, `sklearn.linear_model`) : les tests comparent tes résultats à des sommes exactes, à des différences finies de valeurs calculées par `np.linalg.solve`, à `scipy.optimize.minimize` et à scikit-learn ; l'import relatif de ta fonction de M26 est permis (`from .markov import bellman_linear_solve`). Rien n'y tire au hasard : les fonctions reçoivent des valeurs calculées à partir de tirages faits ailleurs, et ne modifient jamais les tableaux qu'elles reçoivent. L'estimateur score, le gradient de la valeur, les poids d'importance et l'algorithme de Zermelo sont dans la fiche (§2, §3, §4, §6 et §7) ; les coder est le travail des 🔨 MB8.13 à MB8.16.
 
 ## Calcul numérique
 

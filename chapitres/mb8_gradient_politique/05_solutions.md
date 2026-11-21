@@ -1,0 +1,287 @@
+# MB8 · Gradient de politique — solutions
+
+> À lire **après** avoir cherché (et ouvert les indices de `04_indices.md`). Pour chaque exercice : les réponses, la démarche, les erreurs fréquentes et une variante ; pour une démonstration, une rédaction modèle et une grille de relecture, qui accepte toute démonstration correcte. Les exercices du notebook sont corrigés dans `05_solutions.ipynb` ; leur résumé est à la fin.
+
+**Sommaire** : [🧠 Quiz](#quiz) · [🔁 Rappels](#rappels) · [✏️ Papier-crayon](#papier) · [∂ Démonstrations](#demonstrations) · [🔗 Pont](#pont) · [🗣️ Explication](#reflexion) · [💼 Entretien](#entretien) · [Notebook](#notebook)
+
+<a id="quiz"></a>
+
+## 🧠 Quiz
+
+### MB8.Q1 — La fonction score : espérance nulle, information de Fisher, support qui dépend du paramètre, et dériver une espérance par le score ou par le chemin
+
+1. $\ln p_\theta(x) = -\frac{(x - \theta)^2}{8} + \text{constante}$, donc $s_\theta(x) = \frac{x - \theta}{4}$ ; $I(\theta) = \mathbb{V}\big(\frac{X - \theta}{4}\big) = \frac{4}{16} = \frac14$, ou $-\mathbb{E}[\partial^2_\theta\ln p_\theta] = \frac14$ (fiche §1).
+2. $\frac12I(4)\,(0{,}2)^2 = \frac12 \times \frac14 \times 0{,}04 = 0{,}005$ nat. La valeur exacte, $4\ln\frac{4}{4{,}2} + 0{,}2 \approx 0{,}00484$, est très proche.
+3. $\ln p_\theta(x) = -(x - \theta)$ : le score vaut 1 sur tout le support, et son espérance aussi, pas 0. Le support $[\theta, +\infty[$ bouge avec $\theta$ : l'identité $\mathbb{E}[s_\theta] = 0$ suppose un support fixe (∂ MB8.8).
+4. Il faut $\frac{1{,}44}{n} \le 0{,}05^2$, soit $n = \frac{1{,}44}{0{,}0025} = 576$ tirages.
+5. Faux. $\mathbf{1}\{\theta + \xi > 3\}$ ne dépend de $\theta$ que par un saut : sa dérivée est nulle presque sûrement, et la dérivée par le chemin donne 0. Or $P_\theta(X > 3) = P(\xi > 3 - \theta)$ a pour dérivée la densité normale en $3 - \theta$, positive. L'hypothèse de domination de M25b §7 tombe sur une indicatrice ; le score, lui, donne la bonne réponse (fiche §2).
+
+### MB8.Q2 — Variables de contrôle et baselines : ce qui garde l'espérance, ce qui réduit la variance, ce qui biaise
+
+1. $c^\star = \frac{\operatorname{Cov}(f, h)}{\mathbb{V}(h)} = \frac54 = 1{,}25$, et la variance devient $10 - \frac{5^2}{4} = 3{,}75$.
+2. $1 - \rho^2 = 1 - 0{,}81 = 0{,}19$ : le signe de la corrélation ne compte pas ($c^\star$ change de signe avec elle).
+3. $\mathbb{E}[(f - b)\,s] = \mathbb{E}[fs] - b\,\mathbb{E}[s] = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[f]$, pour tout $b$, puisque $\mathbb{E}[s_\theta] = 0$. La variance est la plus petite en $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ (∂ MB8.9) ; elle grandit comme $(b - b^\star)^2\,\mathbb{E}[s^2]$ quand $b$ s'en éloigne.
+4. Par $\frac{n - 1}{n} = \frac78$ : la moyenne du batch contient la valeur du tirage lui-même, corrélée à son score. Avec la moyenne des sept autres, l'espérance ne change pas (∂ MB8.9).
+5. Faux : la correction $c\,(h - \mathbb{E}[h])$ demande $\mathbb{E}[h]$ ; avec une valeur fausse, l'estimation est décalée de $c$ fois l'erreur. Un score est une variable de contrôle naturelle : son espérance est connue, nulle.
+
+### MB8.Q3 — Le gradient de la valeur d'une politique et le λ-retour : la loi d'occupation actualisée, l'avantage d'espérance nulle, le poids de chaque retour à k pas
+
+1. $V(s) = 0{,}1 \times 5 + 0{,}6 \times 1 + 0{,}3 \times 2 = 1{,}7$ ; $A = (3{,}3 ;\ -0{,}7 ;\ 0{,}3)$ ; $0{,}33 - 0{,}42 + 0{,}09 = 0$ (fiche §4).
+2. $\frac{1}{1 - \gamma} = 2{,}5$ : $\mathbf{M} = \sum_t\gamma^t\mathbf{P}_\pi^t$, et chaque $\mathbf{P}_\pi^t$ a des lignes de somme 1. La position au pas 3 pèse $(1 - \gamma)\gamma^3 = 0{,}4 \times 0{,}216 = 0{,}0864$.
+3. $0{,}4 + 0{,}24 = 0{,}64 = 1 - \lambda^2$ ; le nombre moyen de pas est $\frac{1}{1 - \lambda} = 2{,}5$.
+4. Vrai : $\frac{\partial V(s_0)}{\partial z(s, a)} = \mathbf{M}[s_0, s]\,\pi(a \mid s)\,A(s, a)$, et $\mathbf{M}[s_0, s] = 0$ quand $s$ n'est jamais visité depuis $s_0$.
+5. Vrai : le biais vaut $\gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$, nul pour $\mathbf{e} = \mathbf{0}$ (fiche §5).
+
+### MB8.Q4 — Échantillonnage d'importance et KL estimée : support, taille effective, poids tronqués, k₁ ou k₃
+
+1. Non, en général : aucun tirage de $q$ ne tombe dans $[0, 1]$, et la moyenne des $w_if(x_i)$ estime $\int_{q > 0}pf$, pas $\mathbb{E}_p[f]$. Elle reste juste si $f = 0$ sur $[0, 1]$ : il faut $q > 0$ là où $pf \ne 0$ (fiche §6).
+2. $\frac{6^2}{9 + 1 + 1 + 1} = 3$ ; la même chose après multiplication par 10 : la taille effective ne voit que les rapports des poids.
+3. Faux : $\min(w, c) \le w$, et pour $f \ge 0$ l'espérance baisse dès qu'un poids dépasse $c$ là où $pf \ne 0$. On échange un biais contre une variance plus petite.
+4. $k_1 = -\ln 1{,}5 \approx -0{,}405$ et $k_3 = 0{,}5 - \ln 1{,}5 \approx 0{,}095$. $k_1$ peut être négatif ; $k_3 \ge 0$ à chaque tirage (la tangente de $\ln$ en 1 est au-dessus de sa courbe).
+
+### MB8.Q5 — Bradley-Terry et Elo : ce que les forces identifient, quand elles existent, ce que fait une mise à jour
+
+1. Elles ne changent pas : $\sigma(\beta_i - \beta_j)$ ne dépend que des différences. Les forces ne sont identifiées qu'à une constante près ; on les centre.
+2. Oui : A → B → C → D → A, le graphe des victoires est fortement connexe. Chaque joueuse gagne un match sur deux ; avec des forces égales, elle en attend $2 \times \frac12 = 1$ : les équations du maximum de vraisemblance tiennent, et les forces centrées sont toutes nulles.
+3. $20 \times (0 - 0{,}64) = -12{,}8$ points.
+4. $\frac{1}{1 + 10^{-1}} = \frac{10}{11} \approx 0{,}909$.
+
+### MB8.Q6 — Le principe de Gibbs : la loi optimale, ses limites en β, et ce que mesure β ln Z
+
+1. $e^{r/\beta} = e^{r\ln 2} = 2^r$, soit $(2 ;\ 1)$ ; multiplié par $\frac12$ et normalisé : $\pi^\star = (\frac23 ;\ \frac13)$.
+2. Quand $\beta \to 0$, vers les issues de plus grande satisfaction parmi celles que $\pi_{\mathrm{ref}}$ charge ; quand $\beta \to +\infty$, vers $\pi_{\mathrm{ref}}$ (fiche §8).
+3. Faux : $\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$ est nulle là où $\pi_{\mathrm{ref}}$ l'est.
+4. $\beta\ln Z$ est le maximum de $F$, atteint en $\pi^\star$ seulement. Il est au moins $F(\pi_{\mathrm{ref}}) = \mathbb{E}_{\mathrm{ref}}[r]$, et au plus $\max r$ (et au moins $\max r + \beta\ln\pi_{\mathrm{ref}}(x^\star)$).
+
+<a id="rappels"></a>
+
+## 🔁 Rappels
+
+### MB8.R1 — La jacobienne de la softmax, diag(p) − ppᵀ, lue comme la covariance d'un vecteur one-hot, et la loi de Boltzmann (M17)
+
+1. $\frac{\partial p_i}{\partial z_j} = p_i(\mathbf{1}\{i = j\} - p_j)$, soit $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top = \begin{pmatrix} 0{,}16 & -0{,}14 & -0{,}02 \\ -0{,}14 & 0{,}21 & -0{,}07 \\ -0{,}02 & -0{,}07 & 0{,}09 \end{pmatrix}$.
+2. $\sum_ip_i = 1$ quels que soient les logits : ses dérivées sont nulles. La matrice est symétrique, donc ses colonnes somment aussi à 0 (ajouter une constante à tous les logits ne change rien).
+3. $\mathbb{E}[\mathbf{Y}] = \mathbf{p}$ ; $Y_iY_j = 0$ pour $i \ne j$ et $Y_i^2 = Y_i$, donc $\mathbb{E}[\mathbf{Y}\mathbf{Y}^\top] = \operatorname{diag}(\mathbf{p})$ ; la covariance est $\operatorname{diag}(\mathbf{p}) - \mathbf{p}\mathbf{p}^\top$ : la jacobienne de 1.
+4. $e^0 = 1$, $e^{-1{,}5} \approx 0{,}223130$, $e^{-3} \approx 0{,}049787$ ; leur somme vaut $1{,}272917$ : $(0{,}7856 ;\ 0{,}1753 ;\ 0{,}0391)$.
+
+### MB8.R2 — Le système de Bellman d'une politique fixée, la loi d'occupation actualisée et le télescopage des erreurs TD (M26)
+
+1. $\mathbf{I} - 0{,}6\,\mathbf{P}_\pi = \begin{pmatrix} 0{,}58 & -0{,}18 \\ -0{,}12 & 0{,}52 \end{pmatrix}$, de déterminant $0{,}28$ : $\mathbf{V} = (15{,}5 ;\ 5{,}5)$ (vérification : $0{,}58 \times 15{,}5 - 0{,}18 \times 5{,}5 = 8$).
+2. La ligne 0 de $\mathbf{M}$ vaut $\frac{(0{,}52 ;\ 0{,}18)}{0{,}28}$ ; $\boldsymbol\nu_0 = 0{,}4 \times$ cette ligne $= (\frac{26}{35} ;\ \frac{9}{35}) \approx (0{,}7429 ;\ 0{,}2571)$, et $\frac{\boldsymbol\nu_0\mathbf{r}_\pi}{0{,}4} = \frac{217/35}{0{,}4} = 15{,}5$.
+3. $8 + 0{,}6\,(0{,}7 \times 16 + 0{,}3 \times 5) - 16 = 8 + 7{,}62 - 16 = -0{,}38$.
+4. $\sum_{k=0}^{n-1}\gamma^k\delta_{t+k} = \sum_{k=0}^{n-1}\gamma^kR_{t+k} + \gamma^nW(S_{t+n}) - W(S_t)$ : les termes en $W$ se compensent deux à deux (M26 §8), pour toute fonction $W$.
+
+### MB8.R3 — La dérivée par le chemin, son hypothèse de domination, et l'indicatrice où elle échoue (M25b)
+
+1. $\frac{\partial}{\partial\theta}(\theta + U)^2 = 2(\theta + U)$, d'espérance $2\theta + 1 = 4$ ; et $\mathbb{E}_\theta[X^2] = \theta^2 + \theta + \frac13$, de dérivée $2\theta + 1$.
+2. Une domination : pour $\theta$ voisin de $1{,}5$, la dérivée (ou le taux d'accroissement) de $(\theta + u)^2$ est majorée par une fonction de $u$ intégrable, indépendante de $\theta$ (ici $2(2 + u)$ convient).
+3. $P_\theta(X > 2) = P(U > 2 - \theta) = \theta - 1 = 0{,}5$ pour $1 \le \theta \le 2$, de dérivée 1. La dérivée de $\mathbf{1}\{\theta + U > 2\}$ est nulle sauf au saut, de probabilité nulle : le chemin donne 0. Les taux d'accroissement valent $\frac1h$ sur une bande de largeur $h$ : aucune fonction intégrable fixe ne les majore.
+
+<a id="papier"></a>
+
+## ✏️ Papier-crayon
+
+### Ex MB8.1 — Une attente au téléphone de loi exponentielle de taux θ, et une pénalité au-delà de c minutes : d/dθ P(X > c) par la formule fermée, par l'estimateur score (son espérance calculée) et par le chemin X = ξ/θ ; la variance de l'estimateur score à un tirage
+
+**Réponses.** a) `0.2466` · b) `-1.7262` · c) `[1.2330, 2.9592]` · d) `[-25.00, 0]` · e) `15.27` · f) `0.175`.
+
+**Démarche.** $\ln p_\theta(x) = \ln\theta - \theta x$, donc $s_\theta(x) = \frac1\theta - x$.
+- a) $P(X > c) = e^{-\theta c} = e^{-1{,}4} \approx 0{,}246597$.
+- b) $\frac{\mathrm{d}}{\mathrm{d}\theta}e^{-\theta c} = -c\,e^{-\theta c} = -7 \times 0{,}246597 \approx -1{,}72618$ : une attente plus courte, en moyenne, fait moins dépasser 7 minutes.
+- c) $\mathbb{E}[g(X)] = \frac1\theta P(X > c) - \mathbb{E}[X\,\mathbf{1}\{X > c\}]$. Le premier terme vaut $5 \times 0{,}246597 \approx 1{,}232985$. Sachant $X > c$, $X - c$ suit encore la loi exponentielle de taux $\theta$ (l'absence de mémoire, M02b) : $\mathbb{E}[X \mid X > c] = c + \frac1\theta = 12$, et $\mathbb{E}[X\,\mathbf{1}\{X > c\}] = 12 \times 0{,}246597 \approx 2{,}959164$ (ou une intégration par parties). La différence, $-1{,}72618$, redonne b) : l'estimateur score est sans biais.
+- d) $X = \frac\xi\theta$ a pour dérivée $-\frac{\xi}{\theta^2} = -\frac X\theta$, d'espérance $-\frac{1}{\theta^2} = -25$ : c'est bien $\frac{\mathrm{d}}{\mathrm{d}\theta}\frac1\theta$. Mais $\mathbf{1}\{\xi/\theta > c\}$ ne bouge avec $\theta$ que par un saut : sa dérivée est nulle presque sûrement, et le chemin donne 0 au lieu de b).
+- e) Sachant $X > c$, $X = c + Y$ avec $Y$ exponentielle de taux $\theta$, et $\frac1\theta - X = -c - (Y - \frac1\theta)$ : $\mathbb{E}[(\frac1\theta - X)^2 \mid X > c] = c^2 + \frac{1}{\theta^2} = 74$. Donc $\mathbb{E}[g^2] = 74 \times 0{,}246597 \approx 18{,}24818$, et $\mathbb{V}(g) = 18{,}24818 - 1{,}72618^2 \approx 18{,}24818 - 2{,}97969 = 15{,}26849$.
+- f) $\sqrt{\frac{15{,}26849}{500}} = \sqrt{0{,}0305370} \approx 0{,}17475$, soit $0{,}175$. L'écart-type à un tirage, $\sqrt{15{,}27} \approx 3{,}9$, vaut plus du double de la dérivée elle-même : il faut beaucoup de tirages.
+
+**Erreurs fréquentes.** Lire $\theta$ comme la moyenne (la loi de M25b) : $e^{-c/\theta}$ en a), et une dérivée par rapport à la moyenne en b) et en d) ; donner $1 - e^{-\theta c}$ (la fonction de répartition) en a) ; oublier le facteur $c$ de la dérivée de $e^{-\theta c}$ ; prendre $\frac1\theta$, ou $c$, pour la moyenne de $X$ sachant $X > c$ ; en d), écrire $-\frac1\theta$ ; en e), garder le moment d'ordre 2 sans retrancher le carré de l'espérance, ou oublier que $\frac1\theta - X$ n'est pas centré sachant $X > c$ ; en f), oublier la racine, ou diviser l'écart-type par $n$.
+
+**Variante.** Avec un bon d'achat au-delà de 10 minutes : $P(X > 10) = e^{-2} \approx 0{,}1353$, et la dérivée vaut $-10\,e^{-2} \approx -1{,}3534$.
+
+### Ex MB8.2 — Deux graines par godet (une loi binomiale B(2, θ)) et un prix selon le nombre de pousses : la dérivée de la recette moyenne, puis l'estimateur score sans baseline, avec b = E[f] et avec la baseline optimale, et leurs variances
+
+**Réponses.** a) `[-8.00, -2.67, 2.67]` · b) `4.00` · c) `116.67` · d) `56.17` · e) `[2.750, 36.000]`.
+
+**Démarche.** Les probabilités sont $\big(\frac{1}{16} ;\ \frac{6}{16} ;\ \frac{9}{16}\big)$.
+- a) $\ln p_\theta(x) = \ln\binom2x + x\ln\theta + (2 - x)\ln(1 - \theta)$, donc $s_\theta(x) = \frac x\theta - \frac{2 - x}{1 - \theta} = \frac{x - 2\theta}{\theta(1 - \theta)}$ ; avec $\theta(1 - \theta) = \frac{3}{16}$ : $(-8 ;\ -\frac83 ;\ \frac83)$. Contrôle : $\frac{1}{16}(-8) + \frac{6}{16}(-\frac83) + \frac{9}{16} \cdot \frac83 = -0{,}5 - 1 + 1{,}5 = 0$.
+- b) $\mathbb{E}_\theta[f] = 3{,}5 \times 2\theta(1 - \theta) + 5\theta^2$, de dérivée $7(1 - 2\theta) + 10\theta = 7 - 4\theta = 4$. Par le score : $\frac{6}{16} \times 3{,}5 \times (-\frac83) + \frac{9}{16} \times 5 \times \frac83 = -3{,}5 + 7{,}5 = 4$.
+- c) $\mathbb{E}[f^2s^2] = \frac{6}{16} \times 12{,}25 \times \frac{64}{9} + \frac{9}{16} \times 25 \times \frac{64}{9} = \frac{98}{3} + 100 = \frac{398}{3} \approx 132{,}667$, et la variance vaut $132{,}667 - 4^2 \approx 116{,}67$.
+- d) et e) La variance avec $b$ est $\mathbb{E}[f^2s^2] - 2b\,\mathbb{E}[fs^2] + b^2\,\mathbb{E}[s^2] - 16$, avec $\mathbb{E}[s^2] = \frac{2}{\theta(1 - \theta)} = \frac{32}{3}$ (l'information de Fisher de deux graines) et $\mathbb{E}[fs^2] = \frac{6}{16} \times 3{,}5 \times \frac{64}{9} + \frac{9}{16} \times 5 \times \frac{64}{9} = \frac{88}{3}$. Le minimum est en $b^\star = \frac{88/3}{32/3} = 2{,}75$, où la variance vaut 36 ; ailleurs, elle vaut $36 + (b - 2{,}75)^2 \times \frac{32}{3}$. Avec $b = \mathbb{E}[f] = \frac{6}{16} \times 3{,}5 + \frac{9}{16} \times 5 = 4{,}125$ : $36 + 1{,}375^2 \times \frac{32}{3} \approx 56{,}17$ ; avec $b = 0$, on retrouve $36 + 2{,}75^2 \times \frac{32}{3} \approx 116{,}67$.
+
+$b^\star = 2{,}75 < \mathbb{E}[f] = 4{,}125$ : $b^\star$ pondère chaque issue par $s^2$, et le score est le plus grand en valeur absolue pour le godet vide ($s^2 = 64$), qui ne rapporte rien.
+
+**Erreurs fréquentes.** Oublier le facteur 2 de $P(X = 1)$, ou dériver $\theta^2$ comme $\theta$ ; dériver $\ln(1 - \theta)$ en $+\frac{1}{1 - \theta}$, ou oublier le terme $(2 - x)\ln(1 - \theta)$ ; donner un moment d'ordre 2 pour une variance ; remplacer $\mathbb{E}[f^2s^2]$ par $\mathbb{E}[f^2]\,\mathbb{E}[s^2]$ ; calculer la variance de $f - b$ au lieu de celle de $(f - b)\,s$ ; calculer $b^\star$ sans pondérer les trois issues par leurs probabilités ; croire que $b^\star = \mathbb{E}[f]$.
+
+**Variante.** Avec des graines de qualité $\theta = 0{,}6$ : $\mathbb{E}[f] = 3{,}48$ et $b^\star = 2{,}54$ ; les variances valent $82{,}92$ ($b = 0$), $36{,}52$ ($b = \mathbb{E}[f]$) et $29{,}16$ ($b^\star$).
+
+### Ex MB8.3 — Un camion de crêpes entre deux emplacements, une politique softmax dans l'un d'eux : la chaîne induite, les valeurs, la loi d'occupation actualisée, les valeurs et les avantages des deux actions, puis le gradient de la valeur par rapport aux deux logits
+
+**Réponses.** a) `[[0.645, 0.355], [0.300, 0.700]]` · b) `[9.41, 11.72]` · c) `[2.241, 0.923]` · d) `[9.814, 8.203, 0.403, -1.208]` · e) `[0.677, -0.677, 0.279, -0.279]`.
+
+**Démarche.** $\pi(\text{rester} \mid \text{marché}) = \frac{e^{\ln 3}}{e^{\ln 3} + e^0} = \frac34$.
+- a) La ligne du marché est $\frac34(0{,}86 ;\ 0{,}14) + \frac14(0 ;\ 1) = (0{,}645 ;\ 0{,}355)$, celle du parc $(0{,}3 ;\ 0{,}7)$ ; et $\mathbf{r}_\pi = (\frac34 \times 3 ;\ 4) = (2{,}25 ;\ 4)$.
+- b) $\mathbf{I} - 0{,}7\,\mathbf{P}_\pi = \begin{pmatrix} 0{,}5485 & -0{,}2485 \\ -0{,}21 & 0{,}51 \end{pmatrix}$, de déterminant $0{,}5485 \times 0{,}51 - 0{,}2485 \times 0{,}21 = 0{,}22755$. Par la formule de l'inverse $2 \times 2$ : $V(\text{marché}) = \frac{0{,}51 \times 2{,}25 + 0{,}2485 \times 4}{0{,}22755} = \frac{2{,}1415}{0{,}22755} \approx 9{,}4111$ et $V(\text{parc}) = \frac{0{,}21 \times 2{,}25 + 0{,}5485 \times 4}{0{,}22755} = \frac{2{,}6665}{0{,}22755} \approx 11{,}7183$.
+- c) $\mathbf{M} = \frac{1}{0{,}22755}\begin{pmatrix} 0{,}51 & 0{,}2485 \\ 0{,}21 & 0{,}5485 \end{pmatrix} \approx \begin{pmatrix} 2{,}2413 & 1{,}0921 \\ 0{,}9229 & 2{,}4105 \end{pmatrix}$ ; sa colonne du marché est $(2{,}2413 ;\ 0{,}9229)$. La loi d'occupation actualisée depuis le marché est $0{,}3 \times (2{,}2413 ;\ 1{,}0921) \approx (0{,}6724 ;\ 0{,}3276)$ : les lignes de $\mathbf{M}$ somment à $\frac{1}{0{,}3}$.
+- d) $Q(\text{marché}, \text{rester}) = 3 + 0{,}7\,(0{,}86 \times 9{,}41112 + 0{,}14 \times 11{,}71830) = 3 + 0{,}7 \times 9{,}73412 \approx 9{,}81389$ ; $Q(\text{marché}, \text{partir}) = 0 + 0{,}7 \times 11{,}71830 \approx 8{,}20281$. Les avantages valent $9{,}81389 - 9{,}41112 \approx 0{,}40277$ et $8{,}20281 - 9{,}41112 \approx -1{,}20831$, et $\frac34 \times 0{,}40277 - \frac14 \times 1{,}20831 \approx 0$.
+- e) $\frac{\partial V(s_0)}{\partial z(\text{marché}, a)} = \mathbf{M}[s_0, \text{marché}]\,\pi(a \mid \text{marché})\,A(\text{marché}, a)$. Depuis le marché : $2{,}24127 \times \frac34 \times 0{,}40277 \approx 0{,}67703$ et $2{,}24127 \times \frac14 \times (-1{,}20831) \approx -0{,}67703$ ; depuis le parc, les mêmes produits avec $0{,}92287$ : $\pm 0{,}27878$.
+
+Le logit du marché change $V(\text{parc})$ parce que, depuis le parc, on revient au marché : $\mathbf{M}[\text{parc}, \text{marché}] > 0$. Rester plus souvent au marché fait gagner : rester a un avantage positif.
+
+**Erreurs fréquentes.** Prendre rester pour un séjour sûr au marché, sans le renvoi du placier ; mélanger les lignes des deux actions à parts égales ; ne garder que la recette du jour, ou résoudre les deux équations de Bellman séparément ; donner la ligne de $\mathbf{M}$ au lieu de sa colonne, ou la loi d'occupation à la place de $\mathbf{M}$ ; en d), compter le lendemain de rester tout au marché, ou prendre les avantages par rapport à la moyenne des deux $Q$ à parts égales ; en e), oublier $\mathbf{M}[s_0, \text{marché}]$, ou le facteur $\frac{1}{1 - \gamma}$ entre $\boldsymbol\nu$ et $\mathbf{M}$.
+
+**Variante.** Avec des journées actualisées par $\gamma = 0{,}6$ : $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \cdot)} \approx (0{,}6381 ;\ -0{,}6381)$.
+
+### Ex MB8.4 — L'état d'une route (bonne, usée, en travaux) et des valeurs estimées fausses : le biais des retours à 1 et 2 pas, les poids (1 − λ)λ^{k−1} d'un λ-retour, et son biais quand l'erreur est la même partout
+
+**Réponses.** a) `[1.530, 0.360, 1.710]` · b) `[0.8127, 0.4590, 0.9342]` · c) `[0.0720, 9]` · d) `0.6207`.
+
+**Démarche.** Le retour à $k$ pas amorce avec $W(S_{t+k}) = V^\pi(S_{t+k}) + e(S_{t+k})$ ; avec les vraies valeurs il serait sans biais, donc son biais est $\gamma^k\,\mathbb{E}[e(S_{t+k}) \mid S_t = s] = \gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$ (fiche §5).
+- a) $\mathbf{P}_\pi\mathbf{e} = (0{,}85 \times 3 ;\ 0{,}3 \times 2 ;\ 0{,}85 \times 3 + 0{,}15 \times 2) = (2{,}55 ;\ 0{,}6 ;\ 2{,}85)$, fois $0{,}6$ : $(1{,}53 ;\ 0{,}36 ;\ 1{,}71)$.
+- b) $\mathbf{P}_\pi^2\mathbf{e} = \mathbf{P}_\pi(2{,}55 ;\ 0{,}6 ;\ 2{,}85) = (2{,}2575 ;\ 1{,}275 ;\ 2{,}595)$, fois $0{,}36$ : $(0{,}8127 ;\ 0{,}459 ;\ 0{,}9342)$.
+- c) Le poids du retour à 5 pas est $(1 - \lambda)\lambda^4 = 0{,}3 \times 0{,}2401 = 0{,}07203$. Les retours de plus de $k$ pas pèsent ensemble $(1 - \lambda)\sum_{j > k}\lambda^{j-1} = \lambda^k$ ; $0{,}7^8 \approx 0{,}0576$ et $0{,}7^9 \approx 0{,}0404$ : $k = 9$.
+- d) Avec $\mathbf{e} = 2\cdot\mathbf{1}$, $\mathbf{P}_\pi^k\mathbf{e} = \mathbf{e}$ (les lignes somment à 1) : le retour à $k$ pas a le biais $2\gamma^k$, et le λ-retour $\sum_{k \ge 1}(1 - \lambda)\lambda^{k-1}\,2\gamma^k = \frac{2(1 - \lambda)\gamma}{1 - \gamma\lambda} = \frac{0{,}36}{0{,}58} \approx 0{,}6207$ (une série géométrique de raison $\gamma\lambda = 0{,}42$).
+
+Depuis un tronçon usé, l'estimation est juste, mais le mois suivant le tronçon peut être en travaux (probabilité $0{,}3$), où l'estimation est trop haute : le retour à 1 pas hérite de cette erreur.
+
+**Erreurs fréquentes.** Prendre l'erreur de l'état de départ au lieu de celle de l'état d'arrivée ; oublier l'actualisation, ou n'actualiser qu'une fois au deuxième pas ; prendre $\mathbf{P}_\pi\mathbf{e}$ au lieu de $\mathbf{P}_\pi^2\mathbf{e}$ ; en c), oublier le facteur $1 - \lambda$, mettre $\lambda^k$ au lieu de $\lambda^{k-1}$, ou comparer à 5 % le seul poids suivant au lieu de la queue entière ; en d), oublier le facteur $1 - \lambda$ ou les $\gamma^k$.
+
+**Variante.** Avec $\gamma = 0{,}7$ et $\lambda = 0{,}6$ : $\frac{2 \times 0{,}4 \times 0{,}7}{0{,}58} \approx 0{,}9655$.
+
+### Ex MB8.5 — Un panel en ligne dont les classes d'âge ne suivent pas le recensement : les poids p/q, la dépense moyenne repondérée, la taille effective de Kish d'un petit échantillon, des poids tronqués (le biais), puis KL(q ‖ p) exacte et ses estimateurs k₁ et k₃ classe par classe
+
+**Réponses.** a) `[0.52, 1.64, 1.32]` · b) `[41.50, 44.38]` · c) `729.96` · d) `4.88` · e) `[39.91, -4.47]` · f) `0.134` · g) `[0.6539, -0.4947, -0.2776]` · h) `[0.1739, 0.1453, 0.0424]`.
+
+**Démarche.**
+- a) $\frac{0{,}26}{0{,}50} = 0{,}52$, $\frac{0{,}41}{0{,}25} = 1{,}64$, $\frac{0{,}33}{0{,}25} = 1{,}32$ ; $\mathbb{E}_q[w] = 0{,}26 + 0{,}41 + 0{,}33 = 1$.
+- b) Le panel brut : $0{,}5 \times 36 + 0{,}25 \times 50 + 0{,}25 \times 44 = 41{,}5$. Repondéré : $\sum_kq_kw_kf_k = \sum_kp_kf_k = 9{,}36 + 20{,}5 + 14{,}52 = 44{,}38$ € (Horvitz-Thompson, M20 §5). Le panel, trop jeune, sous-estime la dépense.
+- c) $wf = (18{,}72 ;\ 82 ;\ 58{,}08)$ ; $\mathbb{E}_q[(wf)^2] = 0{,}5 \times 350{,}4384 + 0{,}25 \times 6\,724 + 0{,}25 \times 3\,373{,}2864 = 2\,699{,}5408$ ; moins $44{,}38^2 = 1\,969{,}5844$ : $729{,}9564$.
+- d) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32 = 5{,}84$ et $\sum w_i^2 = 0{,}8112 + 2{,}6896 + 3{,}4848 = 6{,}9856$ : $\frac{5{,}84^2}{6{,}9856} = \frac{34{,}1056}{6{,}9856} \approx 4{,}88$, pour six panélistes.
+- e) $\min(w, 1{,}3) = (0{,}52 ;\ 1{,}3 ;\ 1{,}3)$ : $0{,}5 \times 0{,}52 \times 36 + 0{,}25 \times 1{,}3 \times 50 + 0{,}25 \times 1{,}3 \times 44 = 9{,}36 + 16{,}25 + 14{,}3 = 39{,}91$, et le biais vaut $39{,}91 - 44{,}38 = -4{,}47$ : les deux classes sous-représentées perdent une partie de leur poids.
+- f) $\sum_kq_k\ln\frac{q_k}{p_k} = 0{,}5 \times 0{,}653926 + 0{,}25 \times (-0{,}494696) + 0{,}25 \times (-0{,}277632) \approx 0{,}326963 - 0{,}123674 - 0{,}069408 = 0{,}133881$.
+- g) $k_1 = -\ln w = \ln\frac qp$ : $(0{,}6539 ;\ -0{,}4947 ;\ -0{,}2776)$. Il est négatif là où $q < p$.
+- h) $k_3 = (w - 1) - \ln w$ : $(-0{,}48 + 0{,}6539 ;\ 0{,}64 - 0{,}4947 ;\ 0{,}32 - 0{,}2776) = (0{,}1739 ;\ 0{,}1453 ;\ 0{,}0424)$, tous positifs. Les moyennes sous $q$ : $\sum q\,k_1 = 0{,}1339$, et $\sum q\,k_3 = \sum q\,(w - 1) + \sum q\,k_1 = 0 + 0{,}1339$.
+
+**Erreurs fréquentes.** Former $p - q$ au lieu de $\frac pq$, ou comparer $p$ à $\frac13$ ; faire la moyenne brute à parts égales ; oublier les parts $q$ dans la moyenne repondérée ; en c), donner le moment d'ordre 2, ou la variance de $f$ sous $p$ ou sous $q$ au lieu de celle de $wf$ ; en d), donner $\sum w_i$, ou le quotient renversé ; en e), mesurer le biais par rapport au panel brut, ou diviser les poids tronqués par leur somme ; en f), sommer les $\ln\frac qp$ sans les poids $q$, ou les remplacer par $\frac qp - 1$ ; en g) et h), donner les contributions $q\,k$ au lieu des valeurs d'un tirage, ou oublier le $-1$ de $k_3$.
+
+**Variante.** Avec une troncature à $c = 1{,}6$, seule la classe 35–59 ans est touchée ($1{,}64 \to 1{,}6$) : $43{,}88$ €, un biais de $-0{,}50$ €.
+
+### Ex MB8.6 — Un tournoi de babyfoot entre trois clubs : deux clubs seuls (la différence de forces en forme fermée), puis vérifier les équations du maximum de vraisemblance pour des forces proposées, la probabilité qu'un club batte un autre, une mise à jour Elo, et un club invaincu
+
+**Réponses.** a) `-0.9163` · b) `[4.00, 8.00, 3.00]` · c) `[0.5580, 0.2703, -0.8283]` · d) `0.2000` · e) `[240.8, 25.6]`.
+
+**Démarche.**
+- a) Deux clubs seuls : l'équation de vraisemblance dit $7\,\sigma(d) = 2$, soit $\sigma(d) = \frac27$ et $d = \ln\frac{2/7}{5/7} = \ln\frac25 \approx -0{,}9163$ (le logit de $\frac27$).
+- b) $\sigma(\beta_A - \beta_B) = \frac{4}{4 + 3}$, sur 7 matchs : $4$ ; $\sigma(\beta_A - \beta_C) = \frac45$, sur 10 : $8$ ; $\sigma(\beta_B - \beta_C) = \frac34$, sur 4 : $3$. Victoires attendues : A, $4 + 8 = 12 = 2 + 10$ ; B, $(7 - 4) + 3 = 6 = 5 + 1$ ; C, $(10 - 8) + (4 - 3) = 3 = 0 + 3$. Les équations tiennent, et le graphe des victoires est fortement connexe (A → B → A, B → C → B, A → C) : ces forces sont le maximum, unique à une constante près.
+- c) $\beta_i = \ln p_i - \frac13\sum_j\ln p_j$ : $\ln 4 \approx 1{,}386294$, $\ln 3 \approx 1{,}098612$, $\ln 1 = 0$, de moyenne $0{,}828302$ : $(0{,}5580 ;\ 0{,}2703 ;\ -0{,}8283)$. Dans tout le tournoi, A dépasse B, alors que B l'emporte en face à face : A a écrasé C, que B a eu du mal à battre.
+- d) $\frac{p_C}{p_C + p_A} = \frac15 = 0{,}2$, bien que C n'ait jamais battu A.
+- e) $R_A - R_C = \frac{400}{\ln 10} \times \ln 4 = 400\log_{10}4 \approx 240{,}8$ ; C, qui avait la probabilité $0{,}2$ de gagner, gagne $32 \times (1 - 0{,}2) = 25{,}6$ points.
+
+Le club D : personne ne l'a battu, donc aucun chemin du graphe des victoires n'arrive à D ; la vraisemblance augmente sans fin quand $\beta_D$ grandit, et le maximum n'existe pas (fiche §7).
+
+**Erreurs fréquentes.** Prendre la part des victoires $\frac27$ (ou $\frac27 - \frac57$) pour la différence de forces, ou son logarithme $\ln\frac27$ ; recopier les victoires observées au lieu de calculer les attendues ; prendre les $p_i$ pour les forces dans la sigmoïde ; enchaîner les face-à-face (A contre B, puis B contre C) au lieu d'ajuster tout le tournoi ; classer par le rapport victoires sur défaites, qui ignore la force des adversaires ; prédire 0 pour C contre A ; prendre $\frac{p_C}{p_A}$ ; donner $k\,E$ au lieu de $k\,(1 - E)$ points, ou prendre $E = \frac12$.
+
+**Variante.** Si C avait battu A une fois sur onze, les forces centrées deviendraient environ $(0{,}4163 ;\ 0{,}2302 ;\ -0{,}6465)$.
+
+### Ex MB8.7 — Trois plats à la cantine : la loi de service qui maximise la satisfaction moyenne moins β fois la KL à la loi actuelle, pour deux valeurs de β, sa valeur β ln Z, comparée à la loi actuelle et au meilleur plat seul
+
+**Réponses.** a) `[0.0701, 0.4605, 0.4694]` · b) `3.8592` · c) `[3.2500, 3.1029]` · d) `[0.2749, 0.4760, 0.2491, 3.4783]`.
+
+**Démarche.** $\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$, et la valeur maximale est $\beta\ln Z$ (fiche §8).
+- a) $\beta = 1$ : $e^r = (7{,}38906 ;\ 54{,}59815 ;\ 148{,}41316)$ ; multipliés par $\pi_{\mathrm{ref}}$ : $(3{,}32508 ;\ 21{,}83926 ;\ 22{,}26197)$, de somme $Z = 47{,}42631$ ; $\pi^\star \approx (0{,}0701 ;\ 0{,}4605 ;\ 0{,}4694)$.
+- b) $\ln 47{,}42631 \approx 3{,}8592$. Contrôle : $\mathbb{E}_{\pi^\star}[r] \approx 4{,}3292$ et $\mathrm{KL}(\pi^\star \,\|\, \pi_{\mathrm{ref}}) \approx 0{,}4700$ : $4{,}3292 - 0{,}4700 = 3{,}8592$.
+- c) $F(\pi_{\mathrm{ref}}) = 0{,}45 \times 2 + 0{,}40 \times 4 + 0{,}15 \times 5 = 3{,}25$ (KL nulle). Les lasagnes seules : $5 - \ln\frac{1}{0{,}15} = 5 + \ln 0{,}15 \approx 3{,}1029$. Les deux sont sous $3{,}8592$, comme toute loi autre que $\pi^\star$.
+- d) $\beta = 3$ : $e^{r/3} = (1{,}94773 ;\ 3{,}79367 ;\ 5{,}29449)$, fois $\pi_{\mathrm{ref}}$ : $(0{,}87648 ;\ 1{,}51747 ;\ 0{,}79417)$, de somme $3{,}18812$ ; $\pi^\star \approx (0{,}2749 ;\ 0{,}4760 ;\ 0{,}2491)$, et $3\ln 3{,}18812 \approx 3 \times 1{,}159432 \approx 3{,}4783$.
+
+Avec $\beta = 3$, s'écarter de la loi actuelle coûte plus : $\pi^\star$ reste plus près de $\pi_{\mathrm{ref}}$, et la valeur baisse. Quand $\beta$ grandit encore, $\pi^\star \to \pi_{\mathrm{ref}}$ et la valeur tend vers $3{,}25$.
+
+**Erreurs fréquentes.** Multiplier $\pi_{\mathrm{ref}}$ par $r$ au lieu de $e^{r/\beta}$, ou oublier $\pi_{\mathrm{ref}}$ ; donner $Z$ au lieu de $\beta\ln Z$ ; prendre la satisfaction moyenne sous $\pi^\star$ pour la valeur ; oublier que le plat seul paie aussi la KL, ou la calculer avec $\ln\pi_{\mathrm{ref}}$ au lieu de $\ln\frac{1}{\pi_{\mathrm{ref}}}$ ; faire la moyenne simple des satisfactions ; en d), prendre $e^{\beta r}$.
+
+**Variante.** Avec $\beta = 2$ : $\pi^\star \approx (0{,}2037 ;\ 0{,}4921 ;\ 0{,}3042)$, de valeur $\approx 3{,}5856$.
+
+<a id="demonstrations"></a>
+
+## ∂ Démonstrations
+
+### Ex MB8.8 — Les deux identités du score, E[s_θ(X)] = 0 et Var(s_θ) = −E[∂²_θ ln p_θ(X)], pour une famille à densité dont le support ne dépend pas de θ ; leur application aux lois de Poisson et exponentielle ; puis la loi uniforme sur [0, θ], où elles tombent
+
+**Démonstration.**
+1. Pour tout $\theta$, $\int_Sp_\theta(x)\,\mathrm{d}x = 1$. On dérive sous l'intégrale (hypothèse) : $0 = \int_S\partial_\theta p_\theta(x)\,\mathrm{d}x$. Sur $S$, $p_\theta > 0$ et $\partial_\theta p_\theta = p_\theta\,\partial_\theta\ln p_\theta = p_\theta\,s_\theta$ ; donc $0 = \int_Sp_\theta\,s_\theta = \mathbb{E}_\theta[s_\theta(X)]$.
+2. $\partial^2_\theta\ln p_\theta = \partial_\theta\frac{\partial_\theta p_\theta}{p_\theta} = \frac{\partial^2_\theta p_\theta}{p_\theta} - \Big(\frac{\partial_\theta p_\theta}{p_\theta}\Big)^2 = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$. En dérivant une seconde fois, $\int_S\partial^2_\theta p_\theta = 0$, donc $\mathbb{E}_\theta\big[\frac{\partial^2_\theta p_\theta}{p_\theta}\big] = 0$ et $\mathbb{E}_\theta[\partial^2_\theta\ln p_\theta] = -\mathbb{E}_\theta[s_\theta^2] = -\mathbb{V}(s_\theta)$, puisque $\mathbb{E}_\theta[s_\theta] = 0$.
+3. Poisson : $\ln p_\theta(x) = x\ln\theta - \theta - \ln x!$, $s_\theta(x) = \frac x\theta - 1$, $\mathbb{E}[s_\theta] = \frac\theta\theta - 1 = 0$, $\mathbb{V}(s_\theta) = \frac{\mathbb{V}(X)}{\theta^2} = \frac1\theta$, et $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$, d'espérance $\frac1\theta$ : $I(\theta) = \frac1\theta$ (les sommes se dérivent terme à terme : la série de $\theta^x/x!$ converge normalement sur tout compact). Exponentielle : $\ln p_\theta(x) = \ln\theta - \theta x$ sur $S = [0, +\infty[$, $s_\theta(x) = \frac1\theta - x$, $\mathbb{E}[s_\theta] = 0$, $\mathbb{V}(s_\theta) = \mathbb{V}(X) = \frac{1}{\theta^2}$, et $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$ : $I(\theta) = \frac{1}{\theta^2}$.
+4. $p_\theta(x) = \frac1\theta$ sur $[0, \theta[$, 0 ailleurs. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ et $s_\theta = -\frac1\theta$ : $\mathbb{E}_\theta[s_\theta] = -\frac1\theta \ne 0$, $\mathbb{V}(s_\theta) = 0$ (une constante), et $\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$, donc $-\mathbb{E}_\theta[\partial^2_\theta\ln p_\theta] = -\frac{1}{\theta^2} \ne 0$. L'étape 1 tombe : $\int_0^\theta p_\theta(x)\,\mathrm{d}x = 1$ a une borne qui dépend de $\theta$, et sa dérivée vaut $p_\theta(\theta^-) + \int_0^\theta\partial_\theta p_\theta = \frac1\theta - \frac1\theta = 0$ : le terme de bord $\frac1\theta$ manque dans « $\int\partial_\theta p_\theta = 0$ ». Autrement dit, en un point $x$ voisin de $\theta$, $p_\theta(x)$ saute de 0 à $\frac1\theta$ quand $\theta$ dépasse $x$ : la dérivation sous l'intégrale n'est pas permise.
+5. $\mathbb{E}_\theta[f(X)] = \frac1\theta\int_0^\theta f(x)\,\mathrm{d}x$. Comme $f$ est continue, $\frac{\mathrm{d}}{\mathrm{d}\theta}\int_0^\theta f = f(\theta)$, et $\frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E}_\theta[f] = -\frac{1}{\theta^2}\int_0^\theta f + \frac{f(\theta)}{\theta} = \mathbb{E}_\theta\big[f(X)\cdot(-\tfrac1\theta)\big] + \frac{f(\theta)}{\theta}$. Pour $f(x) = x^2$ : $\mathbb{E}_\theta[X^2] = \frac{\theta^2}{3}$, de dérivée $\frac{2\theta}{3}$ ; et $\frac{\theta^2}{\theta} - \frac1\theta \cdot \frac{\theta^2}{3} = \theta - \frac\theta3 = \frac{2\theta}{3}$.
+
+**Grille de relecture.** 1 : la dérivation sous l'intégrale annoncée comme hypothèse, la positivité de $p_\theta$ sur $S$ pour écrire $\partial_\theta p_\theta = p_\theta s_\theta$, et le support fixe. 2 : la dérivée du quotient, la seconde dérivation, et l'usage de $\mathbb{E}[s_\theta] = 0$ pour passer du moment d'ordre 2 à la variance. 3 : les deux lois, chaque fois le score, l'espérance nulle et l'information par les deux formules ; pour la loi de Poisson, une justification de la dérivation terme à terme (ou un calcul direct de $\sum\partial_\theta p_\theta$). 4 : le score sur le support, les trois quantités, et l'étape qui tombe avec sa raison (la borne qui bouge, le terme de bord). 5 : la dérivée d'une intégrale à borne variable (f continue), et la vérification sur $x^2$.
+
+### Ex MB8.9 — La baseline optimale b* = E[f s²]/E[s²] d'un estimateur score ; sur n tirages, la moyenne des autres est une baseline sans biais, et la moyenne du groupe multiplie l'estimateur par (n − 1)/n
+
+**Démonstration.**
+1. $\mathbb{E}[(f - b)\,s] = \mathbb{E}[fs] - b\,\mathbb{E}[s] = D$. Sa variance vaut $\mathbb{E}[(f - b)^2s^2] - D^2 = \mathbb{E}[f^2s^2] - 2b\,\mathbb{E}[fs^2] + b^2\,\mathbb{E}[s^2] - D^2$ (les trois moments sont finis : $\lvert fs^2\rvert \le \frac12(f^2s^2 + s^2)$). C'est un trinôme en $b$ de coefficient dominant $\mathbb{E}[s^2] > 0$, minimal en $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$, où il vaut $\mathbb{E}[f^2s^2] - \frac{\mathbb{E}[fs^2]^2}{\mathbb{E}[s^2]} - D^2$ ; et pour tout $b$, la variance est la variance minimale plus $(b - b^\star)^2\,\mathbb{E}[s^2]$.
+2. $b^\star = \mathbb{E}[f]$ si et seulement si $\mathbb{E}[fs^2] = \mathbb{E}[f]\,\mathbb{E}[s^2]$, c'est-à-dire $\operatorname{Cov}(f, s^2) = 0$ : par exemple si $f(X)$ et $s(X)^2$ sont indépendants, ou si $s^2$ est constant. Dans ✏️ MB8.2, $\mathbb{E}[fs^2] = \frac{88}{3}$ alors que $\mathbb{E}[f]\,\mathbb{E}[s^2] = 4{,}125 \times \frac{32}{3} = 44$ : le godet vide, de plus grand $s^2$, ne rapporte rien, et $f$ et $s^2$ sont corrélés négativement.
+3. $b_i$ est une fonction des $x_j$, $j \ne i$, donc indépendante de $x_i$. Alors $\mathbb{E}[b_i\,s(x_i)] = \mathbb{E}[b_i]\,\mathbb{E}[s(x_i)] = 0$, et $\mathbb{E}[(f(x_i) - b_i)\,s(x_i)] = D$ pour chaque $i$ ; la moyenne sur $i$ aussi.
+4. $\bar f = \frac{f(x_i) + (n - 1)\,b_i}{n}$, donc $f(x_i) - \bar f = \frac{n - 1}{n}\big(f(x_i) - b_i\big)$. L'estimateur avec $\bar f$ est donc, tirage par tirage, $\frac{n - 1}{n}$ fois l'estimateur de 3, et son espérance vaut $\frac{n - 1}{n}D$. Le biais vient du terme $\frac1nf(x_i)$ de $\bar f$, qui dépend de $x_i$ : $\mathbb{E}\big[\frac1nf(x_i)\,s(x_i)\big] = \frac Dn \ne 0$ quand $D \ne 0$.
+
+**Grille de relecture.** 1 : l'absence de biais par $\mathbb{E}[s] = 0$ ; le trinôme développé, la finitude des moments, le signe du coefficient dominant, le minimum. 2 : la condition (une covariance nulle) et la raison chiffrée ou qualitative pour MB8.2. 3 : l'indépendance de $b_i$ et de $x_i$, explicitement utilisée pour factoriser l'espérance. 4 : l'identité exacte, terme à terme (pas seulement en espérance), l'espérance $\frac{n - 1}{n}D$, et l'origine du biais (la valeur du tirage dans la moyenne).
+
+### Ex MB8.10 — Le gradient de la valeur d'une politique sous forme matricielle : dériver V = r_π + γP_πV, faire apparaître la loi d'occupation actualisée et la valeur des actions, puis remplacer Q^π par l'avantage
+
+**Démonstration.**
+1. $\mathbf{P}_\pi$ a des coefficients positifs et des lignes de somme au plus 1 : $\lVert\gamma\mathbf{P}_\pi\mathbf{x}\rVert_\infty \le \gamma\lVert\mathbf{x}\rVert_\infty$, donc $(\mathbf{I} - \gamma\mathbf{P}_\pi)\mathbf{x} = \mathbf{0}$ impose $\lVert\mathbf{x}\rVert_\infty \le \gamma\lVert\mathbf{x}\rVert_\infty$, soit $\mathbf{x} = \mathbf{0}$ : la matrice est inversible (M26 §5). La règle du produit (M18 §7) appliquée à $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V} = \mathbf{r}_\pi$ donne $-\gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V} + (\mathbf{I} - \gamma\mathbf{P}_\pi)\,\partial\mathbf{V} = \partial\mathbf{r}_\pi$, d'où $\partial\mathbf{V} = \mathbf{M}\big(\partial\mathbf{r}_\pi + \gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V}\big)$.
+2. $\pi(\cdot \mid s')$ ne dépend que des logits de $s'$ : pour $s' \ne s$, la dérivée est nulle. Pour $s' = s$, la jacobienne de la softmax (MB8.R1) donne $\frac{\partial\pi(b \mid s)}{\partial z(s, a)} = \pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)$.
+3. $r_\pi(s') = \sum_b\pi(b \mid s')\,r(s', b)$ et $(\mathbf{P}_\pi\mathbf{V})(s') = \sum_b\pi(b \mid s')\,(\mathbf{P}[b]\mathbf{V})(s')$ : par 2, la coordonnée $s'$ du vecteur est nulle pour $s' \ne s$. En $s$, elle vaut $\sum_b\frac{\partial\pi(b \mid s)}{\partial z(s, a)}\big(r(s, b) + \gamma(\mathbf{P}[b]\mathbf{V})(s)\big) = \sum_b\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)\,Q(s, b) = \pi(a \mid s)\Big(Q(s, a) - \sum_b\pi(b \mid s)\,Q(s, b)\Big) = \pi(a \mid s)\,A(s, a)$, puisque $\sum_b\pi(b \mid s)\,Q(s, b) = V(s)$.
+4. Par 1 et 3, $\frac{\partial V(s_0)}{\partial z(s, a)} = \sum_{s'}\mathbf{M}[s_0, s']\,(\cdots)_{s'} = \mathbf{M}[s_0, s]\,\pi(a \mid s)\,A(s, a)$, et $\mathbf{M}[s_0, s] = \frac{\nu_{s_0}(s)}{1 - \gamma}$ par définition de $\boldsymbol\nu_{s_0}$. Enfin $\sum_a\pi(a \mid s)\,A(s, a) = V(s) - V(s) = 0$.
+5. Le calcul de 3, sans la softmax : la coordonnée $s$ du vecteur vaut $\sum_a\partial_\theta\pi(a \mid s)\,Q(s, a) = \sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,Q(s, a)$ ($\pi > 0$), d'où la formule par 1. Et $\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,V(s) = V(s)\,\partial_\theta\sum_a\pi(a \mid s) = V(s)\,\partial_\theta 1 = 0$ (l'espérance nulle du score, fiche §1) : on peut retrancher $V(s)$ à $Q(s, a)$, c'est-à-dire remplacer $Q$ par $A$.
+
+**Grille de relecture.** 1 : l'inversibilité justifiée (norme infinie, ou série de Neumann), la règle du produit avec le terme $(\partial\mathbf{P}_\pi)\mathbf{V}$, la résolution. 2 : les deux cas $s' \ne s$ et $s' = s$, et la formule de la jacobienne. 3 : $r$ et $\mathbf{P}[b]\mathbf{V}$ regroupés en $Q$, puis la moyenne sous $\pi$ qui fait apparaître $V$. 4 : le produit par $\mathbf{M}$ qui sélectionne la colonne $s$, le lien avec $\boldsymbol\nu_{s_0}$ et le facteur $1 - \gamma$, la somme nulle. 5 : $\partial\pi = \pi\,\partial\ln\pi$ (avec $\pi > 0$), puis la somme nulle par la dérivée de $\sum_a\pi = 1$.
+
+<a id="pont"></a>
+
+## 🔗 Pont vers workbookIA
+
+### Ex MB8.11 — Pont : la « loss de substitution » −(1/n)Σ(f(x_i) − b) ln p_θ(x_i), dont la dérivée, les f(x_i) et b tenus fixes, est moins l'estimateur score : sur le taux d'une loi de Poisson, puis ce que changent des f standardisés dans le batch
+
+**Réponses.** a) `[0.20, -0.60, 0.60, -0.20, 1.00, -0.60, 0.20, 0.60]` · b) `-0.5750` · c) `-0.7250`.
+
+**Démarche.** $\ln p_\theta(x) = x\ln\theta - \theta - \ln x!$, donc $s_\theta(x) = \frac x\theta - 1 = \frac{x}{2{,}5} - 1$ : a). Les $f(x_i)$ valent $(1, 0, 2, 0, 3, 0, 1, 2)$. Les $f(x_i)$ et $b$ étant fixes, $\frac{\mathrm{d}L}{\mathrm{d}\theta} = -\frac1n\sum_i(f(x_i) - b)\,s_\theta(x_i)$ : moins l'estimateur score avec la baseline $b$. $\sum_if(x_i)\,s_\theta(x_i) = 0{,}2 + 1{,}2 + 3 + 0{,}2 + 1{,}2 = 5{,}8$ et $\sum_is_\theta(x_i) = 1{,}2$. c) $-\frac{5{,}8}{8} = -0{,}725$ ; b) $-\frac{5{,}8 - 1{,}2}{8} = -0{,}575$.
+
+Les deux estimateurs ont la même espérance, parce que $\mathbb{E}[s_\theta] = 0$ ; mais, sur ce batch, les scores ont une moyenne de $0{,}15$, pas 0, et la baseline déplace l'estimation de $b \times 0{,}15$. Des $f$ standardisés dans le batch : le centrage retranche à chaque $f(x_i)$ la moyenne du batch, une baseline qui contient le tirage lui-même (elle multiplie l'estimateur par $\frac{n - 1}{n}$ en espérance, ∂ MB8.9) ; la division par l'écart-type change l'échelle de l'estimation, d'un facteur qui varie d'un batch à l'autre : ce n'est plus un estimateur de la dérivée elle-même, mais d'une direction voisine. Le chapitre B8 de workbookIA écrit cette loss avec le retour d'une trajectoire à la place de $f(x_i)$, et les log-probabilités des actions à la place de $\ln p_\theta(x_i)$.
+
+**Erreurs fréquentes.** Écrire le score $\frac x\theta$, sans le $-1$ venu de $-\theta$ ; dériver $x\ln\theta$ en $\frac{x}{\theta^2}$ ; évaluer le score à la moyenne du batch ($3{,}875$) au lieu du paramètre $\theta = 2{,}5$ ; dériver aussi les $f(x_i)$, qui ne dépendent pas de $\theta$ dans cette loss.
+
+**Variante.** Avec $b = 2$ : $-\frac{5{,}8 - 2{,}4}{8} = -0{,}425$.
+
+<a id="reflexion"></a>
+
+## 🗣️ Explication
+
+### Ex MB8.12 — Expliquer avec un club d'échecs pourquoi une cote Elo ne dit que des écarts de niveau, et pourquoi battre plus fort que soi rapporte plus de points
+
+**Réponse modèle (5 à 8 phrases).** Une cote ne dit rien toute seule : c'est l'écart entre deux cotes qui donne la chance de chaque joueuse de gagner leur partie, et le même écart dit la même chose en bas et en haut du classement. Si tout le club avait 300 points de plus, tous les écarts seraient les mêmes, donc toutes les prédictions aussi : le club ne serait pas plus fort pour autant, et seules des parties contre d'autres clubs pourraient le comparer à eux. Après une partie, on compare le résultat à ce que l'écart prédisait, et l'on gagne d'autant plus de points que le résultat dépasse ce qu'on attendait. Battre la meilleure joueuse du club était peu probable : c'est une grosse surprise, qui rapporte beaucoup ; battre un débutant était presque certain : on n'apprend presque rien, et l'on ne gagne presque rien. La perdante perd exactement les points que gagne la gagnante : la meilleure joueuse perd donc beaucoup, et le total des cotes du club ne change pas.
+
+**Grille.** L'écart prédit une chance de gagner ; une même constante ajoutée à toutes les cotes ne change rien (seuls les écarts comptent, et une comparaison entre clubs demande des parties entre eux) ; la mise à jour compare le résultat à l'attendu ; la surprise rapporte plus ; la perdante perd ce que gagne la gagnante ; aucune formule. En plus, non exigé : la mise à jour comme un petit pas qui corrige la prédiction (un pas de gradient).
+
+<a id="entretien"></a>
+
+## 💼 Entretien
+
+### MB8.E1 — « Comment dériver la probabilité d'un événement par rapport au paramètre d'une loi quand on ne peut pas dériver à travers les tirages, et comment rendre l'estimation moins bruitée ? »
+
+**Réponse modèle (60 secondes).** « Prenons $P_\theta(X > c)$. Si l'on écrit $X$ comme une fonction dérivable de $\theta$ et d'un bruit, la dérivée par le chemin passe par l'indicatrice, dont la dérivée est nulle presque partout : on obtient zéro, ce qui est faux ; et une loi discrète n'a même pas de chemin. On dérive donc la loi au lieu des tirages : la dérivée de $\mathbb{E}_\theta[f(X)]$ est $\mathbb{E}_\theta[f(X)\,s_\theta(X)]$, où le score $s_\theta$ est la dérivée de $\ln p_\theta$ ; il suffit de savoir calculer $\ln p_\theta$, et que le support de la loi ne dépende pas de $\theta$. On l'estime par la moyenne des $f(x_i)\,s_\theta(x_i)$ : sans biais, mais très bruité, parce que le score fluctue beaucoup et que l'indicatrice ne fait que l'allumer ou l'éteindre. Pour réduire la variance sans biais : comme le score est d'espérance nulle, on peut retrancher à $f$ une baseline, une constante, dont la meilleure est $\mathbb{E}[fs^2]/\mathbb{E}[s^2]$, ou, pour chaque tirage, la moyenne des autres tirages ; plus généralement, toute variable de contrôle d'espérance connue. Le piège : la moyenne du batch, tirage compris, multiplie l'estimation par $(n - 1)/n$. »
+
+**Grille.** Pourquoi le chemin échoue (indicatrice, loi discrète) ; l'identité du score et son hypothèse (le support fixe) ; l'estimateur, sans biais, et la raison de son bruit ; deux réductions de variance sans biais (une baseline constante ou la moyenne des autres tirages, une variable de contrôle) ; un piège (la moyenne du batch, ou une baseline estimée sur les mêmes tirages, qui ajoute un petit biais).
+
+<a id="notebook"></a>
+
+## Notebook
+
+Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses et ce qu'il faut en retenir.
+
+- **MB8.13 🔨** `score_function_gradient` : les contrôles ; `b = (f.sum() - f) / (n - 1)` pour `"leave-one-out"`, sinon la constante ; `g = (f - b) * s` (avec `[:, None]` pour des scores à deux dimensions) ; `g.mean(axis=0)` et `g.std(axis=0, ddof=1) / math.sqrt(n)`. a) $\approx (-1{,}6437 ;\ 0{,}0854)$. b) $\approx (-1{,}6802 ;\ 0{,}0624)$. c) $\frac{1\,999}{2\,000} = 0{,}9995$. Ce qu'il faut observer : la dérivée exacte, $-1{,}7262$, est à moins d'une erreur type de a) et de b) ; la moyenne des autres tirages, proche de $P(X > 7) \approx 0{,}25$, retire à chaque $f(x_i)$ ce qu'il a de prévisible, et l'erreur type baisse d'environ un quart ; le rapport c) est l'identité exacte de ∂ MB8.9, terme à terme : il ne dépend pas du tirage.
+- **MB8.14 🔨** `policy_gradient_exact` : $\pi$ par une softmax stable ligne par ligne ; `P_pi = np.einsum("sa,ast->st", pi, P)`, `r_pi = np.einsum("sa,as->s", pi, r)` ; `M = np.linalg.solve(np.eye(m) - gamma * P_pi, np.eye(m))`, `V = M @ r_pi`, `Q = r.T + gamma * np.einsum("ast,t->sa", P, V)`, `A = Q - V[:, None]`, et `grad = M[:, :, None] * (pi * A)[None, :, :]`. a) $(9{,}4111 ;\ 11{,}7183 ;\ 0{,}6770 ;\ -0{,}6770 ;\ 0{,}2788 ;\ -0{,}2788)$, comme MB8.3. b) $(0{,}1618 ;\ -0{,}1618 ;\ -0{,}2787 ;\ 0{,}2787 ;\ 0 ;\ 0)$. c) $(0{,}0403 ;\ -0{,}0403 ;\ -0{,}1765 ;\ 0{,}1765 ;\ 1{,}0435 ;\ -1{,}0435)$. Ce qu'il faut observer : depuis les états 0 et 1, aucune action ne mène à l'état 2 (la colonne 2 de `P_14` est nulle sur leurs lignes) : $\mathbf{M}[0, 2] = 0$, et les logits de l'état 2 ne comptent pas pour $V(0)$ ; depuis l'état 2, on va en 0 et en 1, et tous les logits comptent, ceux de l'état 2 le plus. Les deux dérivées d'un état ont une somme nulle : ajouter un même nombre à ses deux logits ne change pas la politique. Au parc, les deux actions font la même chose : leurs avantages sont nuls.
+- **MB8.15 🔨** `importance_weights` : `d = lt - lq`, `np.minimum(d, math.log(c))` avec `max_weight` ; `u = np.exp(d - d.max())`, `ess = u.sum() ** 2 / (u ** 2).sum()` ; les poids `np.exp(d)`, ou `u / u.sum()`. a) $(5{,}84 ;\ 4{,}8823)$, comme MB8.5. b) Le quotient direct rend `nan` partout : $e^{-1\,300}$ vaut 0 en flottants (en dessous d'environ $e^{-745}$), et $\frac00$ n'est pas défini. Avec `self_normalize=True` : le plus grand poids normalisé vaut $\approx 0{,}3957$ et la taille effective $\approx 3{,}6535$. Ce qu'il faut observer : les différences $\ln p - \ln q$ sont de l'ordre de 1, et les poids n'ont besoin que d'elles ; un tirage pèse 40 % du total, et les cinq tirages en valent environ trois et demi.
+- **MB8.16 🔨** `bradley_terry_fit` : la connexité par `R = (wins > 0) | np.eye(K, dtype=bool)`, puis `R = (R.astype(int) @ R.astype(int)) > 0` jusqu'à stabilité, et le refus si un coefficient est faux ; les balayages `p_new = W / (n_ij / (p[:, None] + p[None, :])).sum(1)` (diagonale exclue), divisés par leur moyenne géométrique. a) $(0{,}5580 ;\ 0{,}2703 ;\ -0{,}8283)$, comme MB8.6. b) $(0{,}9224 ;\ 0{,}7085 ;\ 0{,}2382 ;\ 0{,}0861 ;\ -1{,}0428 ;\ -0{,}9124 ;\ 0{,}8623)$. c) `ValueError` : personne n'a battu le club 1, aucun chemin n'arrive à lui. Ce qu'il faut observer : les victoires valent $(20, 17, 14, 13, 6, 7)$, et le classement par les forces les suit ici ; mais les clubs 0 et 5 ont joué sept fois l'un contre l'autre, les autres paires cinq fois : avec des nombres de matchs différents, un club peut avoir plus de victoires et une force plus petite, parce que l'équation $W_i = \sum_jn_{ij}\,\sigma(\beta_i - \beta_j)$ dépend des $n_{ij}$. Un club invaincu voit sa vraisemblance grandir sans fin avec sa force.
+- **MB8.17 🔮** Prédictions attendues : a) (C) ; b) (B). Mesures : c) $\approx (0{,}0550 ;\ 0{,}0385 ;\ 0{,}0294)$, soit un rapport d'environ $1{,}87$ (la théorie donne $(0{,}0556 ;\ 0{,}0380 ;\ 0{,}0295)$). Ce qu'il faut observer (après l'expérience) : les trois moyennes ($0{,}1889$, $0{,}1891$, $0{,}1893$) sont proches de la dérivée exacte, $p_\theta(4) \approx 0{,}1888$ : les trois estimateurs sont sans biais, seule la dispersion change. $b^\star \approx 0{,}558$ est loin de $P_\theta(X \ge 5) \approx 0{,}275$ : $b^\star$ pondère les tirages par $s^2$, grand pour les tirages élevés, ceux où $f = 1$. La moyenne des autres tirages se comporte comme $b = \mathbb{E}[f]$, et paie en variance $(\mathbb{E}[f] - b^\star)^2\,\mathbb{E}[s^2]$ de plus que $b^\star$.
+- **MB8.18 🔬** a) $(2 \cdot 10^{-5} ;\ 2)$ : 2 tirages sur 100 000 dépassent 4, pour $3{,}2$ attendus ; l'erreur relative d'un tel compte est de l'ordre de $\frac{1}{\sqrt 3}$, plus de 50 %. b) $\approx (0{,}9931 ;\ 0{,}0210 ;\ 7{,}85)$. Le poids d'un tirage $z$ vaut $\frac{e^{-z^2/2}}{e^{-(z - 4)^2/2}} = e^{8 - 4z}$, au plus $e^{-8} \approx 3{,}35 \cdot 10^{-4}$ au-delà de 4. c) Biais relatifs $\approx (-0{,}359 ;\ -0{,}102)$ (les valeurs exactes sont $-0{,}358$ et $-0{,}101$) ; l'écart-type relatif passe de $0{,}021$ à $0{,}018$ puis $0{,}011$ quand $c$ baisse. Ce qu'il faut observer : la taille effective mesure tous les poids, et ceux des tirages sous 4, où $f = 0$, sont énormes ($e^{8 - 4z}$ pour $z$ petit) ; ils ne comptent pas dans l'estimation, qui ne pondère que les tirages au-delà de 4, de poids petits et réguliers. Dès que $c \ge e^{-8}$, aucun poids utile n'est tronqué, et le biais disparaît ($3{,}35 \cdot 10^{-4}$ est juste sous $e^{-8}$ : un biais de l'ordre de $10^{-6}$).
+- **MB8.19 🐛** (1) Le score du taux : `1 / theta - x`. La fonction fautive écrivait $\frac{x - \theta}{\theta^2}$, comme si $\theta$ était la moyenne. a) $\approx (-0{,}01 ;\ 13{,}20)$ : la moyenne fautive vaut environ $\frac{2{,}5 - 0{,}4}{0{,}16} \approx 13{,}1$. Au taux 1, $1 - x$ et $x - 1$ ont tous deux une moyenne nulle : la vérification ne voyait rien. (2) Les poids $e^{\ln p - \ln q}$ : `np.exp(log_p - log_q)`. b) $\approx (0{,}80 ;\ -1\,022{,}11)$ : là où la cible est presque nulle et la proposition ne l'est pas (les $x$ très négatifs), $\frac qp$ explose. Avec $p = q$, tous les poids valent 1, dans un sens comme dans l'autre. (3) La moyenne des autres tirages du batch, `(f.sum() - f) / (len(f) - 1)`, au lieu de la moyenne du batch. c) $\approx (0{,}3358 ;\ 0{,}2518)$, pour une dérivée exacte $1{,}5\,e^{-1{,}5} \approx 0{,}3347$ : la fautive vaut exactement les $\frac34$ de la corrigée, batch par batch ($\frac{n - 1}{n}$ avec $n = 4$) ; sur un batch de 10 000, le facteur $0{,}9999$ ne se voit pas. (4) Deux tournois sans club commun ni match entre eux : le graphe des victoires réunies n'est pas fortement connexe, et les forces des deux tournois n'ont pas d'échelle commune : la fonction corrigée lève `ValueError`. La fonction fautive comparait les forces centrées de chaque tournoi : A $\approx (0{,}5266 ;\ -0{,}1757 ;\ -0{,}3509)$ et B $\approx (-0{,}1678 ;\ 0{,}1678 ;\ 0)$ ; avec B3, B devient $\approx (0{,}2568 ;\ 0{,}5509 ;\ 0{,}4030 ;\ -1{,}2107)$ : recentrer B sur quatre clubs, dont un faible, remonte les trois autres. d) `["A0", "B1"]`. Avec deux fois le même tableau, les deux échelles coïncident, et le décalage ne se voit pas.
+- **MB8.20 🛠️** Une correction possible : `matches_finite_differences_20` tire cinq MDP (de 2 à 5 états, 2 ou 3 actions, des lignes de $\mathbf{P}[a]$ tirées dans une loi de Dirichlet, des récompenses et des logits normaux, $\gamma$ uniforme sur $[0{,}2 ;\ 0{,}7]$), calcule les valeurs par `np.linalg.solve` en $z \pm h\,\mathbf{e}_{s,a}$ avec $h = 10^{-5}$, et compare à $10^{-6}$ près en valeur absolue ; `sums_to_zero_20` compare `grad.sum(axis=2)` à 0 à $10^{-10}$ près. a) `[True, True]`. Ce qu'il faut observer : l'écart à la différence finie trace un V en fonction de $h$, minimal vers $10^{-5}$ ($10^{-10}$ environ) ; avec $h = 10^{-12}$, l'arrondi, de l'ordre de $\frac{10^{-16}}{10^{-12}}$, dépasse $10^{-4}$. Une méthode qui rend des zéros, ou toute dérivée de somme nulle par état, passe le test de somme nulle : il ne suffit pas seul. Avec des logits nuls, la politique est uniforme, et une formule qui remplace $\pi(a \mid s)$ par $\frac1K$ passerait ; avec une matrice $\mathbf{M}$ symétrique, une formule qui la transpose aussi.
+  Les méthodes fausses cachées de la vérification, et le test qui doit refuser chacune : `matches_finite_differences_20` : (1) $\boldsymbol\nu$ au lieu de $\mathbf{M}$ (le facteur $1 - \gamma$) ; (2) $\mathbf{M}$ transposée ; (3) $\frac1K$ au lieu de $\pi(a \mid s)$ ; (4) le gradient multiplié par $1 + 5 \cdot 10^{-6}$, que `np.allclose` laisse passer par défaut ; `sums_to_zero_20` : (5) $\pi(a \mid s)\,Q(s, a)$ au lieu de $\pi(a \mid s)\,A(s, a)$ ; (6) le gradient plus $10^{-8}$ partout, invisible à $10^{-6}$ près. Avant tout verdict, la vérification refuse un test qui lit la méthode ou la pile d'appels, ou qui appelle `policy_gradient_exact` de la référence.
+- **MB8.21 🏆** `derivative_21` : tout le budget en $\delta = 0$ ; $f_i = \mathbf{1}\{x_i > c\}$ ; la baseline optimale estimée sur les mêmes tirages, $\hat b = \frac{\sum_if_is_i^2}{\sum_is_i^2}$ (une variable de contrôle : le score, d'espérance nulle) ; puis la moyenne des $(f_i - \hat b)\,s_i$. a) Sur le cas d'essai, une estimation proche de $-1{,}73$ (la dérivée exacte est $-1{,}7262$, ta réponse à MB8.1 b). La vérification tire 120 cas cachés : des probabilités $P_\theta(X > c)$ très proches de 1, proches de 1, moyennes ou petites, dans les quatre familles ; le budget de chaque cas donne à une méthode avec baseline une erreur type d'environ $\frac{1}{3{,}3}$ de la tolérance. Ce qu'il faut observer : quand $P(X > c)$ est proche de 1, $f$ vaut presque toujours 1, et l'estimateur sans baseline est presque la moyenne des scores, d'espérance nulle mais de variance $\mathbb{E}[s^2]$, très grande devant la dérivée ; une baseline proche de 1 le corrige, et la moyenne des autres tirages fait aussi bien. Échouent à chaque exécution : l'estimateur sans baseline, la baseline constante $\frac12$, la dérivée par le chemin (0), les différences finies entre deux échantillons indépendants, la valeur du cas d'essai recopiée, et une variable de contrôle $x - \bar x$, dont la corrélation avec $f\,s$ est trop faible. Réussissent à chaque exécution : la baseline optimale estimée, la moyenne des autres tirages, la moyenne du groupe (le facteur $\frac{n - 1}{n}$ est négligeable pour de grands budgets), et une baseline estimée sur un cinquième du budget puis appliquée au reste.
