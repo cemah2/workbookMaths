@@ -18,7 +18,7 @@
 
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures
 1. $3 \times 2 + 1 \times (-1) = 5$ : le produit scalaire de la ligne 1 avec $\mathbf{x}$.
-2. $\mathbf{A}\mathbf{x} = 2\begin{pmatrix} 3 \cr -2 \end{pmatrix} - 1\begin{pmatrix} 1 \cr 4 \end{pmatrix} = \begin{pmatrix} 5 \cr -8 \end{pmatrix}$.
+2. $`\mathbf{A}\mathbf{x} = 2\begin{pmatrix} 3 \cr -2 \end{pmatrix} - 1\begin{pmatrix} 1 \cr 4 \end{pmatrix} = \begin{pmatrix} 5 \cr -8 \end{pmatrix}`$.
 3. $(1, 4)$ : la **colonne 2** de $\mathbf{A}$.
 4. $m\thinspace n$ : une multiplication par élément de la matrice.
 5. **Vrai** : si $\mathbf{a}_j = 2\mathbf{a}_k$, le vecteur $\mathbf{x}$ qui vaut 2 en position $k$, $-1$ en position $j$ et 0 ailleurs donne $\mathbf{A}\mathbf{x} = 2\mathbf{a}_k - \mathbf{a}_j = \mathbf{0}$.
@@ -279,7 +279,7 @@ Pour la copie : la solution générale est $(3, 2, 0) + t\thinspace(-3, -1, 1)$.
 **Démarche.**
 - a) $2 \times 5 - 3 \times 2 = 4$.
 - b) $`\frac{1}{4}\begin{pmatrix} 5 & -3 \cr -2 & 2 \end{pmatrix}`$ : on échange $a$ et $d$, on change le signe de $b$ et de $c$, on divise par $ad - bc$.
-- c) $\mathbf{A}^{-1}\begin{pmatrix} 9 \cr 11 \end{pmatrix} = \begin{pmatrix} 11{,}25 - 8{,}25 \cr -4{,}5 + 5{,}5 \end{pmatrix}$.
+- c) $`\mathbf{A}^{-1}\begin{pmatrix} 9 \cr 11 \end{pmatrix} = \begin{pmatrix} 11{,}25 - 8{,}25 \cr -4{,}5 + 5{,}5 \end{pmatrix}`$.
 - d) On multiplie $\mathbf{A}\mathbf{X} = \mathbf{C}$ **à gauche** par $\mathbf{A}^{-1}$ : $`\mathbf{X} = \mathbf{A}^{-1}\mathbf{C} = \frac{1}{4}\begin{pmatrix} 15 - 15 & 25 - 21 \cr -6 + 10 & -10 + 14 \end{pmatrix}`$.
 - e) $(2\mathbf{A})^{-1} = \frac{1}{2}\mathbf{A}^{-1}$, car $(2\mathbf{A})(\frac{1}{2}\mathbf{A}^{-1}) = \mathbf{I}$.
 - f) $(\mathbf{A}^\top)^{-1} = (\mathbf{A}^{-1})^\top$ (M09a.16).

@@ -49,9 +49,9 @@ Donne les fractions sous forme **irréductible**.
 
 ### POS.4 — Un système de deux équations à deux inconnues ✏️ ⏱️ 8 min
 
-a) Résous le système $\begin{cases} 2x + 3y = 12 \cr x - y = 1 \end{cases}$ et donne la liste `[x, y]`.
+a) Résous le système $`\begin{cases} 2x + 3y = 12 \cr x - y = 1 \end{cases}`$ et donne la liste `[x, y]`.
 
-b) Combien de solutions le système $\begin{cases} x + 3y = 2 \cr 2x + 6y = 5 \end{cases}$ a-t-il ? Réponds par le numéro : 1. aucune ; 2. une seule ; 3. une infinité.
+b) Combien de solutions le système $`\begin{cases} x + 3y = 2 \cr 2x + 6y = 5 \end{cases}`$ a-t-il ? Réponds par le numéro : 1. aucune ; 2. une seule ; 3. une infinité.
 
 ## R3 · Fonctions
 

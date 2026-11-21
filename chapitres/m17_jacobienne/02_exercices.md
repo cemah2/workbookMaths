@@ -115,7 +115,7 @@ $\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $`\boldsymbol{\Sigma} = \be
 1. $\mathbb{V}(X_1 + X_2)$ ? $\mathbb{V}(X_1 - X_2)$ ?
 2. Pour une ligne $\mathbf{v}$, comment s'écrit $\mathbb{V}(\mathbf{v} \cdot \mathbf{X})$ avec $\boldsymbol{\Sigma}$ ?
 3. Pourquoi une matrice de covariance est-elle semi-définie positive ?
-4. Pour une autre matrice de covariance $\boldsymbol{\Sigma}'$, celle d'un vecteur $(X_1, X_2)$ dont la somme $X_1 + X_2$ est constante, que vaut $\boldsymbol{\Sigma}'\begin{pmatrix} 1 \cr 1 \end{pmatrix}$ ? Est-ce possible pour la matrice $\boldsymbol{\Sigma}$ ci-dessus ?
+4. Pour une autre matrice de covariance $\boldsymbol{\Sigma}'$, celle d'un vecteur $(X_1, X_2)$ dont la somme $X_1 + X_2$ est constante, que vaut $`\boldsymbol{\Sigma}'\begin{pmatrix} 1 \cr 1 \end{pmatrix}`$ ? Est-ce possible pour la matrice $\boldsymbol{\Sigma}$ ci-dessus ?
 5. Une matrice de covariance est-elle toujours symétrique ? Toujours inversible ?
 
 <a id="papier"></a>

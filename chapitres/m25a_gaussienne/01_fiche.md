@@ -271,7 +271,7 @@ avec $\boldsymbol{\Sigma} _{aa} = \operatorname{Cov}(\mathbf{x} _a)$, $\boldsymb
 ```math
 \boldsymbol{\mu} = \begin{pmatrix} 2 \cr 3 \cr 5 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 2 & 2 \cr 1 & 2 & 4 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 1 & 0 & 0 \cr 1 & 1 & 0 \cr 1 & 1 & \sqrt2 \end{pmatrix}, \qquad \det\boldsymbol{\Sigma} = 2 .
 ```
-Par exemple, $\operatorname{Cov}(x_1, x_3) = \mathbb{V}(x_1) = 1$ : les retards ajoutés ensuite sont indépendants de $x_1$. On observe le deuxième arrêt : $a = \lbrace1, 3\rbrace$ et $b = \lbrace2\rbrace$, d'où $`\boldsymbol{\Sigma} _{aa} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix}`$, $\boldsymbol{\Sigma}  _{ab} = \begin{pmatrix} 1 \cr 2 \end{pmatrix}$ et $\boldsymbol{\Sigma} _{bb} = (2)$.
+Par exemple, $\operatorname{Cov}(x_1, x_3) = \mathbb{V}(x_1) = 1$ : les retards ajoutés ensuite sont indépendants de $x_1$. On observe le deuxième arrêt : $a = \lbrace1, 3\rbrace$ et $b = \lbrace2\rbrace$, d'où $`\boldsymbol{\Sigma} _{aa} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix}`$, $`\boldsymbol{\Sigma}  _{ab} = \begin{pmatrix} 1 \cr 2 \end{pmatrix}`$ et $\boldsymbol{\Sigma} _{bb} = (2)$.
 
 ### Le complément de Schur ; inverse et déterminant par blocs
 

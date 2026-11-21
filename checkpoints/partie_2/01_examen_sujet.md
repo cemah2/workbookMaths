@@ -104,7 +104,9 @@ Ensuite, trois modèles sont ajustés sur les mêmes $n = 60$ exemples :
 
 On résout le système $(S)$ par le pivot de Gauss, en éliminant d'abord $x$ ($L_2 \leftarrow L_2 - 3L_1$ et $L_3 \leftarrow L_3 + 2L_1$), puis $y$ dans la troisième ligne ($L_3 \leftarrow L_3 - 3L_2$) :
 
-$$(S) \quad \begin{cases} x + y + 2z = 3 \cr 3x + 4y + 5z = 7 \cr -2x + y + 3z = -2 \end{cases}$$
+```math
+(S) \quad \begin{cases} x + y + 2z = 3 \cr 3x + 4y + 5z = 7 \cr -2x + y + 3z = -2 \end{cases}
+```
 
 Ensuite : $`\mathbf{B} = \begin{pmatrix} 3 & 5 \cr 2 & 4 \end{pmatrix}`$ et $`\mathbf{C} = \begin{pmatrix} 1 & 2 & 0 & 3 \cr 2 & 4 & 1 & 7 \cr 3 & 6 & 1 & 10 \end{pmatrix}`$.
 

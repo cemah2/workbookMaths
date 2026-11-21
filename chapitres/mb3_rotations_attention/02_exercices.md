@@ -122,7 +122,9 @@ Fais-les **à la main** (calculatrice permise pour les cosinus, les exponentiell
 **Prérequis :** fiche §1 et §2 ; R9 (valeurs remarquables de cos et sin) · **Parcours :** C, E
 
 Un bras articulé est fixé par l'épaule à l'origine. Le bras mesure 4 dm, l'avant-bras 2 dm ; au départ, les deux segments sont alignés sur l'axe des abscisses, la pince en $(6, 0)$. L'épaule tourne de 60°, ce qui fait tourner tout le bras ; puis le coude tourne l'avant-bras de 45° de plus par rapport au bras. L'avant-bras fait alors l'angle $60° + 45° = 105°$ avec l'axe des abscisses, et la pince est en
-$$\mathbf{p} = \mathbf{R} _{60°}\begin{pmatrix} 4 \cr 0 \end{pmatrix} + \mathbf{R} _{105°}\begin{pmatrix} 2 \cr 0 \end{pmatrix}.$$
+```math
+\mathbf{p} = \mathbf{R} _{60°}\begin{pmatrix} 4 \cr 0 \end{pmatrix} + \mathbf{R} _{105°}\begin{pmatrix} 2 \cr 0 \end{pmatrix}.
+```
 Une caméra fixée au bras voit la pince dans son propre repère, qui a tourné de 60° avec le bras.
 
 | | Question | Réponse attendue |

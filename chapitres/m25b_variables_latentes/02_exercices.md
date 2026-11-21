@@ -228,7 +228,9 @@ Dans ta copie : pourquoi l'ELBO de d) dépasse-t-elle celle de c) ? Laquelle des
 **Prérequis :** fiche §6 et §7 ; M12c, M25a · **Parcours :** C, E
 
 Un concours a trois épreuves, notées sur 20. On modélise les notes $\mathbf{x} \in \mathbb{R}^3$ d'un candidat par l'ACP probabiliste à un facteur ($k = 1$), son aptitude cachée $z \sim \mathcal{N}(0, 1)$ :
-$$\mathbf{x} = \mathbf{w}\thinspace z + \boldsymbol{\mu} + \boldsymbol{\varepsilon}, \qquad \mathbf{w} = \begin{pmatrix} 2 \cr 1 \cr 2 \end{pmatrix}, \quad \boldsymbol{\mu} = \begin{pmatrix} 12 \cr 11 \cr 13 \end{pmatrix}, \quad \boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, 3\thinspace\mathbf{I}_3).$$
+```math
+\mathbf{x} = \mathbf{w}\thinspace z + \boldsymbol{\mu} + \boldsymbol{\varepsilon}, \qquad \mathbf{w} = \begin{pmatrix} 2 \cr 1 \cr 2 \end{pmatrix}, \quad \boldsymbol{\mu} = \begin{pmatrix} 12 \cr 11 \cr 13 \end{pmatrix}, \quad \boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, 3\thinspace\mathbf{I}_3).
+```
 Pour les questions f) à i), une autre session du concours a donné une covariance des notes (au sens du maximum de vraisemblance) de valeurs propres $\lambda_1 = 14$, $\lambda_2 = 4{,}5$ et $\lambda_3 = 2{,}5$.
 
 | | Question | Réponse attendue |

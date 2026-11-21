@@ -87,11 +87,11 @@ Vrai ou faux ?
 *Fiche §7 · parcours C, E*
 
 Combien de solutions chaque système a-t-il ? Réponds par **aucune**, **une seule** ou **une infinité**, sans résoudre en entier.
-1. $\begin{cases} x + y = 1 \cr x + y = 2 \end{cases}$
-2. $\begin{cases} x + y = 1 \cr x - y = 1 \end{cases}$
-3. $\begin{cases} x - 2y = 3 \cr 2x - 4y = 6 \end{cases}$
-4. $\begin{cases} y = 3x + 1 \cr y = 3x - 4 \end{cases}$
-5. $\begin{cases} 2x = 4 \cr 3y = 9 \end{cases}$
+1. $`\begin{cases} x + y = 1 \cr x + y = 2 \end{cases}`$
+2. $`\begin{cases} x + y = 1 \cr x - y = 1 \end{cases}`$
+3. $`\begin{cases} x - 2y = 3 \cr 2x - 4y = 6 \end{cases}`$
+4. $`\begin{cases} y = 3x + 1 \cr y = 3x - 4 \end{cases}`$
+5. $`\begin{cases} 2x = 4 \cr 3y = 9 \end{cases}`$
 6. Un système de deux équations du premier degré à deux inconnues peut-il avoir **exactement deux** solutions ?
 
 ### R2.Q8 — Quelle équation pour ce problème ? 🧠 ★ ⏱️ 4 min
@@ -286,23 +286,23 @@ Résous chaque système (au moins un par substitution, au moins un par combinais
 
 | | Système |
 |---|---|
-| a | $\begin{cases} x + 2y = 8 \cr 3x - y = 3 \end{cases}$ |
-| b | $\begin{cases} 5x + 2y = 1 \cr 3x + 4y = -5 \end{cases}$ |
-| c | $\begin{cases} 4x - 3y = 17 \cr 2x + y = 1 \end{cases}$ |
-| d | $\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4 \cr x - y = 3 \end{cases}$ |
+| a | $`\begin{cases} x + 2y = 8 \cr 3x - y = 3 \end{cases}`$ |
+| b | $`\begin{cases} 5x + 2y = 1 \cr 3x + 4y = -5 \end{cases}`$ |
+| c | $`\begin{cases} 4x - 3y = 17 \cr 2x + y = 1 \end{cases}`$ |
+| d | $`\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4 \cr x - y = 3 \end{cases}`$ |
 
 ### Ex R2.11 — Système 2 × 2 par la formule de Cramer ✏️ ★★ ⏱️ 15 min
 **Objectif :** calculer un déterminant 2 × 2, appliquer la formule de Cramer, et conclure quand le déterminant est nul.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-On note $(S)$ le système $\begin{cases} 2x + 5y = 1 \cr 3x - y = 10 \end{cases}$.
+On note $(S)$ le système $`\begin{cases} 2x + 5y = 1 \cr 3x - y = 10 \end{cases}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le déterminant $D$ de $(S)$ | un nombre |
 | b | la solution de $(S)$, par la formule de Cramer | la liste $[x, y]$ |
-| c | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \cr -4x + 6y = -8 \end{cases}$ | 1, 2 ou 3 |
-| d | le nombre de solutions de $\begin{cases} 2x - 3y = 4 \cr -4x + 6y = 1 \end{cases}$ | 1, 2 ou 3 |
+| c | le nombre de solutions de $`\begin{cases} 2x - 3y = 4 \cr -4x + 6y = -8 \end{cases}`$ | 1, 2 ou 3 |
+| d | le nombre de solutions de $`\begin{cases} 2x - 3y = 4 \cr -4x + 6y = 1 \end{cases}`$ | 1, 2 ou 3 |
 
 ### Ex R2.12 — Mettre en équation : trois problèmes ✏️ ★★ ⏱️ 25 min
 **Objectif :** choisir l'inconnue, traduire l'énoncé, résoudre, vérifier dans l'énoncé.
@@ -350,12 +350,12 @@ Soient $a$ et $b$ deux réels tels que $a < b$.
 **Objectif :** démontrer qu'un système 2 × 2 a une seule solution exactement quand son déterminant n'est pas nul, et décrire les deux autres cas.
 **Prérequis :** fiche §7 · **Parcours :** C
 
-On étudie le système $(S)$ : $\begin{cases} ax + by = e \cr cx + dy = f \end{cases}$, de déterminant $D = ad - bc$.
+On étudie le système $(S)$ : $`\begin{cases} ax + by = e \cr cx + dy = f \end{cases}`$, de déterminant $D = ad - bc$.
 1. Soit $(x, y)$ une solution de $(S)$. En multipliant la première équation par $d$, la seconde par $b$, puis en soustrayant, montre que $D\thinspace x = ed - bf$. Montre de même que $D\thinspace y = af - ec$.
 2. On suppose $D \ne 0$. Déduis de 1 que $(S)$ a **au plus** une solution, puis vérifie, en le substituant dans la **première** équation, que le couple de Cramer est bien solution (la seconde se vérifie de la même façon ; tu peux l'admettre). Conclus.
 3. On suppose $D = 0$, avec $a \ne 0$ (les cas où $a = 0$ se traitent en échangeant les rôles des équations ou des inconnues : tu peux les admettre). Pose $k = \dfrac{c}{a}$. Montre que $c = ka$ et $d = kb$ (utilise $ad = bc$) : la seconde équation s'écrit $k(ax + by) = f$.
 4. Toujours avec $D = 0$ et $a \ne 0$ : montre que si $f = ke$, tout couple qui vérifie la première équation vérifie aussi la seconde (une infinité de solutions), et que si $f \ne ke$, aucun couple ne vérifie les deux (aucune solution).
-5. Conclus : « $(S)$ a une seule solution si et seulement si $D \ne 0$ ». Applique le critère au système $\begin{cases} 6x - 4y = 2 \cr -9x + 6y = m \end{cases}$ : pour quelle valeur de $m$ a-t-il une infinité de solutions ?
+5. Conclus : « $(S)$ a une seule solution si et seulement si $D \ne 0$ ». Applique le critère au système $`\begin{cases} 6x - 4y = 2 \cr -9x + 6y = m \end{cases}`$ : pour quelle valeur de $m$ a-t-il une infinité de solutions ?
 
 <a id="reflexion"></a>
 

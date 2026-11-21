@@ -243,7 +243,7 @@ On peut y ajouter des blocs $1 \times 1$ égaux à 1 (des coordonnées fixes), c
 
 ### Le produit par blocs
 
-> **Rappel et généralisation** (M09a §3 : $\mathbf{A}\mathbf{B} = \sum_k$ (colonne $k$ de $\mathbf{A}$)(ligne $k$ de $\mathbf{B}$), des blocs d'une seule colonne). Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \cr \vdots \cr \mathbf{B}_r \end{pmatrix}$, alors
+> **Rappel et généralisation** (M09a §3 : $\mathbf{A}\mathbf{B} = \sum_k$ (colonne $k$ de $\mathbf{A}$)(ligne $k$ de $\mathbf{B}$), des blocs d'une seule colonne). Si l'on découpe les colonnes de $\mathbf{A}$ en blocs, $\mathbf{A} = (\mathbf{A}_1\ \mathbf{A}_2\ \cdots\ \mathbf{A}_r)$, et les lignes de $\mathbf{B}$ de la même façon, $`\mathbf{B} = \begin{pmatrix} \mathbf{B}_1 \cr \vdots \cr \mathbf{B}_r \end{pmatrix}`$, alors
 > $$\mathbf{A}\mathbf{B} = \mathbf{A}_1\mathbf{B}_1 + \mathbf{A}_2\mathbf{B}_2 + \cdots + \mathbf{A}_r\mathbf{B}_r .$$
 
 En effet, le coefficient $(\mathbf{AB}) _{uw} = \sum_k a  _{uk}b _{kw}$ est une somme sur les colonnes de $\mathbf{A}$, qu'on coupe en morceaux, un par bloc (M25a découpait aussi les lignes et les colonnes).

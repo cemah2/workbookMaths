@@ -289,7 +289,7 @@
 
 **Erreurs fréquentes.** Donner $[y, x]$ ; oublier de multiplier le second membre en combinant ; ne vérifier le couple que dans une seule équation (celle qui a servi à calculer la seconde inconnue le vérifie forcément).
 
-**Variante.** $\begin{cases} 2x + y = 7 \cr x - 3y = 7 \end{cases}$. *Réponse* : $y = 7 - 2x$, puis $7x - 21 = 7$, $x = 4$, $y = -1$.
+**Variante.** $`\begin{cases} 2x + y = 7 \cr x - 3y = 7 \end{cases}`$. *Réponse* : $y = 7 - 2x$, puis $7x - 21 = 7$, $x = 4$, $y = -1$.
 
 ### Ex R2.11 — Système 2 × 2 par la formule de Cramer
 
@@ -303,7 +303,7 @@
 
 **Erreurs fréquentes.** Oublier le signe de $d = -1$ ; calculer $ad + bc$ ; conclure « une solution » sans regarder le déterminant ; diviser par un $D$ nul.
 
-**Variante.** $\begin{cases} 4x + 3y = 10 \cr 2x - y = 0 \end{cases}$ par Cramer. *Réponse* : $D = -10$, $x = \frac{-10}{-10} = 1$, $y = \frac{-20}{-10} = 2$.
+**Variante.** $`\begin{cases} 4x + 3y = 10 \cr 2x - y = 0 \end{cases}`$ par Cramer. *Réponse* : $D = -10$, $x = \frac{-10}{-10} = 1$, $y = \frac{-20}{-10} = 2$.
 
 ### Ex R2.12 — Mettre en équation : trois problèmes
 
@@ -378,7 +378,7 @@
 
 **Erreurs fréquentes.** Croire que 1 suffit à prouver l'existence d'une solution (1 suppose qu'une solution existe) ; diviser par $D$ sans avoir supposé $D \ne 0$ ; en 5, chercher la valeur de $m$ qui annule le déterminant (il est nul pour tout $m$).
 
-**Variante.** Montre que si $D \ne 0$, le système $\begin{cases} ax + by = 0 \cr cx + dy = 0 \end{cases}$ n'a que la solution $(0, 0)$. *Réponse* : par 1, $D\thinspace x = 0$ et $D\thinspace y = 0$, donc $x = y = 0$ ; et $(0, 0)$ est bien solution.
+**Variante.** Montre que si $D \ne 0$, le système $`\begin{cases} ax + by = 0 \cr cx + dy = 0 \end{cases}`$ n'a que la solution $(0, 0)$. *Réponse* : par 1, $D\thinspace x = 0$ et $D\thinspace y = 0$, donc $x = y = 0$ ; et $(0, 0)$ est bien solution.
 
 <a id="reflexion"></a>
 

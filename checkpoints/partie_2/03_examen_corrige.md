@@ -94,7 +94,7 @@ a) $L_2 \leftarrow L_2 - 3L_1$ donne $(0, 1, -1 \mid -2)$ ; $L_3 \leftarrow L_3 
 b) $L_3 \leftarrow L_3 - 3L_2$ : $(0, 3 - 3, 7 + 3 \mid 4 + 6) = (0, 0, 10 \mid 10)$. **[0,25]**
 c) Remontée : $10z = 10$, donc $z = 1$ ; $y - z = -2$, donc $y = -1$ ; $x + y + 2z = 3$, donc $x = 2$. Vérification dans la troisième équation : $-4 - 1 + 3 = -2$. **[0,25]**
 d) $\det \mathbf{B} = 3 \times 4 - 5 \times 2 = 2$, et $`\mathbf{B}^{-1} = \frac{1}{2}\begin{pmatrix} 4 & -5 \cr -2 & 3 \end{pmatrix} = \begin{pmatrix} 2 & -2{,}5 \cr -1 & 1{,}5 \end{pmatrix}`$ ; on vérifie $\mathbf{B}\mathbf{B}^{-1} = \mathbf{I}$. **[0,25]**
-e) $\mathbf{x} = \mathbf{B}^{-1}\begin{pmatrix} 1 \cr 2 \end{pmatrix} = \begin{pmatrix} 2 - 5 \cr -1 + 3 \end{pmatrix} = \begin{pmatrix} -3 \cr 2 \end{pmatrix}$ ; vérification : $3 \times (-3) + 5 \times 2 = 1$ et $2 \times (-3) + 4 \times 2 = 2$. **[0,25]**
+e) $`\mathbf{x} = \mathbf{B}^{-1}\begin{pmatrix} 1 \cr 2 \end{pmatrix} = \begin{pmatrix} 2 - 5 \cr -1 + 3 \end{pmatrix} = \begin{pmatrix} -3 \cr 2 \end{pmatrix}`$ ; vérification : $3 \times (-3) + 5 \times 2 = 1$ et $2 \times (-3) + 4 \times 2 = 2$. **[0,25]**
 f) La troisième ligne est la somme des deux premières ($1 + 2 = 3$, $2 + 4 = 6$, $0 + 1 = 1$, $3 + 7 = 10$), et les deux premières ne sont pas proportionnelles : le rang vaut 2. Par le pivot : $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 - 3L_1$ donnent $(0, 0, 1, 1)$ deux fois, puis une ligne nulle. **[0,25]**
 g) Les membres de gauche sont proportionnels quand $\frac{2}{1} = \frac{k}{2}$, soit $k = 4$ ; le système devient $x + 2y = 3$ et $2x + 4y = 7$, c'est-à-dire $x + 2y = 3{,}5$ : contradictoire, aucune solution. Pour $k \ne 4$, le déterminant $k - 4$ n'est pas nul et la solution est unique. **[0,25]**
 
@@ -204,7 +204,7 @@ Les lignes justes : (A) $\sqrt{9 + 16 + 144} = \sqrt{169} = 13$ ; (D) le nombre 
 
 **Réponses** : a) `[216, 579]` · b) `[5.22727, 1.95455]` · c) `1.86` · d) `0.993` · e) `-3.0` · f) `1` · g) `0.799` · h) `False`.
 
-a) $\sum x_i^2 = 1 + 4 + 16 + 25 + 49 + 121 = 216$ et $\sum x_i y_i = 7 + 18 + 56 + 75 + 126 + 297 = 579$ ; avec $n = 6$, $\sum x_i = 30$ et $\sum y_i = 90$ : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 6 & 30 \cr 30 & 216 \end{pmatrix}`$ et $\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 90 \cr 579 \end{pmatrix}$. **[0,25]**
+a) $\sum x_i^2 = 1 + 4 + 16 + 25 + 49 + 121 = 216$ et $\sum x_i y_i = 7 + 18 + 56 + 75 + 126 + 297 = 579$ ; avec $n = 6$, $\sum x_i = 30$ et $\sum y_i = 90$ : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 6 & 30 \cr 30 & 216 \end{pmatrix}`$ et $`\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 90 \cr 579 \end{pmatrix}`$. **[0,25]**
 b) $\det = 6 \times 216 - 30^2 = 396$ ; $a = \frac{216 \times 90 - 30 \times 579}{396} = \frac{2\thinspace070}{396} = \frac{115}{22} \approx 5{,}22727$ et $b = \frac{6 \times 579 - 30 \times 90}{396} = \frac{774}{396} = \frac{43}{22} \approx 1{,}95455$. **[0,25]**
 c) Les résidus valent $-0{,}1818$ ; $-0{,}1364$ ; $0{,}9545$ ; $0$ ; $-0{,}9091$ ; $0{,}2727$ (la droite passe par $(\bar{x}, \bar{y}) = (5, 15)$, un des points), et leur somme des carrés $\approx 1{,}8636$, soit 1,86. (Par la formule $\mathrm{SCT} - b \sum (x_i - \bar{x})(y_i - \bar{y}) = 254 - 129\thinspace b$, il faut garder $b$ assez précis : avec $b = 1{,}95455$, on trouve 1,863, soit 1,86 ; avec $b$ arrondi à 1,9545, la soustraction donnerait 1,87.) **[0,25]**
 d) $\mathrm{SCT} = \sum (y_i - 15)^2 = 64 + 36 + 1 + 0 + 9 + 144 = 254$, donc $R^2 = 1 - \frac{1{,}8636}{254} \approx 0{,}993$. **[0,25]**

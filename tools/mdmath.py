@@ -315,10 +315,16 @@ def emphasis_problems(text: str) -> list[tuple[int, int]]:
 
 
 # ---------------------------------------------------------------------------------------------------- whole files
+def _needs_github_syntax(tex: str) -> bool:
+    """A matrix or another environment: GitHub never displayed one as $-math (no rendered formula had ``&``,
+    ``\\begin`` or ``\\cr``, session 79), even a column vector without ``&``."""
+    return "&" in tex or "\\begin{" in tex or "\\cr" in tex
+
+
 def _github_syntax(text: str) -> str:
     """Two cases that GitHub refuses as $-math whatever the escapes (checked on rendered pages, session 79).
 
-    * A formula with ``&`` (a matrix) is never read as math: it goes into GitHub's own syntax, a ```` ```math ```` block
+    * A formula with ``&``, ``\\begin{`` or ``\\cr`` (a matrix, a column vector, cases) is never read as math: it goes into GitHub's own syntax, a ```` ```math ```` block
       for a display formula alone on its lines, ``$`…`$`` otherwise (Colab, Jupyter and VS Code then show its TeX as
       code: the price of a readable matrix on GitHub).
     * A formula that ends with ``)`` right before a ``)`` (« (vecteur propre $(1, 6)$) ») is not read either: it gets
@@ -327,7 +333,7 @@ def _github_syntax(text: str) -> str:
     out, last = [], 0
     for s in math_spans(text):
         tex = s.tex(text)
-        if "&" not in tex:
+        if not _needs_github_syntax(tex):
             if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
                 out.append(text[last:s.end - 1] + "{}$")
                 last = s.end
@@ -404,8 +410,8 @@ def problems(text: str) -> list[str]:
     for s in math_spans(text):
         tex = s.tex(text)
         found = escape_problems(tex)
-        if "&" in tex:
-            found.append("& (a matrix: GitHub reads it only as ```math or $`…`$)")
+        if _needs_github_syntax(tex):
+            found.append("an environment or & (a matrix: GitHub reads it only as ```math or $`…`$)")
         if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
             found.append(")$) (end the formula with {})")
         if found:

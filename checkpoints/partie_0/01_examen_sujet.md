@@ -87,7 +87,7 @@ La figure montre trois droites : $D_1$ d'équation $3x + y = 9$, $D_2$ d'équati
 | c | la pente de $D_2$ | une fraction irréductible |
 | d | l'équation réduite $y = mx + p$ de $D_3$, lue sur la figure | la liste $[m, p]$ |
 | e | le point d'intersection de $D_1$ et $D_3$, **par le calcul** (la figure sert à vérifier) | la liste $[x, y]$ (1 décimale) |
-| f | le nombre de solutions du système $\begin{cases} 3x + y = 9 \cr 6x + 2y = 18 \end{cases}$ : 1. aucune ; 2. une seule ; 3. une infinité | le numéro 1, 2 ou 3 |
+| f | le nombre de solutions du système $`\begin{cases} 3x + y = 9 \cr 6x + 2y = 18 \end{cases}`$ : 1. aucune ; 2. une seule ; 3. une infinité | le numéro 1, 2 ou 3 |
 
 ### CP0.4 — Second degré : racines et sommet ✏️ ★★ ⏱️ 10 min · 1,5 point
 

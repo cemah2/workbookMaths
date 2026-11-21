@@ -160,7 +160,7 @@ En général, $\mathbf{A}\mathbf{x}$ n'est pas sur la même droite que $\mathbf{
 $$\mathbf{A}\mathbf{v} = \lambda\mathbf{v}.$$
 Le vecteur nul est exclu (il vérifierait l'égalité pour tout $\lambda$) ; la valeur propre, elle, peut être nulle, négative, ou même complexe (fin de la section). Tout multiple non nul d'un vecteur propre est un vecteur propre de même valeur propre : c'est une **direction** qui compte, pas un vecteur.
 
-**Exemple.** Avec $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 3 & 2 \end{pmatrix}`$ : $\mathbf{A}\begin{pmatrix} 2 \cr 3 \end{pmatrix} = \begin{pmatrix} 8 \cr 12 \end{pmatrix} = 4\begin{pmatrix} 2 \cr 3 \end{pmatrix}$ et $\mathbf{A}\begin{pmatrix} 1 \cr -1 \end{pmatrix} = \begin{pmatrix} -1 \cr 1 \end{pmatrix} = -1 \cdot \begin{pmatrix} 1 \cr -1 \end{pmatrix}$. La direction $(2, 3)$ est étirée par 4 ; la direction $(1, -1)$ est retournée, sans changer de longueur. Mais $\mathbf{A}\mathbf{e}_1 = (1, 3)$ n'est pas sur la droite de $\mathbf{e}_1$.
+**Exemple.** Avec $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 3 & 2 \end{pmatrix}`$ : $`\mathbf{A}\begin{pmatrix} 2 \cr 3 \end{pmatrix} = \begin{pmatrix} 8 \cr 12 \end{pmatrix} = 4\begin{pmatrix} 2 \cr 3 \end{pmatrix}`$ et $`\mathbf{A}\begin{pmatrix} 1 \cr -1 \end{pmatrix} = \begin{pmatrix} -1 \cr 1 \end{pmatrix} = -1 \cdot \begin{pmatrix} 1 \cr -1 \end{pmatrix}`$. La direction $(2, 3)$ est étirée par 4 ; la direction $(1, -1)$ est retournée, sans changer de longueur. Mais $\mathbf{A}\mathbf{e}_1 = (1, 3)$ n'est pas sur la droite de $\mathbf{e}_1$.
 
 ![À gauche, les points du cercle unité et leurs images par A : la plupart changent de direction ; à droite, les deux directions propres, (2, 3) étirée par 4 et (1, −1) retournée](figures/vecteurs_propres.png)
 

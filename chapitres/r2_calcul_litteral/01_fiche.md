@@ -323,7 +323,9 @@ Avec elle, tout nombre s'écrit $x = \operatorname{sign}(x) \times |x|$ : $-8 = 
 
 Un **système de deux équations à deux inconnues** demande les couples $(x, y)$ qui vérifient **les deux** équations à la fois :
 
-$$\begin{cases} 3x + 2y = 11 \cr x - 4y = 13 \end{cases}$$
+```math
+\begin{cases} 3x + 2y = 11 \cr x - 4y = 13 \end{cases}
+```
 
 Le couple $(5, -2)$ est solution : $3 \times 5 + 2 \times (-2) = 11$ et $5 - 4 \times (-2) = 13$. Trois méthodes pour le trouver.
 
@@ -345,7 +347,7 @@ On multiplie les équations par des nombres bien choisis pour qu'une inconnue **
 
 ### Par la formule de Cramer
 
-Pour le système $\begin{cases} ax + by = e \cr cx + dy = f \end{cases}$, le nombre
+Pour le système $`\begin{cases} ax + by = e \cr cx + dy = f \end{cases}`$, le nombre
 
 $$D = ad - bc$$
 

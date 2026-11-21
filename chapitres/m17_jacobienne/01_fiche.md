@@ -175,7 +175,7 @@ la transposée de la ligne précédente : **les mêmes nombres**, rangés en col
 ```math
 \nabla_{\mathbf{y}}L = (2y_1,\ 2) = (4,\ 2), \qquad \mathbf{J} _{\mathbf{f}} = \begin{pmatrix} x_2 & x_1 \cr 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}.
 ```
-En ligne, $(4, 2)\thinspace\mathbf{J}  _{\mathbf{f}} = (8 + 2,\ 4 + 2) = (10, 6)$ ; en colonne, $\mathbf{J} _{\mathbf{f}}^\top\begin{pmatrix} 4 \cr 2 \end{pmatrix} = \begin{pmatrix} 10 \cr 6 \end{pmatrix}$. Vérification directe : $L(\mathbf{f}(\mathbf{x})) = x_1^2x_2^2 + 2x_1 + 2x_2$ a pour dérivées partielles $2x_1x_2^2 + 2 = 10$ et $2x_1^2x_2 + 2 = 6$.
+En ligne, $(4, 2)\thinspace\mathbf{J}  _{\mathbf{f}} = (8 + 2,\ 4 + 2) = (10, 6)$ ; en colonne, $`\mathbf{J} _{\mathbf{f}}^\top\begin{pmatrix} 4 \cr 2 \end{pmatrix} = \begin{pmatrix} 10 \cr 6 \end{pmatrix}`$. Vérification directe : $L(\mathbf{f}(\mathbf{x})) = x_1^2x_2^2 + 2x_1 + 2x_2$ a pour dérivées partielles $2x_1x_2^2 + 2 = 10$ et $2x_1^2x_2 + 2 = 6$.
 
 ⚠️ **Erreur classique.** Écrire $\mathbf{J} _{\mathbf{f}}\nabla _{\mathbf{y}}L$ (sans transposer) en convention colonne : les formes $(p, n) \times (p,)$ ne s'enchaînent pas si $n \ne p$, et, si $n = p$, le résultat est faux sans erreur Python. La règle mnémotechnique : en ligne, le gradient multiplie la jacobienne **à gauche** ; en colonne, c'est la **transposée** de la jacobienne qui multiplie le gradient.
 

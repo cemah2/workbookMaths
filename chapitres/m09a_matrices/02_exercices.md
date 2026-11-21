@@ -496,7 +496,7 @@ Un petit réseau reçoit des exemples à 3 features, a une couche cachée de 5 n
 | c | le nombre de paramètres du réseau (poids et biais des deux couches) | un entier |
 | d | le nombre de multiplications des deux produits matriciels, pour ce batch | un entier |
 
-Un réseau plus petit, à 2 entrées, 3 neurones cachés et 1 sortie, a $`\mathbf{W}_1 = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 1 & 1 \end{pmatrix}`$, $\mathbf{b}_1 = (0 ;\ 0{,}5 ;\ -1)$, $\mathbf{W}_2 = \begin{pmatrix} 1 \cr 2 \cr -1 \end{pmatrix}$, $b_2 = 0{,}5$. On lui donne l'exemple $\mathbf{x} = (1, -1)$.
+Un réseau plus petit, à 2 entrées, 3 neurones cachés et 1 sortie, a $`\mathbf{W}_1 = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 1 & 1 \end{pmatrix}`$, $\mathbf{b}_1 = (0 ;\ 0{,}5 ;\ -1)$, $`\mathbf{W}_2 = \begin{pmatrix} 1 \cr 2 \cr -1 \end{pmatrix}`$, $b_2 = 0{,}5$. On lui donne l'exemple $\mathbf{x} = (1, -1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|

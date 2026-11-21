@@ -134,7 +134,7 @@ Le même produit se lit autrement : $\mathbf{A}\mathbf{x}$ est la **combinaison 
 
 $$\mathbf{A}\mathbf{x} = x_1\thinspace\mathbf{a}_1 + x_2\thinspace\mathbf{a}_2 + \cdots + x_n\thinspace\mathbf{a}_n \qquad (\mathbf{a}_j \text{ la colonne } j).$$
 
-Ici, $2\begin{pmatrix} 1 \cr 3 \end{pmatrix} + 1\begin{pmatrix} -2 \cr 0 \end{pmatrix} + 1\begin{pmatrix} 4 \cr -1 \end{pmatrix} = \begin{pmatrix} 4 \cr 5 \end{pmatrix}$. Les deux lectures donnent toujours le même résultat : ce sont les mêmes $m \times n$ produits $a_{ij}x_j$, additionnés dans un autre ordre. La seconde est la plus utile pour comprendre : **résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est chercher comment fabriquer $\mathbf{b}$ avec les colonnes de $\mathbf{A}$** (§5).
+Ici, $`2\begin{pmatrix} 1 \cr 3 \end{pmatrix} + 1\begin{pmatrix} -2 \cr 0 \end{pmatrix} + 1\begin{pmatrix} 4 \cr -1 \end{pmatrix} = \begin{pmatrix} 4 \cr 5 \end{pmatrix}`$. Les deux lectures donnent toujours le même résultat : ce sont les mêmes $m \times n$ produits $a_{ij}x_j$, additionnés dans un autre ordre. La seconde est la plus utile pour comprendre : **résoudre $\mathbf{A}\mathbf{x} = \mathbf{b}$, c'est chercher comment fabriquer $\mathbf{b}$ avec les colonnes de $\mathbf{A}$** (§5).
 
 ![Le produit matrice-vecteur comme combinaison des colonnes : 2a₁ + 1a₂ + 1a₃ = (4, 5)](figures/combinaison_colonnes.png)
 
