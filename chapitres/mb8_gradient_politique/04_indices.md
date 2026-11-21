@@ -17,12 +17,12 @@ Fiche §1 : « Dériver par rapport au paramètre », « Une espérance nulle »
 </details>
 <details><summary>Indice 2</summary>
 
-Écris $\ln p_\theta(x)$, puis dérive en $\theta$, $x$ restant fixé. $I(\theta) = \mathbb{V}(s_\theta) = -\mathbb{E}[\partial^2_\theta\ln p_\theta]$ ; $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) \approx \frac12I(\theta)(\theta' - \theta)^2$. L'erreur type d'une moyenne de $n$ tirages indépendants est $\frac{\sigma}{\sqrt n}$. Pour 5, que vaut la dérivée en $\theta$ de $\mathbf{1}\{\theta + \xi > 3\}$, $\xi$ restant fixé ?
+Écris $\ln p_\theta(x)$, puis dérive en $\theta$, $x$ restant fixé. $I(\theta) = \mathbb{V}(s_\theta) = -\mathbb{E}[\partial^2_\theta\ln p_\theta]$ ; $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) \approx \frac12I(\theta)(\theta' - \theta)^2$. L'erreur type d'une moyenne de $n$ tirages indépendants est $\frac{\sigma}{\sqrt n}$. Pour 5, regarde comment $X = F_\theta^{-1}(U)$ varie avec $\theta$, $U$ restant fixé.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\ln p_\theta(x) = -\frac{(x - \theta)^2}{8} + \text{constante}$. 3. Où vit le support, et qu'a supposé la fiche pour écrire $\mathbb{E}[s_\theta] = 0$ ? 4. Résous $\frac{1{,}44}{n} = 0{,}05^2$. 5. Compare avec $P(\xi > 3 - \theta)$, dont la dérivée est une densité.
+1. $\ln p_\theta(x) = -\frac{(x - \theta)^2}{8} + \text{constante}$. 3. Où vit le support, et qu'a supposé la fiche pour écrire $\mathbb{E}[s_\theta] = 0$ ? 2. $I(0{,}5) = \frac{10}{0{,}25}$, et $\theta' - \theta = 0{,}02$. 4. Résous $\frac{1{,}44}{n} = 0{,}05^2$. 5. À $U$ fixé, quelles valeurs prend $X$ quand $\theta$ varie un peu ? $\mathbb{E}_\theta[X^2] = \mathbb{V}(X) + \mathbb{E}[X]^2$.
 
 </details>
 
@@ -58,7 +58,7 @@ $V(s) = \sum_a\pi(a \mid s)\,Q(s, a)$ et $A = Q - V$. $\mathbf{M} = \sum_t\gamma
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0{,}5 + 0{,}6 + 0{,}6$, puis les trois différences. 2. $\sum_t\gamma^t = \frac{1}{1 - \gamma}$ ; $(1 - 0{,}6) \times 0{,}6^3$. 3. $0{,}4 + 0{,}4 \times 0{,}6$ ; le nombre moyen de pas est $\frac{1}{1 - \lambda}$. 4. Quel facteur de la formule de la fiche s'annule ? 5. $\mathbf{e} = \mathbf{0}$.
+1. $0{,}5 + 0{,}6 + 0{,}6$, puis les trois différences. 2. $\sum_t\gamma^t = \frac{1}{1 - \gamma}$ ; $(1 - 0{,}6) \times 0{,}6^3$. 3. Les retours de plus de $k$ pas pèsent ensemble $\lambda^k$ : calcule les puissances successives de $0{,}6$, puis de $0{,}7$, jusqu'à passer sous $0{,}1$. 4. Quel facteur de la formule de la fiche s'annule ? 5. $\mathbf{e} = \mathbf{0}$.
 
 </details>
 
@@ -76,7 +76,7 @@ $\mathbb{E}_q[wf] = \int_{q > 0}p\,f$. La taille effective vaut $\frac{(\sum_iw_
 </details>
 <details><summary>Indice 3</summary>
 
-1. Les tirages de $q$ tombent-ils dans $[0, 1]$ ? Compare $\int_{q > 0}p\,f$ et $\int p\,f$. 2. $\frac{6^2}{9 + 1 + 1 + 1}$ ; puis un facteur commun au numérateur et au dénominateur. 3. Si un poids dépasse $c$ là où $f > 0$, l'espérance bouge-t-elle ? 4. $\ln 1{,}5 \approx 0{,}405$ ; pour le signe de $k_3$, la tangente de $\ln$ en 1.
+1. Les tirages de $q$ tombent-ils dans $[0, 1]$ ? Compare $\int_{q > 0}p\,f$ et $\int p\,f$. 2. $\frac{6^2}{9 + 1 + 1 + 1}$ ; puis un facteur commun au numérateur et au dénominateur. 3. Si un poids dépasse $c$ là où $f > 0$, l'espérance bouge-t-elle ? 4. $\ln 1{,}55 \approx 0{,}438$ ; pour le signe de $k_3$, la tangente de $\ln$ en 1.
 
 </details>
 
@@ -134,7 +134,7 @@ $\frac{\partial p_i}{\partial z_j} = p_i(\mathbf{1}\{i = j\} - p_j)$. Pour un ve
 </details>
 <details><summary>Indice 3</summary>
 
-1. La diagonale $p_i(1 - p_i)$ : $0{,}2 \times 0{,}8 = 0{,}16$ ; hors de la diagonale, $-p_ip_j$ : $-0{,}2 \times 0{,}7 = -0{,}14$ ; complète. 2. Dérive $\sum_ip_i = 1$. 3. $\operatorname{Cov}(\mathbf{Y}) = \mathbb{E}[\mathbf{Y}\mathbf{Y}^\top] - \mathbb{E}[\mathbf{Y}]\,\mathbb{E}[\mathbf{Y}]^\top$. 4. $e^0$, $e^{-1{,}5}$, $e^{-3}$, puis divise par leur somme.
+1. La diagonale $p_i(1 - p_i)$ : $0{,}6 \times 0{,}4 = 0{,}24$ ; hors de la diagonale, $-p_ip_j$ : $-0{,}6 \times 0{,}1 = -0{,}06$ ; complète. 2. Que deviennent les $p_i$ si l'on ajoute un même nombre $t$ à tous les logits ? Dérive en $t$. 3. $\operatorname{Cov}(\mathbf{Y}) = \mathbb{E}[\mathbf{Y}\mathbf{Y}^\top] - \mathbb{E}[\mathbf{Y}]\,\mathbb{E}[\mathbf{Y}]^\top$. 4. $e^0$, $e^{-1{,}5}$, $e^{-3}$, puis divise par leur somme.
 
 </details>
 
@@ -282,7 +282,7 @@ Deux clubs seuls : l'équation de vraisemblance d'une paire, $n\,\sigma(d) = $ l
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\sigma(d) = \frac27$, donc $d = \ln\frac{2/7}{5/7}$. b) $7 \times \frac47$ ; $10 \times \frac45$ ; $4 \times \frac34$ ; puis somme par club et compare aux totaux du tableau. c) $\ln 4$, $\ln 3$, 0, moins leur moyenne. d) $\frac{1}{1 + 4}$. e) $400\log_{10}4$ ; $32 \times (1 - 0{,}2)$. Pour D : quelle flèche du graphe des victoires arrive à D ?
+a) $\sigma(d) = \frac27$, donc $d = \ln\frac{2/7}{5/7}$. b) $7 \times \frac47$ ; $10 \times \frac45$ ; $4 \times \frac34$ ; puis somme par club et compare aux totaux du tableau. c) $\ln 4$, $\ln 3$, 0, moins leur moyenne. d) $\frac{1}{1 + 4}$. e) $400\log_{10}4$ ; $32 \times (1 - 0{,}2)$. Pour D : écris son équation du maximum de vraisemblance, $4 = 2\,\sigma(\beta_D - \beta_A) + 2\,\sigma(\beta_D - \beta_C)$ ; une force finie peut-elle la vérifier ?
 
 </details>
 
@@ -317,12 +317,12 @@ Fiche §1 : « Une espérance nulle » et « L'information de Fisher » ; M25b �
 </details>
 <details><summary>Indice 2</summary>
 
-Sur $S$, $\partial_\theta p_\theta = p_\theta\,s_\theta$. Dérive $\int_Sp_\theta = 1$ une fois, puis deux fois. Pour la loi uniforme, écris $\int_0^\theta p_\theta(x)\,\mathrm{d}x = 1$ et dérive une intégrale dont la borne dépend de $\theta$.
+Sur $S$, $\partial_\theta p_\theta = p_\theta\,s_\theta$. Dérive $\int_Sp_\theta = 1$ une fois, puis deux fois. Pour la loi uniforme, calcule $\int_0^\theta\partial_\theta p_\theta(x)\,\mathrm{d}x$ et compare-le à ce que donnerait l'étape 1.
 
 </details>
 <details><summary>Indice 3</summary>
 
-1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\,s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; la dérivée de $\int_0^\theta p_\theta$ a un terme de bord, $p_\theta(\theta^-)$.
+1. $0 = \int_S\partial_\theta p_\theta = \int_Sp_\theta\,s_\theta$. 2. $\partial^2_\theta\ln p_\theta = \frac{\partial^2_\theta p_\theta}{p_\theta} - s_\theta^2$, et $\int_S\partial^2_\theta p_\theta = 0$. 3. Poisson : $s_\theta = \frac x\theta - 1$, $-\partial^2_\theta\ln p_\theta = \frac{x}{\theta^2}$ ; exponentielle : $s_\theta = \frac1\theta - x$, et une seule formule, par exemple $-\partial^2_\theta\ln p_\theta = \frac{1}{\theta^2}$. 4. Sur $[0, \theta[$, $\ln p_\theta = -\ln\theta$ ; $\int_0^\theta\partial_\theta p_\theta = -\frac1\theta$ : où l'étape 1 a-t-elle utilisé un support fixe ?
 
 </details>
 
@@ -358,7 +358,7 @@ Dérive le produit $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V}$. $\frac{\pa
 </details>
 <details><summary>Indice 3</summary>
 
-1. $-\gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V} + (\mathbf{I} - \gamma\mathbf{P}_\pi)\,\partial\mathbf{V} = \partial\mathbf{r}_\pi$ ; pour l'inversibilité, une norme infinie. 2. $\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)$. 3. $\sum_b\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)\,Q(s, b) = \pi(a \mid s)\big(Q(s, a) - \sum_b\pi(b \mid s)\,Q(s, b)\big)$. 4. $\mathbf{M}$ fois un vecteur qui n'a que la coordonnée $s$ ; $\mathbf{M}[s_0, s] = \frac{\nu_{s_0}(s)}{1 - \gamma}$. 5. $\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,V(s) = V(s)\,\partial_\theta\sum_a\pi(a \mid s)$.
+1. $-\gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V} + (\mathbf{I} - \gamma\mathbf{P}_\pi)\,\partial\mathbf{V} = \partial\mathbf{r}_\pi$, puis multiplie par $\mathbf{M}$. 2. $\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)$. 3. $\sum_b\pi(b \mid s)\big(\mathbf{1}\{b = a\} - \pi(a \mid s)\big)\,Q(s, b) = \pi(a \mid s)\big(Q(s, a) - \sum_b\pi(b \mid s)\,Q(s, b)\big)$. 4. $\mathbf{M}$ fois un vecteur qui n'a que la coordonnée $s$ ; $\mathbf{M}[s_0, s] = \frac{\nu_{s_0}(s)}{1 - \gamma}$. 5. $\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s)\,V(s) = V(s)\,\partial_\theta\sum_a\pi(a \mid s)$.
 
 </details>
 
@@ -500,7 +500,7 @@ u = np.exp(d - d.max())
 ess = float(u.sum() ** 2 / (u ** 2).sum())
 w = u / u.sum() if self_normalize else np.exp(d)
 ```
-a) Les logarithmes des parts $p$ et $q$ des classes des six panélistes. b) Regarde d'abord `np.exp(LOG_P_15)` seul.
+a) Les logarithmes des parts $p$ et $q$ des classes des six panélistes, avec `self_normalize=True`. b) Regarde d'abord `np.exp(LOG_P_15)` seul.
 
 </details>
 
@@ -537,7 +537,7 @@ Fiche §3 : « Une baseline pour l'estimateur score » et « Des baselines tiré
 </details>
 <details><summary>Indice 2</summary>
 
-Les trois estimateurs ont la même espérance (∂ MB8.9 pour la moyenne des autres tirages) : seule leur dispersion peut différer. Avec une baseline constante $b$, la variance vaut la variance minimale plus $(b - b^\star)^2\,\mathbb{E}[s^2]$ (fiche §3). La moyenne des autres tirages se comporte comme $b = \mathbb{E}[f]$.
+Les trois estimateurs ont la même espérance (∂ MB8.9 pour la moyenne des autres tirages) : seule leur dispersion peut différer. La variance est un trinôme en $b$, minimal en $b^\star$ (fiche §3, et sa figure). La moyenne des autres tirages se comporte comme $b = \mathbb{E}[f]$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -591,7 +591,7 @@ Fiche §4 : « Dériver le système de Bellman » (la vérification par différe
 </details>
 <details><summary>Indice 2</summary>
 
-Chaque test tire plusieurs MDP : `rng.dirichlet(np.ones(m), size=(K, m))` pour les $\mathbf{P}[a]$, `rng.normal` pour les récompenses et les logits, $\gamma$ dans $[0{,}2 ;\ 0{,}7]$. Les différences finies : pour chaque $(s, a)$, les valeurs par `np.linalg.solve` en $z \pm h$ sur ce seul logit, puis $\frac{V^+ - V^-}{2h}$, avec ta propre fonction des valeurs ($\pi$, $\mathbf{P}_\pi$, $\mathbf{r}_\pi$), pas `policy_gradient_exact` de la référence. Compare à $10^{-6}$ près : `np.abs(fd - grad).max() <= 1e-6` (la vérification essaie des méthodes fausses de quelques $10^{-6}$ en valeur relative, que `np.allclose` laisserait passer). La somme : `np.abs(grad.sum(axis=2)).max() <= 1e-10`. Rends un booléen Python.
+Chaque test tire plusieurs MDP : `rng.dirichlet(np.ones(m), size=(K, m))` pour les $\mathbf{P}[a]$, `rng.normal` pour les récompenses et les logits, $\gamma$ parmi $0{,}6$ et $0{,}7$. Les différences finies : pour chaque $(s, a)$, les valeurs par `np.linalg.solve` en $z \pm h$ sur ce seul logit, puis $\frac{V^+ - V^-}{2h}$, avec ta propre fonction des valeurs ($\pi$, $\mathbf{P}_\pi$, $\mathbf{r}_\pi$), pas `policy_gradient_exact` de la référence. Compare à $10^{-6}$ près : `np.abs(fd - grad).max() <= 1e-6` (la vérification essaie des méthodes fausses de quelques $10^{-6}$ en valeur relative, que `np.allclose` laisserait passer). La somme : `np.abs(grad.sum(axis=2)).max() <= 1e-10`. Rends un booléen Python.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -609,11 +609,11 @@ Fiche §2 : « La méthode du score » et « Le score contre le chemin » ; §3 
 </details>
 <details><summary>Indice 2</summary>
 
-`draw(k)` rend les tirages et leurs scores : l'estimateur score se calcule sans connaître la loi. Avec $f = \mathbf{1}\{x > c\}$, sa variance à un tirage est $\mathbb{E}[(f - b)^2s^2] - D^2$ : que vaut-elle pour $b = 0$ quand $P(X > c)$ est proche de 1 ? Une baseline proche des valeurs de $f$ la réduit, à condition de rester sans biais (une constante, ou la moyenne des autres tirages). Ne gaspille pas le budget : les tirages à $\delta \ne 0$ coûtent autant que les autres.
+`draw(k)` rend les tirages et leurs scores : l'estimateur score se calcule sans connaître la loi. Avec $f = \mathbf{1}\{x > c\}$, sa variance à un tirage est $\mathbb{E}[(f - b)^2s^2] - D^2$ : que vaut-elle pour $b = 0$ quand $P(X > c)$ est proche de 1 ? La baseline qui la réduit le plus est $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]}$ (fiche §3) : que vaut-elle quand $f$ vaut presque toujours 1 ? Elle doit rester sans biais : une constante, ou la moyenne des autres tirages. Ne gaspille pas le budget : les tirages à $\delta \ne 0$ coûtent autant que les autres.
 
 </details>
 <details><summary>Indice 3</summary>
 
-La baseline optimale s'estime sur les tirages, $\hat b = \frac{\sum_if_is_i^2}{\sum_is_i^2}$, au prix d'un biais de l'ordre de $\frac1n$ (fiche §3, 💻) ; ou bien la moyenne des autres tirages, sans biais. Un seul appel `x, s = draw(budget)`, puis la moyenne des $(f_i - b_i)\,s_i$. Contrôle sur le cas d'essai : la dérivée exacte est ta réponse à MB8.1 b.
+La baseline optimale s'estime sur les tirages, $\hat b = \frac{\sum_if_is_i^2}{\sum_is_i^2}$, au prix d'un petit biais, comme pour $c^\star$ estimé sur les tirages (fiche §3, 💻) ; ou bien la moyenne des autres tirages, sans biais. Un seul appel `x, s = draw(budget)`, puis la moyenne des $(f_i - b_i)\,s_i$. Contrôle sur le cas d'essai : la dérivée exacte est ta réponse à MB8.1 b.
 
 </details>

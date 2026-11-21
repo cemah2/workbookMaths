@@ -120025,7 +120025,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "00599ee52df47a491d67b284146508ccf74eec5c61c1c4f450c1fb1e4b01f6bf": "le λ-retour actualise l'erreur : chaque retour à k pas porte γ^k fois l'erreur",
+        "0e8da6be8fbdcf17446769f10ab1e1797ee4d5143e2b200a96099bd126963c90": "le poids du retour à k pas est (1 − λ)λ^{k−1} : l'exposant de λ est k − 1",
         "76ed83f48e7e60ee312ea4b44e496927d2a3c8603610055946db4418182774b2": "les poids (1 − λ)λ^{k−1} somment à 1 : n'oublie pas le facteur 1 − λ"
       },
       "sign": 1,
@@ -121451,6 +121451,7 @@
       "kind": "array",
       "mistakes": {
         "1d90052691c060f939a62b94cd05276f618b5d50ecbaa254d47bb1a7547e6e0b": "la version corrigée d'abord, puis la version fautive",
+        "8d21aee58d86d0b66ea6d2557ea439bd395a9c602b0801a21c8f6dcaeb8d85ab": "le premier nombre est celui de ta version corrigée, score_exp_fixed : ici elle rend encore ce que rend la version fautive",
         "a29b94ee6da98b1c4259485fd2a1e7b83de10ec808b8a84e49e3ee0714f85a90": "le second nombre est celui de la version FAUSSE, score_exp_bad"
       },
       "shape": [
@@ -121487,6 +121488,7 @@
       "hash": "2c4557bc97d305c9d4e83bc0ec7b03a57fc0a5d5e841c55640ac9bc4d2d47625",
       "kind": "array",
       "mistakes": {
+        "52d8a865627eddba6f4467ee092ce484fa0c34efd371facf9129fec23607c904": "le premier nombre est celui de ta version corrigée, weights_fixed : ici elle rend encore ce que rend la version fautive",
         "547eb62b3893d96c0f78ce2b03fb0586a6e3721f08f7a60bf456fced20ba92e4": "la version corrigée d'abord, puis la version fautive",
         "71e8f3d0225b6e0a9bf8374299a020dcae86b7aea236cb8c4bbacb8b461e22e8": "le second nombre est celui de la version FAUSSE, weights_bad"
       },
@@ -121525,6 +121527,7 @@
       "kind": "array",
       "mistakes": {
         "0a1171d18d4cf8498fb8d37337403174575fafbab96780b5c426ef7107840d7f": "le second nombre est celui de la version FAUSSE, estimate_bad",
+        "1a2377588e9efa29ea741997b528774ca5c84705b8076b83ecf03e5485d37e29": "le premier nombre est celui de ta version corrigée, estimate_fixed : ici elle rend encore ce que rend la version fautive",
         "4baa6329fb2c85a97e71d9406c7c1cbe53400c4b6330d30a0d99043e9d7788cc": "la version corrigée d'abord, puis la version fautive",
         "58ce24d7a0380e8ccd8171eb9035441956c35a2e1598576db3ef479c75fc73e8": "la moyenne des autres tirages d'un batch de n tirages porte sur n − 1 valeurs"
       },

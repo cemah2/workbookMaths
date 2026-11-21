@@ -22,7 +22,7 @@ Writes small PNG files into chapitres/mb8_gradient_politique/figures/:
 - §7: the Bradley-Terry probability σ(β_i − β_j) and the Elo expected result 1/(1 + 10^(−ΔR/400)), the same curve
   on two scales; Zermelo's sweeps on a table-tennis league of four players (each pair plays 4 matches);
 - §8: a florist's Gibbs law π* ∝ π_ref e^{r/β} over four flowers as a function of β, and its value β ln Z between
-  E_ref[r] = 2.2 and max r = 4.
+  E_ref[r] = 2.05 and max r = 4.
 The numbers are those of the fiche; none comes from workbookIA B1 to B8, nor from the exercises of MB8. The figures
 that draw random numbers use the seeds 8091 (§2), 8092 (§3) and 8093 (§6), among the seeds 8091 to 8099 kept for MB8.
 """
@@ -68,8 +68,8 @@ LEAGUE = np.array([[0, 3, 2, 4], [1, 0, 3, 2], [2, 1, 0, 3], [0, 2, 1, 0]], dtyp
 PLAYERS = ["A", "B", "C", "D"]
 # §8: the florist
 FLOWERS = ["roses", "tulipes", "pivoines", "lys"]
-PI_REF = np.array([0.4, 0.3, 0.2, 0.1])
-MARGIN = np.array([2.0, 1.0, 4.0, 3.0])
+PI_REF = np.array([0.4, 0.35, 0.15, 0.1])
+PROFIT = np.array([2.0, 1.0, 4.0, 3.0])
 
 
 def french_number(value: float, _pos=None) -> str:
@@ -392,10 +392,10 @@ def bradley_terry() -> None:
 def gibbs() -> None:
     fig, axes = plt.subplots(1, 2, figsize=(13.6, 4.6))
     betas = np.logspace(-1.3, 1.7, 300)
-    laws = np.array([PI_REF * np.exp(MARGIN / b) / np.sum(PI_REF * np.exp(MARGIN / b)) for b in betas])
+    laws = np.array([PI_REF * np.exp(PROFIT / b) / np.sum(PI_REF * np.exp(PROFIT / b)) for b in betas])
     ax = axes[0]
     for i, col in enumerate((C[0], C[1], C[2], C[3])):
-        ax.semilogx(betas, laws[:, i], color=col, lw=2, label=f"{FLOWERS[i]} (r = {french_number(MARGIN[i])})")
+        ax.semilogx(betas, laws[:, i], color=col, lw=2, label=f"{FLOWERS[i]} (r = {french_number(PROFIT[i])})")
         ax.plot([betas[-1] * 1.25], [PI_REF[i]], "<", color=col, ms=6, clip_on=False)
     ax.yaxis.set_major_formatter(FuncFormatter(french_number))
     ax.set(xlabel="β (échelle logarithmique)", ylabel="π*(x)", ylim=(-0.02, 1.02))
@@ -403,16 +403,16 @@ def gibbs() -> None:
                  "la loi de l'an dernier π_ref (triangles) quand β → ∞", fontsize=10.5)
     ax.legend(fontsize=8.5, loc="center right")
     ax = axes[1]
-    value = np.array([b * math.log(np.sum(PI_REF * np.exp(MARGIN / b))) for b in betas])
-    mean_r = laws @ MARGIN
+    value = np.array([b * math.log(np.sum(PI_REF * np.exp(PROFIT / b))) for b in betas])
+    mean_r = laws @ PROFIT
     ax.semilogx(betas, value, color="black", lw=2.4, label="valeur β ln Z")
-    ax.semilogx(betas, mean_r, color=C[1], lw=1.6, ls="--", label="marge moyenne E_π*[r]")
-    ax.axhline(MARGIN.max(), color="0.5", lw=0.8, ls=":")
-    ax.axhline(PI_REF @ MARGIN, color="0.5", lw=0.8, ls=":")
-    ax.text(betas[0], MARGIN.max() + 0.05, "max r = 4", fontsize=9, color="0.3")
-    ax.text(betas[0], PI_REF @ MARGIN - 0.17, "E_ref[r] = 2,2", fontsize=9, color="0.3")
+    ax.semilogx(betas, mean_r, color=C[1], lw=1.6, ls="--", label="bénéfice moyen E_π*[r]")
+    ax.axhline(PROFIT.max(), color="0.5", lw=0.8, ls=":")
+    ax.axhline(PI_REF @ PROFIT, color="0.5", lw=0.8, ls=":")
+    ax.text(betas[0], PROFIT.max() + 0.05, "max r = 4", fontsize=9, color="0.3")
+    ax.text(betas[0], PI_REF @ PROFIT - 0.17, "E_ref[r] = 2,05", fontsize=9, color="0.3")
     ax.yaxis.set_major_formatter(FuncFormatter(french_number))
-    ax.set(xlabel="β (échelle logarithmique)", ylabel="€ par botte", ylim=(1.9, 4.25))
+    ax.set(xlabel="β (échelle logarithmique)", ylabel="€ par botte", ylim=(1.75, 4.25))
     ax.set_title("La valeur β ln Z = E_π*[r] − β KL(π* ‖ π_ref),\n"
                  "entre E_ref[r] et max r", fontsize=10.5)
     ax.legend(fontsize=9, loc="center right")

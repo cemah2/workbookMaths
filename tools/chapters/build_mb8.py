@@ -1066,8 +1066,8 @@ CHECK_16C = '''with checked("MB8.16"):                                     # c) 
         mine_16c, expected_16c = as_floats(wins_16c), np.array(WINS_16)
         expected_16c[:, 1] = 0.0
         if mine_16c is None or mine_16c.shape != expected_16c.shape or not np.array_equal(mine_16c, expected_16c):
-            print("❌ Ex MB8.16c : wins_16c doit être une copie de WINS_16 dont la colonne 1 (les défaites du club 1) "
-                  f"vaut 0, reçu {shown(wins_16c, 1)}")
+            print("❌ Ex MB8.16c : wins_16c doit être une copie de WINS_16 (6 lignes, 6 colonnes) dont seule la colonne 1, "
+                  "les défaites du club 1, vaut 0")
         else:
             refuses("MB8.16c", "bradley_terry_fit(wins_16c), le club 1 sans défaite",
                     lambda: mymath.policy_gradient.bradley_terry_fit(wins_16c))'''
@@ -1272,7 +1272,9 @@ with checked("MB8.18"):
                                                 line.get_label().startswith("_") for line in found_18)
                   and bool(ax_18.get_xlabel()) and bool(ax_18.get_ylabel()),
                   "une légende qui nomme chaque courbe, et des noms d'axes",
-                  "il faut une légende (label=…, puis ax.legend()) qui nomme chaque courbe, et des noms d'axes")
+                  "il faut une légende (label=…, puis ax.legend()) qui nomme chaque courbe, et des noms d'axes"
+                  if all(line is not None for line in found_18) else
+                  "la légende et les noms d'axes se jugent sur les deux courbes : trace-les d'abord dans ax")
         elsewhere_18 = bool(spare_18.lines or spare_18.collections or spare_18.get_legend())
         report_18(not opened_18 and not elsewhere_18, "draw_18 dessine dans l'axe reçu",
                   "draw_18 doit dessiner dans l'axe reçu (ax.plot…), sans ouvrir de figure ni dessiner dans l'axe "
@@ -1566,8 +1568,8 @@ with checked("MB8.19"):                                       # (4) strongest_fi
             why_c19 = f"ton code lève {type(exc).__name__} : {str(exc)[:160]}"
             break
         if seen_c19:
-            why_c19 = (f"strongest_fixed appelle mymath ({seen_c19[0]}) : l'énoncé demande la correction sans mymath, en "
-                       "corrigeant le code du collègue")
+            why_c19 = (f"appelle mymath ({seen_c19[0]}) : l'énoncé demande la correction sans mymath, en corrigeant le "
+                       "code du collègue")
             break
         if answer_c19 is not ValueError:
             why_c19 = (f"pour deux tournois sans club commun ni match entre eux, ta fonction désigne encore un club "
@@ -1680,13 +1682,17 @@ rate_19r = np.random.default_rng(8121).exponential(2.5, 100_000)
 scores_19r = [float(np.mean(0.4 ** -1 - rate_19r)), float(np.mean((rate_19r - 0.4) / 0.4 ** 2))]
 wbm.record("MB8.19a", scores_19r, decimals=5,
            mistakes={"la version corrigée d'abord, puis la version fautive": scores_19r[::-1],
-                     "le second nombre est celui de la version FAUSSE, score_exp_bad": [scores_19r[0]] * 2})
+                     "le second nombre est celui de la version FAUSSE, score_exp_bad": [scores_19r[0]] * 2,
+                     "le premier nombre est celui de ta version corrigée, score_exp_fixed : ici elle rend encore ce que "
+                     "rend la version fautive": [scores_19r[1]] * 2})
 normal_19r = np.random.default_rng(8122).normal(0.0, 1.5, 50_000)
 gap_19r = stats_19r.norm.logpdf(normal_19r, 0.8, 1.0) - stats_19r.norm.logpdf(normal_19r, 0.0, 1.5)
 estimates_19r = [float(np.mean(np.exp(gap_19r) * normal_19r)), float(np.mean(np.exp(-gap_19r) * normal_19r))]
 wbm.record("MB8.19b", estimates_19r, decimals=4,
            mistakes={"la version corrigée d'abord, puis la version fautive": estimates_19r[::-1],
-                     "le second nombre est celui de la version FAUSSE, weights_bad": [estimates_19r[0]] * 2})
+                     "le second nombre est celui de la version FAUSSE, weights_bad": [estimates_19r[0]] * 2,
+                     "le premier nombre est celui de ta version corrigée, weights_fixed : ici elle rend encore ce que rend "
+                     "la version fautive": [estimates_19r[1]] * 2})
 counts_19r = np.random.default_rng(8123).poisson(1.5, (20_000, 4))
 hits_19r, slopes_19r = (counts_19r >= 2).astype(float), counts_19r / 1.5 - 1
 total_19r = hits_19r.sum(axis=1, keepdims=True)
@@ -1695,6 +1701,8 @@ batch_19r = [float(np.mean(((hits_19r - (total_19r - hits_19r) / 3) * slopes_19r
 wbm.record("MB8.19c", batch_19r, decimals=5,
            mistakes={"la version corrigée d'abord, puis la version fautive": batch_19r[::-1],
                      "le second nombre est celui de la version FAUSSE, estimate_bad": [batch_19r[0]] * 2,
+                     "le premier nombre est celui de ta version corrigée, estimate_fixed : ici elle rend encore ce que "
+                     "rend la version fautive": [batch_19r[1]] * 2,
                      "la moyenne des autres tirages d'un batch de n tirages porte sur n − 1 valeurs":
                          [float(np.mean(((hits_19r - (total_19r - hits_19r) / 4) * slopes_19r).mean(axis=1))),
                           batch_19r[1]]})
@@ -1756,7 +1764,7 @@ WRONG_C20 = [   # a hidden wrong method, the test that must refuse it, and the c
     (HIDDEN_C20.offset_sum, "sums_to_zero_20", "de 3·10⁻¹⁰ sur chaque dérivée, ce que np.allclose laisse passer par "
                                                "défaut (atol = 1e-8) : ta tolérance sur la somme est-elle 10⁻¹⁰ ?"),
     (HIDDEN_C20.one_pair, "sums_to_zero_20", "sur la somme d'un seul couple (s₀, s), de 5·10⁻¹⁰ : vérifies-tu tous les s₀ "
-                                             "et tous les s ?"),
+                                             "et tous les s, à 10⁻¹⁰ près ?"),
 ]
 
 with checked("MB8.20"):
@@ -2169,11 +2177,14 @@ CHECK_21 = """def check_c21():
     for number in sorted({case["series"] for case in hidden}):  # what each series of hidden cases measured
         series = [case for case in hidden if case["series"] == number]
         missed = [case for case in series if not case["ok"]]
+        kinds = [kind for kind in ("très fréquent", "fréquent", "moyen", "rare") if any(c["kind"] == kind for c in missed)]
+        gaps = [case["rel"] for case in missed if case["rel"] is not None and not case["over_budget"]]
         print(f"   série {number} : {len(series) - len(missed)} sur {len(series)} à 10 % près"
-              + ("" if not missed else " ; manqués : " + " ; ".join(
-                  f"« {case['kind']} » ({case['family']}) "
-                  + ("au-delà du budget" if case["over_budget"] else "écart " + percent(case["rel"]))
-                  for case in missed)))
+              + ("" if not missed else " ; manqués : " + ", ".join(
+                  f"« {kind} » ×{sum(c['kind'] == kind for c in missed)}" for kind in kinds)
+                 + (f" (écart le plus grand : {percent(max(gaps))})" if gaps else "")
+                 + (f" ; {sum(c['over_budget'] for c in missed)} au-delà du budget"
+                    if any(c["over_budget"] for c in missed) else "")))
     succeeded = sum(case["ok"] for case in hidden)
     needed = math.ceil(0.9 * len(hidden))
     over = [case for case in hidden if case["over_budget"]]
