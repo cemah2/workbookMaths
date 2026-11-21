@@ -153,8 +153,8 @@ Au parc, elle n'a pas le choix (la mairie fixe la rotation) : elle vend pour 4 e
 | a | la matrice $\mathbf{P}_\pi$ (lignes et colonnes : marché, parc) | une matrice $2 \times 2$ (3 décimales) |
 | b | les valeurs $V(\text{marché})$, $V(\text{parc})$ | une liste de 2 nombres (2 décimales) |
 | c | la colonne du marché de $\mathbf{M}$ : $\mathbf{M}[\text{marché}, \text{marché}]$, puis $\mathbf{M}[\text{parc}, \text{marché}]$ | une liste de 2 nombres (3 décimales) |
-| d | $Q(\text{marché}, \text{rester})$, $Q(\text{marché}, \text{partir})$, puis les avantages $A(\text{marché}, \text{rester})$, $A(\text{marché}, \text{partir})$ | une liste de 4 nombres (3 décimales) |
-| e | $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{partir})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{partir})}$ | une liste de 4 nombres (3 décimales) |
+| d | $Q(\text{marché}, \text{rester})$, $Q(\text{marché}, \text{partir})$, puis les avantages $A(\text{marché}, \text{rester})$, $A(\text{marché}, \text{partir})$ | une liste de 4 nombres (4 décimales) |
+| e | $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{marché})}{\partial z(\text{marché}, \text{partir})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{rester})}$, $\frac{\partial V(\text{parc})}{\partial z(\text{marché}, \text{partir})}$ | une liste de 4 nombres (4 décimales) |
 
 Dans ta copie : calcule la loi d'occupation actualisée $\boldsymbol\nu_{\text{marché}}$ ; vérifie que $\sum_a\pi(a \mid \text{marché})\,A(\text{marché}, a) = 0$ ; dis pourquoi un logit du marché change $V(\text{parc})$.
 
@@ -194,8 +194,8 @@ On suppose que la dépense ne dépend que de la classe d'âge. Un panéliste tir
 | a | les poids $w = \frac pq$ des trois classes | une liste de 3 nombres (2 décimales) |
 | b | la dépense moyenne du panel brut, puis la dépense moyenne repondérée $\mathbb{E}_q[wf]$ | une liste de 2 nombres (2 décimales) |
 | c | la taille effective de Kish des six panélistes | un nombre (2 décimales) |
-| d | l'espérance repondérée avec les poids tronqués à $c = 1{,}3$, $\mathbb{E}_q[\min(w, c)\,f]$, puis son biais | une liste de 2 nombres (2 décimales) |
-| e | $\mathrm{KL}(q \,\Vert\, p)$ | un nombre (3 décimales) |
+| d | l'espérance repondérée avec les poids tronqués à $c = 1{,}6$, $\mathbb{E}_q[\min(w, c)\,f]$, puis son biais | une liste de 2 nombres (2 décimales) |
+| e | $\mathrm{KL}(q \,\Vert\, p)$ | un nombre (5 décimales) |
 | f | $k_1$ pour un panéliste de chaque classe | une liste de 3 nombres (4 décimales) |
 | g | $k_3$ pour un panéliste de chaque classe | une liste de 3 nombres (4 décimales) |
 

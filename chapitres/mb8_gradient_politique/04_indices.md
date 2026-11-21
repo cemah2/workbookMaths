@@ -264,7 +264,7 @@ $w = \frac pq$ classe par classe ; $\mathbb{E}_q[wf] = \sum q\,w\,f = \sum p\,f$
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\,f$, puis $\sum p\,f$. c) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. d) $\min(w, 1{,}3) = (0{,}52 ;\ 1{,}3 ;\ 1{,}3)$. e) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ f), g) Classe par classe ; contrôle : $\sum q\,k_1$ et $\sum q\,k_3$ redonnent e).
+a) $\frac{0{,}26}{0{,}50}$, … b) $\sum q\,f$, puis $\sum p\,f$. c) $\sum w_i = 3 \times 0{,}52 + 1{,}64 + 2 \times 1{,}32$. d) $\min(w, 1{,}6) = (0{,}52 ;\ 1{,}6 ;\ 1{,}32)$. e) $0{,}5\ln\frac{0{,}5}{0{,}26} + \cdots$ f), g) Classe par classe ; contrôle : $\sum q\,k_1$ et $\sum q\,k_3$ redonnent e).
 
 </details>
 
