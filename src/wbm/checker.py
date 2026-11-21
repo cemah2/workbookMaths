@@ -1000,16 +1000,16 @@ def _array_diagnosis(ex_id: str, entry: dict, arr, computed: bool = False, value
     if (arr.ndim == 1 and arr.size > 1 and not np.array_equal(arr, arr[::-1])
             and _hash_value(ex_id, entry, arr[::-1]) == entry["hash"]):   # the right values, read backwards
         return "Les valeurs sont bonnes, mais dans l'ordre inverse : relis l'ordre demandé par l'énoncé."
+    # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
+    # zeros as right, and before another order (u = (a, -a, b, -b) is also a permutation of -u; MB8 learner)
+    if nonzero.size and matches_all(-arr):
+        return "Tous les signes sont inversés."
     if arr.ndim == 1 and 2 < arr.size <= 6 and len(set(arr.tolist())) == arr.size:   # the right values, other order
         import itertools
 
         given = tuple(arr.tolist())
         if any(perm != given and matches_all(np.array(perm)) for perm in itertools.permutations(given)):
             return "Les valeurs sont bonnes, mais pas dans l'ordre demandé : relis l'ordre que donne l'énoncé."
-    # every sign inverted (a direction -u instead of u): said before the element count, which would only report the
-    # zeros as right
-    if nonzero.size and matches_all(-arr):
-        return "Tous les signes sont inversés."
     if element_hashes:
         flat = list(enumerate(zip(arr.ravel(), element_hashes)))
         wrong_items = [(i, x, h) for i, (x, h) in flat if not _element_ok(ex_id, i, x, h, decimals)]

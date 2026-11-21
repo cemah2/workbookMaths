@@ -1994,7 +1994,7 @@ CHAPTERS = [
         ],
     },
     {
-        "id": "MB8", "dir": "mb8_gradient_politique", "hours": 13.3, "generation_sessions": 1, "mml": [],
+        "id": "MB8", "dir": "mb8_gradient_politique", "hours": 14.8, "generation_sessions": 1, "mml": [],
         "summary": "Les outils statistiques du gradient de politique, hors de tout agent. D'abord la fonction score d'une "
                    "loi, d'espérance nulle, et l'information de Fisher ; l'estimateur « score » de la dérivée d'une "
                    "espérance, qui dérive une probabilité là où la dérivée par le chemin de M25b échoue ; la réduction de "
@@ -2291,7 +2291,8 @@ CHAPTERS = [
                  "section a son ✏️, les démonstrations courtes, Gibbs et le λ-retour, sont dans la fiche) ; ni 📦 (les "
                  "quatre 🔨 et leurs oracles en tiennent lieu) ni 🎨 (le 🔮 et le 🔬 tracent leurs mesures) ; un seul 🔗 et un "
                  "💼. Parcours essentiel : tout sauf ∂ MB8.9 (la baseline optimale et les baselines de groupe : la fiche "
-                 "énonce le résultat), le 🔬, le 🛠️ et le 🏆. **Durée** : 13,3 h au lieu des 12 h visées (10 h au plan) : "
+                 "énonce le résultat), le 🔬, le 🛠️ et le 🏆. **Durée** : 14,8 h (parcours essentiel 12,7 h), recalée à la génération (session 76) par l'auteur des exercices, "
+                 "la re-résolution à l'aveugle et l'apprenant simulé ; à la session 69 : 13,3 h au lieu des 12 h visées (10 h au plan) : "
                  "huit notions, dont quatre lacunes lourdes (la fonction score et Fisher, les variables de contrôle, "
                  "l'échantillonnage d'importance, le principe de Gibbs) et la dérivation matricielle promise par M26, avec "
                  "des durées d'apprenant qui rédige (les recalages de M25a à M28 : +20 à +40 %) ; déjà allégée (✏️ de "
@@ -2315,37 +2316,37 @@ CHAPTERS = [
              "télescopage des erreurs TD (M26)", "§4 §5", "E"),
             ("MB8.R3", "🔁", 1, 6, "La dérivée par le chemin, son hypothèse de domination, et l'indicatrice où elle échoue "
              "(M25b)", "§2", "E"),
-            ("MB8.1", "✏️", 2, 30, "Une attente au téléphone de loi exponentielle de taux θ, et une pénalité au-delà de c "
+            ("MB8.1", "✏️", 2, 35, "Une attente au téléphone de loi exponentielle de taux θ, et une pénalité au-delà de c "
              "minutes : d/dθ P(X > c) par la formule fermée, par l'estimateur score (son espérance calculée) et par le "
              "chemin X = ξ/θ ; la variance de l'estimateur score à un tirage", "§2", "E"),
-            ("MB8.2", "✏️", 2, 30, "Deux graines par godet (une loi binomiale B(2, θ)) et un prix selon le nombre de "
+            ("MB8.2", "✏️", 2, 35, "Deux graines par godet (une loi binomiale B(2, θ)) et un prix selon le nombre de "
              "pousses : la dérivée de la recette moyenne, puis l'estimateur score sans baseline, avec b = E[f] et avec la "
              "baseline optimale, et leurs variances", "§3", "E"),
-            ("MB8.3", "✏️", 2, 35, "Un camion de crêpes entre deux emplacements, une politique softmax dans l'un d'eux : "
+            ("MB8.3", "✏️", 2, 40, "Un camion de crêpes entre deux emplacements, une politique softmax dans l'un d'eux : "
              "la chaîne induite, les valeurs, la loi d'occupation actualisée, les valeurs et les avantages des deux "
              "actions, puis le gradient de la valeur par rapport aux deux logits", "§4", "E"),
-            ("MB8.4", "✏️", 2, 25, "L'état d'une route (bonne, usée, en travaux) et des valeurs estimées fausses : le "
+            ("MB8.4", "✏️", 2, 30, "L'état d'une route (bonne, usée, en travaux) et des valeurs estimées fausses : le "
              "biais des retours à 1 et 2 pas, les poids (1 − λ)λ^{k−1} d'un λ-retour, et son biais quand l'erreur est la "
              "même partout", "§5", "E"),
-            ("MB8.5", "✏️", 2, 35, "Un panel en ligne dont les classes d'âge ne suivent pas le recensement : les poids "
+            ("MB8.5", "✏️", 2, 40, "Un panel en ligne dont les classes d'âge ne suivent pas le recensement : les poids "
              "p/q, la dépense moyenne repondérée, la taille effective de Kish d'un petit échantillon, des poids tronqués "
              "(le biais), puis KL(q ‖ p) exacte et ses estimateurs k₁ et k₃ classe par classe", "§6", "E"),
-            ("MB8.6", "✏️", 2, 30, "Un tournoi de babyfoot entre trois clubs : deux clubs seuls (la différence de forces "
+            ("MB8.6", "✏️", 2, 35, "Un tournoi de babyfoot entre trois clubs : deux clubs seuls (la différence de forces "
              "en forme fermée), puis vérifier les équations du maximum de vraisemblance pour des forces proposées, la "
              "probabilité qu'un club batte un autre, une mise à jour Elo, et un club invaincu", "§7", "E"),
-            ("MB8.7", "✏️", 2, 25, "Trois plats à la cantine : la loi de service qui maximise la satisfaction moyenne "
+            ("MB8.7", "✏️", 2, 30, "Trois plats à la cantine : la loi de service qui maximise la satisfaction moyenne "
              "moins β fois la KL à la loi actuelle, pour deux valeurs de β, sa valeur β ln Z, comparée à la loi actuelle "
              "et au meilleur plat seul", "§8", "E"),
-            ("MB8.8", "∂", 2, 30, "Les deux identités du score, E[s_θ(X)] = 0 et Var(s_θ) = −E[∂²_θ ln p_θ(X)], pour une "
+            ("MB8.8", "∂", 2, 35, "Les deux identités du score, E[s_θ(X)] = 0 et Var(s_θ) = −E[∂²_θ ln p_θ(X)], pour une "
              "famille à densité dont le support ne dépend pas de θ ; leur application aux lois de Poisson et exponentielle "
              "; puis la loi uniforme sur [0, θ], où elles tombent", "§1", "E"),
-            ("MB8.9", "∂", 2, 25, "La baseline optimale b* = E[f s²]/E[s²] d'un estimateur score ; sur n tirages, la "
+            ("MB8.9", "∂", 2, 30, "La baseline optimale b* = E[f s²]/E[s²] d'un estimateur score ; sur n tirages, la "
              "moyenne des autres est une baseline sans biais, et la moyenne du groupe multiplie l'estimateur par (n − 1)/n",
              "§3", ""),
-            ("MB8.10", "∂", 3, 30, "Le gradient de la valeur d'une politique sous forme matricielle : dériver V = r_π + "
+            ("MB8.10", "∂", 3, 40, "Le gradient de la valeur d'une politique sous forme matricielle : dériver V = r_π + "
              "γP_πV, faire apparaître la loi d'occupation actualisée et la valeur des actions, puis remplacer Q^π par "
              "l'avantage", "§4", "E"),
-            ("MB8.11", "🔗", 1, 15, "Pont : la « loss de substitution » −(1/n)Σ(f(x_i) − b) ln p_θ(x_i), dont la dérivée, "
+            ("MB8.11", "🔗", 1, 20, "Pont : la « loss de substitution » −(1/n)Σ(f(x_i) − b) ln p_θ(x_i), dont la dérivée, "
              "les f(x_i) et b tenus fixes, est moins l'estimateur score : sur le taux d'une loi de Poisson, puis ce que "
              "changent des f standardisés dans le batch", "§2 §3", "E"),
             ("MB8.12", "🗣️", 1, 10, "Expliquer avec un club d'échecs pourquoi une cote Elo ne dit que des écarts de "
@@ -2353,9 +2354,9 @@ CHAPTERS = [
             ("MB8.E1", "💼", 1, 10, "« Comment dériver la probabilité d'un événement par rapport au paramètre d'une loi "
              "quand on ne peut pas dériver à travers les tirages, et comment rendre l'estimation moins bruitée ? »",
              "§2 §3", "E"),
-            ("MB8.13", "🔨", 1, 20, "L'estimateur score d'une dérivée sur un échantillon, avec une baseline constante ou la "
+            ("MB8.13", "🔨", 1, 25, "L'estimateur score d'une dérivée sur un échantillon, avec une baseline constante ou la "
              "moyenne des autres tirages, et son erreur type", "§2 §3", "E m:score_function_gradient"),
-            ("MB8.14", "🔨", 2, 30, "Le gradient exact de la valeur d'une politique softmax tabulaire, par le système de "
+            ("MB8.14", "🔨", 2, 35, "Le gradient exact de la valeur d'une politique softmax tabulaire, par le système de "
              "Bellman", "§4", "E m:policy_gradient_exact"),
             ("MB8.15", "🔨", 2, 25, "Des poids d'importance calculés en log, auto-normalisés ou tronqués, et la taille "
              "effective de l'échantillon", "§6", "E m:importance_weights"),
@@ -2364,15 +2365,15 @@ CHAPTERS = [
             ("MB8.17", "🔮", 1, 20, "Prédire l'ordre des écarts-types de l'estimateur score d'une même dérivée, sans "
              "baseline, avec la moyenne des autres tirages et avec la baseline optimale, puis les mesurer",
              "§3", "E p:MB8.13"),
-            ("MB8.18", "🔬", 2, 25, "Un événement rare, P(Z > 4) pour Z normale centrée réduite : Monte-Carlo naïf contre "
+            ("MB8.18", "🔬", 2, 30, "Un événement rare, P(Z > 4) pour Z normale centrée réduite : Monte-Carlo naïf contre "
              "l'échantillonnage d'importance sous N(4, 1), la taille effective, puis des poids tronqués à c : le biais et "
              "la variance selon c", "§6", "p:MB8.15"),
-            ("MB8.19", "🐛", 1, 20, "Chasse à l'erreur : le score d'une loi exponentielle écrit pour la moyenne au lieu du "
+            ("MB8.19", "🐛", 1, 25, "Chasse à l'erreur : le score d'une loi exponentielle écrit pour la moyenne au lieu du "
              "taux, des poids d'importance inversés (q/p), une baseline qui contient le tirage lui-même, des forces de "
              "deux tournois sans joueur commun comparées sur une même échelle", "§1 §3 §6 §7", "E"),
-            ("MB8.20", "🛠️", 1, 20, "Un test de propriété pour le gradient exact : sur des MDP tirés au hasard, comparé à "
+            ("MB8.20", "🛠️", 1, 25, "Un test de propriété pour le gradient exact : sur des MDP tirés au hasard, comparé à "
              "des différences finies centrées, et de somme nulle sur les actions de chaque état", "§4", "p:MB8.14"),
-            ("MB8.21", "🏆", 3, 35, "Défi : estimer, avec un budget de tirages, la dérivée d'une probabilité de dépassement "
+            ("MB8.21", "🏆", 3, 40, "Défi : estimer, avec un budget de tirages, la dérivée d'une probabilité de dépassement "
              "par rapport au paramètre d'une loi, assez précisément neuf fois sur dix (score, baseline, variable de "
              "contrôle)", "§2 §3", "p:MB8.13"),
         ],

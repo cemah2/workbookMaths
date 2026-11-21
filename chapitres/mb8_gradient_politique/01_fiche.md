@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Sections** | §1 à §8 |
-| **Temps total estimé** | ≈ 13,3 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 06, 16 flashcards ≈ 32 min (parcours essentiel ≈ 11,6 h) |
+| **Temps total estimé** | ≈ 14,8 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 11 h 36, 16 flashcards ≈ 32 min (parcours essentiel ≈ 12,7 h) |
 | **Prérequis** | R3 (trinôme du second degré) ; R5 (série géométrique) ; R7 (dérivée d'un logarithme et d'une composée) ; M02a (intégration par parties) ; M02b (lois de Bernoulli, binomiale, de Poisson, exponentielle et normale ; variance d'une somme indépendante ; simulation par inversion) ; M02c (estimateur sans biais, erreur type, covariance et corrélation, loi des grands nombres) ; M04 (maximum de vraisemblance, log-probabilités) ; M05a (Taylor d'ordre 2, tangente d'une fonction convexe, différences finies centrées et choix du pas, log-sum-exp) ; M06 (divergence KL, KL ≥ 0) ; M07 (Cauchy-Schwarz) ; M13a (sigmoïde, régression logistique) ; M14 (Hedge) ; M16 (puissances d'une matrice d'adjacence) ; M17 (Boltzmann, diag(p) − pᵀp) ; M18 (règle du produit pour des matrices) ; M19 (variance d'une moyenne de tirages) ; M20 (Horvitz-Thompson) ; M25b (dérivée par le chemin, domination, ELBO) ; M26 (MDP, P_π, r_π, Q^π, système de Bellman, loi d'occupation actualisée, erreur TD, télescopage) ; M27 (règle de score propre) ; M28 (température) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `policy_gradient.py` : `score_function_gradient`, `policy_gradient_exact`, `importance_weights`, `bradley_terry_fit` |
