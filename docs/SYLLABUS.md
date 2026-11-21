@@ -73,7 +73,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | [MB5](#mb5) | Les maths de la diffusion | B5 | (§6.5) | 16,6 h | ✅ exercices | 2 |
 | [MB6](#mb6) | Shapley, intégrales de chemin et équité | B6 | — | 13,0 h | ✅ exercices | 1 |
 | [MB8](#mb8) | Gradient de politique | B8 | — | 14,8 h | ✅ exercices | 1 |
-| [PS](#ps) | Projet de synthèse | — | — | ≈ 25 h (estimé) | plan | 1 |
+| [PS](#ps) | Projet de synthèse | — | — | 25,0 h | ✅ exercices | 1 |
 
 ## Totaux par partie
 
@@ -87,7 +87,7 @@ Le contrat du workbook : pour chaque chapitre, ses notions, ses prérequis, les 
 | V · Architectures | 3 | 94 | 33,5 h | 25,9 h |
 | VI · Génératif et RL | 6 | 203 | 94,7 h | 70,8 h |
 | VII · Bonus | 6 | 182 | 81,5 h | 62,7 h |
-| fin · Fin | 1 | — | ≈ 25 h (estimé) | à détailler |
+| fin · Fin | 1 | 10 | 25,0 h | 25,0 h |
 
 <a id="r0"></a>
 ## R0 · Prise en main
@@ -4334,9 +4334,42 @@ Les outils statistiques du gradient de politique, hors de tout agent. D'abord la
 
 « Les maths d'un algorithme, de A à Z » : tu choisis un algorithme de workbookIA (régression logistique, rétropropagation d'un MLP, VAE, attention…) et tu écris un notebook-article qui dérive tout, l'implémente avec `mymath` et le vérifie contre une bibliothèque. Grille sur 20, pas de solution de référence, un exemple rédigé sur un autre algorithme. En même temps que le projet final de workbookIA.
 
-**Durée estimée** : ≈ 25 h. Exercices détaillés avant la génération de la partie.
+**Temps** : 25,0 h en parcours complet, 25,0 h en parcours essentiel (lecture 60 min, 0 flashcards).
+
+**Objectifs**
+
+- Choisir un algorithme de workbookIA et en dériver toutes les formules, de l'objectif jusqu'à ce que le code calcule, chaque étape justifiée par un résultat d'un chapitre de maths et chaque forme vérifiée.
+- Démontrer deux propriétés de l'algorithme avec leurs hypothèses, et montrer ce qui se passe quand l'une d'elles tombe.
+- L'implémenter avec ta librairie `mymath`, et le vérifier contre une bibliothèque indépendante par des tests qui attrapent de vraies erreurs.
+- Rédiger un notebook-article qu'un relecteur peut suivre et vérifier, et le présenter en cinq minutes, comme en entretien.
+
+**Sections de la fiche**
+
+- §1 Choisir et cadrer
+- §2 Dériver
+- §3 Implémenter et vérifier
+- §4 Rédiger et présenter
 
 **Notions enseignées** : rédiger une dérivation complète · vérifier une implémentation contre une bibliothèque
 
+**Prérequis** : tout le parcours, en particulier les chapitres de l'algorithme choisi (MB8) · rédiger une démonstration courte (hypothèses, étapes justifiées, conclusion) (R4) · différences finies centrées et choix du pas (M05a) · gradient de la forme de la variable, lu dans la différentielle (M18)
+
 **Après** : MB8
+
+**Frontières** (exercices de workbookIA à ne pas résoudre ni paraphraser ici : la notion est enseignée dans un autre cadre, un résultat peut être énoncé et utilisé ; les démonstrations ∂ du chapitre préparé y sont toujours) : 7.7 ∂ La frontière du centroïde le plus proche est une droite · 9.2 ∂ Moindres carrés : la meilleure droite par dérivées partielles · 9.3 ∂ Ridge en dimension 1 : w* = Σxy / (Σx² + λ) · 9.6 ∂ Lasso en dimension 1 : le seuillage doux et les zéros exacts · 12.8 ∂ Variance d'une projection et axe de variance maximale · 13.8 ∂ Gradient de la log-loss de la régression logistique · 17.7 ∂ La Jacobienne de la softmax · 18.6 ∂ La règle de la chaîne derrière les deltas · 18.7 ∂ Forme matricielle : XᵀΔ, ΔWᵀ et somme des lignes · 18.8 ∂ Softmax et cross-entropy : le gradient vaut p − y · 19.7 ∂ Sur une parabole, η doit rester sous 2/a · 19.8 ∂ Moyenne mobile exponentielle : mémoire effective et biais initial · 20.8 ∂ Le gradient de la batchnorm · 21.7 ∂ Rétropropager dans une convolution 1D : la somme sur les positions · 22.6 ∂ Pourquoi le gradient s'évanouit : un produit de dérivées de tanh · 22.7 ∂ Le chemin additif de la cellule LSTM · 25.5 ∂ Dériver à travers un tirage : l'astuce de reparamétrisation · 25.7 ∂ La divergence KL entre N(μ, σ²) et N(0, 1) · 26.7 ∂ Somme géométrique et horizon effectif de γ · 26.8 ∂ Équation de Bellman : le point fixe que vise le Q-learning · B2.7 ∂ Skip-gram avec échantillonnage négatif : gradients par rapport au mot et au contexte · B3.6 ∂ Pourquoi √d_k : variance du produit scalaire de deux vecteurs aléatoires · B3.7 ∂ RoPE : la rotation rend q_m · k_n fonction de m − n seulement · B5.6 ∂ Forme fermée : deux pas de bruit gaussien n'en font qu'un, d'où q(x_t | x_0) · B5.7 ∂ Moyenne et variance du posterior q(x_{t−1} | x_t, x_0) en dimension 1 · B8.7 ∂ Le gradient de politique en une étape : l'astuce de la log-dérivée, puis la baseline sans biais
+
+| ID | Type | Titre | ★ | ⏱️ min | Sections | Parcours | Vérif. | Prérequis |
+|---|---|---|---|---|---|---|---|---|
+| PS.1 | 🗣️ | Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions de maths et leurs chapitres, l'oracle de la vérification et le plan de l'article | ★★ | 60 | §1 | C, E | manuel | — |
+| PS.2 | ✏️ | Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, tableau des notations et conventions | ★★ | 90 | §2 | C, E | manuel | PS.1 |
+| PS.3 | ∂ | La dérivation complète, de l'objectif aux formules que le code calcule : chaque étape justifiée par un résultat cité, chaque forme vérifiée | ★★★★ | 270 | §2 | C, E | manuel | PS.2 |
+| PS.4 | ∂ | Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, espérance, borne, coût), et un cas où une hypothèse tombe | ★★★ | 180 | §2 | C, E | manuel | PS.3 |
+| PS.5 | ✏️ | Un exemple à la main en dimension 2 ou 3 (en fractions quand c'est possible), retrouvé par le code | ★★★ | 120 | §2 §3 | C, E | manuel | PS.3 |
+| PS.6 | 🛠️ | L'implémentation : un module documenté (contrat, formes, erreurs) qui appelle au moins trois fonctions de ta librairie `mymath`, sans bibliothèque de ML | ★★★★ | 210 | §3 | C, E | manuel | PS.3 |
+| PS.7 | 📦 | La vérification : des tests contre une bibliothèque indépendante sur des cas tirés au hasard, les dérivées contre des différences finies, une propriété, et une erreur introduite exprès que les tests attrapent | ★★★★ | 180 | §3 | C, E | pytest | PS.6 |
+| PS.8 | 🔬 | Une expérience numérique qui illustre une propriété démontrée (convergence, conditionnement, stabilité, effet d'un hyperparamètre) : une figure légendée et sa conclusion | ★★★ | 150 | §3 | C, E | manuel | PS.6 |
+| PS.9 | 🛠️ | Rédiger l'article : introduction, plan, conclusion et limites, références par sections, LaTeX propre, notebook exécuté de bout en bout en moins de 5 minutes | ★★★ | 120 | §4 | C, E | manuel | PS.8 |
+| PS.E1 | 💼 | Présenter l'algorithme en cinq minutes, puis répondre à cinq questions d'entretien sur ses maths | ★★★ | 60 | §4 | C, E | manuel | PS.9 |
+
+*Notes* : Fichiers : `README.md` (le cahier des charges : contexte, liste des algorithmes, règles, jalons, les dix étapes avec livrable, critères et erreurs à éviter, la grille résumée, la correction), `GRILLE.md` (la grille sur 20, critère par critère, chacun observable, avec « Comment le vérifier » et une colonne de preuve), `04_indices.md` (trois niveaux par étape), `depart/` (le kit que `start_chapter.py PS` copie dans `mon_travail/projet_synthese/` : le modèle du notebook-article `synthese.ipynb`, le module `algo.py`, ses tests `test_algo.py` et leur `conftest.py`, le modèle du cadrage, ta copie de la grille pour l'auto-évaluation) et `exemple/` (l'exemple rédigé et vérifié : jamais copié par `start_chapter.py`). Pas de solution de référence : c'est ton projet. Points : PS.1 1, PS.2 1,5, PS.3 4, PS.4 2,5, PS.5 1,5, PS.6 3, PS.7 3, PS.8 1,5, PS.9 1, PS.E1 1 ; pénalités pour un passage recopié sans être cité et pour un notebook qui ne s'exécute pas de bout en bout. Correction : auto-évaluation sur la copie de la grille, preuve à l'appui, puis correction par Claude sur demande, en lecture seule de `mon_travail/projet_synthese/`. **L'exemple** porte sur un algorithme hors de la liste et hors de workbookIA : la régression de Poisson ajustée par la méthode de Newton (moindres carrés repondérés), sur des données synthétiques, vérifiée contre scikit-learn (`PoissonRegressor`) et SciPy ; il appelle des fonctions publiées de `mymath` (version de référence) et ne reprend aucun exercice ni aucun nombre de ce dépôt ou de workbookIA. Il montre le niveau attendu, il n'est pas un modèle à recopier : on le lit après une première version de son cadrage. **Frontières** : les ∂ de workbookIA qui dérivent les algorithmes de la liste (champ `frontieres`) ne sont résolus ni dans le cahier des charges, ni dans la grille, ni dans les indices, ni dans l'exemple : c'est l'apprenant qui les redérive dans son projet, avec ses propres mots ; les indices restent des conseils de méthode (écrire la loss d'un exemple avant la somme, vérifier les formes ligne à ligne, lire le gradient dans la différentielle) et ne donnent aucun résultat propre à un algorithme de la liste. **Oracles** : NumPy, SciPy, SymPy, scikit-learn, et PyTorch dans le projet de l'apprenant seulement (installé pour workbookIA et sur Colab ; ce dépôt ne l'importe jamais) ; jamais une autre fonction de l'apprenant ni une formule écrite pour l'occasion. Durée : 25 h, lecture du cahier des charges et de l'exemple comprise (60 min), en même temps que le projet final de workbookIA (quatre semaines). Le projet appartient aux deux parcours (BIBLE §12).
 
