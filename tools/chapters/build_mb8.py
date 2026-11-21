@@ -964,9 +964,15 @@ truck_14r = ([[[0.86, 0.14], park_14r], [[0.0, 1.0], park_14r]], [[3.0, 4.0], [0
                                                                                            [0.0, 0.0]], 0.7)
 V_14r, G_14r = gradient_14r(*truck_14r)
 swapped_14r = gradient_14r(np.transpose(truck_14r[0], (1, 0, 2)), np.transpose(truck_14r[1]), truck_14r[2], 0.7)
+p_only_14r = gradient_14r(np.transpose(truck_14r[0], (1, 0, 2)), truck_14r[1], truck_14r[2], 0.7)
+r_only_14r = gradient_14r(truck_14r[0], np.transpose(truck_14r[1]), truck_14r[2], 0.7)
 wbm.record("MB8.14a", V_14r.tolist() + G_14r[0, 0].tolist() + G_14r[1, 0].tolist(), decimals=4,
            mistakes={"P se range P[a, s, t] et r se range r[a, s] : l'action d'abord, puis l'état (comme en M26.14)":
                          swapped_14r[0].tolist() + swapped_14r[1][0, 0].tolist() + swapped_14r[1][1, 0].tolist(),
+                     "P se range P[a, s, t] : l'action d'abord, puis l'état de départ, puis celui d'arrivée (comme en "
+                     "M26.14)": p_only_14r[0].tolist() + p_only_14r[1][0, 0].tolist() + p_only_14r[1][1, 0].tolist(),
+                     "r se range r[a, s] : l'action d'abord, puis l'état (comme en M26.14)":
+                         r_only_14r[0].tolist() + r_only_14r[1][0, 0].tolist() + r_only_14r[1][1, 0].tolist(),
                      "l'ordre demandé : V(marché), V(parc), les deux dérivées de V(marché) (rester, partir), puis "
                      "celles de V(parc)": V_14r.tolist() + G_14r[:, 0, :].T.ravel().tolist()})
 mdp_14r = (__P_14__, __R_14__, __LOGITS_14__, 0.6)
@@ -1272,6 +1278,15 @@ with checked("MB8.18"):
                   "deux courbes en fonction de c : le biais relatif et l'écart-type relatif",
                   "il faut deux courbes dans ax, en fonction de c (les niveaux de C_18, dans l'ordre) : le biais relatif "
                   "(rel_bias_18) et l'écart-type relatif (rel_sd_18)")
+        labels_18 = [line.get_label().lower() if line is not None else "" for line in found_18]
+        report_18(all(line is not None for line in found_18)
+                  and not (any(word in labels_18[1] for word in ("biais", "bias"))
+                           and not any(word in labels_18[0] for word in ("biais", "bias"))),
+                  "chaque courbe porte son nom",
+                  "les noms de la légende sont échangés : la courbe de rel_bias_18 porte "
+                  f"« {labels_18[0]} », celle de rel_sd_18 « {labels_18[1]} »"
+                  if all(line is not None for line in found_18) else
+                  "les noms des courbes se jugent sur les deux courbes : trace-les d'abord dans ax")
         legend_18 = ax_18.get_legend()
         report_18(legend_18 is not None and all(line is not None and line.get_label() and not
                                                 line.get_label().startswith("_") for line in found_18)
@@ -1290,12 +1305,16 @@ with checked("MB8.18"):
         raise
     fig_18.tight_layout()
     plt.show()
+    report_18(passes("MB8.18c", curves_18[0][:2].tolist()) and bool(np.all(np.abs(curves_18[0][2:]) < 0.01)),
+              "les biais relatifs sont ceux de l'estimation",
+              "les biais relatifs ne sont pas ceux de l'estimation : pour chaque c, la moyenne des 400 estimations moins "
+              "TAIL_18, divisée par TAIL_18")
     sizes_18 = np.round(np.log10(np.abs(curves_18[1]) + 1e-300)).tolist()
     report_18(bool(np.all(curves_18[1] > 0)) and passes(HIDDEN_C18["id_sizes"], sizes_18),
               "les écarts-types relatifs ont l'ordre de grandeur attendu",
               "les écarts-types relatifs n'ont pas l'ordre de grandeur de ceux de l'estimation : l'écart-type des 400 "
               "estimations (une par ligne de DRAWS_18C), divisé par TAIL_18")
-    verdict("MB8.18", all(results_18) and len(results_18) == 4, "ta figure et tes mesures de c) sont justes.",
+    verdict("MB8.18", all(results_18) and len(results_18) == 6, "ta figure et tes mesures de c) sont justes.",
             "relis les lignes ❌ ci-dessus.")
 if filled(answer_MB8_18c) and filled(rel_bias_18) and as_floats(answer_MB8_18c) is not None \
         and as_floats(answer_MB8_18c).shape == (2,) and as_floats(rel_bias_18) is not None \
@@ -1487,8 +1506,8 @@ def call_19(part, name, function, *args):
         parts_19.append(part)
         raise StopCheck from None
     if seen:
-        report_19(False, "", f"({part}) {name} appelle mymath ({seen[0]}) : l'énoncé demande la correction sans mymath, "
-                  "en corrigeant le code du collègue")
+        report_19(False, "", f"({part}) {name} appelle {seen[0]} (de ta librairie ou de la référence ref_pg) : l'énoncé "
+                  "demande la correction sans elles, en corrigeant la formule du collègue")
         parts_19.append(part)
         raise StopCheck
     return got
@@ -1553,8 +1572,8 @@ with checked("MB8.19"):                                       # (3) estimate_fix
         bad_c19.append(estimate_bad(np.array(f_c19), np.array(s_c19)))
     if not why_c19 and not passes(CASES_C19["id_batches"], got_c19):
         why_c19 = ("ta correction rend encore ce que rend estimate_bad" if np.allclose(got_c19, bad_c19, rtol=1e-12)
-                   else "sur d'autres batches (de 2 à 7 tirages, des valeurs f quelconques), l'estimation n'est pas "
-                        "celle d'une baseline qui garde l'estimateur sans biais")
+                   else "sur d'autres batches (de 2 à 7 tirages, des valeurs f quelconques), ce n'est pas l'estimation "
+                        "avec, pour chaque tirage, une baseline calculée sur le batch qui garde l'estimateur sans biais")
     report_19(not why_c19, "(3) estimate_fixed : d'autres batches, de tailles différentes",
               f"(3) estimate_fixed : {why_c19}")
     parts_19.append(3)
@@ -1573,8 +1592,8 @@ with checked("MB8.19"):                                       # (4) strongest_fi
             why_c19 = f"ton code lève {type(exc).__name__} : {str(exc)[:160]}"
             break
         if seen_c19:
-            why_c19 = (f"appelle mymath ({seen_c19[0]}) : l'énoncé demande la correction sans mymath, en corrigeant le "
-                       "code du collègue")
+            why_c19 = (f"appelle {seen_c19[0]} (de ta librairie ou de la référence ref_pg) : l'énoncé demande la "
+                       "correction sans elles, en corrigeant la formule du collègue")
             break
         if answer_c19 is not ValueError:
             why_c19 = (f"pour deux tournois sans club commun ni match entre eux, ta fonction désigne encore un club "
@@ -1612,7 +1631,7 @@ MB8_19 = ex(
 3. `estimate_bad(f, s)` doit rendre l'estimateur score d'un batch, avec pour chaque tirage une baseline calculée sur le batch, et rester sans biais. Sur 20 000 batches de 4 tirages (`BATCHES_19C` : loi de Poisson de moyenne $1{,}5$, $f(x) = \mathbf{1}\{x \ge 2\}$, le score $\frac{x}{1{,}5} - 1$), la moyenne des estimations reste nettement sous la dérivée exacte, $1{,}5\,e^{-1{,}5}$. Il l'a vérifiée sur un seul batch de 10 000 tirages.
 4. `strongest_bad(wins_a, wins_b)` doit dire quel est le club le plus fort de deux tournois réunis, A (clubs A0, A1, A2 ; `TOURNAMENT_A`) et B (clubs B0, B1, B2 ; `TOURNAMENT_B`), ou lever une `ValueError` quand les données ne permettent pas de le dire. Quand on ajoute au tournoi B un club faible, B3, sans rien changer aux matchs des autres (`TOURNAMENT_B3`), sa réponse change. Il l'a vérifiée en lui donnant deux fois le même tableau de matchs : elle a bien désigné le meilleur club de ce tableau.
 
-À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `score_exp_fixed`, `weights_fixed`, `estimate_fixed` et `strongest_fixed`, avec les mêmes arguments, et n'appellent **pas** `mymath` (la vérification le contrôle, copies de son code comprises). Puis réponds :
+À faire : trouve et corrige chaque erreur dans le code du collègue lui-même : les fonctions corrigées s'appellent `score_exp_fixed`, `weights_fixed`, `estimate_fixed` et `strongest_fixed`, avec les mêmes arguments, et n'appellent ni `mymath` ni la référence `ref_pg` dont se sert le collègue (la vérification le contrôle, copies de leur code comprises). Puis réponds :
 - a) la moyenne des scores de `X_19A` au taux $0{,}4$, avec la fonction corrigée, puis avec la fonction fautive (une liste de 2 nombres) ;
 - b) l'estimation de $\mathbb{E}_p[X]$, la moyenne des $w_ix_i$, corrigée puis fautive (une liste de 2 nombres) ;
 - c) la moyenne des 20 000 estimations, corrigée puis fautive (une liste de 2 nombres) ;
@@ -1770,6 +1789,9 @@ WRONG_C20 = [   # a hidden wrong method, the test that must refuse it, and the c
                                                "défaut (atol = 1e-8) : ta tolérance sur la somme est-elle 10⁻¹⁰ ?"),
     (HIDDEN_C20.one_pair, "sums_to_zero_20", "sur la somme d'un seul couple (s₀, s), de 5·10⁻¹⁰ : vérifies-tu tous les s₀ "
                                              "et tous les s, à 10⁻¹⁰ près ?"),
+    (HIDDEN_C20.opposite_pairs, "sums_to_zero_20", "sur les sommes de deux couples (s₀, s), de +5·10⁻¹⁰ et −5·10⁻¹⁰, "
+                                                   "qui se compensent : ton test juge-t-il chaque somme, pas leur total "
+                                                   "ni leur moyenne ?"),
 ]
 
 with checked("MB8.20"):
@@ -1799,7 +1821,10 @@ with checked("MB8.20"):
 
     PEEK_C20 = {"__closure__", "cell_contents", "__code__", "__wrapped__", "__defaults__", "__globals__", "__name__",
                 "__qualname__", "__doc__", "__module__", "_getframe", "currentframe", "f_back", "f_locals", "f_globals",
-                "inspect", "getsource", "get_objects", "WRONG_C20", "TESTS_C20", "HIDDEN_C20", "mb8_20"}
+                "inspect", "getsource", "get_objects", "WRONG_C20", "TESTS_C20", "HIDDEN_C20", "mb8_20",
+                "getattr", "attrgetter", "methodcaller", "vars", "__getattribute__", "__dict__", "eval", "exec",
+                "compile", "globals", "locals", "builtins", "__builtins__", "__import__", "importlib", "gc", "ctypes",
+                "settrace", "setprofile", "monitoring", "traceback", "walk_stack", "extract_stack"}
 
     def peeks_c20(function, seen=None):
         """The names of PEEK_C20 that the learner's function (or a function of the notebook it calls) uses, as a name
@@ -1992,7 +2017,9 @@ wbm.record("MB8.20a", properties_20r(ref_pg.policy_gradient_exact),
     after=[
         ("solution", answers_check("MB8.20", "a") + "\n\n" + CHECK_20),
         look("quel pas $h$ donne le plus petit écart, et pourquoi pas $h = 10^{-12}$ ? Quelle méthode fausse passerait "
-             "le test de somme nulle seul ? Pourquoi tirer les MDP au hasard, avec des logits non nuls ?"),
+             "le test de somme nulle seul ? Pourquoi tirer les MDP au hasard, avec des logits non nuls ? Une seule "
+             "taille de MDP, un seul $\\gamma$ ou un oracle analytique écrit à la main passeraient-ils la vérification ? "
+             "Pourquoi l'énoncé demande-t-il des différences finies centrées ?"),
     ],
 )
 
@@ -2225,9 +2252,13 @@ CHECK_21 = """def check_c21():
         print("⏳ Ex MB8.21a : pas encore fait." if not filled(answer_MB8_21a) else
               f"❌ Ex MB8.21a : a) est un nombre fini, ton estimation pour le cas d'essai, reçu {shown(answer_MB8_21a)}")
     else:
-        print("✅ Ex MB8.21a : ton estimation pour le cas d'essai est à 10 % près de la dérivée exacte." if answer["ok"]
-              else "❌ Ex MB8.21a : ton estimation pour le cas d'essai est à plus de 10 % de la dérivée exacte (ta "
-                   "réponse à MB8.1 b) : relis-la, et la méthode de ta fonction")
+        if answer["ok"] and notebook["over_budget"]:            # a) counted by trial_draw_21, in reach of the learner
+            print("❌ Ex MB8.21a : ton estimation est à 10 % près, mais, quand l'autre processus compte les tirages du cas "
+                  "d'essai, ta fonction dépasse son budget de 10 000 tirages : a) ne compte que dans le budget")
+        else:
+            print("✅ Ex MB8.21a : ton estimation pour le cas d'essai est à 10 % près de la dérivée exacte."
+                  if answer["ok"] else "❌ Ex MB8.21a : ton estimation pour le cas d'essai est à plus de 10 % de la "
+                  "dérivée exacte (ta réponse à MB8.1 b) : relis-la, et la méthode de ta fonction")
     verdict("MB8.21", all(results) and len(results) == 3, "critère atteint : le cas d'essai, et au moins neuf cas cachés "
             "sur dix, à 10 % près, sans dépasser les budgets.", "critère pas encore atteint : relis les lignes ❌ "
             "ci-dessus.")
@@ -2249,7 +2280,7 @@ MB8_21 = ex(
     given=GIVEN_21,
     body=r"""Écris `derivative_21(draw, c, budget)`, qui estime $J'(\theta) = \frac{\mathrm{d}}{\mathrm{d}\theta}P_\theta(X > c)$ pour une loi $p_\theta$ que tu ne connais pas. Ta fonction peut appeler `draw(k, delta=0.0)`, qui rend deux tableaux de `k` flottants : `k` tirages indépendants $x_i$ de $p_{\theta + \delta}$, puis leurs scores $s_{\theta + \delta}(x_i)$, au paramètre du tirage ; ses appels réunis ne doivent pas dépasser `budget` tirages (au-delà, `draw` rend des `nan`, et le cas échoue). Ni la famille de la loi ni $\theta$ ne sont donnés : la loi est exponentielle, de Poisson, normale ou binomiale, et le seuil $c$ donne une probabilité $P_\theta(X > c)$ qui va de presque 0 à presque 1. Le notebook fournit un cas d'essai, les attentes au téléphone de MB8.1 (`TRIAL_21` : taux $0{,}1$, seuil 18 minutes, budget de 10 000 tirages), et une fonction `draw` pour lui (`trial_draw_21()` en rend une nouvelle, qui compte ses tirages).
 
-**Critère de réussite :** ton estimation est à 10 % près (en valeur relative) de $J'(\theta)$ pour le cas d'essai, et pour au moins 90 % des 120 cas cachés (douze séries de dix), tirés à nouveau à chaque exécution par un processus à part, qui sert les tirages et compte ceux de chaque cas. Ta fonction ne doit pas exécuter le code du module caché du défi (`solutions/challenges/mb8_21.py`) : la vérification le contrôle. Relève :
+**Critère de réussite :** ton estimation est à 10 % près (en valeur relative) de $J'(\theta)$ pour le cas d'essai, et pour au moins 90 % des 120 cas cachés (douze séries de dix), tirés à nouveau à chaque exécution par un processus à part, qui sert les tirages et compte ceux de chaque cas. Ta fonction ne doit ni exécuter le code du module caché du défi (`solutions/challenges/mb8_21.py`), ni lancer un autre processus : la vérification le contrôle. Relève :
 - a) ton estimation pour le cas d'essai (un nombre ; la vérification la compare à la dérivée exacte, à 10 % près).
 
 Point de départ : la dérivée par le chemin d'une indicatrice est nulle ; des différences finies entre deux échantillons indépendants, à $\theta + h$ et à $\theta - h$, noient l'écart de deux probabilités voisines dans leur bruit ; l'estimateur score sans baseline est sans biais, mais est-il assez précis dans tous les cas ?""",
@@ -2482,6 +2513,8 @@ def build_constants() -> dict:
                                                                                          exact)
         assert np.allclose(hidden.offset_sum(P, r, z, g)[1].sum(axis=2), 0)
         assert np.max(np.abs(hidden.offset_sum(P, r, z, g)[1].sum(axis=2))) > 1e-10
+        sums = hidden.opposite_pairs(P, r, z, g)[1].sum(axis=2)          # two sums off, of opposite signs
+        assert np.max(np.abs(sums)) > 1e-10 and abs(sums.sum()) < 1e-12 and abs(sums.mean()) < 1e-12
 
     # MB8.21: the notebook's case is the one of the hidden module, and the solution's function is not a copy of the
     # module's method

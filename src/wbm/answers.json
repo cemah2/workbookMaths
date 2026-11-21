@@ -120857,6 +120857,8 @@
       "hash": "01d543b2c211f4b5858b2f9b29f7180a96e63ac4175342f54ad0fc06a8a74ef6",
       "kind": "array",
       "mistakes": {
+        "052327d58315beaeb38830dd68d8bd6dba7654f8f586fe74b00f4c2df0e1ea2a": "P se range P[a, s, t] : l'action d'abord, puis l'état de départ, puis celui d'arrivée (comme en M26.14)",
+        "447aa0982c979ae2e1e04e1473543ebc7229e97487eb712cd0e4826a15c6d659": "r se range r[a, s] : l'action d'abord, puis l'état (comme en M26.14)",
         "a03638698b4f04324340c93c5a2c8fb6c05d5ee100088baa4645999e5e12f6c2": "P se range P[a, s, t] et r se range r[a, s] : l'action d'abord, puis l'état (comme en M26.14)",
         "f99bc5f034e4d26f23f37143e60b4754a2634d4136705f0055e7308e57b4d123": "l'ordre demandé : V(marché), V(parc), les deux dérivées de V(marché) (rester, partir), puis celles de V(parc)"
       },

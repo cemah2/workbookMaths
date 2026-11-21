@@ -156,6 +156,16 @@ def one_pair(P, r, logits, gamma):
     return V, grad
 
 
+def opposite_pairs(P, r, logits, gamma):
+    """WRONG on the sums of two couples (s0, s) that compensate: +5e-10 on the sum of (0, 0), −5e-10 on the sum of
+    (m − 1, m − 1) (their total and their mean are still 0)."""
+    V, grad = inverse_formula(P, r, logits, gamma)
+    grad = grad.copy()
+    grad[0, 0, 0] += 5e-10
+    grad[-1, -1, 0] -= 5e-10
+    return V, grad
+
+
 def values_not_advantages(P, r, logits, gamma):
     """WRONG everywhere: π(a | s) Q(s, a) instead of π(a | s) A(s, a) (its sum over the actions is M[s0, s] V(s))."""
     pi, M, V, Q = _parts(P, r, logits, gamma)

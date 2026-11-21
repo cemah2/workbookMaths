@@ -380,7 +380,7 @@ $\ln p_\theta(x) = x\ln\theta - \theta - \ln x!$. Les $f(x_i)$ et $b$ sont des c
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\frac{x_i}{2{,}5} - 1$. Les $f(x_i)$ : $(1, 0, 2, 0, 3, 0, 1, 2)$. c) $\sum_if(x_i)\,s_\theta(x_i) = 5{,}8$, donc $-\frac{5{,}8}{8}$. b) $\sum_i(f(x_i) - 1)\,s_\theta(x_i) = \sum_if(x_i)\,s_\theta(x_i) - \sum_is_\theta(x_i)$. Pour la standardisation : le centrage est une baseline (laquelle ? ∂ MB8.9) ; et la division ?
+a) $\frac{x_i}{2{,}5} - 1$. Les $f(x_i)$ : $(1, 0, 2, 0, 3, 0, 1, 2)$. c) $\sum_if(x_i)\,s_\theta(x_i) = 5{,}8$, donc $-\frac{5{,}8}{8}$. b) $\sum_i(f(x_i) - 1)\,s_\theta(x_i) = \sum_if(x_i)\,s_\theta(x_i) - \sum_is_\theta(x_i)$. Pour la standardisation : le centrage est une baseline (laquelle ? ∂ MB8.9) ; et la division, que fait-elle à l'espérance de l'estimateur ?
 
 </details>
 
@@ -542,7 +542,7 @@ Les trois estimateurs ont la même espérance (∂ MB8.9 pour la moyenne des aut
 </details>
 <details><summary>Indice 3</summary>
 
-Ta prédiction, raisonnée : place $0$, $\mathbb{E}[f]$ et $b^\star$ sur une droite, en te demandant pour quels tirages $s^2$ est grand et si $f$ y vaut 0 ou 1 ; puis compare les distances à $b^\star$. Pour b), le rapport des écarts-types est la racine du rapport des variances. Pour mesurer : 2 000 boucles, `rng.poisson(3.5, 40)`, $f = \mathbf{1}\{x \ge 5\}$, $s = \frac{x}{3{,}5} - 1$, trois appels de `score_function_gradient`, puis l'écart-type (`ddof=1`) de chaque colonne.
+Ta prédiction, raisonnée : place $0$, $\mathbb{E}[f]$ et $b^\star$ sur une droite, en te demandant pour quels tirages $s^2$ est grand et si $f$ y vaut 0 ou 1 ; puis compare les distances à $b^\star$. Pour b), le rapport des écarts-types est la racine du rapport des variances. Pour mesurer : une boucle sur les 2 000 lignes de `DRAWS_17` (ne tire pas de nouveaux échantillons : la vérification attend les écarts-types de ces lignes-là), $f = \mathbf{1}\{x \ge 5\}$, $s = \frac{x}{3{,}5} - 1$, trois appels de `score_function_gradient`, puis l'écart-type des 2 000 estimations de chaque baseline.
 
 </details>
 
@@ -560,7 +560,7 @@ Naïf : la moyenne de $\mathbf{1}\{z > 4\}$ sur 100 000 tirages. Importance : de
 </details>
 <details><summary>Indice 3</summary>
 
-Écris $\ln p(z) - \ln q(z) = -\frac{z^2}{2} + \frac{(z - 4)^2}{2}$ et simplifie : un poids de la forme $e^{\alpha - \beta z}$, décroissant en $z$. Pour quels $z > 4$ un poids dépasse-t-il $c$ ? La taille effective porte sur les 10 000 poids, que $z$ dépasse 4 ou non. Trace `plt.semilogx(C, biais)` et `plt.semilogx(C, ecarts)`.
+Écris $\ln p(z) - \ln q(z) = -\frac{z^2}{2} + \frac{(z - 4)^2}{2}$ et simplifie : un poids de la forme $e^{\alpha - \beta z}$, décroissant en $z$. Pour quels $z > 4$ un poids dépasse-t-il $c$ ? La taille effective porte sur les 10 000 poids, que $z$ dépasse 4 ou non. Dans `draw_18`, trace dans l'axe reçu : `ax.semilogx(c_values, rel_bias, label=…)` et `ax.semilogx(c_values, rel_sd, label=…)`, puis `ax.legend()` et les noms d'axes (`plt.…` dessinerait dans un autre axe).
 
 </details>
 
@@ -573,7 +573,7 @@ Fiche §1 (le score de la loi exponentielle, par son taux), §3 (« Des baseline
 </details>
 <details><summary>Indice 2</summary>
 
-Pour chaque fonction, trouve d'abord ce qui est faux sur un petit cas comparé à la définition, puis pourquoi l'entrée du collègue le cache : au taux 1, que valent les deux expressions du score ? avec $p = q$, que valent les poids ? sur un batch de 10 000 tirages, que vaut le facteur de ∂ MB8.9 ? avec deux fois le même tableau, les deux échelles sont-elles décalées ? Corrige le code du collègue lui-même, sans appeler `mymath`.
+Pour chaque fonction, trouve d'abord ce qui est faux sur un petit cas comparé à la définition, puis pourquoi l'entrée du collègue le cache : au taux 1, que valent les deux expressions du score ? avec $p = q$, que valent les poids ? sur un batch de 10 000 tirages, que vaut le facteur de ∂ MB8.9 ? avec deux fois le même tableau, les deux échelles sont-elles décalées ? Corrige le code du collègue lui-même, sans appeler `mymath` ni `ref_pg` ; pour (4), il n'y a pas de forces à ajuster.
 
 </details>
 <details><summary>Indice 3</summary>
