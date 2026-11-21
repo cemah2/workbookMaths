@@ -4,9 +4,9 @@
     python tools/chapters/figures_mb8.py
 
 Writes small PNG files into chapitres/mb8_gradient_politique/figures/:
-- §1: an archer shoots 5 arrows, each hits the centre with the probability θ = 0.8 (a binomial law B(5, θ)): the
-  law, the score s_θ(x) = (x − 5θ)/(θ(1 − θ)) of each outcome, and the log-likelihoods θ ↦ ln p_θ(x), whose mean
-  under θ₀ = 0.8 has a horizontal tangent at θ₀ (E[s] = 0) and the curvature −I(θ₀) = −31.25;
+- §1: an archer shoots 4 arrows, each hits the centre with the probability θ = 0.8 (a binomial law B(4, θ)): the
+  law, the score s_θ(x) = (x − 4θ)/(θ(1 − θ)) of each outcome, and the log-likelihoods θ ↦ ln p_θ(x), whose mean
+  under θ₀ = 0.8 has a horizontal tangent at θ₀ (E[s] = 0) and the curvature −I(θ₀) = −25;
 - §2: shooting stars, a Poisson law of mean θ: P(X ≥ 3) as a function of θ and its tangent at θ = 2 (slope
   2e⁻² ≈ 0.2707); for X ~ N(1, 1) and f(x) = x², 20 000 one-draw estimates of d/dμ E[f(X)] = 2 along the path
   (2X, standard deviation 2) and by the score (X²(X − 1), standard deviation √30);
@@ -51,7 +51,7 @@ C = wbplot.CATEGORICAL
 DPI = 110
 
 # §1: the archer, B(5, θ)
-ARROWS, THETA0 = 5, 0.8
+ARROWS, THETA0 = 4, 0.8
 # §2, §3: shooting stars, Poisson of mean θ, f = 1{X ≥ 3}
 STARS_THETA, STARS_K = 2.0, 3
 # §4, §5: the dam (states H = high, B = low; actions T = turbine, R = hold back)
@@ -113,19 +113,19 @@ def score_fisher() -> None:
     fisher = float(np.sum(p * s**2))
     fig, axes = plt.subplots(1, 2, figsize=(13.8, 4.7), gridspec_kw=dict(width_ratios=[1, 1.15]))
     ax = axes[0]
-    ax.bar(xs, p, color=C[0], width=0.62, label="p(x), loi B(5 ; 0,8)")
+    ax.bar(xs, p, color=C[0], width=0.62, label="p(x), loi B(4 ; 0,8)")
     for x, px, sx in zip(xs, p, s):
         ax.text(x, px + 0.012, f"s = {french_number(sx)}", ha="center", fontsize=9, color=C[1])
     ax.set_xticks(xs, [str(x) for x in xs])
     ax.keep_ticks = True
     ax.yaxis.set_major_formatter(FuncFormatter(french_number))
-    ax.set(xlabel="nombre x de flèches au cœur (sur 5)", ylabel="probabilité", ylim=(0, 0.47))
+    ax.set(xlabel="nombre x de flèches au cœur (sur 4)", ylabel="probabilité", ylim=(0, 0.47))
     ax.set_title("Le score de chaque issue : ses valeurs pondérées par p(x)\n"
-                 f"ont une somme nulle, et Σ p(x) s(x)² = I(0,8) = {fr(fisher, 2)}", fontsize=10.5)
+                 f"ont une somme nulle, et Σ p(x) s(x)² = I(0,8) = {french_number(round(fisher, 10))}", fontsize=10.5)
     ax.legend(fontsize=8.5, loc="upper left")
     ax = axes[1]
     th = np.linspace(0.55, 0.97, 300)
-    for x, col in zip((3, 4, 5), (C[2], C[3], C[4])):
+    for x, col in zip((2, 3, 4), (C[2], C[3], C[4])):
         ll = binom.logpmf(x, ARROWS, th)
         ax.plot(th, ll, color=col, lw=1.4, label=f"ln p_θ({x})")
         l0 = binom.logpmf(x, ARROWS, THETA0)
@@ -139,7 +139,7 @@ def score_fisher() -> None:
             label="parabole de courbure −I(θ₀)")
     ax.axvline(THETA0, color="0.5", lw=0.8)
     ax.set(xlabel="paramètre θ", ylabel="log-vraisemblance", ylim=(-3.3, 0.2))
-    ax.set_title("Pentes en θ₀ (tirets) : les scores 6,25, 0 et −6,25 ;\n"
+    ax.set_title("Pentes en θ₀ (tirets) : les scores −7,5, −1,25 et 5 ;\n"
                  "leur moyenne a une tangente horizontale en θ₀", fontsize=10.5)
     ax.legend(fontsize=8.2, loc="lower center")
     fig.tight_layout(w_pad=2.5)
@@ -381,7 +381,7 @@ def bradley_terry() -> None:
                 mfc="none" if i == 1 else col, label=f"{PLAYERS[i]} ({int(wins[i])} victoires sur 12{extra})")
     ax.set(xlabel="balayage de l'algorithme de Zermelo", ylabel="force β (centrée)", xlim=(-0.5, 25))
     ax.set_title("Une ligue de tennis de table : les forces après chaque balayage\n"
-                 f"tendent vers ({fr(history[-1, 0], 3)} ; 0 ; 0 ; {fr(history[-1, 3], 3)})", fontsize=10.5)
+                 f"tendent vers ({fr(history[-1, 0], 4)} ; 0 ; 0 ; {fr(history[-1, 3], 4)})", fontsize=10.5)
     ax.legend(fontsize=8.5, loc="upper right", bbox_to_anchor=(1.0, 0.82))
     fig.tight_layout(w_pad=2.5)
     save(fig, "bradley_terry_elo.png")

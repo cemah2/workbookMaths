@@ -6,10 +6,10 @@
 |---|---|
 | **Sections** | §1 à §8 |
 | **Temps total estimé** | ≈ 13,3 h : lecture et calculs de la fiche ≈ 2 h 40, exercices ≈ 10 h 06, 16 flashcards ≈ 32 min (parcours essentiel ≈ 11,6 h) |
-| **Prérequis** | R3 (trinôme du second degré) ; R5 (série géométrique) ; R7 (dérivée d'un logarithme et d'une composée) ; M02b (lois de Bernoulli, binomiale, de Poisson, exponentielle et normale ; variance d'une somme indépendante ; simulation par inversion) ; M02c (estimateur sans biais, erreur type, covariance et corrélation) ; M04 (maximum de vraisemblance, log-probabilités) ; M05a (Taylor d'ordre 2, tangente d'une fonction convexe, différences finies centrées et choix du pas, log-sum-exp) ; M06 (divergence KL, KL ≥ 0) ; M13a (sigmoïde, régression logistique) ; M14 (Hedge) ; M16 (puissances d'une matrice d'adjacence) ; M17 (Boltzmann, diag(p) − pᵀp) ; M18 (règle du produit pour des matrices) ; M19 (variance d'une moyenne de tirages) ; M20 (Horvitz-Thompson) ; M25b (dérivée par le chemin, domination, ELBO) ; M26 (MDP, P_π, r_π, Q^π, système de Bellman, loi d'occupation actualisée, erreur TD, télescopage) ; M27 (règle de score propre) ; M28 (température) |
+| **Prérequis** | R3 (trinôme du second degré) ; R5 (série géométrique) ; R7 (dérivée d'un logarithme et d'une composée) ; M02a (intégration par parties) ; M02b (lois de Bernoulli, binomiale, de Poisson, exponentielle et normale ; variance d'une somme indépendante ; simulation par inversion) ; M02c (estimateur sans biais, erreur type, covariance et corrélation, loi des grands nombres) ; M04 (maximum de vraisemblance, log-probabilités) ; M05a (Taylor d'ordre 2, tangente d'une fonction convexe, différences finies centrées et choix du pas, log-sum-exp) ; M06 (divergence KL, KL ≥ 0) ; M07 (Cauchy-Schwarz) ; M13a (sigmoïde, régression logistique) ; M14 (Hedge) ; M16 (puissances d'une matrice d'adjacence) ; M17 (Boltzmann, diag(p) − pᵀp) ; M18 (règle du produit pour des matrices) ; M19 (variance d'une moyenne de tirages) ; M20 (Horvitz-Thompson) ; M25b (dérivée par le chemin, domination, ELBO) ; M26 (MDP, P_π, r_π, Q^π, système de Bellman, loi d'occupation actualisée, erreur TD, télescopage) ; M27 (règle de score propre) ; M28 (température) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `policy_gradient.py` : `score_function_gradient`, `policy_gradient_exact`, `importance_weights`, `bradley_terry_fit` |
-| **Références** | pas de MML (le livre n'a ni fonction score, ni échantillonnage d'importance, ni apprentissage par renforcement) ; Mohamed et coll. (§2, §3) ; Owen (§3, §6) ; Sutton et Barto (§4, §5) ; Kish, Schulman (§6) ; Bradley et Terry, Zermelo, Hunter, Elo (§7) |
+| **Références** | pas de MML (le livre n'a ni fonction score, ni échantillonnage d'importance, ni apprentissage par renforcement) ; Mohamed et coll. (§2, §3) ; Owen (§3, §6) ; Sutton et Barto (§3 à §5) ; Kish, Schulman (§6) ; Bradley et Terry, Zermelo, Hunter, Elo (§7) |
 
 ## Comment utiliser ce chapitre
 
@@ -34,10 +34,10 @@ Quatre blocs : dériver une espérance par rapport au paramètre d'une loi (§1 
 Parcours essentiel : tout sauf MB8.9, MB8.18, MB8.20 et MB8.21 (l'énoncé de la baseline optimale et des baselines de groupe en fait partie ; sa démonstration, ∂ MB8.9, non).
 
 📐 **Notations.**
-- **Conventions.** Une loi $p_\theta$ (des probabilités ou une densité) dépend d'un paramètre réel $\theta$, et $\partial_\theta$ dérive par rapport à lui, $x$ restant fixé. La **fonction score** est $s_\theta(x) = \partial_\theta\ln p_\theta(x)$ : le score **en $\theta$**, de la forme de $\theta$ (un vecteur si $\theta$ en est un). C'est un autre objet que le **score en $x$** de MB5, $\nabla_x\ln p(x)$, une dérivée par rapport au point, de la forme de $x$. La loi exponentielle est donnée par son **taux** $\theta$ : densité $\theta e^{-\theta x}$ sur $[0, +\infty[$, moyenne $\frac1\theta$ (M25b §7 la donnait par sa moyenne). La loi de Poisson est donnée par sa moyenne, notée $\theta$ elle aussi ($\lambda$ est réservé au λ-retour). Le MDP s'écrit comme en M26.14 : $\mathbf{P}[a, s, t]$ est la probabilité d'aller de l'état $s$ à l'état $t$ sous l'action $a$, $r[a, s] = r(s, a)$ la récompense moyenne, et les logits $z[s, a]$ sont rangés comme $\pi[s, a]$ ; les lois sont des lignes, les valeurs des colonnes (M26). En échantillonnage d'importance, les tirages viennent de $q$ (la proposition), et $w = \frac pq$ ; la KL estimée est $\mathrm{KL}(q \,\|\, p)$, avec des tirages de $q$. Elo est en base 10, à l'échelle 400 : $\beta = \frac{R\ln 10}{400}$. Les logarithmes sont népériens, sauf $\log_{10}$ ; KL en nats.
-- **Lettres à double sens.** $s$ : le score $s_\theta$ (§1 à §3), un état (§4, §5). $\theta$ : le paramètre d'une loi (§1 à §3), le taux d'une proposition (§6) ; $\hat\theta$ : un maximum de vraisemblance (§1). $p$ : une loi $p_\theta$ (§1 à §3), la loi cible (§6), $p_i = e^{\beta_i}$ (§7). $q$ : la proposition (§6) ; $Q$ : la valeur d'une action (§4, §5). $\beta$ : la force d'un joueur (§7), le poids de la KL (§8). $\lambda$ : le paramètre du λ-retour (§5). $\gamma$ : le facteur d'actualisation (§4, §5). $w$ : un poids d'importance (§6). $r$ : une récompense moyenne $r(s, a)$ (§4, §5), la marge à maximiser (§8). $k$ : un nombre de pas (§5), l'indice des estimateurs $k_1$ et $k_3$ (§6), le coefficient d'Elo (§7). $c$ : le coefficient d'une variable de contrôle (§3), un seuil de troncature (§6). $h$ : une variable de contrôle (§3), le pas d'une différence finie (§4). $\nu_{s_0}$ : la loi d'occupation actualisée depuis $s_0$ (§4). $V$, $Q$, $A$ : la valeur d'un état, celle d'une action, l'avantage (§4, §5) ; $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P}_\pi)^{-1}$ (§4). $e$ : le nombre d'Euler ; $\mathbf{e}$ (en gras) : les erreurs d'une estimation $\mathbf{W}$ des valeurs (§5), et $\mathbf{e}_i$ : le vecteur de base d'une joueuse (§7) ; $W_i$ : les victoires de la joueuse $i$ (§7). $R$ : une récompense $R_t$ (§5), une cote Elo $R_i$ (§7) ; T et R (en romain) : les actions turbiner et retenir, H et B : les niveaux haut et bas du barrage (§4, §5). $E$ : le résultat espéré d'un match (§7), une énergie $E_i$ (§8), à ne pas confondre avec l'espérance $\mathbb{E}$. $I(\theta)$ : l'information de Fisher (§1) ; $\mathbf{I}$ (en gras) : l'identité (§4). $\sigma$ : un écart-type (§1, §2), la sigmoïde (§7). $n$ : un nombre de tirages (§2, §3, §6), de flèches (§1), de matchs $n_{ij}$ (§7). $S$ : le résultat d'un match (§7) ; $S_t$ : l'état au pas $t$ (§4, §5). $Z$ : une constante de normalisation (§8). $F$ : la fonction de répartition $F_\theta$ (§2), l'objectif $F(\pi)$ (§8). $H$ : l'entropie (§8) ; H (en romain) : le niveau haut (§4, §5). $T$ : une température (§8) ; T (en romain) : turbiner (§4). $z$ : un logit (§4), le score $z_k$ d'une régression logistique (§7) ; $\mathbf{z}$ : le latent de M25b (§8). $u$ : la loi uniforme (§8) ; $U$ : une variable uniforme (§2, §3). $\rho$ : une corrélation (§3). $\delta$ : une erreur TD (§5). $G$ : un retour (§5). Le contexte tranche.
+- **Conventions.** Une loi $p_\theta$ (des probabilités ou une densité) dépend d'un paramètre réel $\theta$, et $\partial_\theta$ dérive par rapport à lui, $x$ restant fixé. La **fonction score** est $s_\theta(x) = \partial_\theta\ln p_\theta(x)$ : le score **en $\theta$**, de la forme de $\theta$ (un vecteur si $\theta$ en est un). C'est un autre objet que le **score en $x$** de MB5, $\nabla_x\ln p(x)$, une dérivée par rapport au point, de la forme de $x$. La loi exponentielle est donnée par son **taux** $\theta$ : densité $\theta e^{-\theta x}$ sur $[0, +\infty[$, moyenne $\frac1\theta$ (M25b §7 la donnait par sa moyenne). La loi de Poisson est donnée par sa moyenne, notée $\theta$ elle aussi ($\lambda$ est réservé au λ-retour). Le MDP s'écrit comme en M26.14 : $\mathbf{P}[a, s, s']$ (le tableau `P[a, s, t]` de M26.14 et de `policy_gradient`) est la probabilité d'aller de l'état $s$ à l'état $s'$ sous l'action $a$, $r[a, s] = r(s, a)$ la récompense moyenne, et les logits $z[s, a]$ sont rangés comme $\pi[s, a]$ ; les lois sont des lignes, les valeurs des colonnes (M26). En échantillonnage d'importance, les tirages viennent de $q$ (la proposition), et $w = \frac pq$ ; la KL estimée est $\mathrm{KL}(q \,\|\, p)$, avec des tirages de $q$. Elo est en base 10, à l'échelle 400 : $\beta = \frac{R\ln 10}{400}$. Les logarithmes sont népériens, sauf $\log_{10}$ ; KL en nats.
+- **Lettres à double sens.** $s$ : le score $s_\theta$ (§1 à §3), un état (§4, §5). $\theta$ : le paramètre d'une loi (§1 à §3), le taux d'une proposition (§6), le paramètre d'une politique (forme score, §4) ; $\hat\theta$ : un maximum de vraisemblance (§1). $p$ : une loi $p_\theta$ (§1 à §3), la loi cible (§6), $p_i = e^{\beta_i}$ (§7), une loi, dans $r = \ln p$ (§8) ; $\mathbf{p}$ : les probabilités d'une softmax (§4). $q$ : la proposition (§6) ; $Q$ : la valeur d'une action (§4, §5). $\beta$ : la force d'un joueur (§7), le poids de la KL (§8). $\lambda$ : le paramètre du λ-retour (§5). $\gamma$ : le facteur d'actualisation (§4, §5). $w$ : un poids d'importance (§6). $r$ : une récompense moyenne $r(s, a)$ (§4, §5), la marge à maximiser (§8). $k$ : un nombre de pas (§5), l'indice des estimateurs $k_1$ et $k_3$ (§6), le coefficient d'Elo (§7). $c$ : le coefficient d'une variable de contrôle (§3), un seuil de troncature (§6). $h$ : une variable de contrôle (§3), le pas d'une différence finie (§4). $\nu_{s_0}$ : la loi d'occupation actualisée depuis $s_0$ (§4). $V$, $Q$, $A$ : la valeur d'un état, celle d'une action, l'avantage (§4, §5) ; $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P}_\pi)^{-1}$ (§4). $e$ : le nombre d'Euler ; $\mathbf{e}$ (en gras) : les erreurs d'une estimation $\mathbf{W}$ des valeurs (§5), et $\mathbf{e}_i$ : le vecteur de base d'une joueuse (§7) ; $W_i$ : les victoires de la joueuse $i$ (§7). $R$ : une récompense $R_t$ (§5), une cote Elo $R_i$ (§7) ; T et R (en romain) : les actions turbiner et retenir, H et B : les niveaux haut et bas du barrage (§4, §5). $E$ : le résultat espéré d'un match (§7), une énergie $E_i$ (§8), à ne pas confondre avec l'espérance $\mathbb{E}$. $I(\theta)$ : l'information de Fisher (§1) ; $\mathbf{I}$ (en gras) : l'identité (§4). $\sigma$ : un écart-type (§1, §2), la sigmoïde (§7). $n$ : un nombre de tirages (§2, §3, §6), de flèches (§1), de matchs $n_{ij}$ (§7). $S$ : le résultat d'un match (§7) ; $S_t$ : l'état au pas $t$ (§4, §5). $Z$ : une constante de normalisation (§8). $F$ : la fonction de répartition $F_\theta$ (§2), l'objectif $F(\pi)$ (§8). $H$ : l'entropie (§8) ; H (en romain) : le niveau haut (§4, §5). $T$ : une température (§8) ; T (en romain) : turbiner (§4). $z$ : un logit (§4), le score $z_m$ d'une régression logistique (§7) ; $\mathbf{z}$ : le latent de M25b (§8). $u$ : une variable réelle (§6), la loi uniforme (§8) ; $U$ : une variable uniforme (§2, §3). $\rho$ : une corrélation (§3). $\delta$ : une erreur TD (§5). $G$ : un retour (§5). $t$ : un pas de temps (§4, §5) ; $s'$ : un état d'arrivée (§4, §5). $\pi$ : une politique (§4, §5), une répartition entre des issues (§8). $\mathbf{w}_t$ : les poids de Hedge (§8). $\mu$ : la moyenne d'une normale (§2), l'espérance à estimer (§3). $\varepsilon$ : un petit accroissement de $\theta$ (§1), le bruit d'un chemin (§2). $b$ : une baseline (§3), le biais d'une régression logistique (§7). $m$ : le nombre d'états (§4), l'indice d'un match (§7) ; $K$ : le nombre d'actions (§4), le nombre d'issues (§8). Le contexte tranche.
 
-Vocabulaire anglais de ce chapitre : *score function*, *support*, *log-likelihood*, *likelihood equation*, *Fisher information*, *score function estimator*, *likelihood ratio method*, *pathwise derivative*, *reparameterization*, *Monte Carlo estimator*, *control variate*, *variance reduction*, *baseline*, *optimal baseline*, *leave-one-out baseline*, *tabular softmax policy*, *logit*, *value function*, *action value*, *advantage*, *discounted state-visitation distribution*, *policy gradient theorem*, *finite differences*, *k-step return*, *bootstrapping*, *λ-return*, *temporal-difference (TD) error*, *importance sampling*, *target distribution*, *proposal distribution*, *importance weight*, *heavy tail*, *self-normalized importance sampling*, *effective sample size*, *truncated importance weights*, *KL estimator*, *paired comparisons*, *Bradley-Terry model*, *strength*, *round-robin tournament*, *identifiability*, *strongly connected graph*, *MM algorithm (minorization-maximization)*, *Elo rating*, *expected score*, *K-factor*, *stochastic gradient*, *Gibbs variational principle*, *reference distribution*, *partition function*.
+Vocabulaire anglais de ce chapitre : *score function*, *support*, *log-likelihood*, *likelihood equation*, *Fisher information*, *score function estimator*, *likelihood ratio method*, *pathwise derivative*, *reparameterization*, *Monte Carlo estimator*, *control variate*, *variance reduction*, *baseline*, *optimal baseline*, *leave-one-out baseline*, *tabular softmax policy*, *logit*, *value function*, *action value*, *advantage*, *discounted state-visitation distribution*, *policy gradient theorem*, *finite differences*, *k-step return*, *bootstrapping*, *λ-return*, *temporal-difference (TD) error*, *importance sampling*, *target distribution*, *proposal distribution*, *importance weight*, *heavy tail*, *self-normalized importance sampling*, *consistent estimator*, *effective sample size*, *truncated importance weights*, *KL estimator*, *paired comparisons*, *Bradley-Terry model*, *strength*, *round-robin tournament*, *identifiability*, *strongly connected graph*, *MM algorithm (minorization-maximization)*, *Elo rating*, *expected score*, *K-factor*, *stochastic gradient*, *Gibbs variational principle*, *reference distribution*, *partition function*.
 
 ## Objectifs d'apprentissage
 
@@ -59,7 +59,7 @@ Vocabulaire anglais de ce chapitre : *score function*, *support*, *log-likelihoo
 3. **Contrôle** : $f - c\,(h - \mathbb{E}[h])$, $c^\star = \frac{\operatorname{Cov}(f, h)}{\mathbb{V}(h)}$, variance $(1 - \rho^2)\,\mathbb{V}(f)$. **Baseline** : $(f - b)\,s$ sans biais, optimale en $b^\star = \frac{\mathbb{E}[fs^2]}{\mathbb{E}[s^2]} \ne \mathbb{E}[f]$ en général ; la moyenne des autres tirages est sans biais, celle du groupe multiplie l'estimateur par $\frac{n - 1}{n}$ (∂ MB8.9).
 4. **Gradient de la valeur** : $\partial\mathbf{V} = \mathbf{M}\big(\partial\mathbf{r}_\pi + \gamma\,(\partial\mathbf{P}_\pi)\,\mathbf{V}\big)$, $\frac{\partial V(s_0)}{\partial z(s, a)} = \frac{\nu_{s_0}(s)}{1 - \gamma}\,\pi(a \mid s)\,A(s, a)$ (∂ MB8.10), $\sum_a\pi(a \mid s)\,A(s, a) = 0$ ; un état visité au pas $t$ pèse $(1 - \gamma)\gamma^t$ dans $\nu_{s_0}$.
 5. **Retours** : $G^{(k)}_t - V(S_t) = \sum_{l<k}\gamma^l\delta_{t+l}$ ; $G^\lambda_t = \sum_{k \ge 1}(1 - \lambda)\lambda^{k-1}G^{(k)}_t$ et $G^\lambda_t - V(S_t) = \sum_{l \ge 0}(\gamma\lambda)^l\delta_{t+l}$ ; avec des valeurs fausses de $\mathbf{e}$, le retour à $k$ pas a le biais $\gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$.
-6. **Importance** : $\mathbb{E}_p[f] = \mathbb{E}_q[wf]$, $w = \frac pq$, si $q > 0$ là où $pf \ne 0$ ; $\mathbb{E}_q[w] = 1$ ; taille effective $\frac{(\sum w_i)^2}{\sum w_i^2}$ ; poids auto-normalisés, poids tronqués $\min(w, c)$. $\mathrm{KL}(q \,\|\, p)$ : $k_1 = -\ln w$ et $k_3 = (w - 1) - \ln w \ge 0$, sans biais.
+6. **Importance** : $\mathbb{E}_p[f] = \mathbb{E}_q[wf]$, $w = \frac pq$, si $q > 0$ là où $pf \ne 0$ ; $\mathbb{E}_q[w] = 1$ si $q > 0$ là où $p > 0$ ; taille effective $\frac{(\sum w_i)^2}{\sum w_i^2}$ ; poids auto-normalisés, poids tronqués $\min(w, c)$. $\mathrm{KL}(q \,\|\, p)$ : $k_1 = -\ln w$ et $k_3 = (w - 1) - \ln w \ge 0$, sans biais.
 7. **Bradley-Terry** : $P(i \text{ bat } j) = \sigma(\beta_i - \beta_j)$ ; forces à une constante près ; victoires observées = victoires attendues ; maximum fini si et seulement si le graphe des victoires est fortement connexe. **Elo** : $R_i \leftarrow R_i + k\,(S - E)$, $E = \frac{1}{1 + 10^{(R_j - R_i)/400}}$, un pas de gradient stochastique.
 8. **Gibbs** : $\mathbb{E}_\pi[r] - \beta\,\mathrm{KL}(\pi \,\|\, \pi_{\mathrm{ref}}) = \beta\ln Z - \beta\,\mathrm{KL}(\pi \,\|\, \pi^\star)$, $\pi^\star \propto \pi_{\mathrm{ref}}\,e^{r/\beta}$, maximum $\beta\ln Z$ ; $\beta \to 0$ : le meilleur choix ; $\beta \to \infty$ : $\pi_{\mathrm{ref}}$.
 
@@ -67,21 +67,21 @@ Vocabulaire anglais de ce chapitre : *score function*, *support*, *log-likelihoo
 
 ### Dériver par rapport au paramètre
 
-Une archère tire 5 flèches ; chacune atteint le cœur de la cible avec la probabilité $\theta$, indépendamment des autres. Le nombre $X$ de flèches au cœur suit la loi binomiale $\mathcal{B}(5, \theta)$ (M02b) : $p_\theta(x) = \binom5x\theta^x(1 - \theta)^{5 - x}$. Si $\theta$ augmente un peu, comment change la probabilité de chaque issue, **en valeur relative** ?
+Une archère tire 4 flèches ; chacune atteint le cœur de la cible avec la probabilité $\theta$, indépendamment des autres. Le nombre $X$ de flèches au cœur suit la loi binomiale $\mathcal{B}(4, \theta)$ (M02b) : $p_\theta(x) = \binom4x\theta^x(1 - \theta)^{4 - x}$. Si $\theta$ augmente un peu, comment change la probabilité de chaque issue, **en valeur relative** ?
 
 > **Définition.** Pour une famille de lois $p_\theta$ dérivable en $\theta$, la **fonction score** (*score function*) est
 > $$s_\theta(x) = \partial_\theta\ln p_\theta(x) = \frac{\partial_\theta p_\theta(x)}{p_\theta(x)},$$
 > pour les issues $x$ du **support** (*support*), l'ensemble des $x$ où $p_\theta(x) > 0$.
 
-Au premier ordre, $p_{\theta + \varepsilon}(x) \approx p_\theta(x)\,\big(1 + \varepsilon\,s_\theta(x)\big)$ : le score est la variation relative de la probabilité de $x$ quand le paramètre bouge. Pour la binomiale, $\ln p_\theta(x) = \ln\binom5x + x\ln\theta + (5 - x)\ln(1 - \theta)$, donc
-$$s_\theta(x) = \frac x\theta - \frac{5 - x}{1 - \theta} = \frac{x - 5\theta}{\theta(1 - \theta)}, \qquad \text{et pour } \theta = 0{,}8 : \ s(x) = \frac{x - 4}{0{,}16} = 6{,}25\,(x - 4).$$
+Au premier ordre, $p_{\theta + \varepsilon}(x) \approx p_\theta(x)\,\big(1 + \varepsilon\,s_\theta(x)\big)$ : le score est la variation relative de la probabilité de $x$ quand le paramètre bouge. Pour la binomiale, $\ln p_\theta(x) = \ln\binom4x + x\ln\theta + (4 - x)\ln(1 - \theta)$, donc
+$$s_\theta(x) = \frac x\theta - \frac{4 - x}{1 - \theta} = \frac{x - 4\theta}{\theta(1 - \theta)}, \qquad \text{et pour } \theta = 0{,}8 : \ s(x) = \frac{x - 3{,}2}{0{,}16} = 6{,}25\,x - 20.$$
 
-| $x$ | 0 | 1 | 2 | 3 | 4 | 5 |
-|---|---|---|---|---|---|---|
-| $p_{0,8}(x)$ | 0,00032 | 0,0064 | 0,0512 | 0,2048 | 0,4096 | 0,32768 |
-| $s_{0,8}(x)$ | −25 | −18,75 | −12,5 | −6,25 | 0 | 6,25 |
+| $x$ | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| $p_{0,8}(x)$ | 0,0016 | 0,0256 | 0,1536 | 0,4096 | 0,4096 |
+| $s_{0,8}(x)$ | −20 | −13,75 | −7,5 | −1,25 | 5 |
 
-Cinq flèches au cœur devient plus probable quand $\theta$ augmente ; quatre ne bouge pas au premier ordre ; moins de quatre devient moins probable, d'autant plus vite que l'issue est rare.
+Quatre flèches au cœur devient plus probable quand $\theta$ augmente ; trois, l'issue la plus proche de la moyenne 3,2, bouge à peine ; moins de trois devient moins probable, d'autant plus vite que l'issue est rare.
 
 Les lois usuelles (M02b), en dérivant $\ln p_\theta(x)$ :
 
@@ -95,15 +95,15 @@ Les lois usuelles (M02b), en dérivant $\ln p_\theta(x)$ :
 
 ### Une espérance nulle
 
-Pour l'archère, $\sum_xp(x)\,s(x) = 6{,}25\,(\mathbb{E}[X] - 4) = 6{,}25\,(5 \times 0{,}8 - 4) = 0$. Ce n'est pas un hasard.
+Pour l'archère, $\sum_xp(x)\,s(x) = 6{,}25\,\big(\mathbb{E}[X] - 3{,}2\big) = 6{,}25\,(4 \times 0{,}8 - 3{,}2) = 0$. Ce n'est pas un hasard.
 
 > **Théorème** (∂ MB8.8). Si le support de $p_\theta$ ne dépend pas de $\theta$, et si l'on peut dériver sous la somme ou sous l'intégrale (sans condition pour une somme finie ; admis pour une somme infinie ou une densité), alors $\mathbb{E}_\theta[s_\theta(X)] = 0$.
 
 L'outil : dériver par rapport à $\theta$ l'identité $\sum_xp_\theta(x) = 1$, ou $\int p_\theta = 1$, vraie pour tout $\theta$ ; ∂ MB8.8 rédige le cas d'une densité (l'échange de la dérivée et de l'intégrale se justifie par la domination de M25b §7).
 
-**Quand le support bouge.** La loi uniforme sur $[0, \theta]$ a la densité $\frac1\theta$ sur $[0, \theta]$ : son score vaut $-\frac1\theta$ en tout point du support, et son espérance aussi, pas 0. Augmenter $\theta$ abaisse la densité partout où elle était, mais crée de la masse au-delà de l'ancien bord, là où le score n'est pas défini ; ∂ MB8.8 montre ce qui manque.
+**Quand le support bouge.** La loi uniforme sur $[0, \theta]$ a la densité $\frac1\theta$ sur $[0, \theta]$ : son score vaut $-\frac1\theta$ en tout point du support, et son espérance aussi, pas 0 : le support bouge avec $\theta$ ; ∂ MB8.8 montre ce qui manque.
 
-**Le score total et le maximum de vraisemblance.** Pour des observations indépendantes $x_1, \ldots, x_n$, la log-vraisemblance $\ell(\theta) = \sum_i\ln p_\theta(x_i)$ a pour dérivée le **score total** $\sum_is_\theta(x_i)$ : un maximum de vraisemblance intérieur l'annule (M04 §3, M13a §1). L'archère a mis 4, 5 et 3 flèches au cœur en trois séances : $\sum_is_\theta(x_i) = \frac{12 - 15\theta}{\theta(1 - \theta)}$ s'annule en $\hat\theta = 0{,}8$, la proportion de flèches au cœur. Le théorème dit autre chose : au **vrai** paramètre, la pente de la log-vraisemblance d'une observation est nulle **en moyenne**.
+**Le score total et le maximum de vraisemblance.** Pour des observations indépendantes $x_1, \ldots, x_n$, la log-vraisemblance $\ell(\theta) = \sum_i\ln p_\theta(x_i)$ a pour dérivée le **score total** $\sum_is_\theta(x_i)$ : un maximum de vraisemblance intérieur l'annule (M04 §3, M13a §1). L'archère a mis 4, 3, 4, 2 et 3 flèches au cœur en cinq séances : $\sum_is_\theta(x_i) = \frac{16 - 20\theta}{\theta(1 - \theta)}$ s'annule en $\hat\theta = 0{,}8$, la proportion de flèches au cœur. Le théorème dit autre chose : au **vrai** paramètre, la pente de la log-vraisemblance d'une observation est nulle **en moyenne**.
 
 ### L'information de Fisher
 
@@ -113,21 +113,21 @@ L'outil : dériver par rapport à $\theta$ l'identité $\sum_xp_\theta(x) = 1$, 
 
 L'outil : dériver une seconde fois l'identité de l'espérance nulle, $\int p_\theta\,s_\theta = 0$.
 
-Deux lectures : la **variance** de la pente de la log-vraisemblance, et sa **courbure** moyenne, changée de signe (figure). Pour l'archère : $\mathbb{V}(s) = 6{,}25^2\,\mathbb{V}(X) = 39{,}0625 \times 0{,}8 = 31{,}25$, avec $\mathbb{V}(X) = 5 \times 0{,}8 \times 0{,}2$ ; et $\partial_\theta^2\ln p_\theta(x) = -\frac{x}{\theta^2} - \frac{5 - x}{(1 - \theta)^2}$, d'espérance $-\frac{4}{0{,}64} - \frac{1}{0{,}04} = -31{,}25$. Les deux valent $\frac{5}{\theta(1 - \theta)}$.
+Deux lectures : la **variance** de la pente de la log-vraisemblance, et sa **courbure** moyenne, changée de signe (figure). Pour l'archère : $\mathbb{V}(s) = 6{,}25^2\,\mathbb{V}(X) = 39{,}0625 \times 0{,}64 = 25$, avec $\mathbb{V}(X) = 4 \times 0{,}8 \times 0{,}2$ ; et $\partial_\theta^2\ln p_\theta(x) = -\frac{x}{\theta^2} - \frac{4 - x}{(1 - \theta)^2}$, d'espérance $-\frac{3{,}2}{0{,}64} - \frac{0{,}8}{0{,}04} = -25$. Les deux valent $\frac{4}{\theta(1 - \theta)}$.
 
 > **Propriété.** Pour $n$ tirages indépendants de $p_\theta$, le score total a pour variance $nI(\theta)$ : l'information d'un échantillon i.i.d. est $n$ fois celle d'un tirage (les variances de variables indépendantes s'ajoutent, M02b §6).
 
-La binomiale compte les succès de 5 tirages de Bernoulli : $5 \times \frac{1}{0{,}8 \times 0{,}2} = 5 \times 6{,}25 = 31{,}25$. Une grande information veut dire une loi qui change vite avec $\theta$ : les observations en disent long sur lui.
+La binomiale compte les succès de 4 tirages de Bernoulli : $4 \times \frac{1}{0{,}8 \times 0{,}2} = 4 \times 6{,}25 = 25$. Une grande information veut dire une loi qui change vite avec $\theta$ : les observations en disent long sur lui.
 
-![À gauche, la loi B(5 ; 0,8) de l'archère, avec le score de chaque issue (de −25 à 6,25) : pondérés par les probabilités, ils ont une somme nulle, et leurs carrés pondérés valent I(0,8) = 31,25. À droite, les log-vraisemblances θ ↦ ln p_θ(x) pour x = 3, 4 et 5, avec leurs tangentes en θ₀ = 0,8, de pentes −6,25, 0 et 6,25 ; leur moyenne sous θ₀ a une tangente horizontale en θ₀ et y épouse la parabole de courbure −31,25](figures/score_fisher.png)
+![À gauche, la loi B(4 ; 0,8) de l'archère, avec le score de chaque issue (de −20 à 5) : pondérés par les probabilités, ils ont une somme nulle, et leurs carrés pondérés valent I(0,8) = 25. À droite, les log-vraisemblances θ ↦ ln p_θ(x) pour x = 2, 3 et 4, avec leurs tangentes en θ₀ = 0,8, de pentes −7,5, −1,25 et 5 ; leur moyenne sous θ₀ a une tangente horizontale en θ₀ et y épouse la parabole de courbure −25](figures/score_fisher.png)
 
 ### La KL de deux lois voisines
 
 > **Propriété** (au second ordre). $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) \approx \frac12I(\theta)\,(\theta' - \theta)^2$ quand $\theta' \to \theta$.
 
-L'idée : en fonction de $\theta'$, $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) = \mathbb{E}_\theta[\ln p_\theta(X) - \ln p_{\theta'}(X)]$ est positive et nulle en $\theta' = \theta$ (M06 §6) ; ses dérivées en $\theta' = \theta$ sont $-\mathbb{E}_\theta[s_\theta(X)] = 0$, puis $-\mathbb{E}_\theta[\partial_\theta^2\ln p_\theta(X)] = I(\theta)$ ; Taylor d'ordre 2 (M05a §3) conclut. Pour l'archère, de $\theta = 0{,}8$ à $\theta' = 0{,}78$ : $5\big[0{,}8\ln\frac{0{,}8}{0{,}78} + 0{,}2\ln\frac{0{,}2}{0{,}22}\big] \approx 0{,}00596$ nat, et $\frac12 \times 31{,}25 \times 0{,}02^2 = 0{,}00625$. L'information de Fisher mesure, localement, la distance entre les lois de la famille.
+L'idée : en fonction de $\theta'$, $\mathrm{KL}(p_\theta \,\|\, p_{\theta'}) = \mathbb{E}_\theta[\ln p_\theta(X) - \ln p_{\theta'}(X)]$ est positive et nulle en $\theta' = \theta$ (M06 §6) ; ses dérivées en $\theta' = \theta$ sont $-\mathbb{E}_\theta[s_\theta(X)] = 0$, puis $-\mathbb{E}_\theta[\partial_\theta^2\ln p_\theta(X)] = I(\theta)$ ; Taylor d'ordre 2 (M05a §3) conclut. Pour l'archère, de $\theta = 0{,}8$ à $\theta' = 0{,}78$ : $4\big[0{,}8\ln\frac{0{,}8}{0{,}78} + 0{,}2\ln\frac{0{,}2}{0{,}22}\big] \approx 0{,}00477$ nat, et $\frac12 \times 25 \times 0{,}02^2 = 0{,}005$. L'information de Fisher mesure, localement, la distance entre les lois de la famille.
 
-💻 **Aujourd'hui en pratique** — les logiciels de statistique qui ajustent une loi par maximum de vraisemblance donnent son erreur type par la courbure de la log-vraisemblance au maximum (l'**information observée**), environ $\frac{1}{\sqrt{nI(\hat\theta)}}$ pour un paramètre réel : un résultat asymptotique, admis ici.
+💻 **Aujourd'hui en pratique** — les logiciels de statistique qui ajustent une loi par maximum de vraisemblance donnent son erreur type par la courbure de la log-vraisemblance au maximum (l'**information observée**, *observed information*), environ $\frac{1}{\sqrt{nI(\hat\theta)}}$ pour un paramètre réel : un résultat asymptotique, admis ici.
 
 ⚠️ **Erreur classique.** Confondre les sens du mot **score** : ici le score en $\theta$ d'une loi, $\partial_\theta\ln p_\theta(x)$, une dérivée par rapport au paramètre, de la forme de $\theta$ ; en MB5, le score en $x$ d'une densité, $\nabla_x\ln p(x)$, de la forme de $x$ ; ailleurs, le score d'un exemple que calcule un classifieur (le score $z$ de M13a, le score $S$ de M03 et de MB6), une note qui classe (MB2 à MB4), ou la règle de score propre de M27. Autre erreur : écrire le score de la loi exponentielle pour sa moyenne (le paramétrage de M25b §7), $\frac{x - \theta}{\theta^2}$, quand $\theta$ est son taux, comme dans ce chapitre : $\frac1\theta - x$.
 
@@ -169,7 +169,7 @@ Le chemin se sert de la dérivée de $f$, une information que le score n'a pas ;
 
 ![À gauche, la probabilité de voir au moins 3 étoiles filantes, P(X ≥ 3), en fonction de la moyenne θ, avec sa tangente en θ = 2, de pente 2e⁻² ≈ 0,2707. À droite, pour X de loi N(1, 1) et f(x) = x², les histogrammes de 20 000 estimations à un tirage de la dérivée 2 : par le chemin, 2X, d'écart-type 2 ; par le score, X²(X − 1), d'écart-type proche de √30 ≈ 5,48, avec un pic près de 0 et une longue queue](figures/score_chemin.png)
 
-💻 **Aujourd'hui en pratique** — les lois de `torch.distributions` offrent les deux : `rsample` tire par un chemin dérivable quand la loi le permet (une normale, une exponentielle), et `log_prob` donne $\ln p_\theta$, dont on dérive le score par différentiation automatique : la seule voie pour une loi discrète.
+💻 **Aujourd'hui en pratique** — les lois de `torch.distributions` offrent les deux : `rsample` tire par un chemin dérivable quand la loi le permet (une normale, une exponentielle), et `log_prob` donne $\ln p_\theta$, dont on dérive le score par différentiation automatique : la voie usuelle pour une loi discrète.
 
 ⚠️ **Erreur classique.** Dériver par le chemin une loi discrète ou une indicatrice : on trouve 0 (M25b §7 l'avait vu pour l'indicatrice). Évaluer le score en un autre point que le $\theta$ où l'on dérive.
 
@@ -185,19 +185,19 @@ Pour estimer $\mu = \mathbb{E}[f(X)]$ par Monte-Carlo, on dispose parfois d'une 
 
 *Démonstration.* La variance d'une combinaison se développe comme en M02c ; c'est un trinôme en $c$ (R3) de coefficient dominant $\mathbb{V}(h) > 0$, minimal en $c^\star$, où il vaut $\mathbb{V}(f) - \frac{\operatorname{Cov}(f, h)^2}{\mathbb{V}(h)} = (1 - \rho^2)\,\mathbb{V}(f)$. $\square$
 
-**Exemple.** Pour estimer $\mathbb{E}[e^U] = e - 1 \approx 1{,}7183$, avec $U$ uniforme sur $[0, 1]$, on prend $h = U$, d'espérance $\frac12$. Ici $\mathbb{V}(e^U) = \frac{e^2 - 1}{2} - (e - 1)^2 \approx 0{,}2420$, $\operatorname{Cov}(e^U, U) = \mathbb{E}[Ue^U] - \frac{e - 1}{2} = 1 - \frac{e - 1}{2} \approx 0{,}1409$ (une intégration par parties, M02a) et $\mathbb{V}(U) = \frac1{12}$ : $c^\star \approx 1{,}690$ et $\rho^2 \approx 0{,}984$. La variance est divisée par environ 61 : un tirage contrôlé vaut 61 tirages bruts (figure, à droite).
+**Exemple.** Pour estimer $\mathbb{E}[e^U] = e - 1 \approx 1{,}7183$, avec $U$ uniforme sur $[0, 1]$ (la valeur moyenne que M02a §8 estimait par Monte-Carlo), on prend $h = U$, d'espérance $\frac12$. Ici $\mathbb{V}(e^U) = \frac{e^2 - 1}{2} - (e - 1)^2 \approx 0{,}2420$, $\operatorname{Cov}(e^U, U) = \mathbb{E}[Ue^U] - \frac{e - 1}{2} = 1 - \frac{e - 1}{2} \approx 0{,}1409$ (une intégration par parties, M02a) et $\mathbb{V}(U) = \frac1{12}$ : $c^\star \approx 1{,}690$ et $\rho^2 \approx 0{,}984$. La variance est divisée par environ 61 : un tirage contrôlé vaut 61 tirages bruts (figure, à droite).
 
 ### Une baseline pour l'estimateur score
 
 Comme $\mathbb{E}[s_\theta(X)] = 0$ (§1), pour tout nombre $b$, $\big(f(X) - b\big)\,s_\theta(X)$ a la même espérance que $f(X)\,s_\theta(X)$, la dérivée $J'(\theta)$. Le nombre $b$ est une **baseline** (*baseline*, une valeur de référence) : il ne change que la variance.
 
-> **Théorème** (∂ MB8.9). Pour un paramètre réel $\theta$ tel que $I(\theta) = \mathbb{E}[s_\theta^2] > 0$, $\mathbb{V}\big((f(X) - b)\,s_\theta(X)\big)$ est minimale pour la **baseline optimale**
+> **Théorème** (∂ MB8.9). Pour un paramètre réel $\theta$ tel que $I(\theta) = \mathbb{E}[s_\theta^2] > 0$, $\mathbb{V}\big((f(X) - b)\,s_\theta(X)\big)$ est minimale pour la **baseline optimale** (*optimal baseline*)
 > $$b^\star = \frac{\mathbb{E}\big[f(X)\,s_\theta(X)^2\big]}{\mathbb{E}\big[s_\theta(X)^2\big]},$$
 > une moyenne de $f$ pondérée par $s_\theta^2$, différente de $\mathbb{E}[f(X)]$ en général.
 
 L'outil : comme pour la variable de contrôle, la variance est un trinôme du second degré en $b$ ; ∂ MB8.9 la rédige.
 
-**Les étoiles filantes** ($f = \mathbb{1}\{X \ge 3\}$, $\theta = 2$). Ici $s^2 = \big(\frac X2 - 1\big)^2$, $\mathbb{E}[s^2] = 0{,}5$ et $\mathbb{E}[f\,s^2] = \sum_{x \ge 3}p_2(x)\big(\frac x2 - 1\big)^2 \approx 0{,}2970$ : $b^\star \approx 0{,}594$, loin de $\mathbb{E}[f] = P(X \ge 3) \approx 0{,}323$. Les tirages qui pèsent dans $b^\star$ sont ceux où $\lvert s\rvert$ est grand, loin de $x = 2$ : $x = 0$, où $f$ vaut 0, et $x \ge 4$, où elle vaut 1. La variance à un tirage passe de $0{,}2237$ sans baseline à $0{,}0473$ avec $b^\star$, environ 4,7 fois moins (figure, à gauche, qui place aussi $b = \mathbb{E}[f]$).
+**Les étoiles filantes** ($f = \mathbb{1}\{X \ge 3\}$, $\theta = 2$). Ici $s^2 = \big(\frac X2 - 1\big)^2$, $\mathbb{E}[s^2] = \frac{\mathbb{V}(X)}{4} = 0{,}5$ (M02b) et $\mathbb{E}[f\,s^2] = \sum_{x \ge 3}p_2(x)\big(\frac x2 - 1\big)^2 \approx 0{,}2970$ : $b^\star \approx 0{,}594$, loin de $\mathbb{E}[f] = P(X \ge 3) \approx 0{,}323$. Les tirages qui pèsent dans $b^\star$ sont ceux où $\lvert s\rvert$ est grand, loin de $x = 2$ : $x = 0$, où $f$ vaut 0, et $x \ge 4$, où elle vaut 1. La variance à un tirage passe de $0{,}2237$ sans baseline à $0{,}0473$ avec $b^\star$, environ 4,7 fois moins (figure, à gauche, qui place aussi $b = \mathbb{E}[f]$).
 
 ![À gauche, pour les étoiles filantes, la variance à un tirage de (f − b)s en fonction de la baseline b : un trinôme, qui vaut 0,2237 en b = 0, 0,0840 en b = E[f] ≈ 0,323 et 0,0473 en b* ≈ 0,594, son minimum. À droite, 300 tirages (U, e^U) et la droite de pente c* ≈ 1,690 passant par (½, e − 1) : U, de moyenne connue, suit presque toute la variation de e^U](figures/baseline_variance.png)
 
@@ -209,7 +209,7 @@ En pratique, ni $\mathbb{E}[f]$ ni $b^\star$ ne sont connus : on les estime sur 
 
 L'outil : l'indépendance des tirages et $\mathbb{E}[s] = 0$ pour le premier point ; une écriture de $\bar f$ à l'aide de $\bar f_{-i}$ pour le second.
 
-**Cinq soirées.** Les comptes $x = (3, 1, 2, 5, 0)$ donnent $f = (1, 0, 0, 1, 0)$ et $s = (0{,}5 ;\ -0{,}5 ;\ 0 ;\ 1{,}5 ;\ -1)$. Sans baseline, l'estimation vaut $\frac{0{,}5 + 1{,}5}{5} = 0{,}4$. Avec la moyenne des autres, $\bar f_{-i} = \frac{2 - f_i}{4}$, soit $(0{,}25 ;\ 0{,}5 ;\ 0{,}5 ;\ 0{,}25 ;\ 0{,}5)$, et l'estimation vaut $\frac{0{,}375 + 0{,}25 + 0 + 1{,}125 + 0{,}5}{5} = 0{,}45$. Avec la moyenne du groupe, $\bar f = 0{,}4$, elle vaut $0{,}36 = \frac45 \times 0{,}45$. Cinq tirages disent peu de chose de $J'(2) \approx 0{,}2707$ ; mais le facteur $\frac{n - 1}{n}$ est exact.
+**Cinq soirées.** Les comptes $x = (4, 0, 2, 6, 0)$ donnent $f = (1, 0, 0, 1, 0)$ et $s = (1 ;\ -1 ;\ 0 ;\ 2 ;\ -1)$. Sans baseline, l'estimation vaut $\frac{1 + 2}{5} = 0{,}6$. Avec la moyenne des autres, $\bar f_{-i} = \frac{2 - f_i}{4}$, soit $(0{,}25 ;\ 0{,}5 ;\ 0{,}5 ;\ 0{,}25 ;\ 0{,}5)$, et l'estimation vaut $\frac{0{,}75 + 0{,}5 + 0 + 1{,}5 + 0{,}5}{5} = 0{,}65$. Avec la moyenne du groupe, $\bar f = 0{,}4$, elle vaut $0{,}52 = \frac45 \times 0{,}65$. Cinq tirages disent peu de chose de $J'(2) \approx 0{,}2707$ ; mais le facteur $\frac{n - 1}{n}$ est exact.
 
 Diviser chaque terme $(f_i - \bar f)\,s_i$ par l'écart-type des $f_j$ du groupe garde son signe ; mais l'espérance de l'estimateur n'est plus exactement proportionnelle à la dérivée.
 
@@ -224,8 +224,8 @@ Diviser chaque terme $(f_i - \bar f)\,s_i$ par l'écart-type des $f_j$ du groupe
 ### Rappel de M26 : une politique et ses valeurs
 
 Un MDP (M26 §4) a des états $s$, des actions $a$, des matrices de transition $\mathbf{P}[a]$ et des récompenses moyennes $r(s, a)$. Une politique $\pi(a \mid s)$ induit la chaîne et les récompenses
-$$\mathbf{P}_\pi[s, t] = \sum_a\pi(a \mid s)\,\mathbf{P}[a, s, t], \qquad r_\pi(s) = \sum_a\pi(a \mid s)\,r(s, a),$$
-et ses valeurs résolvent le système de Bellman $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V} = \mathbf{r}_\pi$ (M26 §5). La valeur d'une action est $Q(s, a) = r(s, a) + \gamma\sum_t\mathbf{P}[a, s, t]\,V(t)$, et $V(s) = \sum_a\pi(a \mid s)\,Q(s, a)$ (M26 §4). On note $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P}_\pi)^{-1}$. Pour $\gamma < 1$, la ligne $s_0$ de $(1 - \gamma)\,\mathbf{M}$ est la **loi d'occupation actualisée** $\boldsymbol{\nu}_{s_0}$ de M26 §5 :
+$$\mathbf{P}_\pi[s, s'] = \sum_a\pi(a \mid s)\,\mathbf{P}[a, s, s'], \qquad r_\pi(s) = \sum_a\pi(a \mid s)\,r(s, a),$$
+et ses valeurs résolvent le système de Bellman $(\mathbf{I} - \gamma\mathbf{P}_\pi)\,\mathbf{V} = \mathbf{r}_\pi$ (M26 §5). La valeur d'une action est $Q(s, a) = r(s, a) + \gamma\sum_{s'}\mathbf{P}[a, s, s']\,V(s')$, et $V(s) = \sum_a\pi(a \mid s)\,Q(s, a)$ (M26 §4). On note $\mathbf{M} = (\mathbf{I} - \gamma\mathbf{P}_\pi)^{-1}$. Pour $\gamma < 1$, la ligne $s_0$ de $(1 - \gamma)\,\mathbf{M}$ est la **loi d'occupation actualisée** $\boldsymbol{\nu}_{s_0}$ de M26 §5 :
 $$\nu_{s_0}(s) = \sum_{t \ge 0}(1 - \gamma)\gamma^t\,P(S_t = s \mid S_0 = s_0), \qquad V(s_0) = \frac{\boldsymbol{\nu}_{s_0}\mathbf{r}_\pi}{1 - \gamma} :$$
 un état visité au pas $t$ y pèse $(1 - \gamma)\gamma^t$. Avec des lignes sous-stochastiques (une fin possible, M26 §5), $\mathbf{M}$ reste défini, et même pour $\gamma = 1$ quand la fin est sûre ; seule la lecture de $(1 - \gamma)\,\mathbf{M}$ comme une loi demande des lignes stochastiques.
 
@@ -264,7 +264,7 @@ Trois facteurs, trois lectures.
 
 **La forme score.** Pour une politique qui dépend d'un paramètre $\theta$ de façon quelconque, le même calcul donne (énoncé)
 $$\partial_\theta V(s_0) = \frac{1}{1 - \gamma}\sum_s\nu_{s_0}(s)\sum_a\pi(a \mid s)\;\partial_\theta\ln\pi(a \mid s)\;Q(s, a),$$
-où $Q$ peut être remplacé par $A$ : $\sum_a\pi(a \mid s)\,\partial_\theta\ln\pi(a \mid s) = 0$ est l'espérance nulle du score (§1), pour la loi $\pi(\cdot \mid s)$. C'est le **théorème du gradient de politique** (*policy gradient theorem*), ici sous sa forme actualisée (Sutton et Barto, §13.2) : une moyenne, sur les états pondérés par $\boldsymbol{\nu}_{s_0}$ et sur les actions tirées de $\pi$, du score de l'action fois sa valeur.
+où $Q$ peut être remplacé par $A$ (∂ MB8.10 ; l'outil : l'espérance nulle du score du §1, pour la loi $\pi(\cdot \mid s)$). C'est le **théorème du gradient de politique** (*policy gradient theorem*), ici sous sa forme actualisée (Sutton et Barto, §13.2, l'énoncent pour des épisodes, sans actualisation) : une moyenne, sur les états pondérés par $\boldsymbol{\nu}_{s_0}$ et sur les actions tirées de $\pi$, du score de l'action fois sa valeur.
 
 **Le barrage.** $Q(\mathrm{H}, \mathrm{T}) = 7 + 0{,}6\,(0{,}35 \times 9{,}3570 + 0{,}65 \times 4{,}3352) \approx 10{,}6557$, et de même :
 
@@ -273,7 +273,7 @@ où $Q$ peut être remplacé par $A$ : $\sum_a\pi(a \mid s)\,\partial_\theta\ln\
 | H | 10,6557 | 4,1622 | 1,2987 | −5,1948 | $0{,}8 \times 1{,}2987 - 0{,}2 \times 5{,}1948 \approx 0$ |
 | B | 4,9024 | 3,9570 | 0,5672 | −0,3782 | $0{,}4 \times 0{,}5672 - 0{,}6 \times 0{,}3782 \approx 0$ |
 
-Depuis H : $\frac{\partial V(\mathrm{H})}{\partial z(\mathrm{H}, \mathrm{T})} \approx 1{,}5993 \times 0{,}8 \times 1{,}2987 \approx 1{,}6616$ et $\frac{\partial V(\mathrm{H})}{\partial z(\mathrm{B}, \mathrm{T})} \approx 0{,}9007 \times 0{,}4 \times 0{,}5672 \approx 0{,}2044$ ; les dérivées en $z(\cdot, \mathrm{R})$ sont leurs opposées. Depuis B, ces deux dérivées valent $0{,}5274$ et $0{,}4521$ : le logit de l'état B compte plus pour la valeur de B, qui y passe plus de temps.
+Depuis H : $\frac{\partial V(\mathrm{H})}{\partial z(\mathrm{H}, \mathrm{T})} \approx 1{,}5993 \times 0{,}8 \times 1{,}2987 \approx 1{,}6616$ et $\frac{\partial V(\mathrm{H})}{\partial z(\mathrm{B}, \mathrm{T})} \approx 0{,}9007 \times 0{,}4 \times 0{,}5672 \approx 0{,}2044$ ; les dérivées en $z(\cdot, \mathrm{R})$ sont leurs opposées. Depuis B, ces deux dérivées valent $0{,}5274$ et $0{,}4521$ : le logit de l'état B compte plus pour la valeur de B ($0{,}4521$) que pour celle de H ($0{,}2044$), car on passe plus de temps en B depuis B ($\nu_{\mathrm{B}}(\mathrm{B}) \approx 0{,}797$) que depuis H ($0{,}360$).
 
 **Vérifier par différences finies** (M05a §5). On change $z(\mathrm{H}, \mathrm{T})$ de $\pm h$, on résout les deux systèmes, et $\frac{V^+(\mathrm{H}) - V^-(\mathrm{H})}{2h}$ redonne $1{,}6616$ pour $h = 10^{-3}$ ; l'erreur est la plus petite vers $h \approx 10^{-5}$, entre la troncature et l'arrondi (M05a §7, figure).
 
@@ -281,9 +281,9 @@ Depuis H : $\frac{\partial V(\mathrm{H})}{\partial z(\mathrm{H}, \mathrm{T})} \a
 
 💻 **Aujourd'hui en pratique** — `policy_gradient_exact` (🔨 MB8.14) calcule $\mathbf{V}$ et les $m \times m \times K$ dérivées d'un coup, avec `np.linalg.solve` ; au-delà de quelques milliers d'états, ni $\mathbf{M}$ ni $\boldsymbol{\nu}$ ne s'écrivent, et l'on estime ce gradient par simulation.
 
-⚠️ **Erreur classique.** Oublier le facteur $1 - \gamma$ entre $\mathbf{M}$ et $\boldsymbol{\nu}$ : les lignes de $\mathbf{M}$ somment à $\frac{1}{1 - \gamma}$, pas à 1 (pour une chaîne sans fin). Croire que le logit d'un état n'agit que sur la valeur de cet état : il agit sur $V(s_0)$ pour tout départ $s_0$ d'où l'on visite cet état, avec le poids $\mathbf{M}[s_0, s]$.
+⚠️ **Erreur classique.** Oublier le facteur $1 - \gamma$ entre $\mathbf{M}$ et $\boldsymbol{\nu}$ : les lignes de $\mathbf{M}$ somment à $\frac{1}{1 - \gamma}$, pas à 1 (pour une chaîne sans fin).
 
-🔗 **Dans workbookIA** — le chapitre B8 énonce le théorème du gradient de politique avec l'avantage, et l'estime par simulation ; ses estimateurs usuels donnent le même poids à tous les pas, sans le facteur $(1 - \gamma)\gamma^t$ de $\boldsymbol{\nu}$ : ils suivent une direction voisine de ce gradient, pas exactement lui.
+🔗 **Dans workbookIA** — le chapitre B8 énonce le théorème du gradient de politique avec l'avantage, et l'estime par simulation ; ses estimateurs usuels omettent le poids $\gamma^t$ du pas $t$, que porte $\boldsymbol{\nu}$.
 
 ## §5 · Retours à k pas et λ-retour
 
@@ -321,9 +321,9 @@ Sachant l'action, une erreur TD est en moyenne l'avantage de cette action ; sach
 
 L'outil : avec les vraies valeurs, le retour à $k$ pas a pour moyenne $V^\pi(s)$ (la troncature de M26 §8 : la suite oubliée a pour moyenne $\gamma^k(\mathbf{P}_\pi^k\mathbf{V}^\pi)(s)$) ; l'erreur ajoutée, $\gamma^ke(S_{t+k})$, a pour moyenne $\gamma^k(\mathbf{P}_\pi^k\mathbf{e})(s)$, par la loi à $k$ pas (M26 §1). Le biais du λ-retour est la moyenne de ces biais, avec les poids $(1 - \lambda)\lambda^{k-1}$ (✏️ MB8.4 le calcule pour une erreur constante).
 
-**Le barrage.** Sous sa politique (§4), avec des valeurs estimées trop hautes de 1 en H et justes en B, $\mathbf{e} = (1 ;\ 0)$ : le retour à un pas a le biais $\gamma\,\mathbf{P}_\pi\mathbf{e} = 0{,}6\,(0{,}45 ;\ 0{,}31) = (0{,}27 ;\ 0{,}186)$, même depuis B, où l'estimation est juste, puisqu'on y arrive en H avec la probabilité 0,31. Le biais décroît ensuite comme $\gamma^k$ (figure) ; la variance, elle, croît en général avec $k$, puisque plus de récompenses aléatoires s'additionnent.
+**Le barrage.** Sous sa politique (§4), avec des valeurs estimées trop hautes de 1 en H et justes en B, $\mathbf{e} = (1 ;\ 0)$ : le retour à un pas a le biais $\gamma\,\mathbf{P}_\pi\mathbf{e} = 0{,}6\,(0{,}45 ;\ 0{,}31) = (0{,}27 ;\ 0{,}186)$. Le biais décroît ensuite comme $\gamma^k$ (figure) ; la variance, elle, croît en général avec $k$, puisque plus de récompenses aléatoires s'additionnent.
 
-![À gauche, les poids (1 − λ)λ^(k−1) des retours à k pas dans un λ-retour, pour λ = 0,6 (0,4 ; 0,24 ; 0,144…) et λ = 0,7 (0,3 ; 0,21 ; 0,147…). À droite, sur la chaîne du barrage, avec des valeurs estimées trop hautes de 1 en H, le biais γᵏ(Pᵏe)(s) du retour à k pas depuis H (1, puis 0,27, puis 0,134) et depuis B (0, puis 0,186, puis 0,127), sous la borne γᵏ](figures/retours_k_pas.png)
+![À gauche, les poids (1 − λ)λ^(k−1) des retours à k pas dans un λ-retour, pour λ = 0,6 (0,4 ; 0,24 ; 0,144…) et λ = 0,7 (0,3 ; 0,21 ; 0,147…). À droite, sur la chaîne du barrage, avec des valeurs estimées trop hautes de 1 en H, le biais γᵏ(Pᵏe)(s) du retour à k pas depuis H (1, puis 0,27, …) et depuis B (0, puis 0,186, …), sous la borne γᵏ](figures/retours_k_pas.png)
 
 💻 **Aujourd'hui en pratique** — on ne forme pas les retours à $k$ pas un par un, qui demanderaient chacun $k$ récompenses : les bibliothèques calculent la somme pondérée des erreurs TD du théorème.
 
@@ -342,7 +342,7 @@ On veut $\mathbb{E}_p[f(X)]$ sous une loi **cible** $p$ (*target distribution*),
 *Démonstration.* $\sum_xq(x)\,\frac{p(x)}{q(x)}\,f(x) = \sum_xp(x)\,f(x)$, les sommes portant sur les $x$ où $q > 0$, qui contiennent tous ceux où $pf \ne 0$ ; de même avec des intégrales. $\square$
 
 - **$\mathbb{E}_q[w] = 1$** (le cas $f = 1$) si $q > 0$ partout où $p > 0$. Un tirage où $p = 0$ reçoit le poids 0, sans dommage. Si $q$ s'annule là où $p$ ne s'annule pas, ces $x$ ne sont jamais tirés : $\mathbb{E}_q[w] = P_p(q > 0) < 1$, et l'estimateur oublie la part de $\mathbb{E}_p[f]$ qui vient de là.
-- **La variance** à un tirage vaut $\mathbb{E}_q[w^2f^2] - \big(\mathbb{E}_p[f]\big)^2 = \mathbb{E}_p[wf^2] - \big(\mathbb{E}_p[f]\big)^2$. Pour $f \ge 0$, la proposition $q = \frac{pf}{\mathbb{E}_p[f]}$ rend $wf$ constant, égal à $\mathbb{E}_p[f]$ : une variance nulle, mais il faudrait connaître $\mathbb{E}_p[f]$. Comme pour Horvitz-Thompson (M20 §5), tirer plus souvent ce qui compte le plus réduit la variance. À l'inverse, une proposition à queue trop **légère** la rend infinie.
+- **La variance** à un tirage vaut $\mathbb{E}_q[w^2f^2] - \big(\mathbb{E}_p[f]\big)^2 = \mathbb{E}_p[wf^2] - \big(\mathbb{E}_p[f]\big)^2$. Pour $f \ge 0$, la proposition $q = \frac{pf}{\mathbb{E}_p[f]}$ rend $wf$ constant, égal à $\mathbb{E}_p[f]$ : une variance nulle, mais il faudrait connaître $\mathbb{E}_p[f]$. Comme pour Horvitz-Thompson (M20 §5), tirer plus souvent ce qui compte le plus réduit la variance. À l'inverse, une proposition à queue trop **légère** peut la rendre infinie (ci-dessous, dès un taux $\theta \ge 2$).
 
 **Deux propositions.** La cible est la loi exponentielle de taux 1, $p(x) = e^{-x}$, et la proposition celle de taux $\theta$ : $w(x) = \frac{e^{(\theta - 1)x}}{\theta}$ et
 $$\mathbb{E}_q[w^2] = \int_0^\infty\frac{p(x)^2}{q(x)}\,\mathrm{d}x = \frac1\theta\int_0^\infty e^{-(2 - \theta)x}\,\mathrm{d}x = \frac{1}{\theta(2 - \theta)} \ \text{ pour } \theta < 2, \quad +\infty \text{ pour } \theta \ge 2.$$
@@ -354,7 +354,7 @@ Pour $\theta = \frac12$, une proposition à queue plus lourde que la cible, $w =
 
 > **Définition.** Les poids **auto-normalisés** (*self-normalized*) sont $\tilde w_i = \frac{w_i}{\sum_jw_j}$, et l'estimateur correspondant est $\sum_i\tilde w_i\,f(x_i)$.
 
-C'est un quotient de deux moyennes : il est **biaisé** pour $n$ fini, mais **consistant**, il tend vers $\mathbb{E}_p[f]$ quand $n \to \infty$ (la loi des grands nombres au numérateur et au dénominateur, admis). Et c'est le seul possible quand $p$ ou $q$ n'est connue qu'à une constante près, comme une loi a posteriori (M04) ou une loi de Boltzmann dont on ignore $Z$ (M17) : la constante se simplifie. Sur les quatre tirages : $\frac{4{,}2216}{3{,}3926} \approx 1{,}244$.
+C'est un quotient de deux moyennes : il est **biaisé** pour $n$ fini, mais **convergent** (*consistent*, M02c §6) : il tend vers $\mathbb{E}_p[f]$ quand $n \to \infty$ (la loi des grands nombres au numérateur et au dénominateur, admis). Et c'est le seul possible quand $p$ ou $q$ n'est connue qu'à une constante près, comme une loi a posteriori (M04) ou une loi de Boltzmann dont on ignore $Z$ (M17) : la constante se simplifie. Sur les quatre tirages : $\frac{4{,}2216}{3{,}3926} \approx 1{,}244$.
 
 > **Définition** (Kish, 1965). La **taille effective** (*effective sample size*) des poids $w_1, \ldots, w_n$ est $n_{\mathrm{eff}} = \frac{(\sum_iw_i)^2}{\sum_iw_i^2}$.
 
@@ -362,9 +362,9 @@ Une moyenne pondérée $\sum_i\tilde w_iY_i$ de variables indépendantes de mêm
 
 > **Définition.** Les **poids tronqués** (*truncated importance weights*) au seuil $c > 0$ sont les $\min(w_i, c)$.
 
-Bornés par $c$, ils donnent un estimateur de variance au plus $c^2\,\mathbb{E}_q[f^2]$, finie même quand celle de $wf$ ne l'est pas. En échange, un biais : $\mathbb{E}_q[\min(w, c)\,f] - \mathbb{E}_p[f] = -\mathbb{E}_q\big[(w - c)_+\,f\big]$, avec $(u)_+ = \max(u, 0)$, négatif pour $f \ge 0$ ; il disparaît quand $c \to \infty$. Pour la proposition de taux $\frac12$ et $c = 1{,}25$ : $w > 1{,}25$ quand $x < 2\ln 1{,}6 \approx 0{,}94$, et $\mathbb{E}_q[\min(w, 1{,}25)] = \frac{55}{64} \approx 0{,}859$ au lieu de 1 ; sur les quatre tirages, le premier poids devient 1,25, et l'estimation de $\mathbb{E}_p[X]$ passe de $1{,}0554$ à $1{,}0200$. Tronquer sert quand de grands poids rendent la variance énorme ou infinie ; quand $wf$ est déjà borné, comme ici ($2xe^{-x/2} \le \frac4e$), la troncature n'apporte qu'un biais : la variance de l'estimateur de $\mathbb{E}_p[X]$ passe même de $0{,}185$ à $0{,}214$ par tirage.
+Bornés par $c$, ils donnent un estimateur de variance au plus $c^2\,\mathbb{E}_q[f^2]$, finie même quand celle de $wf$ ne l'est pas. En échange, un biais : $\mathbb{E}_q[\min(w, c)\,f] - \mathbb{E}_p[f] = -\mathbb{E}_q\big[(w - c)_+\,f\big]$, avec $(u)_+ = \max(u, 0)$, négatif pour $f \ge 0$ ; il disparaît quand $c \to \infty$. Pour la proposition de taux $\frac12$ et $c = 1{,}25$ : $w > 1{,}25$ quand $x < 2\ln 1{,}6 \approx 0{,}94$, et $\mathbb{E}_q[\min(w, 1{,}25)] = \frac{55}{64} \approx 0{,}859$ au lieu de 1 ; sur les quatre tirages, le premier poids devient 1,25, et l'estimation de $\mathbb{E}_p[X]$ passe de $1{,}0554$ à $1{,}0200$. Tronquer sert quand de grands poids rendent la variance énorme ou infinie ; quand $wf$ est déjà borné, comme ici ($2xe^{-x/2} \le \frac4e$), la troncature n'apporte qu'un biais : la variance de l'estimateur de $\mathbb{E}_p[X]$ passe même de $0{,}185$ à $0{,}2143$ par tirage.
 
-![À gauche, la cible p (taux 1), deux propositions q de taux ½ et 3, et leurs poids p/q : bornés par 2 pour la proposition à queue plus lourde, explosifs pour l'autre. À droite, la taille effective par tirage en fonction du taux θ de la proposition : la courbe θ(2 − θ), maximale (1) en θ = 1 et nulle à partir de θ = 2, et sa valeur mesurée sur 2 000 tirages, proche de la courbe pour θ < 2 et erratique au-delà](figures/importance.png)
+![À gauche, la cible p (taux 1), deux propositions q de taux ½ et 3, et leurs poids p/q : bornés par 2 pour la proposition à queue plus lourde, explosifs pour l'autre. À droite, la taille effective par tirage en fonction du taux θ de la proposition : la courbe θ(2 − θ), maximale (1) en θ = 1 et nulle à partir de θ = 2, et sa valeur mesurée sur 2 000 tirages, proche de la courbe jusqu'à θ ≈ 1,3, au-dessus d'elle ensuite (la variance des w² est infinie dès θ ≥ 4/3), et erratique au-delà de 2](figures/importance.png)
 
 ### Estimer une KL par échantillons
 
@@ -378,7 +378,7 @@ $k_3$ est $k_1$ plus la variable de contrôle $w - 1$, d'espérance nulle (§3).
 
 💻 **Aujourd'hui en pratique** — `importance_weights` (🔨 MB8.15) prend $\ln p$ et $\ln q$ aux tirages, rend les poids, auto-normalisés ou tronqués au besoin, et la taille effective, calculée en logarithmes. Les filtres particulaires surveillent la taille effective de leurs tirages pondérés, et les rééchantillonnent quand elle tombe sous un seuil, par exemple $\frac n2$.
 
-⚠️ **Erreur classique.** Inverser le poids, $\frac qp$ au lieu de $\frac pq$ (🐛 MB8.19). Choisir une proposition qui s'annule là où la cible ne s'annule pas, ou dont la queue est plus légère que la sienne. Lire une grande taille effective comme une garantie : elle ne voit pas les régions que $q$ ne tire jamais.
+⚠️ **Erreur classique.** Choisir une proposition qui s'annule là où la cible ne s'annule pas, ou dont la queue est beaucoup plus légère que la sienne. Lire une grande taille effective comme une garantie : elle ne voit pas les régions que $q$ ne tire jamais.
 
 🔗 **Dans workbookIA** — PPO, au chapitre B8, réutilise les tirages d'une ancienne politique en les pondérant par un poids d'importance calculé en logarithmes, et suit pendant l'apprentissage une KL estimée par $k_3$.
 
@@ -399,13 +399,13 @@ Une ligue de tennis de table réunit quatre joueuses, A, B, C et D ; chaque pair
 > $$P(i \text{ bat } j) = \sigma(\beta_i - \beta_j) = \frac{e^{\beta_i}}{e^{\beta_i} + e^{\beta_j}},$$
 > où $\sigma$ est la sigmoïde (R6, M13a §3). La log-vraisemblance d'un tournoi est $\ell(\boldsymbol\beta) = \sum_{i \ne j}\mathrm{wins}[i, j]\,\ln\sigma(\beta_i - \beta_j)$.
 
-**Seules les différences comptent.** Ajouter un même nombre à toutes les forces ne change aucune probabilité : les forces ne sont **identifiées** qu'à une constante près, et l'on impose $\sum_i\beta_i = 0$.
+**Seules les différences comptent.** Ajouter un même nombre à toutes les forces ne change aucune probabilité : les forces ne sont **identifiées** (*identifiable*) qu'à une constante près, et l'on impose $\sum_i\beta_i = 0$.
 
 **Une régression logistique.** Chaque match entre $i$ et $j$ est une observation de label 1 si $i$ gagne, de features $\mathbf{x} = \mathbf{e}_i - \mathbf{e}_j$ (des indicatrices) : $P(\text{label} = 1) = \sigma(\boldsymbol\beta \cdot \mathbf{x})$, sans constante. Bradley-Terry est une régression logistique sans terme constant (sans le biais $b$ de M13a §4) sur des différences d'indicatrices, et $\ell$ est sa log-vraisemblance, concave.
 
-> **Propriété.** $\frac{\partial\ell}{\partial\beta_i} = W_i - \sum_{j \ne i}n_{ij}\,\sigma(\beta_i - \beta_j)$, avec $W_i = \sum_j\mathrm{wins}[i, j]$ et $n_{ij} = \mathrm{wins}[i, j] + \mathrm{wins}[j, i]$. Les **équations du maximum de vraisemblance** disent donc, pour chaque joueur : **victoires observées = victoires attendues**.
+> **Propriété.** $\frac{\partial\ell}{\partial\beta_i} = W_i - \sum_{j \ne i}n_{ij}\,\sigma(\beta_i - \beta_j)$, avec $W_i = \sum_j\mathrm{wins}[i, j]$ et $n_{ij} = \mathrm{wins}[i, j] + \mathrm{wins}[j, i]$. Les **équations du maximum de vraisemblance** (*likelihood equations*) disent donc, pour chaque joueur : **victoires observées = victoires attendues**.
 
-L'outil : le gradient de la log-vraisemblance d'une régression logistique, $\sum_k\big(y_k - \sigma(z_k)\big)\,\mathbf{x}_k$, que le chapitre 13 de workbookIA annule, avec $\mathbf{x}_k = \mathbf{e}_i - \mathbf{e}_j$.
+L'outil : le gradient de la log-vraisemblance d'une régression logistique, $\sum_m\big(y_m - \sigma(z_m)\big)\,\mathbf{x}_m$, que le chapitre 13 de workbookIA calcule pour la descente de gradient, avec $\mathbf{x}_m = \mathbf{e}_i - \mathbf{e}_j$.
 
 Les forces ne dépendent donc du tableau que par les totaux $W_i$ et les nombres de matchs $n_{ij}$. Quand chaque paire a joué le même nombre de fois, le classement par les forces est le classement par les victoires (le membre de droite croît avec $\beta_i$), et deux joueuses à égalité de victoires ont la même force, même si l'une a battu l'autre 3 fois sur 4 : c'est le cas de B et C.
 
@@ -413,12 +413,12 @@ Les forces ne dépendent donc du tableau que par les totaux $W_i$ et les nombres
 
 Le **graphe des victoires** a une flèche $i \to j$ quand $i$ a battu $j$ au moins une fois.
 
-> **Théorème** (Zermelo, 1929 ; énoncé). Le maximum de vraisemblance existe, et il est unique sous la contrainte $\sum_i\beta_i = 0$, si et seulement si le graphe des victoires est **fortement connexe** (*strongly connected*) : depuis chaque joueur, des flèches mènent à chaque autre, comme dans une chaîne irréductible (M26 §2) ; autrement dit, quelle que soit la façon de partager les joueurs en deux groupes, quelqu'un de chaque groupe a battu quelqu'un de l'autre.
+> **Théorème** (Zermelo, 1929 ; Ford, 1957 ; énoncé). Le maximum de vraisemblance existe, et il est unique sous la contrainte $\sum_i\beta_i = 0$, si et seulement si le graphe des victoires est **fortement connexe** (*strongly connected*) : depuis chaque joueur, des flèches mènent à chaque autre, comme dans une chaîne irréductible (M26 §2) ; autrement dit, quelle que soit la façon de partager les joueurs en deux groupes, quelqu'un de chaque groupe a battu quelqu'un de l'autre.
 
 - **Un joueur invaincu** : aucune flèche n'arrive à lui. La vraisemblance augmente toujours quand sa force grandit, sans maximum : sa force n'est pas finie.
 - **Deux groupes qui ne se sont jamais rencontrés** : chacun a ses forces, définies à la constante de son groupe près ; rien ne les met sur une échelle commune.
 
-Dans la ligue, D a battu B et C, B a battu A, A a battu tout le monde : le graphe est fortement connexe.
+Dans la ligue, D a battu B et C, B et C ont battu A, A a battu tout le monde : le graphe est fortement connexe.
 
 ### L'algorithme de Zermelo
 
@@ -436,13 +436,13 @@ et $j$ reçoit l'opposé ; le coefficient $k$ (*K-factor*) est fixé par la féd
 
 > **Propriété.** Avec $\beta = \frac{R\ln 10}{400}$, $E = \sigma(\beta_i - \beta_j)$ : Elo est un modèle de Bradley-Terry, à une autre échelle. La dérivée par rapport à $\beta_i$ de la log-vraisemblance d'un match, $S\ln\sigma(\beta_i - \beta_j) + (1 - S)\ln\sigma(\beta_j - \beta_i)$ (un nul compte pour une demi-victoire), vaut $S - \sigma(\beta_i - \beta_j)$ : l'équation de vraisemblance d'un seul match. La mise à jour d'Elo est donc un pas de **gradient stochastique** (*stochastic gradient*) sur cette log-vraisemblance, de learning rate $\frac{k\ln 10}{400}$ sur l'échelle des $\beta$.
 
-En effet, $10^{(R_j - R_i)/400} = e^{(R_j - R_i)\ln 10/400} = e^{-(\beta_i - \beta_j)}$. **Exemple** : deux joueurs cotés 1 720 et 1 580, avec $k = 24$. Pour le premier, $E = \frac{1}{1 + 10^{-0{,}35}} \approx 0{,}6912$ (c'est $\sigma(0{,}8059)$, avec $\Delta\beta = \frac{140\ln 10}{400}$) ; il gagne $24 \times 0{,}3088 \approx 7{,}41$ points s'il l'emporte, en perd $16{,}59$ s'il perd, et $4{,}59$ en cas de nul.
+En effet, $10^{(R_j - R_i)/400} = e^{(R_j - R_i)\ln 10/400} = e^{-(\beta_i - \beta_j)}$. **Exemple** : deux joueurs cotés 1 720 et 1 580, avec $k = 24$. Pour le premier, $E = \frac{1}{1 + 10^{-0{,}35}} \approx 0{,}6912$ (c'est $\sigma(0{,}8059)$, avec $\Delta\beta = \frac{140\ln 10}{400}$) ; il gagne $24 \times 0{,}3088 \approx 7{,}41$ points s'il l'emporte, en perd $16{,}59$ s'il perd, et en perd $4{,}59$ en cas de nul.
 
-![À gauche, la probabilité de victoire σ(β_i − β_j) en fonction de l'écart de forces, avec en haut l'écart de cotes Elo correspondant (400/ln 10 ≈ 173,7 points par unité de β) ; un écart de 140 points donne 0,6912. À droite, les forces de la ligue de tennis de table après chaque balayage de l'algorithme de Zermelo : A monte vers 0,855, D descend vers −0,855, B et C, confondues, reviennent à 0](figures/bradley_terry_elo.png)
+![À gauche, la probabilité de victoire σ(β_i − β_j) en fonction de l'écart de forces, avec en haut l'écart de cotes Elo correspondant (400/ln 10 ≈ 173,7 points par unité de β) ; un écart de 140 points donne 0,6912. À droite, les forces de la ligue de tennis de table après chaque balayage de l'algorithme de Zermelo : A monte vers 0,8549, D descend vers −0,8549, B et C, confondues, reviennent à 0](figures/bradley_terry_elo.png)
 
-💻 **Aujourd'hui en pratique** — `bradley_terry_fit` (🔨 MB8.16) contrôle la forte connexité par des produits de matrices booléennes (M16), puis fait les balayages de Zermelo ; `sklearn.linear_model.LogisticRegression(fit_intercept=False, penalty=None)`, sur les différences d'indicatrices, donne les mêmes forces au centrage près. Les systèmes de classement des jeux en ligne, comme Glicko, ajoutent à chaque cote une incertitude.
+💻 **Aujourd'hui en pratique** — `bradley_terry_fit` (🔨 MB8.16) contrôle la forte connexité par des produits de matrices booléennes (M16), puis fait les balayages de Zermelo ; `sklearn.linear_model.LogisticRegression(fit_intercept=False, C=np.inf)`, sur les différences d'indicatrices, donne les mêmes forces au centrage près. Les systèmes de classement des jeux en ligne, comme Glicko, ajoutent à chaque cote une incertitude.
 
-⚠️ **Erreur classique.** Chercher les forces d'un tournoi où une joueuse n'a jamais perdu : le maximum n'existe pas. Comparer des forces ajustées sur deux tournois sans joueur commun (🐛 MB8.19) : chacune n'est définie qu'à la constante de son tournoi près.
+⚠️ **Erreur classique.** Chercher les forces d'un tournoi où une joueuse n'a jamais perdu : le maximum n'existe pas.
 
 🔗 **Dans workbookIA** — le chapitre B8 apprend un modèle de récompense par Bradley-Terry, à partir de comparaisons par paires, et DPO reprend la même probabilité $\sigma(\cdot)$ d'une différence.
 
@@ -462,9 +462,9 @@ la marge moyenne moins $\beta > 0$ fois l'écart à l'an dernier.
 $$F(\pi) = \sum_x\pi(x)\Big[r(x) - \beta\ln\frac{\pi(x)}{\pi_{\mathrm{ref}}(x)}\Big] = -\beta\sum_x\pi(x)\ln\frac{\pi(x)}{\pi_{\mathrm{ref}}(x)\,e^{r(x)/\beta}} = -\beta\sum_x\pi(x)\ln\frac{\pi(x)}{Z\,\pi^\star(x)} = \beta\ln Z - \beta\,\mathrm{KL}(\pi \,\|\, \pi^\star).$$
 Comme $\mathrm{KL}(\pi \,\|\, \pi^\star) \ge 0$, avec égalité seulement pour $\pi = \pi^\star$ (M06 §6), $F(\pi) \le \beta\ln Z$, avec égalité seulement en $\pi^\star$. $\square$
 
-L'identité $\ln Z = \frac{F(\pi)}{\beta} + \mathrm{KL}(\pi \,\|\, \pi^\star)$ a la forme de $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$ (M25b §5) : un terme qu'on sait calculer, plus un écart positif à la meilleure loi.
+L'identité $\ln Z = \frac{F(\pi)}{\beta} + \mathrm{KL}(\pi \,\|\, \pi^\star)$ a la forme de $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$ (M25b §5) : un terme qu'on sait calculer, plus un écart positif à la meilleure loi (le corrigé du sujet B de CP6.8 l'avait noté pour la loi de Boltzmann).
 
-**La fleuriste.** Pour $\beta = 1$, les poids $\pi_{\mathrm{ref}}\,e^{r}$ valent $0{,}4e^2 \approx 2{,}9556$ ; $0{,}3e \approx 0{,}8155$ ; $0{,}2e^4 \approx 10{,}9196$ ; $0{,}1e^3 \approx 2{,}0086$, de somme $Z \approx 16{,}6993$ : $\pi^\star \approx (0{,}177 ;\ 0{,}049 ;\ 0{,}654 ;\ 0{,}120)$, de valeur $\beta\ln Z \approx 2{,}815$ € ; la figure suit $\pi^\star$ pour tous les $\beta$. Contrôle de l'identité pour $\beta = 1$ et la loi uniforme $u$ : $\mathbb{E}_u[r] = 2{,}5$ et $\mathrm{KL}(u \,\|\, \pi_{\mathrm{ref}}) \approx 0{,}1218$, donc $F(u) \approx 2{,}3782$ ; et $\mathrm{KL}(u \,\|\, \pi^\star) \approx 0{,}4371$, avec $2{,}8154 - 0{,}4371 \approx 2{,}378$ : la même valeur.
+**La fleuriste.** Pour $\beta = 1$, les poids $\pi_{\mathrm{ref}}\,e^{r}$ valent $0{,}4e^2 \approx 2{,}9556$ ; $0{,}3e \approx 0{,}8155$ ; $0{,}2e^4 \approx 10{,}9196$ ; $0{,}1e^3 \approx 2{,}0086$, de somme $Z \approx 16{,}6993$ : $\pi^\star \approx (0{,}1770 ;\ 0{,}0488 ;\ 0{,}6539 ;\ 0{,}1203)$, de valeur $\beta\ln Z \approx 2{,}815$ € ; la figure suit $\pi^\star$ pour tous les $\beta$. Contrôle de l'identité pour $\beta = 1$ et la loi uniforme $u$ : $\mathbb{E}_u[r] = 2{,}5$ et $\mathrm{KL}(u \,\|\, \pi_{\mathrm{ref}}) \approx 0{,}1218$, donc $F(u) \approx 2{,}3782$ ; et $\mathrm{KL}(u \,\|\, \pi^\star) \approx 0{,}4371$, avec $2{,}8154 - 0{,}4371 \approx 2{,}378$ : la même valeur.
 
 ### Les deux limites
 
@@ -489,12 +489,12 @@ Entre les deux, la valeur décroît de la meilleure marge à la marge de l'an de
 
 ## Les pièges classiques ⚠️ (récapitulatif)
 
-- **Le score** : quatre sens du mot dans ce dépôt ; le score de la loi exponentielle dépend de son paramétrage (taux ou moyenne) ; l'espérance nulle demande un support qui ne bouge pas.
+- **Le score** : plusieurs sens du mot dans ce dépôt ; le score de la loi exponentielle dépend de son paramétrage (taux ou moyenne) ; l'espérance nulle demande un support qui ne bouge pas.
 - **Dériver une espérance** : le chemin ne voit ni une indicatrice ni une loi discrète ; le score se calcule au $\theta$ où l'on dérive.
 - **Réduire la variance** : $b^\star$ n'est pas $\mathbb{E}[f]$ ; une variable de contrôle demande une espérance connue ; la moyenne du groupe, tirage compris, multiplie l'estimateur par $\frac{n - 1}{n}$.
-- **Les valeurs d'une politique** : $\mathbf{M}$ et $\boldsymbol\nu$ diffèrent d'un facteur $1 - \gamma$ ; un logit agit sur la valeur de tous les états d'où l'on visite le sien ; les poids d'un λ-retour ont le facteur $1 - \lambda$ ; un retour amorcé hérite de l'erreur des valeurs.
-- **Changer de loi** : $\frac pq$, pas $\frac qp$ ; une proposition qui ne couvre pas la cible, ou à queue trop légère ; la taille effective ne voit pas ce qui n'est jamais tiré.
-- **Comparer et choisir** : pas de forces pour un invaincu ni entre deux tournois disjoints ; $e^{r/\beta}$, pas $e^{\beta r}$ ; la valeur de Gibbs n'est pas la marge moyenne.
+- **Les valeurs d'une politique** : $\mathbf{M}$ et $\boldsymbol\nu$ diffèrent d'un facteur $1 - \gamma$ ; les poids d'un λ-retour ont le facteur $1 - \lambda$ ; un retour amorcé hérite de l'erreur des valeurs.
+- **Changer de loi** : une proposition qui ne couvre pas la cible, ou à queue trop légère ; la taille effective ne voit pas ce qui n'est jamais tiré.
+- **Comparer et choisir** : pas de forces pour un invaincu ; $e^{r/\beta}$, pas $e^{\beta r}$ ; la valeur de Gibbs n'est pas la marge moyenne.
 
 ## Et maintenant
 
@@ -510,6 +510,7 @@ Entre les deux, la valeur décroît de la meilleure marge à la marge de l'an de
 - L. Kish, *Survey Sampling*, Wiley, 1965 : la taille effective d'un échantillon pondéré (§6).
 - J. Schulman, « Approximating KL Divergence », billet de blog, 2020 (joschu.net) : les estimateurs $k_1$ et $k_3$ (§6).
 - E. Zermelo, « Die Berechnung der Turnier-Ergebnisse als ein Maximumproblem der Wahrscheinlichkeitsrechnung », *Mathematische Zeitschrift*, vol. 29, 1929, p. 436-460 ; R. A. Bradley et M. E. Terry, « Rank Analysis of Incomplete Block Designs: I. The Method of Paired Comparisons », *Biometrika*, vol. 39, 1952, p. 324-345 (§7).
+- L. R. Ford Jr., « Solution of a Ranking Problem from Binary Comparisons », *The American Mathematical Monthly*, vol. 64, n° 8, 1957, p. 28-33 : la condition d'existence des forces (§7).
 - D. R. Hunter, « MM algorithms for generalized Bradley-Terry models », *The Annals of Statistics*, vol. 32, n° 1, 2004, p. 384-406 : l'algorithme de Zermelo comme algorithme MM, et sa convergence (§7).
 - A. E. Elo, *The Rating of Chessplayers, Past and Present*, Arco, 1978 (§7).
 - `annexes/symboles.md`, `annexes/formulaire.md` et `annexes/erreurs_frequentes.md`.
