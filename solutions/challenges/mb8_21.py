@@ -23,7 +23,7 @@ end only (``b = 1`` is noisy for a rare event, ``b = ½`` for a very frequent on
 - :data:`FAMILIES`: the exponential law of rate ``θ``, the law of Poisson of mean ``θ``, the normal law ``N(θ, σ²)``
   with ``σ`` known to this process only, and the binomial law ``B(m, θ)``.
 - :data:`KINDS`: four kinds of thresholds, by the probability ``P_θ(X > c)`` they give (:data:`PROB_RANGES`):
-  « très fréquent » (0.99 to 0.998), « fréquent » (0.90 to 0.97), « moyen » (0.35 to 0.70) and « rare » (0.002 to
+  « très fréquent » (0.988 to 0.998), « fréquent » (0.90 to 0.97), « moyen » (0.36 to 0.70) and « rare » (0.0025 to
   0.008). A series has :data:`PER_SERIES` cases (:data:`COMPOSITION` gives the number of each kind), with families
   drawn at random; :data:`SERIES` series per run: 120 hidden cases, about 17 million draws in all.
 - :func:`budget_for` sizes the budget of a case from the one-draw standard deviation ``σ_E`` of the score estimator
@@ -54,10 +54,10 @@ SERIES = 12                      # series of hidden cases per run: 120 cases
 TOL = 0.10                       # the relative tolerance on J'(θ)
 Z = 3.0                          # the budget gives the baseline E[f] a standard error of TOL |J'| / Z
 PASS_FRACTION = 0.9              # « neuf fois sur dix »
-BUDGET_RANGE = (300, 400_000)
+BUDGET_RANGE = (240, 400_000)
 MAX_REQUEST = 1_000_000          # the largest number of draws the process accepts in one request
-PROB_RANGES = {"très fréquent": (0.99, 0.998), "fréquent": (0.90, 0.97), "moyen": (0.35, 0.70),
-               "rare": (0.002, 0.008)}
+PROB_RANGES = {"très fréquent": (0.988, 0.998), "fréquent": (0.90, 0.97), "moyen": (0.36, 0.70),
+               "rare": (0.0025, 0.008)}
 NOTEBOOK_CASE = {"family": "exponentielle", "theta": 0.1, "c": 18.0, "sigma": None, "m": None, "budget": 10_000}
 
 
@@ -211,7 +211,7 @@ def hidden_case(rng, kind):
         fam = FAMILIES[int(rng.integers(len(FAMILIES)))]
         case = {"family": fam, "sigma": None, "m": None, "kind": kind}
         if fam == "exponentielle":
-            case["theta"] = float(10 ** rng.uniform(-1.3, 0.7))       # rates from 0.05 to 5
+            case["theta"] = float(10 ** rng.uniform(-1.25, 0.7))      # rates from about 0.06 to 5
         elif fam == "Poisson":
             case["theta"] = float(rng.uniform(1.5, 12.0))
         elif fam == "normale":

@@ -119391,6 +119391,2590 @@
       ],
       "source": "chapitres/mb6_shapley_equite/05_solutions.ipynb"
     },
+    "MB8.1a": {
+      "coarse_any": {
+        "1": [
+          "b868782f0d729db068c5ba9e87a928878c43bbb87494ac0a62c39e1e58edd709"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4c6f3cc16b229e95c516fb91e6ad09d5c8bcee4bceb472d91dd50977d588a18b"
+        ]
+      },
+      "decimals": 4,
+      "hash": "8150bdb3cf439176ea83678f0cbdab70bd1c8248e7f3a5511d5224d38a489ddf",
+      "hash_coarse": "7c656dee7cc154c05b424673f8ff6b675465d0c820d27f105002a7dbd80caf4a",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "03705ef0ef0838c2a8a6aebcf9f171197ba55ba2fbe1e20a5b6c6004b1e47c96": "P(X > c) est la probabilité de dépasser c, le complément de la fonction de répartition en c",
+        "a24ab2c464ad5cf90ea132721d6b28aea90bab09d97431ddfc2585e8660bc702": "ici θ est un taux : la moyenne de X vaut 1/θ, pas θ"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.1b": {
+      "coarse_any": {
+        "0": [
+          "3d11fe063ac1ad985011f9f147c800aa7f8655e0b309afd5f66406e5d7ce6e70"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "2715fd174bd63aa5abfd870f1e4eb39cd539598fcd1198f5066b21eb5fff8663"
+        ],
+        "2": [
+          "d6516bb7a59e8d857218358892067b5c9b5bf48f3d1dbfc164b6fcd7669dc245"
+        ]
+      },
+      "decimals": 4,
+      "hash": "29bb5428736285f027b793133eb0670cbc4af2631b068565efdbc548dc1b984c",
+      "hash_coarse": "26fa5631b77c61bcd7bdb3acd77b4667e94f937cc8e1271a125bd89bf27ce6d7",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "16b37f6b56fee1319338f3624735298a1400d38e4bd79ed0870b77e534c4378d": "la dérivée de e^{−θc} par rapport à θ fait sortir le facteur −c",
+        "efdd75727544fd8ffaddd4ee28a8f7a62ad542a0213c8defb04b27a34117ab7c": "ici θ est un taux : on dérive par rapport au taux, pas par rapport à la moyenne 1/θ"
+      },
+      "sign": -1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.1c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1b30c012017f753e9754183f9804c015c73279464f8328bf19535a10844aed53"
+        ],
+        [
+          "45210638ef13bd9f94924cacbd7a6906c84a12e714d113f47393ce2e9ba9de34"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "97480fce1ed3ad64aee6b85265e82f423ace91d5be8903db75462171a7365be7",
+          "4e5a53daf4adc3fe679b7809f4079b46a2c51680640f5ed47d48e32f2b7641a1",
+          "b25b1e9d2d24dc08d6491447012bddf07d13de5ab6bb39e976af28f9db416751"
+        ],
+        [
+          "848a30918e92a4cd23f12315089cec483a74203344a1c639ee15ec95e05d16ac",
+          "d07d5d90acaa12d8612c02fcc58a80a78521c012fbcee3b97dce31833e12c5dd",
+          "bd4be865de02de8dc37e5a6ba757896e19b6ddda46447ebb57a70549af1cb848"
+        ]
+      ],
+      "element_hashes": [
+        "3b66d551fecee334a29f70c577b03fdef22d4f3f0adc3d1733056a9a19254f5f",
+        "c7a6031720770ca3db5e27303f751eeabb2e3beef84973132123bcc7082b34e0"
+      ],
+      "hash": "b32239724d8e07082748b34c54db6378cd149a85baf6ffac3655380d34e0640d",
+      "kind": "array",
+      "mistakes": {
+        "71762201b609a76b667f34018f9767400ff9303648f5f96158cd51982f1243a3": "sachant X > c, X dépasse c, puis attend encore : sa moyenne conditionnelle dépasse c",
+        "8dc3367d8314b05c5b397c11eb665f70c433cddaef91e0bcb2c2b8e6da9c5260": "sachant X > c, la moyenne de X n'est pas la moyenne 1/θ de la loi entière"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.1d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "18088e134b78c79ba523b21dd3b4bf81205c81972d6225082d05f3b8774b9b5b"
+        ],
+        [
+          "004377df33e66c894f243ff19331d18a81b9a81f4182927ad96a0cf4c4004e1e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "56a4654ab9a6eee6d84395a4f7ee7f373e4b774372dbb704d107eec0b4718bc5"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "0016987f6536995b19e41fd078ca27bd24e7b5525de7c18f279b63cd8bad478c",
+        "b0cdfd39929b3f5eba71fb39d7fccffd1b5ebdaac23b4a8582fd1844f46f669c"
+      ],
+      "hash": "75de84c5af01adf76ea7008489a68a76f48bb3dde52001b09544f4ab15cc0311",
+      "kind": "array",
+      "mistakes": {
+        "3316a96ae90bf7a7bbeb3332d2ebc92729cbcd2f86763ac6ec9b2999a947ad7c": "la dérivée de 1/θ par rapport à θ est −1/θ², pas −1/θ",
+        "735883b5fa958e260c43b3bac404f157bfba42e57274b73c1ba2faf16b507ab5": "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.1e": {
+      "coarse_any": {
+        "0": [
+          "d09b103af924d0a7d51fa1770bf4ec76130e78728d0b37e8a99dc1a2c19c0b8a"
+        ]
+      },
+      "decimals": 2,
+      "hash": "8cf02364fd52fe69ef9edc7f8e11e6befb988cf504029249fd6f77f4894fea63",
+      "hash_coarse": "41c0a7949a3708d677739dc0ea7b87005a91aef838c87d18f3ef214dbd23b6e5",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "2129be3e5b77b8cebd3490f01bc12cfc52934be1f9eeaa1714d44933469aca07": "la variance d'un produit de deux variables dépendantes n'est pas le produit de leurs variances",
+        "97bf77733357a4afc827f30f815ad55118212540d48aba81fd4a3ee85216cb60": "une variance retranche le carré de l'espérance de l'estimateur",
+        "f6df880526256eb4574cfc78dee2bf4afd8d7c1841a6e2682145cedab36b32ce": "sachant X > c, 1/θ − X n'est pas centré : son carré moyen ajoute le carré de sa moyenne"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.2a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "c70b4c12199a72c68a69ecdfeba6aac5a643d408dc744d252871d1a98c9b5fb5"
+        ],
+        [
+          "2deedb0729cfe9fd03ae4e8c496a75d1e861b63f394258b8dcf72a4c2b7ac4cb"
+        ],
+        [
+          "3d06ae8a77ed050f38e1ed7e74e6c1c73cceff960b04a49e93f5b7d96061af58"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5f9f4fb6fc4b1f38ec18249f2d11fb4b215066aa05d0eed18a9bd8655b78c5be"
+        ],
+        [
+          "d21b0e7cec147232f8cb7723a3c33b7882c00a154fcfa346d09a998c93adbf7d"
+        ],
+        [
+          "78b2e1e673f0c8560faf0cfe7175c34bdfce1021e97498ccd527139c4f8f6bfa"
+        ]
+      ],
+      "element_hashes": [
+        "9bb84223d24450d976c167a2aceb0008c49338f92d067c0a9992d9dc36df4cb6",
+        "58c8861e9504ba7dff6f612644a6e4a4e87625478a48e1056e5a1836dc93ab57",
+        "7633d2458bc59f5d68e19eef52278f275a0bbd736882f15eb3de857ec88fedff"
+      ],
+      "hash": "a46a3cc089136493903c5f76d8c5b76e5c3ad0e340a9a62c31b9be0367cd4a22",
+      "kind": "array",
+      "mistakes": {
+        "07f284c5a68dc0eeb96892e99a54824f9c1c54ccc734f09c79cc603043107cd5": "ln p_θ(x) contient aussi (2 − x) ln(1 − θ), qui dépend de θ",
+        "c3e53fdd0da4e588fef3e232f4a0ef87bc38b2175de0f307760a003bae322637": "la dérivée de ln(1 − θ) par rapport à θ est −1/(1 − θ)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.2b": {
+      "coarse_any": {
+        "0": [
+          "c73f17eedeed6572d52661edc7b1d770bea80c365b2f5c9e7da912cf99a20e3a"
+        ]
+      },
+      "decimals": 2,
+      "hash": "49b65c314d2f7319987e048bb17c61ba9b650b73faed7df9b6a6e34e05c279ce",
+      "hash_coarse": "d408bdf4587f2e130b8c82d03d753c284976a19c0cb6ae684c74efa787437c5e",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "1a292cb89fd742d3b016f6b24f6262f7a064e23597183f1b306ba7f7c5cff979": "P(X = 1) = 2θ(1 − θ) : il y a deux façons d'avoir une seule pousse",
+        "a8dfc58455424e9df8c1709d5b98ec3ba9666eba4e6b66faabc32f3a32943def": "P(X = 2) = θ² n'est pas linéaire en θ : sa dérivée est 2θ"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.2c": {
+      "coarse_any": {
+        "0": [
+          "71a7ae1a32aadc7ea62cff30bf225ff63ec592e6e6c2c6addb6836fa3920eb39"
+        ]
+      },
+      "decimals": 2,
+      "hash": "5f316ffcbd607eeeafd3b93c29b9f90906cf8bca23ba1267fa0a771b67e917e1",
+      "hash_coarse": "ca54de9931709c58bc95d107fe4f33cccfacddd76e552eb0f2e8005f19855f72",
+      "kind": "float",
+      "magnitude": 2,
+      "mistakes": {
+        "41bb9569b129a13d28c5e9f3f0f72bc22617ec716d3b684b10792730662c861d": "f et s viennent du même tirage : E[f² s²] n'est pas le produit E[f²] E[s²]",
+        "f2570b2b0ce9ad8d9ccea6738f552f318a7042f51f3c0558f2afd8a638a46502": "une variance retranche le carré de la moyenne de f s, qui est la dérivée"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.2d": {
+      "coarse_any": {
+        "0": [
+          "2ce0f55b8ba416407d25ba4a3d029dbf88ae47486bdb407aba6108b72cd5e510"
+        ]
+      },
+      "decimals": 2,
+      "hash": "4437bb3ff8b00373669e9891e0d309567838461b076a425977de247f2bc18273",
+      "hash_coarse": "1ba7982483c4f39f7113a50fa5fc014a2e2e4d02801139e58ace2527c47a0b5b",
+      "kind": "float",
+      "magnitude": 1,
+      "mistakes": {
+        "1675b849f390601116770d3c48bca92fc7a8f6b8912ea348a2c037173ba07e0e": "une variance retranche le carré de la moyenne de (f − b) s, qui est encore la dérivée",
+        "cd0233f90da4ee28efc3d306a6eff73631880aa0945e20917124826f143076d1": "l'estimateur est (f − b) s : la variance porte sur ce produit, pas sur f − b seul"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.2e": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "3b5833e74d7daed9b8c54d7ad37651557e9a38d5770cbbbd35d0bcf5ca536a3e"
+        ],
+        [
+          "affe7df46519922dceab146cc5e2f9fc97d6ae96adb1f2113f788c931eb3083d"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "57d6ea7ad434c9d695076686bfd1d0cf1434f898a6418d9b01c2fbd0033ec64e",
+          "3612f585a50f66e88914a5289acf25dabc638ca07525aed5e3db89b5f1ac6a89"
+        ],
+        [
+          "7d1d336b1a8ec3836a5508ce0d3d77b65fd1d3c41bd3a65cd28f166037a628cf",
+          "45af847a1c54bdd3e0f83a94b81a4064c30f6d574e56ef2150d95aea69483304"
+        ]
+      ],
+      "element_hashes": [
+        "d50d8646d0d62db2d3eb1b08872241745c377df49d6d20937bfeeb76c64c8b69",
+        "e041bb18fe7158f7a7a2454f9990d374cd9757561d1b7c031acd8939db89cc6d"
+      ],
+      "hash": "855880e4ada0dc79ec1ce46ad1057a5487032245f56bb2228654a1934d2ed407",
+      "kind": "array",
+      "mistakes": {
+        "0d39b5d3223fdae9833be14073e595a069214e6d4ff0d9d2f16dd8f540202bd9": "les espérances de b* sont pondérées par les probabilités des trois issues",
+        "30980a00a18274a41a78c052b992d0a176c1d42805411d850e7c1b4369bd51e0": "une variance retranche le carré de la dérivée, même avec la baseline optimale"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.3a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "ed1a0089d4476d992d67de8c9ea2a9f5a3a4f234af67e3389071a3f7974adbd2"
+        ],
+        [
+          "97da6e23787dd45c25d51cba31a85d86bc024acb7bf9ff35302c41cf6573e6be"
+        ],
+        [
+          "3b8d197d17ebe41126fce794a1395a3cb98a03aed7954c0a5a54c430af67c3ae"
+        ],
+        [
+          "d58484d7cd3ffd004ddfff5b4dc7a0d7446666e8c47fd69e51c42f6ac8fefa79"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c90850f65606316beabbc845e8e09d6b68a028a10d0fe6075855f79a847ca42b",
+          "ec8d2f81276402ca4086b2a7da543f8a48bbb3565cf02260ada78774b41ef90a"
+        ],
+        [
+          "360da2d38214fc3e5582d2f7097b03c027c84236a346579586dd9386c09b54b2"
+        ],
+        [
+          "fab738b7fb759c6983e27bd80cc0cf911bb9ac8256d1eacf61bc384902ca3819"
+        ],
+        [
+          "6b25829de4be230dad23dacc291636a24c18a6f52bfaad1f653efd2fabbaef3b",
+          "f110156e067a38bfba719a830cbecbb354902a95daececede14247d4e4bb3004"
+        ]
+      ],
+      "element_hashes": [
+        "bd9d1571d6bf427293158e0759d974c603c51bced87635d16388998b3a54eceb",
+        "c727e1cd1de28a1a347671e570c5028189b991f42031c6d6320117046449aa0e",
+        "4f6eeaaa401cd1f39e38fee9ded4e4ccde318bedf4b4f75b5a74749110e12235",
+        "d02008d9cf90f739dd8683be7365a0b56c792ee1ee515936ff245020c6bcd318"
+      ],
+      "hash": "1d5a1d1ffe8593c83ad8a85194dc3baa14bfc68671ec48564d109df267b54b3d",
+      "kind": "array",
+      "mistakes": {
+        "41bcb92fabe236769f3937a245e2186efc91ef10b420339020e44d0ba8141640": "rester ne garantit pas de rester : le placier renvoie parfois le camion au parc",
+        "a297bc3e4b02731127465fd840a8530b338ac48563e826efbcc8ec8f1a0b6141": "P_π mélange les lignes des deux actions avec les probabilités π(a | marché), pas à parts égales"
+      },
+      "shape": [
+        2,
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.3b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "1eab3d043a42d2b136c2b32829ed2978bcd856db5f831d136d46cc2b636d8bae"
+        ],
+        [
+          "751c08c2301bcf0ec710ae16802907abb23c1ebe5ac014128ea23c2064444b6c"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "be6cee002f60260f1ab5c94879bc3665763daa4f2d2023e3d2e9a45c605e8e2b"
+        ],
+        [
+          "60b99bc116c96bc57af840f165979a9e60bf27dd19f7affd5201c13b63f0ad5d"
+        ]
+      ],
+      "element_hashes": [
+        "22e6db92f69f804f047f72ac37912ea4446166a45f4a5955a54bc87fb4f92a7e",
+        "d7a5e2de8b314d20bdbf4a036d9e9413520236f018954cff967e9e018ea3dfe4"
+      ],
+      "hash": "aa4b39ee42610a6546ddd7eb3262cd979877aa6241b6ec4312018f689d8baa1c",
+      "kind": "array",
+      "mistakes": {
+        "7416d58731de031c227abb9f1a12cf7a261c4984490d442174445d878438cb25": "V(s) somme les récompenses actualisées de tous les jours à venir, pas seulement celle du jour",
+        "99f831aef2796da3f0c72efe6aa3d0d54bd21d34f6e07f9da9cf10fc4b75ad57": "le camion passe d'un emplacement à l'autre : V = r_π + γ P_π V couple les deux équations"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.3c": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "fa94d01511303762487868dcdce48d191333e68c12af73cf24d8f890a214b8ba"
+        ],
+        [
+          "f6710c9924c389a7c33f869b6898294bb65dca4d850d03cf4af26f9eb7f07b69"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "71bbafcbff2abfc95718976c29976631302aece1938138c7e2d7f1d75d34e9db",
+          "dc556705dd7c7a4d907e159037ba66e0c64b19af89a8fb1743fde24f69dcb26b"
+        ],
+        [
+          "2f451bd138091b33bcf7f8097b1b54466f2e8a0277b3d838fe3d50d8c20bf0bc",
+          "0b744ae47547e6b14a2b032e23ecff3abc661547c7731e62dc0551ac69268cc7"
+        ]
+      ],
+      "element_hashes": [
+        "64bf758970f222ce6996f8149c2548bbc5c63f059b97617d4f5202c0df6910ec",
+        "18705c6b83977c6e5f37cd75dd4f5d9f6f1ff624f224be4c7b4c3d63dae9ee15"
+      ],
+      "hash": "4caa3a36f381017e102e62a6b047c385c989bffe978bc6b92bf6bbfeb5e97911",
+      "kind": "array",
+      "mistakes": {
+        "23627d9db468cb68f04420e0471c6567e2cfb06dbc1604a6c8ee50acc8e4cb4a": "la colonne du marché garde l'état d'arrivée fixe et fait varier l'état de départ",
+        "a34e9c018290f2a32e7821e0e1a5ea8b75e94599b5b8e9883538a0b00967cb8d": "la question demande (I − γ P_π)⁻¹ elle-même, sans le facteur 1 − γ de la loi d'occupation"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.3d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "7be426db13136acc61e277d317521d371f2ffe2dd7e8ecd39d99f68b76f1cb3f"
+        ],
+        [
+          "890196a983be35792e5a4213238b706fdaa33851864756fa676c808927e08074"
+        ],
+        [
+          "9f0af9eb3c958da6cf1891b7a78190e569d1f8bafda0462566ba0532fd35647e"
+        ],
+        [
+          "de3e09a7a5aa4c13b2ab100e0a6ea067f6d489c5ef2a50e3897274cfda3c4726"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a8b595ea425522e649db87d04b1f265212f219bb3936140a2c982a503ffaf0f5",
+          "eee906d4ec67eab0265e3e7954b0d57f0a95004d9c1b2fcedf9bfdeb0bd7cd36",
+          "ca9b9005388415ed02ea9509c14241494edb0590355312a5db0bf3c5697b2bc1"
+        ],
+        [
+          "4b287495b719de8fa3c3d1a968fe85cda4abd2582dd21d7df486b42969deac2d",
+          "9c78be43428a9a396e09cfb15b74dc2a9a3fba446ba1b430f6f7d07c3a39c57d",
+          "5ffa215e2a3e0c7de322f95c37e4212863ff19a8f593844022d3c9f52853645b"
+        ],
+        [
+          "95f1a8988c9e2c81ff1579baf11b18afe67a9595cfd21913cc5e2aa3b801f087",
+          "00c36c4737814292debeaf35787e17ce5b6df84bb7e58ae27b13002c9d98cccf"
+        ],
+        [
+          "dba198729fdfe4e495d9ad8d02d2cd602972ab51eed47dd932c56f4af94019d2",
+          "a0256393b62596f05ab458910d298bea0511334d64b02798600d43c14e871dd1",
+          "24b6619341f3d954eb18a75867a9bfb74ac5548a5e87c0051fe467e651e0261d"
+        ]
+      ],
+      "element_hashes": [
+        "171e5a6d978bd130834dae961ba9ad00d5ee2758911ce5f1bcd5a893da34495b",
+        "affaef77fc1d7a7613b6f745a3fc427338fcbb1c2ea4800af704bd44f9c3cd04",
+        "45a6d5054cecf8b7098d21b57ef9c094780a2c71ba0e2e870e0f1c2f414fc9ed",
+        "b9d5de295c6650641b500f87089cd6b6b803c21936e19e89e0f6b0ecdd901d02"
+      ],
+      "hash": "497924b05ee10e414a0f32c293882fd3e147bfdf673fd0ecc2ec6d49806a3697",
+      "kind": "array",
+      "mistakes": {
+        "4cdcc08fa3700faa6b00b623a9f69f37b5fd3be0e3aba4dbd6f63f1e1ec10cc5": "V(marché) moyenne les deux Q avec les probabilités de la politique, pas à parts égales",
+        "b8a5e42d8bd7f128db7ecfb067336af3b7d257d09ce27d70e370f8447697f804": "rester mène parfois au parc : l'espérance de V au lendemain mélange les deux emplacements"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.3e": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "03432a874b6d19c02f4f880aca831c2b01595ebba77da5eb5abbc9379d749346"
+        ],
+        [
+          "100c2523463217a629a8d810ea51d8c8a4bc7e43c7b5cd2af103b84b3e1b556c"
+        ],
+        [
+          "f405cddd3d9306be4d6221d0397012a5fa6e608895e1acf9c16c27311d3d73ba"
+        ],
+        [
+          "f9c3a1e80bd2bcfa0f4cfbaf82478203eadbf5a351c950ca0689258a4225c862"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "89a908a97e8e93e765244676146804941b8672ad101b84b316f43a0edf6b2200",
+          "140f307b4a066243948edda37570fcd9965cc9e53984fd4058f7b8d3c9bcda0e",
+          "5358618b91cb06ffbeee9dfb2d2918f3ce425c6eaedf6d86677f146fc0a6da92"
+        ],
+        [
+          "4129d8db8c9cc48d3c60c271b0d951abb2658b7bc15f1e677af26a7bf50237fc",
+          "15fa4ca7c3913c3f9c9f27666a4ccae32ee46206694f527efd4f81aefae48caf",
+          "191a62379213389fbb2890052c26e12143d5ef7a6ede73d5d2d82afbcd09fc57"
+        ],
+        [
+          "36f9c7841948bb104d73c435f8d0ac0693e0727ff4deb7a5bb45cba2c887750f",
+          "5e62cb8f888b95494a91102a535cee75977120b27a28b6b97284e3c2163f74a9"
+        ],
+        [
+          "0d2da1a36becd7e593201afefeee318be4556acb6662780b1bcebacfd7e191f6",
+          "17acad2784aba46e4df404f2d964d9d24326181acaeb6b49801984f7f6b03dd3"
+        ]
+      ],
+      "element_hashes": [
+        "e817d61502dd3ecf89c076ca62e2c0077bb454a6d27d08869254d6bf76853bc5",
+        "645bc9e49f0b3c7ba766ac3689a7f61f630568e3c0d35a59e9ee2f0a0407c451",
+        "8d3f18c7b5c4c9fb283637453da38201f4fa7c2d18e0aa116c1623450cfd114e",
+        "8ecda68a00f6e00ccd6213a1422c8c1e939abf99abaef806dae1587181370473"
+      ],
+      "hash": "7dbee6edb62246c6288b16f58013c42fe33f0401d8eff1156d2f3af7af84e808",
+      "kind": "array",
+      "mistakes": {
+        "1ce0dc2f4762f3daf2c76c50a88e3e8c58a385fcc93a270163d96de6a081f76f": "∂V(s₀)/∂z(s, a) = ν_{s₀}(s) π(a | s) A(s, a) / (1 − γ) : le facteur 1/(1 − γ) compte",
+        "fe972acd8d600fec7be4578c95d09294efc1eb9b0f2c221b08651a75953027ab": "V(s₀) dépend du logit par toutes les visites futures du marché : le facteur M[s₀, marché] compte"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.4a": {
+      "decimals": 3,
+      "element_coarse": [
+        [
+          "f3f116537049d9c489a90af2d3ae10973696adbeb4d23ba7982e6233d5fc7ec0"
+        ],
+        [
+          "6d512e9c1cecf45b209004da64b3f696673effc7461b1a8ce656ed5e14f3578c"
+        ],
+        [
+          "7c0c6ce77e4a3da0027c7e897a287b61b7d843ae5cebf37d0ba1aab307dcaf0e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "57e6ec4beedfe175f3fc63a43c33dcdd22f7bfce4624d16f11ef5851f60db993",
+          "7c77c4a1595e7aa5fdc967b0edcb86ad7cc453946976347fc17592f02ab81025"
+        ],
+        [
+          "6e00164c9bd0e6142babf4b14e11bae4114b54ae58ca099543cb9097db798d3e"
+        ],
+        [
+          "9ebaa258c79398d08fa0ee7ab47c2a109c9a78bb22829522caf348c98e376ca7",
+          "0f7182dabc99e03907ba5b1a99d5ffb1bf87602023547c8f0de26dfb41808da3"
+        ]
+      ],
+      "element_hashes": [
+        "442caa96d8c39ed1e78714e12a1e85673ef11d5367a0a6dfa080762617b97047",
+        "9a697c7e34ddbfcb84a75a4f81d86a903291624434908ce02c70df6168c9e1d3",
+        "cd7c4dcce6ad30ec0369a1d68364ad723a8dac2c5303c265e3f878603cd41d11"
+      ],
+      "hash": "0da2d9df4704bb84125223593cf8cfa59e7bb59696febd599ae34393fcb22cb7",
+      "kind": "array",
+      "mistakes": {
+        "43b037563153636178013cdbd7179cf062ef78a08464c88ef5d867545c3b8687": "l'erreur de la valeur du lendemain est actualisée une fois par γ",
+        "bef3e9b7faa945839b5f88a16944d887a41e4fdd8987dd67718483c0c0609061": "l'erreur du retour à 1 pas vient de l'état du lendemain, tiré selon P : pas de l'état de départ"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.4b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "d1b6cc9b62c466799cde15df143b8556550d772cb56552c4378c3379803cc860"
+        ],
+        [
+          "e2645011811abb65a5613142cf5ed87598ca357dc0e7e86360ed8f83f9e0abad"
+        ],
+        [
+          "beb810d0cdd36f253ffc63f45531c08950e112fe412a18a39e69cb36df043ab4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "fc469cab19e8d78089bdc0bae73be6a1ad9d73abf7b637c2bc6ef6e9b7d4e840",
+          "e3ccbf8ff323c2295e0f636c8ac3872508adc9e6098ba2bc4ee00537b17e07e1",
+          "2b2017929e6b6324cf65c60b91754cffa22e498e3dff2da8894951ab9d4341f3"
+        ],
+        [
+          "40f376a8f5c312827756afb2a5c3516e5233f264c1b8f9a45349475a0a6a0e01",
+          "42995b71f87845f1b19179660e39a4248b6b6f07c29927e4ff54a3c7b8c15e0e"
+        ],
+        [
+          "2b6c3369192fb2b308c8d3b324b2c96335d870fac6f324104bf822b9fe6c5d74",
+          "8ea5c3d593f27b5ae270ed18e1923263e8bcca20265d9231adcb075f8d178ae7",
+          "faa25b084b183e3d08dac5c40a2fbd71fc0f05e4be70d953e8116553fdb6cfcd"
+        ]
+      ],
+      "element_hashes": [
+        "4f8d6c1b0d279c07385037a762a4895fc16e87909cd249ab1d0744f7433b831c",
+        "6d49f35ce162a64cabde5e149f79aeb053ca552871352445f17d2e29f82017bb",
+        "4a4c6e85d48f9bce8865e0e25a12d9836419c83b929f344a39b1bc1b28386839"
+      ],
+      "hash": "6844f4880e0e448951cc8b8c2f69371bf276aff966fa66315731ca45d66b12f2",
+      "kind": "array",
+      "mistakes": {
+        "4d38bf1787844db08249847f037668b9a932be3bde7610e747524a32c3a35431": "deux pas plus loin, l'état suit la loi P², et l'erreur est actualisée par γ²",
+        "ca36fd904eae959413ec6042cb908b970d5d3246ab2187143464d90d95fdfa62": "le retour à 2 pas actualise l'erreur deux fois, par γ²"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.4c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "799e93ea902ce406f0a9bc85f1b8b2ddfb9f6ad79375e77fa01a484de262b5bf"
+        ],
+        [
+          "aa6b7cbddbb4c00b99dbc24f14d7ff8656effa0f175546d667e3b9db923ac379"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "7f31e85297359082984284cc67455811178b6e1f757fd61a5b4cb56ead297abb",
+          "76cf719a94f24538c88bf9a6d04f46c4039c4f125c7029fd1f4058dca37f221e"
+        ],
+        [
+          "983576575ef0073e5b6223a599eea03555808affb61f3d44ea34fcf3cff9a751",
+          "ac2e58b11f24f990edb8c7b1143249477ed18ac08142f4e806fe63cd94388379",
+          "73d49575b4816fc0f314c6440681b09a946e8b602267a6c0a9372e2707e80333"
+        ]
+      ],
+      "element_hashes": [
+        "e1c3d240d286963e1a414c579c7fd7c41838da061e160f0c3a20d4e97bbfea94",
+        "06311579026e528ee024b718429c3a1ae605176a3fea49a1ac8ea705dbe242e4"
+      ],
+      "hash": "47c6ccc84ef5c1311fc4dc52dd9a228fbd2b100f0456249747d0e961518bb25f",
+      "kind": "array",
+      "mistakes": {
+        "136134bb546e59cc814816a7382bcb8179a82144e88851d31b323fec20f4c82e": "le poids d'un retour à k pas porte aussi le facteur 1 − λ",
+        "bf10fc25dbc1319cfbf07869064d924c6d30112089b7a273b5275c8fecbc9204": "les retours de plus de k pas pèsent ensemble la somme de tous les poids suivants, pas le seul poids suivant",
+        "d80728b108aad881de7a8138072ec8be1f698bdbee50ca931cb27e580180edfe": "le poids du retour à k pas est (1 − λ)λ^{k−1} : l'exposant de λ est k − 1"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.4d": {
+      "coarse_any": {
+        "0": [
+          "fdcc7ff2be61138c2e03037c296a3b1a090ae883a6f611be5f8f7104252db946"
+        ],
+        "1": [
+          "d399fd48762c1ceffaeb8e7341eb9dc3dae5c27b439c5044a603716a2f897c3a"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "c11337eacc691ce17dafb137fa4f29c5a677a19b089af54b29ac91b4ae6bd691"
+        ]
+      },
+      "decimals": 4,
+      "hash": "f451f35d1d8b7e6a96b87c0e7305c522e028ed9baab4b0483a385effeb6d231a",
+      "hash_coarse": "52bd765bf936cdb9ecacb9cfa2425b9597d3c3fbedfdb04653c04259e7a21b35",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "00599ee52df47a491d67b284146508ccf74eec5c61c1c4f450c1fb1e4b01f6bf": "le λ-retour actualise l'erreur : chaque retour à k pas porte γ^k fois l'erreur",
+        "76ed83f48e7e60ee312ea4b44e496927d2a3c8603610055946db4418182774b2": "les poids (1 − λ)λ^{k−1} somment à 1 : n'oublie pas le facteur 1 − λ"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "80eed98bcd4b4a06727b15235d9362b0e5061b69370e29f3e3d48bf909c1301f"
+        ],
+        [
+          "d3e733c1065a03ec8deb8d450b379aace740719a92f5e00261f48a716e662d2b"
+        ],
+        [
+          "0c5f568c6e5757a0accfa8e4e28e4fe26a524335a9bf002b9b4b1ffea2d38df1"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9725e123de851c5c3417b501d2d43ef8588ef2a83b7ae182dd503b78a4512a39"
+        ],
+        [
+          "2238f0f4490a0914363b854e0af101379ac08d21285181c24bcd48e598b9c69a"
+        ],
+        [
+          "1cbec6d6769d0de376ecad89dafb73688a22b94f7401fb9c91cec22452b8694d"
+        ]
+      ],
+      "element_hashes": [
+        "cf4d842ae1390c06b34ac8eeff47750d678e43bb81fee5921aa57edb875bb497",
+        "176a2ff37549f515c561ac2a8ee18659ed366a918e6c85fce85707e154bbbcf6",
+        "2a04bac737fe1a7481034260a8fa33fbd865cc710e0f9fe159d8d55483c09744"
+      ],
+      "hash": "57c30f1fa92cf5fb14ffddace9f6f91464078558c8bdbae8136490036c12715f",
+      "kind": "array",
+      "mistakes": {
+        "7d11daec6276b89a670e76acfb0ccca25ee70c053be30c0bf3b18e36b058f153": "un poids d'importance est un rapport de deux probabilités, pas leur différence",
+        "9a01e2c36e70f933fdb10df04cccc10f54b90cc551434c032b6ad19a012b8b9b": "le poids d'une classe compare sa part dans le recensement à sa part dans le panel, pas à 1/3"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "fd88880cdae96628cfc9e2a04f2b16c1b55e65e8b936d8b898237cdaa85db217"
+        ],
+        [
+          "e4a17d5400b9052bac7e32790c02f12ca4963bfb60e291732c4a50249a73d0e9"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "6d173cd8a273e2ae816ec1891148a95def7e7ce9cafc1cd54f8fd6ce13dd8750"
+        ],
+        [
+          "e2621cf6f16ecf3e52bff0ffda5635a9ceb0b522cebfdc305cd0ca52ad8c3e97"
+        ]
+      ],
+      "element_hashes": [
+        "41eaabfa57e4a74317fc88235f83996be377072d1d494ba7cdd63b6a0ea84abb",
+        "97857971a823ae3a11d6d9498ef7922654349ea5ccf5d617a5f0ffc9893d8c0d"
+      ],
+      "hash": "c55c425c136018a365ace256421aa828e2727101c486fb3ffcb863a1ac023727",
+      "kind": "array",
+      "mistakes": {
+        "20e3198f91c4cc4243e192495516e1bb9576562618efdb999a6dc7f7774b22e2": "la moyenne repondérée pondère encore chaque classe par sa part q dans le panel : Σ q w f",
+        "7a4185e992436ad7e205943dee787e55f4a76f2b2d132d4370fe2e7ff20ccbc9": "la moyenne brute du panel pondère chaque classe par sa part dans le panel, pas à parts égales"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5c": {
+      "coarse_any": {
+        "0": [
+          "1e34a096db5e6e97186c97e0f44a5b00a48b75785d97a83f55a7136144dde5fa"
+        ]
+      },
+      "decimals": 2,
+      "hash": "f0b363a869f1aed41365d864de09ec8b4446c1da2e154ddb866a8e67ce564ac0",
+      "hash_coarse": "27dd796834253c92b2adea217a1d700016c50712a8348f4c623b3569b48bacf8",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "0366e4468a06ae4b6f8784602636d6c6fb583f4b4a8bd622f08524c99cb171aa": "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient",
+        "20086d80ca7bd2f4fb2a77195c2c1add9ec5848f6166e5e17a6c3997f32b6d9b": "la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5d": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "6c784655cc75c69e4e4702e5f2b1360e7b0184c0d21e705e644ad9ca0605436b"
+        ],
+        [
+          "2a0c23ff64835753c7262e7732a58714ea07da86958c2fb2e7290b4bdf616922"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cb4e57aec7f2ea281fbd44bd761a8ec78614d3a60c84f882eb3e42da09e3d7c4"
+        ],
+        []
+      ],
+      "element_hashes": [
+        "f906bd49692fd3bedf19272e1d828ceeaf52fd7f06ab1326d86f86149137e951",
+        "0092e5db6184c464276ba676f17807d8235376de65e2c99e14ee4aa8d73b0a24"
+      ],
+      "hash": "2a8b75cae9d3612e3437cbd4cd599a73e43e853b08f1a24deb4e6127e16e8769",
+      "kind": "array",
+      "mistakes": {
+        "4fad65d39c6e39e6451af7f62198369ce5efec0f2bcba47d451c159d5f0bf455": "la question demande les poids tronqués sans les diviser par leur somme",
+        "c23d50e6ac4a91b6a0ac8074c6e03abb0ffdf3600c03ef8dcc864c2e503b3918": "le biais se mesure par rapport à la vraie moyenne, celle du recensement"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5e": {
+      "coarse_any": {
+        "1": [
+          "7931d495fa55de5508e83b35b0dead3f7afdcbd5b40597df84903d10b0e8694b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4f5e80a69094728aa7256723e91d73522c06d2c63bd22b7a954a37794725b555"
+        ],
+        "3": [
+          "e16db2a01ece1f22e3f142ae1cffcc0251c585a787c0042d403e448a1a6f76aa"
+        ]
+      },
+      "decimals": 5,
+      "hash": "1136c20f756bc651b264b4069454c06c4c91cfe685238d61fd79f5c993f0f81d",
+      "hash_coarse": "e5a6252a0bec672b4cd79d23c031636ddbbbd06430e08d286c4e080522e293e6",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "7783f1ff68468a8028a60c7e4400619d3e1ff48e6952be9dbb5c8f35e677a61a": "la KL moyenne les ln(q/p) avec les poids q de chaque classe",
+        "a0134bc65a0806f0d077c4ac4f073a2ab148f0b53066473ea9104dbd429dfc29": "la KL moyenne des logarithmes de rapports, pas les rapports moins 1"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5f": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a67ba0e8ba627ebfa38f685f176e9f13e931d1929ff40e1581797dc39aa9228d"
+        ],
+        [
+          "6cc6d19e06a97897118b59aedb345551e3df427dc1607cfcfa4d206eb9005474"
+        ],
+        [
+          "7befaa8e14567dfa26f75fdc9896f14c85c4f7b5849f0f68b3187b0015882806"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5e84a70df2bcd56026a15d496d7f240c2d04997858c9cbb8452ff9dc7c585494",
+          "27ea01979541030715c8f171bd5f5eb4564da64886cc11df6e9f3ae05acb88a6",
+          "0dd2da4595757af842688036f6f7b836c82aa6737399d5d15552fc6e3d9006af"
+        ],
+        [
+          "234d03e02170366dfada1862bd267411f639af21ff0ce769f19e86525cff7180",
+          "637ee9bb6230709fd25427840ad546f41895c316ce3ace099b38c220b9b207b4"
+        ],
+        [
+          "a381eb4709c690f82d3bc91bbab6b0c0ea0a752454461b7b61278f3313fa6c86",
+          "255cf9e9069bffcf4aa88606956b08a4bcd839e17d332415f0c36249c683a1a4"
+        ]
+      ],
+      "element_hashes": [
+        "344d9ecdf38b3b83ecdf327cd463481059e902f25f7d202552c3f6b3238948dd",
+        "bf301b13f97e22425b86b57089db201fd8f926c4e0acdaadc9c8039c12c59b1c",
+        "f3e27868615c33297ed09a0e90bb3152e849588b0c3ad6e6b5f67a93bd073cd9"
+      ],
+      "hash": "101b71917b54c68b95764e929ae9898a5e44d324367a3a30f65dfd76ef7694a2",
+      "kind": "array",
+      "mistakes": {
+        "cb24b36cedef0b4fae7b9ab5b38c604f8508c73a1f2ec4473a0f639592f5ec05": "k₁ est la valeur d'un tirage de la classe, pas sa contribution q k₁ à la moyenne",
+        "d7fcc50fef0de683183cc2aa4530c7a29d30b6d4787afbf8d3b411448e5f32a9": "k₁ est un logarithme : il prend −ln w, pas w − 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.5g": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "f7799a94e88f3a6995bff7cf81a160fffb2fc0cd073312ce9bd93ffdfa6d8ea3"
+        ],
+        [
+          "339674f0727c6f2138e884678905ebf970490d857cfb8097f9f1fd95f1965584"
+        ],
+        [
+          "80d12bcf283a3fbe9d834fdf2c30aaef599e20b992beab39366b620903d62c57"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9357e4f73dc79e4f1fb7d82f78b3b4d25b6beae5f3f03656028c765cc04c6d50",
+          "a95f90d5ce31a1bda8b6d686a145f168a132bb5f192847480e326f47f790e860"
+        ],
+        [
+          "cf48be86a5124c6fca08a85496ffe384548dde924356bee670bf70b9694b8314",
+          "a011f8fe950e92cbfb10deab5034a2d42eff035724ff850a35d9605d5d8e9332"
+        ],
+        [
+          "c75df5e2c9126876a99f2664a2b02bc053d2f4a26771fc99a96c427663957b42"
+        ]
+      ],
+      "element_hashes": [
+        "5dadfe5514b0714834030da32cc8b872962da0d0a406810a17180febbdb3d41a",
+        "c9642b0fde6e6f8c41d45856df2c145c6fe884e83568e290668c6ea01e6bc22c",
+        "f1da012dea963484cd8fc879fbbe83e52fc4c96a9b8dad0a7042dc479eceb4e3"
+      ],
+      "hash": "faf4b8e8f70cce1360fc6be47cd6ec4301ddf3f2fa58bb9c91bda1a1898d4c41",
+      "kind": "array",
+      "mistakes": {
+        "0194f6497f142b462dde68034021f3f5def7a73fc51001bfe777650fb42734c3": "k₃ est la valeur d'un tirage de la classe, pas sa contribution q k₃ à la moyenne",
+        "0dc198ae7475ddd2c9be9cdb43832f9c6352be4ebd389f1d0fab0f93131e5023": "k₃ retranche aussi 1 : (w − 1) − ln w s'annule quand le poids vaut 1"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.6a": {
+      "coarse_any": {
+        "0": [
+          "60b63a52eda390a61d161acf7c840a9bf7ea5db6d713a65c40d6ee9980fda42e"
+        ],
+        "1": [
+          "719e2e384d45c76b2b6a45073e2e1b78883b922b4b7bbee946029360356d903b"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "83fb0bcddb77ac1a5d69814f4efad5de281a04010f62bdb5f6fe47f2a9aabbf1"
+        ]
+      },
+      "decimals": 4,
+      "hash": "b9599a1fe39b792bc82e0f06f802fa9ffd13369f40bb6346609454c2ade5176e",
+      "hash_coarse": "45e73dfc53c49e3bee323270b72c30aab1f5b37db5bea7a4c6e6a09b7dce32b0",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "07f41293ed2c8071e03a017803c353a84f54a3af0df5885d745e6eb52c385169": "σ(d) = 2/7 : d est le logit de 2/7, pas le logarithme de 2/7",
+        "57157022fbdb1a060fe09dae4195b4f0a5628605e6536b9078b00786f7c42a08": "les forces sont des logits : σ(β_A − β_B) vaut la part des victoires de A, pas β_A − β_B lui-même"
+      },
+      "sign": -1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.6b": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "949bb9dd0adf095d1b74bb1eebe405411c7d4f811d5cad20dc7a3e22d1dc22c2"
+        ],
+        [
+          "016024b3d8218292f1fd1092772b6be175e844c95d037b3f1c86442acc628de7"
+        ],
+        [
+          "e4e3c274b220596558487c88517b44dab07f76c0b381b5a8c6e7ada0c311eb5e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1e0a182c0f2756a34ae95d8f462d48d15718c014dfd82b9de8337e2196b3a68b"
+        ],
+        [
+          "6256e31e4713aef903e27e7882cd4bb2713abf82c33d081d463d8cde8ca44688"
+        ],
+        [
+          "91ae345e3b4a5d20a573eeebf6167d813acd54eb6339768bae3cf2cdb45ccac1"
+        ]
+      ],
+      "element_hashes": [
+        "0229a0f8d3899fedf13de1dcd48fcf9336e3bed29947f5e7570bbc9704b68265",
+        "7c8cb36a1253794e71f23c8203321d6f794e201e1e079d55b6203fd6ebcdb23e",
+        "eb3951a652b72d96031070923010ea2c08c238333d70700cc41782ab80634a60"
+      ],
+      "hash": "abb9d10d152cd16eaa8066bb7beee6dc5881387a9b32a9ed9f2a594372bac51a",
+      "kind": "array",
+      "mistakes": {
+        "1bfd016eced6d3e32e34559881558fbb64375d819491497db570ffb5da515f49": "les nombres proposés sont les p_i = e^{β_i}, pas les forces : σ(β_i − β_j) = p_i/(p_i + p_j)",
+        "ca68542ee8d788ec70c09d725a4a3e2e0076184b7373a60deecef199ce17f49d": "les victoires attendues se calculent avec les forces proposées, pas en recopiant le tableau"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.6c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "42a06deb8457eeb9826caa848e59f505111268cefd07508327da09872eeeb17c"
+        ],
+        [
+          "952576111cca972d99a06da0f7368ad7410c6af17fcd49e14d03d6e32b3925c7"
+        ],
+        [
+          "46923f6da70e7df9db04fb7a0ae3f2cf5dc6652a8ee22df3c33e519a3bbabaf3"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "af4f84199e3da8bd6d8e6ac53f2b505352efec1aec097962073ad9806b30734e",
+          "50dd5dad986deeedd53eaf0cba5bcc4dbbb3941826ac9217e3ad128425e71dcb",
+          "4f386ffc374bc94ce9e5604b5e916f6161ae3c4e714260da34cd4266a68053f0"
+        ],
+        [
+          "c1afb2ed68cfe692fdb4fd4f7906b12f34d105405b5caa6deb71ba0a04ef1b47",
+          "621702bbd1f361055bbba0ea93f015a9855dc90c8c019b622e52369f796ef163"
+        ],
+        [
+          "8e180e57899f4bff69f77dd85e5df8a3703d5327281c1d1f4ce4a7098d9de877",
+          "229c3be53b52acf7041af63e50081e440e815b81385f0b6e7b6bba591dea2a00",
+          "6ecdc2d526b4f731534de225666e82b55bd22b71dd21a0c07d012db1da31608d"
+        ]
+      ],
+      "element_hashes": [
+        "b33ddfd5286d05e1b741515fde68fb6b3f8c09be04d9b05c3cb7f4790a3968b8",
+        "d320343516ca95cc75f8d63a4c15d4a8522556b4124ba0f06b09ad9854839f55",
+        "c3665f63453280cc989db5170a1dc3d45a5100a4f9a31dbadfd261214657e007"
+      ],
+      "hash": "765f85e054d68b28769b02a4b2d0ce8629d5a69b89598c5bd0b6316ba4153fb6",
+      "kind": "array",
+      "mistakes": {
+        "70122985e7d2dbcf18de9b6c2462553584f8bae34f7acf67c04654afb7d83c2b": "le rapport victoires sur défaites de chaque club ne tient pas compte de la force de ses adversaires",
+        "ae793ea0dc80938500be830359a75298e84b742a7ea594030f76f1ce3f9372da": "chaque paire seule ne suffit pas : les forces se lisent sur toutes les rencontres du tournoi à la fois"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.6d": {
+      "coarse_any": {
+        "1": [
+          "58448e6b31223d2c2d6b9c02c1880085f0fb0c4a14930f34c9287aaef87bc2d1"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "0991f7cd8b049f79a41c10547faebc599bc070c3ee6f4b4930c3e7af5dd6070e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "cf9bbd4b30ecddd39629e0e02369c740ac81bc0a974a65e1a3073beaf417f207",
+      "hash_coarse": "23f3d36cf5f4064c103a5648635b9df78d188a6ff156c2bee92e7619f481f8ef",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "3d30a6793227a412c525ebf7d70453d3a10b9297c2567e6dca8e664c0ea6698c": "σ(β_C − β_A) = e^{β_C}/(e^{β_C} + e^{β_A}), pas e^{β_C}/e^{β_A}",
+        "fe47000bd43a17e2b40aefbbe771bc8360a50c988484a1c1a862ee500cfc0b95": "C n'a jamais battu A, mais le modèle prédit à partir de tout le tournoi"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.6e": {
+      "decimals": 1,
+      "element_hashes": [
+        "be283ccffcb24ebe29641062f43e9461ca2154afc0c4ae37f91effc036f1d07d",
+        "e9329f0e0f91e0191cd355edce7e347945a7f9e60150b23d6f4626236315d56b"
+      ],
+      "hash": "a79e9e4a0adcfcf6076fdfc3b90decd240fa8917c8f8b3ba218af823f9a64758",
+      "kind": "array",
+      "mistakes": {
+        "236c287950cefe53c785b81240b0837f50db901d7671aadf78384c44fb9e5df0": "la probabilité de victoire se lit sur l'écart des cotes, elle ne vaut pas ½",
+        "e54679c9b9bbc652dd354fd8b91a723d4e9093b17c75914a62556bcc930d1057": "un vainqueur outsider gagne d'autant plus de points que sa victoire était improbable"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.7a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "265c96a8ca40b640911017b02ed1a51b7eca18e447d102b8706b5d214d169923"
+        ],
+        [
+          "7e5c7fe0174328c7d0c37d9eded21c7585d61d30ac4da62ad25aed26f45f960e"
+        ],
+        [
+          "d95e19dd90bb2536b5db5a4036d66e220b3567673d63181e89feae444c45676a"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "af1f579b26a2eaf93fadf50453f6a6be08cd8138be5c7e90089a4cc40559ee6d",
+          "e64f05c90923ef6c3e997c823429dad15c30bd1ee4444c4cc26824fc671614e5"
+        ],
+        [
+          "54f90bc1dae33b5ae68dfdaa1dbde36caa093a19dedfd9605ba668a08e98f7dc",
+          "ec5eff80ec4aef961cb45700c257a85930312eb5c571de94b2e48bb59e9278b3"
+        ],
+        [
+          "a1ebbcaa1a30e57756fb054f9a98c36bf42dd43096cf7bbf1b1d8631410316cc",
+          "81f71ac3e17595d2c0181374fe960dbb93855d1a7aa51dd4b205dfc41f2ee300"
+        ]
+      ],
+      "element_hashes": [
+        "a91835c6737ee8d1b8cc5076c9d53503667ec825bdd7412e0299d4b447426d67",
+        "8962b30152f33090b0052c09a9642a811f25491c9203a6d4059a091d0c3bcd09",
+        "4fa7bf94123db402003b4f47ba05235ea2b46be48443e0dd198eb9e3b5bb159d"
+      ],
+      "hash": "5d90f81f6f8a516102a655807a65a8ed7f315fce3539dbefcfb7af9fd1158841",
+      "kind": "array",
+      "mistakes": {
+        "3da7b8fdcfc5db2c05ed0f6b27434a11140aa047a8d1b4ef345ac287ba6bd20f": "π* multiplie π_ref par e^{r/β}, pas par r",
+        "44c2742b7ea8cf8771f6fb63b3ad14579401f1da6271cce1dea7b6f215de418c": "π* garde le facteur π_ref : la loi actuelle compte"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.7b": {
+      "coarse_any": {
+        "0": [
+          "8df6039bf629a872b5651770f474a39a2d9dec6ad586ab76c5af90cc1e520842"
+        ]
+      },
+      "coarser": {
+        "1": [
+          "50fcab1fff960c4f388d402d78e000bb259f5eec56239a35a7360e92cddd8b84"
+        ],
+        "2": [
+          "a828cd3dede024e85f82fe6a343d3ae6a23c14f9d4e81b80fbe216d4354de135"
+        ]
+      },
+      "decimals": 4,
+      "hash": "bb6d7b254af9ffdebccf6442b45a20485c0f5abf7651d6d75318e560659e8f54",
+      "hash_coarse": "f0a8ac60afbe954c1fb89589f9110ee22005420e2d4e52ae555cc412707e5dbc",
+      "kind": "float",
+      "magnitude": 0,
+      "mistakes": {
+        "8023bd0d2d0c19b3210f2c9af84befea0a4202cf0cae84481e38fff12da6fa9f": "la valeur est β ln Z, le logarithme de la constante de normalisation, pas Z",
+        "ceaa7324a8c1f0cbb5873fa4075418523106d40e4811f41b62c9eb5baa5c7b6b": "la valeur retranche β KL(π* ‖ π_ref) à la satisfaction moyenne sous π*"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.7c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "a21943f151d4bc0b3ab27e3aa63b6e28ce43181dcaea98de42807a9a999f0beb"
+        ],
+        [
+          "cdcfea8009539b058b8e2910394681b94fd996ac6d5d19dacb09a06505b6429f"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "cedf346a12832e51ed42fa7ac42ad756c7fa8bc6bfe32a8be577fdf7e0fe31eb",
+          "a8168174dd65d26c5bab6c3e05cf867284ff8d28d678da714162cd1f935b1be7",
+          "0bb46d8e96f4a6832a736efdeb68724fa2ef8153c0ea77af523d578daed26e3d",
+          "e289543999fbdea722760fc636945f19f421ba757a163513fe56471cd9af8785"
+        ],
+        [
+          "6aa92c120ea912a02dea1cf0e9b444f65369bb01b024e56e31cbc1c0e9701b7f",
+          "d88ea008e14bb2ff243da9c66547ad2b817dae9f94fed6a4a86e76464a0dd510",
+          "781150cefb9202b0fa2fcc5f1219c353dc0c57ee3828ff45a9927216ec994a76"
+        ]
+      ],
+      "element_hashes": [
+        "7f7918d5cb000b38c08b3ddbba7ef58fa26f10021f6296ff29524deba637a650",
+        "ea235c3a97087e9bc1d6c5879e1fbbdf78fb66f03b23a07f8f0b4167d7edf3d9"
+      ],
+      "hash": "6f5cb8287e459034ab3ba60a2e46660589e3c88ab880b47eafb4f3c3d7977575",
+      "kind": "array",
+      "mistakes": {
+        "32d9c801af3e6af95c73fc22fb39a696cd49cce97cc541d5956ca0f90913dd6c": "sous π_ref, la satisfaction moyenne pondère chaque plat par sa part dans la loi actuelle",
+        "a95e89a8cfb86e7f59154ca96d6975042ec4270bf96eb627091267c42b99bedc": "le meilleur plat seul s'écarte de π_ref : il paie aussi β KL"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.7d": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3818818f790ee799efcfddf76dc1daf9129ee75c56f4d550816f2661b25c534e"
+        ],
+        [
+          "776eca3e656c33709dde462baffca91551434a27911009caeafb5a09b906dea0"
+        ],
+        [
+          "86ce7e89d9083867976002f901d5fccb89c7eec86ffc94b9de4710e45aaab27e"
+        ],
+        [
+          "4edd57577255baddf79aaf7509c2785cc666c67e621750c5b523637b13cbee97"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "e6c29ff6b6f1c93591ba24d822b4e9b1b7c44a1299dfde63c9a88cdbbeefed0a",
+          "1fb856b3e01242095c2f1006997990ac768ad4d18145dfece3b48487d1141a8f"
+        ],
+        [
+          "15e2a7a444af203e057942c426b298fbe3225d3f767f647f6867f913175797fd",
+          "2196d876cd1310364a037dbecaaf3b668fbd47e116e7b606c50d81e040aeddd8"
+        ],
+        [
+          "6e2f0a4fc0cd2330817a4551a1c0ee4ec3f023f87d5fa49cccaf98af011d7faa",
+          "67ddc8ed0725be75ac9e40d006f46ce43b6416ec908c0debd42ce4b5738b0553"
+        ],
+        [
+          "d9bf3c034f4caf43cd5d95edf80099d8cf31ab086608faaf4ed785ae8f8159f3",
+          "c7fcf5ddb5fddc30d7c35b7a9fabec05e1738d8a7054403c475ff03ced0c0de9",
+          "65ec1de2504158759b405a5c8a6be7664035f048cdb1912c4a8ab5d99ea4a66d"
+        ]
+      ],
+      "element_hashes": [
+        "efe5670d3da3eb84b3587f0cb7a13aa07cd75ed99238aa9774ecf7ed25a7498b",
+        "c903bbc63333018e87af97e2fa58717fc9b2fba5327bd33040ab46e613438cf1",
+        "344852ac9c958fa4a6c77c20b815c5b2c9322cfc10ebd40eee6a0de80593b7ce",
+        "7ef08f6249403fd4d635ceaa936c26c50c6d6b8baab2db3c137faad8c852106b"
+      ],
+      "hash": "6e0cfef44dbc84a3112bd60601aa516e434cbbc991b56630482c69d12620eaf4",
+      "kind": "array",
+      "mistakes": {
+        "c6a4e852f4b9e249a52c1c882376b3f32671456da4073ad3d53762d0d5743d87": "avec β = 3, les exposants sont r/β, pas β r",
+        "df9bb84d2176be021cd62e921fe8ef40794f68b7db7038a56bc2817bd82328cf": "la valeur retranche β KL(π* ‖ π_ref) à la satisfaction moyenne sous π*"
+      },
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.11a": {
+      "decimals": 2,
+      "element_coarse": [
+        [
+          "4084fc36dd6816f19f2ea786fde7467d9e1b87e7c126bf5082e51997fec614a0"
+        ],
+        [
+          "081290c3eef974889092b778e76ef04b28dfbcaa599903b970c30f7c83a00e83"
+        ],
+        [
+          "c4ac3c8e4e7373b0400df7dcf66c9fdf98a8cf0b9c5b8d2540800c4da1dd3723"
+        ],
+        [
+          "3ae07d207b81498c840d935de9b30d8c07565d14df7bf2c45d90bfe4d1d45a30"
+        ],
+        [
+          "7322db13617808d6d53f03cdf99a5b0a82e6a05077567c58582eb600cceb7b98"
+        ],
+        [
+          "2669d66e8ab784bb392bb21f53ee8af97d1af6e327adacd076041a18c3f4f543"
+        ],
+        [
+          "72d2f6090f98d74415f607a5538686331ba6dce030d2bcf83a704daf03d85272"
+        ],
+        [
+          "4767b190d1d890e1232c784763fdf6c214207fb8234145d72e147792df95e463"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "9747b3c861a8c2ef398918d755db22790cb865c29483e0fb9343579d2e73becb"
+        ],
+        [
+          "29ec469bee856d953a252851778d9cf11307a0e1e3ca24883473d6b21148701c"
+        ],
+        [],
+        [
+          "6f28b2881bc04c66234f2d44e36371080ed999ff6a996efbe7328bd89fb1f1b9"
+        ],
+        [
+          "35caf8565d599ab267c9b62c98853d9d4c3d74d52ab220bf81bef7fb23adf91c"
+        ],
+        [],
+        [
+          "bf21221f19bd2d79ecb9a1676bcca5ab87e9648078f48933a44e1e5f1e6457b2"
+        ]
+      ],
+      "element_hashes": [
+        "7435cf241f3676a180b9980712afb0612fbb41d163393bda2ece503a433c2f52",
+        "f6091b65d2955e23bf050a008b3d86ea6fa5e3f30da7c7a82cc410f6402fed29",
+        "5fb81224e7c0f9711bb9b7b19b92e68c713e1835a14b38f2f16d3a68bcc13ff3",
+        "ec333c5a8a647ab531f2e86f9569b7a140b3571f648c715e07d32bde61fc45db",
+        "508535dd7848e68c7094ff84fd180cf6a7641299a7eebb106fc8129ac12594dc",
+        "89ee7ca5edfc4f460fcd829944817c930fc49388e7bee2c221e5205b3879aaa4",
+        "6a855340c8ef1f7962fb3e9438d217c38a0ab56893cd8eb0301e9ccde3446d9a",
+        "8d7318da290b8b91ede29fda391c61ca9166d1293577ede8707e01f11d8797b0"
+      ],
+      "hash": "53db4e917fae1c38ac557fda9e578fb22e2905ed79c7296efddbe54a297cb918",
+      "kind": "array",
+      "mistakes": {
+        "60b0d5a0b07861c934d1b5ef867a580194bc65bb3b1022d1d1b0585c8551e598": "la dérivée de x ln θ par rapport à θ est x/θ, pas x/θ²",
+        "d1ea779d56185320fbe4fc91773d81b4616b1a94a818d68b2ec2d1a2f0608b76": "le score de la loi de Poisson est x/θ − 1 : la dérivée de −θ compte"
+      },
+      "shape": [
+        8
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.11b": {
+      "coarse_any": {
+        "0": [
+          "631adbd262d83960508ca4680cb042b4c333ad2960966dbb291d6a4157adaef8"
+        ],
+        "1": [
+          "feb90d459a8516eaf4802ca50b27fe9565bdba2e91b43375e04c3a412f24d7d6"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "4e8fea8aee6f6f28e86d97938f8d21c57a3223edd355c2de5a26b929a7b0e075",
+          "a42ddc7c008acedadb0d5c850ce4b5dd5b6ad0aa15d9e1af78686a31c2203007"
+        ]
+      },
+      "decimals": 4,
+      "hash": "08a24b2740edfe961b5d695422ebce5364b1e8284a74124bfe656f49b96ebb87",
+      "hash_coarse": "ea58161c7ad53bc9312b0a342e0a97ee435dfc1d90f3bd998e022b9f6c9737b5",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "247f68066252aabaab7668082511c53c74f72a90f5ec008e7bc7b4cdde5b8887": "le score se calcule au paramètre θ de la loi, pas à la moyenne des huit tirages",
+        "349aee26a5724eb42e8cb98dd67c63f0f1d43756806a378228a3ab1101250c0f": "le score de la loi de Poisson contient −1, la dérivée de −θ"
+      },
+      "sign": -1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.11c": {
+      "coarse_any": {
+        "0": [
+          "737dc5117a155475b4938ea33866ecf84536ff5729c05867cf5714f0f872ae98"
+        ],
+        "1": [
+          "99d7eaca84311859f882e83716880ff508173d5d77e440af80201fec76603043"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "91f1a5267b8a5b44c1cf28e0d92eb49f6338bec23a7893fadea10a415b6e10de"
+        ]
+      },
+      "decimals": 4,
+      "hash": "dd64798c541346bb78ac92ff52a5186b8489f731cc6ad08a1e2cbd9e2b098aab",
+      "hash_coarse": "b25054b11e294c739efb3fdc370ea151b6401f64608f539ce26e0f47e9419172",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "4a64cdd03ee7197ba48deb38b2845b18865cc246aecf7ba2771aeca68f61d974": "le score se calcule au paramètre θ de la loi, pas à la moyenne des huit tirages",
+        "5da9e7120f692a3b5816cb8cffae4d52968785c0bcd660d018bdd100763f96c6": "le score de la loi de Poisson contient −1, la dérivée de −θ"
+      },
+      "sign": -1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.13a": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "5d5b8d7e97c83ddb140f7bbd1f64110fb6ebe00fd32e3c5ab32299fd980e5785"
+        ],
+        [
+          "842ea46570bb1916c310c277498c266f0d7928f8b0211edd689cd34b9b15c886"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "26eb327da849f4e78fce02b46c23219e8438c2afb103db79f536eabf333204a1",
+          "9aee239917cde6cf3d81ed8a05c9c3820fa5e90abe40ba9624358d56e93173a2",
+          "1486a76402613b3c7affaea877a74747740811a08e990f032cf528f63594500b",
+          "41942834407de41fda830b9bfc0ce0a76167212825f6dfa97bd4b43ce144cb8c"
+        ],
+        [
+          "93b9f3ee0ad6cc54c6b504cacaa2e34cbe7479fc65f3bc4ff38dad51b7fd55cb",
+          "77e2c5ee08fea76c7f2e933d6d786e6d0a327e2a1a8bacb0a667bd4b81f6c5a5",
+          "3915158308ac6063ca9f14ba6fe0af6ecae48323bd116590f3075886f8dce32c"
+        ]
+      ],
+      "element_hashes": [
+        "41f5ba33a0e5b7e694d2ec008901924d402e1a24cff0961a8b335db93857c7c7",
+        "9e73a3bc099ea740ab5f141e66b7579ae3fdccc8cb1004b8c3fefbc7db0cfd6a"
+      ],
+      "hash": "de3ab90cc8a9cb8593b3215518ec69e84070ef97d82cb0265be2d2bfa6a4fbf5",
+      "kind": "array",
+      "mistakes": {
+        "cd18681fb063a8083a61938a3a81f5cbfbd5fc58f46bd731720232e988ccca00": "l'erreur type d'une moyenne de n termes est leur écart-type divisé par √n (relance les tests de score_function_gradient)"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.13b": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "4c32fb9ea829b080aa9670713d385f009012f6d8a72974ab34ab45bd0d12dfcb"
+        ],
+        [
+          "589c6fabe368295733c0a48cc0b725854555ffac8179c2c069757f0089854e89"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8514b296bd5e3a3f6ecaff7aad0a9bdbdc48ff494eb806bd9103a398a941df29",
+          "dedb051472150a79393307d80843501f68ff4e15fa6a0b2707e62d06895b1a89",
+          "8f1f8648573b86ea01ebfcb7cb5170679a7e2cdd6172f0c1032c0e22695b6f9b",
+          "5a8f9b0e66eeb24879bcacf2f26c8b4ac5fb19064d506342c5a5b834aef2e9d1"
+        ],
+        [
+          "744a116f6052b4ef943ed999784f5f84a289dbc956739d5b4d524dfc56caead6",
+          "e492963f9b415c7a325f94ad01a629b9d926d16fa7dafb479736954e54a442db",
+          "0a263fc9eb020b042c99c7d1ce51c14d2d2ac580984a4357d2e324d70f89f3c1"
+        ]
+      ],
+      "element_hashes": [
+        "1fd01c6eeb8970af9c844302cbf8ab86fa67edcc59c992f322381af170bedb62",
+        "6f89431551772313e38547a928824ec93d2c9af0a9e53ccc9a3f2bdff641c557"
+      ],
+      "hash": "b910decee74d96021c09fb86b5a847f839492dbd9793553832c94bdbac386d7c",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.13c": {
+      "coarse_any": {
+        "0": [
+          "08e8bba75682523f6c37f85aed681fc615d97dd707d1eb272a2299dff8338890"
+        ],
+        "1": [
+          "b3f5121c98d6c01b7dca532460d14f8086eb8d7136d6a5bdae22ad8112107604"
+        ]
+      },
+      "coarser": {
+        "2": [
+          "daf082dd042e993db2febfe648156ae084e9af8fd8de00c43df0f0dce1d1fa5e"
+        ]
+      },
+      "decimals": 4,
+      "hash": "405acd979c99b60a39638e026d7de2e7c4ce241c9f57f5bf298067df911d832c",
+      "hash_coarse": "7acd94accd4f80b98ff7ff81bbeb837e5e0f516b443aab1bccb5dde15e241390",
+      "kind": "float",
+      "magnitude": -1,
+      "mistakes": {
+        "28c46f30069c6f72919571f50a8a5641d469bda7cf1e3f5abd9e68e5c8a29b8f": "c) est l'estimation avec la moyenne du groupe, au numérateur, sur celle de b), au dénominateur",
+        "c48d86bf6fa09d3279dea9a413820fef8d57a3de60ee66c4380b6ad2a6159869": "le rapport compare l'estimation avec la moyenne du groupe à celle de b), avec la moyenne des autres tirages"
+      },
+      "sign": 1,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.14a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "da43b2ee37b120fb8a0267630e4864a582098a02aafc59547cc8ce2138f98768"
+        ],
+        [
+          "22fe041e3aeb0dbba2dbb06b72423de6a56cd542ead8f69373de730cdc6d00f1"
+        ],
+        [
+          "15de1bcf0570e6fa782d49d2ffc3600c0cb29ea9b0e5a595dca868af3758e135"
+        ],
+        [
+          "df7ba4a4ca8b013d9c20e75d1c23169da8c928922ef325febeb3286190c939a1"
+        ],
+        [
+          "bd0349612f5244c130c8907bdf471cc2aba1ad7de40d41f52a6debbde9a11be4"
+        ],
+        [
+          "d4537df320cbee6770dc0705b4ac972cf841fe7a0077ecd0c1da212012c57f98"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "00c877873b181e426f4e6c1084537e8311a2a7baa373a4b9fe120a92ab7c8afb",
+          "007c9a9a33fd350857623d6550b5c79f86df173fc1849fd2876f28215c0aadc9",
+          "51174f4b075815ef1044a4bff51abe0afffcbbe5602c2b33209f21e42bdf4973"
+        ],
+        [
+          "d1bc7ae01a533a7e319ac71a8989d7b603a42d9139a2fab808f9359fabbb526b",
+          "7d53bf96ec20ccca58c85fcd2e56a3c8c56fc4b71f8efa1b5edaa058f9e6d6bf",
+          "3a1a7ab769b315514bfc4b75915d4badf43e31b2a83cbaeaeabe8e45754bff46"
+        ],
+        [
+          "73400773dd915e7eb2b46299313c2696ff45457b3ae4dd9963900a0d058aaee0",
+          "893849e073ee9668e3ce97c96e4fe903e145059cac727beee67318bf2e5518b9",
+          "151b1bc49f983a862214a2f5937290f3b9e963018a4f17cee19085183cb4ae67"
+        ],
+        [
+          "398c7488f21bd207b6eda80c281561a4368496d273460f43185ade6a70d6da3b",
+          "d3c34c1b3fc407514c9ead9e15f9fa26daac26c672114dbbdf6f2785229459c8",
+          "04f1caf8ac7f7b9b4d5d2af47a677bc3a537820a37450a4a93262a159ce50a0f"
+        ],
+        [
+          "adb6f59aca423b990ee596ad573004f1508a7e09d6ae96aeedb1cf26df3cc27f",
+          "b3e4ef0a5743c5aa411249409b8a64c8af84e23ebe0af2024451e5318de559fd"
+        ],
+        [
+          "8f14e3aa8ddf7dd3af5d184c529cd2b6b6f8c6d8a2836a3287602eff97cdc2f8",
+          "01a436b357e534a826567b3de037d614f92c42721e2250b44b25fa9bbf029f69"
+        ]
+      ],
+      "element_hashes": [
+        "dec19fce2ac2e10cbaa76f54aebe5a042c08e744ddc8e7c47e4582de3d0f28dd",
+        "cf93a01d25a89888058b54d5d56de80db414e1a81c6aadb4f56d7c946a2874b3",
+        "05ff8df71c95a210e84d3ea14f2f84c52be91fc9f6614ad55a9b27993b97b5d5",
+        "4bfefe7b38c63986c7cdccec9e5569a1c50510e0cd3bdc8669c0993786583028",
+        "f64db8b77542589759daa85196f343f32ea7e489f07999bfd6e0df7973cdaa74",
+        "e9e8a22494bc362acbe8ec735f87003f9957d8e9a6f73dd018ab91ee2cdf32c7"
+      ],
+      "hash": "01d543b2c211f4b5858b2f9b29f7180a96e63ac4175342f54ad0fc06a8a74ef6",
+      "kind": "array",
+      "mistakes": {
+        "a03638698b4f04324340c93c5a2c8fb6c05d5ee100088baa4645999e5e12f6c2": "P se range P[a, s, t] et r se range r[a, s] : l'action d'abord, puis l'état (comme en M26.14)",
+        "f99bc5f034e4d26f23f37143e60b4754a2634d4136705f0055e7308e57b4d123": "l'ordre demandé : V(marché), V(parc), les deux dérivées de V(marché) (rester, partir), puis celles de V(parc)"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.14b": {
+      "array_rounded": {
+        "1": "adf79d21f1888d93aefb6dc1a1046bb05b74b35e2f43d1e27bb224c53c0607ca",
+        "2": "e9c83b4f650a3d3f1793d7462dc7011f00b4022cee43ea2d9facd1a80fa14821",
+        "3": "d382d277abe3a83a65f94982d95174c32fadd2cc8d555b55a3684f90081def26",
+        "4": "309c224e4994077596d04983b8fc90276a35986fc883c178b39e266f20c6319a",
+        "5": "12b3592dba18e78135defdfc7a69bba1b4d90875f4ed07d21d84aa92c3d3e3da"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "1caa3e3b5167ff316ebf226f5334fdff5bcc54749d99a0ecb2e4195c60ef4c74"
+        ],
+        [
+          "ae3c530ca7d2f66ee43af0581de8ac173973fcba36957dc75891f8ace00c719f"
+        ],
+        [
+          "ede48f2847d4d1d5b531533110958b8238b609b62ca068c08871da7a5f7bbea3"
+        ],
+        [
+          "d506244a350fa4655d1305b030aef857f32df0526a76211e054d45b89801cd9e"
+        ],
+        [
+          "e5c4c5ec99eeb42405fa38834dd91fa64cd48e1cd0a3ef4bd18a6ab0d2553270"
+        ],
+        [
+          "b955ea456e05bc88f1309e350b2492d0ab7af990631fbffc8974178d530a8732"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "79551f6be653cfb3292954f79a43507bf4b29753f154983e9d8755daa166b479",
+          "765568b4ffb9524a9dfb10f0cf216a762eaa1dd57738e12c916c8b775197c993",
+          "ad261655415be3688fb4df41513de7b62afb31e3a91a9bc6ab165548e77bcae3",
+          "91cae14b207fea3a2126d397204be8fdcbdeeae9769ea7e5cf2bc4ce599e0a39"
+        ],
+        [
+          "ed493835c42be80d28374bd23df6de6ebe68f72bde5e6e2ca2ed50a90dc0383a",
+          "8d475385283af0d2ff631360a2abfabe665be2779a2cdd9cdedf7b6b7bd27222",
+          "545b054ede90d51fe94a44b0c62530e2e179e6482bb53863104bda7d064dac91",
+          "d1fb2faa9240f6a4c9bd92a603daeb9b5ca039eaff2bcc85b2f09f179901065f"
+        ],
+        [
+          "50398f66d92df8c1f5eafe562de6e568bffd6cdd6dbf322f8c408a01a9fa180a",
+          "2f12a77fc1ddd5c94bfcfe78b9235a3d6b373ef0d843e9cd20488e26eaa4a40c",
+          "217560ea88fdfa56e56ad3bf31b7a78603287cc03ad90430c30a7ac8199dcc9d",
+          "30725f76f721b5d57237e57ee28a26b6138750fd6467cf030ef53f14ff58675a"
+        ],
+        [
+          "a382c3271a1d26e92c94470ce11d559d6b68fc7bb16a5767f1d99fb1a38d5c43",
+          "9850cde30813ccae68cf16b9791c83050072913f3166db2a8a3a43ef8b1b223a",
+          "56ffc2202cb54b447e29808d453a221b5883c982990f7b6e0f4f5d642a6b5379",
+          "69e904b3043d8f55b220bf9cd29b1a8dc7fdcde8a42353f129b1f9f8e392ee94"
+        ],
+        [],
+        []
+      ],
+      "element_hashes": [
+        "25e0a1826fedc39aa37cac0b0e1e7a50d6cb10bb1171812107c55ee573d1c2c3",
+        "9b9e6625192d45bb5459cf582d3aed95015fca162031bb6b5b7818df4d87eb9c",
+        "d7d0f3dba0fbc6517d9edabcfd3efd897bb7c0c5caa5eb1cfefc0d3cb833f9b5",
+        "2d8fd1a0518285704cc89e3d5e875b357fed4a079fc2f9b3e00579acee32b5d2",
+        "59de08db995ff853b8a7e1cb38ba5ff43512a7db1da4309d2001b42b80c1e499",
+        "aa7a70eb9aabdf5cebb407987536290de63e8d1c98a32c86061977a3e358fb0b"
+      ],
+      "hash": "73da2172b44dccf8ce044104333830b1fc12374afd46391859f3588fd90a0587",
+      "kind": "array",
+      "mistakes": {
+        "da6d386af7ca664f18596771556d049613c5702a508c5709e757828c5e4c7ec7": "état par état : les deux dérivées des logits de l'état 0, puis de l'état 1, puis de l'état 2"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.14c": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "f6c2653a41c54d70f96d3f82167d04f6ef134ac030df1e63f861e8d7db343cb8"
+        ],
+        [
+          "4f5bf0282a12567287356c2141e940d4e893fa250ab10c350e7169d78c4c4a45"
+        ],
+        [
+          "4c7dda93278102f058a7371f535750f3d53f705bf7098a7b8ab42a91ab26c1f9"
+        ],
+        [
+          "a4620dcabebf02592f2eb1a04bd0f7aff7e72bd7627018a1c631a52278b3babc"
+        ],
+        [
+          "2cb87bcf0d21e333c3d6e8ce7cbed436790bb58ae03d317d128f23489d103a38"
+        ],
+        [
+          "15ff984fe52a9daabd8fdfd53fcaa4750ebd99a383b8f2b2e73114c6a08035c4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "440d17fd937bab76a15586be1c44120f73858178a61665c54e2a934f74ccb21c",
+          "4f11d83216e8f8d02c01ee8b9d33c6ec7e31cccd285aea683d1c73774a61c2bf"
+        ],
+        [
+          "440f42d9ccb8af28bc6822542b7a8fdcc4b9130a4c32fd0f472c08c1b2760e18",
+          "420ebeb83fa0e7c3b18d27eccb076c1ab8ebbdc66a2e9a7401d285e17126aa41"
+        ],
+        [
+          "fc2a90aa9fe793fcb95cbfd57a6f5639950f232de2043ccf3a040212b2abfe50",
+          "6eb7701bfb2d3dae77576a2fb935edbfd123671d3b2d86e24f71eeb5ca1bb4a3",
+          "217d54e254b2450726bacf0ed9e03d08b4275cc644094a2bd3e24c6ad0528492"
+        ],
+        [
+          "3d2e4814b0367ab89e6b2d041ff87d772115fe01e527e615d49e450ab2d1d860",
+          "0957f103eb078a41c98bda491246fd93603886dadf3d74951deadbb1889b27d9",
+          "90d3410bd76aa71c15e9077dcdf64e80e78183446cdaa15b97710c156aac959c"
+        ],
+        [
+          "7dc4f21336860124fd57462869d0f58afbc9d16343ccdc1e8ef443de436e0169",
+          "da8cee44f536d3797e302503a740fb013cb614e1e93b39d6d791987931445de5",
+          "71f4e83057607908fdba8244d4bf2d8f31f5502b8b9d0ba2b59bedbb2b574182",
+          "c3de99700bea872d59e250232f0efd3dc98acd4d67958002c49f037367161850"
+        ],
+        [
+          "c2859096510d93c93287c36ea915e1fa67bbdf213e73166a592245ba736536ed",
+          "d57accb0b154fba3c46d123137cec0a83e27dfe09766ced02394c54b7cabbe48",
+          "b5e089c61d9c5e9a1f5056328c464a84ba4c4d3954c68d7e38364050a09d67ec",
+          "65cc6cfb59f16e6b804fe8d669b401d22eb49a346d78504fe2277981f1bf9f51"
+        ]
+      ],
+      "element_hashes": [
+        "cb3bafde2f7fbb844cc7f86562a23ff497ce260212c5322fe80d7a8b4e0a0d57",
+        "b0f300977650fd0eee84b19fd4f44b0fe8e30d4de3490e31a554b5699d3c80d5",
+        "b0a652c441cbdcaab27c12255e7041bf1b312ea7575d8f2938a16f3a5e87dafc",
+        "b28cdfc54279f99d4518b59b8c435f7ceff74c5bfcfe1efe66e0222940744b6e",
+        "ab84a50608c2a692f7a4c81f988b2deef938b26d992e5d7a96e7781994efe4ba",
+        "ff103fb73e97c6f4d2542fe57305879ccab5358d5923f3c2fca420d76465de34"
+      ],
+      "hash": "e3da5cb0f14d2ca1b76fd164effaf732c3546b1808517d25ab9e3ea0319f82f8",
+      "kind": "array",
+      "mistakes": {
+        "4b263b5dd89113734ebbe27cfd656d8aa18613b6d1e3c2b27c4579c5aa53ef8a": "état par état : les deux dérivées des logits de l'état 0, puis de l'état 1, puis de l'état 2"
+      },
+      "shape": [
+        6
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.15a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "5c31a2e2d93da96c4dbfa5625f9f476f8bc76a79e50e8861c7e803f094ec3bb8"
+        ],
+        [
+          "2edde0720f04bd9e8131d5215f29ce94eb2e8d12ed0018236717827351183f89"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "ec7237c33da044b79e8a3f7a92936937ec38fb15cbee415c14984da1aa3a1d16",
+          "751cb54e70b17e4e054f910c54a0be21b5a7711bb6867ac27b79461362bd8141",
+          "1eb76c0155024c8ea44664d1854c2103ff5dfa909b36c05a02ed6e2ef239ab43"
+        ],
+        [
+          "715bc3dc50cd7d8456638c16200b236d10d08777336fe552628e743864dd9234",
+          "61667e545cf64bd4c746b6b9da91357ca0052a025c0ae3a5b066c64f723d0f50",
+          "56bee53585983abda91d5e169b62c3c6b816c643d0c93fa2b65534095ead1fd7"
+        ]
+      ],
+      "element_hashes": [
+        "a134e9548ccc025426f2c725ea44442b4677de6dbc242c782d89edf398d432a3",
+        "48f8a29868eb68758f2e0fa967b9f258cc6226055d73a5d148e053fee04d649d"
+      ],
+      "hash": "ac89508a75972a5dc7f0a7dcec187a7ce34d20a678750202aa64bbfa1885399f",
+      "kind": "array",
+      "mistakes": {
+        "8a7ecccab4a280c66ed842e7fd316211f00a92060036559bcfee7f27faeb9445": "la taille effective divise le carré de la somme des poids par la somme de leurs carrés",
+        "d6127cd95a04ff408234708aef04ee6cedab3c96e9ddbfea6ed9f691c9046d4a": "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.15b": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "ec2c0c862a301aff6f897731e843452aec5f794050af17b5e1a63c6610f40b1e"
+        ],
+        [
+          "bfe83aa31c86b594cdb238f7b61ebb7f25e0f990b6d51889bd8871257604a031"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1fb9cac8db8677cce5833e1beb0c4ff29ecbb69ade34383187ebfcd410e9a4a6",
+          "f9353895e36558cd3eff96aa6c6f6e6e76a0ac81ccde35d6b5a7c46d90064e27",
+          "2c40cdfb0d1403996120bacaec735caed96e31c44e103aa6c9a274ebac282c25"
+        ],
+        [
+          "e0da0bef47bf9aff975952fac10895e8c589269da25f9b5747bbdd8c5a734426",
+          "47f1ea0125fd95a0c7306ac9eaddbaf79f79dc187e51b5483e768703ae73516d",
+          "11ad9850a728f8247e8dcecc500cda234fd2d0b93a4a94f9c09a3a99f47eba34",
+          "13bb93c483f5f2fd5fa4064855193461ef53ef841de07af44f3ad3daac7bb7f2"
+        ]
+      ],
+      "element_hashes": [
+        "c0ffb2a524d48a56d5893880b4830e54b5052b184570c1bb84b4b1600203ada6",
+        "1f8ad126b5089935540a36c130faa1cf7e9d4b32ff63dd44962d502e8dddf025"
+      ],
+      "hash": "e242e494cb29af1b86ccf67953f2604d5a5df79a9e7e4fea3448db1836a8dd3a",
+      "kind": "array",
+      "mistakes": {
+        "95aaafc40181a7711ff42de8a395717c76d7eb21ef16744634d9305ff5c8fb04": "b) demande les poids divisés par leur somme (self_normalize=True), pas les poids bruts"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.16a": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "1b4032fb5f01a931ce63a22007226a8e3dd844c5a826c811123a3d09c365dd82"
+        ],
+        [
+          "89fc52e5a72a0ccaeefe3e04de95f09360dfcffcfddda66a929215c38a24ebf4"
+        ],
+        [
+          "26d666132eebbafe91cd2e8fe5dda8faba3b02b916e366f6b81dedfb59684db4"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "5a527e9af65870b1b7d1aaf743edc30141ccb7bda0c8a4c6803ea82cec1a052d",
+          "59fed2a85696796ce29ffdd2a5e1a9699b225d10460eead4c481b5d0dffe2a03",
+          "fad93e78dbd58be435fc96761eafbfd09f8c82694d4a57d7a2e2d0d7f6115076"
+        ],
+        [
+          "2cbb18c9848194a0e5058e6351cb2c3361ede3533469d025706c5723f4c38ab2",
+          "ab94056a7d4acaa3044721985bce1a6fa0d1867cadd6861d3bc2ff6d774f5424"
+        ],
+        [
+          "ede6cb67d74dda9fb9dc530574d9fe92ae9945d4403e92996d22a2c7f2f79137",
+          "fa1f263a9f188fa412dd61f1a56253aa0ff104764a92723e629d3234dc6ccf63",
+          "22447954b4326d9a7054050506b73eaae9924d4e9e2436ad2b0474facd3ce6f6"
+        ]
+      ],
+      "element_hashes": [
+        "7b20d2f6f7396acc340a5cbe14580e26c173c8ea1b320357284711c0bd6ec780",
+        "0fdaed6f54b8c79f344d48df1a9df73906a27cbc382719123c7a6c8b5d9fb0cb",
+        "0094c1a4aef4b298ea109770e5e957e5e552fd9cee4daef84e0603ef769ef37b"
+      ],
+      "hash": "4fe0f3033b6c7754cf315b19139b7b9aa4dc6fcfca7a81feba0c53ff5a4284f8",
+      "kind": "array",
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.16b": {
+      "array_rounded": {
+        "1": "3a31f2c9a3a55075c6ec4b012fef744fde326a939155a77a9028a66f0f436dda",
+        "2": "feb4575c4b9e169e410de1a50369962eceb6d2c724d5b1f63f05d9126011d30d",
+        "3": "d330fd02dd93c9e9d3f85ecbb2f5c0a71331569654cf38886950658318c19698",
+        "4": "6715ce71857283b21923adfe0687c6f43da87954bcf4ef84d17c9845737721a6",
+        "5": "27f8043fec61c8a364d8c9030dbc95b8f06bb6e3ff1c026620c67fae70d40329"
+      },
+      "decimals": 7,
+      "element_coarse": [
+        [
+          "eb92e8b66dbe2fc42e7e5bdd1d8e57845bbab163b850e7d6fe6a9511f8819795"
+        ],
+        [
+          "1e7bf6672cb16fafae407ee0f81ca4e421db8d4274e6dcfb217da55b824577af"
+        ],
+        [
+          "37f4eb814e9cab84ed58d3b7753612aca2200979a5423ae81ed51ecb6c6e336c"
+        ],
+        [
+          "4c4465b187e9203c69616da6fd8fe9bcc76495bf0129cfee1e89ed5b457ef3af"
+        ],
+        [
+          "fcbb5560f8e933dc52788702cb0ef54243dbadc902060d403a40e52ad5597c8a"
+        ],
+        [
+          "10f18a055cb25aef3911136d5bd4a433abdae91069f71c9148ae1fb18efb12d3"
+        ],
+        [
+          "0cca3c595d444f75fead5e86aa6b45a38559bb09f62e2e0f7066581b8dd3c890"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1f707953f90515ec6fbc8849c6d1f2894234bc373b11e144b250aa32d3a3ddef",
+          "f2089eb1ee2bd67f8c224fbb9571ff2aad9af7cac35f9cea2bef549575d4ddd4",
+          "e0212ff8a85797da718941f4d79534d931334dea8748b9432f392452a79d781b",
+          "48f7ad00f36c80abbcc5a26667f38c113a47c2be3d7811fcf60b62e01574d071",
+          "c4cbf8f6d5d2da24a1f5f7798afa60d43f7f5f7f35458fb1bfa7f466c0daf542",
+          "90188695b70f1b41173ab8643dc8dc79bfb5dc96409695e4666b211bd00e8557"
+        ],
+        [
+          "80c98701cb555bf432044e4ac507ab5ed8e9e29803583c5624678d4a9452e362",
+          "4277f26642e6a701ecdd654833fb85309d1ff1b0597e3e93fbf1abf27f4e76ba",
+          "2ad12741e8923ee1de485cc177ed60e05cd8218ce1496c5eac08d767a43b726a",
+          "bcc390f69349ec2b59c33f267a73d378597a382c5b234e7ea8686f748b168bae",
+          "db8a9a4699a88fc1a93e82d2469bce2f967ed51d87763eb3e24e8aca1d441dc9",
+          "5c10bd34a1e347429ce29abb887691ca12f296d6162c4b423061dcca2b880547"
+        ],
+        [
+          "29bd0ed09e604262a90eef54195d45a5756859786443458784e400c345903fcb",
+          "5b151986645b7f732001721968d7b760f9cf94c0c1f870fadf63bc41e8e2a1db",
+          "a3eea8e406537b93801c5d86d52f36b5e62cb62d0ec71741590780d676bdad0d",
+          "98b947da5d2377e70e28cd718241aea9953acdac21964cf7dea46de21935eeba",
+          "13f133cb25eae74816ac6415941fde329113d8deeaed3c1b1884045c6c5222a6"
+        ],
+        [
+          "0ba26fcb2c0e681678071899fe3502b895b7698298949e2c22675c1a0489ba3f",
+          "3a016e547a69d438981864693bd17ef349b318f41e3eea5a5894c3ef838a1f43",
+          "f0b170c840e2bfd3dc297d0c15f5d061022b0a7b761706c9879d32b0e3d7de29",
+          "13c05ed5798822c14a82180b5c05539f3b35f4b3414c2bc8a315cfbea5bd9dcd",
+          "74b16b003fbff26e43917f231830e75a7635b813519fe7fbfe0a9f27d7d51086"
+        ],
+        [
+          "9d0e363cde50edfd0e799b1e0060513db66804bd4e2dc1bced5bf59b3ac23ea5",
+          "f0db61026b37f7ad85513659e84de6f9682be4b08e77a87963d6aee404699afd",
+          "9c2a328d2240e560f7052a67c3e0cc087de0b65c6f4bb32fdeff7a2a13e2b219",
+          "422e4908e795c4bfd72db2fb2373f71c1077a9e7da21cae0d88aa21f3f6356ff",
+          "e5ace512881c02eb5754d53cb383f816cec9e7c8f370fe8c2876d3ff5ecda657",
+          "7e0d8ef0fcacad7730c39b579f11917b3d2aaef801e90e177c694fdc3f260050"
+        ],
+        [
+          "1eb90abf56987ececa29006f733bc982e9cfa6c2b3aa21ddc8093b6c8bb29139",
+          "2e1e91ebfedc8652a14a38029411b8f8ebf2454fc7bd0a10b960287241507425",
+          "49582452628d8932a9d4a278539848639ff3d18d097d635232589f8dc028b346",
+          "3490371717aca15191c3d5e0f1297f7b1c23280c77e1749e67ef9f4cea03abdb",
+          "101dbb2131b5a085bc928002ede709f6518b580787144f81293644914d8d458f",
+          "284e1e77edf32f2f0cb54621841788a5cba6563a37dbcbf8b08c41092d93e1b1"
+        ],
+        [
+          "e23442fecda9844d969957f070ac72a48ff61d64ddd6a3b7722d0c2a0fb5153b",
+          "7d7036e2c948c94696a3e1f0606839dd1491f46ebff677ed5d2e174cc6091b8b",
+          "38362be866315354587a4e094f18e126084f16ece9742fb1135107095fa8773e",
+          "e230643e874129be98a7152f9ddad7f6c1531c10597e2f8114ca37c10f8657d7",
+          "267488f82dc18546c9116af49ef70482dba1606b7d42679d3f65ce9f09dea976",
+          "f8798292b1737e9f8713c7be2e45ced7f8076285d488fb4759c1631b1cb1ae67"
+        ]
+      ],
+      "element_hashes": [
+        "9f3c510db11ad51a409a3688177a6c2d8fe7b4c6f4796a817dc154f91583fb18",
+        "2fb84c4cdc99006e361c92c77d33774fa9a0542941bea8ef1ee26f567164ba65",
+        "d7821c4986ae96a19ab716293147cbacddaf0eb312dc4f606e2793328a793abf",
+        "9c3ae2430cc40b12d4366dbd51bb5746932ffc6e7d00f04efd3075dfe012a42b",
+        "9b691ec4fdb3047918053a42d71bcc67f82fdc52a951848084e6a997f4eb9857",
+        "af70fc981bcca09e97b55afdae387bd9a86d96b10b480667e01711f53fc35d0c",
+        "c3778e5a0f577d581e1b7a1007a9f7e8953b215fb441fe75176ae4e3681aa108"
+      ],
+      "hash": "2016f37ccb66a14bad34d263c79a0313a3456cc29e76285a252171e920bbd510",
+      "kind": "array",
+      "mistakes": {
+        "73682cd16989f55dbaa1525180322309309cee26116474992c35fce425caf5b4": "P(club 0 bat club 5) = e^{β₀}/(e^{β₀} + e^{β₅}), pas e^{β₀}/e^{β₅}"
+      },
+      "shape": [
+        7
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.17a": {
+      "hash": "3adcbe014ca3a2affa9e5f0acd6f0cf7347ab9a2afdbb53925a137c6fbd50690",
+      "kind": "str",
+      "mistakes": {
+        "22d6d02e64bdb197b8b7d738fa3a40aeccb556d745d90be587ed9ee959425392": "relis ce que la fiche §3 dit de la variance de (f − b) s en fonction de b, et où se trouvent b = 0 et b ≈ E[f] par rapport à son minimum b*",
+        "5264f094c24bc65c5a40027ed1c5b08dd4e049b2252559a4920b75500a0fe1a7": "relis ce que la fiche §3 dit de la variance de (f − b) s en fonction de b, et où se trouvent b = 0 et b ≈ E[f] par rapport à son minimum b*"
+      },
+      "prediction": true,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.17b": {
+      "hash": "11960f2213ba48ba9a54a35e9d05110ee1ab6066ed1d29ff4f841e24858c19be",
+      "kind": "str",
+      "mistakes": {
+        "71a7c088100f860e0f5bf3c6455469c99ed8ca8a6fec773d628b68cc26491893": "le rapport des écarts-types est la racine du rapport des variances : compare, sur le trinôme de la fiche §3, la variance en b = 0 à la variance minimale",
+        "910fc0baa9123e56c68def25e3ac129fb800a7c0be34f48d7042540292efa3f3": "le rapport des écarts-types est la racine du rapport des variances : compare, sur le trinôme de la fiche §3, la variance en b = 0 à la variance minimale"
+      },
+      "prediction": true,
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.17c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "24c6bea614f28c2d01de05f7af1e55642a59f7e7c152fa726fa468207fe342e2"
+        ],
+        [
+          "c06e285bd3ec7e1e4a81a903989d6d5cb8af12e6b27e2196e49ff8b7564873f0"
+        ],
+        [
+          "93b038305c93ea2c1b6213d69867ab36ee39745f03782e8a1179a9fcfbbd0789"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "a12999ba23135d95a25a73b009d21029c06623b3a20a547b918ed8acf6b88c91",
+          "9ab368f0233122900e917622990ad91e6c11c1ca87f6571ee7e2ce503542678e"
+        ],
+        [
+          "07ca5600cd5c0b04a49e894703fa66296cd2e477b7584d1fcb3a1a23d2e18b3a"
+        ],
+        [
+          "9e1f6414c1b03cc8c2c2cbcc00113420bc76fd0989d14d670423f6e1c64dead8"
+        ]
+      ],
+      "element_hashes": [
+        "01b4ebf12a7a2f867642ea5c54120801786eb2f3784dc86fb95c7d178fd1e04d",
+        "a35bb576c6067760d625fe21dec07369e4e9d1a5acbe4a798657ced330e5092a",
+        "5948df32cd622810f4dfc95c25ae263bad6cf5bd42766720098800bce0c23d60"
+      ],
+      "hash": "ad0022f8c7191482262f20bd83a33e2ce245c4f7e6205b46084dbf797c99a6ab",
+      "kind": "array",
+      "mistakes": {
+        "31ead241399d5dd9d9b6ed366d2181ce997f58c0a998b1eb6e1345094a7609ea": "dans l'ordre de a) : sans baseline, avec la moyenne des autres tirages, avec la baseline optimale"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.18a": {
+      "array_rounded": {
+        "1": "b13732964d5c941bfea0703abb1f0c6fcf21de3d8360900d27206848ed12136c",
+        "2": "b13732964d5c941bfea0703abb1f0c6fcf21de3d8360900d27206848ed12136c",
+        "3": "b13732964d5c941bfea0703abb1f0c6fcf21de3d8360900d27206848ed12136c",
+        "4": "b13732964d5c941bfea0703abb1f0c6fcf21de3d8360900d27206848ed12136c"
+      },
+      "decimals": 6,
+      "element_coarse": [
+        [
+          "9655150594e4335d37b93a0df6e3622e6d028bf8487f19c4ff9d272766272aac"
+        ],
+        [
+          "463e36c727a483e3a809731442ba6f03918ad67b9854830c5eb576ec66b8ab8e"
+        ]
+      ],
+      "element_coarse_any": [
+        [],
+        [
+          "b98a862efcb286bb2e692caa1681aecc1919e96080ca437841dbe613cc136457",
+          "a5665b408182de129862b8b73472ed21f6d22bb04d2b61cd99b9ee21a7a6005a",
+          "b11f09f3d6cd6f1f6217074a33c6e5f20eddab088e7632974fed8f1aa5b576e4",
+          "582bbb506e6772d9e7b4f3411a1f5b13a02710dd61a65173705dc498de8eb37f",
+          "59daa080c11ebf4008c34a0d401116da95e3fb9e5e35e3cb6665c92319ea6c25"
+        ]
+      ],
+      "element_hashes": [
+        "5aac3158697e982e9cda2b3b399176b9176b9a7f3b3f1004d9859cf208a11643",
+        "c457b10835b03b0485aef1350b3bb7a01f333b27118e7d82d8e52932b492903d"
+      ],
+      "hash": "992ccd561b7784673cfa84e416b15bfef735b87b03fa3fbf95789a4a549cd831",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.18b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "ee29505135e9d79a0fd7f2568b2831cdf2cfa2d959f09da539c31481f3a6a05c"
+        ],
+        [
+          "33fe6b88628911a78516bfc10a6a44f5e6dcb064269d058ab4c584c8938a1acd"
+        ],
+        [
+          "f9fdbccb4d59ec0d926c73d056ba0d57916c0d7218a1035e73e5705cc8389bb8"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "3d65ffebebb83df187da5dd4105e55c6fad40fefb738f8f718a20bfb2d044e9a",
+          "1086fe894b6d2185af5ad371b32cdc27f1bd7a4ebb882c5179ee769ff3f213ea",
+          "20822530ee348a00ddcc770ab450b65dcf01b07d8f95bf7d2b5f576e6901c0ec"
+        ],
+        [
+          "56c5198332b4fee362089fe2a4a44cea26325cada6eb3a3f0c62bd9552b2d1ab"
+        ],
+        [
+          "e14dece0618aaf06c044cdfc330c44c7304f3974a66c74a1782a514af8a66dc1",
+          "fedc53a9d398b03443f58626f2114cc9bcdacbde5cd93691f8bee734030db81a",
+          "914c8db5de52eaaef3a16da4fa7570f51694a33ba03a474ad03b26c009a23481"
+        ]
+      ],
+      "element_hashes": [
+        "7bfb25da1e4c47022a65ba91d7e7fd7e515a3329ec8c18c57a276cba885ae752",
+        "adf7b7d9f9d2de8149b2d5ca4aa38b993591b2a44b214d246dc13646b007dbd9",
+        "9db66a08bbbd26258c405fa5f17dc95852ded9850fa1d78f542712a3c4cbeb52"
+      ],
+      "hash": "4b5b898f9141cb94f4189b3876690e7676cc22de986260ad96a55ee166b1c0c5",
+      "kind": "array",
+      "mistakes": {
+        "bd32b43af058315e61387d52df6fd4cd3579f381ba297942aa1c2d182715701f": "b) demande l'estimation sans biais, la moyenne des w_i f(z_i), avec les poids bruts (pas divisés par leur somme)"
+      },
+      "shape": [
+        3
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.18c": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "3dbd2e1f1506779f0c8688b60f3226f841094e1832c5d95ea3ed1325d1b7a3b0"
+        ],
+        [
+          "30fe6848cc1675f9d15463946fd8bf0029f143345053823127665942bfeaf579"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "9b475e61f9c30fb0c6bb5a81dba9d88dbc87380f18aed6e4ca330325e9a2322d",
+          "dea5bebe76a0001a941e7416e141e5fc171b1d08c55084c3aad6d3dbad9ea045"
+        ],
+        [
+          "a74b754cb0b48e7f558ee3088ac7492be0b5447dcec4be992811b232c3b32aac",
+          "35957a50ddab5c48fb768d2f3717e5c750ec34bdd9d2dbf01d236b08de1f8211"
+        ]
+      ],
+      "element_hashes": [
+        "03d2ec15cc12956ae204994863b5b2423dbe803d11881ae0c704df2a7561c6e4",
+        "8255d1940427730bb1d110f0017ecddc76e49ca97f2d10f835da693fd751b61a"
+      ],
+      "hash": "ffd16a53fcfb0e89fe1b02150c59242365e956504073ea19f792205b1ae178fd",
+      "kind": "array",
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.18d": {
+      "decimals": 0,
+      "element_hashes": [
+        "2e95c6afd7452e241926b5aa31279f8a0c66582e656bdd83577736b0d97f3261",
+        "9e54d9f38c11de3e6066d596e82cbdce1d67374e72a49b9ee2961469877414cf",
+        "0d7dcbe876059c71f1698a206ca0c3f61aaa3d76464e7d035f15c8099b6cfb13",
+        "fbf3b9cc64192f011fb7e0d756c8acfdde80c26ae4581b1e8d81f392528e4846"
+      ],
+      "hash": "9916cbf19220ca8c803b24e839206f51402467bad236578f6bcbabecdbb53802",
+      "integer": true,
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19a": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "01ba1433a1ff9aecb4dbe0d5c10080ba2f28b9b1bb6ae0e1c60dda8aa0c1086c"
+        ],
+        [
+          "7c093e0513c73ec4fa6799fab4bb24fecd21815f94cbac14dc9d0e2f0227c451"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "c6d911c6555f812ebf0cba7945a830801b333b43327f19adbacc0e4a45dae5c8",
+          "1973528c07afd452f677503f5491a8d2b6209233152c310bb6e177171479cae1"
+        ],
+        [
+          "af76aefc3f696a536602447dd47d3e3ebb3a04eec35aa90bcee80f1a624da883",
+          "839d00393290250abffc1782bb017df3f499eba5e14a01df60e0f935af47b45f",
+          "5d525ac6600bb204f7dbfbcc0b8aa72a7fa9860eca6d9c170313a2f8caf9b457",
+          "5a80e68c618a607c3cdaef00f3d1e2fac64f4742f664eec0328d643b5f821b0a"
+        ]
+      ],
+      "element_hashes": [
+        "0f1ffc03a2aa93a64e6b57f9b63a197bfc26e12f2c9b76646b3f57e9a4607c63",
+        "c6e8318b8303a66bb6b7c4441f13a0e74e68d269ef04619154ff1ba20efe7b56"
+      ],
+      "hash": "5dc962ec0a8fbc2735bbd886d9d1957182213c903261297561f32b7128f32fc2",
+      "kind": "array",
+      "mistakes": {
+        "1d90052691c060f939a62b94cd05276f618b5d50ecbaa254d47bb1a7547e6e0b": "la version corrigée d'abord, puis la version fautive",
+        "a29b94ee6da98b1c4259485fd2a1e7b83de10ec808b8a84e49e3ee0714f85a90": "le second nombre est celui de la version FAUSSE, score_exp_bad"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19b": {
+      "decimals": 4,
+      "element_coarse": [
+        [
+          "e3b1edec141c98caa5f6bddd2c1d4c1a4420d50d67aafa6b2e75d9a02311c71e"
+        ],
+        [
+          "32d054eda39fe32eeb161e3fea6192ddd3b999bd1f2b67ab457f48ab9e30739b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "4a440f1af1f0d96c8db1394da29a4d245a7b564e9725ae228bd4054d6c526424",
+          "f798f14d8fa8161095a93862c6542e078173fc100a71e0f0053ad3e260f061de",
+          "8db987fc039b99dd4be9fb1a53d58b6b2d1054ca1e928a7a7826fd8efc84709a"
+        ],
+        [
+          "491ff9bb45830f57e858ce647d2b4d6d640ae94cffc93a36942f476f01f107e9",
+          "51c038933a939153e2e1781df780cce4864361189b90fc7504c29e61bc830836",
+          "412853895aef603b3531a386b1d0d5caba8952383d7f4ef1ed2719ad68930146"
+        ]
+      ],
+      "element_hashes": [
+        "9aed899802da81dd4ca25168a95a2218be35f82789ab3309ef3ba2ec42ffda73",
+        "5b6e54a7b76197dd281b6192279249a2b07065b99cf4c7487351f9bdd6d3a0df"
+      ],
+      "hash": "2c4557bc97d305c9d4e83bc0ec7b03a57fc0a5d5e841c55640ac9bc4d2d47625",
+      "kind": "array",
+      "mistakes": {
+        "547eb62b3893d96c0f78ce2b03fb0586a6e3721f08f7a60bf456fced20ba92e4": "la version corrigée d'abord, puis la version fautive",
+        "71e8f3d0225b6e0a9bf8374299a020dcae86b7aea236cb8c4bbacb8b461e22e8": "le second nombre est celui de la version FAUSSE, weights_bad"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19c": {
+      "decimals": 5,
+      "element_coarse": [
+        [
+          "6be5f4020a750273e6bbb0dc9a7f51857e753de6771a35f3de86d6c304f9b04c"
+        ],
+        [
+          "a9a9d2c2719b5c0b1d91552e4d56180578416c67cc70f375fd88e6588cef6f03"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "8b9355de4e29a9f48109f805c724fed16a39ae4d64fe8bc53689ee78e828fb4c",
+          "968a95d7181b435869de049e283bda93d3b985a2126c0b1505c13a525d382c56",
+          "2888281dbdf94f3606c2bb28a88578cb9b9c8ee28090f3d01dd7133c784dcc67"
+        ],
+        [
+          "6f224f638a5a72554148d54271e6a554b392b02c87233813a256283ba9c2d85a",
+          "f95dbafb587247ee3f161a11eea1044f75bea0080bf01205ea2fd663871e9c6b",
+          "6888cd9333523d759cc9e3553a106c15ec9edcae05248d30b59cb8c85732ffda"
+        ]
+      ],
+      "element_hashes": [
+        "ef27639c992da8cee9c43558ea4b0776029a02877294879095930c6e81d9aa17",
+        "ef3c2b34d8fb042f88a909ffabe066317beb24f3a1a41e2c00b5c5181beb5dbf"
+      ],
+      "hash": "7be20ad10f9b973d496c05ec24440bdb4a10b53be13c8e382f5f18319fdccdd6",
+      "kind": "array",
+      "mistakes": {
+        "0a1171d18d4cf8498fb8d37337403174575fafbab96780b5c426ef7107840d7f": "le second nombre est celui de la version FAUSSE, estimate_bad",
+        "4baa6329fb2c85a97e71d9406c7c1cbe53400c4b6330d30a0d99043e9d7788cc": "la version corrigée d'abord, puis la version fautive",
+        "58ce24d7a0380e8ccd8171eb9035441956c35a2e1598576db3ef479c75fc73e8": "la moyenne des autres tirages d'un batch de n tirages porte sur n − 1 valeurs"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19d": {
+      "hash": "7fae397f7116b7e32e9307d3a529623aaa6185060a87edc53aed4997b0b27ba0",
+      "kind": "str",
+      "mistakes": {
+        "bf2c0d8a411cdb45920b5631ab39f72c48e48ffbfd80a3e6eae37c395f0f42bb": "avant l'ajout de B3, puis après"
+      },
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19e": {
+      "array_rounded": {
+        "1": "9469bbe5f1113443ed57499897a9583bebf1e4d9355bf9bb43bd28701f842c63",
+        "2": "f65de92298e5f50eeaa589adfd311002dbc97b41cf7d00ba286277fc624e9521",
+        "3": "bf779ee42fd658d20fdf5410b5ef2c76af24df6acee55a3ae72f161c5dc74cb2",
+        "4": "e2b30c907db3f069113eb187bf26045aa13ce199024c66492b8f61f8fa5b02a4",
+        "5": "c66a71f288bf977bde8e62823c829cc7e69882308e801b3ab48e7f23f2223831"
+      },
+      "decimals": 9,
+      "element_coarse": [
+        [
+          "f6932e209fbf44e39798078d20d51421336a563589c00b699493c60fb7e99400"
+        ],
+        [
+          "d785ca731da349b0cb5a35421e635f8d4363dd5bca8d7075946e2e5a7d646d82"
+        ],
+        [
+          "ab24fba34e0a3849896cb9d66bc580fa4f1d165d88a3908962e853885c642db7"
+        ],
+        [
+          "76ac745a490fdc9c5e9092b8ba22e21294301cc3c576b84f16f9b422cb6d6aca"
+        ],
+        [
+          "6cb45b70f157d0aae36e41a8925b6f943ad1d4299e3b22e9811c49b4cba82ed8"
+        ],
+        [
+          "080181d11e39843421381eea8acc3daca5827be5add670b5bcfc39c0b6028a87"
+        ],
+        [
+          "3451960ac77d9d974c0488969e515517ae9c43f135f581590ce2ffa8e2f57d5e"
+        ],
+        [
+          "138d45cdee26b2f34467c3945b5da4bb34a92a6432bbbca7f593dde1fa0bcb1e"
+        ],
+        [
+          "ddebfd9af9694c44e857151eab081c6b90abd66b3375adb55934be95c81bab0b"
+        ],
+        [
+          "5e848fb3ff19421ac98fcf5b8d5ca960e0bdf3605854b28b540981c053c984ba"
+        ],
+        [
+          "4ed770bf1d0766aa56fa776042fb30310f5b9d4d48476fc54668cfa10ef25e8a"
+        ],
+        [
+          "3b5d13fe0ad00bd454f01bc050318a0b3cfc2c25f65fdfa766fa3130ea878a3f"
+        ],
+        [
+          "503a80ef7c2e198823dec3956b7e234e813327ccd29079245217feb8ae3d5563"
+        ],
+        [
+          "b042a5e8811388153e4f7527e4d7e919e72c8c6971bc5c80719351400f737584"
+        ],
+        [
+          "12ad2d7c29a31e501a6c433bf95d9136a3c6f8d0cca03bbea3d28054e3b62c8e"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "51b5f58fd4d1e5196b24287053dd1cb46995c9b932754c3fd1274d8a725b6285",
+          "ab528bf2e4105a728b40bdd1fca3150b6b4ff04cf3c72e7830b402f40ed51834",
+          "c31114016faf4e87a9eab0aa1eb5fb7e41451781b80f8ef5e71c19eebb293da3",
+          "3dd547073ca3c8970a68d382b313959e8da021b3ff8fb7f1233476621a0bb096",
+          "901cc4b20c82cb845b8ef8110e30224aef1b8eb9646a0c576bc89703292da77d",
+          "1aac7b5e5e3aa9101ac8f36db39c86207eec1889402c6e1ff58404690f1bd25a",
+          "0a8d87e471e9a7599dc325ed1224e9ce71b29d5c2101a4bc1bda27ba41327359",
+          "fe5e919ebde92fa40b8ef6c5b770db788c56030456e6d30e4c575eac3d9a6d79"
+        ],
+        [
+          "afd44aa46278dce8230d3f51aa926e2d7b3b8009826bfa22371d80d498e5c687",
+          "b0665df9df723fcce92b368d1a37ffe590d5073016e933bfc20e55ef2fcbbcc9",
+          "5c80a44787a317888f4a591300078695a1dbd7495d8a1e5b9ba03e18686e3d0b",
+          "de3a5224c96df3750a3ef44d907d721332431c9e8e72c9b031a329951d1ea147",
+          "2d0a3c2a6e4c94e36f85ed2397904f596db3ca46f4fea482b0fd403823172027",
+          "cb1df7ed917e186bbe89728942a5e81c9c16b09964890851b333e41f1d786783",
+          "44a097f74557d0390113fd78820f79b1c3663efb5ace0464dfce9f5dcfd944db",
+          "f16cab85b3ec797821e7aa1758a5b7969f1dc37aea3da0e8ab2e2c58a1cc3a1f"
+        ],
+        [
+          "5cde697d9d50e055d343d47ebab7fab34e1cff8e83c3cadd2d938c5e40459d33",
+          "2002e11f5735f6e112dad716b7b2a65f98336a83fc4a30d317ca17d932475ca0",
+          "61623707e485955fd4a0c46efe210b4b448748ade884b7a6a341368f63ae82c4",
+          "e4eb37afe226192e0eb19751d1fa8e7e0a518808adb63c7709332d1cef6947ef",
+          "d7a7d73d515c61c9da56cdfc6a7117319793d8a7d20c7d8ff4f53627673d2cc0",
+          "16f1a201470383974e1006dd455b4b9aad06efbda8b399a5d70e6aded667104e",
+          "dd4095b14620c3be115f6bae803292c0c69a02758ec88bb51f3d56e53ed22bb3",
+          "bf50edf3419afc70626de3c43abcb17d32425a4b5862e5d8afadf342bcd53727"
+        ],
+        [
+          "d9a8af2ca4b698fe4224409cb63678db7a92ea46510b5fa1e59085623635e0f5",
+          "fe12ae341fd1faabd62b77f3f6d3e3247bcfc77a507fc4fead6bad7f51cd19eb",
+          "979e8314fc1ad9633ed92fd494c8585bcf4b15ca7e83bdbe377a1ccb3bc2ae38",
+          "60d5b24e61d3a1fe0be8660f8d8c6df2c629b5391fc60c9a6010d60f62ba2a72",
+          "3ba97501a821d1bd30a09a2a3b089d1715d6a4c1eb5fe090b4c3027040ac4cab",
+          "07fa6dfa0d16b4ee8023db4e4fed6f194edd2bec166e9a8ae3765cc699fd9642",
+          "4799175cd25574092d6fcd5224094c14fcad357f12e97d39b3053f002ca9d533",
+          "0cedbd59ba8c8894b7f2c11da5aa7621a25c9b31d083f8e17397be1f80db9a25"
+        ],
+        [
+          "cabc8aaa57ba9b98e81fa4d135f997970672abcd638da285047f736d699c1d49",
+          "139c64fbb8a50db9c3a4dc583fc83348932b3098bbfb0844679de928d4e3b3fd",
+          "a90cc92e40fdcdaa4ffb7efa277a275e127d32a14614db2c09a35f40e88a0859",
+          "ec4f2adc9b77490becab604c80f632dd732116a607ec1f9c48e2aaf871b415b8",
+          "0bb85f572b8b6f119ab9dea1cff7a86a01cda7f25d5b1b344f413f68d862db9c",
+          "f1261cfd371c4934ca60daf2d90eebc09e39af2a422e0e0f0559604a1100c386",
+          "3f20b9b4fc5161a8e18436bd76ba4284b63b29005b00cfbd1601bd9f3b518868",
+          "04ca0864a1c261df927dbf50030b07791b18404a96541dd6225ec0945bc7a887"
+        ],
+        [
+          "09ee5b7b5092d41cf6f510935066d321dfbe31ed866d2b151fb5f8726966803b",
+          "f04db7895ff94124455a815365b5c7006ebd3820de7660d13e9299f8293e1b94",
+          "1f6dfd1f59a4b0553511b837bd3893b3cc7a3d0159adee00aedb00fdcdfba233",
+          "7622dbf0ee1c108f35c9320bb5b2a908816e7926e85e5e69184e3094c81d4f85",
+          "19689e489947eeda6f8fd0d3d3dfc23994a3c2550448c127f506f5521ba5504b",
+          "bd2c54480d6c567eec3eac1be1c117950888d484edd2a30eaba5e4d16d4d9c67",
+          "326fa8b7c6eb9b9734fb03653b840436435a891f78b11eeff76063c0d9e719af"
+        ],
+        [
+          "f1eb2b3c474ef9b23020168637590c3b08da089ecc91a983937438530842f752",
+          "b2c29bd94ed3b6f00f2e2a780d9446f6097ebd5db62e91af09a91e552fa0b699",
+          "6ec0ca70740ff399e4b28aed05adfadbe171a0bf224e620c74e169b9972ffbad",
+          "7c12b4f4e57ec7192eacd09919a68c183d995aa1b49d360c7fda36376e53160c",
+          "af0d0ed6086bcc427370f957b15a4560be9cf40237019ebf332c602720fda735",
+          "fa88401fe6903b1224897d1cb89b79da29d81409e0c1cd85ff581d8e88a1fb30",
+          "ef1247db06d9313ce1ba8f402504156d51786c16464b3a6b3651d55d72d5da47"
+        ],
+        [
+          "c791f22cb5ef0a1f07f76d74af2edb3aef9bd29a42716b4fb2ad6ba72b5b00e7",
+          "071c1ca912efb5e06b6dea8ab987666c4383cf187b21b39f766eea7d2e8a5d3f",
+          "5f96f0fcbb5c2b9420ae94078c4e43cd55910d5ba30e948a831849570400678a",
+          "49874395840c625c0444e1ed204e071cb53b9710b0f7b55a432fa117e82eaeb0",
+          "5dc5118745d0cc6f23b1fafd4d1aebf724c8b10e5c30bf1bd7e99d5a789f1057",
+          "3c4c13217b64925f5a377e1e318396b86633ce272e0a7bbec2a73070923f415b"
+        ],
+        [
+          "75ef222484c675cb5aa45d399d070975f14b02710eb9c0eb965fc5bf17195d0a",
+          "13208eb69171225ac2a1898049dcc78e93f6b766132593080352d1c98d94c924",
+          "66593c117bec7f25122f74ae2375070f1c2afea87181956e0fc89acc7cf4317b",
+          "577995ab3a4fda72b8798e0d70369762e47e2a443503e57bd6fb224d11279f14",
+          "7ed9635a35341411108d32e62e1bf78d6616ed6b2554fa9a313bbfb17fd1057b",
+          "072733f1b847a86336b488e3c0b28bdedd3d488dd52b88fadbf2bc875f2537f4",
+          "ba06b5158a10e1a778498b85f1bb24f6dd270a4c043340eae9945e377f9c5d31"
+        ],
+        [
+          "2796f6a9bcae1328f59a480a6fab61e0d31c17a49a1f7983c82ae502fae1af28",
+          "a486e51c959fb100d6538b515391b658f6eee474d1fcbc893d0a50b61ec98db7",
+          "2be1afc2e3ba59d30a006c6f9c8878d975d142a538701346501eb91006b33f35",
+          "238df1a97b04225ffcf4823558271f6cd42137de72f23d5e829d288f8b32ea28",
+          "1d03c301a84b032ddd7e08f6b42e87470ad99214234a15953b435d281f0c5b6e",
+          "dc4cfac806d0b3c06d1739ebea22de4e54632595340491ecde1a80aab1789b2a",
+          "245157352d6466f5f23cf170bdd6cd428327894bf1e97836bb575e2cef042894"
+        ],
+        [
+          "9c4e95a33ff373d3939290a2372bfa38ac1bf15487fd6b53890b473445060c3f",
+          "43be8031da4d010cf4de564db78903db405cc78bf42cdbee1e2cc665e6fe909f",
+          "328da43cb02a76977af4ff681d357ef9b3eeec07fe1f4dadbf7431eaa1c0e718",
+          "ffddcd081f9d284db3a4f293aa21f5a500cef2187ec71bf0fbd3b9204c1bb553",
+          "1a7e95d213f54bf4da9cfbc0a6d49b07a15a516ea78c8f396b71804a27ebaf82",
+          "7bab9bb787140cd2457f2940712f70269a96a802801159aa5bb88003923a722f",
+          "d8e74b387afb35264c38f357aa615b6a3f6e9c69b60fa761c77946430509aa4d"
+        ],
+        [
+          "6318ed3f60e4f73086d88a02a3072468d8a9de6fc1e6e13e1525e666fb0b8aa6",
+          "385f900fee92ce890a82fb1406ec98eaf1232f6089b46b5c010b8b9fd5521a97",
+          "5fdc84c16c8fb68c93450b145efb4199e8082c2030a3ba6abb5b0da8b86e7042",
+          "3ecc5667ace5e188f7c5339c08bc9ddb9558bf1a07f87aeac845a0000fccf291",
+          "2dc42009d69ab0ad1b1d08cce961a357e8a309230e8cb1054f2b91ddb4c3b79c",
+          "691e4a46dcc86771f7a63fff8e1bb15c745d7572e36d76e51e78118096c49e24"
+        ],
+        [
+          "b376d28d1e86f40321f279006045013aa5a88007aef29c49874fd2f636d75ae6",
+          "2d6825b4ffc76c39de6d8e30314f6ce2fbdaf967ec6d38b7650607101fd65e2f",
+          "fbec760355f3ef1a1bbb9877a82756f037eaa82f0c78430001ba9bc7250d6f5d",
+          "2a5d2bae2b416b3be3774bd23c9b693a559e1716ac2015f7283aa984cb055d6c",
+          "977edcd92ddf369aea896f24e3d4ade0a26632466819b116fb172de2cb9f747c",
+          "c3f7dde97b0c395d7893ca24fbdf33d003b931e73e9b80ba5e2cdff99b40f75d",
+          "7fb0442161547c0630a6a9219bc98f2f767c403b0436c2382cf6e66c25a6ef51"
+        ],
+        [
+          "66e236513716d1f8a14ab62e1fae7404550d288c9bb6a564a3d8b2363483624f",
+          "996747bd4979891720d58a6ec3f0b1a2a56480e3e75fe097eaef95934533c4b8",
+          "8efc51b8422c4c308451d6cd41fe17027ef7e9a398e7204a7d4162d9fafbfab3",
+          "b1eca3223cc89cdc0335c59a276d4c6904b7282cccab2d9dd68e34fb0f7da334",
+          "49de5e37578eb739bb552da1cf1d2643d2db16388b45c970e7c0a25ebdca911f",
+          "89a8eaa9bfc61c9545cbda103ecf644f8937a889a429bee56a764cb7aa565043",
+          "ed548fc2938fbba7d30ba7b1780b1fd5773aca4f9cbc14677d8f3af013b98007"
+        ],
+        [
+          "edae8e319fe00577b8e9f804642e9c2c2f34f0b6347b1433a91dd148d202ba27",
+          "6703653b6a6afdfa342cf76ab04fcedd47494b795338453e619410c61938ac08",
+          "fd7ae95d1b8d9900f5e4ccc3f5f48f345a201b4624d24672d8e549ae5204f19f",
+          "8888205a291ce79cf6efbfb51ab8f40dcfc6f8df3250f97929ec75990deceadb",
+          "91eb2158e80862728c86e7d86302526ad31533c074328a0d1bde9e8e4b46fee8",
+          "d2000f375cf282bc67be7d95a17b83450cd20a74c312eeac45ac62842fb33623"
+        ]
+      ],
+      "element_hashes": [
+        "a31f28af704983308703e0988679349f75bf046f5cd6967f7d52ce9b67898f98",
+        "b64c7f83d0de22cbe4adc2f8f1e9048539fd5070faa1a9ac1331dc2d16dc58ff",
+        "e6fe7e17e2572d69c038e6e8d9f1879f9fcf4886543097e25231c42f896ab0e8",
+        "481df63e6142d3d97dd3c739b931abd23fce871786123239a4f477fb25fb8168",
+        "cb147198a0f8b626a17fd50f6de2f2c4b4d2a6296478da8514dd68d6c34c834f",
+        "826582e92a540fecc1c0d5cea7c393f66f6f9c6d625c21bca9af13ec6e64f8aa",
+        "5de2381ea85af158a6da7a71c83180f33e374f198b5af2d5565b57938cba9b5e",
+        "1db02a17815eb5b0dd9e0e53e29add110768ab387e3ba1598e23e7127a1d3f66",
+        "8bbdfbcb091783ff79d5f1d3e43f78412b74e298b571bd20a5fe30655f729868",
+        "9a6cd40aa77973016eeb3182dcdc23bd149f9cdefd944791a7367bbc1d82d9f1",
+        "4ca42eaf3935be2a8fe356f9803febb7b99f1c9f8e008c7d327ed6c4dbbc8e8b",
+        "407bb81e3216a00f0ef6209867857dc6494bd7bc302dc24dd03b64f17e93b4df",
+        "a13be458a741f72c7f6afbec074a05add5d69b2f190f3120c746b6201baeedb9",
+        "edfc7786b24d7db5ec6a199f75ad9c9a657af6bfd54bbabfeb7d6371adf609c1",
+        "423c2dbb78dc09d586e2ae3170b78b85f165b17d5c99da0bf09356d8f6ef1fa3"
+      ],
+      "hash": "1d255f54982d32603c8d3a6551d5366026f0cd358cb5e4d86c4edbc3cecbd043",
+      "kind": "array",
+      "shape": [
+        15
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19f": {
+      "array_rounded": {
+        "1": "c88f96cf6b5255821d981f5ccd8371f25383f081c02cd4eddb2ff80cd139d25d",
+        "2": "23894313e1e5b79b13dc3030db9bc2f922d0f4b7d19c57ce5aa443072b6198af",
+        "3": "525fa4fb2698353ec0caa7fb6fa34e0f2cb11d516b8d9ffe32dcd8d630925427",
+        "4": "04c523f93cf09183525b603045d9478b96e40de102ca72cd8096cabe5d32f1e3",
+        "5": "b0e8e82bb80790e88295ddb385b86de3f2fce9b6851dd24864183036ce558cd8"
+      },
+      "decimals": 9,
+      "element_coarse": [
+        [
+          "62627dba92bd3f40301f16ee1f6473ce2b861305f76abcc065c726eaeaeb2db9"
+        ],
+        [
+          "d44e2b36f56aa5576b3f0a9980f553f5cbc3ef2389aac1571cc2790f10aed99e"
+        ],
+        [
+          "54bf4e5d435ba2fda0ffb787f6302ed6367a711a59d76ebce8a28c876b8ec6c8"
+        ],
+        [
+          "e86b914fa32ef3a68ec168f2c4cb8f87bdf1e2ff19d5ceaecbfa334d5039fc8c"
+        ],
+        [
+          "8e40b4254f76c952baeb7d01446d24cb65b03d133b0511f40ae9656c59041cbe"
+        ],
+        [
+          "c3feec8e85f7264facceb93ae85534baf97edccffb1701e759f717ca9d369384"
+        ],
+        [
+          "957ace31d3b924e2735a4405ed752b20dc4b9d241e7be776b27629e291ba31fa"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "1a0fd96c3ce35ea3a65d2b101f1781a24aba9cea622e97af26ab6b48c1e5e8ab",
+          "c162aac56a83bd534a4a051384fe8580f7a8b997951751ae37fa630b3e5ff836",
+          "552f96f8f562fca2cdef12b794ac1ddf19089e77b2690067d125af90ab69a1b0",
+          "5c43e76b4a4ded116e5b6ee4f7ea2ffed8232178663503764dadf873fa129b01",
+          "77a46a0dd0a60d7e97ada42efa0092e5bd65e6f73e6b54b969edeffe3dcb2449",
+          "f978864cef496fe94512492ada5eac0e6288fac3f05ea1934c8f2f5efc90cfe4",
+          "47d5c883a2c7c4e8ce0d74292157c753ef037e810098654893d0599c55ea9e73",
+          "5e795ec089e2ce37b36466e58f5a86592ffaea690fc28bbc11baa1480a08af62"
+        ],
+        [
+          "5f3a5928790ec330d7b06020a6d6e3edb97aa277e80ec57d5db3222f8255ee92",
+          "7784457ef9f813729866d7f7aad4b5293bc9686a7715d3d30d311dea2dcfd1fe",
+          "e1457c6dec8bf7000c6c501f18b64582369f13101c6284522d9c8885af843bdf",
+          "3a758b81eff2e3ce2846ed887713f0699c6461ad12a0c416a0d9536f251837f6",
+          "df13441af4c76ea705765e68cf97aeb49c8aa0a3c0cedd26e4600c1cd89c3cf5",
+          "dfc4949f2b6d874d05c1bcde35bec559f2254f4fe999b9566f5daafbc3231c6f",
+          "c3a4c344f3c30da3b15e9964c7035e1c1286d75f061fa38fda1fe9b95af84a16",
+          "1c2b5b96ef135e70553d47fb6fef84d6fa1fee70be71c64651d534bcb39385c4"
+        ],
+        [
+          "0661d037c0a648eee10614bd1d691162a3c92553bc8b95d2eba67bb7d0f9704c",
+          "627069b6a0262aa131ecefe238241439060a11d4333af75cb1364f1149057819",
+          "34dcd4ba6f9c1d9cf96ec3d7408cd36f0d88f283b83ae92afa0ab029e97f01f5",
+          "d420ba4f39aa59644fbd9e4fbf163a6425ab64ac32d45831eff7506c8c1e0ebd",
+          "ae69b18c7c95c65075e7e218f7e79d447533fb2bfa4ad2822a6b2f575ef0d989",
+          "a1c5f1fa443d9789e2b7c558056fbe731439c525ff13df51d5396c8833528d22",
+          "9d1463708a23d89e5ed0f385117c081c660e5c587b4b5d1dbc0275328609e479"
+        ],
+        [
+          "fdef862342ae802a13d4dc4c7a1087dae04b45a349bc609a0c24a3bf864ba7fa",
+          "b71eb15fa64938334147795c7e4d1f062009be1edf5d1307e880ac86f0648bb4",
+          "867ea12229defdd526c9b4f994314b7f4a91bea4e57c40fd31b31cbdcf7f6621",
+          "e0705f2198927ea9ae89838d93ad5cc5dc3cee1f66df7b1fc095623d5ad4875c",
+          "92cb1d52cdd88afe56998f0ac936486e9e5e8b694b1302d3c0b4c98b4ea8ed7d",
+          "e4bff167317070c50f9717401716197f409ba28f367fe94908f56b57ae9b4379",
+          "92e6af04f7c795f52b9aa0650b2a969c542c3e5394bff2dae750fc1035739acb",
+          "32a8bf9c223581b5dcc278148940ff315b41cf4eaac4722dd76ef65d14278c58"
+        ],
+        [
+          "d495fe69cac8cc1a2dc9f42c7d7d50273c1b233996cc3ab56b021c6f6defd2b8",
+          "514cb43c52c832795fd973388872b6d5da8a28c4f0ed1c04a4e6cb3696892ed7",
+          "8ec600a45f7dcc0533da2f4fa83a4520c83f6a2dd38c280ca2c01dcf7cd93716",
+          "6ba9aca6b7e725f73745a1ac00d462be3c452115f451e4cbf7787ef79ecd0dae",
+          "38ebe1274c7ee6d4577c9eb9b072fe980cfb381f69c20a6de93eb2a8a1a4c6c0",
+          "f67cc9eeab8f146c633eb4dacf662ebcfc68534ac4b33ef1dfc995ceca3e7035",
+          "46676b62560cbabb1ac5062c27f380a31b2dd6e197d83b6ea6431c51f911e844",
+          "89f7cd493090b7382c8227c1b583ce48fe8b062326e543fce14f9e8242b69e84"
+        ],
+        [
+          "ad810d0d7410d041420365c2724bbd06a664263df42e730d613f543f9e857978",
+          "4288471db6e5922f3d52cef8d6c1fc388b4e21de7d426df03e5a5f40db990404",
+          "4bfb15c3ae1b098b0043d987ddf492bba03d769c942d261a264c49c3aa4abd68",
+          "fbdb89ea1488ebdcce3d8d87bd076fe4261fc1667752d30c21f4b89d3c4566ff",
+          "6d54772b1f191e1dcf8c5c0200ead622e91abb922d00409a7c3be4c66ce4263a",
+          "32054bd465076b9e8ea087f3a1c021227146806aa1dcebc9e7fade16ff044ab1",
+          "d0314a6811c8faa9668295c4d8e9c692098305618a887ace9adf4ae9b1c4b410",
+          "934fa01925fd447d80e7648fbf15dafb22bc5b16b407eec070d6949d924e0f1f"
+        ],
+        [
+          "3b755d89c35adea3a8f15161127ade7a1298ce6f6fc44dd1c5572086ebdda8d1",
+          "ff6e9100f08e7c2bac372f26bf1a014493b1902911240566cf5e78bceb5b3b13",
+          "ed14a31ab77d6ace99ca974b57dfa3e412d0f5d084782ab696a6fe927392290c",
+          "c9a6b390a935c399cddddc1f822b94577478c5cd6336ddcf669177b62c3636b9",
+          "4c356d6006e77390d48a8ff47048f6d62fb1f462a3843bc67f687fae61859df4",
+          "63ab5578ef205dc7b664e3fd5a9abe7ef67b71e30fc31f1e19bdecbf2f3da46e",
+          "5ff9bce8bed791e34509478ae247536fab822b7116c88db7a91b13057d141258"
+        ]
+      ],
+      "element_hashes": [
+        "fdc6cc7780f3c20c2b388e7ccc329c92915b370a4790ca552307ce70021f6e1e",
+        "36ae4d0a72e3afa996ff6dea154c764b5c64e30545722f59feca23863106c630",
+        "4e4d206f148564edfe1cda36052f064df1d0df89b9c5a535d29ea7c273a1c86e",
+        "2c2d88faea49df3021a6659cbef8113892507bee1a7252f561c9aca1f6a95190",
+        "38ce0271befb01d2e4ae49340b251040a6db04918d727bdc7d60dfe099f6a4f1",
+        "f786b5eac5d8eb07e6d04ef165da2cd7bd564bb4764e3bd2278b63330841cc3d",
+        "5d278429bc94ca226051a355050bffed6966f75342354f51d3a658c714b73c23"
+      ],
+      "hash": "b5873fc1b948bc91b5642b832fabdb824dae2f833acbda1d3565b623164a916f",
+      "kind": "array",
+      "shape": [
+        7
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.19g": {
+      "array_rounded": {
+        "1": "dffcbfaf66e10ceff0c93fc65bb8a7edac5dda288c98b0ccde412da3a077c3bb",
+        "2": "a3682218b363e17a1f3018d6eb5382f052a7ef5d6fd2ccf35943c326dec51053",
+        "3": "cec96e38049368e108b5789de6bc0eedf634129b13d3fe3827d7fb5eb2d32e6a",
+        "4": "fcbad6fa0214985708f24cbc3a66ec46ab09882c671df7819dbe6518421da8b6",
+        "5": "4029904380e61c6911c1a42f4d8c3dd3fcb450f08464499892c6599bbeed8415"
+      },
+      "decimals": 9,
+      "element_coarse": [
+        [
+          "4817c93de4c676fc53c8286e37f95458494b23a1cdef7e3d60056a7fe81146a9"
+        ],
+        [
+          "da8e3a0d94e9534817f0727bfc58f10e801d2a285ae45df60cd09d2d14b380fa"
+        ],
+        [
+          "614359c61bb656bda500cc3d20b86f3b455c5b9b82122e0c26c501ad9656912d"
+        ],
+        [
+          "41d87a121b5cf351200cb5da58ca711c84553ef36753522d2e54be577c532e7b"
+        ]
+      ],
+      "element_coarse_any": [
+        [
+          "f454a2f07826d33488b12d376329697261e3659a4c27f50649f1d9eb71a789f0",
+          "a037a19396f5251f655448e71b64bc9e625751ae015cd8f64d64f90b70e14875",
+          "f29e8872fa545c442d228fb4f29da502b798063632cc37d94f07b09a521b0cde",
+          "a066b825e6cec5239f703a0a25422a46a576069e296e668b79ab0df93aa324da",
+          "e88602df09606fb1ee08fc7ffc0d834454d6f7e4f2c619aee96cd39c1090c864",
+          "562971d25bc8b356419ac519701da55eaa23908245a75fe70898db6cf7be7371",
+          "0d68903a3a9c4f38a9948511655446402cdea8e238330be618c4c5af92c2cb3d",
+          "a634c4f30ae0754e689eb212c34482d1affc25c9fac4569a2beb9c969888049e"
+        ],
+        [
+          "45fdfe577e3a8b59ffdfd6c554356f7e2cd4ca07ae6b42c0f88401ffa0b8a86e",
+          "c9a7644ebeacba8907058420388f5bdf80f9968d5cfeb0ab2e5a609a22b8539a",
+          "4aa92ca9d3418a0e4a136cdd2b57683ba391272713e20609ec7b5fdae595ba7f",
+          "ac476d977005fb0dd4872abe8f4cd8ec525283cc641c118cb12923f27deffb47",
+          "d673ca5cd603fe84ff929f76acb84d48133f94b0c160a6340ff04da7202b08c2",
+          "2d19dbcd5f31227572c6483c6e47c8756f99037c6bba95de082f769afebe143a",
+          "baac3a0964d3c210774ecaf7548545e46f021222f2ccb90d3e81e2e27656d942",
+          "3e5a525f268fa7d590ebbb8d764c01e5f8fe63d39b9d0d8595441dd3dbc59f43"
+        ],
+        [
+          "f636d0f4d808a37431d3922c888fb6b75720a76ae9e8ebac4ac45ab5b8959218",
+          "dc7497964256562b0db8c80b55b67fa6c4ebf0801529d1126236ec2e591032a8",
+          "977e2ef1712efd0e3af3ed2039081eae831d93745217f7bab53e01a44c9714c7",
+          "a74c96aa69da7ba6b3ecb3655b0cc4072762e9eeb381b5a5253a45fa87ebe103",
+          "2a86f7dac19fae1ba69e887e6fd53a107192166e776e4bf068d955b4083d11eb",
+          "80b69780db1b9f7955090ec7bb5b6b35140c7b81297754b75d972628b84878f3",
+          "b3a1b9f1fe5cc89129382a49b10d69d2152f47c85160416060b348668678d6cb",
+          "fd43474bb293ba6f0ca80bd0fd62a4def7ac778f4e08bd11d6f98719b44f6fe4",
+          "21b4b4486ca6392d4de0a314abb756fa21495843a512a602e3f55c3ce1467e7a"
+        ],
+        [
+          "a14cfaedbebf832dc4b20fb9e3ee735052699b1e638d4ef065867f9b49dc2667",
+          "354397c452ec1c1b249ef51cdddb7c15166ee358b643658dee3f0abecdd20a44",
+          "8c212c5de0469b6c290ff49633cfb86139d3b3318f98210b0767c7767656b17f",
+          "d118602327fad825edf9148ca30633f8c0de5aa336c94621124851ef99b427a8",
+          "1c5f08b194f9f724815145ba38eabed70fb000c1b18d4e21180965835abb5e91",
+          "27d38f2b63e966774fd002c66b9763fa7c54551afbaf69ab276409f1f516e40f",
+          "24894989f21e8eda3d72f8804db553c79b6b5b9a0cda8b6d749824edf44570d9",
+          "5b477d4c6ca4e5fab6bf08f745c66856bd961387257af7cd4e7d534a13e8c09f"
+        ]
+      ],
+      "element_hashes": [
+        "d9d813f4701fa256f1c78ee78c5838f742876da483fb942659ef731d15aa90c8",
+        "85c3094016e15d7bb2becfd8ff148f53f2153981e786b54434f74ec6f6e6dc96",
+        "88d8e847c15182c274db48be9aeff82de27734d64bdf3a89f46e940266f5ff08",
+        "c800d29708a9da50fcaea102d49c899642638035c0aa1e0d05e6f13504324c4e"
+      ],
+      "hash": "8e3fe4307147d006a19d3926cef6cf4172c91d172acd8d771ffa06825eb7b9ea",
+      "kind": "array",
+      "shape": [
+        4
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
+    "MB8.20a": {
+      "decimals": 0,
+      "element_hashes": [
+        "828654b2fc4612baf87783a460e7091d8f51412a8d2b2661877d11182ef89674",
+        "44f844a421d3f175730ca8d5c003b9cc8e4d6e59aadcfcd4699b61bbf82644cb"
+      ],
+      "hash": "420caec2920e453c8b81f33ab0ae50494a707f1c87af88e17ce426f81432f7ea",
+      "integer": true,
+      "kind": "array",
+      "mistakes": {
+        "08ca7bb310c7fbc5476f7441ba1404407c93645c389e33651d63402de6dcb39d": "policy_gradient_exact de la référence est juste : un test de somme nulle qui la refuse a une tolérance trop fine, ou somme sur le mauvais axe",
+        "587572e51b4cc4cd1c94bacb780c3175ea36e7a843fd33f976f7959ea800f3c0": "policy_gradient_exact de la référence est juste : un test de différences finies qui la refuse a un pas h ou une tolérance qui ne conviennent pas"
+      },
+      "shape": [
+        2
+      ],
+      "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
+    },
     "POS.1a": {
       "hash": "63bc6fc5ebd30f2261bce655a7135746d653124b0bbaeb2093d2ceb03f94d451",
       "kind": "int",
