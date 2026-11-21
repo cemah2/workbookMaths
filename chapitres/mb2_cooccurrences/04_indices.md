@@ -152,7 +152,7 @@ $s_i = \sqrt{\lambda_i(\mathbf{M}^\top\mathbf{M})}$, $\mathbf{v}_i$ un vecteur p
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ a pour valeurs propres $a + c$ (vecteur $(1, 1)$) et $a - c$ (vecteur $(1, -1)$). 2. $\mathbf{M}\frac{(1, 1)}{\sqrt2} = \frac{(4, 8, 0)}{\sqrt2}$. 3. $s_1\mathbf{u}_1\mathbf{v}_1^\top$ répète une même ligne, à des facteurs près. 4. Calcule $\mathbf{M} - \mathbf{M}_1$ : une seule ligne non nulle.
+1. $`\begin{pmatrix} a & c \cr c & a \end{pmatrix}`$ a pour valeurs propres $a + c$ (vecteur $(1, 1){}$) et $a - c$ (vecteur $(1, -1){}$). 2. $\mathbf{M}\frac{(1, 1)}{\sqrt2} = \frac{(4, 8, 0)}{\sqrt2}$. 3. $s_1\mathbf{u}_1\mathbf{v}_1^\top$ répète une même ligne, à des facteurs près. 4. Calcule $\mathbf{M} - \mathbf{M}_1$ : une seule ligne non nulle.
 
 </details>
 
@@ -300,7 +300,7 @@ $G_{ij} = \mathbf{d}_i\cdot\mathbf{d}_j$. Si $\mathbf{D}\mathbf{D}^\top\mathbf{w
 </details>
 <details><summary>Indice 3</summary>
 
-a) $4 + 16 + 9$ et $8 + 8 + 9$. b) $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ a pour valeurs propres $a \pm c$. c) $\mathbf{D}^\top(1, 1) = (6, 6, 6)$. d) Pour $\mathbf{u} = \frac{1}{\sqrt3}(1, 1, 1)$, $(\mathbf{x}\cdot\mathbf{u})\thinspace\mathbf{u}$ est la moyenne des coordonnées de $\mathbf{x}$ fois $(1, 1, 1)$. e) $\mathbf{x}_1 - \mathbf{x}_3$, puis la différence des deux animaux corrigés. f) $(\mathbf{x}_1 - \mathbf{x}_3)\cdot\mathbf{u} = -\frac{3}{\sqrt3}$.
+a) $4 + 16 + 9$ et $8 + 8 + 9$. b) $`\begin{pmatrix} a & c \cr c & a \end{pmatrix}`$ a pour valeurs propres $a \pm c$. c) $\mathbf{D}^\top(1, 1) = (6, 6, 6)$. d) Pour $\mathbf{u} = \frac{1}{\sqrt3}(1, 1, 1)$, $(\mathbf{x}\cdot\mathbf{u})\thinspace\mathbf{u}$ est la moyenne des coordonnées de $\mathbf{x}$ fois $(1, 1, 1)$. e) $\mathbf{x}_1 - \mathbf{x}_3$, puis la différence des deux animaux corrigés. f) $(\mathbf{x}_1 - \mathbf{x}_3)\cdot\mathbf{u} = -\frac{3}{\sqrt3}$.
 
 </details>
 

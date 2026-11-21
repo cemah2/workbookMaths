@@ -110,7 +110,7 @@ $f(x, y) = x^2y - 3y + 1$.
 ### M17.R3 — La matrice de covariance (M02c) 🔁 ★ ⏱️ 5 min
 *Fiche §7 · parcours C*
 
-$\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & -1 \cr -1 & 2 \end{pmatrix}$.
+$\mathbf{X} = (X_1, X_2)$ a la matrice de covariance $`\boldsymbol{\Sigma} = \begin{pmatrix} 4 & -1 \cr -1 & 2 \end{pmatrix}`$.
 
 1. $\mathbb{V}(X_1 + X_2)$ ? $\mathbb{V}(X_1 - X_2)$ ?
 2. Pour une ligne $\mathbf{v}$, comment s'écrit $\mathbb{V}(\mathbf{v} \cdot \mathbf{X})$ avec $\boldsymbol{\Sigma}$ ?
@@ -210,7 +210,7 @@ $\mathbf{f}(x_1, x_2) = (x_1 - x_2,\ x_1x_2,\ x_2^2)$ de $\mathbb{R}^2$ dans $\m
 | c | $\mathbf{J}_{\mathbf{f}}(\mathbf{x})$ | une matrice |
 | d | $\nabla_{\mathbf{x}}(L \circ \mathbf{f})$ | une liste de 2 nombres |
 | e | la forme de $\mathbf{J}_{\mathbf{f}}^\top$ | une liste de 2 entiers |
-| f | la dérivée en $t = 0$ de $t \mapsto (L \circ \mathbf{f})\big(\mathbf{x} + t\thinspace(1, 1)\big)$ (sans normaliser $(1, 1)$) | un nombre |
+| f | la dérivée en $t = 0$ de $t \mapsto (L \circ \mathbf{f})\big(\mathbf{x} + t\thinspace(1, 1)\big)$ (sans normaliser $(1, 1){}$) | un nombre |
 
 Dans ta copie : calcule d) en ligne, $\nabla_{\mathbf{y}}L\thinspace\mathbf{J} _{\mathbf{f}}$, puis en colonne, $\mathbf{J}  _{\mathbf{f}}^\top\nabla _{\mathbf{y}}L$, et vérifie par la dérivation directe de $L(\mathbf{f}(\mathbf{x}))$. Pourquoi $\mathbf{J} _{\mathbf{f}}\thinspace\nabla _{\mathbf{y}}L$ n'a-t-il pas de sens ici ?
 

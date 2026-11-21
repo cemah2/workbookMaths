@@ -26,18 +26,18 @@
 7. **Vrai** : la trace et le déterminant ne dépendent pas de la base.
 
 ### M12c.Q3 — Reconnaître un vecteur propre
-$\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1, 2) = (2, 4) = 2(1, 2)$ : **oui**, valeur propre 2. $\mathbf{M}(1, 1) = (4, 5)$ : **non**. $(0, 0)$ : **non**, le vecteur nul n'est jamais un vecteur propre. $\mathbf{M}(-4, -6) = (-12, -18) = 3(-4, -6)$ : **oui**, valeur propre 3 (un multiple de $(2, 3)$). $\mathbf{M}(1, 0) = (6, 6)$ : **non**. Trace $6 - 1 = 5 = 3 + 2$, déterminant $-6 + 12 = 6 = 3 \times 2$ : cohérent.
+$\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1, 2) = (2, 4) = 2(1, 2)$ : **oui**, valeur propre 2. $\mathbf{M}(1, 1) = (4, 5)$ : **non**. $(0, 0)$ : **non**, le vecteur nul n'est jamais un vecteur propre. $\mathbf{M}(-4, -6) = (-12, -18) = 3(-4, -6)$ : **oui**, valeur propre 3 (un multiple de $(2, 3){}$). $\mathbf{M}(1, 0) = (6, 6)$ : **non**. Trace $6 - 1 = 5 = 3 + 2$, déterminant $-6 + 12 = 6 = 3 \times 2$ : cohérent.
 
 ### M12c.Q4 — Diagonalisable ou pas ?
 1. **Oui** : elle est déjà diagonale (tout vecteur non nul est propre).
-2. **Non** : valeur propre double 2, mais $\mathbf{A} - 2\mathbf{I} = \begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}$ a un noyau de dimension 1 (un cisaillement).
+2. **Non** : valeur propre double 2, mais $`\mathbf{A} - 2\mathbf{I} = \begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}`$ a un noyau de dimension 1 (un cisaillement).
 3. **Oui** : triangulaire, de valeurs propres distinctes 1 et 3.
 4. **Non** avec des réels : la rotation d'un quart de tour n'a pas de valeur propre réelle ($\lambda^2 + 1 = 0$).
 5. **Oui** : symétrique (théorème spectral) ; ses valeurs propres sont d'ailleurs distinctes ($\det = -14 < 0$).
 6. **Oui** : trois valeurs propres distinctes donnent trois vecteurs propres libres.
 
 ### M12c.Q5 — Ce que garantit le théorème spectral
-1. **Vrai**. 2. **Faux** : $\begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}$ a pour valeurs propres 1 et 3 et n'est pas symétrique. 3. **Vrai**. 4. **Faux** : $\mathbf{I}$ a la valeur propre 1 double et est diagonale ; une symétrique est toujours diagonalisable. 5. **Vrai** : $(\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top)^\top = \mathbf{Q}\boldsymbol{\Lambda}^\top\mathbf{Q}^\top = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$. 6. **Vrai** : $\mathbf{q}_i\mathbf{q}_i^\top$ est la projection orthogonale sur la droite de $\mathbf{q}_i$ (M12b §5).
+1. **Vrai**. 2. **Faux** : $`\begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}`$ a pour valeurs propres 1 et 3 et n'est pas symétrique. 3. **Vrai**. 4. **Faux** : $\mathbf{I}$ a la valeur propre 1 double et est diagonale ; une symétrique est toujours diagonalisable. 5. **Vrai** : $(\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top)^\top = \mathbf{Q}\boldsymbol{\Lambda}^\top\mathbf{Q}^\top = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$. 6. **Vrai** : $\mathbf{q}_i\mathbf{q}_i^\top$ est la projection orthogonale sur la droite de $\mathbf{q}_i$ (M12b §5).
 
 ### M12c.Q6 — Définie positive, semi-définie positive ou indéfinie ?
 1. **Définie positive** : $2 > 0$ et $10 - 1 = 9 > 0$.
@@ -74,7 +74,7 @@ $\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1,
 
 ### M12c.R2 — Bases orthonormées et matrices orthogonales (M12b)
 1. $8^2 + 15^2 = 289 = 17^2$ : colonnes unitaires ; $8 \times (-15) + 15 \times 8 = 0$ : orthogonales. $\mathbf{U}^\top\mathbf{U} = \mathbf{I}$.
-2. $\mathbf{U}^{-1} = \mathbf{U}^\top = \frac{1}{17}\begin{pmatrix} 8 & 15 \cr -15 & 8 \end{pmatrix}$.
+2. $`\mathbf{U}^{-1} = \mathbf{U}^\top = \frac{1}{17}\begin{pmatrix} 8 & 15 \cr -15 & 8 \end{pmatrix}`$.
 3. $\lVert \mathbf{U}\mathbf{x} \rVert = \lVert \mathbf{x} \rVert = \sqrt{17} \approx 4{,}123$.
 4. $\mathbf{U}^\top\mathbf{x} = \frac{1}{17}(8 + 60, -15 + 32) = (4, 1)$.
 5. $\det\mathbf{U} = \frac{64 + 225}{289} = 1$ : une rotation.
@@ -82,9 +82,9 @@ $\mathbf{M}(2, 3) = (6, 9) = 3(2, 3)$ : **oui**, valeur propre 3. $\mathbf{M}(1,
 ### M12c.R3 — La matrice de covariance empirique (M02c)
 1. $(3, 3)$.
 2. $(-2, -1)$, $(1, -2)$, $(2, 3)$, $(-1, 0)$.
-3. Sommes : $\sum x^2 = 10$, $\sum y^2 = 14$, $\sum xy = 2 - 2 + 6 + 0 = 6$. Avec $1/n$ : $\begin{pmatrix} 2{,}5 & 1{,}5 \cr 1{,}5 & 3{,}5 \end{pmatrix}$ ; avec $1/(n - 1)$ : $\begin{pmatrix} 10/3 & 2 \cr 2 & 14/3 \end{pmatrix}$. On passe de la première à la seconde en multipliant par $\frac{n}{n-1} = \frac{4}{3}$.
+3. Sommes : $\sum x^2 = 10$, $\sum y^2 = 14$, $\sum xy = 2 - 2 + 6 + 0 = 6$. Avec $1/n$ : $`\begin{pmatrix} 2{,}5 & 1{,}5 \cr 1{,}5 & 3{,}5 \end{pmatrix}`$ ; avec $1/(n - 1)$ : $`\begin{pmatrix} 10/3 & 2 \cr 2 & 14/3 \end{pmatrix}`$. On passe de la première à la seconde en multipliant par $\frac{n}{n-1} = \frac{4}{3}$.
 4. $\frac{6}{\sqrt{10 \times 14}} \approx 0{,}5071$ ; non, le facteur se simplifie.
-5. Oui. Ce n'est pas suffisant : il faut qu'elle soit **semi-définie positive** (fiche §8) ; $\begin{pmatrix} 1 & 3 \cr 3 & 2 \end{pmatrix}$ (fiche §7) est symétrique à diagonale positive, et n'en est pas une ($\det = -7$).
+5. Oui. Ce n'est pas suffisant : il faut qu'elle soit **semi-définie positive** (fiche §8) ; $`\begin{pmatrix} 1 & 3 \cr 3 & 2 \end{pmatrix}`$ (fiche §7) est symétrique à diagonale positive, et n'en est pas une ($\det = -7$).
 
 <a id="papier"></a>
 
@@ -115,7 +115,7 @@ Pour la copie : par élimination, $L_3 \leftarrow L_3 - 2L_1$ donne $(0, -3, 3)$
 - b) Pivot 2 : $L_3 \leftarrow L_3 - L_2 = (0, 0, 2, -6)$ et $L_4 \leftarrow L_4 - \frac{1}{2}L_2 = (0, 0, \frac{3}{2}, \frac{5}{2})$ ; pivot 2 : $L_4 \leftarrow L_4 - \frac{3}{4}L_3 = (0, 0, 0, \frac{5}{2} + \frac{9}{2}) = (0, 0, 0, 7)$. Diagonale $1, 2, 2, 7$.
 - c) Un échange : $\det\mathbf{F} = -(1 \times 2 \times 2 \times 7) = -28$. d) $-\frac{1}{28} \approx -0{,}0357$. e) $(\det\mathbf{F})^2 = 784$. f) Ajouter à une colonne un multiple d'une autre ne change rien : $-28$. g) $\det\mathbf{F} \ne 0$.
 
-Pour la copie : le premier élément de $\mathbf{F}$ est nul, on ne peut pas s'en servir de pivot. Développer la matrice de a) selon sa première colonne donne $1 \times \det\begin{pmatrix} 2 & 1 & 3 \cr 2 & 3 & -3 \cr 1 & 2 & 4 \end{pmatrix} = 2(12 + 6) - 1(8 + 3) + 3(4 - 3) = 36 - 11 + 3 = 28$, et le signe de l'échange donne $-28$. Un développement complet par cofacteurs demande de l'ordre de $4! = 24$ produits de quatre nombres (plus de 70 multiplications), l'élimination une vingtaine d'opérations.
+Pour la copie : le premier élément de $\mathbf{F}$ est nul, on ne peut pas s'en servir de pivot. Développer la matrice de a) selon sa première colonne donne $`1 \times \det\begin{pmatrix} 2 & 1 & 3 \cr 2 & 3 & -3 \cr 1 & 2 & 4 \end{pmatrix} = 2(12 + 6) - 1(8 + 3) + 3(4 - 3) = 36 - 11 + 3 = 28`$, et le signe de l'échange donne $-28$. Un développement complet par cofacteurs demande de l'ordre de $4! = 24$ produits de quatre nombres (plus de 70 multiplications), l'élimination une vingtaine d'opérations.
 
 **Erreurs fréquentes.** Oublier le signe de l'échange ; diviser au lieu de soustraire un multiple ; croire que $\det(\mathbf{F}^\top\mathbf{F})$ peut être négatif.
 
@@ -127,7 +127,7 @@ Pour la copie : le premier élément de $\mathbf{F}$ est nul, on ne peut pas s'e
 
 **Démarche.**
 - a), b) $5 - 2 = 3$ et $-10 - 18 = -28$. c) $\lambda^2 - 3\lambda - 28 = (\lambda - 7)(\lambda + 4)$.
-- d) $\mathbf{M} - 7\mathbf{I} = \begin{pmatrix} -2 & 6 \cr 3 & -9 \end{pmatrix}$ : $x = 3y$, $(3, 1)$. e) $\mathbf{M} + 4\mathbf{I} = \begin{pmatrix} 9 & 6 \cr 3 & 2 \end{pmatrix}$ : $3x + 2y = 0$, $(2, -3)$.
+- d) $`\mathbf{M} - 7\mathbf{I} = \begin{pmatrix} -2 & 6 \cr 3 & -9 \end{pmatrix}`$ : $x = 3y$, $(3, 1)$. e) $`\mathbf{M} + 4\mathbf{I} = \begin{pmatrix} 9 & 6 \cr 3 & 2 \end{pmatrix}`$ : $3x + 2y = 0$, $(2, -3)$.
 - f) Ajouter $2\mathbf{I}$ ajoute 2 à chaque valeur propre. g) $7^2 = 49$ et $(-4)^2 = 16$. h) $(3, 1) \cdot (2, -3) = 6 - 3 = 3 \ne 0$.
 
 Pour la copie : $\mathbf{M}(3, 1) = (21, 7) = 7(3, 1)$ et $\mathbf{M}(2, -3) = (-8, 12) = -4(2, -3)$. $\mathbf{M}^2\mathbf{v} = \mathbf{M}(\lambda\mathbf{v}) = \lambda^2\mathbf{v}$ : mêmes vecteurs propres, valeurs au carré. h) ne contredit rien : $\mathbf{M}$ n'est pas symétrique.
@@ -141,14 +141,14 @@ Pour la copie : $\mathbf{M}(3, 1) = (21, 7) = 7(3, 1)$ et $\mathbf{M}(2, -3) = (
 **Réponses** : a) `[4, 2, -1]` · b) `[1, -3, 0]` · c) `[-1, 3, 5]` · d) `-8` · e) `[5, 3, 3]` · f) `2` · g) `[3, 1, 0]` · h) `True`.
 
 **Démarche.**
-- a) Triangulaire : la diagonale $2, -1, 4$, rangée. b) $\mathbf{T} + \mathbf{I} = \begin{pmatrix} 3 & 1 & -1 \cr 0 & 0 & 3 \cr 0 & 0 & 5 \end{pmatrix}$ : $x_3 = 0$, puis $3x_1 + x_2 = 0$ : $(1, -3, 0)$.
-- c) $\mathbf{T} - 4\mathbf{I} = \begin{pmatrix} -2 & 1 & -1 \cr 0 & -5 & 3 \cr 0 & 0 & 0 \end{pmatrix}$ : avec $x_3 = 5$, $x_2 = 3$, puis $-2x_1 + 3 - 5 = 0$, $x_1 = -1$.
+- a) Triangulaire : la diagonale $2, -1, 4$, rangée. b) $`\mathbf{T} + \mathbf{I} = \begin{pmatrix} 3 & 1 & -1 \cr 0 & 0 & 3 \cr 0 & 0 & 5 \end{pmatrix}`$ : $x_3 = 0$, puis $3x_1 + x_2 = 0$ : $(1, -3, 0)$.
+- c) $`\mathbf{T} - 4\mathbf{I} = \begin{pmatrix} -2 & 1 & -1 \cr 0 & -5 & 3 \cr 0 & 0 & 0 \end{pmatrix}`$ : avec $x_3 = 5$, $x_2 = 3$, puis $-2x_1 + 3 - 5 = 0$, $x_1 = -1$.
 - d) $2 \times (-1) \times 4 = -8$.
-- e) Selon la dernière ligne : $(3 - \lambda)\det\begin{pmatrix} 6 - \lambda & -3 \cr 1 & 2 - \lambda \end{pmatrix} = (3 - \lambda)(\lambda^2 - 8\lambda + 15) = (3 - \lambda)(\lambda - 3)(\lambda - 5)$.
-- f) $\mathbf{K} - 3\mathbf{I} = \begin{pmatrix} 3 & -3 & 3 \cr 1 & -1 & 1 \cr 0 & 0 & 0 \end{pmatrix}$ est de rang 1 : $\dim E_3 = 3 - 1 = 2$.
-- g) $\mathbf{K} - 5\mathbf{I} = \begin{pmatrix} 1 & -3 & 3 \cr 1 & -3 & 1 \cr 0 & 0 & -2 \end{pmatrix}$ : $x_3 = 0$, $x_1 = 3x_2$ : $(3, 1, 0)$. h) $2 + 1 = 3$ vecteurs propres libres.
+- e) Selon la dernière ligne : $`(3 - \lambda)\det\begin{pmatrix} 6 - \lambda & -3 \cr 1 & 2 - \lambda \end{pmatrix} = (3 - \lambda)(\lambda^2 - 8\lambda + 15) = (3 - \lambda)(\lambda - 3)(\lambda - 5)`$.
+- f) $`\mathbf{K} - 3\mathbf{I} = \begin{pmatrix} 3 & -3 & 3 \cr 1 & -1 & 1 \cr 0 & 0 & 0 \end{pmatrix}`$ est de rang 1 : $\dim E_3 = 3 - 1 = 2$.
+- g) $`\mathbf{K} - 5\mathbf{I} = \begin{pmatrix} 1 & -3 & 3 \cr 1 & -3 & 1 \cr 0 & 0 & -2 \end{pmatrix}`$ : $x_3 = 0$, $x_1 = 3x_2$ : $(3, 1, 0)$. h) $2 + 1 = 3$ vecteurs propres libres.
 
-Pour la copie : $\mathbf{T} - \lambda\mathbf{I}$ est triangulaire, de déterminant $\prod(t_{ii} - \lambda)$ ; $\mathbf{K}$ n'est pas triangulaire, et sa diagonale $6, 2, 3$ n'est pas son spectre. $E_3 = \lbrace x_1 - x_2 + x_3 = 0\rbrace$, de base $(1, 1, 0)$, $(-1, 0, 1)$ ; $\mathbf{P} = \begin{pmatrix} 3 & 1 & -1 \cr 1 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}$ et $\mathbf{D} = \operatorname{diag}(5, 3, 3)$. Remplacer le 3 en position $(1, 3)$ par un autre nombre $c$ rend les lignes de $\mathbf{K} - 3\mathbf{I}$ non proportionnelles : rang 2, $\dim E_3 = 1$, non diagonalisable.
+Pour la copie : $\mathbf{T} - \lambda\mathbf{I}$ est triangulaire, de déterminant $\prod(t_{ii} - \lambda)$ ; $\mathbf{K}$ n'est pas triangulaire, et sa diagonale $6, 2, 3$ n'est pas son spectre. $E_3 = \lbrace x_1 - x_2 + x_3 = 0\rbrace$, de base $(1, 1, 0)$, $(-1, 0, 1)$ ; $`\mathbf{P} = \begin{pmatrix} 3 & 1 & -1 \cr 1 & 1 & 0 \cr 0 & 0 & 1 \end{pmatrix}`$ et $\mathbf{D} = \operatorname{diag}(5, 3, 3)$. Remplacer le 3 en position $(1, 3)$ par un autre nombre $c$ rend les lignes de $\mathbf{K} - 3\mathbf{I}$ non proportionnelles : rang 2, $\dim E_3 = 1$, non diagonalisable.
 
 **Erreurs fréquentes.** Lire les valeurs propres sur la diagonale d'une matrice non triangulaire ; confondre multiplicité algébrique (2) et géométrique ; croire qu'une valeur propre double empêche toujours la diagonalisation.
 
@@ -159,23 +159,23 @@ Pour la copie : $\mathbf{T} - \lambda\mathbf{I}$ est triangulaire, de détermina
 **Réponses** : a) `[2, 1]` · b) `[4, 1]` · c) `[3, 1]` · d) `[[1, -3], [-1, 4]]` · e) `[[4093, -12276], [1023, -3068]]` · f) `1024` · g) `1025` · h) `[1.0, 0.5]`.
 
 **Démarche.**
-- a) $\lambda^2 - 3\lambda + 2 = (\lambda - 2)(\lambda - 1)$. b) $\mathbf{A} - 2\mathbf{I} = \begin{pmatrix} 3 & -12 \cr 1 & -4 \end{pmatrix}$ : $x = 4y$. c) $\mathbf{A} - \mathbf{I} = \begin{pmatrix} 4 & -12 \cr 1 & -3 \end{pmatrix}$ : $x = 3y$.
-- d) $\det\mathbf{P} = 4 - 3 = 1$ : $\mathbf{P}^{-1} = \begin{pmatrix} 1 & -3 \cr -1 & 4 \end{pmatrix}$.
-- e) $\mathbf{P}\mathbf{D}^{10} = \begin{pmatrix} 4096 & 3 \cr 1024 & 1 \end{pmatrix}$, puis fois $\mathbf{P}^{-1}$ : $\begin{pmatrix} 4096 - 3 & -12288 + 12 \cr 1024 - 1 & -3072 + 4 \end{pmatrix}$.
+- a) $\lambda^2 - 3\lambda + 2 = (\lambda - 2)(\lambda - 1)$. b) $`\mathbf{A} - 2\mathbf{I} = \begin{pmatrix} 3 & -12 \cr 1 & -4 \end{pmatrix}`$ : $x = 4y$. c) $`\mathbf{A} - \mathbf{I} = \begin{pmatrix} 4 & -12 \cr 1 & -3 \end{pmatrix}`$ : $x = 3y$.
+- d) $\det\mathbf{P} = 4 - 3 = 1$ : $`\mathbf{P}^{-1} = \begin{pmatrix} 1 & -3 \cr -1 & 4 \end{pmatrix}`$.
+- e) $`\mathbf{P}\mathbf{D}^{10} = \begin{pmatrix} 4096 & 3 \cr 1024 & 1 \end{pmatrix}`$, puis fois $\mathbf{P}^{-1}$ : $`\begin{pmatrix} 4096 - 3 & -12288 + 12 \cr 1024 - 1 & -3072 + 4 \end{pmatrix}`$.
 - f) $2^{10} \times 1^{10} = 1024$. g) $2^{10} + 1^{10} = 1025$. h) Les inverses : $\frac{1}{2}$ et $1$, rangés.
 
-Pour la copie : $\mathbf{A}\mathbf{P} = \begin{pmatrix} 8 & 3 \cr 2 & 1 \end{pmatrix} = \mathbf{P}\mathbf{D}$. f) et g) se lisent sur les valeurs propres de $\mathbf{A}^{10}$, qui sont $2^{10}$ et $1$. Pour $k$ grand, $\mathbf{A}^k \approx 2^k\begin{pmatrix} 4 & -12 \cr 1 & -3 \end{pmatrix}$ : les colonnes sont sur la droite de $(4, 1)$, le vecteur propre de la plus grande valeur propre.
+Pour la copie : $`\mathbf{A}\mathbf{P} = \begin{pmatrix} 8 & 3 \cr 2 & 1 \end{pmatrix} = \mathbf{P}\mathbf{D}`$. f) et g) se lisent sur les valeurs propres de $\mathbf{A}^{10}$, qui sont $2^{10}$ et $1$. Pour $k$ grand, $`\mathbf{A}^k \approx 2^k\begin{pmatrix} 4 & -12 \cr 1 & -3 \end{pmatrix}`$ : les colonnes sont sur la droite de $(4, 1)$, le vecteur propre de la plus grande valeur propre.
 
 **Erreurs fréquentes.** $\mathbf{A}^{10} = 10\mathbf{A}$ ou $\mathbf{P}\mathbf{D}\mathbf{P}^{-1}$ « élevé » terme à terme ; l'ordre des colonnes de $\mathbf{P}$ différent de celui de $\mathbf{D}$ ; $\operatorname{tr}(\mathbf{A}^{10}) = (\operatorname{tr}\mathbf{A})^{10}$.
 
-**Variante.** $\mathbf{A}^{-1}$ ? *Réponse* : $\frac{1}{2}\begin{pmatrix} -2 & 12 \cr -1 & 5 \end{pmatrix}$.
+**Variante.** $\mathbf{A}^{-1}$ ? *Réponse* : $`\frac{1}{2}\begin{pmatrix} -2 & 12 \cr -1 & 5 \end{pmatrix}`$.
 
 ### Ex M12c.6 — Une matrice non diagonalisable, et une rotation sans valeur propre réelle
 
 **Réponses** : a) `[2, 2]` · b) `1` · c) `[3, 1]` · d) `False` · e) `-3` · f) `0` · g) `1` · h) `True`.
 
 **Démarche.**
-- a) $\operatorname{tr}\mathbf{N} = 4$, $\det\mathbf{N} = -5 + 9 = 4$ : $\lambda^2 - 4\lambda + 4 = (\lambda - 2)^2$. b) $\mathbf{N} - 2\mathbf{I} = \begin{pmatrix} 3 & -9 \cr 1 & -3 \end{pmatrix}$, de rang 1 : $2 - 1 = 1$. c) $x = 3y$. d) Un seul vecteur propre libre.
+- a) $\operatorname{tr}\mathbf{N} = 4$, $\det\mathbf{N} = -5 + 9 = 4$ : $\lambda^2 - 4\lambda + 4 = (\lambda - 2)^2$. b) $`\mathbf{N} - 2\mathbf{I} = \begin{pmatrix} 3 & -9 \cr 1 & -3 \end{pmatrix}`$, de rang 1 : $2 - 1 = 1$. c) $x = 3y$. d) Un seul vecteur propre libre.
 - e) $\operatorname{tr}\mathbf{R} = 2\cos 60° = 1$, $\det\mathbf{R} = 1$ : $1 - 4 = -3$. f) Discriminant négatif. g) $\cos^2 + \sin^2 = 1$. h) $6 \times 60° = 360°$.
 
 Pour la copie : la valeur propre est double, mais son espace propre n'est qu'une droite : il manque une direction (un cisaillement déguisé). $\mathbf{R}$ fait tourner toute direction de 60° : aucune ne reste sur sa droite. Ses valeurs propres sont $\frac{1 \pm i\sqrt{3}}{2}$, de produit $\frac{1 + 3}{4} = 1 = \det\mathbf{R}$.
@@ -189,14 +189,14 @@ Pour la copie : la valeur propre est double, mais son espace propre n'est qu'une
 **Réponses** : a) `[30, 1]` · b) `[0.3714, 0.9285]` · c) `[0.9285, -0.3714]` · d) `0` · e) `[[4.1379, 10.3448], [10.3448, 25.8621]]` · f) `30` · g) `[1.0, 0.0333]` · h) `True`.
 
 **Démarche.**
-- a) $\lambda^2 - 31\lambda + 30 = (\lambda - 30)(\lambda - 1)$. b) $\mathbf{S} - 30\mathbf{I} = \begin{pmatrix} -25 & 10 \cr 10 & -4 \end{pmatrix}$ : $5x = 2y$, $(2, 5)/\sqrt{29}$. c) $\mathbf{S} - \mathbf{I} = \begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}$ : $2x + 5y = 0$, $(5, -2)/\sqrt{29}$.
-- d) $10 - 10 = 0$. e) $\frac{30}{29}\begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}$. f) $30 \times 1$. g) $1$ et $\frac{1}{30} \approx 0{,}0333$. h) Valeurs propres positives.
+- a) $\lambda^2 - 31\lambda + 30 = (\lambda - 30)(\lambda - 1)$. b) $`\mathbf{S} - 30\mathbf{I} = \begin{pmatrix} -25 & 10 \cr 10 & -4 \end{pmatrix}`$ : $5x = 2y$, $(2, 5)/\sqrt{29}$. c) $`\mathbf{S} - \mathbf{I} = \begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}`$ : $2x + 5y = 0$, $(5, -2)/\sqrt{29}$.
+- d) $10 - 10 = 0$. e) $`\frac{30}{29}\begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}`$. f) $30 \times 1$. g) $1$ et $\frac{1}{30} \approx 0{,}0333$. h) Valeurs propres positives.
 
-Pour la copie : $\mathbf{Q} = \frac{1}{\sqrt{29}}\begin{pmatrix} 2 & 5 \cr 5 & -2 \end{pmatrix}$, $\boldsymbol{\Lambda} = \operatorname{diag}(30, 1)$ ; $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top = \frac{1}{29}\begin{pmatrix} 120 + 25 & 300 - 10 \cr 300 - 10 & 750 + 4 \end{pmatrix} = \mathbf{S}$. Les vecteurs propres de $\mathbf{S}^{-1}$ sont les mêmes ($\mathbf{q}_2$ va alors avec la plus grande valeur propre, 1).
+Pour la copie : $`\mathbf{Q} = \frac{1}{\sqrt{29}}\begin{pmatrix} 2 & 5 \cr 5 & -2 \end{pmatrix}`$, $\boldsymbol{\Lambda} = \operatorname{diag}(30, 1)$ ; $`\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top = \frac{1}{29}\begin{pmatrix} 120 + 25 & 300 - 10 \cr 300 - 10 & 750 + 4 \end{pmatrix} = \mathbf{S}`$. Les vecteurs propres de $\mathbf{S}^{-1}$ sont les mêmes ($\mathbf{q}_2$ va alors avec la plus grande valeur propre, 1).
 
 **Erreurs fréquentes.** Oublier de normer ; un signe de convention inversé ; $\lambda_1\mathbf{q}_1\mathbf{q}_1^\top$ calculé sans normer $\mathbf{q}_1$.
 
-**Variante.** La matrice $\lambda_2\mathbf{q}_2\mathbf{q}_2^\top$ ? *Réponse* : $\frac{1}{29}\begin{pmatrix} 25 & -10 \cr -10 & 4 \end{pmatrix}$.
+**Variante.** La matrice $\lambda_2\mathbf{q}_2\mathbf{q}_2^\top$ ? *Réponse* : $`\frac{1}{29}\begin{pmatrix} 25 & -10 \cr -10 & 4 \end{pmatrix}`$.
 
 ### Ex M12c.8 — Le quotient de Rayleigh : le maximum et le minimum de xᵀAx sur le cercle unité
 
@@ -204,7 +204,7 @@ Pour la copie : $\mathbf{Q} = \frac{1}{\sqrt{29}}\begin{pmatrix} 2 & 5 \cr 5 & -
 
 **Démarche.**
 - a) $s_{11} = 17$, b) $s_{22} = 2$. c) $\frac{17 + 8 + 2}{2} = 13{,}5$. d) $\lambda^2 - 19\lambda + 18 = (\lambda - 18)(\lambda - 1)$.
-- e) Le maximum est $\lambda_{\max} = 18$, atteint en f) $(4, 1)/\sqrt{17}$ ($\mathbf{S} - 18\mathbf{I} = \begin{pmatrix} -1 & 4 \cr 4 & -16 \end{pmatrix}$). g) $\lambda_{\min} = 1$, en $(1, -4)/\sqrt{17}$.
+- e) Le maximum est $\lambda_{\max} = 18$, atteint en f) $(4, 1)/\sqrt{17}$ ($`\mathbf{S} - 18\mathbf{I} = \begin{pmatrix} -1 & 4 \cr 4 & -16 \end{pmatrix}`$). g) $\lambda_{\min} = 1$, en $(1, -4)/\sqrt{17}$.
 - h) $\frac{17 \times 64 + 8 \times 120 + 2 \times 225}{289} = \frac{2498}{289} \approx 8{,}6436$.
 
 Pour la copie : $R(\mathbf{x}) = \frac{18y_1^2 + y_2^2}{y_1^2 + y_2^2}$, une moyenne de 18 et 1 de poids $\frac{y_i^2}{y_1^2 + y_2^2}$. Pour $\mathbf{x} = (8, 15)/17$ : $y_1 = \mathbf{x} \cdot \mathbf{q} _1 = \frac{32 + 15}{17\sqrt{17}} = \frac{47}{17\sqrt{17}}$, $y_1^2 = \frac{2209}{4913} \approx 0{,}4496$ ; $R = 1 + 17 \times 0{,}4496 \approx 8{,}644$. a) n'est pas le maximum : $\mathbf{e} _1$ n'est pas vecteur propre, il « mélange » les deux directions ; un élément diagonal est un quotient de Rayleigh parmi d'autres, toujours entre $\lambda _{\min}$ et $\lambda _{\max}$.
@@ -222,7 +222,7 @@ Pour la copie : $R(\mathbf{x}) = \frac{18y_1^2 + y_2^2}{y_1^2 + y_2^2}$, une moy
 - c) $\mathbf{A}(5, -3) = (10 - 9, 15 + 18) = (1, 33)$ : 33 est positive ; divisé par $\sqrt{1\thinspace090}$.
 - d) $\mathbf{A}(1, 33) = (2 + 99, 3 - 198) = (101, -195)$ : la coordonnée de plus grande valeur absolue, $-195$, est **négative** : on change le signe, $(-101, 195)$, puis on divise par $\sqrt{48\thinspace226}$.
 - e) $\mathbf{A}(-101, 195) = (383, -1\thinspace473)$ ; $\frac{(-101) \times 383 + 195 \times (-1\thinspace473)}{48\thinspace226} = \frac{-325\thinspace918}{48\thinspace226} \approx -6{,}7581$.
-- f) $\lambda^2 + 4\lambda - 21 = (\lambda - 3)(\lambda + 7)$. g) Pour $-7$ : $\mathbf{A} + 7\mathbf{I} = \begin{pmatrix} 9 & 3 \cr 3 & 1 \end{pmatrix}$, direction $(1, -3)$, et la convention donne $(-1, 3)/\sqrt{10}$. h) $3/7$.
+- f) $\lambda^2 + 4\lambda - 21 = (\lambda - 3)(\lambda + 7)$. g) Pour $-7$ : $`\mathbf{A} + 7\mathbf{I} = \begin{pmatrix} 9 & 3 \cr 3 & 1 \end{pmatrix}`$, direction $(1, -3)$, et la convention donne $(-1, 3)/\sqrt{10}$. h) $3/7$.
 
 Pour la copie : $\lambda_1 = -7 < 0$, donc $\mathbf{A}\mathbf{x}_k$ pointe, à peu près, à l'opposé de $\mathbf{x}_k$ ; sans la convention, le vecteur changerait de signe à chaque pas et ne se stabiliserait jamais (c'est ce que la convention corrige en d)). Trois chiffres : $(3/7)^k = 10^{-3}$ pour $k \approx 8$. Avec $\mathbf{x}_0 = (3, 1)$, vecteur propre de 3 : $\mathbf{A}\mathbf{x}_0 = (9, 3) = 3\mathbf{x}_0$, la méthode resterait sur la mauvaise valeur propre (en exact ; les arrondis finiraient par y glisser un peu de $\mathbf{v}_1$).
 
@@ -237,14 +237,14 @@ Pour la copie : $\lambda_1 = -7 < 0$, donc $\mathbf{A}\mathbf{x}_k$ pointe, à p
 **Démarche.**
 - a) $4$ ; $12 - 4 = 8$ ; $4(6 - 1) + 2(-4 - 0) = 12$. b) Trois mineurs positifs (Sylvester).
 - c) $1$ ; $3 - 4 = -1$ ; $1(12 - 1) - 2(8 - 0) = -5$. d) $4 - 8 + 3 = -1$.
-- e) $f_{xx} = 2 + e^x$, $f_{xy} = 2$, $f_{yy} = 6$ ; en $(0, 0)$ : $\begin{pmatrix} 3 & 2 \cr 2 & 6 \end{pmatrix}$. f) $6(2 + e) - 4 = 8 + 6e \approx 24{,}3097$.
+- e) $f_{xx} = 2 + e^x$, $f_{xy} = 2$, $f_{yy} = 6$ ; en $(0, 0)$ : $`\begin{pmatrix} 3 & 2 \cr 2 & 6 \end{pmatrix}`$. f) $6(2 + e) - 4 = 8 + 6e \approx 24{,}3097$.
 - g) $2 + e^x > 0$ et $8 + 6e^x > 0$ partout : hessienne définie positive en tout point, $f$ (strictement) convexe. h) $\lambda^2 - 9\lambda + 14 = (\lambda - 7)(\lambda - 2)$.
 
 Pour la copie : d) exhibe un vecteur où la forme est négative : $\mathbf{H}_2$ n'est pas définie positive, comme le disait le deuxième mineur. $f$ est strictement convexe : elle a au plus un minimum ; elle en a un, car $\nabla f = (2x + 2y + e^x, 2x + 6y)$ s'annule quand $y = -x/3$ et $\frac{4}{3}x + e^x = 0$, qui a une solution unique (en $x \approx -0{,}469$, $y = -x/3 \approx 0{,}156$).
 
 **Erreurs fréquentes.** Ne regarder que la diagonale ($\mathbf{H} _2$ a une diagonale positive) ; oublier que $f _{xx}$ dépend de $x$ ; écrire 1 au lieu de 2 hors de la diagonale de la hessienne.
 
-**Variante.** $g(x, y) = x^2 + 5xy + 4y^2$ est-elle convexe ? *Réponse* : non, sa hessienne $\begin{pmatrix} 2 & 5 \cr 5 & 8 \end{pmatrix}$ a pour déterminant $16 - 25 = -9$.
+**Variante.** $g(x, y) = x^2 + 5xy + 4y^2$ est-elle convexe ? *Réponse* : non, sa hessienne $`\begin{pmatrix} 2 & 5 \cr 5 & 8 \end{pmatrix}`$ a pour déterminant $16 - 25 = -9$.
 
 ### Ex M12c.11 — La décomposition de Cholesky d'une matrice 3 × 3
 
@@ -266,10 +266,10 @@ Pour la copie : avec 17 au lieu de 21, $l_{33}^2 = 17 - 1 - 16 = 0$ : le pivot n
 **Réponses** : a) `[[2, 5], [5, 26]]` · b) `[27, 1]` · c) `[0.1961, 0.9806]` · d) `26` · e) `[5.1962, 1.0]` · f) `16.32` · g) `14.42` · h) `True`.
 
 **Démarche.**
-- a) $10xy = 5xy + 5yx$. b) $\lambda^2 - 28\lambda + 27 = (\lambda - 27)(\lambda - 1)$. c) $\mathbf{S} - 27\mathbf{I} = \begin{pmatrix} -25 & 5 \cr 5 & -1 \end{pmatrix}$ : $y = 5x$, $(1, 5)/\sqrt{26}$.
+- a) $10xy = 5xy + 5yx$. b) $\lambda^2 - 28\lambda + 27 = (\lambda - 27)(\lambda - 1)$. c) $`\mathbf{S} - 27\mathbf{I} = \begin{pmatrix} -25 & 5 \cr 5 & -1 \end{pmatrix}`$ : $y = 5x$, $(1, 5)/\sqrt{26}$.
 - d) $50 - 50 + 26 = 26$ ($(5, -1)$ est vecteur propre de 1, de carré de norme 26).
 - e) $q = 27y_1^2 + y_2^2 = 27$ : $\sqrt{27/1} \approx 5{,}1962$ le long de $\mathbf{q}_2$, $\sqrt{27/27} = 1$ le long de $\mathbf{q}_1$. f) $\pi\sqrt{27} \approx 16{,}32$.
-- g) Matrice $\begin{pmatrix} 2 & c/2 \cr c/2 & 26 \end{pmatrix}$, de déterminant $52 - c^2/4 \le 0$ pour $c \ge \sqrt{208} \approx 14{,}42$. h) Définie positive : $q = 0$ seulement en $\mathbf{0}$.
+- g) Matrice $`\begin{pmatrix} 2 & c/2 \cr c/2 & 26 \end{pmatrix}`$, de déterminant $52 - c^2/4 \le 0$ pour $c \ge \sqrt{208} \approx 14{,}42$. h) Définie positive : $q = 0$ seulement en $\mathbf{0}$.
 
 Pour la copie : $q = 27y_1^2 + y_2^2$ avec $y_1 = \frac{x + 5y}{\sqrt{26}}$ et $y_2 = \frac{5x - y}{\sqrt{26}}$. L'ellipse est la plus allongée le long de $\mathbf{q}_2 \propto (5, -1)$ : dans cette direction, $q$ monte le moins vite (valeur propre 1), il faut aller plus loin pour atteindre 27.
 
@@ -282,11 +282,11 @@ Pour la copie : $q = 27y_1^2 + y_2^2$ avec $y_1 = \frac{x + 5y}{\sqrt{26}}$ et $
 **Réponses** : a) `37` · b) `[[37, -56], [-56, 400]]` · c) `[[6, 0], [-5, 6]]` · d) `[[0.1667, 0.0], [0.1389, 0.1667]]` · e) `[81, 16]` · f) `[[5.5385, -2.3077], [-2.3077, 7.4615]]` · g) `[[0.2073, 0.0641], [0.0641, 0.1538]]` · h) `[2.0, 1.6667]`.
 
 **Démarche.**
-- a) $36 + 61 + 2 \times (-30) = 37$. b) $\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -2 \end{pmatrix}$ : $\mathbb{V}(x_1 - 2x_2) = 36 + 4 \times 61 - 4 \times (-30) = 400$ ; $\operatorname{Cov} = 36 - 2(-30) + (-30) - 2 \times 61 = -56$.
-- c) $l_{11} = 6$, $l_{21} = -30/6 = -5$, $l_{22} = \sqrt{61 - 25} = 6$. d) $\mathbf{L}^{-1} = \begin{pmatrix} 1/6 & 0 \cr 5/36 & 1/6 \end{pmatrix}$.
+- a) $36 + 61 + 2 \times (-30) = 37$. b) $`\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -2 \end{pmatrix}`$ : $\mathbb{V}(x_1 - 2x_2) = 36 + 4 \times 61 - 4 \times (-30) = 400$ ; $\operatorname{Cov} = 36 - 2(-30) + (-30) - 2 \times 61 = -56$.
+- c) $l_{11} = 6$, $l_{21} = -30/6 = -5$, $l_{22} = \sqrt{61 - 25} = 6$. d) $`\mathbf{L}^{-1} = \begin{pmatrix} 1/6 & 0 \cr 5/36 & 1/6 \end{pmatrix}`$.
 - e) $\lambda^2 - 97\lambda + 1296 = (\lambda - 81)(\lambda - 16)$, de vecteurs propres $(2, -3)$ et $(3, 2)$.
-- f) $\frac{9}{13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{4}{13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix} = \frac{1}{13}\begin{pmatrix} 72 & -30 \cr -30 & 97 \end{pmatrix}$.
-- g) $\frac{1}{9 \times 13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{1}{4 \times 13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix} = \frac{1}{468}\begin{pmatrix} 97 & 30 \cr 30 & 72 \end{pmatrix}$.
+- f) $`\frac{9}{13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{4}{13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix} = \frac{1}{13}\begin{pmatrix} 72 & -30 \cr -30 & 97 \end{pmatrix}`$.
+- g) $`\frac{1}{9 \times 13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{1}{4 \times 13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix} = \frac{1}{468}\begin{pmatrix} 97 & 30 \cr 30 & 72 \end{pmatrix}`$.
 - h) $\mathbf{L}^{-1}(12, 0) = (2, \frac{60}{36}) = (2 ;\ 1{,}6667)$.
 
 Pour la copie : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{L}^{-1}\mathbf{L}\mathbf{L}^\top\mathbf{L}^{-\top} = \mathbf{I}$. Le blanchiment de l'ACP a pour lignes $\frac{1}{9}\cdot\frac{(2, -3)}{\sqrt{13}}$ et $\frac{1}{4}\cdot\frac{(3, 2)}{\sqrt{13}}$ : il passe d'abord dans la base propre, alors que g) revient dans la base de départ ($\mathbf{Q}\boldsymbol{\Lambda}^{-1/2}\mathbf{Q}^\top$). Les deux diffèrent par la matrice orthogonale $\mathbf{Q}$ : g) $= \mathbf{Q} \times$ (blanchiment de l'ACP), et si $\mathbf{W}$ blanchit, $\mathbf{R}\mathbf{W}$ blanchit aussi pour toute $\mathbf{R}$ orthogonale ($\mathbf{R}\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top\mathbf{R}^\top = \mathbf{R}\mathbf{R}^\top = \mathbf{I}$, M12c.21) : le blanchiment n'est pas unique.
@@ -316,7 +316,7 @@ Pour la copie : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{L}^{-1}\
 2. $(\mathbf{A}\mathbf{u}) \cdot \mathbf{v} = \lambda\thinspace\mathbf{u} \cdot \mathbf{v}$ et $\mathbf{u} \cdot (\mathbf{A}\mathbf{v}) = \mu\thinspace\mathbf{u} \cdot \mathbf{v}$. Par 1, $(\lambda - \mu)\thinspace\mathbf{u} \cdot \mathbf{v} = 0$, et $\lambda \ne \mu$ : $\mathbf{u} \cdot \mathbf{v} = 0$.
 3. $s = \bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z}$ est un nombre ; son conjugué est $\mathbf{z}^\top\mathbf{A}\bar{\mathbf{z}}$ ($\mathbf{A}$ est réelle), égal à sa transposée $\bar{\mathbf{z}}^\top\mathbf{A}^\top\mathbf{z} = \bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z} = s$ : $s$ est réel. $\bar{\mathbf{z}}^\top\mathbf{z} = \sum_i \bar{z}_iz_i = \sum_i |z_i|^2 > 0$ ($\mathbf{z} \ne \mathbf{0}$). Et $s = \bar{\mathbf{z}}^\top(\lambda\mathbf{z}) = \lambda\thinspace\bar{\mathbf{z}}^\top\mathbf{z}$, donc $\lambda = s/\bar{\mathbf{z}}^\top\mathbf{z}$ est réel.
 4. Les $n$ valeurs propres, réelles (3) et distinctes, donnent $n$ vecteurs propres réels, deux à deux orthogonaux (2) ; normés, ils forment une famille orthonormée de $n$ vecteurs, donc une base (M12b). Avec $\mathbf{Q}$ leurs colonnes, $\mathbf{A}\mathbf{Q} = \mathbf{Q}\boldsymbol{\Lambda}$ et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ : $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$.
-5. $\begin{pmatrix} 1 & -2 \cr -2 & 4 \end{pmatrix}$ : $\lambda^2 - 5\lambda = 0$, réelles 5 et 0 ; vecteurs propres $(1, -2)$ et $(2, 1)$, de produit scalaire $2 - 2 = 0$.
+5. $`\begin{pmatrix} 1 & -2 \cr -2 & 4 \end{pmatrix}`$ : $\lambda^2 - 5\lambda = 0$, réelles 5 et 0 ; vecteurs propres $(1, -2)$ et $(2, 1)$, de produit scalaire $2 - 2 = 0$.
 
 **Grille.** (1) la transposée d'un produit et la symétrie ; (2) les deux calculs et la division par $\lambda - \mu$ ; (3) le conjugué de $s$, la positivité de $\bar{\mathbf{z}}^\top\mathbf{z}$, la conclusion ; (4) réels, orthogonaux, normés, $n$ vecteurs donc une base, puis la factorisation ; (5) les deux vérifications.
 
@@ -387,11 +387,11 @@ Pour la copie : $\mathbb{V}(\sum x_i) = \sum_{i,j}\operatorname{Cov}(x_i, x_j)$,
 **Réponses** : a) `[[3, 0], [2, 2]]` · b) `[[0.3333, 0.0], [-0.3333, 0.5]]` · c) `[[1, 0], [0, 1]]` · d) `[2.0, -1.5]` · e) `2.5` · f) `[[1, 0], [0, 1]]` · g) `True` · h) `False`.
 
 **Démarche.**
-- a) $l_{11} = 3$, $l_{21} = 2$, $l_{22} = \sqrt{8 - 4} = 2$. b) $\mathbf{L}^{-1} = \begin{pmatrix} 1/3 & 0 \cr -2/6 & 1/2 \end{pmatrix}$. c) Par construction.
+- a) $l_{11} = 3$, $l_{21} = 2$, $l_{22} = \sqrt{8 - 4} = 2$. b) $`\mathbf{L}^{-1} = \begin{pmatrix} 1/3 & 0 \cr -2/6 & 1/2 \end{pmatrix}`$. c) Par construction.
 - d) $(\frac{6}{3}, -\frac{6}{3} + \frac{1}{2}) = (2 ;\ -1{,}5)$. e) $\sqrt{4 + 2{,}25} = 2{,}5$.
 - f) $\mathbf{R}\mathbf{I}\mathbf{R}^\top = \mathbf{I}$ ($\mathbf{R}$ est orthogonale). g) $(\mathbf{R}\mathbf{W})\boldsymbol{\Sigma}(\mathbf{R}\mathbf{W})^\top = \mathbf{R}\mathbf{R}^\top = \mathbf{I}$. h) Non (ci-dessous).
 
-Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \cr -6 & 9 \end{pmatrix}$ et $\frac{1}{36}(8 \times 36 - 12 \times 6 + 9) = \frac{225}{36}$, de racine $\frac{15}{6} = 2{,}5$. h) : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ donne $\boldsymbol{\Sigma} = \mathbf{W}^{-1}\mathbf{W}^{-\top}$, donc $\mathbf{W}^\top\mathbf{W} = \boldsymbol{\Sigma}^{-1}$ pour **tout** blanchiment, et $\lVert \mathbf{W}\mathbf{d} \rVert^2 = \mathbf{d}^\top\boldsymbol{\Sigma}^{-1}\mathbf{d}$. Après blanchiment, les features ne sont plus corrélées : un modèle à distances ne voit plus la corrélation, il mesure les écarts « en nombre d'écarts-types », dans toutes les directions à la fois.
+Pour la copie : $`\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \cr -6 & 9 \end{pmatrix}`$ et $\frac{1}{36}(8 \times 36 - 12 \times 6 + 9) = \frac{225}{36}$, de racine $\frac{15}{6} = 2{,}5$. h) : $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top = \mathbf{I}$ donne $\boldsymbol{\Sigma} = \mathbf{W}^{-1}\mathbf{W}^{-\top}$, donc $\mathbf{W}^\top\mathbf{W} = \boldsymbol{\Sigma}^{-1}$ pour **tout** blanchiment, et $\lVert \mathbf{W}\mathbf{d} \rVert^2 = \mathbf{d}^\top\boldsymbol{\Sigma}^{-1}\mathbf{d}$. Après blanchiment, les features ne sont plus corrélées : un modèle à distances ne voit plus la corrélation, il mesure les écarts « en nombre d'écarts-types », dans toutes les directions à la fois.
 
 **Erreurs fréquentes.** Le signe de l'élément sous la diagonale de $\mathbf{L}^{-1}$ ; $\mathbf{z} = \mathbf{L}(\mathbf{x} - \boldsymbol{\mu})$ ; croire que la distance de Mahalanobis dépend du blanchiment choisi.
 
@@ -402,9 +402,9 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 **Réponse modèle** (avec tes mots ; les tiens peuvent différer).
 1. Le livre part des petites matrices et du lien avec l'inversibilité : une matrice carrée est inversible si et seulement si son déterminant n'est pas nul (et, plus loin, si et seulement si son rang vaut $n$). Il appelle le développement selon une ligne ou une colonne *Laplace expansion*, avec les sous-matrices obtenues en supprimant une ligne et une colonne.
 2. En dimension 2, $|\det|$ est l'aire du parallélogramme construit sur les colonnes ; en dimension 3, le volume du parallélépipède. Le signe dit l'**orientation** des vecteurs par rapport à la base canonique : c'est un volume *signé*.
-3. Linéarité ($\operatorname{tr}(\mathbf{A} + \mathbf{B})$, $\operatorname{tr}(\alpha\mathbf{A})$), $\operatorname{tr}(\mathbf{I}_n) = n$, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, et plus généralement l'invariance par permutation circulaire. C'est elle qui donne $\operatorname{tr}(\mathbf{S}^{-1}\mathbf{A}\mathbf{S}) = \operatorname{tr}\mathbf{A}$ : la trace d'une application linéaire ne dépend pas de la base.
+3. Linéarité ($\operatorname{tr}(\mathbf{A} + \mathbf{B})$, $\operatorname{tr}(\alpha\mathbf{A}){}$), $\operatorname{tr}(\mathbf{I}_n) = n$, $\operatorname{tr}(\mathbf{A}\mathbf{B}) = \operatorname{tr}(\mathbf{B}\mathbf{A})$, et plus généralement l'invariance par permutation circulaire. C'est elle qui donne $\operatorname{tr}(\mathbf{S}^{-1}\mathbf{A}\mathbf{S}) = \operatorname{tr}\mathbf{A}$ : la trace d'une application linéaire ne dépend pas de la base.
 4. $\mathbf{A}\mathbf{x} = \lambda\mathbf{x}$, $\mathbf{x} \ne \mathbf{0}$ ; l'espace propre est l'ensemble des vecteurs propres de $\lambda$ avec $\mathbf{0}$ (le noyau de $\mathbf{A} - \lambda\mathbf{I}$). Formulations équivalentes : $\lambda$ est valeur propre ; $(\mathbf{A} - \lambda\mathbf{I})\mathbf{x} = \mathbf{0}$ a une solution non nulle (fiche §3, le noyau) ; $\operatorname{rk}(\mathbf{A} - \lambda\mathbf{I}) < n$ (M12a) ; $\det(\mathbf{A} - \lambda\mathbf{I}) = 0$ (fiche §1 et §3).
-5. Multiplicité algébrique : la multiplicité comme racine du polynôme caractéristique ; géométrique : la dimension de l'espace propre (au plus l'algébrique). Une matrice $n \times n$ est défective si elle a moins de $n$ vecteurs propres libres. Exemple : $\begin{pmatrix} 3 & 1 \cr 0 & 3 \end{pmatrix}$, valeur propre 3 de multiplicité algébrique 2 et géométrique 1.
+5. Multiplicité algébrique : la multiplicité comme racine du polynôme caractéristique ; géométrique : la dimension de l'espace propre (au plus l'algébrique). Une matrice $n \times n$ est défective si elle a moins de $n$ vecteurs propres libres. Exemple : $`\begin{pmatrix} 3 & 1 \cr 0 & 3 \end{pmatrix}`$, valeur propre 3 de multiplicité algébrique 2 et géométrique 1.
 6. Pour toute matrice $\mathbf{A}$ de forme $(m, n)$, $\mathbf{A}^\top\mathbf{A}$ est symétrique semi-définie positive, et définie positive si le rang vaut $n$ : c'est M12c.17, démontré de la même façon ($\mathbf{x}^\top\mathbf{A}^\top\mathbf{A}\mathbf{x} = \lVert \mathbf{A}\mathbf{x} \rVert^2$).
 7. Par exemple : *eigenspace* (espace propre), *defective* (défective), *characteristic polynomial* (polynôme caractéristique), *signed volume* (volume orienté).
 
@@ -486,7 +486,7 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 
 **Réponses** : a) `[[5.0, 0.0, 0.0], [-2.0, 1.0, 0.0], [3.0, 2.0, 2.0]]` · b) `True` · c) `[True, False, False, False, True]` · d) `"ValueError"` · e) `"ValueError"` · f) `"ValueError"` · g) `True`.
 
-**Démarche.** Copie, formes, symétrie relative (`np.abs(M - M.T) > 1e-12 * max(1, np.max(np.abs(M)))`), `L = np.zeros((n, n))`, puis pour chaque colonne `j` : `pivot = M[j, j] - L[j, :j] @ L[j, :j]`, une `ValueError` si `not pivot > 0`, `L[j, j] = np.sqrt(pivot)`, `L[j + 1:, j] = (M[j + 1:, j] - L[j + 1:, :j] @ L[j, :j]) / L[j, j]`. `is_positive_definite` : contrôle de la forme d'abord (la `ValueError` doit sortir), puis `try: cholesky(M)` / `except ValueError: return False` / `return True`. Pour la copie : a) $l_{11} = 5$, $l_{21} = -2$, $l_{31} = 3$, $l_{22} = \sqrt{5 - 4} = 1$, $l_{32} = (-4 + 6)/1 = 2$, $l_{33} = \sqrt{17 - 9 - 4} = 2$. c) La première a pour mineurs 5, 11 et 39 (définie positive) ; $\det\begin{pmatrix} 2 & 4 \cr 4 & 7 \end{pmatrix} = -2$ (indéfinie) ; $\operatorname{diag}(1, 0)$ est seulement semi-définie (pivot nul) ; $\begin{pmatrix} 2 & 1 \cr 0 & 2 \end{pmatrix}$ n'est pas symétrique ; $(6)$ est définie positive. d) n'est pas symétrique ; e) est symétrique mais indéfinie ($\det = -5$, le second pivot vaut $4 - 9 < 0$).
+**Démarche.** Copie, formes, symétrie relative (`np.abs(M - M.T) > 1e-12 * max(1, np.max(np.abs(M)))`), `L = np.zeros((n, n))`, puis pour chaque colonne `j` : `pivot = M[j, j] - L[j, :j] @ L[j, :j]`, une `ValueError` si `not pivot > 0`, `L[j, j] = np.sqrt(pivot)`, `L[j + 1:, j] = (M[j + 1:, j] - L[j + 1:, :j] @ L[j, :j]) / L[j, j]`. `is_positive_definite` : contrôle de la forme d'abord (la `ValueError` doit sortir), puis `try: cholesky(M)` / `except ValueError: return False` / `return True`. Pour la copie : a) $l_{11} = 5$, $l_{21} = -2$, $l_{31} = 3$, $l_{22} = \sqrt{5 - 4} = 1$, $l_{32} = (-4 + 6)/1 = 2$, $l_{33} = \sqrt{17 - 9 - 4} = 2$. c) La première a pour mineurs 5, 11 et 39 (définie positive) ; $`\det\begin{pmatrix} 2 & 4 \cr 4 & 7 \end{pmatrix} = -2`$ (indéfinie) ; $\operatorname{diag}(1, 0)$ est seulement semi-définie (pivot nul) ; $`\begin{pmatrix} 2 & 1 \cr 0 & 2 \end{pmatrix}`$ n'est pas symétrique ; $(6)$ est définie positive. d) n'est pas symétrique ; e) est symétrique mais indéfinie ($\det = -5$, le second pivot vaut $4 - 9 < 0$).
 
 **Erreurs fréquentes.** Rendre $\mathbf{L}^\top$ ; une tolérance de symétrie absolue (refuse les grandes matrices) ; `pivot < 0` au lieu de `not pivot > 0` (accepte un pivot nul, puis divise par 0) ; attraper toutes les exceptions dans `is_positive_definite`.
 
@@ -494,7 +494,7 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 
 **Réponses** : a) `[[4.0, 1.0], [1.0, 2.0]]` · b) `[[2.84605, 0.948683], [0.948683, 0.316228]]` · c) `[[0.632456, 0.316228], [0.316228, 0.948683]]` · d) `[[0.5, 0.0], [0.5, 1.0]]` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
 
-**Démarche.** `values, Q = np.linalg.eigh(M)` ; pour `sqrtm_psd`, une `ValueError` si `values.min() < -tol * max(1, values.max())`, puis `(Q * np.sqrt(np.clip(values, 0, None))) @ Q.T` ; pour ZCA, une `ValueError` si une valeur propre est $\le 0$, puis `(Q / np.sqrt(values)) @ Q.T` ; pour Cholesky, `np.linalg.solve(cholesky(M), np.eye(p))`. Pour la copie : b) existe parce que les valeurs propres, 10 et 0, sont positives ou nulles ; $\mathbf{L} = \begin{pmatrix} 2 & 0 \cr -1 & 1 \end{pmatrix}$ pour d) ; c) vaut $\frac{1}{\sqrt{10}}\begin{pmatrix} 2 & 1 \cr 1 & 3 \end{pmatrix}$, symétrique par construction, et son carré est $\boldsymbol{\Sigma}^{-1}$.
+**Démarche.** `values, Q = np.linalg.eigh(M)` ; pour `sqrtm_psd`, une `ValueError` si `values.min() < -tol * max(1, values.max())`, puis `(Q * np.sqrt(np.clip(values, 0, None))) @ Q.T` ; pour ZCA, une `ValueError` si une valeur propre est $\le 0$, puis `(Q / np.sqrt(values)) @ Q.T` ; pour Cholesky, `np.linalg.solve(cholesky(M), np.eye(p))`. Pour la copie : b) existe parce que les valeurs propres, 10 et 0, sont positives ou nulles ; $`\mathbf{L} = \begin{pmatrix} 2 & 0 \cr -1 & 1 \end{pmatrix}`$ pour d) ; c) vaut $`\frac{1}{\sqrt{10}}\begin{pmatrix} 2 & 1 \cr 1 & 3 \end{pmatrix}`$, symétrique par construction, et son carré est $\boldsymbol{\Sigma}^{-1}$.
 
 **Erreurs fréquentes.** La racine des éléments ; oublier de remettre à 0 les valeurs propres de l'ordre de $-10^{-16}$ (`nan`) ; $\mathbf{Q}\sqrt{\boldsymbol{\Lambda}}$ sans $\mathbf{Q}^\top$ ; $\mathbf{L}^{-\top}$ au lieu de $\mathbf{L}^{-1}$.
 
@@ -502,7 +502,7 @@ Pour la copie : $\boldsymbol{\Sigma}^{-1} = \frac{1}{36}\begin{pmatrix} 8 & -6 \
 
 **Réponses** : a) `[1.3289, 2.705, 5.0608, 8.9054]` · b) `True` · c) `True` · d) `True` · e) `True` · f) `True` · g) `"complex128"`.
 
-**Démarche.** `values, vectors = np.linalg.eigh(S_30)` (ordre croissant) ; `vectors.T @ vectors` contre `np.eye(4)` ; puis tes fonctions contre celles de NumPy et SciPy. Pour la copie : `eigh` exploite la symétrie (plus rapide, valeurs réelles rangées, vecteurs orthonormés même pour une valeur multiple), `eig` peut rendre des complexes à la partie imaginaire minuscule ; `np.linalg.cholesky([[4, 7], [-3, 5]])` rend sans erreur le facteur de la matrice symétrique $\begin{pmatrix} 4 & -3 \cr -3 & 5 \end{pmatrix}$ (elle ne lit que le triangle inférieur) : un résultat faux et silencieux ; g) la rotation a pour valeurs propres $\pm i$.
+**Démarche.** `values, vectors = np.linalg.eigh(S_30)` (ordre croissant) ; `vectors.T @ vectors` contre `np.eye(4)` ; puis tes fonctions contre celles de NumPy et SciPy. Pour la copie : `eigh` exploite la symétrie (plus rapide, valeurs réelles rangées, vecteurs orthonormés même pour une valeur multiple), `eig` peut rendre des complexes à la partie imaginaire minuscule ; `np.linalg.cholesky([[4, 7], [-3, 5]])` rend sans erreur le facteur de la matrice symétrique $`\begin{pmatrix} 4 & -3 \cr -3 & 5 \end{pmatrix}`$ (elle ne lit que le triangle inférieur) : un résultat faux et silencieux ; g) la rotation a pour valeurs propres $\pm i$.
 
 **Erreurs fréquentes.** Lire la valeur propre de `eigh` en premier comme la plus grande ; comparer des vecteurs propres sans tenir compte du signe.
 
@@ -520,13 +520,13 @@ Le tableau : 13, 24, 40, 76, 242, 482 et 2 293 itérations pour $r = 0{,}1$ à $
 
 ### Ex M12c.33 — Les lignes de niveau de xᵀAx : définie positive, semi-définie positive, indéfinie
 
-Vérification manuelle (la figure) et automatique (`classify`). L'ellipse de $\begin{pmatrix} 3 & -1 \cr -1 & 4 \end{pmatrix}$ (valeurs propres $\frac{7 \pm \sqrt{5}}{2} \approx 2{,}38$ et $4{,}62$) est la plus allongée le long du vecteur propre de la plus petite valeur propre. $\begin{pmatrix} 1 & 3 \cr 3 & 9 \end{pmatrix}$ donne $q = (x + 3y)^2$, nulle sur la droite $x + 3y = 0$, son noyau : des paires de droites parallèles. $x^2 + 4xy - 2y^2 = 0$ donne deux droites, $x = (-2 \pm \sqrt{6})\thinspace y$, les asymptotes des hyperboles. $\operatorname{diag}(1 ;\ 10^{-9})$ a deux valeurs propres positives : définie positive pour `classify`, mais ses ellipses sont si allongées qu'à l'écran on croit voir des droites. La tolérance de `classify` compte : pour une matrice semi-définie, `np.linalg.eigvalsh` rend souvent une valeur propre de l'ordre de $\pm 10^{-16}$ au lieu de 0, et la vérification automatique en contient deux.
+Vérification manuelle (la figure) et automatique (`classify`). L'ellipse de $`\begin{pmatrix} 3 & -1 \cr -1 & 4 \end{pmatrix}`$ (valeurs propres $\frac{7 \pm \sqrt{5}}{2} \approx 2{,}38$ et $4{,}62$) est la plus allongée le long du vecteur propre de la plus petite valeur propre. $`\begin{pmatrix} 1 & 3 \cr 3 & 9 \end{pmatrix}`$ donne $q = (x + 3y)^2$, nulle sur la droite $x + 3y = 0$, son noyau : des paires de droites parallèles. $x^2 + 4xy - 2y^2 = 0$ donne deux droites, $x = (-2 \pm \sqrt{6})\thinspace y$, les asymptotes des hyperboles. $\operatorname{diag}(1 ;\ 10^{-9})$ a deux valeurs propres positives : définie positive pour `classify`, mais ses ellipses sont si allongées qu'à l'écran on croit voir des droites. La tolérance de `classify` compte : pour une matrice semi-définie, `np.linalg.eigvalsh` rend souvent une valeur propre de l'ordre de $\pm 10^{-16}$ au lieu de 0, et la vérification automatique en contient deux.
 
 ### Ex M12c.34 — Chasse à l'erreur : det(A + B) = det A + det B, un vecteur propre nul, Cholesky d'une matrice non symétrique
 
 **Réponses** : a) `"ACE"` · b) `[-8.0, 3.0, 1.2247, -5.0, 3.5]` · c) `False`.
 
-(A) Le déterminant n'est pas additif : $\det(\mathbf{A} + \mathbf{B}) = \det\begin{pmatrix} 3 & 2 \cr 4 & 0 \end{pmatrix} = -8$, et non $-5 + (-2) = -7$. (C) $\mathbf{A} - \lambda\mathbf{I}$ est singulière en théorie, mais l'arrondi de $\lambda$ la rend inversible pour la machine : `solve` rend la seule solution de $\mathbf{M}\mathbf{v} = \mathbf{0}$, le vecteur nul. Un vecteur propre nul doit toujours alerter : on prend un vecteur du noyau (`np.linalg.eig`, ou à la main $-\sqrt{6}\thinspace v_0 + 2v_1 = 0$, $v_1/v_0 = \sqrt{6}/2 \approx 1{,}2247$). (E) `np.linalg.cholesky` ne lit que le triangle inférieur : elle factorise sans rien dire $\begin{pmatrix} 4 & -2 \cr -2 & 5 \end{pmatrix}$, alors que $\mathbf{C}$, non symétrique, n'a pas de décomposition de Cholesky ; c'est la plus dangereuse : ni erreur, ni résultat absurde. (B) est juste (la trace est linéaire, 3), (D) aussi ($(1 + \sqrt{6})(1 - \sqrt{6}) = -5$), (F) aussi ($\frac{7}{2}$).
+(A) Le déterminant n'est pas additif : $`\det(\mathbf{A} + \mathbf{B}) = \det\begin{pmatrix} 3 & 2 \cr 4 & 0 \end{pmatrix} = -8`$, et non $-5 + (-2) = -7$. (C) $\mathbf{A} - \lambda\mathbf{I}$ est singulière en théorie, mais l'arrondi de $\lambda$ la rend inversible pour la machine : `solve` rend la seule solution de $\mathbf{M}\mathbf{v} = \mathbf{0}$, le vecteur nul. Un vecteur propre nul doit toujours alerter : on prend un vecteur du noyau (`np.linalg.eig`, ou à la main $-\sqrt{6}\thinspace v_0 + 2v_1 = 0$, $v_1/v_0 = \sqrt{6}/2 \approx 1{,}2247$). (E) `np.linalg.cholesky` ne lit que le triangle inférieur : elle factorise sans rien dire $`\begin{pmatrix} 4 & -2 \cr -2 & 5 \end{pmatrix}`$, alors que $\mathbf{C}$, non symétrique, n'a pas de décomposition de Cholesky ; c'est la plus dangereuse : ni erreur, ni résultat absurde. (B) est juste (la trace est linéaire, 3), (D) aussi ($(1 + \sqrt{6})(1 - \sqrt{6}) = -5$), (F) aussi ($\frac{7}{2}$).
 
 ### Ex M12c.35 — Vérifier avec SymPy : polynôme caractéristique, valeurs propres exactes, diagonalisation
 

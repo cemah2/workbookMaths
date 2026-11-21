@@ -81,7 +81,7 @@ On additionne le tableau le long des anti-diagonales ($i + j$ constant) : $3$ ; 
 
 **La loi de la somme de deux dés.** On lance un dé à 4 faces $D$ (numéros 1 à 4) et un dé à 6 faces $D'$ (numéros 1 à 6), équilibrés et indépendants. On range chaque loi dans une suite indexée par les valeurs : $\mathbf{p} = (0, \frac14, \frac14, \frac14, \frac14)$ et $\mathbf{q} = (0, \frac16, \ldots, \frac16)$ (7 termes). La somme $S = D + D'$ vaut $m$ quand $D = i$ et $D' = m - i$ pour un certain $i$ ; ces événements sont disjoints, et l'indépendance (M02b) donne
 $$P(S = m) = \sum_i P(D = i)\thinspace P(D' = m - i) = \sum_i p_i\thinspace q_{m-i}.$$
-En multipliant par 24 : $S = 2, 3, \ldots, 10$ a les poids $1, 2, 3, 4, 4, 4, 3, 2, 1$. Par exemple $P(S = 5) = \frac{4}{24} = \frac16$ (les couples $(1, 4)$, $(2, 3)$, $(3, 2)$, $(4, 1)$) et $P(S \ge 8) = \frac{3 + 2 + 1}{24} = \frac14$. C'est le calcul des polynômes : le tableau à double entrée où R8 comptait les couples, lu le long de ses anti-diagonales. D'ailleurs, $\frac{X + X^2 + X^3 + X^4}{4}\cdot\frac{X + \cdots + X^6}{6}$ a pour coefficients la loi de $S$ (le polynôme dont le coefficient de $X^m$ est $P(D = m)$ s'appelle la **fonction génératrice** de la loi).
+En multipliant par 24 : $S = 2, 3, \ldots, 10$ a les poids $1, 2, 3, 4, 4, 4, 3, 2, 1$. Par exemple $P(S = 5) = \frac{4}{24} = \frac16$ (les couples $(1, 4)$, $(2, 3)$, $(3, 2)$, $(4, 1){}$) et $P(S \ge 8) = \frac{3 + 2 + 1}{24} = \frac14$. C'est le calcul des polynômes : le tableau à double entrée où R8 comptait les couples, lu le long de ses anti-diagonales. D'ailleurs, $\frac{X + X^2 + X^3 + X^4}{4}\cdot\frac{X + \cdots + X^6}{6}$ a pour coefficients la loi de $S$ (le polynôme dont le coefficient de $X^m$ est $P(D = m)$ s'appelle la **fonction génératrice** de la loi).
 
 **Une moyenne mobile.** R5 lissait une série de mesures par la moyenne des 3 dernières valeurs, $m_t = \frac{x_{t-2} + x_{t-1} + x_t}{3}$. Avec $\mathbf{h} = (\frac13, \frac13, \frac13)$, la somme $\sum_i x_i\thinspace h_{t-i}$ ne garde que $i = t - 2$, $t - 1$, $t$ : c'est $m_t$. Pour les relevés horaires d'un capteur, $\mathbf{x} = (5, 11, 8, 2, 14)$, on trouve $m_2 = 8$, $m_3 = 7$ et $m_4 = 8$ ; aux indices 0, 1, 5 et 6, la fenêtre déborde du signal, et la même formule (avec des zéros hors du signal) donne $\frac53$, $\frac{16}{3}$, $\frac{16}{3}$ et $\frac{14}{3}$ : des moyennes faussées par les zéros (le §2 les appelle le mode plein).
 
@@ -133,7 +133,7 @@ Le **noyau retourné** est $\tilde{\mathbf{w}} = (w_{k-1}, \ldots, w_1, w_0)$, c
 
 ![Le signal x = (2, 5, −1, 3, 0, 4) et le noyau w = (3, 1, −2) : en haut, la corrélation croisée pose w tel quel sur la fenêtre des cases 1 à 3 et donne 8 ; en bas, la convolution pose le noyau retourné (−2, 1, 3) sur la même fenêtre et donne −2 ; sous chacune, ses quatre valeurs en mode valide](figures/glisser_retourner.png)
 
-Deux cas particuliers : si le noyau est **symétrique** ($\tilde{\mathbf{w}} = \mathbf{w}$, comme $(1, -2, 1)$), convolution et corrélation coïncident ; s'il est **antisymétrique** ($\tilde{\mathbf{w}} = -\mathbf{w}$, comme $(-1, 0, 1)$), elles sont opposées. Et contrairement à la convolution, la corrélation croisée n'est ni commutative ni associative (∂ M21.12).
+Deux cas particuliers : si le noyau est **symétrique** ($\tilde{\mathbf{w}} = \mathbf{w}$, comme $(1, -2, 1){}$), convolution et corrélation coïncident ; s'il est **antisymétrique** ($\tilde{\mathbf{w}} = -\mathbf{w}$, comme $(-1, 0, 1){}$), elles sont opposées. Et contrairement à la convolution, la corrélation croisée n'est ni commutative ni associative (∂ M21.12).
 
 📐 **Notations.** Deux opérations portent le nom de convolution, et la fiche les distingue partout :
 - la **convolution** des mathématiciens, $\mathbf{x} \ast \mathbf{w}$, retourne le noyau : c'est celle des polynômes, des lois de probabilité, de `np.convolve` et de la fonction `convolve` de `mymath` (M21.19), et c'est celle que M22 retrouvera dans les récurrences ;
@@ -166,7 +166,9 @@ Ce sont des corrélations : pour les appliquer avec `np.convolve`, on retourne l
 **Exemple.** Un chariot avance sur un rail ; sa position est relevée toutes les $h = 0{,}5$ s : $(1 ;\ 1{,}5 ;\ 3 ;\ 5{,}5 ;\ 9)$ m. La différence avant donne $\frac{(0{,}5 ;\ 1{,}5 ;\ 2{,}5 ;\ 3{,}5)}{0{,}5} = (1, 3, 5, 7)$ m/s ; la différence centrée, aux instants 0,5, 1 et 1,5 s, $(2, 4, 6)$ m/s ; la dérivée seconde, $(4, 4, 4)$ m/s². Ces positions sont celles de $x(t) = 2t^2 + 1$, de vitesse $4t$ et d'accélération 4 : les trois pochoirs sont **exacts** ici (sur une parabole, l'erreur de la différence centrée, en $\frac{h^2}{6}f'''$, est nulle, et celle de la différence avant au milieu aussi).
 
 **En deux dimensions**, sur une grille de pas $h$ dans les deux directions, la somme des dérivées secondes le long des deux axes est le **laplacien discret** (*discrete Laplacian*) :
-$$\Delta f_{i,j} \approx \frac{f_{i+1,j} + f_{i-1,j} + f_{i,j+1} + f_{i,j-1} - 4f_{i,j}}{h^2}, \qquad \text{pochoir } \frac1{h^2}\begin{pmatrix} 0 & 1 & 0 \cr 1 & -4 & 1 \cr 0 & 1 & 0 \end{pmatrix}.$$
+```math
+\Delta f_{i,j} \approx \frac{f_{i+1,j} + f_{i-1,j} + f_{i,j+1} + f_{i,j-1} - 4f_{i,j}}{h^2}, \qquad \text{pochoir } \frac1{h^2}\begin{pmatrix} 0 & 1 & 0 \cr 1 & -4 & 1 \cr 0 & 1 & 0 \end{pmatrix}.
+```
 Au facteur $\frac4{h^2}$ près, il mesure l'écart entre la moyenne des quatre voisines d'une case et la case elle-même : il est **négatif sur un sommet** (la case dépasse ses voisines), **positif dans un creux**. Le §6 l'applique à une carte d'altitudes.
 
 ## §3 · La convolution comme application linéaire : matrices de Toeplitz et matrices creuses
@@ -177,8 +179,10 @@ Pour un noyau $\mathbf{w}$ fixé, de longueur $k$, l'application $\mathbf{x} \ma
 $$T  _{ij} = w _{i-j} \quad (\text{et } 0 \text{ quand } i - j \notin \lbrace0, \ldots, k - 1\rbrace), \qquad \mathbf{T} \text{ de forme } (n + k - 1, n).$$
 
 **Exemple.** $\mathbf{w} = (3, -1, 2)$ et $n = 4$ :
-$$\mathbf{T} = \begin{pmatrix} 3 & 0 & 0 & 0 \cr -1 & 3 & 0 & 0 \cr 2 & -1 & 3 & 0 \cr 0 & 2 & -1 & 3 \cr 0 & 0 & 2 & -1 \cr 0 & 0 & 0 & 2 \end{pmatrix}, \qquad \mathbf{T}\begin{pmatrix} 2 \cr -1 \cr 0 \cr 1 \end{pmatrix} = \begin{pmatrix} 6 \cr -5 \cr 5 \cr 1 \cr -1 \cr 2 \end{pmatrix} = (2, -1, 0, 1) \ast \mathbf{w}.$$
-Chaque **diagonale** est constante : le coefficient $(i, j)$ ne dépend que de $i - j$. Une telle matrice s'appelle une **matrice de Toeplitz** (*Toeplitz matrix*). Le mode valide garde les lignes $k - 1$ à $n - 1$ (ici les lignes 2 et 3), soit $\begin{pmatrix} 2 & -1 & 3 & 0 \cr 0 & 2 & -1 & 3 \end{pmatrix}$, de forme $(n - k + 1, n)$ ; le mode même taille garde $n$ lignes à partir de la ligne $\lfloor\frac{k-1}{2}\rfloor$ (ici les lignes 1 à 4). C'est ce que calcule `toeplitz_matrix` (M21.20).
+```math
+\mathbf{T} = \begin{pmatrix} 3 & 0 & 0 & 0 \cr -1 & 3 & 0 & 0 \cr 2 & -1 & 3 & 0 \cr 0 & 2 & -1 & 3 \cr 0 & 0 & 2 & -1 \cr 0 & 0 & 0 & 2 \end{pmatrix}, \qquad \mathbf{T}\begin{pmatrix} 2 \cr -1 \cr 0 \cr 1 \end{pmatrix} = \begin{pmatrix} 6 \cr -5 \cr 5 \cr 1 \cr -1 \cr 2 \end{pmatrix} = (2, -1, 0, 1) \ast \mathbf{w}.
+```
+Chaque **diagonale** est constante : le coefficient $(i, j)$ ne dépend que de $i - j$. Une telle matrice s'appelle une **matrice de Toeplitz** (*Toeplitz matrix*). Le mode valide garde les lignes $k - 1$ à $n - 1$ (ici les lignes 2 et 3), soit $`\begin{pmatrix} 2 & -1 & 3 & 0 \cr 0 & 2 & -1 & 3 \end{pmatrix}`$, de forme $(n - k + 1, n)$ ; le mode même taille garde $n$ lignes à partir de la ligne $\lfloor\frac{k-1}{2}\rfloor$ (ici les lignes 1 à 4). C'est ce que calcule `toeplitz_matrix` (M21.20).
 
 ![À gauche, la matrice de Toeplitz de x ↦ x * w pour w = (3, −1, 2) et n = 6, de forme (8, 6), chaque diagonale constante, les lignes 2 à 5 du mode valide encadrées ; à droite, la matrice circulante 6 × 6 du même noyau, où les coefficients qui sortaient en bas reviennent en haut à droite (§4)](figures/toeplitz_circulante.png)
 
@@ -197,7 +201,7 @@ Le mot **noyau** a ici deux sens : le noyau $\mathbf{w}$ d'une convolution, et l
 
 Le même produit s'écrit dans l'autre sens. Rangeons les fenêtres du signal dans les **lignes** d'une matrice $\mathbf{X} _{\text{f}}$, de forme $(n - k + 1, k)$, de ligne $i$ égale à $(x_i, \ldots, x _{i+k-1})$ : alors
 $$\mathbf{w} \star \mathbf{x} = \mathbf{X} _{\text{f}}\thinspace\mathbf{w}.$$
-Avec le signal du §2 : $\begin{pmatrix} 2 & 5 & -1 \cr 5 & -1 & 3 \cr -1 & 3 & 0 \cr 3 & 0 & 4 \end{pmatrix}\begin{pmatrix} 3 \cr 1 \cr -2 \end{pmatrix} = \begin{pmatrix} 13 \cr 8 \cr 0 \cr 1 \end{pmatrix}$. Cette fois, la matrice est faite avec le **signal**, et le vecteur est le **noyau**. Les bibliothèques construisent cette **matrice des fenêtres** sous le nom d'*im2col* (*image to columns* : elles rangent les fenêtres en colonnes plutôt qu'en lignes) ; chaque valeur du signal y est recopiée jusqu'à $k$ fois, mais toute la convolution devient **un seul produit matriciel**, que les machines font très vite. Cette écriture montre aussi que la sortie est **linéaire en $\mathbf{w}$** : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée et bruitée, c'est minimiser $\lVert\mathbf{X} _{\text{f}}\mathbf{w} - \mathbf{y}\rVert^2$, un problème de moindres carrés (M09b ; 🏆 M21.29).
+Avec le signal du §2 : $`\begin{pmatrix} 2 & 5 & -1 \cr 5 & -1 & 3 \cr -1 & 3 & 0 \cr 3 & 0 & 4 \end{pmatrix}\begin{pmatrix} 3 \cr 1 \cr -2 \end{pmatrix} = \begin{pmatrix} 13 \cr 8 \cr 0 \cr 1 \end{pmatrix}`$. Cette fois, la matrice est faite avec le **signal**, et le vecteur est le **noyau**. Les bibliothèques construisent cette **matrice des fenêtres** sous le nom d'*im2col* (*image to columns* : elles rangent les fenêtres en colonnes plutôt qu'en lignes) ; chaque valeur du signal y est recopiée jusqu'à $k$ fois, mais toute la convolution devient **un seul produit matriciel**, que les machines font très vite. Cette écriture montre aussi que la sortie est **linéaire en $\mathbf{w}$** : retrouver un noyau inconnu à partir d'un signal et de sa version filtrée et bruitée, c'est minimiser $\lVert\mathbf{X} _{\text{f}}\mathbf{w} - \mathbf{y}\rVert^2$, un problème de moindres carrés (M09b ; 🏆 M21.29).
 
 ### La transposée
 
@@ -206,7 +210,7 @@ Avec le signal du §2 : $\begin{pmatrix} 2 & 5 & -1 \cr 5 & -1 & 3 \cr -1 & 3 & 
 > - Réciproquement, la transposée de la matrice de la convolution pleine par $\mathbf{w}$ est celle de la convolution valide par $\tilde{\mathbf{w}}$.
 > - En mode **même taille**, la transposée est la matrice du mode même taille par $\tilde{\mathbf{w}}$ **seulement si $k$ est impair** ; pour $k$ pair, le décalage du §2 la met en défaut.
 
-**Exemple.** Pour $\mathbf{w} = (3, -1, 2)$ et $n = 4$, la transposée de la matrice valide est $\begin{pmatrix} 2 & 0 \cr -1 & 2 \cr 3 & -1 \cr 0 & 3 \end{pmatrix}$ : ses colonnes sont $(2, -1, 3)$ descendu de 0 puis de 1 ligne, c'est la matrice de $\mathbf{y} \mapsto \mathbf{y} \ast (2, -1, 3)$ en mode plein, pour $\mathbf{y} \in \mathbb{R}^2$.
+**Exemple.** Pour $\mathbf{w} = (3, -1, 2)$ et $n = 4$, la transposée de la matrice valide est $`\begin{pmatrix} 2 & 0 \cr -1 & 2 \cr 3 & -1 \cr 0 & 3 \end{pmatrix}`$ : ses colonnes sont $(2, -1, 3)$ descendu de 0 puis de 1 ligne, c'est la matrice de $\mathbf{y} \mapsto \mathbf{y} \ast (2, -1, 3)$ en mode plein, pour $\mathbf{y} \in \mathbb{R}^2$.
 
 Comment la lire : les lignes de $\mathbf{T}^\top$ sont les colonnes de $\mathbf{T}$, le noyau descendu ligne après ligne. Le §5 en tire la convolution transposée.
 
@@ -235,14 +239,18 @@ En effet, $((\tau_t\mathbf{x}) \ast \mathbf{w})  _m = \sum_i x  _{i-t}\thinspace
 ### Les convolutions circulaires
 
 Certains signaux sont **périodiques** : la température en $n$ points régulièrement répartis autour d'une conduite circulaire, ou le profil moyen d'une journée, où l'heure 24 est l'heure 0. On lit alors les indices **modulo $n$** : l'indice $n$ est l'indice $0$. Le décalage circulaire $\mathbf{P}$ pousse tout d'une case, et la dernière valeur revient au début : $(\mathbf{P}\mathbf{x}) _i = x _{(i-1) \bmod n}$. Pour $n = 4$,
-$$\mathbf{P} = \begin{pmatrix} 0 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \cr 0 & 1 & 0 & 0 \cr 0 & 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{P}\thinspace(5, 6, 7, 8) = (8, 5, 6, 7).$$
+```math
+\mathbf{P} = \begin{pmatrix} 0 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \cr 0 & 1 & 0 & 0 \cr 0 & 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{P}\thinspace(5, 6, 7, 8) = (8, 5, 6, 7).
+```
 
 > **Définition.** La **convolution circulaire** de deux suites de même longueur $n$ est
 > $$(\mathbf{a} \circledast \mathbf{b})  _m = \sum  _{i=0}^{n-1} a_i\thinspace b _{(m-i) \bmod n}, \qquad m = 0, \ldots, n - 1.$$
 > L'application $\mathbf{x} \mapsto \mathbf{x} \circledast \mathbf{h}$ a pour matrice $\operatorname{circ}(\mathbf{h})$, de coefficients $h _{(i-j) \bmod n}$ : chaque colonne est la précédente, descendue d'une case, la dernière case remontant en haut. C'est une **matrice circulante** (*circulant matrix*), un cas particulier de matrice de Toeplitz.
 
 **Exemple.** $\mathbf{h} = (4, 1, 0, 2)$ :
-$$\operatorname{circ}(\mathbf{h}) = \begin{pmatrix} 4 & 2 & 0 & 1 \cr 1 & 4 & 2 & 0 \cr 0 & 1 & 4 & 2 \cr 2 & 0 & 1 & 4 \end{pmatrix}, \qquad \mathbf{a} = (1, 0, 3, 2) : \quad \mathbf{a} \circledast \mathbf{h} = \operatorname{circ}(\mathbf{h})\thinspace\mathbf{a} = (6, 7, 16, 13).$$
+```math
+\operatorname{circ}(\mathbf{h}) = \begin{pmatrix} 4 & 2 & 0 & 1 \cr 1 & 4 & 2 & 0 \cr 0 & 1 & 4 & 2 \cr 2 & 0 & 1 & 4 \end{pmatrix}, \qquad \mathbf{a} = (1, 0, 3, 2) : \quad \mathbf{a} \circledast \mathbf{h} = \operatorname{circ}(\mathbf{h})\thinspace\mathbf{a} = (6, 7, 16, 13).
+```
 Elle est commutative, comme la convolution ordinaire, et `circular_convolve` la calcule (M21.21). Le lien avec la convolution ordinaire : $\mathbf{a} \ast \mathbf{h} = (4, 1, 12, 13, 2, 6, 4)$, et en **repliant** ses termes modulo 4 (on ajoute le terme $m + 4$ au terme $m$), $(4 + 2, 1 + 6, 12 + 4, 13) = (6, 7, 16, 13)$. Donc, si l'on complète deux suites de longueurs $n$ et $k$ par des zéros jusqu'à une même longueur $N \ge n + k - 1$, rien ne se replie, et leur convolution circulaire de période $N$ donne leur convolution pleine.
 
 Le décalage $\mathbf{P}$ est lui-même la convolution circulaire par $(0, 1, 0, \ldots, 0)$, et deux convolutions circulaires commutent : $\operatorname{circ}(\mathbf{h})\thinspace\mathbf{P} = \mathbf{P}\operatorname{circ}(\mathbf{h})$, l'équivariance du cas périodique, cette fois sans bords. La réciproque est vraie :
@@ -250,7 +258,7 @@ Le décalage $\mathbf{P}$ est lui-même la convolution circulaire par $(0, 1, 0,
 > **Théorème** (∂ M21.13). Une matrice $\mathbf{A}$ de forme $(n, n)$ commute avec le décalage circulaire, $\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{A}$, si et seulement si $\mathbf{A} = \operatorname{circ}(\mathbf{h})$, où $\mathbf{h}$ est la première colonne de $\mathbf{A}$. De plus, $\operatorname{circ}(\mathbf{h})^\top = \operatorname{circ}(\check{\mathbf{h}})$, avec le **noyau retourné circulaire**
 > $$\check{\mathbf{h}} = (h_0, h_{n-1}, h_{n-2}, \ldots, h_1), \qquad \check h_m = h_{(-m) \bmod n}.$$
 
-L'idée de la première partie : les vecteurs de la base canonique sont tous des décalés du premier, $\mathbf{e}_j = \mathbf{P}^j\mathbf{e}_0$, donc une matrice qui commute avec $\mathbf{P}$ est connue dès qu'on connaît sa première colonne. **Les applications linéaires qui respectent les décalages sont exactement les convolutions** : l'équivariance caractérise la convolution. Sur l'exemple, $\check{\mathbf{h}} = (4, 2, 0, 1)$, et $\operatorname{circ}(\mathbf{h})^\top = \begin{pmatrix} 4 & 1 & 0 & 2 \cr 2 & 4 & 1 & 0 \cr 0 & 2 & 4 & 1 \cr 1 & 0 & 2 & 4 \end{pmatrix} = \operatorname{circ}(4, 2, 0, 1)$ : c'est la version périodique, et démontrée, de l'énoncé du §3.
+L'idée de la première partie : les vecteurs de la base canonique sont tous des décalés du premier, $\mathbf{e}_j = \mathbf{P}^j\mathbf{e}_0$, donc une matrice qui commute avec $\mathbf{P}$ est connue dès qu'on connaît sa première colonne. **Les applications linéaires qui respectent les décalages sont exactement les convolutions** : l'équivariance caractérise la convolution. Sur l'exemple, $\check{\mathbf{h}} = (4, 2, 0, 1)$, et $`\operatorname{circ}(\mathbf{h})^\top = \begin{pmatrix} 4 & 1 & 0 & 2 \cr 2 & 4 & 1 & 0 \cr 0 & 2 & 4 & 1 \cr 1 & 0 & 2 & 4 \end{pmatrix} = \operatorname{circ}(4, 2, 0, 1)`$ : c'est la version périodique, et démontrée, de l'énoncé du §3.
 
 ⚠️ **Erreur classique.** Retourner un noyau circulaire en renversant simplement la suite : le renversement de $(4, 1, 0, 2)$ est $(2, 0, 1, 4)$, alors que $\check{\mathbf{h}} = (4, 2, 0, 1)$ garde $h_0$ à sa place, puisque l'indice $-0$ est $0$. Le renversement simple, $(h_{n-1}, \ldots, h_0)$, ne coïncide avec $\check{\mathbf{h}}$ qu'à un décalage circulaire près.
 
@@ -309,7 +317,9 @@ $\lfloor\frac{P_{\text{tot}}}{2}\rfloor$ au début et le reste à la fin : une s
 ### Sous-échantillonner, insérer des zéros
 
 Le **sous-échantillonnage** (*downsampling*) de pas $s$ garde une valeur sur $s$ : $(\mathbf{D}_s\mathbf{x}) _i = x _{si}$. Pour 5 valeurs et $s = 2$ :
-$$\mathbf{D}_2 = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \cr 0 & 0 & 1 & 0 & 0 \cr 0 & 0 & 0 & 0 & 1 \end{pmatrix}, \qquad \mathbf{D}_2\thinspace(4, 9, 1, 6, 2) = (4, 1, 2), \qquad \mathbf{D}_2^\top(4, 1, 2) = (4, 0, 1, 0, 2).$$
+```math
+\mathbf{D}_2 = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \cr 0 & 0 & 1 & 0 & 0 \cr 0 & 0 & 0 & 0 & 1 \end{pmatrix}, \qquad \mathbf{D}_2\thinspace(4, 9, 1, 6, 2) = (4, 1, 2), \qquad \mathbf{D}_2^\top(4, 1, 2) = (4, 0, 1, 0, 2).
+```
 Sa transposée remet chaque valeur à sa place et **insère $s - 1$ zéros** entre deux valeurs : sous-échantillonner et insérer des zéros sont deux applications transposées l'une de l'autre. Une somme glissante avec un pas $s$ est la somme glissante avec un pas de 1, suivie de $\mathbf{D}_s$ : sa matrice est $\mathbf{C} = \mathbf{D}_s\mathbf{C}_1$, où $\mathbf{C}_1$ est la matrice de la corrélation valide par $\mathbf{w}$, c'est-à-dire de la convolution valide par $\tilde{\mathbf{w}}$ (§2). Le pooling moyen du §4 en est un exemple.
 
 ### La convolution transposée
@@ -343,7 +353,9 @@ $$Y_{i,j} = \sum_{u=0}^{k_h-1}\sum_{v=0}^{k_w-1} K_{u,v}\thinspace X_{i+u,\thins
 Chaque axe se compte comme au §5, avec son propre padding, son propre pas, sa propre dilatation. La convolution 2D retourne le noyau **selon les deux axes** (une rotation d'un demi-tour).
 
 **Exemple.** Les altitudes d'un terrain (en dizaines de mètres), sur une grille $4 \times 5$, filtrées par le pochoir du laplacien discret du §2, avec $h = 1$ (une case) (symétrique : corrélation et convolution coïncident) :
-$$\mathbf{Z} = \begin{pmatrix} 12 & 14 & 15 & 13 & 11 \cr 13 & 19 & 16 & 12 & 10 \cr 11 & 15 & 14 & 8 & 9 \cr 10 & 12 & 11 & 9 & 7 \end{pmatrix} \longmapsto \begin{pmatrix} -18 & -4 & -1 \cr -4 & -6 & 12 \end{pmatrix}.$$
+```math
+\mathbf{Z} = \begin{pmatrix} 12 & 14 & 15 & 13 & 11 \cr 13 & 19 & 16 & 12 & 10 \cr 11 & 15 & 14 & 8 & 9 \cr 10 & 12 & 11 & 9 & 7 \end{pmatrix} \longmapsto \begin{pmatrix} -18 & -4 & -1 \cr -4 & -6 & 12 \end{pmatrix}.
+```
 La sortie $(0, 0)$ correspond à la case $(1, 1)$ de $\mathbf{Z}$, centre de sa fenêtre : $14 + 15 + 13 + 16 - 4 \times 19 = 58 - 76 = -18$, un **sommet** (19 domine ses voisines). La sortie $(1, 2)$, centrée sur la case $(2, 3)$ d'altitude 8 entourée de 12, 9, 14 et 9 : $44 - 32 = 12$, un **creux**.
 
 ### Noyaux séparables
@@ -352,9 +364,9 @@ Un noyau **séparable** (*separable kernel*) est un produit extérieur, $\mathbf
 $$Y_{i,j} = \sum_u a_u\Big(\sum_v b_v\thinspace X_{i+u,\thinspace j+v}\Big) :$$
 on filtre chaque ligne par $\mathbf{b}$ (une passe horizontale), puis chaque colonne du résultat par $\mathbf{a}$ (une passe verticale), ou l'inverse. Par valeur de sortie, on fait environ $k_h + k_w$ multiplications au lieu de $k_hk_w$ : pour un noyau $13 \times 13$, 26 au lieu de 169 (le 🔬 M21.25 le mesure).
 
-**Exemple.** Le lissage $\mathbf{K} = \frac1{36}\begin{pmatrix} 1 & 4 & 1 \cr 4 & 16 & 4 \cr 1 & 4 & 1 \end{pmatrix} = \mathbf{a}\thinspace\mathbf{a}^\top$, avec $\mathbf{a} = \frac16(1, 4, 1)$, appliqué aux altitudes. Directement, la valeur $(0, 0)$ demande 9 produits : $\frac{588}{36} \approx 16{,}33$. En deux passes : la passe verticale sur les trois premières colonnes des lignes 0 à 2 donne $\frac{12 + 52 + 11}{6} = 12{,}5$, puis $17{,}5$ et $15{,}5$ ; la passe horizontale, $\frac{12{,}5 + 70 + 15{,}5}{6} = \frac{98}{6} \approx 16{,}33$. Toute la sortie : $\begin{pmatrix} 16{,}33 & 15{,}17 & 11{,}92 \cr 14{,}28 & 13{,}22 & 9{,}67 \end{pmatrix}$.
+**Exemple.** Le lissage $`\mathbf{K} = \frac1{36}\begin{pmatrix} 1 & 4 & 1 \cr 4 & 16 & 4 \cr 1 & 4 & 1 \end{pmatrix} = \mathbf{a}\thinspace\mathbf{a}^\top`$, avec $\mathbf{a} = \frac16(1, 4, 1)$, appliqué aux altitudes. Directement, la valeur $(0, 0)$ demande 9 produits : $\frac{588}{36} \approx 16{,}33$. En deux passes : la passe verticale sur les trois premières colonnes des lignes 0 à 2 donne $\frac{12 + 52 + 11}{6} = 12{,}5$, puis $17{,}5$ et $15{,}5$ ; la passe horizontale, $\frac{12{,}5 + 70 + 15{,}5}{6} = \frac{98}{6} \approx 16{,}33$. Toute la sortie : $`\begin{pmatrix} 16{,}33 & 15{,}17 & 11{,}92 \cr 14{,}28 & 13{,}22 & 9{,}67 \end{pmatrix}`$.
 
-**Reconnaître un noyau séparable** : toutes ses lignes sont proportionnelles à une même ligne. $\begin{pmatrix} 2 & 6 & 4 \cr 1 & 3 & 2 \cr 3 & 9 & 6 \end{pmatrix} = \mathbf{a}\mathbf{b}^\top$, avec $\mathbf{a} = (2, 1, 3)$ et $\mathbf{b} = (1, 3, 2)$, l'est ; le laplacien, de rang 2, ne l'est pas, mais il est la **somme** de deux noyaux séparables, $\mathbf{e}_1\mathbf{c}^\top + \mathbf{c}\thinspace\mathbf{e}_1^\top$, avec $\mathbf{e}_1 = (0, 1, 0)$ et $\mathbf{c} = (1, -2, 1)$, les dérivées secondes le long des deux axes. Pour un noyau quelconque, la décomposition en valeurs singulières (M12d), de valeurs singulières $s_1 \ge s_2 \ge \cdots$ (à ne pas confondre avec les pas), $\mathbf{K} = \sum_i s_i\thinspace\mathbf{u}_i\mathbf{v}_i^\top$, tranche : il est séparable si et seulement si $s_2 = 0$ (en pratique, $s_2$ minuscule devant $s_1$), et alors $\mathbf{K} = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top$ ; sinon, $s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top$ est son **meilleur approximant de rang 1** (Eckart-Young). C'est ce que fait `separable_factors` (M21.22).
+**Reconnaître un noyau séparable** : toutes ses lignes sont proportionnelles à une même ligne. $`\begin{pmatrix} 2 & 6 & 4 \cr 1 & 3 & 2 \cr 3 & 9 & 6 \end{pmatrix} = \mathbf{a}\mathbf{b}^\top`$, avec $\mathbf{a} = (2, 1, 3)$ et $\mathbf{b} = (1, 3, 2)$, l'est ; le laplacien, de rang 2, ne l'est pas, mais il est la **somme** de deux noyaux séparables, $\mathbf{e}_1\mathbf{c}^\top + \mathbf{c}\thinspace\mathbf{e}_1^\top$, avec $\mathbf{e}_1 = (0, 1, 0)$ et $\mathbf{c} = (1, -2, 1)$, les dérivées secondes le long des deux axes. Pour un noyau quelconque, la décomposition en valeurs singulières (M12d), de valeurs singulières $s_1 \ge s_2 \ge \cdots$ (à ne pas confondre avec les pas), $\mathbf{K} = \sum_i s_i\thinspace\mathbf{u}_i\mathbf{v}_i^\top$, tranche : il est séparable si et seulement si $s_2 = 0$ (en pratique, $s_2$ minuscule devant $s_1$), et alors $\mathbf{K} = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top$ ; sinon, $s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top$ est son **meilleur approximant de rang 1** (Eckart-Young). C'est ce que fait `separable_factors` (M21.22).
 
 ⚠️ **Erreur classique — deux sens de « séparable ».** Ici, un **noyau séparable** est un noyau de rang 1 : un filtrage 2D qui se fait en deux filtrages 1D, le long des deux axes de la grille. Dans workbookIA 21 (et dans les réseaux de la famille MobileNet), une **convolution séparable** (*depthwise separable convolution*) est autre chose : un filtrage canal par canal, suivi d'une convolution $1 \times 1$ qui mélange les canaux ; elle sépare les canaux, pas les deux axes. Et « séparer » un noyau de rang 2 en prenant sa première ligne et sa première colonne donne un résultat faux, sans message d'erreur (🐛 M21.27).
 

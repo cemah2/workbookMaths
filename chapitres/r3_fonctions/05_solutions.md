@@ -97,7 +97,7 @@
 2. $\frac{3}{4}$.
 3. $-8$.
 4. $4\sqrt{3}$ ($48 = 16 \times 3$).
-5. $-a$ : $\sqrt{a^2} = |a|$, et $|a| = -a$ quand $a < 0$ (par exemple $\sqrt{(-5)^2} = 5 = -(-5)$).
+5. $-a$ : $\sqrt{a^2} = |a|$, et $|a| = -a$ quand $a < 0$ (par exemple $\sqrt{(-5)^2} = 5 = -(-5){}$).
 
 <a id="papier"></a>
 

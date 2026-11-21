@@ -195,7 +195,7 @@ M02c a énoncé et démontré cette inégalité pour en tirer la loi des grands 
 > **Inégalité de Markov** (*Markov's inequality*). Si $X \ge 0$ a une espérance, alors pour tout $a > 0$ :
 > $$P(X \ge a) \le \frac{\mathbb{E}[X]}{a}.$$
 
-**Preuve par une indicatrice.** Notons $\mathbf{1} _{X \ge a}$ la variable qui vaut 1 si $X \ge a$ et 0 sinon (son espérance est $P(X \ge a)$). Pour toute valeur de $X$ : si $X \ge a$, $a\thinspace\mathbf{1} _{X \ge a} = a \le X$ ; si $X < a$, $a\thinspace\mathbf{1} _{X \ge a} = 0 \le X$, car $X \ge 0$. Donc $a\thinspace\mathbf{1} _{X \ge a} \le X$ partout, et l'espérance, qui respecte l'ordre, donne $a\thinspace P(X \ge a) \le \mathbb{E}[X]$.
+**Preuve par une indicatrice.** Notons $\mathbf{1} _{X \ge a}$ la variable qui vaut 1 si $X \ge a$ et 0 sinon (son espérance est $P(X \ge a){}$). Pour toute valeur de $X$ : si $X \ge a$, $a\thinspace\mathbf{1} _{X \ge a} = a \le X$ ; si $X < a$, $a\thinspace\mathbf{1} _{X \ge a} = 0 \le X$, car $X \ge 0$. Donc $a\thinspace\mathbf{1} _{X \ge a} \le X$ partout, et l'espérance, qui respecte l'ordre, donne $a\thinspace P(X \ge a) \le \mathbb{E}[X]$.
 
 **Exemple.** Un serveur reçoit $N$ requêtes par seconde, $N \ge 0$, avec $\mathbb{E}[N] = 40$. Sans rien savoir d'autre : $P(N \ge 200) \le \frac{40}{200} = 0{,}2$. Autre écriture : une variable positive dépasse $k$ fois sa moyenne avec une probabilité au plus $\frac{1}{k}$.
 
@@ -326,7 +326,7 @@ Chaque option, même la pire, est donc choisie avec une probabilité au moins $\
 
 ### UCB : une borne supérieure de confiance par option
 
-Après $N$ choix de l'option $k$, de moyenne observée $\hat{\mu}_k$, la borne **unilatérale** de Hoeffding (§6, avec $\ln(1/\delta)$) dit qu'avec une probabilité au moins $1 - \delta$ :
+Après $N$ choix de l'option $k$, de moyenne observée $\hat{\mu}_k$, la borne **unilatérale** de Hoeffding (§6, avec $\ln(1/\delta){}$) dit qu'avec une probabilité au moins $1 - \delta$ :
 $$\mu_k < \hat{\mu}_k + \sqrt{\frac{\ln(1/\delta)}{2N}}.$$
 La stratégie **UCB** (*upper confidence bound*) choisit l'option dont cette **borne supérieure** est la plus grande. C'est l'**optimisme face à l'incertitude** (*optimism in the face of uncertainty*) : on agit comme si chaque option valait le plus qu'elle peut plausiblement valoir. Le **bonus** $\sqrt{\ln(1/\delta)/(2N)}$ est la demi-largeur d'un intervalle de confiance : avec peu de données, l'intervalle est large et sa borne haute peut dépasser toutes les autres, ce qui fait essayer l'option ; avec beaucoup de données, la borne rejoint la moyenne observée, et une option mauvaise passe sous la meilleure pour de bon.
 

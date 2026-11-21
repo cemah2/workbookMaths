@@ -108,7 +108,7 @@ Quatre boulangeries d'une même ville ont vendu un samedi, en dizaines :
 | Halles | 12 | 4 | 10 | 8 | 5 |
 | Moulin | 16 | 2 | 10 | 4 | 5 |
 
-$\mathbf{M}$ est ce tableau ($m = 4$ lignes, $n = 5$ colonnes), et $\mathbf{C}\mathbf{F}$ sa factorisation par les colonnes pivots : $\mathbf{C}$ est faite des colonnes pivots de $\mathbf{M}$, $\mathbf{F}$ des lignes non nulles de sa forme échelonnée réduite. On pose $\mathbf{G} = \begin{pmatrix} 1 & 1 \cr 0 & 2 \end{pmatrix}$.
+$\mathbf{M}$ est ce tableau ($m = 4$ lignes, $n = 5$ colonnes), et $\mathbf{C}\mathbf{F}$ sa factorisation par les colonnes pivots : $\mathbf{C}$ est faite des colonnes pivots de $\mathbf{M}$, $\mathbf{F}$ des lignes non nulles de sa forme échelonnée réduite. On pose $`\mathbf{G} = \begin{pmatrix} 1 & 1 \cr 0 & 2 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -192,7 +192,7 @@ Rédige chaque démonstration en phrases (R4 §8) : ce que tu supposes, chaque �
 
 ### Ex MB4.5 — Une matrice de rang r est un produit C F de r colonnes par r lignes ; deux telles factorisations diffèrent d'une matrice inversible ; le rang est le plus petit nombre de produits extérieurs dont elle est la somme ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer l'existence de la factorisation de rang, sa non-unicité exacte, et en déduire une autre définition du rang.
-**Prérequis :** fiche §1 ; M12a (base, coordonnées, rang, $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$) · **Parcours :** C, E
+**Prérequis :** fiche §1 ; M12a (base, coordonnées, rang, $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B}){}$) · **Parcours :** C, E
 
 $\mathbf{M}$ est une matrice de forme $(m, n)$ et de rang $r \ge 1$. Tu peux utiliser sans le redémontrer ce que M12a établit : le rang est la dimension de l'espace des colonnes, et $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \min(\operatorname{rg}\mathbf{A}, \operatorname{rg}\mathbf{B})$.
 1. Soit $\mathbf{c}_1, \ldots, \mathbf{c}_r$ une base de l'espace des colonnes de $\mathbf{M}$, et $\mathbf{C}$ la matrice de colonnes $\mathbf{c}_1, \ldots, \mathbf{c}_r$. Montre que chaque colonne $\mathbf{m}_j$ de $\mathbf{M}$ s'écrit $\mathbf{C}\mathbf{a}_j$ pour un seul vecteur $\mathbf{a}_j$ de $\mathbb{R}^r$, puis que $\mathbf{M} = \mathbf{C}\mathbf{F}$, où $\mathbf{F}$ a pour colonnes $\mathbf{a}_1, \ldots, \mathbf{a}_n$. Montre que $\mathbf{C}$ et $\mathbf{F}$ sont de rang $r$.

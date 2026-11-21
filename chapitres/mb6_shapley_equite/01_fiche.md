@@ -179,7 +179,7 @@ Soit $f(x_1, \ldots, x_d)$ une fonction et $\mathbf{X}$ un vecteur aléatoire. O
 
 > **Définitions.** La **moyenne marginale**, ou **dépendance partielle** (*partial dependence*), est $\operatorname{PD} _j(v) = \mathbb{E}\big[f(v, \mathbf{X} _{-j})\big]$ : les autres coordonnées gardent leur loi marginale. La **moyenne conditionnelle** est $M_j(v) = \mathbb{E}\big[f(\mathbf{X}) \mid X_j = v\big]$ : elles prennent leur loi **sachant** $X_j = v$.
 
-Si $X_j \perp \mathbf{X} _{-j}$, la loi de $\mathbf{X} _{-j}$ sachant $X_j = v$ est sa loi marginale, et $M_j = \operatorname{PD}_j$. Sinon, elles diffèrent en général (pas toujours : si $f$ ne dépend que de $x_j$, toutes deux valent $f(v)$).
+Si $X_j \perp \mathbf{X} _{-j}$, la loi de $\mathbf{X} _{-j}$ sachant $X_j = v$ est sa loi marginale, et $M_j = \operatorname{PD}_j$. Sinon, elles diffèrent en général (pas toujours : si $f$ ne dépend que de $x_j$, toutes deux valent $f(v){}$).
 
 **Un chalutier** consomme $f(x_1, x_2) = 100 + 0{,}5\thinspace x_1^2 + 20\thinspace x_2$ litres de gazole par heure, selon le vent $x_1$ (m/s) et la houle $x_2$ (m). Le vent et la houle forment un couple gaussien : le vent suit $\mathcal{N}(8, 3^2)$, la houle $\mathcal{N}(1{,}5 ;\ 0{,}5^2)$, de corrélation $\rho = 0{,}8$ (le vent lève la houle). Fixons la houle.
 - **Marginale** : $\mathbb{E}[X_1^2] = 8^2 + 3^2 = 73$, donc $\operatorname{PD}_2(v) = 136{,}5 + 20v$.
@@ -221,7 +221,7 @@ Le chalutier est séparable en la houle : ses courbes ICE de $x_2$ sont parallè
 
 ### Un chemin et une intégrale
 
-Un **chemin** est une fonction $\boldsymbol\gamma : [0, 1] \to \mathbb{R}^d$, de vitesse $\boldsymbol\gamma'(t)$ (le segment de $\mathbf{a}$ à $\mathbf{b}$ : $\mathbf{a} + t(\mathbf{b} - \mathbf{a})$). Rappel (M05b §3, M17 §3) : $(f\circ\boldsymbol\gamma)'(t) = \nabla f(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$.
+Un **chemin** est une fonction $\boldsymbol\gamma : [0, 1] \to \mathbb{R}^d$, de vitesse $\boldsymbol\gamma'(t)$ (le segment de $\mathbf{a}$ à $\mathbf{b}$ : $\mathbf{a} + t(\mathbf{b} - \mathbf{a}){}$). Rappel (M05b §3, M17 §3) : $(f\circ\boldsymbol\gamma)'(t) = \nabla f(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$.
 
 > **Définition.** L'**intégrale** d'un **champ de vecteurs** (*vector field*) $\mathbf{F}$ le long de $\boldsymbol\gamma$ (*line integral*) est $\displaystyle\int_{\boldsymbol\gamma}\mathbf{F}\cdot\mathrm{d}\boldsymbol\gamma = \int_0^1\mathbf{F}(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)\thinspace\mathrm{d}t$ ; le long d'une **ligne brisée** (*polygonal path*), la somme des intégrales de ses segments.
 
@@ -231,7 +231,7 @@ Pour une force, c'est son **travail**. Parcourir le chemin à l'envers, $\boldsy
 
 *Démonstration.* Soit $g(t) = f(\boldsymbol\gamma(t))$. Par la règle de la chaîne, $g'(t) = \nabla f(\boldsymbol\gamma(t))\cdot\boldsymbol\gamma'(t)$, l'intégrande ; par le théorème fondamental (M02a §2), $\int_0^1g' = g(1) - g(0)$. Sur une ligne brisée, les termes des segments se télescopent. $\square$
 
-Pour un champ de gradient, l'intégrale ne dépend que des extrémités (**indépendance du chemin**, *path independence*), et elle est nulle sur toute **boucle** ($\boldsymbol\gamma(1) = \boldsymbol\gamma(0)$).
+Pour un champ de gradient, l'intégrale ne dépend que des extrémités (**indépendance du chemin**, *path independence*), et elle est nulle sur toute **boucle** ($\boldsymbol\gamma(1) = \boldsymbol\gamma(0){}$).
 
 **Exemple.** Une boîte à base carrée de côté $x_1$ et de hauteur $x_2$ (dm) a pour volume $f = x_1^2x_2$ litres, de gradient $(2x_1x_2,\ x_1^2)$. Le long du segment de $\mathbf{r} = (3, 1)$ à $\mathbf{x} = (4, 2)$, $\boldsymbol\gamma(t) = (3 + t, 1 + t)$, $\boldsymbol\gamma' = (1, 1)$, et l'intégrande $2(3 + t)(1 + t) + (3 + t)^2 = 3t^2 + 14t + 15$ a pour intégrale $1 + 7 + 15 = 23 = 32 - 9$ ; les chemins en escalier aussi (figure).
 
@@ -297,7 +297,7 @@ Soit $y$ une fonction d'une grille $\mathbf{A}$ de $H$ lignes et $W$ colonnes, e
 $$\frac{\mathrm{d}}{\mathrm{d}\varepsilon}\thinspace y(\mathbf{A} + \varepsilon\mathbf{1})\Big| _{\varepsilon = 0} = \sum  _{i, j}\frac{\partial y}{\partial A _{ij}} :$$
 la **moyenne d'un gradient** sur la grille est la dérivée de $y$ par un **décalage uniforme**, divisée par $HW$, une dérivée directionnelle (M05b §3) dans la direction de $\mathbf{1}$, non unitaire.
 
-**Exemple.** Une ferme de $2 \times 3$ hydroliennes, dans un courant de marée de vitesses $\mathbf{A} = \begin{pmatrix} 2 & 3 & 3 \cr 1 & 4 & 2 \end{pmatrix}$ m/s, produit (dans un modèle simplifié) $y = \sum A_{ij}^3 = 135$ kW. Comme $\frac{\partial y}{\partial A_{ij}} = 3A_{ij}^2$, la dérivée de $y$ par un renforcement uniforme du courant vaut $3 \times 43 = 129$ kW par m/s (au premier ordre), et la moyenne du gradient vaut $\frac{129}{6} = 21{,}5$.
+**Exemple.** Une ferme de $2 \times 3$ hydroliennes, dans un courant de marée de vitesses $`\mathbf{A} = \begin{pmatrix} 2 & 3 & 3 \cr 1 & 4 & 2 \end{pmatrix}`$ m/s, produit (dans un modèle simplifié) $y = \sum A_{ij}^3 = 135$ kW. Comme $\frac{\partial y}{\partial A_{ij}} = 3A_{ij}^2$, la dérivée de $y$ par un renforcement uniforme du courant vaut $3 \times 43 = 129$ kW par m/s (au premier ordre), et la moyenne du gradient vaut $\frac{129}{6} = 21{,}5$.
 
 **La partie positive est positivement homogène** : $\max(0, \lambda z) = \lambda\max(0, z)$ pour $\lambda > 0$ (les deux valent $\lambda z$ si $z \ge 0$, 0 sinon) ; pour $\lambda < 0$, c'est faux : $\max(0, -2 \times 3) = 0 \ne -6$.
 

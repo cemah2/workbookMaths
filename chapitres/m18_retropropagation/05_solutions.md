@@ -31,7 +31,7 @@
 4. $1 + 3\varepsilon$ ($e^0 + e^0 \times 3\thinspace\varepsilon$).
 5. $\sin\pi + \cos\pi \times \varepsilon = -\varepsilon$.
 6. Vrai, pour une fonction écrite avec les opérations usuelles (∂ M18.12).
-7. Faux : $\varepsilon$ est un symbole, non nul, dont le carré est nul. La matrice $\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}$ en est un modèle (une matrice nilpotente, M16) : $a + b\varepsilon$ se calcule comme $\begin{pmatrix} a & b \cr 0 & a \end{pmatrix}$.
+7. Faux : $\varepsilon$ est un symbole, non nul, dont le carré est nul. La matrice $`\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}`$ en est un modèle (une matrice nilpotente, M16) : $a + b\varepsilon$ se calcule comme $`\begin{pmatrix} a & b \cr 0 & a \end{pmatrix}`$.
 
 ### M18.Q4 — Le mode inverse : dans quel ordre visiter les nœuds ?
 1. $R$, puis $u_2$ et $u_1$ (dans n'importe quel ordre), puis $r_2$ et $r_1$ : l'ordre inverse d'un ordre de calcul, par exemple $(R, u_2, u_1, r_2, r_1)$.
@@ -59,7 +59,7 @@
 
 ### M18.Q7 — Identités de trace : vrai ou faux
 1. Vrai : $\mathbf{A}\mathbf{B}$ est $2 \times 2$, $\mathbf{B}\mathbf{A}$ est $3 \times 3$, mais leurs traces valent toutes deux $\sum_{i,j}A_{ij}B_{ji}$.
-2. Faux en général : seules les permutations **cycliques** sont permises ($\operatorname{tr}(\mathbf{A}\mathbf{B}\mathbf{C}) = \operatorname{tr}(\mathbf{B}\mathbf{C}\mathbf{A}) = \operatorname{tr}(\mathbf{C}\mathbf{A}\mathbf{B})$). Contre-exemple : $\mathbf{A} = \mathbf{E} _{12}$, $\mathbf{B} = \mathbf{E}  _{21}$, $\mathbf{C} = \mathbf{E} _{11}$ donnent 1 et 0.
+2. Faux en général : seules les permutations **cycliques** sont permises ($\operatorname{tr}(\mathbf{A}\mathbf{B}\mathbf{C}) = \operatorname{tr}(\mathbf{B}\mathbf{C}\mathbf{A}) = \operatorname{tr}(\mathbf{C}\mathbf{A}\mathbf{B}){}$). Contre-exemple : $\mathbf{A} = \mathbf{E} _{12}$, $\mathbf{B} = \mathbf{E}  _{21}$, $\mathbf{C} = \mathbf{E} _{11}$ donnent 1 et 0.
 3. Faux : pour $\mathbf{A} = \mathbf{B} = \mathbf{I}_2$, $2 \ne 4$.
 4. Vrai : un nombre est sa propre trace, puis la cyclicité.
 5. Vrai.
@@ -79,20 +79,20 @@
 
 ### M18.R1 — La jacobienne d'une composée (M17)
 1. $(2, 3)$.
-2. $\begin{pmatrix} 1 & -1 \cr y & x \end{pmatrix} = \begin{pmatrix} 1 & -1 \cr 1 & 3 \end{pmatrix}$.
-3. $\mathbf{J}_g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}$, en $(2, 3)$ : $\begin{pmatrix} 3 & 8 \end{pmatrix}$.
-4. $\begin{pmatrix} 3 & 8 \end{pmatrix}\begin{pmatrix} 1 & -1 \cr 1 & 3 \end{pmatrix} = \begin{pmatrix} 11 & 21 \end{pmatrix}$.
+2. $`\begin{pmatrix} 1 & -1 \cr y & x \end{pmatrix} = \begin{pmatrix} 1 & -1 \cr 1 & 3 \end{pmatrix}`$.
+3. $`\mathbf{J}_g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}`$, en $(2, 3)$ : $`\begin{pmatrix} 3 & 8 \end{pmatrix}`$.
+4. $`\begin{pmatrix} 3 & 8 \end{pmatrix}\begin{pmatrix} 1 & -1 \cr 1 & 3 \end{pmatrix} = \begin{pmatrix} 11 & 21 \end{pmatrix}`$.
 5. $h = (x - y)xy + x^2y^2 = x^2y - xy^2 + x^2y^2$ : $\frac{\partial h}{\partial x} = 2xy - y^2 + 2xy^2 = 11$ et $\frac{\partial h}{\partial y} = x^2 - 2xy + 2x^2y = 21$ en $(3, 1)$.
 
 ### M18.R2 — Le gradient de wᵀAw (M09b)
 1. $\mathbf{A}\mathbf{w} = (5, 0)$, donc $\mathbf{w}^\top\mathbf{A}\mathbf{w} = 10$.
-2. $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 2 & 2 \cr 2 & 4 \end{pmatrix}\begin{pmatrix} 2 \cr 1 \end{pmatrix} = (6, 8)$.
+2. $`(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 2 & 2 \cr 2 & 4 \end{pmatrix}\begin{pmatrix} 2 \cr 1 \end{pmatrix} = (6, 8)`$.
 3. Faux : $2\mathbf{A}\mathbf{w} = (10, 0)$ ; la formule $2\mathbf{A}\mathbf{w}$ ne vaut que pour $\mathbf{A}$ symétrique.
 4. $\mathbf{a} = (4, -3)$.
-5. $\frac12(\mathbf{A} + \mathbf{A}^\top) = \begin{pmatrix} 1 & 1 \cr 1 & 2 \end{pmatrix}$.
+5. $`\frac12(\mathbf{A} + \mathbf{A}^\top) = \begin{pmatrix} 1 & 1 \cr 1 & 2 \end{pmatrix}`$.
 
 ### M18.R3 — Différences centrées et choix du pas (M05a)
-1. $\frac{f(x + h) - f(x - h)}{2h}$ ; erreur de troncature d'ordre $h^2$ (environ $\frac{h^2}{6}f'''(x)$).
+1. $\frac{f(x + h) - f(x - h)}{2h}$ ; erreur de troncature d'ordre $h^2$ (environ $\frac{h^2}{6}f'''(x){}$).
 2. $\frac{1{,}1^3 - 0{,}9^3}{0{,}2} = \frac{1{,}331 - 0{,}729}{0{,}2} = 3{,}01$ ; l'erreur vaut $0{,}01 = h^2$ (ici $f''' = 6$).
 3. Vers $10^{-5}$ (de l'ordre de $\sqrt[3]{\varepsilon_{\text{machine}}}$).
 4. Faux : en dessous du meilleur pas, les arrondis divisés par $2h$ grandissent.
@@ -174,31 +174,31 @@ Dans ta copie : le gradient ne dépend pas de $\mathbf{X}$ parce que $f$ est **l
 
 **Erreurs fréquentes.** Écrire $\mathbf{b}\mathbf{a}^\top$, de forme $(2, 3)$ : la transposée. Mélanger les indices ($a_jb_i$).
 
-**Variante.** $\mathbf{a} = (1, 1, 0)$, $\mathbf{b} = (0, 2)$ : $\nabla f = \begin{pmatrix} 0 & 2 \cr 0 & 2 \cr 0 & 0 \end{pmatrix}$.
+**Variante.** $\mathbf{a} = (1, 1, 0)$, $\mathbf{b} = (0, 2)$ : $`\nabla f = \begin{pmatrix} 0 & 2 \cr 0 & 2 \cr 0 & 0 \end{pmatrix}`$.
 
 ### Ex M18.7 — Les gradients de tr(AX) et de tr(XᵀAX)
 
 **Réponses.** a) `-3` · b) `[[2, -1], [1, 3]]` · c) `-1` · d) `13` · e) `[[4, 8], [0, -6]]` · f) `12`.
 
-**Démarche.** $\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \cr -1 & -5 \end{pmatrix}$, de trace $-3$. $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$, donc $\frac{\partial}{\partial X_{ij}} = A_{ji}$ : le gradient est $\mathbf{A}^\top$, et c) vaut $A_{21} = -1$. d) $\mathbf{X}^\top\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \cr 5 & 11 \end{pmatrix}$, de trace 13. e) $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ ; dériver par rapport à $X_{pq}$ donne $\sum_jA_{pj}X_{jq} + \sum_iX_{iq}A_{ip} = (\mathbf{A}\mathbf{X})  _{pq} + (\mathbf{A}^\top\mathbf{X})  _{pq}$ : le gradient est $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 6 \end{pmatrix}\mathbf{X}$. f) $\sum _{ij}G  _{ij}H _{ij} = 4 \times 1 + 8 \times 1 = 12$ ; un gradient transposé donnerait $4 + 0 = 4$ : la direction, non symétrique, le démasque.
+**Démarche.** $`\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \cr -1 & -5 \end{pmatrix}`$, de trace $-3$. $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$, donc $\frac{\partial}{\partial X_{ij}} = A_{ji}$ : le gradient est $\mathbf{A}^\top$, et c) vaut $A_{21} = -1$. d) $`\mathbf{X}^\top\mathbf{A}\mathbf{X} = \begin{pmatrix} 2 & 3 \cr 5 & 11 \end{pmatrix}`$, de trace 13. e) $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ ; dériver par rapport à $X_{pq}$ donne $\sum_jA_{pj}X_{jq} + \sum_iX_{iq}A_{ip} = (\mathbf{A}\mathbf{X})  _{pq} + (\mathbf{A}^\top\mathbf{X})  _{pq}$ : le gradient est $`(\mathbf{A} + \mathbf{A}^\top)\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 6 \end{pmatrix}\mathbf{X}`$. f) $\sum _{ij}G  _{ij}H _{ij} = 4 \times 1 + 8 \times 1 = 12$ ; un gradient transposé donnerait $4 + 0 = 4$ : la direction, non symétrique, le démasque.
 
 Dans ta copie : $2\mathbf{A}\mathbf{X}$ serait faux parce que $\mathbf{A}$ n'est pas symétrique (seule sa partie symétrique compte). Pour une seule colonne $\mathbf{X} = \mathbf{w}$, on retrouve $\nabla(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\mathbf{w}$ de M09b.
 
 **Erreurs fréquentes.** Rendre $\mathbf{A}$ au lieu de $\mathbf{A}^\top$ pour $\operatorname{tr}(\mathbf{A}\mathbf{X})$. Écrire $2\mathbf{A}\mathbf{X}$. Oublier l'un des deux termes de la dérivée du produit.
 
-**Variante.** Pour $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}$, symétrique, $\nabla\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = 2\mathbf{A}\mathbf{X}$.
+**Variante.** Pour $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}`$, symétrique, $\nabla\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = 2\mathbf{A}\mathbf{X}$.
 
 ### Ex M18.8 — Le gradient de log det X sur une matrice 2 × 2
 
 **Réponses.** a) `10` · b) `[[3, -2], [-1, 4]]` · c) `[[0.3, -0.2], [-0.1, 0.4]]` · d) `[[0.3, -0.1], [-0.2, 0.4]]` · e) `-0.5` · f) `-0.00502`.
 
-**Démarche.** $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21} = 12 - 2 = 10$, et ses dérivées partielles se rangent en $\begin{pmatrix} x_{22} & -x_{21} \cr -x_{12} & x_{11} \end{pmatrix}$ : la comatrice. c) Par la règle de la chaîne avec $\ln$ : b) divisé par 10. d) $\mathbf{X}^{-1} = \frac{1}{10}\begin{pmatrix} 3 & -1 \cr -2 & 4 \end{pmatrix}$. e) $\sum_{ij}G_{ij}H_{ij} = 0{,}3 \times 1 + (-0{,}2) \times 2 + (-0{,}1) \times 0 + 0{,}4 \times (-1) = -0{,}5$. f) $\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2 = 9{,}9499$, et $\ln\frac{9{,}9499}{10} = \ln 0{,}99499 \approx -0{,}0050226$. Avec $\ln 9{,}9499 - \ln 10$ et des logarithmes arrondis à 5 décimales ($2{,}29756 - 2{,}30259$), on trouverait $-0{,}00503$ : la différence de deux nombres voisins perd des chiffres.
+**Démarche.** $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21} = 12 - 2 = 10$, et ses dérivées partielles se rangent en $`\begin{pmatrix} x_{22} & -x_{21} \cr -x_{12} & x_{11} \end{pmatrix}`$ : la comatrice. c) Par la règle de la chaîne avec $\ln$ : b) divisé par 10. d) $`\mathbf{X}^{-1} = \frac{1}{10}\begin{pmatrix} 3 & -1 \cr -2 & 4 \end{pmatrix}`$. e) $\sum_{ij}G_{ij}H_{ij} = 0{,}3 \times 1 + (-0{,}2) \times 2 + (-0{,}1) \times 0 + 0{,}4 \times (-1) = -0{,}5$. f) $\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2 = 9{,}9499$, et $\ln\frac{9{,}9499}{10} = \ln 0{,}99499 \approx -0{,}0050226$. Avec $\ln 9{,}9499 - \ln 10$ et des logarithmes arrondis à 5 décimales ($2{,}29756 - 2{,}30259$), on trouverait $-0{,}00503$ : la différence de deux nombres voisins perd des chiffres.
 
 Dans ta copie : c) est la transposée de d) : $\nabla\ln\det\mathbf{X} = \mathbf{X}^{-\top}$, parce que la comatrice vaut $\det\mathbf{X}\thinspace\mathbf{X}^{-\top}$ (fiche §7). f) est proche de $0{,}01 \times$ e) $= -0{,}005$ : c'est l'approximation linéaire, et l'écart, environ $2 \times 10^{-5}$, est d'ordre 2.
 
 **Erreurs fréquentes.** Rendre $\mathbf{X}^{-1}$ au lieu de $\mathbf{X}^{-\top}$ (e) vaudrait alors $-0{,}3$). Oublier les signes moins des cofacteurs. Prendre le logarithme décimal.
 
-**Variante.** $\mathbf{X} = \begin{pmatrix} 2 & 0 \cr 1 & 3 \end{pmatrix}$ : $\det\mathbf{X} = 6$ et $\nabla\ln\det\mathbf{X} = \begin{pmatrix} 0{,}5 & -\frac16 \cr 0 & \frac13 \end{pmatrix}$.
+**Variante.** $`\mathbf{X} = \begin{pmatrix} 2 & 0 \cr 1 & 3 \end{pmatrix}`$ : $\det\mathbf{X} = 6$ et $`\nabla\ln\det\mathbf{X} = \begin{pmatrix} 0{,}5 & -\frac16 \cr 0 & \frac13 \end{pmatrix}`$.
 
 ### Ex M18.9 — Le gradient d'une moyenne de distances
 
@@ -208,7 +208,7 @@ Dans ta copie : c) est la transposée de d) : $\nabla\ln\det\mathbf{X} = \mathbf
 
 Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient s'annule : pour tout $\mathbf{p}$, l'inégalité triangulaire donne $\lVert\mathbf{p} - A\rVert + \lVert\mathbf{p} - C\rVert \ge AC$ et $\lVert\mathbf{p} - B\rVert + \lVert\mathbf{p} - D\rVert \ge BD$, avec égalité sur les deux diagonales à la fois. Le centroïde minimise la moyenne des **carrés** des distances ; les carrés donnent plus de poids aux villes lointaines, et le centroïde s'y rapproche de $B$, la plus éloignée.
 
-**Erreurs fréquentes.** Sommer les gradients au lieu d'en faire la moyenne (c) donnerait $(0{,}161 ;\ -1{,}052)$). Oublier de normaliser (on obtient le gradient des carrés, divisé par 2). Croire que le centroïde est le meilleur point.
+**Erreurs fréquentes.** Sommer les gradients au lieu d'en faire la moyenne (c) donnerait $(0{,}161 ;\ -1{,}052){}$). Oublier de normaliser (on obtient le gradient des carrés, divisé par 2). Croire que le centroïde est le meilleur point.
 
 **Variante.** Les quatre coins d'un carré $(0, 0)$, $(4, 0)$, $(4, 4)$, $(0, 4)$ : le minimum est au centre $(2, 2)$, et vaut $2\sqrt2 \approx 2{,}8284$.
 
@@ -216,11 +216,11 @@ Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient
 
 **Réponses.** a) `6` · b) `[[2, -2], [4, 6]]` · c) `-2` · d) `8` · e) `[[2, 4], [0, 2]]` · f) `-6`.
 
-**Démarche.** $\mathbf{X}^2 = \begin{pmatrix} -1 & 8 \cr -4 & 7 \end{pmatrix}$, de trace 6. $\mathrm{d}f = \operatorname{tr}(\mathrm{d}\mathbf{X}\thinspace\mathbf{X} + \mathbf{X}\thinspace\mathrm{d}\mathbf{X}) = 2\operatorname{tr}(\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ (cyclicité), donc $\nabla f = (2\mathbf{X})^\top = 2\mathbf{X}^\top$. c) $\operatorname{tr}(\mathbf{X}^2) = \sum_{i,j}X_{ij}X_{ji}$ contient $X_{12}$ dans les deux termes $X_{12}X_{21}$ et $X_{21}X_{12}$ : $\frac{\partial f}{\partial X_{12}} = 2X_{21} = -2$. d) $g(\mathbf{X}) = (\mathbf{X}^2)   _{12} = 8$. e) $\mathrm{d}g = \mathbf{a}^\top(\mathrm{d}\mathbf{X}\thinspace\mathbf{X} + \mathbf{X}\thinspace\mathrm{d}\mathbf{X})\mathbf{b} = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$, donc $\nabla g = \mathbf{a}\mathbf{b}^\top\mathbf{X}^\top + \mathbf{X}^\top\mathbf{a}\mathbf{b}^\top = \begin{pmatrix} 2 & 3 \cr 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 1 \cr 0 & 2 \end{pmatrix}$. Vérification : $g = X   _{11}X  _{12} + X  _{12}X  _{22}$ a pour dérivées $X  _{12} = 2$, $X  _{11} + X  _{22} = 4$, $0$ et $X _{12} = 2$. f) $\sum _{ij}G _{ij}H _{ij} = 2 - 2 + 0 - 6 = -6$.
+**Démarche.** $`\mathbf{X}^2 = \begin{pmatrix} -1 & 8 \cr -4 & 7 \end{pmatrix}`$, de trace 6. $\mathrm{d}f = \operatorname{tr}(\mathrm{d}\mathbf{X}\thinspace\mathbf{X} + \mathbf{X}\thinspace\mathrm{d}\mathbf{X}) = 2\operatorname{tr}(\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ (cyclicité), donc $\nabla f = (2\mathbf{X})^\top = 2\mathbf{X}^\top$. c) $\operatorname{tr}(\mathbf{X}^2) = \sum_{i,j}X_{ij}X_{ji}$ contient $X_{12}$ dans les deux termes $X_{12}X_{21}$ et $X_{21}X_{12}$ : $\frac{\partial f}{\partial X_{12}} = 2X_{21} = -2$. d) $g(\mathbf{X}) = (\mathbf{X}^2)   _{12} = 8$. e) $\mathrm{d}g = \mathbf{a}^\top(\mathrm{d}\mathbf{X}\thinspace\mathbf{X} + \mathbf{X}\thinspace\mathrm{d}\mathbf{X})\mathbf{b} = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$, donc $`\nabla g = \mathbf{a}\mathbf{b}^\top\mathbf{X}^\top + \mathbf{X}^\top\mathbf{a}\mathbf{b}^\top = \begin{pmatrix} 2 & 3 \cr 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 1 \cr 0 & 2 \end{pmatrix}`$. Vérification : $g = X   _{11}X  _{12} + X  _{12}X  _{22}$ a pour dérivées $X  _{12} = 2$, $X  _{11} + X  _{22} = 4$, $0$ et $X _{12} = 2$. f) $\sum _{ij}G _{ij}H _{ij} = 2 - 2 + 0 - 6 = -6$.
 
 **Erreurs fréquentes.** Rendre $2\mathbf{X}$ au lieu de $2\mathbf{X}^\top$ (f) vaudrait alors 0). Écrire $\mathrm{d}(\mathbf{X}^2) = 2\mathbf{X}\thinspace\mathrm{d}\mathbf{X}$ : faux pour des matrices (l'ordre des facteurs compte), même si la trace le rattrape pour $f$ ; pour $g$, il donnerait un gradient faux.
 
-**Variante.** Pour $\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 2 & 3 \end{pmatrix}$, symétrique, $\nabla\operatorname{tr}(\mathbf{X}^2) = 2\mathbf{X}$.
+**Variante.** Pour $`\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 2 & 3 \end{pmatrix}`$, symétrique, $\nabla\operatorname{tr}(\mathbf{X}^2) = 2\mathbf{X}$.
 
 <a id="demonstrations"></a>
 
@@ -251,7 +251,7 @@ Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient
 
 **Grille de relecture.** Le calcul de 1. utilise $\varepsilon^2 = 0$ et vérifie le quotient. Chaque règle de 2. et 3. est rapprochée de la règle de dérivation correspondante. La conclusion 4. est une récurrence (sur la construction), pas un « et ainsi de suite ». Le cas $g(a) \ne 0$ est noté pour le quotient.
 
-**Variante.** Le modèle matriciel : $a + b\varepsilon \mapsto \begin{pmatrix} a & b \cr 0 & a \end{pmatrix}$ transforme les sommes et les produits de nombres duaux en sommes et produits de matrices ; $\varepsilon$ devient la matrice nilpotente $\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}$.
+**Variante.** Le modèle matriciel : $`a + b\varepsilon \mapsto \begin{pmatrix} a & b \cr 0 & a \end{pmatrix}`$ transforme les sommes et les produits de nombres duaux en sommes et produits de matrices ; $\varepsilon$ devient la matrice nilpotente $`\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}`$.
 
 ### Ex M18.13 — Le mode inverse calcule tout le gradient en un passage
 
@@ -274,7 +274,7 @@ Dans ta copie : c'est bien le minimum, et pas seulement un point où le gradient
 2. Dans $\det\mathbf{X} = \sum_jX_{ij}C_{ij}$, les $C_{ij}$ ne dépendent pas de la ligne $i$ : le déterminant est une fonction **affine** des coefficients de cette ligne, et $\frac{\partial\det\mathbf{X}}{\partial X_{ij}} = C_{ij}$. Comme $i$ est quelconque, $\nabla_{\mathbf{X}}\det\mathbf{X} = \operatorname{com}(\mathbf{X})$.
 3. $\mathbf{X}\operatorname{com}(\mathbf{X})^\top = \det\mathbf{X}\mkern5mu \mathbf{I}$ donne $\mathbf{X}^{-1} = \frac{\operatorname{com}(\mathbf{X})^\top}{\det\mathbf{X}}$, donc $\operatorname{com}(\mathbf{X}) = \det\mathbf{X}\thinspace(\mathbf{X}^{-1})^\top = \det\mathbf{X}\mkern5mu \mathbf{X}^{-\top}$.
 4. Règle de la chaîne avec $\ln$ : $\frac{\partial\ln\det\mathbf{X}}{\partial X_{ij}} = \frac{C_{ij}}{\det\mathbf{X}}$, donc $\nabla\ln\det\mathbf{X} = \frac{\operatorname{com}(\mathbf{X})}{\det\mathbf{X}} = \mathbf{X}^{-\top}$. Si $\det\mathbf{X} < 0$, $\ln\lvert\det\mathbf{X}\rvert = \ln(-\det\mathbf{X})$ a pour dérivées $\frac{-C_{ij}}{-\det\mathbf{X}}$ : le même $\mathbf{X}^{-\top}$.
-5. $\operatorname{com}\begin{pmatrix} a & b \cr c & d \end{pmatrix} = \begin{pmatrix} d & -c \cr -b & a \end{pmatrix}$, ce que donnent les dérivées de $ad - bc$ ; et $\mathbf{X}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}$, dont la transposée est bien $\frac{\operatorname{com}(\mathbf{X})}{ad - bc}$.
+5. $`\operatorname{com}\begin{pmatrix} a & b \cr c & d \end{pmatrix} = \begin{pmatrix} d & -c \cr -b & a \end{pmatrix}`$, ce que donnent les dérivées de $ad - bc$ ; et $`\mathbf{X}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}`$, dont la transposée est bien $\frac{\operatorname{com}(\mathbf{X})}{ad - bc}$.
 6. $\mathrm{d}(\det\mathbf{X}) = \sum_{ij}C_{ij}\thinspace\mathrm{d}X_{ij} = \operatorname{tr}\big(\operatorname{com}(\mathbf{X})^\top\mathrm{d}\mathbf{X}\big) = \det\mathbf{X}\thinspace\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
 
 **Grille de relecture.** L'indépendance de $C_{ij}$ par rapport à la ligne $i$ est justifiée avant de dériver. L'identité admise sert à passer de la comatrice à l'inverse, avec la transposée au bon endroit. Le cas $\det\mathbf{X} < 0$ est traité. La vérification $2 \times 2$ est faite.
@@ -301,13 +301,13 @@ Dans ta copie : le mode inverse, de loin. Le chapitre 18 de workbookIA dérive u
 
 **Réponses.** a) `[[7, 13]]` · b) `[2]` · c) `[[3, 4], [1, 12]]` · d) `[0.125, 0.375]` · e) `[5, 3, 2]`.
 
-**Démarche.** $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 6 \end{pmatrix}$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}125\thinspace(7, 13) = (0{,}125 ;\ 0{,}375)$.
+**Démarche.** $`\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 6 \end{pmatrix}`$, $\mathbf{x}^\top(\mathbf{A} + \mathbf{A}^\top) = (6, 14)$, plus $\mathbf{b}^\top$ : $(7, 13)$, en ligne. En colonne, les mêmes nombres. d) $(1, 2) - 0{,}125\thinspace(7, 13) = (0{,}125 ;\ 0{,}375)$.
 
 Dans ta copie : le pas soustrait un multiple du gradient à $\mathbf{x}$ : il faut qu'il ait la forme de $\mathbf{x}$, d'où la transposée de la ligne de MML. La vérification simple : écrire la forme de chaque facteur d'une formule de gradient et contrôler que le résultat a **la forme de la variable** ; une transposée oubliée donne en général une forme impossible (sauf pour une matrice carrée, où il faut un autre contrôle, comme la direction au hasard du §8).
 
-**Erreurs fréquentes.** Oublier $\mathbf{b}$ ($(6, 14)$). Écrire $2\mathbf{A}\mathbf{x}$ alors que $\mathbf{A}$ n'est pas symétrique ($(11, 11)$ avec $\mathbf{b}$).
+**Erreurs fréquentes.** Oublier $\mathbf{b}$ ($(6, 14){}$). Écrire $2\mathbf{A}\mathbf{x}$ alors que $\mathbf{A}$ n'est pas symétrique ($(11, 11)$ avec $\mathbf{b}$).
 
-**Variante.** $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}$, $\mathbf{b} = \mathbf{0}$, $\mathbf{x} = (1, 1)$ : le gradient vaut $(6, 6)$, en ligne `[[6, 6]]`.
+**Variante.** $`\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}`$, $\mathbf{b} = \mathbf{0}$, $\mathbf{x} = (1, 1)$ : le gradient vaut $(6, 6)$, en ligne `[[6, 6]]`.
 
 ### Ex M18.17 — MML §5.4 et §5.5
 
@@ -364,8 +364,8 @@ Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses e
 
 - **M18.20 🔨** `Dual` et `dual_derivative` : chaque opération calcule la valeur et applique sa règle de dérivation, et une seule évaluation en `Dual(x, 1.0)` donne $(f(x), f'(x))$, exacte aux arrondis près, sans pas $h$. a) La dérivée de $\frac{t^2 + 1}{t - 3}$ en 1 vaut $-1{,}5$ ; b) celle de $t^t = e^{t\ln t}$ en 2, $4(\ln 2 + 1) \approx 6{,}7726$ ; c) $\cosh^2 t - \sinh^2 t$ rend la valeur 1 et la dérivée 0 en 1,3, bien que le calcul passe par quatre exponentielles.
 - **M18.21 🔨** `forward_gradient` : une passe par entrée, la graine $\mathbf{e}_i$. Le gradient de la hauteur du projectile de la fiche en $(20 ;\ \frac{\pi}{6} ;\ 0{,}5)$ redonne $(0{,}25 ;\ 5\sqrt3 \approx 8{,}6603 ;\ 5)$ ; celui de la portée $R = \frac{v^2\sin 2\theta}{10}$ en $(20 ;\ \frac{\pi}{8})$ vaut $(2\sqrt2 ;\ 40\sqrt2) \approx (2{,}8284 ;\ 56{,}5685)$, et $\frac{\partial R}{\partial\theta}$ s'annule en $\frac{\pi}{4}$, l'angle de la plus grande portée. 3 puis 2 appels de la fonction.
-- **M18.22 🔨** `gradient_from_differential` : $G_{ij} = \mathrm{d}f(\mathbf{E}  _{ij})$, un appel par case (9 pour une matrice $3 \times 3$). Lu dans $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\operatorname{tr}(\mathbf{X}^{-1}\mathbf{H})$, le gradient du déterminant de la matrice tirée au hasard ($\det\mathbf{X} = 4{,}704$) est sa comatrice, $\begin{pmatrix} 0{,}89 & -3{,}81 & 0{,}85 \cr 1{,}59 & 1{,}65 & 0{,}99 \cr -0{,}64 & -0{,}96 & 2{,}56 \end{pmatrix}$, à $10^{-16}$ près ; et $\sum  _{ij}G _{ij}X _{ij} = 3\det\mathbf{X} = 14{,}112$ (le développement selon chacune des trois lignes).
-- **M18.23 📦** `MatrixSymbol` rend `A.T`, `A*X + A.T*X` et `a*b.T` : les identités de la fiche ; en $\mathbf{A} = \begin{pmatrix} 0 & 2 \cr -3 & 1 \end{pmatrix}$, $\mathbf{X} = \begin{pmatrix} 3 & 1 \cr -2 & 2 \end{pmatrix}$, le gradient de $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ vaut $\begin{pmatrix} 2 & -2 \cr -7 & 3 \end{pmatrix}$. Pour $\ln\det\mathbf{X}$, SymPy (1.13 et 1.14) rend 0 avec `MatrixSymbol`, sans prévenir ; une matrice de symboles $2 \times 2$ donne $\mathbf{X}^{-\top} = \begin{pmatrix} 0{,}25 & 0{,}25 \cr -0{,}125 & 0{,}375 \end{pmatrix}$, et non $\mathbf{X}^{-1}$, car $\mathbf{X}$ n'est pas symétrique.
+- **M18.22 🔨** `gradient_from_differential` : $G_{ij} = \mathrm{d}f(\mathbf{E}  _{ij})$, un appel par case (9 pour une matrice $3 \times 3$). Lu dans $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\operatorname{tr}(\mathbf{X}^{-1}\mathbf{H})$, le gradient du déterminant de la matrice tirée au hasard ($\det\mathbf{X} = 4{,}704$) est sa comatrice, $`\begin{pmatrix} 0{,}89 & -3{,}81 & 0{,}85 \cr 1{,}59 & 1{,}65 & 0{,}99 \cr -0{,}64 & -0{,}96 & 2{,}56 \end{pmatrix}`$, à $10^{-16}$ près ; et $\sum  _{ij}G _{ij}X _{ij} = 3\det\mathbf{X} = 14{,}112$ (le développement selon chacune des trois lignes).
+- **M18.23 📦** `MatrixSymbol` rend `A.T`, `A*X + A.T*X` et `a*b.T` : les identités de la fiche ; en $`\mathbf{A} = \begin{pmatrix} 0 & 2 \cr -3 & 1 \end{pmatrix}`$, $`\mathbf{X} = \begin{pmatrix} 3 & 1 \cr -2 & 2 \end{pmatrix}`$, le gradient de $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ vaut $`\begin{pmatrix} 2 & -2 \cr -7 & 3 \end{pmatrix}`$. Pour $\ln\det\mathbf{X}$, SymPy (1.13 et 1.14) rend 0 avec `MatrixSymbol`, sans prévenir ; une matrice de symboles $2 \times 2$ donne $`\mathbf{X}^{-\top} = \begin{pmatrix} 0{,}25 & 0{,}25 \cr -0{,}125 & 0{,}375 \end{pmatrix}`$, et non $\mathbf{X}^{-1}$, car $\mathbf{X}$ n'est pas symétrique.
 - **M18.24 🔮** Pour le produit de $n = 8$ nombres : (a) 8 évaluations de $f$ en mode direct ; (b) $8 \times 7 = 56$ multiplications de duals ; (c) $2(n - 1) = 14$ produits « adjoint × dérivée locale » dans la passe arrière écrite à la main, un par arête, comme en M18.5 g) ; (d) choix 2 : pour $n = 16$, 56 devient 240 et 14 devient 30. Le mode direct coûte $n(n - 1)$ produits et grandit comme $n^2$ ; la passe arrière passe une fois sur chaque arête et grandit comme $n$, en gardant les $n$ valeurs de la passe avant.
 - **M18.25 🔬** Pour $f(x) = e^{\sin x}$ en 1 ($f'(1) \approx 1{,}253381$), l'erreur de la différence centrée descend avec la pente 2 (la troncature), puis remonte avec une pente d'environ $-1$, en dents de scie (les arrondis, divisés par $2h$). Le meilleur pas est $h = 10^{-5}$ ($k = 5$), pour une erreur d'environ $7{,}5 \cdot 10^{-11}$ ($m = -11$) ; à $h = 10^{-13}$, elle remonte à $10^{-3}$. La dérivée duale s'écarte de $f'(1)$ d'environ $2 \cdot 10^{-16}$.
 - **M18.26 🎨** Le graphe de $R = \frac{r_1r_2}{r_1 + r_2}$ en $(3, 6)$ : valeurs $u_1 = 18$, $u_2 = 9$, $R = 2$ ; dérivées locales 6, 3, 1, 1, $\frac19$ et $-\frac29$ ; adjoints $\bar{u}_1 = \frac19$, $\bar{u}_2 = -\frac29$, $\bar{r}_1 = \frac49$ et $\bar{r}_2 = \frac19$, chacun la somme des contributions de ses deux successeurs. $3\bar{r}_1 + 6\bar{r}_2 = 2 = R$ : $R$ est homogène de degré 1.

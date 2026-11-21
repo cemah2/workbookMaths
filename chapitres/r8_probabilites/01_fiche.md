@@ -258,7 +258,7 @@ La somme des probabilités de tous les chemins vaut 1 : $0{,}12 + 0{,}18 + 0{,}0
 
 ### Un premier contact avec le conditionnement
 
-Les probabilités du second niveau ne sont pas des probabilités « tout court » : 0,4 est la probabilité du retard **sachant qu'il pleut**. On la note $P(B \mid A)$ (lire « probabilité de $B$ sachant $A$ » ; au lycée, $P_A(B)$). La règle 2 s'écrit alors
+Les probabilités du second niveau ne sont pas des probabilités « tout court » : 0,4 est la probabilité du retard **sachant qu'il pleut**. On la note $P(B \mid A)$ (lire « probabilité de $B$ sachant $A$ » ; au lycée, $P_A(B){}$). La règle 2 s'écrit alors
 
 $$P(A \cap B) = P(A) \times P(B \mid A).$$
 

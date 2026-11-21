@@ -259,7 +259,7 @@ Relis « Le problème quadratique sous contraintes linéaires » (fiche §2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}$ : écris chacun de ses blocs.
+$`\begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}`$ : écris chacun de ses blocs.
 
 </details>
 <details><summary>Indice 3</summary>

@@ -120,7 +120,9 @@ Dans ta copie : écris la somme de a) terme à terme. Pourquoi $F$ suit-il la lo
 **Prérequis :** fiche §2 ; M02c ; M13b · **Parcours :** C, E
 
 Trois instruments mesurent la même masse. Leurs erreurs ont la matrice de covariance
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 3 & 1 & -1 \cr 1 & 5 & -1 \cr -1 & -1 & 2 \end{pmatrix}.$$
+```math
+\boldsymbol{\Sigma} = \begin{pmatrix} 3 & 1 & -1 \cr 1 & 5 & -1 \cr -1 & -1 & 2 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|

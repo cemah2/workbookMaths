@@ -156,7 +156,7 @@ Les deux premières colonnes ne sont pas proportionnelles. Écris chaque autre c
 </details>
 <details><summary>Indice 3</summary>
 
-Pour les pains de campagne, les lignes Halles et Moulin donnent $12\alpha + 4\beta = 10$ et $16\alpha + 2\beta = 10$, d'où $(\alpha, \beta) = (\frac12, 1)$ ; fais de même pour les deux dernières colonnes. c) La colonne $j$ de $\mathbf{C}\mathbf{G}$ est $\mathbf{C}$ fois la colonne $j$ de $\mathbf{G}$. d) $\mathbf{G}^{-1} = \frac{1}{2}\begin{pmatrix} 2 & -1 \cr 0 & 1 \end{pmatrix}$. f) Retire $r^2$ à e).
+Pour les pains de campagne, les lignes Halles et Moulin donnent $12\alpha + 4\beta = 10$ et $16\alpha + 2\beta = 10$, d'où $(\alpha, \beta) = (\frac12, 1)$ ; fais de même pour les deux dernières colonnes. c) La colonne $j$ de $\mathbf{C}\mathbf{G}$ est $\mathbf{C}$ fois la colonne $j$ de $\mathbf{G}$. d) $`\mathbf{G}^{-1} = \frac{1}{2}\begin{pmatrix} 2 & -1 \cr 0 & 1 \end{pmatrix}`$. f) Retire $r^2$ à e).
 
 </details>
 

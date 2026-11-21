@@ -174,7 +174,7 @@ $G_{ij} = \mathbf{x}_i^\top\mathbf{x}_j$. Les échantillons sont les lignes : la
 </details>
 <details><summary>Indice 3</summary>
 
-a) $G_{11} = 3^2 + 1^2 = 10$ et $G_{12} = 3 \times 1 + 1 \times 3 = 6$ ; continue de même. b) Calcule d'abord $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$. c) Une matrice $\begin{pmatrix} a & b \cr b & a \end{pmatrix}$ a pour valeurs propres $a \pm b$. d) $G_{11} + G_{jj} - 2G_{1j}$. e) $\cos\theta = G_{12}/\sqrt{G_{11}G_{22}}$.
+a) $G_{11} = 3^2 + 1^2 = 10$ et $G_{12} = 3 \times 1 + 1 \times 3 = 6$ ; continue de même. b) Calcule d'abord $\mathbf{X}^\top\mathbf{X}$, de forme $(2, 2)$. c) Une matrice $`\begin{pmatrix} a & b \cr b & a \end{pmatrix}`$ a pour valeurs propres $a \pm b$. d) $G_{11} + G_{jj} - 2G_{1j}$. e) $\cos\theta = G_{12}/\sqrt{G_{11}G_{22}}$.
 
 </details>
 
@@ -187,12 +187,12 @@ Fiche §2 : « Des distances à la matrice de Gram : le double centrage » (la f
 </details>
 <details><summary>Indice 2</summary>
 
-Élève d'abord chaque distance au carré : $29^2 = 841$, $40^2 = 1\thinspace600$, $42^2 = 1\thinspace764$. $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$. Dans l'ordre A, C, B, D, $\mathbf{G}$ a deux blocs de la forme $\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}$. Pour e), un point à égale distance de B et de D est sur l'hyperplan médiateur de [BD].
+Élève d'abord chaque distance au carré : $29^2 = 841$, $40^2 = 1\thinspace600$, $42^2 = 1\thinspace764$. $G_{ij} = -\frac12\big(D^{(2)}_{ij} - r_i - r_j + s\big)$. Dans l'ordre A, C, B, D, $\mathbf{G}$ a deux blocs de la forme $`\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}`$. Pour e), un point à égale distance de B et de D est sur l'hyperplan médiateur de [BD].
 
 </details>
 <details><summary>Indice 3</summary>
 
-a) La ligne de A vaut $(0, 841, 1\thinspace600, 841)$, de moyenne 820,5 ; fais de même pour B, puis moyenne les quatre moyennes. b) $G_{AA} = -\frac12(0 - 2 \times 820{,}5 + s)$. c) $\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}$ a pour valeurs propres $2a$ (vecteur $(1, -1)$) et 0. d) Écris chaque vecteur propre dans l'ordre A, B, C, D, normalise-le, multiplie-le par la racine de sa valeur propre, puis applique la convention de signe. e) Avec M le milieu de [BD], calcule MA par Pythagore.
+a) La ligne de A vaut $(0, 841, 1\thinspace600, 841)$, de moyenne 820,5 ; fais de même pour B, puis moyenne les quatre moyennes. b) $G_{AA} = -\frac12(0 - 2 \times 820{,}5 + s)$. c) $`\begin{pmatrix} a & -a \cr -a & a \end{pmatrix}`$ a pour valeurs propres $2a$ (vecteur $(1, -1){}$) et 0. d) Écris chaque vecteur propre dans l'ordre A, B, C, D, normalise-le, multiplie-le par la racine de sa valeur propre, puis applique la convention de signe. e) Avec M le milieu de [BD], calcule MA par Pythagore.
 
 </details>
 

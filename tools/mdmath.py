@@ -93,6 +93,9 @@ def math_spans(text: str) -> list[Span]:
         if mask[i] or text[i] != "$" or (i > 0 and text[i - 1] == "\\"):
             i += 1
             continue
+        if (i + 1 < n and text[i + 1] == "`" and mask[i + 1]) or (i > 0 and text[i - 1] == "`" and mask[i - 1]):
+            i += 1          # the $ of GitHub's $`…`$: the formula is a code span, never read as $-math
+            continue
         if text.startswith("$$", i):
             j = i + 2
             while j < n and not (text.startswith("$$", j) and text[j - 1] != "\\") and not mask[j]:
@@ -312,6 +315,43 @@ def emphasis_problems(text: str) -> list[tuple[int, int]]:
 
 
 # ---------------------------------------------------------------------------------------------------- whole files
+def _github_syntax(text: str) -> str:
+    """Two cases that GitHub refuses as $-math whatever the escapes (checked on rendered pages, session 79).
+
+    * A formula with ``&`` (a matrix) is never read as math: it goes into GitHub's own syntax, a ```` ```math ```` block
+      for a display formula alone on its lines, ``$`…`$`` otherwise (Colab, Jupyter and VS Code then show its TeX as
+      code: the price of a readable matrix on GitHub).
+    * A formula that ends with ``)`` right before a ``)`` (« (vecteur propre $(1, 6)$) ») is not read either: it gets
+      an empty group at its end, ``$(1, 6){}$)``, which TeX ignores.
+    """
+    out, last = [], 0
+    for s in math_spans(text):
+        tex = s.tex(text)
+        if "&" not in tex:
+            if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
+                out.append(text[last:s.end - 1] + "{}$")
+                last = s.end
+            continue
+        if "`" in tex:
+            continue
+        line_start = text.rfind("\n", 0, s.start) + 1
+        prefix = text[line_start:s.start]
+        line_end = text.find("\n", s.end)
+        line_end = len(text) if line_end == -1 else line_end
+        if s.display and re.fullmatch(r"[ \t]*(?:>[ \t]?)*", prefix) and not text[s.end:line_end].strip():
+            body = [re.sub(r"^[ \t]*(?:>[ \t]?)*", "", line).rstrip() if k else line.rstrip()
+                    for k, line in enumerate(tex.strip("\n").split("\n"))]
+            block = [prefix + "```math"] + [prefix + line.strip() for line in body if line.strip()] + [prefix + "```"]
+            out.append(text[last:line_start] + "\n".join(block))
+            last = line_end
+            continue
+        flat = " ".join(line.strip() for line in tex.split("\n"))
+        out.append(text[last:s.start] + "$`" + (r"\displaystyle " if s.display else "") + flat + "`$")
+        last = s.end
+    out.append(text[last:])
+    return "".join(out)
+
+
 def fix_text(text: str) -> str:
     """The text with every formula made safe for GitHub (the prose is never touched)."""
     text = re.sub(r"(?:\\,|\\ |\\;|~)?\\%\$(?!\$)", "$ %", text)          # a percent sign that ends a formula
@@ -347,7 +387,7 @@ def fix_text(text: str) -> str:
             break
         for p in sorted(targets, reverse=True):
             text = text[:p] + " " + text[p:]
-    return text
+    return _github_syntax(text)
 
 
 def problems(text: str) -> list[str]:
@@ -364,6 +404,10 @@ def problems(text: str) -> list[str]:
     for s in math_spans(text):
         tex = s.tex(text)
         found = escape_problems(tex)
+        if "&" in tex:
+            found.append("& (a matrix: GitHub reads it only as ```math or $`…`$)")
+        if tex.rstrip().endswith(")") and text[s.end:s.end + 1] == ")":
+            found.append(")$) (end the formula with {})")
         if found:
             out.append(f"line {line_of(s.start)}: {' '.join(sorted(set(found)))} in ${tex[:60]}$")
     for o, cl in emphasis_problems(text):

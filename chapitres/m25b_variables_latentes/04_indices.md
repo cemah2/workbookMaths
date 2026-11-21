@@ -336,7 +336,7 @@ $\psi(\mu, \varepsilon) = (\mu + \sigma\varepsilon - c)^+$ : sa dérivée en $\m
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\sigma\int_z^{+\infty}(u - z)\varphi(u)\thinspace\mathrm{d}u$, avec $\int_z^{+\infty}u\thinspace\varphi(u)\thinspace\mathrm{d}u = \varphi(z)$ (une primitive de $u\varphi(u)$ est $-\varphi(u)$). b) $P(\varepsilon > 0{,}3)$. c) $\mathbb{E}[\varepsilon\thinspace\mathbb{1}\lbrace\varepsilon > z\rbrace]$, par la même primitive. f) $\hat g_\mu$ ne prend que les valeurs 0 et 1.
+a) $\sigma\int_z^{+\infty}(u - z)\varphi(u)\thinspace\mathrm{d}u$, avec $\int_z^{+\infty}u\thinspace\varphi(u)\thinspace\mathrm{d}u = \varphi(z)$ (une primitive de $u\varphi(u)$ est $-\varphi(u){}$). b) $P(\varepsilon > 0{,}3)$. c) $\mathbb{E}[\varepsilon\thinspace\mathbb{1}\lbrace\varepsilon > z\rbrace]$, par la même primitive. f) $\hat g_\mu$ ne prend que les valeurs 0 et 1.
 
 </details>
 
@@ -484,7 +484,7 @@ $h(\mathcal{N}(m, \sigma^2)) = \frac12\ln(2\pi e\sigma^2)$, et $Z \sim \mathcal{
 </details>
 <details><summary>Indice 3</summary>
 
-2. La covariance de $(X, Z)$ est $\begin{pmatrix} s^2 & s^2 \cr s^2 & s^2 + v \end{pmatrix}$ ; puis $e^{2I} = 1 + \frac{s^2}{v}$ pour éliminer $v$. 3. $\mathcal{L}'(I) = \beta - 2s^2e^{-2I}$ : regarde son signe en $I = 0$ et son sens de variation.
+2. La covariance de $(X, Z)$ est $`\begin{pmatrix} s^2 & s^2 \cr s^2 & s^2 + v \end{pmatrix}`$ ; puis $e^{2I} = 1 + \frac{s^2}{v}$ pour éliminer $v$. 3. $\mathcal{L}'(I) = \beta - 2s^2e^{-2I}$ : regarde son signe en $I = 0$ et son sens de variation.
 
 </details>
 

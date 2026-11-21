@@ -334,7 +334,9 @@ Dans ta copie : retrouve h) avec la formule de la variance d'une somme. Dessine 
 
 Trois features $X_1$, $X_2$, $X_3$ ont pour matrice de covariance
 
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 0 \cr -1 & 0 & 1 \end{pmatrix}.$$
+```math
+\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 0 \cr -1 & 0 & 1 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -349,7 +351,9 @@ $$\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 0 \cr -1 & 0 & 1 
 
 Les trois tableaux de la question g) :
 
-$$\mathbf{A} = \begin{pmatrix} 4 & 1 \cr 2 & 9 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 4 & -3 \cr -3 & 9 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 4 & 7 \cr 7 & 9 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 4 & 1 \cr 2 & 9 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 4 & -3 \cr -3 & 9 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 4 & 7 \cr 7 & 9 \end{pmatrix}.
+```
 
 Dans ta copie : écris la matrice de corrélation de $X_1$, $X_2$, $X_3$. Pour chaque tableau refusé en g), dis quelle propriété il viole.
 

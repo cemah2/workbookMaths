@@ -43,7 +43,7 @@
 ### R9.Q5 — Radians et valeurs remarquables
 1. $\frac{\pi}{2}$.
 2. 45°.
-3. $\cos 0 = 1$ et $\sin 0 = 0$ (le point $I(1 ; 0)$).
+3. $\cos 0 = 1$ et $\sin 0 = 0$ (le point $I(1 ; 0){}$).
 4. 1 (le point le plus haut du cercle).
 5. **Faux** : un cosinus est toujours entre $-1$ et $1$ (c'est l'abscisse d'un point d'un cercle de rayon 1).
 6. $\cos\frac{\pi}{3} = \frac{1}{2}$ (et $\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}$).
@@ -95,7 +95,7 @@
 - g) $M(x ; 0)$ : $MA^2 = MB^2$ s'écrit $(x + 3)^2 + 4 = (x - 6)^2 + 196$, soit $x^2 + 6x + 13 = x^2 - 12x + 232$, donc $18x = 219$ et $x = \frac{219}{18} = \frac{73}{6}$.
 - h) $B$ est le milieu de $[AA']$ : $x_{A'} = 2x_B - x_A = 15$ et $y_{A'} = 2y_B - y_A = 26$.
 
-**Erreurs fréquentes.** Additionner les écarts au lieu de leurs carrés (21 en b, 3,5 en c) ; oublier la racine (225) ; prendre la moitié de l'écart pour le milieu ($(4{,}5 ; 6)$) ; en h, donner le milieu de $[AB]$.
+**Erreurs fréquentes.** Additionner les écarts au lieu de leurs carrés (21 en b, 3,5 en c) ; oublier la racine (225) ; prendre la moitié de l'écart pour le milieu ($(4{,}5 ; 6){}$) ; en h, donner le milieu de $[AB]$.
 
 **Variante.** Le point $N$ de l'axe des ordonnées tel que $NA = NB$ ? *Réponse* : $N(0 ; y)$ avec $9 + (y - 2)^2 = 36 + (y - 14)^2$, soit $24y = 219$, $y = \frac{73}{8}$.
 

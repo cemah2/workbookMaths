@@ -21,7 +21,7 @@
 2. **Vrai** : $\mathbf{U} = \mathbf{V} = \mathbf{Q}$ et $s_i = \lambda_i$.
 3. **Vrai** : le signe de $\lambda_i$ passe dans $\mathbf{u}_i = \pm\mathbf{v}_i$.
 4. **Vrai** (fiche §1, M12d.14).
-5. **Faux** : le cisaillement $\begin{pmatrix} 1 & 10 \cr 0 & 1 \end{pmatrix}$ n'a que la valeur propre 1, et étire jusqu'à environ 10,1.
+5. **Faux** : le cisaillement $`\begin{pmatrix} 1 & 10 \cr 0 & 1 \end{pmatrix}`$ n'a que la valeur propre 1, et étire jusqu'à environ 10,1.
 6. **Vrai** : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$.
 7. **Vrai** : $\lvert\det\mathbf{U}\rvert = \lvert\det\mathbf{V}\rvert = 1$.
 8. **Vrai** : $\mathbf{A}^\top = \mathbf{V}\mathbf{S}^\top\mathbf{U}^\top$.
@@ -46,8 +46,8 @@
 ### M12d.Q5 — Ce que maximise un axe principal
 1. $\mathbf{u}^\top\mathbf{C}\thinspace\mathbf{u}$.
 2. La plus grande valeur propre $\lambda_1$ de $\mathbf{C}$, atteinte en son vecteur propre unitaire $\mathbf{u}_1$ (quotient de Rayleigh, M12c §6).
-3. **Faux** : une covariance non nulle entre features fait tourner l'axe. Pour $\mathbf{C} = \begin{pmatrix} 37 & 6 \cr 6 & 2 \end{pmatrix}$, la variance le long de $\mathbf{e}_1$ vaut 37, mais $\lambda_1 = 38$, le long de $\frac{1}{\sqrt{37}}(6, 1)$.
-4. Le bloc $\begin{pmatrix} 2 & 2 \cr 2 & 5 \end{pmatrix}$ a pour trace 7 et déterminant 6 : $\frac{1}{\sqrt{5}}(0, 1, 2)$ (variance 6), puis $\mathbf{e}_1$ (4), puis $\frac{1}{\sqrt{5}}(0, 2, -1)$ (1).
+3. **Faux** : une covariance non nulle entre features fait tourner l'axe. Pour $`\mathbf{C} = \begin{pmatrix} 37 & 6 \cr 6 & 2 \end{pmatrix}`$, la variance le long de $\mathbf{e}_1$ vaut 37, mais $\lambda_1 = 38$, le long de $\frac{1}{\sqrt{37}}(6, 1)$.
+4. Le bloc $`\begin{pmatrix} 2 & 2 \cr 2 & 5 \end{pmatrix}`$ a pour trace 7 et déterminant 6 : $\frac{1}{\sqrt{5}}(0, 1, 2)$ (variance 6), puis $\mathbf{e}_1$ (4), puis $\frac{1}{\sqrt{5}}(0, 2, -1)$ (1).
 5. $\operatorname{tr}\mathbf{C}$, la variance totale.
 6. Ce sont des vecteurs propres d'une matrice symétrique (théorème spectral) ; pour des variances distinctes, ils sont forcément orthogonaux.
 7. Non : un axe n'est défini qu'au signe près ; une convention (celle de la fiche) choisit.
@@ -83,7 +83,7 @@
 ### M12d.R1 — Valeurs propres et théorème spectral (M12c)
 1. Trace 20, déterminant $-44 - 25 = -69$ : $\lambda^2 - 20\lambda - 69 = (\lambda - 23)(\lambda + 3)$.
 2. Pour 23 : $\frac{1}{\sqrt{26}}(1, 5)$ ; pour $-3$ : $\frac{1}{\sqrt{26}}(5, -1)$.
-3. $\mathbf{Q} = \frac{1}{\sqrt{26}}\begin{pmatrix} 1 & 5 \cr 5 & -1 \end{pmatrix}$, $\boldsymbol{\Lambda} = \operatorname{diag}(23, -3)$, et $\mathbf{Q}^\top\mathbf{Q} = \frac{1}{26}\begin{pmatrix} 1 + 25 & 5 - 5 \cr 5 - 5 & 25 + 1 \end{pmatrix} = \mathbf{I}$.
+3. $`\mathbf{Q} = \frac{1}{\sqrt{26}}\begin{pmatrix} 1 & 5 \cr 5 & -1 \end{pmatrix}`$, $\boldsymbol{\Lambda} = \operatorname{diag}(23, -3)$, et $`\mathbf{Q}^\top\mathbf{Q} = \frac{1}{26}\begin{pmatrix} 1 + 25 & 5 - 5 \cr 5 - 5 & 25 + 1 \end{pmatrix} = \mathbf{I}`$.
 4. $s_1 = 23$, $s_2 = 3$ ; $\mathbf{u}_1 = \mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, 5)$, et pour la valeur propre négative, $\mathbf{v}_2 = \frac{1}{\sqrt{26}}(5, -1)$ et $\mathbf{u}_2 = \mathbf{K}\mathbf{v}_2/3 = -\mathbf{v}_2$.
 5. Non : une valeur propre est négative.
 
@@ -111,10 +111,10 @@
 
 **Démarche.**
 - a) b) Trace 229, déterminant $125 \times 104 - 110^2 = 900$ : $\lambda^2 - 229\lambda + 900 = (\lambda - 225)(\lambda - 4)$. c) $s_1 = 15$, $s_2 = 2$.
-- d) Pour 225 : $\begin{pmatrix} -100 & 110 \cr 110 & -121 \end{pmatrix}$ donne $10x = 11y$, $\mathbf{v}_1 = \frac{1}{\sqrt{221}}(11, 10)$. e) Orthogonal : $\pm(10, -11)$ ; la coordonnée de plus grande valeur absolue, $\pm 11$, positive : $\mathbf{v}_2 = \frac{1}{\sqrt{221}}(-10, 11)$. f) $\mathbf{A}(11, 10) = (210, 75) = 15\thinspace(14, 5)$, donc $\mathbf{u}_1 = \frac{1}{\sqrt{221}}(14, 5)$.
+- d) Pour 225 : $`\begin{pmatrix} -100 & 110 \cr 110 & -121 \end{pmatrix}`$ donne $10x = 11y$, $\mathbf{v}_1 = \frac{1}{\sqrt{221}}(11, 10)$. e) Orthogonal : $\pm(10, -11)$ ; la coordonnée de plus grande valeur absolue, $\pm 11$, positive : $\mathbf{v}_2 = \frac{1}{\sqrt{221}}(-10, 11)$. f) $\mathbf{A}(11, 10) = (210, 75) = 15\thinspace(14, 5)$, donc $\mathbf{u}_1 = \frac{1}{\sqrt{221}}(14, 5)$.
 - g) $20 - 50 = -30 = -(15 \times 2)$. h) Trace 12, déterminant $-30$ : $\lambda = 6 \pm \sqrt{66}$.
 
-Pour la copie : $\mathbf{A}(-10, 11) = (10, -28) = 2\thinspace(5, -14)$, donc $\mathbf{u}_2 = \frac{1}{\sqrt{221}}(5, -14)$ ; $15\thinspace\mathbf{u}_1\mathbf{v}_1^\top + 2\thinspace\mathbf{u}_2\mathbf{v}_2^\top = \frac{1}{221}\Big[15\begin{pmatrix} 154 & 140 \cr 55 & 50 \end{pmatrix} + 2\begin{pmatrix} -50 & 55 \cr 140 & -154 \end{pmatrix}\Big] = \frac{1}{221}\begin{pmatrix} 2\thinspace210 & 2\thinspace210 \cr 1\thinspace105 & 442 \end{pmatrix} = \mathbf{A}$. $\lvert\det\mathbf{A}\rvert = s_1s_2$ ; le signe moins vient de $\det\mathbf{U}\det\mathbf{V} = -1$. Les valeurs propres de $\mathbf{A}$ disent quelles directions $\mathbf{A}$ garde ; les valeurs singulières, de combien elle étire ses deux directions privilégiées, qui ne sont pas les mêmes au départ et à l'arrivée.
+Pour la copie : $\mathbf{A}(-10, 11) = (10, -28) = 2\thinspace(5, -14)$, donc $\mathbf{u}_2 = \frac{1}{\sqrt{221}}(5, -14)$ ; $`15\thinspace\mathbf{u}_1\mathbf{v}_1^\top + 2\thinspace\mathbf{u}_2\mathbf{v}_2^\top = \frac{1}{221}\Big[15\begin{pmatrix} 154 & 140 \cr 55 & 50 \end{pmatrix} + 2\begin{pmatrix} -50 & 55 \cr 140 & -154 \end{pmatrix}\Big] = \frac{1}{221}\begin{pmatrix} 2\thinspace210 & 2\thinspace210 \cr 1\thinspace105 & 442 \end{pmatrix} = \mathbf{A}`$. $\lvert\det\mathbf{A}\rvert = s_1s_2$ ; le signe moins vient de $\det\mathbf{U}\det\mathbf{V} = -1$. Les valeurs propres de $\mathbf{A}$ disent quelles directions $\mathbf{A}$ garde ; les valeurs singulières, de combien elle étire ses deux directions privilégiées, qui ne sont pas les mêmes au départ et à l'arrivée.
 
 **Erreurs fréquentes.** Oublier la racine ($s = 225$) ; prendre $\mathbf{A}\mathbf{A}^\top$ (mêmes valeurs propres, mais ses vecteurs propres sont les $\mathbf{u}_i$) ; ne pas diviser $\mathbf{A}\mathbf{v}_1$ par $s_1$.
 
@@ -124,9 +124,9 @@ Pour la copie : $\mathbf{A}(-10, 11) = (10, -28) = 2\thinspace(5, -14)$, donc $\
 
 **Réponses** : a) `1` · b) `[[225, -1125], [-1125, 5625]]` · c) `[5850, 0]` · d) `76.4853` · e) `[-0.1961, 0.9806]` · f) `[-0.1333, -0.6667, -0.7333]` · g) `5850` · h) `[0.9806, 0.1961]`.
 
-**Démarche.** La deuxième colonne vaut $-5$ fois la première : $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 10, 11)$ ($\lVert \mathbf{a} \rVert = 15$) et $\mathbf{b} = (1, -5)$ ($\lVert \mathbf{b} \rVert = \sqrt{26}$). $\mathbf{A}^\top\mathbf{A} = \lVert \mathbf{a} \rVert^2\thinspace\mathbf{b}\mathbf{b}^\top = 225\begin{pmatrix} 1 & -5 \cr -5 & 25 \end{pmatrix}$, de valeurs propres $225 \times 26 = 5\thinspace850$ (pour $\mathbf{b}$) et 0 (pour $\mathbf{b}^\perp$). $s_1 = 15\sqrt{26}$. $\mathbf{v}_1 = \pm\frac{\mathbf{b}}{\sqrt{26}}$ : la convention veut la coordonnée $\pm 5$ positive, donc $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(-1, 5)$ ; alors $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/s_1 = \mathbf{a}\thinspace\frac{\mathbf{b} \cdot \mathbf{v}_1}{s_1} = \mathbf{a}\thinspace\frac{-\sqrt{26}}{15\sqrt{26}} = -\frac{\mathbf{a}}{15}$. h) $\mathbf{v}_2 \perp \mathbf{b}$ : $\frac{1}{\sqrt{26}}(5, 1)$.
+**Démarche.** La deuxième colonne vaut $-5$ fois la première : $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 10, 11)$ ($\lVert \mathbf{a} \rVert = 15$) et $\mathbf{b} = (1, -5)$ ($\lVert \mathbf{b} \rVert = \sqrt{26}$). $`\mathbf{A}^\top\mathbf{A} = \lVert \mathbf{a} \rVert^2\thinspace\mathbf{b}\mathbf{b}^\top = 225\begin{pmatrix} 1 & -5 \cr -5 & 25 \end{pmatrix}`$, de valeurs propres $225 \times 26 = 5\thinspace850$ (pour $\mathbf{b}$) et 0 (pour $\mathbf{b}^\perp$). $s_1 = 15\sqrt{26}$. $\mathbf{v}_1 = \pm\frac{\mathbf{b}}{\sqrt{26}}$ : la convention veut la coordonnée $\pm 5$ positive, donc $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(-1, 5)$ ; alors $\mathbf{u}_1 = \mathbf{A}\mathbf{v}_1/s_1 = \mathbf{a}\thinspace\frac{\mathbf{b} \cdot \mathbf{v}_1}{s_1} = \mathbf{a}\thinspace\frac{-\sqrt{26}}{15\sqrt{26}} = -\frac{\mathbf{a}}{15}$. h) $\mathbf{v}_2 \perp \mathbf{b}$ : $\frac{1}{\sqrt{26}}(5, 1)$.
 
-Pour la copie : $\mathbf{A} = \Big(-\frac{1}{15}\begin{pmatrix} 2 \cr 10 \cr 11 \end{pmatrix}\Big)\thinspace(15\sqrt{26})\thinspace\Big(\frac{1}{\sqrt{26}}\begin{pmatrix} -1 & 5 \end{pmatrix}\Big)$ : $3 + 1 + 2 = 6$ nombres, contre $9 + 2 + 4 = 15$ pour la SVD complète ($\mathbf{U}$ $3 \times 3$, deux valeurs singulières, $\mathbf{V}$ $2 \times 2$). $\mathbf{u}_1$ est négatif parce que la convention porte sur $\mathbf{v}_1$, et que $\mathbf{u}_1$ suit.
+Pour la copie : $`\mathbf{A} = \Big(-\frac{1}{15}\begin{pmatrix} 2 \cr 10 \cr 11 \end{pmatrix}\Big)\thinspace(15\sqrt{26})\thinspace\Big(\frac{1}{\sqrt{26}}\begin{pmatrix} -1 & 5 \end{pmatrix}\Big)`$ : $3 + 1 + 2 = 6$ nombres, contre $9 + 2 + 4 = 15$ pour la SVD complète ($\mathbf{U}$ $3 \times 3$, deux valeurs singulières, $\mathbf{V}$ $2 \times 2$). $\mathbf{u}_1$ est négatif parce que la convention porte sur $\mathbf{v}_1$, et que $\mathbf{u}_1$ suit.
 
 **Erreurs fréquentes.** Choisir $\mathbf{v}_1 = \frac{1}{\sqrt{26}}(1, -5)$ (le signe) ; calculer $\mathbf{u}_1$ avec un autre $\mathbf{v}_1$ que celui retenu ; écrire $s_1 = 5\thinspace850$.
 
@@ -136,7 +136,7 @@ Pour la copie : $\mathbf{A} = \Big(-\frac{1}{15}\begin{pmatrix} 2 \cr 10 \cr 11 
 
 **Réponses** : a) `[9, 4]` · b) `[0.8682, -0.4961]` · c) `[-0.124, 0.9923]` · d) `36` · e) `4.1231` · f) `8.9443` · g) `2.25` · h) `False`.
 
-**Démarche.** $\mathbf{B}^\top\mathbf{B} = \begin{pmatrix} 17 & -8 \cr -8 & 80 \end{pmatrix}$, trace 97, déterminant 1 296 : valeurs propres 81 et 16, $s_1 = 9$, $s_2 = 4$. Pour 81 : $-64x - 8y = 0$, $\mathbf{v}_1 = \frac{1}{\sqrt{65}}(-1, 8)$ (convention). $\mathbf{B}\mathbf{v}_1 = \frac{1}{\sqrt{65}}(63, -36) = 9 \cdot \frac{1}{\sqrt{65}}(7, -4)$ : le grand axe est porté par $\mathbf{u}_1 = \frac{1}{\sqrt{65}}(7, -4)$. d) $\pi s_1s_2 = 36\thinspace\pi = \lvert\det\mathbf{B}\rvert\thinspace\pi$. e) $\lVert (1, 4) \rVert = \sqrt{17}$, f) $\lVert (8, -4) \rVert = \sqrt{80}$. h) $\det\mathbf{B} = -36 < 0$.
+**Démarche.** $`\mathbf{B}^\top\mathbf{B} = \begin{pmatrix} 17 & -8 \cr -8 & 80 \end{pmatrix}`$, trace 97, déterminant 1 296 : valeurs propres 81 et 16, $s_1 = 9$, $s_2 = 4$. Pour 81 : $-64x - 8y = 0$, $\mathbf{v}_1 = \frac{1}{\sqrt{65}}(-1, 8)$ (convention). $\mathbf{B}\mathbf{v}_1 = \frac{1}{\sqrt{65}}(63, -36) = 9 \cdot \frac{1}{\sqrt{65}}(7, -4)$ : le grand axe est porté par $\mathbf{u}_1 = \frac{1}{\sqrt{65}}(7, -4)$. d) $\pi s_1s_2 = 36\thinspace\pi = \lvert\det\mathbf{B}\rvert\thinspace\pi$. e) $\lVert (1, 4) \rVert = \sqrt{17}$, f) $\lVert (8, -4) \rVert = \sqrt{80}$. h) $\det\mathbf{B} = -36 < 0$.
 
 Pour la copie : e) et f) sont des $\lVert \mathbf{B}\mathbf{x} \rVert$ pour $\mathbf{x}$ unitaire, donc entre $s_2 = 4$ et $s_1 = 9$ (fiche §2). Le point $\mathbf{v}_2 = \frac{1}{\sqrt{65}}(8, 1)$ (ou son opposé) est envoyé au bout du petit axe, en $4\thinspace\mathbf{u}_2 = \frac{4}{\sqrt{65}}(4, 7)$.
 
@@ -148,9 +148,9 @@ Pour la copie : e) et f) sont des $\lVert \mathbf{B}\mathbf{x} \rVert$ pour $\ma
 
 **Réponses** : a) `59` · b) `[[33, 20, 0], [20, 24, 0], [0, 0, 2]]` · c) `[7, 2.8284, 1.4142]` · d) `[0.7809, 0.6247, 0]` · e) `[0.6247, 0.6247, 0.4685]` · f) `[[3.4146, 2.7317, 0], [3.4146, 2.7317, 0], [2.561, 2.0488, 0]]` · g) `3.1623` · h) `0.8305`.
 
-**Démarche.** La troisième colonne $(1, -1, 0)$ est orthogonale aux deux autres : $\mathbf{A}^\top\mathbf{A}$ est par blocs. Le bloc $\begin{pmatrix} 33 & 20 \cr 20 & 24 \end{pmatrix}$ a pour trace 57 et déterminant 392 : valeurs propres 49 et 8 ; la troisième vaut 2. $s = 7$, $2\sqrt{2}$, $\sqrt{2}$. Pour 49 : $-16x + 20y = 0$, $\mathbf{v}_1 = \frac{1}{\sqrt{41}}(5, 4, 0)$. $\mathbf{A}\mathbf{v}_1 = \frac{1}{\sqrt{41}}(28, 28, 21) = 7 \cdot \frac{1}{\sqrt{41}}(4, 4, 3)$. f) $\mathbf{A}_1 = 7\thinspace\mathbf{u}_1\mathbf{v}_1^\top = \frac{7}{41}\begin{pmatrix} 20 & 16 & 0 \cr 20 & 16 & 0 \cr 15 & 12 & 0 \end{pmatrix}$. g) $\sqrt{8 + 2} = \sqrt{10}$. h) $\frac{49}{59}$.
+**Démarche.** La troisième colonne $(1, -1, 0)$ est orthogonale aux deux autres : $\mathbf{A}^\top\mathbf{A}$ est par blocs. Le bloc $`\begin{pmatrix} 33 & 20 \cr 20 & 24 \end{pmatrix}`$ a pour trace 57 et déterminant 392 : valeurs propres 49 et 8 ; la troisième vaut 2. $s = 7$, $2\sqrt{2}$, $\sqrt{2}$. Pour 49 : $-16x + 20y = 0$, $\mathbf{v}_1 = \frac{1}{\sqrt{41}}(5, 4, 0)$. $\mathbf{A}\mathbf{v}_1 = \frac{1}{\sqrt{41}}(28, 28, 21) = 7 \cdot \frac{1}{\sqrt{41}}(4, 4, 3)$. f) $`\mathbf{A}_1 = 7\thinspace\mathbf{u}_1\mathbf{v}_1^\top = \frac{7}{41}\begin{pmatrix} 20 & 16 & 0 \cr 20 & 16 & 0 \cr 15 & 12 & 0 \end{pmatrix}`$. g) $\sqrt{8 + 2} = \sqrt{10}$. h) $\frac{49}{59}$.
 
-Pour la copie : une colonne orthogonale à toutes les autres est un vecteur propre « à elle seule » de $\mathbf{A}^\top\mathbf{A}$ ($\mathbf{e}_3$, de valeur propre $\lVert \mathbf{c}_3 \rVert^2$). $\mathbf{A} - \mathbf{A}_1 = \frac{1}{41}\begin{pmatrix} 24 & -30 & 41 \cr 24 & -30 & -41 \cr -64 & 80 & 0 \end{pmatrix}$, de somme des carrés $\frac{2 \times 1\thinspace476 + 10\thinspace496}{1\thinspace681} + 2 = 10$. En norme spectrale, l'erreur vaut $s_2 = 2\sqrt{2} \approx 2{,}83$. $\mathbf{A}_1$ dit : les clients 1 et 2 ont exactement les mêmes goûts, le client 3 les mêmes, en un peu plus faible ; tous préfèrent le produit 1 au produit 2 dans le rapport 5/4 ; le produit 3, sur lequel les clients 1 et 2 s'opposent, disparaît.
+Pour la copie : une colonne orthogonale à toutes les autres est un vecteur propre « à elle seule » de $\mathbf{A}^\top\mathbf{A}$ ($\mathbf{e}_3$, de valeur propre $\lVert \mathbf{c}_3 \rVert^2$). $`\mathbf{A} - \mathbf{A}_1 = \frac{1}{41}\begin{pmatrix} 24 & -30 & 41 \cr 24 & -30 & -41 \cr -64 & 80 & 0 \end{pmatrix}`$, de somme des carrés $\frac{2 \times 1\thinspace476 + 10\thinspace496}{1\thinspace681} + 2 = 10$. En norme spectrale, l'erreur vaut $s_2 = 2\sqrt{2} \approx 2{,}83$. $\mathbf{A}_1$ dit : les clients 1 et 2 ont exactement les mêmes goûts, le client 3 les mêmes, en un peu plus faible ; tous préfèrent le produit 1 au produit 2 dans le rapport 5/4 ; le produit 3, sur lequel les clients 1 et 2 s'opposent, disparaît.
 
 **Erreurs fréquentes.** Oublier le facteur $s_1$ dans $\mathbf{A}_1$ ; l'erreur avec les $s$ au lieu des $s^2$ ($2\sqrt{2} + \sqrt{2}$) ; la part d'énergie $\frac{7}{7 + 3\sqrt{2}}$.
 
@@ -164,7 +164,7 @@ Pour la copie : une colonne orthogonale à toutes les autres est un vecteur prop
 
 Pour la copie : f) et g) ne gardent pas la même chose : g) impose aux trois canaux les **mêmes** 40 vecteurs $\mathbf{u}_i$ (les mêmes « profils de lignes »), f) en donne 40 à chacun. Les canaux d'une photo se ressemblent beaucoup (mêmes contours) : à nombre égal, g) est souvent meilleur ; on peut aussi passer d'abord dans une base où les canaux se décorrèlent (luminance, chrominance). Un format d'image compte des **bits** : il quantifie (arrondit) les coefficients et code les fréquents en peu de bits (M06), bien plus économe que des nombres flottants.
 
-**Erreurs fréquentes.** Oublier les $k$ valeurs singulières ($k(m + n)$) ; arrondir d) ou e) vers le haut.
+**Erreurs fréquentes.** Oublier les $k$ valeurs singulières ($k(m + n){}$) ; arrondir d) ou e) vers le haut.
 
 **Variante.** Une matrice de notes de $2\thinspace000$ films par $50\thinspace000$ spectateurs, stockée par son approximation de rang 20 : quelle part des nombres ? *Réponse* : $\frac{20 \times 52\thinspace001}{10^8} \approx 1{,}04$ %.
 
@@ -174,7 +174,7 @@ Pour la copie : f) et g) ne gardent pas la même chose : g) impose aux trois can
 
 **Démarche.** $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec $\mathbf{a} = (2, 5)$ et $\mathbf{b} = (1, -4, 8)$ : $s_1 = \lVert \mathbf{a} \rVert\thinspace\lVert \mathbf{b} \rVert = 9\sqrt{29}$, et $\lVert \mathbf{A} \rVert_F^2 = s_1^2 = 29 \times 81 = 2\thinspace349$. $\mathbf{A}^+ = \frac{1}{s_1}\mathbf{v}_1\mathbf{u}_1^\top = \frac{\mathbf{b}\mathbf{a}^\top}{s_1^2} = \frac{\mathbf{A}^\top}{2\thinspace349}$, d'où d) en multipliant par $1\thinspace000$. e) $\mathbf{x}^+ = \mathbf{b}\thinspace\frac{\mathbf{a}^\top\mathbf{y}}{2\thinspace349} = \mathbf{b}\thinspace\frac{36 + 225}{2\thinspace349} = \frac{\mathbf{b}}{9}$. f) $\frac{\lVert \mathbf{b} \rVert}{9} = 1$. g) $(9, 0, 0)$ est aussi une solution ($2 \times 9 = 18$, $5 \times 9 = 45$), de norme 9. h) $\mathbf{A}\mathbf{A}^+\mathbf{y}' = \mathbf{a}\thinspace\frac{\mathbf{a}^\top\mathbf{y}'}{\lVert \mathbf{a} \rVert^2} = \frac{2}{29}(2, 5)$.
 
-Pour la copie : les solutions de $\mathbf{A}\mathbf{x} = \mathbf{y}$ forment le plan $x_1 - 4x_2 + 8x_3 = 9$ ; $\mathbf{x}^+ = \frac{9}{81}\mathbf{b}$ est le pied de la perpendiculaire menée de l'origine à ce plan (il est dans l'espace des lignes, orthogonal au noyau), à distance $\frac{9}{\lVert \mathbf{b} \rVert} = 1$. Pour $\mathbf{y}'$, hors de l'image (la droite de $(2, 5)$), h) est la projection de $\mathbf{y}'$ sur cette image ; la distance minimale est $\lVert \mathbf{y}' - \mathbf{A}\mathbf{A}^+\mathbf{y}' \rVert = \frac{1}{29}\lVert (25, -10) \rVert = \frac{5}{\sqrt{29}} \approx 0{,}93$.
+Pour la copie : les solutions de $\mathbf{A}\mathbf{x} = \mathbf{y}$ forment le plan $x_1 - 4x_2 + 8x_3 = 9$ ; $\mathbf{x}^+ = \frac{9}{81}\mathbf{b}$ est le pied de la perpendiculaire menée de l'origine à ce plan (il est dans l'espace des lignes, orthogonal au noyau), à distance $\frac{9}{\lVert \mathbf{b} \rVert} = 1$. Pour $\mathbf{y}'$, hors de l'image (la droite de $(2, 5){}$), h) est la projection de $\mathbf{y}'$ sur cette image ; la distance minimale est $\lVert \mathbf{y}' - \mathbf{A}\mathbf{A}^+\mathbf{y}' \rVert = \frac{1}{29}\lVert (25, -10) \rVert = \frac{5}{\sqrt{29}} \approx 0{,}93$.
 
 **Erreurs fréquentes.** $\mathbf{A}^+ = \mathbf{A}^\top/s_1$ (une seule puissance) ; une pseudo-inverse de forme $(2, 3)$ ; donner $\mathbf{A}^+$ au lieu de $1\thinspace000\thinspace\mathbf{A}^+$ pour d) ; donner $\mathbf{A}^+\mathbf{y}'$ pour h).
 
@@ -184,13 +184,13 @@ Pour la copie : les solutions de $\mathbf{A}\mathbf{x} = \mathbf{y}$ forment le 
 
 **Réponses** : a) `2.5` · b) `1` · c) `101.9902` · d) `0.102` · e) `[1, 2]` · f) `40.08` · g) `10402.0` · h) `True`.
 
-**Démarche.** a) $\mathbf{P}^\top\mathbf{P} = \operatorname{diag}(4, 25)$ : $s = 5, 2$. b) $\mathbf{Q}$ est orthogonale ($5^2 + 12^2 = 13^2$). c) $s_1^2 + s_2^2 = 102$, $s_1s_2 = \lvert\det\mathbf{R}\rvert = 1$ : $s_1^2$ et $s_2^2$ sont les racines de $x^2 - 102x + 1$, $s_1^2 = 51 + 10\sqrt{26}$, et $\kappa = \frac{s_1}{s_2} = s_1^2 \approx 101{,}99$. d) $\kappa \times 0{,}001$. e) $\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \cr -5 & 8 \end{pmatrix}$, $\mathbf{x} = (28 - 27, -70 + 72) = (1, 2)$. f) $\delta\mathbf{x} = \mathbf{R}^{-1}\delta\mathbf{b} = (0{,}02 ;\ -0{,}05)$ : $\frac{0{,}01\sqrt{29}/\sqrt{5}}{0{,}01/\sqrt{277}} = \sqrt{\frac{29 \times 277}{5}} \approx 40{,}08$. g) $\kappa^2 \approx 10\thinspace402$. h) $1\thinspace000\thinspace\mathbf{R}$ a toutes ses valeurs singulières multipliées par 1 000 : même rapport.
+**Démarche.** a) $\mathbf{P}^\top\mathbf{P} = \operatorname{diag}(4, 25)$ : $s = 5, 2$. b) $\mathbf{Q}$ est orthogonale ($5^2 + 12^2 = 13^2$). c) $s_1^2 + s_2^2 = 102$, $s_1s_2 = \lvert\det\mathbf{R}\rvert = 1$ : $s_1^2$ et $s_2^2$ sont les racines de $x^2 - 102x + 1$, $s_1^2 = 51 + 10\sqrt{26}$, et $\kappa = \frac{s_1}{s_2} = s_1^2 \approx 101{,}99$. d) $\kappa \times 0{,}001$. e) $`\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \cr -5 & 8 \end{pmatrix}`$, $\mathbf{x} = (28 - 27, -70 + 72) = (1, 2)$. f) $\delta\mathbf{x} = \mathbf{R}^{-1}\delta\mathbf{b} = (0{,}02 ;\ -0{,}05)$ : $\frac{0{,}01\sqrt{29}/\sqrt{5}}{0{,}01/\sqrt{277}} = \sqrt{\frac{29 \times 277}{5}} \approx 40{,}08$. g) $\kappa^2 \approx 10\thinspace402$. h) $1\thinspace000\thinspace\mathbf{R}$ a toutes ses valeurs singulières multipliées par 1 000 : même rapport.
 
 Pour la copie : $\kappa + \frac{1}{\kappa} = \frac{s_1}{s_2} + \frac{s_2}{s_1} = \frac{s_1^2 + s_2^2}{s_1s_2} = 102$. f) est sous la borne c), sans l'atteindre : la borne est atteinte quand $\mathbf{b}$ est le long de $\mathbf{u}_1$ (grande image, petite solution) et $\delta\mathbf{b}$ le long de $\mathbf{u}_2$ (la direction la moins étirée, que $\mathbf{R}^{-1}$ amplifie le plus). $\det\mathbf{R} = 1$ et $\det\mathbf{P} = 10$ ne disent rien de la sensibilité : $\mathbf{R}$ est quarante fois plus sensible que $\mathbf{P}$.
 
 **Erreurs fréquentes.** Le rapport des valeurs propres de $\mathbf{R}^\top\mathbf{R}$ ($\kappa^2$) au lieu de $\kappa$ ; juger par le déterminant ; f) avec les erreurs absolues.
 
-**Variante.** $\kappa\begin{pmatrix} 4 & 0 \cr 0 & 0{,}01 \end{pmatrix}$ ? *Réponse* : 400.
+**Variante.** $`\kappa\begin{pmatrix} 4 & 0 \cr 0 & 0{,}01 \end{pmatrix}`$ ? *Réponse* : 400.
 
 ### Ex M12d.8 — Les axes principaux d'un nuage de ℝ³ : covariance, polynôme caractéristique, variances et axes
 
@@ -198,7 +198,7 @@ Pour la copie : $\kappa + \frac{1}{\kappa} = \frac{s_1}{s_2} + \frac{s_2}{s_1} =
 
 **Démarche.** Les données centrées : $(-4, -1, -3)$, $(-5, 5, 1)$, $(1, -5, 3)$, $(-4, -3, -2)$, $(2, 2, 0)$, $(4, 1, 0)$, $(6, 1, 1)$. Sommes de carrés 114, 66 et 24 ; sommes de produits $\sum x_1x_3 = 24$, et 0 pour les deux autres paires ; on divise par 6. Développé selon la deuxième ligne :
 $$\det(\mathbf{C} - \lambda\mathbf{I}) = (11 - \lambda)\big[(19 - \lambda)(4 - \lambda) - 16\big] = (11 - \lambda)(\lambda^2 - 23\lambda + 60) = (11 - \lambda)(\lambda - 20)(\lambda - 3).$$
-Pour 20 : $\begin{pmatrix} -1 & 4 \cr 4 & -16 \end{pmatrix}$ (sur les mesures 1 et 3) donne $x_1 = 4x_3$, $\mathbf{u}_1 = \frac{1}{\sqrt{17}}(4, 0, 1)$ ; $\mathbf{u}_2 = \mathbf{e}_2$ ; $\mathbf{u}_3 = \frac{1}{\sqrt{17}}(-1, 0, 4)$ (convention). h) $\frac{1}{2}(19 + 4 + 2 \times 4) = 15{,}5$.
+Pour 20 : $`\begin{pmatrix} -1 & 4 \cr 4 & -16 \end{pmatrix}`$ (sur les mesures 1 et 3) donne $x_1 = 4x_3$, $\mathbf{u}_1 = \frac{1}{\sqrt{17}}(4, 0, 1)$ ; $\mathbf{u}_2 = \mathbf{e}_2$ ; $\mathbf{u}_3 = \frac{1}{\sqrt{17}}(-1, 0, 4)$ (convention). h) $\frac{1}{2}(19 + 4 + 2 \times 4) = 15{,}5$.
 
 Pour la copie : $20 + 11 + 3 = 34$ et $20 \times 11 \times 3 = 660$. Le deuxième axe est $\mathbf{e}_2$ : la deuxième mesure n'est corrélée à aucune autre. h) est un quotient de Rayleigh : il est au plus $\lambda_1$, quelle que soit la direction ; $(1, 0, 1)$ penche trop vers la troisième mesure, la moins dispersée (variance 4), alors que le premier axe $(4, 0, 1)$ suit surtout la première.
 
@@ -310,7 +310,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 2. Le second terme ne dépend pas de $\mathbf{y}$ ; le premier est nul, donc minimal, si et seulement si $y_i = c_i/s_i$ pour $i \le r$. Les $y_i$ pour $i > r$ sont libres (ils décrivent le noyau).
 3. $\lVert \mathbf{y} \rVert^2 = \sum_{i \le r} (c_i/s_i)^2 + \sum_{i > r} y_i^2$ est minimal pour $y_i = 0$ au-delà de $r$ : $\mathbf{y} = \mathbf{S}^+\mathbf{c}$, avec $\mathbf{S}^+$ de forme $(n, m)$, de diagonale $1/s_1, \ldots, 1/s_r$ et des zéros ailleurs. Donc $\mathbf{x}^+ = \mathbf{V}\mathbf{S}^+\mathbf{U}^\top\mathbf{b} = \sum_{i \le r}\frac{1}{s_i}\mathbf{v}_i\mathbf{u}_i^\top\mathbf{b} = \mathbf{A}^+\mathbf{b}$.
 4. $\sum_{i > r} c_i^2 = \sum_{i > r}(\mathbf{u}_i \cdot \mathbf{b})^2$ : le carré de la distance de $\mathbf{b}$ à l'image de $\mathbf{A}$. Nul si et seulement si $\mathbf{b}$ est dans l'image (le système a des solutions).
-5. Rang $n$ : $\mathbf{A}^\top\mathbf{A} = \mathbf{V}\mathbf{S}_n^2\mathbf{V}^\top$ est inversible, et $(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top = \mathbf{V}\mathbf{S}_n^{-2}\mathbf{V}^\top\mathbf{V}\mathbf{S}^\top\mathbf{U}^\top = \mathbf{V}\mathbf{S}^+\mathbf{U}^\top$ (avec $\mathbf{S}_n = \operatorname{diag}(s_1, \ldots, s_n)$).
+5. Rang $n$ : $\mathbf{A}^\top\mathbf{A} = \mathbf{V}\mathbf{S}_n^2\mathbf{V}^\top$ est inversible, et $(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top = \mathbf{V}\mathbf{S}_n^{-2}\mathbf{V}^\top\mathbf{V}\mathbf{S}^\top\mathbf{U}^\top = \mathbf{V}\mathbf{S}^+\mathbf{U}^\top$ (avec $\mathbf{S}_n = \operatorname{diag}(s_1, \ldots, s_n){}$).
 
 **Grille.** (1) les deux normes conservées ; (2) le minimum et les coordonnées libres ; (3) le choix de norme minimale et la forme de $\mathbf{S}^+$ ; (4) le résidu et son interprétation ; (5) les équations normales retrouvées.
 
@@ -330,7 +330,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 **Réponse modèle.**
 1. La ligne $j$ de $\mathbf{W}_k^\top$ est $\mathbf{u}_j^\top$ et la colonne $l$ de $\mathbf{W}_k$ est $\mathbf{u}_l$ : le coefficient $(j, l)$ est $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$. Or $\mathbf{C}\mathbf{u}_l = \lambda_l\mathbf{u}_l$, donc $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l = \lambda_l\thinspace\mathbf{u}_j \cdot \mathbf{u}_l$, qui vaut $\lambda_l$ si $j = l$ et 0 sinon (axes orthonormés) : $\frac{1}{n-1}\mathbf{Z}^\top\mathbf{Z} = \operatorname{diag}(\lambda_1, \ldots, \lambda_k)$.
 2. Par la même règle, avec la ligne $\mathbf{a}^\top$ : $\mathbf{a}^\top\operatorname{diag}(\lambda_1, \ldots, \lambda_k)\thinspace\mathbf{a} = \sum_j a_j^2\lambda_j$. Les scores étant décorrélés, les variances s'ajoutent, sans termes croisés.
-3. $\frac{1}{169}(5, 12)\begin{pmatrix} 4 & 0 \cr 0 & 1 \end{pmatrix}\begin{pmatrix} -12 \cr 5 \end{pmatrix} = \frac{-240 + 60}{169} = -\frac{180}{169} \ne 0$. En 1., on a utilisé que $\mathbf{u}_l$ est un **vecteur propre** de $\mathbf{C}$ ; deux directions orthogonales quelconques ne le sont pas.
+3. $`\frac{1}{169}(5, 12)\begin{pmatrix} 4 & 0 \cr 0 & 1 \end{pmatrix}\begin{pmatrix} -12 \cr 5 \end{pmatrix} = \frac{-240 + 60}{169} = -\frac{180}{169} \ne 0`$. En 1., on a utilisé que $\mathbf{u}_l$ est un **vecteur propre** de $\mathbf{C}$ ; deux directions orthogonales quelconques ne le sont pas.
 
 **Grille.** (1) le coefficient $(j, l)$ comme forme bilinéaire $\mathbf{u}_j^\top\mathbf{C}\mathbf{u}_l$, le vecteur propre, puis l'orthogonalité, et la matrice diagonale ; (2) la variance d'une combinaison, sans termes croisés ; (3) le contre-exemple calculé et ce qu'il montre.
 
@@ -344,7 +344,7 @@ Pour la copie : quand $\sigma \to 0$, tout le poids va au plus proche voisin, la
 
 **Démarche.** Avec $k = 2$, l'erreur est le carré du score sur $\mathbf{u}_3 = \frac{1}{\sqrt{17}}(-1, 0, 4)$. a) $\mathbf{r}_1 - \boldsymbol{\mu} = (4, 3, 1)$ : $-4 + 4 = 0$. b) $\mathbf{r}_2 - \boldsymbol{\mu} = (-1, 0, 3)$ : $\frac{(1 + 12)^2}{17} = \frac{169}{17}$. c) Les sept scores sur $\mathbf{u}_3$ (M12d.9) : le plus grand en valeur absolue est $\frac{11}{\sqrt{17}}$, d'erreur $\frac{121}{17}$. d) $9{,}94 > 7{,}12$. e) $\mathbf{r}_3 - \boldsymbol{\mu} = (16, 0, 4) = 4\thinspace(4, 0, 1)$ : $t_1 = 4\sqrt{17}$. f) $\frac{25}{\sqrt{17}}$ (l'objet 7). g) $\mathbf{r}_3 - \boldsymbol{\mu}$ est le long de $\mathbf{u}_1$ : erreur nulle.
 
-Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisième haute, alors que dans les données elles varient ensemble (la covariance 4 et l'axe $(4, 0, 1)$) : c'est la **combinaison** qui est inhabituelle. $\mathbf{r}_3$ est dans le plan des deux premiers axes, mais très loin le long de $\mathbf{u}_1$ ($t_1 \approx 16{,}5$ contre au plus 6,1) : l'erreur de reconstruction ne voit que ce qui sort du sous-espace. Un second score, la distance dans le plan mesurée en écarts-types, $\frac{t_1^2}{\lambda_1} + \frac{t_2^2}{\lambda_2}$ (environ 13,6 pour $\mathbf{r}_3$, au plus 3,3 pour les sept objets), le signale. Le seuil fixé sur les données d'entraînement est optimiste (fiche §7, ⚠️) : sur des données que l'ACP n'a pas vues, les erreurs normales sont en moyenne plus grandes, et l'on signalerait trop.
+Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisième haute, alors que dans les données elles varient ensemble (la covariance 4 et l'axe $(4, 0, 1){}$) : c'est la **combinaison** qui est inhabituelle. $\mathbf{r}_3$ est dans le plan des deux premiers axes, mais très loin le long de $\mathbf{u}_1$ ($t_1 \approx 16{,}5$ contre au plus 6,1) : l'erreur de reconstruction ne voit que ce qui sort du sous-espace. Un second score, la distance dans le plan mesurée en écarts-types, $\frac{t_1^2}{\lambda_1} + \frac{t_2^2}{\lambda_2}$ (environ 13,6 pour $\mathbf{r}_3$, au plus 3,3 pour les sept objets), le signale. Le seuil fixé sur les données d'entraînement est optimiste (fiche §7, ⚠️) : sur des données que l'ACP n'a pas vues, les erreurs normales sont en moyenne plus grandes, et l'on signalerait trop.
 
 **Erreurs fréquentes.** L'erreur comme distance (sans le carré) ; comparer à l'erreur moyenne au lieu de la plus grande ; le score de $\mathbf{r}_3$ sans centrer.
 
@@ -354,13 +354,13 @@ Pour la copie : $\mathbf{r}_2$ combine une première mesure basse et une troisi�
 
 **Réponses** : a) `[[19, 0, 12], [0, 11, 0], [12, 0, 36]]` · b) `[42.2054, 12.7946, 11.0]` · c) `[0.4593, 0, 0.8883]` · d) `0.6395` · e) `0.4588` · f) `48.6` · g) `[[1, 0, 0.4588], [0, 1, 0], [0.4588, 0, 1]]` · h) `True`.
 
-**Démarche.** a) $c_{33}$ multiplié par 9, $c_{13}$ par 3. b) Le bloc $\begin{pmatrix} 19 & 12 \cr 12 & 36 \end{pmatrix}$ : trace 55, déterminant 540, $\lambda = \frac{55 \pm \sqrt{865}}{2}$ ; la variance 11 reste. c) Pour $\lambda_1 \approx 42{,}21$ : $-23{,}21\thinspace x_1 + 12\thinspace x_3 = 0$, normé. d) $\frac{42{,}21}{19 + 11 + 36}$. e) $\frac{4}{\sqrt{19 \times 4}} = \frac{2}{\sqrt{19}}$. f) $\cos\theta = \frac{1}{\sqrt{17}}(4 \times 0{,}4593 + 0{,}8883) \approx 0{,}661$, $\theta \approx 48{,}6°$. g) La matrice de corrélation.
+**Démarche.** a) $c_{33}$ multiplié par 9, $c_{13}$ par 3. b) Le bloc $`\begin{pmatrix} 19 & 12 \cr 12 & 36 \end{pmatrix}`$ : trace 55, déterminant 540, $\lambda = \frac{55 \pm \sqrt{865}}{2}$ ; la variance 11 reste. c) Pour $\lambda_1 \approx 42{,}21$ : $-23{,}21\thinspace x_1 + 12\thinspace x_3 = 0$, normé. d) $\frac{42{,}21}{19 + 11 + 36}$. e) $\frac{4}{\sqrt{19 \times 4}} = \frac{2}{\sqrt{19}}$. f) $\cos\theta = \frac{1}{\sqrt{17}}(4 \times 0{,}4593 + 0{,}8883) \approx 0{,}661$, $\theta \approx 48{,}6°$. g) La matrice de corrélation.
 
 Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}{\sqrt{19}}$, la même corrélation. $(\mathbf{D}\boldsymbol{\Sigma}\mathbf{D})   _{ij} = \sum   _{k,l} d  _{ik}\Sigma  _{kl}d  _{lj} = d_id_j\Sigma  _{ij}$ ($\mathbf{D}$ diagonale), donc $\frac{d_id_j\Sigma  _{ij}}{\sqrt{d_i^2\Sigma  _{ii}\thinspace d_j^2\Sigma _{jj}}} = \frac{\Sigma _{ij}}{\sqrt{\Sigma _{ii}\Sigma _{jj}}}$ pour $d_i, d_j > 0$ : la matrice de corrélation, donc l'ACP standardisée, ne dépend pas des unités. Le premier axe est passé de $(0{,}97 ;\ 0 ;\ 0{,}24)$ à $(0{,}46 ;\ 0 ;\ 0{,}89)$ : c'est l'**unité** qui a décidé.
 
 **Erreurs fréquentes.** Multiplier $c_{33}$ par 3 au lieu de 9 ; la corrélation avec les anciens écarts-types après le changement ; un angle en radians ; les axes de la standardisation confondus avec ceux de la covariance.
 
-**Variante.** Et si l'on divisait la première mesure par 2 (unité deux fois plus grande) ? *Réponse* : $\begin{pmatrix} 4{,}75 & 0 & 2 \cr 0 & 11 & 0 \cr 2 & 0 & 4 \end{pmatrix}$ : le premier axe devient $\mathbf{e}_2$, de variance 11.
+**Variante.** Et si l'on divisait la première mesure par 2 (unité deux fois plus grande) ? *Réponse* : $`\begin{pmatrix} 4{,}75 & 0 & 2 \cr 0 & 11 & 0 \cr 2 & 0 & 4 \end{pmatrix}`$ : le premier axe devient $\mathbf{e}_2$, de variance 11.
 
 ### Ex M12d.22 — MML §4.5 à §4.7 : SVD, approximation de rang faible, phylogénie des matrices
 
@@ -438,7 +438,7 @@ Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}
 
 **Réponses** : a) `[5.23835, 2.56119]` · b) `[[0.227908, 0.954492, 0.192361], [-0.6265, -0.00748, 0.779385]]` · c) `True` · d) `1` · e) `"((3, 3), (3,), (3, 5))"` · f) `"ValueError"` · g) `True`.
 
-**Démarche.** `M = np.array(A, dtype=float)` (une `ValueError` si `M.ndim != 2`) ; `values, vectors = np.linalg.eigh(M.T @ M)` ; `order = np.argsort(values)[::-1]` ; `s = np.sqrt(np.clip(values[order], 0, None))` ; `r = int(np.sum(s > tol * s[0]))` (0 pour une matrice nulle) ; `V = vectors[:, order][:, :r]`, chaque colonne multipliée par le signe de sa coordonnée de plus grande valeur absolue ; `U = (M @ V) / s[:r]`. Pour la copie : $\mathbf{A}\mathbf{A}^\top = \begin{pmatrix} 14 & 10 \cr 10 & 20 \end{pmatrix}$, trace 34, déterminant 180, $\lambda = 17 \pm \sqrt{109}$ : $s \approx 5{,}238$ et $2{,}561$ (M12d.14, 4.) ; d) $\mathbf{A} = (1, 2, -1)^\top(1, -3)$, de rang 1, $s_1 = \sqrt{6 \times 10} = \sqrt{60}$, et la seconde valeur propre de $\mathbf{A}^\top\mathbf{A}$ n'est qu'un arrondi sous le seuil.
+**Démarche.** `M = np.array(A, dtype=float)` (une `ValueError` si `M.ndim != 2`) ; `values, vectors = np.linalg.eigh(M.T @ M)` ; `order = np.argsort(values)[::-1]` ; `s = np.sqrt(np.clip(values[order], 0, None))` ; `r = int(np.sum(s > tol * s[0]))` (0 pour une matrice nulle) ; `V = vectors[:, order][:, :r]`, chaque colonne multipliée par le signe de sa coordonnée de plus grande valeur absolue ; `U = (M @ V) / s[:r]`. Pour la copie : $`\mathbf{A}\mathbf{A}^\top = \begin{pmatrix} 14 & 10 \cr 10 & 20 \end{pmatrix}`$, trace 34, déterminant 180, $\lambda = 17 \pm \sqrt{109}$ : $s \approx 5{,}238$ et $2{,}561$ (M12d.14, 4.) ; d) $\mathbf{A} = (1, 2, -1)^\top(1, -3)$, de rang 1, $s_1 = \sqrt{6 \times 10} = \sqrt{60}$, et la seconde valeur propre de $\mathbf{A}^\top\mathbf{A}$ n'est qu'un arrondi sous le seuil.
 
 **Erreurs fréquentes.** Oublier l'écrêtage (`nan` pour un $-10^{-17}$) ; réordonner les valeurs sans les colonnes ; la convention appliquée aux lignes de `vectors` ; `>=` au lieu de `>` ; diviser `M @ V` par une matrice diagonale au lieu de `s`.
 
@@ -446,7 +446,7 @@ Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}
 
 **Réponses** : a) `[[3.843909, 1.855815, -1.108465], [1.421954, 0.686511, -0.410048]]` · b) `True` · c) `112.4911` · d) `True` · e) `"ValueError"` · f) `"ValueError"` · g) `True`.
 
-**Démarche.** `low_rank_approximation` : un contrôle de `k` (entier, pas `bool`, entre 0 et $\min(m, n)$), `U, s, Vt = svd(A)`, puis `(U[:, :k] * s[:k]) @ Vt[:k]`. `condition_number` : une `ValueError` si la matrice est nulle, `math.inf` si `len(s) < min(m, n)`, sinon `float(s[0] / s[-1])`. Pour la copie : c) $s_1^2 + s_2^2 = 56{,}25$, $s_1s_2 = 0{,}5$, donc $s_1^2 \approx 56{,}2456$, $s_2^2 \approx 0{,}0044$ et $\kappa \approx 112{,}49$ ; d) les lignes $(3, -6)$ et $(-1, 2)$ sont proportionnelles ; le rang plein redonne $\mathbf{A}$ aux arrondis près, $\mathbf{U}$ venant d'une division.
+**Démarche.** `low_rank_approximation` : un contrôle de `k` (entier, pas `bool`, entre 0 et $\min(m, n){}$), `U, s, Vt = svd(A)`, puis `(U[:, :k] * s[:k]) @ Vt[:k]`. `condition_number` : une `ValueError` si la matrice est nulle, `math.inf` si `len(s) < min(m, n)`, sinon `float(s[0] / s[-1])`. Pour la copie : c) $s_1^2 + s_2^2 = 56{,}25$, $s_1s_2 = 0{,}5$, donc $s_1^2 \approx 56{,}2456$, $s_2^2 \approx 0{,}0044$ et $\kappa \approx 112{,}49$ ; d) les lignes $(3, -6)$ et $(-1, 2)$ sont proportionnelles ; le rang plein redonne $\mathbf{A}$ aux arrondis près, $\mathbf{U}$ venant d'une division.
 
 **Erreurs fréquentes.** Accepter `k=True` ou `k=1.0` ; rendre un `np.float64` ; comparer `len(s)` au rang au lieu de $\min(m, n)$.
 
@@ -462,7 +462,7 @@ Pour la copie : après le changement, $\frac{12}{\sqrt{19 \times 36}} = \frac{2}
 
 **Réponses** : a) `[[-0.514496, 0.0, 0.857493], [0.0, 1.0, 0.0], [0.857493, 0.0, 0.514496]]` · b) `[35.0, 6.0, 1.0]` · c) `[0.833333, 0.142857, 0.02381]` · d) `True` · e) `"(3, 1)"` · f) `"ValueError"` · g) `"ValueError"` · h) `"ValueError"`.
 
-**Démarche.** Les contrôles de la docstring, `values, Q = np.linalg.eigh(C)`, l'ordre décroissant (`values[::-1]`, `Q[:, ::-1]`), les `k` premières colonnes avec la convention de signe, et les variances `np.maximum(values, 0.0) + 0.0`. Pour la copie : la deuxième mesure est isolée (variance 6, axe $\mathbf{e}_2$) ; le bloc $\begin{pmatrix} 10 & -15 \cr -15 & 26 \end{pmatrix}$ a pour trace 36 et déterminant 35, valeurs propres 35 et 1, vecteurs propres $(3, -5)$ et $(5, 3)$ ; la convention retourne $(3, -5)$ en $(-3, 5)$ (sa coordonnée de plus grande valeur absolue est $-5$). Les deux premiers axes gardent $\frac{41}{42} \approx 97{,}6$ %.
+**Démarche.** Les contrôles de la docstring, `values, Q = np.linalg.eigh(C)`, l'ordre décroissant (`values[::-1]`, `Q[:, ::-1]`), les `k` premières colonnes avec la convention de signe, et les variances `np.maximum(values, 0.0) + 0.0`. Pour la copie : la deuxième mesure est isolée (variance 6, axe $\mathbf{e}_2$) ; le bloc $`\begin{pmatrix} 10 & -15 \cr -15 & 26 \end{pmatrix}`$ a pour trace 36 et déterminant 35, valeurs propres 35 et 1, vecteurs propres $(3, -5)$ et $(5, 3)$ ; la convention retourne $(3, -5)$ en $(-3, 5)$ (sa coordonnée de plus grande valeur absolue est $-5$). Les deux premiers axes gardent $\frac{41}{42} \approx 97{,}6$ %.
 
 **Erreurs fréquentes.** Les axes en lignes ; l'ordre croissant de `eigh` ; une tolérance de symétrie absolue ; des parts calculées sur les seules $k$ premières variances.
 
@@ -494,7 +494,7 @@ Le tableau : environ $2 \times 10^{-13}$, $8 \times 10^{-10}$, $3 \times 10^{-5}
 
 ### Ex M12d.34 — La SVD en images : Vᵀ, Σ puis U appliqués au cercle unité, étape par étape
 
-Vérification manuelle (la figure). Avec $\mathbf{A} = \begin{pmatrix} 1{,}5 & 1 \cr -0{,}5 & 2 \end{pmatrix}$ : $s \approx 2{,}26$ et $1{,}55$, $\det\mathbf{A} = 3{,}5 > 0$. Les couleurs tournent dans le même sens dans le premier et le dernier dessin (l'orientation est conservée). Selon les signes rendus par LAPACK, $\det\mathbf{V} = -1$ : la deuxième étape est alors une symétrie (les couleurs tournent à l'envers), et $\det\mathbf{U} = -1$ aussi, qui la compense. L'aire de l'ellipse finale vaut $\pi s_1s_2 = 3{,}5\thinspace\pi$.
+Vérification manuelle (la figure). Avec $`\mathbf{A} = \begin{pmatrix} 1{,}5 & 1 \cr -0{,}5 & 2 \end{pmatrix}`$ : $s \approx 2{,}26$ et $1{,}55$, $\det\mathbf{A} = 3{,}5 > 0$. Les couleurs tournent dans le même sens dans le premier et le dernier dessin (l'orientation est conservée). Selon les signes rendus par LAPACK, $\det\mathbf{V} = -1$ : la deuxième étape est alors une symétrie (les couleurs tournent à l'envers), et $\det\mathbf{U} = -1$ aussi, qui la compense. L'aire de l'ellipse finale vaut $\pi s_1s_2 = 3{,}5\thinspace\pi$.
 
 ### Ex M12d.35 — Chasse à l'erreur : une ACP sans centrer, n et n − 1 mélangés, des axes lus en lignes au lieu de colonnes
 

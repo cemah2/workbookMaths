@@ -18,7 +18,7 @@
 2. Section par section : lis **crayon en main**, refais chaque calcul, dessine chaque loi ; puis fais les exercices de la section, quiz 🧠 d'abord.
 3. Les exercices ✏️ et 🔗 se font sur papier, dans ta copie de `06_mes_reponses.md`, puis se vérifient dans la **partie 0** du notebook. Les démonstrations ∂ se rédigent dans ta copie et se jugent avec la grille de relecture de `05_solutions.md`.
 
-**Garde les valeurs exactes** ($\frac{1}{3}$, $e^{-3}$, $\Phi(1{,}5)$) jusqu'au bout, et n'arrondis qu'à la fin. Avant chaque calcul, demande-toi **quelle loi** et **quels paramètres** : la moitié des erreurs vient de là.
+**Garde les valeurs exactes** ($\frac{1}{3}$, $e^{-3}$, $\Phi(1{,}5){}$) jusqu'au bout, et n'arrondis qu'à la fin. Avant chaque calcul, demande-toi **quelle loi** et **quels paramètres** : la moitié des erreurs vient de là.
 
 | Section | Quiz 🧠 | Papier et réflexion | Notebook |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Par exemple $P(X = 2) = \binom{6}{2}\thinspace0{,}2^2\thinspace0{,}8^4 = 15 \tim
 
 Une variable **catégorielle** prend une valeur parmi $K$ classes, numérotées $1, \ldots, K$, avec des probabilités $p_1, \ldots, p_K$ positives et de somme 1. C'est la loi de la sortie d'un classifieur à $K$ classes : après la fonction *softmax* (workbookIA, chapitre 17), un réseau donne par exemple, pour une image, les probabilités $(0{,}1 ;\ 0{,}4 ;\ 0{,}35 ;\ 0{,}15)$ pour les classes chat, chien, oiseau et poisson. La loi de Bernoulli est le cas $K = 2$.
 
-On code souvent la classe $k$ par un vecteur **one-hot** : $K$ composantes, toutes nulles sauf la $k$-ième, qui vaut 1 (oiseau : $(0, 0, 1, 0)$). Chaque composante est alors une variable de Bernoulli, de paramètre $p_k$.
+On code souvent la classe $k$ par un vecteur **one-hot** : $K$ composantes, toutes nulles sauf la $k$-ième, qui vaut 1 (oiseau : $(0, 0, 1, 0){}$). Chaque composante est alors une variable de Bernoulli, de paramètre $p_k$.
 
 On rencontre aussi des probabilités **proportionnelles à des poids** positifs $w_1, \ldots, w_K$ : $p_k = \frac{w_k}{w_1 + \cdots + w_K}$. Les poids $(2, 8, 7, 3)$, de somme 20, donnent exactement les probabilités ci-dessus. Le §8 explique comment tirer une classe au hasard selon ces probabilités.
 
@@ -194,7 +194,7 @@ $$P(N \le 2) = e^{-3}\left(1 + 3 + \frac{3^2}{2}\right) = 8{,}5\thinspace e^{-3}
 
 C'est un théorème : quand $n \to +\infty$ avec $p = \frac{\lambda}{n}$, $P(X = k)$ tend vers $e^{-\lambda}\frac{\lambda^k}{k!}$ pour chaque $k$ (M02b.13 le démontre). Pratique : la loi de Poisson n'a qu'un paramètre, et elle évite les grands coefficients binomiaux.
 
-💻 **Aujourd'hui en pratique** — `scipy.stats` fournit toutes ces lois, avec les mêmes méthodes : `stats.binom(6, 0.2).pmf(2)`, `stats.poisson(3).cdf(2)`, `stats.geom(1/6).sf(6)` (*survival function*, $P(X > 6)$), et `.rvs(...)` pour tirer des valeurs (M02b.21). Tu écris toi-même `binomial_pmf` et `poisson_pmf` en M02b.18.
+💻 **Aujourd'hui en pratique** — `scipy.stats` fournit toutes ces lois, avec les mêmes méthodes : `stats.binom(6, 0.2).pmf(2)`, `stats.poisson(3).cdf(2)`, `stats.geom(1/6).sf(6)` (*survival function*, $P(X > 6){}$), et `.rvs(...)` pour tirer des valeurs (M02b.21). Tu écris toi-même `binomial_pmf` et `poisson_pmf` en M02b.18.
 
 🔗 **Dans workbookIA** — la loi de Bernoulli et la loi catégorielle du chapitre 2 (le tirage d'une classe), la sortie *softmax* d'un classifieur (chapitre 17) ; le nombre d'erreurs d'un modèle sur un jeu de test est une binomiale. Hors de workbookIA, la loi de Poisson modélise les comptages : requêtes, clics, pannes.
 
@@ -327,7 +327,7 @@ La seconde formule se démontre par linéarité : $\mathbb{E}[(X - \mu)^2] = \ma
 
 **Deux variances continues.**
 - **Exponentielle** : deux intégrations par parties donnent $\mathbb{E}[T^2] = \frac{2}{\lambda^2}$, donc $\mathbb{V}(T) = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$ : l'écart-type est égal à l'espérance.
-- **Normale** : pour $Z \sim \mathcal{N}(0, 1)$, $\mathbb{E}[Z] = 0$ et, par parties avec $u = z$ et $v' = z\thinspace\varphi(z)$ (donc $v = -\varphi(z)$, car $\varphi'(z) = -z\thinspace\varphi(z)$) :
+- **Normale** : pour $Z \sim \mathcal{N}(0, 1)$, $\mathbb{E}[Z] = 0$ et, par parties avec $u = z$ et $v' = z\thinspace\varphi(z)$ (donc $v = -\varphi(z)$, car $\varphi'(z) = -z\thinspace\varphi(z){}$) :
 $$\mathbb{V}(Z) = \int_{-\infty}^{+\infty} z^2\thinspace\varphi(z)\thinspace dz = \Big[-z\thinspace\varphi(z)\Big] _{-\infty}^{+\infty} + \int _{-\infty}^{+\infty}\varphi(z)\thinspace dz = 0 + 1 = 1.$$
 Avec $X = \mu + \sigma Z$ (§8), $\mathbb{V}(X) = \sigma^2$ : le paramètre $\sigma$ est bien l'écart-type.
 

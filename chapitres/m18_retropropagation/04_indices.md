@@ -170,7 +170,7 @@ $\mathbf{J}_g$ s'évalue au point intermédiaire $\mathbf{f}(3, 1)$ ; en ligne, 
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{J} _g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}$ ; $\mathbf{J} _{\mathbf{f}}(x, y) = \begin{pmatrix} 1 & -1 \cr y & x \end{pmatrix}$.
+$`\mathbf{J} _g(u, v) = \begin{pmatrix} v & u + 2v \end{pmatrix}`$ ; $`\mathbf{J} _{\mathbf{f}}(x, y) = \begin{pmatrix} 1 & -1 \cr y & x \end{pmatrix}`$.
 
 </details>
 
@@ -188,7 +188,7 @@ $\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathb
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{A}\mathbf{w} = (5, 0)$ et $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 4 \end{pmatrix}$.
+$\mathbf{A}\mathbf{w} = (5, 0)$ et $`\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 4 \end{pmatrix}`$.
 
 </details>
 
@@ -336,7 +336,7 @@ $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_i(\mathbf{A}\mathbf{X})  _{ii} =
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \cr 0 & 6 \end{pmatrix}$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{11}$ et $G_{12}$.
+b) $\mathbf{A}^\top$. e) $(\mathbf{A} + \mathbf{A}^\top)\mathbf{X}$ avec $`\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 4 & 0 \cr 0 & 6 \end{pmatrix}`$. f) $\sum_{ij}G_{ij}H_{ij}$ ne garde que $G_{11}$ et $G_{12}$.
 
 </details>
 
@@ -354,7 +354,7 @@ $\det\mathbf{X} = x_{11}x_{22} - x_{12}x_{21}$ : dérive par rapport à chaque c
 </details>
 <details><summary>Indice 3</summary>
 
-b) $\begin{pmatrix} x_{22} & -x_{21} \cr -x_{12} & x_{11} \end{pmatrix}$. d) $\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \cr -x_{21} & x_{11} \end{pmatrix}$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$ ; divise par $\det\mathbf{X}$ avant de prendre le logarithme.
+b) $`\begin{pmatrix} x_{22} & -x_{21} \cr -x_{12} & x_{11} \end{pmatrix}`$. d) $`\mathbf{X}^{-1} = \frac{1}{\det\mathbf{X}}\begin{pmatrix} x_{22} & -x_{12} \cr -x_{21} & x_{11} \end{pmatrix}`$ : compare avec c). f) $\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) = 4{,}01 \times 2{,}99 - 1{,}02 \times 2$ ; divise par $\det\mathbf{X}$ avant de prendre le logarithme.
 
 </details>
 
@@ -506,7 +506,7 @@ En ligne, $\nabla(\mathbf{x}^\top\mathbf{A}\mathbf{x}) = \mathbf{x}^\top(\mathbf
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 6 \end{pmatrix}$. c) Une matrice $(3, 4)$ aplatie a 12 coordonnées : sa jacobienne est une ligne de 12.
+$`\mathbf{A} + \mathbf{A}^\top = \begin{pmatrix} 2 & 2 \cr 2 & 6 \end{pmatrix}`$. c) Une matrice $(3, 4)$ aplatie a 12 coordonnées : sa jacobienne est une ligne de 12.
 
 </details>
 
@@ -738,7 +738,7 @@ $\bar{u}_2 = \bar{R} \times \left(-\frac{u_1}{u_2^2}\right)$ et $\bar{r}_1 = \ba
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 (un nœud qui a plusieurs successeurs), §7 (le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X})$) et §8 (« Pourquoi des directions au hasard », et l'erreur classique sur le pas).
+Fiche §4 (un nœud qui a plusieurs successeurs), §7 (le gradient de $\operatorname{tr}(\mathbf{A}\mathbf{X}){}$) et §8 (« Pourquoi des directions au hasard », et l'erreur classique sur le pas).
 
 </details>
 <details><summary>Indice 2</summary>

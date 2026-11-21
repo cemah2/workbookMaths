@@ -71,7 +71,7 @@ Vocabulaire anglais de ce chapitre : *angle addition formulas*, *double-angle fo
 
 ## L'essentiel en 9 lignes
 
-1. **Formules d'addition** (∂ MB3.8, par $\mathbf{u}_a\cdot\mathbf{u}_b = \cos(a - b)$) : $\cos(a \pm b) = \cos a\cos b \mp \sin a\sin b$, $\sin(a \pm b) = \sin a\cos b \pm \cos a\sin b$ ; duplication ; $\cos a\cos b = \frac12[\cos(a - b) + \cos(a + b)]$ ; $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$.
+1. **Formules d'addition** (∂ MB3.8, par $\mathbf{u}_a\cdot\mathbf{u}_b = \cos(a - b){}$) : $\cos(a \pm b) = \cos a\cos b \mp \sin a\sin b$, $\sin(a \pm b) = \sin a\cos b \pm \cos a\sin b$ ; duplication ; $\cos a\cos b = \frac12[\cos(a - b) + \cos(a + b)]$ ; $e^{i\alpha}e^{i\beta} = e^{i(\alpha + \beta)}$.
 2. **Plan** : $\mathbf{R} _\alpha\mathbf{R} _\beta = \mathbf{R} _{\alpha + \beta} = \mathbf{R} _\beta\mathbf{R} _\alpha$, $\mathbf{R} _\theta^{-1} = \mathbf{R} _\theta^\top = \mathbf{R} _{-\theta}$ ; une même rotation conserve produits scalaires, normes, distances et angles ; orthogonale $2 \times 2$ : rotation ou symétrie selon le déterminant ; multiplier par $e^{i\theta}$, c'est tourner de $\theta$ ; $\operatorname{Re}(\bar zw)$ est le produit scalaire.
 3. **$\mathbb{R}^n$** : $\mathbf{R} _{ij}(\theta)$ tourne le plan $(i, j)$ ; même plan ou plans disjoints : elles commutent, en général pas sinon ; une matrice diagonale par blocs tourne chaque plan de son angle ; un produit par blocs est une somme de produits ; $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}$ tourne le plan $(\sigma(i), \sigma(j))$.
 4. **Horloges** : $\mathbf{e}(t) = (\cos\omega t, \sin\omega t)$, $\lVert\mathbf{e}(t) - \mathbf{e}(t')\rVert^2 = 2 - 2\cos\omega(t - t')$, $\mathbf{e}(t + \delta) = \mathbf{R}_{\omega\delta}\mathbf{e}(t)$ ; plusieurs horloges : $\sum_k\cos\omega_k(t - t')$ ; direction moyenne : l'argument du vecteur moyen.
@@ -143,7 +143,9 @@ Pour l'exemple, $\frac{35 + 12i}{37}\cdot\frac{28 + 45i}{53} = \frac{440 + 1\thi
 ### La matrice d'une rotation
 
 > **Définition** (MML §3.9.1). La **rotation** d'angle $\theta$ du plan, autour de l'origine, a pour matrice
-> $$\mathbf{R} _\theta = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} :$$
+> ```math
+> \mathbf{R} _\theta = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} :
+> ```
 > ses colonnes sont les images $\mathbf{R} _\theta\mathbf{e} _1 = (\cos\theta, \sin\theta)$ et $\mathbf{R} _\theta\mathbf{e}_2 = (-\sin\theta, \cos\theta)$ des vecteurs de base, tournés de $\theta$ dans le sens direct.
 
 Les formules d'addition, ligne par ligne, donnent $\mathbf{R}_\theta\mathbf{u} _a = \mathbf{u} _{a + \theta}$ : le point d'angle $a$ va au point d'angle $a + \theta$.
@@ -157,8 +159,10 @@ Les formules d'addition, ligne par ligne, donnent $\mathbf{R}_\theta\mathbf{u} _
 L'idée, que le ∂ MB3.8 rédige : chaque coefficient du produit $\mathbf{R} _\alpha\mathbf{R} _\beta$ est l'une des formules d'addition du §1 ; pour l'inverse, compare $\mathbf{R} _\theta^\top$ et $\mathbf{R} _{-\theta}$ coefficient par coefficient. Par récurrence, $(\mathbf{R} _\theta)^t = \mathbf{R} _{t\theta}$ pour tout entier $t \ge 0$.
 
 **Exemple.** Avec $\cos a = \frac{35}{37}$ et $\cos b = \frac{28}{53}$ du §1,
-$$\mathbf{R}_a\mathbf{R} _b = \frac{1}{1\thinspace961}\begin{pmatrix} 35 & -12 \cr 12 & 35 \end{pmatrix}\begin{pmatrix} 28 & -45 \cr 45 & 28 \end{pmatrix} = \frac{1}{1\thinspace961}\begin{pmatrix} 440 & -1\thinspace911 \cr 1\thinspace911 & 440 \end{pmatrix} = \mathbf{R} _{a + b},$$
-et l'autre ordre donne la même matrice. De même, $\mathbf{R} _a^2 = \frac{1}{1\thinspace369}\begin{pmatrix} 1\thinspace081 & -840 \cr 840 & 1\thinspace081 \end{pmatrix} = \mathbf{R} _{2a}$ : on retrouve les nombres de la duplication.
+```math
+\mathbf{R}_a\mathbf{R} _b = \frac{1}{1\thinspace961}\begin{pmatrix} 35 & -12 \cr 12 & 35 \end{pmatrix}\begin{pmatrix} 28 & -45 \cr 45 & 28 \end{pmatrix} = \frac{1}{1\thinspace961}\begin{pmatrix} 440 & -1\thinspace911 \cr 1\thinspace911 & 440 \end{pmatrix} = \mathbf{R} _{a + b},
+```
+et l'autre ordre donne la même matrice. De même, $`\mathbf{R} _a^2 = \frac{1}{1\thinspace369}\begin{pmatrix} 1\thinspace081 & -840 \cr 840 & 1\thinspace081 \end{pmatrix} = \mathbf{R} _{2a}`$ : on retrouve les nombres de la duplication.
 
 ![À gauche, un drapeau tourné par R_a, R_b, R_b R_a (tirets) et R_a R_b = R_{a+b} (noir) : les deux derniers, confondus, ont tourné de a + b ≈ 77,03°. À droite, le drapeau tourné par une rotation (dét. 1) et retourné par la symétrie ((35, 12), (12, −35))/37 (dét. −1), d'axe d'angle a/2 ≈ 9,46°](figures/rotation_plan.png)
 
@@ -173,12 +177,14 @@ En effet $(\mathbf{R} _\theta\mathbf{x})^\top(\mathbf{R} _\theta\mathbf{y}) = \m
 ### Rotation ou symétrie
 
 > **Propriété.** Une matrice orthogonale $\mathbf{Q}$ de forme $(2, 2)$ ($\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$) s'écrit, pour un angle $\theta$,
-> $$\mathbf{Q} = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} = \mathbf{R}_\theta \qquad\text{ou}\qquad \mathbf{Q} = \begin{pmatrix} \cos\theta & \sin\theta \cr \sin\theta & -\cos\theta \end{pmatrix}.$$
+> ```math
+> \mathbf{Q} = \begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} = \mathbf{R}_\theta \qquad\text{ou}\qquad \mathbf{Q} = \begin{pmatrix} \cos\theta & \sin\theta \cr \sin\theta & -\cos\theta \end{pmatrix}.
+> ```
 > La première, de déterminant 1, est une rotation ; la seconde, de déterminant $-1$, est la **symétrie** (*reflection*) par rapport à la droite d'angle $\frac\theta2$ passant par l'origine.
 
 *Démonstration.* La première colonne de $\mathbf{Q}$ est unitaire : c'est un point $(\cos\theta, \sin\theta)$ du cercle. La seconde est unitaire et orthogonale à la première : les seuls vecteurs qui conviennent sont $(-\sin\theta, \cos\theta)$ et son opposé. Le premier choix donne $\mathbf{R} _\theta$, de déterminant 1 ; le second donne la seconde matrice, de déterminant $-\cos^2\theta - \sin^2\theta = -1$. Par les formules de soustraction, celle-ci envoie $\mathbf{u} _\varphi$ sur $\mathbf{u} _{\theta - \varphi}$ : elle fixe $\mathbf{u} _{\theta/2}$ et change $\mathbf{u} _{\theta/2 + \pi/2}$ en $\mathbf{u} _{\theta/2 - \pi/2}$, son opposé. C'est la symétrie annoncée. $\square$
 
-Une rotation garde l'**orientation**, une symétrie la renverse. La matrice $\frac{1}{37}\begin{pmatrix} 35 & 12 \cr 12 & -35 \end{pmatrix}$ est la symétrie par rapport à la droite d'angle $\frac a2 \approx 9{,}46°$. L'échange des deux coordonnées, $\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}$, est une matrice de permutation : c'est la symétrie par rapport à la droite $y = x$ ($\theta = \frac\pi2$), pas une rotation.
+Une rotation garde l'**orientation**, une symétrie la renverse. La matrice $`\frac{1}{37}\begin{pmatrix} 35 & 12 \cr 12 & -35 \end{pmatrix}`$ est la symétrie par rapport à la droite d'angle $\frac a2 \approx 9{,}46°$. L'échange des deux coordonnées, $`\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}`$, est une matrice de permutation : c'est la symétrie par rapport à la droite $y = x$ ($\theta = \frac\pi2$), pas une rotation.
 
 ### La multiplication par e^{iθ}
 
@@ -197,7 +203,9 @@ Avec $z = e^{ia}$ et $w = e^{ib}$ du §1 : $\operatorname{Re}\Big(\frac{35 - 12i
 ### Les rotations autour des axes de l'espace
 
 Dans l'espace, une rotation tourne un plan autour d'un axe fixe. Autour de $\mathbf{e}_3$, le plan $(x_1, x_2)$ tourne comme au §2 ; autour de $\mathbf{e} _1$, le plan $(x_2, x_3)$ (MML §3.9.2) :
-$$\begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} \mathbf{R} _\theta & \mathbf{0} \cr \mathbf{0}^\top & 1 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{pmatrix}.$$
+```math
+\begin{pmatrix} \cos\theta & -\sin\theta & 0 \cr \sin\theta & \cos\theta & 0 \cr 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} \mathbf{R} _\theta & \mathbf{0} \cr \mathbf{0}^\top & 1 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 0 & 0 \cr 0 & \cos\theta & -\sin\theta \cr 0 & \sin\theta & \cos\theta \end{pmatrix}.
+```
 Le sens positif se lit en regardant l'axe depuis sa pointe vers l'origine.
 
 ### Les rotations de Givens
@@ -226,7 +234,9 @@ Fais-le avec un livre posé à plat : il ne finit pas orienté de la même faço
 ### Les matrices diagonales par blocs
 
 > **Propriété.** Une matrice **diagonale par blocs** (*block-diagonal matrix*) de rotations planes, avec des zéros hors des blocs,
-> $$\mathbf{D} = \begin{pmatrix} \mathbf{R} _{\theta_1} & & \cr & \ddots & \cr & & \mathbf{R} _{\theta_r} \end{pmatrix},$$
+> ```math
+> \mathbf{D} = \begin{pmatrix} \mathbf{R} _{\theta_1} & & \cr & \ddots & \cr & & \mathbf{R} _{\theta_r} \end{pmatrix},
+> ```
 > tourne le plan des coordonnées $(1, 2)$ de $\theta_1$, celui de $(3, 4)$ de $\theta_2$, et ainsi de suite : c'est le produit $\mathbf{R} _{12}(\theta_1)\mathbf{R} _{34}(\theta_2)\cdots$ des rotations de Givens de ces plans disjoints, pris dans n'importe quel ordre.
 
 On peut y ajouter des blocs $1 \times 1$ égaux à 1 (des coordonnées fixes), comme la rotation autour de $\mathbf{e}_3$. Inverse, puissances et produits se calculent bloc par bloc.
@@ -239,8 +249,10 @@ On peut y ajouter des blocs $1 \times 1$ égaux à 1 (des coordonnées fixes), c
 En effet, le coefficient $(\mathbf{AB}) _{uw} = \sum_k a  _{uk}b _{kw}$ est une somme sur les colonnes de $\mathbf{A}$, qu'on coupe en morceaux, un par bloc (M25a découpait aussi les lignes et les colonnes).
 
 **Exemple : une commande rayon par rayon.** Deux clients achètent quatre produits ; $\mathbf{A}$ donne leurs quantités, $\mathbf{B}$ le prix (en euros) et la masse (en kg) de chaque produit :
-$$\mathbf{A} = \begin{pmatrix} 2 & 1 & 0 & 3 \cr 1 & 0 & 4 & 2 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 3 & 1 \cr 5 & 2 \cr 2 & 1 \cr 4 & 3 \end{pmatrix}, \qquad \mathbf{A}\mathbf{B} = \begin{pmatrix} 23 & 13 \cr 19 & 11 \end{pmatrix} :$$
-le premier client paie 23 € pour 13 kg. Les produits 1 et 2 sont au rayon frais, les produits 3 et 4 à l'épicerie : $\mathbf{A}_1\mathbf{B}_1 = \begin{pmatrix} 11 & 4 \cr 3 & 1 \end{pmatrix}$ et $\mathbf{A}_2\mathbf{B}_2 = \begin{pmatrix} 12 & 9 \cr 16 & 10 \end{pmatrix}$ sont les sous-totaux des deux rayons, et leur somme redonne le total.
+```math
+\mathbf{A} = \begin{pmatrix} 2 & 1 & 0 & 3 \cr 1 & 0 & 4 & 2 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 3 & 1 \cr 5 & 2 \cr 2 & 1 \cr 4 & 3 \end{pmatrix}, \qquad \mathbf{A}\mathbf{B} = \begin{pmatrix} 23 & 13 \cr 19 & 11 \end{pmatrix} :
+```
+le premier client paie 23 € pour 13 kg. Les produits 1 et 2 sont au rayon frais, les produits 3 et 4 à l'épicerie : $`\mathbf{A}_1\mathbf{B}_1 = \begin{pmatrix} 11 & 4 \cr 3 & 1 \end{pmatrix}`$ et $`\mathbf{A}_2\mathbf{B}_2 = \begin{pmatrix} 12 & 9 \cr 16 & 10 \end{pmatrix}`$ sont les sous-totaux des deux rayons, et leur somme redonne le total.
 
 ### Renuméroter les coordonnées
 
@@ -251,7 +263,9 @@ Soit $\mathbf{P}$ la matrice de la permutation $\sigma$ (📐) : $(\mathbf{P}\ma
 *Démonstration.* La coordonnée $u$ de $\mathbf{P}\mathbf{e} _{\sigma(k)}$ vaut 1 si $\sigma(u) = \sigma(k)$, c'est-à-dire si $u = k$, et 0 sinon : $\mathbf{P}\mathbf{e} _{\sigma(k)} = \mathbf{e} _k$, donc $\mathbf{P}^\top\mathbf{e} _k = \mathbf{e} _{\sigma(k)}$. Alors $\mathbf{P}^\top\mathbf{R} _{ij}(\theta)\mathbf{P}\thinspace\mathbf{e} _{\sigma(i)} = \mathbf{P}^\top(\cos\theta\thinspace\mathbf{e} _i + \sin\theta\thinspace\mathbf{e} _j) = \cos\theta\thinspace\mathbf{e} _{\sigma(i)} + \sin\theta\thinspace\mathbf{e} _{\sigma(j)}$ ; de même pour $\mathbf{e}  _{\sigma(j)}$, et les autres $\mathbf{e} _{\sigma(k)}$ restent fixes. $\square$
 
 **Exemple dans l'espace.** Avec $\sigma(1) = 2$, $\sigma(2) = 3$ et $\sigma(3) = 1$,
-$$\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 0 & 0 & 1 \cr 1 & 0 & 0 \end{pmatrix}, \qquad \mathbf{P}^\top\mathbf{R} _{12}(\theta)\thinspace\mathbf{P} = \mathbf{R} _{23}(\theta) :$$
+```math
+\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 0 & 0 & 1 \cr 1 & 0 & 0 \end{pmatrix}, \qquad \mathbf{P}^\top\mathbf{R} _{12}(\theta)\thinspace\mathbf{P} = \mathbf{R} _{23}(\theta) :
+```
 la rotation autour de $\mathbf{e}_3$ devient celle de même angle autour de $\mathbf{e}_1$.
 
 ![Trois matrices en carte de couleurs : R₂₅(θ) dans ℝ⁵ (cos θ = 35/37), l'identité sauf quatre cases ; R₁₂(α) R₃₄(β) dans ℝ⁵ (α = 0,6 et β = 1,3 rad), deux blocs 2 × 2 puis un 1 ; Pᵀ R₁₂(θ) P = R₂₃(θ) dans ℝ³](figures/givens.png)

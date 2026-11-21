@@ -254,7 +254,7 @@ $-2\pi_0 + \pi_1 + 4\pi_2 = 0$, $\pi_0 - 3\pi_1 + 3\pi_2 = 0$, $\pi_0 + \pi_1 + 
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : « Unicité et convergence », ses deux contre-exemples et les définitions. Une chaîne à deux états $\begin{pmatrix} 1 - a & a \cr b & 1 - b \end{pmatrix}$ a pour loi stationnaire $\big(\frac{b}{a+b}, \frac{a}{a+b}\big)$.
+Fiche §2 : « Unicité et convergence », ses deux contre-exemples et les définitions. Une chaîne à deux états $`\begin{pmatrix} 1 - a & a \cr b & 1 - b \end{pmatrix}`$ a pour loi stationnaire $\big(\frac{b}{a+b}, \frac{a}{a+b}\big)$.
 
 </details>
 <details><summary>Indice 2</summary>
@@ -264,7 +264,7 @@ Le bac : regarde les ports du nord deux traversées à la fois (le produit du bl
 </details>
 <details><summary>Indice 3</summary>
 
-La chaîne du nord a pour matrice $\begin{pmatrix} 0{,}72 & 0{,}28 \cr 0{,}51 & 0{,}49 \end{pmatrix}$. La loi stationnaire du bac met la masse $\frac12$ au nord (proportionnelle à la loi de cette chaîne) et $\frac12$ au sud (son image après une traversée).
+La chaîne du nord a pour matrice $`\begin{pmatrix} 0{,}72 & 0{,}28 \cr 0{,}51 & 0{,}49 \end{pmatrix}`$. La loi stationnaire du bac met la masse $\frac12$ au nord (proportionnelle à la loi de cette chaîne) et $\frac12$ au sud (son image après une traversée).
 
 </details>
 
@@ -470,7 +470,7 @@ Fiche §4 (MDP, chaîne induite, valeur d'une action) ; M20 (axes, réductions, 
 </details>
 <details><summary>Indice 3</summary>
 
-`r_sa` $= \begin{pmatrix} 30 & 21 & 0 \cr 21 & ? & 0 \end{pmatrix}$. e) $0{,}235\thinspace V_0 - 0{,}085\thinspace V_1 = 30$ et $-0{,}34\thinspace V_0 + 0{,}677\thinspace V_1 = r_\pi(1)$. f) $r(0, \text{rien}) + \gamma\sum_{s'}\mathbf{P}_{\text{rien}}(0, s')\thinspace V^\pi(s')$ ; pour le « pourquoi », écris $V^\pi(0)$ comme une moyenne des $Q^\pi(0, a)$.
+`r_sa` $`= \begin{pmatrix} 30 & 21 & 0 \cr 21 & ? & 0 \end{pmatrix}`$. e) $0{,}235\thinspace V_0 - 0{,}085\thinspace V_1 = 30$ et $-0{,}34\thinspace V_0 + 0{,}677\thinspace V_1 = r_\pi(1)$. f) $r(0, \text{rien}) + \gamma\sum_{s'}\mathbf{P}_{\text{rien}}(0, s')\thinspace V^\pi(s')$ ; pour le « pourquoi », écris $V^\pi(0)$ comme une moyenne des $Q^\pi(0, a)$.
 
 </details>
 

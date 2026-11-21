@@ -437,7 +437,9 @@ $\mathbf{p}$ est une loi sur $K$ valeurs, $\mathbf{u}$ la loi uniforme, et les l
 
 Un réseau déjà entraîné, laissé tel quel, a produit les représentations de dimension 3 de six exemples, rangées en lignes d'une matrice, avec leurs labels :
 
-$$\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \cr 0 & 1 & 0 \cr 1 & 1 & 0{,}5 \cr 0 & 2 & 1 \cr 1 & 0 & 1 \cr 0 & 1 & 0{,}5 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0, 1, 0).$$
+```math
+\mathbf{H} = \begin{pmatrix} 2 & 0 & 0{,}5 \cr 0 & 1 & 0 \cr 1 & 1 & 0{,}5 \cr 0 & 2 & 1 \cr 1 & 0 & 1 \cr 0 & 1 & 0{,}5 \end{pmatrix}, \qquad \mathbf{y} = (1, 0, 0, 0, 1, 0).
+```
 
 Une sonde linéaire de poids $\mathbf{w} = (0{,}4 ;\ -0{,}9 ;\ 1{,}6)$ et de biais $b = -0{,}2$ calcule les scores $\mathbf{z} = \mathbf{H}\mathbf{w} + b$, puis les probabilités $\sigma(\mathbf{z})$.
 

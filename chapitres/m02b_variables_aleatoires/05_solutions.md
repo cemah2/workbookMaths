@@ -340,7 +340,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 1. Deux lectures : la probabilité comme **degré de croyance** d'un agent face à l'incertitude (lecture dite bayésienne), et comme **fréquence relative** d'un événement sur un très grand nombre de répétitions (lecture fréquentiste). Exemples : « je crois à 70 % qu'il pleuvra demain » ; « une pièce tombe sur pile une fois sur deux sur des milliers de lancers ».
 2. L'univers (*sample space*), l'ensemble des événements (*event space*) et la probabilité (*probability*). Le livre ajoute l'ensemble d'arrivée d'une variable aléatoire, le *target space* $\mathcal{T}$.
 3. Une *random variable* n'est ni aléatoire ni une variable : c'est une **fonction** (déterministe) des issues vers $\mathcal{T}$. Le hasard est dans le choix de l'issue, pas dans la fonction (fiche §1).
-4. $\Omega = \lbrace PP, PF, FP, FF\rbrace$, quatre issues équiprobables ; $X(PP) = 0$, $X(PF) = X(FP) = 1$, $X(FF) = 2$. La loi : $P(X = 0) = \frac{1}{4}$, $P(X = 1) = \frac{1}{2}$, $P(X = 2) = \frac{1}{4}$ (c'est $\mathcal{B}(2 ; 0{,}5)$).
+4. $\Omega = \lbrace PP, PF, FP, FF\rbrace$, quatre issues équiprobables ; $X(PP) = 0$, $X(PF) = X(FP) = 1$, $X(FF) = 2$. La loi : $P(X = 0) = \frac{1}{4}$, $P(X = 1) = \frac{1}{2}$, $P(X = 2) = \frac{1}{4}$ (c'est $\mathcal{B}(2 ; 0{,}5){}$).
 5. On divise chaque comptage $n_{ij}$ par le total $N$ pour obtenir la loi jointe ; les marginales sont les sommes des lignes et des colonnes divisées par $N$ (la règle de la somme). Le tableau du stand de glaces est déjà divisé par $N$.
 6. *pmf* (fonction de masse), *pdf* (densité), *cdf* (fonction de répartition). Le livre écrit $p(x)$ dans les deux cas, pour alléger, en laissant le contexte dire s'il s'agit d'une probabilité ou d'une densité (fiche §1 et M02a).
 7. Personnel. Mots fréquents : *outcome* (issue), *event* (événement), *state* (valeur possible), *joint probability*, *marginal probability*, *quantity of interest*.
@@ -408,7 +408,7 @@ Pour la copie : $n$ est grand, $p$ petit et $np = 4$ modéré : la situation typ
 
 **Réponses** : a) `0.2428` · b) `0.1736` · c) `0.9772` · d) `119.22` · e) `0.5` · f) `1.96` · g) `4.4493` · h) `3.0`.
 
-**Démarche.** a) `stats.binom(20, 0.15).pmf(3)` ; b) `stats.poisson(4.5).cdf(2)` ; c) `stats.norm(100, 15).cdf(130)` ($\Phi(2)$) ; d) `stats.norm(100, 15).ppf(0.9)` ; e) `stats.expon(scale=1/2).mean()` ; f) `stats.norm().ppf(0.975)` ; g) `stats.poisson(4.5).rvs(size=10_000, random_state=0).mean()` ; h) `stats.uniform(loc=2, scale=6).var()`. Pour la copie : e) $\frac{1}{\lambda}$ et h) $\frac{(b - a)^2}{12}$ (fiche §4) ; d) avec la table : $100 + 1{,}2816 \times 15 \approx 119{,}22$.
+**Démarche.** a) `stats.binom(20, 0.15).pmf(3)` ; b) `stats.poisson(4.5).cdf(2)` ; c) `stats.norm(100, 15).cdf(130)` ($\Phi(2){}$) ; d) `stats.norm(100, 15).ppf(0.9)` ; e) `stats.expon(scale=1/2).mean()` ; f) `stats.norm().ppf(0.975)` ; g) `stats.poisson(4.5).rvs(size=10_000, random_state=0).mean()` ; h) `stats.uniform(loc=2, scale=6).var()`. Pour la copie : e) $\frac{1}{\lambda}$ et h) $\frac{(b - a)^2}{12}$ (fiche §4) ; d) avec la table : $100 + 1{,}2816 \times 15 \approx 119{,}22$.
 
 **Erreurs fréquentes.** `stats.expon(2)` : le premier argument est `loc`, un décalage (espérance 3) ; `stats.uniform(2, 8)` couvre $[2 ; 10]$, car le second argument est la largeur `scale` ; `stats.norm(100, 225)` (la variance au lieu de l'écart-type) ; `cdf` à la place de `ppf` pour un percentile.
 

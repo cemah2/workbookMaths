@@ -58,11 +58,11 @@
 
 ### M13b.Q7 — Noyau valide ou pas ?
 1. **Oui** : un noyau (le produit scalaire) multiplié par une constante positive, $\varphi(\mathbf{x}) = \sqrt{3}\thinspace\mathbf{x}$.
-2. **Oui** : la somme du noyau linéaire et d'une constante positive ($\varphi(\mathbf{x}) = (\mathbf{x}, \sqrt{5})$).
+2. **Oui** : la somme du noyau linéaire et d'une constante positive ($\varphi(\mathbf{x}) = (\mathbf{x}, \sqrt{5}){}$).
 3. **Non** : $k(\mathbf{x}, \mathbf{x}) = -\lVert\mathbf{x}\rVert^2 < 0$ pour $\mathbf{x} \ne \mathbf{0}$, alors qu'une matrice de Gram a une diagonale positive ou nulle.
 4. **Oui** : $(\mathbf{x} \cdot \mathbf{z})^3$ est un produit de trois noyaux linéaires, le RBF est un noyau, et une somme de noyaux en est un.
 5. **Non** : elle n'est pas symétrique ($k(\mathbf{x}, \mathbf{z}) \ne k(\mathbf{z}, \mathbf{x})$ en général).
-6. **Vrai** : les lignes des deux points confondus sont égales ($k(\mathbf{x}_i, \cdot) = k(\mathbf{x}_j, \cdot)$), donc $\det\mathbf{K} = 0$.
+6. **Vrai** : les lignes des deux points confondus sont égales ($k(\mathbf{x}_i, \cdot) = k(\mathbf{x}_j, \cdot){}$), donc $\det\mathbf{K} = 0$.
 
 ### M13b.Q8 — Primal ou dual : lequel résoudre, et quand ?
 1. Primal : $p + 1 + n$ ($\mathbf{w}$, $b$ et les $\xi_i$), ou $p + 1$ sous la forme avec la hinge (§7), sans variables d'écart ; dual : $n$ (les $\alpha_i$).
@@ -93,7 +93,7 @@
 ### M13b.R3 — Matrices définies positives (M12c)
 1. Oui : trace 7 et déterminant 2 sont positifs, donc les deux valeurs propres le sont.
 2. Non : le déterminant vaut $-1 < 0$, une valeur propre est négative.
-3. $\begin{pmatrix} 6 & 1 & 7 \cr 1 & 2 & 3 \cr 7 & 3 & 10 \end{pmatrix}$.
+3. $`\begin{pmatrix} 6 & 1 & 7 \cr 1 & 2 & 3 \cr 7 & 3 & 10 \end{pmatrix}`$.
 4. Semi-définie positive mais pas définie positive : le troisième vecteur est la somme des deux premiers, donc $\mathbf{v} = (1, 1, -1)$ donne $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\mathbf{v}_1 + \mathbf{v}_2 - \mathbf{v}_3\rVert^2 = 0$.
 5. $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\sum_i v_i\mathbf{v}_i\rVert^2 \ge 0$ (M12c.17).
 
@@ -130,12 +130,14 @@ Pour la copie : $\mathbf{x} - \mathbf{x}_0 = -\frac{\lambda}{2}\mathbf{n}$ est c
 **Réponses** : a) `5` · b) `[3/2, 1, 1/2]` · c) `[-7/2, -3/2]` · d) `19/4` · e) `10` · f) `[1, 1, 1]` · g) `4` · h) `-23/28`.
 
 **Démarche.** Le système par blocs :
-$$\begin{pmatrix} 4 & 1 & 0 & 1 & 1 \cr 1 & 2 & 0 & 1 & 0 \cr 0 & 0 & 2 & 1 & -1 \cr 1 & 1 & 1 & 0 & 0 \cr 1 & 0 & -1 & 0 & 0 \end{pmatrix}\begin{pmatrix} x_1 \cr x_2 \cr x_3 \cr \lambda_1 \cr \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 \cr 0 \cr -1 \cr 3 \cr 1 \end{pmatrix}.$$
+```math
+\begin{pmatrix} 4 & 1 & 0 & 1 & 1 \cr 1 & 2 & 0 & 1 & 0 \cr 0 & 0 & 2 & 1 & -1 \cr 1 & 1 & 1 & 0 & 0 \cr 1 & 0 & -1 & 0 & 0 \end{pmatrix}\begin{pmatrix} x_1 \cr x_2 \cr x_3 \cr \lambda_1 \cr \lambda_2 \end{pmatrix} = \begin{pmatrix} 2 \cr 0 \cr -1 \cr 3 \cr 1 \end{pmatrix}.
+```
 Vérification : $\mathbf{Q}\mathbf{x}^\ast + \mathbf{c} = (5 ;\ 3{,}5 ;\ 2)$ et $\mathbf{A}^\top\boldsymbol{\lambda} = (-5 ;\ -3{,}5 ;\ -2)$ ; $f(\mathbf{x}^\ast) = \frac{1}{2}(10{,}5 + 3{,}5 + 0{,}5) - 2{,}5 = 4{,}75$. Avec la seule première contrainte, le système $4 \times 4$ donne $(1, 1, 1)$ et $f = 4$. Sans contrainte, $\mathbf{x} = -\mathbf{Q}^{-1}\mathbf{c} = (\frac{4}{7}, -\frac{2}{7}, -\frac{1}{2})$ et $f = -\frac{23}{28}$.
 
 Pour la copie : chaque contrainte de plus réduit l'ensemble admissible, donc le minimum ne peut que monter : $-\frac{23}{28} < 4 < \frac{19}{4}$. Les mineurs principaux de $\mathbf{Q}$ (4, 7, 14) sont positifs : $\mathbf{Q}$ est définie positive, la solution est unique et c'est le minimum (§5).
 
-**Erreurs fréquentes.** Mettre $+\mathbf{c}$ au second membre ; oublier le bloc nul ; des multiplicateurs de signes opposés (la convention $f - \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$).
+**Erreurs fréquentes.** Mettre $+\mathbf{c}$ au second membre ; oublier le bloc nul ; des multiplicateurs de signes opposés (la convention $f - \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b}){}$).
 
 **Variante.** Avec $\mathbf{b} = (3, 0)$ ? *Réponse* : $\mathbf{x}^\ast = (1, 1, 1)$ et $\boldsymbol{\lambda} = (-3, 0)$ : la solution sous la seule première contrainte vérifie déjà $x_1 = x_3$, la deuxième contrainte ne coûte rien.
 
@@ -241,7 +243,7 @@ Pour la copie : libres, 1 et 6 ($0 < \alpha_i < 1$), sur le bord de leur classe 
 
 **Démarche.** $(1 + x_1z_1 + x_2z_2)^2 = 1 + 2x_1z_1 + 2x_2z_2 + x_1^2z_1^2 + 2x_1x_2z_1z_2 + x_2^2z_2^2$ : chaque terme est un produit d'une fonction de $\mathbf{x}$ par la même fonction de $\mathbf{z}$, d'où $\varphi$ ; les $\sqrt{2}$ répartissent les coefficients 2 des termes croisés. $\varphi(\mathbf{x}) = (1, 4\sqrt{2}, -3\sqrt{2}, 16, -12\sqrt{2}, 9)$, $\varphi(\mathbf{z}) = (1, 3\sqrt{2}, -5\sqrt{2}, 9, -15\sqrt{2}, 25)$. c) $\mathbf{x} \cdot \mathbf{z} = 12 + 15 = 27$, $k = 28^2 = 784$. d) $(3 + \mathbf{x} \cdot \mathbf{z})^2 = 9 + 6\thinspace\mathbf{x} \cdot \mathbf{z} + (\mathbf{x} \cdot \mathbf{z})^2$ : la constante devient 3, les coordonnées de degré 1 prennent $\sqrt{6}$ ; $4\sqrt{6} \approx 9{,}80$ et $-3\sqrt{6} \approx -7{,}35$.
 
-Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 144 + 360 + 225 = 784$. Pour $(c + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi = (c, \sqrt{2c}\thinspace x_1, \sqrt{2c}\thinspace x_2, x_1^2, \sqrt{2}\thinspace x_1x_2, x_2^2)$ : seules la constante et les coordonnées de degré 1 dépendent de $c$, et $\sqrt{2c}$ n'existe que pour $c \ge 0$ ; plus $c$ est grand, plus les termes de bas degré pèsent. Pour $c < 0$, ce n'est plus un noyau : en dimension 1 avec $c = -1$, les points 0 et 1 donnent la matrice de Gram $\begin{pmatrix} 1 & 1 \cr 1 & 0 \end{pmatrix}$, de déterminant $-1$. Enfin, `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$.
+Pour la copie : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = 1 + 24 + 30 + 144 + 360 + 225 = 784$. Pour $(c + \mathbf{x} \cdot \mathbf{z})^2$, $\varphi = (c, \sqrt{2c}\thinspace x_1, \sqrt{2c}\thinspace x_2, x_1^2, \sqrt{2}\thinspace x_1x_2, x_2^2)$ : seules la constante et les coordonnées de degré 1 dépendent de $c$, et $\sqrt{2c}$ n'existe que pour $c \ge 0$ ; plus $c$ est grand, plus les termes de bas degré pèsent. Pour $c < 0$, ce n'est plus un noyau : en dimension 1 avec $c = -1$, les points 0 et 1 donnent la matrice de Gram $`\begin{pmatrix} 1 & 1 \cr 1 & 0 \end{pmatrix}`$, de déterminant $-1$. Enfin, `count_monomials(9, 2, include_constant=True)` $= \binom{11}{2} = 55$ et `count_monomials(9, 3, include_constant=True)` $= \binom{12}{3} = 220$.
 
 **Erreurs fréquentes.** Oublier les $\sqrt{2}$ ; garder $\sqrt{2}$ au lieu de $\sqrt{2c}$ quand $c \ne 1$ ; oublier le monôme constant ou ceux de degré 1 (le noyau inhomogène les contient) ; compter les monômes de degré exactement $d$.
 
@@ -326,7 +328,7 @@ Pour la copie : $\det\mathbf{K} > 0$, et ses mineurs aussi : $\mathbf{K}$ est d�
 3. $\varphi(\mathbf{x}) = (\varphi_1(\mathbf{x}), \varphi_2(\mathbf{x})) \in \mathbb{R}^{q_1 + q_2}$ : $\varphi(\mathbf{x}) \cdot \varphi(\mathbf{z}) = k_1(\mathbf{x}, \mathbf{z}) + k_2(\mathbf{x}, \mathbf{z})$.
 4. $\sum_{a,b}\varphi_{1,a}(\mathbf{x})\varphi_{2,b}(\mathbf{x})\thinspace\varphi_{1,a}(\mathbf{z})\varphi_{2,b}(\mathbf{z}) = \big(\sum_a \varphi_{1,a}(\mathbf{x})\varphi_{1,a}(\mathbf{z})\big)\big(\sum_b \varphi_{2,b}(\mathbf{x})\varphi_{2,b}(\mathbf{z})\big) = k_1k_2$.
 5. $\mathbf{x} \cdot \mathbf{z}$ est un noyau ; la constante $c$ aussi : pour $c > 0$, c'est $c$ fois le noyau constant égal à 1 (question 2), et $c = 0$ n'ajoute rien ; leur somme en est un (question 3), et la puissance $d$ est un produit de $d$ copies de ce noyau (question 4).
-6. Pour un point $\mathbf{x}$ et un point $\mathbf{z}$ à distance 1, la matrice de Gram vaut $\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}$, de valeur propre $-1$ ; ou plus simplement : $\mathbf{v} = (1, -1)$ donne $\mathbf{v}^\top\mathbf{K}\mathbf{v} = -2 < 0$.
+6. Pour un point $\mathbf{x}$ et un point $\mathbf{z}$ à distance 1, la matrice de Gram vaut $`\begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}`$, de valeur propre $-1$ ; ou plus simplement : $\mathbf{v} = (1, -1)$ donne $\mathbf{v}^\top\mathbf{K}\mathbf{v} = -2 < 0$.
 
 **Grille.** (1) le développement de la forme quadratique et la symétrie ; (2) à (4) une $\varphi$ explicite pour chaque construction ; (5) l'assemblage sans écrire $\varphi$ ; (6) un contre-exemple chiffré.
 

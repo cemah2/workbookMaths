@@ -132,8 +132,10 @@ Dans ta copie : que contient `R.mean(axis=1)`, en mots ? Pour obtenir ce résult
 **Objectif :** traduire des calculs matriciels en notation d'Einstein et en formules d'`einsum`, les calculer à la main, et compter leur coût.
 **Prérequis :** fiche §3 ; M09a, M12c · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \cr 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 0 & 1 \cr 1 & -1 & 4 \end{pmatrix}, \qquad \mathbf{M} = \begin{pmatrix} 2 & -1 \cr 0 & 3 \end{pmatrix}, \qquad \mathbf{x} = (1, 2), \quad \mathbf{y} = (4, -1).$$
-Le tableau `Ms` de forme $(3, 2, 2)$ empile les trois matrices $\begin{pmatrix} 1 & 2 \cr 0 & 1 \end{pmatrix}$, $\begin{pmatrix} 2 & 0 \cr 1 & 3 \end{pmatrix}$, $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$, et `vs` de forme $(3, 2)$ les trois vecteurs $(1, 1)$, $(2, -1)$, $(3, 2)$.
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \cr 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 0 & 1 \cr 1 & -1 & 4 \end{pmatrix}, \qquad \mathbf{M} = \begin{pmatrix} 2 & -1 \cr 0 & 3 \end{pmatrix}, \qquad \mathbf{x} = (1, 2), \quad \mathbf{y} = (4, -1).
+```
+Le tableau `Ms` de forme $(3, 2, 2)$ empile les trois matrices $`\begin{pmatrix} 1 & 2 \cr 0 & 1 \end{pmatrix}`$, $`\begin{pmatrix} 2 & 0 \cr 1 & 3 \end{pmatrix}`$, $`\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$, et `vs` de forme $(3, 2)$ les trois vecteurs $(1, 1)$, $(2, -1)$, $(3, 2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -199,7 +201,7 @@ Dans ta copie : pourquoi cette entreprise, et pas celle qui a le plus grand chif
 
 **En dimension 1.** $x' = \lambda x$ avec $\lambda = -1{,}2$, sur l'horizon $T = 2$, en $L$ pas de durée $h = T/L$.
 
-**Une rotation.** $\mathbf{x}' = \mathbf{J}\mathbf{x}$ avec $\mathbf{J} = \begin{pmatrix} 0 & -2 \cr 2 & 0 \end{pmatrix}$, sur l'horizon $T = 1$.
+**Une rotation.** $\mathbf{x}' = \mathbf{J}\mathbf{x}$ avec $`\mathbf{J} = \begin{pmatrix} 0 & -2 \cr 2 & 0 \end{pmatrix}`$, sur l'horizon $T = 1$.
 
 **Un pendule.** $F(x, v) = (v,\ -\sin x)$ ($x$ l'angle, $v$ la vitesse angulaire), un pas $\Phi_h(x, v) = (x, v) + h\thinspace F(x, v)$ avec $h = 0{,}05$.
 

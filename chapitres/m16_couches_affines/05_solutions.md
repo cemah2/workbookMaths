@@ -20,7 +20,7 @@
 1. $(4, 3)$ : $(n + 1, m + 1)$ avec $n = 3$ entrées et $m = 2$ sorties.
 2. **Vrai** : la dernière colonne de $\mathbf{H}$ est $(0, \ldots, 0, 1)$, et $[\mathbf{x}, 1]$ la multiplie en $0 + \cdots + 0 + 1 = 1$.
 3. **Faux** : $[\mathbf{x}, 1]\thinspace\mathbf{H}_1\mathbf{H}_2$ ; avec des lignes, la première application appliquée est à gauche.
-4. $\begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr a & b & 1 \end{pmatrix}$.
+4. $`\begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr a & b & 1 \end{pmatrix}`$.
 5. **Vrai** : les deux produits sont la matrice de la translation de vecteur la somme des deux vecteurs. Deux translations commutent ; c'est une exception (une translation et une homothétie ne commutent pas : fiche §2).
 6. **Faux** : $\mathbf{H}$ est inversible si et seulement si $\mathbf{W}$ l'est (son déterminant vaut $\det\mathbf{W}$, en développant selon la dernière colonne). Une projection sur une droite donne un $\mathbf{H}$ non inversible.
 
@@ -62,8 +62,8 @@
 1. 2, $-3$ et 7 : les coefficients diagonaux.
 2. $2 \times (-3) \times 7 = -42$.
 3. Toutes nulles : la diagonale est nulle.
-4. **Faux** : $\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}$ a ses deux valeurs propres nulles sans être nulle (elle est nilpotente).
-5. $\mathbf{N}^2 = \begin{pmatrix} 0 & 0 & 3 \cr 0 & 0 & 0 \cr 0 & 0 & 0 \end{pmatrix}$, $\mathbf{N}^3 = \mathbf{0}$ : chaque puissance pousse les cases non nulles d'une diagonale plus haut.
+4. **Faux** : $`\begin{pmatrix} 0 & 1 \cr 0 & 0 \end{pmatrix}`$ a ses deux valeurs propres nulles sans être nulle (elle est nilpotente).
+5. $`\mathbf{N}^2 = \begin{pmatrix} 0 & 0 & 3 \cr 0 & 0 & 0 \cr 0 & 0 & 0 \end{pmatrix}`$, $\mathbf{N}^3 = \mathbf{0}$ : chaque puissance pousse les cases non nulles d'une diagonale plus haut.
 
 <a id="papier"></a>
 
@@ -79,17 +79,17 @@ Dans ta copie : la ligne 3 de $\mathbf{W}$, $(-2, -1)$, dit comment $x_3$ se ré
 
 **Erreurs fréquentes.** Ranger les coefficients d'une sortie dans une **ligne** de $\mathbf{W}$ (c'est la convention en colonnes : on obtient d) à la place de a)). Oublier $\mathbf{b}$, en c) et en f). Compter $nm$ paramètres sans le biais.
 
-**Variante.** $h(x_1, x_2, x_3) = (2x_2 - x_3,\ x_1 + 1)$ : $\mathbf{W} = \begin{pmatrix} 0 & 1 \cr 2 & 0 \cr -1 & 0 \end{pmatrix}$, $\mathbf{b} = (0, 1)$, $h(1, 1, 1) = (1, 2)$, 8 paramètres.
+**Variante.** $h(x_1, x_2, x_3) = (2x_2 - x_3,\ x_1 + 1)$ : $`\mathbf{W} = \begin{pmatrix} 0 & 1 \cr 2 & 0 \cr -1 & 0 \end{pmatrix}`$, $\mathbf{b} = (0, 1)$, $h(1, 1, 1) = (1, 2)$, 8 paramètres.
 
 ### Ex M16.2 — Rotation, homothétie puis translation du plan
 
 **Réponses.** a) `[[0, 1, 0], [-1, 0, 0], [0, 0, 1]]` · b) `[[2, 0, 0], [0, 2, 0], [0, 0, 1]]` · c) `[[1, 0, 0], [0, 1, 0], [1, -3, 1]]` · d) `[[0, 2, 0], [-2, 0, 0], [1, -3, 1]]` · e) `[-1, 1]` · f) `[[0, -0.5, 0], [0.5, 0, 0], [1.5, 0.5, 1]]` · g) `[4, 6]`.
 
-**Démarche.** a) Avec des lignes, la ligne $j$ de $\mathbf{W}_1$ est l'image du $j$-ième vecteur de base : $(1, 0) \mapsto (0, 1)$ et $(0, 1) \mapsto (-1, 0)$, d'où $\mathbf{W}_1 = \begin{pmatrix} 0 & 1 \cr -1 & 0 \end{pmatrix}$. Vérification : $(1, 0)\mathbf{W}_1 = (0, 1)$. b) $\mathbf{W}_2 = 2\mathbf{I}$, pas de translation. c) $\mathbf{W}_3 = \mathbf{I}$ et la translation sur la dernière ligne. d) $f_1$ d'abord, donc à gauche : $\mathbf{H} = \mathbf{H}_1\mathbf{H}_2\mathbf{H}_3$ ; $\mathbf{H}_1\mathbf{H}_2 = \begin{pmatrix} 0 & 2 & 0 \cr -2 & 0 & 0 \cr 0 & 0 & 1 \end{pmatrix}$, puis $\mathbf{H}_3$ ajoute la translation sur la dernière ligne. Donc $f(x, y) = (-2y + 1,\ 2x - 3)$. e) $f(2, 1) = (-2 + 1,\ 4 - 3) = (-1, 1)$. f) $f^{-1}$ retire d'abord la translation, puis défait l'homothétie, puis la rotation : $(u, v) \mapsto (u - 1, v + 3) \mapsto \left(\frac{u - 1}{2}, \frac{v + 3}{2}\right) \mapsto \left(\frac{v + 3}{2}, -\frac{u - 1}{2}\right)$ (la rotation réciproque est $(x, y) \mapsto (y, -x)$). Donc $f^{-1}(u, v) = (0{,}5v + 1{,}5,\ -0{,}5u + 0{,}5)$, de matrice homogène f) ; c'est aussi $\mathbf{H}^{-1}$. Vérification : $f^{-1}(-1, 1) = (2, 1)$. g) $f_3$ puis $f_2$ puis $f_1$ : $(2, 1) \mapsto (3, -2) \mapsto (6, -4) \mapsto (4, 6)$.
+**Démarche.** a) Avec des lignes, la ligne $j$ de $\mathbf{W}_1$ est l'image du $j$-ième vecteur de base : $(1, 0) \mapsto (0, 1)$ et $(0, 1) \mapsto (-1, 0)$, d'où $`\mathbf{W}_1 = \begin{pmatrix} 0 & 1 \cr -1 & 0 \end{pmatrix}`$. Vérification : $(1, 0)\mathbf{W}_1 = (0, 1)$. b) $\mathbf{W}_2 = 2\mathbf{I}$, pas de translation. c) $\mathbf{W}_3 = \mathbf{I}$ et la translation sur la dernière ligne. d) $f_1$ d'abord, donc à gauche : $\mathbf{H} = \mathbf{H}_1\mathbf{H}_2\mathbf{H}_3$ ; $`\mathbf{H}_1\mathbf{H}_2 = \begin{pmatrix} 0 & 2 & 0 \cr -2 & 0 & 0 \cr 0 & 0 & 1 \end{pmatrix}`$, puis $\mathbf{H}_3$ ajoute la translation sur la dernière ligne. Donc $f(x, y) = (-2y + 1,\ 2x - 3)$. e) $f(2, 1) = (-2 + 1,\ 4 - 3) = (-1, 1)$. f) $f^{-1}$ retire d'abord la translation, puis défait l'homothétie, puis la rotation : $(u, v) \mapsto (u - 1, v + 3) \mapsto \left(\frac{u - 1}{2}, \frac{v + 3}{2}\right) \mapsto \left(\frac{v + 3}{2}, -\frac{u - 1}{2}\right)$ (la rotation réciproque est $(x, y) \mapsto (y, -x){}$). Donc $f^{-1}(u, v) = (0{,}5v + 1{,}5,\ -0{,}5u + 0{,}5)$, de matrice homogène f) ; c'est aussi $\mathbf{H}^{-1}$. Vérification : $f^{-1}(-1, 1) = (2, 1)$. g) $f_3$ puis $f_2$ puis $f_1$ : $(2, 1) \mapsto (3, -2) \mapsto (6, -4) \mapsto (4, 6)$.
 
 e) et g) diffèrent parce que la translation n'est pas au même endroit de la chaîne : appliquée en dernier, elle ajoute $(1, -3)$ ; appliquée en premier, elle est ensuite doublée et tournée.
 
-**Erreurs fréquentes.** Écrire la matrice de rotation des colonnes, $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$, dans une matrice pour des lignes : on tourne dans l'autre sens. Mettre la translation dans la dernière colonne. Multiplier dans l'ordre $\mathbf{H}_3\mathbf{H}_2\mathbf{H}_1$ (c'est l'ordre des colonnes). Pour l'inverse, oublier de transformer la translation (écrire $-\mathbf{b}$ sur la dernière ligne).
+**Erreurs fréquentes.** Écrire la matrice de rotation des colonnes, $`\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$, dans une matrice pour des lignes : on tourne dans l'autre sens. Mettre la translation dans la dernière colonne. Multiplier dans l'ordre $\mathbf{H}_3\mathbf{H}_2\mathbf{H}_1$ (c'est l'ordre des colonnes). Pour l'inverse, oublier de transformer la translation (écrire $-\mathbf{b}$ sur la dernière ligne).
 
 **Variante.** Rotation, puis translation de $(1, -3)$, puis homothétie : $\mathbf{H}_1\mathbf{H}_3\mathbf{H}_2$, et $(2, 1) \mapsto (-1, 2) \mapsto (0, -1) \mapsto (0, -2)$.
 
@@ -133,7 +133,7 @@ Dans ta copie : le terme dû à la quantité, 3 600, domine : $Q$ varie de 17 % 
 
 **Réponses.** a) `30` · b) `0.25` · c) `10.25` · d) `5` · e) `11.25` · f) `30` · g) `40.25`.
 
-**Démarche.** a) La somme de toutes les cases de la matrice de covariance : $4 + 9 + 1 + 2(5 + 1 + 2) = 30$. b) $\varepsilon_2$ est centré et $\varepsilon_2^2 = 0{,}25$ toujours. c) Le lemme du §6 : $\mathbb{V}(S) = 1 \times 4 + 0{,}25 \times 9 + 4 \times 1 = 10{,}25$ (les $x_i$ sont centrés, donc $\mathbb{E}[x_i^2] = \mathbb{V}(x_i)$). d) $\varepsilon_1x_1 \cdot \varepsilon_1x_2 = \varepsilon_1^2x_1x_2 = x_1x_2$, car $\varepsilon_1^2 = 1$ ; les deux produits sont centrés (le lemme, ou simplement $x_1$ et $x_2$ centrés) : $\operatorname{Cov}(\varepsilon_1x_1, \varepsilon_1x_2) = \mathbb{E}[x_1x_2] = \operatorname{Cov}(x_1, x_2) = 5$. e) $\mathbb{E}[x_1^2]$ devient $4 + 1^2 = 5$ : $5 + 2{,}25 + 4 = 11{,}25$. f) $\varepsilon^2 = 1$ : $\mathbb{V}(\varepsilon T) = \mathbb{E}[T^2] = \mathbb{V}(T) = 30$ pour $T = x_1 + x_2 + x_3$. g) La somme vaut $T + S$, deux morceaux décorrélés (admis par l'énoncé) : $\mathbb{V}(T) + \mathbb{V}(S) = 30 + 10{,}25 = 40{,}25$.
+**Démarche.** a) La somme de toutes les cases de la matrice de covariance : $4 + 9 + 1 + 2(5 + 1 + 2) = 30$. b) $\varepsilon_2$ est centré et $\varepsilon_2^2 = 0{,}25$ toujours. c) Le lemme du §6 : $\mathbb{V}(S) = 1 \times 4 + 0{,}25 \times 9 + 4 \times 1 = 10{,}25$ (les $x_i$ sont centrés, donc $\mathbb{E}[x_i^2] = \mathbb{V}(x_i){}$). d) $\varepsilon_1x_1 \cdot \varepsilon_1x_2 = \varepsilon_1^2x_1x_2 = x_1x_2$, car $\varepsilon_1^2 = 1$ ; les deux produits sont centrés (le lemme, ou simplement $x_1$ et $x_2$ centrés) : $\operatorname{Cov}(\varepsilon_1x_1, \varepsilon_1x_2) = \mathbb{E}[x_1x_2] = \operatorname{Cov}(x_1, x_2) = 5$. e) $\mathbb{E}[x_1^2]$ devient $4 + 1^2 = 5$ : $5 + 2{,}25 + 4 = 11{,}25$. f) $\varepsilon^2 = 1$ : $\mathbb{V}(\varepsilon T) = \mathbb{E}[T^2] = \mathbb{V}(T) = 30$ pour $T = x_1 + x_2 + x_3$. g) La somme vaut $T + S$, deux morceaux décorrélés (admis par l'énoncé) : $\mathbb{V}(T) + \mathbb{V}(S) = 30 + 10{,}25 = 40{,}25$.
 
 Dans ta copie : d) n'est pas nul parce que le lemme demande des signes **différents**, indépendants entre eux ; un même signe se simplifie ($\varepsilon_1^2 = 1$) et laisse la covariance des mesures. Les covariances 5, 1 et 2 disparaissent de c) par le lemme : les trois produits sont décorrélés, quelles que soient les covariances des $x_i$. En e), $\mathbb{V}(\varepsilon_1x_1) = \mathbb{E}[\varepsilon_1^2x_1^2] - \mathbb{E}[\varepsilon_1x_1]^2 = \mathbb{E}[x_1^2] - 0$ : le signe rend aléatoire la moyenne de $x_1$ elle aussi, et elle compte. En f), il manque l'**indépendance des signes entre eux** : un seul signe, commun aux trois termes, multiplie tout ; il ne change pas la variance de $T$, et les covariances restent. En g), il manque le **centrage** : les multiplicateurs ont pour moyenne 1, et leur partie constante remet $T$ et ses covariances dans la somme ; les deux morceaux $T$ et $S$ sont décorrélés (admis), et leurs variances s'ajoutent.
 
@@ -192,7 +192,7 @@ Dans ta copie : d) n'est pas nul parce que le lemme demande des signes **différ
 
 **Réponses.** a) `[4, 3]` · b) `[[1, 0, -2], [1, 0, -2], [1, 0, -2], [1, 0, -2]]` · c) `[[4, 2, -1], [3, 6, 0], [0, 4, -1], [5, -2, -2]]` · d) `[[2, -1, 0, 0], [1, 3, 1, 0], [1, 0, -2, 1]]` · e) `[[4, 2, -1, 1], [3, 6, 0, 1], [0, 4, -1, 1], [5, -2, -2, 1]]` · f) `24`.
 
-**Démarche.** a) $(4, 2) \times (2, 3) \to (4, 3)$. b) Une colonne de 4 uns fois la ligne $\mathbf{b}^\top$ : quatre copies de $\mathbf{b}$. c) $\mathbf{X}\mathbf{W} = \begin{pmatrix} 3 & 2 & 1 \cr 2 & 6 & 2 \cr -1 & 4 & 1 \cr 4 & -2 & 0 \end{pmatrix}$, plus b). d) $\mathbf{W}$ en haut à gauche, $\mathbf{b}$ suivi de 1 en bas, une colonne $(0, 0, 1)$ à droite. e) c) avec une colonne de uns en plus : un seul produit fait la partie linéaire **et** la translation de tous les points. f) $4 \times 2 \times 3$.
+**Démarche.** a) $(4, 2) \times (2, 3) \to (4, 3)$. b) Une colonne de 4 uns fois la ligne $\mathbf{b}^\top$ : quatre copies de $\mathbf{b}$. c) $`\mathbf{X}\mathbf{W} = \begin{pmatrix} 3 & 2 & 1 \cr 2 & 6 & 2 \cr -1 & 4 & 1 \cr 4 & -2 & 0 \end{pmatrix}`$, plus b). d) $\mathbf{W}$ en haut à gauche, $\mathbf{b}$ suivi de 1 en bas, une colonne $(0, 0, 1)$ à droite. e) c) avec une colonne de uns en plus : un seul produit fait la partie linéaire **et** la translation de tous les points. f) $4 \times 2 \times 3$.
 
 Dans ta copie : $\mathbf{1}\mathbf{b}^\top$ est le produit d'une colonne $(4, 1)$ par une ligne $(1, 3)$ ; NumPy ne la construit pas, il **diffuse** $\mathbf{b}$, de forme $(3,)$, sur chaque ligne de `X @ W`, de forme $(4, 3)$. Avec un cinquième point, c) gagne une cinquième ligne et les quatre premières ne changent pas : chaque ligne est calculée seule.
 

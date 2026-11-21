@@ -106,7 +106,7 @@ On résout le système $(S)$ par le pivot de Gauss, en éliminant d'abord $x$ ($
 
 $$(S) \quad \begin{cases} x + y + 2z = 3 \cr 3x + 4y + 5z = 7 \cr -2x + y + 3z = -2 \end{cases}$$
 
-Ensuite : $\mathbf{B} = \begin{pmatrix} 3 & 5 \cr 2 & 4 \end{pmatrix}$ et $\mathbf{C} = \begin{pmatrix} 1 & 2 & 0 & 3 \cr 2 & 4 & 1 & 7 \cr 3 & 6 & 1 & 10 \end{pmatrix}$.
+Ensuite : $`\mathbf{B} = \begin{pmatrix} 3 & 5 \cr 2 & 4 \end{pmatrix}`$ et $`\mathbf{C} = \begin{pmatrix} 1 & 2 & 0 & 3 \cr 2 & 4 & 1 & 7 \cr 3 & 6 & 1 & 10 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -208,7 +208,7 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(B)** La similarité cosinus de $(1, 2)$ et $(-2, 1)$ vaut $-1$ : les deux vecteurs vont dans des sens opposés.
 - **(C)** Pour une statistique de test de loi symétrique sous $H_0$, la p-valeur unilatérale du côté observé vaut 0,11 : la p-valeur bilatérale vaut donc 0,055.
 - **(D)** Le produit d'une matrice de forme $(2, 3)$ par une matrice de forme $(3, 4)$ est une matrice de forme $(2, 4)$.
-- **(E)** L'inverse de $\begin{pmatrix} 6 & 4 \cr 1 & 1 \end{pmatrix}$ est $\begin{pmatrix} 1 & -4 \cr -1 & 6 \end{pmatrix}$.
+- **(E)** L'inverse de $`\begin{pmatrix} 6 & 4 \cr 1 & 1 \end{pmatrix}`$ est $`\begin{pmatrix} 1 & -4 \cr -1 & 6 \end{pmatrix}`$.
 - **(F)** Dans une régression par moindres carrés avec une colonne de 1 (une ordonnée à l'origine), la somme des résidus d'entraînement est nulle.
 - **(G)** L'ensemble des points $(x, y)$ tels que $x^2 + y^2 \le 4$ et $y \ge 1$ n'est pas convexe, parce qu'on y a coupé un disque par une droite.
 - **(H)** Dix modèles ont chacun un intervalle de confiance à 95 % de leur accuracy : la probabilité que les dix intervalles contiennent tous leur vraie accuracy est d'au moins 95 %.

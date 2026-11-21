@@ -113,11 +113,11 @@ On ajuste des polynômes de degré croissant à des datasets de même taille, ti
 ### M09b.R1 — Le pivot de Gauss et l'inverse (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
-1. Résous $\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}\mathbf{x} = \begin{pmatrix} 7 \cr 4 \end{pmatrix}$.
-2. Donne l'inverse de $\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}$.
+1. Résous $`\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}\mathbf{x} = \begin{pmatrix} 7 \cr 4 \end{pmatrix}`$.
+2. Donne l'inverse de $`\begin{pmatrix} 3 & 1 \cr 1 & 2 \end{pmatrix}`$.
 3. Pour résoudre ce système, vaut-il mieux calculer l'inverse ou faire le pivot de Gauss ? Pourquoi, en une phrase ?
 4. Une matrice carrée dont une colonne est la somme de deux autres est-elle inversible ?
-5. Le rang de $\begin{pmatrix} 1 & -2 \cr 3 & -6 \cr -2 & 4 \end{pmatrix}$ ?
+5. Le rang de $`\begin{pmatrix} 1 & -2 \cr 3 & -6 \cr -2 & 4 \end{pmatrix}`$ ?
 
 ### M09b.R2 — Maximum de vraisemblance et MAP (M04) 🔁 ★ ⏱️ 5 min
 *Fiche §5 et §7 · parcours C, E*
@@ -188,7 +188,9 @@ Dans ta copie : vérifie que $\mathrm{SCT} = \mathrm{SCE} + \mathrm{SCR}$ pour l
 **Objectif :** calculer trois gradients en dérivant coordonnée par coordonnée, et vérifier les trois identités de la fiche.
 **Prérequis :** fiche §2 ; M05b (dérivées partielles) · **Parcours :** C, E
 
-$$\mathbf{a} = (4, -3), \qquad \mathbf{A} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & 1 \cr 1 & -1 \end{pmatrix}, \qquad \mathbf{y} = (3, 1, 2), \qquad \mathbf{w} = (2, -1).$$
+```math
+\mathbf{a} = (4, -3), \qquad \mathbf{A} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & 1 \cr 1 & -1 \end{pmatrix}, \qquad \mathbf{y} = (3, 1, 2), \qquad \mathbf{w} = (2, -1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -208,7 +210,9 @@ Dans ta copie : développe $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ en un polynôme
 
 Un modèle sans ordonnée à l'origine, $\hat{y} = w_1x_1 + w_2x_2$, sur quatre exemples :
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 2 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (3, 4, 1, 1).$$
+```math
+\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 2 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (3, 4, 1, 1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -244,7 +248,7 @@ Dans ta copie : vérifie que la droite de c) passe par le point de f). Écris $\
 **Objectif :** calculer une matrice chapeau à la main et vérifier ses propriétés de projection.
 **Prérequis :** fiche §3 ; M09a (inverse d'une matrice 2 × 2) · **Parcours :** C
 
-Trois points d'abscisses $x = 0, 1, 3$ ; on ajuste une droite avec ordonnée à l'origine, donc $\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 1 & 1 \cr 1 & 3 \end{pmatrix}$, et $\mathbf{y} = (2, 1, 5)$.
+Trois points d'abscisses $x = 0, 1, 3$ ; on ajuste une droite avec ordonnée à l'origine, donc $`\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 1 & 1 \cr 1 & 3 \end{pmatrix}`$, et $\mathbf{y} = (2, 1, 5)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -278,7 +282,9 @@ Dans ta copie : écris la liste des monômes de a), et celle de f) (range-les pa
 **Objectif :** résoudre un problème ridge à la main, et suivre la taille des poids et l'erreur d'entraînement quand $\lambda$ grandit.
 **Prérequis :** fiche §5 ; M09a (inverse d'une matrice 2 × 2) · **Parcours :** C, E
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, -2).$$
+```math
+\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 1 & 0 \cr 0 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, -2).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -298,7 +304,9 @@ Dans ta copie : quelle est la limite de $\lambda\thinspace\mathbf{w}$ quand $\la
 
 Le modèle : $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$, avec $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$, et un prior $w_j \sim \mathcal{N}(0, \tau^2)$, tous indépendants. Pour c) à e), le dataset est
 
-$$\mathbf{X} = \begin{pmatrix} 2 & 0 \cr 0 & 1 \cr 1 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, 1).$$
+```math
+\mathbf{X} = \begin{pmatrix} 2 & 0 \cr 0 & 1 \cr 1 & 1 \end{pmatrix}, \qquad \mathbf{y} = (2, 1, 1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -417,7 +425,7 @@ Soit $\mathbf{X}$ de forme $(n, p)$, quelconque, et $\lambda > 0$.
 2. Soit $\mathbf{v}$ tel que $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$. En multipliant à gauche par $\mathbf{v}^\top$, montre que $\mathbf{v} = \mathbf{0}$.
 3. Conclus que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ est inversible (M09a §8 : si $\mathbf{M}\mathbf{v} = \mathbf{0}$ n'a que la solution $\mathbf{v} = \mathbf{0}$, aucune colonne de la matrice carrée $\mathbf{M}$ n'est une combinaison des autres).
 4. Calcule le gradient de $L_\lambda(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2 + \lambda\lVert \mathbf{w} \rVert^2$ et montre que son unique point critique est la solution de ridge.
-5. Avec $\mathbf{X} = \begin{pmatrix} 1 & 3 \cr 2 & 6 \end{pmatrix}$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
+5. Avec $`\mathbf{X} = \begin{pmatrix} 1 & 3 \cr 2 & 6 \end{pmatrix}`$, montre que $\mathbf{X}^\top\mathbf{X}$ n'est pas inversible, et que $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ l'est pour $\lambda = 1$.
 6. Trouve, pour cette matrice, une valeur de $\lambda < 0$ pour laquelle $\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}$ n'est pas inversible.
 
 ### Ex M09b.17 — Un bruit gaussien mène aux moindres carrés : le maximum de vraisemblance ∂ ★★ ⏱️ 20 min
@@ -446,7 +454,7 @@ On suppose $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ pour $i = 1, \l
 **Prérequis :** fiche §4 ; R8 (combinaisons) · **Parcours :** C
 
 1. Explique pourquoi les monômes $x_1^{k_1}\cdots x_p^{k_p}$ de degré exactement $k$ correspondent aux $p$-uplets d'entiers $(k_1, \ldots, k_p) \ge 0$ de somme $k$.
-2. Représente un tel $p$-uplet par une suite de $k$ étoiles et de $p - 1$ barres (par exemple, pour $p = 3$ et $k = 4$, $\star\star|\thinspace|\star\star$ code $(2, 0, 2)$). Montre que c'est une bijection, et déduis-en qu'il y a $\binom{k + p - 1}{k}$ monômes de degré exactement $k$.
+2. Représente un tel $p$-uplet par une suite de $k$ étoiles et de $p - 1$ barres (par exemple, pour $p = 3$ et $k = 4$, $\star\star|\thinspace|\star\star$ code $(2, 0, 2){}$). Montre que c'est une bijection, et déduis-en qu'il y a $\binom{k + p - 1}{k}$ monômes de degré exactement $k$.
 3. Un monôme de degré **au plus** $d$ en $p$ variables correspond à un $(p+1)$-uplet $(k_0, k_1, \ldots, k_p)$ de somme exactement $d$ : lequel ? Déduis-en qu'il y en a $\binom{p + d}{d}$.
 4. Vérifie la formule pour $p = 2$ et $d = 2$ en écrivant tous les monômes.
 5. Déduis de 2 et 3 l'identité $\sum_{k=0}^{d}\binom{k + p - 1}{k} = \binom{p + d}{d}$.
@@ -462,7 +470,9 @@ On suppose $y_i = \mathbf{x}_i \cdot \mathbf{w} + \varepsilon_i$ pour $i = 1, \l
 
 Un modèle linéaire avec ordonnée à l'origine, $\hat{y} = w_0 + w_1x_1 + w_2x_2$, reçoit un batch de quatre exemples :
 
-$$\mathbf{X} = \begin{pmatrix} 1 & 2 & 1 \cr 1 & 0 & -1 \cr 1 & 1 & 3 \cr 1 & -1 & 0 \end{pmatrix}, \qquad \mathbf{y} = (3, 0, 1, 1), \qquad \mathbf{w} = (0{,}5 ;\ 1 ;\ -1).$$
+```math
+\mathbf{X} = \begin{pmatrix} 1 & 2 & 1 \cr 1 & 0 & -1 \cr 1 & 1 & 3 \cr 1 & -1 & 0 \end{pmatrix}, \qquad \mathbf{y} = (3, 0, 1, 1), \qquad \mathbf{w} = (0{,}5 ;\ 1 ;\ -1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|

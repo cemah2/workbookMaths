@@ -206,7 +206,7 @@ $\mathbf{J}_{f \circ g}(\mathbf{p}) = \mathbf{J}_f\big(g(\mathbf{p})\big)\thinsp
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{J}_g = \begin{pmatrix} y & x \cr 1 & 1 \end{pmatrix}$ et $\mathbf{J}_f = \begin{pmatrix} 2u & 0 \cr 1 & -1 \end{pmatrix}$, en $(u, v) = g(-1, 4)$.
+$`\mathbf{J}_g = \begin{pmatrix} y & x \cr 1 & 1 \end{pmatrix}`$ et $`\mathbf{J}_f = \begin{pmatrix} 2u & 0 \cr 1 & -1 \end{pmatrix}`$, en $(u, v) = g(-1, 4)$.
 
 </details>
 
@@ -259,7 +259,7 @@ Relis « Multiplier par un complexe : une rotation et une homothétie » (§2).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} a & -b \cr b & a \end{pmatrix}$ est la multiplication par $a + ib$, de valeurs propres $a \pm ib$. Écris $a + ib = r\thinspace e^{i\theta}$, puis $\mathbf{M}^t = r^t\thinspace\mathbf{R}_{t\theta}$.
+$`\begin{pmatrix} a & -b \cr b & a \end{pmatrix}`$ est la multiplication par $a + ib$, de valeurs propres $a \pm ib$. Écris $a + ib = r\thinspace e^{i\theta}$, puis $\mathbf{M}^t = r^t\thinspace\mathbf{R}_{t\theta}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -349,7 +349,7 @@ Relis « La jacobienne d'un état par rapport à un état antérieur » (§6).
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{J}_f(x, y) = \begin{pmatrix} -2{,}8\thinspace x & 1 \cr 0{,}3 & 0 \end{pmatrix}$ ; $\frac{\partial\mathbf{x}_3}{\partial\mathbf{x}_0} = \mathbf{J}_f(\mathbf{x}_2)\thinspace\mathbf{J}_f(\mathbf{x}_1)\thinspace\mathbf{J}_f(\mathbf{x}_0)$, chaque jacobienne au point où $f$ est appliquée.
+$`\mathbf{J}_f(x, y) = \begin{pmatrix} -2{,}8\thinspace x & 1 \cr 0{,}3 & 0 \end{pmatrix}`$ ; $\frac{\partial\mathbf{x}_3}{\partial\mathbf{x}_0} = \mathbf{J}_f(\mathbf{x}_2)\thinspace\mathbf{J}_f(\mathbf{x}_1)\thinspace\mathbf{J}_f(\mathbf{x}_0)$, chaque jacobienne au point où $f$ est appliquée.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -412,7 +412,7 @@ Relis la définition d'une norme induite et l'encadré des propriétés (§4) : 
 </details>
 <details><summary>Indice 3</summary>
 
-2. Pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ : sinon $\lambda\mathbf{v} = \mathbf{0}$. Contre-exemple : $\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$. 5. Applique 4 à un vecteur propre $\mathbf{v} \in \mathbb{C}^n$ de $\lambda$, avec $\lvert\lambda\rvert = \rho(\mathbf{A})$. 6. Une matrice nilpotente, puis une matrice diagonale.
+2. Pourquoi $\mathbf{A}\mathbf{v} \ne \mathbf{0}$ : sinon $\lambda\mathbf{v} = \mathbf{0}$. Contre-exemple : $`\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}`$. 5. Applique 4 à un vecteur propre $\mathbf{v} \in \mathbb{C}^n$ de $\lambda$, avec $\lvert\lambda\rvert = \rho(\mathbf{A})$. 6. Une matrice nilpotente, puis une matrice diagonale.
 
 </details>
 
@@ -479,7 +479,7 @@ Relis « Une récurrence pour la dérivée » (§7), puis le théorème du §1 e
 </details>
 <details><summary>Indice 2</summary>
 
-1. $\beta \mapsto (\mathbf{x}_t(\beta), \beta)$ a pour jacobienne la colonne $(\mathbf{s}_t ; 1)$ ; $f$ a pour jacobienne $\begin{pmatrix} \mathbf{J}_t & \mathbf{b}_t \end{pmatrix}$. 2. Comme la preuve du §1, avec des matrices qui changent.
+1. $\beta \mapsto (\mathbf{x}_t(\beta), \beta)$ a pour jacobienne la colonne $(\mathbf{s}_t ; 1)$ ; $f$ a pour jacobienne $`\begin{pmatrix} \mathbf{J}_t & \mathbf{b}_t \end{pmatrix}`$. 2. Comme la preuve du §1, avec des matrices qui changent.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -524,7 +524,7 @@ Le guide de lecture de MML de la fiche : lis le passage *Graphical Intuition in 
 </details>
 <details><summary>Indice 3</summary>
 
-2. La définition 4.6 cherche $\lambda$ dans $\mathbb{R}$. 3. $\mathbf{A}_2^t = \begin{pmatrix} 1 & t/2 \cr 0 & 1 \end{pmatrix}$. 6. Cherche les deux mots qui accompagnent *multiplicity* autour de l'exemple 4.6. 7. Les valeurs propres de $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$ sont $a \pm c$.
+2. La définition 4.6 cherche $\lambda$ dans $\mathbb{R}$. 3. $`\mathbf{A}_2^t = \begin{pmatrix} 1 & t/2 \cr 0 & 1 \end{pmatrix}`$. 6. Cherche les deux mots qui accompagnent *multiplicity* autour de l'exemple 4.6. 7. Les valeurs propres de $`\begin{pmatrix} a & c \cr c & a \end{pmatrix}`$ sont $a \pm c$.
 
 </details>
 

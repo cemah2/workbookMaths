@@ -69,13 +69,17 @@ Vocabulaire anglais de ce chapitre : *Gram matrix*, *second-moment matrix*, *cla
 ### Tous les produits scalaires d'une famille
 
 Trois sondes d'un entrepôt frigorifique relèvent, chaque heure pendant cinq heures, leur écart à la température de consigne, en °C. Chaque sonde donne un vecteur de $\mathbb{R}^5$ ; on les range en lignes :
-$$\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 & -1 & -2 \cr 1 & 2 & 0 & -2 & -1 \cr -1 & 0 & 2 & 0 & -1 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 & -1 & -2 \cr 1 & 2 & 0 & -2 & -1 \cr -1 & 0 & 2 & 0 & -1 \end{pmatrix}.
+```
 
 > **Définition.** La **matrice de Gram** (*Gram matrix*) d'une famille de vecteurs $\mathbf{x}_1, \ldots, \mathbf{x} _n$ de $\mathbb{R}^d$, rangés en lignes d'une matrice $\mathbf{X}$ de forme $(n, d)$, est la matrice $n \times n$ de leurs produits scalaires :
 > $$\mathbf{G} = \mathbf{X}\mathbf{X}^\top, \qquad G _{ij} = \mathbf{x}_i^\top\mathbf{x}_j .$$
 
 Pour les sondes, $G_{12} = 2 \times 1 + 1 \times 2 + 0 + (-1)(-2) + (-2)(-1) = 8$, et en tout
-$$\mathbf{G} = \begin{pmatrix} 10 & 8 & 0 \cr 8 & 10 & 0 \cr 0 & 0 & 6 \end{pmatrix}.$$
+```math
+\mathbf{G} = \begin{pmatrix} 10 & 8 & 0 \cr 8 & 10 & 0 \cr 0 & 0 & 6 \end{pmatrix}.
+```
 
 Tu connais déjà ses propriétés. Elle est symétrique. Elle est **semi-définie positive** : $\mathbf{v}^\top\mathbf{G}\mathbf{v} = \lVert\mathbf{X}^\top\mathbf{v}\rVert^2 \ge 0$ (M12c.17). Sa diagonale porte les carrés des normes, $G_{ii} = \lVert\mathbf{x}_i\rVert^2$. Son rang est celui de $\mathbf{X}$, au plus $\min(n, d)$. Et c'est la matrice de Gram du noyau linéaire de M13b, `polynomial_kernel(X, X, 1, 0)`. Le §2 montre la réciproque : toute matrice symétrique semi-définie positive est une matrice de Gram.
 
@@ -85,7 +89,7 @@ La même matrice $\mathbf{X}$ donne une seconde matrice de Gram, $\mathbf{X}^\to
 
 > **Propriété** (M12d). $\mathbf{X}\mathbf{X}^\top$ et $\mathbf{X}^\top\mathbf{X}$ ont les mêmes valeurs propres non nulles, avec les mêmes multiplicités ; leurs autres valeurs propres sont nulles.
 
-L'idée : si $\mathbf{X}\mathbf{X}^\top\mathbf{v} = \lambda\mathbf{v}$ avec $\lambda \ne 0$, alors $\mathbf{w} = \mathbf{X}^\top\mathbf{v}$ n'est pas nul et $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top(\mathbf{X}\mathbf{X}^\top\mathbf{v}) = \lambda\mathbf{w}$. Pour les sondes, le bloc $\begin{pmatrix} 10 & 8 \cr 8 & 10 \end{pmatrix}$ a pour valeurs propres $18$ (vecteur $(1, 1)$) et $2$ (vecteur $(1, -1)$), et la troisième sonde ajoute $6$ : $\mathbf{G}$ a pour valeurs propres 18, 6 et 2, et $\mathbf{X}^\top\mathbf{X}$ a 18, 6, 2, 0 et 0. Les deux traces valent 26, la somme des carrés des quinze nombres de $\mathbf{X}$.
+L'idée : si $\mathbf{X}\mathbf{X}^\top\mathbf{v} = \lambda\mathbf{v}$ avec $\lambda \ne 0$, alors $\mathbf{w} = \mathbf{X}^\top\mathbf{v}$ n'est pas nul et $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top(\mathbf{X}\mathbf{X}^\top\mathbf{v}) = \lambda\mathbf{w}$. Pour les sondes, le bloc $`\begin{pmatrix} 10 & 8 \cr 8 & 10 \end{pmatrix}`$ a pour valeurs propres $18$ (vecteur $(1, 1){}$) et $2$ (vecteur $(1, -1){}$), et la troisième sonde ajoute $6$ : $\mathbf{G}$ a pour valeurs propres 18, 6 et 2, et $\mathbf{X}^\top\mathbf{X}$ a 18, 6, 2, 0 et 0. Les deux traces valent 26, la somme des carrés des quinze nombres de $\mathbf{X}$.
 
 ### Diviser par le nombre d'échantillons : la matrice des moments d'ordre 2
 
@@ -96,7 +100,9 @@ Lisons maintenant les colonnes comme des **échantillons** : à l'heure $k$, le 
 > la moyenne, sur les échantillons, du produit des mesures $i$ et $j$.
 
 Pour les sondes, $N = 5$ et
-$$\mathbf{M} = \begin{pmatrix} 2 & 1{,}6 & 0 \cr 1{,}6 & 2 & 0 \cr 0 & 0 & 1{,}2 \end{pmatrix} \ (\text{°C}^2).$$
+```math
+\mathbf{M} = \begin{pmatrix} 2 & 1{,}6 & 0 \cr 1{,}6 & 2 & 0 \cr 0 & 0 & 1{,}2 \end{pmatrix} \ (\text{°C}^2).
+```
 Ici chaque ligne de $\mathbf{X}$ est de moyenne nulle : ce sont des écarts dont la somme sur les cinq heures vaut 0. Alors $\mathbf{M}$ est exactement la **matrice de covariance** des trois sondes, avec le facteur $\frac1N$ (M02c). En général, on centre d'abord chaque ligne (on lui retire sa moyenne sur les $N$ échantillons) pour obtenir la covariance. Le coefficient $1{,}6$ dit que les sondes 1 et 2 varient ensemble ; le 0 dit que la troisième varie sans lien linéaire avec elles.
 
 Diviser par $N$ rend comparables des séries de longueurs différentes : une somme de produits grandit avec le nombre d'échantillons, une moyenne non. Avec les échantillons en lignes, comme dans un dataset, la même matrice s'écrit $\frac1N\tilde{\mathbf{X}}^\top\tilde{\mathbf{X}}$, où $\tilde{\mathbf{X}} = \mathbf{X}^\top$.
@@ -136,16 +142,20 @@ On ne connaît que les distances, mesurées au télémètre. Plaçons l'origine 
 *Démonstration.* Notons $\mathbf{g}$ le vecteur de la diagonale de $\mathbf{G}$. La formule des distances s'écrit $\mathbf{D}^{(2)} = \mathbf{g}\mathbf{1}^\top + \mathbf{1}\mathbf{g}^\top - 2\mathbf{G}$. Comme $\mathbf{J}\mathbf{1} = \mathbf{0}$, les deux premiers termes disparaissent : $\mathbf{J}\mathbf{D}^{(2)}\mathbf{J} = -2\thinspace\mathbf{J}\mathbf{G}\mathbf{J}$. Les points étant centrés, $\mathbf{X}^\top\mathbf{1} = \sum_i\mathbf{x}_i = \mathbf{0}$, donc $\mathbf{G}\mathbf{1} = \mathbf{0}$ et $\mathbf{1}^\top\mathbf{G} = \mathbf{0}^\top$ : $\mathbf{J}\mathbf{G}\mathbf{J} = \mathbf{G}$. $\square$
 
 **Exemple : trois capteurs.** Trois capteurs A, B et C sont posés sur un terrain : AB $= 8$ m, AC $=$ BC $= 5$ m. Alors
-$$\mathbf{D}^{(2)} = \begin{pmatrix} 0 & 64 & 25 \cr 64 & 0 & 25 \cr 25 & 25 & 0 \end{pmatrix}, \qquad r = \Big(\frac{89}{3}, \frac{89}{3}, \frac{50}{3}\Big), \qquad s = \frac{228}{9} = \frac{76}{3}.$$
+```math
+\mathbf{D}^{(2)} = \begin{pmatrix} 0 & 64 & 25 \cr 64 & 0 & 25 \cr 25 & 25 & 0 \end{pmatrix}, \qquad r = \Big(\frac{89}{3}, \frac{89}{3}, \frac{50}{3}\Big), \qquad s = \frac{228}{9} = \frac{76}{3}.
+```
 $G_{11} = -\frac12\big(0 - \frac{178}{3} + \frac{76}{3}\big) = 17$, $G_{12} = -\frac12\big(64 - \frac{178}{3} + \frac{76}{3}\big) = -\frac12(64 - 34) = -15$, $G_{13} = -\frac12\big(25 - \frac{139}{3} + \frac{76}{3}\big) = -\frac12(25 - 21) = -2$, $G_{33} = -\frac12\big(0 - \frac{100}{3} + \frac{76}{3}\big) = 4$, et les autres par la symétrie entre A et B :
-$$\mathbf{G} = \begin{pmatrix} 17 & -15 & -2 \cr -15 & 17 & -2 \cr -2 & -2 & 4 \end{pmatrix}.$$
+```math
+\mathbf{G} = \begin{pmatrix} 17 & -15 & -2 \cr -15 & 17 & -2 \cr -2 & -2 & 4 \end{pmatrix}.
+```
 Chaque ligne a une somme nulle, comme il se doit pour des points centrés.
 
 ### De la matrice de Gram aux positions
 
 > **Propriété** (des positions de matrice de Gram donnée). Soit $\mathbf{G}$ symétrique semi-définie positive, diagonalisée en $\mathbf{G} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ (théorème spectral, M12c), $\lambda_1 \ge \cdots \ge \lambda_n \ge 0$. La matrice $\mathbf{X}$ dont la colonne $k$ est $\sqrt{\lambda_k}\thinspace\mathbf{q}_k$ vérifie $\mathbf{X}\mathbf{X}^\top = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top = \mathbf{G}$ : ses lignes sont des points de matrice de Gram $\mathbf{G}$. On garde autant de colonnes que de valeurs propres non nulles, le rang de $\mathbf{G}$ : c'est la dimension de la configuration.
 
-Pour les capteurs, les valeurs propres sont 32, 6 et 0, de vecteurs propres unitaires $\mathbf{q}_1 = \frac{1}{\sqrt2}(1, -1, 0)$ et $\mathbf{q}_2 = \frac{1}{\sqrt6}(1, 1, -2)$ (vérifie : $\mathbf{G}(1, -1, 0) = (32, -32, 0)$). Les colonnes $\sqrt{32}\thinspace\mathbf{q}_1 = (4, -4, 0)$ et $\sqrt6\thinspace\mathbf{q}_2 = (1, 1, -2)$ donnent $A = (4, 1)$, $B = (-4, 1)$, $C = (0, -2)$ : AB $= 8$ et AC $= \sqrt{16 + 9} = 5$. La troisième valeur propre est nulle : la configuration est plane. La carte est juste à une isométrie près, et son symétrique par rapport à l'axe horizontal convient tout autant. C'est ce que calcule `points_from_gram` (🔨 M28.13), qui fixe le signe de chaque colonne. Double centrage des carrés des distances, puis théorème spectral : c'est le **positionnement multidimensionnel classique** (*classical multidimensional scaling*), le chapitre 12 de Borg et Groenen.
+Pour les capteurs, les valeurs propres sont 32, 6 et 0, de vecteurs propres unitaires $\mathbf{q}_1 = \frac{1}{\sqrt2}(1, -1, 0)$ et $\mathbf{q}_2 = \frac{1}{\sqrt6}(1, 1, -2)$ (vérifie : $\mathbf{G}(1, -1, 0) = (32, -32, 0){}$). Les colonnes $\sqrt{32}\thinspace\mathbf{q}_1 = (4, -4, 0)$ et $\sqrt6\thinspace\mathbf{q}_2 = (1, 1, -2)$ donnent $A = (4, 1)$, $B = (-4, 1)$, $C = (0, -2)$ : AB $= 8$ et AC $= \sqrt{16 + 9} = 5$. La troisième valeur propre est nulle : la configuration est plane. La carte est juste à une isométrie près, et son symétrique par rapport à l'axe horizontal convient tout autant. C'est ce que calcule `points_from_gram` (🔨 M28.13), qui fixe le signe de chaque colonne. Double centrage des carrés des distances, puis théorème spectral : c'est le **positionnement multidimensionnel classique** (*classical multidimensional scaling*), le chapitre 12 de Borg et Groenen.
 
 Pour une matrice de Gram centrée, ces colonnes sont les **scores de l'ACP** des points (M12d) : la première suit la direction où le nuage s'étale le plus, ici la base AB.
 
@@ -209,7 +219,9 @@ Dans trois cas, on sait d'avance où la montée arrive.
 **Une forme linéaire** $f(\mathbf{x}) = \mathbf{w}^\top\mathbf{x}$. Sur la boule $\lVert\mathbf{x}\rVert \le r$, le maximum vaut $r\lVert\mathbf{w}\rVert$, atteint en $r\thinspace\mathbf{w}/\lVert\mathbf{w}\rVert$ (Cauchy-Schwarz ; M21 a fait la boule L∞). Sur le pavé $[0, 1]^n$, les termes $w_ix_i$ sont indépendants : $x_i = 1$ si $w_i > 0$, $x_i = 0$ si $w_i < 0$, un sommet. Pour l'épargnant : $(1, 0, 1)$ et 12 centaines d'euros sur le pavé. Si la seule contrainte était $\lVert\mathbf{x}\rVert \le 1$, ce serait $\big(\frac49, -\frac19, \frac89\big)$ et 9 centaines d'euros, avec une fraction négative, impossible ici.
 
 **Une forme quadratique sur la sphère** $f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x}$, $\mathbf{A}$ symétrique. Sur la sphère $\lVert\mathbf{x}\rVert = 1$, le maximum vaut $\lambda_{\max}$, atteint en un vecteur propre unitaire de $\lambda_{\max}$ (quotient de Rayleigh, M12c). C'est la forme qu'on obtient en moyennant des carrés de réponses linéaires : $\frac1m\sum_{k=1}^{m}(\mathbf{w}_k^\top\mathbf{x})^2 = \mathbf{x}^\top\mathbf{A}\mathbf{x}$ avec $\mathbf{A} = \frac1m\mathbf{W}^\top\mathbf{W}$, où $\mathbf{W}$ a pour lignes les $\mathbf{w}_k$. Deux capteurs de vibration lisent les réponses $z_1 = x_1 + 4x_2$ et $z_2 = 3x_1$ d'une excitation $\mathbf{x}$ de norme 1 :
-$$\tfrac12(z_1^2 + z_2^2) = 5x_1^2 + 4x_1x_2 + 8x_2^2 = \mathbf{x}^\top\mathbf{A}\mathbf{x}, \qquad \mathbf{A} = \begin{pmatrix} 5 & 2 \cr 2 & 8 \end{pmatrix} = \frac12\mathbf{W}^\top\mathbf{W}, \quad \mathbf{W} = \begin{pmatrix} 1 & 4 \cr 3 & 0 \end{pmatrix}.$$
+```math
+\tfrac12(z_1^2 + z_2^2) = 5x_1^2 + 4x_1x_2 + 8x_2^2 = \mathbf{x}^\top\mathbf{A}\mathbf{x}, \qquad \mathbf{A} = \begin{pmatrix} 5 & 2 \cr 2 & 8 \end{pmatrix} = \frac12\mathbf{W}^\top\mathbf{W}, \quad \mathbf{W} = \begin{pmatrix} 1 & 4 \cr 3 & 0 \end{pmatrix}.
+```
 Ses valeurs propres sont 9 et 4 (trace 13, déterminant 36), et le maximum, 9, est atteint en $\pm\frac{1}{\sqrt5}(1, 2)$ : $\mathbf{A}(1, 2) = (9, 18)$.
 
 > **Propriété.** La montée de gradient sur $\mathbf{x}^\top\mathbf{A}\mathbf{x}$ suivie d'une renormalisation, $\mathbf{y} = \mathbf{x}_t + \eta\cdot 2\mathbf{A}\mathbf{x} _t$ puis $\mathbf{x} _{t+1} = \mathbf{y}/\lVert\mathbf{y}\rVert$, est la **méthode de la puissance** (*power iteration*, M12c) pour la matrice $\mathbf{I} + 2\eta\mathbf{A}$.
@@ -239,7 +251,9 @@ Des mesures rangées sur une grille, les températures d'une plaque ou les altit
 > où l'on ne compte que les paires de cases voisines qui sont dans la grille. Pour un signal (une seule ligne), $\mathrm{VT}(\mathbf{x}) = \sum_j(x_{j+1} - x_j)^2$. La **variation totale en valeur absolue** remplace les carrés par des valeurs absolues (pour un signal, c'est la variation totale de Rudin, Osher et Fatemi ; sur une grille, ils additionnent plutôt, case par case, $\sqrt{a^2 + b^2}$ pour ses deux différences $a$ et $b$).
 
 **Exemple : une plaque chauffée dans un coin.** Ses températures, en °C, sur une grille $2 \times 3$ :
-$$\mathbf{x} = \begin{pmatrix} 1 & 2 & 4 \cr 1 & 3 & 7 \end{pmatrix}.$$
+```math
+\mathbf{x} = \begin{pmatrix} 1 & 2 & 4 \cr 1 & 3 & 7 \end{pmatrix}.
+```
 Différences horizontales : 1 et 2 sur la première ligne, 2 et 4 sur la seconde, d'où $1 + 4 + 4 + 16 = 25$ ; verticales : 0, 1 et 3, d'où $0 + 1 + 9 = 10$. Donc $\mathrm{VT}(\mathbf{x}) = 35$.
 
 ### Une forme quadratique : le laplacien de la grille
@@ -251,13 +265,17 @@ Chaque paire de voisins est une arête $(a, b)$ d'un graphe, et $(x_a - x_b)^2 =
 > et pour une case intérieure, $(\mathbf{L}\mathbf{x})  _{ij} = 4x  _{ij} - x _{i-1,j} - x _{i+1,j} - x _{i,j-1} - x _{i,j+1}$ : le pochoir du laplacien discret de M21 (pour un pas de grille de 1), au signe près.
 
 $\mathbf{L}$ est symétrique, semi-définie positive ($\mathbf{x}^\top\mathbf{L}\mathbf{x}$ est une somme de carrés), et son noyau est fait des grilles **constantes** : $\mathrm{VT}(\mathbf{x}) = 0$ si et seulement si tous les voisins sont égaux, et la grille est d'un seul tenant. Son gradient vaut $\nabla\mathrm{VT}(\mathbf{x}) = 2\mathbf{L}\mathbf{x}$ (M18). Pour la plaque :
-$$\mathbf{L}\mathbf{x} = \begin{pmatrix} -1 & -2 & -1 \cr -2 & -1 & 7 \end{pmatrix}$$
+```math
+\mathbf{L}\mathbf{x} = \begin{pmatrix} -1 & -2 & -1 \cr -2 & -1 & 7 \end{pmatrix}
+```
 (par exemple, au coin chaud, $2 \times 7 - (4 + 3) = 7$). Vérifie : $\mathbf{x}^\top\mathbf{L}\mathbf{x} = -1 - 4 - 4 - 2 - 3 + 49 = 35$, et la somme des coefficients de $\mathbf{L}\mathbf{x}$ est nulle ($\mathbf{1}^\top\mathbf{L} = \mathbf{0}^\top$).
 
 ### Descendre sur la variation totale : lisser
 
 Un pas de descente, $\mathbf{x} \leftarrow \mathbf{x} - \eta\cdot 2\mathbf{L}\mathbf{x}$, donne à une case intérieure la valeur $(1 - 8\eta)\thinspace x_{ij} + 2\eta\thinspace(x_{i-1,j} + x_{i+1,j} + x_{i,j-1} + x_{i,j+1})$ : pour $\eta \le \frac18$, une moyenne pondérée de la case et de ses voisines. C'est un pas de **diffusion** (*diffusion*) : la chaleur se répand vers les cases plus froides, et la moyenne ne change pas ($\mathbf{1}^\top\mathbf{L}\mathbf{x} = 0$). Pour la plaque, avec $\eta = 0{,}1$ :
-$$\mathbf{x} - 0{,}2\thinspace\mathbf{L}\mathbf{x} = \begin{pmatrix} 1{,}2 & 2{,}4 & 4{,}2 \cr 1{,}4 & 3{,}2 & 5{,}6 \end{pmatrix} :$$
+```math
+\mathbf{x} - 0{,}2\thinspace\mathbf{L}\mathbf{x} = \begin{pmatrix} 1{,}2 & 2{,}4 & 4{,}2 \cr 1{,}4 & 3{,}2 & 5{,}6 \end{pmatrix} :
+```
 le coin chaud passe de 7 à 5,6 °C, les autres cases se réchauffent, la moyenne reste 3 °C, et la variation totale tombe de 35 à 16,32.
 
 > **Pas critique** (*critical step size*, M19). La hessienne de $\mathrm{VT}$ est $2\mathbf{L}$ : la descente est stable si et seulement si $\eta < \frac{2}{\lambda_{\max}(2\mathbf{L})} = \frac{1}{\lambda_{\max}(\mathbf{L})}$. Comme $\lambda_{\max}(\mathbf{L}) \le \lVert\mathbf{L}\rVert_\infty = 2\max_a\deg a$ (M22), $\lambda_{\max}(\mathbf{L}) \le 4$ pour un signal et $\le 8$ pour une grille. Pour la plaque, $\lambda_{\max}(\mathbf{L}) = 5$ (calcul numérique) : il faut $\eta < 0{,}2$. Au-delà, le motif le plus agité change de signe et grandit à chaque pas.

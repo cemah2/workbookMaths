@@ -18,7 +18,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M12c.Q1 — Ce que mesure un déterminant 🧠 ★ ⏱️ 4 min
 *Fiche §1 · parcours C, E*
 
-1. $\mathbf{A} = \begin{pmatrix} 2 & 0 \cr 0 & 3 \end{pmatrix}$ : en quoi le carré unité est-il envoyé, et quelle est son aire ?
+1. $`\mathbf{A} = \begin{pmatrix} 2 & 0 \cr 0 & 3 \end{pmatrix}`$ : en quoi le carré unité est-il envoyé, et quelle est son aire ?
 2. Que dit un déterminant **négatif** de l'application ?
 3. Une matrice $2 \times 2$ de déterminant nul envoie le plan sur quoi ?
 4. $\det\mathbf{A} = 5$ : que devient l'aire d'un triangle d'aire 2 ?
@@ -40,17 +40,17 @@ Pour des matrices carrées $\mathbf{A}$, $\mathbf{B}$ de taille $n$ et $\mathbf{
 ### M12c.Q3 — Reconnaître un vecteur propre 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-$\mathbf{M} = \begin{pmatrix} 6 & -2 \cr 6 & -1 \end{pmatrix}$. Pour chaque vecteur, dis s'il est vecteur propre de $\mathbf{M}$ et, si oui, de quelle valeur propre : $(2, 3)$, $(1, 2)$, $(1, 1)$, $(0, 0)$, $(-4, -6)$, $(1, 0)$. Puis : que valent la trace et le déterminant de $\mathbf{M}$, et sont-ils cohérents avec tes valeurs propres ?
+$`\mathbf{M} = \begin{pmatrix} 6 & -2 \cr 6 & -1 \end{pmatrix}`$. Pour chaque vecteur, dis s'il est vecteur propre de $\mathbf{M}$ et, si oui, de quelle valeur propre : $(2, 3)$, $(1, 2)$, $(1, 1)$, $(0, 0)$, $(-4, -6)$, $(1, 0)$. Puis : que valent la trace et le déterminant de $\mathbf{M}$, et sont-ils cohérents avec tes valeurs propres ?
 
 ### M12c.Q4 — Diagonalisable ou pas ? 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
 
 Diagonalisable avec des nombres réels, ou pas ? Justifie en une ligne.
-1. $\begin{pmatrix} 2 & 0 \cr 0 & 2 \end{pmatrix}$.
-2. $\begin{pmatrix} 2 & 1 \cr 0 & 2 \end{pmatrix}$.
-3. $\begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}$.
-4. $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$.
-5. $\begin{pmatrix} 1 & 4 \cr 4 & 2 \end{pmatrix}$.
+1. $`\begin{pmatrix} 2 & 0 \cr 0 & 2 \end{pmatrix}`$.
+2. $`\begin{pmatrix} 2 & 1 \cr 0 & 2 \end{pmatrix}`$.
+3. $`\begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}`$.
+4. $`\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$.
+5. $`\begin{pmatrix} 1 & 4 \cr 4 & 2 \end{pmatrix}`$.
 6. Une matrice $3 \times 3$ de valeurs propres $1$, $-2$ et $5$.
 
 ### M12c.Q5 — Ce que garantit le théorème spectral 🧠 ★ ⏱️ 4 min
@@ -68,11 +68,11 @@ Vrai ou faux ?
 *Fiche §7 · parcours C, E*
 
 Classe chaque matrice : définie positive, semi-définie positive (sans être définie), définie négative, ou indéfinie.
-1. $\begin{pmatrix} 2 & 1 \cr 1 & 5 \end{pmatrix}$.
-2. $\begin{pmatrix} 4 & 6 \cr 6 & 9 \end{pmatrix}$.
-3. $\begin{pmatrix} 0 & 3 \cr 3 & 4 \end{pmatrix}$.
-4. $\begin{pmatrix} -1 & 0 \cr 0 & -4 \end{pmatrix}$.
-5. $\begin{pmatrix} 5 & 6 \cr 6 & 7 \end{pmatrix}$.
+1. $`\begin{pmatrix} 2 & 1 \cr 1 & 5 \end{pmatrix}`$.
+2. $`\begin{pmatrix} 4 & 6 \cr 6 & 9 \end{pmatrix}`$.
+3. $`\begin{pmatrix} 0 & 3 \cr 3 & 4 \end{pmatrix}`$.
+4. $`\begin{pmatrix} -1 & 0 \cr 0 & -4 \end{pmatrix}`$.
+5. $`\begin{pmatrix} 5 & 6 \cr 6 & 7 \end{pmatrix}`$.
 6. $\operatorname{diag}(3, 0, 1)$.
 
 ### M12c.Q7 — Cholesky, racine carrée, blanchiment : qui est quoi ? 🧠 ★ ⏱️ 4 min
@@ -101,7 +101,7 @@ $\boldsymbol{\Sigma}$ est symétrique définie positive, $\boldsymbol{\Sigma} = 
 ### M12c.R1 — Le rang et le noyau (M12a) 🔁 ★ ⏱️ 5 min
 *Fiche §3 · parcours C, E*
 
-$\mathbf{B} = \begin{pmatrix} 2 & -1 & 3 \cr 4 & -2 & 6 \cr 1 & 0 & 1 \end{pmatrix}$.
+$`\mathbf{B} = \begin{pmatrix} 2 & -1 & 3 \cr 4 & -2 & 6 \cr 1 & 0 & 1 \end{pmatrix}`$.
 1. Le rang de $\mathbf{B}$ ?
 2. Une base de son noyau ?
 3. $\mathbf{B}$ est-elle inversible ?
@@ -111,7 +111,7 @@ $\mathbf{B} = \begin{pmatrix} 2 & -1 & 3 \cr 4 & -2 & 6 \cr 1 & 0 & 1 \end{pmatr
 ### M12c.R2 — Bases orthonormées et matrices orthogonales (M12b) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
 
-$\mathbf{U} = \frac{1}{17}\begin{pmatrix} 8 & -15 \cr 15 & 8 \end{pmatrix}$.
+$`\mathbf{U} = \frac{1}{17}\begin{pmatrix} 8 & -15 \cr 15 & 8 \end{pmatrix}`$.
 1. Vérifie que ses colonnes sont unitaires et orthogonales. Que vaut $\mathbf{U}^\top\mathbf{U}$ ?
 2. $\mathbf{U}^{-1}$ ?
 3. La norme de $\mathbf{U}\mathbf{x}$ pour $\mathbf{x} = (1, 4)$ ?
@@ -136,7 +136,7 @@ Quatre exemples à deux features : $(1, 2)$, $(4, 1)$, $(5, 6)$, $(2, 3)$.
 **Objectif :** calculer des déterminants de petite taille et les lire comme des aires et des volumes orientés.
 **Prérequis :** fiche §1 ; M09a · **Parcours :** C, E
 
-$\mathbf{M} = \begin{pmatrix} 3 & -1 \cr 2 & 4 \end{pmatrix}$ et $\mathbf{N} = \begin{pmatrix} 1 & 2 & -1 \cr 0 & 3 & 2 \cr 2 & 1 & 1 \end{pmatrix}$.
+$`\mathbf{M} = \begin{pmatrix} 3 & -1 \cr 2 & 4 \end{pmatrix}`$ et $`\mathbf{N} = \begin{pmatrix} 1 & 2 & -1 \cr 0 & 3 & 2 \cr 2 & 1 & 1 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -147,7 +147,7 @@ $\mathbf{M} = \begin{pmatrix} 3 & -1 \cr 2 & 4 \end{pmatrix}$ et $\mathbf{N} = \
 | e | vrai ou faux : l'application de matrice $\mathbf{N}$ conserve l'orientation | `True` ou `False` |
 | f | le déterminant de $\mathbf{N}$ après échange de ses lignes 1 et 3 | un nombre |
 | g | $\det(2\mathbf{N})$ | un nombre |
-| h | la valeur de $t$ pour laquelle $\begin{pmatrix} t & 2 & 1 \cr 1 & 1 & 0 \cr 3 & 0 & 1 \end{pmatrix}$ n'est pas inversible | un nombre |
+| h | la valeur de $t$ pour laquelle $`\begin{pmatrix} t & 2 & 1 \cr 1 & 1 & 0 \cr 3 & 0 & 1 \end{pmatrix}`$ n'est pas inversible | un nombre |
 
 Dans ta copie : calcule d) de deux façons, par cofacteurs sur une ligne et par élimination. Pourquoi l'aire de c) ne dépend-elle que de $|\det\mathbf{M}|$, et pas de la position du disque ? Que vaut le volume du parallélépipède construit sur les colonnes de $\mathbf{N}$ ?
 
@@ -155,7 +155,7 @@ Dans ta copie : calcule d) de deux façons, par cofacteurs sur une ligne et par 
 **Objectif :** calculer un déterminant $4 \times 4$ par élimination, en suivant le signe des échanges, et utiliser les propriétés du déterminant.
 **Prérequis :** fiche §1 ; M09a §6 · **Parcours :** C
 
-$\mathbf{F} = \begin{pmatrix} 0 & 2 & 1 & 3 \cr 1 & 1 & 0 & 2 \cr 2 & 4 & 3 & 1 \cr -1 & 0 & 2 & 2 \end{pmatrix}$. On échange d'abord les lignes 1 et 2, puis on élimine sous chaque pivot sans autre échange.
+$`\mathbf{F} = \begin{pmatrix} 0 & 2 & 1 & 3 \cr 1 & 1 & 0 & 2 \cr 2 & 4 & 3 & 1 \cr -1 & 0 & 2 & 2 \end{pmatrix}`$. On échange d'abord les lignes 1 et 2, puis on élimine sous chaque pivot sans autre échange.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -173,7 +173,7 @@ Dans ta copie : pourquoi faut-il un échange au départ ? Vérifie c) en dévelo
 **Objectif :** calculer les valeurs et vecteurs propres d'une matrice $2 \times 2$ par le polynôme caractéristique, et en déduire ceux de matrices voisines.
 **Prérequis :** fiche §3 ; M12a §6 · **Parcours :** C, E
 
-$\mathbf{M} = \begin{pmatrix} 5 & 6 \cr 3 & -2 \end{pmatrix}$.
+$`\mathbf{M} = \begin{pmatrix} 5 & 6 \cr 3 & -2 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -192,7 +192,7 @@ Dans ta copie : écris le polynôme caractéristique et factorise-le. Vérifie d
 **Objectif :** lire les valeurs propres d'une matrice triangulaire, calculer des espaces propres en dimension 3, et décider si une matrice à valeur propre double est diagonalisable.
 **Prérequis :** fiche §3 et §4 ; M12a §6 · **Parcours :** C, E
 
-$\mathbf{T} = \begin{pmatrix} 2 & 1 & -1 \cr 0 & -1 & 3 \cr 0 & 0 & 4 \end{pmatrix}$ et $\mathbf{K} = \begin{pmatrix} 6 & -3 & 3 \cr 1 & 2 & 1 \cr 0 & 0 & 3 \end{pmatrix}$.
+$`\mathbf{T} = \begin{pmatrix} 2 & 1 & -1 \cr 0 & -1 & 3 \cr 0 & 0 & 4 \end{pmatrix}`$ et $`\mathbf{K} = \begin{pmatrix} 6 & -3 & 3 \cr 1 & 2 & 1 \cr 0 & 0 & 3 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -211,7 +211,7 @@ Dans ta copie : pourquoi les valeurs propres de $\mathbf{T}$ se lisent-elles sur
 **Objectif :** diagonaliser une matrice $2 \times 2$, et s'en servir pour calculer une puissance, un déterminant et un inverse.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 5 & -12 \cr 1 & -2 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 5 & -12 \cr 1 & -2 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -230,7 +230,7 @@ Dans ta copie : vérifie $\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}$. Vérifie
 **Objectif :** reconnaître une matrice défective par la dimension de son espace propre, et voir pourquoi une rotation n'a pas de valeur propre réelle.
 **Prérequis :** fiche §3 et §4 · **Parcours :** C
 
-$\mathbf{N} = \begin{pmatrix} 5 & -9 \cr 1 & -1 \end{pmatrix}$ et $\mathbf{R}$ la rotation d'angle $60°$, $\mathbf{R} = \begin{pmatrix} \cos 60° & -\sin 60° \cr \sin 60° & \cos 60° \end{pmatrix}$.
+$`\mathbf{N} = \begin{pmatrix} 5 & -9 \cr 1 & -1 \end{pmatrix}`$ et $\mathbf{R}$ la rotation d'angle $60°$, $`\mathbf{R} = \begin{pmatrix} \cos 60° & -\sin 60° \cr \sin 60° & \cos 60° \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -249,7 +249,7 @@ Dans ta copie : pourquoi $\mathbf{N}$ n'a-t-elle pas assez de vecteurs propres, 
 **Objectif :** diagonaliser une matrice symétrique dans une base orthonormée, et écrire sa décomposition spectrale.
 **Prérequis :** fiche §6 ; M12b §2 · **Parcours :** C, E
 
-$\mathbf{S} = \begin{pmatrix} 5 & 10 \cr 10 & 26 \end{pmatrix}$. Les vecteurs propres unitaires se donnent avec leur première coordonnée positive.
+$`\mathbf{S} = \begin{pmatrix} 5 & 10 \cr 10 & 26 \end{pmatrix}`$. Les vecteurs propres unitaires se donnent avec leur première coordonnée positive.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -268,7 +268,7 @@ Dans ta copie : écris $\mathbf{Q}$ et $\boldsymbol{\Lambda}$, et vérifie $\mat
 **Objectif :** calculer des quotients de Rayleigh, et trouver le maximum et le minimum d'une forme quadratique sur les vecteurs unitaires grâce aux valeurs propres.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-$\mathbf{S} = \begin{pmatrix} 17 & 4 \cr 4 & 2 \end{pmatrix}$ et $R(\mathbf{x}) = \dfrac{\mathbf{x}^\top\mathbf{S}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$.
+$`\mathbf{S} = \begin{pmatrix} 17 & 4 \cr 4 & 2 \end{pmatrix}`$ et $R(\mathbf{x}) = \dfrac{\mathbf{x}^\top\mathbf{S}\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -287,7 +287,7 @@ Dans ta copie : écris $\mathbf{x}$ dans la base orthonormée des vecteurs propr
 **Objectif :** dérouler la méthode de la puissance, avec sa normalisation et sa convention de signe, et relier sa vitesse au rapport des valeurs propres.
 **Prérequis :** fiche §5 · **Parcours :** C
 
-$\mathbf{A} = \begin{pmatrix} 2 & 3 \cr 3 & -6 \end{pmatrix}$ et $\mathbf{x} _0 = (1, 1)$. À chaque pas, $\mathbf{x} _{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x} _k \rVert$, puis on change le signe de $\mathbf{x} _{k+1}$ si sa coordonnée de plus grande valeur absolue est négative. (Pour aller vite, calcule les produits sur les vecteurs non normalisés : seule la direction compte.)
+$`\mathbf{A} = \begin{pmatrix} 2 & 3 \cr 3 & -6 \end{pmatrix}`$ et $\mathbf{x} _0 = (1, 1)$. À chaque pas, $\mathbf{x} _{k+1} = \mathbf{A}\mathbf{x}_k/\lVert \mathbf{A}\mathbf{x} _k \rVert$, puis on change le signe de $\mathbf{x} _{k+1}$ si sa coordonnée de plus grande valeur absolue est négative. (Pour aller vite, calcule les produits sur les vecteurs non normalisés : seule la direction compte.)
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -306,7 +306,7 @@ Dans ta copie : sans la convention de signe, que ferait $\mathbf{x}_k$ d'un pas 
 **Objectif :** tester qu'une matrice est définie positive par plusieurs critères, et s'en servir pour prouver qu'une fonction est convexe.
 **Prérequis :** fiche §7 ; M05b §6 et §7 ; M10 · **Parcours :** C, E
 
-$\mathbf{H}_1 = \begin{pmatrix} 4 & -2 & 0 \cr -2 & 3 & 1 \cr 0 & 1 & 2 \end{pmatrix}$, $\mathbf{H}_2 = \begin{pmatrix} 1 & 2 & 0 \cr 2 & 3 & 1 \cr 0 & 1 & 4 \end{pmatrix}$ et $f(x, y) = x^2 + 2xy + 3y^2 + e^x$.
+$`\mathbf{H}_1 = \begin{pmatrix} 4 & -2 & 0 \cr -2 & 3 & 1 \cr 0 & 1 & 2 \end{pmatrix}`$, $`\mathbf{H}_2 = \begin{pmatrix} 1 & 2 & 0 \cr 2 & 3 & 1 \cr 0 & 1 & 4 \end{pmatrix}`$ et $f(x, y) = x^2 + 2xy + 3y^2 + e^x$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -325,7 +325,7 @@ Dans ta copie : que dit d) sur $\mathbf{H}_2$, et est-ce cohérent avec c) ? Éc
 **Objectif :** calculer une décomposition de Cholesky colonne par colonne, et s'en servir pour un déterminant et un système.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & -6 & 2 \cr -6 & 10 & 1 \cr 2 & 1 & 21 \end{pmatrix}$ et $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, $\mathbf{L}$ triangulaire inférieure à diagonale positive.
+$`\mathbf{A} = \begin{pmatrix} 4 & -6 & 2 \cr -6 & 10 & 1 \cr 2 & 1 & 21 \end{pmatrix}`$ et $\mathbf{A} = \mathbf{L}\mathbf{L}^\top$, $\mathbf{L}$ triangulaire inférieure à diagonale positive.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -363,7 +363,7 @@ Dans ta copie : écris $q$ comme une somme de deux carrés dans la base des vect
 **Objectif :** calculer la covariance d'une transformation linéaire, puis trois matrices de blanchiment : par Cholesky, par la racine carrée (ZCA) et par l'ACP.
 **Prérequis :** fiche §8 ; M02c · **Parcours :** C, E
 
-Un vecteur aléatoire $\mathbf{x} = (x_1, x_2)$ a pour covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 36 & -30 \cr -30 & 61 \end{pmatrix}$.
+Un vecteur aléatoire $\mathbf{x} = (x_1, x_2)$ a pour covariance $`\boldsymbol{\Sigma} = \begin{pmatrix} 36 & -30 \cr -30 & 61 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -403,13 +403,13 @@ $\mathbf{A}$ est une matrice symétrique réelle $n \times n$.
 2. Soient $\mathbf{A}\mathbf{u} = \lambda\mathbf{u}$ et $\mathbf{A}\mathbf{v} = \mu\mathbf{v}$ avec $\lambda \ne \mu$ (réels, vecteurs non nuls). Calcule $(\mathbf{A}\mathbf{u}) \cdot \mathbf{v}$ de deux façons et montre que $\mathbf{u} \perp \mathbf{v}$.
 3. Valeurs propres réelles. Soit $\lambda$ une valeur propre, éventuellement complexe, et $\mathbf{z} \ne \mathbf{0}$ un vecteur de $\mathbb{C}^n$ avec $\mathbf{A}\mathbf{z} = \lambda\mathbf{z}$. On note $\bar{\mathbf{z}}$ le vecteur des conjugués. Montre que $\bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z}$ est égal à son propre conjugué (utilise que $\mathbf{A}$ est réelle et symétrique), donc réel. Montre que $\bar{\mathbf{z}}^\top\mathbf{z} = \sum_i |z_i|^2 > 0$, et conclus que $\lambda = \frac{\bar{\mathbf{z}}^\top\mathbf{A}\mathbf{z}}{\bar{\mathbf{z}}^\top\mathbf{z}}$ est réel.
 4. Si les $n$ valeurs propres de $\mathbf{A}$ sont distinctes, montre qu'il existe une base orthonormée de vecteurs propres, puis que $\mathbf{A} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$.
-5. Vérifie 2. et 3. sur $\begin{pmatrix} 1 & -2 \cr -2 & 4 \end{pmatrix}$, sans calculer de racine carrée.
+5. Vérifie 2. et 3. sur $`\begin{pmatrix} 1 & -2 \cr -2 & 4 \end{pmatrix}`$, sans calculer de racine carrée.
 
 ### Ex M12c.16 — La somme des valeurs propres est la trace, leur produit le déterminant ∂ ★★ ⏱️ 20 min
 **Objectif :** relier les valeurs propres à la trace et au déterminant, par le polynôme caractéristique puis par la diagonalisation.
 **Prérequis :** fiche §2, §3 et §4 · **Parcours :** C
 
-1. En dimension 2, développe $\det(\mathbf{A} - \lambda\mathbf{I})$ pour $\mathbf{A} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$ et montre que $p_{\mathbf{A}}(\lambda) = \lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A}$. Avec les relations entre racines et coefficients (R3), conclus.
+1. En dimension 2, développe $\det(\mathbf{A} - \lambda\mathbf{I})$ pour $`\mathbf{A} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}`$ et montre que $p_{\mathbf{A}}(\lambda) = \lambda^2 - (\operatorname{tr}\mathbf{A})\lambda + \det\mathbf{A}$. Avec les relations entre racines et coefficients (R3), conclus.
 2. En dimension $n$, admettons que $p_{\mathbf{A}}(\lambda) = (\lambda_1 - \lambda)(\lambda_2 - \lambda)\cdots(\lambda_n - \lambda)$, où les $\lambda_i$, complexes éventuellement, sont les valeurs propres comptées avec leur multiplicité. Que vaut $p_{\mathbf{A}}(0)$ ? Déduis-en $\prod_i\lambda_i = \det\mathbf{A}$.
 3. Si $\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}$ est diagonalisable, redémontre les deux formules avec $\operatorname{tr}(\mathbf{X}\mathbf{Y}) = \operatorname{tr}(\mathbf{Y}\mathbf{X})$ et $\det(\mathbf{X}\mathbf{Y}) = \det\mathbf{X}\thinspace\det\mathbf{Y}$.
 4. Application : une matrice $3 \times 3$ a pour trace 6, pour déterminant 6, et 1 est valeur propre. Trouve ses deux autres valeurs propres.
@@ -454,7 +454,7 @@ $\mathbf{A}$ est symétrique définie positive, $f(\mathbf{x}) = \frac{1}{2}\mat
 **Objectif :** calculer des variances et des covariances de combinaisons de features à partir de leur matrice de covariance, et reconnaître une matrice qui ne peut pas être une covariance.
 **Prérequis :** fiche §7 et §8 · **Parcours :** C, E
 
-Trois features ont pour matrice de covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 3 \cr -1 & 3 & 16 \end{pmatrix}$. Un collègue propose aussi la matrice $\boldsymbol{\Phi} = \begin{pmatrix} 2 & 3 & 1 \cr 3 & 2 & 0 \cr 1 & 0 & 2 \end{pmatrix}$ comme matrice de covariance d'autres données.
+Trois features ont pour matrice de covariance $`\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & -1 \cr 2 & 9 & 3 \cr -1 & 3 & 16 \end{pmatrix}`$. Un collègue propose aussi la matrice $`\boldsymbol{\Phi} = \begin{pmatrix} 2 & 3 & 1 \cr 3 & 2 & 0 \cr 1 & 0 & 2 \end{pmatrix}`$ comme matrice de covariance d'autres données.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -473,7 +473,7 @@ Dans ta copie : écris b) comme la somme de **tous** les éléments de $\boldsym
 **Objectif :** blanchir une covariance par Cholesky, vérifier que la covariance devient l'identité, et voir ce qui ne dépend pas du blanchiment choisi.
 **Prérequis :** fiche §8 · **Parcours :** C
 
-Deux features ont pour covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 9 & 6 \cr 6 & 8 \end{pmatrix}$ et pour moyenne $\boldsymbol{\mu}$. On blanchit par $\mathbf{z} = \mathbf{W}(\mathbf{x} - \boldsymbol{\mu})$, avec $\mathbf{W} = \mathbf{L}^{-1}$.
+Deux features ont pour covariance $`\boldsymbol{\Sigma} = \begin{pmatrix} 9 & 6 \cr 6 & 8 \end{pmatrix}`$ et pour moyenne $\boldsymbol{\mu}$. On blanchit par $\mathbf{z} = \mathbf{W}(\mathbf{x} - \boldsymbol{\mu})$, avec $\mathbf{W} = \mathbf{L}^{-1}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -482,7 +482,7 @@ Deux features ont pour covariance $\boldsymbol{\Sigma} = \begin{pmatrix} 9 & 6 \
 | c | $\mathbf{W}\boldsymbol{\Sigma}\mathbf{W}^\top$ | une matrice |
 | d | $\mathbf{z}$ pour $\mathbf{x} - \boldsymbol{\mu} = (6, 1)$ | une liste de 2 nombres (1 décimale) |
 | e | $\lVert \mathbf{z} \rVert$, la distance de Mahalanobis de $\mathbf{x}$ à $\boldsymbol{\mu}$ | un nombre (1 décimale) |
-| f | la covariance de $\mathbf{R}\mathbf{z}$, où $\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ | une matrice |
+| f | la covariance de $\mathbf{R}\mathbf{z}$, où $`\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$ | une matrice |
 | g | vrai ou faux : $\mathbf{R}\mathbf{W}$ est aussi une matrice de blanchiment de $\boldsymbol{\Sigma}$ | `True` ou `False` |
 | h | vrai ou faux : la distance de Mahalanobis $\lVert \mathbf{W}(\mathbf{x} - \boldsymbol{\mu}) \rVert$ change quand on remplace $\mathbf{W}$ par un autre blanchiment | `True` ou `False` |
 

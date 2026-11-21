@@ -29,7 +29,7 @@
 2. En $\theta = \frac{4}{10} = $ **0,4**.
 3. **Faux** : $L$ n'est pas une densité en $\theta$ ; ici $\int_0^1 L = B(5, 7) = \frac{1}{2310}$.
 4. **Vrai** : $c\thinspace L$ a les mêmes variations que $L$ si $c > 0$.
-5. Le logarithme change le produit en somme ($4\ln\theta + 6\ln(1 - \theta)$), plus simple à dériver, et il évite l'underflow d'un produit de nombreuses probabilités (fiche §7). Comme $\ln$ est croissante, $\ln L$ a le même maximum que $L$.
+5. Le logarithme change le produit en somme ($4\ln\theta + 6\ln(1 - \theta){}$), plus simple à dériver, et il évite l'underflow d'un produit de nombreuses probabilités (fiche §7). Comme $\ln$ est croissante, $\ln L$ a le même maximum que $L$.
 6. En $\theta = 0$ : $L(\theta) = (1 - \theta)^6$ décroît. Ce n'est pas raisonnable : après 6 essais, on affirmerait que le succès est **impossible**. C'est ce que corrige un a priori (le lissage de Laplace donne $\frac{1}{8}$, fiche §5).
 
 ### M04.Q4 — La loi Beta : forme et paramètres
@@ -114,7 +114,7 @@
 
 Pour la copie : sur 1 000 nuits, 10 fuites, dont 9,5 font sonner le capteur, et 29,7 fausses alertes : parmi les 39,2 alertes, $\frac{9{,}5}{39{,}2} \approx 0{,}242$. Les fuites sont si rares que les fausses alertes, même à 3 %, sont trois fois plus nombreuses que les vraies. Une détection parfaite (1 au lieu de 0,95) ne donnerait que $\frac{0{,}01}{0{,}0397} \approx 0{,}252$ ; des fausses alertes dix fois plus rares (0,003) donneraient $\frac{0{,}0095}{0{,}0095 + 0{,}00297} \approx 0{,}762$ : c'est elles qu'il faut améliorer.
 
-**Erreurs fréquentes.** Répondre 0,95 en b) (confondre $P(\text{fuite} \mid \text{sonne})$ et $P(\text{sonne} \mid \text{fuite})$) ; oublier la part « sans fuite » de l'évidence (0,0095) ; en c), ne pas diviser par l'évidence de « ne sonne pas » ; en g), oublier le facteur 0,99 ($\frac{19}{2000}$).
+**Erreurs fréquentes.** Répondre 0,95 en b) (confondre $P(\text{fuite} \mid \text{sonne})$ et $P(\text{sonne} \mid \text{fuite}){}$) ; oublier la part « sans fuite » de l'évidence (0,0095) ; en c), ne pas diviser par l'évidence de « ne sonne pas » ; en g), oublier le facteur 0,99 ($\frac{19}{2000}$).
 
 **Variante.** Trois capteurs identiques et indépendants sonnent tous : $P(\text{fuite} \mid \ldots)$ ? *Réponse* : $\frac{0{,}01 \times 0{,}95^3}{0{,}01 \times 0{,}95^3 + 0{,}99 \times 0{,}03^3} \approx 0{,}997$.
 
@@ -422,7 +422,7 @@ Pour la copie : la différence de deux variables normales indépendantes est nor
 
 **Démarche.** `low, high = stats.beta(a + k, b + n - k).ppf([0.025, 0.975])`, puis `float(high - low)`. Pour la copie : multiplier $n$ par 4 divise la largeur par environ 2 (1,82 ; 1,95 ; 1,99 ; 2,00) ; l'écart-type de l'a posteriori est proche de $\sqrt{\frac{0{,}21}{n}}$, et la largeur de $2 \times 1{,}96 \times \sqrt{\frac{0{,}21}{n}}$, d'où e) $\approx 2 \times 1{,}96 \times \sqrt{0{,}21} \approx 1{,}80$. La pente n'est pas exactement $-0{,}5$ : pour $n = 10$, l'approximation normale est grossière et l'a priori pèse encore. g) L'a priori $\mathrm{Beta}(30, 70)$ vaut 100 essais imaginaires.
 
-**Erreurs fréquentes.** Les quantiles 0,05 et 0,95 (un intervalle à 90 %) ; oublier l'a priori ($\mathrm{Beta}(k, n - k)$) ; une mise à jour à l'envers, invisible avec l'a priori uniforme (les deux lois sont symétriques l'une de l'autre, de même largeur) mais pas en g) ; renvoyer les deux bornes au lieu de la largeur.
+**Erreurs fréquentes.** Les quantiles 0,05 et 0,95 (un intervalle à 90 %) ; oublier l'a priori ($\mathrm{Beta}(k, n - k){}$) ; une mise à jour à l'envers, invisible avec l'a priori uniforme (les deux lois sont symétriques l'une de l'autre, de même largeur) mais pas en g) ; renvoyer les deux bornes au lieu de la largeur.
 
 ### Ex M04.24 — Prior, vraisemblance et posterior sur une même figure
 

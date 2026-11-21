@@ -94,7 +94,7 @@ Relis le §5 : « Le meilleur pas, et le prix du conditionnement » et « Ce qui
 </details>
 <details><summary>Indice 3</summary>
 
-5. $\tilde a_{12} = \frac{0{,}9}{\sqrt{9 \times 1}}$, puis les valeurs propres d'une matrice $\begin{pmatrix} 1 & c \cr c & 1 \end{pmatrix}$ sont $1 \pm c$. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
+5. $\tilde a_{12} = \frac{0{,}9}{\sqrt{9 \times 1}}$, puis les valeurs propres d'une matrice $`\begin{pmatrix} 1 & c \cr c & 1 \end{pmatrix}`$ sont $1 \pm c$. 6. Une matrice orthogonale ne change pas les valeurs propres de $\mathbf{Q}^\top\mathbf{A}\mathbf{Q}$.
 
 </details>
 
@@ -246,7 +246,7 @@ $\frac{\partial f}{\partial x} = 3x^2 + 3y^2 - 15$, $\frac{\partial f}{\partial 
 </details>
 <details><summary>Indice 3</summary>
 
-$x^2 + y^2 = 5$ et $xy = 2$ donnent $(x + y)^2 = 9$ et $(x - y)^2 = 1$. Le bloc $\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}$ a pour valeurs propres $6x + 6y$ (vecteur $(1, 1)$) et $6x - 6y$ (vecteur $(1, -1)$).
+$x^2 + y^2 = 5$ et $xy = 2$ donnent $(x + y)^2 = 9$ et $(x - y)^2 = 1$. Le bloc $`\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}`$ a pour valeurs propres $6x + 6y$ (vecteur $(1, 1){}$) et $6x - 6y$ (vecteur $(1, -1){}$).
 
 </details>
 
@@ -295,7 +295,7 @@ Relis l'encadré « Énoncé » du §5 et la formule $k \ge \frac{d\ln 10}{-\ln\
 </details>
 <details><summary>Indice 2</summary>
 
-a) Le bloc $\begin{pmatrix} 7 & 6 \cr 6 & 7 \end{pmatrix}$ a pour valeurs propres $7 \pm 6$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
+a) Le bloc $`\begin{pmatrix} 7 & 6 \cr 6 & 7 \end{pmatrix}`$ a pour valeurs propres $7 \pm 6$ ; la troisième se lit. Ensuite $\omega^\star = \frac{2}{\lambda_{\min} + \lambda_{\max}}$ et $\rho^\star = \frac{\kappa - 1}{\kappa + 1}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -488,7 +488,7 @@ a) Trace $16{,}25$, déterminant $4 - 1 = 3$ ; pour ne pas perdre de chiffres, c
 </details>
 <details><summary>Indice 3</summary>
 
-c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\thinspace x_i$. Dans ta copie : regarde la diagonale de $\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$.
+c) $\frac{1}{\sqrt{16 \times 0{,}25}} = 0{,}5$. f) $y_i = \sqrt{a_{ii}}\thinspace x_i$. Dans ta copie : regarde la diagonale de $`\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}`$.
 
 </details>
 
@@ -684,7 +684,7 @@ Un compteur : une liste vide `calls = []` et `callback=lambda xk: calls.append(1
 
 <details><summary>Indice 1</summary>
 
-Fiche §4 (le pas critique, le facteur $\rho(\omega)$) et §3 (le nombre de pas pour gagner $d$ décimales).
+Fiche §4 (le pas critique, le facteur $\rho(\omega){}$) et §3 (le nombre de pas pour gagner $d$ décimales).
 
 </details>
 <details><summary>Indice 2</summary>

@@ -1,7 +1,7 @@
 # M10 · Mes réponses
 
 > Ta copie de ce fichier est dans `mon_travail/m10_separabilite_convexite/06_mes_reponses.md` (créée par `python tools/start_chapter.py M10`) : c'est **elle** que tu remplis, et c'est elle que Claude lit s'il corrige ton travail.
-> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Fais un **dessin** pour chaque exercice du plan ; écris chaque produit vectoriel avec ses deux vecteurs ($(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o})$), chaque score avec son $b$, et divise une marge par $\lVert \mathbf{w} \rVert$. Les formules s'écrivent en LaTeX entre `$` (R0 §5) ; une démonstration s'écrit en phrases (R4 §8).
+> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Fais un **dessin** pour chaque exercice du plan ; écris chaque produit vectoriel avec ses deux vecteurs ($(\mathbf{a} - \mathbf{o}) \times (\mathbf{b} - \mathbf{o}){}$), chaque score avec son $b$, et divise une marge par $\lVert \mathbf{w} \rVert$. Les formules s'écrivent en LaTeX entre `$` (R0 §5) ; une démonstration s'écrit en phrases (R4 §8).
 
 ## 🧠 Quiz
 

@@ -67,7 +67,7 @@ Une matrice $\mathbf{A}$ de forme $(100, 80)$ a pour valeurs singulières non nu
 1. Pour une direction unitaire $\mathbf{u}$, quelle est la variance des coordonnées $t_i = \mathbf{u}^\top(\mathbf{x}_i - \boldsymbol{\mu})$ ?
 2. Le maximum de cette variance sur la sphère unité, et où est-il atteint ?
 3. Vrai ou faux : le premier axe principal est toujours la direction de la feature de plus grande variance.
-4. $\mathbf{C} = \begin{pmatrix} 4 & 0 & 0 \cr 0 & 2 & 2 \cr 0 & 2 & 5 \end{pmatrix}$ : les axes principaux et les variances le long des axes ?
+4. $`\mathbf{C} = \begin{pmatrix} 4 & 0 & 0 \cr 0 & 2 & 2 \cr 0 & 2 & 5 \end{pmatrix}`$ : les axes principaux et les variances le long des axes ?
 5. Que vaut la somme des variances le long des $p$ axes ?
 6. Pourquoi les axes principaux sont-ils orthogonaux deux à deux ?
 7. Deux logiciels rendent des premiers axes opposés : l'un des deux se trompe-t-il ?
@@ -110,7 +110,7 @@ Un nuage de $n = 11$ exemples de $\mathbb{R}^3$ a pour variances le long de ses 
 ### M12d.R1 — Valeurs propres et théorème spectral (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §1 · parcours C, E*
 
-$\mathbf{K} = \begin{pmatrix} -2 & 5 \cr 5 & 22 \end{pmatrix}$.
+$`\mathbf{K} = \begin{pmatrix} -2 & 5 \cr 5 & 22 \end{pmatrix}`$.
 1. Sa trace, son déterminant, puis ses valeurs propres.
 2. Ses vecteurs propres unitaires (convention de la fiche).
 3. Écris $\mathbf{K} = \mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^\top$ et vérifie $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}$.
@@ -145,7 +145,7 @@ Quatre exemples à deux features : $(2, 35)$, $(4, 55)$, $(6, 40)$, $(8, 50)$.
 **Objectif :** calculer la SVD d'une matrice carrée non symétrique par les valeurs et vecteurs propres de $\mathbf{A}^\top\mathbf{A}$, avec la convention de signe.
 **Prérequis :** fiche §1 ; M12c §3 et §6 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 10 & 10 \cr 5 & 2 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 10 & 10 \cr 5 & 2 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -164,7 +164,7 @@ Dans ta copie : calcule $\mathbf{u}_2$ et vérifie $s_1\mathbf{u}_1\mathbf{v}_1^
 **Objectif :** reconnaître une matrice de rang 1, écrire sa SVD compacte, et y appliquer la convention de signe.
 **Prérequis :** fiche §1 ; M12a §5 · **Parcours :** C
 
-$\mathbf{A} = \begin{pmatrix} 2 & -10 \cr 10 & -50 \cr 11 & -55 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 2 & -10 \cr 10 & -50 \cr 11 & -55 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -183,7 +183,7 @@ Dans ta copie : écris $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ avec des vecteur
 **Objectif :** lire sur la SVD l'image du cercle unité : les demi-axes, leurs directions, les points du cercle qui y arrivent, l'aire.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-$\mathbf{B} = \begin{pmatrix} 1 & 8 \cr 4 & -4 \end{pmatrix}$ envoie le cercle unité sur une ellipse.
+$`\mathbf{B} = \begin{pmatrix} 1 & 8 \cr 4 & -4 \end{pmatrix}`$ envoie le cercle unité sur une ellipse.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -202,7 +202,7 @@ Dans ta copie : dessine le cercle, l'ellipse, ses deux demi-axes et les images d
 **Objectif :** calculer une SVD $3 \times 3$ quand $\mathbf{A}^\top\mathbf{A}$ est par blocs, en déduire la meilleure approximation de rang 1 et son erreur (Eckart-Young).
 **Prérequis :** fiche §1 et §3 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \cr 4 & 2 & -1 \cr 1 & 4 & 0 \end{pmatrix}$ (trois clients, trois produits : une note de $-5$ à $5$ par case).
+$`\mathbf{A} = \begin{pmatrix} 4 & 2 & 1 \cr 4 & 2 & -1 \cr 1 & 4 & 0 \end{pmatrix}`$ (trois clients, trois produits : une note de $-5$ à $5$ par case).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -239,7 +239,7 @@ Dans ta copie : f) et g) gardent-ils la même information ? Lequel serait, à to
 **Objectif :** calculer la pseudo-inverse d'une matrice de rang 1, la solution de norme minimale d'un système qui en a une infinité, et la solution des moindres carrés d'un système qui n'en a pas.
 **Prérequis :** fiche §4 ; M09b §3 ; M12b §5 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \cr 5 & -20 & 40 \end{pmatrix}$, $\mathbf{y} = (18, 45)$, $\mathbf{y}' = (1, 0)$.
+$`\mathbf{A} = \begin{pmatrix} 2 & -8 & 16 \cr 5 & -20 & 40 \end{pmatrix}`$, $\mathbf{y} = (18, 45)$, $\mathbf{y}' = (1, 0)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -258,7 +258,7 @@ Dans ta copie : écris $\mathbf{A} = \mathbf{a}\mathbf{b}^\top$ et montre que $\
 **Objectif :** calculer des conditionnements, en tirer la borne sur l'erreur relative d'une solution, et constater que le déterminant ne dit rien de la sensibilité.
 **Prérequis :** fiche §2 et §4 · **Parcours :** C, E
 
-$\mathbf{P} = \begin{pmatrix} 0 & 5 \cr -2 & 0 \end{pmatrix}$, $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 5 & -12 \cr 12 & 5 \end{pmatrix}$, $\mathbf{R} = \begin{pmatrix} 8 & 3 \cr 5 & 2 \end{pmatrix}$.
+$`\mathbf{P} = \begin{pmatrix} 0 & 5 \cr -2 & 0 \end{pmatrix}`$, $`\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 5 & -12 \cr 12 & 5 \end{pmatrix}`$, $`\mathbf{R} = \begin{pmatrix} 8 & 3 \cr 5 & 2 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -278,7 +278,9 @@ Dans ta copie : pour c), utilise $s_1^2 + s_2^2 = \lVert \mathbf{R} \rVert_F^2$ 
 **Prérequis :** fiche §5 et §6 ; M12c §3 ; M02c · **Parcours :** C, E
 
 Sept objets, trois mesures chacun (dans la même unité), en lignes :
-$$\mathbf{X} = \begin{pmatrix} 10 & 8 & 3 \cr 9 & 14 & 7 \cr 15 & 4 & 9 \cr 10 & 6 & 4 \cr 16 & 11 & 6 \cr 18 & 10 & 6 \cr 20 & 10 & 7 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 10 & 8 & 3 \cr 9 & 14 & 7 \cr 15 & 4 & 9 \cr 10 & 6 & 4 \cr 16 & 11 & 6 \cr 18 & 10 & 6 \cr 20 & 10 & 7 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -334,7 +336,7 @@ Dans ta copie : trace la courbe des variances et celle des parts cumulées. Où 
 **Objectif :** faire une ACP par la SVD de la matrice centrée, sans former la covariance : valeurs singulières, variances, axes et scores.
 **Prérequis :** fiche §1 et §6 · **Parcours :** C
 
-Quatre exemples de $\mathbb{R}^3$, en lignes : $\mathbf{X} = \begin{pmatrix} 3 & 1 & 3 \cr 3 & 4 & 6 \cr 9 & 4 & 8 \cr 9 & 7 & 3 \end{pmatrix}$. On note $\mathbf{X}_c$ la matrice centrée et $\mathbf{X}_c = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ sa SVD compacte. Les vecteurs $(5, 3, 1)$, $(0, -1, 3)$ et $(-2, 3, 1)$ sont orthogonaux deux à deux.
+Quatre exemples de $\mathbb{R}^3$, en lignes : $`\mathbf{X} = \begin{pmatrix} 3 & 1 & 3 \cr 3 & 4 & 6 \cr 9 & 4 & 8 \cr 9 & 7 & 3 \end{pmatrix}`$. On note $\mathbf{X}_c$ la matrice centrée et $\mathbf{X}_c = \mathbf{U}\mathbf{S}\mathbf{V}^\top$ sa SVD compacte. Les vecteurs $(5, 3, 1)$, $(0, -1, 3)$ et $(-2, 3, 1)$ sont orthogonaux deux à deux.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -353,7 +355,7 @@ Dans ta copie : vérifie que h) est $s_1\mathbf{u}_1$, que sa moyenne est nulle 
 **Objectif :** faire l'ACP de trois exemples de $\mathbb{R}^5$ par la matrice $3 \times 3$ $\mathbf{X}_c\mathbf{X}_c^\top$, et remonter aux axes principaux.
 **Prérequis :** fiche §1 et §7 · **Parcours :** C
 
-Trois exemples de $\mathbb{R}^5$, en lignes : $\mathbf{X} = \begin{pmatrix} 8 & 8 & 4 & 6 & 5 \cr 3 & 8 & 3 & 2 & 7 \cr 4 & 2 & 2 & 4 & 9 \end{pmatrix}$.
+Trois exemples de $\mathbb{R}^5$, en lignes : $`\mathbf{X} = \begin{pmatrix} 8 & 8 & 4 & 6 & 5 \cr 3 & 8 & 3 & 2 & 7 \cr 4 & 2 & 2 & 4 & 9 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|

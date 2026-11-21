@@ -125,7 +125,7 @@ Relis « Coefficient multiplicateur », « Évolutions successives » et « Évo
 </details>
 <details><summary>Indice 2</summary>
 
-Traduis chaque évolution en coefficient ($+t$ devient $\times(1 + t)$), multiplie les coefficients, puis reviens à un taux.
+Traduis chaque évolution en coefficient ($+t$ devient $\times(1 + t){}$), multiplie les coefficients, puis reviens à un taux.
 
 </details>
 <details><summary>Indice 3</summary>

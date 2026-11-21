@@ -30,8 +30,8 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 *Fiche §2 · parcours C, E*
 
 1. $(2, -5)$ et $(5, 2)$ sont-ils orthogonaux ? orthonormés ?
-2. Les colonnes de $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ forment-elles une base orthonormée de $\mathbb{R}^2$ ?
-3. $\begin{pmatrix} 2 & 0 \cr 0 & 1/2 \end{pmatrix}$ est-elle orthogonale ?
+2. Les colonnes de $`\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$ forment-elles une base orthonormée de $\mathbb{R}^2$ ?
+3. $`\begin{pmatrix} 2 & 0 \cr 0 & 1/2 \end{pmatrix}`$ est-elle orthogonale ?
 4. Si $\mathbf{Q}$ est orthogonale, que vaut $\mathbf{Q}^{-1}$ ?
 5. Vrai ou faux : une matrice orthogonale conserve les distances entre points.
 6. $\mathbf{Q}$ a la forme $(3, 2)$ et des colonnes orthonormées. Que vaut $\mathbf{Q}^\top\mathbf{Q}$ ? A-t-on $\mathbf{Q}\mathbf{Q}^\top = \mathbf{I}_3$ ?
@@ -59,11 +59,11 @@ Sur $\mathbb{R}^2$, lesquelles de ces formules définissent un produit scalaire 
 ### M12b.Q5 — Une matrice de projection : sur quoi, et quelles propriétés ? 🧠 ★ ⏱️ 4 min
 *Fiche §5 · parcours C, E*
 
-$\mathbf{P} = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 0 \end{pmatrix}$.
+$`\mathbf{P} = \begin{pmatrix} 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 0 \end{pmatrix}`$.
 1. Sur quel sous-espace $\mathbf{P}$ projette-t-elle ?
 2. Que valent $\mathbf{P}^2$ et $\mathbf{P}^\top$ ?
 3. Sa trace et son rang ?
-4. Sur quoi projette $\frac{1}{2}\begin{pmatrix} 1 & 1 \cr 1 & 1 \end{pmatrix}$ ?
+4. Sur quoi projette $`\frac{1}{2}\begin{pmatrix} 1 & 1 \cr 1 & 1 \end{pmatrix}`$ ?
 5. Vrai ou faux : une matrice de projection orthogonale autre que $\mathbf{I}$ est inversible.
 6. Vrai ou faux : si $\mathbf{P}$ est une projection orthogonale, $\mathbf{I} - \mathbf{P}$ en est une aussi.
 
@@ -117,7 +117,7 @@ $\mathbf{u} = (1, 1, 2)$ et $\mathbf{x} = (1, 3, 4)$.
 ### M12b.R2 — Les équations normales et la matrice chapeau (M09b) 🔁 ★ ⏱️ 5 min
 *Fiche §6 · parcours C, E*
 
-Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $\mathbf{X} = \begin{pmatrix} 1 & -2 \cr 1 & 0 \cr 1 & 2 \end{pmatrix}$, et $\mathbf{y} = (1, 4, 4)$.
+Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $`\mathbf{X} = \begin{pmatrix} 1 & -2 \cr 1 & 0 \cr 1 & 2 \end{pmatrix}`$, et $\mathbf{y} = (1, 4, 4)$.
 1. $\mathbf{X}^\top\mathbf{X}$ ?
 2. $\mathbf{X}^\top\mathbf{y}$ ?
 3. Les poids $\mathbf{w}^\ast$ ?
@@ -128,7 +128,7 @@ Trois points d'abscisses $-2$, $0$, $2$ ; une droite avec biais, donc $\mathbf{X
 ### M12b.R3 — Base, rang et noyau (M12a) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & 1 \cr 2 & 4 & 1 & 1 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & 1 \cr 2 & 4 & 1 & 1 \end{pmatrix}`$.
 1. $\operatorname{rg}(\mathbf{A})$ ?
 2. $\dim\ker\mathbf{A}$ ?
 3. Une base de $\ker\mathbf{A}$ (avec la convention de M12a : une colonne libre à 1, les autres à 0) ?
@@ -148,7 +148,7 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 **Objectif :** vérifier qu'une matrice symétrique définit un produit scalaire, et y calculer normes, angles et orthogonalité.
 **Prérequis :** fiche §1 ; M07 §3 et §4 · **Parcours :** C, E
 
-Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$, avec $\mathbf{M} = \begin{pmatrix} 3 & 1 \cr 1 & 1 \end{pmatrix}$.
+Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$, avec $`\mathbf{M} = \begin{pmatrix} 3 & 1 \cr 1 & 1 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -159,7 +159,7 @@ Sur $\mathbb{R}^2$, on pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}}
 | e | $\lVert (2, -1) \rVert_{\mathbf{M}}$ | un nombre |
 | f | vrai ou faux : $(1, -1)$ et $\mathbf{e} _2$ sont orthogonaux pour $\langle \cdot, \cdot \rangle _{\mathbf{M}}$ | `True` ou `False` |
 | g | le nombre $k$ tel que $(1, k)$ soit orthogonal à $(1, 1)$ pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ | un nombre |
-| h | vrai ou faux : $\mathbf{N} = \begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}$ définit aussi un produit scalaire | `True` ou `False` |
+| h | vrai ou faux : $`\mathbf{N} = \begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}`$ définit aussi un produit scalaire | `True` ou `False` |
 
 Dans ta copie : écris $\mathbf{x}^\top\mathbf{M}\mathbf{x}$ comme une somme de deux carrés. Compare f) avec le produit scalaire usuel de ces deux vecteurs. Avec f), écris une base orthonormée pour $\langle \cdot, \cdot \rangle_{\mathbf{M}}$ qui contient $\mathbf{e}_2$. Pour h), donne un vecteur précis qui empêche $\mathbf{N}$ de convenir.
 
@@ -184,7 +184,9 @@ Dans ta copie : vérifie au moins deux autres paires orthogonales et une autre n
 **Objectif :** reconnaître une matrice orthogonale, vérifier qu'elle conserve normes et produits scalaires, et l'inverser en la transposant.
 **Prérequis :** fiche §2 · **Parcours :** C, E
 
-$$\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \cr 3 & 2 & -6 \cr 6 & -3 & 2 \end{pmatrix}, \qquad \mathbf{x} = (1, 0, 1), \qquad \mathbf{y} = (0, 1, -1).$$
+```math
+\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \cr 3 & 2 & -6 \cr 6 & -3 & 2 \end{pmatrix}, \qquad \mathbf{x} = (1, 0, 1), \qquad \mathbf{y} = (0, 1, -1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -194,7 +196,7 @@ $$\mathbf{Q} = \frac{1}{7}\begin{pmatrix} 2 & 6 & 3 \cr 3 & 2 & -6 \cr 6 & -3 & 
 | d | $(\mathbf{Q}\mathbf{x}) \cdot (\mathbf{Q}\mathbf{y})$ | un nombre |
 | e | la solution $\mathbf{z}$ de $\mathbf{Q}\mathbf{z} = (7, 0, 0)$ | une liste de 3 nombres |
 | f | vrai ou faux : $2\mathbf{Q}$ est orthogonale | `True` ou `False` |
-| g | vrai ou faux : $\mathbf{Q}\mathbf{P}$ est orthogonale, avec $\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 1 & 0 & 0 \cr 0 & 0 & 1 \end{pmatrix}$ | `True` ou `False` |
+| g | vrai ou faux : $\mathbf{Q}\mathbf{P}$ est orthogonale, avec $`\mathbf{P} = \begin{pmatrix} 0 & 1 & 0 \cr 1 & 0 & 0 \cr 0 & 0 & 1 \end{pmatrix}`$ | `True` ou `False` |
 
 Dans ta copie : compare c) avec $\lVert \mathbf{x} \rVert$ et d) avec $\mathbf{x} \cdot \mathbf{y}$ ; calcule l'angle entre $\mathbf{x}$ et $\mathbf{y}$, puis entre $\mathbf{Q}\mathbf{x}$ et $\mathbf{Q}\mathbf{y}$. Pourquoi e) ne demande-t-il aucun pivot de Gauss ? $\mathbf{Q}$ est-elle symétrique, et cela changerait-il e) ?
 
@@ -276,7 +278,9 @@ Dans ta copie : retrouve d) avec e). Vérifie que $\mathbf{q}_1$ et $\mathbf{q}_
 **Objectif :** reconnaître une matrice de projection orthogonale à ses propriétés, et retrouver le sous-espace sur lequel elle projette.
 **Prérequis :** fiche §5 ; M12a §4 · **Parcours :** C
 
-$$\mathbf{P} = \frac{1}{3}\begin{pmatrix} 2 & -1 & 1 \cr -1 & 2 & 1 \cr 1 & 1 & 2 \end{pmatrix}$$
+```math
+\mathbf{P} = \frac{1}{3}\begin{pmatrix} 2 & -1 & 1 \cr -1 & 2 & 1 \cr 1 & 1 & 2 \end{pmatrix}
+```
 
 On veut savoir si $\mathbf{P}$ est la matrice d'une projection orthogonale de $\mathbb{R}^3$, et, si oui, sur quel sous-espace.
 
@@ -289,7 +293,7 @@ On veut savoir si $\mathbf{P}$ est la matrice d'une projection orthogonale de $\
 | e | $\operatorname{tr}\mathbf{P}$ | un nombre |
 | f | $\operatorname{rg}\mathbf{P}$ | un entier |
 | g | $(\mathbf{I} - \mathbf{P})(3, 0, 0)$ | une liste de 3 nombres |
-| h | vrai ou faux : $\mathbf{M} = \begin{pmatrix} 1 & 0 \cr 1 & 0 \end{pmatrix}$ est la matrice d'une projection orthogonale | `True` ou `False` |
+| h | vrai ou faux : $`\mathbf{M} = \begin{pmatrix} 1 & 0 \cr 1 & 0 \end{pmatrix}`$ est la matrice d'une projection orthogonale | `True` ou `False` |
 
 Dans ta copie : écris le calcul de $\mathbf{P}^2$. Que concluent a) et b) ensemble ? Déduis de c) le sous-espace $U$ sur lequel $\mathbf{P}$ projette (une équation), et explique pourquoi d) était prévisible. Relie e) et f) à la dimension de $U$. Sur quelle droite projette $\mathbf{I} - \mathbf{P}$ ? $\mathbf{P}$ est-elle inversible ? Pour h), calcule $\mathbf{M}^2$ et $\mathbf{M}^\top$, puis dessine ce que fait $\mathbf{M}$ : vers quelle droite, et le long de quelle direction ?
 
@@ -335,7 +339,9 @@ Dans ta copie : que dit la première coordonnée de f) des résidus, et pourquoi
 **Objectif :** calculer une décomposition QR par Gram-Schmidt, puis résoudre des moindres carrés par un système triangulaire.
 **Prérequis :** fiche §3 et §7 · **Parcours :** C
 
-$$\mathbf{A} = \begin{pmatrix} 2 & 2 \cr 6 & 3 \cr 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (11, 3, 20).$$
+```math
+\mathbf{A} = \begin{pmatrix} 2 & 2 \cr 6 & 3 \cr 9 & 0 \end{pmatrix}, \qquad \mathbf{y} = (11, 3, 20).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -416,7 +422,7 @@ $\mathbf{A}$ a la forme $(m, n)$ ; le produit scalaire est le produit usuel.
 2. De la même façon, montre que $\ker\mathbf{A} = (\operatorname{Im}\mathbf{A}^\top)^\perp$ : le noyau est l'orthogonal des lignes.
 3. Avec le théorème du rang et $\operatorname{rg}\mathbf{A}^\top = \operatorname{rg}\mathbf{A}$, montre que $\dim(\operatorname{Im}\mathbf{A})^\perp = m - \operatorname{rg}\mathbf{A}$. Déduis-en, pour tout sous-espace $U$ de $\mathbb{R}^m$, $\dim U + \dim U^\perp = m$.
 4. Montre que si $\mathbf{A}\mathbf{x} = \mathbf{b}$ a une solution, alors $\mathbf{b}$ est orthogonal à $\ker\mathbf{A}^\top$. (La réciproque est vraie aussi, admise ici : elle découle de 3.)
-5. Application : $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 2 & 4 \cr 0 & 1 \end{pmatrix}$. Calcule $\ker\mathbf{A}^\top$, puis dis pour quels $t$ le système $\mathbf{A}\mathbf{x} = (1, t, 0)$ a une solution.
+5. Application : $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 2 & 4 \cr 0 & 1 \end{pmatrix}`$. Calcule $\ker\mathbf{A}^\top$, puis dis pour quels $t$ le système $\mathbf{A}\mathbf{x} = (1, t, 0)$ a une solution.
 
 ### Ex M12b.17 — Le projeté orthogonal est le point le plus proche (Pythagore) ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer l'existence et l'unicité du projeté, qu'il est le point le plus proche, et en déduire les équations normales sans dérivée.

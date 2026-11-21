@@ -223,12 +223,12 @@ Fiche §6 : « Un pas d'Euler et sa jacobienne », « Le cas linéaire », l'exe
 </details>
 <details><summary>Indice 2</summary>
 
-c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\thinspace\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $\begin{pmatrix} 0 & 1 \cr -\cos x & 0 \end{pmatrix}$, et $h = 0{,}05$.
+c) Chaque pas multiplie par $1 + h\lambda$. e) $e^{\lambda T}$. f) $\mathbf{I} + h\mathbf{J}$ avec $h = 0{,}1$. g) Si $\mathbf{U}^\top\mathbf{U} = c\thinspace\mathbf{I}$, les valeurs singulières de $\mathbf{U}$ valent $\sqrt c$, et celles de $\mathbf{U}^L$ valent $c^{L/2}$. j) La jacobienne de $F$ est $`\begin{pmatrix} 0 & 1 \cr -\cos x & 0 \end{pmatrix}`$, et $h = 0{,}05$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$, calculé directement (passer par $\sqrt{1{,}04}$ arrondi fait perdre la troisième décimale de justesse). h) $(1 + 4 \times 10^{-4})^{50}$. k) $\det\begin{pmatrix} 1 & h \cr -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x$.
+c) $0{,}52^5$. d) $(1 - 2{,}4/50)^{50}$. g) $(1 + 4 \times 0{,}01)^{5}$, calculé directement (passer par $\sqrt{1{,}04}$ arrondi fait perdre la troisième décimale de justesse). h) $(1 + 4 \times 10^{-4})^{50}$. k) $`\det\begin{pmatrix} 1 & h \cr -h\cos x & 1 \end{pmatrix} = 1 + h^2\cos x`$.
 
 </details>
 

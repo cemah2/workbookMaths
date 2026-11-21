@@ -43,7 +43,7 @@ Parcours essentiel : tout sauf M12b.Q7, M12b.Q8, M12b.5, M12b.8, M12b.11 à M12b
 
 Le livre démontre peu et illustre beaucoup ; ses exemples se refont à la main. Ses exercices de fin de chapitre 3 sur les produits scalaires, les projections et Gram-Schmidt sont conseillés.
 
-📐 **Notations.** La fiche écrit $\langle \mathbf{x}, \mathbf{y} \rangle$ un produit scalaire quelconque (MML aussi) et $\mathbf{x} \cdot \mathbf{y} = \mathbf{x}^\top\mathbf{y}$ le produit scalaire usuel ; $\lVert \mathbf{x} \rVert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$ ; $\mathbf{x} \perp \mathbf{y}$ pour « orthogonaux » ; $U^\perp$ le complément orthogonal de $U$ ; $\pi_U(\mathbf{v})$ ou $\mathbf{p}$ le projeté orthogonal de $\mathbf{v}$ sur $U$ (MML : $\pi_U(\mathbf{x})$) et $\mathbf{P}$ la matrice de projection (MML : $\mathbf{P}_\pi$). Comme MML et comme `orthogonal.py`, une famille de vecteurs se range dans les **colonnes** d'une matrice ; $\mathbf{q}_1, \mathbf{q}_2, \ldots$ désigne une famille orthonormée et $\mathbf{Q}$ la matrice qui les a pour colonnes.
+📐 **Notations.** La fiche écrit $\langle \mathbf{x}, \mathbf{y} \rangle$ un produit scalaire quelconque (MML aussi) et $\mathbf{x} \cdot \mathbf{y} = \mathbf{x}^\top\mathbf{y}$ le produit scalaire usuel ; $\lVert \mathbf{x} \rVert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$ ; $\mathbf{x} \perp \mathbf{y}$ pour « orthogonaux » ; $U^\perp$ le complément orthogonal de $U$ ; $\pi_U(\mathbf{v})$ ou $\mathbf{p}$ le projeté orthogonal de $\mathbf{v}$ sur $U$ (MML : $\pi_U(\mathbf{x}){}$) et $\mathbf{P}$ la matrice de projection (MML : $\mathbf{P}_\pi$). Comme MML et comme `orthogonal.py`, une famille de vecteurs se range dans les **colonnes** d'une matrice ; $\mathbf{q}_1, \mathbf{q}_2, \ldots$ désigne une famille orthonormée et $\mathbf{Q}$ la matrice qui les a pour colonnes.
 
 Vocabulaire anglais de ce chapitre : *inner product*, *bilinear mapping*, *symmetric*, *positive definite*, *inner product space*, *Euclidean vector space*, *symmetric positive definite matrix*, *orthogonal*, *orthonormal*, *orthonormal basis* (ONB), *orthogonal matrix*, *orthogonal complement*, *normal vector*, *orthogonal projection*, *projection matrix*, *idempotent*, *Gram-Schmidt orthogonalization*, *QR decomposition*, *back substitution*, *least squares*, *normal equation*, *residual*, *inner product of functions*.
 
@@ -91,20 +91,20 @@ ce qui permet de définir l'**angle** $\theta \in [0 ; \pi]$ par $\cos\theta = \
 
 Soit $\mathbf{M}$ une matrice carrée **symétrique** ($\mathbf{M}^\top = \mathbf{M}$). On pose $\langle \mathbf{x}, \mathbf{y} \rangle_{\mathbf{M}} = \mathbf{x}^\top\mathbf{M}\mathbf{y}$. Cette formule est bilinéaire (c'est un produit de matrices) et symétrique ($\mathbf{x}^\top\mathbf{M}\mathbf{y}$ est un nombre, égal à sa transposée $\mathbf{y}^\top\mathbf{M}^\top\mathbf{x} = \mathbf{y}^\top\mathbf{M}\mathbf{x}$). C'est un produit scalaire exactement quand $\mathbf{x}^\top\mathbf{M}\mathbf{x} > 0$ pour tout $\mathbf{x} \ne \mathbf{0}$ : on dit que $\mathbf{M}$ est **symétrique définie positive** (*symmetric, positive definite*). Réciproquement, tout produit scalaire de $\mathbb{R}^n$ s'écrit ainsi, avec $M_{ij} = \langle \mathbf{e}_i, \mathbf{e}_j \rangle$ : développe $\langle \sum_i x_i\mathbf{e}_i, \sum_j y_j\mathbf{e}_j \rangle$ par bilinéarité. Le produit scalaire usuel est le cas $\mathbf{M} = \mathbf{I}$.
 
-**En dimension 2**, $\mathbf{M} = \begin{pmatrix} a & b \cr b & c \end{pmatrix}$ est définie positive si et seulement si $a > 0$ et $ac - b^2 > 0$. En effet, pour $a > 0$, en complétant le carré (R2) :
+**En dimension 2**, $`\mathbf{M} = \begin{pmatrix} a & b \cr b & c \end{pmatrix}`$ est définie positive si et seulement si $a > 0$ et $ac - b^2 > 0$. En effet, pour $a > 0$, en complétant le carré (R2) :
 
 $$\mathbf{x}^\top\mathbf{M}\mathbf{x} = a x_1^2 + 2b x_1x_2 + c x_2^2 = a\Big(x_1 + \frac{b}{a}x_2\Big)^2 + \frac{ac - b^2}{a}\thinspace x_2^2,$$
 
 une somme de deux carrés à coefficients positifs, nulle seulement si $x_2 = 0$ puis $x_1 = 0$. Si $a \le 0$, $\mathbf{e}_1$ donne $a \le 0$ ; si $ac - b^2 \le 0$, le vecteur $(-b, a)$ donne $a(ac - b^2) \le 0$. (En dimension $n$, le critère passe par les valeurs propres : M12c.)
 
-**Exemple.** $\mathbf{M} = \begin{pmatrix} 1 & 2 \cr 2 & 5 \end{pmatrix}$ : $a = 1 > 0$ et $ac - b^2 = 5 - 4 = 1 > 0$. En effet, $\mathbf{x}^\top\mathbf{M}\mathbf{x} = x_1^2 + 4x_1x_2 + 5x_2^2 = (x_1 + 2x_2)^2 + x_2^2$. Pour ce produit scalaire :
+**Exemple.** $`\mathbf{M} = \begin{pmatrix} 1 & 2 \cr 2 & 5 \end{pmatrix}`$ : $a = 1 > 0$ et $ac - b^2 = 5 - 4 = 1 > 0$. En effet, $\mathbf{x}^\top\mathbf{M}\mathbf{x} = x_1^2 + 4x_1x_2 + 5x_2^2 = (x_1 + 2x_2)^2 + x_2^2$. Pour ce produit scalaire :
 - $\langle \mathbf{e} _1, \mathbf{e} _2 \rangle _{\mathbf{M}} = M _{12} = 2$ : $\mathbf{e}_1$ et $\mathbf{e}_2$ **ne sont pas** orthogonaux ;
 - $\lVert \mathbf{e} _1 \rVert _{\mathbf{M}} = 1$, $\lVert \mathbf{e} _2 \rVert _{\mathbf{M}} = \sqrt{5}$, et $\cos\theta = \frac{2}{\sqrt{5}} \approx 0{,}894$ : un angle d'environ $26{,}6°$ ;
 - $\mathbf{u} = (-2, 1)$ vérifie $\langle \mathbf{e} _1, \mathbf{u} \rangle  _{\mathbf{M}} = (1, 0)\thinspace\mathbf{M}\thinspace(-2, 1)^\top = (1, 0) \cdot (0, 1) = 0$ et $\lVert \mathbf{u} \rVert _{\mathbf{M}}^2 = (-2 + 2)^2 + 1^2 = 1$ : $(\mathbf{e}_1, \mathbf{u})$ est une base **orthonormée** pour ce produit scalaire, alors que $\mathbf{e}_1$ et $\mathbf{u}$ font un angle obtus pour le produit usuel.
 
 ![À gauche, les vecteurs de norme 1 pour le produit usuel forment un cercle ; à droite, pour le produit défini par M, une ellipse, sur laquelle e₁ et (−2, 1) sont orthonormés](figures/produit_scalaire.png)
 
-**Contre-exemples.** $\mathbf{N} = \begin{pmatrix} 1 & 2 \cr 2 & 3 \end{pmatrix}$ est symétrique à coefficients positifs, mais $ac - b^2 = -1 < 0$ : pour $\mathbf{x} = (2, -1)$, $\mathbf{x}^\top\mathbf{N}\mathbf{x} = 4 - 8 + 3 = -1$. Un « produit » qui donne une norme au carré négative n'est pas un produit scalaire. À l'inverse, $\begin{pmatrix} 4 & -1 \cr -1 & 1 \end{pmatrix}$ a un coefficient négatif et définit un produit scalaire ($4 > 0$, $4 - 1 = 3 > 0$). Et $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1$ sur $\mathbb{R}^2$ est bilinéaire et symétrique, mais $\langle \mathbf{e}_2, \mathbf{e}_2 \rangle = 0$ : il n'est pas défini positif.
+**Contre-exemples.** $`\mathbf{N} = \begin{pmatrix} 1 & 2 \cr 2 & 3 \end{pmatrix}`$ est symétrique à coefficients positifs, mais $ac - b^2 = -1 < 0$ : pour $\mathbf{x} = (2, -1)$, $\mathbf{x}^\top\mathbf{N}\mathbf{x} = 4 - 8 + 3 = -1$. Un « produit » qui donne une norme au carré négative n'est pas un produit scalaire. À l'inverse, $`\begin{pmatrix} 4 & -1 \cr -1 & 1 \end{pmatrix}`$ a un coefficient négatif et définit un produit scalaire ($4 > 0$, $4 - 1 = 3 > 0$). Et $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1$ sur $\mathbb{R}^2$ est bilinéaire et symétrique, mais $\langle \mathbf{e}_2, \mathbf{e}_2 \rangle = 0$ : il n'est pas défini positif.
 
 ### En machine learning
 
@@ -120,7 +120,9 @@ une somme de deux carrés à coefficients positifs, nulle seulement si $x_2 = 0$
 
 Pour un produit scalaire donné, $\mathbf{x}$ et $\mathbf{y}$ sont **orthogonaux** (*orthogonal*) si $\langle \mathbf{x}, \mathbf{y} \rangle = 0$. Une famille $(\mathbf{u}_1, \ldots, \mathbf{u}_k)$ est **orthogonale** si ses vecteurs sont deux à deux orthogonaux, **orthonormée** (*orthonormal*) si de plus chacun est de norme 1 :
 
-$$\langle \mathbf{q}_i, \mathbf{q}_j \rangle = \begin{cases} 1 & \text{si } i = j, \cr 0 & \text{sinon.} \end{cases}$$
+```math
+\langle \mathbf{q}_i, \mathbf{q}_j \rangle = \begin{cases} 1 & \text{si } i = j, \cr 0 & \text{sinon.} \end{cases}
+```
 
 Avec le produit usuel et les vecteurs en colonnes d'une matrice $\mathbf{Q}$, cela s'écrit d'un coup : $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}_k$, puisque l'élément $(i, j)$ de $\mathbf{Q}^\top\mathbf{Q}$ est $\mathbf{q}_i \cdot \mathbf{q}_j$.
 
@@ -147,7 +149,7 @@ Une matrice **carrée** $\mathbf{Q}$ est **orthogonale** (*orthogonal matrix*) s
 - $\mathbf{Q}$ **conserve le produit scalaire** : $(\mathbf{Q}\mathbf{x}) \cdot (\mathbf{Q}\mathbf{y}) = \mathbf{x}^\top\mathbf{Q}^\top\mathbf{Q}\mathbf{y} = \mathbf{x} \cdot \mathbf{y}$, donc les normes, les distances et les angles (M12b.3) ;
 - un produit de matrices orthogonales est orthogonal, l'inverse aussi.
 
-La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}$ (les colonnes $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$), est orthogonale, et les coordonnées de $\mathbf{v}$ étaient $\mathbf{Q}^{-1}\mathbf{v} = \mathbf{Q}^\top\mathbf{v}$. Dans le plan, les rotations $\begin{pmatrix} \cos t & -\sin t \cr \sin t & \cos t \end{pmatrix}$ et les symétries par rapport à une droite par l'origine sont orthogonales ; dans $\mathbb{R}^n$, les matrices de permutation aussi.
+La matrice de l'exemple, $`\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}`$ (les colonnes $\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$), est orthogonale, et les coordonnées de $\mathbf{v}$ étaient $\mathbf{Q}^{-1}\mathbf{v} = \mathbf{Q}^\top\mathbf{v}$. Dans le plan, les rotations $`\begin{pmatrix} \cos t & -\sin t \cr \sin t & \cos t \end{pmatrix}`$ et les symétries par rapport à une droite par l'origine sont orthogonales ; dans $\mathbb{R}^n$, les matrices de permutation aussi.
 
 **Des colonnes orthonormées, sans être carrée.** Si $\mathbf{Q}$ a la forme $(m, k)$ avec $k < m$ et des colonnes orthonormées, $\mathbf{Q}^\top\mathbf{Q} = \mathbf{I}_k$ reste vrai, mais $\mathbf{Q}\mathbf{Q}^\top \ne \mathbf{I}_m$ : c'est une matrice de rang $k$, et c'est la projection sur l'espace des colonnes (§5).
 
@@ -157,7 +159,7 @@ La matrice de l'exemple, $\mathbf{Q} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr
 - Changer de base orthonormée pour exprimer des données est le cœur de l'ACP (workbookIA 12, M12d) : les nouvelles coordonnées sont des produits scalaires avec les nouveaux axes, et Parseval dit que la norme de chaque exemple (centré) est conservée quand on garde tous les axes.
 - En calcul numérique, multiplier par une matrice orthogonale n'amplifie pas les erreurs d'arrondi (les normes sont conservées) : c'est ce qui rend QR (§7) plus sûre que les équations normales. On initialise aussi certains réseaux avec des matrices orthogonales (workbookIA 16).
 
-⚠️ **Erreur classique.** Appeler « orthogonale » une matrice dont les colonnes sont seulement orthogonales : $\begin{pmatrix} 1 & 1 \cr -1 & 1 \end{pmatrix}$ a des colonnes orthogonales de norme $\sqrt{2}$, et $\mathbf{A}^\top\mathbf{A} = 2\mathbf{I} \ne \mathbf{I}$. Il faut des colonnes **orthonormées**. Et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ n'a de sens que si $\mathbf{Q}$ est carrée.
+⚠️ **Erreur classique.** Appeler « orthogonale » une matrice dont les colonnes sont seulement orthogonales : $`\begin{pmatrix} 1 & 1 \cr -1 & 1 \end{pmatrix}`$ a des colonnes orthogonales de norme $\sqrt{2}$, et $\mathbf{A}^\top\mathbf{A} = 2\mathbf{I} \ne \mathbf{I}$. Il faut des colonnes **orthonormées**. Et $\mathbf{Q}^{-1} = \mathbf{Q}^\top$ n'a de sens que si $\mathbf{Q}$ est carrée.
 
 ## §3 · Le procédé de Gram-Schmidt
 
@@ -258,7 +260,7 @@ $\mathbf{A}^\top\mathbf{A}$ est inversible car les colonnes sont libres (M09b). 
 
 **Exemple.** On projette $\mathbf{v} = (2, 1, 6)$ sur le plan $U = \operatorname{Vect}(\mathbf{a}_1, \mathbf{a}_2)$ du §3.
 - *Avec la base orthonormée* : $\mathbf{v} \cdot \mathbf{q}_1 = \frac{1}{3}(4 + 2 + 6) = 4$ et $\mathbf{v} \cdot \mathbf{q}_2 = \frac{1}{3}(2 - 2 + 12) = 4$, donc $\mathbf{p} = 4\mathbf{q}_1 + 4\mathbf{q}_2 = \frac{4}{3}(3, 0, 3) = (4, 0, 4)$.
-- *Avec la base $\mathbf{a}_1, \mathbf{a}_2$* : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 9 & 3 \cr 3 & 17 \end{pmatrix}$ et $\mathbf{A}^\top\mathbf{v} = (12, 20)$ ; le système donne $\mathbf{c} = (1, 1)$, et $\mathbf{p} = \mathbf{a}_1 + \mathbf{a}_2 = (4, 0, 4)$.
+- *Avec la base $\mathbf{a}_1, \mathbf{a}_2$* : $`\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 9 & 3 \cr 3 & 17 \end{pmatrix}`$ et $\mathbf{A}^\top\mathbf{v} = (12, 20)$ ; le système donne $\mathbf{c} = (1, 1)$, et $\mathbf{p} = \mathbf{a}_1 + \mathbf{a}_2 = (4, 0, 4)$.
 - *Par le complément* : $\mathbf{v} - \mathbf{p} = (-2, 1, 2)$ est bien sur la droite $U^\perp$ du §4 ; la distance de $\mathbf{v}$ au plan vaut $\lVert (-2, 1, 2) \rVert = 3$. On pouvait aussi retirer la composante normale : $\mathbf{p} = \mathbf{v} - (\mathbf{v} \cdot \mathbf{q}_3)\thinspace\mathbf{q}_3$, avec $\mathbf{v} \cdot \mathbf{q}_3 = 3$.
 
 ![Le projeté p = (4, 0, 4) de v = (2, 1, 6) sur le plan U : v − p est orthogonal au plan, de longueur 3](figures/projection_plan.png)
@@ -271,7 +273,7 @@ $\mathbf{P} = \mathbf{Q}\mathbf{Q}^\top = \mathbf{A}(\mathbf{A}^\top\mathbf{A})^
 - $\mathbf{I} - \mathbf{P}$ est la projection sur $U^\perp$ ;
 - $\operatorname{Im}\mathbf{P} = U$, $\ker\mathbf{P} = U^\perp$, et $\operatorname{tr}\mathbf{P} = \operatorname{rg}\mathbf{P} = \dim U$ ($\operatorname{tr}(\mathbf{Q}\mathbf{Q}^\top) = \operatorname{tr}(\mathbf{Q}^\top\mathbf{Q}) = \operatorname{tr}\mathbf{I}_k = k$).
 
-Pour le plan de l'exemple, $\mathbf{P} = \mathbf{I} - \mathbf{q}_3\mathbf{q}_3^\top = \frac{1}{9}\begin{pmatrix} 5 & 2 & 4 \cr 2 & 8 & -2 \cr 4 & -2 & 5 \end{pmatrix}$, de trace $\frac{18}{9} = 2$. Une matrice idempotente mais **non symétrique**, comme $\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$, est une projection **oblique** : elle envoie sur une droite, mais pas perpendiculairement.
+Pour le plan de l'exemple, $`\mathbf{P} = \mathbf{I} - \mathbf{q}_3\mathbf{q}_3^\top = \frac{1}{9}\begin{pmatrix} 5 & 2 & 4 \cr 2 & 8 & -2 \cr 4 & -2 & 5 \end{pmatrix}`$, de trace $\frac{18}{9} = 2$. Une matrice idempotente mais **non symétrique**, comme $`\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}`$, est une projection **oblique** : elle envoie sur une droite, mais pas perpendiculairement.
 
 ### En machine learning
 
@@ -290,7 +292,7 @@ $$\hat{\mathbf{y}} = \mathbf{X}\mathbf{w}^\ast = \pi_{\operatorname{Im}\mathbf{X
 
 Le résidu $\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}$ est orthogonal à chaque colonne de $\mathbf{X}$ : $\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}^\ast) = \mathbf{0}$, ce qui **est** l'équation normale $\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w}^\ast = \mathbf{X}^\top\mathbf{y}$. La matrice chapeau de M09b, $\mathbf{H} = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$, est la matrice de la projection sur $\operatorname{Im}\mathbf{X}$ : on comprend maintenant pourquoi $\mathbf{H}^2 = \mathbf{H}$, $\mathbf{H}^\top = \mathbf{H}$ et $\operatorname{tr}\mathbf{H} = p$. C'est le point de vue de MML §9.4 : l'estimateur des moindres carrés est une projection orthogonale.
 
-**Exemple.** Quatre points $(x_i, y_i)$ : $x = (0, 1, 2, 3)$, $y = (2, 1, 4, 5)$, et une droite avec biais, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$. $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \cr 6 & 14 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (12, 24)$, d'où $\mathbf{w}^\ast = (1{,}2 ;\ 1{,}2)$ : la droite $1{,}2 + 1{,}2\thinspace x$. Les prédictions sont $\hat{\mathbf{y}} = (1{,}2 ;\ 2{,}4 ;\ 3{,}6 ;\ 4{,}8)$ et le résidu $\mathbf{r} = (0{,}8 ;\ -1{,}4 ;\ 0{,}4 ;\ 0{,}2)$. Vérification de l'orthogonalité : $\mathbf{r} \cdot \mathbf{1} = 0{,}8 - 1{,}4 + 0{,}4 + 0{,}2 = 0$ et $\mathbf{r} \cdot \mathbf{x} = 0 - 1{,}4 + 0{,}8 + 0{,}6 = 0$. Et Pythagore : $\lVert \mathbf{y} \rVert^2 = 46 = 43{,}2 + 2{,}8 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{r} \rVert^2$.
+**Exemple.** Quatre points $(x_i, y_i)$ : $x = (0, 1, 2, 3)$, $y = (2, 1, 4, 5)$, et une droite avec biais, $\mathbf{X} = [\mathbf{1} \mid \mathbf{x}]$. $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \cr 6 & 14 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (12, 24)$, d'où $\mathbf{w}^\ast = (1{,}2 ;\ 1{,}2)$ : la droite $1{,}2 + 1{,}2\thinspace x$. Les prédictions sont $\hat{\mathbf{y}} = (1{,}2 ;\ 2{,}4 ;\ 3{,}6 ;\ 4{,}8)$ et le résidu $\mathbf{r} = (0{,}8 ;\ -1{,}4 ;\ 0{,}4 ;\ 0{,}2)$. Vérification de l'orthogonalité : $\mathbf{r} \cdot \mathbf{1} = 0{,}8 - 1{,}4 + 0{,}4 + 0{,}2 = 0$ et $\mathbf{r} \cdot \mathbf{x} = 0 - 1{,}4 + 0{,}8 + 0{,}6 = 0$. Et Pythagore : $\lVert \mathbf{y} \rVert^2 = 46 = 43{,}2 + 2{,}8 = \lVert \hat{\mathbf{y}} \rVert^2 + \lVert \mathbf{r} \rVert^2$.
 
 ![À gauche, les quatre points, la droite ajustée et les résidus verticaux ; à droite, le schéma dans ℝⁿ : ŷ est le projeté de y sur le sous-espace Im X, et le résidu lui est orthogonal](figures/moindres_carres.png)
 
@@ -317,7 +319,9 @@ Rangé en matrices : $\mathbf{A} = \mathbf{Q}\mathbf{R}$, avec $\mathbf{Q} = [\m
 
 **Exemple.** Pour la matrice $\mathbf{A} = [\mathbf{a} _1\ \mathbf{a} _2\ \mathbf{a} _3]$ du §3, les coefficients sont ceux qu'on a calculés : $r  _{11} = 3$ ; $r  _{12} = 1$ et $r  _{22} = 4$ ; $r _{13} = 3$, $r _{23} = 2$ et $r _{33} = 1$ :
 
-$$\begin{pmatrix} 2 & 2 & 2 \cr 2 & -2 & 1 \cr 1 & 3 & 3 \end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}\begin{pmatrix} 3 & 1 & 3 \cr 0 & 4 & 2 \cr 0 & 0 & 1 \end{pmatrix}.$$
+```math
+\begin{pmatrix} 2 & 2 & 2 \cr 2 & -2 & 1 \cr 1 & 3 & 3 \end{pmatrix} = \frac{1}{3}\begin{pmatrix} 2 & 1 & -2 \cr 2 & -2 & 1 \cr 1 & 2 & 2 \end{pmatrix}\begin{pmatrix} 3 & 1 & 3 \cr 0 & 4 & 2 \cr 0 & 0 & 1 \end{pmatrix}.
+```
 
 La colonne 2 de $\mathbf{R}$ dit $\mathbf{a}_2 = 1\thinspace\mathbf{q}_1 + 4\thinspace\mathbf{q}_2$ : vérifie-le.
 

@@ -78,7 +78,9 @@ Le **théorème de Schwarz** (M05b, admis) dit que $\frac{\partial^2 f}{\partial
 **Exemple.** $f(x, y, z) = x^2y - 2yz + z^3$, au point $(1, 2, -1)$, où $f = 2 + 4 - 1 = 5$.
 - Le gradient : $\nabla f = (2xy,\ x^2 - 2z,\ -2y + 3z^2)$, qui vaut $(4,\ 3,\ -1)$ au point.
 - Les dérivées secondes : $f_{xx} = 2y$, $f_{xy} = 2x$, $f_{xz} = 0$, $f_{yy} = 0$, $f_{yz} = -2$, $f_{zz} = 6z$. Au point :
-$$\mathbf{H} = \begin{pmatrix} 4 & 2 & 0 \cr 2 & 0 & -2 \cr 0 & -2 & -6 \end{pmatrix}.$$
+```math
+\mathbf{H} = \begin{pmatrix} 4 & 2 & 0 \cr 2 & 0 & -2 \cr 0 & -2 & -6 \end{pmatrix}.
+```
 
 ### Taylor d'ordre 2
 
@@ -126,7 +128,7 @@ Les trois premiers cas sont admis ici ; ils viennent de Taylor et de la continui
 
 **Exemple.** $f(x, y, z) = x^3 - 6x^2 + y^2 + yz + z^2$.
 - Le gradient, $(3x^2 - 12x,\ 2y + z,\ y + 2z)$, s'annule pour $x = 0$ ou $x = 4$, et $y = z = 0$ : deux points critiques.
-- La hessienne : $\begin{pmatrix} 6x - 12 & 0 & 0 \cr 0 & 2 & 1 \cr 0 & 1 & 2 \end{pmatrix}$. Le bloc $\begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}$ a pour valeurs propres $3$ (vecteur $(1, 1)$) et $1$ (vecteur $(1, -1)$).
+- La hessienne : $`\begin{pmatrix} 6x - 12 & 0 & 0 \cr 0 & 2 & 1 \cr 0 & 1 & 2 \end{pmatrix}`$. Le bloc $`\begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}`$ a pour valeurs propres $3$ (vecteur $(1, 1){}$) et $1$ (vecteur $(1, -1){}$).
 - En $(0, 0, 0)$ : valeurs propres $-12$, $1$, $3$ : un **point selle** d'indice 1. On le voit sur la fonction : $f(t, 0, 0) = t^3 - 6t^2 < 0$ pour $t$ petit non nul, alors que $f(0, t, 0) = t^2 > 0$.
 - En $(4, 0, 0)$ : valeurs propres $12$, $1$, $3$ : un **minimum local**, où $f = 64 - 96 = -32$. Il n'est pas global : $f(t, 0, 0) \to -\infty$ quand $t \to -\infty$.
 
@@ -134,7 +136,7 @@ Les trois premiers cas sont admis ici ; ils viennent de Taylor et de la continui
 
 **Quand une valeur propre est nulle.** $g_1(x, y, z) = x^2 + y^2 + z^4$ et $g_2(x, y, z) = x^2 + y^2 - z^4$ ont toutes deux en $\mathbf{0}$ la hessienne $\operatorname{diag}(2, 2, 0)$ : le test ne conclut pas. $g_1$ y a un minimum ; $g_2$ une selle, puisqu'elle descend le long de l'axe des $z$. Dans la direction propre de la valeur propre nulle, Taylor d'ordre 2 est **plat**, et c'est l'ordre suivant qui décide.
 
-⚠️ **Erreur classique.** Conclure « minimum » parce que la diagonale de la hessienne est positive : $\begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}$ a pour valeurs propres $3$ et $-1$, c'est une selle (M12c §7). Ou appliquer le test en un point qui n'est pas critique : là, le terme d'ordre 1 l'emporte. Ou conclure d'une hessienne **numérique** dont une valeur propre vaut $10^{-9}$ : à la précision des différences finies (§1), c'est un zéro.
+⚠️ **Erreur classique.** Conclure « minimum » parce que la diagonale de la hessienne est positive : $`\begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}`$ a pour valeurs propres $3$ et $-1$, c'est une selle (M12c §7). Ou appliquer le test en un point qui n'est pas critique : là, le terme d'ordre 1 l'emporte. Ou conclure d'une hessienne **numérique** dont une valeur propre vaut $10^{-9}$ : à la précision des différences finies (§1), c'est un zéro.
 
 🔗 **Dans workbookIA** — le chapitre 19 parle des points critiques des fonctions qu'il minimise, en très grande dimension, et du rôle qu'y jouent les points selles ; il décrit leur voisinage par les valeurs propres de la hessienne, comme ce paragraphe.
 
@@ -165,8 +167,10 @@ Avec $\rho = 0{,}5$, chaque pas gagne un peu plus de 0,3 décimale ; avec $\rho 
 **Un départ particulier.** Si une valeur propre vérifie $\lvert\lambda_j\rvert \ge 1$, la composante $y_j$ ne diminue pas : l'itération ne converge pas vers $\mathbf{x}^\star$ depuis les départs qui ont $y_j \ne 0$. Mais un départ dont l'écart n'a **aucune** composante sur $\mathbf{q}_j$ converge quand même (M19.4) ; le théorème parle de **tout** départ.
 
 **Exemple : une barre qui tiédit.** Une barre a ses deux bouts maintenus à 0 °C et 40 °C ; on cherche la température d'équilibre en trois points intérieurs régulièrement espacés. À l'équilibre, chaque température est la moyenne de ses deux voisines. L'itération qui remplace chaque température par la moyenne de ses voisines s'écrit
-$$\mathbf{T} _{k+1} = \underbrace{\tfrac12\begin{pmatrix} 0 & 1 & 0 \cr 1 & 0 & 1 \cr 0 & 1 & 0 \end{pmatrix}} _{\mathbf{M}}\mathbf{T} _k + \underbrace{\begin{pmatrix} 0 \cr 0 \cr 20 \end{pmatrix}} _{\mathbf{c}}$$
-(le 20 est la moitié du bout à 40 °C). Le point fixe est le profil linéaire $\mathbf{T}^\star = (10 ;\ 20 ;\ 30)$. Les valeurs propres de $\mathbf{M}$ sont $\frac{\sqrt2}{2}$, $0$ et $-\frac{\sqrt2}{2}$ (vecteurs propres $(1, \sqrt2, 1)$, $(1, 0, -1)$, $(1, -\sqrt2, 1)$) : $\rho = \frac{\sqrt2}{2} \approx 0{,}707$, l'écart est divisé par 2 tous les deux pas. Depuis $\mathbf{T}_0 = \mathbf{0}$ : $\mathbf{T}_1 = (0 ;\ 0 ;\ 20)$, $\mathbf{T}_2 = (0 ;\ 10 ;\ 20)$, $\mathbf{T}_3 = (5 ;\ 10 ;\ 25)$, $\mathbf{T}_4 = (5 ;\ 15 ;\ 25)$ : les écarts $\mathbf{e}_2 = (-10 ;\ -10 ;\ -10)$ et $\mathbf{e}_4 = (-5 ;\ -5 ;\ -5)$ se divisent bien par 2. Pour gagner 6 décimales, il faut $\frac{6\ln 10}{\ln\sqrt2} \approx 39{,}9$, soit 40 pas.
+```math
+\mathbf{T} _{k+1} = \underbrace{\tfrac12\begin{pmatrix} 0 & 1 & 0 \cr 1 & 0 & 1 \cr 0 & 1 & 0 \end{pmatrix}} _{\mathbf{M}}\mathbf{T} _k + \underbrace{\begin{pmatrix} 0 \cr 0 \cr 20 \end{pmatrix}} _{\mathbf{c}}
+```
+(le 20 est la moitié du bout à 40 °C). Le point fixe est le profil linéaire $\mathbf{T}^\star = (10 ;\ 20 ;\ 30)$. Les valeurs propres de $\mathbf{M}$ sont $\frac{\sqrt2}{2}$, $0$ et $-\frac{\sqrt2}{2}$ (vecteurs propres $(1, \sqrt2, 1)$, $(1, 0, -1)$, $(1, -\sqrt2, 1){}$) : $\rho = \frac{\sqrt2}{2} \approx 0{,}707$, l'écart est divisé par 2 tous les deux pas. Depuis $\mathbf{T}_0 = \mathbf{0}$ : $\mathbf{T}_1 = (0 ;\ 0 ;\ 20)$, $\mathbf{T}_2 = (0 ;\ 10 ;\ 20)$, $\mathbf{T}_3 = (5 ;\ 10 ;\ 25)$, $\mathbf{T}_4 = (5 ;\ 15 ;\ 25)$ : les écarts $\mathbf{e}_2 = (-10 ;\ -10 ;\ -10)$ et $\mathbf{e}_4 = (-5 ;\ -5 ;\ -5)$ se divisent bien par 2. Pour gagner 6 décimales, il faut $\frac{6\ln 10}{\ln\sqrt2} \approx 39{,}9$, soit 40 pas.
 
 **Une matrice qui n'est pas symétrique.** Le critère des valeurs propres reste vrai pour toute matrice carrée $\mathbf{M}$, avec des valeurs propres qui peuvent être complexes, mais l'écart peut **grandir** pendant plusieurs pas avant de décroître : la majoration $\rho^k$ ne vaut plus. M22 traite le cas général ; ici, les matrices seront symétriques, sauf au §6.
 
@@ -187,8 +191,10 @@ C'est l'**itération de Richardson** (*Richardson iteration*, L. F. Richardson, 
 Le nombre $\omega_c = 2/\lambda_{\max}$ est le **pas critique** : au-delà, la composante de l'écart le long du vecteur propre de $\lambda_{\max}$ est multipliée par $1 - \omega\lambda_{\max} < -1$, change de signe et grandit à chaque pas. Seules les deux valeurs propres **extrêmes** comptent pour $\rho$, car $1 - \omega\lambda$ varie de façon monotone avec $\lambda$.
 
 **Exemple : deux ressorts.** Une masse est accrochée à un mur par un ressort de raideur 3, une seconde masse à la première par un ressort de raideur 2 ; on tire sur la première avec une force 2 et sur la seconde avec une force 1. Les déplacements $\mathbf{x}$ à l'équilibre vérifient $\mathbf{A}\mathbf{x} = \mathbf{b}$ avec la **matrice de raideur**
-$$\mathbf{A} = \begin{pmatrix} 3 + 2 & -2 \cr -2 & 2 \end{pmatrix} = \begin{pmatrix} 5 & -2 \cr -2 & 2 \end{pmatrix}, \qquad \mathbf{b} = \begin{pmatrix} 2 \cr 1 \end{pmatrix}, \qquad \mathbf{x}^\star = \begin{pmatrix} 1 \cr 1{,}5 \end{pmatrix}.$$
-Ses valeurs propres sont $1$ (vecteur $(1, 2)$) et $6$ (vecteur $(2, -1)$) : le pas critique vaut $\frac{2}{6} = \frac13$.
+```math
+\mathbf{A} = \begin{pmatrix} 3 + 2 & -2 \cr -2 & 2 \end{pmatrix} = \begin{pmatrix} 5 & -2 \cr -2 & 2 \end{pmatrix}, \qquad \mathbf{b} = \begin{pmatrix} 2 \cr 1 \end{pmatrix}, \qquad \mathbf{x}^\star = \begin{pmatrix} 1 \cr 1{,}5 \end{pmatrix}.
+```
+Ses valeurs propres sont $1$ (vecteur $(1, 2){}$) et $6$ (vecteur $(2, -1){}$) : le pas critique vaut $\frac{2}{6} = \frac13$.
 - Avec $\omega = 0{,}25$, les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ sont $0{,}75$ et $-0{,}5$ : $\rho = 0{,}75$. Depuis $\mathbf{0}$ : $\mathbf{x}_1 = (0{,}5 ;\ 0{,}25)$, $\mathbf{x}_2 = (0{,}5 ;\ 0{,}625)$, $\mathbf{x}_3 = (0{,}6875 ;\ 0{,}8125)$, $\mathbf{x}_4 = (0{,}734375 ;\ 1)$, qui s'approchent lentement de $(1 ;\ 1{,}5)$.
 - Avec $\omega = 0{,}32$, juste sous le pas critique : $1 - 0{,}32 \times 6 = -0{,}92$, la composante raide change de signe à chaque pas et diminue à peine : les itérés **oscillent** de part et d'autre de la solution.
 - Avec $\omega = 0{,}35 > \frac13$ : $1 - 2{,}1 = -1{,}1$, l'itération diverge.
@@ -238,11 +244,11 @@ Multiplier le conditionnement par 10 multiplie le travail par 10. Avec le pas pr
 $$\mathbf{A}\mathbf{x} = \mathbf{b} \iff \underbrace{\mathbf{D}^{-1/2}\mathbf{A}\thinspace\mathbf{D}^{-1/2}}  _{\tilde{\mathbf{A}}}\thinspace\mathbf{y} = \mathbf{D}^{-1/2}\mathbf{b}.$$
 $\tilde{\mathbf{A}}$, de coefficients $\tilde a _{ij} = \frac{a _{ij}}{\sqrt{a _{ii}a _{jj}}}$, est symétrique définie positive et a des 1 sur sa diagonale. C'est le **préconditionnement diagonal**, ou de **Jacobi**.
 
-**Exemple : un ressort raide et un ressort souple.** Avec des raideurs 96 et 4 à la place de 3 et 2, la matrice de raideur devient $\mathbf{K} = \begin{pmatrix} 100 & -4 \cr -4 & 4 \end{pmatrix}$, de valeurs propres environ $100{,}2$ et $3{,}83$ : $\kappa \approx 26{,}1$, et gagner 6 décimales demande 181 itérations au meilleur pas. Après mise à l'échelle, $\tilde{\mathbf{K}} = \begin{pmatrix} 1 & -0{,}2 \cr -0{,}2 & 1 \end{pmatrix}$ ($\frac{-4}{\sqrt{100 \times 4}} = -0{,}2$), de valeurs propres $0{,}8$ et $1{,}2$ : $\kappa = 1{,}5$, et 9 itérations suffisent. Le mauvais conditionnement venait surtout des **échelles** différentes des deux inconnues, que la mise à l'échelle corrige.
+**Exemple : un ressort raide et un ressort souple.** Avec des raideurs 96 et 4 à la place de 3 et 2, la matrice de raideur devient $`\mathbf{K} = \begin{pmatrix} 100 & -4 \cr -4 & 4 \end{pmatrix}`$, de valeurs propres environ $100{,}2$ et $3{,}83$ : $\kappa \approx 26{,}1$, et gagner 6 décimales demande 181 itérations au meilleur pas. Après mise à l'échelle, $`\tilde{\mathbf{K}} = \begin{pmatrix} 1 & -0{,}2 \cr -0{,}2 & 1 \end{pmatrix}`$ ($\frac{-4}{\sqrt{100 \times 4}} = -0{,}2$), de valeurs propres $0{,}8$ et $1{,}2$ : $\kappa = 1{,}5$, et 9 itérations suffisent. Le mauvais conditionnement venait surtout des **échelles** différentes des deux inconnues, que la mise à l'échelle corrige.
 
 **Dans les inconnues de départ**, Richardson sur $\tilde{\mathbf{A}}$ revient à diviser chaque coordonnée du résidu par le coefficient diagonal correspondant :
 $$\mathbf{x}_{k+1} = \mathbf{x}_k + \omega\thinspace\mathbf{D}^{-1}(\mathbf{b} - \mathbf{A}\mathbf{x}_k).$$
-Avec $\omega = 1$, c'est la **méthode de Jacobi** (*Jacobi method*) : chaque équation $i$ est résolue en $x_i$, les autres inconnues gardant leur ancienne valeur. La barre du §3 en était un exemple : son système a la matrice $\begin{pmatrix} 2 & -1 & 0 \cr -1 & 2 & -1 \cr 0 & -1 & 2 \end{pmatrix}$, de diagonale constante 2, et « chaque température devient la moyenne de ses voisines » est Jacobi. Là, la mise à l'échelle ne change pas $\kappa$ : une diagonale constante n'a pas d'échelles différentes à corriger. Le préconditionnement diagonal aide quand les inconnues vivent à des échelles très différentes, pas quand le mauvais conditionnement vient des couplages entre elles.
+Avec $\omega = 1$, c'est la **méthode de Jacobi** (*Jacobi method*) : chaque équation $i$ est résolue en $x_i$, les autres inconnues gardant leur ancienne valeur. La barre du §3 en était un exemple : son système a la matrice $`\begin{pmatrix} 2 & -1 & 0 \cr -1 & 2 & -1 \cr 0 & -1 & 2 \end{pmatrix}`$, de diagonale constante 2, et « chaque température devient la moyenne de ses voisines » est Jacobi. Là, la mise à l'échelle ne change pas $\kappa$ : une diagonale constante n'a pas d'échelles différentes à corriger. Le préconditionnement diagonal aide quand les inconnues vivent à des échelles très différentes, pas quand le mauvais conditionnement vient des couplages entre elles.
 
 💻 **Aujourd'hui en pratique** — pour un grand système symétrique défini positif, la méthode de choix est le **gradient conjugué** (*conjugate gradient*, M. Hestenes et E. Stiefel, 1952) : à chaque pas, il choisit la meilleure combinaison de toutes les directions déjà explorées, et son nombre d'itérations croît comme $\sqrt\kappa$ au lieu de $\kappa$ ; en arithmétique exacte, il trouve la solution en au plus $n$ pas. `scipy.sparse.linalg.cg` l'implémente, avec un argument `M` pour un préconditionneur (📦 M19.22). Les préconditionneurs utilisés en pratique vont bien au-delà de la diagonale (Cholesky incomplet, multigrille).
 
@@ -255,7 +261,9 @@ Avec $\omega = 1$, c'est la **méthode de Jacobi** (*Jacobi method*) : chaque é
 Une **récurrence linéaire d'ordre 2** (*linear recurrence*) calcule chaque terme à partir des **deux** précédents :
 $$u_{k+2} = p\thinspace u_{k+1} - q\thinspace u_k, \qquad u_0,\ u_1 \text{ donnés}.$$
 (Le signe de $q$ est choisi pour que $p$ et $q$ soient la somme et le produit des racines plus bas.) Sous forme vectorielle, avec $\mathbf{v} _k = (u _{k+1}, u_k)$, c'est une itération linéaire de R5 et du §3 :
-$$\mathbf{v} _{k+1} = \underbrace{\begin{pmatrix} p & -q \cr 1 & 0 \end{pmatrix}} _{\mathbf{C}}\mathbf{v}_k,$$
+```math
+\mathbf{v} _{k+1} = \underbrace{\begin{pmatrix} p & -q \cr 1 & 0 \end{pmatrix}} _{\mathbf{C}}\mathbf{v}_k,
+```
 où $\mathbf{C}$ est la **matrice compagnon** (*companion matrix*) ; son polynôme caractéristique est $r^2 - pr + q$ (M12c §3). $\mathbf{C}$ n'est **pas symétrique** : le théorème du §3 ne s'applique pas tel quel, et on travaille directement avec les racines.
 
 On cherche des solutions géométriques $u_k = r^k$ : il faut $r^{k+2} = p\thinspace r^{k+1} - q\thinspace r^k$, soit $r^2 - pr + q = 0$, le **polynôme caractéristique** (*characteristic polynomial*) de la récurrence. Comme la récurrence est linéaire, toute combinaison de solutions est une solution :
@@ -326,7 +334,9 @@ $$P_C(\mathbf{x}) = \arg\min_{\mathbf{y} \in C}\lVert\mathbf{x} - \mathbf{y}\rVe
 M12b l'a fait pour un sous-espace (la projection orthogonale). Pour un ensemble **convexe**, **fermé** et non vide (M10), ce point existe et il est unique (admis). Si $\mathbf{x}$ est déjà dans $C$, $P_C(\mathbf{x}) = \mathbf{x}$, et projeter deux fois revient à projeter une fois. Deux ensembles convexes reviennent sans cesse : une boule et un pavé.
 
 **La boule** de centre $\mathbf{0}$ et de rayon $r$, $\lbrace\mathbf{y} : \lVert\mathbf{y}\rVert \le r\rbrace$ (norme L2, M07) :
-$$P(\mathbf{x}) = \begin{cases} \mathbf{x} & \text{si } \lVert\mathbf{x}\rVert \le r, \cr r\thinspace\dfrac{\mathbf{x}}{\lVert\mathbf{x}\rVert} & \text{sinon,} \end{cases} \qquad \text{soit } P(\mathbf{x}) = \mathbf{x}\thinspace\min\left(1,\ \frac{r}{\lVert\mathbf{x}\rVert}\right).$$
+```math
+P(\mathbf{x}) = \begin{cases} \mathbf{x} & \text{si } \lVert\mathbf{x}\rVert \le r, \cr r\thinspace\dfrac{\mathbf{x}}{\lVert\mathbf{x}\rVert} & \text{sinon,} \end{cases} \qquad \text{soit } P(\mathbf{x}) = \mathbf{x}\thinspace\min\left(1,\ \frac{r}{\lVert\mathbf{x}\rVert}\right).
+```
 Un point trop loin est ramené sur la sphère **le long du rayon** : sa **direction ne change pas**, seule sa longueur devient $r$ (∂ M19.13 démontre que c'est bien le point le plus proche).
 
 **Le pavé** (*box*) $[l_1, u_1] \times \cdots \times [l_n, u_n]$ : le carré de la distance, $\sum_i(x_i - y_i)^2$, est une somme de termes qui ne dépendent chacun que d'une coordonnée. On minimise donc chaque terme séparément, sur son intervalle : la coordonnée $y_i$ la plus proche de $x_i$ dans $[l_i, u_i]$ est $x_i$ lui-même s'il y est, sinon le bord le plus proche :

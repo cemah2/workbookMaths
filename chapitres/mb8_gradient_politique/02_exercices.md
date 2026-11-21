@@ -82,7 +82,7 @@ En un point $\mathbf{z}$, la softmax vaut $\mathbf{p} = (0{,}6 ;\ 0{,}1 ;\ 0{,}3
 ### MB8.R2 — Le système de Bellman d'une politique fixée, la loi d'occupation actualisée et le télescopage des erreurs TD (M26) 🔁 ★ ⏱️ 7 min
 *Fiche §4 et §5 · parcours C, E*
 
-Une chaîne à deux états : $\mathbf{P} _\pi = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}2 & 0{,}8 \end{pmatrix}$, $\mathbf{r} _\pi = (8 ;\ 1)$, $\gamma = 0{,}6$.
+Une chaîne à deux états : $`\mathbf{P} _\pi = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}2 & 0{,}8 \end{pmatrix}`$, $\mathbf{r} _\pi = (8 ;\ 1)$, $\gamma = 0{,}6$.
 1. Les valeurs $\mathbf{V}$ (le système de Bellman).
 2. La loi d'occupation actualisée $\boldsymbol\nu_0$ depuis l'état 0 ; vérifie $V(0) = \frac{\boldsymbol\nu_0\mathbf{r}_\pi}{1 - \gamma}$.
 3. Avec des valeurs estimées $\mathbf{W} = (16 ;\ 5)$, l'espérance de l'erreur TD $\delta_t = R_t + \gamma W(S_{t+1}) - W(S_t)$ sachant $S_t = 0$.
@@ -163,7 +163,9 @@ Pour d) et e), repars des valeurs non arrondies de b) et c). Dans ta copie : cal
 **Prérequis :** fiche §5 ; M26 §1 (loi à $k$ pas d'une chaîne), R5 (série géométrique) · **Parcours :** C, E
 
 Chaque mois, un tronçon de route à péage est **bon**, **usé** ou **en travaux**. Sous la politique d'entretien de la société concessionnaire, fixée, son état suit la chaîne
-$$\mathbf{P}_\pi = \begin{pmatrix} 0{,}85 & 0{,}15 & 0 \cr 0 & 0{,}7 & 0{,}3 \cr 0{,}85 & 0 & 0{,}15 \end{pmatrix} \quad (\text{lignes et colonnes : bon, usé, en travaux}),$$
+```math
+\mathbf{P}_\pi = \begin{pmatrix} 0{,}85 & 0{,}15 & 0 \cr 0 & 0{,}7 & 0{,}3 \cr 0{,}85 & 0 & 0{,}15 \end{pmatrix} \quad (\text{lignes et colonnes : bon, usé, en travaux}),
+```
 et les mois sont actualisés par $\gamma = 0{,}6$. Un bureau d'études a estimé la valeur de chaque état (la recette de péage actualisée à venir, en centaines de milliers d'euros) ; ses estimations $\mathbf{W} = \mathbf{V}^\pi + \mathbf{e}$ sont fausses de $\mathbf{e} = (3 ;\ 0 ;\ 2)$ : trop hautes de 3 pour un tronçon bon, justes pour un tronçon usé, trop hautes de 2 pour un tronçon en travaux. On amorce avec $\mathbf{W}$ des retours à $k$ pas, et un λ-retour avec $\lambda = 0{,}7$. Le biais d'un retour à $k$ pas $G_t^{(k)}$ (fiche §5) depuis l'état $s$ est $\mathbb{E}\big[G_t^{(k)} \mid S_t = s\big] - V^\pi(s)$, et de même pour le λ-retour $G_t^\lambda$ ; les recettes du mois n'y interviennent pas.
 
 | | Question | Réponse attendue |
@@ -273,7 +275,7 @@ On estime $D = \frac{\mathrm{d}}{\mathrm{d}\theta}\mathbb{E} _\theta[f(X)] = \ma
 Un MDP a $m$ états et $K$ actions, $\gamma < 1$, et une politique softmax tabulaire a les logits $z(s, a)$ ; $\mathbf{P} _\pi$, $\mathbf{r} _\pi$, $V$, $Q$, $A$ et $\mathbf{M}$ sont ceux de la fiche §4. On admet que $\mathbf{V}$ est une fonction dérivable des logits.
 1. La matrice $\mathbf{I} - \gamma\mathbf{P} _\pi$ est inversible (M26 §5). Dérive $(\mathbf{I} - \gamma\mathbf{P} _\pi)\thinspace\mathbf{V} = \mathbf{r} _\pi$ par rapport à un paramètre réel de la politique, et montre que $\partial\mathbf{V} = \mathbf{M}\big(\partial\mathbf{r}  _\pi + \gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V}\big)$.
 2. Calcule $\frac{\partial\pi(b \mid s')}{\partial z(s, a)}$ pour tous les états $s'$ et toutes les actions $b$.
-3. Déduis-en que le vecteur $\partial\mathbf{r} _\pi + \gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V}$ (la dérivée étant prise par rapport à $z(s, a)$) n'a qu'une coordonnée non nulle, celle de $s$, et qu'elle vaut $\pi(a \mid s)\thinspace A(s, a)$.
+3. Déduis-en que le vecteur $\partial\mathbf{r} _\pi + \gamma\thinspace(\partial\mathbf{P} _\pi)\thinspace\mathbf{V}$ (la dérivée étant prise par rapport à $z(s, a){}$) n'a qu'une coordonnée non nulle, celle de $s$, et qu'elle vaut $\pi(a \mid s)\thinspace A(s, a)$.
 4. Conclus : $\frac{\partial V(s_0)}{\partial z(s, a)} = \mathbf{M}[s_0, s]\thinspace\pi(a \mid s)\thinspace A(s, a) = \frac{\nu_{s_0}(s)}{1 - \gamma}\thinspace\pi(a \mid s)\thinspace A(s, a)$, et vérifie que la somme de ces dérivées sur les actions $a$ est nulle.
 5. Pour une politique qui dépend d'un paramètre réel $\theta$ de façon quelconque (dérivable, de probabilités positives), écris le résultat de 1 sous la forme $\partial_\theta V(s_0) = \sum_s\mathbf{M}[s_0, s]\sum_a\pi(a \mid s)\thinspace\partial_\theta\ln\pi(a \mid s)\thinspace Q(s, a)$, puis montre qu'on peut y remplacer $Q(s, a)$ par $A(s, a)$.
 

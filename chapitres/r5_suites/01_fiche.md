@@ -45,7 +45,7 @@ Parcours essentiel : tout sauf R5.Q6, R5.R2, R5.6, R5.10, R5.17, R5.19, R5.20 et
 
 ## L'essentiel en 10 lignes
 
-1. Une **suite** $(u_n)$ associe un nombre $u_n$ à chaque entier $n$ : $u_0, u_1, u_2, \dots$ On la définit **explicitement** ($u_n = n^2 - 1$) ou **par récurrence** (un premier terme et une règle $u_{n+1} = f(u_n)$).
+1. Une **suite** $(u_n)$ associe un nombre $u_n$ à chaque entier $n$ : $u_0, u_1, u_2, \dots$ On la définit **explicitement** ($u_n = n^2 - 1$) ou **par récurrence** (un premier terme et une règle $u_{n+1} = f(u_n){}$).
 2. **Arithmétique** : on ajoute la même **raison** $r$ à chaque pas, $u_{n+1} = u_n + r$, donc $u_n = u_0 + n\thinspace r$.
 3. **Géométrique** : on multiplie par la même **raison** $q$ à chaque pas, $u_{n+1} = q\thinspace u_n$, donc $u_n = u_0\thinspace q^n$. Une hausse de $t$ % est une multiplication par $1 + \frac{t}{100}$.
 4. Somme de termes consécutifs d'une suite arithmétique : **nombre de termes × (premier + dernier) / 2**.

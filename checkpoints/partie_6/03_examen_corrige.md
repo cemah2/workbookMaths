@@ -30,13 +30,13 @@
 
 1 point par affirmation : 0,4 pour le verdict, 0,6 pour la justification. Une règle juste suffit pour la justification (en h, les supports emboîtés ; en j, la décomposition $I(X ; Z) + \mathrm{KL}$), sans le calcul.
 
-**a) Faux** (M26 §1 et §2). $P(S_0 = i, S_1 = j) = \pi_i\thinspace p_{ij}$, et $P(S_1 = j) = \pi_j$ puisque $\boldsymbol{\pi}$ est stationnaire. L'indépendance demande $p_{ij} = \pi_j$ pour tous $i$ et $j$ : toutes les lignes de $\mathbf{P}$ égales à $\boldsymbol{\pi}$. Contre-exemple : $\mathbf{P} = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}3 & 0{,}7 \end{pmatrix}$, de loi stationnaire $(\frac12, \frac12)$ : $P(S_1 = 0 \mid S_0 = 0) = 0{,}7 \ne \frac12 = P(S_1 = 0)$. La stationnarité dit que $S_1$ a la **même loi** que $S_0$, pas qu'il en est indépendant.
+**a) Faux** (M26 §1 et §2). $P(S_0 = i, S_1 = j) = \pi_i\thinspace p_{ij}$, et $P(S_1 = j) = \pi_j$ puisque $\boldsymbol{\pi}$ est stationnaire. L'indépendance demande $p_{ij} = \pi_j$ pour tous $i$ et $j$ : toutes les lignes de $\mathbf{P}$ égales à $\boldsymbol{\pi}$. Contre-exemple : $`\mathbf{P} = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}3 & 0{,}7 \end{pmatrix}`$, de loi stationnaire $(\frac12, \frac12)$ : $P(S_1 = 0 \mid S_0 = 0) = 0{,}7 \ne \frac12 = P(S_1 = 0)$. La stationnarité dit que $S_1$ a la **même loi** que $S_0$, pas qu'il en est indépendant.
 
 **b) Faux** (M25a §7). À moyennes égales, $\mathrm{KL} = \frac12\big(\operatorname{tr}(\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0) - d + \ln\frac{\det\boldsymbol{\Sigma}_1}{\det\boldsymbol{\Sigma}_0}\big)$ : le logarithme s'annule, pas le terme de la trace. Ici $\boldsymbol{\Sigma}_0 = \operatorname{diag}(6, 1)$ et $\boldsymbol{\Sigma}_1 = \operatorname{diag}(1, 6)$, de même déterminant 6 : $\mathrm{KL} = \frac12\big(6 + \frac16 - 2\big) = \frac{25}{12} \approx 2{,}083$ (la même dans l'autre sens). La KL n'est nulle que pour deux lois égales ; deux ellipses de même aire mais d'orientations différentes ne le sont pas.
 
 **c) Vrai** (M28 §5). $\big(p_i^{1/3}/Z_3\big)^{1/4} = p_i^{1/12}/Z_3^{1/4}$, et la constante $Z_3^{1/4}$, la même pour toutes les issues, disparaît quand on renormalise : on obtient $\mathbf{p}^{(12)}$. Les températures successives se multiplient, $T\thinspace T' = 12$.
 
-**d) Faux** (M27 §4). Un pas simultané fait $x \leftarrow x - 0{,}4\thinspace y$ et $y \leftarrow y + 0{,}4\thinspace x$ (le gradient de $10xy$ en $x$ est $10y$, et $0{,}04 \times 10 = 0{,}4$), de matrice $\begin{pmatrix} 1 & -0{,}4 \cr 0{,}4 & 1 \end{pmatrix}$, de valeurs propres $1 \pm 0{,}4\thinspace i$, de module $\sqrt{1{,}16} \approx 1{,}077 > 1$. En fait $(x - 0{,}4y)^2 + (y + 0{,}4x)^2 = 1{,}16\thinspace(x^2 + y^2)$ : c'est le **carré** de la distance à l'équilibre qui est multiplié par 1,16 ; la distance, elle, est multipliée par $\sqrt{1{,}16} \approx 1{,}077$ à chaque pas, depuis tout point autre que $(0, 0)$. (La descente-montée simultanée s'éloigne pour tout pas $\eta > 0$.)
+**d) Faux** (M27 §4). Un pas simultané fait $x \leftarrow x - 0{,}4\thinspace y$ et $y \leftarrow y + 0{,}4\thinspace x$ (le gradient de $10xy$ en $x$ est $10y$, et $0{,}04 \times 10 = 0{,}4$), de matrice $`\begin{pmatrix} 1 & -0{,}4 \cr 0{,}4 & 1 \end{pmatrix}`$, de valeurs propres $1 \pm 0{,}4\thinspace i$, de module $\sqrt{1{,}16} \approx 1{,}077 > 1$. En fait $(x - 0{,}4y)^2 + (y + 0{,}4x)^2 = 1{,}16\thinspace(x^2 + y^2)$ : c'est le **carré** de la distance à l'équilibre qui est multiplié par 1,16 ; la distance, elle, est multipliée par $\sqrt{1{,}16} \approx 1{,}077$ à chaque pas, depuis tout point autre que $(0, 0)$. (La descente-montée simultanée s'éloigne pour tout pas $\eta > 0$.)
 
 **e) Vrai** (M25b §7, M25a §7). $\mathrm{KL}(q \thinspace\Vert\thinspace p) = 2 \times \frac12\ln\frac{1/2}{1/6} = \ln 3$, finie parce que le support de $q$ est dans celui de $p$. $\mathrm{KL}(p \thinspace\Vert\thinspace q) = +\infty$ : $p$ met la masse $\frac46$ sur $\lbrace3, 4, 5, 6\rbrace$, où $q$ est nulle. Minimiser $\mathrm{KL}(q \thinspace\Vert\thinspace p)$ ne pénalise $q$ que là où $q > 0$ : $q$ peut se concentrer sur une partie de $p$ (sur un mode), alors que $\mathrm{KL}(p \thinspace\Vert\thinspace q)$ l'oblige à couvrir tout le support de $p$.
 
@@ -83,20 +83,20 @@ b) La loi marginale d'une coordonnée garde sa moyenne et son coefficient diagon
 c) Moyenne $55 + \frac{12}{16}(48 - 40) = 61$ ; variance, le complément de Schur, $13 - \frac{12^2}{16} = 4$.
 d) Moyenne $40 + \frac{12}{13}(48{,}5 - 55) = 40 - 6 = 34$ ; variance $16 - \frac{144}{13} = \frac{64}{13} \approx 4{,}9231$.
 e) $\mathbf{L}\boldsymbol{\varepsilon} = (4 \times 1 ;\ 3 \times 1 + 2 \times (-2{,}5)) = (4 ;\ -2)$, et le tirage vaut $(44 ;\ 53)$.
-f) La covariance de $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ est $\mathbf{M}\mathbf{M}^\top = \begin{pmatrix} 0 + 16 & 0 + 12 \cr 0 + 12 & 4 + 9 \end{pmatrix} = \boldsymbol{\Sigma}$.
+f) La covariance de $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ est $`\mathbf{M}\mathbf{M}^\top = \begin{pmatrix} 0 + 16 & 0 + 12 \cr 0 + 12 & 4 + 9 \end{pmatrix} = \boldsymbol{\Sigma}`$.
 
 Sur ta copie :
-- $\mathbf{L}\mathbf{L}^\top = \begin{pmatrix} 16 & 12 \cr 12 & 9 + 4 \end{pmatrix} = \boldsymbol{\Sigma}$.
+- $`\mathbf{L}\mathbf{L}^\top = \begin{pmatrix} 16 & 12 \cr 12 & 9 + 4 \end{pmatrix} = \boldsymbol{\Sigma}`$.
 - $x_1 = 40 + 4\varepsilon_1$ et $x_2 = 55 + 3\varepsilon_1 + 2\varepsilon_2$. Lire $x_1 = 48$ fixe $\varepsilon_1 = 2$, et il reste $x_2 = 61 + 2\varepsilon_2$, où $\varepsilon_2 \sim \mathcal{N}(0, 1)$ est indépendant de $\varepsilon_1$ : la variance vaut $l_{22}^2 = 4$ quelle que soit la valeur lue, qui ne fait que déplacer la moyenne.
-- $\mathbf{M} = \mathbf{L}\mathbf{R}$ avec $\mathbf{R} = \begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}$, orthogonale : $\mathbf{R}\boldsymbol{\varepsilon}$ suit encore $\mathcal{N}(\mathbf{0}, \mathbf{I})$, et les tirages $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ ont bien la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$. Mais, pour $\boldsymbol{\varepsilon} = (1 ;\ -2{,}5)$, on obtient $(40 + 4 \times (-2{,}5) ;\ 55 + 2 \times 1 + 3 \times (-2{,}5)) = (30 ;\ 49{,}5)$, pas le point de e) : même loi, pas les mêmes tirages. Deux tireurs se comparent par leurs lois (moyenne et covariance), jamais tirage par tirage.
+- $\mathbf{M} = \mathbf{L}\mathbf{R}$ avec $`\mathbf{R} = \begin{pmatrix} 0 & 1 \cr 1 & 0 \end{pmatrix}`$, orthogonale : $\mathbf{R}\boldsymbol{\varepsilon}$ suit encore $\mathcal{N}(\mathbf{0}, \mathbf{I})$, et les tirages $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ ont bien la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$. Mais, pour $\boldsymbol{\varepsilon} = (1 ;\ -2{,}5)$, on obtient $(40 + 4 \times (-2{,}5) ;\ 55 + 2 \times 1 + 3 \times (-2{,}5)) = (30 ;\ 49{,}5)$, pas le point de e) : même loi, pas les mêmes tirages. Deux tireurs se comparent par leurs lois (moyenne et covariance), jamais tirage par tirage.
 
 **Erreurs fréquentes** :
 - en a), donner $\mathbf{L}^\top$, triangulaire supérieure, ou prendre $l_{22} = \sqrt{13}$ ;
 - en b), donner la variance conditionnelle (4), ou un écart-type ($\sqrt{13}$) ;
 - en c), garder la variance 13, ou diviser par $\Sigma_{22}$ au lieu de $\Sigma_{11}$ ;
 - en d), garder la variance 16, diviser par $\Sigma_{11}$ ($35{,}125$ et $7$, ou seulement dans la variance : $[34, 7]$), ou se tromper de signe sur $x_2 - \mu_2$ (46) ;
-- en e), multiplier par $\mathbf{L}^\top$ ($(36{,}5 ;\ 50)$), par $\boldsymbol{\Sigma}$ ($(26 ;\ 34{,}5)$), ou oublier $\boldsymbol{\mu}$ ;
-- en f), calculer $\mathbf{M}^\top\mathbf{M} = \begin{pmatrix} 4 & 6 \cr 6 & 25 \end{pmatrix}$, ou conclure de « $\mathbf{M}$ n'est pas triangulaire » que la loi est fausse.
+- en e), multiplier par $\mathbf{L}^\top$ ($(36{,}5 ;\ 50){}$), par $\boldsymbol{\Sigma}$ ($(26 ;\ 34{,}5){}$), ou oublier $\boldsymbol{\mu}$ ;
+- en f), calculer $`\mathbf{M}^\top\mathbf{M} = \begin{pmatrix} 4 & 6 \cr 6 & 25 \end{pmatrix}`$, ou conclure de « $\mathbf{M}$ n'est pas triangulaire » que la loi est fausse.
 
 **Remédiation** : M25a.2, M25a.4, M25a.10, M25a.21, M25a.22, M25a.Q2, M25a.Q4, M25a.R2.
 
@@ -104,7 +104,7 @@ Sur ta copie :
 
 **Réponses** : a) `3.5` · b) `1` · c) `0.7442` · d) `48.19` · e) `[1.5826, 2.4227, 0.7913]` · f) `2.806`.
 
-a) $\det\boldsymbol{\Sigma}_1 = 8 - 4 = 4$ et $\boldsymbol{\Sigma}_1^{-1} = \frac14\begin{pmatrix} 2 & -2 \cr -2 & 4 \end{pmatrix} = \begin{pmatrix} 0{,}5 & -0{,}5 \cr -0{,}5 & 1 \end{pmatrix}$ ; $\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0 = \begin{pmatrix} 1 & -0{,}5 \cr 0{,}5 & 2{,}5 \end{pmatrix}$, de trace 3,5.
+a) $\det\boldsymbol{\Sigma}_1 = 8 - 4 = 4$ et $`\boldsymbol{\Sigma}_1^{-1} = \frac14\begin{pmatrix} 2 & -2 \cr -2 & 4 \end{pmatrix} = \begin{pmatrix} 0{,}5 & -0{,}5 \cr -0{,}5 & 1 \end{pmatrix}`$ ; $`\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\Sigma}_0 = \begin{pmatrix} 1 & -0{,}5 \cr 0{,}5 & 2{,}5 \end{pmatrix}`$, de trace 3,5.
 b) $\boldsymbol{\delta} = (2, 1)$, $\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta} = (0{,}5 ;\ 0)$, et $\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_1^{-1}\boldsymbol{\delta} = 1$.
 c) $\det\boldsymbol{\Sigma}_0 = 20 - 9 = 11$ : $\mathrm{KL} = \frac12\big(3{,}5 + 1 - 2 + \ln\frac{4}{11}\big) = \frac12(2{,}5 - 1{,}011601) \approx 0{,}7442$.
 d) $\lVert\mathbf{u}\rVert = \lVert\mathbf{v}\rVert = 3$ et $\mathbf{u} \cdot \mathbf{v} = 6$ : $\cos\Omega = \frac23$, $\Omega \approx 48{,}19°$ (0,8411 rad).
@@ -151,7 +151,9 @@ Sur ta copie : les trois nombres 3 ; 0,5 ; −4 ; l'écart de d) est la somme de
 
 **Réponses** : a) `[0.36, 0.429, 0.066]` · b) `0.145` · c) `[66, 80, 10]` · d) `9.834`.
 
-$$\mathbf{P} = \begin{pmatrix} 0{,}6 & 0{,}33 & 0 \cr 0 & 0{,}7 & 0{,}2 \cr 0 & 0 & 0{,}4 \end{pmatrix}, \qquad \text{probabilités de finir : } 0{,}07 ;\ 0{,}1 ;\ 0{,}6 \ \text{(ce qui manque à chaque ligne)}.$$
+```math
+\mathbf{P} = \begin{pmatrix} 0{,}6 & 0{,}33 & 0 \cr 0 & 0{,}7 & 0{,}2 \cr 0 & 0 & 0{,}4 \end{pmatrix}, \qquad \text{probabilités de finir : } 0{,}07 ;\ 0{,}1 ;\ 0{,}6 \ \text{(ce qui manque à chaque ligne)}.
+```
 
 a) $\boldsymbol{\mu}_0 = (1, 0, 0)$, $\boldsymbol{\mu}_1 = (0{,}6 ;\ 0{,}33 ;\ 0)$, $\boldsymbol{\mu}_2 = \boldsymbol{\mu}_1\mathbf{P} = (0{,}36 ;\ 0{,}198 + 0{,}231 ;\ 0{,}066) = (0{,}36 ;\ 0{,}429 ;\ 0{,}066)$.
 b) $1 - (0{,}36 + 0{,}429 + 0{,}066) = 0{,}145$ : $0{,}07$ la première année, puis $0{,}6 \times 0{,}07 + 0{,}33 \times 0{,}1 = 0{,}075$ la deuxième.
@@ -161,9 +163,9 @@ d) $\boldsymbol{\mu}_2\mathbf{r} = 0{,}429 \times 22 + 0{,}066 \times 6 = 9{,}43
 Sur ta copie : $\mathbf{P}$ ci-dessus, de sommes de lignes $0{,}93$, $0{,}9$ et $0{,}4$ ; $\mathbf{P}$ est triangulaire supérieure (une parcelle ne rajeunit jamais), donc la dernière équation ne fait intervenir que $V(2)$, l'avant-dernière $V(1)$ et $V(2)$, etc. $\gamma = 1$ est permis parce que la fin est sûre : chaque ligne perd de la masse, $\rho(\mathbf{P}) = 0{,}7 < 1$ (les valeurs propres d'une matrice triangulaire sont sur sa diagonale), $\mathbf{I} - \mathbf{P}$ est inversible et $\mathbf{V} = \sum_t\mathbf{P}^t\mathbf{r}$ converge.
 
 **Erreurs fréquentes** :
-- en a), multiplier dans la convention colonne ($(0{,}36 ;\ 0 ;\ 0)$), élever les coefficients au carré, ou s'arrêter à $\boldsymbol{\mu}_1$ ;
+- en a), multiplier dans la convention colonne ($(0{,}36 ;\ 0 ;\ 0){}$), élever les coefficients au carré, ou s'arrêter à $\boldsymbol{\mu}_1$ ;
 - en b), ne compter qu'une année (0,07 ou 0,075), doubler la probabilité de la première année (0,14), ou donner 0,855 ;
-- en c), oublier les coefficients diagonaux ($(7{,}656 ;\ 23{,}2 ;\ 6)$), résoudre avec $\mathbf{P}^\top$, ou oublier la récolte de l'année en cours ($(66 ;\ 58 ;\ 4)$) ;
+- en c), oublier les coefficients diagonaux ($(7{,}656 ;\ 23{,}2 ;\ 6){}$), résoudre avec $\mathbf{P}^\top$, ou oublier la récolte de l'année en cours ($(66 ;\ 58 ;\ 4){}$) ;
 - en d), prendre $\boldsymbol{\mu}_1\mathbf{r} = 7{,}26$ ou $\boldsymbol{\mu}_3\mathbf{r} \approx 9{,}893$, ou renormaliser $\boldsymbol{\mu}_2$ (11,50).
 
 **Remédiation** : M26.1, M26.4, M26.6, M26.11, M26.18, M26.Q1, M26.Q5.
@@ -206,7 +208,7 @@ Sur ta copie : les lignes de $\mathbf{G}$ ont pour somme $25 + 5 - 30 = 0$, $5 +
 - en a), oublier les zéros de la diagonale (62, la moyenne des six autres coefficients), ou compter chaque distance une seule fois ($\frac{62}{3}$) ;
 - en b), oublier le facteur $-\frac12$, se tromper de signe devant $s$, ou centrer les distances au lieu de leurs carrés ;
 - en c), ranger les valeurs propres dans l'ordre croissant, oublier les valeurs propres nulles, ou prendre la diagonale de $\mathbf{G}$ (25, 1, 36) pour ses valeurs propres ;
-- en d), changer le signe de la colonne, ou multiplier $\mathbf{q}_1$ par $\lambda_1$ ($\approx (39{,}37 ;\ 7{,}87 ;\ -47{,}24)$), ou ne pas le multiplier ($\approx (0{,}635 ;\ 0{,}127 ;\ -0{,}762)$), au lieu de $\sqrt{\lambda_1}$.
+- en d), changer le signe de la colonne, ou multiplier $\mathbf{q}_1$ par $\lambda_1$ ($\approx (39{,}37 ;\ 7{,}87 ;\ -47{,}24){}$), ou ne pas le multiplier ($\approx (0{,}635 ;\ 0{,}127 ;\ -0{,}762){}$), au lieu de $\sqrt{\lambda_1}$.
 
 **Remédiation** : M28.1, M28.2, M28.8, M28.13, M28.18, M28.Q1.
 
@@ -214,7 +216,7 @@ Sur ta copie : les lignes de $\mathbf{G}$ ont pour somme $25 + 5 - 30 = 0$, $5 +
 
 **Réponses** : a) `[676, 256]` · b) `21` · c) `5.5678` · d) `13.15` · e) `14.2`.
 
-a) $\boldsymbol{\Sigma}_A$ a pour trace 21 et pour déterminant 104 : ses valeurs propres sont 13 et 8. $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = 4\boldsymbol{\Sigma}_A^2$ a les mêmes vecteurs propres, de valeurs propres $4 \times 169 = 676$ et $4 \times 64 = 256$. (Directement : $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = \begin{pmatrix} 592 & 168 \cr 168 & 340 \end{pmatrix}$, de trace 932 et de déterminant 173 056.)
+a) $\boldsymbol{\Sigma}_A$ a pour trace 21 et pour déterminant 104 : ses valeurs propres sont 13 et 8. $\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = 4\boldsymbol{\Sigma}_A^2$ a les mêmes vecteurs propres, de valeurs propres $4 \times 169 = 676$ et $4 \times 64 = 256$. (Directement : $`\boldsymbol{\Sigma}_A\boldsymbol{\Sigma}_B = \begin{pmatrix} 592 & 168 \cr 168 & 340 \end{pmatrix}`$, de trace 932 et de déterminant 173 056.)
 b) $21 + 84 - 2(26 + 16) = 21$.
 c) $\lVert\boldsymbol{\mu}_A - \boldsymbol{\mu}_B\rVert^2 = 3^2 + 1^2 = 10$, et $W_2 = \sqrt{10 + 21} = \sqrt{31} \approx 5{,}5678$ MWh.
 d) $10 + \frac{21}{20} + \frac{84}{40} = 10 + 1{,}05 + 2{,}1 = 13{,}15$ MWh².
@@ -321,10 +323,10 @@ Sur ta copie :
 - en a), lire les colonnes au lieu des lignes ($[0, 0, 1]$) ;
 - en b), compter la queue dans la période ($[1, 3]$), ou oublier la queue ($[0, 2]$) ;
 - en c), s'arrêter à l'état le plus probable ($[2]$), garder les trois, ou ranger les états dans l'ordre de leurs numéros ;
-- en d), ne pas renormaliser ($(0 ;\ 0{,}33 ;\ 0{,}46)$), ou répartir la masse coupée à parts égales ($(0 ;\ 0{,}435 ;\ 0{,}565)$) ;
+- en d), ne pas renormaliser ($(0 ;\ 0{,}33 ;\ 0{,}46){}$), ou répartir la masse coupée à parts égales ($(0 ;\ 0{,}435 ;\ 0{,}565){}$) ;
 - en e), prendre $-\ln 0{,}21 \approx 1{,}5606$, un logarithme en base 2 (0,3401), ou la masse coupée (0,21) ;
 - en f), ne pas renormaliser, ou ne garder que l'état le plus probable de chaque ligne ;
-- en g), donner la loi stationnaire de $\mathbf{P}$, oublier de normaliser ($(0 ;\ 1 ;\ 0{,}9219)$), ou échanger $\pi'_1$ et $\pi'_2$.
+- en g), donner la loi stationnaire de $\mathbf{P}$, oublier de normaliser ($(0 ;\ 1 ;\ 0{,}9219){}$), ou échanger $\pi'_1$ et $\pi'_2$.
 
 **Remédiation** : M28.6, M28.7, M28.10, M28.14, M28.Q4, M28.Q5, M26.2, M26.17, M26.Q2.
 

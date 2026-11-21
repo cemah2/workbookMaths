@@ -40,7 +40,7 @@ Sans la fiche, en 4 minutes chacun (6 pour M25a.Q4). Réponds vite, puis vérifi
 ### M25a.Q3 — Ellipses de niveau et masse : quel axe, quel demi-axe, quelle proportion, en dimension 2 et au-delà 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-$\boldsymbol{\Sigma} = \begin{pmatrix} 14{,}5 & 10{,}5 \cr 10{,}5 & 14{,}5 \end{pmatrix}$ a pour valeurs propres 25 et 4, de vecteurs propres $\frac{1}{\sqrt2}(1, 1)$ et $\frac{1}{\sqrt2}(1, -1)$.
+$`\boldsymbol{\Sigma} = \begin{pmatrix} 14{,}5 & 10{,}5 \cr 10{,}5 & 14{,}5 \end{pmatrix}`$ a pour valeurs propres 25 et 4, de vecteurs propres $\frac{1}{\sqrt2}(1, 1)$ et $\frac{1}{\sqrt2}(1, -1)$.
 
 1. La direction du grand axe des ellipses de niveau ?
 2. Les demi-axes de l'ellipse $\Delta(\mathbf{x}) = 2$ ?
@@ -53,7 +53,7 @@ $\boldsymbol{\Sigma} = \begin{pmatrix} 14{,}5 & 10{,}5 \cr 10{,}5 & 14{,}5 \end{
 ### M25a.Q4 — Complément de Schur, loi marginale ou loi conditionnelle : quel bloc, quelle moyenne, quelle variance ? 🧠 ★ ⏱️ 6 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{x} = (x_1, x_2, x_3) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec $\boldsymbol{\mu} = (1, 2, 3)$ et $\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & 0 \cr 2 & 3 & 1 \cr 0 & 1 & 2 \end{pmatrix}$.
+$\mathbf{x} = (x_1, x_2, x_3) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec $\boldsymbol{\mu} = (1, 2, 3)$ et $`\boldsymbol{\Sigma} = \begin{pmatrix} 4 & 2 & 0 \cr 2 & 3 & 1 \cr 0 & 1 & 2 \end{pmatrix}`$.
 
 1. La loi marginale de $(x_1, x_3)$ ?
 2. Vrai ou faux : $x_1$ et $x_3$ sont indépendantes.
@@ -125,9 +125,9 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs unitaires d'angle $\Omega = 100�
 ### M25a.R2 — Le théorème spectral, Cholesky et la covariance AΣAᵀ (M12c) 🔁 ★ ⏱️ 6 min
 *Fiche §2 et §3 · parcours C, E*
 
-1. Le facteur de Cholesky de $\boldsymbol{\Sigma} = \begin{pmatrix} 25 & 10 \cr 10 & 5 \end{pmatrix}$ ?
+1. Le facteur de Cholesky de $`\boldsymbol{\Sigma} = \begin{pmatrix} 25 & 10 \cr 10 & 5 \end{pmatrix}`$ ?
 2. $\det\boldsymbol{\Sigma}$, à partir de $\mathbf{L}$ ?
-3. Les valeurs propres de $\begin{pmatrix} 6 & 2 \cr 2 & 9 \end{pmatrix}$, et un vecteur propre pour chacune ?
+3. Les valeurs propres de $`\begin{pmatrix} 6 & 2 \cr 2 & 9 \end{pmatrix}`$, et un vecteur propre pour chacune ?
 4. $\mathbf{x}$ a pour covariance la matrice $\boldsymbol{\Sigma}$ de la question 1 : la variance de $x_1 - x_2$ ?
 5. Vrai ou faux : toute matrice de covariance est définie positive.
 6. Pourquoi $\mathbf{L}\mathbf{L}^\top$ est-elle symétrique et définie positive quand $\mathbf{L}$ est une matrice carrée inversible ?
@@ -135,8 +135,8 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs unitaires d'angle $\Omega = 100�
 ### M25a.R3 — Les gradients de ln det X et de tr(AX) par rapport à une matrice (M18) 🔁 ★ ⏱️ 6 min
 *Fiche §6 · parcours C*
 
-1. $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ en $\mathbf{X} = \begin{pmatrix} 3 & 1 \cr 0 & 2 \end{pmatrix}$ ?
-2. $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{A}\mathbf{X})$ pour $\mathbf{A} = \begin{pmatrix} 0 & 5 \cr -2 & 1 \end{pmatrix}$ ?
+1. $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ en $`\mathbf{X} = \begin{pmatrix} 3 & 1 \cr 0 & 2 \end{pmatrix}`$ ?
+2. $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{A}\mathbf{X})$ pour $`\mathbf{A} = \begin{pmatrix} 0 & 5 \cr -2 & 1 \end{pmatrix}`$ ?
 3. Que devient $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ pour $\mathbf{X}$ symétrique définie positive ?
 4. Écris $\mathbf{z}^\top\mathbf{A}\mathbf{z}$ comme une trace.
 5. $\ln\det(c\thinspace\mathbf{X})$, pour $\mathbf{X}$ de taille $n \times n$ et $c > 0$ ?
@@ -163,7 +163,9 @@ Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'a
 **Prérequis :** fiche §1 ; M12c · **Parcours :** C, E
 
 Dans une serre, la température $T$ (en °C) et l'humidité relative $H$ (en %) relevées à midi forment un vecteur $\mathbf{x} = (T, H) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 21 \cr 65 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -6 \cr -6 & 34 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 21 \cr 65 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -6 \cr -6 & 34 \end{pmatrix}.
+```
 Deux relevés : $\mathbf{x}_P = (23, 68)$ (chaud et humide) et $\mathbf{x}_Q = (23, 60)$ (chaud et sec).
 
 | | Question | Réponse attendue |
@@ -185,7 +187,9 @@ Dans ta copie : calcule la corrélation de $T$ et $H$ et dis ce qu'elle veut dir
 **Prérequis :** fiche §2 ; M12c · **Parcours :** C, E
 
 Une machine pose un revêtement de route en trois couches. Leurs épaisseurs $\mathbf{x} = (x_1, x_2, x_3)$, en millimètres, varient d'un mètre de route à l'autre et suivent $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 40 \cr 60 \cr 30 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 9 & 3 & -9 \cr 3 & 10 & 0 \cr -9 & 0 & 11 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 40 \cr 60 \cr 30 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 9 & 3 & -9 \cr 3 & 10 & 0 \cr -9 & 0 & 11 \end{pmatrix}.
+```
 La pose coûte 2 €, 1 € et 3 € par millimètre et par mètre carré pour les couches 1, 2 et 3 : le coût est $c = 2x_1 + x_2 + 3x_3$, en euros par mètre carré. On note $\delta = x_2 - x_1$ l'écart d'épaisseur entre les deux premières couches.
 
 | | Question | Réponse attendue |
@@ -206,7 +210,9 @@ Dans ta copie : vérifie $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$. Écr
 **Prérequis :** fiche §3 ; M12c · **Parcours :** C, E
 
 Sur un site, les deux composantes horizontales du vent à 10 m de hauteur, $\mathbf{x} = (u, v)$ en m/s ($u$ vers l'est, $v$ vers le nord), suivent $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 2{,}5 \cr 1 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 14 & 3 \cr 3 & 6 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 2{,}5 \cr 1 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 14 & 3 \cr 3 & 6 \end{pmatrix}.
+```
 On appelle « ellipse à 90 % » l'ellipse $\Delta(\mathbf{x}) \le c$ qui contient 90 % des relevés.
 
 | | Question | Réponse attendue |
@@ -228,7 +234,9 @@ Dans ta copie : donne les deux vecteurs propres unitaires et l'angle du grand ax
 **Prérequis :** fiche §4 ; M09a · **Parcours :** C, E
 
 Trois capteurs de température sont alignés le long d'un mur d'entrepôt. Leurs mesures $\mathbf{x} = (x_1, x_2, x_3)$, en °C, suivent $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 18 \cr 17 \cr 15 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & 3 & 1 \cr 3 & 4 & 2 \cr 1 & 2 & 4 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 18 \cr 17 \cr 15 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & 3 & 1 \cr 3 & 4 & 2 \cr 1 & 2 & 4 \end{pmatrix}.
+```
 Le capteur 2 tombe en panne ; ses voisins lisent $x_1 = 19{,}5$ et $x_3 = 14$. On cherche $a = \lbrace2\rbrace$ sachant $b = \lbrace1, 3\rbrace$.
 
 | | Question | Réponse attendue |
@@ -269,7 +277,7 @@ Dans ta copie : écris le produit des deux premières densités comme $\kappa\th
 
 Un thermomètre électronique est étalonné dans deux bains de référence, à $T = 0$ °C (glace fondante) et à $T = 100$ °C (eau bouillante). Son erreur $e = y - T$ (la lecture moins la vraie température) suit le modèle
 $$e = a + b\thinspace\frac{T}{100} + w, \qquad w \sim \mathcal{N}(0, \sigma^2), \quad \sigma^2 = 0{,}04,$$
-où $a$ est le décalage, $b$ l'erreur de pente sur 100 °C et $w$ le bruit de lecture (dans cet exercice, $a$ et $b$ sont ces deux paramètres, pas des indices de blocs). Les features sont $\boldsymbol{\phi}(T) = (1, \frac{T}{100})$, donc $\boldsymbol{\Phi} = \begin{pmatrix} 1 & 0 \cr 1 & 1 \end{pmatrix}$. A priori, $\boldsymbol{\theta} = (a, b) \sim \mathcal{N}(\mathbf{0}, \mathbf{S}_0)$, avec $\mathbf{S}_0 = \operatorname{diag}(0{,}25 ;\ 1)$. Le thermomètre lit 0,3 °C dans la glace et 99,4 °C dans l'eau bouillante : $\mathbf{e} = (0{,}3 ;\ -0{,}6)$.
+où $a$ est le décalage, $b$ l'erreur de pente sur 100 °C et $w$ le bruit de lecture (dans cet exercice, $a$ et $b$ sont ces deux paramètres, pas des indices de blocs). Les features sont $\boldsymbol{\phi}(T) = (1, \frac{T}{100})$, donc $`\boldsymbol{\Phi} = \begin{pmatrix} 1 & 0 \cr 1 & 1 \end{pmatrix}`$. A priori, $\boldsymbol{\theta} = (a, b) \sim \mathcal{N}(\mathbf{0}, \mathbf{S}_0)$, avec $\mathbf{S}_0 = \operatorname{diag}(0{,}25 ;\ 1)$. Le thermomètre lit 0,3 °C dans la glace et 99,4 °C dans l'eau bouillante : $\mathbf{e} = (0{,}3 ;\ -0{,}6)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -309,7 +317,9 @@ Dans ta copie : établis a) par la définition, avec $\mathbb{E}_p[x] = \frac1a$
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
 Une machine de découpe laser positionne sa tête ; l'erreur de position $(x, y)$, en centièmes de millimètre, suit la loi $p_0 = \mathcal{N}(\boldsymbol{\mu}_0, \boldsymbol{\Sigma}_0)$ avec le réglage A et la loi $p_1 = \mathcal{N}(\boldsymbol{\mu}_1, \boldsymbol{\Sigma}_1)$ avec le réglage B :
-$$\boldsymbol{\mu}_0 = \begin{pmatrix} 2 \cr -1 \end{pmatrix}, \quad \boldsymbol{\Sigma}_0 = \begin{pmatrix} 4 & 2 \cr 2 & 3 \end{pmatrix}, \qquad \boldsymbol{\mu}_1 = \begin{pmatrix} 3 \cr -2 \end{pmatrix}, \quad \boldsymbol{\Sigma}_1 = \begin{pmatrix} 6 & -1 \cr -1 & 2 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu}_0 = \begin{pmatrix} 2 \cr -1 \end{pmatrix}, \quad \boldsymbol{\Sigma}_0 = \begin{pmatrix} 4 & 2 \cr 2 & 3 \end{pmatrix}, \qquad \boldsymbol{\mu}_1 = \begin{pmatrix} 3 \cr -2 \end{pmatrix}, \quad \boldsymbol{\Sigma}_1 = \begin{pmatrix} 6 & -1 \cr -1 & 2 \end{pmatrix}.
+```
 On note $\boldsymbol{\delta} = \boldsymbol{\mu}_1 - \boldsymbol{\mu}_0$.
 
 | | Question | Réponse attendue |
@@ -362,7 +372,7 @@ $\boldsymbol{\varepsilon}$ suit $\mathcal{N}(\mathbf{0}, \mathbf{I}_d)$, de dens
 2. Applique le théorème : écris la densité de $\mathbf{x} = U(\boldsymbol{\varepsilon})$. Montre que $\lVert\mathbf{L}^{-1}(\mathbf{x} - \boldsymbol{\mu})\rVert^2 = (\mathbf{x} - \boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})$ et $\det\mathbf{L} = \sqrt{\det\boldsymbol{\Sigma}}$, avec $\boldsymbol{\Sigma} = \mathbf{L}\mathbf{L}^\top$. Conclus : $\mathbf{x}$ a la densité de $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ de la fiche §1.
 3. Plus généralement, $\mathbf{x}$ a la densité de $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec $\boldsymbol{\Sigma}$ définie positive, et $\mathbf{A}$ est une matrice carrée inversible. Montre que $\mathbf{y} = \mathbf{A}\mathbf{x} + \mathbf{b}$ a la densité de $\mathcal{N}(\mathbf{A}\boldsymbol{\mu} + \mathbf{b}, \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top)$ : il te faudra $\det(\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top)$ et $(\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top)^{-1}$, et justifier que $\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\top$ est définie positive.
 4. Pour $\mathbf{A}$ de forme $(k, d)$ avec $k < d$, pourquoi ce théorème ne s'applique-t-il pas tel quel ? Par quel autre chemin la fiche (§2) obtient-elle quand même la loi de $\mathbf{A}\mathbf{x} + \mathbf{b}$ ?
-5. Avec tes propres nombres : $d = 2$, $\mathbf{L} = \begin{pmatrix} 3 & 0 \cr -1 & 2 \end{pmatrix}$, $\boldsymbol{\mu} = (1, 0)$. Calcule la densité de $\mathbf{x} = \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ au point $(4, 1)$ par l'antécédent de ce point (question 2), puis par la densité de $\mathcal{N}(\boldsymbol{\mu}, \mathbf{L}\mathbf{L}^\top)$, et compare.
+5. Avec tes propres nombres : $d = 2$, $`\mathbf{L} = \begin{pmatrix} 3 & 0 \cr -1 & 2 \end{pmatrix}`$, $\boldsymbol{\mu} = (1, 0)$. Calcule la densité de $\mathbf{x} = \boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ au point $(4, 1)$ par l'antécédent de ce point (question 2), puis par la densité de $\mathcal{N}(\boldsymbol{\mu}, \mathbf{L}\mathbf{L}^\top)$, et compare.
 
 ### Ex M25a.11 — La masse d'une ellipse de Mahalanobis en dimension 2 vaut 1 − e^{−c²/2} ; la densité de la norme en dimension d, et son mode √(d − 1) ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer la masse d'une ellipse de niveau en dimension 2, en déduire la loi de la norme d'un tirage, et étudier cette loi en dimension $d$.
@@ -435,7 +445,9 @@ $\mathbf{u}$ et $\mathbf{v}$ sont deux vecteurs de $\mathbb{R}^n$ de même norme
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
 Les bibliothèques rangent $n$ vecteurs de $\mathbb{R}^d$ dans les **lignes** d'un tableau de forme $(n, d)$. On prend
-$$\boldsymbol{\mu} = \begin{pmatrix} 7 \cr 4 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -2 \cr -2 & 10 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 2 & 0 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{E} = \begin{pmatrix} 1 & 0 \cr 0{,}5 & -1 \cr -1 & 2 \end{pmatrix},$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 7 \cr 4 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 4 & -2 \cr -2 & 10 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 2 & 0 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{E} = \begin{pmatrix} 1 & 0 \cr 0{,}5 & -1 \cr -1 & 2 \end{pmatrix},
+```
 où chaque ligne de $\mathbf{E}$ est un tirage de $\mathcal{N}(\mathbf{0}, \mathbf{I}_2)$, et $\mathbf{X} = \mathbf{1}\boldsymbol{\mu}^\top + \mathbf{E}\mathbf{L}^\top$ (fiche §2, 📐).
 
 | | Question | Réponse attendue |
@@ -545,6 +557,6 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 Trouve et corrige chaque erreur (les fonctions corrigées s'appellent `draw_correlated_fixed`, `log_density_fixed` et `conditional_law_fixed`, avec les mêmes arguments), puis réponds : a) la covariance théorique des tirages que rend la version fausse de `draw_correlated` pour le vent (4 décimales) ; b) vrai ou faux : la covariance empirique de 50 000 tirages de la version corrigée (`seed=5928`) est à moins de 0,3 de $\boldsymbol{\Sigma}$, coefficient par coefficient ; c) la valeur que rend la version fausse de `log_density` en $\mathbf{x}_P$ (4 décimales) ; d) celle de la version corrigée (4 décimales) ; e) la moyenne et la variance conditionnelles que rend la version fausse de `conditional_law` (4 décimales) ; f) celles de la version corrigée (4 décimales). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
 
-**M25a.29 · 🛠️ Un test de propriété.** Écris une fonction `moment_test_29(sampler, mean, cov, n, seed, k)` qui tire `X = sampler(mean, cov, n, seed)` et vérifie que chaque moyenne empirique est à moins de $k$ erreurs types de $\mu_j$, l'erreur type valant $\sqrt{\Sigma_{jj}/n}$, et que chaque coefficient de la covariance empirique (`bias=True`) est à moins de $k$ erreurs types de $\Sigma_{jk}$, l'erreur type valant $\sqrt{(\Sigma_{jj}\Sigma_{kk} + \Sigma_{jk}^2)/n}$ ; un échec lève `AssertionError` avec un message qui dit d'abord ce qui était attendu, puis le coefficient fautif. On prend la loi du vent de M25a.3 et $n = 2\thinspace000$. a) Choisis $k$ pour que la probabilité qu'une fonction juste échoue soit au plus 1 % : en dimension 2, le test fait 5 comparaisons (2 moyennes et 3 coefficients de covariance) ; partage les 1 % entre elles (une borne de la réunion) et lis $k$ dans `scipy.stats.norm.ppf` (4 décimales). b) Lance ton test sur ta `sample_mvn` pour 300 graines tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)` : le nombre d'échecs, à comparer à ce que garantit a) (sur 300 répétitions, une proportion fluctue d'environ ± 0,6 %). c) Sur ces 300 répétitions, mesure l'écart-type (`np.std`) du coefficient $(0, 1)$ de la covariance empirique (`bias=True`, comme dans le test), et compare-le à la formule de l'erreur type (4 décimales chacun). d) Le notebook fournit quatre versions fausses : `sampler_EL` (qui rend `mean + E @ L`), `sampler_sigma` (`mean + E @ cov`), `sampler_diag` (qui ignore les covariances : chaque coordonnée a la bonne variance, sans corrélation) et `sampler_inflated` (qui tire $\mathcal{N}(\boldsymbol{\mu}, 1{,}02\thinspace\boldsymbol{\Sigma})$) ; lance ton test sur chacune avec la graine 5929 : lesquelles attrape-t-il ? e) Combien de tirages faudrait-il pour qu'un écart de 2 % sur une variance dépasse $k$ erreurs types (l'erreur type d'une variance empirique vaut $\Sigma_{jj}\sqrt{2/n}$) ? Vérifie que ton test attrape `sampler_inflated` avec $n = 300\thinspace000$. Ce qu'il faut retenir : la tolérance d'un test statistique se choisit par l'erreur type et un risque d'échec annoncé, pas au hasard ; un tel test attrape les erreurs grossières à petit $n$, et une erreur fine seulement si $n$ est assez grand pour elle.
+**M25a.29 · 🛠️ Un test de propriété.** Écris une fonction `moment_test_29(sampler, mean, cov, n, seed, k)` qui tire `X = sampler(mean, cov, n, seed)` et vérifie que chaque moyenne empirique est à moins de $k$ erreurs types de $\mu_j$, l'erreur type valant $\sqrt{\Sigma_{jj}/n}$, et que chaque coefficient de la covariance empirique (`bias=True`) est à moins de $k$ erreurs types de $\Sigma_{jk}$, l'erreur type valant $\sqrt{(\Sigma_{jj}\Sigma_{kk} + \Sigma_{jk}^2)/n}$ ; un échec lève `AssertionError` avec un message qui dit d'abord ce qui était attendu, puis le coefficient fautif. On prend la loi du vent de M25a.3 et $n = 2\thinspace000$. a) Choisis $k$ pour que la probabilité qu'une fonction juste échoue soit au plus 1 % : en dimension 2, le test fait 5 comparaisons (2 moyennes et 3 coefficients de covariance) ; partage les 1 % entre elles (une borne de la réunion) et lis $k$ dans `scipy.stats.norm.ppf` (4 décimales). b) Lance ton test sur ta `sample_mvn` pour 300 graines tirées par `np.random.default_rng(5929).integers(0, 2**31, size=300)` : le nombre d'échecs, à comparer à ce que garantit a) (sur 300 répétitions, une proportion fluctue d'environ ± 0,6 %). c) Sur ces 300 répétitions, mesure l'écart-type (`np.std`) du coefficient $(0, 1)$ de la covariance empirique (`bias=True`, comme dans le test), et compare-le à la formule de l'erreur type (4 décimales chacun). d) Le notebook fournit quatre versions fausses : `sampler_EL` (qui rend `mean + E @ L`), `sampler_sigma` (`mean + E @ cov`), `sampler_diag` (qui ignore les covariances : chaque coordonnée a la bonne variance, sans corrélation) et `sampler_inflated` (qui tire $\mathcal{N}(\boldsymbol{\mu}, 1{,}02\thinspace\boldsymbol{\Sigma}){}$) ; lance ton test sur chacune avec la graine 5929 : lesquelles attrape-t-il ? e) Combien de tirages faudrait-il pour qu'un écart de 2 % sur une variance dépasse $k$ erreurs types (l'erreur type d'une variance empirique vaut $\Sigma_{jj}\sqrt{2/n}$) ? Vérifie que ton test attrape `sampler_inflated` avec $n = 300\thinspace000$. Ce qu'il faut retenir : la tolérance d'un test statistique se choisit par l'erreur type et un risque d'échec annoncé, pas au hasard ; un tel test attrape les erreurs grossières à petit $n$, et une erreur fine seulement si $n$ est assez grand pour elle.
 
 **M25a.30 · 🏆 Défi : reconstruire les températures manquantes le long d'une route.** Une route est équipée d'un capteur de température par kilomètre, aux positions $s = 0, 1, \ldots, 30$ km. Les vraies températures (en °C) suivent une loi normale de moyenne $m(s) = 14 - 0{,}15\thinspace s$ (la route monte) et de covariance $K_{ij} = 4\exp\big(-\frac{\lvert s_i - s_j\rvert}{6}\big)$, exponentielle de la distance. Douze capteurs sont en panne, aux positions 0, 1, 2, 13 à 17, et 27 à 30 ; les 19 autres mesurent la vraie température avec une erreur gaussienne indépendante d'écart-type 0,4 °C. La cellule de données tire les vraies températures et les mesures avec `rng = np.random.default_rng(5930)` (les vraies températures $m + \mathbf{L}\thinspace$`rng.standard_normal(31)`, $\mathbf{L}$ étant le facteur de Cholesky de $\mathbf{K}$, puis les 19 mesures, vraies températures plus $0{,}4\thinspace$`rng.standard_normal(19)`) ; elle ne te donne que les mesures, et la cellule de vérification garde les vraies températures des positions en panne. Écris `fill_missing_30(s, y_obs, obs, miss)`, qui rend les moyennes et les écarts-types de la loi conditionnelle des vraies températures aux positions `miss` sachant les mesures aux positions `obs`. Le bruit ne touche que les positions mesurées : à toi de construire la covariance du vecteur formé des vraies températures aux positions en panne et des mesures aux autres positions. **Critère de réussite :** la cellule de vérification calcule l'erreur quadratique moyenne de tes douze moyennes contre les vraies températures, et réussit si elle est au plus 1,0 °C. La vérification compare ensuite tes moyennes et tes écarts-types à ceux de la loi conditionnelle exacte du modèle, puis regarde si ta figure trace les mesures. Puis relève : a) ton erreur quadratique moyenne (affichée par la vérification) ; b) celle de l'interpolation linéaire des mesures, `np.interp(s[miss], s[obs], y_obs)` (affichée aussi) ; c) combien des douze vraies températures tombent à moins de deux de tes écarts-types de tes moyennes (affiché aussi). Trace les mesures, tes moyennes avec leur bande à deux écarts-types, la moyenne $m(s)$ et l'interpolation linéaire. Pour aller plus loin : la longueur 6 km de la covariance est supposée connue ; trace, en fonction de cette longueur, le logarithme de l'évidence des 19 mesures (ta `mvn_logpdf`), et regarde où il est maximal.

@@ -34,7 +34,7 @@ En un point critique, la hessienne a les valeurs propres indiquées. Réponds : 
 2. $-2$ ; $-0{,}1$.
 3. $4$ ; $-1$ ; $2$.
 4. $2$ ; $0$ ; $5$.
-5. La hessienne vaut $\begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}$ (sans calculer ses valeurs propres : son déterminant ?).
+5. La hessienne vaut $`\begin{pmatrix} 1 & 2 \cr 2 & 1 \end{pmatrix}`$ (sans calculer ses valeurs propres : son déterminant ?).
 6. Vrai ou faux : en dimension 3, une hessienne de déterminant positif en un point critique signale un minimum.
 
 ### M19.Q3 — Converge ou pas : lire les valeurs propres de M 🧠 ★ ⏱️ 4 min
@@ -52,7 +52,7 @@ $\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M}$ sym�
 ### M19.Q4 — Le pas de Richardson : lire la convergence sur les valeurs propres de I − ωA 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}$, de valeurs propres $2$ et $4$.
+$`\mathbf{A} = \begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}`$, de valeurs propres $2$ et $4$.
 
 1. Les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$ pour $\omega = 0{,}075$ ? Richardson converge-t-elle ?
 2. Le pas critique ?
@@ -68,7 +68,7 @@ $\mathbf{A} = \begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}$, de valeurs propres
 2. On multiplie $\mathbf{A}$ et $\mathbf{b}$ par 10. Qu'est-ce qui change : le conditionnement, le pas critique, le nombre d'itérations au meilleur pas ?
 3. Le facteur de Richardson au meilleur pas pour $\kappa = 100$ (3 décimales) ?
 4. Pour gagner 6 décimales avec ce facteur, il faut environ : (A) 7 itérations ; (B) 70 ; (C) 700 ; (D) 7 000.
-5. $\mathbf{A} = \begin{pmatrix} 9 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$ : la matrice $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ du préconditionnement diagonal, et son conditionnement ?
+5. $`\mathbf{A} = \begin{pmatrix} 9 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}`$ : la matrice $\mathbf{D}^{-1/2}\mathbf{A}\mathbf{D}^{-1/2}$ du préconditionnement diagonal, et son conditionnement ?
 6. Vrai ou faux : remplacer les inconnues par $\mathbf{x} = \mathbf{Q}\mathbf{y}$, avec $\mathbf{Q}$ orthogonale, change le conditionnement.
 
 ### M19.Q6 — Module d'un nombre complexe et racines d'un trinôme 🧠 ★ ⏱️ 4 min
@@ -110,7 +110,7 @@ On estime le gradient d'une moyenne de $N$ termes par la moyenne des gradients d
 ### M19.R1 — Le théorème spectral et les valeurs propres d'une matrice symétrique (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §2 et §3 · parcours C, E*
 
-$\mathbf{S} = \begin{pmatrix} 6 & 2 \cr 2 & 3 \end{pmatrix}$.
+$`\mathbf{S} = \begin{pmatrix} 6 & 2 \cr 2 & 3 \end{pmatrix}`$.
 
 1. Les valeurs propres de $\mathbf{S}$ (trace et déterminant) ?
 2. Un vecteur propre unitaire pour chacune ?
@@ -185,13 +185,13 @@ $f(x, y, z) = x^3 + 3xy^2 - 15x - 12y + z^2 - 2z$.
 | f | la valeur de $f$ en son minimum local | un nombre |
 | g | vrai ou faux : $(-2, -1, 1)$ est un maximum local | `True` ou `False` |
 
-Dans ta copie : montre que $(x, y)$ vérifie $x^2 + y^2 = 5$ et $xy = 2$, et trouve les quatre solutions. Les valeurs propres de $\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}$ sont $6x \pm 6y$ : pour quels vecteurs propres ? Pourquoi $f$ n'a-t-elle aucun maximum local ? Pour chaque point selle, donne une direction où $f$ descend. Le minimum est-il global ?
+Dans ta copie : montre que $(x, y)$ vérifie $x^2 + y^2 = 5$ et $xy = 2$, et trouve les quatre solutions. Les valeurs propres de $`\begin{pmatrix} 6x & 6y \cr 6y & 6x \end{pmatrix}`$ sont $6x \pm 6y$ : pour quels vecteurs propres ? Pourquoi $f$ n'a-t-elle aucun maximum local ? Pour chaque point selle, donne une direction où $f$ descend. Le minimum est-il global ?
 
 ### Ex M19.3 — Une itération linéaire 2 × 2 : point fixe, erreur, et convergence par les valeurs propres ✏️ ★★ ⏱️ 20 min
 **Objectif :** calculer le point fixe et les itérés d'une itération linéaire, décomposer l'écart sur les vecteurs propres, et en tirer la vitesse de convergence.
 **Prérequis :** fiche §3 ; M12c ; R5 · **Parcours :** C, E
 
-$\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $\mathbf{M} = \begin{pmatrix} 0{,}5 & 0{,}2 \cr 0{,}2 & 0{,}2 \end{pmatrix}$ et $\mathbf{c} = (1{,}6 ;\ 0{,}8)$. Les vecteurs $\mathbf{q}_1 = (2, 1)$ et $\mathbf{q}_2 = (1, -2)$ sont des vecteurs propres de $\mathbf{M}$ (non normés).
+$\mathbf{x}_{k+1} = \mathbf{M}\mathbf{x}_k + \mathbf{c}$, avec $`\mathbf{M} = \begin{pmatrix} 0{,}5 & 0{,}2 \cr 0{,}2 & 0{,}2 \end{pmatrix}`$ et $\mathbf{c} = (1{,}6 ;\ 0{,}8)$. Les vecteurs $\mathbf{q}_1 = (2, 1)$ et $\mathbf{q}_2 = (1, -2)$ sont des vecteurs propres de $\mathbf{M}$ (non normés).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -209,7 +209,7 @@ Dans ta copie : vérifie que $\mathbf{x}_2 - \mathbf{x}^\star$ est un multiple d
 **Objectif :** faire trois pas de Richardson à la main, puis lire la convergence sur les valeurs propres de $\mathbf{I} - \omega\mathbf{A}$.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 5 & 3 \cr 3 & 5 \end{pmatrix}$ et $\mathbf{b} = (2 ;\ 6)$. On part de $\mathbf{x}_0 = \mathbf{0}$.
+$`\mathbf{A} = \begin{pmatrix} 5 & 3 \cr 3 & 5 \end{pmatrix}`$ et $\mathbf{b} = (2 ;\ 6)$. On part de $\mathbf{x}_0 = \mathbf{0}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -228,7 +228,7 @@ Dans ta copie : la solution est loin de $\mathbf{x}_3$ ; quelle composante de l'
 **Objectif :** appliquer les formules du meilleur pas et du facteur de convergence, et chiffrer le nombre d'itérations selon le pas et le conditionnement.
 **Prérequis :** fiche §4 et §5 · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \cr 6 & 7 & 0 \cr 0 & 0 & 7 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 7 & 6 & 0 \cr 6 & 7 & 0 \cr 0 & 0 & 7 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -333,7 +333,7 @@ $\mathbf{M}$ est symétrique, de valeurs propres $\lambda_1, \ldots, \lambda_n$ 
 2. Montre que $\mathbf{e}_k = \mathbf{M}^k\mathbf{e}_0$, puis, en écrivant $\mathbf{e}_0 = \sum_iy_i\mathbf{q}_i$, que $\mathbf{e}_k = \sum_i\lambda_i^ky_i\mathbf{q}_i$.
 3. Déduis-en $\lVert\mathbf{e}_k\rVert^2 = \sum_i\lambda_i^{2k}y_i^2 \le \rho^{2k}\lVert\mathbf{e}_0\rVert^2$, et conclus que $\mathbf{x}_k \to \mathbf{x}^\star$ depuis tout départ. Quand y a-t-il égalité ?
 4. Réciproquement, on suppose que l'itération converge vers un même point $\boldsymbol{\ell}$ depuis tout départ. Montre que $\boldsymbol{\ell}$ est un point fixe. Puis, en partant de $\boldsymbol{\ell} + \mathbf{q}_j$, montre que $\lambda_j^k\mathbf{q}_j$ doit tendre vers $\mathbf{0}$, donc que $\lvert\lambda_j\rvert < 1$. Pourquoi l'hypothèse « un même point » est-elle nécessaire (pense à $\mathbf{M} = \mathbf{I}$) ?
-5. Où la symétrie de $\mathbf{M}$ a-t-elle servi ? Pour $\mathbf{M} = \begin{pmatrix} 0{,}5 & 10 \cr 0 & 0{,}5 \end{pmatrix}$, calcule $\mathbf{M}^2\mathbf{e}_0$ pour $\mathbf{e}_0 = (0, 1)$ : la majoration du 3. vaut-elle encore ?
+5. Où la symétrie de $\mathbf{M}$ a-t-elle servi ? Pour $`\mathbf{M} = \begin{pmatrix} 0{,}5 & 10 \cr 0 & 0{,}5 \end{pmatrix}`$, calcule $\mathbf{M}^2\mathbf{e}_0$ pour $\mathbf{e}_0 = (0, 1)$ : la majoration du 3. vaut-elle encore ?
 
 ### Ex M19.11 — L'itération de Richardson converge si et seulement si 0 < ω < 2/λmax ∂ ★★ ⏱️ 15 min
 **Objectif :** appliquer le théorème des itérations linéaires à Richardson, et en tirer le pas critique.
@@ -397,7 +397,7 @@ Dans ta copie : pour les deux ressorts de la fiche, que représente $f$ ? Pourqu
 **Objectif :** mesurer ce que gagne une mise à l'échelle diagonale, et ce qu'elle ne peut pas corriger.
 **Prérequis :** fiche §5 ; Ex M19.5 · **Parcours :** C
 
-Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \begin{pmatrix} 16 & 1 \cr 1 & 0{,}25 \end{pmatrix}$ : ses deux inconnues vivent à des échelles très différentes. On note $\mathbf{D} = \operatorname{diag}(16 ;\ 0{,}25)$.
+Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $`\mathbf{A} = \begin{pmatrix} 16 & 1 \cr 1 & 0{,}25 \end{pmatrix}`$ : ses deux inconnues vivent à des échelles très différentes. On note $\mathbf{D} = \operatorname{diag}(16 ;\ 0{,}25)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -408,7 +408,7 @@ Un système $\mathbf{A}\mathbf{x} = \mathbf{b}$ a pour matrice $\mathbf{A} = \be
 | e | le plus petit nombre d'itérations qui gagne 6 décimales au meilleur pas, pour $\mathbf{A}$ puis pour $\tilde{\mathbf{A}}$ | une liste de 2 entiers |
 | f | les nouvelles inconnues $\mathbf{y} = \mathbf{D}^{1/2}\mathbf{x}$ pour $\mathbf{x} = (0{,}5 ;\ 2)$ | une liste de 2 nombres |
 
-Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Pour $\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}$, que fait la mise à l'échelle diagonale à son conditionnement, et pourquoi ? Le chapitre 19 de workbookIA retrouvera l'idée d'une mise à l'échelle diagonale : résume en une phrase, pour la relire alors, ce qu'elle peut et ne peut pas changer au conditionnement d'un système.
+Dans ta copie : écris le pas de Richardson sur $\tilde{\mathbf{A}}$ dans les inconnues $\mathbf{x}$ : chaque coordonnée du résidu est divisée par quoi ? Pour $`\begin{pmatrix} 1 & 0{,}9 \cr 0{,}9 & 1 \end{pmatrix}`$, que fait la mise à l'échelle diagonale à son conditionnement, et pourquoi ? Le chapitre 19 de workbookIA retrouvera l'idée d'une mise à l'échelle diagonale : résume en une phrase, pour la relire alors, ce qu'elle peut et ne peut pas changer au conditionnement d'un système.
 
 ### Ex M19.16 — MML §5.7 et §5.8 : dérivées d'ordre supérieur et Taylor à plusieurs variables, en anglais 📖 ★★ ⏱️ 35 min
 **Objectif :** lire deux sections de MML en anglais, et relier leurs notations à celles de la fiche.

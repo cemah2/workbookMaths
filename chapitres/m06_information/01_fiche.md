@@ -152,7 +152,7 @@ Exemple : 200 élèves, selon qu'ils ont révisé ($X$) et qu'ils ont réussi l'
 | n'a pas révisé | 25 | 45 | 70 |
 | total | 135 | 65 | 200 |
 
-En divisant par 200, la loi jointe est $\begin{pmatrix} 0{,}55 & 0{,}10 \cr 0{,}125 & 0{,}225 \end{pmatrix}$, de lois marginales $p_X = (0{,}65 ;\ 0{,}35)$ et $p_Y = (0{,}675 ;\ 0{,}325)$. On trouve $H(X, Y) \approx 1{,}666$ bit, $H(X) \approx 0{,}934$ bit et $H(Y) \approx 0{,}910$ bit.
+En divisant par 200, la loi jointe est $`\begin{pmatrix} 0{,}55 & 0{,}10 \cr 0{,}125 & 0{,}225 \end{pmatrix}`$, de lois marginales $p_X = (0{,}65 ;\ 0{,}35)$ et $p_Y = (0{,}675 ;\ 0{,}325)$. On trouve $H(X, Y) \approx 1{,}666$ bit, $H(X) \approx 0{,}934$ bit et $H(Y) \approx 0{,}910$ bit.
 
 ### L'incertitude qui reste
 

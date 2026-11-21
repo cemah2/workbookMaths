@@ -74,7 +74,9 @@ Vocabulaire anglais de ce chapitre : *rank factorization*, *pivot column*, *oute
 
 Une fonderie coule quatre alliages. Le tableau donne les kilogrammes de cuivre, de zinc et d'étain (en lignes) dans 100 kg de laiton, de bronze, d'un alliage 3 et d'un alliage 4 (en colonnes) :
 
-$$\mathbf{M} = \begin{pmatrix} 60 & 80 & 70 & 65 \cr 40 & 0 & 20 & 30 \cr 0 & 20 & 10 & 5 \end{pmatrix}.$$
+```math
+\mathbf{M} = \begin{pmatrix} 60 & 80 & 70 & 65 \cr 40 & 0 & 20 & 30 \cr 0 & 20 & 10 & 5 \end{pmatrix}.
+```
 
 L'alliage 3 est moitié laiton, moitié bronze ; l'alliage 4, trois quarts de laiton et un quart de bronze. Ses colonnes 3 et 4 combinent donc les deux premières, qui sont libres : $\operatorname{rg}(\mathbf{M}) = 2$.
 
@@ -84,7 +86,9 @@ L'alliage 3 est moitié laiton, moitié bronze ; l'alliage 4, trois quarts de la
 
 Pourquoi $\mathbf{C}\mathbf{F} = \mathbf{M}$ : la colonne $j$ de la forme réduite donne les coefficients qui écrivent la colonne $j$ de $\mathbf{M}$ avec les colonnes pivots, comme M09a §8 et M12a §2 lisent une relation dans la forme réduite ; le produit refait ces combinaisons. Pour les alliages, les pivots sont dans les colonnes 1 et 2 :
 
-$$\mathbf{C} = \begin{pmatrix} 60 & 80 \cr 40 & 0 \cr 0 & 20 \end{pmatrix}, \qquad \mathbf{F} = \begin{pmatrix} 1 & 0 & \frac12 & \frac34 \cr 0 & 1 & \frac12 & \frac14 \end{pmatrix}.$$
+```math
+\mathbf{C} = \begin{pmatrix} 60 & 80 \cr 40 & 0 \cr 0 & 20 \end{pmatrix}, \qquad \mathbf{F} = \begin{pmatrix} 1 & 0 & \frac12 & \frac34 \cr 0 & 1 & \frac12 & \frac14 \end{pmatrix}.
+```
 
 Chaque colonne de $\mathbf{F}$ est une **recette** : celle de l'alliage 4 dit $\frac34(60, 40, 0) + \frac14(80, 0, 20) = (65, 30, 5)$.
 
@@ -92,7 +96,9 @@ Chaque colonne de $\mathbf{F}$ est une **recette** : celle de l'alliage 4 dit $\
 
 Pour toute matrice $r \times r$ inversible $\mathbf{G}$, $(\mathbf{C}\mathbf{G})(\mathbf{G}^{-1}\mathbf{F}) = \mathbf{C}\mathbf{F}$ par associativité : une autre factorisation de rang. Prenons pour $\mathbf{G}$ les recettes des alliages 3 et 4 :
 
-$$\mathbf{G} = \begin{pmatrix} \frac12 & \frac34 \cr \frac12 & \frac14 \end{pmatrix}, \quad \mathbf{G}^{-1} = \begin{pmatrix} -1 & 3 \cr 2 & -2 \end{pmatrix} : \qquad \mathbf{C}\mathbf{G} = \begin{pmatrix} 70 & 65 \cr 20 & 30 \cr 10 & 5 \end{pmatrix}, \quad \mathbf{G}^{-1}\mathbf{F} = \begin{pmatrix} -1 & 3 & 1 & 0 \cr 2 & -2 & 0 & 1 \end{pmatrix}.$$
+```math
+\mathbf{G} = \begin{pmatrix} \frac12 & \frac34 \cr \frac12 & \frac14 \end{pmatrix}, \quad \mathbf{G}^{-1} = \begin{pmatrix} -1 & 3 \cr 2 & -2 \end{pmatrix} : \qquad \mathbf{C}\mathbf{G} = \begin{pmatrix} 70 & 65 \cr 20 & 30 \cr 10 & 5 \end{pmatrix}, \quad \mathbf{G}^{-1}\mathbf{F} = \begin{pmatrix} -1 & 3 & 1 & 0 \cr 2 & -2 & 0 & 1 \end{pmatrix}.
+```
 
 $\mathbf{C}\mathbf{G}$ est faite des alliages 3 et 4, et la première colonne de $\mathbf{G}^{-1}\mathbf{F}$ dit que le laiton vaut $-1$ fois l'alliage 3 plus 2 fois l'alliage 4 : vérifie que $-(70, 20, 10) + 2(65, 30, 5) = (60, 40, 0)$. Aucune fonderie ne « retire » d'alliage : une factorisation ne dit pas de quoi le tableau est fait, elle dit quel espace engendrent ses colonnes. MB2 §4, en répartissant les valeurs singulières entre deux facteurs, prenait une $\mathbf{G}$ diagonale.
 

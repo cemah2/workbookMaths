@@ -17,7 +17,7 @@
 6. **Vrai** : sur de nouvelles données, rien n'empêche un modèle de faire pire que la moyenne (fiche §1, et M09b.30).
 
 ### M09b.Q2 — Gradients matriciels : associer chaque fonction à son gradient
-1 → c, 2 → f, 3 → a, 4 → e, 5 → b, 6 → d (fiche §2). 7. **6** coordonnées : une par poids, comme $\mathbf{w}$ ($\mathbf{X}^\top$ est de forme $(6, 200)$). 8. Le **vecteur nul** : le minimum est un point critique, et ses coordonnées vérifient les équations normales.
+1 → c, 2 → f, 3 → a, 4 → e, 5 → b, 6 → d (fiche §2). 7. **6** coordonnées : une par poids, comme $\mathbf{w}$ ($\mathbf{X}^\top$ est de forme $(6, 200){}$). 8. Le **vecteur nul** : le minimum est un point critique, et ses coordonnées vérifient les équations normales.
 
 ### M09b.Q3 — Équations normales : quand la solution est-elle unique ?
 1. **Une** : $\mathbf{X}$ est de rang 4, et $\mathbf{X}^\top\mathbf{X}$ est inversible.
@@ -68,7 +68,7 @@
 
 ### M09b.R1 — Le pivot de Gauss et l'inverse (M09a)
 1. $\mathbf{x} = (2, 1)$ : $L_1 \leftrightarrow L_2$, puis $L_2 \leftarrow L_2 - 3L_1$ donne $-5y = -5$, $y = 1$, puis $x = 4 - 2 = 2$. Vérification : $6 + 1 = 7$, $2 + 2 = 4$.
-2. $\frac{1}{5}\begin{pmatrix} 2 & -1 \cr -1 & 3 \end{pmatrix}$ (le déterminant vaut $6 - 1 = 5$).
+2. $`\frac{1}{5}\begin{pmatrix} 2 & -1 \cr -1 & 3 \end{pmatrix}`$ (le déterminant vaut $6 - 1 = 5$).
 3. Le **pivot de Gauss** : moins d'opérations et moins d'erreurs d'arrondi que le calcul de l'inverse suivi d'un produit (M09a §7).
 4. **Non** : une colonne combine les autres (M09a.18).
 5. **1** : la seconde colonne vaut $-2$ fois la première.
@@ -122,7 +122,7 @@ Pour la copie : la MSE et la loss de Huber en minutes carrées (au-dessus du seu
 - f) $\hat{y} = 2{,}5 ;\ 3 ;\ 4 ;\ 4{,}5 ;\ 6$ : résidus $-0{,}5 ;\ -1 ;\ 2 ;\ -0{,}5 ;\ 0$, $\mathrm{SCR} = 5{,}5$ ; écarts à $\bar{y}$ : $0{,}5(x - 5)$, $\mathrm{SCE} = 0{,}25 \times 30 = 7{,}5$.
 - g) $1 - \frac{5{,}5}{16} = \frac{10{,}5}{16} = \frac{21}{32}$.
 
-Pour la copie : $10{,}8 + 5{,}2 = 16$, mais $7{,}5 + 5{,}5 = 13 \ne 16$. Les deux droites ont des résidus de somme nulle (la seconde passe aussi par le point moyen $(5, 4)$) ; mais $\sum x_ir_i$ vaut $0$ pour la première et $-1 - 3 + 10 - 3 + 0 = 3$ pour la seconde : ses résidus ne sont pas orthogonaux à la colonne $x$. Le double produit $2\sum_i(\hat{y}_i - \bar{y})r_i = 2 \times 0{,}5 \times 3 = 3$ ne s'annule pas, et c'est lui qui manque : $7{,}5 + 5{,}5 + 3 = 16$. Pour cette droite, $\frac{\mathrm{SCE}}{\mathrm{SCT}} = \frac{15}{32}$ et $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}} = \frac{21}{32}$ : les deux définitions du $R^2$ ne coïncident que pour les moindres carrés avec ordonnée à l'origine.
+Pour la copie : $10{,}8 + 5{,}2 = 16$, mais $7{,}5 + 5{,}5 = 13 \ne 16$. Les deux droites ont des résidus de somme nulle (la seconde passe aussi par le point moyen $(5, 4){}$) ; mais $\sum x_ir_i$ vaut $0$ pour la première et $-1 - 3 + 10 - 3 + 0 = 3$ pour la seconde : ses résidus ne sont pas orthogonaux à la colonne $x$. Le double produit $2\sum_i(\hat{y}_i - \bar{y})r_i = 2 \times 0{,}5 \times 3 = 3$ ne s'annule pas, et c'est lui qui manque : $7{,}5 + 5{,}5 + 3 = 16$. Pour cette droite, $\frac{\mathrm{SCE}}{\mathrm{SCT}} = \frac{15}{32}$ et $1 - \frac{\mathrm{SCR}}{\mathrm{SCT}} = \frac{21}{32}$ : les deux définitions du $R^2$ ne coïncident que pour les moindres carrés avec ordonnée à l'origine.
 
 **Erreurs fréquentes.** Diviser les sommes par $n$ (ce sont des **sommes**) ; écrire $\mathrm{SCR}/\mathrm{SCT}$ pour le $R^2$ ; croire que la décomposition vaut pour toute droite.
 
@@ -135,7 +135,7 @@ Pour la copie : $10{,}8 + 5{,}2 = 16$, mais $7{,}5 + 5{,}5 = 13 \ne 16$. Les deu
 **Démarche.**
 - a) et b) $4 \times 2 + (-3) \times (-1) = 11$ ; la fonction $4w_1 - 3w_2$ a pour dérivées partielles 4 et $-3$.
 - c) $\mathbf{w}^\top\mathbf{A}\mathbf{w} = w_1^2 + 2w_1w_2 - w_2w_1 + 3w_2^2 = w_1^2 + w_1w_2 + 3w_2^2$, qui vaut $4 - 2 + 3 = 5$.
-- d) $\frac{\partial}{\partial w_1} = 2w_1 + w_2 = 3$ et $\frac{\partial}{\partial w_2} = w_1 + 6w_2 = -4$ ; et $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 2 & 1 \cr 1 & 6 \end{pmatrix}\begin{pmatrix} 2 \cr -1 \end{pmatrix} = \begin{pmatrix} 3 \cr -4 \end{pmatrix}$, alors que $2\mathbf{A}\mathbf{w} = (0, -10)$.
+- d) $\frac{\partial}{\partial w_1} = 2w_1 + w_2 = 3$ et $\frac{\partial}{\partial w_2} = w_1 + 6w_2 = -4$ ; et $`(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 2 & 1 \cr 1 & 6 \end{pmatrix}\begin{pmatrix} 2 \cr -1 \end{pmatrix} = \begin{pmatrix} 3 \cr -4 \end{pmatrix}`$, alors que $2\mathbf{A}\mathbf{w} = (0, -10)$.
 - e) et f) $\mathbf{X}\mathbf{w} = (0, -1, 3)$, $\mathbf{r} = (3, 2, -1)$, $\lVert \mathbf{r} \rVert^2 = 14$.
 - g) $\mathbf{X}^\top\mathbf{r} = (3 + 0 - 1,\ 6 + 2 + 1) = (2, 9)$, et $-2\mathbf{X}^\top\mathbf{r} = (-4, -18)$.
 
@@ -152,7 +152,7 @@ Pour la copie : $L(\mathbf{w}) = (3 - w_1 - 2w_2)^2 + (1 - w_2)^2 + (2 - w_1 + w
 **Démarche.**
 - b) Les produits scalaires des colonnes : $1 + 4 + 1 + 0 = 6$, $2 + 2 + 0 + 0 = 4$, $4 + 1 + 0 + 1 = 6$.
 - c) $3 + 8 + 1 + 0 = 12$ et $6 + 4 + 0 + 1 = 11$.
-- d) Le déterminant vaut $36 - 16 = 20$ : $\mathbf{w} = \frac{1}{20}\begin{pmatrix} 6 & -4 \cr -4 & 6 \end{pmatrix}\begin{pmatrix} 12 \cr 11 \end{pmatrix} = \frac{1}{20}\begin{pmatrix} 28 \cr 18 \end{pmatrix}$.
+- d) Le déterminant vaut $36 - 16 = 20$ : $`\mathbf{w} = \frac{1}{20}\begin{pmatrix} 6 & -4 \cr -4 & 6 \end{pmatrix}\begin{pmatrix} 12 \cr 11 \end{pmatrix} = \frac{1}{20}\begin{pmatrix} 28 \cr 18 \end{pmatrix}`$.
 - e) $\hat{\mathbf{y}} = (3{,}2 ;\ 3{,}7 ;\ 1{,}4 ;\ 0{,}9)$.
 - f) $(-0{,}2 + 0{,}6 - 0{,}4 + 0,\ -0{,}4 + 0{,}3 + 0 + 0{,}1) = (0, 0)$.
 - g) $0{,}04 + 0{,}09 + 0{,}16 + 0{,}01 = 0{,}3$.
@@ -170,10 +170,10 @@ Pour la copie : f) dit que le vecteur des résidus est **orthogonal** aux deux c
 **Démarche.**
 - a) Le nombre de points, $\sum x = 12$, $\sum x^2 = 1 + 4 + 9 + 36 = 50$.
 - b) $\sum y = 16$, $\sum xy = 0 + 6 + 15 + 48 = 69$.
-- c) Le déterminant vaut $200 - 144 = 56$ : $\mathbf{w} = \frac{1}{56}\begin{pmatrix} 50 & -12 \cr -12 & 4 \end{pmatrix}\begin{pmatrix} 16 \cr 69 \end{pmatrix} = \frac{1}{56}\begin{pmatrix} -28 \cr 84 \end{pmatrix}$.
+- c) Le déterminant vaut $200 - 144 = 56$ : $`\mathbf{w} = \frac{1}{56}\begin{pmatrix} 50 & -12 \cr -12 & 4 \end{pmatrix}\begin{pmatrix} 16 \cr 69 \end{pmatrix} = \frac{1}{56}\begin{pmatrix} -28 \cr 84 \end{pmatrix}`$.
 - d) $\hat{y} = 1 ;\ 2{,}5 ;\ 4 ;\ 8{,}5$.
 - e) $\frac{16}{4} = 4 = \bar{y}$.
-- g) Avec $x - 3 = (-2, -1, 0, 3)$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 14 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (16, 21)$, donc $w_0 = 4$ et $w_1 = 1{,}5$.
+- g) Avec $x - 3 = (-2, -1, 0, 3)$ : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 14 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (16, 21)$, donc $w_0 = 4$ et $w_1 = 1{,}5$.
 
 Pour la copie : $-0{,}5 + 1{,}5 \times 3 = 4$ : la droite passe par le point moyen. Après centrage, la somme des $x - \bar{x}$ est nulle : les deux nombres hors de la diagonale de $\mathbf{X}^\top\mathbf{X}$ s'annulent, et la première équation devient $4w_0 = \sum y_i$, soit $w_0 = \bar{y}$. La pente ne change pas : centrer ne fait que déplacer l'origine de l'axe des $x$.
 
@@ -186,8 +186,8 @@ Pour la copie : $-0{,}5 + 1{,}5 \times 3 = 4$ : la droite passe par le point moy
 **Réponses** : a) `[[3, 4], [4, 10]]` · b) `[[10, -4], [-4, 3]]` · c) `[[10, 6, -2], [6, 5, 3], [-2, 3, 13]]` · d) `2` · e) `3` · f) `[8, 16, 32]` · g) `[6, -9, 3]`.
 
 **Démarche.**
-- a) et b) Le déterminant vaut $30 - 16 = 14$, et $(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{14}\begin{pmatrix} 10 & -4 \cr -4 & 3 \end{pmatrix}$.
-- c) $h_{ij} = \frac{1}{14}(1, x_i)\begin{pmatrix} 10 & -4 \cr -4 & 3 \end{pmatrix}\begin{pmatrix} 1 \cr x_j \end{pmatrix} = \frac{10 - 4x_i - 4x_j + 3x_ix_j}{14}$ : par exemple $h_{33} = \frac{10 - 24 + 27}{14} = \frac{13}{14}$.
+- a) et b) Le déterminant vaut $30 - 16 = 14$, et $`(\mathbf{X}^\top\mathbf{X})^{-1} = \frac{1}{14}\begin{pmatrix} 10 & -4 \cr -4 & 3 \end{pmatrix}`$.
+- c) $`h_{ij} = \frac{1}{14}(1, x_i)\begin{pmatrix} 10 & -4 \cr -4 & 3 \end{pmatrix}\begin{pmatrix} 1 \cr x_j \end{pmatrix} = \frac{10 - 4x_i - 4x_j + 3x_ix_j}{14}`$ : par exemple $h_{33} = \frac{10 - 24 + 27}{14} = \frac{13}{14}$.
 - d) $\frac{10 + 5 + 13}{14} = 2$, le nombre de colonnes.
 - e) Le point $x = 3$, de levier $\frac{13}{14}$.
 - f) $14\thinspace\mathbf{H}\mathbf{y} = (20 + 6 - 10,\ 12 + 5 + 15,\ -4 + 3 + 65) = (16, 32, 64)$, donc $7\hat{\mathbf{y}} = (8, 16, 32)$. C'est la droite $\hat{y} = \frac{8}{7}(1 + x)$.
@@ -223,10 +223,10 @@ Pour la copie : f) en 3 variables $x, y, z$, rangés par l'exposant de $x$ : $x^
 **Réponses** : a) `[[2, 1, 3], [1, 2, 0]]` · b) `[2, -1]` · c) `[1.125, -0.375]` · d) `[0.8, -0.2]` · e) `[2.2361, 1.1859, 0.8246]` · f) `[3, 5.24]` · g) `[0, 0]`.
 
 **Démarche.**
-- a) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (2 + 1,\ 2 - 2) = (3, 0)$.
-- b) $\frac{1}{3}\begin{pmatrix} 2 & -1 \cr -1 & 2 \end{pmatrix}\begin{pmatrix} 3 \cr 0 \end{pmatrix} = (2, -1)$.
-- c) $\begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}$, de déterminant 8 : $\frac{1}{8}(9, -3)$.
-- d) $\begin{pmatrix} 4 & 1 \cr 1 & 4 \end{pmatrix}$, de déterminant 15 : $\frac{1}{15}(12, -3)$.
+- a) $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (2 + 1,\ 2 - 2) = (3, 0)$.
+- b) $`\frac{1}{3}\begin{pmatrix} 2 & -1 \cr -1 & 2 \end{pmatrix}\begin{pmatrix} 3 \cr 0 \end{pmatrix} = (2, -1)`$.
+- c) $`\begin{pmatrix} 3 & 1 \cr 1 & 3 \end{pmatrix}`$, de déterminant 8 : $\frac{1}{8}(9, -3)$.
+- d) $`\begin{pmatrix} 4 & 1 \cr 1 & 4 \end{pmatrix}`$, de déterminant 15 : $\frac{1}{15}(12, -3)$.
 - e) $\sqrt{5}$, $\frac{\sqrt{90}}{8}$, $\sqrt{0{,}68}$.
 - f) Pour $\lambda = 0$ : $\mathbf{X}\mathbf{w} = (1, 2, -1)$, résidus $(1, -1, -1)$. Pour $\lambda = 2$ : $\mathbf{X}\mathbf{w} = (0{,}6 ;\ 0{,}8 ;\ -0{,}2)$, résidus $(1{,}4 ;\ 0{,}2 ;\ -1{,}8)$, $\mathrm{SCR} = 1{,}96 + 0{,}04 + 3{,}24 = 5{,}24$.
 - g) $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$ donne $\mathbf{w} = \frac{1}{\lambda}(\mathbf{X}^\top\mathbf{y} - \mathbf{X}^\top\mathbf{X}\mathbf{w})$, qui tend vers $\mathbf{0}$.
@@ -235,7 +235,7 @@ Pour la copie : $\lambda\mathbf{w} = \mathbf{X}^\top\mathbf{y} - \mathbf{X}^\top
 
 **Erreurs fréquentes.** Ajouter $\lambda$ à toutes les cases de $\mathbf{X}^\top\mathbf{X}$ ; compter la pénalité dans la $\mathrm{SCR}$ ; croire que l'erreur d'entraînement baisse avec $\lambda$.
 
-**Variante.** $\mathbf{w}$ pour $\lambda = 7$ ? *Réponse* : $\begin{pmatrix} 9 & 1 \cr 1 & 9 \end{pmatrix}$, de déterminant 80 : $\frac{1}{80}(27, -3) = (0{,}3375 ;\ -0{,}0375)$.
+**Variante.** $\mathbf{w}$ pour $\lambda = 7$ ? *Réponse* : $`\begin{pmatrix} 9 & 1 \cr 1 & 9 \end{pmatrix}`$, de déterminant 80 : $\frac{1}{80}(27, -3) = (0{,}3375 ;\ -0{,}0375)$.
 
 ### Ex M09b.9 — Ridge comme MAP : un prior gaussien et λ = σ²/τ²
 
@@ -243,7 +243,7 @@ Pour la copie : $\lambda\mathbf{w} = \mathbf{X}^\top\mathbf{y} - \mathbf{X}^\top
 
 **Démarche.**
 - a) $\frac{4}{0{,}25} = 16$. b) $\frac{1}{0{,}5} = 2$.
-- c) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 1 \cr 1 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (5, 2)$ ; avec $\lambda = 2$, $\begin{pmatrix} 7 & 1 \cr 1 & 4 \end{pmatrix}$, de déterminant 27 : $\mathbf{w} = \frac{1}{27}(20 - 2,\ -5 + 14) = (\frac{2}{3}, \frac{1}{3})$.
+- c) $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 1 \cr 1 & 2 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (5, 2)$ ; avec $\lambda = 2$, $`\begin{pmatrix} 7 & 1 \cr 1 & 4 \end{pmatrix}`$, de déterminant 27 : $\mathbf{w} = \frac{1}{27}(20 - 2,\ -5 + 14) = (\frac{2}{3}, \frac{1}{3})$.
 - d) Sans prior ($\lambda = 0$), le déterminant vaut 9 : $\frac{1}{9}(10 - 2,\ -5 + 10) = (\frac{8}{9}, \frac{5}{9})$.
 - e) $\frac{2^2}{0{,}5} = 8$.
 - f) $\tau^2 = \frac{1}{2{,}5} = 0{,}4$, $\tau = \sqrt{0{,}4} \approx 0{,}6325$.
@@ -253,7 +253,7 @@ Pour la copie : $\ln p(\mathbf{w} \mid \mathbf{y}) = -\frac{1}{2}\lVert \mathbf{
 
 **Erreurs fréquentes.** $\lambda = \frac{\sigma}{\tau}$ (sans les carrés) ; $\lambda = \frac{\tau^2}{\sigma^2}$ (à l'envers : un prior large doit affaiblir la pénalité) ; oublier que $\sigma$ double fait quadrupler $\sigma^2$.
 
-**Variante.** Le MAP avec $\sigma = 1$ et $\tau = 1$ ? *Réponse* : $\lambda = 1$, $\begin{pmatrix} 6 & 1 \cr 1 & 3 \end{pmatrix}$, de déterminant 17 : $\frac{1}{17}(15 - 2,\ -5 + 12) = (\frac{13}{17}, \frac{7}{17}) \approx (0{,}7647 ;\ 0{,}4118)$.
+**Variante.** Le MAP avec $\sigma = 1$ et $\tau = 1$ ? *Réponse* : $\lambda = 1$, $`\begin{pmatrix} 6 & 1 \cr 1 & 3 \end{pmatrix}`$, de déterminant 17 : $\frac{1}{17}(15 - 2,\ -5 + 12) = (\frac{13}{17}, \frac{7}{17}) \approx (0{,}7647 ;\ 0{,}4118)$.
 
 ### Ex M09b.10 — Les pénalités L1 et L2 de trois vecteurs de poids, et leurs boules
 
@@ -356,7 +356,7 @@ Pour la copie : $E(c) = (c - 1)^2\mu^2 + c^2\frac{\sigma^2}{n}$, $E'(c) = 2(c - 
 2. $0 = \mathbf{v}^\top(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \lVert \mathbf{X}\mathbf{v} \rVert^2 + \lambda\lVert \mathbf{v} \rVert^2$. Les deux termes sont positifs ou nuls et leur somme est nulle : $\lambda\lVert \mathbf{v} \rVert^2 = 0$, et comme $\lambda > 0$, $\mathbf{v} = \mathbf{0}$.
 3. Le système homogène $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$ n'a que la solution $\mathbf{0}$ : la matrice carrée est de rang $p$, donc inversible (M09a §8).
 4. $\nabla L_\lambda(\mathbf{w}) = -2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) + 2\lambda\mathbf{w}$ (M09b.13 et M09b.14). Il s'annule si et seulement si $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{w} = \mathbf{X}^\top\mathbf{y}$, qui a une seule solution par 3. (Comme en M09b.14, $L_\lambda(\mathbf{w}^\ast + \mathbf{v}) = L_\lambda(\mathbf{w}^\ast) + \lVert \mathbf{X}\mathbf{v} \rVert^2 + \lambda\lVert \mathbf{v} \rVert^2$ : c'est le minimum global.)
-5. $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 15 \cr 15 & 45 \end{pmatrix}$, de déterminant $225 - 225 = 0$ : pas inversible (la seconde colonne de $\mathbf{X}$ est le triple de la première). Avec $\lambda = 1$ : $\begin{pmatrix} 6 & 15 \cr 15 & 46 \end{pmatrix}$, de déterminant $276 - 225 = 51 \ne 0$.
+5. $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 15 \cr 15 & 45 \end{pmatrix}`$, de déterminant $225 - 225 = 0$ : pas inversible (la seconde colonne de $\mathbf{X}$ est le triple de la première). Avec $\lambda = 1$ : $`\begin{pmatrix} 6 & 15 \cr 15 & 46 \end{pmatrix}`$, de déterminant $276 - 225 = 51 \ne 0$.
 6. $\det(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I}) = (5 + \lambda)(45 + \lambda) - 225 = \lambda^2 + 50\lambda = \lambda(\lambda + 50)$ : $\lambda = -50$ la rend singulière. En effet, $\mathbf{X}^\top\mathbf{X}(1, 3) = (50, 150) = 50 \times (1, 3)$, donc $(\mathbf{X}^\top\mathbf{X} - 50\thinspace\mathbf{I})(1, 3) = \mathbf{0}$ : l'argument de la question 2 tombe, car $\lambda\lVert \mathbf{v} \rVert^2$ peut compenser $\lVert \mathbf{X}\mathbf{v} \rVert^2$ quand $\lambda < 0$.
 
 **Grille.** (1) la forme quadratique écrite comme un carré de norme ; (2) la somme de deux termes positifs nulle, et l'usage de $\lambda > 0$ ; (3) le lien « seul $\mathbf{0}$ est envoyé sur $\mathbf{0}$ » $\Rightarrow$ inversible ; (4) le gradient et l'unicité du point critique ; (5) les deux déterminants ; (6) une valeur négative qui annule le déterminant (une seule suffit).
@@ -422,10 +422,10 @@ Pour la copie : $\mathbf{X}$ $(4, 3)$, $\mathbf{w}$ $(3,)$, $\hat{\mathbf{y}}$ e
 **Réponses** : a) `[0.5, 1]` · b) `[0.5, 0.5]` · c) `[0.05, 1]` · d) `[0.0828, 0.3361]` · e) `[-1, -1.1639]` · f) `[-1.5, -1.5]` · g) `True`.
 
 **Démarche.**
-- a) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 \cr 2 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (2 + 0 + 1 + 1,\ 2 + 0 + 0 + 1) = (4, 3)$, de déterminant 4 : $\mathbf{w} = \frac{1}{4}\begin{pmatrix} 2 & -2 \cr -2 & 4 \end{pmatrix}\begin{pmatrix} 4 \cr 3 \end{pmatrix} = (0{,}5 ;\ 1)$.
-- b) $\begin{pmatrix} 6 & 2 \cr 2 & 4 \end{pmatrix}$, de déterminant 20 : $\frac{1}{20}(16 - 6,\ -8 + 18) = (0{,}5 ;\ 0{,}5)$.
-- c) La colonne vaut $10\thinspace x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \cr 20 & 2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (40, 3)$, et $\mathbf{w} = (0{,}05 ;\ 1)$ : le poids du prix est divisé par 10, le reste ne bouge pas.
-- d) $\begin{pmatrix} 402 & 20 \cr 20 & 4 \end{pmatrix}$, de déterminant $1\thinspace608 - 400 = 1\thinspace208$ : $w_1 = \frac{4 \times 40 - 20 \times 3}{1\thinspace208} = \frac{25}{302}$ et $w_2 = \frac{402 \times 3 - 20 \times 40}{1\thinspace208} = \frac{203}{604}$.
+- a) $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 2 \cr 2 & 2 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (2 + 0 + 1 + 1,\ 2 + 0 + 0 + 1) = (4, 3)$, de déterminant 4 : $`\mathbf{w} = \frac{1}{4}\begin{pmatrix} 2 & -2 \cr -2 & 4 \end{pmatrix}\begin{pmatrix} 4 \cr 3 \end{pmatrix} = (0{,}5 ;\ 1)`$.
+- b) $`\begin{pmatrix} 6 & 2 \cr 2 & 4 \end{pmatrix}`$, de déterminant 20 : $\frac{1}{20}(16 - 6,\ -8 + 18) = (0{,}5 ;\ 0{,}5)$.
+- c) La colonne vaut $10\thinspace x_1$ : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \cr 20 & 2 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (40, 3)$, et $\mathbf{w} = (0{,}05 ;\ 1)$ : le poids du prix est divisé par 10, le reste ne bouge pas.
+- d) $`\begin{pmatrix} 402 & 20 \cr 20 & 4 \end{pmatrix}`$, de déterminant $1\thinspace608 - 400 = 1\thinspace208$ : $w_1 = \frac{4 \times 40 - 20 \times 3}{1\thinspace208} = \frac{25}{302}$ et $w_2 = \frac{402 \times 3 - 20 \times 40}{1\thinspace208} = \frac{203}{604}$.
 - e) En dizaines d'euros : $0{,}5 \times (-1) + 0{,}5 \times (-1) = -1$. En euros : $\frac{25}{302} \times (-10) + \frac{203}{604} \times (-1) = -\frac{703}{604} \approx -1{,}1639$.
 - f) $0{,}5 \times (-1) + 1 \times (-1) = -1{,}5$, et $0{,}05 \times (-10) + 1 \times (-1) = -1{,}5$.
 - g) Standardiser divise la colonne du prix par son écart-type : on obtient la même colonne quelle que soit l'unité, donc le même problème ridge et les mêmes prédictions.
@@ -452,7 +452,7 @@ Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne cha
 
 **Réponse modèle** (avec tes mots).
 1. $y = f(\mathbf{x}) + \varepsilon$ avec un bruit gaussien $\varepsilon \sim \mathcal{N}(0, \sigma^2)$ ; pour un modèle linéaire, $p(y \mid \mathbf{x}, \boldsymbol{\theta}) = \mathcal{N}(y \mid \mathbf{x}^\top\boldsymbol{\theta}, \sigma^2)$. Les paramètres s'écrivent $\boldsymbol{\theta}$, la variance du bruit $\sigma^2$.
-2. $\boldsymbol{\theta}_{\text{ML}} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{y}$ (avec $\mathbf{X}$ de forme $(N, D)$) : la solution des équations normales, $\mathbf{w}$ dans la fiche.
+2. $\boldsymbol{\theta}_{\text{ML}} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{y}$ (avec $\mathbf{X}$ de forme $(N, D){}$) : la solution des équations normales, $\mathbf{w}$ dans la fiche.
 3. On remplace $\mathbf{x}$ par un vecteur de features $\boldsymbol{\phi}(\mathbf{x})$, par exemple les puissances $1, x, \ldots, x^{K-1}$ ; le modèle reste linéaire en $\boldsymbol{\theta}$, et la solution s'écrit avec $\boldsymbol{\Phi}$, la **matrice des features** (*feature matrix*, ou *design matrix*), à la place de $\mathbf{X}$.
 4. $\sigma^2_{\text{ML}} = \frac{1}{N}\sum_n (y_n - \boldsymbol{\phi}^\top(\mathbf{x}_n)\boldsymbol{\theta})^2$ : la somme des carrés des résidus divisée par $N$, comme $\hat{\sigma}^2 = \frac{\mathrm{SCR}}{n}$ (fiche §7).
 5. Il ajuste des polynômes de degrés croissants et compare l'erreur d'entraînement et celle de données de test, avec la **RMSE** : l'erreur d'entraînement baisse toujours, celle de test remonte au-delà d'un certain degré.
@@ -507,7 +507,7 @@ Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne cha
 
 **Réponses** : a) `[[4.0, 4.0], [4.0, 14.0]]` · b) `[11.0, 23.0]` · c) `[1.55, 1.2]` · d) `[1.05, 1.175]` · e) `"ValueError"` · f) `[0.1986, 0.3972]` · g) `"ValueError"` · h) `"ndarray"`.
 
-**Démarche.** `X = np.array(X, dtype=float)` (une copie), une `ValueError` si `X.ndim != 2` ; `y = np.array(y, dtype=float)`, une `ValueError` si `y.ndim != 1` ou `y.size != X.shape[0]` ; `return X.T @ X, X.T @ y`. `solve_least_squares` : `ridge = float(ridge)` et une `ValueError` si `not ridge >= 0` (ce test refuse aussi `nan`) ; `XtX, Xty = normal_equations(X, y)` ; puis, dans un `try`, `np.linalg.solve(XtX + ridge * np.eye(XtX.shape[0]), Xty)`, et `except np.linalg.LinAlgError: raise ValueError(...)`. Pour la copie : c) $\frac{1}{40}\begin{pmatrix} 14 & -4 \cr -4 & 4 \end{pmatrix}\begin{pmatrix} 11 \cr 23 \end{pmatrix}$. e) La seconde colonne est le double de la première : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 14 & 28 \cr 28 & 56 \end{pmatrix}$, de déterminant nul. f) Avec $\lambda > 0$, la matrice est inversible ; $\mathbf{X}^\top\mathbf{y} = (14, 28)$ est proportionnel à $(1, 2)$, comme chaque colonne de $\mathbf{X}^\top\mathbf{X}$, donc la solution aussi. Parmi toutes les solutions des moindres carrés ($w_1 + 2w_2 = 1$), ridge choisit un petit vecteur dans la direction $(1, 2)$.
+**Démarche.** `X = np.array(X, dtype=float)` (une copie), une `ValueError` si `X.ndim != 2` ; `y = np.array(y, dtype=float)`, une `ValueError` si `y.ndim != 1` ou `y.size != X.shape[0]` ; `return X.T @ X, X.T @ y`. `solve_least_squares` : `ridge = float(ridge)` et une `ValueError` si `not ridge >= 0` (ce test refuse aussi `nan`) ; `XtX, Xty = normal_equations(X, y)` ; puis, dans un `try`, `np.linalg.solve(XtX + ridge * np.eye(XtX.shape[0]), Xty)`, et `except np.linalg.LinAlgError: raise ValueError(...)`. Pour la copie : c) $`\frac{1}{40}\begin{pmatrix} 14 & -4 \cr -4 & 4 \end{pmatrix}\begin{pmatrix} 11 \cr 23 \end{pmatrix}`$. e) La seconde colonne est le double de la première : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 14 & 28 \cr 28 & 56 \end{pmatrix}`$, de déterminant nul. f) Avec $\lambda > 0$, la matrice est inversible ; $\mathbf{X}^\top\mathbf{y} = (14, 28)$ est proportionnel à $(1, 2)$, comme chaque colonne de $\mathbf{X}^\top\mathbf{X}$, donc la solution aussi. Parmi toutes les solutions des moindres carrés ($w_1 + 2w_2 = 1$), ridge choisit un petit vecteur dans la direction $(1, 2)$.
 
 **Erreurs fréquentes.** `ridge * np.ones(...)` au lieu de `np.eye` ; ne pas pénaliser la colonne de 1, contrairement à la docstring ; laisser passer la `LinAlgError` ; tester `ridge < 0` (qui laisse passer `nan`) ; modifier les tableaux reçus.
 
@@ -515,7 +515,7 @@ Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne cha
 
 **Réponses** : a) `[0.7, 0.3, 0.3, 0.7]` · b) `2.0` · c) `[-0.1, 1.3, 2.7, 4.1]` · d) `[14.0, 9.8, 4.2]` · e) `0.7` · f) `"ValueError"` · g) `"float"` · h) `"ValueError"`.
 
-**Démarche.** `hat_matrix` : la copie 2-D, puis `M = np.linalg.solve(X.T @ X, X.T)` dans un `try` (une `ValueError` sur `LinAlgError`), et `return X @ M`. `residual_decomposition` : les deux entrées en tableaux à une dimension (`.reshape(-1)`), une `ValueError` si les tailles diffèrent ou sont nulles, `m = y.mean()`, puis `float(np.sum((y - m) ** 2))`, `float(np.sum((y_hat - m) ** 2))`, `float(np.sum((y - y_hat) ** 2))`. Pour la copie : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \cr 6 & 14 \end{pmatrix}$ et $h_{ij} = \frac{14 - 6x_i - 6x_j + 4x_ix_j}{20}$. Les deux points extrêmes sont loin de la moyenne des abscisses : ils pèsent le plus sur leur propre prédiction. La droite ajustée est $\hat{y} = -0{,}1 + 1{,}4x$ ; $14 = 9{,}8 + 4{,}2$ est garanti par la colonne de 1 (fiche §3).
+**Démarche.** `hat_matrix` : la copie 2-D, puis `M = np.linalg.solve(X.T @ X, X.T)` dans un `try` (une `ValueError` sur `LinAlgError`), et `return X @ M`. `residual_decomposition` : les deux entrées en tableaux à une dimension (`.reshape(-1)`), une `ValueError` si les tailles diffèrent ou sont nulles, `m = y.mean()`, puis `float(np.sum((y - m) ** 2))`, `float(np.sum((y_hat - m) ** 2))`, `float(np.sum((y - y_hat) ** 2))`. Pour la copie : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 6 \cr 6 & 14 \end{pmatrix}`$ et $h_{ij} = \frac{14 - 6x_i - 6x_j + 4x_ix_j}{20}$. Les deux points extrêmes sont loin de la moyenne des abscisses : ils pèsent le plus sur leur propre prédiction. La droite ajustée est $\hat{y} = -0{,}1 + 1{,}4x$ ; $14 = 9{,}8 + 4{,}2$ est garanti par la colonne de 1 (fiche §3).
 
 **Erreurs fréquentes.** `np.linalg.inv` (interdit, et inutile) ; `X.T @ np.linalg.solve(X.T @ X, X)` (des formes qui ne vont pas) ; centrer $\hat{\mathbf{y}}$ sur sa propre moyenne au lieu de celle de $\mathbf{y}$ ; rendre des `np.float64`.
 
@@ -559,7 +559,7 @@ Pour la copie : multiplier une colonne par 10 et diviser son poids par 10 ne cha
 
 ### Ex M09b.33 — Les lignes de niveau de la loss des moindres carrés en dimension 2, et son gradient
 
-**Démarche.** Une grille de poids `W0, W1 = np.meshgrid(...)` ; $L$ sur la grille, sans boucle : `residuals = y[None, None, :] - (W0[..., None] * X[:, 0] + W1[..., None] * X[:, 1])`, puis `np.sum(residuals ** 2, axis=-1)` ; le minimum par les équations normales ; `ax.contour(W0, W1, L, levels=L_min + np.geomspace(0.05, 50, 10))` ; `ax.plot(w0, w1, "*")` ; enfin, sur une grille de $6 \times 6$ points, les vecteurs $2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$ et `ax.quiver(..., angles="xy")`. Pour la copie : $L$ est un polynôme du second degré en $(w_0, w_1)$, de partie quadratique $\mathbf{w}^\top\mathbf{X}^\top\mathbf{X}\mathbf{w}$ : ses lignes de niveau sont des ellipses centrées au minimum $(0{,}6 ;\ 0{,}8)$. Avec $x$ brut, $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 15 \cr 15 & 55 \end{pmatrix}$ a un terme croisé : les ellipses sont penchées, et très allongées (le rapport de leurs axes est d'environ 8). Avec $x$ centré, $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 0 \cr 0 & 10 \end{pmatrix}$ : les axes des ellipses sont ceux du repère, et le minimum devient $(3 ;\ 0{,}8)$, la même pente. Les flèches sont perpendiculaires aux lignes de niveau, pas dirigées vers le minimum : dans une vallée étroite, une descente de gradient zigzague d'un bord à l'autre et avance lentement (M19). Centrer et standardiser arrondit la vallée.
+**Démarche.** Une grille de poids `W0, W1 = np.meshgrid(...)` ; $L$ sur la grille, sans boucle : `residuals = y[None, None, :] - (W0[..., None] * X[:, 0] + W1[..., None] * X[:, 1])`, puis `np.sum(residuals ** 2, axis=-1)` ; le minimum par les équations normales ; `ax.contour(W0, W1, L, levels=L_min + np.geomspace(0.05, 50, 10))` ; `ax.plot(w0, w1, "*")` ; enfin, sur une grille de $6 \times 6$ points, les vecteurs $2\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w})$ et `ax.quiver(..., angles="xy")`. Pour la copie : $L$ est un polynôme du second degré en $(w_0, w_1)$, de partie quadratique $\mathbf{w}^\top\mathbf{X}^\top\mathbf{X}\mathbf{w}$ : ses lignes de niveau sont des ellipses centrées au minimum $(0{,}6 ;\ 0{,}8)$. Avec $x$ brut, $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 15 \cr 15 & 55 \end{pmatrix}`$ a un terme croisé : les ellipses sont penchées, et très allongées (le rapport de leurs axes est d'environ 8). Avec $x$ centré, $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 5 & 0 \cr 0 & 10 \end{pmatrix}`$ : les axes des ellipses sont ceux du repère, et le minimum devient $(3 ;\ 0{,}8)$, la même pente. Les flèches sont perpendiculaires aux lignes de niveau, pas dirigées vers le minimum : dans une vallée étroite, une descente de gradient zigzague d'un bord à l'autre et avance lentement (M19). Centrer et standardiser arrondit la vallée.
 
 **Erreurs fréquentes.** Des niveaux réguliers (`levels=10`) : presque toutes les lignes tombent loin du minimum, et la vallée ne se voit pas ; les flèches de $+\nabla L$ (vers le haut) ; `ax.quiver` sans `angles="xy"`, qui déforme les directions quand les axes n'ont pas la même échelle.
 

@@ -29,7 +29,7 @@ $\mathbf{A}$ a la forme $(5, 2)$, $\mathbf{B}$ la forme $(2, 6)$, $\mathbf{C}$ l
 ### M09a.Q2 — Le produit matrice-vecteur, deux lectures 🧠 ★ ⏱️ 4 min
 *Fiche §2 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 3 & 1 \cr -2 & 4 \end{pmatrix}$ et $\mathbf{x} = (2, -1)$.
+$`\mathbf{A} = \begin{pmatrix} 3 & 1 \cr -2 & 4 \end{pmatrix}`$ et $\mathbf{x} = (2, -1)$.
 1. La première coordonnée de $\mathbf{A}\mathbf{x}$, par la lecture en lignes ?
 2. $\mathbf{A}\mathbf{x}$, écrit comme une combinaison des colonnes de $\mathbf{A}$, puis calculé ?
 3. $\mathbf{A}\mathbf{e}_2$, avec $\mathbf{e}_2 = (0, 1)$ ?
@@ -94,7 +94,7 @@ Lesquelles de ces opérations sur les lignes d'une matrice augmentée ne changen
 1. Une matrice de forme $(2, 3)$ peut-elle avoir une inverse ?
 2. Le rang de la matrice nulle ?
 3. Le rang maximal d'une matrice de forme $(4, 7)$ ?
-4. Le rang de $\begin{pmatrix} 2 & -6 \cr -1 & 3 \end{pmatrix}$ ?
+4. Le rang de $`\begin{pmatrix} 2 & -6 \cr -1 & 3 \end{pmatrix}`$ ?
 5. $(\mathbf{A}\mathbf{B})^{-1}$ en fonction de $\mathbf{A}^{-1}$ et $\mathbf{B}^{-1}$ ?
 6. Vrai ou faux : une matrice carrée de taille $n$ est inversible si et seulement si son rang vaut $n$.
 
@@ -146,7 +146,9 @@ Fais-les **à la main** (calculatrice permise pour les valeurs approchées), en 
 
 Cinq capteurs d'une serre mesurent la température (°C), l'humidité (%) et la luminosité (klx) :
 
-$$\mathbf{X} = \begin{pmatrix} 22 & 60 & 12 \cr 25 & 55 & 18 \cr 19 & 70 & 8 \cr 24 & 65 & 15 \cr 20 & 50 & 7 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 22 & 60 & 12 \cr 25 & 55 & 18 \cr 19 & 70 & 8 \cr 24 & 65 & 15 \cr 20 & 50 & 7 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -164,7 +166,9 @@ Dans ta copie : que représente une ligne de $\mathbf{X}$ ? Une colonne ? Pourqu
 **Objectif :** calculer un produit matrice-vecteur sous ses deux lectures, et prédire tout un dataset d'un coup.
 **Prérequis :** fiche §2 ; M07 (produit scalaire) · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 3 & -1 & 2 & 0 \cr 1 & 4 & -2 & 5 \cr -2 & 0 & 1 & 3 \end{pmatrix}, \qquad \mathbf{x} = (2, -1, 3, 1).$$
+```math
+\mathbf{A} = \begin{pmatrix} 3 & -1 & 2 & 0 \cr 1 & 4 & -2 & 5 \cr -2 & 0 & 1 & 3 \end{pmatrix}, \qquad \mathbf{x} = (2, -1, 3, 1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -174,7 +178,7 @@ $$\mathbf{A} = \begin{pmatrix} 3 & -1 & 2 & 0 \cr 1 & 4 & -2 & 5 \cr -2 & 0 & 1 
 | d | $\mathbf{A}\mathbf{e}_3$, avec $\mathbf{e}_3 = (0, 0, 1, 0)$ | une liste de 3 nombres |
 | e | le vecteur $\mathbf{y}$ tel que $\mathbf{A}\mathbf{y}$ = colonne 1 + 2 × colonne 4 | une liste de 4 nombres |
 | f | vrai ou faux : le produit de $\mathbf{A}$ par un vecteur de $\mathbb{R}^3$ existe | `True` ou `False` |
-| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 \cr -1 & 3 & 2 \end{pmatrix}$, $\mathbf{w} = (1{,}5 ;\ -0{,}5 ;\ 1)$ et $b = -2$ | une liste de 2 nombres |
+| g | les prédictions $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ pour $`\mathbf{X} = \begin{pmatrix} 2 & 1 & 0 \cr -1 & 3 & 2 \end{pmatrix}`$, $\mathbf{w} = (1{,}5 ;\ -0{,}5 ;\ 1)$ et $b = -2$ | une liste de 2 nombres |
 
 Dans ta copie : refais b) par la lecture en colonnes, et vérifie que tu trouves la même chose. Pourquoi d) donne-t-il une colonne de $\mathbf{A}$ ? Combien de multiplications coûterait g) pour un million d'exemples à 20 features ?
 
@@ -182,7 +186,9 @@ Dans ta copie : refais b) par la lecture en colonnes, et vérifie que tu trouves
 **Objectif :** vérifier la compatibilité des formes, calculer des produits matriciels, et voir que l'ordre compte.
 **Prérequis :** fiche §3 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & -1 & 2 \cr 0 & 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 1 \cr -1 & 0 \cr 1 & 4 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 1 & 2 \cr -1 & 1 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & -1 & 2 \cr 0 & 3 & 1 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & 1 \cr -1 & 0 \cr 1 & 4 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 1 & 2 \cr -1 & 1 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -220,9 +226,11 @@ Dans ta copie : quelle règle simple permet de choisir les parenthèses ? Quel o
 
 Une couche de deux neurones reçoit trois entrées. Ses poids, rangés une colonne par neurone, et ses biais sont
 
-$$\mathbf{W} = \begin{pmatrix} 2 & -1 \cr 0 & 1 \cr 1 & 3 \end{pmatrix}, \qquad \mathbf{b} = (-1 ;\ 0{,}5),$$
+```math
+\mathbf{W} = \begin{pmatrix} 2 & -1 \cr 0 & 1 \cr 1 & 3 \end{pmatrix}, \qquad \mathbf{b} = (-1 ;\ 0{,}5),
+```
 
-et le batch contient deux exemples, $\mathbf{X} = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 3 & 1 \end{pmatrix}$. La fonction ReLU vaut $\max(0, z)$, élément par élément.
+et le batch contient deux exemples, $`\mathbf{X} = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 3 & 1 \end{pmatrix}`$. La fonction ReLU vaut $\max(0, z)$, élément par élément.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -242,7 +250,9 @@ Dans ta copie : quelle colonne de $\mathbf{W}$ contient les poids du neurone 2 ?
 
 Un vocabulaire de 5 mots (numérotés de 1 à 5) a la table d'embedding
 
-$$\mathbf{E} = \begin{pmatrix} 0{,}1 & -0{,}4 & 1{,}2 \cr 0{,}9 & 0 & -0{,}3 \cr -1{,}1 & 0{,}6 & 0{,}2 \cr 0{,}5 & 1{,}5 & -0{,}8 \cr 0 & -0{,}2 & 0{,}7 \end{pmatrix}.$$
+```math
+\mathbf{E} = \begin{pmatrix} 0{,}1 & -0{,}4 & 1{,}2 \cr 0{,}9 & 0 & -0{,}3 \cr -1{,}1 & 0{,}6 & 0{,}2 \cr 0{,}5 & 1{,}5 & -0{,}8 \cr 0 & -0{,}2 & 0{,}7 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -259,7 +269,9 @@ Dans ta copie : pourquoi ne calcule-t-on jamais ce produit en pratique ? Que rep
 **Objectif :** appliquer la règle de la transposée d'un produit, et calculer une matrice $\mathbf{X}^\top\mathbf{X}$.
 **Prérequis :** fiche §4 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 2 & 0 \cr 1 & -1 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 & 4 & 0 \cr 2 & -1 & 1 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & -1 & 2 \cr 0 & 2 & 1 \cr 2 & 1 & 0 \cr 1 & 0 & -1 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 2 & 0 \cr 1 & -1 \cr -1 & 3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 & 4 & 0 \cr 2 & -1 & 1 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 1 & -1 & 2 \cr 0 & 2 & 1 \cr 2 & 1 & 0 \cr 1 & 0 & -1 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -277,7 +289,9 @@ Dans ta copie : vérifie b) en calculant $\mathbf{B}^\top\mathbf{A}^\top$. Que r
 **Objectif :** résoudre un système $3 \times 3$ par le pivot de Gauss, étape par étape, puis par remontée.
 **Prérequis :** fiche §5 et §6 · **Parcours :** C, E
 
-$$\left\lbrace\begin{array}{rcl} 2x + y - z &=& -3 \cr x - y + 2z &=& 9 \cr 3x + 2y + z &=& 2 \end{array}\right.$$
+```math
+\left\lbrace\begin{array}{rcl} 2x + y - z &=& -3 \cr x - y + 2z &=& 9 \cr 3x + 2y + z &=& 2 \end{array}\right.
+```
 
 Suis cette démarche : échange les deux premières équations, pour avoir le pivot 1 ; annule $x$ dans les deux autres équations avec la nouvelle première ; puis annule $y$ dans la troisième avec la nouvelle deuxième ; enfin, remonte.
 
@@ -296,7 +310,9 @@ Dans ta copie : écris la forme échelonnée complète, puis la forme échelonn�
 **Objectif :** reconnaître sur une forme échelonnée un système sans solution et un système à une infinité de solutions, et décrire ces dernières.
 **Prérequis :** fiche §5 et §6 · **Parcours :** C, E
 
-$$(S_1) \left\lbrace\begin{array}{rcl} x + 2y - z &=& 1 \cr 2x + 5y + z &=& 4 \cr 3x + 7y &=& 6 \end{array}\right. \qquad (S_2) \left\lbrace\begin{array}{rcl} x + 2y - z &=& 1 \cr 2x + 5y + z &=& 4 \cr 3x + 7y &=& 5 \end{array}\right.$$
+```math
+(S_1) \left\lbrace\begin{array}{rcl} x + 2y - z &=& 1 \cr 2x + 5y + z &=& 4 \cr 3x + 7y &=& 6 \end{array}\right. \qquad (S_2) \left\lbrace\begin{array}{rcl} x + 2y - z &=& 1 \cr 2x + 5y + z &=& 4 \cr 3x + 7y &=& 5 \end{array}\right.
+```
 
 Les deux systèmes ne diffèrent que par le second membre de la troisième équation.
 
@@ -318,7 +334,9 @@ Dans ta copie : écris la solution générale de $(S_2)$ avec un paramètre $t$.
 
 La matrice augmentée d'un système de trois équations à trois inconnues $x$, $y$, $z$ est
 
-$$\left(\begin{array}{ccc|c} 1 & -1 & 2 & 1 \cr 2 & -1 & 5 & 4 \cr 0 & 1 & 1 & 2 \end{array}\right).$$
+```math
+\left(\begin{array}{ccc|c} 1 & -1 & 2 & 1 \cr 2 & -1 & 5 & 4 \cr 0 & 1 & 1 & 2 \end{array}\right).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -336,14 +354,14 @@ Dans ta copie : écris la solution générale, sous la forme « une solution par
 **Objectif :** calculer l'inverse d'une matrice $2 \times 2$, la vérifier, et s'en servir pour résoudre un système.
 **Prérequis :** fiche §7 · **Parcours :** C, E
 
-Soit $\mathbf{A} = \begin{pmatrix} 2 & 3 \cr 2 & 5 \end{pmatrix}$.
+Soit $`\mathbf{A} = \begin{pmatrix} 2 & 3 \cr 2 & 5 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | le nombre $ad - bc$ de $\mathbf{A}$ | un nombre |
 | b | $\mathbf{A}^{-1}$ | une matrice |
 | c | la solution $(x, y)$ de $2x + 3y = 9$, $2x + 5y = 11$ | une liste de 2 nombres |
-| d | la matrice $\mathbf{X}$ telle que $\mathbf{A}\mathbf{X} = \mathbf{C}$, avec $\mathbf{C} = \begin{pmatrix} 3 & 5 \cr 5 & 7 \end{pmatrix}$ | une matrice |
+| d | la matrice $\mathbf{X}$ telle que $\mathbf{A}\mathbf{X} = \mathbf{C}$, avec $`\mathbf{C} = \begin{pmatrix} 3 & 5 \cr 5 & 7 \end{pmatrix}`$ | une matrice |
 | e | $(2\mathbf{A})^{-1}$ | une matrice |
 | f | $(\mathbf{A}^\top)^{-1}$ | une matrice |
 | g | la matrice $\mathbf{M}$, à coefficients entiers, telle que $(\mathbf{A}^2)^{-1} = \frac{1}{16}\mathbf{M}$ | une matrice |
@@ -354,7 +372,7 @@ Dans ta copie : vérifie b) en calculant $\mathbf{A}\mathbf{A}^{-1}$ **et** $\ma
 **Objectif :** calculer l'inverse d'une matrice $3 \times 3$ en réduisant $[\mathbf{A} \mid \mathbf{I}]$, et s'en servir.
 **Prérequis :** fiche §7 ; Ex M09a.8 · **Parcours :** C
 
-Soit $\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 \cr 0 & 1 & 2 \cr 1 & 1 & 0 \end{pmatrix}$.
+Soit $`\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 \cr 0 & 1 & 2 \cr 1 & 1 & 0 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -362,7 +380,7 @@ Soit $\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 \cr 0 & 1 & 2 \cr 1 & 1 & 0 \end{pm
 | b | la solution de $\mathbf{A}\mathbf{x} = (1, 0, 2)$, calculée avec $\mathbf{A}^{-1}$ | une liste de 3 nombres |
 | c | la solution de $\mathbf{A}\mathbf{x} = (0, 1, 0)$ | une liste de 3 nombres |
 | d | la première ligne de $(\mathbf{A}^\top)^{-1}$ | une liste de 3 nombres |
-| e | vrai ou faux : $\begin{pmatrix} 1 & 2 & 1 \cr 0 & 1 & 2 \cr 1 & 3 & 3 \end{pmatrix}$ est inversible | `True` ou `False` |
+| e | vrai ou faux : $`\begin{pmatrix} 1 & 2 & 1 \cr 0 & 1 & 2 \cr 1 & 3 & 3 \end{pmatrix}`$ est inversible | `True` ou `False` |
 
 Dans ta copie : écris chaque étape de la réduction de $[\mathbf{A} \mid \mathbf{I}_3]$. Pourquoi la réponse c) est-elle une colonne de $\mathbf{A}^{-1}$ ? Que se passe-t-il si l'on réduit $[\mathbf{B} \mid \mathbf{I}_3]$ pour la matrice $\mathbf{B}$ de e) ?
 
@@ -370,7 +388,9 @@ Dans ta copie : écris chaque étape de la réduction de $[\mathbf{A} \mid \math
 **Objectif :** calculer des rangs par le pivot de Gauss, et trouver la combinaison qui rend une colonne redondante.
 **Prérequis :** fiche §6 et §8 · **Parcours :** C, E
 
-$$\mathbf{M}_1 = \begin{pmatrix} 1 & 2 \cr 3 & 6 \cr -2 & -4 \end{pmatrix}, \quad \mathbf{M}_2 = \begin{pmatrix} 1 & 0 & 2 \cr 0 & 1 & -1 \cr 1 & 1 & 1 \end{pmatrix}, \quad \mathbf{M}_3 = \begin{pmatrix} 2 & 1 & 0 & 3 \cr 1 & 0 & 1 & 1 \cr 0 & 1 & -2 & 1 \end{pmatrix}, \quad \mathbf{M}_4 = \begin{pmatrix} 1 & 0 & 2 \cr 0 & 3 & 1 \cr 0 & 0 & -1 \end{pmatrix}.$$
+```math
+\mathbf{M}_1 = \begin{pmatrix} 1 & 2 \cr 3 & 6 \cr -2 & -4 \end{pmatrix}, \quad \mathbf{M}_2 = \begin{pmatrix} 1 & 0 & 2 \cr 0 & 1 & -1 \cr 1 & 1 & 1 \end{pmatrix}, \quad \mathbf{M}_3 = \begin{pmatrix} 2 & 1 & 0 & 3 \cr 1 & 0 & 1 & 1 \cr 0 & 1 & -2 & 1 \end{pmatrix}, \quad \mathbf{M}_4 = \begin{pmatrix} 1 & 0 & 2 \cr 0 & 3 & 1 \cr 0 & 0 & -1 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -476,7 +496,7 @@ Un petit réseau reçoit des exemples à 3 features, a une couche cachée de 5 n
 | c | le nombre de paramètres du réseau (poids et biais des deux couches) | un entier |
 | d | le nombre de multiplications des deux produits matriciels, pour ce batch | un entier |
 
-Un réseau plus petit, à 2 entrées, 3 neurones cachés et 1 sortie, a $\mathbf{W}_1 = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 1 & 1 \end{pmatrix}$, $\mathbf{b}_1 = (0 ;\ 0{,}5 ;\ -1)$, $\mathbf{W}_2 = \begin{pmatrix} 1 \cr 2 \cr -1 \end{pmatrix}$, $b_2 = 0{,}5$. On lui donne l'exemple $\mathbf{x} = (1, -1)$.
+Un réseau plus petit, à 2 entrées, 3 neurones cachés et 1 sortie, a $`\mathbf{W}_1 = \begin{pmatrix} 1 & 0 & 2 \cr -1 & 1 & 1 \end{pmatrix}`$, $\mathbf{b}_1 = (0 ;\ 0{,}5 ;\ -1)$, $\mathbf{W}_2 = \begin{pmatrix} 1 \cr 2 \cr -1 \end{pmatrix}$, $b_2 = 0{,}5$. On lui donne l'exemple $\mathbf{x} = (1, -1)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -490,7 +510,9 @@ Dans ta copie : calcule $\mathbf{b}_1\mathbf{W}_2 + b_2$. Sans la fonction ReLU,
 **Objectif :** écrire le centrage et la réduction d'un tableau avec des produits matriciels, et calculer la matrice de covariance des features.
 **Prérequis :** fiche §1, §3 et §4 ; M02c (écart-type) · **Parcours :** C
 
-$$\mathbf{X} = \begin{pmatrix} 2 & 10 \cr 4 & 30 \cr 6 & 20 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 2 & 10 \cr 4 & 30 \cr 6 & 20 \end{pmatrix}.
+```
 
 On note $\boldsymbol{\mu}$ le vecteur des moyennes des colonnes, $\mathbf{X}_c = \mathbf{X} - \mathbf{1}\boldsymbol{\mu}^\top$ le tableau centré ($\mathbf{1}$ la colonne de trois 1), $\mathbf{D}$ la matrice diagonale des écarts-types des colonnes ($\mathrm{ddof} = 0$) et $\mathbf{X}_s = \mathbf{X}_c\mathbf{D}^{-1}$ le tableau standardisé.
 
@@ -526,7 +548,7 @@ Lis MML §2.3. Réponds dans ta copie, **avec tes mots**.
 1. Au §2.3.1, que sont une solution particulière et la solution générale ? En combien d'étapes le livre construit-il la solution générale ?
 2. Au §2.3.2, quelles opérations élémentaires le livre autorise-t-il ? Comment définit-il la forme échelonnée, le pivot, les variables de base et les variables libres ?
 3. Toujours au §2.3.2, qu'ajoute la forme échelonnée **réduite** ? Compare à la fiche (§6).
-4. Le §2.3.3 propose le « Minus-1 trick ». Décris-le en deux phrases. Applique-le à la forme échelonnée réduite $\begin{pmatrix} 1 & 2 & 0 & -1 \cr 0 & 0 & 1 & 3 \end{pmatrix}$ (système homogène à quatre inconnues) : quelles solutions obtiens-tu ? Vérifie-les.
+4. Le §2.3.3 propose le « Minus-1 trick ». Décris-le en deux phrases. Applique-le à la forme échelonnée réduite $`\begin{pmatrix} 1 & 2 & 0 & -1 \cr 0 & 0 & 1 & 3 \end{pmatrix}`$ (système homogène à quatre inconnues) : quelles solutions obtiens-tu ? Vérifie-les.
 5. Au §2.3.4, pourquoi le livre évoque-t-il d'autres méthodes que le pivot de Gauss pour les très grands systèmes ?
 6. Note trois mots ou tournures en anglais de cette section, avec leur traduction.
 

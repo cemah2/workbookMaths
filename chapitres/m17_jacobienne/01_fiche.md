@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §7 |
 | **Temps total estimé** | ≈ 10,2 h : lecture et calculs de la fiche ≈ 2 h 10, exercices ≈ 7 h 30, 16 flashcards ≈ 35 min (parcours essentiel ≈ 7,2 h) |
-| **Prérequis** | M05b (dérivées partielles, gradient en ligne, dérivée directionnelle) ; R7 (règle de la chaîne en une variable, dérivées usuelles, $\lvert x \rvert$ et $\max(0, x)$) ; R6 (exponentielle, logarithme) ; M09a (produit matriciel et formes, Hadamard, transposée, coût d'un produit) ; M12a (matrice d'une application linéaire, composition) ; M12b (projection orthogonale) ; M12c (déterminant, valeurs propres, matrices semi-définies positives) ; M12d (norme spectrale) ; M02b (loi catégorielle) ; M02c (matrice de covariance) ; M07 (vecteurs one-hot, base canonique) ; M05a (différences finies centrées) ; M13b (sous-gradient) ; M16 (applications affines, conventions lignes et colonnes) |
+| **Prérequis** | M05b (dérivées partielles, gradient en ligne, dérivée directionnelle) ; R7 (règle de la chaîne en une variable, dérivées usuelles, $\lvert x \rvert$ et $\max(0, x){}$) ; R6 (exponentielle, logarithme) ; M09a (produit matriciel et formes, Hadamard, transposée, coût d'un produit) ; M12a (matrice d'une application linéaire, composition) ; M12b (projection orthogonale) ; M12c (déterminant, valeurs propres, matrices semi-définies positives) ; M12d (norme spectrale) ; M02b (loi catégorielle) ; M02c (matrice de covariance) ; M07 (vecteurs one-hot, base canonique) ; M05a (différences finies centrées) ; M13b (sous-gradient) ; M16 (applications affines, conventions lignes et colonnes) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `jacobian.py` : `numerical_jacobian`, `diagonal_jacobian`, `jacobian_vector_product` |
 | **MML** | §5.3 (*Gradients of Vector-Valued Functions*) |
@@ -67,13 +67,17 @@ Vocabulaire anglais de ce chapitre : *Jacobian*, *Jacobian determinant*, *vector
 ### Une ligne par sortie, une colonne par entrée
 
 Une application $\mathbf{f} : \mathbb{R}^n \to \mathbb{R}^m$ (*vector-valued function*) a $m$ coordonnées, $f_1, \ldots, f_m$, chacune une fonction de $n$ variables. Si toutes leurs dérivées partielles existent en $\mathbf{x}$ (et sont continues autour), sa **jacobienne** (*Jacobian*) en $\mathbf{x}$ est la matrice $(m, n)$
-$$\mathbf{J} _{\mathbf{f}}(\mathbf{x}) = \begin{pmatrix} \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \cr \vdots & & \vdots \cr \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n} \end{pmatrix}, \qquad J _{ij} = \frac{\partial f_i}{\partial x_j}(\mathbf{x}).$$
+```math
+\mathbf{J} _{\mathbf{f}}(\mathbf{x}) = \begin{pmatrix} \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \cr \vdots & & \vdots \cr \frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n} \end{pmatrix}, \qquad J _{ij} = \frac{\partial f_i}{\partial x_j}(\mathbf{x}).
+```
 La **ligne** $i$ est le gradient de la sortie $f_i$ (une ligne, comme en M05b) ; la **colonne** $j$ est la dérivée de toutes les sorties le long de l'axe $x_j$, les autres entrées fixées. MML range ainsi les dérivées (*numerator layout* : le numérateur $f_i$ donne la ligne) ; c'est aussi la convention de workbookIA et de ce dépôt.
 
 Deux cas connus : pour $m = 1$ (une seule sortie), la jacobienne est une ligne, le gradient de M05b ; pour $n = 1$ (une seule entrée $t$), c'est une colonne, la vitesse $\mathbf{f}'(t)$ d'un point qui se déplace.
 
 **Exemple.** Un rectangle de longueur $L$ et de largeur $\ell$ a l'aire $L\ell$ et le périmètre $2L + 2\ell$ : $\mathbf{f}(L, \ell) = (L\ell,\ 2L + 2\ell)$, de $\mathbb{R}^2$ dans $\mathbb{R}^2$. Les quatre dérivées partielles :
-$$\mathbf{J} _{\mathbf{f}}(L, \ell) = \begin{pmatrix} \ell & L \cr 2 & 2 \end{pmatrix}, \qquad \mathbf{J} _{\mathbf{f}}(5, 3) = \begin{pmatrix} 3 & 5 \cr 2 & 2 \end{pmatrix}.$$
+```math
+\mathbf{J} _{\mathbf{f}}(L, \ell) = \begin{pmatrix} \ell & L \cr 2 & 2 \end{pmatrix}, \qquad \mathbf{J} _{\mathbf{f}}(5, 3) = \begin{pmatrix} 3 & 5 \cr 2 & 2 \end{pmatrix}.
+```
 La première ligne dit qu'en $(5, 3)$, l'aire gagne 3 par unité de longueur et 5 par unité de largeur ; la première colonne, qu'allonger le rectangle augmente l'aire de 3 et le périmètre de 2 par unité.
 
 ### La meilleure approximation linéaire
@@ -92,7 +96,7 @@ La figure montre l'approximation linéaire des **coordonnées polaires** $(r, \t
 
 ### Les applications linéaires et affines
 
-Une application **linéaire** $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ ($\mathbf{A}$ de forme $(m, n)$) a pour sortie $i$ la combinaison $\sum_j A_{ij}x_j$, de dérivée $A_{ij}$ par rapport à $x_j$ : **sa jacobienne est $\mathbf{A}$**, en tout point. Une application affine $\mathbf{x} \mapsto \mathbf{A}\mathbf{x} + \mathbf{b}$ a la même : la translation ne change aucune dérivée.
+Une application **linéaire** $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ ($\mathbf{A}$ de forme $(m, n){}$) a pour sortie $i$ la combinaison $\sum_j A_{ij}x_j$, de dérivée $A_{ij}$ par rapport à $x_j$ : **sa jacobienne est $\mathbf{A}$**, en tout point. Une application affine $\mathbf{x} \mapsto \mathbf{A}\mathbf{x} + \mathbf{b}$ a la même : la translation ne change aucune dérivée.
 
 ⚠️ **Erreur classique.** Avec les points en **lignes** (M16, NumPy, workbookIA), $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ a pour sortie $k$ la somme $\sum_j x_jW_{jk}$ : $\frac{\partial f_k}{\partial x_j} = W_{jk}$, donc la jacobienne est $\mathbf{W}^\top$, de forme $(m, n)$, et **pas** $\mathbf{W}$, de forme $(n, m)$. La jacobienne suit toujours la règle « une ligne par sortie » ; c'est la matrice de l'application qui change de rangement selon la convention.
 
@@ -142,7 +146,9 @@ $$\frac{\partial h_i}{\partial x_j} = \sum_{k=1}^{p}\frac{\partial g_i}{\partial
 L'entrée $x_j$ agit sur la sortie $h_i$ **par tous les chemins** $x_j \to y_k \to h_i$ ; sur chaque chemin, les effets se **multiplient** ; d'un chemin à l'autre, ils s'**additionnent** (la somme sur les chemins de M16 §4). Pour $n = p = m = 1$, il ne reste qu'un terme : la règle de la chaîne de R7, $(g \circ f)'(x) = g'(f(x))\thinspace f'(x)$.
 
 **Exemple.** $\mathbf{f}(t) = (\cos t, \sin t)$ décrit le cercle unité (de $\mathbb{R}$ dans $\mathbb{R}^2$), et $g(u, v) = u^2 + 3v$ mesure une grandeur sur le plan (de $\mathbb{R}^2$ dans $\mathbb{R}$). La composée $h(t) = \cos^2 t + 3\sin t$ va de $\mathbb{R}$ dans $\mathbb{R}$. En $t = \frac{\pi}{6}$, $\mathbf{f}(t) = (\frac{\sqrt3}{2}, \frac12)$, et
-$$\underbrace{\mathbf{J} _g\big(\mathbf{f}(t)\big)} _{(1,\ 2)} = \begin{pmatrix} 2u & 3 \end{pmatrix} = \begin{pmatrix} \sqrt3 & 3 \end{pmatrix}, \qquad \underbrace{\mathbf{J} _{\mathbf{f}}(t)} _{(2,\ 1)} = \begin{pmatrix} -\sin t \cr \cos t \end{pmatrix} = \begin{pmatrix} -\frac12 \cr \frac{\sqrt3}{2} \end{pmatrix},$$
+```math
+\underbrace{\mathbf{J} _g\big(\mathbf{f}(t)\big)} _{(1,\ 2)} = \begin{pmatrix} 2u & 3 \end{pmatrix} = \begin{pmatrix} \sqrt3 & 3 \end{pmatrix}, \qquad \underbrace{\mathbf{J} _{\mathbf{f}}(t)} _{(2,\ 1)} = \begin{pmatrix} -\sin t \cr \cos t \end{pmatrix} = \begin{pmatrix} -\frac12 \cr \frac{\sqrt3}{2} \end{pmatrix},
+```
 d'où $h'(\frac{\pi}{6}) = -\frac{\sqrt3}{2} + \frac{3\sqrt3}{2} = \sqrt3 \approx 1{,}732$. La dérivation directe de $\cos^2 t + 3\sin t$ donne $-2\cos t\sin t + 3\cos t$, la même valeur.
 
 ### Plusieurs étages
@@ -166,7 +172,9 @@ $$\nabla _{\mathbf{x}}(L \circ \mathbf{f}) = \mathbf{J} _{\mathbf{f}}(\mathbf{x}
 la transposée de la ligne précédente : **les mêmes nombres**, rangés en colonne, et la jacobienne transposée.
 
 **Exemple.** $\mathbf{f}(x_1, x_2) = (x_1x_2,\ x_1 + x_2)$ et $L(y_1, y_2) = y_1^2 + 2y_2$, en $\mathbf{x} = (1, 2)$. Le point intermédiaire est $\mathbf{y} = (2, 3)$, et
-$$\nabla_{\mathbf{y}}L = (2y_1,\ 2) = (4,\ 2), \qquad \mathbf{J} _{\mathbf{f}} = \begin{pmatrix} x_2 & x_1 \cr 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}.$$
+```math
+\nabla_{\mathbf{y}}L = (2y_1,\ 2) = (4,\ 2), \qquad \mathbf{J} _{\mathbf{f}} = \begin{pmatrix} x_2 & x_1 \cr 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}.
+```
 En ligne, $(4, 2)\thinspace\mathbf{J}  _{\mathbf{f}} = (8 + 2,\ 4 + 2) = (10, 6)$ ; en colonne, $\mathbf{J} _{\mathbf{f}}^\top\begin{pmatrix} 4 \cr 2 \end{pmatrix} = \begin{pmatrix} 10 \cr 6 \end{pmatrix}$. Vérification directe : $L(\mathbf{f}(\mathbf{x})) = x_1^2x_2^2 + 2x_1 + 2x_2$ a pour dérivées partielles $2x_1x_2^2 + 2 = 10$ et $2x_1^2x_2 + 2 = 6$.
 
 ⚠️ **Erreur classique.** Écrire $\mathbf{J} _{\mathbf{f}}\nabla _{\mathbf{y}}L$ (sans transposer) en convention colonne : les formes $(p, n) \times (p,)$ ne s'enchaînent pas si $n \ne p$, et, si $n = p$, le résultat est faux sans erreur Python. La règle mnémotechnique : en ligne, le gradient multiplie la jacobienne **à gauche** ; en colonne, c'est la **transposée** de la jacobienne qui multiplie le gradient.
@@ -273,7 +281,9 @@ $$\operatorname{Cov}(\mathbf{Y}) = \operatorname{diag}(\mathbf{p}) - \mathbf{p}^
 - quand tous les $p_i$ sont $> 0$, son rang est $K - 1$ (admis) : $\mathbf{1}$ est, à un facteur près, le seul vecteur qu'elle annule.
 
 **Exemple.** Pour $\mathbf{p} = (0{,}5 ;\ 0{,}3 ;\ 0{,}2)$ :
-$$\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p} = \begin{pmatrix} 0{,}25 & -0{,}15 & -0{,}10 \cr -0{,}15 & 0{,}21 & -0{,}06 \cr -0{,}10 & -0{,}06 & 0{,}16 \end{pmatrix} :$$
+```math
+\operatorname{diag}(\mathbf{p}) - \mathbf{p}^\top\mathbf{p} = \begin{pmatrix} 0{,}25 & -0{,}15 & -0{,}10 \cr -0{,}15 & 0{,}21 & -0{,}06 \cr -0{,}10 & -0{,}06 & 0{,}16 \end{pmatrix} :
+```
 chaque ligne a une somme nulle, et la diagonale est faite des variances de Bernoulli $p_i(1 - p_i)$. Ses valeurs propres sont $0$, environ $0{,}232$ et environ $0{,}388$ (M12c) : positives ou nulles, et une seule nulle.
 
 🔗 **Dans workbookIA** — le chapitre 17 retrouve une matrice de cette forme en dérivant une fonction qu'il étudie ; ici, tu la connais déjà comme une covariance, avec ses propriétés.

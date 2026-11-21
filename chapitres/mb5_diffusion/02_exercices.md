@@ -116,7 +116,7 @@ Un processus aller $q$ fixé et un modèle retour $p$ dont la loi de départ $p(
 
 1. Un pas d'Euler de $h = 0{,}1$ pour $x' = -2x + 1$, depuis $x = 3$.
 2. Même champ, depuis $x = 3$, avec $h = 1{,}5$ : le pas rapproche-t-il $x$ du point fixe $0{,}5$ ?
-3. La loi stationnaire de la chaîne de matrice de transition $\begin{pmatrix} 0{,}79 & 0{,}21 \cr 0{,}42 & 0{,}58 \end{pmatrix}$.
+3. La loi stationnaire de la chaîne de matrice de transition $`\begin{pmatrix} 0{,}79 & 0{,}21 \cr 0{,}42 & 0{,}58 \end{pmatrix}`$.
 4. La cote puis le logit de $p = 0{,}12$ (2 décimales).
 5. Quelle probabilité a pour cote 7 ?
 

@@ -201,7 +201,9 @@ Le sens de variation permet de comparer sans calculer, et de résoudre des inéq
 
 Une fonction peut suivre une formule sur une partie de son ensemble de définition, et une autre ailleurs. Trois exemples qui reviennent sans cesse en ML :
 
-$$\max(0, x) = \begin{cases} 0 & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases} \qquad H(x) = \begin{cases} 0 & \text{si } x < 0 \cr 1 & \text{si } x \ge 0 \end{cases} \qquad |x| = \begin{cases} -x & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases}$$
+```math
+\max(0, x) = \begin{cases} 0 & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases} \qquad H(x) = \begin{cases} 0 & \text{si } x < 0 \cr 1 & \text{si } x \ge 0 \end{cases} \qquad |x| = \begin{cases} -x & \text{si } x < 0 \cr x & \text{si } x \ge 0 \end{cases}
+```
 
 ![max(0, x), la marche et la valeur absolue](figures/par_morceaux.png)
 
@@ -291,7 +293,7 @@ Une fois les racines connues, le signe se lit sur la parabole : **$f(x)$ est du 
 Soit $f$ définie sur un intervalle $I$.
 - $f$ est **croissante** sur $I$ si, pour tous $a < b$ dans $I$, $f(a) \le f(b)$ : elle conserve l'ordre.
 - $f$ est **décroissante** sur $I$ si, pour tous $a < b$ dans $I$, $f(a) \ge f(b)$ : elle retourne l'ordre.
-- Avec des inégalités strictes ($f(a) < f(b)$), on dit **strictement** croissante (ou décroissante).
+- Avec des inégalités strictes ($f(a) < f(b){}$), on dit **strictement** croissante (ou décroissante).
 
 Ce qu'il faut bien voir : ces mots portent sur un **intervalle**. « Le carré est croissant » est faux ; « le carré est croissant sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ » est vrai.
 

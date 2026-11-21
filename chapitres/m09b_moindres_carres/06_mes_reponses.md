@@ -1,7 +1,7 @@
 # M09b · Mes réponses
 
 > Ta copie de ce fichier est dans `mon_travail/m09b_moindres_carres/06_mes_reponses.md` (créée par `python tools/start_chapter.py M09b`) : c'est **elle** que tu remplis, et c'est elle que Claude lit s'il corrige ton travail.
-> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Écris la forme de chaque matrice avant un produit ($\mathbf{X}^\top$ est $(p, n)$), chaque somme de carrés terme à terme, et vérifie une solution des équations normales par $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ ; garde les fractions exactes ($\frac{7}{9}$) jusqu'au bout. Les formules s'écrivent en LaTeX entre `$` (R0 §5), une matrice avec `\begin{pmatrix} a & b \\ c & d \end{pmatrix}` ; une démonstration s'écrit en phrases (R4 §8).
+> Écris ta démarche, pas seulement le résultat : une réponse juste pour une mauvaise raison ne t'apprend rien. Écris la forme de chaque matrice avant un produit ($\mathbf{X}^\top$ est $(p, n){}$), chaque somme de carrés terme à terme, et vérifie une solution des équations normales par $\mathbf{X}^\top\mathbf{r} = \mathbf{0}$ ; garde les fractions exactes ($\frac{7}{9}$) jusqu'au bout. Les formules s'écrivent en LaTeX entre `$` (R0 §5), une matrice avec `\begin{pmatrix} a & b \\ c & d \end{pmatrix}` ; une démonstration s'écrit en phrases (R4 §8).
 
 ## 🧠 Quiz
 

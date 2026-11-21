@@ -40,7 +40,7 @@ Un vecteur est gaussien si **toute** combinaison linéaire de ses coordonnées e
 </details>
 <details><summary>Indice 3</summary>
 
-2. Pense au signe aléatoire de la fiche. 3. Calcule la covariance de $\begin{pmatrix} \mathbf{I} & -\mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix}$. 5. Écris $\alpha_1x_1 + \alpha_2x_2$ en fonction de $z$, puis calcule le déterminant de la covariance.
+2. Pense au signe aléatoire de la fiche. 3. Calcule la covariance de $`\begin{pmatrix} \mathbf{I} & -\mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix}`$. 5. Écris $\alpha_1x_1 + \alpha_2x_2$ en fonction de $z$, puis calcule le déterminant de la covariance.
 
 </details>
 
@@ -223,7 +223,7 @@ Fiche §1 : la densité, la log-densité par Cholesky, et l'exemple du GPS.
 </details>
 <details><summary>Indice 2</summary>
 
-$\boldsymbol{\Sigma}^{-1} = \frac{1}{\det\boldsymbol{\Sigma}}\begin{pmatrix} \Sigma_{22} & -\Sigma_{12} \cr -\Sigma_{12} & \Sigma_{11} \end{pmatrix}$ ; $\ln p = -\ln(2\pi) - \frac12\ln\det\boldsymbol{\Sigma} - \frac12\Delta^2$ en dimension 2. Le rapport de deux densités de la même loi est $e^{-(\Delta_Q^2 - \Delta_P^2)/2}$.
+$`\boldsymbol{\Sigma}^{-1} = \frac{1}{\det\boldsymbol{\Sigma}}\begin{pmatrix} \Sigma_{22} & -\Sigma_{12} \cr -\Sigma_{12} & \Sigma_{11} \end{pmatrix}`$ ; $\ln p = -\ln(2\pi) - \frac12\ln\det\boldsymbol{\Sigma} - \frac12\Delta^2$ en dimension 2. Le rapport de deux densités de la même loi est $e^{-(\Delta_Q^2 - \Delta_P^2)/2}$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -282,7 +282,7 @@ $\boldsymbol{\Sigma} _{bb}$ est le bloc des capteurs 1 et 3 (lignes et colonnes 
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Sigma}  _{bb} = \begin{pmatrix} 4 & 1 \cr 1 & 4 \end{pmatrix}$, de déterminant 15. b) $(3, 2)$ fois $\boldsymbol{\Sigma}  _{bb}^{-1}$. d) Les écarts lus sont $19{,}5 - 18$ et $14 - 15$. f) Avec un seul voisin, le poids est $\frac{\Sigma _{21}}{\Sigma  _{11}}$. h) $\Lambda _{22}$ est l'inverse de la variance de $x_2$ sachant toutes les autres.
+a) $`\boldsymbol{\Sigma}  _{bb} = \begin{pmatrix} 4 & 1 \cr 1 & 4 \end{pmatrix}`$, de déterminant 15. b) $(3, 2)$ fois $\boldsymbol{\Sigma}  _{bb}^{-1}$. d) Les écarts lus sont $19{,}5 - 18$ et $14 - 15$. f) Avec un seul voisin, le poids est $\frac{\Sigma _{21}}{\Sigma  _{11}}$. h) $\Lambda _{22}$ est l'inverse de la variance de $x_2$ sachant toutes les autres.
 
 </details>
 
@@ -318,7 +318,7 @@ Fiche §5 : « Le modèle linéaire gaussien », « La régression linéaire bay
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Phi}\mathbf{S} _0\boldsymbol{\Phi}^\top = \begin{pmatrix} 0{,}25 & 0{,}25 \cr 0{,}25 & 1{,}25 \end{pmatrix}$, puis ajoute le bruit. c) La log-densité en dimension 2 de $\mathbf{e}$, de moyenne nulle. d) $\sigma^{-2} = 25$ et $\boldsymbol{\Phi}^\top\boldsymbol{\Phi} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}$. f) $\boldsymbol{\phi}  _\star = (1 ;\ 0{,}5)$ ; g) $\boldsymbol{\phi} _\star = (1, 2)$.
+a) $`\boldsymbol{\Phi}\mathbf{S} _0\boldsymbol{\Phi}^\top = \begin{pmatrix} 0{,}25 & 0{,}25 \cr 0{,}25 & 1{,}25 \end{pmatrix}`$, puis ajoute le bruit. c) La log-densité en dimension 2 de $\mathbf{e}$, de moyenne nulle. d) $\sigma^{-2} = 25$ et $`\boldsymbol{\Phi}^\top\boldsymbol{\Phi} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}`$. f) $\boldsymbol{\phi}  _\star = (1 ;\ 0{,}5)$ ; g) $\boldsymbol{\phi} _\star = (1, 2)$.
 
 </details>
 
@@ -354,7 +354,7 @@ $\mathrm{KL}(p_0 \thinspace\Vert\thinspace p_1) = \frac12\big[\operatorname{tr}(
 </details>
 <details><summary>Indice 3</summary>
 
-a) $\boldsymbol{\Sigma}_1^{-1} = \frac1{11}\begin{pmatrix} 2 & 1 \cr 1 & 6 \end{pmatrix}$ ; pour deux matrices symétriques, $\operatorname{tr}(\mathbf{A}\mathbf{B})$ est la somme des produits des coefficients de même position. b) $\boldsymbol{\delta} = (1, -1)$. h) Même covariance $\boldsymbol{\Sigma}_0$ : $\frac12\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\delta}$.
+a) $`\boldsymbol{\Sigma}_1^{-1} = \frac1{11}\begin{pmatrix} 2 & 1 \cr 1 & 6 \end{pmatrix}`$ ; pour deux matrices symétriques, $\operatorname{tr}(\mathbf{A}\mathbf{B})$ est la somme des produits des coefficients de même position. b) $\boldsymbol{\delta} = (1, -1)$. h) Même covariance $\boldsymbol{\Sigma}_0$ : $\frac12\boldsymbol{\delta}^\top\boldsymbol{\Sigma}_0^{-1}\boldsymbol{\delta}$.
 
 </details>
 

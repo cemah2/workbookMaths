@@ -103,7 +103,7 @@
 - c) $1{,}4248 \times \ln 2 \approx 0{,}988$ nat.
 - d) Les informations s'additionnent : $0{,}8625 + 5{,}0589 \approx 5{,}921$ bits (la probabilité des deux est $0{,}55 \times 0{,}03 = 0{,}0165$).
 - e) La loi $(0{,}55 ;\ 0{,}35 ;\ 0{,}1)$ : $0{,}4744 + 0{,}5301 + 0{,}1 \times 3{,}3219 \approx 1{,}337$ bit.
-- f) Les codes de deux requêtes indépendantes forment un couple dont l'entropie est la somme des entropies (§3, la règle de la chaîne avec $H(Y \mid X) = H(Y)$) : $2 \times 1{,}4248 \approx 2{,}850$ bits.
+- f) Les codes de deux requêtes indépendantes forment un couple dont l'entropie est la somme des entropies (§3, la règle de la chaîne avec $H(Y \mid X) = H(Y){}$) : $2 \times 1{,}4248 \approx 2{,}850$ bits.
 
 Pour la copie : en regroupant les deux erreurs, on perd l'information « laquelle des deux erreurs ». La règle du regroupement (fiche §3) le chiffre : $b) - e) = 0{,}1 \times H(0{,}7 ;\ 0{,}3) \approx 0{,}088$ bit, la probabilité 0,1 d'une erreur fois l'incertitude qui reste sur son type, de loi $(0{,}7 ;\ 0{,}3)$ une fois qu'on sait qu'il y a une erreur.
 
@@ -145,7 +145,7 @@ Pour la copie : $H(X) + H(Y \mid X) \approx 0{,}9710 + 0{,}9488 = 1{,}9198$ et $
 
 **Erreurs fréquentes.** Calculer l'entropie des cases de la ligne sans les diviser par $P(\text{payant})$ (b : 1,391), ou diviser l'entropie par $P(\text{payant})$ (b : 2,318) ; oublier la ligne « gratuit » dans la moyenne (c : 1,581) ; répondre $H(Y \mid X)$ ou $I(X ; Y)$ en e) ; l'écart dans le mauvais ordre en f).
 
-**Variante.** Pour la loi jointe $\begin{pmatrix} \frac{1}{4} & 0 \cr \frac{1}{4} & \frac{1}{2} \end{pmatrix}$ (lignes : $X$), que vaut $H(Y \mid X)$ ? *Réponse* : $\frac{1}{4} \times 0 + \frac{3}{4} \times H\big(\frac{1}{3}, \frac{2}{3}\big) \approx 0{,}75 \times 0{,}918 = 0{,}689$.
+**Variante.** Pour la loi jointe $`\begin{pmatrix} \frac{1}{4} & 0 \cr \frac{1}{4} & \frac{1}{2} \end{pmatrix}`$ (lignes : $X$), que vaut $H(Y \mid X)$ ? *Réponse* : $\frac{1}{4} \times 0 + \frac{3}{4} \times H\big(\frac{1}{3}, \frac{2}{3}\big) \approx 0{,}75 \times 0{,}918 = 0{,}689$.
 
 ### Ex M06.4 — La règle de la chaîne de l'entropie, vérifiée
 
@@ -184,7 +184,7 @@ Pour la copie : $H(X, Y) = \frac{1}{16} \times 4 + \frac{1}{2} \times 1 + \frac{
 
 **Erreurs fréquentes.** Additionner la mauvaise colonne (a : `"9/16"`) ; oublier de diviser la ligne par $P(\text{vert})$ (c : 0,75) ; ne pas pondérer les lignes (d : la moyenne simple 0,474, ou la somme 1,422) ; répondre $H(Y \mid X)$ en g).
 
-**Variante.** Que vaut $I(X ; Y)$ pour la loi jointe $\begin{pmatrix} \frac{1}{2} & \frac{1}{4} \cr 0 & \frac{1}{4} \end{pmatrix}$ ? *Réponse* : $H(Y) = 1$, $H(Y \mid X) = \frac{3}{4}\thinspace H(\frac{2}{3}, \frac{1}{3}) \approx 0{,}689$, donc $I \approx 0{,}311$ bit.
+**Variante.** Que vaut $I(X ; Y)$ pour la loi jointe $`\begin{pmatrix} \frac{1}{2} & \frac{1}{4} \cr 0 & \frac{1}{4} \end{pmatrix}`$ ? *Réponse* : $H(Y) = 1$, $H(Y \mid X) = \frac{3}{4}\thinspace H(\frac{2}{3}, \frac{1}{3}) \approx 0{,}689$, donc $I \approx 0{,}311$ bit.
 
 ### Ex M06.6 — Cross-entropy et KL en bits perdus : un code fait pour la mauvaise loi
 
@@ -274,7 +274,7 @@ Pour la copie : un code de longueurs h) : 0, 100, 101, 110, 1110, 1111 (somme de
 3. $\mathrm{KL}\big(p_{XY} \thinspace\Vert\thinspace p_X\thinspace p_Y\big) = \sum p(x, y) \log_2 \frac{p(x, y)}{p(x)\thinspace p(y)}$ sur les cases où $p(x, y) > 0$ : c'est la définition de $I(X ; Y)$. Elle est finie, car $p(x) \ge p(x, y) > 0$ et $p(y) \ge p(x, y) > 0$ sur ces cases. Par l'inégalité de Gibbs, $I(X ; Y) \ge 0$, avec égalité si et seulement si $p(x, y) = p(x)\thinspace p(y)$ pour tous $x$ et $y$, c'est-à-dire si $X$ et $Y$ sont indépendantes.
 4. $H(X \mid Y) = H(X) - I(X ; Y) \le H(X)$, et $H(X, Y) = H(X) + H(Y) - I(X ; Y) \le H(X) + H(Y)$ ; égalité dans les deux cas si et seulement si $I = 0$, donc pour des variables indépendantes.
 5. $H(X \mid X) = 0$ (connaître $X$, c'est connaître $X$), donc $I(X ; X) = H(X) - 0 = H(X)$.
-6. Par exemple la loi jointe $\begin{pmatrix} 0{,}62 & 0{,}08 \cr 0{,}18 & 0{,}12 \end{pmatrix}$ (lignes : $X$, colonnes : $Y$). $X$ a la loi $(0{,}7 ;\ 0{,}3)$, d'entropie environ 0,881. Sachant que $Y$ vaut la deuxième colonne, $X$ a la loi $(0{,}4 ;\ 0{,}6)$, d'entropie environ 0,971, plus grande. Pas de contradiction : la question 4 porte sur la **moyenne** $H(X \mid Y)$, pondérée par les probabilités des colonnes ; la première colonne, de probabilité 0,8, donne à $X$ la loi $(0{,}775 ;\ 0{,}225)$, d'entropie environ 0,769, et la moyenne vaut $0{,}8 \times 0{,}769 + 0{,}2 \times 0{,}971 \approx 0{,}809 < 0{,}881$.
+6. Par exemple la loi jointe $`\begin{pmatrix} 0{,}62 & 0{,}08 \cr 0{,}18 & 0{,}12 \end{pmatrix}`$ (lignes : $X$, colonnes : $Y$). $X$ a la loi $(0{,}7 ;\ 0{,}3)$, d'entropie environ 0,881. Sachant que $Y$ vaut la deuxième colonne, $X$ a la loi $(0{,}4 ;\ 0{,}6)$, d'entropie environ 0,971, plus grande. Pas de contradiction : la question 4 porte sur la **moyenne** $H(X \mid Y)$, pondérée par les probabilités des colonnes ; la première colonne, de probabilité 0,8, donne à $X$ la loi $(0{,}775 ;\ 0{,}225)$, d'entropie environ 0,769, et la moyenne vaut $0{,}8 \times 0{,}769 + 0{,}2 \times 0{,}971 \approx 0{,}809 < 0{,}881$.
 
 **Grille.** (1) la factorisation $p(x, y) = p(y)\thinspace p(x \mid y)$, puis le regroupement $\sum_y p(x, y) = p(x)$ ; (2) la symétrie et la règle de la chaîne ; (3) $I = \mathrm{KL}(p_{XY} \thinspace\Vert\thinspace p_X p_Y)$, sa finitude, Gibbs et le cas d'égalité, traduit en indépendance ; (4) les deux inégalités et leur cas d'égalité ; (5) $H(X \mid X) = 0$ ; (6) un tableau qui marche, et la distinction entre une valeur et la moyenne.
 
@@ -329,7 +329,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Erreurs fréquentes.** Oublier de diviser les comptages par 20, ou chaque ligne par son total ; répondre $H(Y \mid F)$ au lieu de $I(F ; Y)$ (a : 0,8813) ; faire la moyenne simple des entropies des lignes de $F_3$ (c et e) ; prendre $I$ pour $H(Y \mid F_3)$ en e) ; donner f) en bits.
 
-**Variante.** Une feature égale à $Y$ (un tableau diagonal $\begin{pmatrix} 10 & 0 \cr 0 & 10 \end{pmatrix}$) : son information mutuelle avec $Y$ ? *Réponse* : $H(Y) = 1$ bit.
+**Variante.** Une feature égale à $Y$ (un tableau diagonal $`\begin{pmatrix} 10 & 0 \cr 0 & 10 \end{pmatrix}`$) : son information mutuelle avec $Y$ ? *Réponse* : $H(Y) = 1$ bit.
 
 ### Ex M06.14 — Fermi : combien de bits pour un génome humain ?
 
@@ -431,7 +431,7 @@ Pour la copie : le numéro de client, avec 20 valeurs, a sur ces données $H(Y \
 
 **Réponses** : a) `"ACD"` · b) `[1.406, 0.974, 1.75, 0.344, 3.0, 3.364]`.
 
-**Démarche.** (A) $0 \times \log_2 0$ vaut `nan` pour NumPy ($0 \times (-\infty)$) : la somme est `nan`. Il faut garder les probabilités non nulles (ou `xlogy`, M06.25) : $H(p) = 0{,}5 + 0{,}375\log_2 \frac{8}{3} + 0{,}375 \approx 1{,}406$. (C) `log10` donne la cross-entropy en base 10, $1{,}75 \log_{10} 2 \approx 0{,}527$ : il faut `log2`, $H(p, q) = 0{,}5 \times 2 + 0{,}375 \times 1 + 0{,}125 \times 3 = 1{,}75$. (D) Les deux lois sont échangées : c'est $\mathrm{KL}(q \thinspace\Vert\thinspace p)$, infinie ici (`inf`), car $q$ donne une probabilité à la 4ᵉ issue et $p$ non ; $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 1{,}75 - 1{,}406 \approx 0{,}344$. (B), (E) et (F) sont justes : $1{,}406 \ln 2 \approx 0{,}974$ nat, $-\log_2 0{,}125 = 3$ bits, $2^{1{,}75} \approx 3{,}364$. Pour la copie : `nan` et `inf` se voient, mais (C) renvoie un nombre plausible, et passe inaperçue si l'on ne vérifie pas l'unité.
+**Démarche.** (A) $0 \times \log_2 0$ vaut `nan` pour NumPy ($0 \times (-\infty){}$) : la somme est `nan`. Il faut garder les probabilités non nulles (ou `xlogy`, M06.25) : $H(p) = 0{,}5 + 0{,}375\log_2 \frac{8}{3} + 0{,}375 \approx 1{,}406$. (C) `log10` donne la cross-entropy en base 10, $1{,}75 \log_{10} 2 \approx 0{,}527$ : il faut `log2`, $H(p, q) = 0{,}5 \times 2 + 0{,}375 \times 1 + 0{,}125 \times 3 = 1{,}75$. (D) Les deux lois sont échangées : c'est $\mathrm{KL}(q \thinspace\Vert\thinspace p)$, infinie ici (`inf`), car $q$ donne une probabilité à la 4ᵉ issue et $p$ non ; $\mathrm{KL}(p \thinspace\Vert\thinspace q) = 1{,}75 - 1{,}406 \approx 0{,}344$. (B), (E) et (F) sont justes : $1{,}406 \ln 2 \approx 0{,}974$ nat, $-\log_2 0{,}125 = 3$ bits, $2^{1{,}75} \approx 3{,}364$. Pour la copie : `nan` et `inf` se voient, mais (C) renvoie un nombre plausible, et passe inaperçue si l'on ne vérifie pas l'unité.
 
 **Erreurs fréquentes.** Croire (B) fausse (elle convertit bien des bits en nats) ; ne pas voir (A) parce que la formule est celle de la fiche : c'est la probabilité nulle qui la casse ; croire (F) fausse parce qu'elle utilise $H(p, q)$ et pas $H(p)$ : la perplexité d'un modèle se calcule avec sa cross-entropy.
 

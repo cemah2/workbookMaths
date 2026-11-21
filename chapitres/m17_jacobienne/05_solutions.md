@@ -79,7 +79,7 @@
 2. $\mathbb{V}(\mathbf{v} \cdot \mathbf{X}) = \mathbf{v}\thinspace\boldsymbol{\Sigma}\thinspace\mathbf{v}^\top$.
 3. Parce que $\mathbf{v}\thinspace\boldsymbol{\Sigma}\thinspace\mathbf{v}^\top$ est une variance, donc $\ge 0$, pour tout $\mathbf{v}$.
 4. Le vecteur nul : les coordonnées de $\boldsymbol{\Sigma}'(1, 1)^\top$ sont $\operatorname{Cov}(X_i, X_1 + X_2)$, nulles puisque $X_1 + X_2$ est constant. Ce n'est pas possible pour $\boldsymbol{\Sigma}$ : $\boldsymbol{\Sigma}(1, 1)^\top = (3, 1)$, et $\mathbb{V}(X_1 + X_2) = 4 \ne 0$.
-5. Toujours symétrique ($\operatorname{Cov}(X_i, X_j) = \operatorname{Cov}(X_j, X_i)$) ; pas toujours inversible (la matrice $\boldsymbol{\Sigma}'$ de la question 4).
+5. Toujours symétrique ($\operatorname{Cov}(X_i, X_j) = \operatorname{Cov}(X_j, X_i){}$) ; pas toujours inversible (la matrice $\boldsymbol{\Sigma}'$ de la question 4).
 
 <a id="papier"></a>
 
@@ -89,13 +89,13 @@
 
 **Réponses.** a) `[3.4641, 2.0]` · b) `[[0.866, -2.0], [0.5, 3.4641]]` · c) `4` · d) `[3.4507, 2.2232]` · e) `[3.4438, 2.2249]` · f) `0.0071` · g) `0.0008`.
 
-**Démarche.** $\mathbf{J}_{\mathbf{f}}(r, \theta) = \begin{pmatrix} \cos\theta & -r\sin\theta \cr \sin\theta & r\cos\theta \end{pmatrix}$ ; en $(4, \frac{\pi}{6})$, $\begin{pmatrix} \frac{\sqrt3}{2} & -2 \cr \frac12 & 2\sqrt3 \end{pmatrix}$. c) $r\cos^2\theta + r\sin^2\theta = r = 4$. d) $\mathbf{f}(4, \frac{\pi}{6}) + \mathbf{J}\thinspace(0{,}1 ;\ 0{,}05) = (2\sqrt3 + 0{,}0866 - 0{,}1 ;\ 2 + 0{,}05 + 0{,}1732)$. e) $4{,}1\cos(0{,}5736)$ et $4{,}1\sin(0{,}5736)$. f) $\sqrt{0{,}0069^2 + 0{,}0017^2}$. g) $\lvert\det\mathbf{J}\rvert \times 0{,}01 \times 0{,}02 = 4 \times 0{,}0002$.
+**Démarche.** $`\mathbf{J}_{\mathbf{f}}(r, \theta) = \begin{pmatrix} \cos\theta & -r\sin\theta \cr \sin\theta & r\cos\theta \end{pmatrix}`$ ; en $(4, \frac{\pi}{6})$, $`\begin{pmatrix} \frac{\sqrt3}{2} & -2 \cr \frac12 & 2\sqrt3 \end{pmatrix}`$. c) $r\cos^2\theta + r\sin^2\theta = r = 4$. d) $\mathbf{f}(4, \frac{\pi}{6}) + \mathbf{J}\thinspace(0{,}1 ;\ 0{,}05) = (2\sqrt3 + 0{,}0866 - 0{,}1 ;\ 2 + 0{,}05 + 0{,}1732)$. e) $4{,}1\cos(0{,}5736)$ et $4{,}1\sin(0{,}5736)$. f) $\sqrt{0{,}0069^2 + 0{,}0017^2}$. g) $\lvert\det\mathbf{J}\rvert \times 0{,}01 \times 0{,}02 = 4 \times 0{,}0002$.
 
 Dans ta copie : la première colonne, $(\cos\theta, \sin\theta)$, est un vecteur unitaire : quand $r$ bouge, le point s'éloigne de l'origine à vitesse 1. La deuxième, $r(-\sin\theta, \cos\theta)$, est tangente au cercle de rayon $r$ : quand $\theta$ bouge, le point tourne, et parcourt $r$ unités de longueur par radian. Les deux colonnes sont orthogonales, de longueurs 1 et $r$ : le déterminant est leur produit, $r$. L'erreur f) est d'ordre 2 en les déplacements (environ $0{,}1^2$, $0{,}05^2$ et leur produit, multipliés par des dérivées secondes) : bien plus petite que les déplacements eux-mêmes.
 
 **Erreurs fréquentes.** Ranger les dérivées par rapport à $r$ dans la première **ligne** (on obtient la transposée, de même déterminant, mais une approximation fausse). Oublier le facteur $r$ dans la deuxième colonne. Calculer en degrés.
 
-**Variante.** En $(2, \frac{\pi}{2})$ : $\mathbf{J} = \begin{pmatrix} 0 & -2 \cr 1 & 0 \end{pmatrix}$, de déterminant 2.
+**Variante.** En $(2, \frac{\pi}{2})$ : $`\mathbf{J} = \begin{pmatrix} 0 & -2 \cr 1 & 0 \end{pmatrix}`$, de déterminant 2.
 
 ### Ex M17.2 — Une fonction appliquée coordonnée par coordonnée
 
@@ -113,19 +113,19 @@ Dans ta copie : la sortie 2 ne dépend que de $x_2$, donc pas de $x_3$. $g'(0) =
 
 **Réponses.** a) `[3, 2, -1]` · b) `[[1, 1], [2, 1], [1, -1]]` · c) `[[2, 3, 0], [0, 1, -2]]` · d) `[[12, -3]]` · e) `[96, 51]` · f) `[12, 16]`.
 
-**Démarche.** b) $\mathbf{J} _{\mathbf{f} _1} = \begin{pmatrix} 1 & 1 \cr y & x \cr 1 & -1 \end{pmatrix}$ en $(1, 2)$. c) $\mathbf{J} _{\mathbf{f} _2} = \begin{pmatrix} v & u & 0 \cr 0 & 1 & 2w \end{pmatrix}$ en $(u, v, w) = (3, 2, -1)$. d) $\mathbf{f} _2(3, 2, -1) = (6, 3)$, et $\mathbf{J} _{f_3} = (2a,\ -3) = (12, -3)$. e) $\mathbf{J} _{f_3}\mathbf{J} _{\mathbf{f}_2} = (24,\ 33,\ 6)$, puis $(24 + 66 + 6,\ 24 + 33 - 6) = (96, 51)$. f) $(1 \times 2 \times 3) + (1 \times 3 \times 2) = 12$ ; $(2 \times 3 \times 2) + (1 \times 2 \times 2) = 16$.
+**Démarche.** b) $`\mathbf{J} _{\mathbf{f} _1} = \begin{pmatrix} 1 & 1 \cr y & x \cr 1 & -1 \end{pmatrix}`$ en $(1, 2)$. c) $`\mathbf{J} _{\mathbf{f} _2} = \begin{pmatrix} v & u & 0 \cr 0 & 1 & 2w \end{pmatrix}`$ en $(u, v, w) = (3, 2, -1)$. d) $\mathbf{f} _2(3, 2, -1) = (6, 3)$, et $\mathbf{J} _{f_3} = (2a,\ -3) = (12, -3)$. e) $\mathbf{J} _{f_3}\mathbf{J} _{\mathbf{f}_2} = (24,\ 33,\ 6)$, puis $(24 + 66 + 6,\ 24 + 33 - 6) = (96, 51)$. f) $(1 \times 2 \times 3) + (1 \times 3 \times 2) = 12$ ; $(2 \times 3 \times 2) + (1 \times 2 \times 2) = 16$.
 
 Dans ta copie : $(1, 2) \times (2, 3) \times (3, 2) \to (1, 2)$. $h(x, y) = (x + y)^2x^2y^2 - 3xy - 3(x - y)^2$ : $\frac{\partial h}{\partial x} = 2(x + y)x^2y^2 + 2(x + y)^2xy^2 - 3y - 6(x - y) = 24 + 72 - 6 + 6 = 96$, et de même 51. De gauche à droite, on ne multiplie jamais que des **lignes** par des matrices (la sortie est une seule fonction) : c'est le produit vecteur-jacobienne du §5.
 
 **Erreurs fréquentes.** Évaluer $\mathbf{J}_{\mathbf{f} _2}$ en $(1, 2)$ (impossible : elle attend 3 coordonnées) ou $\mathbf{J} _{f_3}$ en $\mathbf{f} _1(1, 2)$. Multiplier dans l'ordre $\mathbf{J} _{\mathbf{f} _1}\mathbf{J} _{\mathbf{f} _2}\mathbf{J} _{f_3}$.
 
-**Variante.** Au point $(1, 0)$ : $\mathbf{f}_1 = (1, 0, 1)$, $\mathbf{f}_2 = (0, 1)$, $\nabla h = (0, -3)\thinspace\begin{pmatrix} 0 & 1 & 0 \cr 0 & 1 & 2 \end{pmatrix}\begin{pmatrix} 1 & 1 \cr 0 & 1 \cr 1 & -1 \end{pmatrix} = (0, -3, -6)\begin{pmatrix} 1 & 1 \cr 0 & 1 \cr 1 & -1 \end{pmatrix} = (-6, 3)$.
+**Variante.** Au point $(1, 0)$ : $\mathbf{f}_1 = (1, 0, 1)$, $\mathbf{f}_2 = (0, 1)$, $`\nabla h = (0, -3)\thinspace\begin{pmatrix} 0 & 1 & 0 \cr 0 & 1 & 2 \end{pmatrix}\begin{pmatrix} 1 & 1 \cr 0 & 1 \cr 1 & -1 \end{pmatrix} = (0, -3, -6)\begin{pmatrix} 1 & 1 \cr 0 & 1 \cr 1 & -1 \end{pmatrix} = (-6, 3)`$.
 
 ### Ex M17.4 — La normalisation x/‖x‖
 
 **Réponses.** a) `[5, 0.6, 0, 0.8]` · b) `[[0.128, 0, -0.096], [0, 0.2, 0], [-0.096, 0, 0.072]]` · c) `[0, 0, 0]` · d) `[-0.096, 0.4, 0.072]` · e) `2` · f) `[0, 0.2, 0.2]`.
 
-**Démarche.** b) $\mathbf{u}\mathbf{u}^\top = \begin{pmatrix} 0{,}36 & 0 & 0{,}48 \cr 0 & 0 & 0 \cr 0{,}48 & 0 & 0{,}64 \end{pmatrix}$, puis $\frac{\mathbf{I} - \mathbf{u}\mathbf{u}^\top}{5}$. c) $\mathbf{J}\mathbf{x} = \frac{\mathbf{x} - (\mathbf{u} \cdot \mathbf{x})\thinspace\mathbf{u}}{5} = \frac{\mathbf{x} - 5\mathbf{u}}{5} = \mathbf{0}$. d) $\mathbf{u} \cdot \mathbf{v} = 0{,}8$, $\mathbf{v} - 0{,}8\thinspace\mathbf{u} = (-0{,}48 ;\ 2 ;\ 0{,}36)$, divisé par 5.
+**Démarche.** b) $`\mathbf{u}\mathbf{u}^\top = \begin{pmatrix} 0{,}36 & 0 & 0{,}48 \cr 0 & 0 & 0 \cr 0{,}48 & 0 & 0{,}64 \end{pmatrix}`$, puis $\frac{\mathbf{I} - \mathbf{u}\mathbf{u}^\top}{5}$. c) $\mathbf{J}\mathbf{x} = \frac{\mathbf{x} - (\mathbf{u} \cdot \mathbf{x})\thinspace\mathbf{u}}{5} = \frac{\mathbf{x} - 5\mathbf{u}}{5} = \mathbf{0}$. d) $\mathbf{u} \cdot \mathbf{v} = 0{,}8$, $\mathbf{v} - 0{,}8\thinspace\mathbf{u} = (-0{,}48 ;\ 2 ;\ 0{,}36)$, divisé par 5.
 
 Dans ta copie : $\frac{\partial}{\partial x_j}\frac{x_i}{\lVert\mathbf{x}\rVert} = \frac{\delta_{ij}}{\lVert\mathbf{x}\rVert} - \frac{x_ix_j}{\lVert\mathbf{x}\rVert^3} = \frac{\delta_{ij} - u_iu_j}{\lVert\mathbf{x}\rVert}$. Le long de la droite de $\mathbf{x}$, $\mathbf{n}$ est constante ($\mathbf{n}(t\mathbf{x}) = \mathbf{n}(\mathbf{x})$ pour $t > 0$) : sa dérivée dans la direction $\mathbf{x}$ est nulle. $\mathbf{I} - \mathbf{u}\mathbf{u}^\top$ est la projection orthogonale sur le plan orthogonal à $\mathbf{u}$ : elle annule $\mathbf{u}$ et garde le plan, d'où le rang 2 et les valeurs propres $0$, $1$, $1$, divisées par $\lVert\mathbf{x}\rVert = 5$. d) coûte un produit scalaire et une combinaison, environ $3n$ multiplications, contre $n^2 = 10^6$ coefficients pour la matrice.
 
@@ -137,13 +137,13 @@ Dans ta copie : $\frac{\partial}{\partial x_j}\frac{x_i}{\lVert\mathbf{x}\rVert}
 
 **Réponses.** a) `[3, -2, 1]` · b) `[6, 3, -1]` · c) `[[1, -1], [-1, 2], [0, -2]]` · d) `[3, 2]` · e) `[2, 3]` · f) `5`.
 
-**Démarche.** c) $\mathbf{J} _{\mathbf{f}} = \begin{pmatrix} 1 & -1 \cr x_2 & x_1 \cr 0 & 2x_2 \end{pmatrix}$ en $(2, -1)$. d) En ligne : $(6, 3, -1)\thinspace\mathbf{J}  _{\mathbf{f}} = (6 - 3 + 0,\ -6 + 6 + 2) = (3, 2)$ ; en colonne, $\mathbf{J} _{\mathbf{f}}^\top(6, 3, -1)^\top$, les mêmes nombres. f) $(3, 2) \cdot (1, 1) = 5$.
+**Démarche.** c) $`\mathbf{J} _{\mathbf{f}} = \begin{pmatrix} 1 & -1 \cr x_2 & x_1 \cr 0 & 2x_2 \end{pmatrix}`$ en $(2, -1)$. d) En ligne : $(6, 3, -1)\thinspace\mathbf{J}  _{\mathbf{f}} = (6 - 3 + 0,\ -6 + 6 + 2) = (3, 2)$ ; en colonne, $\mathbf{J} _{\mathbf{f}}^\top(6, 3, -1)^\top$, les mêmes nombres. f) $(3, 2) \cdot (1, 1) = 5$.
 
 Dans ta copie : $L(\mathbf{f}(\mathbf{x})) = (x_1 - x_2)^2 + 3x_1x_2 - x_2^2$, de dérivées $2(x_1 - x_2) + 3x_2 = 3$ et $-2(x_1 - x_2) + 3x_1 - 2x_2 = 2$. $\mathbf{J} _{\mathbf{f}}$ a la forme $(3, 2)$ et $\nabla _{\mathbf{y}}L$ trois coordonnées : $\mathbf{J} _{\mathbf{f}}\nabla _{\mathbf{y}}L$ n'existe pas.
 
 **Erreurs fréquentes.** Évaluer $\nabla_{\mathbf{y}}L$ en $\mathbf{x}$. Oublier la transposée en convention colonne. Normaliser $(1, 1)$ (on trouve $\frac{5}{\sqrt2} \approx 3{,}54$) : la question demande la dérivée de $t \mapsto (L \circ \mathbf{f})(\mathbf{x} + t\thinspace(1, 1))$, c'est-à-dire $\nabla(L \circ \mathbf{f}) \cdot (1, 1)$.
 
-**Variante.** En $\mathbf{x} = (1, 1)$ : $\mathbf{y} = (0, 1, 1)$, $\nabla_{\mathbf{y}}L = (0, 3, -1)$, $\mathbf{J}_{\mathbf{f}} = \begin{pmatrix} 1 & -1 \cr 1 & 1 \cr 0 & 2 \end{pmatrix}$, gradient $(3, 1)$.
+**Variante.** En $\mathbf{x} = (1, 1)$ : $\mathbf{y} = (0, 1, 1)$, $\nabla_{\mathbf{y}}L = (0, 3, -1)$, $`\mathbf{J}_{\mathbf{f}} = \begin{pmatrix} 1 & -1 \cr 1 & 1 \cr 0 & 2 \end{pmatrix}`$, gradient $(3, 1)$.
 
 ### Ex M17.6 — Dérivées à gauche et à droite, et une composée de sept copies
 
@@ -222,7 +222,7 @@ Dans ta copie : à $T = 1$, les poids $e^{-\ell}$ valent $e^{-38}$ fois $e^{-3}$
 
 **Grille de relecture.** $Y_iY_j = 0$ pour $i \ne j$ est justifié (un seul état). La semi-définie positivité passe par une **variance**, pas par un calcul de valeurs propres. La somme des lignes se déduit de $\sum_jY_j$ constant, sans développer la matrice. Au point 5, les vecteurs propres sont trouvés sans polynôme caractéristique.
 
-**Variante.** Pour $\mathbf{p} = (0{,}5 ;\ 0{,}25 ;\ 0{,}25)$ : $\begin{pmatrix} 0{,}25 & -0{,}125 & -0{,}125 \cr -0{,}125 & 0{,}1875 & -0{,}0625 \cr -0{,}125 & -0{,}0625 & 0{,}1875 \end{pmatrix}$, de lignes de somme nulle.
+**Variante.** Pour $\mathbf{p} = (0{,}5 ;\ 0{,}25 ;\ 0{,}25)$ : $`\begin{pmatrix} 0{,}25 & -0{,}125 & -0{,}125 \cr -0{,}125 & 0{,}1875 & -0{,}0625 \cr -0{,}125 & -0{,}0625 & 0{,}1875 \end{pmatrix}`$, de lignes de somme nulle.
 
 <a id="reflexion"></a>
 
@@ -270,6 +270,6 @@ Le code complet est dans `05_solutions.ipynb`, exécuté ; voici les réponses e
 - **M17.18 🔮** (2) une jacobienne $(2, 4)$ ; (3) trois coefficients nuls partout (ligne 1, colonne 4 ; ligne 2, colonnes 2 et 3) ; (2) la sortie 2, $(x_4 + x_1)^2$, ne dépend pas de $x_3$.
 - **M17.19 🔬** Pour $c = 2{,}6$, la pente au point fixe $1 - \frac{1}{2{,}6} \approx 0{,}615$ vaut $2 - c = -0{,}6$, et $\lvert D_{60}\rvert^{1/60} \approx 0{,}597$ : la dérivée s'éteint comme $0{,}6^k$. Pour $c = 4$, le point fixe $0{,}75$ est repoussant ; la dérivée croît en moyenne comme $e^{0{,}69k} \approx 2^k$, et deux départs à $10^{-10}$ l'un de l'autre sont séparés de plus de 0,01 après 40 itérations, alors que les valeurs restent dans $[0 ; 1]$.
 - **M17.20 🎨** Près de $\mathbf{a}$, la grille déformée et son approximation linéaire sont presque confondues ; loin de $\mathbf{a}$, elles s'écartent : l'erreur de l'approximation linéaire est d'ordre 2 en la distance.
-- **M17.21 🐛** a) `chain(J_f, J_g)` rend $\mathbf{J} _{\mathbf{f}}\mathbf{J} _{\mathbf{g}} = [[6, 2], [4, 0]]$ ; b) `composite_jacobian` évalue $\mathbf{J} _{\mathbf{g}}$ en $\mathbf{x}$ et rend $[[5, 1], [1, -1]]$ ; c) la bonne jacobienne est $\mathbf{J}  _{\mathbf{g}}(1, 3)\thinspace\mathbf{J} _{\mathbf{f}}(1, 2) = [[7, 1], [1, -1]]$. Les trois règles violées : une ligne par sortie, la dernière application à gauche, le point intermédiaire. `jacobian_by_hand` ne donne la bonne matrice en aucun point : elle échange toujours le 1 et le 0 de la première ligne de $\begin{pmatrix} 2x & 0 \cr 1 & 1 \end{pmatrix}$.
+- **M17.21 🐛** a) `chain(J_f, J_g)` rend $\mathbf{J} _{\mathbf{f}}\mathbf{J} _{\mathbf{g}} = [[6, 2], [4, 0]]$ ; b) `composite_jacobian` évalue $\mathbf{J} _{\mathbf{g}}$ en $\mathbf{x}$ et rend $[[5, 1], [1, -1]]$ ; c) la bonne jacobienne est $\mathbf{J}  _{\mathbf{g}}(1, 3)\thinspace\mathbf{J} _{\mathbf{f}}(1, 2) = [[7, 1], [1, -1]]$. Les trois règles violées : une ligne par sortie, la dernière application à gauche, le point intermédiaire. `jacobian_by_hand` ne donne la bonne matrice en aucun point : elle échange toujours le 1 et le 0 de la première ligne de $`\begin{pmatrix} 2x & 0 \cr 1 & 1 \end{pmatrix}`$.
 - **M17.22 🛠️** Le test compare `jacobian(g∘f, x)` à `jacobian(g, f(x)) @ jacobian(f, x)` en plusieurs points, sans formule exacte : il attrape la jacobienne transposée (formes incompatibles) et les différences avant à grand pas (écart de l'ordre de $h$).
 - **M17.23 🏆** De $XX^{-1} = I$, la dérivée de l'inversion dans la direction $H$ vaut $-X^{-1}HX^{-1}$ ; en $X_0 = [[2, 1], [0, 1]]$ et pour $H = [[0, 1], [1, 0]]$, $[[0{,}25, -0{,}75], [-0{,}5, 0{,}5]]$. La jacobienne $4 \times 4$ (aplatissement par lignes) a ces dérivées pour colonnes ; son déterminant vaut $\frac{1}{16} = \det(X_0)^{-4}$.

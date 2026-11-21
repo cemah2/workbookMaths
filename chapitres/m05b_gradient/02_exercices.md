@@ -345,7 +345,7 @@ Soit $f$ comme en M05b.11, et $\boldsymbol{\gamma}(t) = (x(t), y(t))$ une courbe
 Soit $q(x, y) = a x^2 + b\thinspace xy + c y^2$, avec $a$, $b$, $c$ réels.
 1. Montre que $(0, 0)$ est un point critique de $q$, et que $q_{xx}\thinspace q_{yy} - q_{xy}^2 = 4ac - b^2$.
 2. On suppose $a \ne 0$. Montre que $4a\thinspace q(x, y) = (2ax + by)^2 + (4ac - b^2)\thinspace y^2$.
-3. En déduire : si $4ac - b^2 > 0$ et $a > 0$, alors $q(x, y) > 0$ pour tout $(x, y) \ne (0, 0)$ ($q$ a un minimum strict en $(0, 0)$) ; et si $4ac - b^2 > 0$ et $a < 0$, un maximum strict.
+3. En déduire : si $4ac - b^2 > 0$ et $a > 0$, alors $q(x, y) > 0$ pour tout $(x, y) \ne (0, 0)$ ($q$ a un minimum strict en $(0, 0){}$) ; et si $4ac - b^2 > 0$ et $a < 0$, un maximum strict.
 4. On suppose $4ac - b^2 < 0$ et $a \ne 0$. Trouve un point où $q$ a le signe de $a$, et un point où $q$ a le signe opposé. Conclus.
 5. Traite le cas $a = 0$ et $b \ne 0$ : montre que $(0, 0)$ est un point selle.
 6. Pour une fonction $f$ quelconque, près d'un point critique $\mathbf{p}$, la fiche (§7) donne $f(\mathbf{p} + \mathbf{h}) \approx f(\mathbf{p}) + \frac{1}{2}\big(f_{xx}\Delta x^2 + 2f_{xy}\thinspace\Delta x\thinspace\Delta y + f_{yy}\Delta y^2\big)$. Avec quels $a$, $b$, $c$ ce terme est-il $\frac{1}{2}q$ ? Retrouve ainsi le test de la fiche.

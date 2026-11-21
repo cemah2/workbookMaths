@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §5 |
 | **Temps total estimé** | ≈ 7,2 h : lecture et calculs de la fiche ≈ 1 h 30, exercices ≈ 5 h 20, 12 flashcards ≈ 25 min (parcours essentiel ≈ 4,7 h) |
-| **Prérequis** | M02b (loi binomiale) ; M02c (covariance, variance d'une somme, matrice de covariance) ; M05a (Taylor, $\ln(1 + u)$) ; M06 (divergence KL) ; M08 (test binomial exact) ; M11 (Markov, Hoeffding, méthode de Chernoff, regret) ; M07 (Cauchy-Schwarz, pour ∂ M14.7) ; M05b (gradient) ; M09b (loss de Huber) ; M13a (log-loss) ; M13b (Lagrange, pour une remarque du §2) |
+| **Prérequis** | M02b (loi binomiale) ; M02c (covariance, variance d'une somme, matrice de covariance) ; M05a (Taylor, $\ln(1 + u){}$) ; M06 (divergence KL) ; M08 (test binomial exact) ; M11 (Markov, Hoeffding, méthode de Chernoff, regret) ; M07 (Cauchy-Schwarz, pour ∂ M14.7) ; M05b (gradient) ; M09b (loss de Huber) ; M13a (log-loss) ; M13b (Lagrange, pour une remarque du §2) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `ensembles.py` : `chernoff_bound`, `variance_of_average`, `hedge_weights` |
 | **MML** | — (MML ne traite pas ces outils : la fiche est le cours) |
@@ -106,7 +106,7 @@ Les trois courbes sont presque des droites en échelle logarithmique : la queue 
 
 **Chernoff contre Hoeffding.** L'**inégalité de Pinsker** (*Pinsker's inequality*), que ∂ M14.8 démontre pour deux lois de Bernoulli, dit que $\mathrm{KL}(a \Vert p) \ge 2(a - p)^2$ : la borne de Chernoff est toujours au moins aussi bonne. L'écart est grand pour les **événements rares**, quand $p$ est près de 0 ou de 1 : pour $p = 0{,}01$ et $a = 0{,}05$, $\mathrm{KL} \approx 0{,}0413$, treize fois $2(a - p)^2 = 0{,}0032$. Hoeffding n'utilise que l'intervalle $[0, 1]$ des valeurs ; Chernoff utilise la loi exacte.
 
-**De l'autre côté.** Pour $a < p$, la même méthode appliquée à $n - X$ (le nombre d'échecs, de loi $\mathcal{B}(n, 1 - p)$) donne $P(X \le na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$.
+**De l'autre côté.** Pour $a < p$, la même méthode appliquée à $n - X$ (le nombre d'échecs, de loi $\mathcal{B}(n, 1 - p){}$) donne $P(X \le na) \le e^{-n\thinspace\mathrm{KL}(a \Vert p)}$.
 
 ### Des décisions indépendantes qui se trompent ensemble
 
@@ -125,7 +125,9 @@ $$\boxed{\mathbb{V}\Big(\sum_{i=1}^M w_iX_i\Big) = \sum_{i=1}^M\sum_{j=1}^M w_iw
 Sur la diagonale, les variances, pondérées par $w_i^2$ ; hors de la diagonale, chaque paire $i < j$ apparaît deux fois ($\Sigma_{ij} = \Sigma_{ji}$) : $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \sum_i w_i^2\thinspace\mathbb{V}(X_i) + 2\sum_{i < j}w_iw_j\operatorname{Cov}(X_i, X_j)$. Une covariance positive **augmente** la variance de la moyenne, une covariance négative la **diminue**.
 
 **Exemple : trois capteurs.** Trois capteurs mesurent la même température, avec des erreurs de matrice de covariance
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 2 & -1 & 0 \cr -1 & 6 & 2 \cr 0 & 2 & 3 \end{pmatrix}.$$
+```math
+\boldsymbol{\Sigma} = \begin{pmatrix} 2 & -1 & 0 \cr -1 & 6 & 2 \cr 0 & 2 & 3 \end{pmatrix}.
+```
 - La **moyenne simple** ($w_i = \frac{1}{3}$) : $\frac{1}{9}$ fois la somme de toutes les cases, $\frac{13}{9} \approx 1{,}44$. Sans les covariances, on aurait trouvé $\frac{2 + 6 + 3}{9} = \frac{11}{9} \approx 1{,}22$ : la covariance $+2$ coûte plus que ce que la covariance $-1$ rapporte.
 - Avec les poids $\mathbf{w} = (0{,}5 ;\ 0{,}2 ;\ 0{,}3)$ : $0{,}25 \times 2 + 0{,}04 \times 6 + 0{,}09 \times 3 + 2\thinspace(-0{,}5 \times 0{,}2 \times 1 + 0{,}2 \times 0{,}3 \times 2) = 1{,}01 + 0{,}04 = 1{,}05$, presque deux fois moins que le meilleur capteur seul (variance 2).
 

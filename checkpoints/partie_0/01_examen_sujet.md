@@ -83,7 +83,7 @@ La figure montre trois droites : $D_1$ d'équation $3x + y = 9$, $D_2$ d'équati
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la solution du système formé par les équations de $D_1$ et $D_2$ | la liste $[x, y]$ |
-| b | le déterminant de ce système, $\begin{vmatrix} 3 & 1 \cr 1 & -2 \end{vmatrix}$ | un nombre |
+| b | le déterminant de ce système, $`\begin{vmatrix} 3 & 1 \cr 1 & -2 \end{vmatrix}`$ | un nombre |
 | c | la pente de $D_2$ | une fraction irréductible |
 | d | l'équation réduite $y = mx + p$ de $D_3$, lue sur la figure | la liste $[m, p]$ |
 | e | le point d'intersection de $D_1$ et $D_3$, **par le calcul** (la figure sert à vérifier) | la liste $[x, y]$ (1 décimale) |

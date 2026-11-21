@@ -65,7 +65,7 @@ Vocabulaire anglais de ce chapitre : *state*, *input*, *output*, *state-space mo
 1. **Récurrence avec entrée** $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u}_t$ : $\mathbf{x}_t = \mathbf{A}^t\mathbf{x} _0 + \sum _{k=0}^{t-1}\mathbf{A}^{t-1-k}\mathbf{B}\mathbf{u}_k$ ; l'entrée reçue au pas $k$ est portée par $\mathbf{A}^{t-1-k}$.
 2. **Réponse impulsionnelle** $h_k = \mathbf{C}\mathbf{A}^k\mathbf{B}$ : pour $\mathbf{x}_0 = \mathbf{0}$, la sortie $y_t = \mathbf{C}\mathbf{x} _t$ vérifie $y _{t+1} = (\mathbf{h} \ast \mathbf{u})_t$, la convolution de M21.
 3. **Complexes** : $z = r\thinspace e^{i\theta} = r(\cos\theta + i\sin\theta)$ ; un produit multiplie les modules et additionne les arguments ; $z^t = r^t e^{it\theta}$ (Moivre).
-4. $\begin{pmatrix} a & -b \cr b & a \end{pmatrix} = r\thinspace\mathbf{R}_\theta$ est la multiplication par $a + ib$ : une **rotation** d'angle $\theta$ et une **homothétie** de rapport $r$. Une matrice réelle $2 \times 2$ de valeurs propres $r\thinspace e^{\pm i\theta}$ ($r = \sqrt{\det\mathbf{A}}$) fait des spirales : $\mathbf{A}^t$ tourne de $t\theta$ et se multiplie par $r^t$, dans un repère oblique.
+4. $`\begin{pmatrix} a & -b \cr b & a \end{pmatrix} = r\thinspace\mathbf{R}_\theta`$ est la multiplication par $a + ib$ : une **rotation** d'angle $\theta$ et une **homothétie** de rapport $r$. Une matrice réelle $2 \times 2$ de valeurs propres $r\thinspace e^{\pm i\theta}$ ($r = \sqrt{\det\mathbf{A}}$) fait des spirales : $\mathbf{A}^t$ tourne de $t\theta$ et se multiplie par $r^t$, dans un repère oblique.
 5. **Rayon spectral** $\rho(\mathbf{A}) = \max_i\lvert\lambda_i\rvert$ (valeurs propres complexes comprises) ; $\mathbf{A}^t \to \mathbf{0}$ **si et seulement si** $\rho(\mathbf{A}) < 1$.
 6. Une matrice **non normale** ($\mathbf{A}^\top\mathbf{A} \ne \mathbf{A}\mathbf{A}^\top$) peut voir $\lVert\mathbf{A}^t\rVert$ grandir pendant de nombreux pas avant de décroître (**croissance transitoire**) ; pour une matrice normale, $\lVert\mathbf{A}^t\rVert_2 = \rho(\mathbf{A})^t$.
 7. **Normes induites** $\lVert\mathbf{A}\rVert = \max_{\mathbf{x} \ne \mathbf{0}}\lVert\mathbf{A}\mathbf{x}\rVert/\lVert\mathbf{x}\rVert$ : $\lVert\mathbf{A}\rVert_1$ = plus grande somme des $\lvert a_{ij}\rvert$ d'une **colonne**, $\lVert\mathbf{A}\rVert_\infty$ d'une **ligne**, $\lVert\mathbf{A}\rVert_2 = s_{\max}$. Elles vérifient $\lVert\mathbf{A}\mathbf{B}\rVert \le \lVert\mathbf{A}\rVert\thinspace\lVert\mathbf{B}\rVert$, $\rho(\mathbf{A}) \le \lVert\mathbf{A}\rVert$ et $\lVert\mathbf{A}^t\rVert^{1/t} \to \rho(\mathbf{A})$ ; la norme de Frobenius n'est pas induite.
@@ -86,11 +86,15 @@ R5 étudiait $u_{t+1} = a\thinspace u_t + b$, et M19 §3 l'itération $\mathbf{x
 Les matrices $\mathbf{A}$, $\mathbf{B}$ et $\mathbf{C}$ ne changent pas avec $t$ : la règle est la même à chaque pas (le §5 lèvera cette hypothèse).
 
 **Exemple : un cursus en deux ans.** Au début de l'année $t$, un cursus compte $x_{t,1}$ étudiants en première année et $x_{t,2}$ en seconde : l'état est $\mathbf{x}  _t = (x  _{t,1}, x _{t,2})$. Pendant l'année, en première année, 20 % redoublent, 60 % passent en seconde, les autres partent ; en seconde année, 10 % redoublent, 80 % obtiennent leur diplôme, les autres partent. Les $u_t$ inscrits de l'année $t$ commencent l'année suivante en première année. Le nombre de diplômés de l'année $t$ est $y_t = 0{,}8\thinspace x _{t,2}$. Donc
-$$\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0{,}2 & 0 \cr 0{,}6 & 0{,}1 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 \cr 0 \end{pmatrix}}  _{\mathbf{B}}u_t, \qquad y_t = \underbrace{\begin{pmatrix} 0 & 0{,}8 \end{pmatrix}} _{\mathbf{C}}\mathbf{x}_t .$$
+```math
+\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0{,}2 & 0 \cr 0{,}6 & 0{,}1 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 \cr 0 \end{pmatrix}}  _{\mathbf{B}}u_t, \qquad y_t = \underbrace{\begin{pmatrix} 0 & 0{,}8 \end{pmatrix}} _{\mathbf{C}}\mathbf{x}_t .
+```
 Le cursus ouvre ($\mathbf{x}_0 = \mathbf{0}$) et reçoit $u_0 = 100$, $u_1 = 120$, $u_2 = 80$ inscrits. Pas à pas : $\mathbf{x}_1 = (100, 0)$ ; $\mathbf{x}_2 = (0{,}2 \times 100 + 120,\ 0{,}6 \times 100) = (140, 60)$ ; $\mathbf{x}_3 = (0{,}2 \times 140 + 80,\ 0{,}6 \times 140 + 0{,}1 \times 60) = (108, 90)$. Les diplômés : $y_1 = 0$, $y_2 = 48$, $y_3 = 72$.
 
 **La même forme, ailleurs.** Une population rangée en trois **classes d'âge** évolue par une **matrice de Leslie** (*Leslie matrix*)
-$$\mathbf{A} = \begin{pmatrix} \varphi_1 & \varphi_2 & \varphi_3 \cr \sigma_1 & 0 & 0 \cr 0 & \sigma_2 & 0 \end{pmatrix} :$$
+```math
+\mathbf{A} = \begin{pmatrix} \varphi_1 & \varphi_2 & \varphi_3 \cr \sigma_1 & 0 & 0 \cr 0 & \sigma_2 & 0 \end{pmatrix} :
+```
 la première ligne compte les naissances (les **fécondités** $\varphi_i$ de chaque classe), la sous-diagonale les survivants qui passent dans la classe suivante (les **taux de survie** $\sigma_i$) ; des arrivants forment l'entrée. Des **réservoirs en cascade** (chaque bassin garde une partie de son eau et en verse une autre dans le suivant ; la pluie est l'entrée) ont une matrice $\mathbf{A}$ triangulaire, comme le cursus.
 
 ### La solution : des puissances de A
@@ -141,8 +145,10 @@ Si $\mathbf{A} = \mathbf{V}\mathbf{D}\mathbf{V}^{-1}$, avec les vecteurs propres
 $$\mathbf{A}^t\mathbf{x}_0 = \alpha_1\lambda_1^t\thinspace\mathbf{v}_1 + \cdots + \alpha_n\lambda_n^t\thinspace\mathbf{v}_n :$$
 chaque coordonnée dans la base des vecteurs propres est multipliée par sa valeur propre à chaque pas, $n$ suites géométriques indépendantes (M19 §3).
 
-**Exemple.** La matrice du cursus est triangulaire, de valeurs propres $0{,}2$ (vecteur propre $(1, 6)$) et $0{,}1$ (vecteur propre $(0, 1)$). On trouve
-$$\mathbf{A}^t = \begin{pmatrix} 0{,}2^t & 0 \cr 6\thinspace(0{,}2^t - 0{,}1^t) & 0{,}1^t \end{pmatrix}, \qquad\text{d'où}\qquad h_k = \mathbf{C}\mathbf{A}^k\mathbf{B} = 4{,}8\thinspace(0{,}2^k - 0{,}1^k),$$
+**Exemple.** La matrice du cursus est triangulaire, de valeurs propres $0{,}2$ (vecteur propre $(1, 6){}$) et $0{,}1$ (vecteur propre $(0, 1){}$). On trouve
+```math
+\mathbf{A}^t = \begin{pmatrix} 0{,}2^t & 0 \cr 6\thinspace(0{,}2^t - 0{,}1^t) & 0{,}1^t \end{pmatrix}, \qquad\text{d'où}\qquad h_k = \mathbf{C}\mathbf{A}^k\mathbf{B} = 4{,}8\thinspace(0{,}2^k - 0{,}1^k),
+```
 qui redonne $h_1 = 0{,}48$ et $h_2 = 4{,}8 \times 0{,}03 = 0{,}144$.
 
 Quand les valeurs propres sont complexes, la formule reste vraie, avec des nombres complexes partout : les paragraphes suivants disent comment les lire.
@@ -161,12 +167,14 @@ M12c §3 a introduit $z = a + ib$, son conjugué $\bar z = a - ib$ et son module
 ### Multiplier par un complexe : une rotation et une homothétie
 
 Identifions le complexe $z = x + iy$ au point $(x, y)$ du plan. Multiplier par un complexe fixé $\mu = a + ib$ donne $(a + ib)(x + iy) = (ax - by) + i(bx + ay)$ : c'est une application linéaire du plan, de matrice
-$$\mathbf{M} _\mu = \begin{pmatrix} a & -b \cr b & a \end{pmatrix} = r\begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} = r\thinspace\mathbf{R} _\theta, \qquad \mu = r\thinspace e^{i\theta}.$$
+```math
+\mathbf{M} _\mu = \begin{pmatrix} a & -b \cr b & a \end{pmatrix} = r\begin{pmatrix} \cos\theta & -\sin\theta \cr \sin\theta & \cos\theta \end{pmatrix} = r\thinspace\mathbf{R} _\theta, \qquad \mu = r\thinspace e^{i\theta}.
+```
 $\mathbf{R} _\theta$ est la **rotation** d'angle $\theta$ (M12c §3) ; multiplier tous les vecteurs par $r$ est une **homothétie** de rapport $r$ (*scaling*). Le polynôme caractéristique de $\mathbf{M} _\mu$ est $\lambda^2 - 2a\lambda + r^2$ : ses valeurs propres sont $a \pm ib$, le nombre $\mu$ et son conjugué.
 
 **Les puissances.** Deux rotations s'enchaînent en une seule, $\mathbf{R} _{\theta_1}\mathbf{R} _{\theta_2} = \mathbf{R} _{\theta_1+\theta_2}$ (c'est la règle des arguments), donc $\mathbf{M}  _\mu^t = r^t\thinspace\mathbf{R} _{t\theta}$ : la formule de Moivre, écrite avec des matrices. La **trajectoire** (*trajectory*) $\mathbf{x} _t = \mathbf{M} _\mu^t\mathbf{x}_0$ tourne de $\theta$ à chaque pas, et sa distance à l'origine est multipliée par $r$ : une **spirale** qui rentre vers l'origine si $r < 1$, un cercle si $r = 1$, une spirale qui sort si $r > 1$.
 
-**Exemple.** $\mu = 1 + i$ donne $\mathbf{M} = \begin{pmatrix} 1 & -1 \cr 1 & 1 \end{pmatrix} = \sqrt2\thinspace\mathbf{R}_{\pi/4}$. Depuis $\mathbf{x}_0 = (1, 0)$ : $(1, 1)$, $(0, 2)$, $(-2, 2)$, $(-4, 0)$, … et $\mathbf{x}_8 = (16, 0)$ : $\mathbf{M}^8 = 16\thinspace\mathbf{I}$, huit huitièmes de tour et un facteur $(\sqrt2)^8$.
+**Exemple.** $\mu = 1 + i$ donne $`\mathbf{M} = \begin{pmatrix} 1 & -1 \cr 1 & 1 \end{pmatrix} = \sqrt2\thinspace\mathbf{R}_{\pi/4}`$. Depuis $\mathbf{x}_0 = (1, 0)$ : $(1, 1)$, $(0, 2)$, $(-2, 2)$, $(-4, 0)$, … et $\mathbf{x}_8 = (16, 0)$ : $\mathbf{M}^8 = 16\thinspace\mathbf{I}$, huit huitièmes de tour et un facteur $(\sqrt2)^8$.
 
 **Les matrices orthogonales.** Pour $r = 1$, $\mathbf{R} _\theta$ est orthogonale (M12b) : elle conserve les normes, $\lVert\mathbf{R} _\theta\mathbf{x}\rVert = \lVert\mathbf{x}\rVert$. Plus généralement, les puissances d'une matrice orthogonale $\mathbf{Q}$ sont orthogonales ($(\mathbf{Q}^t)^\top\mathbf{Q}^t = \mathbf{I}$), donc $\lVert\mathbf{Q}^t\mathbf{x}\rVert = \lVert\mathbf{x}\rVert$ pour tout $t$ : ni extinction ni explosion. Ses valeurs propres, complexes en général, sont toutes de module 1 (on l'admet).
 
@@ -176,12 +184,14 @@ Le polynôme caractéristique d'une matrice $2 \times 2$ est $\lambda^2 - (\oper
 $$r = \sqrt{\det\mathbf{A}}, \qquad \cos\theta = \frac{\operatorname{tr}\mathbf{A}}{2\sqrt{\det\mathbf{A}}}.$$
 
 > **Propriété** (admise). Si une matrice réelle $\mathbf{A}$ de forme $(2, 2)$ a les valeurs propres $a \pm ib$, avec $b \ne 0$, il existe une matrice réelle inversible $\mathbf{V}$ telle que
-> $$\mathbf{A} = \mathbf{V}\begin{pmatrix} a & -b \cr b & a \end{pmatrix}\mathbf{V}^{-1} = r\thinspace\mathbf{V}\mathbf{R} _\theta\mathbf{V}^{-1}, \qquad\text{donc}\qquad \mathbf{A}^t = r^t\thinspace\mathbf{V}\mathbf{R} _{t\theta}\mathbf{V}^{-1}.$$
+> ```math
+> \mathbf{A} = \mathbf{V}\begin{pmatrix} a & -b \cr b & a \end{pmatrix}\mathbf{V}^{-1} = r\thinspace\mathbf{V}\mathbf{R} _\theta\mathbf{V}^{-1}, \qquad\text{donc}\qquad \mathbf{A}^t = r^t\thinspace\mathbf{V}\mathbf{R} _{t\theta}\mathbf{V}^{-1}.
+> ```
 > Les colonnes de $\mathbf{V}$ sont la partie réelle et l'opposée de la partie imaginaire d'un vecteur propre de $a + ib$.
 
 $\mathbf{A}$ est donc **semblable** (M12c §4) à une rotation-homothétie : dans le repère oblique formé par les colonnes de $\mathbf{V}$, elle tourne de $\theta$ et multiplie par $r$ ; la trajectoire est l'image par $\mathbf{V}$ d'une spirale circulaire, une **spirale elliptique**. Chaque coordonnée de $\mathbf{x}_t$ est $r^t$ fois une combinaison de $\cos t\theta$ et de $\sin t\theta$, comme les solutions des récurrences d'ordre 2 de M19 §6.
 
-**Exemple.** $\mathbf{A} = \begin{pmatrix} 1 & -1 \cr 0{,}8 & 0{,}2 \end{pmatrix}$ : $\operatorname{tr}\mathbf{A} = 1{,}2$, $\det\mathbf{A} = 0{,}2 + 0{,}8 = 1$, discriminant $1{,}44 - 4 < 0$. Donc $r = 1$, $\cos\theta = 0{,}6$, $\theta \approx 0{,}927$ rad (environ 53°), et les valeurs propres sont $0{,}6 \pm 0{,}8\thinspace i$. La première ligne de $(\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$ donne le vecteur propre $\mathbf{v} = (1 ;\ 0{,}4 - 0{,}8\thinspace i)$ pour $\lambda = 0{,}6 + 0{,}8\thinspace i$, d'où $\mathbf{V} = \begin{pmatrix} 1 & 0 \cr 0{,}4 & 0{,}8 \end{pmatrix}$ (vérifie que $\mathbf{A}\mathbf{V} = \mathbf{V}\mathbf{R}_\theta$). Depuis $\mathbf{x}_0 = (1, 0)$ : $\mathbf{x}_1 = (1 ;\ 0{,}8)$, $\mathbf{x}_2 = (0{,}2 ;\ 0{,}96)$, $\mathbf{x}_3 = (-0{,}76 ;\ 0{,}352)$… Les points restent sur une **ellipse**, sans s'éteindre ni exploser ; multiplier $\mathbf{A}$ par $0{,}96$ ou par $1{,}03$ multiplie les valeurs propres par ce nombre, et la trajectoire devient une spirale qui rentre ou qui sort.
+**Exemple.** $`\mathbf{A} = \begin{pmatrix} 1 & -1 \cr 0{,}8 & 0{,}2 \end{pmatrix}`$ : $\operatorname{tr}\mathbf{A} = 1{,}2$, $\det\mathbf{A} = 0{,}2 + 0{,}8 = 1$, discriminant $1{,}44 - 4 < 0$. Donc $r = 1$, $\cos\theta = 0{,}6$, $\theta \approx 0{,}927$ rad (environ 53°), et les valeurs propres sont $0{,}6 \pm 0{,}8\thinspace i$. La première ligne de $(\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}$ donne le vecteur propre $\mathbf{v} = (1 ;\ 0{,}4 - 0{,}8\thinspace i)$ pour $\lambda = 0{,}6 + 0{,}8\thinspace i$, d'où $`\mathbf{V} = \begin{pmatrix} 1 & 0 \cr 0{,}4 & 0{,}8 \end{pmatrix}`$ (vérifie que $\mathbf{A}\mathbf{V} = \mathbf{V}\mathbf{R}_\theta$). Depuis $\mathbf{x}_0 = (1, 0)$ : $\mathbf{x}_1 = (1 ;\ 0{,}8)$, $\mathbf{x}_2 = (0{,}2 ;\ 0{,}96)$, $\mathbf{x}_3 = (-0{,}76 ;\ 0{,}352)$… Les points restent sur une **ellipse**, sans s'éteindre ni exploser ; multiplier $\mathbf{A}$ par $0{,}96$ ou par $1{,}03$ multiplie les valeurs propres par ce nombre, et la trajectoire devient une spirale qui rentre ou qui sort.
 
 ![Les trajectoires depuis (1, 0) de x ↦ 0,96 A x (une spirale qui rentre), de x ↦ A x (une ellipse, image par V du cercle que parcourt la rotation R_θ, dessiné en tirets) et de x ↦ 1,03 A x (une spirale qui sort), avec A de lignes (1, −1) et (0,8 ; 0,2), de valeurs propres 0,6 ± 0,8i](figures/spirales.png)
 
@@ -197,8 +207,8 @@ $\mathbf{A}$ est donc **semblable** (M12c §4) à une rotation-homothétie : dan
 > $$\rho(\mathbf{A}) = \max_i\thinspace\lvert\lambda_i\rvert,$$
 > le rayon du plus petit disque du plan complexe, centré en 0, qui contient toutes les valeurs propres.
 
-M19 §3 l'a défini pour une matrice symétrique, dont les valeurs propres sont réelles ; la définition vaut pour toute matrice carrée. Exemples : le cursus, $\rho = 0{,}2$ ; la matrice $\mathbf{M}$ du §2, de valeurs propres $1 \pm i$, $\rho = \sqrt2$ ; la matrice $\begin{pmatrix} 1 & -1 \cr 0{,}8 & 0{,}2 \end{pmatrix}$ du §2, $\rho = 1$. Trois remarques :
-- une matrice non nulle peut avoir un rayon spectral nul : $\mathbf{N} = \begin{pmatrix} 0 & 3 \cr 0 & 0 \end{pmatrix}$, triangulaire de diagonale nulle, vérifie $\mathbf{N}^2 = \mathbf{0}$ (une matrice **nilpotente**, M16 §4), et $\rho(\mathbf{N}) = 0$ ;
+M19 §3 l'a défini pour une matrice symétrique, dont les valeurs propres sont réelles ; la définition vaut pour toute matrice carrée. Exemples : le cursus, $\rho = 0{,}2$ ; la matrice $\mathbf{M}$ du §2, de valeurs propres $1 \pm i$, $\rho = \sqrt2$ ; la matrice $`\begin{pmatrix} 1 & -1 \cr 0{,}8 & 0{,}2 \end{pmatrix}`$ du §2, $\rho = 1$. Trois remarques :
+- une matrice non nulle peut avoir un rayon spectral nul : $`\mathbf{N} = \begin{pmatrix} 0 & 3 \cr 0 & 0 \end{pmatrix}`$, triangulaire de diagonale nulle, vérifie $\mathbf{N}^2 = \mathbf{0}$ (une matrice **nilpotente**, M16 §4), et $\rho(\mathbf{N}) = 0$ ;
 - $\rho$ n'a de sens que pour une matrice **carrée** (une matrice rectangulaire n'a ni valeurs propres ni puissances) ;
 - les valeurs propres de $\mathbf{A}^t$ sont les $\lambda_i^t$ (on l'admet en général ; M12c §3 le montre sur un vecteur propre), donc $\rho(\mathbf{A}^t) = \rho(\mathbf{A})^t$.
 
@@ -212,25 +222,31 @@ M19 §3 l'a défini pour une matrice symétrique, dont les valeurs propres sont 
 
 ### Les cas limites
 
-- **$\rho = 1$.** $\mathbf{A}^t$ ne tend pas vers $\mathbf{0}$, mais tout peut arriver. La matrice du §2 reste bornée : sa trajectoire tourne sur une ellipse. Le cisaillement $\begin{pmatrix} 1 & 3 \cr 0 & 1 \end{pmatrix}$, de valeur propre double 1, non diagonalisable, a pour puissances $\begin{pmatrix} 1 & 3t \cr 0 & 1 \end{pmatrix}$ : il grandit sans fin, linéairement.
-- **Non diagonalisable, $\rho < 1$.** Un **bloc de Jordan** (*Jordan block*) $\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix} = \lambda\mathbf{I} + \mathbf{U}$, avec $\gamma \ne 0$, où $\mathbf{U} = \begin{pmatrix} 0 & \gamma \cr 0 & 0 \end{pmatrix}$ vérifie $\mathbf{U}^2 = \mathbf{0}$. Comme $\lambda\mathbf{I}$ et $\mathbf{U}$ commutent, la formule du binôme s'applique, et tous ses termes à partir de $\mathbf{U}^2$ sont nuls :
-$$\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix}^t = \lambda^t\mathbf{I} + t\lambda^{t-1}\mathbf{U} = \begin{pmatrix} \lambda^t & t\gamma\lambda^{t-1} \cr 0 & \lambda^t \end{pmatrix} \qquad (t \ge 1).$$
+- **$\rho = 1$.** $\mathbf{A}^t$ ne tend pas vers $\mathbf{0}$, mais tout peut arriver. La matrice du §2 reste bornée : sa trajectoire tourne sur une ellipse. Le cisaillement $`\begin{pmatrix} 1 & 3 \cr 0 & 1 \end{pmatrix}`$, de valeur propre double 1, non diagonalisable, a pour puissances $`\begin{pmatrix} 1 & 3t \cr 0 & 1 \end{pmatrix}`$ : il grandit sans fin, linéairement.
+- **Non diagonalisable, $\rho < 1$.** Un **bloc de Jordan** (*Jordan block*) $`\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix} = \lambda\mathbf{I} + \mathbf{U}`$, avec $\gamma \ne 0$, où $`\mathbf{U} = \begin{pmatrix} 0 & \gamma \cr 0 & 0 \end{pmatrix}`$ vérifie $\mathbf{U}^2 = \mathbf{0}$. Comme $\lambda\mathbf{I}$ et $\mathbf{U}$ commutent, la formule du binôme s'applique, et tous ses termes à partir de $\mathbf{U}^2$ sont nuls :
+```math
+\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix}^t = \lambda^t\mathbf{I} + t\lambda^{t-1}\mathbf{U} = \begin{pmatrix} \lambda^t & t\gamma\lambda^{t-1} \cr 0 & \lambda^t \end{pmatrix} \qquad (t \ge 1).
+```
 Pour $\lvert\lambda\rvert < 1$, $t\lambda^{t-1} \to 0$ (croissances comparées, R6 §5) : le théorème s'applique, avec un facteur $t$ qui retarde la décroissance. En dimension $n$, une matrice triangulaire de diagonale nulle $\mathbf{U}$ vérifie $\mathbf{U}^n = \mathbf{0}$, ce qui arrête de même la somme du binôme.
 - **$\rho > 1$.** La composante sur un vecteur propre de module maximal grandit comme $\rho^t$ : la trajectoire de $\mathbf{M}$ s'éloigne comme $(\sqrt2)^t$.
 
 ### La croissance transitoire
 
 Le théorème parle de la **limite**, pas des premiers pas. Prenons
-$$\mathbf{A} = \begin{pmatrix} 0{,}75 & 6 \cr 0 & 0{,}6 \end{pmatrix}, \qquad \rho(\mathbf{A}) = 0{,}75 < 1 .$$
-Pour une matrice $2 \times 2$ triangulaire supérieure $\begin{pmatrix} \lambda_1 & \gamma \cr 0 & \lambda_2 \end{pmatrix}$, avec $\lambda_1 \ne \lambda_2$, le coefficient en haut à droite de $\mathbf{A}^t$ vaut $\gamma\thinspace\frac{\lambda_1^t - \lambda_2^t}{\lambda_1 - \lambda_2}$ (par récurrence : ✏️ M22.5) ; ici
-$$\mathbf{A}^t = \begin{pmatrix} 0{,}75^t & 40\thinspace(0{,}75^t - 0{,}6^t) \cr 0 & 0{,}6^t \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 0{,}75 & 6 \cr 0 & 0{,}6 \end{pmatrix}, \qquad \rho(\mathbf{A}) = 0{,}75 < 1 .
+```
+Pour une matrice $2 \times 2$ triangulaire supérieure $`\begin{pmatrix} \lambda_1 & \gamma \cr 0 & \lambda_2 \end{pmatrix}`$, avec $\lambda_1 \ne \lambda_2$, le coefficient en haut à droite de $\mathbf{A}^t$ vaut $\gamma\thinspace\frac{\lambda_1^t - \lambda_2^t}{\lambda_1 - \lambda_2}$ (par récurrence : ✏️ M22.5) ; ici
+```math
+\mathbf{A}^t = \begin{pmatrix} 0{,}75^t & 40\thinspace(0{,}75^t - 0{,}6^t) \cr 0 & 0{,}6^t \end{pmatrix}.
+```
 Ce coefficient vaut $6$, puis $8{,}1$, puis $8{,}235$ pour $t = 1, 2, 3$, et ne redescend sous 1 qu'à $t = 13$ ; $\lVert\mathbf{A}^t\rVert_2$ (la norme spectrale de M12d) le suit de près : $6{,}08$ ; $8{,}13$ ; $8{,}25$ ; $7{,}48$… Le vecteur $\mathbf{e}_2 = (0, 1)$, de norme 1, devient $\mathbf{A}^3\mathbf{e}_2 = (8{,}235 ;\ 0{,}216)$, de norme $8{,}24$, avant de tendre vers 0. C'est la **croissance transitoire** (*transient growth*).
 
 **Pourquoi.** Les vecteurs propres sont $\mathbf{e}_1$ (pour $0{,}75$) et $\mathbf{v}_2 = (-40, 1)$ (pour $0{,}6$) : presque parallèles, à $1{,}4$° l'un de l'autre. Le petit vecteur $\mathbf{e}_2$ est la différence de deux grands, $\mathbf{e}_2 = \mathbf{v}_2 + 40\thinspace\mathbf{e}_1$, qui se compensent presque. Ils décroissent à des vitesses différentes, $\mathbf{A}^t\mathbf{e}_2 = 0{,}6^t\thinspace\mathbf{v}_2 + 40 \times 0{,}75^t\thinspace\mathbf{e}_1$, et la compensation cesse : la différence grandit, avant que les deux termes ne s'éteignent.
 
 > **Définition.** Une matrice carrée réelle est **normale** (*normal matrix*) si $\mathbf{A}^\top\mathbf{A} = \mathbf{A}\mathbf{A}^\top$. Les matrices symétriques, orthogonales, et les matrices $r\thinspace\mathbf{R}_\theta$ du §2 sont normales. Pour une matrice normale, $\lVert\mathbf{A}^t\rVert_2 = \rho(\mathbf{A})^t$ pour tout $t$ (admis : ses vecteurs propres, dans $\mathbb{C}^n$, peuvent être choisis orthogonaux) : pas de croissance transitoire.
 
-MML §4.7 (*Matrix Phylogeny*, figure 4.13) place les matrices normales dans son arbre des matrices carrées. Ici $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 0{,}5625 & 4{,}5 \cr 4{,}5 & 36{,}36 \end{pmatrix} \ne \mathbf{A}\mathbf{A}^\top = \begin{pmatrix} 36{,}5625 & 3{,}6 \cr 3{,}6 & 0{,}36 \end{pmatrix}$ : $\mathbf{A}$ est **non normale** (*non-normal matrix*). La matrice diagonale $\operatorname{diag}(0{,}75 ;\ 0{,}6)$, de mêmes valeurs propres, est normale, et $\lVert\operatorname{diag}(0{,}75 ;\ 0{,}6)^t\rVert_2 = 0{,}75^t$ décroît dès le premier pas. Pour une matrice non normale, **le rayon spectral dit le long terme, pas les premiers pas** ; le §4 montrera que $\lVert\mathbf{A}^t\rVert \ge \rho(\mathbf{A})^t$ toujours.
+MML §4.7 (*Matrix Phylogeny*, figure 4.13) place les matrices normales dans son arbre des matrices carrées. Ici $`\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 0{,}5625 & 4{,}5 \cr 4{,}5 & 36{,}36 \end{pmatrix} \ne \mathbf{A}\mathbf{A}^\top = \begin{pmatrix} 36{,}5625 & 3{,}6 \cr 3{,}6 & 0{,}36 \end{pmatrix}`$ : $\mathbf{A}$ est **non normale** (*non-normal matrix*). La matrice diagonale $\operatorname{diag}(0{,}75 ;\ 0{,}6)$, de mêmes valeurs propres, est normale, et $\lVert\operatorname{diag}(0{,}75 ;\ 0{,}6)^t\rVert_2 = 0{,}75^t$ décroît dès le premier pas. Pour une matrice non normale, **le rayon spectral dit le long terme, pas les premiers pas** ; le §4 montrera que $\lVert\mathbf{A}^t\rVert \ge \rho(\mathbf{A})^t$ toujours.
 
 ![À gauche, en échelle logarithmique, la norme ‖Aᵗ‖₂ de la matrice triangulaire de lignes (0,75 ; 6) et (0 ; 0,6) : elle monte jusqu'à 8,25 à t = 3 et ne redescend sous 1 qu'à t = 13, alors que ρᵗ = 0,75ᵗ décroît dès le début ; à droite, les deux grands termes 40 × 0,75ᵗ et 40 × 0,6ᵗ qui se compensent au départ, et leur différence, la première coordonnée de Aᵗe₂](figures/croissance_transitoire.png)
 
@@ -259,10 +275,10 @@ Donc $\lVert\mathbf{A}\mathbf{x}\rVert \le \lVert\mathbf{A}\rVert\thinspace\lVer
 $$\lVert\mathbf{A}\mathbf{x}\rVert_1 = \sum_i\Big\lvert\sum_j a_{ij}x_j\Big\rvert \le \sum_j\Big(\sum_i\lvert a_{ij}\rvert\Big)\lvert x_j\rvert \le \Big(\max_j\sum_i\lvert a_{ij}\rvert\Big)\lVert\mathbf{x}\rVert_1,$$
 et l'égalité est atteinte pour $\mathbf{x} = \mathbf{e}  _{j^\star}$, le vecteur de base de la meilleure colonne : $\mathbf{A}\mathbf{e}  _{j^\star}$ est cette colonne. Pour $\lVert\cdot\rVert _\infty$, ce sont les lignes, et l'égalité est atteinte en un vecteur de signes (∂ M22.12). Moyen mnémotechnique : le 1 est vertical comme une colonne, le $\infty$ est couché comme une ligne. Et $\lVert\mathbf{A}^\top\rVert_1 = \lVert\mathbf{A}\rVert _\infty$ : les colonnes de $\mathbf{A}^\top$ sont les lignes de $\mathbf{A}$.
 
-**Exemple.** $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -2 & 4 \end{pmatrix}$.
+**Exemple.** $`\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -2 & 4 \end{pmatrix}`$.
 - Colonnes : $2 + 2 = 4$ et $1 + 4 = 5$, donc $\lVert\mathbf{A}\rVert_1 = 5$, atteint en $\mathbf{e}_2$ : $\mathbf{A}\mathbf{e}_2 = (1, 4)$.
 - Lignes : $3$ et $6$, donc $\lVert\mathbf{A}\rVert_\infty = 6$, atteint en $\mathbf{x} = (-1, 1)$, les signes de la seconde ligne : $\mathbf{A}\mathbf{x} = (-1, 6)$.
-- $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 8 & -6 \cr -6 & 17 \end{pmatrix}$, de valeurs propres 20 et 5, donc $\lVert\mathbf{A}\rVert_2 = \sqrt{20} = 2\sqrt5 \approx 4{,}47$, atteint en $\mathbf{x} = \frac{1}{\sqrt5}(1, -2)$ : $\mathbf{A}\mathbf{x} = \frac{1}{\sqrt5}(0, -10)$, de norme $2\sqrt5$.
+- $`\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 8 & -6 \cr -6 & 17 \end{pmatrix}`$, de valeurs propres 20 et 5, donc $\lVert\mathbf{A}\rVert_2 = \sqrt{20} = 2\sqrt5 \approx 4{,}47$, atteint en $\mathbf{x} = \frac{1}{\sqrt5}(1, -2)$ : $\mathbf{A}\mathbf{x} = \frac{1}{\sqrt5}(0, -10)$, de norme $2\sqrt5$.
 
 ![Pour la matrice de lignes (2, 1) et (−2, 4) : à gauche, la boule unité L1 (un losange), son image (un parallélogramme) et le losange agrandi 5 fois, qui la touche en (1, 4) et (−1, −4) ; au milieu, le disque unité, son image (une ellipse) et le cercle de rayon 2√5 ≈ 4,47 ; à droite, le carré unité, son image et le carré agrandi 6 fois, qui la touche en (−1, 6) et (1, −6)](figures/boules_images.png)
 
@@ -284,7 +300,7 @@ Les idées : pour la sous-multiplicativité, appliquer deux fois $\lVert\mathbf{
 Sur l'exemple, les valeurs propres de $\mathbf{A}$ sont $3 \pm i$ (trace 6, déterminant 10), donc $\rho(\mathbf{A}) = \sqrt{10} \approx 3{,}16$, sous chacune des trois normes : $3{,}16 \le 4{,}47 \le 5 \le 6$.
 
 **Deux usages.**
-- **Une condition suffisante, vérifiable à la main.** Si l'une des normes induites vérifie $\lVert\mathbf{A}\rVert < 1$, alors $\lVert\mathbf{A}^t\rVert \le \lVert\mathbf{A}\rVert^t \to 0$, et $\mathbf{A}^t \to \mathbf{0}$. Une seule suffit : $\begin{pmatrix} 0{,}6 & 0{,}5 \cr 0 & 0{,}1 \end{pmatrix}$ a $\lVert\cdot\rVert_1 = 0{,}6$, même si $\lVert\cdot\rVert_\infty = 1{,}1$. La condition n'est pas nécessaire : la matrice du §3 a $\rho = 0{,}75$, et ses trois normes dépassent 6.
+- **Une condition suffisante, vérifiable à la main.** Si l'une des normes induites vérifie $\lVert\mathbf{A}\rVert < 1$, alors $\lVert\mathbf{A}^t\rVert \le \lVert\mathbf{A}\rVert^t \to 0$, et $\mathbf{A}^t \to \mathbf{0}$. Une seule suffit : $`\begin{pmatrix} 0{,}6 & 0{,}5 \cr 0 & 0{,}1 \end{pmatrix}`$ a $\lVert\cdot\rVert_1 = 0{,}6$, même si $\lVert\cdot\rVert_\infty = 1{,}1$. La condition n'est pas nécessaire : la matrice du §3 a $\rho = 0{,}75$, et ses trois normes dépassent 6.
 - **Majorer une trajectoire.** $\lVert\mathbf{A}^t\mathbf{x}\rVert \le \lVert\mathbf{A}\rVert^t\thinspace\lVert\mathbf{x}\rVert$, dans **une même norme** des deux côtés. Pour $\mathbf{x} = (1, 1)$ : $\mathbf{A}\mathbf{x} = (3, 2)$, $\mathbf{A}^2\mathbf{x} = (8, 2)$, $\mathbf{A}^3\mathbf{x} = (18, -8)$. En norme 1 : $26 \le 5^3 \times 2 = 250$ ; en norme $\infty$ : $18 \le 6^3 \times 1 = 216$ ; en norme 2 : $\sqrt{388} \approx 19{,}7 \le (2\sqrt5)^3\sqrt2 \approx 126{,}5$. Ces bornes valent pour tous les $\mathbf{x}$ à la fois : elles peuvent être larges.
 
 ### Le rayon spectral et les normes : la formule de Gelfand
@@ -295,7 +311,7 @@ Appliquée à $\mathbf{A}^t$, l'inégalité $\rho \le \lVert\cdot\rVert$ donne $
 
 Le rayon spectral est donc le **facteur moyen par pas, à long terme** ; une norme borne **chaque** pas. Sur l'exemple, $\lVert\mathbf{A}^t\rVert_2^{1/t}$ vaut $4{,}47$ pour $t = 1$, $3{,}19$ pour $t = 10$, $3{,}18$ pour $t = 100$ : il descend, lentement, vers $\sqrt{10} \approx 3{,}16$. Pour une matrice normale (symétrique, orthogonale…), $\lVert\mathbf{A}\rVert_2 = \rho(\mathbf{A})$ dès $t = 1$ : c'est le cas de M19.
 
-**Le rayon spectral n'est pas une norme.** $\mathbf{N} = \begin{pmatrix} 0 & 3 \cr 0 & 0 \end{pmatrix} \ne \mathbf{0}$ a $\rho(\mathbf{N}) = 0$ ; et $\rho(\mathbf{N}) = \rho(\mathbf{N}^\top) = 0$, alors que $\mathbf{N} + \mathbf{N}^\top = \begin{pmatrix} 0 & 3 \cr 3 & 0 \end{pmatrix}$ a pour valeurs propres $\pm3$ : pas d'inégalité triangulaire.
+**Le rayon spectral n'est pas une norme.** $`\mathbf{N} = \begin{pmatrix} 0 & 3 \cr 0 & 0 \end{pmatrix} \ne \mathbf{0}`$ a $\rho(\mathbf{N}) = 0$ ; et $\rho(\mathbf{N}) = \rho(\mathbf{N}^\top) = 0$, alors que $`\mathbf{N} + \mathbf{N}^\top = \begin{pmatrix} 0 & 3 \cr 3 & 0 \end{pmatrix}`$ a pour valeurs propres $\pm3$ : pas d'inégalité triangulaire.
 
 ### La norme de Frobenius n'est pas induite
 
@@ -303,7 +319,7 @@ La norme de Frobenius $\lVert\mathbf{A}\rVert_F = \sqrt{\sum_{i,j}a_{ij}^2}$ (M1
 
 💻 **Aujourd'hui en pratique** — `np.linalg.norm(A, 1)`, `np.linalg.norm(A, np.inf)` et `np.linalg.norm(A, 2)` (par une SVD) donnent les trois normes induites, `np.linalg.norm(A, "fro")` la norme de Frobenius ; **sans `ord`, `np.linalg.norm(A)` d'un tableau à deux axes est la norme de Frobenius**, pas $\lVert\mathbf{A}\rVert_2$. Le rayon spectral : `np.abs(np.linalg.eigvals(A)).max()`. Pour une très grande matrice creuse, on estime $\lVert\mathbf{A}\rVert_2$ par la méthode de la puissance sur $\mathbf{A}^\top\mathbf{A}$ (M12c §5).
 
-⚠️ **Erreur classique.** Prendre $\rho(\mathbf{A})$ pour une norme. Prendre la plus grande valeur propre (en module) pour le plus grand allongement : ce n'est vrai qu'en norme 2, et pour une matrice normale. Mélanger les normes : $\lVert\mathbf{A}\mathbf{x}\rVert_2 \le \lVert\mathbf{A}\rVert_1\lVert\mathbf{x}\rVert_2$ est **faux** en général ($\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$ a $\lVert\cdot\rVert_1 = 1$, et envoie $\frac{1}{\sqrt2}(1, 1)$, de norme 1, sur $(\sqrt2, 0)$). Confondre colonnes et lignes entre $\lVert\cdot\rVert_1$ et $\lVert\cdot\rVert_\infty$.
+⚠️ **Erreur classique.** Prendre $\rho(\mathbf{A})$ pour une norme. Prendre la plus grande valeur propre (en module) pour le plus grand allongement : ce n'est vrai qu'en norme 2, et pour une matrice normale. Mélanger les normes : $\lVert\mathbf{A}\mathbf{x}\rVert_2 \le \lVert\mathbf{A}\rVert_1\lVert\mathbf{x}\rVert_2$ est **faux** en général ($`\begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}`$ a $\lVert\cdot\rVert_1 = 1$, et envoie $\frac{1}{\sqrt2}(1, 1)$, de norme 1, sur $(\sqrt2, 0){}$). Confondre colonnes et lignes entre $\lVert\cdot\rVert_1$ et $\lVert\cdot\rVert_\infty$.
 
 🔗 **Dans workbookIA** — le chapitre 22 majore des normes de produits de matrices avec $\lVert\cdot\rVert_2$ et les propriétés de ce paragraphe.
 
@@ -319,7 +335,7 @@ la matrice du **dernier** pas est à **gauche**, comme dans la règle de la cha�
 
 C'est ce que compare `product_norms` (🔨 M22.21) : les normes des produits et leurs majorations. Deux mises en garde.
 - **La majoration peut être très large.** $\operatorname{diag}(2, 0)$ et $\operatorname{diag}(0, 2)$ ont chacune la norme 2, et leur produit est nul. Dans l'autre sens, M20 §6 minorait la plus petite valeur singulière d'un produit : $s_{\min}(\mathbf{A}\mathbf{B}) \ge s_{\min}(\mathbf{A})\thinspace s_{\min}(\mathbf{B})$.
-- **Les rayons spectraux des facteurs ne disent rien du produit.** $\mathbf{N}_1 = \begin{pmatrix} 0 & 2 \cr 0 & 0 \end{pmatrix}$ et $\mathbf{N}_2 = \begin{pmatrix} 0 & 0 \cr 2 & 0 \end{pmatrix}$, nilpotentes, ont $\rho = 0$. Prenons-les en alternance, $\mathbf{A}_t = \mathbf{N}_1$ aux pas impairs et $\mathbf{A}_t = \mathbf{N}_2$ aux pas pairs : $\mathbf{P}_2 = \mathbf{N}_2\mathbf{N}_1 = \begin{pmatrix} 0 & 0 \cr 0 & 4 \end{pmatrix}$, et $\lVert\mathbf{P}_t\rVert_2 = 2^t$. Le produit explose, et la majoration par les normes, $2^t$, est atteinte.
+- **Les rayons spectraux des facteurs ne disent rien du produit.** $`\mathbf{N}_1 = \begin{pmatrix} 0 & 2 \cr 0 & 0 \end{pmatrix}`$ et $`\mathbf{N}_2 = \begin{pmatrix} 0 & 0 \cr 2 & 0 \end{pmatrix}`$, nilpotentes, ont $\rho = 0$. Prenons-les en alternance, $\mathbf{A}_t = \mathbf{N}_1$ aux pas impairs et $\mathbf{A}_t = \mathbf{N}_2$ aux pas pairs : $`\mathbf{P}_2 = \mathbf{N}_2\mathbf{N}_1 = \begin{pmatrix} 0 & 0 \cr 0 & 4 \end{pmatrix}`$, et $\lVert\mathbf{P}_t\rVert_2 = 2^t$. Le produit explose, et la majoration par les normes, $2^t$, est atteinte.
 
 ### Des matrices diagonales
 
@@ -370,11 +386,15 @@ M17 §6 faisait ce calcul en dimension 1 (un produit de dérivées) ; M20 §6, a
 
 ### Un exemple : une application du plan
 
-$$f(x, y) = (x^2 - y^2 - 0{,}24,\ 2xy), \qquad \mathbf{J}_f(x, y) = \begin{pmatrix} 2x & -2y \cr 2y & 2x \end{pmatrix}.$$
+```math
+f(x, y) = (x^2 - y^2 - 0{,}24,\ 2xy), \qquad \mathbf{J}_f(x, y) = \begin{pmatrix} 2x & -2y \cr 2y & 2x \end{pmatrix}.
+```
 En notation complexe, $z = x + iy$ : comme $(x + iy)^2 = x^2 - y^2 + 2ixy$, c'est $f(z) = z^2 - 0{,}24$, et la jacobienne en $z$ est la matrice de la multiplication par $2z$ (§2) : une rotation d'angle $\arg z$ et une homothétie de rapport $2\lvert z\rvert$, donc $\lVert\mathbf{J}_f\rVert_2 = 2\lvert z\rvert$.
 
 Depuis $z_0 = 0{,}2 + 0{,}4\thinspace i$ : $z_1 = 0{,}04 - 0{,}16 - 0{,}24 + 0{,}16\thinspace i = -0{,}36 + 0{,}16\thinspace i$, puis $z_2 = -0{,}136 - 0{,}1152\thinspace i$, $z_3 \approx -0{,}2348 + 0{,}0313\thinspace i$… La trajectoire s'approche de $-0{,}2$. Les jacobiennes :
-$$\mathbf{J}_0 = \begin{pmatrix} 0{,}4 & -0{,}8 \cr 0{,}8 & 0{,}4 \end{pmatrix},\quad \mathbf{J}_1 = \begin{pmatrix} -0{,}72 & -0{,}32 \cr 0{,}32 & -0{,}72 \end{pmatrix},\quad \mathbf{J}_2 = \begin{pmatrix} -0{,}272 & 0{,}2304 \cr -0{,}2304 & -0{,}272 \end{pmatrix},$$
+```math
+\mathbf{J}_0 = \begin{pmatrix} 0{,}4 & -0{,}8 \cr 0{,}8 & 0{,}4 \end{pmatrix},\quad \mathbf{J}_1 = \begin{pmatrix} -0{,}72 & -0{,}32 \cr 0{,}32 & -0{,}72 \end{pmatrix},\quad \mathbf{J}_2 = \begin{pmatrix} -0{,}272 & 0{,}2304 \cr -0{,}2304 & -0{,}272 \end{pmatrix},
+```
 de normes $0{,}894$, $0{,}788$ et $0{,}356$. La jacobienne de $\mathbf{x}_0 \mapsto \mathbf{x}_3$ est $\mathbf{J}_2\mathbf{J}_1\mathbf{J}_0$, la multiplication par $8z_0z_1z_2 \approx 0{,}0447 + 0{,}2472\thinspace i$, de norme $0{,}251$ : exactement le produit des trois normes. C'est une **exception** : ces jacobiennes sont des rotations-homothéties ; chacune multiplie **toutes** les longueurs par le même facteur $2\lvert z_k\rvert$, donc leur produit aussi, et la majoration est atteinte. Commuter n'y suffirait pas : $\operatorname{diag}(2, 0)$ et $\operatorname{diag}(0, 2)$ commutent, et leur produit est nul (§5). En général, l'ordre compte, et le produit des normes surestime la norme du produit.
 
 ### Applications contractantes et points fixes

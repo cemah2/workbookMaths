@@ -187,7 +187,9 @@ Ses propriétés se lisent sur la formule, et sur la figure :
 
 **Le lien avec la log-loss.** Comme $\sigma(z) = \frac{1}{1 + e^{-z}}$, on a $-\ln\sigma(z) = \ln(1 + e^{-z}) = s(-z)$ ; et, par la symétrie, $-\ln(1 - \sigma(z)) = -\ln\sigma(-z) = s(z)$. Pour un exemple de score $z$ et de label $y$, avec $\hat{p} = \sigma(z)$ :
 
-$$-\big[y\ln\hat{p} + (1 - y)\ln(1 - \hat{p})\big] = \begin{cases} s(-z) & \text{si } y = 1, \cr s(z) & \text{si } y = 0, \end{cases} \qquad = s(z) - y\thinspace z \ \text{ dans les deux cas}.$$
+```math
+-\big[y\ln\hat{p} + (1 - y)\ln(1 - \hat{p})\big] = \begin{cases} s(-z) & \text{si } y = 1, \cr s(z) & \text{si } y = 0, \end{cases} \qquad = s(z) - y\thinspace z \ \text{ dans les deux cas}.
+```
 
 (Pour $y = 1$, $s(z) - z = s(-z)$ par la troisième propriété.) La log-loss s'écrit donc directement avec les scores, sans calculer $\hat{p}$. C'est plus précis : si $\sigma(z)$ s'arrondit à 1 en flottants (ce qui arrive pour un score de quelques dizaines), $\ln(1 - \hat{p})$ vaut $-\infty$, alors que $s(z)$ reste un nombre ordinaire.
 

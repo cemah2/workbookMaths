@@ -42,7 +42,7 @@ Parcours essentiel : tout sauf M12a.Q8, M12a.R3, M12a.8, M12a.13, M12a.15, M12a.
 
 Le livre est plus abstrait que la fiche : il travaille dans un espace vectoriel quelconque, avec des bases quelconques, là où la fiche reste le plus souvent dans $\mathbb{R}^n$. Ses exemples se refont à la main ; ses exercices de fin de chapitre sur l'indépendance, le rang, le noyau et le changement de base sont conseillés.
 
-📐 **Notations.** La fiche écrit $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ l'ensemble des combinaisons linéaires (MML : $\operatorname{span}[\mathbf{v}_1, \ldots, \mathbf{v}_k]$), $\dim V$ la dimension, $\operatorname{rg}(\mathbf{A})$ le rang (MML : $\operatorname{rk}(\mathbf{A})$), $\ker f$ le noyau et $\operatorname{Im} f$ l'image d'une application linéaire $f$ (MML : $\ker(\Phi)$, $\operatorname{Im}(\Phi)$, pour une application notée $\Phi : V \to W$), $\mathbb{R}_d[x]$ les polynômes de degré au plus $d$. Comme MML (et comme `linmaps.py`), une **famille de vecteurs** se range dans les **colonnes** d'une matrice : $[\mathbf{v}_1 \ \cdots \ \mathbf{v}_k]$.
+📐 **Notations.** La fiche écrit $\operatorname{Vect}(\mathbf{v}_1, \ldots, \mathbf{v}_k)$ l'ensemble des combinaisons linéaires (MML : $\operatorname{span}[\mathbf{v}_1, \ldots, \mathbf{v}_k]$), $\dim V$ la dimension, $\operatorname{rg}(\mathbf{A})$ le rang (MML : $\operatorname{rk}(\mathbf{A}){}$), $\ker f$ le noyau et $\operatorname{Im} f$ l'image d'une application linéaire $f$ (MML : $\ker(\Phi)$, $\operatorname{Im}(\Phi)$, pour une application notée $\Phi : V \to W$), $\mathbb{R}_d[x]$ les polynômes de degré au plus $d$. Comme MML (et comme `linmaps.py`), une **famille de vecteurs** se range dans les **colonnes** d'une matrice : $[\mathbf{v}_1 \ \cdots \ \mathbf{v}_k]$.
 
 Vocabulaire anglais de ce chapitre : *vector space*, *vector subspace*, *closure*, *neutral element*, *linear combination*, *span*, *generating set*, *spanning set*, *linearly independent*, *linearly dependent*, *basis*, *minimal generating set*, *maximal linearly independent set*, *dimension*, *coordinates*, *coordinate vector*, *ordered basis*, *rank*, *full rank*, *rank deficient*, *column space*, *row space*, *linear mapping*, *vector space homomorphism*, *injective*, *surjective*, *bijective*, *isomorphism*, *transformation matrix*, *kernel*, *null space*, *image*, *range*, *rank-nullity theorem*, *basis change*, *similar matrices*, *equivalent matrices*, *affine subspace*, *affine mapping*, *translation vector*, *support point*, *inverse mapping*.
 
@@ -126,7 +126,9 @@ la seule façon d'obtenir $\mathbf{0}$ est la combinaison triviale. Sinon, elle 
 
 **Le test par le pivot de Gauss.** $\mathbf{V}\boldsymbol{\lambda} = \mathbf{0}$ n'a que la solution nulle si et seulement s'il n'y a pas de variable libre, c'est-à-dire si **chaque colonne de $\mathbf{V}$ porte un pivot** : $\operatorname{rg}(\mathbf{V}) = k$. Exemple, $\mathbf{u}_1 = (1, 0, 1)$, $\mathbf{u}_2 = (2, 1, 0)$, $\mathbf{u}_3 = (0, 1, -2)$ :
 
-$$\begin{pmatrix} 1 & 2 & 0 \cr 0 & 1 & 1 \cr 1 & 0 & -2 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & -2 \cr 0 & 1 & 1 \cr 0 & 0 & 0 \end{pmatrix}.$$
+```math
+\begin{pmatrix} 1 & 2 & 0 \cr 0 & 1 & 1 \cr 1 & 0 & -2 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & -2 \cr 0 & 1 & 1 \cr 0 & 0 & 0 \end{pmatrix}.
+```
 
 La troisième colonne n'a pas de pivot : la famille est liée. La forme réduite donne même la relation (comme en M09a §8) : sa troisième colonne, $(-2, 1)$, dit $\mathbf{u}_3 = -2\mathbf{u}_1 + \mathbf{u}_2$ ; vérifie-le.
 
@@ -195,7 +197,9 @@ L'**espace des colonnes** (*column space*) d'une matrice $\mathbf{A}$ de forme $
 
 Exemple :
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 & 0 \cr 2 & 4 & 0 & 2 \cr 0 & 0 & 1 & -1 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & -1 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{A}) = 2.$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 2 & 1 & 0 \cr 2 & 4 & 0 & 2 \cr 0 & 0 & 1 & -1 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & -1 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \operatorname{rg}(\mathbf{A}) = 2.
+```
 
 Côté colonnes : $\mathbf{a}_2 = 2\mathbf{a}_1$ et $\mathbf{a}_4 = \mathbf{a}_1 - \mathbf{a}_3$ (lis-le dans les colonnes 2 et 4 de la forme réduite). Côté lignes : la ligne 2 vaut deux fois la ligne 1 moins deux fois la ligne 3. Deux colonnes libres, deux lignes libres.
 
@@ -238,13 +242,17 @@ Exemples : $\mathbf{x} \mapsto \mathbf{A}\mathbf{x}$ pour toute matrice $\mathbf
 
 **De $\mathbb{R}^n$ dans $\mathbb{R}^m$**, toute application linéaire s'écrit $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$ pour une seule matrice $\mathbf{A}$ de forme $(m, n)$ : sa **colonne $j$ est $f(\mathbf{e}_j)$**. C'est la lecture en colonnes de M09a §2, à l'envers : $\mathbf{A}\mathbf{x} = x_1\mathbf{a}_1 + \cdots + x_n\mathbf{a}_n$. Exemple, $f(x, y) = (x + y,\ x - y,\ 2x)$ de $\mathbb{R}^2$ dans $\mathbb{R}^3$ : $f(\mathbf{e}_1) = (1, 1, 2)$ et $f(\mathbf{e}_2) = (1, -1, 0)$, donc
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -1 \cr 2 & 0 \end{pmatrix}, \qquad \text{de forme } (3, 2) : \ m = 3 \text{ lignes pour l'arrivée, } n = 2 \text{ colonnes pour le départ.}$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -1 \cr 2 & 0 \end{pmatrix}, \qquad \text{de forme } (3, 2) : \ m = 3 \text{ lignes pour l'arrivée, } n = 2 \text{ colonnes pour le départ.}
+```
 
-Dans le plan : la rotation d'un quart de tour, qui envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$, a pour matrice $\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ ; la projection sur l'axe des abscisses, $\mathbf{P} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}$.
+Dans le plan : la rotation d'un quart de tour, qui envoie $\mathbf{e}_1$ sur $(0, 1)$ et $\mathbf{e}_2$ sur $(-1, 0)$, a pour matrice $`\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$ ; la projection sur l'axe des abscisses, $`\mathbf{P} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}`$.
 
 **Dans d'autres bases** (MML §2.7.1, *transformation matrix*). Si $(\mathbf{b}_1, \ldots, \mathbf{b}_n)$ est une base de $V$ et $(\mathbf{c}_1, \ldots, \mathbf{c}_m)$ une base de $W$, la matrice de $f$ dans ces bases a pour colonne $j$ les **coordonnées** de $f(\mathbf{b}_j)$ dans la base $(\mathbf{c}_i)$. Exemple, sur $\mathbb{R}_2[x]$ muni de la base $(1, x, x^2)$, l'application $T(P)(x) = P(x + 1)$ (décaler d'une unité) : $T(1) = 1$, $T(x) = 1 + x$, $T(x^2) = 1 + 2x + x^2$, donc
 
-$$\mathbf{M}_T = \begin{pmatrix} 1 & 1 & 1 \cr 0 & 1 & 2 \cr 0 & 0 & 1 \end{pmatrix}.$$
+```math
+\mathbf{M}_T = \begin{pmatrix} 1 & 1 & 1 \cr 0 & 1 & 2 \cr 0 & 0 & 1 \end{pmatrix}.
+```
 
 Pour $P = 3 - x + 2x^2$, de coordonnées $(3, -1, 2)$ : $\mathbf{M}_T(3, -1, 2) = (4, 3, 2)$, et en effet $P(x + 1) = 3 - (x + 1) + 2(x + 1)^2 = 4 + 3x + 2x^2$. Une fois une base choisie, calculer sur des polynômes revient à calculer sur des vecteurs de $\mathbb{R}^3$.
 
@@ -252,7 +260,9 @@ Pour $P = 3 - x + 2x^2$, de coordonnées $(3, -1, 2)$ : $\mathbf{M}_T(3, -1, 2) 
 
 Si $f(\mathbf{x}) = \mathbf{A}\mathbf{x}$ et $g(\mathbf{y}) = \mathbf{B}\mathbf{y}$, alors $(g \circ f)(\mathbf{x}) = g(f(\mathbf{x})) = \mathbf{B}(\mathbf{A}\mathbf{x}) = (\mathbf{B}\mathbf{A})\mathbf{x}$ : la matrice de « $f$, **puis** $g$ » est $\mathbf{B}\mathbf{A}$, la dernière appliquée **à gauche**. C'est la raison d'être de la définition du produit matriciel, et de son associativité. Avec $\mathbf{R}$ et $\mathbf{P}$ ci-dessus :
 
-$$\underbrace{\mathbf{R}\mathbf{P} = \begin{pmatrix} 0 & 0 \cr 1 & 0 \end{pmatrix}} _{\text{projeter, puis tourner}} \qquad \ne \qquad \underbrace{\mathbf{P}\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 0 & 0 \end{pmatrix}} _{\text{tourner, puis projeter}} .$$
+```math
+\underbrace{\mathbf{R}\mathbf{P} = \begin{pmatrix} 0 & 0 \cr 1 & 0 \end{pmatrix}} _{\text{projeter, puis tourner}} \qquad \ne \qquad \underbrace{\mathbf{P}\mathbf{R} = \begin{pmatrix} 0 & -1 \cr 0 & 0 \end{pmatrix}} _{\text{tourner, puis projeter}} .
+```
 
 La première envoie tout le plan sur l'axe des ordonnées, la seconde sur l'axe des abscisses : l'ordre compte, et c'est la non-commutativité du produit (M09a §3). Une application linéaire bijective a pour réciproque l'application de matrice $\mathbf{A}^{-1}$ ; défaire « $f$ puis $g$ », c'est défaire $g$ puis $f$ : $(\mathbf{B}\mathbf{A})^{-1} = \mathbf{A}^{-1}\mathbf{B}^{-1}$.
 
@@ -335,9 +345,11 @@ $$\mathbf{x}' \longmapsto \mathbf{S}^{-1}\mathbf{A}\mathbf{S}\thinspace\mathbf{x
 
 Deux matrices liées ainsi sont dites **semblables** (*similar*) : elles représentent la même application dans deux bases. Le produit se lit de droite à gauche, comme une composée (§5). La colonne $j$ de $\mathbf{A}'$ contient les coordonnées de $\mathbf{A}\mathbf{s}_j$ dans la nouvelle base.
 
-**Pourquoi changer de base : une base adaptée simplifie tout.** La symétrie $f$ par rapport à la droite $y = 2x$ a, dans la base canonique, une matrice peu parlante, $\mathbf{A} = \frac{1}{5}\begin{pmatrix} -3 & 4 \cr 4 & 3 \end{pmatrix}$. Prenons la base $\mathbf{s}_1 = (1, 2)$ (sur la droite) et $\mathbf{s}_2 = (-2, 1)$ (perpendiculaire) : la symétrie garde $\mathbf{s}_1$ et retourne $\mathbf{s}_2$, $\mathbf{A}\mathbf{s}_1 = \mathbf{s}_1$ et $\mathbf{A}\mathbf{s}_2 = -\mathbf{s}_2$ (vérifie-le). Donc
+**Pourquoi changer de base : une base adaptée simplifie tout.** La symétrie $f$ par rapport à la droite $y = 2x$ a, dans la base canonique, une matrice peu parlante, $`\mathbf{A} = \frac{1}{5}\begin{pmatrix} -3 & 4 \cr 4 & 3 \end{pmatrix}`$. Prenons la base $\mathbf{s}_1 = (1, 2)$ (sur la droite) et $\mathbf{s}_2 = (-2, 1)$ (perpendiculaire) : la symétrie garde $\mathbf{s}_1$ et retourne $\mathbf{s}_2$, $\mathbf{A}\mathbf{s}_1 = \mathbf{s}_1$ et $\mathbf{A}\mathbf{s}_2 = -\mathbf{s}_2$ (vérifie-le). Donc
 
-$$\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} 1 & 0 \cr 0 & -1 \end{pmatrix} :$$
+```math
+\mathbf{S}^{-1}\mathbf{A}\mathbf{S} = \begin{pmatrix} 1 & 0 \cr 0 & -1 \end{pmatrix} :
+```
 
 dans la bonne base, la matrice est **diagonale**, et l'on voit d'un coup d'œil ce que fait l'application. Par exemple, $\mathbf{x} = (3, 1)$ a pour coordonnées $\mathbf{x}' = \mathbf{S}^{-1}\mathbf{x} = (1, -1)$ ; son image a pour coordonnées $(1, 1)$, c'est-à-dire $\mathbf{S}(1, 1) = (-1, 3)$ ; et directement, $\mathbf{A}\mathbf{x} = \frac{1}{5}(-9 + 4,\ 12 + 3) = (-1, 3)$. M12c cherchera systématiquement de telles bases.
 
@@ -383,9 +395,11 @@ La composée de deux applications affines est affine, de partie linéaire le pro
 
 $$\varphi^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b}) = \mathbf{A}^{-1}\mathbf{y} - \mathbf{A}^{-1}\mathbf{b},$$
 
-encore une application affine, de partie linéaire $\mathbf{A}^{-1}$ et de translation $-\mathbf{A}^{-1}\mathbf{b}$ (M12a.19). Pour défaire, on retire d'abord la translation, puis on défait la partie linéaire : l'ordre inverse de l'aller. Exemple : $\varphi(x, y) = (2x + y + 1,\ x + y - 2)$, de partie linéaire $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}$ (déterminant 1, inverse $\begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}$) et de translation $\mathbf{b} = (1, -2)$. Alors
+encore une application affine, de partie linéaire $\mathbf{A}^{-1}$ et de translation $-\mathbf{A}^{-1}\mathbf{b}$ (M12a.19). Pour défaire, on retire d'abord la translation, puis on défait la partie linéaire : l'ordre inverse de l'aller. Exemple : $\varphi(x, y) = (2x + y + 1,\ x + y - 2)$, de partie linéaire $`\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 1 & 1 \end{pmatrix}`$ (déterminant 1, inverse $`\begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}`$) et de translation $\mathbf{b} = (1, -2)$. Alors
 
-$$\varphi^{-1}(u, v) = \begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}\begin{pmatrix} u - 1 \cr v + 2 \end{pmatrix} = (u - v - 3,\ -u + 2v + 5).$$
+```math
+\varphi^{-1}(u, v) = \begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}\begin{pmatrix} u - 1 \cr v + 2 \end{pmatrix} = (u - v - 3,\ -u + 2v + 5).
+```
 
 Vérification : $\varphi(1, 1) = (4, 0)$, et $\varphi^{-1}(4, 0) = (4 - 0 - 3,\ -4 + 0 + 5) = (1, 1)$.
 

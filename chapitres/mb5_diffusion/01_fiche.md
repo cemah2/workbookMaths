@@ -272,7 +272,7 @@ On mesure $y = ax + bn$, avec $b > 0$ et un bruit $n \sim \mathcal{N}(0, 1)$ ind
 
 > **Théorème** (formule de **Tweedie**, *Tweedie's formula*, ∂ MB5.12). En dimension 1,
 > $$\mathbb{E}[n \mid y] = -b\thinspace s_Y(y), \qquad\text{et, si } a \ne 0, \qquad \mathbb{E}[x \mid y] = \frac{y + b^2s_Y(y)}{a}.$$
-> En dimension $d$ ($y = ax + bn$, $n \sim \mathcal{N}(0, \mathbf{I})$), les mêmes formules tiennent avec le gradient $\nabla\ln p_Y$ (énoncé).
+> En dimension $d$ ($y = ax + bn$, $n \sim \mathcal{N}(0, \mathbf{I}){}$), les mêmes formules tiennent avec le gradient $\nabla\ln p_Y$ (énoncé).
 
 L'outil : dériver $p_Y(y) = \mathbb{E}_x\big[\mathcal{N}(y \mid ax, b^2)\big]$ sous l'espérance (M25b §7 ; une somme finie si $x$ est discrète) ; le ∂ MB5.12 rédige la preuve et la vérifie quand $x$ est gaussien.
 

@@ -54,7 +54,9 @@ j) Avec l'algorithme Hedge et $\eta = 0{,}4$, un expert dont la loss cumulée d�
 
 On note $\mathbf{c}_1, \ldots, \mathbf{c}_5$ les colonnes de la matrice
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & 3 & -1 \cr 0 & 1 & -3 & 2 & 4 \cr 2 & -1 & 7 & 4 & -6 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & 3 & -1 \cr 0 & 1 & -3 & 2 & 4 \cr 2 & -1 & 7 & 4 & -6 \end{pmatrix}.
+```
 
 Pour g) et h), $\mathbb{R}_2[X]$ est l'espace des polynômes de degré au plus 2, $V = \lbrace P \in \mathbb{R}_2[X] : P(2) = P(-1)\rbrace$ et $W = \lbrace P \in V : P(0) = 0\rbrace$.
 
@@ -90,7 +92,9 @@ Sur ta copie : vérifie que $\hat{\mathbf{y}} = \mathbf{X}\hat{\mathbf{x}}$, pui
 
 ### CP3.3 — Valeurs propres, matrice définie positive et Cholesky ✏️ ★★ ⏱️ 10 min · 2 points
 
-$$\mathbf{S} = \begin{pmatrix} 11 & 15 \cr 15 & 27 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 9 & 3 & -6 \cr 3 & 5 & 0 \cr -6 & 0 & 9 \end{pmatrix}.$$
+```math
+\mathbf{S} = \begin{pmatrix} 11 & 15 \cr 15 & 27 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 9 & 3 & -6 \cr 3 & 5 & 0 \cr -6 & 0 & 9 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -101,13 +105,15 @@ $$\mathbf{S} = \begin{pmatrix} 11 & 15 \cr 15 & 27 \end{pmatrix}, \qquad \mathbf
 | e | le facteur de Cholesky $\mathbf{L}$ de $\mathbf{B}$ (triangulaire inférieur, diagonale positive, $\mathbf{B} = \mathbf{L}\mathbf{L}^\top$), ligne par ligne | une liste de 3 listes |
 | f | $\det \mathbf{B}$, à partir de e) | un nombre |
 | g | $\mathbf{x}^\top\mathbf{B}\mathbf{x}$ pour $\mathbf{x} = (1, -1, 1)$, calculé comme $\lVert \mathbf{L}^\top\mathbf{x} \rVert^2$ | un nombre |
-| h | l'ensemble des réels $a$ pour lesquels $\begin{pmatrix} 2 & a \cr a & 8 \end{pmatrix}$ est définie positive | un intervalle, écrit comme `"]-1 ; 2["` |
+| h | l'ensemble des réels $a$ pour lesquels $`\begin{pmatrix} 2 & a \cr a & 8 \end{pmatrix}`$ est définie positive | un intervalle, écrit comme `"]-1 ; 2["` |
 
 Sur ta copie, pour e) : vérifie ton facteur en recalculant une ligne de $\mathbf{L}\mathbf{L}^\top$.
 
 ### CP3.4 — SVD, rang faible et variance expliquée ✏️ ★★ ⏱️ 10 min · 2 points
 
-$$\mathbf{A} = \begin{pmatrix} 9 & 6 \cr 2 & -6 \end{pmatrix} = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top + s_2\thinspace\mathbf{u}_2\mathbf{v}_2^\top \qquad (s_1 \ge s_2 \ge 0,\ \text{SVD}).$$
+```math
+\mathbf{A} = \begin{pmatrix} 9 & 6 \cr 2 & -6 \end{pmatrix} = s_1\thinspace\mathbf{u}_1\mathbf{v}_1^\top + s_2\thinspace\mathbf{u}_2\mathbf{v}_2^\top \qquad (s_1 \ge s_2 \ge 0,\ \text{SVD}).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -180,11 +186,11 @@ Sur ta copie : calcule le rapport $\frac{\mathrm{KL}(a \Vert p)}{2(a - p)^2}$ de
 
 Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, chaque étape et la règle qui la justifie, ce que tu conclus.
 
-**Sujet A — Le système de Lagrange d'un problème quadratique est inversible.** On minimise $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, où $\mathbf{Q}$ est symétrique définie positive de taille $n \times n$ et $\mathbf{A}$ de forme $(m, n)$, de rang $m$. On pose $\mathbf{M} = \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}$, de taille $(n + m) \times (n + m)$.
+**Sujet A — Le système de Lagrange d'un problème quadratique est inversible.** On minimise $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, où $\mathbf{Q}$ est symétrique définie positive de taille $n \times n$ et $\mathbf{A}$ de forme $(m, n)$, de rang $m$. On pose $`\mathbf{M} = \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}`$, de taille $(n + m) \times (n + m)$.
 1. Avec le lagrangien $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$, montre que les conditions de Lagrange s'écrivent $\mathbf{M}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}$. **[0,5]**
 2. Soit $(\mathbf{u}, \boldsymbol{\mu})$, avec $\mathbf{u} \in \mathbb{R}^n$ et $\boldsymbol{\mu} \in \mathbb{R}^m$, tel que $\mathbf{M}\begin{pmatrix} \mathbf{u} \cr \boldsymbol{\mu} \end{pmatrix} = \mathbf{0}$. Montre que $\mathbf{A}\mathbf{u} = \mathbf{0}$, puis que $\mathbf{u}^\top\mathbf{Q}\mathbf{u} = 0$. **[0,5]**
 3. Déduis-en $\mathbf{u} = \mathbf{0}$, puis $\boldsymbol{\mu} = \mathbf{0}$ (dis à quoi sert le rang de $\mathbf{A}$), et conclus : $\mathbf{M}$ est inversible et le système de Lagrange a une solution unique. **[0,5]**
-4. L'hypothèse « $\mathbf{Q}$ définie positive » ne peut pas être remplacée par « $\mathbf{Q}$ semi-définie positive ». Avec $n = 2$, $m = 1$ et $\mathbf{Q} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}$ : pour $\mathbf{A} = (1\ \ 0)$, donne un vecteur non nul du noyau de $\mathbf{M}$ ; pour $\mathbf{A} = (0\ \ 1)$, montre que $\mathbf{M}$ est inversible. Dis ce qui, dans la démonstration, distingue les deux cas. **[0,5]**
+4. L'hypothèse « $\mathbf{Q}$ définie positive » ne peut pas être remplacée par « $\mathbf{Q}$ semi-définie positive ». Avec $n = 2$, $m = 1$ et $`\mathbf{Q} = \begin{pmatrix} 1 & 0 \cr 0 & 0 \end{pmatrix}`$ : pour $\mathbf{A} = (1\ \ 0)$, donne un vecteur non nul du noyau de $\mathbf{M}$ ; pour $\mathbf{A} = (0\ \ 1)$, montre que $\mathbf{M}$ est inversible. Dis ce qui, dans la démonstration, distingue les deux cas. **[0,5]**
 
 **Sujet B — Les poids de Hedge minimisent une loss régularisée par l'entropie.** $K$ experts ont des losses cumulées $L_1, \ldots, L_K$ ; $\eta > 0$. Sur l'ensemble $\Delta = \lbrace\mathbf{w} \in \mathbb{R}^K : w_k > 0 \text{ pour tout } k,\ \sum_k w_k = 1\rbrace$, on pose
 $$F(\mathbf{w}) = \eta \sum_{k=1}^K w_k L_k + \sum_{k=1}^K w_k \ln w_k .$$
@@ -200,11 +206,11 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(A)** Avec $\mathbf{u} = (1, 2, 0)$, $\mathbf{v} = (3, 1)$, $\mathbf{w} = (2, 4, 0)$ et $\mathbf{z} = (0, 1)$, la matrice $\mathbf{u}\mathbf{v}^\top + \mathbf{w}\mathbf{z}^\top$, de forme $(3, 2)$, est de rang 2 : c'est la somme de deux matrices de rang 1.
 - **(B)** Pour toute matrice carrée inversible $\mathbf{A}$, $\kappa_2(\mathbf{A}^{-1}) = \kappa_2(\mathbf{A})$.
 - **(C)** La projection orthogonale de $\mathbf{v} = (2, 1, 0)$ sur la droite dirigée par $\mathbf{a} = (1, 1, 1)$ est $(\mathbf{a} \cdot \mathbf{v})\thinspace\mathbf{a} = (3, 3, 3)$.
-- **(D)** $\begin{pmatrix} 3 & 5 \cr 0 & 1 \end{pmatrix}$ a pour valeurs propres 3 et 1, $\begin{pmatrix} 2 & 0 \cr 5 & 4 \end{pmatrix}$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
+- **(D)** $`\begin{pmatrix} 3 & 5 \cr 0 & 1 \end{pmatrix}`$ a pour valeurs propres 3 et 1, $`\begin{pmatrix} 2 & 0 \cr 5 & 4 \end{pmatrix}`$ a pour valeurs propres 2 et 4 ; leur somme a donc pour valeurs propres $3 + 4 = 7$ et $1 + 2 = 3$, et $7 + 3 = 10$ est bien sa trace.
 - **(E)** Dans une régression logistique où le poids de $x_j$ vaut 0,7, augmenter $x_j$ de 1, les autres features fixées, multiplie la cote $\frac{p}{1 - p}$ par $e^{0{,}7} \approx 2{,}01$.
 - **(F)** Un exemple de marge $y\thinspace(\mathbf{w} \cdot \mathbf{x} + b) = 2$ a une hinge loss de $1 - 2 = -1$ : il fait baisser l'objectif de la SVM.
 - **(G)** Pour $X$ de loi $\mathcal{B}(n ;\ 0{,}2)$, la borne de Chernoff de $P(X \ge 0{,}4\thinspace n)$ vaut $e^{-n\thinspace\mathrm{KL}(0{,}4 \Vert 0{,}2)}$, avec $\mathrm{KL}(0{,}4 \Vert 0{,}2) \approx 0{,}10465$ nat.
-- **(H)** $\begin{pmatrix} 3 & 4 \cr 4 & 2 \end{pmatrix}$ est symétrique et tous ses coefficients sont positifs : elle est définie positive.
+- **(H)** $`\begin{pmatrix} 3 & 4 \cr 4 & 2 \end{pmatrix}`$ est symétrique et tous ses coefficients sont positifs : elle est définie positive.
 
 a) Les lettres des cinq lignes fausses, dans l'ordre alphabétique (un texte, comme `"ABCDE"`). **[0,5]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[0,75]** (0,15 par ligne)

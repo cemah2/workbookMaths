@@ -101,7 +101,7 @@
 - d) Aux milieux $0{,}25$ ; $0{,}75$ ; $1{,}25$ ; $1{,}75$ : $f = 1{,}75^3 = 5{,}359375$ ; $1{,}25^3 = 1{,}953125$ ; $0{,}75^3 = 0{,}421875$ ; $0{,}25^3 = 0{,}015625$, de somme $7{,}75$, d'où $M_4 = 3{,}875$.
 - e) $6{,}25 - 2{,}25 = 4$.
 - f) $h = 0{,}25$ ; les huit hauteurs à gauche ($x = 0$ à $1{,}75$) valent $8$ ; $5{,}359375$ ; $3{,}375$ ; $1{,}953125$ ; $1$ ; $0{,}421875$ ; $0{,}125$ ; $0{,}015625$, de somme $20{,}25$, d'où $L_8 = 5{,}0625$.
-- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\thinspace f(0)$) et le dernier de $R_n$ ($h\thinspace f(2)$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 8 = \frac{16}{n}$. Puis $\frac{16}{n} \le 0{,}1 \iff n \ge 160$.
+- g) Les deux sommes ont les mêmes termes, sauf le premier de $L_n$ ($h\thinspace f(0){}$) et le dernier de $R_n$ ($h\thinspace f(2){}$) : $L_n - R_n = h\big(f(0) - f(2)\big) = \frac{2}{n} \times 8 = \frac{16}{n}$. Puis $\frac{16}{n} \le 0{,}1 \iff n \ge 160$.
 - h) $f$ décroît : les rectangles à gauche dépassent la courbe, ceux de droite sont dessous. L'aire exacte, $\int_0^2 (2 - x)^3\thinspace dx = \left[-\frac{(2 - x)^4}{4}\right]_0^2 = 4$, est bien entre 2,25 et 6,25, et le point milieu (3,875) en est le plus proche.
 
 **Erreurs fréquentes.** Oublier de multiplier par $h$ (12,5 et 4,5) ; inverser gauche et droite ; en g, prendre $h = \frac{1}{n}$ (on trouve alors 80).

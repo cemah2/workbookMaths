@@ -34,13 +34,13 @@ Une récurrence $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u
 2. Le module et l'argument de $-3 + 3i$ ?
 3. $(-3 + 3i)^2$, par son module et son argument, puis sous la forme $a + ib$ ?
 4. Vrai ou faux : une matrice réelle $2 \times 2$ de trace 1 et de déterminant 4 a deux valeurs propres complexes conjuguées de module 2.
-5. Les valeurs propres de $\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}$ ? Que vaut sa puissance 4 ?
+5. Les valeurs propres de $`\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}`$ ? Que vaut sa puissance 4 ?
 6. Vrai ou faux : une matrice réelle $2 \times 2$ de trace $0{,}8$ et de déterminant $1{,}96$ a des trajectoires qui s'éteignent, parce que la partie réelle de ses valeurs propres vaut $0{,}4$.
 
 ### M22.Q3 — Le rayon spectral décide-t-il de tout ? Le long terme et les premiers pas 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-1. Le rayon spectral de $\begin{pmatrix} 0{,}3 & 2 \cr 0 & -0{,}6 \end{pmatrix}$ ?
+1. Le rayon spectral de $`\begin{pmatrix} 0{,}3 & 2 \cr 0 & -0{,}6 \end{pmatrix}`$ ?
 2. Vrai ou faux : si $\rho(\mathbf{A}) < 1$, alors $\lVert\mathbf{A}\mathbf{x}\rVert_2 \le \lVert\mathbf{x}\rVert_2$ pour tout $\mathbf{x}$.
 3. Vrai ou faux : si $\rho(\mathbf{A}) < 1$, alors $\mathbf{A}^t\mathbf{x} \to \mathbf{0}$ pour tout $\mathbf{x}$.
 4. Vrai ou faux : si $\rho(\mathbf{A}) = 1{,}02$, alors $\lVert\mathbf{A}^t\rVert_2 \to +\infty$.
@@ -50,7 +50,7 @@ Une récurrence $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}\mathbf{u
 ### M22.Q4 — Normes induites : laquelle se calcule à la main, laquelle borne quoi ? 🧠 ★ ⏱️ 4 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 2 & -5 & 1 \cr -3 & 0 & 4 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 2 & -5 & 1 \cr -3 & 0 & 4 \end{pmatrix}`$.
 
 1. $\lVert\mathbf{A}\rVert_1$ et $\lVert\mathbf{A}\rVert_\infty$ ?
 2. Laquelle des trois normes induites demande une valeur propre, et de quelle matrice ?
@@ -75,7 +75,7 @@ Un silo perd chaque mois 4 % du grain qu'il contient ($\varepsilon = 0{,}04$) ; 
 ### M22.Q6 — Contraction et point fixe : lire une jacobienne 🧠 ★ ⏱️ 4 min
 *Fiche §6 · parcours C, E*
 
-1. En un point fixe $\mathbf{x}^\star$ d'une application $f$ du plan, $\mathbf{J}_f(\mathbf{x}^\star) = \begin{pmatrix} 0{,}3 & 1{,}2 \cr 0 & 0{,}6 \end{pmatrix}$. Le point fixe est-il attractif ? La jacobienne raccourcit-elle tous les vecteurs, en norme 2 ?
+1. En un point fixe $\mathbf{x}^\star$ d'une application $f$ du plan, $`\mathbf{J}_f(\mathbf{x}^\star) = \begin{pmatrix} 0{,}3 & 1{,}2 \cr 0 & 0{,}6 \end{pmatrix}`$. Le point fixe est-il attractif ? La jacobienne raccourcit-elle tous les vecteurs, en norme 2 ?
 2. En un autre point fixe, la jacobienne a pour valeurs propres $0{,}3$ et $-1{,}4$. Ce point fixe est-il attractif, instable, répulsif ?
 3. $f$ est contractante de facteur $q = 0{,}6$ sur une partie qu'elle envoie dans elle-même. Deux trajectoires y partent à distance 5 l'une de l'autre : leur distance après 4 pas, au plus ?
 4. Vrai ou faux : une application contractante sur une partie $\mathcal{D}$ qu'elle envoie dans elle-même a au plus un point fixe dans $\mathcal{D}$.
@@ -113,7 +113,7 @@ Un vecteur $\mathbf{w}$ est fait de trois blocs, de normes (L2) 4, 8 et 8.
 ### M22.R1 — La diagonalisation et les puissances d'une matrice (M12c) 🔁 ★ ⏱️ 8 min
 *Fiche §2 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 5 & 2 \cr 1 & 4 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 5 & 2 \cr 1 & 4 \end{pmatrix}`$.
 
 1. Ses valeurs propres ?
 2. Un vecteur propre pour chacune ?
@@ -124,7 +124,7 @@ $\mathbf{A} = \begin{pmatrix} 5 & 2 \cr 1 & 4 \end{pmatrix}$.
 ### M22.R2 — Valeurs singulières et norme spectrale (M12d) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 3 & 3 \cr -1 & 1 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 3 & 3 \cr -1 & 1 \end{pmatrix}`$.
 
 1. $\mathbf{A}^\top\mathbf{A}$ ?
 2. Ses valeurs propres ?
@@ -165,7 +165,9 @@ Garde au moins 6 chiffres significatifs dans tes calculs intermédiaires, et n'a
 **Prérequis :** fiche §1 ; M09a · **Parcours :** C, E
 
 Une espèce d'oiseau vit au plus trois ans. Chaque printemps, on compte sa population dans une réserve en trois classes : $\mathbf{x} _t = (\text{jeunes de l'année},\ \text{oiseaux d'un an},\ \text{oiseaux de deux ans})$. D'un printemps au suivant, un oiseau d'un an donne en moyenne 1,2 jeune et un oiseau de deux ans 0,8 jeune ; 40 % des jeunes atteignent un an, 60 % des oiseaux d'un an atteignent deux ans, et les oiseaux de deux ans meurent. Un centre d'élevage relâche aussi, pendant l'année $t$, $j_t$ jeunes et $a_t$ oiseaux de deux ans, comptés au printemps suivant : l'entrée est $\mathbf{u} _t = (j_t, a_t)$. Donc
-$$\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0 & 1{,}2 & 0{,}8 \cr 0{,}4 & 0 & 0 \cr 0 & 0{,}6 & 0 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 & 0 \cr 0 & 0 \cr 0 & 1 \end{pmatrix}} _{\mathbf{B}}\mathbf{u}_t,$$
+```math
+\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0 & 1{,}2 & 0{,}8 \cr 0{,}4 & 0 & 0 \cr 0 & 0{,}6 & 0 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 & 0 \cr 0 & 0 \cr 0 & 1 \end{pmatrix}} _{\mathbf{B}}\mathbf{u}_t,
+```
 avec $\mathbf{x}_0 = (40, 20, 30)$, $\mathbf{u}_0 = (20, 10)$, $\mathbf{u}_1 = (0, 10)$ et $\mathbf{u}_2 = (30, 0)$.
 
 | | Question | Réponse attendue |
@@ -186,7 +188,9 @@ Dans ta copie : écris la formule $\mathbf{x}_3 = \mathbf{A}^3\mathbf{x}_0 + \ma
 **Prérequis :** fiche §1 et §2 ; M21, R5 · **Parcours :** C, E
 
 Deux bassins de rétention en cascade recueillent la pluie d'un parking. Chaque jour, le bassin 1 garde 40 % de son eau, en verse 40 % dans le bassin 2 et perd le reste par infiltration ; le bassin 2 garde 30 % de son eau, en rejette 60 % à la rivière et perd le reste. La pluie $u_t$ du jour $t$ tombe dans le bassin 1. L'état est $\mathbf{x}_t = (\text{niveau du bassin 1},\ \text{niveau du bassin 2})$, en millimètres, et la sortie $y_t = 0{,}6 \times (\text{niveau du bassin 2})$ est le rejet à la rivière du jour $t$ :
-$$\mathbf{A} = \begin{pmatrix} 0{,}4 & 0 \cr 0{,}4 & 0{,}3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 0 & 0{,}6 \end{pmatrix}, \qquad \mathbf{x}_0 = \mathbf{0}$$
+```math
+\mathbf{A} = \begin{pmatrix} 0{,}4 & 0 \cr 0{,}4 & 0{,}3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 0 & 0{,}6 \end{pmatrix}, \qquad \mathbf{x}_0 = \mathbf{0}
+```
 (sauf au f). Les pluies sont $\mathbf{u} = (10, 0, 20, 5)$ mm les jours 0 à 3, puis nulles.
 
 | | Question | Réponse attendue |
@@ -202,11 +206,13 @@ $$\mathbf{A} = \begin{pmatrix} 0{,}4 & 0 \cr 0{,}4 & 0{,}3 \end{pmatrix}, \qquad
 Dans ta copie : trouve les valeurs propres de $\mathbf{A}$, puis une formule de $h_k$ (les puissances d'une matrice triangulaire, fiche §2), et déduis-en e) par deux séries géométriques. Vérifie e) par $\mathbf{C}(\mathbf{I} - \mathbf{A})^{-1}\mathbf{B}$. Pourquoi $h_0 = 0$ ? Vérifie $y_3$ à partir de c). Que dit f) sur la mémoire du système ?
 
 ### Ex M22.3 — Une matrice de rotation et d'homothétie : valeurs propres complexes, forme exponentielle, puissances ✏️ ★★ ⏱️ 20 min
-**Objectif :** lire une matrice $\begin{pmatrix} a & -b \cr b & a \end{pmatrix}$ comme la multiplication par un complexe, et en déduire ses puissances.
+**Objectif :** lire une matrice $`\begin{pmatrix} a & -b \cr b & a \end{pmatrix}`$ comme la multiplication par un complexe, et en déduire ses puissances.
 **Prérequis :** fiche §2 ; M12c §3, M19 §6 · **Parcours :** C, E
 
 Un point du plan est déplacé à chaque pas par
-$$\mathbf{M} = \begin{pmatrix} -0{,}3 & -0{,}3\sqrt3 \cr 0{,}3\sqrt3 & -0{,}3 \end{pmatrix}, \qquad \mathbf{x}_{t+1} = \mathbf{M}\mathbf{x}_t, \qquad \mathbf{x}_0 = (2, 0).$$
+```math
+\mathbf{M} = \begin{pmatrix} -0{,}3 & -0{,}3\sqrt3 \cr 0{,}3\sqrt3 & -0{,}3 \end{pmatrix}, \qquad \mathbf{x}_{t+1} = \mathbf{M}\mathbf{x}_t, \qquad \mathbf{x}_0 = (2, 0).
+```
 On note $\mu$ la valeur propre de $\mathbf{M}$ de partie imaginaire positive.
 
 | | Question | Réponse attendue |
@@ -227,7 +233,9 @@ Dans ta copie : écris le polynôme caractéristique de $\mathbf{M}$, puis $\mat
 **Objectif :** calculer le rayon spectral de matrices non symétriques, valeurs propres complexes comprises, et en déduire le comportement de leurs puissances.
 **Prérequis :** fiche §2 et §3 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}6 & 0 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & -3 \cr 1 & -1 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 0 & -1 \cr 1{,}69 & 0 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}6 & 0 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 2 & -3 \cr 1 & -1 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} 0 & -1 \cr 1{,}69 & 0 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -246,10 +254,12 @@ Dans ta copie : les valeurs propres de chaque matrice, par la trace et le déter
 **Objectif :** démontrer la formule des puissances d'une matrice triangulaire $2 \times 2$, et suivre la croissance transitoire qu'elle produit.
 **Prérequis :** fiche §3 ; R4, R5 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} \frac23 & 3 \cr 0 & \frac23 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} \frac23 & 3 \cr 0 & \frac13 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} \frac23 & 3 \cr 0 & \frac23 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} \frac23 & 3 \cr 0 & \frac13 \end{pmatrix}.
+```
 On note $c_t = (\mathbf{A}^t)_{12}$, le coefficient en haut à droite de $\mathbf{A}^t$.
 
-**Dans ta copie, d'abord.** Pour $\mathbf{T} = \begin{pmatrix} \lambda_1 & \gamma \cr 0 & \lambda_2 \end{pmatrix}$, montre par récurrence sur $t \ge 1$ que $\mathbf{T}^t = \begin{pmatrix} \lambda_1^t & \gamma\thinspace\sigma_t \cr 0 & \lambda_2^t \end{pmatrix}$ avec $\sigma_t = \sum_{j=0}^{t-1}\lambda_1^{t-1-j}\lambda_2^{\thinspace j}$. Déduis-en $\sigma_t = \frac{\lambda_1^t - \lambda_2^t}{\lambda_1 - \lambda_2}$ si $\lambda_1 \ne \lambda_2$, et $\sigma_t = t\thinspace\lambda^{t-1}$ si $\lambda_1 = \lambda_2 = \lambda$. Écris $c_t$ pour la matrice $\mathbf{A}$.
+**Dans ta copie, d'abord.** Pour $`\mathbf{T} = \begin{pmatrix} \lambda_1 & \gamma \cr 0 & \lambda_2 \end{pmatrix}`$, montre par récurrence sur $t \ge 1$ que $`\mathbf{T}^t = \begin{pmatrix} \lambda_1^t & \gamma\thinspace\sigma_t \cr 0 & \lambda_2^t \end{pmatrix}`$ avec $\sigma_t = \sum_{j=0}^{t-1}\lambda_1^{t-1-j}\lambda_2^{\thinspace j}$. Déduis-en $\sigma_t = \frac{\lambda_1^t - \lambda_2^t}{\lambda_1 - \lambda_2}$ si $\lambda_1 \ne \lambda_2$, et $\sigma_t = t\thinspace\lambda^{t-1}$ si $\lambda_1 = \lambda_2 = \lambda$. Écris $c_t$ pour la matrice $\mathbf{A}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -268,7 +278,9 @@ Dans ta copie : pour c), étudie le rapport $\frac{c_{t+1}}{c_t}$ et dis pour qu
 **Objectif :** calculer les trois normes induites, et majorer une puissance appliquée à un vecteur sans calculer la puissance.
 **Prérequis :** fiche §4 ; M07, M12d · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 \cr -1 & 2 \end{pmatrix}, \qquad \mathbf{x} = (2, -3).$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 2 \cr -1 & 2 \end{pmatrix}, \qquad \mathbf{x} = (2, -3).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -394,8 +406,8 @@ $\mathbf{A}$ est une matrice réelle de forme $(m, n)$, non nulle, et $L = \max_
 1. Montre que $\lVert\mathbf{A}\mathbf{x}\rVert_\infty \le L\thinspace\lVert\mathbf{x}\rVert_\infty$ pour tout $\mathbf{x} \in \mathbb{R}^n$.
 2. Soit $i^\star$ une ligne où la somme vaut $L$, et $\mathbf{x}^\star$ le vecteur de coordonnées $x^\star_j = \operatorname{signe}(a_{i^\star j})$ (et $x^\star_j = 1$ si $a_{i^\star j} = 0$). Montre que $\lVert\mathbf{x}^\star\rVert_\infty = 1$ et que $(\mathbf{A}\mathbf{x}^\star) _{i^\star} = L$. Conclus : $\lVert\mathbf{A}\rVert _\infty = L$.
 3. Déduis-en $\lVert\mathbf{A}^\top\rVert_1 = \lVert\mathbf{A}\rVert_\infty$, avec la formule de $\lVert\cdot\rVert_1$ de la fiche.
-4. Pour $\mathbf{A} = \begin{pmatrix} 2 & 0 & -5 \cr 1 & -3 & 1 \end{pmatrix}$ : calcule $\lVert\mathbf{A}\rVert_\infty$, et trouve **tous** les vecteurs $\mathbf{x}$ tels que $\lVert\mathbf{x}\rVert_\infty = 1$ et $(\mathbf{A}\mathbf{x}) _0 = \lVert\mathbf{A}\rVert _\infty$ (la première ligne est la ligne 0). Pourquoi y en a-t-il une infinité ?
-5. $\mathbf{S} = \begin{pmatrix} 0{,}2 & 0{,}3 & 0{,}1 \cr 0{,}1 & 0{,}2 & 0{,}3 \cr 0{,}4 & 0 & 0{,}2 \end{pmatrix}$ a des coefficients positifs ou nuls. Montre que $\lVert\mathbf{S}^t\rVert_\infty = 0{,}6^t$ exactement (pense au vecteur $(1, 1, 1)$), que chaque coefficient de $\mathbf{S}^t$ est au plus $0{,}6^t$, et que $\rho(\mathbf{S}) = 0{,}6$.
+4. Pour $`\mathbf{A} = \begin{pmatrix} 2 & 0 & -5 \cr 1 & -3 & 1 \end{pmatrix}`$ : calcule $\lVert\mathbf{A}\rVert_\infty$, et trouve **tous** les vecteurs $\mathbf{x}$ tels que $\lVert\mathbf{x}\rVert_\infty = 1$ et $(\mathbf{A}\mathbf{x}) _0 = \lVert\mathbf{A}\rVert _\infty$ (la première ligne est la ligne 0). Pourquoi y en a-t-il une infinité ?
+5. $`\mathbf{S} = \begin{pmatrix} 0{,}2 & 0{,}3 & 0{,}1 \cr 0{,}1 & 0{,}2 & 0{,}3 \cr 0{,}4 & 0 & 0{,}2 \end{pmatrix}`$ a des coefficients positifs ou nuls. Montre que $\lVert\mathbf{S}^t\rVert_\infty = 0{,}6^t$ exactement (pense au vecteur $(1, 1, 1){}$), que chaque coefficient de $\mathbf{S}^t$ est au plus $0{,}6^t$, et que $\rho(\mathbf{S}) = 0{,}6$.
 
 ### Ex M22.13 — Aᵗ → 0 si et seulement si ρ(A) < 1, pour une matrice diagonalisable sur ℂ ∂ ★★ ⏱️ 30 min
 **Objectif :** démontrer le théorème du §3 dans le cas diagonalisable, avec une constante explicite, et voir où l'hypothèse sert.
@@ -406,9 +418,9 @@ $\mathbf{A}$ est une matrice carrée réelle, diagonalisable sur $\mathbb{C}$ : 
 1. Montre par récurrence que $\mathbf{A}^t = \mathbf{V}\mathbf{D}^t\mathbf{V}^{-1}$ pour tout $t \ge 0$.
 2. Écris le coefficient $(j, k)$ de $\mathbf{A}^t$ comme une somme sur $i$ faisant intervenir $\lambda_i^t$. Déduis-en $\lvert(\mathbf{A}^t) _{jk}\rvert \le C  _{jk}\thinspace\rho(\mathbf{A})^t$, avec une constante $C _{jk}$ que tu donnes, puis que $\rho(\mathbf{A}) < 1$ entraîne $\mathbf{A}^t \to \mathbf{0}$.
 3. Réciproquement, soit $\lambda$ une valeur propre de module $\lvert\lambda\rvert \ge 1$, et $\mathbf{v} \ne \mathbf{0}$ un vecteur propre (complexe peut-être). Montre que $\mathbf{A}^t\mathbf{v}$ ne tend pas vers $\mathbf{0}$, et conclus que $\mathbf{A}^t$ ne tend pas vers $\mathbf{0}$.
-4. Applique à la matrice $\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}6 & 0 \end{pmatrix}$ de M22.4 : trouve $\mathbf{V}$ et $\mathbf{V}^{-1}$, écris $\mathbf{A}^t$ en formule, et montre que chaque coefficient de $\mathbf{A}^t$ est au plus $1{,}2 \times 0{,}6^t$ en valeur absolue.
-5. Pour la matrice $\mathbf{B} = \begin{pmatrix} 2 & -3 \cr 1 & -1 \end{pmatrix}$ de M22.4 : explique avec la question 3 pourquoi $\mathbf{B}^t$ ne tend pas vers $\mathbf{0}$, et avec les questions 1 et 2 pourquoi ses puissances restent bornées.
-6. Où la démonstration de la question 2 utilise-t-elle l'hypothèse « diagonalisable » ? Pour le bloc de Jordan $\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix}$ de la fiche, avec $\lvert\lambda\rvert < 1$ et $\gamma \ne 0$, qu'est-ce qui change, et pourquoi la conclusion tient-elle encore ?
+4. Applique à la matrice $`\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}6 & 0 \end{pmatrix}`$ de M22.4 : trouve $\mathbf{V}$ et $\mathbf{V}^{-1}$, écris $\mathbf{A}^t$ en formule, et montre que chaque coefficient de $\mathbf{A}^t$ est au plus $1{,}2 \times 0{,}6^t$ en valeur absolue.
+5. Pour la matrice $`\mathbf{B} = \begin{pmatrix} 2 & -3 \cr 1 & -1 \end{pmatrix}`$ de M22.4 : explique avec la question 3 pourquoi $\mathbf{B}^t$ ne tend pas vers $\mathbf{0}$, et avec les questions 1 et 2 pourquoi ses puissances restent bornées.
+6. Où la démonstration de la question 2 utilise-t-elle l'hypothèse « diagonalisable » ? Pour le bloc de Jordan $`\begin{pmatrix} \lambda & \gamma \cr 0 & \lambda \end{pmatrix}`$ de la fiche, avec $\lvert\lambda\rvert < 1$ et $\gamma \ne 0$, qu'est-ce qui change, et pourquoi la conclusion tient-elle encore ?
 
 ### Ex M22.14 — Une application contractante oublie son point de départ : l'écart entre deux trajectoires décroît géométriquement ∂ ★★ ⏱️ 20 min
 **Objectif :** démontrer la propriété des contractions du §6, puis la tester sur une application affine et sur un contre-exemple.
@@ -419,8 +431,8 @@ $f$ envoie une partie $\mathcal{D}$ de $\mathbb{R}^n$ dans elle-même, et il exi
 1. Montre par récurrence que $\mathbf{x}_t$ et $\tilde{\mathbf{x}}_t$ restent dans $\mathcal{D}$, et que $\lVert\mathbf{x}_t - \tilde{\mathbf{x}}_t\rVert \le q^t\thinspace\lVert\mathbf{x}_0 - \tilde{\mathbf{x}}_0\rVert$.
 2. Montre que $f$ a au plus un point fixe dans $\mathcal{D}$.
 3. Si $\mathbf{x}^\star \in \mathcal{D}$ est un point fixe, montre que $\lVert\mathbf{x}_t - \mathbf{x}^\star\rVert \le q^t\thinspace\lVert\mathbf{x}_0 - \mathbf{x}^\star\rVert$.
-4. $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{c}$ sur $\mathcal{D} = \mathbb{R}^2$, avec $\mathbf{A} = \begin{pmatrix} 0{,}3 & -0{,}3 \cr 0{,}1 & 0{,}3 \end{pmatrix}$ et $\mathbf{c} = (1, 2)$. Montre que $f$ est contractante de facteur $0{,}6$ pour $\lVert\cdot\rVert_1$. Trouve son point fixe, en résolvant un système linéaire. Deux trajectoires partent de $(5, -3)$ et de $(-1, 4)$ : majore leur écart en norme 1 après 10 pas.
-5. $g(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $\mathbf{J} = \begin{pmatrix} 0{,}2 & 3 \cr 0 & 0{,}2 \end{pmatrix}$ : $\rho(\mathbf{J}) = 0{,}2$, et toutes les trajectoires tendent vers $\mathbf{0}$. Montre que $g$ n'est pas contractante pour $\lVert\cdot\rVert_2$, en exhibant deux points. Montre ensuite que $g \circ g$ ne l'est pas non plus, mais que $g \circ g \circ g$ l'est.
+4. $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{c}$ sur $\mathcal{D} = \mathbb{R}^2$, avec $`\mathbf{A} = \begin{pmatrix} 0{,}3 & -0{,}3 \cr 0{,}1 & 0{,}3 \end{pmatrix}`$ et $\mathbf{c} = (1, 2)$. Montre que $f$ est contractante de facteur $0{,}6$ pour $\lVert\cdot\rVert_1$. Trouve son point fixe, en résolvant un système linéaire. Deux trajectoires partent de $(5, -3)$ et de $(-1, 4)$ : majore leur écart en norme 1 après 10 pas.
+5. $g(\mathbf{x}) = \mathbf{J}\mathbf{x}$ avec $`\mathbf{J} = \begin{pmatrix} 0{,}2 & 3 \cr 0 & 0{,}2 \end{pmatrix}`$ : $\rho(\mathbf{J}) = 0{,}2$, et toutes les trajectoires tendent vers $\mathbf{0}$. Montre que $g$ n'est pas contractante pour $\lVert\cdot\rVert_2$, en exhibant deux points. Montre ensuite que $g \circ g$ ne l'est pas non plus, mais que $g \circ g \circ g$ l'est.
 
 ### Ex M22.15 — La sensibilité de l'état final à un paramètre utilisé à chaque pas suit une récurrence avec entrée : sa solution est une somme sur le temps ∂ ★★ ⏱️ 25 min
 **Objectif :** démontrer la récurrence de la sensibilité et sa solution, la propriété du §7.
@@ -446,7 +458,9 @@ $f : \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}^n$ est dérivable, $\mathbf{x
 Les bibliothèques (NumPy, PyTorch) rangent les états en **lignes** : un état est un vecteur ligne $\mathbf{x}_t$ de forme $(1, n)$, une entrée un vecteur ligne $\mathbf{u} _t$ de forme $(1, m)$, et
 $$\mathbf{x} _{t+1} = \mathbf{x}_t\mathbf{A} + \mathbf{u}_t\mathbf{B}.$$
 Pour les questions c) à f) : $n = 2$, $m = 1$,
-$$\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}6 \cr -0{,}4 & 0{,}3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 & -2 \end{pmatrix}, \qquad \mathbf{x}_0 = (4, -1), \qquad (u_0, u_1, u_2) = (1, 0, -1).$$
+```math
+\mathbf{A} = \begin{pmatrix} 0{,}2 & 0{,}6 \cr -0{,}4 & 0{,}3 \end{pmatrix}, \qquad \mathbf{B} = \begin{pmatrix} 1 & -2 \end{pmatrix}, \qquad \mathbf{x}_0 = (4, -1), \qquad (u_0, u_1, u_2) = (1, 0, -1).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -471,7 +485,7 @@ Relis MML §4.2 (*Eigenvalues and Eigenvectors*), de la définition 4.6 à la fi
 4. Lesquelles sont normales ? Pour celles-là, $\lVert\mathbf{A}_i^t\rVert_2 = \rho(\mathbf{A}_i)^t$. Compare $\lVert\mathbf{A}_2^t\rVert_2$, pour $t$ grand, à $\rho(\mathbf{A}_2)^t$.
 5. La figure montre l'image d'une grille de points par une application de chaque matrice. Décris en une phrase, sans la tracer, l'image de la même grille par $\mathbf{A}_i^6$, pour chacune des cinq.
 6. $\mathbf{A}_2$ n'a qu'une direction propre : quels mots du livre le disent (deux multiplicités), et à quel objet du §3 de la fiche $\mathbf{A}_2$ ressemble-t-elle ?
-7. Refais l'analyse de $\mathbf{A}_5$ avec tes propres nombres : pour $\begin{pmatrix} a & c \cr c & a \end{pmatrix}$, donne les valeurs propres, et la condition sur $a$ et $c$ pour que les puissances tendent vers $\mathbf{0}$. Choisis un couple $(a, c)$ qui la vérifie et un qui ne la vérifie pas.
+7. Refais l'analyse de $\mathbf{A}_5$ avec tes propres nombres : pour $`\begin{pmatrix} a & c \cr c & a \end{pmatrix}`$, donne les valeurs propres, et la condition sur $a$ et $c$ pour que les puissances tendent vers $\mathbf{0}$. Choisis un couple $(a, c)$ qui la vérifie et un qui ne la vérifie pas.
 8. Relève cinq expressions anglaises de la section et leur traduction dans la fiche.
 
 ### Ex M22.18 — Expliquer avec une image non mathématique pourquoi un système linéaire oublie son passé au rythme de ρ(A) 🗣️ ★ ⏱️ 10 min
@@ -531,18 +545,18 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M22.22 · 📦 `np.linalg.eigvals` et `np.linalg.norm`.** Tire 1 000 matrices $4 \times 4$ de coefficients gaussiens, `rng = np.random.default_rng(5722)` puis `A = rng.normal(size=(1000, 4, 4))`, et calcule, pour chaque `A[k]`, son rayon spectral (`np.abs(np.linalg.eigvals(A[k])).max()`) et ses normes `np.linalg.norm(A[k], 1)`, `np.linalg.norm(A[k], 2)`, `np.linalg.norm(A[k], np.inf)` et `np.linalg.norm(A[k], "fro")`. a) La proportion des matrices pour lesquelles $\rho$ est au plus égal à la plus petite des trois normes induites ; b) la moyenne de $\rho/\lVert\cdot\rVert_2$ (2 décimales) ; c) la proportion des matrices pour lesquelles $\lVert\cdot\rVert_1 < \lVert\cdot\rVert_2$ (3 décimales) ; d) pour les parties symétriques $\mathbf{S}_k = \frac12(\mathbf{A}_k + \mathbf{A}_k^\top)$ : vrai ou faux, $\lvert\rho(\mathbf{S}_k) - \lVert\mathbf{S}_k\rVert_2\rvert < 10^{-12}$ pour les 1 000 ; e) pour `A[0]`, deux vrai ou faux : `np.linalg.norm(A[0])` (sans `ord`) est égal à la norme de Frobenius, puis à $\lVert\cdot\rVert_2$ ; f) pour `A[0]`, $\lVert\mathbf{A}^t\rVert_2^{1/t}$ pour $t = 1$, 5, 25 et 100, puis $\rho$ (une liste de 5 nombres, 3 décimales). Ce qu'il faut observer : $\rho \le \lVert\cdot\rVert$ sans exception, avec un écart important pour une matrice quelconque (en moyenne, $\rho$ n'est que les deux tiers de $\lVert\cdot\rVert_2$) ; l'égalité pour les matrices symétriques (en norme 2) ; et le piège de `np.linalg.norm` sans `ord`.
 
-**M22.23 · 🔮 Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer.** $\mathbf{A} = \begin{pmatrix} -1{,}2 & 2 \cr -2 & 2{,}8 \end{pmatrix}$. **Avant d'exécuter**, calcule à la main ses valeurs propres et $\mathbf{A}^\top\mathbf{A}$ et $\mathbf{A}\mathbf{A}^\top$, puis prédis : a) l'allure de $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0$ à 40 : (A) elle décroît dès le premier pas, comme $0{,}8^t$ ; (B) elle monte pendant quelques pas, puis décroît vers 0 ; (C) elle monte sans fin ; (D) elle oscille sans décroître ; b) le pas $t$ de son maximum : (A) $t = 1$ ; (B) entre 3 et 6 ; (C) entre 15 et 25 ; c) vrai ou faux : $\lVert\mathbf{A}^{10}\rVert_2 > 1$ ; d) vrai ou faux : $\lVert\mathbf{A}^t\rVert_2 \ge 0{,}8^t$ pour tout $t$. Puis calcule $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0, \ldots, 40$ avec ta `operator_norm`, trace-la en échelle logarithmique avec $0{,}8^t$, et relève : e) le pas $t$ du maximum ; f) la valeur du maximum (2 décimales) ; g) le premier pas $t$ où $\lVert\mathbf{A}^t\rVert_2 < 1$. Ce qu'il faut observer : la valeur propre double 0,8 dit le long terme, pas les premiers pas ; la norme est multipliée par plus de 8 avant de décroître, et passe 20 pas au-dessus de 1.
+**M22.23 · 🔮 Prédire l'allure de ‖Aᵗ‖₂ pour une matrice non normale de rayon spectral 0,8, puis tracer.** $`\mathbf{A} = \begin{pmatrix} -1{,}2 & 2 \cr -2 & 2{,}8 \end{pmatrix}`$. **Avant d'exécuter**, calcule à la main ses valeurs propres et $\mathbf{A}^\top\mathbf{A}$ et $\mathbf{A}\mathbf{A}^\top$, puis prédis : a) l'allure de $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0$ à 40 : (A) elle décroît dès le premier pas, comme $0{,}8^t$ ; (B) elle monte pendant quelques pas, puis décroît vers 0 ; (C) elle monte sans fin ; (D) elle oscille sans décroître ; b) le pas $t$ de son maximum : (A) $t = 1$ ; (B) entre 3 et 6 ; (C) entre 15 et 25 ; c) vrai ou faux : $\lVert\mathbf{A}^{10}\rVert_2 > 1$ ; d) vrai ou faux : $\lVert\mathbf{A}^t\rVert_2 \ge 0{,}8^t$ pour tout $t$. Puis calcule $\lVert\mathbf{A}^t\rVert_2$ pour $t = 0, \ldots, 40$ avec ta `operator_norm`, trace-la en échelle logarithmique avec $0{,}8^t$, et relève : e) le pas $t$ du maximum ; f) la valeur du maximum (2 décimales) ; g) le premier pas $t$ où $\lVert\mathbf{A}^t\rVert_2 < 1$. Ce qu'il faut observer : la valeur propre double 0,8 dit le long terme, pas les premiers pas ; la norme est multipliée par plus de 8 avant de décroître, et passe 20 pas au-dessus de 1.
 
-**M22.24 · 🔬 Des produits de matrices aléatoires : le taux de croissance.** Une plante vivace a deux stades, les graines dans le sol et les plantes en fleur : $\mathbf{x}_t = (\text{graines},\ \text{plantes})$. Une bonne année applique $\mathbf{G} = \begin{pmatrix} 0{,}2 & 3 \cr 0{,}6 & 0{,}4 \end{pmatrix}$, une mauvaise $\mathbf{M} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}2 & 0{,}2 \end{pmatrix}$, à pile ou face, indépendamment ; $n$ compte les années, c'est-à-dire les facteurs du produit $\mathbf{P}_n = \mathbf{A}_n\cdots\mathbf{A}_1$. Les années sont tirées par `rng = np.random.default_rng(5724)` puis `years = rng.integers(0, 2, size=20000)` (0 = bonne, 1 = mauvaise ; `years[k - 1]` donne $\mathbf{A}_k$). Mesure : a) $\ln\rho(\mathbb{E}[\mathbf{A}])$, avec $\mathbb{E}[\mathbf{A}] = \frac12(\mathbf{G} + \mathbf{M})$ (3 décimales) : $\mathbb{E}[\mathbf{P} _n] = \mathbb{E}[\mathbf{A}]^n$, la population **moyenne**, grandit à ce taux ; b) avec ta `product_norms`, sur les 200 premières années, $\frac{1}{200}\ln\lVert\mathbf{P} _{200}\rVert_2$ (3 décimales) ; c) sur les 20 000 années, en renormalisant à chaque pas (partir de $\mathbf{x} = \frac{1}{\sqrt2}(1, 1)$, puis, chaque année, $\mathbf{x} \leftarrow \mathbf{A}_k\mathbf{x}$, ajouter $\ln\lVert\mathbf{x}\rVert_2$ à un cumul, et diviser $\mathbf{x}$ par sa norme), le taux $\frac{1}{n}\sum\ln\lVert\mathbf{x}\rVert$ pour $n = 20\thinspace000$ (3 décimales) ; d) la majoration par les normes, $\mathbb{E}[\ln\lVert\mathbf{A}\rVert_2] = \frac12(\ln\lVert\mathbf{G}\rVert_2 + \ln\lVert\mathbf{M}\rVert_2)$ (3 décimales) ; e) le taux c) pour cinq autres suites d'années, tirées de la même façon avec les graines 5731 à 5735 (une liste de 5 nombres, 2 décimales) ; f) vrai ou faux : une trajectoire typique s'éteint, alors que la population moyenne grandit. Trace $\frac1n\ln\lVert\mathbf{P}_n\mathbf{x}_0\rVert$ contre $n$ (abscisse logarithmique) pour les six suites, avec les droites horizontales a) et d). Pourquoi ne pas utiliser `product_norms` sur les 20 000 années ? (Regarde l'ordre de grandeur de $\lVert\mathbf{P}_n\rVert$.) Ce qu'il faut conclure : le taux converge vers le même nombre négatif pour toutes les suites (Furstenberg et Kesten, fiche §5) ; la population typique s'éteint, alors que la moyenne grandit, tirée par de rares suites très chanceuses ; et ni $\ln\rho(\mathbb{E}[\mathbf{A}])$, ni la majoration par les normes ne donnent ce taux : c'est la version matricielle de la plante du §5.
+**M22.24 · 🔬 Des produits de matrices aléatoires : le taux de croissance.** Une plante vivace a deux stades, les graines dans le sol et les plantes en fleur : $\mathbf{x}_t = (\text{graines},\ \text{plantes})$. Une bonne année applique $`\mathbf{G} = \begin{pmatrix} 0{,}2 & 3 \cr 0{,}6 & 0{,}4 \end{pmatrix}`$, une mauvaise $`\mathbf{M} = \begin{pmatrix} 0{,}2 & 0{,}4 \cr 0{,}2 & 0{,}2 \end{pmatrix}`$, à pile ou face, indépendamment ; $n$ compte les années, c'est-à-dire les facteurs du produit $\mathbf{P}_n = \mathbf{A}_n\cdots\mathbf{A}_1$. Les années sont tirées par `rng = np.random.default_rng(5724)` puis `years = rng.integers(0, 2, size=20000)` (0 = bonne, 1 = mauvaise ; `years[k - 1]` donne $\mathbf{A}_k$). Mesure : a) $\ln\rho(\mathbb{E}[\mathbf{A}])$, avec $\mathbb{E}[\mathbf{A}] = \frac12(\mathbf{G} + \mathbf{M})$ (3 décimales) : $\mathbb{E}[\mathbf{P} _n] = \mathbb{E}[\mathbf{A}]^n$, la population **moyenne**, grandit à ce taux ; b) avec ta `product_norms`, sur les 200 premières années, $\frac{1}{200}\ln\lVert\mathbf{P} _{200}\rVert_2$ (3 décimales) ; c) sur les 20 000 années, en renormalisant à chaque pas (partir de $\mathbf{x} = \frac{1}{\sqrt2}(1, 1)$, puis, chaque année, $\mathbf{x} \leftarrow \mathbf{A}_k\mathbf{x}$, ajouter $\ln\lVert\mathbf{x}\rVert_2$ à un cumul, et diviser $\mathbf{x}$ par sa norme), le taux $\frac{1}{n}\sum\ln\lVert\mathbf{x}\rVert$ pour $n = 20\thinspace000$ (3 décimales) ; d) la majoration par les normes, $\mathbb{E}[\ln\lVert\mathbf{A}\rVert_2] = \frac12(\ln\lVert\mathbf{G}\rVert_2 + \ln\lVert\mathbf{M}\rVert_2)$ (3 décimales) ; e) le taux c) pour cinq autres suites d'années, tirées de la même façon avec les graines 5731 à 5735 (une liste de 5 nombres, 2 décimales) ; f) vrai ou faux : une trajectoire typique s'éteint, alors que la population moyenne grandit. Trace $\frac1n\ln\lVert\mathbf{P}_n\mathbf{x}_0\rVert$ contre $n$ (abscisse logarithmique) pour les six suites, avec les droites horizontales a) et d). Pourquoi ne pas utiliser `product_norms` sur les 20 000 années ? (Regarde l'ordre de grandeur de $\lVert\mathbf{P}_n\rVert$.) Ce qu'il faut conclure : le taux converge vers le même nombre négatif pour toutes les suites (Furstenberg et Kesten, fiche §5) ; la population typique s'éteint, alors que la moyenne grandit, tirée par de rares suites très chanceuses ; et ni $\ln\rho(\mathbb{E}[\mathbf{A}])$, ni la majoration par les normes ne donnent ce taux : c'est la version matricielle de la plante du §5.
 
-**M22.25 · 🎨 Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module.** $\mathbf{A} = \begin{pmatrix} 0 & -1 \cr 1 & 0{,}6 \end{pmatrix}$ a pour déterminant 1 et pour valeurs propres $e^{\pm i\theta}$, avec $\cos\theta = 0{,}3$. Pour $r = 0{,}6$, $0{,}93$, $1$ et $1{,}04$, calcule la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ depuis $\mathbf{x}_0 = (1, 0)$, pour $t = 0$ à 60, avec ta `linear_system_states` (une entrée nulle), et dessine les quatre trajectoires dans quatre panneaux côte à côte, avec des axes à la même échelle dans chaque panneau, les points reliés, et un titre qui donne $r$ et le module des valeurs propres. Dans un cinquième panneau, trace le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ contre $t$ pour les quatre valeurs de $r$, en échelle linéaire. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ reste borné et oscille au rythme de la rotation : $\lVert\mathbf{x}_t\rVert$ suit $r^t$ à un facteur près, qui oscille parce que la trajectoire est une ellipse et non un cercle. Pourquoi ne voit-on qu'une seule courbe dans le cinquième panneau ?
+**M22.25 · 🎨 Les spirales d'une récurrence 2 × 2 à valeurs propres complexes, selon leur module.** $`\mathbf{A} = \begin{pmatrix} 0 & -1 \cr 1 & 0{,}6 \end{pmatrix}`$ a pour déterminant 1 et pour valeurs propres $e^{\pm i\theta}$, avec $\cos\theta = 0{,}3$. Pour $r = 0{,}6$, $0{,}93$, $1$ et $1{,}04$, calcule la trajectoire $\mathbf{x}_t = (r\mathbf{A})^t\mathbf{x}_0$ depuis $\mathbf{x}_0 = (1, 0)$, pour $t = 0$ à 60, avec ta `linear_system_states` (une entrée nulle), et dessine les quatre trajectoires dans quatre panneaux côte à côte, avec des axes à la même échelle dans chaque panneau, les points reliés, et un titre qui donne $r$ et le module des valeurs propres. Dans un cinquième panneau, trace le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ contre $t$ pour les quatre valeurs de $r$, en échelle linéaire. Ce qu'il faut observer : la matrice tourne d'environ $\theta \approx 1{,}27$ rad (environ 72,5°) à chaque pas, un tour en un peu moins de 5 pas, dans un repère oblique ; le module des valeurs propres, $r$, décide seul : spirale qui rentre ($r < 1$), ellipse ($r = 1$), spirale qui sort ($r > 1$) ; et le rapport $\lVert\mathbf{x}_t\rVert_2 / r^t$ reste borné et oscille au rythme de la rotation : $\lVert\mathbf{x}_t\rVert$ suit $r^t$ à un facteur près, qui oscille parce que la trajectoire est une ellipse et non un cercle. Pourquoi ne voit-on qu'une seule courbe dans le cinquième panneau ?
 
 **M22.26 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe.
-- (1) `max_stretch(A)` doit rendre le plus grand facteur par lequel $\mathbf{A}$ peut allonger un vecteur, en norme 2 ; elle renvoie `np.abs(np.linalg.eigvals(A)).max()`, et il l'a vérifiée sur $\begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}$, pour laquelle elle rend 3. Il l'applique à $\begin{pmatrix} 2 & 3 \cr -1 & -2 \end{pmatrix}$.
-- (2) `trajectory_jacobian(jac, states)` doit rendre $\frac{\partial\mathbf{x}_T}{\partial\mathbf{x}_0} = \mathbf{J} _f(\mathbf{x} _{T-1})\cdots\mathbf{J}_f(\mathbf{x}_0)$ à partir de la fonction jacobienne `jac` et des états `states` $= [\mathbf{x} _0, \ldots, \mathbf{x} _{T-1}]$ ; elle part de $\mathbf{P} = \mathbf{I}$ et fait `P = P @ jac(x)` pour chaque état, dans l'ordre. Il l'a vérifiée sur l'application linéaire $\mathbf{x} \mapsto \begin{pmatrix} 0{,}6 & 0{,}2 \cr 0{,}1 & 0{,}3 \end{pmatrix}\mathbf{x}$. Il l'applique au modèle proie-prédateur $f(x, y) = (1{,}3\thinspace x - 0{,}1\thinspace xy,\ 0{,}8\thinspace y + 0{,}1\thinspace xy)$ ($x$ les proies, $y$ les prédateurs, en milliers), sur trois pas depuis $(4, 2)$.
-- (3) `cap_energy(V, masses, E)` reçoit les vitesses d'une flotte de drones, une ligne par drone (un tableau de forme $(p, 3)$, en m/s), et leurs masses $m_i$ (en kg), et doit rendre un **nouveau** tableau dont l'énergie cinétique de la flotte, $\frac12\sum_i m_i\lVert\mathbf{v}_i\rVert_2^2$, est au plus $E$ (en joules), sans changer la direction de l'ensemble ; elle multiplie chaque ligne dont l'énergie $\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2$ dépasse $E$ par $\sqrt{E / \big(\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2\big)}$. Il l'a vérifiée sur un seul drone de 1 kg, $\mathbf{V} = \begin{pmatrix} 5 & -4 & 2 \end{pmatrix}$, avec $E = 20$ J. Il l'applique à la flotte $\mathbf{V} = \begin{pmatrix} -2 & 1 & 2 \cr 5 & -4 & 2 \cr 6 & 2 & -3 \cr 0 & 0 & 2 \end{pmatrix}$, de masses $(2, 1, 1, 4)$ kg, avec $E = 20$ J.
+- (1) `max_stretch(A)` doit rendre le plus grand facteur par lequel $\mathbf{A}$ peut allonger un vecteur, en norme 2 ; elle renvoie `np.abs(np.linalg.eigvals(A)).max()`, et il l'a vérifiée sur $`\begin{pmatrix} 2 & 1 \cr 1 & 2 \end{pmatrix}`$, pour laquelle elle rend 3. Il l'applique à $`\begin{pmatrix} 2 & 3 \cr -1 & -2 \end{pmatrix}`$.
+- (2) `trajectory_jacobian(jac, states)` doit rendre $\frac{\partial\mathbf{x}_T}{\partial\mathbf{x}_0} = \mathbf{J} _f(\mathbf{x} _{T-1})\cdots\mathbf{J}_f(\mathbf{x}_0)$ à partir de la fonction jacobienne `jac` et des états `states` $= [\mathbf{x} _0, \ldots, \mathbf{x} _{T-1}]$ ; elle part de $\mathbf{P} = \mathbf{I}$ et fait `P = P @ jac(x)` pour chaque état, dans l'ordre. Il l'a vérifiée sur l'application linéaire $`\mathbf{x} \mapsto \begin{pmatrix} 0{,}6 & 0{,}2 \cr 0{,}1 & 0{,}3 \end{pmatrix}\mathbf{x}`$. Il l'applique au modèle proie-prédateur $f(x, y) = (1{,}3\thinspace x - 0{,}1\thinspace xy,\ 0{,}8\thinspace y + 0{,}1\thinspace xy)$ ($x$ les proies, $y$ les prédateurs, en milliers), sur trois pas depuis $(4, 2)$.
+- (3) `cap_energy(V, masses, E)` reçoit les vitesses d'une flotte de drones, une ligne par drone (un tableau de forme $(p, 3)$, en m/s), et leurs masses $m_i$ (en kg), et doit rendre un **nouveau** tableau dont l'énergie cinétique de la flotte, $\frac12\sum_i m_i\lVert\mathbf{v}_i\rVert_2^2$, est au plus $E$ (en joules), sans changer la direction de l'ensemble ; elle multiplie chaque ligne dont l'énergie $\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2$ dépasse $E$ par $\sqrt{E / \big(\frac12 m_i\lVert\mathbf{v}_i\rVert_2^2\big)}$. Il l'a vérifiée sur un seul drone de 1 kg, $`\mathbf{V} = \begin{pmatrix} 5 & -4 & 2 \end{pmatrix}`$, avec $E = 20$ J. Il l'applique à la flotte $`\mathbf{V} = \begin{pmatrix} -2 & 1 & 2 \cr 5 & -4 & 2 \cr 6 & 2 & -3 \cr 0 & 0 & 2 \end{pmatrix}`$, de masses $(2, 1, 1, 4)$ kg, avec $E = 20$ J.
 
-Trouve et corrige chaque erreur (la fonction (3) corrigée doit rendre une copie inchangée d'une flotte immobile, d'énergie nulle, sans division par 0), puis réponds : a) `max_stretch` corrigée, pour $\begin{pmatrix} 2 & 3 \cr -1 & -2 \end{pmatrix}$ (4 décimales) ; b) `trajectory_jacobian` corrigée, pour le modèle proie-prédateur (une matrice, 4 décimales) ; c) l'énergie de la flotte rendue par la version fausse de `cap_energy`, en joules (4 décimales) ; d) l'énergie rendue par la version corrigée ; e) la première ligne rendue par la version corrigée (4 décimales). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
+Trouve et corrige chaque erreur (la fonction (3) corrigée doit rendre une copie inchangée d'une flotte immobile, d'énergie nulle, sans division par 0), puis réponds : a) `max_stretch` corrigée, pour $`\begin{pmatrix} 2 & 3 \cr -1 & -2 \end{pmatrix}`$ (4 décimales) ; b) `trajectory_jacobian` corrigée, pour le modèle proie-prédateur (une matrice, 4 décimales) ; c) l'énergie de la flotte rendue par la version fausse de `cap_energy`, en joules (4 décimales) ; d) l'énergie rendue par la version corrigée ; e) la première ligne rendue par la version corrigée (4 décimales). Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
 
 **M22.27 · 🛠️ Un test de propriété.** Écris une fonction `property_test_27(norm)` qui reçoit une fonction de même signature que `operator_norm` et tire au hasard (graine 5727), 300 fois, trois tailles $m$, $k$, $n$ entre 1 et 5, une matrice $\mathbf{A}$ de forme $(m, k)$ et une matrice $\mathbf{B}$ de forme $(k, n)$ gaussiennes, puis une matrice carrée $\mathbf{S}$ de taille $k$, et qui vérifie, pour `ord` = 1, 2 et `np.inf` : $\lVert\mathbf{A}\mathbf{B}\rVert \le \lVert\mathbf{A}\rVert\thinspace\lVert\mathbf{B}\rVert$ et $\rho(\mathbf{S}) \le \lVert\mathbf{S}\rVert$, avec une marge relative de $10^{-12}$ pour l'arrondi, et un message d'échec qui dit d'abord ce qui était attendu, puis le cas fautif ($m$, $k$, $n$, `ord`). Ajoute un cas d'égalité : $\mathbf{B} = c\thinspace\mathbf{I}$, qui doit donner $\lVert\mathbf{A}\mathbf{B}\rVert = \lvert c\rvert\thinspace\lVert\mathbf{A}\rVert$. Lance ton test sur ta `operator_norm`, puis sur deux versions fausses fournies : `norm_frobenius`, qui rend la norme de Frobenius pour `ord=2`, et `norm_swapped`, qui échange les lignes et les colonnes (`ord=1` rend la plus grande somme d'une ligne, `ord=np.inf` celle d'une colonne). Constate que les deux versions fausses **passent** ton test, et explique pourquoi dans une cellule de texte. Ajoute alors deux propriétés qui les attrapent : $\lVert\mathbf{I}_n\rVert = 1$ pour $n \ge 2$, et $\lVert\mathbf{A}\mathbf{x}\rVert_p \le \lVert\mathbf{A}\rVert_p\thinspace\lVert\mathbf{x}\rVert_p$ pour les vecteurs de la base canonique et pour des vecteurs de signes $\pm1$. Ton test complété doit passer sur ta `operator_norm` et échouer sur chacune des deux versions fausses, avec un message qui permet de dire laquelle des propriétés a échoué. Ce qu'il faut retenir : ces deux propriétés valent pour toute norme sous-multiplicative, pas seulement pour les normes induites ; un test de propriété ne remplace pas un oracle, il faut choisir des propriétés qui **distinguent** la bonne fonction des fausses plausibles.
 

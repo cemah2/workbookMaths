@@ -282,7 +282,7 @@ Pour $\mathbf{T}$, triangulaire, lis la diagonale, puis résous $(\mathbf{T} - \
 </details>
 <details><summary>Indice 3</summary>
 
-f) $\mathbf{K} - 3\mathbf{I} = \begin{pmatrix} 3 & -3 & 3 \cr 1 & -1 & 1 \cr 0 & 0 & 0 \end{pmatrix}$ : son rang ?
+f) $`\mathbf{K} - 3\mathbf{I} = \begin{pmatrix} 3 & -3 & 3 \cr 1 & -1 & 1 \cr 0 & 0 & 0 \end{pmatrix}`$ : son rang ?
 
 </details>
 
@@ -295,12 +295,12 @@ Relis « Changer de base pour rendre la matrice diagonale » et « Les puissance
 </details>
 <details><summary>Indice 2</summary>
 
-$\lambda^2 - 3\lambda + 2 = 0$ ; $\mathbf{P} = \begin{pmatrix} 4 & 3 \cr 1 & 1 \end{pmatrix}$ a pour déterminant 1.
+$\lambda^2 - 3\lambda + 2 = 0$ ; $`\mathbf{P} = \begin{pmatrix} 4 & 3 \cr 1 & 1 \end{pmatrix}`$ a pour déterminant 1.
 
 </details>
 <details><summary>Indice 3</summary>
 
-e) $\mathbf{A}^{10} = \mathbf{P}\begin{pmatrix} 2^{10} & 0 \cr 0 & 1 \end{pmatrix}\mathbf{P}^{-1}$, avec $2^{10} = 1024$.
+e) $`\mathbf{A}^{10} = \mathbf{P}\begin{pmatrix} 2^{10} & 0 \cr 0 & 1 \end{pmatrix}\mathbf{P}^{-1}`$, avec $2^{10} = 1024$.
 
 </details>
 
@@ -318,7 +318,7 @@ $\operatorname{tr}\mathbf{N} = 4$ et $\det\mathbf{N} = 4$ : une racine double. P
 </details>
 <details><summary>Indice 3</summary>
 
-b) Le rang de $\mathbf{N} - 2\mathbf{I} = \begin{pmatrix} 3 & -9 \cr 1 & -3 \end{pmatrix}$. h) Six fois 60°.
+b) Le rang de $`\mathbf{N} - 2\mathbf{I} = \begin{pmatrix} 3 & -9 \cr 1 & -3 \end{pmatrix}`$. h) Six fois 60°.
 
 </details>
 
@@ -336,7 +336,7 @@ $\lambda^2 - 31\lambda + 30 = 0$. Un vecteur propre de 30 : $(\mathbf{S} - 30\ma
 </details>
 <details><summary>Indice 3</summary>
 
-Les directions $(2, 5)$ et $(5, -2)$, de norme $\sqrt{29}$. e) $\lambda_1\mathbf{q}_1\mathbf{q}_1^\top = \frac{30}{29}\begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}$.
+Les directions $(2, 5)$ et $(5, -2)$, de norme $\sqrt{29}$. e) $`\lambda_1\mathbf{q}_1\mathbf{q}_1^\top = \frac{30}{29}\begin{pmatrix} 4 & 10 \cr 10 & 25 \end{pmatrix}`$.
 
 </details>
 
@@ -390,7 +390,7 @@ Les mineurs principaux : les déterminants des sous-matrices en haut à gauche. 
 </details>
 <details><summary>Indice 3</summary>
 
-La hessienne en $(x, y)$ est $\begin{pmatrix} 2 + e^x & 2 \cr 2 & 6 \end{pmatrix}$ ; son déterminant vaut $8 + 6e^x$.
+La hessienne en $(x, y)$ est $`\begin{pmatrix} 2 + e^x & 2 \cr 2 & 6 \end{pmatrix}`$ ; son déterminant vaut $8 + 6e^x$.
 
 </details>
 
@@ -439,12 +439,12 @@ Relis « La covariance d'une transformation affine », « La racine carrée d'un
 </details>
 <details><summary>Indice 2</summary>
 
-b) $\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -2 \end{pmatrix}$. e) $\lambda^2 - 97\lambda + 1296 = 0$, et $1296 = 81 \times 16$.
+b) $`\mathbf{A} = \begin{pmatrix} 1 & 1 \cr 1 & -2 \end{pmatrix}`$. e) $\lambda^2 - 97\lambda + 1296 = 0$, et $1296 = 81 \times 16$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Les vecteurs propres sont $(2, -3)$ pour 81 et $(3, 2)$ pour 16, de norme $\sqrt{13}$ ; $\boldsymbol{\Sigma}^{1/2} = \frac{9}{13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{4}{13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix}$.
+Les vecteurs propres sont $(2, -3)$ pour 81 et $(3, 2)$ pour 16, de norme $\sqrt{13}$ ; $`\boldsymbol{\Sigma}^{1/2} = \frac{9}{13}\begin{pmatrix} 4 & -6 \cr -6 & 9 \end{pmatrix} + \frac{4}{13}\begin{pmatrix} 9 & 6 \cr 6 & 4 \end{pmatrix}`$.
 
 </details>
 

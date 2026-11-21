@@ -135,11 +135,15 @@ $$\mathcal{L}(\mathbf{x}, \boldsymbol{\lambda}) = f(\mathbf{x}) + \sum_{j=1}^m \
 Le cas le plus utile : un objectif quadratique et des contraintes affines,
 $$\min_{\mathbf{x}} \ \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} \quad \text{sous} \quad \mathbf{A}\mathbf{x} = \mathbf{b},$$
 avec $\mathbf{Q}$ symétrique $n \times n$, $\mathbf{A}$ de forme $(m, n)$. Le gradient de l'objectif est $\mathbf{Q}\mathbf{x} + \mathbf{c}$ (M12c.19), celui de la contrainte $j$ est la ligne $j$ de $\mathbf{A}$ : le lagrangien $\frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x} + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$ donne
-$$\mathbf{Q}\mathbf{x} + \mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda} = \mathbf{0}, \qquad \mathbf{A}\mathbf{x} = \mathbf{b} \qquad \Longleftrightarrow \qquad \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}.$$
+```math
+\mathbf{Q}\mathbf{x} + \mathbf{c} + \mathbf{A}^\top\boldsymbol{\lambda} = \mathbf{0}, \qquad \mathbf{A}\mathbf{x} = \mathbf{b} \qquad \Longleftrightarrow \qquad \begin{pmatrix} \mathbf{Q} & \mathbf{A}^\top \cr \mathbf{A} & \mathbf{0} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \boldsymbol{\lambda} \end{pmatrix} = \begin{pmatrix} -\mathbf{c} \cr \mathbf{b} \end{pmatrix}.
+```
 **Un seul système linéaire** de $n + m$ équations (M09a). Quand $\mathbf{Q}$ est définie positive et que les lignes de $\mathbf{A}$ sont indépendantes, la matrice par blocs est inversible : la solution est unique, et c'est le minimum (§5). C'est ce que calcule `lagrange_equality_qp` (🔨 M13b.25).
 
-**Exemple.** Le problème du §1 s'écrit ainsi avec $\mathbf{Q} = \begin{pmatrix} 2 & 0 \cr 0 & 6 \end{pmatrix}$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (1 \ \ 1)$, $b = 8$ :
-$$\begin{pmatrix} 2 & 0 & 1 \cr 0 & 6 & 1 \cr 1 & 1 & 0 \end{pmatrix}\begin{pmatrix} x \cr y \cr \lambda \end{pmatrix} = \begin{pmatrix} 0 \cr 0 \cr 8 \end{pmatrix}, \qquad (x, y, \lambda) = (6, 2, -12).$$
+**Exemple.** Le problème du §1 s'écrit ainsi avec $`\mathbf{Q} = \begin{pmatrix} 2 & 0 \cr 0 & 6 \end{pmatrix}`$, $\mathbf{c} = \mathbf{0}$, $\mathbf{A} = (1 \ \ 1)$, $b = 8$ :
+```math
+\begin{pmatrix} 2 & 0 & 1 \cr 0 & 6 & 1 \cr 1 & 1 & 0 \end{pmatrix}\begin{pmatrix} x \cr y \cr \lambda \end{pmatrix} = \begin{pmatrix} 0 \cr 0 \cr 8 \end{pmatrix}, \qquad (x, y, \lambda) = (6, 2, -12).
+```
 
 💻 **Aujourd'hui en pratique** — les solveurs de programmes quadratiques (ceux de `scipy.optimize`, les bibliothèques d'optimisation convexe) résolvent ce système par blocs, ou une version qui tient compte des inégalités (§3) ; personne n'élimine les variables à la main.
 
@@ -149,7 +153,7 @@ En M12c et M12d, le premier axe principal d'une matrice de covariance $\mathbf{C
 $$2\mathbf{C}\mathbf{u} - 2\lambda\mathbf{u} = \mathbf{0} \quad \Longleftrightarrow \quad \mathbf{C}\mathbf{u} = \lambda\mathbf{u} :$$
 les points critiques sont les **vecteurs propres unitaires** de $\mathbf{C}$, et le multiplicateur est la **valeur propre**. En un tel point, l'objectif vaut $\mathbf{u}^\top\mathbf{C}\mathbf{u} = \lambda\thinspace\mathbf{u}^\top\mathbf{u} = \lambda$ : le maximum est la plus grande valeur propre, atteint en son vecteur propre.
 
-**Exemple.** $\mathbf{C} = \begin{pmatrix} 10 & 3 \cr 3 & 2 \end{pmatrix}$ : trace 12, déterminant 11, valeurs propres 11 et 1. Pour 11 : $(10 - 11)u_1 + 3u_2 = 0$, donc $\mathbf{u} \propto (3, 1)$, et $\mathbf{C}(3, 1) = (33, 11) = 11\thinspace(3, 1)$. Le premier axe est $\frac{1}{\sqrt{10}}(3, 1)$, de variance 11 ; le point critique de valeur 1, $\frac{1}{\sqrt{10}}(-1, 3)$, est le minimum de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur le cercle unité.
+**Exemple.** $`\mathbf{C} = \begin{pmatrix} 10 & 3 \cr 3 & 2 \end{pmatrix}`$ : trace 12, déterminant 11, valeurs propres 11 et 1. Pour 11 : $(10 - 11)u_1 + 3u_2 = 0$, donc $\mathbf{u} \propto (3, 1)$, et $\mathbf{C}(3, 1) = (33, 11) = 11\thinspace(3, 1)$. Le premier axe est $\frac{1}{\sqrt{10}}(3, 1)$, de variance 11 ; le point critique de valeur 1, $\frac{1}{\sqrt{10}}(-1, 3)$, est le minimum de $\mathbf{u}^\top\mathbf{C}\mathbf{u}$ sur le cercle unité.
 
 Le deuxième axe s'obtient en ajoutant la contrainte $\mathbf{u} \cdot \mathbf{u}_1 = 0$, avec un second multiplicateur : ✏️ M13b.4 calcule ce multiplicateur, et l'on retombe sur le deuxième vecteur propre. MML §10.2 fait la même dérivation ; M12d.23 l'avait survolée.
 
@@ -408,7 +412,7 @@ par la série de l'exponentielle (M05a) : $\varphi_m(x) = e^{-\gamma x^2}\sqrt{(
 
 Si $k(\mathbf{x}, \mathbf{z}) = \varphi(\mathbf{x}) \cdot \varphi(\mathbf{z})$, toute matrice de Gram $\mathbf{K}$ est **symétrique** et **semi-définie positive** : pour tout vecteur $\mathbf{v}$, $\mathbf{v}^\top\mathbf{K}\mathbf{v} = \lVert\sum_i v_i\thinspace\varphi(\mathbf{x}_i)\rVert^2 \ge 0$ (comme $\mathbf{X}^\top\mathbf{X}$ en M12c.17 ; ∂ M13b.19). La réciproque est vraie (on l'admet) : une fonction symétrique dont toutes les matrices de Gram, sur tous les ensembles finis de points, sont semi-définies positives, est un noyau. C'est le critère pratique d'un **noyau valide**.
 
-Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n'en est pas un : pour deux points distincts à la distance $d$, sa matrice de Gram $\begin{pmatrix} 0 & d \cr d & 0 \end{pmatrix}$ a la valeur propre $-d < 0$. À l'inverse, la somme et le produit de deux noyaux sont des noyaux (∂ M13b.19), une constante positive aussi : c'est une façon de démontrer que le noyau polynomial en est un, sans écrire $\varphi$.
+Par exemple, $k(\mathbf{x}, \mathbf{z}) = \lVert\mathbf{x} - \mathbf{z}\rVert$ n'en est pas un : pour deux points distincts à la distance $d$, sa matrice de Gram $`\begin{pmatrix} 0 & d \cr d & 0 \end{pmatrix}`$ a la valeur propre $-d < 0$. À l'inverse, la somme et le produit de deux noyaux sont des noyaux (∂ M13b.19), une constante positive aussi : c'est une façon de démontrer que le noyau polynomial en est un, sans écrire $\varphi$.
 
 ⚠️ **Erreur classique.** Les fonctions de scikit-learn `sklearn.metrics.pairwise.rbf_kernel` et `polynomial_kernel` prennent par défaut $\gamma = 1/p$ (et `polynomial_kernel` un degré 3, avec un facteur $\gamma$ devant le produit scalaire) : comparer leurs sorties aux tiennes demande de passer les paramètres explicitement (📦 M13b.28).
 

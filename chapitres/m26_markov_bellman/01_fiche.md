@@ -81,7 +81,9 @@ Une boutique vend un article dont son étagère tient au plus deux exemplaires. 
 > un nombre qui ne dépend ni des états d'avant $t$ (la **propriété de Markov**, *Markov property*), ni de $t$. La **matrice de transition** (*transition matrix*) $\mathbf{P} = (p_{ij})$, de forme $(m, m)$, est **stochastique** (*stochastic matrix*) : $p_{ij} \ge 0$, et chaque ligne a pour somme 1, $\mathbf{P}\mathbf{1} = \mathbf{1}$.
 
 Pour la boutique, ligne $i$ = l'état du samedi, colonne $j$ = celui du samedi suivant :
-$$\mathbf{P} = \begin{pmatrix} 0 & 0 & 1 \cr 0{,}7 & 0{,}3 & 0 \cr 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}.$$
+```math
+\mathbf{P} = \begin{pmatrix} 0 & 0 & 1 \cr 0{,}7 & 0{,}3 & 0 \cr 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}.
+```
 
 La propriété de Markov est une hypothèse de modélisation. Elle tient ici parce que la demande d'une semaine ne dépend pas des précédentes et que la règle ne regarde que le stock du samedi. Si la boutique ne commandait qu'après deux samedis vides de suite, le stock seul ne suffirait plus : il faudrait mettre dans l'état le samedi précédent aussi.
 
@@ -154,11 +156,15 @@ La boutique est irréductible ($0 \to 2 \to 1 \to 0$) et apériodique (une boucl
 ### La vitesse : la deuxième valeur propre
 
 **Une chaîne à deux états, entièrement calculée.** Une machine est en marche (état 0) ou en panne (état 1). Chaque jour, une machine en marche tombe en panne avec la probabilité $a = 0{,}12$ ; une machine en panne est réparée avec la probabilité $b = 0{,}28$ :
-$$\mathbf{P} = \begin{pmatrix} 1 - a & a \cr b & 1 - b \end{pmatrix} = \begin{pmatrix} 0{,}88 & 0{,}12 \cr 0{,}28 & 0{,}72 \end{pmatrix}.$$
+```math
+\mathbf{P} = \begin{pmatrix} 1 - a & a \cr b & 1 - b \end{pmatrix} = \begin{pmatrix} 0{,}88 & 0{,}12 \cr 0{,}28 & 0{,}72 \end{pmatrix}.
+```
 - **La loi stationnaire.** $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$ se réduit à $a\thinspace\pi_0 = b\thinspace\pi_1$ (ce qui sort de l'état 0 compense ce qui y entre), d'où $\boldsymbol{\pi} = \big(\frac{b}{a+b}, \frac{a}{a+b}\big) = (0{,}7 ;\ 0{,}3)$ : la machine tourne 70 % du temps.
 - **Les valeurs propres.** La trace vaut $2 - a - b = 1{,}6$ et l'une des valeurs propres est 1, donc l'autre est $\lambda_2 = 1 - a - b = 0{,}6$ (le déterminant, $0{,}6336 - 0{,}0336 = 0{,}6$, le confirme).
 - **Les puissances.** Posons $\mathbf{E} = \mathbf{1}\boldsymbol{\pi}$, la matrice dont chaque ligne est $\boldsymbol{\pi}$. Elle vérifie $\mathbf{E}^2 = \mathbf{1}(\boldsymbol{\pi}\mathbf{1})\boldsymbol{\pi} = \mathbf{E}$, et l'on vérifie coefficient par coefficient que $\mathbf{P} = \mathbf{E} + \lambda_2(\mathbf{I} - \mathbf{E})$ (par exemple $0{,}7 + 0{,}6 \times 0{,}3 = 0{,}88$). Comme $\mathbf{E}(\mathbf{I} - \mathbf{E}) = (\mathbf{I} - \mathbf{E})\mathbf{E} = \mathbf{0}$ et $(\mathbf{I} - \mathbf{E})^2 = \mathbf{I} - \mathbf{E}$, une récurrence donne
-$$\mathbf{P}^n = \mathbf{1}\boldsymbol{\pi} + \lambda_2^n(\mathbf{I} - \mathbf{1}\boldsymbol{\pi}) = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}7 & 0{,}3 \end{pmatrix} + 0{,}6^n\begin{pmatrix} 0{,}3 & -0{,}3 \cr -0{,}7 & 0{,}7 \end{pmatrix}.$$
+```math
+\mathbf{P}^n = \mathbf{1}\boldsymbol{\pi} + \lambda_2^n(\mathbf{I} - \mathbf{1}\boldsymbol{\pi}) = \begin{pmatrix} 0{,}7 & 0{,}3 \cr 0{,}7 & 0{,}3 \end{pmatrix} + 0{,}6^n\begin{pmatrix} 0{,}3 & -0{,}3 \cr -0{,}7 & 0{,}7 \end{pmatrix}.
+```
 C'est la diagonalisation de M12c, regroupée par valeur propre.
 - **L'oubli du départ.** Depuis une machine en panne, $P(S_n = 0) = 0{,}7 - 0{,}7 \times 0{,}6^n$ ; depuis une machine en marche, $0{,}7 + 0{,}3 \times 0{,}6^n$. L'écart à la loi stationnaire est multiplié par $\lambda_2 = 0{,}6$ chaque jour. Pour qu'il passe sous 0,01 depuis le pire départ, il faut $0{,}7 \times 0{,}6^n \le 0{,}01$, soit $n \ge \frac{\ln 70}{\ln(1/0{,}6)} \approx 8{,}3$ (R6) : 9 jours.
 
@@ -213,7 +219,9 @@ La deuxième égalité est la propriété de Markov : sachant $S_1 = j$, l'état
 ### États absorbants et états transitoires
 
 Un état $i$ est **absorbant** (*absorbing state*) si $p_{ii} = 1$ : une fois là, on y reste. Un état est **transitoire** (*transient state*) si la chaîne, partie de lui, finit avec la probabilité 1 par le quitter pour toujours ; c'est le cas d'un état non absorbant d'où l'on peut atteindre un état absorbant. En rangeant les états transitoires d'abord,
-$$\mathbf{P} = \begin{pmatrix} \mathbf{Q} & \mathbf{B} \cr \mathbf{0} & \mathbf{I} \end{pmatrix},$$
+```math
+\mathbf{P} = \begin{pmatrix} \mathbf{Q} & \mathbf{B} \cr \mathbf{0} & \mathbf{I} \end{pmatrix},
+```
 où $\mathbf{Q}$ (transitoires vers transitoires) est **sous-stochastique** (*substochastic*) : des lignes de somme au plus 1, la masse manquante partant vers les états absorbants.
 
 **Exemple : un site marchand.** Un visiteur arrive sur l'accueil (état 1). Il passe à une fiche produit (état 2), au panier (état 3), et finit par un achat ou un départ, deux états absorbants :
@@ -221,7 +229,9 @@ où $\mathbf{Q}$ (transitoires vers transitoires) est **sous-stochastique** (*su
 - de la fiche produit : accueil 0,3, panier 0,4, départ 0,3 ;
 - du panier : achat 0,7, fiche produit 0,2, départ 0,1.
 
-$$\mathbf{Q} = \begin{pmatrix} 0 & 0{,}6 & 0 \cr 0{,}3 & 0 & 0{,}4 \cr 0 & 0{,}2 & 0 \end{pmatrix}, \qquad \mathbf{b} = \begin{pmatrix} 0 \cr 0 \cr 0{,}7 \end{pmatrix} \quad (\text{la colonne « achat » de } \mathbf{B}).$$
+```math
+\mathbf{Q} = \begin{pmatrix} 0 & 0{,}6 & 0 \cr 0{,}3 & 0 & 0{,}4 \cr 0 & 0{,}2 & 0 \end{pmatrix}, \qquad \mathbf{b} = \begin{pmatrix} 0 \cr 0 \cr 0{,}7 \end{pmatrix} \quad (\text{la colonne « achat » de } \mathbf{B}).
+```
 
 ### L'analyse au premier pas
 
@@ -241,7 +251,9 @@ L'idée de l'inversibilité : si la fin est possible depuis chaque état, une pu
 > **Propriété.** $\mathbf{N} = (\mathbf{I} - \mathbf{Q})^{-1} = \sum_{t \ge 0}\mathbf{Q}^t$, la **matrice fondamentale** (*fundamental matrix*), et $N_{ij}$ est l'espérance du nombre de visites à $j$ depuis $i$ (le départ compris). Donc $\mathbf{t} = \mathbf{N}\mathbf{1}$ et $\mathbf{h} = \mathbf{N}\mathbf{b}$.
 
 La série est la même série géométrique de matrices qu'au §5 (∂ M26.11 la démontre pour $\gamma\mathbf{P}$ ; ici, $\mathbf{Q}^t \to \mathbf{0}$ parce que la fin est possible). Pour les visites : le nombre de visites à $j$ est $\sum_t\mathbb{1}\lbrace S_t = j\rbrace$, d'espérance $\sum_t P(S_t = j \mid S_0 = i)$, et un chemin qui reste parmi les états transitoires n'utilise que des coefficients de $\mathbf{Q}$, donc $P(S_t = j \mid S_0 = i) = (\mathbf{Q}^t)_{ij}$. Le temps avant la fin est la somme des visites à tous les états transitoires ($\mathbf{t} = \mathbf{N}\mathbf{1}$), et chaque visite au panier mène à l'achat avec la probabilité 0,7 ($\mathbf{h} = \mathbf{N}\mathbf{b}$). Ici,
-$$\mathbf{N} = \frac{1}{37}\begin{pmatrix} 46 & 30 & 12 \cr 15 & 50 & 20 \cr 3 & 10 & 41 \end{pmatrix} :$$
+```math
+\mathbf{N} = \frac{1}{37}\begin{pmatrix} 46 & 30 & 12 \cr 15 & 50 & 20 \cr 3 & 10 & 41 \end{pmatrix} :
+```
 depuis l'accueil, $\frac{46}{37} \approx 1{,}24$ passages par l'accueil (l'arrivée comprise), $\frac{30}{37} \approx 0{,}811$ par une fiche produit et $0{,}32$ par le panier ; leur somme redonne $t_1 = \frac{88}{37}$, et $0{,}7 \times \frac{12}{37} = \frac{42}{185} = h_1$.
 
 ![Le site marchand : trois pages transitoires (accueil, fiche produit, panier) et deux états absorbants (achat, départ), avec les probabilités des flèches ; au-dessus de chaque page, la probabilité d'achat h et le nombre moyen de pages vues t : accueil h ≈ 0,227 et t ≈ 2,38, fiche produit h ≈ 0,378 et t ≈ 2,30, panier h ≈ 0,776 et t ≈ 1,46](figures/site_absorption.png)
@@ -287,7 +299,9 @@ Jusqu'ici, la boutique suivait une règle fixe. Elle pourrait en changer.
 > Une **politique** (*policy*) $\pi$ donne, dans chaque état, une loi sur les actions, $\pi(a \mid s)$. Elle est **déterministe** (*deterministic policy*) si elle choisit une action avec certitude, notée $\pi(s)$, et **stochastique** (*stochastic policy*) sinon ; la règle ε-greedy de M11 est stochastique.
 
 **La boutique.** Le samedi soir, deux actions. « Commander » (cmd) : l'étagère est complétée à deux articles après les ventes de la semaine, pour 5 € ; donc $\mathbf{P} _{\text{cmd}}$ a toutes ses lignes égales à $(0, 0, 1)$, et $r(s, \text{cmd}) = 10\thinspace\mathbb{E}[\min(s, Y)] - 5$, soit $-5$, $2$ et $4$ pour $s = 0, 1, 2$. « Attendre » (att) : $r(s, \text{att}, s') = 10\thinspace(s - s')$, et
-$$\mathbf{P} _{\text{att}} = \begin{pmatrix} 1 & 0 & 0 \cr 0{,}7 & 0{,}3 & 0 \cr 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}, \qquad r(s, \text{att}) = 0,\ 7,\ 9 .$$
+```math
+\mathbf{P} _{\text{att}} = \begin{pmatrix} 1 & 0 & 0 \cr 0{,}7 & 0{,}3 & 0 \cr 0{,}2 & 0{,}5 & 0{,}3 \end{pmatrix}, \qquad r(s, \text{att}) = 0,\ 7,\ 9 .
+```
 La récompense d'une commande dépend de la demande de la semaine, pas seulement de $(s, a, s')$ : seule sa moyenne $r(s, a)$ comptera pour la valeur. La règle du §1 est la politique déterministe $\pi(0) = \text{commander}$, $\pi(1) = \pi(2) = \text{attendre}$.
 
 > **La chaîne induite** (*induced Markov chain*). Sous une politique $\pi$ fixée, les états forment une chaîne de Markov de matrice et de récompenses

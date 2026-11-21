@@ -443,7 +443,7 @@ Pour la copie : Markov utilise la moyenne seule (elle gagne quand la moyenne est
 
 **Démarche.** Simulation : `x1 = rng.beta(a1, b1, size)`, `x2 = rng.beta(a2, b2, size)`, `float(np.mean(x2 > x1))`. Intégrale : $P(\theta_2 > \theta_1) = \int_0^1 f_2(x)\thinspace P(\theta_1 < x)\thinspace dx$, par `integrate.quad`. b) Pour $\theta_1$ uniforme, $P(\theta_1 < \theta_2) = \mathbb{E}[\theta_2] = \frac{2}{3}$. Pour la copie : $\mathrm{Beta}(4, 3)$, tirée de 5 essais, est très étalée (écart-type 0,17) ; $\mathrm{Beta}(13, 9)$ l'est moins (0,10) : leurs tirages se croisent souvent, et Thompson choisit l'option 2 presque une fois sur deux, ce qui l'aide à apprendre si elle vaut mieux. En e), l'option 2 a 58 essais : sa loi se resserre autour de 0,52, sous l'option 1, et la probabilité tombe à 0,27.
 
-**Erreurs fréquentes.** Tirer `x2` avant `x1` (d'autres tirages) ; la proportion des `x1 > x2` ; intégrer $f_1 F_2$ (on obtient $P(\theta_1 > \theta_2)$).
+**Erreurs fréquentes.** Tirer `x2` avant `x1` (d'autres tirages) ; la proportion des `x1 > x2` ; intégrer $f_1 F_2$ (on obtient $P(\theta_1 > \theta_2){}$).
 
 ### Ex M11.24 — Les bornes de Markov, de Tchebychev et de Hoeffding contre la vraie queue, en échelle log
 
@@ -465,7 +465,7 @@ Pour la copie : Markov utilise la moyenne seule (elle gagne quand la moyenne est
 
 **Réponse** : les vérifications automatiques au vert : ton test passe sur la vraie borne et échoue sur les deux fausses.
 
-**Démarche.** Un dictionnaire de dix lois gelées, positives, une boucle sur des seuils non entiers (pour qu'une loi à valeurs entières ait `sf(a)` $= P(X \ge a)$), un `assert bound >= tail - 1e-12, f"{name}, a = {a}: …"`. Les lois qui comptent : une loi à deux valeurs où Markov est presque atteinte (`stats.bernoulli(0.9)` au seuil 0,999 : la vraie valeur 0,9, la borne 0,901, la borne deux fois trop petite 0,45) et une loi à queue lourde (`stats.pareto(1.2)`, `stats.lognorm(1.5)`), dont la queue décroît plus lentement qu'une exponentielle. Pour la copie : les lois usuelles (exponentielle, uniforme, Poisson) ont des queues bien plus légères que $\frac{\mathbb{E}[X]}{a}$ ; même divisée par deux, une borne fausse reste au-dessus d'elles.
+**Démarche.** Un dictionnaire de dix lois gelées, positives, une boucle sur des seuils non entiers (pour qu'une loi à valeurs entières ait `sf(a)` $= P(X \ge a){}$), un `assert bound >= tail - 1e-12, f"{name}, a = {a}: …"`. Les lois qui comptent : une loi à deux valeurs où Markov est presque atteinte (`stats.bernoulli(0.9)` au seuil 0,999 : la vraie valeur 0,9, la borne 0,901, la borne deux fois trop petite 0,45) et une loi à queue lourde (`stats.pareto(1.2)`, `stats.lognorm(1.5)`), dont la queue décroît plus lentement qu'une exponentielle. Pour la copie : les lois usuelles (exponentielle, uniforme, Poisson) ont des queues bien plus légères que $\frac{\mathbb{E}[X]}{a}$ ; même divisée par deux, une borne fausse reste au-dessus d'elles.
 
 **Erreurs fréquentes.** Des seuils entiers avec `sf(a)` pour une loi discrète (on teste $P(X > a)$, plus petit : le test passerait à tort) ; utiliser dans le test un nom défini ailleurs dans le notebook ; seulement des lois « ordinaires ».
 

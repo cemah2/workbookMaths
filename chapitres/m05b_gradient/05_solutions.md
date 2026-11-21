@@ -269,7 +269,7 @@ Pour la copie : la baisse réelle (0,589) est un peu plus petite que la prévisi
 - f) et g) $f = (x - 1)^2 + y^2 - 1$ : $\arg\min f = (1, 0)$ et $\min f = -1$ sur tout le plan, un point qui n'est pas sur le segment.
 - h) $\nabla f = (2x - 2,\ 2y) = (1{,}2 ;\ 2{,}4)$ en $(1{,}6 ;\ 1{,}2)$, et $(1{,}2 ;\ 2{,}4) \cdot (4, -2) = 4{,}8 - 4{,}8 = 0$.
 
-Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal au segment ; autrement dit, la ligne de niveau de $f$ qui passe par ce point (un cercle de centre $(1, 0)$) y est **tangente** au segment. C'est le point du segment le plus proche de $(1, 0)$.
+Pour la copie : h) dit qu'au minimum sur le segment, le gradient est orthogonal au segment ; autrement dit, la ligne de niveau de $f$ qui passe par ce point (un cercle de centre $(1, 0){}$) y est **tangente** au segment. C'est le point du segment le plus proche de $(1, 0)$.
 
 **Erreurs fréquentes.** Une erreur en développant $(2 - 2t)^2$ ; donner $t$ au lieu du point en b), ou au lieu de $f$ en c) ; oublier de comparer les deux extrémités pour le maximum ; confondre le minimum sur le segment et le minimum sur le plan.
 
@@ -341,7 +341,7 @@ Pour la copie : chaque exemple pèse dans le gradient en proportion de **son err
 **Réponse modèle.**
 1. Une dérivée partielle est la limite du taux d'accroissement quand on ne fait varier qu'**une** coordonnée, les autres restant fixées. Le gradient rassemble les $n$ dérivées partielles dans un vecteur **ligne** : une matrice $1 \times n$ (le livre l'appelle aussi jacobienne de $f$).
 2. Avec $u = x - 3y^2$ : $\frac{\partial f}{\partial x} = 2(x - 3y^2)$ et $\frac{\partial f}{\partial y} = 2(x - 3y^2) \times (-6y) = -12y\thinspace(x - 3y^2)$.
-3. $\frac{\partial f}{\partial x_1} = 3x_1^2 x_2 - x_2^2$ et $\frac{\partial f}{\partial x_2} = x_1^3 - 2x_1x_2$ ; en $(1, 2)$ : $6 - 4 = 2$ et $1 - 4 = -3$, soit la ligne $\begin{pmatrix} 2 & -3 \end{pmatrix}$.
+3. $\frac{\partial f}{\partial x_1} = 3x_1^2 x_2 - x_2^2$ et $\frac{\partial f}{\partial x_2} = x_1^3 - 2x_1x_2$ ; en $(1, 2)$ : $6 - 4 = 2$ et $1 - 4 = -3$, soit la ligne $`\begin{pmatrix} 2 & -3 \end{pmatrix}`$.
 4. Par la règle du produit : $2x\thinspace(x - y) + (x^2 + y) \times 1 = 3x^2 - 2xy + y$. En développant d'abord, $x^3 - x^2y + xy - y^2$, dont la dérivée par rapport à $x$ est aussi $3x^2 - 2xy + y$.
 5. Par la règle : $\frac{df}{dt} = 2x_1 \times e^t + (-1) \times 2t = 2e^{2t} - 2t$. En remplaçant d'abord : $f = e^{2t} - t^2$, de dérivée $2e^{2t} - 2t$. Les deux calculs concordent.
 6. En ligne, la règle de la chaîne s'écrit comme un **produit de matrices** (des jacobiennes), dans le bon ordre et avec les bonnes dimensions, ce qui se généralise aux fonctions à valeurs vectorielles (M17, M18). Avec $\mathbf{x}$ en colonne, le pas de descente demande de transposer : $\mathbf{x} - \eta\thinspace(\nabla f)^\top$. Ce dépôt, comme la plupart des codes, écrit le gradient en colonne, de la même forme que $\mathbf{x}$.
@@ -413,7 +413,7 @@ Pour la copie : le long de $[PQ]$, les lignes se resserrent quand on va vers $Q$
 
 **Réponses** : a) `3` · b) `"-1/4"` · c) `-4` · d) `6` · e) `[4, 5]` · f) `"x**2 + 2*y - 1"`.
 
-**Démarche.** `x, y = sp.symbols("x y")`, `k = x**2*y + y**2 - y`, `sp.solve([sp.diff(k, x), sp.diff(k, y)], [x, y], dict=True)` donne les trois points, `sp.hessian(k, (x, y))` la matrice $\begin{pmatrix} 2y & 2x \cr 2x & 2 \end{pmatrix}$. Pour la copie :
+**Démarche.** `x, y = sp.symbols("x y")`, `k = x**2*y + y**2 - y`, `sp.solve([sp.diff(k, x), sp.diff(k, y)], [x, y], dict=True)` donne les trois points, `sp.hessian(k, (x, y))` la matrice $`\begin{pmatrix} 2y & 2x \cr 2x & 2 \end{pmatrix}`$. Pour la copie :
 
 | point | $k_{xx}$ | $k_{yy}$ | $k_{xy}$ | $D$ | nature |
 |---|---|---|---|---|---|

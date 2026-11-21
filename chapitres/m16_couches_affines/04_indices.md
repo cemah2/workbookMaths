@@ -378,7 +378,7 @@ Ajoute le rôle des signes aléatoires (§6) et la conséquence pour une moyenne
 
 <details><summary>Indice 1</summary>
 
-Fiche §2 : $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$.
+Fiche §2 : $`\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}`$.
 
 </details>
 <details><summary>Indice 2</summary>

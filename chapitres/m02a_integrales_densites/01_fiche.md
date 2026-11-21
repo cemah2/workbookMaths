@@ -78,7 +78,7 @@ Soit $f$ une fonction continue sur $[a ; b]$. On découpe l'intervalle en $n$ mo
 
 $$h = \frac{b - a}{n}, \qquad x_i = a + i\thinspace h \quad (i = 0, 1, \ldots, n),$$
 
-de sorte que $x_0 = a$ et $x_n = b$. Sur chaque morceau $[x_i ; x_{i+1}]$, on dresse un rectangle de largeur $h$ dont la hauteur est une valeur de $f$ : on la lit **à gauche** ($f(x_i)$), **à droite** ($f(x_{i+1})$) ou **au milieu** ($f\big(x_i + \frac{h}{2}\big)$). La somme des aires des $n$ rectangles est une **somme de Riemann** (*Riemann sum*) :
+de sorte que $x_0 = a$ et $x_n = b$. Sur chaque morceau $[x_i ; x_{i+1}]$, on dresse un rectangle de largeur $h$ dont la hauteur est une valeur de $f$ : on la lit **à gauche** ($f(x_i){}$), **à droite** ($f(x_{i+1}){}$) ou **au milieu** ($f\big(x_i + \frac{h}{2}\big){}$). La somme des aires des $n$ rectangles est une **somme de Riemann** (*Riemann sum*) :
 
 $$L_n = h \sum_{i=0}^{n-1} f(x_i), \qquad R_n = h \sum_{i=1}^{n} f(x_i), \qquad M_n = h \sum_{i=0}^{n-1} f\Big(x_i + \frac{h}{2}\Big).$$
 

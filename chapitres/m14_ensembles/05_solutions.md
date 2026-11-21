@@ -55,7 +55,7 @@
 1. $\mathbb{V}(aX + bY) = a^2\thinspace\mathbb{V}(X) + b^2\thinspace\mathbb{V}(Y) + 2ab\operatorname{Cov}(X, Y)$ ; $\mathbb{V}(3X - 2Y) = 18 + 12 - 6 = 24$.
 2. $\frac{2 + 3 + 2 \times 0{,}5}{4} = 1{,}5$, moins que la moyenne des variances, $2{,}5$.
 3. $\mathbb{V}(X) - \mathbb{V}(Y) = -1$ : par bilinéarité, $\operatorname{Cov}(X, Y)$ et $-\operatorname{Cov}(Y, X)$ s'annulent.
-4. $\begin{pmatrix} 2 & 0{,}5 \cr 0{,}5 & 3 \end{pmatrix}$. Symétrique, car $\operatorname{Cov}(X, Y) = \operatorname{Cov}(Y, X)$ ; semi-définie positive, car $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \mathbb{V}(w_1X + w_2Y) \ge 0$ pour tout $\mathbf{w}$.
+4. $`\begin{pmatrix} 2 & 0{,}5 \cr 0{,}5 & 3 \end{pmatrix}`$. Symétrique, car $\operatorname{Cov}(X, Y) = \operatorname{Cov}(Y, X)$ ; semi-définie positive, car $\mathbf{w}^\top\boldsymbol{\Sigma}\mathbf{w} = \mathbb{V}(w_1X + w_2Y) \ge 0$ pour tout $\mathbf{w}$.
 5. $\frac{0{,}5}{\sqrt{2 \times 3}} \approx 0{,}2041$.
 
 ### M14.R3 — Taylor et ln(1 + u) (M05a)

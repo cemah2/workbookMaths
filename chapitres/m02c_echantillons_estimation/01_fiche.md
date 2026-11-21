@@ -283,7 +283,7 @@ $$P\big(\lvert \bar{X}_n - \mu \rvert \ge \varepsilon\big) \le \frac{\sigma^2}{n
 
 > **Loi des grands nombres** (*law of large numbers*). Si $X_1, X_2, \ldots$ sont i.i.d. d'espérance $\mu$ et de variance finie, alors pour tout $\varepsilon > 0$, $P\big(\lvert \bar{X}_n - \mu \rvert \ge \varepsilon\big) \to 0$ quand $n \to +\infty$ : la moyenne de l'échantillon se rapproche de l'espérance.
 
-Cas particulier : si $X_i$ vaut 1 quand un événement $A$ se produit et 0 sinon (une Bernoulli de paramètre $P(A)$), $\bar{X}_n$ est la **fréquence** de $A$ sur $n$ essais, et elle tend vers $P(A)$. C'est le résultat que R8 avait observé.
+Cas particulier : si $X_i$ vaut 1 quand un événement $A$ se produit et 0 sinon (une Bernoulli de paramètre $P(A){}$), $\bar{X}_n$ est la **fréquence** de $A$ sur $n$ essais, et elle tend vers $P(A)$. C'est le résultat que R8 avait observé.
 
 **Exemple : la méthode de Monte-Carlo.** Pour estimer l'aire sous la parabole $y = x^2$ entre 0 et 1 (elle vaut $\frac{1}{3}$, M02a), on tire $n$ points $(u, v)$ uniformes dans le carré $[0 ; 1]^2$ et on compte la proportion de points sous la courbe ($v < u^2$). Chaque point est une Bernoulli de paramètre $p = \frac{1}{3}$, d'écart-type $\sigma = \sqrt{p(1 - p)} = \frac{\sqrt{2}}{3} \approx 0{,}471$. Avec $n = 10\thinspace000$ points, la proportion a pour écart-type $\frac{0{,}471}{100} \approx 0{,}0047$. Bienaymé-Tchebychev garantit :
 
@@ -533,11 +533,13 @@ Avec $p$ variables $X_1, \ldots, X_p$ (les $p$ features d'un dataset), on range 
 
 $$\Sigma_{ij} = \operatorname{Cov}(X_i, X_j).$$
 
-Sa diagonale contient les **variances** ($\Sigma_{ii} = \mathbb{V}(X_i)$), et elle est **symétrique** ($\Sigma_{ij} = \Sigma_{ji}$). En divisant chaque case par $\sigma_i\sigma_j$, on obtient la **matrice de corrélation**, qui a des 1 sur la diagonale.
+Sa diagonale contient les **variances** ($\Sigma_{ii} = \mathbb{V}(X_i){}$), et elle est **symétrique** ($\Sigma_{ij} = \Sigma_{ji}$). En divisant chaque case par $\sigma_i\sigma_j$, on obtient la **matrice de corrélation**, qui a des 1 sur la diagonale.
 
 Exemple : trois features d'un dataset, de matrice de covariance
 
-$$\boldsymbol{\Sigma} = \begin{pmatrix} 49 & 30 & 5 \cr 30 & 100 & -8 \cr 5 & -8 & 16 \end{pmatrix}.$$
+```math
+\boldsymbol{\Sigma} = \begin{pmatrix} 49 & 30 & 5 \cr 30 & 100 & -8 \cr 5 & -8 & 16 \end{pmatrix}.
+```
 
 Les écarts-types sont $\sqrt{49} = 7$, $\sqrt{100} = 10$, $\sqrt{16} = 4$ ; les corrélations $\rho_{12} = \frac{30}{7 \times 10} \approx 0{,}429$, $\rho_{13} = \frac{5}{7 \times 4} \approx 0{,}179$ et $\rho_{23} = \frac{-8}{10 \times 4} = -0{,}2$. Les features 1 et 2 montent ensemble ; les features 2 et 3 varient un peu en sens contraire.
 

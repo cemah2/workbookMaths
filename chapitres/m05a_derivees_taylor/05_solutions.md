@@ -43,7 +43,7 @@
 ### M05a.Q5 — Différence avant ou centrée ?
 1. Avant : **ordre 1** (erreur en $h$) ; centrée : **ordre 2** (erreur en $h^2$).
 2. Par environ **100** ($10^2$).
-3. Dans $f(x + h) - f(x - h)$, les termes de Taylor de degré pair en $h$ ($f(x)$ et $\frac{h^2}{2}f''(x)$) s'annulent ; l'erreur commence au terme en $h^2 f'''$ après division par $2h$. La différence avant garde le terme $\frac{h}{2}f''(x)$.
+3. Dans $f(x + h) - f(x - h)$, les termes de Taylor de degré pair en $h$ ($f(x)$ et $\frac{h^2}{2}f''(x){}$) s'annulent ; l'erreur commence au terme en $h^2 f'''$ après division par $2h$. La différence avant garde le terme $\frac{h}{2}f''(x)$.
 4. **Vrai** : $\frac{(x + h)^2 - (x - h)^2}{2h} = \frac{4xh}{2h} = 2x$, car $f''' = 0$.
 5. $\frac{4D(h/2) - D(h)}{3}$, d'**ordre 4**.
 6. **Vrai** : $f'' = 0$, donc le terme d'erreur est nul (la sécante d'une droite est la droite elle-même).
@@ -115,7 +115,7 @@
 
 Pour la copie : avec $\ln$ et les points 1 et 3, $\frac{\ln 1 + \ln 3}{2} - \ln 2 \approx 0{,}5493 - 0{,}6931 = -0{,}1438 < 0$ : pour une fonction concave, la corde est au-dessous.
 
-**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; oublier un des deux termes de la dérivée du produit $2x\thinspace e^{x^2}$ en d) ; répondre `True` en e) parce que $\frac{1}{1 + x^2}$ est positive ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2)$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
+**Erreurs fréquentes.** Oublier le facteur 2 de la dérivée de $e^{2x}$ (a) ; donner l'intervalle où $g'' > 0$ en b) ; prendre les points critiques de $g$ ($0$, $\pm\sqrt{3}$) pour ses points d'inflexion ; oublier un des deux termes de la dérivée du produit $2x\thinspace e^{x^2}$ en d) ; répondre `True` en e) parce que $\frac{1}{1 + x^2}$ est positive ; écrire $h''(2) = \ln 2 + 1$ (c'est $h'(2){}$) ; annuler $f'$ au lieu de $f''$ en g) ($k = -3$).
 
 **Variante.** Sur quel intervalle $x^3 - 6x^2 + 2$ est-elle convexe ? *Réponse* : $f''(x) = 6x - 12 \ge 0 \iff x \ge 2$ : sur $[2, +\infty[$, avec un point d'inflexion en 2.
 

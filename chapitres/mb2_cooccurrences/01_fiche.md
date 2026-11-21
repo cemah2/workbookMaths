@@ -233,7 +233,9 @@ $$\mathbf{M} _k = \sum _{i=1}^{k}s_i\thinspace\mathbf{u}_i\mathbf{v}_i^\top = \m
 est la **SVD tronquée** (*truncated SVD*), la meilleure approximation de rang $k$ au sens de la norme de Frobenius, d'erreur au carré $\sum _{i > k}s_i^2$ (Eckart-Young, M12d §3). Ce sont `svd` et `low_rank_approximation` de M12d, avec leur convention de signe : la coordonnée de plus grande valeur absolue de chaque $\mathbf{v}_i$ est positive.
 
 **Exemple : trois mangeoires.** Un matin, on compte les visites de trois espèces (verdier, chardonneret, sittelle) à trois mangeoires A, B et C, de la plus proche des maisons à la plus proche du bois :
-$$\mathbf{M} = \begin{pmatrix} 8 & 9 & 10 \cr 4 & 8 & 12 \cr 0 & 7 & 14 \end{pmatrix}.$$
+```math
+\mathbf{M} = \begin{pmatrix} 8 & 9 & 10 \cr 4 & 8 & 12 \cr 0 & 7 & 14 \end{pmatrix}.
+```
 La ligne B est la moyenne des lignes A et C : $\mathbf{M}$ est de rang 2. Sa SVD compacte a pour valeurs singulières $s_1 = 4\sqrt{42} \approx 25{,}92$ et $s_2 = \sqrt{42} \approx 6{,}48$, avec
 $$\mathbf{u}_1 = \tfrac{1}{\sqrt3}(1, 1, 1), \quad \mathbf{u}_2 = \tfrac{1}{\sqrt2}(1, 0, -1), \qquad \mathbf{v}_1 = \tfrac{1}{\sqrt{14}}(1, 2, 3), \quad \mathbf{v} _2 = \tfrac{1}{\sqrt{21}}(4, 1, -2).$$
 Vérifie une case : $M _{A,\text{verdier}} = 4\sqrt{42}\cdot\frac{1}{\sqrt3}\cdot\frac{1}{\sqrt{14}} + \sqrt{42}\cdot\frac{1}{\sqrt2}\cdot\frac{4}{\sqrt{21}} = 4 + 4 = 8$. La première couche, $s_1\mathbf{u}_1\mathbf{v}_1^\top = 4\thinspace(1, 1, 1)^\top(1, 2, 3)$, répète la ligne $(4, 8, 12)$, la moyenne des trois lignes ; son erreur au carré vaut $s_2^2 = 42$.
@@ -366,9 +368,13 @@ En effet $\mathbf{r} _\mathbf{x} - \mathbf{r} _\mathbf{y}$ est le reste de $\mat
 ### Estimer la direction : le premier axe de différences
 
 Souvent, la direction n'est pas donnée : on l'estime. Chez les poissons d'un même étang, la masse croît à peu près comme le cube de la longueur : en logarithmes, $\ln m \approx 3\ln L + \text{constante}$. C'est une **allométrie** (*allometry*). Mesurons trois paires de truites, chaque fois une petite et une grande, en $(\ln L, \ln m)$, avec $L$ en cm et $m$ en g. Les trois différences « grande − petite » forment les lignes de
-$$\mathbf{D} = \begin{pmatrix} 0{,}08 & 0{,}14 \cr 0{,}10 & 0{,}30 \cr 0{,}02 & 0{,}16 \end{pmatrix}.$$
+```math
+\mathbf{D} = \begin{pmatrix} 0{,}08 & 0{,}14 \cr 0{,}10 & 0{,}30 \cr 0{,}02 & 0{,}16 \end{pmatrix}.
+```
 Le **premier axe** des différences est la direction unitaire $\mathbf{u}$ qui rend $\sum_i(\mathbf{d}_i\cdot\mathbf{u})^2 = \mathbf{u}^\top\mathbf{D}^\top\mathbf{D}\thinspace\mathbf{u}$ maximal : un vecteur propre unitaire de la plus grande valeur propre de $\mathbf{D}^\top\mathbf{D}$, comme l'axe principal de M12d, mais sans centrage, car une différence nulle a un sens. Ici
-$$\mathbf{D}^\top\mathbf{D} = \begin{pmatrix} 0{,}0168 & 0{,}0444 \cr 0{,}0444 & 0{,}1352 \end{pmatrix}, \qquad \mathbf{D}^\top\mathbf{D}\begin{pmatrix} 1 \cr 3 \end{pmatrix} = \begin{pmatrix} 0{,}15 \cr 0{,}45 \end{pmatrix} = 0{,}15\begin{pmatrix} 1 \cr 3 \end{pmatrix} :$$
+```math
+\mathbf{D}^\top\mathbf{D} = \begin{pmatrix} 0{,}0168 & 0{,}0444 \cr 0{,}0444 & 0{,}1352 \end{pmatrix}, \qquad \mathbf{D}^\top\mathbf{D}\begin{pmatrix} 1 \cr 3 \end{pmatrix} = \begin{pmatrix} 0{,}15 \cr 0{,}45 \end{pmatrix} = 0{,}15\begin{pmatrix} 1 \cr 3 \end{pmatrix} :
+```
 $\mathbf{u} = \frac{1}{\sqrt{10}}(1, 3)$, de valeur propre 0,15 ; l'autre vaut $0{,}1520 - 0{,}15 = 0{,}002$ (la trace). La pente 3 de l'allométrie est retrouvée. Quand les différences sont peu nombreuses et les coordonnées très nombreuses, on forme plutôt leur matrice de Gram $\mathbf{D}\mathbf{D}^\top$, la plus petite des deux (M28) : elle a les mêmes valeurs propres non nulles, et si $\mathbf{g}$ est un vecteur propre de sa plus grande valeur propre, l'axe est dirigé par $\mathbf{D}^\top\mathbf{g}$.
 
 ### Ce qui reste

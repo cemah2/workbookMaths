@@ -52,7 +52,7 @@ Vocabulaire anglais de ce chapitre : *affine map*, *row vector*, *column vector*
 
 1. Une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$, en **lignes** : $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$, avec $\mathbf{x}$ de forme $(n,)$, $\mathbf{W}$ de forme $(n, m)$ (une colonne par sortie), $\mathbf{b}$ de forme $(m,)$ ; en **colonnes** (MML), la matrice est $\mathbf{W}^\top$, de forme $(m, n)$. Elle a $nm + m$ paramètres.
 2. $N$ points rangés en lignes dans $\mathbf{X}$, de forme $(N, n)$ : leurs images sont les lignes de $\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top$, de forme $(N, m)$ ; chaque ligne est calculée seule.
-3. **Coordonnées homogènes** : $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$. Faire $f_1$ puis $f_2$, c'est multiplier par $\mathbf{H}_1\mathbf{H}_2$ ; l'ordre compte.
+3. **Coordonnées homogènes** : $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$ avec $`\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}`$. Faire $f_1$ puis $f_2$, c'est multiplier par $\mathbf{H}_1\mathbf{H}_2$ ; l'ordre compte.
 4. **Matrice d'adjacence** d'un graphe orienté : $A_{ij} = 1$ s'il y a une arête $i \to j$. Les sommes des lignes sont les degrés sortants, celles des colonnes les degrés entrants.
 5. $(\mathbf{A}^k)_{ij}$ est le **nombre de chemins** de longueur $k$ (de $k$ arêtes) de $i$ à $j$ ; avec des poids, la somme, sur ces chemins, des produits des poids.
 6. Un graphe à $n$ nœuds est **sans cycle** si et seulement si $\mathbf{A}^n = \mathbf{0}$ (**nilpotente**), si et seulement si on peut numéroter ses nœuds pour que toutes les arêtes aillent vers un numéro plus grand : $\mathbf{A}$ devient **strictement triangulaire supérieure**.
@@ -74,7 +74,9 @@ Le coefficient $W _{jk}$ est le poids de l'entrée $j$ dans la sortie $k$ : la *
 **En colonnes** (la convention de MML) : $\mathbf{x}$ est une colonne, et $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ avec $\mathbf{A}$ de forme $(m, n)$. Comme $(\mathbf{x}\mathbf{W})^\top = \mathbf{W}^\top\mathbf{x}^\top$ (M09a §4), les deux écritures donnent la même application si et seulement si $\mathbf{A} = \mathbf{W}^\top$.
 
 **Exemple.** $f(x_1, x_2) = (x_1 + x_2,\ 2x_1 - 1,\ -3x_2 + 4)$, de $\mathbb{R}^2$ dans $\mathbb{R}^3$. Chaque sortie lit ses coefficients dans une colonne :
-$$\mathbf{W} = \begin{pmatrix} 1 & 2 & 0 \cr 1 & 0 & -3 \end{pmatrix}\ (2, 3), \qquad \mathbf{b} = (0, -1, 4), \qquad \mathbf{A} = \mathbf{W}^\top = \begin{pmatrix} 1 & 1 \cr 2 & 0 \cr 0 & -3 \end{pmatrix}\ (3, 2).$$
+```math
+\mathbf{W} = \begin{pmatrix} 1 & 2 & 0 \cr 1 & 0 & -3 \end{pmatrix}\ (2, 3), \qquad \mathbf{b} = (0, -1, 4), \qquad \mathbf{A} = \mathbf{W}^\top = \begin{pmatrix} 1 & 1 \cr 2 & 0 \cr 0 & -3 \end{pmatrix}\ (3, 2).
+```
 Pour $\mathbf{x} = (3, -2)$ : $\mathbf{x}\mathbf{W} = (3 - 2,\ 6 + 0,\ 0 + 6) = (1, 6, 6)$, et $f(\mathbf{x}) = (1, 5, 10)$.
 
 📐 **Notations.** Comme workbookIA, cette fiche range les points **en lignes** et écrit $\mathbf{x}\mathbf{W} + \mathbf{b}$ ; MML et M12a écrivent $\mathbf{A}\mathbf{x} + \mathbf{b}$ avec des colonnes. Pour passer de l'une à l'autre, on transpose la matrice ; l'ordre des produits s'inverse quand on compose (§2). Deux pièges de lettres : workbookIA appelle $n$ le nombre d'exemples et $n_{\text{in}}$, $n_{\text{out}}$ les dimensions, si bien que notre $(N, n, m)$ y devient $(n, n_{\text{in}}, n_{\text{out}})$ ; et la matrice en colonnes, notée ici $\mathbf{A} = \mathbf{W}^\top$, s'appelle souvent $\mathbf{W}$ elle aussi (dans PyTorch, le poids de `nn.Linear` a la forme (sorties, entrées)) : seule la forme dit dans quelle convention on est. À partir du §3, $\mathbf{A}$ désigne une matrice d'adjacence.
@@ -88,7 +90,9 @@ Une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ est déterminée pa
 Pour $N$ points rangés en lignes dans une matrice $\mathbf{X}$ de forme $(N, n)$, les images sont les lignes de
 $$\mathbf{X}\mathbf{W} + \mathbf{1}\mathbf{b}^\top \qquad (N, n) \times (n, m) \to (N, m),$$
 où $\mathbf{1}\mathbf{b}^\top$, produit d'une colonne de $N$ uns par la ligne $\mathbf{b}^\top$ (dans une formule matricielle, un vecteur $\mathbf{b}$ de forme $(m,)$ se lit comme une colonne, et $\mathbf{b}^\top$ est la ligne correspondante, comme dans MML), est la matrice $(N, m)$ dont **toutes les lignes valent** $\mathbf{b}$. NumPy écrit simplement `X @ W + b` : la **diffusion** (*broadcasting*, workbookIA 0A) recopie $\mathbf{b}$ sur chaque ligne. La ligne $i$ du résultat ne dépend que de la ligne $i$ de $\mathbf{X}$ : traiter $N$ points ensemble, c'est faire $N$ calculs indépendants en un seul produit, pour $Nnm$ multiplications (M09a §3). Pour l'exemple, avec les points $(3, -2)$ et $(0, 1)$ :
-$$\begin{pmatrix} 3 & -2 \cr 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b}^\top = \begin{pmatrix} 1 & 6 & 6 \cr 1 & 0 & -3 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 4 \cr 0 & -1 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 5 & 10 \cr 1 & -1 & 1 \end{pmatrix}.$$
+```math
+\begin{pmatrix} 3 & -2 \cr 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b}^\top = \begin{pmatrix} 1 & 6 & 6 \cr 1 & 0 & -3 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 4 \cr 0 & -1 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 5 & 10 \cr 1 & -1 & 1 \end{pmatrix}.
+```
 
 ⚠️ **Erreur classique.** Ranger $\mathbf{W}$ dans la mauvaise convention. Si $\mathbf{W}$ est rangée $(m, n)$ et qu'on calcule `x @ W`, NumPy refuse dès que $m \ne n$ ; mais si l'application va de $\mathbb{R}^n$ dans lui-même ($m = n$), le calcul **passe sans erreur** et donne une autre application (celle de $\mathbf{W}^\top$). Vérifie toujours une sortie sur un point dont tu connais l'image (🧠 M16.Q1).
 
@@ -99,22 +103,26 @@ $$\begin{pmatrix} 3 & -2 \cr 0 & 1 \end{pmatrix}\mathbf{W} + \mathbf{1}\mathbf{b
 ### Une application affine devient linéaire
 
 L'astuce du biais de M10 (le biais comme une coordonnée en plus) va plus loin. On ajoute à chaque point la coordonnée 1, cette fois **en dernier** (M10 la mettait en premier) : $\mathbf{x} \in \mathbb{R}^n$ devient la ligne $[\mathbf{x}, 1]$ de $\mathbb{R}^{n+1}$ ; ce sont ses **coordonnées homogènes** (*homogeneous coordinates*). Alors
-$$[\mathbf{x}, 1]\begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix} = [\mathbf{x}\mathbf{W} + \mathbf{b},\ 1].$$
-La matrice $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$, de forme $(n + 1, m + 1)$, s'appelle la **matrice homogène** (ou augmentée) de $f$ : $\mathbf{W}$ en haut à gauche, une colonne de zéros à droite, la ligne $\mathbf{b}$ en bas, suivie de 1. L'application affine $f$ est devenue une application **linéaire** de $\mathbb{R}^{n+1}$ dans $\mathbb{R}^{m+1}$, qui garde la dernière coordonnée égale à 1.
+```math
+[\mathbf{x}, 1]\begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix} = [\mathbf{x}\mathbf{W} + \mathbf{b},\ 1].
+```
+La matrice $`\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}`$, de forme $(n + 1, m + 1)$, s'appelle la **matrice homogène** (ou augmentée) de $f$ : $\mathbf{W}$ en haut à gauche, une colonne de zéros à droite, la ligne $\mathbf{b}$ en bas, suivie de 1. L'application affine $f$ est devenue une application **linéaire** de $\mathbb{R}^{n+1}$ dans $\mathbb{R}^{m+1}$, qui garde la dernière coordonnée égale à 1.
 
 ### Composer, c'est multiplier
 
 Faire $f_1$, puis $f_2$ : $[\mathbf{x}, 1] \mapsto [\mathbf{x}, 1]\mathbf{H}_1 \mapsto \big([\mathbf{x}, 1]\mathbf{H}_1\big)\mathbf{H}_2 = [\mathbf{x}, 1]\thinspace(\mathbf{H}_1\mathbf{H}_2)$, par associativité du produit matriciel. Le produit $\mathbf{H}_1\mathbf{H}_2$ a encore la même forme (une colonne $(0, \ldots, 0, 1)$ à droite) : la composée $f_2 \circ f_1$ est affine, et sa matrice homogène est $\mathbf{H}_1\mathbf{H}_2$. Avec des lignes, la première application appliquée est à **gauche**.
 
 **Exemple.** $f_1$ : un cisaillement $(x, y) \mapsto (x + 2y,\ y)$ suivi de la translation de vecteur $(0, 1)$ ; $f_2$ : l'homothétie de rapport 3 suivie de la translation de vecteur $(-1, 0)$.
-$$\mathbf{H}_1 = \begin{pmatrix} 1 & 0 & 0 \cr 2 & 1 & 0 \cr 0 & 1 & 1 \end{pmatrix}, \qquad \mathbf{H}_2 = \begin{pmatrix} 3 & 0 & 0 \cr 0 & 3 & 0 \cr -1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{H}_1\mathbf{H}_2 = \begin{pmatrix} 3 & 0 & 0 \cr 6 & 3 & 0 \cr -1 & 3 & 1 \end{pmatrix}.$$
+```math
+\mathbf{H}_1 = \begin{pmatrix} 1 & 0 & 0 \cr 2 & 1 & 0 \cr 0 & 1 & 1 \end{pmatrix}, \qquad \mathbf{H}_2 = \begin{pmatrix} 3 & 0 & 0 \cr 0 & 3 & 0 \cr -1 & 0 & 1 \end{pmatrix}, \qquad \mathbf{H}_1\mathbf{H}_2 = \begin{pmatrix} 3 & 0 & 0 \cr 6 & 3 & 0 \cr -1 & 3 & 1 \end{pmatrix}.
+```
 Donc $(f_2 \circ f_1)(x, y) = (3x + 6y - 1,\ 3y + 3)$. Vérification sur le point $(1, 1)$ : $f_1(1, 1) = (3, 2)$, puis $f_2(3, 2) = (8, 6)$ ; et $[1, 1, 1]\thinspace\mathbf{H}_1\mathbf{H}_2 = (3 + 6 - 1,\ 3 + 3,\ 1) = (8, 6, 1)$.
 
 ![Une petite maison, son image par f₁ (cisaillement puis translation), puis par f₂ ∘ f₁ : chaque image se lit sur la matrice homogène](figures/coordonnees_homogenes.png)
 
-**L'ordre compte.** $\mathbf{H}_2\mathbf{H}_1 = \begin{pmatrix} 3 & 0 & 0 \cr 6 & 3 & 0 \cr -1 & 1 & 1 \end{pmatrix}$ : faire $f_2$ d'abord envoie $(1, 1)$ sur $(2, 3)$, puis $f_1$ sur $(8, 4)$. Les deux translations ne sont pas transformées de la même façon.
+**L'ordre compte.** $`\mathbf{H}_2\mathbf{H}_1 = \begin{pmatrix} 3 & 0 & 0 \cr 6 & 3 & 0 \cr -1 & 1 & 1 \end{pmatrix}`$ : faire $f_2$ d'abord envoie $(1, 1)$ sur $(2, 3)$, puis $f_1$ sur $(8, 4)$. Les deux translations ne sont pas transformées de la même façon.
 
-**Inverser.** Si $\mathbf{W}$ est carrée et inversible, $f$ est bijective (M12a §8), et la matrice homogène de $f^{-1}$ est $\mathbf{H}^{-1}$ : $[\mathbf{x}, 1]\thinspace\mathbf{H}\mathbf{H}^{-1} = [\mathbf{x}, 1]$. Pour l'exemple, $(\mathbf{H}_1\mathbf{H}_2)^{-1} = \begin{pmatrix} 1/3 & 0 & 0 \cr -2/3 & 1/3 & 0 \cr 7/3 & -1 & 1 \end{pmatrix}$, et $[8, 6, 1]$ revient bien sur $[1, 1, 1]$.
+**Inverser.** Si $\mathbf{W}$ est carrée et inversible, $f$ est bijective (M12a §8), et la matrice homogène de $f^{-1}$ est $\mathbf{H}^{-1}$ : $[\mathbf{x}, 1]\thinspace\mathbf{H}\mathbf{H}^{-1} = [\mathbf{x}, 1]$. Pour l'exemple, $`(\mathbf{H}_1\mathbf{H}_2)^{-1} = \begin{pmatrix} 1/3 & 0 & 0 \cr -2/3 & 1/3 & 0 \cr 7/3 & -1 & 1 \end{pmatrix}`$, et $[8, 6, 1]$ revient bien sur $[1, 1, 1]$.
 
 💻 **Aujourd'hui en pratique** — les logiciels de dessin, les moteurs de jeu et la robotique composent des dizaines de rotations, homothéties et translations ainsi : des matrices $3 \times 3$ pour le plan, $4 \times 4$ pour l'espace, multipliées une fois pour toutes. La plupart (OpenGL, les bibliothèques de robotique) rangent les points **en colonnes** : leur matrice est la transposée, avec la translation dans la **dernière colonne**.
 
@@ -127,11 +135,15 @@ Donc $(f_2 \circ f_1)(x, y) = (3x + 6y - 1,\ 3y + 3)$. Vérification sur le poin
 Un **graphe orienté** (*directed graph*) est un ensemble de **nœuds** (*nodes*, ou sommets) reliés par des **arêtes** orientées (*edges*) : l'arête $i \to j$ va du nœud $i$ au nœud $j$ ; $i$ est un **prédécesseur** de $j$, $j$ un **successeur** de $i$ (on dit aussi **parent** et **enfant** ; plus loin dans le graphe, les nœuds d'où part un chemin vers $j$ sont ses **ancêtres**, ceux où arrive un chemin parti de $i$ sont ses **descendants**). Le **degré entrant** (*in-degree*) d'un nœud compte les arêtes qui y arrivent, son **degré sortant** (*out-degree*) celles qui en partent. Un réseau de rues à sens unique, des tâches dont certaines doivent précéder d'autres, des formules qui utilisent le résultat d'autres formules sont des graphes orientés.
 
 La **matrice d'adjacence** (*adjacency matrix*) d'un graphe à $n$ nœuds numérotés $1, \ldots, n$ est la matrice $n \times n$
-$$A_{ij} = \begin{cases} 1 & \text{s'il y a une arête } i \to j, \cr 0 & \text{sinon.} \end{cases}$$
+```math
+A_{ij} = \begin{cases} 1 & \text{s'il y a une arête } i \to j, \cr 0 & \text{sinon.} \end{cases}
+```
 La ligne $i$ liste les successeurs de $i$ : sa somme est le degré sortant de $i$. La colonne $j$ liste les prédécesseurs de $j$ : sa somme est le degré entrant de $j$. La somme de toutes les cases est le nombre d'arêtes.
 
 **Exemple.** Quatre villages reliés par six lignes de navette à sens unique : $V_1 \to V_2$, $V_1 \to V_3$, $V_2 \to V_3$, $V_2 \to V_4$, $V_3 \to V_4$, $V_4 \to V_1$.
-$$\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 1 \cr 0 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \end{pmatrix} \qquad \text{degrés sortants } (2, 2, 1, 1), \quad \text{degrés entrants } (1, 1, 2, 2).$$
+```math
+\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 1 \cr 0 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \end{pmatrix} \qquad \text{degrés sortants } (2, 2, 1, 1), \quad \text{degrés entrants } (1, 1, 2, 2).
+```
 
 ![À gauche, les quatre villages et leurs six lignes de navette, avec un cycle ; à droite, un réseau d'eau sans cycle, avec la part de l'eau qui suit chaque conduite](figures/graphes.png)
 
@@ -144,7 +156,9 @@ Un **chemin** de longueur $k$ (*walk*) de $i$ à $j$ est une suite de $k$ arête
 L'idée, pour $k = 2$ : $(\mathbf{A}^2)  _{ij} = \sum_l A  _{il}A _{lj}$, et le terme $A  _{il}A _{lj}$ vaut 1 exactement quand $i \to l \to j$ est un chemin : la somme compte les intermédiaires $l$ possibles. Une récurrence sur $k$ fait le cas général (∂ M16.7).
 
 **Exemple.** Pour les villages,
-$$\mathbf{A}^2 = \begin{pmatrix} 0 & 0 & 1 & 2 \cr 1 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \cr 0 & 1 & 1 & 0 \end{pmatrix}, \qquad \mathbf{A}^3 = \begin{pmatrix} 2 & 0 & 0 & 1 \cr 1 & 1 & 1 & 0 \cr 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 2 \end{pmatrix}.$$
+```math
+\mathbf{A}^2 = \begin{pmatrix} 0 & 0 & 1 & 2 \cr 1 & 0 & 0 & 1 \cr 1 & 0 & 0 & 0 \cr 0 & 1 & 1 & 0 \end{pmatrix}, \qquad \mathbf{A}^3 = \begin{pmatrix} 2 & 0 & 0 & 1 \cr 1 & 1 & 1 & 0 \cr 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 2 \end{pmatrix}.
+```
 $(\mathbf{A}^2) _{14} = 2$ : $V_1 \to V_2 \to V_4$ et $V_1 \to V_3 \to V_4$. La diagonale de $\mathbf{A}^3$ compte les chemins de 3 arêtes qui reviennent à leur départ : $(\mathbf{A}^3) _{11} = 2$, les cycles $V_1 \to V_2 \to V_4 \to V_1$ et $V_1 \to V_3 \to V_4 \to V_1$. Tant qu'un graphe a un cycle, on peut le parcourir indéfiniment : aucune puissance de $\mathbf{A}$ ne s'annule.
 
 ### Des poids sur les arêtes
@@ -168,7 +182,9 @@ L'idée : un chemin de $n$ arêtes passe par $n + 1$ nœuds (en comptant le dép
 Renuméroter les nœuds ne change pas le graphe ; sa matrice devient $\mathbf{P}\mathbf{A}\mathbf{P}^\top$, où $\mathbf{P}$ est la matrice de permutation qui range les nœuds dans le nouvel ordre. **Un graphe est sans cycle si et seulement si on peut numéroter ses nœuds de sorte que toutes les arêtes aillent d'un numéro vers un numéro plus grand** : la matrice devient alors **strictement triangulaire supérieure** (des zéros sur et sous la diagonale). Dans un sens, c'est facile : une matrice strictement triangulaire supérieure $n \times n$ est nilpotente (chaque puissance pousse les cases non nulles d'une diagonale plus haut, et la puissance $n$ n'en laisse plus aucune : 🔁 M16.R3), donc le graphe est sans cycle. (Que ses valeurs propres soient toutes nulles le montre aussi, mais par un théorème hors de ce cours, celui de Cayley-Hamilton : le calcul des puissances suffit ici.) L'autre sens, construire une telle numérotation pour tout graphe sans cycle, est le travail de workbookIA 16, qui l'appelle un **ordre topologique** (*topological order*) ; on l'admet ici.
 
 **Exemple.** Les tâches d'un petit chantier : Plans → Achats, Plans → Découpe, Achats → Découpe, Découpe → Assemblage, Achats → Assemblage. Dans l'ordre (Plans, Achats, Découpe, Assemblage), chaque arête monte vers un numéro plus grand :
-$$\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 1 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^2 = \begin{pmatrix} 0 & 0 & 1 & 2 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^3 = \begin{pmatrix} 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^4 = \mathbf{0}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 & 0 \cr 0 & 0 & 1 & 1 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^2 = \begin{pmatrix} 0 & 0 & 1 & 2 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^3 = \begin{pmatrix} 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \cr 0 & 0 & 0 & 0 \end{pmatrix}, \qquad \mathbf{A}^4 = \mathbf{0}.
+```
 C'est le graphe des villages du §3 sans la ligne $V_4 \to V_1$ : sans elle, plus de cycle, et les puissances s'annulent. Si l'on avait numéroté Découpe avant Achats, l'arête Achats → Découpe serait descendue sous la diagonale.
 
 ### Sommer sur tous les chemins
@@ -183,7 +199,7 @@ et le produit dans l'autre ordre vaut aussi $\mathbf{I}$, car les deux facteurs,
 $$\underbrace{0{,}6 \times 0{,}5} _{c \to a \to v} + \underbrace{0{,}4 \times 0{,}8}  _{c \to b \to v} + \underbrace{0{,}6 \times 0{,}5 \times 0{,}8} _{c \to a \to b \to v} = 0{,}3 + 0{,}32 + 0{,}24 = 0{,}86.$$
 C'est le coefficient $(c, v)$ de $(\mathbf{I} - \mathbf{A})^{-1}$ ; $\mathbf{A}^2$ y apporte $0{,}62$ (deux chemins de 2 arêtes) et $\mathbf{A}^3$ y apporte $0{,}24$. Sur un grand réseau, on ne liste pas les chemins (leur nombre peut croître comme $2^n$) : on calcule les puissances, ou on résout un système.
 
-⚠️ **Erreur classique.** Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe **avec** un cycle et l'appeler « somme sur les chemins » : la matrice peut être inversible, mais il y a alors une infinité de chemins (on fait des tours) ; leur somme est infinie ou n'existe pas, et quand les poids sont assez petits pour qu'elle converge, il faut le démontrer. Avec $\mathbf{A} = \begin{pmatrix} 0 & 2 \cr 2 & 0 \end{pmatrix}$, par exemple, $(\mathbf{I} - \mathbf{A})^{-1}$ existe et a des coefficients négatifs, alors que tous les produits de poids sont positifs. On vérifie d'abord l'absence de cycle (`sum_over_paths` refuse un graphe avec un cycle).
+⚠️ **Erreur classique.** Calculer $(\mathbf{I} - \mathbf{A})^{-1}$ sur un graphe **avec** un cycle et l'appeler « somme sur les chemins » : la matrice peut être inversible, mais il y a alors une infinité de chemins (on fait des tours) ; leur somme est infinie ou n'existe pas, et quand les poids sont assez petits pour qu'elle converge, il faut le démontrer. Avec $`\mathbf{A} = \begin{pmatrix} 0 & 2 \cr 2 & 0 \end{pmatrix}`$, par exemple, $(\mathbf{I} - \mathbf{A})^{-1}$ existe et a des coefficients négatifs, alors que tous les produits de poids sont positifs. On vérifie d'abord l'absence de cycle (`sum_over_paths` refuse un graphe avec un cycle).
 
 🔗 **Plus loin dans ce dépôt** — en M18, la dérivée d'un calcul organisé en graphe sans cycle sera exactement une **somme sur les chemins des produits des dérivées locales** : la règle de la chaîne.
 

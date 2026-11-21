@@ -52,7 +52,7 @@ a) Une récurrence $\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}u_t$, 
 b) Toute matrice circulante $\mathbf{M} = \operatorname{circ}(\mathbf{h})$ vérifie $\lVert\mathbf{M}^t\rVert_2 = \rho(\mathbf{M})^t$ pour tout $t \ge 1$.
 c) Si les coefficients de $\mathbf{h} = (h_0, \ldots, h _{n-1})$ sont tous positifs ou nuls, et pas tous nuls, alors $\rho\big(\operatorname{circ}(\mathbf{h})\big) = \lVert\operatorname{circ}(\mathbf{h})\rVert_1 = h_0 + h_1 + \cdots + h _{n-1}$.
 d) Pour le noyau $\mathbf{w} = (0, 2, -1)$ et des signaux de longueur $n \ge 3$, la matrice carrée formée des $n$ premières lignes de la matrice de $\mathbf{x} \mapsto \mathbf{x} \ast \mathbf{w}$ (mode plein) est nilpotente.
-e) La matrice $\mathbf{A} = \begin{pmatrix} 0 & 4 \cr -1 & 0 \end{pmatrix}$ a deux valeurs propres complexes conjuguées, et $\lVert\mathbf{A}\rVert_2 = \sqrt{\det\mathbf{A}}$.
+e) La matrice $`\mathbf{A} = \begin{pmatrix} 0 & 4 \cr -1 & 0 \end{pmatrix}`$ a deux valeurs propres complexes conjuguées, et $\lVert\mathbf{A}\rVert_2 = \sqrt{\det\mathbf{A}}$.
 f) Pour $\mathbf{A} = \operatorname{diag}(0{,}5 ;\ 0{,}25)$, dont les valeurs propres sont réelles et dans $]0, 1[$, $\mathbf{B} = (1, 1)^\top$ et $\mathbf{C} = (1, -3)$, la réponse impulsionnelle $h_k = \mathbf{C}\mathbf{A}^k\mathbf{B}$ garde le même signe pour tous les $k$.
 g) On enchaîne deux sommes glissantes sans padding, la première de pas 4, la seconde de pas 2. Loin des bords, décaler l'entrée de 8 cases décale la sortie finale d'une case.
 h) Deux matrices carrées vérifient $\lVert\mathbf{A}_1\rVert_2 < 1$ et $\lVert\mathbf{A}_2\rVert_2 < 1$ ; leur produit $\mathbf{A}_2\mathbf{A}_1$ peut pourtant avoir un rayon spectral supérieur à 1.
@@ -96,7 +96,9 @@ Sur ta copie : pour d), le nombre total de zéros, et pourquoi un zéro de moins
 ### CP5.3 — Une grille filtrée par un noyau séparable : paramètres, coût et champ récepteur ✏️ ★★ ⏱️ 10 min · 10 points (1,25 par sous-question)
 
 1. Des épaisseurs de neige (en cm) relevées sur une grille de 4 lignes et 5 colonnes, filtrées par le noyau $\mathbf{K}$, en corrélation croisée (sans retournement, comme les bibliothèques), en mode valide, avec un pas de 1 :
-$$\mathbf{G} = \begin{pmatrix} 3 & 1 & 0 & 2 & 4 \cr 1 & 4 & 2 & 0 & 1 \cr 2 & 0 & 3 & 1 & 2 \cr 0 & 2 & 1 & 3 & 1 \end{pmatrix}, \qquad \mathbf{K} = \begin{pmatrix} 2 & -2 & 6 \cr 1 & -1 & 3 \cr -1 & 1 & -3 \end{pmatrix}, \qquad Y_{i,j} = \sum_{u=0}^{2}\sum_{v=0}^{2}K_{u,v}\thinspace G_{i+u,\thinspace j+v}.$$
+```math
+\mathbf{G} = \begin{pmatrix} 3 & 1 & 0 & 2 & 4 \cr 1 & 4 & 2 & 0 & 1 \cr 2 & 0 & 3 & 1 & 2 \cr 0 & 2 & 1 & 3 & 1 \end{pmatrix}, \qquad \mathbf{K} = \begin{pmatrix} 2 & -2 & 6 \cr 1 & -1 & 3 \cr -1 & 1 & -3 \end{pmatrix}, \qquad Y_{i,j} = \sum_{u=0}^{2}\sum_{v=0}^{2}K_{u,v}\thinspace G_{i+u,\thinspace j+v}.
+```
 2. Une caméra thermique fournit des images de $96 \times 144$ pixels à $C_{\text{in}} = 5$ canaux, filtrées vers $C_{\text{out}} = 12$ canaux par des noyaux $3 \times 5$ (3 lignes, 5 colonnes), avec un biais par sortie, un padding de 1 en hauteur et de 2 en largeur, et un pas $s = 2$ selon les deux axes.
 3. Une pile de quatre sommes glissantes, de réglages $(k, s, d) = (2, 1, 1)$, puis $(4, 3, 1)$, puis $(2, 1, 3)$, puis $(3, 4, 1)$.
 
@@ -132,7 +134,9 @@ Sur ta copie : obtiens c) à partir de a), sans nouveau calcul, et nomme la prop
 ### CP5.5 — Une récurrence avec entrée : solution et réponse impulsionnelle ✏️ ★★ ⏱️ 10 min · 10 points (1,25 par sous-question)
 
 Un médicament se répartit entre le sang et les tissus. Chaque heure, le sang garde 50 % du médicament qu'il contient, en passe 30 % aux tissus et en élimine 20 % (par les reins) ; les tissus en gardent 70 %, en rendent 10 % au sang et en éliminent 20 %. Une perfusion apporte $u_t$ mg dans le sang pendant l'heure $t$, et l'on mesure la quantité $y_t$ dans les tissus. Avec $\mathbf{x} _t$ = (mg dans le sang, mg dans les tissus) :
-$$\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0{,}5 & 0{,}1 \cr 0{,}3 & 0{,}7 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 \cr 0 \end{pmatrix}} _{\mathbf{B}}u_t, \qquad y_t = \underbrace{\begin{pmatrix} 0 & 1 \end{pmatrix}} _{\mathbf{C}}\mathbf{x}_t,$$
+```math
+\mathbf{x} _{t+1} = \underbrace{\begin{pmatrix} 0{,}5 & 0{,}1 \cr 0{,}3 & 0{,}7 \end{pmatrix}} _{\mathbf{A}}\mathbf{x} _t + \underbrace{\begin{pmatrix} 1 \cr 0 \end{pmatrix}} _{\mathbf{B}}u_t, \qquad y_t = \underbrace{\begin{pmatrix} 0 & 1 \end{pmatrix}} _{\mathbf{C}}\mathbf{x}_t,
+```
 avec $\mathbf{x}_0 = (20, 4)$, $u_0 = 6$, $u_1 = 0$ et $u_2 = 2$.
 
 | | Question | Réponse attendue |
@@ -150,7 +154,9 @@ Sur ta copie : pour e), les deux équations qui donnent $\alpha$ et $\beta$ ; po
 
 ### CP5.6 — Valeurs propres complexes, rayon spectral, normes et croissance transitoire ✏️ ★★ ⏱️ 10 min · 10 points (1,25 par sous-question)
 
-$$\mathbf{M} = \begin{pmatrix} 0 & -1 \cr 0{,}75 & 1{,}5 \end{pmatrix}.$$
+```math
+\mathbf{M} = \begin{pmatrix} 0 & -1 \cr 0{,}75 & 1{,}5 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -197,7 +203,7 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 1. Montre que 1 n'est pas une valeur propre de $\mathbf{A}$ (utilise $\rho(\mathbf{A}) \le \lVert\mathbf{A}\rVert$, M22 §4), et déduis-en que $\mathbf{I} - \mathbf{A}$ est inversible. **[3]**
 2. Pour $\mathbf{y}$ quelconque, soit $\mathbf{x} = (\mathbf{I} - \mathbf{A})^{-1}\mathbf{y}$. Montre que $\lVert\mathbf{x}\rVert \le \frac{\lVert\mathbf{y}\rVert}{1 - \lVert\mathbf{A}\rVert}$, et déduis-en $\lVert(\mathbf{I} - \mathbf{A})^{-1}\rVert \le \frac{1}{1 - \lVert\mathbf{A}\rVert}$. **[3]**
 3. On note $\mathbf{M} = (\mathbf{I} - \mathbf{A})^{-1}$ et $\mathbf{S}_N = \mathbf{I} + \mathbf{A} + \cdots + \mathbf{A}^N$. Montre que $\mathbf{M} = \mathbf{I} + \mathbf{A}\mathbf{M}$ et $\mathbf{S} _N = \mathbf{I} + \mathbf{A}\mathbf{S} _{N-1}$, puis que l'écart $\mathbf{E}_N = \mathbf{M} - \mathbf{S}_N$ vérifie $\mathbf{E} _N = \mathbf{A}\mathbf{E} _{N-1}$. Conclus : $\lVert\mathbf{M} - \mathbf{S}_N\rVert \le \frac{\lVert\mathbf{A}\rVert^{N+1}}{1 - \lVert\mathbf{A}\rVert}$, donc $(\mathbf{I} - \mathbf{A})^{-1} = \mathbf{I} + \mathbf{A} + \mathbf{A}^2 + \cdots$ **[3]**
-4. Pour $\mathbf{A} = \begin{pmatrix} 0{,}5 & 0{,}3 \cr 0{,}2 & -0{,}4 \end{pmatrix}$ : calcule $\lVert\mathbf{A}\rVert_1$ et $\lVert\mathbf{A}\rVert_\infty$, dis pourquoi les questions 1 à 3 s'appliquent, calcule $(\mathbf{I} - \mathbf{A})^{-1}$ et compare sa norme $\lVert\cdot\rVert_\infty$ à la borne de la question 2. Enfin, pour $\mathbf{A} = 2\thinspace\mathbf{I}$, $\mathbf{I} - \mathbf{A}$ est inversible : que devient la série ? **[3]**
+4. Pour $`\mathbf{A} = \begin{pmatrix} 0{,}5 & 0{,}3 \cr 0{,}2 & -0{,}4 \end{pmatrix}`$ : calcule $\lVert\mathbf{A}\rVert_1$ et $\lVert\mathbf{A}\rVert_\infty$, dis pourquoi les questions 1 à 3 s'appliquent, calcule $(\mathbf{I} - \mathbf{A})^{-1}$ et compare sa norme $\lVert\cdot\rVert_\infty$ à la borne de la question 2. Enfin, pour $\mathbf{A} = 2\thinspace\mathbf{I}$, $\mathbf{I} - \mathbf{A}$ est inversible : que devient la série ? **[3]**
 
 ### CP5.9 — Corriger une copie : cinq erreurs 🐛 ★★ ⏱️ 8 min · 8 points
 
@@ -207,10 +213,10 @@ Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses.
 - **(B)** La matrice de $\mathbf{x} \mapsto \mathbf{x} \ast (-3, 1, 5)$, en mode valide, pour des signaux de longueur 7, a 5 lignes et 7 colonnes ; elle est de rang 7.
 - **(C)** La convolution transposée de 7 valeurs, de pas 2, par un noyau de longueur 5, sans padding ni padding de sortie, a $(7 - 1) \times 2 + 5 = 17$ valeurs.
 - **(D)** Passer de noyaux $3 \times 3$ à des noyaux $6 \times 6$, sans changer les canaux ni la taille de la sortie, double le nombre de multiplications-additions.
-- **(E)** $\mathbf{P} = \begin{pmatrix} 1 & 3 \cr 0 & 0 \end{pmatrix}$ a pour norme $\lVert\mathbf{P}\rVert_2 = \sqrt{10}$, donc $\lVert\mathbf{P}^{10}\rVert_2 = (\sqrt{10})^{10} = 10^5$.
-- **(F)** $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr -0{,}5 & -0{,}6 \end{pmatrix}$ a $\rho(\mathbf{A}) = \sqrt{0{,}4} \approx 0{,}63$ : ses puissances tendent vers $\mathbf{0}$, bien que $\lVert\mathbf{A}\rVert_\infty = 3$.
+- **(E)** $`\mathbf{P} = \begin{pmatrix} 1 & 3 \cr 0 & 0 \end{pmatrix}`$ a pour norme $\lVert\mathbf{P}\rVert_2 = \sqrt{10}$, donc $\lVert\mathbf{P}^{10}\rVert_2 = (\sqrt{10})^{10} = 10^5$.
+- **(F)** $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr -0{,}5 & -0{,}6 \end{pmatrix}`$ a $\rho(\mathbf{A}) = \sqrt{0{,}4} \approx 0{,}63$ : ses puissances tendent vers $\mathbf{0}$, bien que $\lVert\mathbf{A}\rVert_\infty = 3$.
 - **(G)** Un vecteur fait de trois blocs, de normes 2, 5 et 14, a pour norme globale 21 ; pour le ramener tout entier sous $c = 9$, on multiplie chaque bloc par $\frac{9}{21} = \frac37$.
-- **(H)** $\mathbf{B} = \begin{pmatrix} 0{,}25 & -0{,}6 \cr 0{,}6 & 0{,}25 \end{pmatrix}$ vérifie $\lVert\mathbf{B}^t\mathbf{x}\rVert_2 = 0{,}65^t\thinspace\lVert\mathbf{x}\rVert_2$ pour tout $\mathbf{x}$ et tout $t$.
+- **(H)** $`\mathbf{B} = \begin{pmatrix} 0{,}25 & -0{,}6 \cr 0{,}6 & 0{,}25 \end{pmatrix}`$ vérifie $\lVert\mathbf{B}^t\mathbf{x}\rVert_2 = 0{,}65^t\thinspace\lVert\mathbf{x}\rVert_2$ pour tout $\mathbf{x}$ et tout $t$.
 
 a) Les lettres des cinq lignes fausses, dans n'importe quel ordre (un texte, comme `"ABCDE"`). **[4]**
 b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en une ligne. **[4]** (0,8 par ligne ; se note avec le corrigé)
@@ -218,7 +224,9 @@ b) Pour chaque ligne fausse, écris le résultat juste et la règle oubliée, en
 ### CP5.10 — Problème de synthèse : un filtre récursif et un filtre à réponse finie, du signal à la stabilité 🔗 ★★ ⏱️ 14 min · 14 points (2 par sous-question)
 
 Le signal $u_t$ d'un capteur de pression est lissé par un **filtre récursif** à deux états (une récurrence avec entrée) :
-$$\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}u_t, \quad y_t = \mathbf{C}\mathbf{x}_t, \quad \mathbf{x} _0 = \mathbf{0}, \qquad \mathbf{A} = \begin{pmatrix} 0{,}6 & -0{,}5 \cr 0{,}4 & 0{,}6 \end{pmatrix}, \quad \mathbf{B} = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \quad \mathbf{C} = \begin{pmatrix} 0 & 1 \end{pmatrix}.$$
+```math
+\mathbf{x}_{t+1} = \mathbf{A}\mathbf{x}_t + \mathbf{B}u_t, \quad y_t = \mathbf{C}\mathbf{x}_t, \quad \mathbf{x} _0 = \mathbf{0}, \qquad \mathbf{A} = \begin{pmatrix} 0{,}6 & -0{,}5 \cr 0{,}4 & 0{,}6 \end{pmatrix}, \quad \mathbf{B} = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \quad \mathbf{C} = \begin{pmatrix} 0 & 1 \end{pmatrix}.
+```
 Sa réponse impulsionnelle est $h_k = \mathbf{C}\mathbf{A}^k\mathbf{B}$, et $y _{t+1} = (\mathbf{h} \ast \mathbf{u}) _t$. On l'approche aussi par un **filtre à réponse finie** de longueur $K$ : la convolution $z _{t+1} = (\mathbf{g} \ast \mathbf{u}) _t$ par les $K$ premiers termes $\mathbf{g} = (h_0, \ldots, h _{K-1})$. On admet que $\lvert h_k\rvert \le \lVert\mathbf{A}^k\rVert$ pour chacune des trois normes induites (un coefficient d'une matrice est au plus sa norme induite).
 
 | | Question | Réponse attendue |

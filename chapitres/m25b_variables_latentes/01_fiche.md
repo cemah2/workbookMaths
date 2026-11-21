@@ -348,7 +348,9 @@ $$\mathbf{W}^\top(\mathbf{W}\mathbf{W}^\top + \sigma^2\mathbf{I}_d)^{-1} = (\mat
 (∂ M25b.8). La forme en $\mathbf{M}$ n'inverse qu'une matrice $(k, k)$, au lieu de $(d, d)$. Deux faits à retenir : la moyenne a posteriori est une **règle affine** de $\mathbf{x}$, la même pour toutes les observations ; la covariance a posteriori **ne dépend pas** de $\mathbf{x}$.
 
 **Exemple.** Les rendements de deux parcelles voisines (en quintaux par hectare, écarts à leur moyenne $\boldsymbol{\mu}$) dépendent d'un facteur caché, la qualité de la saison : $k = 1$, $\mathbf{w} = (3, 2)$, $\sigma^2 = 2$. Alors
-$$\mathbf{C} = \begin{pmatrix} 11 & 6 \cr 6 & 6 \end{pmatrix}, \qquad M = \lVert\mathbf{w}\rVert^2 + \sigma^2 = 13 + 2 = 15 .$$
+```math
+\mathbf{C} = \begin{pmatrix} 11 & 6 \cr 6 & 6 \end{pmatrix}, \qquad M = \lVert\mathbf{w}\rVert^2 + \sigma^2 = 13 + 2 = 15 .
+```
 Les valeurs propres de $\mathbf{C}$ sont 15 (dans la direction de $\mathbf{w}$) et 2 (orthogonalement) : $\lVert\mathbf{w}\rVert^2 + \sigma^2$ et $\sigma^2$. Une saison donne $\mathbf{x} - \boldsymbol{\mu} = (3, 3)$ : $\mathbf{w}^\top(\mathbf{x} - \boldsymbol{\mu}) = 15$, donc $z \mid \mathbf{x} \sim \mathcal{N}(1,\ \frac{2}{15})$, d'écart-type 0,365.
 
 **Le lien avec l'ACP.** La reconstruction $\boldsymbol{\mu} + \mathbf{w}\thinspace\mathbb{E}[z \mid \mathbf{x}] = \boldsymbol{\mu} + (3, 2)$ est sur la droite $\boldsymbol{\mu} + \mathbb{R}\mathbf{w}$, comme la projection orthogonale de M12d, $\boldsymbol{\mu} + \frac{15}{13}(3, 2) = \boldsymbol{\mu} + \big(\frac{45}{13}, \frac{30}{13}\big)$, mais **plus près de $\boldsymbol{\mu}$** d'un facteur $\frac{\lVert\mathbf{w}\rVert^2}{\lVert\mathbf{w}\rVert^2 + \sigma^2} = \frac{13}{15}$ : l'a priori tire $z$ vers 0. Quand $\sigma^2 \to 0$, $\mathbf{M}^{-1}\mathbf{W}^\top \to (\mathbf{W}^\top\mathbf{W})^{-1}\mathbf{W}^\top$, la pseudo-inverse de M12d : la moyenne a posteriori devient les coordonnées de la projection orthogonale, et la covariance a posteriori tend vers 0.

@@ -279,12 +279,12 @@ Dans ta copie : écris la phrase exacte que garantit l'intervalle de b). Compare
 **Objectif :** comparer, sur une même probabilité, les trois bornes du chapitre, l'approximation normale et la valeur exacte.
 **Prérequis :** fiche §4 à §6 ; M02b (loi binomiale), M02c (théorème central limite) · **Parcours :** C
 
-On lance 100 fois, indépendamment, une épreuve qui réussit avec la probabilité 0,2 ; $S$ est le nombre de succès (de loi binomiale $\mathcal{B}(100 ;\ 0{,}2)$) et $\bar{X} = \frac{S}{100}$. On s'intéresse à $P(S \ge 30)$.
+On lance 100 fois, indépendamment, une épreuve qui réussit avec la probabilité 0,2 ; $S$ est le nombre de succès (de loi binomiale $\mathcal{B}(100 ;\ 0{,}2){}$) et $\bar{X} = \frac{S}{100}$. On s'intéresse à $P(S \ge 30)$.
 
 | | Question | Réponse attendue |
 |---|---|---|
 | a | la borne de Markov sur $P(S \ge 30)$ | un nombre (4 décimales) |
-| b | la borne de Tchebychev (en passant par $P(\lvert S - 20 \rvert \ge 10)$) | un nombre |
+| b | la borne de Tchebychev (en passant par $P(\lvert S - 20 \rvert \ge 10){}$) | un nombre |
 | c | la borne de Hoeffding **unilatérale** sur $P(\bar{X} - 0{,}2 \ge 0{,}1)$ | un nombre (4 décimales) |
 | d | l'approximation normale de $P(S \ge 30)$, sans correction de continuité | un nombre (4 décimales) |
 | e | la valeur exacte de $P(S \ge 30)$ | un nombre (4 décimales) |

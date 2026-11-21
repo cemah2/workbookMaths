@@ -7,7 +7,7 @@
 
 Légende : ★ application directe · ★★ standard · ★★★ approfondi · ★★★★ défi · ⏱️ durée indicative · parcours C = complet, E = essentiel.
 
-Dans tout le chapitre, comme dans la fiche : les points sont des **lignes**, une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ s'écrit $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ avec $\mathbf{W}$ de forme $(n, m)$ et $\mathbf{b}$ de forme $(m,)$ ; sa matrice homogène est $\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}$, et $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$. La matrice d'adjacence d'un graphe orienté a $A_{ij} = 1$ quand il y a une arête $i \to j$ ; un chemin de longueur $k$ est une suite de $k$ arêtes consécutives (un nœud peut revenir). Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
+Dans tout le chapitre, comme dans la fiche : les points sont des **lignes**, une application affine de $\mathbb{R}^n$ dans $\mathbb{R}^m$ s'écrit $\mathbf{x} \mapsto \mathbf{x}\mathbf{W} + \mathbf{b}$ avec $\mathbf{W}$ de forme $(n, m)$ et $\mathbf{b}$ de forme $(m,)$ ; sa matrice homogène est $`\mathbf{H} = \begin{pmatrix} \mathbf{W} & \mathbf{0} \cr \mathbf{b} & 1 \end{pmatrix}`$, et $[\mathbf{x}, 1]\thinspace\mathbf{H} = [\mathbf{x}\mathbf{W} + \mathbf{b}, 1]$. La matrice d'adjacence d'un graphe orienté a $A_{ij} = 1$ quand il y a une arête $i \to j$ ; un chemin de longueur $k$ est une suite de $k$ arêtes consécutives (un nœud peut revenir). Une matrice s'écrit dans le notebook comme une liste de ses **lignes**.
 
 <a id="quiz"></a>
 
@@ -38,7 +38,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M16.Q3 — Lire une matrice d'adjacence : degrés, arêtes, chemins, cycles 🧠 ★ ⏱️ 4 min
 *Fiche §3 et §4 · parcours C, E*
 
-Un graphe à 4 nœuds a pour matrice d'adjacence $\mathbf{A} = \begin{pmatrix} 0 & 1 & 0 & 1 \cr 0 & 0 & 1 & 0 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}$.
+Un graphe à 4 nœuds a pour matrice d'adjacence $`\mathbf{A} = \begin{pmatrix} 0 & 1 & 0 & 1 \cr 0 & 0 & 1 & 0 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 0 & 0 \end{pmatrix}`$.
 1. Combien d'arêtes a-t-il ?
 2. Quel est le degré entrant du nœud 4 ? Son degré sortant ?
 3. Combien de chemins de longueur 2 vont du nœud 1 au nœud 4 ? Et de longueur 3 ?
@@ -82,11 +82,11 @@ Dans tout le rappel, $X$ et $Y$ sont indépendantes, $\mathbb{E}[X] = 1$, $\math
 ### M16.R3 — Les valeurs propres d'une matrice triangulaire (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §4 · parcours C*
 
-1. Les valeurs propres de $\begin{pmatrix} 2 & 5 & -1 \cr 0 & -3 & 4 \cr 0 & 0 & 7 \end{pmatrix}$ ?
+1. Les valeurs propres de $`\begin{pmatrix} 2 & 5 & -1 \cr 0 & -3 & 4 \cr 0 & 0 & 7 \end{pmatrix}`$ ?
 2. Son déterminant ?
 3. Les valeurs propres d'une matrice strictement triangulaire supérieure ?
 4. Vrai ou faux : une matrice dont toutes les valeurs propres sont nulles est la matrice nulle.
-5. Calcule $\mathbf{N}^2$ et $\mathbf{N}^3$ pour $\mathbf{N} = \begin{pmatrix} 0 & 1 & 2 \cr 0 & 0 & 3 \cr 0 & 0 & 0 \end{pmatrix}$.
+5. Calcule $\mathbf{N}^2$ et $\mathbf{N}^3$ pour $`\mathbf{N} = \begin{pmatrix} 0 & 1 & 2 \cr 0 & 0 & 3 \cr 0 & 0 & 0 \end{pmatrix}`$.
 
 <a id="papier"></a>
 
@@ -195,7 +195,7 @@ Dans ta copie : écris d) comme la somme des trois termes de la fiche, et dis le
 **Objectif :** calculer la variance d'une somme de produits par des multiplicateurs aléatoires centrés, et voir les covariances disparaître ou revenir selon les hypothèses.
 **Prérequis :** fiche §6 ; M02c · **Parcours :** C, E
 
-Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $\begin{pmatrix} 4 & 5 & 1 \cr 5 & 9 & 2 \cr 1 & 2 & 1 \end{pmatrix}$. Trois multiplicateurs $\varepsilon_1 = \pm 1$, $\varepsilon_2 = \pm 0{,}5$, $\varepsilon_3 = \pm 2$ prennent chacun leurs deux valeurs avec la probabilité $\frac{1}{2}$, indépendamment entre eux et des mesures. $S = \varepsilon_1x_1 + \varepsilon_2x_2 + \varepsilon_3x_3$.
+Trois mesures centrées $x_1$, $x_2$, $x_3$ ont la matrice de covariance $`\begin{pmatrix} 4 & 5 & 1 \cr 5 & 9 & 2 \cr 1 & 2 & 1 \end{pmatrix}`$. Trois multiplicateurs $\varepsilon_1 = \pm 1$, $\varepsilon_2 = \pm 0{,}5$, $\varepsilon_3 = \pm 2$ prennent chacun leurs deux valeurs avec la probabilité $\frac{1}{2}$, indépendamment entre eux et des mesures. $S = \varepsilon_1x_1 + \varepsilon_2x_2 + \varepsilon_3x_3$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -256,7 +256,7 @@ $X$ et $Y$ sont deux variables aléatoires discrètes indépendantes, qui ont un
 **Objectif :** appliquer une application affine à plusieurs points d'un seul produit, avec le terme $\mathbf{1}\mathbf{b}^\top$, puis en coordonnées homogènes.
 **Prérequis :** fiche §1 et §2 · **Parcours :** C, E
 
-$\mathbf{W} = \begin{pmatrix} 2 & -1 & 0 \cr 1 & 3 & 1 \end{pmatrix}$, $\mathbf{b} = (1, 0, -2)$, et quatre points rangés en lignes dans $\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 0 & 2 \cr -1 & 1 \cr 2 & 0 \end{pmatrix}$.
+$`\mathbf{W} = \begin{pmatrix} 2 & -1 & 0 \cr 1 & 3 & 1 \end{pmatrix}`$, $\mathbf{b} = (1, 0, -2)$, et quatre points rangés en lignes dans $`\mathbf{X} = \begin{pmatrix} 1 & 1 \cr 0 & 2 \cr -1 & 1 \cr 2 & 0 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|

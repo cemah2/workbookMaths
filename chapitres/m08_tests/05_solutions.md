@@ -411,7 +411,7 @@ Sous $H_0$, la p-valeur d'un test à statistique continue est uniforme (M08.10) 
 
 **Démarche.** (A) annonce $\frac{0}{999} = 0$ : la bonne p-valeur est $\frac{C + 1}{B + 1} = 0{,}001$. (B) est juste : $\frac{3060 + 816 + 153 + 18 + 1}{2^{18}} = \frac{4048}{262\thinspace144} \approx 0{,}015$. (C) divise au lieu de multiplier : $\min(1, 3 \times 0{,}004) = 0{,}012$. (D) est juste : 1,960. (E) ne compte qu'un côté : $2\big(1 - \Phi(1{,}8)\big) \approx 0{,}072$, pas 0,036. (F) est juste : $1{,}96\sqrt{0{,}21/50} \approx 0{,}127$. Pour la copie : prendre toujours le côté où tombe $z$, c'est choisir le test unilatéral après coup ; la règle « rejeter si $1 - \Phi(|z|) \le 0{,}05$ » rejette dès que $|z| \ge 1{,}645$, ce qui arrive avec la probabilité 0,10 sous $H_0$ : le double du seuil annoncé.
 
-**Erreurs fréquentes.** Citer (B) parce que la somme commence à 14 (elle doit commencer à 14 pour $P(K \ge 14)$) ; citer (D) en pensant au 1,645 d'un test unilatéral ; oublier (E), qui « a l'air » d'une p-valeur.
+**Erreurs fréquentes.** Citer (B) parce que la somme commence à 14 (elle doit commencer à 14 pour $P(K \ge 14){}$) ; citer (D) en pensant au 1,645 d'un test unilatéral ; oublier (E), qui « a l'air » d'une p-valeur.
 
 ### Ex M08.25 — Tester un test : un pytest qui vérifie l'uniformité des p-valeurs sous H0
 

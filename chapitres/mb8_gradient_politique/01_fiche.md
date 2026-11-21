@@ -156,7 +156,7 @@ En $\theta = 2$ : $J(2) \approx 0{,}3233$ et $J'(2) = 2e^{-2} \approx 0{,}2707$.
 
 Quand les deux existent, ils ont la même espérance, $J'(\theta)$, mais pas la même variance. Pour $X \sim \mathcal{N}(\mu, 1)$ et $f(x) = x^2$, $J(\mu) = \mu^2 + 1$ et $J'(\mu) = 2\mu$.
 - **Par le chemin** $X = \mu + \varepsilon$ : $\partial_\mu f(\mu + \varepsilon) = 2X$, de variance 4.
-- **Par le score** $s_\mu(x) = x - \mu$ : $X^2(X - \mu)$, de variance $15 + 14\mu^2 + \mu^4$ (un calcul de moments de $\mathcal{N}(0, 1)$), soit 30 en $\mu = 1$, 7,5 fois plus.
+- **Par le score** $s_\mu(x) = x - \mu$ : $X^2(X - \mu)$, de variance $15 + 14\mu^2 + \mu^4$ (un calcul de moments de $\mathcal{N}(0, 1){}$), soit 30 en $\mu = 1$, 7,5 fois plus.
 
 Le chemin se sert de la dérivée de $f$, une information que le score n'a pas ; le score n'a besoin que de $\ln p_\theta$.
 
@@ -243,7 +243,9 @@ Ajouter un même nombre aux logits d'un état ne change pas la politique (l'orig
 | B | 0,1 ; 0,9 | 0,45 ; 0,55 | 2 | 0 |
 
 Les logits $z(\mathrm{H}, \mathrm{T}) = \ln 2$, $z(\mathrm{H}, \mathrm{R}) = -\ln 2$, $z(\mathrm{B}, \mathrm{T}) = 0$, $z(\mathrm{B}, \mathrm{R}) = \ln 1{,}5$ donnent une politique qui turbine avec la probabilité 0,8 en H et 0,4 en B. Avec $\gamma = 0{,}6$ : la ligne H de $\mathbf{P} _\pi$ vaut $0{,}8\thinspace(0{,}35 ;\ 0{,}65) + 0{,}2\thinspace(0{,}85 ;\ 0{,}15) = (0{,}45 ;\ 0{,}55)$, la ligne B $(0{,}31 ;\ 0{,}69)$, et $\mathbf{r} _\pi = (0{,}8 \times 7 - 0{,}2 ;\ 0{,}4 \times 2) = (5{,}4 ;\ 0{,}8)$. Puis
-$$\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}73 & -0{,}33 \cr -0{,}186 & 0{,}586 \end{pmatrix}, \quad \det = 0{,}3664, \quad \mathbf{M} \approx \begin{pmatrix} 1{,}5993 & 0{,}9007 \cr 0{,}5076 & 1{,}9924 \end{pmatrix}, \quad \mathbf{V} = \mathbf{M}\thinspace\mathbf{r} _\pi \approx (9{,}3570 ;\ 4{,}3352),$$
+```math
+\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}73 & -0{,}33 \cr -0{,}186 & 0{,}586 \end{pmatrix}, \quad \det = 0{,}3664, \quad \mathbf{M} \approx \begin{pmatrix} 1{,}5993 & 0{,}9007 \cr 0{,}5076 & 1{,}9924 \end{pmatrix}, \quad \mathbf{V} = \mathbf{M}\thinspace\mathbf{r} _\pi \approx (9{,}3570 ;\ 4{,}3352),
+```
 et les lois d'occupation sont $\boldsymbol{\nu} _{\mathrm{H}} \approx (0{,}6397 ;\ 0{,}3603)$ et $\boldsymbol{\nu} _{\mathrm{B}} \approx (0{,}2031 ;\ 0{,}7969)$.
 
 ### Dériver le système de Bellman
@@ -264,7 +266,7 @@ Trois facteurs, trois lectures.
 
 **La forme score.** Pour une politique qui dépend d'un paramètre $\theta$ de façon quelconque, le même calcul donne (énoncé)
 $$\partial_\theta V(s_0) = \frac{1}{1 - \gamma}\sum_s\nu_{s_0}(s)\sum_a\pi(a \mid s)\mkern5mu \partial_\theta\ln\pi(a \mid s)\mkern5mu  Q(s, a),$$
-où $Q$ peut être remplacé par $A$ (∂ MB8.10 ; l'outil : l'espérance nulle du score du §1, pour la loi $\pi(\cdot \mid s)$). C'est le **théorème du gradient de politique** (*policy gradient theorem*), ici sous sa forme actualisée (Sutton et Barto, §13.2, l'énoncent pour des épisodes, sans actualisation) : une moyenne, sur les états pondérés par $\boldsymbol{\nu}_{s_0}$ et sur les actions tirées de $\pi$, du score de l'action fois sa valeur.
+où $Q$ peut être remplacé par $A$ (∂ MB8.10 ; l'outil : l'espérance nulle du score du §1, pour la loi $\pi(\cdot \mid s){}$). C'est le **théorème du gradient de politique** (*policy gradient theorem*), ici sous sa forme actualisée (Sutton et Barto, §13.2, l'énoncent pour des épisodes, sans actualisation) : une moyenne, sur les états pondérés par $\boldsymbol{\nu}_{s_0}$ et sur les actions tirées de $\pi$, du score de l'action fois sa valeur.
 
 **Le barrage.** $Q(\mathrm{H}, \mathrm{T}) = 7 + 0{,}6\thinspace(0{,}35 \times 9{,}3570 + 0{,}65 \times 4{,}3352) \approx 10{,}6557$, et de même :
 
@@ -319,7 +321,7 @@ Sachant l'action, une erreur TD est en moyenne l'avantage de cette action ; sach
 
 > **Propriété.** Si l'on amorce avec des valeurs estimées $\mathbf{W} = \mathbf{V}^\pi + \mathbf{e}$, le retour à $k$ pas a pour biais $\mathbb{E}\big[G_t^{(k)} \mid S_t = s\big] - V^\pi(s) = \gamma^k(\mathbf{P} _\pi^k\mathbf{e})(s)$, au plus $\gamma^k\lVert\mathbf{e}\rVert _\infty$ en valeur absolue.
 
-L'outil : avec les vraies valeurs, le retour à $k$ pas a pour moyenne $V^\pi(s)$ (la troncature de M26 §8 : la suite oubliée a pour moyenne $\gamma^k(\mathbf{P} _\pi^k\mathbf{V}^\pi)(s)$) ; l'erreur ajoutée, $\gamma^ke(S  _{t+k})$, a pour moyenne $\gamma^k(\mathbf{P} _\pi^k\mathbf{e})(s)$, par la loi à $k$ pas (M26 §1). Le biais du λ-retour est la moyenne de ces biais, avec les poids $(1 - \lambda)\lambda^{k-1}$ (✏️ MB8.4 le calcule pour une erreur constante).
+L'outil : avec les vraies valeurs, le retour à $k$ pas a pour moyenne $V^\pi(s)$ (la troncature de M26 §8 : la suite oubliée a pour moyenne $\gamma^k(\mathbf{P} _\pi^k\mathbf{V}^\pi)(s){}$) ; l'erreur ajoutée, $\gamma^ke(S  _{t+k})$, a pour moyenne $\gamma^k(\mathbf{P} _\pi^k\mathbf{e})(s)$, par la loi à $k$ pas (M26 §1). Le biais du λ-retour est la moyenne de ces biais, avec les poids $(1 - \lambda)\lambda^{k-1}$ (✏️ MB8.4 le calcule pour une erreur constante).
 
 **Le barrage.** Sous sa politique (§4), avec des valeurs estimées trop hautes de 1 en H et justes en B, $\mathbf{e} = (1 ;\ 0)$ : le retour à un pas a le biais $\gamma\thinspace\mathbf{P}_\pi\mathbf{e} = 0{,}6\thinspace(0{,}45 ;\ 0{,}31) = (0{,}27 ;\ 0{,}186)$. Le biais décroît ensuite comme $\gamma^k$ (figure) ; la variance, elle, croît en général avec $k$, puisque plus de récompenses aléatoires s'additionnent.
 

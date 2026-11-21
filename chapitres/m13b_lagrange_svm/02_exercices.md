@@ -22,7 +22,7 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 2. Vrai ou faux : tout point où $\nabla f + \lambda\nabla g = \mathbf{0}$ et $g = 0$ est un minimum sous contrainte.
 3. Le minimum **libre** de $f$ vérifie justement $g = 0$ : que vaut le multiplicateur ?
 4. Avec trois variables et deux contraintes d'égalité, combien d'inconnues compte le système de Lagrange ?
-5. Un multiplicateur vaut $\lambda = -5$ pour la contrainte $g(\mathbf{x}) = c$ (lagrangien $f + \lambda(g - c)$). Le minimum monte-t-il ou baisse-t-il quand $c$ augmente de 0,1, et d'environ combien ?
+5. Un multiplicateur vaut $\lambda = -5$ pour la contrainte $g(\mathbf{x}) = c$ (lagrangien $f + \lambda(g - c){}$). Le minimum monte-t-il ou baisse-t-il quand $c$ augmente de 0,1, et d'environ combien ?
 6. Pourquoi le théorème demande-t-il $\nabla g(\mathbf{x}^\ast) \ne \mathbf{0}$ ?
 
 ### M13b.Q2 — Contrainte active ou inactive ? 🧠 ★ ⏱️ 4 min
@@ -124,8 +124,8 @@ $f(x, y) = x^2 - xy + 2y^2$.
 ### M13b.R3 — Matrices définies positives (M12c) 🔁 ★ ⏱️ 5 min
 *Fiche §5 et §8 · parcours C, E*
 
-1. La matrice $\begin{pmatrix} 6 & 2 \cr 2 & 1 \end{pmatrix}$ est-elle définie positive ? (Trace et déterminant.)
-2. Et $\begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}$ ?
+1. La matrice $`\begin{pmatrix} 6 & 2 \cr 2 & 1 \end{pmatrix}`$ est-elle définie positive ? (Trace et déterminant.)
+2. Et $`\begin{pmatrix} 2 & 3 \cr 3 & 4 \end{pmatrix}`$ ?
 3. La matrice de Gram (des produits scalaires deux à deux) des vecteurs $(1, 2, 1)$, $(0, 1, -1)$ et $(1, 3, 0)$ ?
 4. Est-elle définie positive, semi-définie positive, ou ni l'un ni l'autre ? Pourquoi ?
 5. Pourquoi une matrice de Gram est-elle toujours semi-définie positive ?
@@ -174,7 +174,9 @@ Dans ta copie : écris la stationnarité, déduis-en que $\mathbf{x} - \mathbf{x
 **Prérequis :** fiche §2 ; M09a ; M12c.19 · **Parcours :** C, E
 
 On minimise $f(\mathbf{x}) = \frac{1}{2}\mathbf{x}^\top\mathbf{Q}\mathbf{x} + \mathbf{c}^\top\mathbf{x}$ sous $\mathbf{A}\mathbf{x} = \mathbf{b}$, avec
-$$\mathbf{Q} = \begin{pmatrix} 4 & 1 & 0 \cr 1 & 2 & 0 \cr 0 & 0 & 2 \end{pmatrix}, \quad \mathbf{c} = \begin{pmatrix} -2 \cr 0 \cr 1 \end{pmatrix}, \quad \mathbf{A} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 0 & -1 \end{pmatrix}, \quad \mathbf{b} = \begin{pmatrix} 3 \cr 1 \end{pmatrix},$$
+```math
+\mathbf{Q} = \begin{pmatrix} 4 & 1 & 0 \cr 1 & 2 & 0 \cr 0 & 0 & 2 \end{pmatrix}, \quad \mathbf{c} = \begin{pmatrix} -2 \cr 0 \cr 1 \end{pmatrix}, \quad \mathbf{A} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 0 & -1 \end{pmatrix}, \quad \mathbf{b} = \begin{pmatrix} 3 \cr 1 \end{pmatrix},
+```
 et le lagrangien $f(\mathbf{x}) + \boldsymbol{\lambda}^\top(\mathbf{A}\mathbf{x} - \mathbf{b})$.
 
 | | Question | Réponse attendue |
@@ -194,7 +196,7 @@ Dans ta copie : écris le système par blocs en entier. Pourquoi h) < g) < d) ? 
 **Objectif :** retrouver les axes principaux d'une matrice de covariance par les multiplicateurs de Lagrange, le premier puis le deuxième.
 **Prérequis :** fiche §2 ; M12c ; M12d · **Parcours :** C
 
-La matrice de covariance de trois features : $\mathbf{C} = \begin{pmatrix} 2 & -3 & 1 \cr -3 & 10 & -3 \cr 1 & -3 & 8 \end{pmatrix}$. Ses valeurs propres sont des entiers.
+La matrice de covariance de trois features : $`\mathbf{C} = \begin{pmatrix} 2 & -3 & 1 \cr -3 & 10 & -3 \cr 1 & -3 & 8 \end{pmatrix}`$. Ses valeurs propres sont des entiers.
 
 | | Question | Réponse attendue |
 |---|---|---|

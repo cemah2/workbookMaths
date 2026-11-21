@@ -105,7 +105,7 @@ Les colonnes de la matrice inversible $\mathbf{S}$ forment une base $(\mathbf{s}
 ### M12a.R1 — Le pivot de Gauss et la forme échelonnée réduite (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §2 · parcours C, E*
 
-$\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \cr 1 & 3 & 2 \cr 1 & 1 & 0 \end{pmatrix}$.
+$`\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \cr 1 & 3 & 2 \cr 1 & 1 & 0 \end{pmatrix}`$.
 1. La forme échelonnée réduite de $\mathbf{M}$ ?
 2. Les colonnes qui portent un pivot ?
 3. Le rang de $\mathbf{M}$ ?
@@ -116,7 +116,7 @@ $\mathbf{M} = \begin{pmatrix} 2 & 4 & 2 \cr 1 & 3 & 2 \cr 1 & 1 & 0 \end{pmatrix
 ### M12a.R2 — Produit matriciel et formes (M09a) 🔁 ★ ⏱️ 5 min
 *Fiche §5 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 0 & -2 \cr 3 & 1 & 1 \end{pmatrix}$ et $\mathbf{B} = \begin{pmatrix} 2 & 1 \cr 0 & -1 \cr 1 & 0 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 1 & 0 & -2 \cr 3 & 1 & 1 \end{pmatrix}`$ et $`\mathbf{B} = \begin{pmatrix} 2 & 1 \cr 0 & -1 \cr 1 & 0 \end{pmatrix}`$.
 1. La forme de $\mathbf{A}\mathbf{B}$ ?
 2. $\mathbf{A}\mathbf{B}$ ?
 3. La forme de $\mathbf{B}\mathbf{A}$ ?
@@ -230,7 +230,9 @@ Dans ta copie : vérifie que $(\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3)$ est un
 **Objectif :** calculer des rangs, comparer celui d'un produit à la borne du cours, et voir le rang perdu en centrant.
 **Prérequis :** fiche §4 ; M02c (centrer) · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & -1 \cr 2 & 4 & 1 & 1 \cr 3 & 6 & 1 & 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} -2 & 1 & 1 \cr 1 & 0 & 0 \cr 0 & -3 & 0 \cr 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 2 & 1 & 5 \cr 4 & 0 & 3 \cr 3 & 2 & 1 \end{pmatrix}$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 2 & 0 & -1 \cr 2 & 4 & 1 & 1 \cr 3 & 6 & 1 & 0 \end{pmatrix}, \qquad \mathbf{C} = \begin{pmatrix} -2 & 1 & 1 \cr 1 & 0 & 0 \cr 0 & -3 & 0 \cr 0 & 1 & 0 \end{pmatrix}, \qquad \mathbf{X} = \begin{pmatrix} 2 & 1 & 5 \cr 4 & 0 & 3 \cr 3 & 2 & 1 \end{pmatrix}
+```
 
 ($\mathbf{X}$ : 3 exemples, 3 features ; $\mathbf{X}_c$ est $\mathbf{X}$ centré colonne par colonne).
 
@@ -286,7 +288,9 @@ Dans ta copie : vérifie c) en appliquant $a$ puis $b$ au point $(1, 1)$. Pourqu
 **Objectif :** calculer une base du noyau et une base de l'image, et vérifier le théorème du rang.
 **Prérequis :** fiche §6 ; M07 §5 (équation d'un plan) · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 1 & 1 & 3 \cr 2 & 1 & 0 & 5 \cr 1 & -1 & -3 & 1 \end{pmatrix}.$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 1 & 1 & 3 \cr 2 & 1 & 0 & 5 \cr 1 & -1 & -3 & 1 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -305,7 +309,9 @@ Dans ta copie : vérifie $\mathbf{A}\mathbf{x} = \mathbf{0}$ pour d) et e), et l
 **Objectif :** décrire toutes les solutions d'un système comme une solution particulière plus le noyau, et dire quand il y en a.
 **Prérequis :** fiche §6 ; M09a §6 · **Parcours :** C, E
 
-$$\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \cr 0 & 1 & -1 & 3 \cr 1 & 1 & 1 & 2 \end{pmatrix}, \qquad \mathbf{b} = (4, -1, 3).$$
+```math
+\mathbf{A} = \begin{pmatrix} 1 & 0 & 2 & -1 \cr 0 & 1 & -1 & 3 \cr 1 & 1 & 1 & 2 \end{pmatrix}, \qquad \mathbf{b} = (4, -1, 3).
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -324,7 +330,7 @@ Dans ta copie : écris l'ensemble des solutions sous la forme $\mathbf{x}_p + s\
 **Objectif :** calculer la matrice d'une application dans une nouvelle base, et s'en servir pour calculer une image.
 **Prérequis :** fiche §7 ; M09a §7 (inverse $2 \times 2$) · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 4 & -2 \cr 1 & 1 \end{pmatrix}$ ; la nouvelle base est $\mathbf{s}_1 = (1, 1)$, $\mathbf{s}_2 = (2, 1)$, et $\mathbf{S} = [\mathbf{s}_1 \ \mathbf{s}_2]$.
+$`\mathbf{A} = \begin{pmatrix} 4 & -2 \cr 1 & 1 \end{pmatrix}`$ ; la nouvelle base est $\mathbf{s}_1 = (1, 1)$, $\mathbf{s}_2 = (2, 1)$, et $\mathbf{S} = [\mathbf{s}_1 \ \mathbf{s}_2]$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -413,7 +419,7 @@ $f : V \to W$ est une application linéaire.
 2. Montre que $\ker f$ est un sous-espace de $V$.
 3. Montre que $\operatorname{Im} f$ est un sous-espace de $W$.
 4. Montre que, si $f$ est injective, alors $\ker f = \lbrace\mathbf{0}\rbrace$.
-5. Réciproquement, montre que, si $\ker f = \lbrace\mathbf{0}\rbrace$, alors $f$ est injective (pars de $f(\mathbf{x}) = f(\mathbf{y})$).
+5. Réciproquement, montre que, si $\ker f = \lbrace\mathbf{0}\rbrace$, alors $f$ est injective (pars de $f(\mathbf{x}) = f(\mathbf{y}){}$).
 6. Déduis-en qu'une matrice $\mathbf{A}$ de forme $(m, n)$ avec $n > m$ n'est jamais injective (pense aux variables libres de $\mathbf{A}\mathbf{x} = \mathbf{0}$).
 
 ### Ex M12a.17 — Le théorème du rang : dim ker + rang = nombre de colonnes ∂ ★★★ ⏱️ 25 min
@@ -436,7 +442,7 @@ $\mathbf{A}$ a la forme $(m, n)$ et $\mathbf{B}$ la forme $(n, p)$.
 1. Montre que chaque colonne de $\mathbf{A}\mathbf{B}$ est dans $\operatorname{Im}\mathbf{A}$. Déduis-en $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \operatorname{rg}(\mathbf{A})$.
 2. Avec $(\mathbf{A}\mathbf{B})^\top = \mathbf{B}^\top\mathbf{A}^\top$ et $\operatorname{rg}(\mathbf{M}) = \operatorname{rg}(\mathbf{M}^\top)$, déduis-en $\operatorname{rg}(\mathbf{A}\mathbf{B}) \le \operatorname{rg}(\mathbf{B})$.
 3. Une autre preuve de 2 : montre que $\ker\mathbf{B} \subseteq \ker(\mathbf{A}\mathbf{B})$, puis applique le théorème du rang à $\mathbf{B}$ et à $\mathbf{A}\mathbf{B}$ (qui ont toutes deux $p$ colonnes).
-4. Montre que, si $\mathbf{A}$ est carrée et inversible, $\operatorname{rg}(\mathbf{A}\mathbf{B}) = \operatorname{rg}(\mathbf{B})$ (écris $\mathbf{B} = \mathbf{A}^{-1}(\mathbf{A}\mathbf{B})$).
+4. Montre que, si $\mathbf{A}$ est carrée et inversible, $\operatorname{rg}(\mathbf{A}\mathbf{B}) = \operatorname{rg}(\mathbf{B})$ (écris $\mathbf{B} = \mathbf{A}^{-1}(\mathbf{A}\mathbf{B}){}$).
 5. Trouve deux matrices $2 \times 2$ de rang 1 dont le produit est la matrice nulle. Que dit cet exemple de la borne ?
 
 ### Ex M12a.19 — L'inverse d'une application affine bijective est affine ∂ ★★ ⏱️ 20 min
@@ -460,7 +466,9 @@ $\varphi(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$, de $\mathbb{R}^n$ dan
 
 Un tableau décrit quatre livraisons par le temps de trajet (min), le temps passé sur place (min) et le temps total (min) :
 
-$$\mathbf{X} = \begin{pmatrix} 12 & 30 & 42 \cr 25 & 15 & 40 \cr 8 & 50 & 58 \cr 20 & 20 & 40 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 12 & 30 & 42 \cr 25 & 15 & 40 \cr 8 & 50 & 58 \cr 20 & 20 & 40 \end{pmatrix}.
+```
 
 Un modèle linéaire sans biais prédit $\mathbf{X}\mathbf{w}$, avec par exemple $\mathbf{w} = (0{,}5 ;\ 1 ;\ 0)$.
 
@@ -471,7 +479,7 @@ Un modèle linéaire sans biais prédit $\mathbf{X}\mathbf{w}$, avec par exemple
 | c | le vecteur de base de $\ker\mathbf{X}$ dont la dernière coordonnée vaut 1 | une liste de 3 nombres |
 | d | $\dim\ker(\mathbf{X}^\top\mathbf{X})$ | un entier |
 | e | les quatre prédictions $\mathbf{X}\mathbf{w}'$ des poids $\mathbf{w}' = \mathbf{w} + 2\thinspace\mathbf{d}$, où $\mathbf{d}$ est le vecteur de c) | une liste de 4 nombres (1 décimale) |
-| f | vrai ou faux : après avoir retiré la colonne du temps total, $\mathbf{X}^\top\mathbf{X}$ (alors de forme $(2, 2)$) est inversible | `True` ou `False` |
+| f | vrai ou faux : après avoir retiré la colonne du temps total, $\mathbf{X}^\top\mathbf{X}$ (alors de forme $(2, 2){}$) est inversible | `True` ou `False` |
 
 Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mathbf{d}$ sur les features en cause ? $\mathbf{X}^\top\mathbf{X}$ est-elle inversible ? Une méthode peut-elle choisir entre $\mathbf{w}$ et $\mathbf{w}'$ au vu des seules données, et pourquoi ? Que changerait une colonne « temps total » mesurée au chronomètre, qui ne serait égale à la somme qu'à quelques secondes près ?
 
@@ -481,7 +489,9 @@ Dans ta copie : compare e) avec $\mathbf{X}\mathbf{w}$. Que dit le vecteur $\mat
 
 Un « encodeur » résume un vecteur de $\mathbb{R}^3$ en deux nombres, $\mathbf{E}\mathbf{x}$, et un « décodeur » tente de le reconstruire, $\mathbf{D}\mathbf{E}\mathbf{x}$ :
 
-$$\mathbf{E} = \begin{pmatrix} 1 & 1 & 0 \cr 0 & 1 & -1 \end{pmatrix}, \qquad \mathbf{D} = \begin{pmatrix} 1 & -1 \cr 0 & 1 \cr 0 & 0 \end{pmatrix}.$$
+```math
+\mathbf{E} = \begin{pmatrix} 1 & 1 & 0 \cr 0 & 1 & -1 \end{pmatrix}, \qquad \mathbf{D} = \begin{pmatrix} 1 & -1 \cr 0 & 1 \cr 0 & 0 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|

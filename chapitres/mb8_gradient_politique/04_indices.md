@@ -152,7 +152,7 @@ $(\mathbf{I} - \gamma\mathbf{P}  _\pi)\thinspace\mathbf{V} = \mathbf{r}  _\pi$ ;
 </details>
 <details><summary>Indice 3</summary>
 
-1. $\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}58 & -0{,}18 \cr -0{,}12 & 0{,}52 \end{pmatrix}$, de déterminant $0{,}28$ ; l'inverse d'une matrice $2 \times 2$. 2. La ligne 0 de $\mathbf{M}$ : $\frac{(0{,}52 ;\ 0{,}18)}{0{,}28}$. 3. $8 + 0{,}6\thinspace(0{,}7 \times 16 + 0{,}3 \times 5) - 16$. 4. Écris chaque $\delta _{t+k}$, multiplie par $\gamma^k$ et somme : les termes en $W$ se compensent deux à deux.
+1. $`\mathbf{I} - 0{,}6\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}58 & -0{,}18 \cr -0{,}12 & 0{,}52 \end{pmatrix}`$, de déterminant $0{,}28$ ; l'inverse d'une matrice $2 \times 2$. 2. La ligne 0 de $\mathbf{M}$ : $\frac{(0{,}52 ;\ 0{,}18)}{0{,}28}$. 3. $8 + 0{,}6\thinspace(0{,}7 \times 16 + 0{,}3 \times 5) - 16$. 4. Écris chaque $\delta _{t+k}$, multiplie par $\gamma^k$ et somme : les termes en $W$ se compensent deux à deux.
 
 </details>
 
@@ -228,7 +228,7 @@ $\pi(\text{rester} \mid \text{marché}) = \frac{e^{\ln 3}}{e^{\ln 3} + 1}$. La l
 </details>
 <details><summary>Indice 3</summary>
 
-a) $0{,}75\thinspace(0{,}86 ;\ 0{,}14) + 0{,}25\thinspace(0 ;\ 1)$. b) $\mathbf{I} - 0{,}7\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}5485 & -0{,}2485 \cr -0{,}21 & 0{,}51 \end{pmatrix}$, son déterminant, puis $\mathbf{M}\thinspace\mathbf{r} _\pi$. c) La colonne du marché de $\mathbf{M}$ : $\frac{(0{,}51 ;\ 0{,}21)}{\det}$. d) $Q(\text{marché}, \text{rester}) = 3 + 0{,}7\thinspace(0{,}86\thinspace V(\text{marché}) + 0{,}14\thinspace V(\text{parc}))$ et $Q(\text{marché}, \text{partir}) = 0{,}7\thinspace V(\text{parc})$. e) Quatre produits ; contrôle : les deux dérivées d'un même départ ont une somme nulle.
+a) $0{,}75\thinspace(0{,}86 ;\ 0{,}14) + 0{,}25\thinspace(0 ;\ 1)$. b) $`\mathbf{I} - 0{,}7\thinspace\mathbf{P} _\pi = \begin{pmatrix} 0{,}5485 & -0{,}2485 \cr -0{,}21 & 0{,}51 \end{pmatrix}`$, son déterminant, puis $\mathbf{M}\thinspace\mathbf{r} _\pi$. c) La colonne du marché de $\mathbf{M}$ : $\frac{(0{,}51 ;\ 0{,}21)}{\det}$. d) $Q(\text{marché}, \text{rester}) = 3 + 0{,}7\thinspace(0{,}86\thinspace V(\text{marché}) + 0{,}14\thinspace V(\text{parc}))$ et $Q(\text{marché}, \text{partir}) = 0{,}7\thinspace V(\text{parc})$. e) Quatre produits ; contrôle : les deux dérivées d'un même départ ont une somme nulle.
 
 </details>
 

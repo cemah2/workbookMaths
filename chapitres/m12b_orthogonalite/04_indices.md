@@ -385,12 +385,12 @@ Relis l'exemple du §6 de la fiche.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x_i \cr \sum x_i & \sum x_i^2 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (\sum y_i, \sum x_iy_i)$.
+$`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x_i \cr \sum x_i & \sum x_i^2 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (\sum y_i, \sum x_iy_i)$.
 
 </details>
 <details><summary>Indice 3</summary>
 
-Le déterminant vaut 150 ; $\mathbf{w}^\ast = \frac{1}{150}\begin{pmatrix} 110 & -20 \cr -20 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}$.
+Le déterminant vaut 150 ; $`\mathbf{w}^\ast = \frac{1}{150}\begin{pmatrix} 110 & -20 \cr -20 & 5 \end{pmatrix}\mathbf{X}^\top\mathbf{y}`$.
 
 </details>
 
@@ -542,7 +542,7 @@ $t = \frac{10}{10}$ ; $\mathbf{r} = \mathbf{x}_2 - \mathbf{x}_1$.
 </details>
 <details><summary>Indice 3</summary>
 
-g) Les équations normales $\begin{pmatrix} 10 & 10 \cr 10 & 14 \end{pmatrix}\mathbf{w} = (23, 29)$.
+g) Les équations normales $`\begin{pmatrix} 10 & 10 \cr 10 & 14 \end{pmatrix}\mathbf{w} = (23, 29)`$.
 
 </details>
 

@@ -100,15 +100,15 @@ $\mathbf{u}_i^\top\mathbf{u}_j = \frac{\mathbf{v}_i^\top\mathbf{A}^\top\mathbf{A
 
 </details>
 
-**Exemple.** $\mathbf{A} = \begin{pmatrix} 6 & 4 \cr 1 & -6 \end{pmatrix}$.
-- $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 37 & 18 \cr 18 & 52 \end{pmatrix}$ : trace 89, déterminant $1\thinspace924 - 324 = 1\thinspace600$, donc $\lambda^2 - 89\lambda + 1\thinspace600 = (\lambda - 64)(\lambda - 25)$. Les valeurs singulières sont $s_1 = 8$ et $s_2 = 5$.
-- Pour 64 : $\begin{pmatrix} -27 & 18 \cr 18 & -12 \end{pmatrix}$ donne $3x = 2y$, $\mathbf{v}_1 = (2, 3)/\sqrt{13}$ ; pour 25, $\mathbf{v}_2 = (3, -2)/\sqrt{13}$ (orthogonal au premier, coordonnée de plus grande valeur absolue positive).
+**Exemple.** $`\mathbf{A} = \begin{pmatrix} 6 & 4 \cr 1 & -6 \end{pmatrix}`$.
+- $`\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 37 & 18 \cr 18 & 52 \end{pmatrix}`$ : trace 89, déterminant $1\thinspace924 - 324 = 1\thinspace600$, donc $\lambda^2 - 89\lambda + 1\thinspace600 = (\lambda - 64)(\lambda - 25)$. Les valeurs singulières sont $s_1 = 8$ et $s_2 = 5$.
+- Pour 64 : $`\begin{pmatrix} -27 & 18 \cr 18 & -12 \end{pmatrix}`$ donne $3x = 2y$, $\mathbf{v}_1 = (2, 3)/\sqrt{13}$ ; pour 25, $\mathbf{v}_2 = (3, -2)/\sqrt{13}$ (orthogonal au premier, coordonnée de plus grande valeur absolue positive).
 - $\mathbf{A}(2, 3) = (24, -16) = 8\thinspace(3, -2)$, donc $\mathbf{u}_1 = (3, -2)/\sqrt{13}$ ; $\mathbf{A}(3, -2) = (10, 15) = 5\thinspace(2, 3)$, donc $\mathbf{u}_2 = (2, 3)/\sqrt{13}$.
-- Vérification : $8\thinspace\mathbf{u}_1\mathbf{v}_1^\top + 5\thinspace\mathbf{u}_2\mathbf{v}_2^\top = \frac{8}{13}\begin{pmatrix} 6 & 9 \cr -4 & -6 \end{pmatrix} + \frac{5}{13}\begin{pmatrix} 6 & -4 \cr 9 & -6 \end{pmatrix} = \frac{1}{13}\begin{pmatrix} 78 & 52 \cr 13 & -78 \end{pmatrix} = \mathbf{A}$.
+- Vérification : $`8\thinspace\mathbf{u}_1\mathbf{v}_1^\top + 5\thinspace\mathbf{u}_2\mathbf{v}_2^\top = \frac{8}{13}\begin{pmatrix} 6 & 9 \cr -4 & -6 \end{pmatrix} + \frac{5}{13}\begin{pmatrix} 6 & -4 \cr 9 & -6 \end{pmatrix} = \frac{1}{13}\begin{pmatrix} 78 & 52 \cr 13 & -78 \end{pmatrix} = \mathbf{A}`$.
 
 Les valeurs propres de $\mathbf{A}$ elle-même sont $\pm\sqrt{40} \approx \pm 6{,}32$ (trace 0, déterminant $-40$) : elles n'ont rien à voir avec 8 et 5.
 
-**Exemple rectangulaire.** $\mathbf{X} = \begin{pmatrix} 2 & 2 \cr 4 & 1 \cr 4 & -2 \end{pmatrix}$, de forme $(3, 2)$. Ses colonnes sont orthogonales ($4 + 4 - 8 = 0$) : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 36 & 0 \cr 0 & 9 \end{pmatrix}$ est déjà diagonale, donc $\mathbf{V} = \mathbf{I}$, $s_1 = 6$, $s_2 = 3$ (les normes des colonnes), $\mathbf{u}_1 = (2, 4, 4)/6 = (1, 2, 2)/3$ et $\mathbf{u}_2 = (2, 1, -2)/3$. La SVD compacte est $\mathbf{X} = \frac{1}{3}\begin{pmatrix} 1 & 2 \cr 2 & 1 \cr 2 & -2 \end{pmatrix}\begin{pmatrix} 6 & 0 \cr 0 & 3 \end{pmatrix}\mathbf{I}$. La SVD complète ajoute $\mathbf{u}_3 = (2, -2, 1)/3$, qui complète la base de $\mathbb{R}^3$ (les trois $\mathbf{u}_i$ sont les lignes de la matrice orthogonale de la fiche M12b, dans un autre ordre), et une ligne de zéros à $\mathbf{S}$, de forme $(3, 2)$. $\mathbf{X}\mathbf{X}^\top$, de forme $(3, 3)$, a pour valeurs propres 36, 9 et 0.
+**Exemple rectangulaire.** $`\mathbf{X} = \begin{pmatrix} 2 & 2 \cr 4 & 1 \cr 4 & -2 \end{pmatrix}`$, de forme $(3, 2)$. Ses colonnes sont orthogonales ($4 + 4 - 8 = 0$) : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 36 & 0 \cr 0 & 9 \end{pmatrix}`$ est déjà diagonale, donc $\mathbf{V} = \mathbf{I}$, $s_1 = 6$, $s_2 = 3$ (les normes des colonnes), $\mathbf{u}_1 = (2, 4, 4)/6 = (1, 2, 2)/3$ et $\mathbf{u}_2 = (2, 1, -2)/3$. La SVD compacte est $`\mathbf{X} = \frac{1}{3}\begin{pmatrix} 1 & 2 \cr 2 & 1 \cr 2 & -2 \end{pmatrix}\begin{pmatrix} 6 & 0 \cr 0 & 3 \end{pmatrix}\mathbf{I}`$. La SVD complète ajoute $\mathbf{u}_3 = (2, -2, 1)/3$, qui complète la base de $\mathbb{R}^3$ (les trois $\mathbf{u}_i$ sont les lignes de la matrice orthogonale de la fiche M12b, dans un autre ordre), et une ligne de zéros à $\mathbf{S}$, de forme $(3, 2)$. $\mathbf{X}\mathbf{X}^\top$, de forme $(3, 3)$, a pour valeurs propres 36, 9 et 0.
 
 ### Ce que la SVD dit d'une matrice
 
@@ -149,7 +149,7 @@ Le cercle unité a pour image une **ellipse** de demi-axes $s_1\mathbf{u}_1$ et 
 $$s_n\thinspace\lVert \mathbf{x} \rVert \le \lVert \mathbf{A}\mathbf{x} \rVert \le s_1\thinspace\lVert \mathbf{x} \rVert \qquad (\text{à gauche, pour } n \le m ;\ s_n \text{ peut être nulle}),$$
 avec égalité en $\mathbf{v}_1$ à droite et en $\mathbf{v}_n$ à gauche. L'idée : $\lVert \mathbf{A}\mathbf{x} \rVert^2 = \mathbf{x}^\top(\mathbf{A}^\top\mathbf{A})\mathbf{x}$, et le quotient de Rayleigh de $\mathbf{A}^\top\mathbf{A}$ est compris entre sa plus petite et sa plus grande valeur propre, $s_n^2$ et $s_1^2$ (M12c §6 ; ∂ M12d.15). Le plus grand étirement $s_1$ s'appelle la **norme spectrale** (*spectral norm*) de $\mathbf{A}$, notée $\lVert \mathbf{A} \rVert_2$. Pour une matrice orthogonale, toutes les valeurs singulières valent 1 : elle n'étire rien.
 
-⚠️ **Erreur classique.** Croire que la plus grande valeur propre (en module) mesure le plus grand étirement. C'est vrai pour une matrice symétrique, pas en général : la matrice de cisaillement $\begin{pmatrix} 1 & 10 \cr 0 & 1 \end{pmatrix}$ n'a que la valeur propre 1, mais elle envoie $(0, 1)$ sur $(10, 1)$, de norme $\sqrt{101}$ ; sa norme spectrale est $s_1 \approx 10{,}1$.
+⚠️ **Erreur classique.** Croire que la plus grande valeur propre (en module) mesure le plus grand étirement. C'est vrai pour une matrice symétrique, pas en général : la matrice de cisaillement $`\begin{pmatrix} 1 & 10 \cr 0 & 1 \end{pmatrix}`$ n'a que la valeur propre 1, mais elle envoie $(0, 1)$ sur $(10, 1)$, de norme $\sqrt{101}$ ; sa norme spectrale est $s_1 \approx 10{,}1$.
 
 ### En machine learning
 
@@ -174,7 +174,7 @@ On appelle souvent $\lVert \mathbf{A} \rVert_F^2$ l'**énergie** de la matrice, 
 $$\lVert \mathbf{A} - \mathbf{B} \rVert_F \ge \lVert \mathbf{A} - \mathbf{A} _k \rVert_F, \qquad \text{et} \qquad \lVert \mathbf{A} - \mathbf{A} _k \rVert_F^2 = s _{k+1}^2 + \cdots + s_r^2.$$
 Aucune matrice de rang $k$ n'est plus proche de $\mathbf{A}$ ; l'erreur est l'énergie des couches oubliées (∂ M12d.16 démontre cette égalité). En norme spectrale, l'erreur minimale vaut $s _{k+1}$.
 
-**Exemple.** Pour $\mathbf{A} = \begin{pmatrix} 6 & 4 \cr 1 & -6 \end{pmatrix}$ : $\lVert \mathbf{A} \rVert_F^2 = 36 + 16 + 1 + 36 = 89 = 64 + 25$. L'approximation de rang 1 est $\mathbf{A}_1 = 8\thinspace\mathbf{u}_1\mathbf{v}_1^\top = \frac{8}{13}\begin{pmatrix} 6 & 9 \cr -4 & -6 \end{pmatrix} \approx \begin{pmatrix} 3{,}69 & 5{,}54 \cr -2{,}46 & -3{,}69 \end{pmatrix}$ ; l'erreur $\mathbf{A} - \mathbf{A}_1 = 5\thinspace\mathbf{u}_2\mathbf{v}_2^\top$ a pour norme de Frobenius 5 : $\mathbf{A}_1$ garde $64/89 \approx 72$ % de l'énergie.
+**Exemple.** Pour $`\mathbf{A} = \begin{pmatrix} 6 & 4 \cr 1 & -6 \end{pmatrix}`$ : $\lVert \mathbf{A} \rVert_F^2 = 36 + 16 + 1 + 36 = 89 = 64 + 25$. L'approximation de rang 1 est $`\mathbf{A}_1 = 8\thinspace\mathbf{u}_1\mathbf{v}_1^\top = \frac{8}{13}\begin{pmatrix} 6 & 9 \cr -4 & -6 \end{pmatrix} \approx \begin{pmatrix} 3{,}69 & 5{,}54 \cr -2{,}46 & -3{,}69 \end{pmatrix}`$ ; l'erreur $\mathbf{A} - \mathbf{A}_1 = 5\thinspace\mathbf{u}_2\mathbf{v}_2^\top$ a pour norme de Frobenius 5 : $\mathbf{A}_1$ garde $64/89 \approx 72$ % de l'énergie.
 
 ### Compresser
 
@@ -207,9 +207,9 @@ de forme $(n, m)$ : on inverse ce qui s'inverse (les $s_i > 0$), et l'on ignore 
 - si les colonnes de $\mathbf{A}$ sont libres (rang $n$), $\mathbf{A}^+ = (\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ : ce sont les équations normales de M09b ;
 - $\mathbf{A}\mathbf{A}^+ = \mathbf{U}_r\mathbf{U}_r^\top$ est la projection orthogonale sur l'image de $\mathbf{A}$ (M12b §5), et $\mathbf{A}^+\mathbf{A} = \mathbf{V}_r\mathbf{V}_r^\top$ celle sur l'espace des lignes.
 
-**Exemple 1 : une équation, deux inconnues.** $x_1 + 2x_2 = 5$, soit $\mathbf{A} = \begin{pmatrix} 1 & 2 \end{pmatrix}$, de forme $(1, 2)$. Sa SVD : $s_1 = \sqrt{5}$, $\mathbf{v}_1 = (1, 2)/\sqrt{5}$, $u_1 = 1$. Donc $\mathbf{A}^+ = \frac{1}{\sqrt{5}}\mathbf{v}_1 = \frac{1}{5}\begin{pmatrix} 1 \cr 2 \end{pmatrix}$, et $\mathbf{x}^+ = 5\thinspace\mathbf{A}^+ = (1, 2)$. Les solutions forment la droite $(1, 2) + t\thinspace(2, -1)$ (le noyau est engendré par $(2, -1)$), de norme au carré $5 + 5t^2$ : la plus courte est bien $t = 0$, le pied de la perpendiculaire menée de l'origine.
+**Exemple 1 : une équation, deux inconnues.** $x_1 + 2x_2 = 5$, soit $`\mathbf{A} = \begin{pmatrix} 1 & 2 \end{pmatrix}`$, de forme $(1, 2)$. Sa SVD : $s_1 = \sqrt{5}$, $\mathbf{v}_1 = (1, 2)/\sqrt{5}$, $u_1 = 1$. Donc $\mathbf{A}^+ = \frac{1}{\sqrt{5}}\mathbf{v}_1 = \frac{1}{5}\begin{pmatrix} 1 \cr 2 \end{pmatrix}$, et $\mathbf{x}^+ = 5\thinspace\mathbf{A}^+ = (1, 2)$. Les solutions forment la droite $(1, 2) + t\thinspace(2, -1)$ (le noyau est engendré par $(2, -1){}$), de norme au carré $5 + 5t^2$ : la plus courte est bien $t = 0$, le pied de la perpendiculaire menée de l'origine.
 
-**Exemple 2 : des colonnes libres.** Pour la matrice $\mathbf{X}$ du §1, $\mathbf{X}^+ = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top = \begin{pmatrix} 1/36 & 0 \cr 0 & 1/9 \end{pmatrix}\begin{pmatrix} 2 & 4 & 4 \cr 2 & 1 & -2 \end{pmatrix} = \frac{1}{18}\begin{pmatrix} 1 & 2 & 2 \cr 4 & 2 & -4 \end{pmatrix}$, et l'on vérifie $\mathbf{X}^+\mathbf{X} = \mathbf{I}_2$ ; mais $\mathbf{X}\mathbf{X}^+$, de forme $(3, 3)$, n'est que la projection sur le plan engendré par les colonnes.
+**Exemple 2 : des colonnes libres.** Pour la matrice $\mathbf{X}$ du §1, $`\mathbf{X}^+ = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top = \begin{pmatrix} 1/36 & 0 \cr 0 & 1/9 \end{pmatrix}\begin{pmatrix} 2 & 4 & 4 \cr 2 & 1 & -2 \end{pmatrix} = \frac{1}{18}\begin{pmatrix} 1 & 2 & 2 \cr 4 & 2 & -4 \end{pmatrix}`$, et l'on vérifie $\mathbf{X}^+\mathbf{X} = \mathbf{I}_2$ ; mais $\mathbf{X}\mathbf{X}^+$, de forme $(3, 3)$, n'est que la projection sur le plan engendré par les colonnes.
 
 **Les petites valeurs singulières.** Une valeur singulière minuscule, souvent du bruit, donne un $1/s_i$ énorme : la solution s'emballe. Deux remèdes : la **troncature**, qui traite comme nulles les $s_i$ sous un seuil relatif (le `rcond` de ta fonction `pinv`), et la **régularisation ridge** de M09b, qui remplace chaque $1/s_i$ par $\frac{s_i}{s_i^2 + \alpha}$ : presque $1/s_i$ quand $s_i^2 \gg \alpha$, presque 0 quand $s_i^2 \ll \alpha$. Écrite avec la SVD, la solution ridge est $\mathbf{x}_\alpha = \sum_i \frac{s_i}{s_i^2 + \alpha}\thinspace(\mathbf{u}_i^\top\mathbf{b})\thinspace\mathbf{v}_i$.
 
@@ -229,7 +229,7 @@ $\delta\mathbf{x} = \mathbf{A}^{-1}\delta\mathbf{b}$, et $\mathbf{A}^{-1}$ a pou
 
 </details>
 
-**Exemple.** $\mathbf{M} = \begin{pmatrix} 10 & 7 \cr 7 & 5 \end{pmatrix}$ a un déterminant de 1, et pourtant elle est mal conditionnée : ses valeurs propres sont $\frac{15 \pm \sqrt{221}}{2} \approx 14{,}93$ et $0{,}067$, donc $\kappa \approx 223$. Le système $\mathbf{M}\mathbf{x} = (17, 12)$ a pour solution $(1, 1)$ ; avec $(17 ;\ 12{,}01)$, la solution devient $(0{,}93 ;\ 1{,}10)$ (calcule-la avec $\mathbf{M}^{-1} = \begin{pmatrix} 5 & -7 \cr -7 & 10 \end{pmatrix}$). Les données ont bougé de $0{,}05$ %, la solution de $8{,}6$ % : un facteur 180, sous la borne de 223. Pour la matrice $\mathbf{A}$ du §1, $\kappa = 8/5 = 1{,}6$ : aucune amplification à craindre.
+**Exemple.** $`\mathbf{M} = \begin{pmatrix} 10 & 7 \cr 7 & 5 \end{pmatrix}`$ a un déterminant de 1, et pourtant elle est mal conditionnée : ses valeurs propres sont $\frac{15 \pm \sqrt{221}}{2} \approx 14{,}93$ et $0{,}067$, donc $\kappa \approx 223$. Le système $\mathbf{M}\mathbf{x} = (17, 12)$ a pour solution $(1, 1)$ ; avec $(17 ;\ 12{,}01)$, la solution devient $(0{,}93 ;\ 1{,}10)$ (calcule-la avec $`\mathbf{M}^{-1} = \begin{pmatrix} 5 & -7 \cr -7 & 10 \end{pmatrix}`$). Les données ont bougé de $0{,}05$ %, la solution de $8{,}6$ % : un facteur 180, sous la borne de 223. Pour la matrice $\mathbf{A}$ du §1, $\kappa = 8/5 = 1{,}6$ : aucune amplification à craindre.
 
 ![Deux systèmes 2 × 2 et les solutions obtenues pour 400 seconds membres b à moins de 0,1 de b₀ : pour A, κ = 1,6, les droites se coupent franchement et les solutions restent groupées ; pour M, κ ≈ 223, les droites sont presque parallèles et les solutions s'étalent le long d'elles](figures/conditionnement.png)
 
@@ -269,12 +269,16 @@ Quelle direction unitaire donne la plus grande variance ? On cherche le maximum 
 **La variance totale ne change pas.** La somme des variances des $p$ features est $\operatorname{tr}\mathbf{C} = \lambda_1 + \cdots + \lambda_p$ (M12c §2) : les axes principaux ne créent ni ne détruisent de variance, ils la **répartissent**, le plus possible sur le premier, puis le plus possible de ce qui reste sur le deuxième.
 
 **Exemple.** Cinq objets, trois mesures chacun :
-$$\mathbf{X} = \begin{pmatrix} 3 & 2 & 5 \cr 7 & 6 & 5 \cr 9 & 8 & 1 \cr 9 & 8 & 9 \cr 12 & 6 & 5 \end{pmatrix}, \quad \boldsymbol{\mu} = (8, 6, 5), \quad \mathbf{X}_c = \begin{pmatrix} -5 & -4 & 0 \cr -1 & 0 & 0 \cr 1 & 2 & -4 \cr 1 & 2 & 4 \cr 4 & 0 & 0 \end{pmatrix}.$$
+```math
+\mathbf{X} = \begin{pmatrix} 3 & 2 & 5 \cr 7 & 6 & 5 \cr 9 & 8 & 1 \cr 9 & 8 & 9 \cr 12 & 6 & 5 \end{pmatrix}, \quad \boldsymbol{\mu} = (8, 6, 5), \quad \mathbf{X}_c = \begin{pmatrix} -5 & -4 & 0 \cr -1 & 0 & 0 \cr 1 & 2 & -4 \cr 1 & 2 & 4 \cr 4 & 0 & 0 \end{pmatrix}.
+```
 Les sommes de produits, divisées par $n - 1 = 4$, donnent
-$$\mathbf{C} = \begin{pmatrix} 11 & 6 & 0 \cr 6 & 6 & 0 \cr 0 & 0 & 8 \end{pmatrix}$$
+```math
+\mathbf{C} = \begin{pmatrix} 11 & 6 & 0 \cr 6 & 6 & 0 \cr 0 & 0 & 8 \end{pmatrix}
+```
 (par exemple $\sum x_1^2 = 25 + 1 + 1 + 1 + 16 = 44$, et $44/4 = 11$). La troisième mesure n'est corrélée à aucune autre : la matrice est **par blocs**, et son polynôme caractéristique se factorise en développant selon la dernière ligne :
 $$\det(\mathbf{C} - \lambda\mathbf{I}) = (8 - \lambda)\big[(11 - \lambda)(6 - \lambda) - 36\big] = (8 - \lambda)(\lambda^2 - 17\lambda + 30) = (8 - \lambda)(\lambda - 15)(\lambda - 2).$$
-Les variances le long des axes sont $\lambda_1 = 15$, $\lambda_2 = 8$, $\lambda_3 = 2$, de somme $25 = 11 + 6 + 8$. Les axes : pour 15, $\begin{pmatrix} -4 & 6 \cr 6 & -9 \end{pmatrix}$ donne $2x = 3y$, $\mathbf{u}_1 = (3, 2, 0)/\sqrt{13}$ ; pour 8, $\mathbf{u} _2 = (0, 0, 1)$ ; pour 2, $\mathbf{u} _3 = (-2, 3, 0)/\sqrt{13}$ (convention de signe). Aucune direction ne fait mieux que 15 : le long de la première mesure seule, la variance est 11 ; le long de $(1, 1, 1)/\sqrt{3}$, elle vaut $\frac{1}{3}\sum _{i,j} c _{ij} = \frac{37}{3} \approx 12{,}3$.
+Les variances le long des axes sont $\lambda_1 = 15$, $\lambda_2 = 8$, $\lambda_3 = 2$, de somme $25 = 11 + 6 + 8$. Les axes : pour 15, $`\begin{pmatrix} -4 & 6 \cr 6 & -9 \end{pmatrix}`$ donne $2x = 3y$, $\mathbf{u}_1 = (3, 2, 0)/\sqrt{13}$ ; pour 8, $\mathbf{u} _2 = (0, 0, 1)$ ; pour 2, $\mathbf{u} _3 = (-2, 3, 0)/\sqrt{13}$ (convention de signe). Aucune direction ne fait mieux que 15 : le long de la première mesure seule, la variance est 11 ; le long de $(1, 1, 1)/\sqrt{3}$, elle vaut $\frac{1}{3}\sum _{i,j} c _{ij} = \frac{37}{3} \approx 12{,}3$.
 
 ![À gauche, un nuage de 400 points de ℝ³ tiré avec la covariance C de l'exemple, et ses trois axes principaux, de longueur ± 2√λ ; à droite, les coordonnées des points sur u₁ et u₂ : des variances égales aux deux premières valeurs propres, et aucune corrélation](figures/axes_principaux.png)
 

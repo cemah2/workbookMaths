@@ -103,7 +103,9 @@ Par exemple, $\mathcal{N}(\mathbf{0}, \mathbf{I})$ est bien la loi d'un vecteur 
 Pour $\boldsymbol{\mu} = \mathbf{0}$ et $\boldsymbol{\Sigma} = \mathbf{I}$, on retrouve la densité ci-dessus ; pour $d = 1$, $\Delta^2 = \frac{(x - \mu)^2}{\sigma^2}$ et c'est la densité de $\mathcal{N}(\mu, \sigma^2)$ de M02b. Le facteur se lit aussi $\frac{1}{\sqrt{\det(2\pi\boldsymbol{\Sigma})}}$, puisque $\det(2\pi\boldsymbol{\Sigma}) = (2\pi)^d\det\boldsymbol{\Sigma}$ (M12c §1).
 
 **Exemple : l'erreur d'un récepteur GPS.** Un récepteur fixe, posé sur une borne dont la position exacte est connue, donne chaque minute une position. Son erreur $\mathbf{x} = (x_1, x_2)$, en mètres, vers l'est et vers le nord, suit $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 2 \cr -4 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 16 & 4 \cr 4 & 10 \end{pmatrix}, \qquad \det\boldsymbol{\Sigma} = 144, \qquad \boldsymbol{\Sigma}^{-1} = \frac{1}{144}\begin{pmatrix} 10 & -4 \cr -4 & 16 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 2 \cr -4 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 16 & 4 \cr 4 & 10 \end{pmatrix}, \qquad \det\boldsymbol{\Sigma} = 144, \qquad \boldsymbol{\Sigma}^{-1} = \frac{1}{144}\begin{pmatrix} 10 & -4 \cr -4 & 16 \end{pmatrix}.
+```
 Le récepteur a un **biais** (2 m vers l'est, 4 m vers le sud), des écarts-types de 4 m et $\sqrt{10}$ m (un peu plus de 3 m), et des erreurs un peu liées (corrélation $\frac{4}{4\sqrt{10}} \approx 0{,}316$). La densité est maximale en $\mathbf{x} = \boldsymbol{\mu}$, où l'exponentielle vaut 1 : $p(\boldsymbol{\mu}) = \frac{1}{2\pi \times 12} = \frac{1}{24\pi} \approx 0{,}01326$ par mètre carré. On dit souvent que $\boldsymbol{\mu}$ est le « point le plus probable » ; c'est le point de densité maximale (le **mode**). Une densité n'est pas une probabilité : la probabilité qu'une erreur tombe dans un petit carré de 10 cm de côté autour de $\boldsymbol{\mu}$ vaut environ $0{,}01326 \times 0{,}01 \approx 1{,}3 \times 10^{-4}$, et celle de tomber **exactement** en $\boldsymbol{\mu}$ est nulle.
 
 ### Ce que disent det Σ et la distance de Mahalanobis
@@ -127,11 +129,11 @@ On n'inverse jamais $\boldsymbol{\Sigma}$ pour calculer $\ln p$. Avec son facteu
 - $\det\boldsymbol{\Sigma} = (\det\mathbf{L})^2 = \prod_iL_{ii}^2$, donc $\ln\det\boldsymbol{\Sigma} = 2\sum_i\ln L_{ii}$ ;
 - $\Delta^2(\mathbf{x}) = (\mathbf{x} - \boldsymbol{\mu})^\top(\mathbf{L}^\top)^{-1}\mathbf{L}^{-1}(\mathbf{x} - \boldsymbol{\mu}) = \lVert\mathbf{y}\rVert^2$, où $\mathbf{y}$ résout le système **triangulaire** $\mathbf{L}\mathbf{y} = \mathbf{x} - \boldsymbol{\mu}$ (une descente, M12c §7).
 
-Pour le GPS, $\mathbf{L} = \begin{pmatrix} 4 & 0 \cr 1 & 3 \end{pmatrix}$ ($l_{11} = \sqrt{16}$, $l_{21} = \frac44$, $l_{22} = \sqrt{10 - 1}$). Donc $\ln\det\boldsymbol{\Sigma} = 2(\ln 4 + \ln 3) = \ln 144$. Pour $\mathbf{x}_A$, $\mathbf{L}\mathbf{y} = (4, 2)$ donne $y_1 = 1$, puis $y_2 = \frac{2 - 1}{3} = \frac13$, et $\lVert\mathbf{y}\rVert^2 = 1 + \frac19 = \frac{10}{9}$ : la valeur trouvée plus haut. Avec $\ln(2\pi) \approx 1{,}8379$ et $\frac12\ln 144 \approx 2{,}4849$ : $\ln p(\boldsymbol{\mu}) \approx -4{,}3228$ et $\ln p(\mathbf{x}_A) = \ln p(\boldsymbol{\mu}) - \frac{5}{9} \approx -4{,}8783$.
+Pour le GPS, $`\mathbf{L} = \begin{pmatrix} 4 & 0 \cr 1 & 3 \end{pmatrix}`$ ($l_{11} = \sqrt{16}$, $l_{21} = \frac44$, $l_{22} = \sqrt{10 - 1}$). Donc $\ln\det\boldsymbol{\Sigma} = 2(\ln 4 + \ln 3) = \ln 144$. Pour $\mathbf{x}_A$, $\mathbf{L}\mathbf{y} = (4, 2)$ donne $y_1 = 1$, puis $y_2 = \frac{2 - 1}{3} = \frac13$, et $\lVert\mathbf{y}\rVert^2 = 1 + \frac19 = \frac{10}{9}$ : la valeur trouvée plus haut. Avec $\ln(2\pi) \approx 1{,}8379$ et $\frac12\ln 144 \approx 2{,}4849$ : $\ln p(\boldsymbol{\mu}) \approx -4{,}3228$ et $\ln p(\mathbf{x}_A) = \ln p(\boldsymbol{\mu}) - \frac{5}{9} \approx -4{,}8783$.
 
 ### Les cas limites
 
-- **$\boldsymbol{\Sigma}$ semi-définie, pas définie.** Si $\boldsymbol{\Sigma}$ a une valeur propre nulle, de vecteur propre $\mathbf{q}$, alors $\mathbb{V}(\mathbf{q}^\top\mathbf{x}) = \mathbf{q}^\top\boldsymbol{\Sigma}\mathbf{q} = 0$ : la combinaison $\mathbf{q}^\top\mathbf{x}$ est constante, et $\mathbf{x}$ reste dans un sous-espace affine de dimension plus petite. Il n'y a plus de densité ($\det\boldsymbol{\Sigma} = 0$, et $\boldsymbol{\Sigma}^{-1}$ n'existe pas), mais la loi existe : c'est une **gaussienne dégénérée** (*degenerate distribution*). Exemple : $z \sim \mathcal{N}(0, 1)$ et $\mathbf{x} = (z, 2z)$ ont pour covariance $\begin{pmatrix} 1 & 2 \cr 2 & 4 \end{pmatrix}$, de déterminant nul ; tous les tirages sont sur la droite $x_2 = 2x_1$. En dimension 1, $\mathcal{N}(\mu, 0)$ est la loi de la constante $\mu$.
+- **$\boldsymbol{\Sigma}$ semi-définie, pas définie.** Si $\boldsymbol{\Sigma}$ a une valeur propre nulle, de vecteur propre $\mathbf{q}$, alors $\mathbb{V}(\mathbf{q}^\top\mathbf{x}) = \mathbf{q}^\top\boldsymbol{\Sigma}\mathbf{q} = 0$ : la combinaison $\mathbf{q}^\top\mathbf{x}$ est constante, et $\mathbf{x}$ reste dans un sous-espace affine de dimension plus petite. Il n'y a plus de densité ($\det\boldsymbol{\Sigma} = 0$, et $\boldsymbol{\Sigma}^{-1}$ n'existe pas), mais la loi existe : c'est une **gaussienne dégénérée** (*degenerate distribution*). Exemple : $z \sim \mathcal{N}(0, 1)$ et $\mathbf{x} = (z, 2z)$ ont pour covariance $`\begin{pmatrix} 1 & 2 \cr 2 & 4 \end{pmatrix}`$, de déterminant nul ; tous les tirages sont sur la droite $x_2 = 2x_1$. En dimension 1, $\mathcal{N}(\mu, 0)$ est la loi de la constante $\mu$.
 - **$\boldsymbol{\Sigma}$ diagonale** : $\Delta^2 = \sum_i\frac{(x_i - \mu_i)^2}{\sigma_i^2}$ et $\det\boldsymbol{\Sigma} = \prod_i\sigma_i^2$, donc la densité est le produit des $d$ densités $\mathcal{N}(\mu_i, \sigma_i^2)$ : les coordonnées sont indépendantes (le §4 en fera un théorème).
 
 💻 **Aujourd'hui en pratique** — `scipy.stats.multivariate_normal(mean, cov).logpdf(x)` rend la log-densité (un tableau si `x` a une ligne par point), et `np.linalg.slogdet` rend un couple, le signe du déterminant puis $\ln\lvert\det\rvert$, sans former le déterminant. Les bibliothèques passent par une factorisation et des systèmes triangulaires (`scipy.linalg.solve_triangular`), jamais par `np.linalg.inv`, comme ton `mvn_logpdf` (🔨 M25a.20).
@@ -161,7 +163,7 @@ M02b §8 donnait la densité de $Y = g(X)$ pour $g$ strictement monotone : $f_Y(
 > $$p_{\mathbf{y}}(\mathbf{y}) = p_{\mathbf{x}}\big(U^{-1}(\mathbf{y})\big)\thinspace\big\lvert\det\mathbf{J} _{U^{-1}}(\mathbf{y})\big\rvert,$$
 > où $\mathbf{J} _{U^{-1}}(\mathbf{y})$ est la jacobienne de $U^{-1}$ au point $\mathbf{y}$.
 
-La recette est celle de la dimension 1 (où le déterminant est la dérivée $(U^{-1})'(y)$) : l'antécédent, la densité de départ en ce point, la valeur absolue du déterminant de la jacobienne de l'inverse. Pour une application **affine** inversible, $U(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ avec $\det\mathbf{A} \ne 0$ : $U^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$, de jacobienne constante $\mathbf{A}^{-1}$, de déterminant $\frac{1}{\det\mathbf{A}}$, donc
+La recette est celle de la dimension 1 (où le déterminant est la dérivée $(U^{-1})'(y){}$) : l'antécédent, la densité de départ en ce point, la valeur absolue du déterminant de la jacobienne de l'inverse. Pour une application **affine** inversible, $U(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ avec $\det\mathbf{A} \ne 0$ : $U^{-1}(\mathbf{y}) = \mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})$, de jacobienne constante $\mathbf{A}^{-1}$, de déterminant $\frac{1}{\det\mathbf{A}}$, donc
 $$p_{\mathbf{y}}(\mathbf{y}) = \frac{1}{\lvert\det\mathbf{A}\rvert}\thinspace p_{\mathbf{x}}\big(\mathbf{A}^{-1}(\mathbf{y} - \mathbf{b})\big).$$
 Un petit pavé de volume $v$ devient un parallélépipède de volume $\lvert\det\mathbf{A}\rvert\thinspace v$ : la densité est divisée d'autant.
 
@@ -190,9 +192,9 @@ où $\mathbf{1}$ est une colonne de $n$ uns (NumPy l'écrit par diffusion, M20).
 
 > **Propriété.** Si $\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu} _{\mathbf{x}}, \boldsymbol{\Sigma} _{\mathbf{x}})$ et $\mathbf{y} \sim \mathcal{N}(\boldsymbol{\mu} _{\mathbf{y}}, \boldsymbol{\Sigma} _{\mathbf{y}})$ sont **indépendants**, de même dimension, alors $\mathbf{x} + \mathbf{y} \sim \mathcal{N}(\boldsymbol{\mu} _{\mathbf{x}} + \boldsymbol{\mu} _{\mathbf{y}},\ \boldsymbol{\Sigma} _{\mathbf{x}} + \boldsymbol{\Sigma} _{\mathbf{y}})$.
 
-Le vecteur $(\mathbf{x}, \mathbf{y})$, mis bout à bout, est gaussien (admis pour deux vecteurs gaussiens indépendants), de covariance diagonale par blocs ; et $\mathbf{x} + \mathbf{y} = \begin{pmatrix} \mathbf{I} & \mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix}$ est une image linéaire. Ce sont les **covariances** qui s'additionnent, comme les variances en dimension 1 (M02b §6).
+Le vecteur $(\mathbf{x}, \mathbf{y})$, mis bout à bout, est gaussien (admis pour deux vecteurs gaussiens indépendants), de covariance diagonale par blocs ; et $`\mathbf{x} + \mathbf{y} = \begin{pmatrix} \mathbf{I} & \mathbf{I} \end{pmatrix}\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix}`$ est une image linéaire. Ce sont les **covariances** qui s'additionnent, comme les variances en dimension 1 (M02b §6).
 
-**Exemple.** Les signaux reçus par le GPS se réfléchissent parfois sur les immeubles voisins, ce qui ajoute une erreur indépendante de loi $\mathcal{N}(\mathbf{0}, 2\mathbf{I})$. L'erreur totale suit $\mathcal{N}\big(\boldsymbol{\mu}, \begin{pmatrix} 18 & 4 \cr 4 & 12 \end{pmatrix}\big)$. Ajouter $2\mathbf{I}$ ne change pas les vecteurs propres et ajoute 2 à chaque valeur propre (si $\boldsymbol{\Sigma}\mathbf{q} = \lambda\mathbf{q}$, alors $(\boldsymbol{\Sigma} + 2\mathbf{I})\mathbf{q} = (\lambda + 2)\mathbf{q}$) : 20 et 10 au lieu de 18 et 8 (§3).
+**Exemple.** Les signaux reçus par le GPS se réfléchissent parfois sur les immeubles voisins, ce qui ajoute une erreur indépendante de loi $\mathcal{N}(\mathbf{0}, 2\mathbf{I})$. L'erreur totale suit $`\mathcal{N}\big(\boldsymbol{\mu}, \begin{pmatrix} 18 & 4 \cr 4 & 12 \end{pmatrix}\big)`$. Ajouter $2\mathbf{I}$ ne change pas les vecteurs propres et ajoute 2 à chaque valeur propre (si $\boldsymbol{\Sigma}\mathbf{q} = \lambda\mathbf{q}$, alors $(\boldsymbol{\Sigma} + 2\mathbf{I})\mathbf{q} = (\lambda + 2)\mathbf{q}$) : 20 et 10 au lieu de 18 et 8 (§3).
 
 ### Ce qui ne reste pas gaussien
 
@@ -217,7 +219,7 @@ $$\Delta^2(\mathbf{x}) = \frac{y_1^2}{\lambda_1} + \cdots + \frac{y_d^2}{\lambda
 
 En effet, $\frac{y_1^2}{(c\sqrt{\lambda_1})^2} + \frac{y_2^2}{(c\sqrt{\lambda_2})^2} = 1$ est l'équation d'une ellipse de demi-axes $c\sqrt{\lambda_1}$ et $c\sqrt{\lambda_2}$ le long des axes de $\mathbf{y}$, et l'aire d'une ellipse est $\pi$ fois le produit de ses demi-axes : c'est $\sqrt{\det\boldsymbol{\Sigma}}$, et non $\det\boldsymbol{\Sigma}$, qui mesure cette aire (ce volume en dimension $d$). Le grand axe va dans la direction où la variance est la plus grande ($\lambda_1$, M12c §6).
 
-**Pour le GPS.** $\boldsymbol{\Sigma} - 18\mathbf{I} = \begin{pmatrix} -2 & 4 \cr 4 & -8 \end{pmatrix}$ et $\boldsymbol{\Sigma} - 8\mathbf{I} = \begin{pmatrix} 8 & 4 \cr 4 & 2 \end{pmatrix}$ : les valeurs propres sont 18 et 8 (de produit 144 et de somme 26), de vecteurs propres $\mathbf{q}_1 = \frac{1}{\sqrt5}(2, 1)$ et $\mathbf{q}_2 = \frac{1}{\sqrt5}(1, -2)$. Les ellipses de niveau ont leur grand axe incliné d'environ 26,6° au-dessus de l'est (la pente $\frac12$), des demi-axes $c\sqrt{18} \approx 4{,}243\thinspace c$ et $c\sqrt8 \approx 2{,}828\thinspace c$ mètres, et une aire de $12\pi c^2$ m². Les points $\mathbf{x}_A$ et $\mathbf{x}_B$ du §1 sont sur les deux axes, et $\Delta^2(\mathbf{x}_A) = \frac{20}{18}$, $\Delta^2(\mathbf{x}_B) = \frac{20}{8}$ : on retrouve $\frac{10}{9}$ et $\frac52$.
+**Pour le GPS.** $`\boldsymbol{\Sigma} - 18\mathbf{I} = \begin{pmatrix} -2 & 4 \cr 4 & -8 \end{pmatrix}`$ et $`\boldsymbol{\Sigma} - 8\mathbf{I} = \begin{pmatrix} 8 & 4 \cr 4 & 2 \end{pmatrix}`$ : les valeurs propres sont 18 et 8 (de produit 144 et de somme 26), de vecteurs propres $\mathbf{q}_1 = \frac{1}{\sqrt5}(2, 1)$ et $\mathbf{q}_2 = \frac{1}{\sqrt5}(1, -2)$. Les ellipses de niveau ont leur grand axe incliné d'environ 26,6° au-dessus de l'est (la pente $\frac12$), des demi-axes $c\sqrt{18} \approx 4{,}243\thinspace c$ et $c\sqrt8 \approx 2{,}828\thinspace c$ mètres, et une aire de $12\pi c^2$ m². Les points $\mathbf{x}_A$ et $\mathbf{x}_B$ du §1 sont sur les deux axes, et $\Delta^2(\mathbf{x}_A) = \frac{20}{18}$, $\Delta^2(\mathbf{x}_B) = \frac{20}{8}$ : on retrouve $\frac{10}{9}$ et $\frac52$.
 
 ### La masse d'une ellipse en dimension 2
 
@@ -229,7 +231,7 @@ Quelle proportion des erreurs tombe à l'intérieur de l'ellipse $\Delta \le c$ 
 
 Le disque de rayon $c$ autour de l'origine, pour $\mathcal{N}(\mathbf{0}, \mathbf{I})$, en est le cas $\boldsymbol{\Sigma} = \mathbf{I}$. Deux conséquences :
 - $\Delta^2$ suit, en dimension 2, la loi exponentielle de paramètre $\frac12$ : $P(\Delta^2 \le s) = 1 - e^{-s/2}$ (M02b §3).
-- À niveau égal, une ellipse du plan contient **moins** qu'un intervalle de la droite. Pour $c = 1{,}5$ : $P(\lvert Z\rvert \le 1{,}5) \approx 0{,}866$ en dimension 1 ($Z \sim \mathcal{N}(0, 1)$), mais $1 - e^{-1{,}125} \approx 0{,}675$ en dimension 2.
+- À niveau égal, une ellipse du plan contient **moins** qu'un intervalle de la droite. Pour $c = 1{,}5$ : $P(\lvert Z\rvert \le 1{,}5) \approx 0{,}866$ en dimension 1 ($Z \sim \mathcal{N}(0, 1){}$), mais $1 - e^{-1{,}125} \approx 0{,}675$ en dimension 2.
 
 **Pour le GPS**, l'ellipse qui contient 80 % des erreurs a pour niveau $c^2 = 2\ln 5 \approx 3{,}219$ ($c \approx 1{,}794$) : demi-axes $\sqrt{18 \times 3{,}219} \approx 7{,}61$ m et $\sqrt{8 \times 3{,}219} \approx 5{,}07$ m, aire $12\pi \times 2\ln 5 \approx 121{,}3$ m². Celle à 98 % a pour niveau $c^2 = 2\ln 50 \approx 7{,}824$ ($c \approx 2{,}797$) : demi-axes 11,87 m et 7,91 m, aire 295,0 m². Sur les 1 500 tirages de la figure du §1, 1 202 tombent dans la première (80,1 %) et 1 479 dans la seconde (98,6 %).
 
@@ -260,12 +262,16 @@ Le mode est un peu en dessous de $\sqrt d$, la racine de $\mathbb{E}\big[\lVert\
 ### Découper un vecteur en deux blocs
 
 On sépare les coordonnées de $\mathbf{x} \in \mathbb{R}^d$ en deux groupes, non vides : celles qu'on cherche, le bloc $a$ (de taille $d_a$), et les autres, le bloc $b$ (de taille $d_b = d - d_a$), souvent celles qu'on observe. Quitte à renuméroter, on écrit $\mathbf{x}$ et $\boldsymbol{\Sigma}$ par blocs (*block matrix*) :
-$$\mathbf{x} = \begin{pmatrix} \mathbf{x} _a \cr \mathbf{x} _b \end{pmatrix}, \qquad \boldsymbol{\mu} = \begin{pmatrix} \boldsymbol{\mu} _a \cr \boldsymbol{\mu} _b \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} \boldsymbol{\Sigma} _{aa} & \boldsymbol{\Sigma} _{ab} \cr \boldsymbol{\Sigma} _{ba} & \boldsymbol{\Sigma}  _{bb} \end{pmatrix},$$
+```math
+\mathbf{x} = \begin{pmatrix} \mathbf{x} _a \cr \mathbf{x} _b \end{pmatrix}, \qquad \boldsymbol{\mu} = \begin{pmatrix} \boldsymbol{\mu} _a \cr \boldsymbol{\mu} _b \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} \boldsymbol{\Sigma} _{aa} & \boldsymbol{\Sigma} _{ab} \cr \boldsymbol{\Sigma} _{ba} & \boldsymbol{\Sigma}  _{bb} \end{pmatrix},
+```
 avec $\boldsymbol{\Sigma} _{aa} = \operatorname{Cov}(\mathbf{x} _a)$, $\boldsymbol{\Sigma} _{bb} = \operatorname{Cov}(\mathbf{x} _b)$, et la **covariance croisée** (*cross-covariance*) $\boldsymbol{\Sigma} _{ab} = \operatorname{Cov}(\mathbf{x} _a, \mathbf{x} _b) = \mathbb{E}\big[(\mathbf{x} _a - \boldsymbol{\mu} _a)(\mathbf{x} _b - \boldsymbol{\mu} _b)^\top\big]$, de forme $(d_a, d_b)$ ; $\boldsymbol{\Sigma} _{ba} = \boldsymbol{\Sigma} _{ab}^\top$. Les blocs d'une matrice $\mathbf{M}$ quelconque s'écrivent de même $\mathbf{M} _{aa}$, $\mathbf{M} _{ab}$, $\mathbf{M} _{ba}$, $\mathbf{M} _{bb}$.
 
 **Exemple : les retards d'un bus.** Un bus passe par trois arrêts ; ses retards $x_1$, $x_2$, $x_3$, en minutes, s'accumulent : $x_1 \sim \mathcal{N}(2, 1)$, puis chaque trajet ajoute un retard indépendant, de loi $\mathcal{N}(1, 1)$ jusqu'au deuxième arrêt et $\mathcal{N}(2, 2)$ jusqu'au troisième. Alors $x_2 = x_1 + (\text{retard du premier trajet})$, $x_3 = x_2 + (\text{retard du second})$, et (M02b §6, M12c §8)
-$$\boldsymbol{\mu} = \begin{pmatrix} 2 \cr 3 \cr 5 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 2 & 2 \cr 1 & 2 & 4 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 1 & 0 & 0 \cr 1 & 1 & 0 \cr 1 & 1 & \sqrt2 \end{pmatrix}, \qquad \det\boldsymbol{\Sigma} = 2 .$$
-Par exemple, $\operatorname{Cov}(x_1, x_3) = \mathbb{V}(x_1) = 1$ : les retards ajoutés ensuite sont indépendants de $x_1$. On observe le deuxième arrêt : $a = \lbrace1, 3\rbrace$ et $b = \lbrace2\rbrace$, d'où $\boldsymbol{\Sigma} _{aa} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix}$, $\boldsymbol{\Sigma}  _{ab} = \begin{pmatrix} 1 \cr 2 \end{pmatrix}$ et $\boldsymbol{\Sigma} _{bb} = (2)$.
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 2 \cr 3 \cr 5 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 1 & 1 & 1 \cr 1 & 2 & 2 \cr 1 & 2 & 4 \end{pmatrix}, \qquad \mathbf{L} = \begin{pmatrix} 1 & 0 & 0 \cr 1 & 1 & 0 \cr 1 & 1 & \sqrt2 \end{pmatrix}, \qquad \det\boldsymbol{\Sigma} = 2 .
+```
+Par exemple, $\operatorname{Cov}(x_1, x_3) = \mathbb{V}(x_1) = 1$ : les retards ajoutés ensuite sont indépendants de $x_1$. On observe le deuxième arrêt : $a = \lbrace1, 3\rbrace$ et $b = \lbrace2\rbrace$, d'où $`\boldsymbol{\Sigma} _{aa} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix}`$, $\boldsymbol{\Sigma}  _{ab} = \begin{pmatrix} 1 \cr 2 \end{pmatrix}$ et $\boldsymbol{\Sigma} _{bb} = (2)$.
 
 ### Le complément de Schur ; inverse et déterminant par blocs
 
@@ -277,20 +283,26 @@ Par exemple, $\operatorname{Cov}(x_1, x_3) = \mathbb{V}(x_1) = 1$ : les retards 
 > 2. $\mathbf{M}$ est inversible si et seulement si $\mathbf{M}/\mathbf{M} _{bb}$ l'est, et alors les blocs $aa$ et $ab$ de $\mathbf{M}^{-1}$ sont
 > $$(\mathbf{M}^{-1}) _{aa} = (\mathbf{M}/\mathbf{M} _{bb})^{-1}, \qquad (\mathbf{M}^{-1}) _{ab} = -(\mathbf{M}/\mathbf{M} _{bb})^{-1}\mathbf{M}  _{ab}\mathbf{M} _{bb}^{-1}.$$
 
-En dimension 2, avec des blocs $1 \times 1$, $\mathbf{M} = \begin{pmatrix} m_{11} & m_{12} \cr m_{21} & m_{22} \end{pmatrix}$ et $m_{22} \ne 0$ : le complément de Schur de $m_{22}$ est le nombre $m_{11} - \frac{m_{12}m_{21}}{m_{22}}$, et $m_{22}\big(m_{11} - \frac{m_{12}m_{21}}{m_{22}}\big) = m_{11}m_{22} - m_{12}m_{21} = \det\mathbf{M}$. Le coin supérieur gauche de $\mathbf{M}^{-1}$ vaut $\frac{m_{22}}{\det\mathbf{M}}$ (M09a), l'inverse de ce complément.
+En dimension 2, avec des blocs $1 \times 1$, $`\mathbf{M} = \begin{pmatrix} m_{11} & m_{12} \cr m_{21} & m_{22} \end{pmatrix}`$ et $m_{22} \ne 0$ : le complément de Schur de $m_{22}$ est le nombre $m_{11} - \frac{m_{12}m_{21}}{m_{22}}$, et $m_{22}\big(m_{11} - \frac{m_{12}m_{21}}{m_{22}}\big) = m_{11}m_{22} - m_{12}m_{21} = \det\mathbf{M}$. Le coin supérieur gauche de $\mathbf{M}^{-1}$ vaut $\frac{m_{22}}{\det\mathbf{M}}$ (M09a), l'inverse de ce complément.
 
 <details><summary>Démonstration (élimination par blocs)</summary>
 
-Posons $\mathbf{G} = \begin{pmatrix} \mathbf{I} & -\mathbf{M} _{ab}\mathbf{M} _{bb}^{-1} \cr \mathbf{0} & \mathbf{I} \end{pmatrix}$ et $\mathbf{H} = \begin{pmatrix} \mathbf{I} & \mathbf{0} \cr -\mathbf{M} _{bb}^{-1}\mathbf{M} _{ba} & \mathbf{I} \end{pmatrix}$. Multiplier à gauche par $\mathbf{G}$ retire au bloc de lignes $a$ la combinaison $\mathbf{M} _{ab}\mathbf{M} _{bb}^{-1}$ du bloc de lignes $b$, comme une étape du pivot de Gauss (M09a) :
-$$\mathbf{G}\mathbf{M} = \begin{pmatrix} \mathbf{M} _{aa} - \mathbf{M} _{ab}\mathbf{M} _{bb}^{-1}\mathbf{M} _{ba} & \mathbf{M} _{ab} - \mathbf{M} _{ab} \cr \mathbf{M} _{ba} & \mathbf{M} _{bb} \end{pmatrix} = \begin{pmatrix} \mathbf{M}/\mathbf{M} _{bb} & \mathbf{0} \cr \mathbf{M} _{ba} & \mathbf{M} _{bb} \end{pmatrix}, \qquad \mathbf{G}\mathbf{M}\mathbf{H} = \begin{pmatrix} \mathbf{M}/\mathbf{M} _{bb} & \mathbf{0} \cr \mathbf{0} & \mathbf{M} _{bb} \end{pmatrix}.$$
+Posons $`\mathbf{G} = \begin{pmatrix} \mathbf{I} & -\mathbf{M} _{ab}\mathbf{M} _{bb}^{-1} \cr \mathbf{0} & \mathbf{I} \end{pmatrix}`$ et $`\mathbf{H} = \begin{pmatrix} \mathbf{I} & \mathbf{0} \cr -\mathbf{M} _{bb}^{-1}\mathbf{M} _{ba} & \mathbf{I} \end{pmatrix}`$. Multiplier à gauche par $\mathbf{G}$ retire au bloc de lignes $a$ la combinaison $\mathbf{M} _{ab}\mathbf{M} _{bb}^{-1}$ du bloc de lignes $b$, comme une étape du pivot de Gauss (M09a) :
+```math
+\mathbf{G}\mathbf{M} = \begin{pmatrix} \mathbf{M} _{aa} - \mathbf{M} _{ab}\mathbf{M} _{bb}^{-1}\mathbf{M} _{ba} & \mathbf{M} _{ab} - \mathbf{M} _{ab} \cr \mathbf{M} _{ba} & \mathbf{M} _{bb} \end{pmatrix} = \begin{pmatrix} \mathbf{M}/\mathbf{M} _{bb} & \mathbf{0} \cr \mathbf{M} _{ba} & \mathbf{M} _{bb} \end{pmatrix}, \qquad \mathbf{G}\mathbf{M}\mathbf{H} = \begin{pmatrix} \mathbf{M}/\mathbf{M} _{bb} & \mathbf{0} \cr \mathbf{0} & \mathbf{M} _{bb} \end{pmatrix}.
+```
 Le déterminant d'une matrice triangulaire par blocs est le produit des déterminants de ses blocs diagonaux (admis ; c'est le cas par blocs de M12c §1). Donc $\det\mathbf{G} = \det\mathbf{H} = 1$, et $\det\mathbf{M} = \det(\mathbf{M}/\mathbf{M} _{bb})\thinspace\det\mathbf{M} _{bb}$ : c'est le point 1. Il en découle que $\mathbf{M}$ est inversible si et seulement si $\mathbf{M}/\mathbf{M} _{bb}$ l'est (M12c §1). Alors, de $\mathbf{M} = \mathbf{G}^{-1}\operatorname{diag}(\mathbf{M}/\mathbf{M} _{bb}, \mathbf{M} _{bb})\thinspace\mathbf{H}^{-1}$, on tire
-$$\mathbf{M}^{-1} = \mathbf{H}\begin{pmatrix} (\mathbf{M}/\mathbf{M} _{bb})^{-1} & \mathbf{0} \cr \mathbf{0} & \mathbf{M} _{bb}^{-1} \end{pmatrix}\mathbf{G},$$
+```math
+\mathbf{M}^{-1} = \mathbf{H}\begin{pmatrix} (\mathbf{M}/\mathbf{M} _{bb})^{-1} & \mathbf{0} \cr \mathbf{0} & \mathbf{M} _{bb}^{-1} \end{pmatrix}\mathbf{G},
+```
 et le produit des trois matrices par blocs donne les quatre blocs de $\mathbf{M}^{-1}$. Fais-le : les blocs $aa$ et $ab$ de l'énoncé viennent en une ligne chacun, puis $(\mathbf{M}^{-1}) _{ba} = -\mathbf{M} _{bb}^{-1}\mathbf{M} _{ba}(\mathbf{M}/\mathbf{M} _{bb})^{-1}$ et $(\mathbf{M}^{-1}) _{bb} = \mathbf{M} _{bb}^{-1} + \mathbf{M} _{bb}^{-1}\mathbf{M} _{ba}(\mathbf{M}/\mathbf{M} _{bb})^{-1}\mathbf{M}  _{ab}\mathbf{M} _{bb}^{-1}$.
 
 </details>
 
 **Sur le bus**, le complément de Schur de $\boldsymbol{\Sigma} _{bb} = (2)$ est
-$$\boldsymbol{\Sigma}/\boldsymbol{\Sigma} _{bb} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix} - \frac12\begin{pmatrix} 1 \cr 2 \end{pmatrix}\begin{pmatrix} 1 & 2 \end{pmatrix} = \begin{pmatrix} 1 - \frac12 & 1 - 1 \cr 1 - 1 & 4 - 2 \end{pmatrix} = \begin{pmatrix} 0{,}5 & 0 \cr 0 & 2 \end{pmatrix},$$
+```math
+\boldsymbol{\Sigma}/\boldsymbol{\Sigma} _{bb} = \begin{pmatrix} 1 & 1 \cr 1 & 4 \end{pmatrix} - \frac12\begin{pmatrix} 1 \cr 2 \end{pmatrix}\begin{pmatrix} 1 & 2 \end{pmatrix} = \begin{pmatrix} 1 - \frac12 & 1 - 1 \cr 1 - 1 & 4 - 2 \end{pmatrix} = \begin{pmatrix} 0{,}5 & 0 \cr 0 & 2 \end{pmatrix},
+```
 et l'on vérifie $\det\boldsymbol{\Sigma} = 2 \times (0{,}5 \times 2) = 2$.
 
 📐 **Notations.** La docstring de `schur_complement` écrit $\mathbf{M}$ en quatre blocs $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ (le bloc $\mathbf{D}$ étant celui qu'on élimine) et le complément $\mathbf{A} - \mathbf{B}\mathbf{D}^{-1}\mathbf{C}$ : c'est $\mathbf{M}/\mathbf{M} _{bb}$, avec $\mathbf{D} = \mathbf{M}  _{bb}$. La fiche garde les indices $a$ et $b$, pour que les lettres $\mathbf{A}$ et $\mathbf{b}$ restent celles d'une transformation affine : $\boldsymbol{\Sigma} _{bb}$ est un bloc, $\mathbf{b}$ une translation.
@@ -299,7 +311,7 @@ et l'on vérifie $\det\boldsymbol{\Sigma} = 2 \times (0{,}5 \times 2) = 2$.
 
 > **Propriété.** $\mathbf{x}_a \sim \mathcal{N}(\boldsymbol{\mu} _a, \boldsymbol{\Sigma} _{aa})$ : la **loi marginale** (*marginal distribution*) d'un bloc s'obtient en gardant ses moyennes et sa sous-matrice de covariance.
 
-C'est le §2, avec la matrice $\begin{pmatrix} \mathbf{I} & \mathbf{0} \end{pmatrix}$ qui garde les coordonnées du bloc $a$. MML (6.68) l'écrit comme l'intégrale de la densité jointe sur $\mathbf{x} _b$ ; ici, aucune intégrale n'est à calculer. Pour le bus, le retard au troisième arrêt suit $\mathcal{N}(5, 4)$, et le couple $(x_1, x_3)$ suit $\mathcal{N}\big((2, 5), \boldsymbol{\Sigma} _{aa}\big)$.
+C'est le §2, avec la matrice $`\begin{pmatrix} \mathbf{I} & \mathbf{0} \end{pmatrix}`$ qui garde les coordonnées du bloc $a$. MML (6.68) l'écrit comme l'intégrale de la densité jointe sur $\mathbf{x} _b$ ; ici, aucune intégrale n'est à calculer. Pour le bus, le retard au troisième arrêt suit $\mathcal{N}(5, 4)$, et le couple $(x_1, x_3)$ suit $\mathcal{N}\big((2, 5), \boldsymbol{\Sigma} _{aa}\big)$.
 
 ### Décorrélé équivaut à indépendant
 
@@ -330,7 +342,9 @@ Or $\mathbf{x} _a = \mathbf{r} + \boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma} _{
 </details>
 
 **Sur le bus.** Le bus a 5 minutes de retard au deuxième arrêt ($x_2 = 5$, soit 2 de plus que la moyenne). Alors
-$$\boldsymbol{\mu} _{a \mid b} = \begin{pmatrix} 2 \cr 5 \end{pmatrix} + \begin{pmatrix} 1 \cr 2 \end{pmatrix}\frac{5 - 3}{2} = \begin{pmatrix} 3 \cr 7 \end{pmatrix}, \qquad \boldsymbol{\Sigma} _{a \mid b} = \begin{pmatrix} 0{,}5 & 0 \cr 0 & 2 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} _{a \mid b} = \begin{pmatrix} 2 \cr 5 \end{pmatrix} + \begin{pmatrix} 1 \cr 2 \end{pmatrix}\frac{5 - 3}{2} = \begin{pmatrix} 3 \cr 7 \end{pmatrix}, \qquad \boldsymbol{\Sigma} _{a \mid b} = \begin{pmatrix} 0{,}5 & 0 \cr 0 & 2 \end{pmatrix}.
+```
 Le retard au troisième arrêt passe de $\mathcal{N}(5, 4)$ à $\mathcal{N}(7, 2)$ : son écart-type passe de 2 à $\sqrt2 \approx 1{,}414$ minute, et il en serait de même pour toute autre valeur lue. On le comprend sans formule : sachant $x_2$, il reste à ajouter le retard du second trajet, de loi $\mathcal{N}(2, 2)$. Le retard au premier arrêt, lui, passe de $\mathcal{N}(2, 1)$ à $\mathcal{N}(3 ;\ 0{,}5)$ : lire un arrêt renseigne aussi sur le passé.
 
 ![À gauche, les lignes de niveau de la loi jointe des retards (x₂, x₃) du bus, la droite des moyennes conditionnelles 5 + (x₂ − 3), et la coupe x₂ = 5 qui la croise en 7 ; à droite, la loi marginale N(5, 4) de x₃ et sa loi conditionnelle N(7, 2) sachant x₂ = 5 : décalée et plus étroite](figures/conditionnement.png)
@@ -349,10 +363,12 @@ La part de variance qui disparaît est $\rho^2$ : rien pour $\rho = 0$, presque 
 > 1. $\boldsymbol{\Sigma} _{a \mid b} = \boldsymbol{\Lambda} _{aa}^{-1}$ et $\boldsymbol{\mu} _{a \mid b} = \boldsymbol{\mu} _a - \boldsymbol{\Lambda} _{aa}^{-1}\boldsymbol{\Lambda} _{ab}(\mathbf{x}_b - \boldsymbol{\mu} _b)$. En particulier, sachant **toutes** les autres coordonnées, $x_i$ a la variance $\frac{1}{\Lambda _{ii}}$.
 > 2. Pour $i \ne j$, $\Lambda_{ij} = 0$ si et seulement si $x_i$ et $x_j$ sont **indépendantes sachant toutes les autres coordonnées** (*conditional independence*).
 
-Le point 1 est le théorème par blocs appliqué à $\boldsymbol{\Sigma}$ : le bloc $aa$ de $\boldsymbol{\Sigma}^{-1}$ est $(\boldsymbol{\Sigma}/\boldsymbol{\Sigma} _{bb})^{-1}$, et son bloc $ab$ donne $\boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma}  _{bb}^{-1} = -\boldsymbol{\Lambda}  _{aa}^{-1}\boldsymbol{\Lambda}  _{ab}$. Pour le point 2, avec $a = \lbrace i, j\rbrace$, la covariance conditionnelle de $(x_i, x_j)$ est l'inverse de $\begin{pmatrix} \Lambda  _{ii} & \Lambda _{ij} \cr \Lambda _{ij} & \Lambda _{jj} \end{pmatrix}$, diagonale exactement quand $\Lambda _{ij} = 0$ ; et pour cette loi gaussienne, décorrélé équivaut à indépendant.
+Le point 1 est le théorème par blocs appliqué à $\boldsymbol{\Sigma}$ : le bloc $aa$ de $\boldsymbol{\Sigma}^{-1}$ est $(\boldsymbol{\Sigma}/\boldsymbol{\Sigma} _{bb})^{-1}$, et son bloc $ab$ donne $\boldsymbol{\Sigma} _{ab}\boldsymbol{\Sigma}  _{bb}^{-1} = -\boldsymbol{\Lambda}  _{aa}^{-1}\boldsymbol{\Lambda}  _{ab}$. Pour le point 2, avec $a = \lbrace i, j\rbrace$, la covariance conditionnelle de $(x_i, x_j)$ est l'inverse de $`\begin{pmatrix} \Lambda  _{ii} & \Lambda _{ij} \cr \Lambda _{ij} & \Lambda _{jj} \end{pmatrix}`$, diagonale exactement quand $\Lambda _{ij} = 0$ ; et pour cette loi gaussienne, décorrélé équivaut à indépendant.
 
 **Sur le bus.**
-$$\boldsymbol{\Lambda} = \boldsymbol{\Sigma}^{-1} = \begin{pmatrix} 2 & -1 & 0 \cr -1 & 1{,}5 & -0{,}5 \cr 0 & -0{,}5 & 0{,}5 \end{pmatrix}.$$
+```math
+\boldsymbol{\Lambda} = \boldsymbol{\Sigma}^{-1} = \begin{pmatrix} 2 & -1 & 0 \cr -1 & 1{,}5 & -0{,}5 \cr 0 & -0{,}5 & 0{,}5 \end{pmatrix}.
+```
 Le zéro en position $(1, 3)$ dit que, **sachant le retard au deuxième arrêt**, les retards au premier et au troisième sont indépendants : le troisième ne dépend du premier qu'à travers le deuxième. Ils ne sont pas indépendants tout court ($\Sigma_{13} = 1$, une corrélation de $\frac{1}{1 \times 2} = 0{,}5$). On retrouve la covariance conditionnelle diagonale trouvée plus haut, inverse de $\boldsymbol{\Lambda} _{aa} = \operatorname{diag}(2 ;\ 0{,}5)$. Sachant $x_2$ et $x_3$, $x_1$ a la variance $\frac{1}{\Lambda _{11}} = 0{,}5$ et la moyenne $2 - \frac12\big[(-1)(x_2 - 3) + 0 \times (x_3 - 5)\big] = 2 + \frac{x_2 - 3}{2}$ : $x_3$ n'y apparaît pas.
 
 Retiens le contraste : un **zéro de $\boldsymbol{\Sigma}$** dit une indépendance (marginale), un **zéro de $\boldsymbol{\Lambda}$** une indépendance conditionnelle. L'hypothèse de Naïve Bayes (M13a §5) est une indépendance conditionnelle (sachant la classe).
@@ -387,14 +403,16 @@ Après la mesure, $x \sim \mathcal{N}(1\thinspace524, 80)$, d'écart-type $8{,}9
 ### Le modèle linéaire gaussien
 
 > **Modèle linéaire gaussien** (*linear Gaussian model*). Un vecteur caché $\mathbf{x} \sim \mathcal{N}(\mathbf{m}, \mathbf{V})$ ; une observation $\mathbf{y} = \mathbf{A}\mathbf{x} + \mathbf{b} + \mathbf{w}$, avec un bruit $\mathbf{w} \sim \mathcal{N}(\mathbf{0}, \mathbf{R})$ indépendant de $\mathbf{x}$. Alors :
-> - **la loi jointe** : $\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix} \sim \mathcal{N}\left(\begin{pmatrix} \mathbf{m} \cr \mathbf{A}\mathbf{m} + \mathbf{b} \end{pmatrix}, \begin{pmatrix} \mathbf{V} & \mathbf{V}\mathbf{A}^\top \cr \mathbf{A}\mathbf{V} & \mathbf{A}\mathbf{V}\mathbf{A}^\top + \mathbf{R} \end{pmatrix}\right)$ ;
+> - **la loi jointe** : $`\begin{pmatrix} \mathbf{x} \cr \mathbf{y} \end{pmatrix} \sim \mathcal{N}\left(\begin{pmatrix} \mathbf{m} \cr \mathbf{A}\mathbf{m} + \mathbf{b} \end{pmatrix}, \begin{pmatrix} \mathbf{V} & \mathbf{V}\mathbf{A}^\top \cr \mathbf{A}\mathbf{V} & \mathbf{A}\mathbf{V}\mathbf{A}^\top + \mathbf{R} \end{pmatrix}\right)`$ ;
 > - **la loi marginale** de l'observation : $\mathbf{y} \sim \mathcal{N}(\mathbf{A}\mathbf{m} + \mathbf{b},\ \mathbf{A}\mathbf{V}\mathbf{A}^\top + \mathbf{R})$ ;
 > - **la loi de $\mathbf{x}$ sachant $\mathbf{y}$** : de covariance $\mathbf{V} - \mathbf{V}\mathbf{A}^\top(\mathbf{A}\mathbf{V}\mathbf{A}^\top + \mathbf{R})^{-1}\mathbf{A}\mathbf{V}$ et de moyenne $\mathbf{m} + \mathbf{V}\mathbf{A}^\top(\mathbf{A}\mathbf{V}\mathbf{A}^\top + \mathbf{R})^{-1}(\mathbf{y} - \mathbf{A}\mathbf{m} - \mathbf{b})$.
 
 Tout vient des §2 et §4 : $(\mathbf{x}, \mathbf{y})$ est l'image linéaire, plus une constante, du vecteur gaussien $(\mathbf{x}, \mathbf{w})$ ; $\operatorname{Cov}(\mathbf{x}, \mathbf{y}) = \operatorname{Cov}(\mathbf{x}, \mathbf{A}\mathbf{x} + \mathbf{w}) = \mathbf{V}\mathbf{A}^\top$ ; la marginale est un sous-bloc, et la loi de $\mathbf{x}$ sachant $\mathbf{y}$ est le théorème du §4. La même covariance a posteriori s'écrit aussi $(\mathbf{V}^{-1} + \mathbf{A}^\top\mathbf{R}^{-1}\mathbf{A})^{-1}$, sous la forme « les précisions s'additionnent » (l'égalité des deux écritures est admise ; c'est l'identité de Woodbury).
 
-**Exemple : deux pièces pesées ensemble.** Deux pièces ont des masses $x_1$ et $x_2$ mal connues : $\mathbf{x} \sim \mathcal{N}\big((40, 25), \operatorname{diag}(4, 9)\big)$, en grammes. Une balance d'écart-type 1 g ne peut les peser qu'ensemble : $y = x_1 + x_2 + w$, soit $\mathbf{A} = \begin{pmatrix} 1 & 1 \end{pmatrix}$, $\mathbf{b} = 0$, $\mathbf{R} = (1)$, et $y \sim \mathcal{N}(65, 14)$ avant la pesée. La balance affiche 72 g. Avec $\mathbf{V}\mathbf{A}^\top = (4, 9)$ :
-$$\text{moyenne} = \begin{pmatrix} 40 \cr 25 \end{pmatrix} + \begin{pmatrix} 4 \cr 9 \end{pmatrix}\frac{72 - 65}{14} = \begin{pmatrix} 42 \cr 29{,}5 \end{pmatrix}, \qquad \text{covariance} = \begin{pmatrix} 4 & 0 \cr 0 & 9 \end{pmatrix} - \frac{1}{14}\begin{pmatrix} 16 & 36 \cr 36 & 81 \end{pmatrix} = \begin{pmatrix} 20/7 & -18/7 \cr -18/7 & 45/14 \end{pmatrix}.$$
+**Exemple : deux pièces pesées ensemble.** Deux pièces ont des masses $x_1$ et $x_2$ mal connues : $\mathbf{x} \sim \mathcal{N}\big((40, 25), \operatorname{diag}(4, 9)\big)$, en grammes. Une balance d'écart-type 1 g ne peut les peser qu'ensemble : $y = x_1 + x_2 + w$, soit $`\mathbf{A} = \begin{pmatrix} 1 & 1 \end{pmatrix}`$, $\mathbf{b} = 0$, $\mathbf{R} = (1)$, et $y \sim \mathcal{N}(65, 14)$ avant la pesée. La balance affiche 72 g. Avec $\mathbf{V}\mathbf{A}^\top = (4, 9)$ :
+```math
+\text{moyenne} = \begin{pmatrix} 40 \cr 25 \end{pmatrix} + \begin{pmatrix} 4 \cr 9 \end{pmatrix}\frac{72 - 65}{14} = \begin{pmatrix} 42 \cr 29{,}5 \end{pmatrix}, \qquad \text{covariance} = \begin{pmatrix} 4 & 0 \cr 0 & 9 \end{pmatrix} - \frac{1}{14}\begin{pmatrix} 16 & 36 \cr 36 & 81 \end{pmatrix} = \begin{pmatrix} 20/7 & -18/7 \cr -18/7 & 45/14 \end{pmatrix}.
+```
 Les 7 g d'excès se partagent dans le rapport des variances a priori, $4 : 9$ (le dernier demi-gramme revient au bruit de la balance), et la pesée crée une **corrélation négative**, de $-0{,}849$, entre les deux masses : leur somme est presque connue.
 
 ### La régression linéaire bayésienne
@@ -462,18 +480,20 @@ Au maximum, $\sum_i(\mathbf{x}_i - \bar{\mathbf{x}})^\top\hat{\boldsymbol{\Sigma
 $$\ell(\hat{\boldsymbol{\mu}}, \hat{\boldsymbol{\Sigma}}) = -\frac n2\Big[d\ln(2\pi) + \ln\det\hat{\boldsymbol{\Sigma}} + d\Big].$$
 
 **Exemple.** Quatre relevés simultanés de deux jauges de niveau, en centimètres : $(1, 2)$, $(3, 3)$, $(2, 5)$ et $(6, 6)$. Leur moyenne est $\bar{\mathbf{x}} = (3, 4)$, et les écarts $(-2, -2)$, $(0, -1)$, $(-1, 1)$, $(3, 2)$ donnent
-$$\mathbf{S} = \begin{pmatrix} 4 + 0 + 1 + 9 & 4 + 0 - 1 + 6 \cr 9 & 4 + 1 + 1 + 4 \end{pmatrix} = \begin{pmatrix} 14 & 9 \cr 9 & 10 \end{pmatrix}, \qquad \hat{\boldsymbol{\Sigma}} = \frac{\mathbf{S}}{4} = \begin{pmatrix} 3{,}5 & 2{,}25 \cr 2{,}25 & 2{,}5 \end{pmatrix}.$$
+```math
+\mathbf{S} = \begin{pmatrix} 4 + 0 + 1 + 9 & 4 + 0 - 1 + 6 \cr 9 & 4 + 1 + 1 + 4 \end{pmatrix} = \begin{pmatrix} 14 & 9 \cr 9 & 10 \end{pmatrix}, \qquad \hat{\boldsymbol{\Sigma}} = \frac{\mathbf{S}}{4} = \begin{pmatrix} 3{,}5 & 2{,}25 \cr 2{,}25 & 2{,}5 \end{pmatrix}.
+```
 $\det\hat{\boldsymbol{\Sigma}} = 8{,}75 - 5{,}0625 = 3{,}6875$, de logarithme $1{,}305$, et $\ell(\hat{\boldsymbol{\mu}}, \hat{\boldsymbol{\Sigma}}) = -2\thinspace(2\ln(2\pi) + 1{,}305 + 2) \approx -13{,}96$. L'estimation sans biais, $\frac{\mathbf{S}}{3}$, donne $\ell \approx -14{,}11$ : plus petite, comme en M13a.
 
 **Diviser par $n$.** Comme en dimension 1 (M02c §6, M13a §1), $\hat{\boldsymbol{\Sigma}}$ est **biaisée** : $\mathbb{E}[\hat{\boldsymbol{\Sigma}}] = \frac{n - 1}{n}\boldsymbol{\Sigma}$, et l'estimation sans biais divise par $n - 1$. Les deux conventions de M12c §8 reviennent.
 
 ### Quand n ≤ d
 
-$\mathbf{S}$ est une somme de $n$ matrices de rang 1, dont les vecteurs $\mathbf{x}_i - \bar{\mathbf{x}}$ ont une somme nulle : son rang est au plus $n - 1$. Si $n \le d$, $\hat{\boldsymbol{\Sigma}}$ est donc **singulière** : les données tiennent dans un sous-espace affine de dimension au plus $n - 1 < d$, et la vraisemblance n'a plus de maximum (en écrasant la loi sur ce sous-espace, $\ln\det \to -\infty$ et $\ell \to +\infty$). Avec les deux premiers relevés seulement, $\hat{\boldsymbol{\Sigma}} = \frac14(\mathbf{x}_1 - \mathbf{x}_2)(\mathbf{x}_1 - \mathbf{x}_2)^\top = \begin{pmatrix} 1 & 0{,}5 \cr 0{,}5 & 0{,}25 \end{pmatrix}$, de déterminant nul : toute la loi estimée est sur la droite qui passe par les deux points.
+$\mathbf{S}$ est une somme de $n$ matrices de rang 1, dont les vecteurs $\mathbf{x}_i - \bar{\mathbf{x}}$ ont une somme nulle : son rang est au plus $n - 1$. Si $n \le d$, $\hat{\boldsymbol{\Sigma}}$ est donc **singulière** : les données tiennent dans un sous-espace affine de dimension au plus $n - 1 < d$, et la vraisemblance n'a plus de maximum (en écrasant la loi sur ce sous-espace, $\ln\det \to -\infty$ et $\ell \to +\infty$). Avec les deux premiers relevés seulement, $`\hat{\boldsymbol{\Sigma}} = \frac14(\mathbf{x}_1 - \mathbf{x}_2)(\mathbf{x}_1 - \mathbf{x}_2)^\top = \begin{pmatrix} 1 & 0{,}5 \cr 0{,}5 & 0{,}25 \end{pmatrix}`$, de déterminant nul : toute la loi estimée est sur la droite qui passe par les deux points.
 
 💻 **Aujourd'hui en pratique** — `X.mean(axis=0)` et `np.cov(X, rowvar=False, bias=True)` (ou `np.cov(X.T, bias=True)`) donnent $\hat{\boldsymbol{\mu}}$ et $\hat{\boldsymbol{\Sigma}}$ pour des données rangées en lignes (📦 M25a.24) ; **sans `bias=True`, `np.cov` divise par $n - 1$**, et sans `rowvar=False` il prend les lignes pour des variables. Quand $n$ est petit devant $d$, on régularise : `sklearn.covariance.LedoitWolf` rapproche l'estimation d'une matrice proportionnelle à $\mathbf{I}$.
 
-⚠️ **Erreur classique.** Prendre la valeur par défaut de `np.cov` pour le maximum de vraisemblance, ou oublier de transposer des données rangées en lignes (on obtient une matrice $(n, n)$). Inverser $\hat{\boldsymbol{\Sigma}}$ quand $n \le d$. Lire $\nabla\ln\det\mathbf{Z} = \mathbf{Z}^{-1}$ pour une matrice non symétrique (c'est $\mathbf{Z}^{-\top}$).
+⚠️ **Erreur classique.** Prendre la valeur par défaut de `np.cov` pour le maximum de vraisemblance, ou oublier de transposer des données rangées en lignes (on obtient une matrice $(n, n){}$). Inverser $\hat{\boldsymbol{\Sigma}}$ quand $n \le d$. Lire $\nabla\ln\det\mathbf{Z} = \mathbf{Z}^{-1}$ pour une matrice non symétrique (c'est $\mathbf{Z}^{-\top}$).
 
 ## §7 · La divergence KL continue : Jensen, positivité, additivité, et la KL entre deux gaussiennes
 

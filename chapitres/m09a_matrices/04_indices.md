@@ -300,7 +300,7 @@ $\mathbf{X}\mathbf{W}$ a une ligne par exemple et une colonne par neurone ; $\ma
 </details>
 <details><summary>Indice 3</summary>
 
-$\mathbf{X}\mathbf{W} = \begin{pmatrix} 4 & 5 \cr -1 & 7 \end{pmatrix}$. f) PyTorch range une ligne par neurone.
+$`\mathbf{X}\mathbf{W} = \begin{pmatrix} 4 & 5 \cr -1 & 7 \end{pmatrix}`$. f) PyTorch range une ligne par neurone.
 
 </details>
 
@@ -403,7 +403,7 @@ Relis « Le cas $2 \times 2$ » (fiche §7).
 </details>
 <details><summary>Indice 2</summary>
 
-$\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}$.
+$`\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}`$.
 
 </details>
 <details><summary>Indice 3</summary>

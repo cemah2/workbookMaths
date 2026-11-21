@@ -358,7 +358,7 @@ Soient $a$, $b$, $c$ trois réels avec $a \ne 0$, et $\Delta = b^2 - 4ac$.
 On rappelle les définitions : $f$ est croissante sur $I$ si, pour tous $a < b$ dans $I$, $f(a) \le f(b)$, et strictement croissante si $f(a) < f(b)$.
 1. Soit $f(x) = mx + c$ avec $m > 0$, et $a < b$ deux réels. Calcule $f(b) - f(a)$ et montre que $f$ est strictement croissante sur $\mathbb{R}$.
 2. Que se passe-t-il si $m < 0$ ? Et si $m = 0$ ?
-3. Réciproquement, montre que si une fonction affine $f(x) = mx + c$ est croissante sur $\mathbb{R}$, alors $m \ge 0$ (regarde $f(0)$ et $f(1)$).
+3. Réciproquement, montre que si une fonction affine $f(x) = mx + c$ est croissante sur $\mathbb{R}$, alors $m \ge 0$ (regarde $f(0)$ et $f(1){}$).
 4. Montre que $x \mapsto \sqrt{x}$ est strictement croissante sur $[0 \mkern5mu ;\mkern5mu  +\infty[$ : pour $0 \le a < b$, écris $\sqrt{b} - \sqrt{a} = \dfrac{b - a}{\sqrt{b} + \sqrt{a}}$ (justifie cette égalité) et conclus.
 5. Soient $f$ et $g$ deux fonctions définies sur $\mathbb{R}$. Montre que si $f$ et $g$ sont croissantes, alors $f \circ g$ est croissante ; et que si $f$ est croissante et $g$ décroissante, alors $f \circ g$ est décroissante.
 

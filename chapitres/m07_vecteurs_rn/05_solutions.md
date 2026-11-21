@@ -26,7 +26,7 @@
 
 ### M07.Q3 — Trois normes, trois boules unités
 1. 5, 5 et 5 : avec une seule coordonnée non nulle, les trois normes valent sa valeur absolue.
-2. L1 : un **losange** (un carré posé sur la pointe, de sommets $(\pm 1, 0)$ et $(0, \pm 1)$) ; L∞ : un **carré** de côté 2 centré à l'origine.
+2. L1 : un **losange** (un carré posé sur la pointe, de sommets $(\pm 1, 0)$ et $(0, \pm 1){}$) ; L∞ : un **carré** de côté 2 centré à l'origine.
 3. **Vrai** (fiche §3) : un maximum est au plus la racine de la somme des carrés, qui est au plus la somme des valeurs absolues.
 4. $\lVert -3\mathbf{x} \rVert = 3\thinspace\lVert \mathbf{x} \rVert$ (homogénéité : la valeur absolue de $-3$).
 5. $|-1 - 4| + |3 - 1| = 5 + 2 = 7$.
@@ -245,7 +245,7 @@ Pour la copie : un point lointain ajoute le **carré** de sa distance (50 à lui
 
 Pour la copie : la formule pondérée s'écrit $\sum_i \omega_i \lVert S_i - \mathbf{c} \rVert^2 = \sum_i \omega_i \lVert S_i - \bar{S} _\omega \rVert^2 + \Omega\thinspace\lVert \bar{S} _\omega - \mathbf{c} \rVert^2$, avec $\Omega = \sum \omega_i$ (M07.16). Un coût en carrés fait payer très cher les magasins lointains ; pour des trajets, la somme des distances (non au carré) est plus réaliste. Avec les livraisons comme poids, elle est minimisée par la médiane géométrique **pondérée** (M07.35, avec des poids), ou, si l'on roule sur un quadrillage de rues, par la médiane pondérée coordonnée par coordonnée, qui minimise la somme pondérée des distances L1 (M07.31).
 
-**Erreurs fréquentes.** Oublier les poids (b : $\big(\frac{8}{3}, \frac{4}{3}\big)$) ; oublier de multiplier le terme de König-Huygens par la somme des poids (d : $\frac{149}{3}$).
+**Erreurs fréquentes.** Oublier les poids (b : $\big(\frac{8}{3}, \frac{4}{3}\big){}$) ; oublier de multiplier le terme de König-Huygens par la somme des poids (d : $\frac{149}{3}$).
 
 **Variante.** Où placer le dépôt si $S_3$ recevait 6 livraisons ? *Réponse* : $\frac{(0, 0) \times 3 + (6, 0) + (12, 24)}{10} = (1{,}8 ;\ 2{,}4)$.
 

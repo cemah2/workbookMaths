@@ -65,7 +65,9 @@ j) Une donnée vaut $x_1$ ou $x_2$, avec la probabilité $\frac12$ chacune. Un c
 ### CP6.1 — Un vecteur gaussien de dimension 2 : loi marginale, loi conditionnelle, et la loi de μ + Lε ✏️ ★★ ⏱️ 10 min · 10 points (10/6 ≈ 1,67 par sous-question)
 
 Dans un élevage, la masse d'un veau à la naissance, $x_1$, et à un mois, $x_2$ (en kg), forment un vecteur gaussien $\mathbf{x} = (x_1, x_2) \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, avec
-$$\boldsymbol{\mu} = \begin{pmatrix} 40 \cr 55 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 16 & 12 \cr 12 & 13 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu} = \begin{pmatrix} 40 \cr 55 \end{pmatrix}, \qquad \boldsymbol{\Sigma} = \begin{pmatrix} 16 & 12 \cr 12 & 13 \end{pmatrix}.
+```
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -74,14 +76,16 @@ $$\boldsymbol{\mu} = \begin{pmatrix} 40 \cr 55 \end{pmatrix}, \qquad \boldsymbol
 | c | la loi de $x_2$ sachant $x_1 = 48$ : sa moyenne, puis sa variance | une liste de 2 nombres (valeurs exactes) |
 | d | la loi de $x_1$ sachant $x_2 = 48{,}5$ : sa moyenne, puis sa variance | une liste de 2 nombres (4 décimales) |
 | e | le tirage $\boldsymbol{\mu} + \mathbf{L}\boldsymbol{\varepsilon}$ pour $\boldsymbol{\varepsilon} = (1 ;\ -2{,}5)$ | une liste de 2 nombres (valeurs exactes) |
-| f | on tire aussi $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$, avec $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ et $\mathbf{M} = \begin{pmatrix} 0 & 4 \cr 2 & 3 \end{pmatrix}$ : la matrice de covariance de ces tirages | une matrice $2 \times 2$ (valeurs exactes) |
+| f | on tire aussi $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$, avec $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$ et $`\mathbf{M} = \begin{pmatrix} 0 & 4 \cr 2 & 3 \end{pmatrix}`$ : la matrice de covariance de ces tirages | une matrice $2 \times 2$ (valeurs exactes) |
 
 Sur ta copie : vérifie $\mathbf{L}\mathbf{L}^\top = \boldsymbol{\Sigma}$ ; écris $x_1$ et $x_2$ en fonction de $\varepsilon_1$ et $\varepsilon_2$, et explique avec elles pourquoi la variance de c) est $l_{22}^2$ et ne dépend pas de la valeur lue ; les tirages $\boldsymbol{\mu} + \mathbf{M}\boldsymbol{\varepsilon}$ ont-ils la loi $\mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$, et donnent-ils le point de e) pour le même $\boldsymbol{\varepsilon}$ ?
 
 ### CP6.2 — La divergence KL entre deux gaussiennes de dimension 2, et une interpolation sphérique ✏️ ★★ ⏱️ 9 min · 9 points (1,5 par sous-question)
 
 1. Une station mesure deux polluants de l'air. Leurs écarts à une valeur de référence, en µg/m³, suivent la loi $p_0 = \mathcal{N}(\boldsymbol{\mu}_0, \boldsymbol{\Sigma}_0)$ ; un modèle les décrit par $p_1 = \mathcal{N}(\boldsymbol{\mu}_1, \boldsymbol{\Sigma}_1)$, avec
-$$\boldsymbol{\mu}_0 = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \quad \boldsymbol{\Sigma}_0 = \begin{pmatrix} 5 & 3 \cr 3 & 4 \end{pmatrix}, \qquad \boldsymbol{\mu}_1 = \begin{pmatrix} 3 \cr 1 \end{pmatrix}, \quad \boldsymbol{\Sigma}_1 = \begin{pmatrix} 4 & 2 \cr 2 & 2 \end{pmatrix}, \qquad \boldsymbol{\delta} = \boldsymbol{\mu}_1 - \boldsymbol{\mu}_0 .$$
+```math
+\boldsymbol{\mu}_0 = \begin{pmatrix} 1 \cr 0 \end{pmatrix}, \quad \boldsymbol{\Sigma}_0 = \begin{pmatrix} 5 & 3 \cr 3 & 4 \end{pmatrix}, \qquad \boldsymbol{\mu}_1 = \begin{pmatrix} 3 \cr 1 \end{pmatrix}, \quad \boldsymbol{\Sigma}_1 = \begin{pmatrix} 4 & 2 \cr 2 & 2 \end{pmatrix}, \qquad \boldsymbol{\delta} = \boldsymbol{\mu}_1 - \boldsymbol{\mu}_0 .
+```
 2. Deux vecteurs de même norme, $\mathbf{u} = (2, 2, 1)$ et $\mathbf{v} = (0, 3, 0)$, d'angle $\Omega$.
 
 | | Question | Réponse attendue |
@@ -166,7 +170,9 @@ Sur ta copie : les moyennes $r_i$ des lignes de $\mathbf{D}^{(2)}$, puis $G_{ij}
 ### CP6.7 — La distance de Fréchet de deux gaussiennes du plan de covariances proportionnelles, et le biais de la distance entre deux moyennes estimées ✏️ ★★ ⏱️ 9 min · 9 points (1,8 par sous-question)
 
 Deux fermes solaires ont chacune deux rangées de panneaux. La production journalière des deux rangées, en MWh, suit $\mathcal{N}(\boldsymbol{\mu}_A, \boldsymbol{\Sigma}_A)$ dans la ferme A et $\mathcal{N}(\boldsymbol{\mu}_B, \boldsymbol{\Sigma}_B)$ dans la ferme B, plus exposée aux nuages :
-$$\boldsymbol{\mu}_A = \begin{pmatrix} 18 \cr 12 \end{pmatrix}, \quad \boldsymbol{\Sigma}_A = \begin{pmatrix} 12 & 2 \cr 2 & 9 \end{pmatrix}, \qquad \boldsymbol{\mu}_B = \begin{pmatrix} 21 \cr 13 \end{pmatrix}, \quad \boldsymbol{\Sigma}_B = 4\thinspace\boldsymbol{\Sigma}_A = \begin{pmatrix} 48 & 8 \cr 8 & 36 \end{pmatrix}.$$
+```math
+\boldsymbol{\mu}_A = \begin{pmatrix} 18 \cr 12 \end{pmatrix}, \quad \boldsymbol{\Sigma}_A = \begin{pmatrix} 12 & 2 \cr 2 & 9 \end{pmatrix}, \qquad \boldsymbol{\mu}_B = \begin{pmatrix} 21 \cr 13 \end{pmatrix}, \quad \boldsymbol{\Sigma}_B = 4\thinspace\boldsymbol{\Sigma}_A = \begin{pmatrix} 48 & 8 \cr 8 & 36 \end{pmatrix}.
+```
 On compare d'abord les deux lois par leur distance de Fréchet $W_2$. Puis on suppose les moyennes inconnues : on les estime par les moyennes $\bar{\mathbf{x}}$ de relevés de jours indépendants.
 
 | | Question | Réponse attendue |
@@ -199,7 +205,7 @@ Traite **un seul** des deux sujets. Rédige en phrases : ce que tu supposes, cha
 
 Voici huit lignes extraites de la copie d'un élève. **Cinq** sont fausses, une par chapitre de la partie VI.
 
-- **(A)** La chaîne de matrice $\begin{pmatrix} 0{,}05 & 0{,}95 \cr 0{,}65 & 0{,}35 \end{pmatrix}$ a pour valeurs propres 1 et $-0{,}6$ ; la seconde étant négative, la loi $\boldsymbol{\mu}_n$ de la chaîne ne converge pas vers sa loi stationnaire : elle oscille sans fin.
+- **(A)** La chaîne de matrice $`\begin{pmatrix} 0{,}05 & 0{,}95 \cr 0{,}65 & 0{,}35 \end{pmatrix}`$ a pour valeurs propres 1 et $-0{,}6$ ; la seconde étant négative, la loi $\boldsymbol{\mu}_n$ de la chaîne ne converge pas vers sa loi stationnaire : elle oscille sans fin.
 - **(B)** Pour 50 points de $\mathbb{R}^3$ rangés en lignes de $\mathbf{X}$, la matrice de Gram $\mathbf{X}\mathbf{X}^\top$, de taille $50 \times 50$, a au plus trois valeurs propres non nulles : les mêmes que celles de $\mathbf{X}^\top\mathbf{X}$.
 - **(C)** En dimension 2, l'ellipse de Mahalanobis de niveau $c = 2{,}5$ contient 98,8 % des tirages, comme l'intervalle $[\mu - 2{,}5\sigma ;\ \mu + 2{,}5\sigma]$ en dimension 1.
 - **(D)** Sur $f(x, y) = xy$, la descente-montée alternée de pas $\eta = 0{,}4$ garde $x^2 + y^2 - 0{,}4\thinspace xy$ constant : ses itérés restent sur une ellipse.
@@ -214,7 +220,9 @@ b) Pour chaque ligne fausse, écris le résultat juste et le nom de la règle ou
 ### CP6.10 — Problème de synthèse : une file d'attente à trois états suivie de façon gloutonne, puis échantillonnée après la troncature top-p de ses transitions : lois conditionnelles, coût en KL et nouvelle loi stationnaire 🔗 ★★ ⏱️ 16 min · 16 points (16/7 ≈ 2,29 par sous-question)
 
 Une borne de recharge pour voitures électriques a deux places d'attente. Toutes les cinq minutes, on note le nombre de voitures qui attendent : 0, 1 ou 2, les trois états. Ce nombre suit une chaîne de Markov de matrice
-$$\mathbf{P} = \begin{pmatrix} 0{,}32 & 0{,}60 & 0{,}08 \cr 0{,}21 & 0{,}33 & 0{,}46 \cr 0{,}05 & 0{,}60 & 0{,}35 \end{pmatrix}.$$
+```math
+\mathbf{P} = \begin{pmatrix} 0{,}32 & 0{,}60 & 0{,}08 \cr 0{,}21 & 0{,}33 & 0{,}46 \cr 0{,}05 & 0{,}60 & 0{,}35 \end{pmatrix}.
+```
 1. Un simulateur **glouton** suit la file en passant toujours à l'état suivant le plus probable, $u_{t+1} = f(u_t)$ (entre deux probabilités égales, le plus petit état), depuis $u_0 = 0$.
 2. Un simulateur **aléatoire** tire l'état suivant, mais après avoir tronqué chaque ligne de $\mathbf{P}$ par un top-p de seuil $m = 0{,}68$ : dans la ligne de l'état présent, il garde les états suivants par probabilité décroissante, un à un, jusqu'à ce que leur masse $P(S)$ atteigne $m$, puis tire selon la loi conditionnelle sur l'ensemble $S$ gardé. On note $\mathbf{P}'$ la matrice de la chaîne ainsi simulée, $\mathbf{p} _1$ la ligne 1 de $\mathbf{P}$, $S_1$ l'ensemble des états gardés dans cette ligne (un ensemble d'états, pas l'état $S_t$ au pas 1) et $\mathbf{p} _{S_1}$ la ligne 1 de $\mathbf{P}'$.
 

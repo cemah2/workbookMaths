@@ -94,7 +94,7 @@ C'est un quotient de Rayleigh : son maximum est la plus grande valeur propre de 
 </details>
 <details><summary>Indice 3</summary>
 
-3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : la matrice est par blocs : $\mathbf{e}_1$ est vecteur propre (valeur 4), et le bloc $\begin{pmatrix} 2 & 2 \cr 2 & 5 \end{pmatrix}$ (trace 7, déterminant 6) donne les deux autres.
+3 : une covariance non nulle hors de la diagonale fait tourner le premier axe. 4 : la matrice est par blocs : $\mathbf{e}_1$ est vecteur propre (valeur 4), et le bloc $`\begin{pmatrix} 2 & 2 \cr 2 & 5 \end{pmatrix}`$ (trace 7, déterminant 6) donne les deux autres.
 
 </details>
 
@@ -336,7 +336,7 @@ $\mathbf{P}^\top\mathbf{P}$ est diagonale ; $\mathbf{Q}$ est orthogonale ; pour 
 </details>
 <details><summary>Indice 3</summary>
 
-c) $s_1^2$ est la plus grande racine de $x^2 - 102x + 1$, et $\kappa = s_1/s_2 = s_1^2$ puisque $s_1s_2 = 1$. f) $\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \cr -5 & 8 \end{pmatrix}$.
+c) $s_1^2$ est la plus grande racine de $x^2 - 102x + 1$, et $\kappa = s_1/s_2 = s_1^2$ puisque $s_1s_2 = 1$. f) $`\mathbf{R}^{-1} = \begin{pmatrix} 2 & -3 \cr -5 & 8 \end{pmatrix}`$.
 
 </details>
 
@@ -354,7 +354,7 @@ Le point moyen est $(14, 9, 6)$ ; la deuxième mesure centrée est orthogonale a
 </details>
 <details><summary>Indice 3</summary>
 
-Le bloc $\begin{pmatrix} 19 & 4 \cr 4 & 4 \end{pmatrix}$ a pour trace 23 et déterminant 60 ; pour 20, $-x_1 + 4x_3 = 0$.
+Le bloc $`\begin{pmatrix} 19 & 4 \cr 4 & 4 \end{pmatrix}`$ a pour trace 23 et déterminant 60 ; pour 20, $-x_1 + 4x_3 = 0$.
 
 </details>
 
@@ -596,7 +596,7 @@ $(\mathbf{D}\mathbf{C}\mathbf{D}) _{ij} = d_id_jc _{ij}$, avec $\mathbf{D} = \op
 </details>
 <details><summary>Indice 3</summary>
 
-Le nouveau bloc $\begin{pmatrix} 19 & 12 \cr 12 & 36 \end{pmatrix}$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ ; f) l'arccos du produit scalaire des deux axes unitaires, en degrés.
+Le nouveau bloc $`\begin{pmatrix} 19 & 12 \cr 12 & 36 \end{pmatrix}`$ a pour trace 55 et déterminant 540 ; la corrélation $\frac{c_{13}}{\sqrt{c_{11}c_{33}}}$ ; f) l'arccos du produit scalaire des deux axes unitaires, en degrés.
 
 </details>
 

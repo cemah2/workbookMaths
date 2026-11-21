@@ -38,13 +38,15 @@ Sans la fiche, en 4 minutes chacun. Réponds vite, puis vérifie dans `05_soluti
 ### M21.Q3 — Lire une matrice de Toeplitz : diagonales, coefficients non nuls, nombre de lignes 🧠 ★ ⏱️ 4 min
 *Fiche §3 · parcours C, E*
 
-$$\mathbf{M} = \begin{pmatrix} 5 & 0 & 0 \cr -2 & 5 & 0 \cr 1 & -2 & 5 \cr 0 & 1 & -2 \cr 0 & 0 & 1 \end{pmatrix}.$$
+```math
+\mathbf{M} = \begin{pmatrix} 5 & 0 & 0 \cr -2 & 5 & 0 \cr 1 & -2 & 5 \cr 0 & 1 & -2 \cr 0 & 0 & 1 \end{pmatrix}.
+```
 
 1. $\mathbf{M}$ est la matrice d'une convolution pleine $\mathbf{x} \mapsto \mathbf{x} \ast \mathbf{w}$ : quel noyau $\mathbf{w}$, et quelle longueur $n$ des signaux ?
 2. Un noyau de 4 coefficients, tous non nuls, et des signaux de 50 valeurs : combien de coefficients non nuls a la matrice de la convolution pleine, et sur combien de coefficients en tout ?
 3. Même noyau, mêmes signaux : combien de lignes a la matrice en mode valide ? En mode même taille ?
-4. Vrai ou faux : $\begin{pmatrix} 4 & 1 & 0 \cr 1 & 4 & 1 \cr 0 & 2 & 4 \end{pmatrix}$ est une matrice de Toeplitz.
-5. Vrai ou faux : $\begin{pmatrix} 1 & 2 & 0 \cr 0 & 1 & 2 \cr 2 & 0 & 1 \end{pmatrix}$ est une matrice circulante. Si oui, de quelle première colonne ?
+4. Vrai ou faux : $`\begin{pmatrix} 4 & 1 & 0 \cr 1 & 4 & 1 \cr 0 & 2 & 4 \end{pmatrix}`$ est une matrice de Toeplitz.
+5. Vrai ou faux : $`\begin{pmatrix} 1 & 2 & 0 \cr 0 & 1 & 2 \cr 2 & 0 & 1 \end{pmatrix}`$ est une matrice circulante. Si oui, de quelle première colonne ?
 6. Le noyau $(w_0, w_1, w_2, w_3, w_4)$, en convolution pleine : quel coefficient se trouve en ligne 7 et en colonne 4 de la matrice ?
 
 ### M21.Q4 — Équivariant, invariant, ou ni l'un ni l'autre ? Décalages, bords, pas et pooling 🧠 ★ ⏱️ 4 min
@@ -79,7 +81,7 @@ Une grille de mesures a $C_{\text{in}} = 10$ canaux ; on la filtre vers $C_{\tex
 3. Une convolution par canal sur les 10 canaux, avec des noyaux $3 \times 3$ : le nombre de paramètres (biais compris) ?
 4. Une convolution $1 \times 1$ de 10 vers 6 canaux : le nombre de paramètres, et le nombre de multiplications-additions par case de la grille ?
 5. Un noyau séparable de $9 \times 9$ cases : combien de multiplications par valeur de sortie en direct, puis, environ, en deux passes ?
-6. Vrai ou faux : $\begin{pmatrix} 2 & -4 & 6 \cr -1 & 2 & -3 \end{pmatrix}$ est un noyau séparable (au sens de la fiche : de rang 1).
+6. Vrai ou faux : $`\begin{pmatrix} 2 & -4 & 6 \cr -1 & 2 & -3 \end{pmatrix}`$ est un noyau séparable (au sens de la fiche : de rang 1).
 
 ### M21.Q7 — Composer des convolutions : noyau, pas et champ récepteur 🧠 ★ ⏱️ 4 min
 *Fiche §7 · parcours C, E*
@@ -308,7 +310,9 @@ Dans ta copie : écris la matrice $\mathbf{D}_3$. Pourquoi $\mathbf{D}_3^\top\ma
 **Prérequis :** fiche §2 et §6 ; M12d · **Parcours :** C, E
 
 Une carte de températures (°C) relevées sur une grille régulière de 4 lignes et 6 colonnes :
-$$\mathbf{T} = \begin{pmatrix} 14 & 15 & 17 & 16 & 15 & 13 \cr 15 & 18 & 21 & 19 & 12 & 14 \cr 16 & 20 & 24 & 22 & 17 & 15 \cr 15 & 17 & 19 & 18 & 16 & 14 \end{pmatrix}.$$
+```math
+\mathbf{T} = \begin{pmatrix} 14 & 15 & 17 & 16 & 15 & 13 \cr 15 & 18 & 21 & 19 & 12 & 14 \cr 16 & 20 & 24 & 22 & 17 & 15 \cr 15 & 17 & 19 & 18 & 16 & 14 \end{pmatrix}.
+```
 On la filtre par le laplacien discret à 5 points de la fiche ($h = 1$), puis par le lissage $\mathbf{K} = \mathbf{a}\mathbf{a}^\top$, avec $\mathbf{a} = \frac15(1, 3, 1)$, tous deux en mode valide.
 
 | | Question | Réponse attendue |
@@ -463,11 +467,17 @@ Soit $\mathbf{g} \in \mathbb{R}^n$ et $\varepsilon > 0$.
 **Prérequis :** fiche §2 et §6 ; M20 · **Parcours :** C, E
 
 Des capteurs agricoles couvrent une parcelle découpée en une grille de 4 lignes et 5 colonnes ; en chaque case, trois mesures (température, humidité du sol, ensoleillement, ramenées à des entiers). Comme les bibliothèques, on range les canaux en premier : $\mathbf{X}$ a pour canaux
-$$\mathbf{X}_0 = \begin{pmatrix} 2 & 1 & 0 & 3 & 1 \cr 0 & 4 & 2 & 1 & 3 \cr 1 & 2 & 5 & 0 & 2 \cr 3 & 0 & 1 & 2 & 4 \end{pmatrix}, \quad \mathbf{X}_1 = \begin{pmatrix} 1 & 0 & 2 & 2 & 0 \cr 3 & 1 & 0 & 4 & 1 \cr 2 & 2 & 1 & 0 & 3 \cr 0 & 1 & 3 & 1 & 2 \end{pmatrix}, \quad \mathbf{X}_2 = \begin{pmatrix} 0 & 2 & 1 & 1 & 4 \cr 1 & 0 & 3 & 2 & 0 \cr 4 & 1 & 0 & 2 & 1 \cr 2 & 3 & 1 & 0 & 1 \end{pmatrix}.$$
+```math
+\mathbf{X}_0 = \begin{pmatrix} 2 & 1 & 0 & 3 & 1 \cr 0 & 4 & 2 & 1 & 3 \cr 1 & 2 & 5 & 0 & 2 \cr 3 & 0 & 1 & 2 & 4 \end{pmatrix}, \quad \mathbf{X}_1 = \begin{pmatrix} 1 & 0 & 2 & 2 & 0 \cr 3 & 1 & 0 & 4 & 1 \cr 2 & 2 & 1 & 0 & 3 \cr 0 & 1 & 3 & 1 & 2 \end{pmatrix}, \quad \mathbf{X}_2 = \begin{pmatrix} 0 & 2 & 1 & 1 & 4 \cr 1 & 0 & 3 & 2 & 0 \cr 4 & 1 & 0 & 2 & 1 \cr 2 & 3 & 1 & 0 & 1 \end{pmatrix}.
+```
 Le filtrage a deux sorties. La sortie 0 applique aux canaux 0, 1 et 2 les noyaux $2 \times 2$
-$$\begin{pmatrix} 1 & 0 \cr 2 & -1 \end{pmatrix}, \quad \begin{pmatrix} 0 & 1 \cr -1 & 0 \end{pmatrix}, \quad \begin{pmatrix} 2 & 0 \cr 1 & 1 \end{pmatrix}, \quad \text{biais } b_0 = 1 ;$$
+```math
+\begin{pmatrix} 1 & 0 \cr 2 & -1 \end{pmatrix}, \quad \begin{pmatrix} 0 & 1 \cr -1 & 0 \end{pmatrix}, \quad \begin{pmatrix} 2 & 0 \cr 1 & 1 \end{pmatrix}, \quad \text{biais } b_0 = 1 ;
+```
 la sortie 1, les noyaux
-$$\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}, \quad \begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}, \quad \begin{pmatrix} -1 & 0 \cr 0 & 2 \end{pmatrix}, \quad \text{biais } b_1 = -2.$$
+```math
+\begin{pmatrix} 0 & -1 \cr 1 & 0 \end{pmatrix}, \quad \begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}, \quad \begin{pmatrix} -1 & 0 \cr 0 & 2 \end{pmatrix}, \quad \text{biais } b_1 = -2.
+```
 Le filtrage est la somme glissante des bibliothèques (fiche §6), en mode valide, avec un pas de 1.
 
 | | Question | Réponse attendue |
@@ -539,7 +549,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M21.21 · 🔨 `circular_convolve(a, b)`.** Écris la convolution circulaire de deux suites de même longueur, puis lance le groupe de tests `circular_convolve`. Ensuite, le profil moyen d'une journée, une température (°C) par heure de 0 h à 23 h : $(9, 8, 8, 7, 6, 7, 8, 10, 12, 14, 16, 17, 19, 20, 21, 20, 18, 16, 14, 13, 12, 11, 10, 9)$ ; l'heure 24 est l'heure 0. On le lisse par la moyenne circulaire centrée sur 3 heures, le noyau $\mathbf{h}$ de 24 valeurs nulles sauf $h_0 = h_1 = h_{23} = \frac13$. a) La valeur lissée à 0 h (4 décimales) ; b) l'heure du maximum lissé ; c) vrai ou faux : en complétant $(3, -1, 2, 5)$ et $(1, 2, -2)$ par des zéros jusqu'à la longueur 6, la convolution circulaire donne la convolution pleine ; d) pour $\mathbf{h} = (5, -2, 0, 3, 1, 4)$, en construisant $\operatorname{circ}(\mathbf{h})$ colonne par colonne avec ta fonction : deux vrai ou faux, $\operatorname{circ}(\mathbf{h})^\top = \operatorname{circ}(\check{\mathbf{h}})$, puis $\operatorname{circ}(\mathbf{h})^\top$ égale la matrice circulante du simple renversement de $\mathbf{h}$.
 
-**M21.22 · 🔨 `separable_factors(kernel, tol=1e-10)`.** Écris la factorisation d'un noyau de rang 1 par la décomposition en valeurs singulières (M12d), avec la convention de signe et la tolérance relative de la docstring, puis lance le groupe de tests `separable_factors`. Ensuite : a) le facteur $\mathbf{v}$ du lissage $\mathbf{K}$ de M21.8 (4 décimales) ; b) le rapport $s_2/s_1$ des valeurs singulières de la moyenne en croix $\frac15\begin{pmatrix} 0 & 1 & 0 \cr 1 & 1 & 1 \cr 0 & 1 & 0 \end{pmatrix}$ (3 décimales), et ce que rend ta fonction pour ce noyau ; c) un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$, plus un bruit gaussien d'écart type 0,001 (graine 5532) : avec la tolérance par défaut, ta fonction rend `None` ; avec une tolérance de $10^{-2}$, elle rend deux facteurs ; l'erreur $\lVert\mathbf{K} - \mathbf{u}\mathbf{v}^\top\rVert_F$ de cette approximation (5 décimales). Ce qu'il faut observer : cette erreur est $\sqrt{s_2^2 + s_3^2}$, comme le dit Eckart-Young (M12d).
+**M21.22 · 🔨 `separable_factors(kernel, tol=1e-10)`.** Écris la factorisation d'un noyau de rang 1 par la décomposition en valeurs singulières (M12d), avec la convention de signe et la tolérance relative de la docstring, puis lance le groupe de tests `separable_factors`. Ensuite : a) le facteur $\mathbf{v}$ du lissage $\mathbf{K}$ de M21.8 (4 décimales) ; b) le rapport $s_2/s_1$ des valeurs singulières de la moyenne en croix $`\frac15\begin{pmatrix} 0 & 1 & 0 \cr 1 & 1 & 1 \cr 0 & 1 & 0 \end{pmatrix}`$ (3 décimales), et ce que rend ta fonction pour ce noyau ; c) un noyau presque séparable, le produit extérieur de $(1, 2, 4, 2, 1)$ et de $(2, -1, 3)$, plus un bruit gaussien d'écart type 0,001 (graine 5532) : avec la tolérance par défaut, ta fonction rend `None` ; avec une tolérance de $10^{-2}$, elle rend deux facteurs ; l'erreur $\lVert\mathbf{K} - \mathbf{u}\mathbf{v}^\top\rVert_F$ de cette approximation (5 décimales). Ce qu'il faut observer : cette erreur est $\sqrt{s_2^2 + s_3^2}$, comme le dit Eckart-Young (M12d).
 
 **M21.23 · 🔨 `equivalent_kernel(kernels, strides=None)`** (avec ta `convolve`). Écris le noyau équivalent et le pas total d'une pile de sommes glissantes (fiche §7 : le noyau de l'étage $\ell$, dilaté du pas accumulé, convolué avec le noyau des étages précédents), puis lance le groupe de tests `equivalent_kernel`. Ensuite : a) $6\thinspace\mathbf{K}$ pour la pile de M21.10 c) ; b) la longueur du noyau équivalent et le pas total de quatre étages identiques de noyaux de longueur 4 et de pas 2 ; c) le champ récepteur de la pile de M21.10 e), en écrivant le troisième étage, dilaté, comme le noyau à trous $(w_0, 0, 0, 0, w_1, 0, 0, 0, w_2)$ ; d) une pile tirée au hasard (graine 5533 : des noyaux de longueurs 3, 4 et 2, de pas 2, 3 et 1, et un signal de 200 valeurs), appliquée étage par étage, puis par son noyau équivalent avec le pas total : vrai ou faux, les deux sorties coïncident à $10^{-12}$ près (sur les positions communes).
 
@@ -549,7 +559,7 @@ Ce que tu feras dans chacun (l'énoncé complet, avec ses cellules, est dans le 
 
 **M21.26 · 🎨 La carte des recouvrements d'une convolution transposée.** Pour une entrée de $6 \times 6$ valeurs et des noyaux $k \times k$ de pas $s$ selon les deux axes, compte, en chaque case de la sortie, le nombre de tampons qui la couvrent (en 2D, c'est le produit des comptes des deux axes), pour $(k, s) = (5, 2)$, $(6, 2)$, $(7, 3)$ et $(9, 3)$, et dessine les quatre cartes côte à côte, avec une barre de couleurs et un titre qui donne $(k, s)$. Ce qu'il faut observer : un damier de cases fortes et faibles quand $s$ ne divise pas $k$, une carte uniforme à l'intérieur quand $s$ divise $k$.
 
-**M21.27 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe. (1) `poly_product(p, q)` doit rendre les coefficients du produit de deux polynômes (du terme constant au plus haut degré) ; elle renvoie `np.correlate(p, q, "full")`, et il l'a vérifiée sur $(1 + 2X)(2 + 5X + 2X^2)$, dont le second facteur a des coefficients palindromes. Il l'applique à $(1 + 2X)(3 - X + 4X^2)$. (2) `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ ; elle renvoie `k // s`, et il l'a vérifiée sur $(k, s) = (6, 3)$, $(8, 2)$ et $(12, 4)$. (3) `separate(K)` rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang ; il l'a vérifiée sur un produit extérieur, et l'applique au noyau $\begin{pmatrix} 2 & 1 & 3 \cr 4 & 2 & 5 \cr 2 & 1 & 3 \end{pmatrix}$. Trouve et corrige chaque erreur, puis réponds : a) les coefficients de $(1 + 2X)(3 - X + 4X^2)$, avec la fonction corrigée ; b) pour une convolution transposée de noyau de longueur $k = 8$, de pas $s = 3$ et de $m = 6$ valeurs d'entrée, les nombres de tampons qui couvrent les cases 9, 10 et 11 ; c) le plus grand écart, en valeur absolue, entre $\mathbf{K}$ et le produit extérieur des deux facteurs de `separate` ; d) vrai ou faux : `separable_factors` rend `None` pour ce noyau ; e) une question à part, sur le mode « même taille » d'un noyau de longueur paire, où NumPy et PyTorch diffèrent d'une case : pour la somme glissante de poids $(2, -3)$ et $\mathbf{x} = (6, 2, 7, 1, 8, 3)$, ce que rend `np.convolve` en mode même taille, avec les poids retournés. Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
+**M21.27 · 🐛 Chasse à l'erreur.** Un collègue a écrit trois fonctions, chacune accompagnée d'une vérification qui passe. (1) `poly_product(p, q)` doit rendre les coefficients du produit de deux polynômes (du terme constant au plus haut degré) ; elle renvoie `np.correlate(p, q, "full")`, et il l'a vérifiée sur $(1 + 2X)(2 + 5X + 2X^2)$, dont le second facteur a des coefficients palindromes. Il l'applique à $(1 + 2X)(3 - X + 4X^2)$. (2) `n_covers(k, s)` doit rendre le nombre de tampons qui couvrent une case intérieure d'une convolution transposée de noyau de longueur $k$ et de pas $s$ ; elle renvoie `k // s`, et il l'a vérifiée sur $(k, s) = (6, 3)$, $(8, 2)$ et $(12, 4)$. (3) `separate(K)` rend la première colonne de $\mathbf{K}$ et sa première ligne divisée par $K_{0,0}$, sans regarder le rang ; il l'a vérifiée sur un produit extérieur, et l'applique au noyau $`\begin{pmatrix} 2 & 1 & 3 \cr 4 & 2 & 5 \cr 2 & 1 & 3 \end{pmatrix}`$. Trouve et corrige chaque erreur, puis réponds : a) les coefficients de $(1 + 2X)(3 - X + 4X^2)$, avec la fonction corrigée ; b) pour une convolution transposée de noyau de longueur $k = 8$, de pas $s = 3$ et de $m = 6$ valeurs d'entrée, les nombres de tampons qui couvrent les cases 9, 10 et 11 ; c) le plus grand écart, en valeur absolue, entre $\mathbf{K}$ et le produit extérieur des deux facteurs de `separate` ; d) vrai ou faux : `separable_factors` rend `None` pour ce noyau ; e) une question à part, sur le mode « même taille » d'un noyau de longueur paire, où NumPy et PyTorch diffèrent d'une case : pour la somme glissante de poids $(2, -3)$ et $\mathbf{x} = (6, 2, 7, 1, 8, 3)$, ce que rend `np.convolve` en mode même taille, avec les poids retournés. Pour chacune des trois erreurs, dis aussi pourquoi la vérification du collègue ne la voyait pas.
 
 **M21.28 · 🛠️ Un test de propriété.** Écris une fonction de test qui tire au hasard (graine 5538), 200 fois, une longueur de noyau $k$ de 1 à 6, une longueur de signal $n$ de $k$ à 12, un noyau et un signal d'entiers, et vérifie que `toeplitz_matrix(w, n, mode) @ x` égale `convolve(x, w, mode)` dans les trois modes, avec un message d'échec qui dit d'abord ce qui était attendu, puis le cas fautif ($k$, $n$, le mode). Ajoute les cas limites $k = 1$ et $n = k$. Lance-la sur ta librairie, puis sur une version volontairement fausse, fournie, dont le mode même taille garde les lignes à partir de $\lfloor k/2\rfloor$ au lieu de $\lfloor\frac{k-1}{2}\rfloor$ : ton test doit l'attraper, et son message doit montrer un noyau de longueur paire.
 

@@ -6,7 +6,7 @@
 |---|---|
 | **Sections** | §1 à §10 |
 | **Temps total estimé** | ≈ 18,7 h : lecture et calculs de la fiche ≈ 2 h 45, exercices ≈ 15 h 20, 20 flashcards ≈ 40 min (parcours essentiel ≈ 12,8 h) |
-| **Prérequis** | M02a (intégrales, changement de variable, fonction de répartition et quantile $F^{-1}(u) = \inf\lbrace x : F(x) \ge u\rbrace$) ; M02b (espérance d'une variable discrète, indépendance, loi normale et $\Phi$, simulation par inversion $F^{-1}(U)$) ; M02c (biais d'un estimateur, variance d'une moyenne, matrice de covariance) ; M04 (formule de Bayes ; le maximum de vraisemblance d'une loi de Bernoulli est la fréquence) ; M05a (approximation $\ln(1 + x) \approx x$) ; M05b (point selle d'une fonction de deux variables, descente et montée de gradient) ; M06 (divergence KL, inégalités de Jensen et de Gibbs, Jensen-Shannon) ; M08 (p-valeur d'un test) ; M10 (programmes linéaires) ; M12c (trace, matrices semblables, théorème spectral, racine carrée d'une matrice symétrique positive) ; M13a (log-loss, et ce qu'elle devient quand la probabilité prédite tend vers 0) ; M13b (lagrangien et dualité faible, MML §7.2 lu une première fois) ; M22 (valeurs propres complexes d'une matrice $2 \times 2$, module, rotations et homothéties) ; M25a (KL entre lois continues, infinie quand le support de $q$ ne couvre pas celui de $p$) |
+| **Prérequis** | M02a (intégrales, changement de variable, fonction de répartition et quantile $F^{-1}(u) = \inf\lbrace x : F(x) \ge u\rbrace$) ; M02b (espérance d'une variable discrète, indépendance, loi normale et $\Phi$, simulation par inversion $F^{-1}(U){}$) ; M02c (biais d'un estimateur, variance d'une moyenne, matrice de covariance) ; M04 (formule de Bayes ; le maximum de vraisemblance d'une loi de Bernoulli est la fréquence) ; M05a (approximation $\ln(1 + x) \approx x$) ; M05b (point selle d'une fonction de deux variables, descente et montée de gradient) ; M06 (divergence KL, inégalités de Jensen et de Gibbs, Jensen-Shannon) ; M08 (p-valeur d'un test) ; M10 (programmes linéaires) ; M12c (trace, matrices semblables, théorème spectral, racine carrée d'une matrice symétrique positive) ; M13a (log-loss, et ce qu'elle devient quand la probabilité prédite tend vers 0) ; M13b (lagrangien et dualité faible, MML §7.2 lu une première fois) ; M22 (valeurs propres complexes d'une matrice $2 \times 2$, module, rotations et homothéties) ; M25a (KL entre lois continues, infinie quand le support de $q$ ne couvre pas celui de $p$) |
 | **Fichiers du chapitre** | `02_exercices.md` (quiz, papier) · `03_notebook.ipynb` · `04_indices.md` · `05_solutions.md` et `05_solutions.ipynb` · `06_mes_reponses.md` · `flashcards.csv` |
 | **mymath** | `distances.py` : `pure_strategy_values`, `mixed_strategy_value_2x2`, `descent_ascent_iterates`, `w2_gaussians_1d` |
 | **MML** | §7.2 (*Constrained Optimization and Lagrange Multipliers*), relu ; §7.3.1 (*Linear Programming*) en option |
@@ -70,7 +70,7 @@ Vocabulaire anglais de ce chapitre : *zero-sum game*, *payoff matrix*, *pure str
 ## L'essentiel en 10 lignes
 
 1. **Somme nulle** : la ligne maximise $g_{ij}$, la colonne le minimise. $\max_i\min_j g_{ij}$ (maximin) $\le \min_j\max_i g_{ij}$ (minimax), égalité si et seulement s'il y a un **point selle** (le plus petit de sa ligne, le plus grand de sa colonne) ; jouer en second ne nuit jamais ; la dualité faible est cette inégalité pour le lagrangien. Une stratégie strictement dominée se raye.
-2. **Mixtes** : gain espéré $\mathbf{p}^\top\mathbf{G}\mathbf{q}$. Sans point selle, $\begin{pmatrix} a & b \cr c & d \end{pmatrix}$ a pour solution $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, $\kappa = a - b - c + d$, et $E(p, q) = v + \kappa(p - p^\star)(q - q^\star)$. **Von Neumann** : $\max_{\mathbf{p}}\min_{\mathbf{q}}\mathbf{p}^\top\mathbf{G}\mathbf{q} = \min_{\mathbf{q}}\max_{\mathbf{p}}\mathbf{p}^\top\mathbf{G}\mathbf{q}$ ; un jeu fini est un programme linéaire.
+2. **Mixtes** : gain espéré $\mathbf{p}^\top\mathbf{G}\mathbf{q}$. Sans point selle, $`\begin{pmatrix} a & b \cr c & d \end{pmatrix}`$ a pour solution $p^\star = \frac{d - c}{\kappa}$, $q^\star = \frac{d - b}{\kappa}$, $v = \frac{ad - bc}{\kappa}$, $\kappa = a - b - c + d$, et $E(p, q) = v + \kappa(p - p^\star)(q - q^\star)$. **Von Neumann** : $\max_{\mathbf{p}}\min_{\mathbf{q}}\mathbf{p}^\top\mathbf{G}\mathbf{q} = \min_{\mathbf{q}}\max_{\mathbf{p}}\mathbf{p}^\top\mathbf{G}\mathbf{q}$ ; un jeu fini est un programme linéaire.
 3. **Nash** : chaque stratégie est une meilleure réponse à l'autre. Dilemme du prisonnier : un équilibre, moins bon pour tous qu'une autre issue ; coordination : deux équilibres purs et un mixte. **Arbre** : induction arrière, max aux nœuds du premier joueur, min à ceux du second.
 4. **Descente-montée** sur $\mathbf{x}^\top\mathbf{A}\mathbf{y}$ : simultanée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2$ ne baisse jamais (sur $xy$, valeurs propres $1 \pm i\eta$ : une spirale qui s'éloigne) ; alternée, $\lVert\mathbf{x}\rVert^2 + \lVert\mathbf{y}\rVert^2 - \eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y}$ est constant (sur $xy$, déterminant 1 : une ellipse si $\eta < 2$).
 5. **Log-loss** : $t^\star(x) = P(Y = 1 \mid X = x) = \frac{\pi_1p_1(x)}{\pi_1p_1(x) + \pi_0p_0(x)}$ minimise la log-loss espérée (∂ M27.12, par Gibbs) ; sans observation, la meilleure constante est la fréquence.
@@ -152,7 +152,7 @@ Contre une stratégie $\mathbf{q}$ fixée, $(\mathbf{G}\mathbf{q})_i$ est le gai
 
 ### L'indifférence, dans un jeu 2 × 2
 
-Écrivons $\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$, $p$ la probabilité de la première ligne et $q$ celle de la première colonne :
+Écrivons $`\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}`$, $p$ la probabilité de la première ligne et $q$ celle de la première colonne :
 $$E(p, q) = pq\thinspace a + p(1 - q)\thinspace b + (1 - p)q\thinspace c + (1 - p)(1 - q)\thinspace d .$$
 
 **Le principe d'indifférence** (*principle of indifference*). Le joueur des lignes choisit $p$ pour que l'adversaire n'ait **plus de préférence** : ses deux colonnes lui coûtent alors autant,
@@ -161,7 +161,7 @@ de même, $q^\star$ rend les deux lignes équivalentes, $qa + (1 - q)b = qc + (1
 
 **Exemple : le volley.** $a = 40$, $b = 75$, $c = 60$, $d = 45$, donc $\kappa = a - b - c + d = -50$. L'attaque va à gauche avec la probabilité $p^\star = \frac{45 - 60}{-50} = 0{,}3$ ; alors chaque placement du contre lui laisse $0{,}3 \times 40 + 0{,}7 \times 60 = 0{,}3 \times 75 + 0{,}7 \times 45 = 54$ %. Le contre se place à gauche avec la probabilité $q^\star = \frac{45 - 75}{-50} = 0{,}6$ ; alors chaque côté d'attaque gagne $0{,}6 \times 40 + 0{,}4 \times 75 = 0{,}6 \times 60 + 0{,}4 \times 45 = 54$ %. Les deux garanties se rejoignent à 54 %, entre le maximin (45) et le minimax (60). L'attaquant de gauche, le meilleur quand il n'est pas contré (75 contre 60), reçoit pourtant le moins de ballons : le contre le surveille plus souvent.
 
-> **Théorème** (jeu $2 \times 2$ sans point selle). Si $\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$ n'a pas de point selle, alors $\kappa = a - b - c + d \ne 0$, $p^\star$ et $q^\star$ sont strictement entre 0 et 1, et
+> **Théorème** (jeu $2 \times 2$ sans point selle). Si $`\mathbf{G} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}`$ n'a pas de point selle, alors $\kappa = a - b - c + d \ne 0$, $p^\star$ et $q^\star$ sont strictement entre 0 et 1, et
 > $$E(p, q) = v + \kappa\thinspace(p - p^\star)(q - q^\star), \qquad v = \frac{ad - bc}{\kappa}.$$
 > Donc $p^\star$ garantit au joueur des lignes le gain espéré $v$ contre toute stratégie de l'autre, et $q^\star$ garantit au joueur des colonnes de ne pas payer plus de $v$ : ces stratégies sont **optimales**, et $v$ est la **valeur** du jeu.
 
@@ -249,13 +249,17 @@ Le cas le plus simple est le **jeu bilinéaire** (*bilinear game*) $f(\mathbf{x}
 *Démonstration.* $\lVert\mathbf{x} - \eta\mathbf{A}\mathbf{y}\rVert^2 = \lVert\mathbf{x}\rVert^2 - 2\eta\thinspace\mathbf{x}^\top\mathbf{A}\mathbf{y} + \eta^2\lVert\mathbf{A}\mathbf{y}\rVert^2$ et $\lVert\mathbf{y} + \eta\mathbf{A}^\top\mathbf{x}\rVert^2 = \lVert\mathbf{y}\rVert^2 + 2\eta\thinspace\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} + \eta^2\lVert\mathbf{A}^\top\mathbf{x}\rVert^2$ ; les termes croisés s'annulent, car $\mathbf{y}^\top\mathbf{A}^\top\mathbf{x} = \mathbf{x}^\top\mathbf{A}\mathbf{y}$. $\square$
 
 Sur $f(x, y) = xy$, un pas multiplie le vecteur $(x, y)$ par
-$$\mathbf{M} _s = \begin{pmatrix} 1 & -\eta \cr \eta & 1 \end{pmatrix} = \sqrt{1 + \eta^2}\mkern5mu \mathbf{R} _\theta, \qquad \theta = \arctan\eta ,$$
+```math
+\mathbf{M} _s = \begin{pmatrix} 1 & -\eta \cr \eta & 1 \end{pmatrix} = \sqrt{1 + \eta^2}\mkern5mu \mathbf{R} _\theta, \qquad \theta = \arctan\eta ,
+```
 où $\theta$ est l'angle de $]0, \frac\pi2[$ tel que $\cos\theta = \frac{1}{\sqrt{1 + \eta^2}}$ et $\sin\theta = \frac{\eta}{\sqrt{1 + \eta^2}}$. $\mathbf{M}_s$ est la multiplication par le complexe $1 + i\eta$ de M22 : une rotation et un agrandissement de rapport $\sqrt{1 + \eta^2}$. Ses valeurs propres $1 \pm i\eta$ ont pour module $\sqrt{1 + \eta^2} > 1$ : les itérés tournent autour de l'équilibre en s'en éloignant, une **spirale**. Pour $\eta = 0{,}2$, la distance à l'équilibre gagne un facteur $\sqrt{1{,}04} \approx 1{,}02$ par pas, et double en 35 pas environ ($1{,}04^{17{,}5} \approx 1{,}99$).
 
 ### Le pas alterné tourne en rond
 
 Avec le pas alterné sur $xy$ : $x_{k+1} = x_k - \eta y_k$, puis $y_{k+1} = y_k + \eta x_{k+1} = \eta x_k + (1 - \eta^2)\thinspace y_k$, soit
-$$\mathbf{M}_a = \begin{pmatrix} 1 & -\eta \cr \eta & 1 - \eta^2 \end{pmatrix}, \qquad \det\mathbf{M}_a = 1, \qquad \operatorname{tr}\mathbf{M}_a = 2 - \eta^2 .$$
+```math
+\mathbf{M}_a = \begin{pmatrix} 1 & -\eta \cr \eta & 1 - \eta^2 \end{pmatrix}, \qquad \det\mathbf{M}_a = 1, \qquad \operatorname{tr}\mathbf{M}_a = 2 - \eta^2 .
+```
 Pour $0 < \eta < 2$, le discriminant $(2 - \eta^2)^2 - 4 = \eta^2(\eta^2 - 4)$ est négatif : deux valeurs propres complexes conjuguées de produit 1, donc de module 1 (M22). Les itérés ne s'éloignent pas et ne se rapprochent pas : voici la courbe fermée qu'ils parcourent.
 
 > **Propriété.** Pour le pas alterné sur $\mathbf{x}^\top\mathbf{A}\thinspace\mathbf{y}$, la quantité
@@ -345,9 +349,13 @@ En 1781, Gaspard Monge cherche comment déplacer des **déblais** pour combler d
 Un couplage est aussi une loi jointe : $\gamma_{ij} = P(X = x_i, Y = y_j)$, avec $X$ de loi $\mu$ et $Y$ de loi $\nu$, et son coût vaut $\mathbb{E}[c(X, Y)]$. Le **couplage indépendant** (*independent coupling*), $\gamma_{ij} = a_i b_j$, soit $\boldsymbol{\Gamma} = \mathbf{a}\mathbf{b}^\top$, est toujours admissible.
 
 **Exemple.** Le couplage indépendant envoie chaque tas vers chaque trou en proportion :
-$$\boldsymbol{\Gamma}_{\text{ind}} = \begin{pmatrix} 0{,}3 & 0{,}2 \cr 0{,}18 & 0{,}12 \cr 0{,}12 & 0{,}08 \end{pmatrix}, \quad\text{de coût}\quad 0{,}3 \times 1 + 0{,}2 \times 4 + 0{,}18 \times 1 + 0{,}12 \times 2 + 0{,}12 \times 2 + 0{,}08 \times 1 = 1{,}84$$
+```math
+\boldsymbol{\Gamma}_{\text{ind}} = \begin{pmatrix} 0{,}3 & 0{,}2 \cr 0{,}18 & 0{,}12 \cr 0{,}12 & 0{,}08 \end{pmatrix}, \quad\text{de coût}\quad 0{,}3 \times 1 + 0{,}2 \times 4 + 0{,}18 \times 1 + 0{,}12 \times 2 + 0{,}12 \times 2 + 0{,}08 \times 1 = 1{,}84
+```
 avec $c(x, y) = \lvert x - y\rvert$. Mieux : combler le trou du km 1 avec le tas du km 0 et un peu de celui du km 2, et le trou du km 4 avec le reste,
-$$\boldsymbol{\Gamma}^\star = \begin{pmatrix} 0{,}5 & 0 \cr 0{,}1 & 0{,}2 \cr 0 & 0{,}2 \end{pmatrix}, \quad\text{de coût}\quad 0{,}5 \times 1 + 0{,}1 \times 1 + 0{,}2 \times 2 + 0{,}2 \times 1 = 1{,}2 .$$
+```math
+\boldsymbol{\Gamma}^\star = \begin{pmatrix} 0{,}5 & 0 \cr 0{,}1 & 0{,}2 \cr 0 & 0{,}2 \end{pmatrix}, \quad\text{de coût}\quad 0{,}5 \times 1 + 0{,}1 \times 1 + 0{,}2 \times 2 + 0{,}2 \times 1 = 1{,}2 .
+```
 Le §8 montrera qu'on ne fait pas mieux.
 
 ![À gauche, la route de 0 à 4 km : trois tas de terre (0,5 au km 0, 0,3 au km 2, 0,2 au km 3) au-dessus de l'axe, deux trous (0,6 au km 1, 0,4 au km 4) en dessous, et les flèches du plan optimal Γ*, d'épaisseur proportionnelle à la masse : 0,5 de 0 vers 1, 0,1 de 2 vers 1, 0,2 de 2 vers 4, 0,2 de 3 vers 4 ; aucune flèche ne croise une autre. À droite, les deux plans en matrices colorées, l'indépendant (coût 1,84) et Γ* (coût 1,2)](figures/plan_transport.png)
@@ -430,7 +438,7 @@ La distance $W_2$ entre deux gaussiennes s'appelle aussi leur **distance de Fré
 
 *Démonstration.* $\boldsymbol{\Sigma}_1^{1/2}$ est inversible (M12c) et $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \boldsymbol{\Sigma}_1^{1/2}\big(\boldsymbol{\Sigma}_1^{1/2}\boldsymbol{\Sigma}_2\boldsymbol{\Sigma}_1^{1/2}\big)\boldsymbol{\Sigma}_1^{-1/2} = \boldsymbol{\Sigma}_1^{1/2}\thinspace\mathbf{S}\thinspace\boldsymbol{\Sigma}_1^{-1/2}$ : les deux matrices sont semblables, donc ont les mêmes valeurs propres (M12c). $\mathbf{S}$ est symétrique et $\mathbf{x}^\top\mathbf{S}\mathbf{x} = (\boldsymbol{\Sigma}_1^{1/2}\mathbf{x})^\top\boldsymbol{\Sigma}_2(\boldsymbol{\Sigma}_1^{1/2}\mathbf{x}) \ge 0$ : ses valeurs propres sont positives, et $\mathbf{S}^{1/2}$ a pour valeurs propres leurs racines (M12c), dont la somme est sa trace. $\square$
 
-**Exemple.** $\boldsymbol{\Sigma}_1 = \operatorname{diag}(3, 2)$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 5 & 1 \cr 1 & 5 \end{pmatrix}$ ne commutent pas. $\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \begin{pmatrix} 15 & 3 \cr 2 & 10 \end{pmatrix}$, non symétrique, a pour trace 25 et pour déterminant 144 ; ses valeurs propres, $\frac{25 \pm 7}{2}$, soit 16 et 9, sont bien réelles et positives, et $\sum_i\sqrt{\lambda_i} = 4 + 3 = 7$. Avec des moyennes égales, $W_2^2 = 5 + 10 - 2 \times 7 = 1$.
+**Exemple.** $\boldsymbol{\Sigma}_1 = \operatorname{diag}(3, 2)$ et $`\boldsymbol{\Sigma}_2 = \begin{pmatrix} 5 & 1 \cr 1 & 5 \end{pmatrix}`$ ne commutent pas. $`\boldsymbol{\Sigma}_1\boldsymbol{\Sigma}_2 = \begin{pmatrix} 15 & 3 \cr 2 & 10 \end{pmatrix}`$, non symétrique, a pour trace 25 et pour déterminant 144 ; ses valeurs propres, $\frac{25 \pm 7}{2}$, soit 16 et 9, sont bien réelles et positives, et $\sum_i\sqrt{\lambda_i} = 4 + 3 = 7$. Avec des moyennes égales, $W_2^2 = 5 + 10 - 2 \times 7 = 1$.
 
 ### Le cas commutatif
 
@@ -442,7 +450,7 @@ Supposons $\boldsymbol{\Sigma}_1$ et $\boldsymbol{\Sigma}_2$ diagonales dans une
 
 > **Invariance par une rotation commune.** Pour une matrice orthogonale $\mathbf{R}$ et un vecteur $\mathbf{c}$, les lois de $\mathbf{R}X + \mathbf{c}$ et de $\mathbf{R}Y + \mathbf{c}$ sont à la même distance $W_2$ que celles de $X$ et de $Y$ : $\lVert(\mathbf{R}\mathbf{x} + \mathbf{c}) - (\mathbf{R}\mathbf{y} + \mathbf{c})\rVert = \lVert\mathbf{x} - \mathbf{y}\rVert$, et chaque couplage de l'un donne un couplage de l'autre, de même coût. Pour des gaussiennes, $\mathcal{N}(\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)$ devient $\mathcal{N}(\mathbf{R}\boldsymbol{\mu}_k + \mathbf{c}, \mathbf{R}\boldsymbol{\Sigma}_k\mathbf{R}^\top)$.
 
-**Exemple.** $\boldsymbol{\Sigma}_1 = \begin{pmatrix} 13 & 12 \cr 12 & 13 \end{pmatrix}$ et $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 12{,}5 & -3{,}5 \cr -3{,}5 & 12{,}5 \end{pmatrix}$ ont les mêmes vecteurs propres $\mathbf{u}_1 = \frac{1}{\sqrt2}(1, 1)$ et $\mathbf{u}_2 = \frac{1}{\sqrt2}(1, -1)$ : $\boldsymbol{\Sigma}_1\mathbf{u}_1 = 25\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_1\mathbf{u}_2 = \mathbf{u}_2$, $\boldsymbol{\Sigma}_2\mathbf{u}_1 = 9\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_2\mathbf{u}_2 = 16\thinspace\mathbf{u}_2$. Les écarts-types sont 5 et 1 d'un côté, 3 et 4 de l'autre : les covariances apportent $(5 - 3)^2 + (1 - 4)^2 = 13$. Avec les moyennes $(0, 0)$ et $(3, 3)$, décalées le long de $\mathbf{u}_1$, $W_2^2 = 18 + 13 = 31$ et $W_2 \approx 5{,}57$. Ce sont deux gaussiennes à covariances diagonales, $\operatorname{diag}(25, 1)$ et $\operatorname{diag}(9, 16)$, tournées ensemble de 45°.
+**Exemple.** $`\boldsymbol{\Sigma}_1 = \begin{pmatrix} 13 & 12 \cr 12 & 13 \end{pmatrix}`$ et $`\boldsymbol{\Sigma}_2 = \begin{pmatrix} 12{,}5 & -3{,}5 \cr -3{,}5 & 12{,}5 \end{pmatrix}`$ ont les mêmes vecteurs propres $\mathbf{u}_1 = \frac{1}{\sqrt2}(1, 1)$ et $\mathbf{u}_2 = \frac{1}{\sqrt2}(1, -1)$ : $\boldsymbol{\Sigma}_1\mathbf{u}_1 = 25\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_1\mathbf{u}_2 = \mathbf{u}_2$, $\boldsymbol{\Sigma}_2\mathbf{u}_1 = 9\thinspace\mathbf{u}_1$, $\boldsymbol{\Sigma}_2\mathbf{u}_2 = 16\thinspace\mathbf{u}_2$. Les écarts-types sont 5 et 1 d'un côté, 3 et 4 de l'autre : les covariances apportent $(5 - 3)^2 + (1 - 4)^2 = 13$. Avec les moyennes $(0, 0)$ et $(3, 3)$, décalées le long de $\mathbf{u}_1$, $W_2^2 = 18 + 13 = 31$ et $W_2 \approx 5{,}57$. Ce sont deux gaussiennes à covariances diagonales, $\operatorname{diag}(25, 1)$ et $\operatorname{diag}(9, 16)$, tournées ensemble de 45°.
 
 ![Deux paires d'ellipses à 2 écarts-types. À gauche, l'exemple non commutatif : diag(3, 2), alignée sur les axes, et la matrice [[5, 1], [1, 5]], aux axes inclinés à 45° ; W₂² = 1 à moyennes égales. À droite, l'exemple commutatif : les deux ellipses ont les mêmes axes, inclinés à 45° (écarts-types 5 et 1, puis 3 et 4), et des centres (0, 0) et (3, 3) ; W₂² = 18 + 13 = 31](figures/frechet_ellipses.png)
 

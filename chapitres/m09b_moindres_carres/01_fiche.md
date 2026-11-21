@@ -87,7 +87,7 @@ Avec l'exemple du chapitre et la droite $\hat{y} = 3 + 0{,}7x$ (on verra au §3 
 | $\hat{y} = 3 + 0{,}7x$ | 0,2 | 2,3 | 4,4 | 5,1 |
 | $r = y - \hat{y}$ | $-0{,}2$ | $0{,}7$ | $-1{,}4$ | $0{,}9$ |
 
-Ici $\mathbf{X} = \begin{pmatrix} 1 & -4 \cr 1 & -1 \cr 1 & 2 \cr 1 & 3 \end{pmatrix}$ (la colonne de 1, puis $x$) et $\mathbf{w} = (3 ;\ 0{,}7)$.
+Ici $`\mathbf{X} = \begin{pmatrix} 1 & -4 \cr 1 & -1 \cr 1 & 2 \cr 1 & 3 \end{pmatrix}`$ (la colonne de 1, puis $x$) et $\mathbf{w} = (3 ;\ 0{,}7)$.
 
 ### Le risque empirique
 
@@ -107,7 +107,9 @@ Sur l'exemple : $\sum r_i^2 = 0{,}04 + 0{,}49 + 1{,}96 + 0{,}81 = 3{,}3$, donc $
 
 La MSE élève chaque résidu au carré : un résidu dix fois plus grand pèse **cent** fois plus. Un seul point aberrant peut donc tirer toute la droite vers lui. La MAE le pèse seulement dix fois plus, mais $|r|$ n'est pas dérivable en 0. La **loss de Huber** combine les deux, avec un seuil $\delta > 0$ :
 
-$$\ell_\delta(r) = \begin{cases} \frac{1}{2}r^2 & \text{si } |r| \le \delta, \cr \delta\big(|r| - \frac{1}{2}\delta\big) & \text{si } |r| > \delta. \end{cases}$$
+```math
+\ell_\delta(r) = \begin{cases} \frac{1}{2}r^2 & \text{si } |r| \le \delta, \cr \delta\big(|r| - \frac{1}{2}\delta\big) & \text{si } |r| > \delta. \end{cases}
+```
 
 Les deux morceaux se raccordent en $|r| = \delta$ (même valeur $\frac{\delta^2}{2}$, même pente $\delta$) : la loss est dérivable partout. Près de 0, elle se comporte comme la moitié d'un carré ; loin de 0, comme $\delta$ fois une valeur absolue, à une constante près. Avec $\delta = 1$, sur l'exemple : $-0{,}2$ donne $\frac{0{,}04}{2} = 0{,}02$ ; $0{,}7$ donne $0{,}245$ ; $|-1{,}4| > 1$ donne $1 \times (1{,}4 - 0{,}5) = 0{,}9$ ; $0{,}9$ donne $0{,}405$ : moyenne $\frac{1{,}57}{4} = 0{,}3925$.
 
@@ -141,7 +143,7 @@ C'est l'analogue de $(ax)' = a$.
 
 $$\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w}) = (\mathbf{A} + \mathbf{A}^\top)\thinspace\mathbf{w}, \qquad \text{soit } 2\mathbf{A}\mathbf{w} \text{ si } \mathbf{A} \text{ est symétrique.}$$
 
-C'est l'analogue de $(ax^2)' = 2ax$ (M09b.13 le démontre). Exemple : $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 0 & 3 \end{pmatrix}$, $f(\mathbf{w}) = 2w_1^2 + w_1w_2 + 3w_2^2$. En $\mathbf{w} = (1, 2)$, les dérivées partielles valent $4w_1 + w_2 = 6$ et $w_1 + 6w_2 = 13$, et la formule donne bien $(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 4 & 1 \cr 1 & 6 \end{pmatrix}\begin{pmatrix} 1 \cr 2 \end{pmatrix} = \begin{pmatrix} 6 \cr 13 \end{pmatrix}$. Seule la partie symétrique de $\mathbf{A}$ compte : $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ne change pas si l'on remplace $\mathbf{A}$ par $\frac{1}{2}(\mathbf{A} + \mathbf{A}^\top)$.
+C'est l'analogue de $(ax^2)' = 2ax$ (M09b.13 le démontre). Exemple : $`\mathbf{A} = \begin{pmatrix} 2 & 1 \cr 0 & 3 \end{pmatrix}`$, $f(\mathbf{w}) = 2w_1^2 + w_1w_2 + 3w_2^2$. En $\mathbf{w} = (1, 2)$, les dérivées partielles valent $4w_1 + w_2 = 6$ et $w_1 + 6w_2 = 13$, et la formule donne bien $`(\mathbf{A} + \mathbf{A}^\top)\mathbf{w} = \begin{pmatrix} 4 & 1 \cr 1 & 6 \end{pmatrix}\begin{pmatrix} 1 \cr 2 \end{pmatrix} = \begin{pmatrix} 6 \cr 13 \end{pmatrix}`$. Seule la partie symétrique de $\mathbf{A}$ compte : $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ne change pas si l'on remplace $\mathbf{A}$ par $\frac{1}{2}(\mathbf{A} + \mathbf{A}^\top)$.
 
 **3. La somme des carrés des résidus.** En développant avec les règles de la transposée (M09a §4),
 
@@ -163,7 +165,7 @@ La fonction $L(\mathbf{w}) = \lVert \mathbf{y} - \mathbf{X}\mathbf{w} \rVert^2$ 
 
 $$-2\thinspace\mathbf{X}^\top(\mathbf{y} - \mathbf{X}\mathbf{w}) = \mathbf{0} \iff \boxed{\mathbf{X}^\top\mathbf{X}\thinspace\mathbf{w} = \mathbf{X}^\top\mathbf{y}}$$
 
-Ce sont les **équations normales** (*normal equations*) : un système carré $p \times p$, quel que soit le nombre d'exemples. Sur l'exemple : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 30 \end{pmatrix}$ (le nombre de points, $\sum x_i$ et $\sum x_i^2$) et $\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}$ ($\sum y_i$ et $\sum x_iy_i$), d'où $\mathbf{w} = (3 ;\ 0{,}7)$ : la droite du §1. Ici $\mathbf{X}^\top\mathbf{X}$ est diagonale parce que les $x$ sont de somme nulle ; c'est l'intérêt de **centrer** une feature.
+Ce sont les **équations normales** (*normal equations*) : un système carré $p \times p$, quel que soit le nombre d'exemples. Sur l'exemple : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 4 & 0 \cr 0 & 30 \end{pmatrix}`$ (le nombre de points, $\sum x_i$ et $\sum x_i^2$) et $\mathbf{X}^\top\mathbf{y} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}$ ($\sum y_i$ et $\sum x_iy_i$), d'où $\mathbf{w} = (3 ;\ 0{,}7)$ : la droite du §1. Ici $\mathbf{X}^\top\mathbf{X}$ est diagonale parce que les $x$ sont de somme nulle ; c'est l'intérêt de **centrer** une feature.
 
 **Quand la solution est-elle unique ?** Quand $\mathbf{X}^\top\mathbf{X}$ est inversible, c'est-à-dire quand les colonnes de $\mathbf{X}$ sont indépendantes ($\mathbf{X}$ de rang $p$, M09a §8 et M09b.14). Si une colonne combine les autres (une feature en double, une colonne de 1 avec un one-hot complet, plus de features que d'exemples), il y a une infinité de solutions, qui donnent toutes les mêmes prédictions $\hat{\mathbf{y}}$. Mais il y en a **toujours au moins une** : le point des prédictions possibles le plus proche de $\mathbf{y}$ existe toujours (c'est le pied d'une perpendiculaire, voir plus bas ; M12b le démontre), et il annule le gradient. Seule l'unicité peut manquer.
 
@@ -197,7 +199,7 @@ la **matrice chapeau** (*hat matrix* : elle « met un chapeau » sur $\mathbf{y}
 - sa **trace** (la somme de sa diagonale) vaut $p$, le nombre de colonnes : c'est le nombre de « degrés de liberté » du modèle ;
 - $\mathbf{I} - \mathbf{H}$ donne les résidus : $\mathbf{r} = (\mathbf{I} - \mathbf{H})\mathbf{y}$.
 
-Exemple avec une seule colonne $\mathbf{v} = (1, -1, 2)$ : $\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{6}\begin{pmatrix} 1 & -1 & 2 \cr -1 & 1 & -2 \cr 2 & -2 & 4 \end{pmatrix}$, de trace $\frac{1 + 1 + 4}{6} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
+Exemple avec une seule colonne $\mathbf{v} = (1, -1, 2)$ : $`\mathbf{H} = \frac{\mathbf{v}\mathbf{v}^\top}{\mathbf{v}^\top\mathbf{v}} = \frac{1}{6}\begin{pmatrix} 1 & -1 & 2 \cr -1 & 1 & -2 \cr 2 & -2 & 4 \end{pmatrix}`$, de trace $\frac{1 + 1 + 4}{6} = 1$. Le nombre $h_{ii}$ de la diagonale, le **levier** (*leverage*) de l'exemple $i$, dit combien $y_i$ pèse sur sa propre prédiction : un point isolé, loin des autres en $x$, a un grand levier.
 
 ## §4 · Features polynomiales : compter les monômes
 
@@ -237,7 +239,7 @@ $$\boxed{(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\thinspace\mathbf{w} = \
 
 On ajoute $\lambda$ sur la diagonale de $\mathbf{X}^\top\mathbf{X}$. Pour $\lambda > 0$, cette matrice est **inversible quel que soit $\mathbf{X}$**, de rang plein ou non : pour $\mathbf{v} \ne \mathbf{0}$, $\mathbf{v}^\top(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} = \lVert \mathbf{X}\mathbf{v} \rVert^2 + \lambda\lVert \mathbf{v} \rVert^2 > 0$, donc $(\mathbf{X}^\top\mathbf{X} + \lambda\mathbf{I})\mathbf{v} \ne \mathbf{0}$ (M09b.16 rédige l'argument). Quand $\lambda$ grandit, les poids **rétrécissent** vers 0 (*shrinkage*) ; quand $\lambda \to 0$, on retrouve les moindres carrés.
 
-Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $\begin{pmatrix} 8 & 0 \cr 0 & 34 \end{pmatrix}\mathbf{w} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}$, d'où $\mathbf{w} \approx (1{,}5 ;\ 0{,}618)$. La pente est passée de 0,7 à 0,618 ; mais l'ordonnée à l'origine a rétréci elle aussi, de 3 à 1,5, et la droite ne passe plus par le point moyen $(0, 3)$ : ses prédictions sont toutes trop basses. Le poids de la colonne de 1 ne mesure pas la complexité du modèle ; le pénaliser n'a pas de sens. La parade : **centrer** $\mathbf{X}$ (sans sa colonne de 1) et $\mathbf{y}$, résoudre ridge sur les données centrées, puis rendre l'ordonnée à l'origine (workbookIA 9 donne la recette complète). `solve_least_squares` de `mymath`, lui, pénalise **tous** les poids : c'est à toi de centrer avant.
+Sur l'exemple, en pénalisant les deux poids avec $\lambda = 4$ : $`\begin{pmatrix} 8 & 0 \cr 0 & 34 \end{pmatrix}\mathbf{w} = \begin{pmatrix} 12 \cr 21 \end{pmatrix}`$, d'où $\mathbf{w} \approx (1{,}5 ;\ 0{,}618)$. La pente est passée de 0,7 à 0,618 ; mais l'ordonnée à l'origine a rétréci elle aussi, de 3 à 1,5, et la droite ne passe plus par le point moyen $(0, 3)$ : ses prédictions sont toutes trop basses. Le poids de la colonne de 1 ne mesure pas la complexité du modèle ; le pénaliser n'a pas de sens. La parade : **centrer** $\mathbf{X}$ (sans sa colonne de 1) et $\mathbf{y}$, résoudre ridge sur les données centrées, puis rendre l'ordonnée à l'origine (workbookIA 9 donne la recette complète). `solve_least_squares` de `mymath`, lui, pénalise **tous** les poids : c'est à toi de centrer avant.
 
 ⚠️ **Erreur classique.** Appliquer ridge à des colonnes d'unités différentes. La pénalité $\lambda\sum_j w_j^2$ dépend de l'unité de chaque feature : exprimer une distance en kilomètres plutôt qu'en mètres divise ses valeurs par 1 000, multiplie son poids par 1 000, et sa pénalité par un million. Ridge rétrécit alors cette feature bien plus que les autres, pour une simple question d'unité. On standardise les colonnes d'abord (M09b.21 le montre sur un prix, en euros ou en dizaines d'euros).
 

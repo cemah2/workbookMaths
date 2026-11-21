@@ -124,7 +124,7 @@ La covariance est bilinéaire et symétrique.
 
 <details><summary>Indice 1</summary>
 
-Relis M05a (le développement de $\ln(1 + u)$).
+Relis M05a (le développement de $\ln(1 + u){}$).
 
 </details>
 <details><summary>Indice 2</summary>

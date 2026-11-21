@@ -122,7 +122,7 @@ $\mathbf{f}(x, y) = (x - y,\ xy)$ et $g(u, v) = uv + v^2$ ; $h = g \circ \mathbf
 ### M18.R2 — Le gradient de wᵀAw (M09b) 🔁 ★ ⏱️ 5 min
 *Fiche §7 · parcours C, E*
 
-$\mathbf{A} = \begin{pmatrix} 1 & 3 \cr -1 & 2 \end{pmatrix}$ et $\mathbf{w} = (2, 1)$.
+$`\mathbf{A} = \begin{pmatrix} 1 & 3 \cr -1 & 2 \end{pmatrix}`$ et $\mathbf{w} = (2, 1)$.
 
 1. $\mathbf{w}^\top\mathbf{A}\mathbf{w}$ ?
 2. $\nabla_{\mathbf{w}}(\mathbf{w}^\top\mathbf{A}\mathbf{w})$ en $\mathbf{w}$ ?
@@ -244,7 +244,7 @@ Dans ta copie : écris les dérivées locales des dix arêtes. Pour g), combien 
 **Objectif :** calculer le gradient d'une forme bilinéaire par rapport à une matrice, coordonnée par coordonnée, et le ranger comme la matrice.
 **Prérequis :** fiche §6 · **Parcours :** C, E
 
-$\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 2 & -1 \cr 0 & 4 \end{pmatrix}$, et $f(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}\mathbf{b} = \sum_{ij}a_iX_{ij}b_j$.
+$\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $`\mathbf{X} = \begin{pmatrix} 1 & 0 \cr 2 & -1 \cr 0 & 4 \end{pmatrix}`$, et $f(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}\mathbf{b} = \sum_{ij}a_iX_{ij}b_j$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -252,7 +252,7 @@ $\mathbf{a} = (1, -2, 3)$, $\mathbf{b} = (2 ;\ 0{,}5)$, $\mathbf{X} = \begin{pma
 | b | $\frac{\partial f}{\partial X_{21}}$ | un nombre |
 | c | $\nabla_{\mathbf{X}}f$ | une matrice |
 | d | sa forme | une liste de 2 entiers |
-| e | le changement prévu par le gradient pour le déplacement $\mathbf{H} = \begin{pmatrix} 0 & 0 \cr 0 & 0{,}1 \cr -0{,}2 & 0 \end{pmatrix}$ | un nombre |
+| e | le changement prévu par le gradient pour le déplacement $`\mathbf{H} = \begin{pmatrix} 0 & 0 \cr 0 & 0{,}1 \cr -0{,}2 & 0 \end{pmatrix}`$ | un nombre |
 | f | $f(\mathbf{X} + \mathbf{H})$ | un nombre |
 
 Dans ta copie : écris $\frac{\partial f}{\partial X_{ij}}$ en général et reconnais $\mathbf{a}\mathbf{b}^\top$. Pourquoi le gradient ne dépend-il pas de $\mathbf{X}$ ? Pourquoi la prévision e) est-elle exacte ici ?
@@ -261,7 +261,7 @@ Dans ta copie : écris $\frac{\partial f}{\partial X_{ij}}$ en général et reco
 **Objectif :** établir les gradients de deux traces en écrivant les sommes, puis les vérifier par les identités de la fiche.
 **Prérequis :** fiche §7 ; M12c · **Parcours :** C, E
 
-$\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -1 & 3 \end{pmatrix}$, $\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}$.
+$`\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -1 & 3 \end{pmatrix}`$, $`\mathbf{X} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}`$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -270,7 +270,7 @@ $\mathbf{A} = \begin{pmatrix} 2 & 1 \cr -1 & 3 \end{pmatrix}$, $\mathbf{X} = \be
 | c | $\frac{\partial}{\partial X_{12}}\operatorname{tr}(\mathbf{A}\mathbf{X})$ | un nombre |
 | d | $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | un nombre |
 | e | $\nabla_{\mathbf{X}}\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X})$ | une matrice |
-| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}$ | un nombre |
+| f | la dérivée en 0 de $s \mapsto \operatorname{tr}\big((\mathbf{X} + s\mathbf{H})^\top\mathbf{A}(\mathbf{X} + s\mathbf{H})\big)$ pour $`\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & 0 \end{pmatrix}`$ | un nombre |
 
 Dans ta copie : écris $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{ji}X_{ij}$ et déduis-en b) ; écris $\operatorname{tr}(\mathbf{X}^\top\mathbf{A}\mathbf{X}) = \sum_k\sum_{i,j}X_{ik}A_{ij}X_{jk}$ et dérive par rapport à $X_{pq}$. Pourquoi $2\mathbf{A}\mathbf{X}$ serait-il faux ici ? Que devient e) quand $\mathbf{X}$ n'a qu'une colonne (M09b) ?
 
@@ -278,7 +278,7 @@ Dans ta copie : écris $\operatorname{tr}(\mathbf{A}\mathbf{X}) = \sum_{i,j}A_{j
 **Objectif :** dériver le déterminant et son logarithme coordonnée par coordonnée, puis retrouver la formule $\mathbf{X}^{-\top}$.
 **Prérequis :** fiche §6 et §7 ; M09a · **Parcours :** C
 
-$\mathbf{X} = \begin{pmatrix} 4 & 1 \cr 2 & 3 \end{pmatrix}$, et $\ln$ est le logarithme népérien (le « log det » de MML et de NumPy).
+$`\mathbf{X} = \begin{pmatrix} 4 & 1 \cr 2 & 3 \end{pmatrix}`$, et $\ln$ est le logarithme népérien (le « log det » de MML et de NumPy).
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -286,7 +286,7 @@ $\mathbf{X} = \begin{pmatrix} 4 & 1 \cr 2 & 3 \end{pmatrix}$, et $\ln$ est le lo
 | b | $\nabla_{\mathbf{X}}\det\mathbf{X}$, coordonnée par coordonnée | une matrice |
 | c | $\nabla_{\mathbf{X}}\ln\det\mathbf{X}$ | une matrice |
 | d | $\mathbf{X}^{-1}$ | une matrice |
-| e | la dérivée en 0 de $s \mapsto \ln\det(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}$ | un nombre |
+| e | la dérivée en 0 de $s \mapsto \ln\det(\mathbf{X} + s\mathbf{H})$ pour $`\mathbf{H} = \begin{pmatrix} 1 & 2 \cr 0 & -1 \end{pmatrix}`$ | un nombre |
 | f | $\ln\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H}) - \ln\det\mathbf{X}$, calculé comme $\ln\frac{\det(\mathbf{X} + 0{,}01\thinspace\mathbf{H})}{\det\mathbf{X}}$ (sinon, la différence de deux logarithmes voisins perd des chiffres) | un nombre (5 décimales) |
 
 Dans ta copie : comparer c) et d) : lequel est la transposée de l'autre, et pourquoi ce n'est pas un hasard ? Reconnais la comatrice dans b). Pourquoi f) est-il proche de $0{,}01 \times$ e) ?
@@ -312,7 +312,7 @@ Dans ta copie : trouve le point d'intersection des diagonales. Pourquoi les grad
 **Objectif :** calculer des différentielles avec la règle du produit, et y lire des gradients qui demandent une transposée.
 **Prérequis :** fiche §6 et §7 · **Parcours :** C
 
-$\mathbf{X} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}$, $\mathbf{a} = (1, 0)$, $\mathbf{b} = (0, 1)$. On étudie $f(\mathbf{X}) = \operatorname{tr}(\mathbf{X}^2)$ et $g(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}^2\mathbf{b}$.
+$`\mathbf{X} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}`$, $\mathbf{a} = (1, 0)$, $\mathbf{b} = (0, 1)$. On étudie $f(\mathbf{X}) = \operatorname{tr}(\mathbf{X}^2)$ et $g(\mathbf{X}) = \mathbf{a}^\top\mathbf{X}^2\mathbf{b}$.
 
 | | Question | Réponse attendue |
 |---|---|---|
@@ -321,7 +321,7 @@ $\mathbf{X} = \begin{pmatrix} 1 & 2 \cr -1 & 3 \end{pmatrix}$, $\mathbf{a} = (1,
 | c | $\frac{\partial f}{\partial X_{12}}$ | un nombre |
 | d | $g(\mathbf{X})$ | un nombre |
 | e | $\nabla_{\mathbf{X}}g$ | une matrice |
-| f | la dérivée en 0 de $s \mapsto f(\mathbf{X} + s\mathbf{H})$ pour $\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & -1 \end{pmatrix}$ | un nombre |
+| f | la dérivée en 0 de $s \mapsto f(\mathbf{X} + s\mathbf{H})$ pour $`\mathbf{H} = \begin{pmatrix} 1 & 1 \cr 0 & -1 \end{pmatrix}`$ | un nombre |
 
 Dans ta copie : montre que $\mathrm{d}f = 2\operatorname{tr}(\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ (règle du produit, puis cyclicité de la trace) et lis $\nabla f = 2\mathbf{X}^\top$. Vérifie c) en écrivant $\operatorname{tr}(\mathbf{X}^2) = \sum_{i,j}X_{ij}X_{ji}$. Montre que $\mathrm{d}g = \operatorname{tr}(\mathbf{X}\mathbf{b}\mathbf{a}^\top\mathrm{d}\mathbf{X}) + \operatorname{tr}(\mathbf{b}\mathbf{a}^\top\mathbf{X}\thinspace\mathrm{d}\mathbf{X})$ et déduis-en $\nabla g = \mathbf{a}\mathbf{b}^\top\mathbf{X}^\top + \mathbf{X}^\top\mathbf{a}\mathbf{b}^\top$. Vérifie e) sur $g(\mathbf{X}) = (\mathbf{X}^2)  _{12} = X  _{11}X _{12} + X  _{12}X _{22}$.
 
@@ -379,7 +379,7 @@ $\mathbf{X}$ est une matrice carrée $n \times n$ ; $C_{ij}$ est son cofacteur $
 2. Déduis-en $\frac{\partial\det\mathbf{X}}{\partial X_{ij}} = C_{ij}$, c'est-à-dire $\nabla_{\mathbf{X}}\det\mathbf{X} = \operatorname{com}(\mathbf{X})$.
 3. Pour $\det\mathbf{X} \ne 0$, montre que $\operatorname{com}(\mathbf{X}) = \det\mathbf{X}\mkern5mu \mathbf{X}^{-\top}$.
 4. Déduis-en $\nabla_{\mathbf{X}}\ln\det\mathbf{X} = \mathbf{X}^{-\top}$ pour $\det\mathbf{X} > 0$. Que dire de $\ln\lvert\det\mathbf{X}\rvert$ quand $\det\mathbf{X} < 0$ ?
-5. Vérifie 2. et 4. sur $\mathbf{X} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}$.
+5. Vérifie 2. et 4. sur $`\mathbf{X} = \begin{pmatrix} a & b \cr c & d \end{pmatrix}`$.
 6. Pour $\det\mathbf{X} \ne 0$, déduis-en la différentielle $\mathrm{d}(\det\mathbf{X}) = \det\mathbf{X}\thinspace\operatorname{tr}(\mathbf{X}^{-1}\mathrm{d}\mathbf{X})$.
 
 <a id="reflexion"></a>
@@ -407,7 +407,7 @@ Dans ta copie : quel mode choisirais-tu pour cette simulation, et pourquoi ? Le 
 **Objectif :** passer d'une convention de gradient à l'autre, pour un vecteur puis pour une matrice.
 **Prérequis :** fiche §6 ; M17 §4 · **Parcours :** C
 
-$f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}$ avec $\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}$, $\mathbf{b} = (1, -1)$, au point $\mathbf{x} = (1, 2)$.
+$f(\mathbf{x}) = \mathbf{x}^\top\mathbf{A}\mathbf{x} + \mathbf{b}^\top\mathbf{x}$ avec $`\mathbf{A} = \begin{pmatrix} 1 & 2 \cr 0 & 3 \end{pmatrix}`$, $\mathbf{b} = (1, -1)$, au point $\mathbf{x} = (1, 2)$.
 
 | | Question | Réponse attendue |
 |---|---|---|

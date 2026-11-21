@@ -165,7 +165,7 @@ Relis M09a §6 et §7.
 </details>
 <details><summary>Indice 2</summary>
 
-Pour 2 : $\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}$.
+Pour 2 : $`\begin{pmatrix} a & b \cr c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \cr -c & a \end{pmatrix}`$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -295,7 +295,7 @@ Relis le §3 de la fiche, conséquence 1.
 </details>
 <details><summary>Indice 2</summary>
 
-$\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x \cr \sum x & \sum x^2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (\sum y, \sum xy)$.
+$`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} n & \sum x \cr \sum x & \sum x^2 \end{pmatrix}`$ et $\mathbf{X}^\top\mathbf{y} = (\sum y, \sum xy)$.
 
 </details>
 <details><summary>Indice 3</summary>
@@ -596,7 +596,7 @@ Chaque question est un système $2 \times 2$ : forme $\mathbf{X}^\top\mathbf{X}$
 </details>
 <details><summary>Indice 3</summary>
 
-c) et d) En euros, la colonne du prix vaut $10\thinspace x_1$ : $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \cr 20 & 2 \end{pmatrix}$ et $\mathbf{X}^\top\mathbf{y} = (40, 3)$. e) Le premier exemple a $x_1 = -10$ en euros.
+c) et d) En euros, la colonne du prix vaut $10\thinspace x_1$ : $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 400 & 20 \cr 20 & 2 \end{pmatrix}`$ et $\mathbf{X}^\top\mathbf{y} = (40, 3)$. e) Le premier exemple a $x_1 = -10$ en euros.
 
 </details>
 

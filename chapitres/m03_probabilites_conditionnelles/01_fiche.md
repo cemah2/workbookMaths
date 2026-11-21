@@ -151,7 +151,9 @@ Ici, $P(\text{premium}) = 0{,}16$ mais $P(\text{premium} \mid \text{mobile}) = 0
 
 Deux **variables** $X$ et $Y$ sont indépendantes si les événements $\lbrace X = x\rbrace$ et $\lbrace Y = y\rbrace$ le sont pour **toutes** les valeurs (M02b §5) : chaque case de la loi jointe est le produit de ses deux marginales, et toutes les lignes ont la même loi conditionnelle. Avec les marges de l'exemple, le tableau des 500 utilisateurs **si** l'appareil et l'abonnement étaient indépendants serait
 
-$$\text{case} = \frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}} : \qquad \begin{array}{c|ccc} & \text{gratuit} & \text{standard} & \text{premium} \cr \hline \text{mobile} & 150 & 102 & 48 \cr \text{ordinateur} & 100 & 68 & 32 \end{array}$$
+```math
+\text{case} = \frac{\text{total de la ligne} \times \text{total de la colonne}}{\text{total}} : \qquad \begin{array}{c|ccc} & \text{gratuit} & \text{standard} & \text{premium} \cr \hline \text{mobile} & 150 & 102 & 48 \cr \text{ordinateur} & 100 & 68 & 32 \end{array}
+```
 
 On observe 30 premium sur mobile au lieu des 48 attendus : l'écart mesure la dépendance. (Le test du $\chi^2$, que M08 évoquera, décide si un tel écart peut venir du hasard de l'échantillon.)
 
@@ -199,7 +201,7 @@ L'équipe A fait mieux sur les tickets faciles **et** sur les tickets difficiles
 
 Laquelle des deux comparaisons est la bonne ? Ici, la difficulté du ticket influence à la fois l'équipe qui le reçoit et la chance de le résoudre : c'est une **variable de confusion** (M02c §8), et il faut comparer à difficulté égale, groupe par groupe. Le chiffre global répond à une autre question : « quelle part des tickets reçus a été résolue ? ».
 
-⚠️ **Erreur classique.** Additionner des pourcentages, ou en faire la moyenne simple : 90 % et 30 % ne font pas « 60 % en moyenne » par principe, mais seulement parce que l'équipe A a 100 tickets de chaque sorte. Un taux global se calcule avec les effectifs (ou les poids $P(B_k)$).
+⚠️ **Erreur classique.** Additionner des pourcentages, ou en faire la moyenne simple : 90 % et 30 % ne font pas « 60 % en moyenne » par principe, mais seulement parce que l'équipe A a 100 tickets de chaque sorte. Un taux global se calcule avec les effectifs (ou les poids $P(B_k){}$).
 
 🔗 **Dans workbookIA** — la precision d'un test selon la prévalence (chapitre 3, et §6 ci-dessous) se calcule par les probabilités totales ; le chapitre 4 s'en sert au dénominateur de la règle de Bayes ; le chapitre 8 compare des modèles sur des sous-groupes de données.
 
@@ -425,7 +427,7 @@ Le **score de Brier** (*Brier score*) mesure l'erreur quadratique moyenne des pr
 
 $$\text{Brier} = \frac{1}{n}\sum_{i=1}^{n} (p_i - y_i)^2.$$
 
-Exemple : un modèle de **désabonnement** (*churn*) annonce pour cinq clients les probabilités 0,8 ; 0,6 ; 0,3 ; 0,2 ; 0,1 qu'ils partent, et ce sont le premier et le troisième qui partent. Le score vaut $\frac{0{,}2^2 + 0{,}6^2 + 0{,}7^2 + 0{,}2^2 + 0{,}1^2}{5} = \frac{0{,}94}{5} = 0{,}188$. Un modèle qui annoncerait toujours 0,4, la proportion de départs, aurait $0{,}4 \times 0{,}6 = 0{,}24$ (pour une prévision constante égale à la prévalence $\pi$, le score vaut $\pi(1 - \pi)$). Le score de Brier vaut 0 pour des prévisions parfaites et sûres, et pénalise à la fois le mauvais classement et la mauvaise calibration.
+Exemple : un modèle de **désabonnement** (*churn*) annonce pour cinq clients les probabilités 0,8 ; 0,6 ; 0,3 ; 0,2 ; 0,1 qu'ils partent, et ce sont le premier et le troisième qui partent. Le score vaut $\frac{0{,}2^2 + 0{,}6^2 + 0{,}7^2 + 0{,}2^2 + 0{,}1^2}{5} = \frac{0{,}94}{5} = 0{,}188$. Un modèle qui annoncerait toujours 0,4, la proportion de départs, aurait $0{,}4 \times 0{,}6 = 0{,}24$ (pour une prévision constante égale à la prévalence $\pi$, le score vaut $\pi(1 - \pi){}$). Le score de Brier vaut 0 pour des prévisions parfaites et sûres, et pénalise à la fois le mauvais classement et la mauvaise calibration.
 
 Calibration et classement sont deux qualités différentes : la prévision constante 0,4 est parfaitement calibrée (40 % des clients partent) mais ne classe rien (AUC 0,5) ; deux modèles qui rangent les clients dans le même ordre ont la même AUC, et peuvent avoir des Brier différents.
 

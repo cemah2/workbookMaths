@@ -269,7 +269,9 @@ Soit $q$ un réel différent de 1. Pour tout entier $n \ge 1$, on note $P(n)$ : 
 **Prérequis :** fiche §2 et §4 · **Parcours :** C
 
 On raconte que le jeune Gauss, à qui l'on avait demandé d'additionner les entiers de 1 à 100, a écrit la somme deux fois, une fois à l'endroit et une fois à l'envers :
-$$\begin{array}{rcccccccc} S & = & 1 & + & 2 & + & \dots & + & 100 \cr S & = & 100 & + & 99 & + & \dots & + & 1 \end{array}$$
+```math
+\begin{array}{rcccccccc} S & = & 1 & + & 2 & + & \dots & + & 100 \cr S & = & 100 & + & 99 & + & \dots & + & 1 \end{array}
+```
 1. Additionne les deux lignes **colonne par colonne** : que vaut chaque colonne, et combien y a-t-il de colonnes ? Déduis-en $2S$, puis $S$.
 2. Soit $(u_n)$ une suite arithmétique de raison $r$, et $S = u_0 + u_1 + \dots + u_{n-1}$. Montre que, pour tout $k$ de 0 à $n - 1$, $u_k + u_{n-1-k} = u_0 + u_{n-1}$ (écris les deux termes avec $u_0$ et $r$).
 3. En écrivant $S$ à l'endroit et à l'envers, déduis-en $S = n \times \frac{u_0 + u_{n-1}}{2}$.

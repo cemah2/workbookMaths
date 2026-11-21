@@ -11,7 +11,7 @@
 ### M12b.Q1 — Produit scalaire ou pas ? Symétrie et positivité
 1. **Oui** : la matrice est $\operatorname{diag}(2, 5)$, et $2x_1^2 + 5x_2^2 > 0$ pour $\mathbf{x} \ne \mathbf{0}$.
 2. **Non** : bilinéaire et symétrique, mais pas défini positif : $\langle (1, -1), (1, -1) \rangle = -2$.
-3. **Oui** : la matrice $\begin{pmatrix} 1 & 1 \cr 1 & 3 \end{pmatrix}$ a $a = 1 > 0$ et $ac - b^2 = 2 > 0$ ; $\langle \mathbf{x}, \mathbf{x} \rangle = (x_1 + x_2)^2 + 2x_2^2$.
+3. **Oui** : la matrice $`\begin{pmatrix} 1 & 1 \cr 1 & 3 \end{pmatrix}`$ a $a = 1 > 0$ et $ac - b^2 = 2 > 0$ ; $\langle \mathbf{x}, \mathbf{x} \rangle = (x_1 + x_2)^2 + 2x_2^2$.
 4. **Non** : pas symétrique : $\langle \mathbf{e}_1, \mathbf{e}_2 \rangle = 2$ mais $\langle \mathbf{e}_2, \mathbf{e}_1 \rangle = 0$.
 5. **Non** : bilinéaire et symétrique, mais $\langle (1, -1), (1, -1) \rangle = 0$ pour un vecteur non nul.
 6. **Non** : pas bilinéaire : $\langle -\mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle$, au lieu de $-\langle \mathbf{x}, \mathbf{y} \rangle$ (avec $\mathbf{x} = \mathbf{y} = \mathbf{e}_1$ : $1$ au lieu de $-1$).
@@ -85,7 +85,7 @@
 6. $(6, 6, 12)$ : la projection est linéaire.
 
 ### M12b.R2 — Les équations normales et la matrice chapeau (M09b)
-1. $\begin{pmatrix} 3 & 0 \cr 0 & 8 \end{pmatrix}$ : les abscisses sont centrées, la matrice est diagonale.
+1. $`\begin{pmatrix} 3 & 0 \cr 0 & 8 \end{pmatrix}`$ : les abscisses sont centrées, la matrice est diagonale.
 2. $(9, 6)$.
 3. $\mathbf{w}^\ast = (3 ;\ 0{,}75)$.
 4. $\hat{\mathbf{y}} = (1{,}5 ;\ 3 ;\ 4{,}5)$, résidu $(-0{,}5 ;\ 1 ;\ -0{,}5)$, de somme nulle.
@@ -93,7 +93,7 @@
 6. $\mathbf{H}^2 = \mathbf{H}$ et $\mathbf{H}^\top = \mathbf{H}$ : ce chapitre (§5 et §6) explique pourquoi.
 
 ### M12b.R3 — Base, rang et noyau (M12a)
-1. 2 : la forme réduite est $\begin{pmatrix} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & -1 \end{pmatrix}$.
+1. 2 : la forme réduite est $`\begin{pmatrix} 1 & 2 & 0 & 1 \cr 0 & 0 & 1 & -1 \end{pmatrix}`$.
 2. $4 - 2 = 2$.
 3. $(-2, 1, 0, 0)$ et $(-1, 0, 1, 1)$.
 4. Les colonnes 1 et 3 de $\mathbf{A}$ : $(1, 2)$ et $(0, 1)$.
@@ -203,7 +203,7 @@ Pour la copie : $\langle \mathbf{q}_1, \mathbf{q} _2 \rangle _{\mathbf{D}} = \fr
 
 **Réponses** : a) `2` · b) `[-3, 2, 1, 0]` · c) `[1, -2, 0, 1]` · d) `False` · e) `[1, 2]` · f) `False` · g) `True`.
 
-**Démarche.** $U^\perp = \ker\begin{pmatrix} 1 & 0 & 3 & -1 \cr 0 & 1 & -2 & 2 \end{pmatrix}$, déjà réduite : $x_1 = -3x_3 + x_4$ et $x_2 = 2x_3 - 2x_4$.
+**Démarche.** $`U^\perp = \ker\begin{pmatrix} 1 & 0 & 3 & -1 \cr 0 & 1 & -2 & 2 \end{pmatrix}`$, déjà réduite : $x_1 = -3x_3 + x_4$ et $x_2 = 2x_3 - 2x_4$.
 - a) $4 - 2 = 2$.
 - b) $(x_3, x_4) = (1, 0)$ : $(-3, 2, 1, 0)$. c) $(0, 1)$ : $(1, -2, 0, 1)$.
 - d) $\mathbf{v} \cdot \mathbf{a} = 3 + 0 - 3 + 0 = 0$, mais $\mathbf{v} \cdot \mathbf{b} = 0 + 1 + 2 + 0 = 3 \ne 0$ : $\mathbf{v}$ est orthogonal à $\mathbf{a}$ seulement.
@@ -224,7 +224,7 @@ Pour la copie : vérifie $\mathbf{k}_1 \cdot \mathbf{a} = -3 + 3 = 0$, $\mathbf{
 **Démarche.**
 - a) $\lVert \mathbf{a}_1 \rVert^2 = 5$, $\mathbf{a}_1 \cdot \mathbf{a}_2 = 0 + 0 + 2 = 2$, $\lVert \mathbf{a}_2 \rVert^2 = 16 + 1 = 17$.
 - b) $\mathbf{a}_1 \cdot \mathbf{v} = 10 - 2 = 8$, $\mathbf{a}_2 \cdot \mathbf{v} = -12 - 1 = -13$.
-- c) $\det = 85 - 4 = 81$, $\mathbf{c} = \frac{1}{81}\begin{pmatrix} 17 & -2 \cr -2 & 5 \end{pmatrix}(8, -13) = \frac{1}{81}(162, -81) = (2, -1)$.
+- c) $\det = 85 - 4 = 81$, $`\mathbf{c} = \frac{1}{81}\begin{pmatrix} 17 & -2 \cr -2 & 5 \end{pmatrix}(8, -13) = \frac{1}{81}(162, -81) = (2, -1)`$.
 - d) $2\mathbf{a}_1 - \mathbf{a}_2 = (2, 4, 3)$.
 - e) $\mathbf{v} \cdot \mathbf{q}_1 = \frac{1}{9}(40 + 12 - 7) = 5$ et $\mathbf{v} \cdot \mathbf{q}_2 = \frac{1}{9}(10 - 24 - 4) = -2$.
 - f) $(10 - 2,\ 3 - 4,\ -1 - 3)$.
@@ -232,7 +232,7 @@ Pour la copie : vérifie $\mathbf{k}_1 \cdot \mathbf{a} = -3 + 3 = 0$, $\mathbf{
 
 Pour la copie : $5\mathbf{q}_1 - 2\mathbf{q}_2 = \frac{1}{9}(20 - 2,\ 20 + 16,\ 35 - 8) = (2, 4, 3)$. $\mathbf{q}_1 = \frac{1}{9}(4\mathbf{a}_1 - \mathbf{a}_2)$ et $\mathbf{q}_2 = \frac{1}{9}(\mathbf{a}_1 + 2\mathbf{a}_2)$ : ils sont dans $U$ ; $\mathbf{q}_1 \cdot \mathbf{q}_2 = \frac{1}{81}(4 - 32 + 28) = 0$, normes $\frac{9}{9}$. Une fois $\mathbf{q}_1$, $\mathbf{q}_2$ connus, chaque projection ne demande que deux produits scalaires, sans système à résoudre : c'est la méthode à préférer pour dix vecteurs.
 
-**Erreurs fréquentes.** Calculer $\mathbf{A}\mathbf{A}^\top$ (de forme $(3, 3)$) au lieu de $\mathbf{A}^\top\mathbf{A}$ ; confondre le projeté et le résidu ; oublier le facteur $\frac{1}{9}$ en e).
+**Erreurs fréquentes.** Calculer $\mathbf{A}\mathbf{A}^\top$ (de forme $(3, 3){}$) au lieu de $\mathbf{A}^\top\mathbf{A}$ ; confondre le projeté et le résidu ; oublier le facteur $\frac{1}{9}$ en e).
 
 **Variante.** Le projeté de $\mathbf{e}_1$ sur $U$ ? *Réponse* : $\frac{4}{9}\mathbf{q}_1 + \frac{1}{9}\mathbf{q}_2 = \frac{1}{81}(17, 8, 32)$.
 
@@ -242,7 +242,7 @@ Pour la copie : $5\mathbf{q}_1 - 2\mathbf{q}_2 = \frac{1}{9}(20 - 2,\ 20 + 16,\ 
 
 **Démarche.**
 - a) $\mathbf{P}$ est symétrique.
-- b) $\mathbf{P}^2 = \frac{1}{9}\begin{pmatrix} 6 & -3 & 3 \cr -3 & 6 & 3 \cr 3 & 3 & 6 \end{pmatrix} = \mathbf{P}$ (par exemple, le coin vaut $\frac{1}{9}(4 + 1 + 1) = \frac{6}{9}$).
+- b) $`\mathbf{P}^2 = \frac{1}{9}\begin{pmatrix} 6 & -3 & 3 \cr -3 & 6 & 3 \cr 3 & 3 & 6 \end{pmatrix} = \mathbf{P}`$ (par exemple, le coin vaut $\frac{1}{9}(4 + 1 + 1) = \frac{6}{9}$).
 - c) $\frac{1}{3}(2 - 1 - 1,\ -1 + 2 - 1,\ 1 + 1 - 2) = \mathbf{0}$ : $(1, 1, -1)$ est dans le noyau.
 - d) $\frac{1}{3}(2 + 1,\ -1 + 1,\ 1 + 2) = (1, 0, 1)$ : ce vecteur est inchangé.
 - e) $\frac{1}{3}(2 + 2 + 2) = 2$. f) Rang 2 : le noyau contient la droite de c), et la colonne 3 est la somme des deux autres.
@@ -279,7 +279,7 @@ Pour la copie : $\mathbf{r} \cdot \mathbf{u}_1 = 0$ et $\mathbf{r} \cdot \mathbf
 
 **Démarche.**
 - a) $n = 5$, $\sum x_i = 20$, $\sum x_i^2 = 1 + 4 + 16 + 25 + 64 = 110$. b) $\sum y_i = 11$, $\sum x_iy_i = 0 + 4 + 8 + 15 + 32 = 59$.
-- c) $\det = 550 - 400 = 150$ ; $\mathbf{w}^\ast = \frac{1}{150}\begin{pmatrix} 110 & -20 \cr -20 & 5 \end{pmatrix}(11, 59) = \frac{1}{150}(30, 75) = (0{,}2 ;\ 0{,}5)$.
+- c) $\det = 550 - 400 = 150$ ; $`\mathbf{w}^\ast = \frac{1}{150}\begin{pmatrix} 110 & -20 \cr -20 & 5 \end{pmatrix}(11, 59) = \frac{1}{150}(30, 75) = (0{,}2 ;\ 0{,}5)`$.
 - d) $0{,}2 + 0{,}5\thinspace x_i$. e) $y_i - \hat{y}_i$. f) $\sum r_i = 0$ et $\sum x_ir_i = -0{,}7 + 1{,}6 - 0{,}8 + 1{,}5 - 1{,}6 = 0$.
 - g) $0{,}49 + 0{,}64 + 0{,}04 + 0{,}09 + 0{,}04 = 1{,}3$. h) $0{,}49 + 1{,}44 + 4{,}84 + 7{,}29 + 17{,}64 = 31{,}7$.
 
@@ -297,12 +297,12 @@ Pour la copie : la somme des résidus est nulle (f), parce que le résidu est or
 - a) $\sqrt{4 + 36 + 81} = 11$, $\mathbf{q}_1 = \frac{1}{11}(2, 6, 9)$.
 - b) $\frac{1}{11}(4 + 18 + 0) = 2$.
 - c) $\mathbf{v}_2 = (2, 3, 0) - \frac{2}{11}(2, 6, 9) = \frac{1}{11}(18, 21, -18)$, de norme $\frac{33}{11} = 3$.
-- d) $\mathbf{q}_2 = \frac{1}{11}(6, 7, -6)$. e) $\mathbf{R} = \begin{pmatrix} 11 & 2 \cr 0 & 3 \end{pmatrix}$.
+- d) $\mathbf{q}_2 = \frac{1}{11}(6, 7, -6)$. e) $`\mathbf{R} = \begin{pmatrix} 11 & 2 \cr 0 & 3 \end{pmatrix}`$.
 - f) $\mathbf{q}_1 \cdot \mathbf{y} = \frac{1}{11}(22 + 18 + 180) = 20$, $\mathbf{q}_2 \cdot \mathbf{y} = \frac{1}{11}(66 + 21 - 120) = -3$.
 - g) Dernière ligne : $3w_2 = -3$, $w_2 = -1$ ; puis $11w_1 + 2 \times (-1) = 20$, $w_1 = 2$.
 - h) $\mathbf{A}\mathbf{w}^\ast = (2, 9, 18)$, résidu $(9, -6, 2)$.
 
-Pour la copie : $11\mathbf{q}_1 = \mathbf{a}_1$ et $2\mathbf{q}_1 + 3\mathbf{q}_2 = \frac{1}{11}(4 + 18,\ 12 + 21,\ 18 - 18) = (2, 3, 0) = \mathbf{a}_2$. Équations normales : $\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 121 & 22 \cr 22 & 13 \end{pmatrix}$, $\mathbf{A}^\top\mathbf{y} = (220, 31)$, et $(2, -1)$ les vérifie : $242 - 22 = 220$, $44 - 13 = 31$. Le résidu est orthogonal aux colonnes : $18 - 36 + 18 = 0$ et $18 - 18 + 0 = 0$ ; c'est $11$ fois le troisième vecteur $\frac{1}{11}(9, -6, 2)$ d'une base orthonormée. On commence par la dernière ligne, la seule qui n'ait qu'une inconnue.
+Pour la copie : $11\mathbf{q}_1 = \mathbf{a}_1$ et $2\mathbf{q}_1 + 3\mathbf{q}_2 = \frac{1}{11}(4 + 18,\ 12 + 21,\ 18 - 18) = (2, 3, 0) = \mathbf{a}_2$. Équations normales : $`\mathbf{A}^\top\mathbf{A} = \begin{pmatrix} 121 & 22 \cr 22 & 13 \end{pmatrix}`$, $\mathbf{A}^\top\mathbf{y} = (220, 31)$, et $(2, -1)$ les vérifie : $242 - 22 = 220$, $44 - 13 = 31$. Le résidu est orthogonal aux colonnes : $18 - 36 + 18 = 0$ et $18 - 18 + 0 = 0$ ; c'est $11$ fois le troisième vecteur $\frac{1}{11}(9, -6, 2)$ d'une base orthonormée. On commence par la dernière ligne, la seule qui n'ait qu'une inconnue.
 
 **Erreurs fréquentes.** Placer $r_{12}$ sous la diagonale ; résoudre depuis la première ligne en oubliant $r_{12}w_2$ (on trouve $w_1 = \frac{20}{11}$) ; ne pas normer $\mathbf{v}_2$.
 
@@ -369,7 +369,7 @@ Pour la copie : $\langle x, 1 \rangle = \int_{-1}^1 x\thinspace dx = 0$, donc ri
 2. La $i$-ième coordonnée de $\mathbf{A}\mathbf{x}$ est le produit scalaire de la ligne $i$ avec $\mathbf{x}$ ; les lignes de $\mathbf{A}$ sont les colonnes de $\mathbf{A}^\top$. Donc $\mathbf{A}\mathbf{x} = \mathbf{0} \iff \mathbf{x}$ est orthogonal à chaque ligne $\iff \mathbf{x} \in (\operatorname{Im}\mathbf{A}^\top)^\perp$.
 3. $\mathbf{A}^\top$ a $m$ colonnes : $\dim\ker\mathbf{A}^\top = m - \operatorname{rg}\mathbf{A}^\top = m - \operatorname{rg}\mathbf{A}$. Si $U$ est un sous-espace de $\mathbb{R}^m$, on range une base de $U$ dans les colonnes de $\mathbf{A}$ : $\operatorname{rg}\mathbf{A} = \dim U$, et $\dim U^\perp = m - \dim U$.
 4. Si $\mathbf{A}\mathbf{x} = \mathbf{b}$ et $\mathbf{A}^\top\mathbf{y} = \mathbf{0}$, alors $\mathbf{y} \cdot \mathbf{b} = \mathbf{y}^\top\mathbf{A}\mathbf{x} = (\mathbf{A}^\top\mathbf{y})^\top\mathbf{x} = 0$.
-5. $\mathbf{A}^\top = \begin{pmatrix} 1 & 2 & 0 \cr 2 & 4 & 1 \end{pmatrix}$ : $x + 2y = 0$ et $2x + 4y + z = 0$ donnent $z = 0$, $x = -2y$ ; $\ker\mathbf{A}^\top = \operatorname{Vect}\big((-2, 1, 0)\big)$. Le système a une solution si et seulement si $(1, t, 0) \cdot (-2, 1, 0) = t - 2 = 0$ : $t = 2$.
+5. $`\mathbf{A}^\top = \begin{pmatrix} 1 & 2 & 0 \cr 2 & 4 & 1 \end{pmatrix}`$ : $x + 2y = 0$ et $2x + 4y + z = 0$ donnent $z = 0$, $x = -2y$ ; $\ker\mathbf{A}^\top = \operatorname{Vect}\big((-2, 1, 0)\big)$. Le système a une solution si et seulement si $(1, t, 0) \cdot (-2, 1, 0) = t - 2 = 0$ : $t = 2$.
 
 **Grille.** (1) la réduction aux colonnes et la lecture de $\mathbf{A}^\top\mathbf{y}$ ; (2) les lignes comme colonnes de $\mathbf{A}^\top$ ; (3) le théorème du rang pour $\mathbf{A}^\top$ (avec ses $m$ colonnes), $\operatorname{rg}\mathbf{A}^\top = \operatorname{rg}\mathbf{A}$, puis le cas général ; (4) le calcul en une ligne ; (5) le noyau, puis la condition.
 
@@ -397,7 +397,7 @@ Pour la copie : $\langle x, 1 \rangle = \int_{-1}^1 x\thinspace dx = 0$, donc ri
 - b) $1 \cdot \mathbf{x}_1$. c) $\mathbf{x}_2 - \mathbf{x}_1$. d) $-2 + 2 - 1 + 1 = 0$.
 - e) $\frac{10}{14} = \frac{5}{7} \approx 0{,}7143$ : $x_1$ « explique » environ 71 % de $\lVert \mathbf{x}_2 \rVert^2$.
 - f) $\mathbf{y} \cdot \mathbf{r} = -3 + 6 - 1 + 4 = 6$ et $\lVert \mathbf{r} \rVert^2 = 4$ : $1{,}5$.
-- g) $\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 10 & 10 \cr 10 & 14 \end{pmatrix}$, $\mathbf{X}^\top\mathbf{y} = (23, 29)$, $\det = 40$ : $\mathbf{w} = \frac{1}{40}(14 \times 23 - 10 \times 29,\ -10 \times 23 + 10 \times 29) = (0{,}8 ;\ 1{,}5)$.
+- g) $`\mathbf{X}^\top\mathbf{X} = \begin{pmatrix} 10 & 10 \cr 10 & 14 \end{pmatrix}`$, $\mathbf{X}^\top\mathbf{y} = (23, 29)$, $\det = 40$ : $\mathbf{w} = \frac{1}{40}(14 \times 23 - 10 \times 29,\ -10 \times 23 + 10 \times 29) = (0{,}8 ;\ 1{,}5)$.
 
 Pour la copie : f) et g) donnent **le même** poids pour $\mathbf{x}_2$. En effet, $\mathbf{r} = \mathbf{x}_2 - \mathbf{x}_1$ et $\mathbf{x}_2 = \mathbf{x}_1 + \mathbf{r}$ : les deux familles engendrent le même plan. Les prédictions s'écrivent $w_1\mathbf{x}_1 + w_2\mathbf{x}_2 = (w_1 + w_2)\thinspace\mathbf{x}_1 + w_2\thinspace\mathbf{r}$, et, $(\mathbf{x}_1, \mathbf{r})$ étant orthogonale, le coefficient du projeté sur $\mathbf{r}$ se calcule seul : $w_2 = \frac{\mathbf{y} \cdot \mathbf{r}}{\lVert \mathbf{r} \rVert^2} = 1{,}5$ ; celui sur $\mathbf{x}_1$ vaut $\frac{\mathbf{y} \cdot \mathbf{x}_1}{10} = 2{,}3 = w_1 + w_2$, d'où $w_1 = 0{,}8$. Le poids d'une feature dans une régression multiple ne mesure que ce qu'elle apporte **de plus** que les autres : sa partie orthogonale, $\mathbf{r}$ (c'est le théorème de Frisch-Waugh-Lovell). Si $\mathbf{r}$ était presque nul, $w_2 = \frac{\mathbf{y} \cdot \mathbf{r}}{\lVert \mathbf{r} \rVert^2}$ diviserait par un nombre minuscule : un poids énorme et instable, la multicolinéarité.
 
@@ -428,7 +428,7 @@ Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 +
 
 **Réponse modèle** (avec tes mots ; les tiens peuvent différer).
 1. Une application de $V \times V$ dans $\mathbb{R}$ est bilinéaire si elle est linéaire en chacun de ses deux arguments ; elle est symétrique si l'ordre ne compte pas, définie positive si $\Omega(\mathbf{x}, \mathbf{x}) > 0$ pour tout $\mathbf{x} \ne \mathbf{0}$. Un produit scalaire est une application bilinéaire symétrique définie positive. Un espace muni d'un produit scalaire est un *inner product space* ; muni du produit usuel, un *Euclidean vector space*.
-2. Le livre prend $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1 - (x_1y_2 + x_2y_1) + 2x_2y_2$, de matrice $\begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}$ : $a = 1 > 0$ et $ac - b^2 = 2 - 1 = 1 > 0$, elle est définie positive.
+2. Le livre prend $\langle \mathbf{x}, \mathbf{y} \rangle = x_1y_1 - (x_1y_2 + x_2y_1) + 2x_2y_2$, de matrice $`\begin{pmatrix} 1 & -1 \cr -1 & 2 \end{pmatrix}`$ : $a = 1 > 0$ et $ac - b^2 = 2 - 1 = 1 > 0$, elle est définie positive.
 3. Dans une base, tout produit scalaire s'écrit $\hat{\mathbf{x}}^\top\mathbf{A}\hat{\mathbf{y}}$ avec les coordonnées et la matrice $A_{ij} = \langle \mathbf{b}_i, \mathbf{b} _j \rangle$, et une telle formule est un produit scalaire si et seulement si $\mathbf{A}$ est symétrique définie positive. Propriétés : le noyau de $\mathbf{A}$ est $\lbrace\mathbf{0}\rbrace$, et ses éléments diagonaux sont positifs. Justification : $a _{ii} = \mathbf{e}_i^\top\mathbf{A}\mathbf{e}_i > 0$ (fiche §1, avec $\mathbf{x} = \mathbf{e}_i$) ; et si $\mathbf{A}\mathbf{x} = \mathbf{0}$ avec $\mathbf{x} \ne \mathbf{0}$, $\mathbf{x}^\top\mathbf{A}\mathbf{x} = 0$, impossible.
 4. Une base est orthonormée si ses vecteurs sont deux à deux orthogonaux et de norme 1 (orthogonale si seule la première condition tient). Le livre signale qu'on peut construire une base orthonormée à partir de vecteurs quelconques par le pivot de Gauss sur une matrice augmentée, et que ce procédé constructif est celui de Gram-Schmidt (§3.8.3).
 5. Le complément orthogonal d'un plan de $\mathbb{R}^3$ est une droite, engendrée par un vecteur orthogonal au plan, son **vecteur normal** (*normal vector*) ; en général, si $U$ est de dimension $M$ dans un espace de dimension $D$, $U^\perp$ est de dimension $D - M$, et $U \cap U^\perp = \lbrace\mathbf{0}\rbrace$.
@@ -498,7 +498,7 @@ Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 +
 
 **Réponses** : a) `[[0.545455, 0.818182], [0.545455, -0.181818], [0.636364, -0.545455]]` · b) `True` · c) `True` · d) `[[-1.0, 0.0], [0.0, -1.0]]` · e) `"ValueError"` · f) `"ValueError"` · g) `True`.
 
-**Démarche.** `A = np.array(A, dtype=float)` (une copie), une `ValueError` si `A.ndim != 2`, `Q = np.zeros_like(A)`. Pour chaque colonne `k` : `a = A[:, k]`, `v = a.copy()`, puis pour `j < k` : `coefficient = Q[:, j] @ (v if modified else a)` et `v -= coefficient * Q[:, j]` ; si `norm(v) <= tol * norm(a)` ou `norm(v) == 0`, une `ValueError` ; sinon `Q[:, k] = v / norm(v)`. Pour la copie : $\mathbf{Q} = \frac{1}{11}\begin{pmatrix} 6 & 9 \cr 6 & -2 \cr 7 & -6 \end{pmatrix}$ ; en d), $\mathbf{q}_k$ a le sens de $\mathbf{a}_k$, donc des $-1$ ; en e), la deuxième colonne est le double de la première et $\mathbf{v}_2 = \mathbf{0}$, aux arrondis près.
+**Démarche.** `A = np.array(A, dtype=float)` (une copie), une `ValueError` si `A.ndim != 2`, `Q = np.zeros_like(A)`. Pour chaque colonne `k` : `a = A[:, k]`, `v = a.copy()`, puis pour `j < k` : `coefficient = Q[:, j] @ (v if modified else a)` et `v -= coefficient * Q[:, j]` ; si `norm(v) <= tol * norm(a)` ou `norm(v) == 0`, une `ValueError` ; sinon `Q[:, k] = v / norm(v)`. Pour la copie : $`\mathbf{Q} = \frac{1}{11}\begin{pmatrix} 6 & 9 \cr 6 & -2 \cr 7 & -6 \end{pmatrix}`$ ; en d), $\mathbf{q}_k$ a le sens de $\mathbf{a}_k$, donc des $-1$ ; en e), la deuxième colonne est le double de la première et $\mathbf{v}_2 = \mathbf{0}$, aux arrondis près.
 
 **Erreurs fréquentes.** Utiliser `a` (la colonne d'origine) dans les deux procédés, ce qui rend le modifié classique ; modifier `A` sur place (`np.asarray` ne copie pas un tableau de flottants) ; comparer la norme de `v` à `tol` en absolu (une colonne petite mais libre serait refusée) ; prendre la valeur absolue pour « fixer » le signe.
 
@@ -514,7 +514,7 @@ Pour la copie : $2^2 + (-1)^2 = 5$ = f) ; $\lVert \mathbf{x} \rVert^2 = 16 + 4 +
 
 **Réponses** : a) `[[13.0, 6.0], [0.0, 2.0]]` · b) `True` · c) `True` · d) `[1.3, 1.1]` · e) `True` · f) `"ValueError"` · g) `"ValueError"`.
 
-**Démarche.** `qr` : `Q = gram_schmidt(A)`, `R = np.triu(Q.T @ A)`, rendre `(Q, R)`. `least_squares_qr` : formes, `Q, R = qr(X)`, `z = Q.T @ y`, puis pour `i` de `p - 1` à `0` : `w[i] = (z[i] - R[i, i + 1:] @ w[i + 1:]) / R[i, i]`. Pour la copie : a) $\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 12 & 3 \cr 3 & 4 \cr 4 & -12 \end{pmatrix}$ ; d) $\mathbf{R} = \begin{pmatrix} 2 & 4 \cr 0 & \sqrt{10} \end{pmatrix}$ et $\mathbf{Q}^\top\mathbf{y} = (7, 11/\sqrt{10})$, d'où $w_1 = 1{,}1$ puis $w_0 = \frac{7 - 4 \times 1{,}1}{2} = 1{,}3$ ; c) $\mathbf{Q}^\top\mathbf{A}$ n'a, sous sa diagonale, que des arrondis de l'ordre de $10^{-16}$ : `np.triu` les met exactement à 0.
+**Démarche.** `qr` : `Q = gram_schmidt(A)`, `R = np.triu(Q.T @ A)`, rendre `(Q, R)`. `least_squares_qr` : formes, `Q, R = qr(X)`, `z = Q.T @ y`, puis pour `i` de `p - 1` à `0` : `w[i] = (z[i] - R[i, i + 1:] @ w[i + 1:]) / R[i, i]`. Pour la copie : a) $`\mathbf{Q} = \frac{1}{13}\begin{pmatrix} 12 & 3 \cr 3 & 4 \cr 4 & -12 \end{pmatrix}`$ ; d) $`\mathbf{R} = \begin{pmatrix} 2 & 4 \cr 0 & \sqrt{10} \end{pmatrix}`$ et $\mathbf{Q}^\top\mathbf{y} = (7, 11/\sqrt{10})$, d'où $w_1 = 1{,}1$ puis $w_0 = \frac{7 - 4 \times 1{,}1}{2} = 1{,}3$ ; c) $\mathbf{Q}^\top\mathbf{A}$ n'a, sous sa diagonale, que des arrondis de l'ordre de $10^{-16}$ : `np.triu` les met exactement à 0.
 
 **Erreurs fréquentes.** Remonter depuis la première ligne ; résoudre avec `np.linalg.solve(R, z)` (la docstring le permet, mais l'exercice fait écrire la boucle) ; oublier `np.triu`.
 
