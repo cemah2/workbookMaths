@@ -176,8 +176,9 @@ PAPER = [
          "(GAMMA_4 * P_4 @ ERR_4).tolist()",
          '''decimals=3,
            mistakes={"l'erreur du retour à 1 pas vient de l'état du lendemain, tiré selon P : pas de l'état de départ":
-                         ERR_4.tolist(),
-                     "l'erreur de la valeur du lendemain est actualisée une fois par γ": (P_4 @ ERR_4).tolist()}'''),
+                         (GAMMA_4 * ERR_4).tolist(),
+                     "l'état du lendemain se tire avec la ligne de l'état de départ : les lois sont les lignes de P_π":
+                         (GAMMA_4 * P_4.T @ ERR_4).tolist()}'''),
         ("b", "a list of 3 numbers (4 decimals): the bias of the 2-step return from each state",
          "(GAMMA_4 ** 2 * P_4 @ P_4 @ ERR_4).tolist()",
          '''decimals=4,
