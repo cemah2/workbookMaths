@@ -163,7 +163,7 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 - chaque étape cite le résultat qui la justifie (chapitre et section de ce dépôt, ou section de MML), et ce résultat dit bien ce qui est utilisé ;
 - la forme de chaque objet écrite, chaque produit vérifié ;
 - la convention de §2 tenue partout ;
-- aucune étape sautée, aucune phrase qui remplace un calcul ;
+- aucune étape sautée ni fausse, aucune phrase qui remplace un calcul, aucun résultat affirmé sans démonstration ni renvoi (le correcteur refait chaque ligne) ;
 - les points délicats du domaine (division par zéro, logarithme de 0, point non dérivable, matrice non inversible) dits et réglés.
 
 **Erreurs à éviter** : sauter de l'objectif à la formule finale ; dériver « comme dans le cas scalaire » sans vérifier l'ordre des facteurs d'un produit de matrices ; changer de convention en route ; une formule finale qui n'est pas celle que le code calcule (un facteur, une moyenne, une transposée) ; citer un chapitre entier au lieu de la section qui sert.
@@ -177,7 +177,7 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 **Livrable** : §4 de l'article (« Deux propriétés et un cas limite »), avec sa cellule « cas limite » exécutée.
 
 **Critères de réussite**
-- pour chacune des deux propriétés : un énoncé complet (les hypothèses de §2 citées, la conclusion) et une démonstration rédigée où chaque hypothèse sert ;
+- pour chacune des deux propriétés : un énoncé complet (les hypothèses de §2 citées, la conclusion) et une démonstration rédigée, juste à chaque étape, où chaque hypothèse sert ;
 - des propriétés de l'algorithme, pas d'un outil seul, et ce que chacune garantit en pratique ; pour la régression logistique (n° 1), au moins une des deux n'est l'analogue d'aucune propriété de l'exemple ;
 - le cas où une hypothèse tombe, montré par un contre-exemple chiffré ou une expérience, calculé dans la cellule « cas limite » ;
 - chaque propriété aussi vérifiée numériquement (un test de propriété de PS.7 ou l'expérience de PS.8), avec le renvoi.
@@ -196,7 +196,7 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 
 **Critères de réussite**
 - un exemple en petite dimension, dont toutes les données sont écrites ;
-- le calcul complet, étape par étape, avec les formules de §3 citées par leur numéro, en fractions exactes quand c'est possible ;
+- le calcul complet et juste, étape par étape, avec les formules de §3 citées par leur numéro, en fractions exactes quand c'est possible (le correcteur le refait sans ton module) ;
 - la cellule de vérification retrouve ton résultat par le module, à une tolérance écrite et justifiée ;
 - un contrôle de vraisemblance annoncé avant le calcul.
 
@@ -304,7 +304,7 @@ Avec les versions figées (scikit-learn 1.6.1, SciPy 1.16.3), chaque ajustement 
 | PS.E1 Présenter | 1 |
 | **Total** | **20** |
 
-**Pénalités** : un passage recopié ou paraphrasé de près sans être cité (un corrigé de workbookIA ou de ce dépôt, MML, un livre, un article, une page web) (**−3**) ; un notebook livré qui ne s'exécute pas de bout en bout (**−2**).
+**Pénalités** : un passage recopié ou paraphrasé de près sans être cité à l'endroit où il sert (un corrigé de workbookIA ou de ce dépôt, l'exemple du projet, MML, un livre, un article, une page web) (**−3**) ; une mention globale dans les références ne couvre que ce qu'elle nomme précisément (une présentation, une rubrique) ; un notebook livré qui ne s'exécute pas de bout en bout (**−2**).
 
 **Seuils** : à partir de **14/20**, ton article peut se montrer (portfolio, entretien) ; sous **10/20**, tu refais les étapes que la correction désigne.
 
@@ -320,18 +320,26 @@ Chaque critère, sa vérification et sa colonne « Preuve » sont dans [`GRILLE.
 ```text
 Tu corriges mon projet de synthèse de workbookMaths. Lis projets/projet_synthese/README.md et
 projets/projet_synthese/GRILLE.md, puis mon dossier mon_travail/projet_synthese/ (cadrage.md, synthese.ipynb et
-ses sorties, algo.py, test_algo.py, mutants.py, grille.md) et ma librairie mon_travail/mymath/.
+ses sorties, algo.py, test_algo.py, mutants.py, grille.md) et, dans ma librairie mon_travail/mymath/, les modules que
+algo.py appelle (sortie « mymath » de §6).
 1. N'écris rien dans mon_travail/ : fais les « vérifications communes » de GRILLE.md sur une copie (/tmp/ps_copie),
    avec PYTHONDONTWRITEBYTECODE=1 et WBM_ROOT égal au dossier du dépôt.
 2. Note critère par critère avec GRILLE.md, preuve par preuve : pour chaque critère, la preuve que tu as vérifiée
    (section, équation, cellule, test, commande et sa sortie) et les points (tous, la moitié ou zéro). Un critère
    sans preuve vérifiable vaut zéro, même coché dans ma grille.
-3. Pour PS.3 et PS.4, relis chaque étape des démonstrations, pas seulement la formule finale. Montre-moi l'étape
-   fausse ou sautée et la règle qui manque (chapitre et section du dépôt), sans écrire la dérivation à ma place.
-4. N'applique une pénalité que si la vérification de sa ligne la montre (si workbookIA est disponible, compare §3
-   au corrigé du ∂ de l'algorithme, en lecture seule).
-5. Rends un tableau étape par étape (points obtenus sur points possibles), les pénalités, la note sur 20, le seuil
-   atteint, et pour chaque étape sous la moitié de ses points, ce qu'il faut reprendre, dans l'ordre.
+3. Pour PS.3 et PS.4, refais chaque étape des démonstrations, pas seulement la formule finale. Pour PS.5, refais le
+   calcul à la main en fractions (fractions.Fraction ou SymPy), sans mon module. Pour PS.8, relis dans les sorties de
+   la cellule les valeurs que §8 cite. Montre-moi l'étape fausse ou sautée et la règle qui manque (chapitre et
+   section du dépôt), sans écrire la dérivation à ma place.
+4. N'applique une pénalité que si la vérification de sa ligne la montre. Compare §3 et §4 à l'exemple
+   (projets/projet_synthese/exemple/exemple.ipynb) et, si workbookIA est disponible, au corrigé du ∂ de mon
+   algorithme, en lecture seule : pour un chapitre XX de la colonne « workbookIA » de la liste, les ∂ XX.k de
+   « Les règles », 1, dans chapitres/chXX_*/05_solutions.md de workbookIA.
+5. Quand une vérification dit « au hasard », vérifie tout si c'est possible, sinon tire avec une graine et dis
+   laquelle. Un ⚠️ de la cellule « Contrôle du module » ne compte que pour le critère qu'il concerne.
+6. Rends un tableau étape par étape (points obtenus sur points possibles), les pénalités, la note sur 20, le seuil
+   atteint ; pour chaque critère qui n'a pas tous ses points, ce qui le montre ; pour chaque étape sous la moitié de
+   ses points, ce qu'il faut reprendre, dans l'ordre ; enfin, chaque écart entre ta note et ma grille.md.
 ```
 
 3. **La présentation simulée** : après tes cinq minutes, quelqu'un (ou Claude) te pose cinq questions de la banque ci-dessous ; tu réponds sans tes notes.

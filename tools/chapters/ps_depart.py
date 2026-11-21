@@ -249,7 +249,7 @@ if tree is not None:
     for node in tree.body:
         if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and not node.name.startswith("_"):
             doc = ast.get_docstring(node) or ""
-            needed = ("Parameters", "Returns") if isinstance(node, ast.FunctionDef) else ()
+            needed = ("Parameters", "Returns", "Raises") if isinstance(node, ast.FunctionDef) else ("Attributes",)
             missing = [part for part in needed if part not in doc]
             equation = bool(re.search(r"\((?:2|3|4)\.\d+\)", doc))
             mark = "⏳" if node.name == "example_function" else ("✅" if doc and not missing else "⚠️")
