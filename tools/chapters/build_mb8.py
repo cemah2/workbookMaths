@@ -12,7 +12,7 @@ the road, the tournament and the canteen), each wrong value computed by the erro
 the notebook exercises (MB8.13 to MB8.21), exactly as 02_exercices.md describes them. Wrong-answer messages state a
 rule, never a number of the answer, the last step that gives it, nor another sub-question; none replays an error of the
 corrected versions of the frontier exercises of workbookIA B8 nor of their neighbours (the dynamics differentiated,
-p > 0, causality, a baseline that depends on the action or is computed on the draw itself, e_a forgotten, the sign of
+the positivity of the probabilities, causality, a baseline that depends on the action or is computed on the draw itself, e_a forgotten, the sign of
 an advantage, the next value read at the wrong index, λ alone, the max for the min, a sum for a mean, the inverted
 difference, a naive computation that overflows, β forgotten, the decimal logarithm, normalisation taken for a
 baseline, an unbiased estimate believed to be enough).
@@ -197,7 +197,8 @@ PAPER = [
          '''decimals=4,
            mistakes={"les poids (1 − λ)λ^{k−1} somment à 1 : n'oublie pas le facteur 1 − λ":
                          CONST_4 * GAMMA_4 / (1 - GAMMA_4 * LAMBDA_4),
-                     "le λ-retour actualise l'erreur : chaque retour à k pas porte γ^k fois l'erreur": CONST_4}'''),
+                     "le poids du retour à k pas est (1 − λ)λ^{k−1} : l'exposant de λ est k − 1":
+                         CONST_4 * (1 - LAMBDA_4) * GAMMA_4 * LAMBDA_4 / (1 - GAMMA_4 * LAMBDA_4)}'''),
     ]),
 
     Paper("MB8.5", syllabus_entry("MB8.5")[3], [
