@@ -450,7 +450,7 @@ En effet, $10^{(R_j - R_i)/400} = e^{(R_j - R_i)\ln 10/400} = e^{-(\beta_i - \be
 
 ### Un compromis
 
-Une fleuriste répartit ses achats au marché entre quatre fleurs : roses, tulipes, pivoines et lys, l'an dernier dans les proportions $\pi_{\mathrm{ref}} = (0{,}4 ;\ 0{,}35 ;\ 0{,}15 ;\ 0{,}1)$. Leurs bénéfices moyens par botte sont $r = (2 ;\ 1 ;\ 4 ;\ 3)$ euros. Tout miser sur les pivoines bouleverserait ses habitudes et celles de ses clients : elle cherche la répartition $\pi$ qui maximise
+Une fleuriste répartit ses achats au marché entre quatre fleurs : roses, tulipes, pivoines et lys, l'an dernier dans les proportions $\pi_{\mathrm{ref}} = (0{,}55 ;\ 0{,}2 ;\ 0{,}15 ;\ 0{,}1)$. Leurs bénéfices moyens par botte sont $r = (2 ;\ 1 ;\ 4 ;\ 3)$ euros. Tout miser sur les pivoines bouleverserait ses habitudes et celles de ses clients : elle cherche la répartition $\pi$ qui maximise
 $$F(\pi) = \mathbb{E}_\pi[r] - \beta\,\mathrm{KL}(\pi \,\|\, \pi_{\mathrm{ref}}),$$
 le bénéfice moyen moins $\beta > 0$ fois l'écart à l'an dernier.
 
@@ -464,16 +464,16 @@ Comme $\mathrm{KL}(\pi \,\|\, \pi^\star) \ge 0$, avec égalité seulement pour $
 
 L'identité $\ln Z = \frac{F(\pi)}{\beta} + \mathrm{KL}(\pi \,\|\, \pi^\star)$ a la forme de $\ln p(\mathbf{x}) = \operatorname{ELBO}(q) + \mathrm{KL}(q \,\|\, p(\mathbf{z} \mid \mathbf{x}))$ (M25b §5) : un terme qu'on sait calculer, plus un écart positif à la meilleure loi (le corrigé du sujet B de CP6.8 l'avait noté pour la loi de Boltzmann).
 
-**La fleuriste.** Pour $\beta = 1$, les poids $\pi_{\mathrm{ref}}\,e^{r}$ valent $0{,}4e^2 \approx 2{,}9556$ ; $0{,}35e \approx 0{,}9514$ ; $0{,}15e^4 \approx 8{,}1897$ ; $0{,}1e^3 \approx 2{,}0086$, de somme $Z \approx 14{,}1053$ : $\pi^\star \approx (0{,}2095 ;\ 0{,}0674 ;\ 0{,}5806 ;\ 0{,}1424)$, de valeur $\beta\ln Z \approx 2{,}647$ € ; la figure suit $\pi^\star$ pour tous les $\beta$. Contrôle de l'identité pour $\beta = 1$ et la loi uniforme $u$ : $\mathbb{E}_u[r] = 2{,}5$ et $\mathrm{KL}(u \,\|\, \pi_{\mathrm{ref}}) \approx 0{,}1552$, donc $F(u) \approx 2{,}3448$ ; et $\mathrm{KL}(u \,\|\, \pi^\star) \approx 0{,}3017$, avec $2{,}6466 - 0{,}3017 \approx 2{,}345$ : la même valeur.
+**La fleuriste.** Pour $\beta = 1$, les poids $\pi_{\mathrm{ref}}\,e^{r}$ valent $0{,}55e^2 \approx 4{,}0640$ ; $0{,}2e \approx 0{,}5437$ ; $0{,}15e^4 \approx 8{,}1897$ ; $0{,}1e^3 \approx 2{,}0086$, de somme $Z \approx 14{,}8059$ : $\pi^\star \approx (0{,}2745 ;\ 0{,}0367 ;\ 0{,}5531 ;\ 0{,}1357)$, de valeur $\beta\ln Z \approx 2{,}695$ € ; la figure suit $\pi^\star$ pour tous les $\beta$. Contrôle de l'identité pour $\beta = 1$ et la loi uniforme $u$ : $\mathbb{E}_u[r] = 2{,}5$ et $\mathrm{KL}(u \,\|\, \pi_{\mathrm{ref}}) \approx 0{,}2155$, donc $F(u) \approx 2{,}2845$ ; et $\mathrm{KL}(u \,\|\, \pi^\star) \approx 0{,}4105$, avec $2{,}6950 - 0{,}4105 = 2{,}2845$ : la même valeur.
 
 ### Les deux limites
 
 - **$\beta \to 0$** : s'écarter de $\pi_{\mathrm{ref}}$ ne coûte plus rien, et $\pi^\star$ se concentre sur les issues de plus grand bénéfice **parmi celles où $\pi_{\mathrm{ref}} > 0$** (les pivoines) ; $\beta\ln Z$ tend vers ce bénéfice maximal, 4 €, puisque $\max r + \beta\ln\pi_{\mathrm{ref}}(x^\star) \le \beta\ln Z \le \max r$, pour $x^\star$ une issue de bénéfice maximal.
-- **$\beta \to \infty$** : $e^{r/\beta} \to 1$, $\pi^\star \to \pi_{\mathrm{ref}}$, et $\beta\ln Z \to \mathbb{E}_{\mathrm{ref}}[r] = 2{,}05$ € (Taylor d'ordre 1, M05a §3 : $\ln\mathbb{E}_{\mathrm{ref}}[e^{r/\beta}] \approx \frac{\mathbb{E}_{\mathrm{ref}}[r]}{\beta}$).
+- **$\beta \to \infty$** : $e^{r/\beta} \to 1$, $\pi^\star \to \pi_{\mathrm{ref}}$, et $\beta\ln Z \to \mathbb{E}_{\mathrm{ref}}[r] = 2{,}2$ € (Taylor d'ordre 1, M05a §3 : $\ln\mathbb{E}_{\mathrm{ref}}[e^{r/\beta}] \approx \frac{\mathbb{E}_{\mathrm{ref}}[r]}{\beta}$).
 
 Entre les deux, la valeur décroît du meilleur bénéfice au bénéfice moyen de l'an dernier (figure). Réciproquement, $\pi^\star$, $\pi_{\mathrm{ref}}$ et $\beta$ déterminent $r$ sur le support de $\pi_{\mathrm{ref}}$, à une constante additive près : une constante ajoutée à $r$ se simplifie dans $Z$.
 
-![À gauche, les quatre probabilités de la loi de Gibbs π* ∝ π_ref·e^(r/β) en fonction de β, en échelle logarithmique : les pivoines (r = 4) prennent tout quand β est petit, et chaque fleur revient vers sa part de l'an dernier (0,4 ; 0,35 ; 0,15 ; 0,1) quand β grandit. À droite, la valeur β ln Z, qui décroît de max r = 4 vers E_ref[r] = 2,05, et le bénéfice moyen E_π*[r], au-dessus d'elle](figures/gibbs.png)
+![À gauche, les quatre probabilités de la loi de Gibbs π* ∝ π_ref·e^(r/β) en fonction de β, en échelle logarithmique : les pivoines (r = 4) prennent tout quand β est petit, et chaque fleur revient vers sa part de l'an dernier (0,55 ; 0,2 ; 0,15 ; 0,1) quand β grandit. À droite, la valeur β ln Z, qui décroît de max r = 4 vers E_ref[r] = 2,2, et le bénéfice moyen E_π*[r], au-dessus d'elle](figures/gibbs.png)
 
 ### Des cas déjà vus
 
