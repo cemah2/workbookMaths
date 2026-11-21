@@ -9,8 +9,8 @@ sections of the kit's model (tools/chapters/ps_depart.py), one per step of the g
 (« cas limite », « vérification de l'exemple », « Contrôle du module », tests and « mutation », « expérience »,
 duration). Its setup cell is ``setup_cell("solution")``: it runs on the reference of mymath. Its module, tests,
 conftest and mutants live next to it (poisson_newton.py, test_poisson_newton.py, conftest.py, mutants.py); its
-figures are written into exemple/figures/ when it runs. Seeds 9000 to 9099; no data nor number of an exercise of
-workbookIA or of this repository.
+figures are written into figures/ next to the notebook that runs (the folder where it is executed, if it holds the
+notebook and the module). Seeds 9000 to 9099; no data nor number of an exercise of workbookIA or of this repository.
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ from nbbuild import code, md, setup_cell  # noqa: E402
 TITLE = r"""
 # La régression de Poisson ajustée par la méthode de Newton : dérivation, implémentation, vérification
 
-> **L'exemple rédigé du projet de synthèse.** Un article complet sur un algorithme qui n'est ni dans la liste du cahier des charges ni dans workbookIA. Il montre le niveau de détail attendu à chaque étape (PS.2 à PS.9 et PS.E1) ; ce n'est **pas un modèle à recopier**, et l'algorithme n'est pas accepté comme projet. Lis-le **après** une première version de ton cadrage : le [`README.md`](README.md) de ce dossier dit quoi y regarder. Ses sections ont les numéros du modèle du kit, son cadrage est dans [`cadrage.md`](cadrage.md), et sa grille remplie, [`grille.md`](grille.md), renvoie à chaque cellule qui sert de preuve. Il tourne sur la **référence** de `mymath` ; ton projet, lui, appelle **tes** fonctions.
+> **L'exemple rédigé du projet de synthèse.** Un article complet sur un algorithme qui n'est ni dans la liste du cahier des charges ni dans workbookIA. Il sert d'étalon pour chaque étape (PS.2 à PS.9 et PS.E1) : ton article lui emprunte la méthode, jamais le contenu, et son algorithme n'est pas accepté comme projet. Ouvre-le une fois ton cadrage écrit une première fois : le [`README.md`](README.md) de ce dossier dit quoi y regarder. Ses sections ont les numéros du modèle du kit, son cadrage est dans [`cadrage.md`](cadrage.md), et sa grille remplie, [`grille.md`](grille.md), renvoie à chaque cellule qui sert de preuve. Il tourne sur la **référence** de `mymath` ; ton projet, lui, appelle **tes** fonctions.
 
 **Auteur** : l'exemple de workbookMaths · **Algorithme** : régression de Poisson, ajustée par la méthode de Newton (moindres carrés repondérés) ; hors liste, hors workbookIA
 
@@ -36,7 +36,7 @@ Un comptage (des piqûres de moustique en une soirée, des pannes en une semaine
 PROJECT_MD = r"""
 ### Le dossier de l'exemple
 
-Cette cellule trouve le dossier de l'exemple et importe son module, `poisson_newton.py`, qui utilise la librairie `mymath` chargée par la cellule de setup (ici, la référence). Elle ne demande rien.
+Cette cellule trouve le dossier de l'exemple (celui où le notebook s'exécute, s'il contient le notebook et le module, sinon `projets/projet_synthese/exemple` du dépôt) et importe son module, `poisson_newton.py`, qui utilise la librairie `mymath` chargée par la cellule de setup (ici, la référence). Elle ne demande rien.
 """
 
 PROJECT_CODE = r'''
@@ -46,6 +46,7 @@ import math
 import sys
 import time
 from fractions import Fraction
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -53,14 +54,17 @@ import numpy as np
 from wbm.nbtools import run_pytest_group
 
 T0 = time.perf_counter()
-PROJECT = (ROOT / "projets" / "projet_synthese" / "exemple").resolve()
-FIGURES = PROJECT / "figures"
-TEST_FILE = "projets/projet_synthese/exemple/test_poisson_newton.py"
+HERE = Path.cwd().resolve()           # the folder where the notebook runs (a copy of the example, or the repository's)
+PROJECT = (HERE if (HERE / "exemple.ipynb").exists() and (HERE / "poisson_newton.py").exists()
+           else (ROOT / "projets" / "projet_synthese" / "exemple").resolve())
+FIGURES = PROJECT / "figures"         # the figures are written next to the notebook that runs
+TEST_FILE = PROJECT / "test_poisson_newton.py"
 if str(PROJECT) not in sys.path:
     sys.path.insert(0, str(PROJECT))
 import poisson_newton as pn   # noqa: E402  (it imports mymath, registered by the setup cell)
 
-print(f"📁 Dossier de l'exemple : {PROJECT.relative_to(ROOT)} ; mymath : implémentation « {mymath.__wb_impl__} »")
+shown_folder = PROJECT.relative_to(ROOT) if PROJECT.is_relative_to(ROOT) else PROJECT
+print(f"📁 Dossier de l'exemple : {shown_folder} ; mymath : implémentation « {mymath.__wb_impl__} »")
 '''
 
 INTRO = r"""
@@ -94,7 +98,7 @@ $$\mathbf{z} = \mathbf{X}\mathbf{w}, \qquad \boldsymbol{\mu} = \exp(\mathbf{z}) 
 | $\mathbf{z} = \mathbf{X}\mathbf{w}$ | les sommes pondérées | $(n,)$ | $\mathbb{R}^n$ |
 | $\boldsymbol{\mu} = \exp(\mathbf{z})$ | les moyennes du modèle | $(n,)$ | $]0, +\infty[^n$ |
 | $\mathbf{W} = \operatorname{diag}(\boldsymbol{\mu})$ | la matrice diagonale des poids d'une itération | $(n, n)$ | diagonale $> 0$ |
-| $\ell(\mathbf{w})$ | la log-vraisemblance | scalaire | $]-\infty, 0]$ |
+| $\ell(\mathbf{w})$ | la log-vraisemblance | scalaire | $]-\infty, 0[$ |
 | $\nabla\ell(\mathbf{w})$ | le gradient, de la forme de $\mathbf{w}$ | $(p,)$ | $\mathbb{R}^p$ |
 | $\nabla^2\ell(\mathbf{w})$ | la hessienne | $(p, p)$ | symétrique |
 | $\boldsymbol{\delta}$ | la direction de Newton | $(p,)$ | $\mathbb{R}^p$ |
@@ -134,7 +138,7 @@ Par (H1), les $Y_i$ sont indépendantes : la probabilité de l'échantillon est 
 $$\ell(\mathbf{w}) = \sum_{i=1}^n \big[\,y_iz_i - e^{z_i} - \ln(y_i!)\,\big], \qquad \mathbf{z} = \mathbf{X}\mathbf{w}. \tag{3.1}$$
 *Formes* : $\mathbf{X}\mathbf{w}$ est $(n, p) \times (p,) \to (n,)$ ; chaque terme de la somme est un nombre, $\ell$ est un scalaire.
 
-*Points délicats.* (a) Un comptage nul : $y_i\ln\mu_i = 0$, puisque $\mu_i > 0$ ; la formule ne prend jamais $\ln y_i$ (ni $\ln 0$), et $0! = 1$. (b) Le terme $-\ln(y_i!)$ ne dépend pas de $\mathbf{w}$ : il ne change ni le maximum ni les dérivées ; le code le garde pour que $\ell$ soit le logarithme d'une probabilité, donc $\ell \le 0$, et pour la comparer à SciPy (§7). (c) $e^{z_i}$ dépasse le plus grand flottant pour $z_i > 709$ environ (M05a §8) : le code rend alors $\ell = -\infty$, et le garde-fou de (3.5) refuse ce pas.
+*Points délicats.* (a) Un comptage nul : $y_i\ln\mu_i = 0$, puisque $\mu_i > 0$ ; la formule ne prend jamais $\ln y_i$ (ni $\ln 0$), et $0! = 1$. (b) Le terme $-\ln(y_i!)$ ne dépend pas de $\mathbf{w}$ : il ne change ni le maximum ni les dérivées ; le code le garde pour que $\ell$ soit le logarithme d'une probabilité, donc $\ell < 0$ (chaque $P(Y_i = y_i) < 1$), et pour la comparer à SciPy (§7). (c) $e^{z_i}$ dépasse le plus grand flottant pour $z_i > 709$ environ (M05a §8) : le code rend alors $\ell = -\infty$, et le garde-fou de (3.5) refuse ce pas.
 
 ### 3.2 Le gradient
 
@@ -165,11 +169,11 @@ Près de $\mathbf{w}$, le développement de Taylor d'ordre 2 (M19 §1) remplace 
 $$\ell(\mathbf{w} + \mathbf{h}) \approx q(\mathbf{h}) = \ell(\mathbf{w}) + \nabla\ell(\mathbf{w})^\top\mathbf{h} + \tfrac12\,\mathbf{h}^\top\nabla^2\ell(\mathbf{w})\,\mathbf{h}.$$
 Sous (H1) et (H2), $\mathbf{A} = -\nabla^2\ell(\mathbf{w}) = \mathbf{X}^\top\mathbf{W}\mathbf{X}$ est symétrique définie positive (le lemme de §4). Donc $-q(\mathbf{h}) = \frac12\mathbf{h}^\top\mathbf{A}\mathbf{h} - \mathbf{b}^\top\mathbf{h} - \ell(\mathbf{w})$, avec $\mathbf{b} = \nabla\ell(\mathbf{w})$, est la quadratique de M12c §7 (« Le minimum d'une quadratique ») : son unique minimum, c'est-à-dire l'unique maximum de $q$, est la solution de $\mathbf{A}\mathbf{h} = \mathbf{b}$. La **méthode de Newton** va jusqu'à ce maximum :
 $$\boldsymbol{\delta} = (\mathbf{X}^\top\mathbf{W}\mathbf{X})^{-1}\,\mathbf{X}^\top(\mathbf{y} - \boldsymbol{\mu}) = -\big(\nabla^2\ell(\mathbf{w})\big)^{-1}\,\nabla\ell(\mathbf{w}). \tag{3.4}$$
-*Formes* : $(p, p) \times (p,) \to (p,)$. En dimension 1, c'est $w - \ell'(w)/\ell''(w)$ : la méthode de Newton de M05a §4 appliquée à l'équation $\ell'(w) = 0$ (l'encadré 🔗 de M05a §4). *Point délicat* : (3.4) demande que $\mathbf{X}^\top\mathbf{W}\mathbf{X}$ soit inversible ; c'est (H2), par le lemme de §4 ; sans (H2), le pas n'est pas défini, et le maximum n'est pas unique (le cas limite de §4).
+*Formes* : $(p, p) \times (p,) \to (p,)$. En dimension 1, $w + \delta = w - \ell'(w)/\ell''(w)$ : la méthode de Newton de M05a §4 appliquée à l'équation $\ell'(w) = 0$ (l'encadré 🔗 de M05a §4). *Point délicat* : (3.4) demande que $\mathbf{X}^\top\mathbf{W}\mathbf{X}$ soit inversible ; c'est (H2), par le lemme de §4 ; sans (H2), le pas n'est pas défini, et le maximum, s'il existe, n'est pas unique (le cas limite de §4).
 
 **L'itération et son garde-fou.** En partant de $\mathbf{w}_0 = \mathbf{0}$,
-$$\mathbf{w}_{k+1} = \mathbf{w}_k + t_k\,\boldsymbol{\delta}_k, \qquad t_k = \text{le premier nombre de } 1, \tfrac12, \tfrac14, \ldots \text{ tel que } \ell(\mathbf{w}_k + t_k\boldsymbol{\delta}_k) \ge \ell(\mathbf{w}_k). \tag{3.5}$$
-Newton pur prend toujours $t_k = 1$ ; loin du maximum, le pas plein peut faire **baisser** $\ell$ (M05a §4, un départ trop loin ; §5 en donne un exemple). La division par deux s'arrête toujours : avec $\varphi(t) = \ell(\mathbf{w}_k + t\boldsymbol{\delta}_k)$, la règle de la chaîne (M19 §1) donne $\varphi'(0) = \mathbf{b}^\top\boldsymbol{\delta}_k = \mathbf{b}^\top\mathbf{A}^{-1}\mathbf{b} = \mathbf{c}^\top\mathbf{A}\mathbf{c}$ avec $\mathbf{c} = \mathbf{A}^{-1}\mathbf{b}$, qui est $> 0$ dès que $\mathbf{b} \ne \mathbf{0}$ ($\mathbf{A}$ définie positive, M12c §7) ; une dérivée positive en 0 donne $\varphi(t) > \varphi(0)$ pour $t > 0$ assez petit (le taux d'accroissement tend vers $\varphi'(0)$, R7 §3). Près du maximum, le pas plein est accepté : la méthode redevient Newton pur. Le code s'arrête quand $\max_j\lvert\delta_j\rvert \le 10^{-10}\,(1 + \max_j\lvert w_j\rvert)$, après avoir fait ce dernier pas.
+$$\mathbf{w}_{k+1} = \mathbf{w}_k + t_k\,\boldsymbol{\delta}_k, \qquad t_k = \text{le premier nombre de } 1, \tfrac12, \tfrac14, \ldots \text{ tel que } \ell(\mathbf{w}_k + t_k\boldsymbol{\delta}_k) \ge \ell(\mathbf{w}_k) \tag{3.5}$$
+(le code tolère une baisse de $10^{-12}(1 + \lvert\ell(\mathbf{w}_k)\rvert)$, l'arrondi). Newton pur prend toujours $t_k = 1$ ; loin du maximum, le pas plein peut faire **baisser** $\ell$ (M05a §4, un départ trop loin ; §5 en donne un exemple). La division par deux s'arrête toujours : avec $\varphi(t) = \ell(\mathbf{w}_k + t\boldsymbol{\delta}_k)$, la règle de la chaîne (M19 §1) donne $\varphi'(0) = \mathbf{b}^\top\boldsymbol{\delta}_k = \mathbf{b}^\top\mathbf{A}^{-1}\mathbf{b} = \mathbf{c}^\top\mathbf{A}\mathbf{c}$ avec $\mathbf{c} = \mathbf{A}^{-1}\mathbf{b}$, qui est $> 0$ dès que $\mathbf{b} \ne \mathbf{0}$ ($\mathbf{A}$ définie positive, M12c §7) ; une dérivée positive en 0 donne $\varphi(t) > \varphi(0)$ pour $t > 0$ assez petit (le taux d'accroissement tend vers $\varphi'(0)$, R7 §3). Près du maximum, le pas plein est accepté : par Taylor d'ordre 2 (M19 §1, avec un reste en $\lVert\boldsymbol{\delta}\rVert^3$), $\ell(\mathbf{w} + \boldsymbol{\delta}) - \ell(\mathbf{w}) = \mathbf{b}^\top\boldsymbol{\delta} - \frac12\boldsymbol{\delta}^\top\mathbf{A}\boldsymbol{\delta} + O(\lVert\boldsymbol{\delta}\rVert^3) = \frac12\,\mathbf{b}^\top\mathbf{A}^{-1}\mathbf{b} + O(\lVert\boldsymbol{\delta}\rVert^3)$, et $\frac12\,\mathbf{b}^\top\mathbf{A}^{-1}\mathbf{b} = \frac12\,\boldsymbol{\delta}^\top\mathbf{A}\boldsymbol{\delta} \ge \frac{\lambda_{\min}(\mathbf{A})}{2}\lVert\boldsymbol{\delta}\rVert^2$ l'emporte quand $\boldsymbol{\delta}$ est petit : la méthode redevient Newton pur. Le code s'arrête quand $\max_j\lvert\delta_j\rvert \le 10^{-10}\,(1 + \max_j\lvert w_j\rvert)$, après avoir fait ce dernier pas.
 
 ### 3.5 Les moindres carrés pondérés
 
@@ -197,7 +201,7 @@ Avec $\mathbf{X} = \mathbf{1}$ ($p = 1$), et $S = \sum_iy_i$, $c = \sum_i\ln(y_i
 $$w_{k+1} = w_k + \bar{y}\,e^{-w_k} - 1, \qquad w_k \to w^\star = \ln\bar{y}. \tag{3.10}$$
 
 - **Le premier pas va au-delà du maximum quand $\bar{y} > 1$.** Depuis $w_0 = 0$, $w_1 = \bar{y} - 1$. Or $\ln a \le a - 1$ pour tout $a > 0$ : $\ln$ est concave ($(\ln)''(a) = -1/a^2 < 0$), donc au-dessous de sa tangente en 1, la droite $a \mapsto a - 1$ (M05a §1). Ainsi $w_1 \ge w^\star$, et si $\bar{y} > 1$, $w_0 = 0 < w^\star \le w_1$ : le premier pas saute par-dessus le maximum.
-- **Ensuite, la suite descend vers $w^\star$.** Avec $u_k = w_k - w^\star$, (3.10) s'écrit $u_{k+1} = \psi(u_k)$, $\psi(u) = u + e^{-u} - 1$. La fonction $g(u) = e^{-u} - (1 - u)$ est strictement convexe ($g'' = e^{-u} > 0$) et $g'(0) = 0$ : 0 est son unique minimum (M05a §2), où $g(0) = 0$, donc $\psi(u) = g(u) > 0$ pour $u \ne 0$. Et pour $u > 0$, $e^{-u} < 1$ (R6 §1), donc $\psi(u) < u$. Si $\bar{y} \ne 1$, $u_1 > 0$, puis $0 < u_{k+1} < u_k$.
+- **Ensuite, la suite descend vers $w^\star$.** Avec $u_k = w_k - w^\star$, (3.10) s'écrit $u_{k+1} = \psi(u_k)$, $\psi(u) = u + e^{-u} - 1$. La fonction $g(u) = e^{-u} - (1 - u)$ est strictement convexe ($g'' = e^{-u} > 0$) et $g'(0) = 0$ : 0 est son unique minimum (M05a §2), où $g(0) = 0$, donc $\psi(u) = g(u) > 0$ pour $u \ne 0$. Et pour $u > 0$, $e^{-u} < 1$ (R6 §1), donc $\psi(u) < u$. Si $\bar{y} \ne 1$, $u_1 > 0$, puis $0 < u_{k+1} < u_k$. Et $u_k \to 0$ : pour $u > 0$, Taylor avec reste (M05a §3) donne $e^{-u} \le 1 - u + \frac{u^2}{2}$, donc $\psi(u) \le \frac{u^2}{2}$, et $\psi(u) \le \frac{u}{2}$ si $u \le 1$ ; si $u > 1$, $\psi(u) < u - 1 + e^{-1}$. L'écart perd donc au moins $1 - e^{-1} \approx 0{,}63$ à chaque pas tant qu'il dépasse 1, puis il est au moins divisé par 2 à chaque pas : $w_k \to w^\star$.
 - **L'erreur est élevée au carré.** Taylor en 0 (M05a §3) : $e^{-u} = 1 - u + \frac{u^2}{2} + O(u^3)$, donc $\psi(u) = \frac{u^2}{2} + O(u^3)$ et $u_{k+1} \approx \frac12\,u_k^2$, la convergence quadratique de M05a §4 (avec $f(w) = \bar{y} - e^w$, $\frac{f''(w^\star)}{2f'(w^\star)} = \frac{-\bar{y}}{-2\bar{y}} = \frac12$).
 
 Le code de ce cas, `intercept_only`, appelle `approx.newton` de `mymath` sur $f(w) = \bar{y} - e^w$, de dérivée $-e^w$.
@@ -231,6 +235,8 @@ L'erreur est multipliée par environ $\rho$ à chaque pas : une convergence **li
 PROPERTIES = r"""
 ## 4. Deux propriétés et un cas limite
 
+Les démonstrations suivent R4 §8 : l'énoncé, les objets introduits, chaque « donc » appuyé sur ce qu'il cite, une conclusion et ∎.
+
 **Lemme.** Sous (H1) et (H2), pour tout $\mathbf{w}$, la matrice $\mathbf{X}^\top\mathbf{W}\mathbf{X}$ est symétrique définie positive.
 
 *Démonstration.* Elle est symétrique : $(\mathbf{X}^\top\mathbf{W}\mathbf{X})^\top = \mathbf{X}^\top\mathbf{W}^\top\mathbf{X} = \mathbf{X}^\top\mathbf{W}\mathbf{X}$ (M09a §4 ; $\mathbf{W}$ est diagonale). Pour $\mathbf{v} \in \mathbb{R}^p$, posons $\mathbf{u} = \mathbf{X}\mathbf{v}$, de forme $(n,)$ :
@@ -245,7 +251,7 @@ Une somme de termes positifs ou nuls n'est nulle que si chaque terme l'est. Par 
 
 *Où servent les hypothèses.* (H1) donne $\mu_i > 0$ dans (4.1) ; (H2) donne $\ker\mathbf{X} = \lbrace \mathbf{0} \rbrace$. Sans (H2), pour $\mathbf{v} \in \ker\mathbf{X}$ non nul, $\mathbf{X}(\mathbf{w} + s\mathbf{v}) = \mathbf{X}\mathbf{w}$, donc $\ell(\mathbf{w} + s\mathbf{v}) = \ell(\mathbf{w})$ pour tout $s$ : $\varphi'' = 0$ dans cette direction, et un maximum, s'il existe, est atteint sur toute une droite (la cellule « cas limite » le montre).
 
-*Ce qu'elle garantit en pratique.* Le pas de Newton (3.4) est toujours défini et c'est une direction de montée, donc le garde-fou de (3.5) s'arrête ; le point où le gradient s'annule est **le** maximum de vraisemblance, sans maximum local où se perdre. Deux méthodes différentes (la nôtre, scikit-learn, SciPy) doivent trouver le même point, et la nôtre aussi depuis plusieurs départs.
+*Ce qu'elle garantit en pratique.* Le pas de Newton (3.4) est toujours défini et c'est une direction de montée, donc le garde-fou de (3.5) s'arrête ; le point où le gradient s'annule est **le** maximum de vraisemblance, sans maximum local où se perdre. Trois méthodes différentes (la nôtre, scikit-learn, SciPy) doivent trouver le même point, et la nôtre aussi depuis plusieurs départs.
 
 *Vérifiée numériquement par* `test_hessian_is_negative_definite`, `test_fit_finds_the_same_maximum_from_random_starts`, et l'accord avec deux oracles, `test_fit_matches_sklearn` et `test_fit_matches_scipy_minimize` (§7).
 
@@ -255,7 +261,7 @@ et, pour une feature qui vaut 0 ou 1 (un groupe), la somme des moyennes ajustée
 
 *Démonstration.* Par (H4), $\hat{\mathbf{w}}$ existe ; c'est un point critique (propriété 1, (iii), dont l'argument n'utilise pas (H2)) : $\nabla\ell(\hat{\mathbf{w}}) = \mathbf{0}$, et (3.2), qui repose sur (H1), donne $\mathbf{X}^\top(\mathbf{y} - \hat{\boldsymbol{\mu}}) = \mathbf{0}$. Sa coordonnée $j$ s'écrit $\sum_i X_{ij}\,(y_i - \hat{\mu}_i) = 0$. Par (H3), la colonne 1 est $\mathbf{1}$ : $\sum_i (y_i - \hat{\mu}_i) = 0$, c'est (4.2). Pour une feature $j$ qui vaut 0 ou 1, $X_{ij} = 1$ exactement dans le groupe, et la coordonnée $j$ dit $\sum_{i \in \text{groupe}}\hat{\mu}_i = \sum_{i \in \text{groupe}}y_i$. ∎
 
-*Où servent les hypothèses.* (H4) : sans maximum, pas de $\hat{\mathbf{w}}$ (le théorème 3, ci-dessous). (H3) : sans colonne de 1, rien n'impose (4.2) ; sur l'exemple de §5 privé de sa colonne de 1, $\sum_i\hat{\mu}_i \approx 12{,}35$ pour $\sum_iy_i = 12$ (cellule « cas limite »). (H1) donne la formule (3.2).
+*Où servent les hypothèses.* (H4) : sans maximum, pas de $\hat{\mathbf{w}}$ (le théorème 3, ci-dessous). (H3) : sans colonne de 1, rien n'impose (4.2) ; sur l'exemple de §5 privé de sa colonne de 1, $\sum_i\hat{\mu}_i \approx 9{,}63$ pour $\sum_iy_i = 11$ (cellule « cas limite »). (H1) donne la formule (3.2).
 
 *Ce qu'elle garantit en pratique.* Le modèle reproduit le nombre total d'événements, et celui de chaque groupe d'une feature 0/1 : il est calibré en moyenne, sans réglage. C'est aussi un test d'une implémentation qui ne demande aucun oracle.
 
@@ -263,7 +269,7 @@ et, pour une feature qui vaut 0 ou 1 (un groupe), la somme des moyennes ajustée
 
 **Théorème 3 (quand le maximum existe).** Sous (H1) et (H2), $\ell$ atteint son maximum si et seulement s'il n'existe **aucune** direction $\mathbf{d} \ne \mathbf{0}$ telle que
 $$\mathbf{X}\mathbf{d} \le \mathbf{0} \ \text{(coordonnée par coordonnée)} \qquad \text{et} \qquad (\mathbf{X}\mathbf{d})_i = 0 \ \text{pour tout } i \text{ tel que } y_i > 0. \tag{4.3}$$
-Trois conséquences. (a) Si tous les $y_i > 0$, le maximum existe : (4.3) imposerait $\mathbf{X}\mathbf{d} = \mathbf{0}$, donc $\mathbf{d} = \mathbf{0}$ par (H2). (b) Si tous les $y_i$ sont nuls et (H3), il n'existe pas : $\mathbf{d} = -\mathbf{e}_1$ donne $\mathbf{X}\mathbf{d} = -\mathbf{1}$. (c) Si une feature $j$ qui vaut 0 ou 1 a un groupe dont tous les comptages sont nuls, il n'existe pas : $\mathbf{d} = -\mathbf{e}_j$ donne $(\mathbf{X}\mathbf{d})_i = -1$ dans le groupe, 0 ailleurs.
+Trois conséquences. (a) Si tous les $y_i > 0$, le maximum existe : (4.3) imposerait $\mathbf{X}\mathbf{d} = \mathbf{0}$, donc $\mathbf{d} = \mathbf{0}$ par (H2). (b) Si tous les $y_i$ sont nuls et (H3), il n'existe pas : $\mathbf{d} = -\mathbf{e}_1$ donne $\mathbf{X}\mathbf{d} = -\mathbf{1}$. (c) Si une feature $j$ qui vaut 0 ou 1 n'a que des comptages nuls dans le groupe où elle vaut 1, il n'existe pas : $\mathbf{d} = -\mathbf{e}_j$ donne $(\mathbf{X}\mathbf{d})_i = -1$ dans ce groupe, 0 ailleurs. Si c'est le groupe où elle vaut 0, il faut (H3) : $\mathbf{d} = \mathbf{e}_j - \mathbf{e}_1$ donne $(\mathbf{X}\mathbf{d})_i = -1$ dans ce groupe, 0 ailleurs ; sans colonne de 1, le maximum peut exister ($\mathbf{X} = (0, 0, 1, 1)^\top$, $\mathbf{y} = (0, 0, 3, 4)$ : $\hat{w} = \ln\frac72$).
 
 *Démonstration du « seulement si » : le cas où (H4) tombe.* Supposons qu'une direction $\mathbf{d} \ne \mathbf{0}$ vérifie (4.3), et soit $\mathbf{w}$ quelconque, $\mathbf{z} = \mathbf{X}\mathbf{w}$. Dans (3.1), séparons les exemples selon le signe de $(\mathbf{X}\mathbf{d})_i$ ; quand $(\mathbf{X}\mathbf{d})_i < 0$, (4.3) impose $y_i = 0$, donc le terme $i$ vaut $-e^{z_i + s(\mathbf{X}\mathbf{d})_i}$ (avec $\ln 0! = 0$) :
 $$\ell(\mathbf{w} + s\mathbf{d}) = \sum_{i\,:\,(\mathbf{X}\mathbf{d})_i = 0}\big[y_iz_i - e^{z_i} - \ln(y_i!)\big] \;-\; \sum_{i\,:\,(\mathbf{X}\mathbf{d})_i < 0} e^{z_i + s(\mathbf{X}\mathbf{d})_i}.$$
@@ -273,16 +279,16 @@ La première somme ne dépend pas de $s$. Par (H2), $\mathbf{X}\mathbf{d} \ne \m
 
 Supposons qu'aucune direction ne vérifie (4.3). Chaque terme de (3.1), $f_i(t) = y_it - e^t - \ln(y_i!)$, est majoré par un nombre $M_i$ : si $y_i > 0$, $f_i$ est maximale en $t = \ln y_i$ (M05a §2) ; si $y_i = 0$, $f_i = -e^t < 0$. Et $f_i(t) \to -\infty$ quand $t \to +\infty$ ($e^t$ l'emporte sur $y_it$, R6 §5) ; si $y_i > 0$, aussi quand $t \to -\infty$ ($y_it \to -\infty$ et $-e^t < 0$).
 
-Sur la sphère unité $\lbrace \mathbf{u} : \lVert\mathbf{u}\rVert = 1 \rbrace$, posons $m(\mathbf{u}) = \max\big(\max_i\,(\mathbf{X}\mathbf{u})_i,\ \max_{i : y_i > 0}\,-(\mathbf{X}\mathbf{u})_i\big)$. Si $m(\mathbf{u}) \le 0$, alors $\mathbf{X}\mathbf{u} \le \mathbf{0}$, et $(\mathbf{X}\mathbf{u})_i \ge 0$, donc $(\mathbf{X}\mathbf{u})_i = 0$, pour $y_i > 0$ : $\mathbf{u}$ vérifierait (4.3). Donc $m > 0$ sur la sphère. $m$ est continue (un maximum de fonctions linéaires) et la sphère est fermée et bornée : $m$ y atteint son minimum $c > 0$ (admis : une fonction continue sur un fermé borné atteint ses extrema, M05a §2 en dimension 1, M05b §7).
+Sur la sphère unité $\lbrace \mathbf{u} : \lVert\mathbf{u}\rVert = 1 \rbrace$, posons $m(\mathbf{u}) = \max\big(\max_i\,(\mathbf{X}\mathbf{u})_i,\ \max_{i : y_i > 0}\,-(\mathbf{X}\mathbf{u})_i\big)$ (le second maximum est omis s'il n'y a aucun $y_i > 0$). Si $m(\mathbf{u}) \le 0$, alors $\mathbf{X}\mathbf{u} \le \mathbf{0}$, et $(\mathbf{X}\mathbf{u})_i \ge 0$, donc $(\mathbf{X}\mathbf{u})_i = 0$, pour $y_i > 0$ : $\mathbf{u}$ vérifierait (4.3). Donc $m > 0$ sur la sphère. $m$ est continue (un maximum de fonctions linéaires) et la sphère est fermée et bornée : $m$ y atteint son minimum $c > 0$ (admis : une fonction continue sur un fermé borné atteint ses extrema, M05a §2 en dimension 1, M05b §7).
 
 Soit $\mathbf{w} \ne \mathbf{0}$, $r = \lVert\mathbf{w}\rVert$ et $\mathbf{u} = \mathbf{w}/r$. Comme $m(\mathbf{u}) \ge c$, il existe un $i$ tel que, ou bien $z_i = r\,(\mathbf{X}\mathbf{u})_i \ge cr$, ou bien $y_i > 0$ et $z_i \le -cr$. Dans les deux cas, $f_i(z_i) \le F(cr)$, où $F(s) = \max_i\max\big(\sup_{t \ge s}f_i(t),\ \sup_{t \le -s}f_i(t)\ \text{si } y_i > 0\big)$ tend vers $-\infty$ quand $s \to +\infty$. Donc $\ell(\mathbf{w}) \le \sum_{k \ne i}M_k + f_i(z_i) \le C + F(c\lVert\mathbf{w}\rVert)$, avec $C = \sum_kM_k - \min_kM_k$ : $\ell(\mathbf{w}) \to -\infty$ quand $\lVert\mathbf{w}\rVert \to \infty$.
 
-L'ensemble $S = \lbrace \mathbf{w} : \ell(\mathbf{w}) \ge \ell(\mathbf{0}) \rbrace$ est donc borné ; il est fermé ($\ell$ est continue) et contient $\mathbf{0}$. $\ell$ y atteint un maximum (le même résultat admis), qui est un maximum sur tout $\mathbb{R}^p$, puisque $\ell < \ell(\mathbf{0})$ hors de $S$. ∎ L'existence et l'unicité pour ces modèles sont étudiées par Wedderburn (1976) ; cette démonstration est rédigée ici sans le suivre.
+L'ensemble $S = \lbrace \mathbf{w} : \ell(\mathbf{w}) \ge \ell(\mathbf{0}) \rbrace$ est donc borné ; il est fermé ($\ell$ est continue) et contient $\mathbf{0}$. $\ell$ y atteint un maximum (le même résultat admis), qui est un maximum sur tout $\mathbb{R}^p$, puisque $\ell < \ell(\mathbf{0})$ hors de $S$. ∎ L'existence et l'unicité pour ces modèles sont étudiées par Haberman (1974) et Wedderburn (1976) ; cette démonstration est rédigée ici sans les suivre.
 
 </details>
 
 **Le cas où une hypothèse tombe.** La cellule « cas limite » montre les trois hypothèses qui tombent, sur des nombres :
-- **(H4)** : six soirées sans moustiquaire (feature 0 : 2, 0, 3, 1, 4 et 1 piqûres) et six avec (feature 1 : aucune piqûre). $\mathbf{d} = (0, -1)$ vérifie (4.3) : $(\mathbf{X}\mathbf{d})_i = -1$ avec moustiquaire, où $y_i = 0$, et 0 sans. Par le théorème 3 (c), il n'y a pas de maximum : $\ell$ croît sans fin le long de $\mathbf{d}$, et `fit` lève `NoMaximumError`. Le modèle dit que la moustiquaire multiplie la moyenne par $e^{w_2}$ ; les données poussent ce facteur vers 0, que $e^{w_2}$ n'atteint pour aucun $w_2$ fini. L'expérience de §8 suit les itérés de Newton.
+- **(H4)** : six soirées sans moustiquaire (feature 0 : 2, 0, 3, 1, 4 et 1 piqûres) et six avec (feature 1 : aucune piqûre). $\mathbf{d} = (0, -1)$ vérifie (4.3) : $(\mathbf{X}\mathbf{d})_i = -1$ avec moustiquaire, où $y_i = 0$, et 0 sans. Par le théorème 3 (c), il n'y a pas de maximum : $\ell$ croît strictement le long de $\mathbf{d}$, vers une limite finie qu'elle n'atteint pas, et `fit` lève `NoMaximumError`. Le modèle dit que la moustiquaire multiplie la moyenne par $e^{w_2}$ ; les données poussent ce facteur vers 0, que $e^{w_2}$ n'atteint pour aucun $w_2$ fini. L'expérience de §8 suit les itérés de Newton.
 - **(H2)** : l'exemple de §5 avec une troisième colonne égale à deux fois la feature : `check_data` refuse ces données, et $\ell$ est constante le long du noyau, donc un maximum, s'il existe, n'est pas unique (propriété 1).
 - **(H3)** : l'exemple de §5 sans sa colonne de 1 : le maximum existe, mais (4.2) n'est plus vraie.
 """
@@ -306,8 +312,8 @@ def limit_case():
         print(f"     fit lève NoMaximumError après {steps} pas, en w = {np.round(last, 4).tolist()} :")
         print("     " + str(exc).split(". Look")[0] + ".")
     # (H2) a third column equal to twice the feature of §5
-    X_hand = np.column_stack([np.ones(5), [-1.0, 0.0, 1.0, 2.0, 3.0]])
-    y_hand = np.array([0.0, 1.0, 2.0, 4.0, 5.0])
+    X_hand = np.column_stack([np.ones(5), [-2.0, -1.0, 0.0, 2.0, 4.0]])
+    y_hand = np.array([0.0, 0.0, 3.0, 4.0, 4.0])
     X_dep = np.column_stack([X_hand, 2 * X_hand[:, 1]])
     try:
         pn.check_data(X_dep, y_hand)
@@ -337,42 +343,42 @@ HAND = r"""
 
 | soirée $i$ | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
-| $x_i$ (°C) | $-1$ | $0$ | $1$ | $2$ | $3$ |
-| $y_i$ | 0 | 1 | 2 | 4 | 5 |
+| $x_i$ (°C) | $-2$ | $-1$ | $0$ | $2$ | $4$ |
+| $y_i$ | 0 | 0 | 3 | 4 | 4 |
 
 $\mathbf{X}$ a deux colonnes, $\mathbf{1}$ et $\mathbf{x}$ : $n = 5$, $p = 2$, et $\mathbf{w} = (w_1, w_2)$, ordonnée à l'origine et pente.
 
-**Le contrôle de vraisemblance, annoncé avant le calcul.** (a) Les comptages croissent avec $x$ : la pente $\hat{w}_2$ doit être positive. (b) Sans la feature, (3.10) donne $\ln\bar{y} = \ln\frac{12}{5} \approx 0{,}875$ ; les données vont de 0 à 5 piqûres sur 4 °C, donc $e^{4\hat{w}_2}$, le rapport des moyennes ajustées extrêmes, doit être de l'ordre de 10, soit $\hat{w}_2$ de l'ordre de $\frac14\ln 10 \approx 0{,}6$. (c) Par la propriété 2, $\sum_i\hat{\mu}_i = 12$. (d) $\det(\mathbf{X}^\top\mathbf{X})$ est un entier : (3.8) donne des fractions de dénominateur un diviseur de ce déterminant.
+**Le contrôle de vraisemblance, annoncé avant le calcul.** (a) Les comptages croissent avec $x$ : la pente $\hat{w}_2$ doit être positive. (b) Sans la feature, (3.10) donne $\ln\bar{y} = \ln\frac{11}{5} \approx 0{,}788$ ; les données vont de 0 à 4 piqûres sur 6 °C, donc $e^{6\hat{w}_2}$, le rapport des moyennes ajustées extrêmes, doit être de l'ordre de 10, soit $\hat{w}_2$ de l'ordre de $\frac16\ln 10 \approx 0{,}4$. (c) Par la propriété 2, $\sum_i\hat{\mu}_i = 11$. (d) $\det(\mathbf{X}^\top\mathbf{X})$ est un entier : (3.8) donne des fractions de dénominateur un diviseur de ce déterminant.
 
 **Le premier pas, en fractions.** En $\mathbf{w}_0 = \mathbf{0}$ : $\mathbf{z} = \mathbf{0}$, $\boldsymbol{\mu} = \mathbf{1}$, et, par (3.1),
-$$\ell(\mathbf{0}) = \sum_i (0 - 1) - \sum_i\ln(y_i!) = -5 - (\ln 2 + \ln 24 + \ln 120) \approx -13{,}658693$$
-($0! = 1! = 1$, $2! = 2$, $4! = 24$, $5! = 120$). Avec $\mathbf{y} - \mathbf{1} = (-1, 0, 1, 3, 4)$, (3.2) donne
-$$\nabla\ell(\mathbf{0}) = \mathbf{X}^\top(\mathbf{y} - \mathbf{1}) = \begin{pmatrix} -1 + 0 + 1 + 3 + 4 \\ (-1)(-1) + 0 \cdot 0 + 1 \cdot 1 + 2 \cdot 3 + 3 \cdot 4 \end{pmatrix} = \begin{pmatrix} 7 \\ 20 \end{pmatrix},$$
-et (3.3), avec $\mathbf{W} = \mathbf{I}$ :
-$$\nabla^2\ell(\mathbf{0}) = -\mathbf{X}^\top\mathbf{X} = -\begin{pmatrix} 5 & \sum_ix_i \\ \sum_ix_i & \sum_ix_i^2 \end{pmatrix} = -\begin{pmatrix} 5 & 5 \\ 5 & 15 \end{pmatrix}, \qquad \det(\mathbf{X}^\top\mathbf{X}) = 75 - 25 = 50.$$
+$$\ell(\mathbf{0}) = \sum_i (0 - 1) - \sum_i\ln(y_i!) = -5 - (\ln 6 + 2\ln 24) \approx -13{,}147867$$
+($0! = 1$, $3! = 6$, $4! = 24$). Avec $\mathbf{y} - \mathbf{1} = (-1, -1, 2, 3, 3)$, (3.2) donne
+$$\nabla\ell(\mathbf{0}) = \mathbf{X}^\top(\mathbf{y} - \mathbf{1}) = \begin{pmatrix} -1 - 1 + 2 + 3 + 3 \\ (-2)(-1) + (-1)(-1) + 0 \cdot 2 + 2 \cdot 3 + 4 \cdot 3 \end{pmatrix} = \begin{pmatrix} 6 \\ 21 \end{pmatrix},$$
+et (3.3), avec $\mathbf{W} = \mathbf{I}$, $\sum_ix_i = 3$ et $\sum_ix_i^2 = 4 + 1 + 0 + 4 + 16 = 25$ :
+$$\nabla^2\ell(\mathbf{0}) = -\mathbf{X}^\top\mathbf{X} = -\begin{pmatrix} 5 & 3 \\ 3 & 25 \end{pmatrix}, \qquad \det(\mathbf{X}^\top\mathbf{X}) = 125 - 9 = 116.$$
 Par (3.8), avec l'inverse d'une matrice $2 \times 2$ (M09a §7) :
-$$\boldsymbol{\delta}_0 = \frac{1}{50}\begin{pmatrix} 15 & -5 \\ -5 & 5 \end{pmatrix}\begin{pmatrix} 7 \\ 20 \end{pmatrix} = \frac{1}{50}\begin{pmatrix} 105 - 100 \\ -35 + 100 \end{pmatrix} = \begin{pmatrix} 1/10 \\ 13/10 \end{pmatrix}.$$
-*Contrôle* : c'est la droite des moindres carrés de $\mathbf{y} - \mathbf{1}$ en fonction de $x$ (M09b §3). Avec $\bar{x} = 1$, $\sum_i(x_i - \bar{x})^2 = 4 + 1 + 0 + 1 + 4 = 10$ et $\sum_i(x_i - \bar{x})(y_i - 1) = (-2)(-1) + (-1)(0) + 0 \cdot 1 + 1 \cdot 3 + 2 \cdot 4 = 13$ : la pente vaut $\frac{13}{10}$, et l'ordonnée à l'origine $\overline{y - 1} - \frac{13}{10}\,\bar{x} = \frac{7}{5} - \frac{13}{10} = \frac{1}{10}$. Le dénominateur 10 divise bien 50 (contrôle (d)).
+$$\boldsymbol{\delta}_0 = \frac{1}{116}\begin{pmatrix} 25 & -3 \\ -3 & 5 \end{pmatrix}\begin{pmatrix} 6 \\ 21 \end{pmatrix} = \frac{1}{116}\begin{pmatrix} 150 - 63 \\ -18 + 105 \end{pmatrix} = \frac{1}{116}\begin{pmatrix} 87 \\ 87 \end{pmatrix} = \begin{pmatrix} 3/4 \\ 3/4 \end{pmatrix}.$$
+*Contrôle* : remis dans le système $\mathbf{X}^\top\mathbf{X}\,\boldsymbol{\delta}_0 = \mathbf{X}^\top(\mathbf{y} - \mathbf{1})$ dont (3.8) est la solution, $\mathbf{X}^\top\mathbf{X}\,\boldsymbol{\delta}_0 = \big(5 \cdot \frac34 + 3 \cdot \frac34,\ 3 \cdot \frac34 + 25 \cdot \frac34\big) = (6, 21) = \mathbf{X}^\top(\mathbf{y} - \mathbf{1})$. Le dénominateur 4 divise bien $116 = 4 \times 29$ (contrôle (d)). L'égalité des deux coordonnées est une coïncidence de ces données.
 
-**Le pas plein est refusé.** En $\boldsymbol{\delta}_0 = (\frac{1}{10}, \frac{13}{10})$, $\mathbf{z} = \frac{1}{10} + \frac{13}{10}\,\mathbf{x} = (-\frac65, \frac{1}{10}, \frac75, \frac{27}{10}, 4)$, exactement ; les moyennes $e^{z_i} \approx (0{,}3012 ;\ 1{,}1052 ;\ 4{,}0552 ;\ 14{,}8797 ;\ 54{,}5982)$ ne sont plus rationnelles (4 décimales gardées), de somme $\approx 74{,}9394$ pour 12 piqûres observées. Avec $\sum_iy_iz_i = 0 + \frac{1}{10} + \frac{14}{5} + \frac{54}{5} + 20 = \frac{337}{10}$, (3.1) donne $\ell(\boldsymbol{\delta}_0) \approx 33{,}7 - 74{,}9394 - 8{,}6587 \approx -49{,}898$, **plus bas** que $\ell(\mathbf{0})$ : le pas plein va trop loin (la pente $\frac{13}{10}$ est une pente de comptages, pas de logarithmes). Le garde-fou de (3.5) essaie $t_0 = \frac12$ : $\mathbf{w}_1 = (\frac{1}{20}, \frac{13}{20})$, $\mathbf{z} = (-\frac35, \frac{1}{20}, \frac{7}{10}, \frac{27}{20}, 2)$, $\sum_ie^{z_i} \approx 14{,}8603$, $\sum_iy_iz_i = \frac{337}{20}$, et $\ell(\mathbf{w}_1) \approx 16{,}85 - 14{,}8603 - 8{,}6587 \approx -6{,}669$ : il monte, le demi-pas est pris.
+**Le pas plein est refusé.** En $\boldsymbol{\delta}_0 = (\frac34, \frac34)$, $\mathbf{z} = \frac34 + \frac34\,\mathbf{x} = (-\frac34, 0, \frac34, \frac94, \frac{15}{4})$, exactement ; les moyennes $e^{z_i} \approx (0{,}4724 ;\ 1 ;\ 2{,}1170 ;\ 9{,}4877 ;\ 42{,}5211)$ ne sont plus rationnelles, sauf $e^0 = 1$ (4 décimales gardées), de somme $\approx 55{,}5982$ pour 11 piqûres observées. Avec $\sum_iy_iz_i = 0 + 0 + \frac94 + 9 + 15 = \frac{105}{4}$, (3.1) donne $\ell(\boldsymbol{\delta}_0) \approx 26{,}25 - 55{,}5982 - 8{,}1479 \approx -37{,}496$, **plus bas** que $\ell(\mathbf{0})$ : le pas plein va trop loin (la pente $\frac34$ est une pente de comptages, pas de logarithmes). Le garde-fou de (3.5) essaie $t_0 = \frac12$ : $\mathbf{w}_1 = (\frac38, \frac38)$, $\mathbf{z} = (-\frac38, 0, \frac38, \frac98, \frac{15}{8})$, $\sum_ie^{z_i} \approx 12{,}7433$, $\sum_iy_iz_i = \frac{105}{8}$, et $\ell(\mathbf{w}_1) \approx 13{,}125 - 12{,}7433 - 8{,}1479 \approx -7{,}766$ : il monte, le demi-pas est pris.
 
-**La suite, par le code** (les moyennes ne sont plus rationnelles) : la cellule ci-dessous donne les itérés. Dès $\mathbf{w}_1$, les pas sont pleins ; `fit` s'arrête après 6 pas, quand la direction de Newton ne dépasse plus $10^{-10}$, en $\hat{\mathbf{w}} \approx (-0{,}120104 ;\ 0{,}629163)$.
+**La suite, par le code** (les moyennes ne sont plus rationnelles) : la cellule ci-dessous donne les itérés. Dès $\mathbf{w}_1$, les pas sont pleins ; `fit` s'arrête après 6 pas, quand $\max_j\lvert\delta_j\rvert$ ne dépasse plus $10^{-10}(1 + \max_j\lvert w_j\rvert)$, le critère de §3.4, en $\hat{\mathbf{w}} \approx (0{,}317805 ;\ 0{,}335278)$.
 
-**Le résultat, et les contrôles annoncés.** (a) $\hat{w}_2 \approx 0{,}629 > 0$. (b) $e^{4\hat{w}_2} \approx 12{,}4$, de l'ordre de 10, et $\hat{w}_2$ est proche de l'ordre de grandeur annoncé, 0,6. (c) $\hat{\boldsymbol{\mu}} \approx (0{,}4727 ;\ 0{,}8868 ;\ 1{,}6637 ;\ 3{,}1212 ;\ 5{,}8555)$, de somme 12, à l'arrondi près. Chaque degré multiplie le nombre moyen de piqûres par $e^{\hat{w}_2} \approx 1{,}88$. Les erreurs types (3.9) valent environ $0{,}61$ et $0{,}26$ : avec cinq soirées, l'approximation asymptotique est grossière, et la pente n'est qu'à 2,5 erreurs types de 0.
+**Le résultat, et les contrôles annoncés.** (a) $\hat{w}_2 \approx 0{,}335 > 0$. (b) $e^{6\hat{w}_2} \approx 7{,}5$, de l'ordre de 10, et $\hat{w}_2$ est proche de l'ordre de grandeur annoncé, 0,4. (c) $\hat{\boldsymbol{\mu}} \approx (0{,}7028 ;\ 0{,}9827 ;\ 1{,}3741 ;\ 2{,}6868 ;\ 5{,}2536)$, de somme 11, à l'arrondi près. Chaque degré multiplie le nombre moyen de piqûres par $e^{\hat{w}_2} \approx 1{,}40$. Les erreurs types (3.9) valent environ $0{,}44$ et $0{,}15$ : avec cinq soirées, l'approximation asymptotique est grossière, et la pente n'est qu'à 2,3 erreurs types de 0.
 
-**Le modèle sans feature**, sur les mêmes comptages : $\bar{y} = \frac{12}{5} > 1$, donc (3.10) donne $w_1 = \bar{y} - 1 = \frac75 = 1{,}4$, au-delà du maximum $w^\star = \ln\frac{12}{5} \approx 0{,}875469$ ; puis les écarts $u_k = w_k - w^\star$ décroissent et sont à peu près élevés au carré à chaque pas, $u_{k+1}/u_k^2 \to \frac12$ (cellule suivante).
+**Le modèle sans feature**, sur les mêmes comptages : $\bar{y} = \frac{11}{5} > 1$, donc (3.10) donne $w_1 = \bar{y} - 1 = \frac65 = 1{,}2$, au-delà du maximum $w^\star = \ln\frac{11}{5} \approx 0{,}788457$ ; puis les écarts $u_k = w_k - w^\star$ décroissent et sont à peu près élevés au carré à chaque pas, $u_{k+1}/u_k^2 \to \frac12$ (cellule suivante).
 """
 
 HAND_CODE = r'''
 # What was found by hand (§5), and the tolerance of the comparison
-X_HAND = np.column_stack([np.ones(5), [-1.0, 0.0, 1.0, 2.0, 3.0]])
-Y_HAND = np.array([0.0, 1.0, 2.0, 4.0, 5.0])
-HAND_RESULT = {"delta_0": [Fraction(1, 10), Fraction(13, 10)],       # Eq. (3.8), by hand
-               "w_1 (t_0 = 1/2)": [Fraction(1, 20), Fraction(13, 20)],
-               "l(0)": -5 - (math.log(2) + math.log(24) + math.log(120)),
-               "w* without feature": math.log(Fraction(12, 5))}
+X_HAND = np.column_stack([np.ones(5), [-2.0, -1.0, 0.0, 2.0, 4.0]])
+Y_HAND = np.array([0.0, 0.0, 3.0, 4.0, 4.0])
+HAND_RESULT = {"delta_0": [Fraction(3, 4), Fraction(3, 4)],           # Eq. (3.8), by hand
+               "w_1 (t_0 = 1/2)": [Fraction(3, 8), Fraction(3, 8)],
+               "l(0)": -5 - (math.log(6) + 2 * math.log(24)),
+               "w* without feature": math.log(Fraction(11, 5))}
 # Tolerance 1e-12: the module works in float64; a QR on X (condition number 2.4) and a few sums of five terms of
-# size at most 20 lose at most a few units of 1e-15. 1e-12 leaves room, and still catches any wrong fraction.
+# size at most 25 lose at most a few units of 1e-15. 1e-12 leaves room, and still catches any wrong fraction.
 TOLERANCE = 1e-12
 
 
@@ -404,8 +410,8 @@ largest = max(gaps.values())
 print(f"{'✅' if largest <= TOLERANCE else '❌'} écart le plus grand entre le calcul à la main et le module : "
       f"{largest:.1e} (tolérance {TOLERANCE:g})")
 # The exact first step, again, with fractions only (Gauss on the 2 x 2 normal equations of Eq. (3.8))
-a, b, c = 5, 5, 15                                  # X^T X
-g1, g2 = Fraction(7), Fraction(20)                  # X^T (y - 1)
+a, b, c = 5, 3, 25                                  # X^T X
+g1, g2 = Fraction(6), Fraction(21)                  # X^T (y - 1)
 det = a * c - b * b
 print("δ₀ en fractions :", ((c * g1 - b * g2) / det, (a * g2 - b * g1) / det))
 '''
@@ -418,14 +424,14 @@ for k, (w, value) in enumerate(zip(result.history, result.log_likelihoods)):
     t = f"{result.step_sizes[k]:g}" if k < len(result.step_sizes) else ""
     print(f"{k:2d}   {np.array2string(w, precision=6, floatmode='fixed'):27s}  {value:12.6f}  {t}")
 mu_hat = pn.mean(result.w, X_HAND)
-print("moyennes ajustées :", np.round(mu_hat, 4).tolist(), "; somme :", round(mu_hat.sum(), 12), "(12 piqûres)")
-print("e^(4 w2) =", round(math.exp(4 * result.w[1]), 2), "; e^(w2) =", round(math.exp(result.w[1]), 4),
+print("moyennes ajustées :", np.round(mu_hat, 4).tolist(), "; somme :", round(mu_hat.sum(), 12), "(11 piqûres)")
+print("e^(6 w2) =", round(math.exp(6 * result.w[1]), 2), "; e^(w2) =", round(math.exp(result.w[1]), 4),
       "; erreurs types (3.9) :", np.round(pn.standard_errors(result.w, X_HAND), 4).tolist())
-w_star, w, gaps = math.log(12 / 5), 0.0, []
+w_star, w, gaps = math.log(11 / 5), 0.0, []
 for _ in range(7):                                  # Eq. (3.10) from w0 = 0
     gaps.append(w - w_star)
-    w = w + (12 / 5) * math.exp(-w) - 1
-print("modèle sans feature, u_k = w_k − ln(12/5) :", [f"{u:.3e}" for u in gaps])
+    w = w + (11 / 5) * math.exp(-w) - 1
+print("modèle sans feature, u_k = w_k − ln(11/5) :", [f"{u:.3e}" for u in gaps])
 print("u_(k+1) / u_k² :", [round(gaps[k + 1] / gaps[k] ** 2, 4) for k in range(1, 5)])
 '''
 
@@ -434,8 +440,8 @@ IMPLEMENTATION = r"""
 
 Le module [`poisson_newton.py`](poisson_newton.py) suit la table des formules finales de §3 : une fonction publique par formule, dont la docstring (en anglais, au format NumPy) dit ce qu'elle calcule, son équation, ses paramètres avec leurs formes, ce qu'elle rend et les erreurs qu'elle lève. Il n'importe que NumPy, `math` et `mymath`.
 
-- **Les fonctions de `mymath`**, chacune utile au calcul : `orthogonal.least_squares_qr` résout les moindres carrés pondérés (3.6) de chaque pas ; `svd_pca.condition_number` vérifie (H2) dans `check_data`, puis, à chaque itération de `fit`, que les poids $\sqrt{\mu_i}$ ne s'effondrent pas (le symptôme du théorème 3) ; `eigen.cholesky` factorise $\mathbf{X}^\top\hat{\mathbf{W}}\mathbf{X}$ pour les erreurs types (3.9) ; `approx.newton` résout (3.10) ; `iterative.critical_step_size` donne $\eta_c$ (3.12).
-- **Les erreurs** : `check_data` lève `ValueError` pour des comptages négatifs, non entiers ou non finis, des formes incompatibles, des colonnes liées ; `fit` lève `NoMaximumError` (une sous-classe de `RuntimeError`, qui garde les itérés) quand le maximum n'existe pas, et `RuntimeError` s'il n'a pas convergé pour une autre raison.
+- **Les fonctions de `mymath`**, chacune utile au calcul : `orthogonal.least_squares_qr` résout les moindres carrés pondérés (3.6) de chaque pas ; `svd_pca.condition_number` vérifie (H2) dans `check_data`, puis, à chaque itération de `fit`, que les poids $\sqrt{\mu_i}$ ne s'effondrent pas (le symptôme du théorème 3 ; quand tous les comptages sont nuls, les poids s'effondrent ensemble et le conditionnement ne bouge pas, celui de $\mathbf{X}$ tout du long : c'est alors le second diagnostic, après `max_iter` pas, qui lève `NoMaximumError`) ; `eigen.cholesky` factorise $\mathbf{X}^\top\hat{\mathbf{W}}\mathbf{X}$ pour les erreurs types (3.9) ; `approx.newton` résout (3.10) ; `iterative.critical_step_size` donne $\eta_c$ (3.12).
+- **Les erreurs** : `check_data` lève `ValueError` pour des comptages négatifs, non entiers ou non finis, des formes incompatibles, des colonnes liées, et `log_likelihood` pour des comptages invalides. `fit` lève `NoMaximumError` (une sous-classe de `RuntimeError`, qui garde les itérés) quand il voit le symptôme d'un maximum qui n'existe pas : le conditionnement de $\mathbf{W}^{1/2}\mathbf{X}$ dépasse $10^6$ alors que la moyenne ajustée d'un comptage nul est passée sous $10^{-8}$, ou, après `max_iter` pas sans convergence, une telle moyenne. Sinon, il lève `RuntimeError` : pas de convergence en `max_iter` pas, ou un conditionnement qui dépasse $10^6$ sans moyenne d'un comptage nul près de 0 (une feature à centrer).
 - **Le coût** d'une itération de `fit` : former $\mathbf{W}^{1/2}\mathbf{X}$ coûte $O(np)$, la QR $O(np^2)$ (M12b §7), le conditionnement $O(np^2 + p^3)$ (la SVD de `mymath` passe par $\mathbf{B}^\top\mathbf{B}$, M12d §4), la log-vraisemblance du garde-fou $O(np)$ par essai : en tout $O(np^2)$ par itération, pour une dizaine d'itérations au plus ici. Un pas de montée de gradient (3.11) coûte $O(np)$, mais il en faut de l'ordre de $\kappa$ fois plus (§8).
 - **Sans boucle sur les exemples** : les sommes de (3.1) à (3.3) sont des produits de NumPy, et $\ln(y_i!)$ se lit dans une somme cumulée de logarithmes ($\ln 1 + \cdots + \ln m$), calculée une fois pour toutes les valeurs de $\mathbf{y}$. Les seules boucles Python sont celles des itérations et des divisions du pas par deux.
 
@@ -478,8 +484,8 @@ for node in ast.walk(tree):
 DEMO_CODE = r'''
 # The module at work: a fit, its standard errors, and the errors it raises on invalid data
 print(pn.fit(X_HAND, Y_HAND))
-for label, y_bad in [("un comptage négatif", [0, 1, -2, 4, 5]), ("un comptage non entier", [0, 1, 2.5, 4, 5]),
-                     ("une mauvaise longueur", [0, 1, 2])]:
+for label, y_bad in [("un comptage négatif", [0, 0, -2, 4, 4]), ("un comptage non entier", [0, 0, 2.5, 4, 4]),
+                     ("une mauvaise longueur", [0, 0, 3])]:
     try:
         pn.fit(X_HAND, y_bad)
     except ValueError as exc:
@@ -507,22 +513,22 @@ Les tests sont dans [`test_poisson_newton.py`](test_poisson_newton.py) ; [`conft
 | `fit` (3.5) | scikit-learn `PoissonRegressor(alpha=0, fit_intercept=False, solver="newton-cholesky", tol=1e-9)`, la colonne de 1 dans $\mathbf{X}$ | 3 tailles × 3 graines, et l'exemple de §5 | $10^{-7}$ relatif + $10^{-8}$ : scikit-learn s'arrête quand le gradient de son objectif moyen passe sous $10^{-9}$, d'où une erreur sur $\mathbf{w}$ inférieure à $10^{-9}$ ici |
 | `fit` (3.5) | `scipy.optimize.minimize` (BFGS, son propre gradient par différences à 3 points) sur $-\ell$ écrite avec `scipy.stats.poisson.logpmf` | 3 × 3 | $5 \cdot 10^{-6}$ : l'arrêt de BFGS, `gtol` $= 10^{-6}\,n$, divisé par $\lambda_{\min}$ |
 | `log_likelihood` (3.1) | la somme de `scipy.stats.poisson.logpmf` | 3 × 3 | $10^{-11}(1 + \lvert\ell\rvert)$ : l'arrondi d'une somme de $n$ termes |
-| `gradient` (3.2) | différences centrées de l'oracle de $\ell$, $h = 10^{-5}$ (M05a §5 et §7) | 3 × 3 | $10^{-6}$ : l'erreur $h^2\lvert\ell'''\rvert/6 + \varepsilon\lvert\ell\rvert/h$ reste sous $10^{-6}$ pour $\lvert\ell\rvert \le 10^3$ |
+| `gradient` (3.2) | différences centrées de l'oracle de $\ell$, $h = 10^{-5}$ (M05a §5 et §7) | 3 × 3 | $10^{-6}$ + $10^{-7}$ relatif : l'erreur $h^2\lvert\ell'''\rvert/6 + \varepsilon\lvert\ell\rvert/h$ reste sous $10^{-6}$ pour $\lvert\ell\rvert \le 10^3$ et $\lvert\ell'''\rvert \le 3 \cdot 10^3$ |
 | `hessian` (3.3) | différences secondes centrées, $h = 10^{-4}$ (M19 §1 : $h \approx \varepsilon^{1/4}$) | 3 × 3 | $10^{-4} + 10^{-6}\max\lvert H_{jk}\rvert$ |
 | `newton_direction` (3.4), (3.6) | la solution de $\mathbf{H}\boldsymbol{\delta} = -\nabla\ell$, $\mathbf{H}$ et $\nabla\ell$ par différences, `numpy.linalg.solve` | 3 × 3 | $10^{-6}(1 + \max\lvert\delta_j\rvert)$ |
-| `standard_errors` (3.9), `critical_learning_rate` (3.12), `gradient_ascent` (3.11) | `numpy.linalg.inv` et `eigvalsh` de la hessienne par différences ; scikit-learn | 3 graines | $10^{-5}$ et $10^{-6}$ relatifs ; $10^{-8}$ après 3 000 pas |
+| `standard_errors` (3.9), `critical_learning_rate` (3.12), `gradient_ascent` (3.11) | `numpy.linalg.inv` et `eigvalsh` de la hessienne par différences ; scikit-learn | 3 graines ; 1 pour `gradient_ascent` | $10^{-5}$ et $10^{-6}$ relatifs ; $10^{-8}$ après 3 000 pas |
 | propriété 1 | les valeurs propres de la hessienne (`eigvalsh`) ; trois départs tirés au hasard | 3 graines | $\lambda_{\max} < 0$ ; $10^{-9}$ |
 | propriété 2, et le gradient nul au maximum | (4.2) ; différences centrées de l'oracle de $\ell$ | 3 × 3 | $10^{-9}$ relatif ; $10^{-6}$ |
 | une invariance | décaler une feature de $c$ ne change que l'ordonnée à l'origine, de $-c\,\hat{w}_j$ | 2 décalages | $10^{-9}$ |
 | l'exemple de §5 | `fractions.Fraction`, `math.factorial` et `math.log` | | $10^{-12}$ |
-| les erreurs | (H1), (H2) et le théorème 3 : `ValueError` et `NoMaximumError` | | |
+| les erreurs | (H1) et (H2) : `ValueError` de `check_data`, et de `log_likelihood` pour des comptages invalides ; le théorème 3 : `NoMaximumError` au pas 28 sur les soirées à moustiquaire, et sans comptage non nul ; (c) quand le groupe sans comptage est celui où la feature vaut 0 : `NoMaximumError` avec la colonne de 1, le maximum $\ln\frac72$ (`math.log`) sans elle ; une feature non centrée, comptages tous $\ge 1$ : `RuntimeError`, pas `NoMaximumError`, et la feature centrée donne le point de scikit-learn | | |
 
-Les données tirées au hasard ont $\mathbf{X} = [\mathbf{1}, \text{features} \sim \mathcal{N}(0, 1)]$ et des comptages tirés du modèle (graines 9010 à 9012 pour les tailles $(n, p) = (20, 2)$, $(100, 3)$ et $(500, 5)$, 9020 à 9025 pour les autres tests). La première ligne de chaque message d'échec dit ce qui était attendu.
+Les données tirées au hasard ont $\mathbf{X} = [\mathbf{1}, \text{features} \sim \mathcal{N}(0, 1)]$ et des comptages tirés du modèle (graines 9010 à 9012 pour les tailles $(n, p) = (20, 2)$, $(100, 3)$ et $(500, 5)$, 9020 à 9026 pour les autres tests). La première ligne de chaque message d'échec dit ce qui était attendu.
 """
 
 TESTS_CODE = r'''
 # The tests of the example (PS.7), on the reference of mymath
-tests = run_pytest_group(TEST_FILE, impl="ref")
+tests = run_pytest_group(TEST_FILE, impl="ref", root=PROJECT)
 '''
 
 MUTATION_MD = r"""
@@ -533,12 +539,12 @@ MUTATION_CODE = r'''
 # Cell « mutation » (PS.7): the tests against two deliberate mistakes
 for MUTANT in ["newton_direction", "hessian"]:
     print(f"— --mutant={MUTANT}")
-    mutated = run_pytest_group(TEST_FILE, impl="ref", args=[f"--mutant={MUTANT}"], max_shown=6)
+    mutated = run_pytest_group(TEST_FILE, impl="ref", root=PROJECT, args=[f"--mutant={MUTANT}"], max_shown=6)
     print(f"{'✅' if mutated.failed else '❌'} la mutation {MUTANT} est attrapée : {mutated.failed} test(s) en échec\n")
 '''
 
 MUTATION_COMMENT = r"""
-**Qui attrape quoi.** Sans les poids dans `newton_direction`, les points fixes de l'itération restent les zéros du gradient, donc un résultat final juste reste possible ; mais l'itération n'est plus celle de Newton : elle converge lentement, et `fit` ne converge plus en 100 pas (les tests contre scikit-learn et SciPy, la propriété 2, l'invariance échouent sur `RuntimeError`), et la direction diffère de $-\mathbf{H}^{-1}\nabla\ell$ (`test_newton_direction_matches_finite_differences`). Le test de l'exemple à la main ne la voit **pas** : en $\mathbf{w} = \mathbf{0}$, tous les poids valent 1 et la mutation ne change rien ; un exemple calculé en un seul point ne suffit pas. Sans les poids dans `hessian`, `fit` reste juste (il n'appelle pas `hessian`) : seuls la comparaison aux différences secondes et les deux fonctions qui utilisent la hessienne (`standard_errors`, `critical_learning_rate`) l'attrapent. D'où l'intérêt de tester chaque dérivée à part, et pas seulement le résultat final.
+**Qui attrape quoi.** Sans les poids dans `newton_direction`, les points fixes de l'itération restent les zéros du gradient, donc un résultat final juste reste possible ; mais l'itération n'est plus celle de Newton : elle converge lentement, et `fit` ne converge plus en 100 pas (les tests contre scikit-learn et SciPy, la propriété 2, l'invariance échouent sur `RuntimeError`), et la direction diffère de $-\mathbf{H}^{-1}\nabla\ell$ (`test_newton_direction_matches_finite_differences`). Les valeurs de l'exemple à la main ne la voient **pas** : en $\mathbf{w} = \mathbf{0}$, tous les poids valent 1, et la mutation ne change ni $\boldsymbol{\delta}_0$ ni $\mathbf{w}_1$ (`test_hand_example_first_direction_is_least_squares_of_y_minus_1` passe, et `test_hand_example_full_step_is_refused_and_half_step_taken` n'échoue que parce que `fit` ne converge plus en 100 pas) : un exemple calculé en un seul point ne suffit pas. Sans les poids dans `hessian`, `fit` reste juste (il n'appelle pas `hessian`) : seuls la comparaison aux différences secondes et les deux fonctions qui utilisent la hessienne (`standard_errors`, `critical_learning_rate`) l'attrapent. D'où l'intérêt de tester chaque dérivée à part, et pas seulement le résultat final.
 """
 
 EXPERIMENT = r"""
@@ -550,7 +556,7 @@ EXPERIMENT = r"""
 
 **Le protocole.** Trois datasets synthétiques (graines 9001, 9002 et 9003) de $n = 200$ soirées et deux features très corrélées ($x_2 = 0{,}95\,x_1 + \sqrt{1 - 0{,}95^2}\,\varepsilon$, avec $x_1$, $\varepsilon \sim \mathcal{N}(0, 1)$), pour que $\kappa$ soit grand ; comptages tirés du modèle avec $\mathbf{w} = (0{,}7 ;\ 0{,}45 ;\ -0{,}25)$. Les deux méthodes partent de $\mathbf{0}$ ; $\hat{\mathbf{w}}$ est le point final de `fit` (exact à l'arrondi). On trace $\lVert\mathbf{w}_k - \hat{\mathbf{w}}\rVert$ en fonction de $k$, à l'échelle logarithmique.
 
-**La prédiction**, écrite avant d'exécuter (`PREDICTION`, ci-dessous) : elle repose sur la convergence quadratique de Newton (M05a §4 en dimension 1, §3.7 ; énoncée sans démonstration en dimension $p$ : près d'un maximum où la hessienne est inversible, $\lVert\mathbf{e}_{k+1}\rVert \le C\,\lVert\mathbf{e}_k\rVert^2$) et sur (3.12), qui utilise le lemme de §4 ($\lambda_{\min} > 0$). La pente prédite pour la montée de gradient est calculée par la cellule à partir de la hessienne au maximum, **avant** de lancer la montée.
+**La prédiction**, écrite le 21 novembre 2026, avant d'exécuter (`PREDICTION`, ci-dessous) : elle repose sur la convergence quadratique de Newton (M05a §4 en dimension 1, §3.7 ; énoncée sans démonstration en dimension $p$ : près d'un maximum où la hessienne est inversible, $\lVert\mathbf{e}_{k+1}\rVert \le C\,\lVert\mathbf{e}_k\rVert^2$) et sur (3.12), qui utilise le lemme de §4 ($\lambda_{\min} > 0$). La pente prédite pour la montée de gradient est calculée par la cellule à partir de la hessienne au maximum, **avant** de lancer la montée.
 """
 
 EXPERIMENT_CODE = r'''
@@ -651,7 +657,7 @@ EXPERIMENT_CONCLUSION = r"""
 
 **La question.** Que font les itérés de Newton sur les soirées à moustiquaire de §4, où (4.3) a une solution, $\mathbf{d} = (0, -1)$ ?
 
-**La prédiction**, écrite avant d'exécuter (`PREDICTION_NO_MAXIMUM`, ci-dessous). Elle vient d'un changement de coordonnées. Avec $a = w_1$ et $s = w_1 + w_2$ (les logarithmes des moyennes sans et avec moustiquaire), (3.1) se sépare : $\ell = (11a - 6e^a) + (0 \cdot s - 6e^s) - \text{const}$, puisque les six soirées sans moustiquaire ont 11 piqûres et les six autres aucune. La méthode de Newton ne dépend pas d'un changement de coordonnées linéaire $\mathbf{w} = \mathbf{T}\mathbf{v}$ ($\mathbf{T}$ inversible) : par la règle de la chaîne (M17 §3), le gradient en $\mathbf{v}$ est $\mathbf{T}^\top\nabla\ell$ et la hessienne $\mathbf{T}^\top\nabla^2\ell\,\mathbf{T}$, donc la direction en $\mathbf{v}$ est $-(\mathbf{T}^\top\nabla^2\ell\,\mathbf{T})^{-1}\mathbf{T}^\top\nabla\ell = \mathbf{T}^{-1}\boldsymbol{\delta}$, l'image de la même direction, et le garde-fou compare les mêmes valeurs de $\ell$. Dans les coordonnées $(a, s)$, la hessienne est diagonale, et chaque coordonnée suit sa propre méthode de Newton : $a$ celle de (3.10), avec $\bar{y} = \frac{11}{6}$, vers $\ln\frac{11}{6} \approx 0{,}606$ ; $s$ celle de la fonction $-6e^s$, dont le pas vaut $-\frac{-6e^s}{-6e^s} = -1$. D'où :
+**La prédiction**, écrite le 21 novembre 2026, avant d'exécuter (`PREDICTION_NO_MAXIMUM`, ci-dessous). Elle vient d'un changement de coordonnées. Avec $a = w_1$ et $s = w_1 + w_2$ (les logarithmes des moyennes sans et avec moustiquaire), (3.1) se sépare : $\ell = (11a - 6e^a) + (0 \cdot s - 6e^s) - \text{const}$, puisque les six soirées sans moustiquaire ont 11 piqûres et les six autres aucune. La méthode de Newton ne dépend pas d'un changement de coordonnées linéaire $\mathbf{w} = \mathbf{T}\mathbf{v}$ ($\mathbf{T}$ inversible) : par la règle de la chaîne (M17 §3), le gradient en $\mathbf{v}$ est $\mathbf{T}^\top\nabla\ell$ et la hessienne $\mathbf{T}^\top\nabla^2\ell\,\mathbf{T}$, donc la direction en $\mathbf{v}$ est $-(\mathbf{T}^\top\nabla^2\ell\,\mathbf{T})^{-1}\mathbf{T}^\top\nabla\ell = \mathbf{T}^{-1}\boldsymbol{\delta}$, l'image de la même direction, et le garde-fou compare les mêmes valeurs de $\ell$. Dans les coordonnées $(a, s)$, la hessienne est diagonale, et chaque coordonnée suit sa propre méthode de Newton : $a$ celle de (3.10), avec $\bar{y} = \frac{11}{6}$, vers $\ln\frac{11}{6} \approx 0{,}606$ ; $s$ celle de la fonction $-6e^s$, dont le pas vaut $-\frac{-6e^s}{-6e^s} = -1$. D'où :
 $$s_{k+1} = s_k - 1, \qquad s_k = -k \ \text{exactement} ; \qquad \lVert\mathbf{w}_k\rVert \approx k ; \qquad \sup\ell - \ell(\mathbf{w}_k) \approx 6\,e^{-k}. \tag{8.1}$$
 Et `fit` s'arrête quand le conditionnement de $\mathbf{W}^{1/2}\mathbf{X}$ dépasse $10^6$, le seuil de `svd_pca.condition_number` : $\lambda_{\min}/\lambda_{\max}$ de $\mathbf{X}^\top\mathbf{W}\mathbf{X}$ vaut environ $6e^{-k}/11$, qui passe sous $10^{-12}$ pour $k \ge \ln\big(6 \cdot 10^{12}/11\big) \approx 27{,}03$, donc au pas 28.
 """
@@ -674,8 +680,8 @@ print(f"NoMaximumError après {len(run) - 1} pas")
 print("s_k = w1 + w2 :", np.round(run.sum(axis=1)[:8], 12).tolist(), "…", round(float(run[-1].sum()), 12))
 print("w1 :", np.round(run[:6, 0], 6).tolist(), "; ln(11/6) =", round(math.log(11 / 6), 6))
 print("‖w_k‖ − k aux pas 10, 20, 28 :", [round(float(np.linalg.norm(run[k]) - k), 4) for k in (10, 20, 28)])
-print("(sup l − l(w_k)) / (6 e^(−k)) aux pas 5, 10, 20 :",
-      [round(float(gap_to_sup[k] / (6 * math.exp(-k))), 6) for k in (5, 10, 20)])
+print("(sup l − l(w_k)) / (6 e^(−k)) aux pas 2, 3, 4, 10 :",
+      [round(float(gap_to_sup[k] / (6 * math.exp(-k))), 6) for k in (2, 3, 4, 10)])
 '''
 
 NO_MAXIMUM_FIGURE = r'''
@@ -706,7 +712,7 @@ plt.show()
 '''
 
 NO_MAXIMUM_CONCLUSION = r"""
-**Ce que montre la figure, et la conclusion.** La prédiction (8.1) tient exactement : $s_k = -k$ à l'arrondi près, $w_1$ atteint $\ln\frac{11}{6} \approx 0{,}606136$ en cinq pas, $\lVert\mathbf{w}_k\rVert - k$ se stabilise vers $0{,}61$ (la contribution de $w_1$), et l'écart au sup de $\ell$ suit $6e^{-k}$ (rapport 1 à $10^{-6}$ près dès le pas 10 ; au début, s'y ajoute l'écart de $w_1$ à sa limite). `fit` lève `NoMaximumError` au pas 28, comme prévu, avec un message qui dit quoi chercher. Sans le contrôle du conditionnement, la méthode continuerait de faire des pas de longueur 1 vers l'infini : le gradient tend vers 0, mais jamais assez vite pour que le critère d'arrêt sur le pas le voie. Le théorème 3 explique pourquoi aucun réglage de la méthode n'y changerait rien : c'est le maximum qui n'existe pas.
+**Ce que montre la figure, et la conclusion.** La prédiction (8.1) tient exactement : $s_k = -k$ à l'arrondi près, $w_1$ atteint $\ln\frac{11}{6} \approx 0{,}606136$ en quatre pas, $\lVert\mathbf{w}_k\rVert - k$ se stabilise vers $0{,}61$ (la contribution de $w_1$), et l'écart au sup de $\ell$ suit $6e^{-k}$ (rapport 1 à $10^{-6}$ près dès le pas 4 ; au début, s'y ajoute l'écart de $w_1$ à sa limite). `fit` lève `NoMaximumError` au pas 28, comme prévu, avec un message qui dit quoi chercher. Sans le contrôle du conditionnement, la méthode ferait des pas de longueur 1 jusqu'à `max_iter` = 100, où le second diagnostic (une moyenne d'un comptage nul sous $10^{-8}$) lèverait `NoMaximumError` : le gradient tend vers 0, mais le pas garde la longueur 1, et le critère d'arrêt sur le pas ne se déclenche jamais. Le théorème 3 dit d'où vient la fuite : des six soirées à moustiquaire sans aucune piqûre, et non de la méthode de Newton.
 """
 
 CONCLUSION = r"""
@@ -717,18 +723,19 @@ CONCLUSION = r"""
 **Les limites.**
 - **Ce qui est admis** : la convergence quadratique de Newton en dimension $p$ (démontrée ici en dimension 1 seulement, §3.7) ; l'écart entre la montée de gradient et sa linéarisation (3.12) ; la version matricielle de l'information de Fisher et le caractère asymptotique des erreurs types (3.9), grossier pour cinq soirées ; le théorème des bornes atteintes dans la démonstration du théorème 3.
 - **Ce que le modèle suppose** : une variance égale à la moyenne (H1). Des comptages plus dispersés (des soirées très différentes à température égale) donnent des erreurs types trop petites ; il faudrait un autre modèle (une loi binomiale négative, par exemple) ou une correction, que l'article ne traite pas. Pas de terme d'exposition (des soirées de durées différentes), pas de pénalité.
-- **Ce que le code ne fait pas** : il refuse un $\mathbf{X}$ de conditionnement supérieur à $10^6$ environ (le seuil de `svd_pca.condition_number`), même si la QR s'en sortirait encore ; il peut prendre pour une absence de maximum un maximum dont les moyennes ajustées descendent sous $10^{-12}$ environ ; $e^{z_i}$ déborde au-delà de $z_i \approx 709$ ; la table des $\ln(y_i!)$ prend une mémoire proportionnelle au plus grand comptage.
+- **Ce que le code ne fait pas** : il refuse un $\mathbf{X}$ de conditionnement supérieur à $10^6$ environ (le seuil de `svd_pca.condition_number`), même si la QR s'en sortirait encore ; il s'arrête dès que le conditionnement de $\mathbf{W}^{1/2}\mathbf{X}$ dépasse $10^6$, ce qui peut arriver, maximum existant, quand le rapport des moyennes ajustées extrêmes dépasse environ $10^{12}/\kappa(\mathbf{X})^2$ (une feature non centrée, par exemple) : `fit` lève alors `RuntimeError`, et centrer les features suffit ; il peut prendre pour une absence de maximum un maximum dont une moyenne ajustée d'un comptage nul descend sous $10^{-8}$ ; $e^{z_i}$ déborde au-delà de $z_i \approx 709$ ; la table des $\ln(y_i!)$ prend une mémoire proportionnelle au plus grand comptage.
 - **Ce que les oracles ne vérifient pas** : scikit-learn et SciPy disent que le point final est le bon, pas que le chemin est celui de Newton (c'est le rôle du test de la direction, que la première mutation montre) ; aucun test ne mesure la vitesse de convergence, que seule l'expérience montre ; les tests ne couvrent que des $n \le 500$ et $p \le 5$.
-- **Avec plus de temps** : démontrer la convergence quadratique en dimension $p$ ; ajouter une pénalité $\frac{\alpha}{2}\lVert\mathbf{w}\rVert^2$, qui rend la hessienne définie négative même sans (H2) et fait exister le maximum dans tous les cas ; comparer au coût réel de la QR quand $p$ grandit.
+- **Avec plus de temps** : démontrer la convergence quadratique en dimension $p$ ; chercher une direction de (4.3) avant d'itérer (un problème d'optimisation linéaire), pour annoncer l'absence de maximum dès le départ au lieu d'attendre le pas 28 ; comparer au coût réel de la QR quand $p$ grandit.
 """
 
 REFERENCES = r"""
 ## Références
 
-- **workbookMaths** (les sections citées, et ce qui y est pris) : R4 §8 (rédiger une démonstration) ; R6 §1, §3 et §5 (exponentielle, logarithme, croissances comparées) ; R7 §3, §5, §6 et §8 (taux d'accroissement, dérivées usuelles et règles, extremums) ; M02b §2, §4 et §5 (la loi de Poisson, sa moyenne et sa variance, l'indépendance) ; M02c §7 (l'erreur type) ; M05a §1 à §5, §7 et §8 (convexité en une variable, extrema, Taylor, la méthode de Newton et sa convergence quadratique, différences finies et choix du pas, overflow) ; M05b §7 et §8 (points critiques, montée de gradient) ; M09a §3, §4 et §7 (Hadamard, transposée, inverse) ; M09b §3 (équations normales) ; M10 §1 (fonctions strictement convexes) ; M12a §2, §4 et §6 (indépendance, rang, noyau) ; M12b §1 et §7 (produit scalaire pondéré, moindres carrés par QR) ; M12c §7 (matrices définies positives, quadratiques, Cholesky) ; M12d §2 et §4 (valeurs singulières, conditionnement) ; M13a §1 (maximum de vraisemblance) ; M17 §1 à §4 (jacobiennes, règle de la chaîne, convention du gradient) ; M18 §6 et §7 (gradient lu dans la différentielle) ; M19 §1, §4 et §5 (hessienne et Taylor d'ordre 2, Richardson et pas critique, conditionnement et vitesse) ; MB8 §1 (information de Fisher).
+- **workbookMaths** (les sections citées, et ce qui y est pris) : R4 §8 (rédiger une démonstration) ; R6 §1, §3 et §5 (exponentielle, logarithme, croissances comparées) ; R7 §3, §5, §6 et §8 (taux d'accroissement, dérivées usuelles et règles, extremums) ; M02b §2, §4 et §5 (la loi de Poisson, sa moyenne et sa variance, l'indépendance) ; M02c §7 (l'erreur type) ; M05a §1 à §5, §7 et §8 (convexité en une variable, extrema, Taylor, la méthode de Newton et sa convergence quadratique, différences finies et choix du pas, overflow) ; M05b §7 et §8 (points critiques, montée de gradient) ; M09a §3, §4 et §7 (Hadamard, transposée, inverse) ; M09b §3 (équations normales) ; M12a §2, §4 et §6 (indépendance, rang, noyau) ; M12b §1 et §7 (produit scalaire pondéré, moindres carrés par QR) ; M12c §7 (matrices définies positives, quadratiques, Cholesky) ; M12d §4 (conditionnement) ; M13a §1 (maximum de vraisemblance) ; M17 §1 à §4 (jacobiennes, règle de la chaîne, convention du gradient) ; M18 §6 et §7 (gradient lu dans la différentielle) ; M19 §1, §4 et §5 (hessienne et Taylor d'ordre 2, Richardson et pas critique, conditionnement et vitesse) ; MB8 §1 (information de Fisher).
 - **MML** : M. P. Deisenroth, A. A. Faisal et C. S. Ong, *Mathematics for Machine Learning*, Cambridge University Press, 2020 : §5.2 et §5.3 (dérivées partielles, règle de la chaîne, jacobiennes), §5.5 (identités pour les gradients), §5.7 et §5.8 (hessienne, Taylor à plusieurs variables), §3.8 (projections orthogonales), §4.3 (Cholesky), §7.1 (descente de gradient et conditionnement), §7.3 (optimisation convexe), §8.3.1 (maximum de vraisemblance).
 - J. A. Nelder et R. W. M. Wedderburn, « Generalized Linear Models », *Journal of the Royal Statistical Society, Series A*, 135(3), 1972 : les modèles linéaires généralisés et leur ajustement par moindres carrés repondérés.
-- R. W. M. Wedderburn, « On the existence and uniqueness of the maximum likelihood estimates for certain generalized linear models », *Biometrika*, 63(1), 1976 : l'existence et l'unicité du maximum (le théorème 3 en est un cas, démontré ici indépendamment).
+- R. W. M. Wedderburn, « On the existence and uniqueness of the maximum likelihood estimates for certain generalized linear models », *Biometrika*, 63(1), 1976 : une condition suffisante d'existence, et l'unicité, pour une large classe de ces modèles.
+- S. J. Haberman, *The Analysis of Frequency Data*, University of Chicago Press, 1974 (Statistical Research Monographs, 4) : une condition nécessaire et suffisante d'existence du maximum pour les modèles log-linéaires de Poisson (attribuée ainsi par S. E. Fienberg et A. Rinaldo, « Maximum likelihood estimation in log-linear models », *The Annals of Statistics*, 40(2), 2012), dont le théorème 3 est une autre forme (démontrée ici indépendamment).
 - **Les oracles** : scikit-learn 1.6.1, `sklearn.linear_model.PoissonRegressor` (solveur `"newton-cholesky"`) ; SciPy 1.16.3, `scipy.optimize.minimize` (méthode `"BFGS"`) et `scipy.stats.poisson` (documentations officielles de ces versions).
 - **workbookIA** : aucun chapitre, par construction (l'exemple est hors de workbookIA).
 - **Rédaction** : Claude (Anthropic), l'assistant qui génère workbookMaths ; vérifications : les tests de §7 et la grille remplie ([`grille.md`](grille.md)).
@@ -744,7 +751,7 @@ PRESENTATION = r"""
 | 1. Le problème | 0 min 45 s | des comptages, la loi de Poisson et (2.1) ; pourquoi pas les moindres carrés sur $\mathbf{y}$ |
 | 2. La dérivation | 1 min 30 s | (3.1) → (3.2) par la règle de la chaîne, (3.3), puis (3.4) réécrit en (3.6) : un pas de Newton est une régression pondérée |
 | 3. Ce qui est garanti | 1 min | le lemme et la propriété 1 (un seul maximum), la propriété 2, le théorème 3 et les soirées à moustiquaire |
-| 4. La vérification | 45 s | les oracles, les différences finies, la mutation que l'exemple à la main ne voit pas |
+| 4. La vérification | 45 s | les oracles, les différences finies, la mutation que les valeurs de l'exemple à la main ne voient pas |
 | 5. L'expérience et les limites | 1 min | la figure de §8.1 (quadratique contre linéaire, la pente prédite), (8.1), et deux limites |
 
 **La durée.** Le texte de l'exposé, ci-dessous, est lu par la cellule suivante, qui estime sa durée à 130 mots par minute. C'est une **estimation**, pas une répétition chronométrée : l'auteur de cet exemple n'a pas de voix. Pour ton projet, chronomètre une vraie répétition et écris sa durée ici.
@@ -752,10 +759,10 @@ PRESENTATION = r"""
 **Cinq questions d'entretien et mes réponses.**
 
 1. *Pourquoi cet objectif, et pas les moindres carrés sur $\mathbf{y}$ ?* — Parce que les données sont des comptages : (H1) dit d'où ils viennent, et (2.1) est la vraisemblance de ce modèle (M13a §1). Les moindres carrés sur $\mathbf{y}$ supposent une variance constante et peuvent prédire un comptage négatif ; les moindres carrés sur $\ln y$ sont impossibles dès qu'un $y_i$ est nul. La réponse de travail (3.7) est justement la linéarisation de $\ln y$, qui garde un sens pour $y_i = 0$.
-2. *Le problème est-il convexe ? Que garantit la réponse ?* — $-\ell$ est strictement convexe sous (H2) (propriété 1) : il y a au plus un maximum, tout point où le gradient s'annule est ce maximum, et toute méthode qui converge trouve le même (les deux oracles de §7 l'illustrent). Cela ne garantit ni que le maximum existe (théorème 3), ni que Newton pur converge depuis n'importe où : en §5, le pas plein fait baisser $\ell$ de $-13{,}66$ à $-49{,}90$, d'où le garde-fou (3.5).
+2. *Le problème est-il convexe ? Que garantit la réponse ?* — $-\ell$ est strictement convexe sous (H2) (propriété 1) : il y a au plus un maximum, tout point où le gradient s'annule est ce maximum, et toute méthode qui converge trouve le même (les deux oracles de §7 l'illustrent). Cela ne garantit ni que le maximum existe (théorème 3), ni que Newton pur converge depuis n'importe où : en §5, le pas plein fait baisser $\ell$ de $-13{,}15$ à $-37{,}50$ (ici, Newton pur finit par converger, en 8 pas au lieu de 6, mais sans monotonie), d'où le garde-fou (3.5).
 3. *L'algorithme converge-t-il, à quelle vitesse, et qu'est-ce qui règle cette vitesse ?* — Près du maximum, l'erreur de Newton est à peu près élevée au carré à chaque pas : 6 ou 7 pas en §8.1, quel que soit $\kappa$. La montée de gradient multiplie l'erreur par $1 - 1/\kappa$ (3.12) : pour $\kappa \approx 37{,}7$ (graine 9001), 796 pas pour 10 chiffres. Je n'ai démontré la convergence quadratique qu'en dimension 1 (§3.7) ; en dimension $p$, je l'ai admise et vérifiée sur la figure.
 4. *Comment sais-tu que ton implémentation est juste ? Que laisseraient passer tes tests ?* — Deux oracles pour le point final, des différences finies pour chaque dérivée, deux propriétés et une invariance (§7). La mutation des poids oubliés dans la direction de Newton montre qu'un test du seul point final, ou de l'exemple en $\mathbf{w} = \mathbf{0}$, ne suffit pas. Ils laisseraient passer une erreur qui ne touche que la vitesse sans changer ni la direction ni le point final, par exemple un garde-fou qui divise le pas par 4 au lieu de 2 ; je le verrais en comptant les itérations, comme en §8.
-5. *Que se passe-t-il si un groupe n'a que des comptages nuls ?* — Le maximum n'existe pas (théorème 3, (c)) : l'effet du groupe part vers $-\infty$, d'un pas exactement à chaque itération (8.1), et `fit` s'arrête au pas 28 avec `NoMaximumError`. Les remèdes : regrouper ce groupe avec un autre, ou ajouter une pénalité $\frac{\alpha}{2}\lVert\mathbf{w}\rVert^2$. Je ne l'ai pas démontré ici ; je le vérifierais ainsi : la hessienne devient $-(\mathbf{X}^\top\mathbf{W}\mathbf{X} + \alpha\mathbf{I})$, définie négative même sans (H2), et $\ell - \frac{\alpha}{2}\lVert\mathbf{w}\rVert^2 \to -\infty$ dans toutes les directions, donc le maximum existe ; un test l'essaierait sur les soirées à moustiquaire.
+5. *Que se passe-t-il si un groupe n'a que des comptages nuls ?* — Le maximum n'existe pas (théorème 3, (c)) : l'effet du groupe part vers $-\infty$, d'un pas exactement à chaque itération (8.1), et `fit` s'arrête au pas 28 avec `NoMaximumError`, dont le message dit quoi chercher. Ce que je ferais : retirer la feature, ou regrouper ce groupe avec un groupe où il y a eu des piqûres, et dire à part que les six soirées à moustiquaire n'en ont eu aucune. Le théorème 3 dit que le maximum existe alors : avec une colonne de 1 et une feature 0/1 dont chaque groupe a au moins un comptage non nul, (4.3) impose $d_1 = 0$, puis $d_1 + d_2 = 0$. Je n'ai pas mesuré ce que ce regroupement change aux autres poids ; je le vérifierais en relançant `fit` sur les deux versions des données et en comparant les ajustements.
 """
 
 SPEECH_CODE = r'''
@@ -775,9 +782,9 @@ et ce système, ce sont les équations normales d'une régression des moindres c
 pas de Newton est donc une régression pondérée, dont les poids changent à chaque itération ; je la résous par une
 décomposition QR, avec ma librairie, sans jamais former X transposée W X, dont le conditionnement serait élevé au
 carré. Depuis zéro, le premier pas est la régression ordinaire de y moins un : sur mes cinq soirées, je l'ai
-calculé à la main, en fractions, un dixième et treize dixièmes, et le code retrouve les mêmes nombres. Mais ce pas
-plein fait baisser la log-vraisemblance, de moins treize virgule sept à moins cinquante : je divise alors le pas
-par deux, et il remonte.
+calculé à la main, en fractions, trois quarts pour chacun des deux poids, et le code retrouve les mêmes nombres.
+Mais ce pas plein fait baisser la log-vraisemblance, de moins treize virgule un à moins trente-sept virgule cinq :
+je divise alors le pas par deux, et il remonte.
 
 Ce qui est garanti. Si les colonnes de X sont libres, la hessienne est définie négative : il y a au plus un
 maximum, tout point où le gradient s'annule est ce maximum, et la direction de Newton monte toujours, donc diviser
@@ -790,8 +797,8 @@ n'atteint jamais.
 La vérification. Je compare le résultat à scikit-learn, sans pénalité et avec la colonne de un dans X, et à
 SciPy ; chaque dérivée à des différences finies centrées, avec un pas choisi entre la troncature et l'arrondi ; et
 je teste les deux propriétés, sur trois tailles et trois graines. Une erreur introduite exprès, les poids oubliés
-dans le pas de Newton, est attrapée par une cinquantaine de tests ; mais pas par l'exemple à la main, où tous les
-poids valent un. Un exemple calculé en un seul point ne suffit donc pas.
+dans le pas de Newton, est attrapée par une cinquantaine de tests ; mais pas par les valeurs de l'exemple à la main,
+où tous les poids valent un. Un exemple calculé en un seul point ne suffit donc pas.
 
 L'expérience. J'ai écrit ma prédiction avant de lancer le calcul. Newton double le nombre de chiffres justes à
 chaque pas : six ou sept pas suffisent. Une montée de gradient, avec un learning rate égal à un sur la plus grande

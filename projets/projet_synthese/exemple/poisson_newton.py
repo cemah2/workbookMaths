@@ -18,12 +18,12 @@ and weights that collapse), ``eigen.cholesky`` (standard errors), ``approx.newto
 ``iterative.critical_step_size`` (the learning rate of a gradient ascent, for comparison).
 
 >>> import numpy as np
->>> X = np.column_stack([np.ones(5), [-1.0, 0.0, 1.0, 2.0, 3.0]])
->>> y = np.array([0, 1, 2, 4, 5])
->>> newton_direction(np.zeros(2), X, y)            # from w = 0: least squares of y - 1 on X, (1/10, 13/10)
-array([0.1, 1.3])
+>>> X = np.column_stack([np.ones(5), [-2.0, -1.0, 0.0, 2.0, 4.0]])
+>>> y = np.array([0, 0, 3, 4, 4])
+>>> newton_direction(np.zeros(2), X, y)            # from w = 0: least squares of y - 1 on X, (3/4, 3/4)
+array([0.75, 0.75])
 >>> np.round(fit(X, y).w, 6)
-array([-0.120104,  0.629163])
+array([0.317805, 0.335278])
 """
 
 from __future__ import annotations
@@ -49,10 +49,11 @@ COLLAPSED_MEAN = 1e-8
 class NoMaximumError(RuntimeError):
     """The log-likelihood has no maximum: Newton's iterates run away instead of converging.
 
-    It happens exactly when some direction ``d != 0`` has ``X d <= 0`` coordinate by coordinate, with ``(X d)_i = 0``
-    for every count ``y_i > 0`` (all counts 0 with a column of ones; a group of rows, picked out by a 0/1 feature, whose
-    counts are all 0). Along ``d`` the log-likelihood keeps increasing: the fitted means of some counts ``y_i = 0``
-    tend to 0 and ``||w||`` grows without end.
+    The maximum does not exist exactly when some direction ``d != 0`` has ``X d <= 0`` coordinate by coordinate, with
+    ``(X d)_i = 0`` for every count ``y_i > 0`` (with a column of ones: all counts 0, or a group of rows, picked out by
+    a 0/1 feature, whose counts are all 0). Along ``d`` the log-likelihood increases strictly, towards a finite limit
+    that it never reaches: the fitted means of some counts ``y_i = 0`` tend to 0 and ``||w||`` grows without end.
+    :func:`fit` raises this error when it sees the symptom (weights that collapse, see its docstring).
 
     Attributes
     ----------
@@ -219,18 +220,20 @@ def log_likelihood(w, X, y):
     Returns
     -------
     float
-        ``l(w) <= 0``; ``-inf`` if a fitted mean overflows.
+        ``l(w) < 0``; ``-inf`` if a fitted mean overflows.
 
     Raises
     ------
     ValueError
-        If the data are not valid (see :func:`check_data`, without the rank check) or the shapes do not match.
+        If the shapes do not match, or if ``y`` holds a value that is not a finite integer ``>= 0``.
     """
     Xm = _matrix(X)
     wv = _weights_vector(w, Xm.shape[1])
     yv = np.asarray(y, dtype=float)
     if yv.shape != (Xm.shape[0],):
         raise ValueError(f"y must be a 1-D array of length {Xm.shape[0]}, got the shape {yv.shape}")
+    if not np.all(np.isfinite(yv)) or np.any(yv < 0) or np.any(yv != np.floor(yv)):
+        raise ValueError("y must hold finite integer counts >= 0 (see check_data)")
     z = Xm @ wv
     with np.errstate(over="ignore"):
         mu = np.exp(z)
@@ -380,12 +383,13 @@ def fit(X, y, w0=None, tol=1e-10, max_iter=100, max_halvings=30):
     ValueError
         If the data are not valid (:func:`check_data`), or if ``w0``, ``tol``, ``max_iter`` or ``max_halvings`` is not.
     NoMaximumError
-        If the maximum does not exist: the weights ``sqrt(mu_i)`` of counts ``y_i = 0`` have collapsed (the
-        condition number of ``sqrt(mu) * X`` is infinite), or the method has not converged after ``max_iter`` steps
-        while fitted means of counts ``y_i = 0`` went below ``COLLAPSED_MEAN``. The error carries the iterates.
+        If the maximum does not exist: the condition number of ``sqrt(mu) * X`` is infinite while a fitted mean of a
+        count ``y_i = 0`` is below ``COLLAPSED_MEAN``, or the method has not converged after ``max_iter`` steps while
+        fitted means of counts ``y_i = 0`` went below ``COLLAPSED_MEAN``. The error carries the iterates.
     RuntimeError
-        If the method has not converged after ``max_iter`` steps for another reason, or if no halving of a step
-        stops the log-likelihood from decreasing.
+        If the method has not converged after ``max_iter`` steps for another reason, if no halving of a step stops
+        the log-likelihood from decreasing, or if ``sqrt(mu) * X`` becomes numerically rank deficient (condition
+        number above 1e6) with no fitted mean of a count 0 near 0 (centre or rescale the features).
     """
     Xm, yv = check_data(X, y)
     n, p = Xm.shape
@@ -402,8 +406,12 @@ def fit(X, y, w0=None, tol=1e-10, max_iter=100, max_halvings=30):
     for _ in range(max_iter):
         mu = mean(w, Xm)
         if svd_pca.condition_number(np.sqrt(mu)[:, None] * Xm) == math.inf:
-            raise NoMaximumError(_no_maximum_message(mu, yv, len(steps), "the rows of sqrt(mu) * X are numerically "
-                                                     "rank deficient"), history, values)
+            if np.any((yv == 0) & (mu < COLLAPSED_MEAN)):
+                raise NoMaximumError(_no_maximum_message(mu, yv, len(steps), "the rows of sqrt(mu) * X are "
+                                                         "numerically rank deficient"), history, values)
+            raise RuntimeError(f"expected the rows of sqrt(mu) * X to stay linearly independent, but after "
+                               f"{len(steps)} Newton steps their condition number exceeds 1e6 while no fitted mean "
+                               "of a count 0 has gone to 0: centre or rescale the features")
         delta = newton_direction(w, Xm, yv)
         if np.max(np.abs(delta)) <= tol * (1.0 + np.max(np.abs(w))):
             w = w + delta
@@ -438,8 +446,8 @@ def _no_maximum_message(mu, y, steps: int, symptom: str) -> str:
     smallest = float(np.min(mu[zeros])) if np.any(zeros) else float(np.min(mu))
     return (f"expected a maximum of the log-likelihood, but it does not exist (or its fitted means are too close to 0 "
             f"for float64): after {steps} Newton steps, {symptom}, and the smallest fitted mean of a count y_i = 0 is "
-            f"{smallest:.1e}. Look for a direction d with X d <= 0 and (X d)_i = 0 wherever y_i > 0: all the counts "
-            "0, or a group of rows whose counts are all 0")
+            f"{smallest:.1e}. Look for a direction d with X d <= 0 and (X d)_i = 0 wherever y_i > 0: with a column of "
+            "ones, all the counts 0, or a group of rows whose counts are all 0")
 
 
 def standard_errors(w, X):

@@ -2,8 +2,9 @@
 
 Its tests pass on the reference of mymath and catch its two mutations (in a subprocess, with --impl=ref, as the
 notebook runs them); its notebook is executed, without an error output and without the phrases that replace a
-calculation (GRILLE.md, PS.3); its module imports only NumPy, math and mymath; its tests import their oracles and
-never mymath; its conftest.py is the kit's one; its cadrage fits on one page.
+calculation (GRILLE.md, PS.3), with paired $ and a \\tag on each cited equation (PS.9); its module imports only NumPy,
+math and mymath; its tests import their oracles and never mymath; its conftest.py is the kit's one; its cadrage fits
+on one page; its grille.md is GRILLE.md filled (same rows, criteria, points and checks).
 """
 
 from __future__ import annotations
@@ -121,3 +122,54 @@ def test_example_conftest_is_the_kit_one():
 def test_example_cadrage_fits_on_one_page():
     words = len((EXAMPLE / "cadrage.md").read_text(encoding="utf-8").split())
     assert words <= 600, f"expected a cadrage of 600 words at most (GRILLE.md, PS.1), got {words}"
+
+
+def _table_rows(text: str) -> dict[str, list[list[str]]]:
+    """The rows of the tables of a grid, by section (« PS.1 » … « PS.E1 », « pénalités »), cut on unescaped pipes."""
+    rows, section = {}, None
+    for line in text.splitlines():
+        match = re.match(r"## (PS\.\w+|Les pénalités)", line)
+        if match:
+            section = match.group(1)
+        elif line.startswith("## "):
+            section = None
+        elif section and line.startswith("| ") and not line.startswith("| Fait |"):
+            rows.setdefault(section, []).append([cell.strip() for cell in re.split(r"(?<!\\)\|", line.strip()[1:-1])])
+    return rows
+
+
+def test_example_grid_has_the_criteria_points_and_checks_of_the_grid():
+    """exemple/grille.md is GRILLE.md filled: same rows, same « Critère », « Pts » and « Comment le vérifier »
+    (five cells per row: an unescaped | would cut a cell), each row ticked, not applied or « sans objet »."""
+    grid, filled = _table_rows((PROJECT / "GRILLE.md").read_text(encoding="utf-8")), _table_rows(
+        (EXAMPLE / "grille.md").read_text(encoding="utf-8"))
+    assert list(filled) == list(grid), f"expected the sections of GRILLE.md {list(grid)}, got {list(filled)}"
+    for section, rows in grid.items():
+        assert len(filled[section]) == len(rows), (
+            f"expected {len(rows)} rows in {section} of exemple/grille.md, got {len(filled[section])}")
+        for k, (row, mine) in enumerate(zip(rows, filled[section]), start=1):
+            assert len(mine) == 5, f"expected 5 cells in row {k} of {section} of exemple/grille.md, got {len(mine)}"
+            assert mine[1:4] == row[1:4], (
+                f"expected row {k} of {section} to copy GRILLE.md (Critère, Pts, Comment le vérifier), got {mine[1:4]}")
+            assert mine[0] in ("[x]", "[ ]", "sans objet") and mine[4], (
+                f"expected row {k} of {section} to be ticked, or not applied, or « sans objet », with a proof")
+
+
+def test_example_markdown_latex_is_clean():
+    """GRILLE.md, PS.9: $ and $$ paired in each Markdown cell, no \\newcommand nor \\begin{align}, and a \\tag on
+    each equation cited by its number."""
+    nb = json.loads(NOTEBOOK.read_text(encoding="utf-8"))
+    cells = ["".join(cell["source"]) for cell in nb["cells"] if cell["cell_type"] == "markdown"]
+    for i, text in enumerate(cells):
+        text = re.sub(r"`[^`]*`", "", text)
+        displays = text.count("$$")
+        inline = text.replace("$$", "").count("$")
+        assert displays % 2 == 0 and inline % 2 == 0, (
+            f"expected paired $ and $$ in Markdown cell {i}, got {displays} $$ and {inline} $")
+    text = "\n".join(cells)
+    assert "\\newcommand" not in text and "\\begin{align" not in text, "expected MathJax only (no \\newcommand, align)"
+    tags = re.findall(r"\\tag\{(\d+\.\d+)\}", text)
+    assert len(tags) == len(set(tags)), f"expected each \\tag once, got {sorted(tags)}"
+    cited = set(re.findall(r"\((\d\.\d{1,2})\)", re.sub(r"\\tag\{[\d.]+\}", "", text)))
+    untagged = sorted(cited - set(tags))
+    assert not untagged, f"expected a \\tag on each cited equation, missing for: {untagged}"

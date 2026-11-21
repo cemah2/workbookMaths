@@ -11,7 +11,8 @@ module and of mymath, and no formula of the notebook's §3 is copied here:
 * ``fractions.Fraction`` and ``math`` for the example computed by hand in §5.
 
 Random cases: three sizes (n, p) and three seeds (9010 to 9012), the column of ones first in X; the other seeds of
-the file are 9020 to 9049. Each failure message says on its first line what was expected.
+the file are 9020 to 9026 (plus 1000 for the random points and starts). Each failure message says on its first line
+what was expected.
 """
 
 from __future__ import annotations
@@ -33,8 +34,8 @@ SIZE_IDS = [f"n={n},p={p}" for n, p in SIZES]
 SEED_IDS = [f"seed={seed}" for seed in SEEDS]
 
 # The example of §5: x = deviation of the evening temperature from the seasonal norm (°C), y = mosquito bites.
-HAND_X = np.column_stack([np.ones(5), [-1.0, 0.0, 1.0, 2.0, 3.0]])
-HAND_Y = np.array([0.0, 1.0, 2.0, 4.0, 5.0])
+HAND_X = np.column_stack([np.ones(5), [-2.0, -1.0, 0.0, 2.0, 4.0]])
+HAND_Y = np.array([0.0, 0.0, 3.0, 4.0, 4.0])
 
 
 def make_data(n: int, p: int, seed: int):
@@ -159,8 +160,8 @@ def test_log_likelihood_matches_scipy(algo, size, seed):
 def test_gradient_matches_centred_differences(algo, size, seed):
     """gradient (Eq. (3.2)) against centred differences of SciPy's log-likelihood, step h = 1e-5.
 
-    Step: the error of a centred difference is about h² |l'''| / 6 + eps |l| / h (M05a §5 and §7); with |l| and
-    |l'''| of order n (at most 1e3 here), it is smallest near h = 1e-5 and stays below 1e-6 there. Tolerance:
+    Step: the error of a centred difference is about h² |l'''| / 6 + eps |l| / h (M05a §5 and §7); with |l| below
+    1e3 and |l'''| below 3e3 here, it is smallest near h = 1e-5 and stays below 1e-6 there. Tolerance:
     1e-6 absolute plus 1e-7 relative, ten times the error measured on these cases."""
     X, y, w = random_point(seed, size)
     expected = centred_gradient(lambda v: oracle_log_likelihood(v, X, y), w, h=1e-5)
@@ -292,31 +293,31 @@ def test_shifting_a_feature_changes_only_the_intercept(algo, shift):
 # The example of §5, exactly
 # ---------------------------------------------------------------------------------------------------------------
 def test_hand_example_first_direction_is_least_squares_of_y_minus_1(algo):
-    """From w = 0, Newton's direction is (1/10, 13/10) (§5, Eq. (3.8)): tolerance 1e-12, the rounding of a QR in
+    """From w = 0, Newton's direction is (3/4, 3/4) (§5, Eq. (3.8)): tolerance 1e-12, the rounding of a QR in
     float64 (about 1e-16 times the condition number of X, 2.4, times the size of the numbers)."""
-    expected = [Fraction(1, 10), Fraction(13, 10)]
+    expected = [Fraction(3, 4), Fraction(3, 4)]
     got = algo.newton_direction(np.zeros(2), HAND_X, HAND_Y)
     gaps = [abs(Fraction(float(g)) - e) for g, e in zip(got, expected)]
-    assert max(gaps) <= Fraction(1, 10 ** 12), f"expected the direction (1/10, 13/10), got {got.tolist()}"
+    assert max(gaps) <= Fraction(1, 10 ** 12), f"expected the direction (3/4, 3/4), got {got.tolist()}"
 
 
 def test_hand_example_full_step_is_refused_and_half_step_taken(algo):
-    """§5: the full step lowers l, the half step (1/20, 13/20) raises it; fit takes t = 1/2 at its first iteration."""
+    """§5: the full step lowers l, the half step (3/8, 3/8) raises it; fit takes t = 1/2 at its first iteration."""
     result = algo.fit(HAND_X, HAND_Y)
     assert result.step_sizes[0] == 0.5, f"expected a first step halved once (t = 1/2), got t = {result.step_sizes[0]}"
-    assert_close(result.history[1], [1 / 20, 13 / 20], rtol=0.0, atol=1e-12, what="first iterate w_1 of fit")
-    start, full = oracle_log_likelihood([0, 0], HAND_X, HAND_Y), oracle_log_likelihood([0.1, 1.3], HAND_X, HAND_Y)
-    assert full < start, f"expected l(1/10, 13/10) < l(0) (the full step refused), got {full} and {start}"
+    assert_close(result.history[1], [3 / 8, 3 / 8], rtol=0.0, atol=1e-12, what="first iterate w_1 of fit")
+    start, full = oracle_log_likelihood([0, 0], HAND_X, HAND_Y), oracle_log_likelihood([0.75, 0.75], HAND_X, HAND_Y)
+    assert full < start, f"expected l(3/4, 3/4) < l(0) (the full step refused), got {full} and {start}"
 
 
 def test_hand_example_log_likelihood_at_zero(algo):
-    """§5: l(0) = -5 - ln(0! 1! 2! 4! 5!), with math.factorial and math.log, to 1e-12."""
+    """§5: l(0) = -5 - ln(0! 0! 3! 4! 4!), with math.factorial and math.log, to 1e-12."""
     expected = -5 - math.log(math.prod(math.factorial(int(v)) for v in HAND_Y))
     assert_close(algo.log_likelihood(np.zeros(2), HAND_X, HAND_Y), expected, rtol=0.0, atol=1e-12,
                  what="l(0) on the example of §5")
 
 
-@pytest.mark.parametrize("counts", [[0, 1, 2, 4, 5], [2, 7, 1], [0, 0, 1, 0, 3]], ids=["mean=12/5", "mean=10/3",
+@pytest.mark.parametrize("counts", [[0, 0, 3, 4, 4], [2, 7, 1], [0, 0, 1, 0, 3]], ids=["mean=11/5", "mean=10/3",
                                                                                         "mean=4/5"])
 def test_intercept_only_is_the_log_of_the_mean(algo, counts):
     """intercept_only (Eq. (3.10)) returns ln(mean(y)) (math.log), to 1e-12."""
@@ -346,16 +347,52 @@ def test_check_data_rejects_dependent_columns(algo):
 
 
 def test_fit_raises_no_maximum_for_a_group_of_zeros(algo):
-    """Theorem 3 (§4): six evenings with a mosquito net (x = 1), no bite: no maximum. fit raises NoMaximumError, the
-    iterates run away along d = (0, -1) (the weight of the net goes down by about 1 per step) and l increases."""
+    """Theorem 3 (§4): six evenings with a mosquito net (x = 1), no bite: no maximum. fit raises NoMaximumError at
+    step 28, as predicted by Eq. (8.1); the iterates run away along d = (0, -1) (the weight of the net goes down by
+    about 1 per step) and l increases."""
     X = np.column_stack([np.ones(12), [0] * 6 + [1] * 6])
     y = np.array([2, 0, 3, 1, 4, 1] + [0] * 6)
     with pytest.raises(algo.NoMaximumError) as caught:
         algo.fit(X, y)
     history = np.array(caught.value.history)
+    assert len(history) - 1 == 28, (f"expected NoMaximumError at step 28 (Eq. (8.1): the condition number of "
+                                    f"sqrt(mu) X passes 1e6 when 6 e^(-k) / 11 < 1e-12), got {len(history) - 1}")
     assert history[-1, 1] < -20, f"expected the weight of the net below -20 when the error is raised, got {history[-1]}"
     values = np.array(caught.value.log_likelihoods)
     assert np.all(np.diff(values) >= -1e-9), "expected a non-decreasing log-likelihood along the iterates"
+
+
+def test_theorem_3_c_when_the_group_of_zeros_is_where_the_feature_is_0(algo):
+    """Theorem 3 (c), §4: the counts are all 0 where the feature is 0. With a column of ones, d = e_2 - e_1 solves
+    (4.3) and fit raises NoMaximumError; without it, (4.3) has no solution and the maximum is ln(7/2) (math.log)."""
+    feature, counts = np.array([0.0, 0.0, 1.0, 1.0]), np.array([0.0, 0.0, 3.0, 4.0])
+    with pytest.raises(algo.NoMaximumError):
+        algo.fit(np.column_stack([np.ones(4), feature]), counts)
+    assert_close(algo.fit(feature[:, None], counts).w, [math.log(7 / 2)], rtol=0.0, atol=1e-12,
+                 what="w of fit without the column of ones")
+
+
+def test_fit_raises_runtime_error_when_weights_collapse_without_zero_counts(algo):
+    """A feature far from 0 (mean 3000, standard deviation 10) and counts all >= 1: the maximum exists (Theorem 3
+    (a)), but sqrt(mu) * X becomes numerically rank deficient. fit raises RuntimeError (not NoMaximumError), and the
+    same data with the feature centred are fitted, as scikit-learn fits them."""
+    rng = np.random.default_rng(9026)
+    x = rng.normal(3000.0, 10.0, size=300)
+    y = np.maximum(rng.poisson(np.exp(2 + 0.2 * (x - 3000.0))), 1).astype(float)
+    with pytest.raises(RuntimeError, match="centre or rescale") as caught:
+        algo.fit(np.column_stack([np.ones(300), x]), y)
+    assert not isinstance(caught.value, algo.NoMaximumError), "expected a RuntimeError, not NoMaximumError"
+    centred = np.column_stack([np.ones(300), x - x.mean()])
+    assert_close(algo.fit(centred, y).w, sklearn_weights(centred, y), rtol=1e-7, atol=1e-8,
+                 what="w of fit on the centred feature")
+
+
+@pytest.mark.parametrize("y", [[0, 1, -1, 4, 5], [0, 1, 2.5, 4, 5], [0, 1, np.inf, 4, 5]],
+                         ids=["negative", "not an integer", "infinite"])
+def test_log_likelihood_rejects_invalid_counts(algo, y):
+    """log_likelihood raises the ValueError that its docstring announces for counts outside H1."""
+    with pytest.raises(ValueError, match="integer counts"):
+        algo.log_likelihood(np.zeros(2), HAND_X, y)
 
 
 def test_fit_raises_no_maximum_when_all_counts_are_zero(algo):
