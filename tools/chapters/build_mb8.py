@@ -93,7 +93,7 @@ PAPER = [
         ("d", "a list of 2 numbers (2 decimals): the path derivatives of E[X], then of P(X > c)",
          "[-1 / RATE_1 ** 2, 0.0]",
          '''decimals=2,
-           mistakes={"la dérivée de 1/θ par rapport à θ est −1/θ², pas −1/θ": [-1 / RATE_1, 0.0],
+           mistakes={"1/θ est une puissance de θ : sa dérivée n'est pas −1/θ": [-1 / RATE_1, 0.0],
                      "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne": [1.0, 0.0]}'''),
         ("e", "a number (2 decimals): the variance of g(X), at one draw", "SQUARE_1 - DERIV_1 ** 2",
          '''decimals=2,
@@ -126,8 +126,8 @@ PAPER = [
          '''decimals=2,
            mistakes={"une variance retranche le carré de la moyenne de (f − b) s, qui est encore la dérivée":
                          floats(variance_2(mean_2(PRICE_2)) + DERIV_2 ** 2),
-                     "l'estimateur est (f − b) s : la variance porte sur ce produit, pas sur f − b seul":
-                         floats(mean_2([f * f for f in PRICE_2]) - mean_2(PRICE_2) ** 2)}'''),
+                     "la variance d'un produit de deux variables dépendantes n'est pas la variance de f − b fois E[s²]":
+                         floats((mean_2([f * f for f in PRICE_2]) - mean_2(PRICE_2) ** 2) * mean_2([s * s for s in SCORE_2]))}'''),
         ("e", "a list of 2 numbers (3 decimals): b*, then the variance with b*",
          "floats([bstar_2(), variance_2(bstar_2())])",
          '''decimals=3,
@@ -142,7 +142,7 @@ PAPER = [
          '''decimals=3,
            mistakes={"rester ne garantit pas de rester : le placier renvoie parfois le camion au parc":
                          chain_3(stay=np.array([1.0, 0.0]))[0].tolist(),
-                     "P_π mélange les lignes des deux actions avec les probabilités π(a | marché), pas à parts égales":
+                     "P_π mélange les lignes des deux actions avec les probabilités π(a | marché)":
                          chain_3(pi=np.array([0.5, 0.5]))[0].tolist()}'''),
         ("b", "a list of 2 numbers (2 decimals): V(market), V(park)", "V_3.tolist()",
          '''decimals=2,
@@ -165,7 +165,7 @@ PAPER = [
         ("e", "a list of 4 numbers (4 decimals): dV(market)/dz(market, stay), dV(market)/dz(market, leave), "
               "dV(park)/dz(market, stay), dV(park)/dz(market, leave)", "GRAD_3.ravel().tolist()",
          '''decimals=4,
-           mistakes={"∂V(s₀)/∂z(s, a) = ν_{s₀}(s) π(a | s) A(s, a) / (1 − γ) : le facteur 1/(1 − γ) compte":
+           mistakes={"le facteur qui compte les visites du marché est M lui-même, pas la loi d'occupation (1 − γ) M":
                          ((1 - GAMMA_3) * GRAD_3).ravel().tolist(),
                      "V(s₀) dépend du logit par toutes les visites futures du marché : le facteur M[s₀, marché] compte":
                          (PI_3 * A_3).tolist() * 2}'''),
@@ -184,7 +184,8 @@ PAPER = [
          '''decimals=4,
            mistakes={"deux pas plus loin, l'état suit la loi P², et l'erreur est actualisée par γ²":
                          (GAMMA_4 ** 2 * P_4 @ ERR_4).tolist(),
-                     "le retour à 2 pas actualise l'erreur deux fois, par γ²": (GAMMA_4 * P_4 @ P_4 @ ERR_4).tolist()}'''),
+                     "P_π² est le produit de P_π par elle-même, pas le carré de chacun de ses coefficients":
+                         (GAMMA_4 ** 2 * (P_4 * P_4) @ ERR_4).tolist()}'''),
         ("c", "a list of 2 numbers: the weight of the 5-step return (4 decimals), then an integer k",
          "[(1 - LAMBDA_4) * LAMBDA_4 ** 4, tail_k_4()]",
          '''decimals=4,
@@ -209,7 +210,8 @@ PAPER = [
                          floats([p - q for p, q in zip(P_5, Q_5)]),
                      "le poids d'une classe compare sa part dans le recensement à sa part dans le panel, pas à 1/3":
                          floats([3 * p for p in P_5])}'''),
-        ("b", "a list of 2 numbers (2 decimals): the raw mean spending of the panel, then the reweighted one",
+        ("b", "a list of 2 numbers (2 decimals): the raw mean spending E_q[f] (under q, not over the six panelists), then "
+              "the reweighted one E_q[wf]",
          "floats([mean_5(F_5), mean_5([w * f for w, f in zip(W_5, F_5)])])",
          '''decimals=2,
            mistakes={"la moyenne repondérée pondère encore chaque classe par sa part q dans le panel : Σ q w f":
@@ -220,8 +222,8 @@ PAPER = [
          '''decimals=2,
            mistakes={"la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés":
                          floats(sum(W_5[k] for k in SAMPLE_5)),
-                     "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient":
-                         floats(sum(W_5[k] ** 2 for k in SAMPLE_5) / sum(W_5[k] for k in SAMPLE_5))}'''),
+                     "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des "
+                     "poids": floats(sum(W_5[k] ** 2 for k in SAMPLE_5) / sum(W_5[k] for k in SAMPLE_5))}'''),
         ("d", "a list of 2 numbers (2 decimals): the reweighted mean with the weights min(w, 1.6), then its bias",
          "floats([capped_5(), capped_5() - mean_5([w * f for w, f in zip(W_5, F_5)])])",
          '''decimals=2,
@@ -251,16 +253,16 @@ PAPER = [
     Paper("MB8.6", syllabus_entry("MB8.6")[3], [
         ("a", "a number (4 decimals): A and B alone, beta_A - beta_B", "math.log(WINS_6[0, 1] / WINS_6[1, 0])",
          '''decimals=4,
-           mistakes={"les forces sont des logits : σ(β_A − β_B) vaut la part des victoires de A, pas β_A − β_B lui-même":
+           mistakes={"les forces sont des logits : la différence des parts de victoires n'est pas la différence des forces":
                          float((WINS_6[0, 1] - WINS_6[1, 0]) / MATCHES_6[0, 1]),
-                     "σ(d) = 2/7 : d est le logit de 2/7, pas le logarithme de 2/7":
+                     "σ(d) = 2/7 : retrouver d demande la réciproque de la sigmoïde, pas le seul logarithme":
                          math.log(WINS_6[0, 1] / MATCHES_6[0, 1])}'''),
         ("b", "a list of 3 numbers (2 decimals): the expected wins of A against B, of A against C, of B against C",
          "expected_6(PROPOSED_6)",
          '''decimals=2,
            mistakes={"les victoires attendues se calculent avec les forces proposées, pas en recopiant le tableau":
                          [WINS_6[0, 1], WINS_6[0, 2], WINS_6[1, 2]],
-                     "les nombres proposés sont les p_i = e^{β_i}, pas les forces : σ(β_i − β_j) = p_i/(p_i + p_j)":
+                     "les nombres proposés sont les p_i = e^{β_i}, pas les forces β_i elles-mêmes":
                          expected_6(np.exp(PROPOSED_6))}'''),
         ("c", "a list of 3 numbers (4 decimals): the centred strengths beta_A, beta_B, beta_C", "BETA_6.tolist()",
          '''decimals=4,
@@ -272,7 +274,8 @@ PAPER = [
          "PROPOSED_6[2] / (PROPOSED_6[2] + PROPOSED_6[0])",
          '''decimals=4,
            mistakes={"C n'a jamais battu A, mais le modèle prédit à partir de tout le tournoi": 0,
-                     "σ(β_C − β_A) = e^{β_C}/(e^{β_C} + e^{β_A}), pas e^{β_C}/e^{β_A}": PROPOSED_6[2] / PROPOSED_6[0]}'''),
+                     "une probabilité de victoire compte les deux issues du match : ce n'est pas le rapport des deux p":
+                         PROPOSED_6[2] / PROPOSED_6[0]}'''),
         ("e", "a list of 2 numbers (1 decimal): the Elo gap R_A - R_C, then the points C wins if it beats A",
          "[GAP_6, K_6 * (1 - PROPOSED_6[2] / (PROPOSED_6[2] + PROPOSED_6[0]))]",
          '''decimals=1,
@@ -310,7 +313,7 @@ PAPER = [
     Paper("MB8.11", syllabus_entry("MB8.11")[3], [
         ("a", "a list of 8 numbers (2 decimals): the eight scores at theta = 2.5", "S_11.tolist()",
          '''decimals=2,
-           mistakes={"le score de la loi de Poisson est x/θ − 1 : la dérivée de −θ compte": (X_11 / THETA_11).tolist(),
+           mistakes={"ln p_θ(x) contient aussi −θ : sa dérivée compte dans le score": (X_11 / THETA_11).tolist(),
                      "la dérivée de x ln θ par rapport à θ est x/θ, pas x/θ²": (X_11 / THETA_11 ** 2 - 1).tolist()}'''),
         ("b", "a number (4 decimals): dL/dtheta at theta = 2.5, with b = 1", "derivative_11(1.0)",
          '''decimals=4,
@@ -853,8 +856,9 @@ plain_13r = mean_and_error_13r(f_13r * s_13r)
 others_13r = mean_and_error_13r((f_13r - (f_13r.sum() - f_13r) / (n_13r - 1)) * s_13r)
 group_13r = float(np.mean((f_13r - f_13r.mean()) * s_13r))
 wbm.record("MB8.13a", plain_13r, decimals=5,
-           mistakes={"l'erreur type d'une moyenne de n termes est leur écart-type divisé par √n (relance les tests de "
-                     "score_function_gradient)": [plain_13r[0], float((f_13r * s_13r).std(ddof=1))]})
+           mistakes={"l'erreur type d'une moyenne n'est pas l'écart-type de ses termes : elle diminue quand n grandit "
+                     "(relance les tests de score_function_gradient)":
+                         [plain_13r[0], float((f_13r * s_13r).std(ddof=1))]})
 wbm.record("MB8.13b", others_13r, decimals=5)
 wbm.record("MB8.13c", group_13r / others_13r[0], decimals=4,
            mistakes={"c) est l'estimation avec la moyenne du groupe, au numérateur, sur celle de b), au dénominateur":
@@ -988,8 +992,8 @@ LOG_P_15 = frozen(__LOG_P_15__)
 LOG_Q_15 = frozen(__LOG_Q_15__)'''
 
 NOTE_15 = (r"`d = lt - lq`, `np.minimum(d, math.log(c))` avec `max_weight`, `u = np.exp(d - d.max())` et `ess = "
-           r"u.sum() ** 2 / (u ** 2).sum()`, puis `np.exp(d)` ou `u / u.sum()`. a) $(5{,}84 ;\ 4{,}8823)$, comme "
-           r"MB8.5. b) Le quotient direct rend `nan` partout ($\frac00$) ; avec `self_normalize=True` : "
+           r"u.sum() ** 2 / (u ** 2).sum()`, puis `np.exp(d)` ou `u / u.sum()`. a) $(0{,}2808 ;\ 4{,}8823)$ : la "
+           r"taille effective est celle de MB8.5 c. b) Le quotient direct rend `nan` partout ($\frac00$) ; avec `self_normalize=True` : "
            r"$\approx (0{,}39574 ;\ 3{,}65348)$.")
 
 HINTS_15 = {letter: 'library_hint("importance_weights")' for letter in "ab"}
@@ -1003,7 +1007,7 @@ MB8_15 = ex(
 Écris `importance_weights(log_target, log_proposal, self_normalize=False, max_weight=None)` (fiche §6), en suivant sa docstring : contrôle les arguments ; les différences $d_i = \ln p(x_i) - \ln q(x_i)$, ramenées à $\ln c$ au plus avec `max_weight` $= c$ ; la taille effective à partir de $e^{d_i - \max d}$ ; puis les poids $e^{d_i}$, ou divisés par leur somme. Lance le groupe de tests.
 
 **L'usage.** Avec ta fonction :
-- a) les six panélistes de MB8.5 (`PANEL_5`, cellule de données ; les $\ln p$ et $\ln q$ de leurs classes) : la somme des poids, puis la taille effective (une liste de 2 nombres, à comparer à ta copie) ;
+- a) les six panélistes de MB8.5 (`PANEL_5`, cellule de données ; les $\ln p$ et $\ln q$ de leurs classes) : le plus grand poids auto-normalisé, puis la taille effective (une liste de 2 nombres, à comparer à ta copie) ;
 - b) le notebook fournit `LOG_P_15` et `LOG_Q_15`, les log-densités de cinq tirages d'une proposition en dimension 900, de l'ordre de $-1\,300$ : calcule d'abord `np.exp(LOG_P_15) / np.exp(LOG_Q_15)` et regarde ce que rend NumPy ; puis, avec `self_normalize=True`, le plus grand poids normalisé et la taille effective (une liste de 2 nombres).""",
     todo=LOAD_LEARNER,
     solution=LOAD_REF,
@@ -1013,15 +1017,15 @@ MB8_15 = ex(
         ("md", "**L'usage** : les six panélistes de MB8.5, puis cinq tirages en dimension 900."),
         ("todo", '''answer_MB8_15a = answer_MB8_15b = naive_15 = ...
 with wbm.attempt("MB8.15"):          # if you call importance_weights here: ⏳ while it is not written
-    answer_MB8_15a = ...  # a) a list of 2 numbers, as computed: the sum of the weights of the six panelists, then the effective size
+    answer_MB8_15a = ...  # a) a list of 2 numbers, as computed: the six panelists, the largest self-normalized weight, then the effective size
     naive_15 = ...        # b) first: np.exp(LOG_P_15) / np.exp(LOG_Q_15), and look at what NumPy returns
     answer_MB8_15b = ...  # b) a list of 2 numbers, as computed: with self_normalize=True, the largest weight, then the effective size'''),
         ("check", answers_check("MB8.15", "ab", hints=HINTS_15)),
         ("solution", '''importance_weights = mymath.policy_gradient.importance_weights
 classes_15 = list(PANEL_5["sample"])
 weights_15, ess_15 = importance_weights(np.log(np.array(PANEL_5["p"])[classes_15]),
-                                        np.log(np.array(PANEL_5["q"])[classes_15]))
-answer_MB8_15a = [float(weights_15.sum()), ess_15]
+                                        np.log(np.array(PANEL_5["q"])[classes_15]), self_normalize=True)
+answer_MB8_15a = [float(weights_15.max()), ess_15]
 with np.errstate(under="ignore", invalid="ignore"):
     naive_15 = np.exp(LOG_P_15) / np.exp(LOG_Q_15)
 normalized_15, ess_b_15 = importance_weights(LOG_P_15, LOG_Q_15, self_normalize=True)
@@ -1038,11 +1042,11 @@ panel_15r = [F_15r(p, 100) / F_15r(q, 100) for p, q in ((26, 50), (41, 25), (33,
 sample_15r = [panel_15r[k] for k in (0, 0, 0, 1, 2, 2)]
 sum_15r = sum(sample_15r)
 kish_15r = float(sum_15r ** 2 / sum(w * w for w in sample_15r))
-wbm.record("MB8.15a", [float(sum_15r), kish_15r], decimals=4,
-           mistakes={"la taille effective divise le carré de la somme des poids par la somme de leurs carrés":
-                         [float(sum_15r), float(sum_15r)],
-                     "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient":
-                         [float(sum_15r), 1 / kish_15r]})
+wbm.record("MB8.15a", [float(max(sample_15r) / sum_15r), kish_15r], decimals=4,
+           mistakes={"a) demande les poids divisés par leur somme (self_normalize=True), pas les poids bruts":
+                         [float(max(sample_15r)), kish_15r],
+                     "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des "
+                     "poids": [float(max(sample_15r) / sum_15r), 1 / kish_15r]})
 gaps_15r = np.array(__LOG_P_15__) - np.array(__LOG_Q_15__)
 ess_15r = float(np.exp(2 * logsumexp_15r(gaps_15r) - logsumexp_15r(2 * gaps_15r)))
 wbm.record("MB8.15b", [float(np.exp(gaps_15r.max() - logsumexp_15r(gaps_15r))), ess_15r], decimals=5,
@@ -1137,12 +1141,12 @@ beta_16r = newton_16r([[0, 2, 10], [5, 0, 1], [0, 3, 0]])
 wbm.record("MB8.16a", beta_16r.tolist(), decimals=4)
 league_16r = newton_16r(__WINS_16__)
 wbm.record("MB8.16b", league_16r.tolist() + [float(1 / (1 + np.exp(league_16r[5] - league_16r[0])))], decimals=7,
-           mistakes={"P(club 0 bat club 5) = e^{β₀}/(e^{β₀} + e^{β₅}), pas e^{β₀}/e^{β₅}":
+           mistakes={"une probabilité de victoire compte les deux issues du match : ce n'est pas le rapport des deux "
+                     "e^β":
                          league_16r.tolist() + [float(np.exp(league_16r[0] - league_16r[5]))]})'''),
         ("solution", answers_check("MB8.16", "ab", hints=HINTS_16) + "\n\n" + CHECK_16C),
-        look("le classement par les forces suit-il ici celui des victoires ? Pourquoi n'est-ce pas garanti quand les "
-             "clubs n'ont pas joué autant de matchs ? Pourquoi un club qui n'a jamais perdu n'a-t-il pas de force "
-             "finie ?"),
+        look("la probabilité que le club 0 batte le club 5 vaut-elle la part de ses victoires contre lui, 6 sur 7 ? "
+             "Pourquoi le modèle ne recopie-t-il pas cette part ?"),
     ],
 )
 

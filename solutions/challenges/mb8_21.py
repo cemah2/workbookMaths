@@ -16,8 +16,8 @@ which returns two arrays of ``k`` floats: ``k`` independent draws ``x_i`` of ``p
 ``budget`` (beyond, ``draw`` returns NaNs, and the case fails). The path derivative of an indicator is 0; finite
 differences between independent samples at ``θ ± h`` drown the gap of two close probabilities in their noise; the
 plain score estimator ``mean(f(x_i) s(x_i))`` is very noisy when ``P_θ(X > c)`` is close to 1 (``f`` is then almost
-always 1, and the estimator is almost the mean of the scores, of variance ``E[s²]``); a constant baseline ``b`` fixes one
-end only (``b = 1`` is noisy for a rare event, ``b = ½`` for a very frequent one). A baseline estimated on the draws
+always 1, and the estimator is almost the mean of the scores, of variance ``E[s²]``); a constant baseline ``b`` fixes
+one end only (``b = 1`` is noisy for a rare event, ``b = ½`` for a very frequent one). A baseline estimated on the draws
 (the optimal one ``Σ f s² / Σ s²``, the mean of the other draws, the mean of the sample) works in every case.
 
 - :data:`FAMILIES`: the exponential law of rate ``θ``, the law of Poisson of mean ``θ``, the normal law ``N(θ, σ²)``
@@ -32,9 +32,15 @@ end only (``b = 1`` is noisy for a rare event, ``b = ½`` for a very frequent on
   ``P(|N(0, 1)| > Z)``, about 3·10⁻³.
 - Criterion: a case succeeds when ``|estimate − J'(θ)| ≤ TOL |J'(θ)|`` within its budget; the challenge is met when the
   notebook's case succeeds and at least :data:`PASS_FRACTION` of the hidden cases do (« neuf fois sur dix »). Measured
-  per run on 200 runs and more (scratchpad of session 76): every adaptive baseline succeeds at every run, and the plain
-  estimator, the constant baselines ½ and 1, the path derivative, finite differences, a method frozen on the notebook's
-  case or on its family, and a control variate ``x − x̄`` fail at every run (or at most one run in a hundred).
+  on a few hundred runs per method (session 76, with these functions and the criterion of the check cell): the
+  optimal baseline estimated on the draws, the mean of the other draws, the mean of the sample, a regression on the
+  score, a baseline estimated on a fifth or a tenth of the budget, the median of ``f``, and the mean of the other
+  draws on half the budget succeed at every run; the plain estimator, the constant baselines ½ and 1, the path
+  derivative, finite differences between two independent samples (two spacings tried), the notebook's derivative
+  copied, a method frozen on the exponential family and a control variate ``x − x̄`` fail at every run. A method that
+  recognises the family and ``θ`` from a few draws and their scores, then writes the exact derivative, succeeds too:
+  the statement names the four families; it is valid, but not the method of the chapter, which needs neither the
+  family nor ``θ``.
 
 The notebook's case comes last (series 0); for it, the verdict says only whether the estimate is within the tolerance
 (its relative error would give back the exact derivative, the answer of ✏️ MB8.1 b).

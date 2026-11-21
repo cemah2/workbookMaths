@@ -119500,7 +119500,7 @@
       "hash": "75de84c5af01adf76ea7008489a68a76f48bb3dde52001b09544f4ab15cc0311",
       "kind": "array",
       "mistakes": {
-        "3316a96ae90bf7a7bbeb3332d2ebc92729cbcd2f86763ac6ec9b2999a947ad7c": "la dérivée de 1/θ par rapport à θ est −1/θ², pas −1/θ",
+        "3316a96ae90bf7a7bbeb3332d2ebc92729cbcd2f86763ac6ec9b2999a947ad7c": "1/θ est une puissance de θ : sa dérivée n'est pas −1/θ",
         "735883b5fa958e260c43b3bac404f157bfba42e57274b73c1ba2faf16b507ab5": "ici X = ξ/θ : on dérive par rapport au taux θ, pas par rapport à la moyenne"
       },
       "shape": [
@@ -119616,7 +119616,7 @@
       "magnitude": 1,
       "mistakes": {
         "1675b849f390601116770d3c48bca92fc7a8f6b8912ea348a2c037173ba07e0e": "une variance retranche le carré de la moyenne de (f − b) s, qui est encore la dérivée",
-        "cd0233f90da4ee28efc3d306a6eff73631880aa0945e20917124826f143076d1": "l'estimateur est (f − b) s : la variance porte sur ce produit, pas sur f − b seul"
+        "c503bcef40da7a6eee299e94d964806d7777e951223ae60f0bc624608c00c458": "la variance d'un produit de deux variables dépendantes n'est pas la variance de f − b fois E[s²]"
       },
       "sign": 1,
       "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
@@ -119698,7 +119698,7 @@
       "kind": "array",
       "mistakes": {
         "41bcb92fabe236769f3937a245e2186efc91ef10b420339020e44d0ba8141640": "rester ne garantit pas de rester : le placier renvoie parfois le camion au parc",
-        "a297bc3e4b02731127465fd840a8530b338ac48563e826efbcc8ec8f1a0b6141": "P_π mélange les lignes des deux actions avec les probabilités π(a | marché), pas à parts égales"
+        "a297bc3e4b02731127465fd840a8530b338ac48563e826efbcc8ec8f1a0b6141": "P_π mélange les lignes des deux actions avec les probabilités π(a | marché)"
       },
       "shape": [
         2,
@@ -119873,7 +119873,7 @@
       "hash": "7dbee6edb62246c6288b16f58013c42fe33f0401d8eff1156d2f3af7af84e808",
       "kind": "array",
       "mistakes": {
-        "1ce0dc2f4762f3daf2c76c50a88e3e8c58a385fcc93a270163d96de6a081f76f": "∂V(s₀)/∂z(s, a) = ν_{s₀}(s) π(a | s) A(s, a) / (1 − γ) : le facteur 1/(1 − γ) compte",
+        "1ce0dc2f4762f3daf2c76c50a88e3e8c58a385fcc93a270163d96de6a081f76f": "le facteur qui compte les visites du marché est M lui-même, pas la loi d'occupation (1 − γ) M",
         "fe972acd8d600fec7be4578c95d09294efc1eb9b0f2c221b08651a75953027ab": "V(s₀) dépend du logit par toutes les visites futures du marché : le facteur M[s₀, marché] compte"
       },
       "shape": [
@@ -119915,8 +119915,8 @@
       "hash": "0da2d9df4704bb84125223593cf8cfa59e7bb59696febd599ae34393fcb22cb7",
       "kind": "array",
       "mistakes": {
-        "43b037563153636178013cdbd7179cf062ef78a08464c88ef5d867545c3b8687": "l'erreur de la valeur du lendemain est actualisée une fois par γ",
-        "bef3e9b7faa945839b5f88a16944d887a41e4fdd8987dd67718483c0c0609061": "l'erreur du retour à 1 pas vient de l'état du lendemain, tiré selon P : pas de l'état de départ"
+        "160c3cbb893da59efeb48f47cd510af57c04d8aa311409da4899837f34257df5": "l'erreur du retour à 1 pas vient de l'état du lendemain, tiré selon P : pas de l'état de départ",
+        "4c90f7050e3d53407e8f1dbe567df4d954660de979882aa3233f990302433938": "l'état du lendemain se tire avec la ligne de l'état de départ : les lois sont les lignes de P_π"
       },
       "shape": [
         3
@@ -119961,7 +119961,7 @@
       "kind": "array",
       "mistakes": {
         "4d38bf1787844db08249847f037668b9a932be3bde7610e747524a32c3a35431": "deux pas plus loin, l'état suit la loi P², et l'erreur est actualisée par γ²",
-        "ca36fd904eae959413ec6042cb908b970d5d3246ab2187143464d90d95fdfa62": "le retour à 2 pas actualise l'erreur deux fois, par γ²"
+        "d272de615f3551cff536b3aa903854961d770996965f440696c1c2a50427ca2f": "P_π² est le produit de P_π par elle-même, pas le carré de chacun de ses coefficients"
       },
       "shape": [
         3
@@ -120116,7 +120116,7 @@
       "kind": "float",
       "magnitude": 0,
       "mistakes": {
-        "0366e4468a06ae4b6f8784602636d6c6fb583f4b4a8bd622f08524c99cb171aa": "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient",
+        "0366e4468a06ae4b6f8784602636d6c6fb583f4b4a8bd622f08524c99cb171aa": "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des poids",
         "20086d80ca7bd2f4fb2a77195c2c1add9ec5848f6166e5e17a6c3997f32b6d9b": "la somme des poids n'est pas une taille effective : divise son carré par la somme des carrés"
       },
       "sign": 1,
@@ -120285,8 +120285,8 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "07f41293ed2c8071e03a017803c353a84f54a3af0df5885d745e6eb52c385169": "σ(d) = 2/7 : d est le logit de 2/7, pas le logarithme de 2/7",
-        "57157022fbdb1a060fe09dae4195b4f0a5628605e6536b9078b00786f7c42a08": "les forces sont des logits : σ(β_A − β_B) vaut la part des victoires de A, pas β_A − β_B lui-même"
+        "07f41293ed2c8071e03a017803c353a84f54a3af0df5885d745e6eb52c385169": "σ(d) = 2/7 : retrouver d demande la réciproque de la sigmoïde, pas le seul logarithme",
+        "57157022fbdb1a060fe09dae4195b4f0a5628605e6536b9078b00786f7c42a08": "les forces sont des logits : la différence des parts de victoires n'est pas la différence des forces"
       },
       "sign": -1,
       "source": "chapitres/mb8_gradient_politique/05_solutions.ipynb"
@@ -120323,7 +120323,7 @@
       "hash": "abb9d10d152cd16eaa8066bb7beee6dc5881387a9b32a9ed9f2a594372bac51a",
       "kind": "array",
       "mistakes": {
-        "1bfd016eced6d3e32e34559881558fbb64375d819491497db570ffb5da515f49": "les nombres proposés sont les p_i = e^{β_i}, pas les forces : σ(β_i − β_j) = p_i/(p_i + p_j)",
+        "1bfd016eced6d3e32e34559881558fbb64375d819491497db570ffb5da515f49": "les nombres proposés sont les p_i = e^{β_i}, pas les forces β_i elles-mêmes",
         "ca68542ee8d788ec70c09d725a4a3e2e0076184b7373a60deecef199ce17f49d": "les victoires attendues se calculent avec les forces proposées, pas en recopiant le tableau"
       },
       "shape": [
@@ -120393,7 +120393,7 @@
       "kind": "float",
       "magnitude": -1,
       "mistakes": {
-        "3d30a6793227a412c525ebf7d70453d3a10b9297c2567e6dca8e664c0ea6698c": "σ(β_C − β_A) = e^{β_C}/(e^{β_C} + e^{β_A}), pas e^{β_C}/e^{β_A}",
+        "3d30a6793227a412c525ebf7d70453d3a10b9297c2567e6dca8e664c0ea6698c": "une probabilité de victoire compte les deux issues du match : ce n'est pas le rapport des deux p",
         "fe47000bd43a17e2b40aefbbe771bc8360a50c988484a1c1a862ee500cfc0b95": "C n'a jamais battu A, mais le modèle prédit à partir de tout le tournoi"
       },
       "sign": 1,
@@ -120637,7 +120637,7 @@
       "kind": "array",
       "mistakes": {
         "60b0d5a0b07861c934d1b5ef867a580194bc65bb3b1022d1d1b0585c8551e598": "la dérivée de x ln θ par rapport à θ est x/θ, pas x/θ²",
-        "d1ea779d56185320fbe4fc91773d81b4616b1a94a818d68b2ec2d1a2f0608b76": "le score de la loi de Poisson est x/θ − 1 : la dérivée de −θ compte"
+        "d1ea779d56185320fbe4fc91773d81b4616b1a94a818d68b2ec2d1a2f0608b76": "ln p_θ(x) contient aussi −θ : sa dérivée compte dans le score"
       },
       "shape": [
         8
@@ -120727,7 +120727,7 @@
       "hash": "de3ab90cc8a9cb8593b3215518ec69e84070ef97d82cb0265be2d2bfa6a4fbf5",
       "kind": "array",
       "mistakes": {
-        "cd18681fb063a8083a61938a3a81f5cbfbd5fc58f46bd731720232e988ccca00": "l'erreur type d'une moyenne de n termes est leur écart-type divisé par √n (relance les tests de score_function_gradient)"
+        "cd18681fb063a8083a61938a3a81f5cbfbd5fc58f46bd731720232e988ccca00": "l'erreur type d'une moyenne n'est pas l'écart-type de ses termes : elle diminue quand n grandit (relance les tests de score_function_gradient)"
       },
       "shape": [
         2
@@ -121016,7 +121016,7 @@
       "decimals": 4,
       "element_coarse": [
         [
-          "5c31a2e2d93da96c4dbfa5625f9f476f8bc76a79e50e8861c7e803f094ec3bb8"
+          "5302126ef2754fd2bbe3779b539f60f92a4f4ca7a6afd8794f8873c7a15f3a3a"
         ],
         [
           "2edde0720f04bd9e8131d5215f29ce94eb2e8d12ed0018236717827351183f89"
@@ -121024,9 +121024,8 @@
       ],
       "element_coarse_any": [
         [
-          "ec7237c33da044b79e8a3f7a92936937ec38fb15cbee415c14984da1aa3a1d16",
-          "751cb54e70b17e4e054f910c54a0be21b5a7711bb6867ac27b79461362bd8141",
-          "1eb76c0155024c8ea44664d1854c2103ff5dfa909b36c05a02ed6e2ef239ab43"
+          "16d77e7aa935cf504b7079a2b75b017231265ad65dff0f765670d1f0e80d0a9a",
+          "f45af711ca8e69ebab0063e87d7f972fce933d449902a60a3db8902debf9803d"
         ],
         [
           "715bc3dc50cd7d8456638c16200b236d10d08777336fe552628e743864dd9234",
@@ -121035,14 +121034,14 @@
         ]
       ],
       "element_hashes": [
-        "a134e9548ccc025426f2c725ea44442b4677de6dbc242c782d89edf398d432a3",
+        "3f0e611f069073a3a615f96186314854c82ae0876dc85cfcd49bc409ad2090b5",
         "48f8a29868eb68758f2e0fa967b9f258cc6226055d73a5d148e053fee04d649d"
       ],
-      "hash": "ac89508a75972a5dc7f0a7dcec187a7ce34d20a678750202aa64bbfa1885399f",
+      "hash": "59c220f2f52c72a5d45a34c86717286d4f30d23b6060e959d5a439b474845090",
       "kind": "array",
       "mistakes": {
-        "8a7ecccab4a280c66ed842e7fd316211f00a92060036559bcfee7f27faeb9445": "la taille effective divise le carré de la somme des poids par la somme de leurs carrés",
-        "d6127cd95a04ff408234708aef04ee6cedab3c96e9ddbfea6ed9f691c9046d4a": "une taille effective est comprise entre 1 et n : vérifie l'ordre du quotient"
+        "1d1c40058985969ab682d1d0a32af978725ca58eff9ffd51af68a03f34663d36": "a) demande les poids divisés par leur somme (self_normalize=True), pas les poids bruts",
+        "345c5223c6ba6cf73f498e2a88f1702a99fef394b27d1836b3ae77ed4cd0c5ba": "la taille effective élève au carré la somme des poids, puis divise par la somme des carrés des poids"
       },
       "shape": [
         2
@@ -121227,7 +121226,7 @@
       "hash": "2016f37ccb66a14bad34d263c79a0313a3456cc29e76285a252171e920bbd510",
       "kind": "array",
       "mistakes": {
-        "73682cd16989f55dbaa1525180322309309cee26116474992c35fce425caf5b4": "P(club 0 bat club 5) = e^{β₀}/(e^{β₀} + e^{β₅}), pas e^{β₀}/e^{β₅}"
+        "73682cd16989f55dbaa1525180322309309cee26116474992c35fce425caf5b4": "une probabilité de victoire compte les deux issues du match : ce n'est pas le rapport des deux e^β"
       },
       "shape": [
         7
