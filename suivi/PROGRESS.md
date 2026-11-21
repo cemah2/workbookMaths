@@ -29,7 +29,7 @@ La partie V est complète : M21, M22 et CP5. L'apprenant enchaîne avec le check
 | IV · Réseaux | M16 à M20, CP4 | ✅ tout publié (M16, M17, M18, M19, M20, CP4) ; (syllabus détaillé en session 48 (182 exercices, cinq modules `mymath` : `affine`, `jacobian`, `autodiff`, `iterative`, `tensors`) |
 | V · Architectures | M21, M22, CP5 | ✅ tout publié (M21, M22, CP5) ; (syllabus détaillé en session 56 : 94 exercices, deux modules `mymath` : `convolution`, `recurrence`) |
 | VI · Génératif et RL | M25a à M28, CP6 | ✅ tout publié (M25a, M25b, M26, M27, M28, CP6) et audité (session 70) ; syllabus détaillé en session 60 (203 exercices, cinq modules `mymath` : `gaussian`, `latent`, `markov`, `distances`, `sampling`) |
-| VII · Bonus | MB2 à MB8 | 🛠️ MB2 publié (session 71), MB3 publié (session 72), MB4 publié (session 73), MB5 publié (session 74), MB6 publié (session 75), MB8 publié (session 76) : **partie VII complète** ; syllabus détaillé en session 69 (182 exercices, 81,5 h après MB8 ; six modules `mymath` : `cooccurrence`, `positional`, `ranks`, `gaussian_paths`, `attribution`, `policy_gradient`) |
+| VII · Bonus | MB2 à MB8 | ✅ tout publié : MB2 publié (session 71), MB3 publié (session 72), MB4 publié (session 73), MB5 publié (session 74), MB6 publié (session 75), MB8 publié (session 76) : **partie VII complète** ; syllabus détaillé en session 69 (182 exercices, 81,5 h après MB8 ; six modules `mymath` : `cooccurrence`, `positional`, `ranks`, `gaussian_paths`, `attribution`, `policy_gradient`) |
 | Fin | PS | 📅 planifié |
 
 ✅ publié · 🛠️ en cours · 📅 planifié
