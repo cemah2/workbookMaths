@@ -57,6 +57,9 @@ __all__ = [
     "run_pytest_group",
     "exception_hint",
     "drawn",
+    "PEEK_NAMES",
+    "peeked",
+    "refuse_peeking",
 ]
 
 # Errors that mean "the learner's code is not written yet": ⏳, never ❌.
@@ -437,10 +440,10 @@ def watched(references: dict):
     when the learner's code catches the exception). Without ``sys.monitoring`` (Python < 3.12) or a free tool id,
     nothing is watched."""
     monitoring = getattr(sys, "monitoring", None)
-    codes = {}
+    codes = {}          # by identity: two functions of the same source in two files have EQUAL code objects
     for label, reference in references.items():
         for code in _code_objects(reference):
-            codes.setdefault(code, label)
+            codes.setdefault(id(code), (code, label))
     tool = None
     if monitoring is not None and codes:
         for candidate in _WATCH_TOOLS:
@@ -453,19 +456,19 @@ def watched(references: dict):
     seen: list = []
     if tool is not None:
         def on_start(code, offset):
-            label = codes.get(code)
-            if label is not None:
-                seen.append(label)
-                raise ReferenceCalled(label)
+            entry = codes.get(id(code))
+            if entry is not None and entry[0] is code:
+                seen.append(entry[1])
+                raise ReferenceCalled(entry[1])
 
         monitoring.register_callback(tool, monitoring.events.PY_START, on_start)
-        for code in codes:
+        for code, _ in codes.values():
             monitoring.set_local_events(tool, code, monitoring.events.PY_START)
     try:
         yield seen
     finally:
         if tool is not None:
-            for code in codes:
+            for code, _ in codes.values():
                 monitoring.set_local_events(tool, code, 0)
             monitoring.register_callback(tool, monitoring.events.PY_START, None)
             monitoring.free_tool_id(tool)
@@ -739,3 +742,76 @@ def run_pytest_group(test_file, keyword: str | None = None, impl: str = "learner
     print("pytest:", _french_summary(shown))
     return GroupResult(passed=_count(summary, "passed"), failed=_count(summary, "failed"),
                        errors=_count(summary, "errors?"), pending=sum(f[1] for f in failures), summary=summary)
+# ---------------------------------------------------------------------------
+# Reading instead of running (🛠️ and 🏆 of part VII, audit of session 78)
+# ---------------------------------------------------------------------------
+PEEK_NAMES = frozenset({
+    # a function, its closure, its code
+    "__closure__", "cell_contents", "__code__", "__wrapped__", "__defaults__", "__kwdefaults__", "__globals__",
+    "__name__", "__qualname__", "__doc__", "__module__", "__self__", "__func__", "__dict__", "__getattribute__",
+    "co_name", "co_qualname", "co_filename", "co_code", "co_consts", "co_names", "co_varnames",
+    # the call stack: frames, tracebacks
+    "_getframe", "currentframe", "_current_frames", "f_back", "f_locals", "f_globals", "f_code", "__traceback__",
+    "tb_frame", "tb_next", "exc_info", "exception", "last_traceback", "walk_stack", "extract_stack", "traceback",
+    # names built at run time, and what reaches every object
+    "getattr", "attrgetter", "methodcaller", "vars", "dir", "eval", "exec", "compile", "globals", "locals",
+    "builtins", "__builtins__", "__import__", "importlib", "inspect", "getsource", "gc", "get_objects",
+    "get_referrers", "ctypes", "settrace", "setprofile", "monitoring",
+    # the other process of a challenge and its pipes; the hidden module read or run from its file
+    "subprocess", "Popen", "stdin", "stdout", "modules", "open", "read_text", "read_bytes", "runpy", "run_path",
+    "run_module", "spec_from_file_location", "exec_module", "SourceFileLoader", "load_module"})
+
+
+def _strings(values):
+    """The strings of a tuple of constants, those of the nested tuples and frozensets included (a class pattern of
+    ``match``, ``case object(__closure__=c)``, keeps its attribute names in such a tuple)."""
+    for value in values:
+        if isinstance(value, str):
+            yield value
+        elif isinstance(value, (tuple, frozenset)):
+            yield from _strings(value)
+
+
+def peeked(function, namespace, names=PEEK_NAMES, private=(), _seen=None) -> set:
+    """The names of ``names`` that ``function`` uses, as a name, as a string or as a string of a constant tuple, and
+    those of the functions of the notebook it reaches: the functions and classes of ``namespace`` (the notebook's
+    ``globals()``) it names, the methods of those classes, its default values. A check calls it before running the
+    learner's function: a 🛠️ test judges what a method does, not what it is; a 🏆 computes its answer, it does not read
+    the check (its frames, the other process). private holds the suffixes of the names of the check cell
+    (("_c24", "_C24"): its hidden methods, its lists, its helpers), which the learner's code does not use either. A list
+    of names cannot see everything: it only makes reading costlier than writing the method."""
+    seen = set() if _seen is None else _seen
+    if isinstance(function, type):
+        return set().union(*(peeked(v, namespace, names, private, seen) for v in vars(function).values()))
+    function = getattr(function, "__func__", function)
+    code = getattr(function, "__code__", None)
+    if code is None or code in seen:
+        return set()
+    seen.add(code)
+    found = set()
+    for value in (getattr(function, "__defaults__", None) or ()):
+        if callable(value):
+            found |= peeked(value, namespace, names, private, seen)
+    todo = [code]
+    while todo:
+        c = todo.pop()
+        used = set(c.co_names) | set(_strings(c.co_consts))
+        found |= (names & used) | {name for name in used if private and name.endswith(tuple(private))}
+        for name in c.co_names:
+            target = namespace.get(name)
+            if callable(target) and getattr(target, "__module__", None) == "__main__":
+                found |= peeked(target, namespace, names, private, seen)
+        todo += [k for k in c.co_consts if hasattr(k, "co_code")]
+    return found
+
+
+def refuse_peeking(ex_id: str, functions: dict, namespace, private=(), extra=()) -> None:
+    """One ❌ line and :class:`StopCheck` when one of ``functions`` (``{label: function}``) reads instead of running:
+    a name of :data:`PEEK_NAMES` or of ``extra`` (an oracle of the notebook, a truth it shows), or a name of the check
+    cell (``private``, its suffixes)."""
+    for label, function in functions.items():
+        found = sorted(peeked(function, namespace, PEEK_NAMES | frozenset(extra), tuple(private)))
+        if found:
+            print(f"❌ Ex {ex_id} : {label} lit la méthode, la pile d'appels ou la vérification ({', '.join(found)}) au "
+                  "lieu de calculer : écris ce calcul sans ces noms")
+            raise StopCheck
