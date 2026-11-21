@@ -1,8 +1,10 @@
-# Consignes pour Claude (sessions de génération de workbookMaths)
+# Consignes pour Claude (sessions de workbookMaths)
+
+La génération est terminée (79 sessions, du 2026-11-06 au 2026-11-21) : tout le parcours est publié. Une session future corrige, répond à un retour de l'apprenant ou corrige son travail (modèles dans `docs/METHODE.md` §2), sans changer d'ID, de stub ni de bonne réponse (`build_answers.py` refuse ce dernier cas).
 
 1. **Lis `docs/BIBLE.md` en entier** avant toute action : c'est la spécification qui fait foi (en cas de conflit avec un prompt, la bible l'emporte sauf « DÉROGATION »). Puis lis `suivi/PROGRESS.md` (état, étape en cours, calibrage) et, à partir de la session 2, `docs/SYLLABUS.md` (le contrat).
 2. **N'écris jamais dans `mon_travail/`** : c'est l'espace de l'apprenant. Tu peux seulement y lire (correction).
-3. **Ne modifie jamais workbookIA** (`cemah2/workbookIA`) : il est seulement lu, en lecture seule, pour connaître les notions requises par chacun de ses chapitres et pour éviter doublons et fuites (BIBLE §8, règle de partage). Clone-le à part (`git clone --depth 1 https://github.com/cemah2/workbookia /home/claude/cemah2/workbookia`), jamais dans ce dépôt.
+3. **Ne modifie jamais workbookIA** (`cemah2/workbookIA`) : il est seulement lu, en lecture seule, pour connaître les notions requises par chacun de ses chapitres et pour éviter doublons et fuites (BIBLE §8, règle de partage). Clone-le à part (`git clone --depth 1 https://github.com/cemah2/workbookia /home/claude/cemah2/workbookia`), jamais dans ce dépôt. **Consigne de l'utilisateur** : workbookIA se lit seulement avec les outils Read, Grep et Glob. Aucune commande Bash sur ses fichiers ni dans son dossier, même pour lire (ni `ls`, ni `cat`, ni `grep`, ni `find`, ni `git`, ni `python`). Cela vaut pour le coordinateur comme pour les sous-agents : répète la consigne mot pour mot dans le prompt de chaque sous-agent (des infractions ont eu lieu aux sessions 60, 66 et 69).
 4. Un stub `mymath` publié n'est jamais modifié ; `templates/mymath_stubs/MANIFEST.json` ne fait que grandir. Les ID d'exercices sont stables.
 5. Toute décision ou dérogation → une ligne dans `docs/BIBLE.md` §24.
 
@@ -36,16 +38,17 @@ python tools/build_answers.py               # régénère src/wbm/answers.json d
 python tools/build_answers.py --check
 python tools/run_all_notebooks.py chapitres/<dossier>/03_notebook.ipynb   # « Run all » sans rien remplir
 python tools/export_flashcards.py --check
+python tools/mdmath.py --check              # les formules des .md s'affichent sur GitHub (--fix FICHIER réécrit les formules seules)
 python 00_setup/check_env.py
 ```
 ```bash
 python tools/syllabus.py check      # cohérence des données du syllabus (0 erreur, 0 avertissement attendus)
 python tools/syllabus.py build      # régénère docs/SYLLABUS.md, docs/PARCOURS.md, docs/syllabus/COUVERTURE_IA.md,
-                                    # le tableau du README et le modèle du tableau de bord
+                                    # le tableau du README, les modèles du tableau de bord et de l'auto-évaluation
 python tools/syllabus.py stats
 ```
-- Source du syllabus : `docs/syllabus/data/partie_*.py` et `fin.py` (jamais les `.md` générés). Une partie est **détaillée** (chaque exercice) dans une session de syllabus juste avant sa génération ; avant, elle est seulement **planifiée** (notions, prérequis, MML, fonctions `mymath` prévues, qui peuvent encore changer). Détailler une partie : écrire ses exercices, ses stubs `mymath` et leur ligne dans `MANIFEST.json`, relire la couverture de workbookIA, puis `check` et `build`.
-- Couverture de workbookIA : `docs/syllabus/data/ia_coverage.py` relie chaque notion mathématique d'un chapitre de workbookIA (copie figée `docs/syllabus/workbookia_notions.json`) au chapitre de maths qui l'enseigne avant lui. Si workbookIA évolue : `python tools/snapshot_workbookia.py /home/claude/cemah2/workbookia` (lecture seule ; `--check` dit seulement si la copie est à jour), puis `check`.
+- Source du syllabus : `docs/syllabus/data/partie_*.py` et `fin.py` (jamais les `.md` générés). Toutes les parties sont **détaillées** (chaque exercice) et publiées ; les fichiers générés passent par `tools/mdmath.py` (les formules lisibles sur GitHub).
+- Couverture de workbookIA : `docs/syllabus/data/ia_coverage.py` relie chaque notion mathématique d'un chapitre de workbookIA (copie figée `docs/syllabus/workbookia_notions.json`) au chapitre de maths qui l'enseigne avant lui. Savoir si workbookIA a évolué : `git ls-remote https://github.com/cemah2/workbookia refs/heads/main` (l'URL publique, pas le clone), à comparer au commit de la copie figée (`_meta.commit` de `docs/syllabus/workbookia_notions.json`). Mettre la copie à jour demande `tools/snapshot_workbookia.py`, qui lit le dossier de workbookIA en Python : ne le lance qu'avec l'accord explicite de l'utilisateur, donné pour cette session.
 
 ## Écrire un chapitre
 
@@ -56,6 +59,7 @@ python tools/syllabus.py stats
 - Notebook d'exercices : cellules TODO qui ne font que **définir** ; tout appel au code de l'apprenant dans `with wbm.attempt("M12c.4"):` ; « Run all » doit aller au bout. Cellules de vérification : outils de `wbm.nbtools`. Pas de `!` ni de `%`.
 - Stubs `mymath` : signatures figées au syllabus ; référence dans `solutions/mymath_ref/` (imports relatifs, mêmes signatures) ; tests `tests/test_<id>_<module>.py` par la fixture `mymath_module("eigen")`, oracle NumPy, SciPy, SymPy ou `fractions`, jamais une autre fonction de l'apprenant ; première ligne de chaque message d'échec = ce qui était attendu.
 - Budget : notebook de solutions < 5 min sur CPU, aucune cellule > 1 min.
+- **Formules des fichiers Markdown** (pas des notebooks ; BIBLE §6 et la docstring de `tools/mdmath.py`) : GitHub applique le Markdown aux formules avant MathJax. Dans une formule, pas de `\{`, `\}`, `\,`, `\;`, `\!`, `\|`, `\\` ni `*` : écris `\lbrace`, `\rbrace`, `\thinspace`, `\mkern5mu`, `\negthinspace`, `\Vert`, `\cr` et `\ast`. Une matrice ou un autre environnement s'écrit dans un bloc ```` ```math ```` (formule seule sur ses lignes) ou en `` $`…`$ `` ; pas d'espace juste à l'intérieur d'un `$`, pas de `$` collé à `@`. `python tools/mdmath.py --fix FICHIER` le fait, `tests/infra/test_markdown_math.py` le vérifie. Un fichier Markdown de plus d'environ 150 Ko n'est pas affiché par GitHub (texte brut) : découpe-le, comme les annexes (un index et ses parties).
 - Vérification indépendante (BIBLE §20) : un sous-agent re-résout ✏️/∂/🧮 à l'aveugle, un autre joue l'apprenant sur le notebook.
 - Définition du « terminé » : BIBLE §20. Commit `<id>: …`, puis mise à jour de `suivi/PROGRESS.md`.
 

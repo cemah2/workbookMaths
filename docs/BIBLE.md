@@ -6,11 +6,13 @@ Ce dépôt accompagne [workbookIA](https://github.com/cemah2/workbookIA) : **les
 
 ## 0. Statut et points ouverts
 
-- **Statut** : v1 validée le 2026-11-06. La v0 rangeait les chapitres par grands thèmes mathématiques ; la v1 les cale sur le chemin de workbookIA, à la demande de l'apprenant.
+- **Statut** : v1 validée le 2026-11-06 ; **génération terminée le 2026-11-21** (session 79). La v0 rangeait les chapitres par grands thèmes mathématiques ; la v1 les cale sur le chemin de workbookIA, à la demande de l'apprenant.
 - **Validé** : nom du dépôt (`workbookMaths`), temps disponible sans limite, ordre calqué sur workbookIA, plan du §8, lecture de MML intégrée au travail (§3).
 - **Fait en session 1** (2026-11-06) : versions (§22), outillage copié depuis workbookIA et adapté (§23), ressources secondaires vérifiées (§3), extensions maths de `wbm.check` (§14).
 - **Fait en session 2** (2026-11-06) : le syllabus (`docs/SYLLABUS.md`, `docs/PARCOURS.md`) : la partie 0 détaillée exercice par exercice avec ses signatures `mymath` publiées, les parties I à VII et le projet de synthèse planifiés (notions, prérequis, sections de MML, fonctions `mymath` prévues), la preuve que chaque notion mathématique de workbookIA est enseignée avant lui (`docs/syllabus/COUVERTURE_IA.md`). Chaque partie suivante est détaillée dans une session de syllabus juste avant sa génération (§24).
-- **Fait en session 77** (2026-11-21) : le projet de synthèse ; tout le parcours est publié (la remise à niveau, les parties I à VII, les examens blancs CP0 à CP6, le test de positionnement, le projet de synthèse). Restent l'audit de la partie VII et la session de finalisation (§23).
+- **Fait en session 77** (2026-11-21) : le projet de synthèse ; tout le parcours est publié (la remise à niveau, les parties I à VII, les examens blancs CP0 à CP6, le test de positionnement, le projet de synthèse).
+- **Fait en session 78** (2026-11-21) : l'audit de la partie VII (§24).
+- **Fait en session 79** (2026-11-21) : la finalisation (§24) : les formules des fichiers Markdown lisibles sur GitHub (§6), les grandes annexes découpées, une relecture d'ensemble de ce que l'apprenant lit en premier, les versions revérifiées (§22), les 118 notebooks exécutés, tous les contrôles. **Point ouvert** : la validation sur Colab, que l'apprenant fait au premier jour (`suivi/PROGRESS.md`, « À valider sur Colab »).
 
 ## 1. Profil de l'apprenant
 
@@ -72,6 +74,7 @@ Sommaire de MML (vérifié le 2026-11-05) : partie I, ch. 2 *Linear Algebra* (§
 ## 6. Notations
 
 - LaTeX dans le Markdown, compatible GitHub, Colab et Jupyter.
+- **Les formules des fichiers `.md` se lisent sur GitHub** (session 79) : GitHub applique le Markdown à une formule avant MathJax (les échappements `\{`, `\,`, `\\`… perdent leur antislash, deux `_` peuvent devenir de l'italique), et il ne lit jamais comme formule une expression `$…$` qui contient `&`, `\begin` ou `\cr`. D'où, dans les `.md` : des commandes en lettres (`\lbrace`, `\thinspace`, `\mkern5mu`, `\Vert`, `\cr`, `\ast`…), une espace avant un `_` qui fermerait une emphase, les matrices et environnements dans la syntaxe de GitHub (bloc ```` ```math ```` ou `` $`…`$ ``), aucune espace juste à l'intérieur d'un `$`. `tools/mdmath.py` l'applique et `tests/infra/test_markdown_math.py` le vérifie ; MathJax rend chaque formule réécrite comme avant (vérifié sur les 10 679). Les matrices s'affichent alors en code TeX dans l'aperçu de JupyterLab ou de VS Code : les fiches se lisent sur GitHub (README). Les notebooks, lus dans Colab et Jupyter, gardent le LaTeX habituel. Un fichier `.md` de plus d'environ 150 Ko n'est pas affiché par GitHub : il se découpe en un index et des parties (les annexes).
 - **Mêmes conventions que workbookIA** : scalaires en italique ($x$), vecteurs en gras minuscule ($\mathbf{x}$), matrices en gras majuscule ($\mathbf{A}$) ; $n$ exemples, $p$ features, $\mathbf{X}$ de forme $(n, p)$ ; prédiction $\hat{y}$, loss $L$, learning rate $\eta$, somme pondérée $z$.
 - **Écarts avec MML, signalés une fois par un encadré 📐** : MML note $N$ exemples et $D$ dimensions ; MML écrit le gradient d'une fonction $\mathbb{R}^n \to \mathbb{R}$ comme un **vecteur ligne** (convention jacobienne), alors que NumPy et workbookIA lui donnent la forme de $\mathbf{x}$. Le dépôt utilise la convention jacobienne pour le calcul matriciel (M17, M18) et $\nabla f$ de la forme de $\mathbf{x}$ pour l'optimisation, en disant chaque fois laquelle.
 - Vecteurs colonnes par défaut ; $\mathbb{E}$, $\mathbb{V}$, $\operatorname{Cov}$ pour l'espérance, la variance et la covariance ; $\mathcal{N}(\mu, \sigma^2)$ ; $\ln$ pour le logarithme népérien (MML et NumPy écrivent $\log$ pour le même ; le formulaire le dit), $\log$ sans base seulement pour une base quelconque, $\log_2$ et $\log_{10}$ sinon.
@@ -90,7 +93,7 @@ workbookMaths/
 ├── 00_setup/                 installation (Colab, local), check_env.py, demo.ipynb
 ├── positionnement/           test de positionnement (sujet, notebook vérifié, grille « ce que tu peux sauter »)
 ├── chapitres/
-│   └── <id>_<nom>/           ex. r7_derivation, m12c_valeurs_propres, mb3_rotations_attention
+│   └── <id>_<nom>/           ex. r7_limites_derivation, m12c_valeurs_propres, mb3_rotations_attention
 │       ├── 01_fiche.md        le cours
 │       ├── 02_exercices.md
 │       ├── 03_notebook.ipynb
@@ -102,7 +105,7 @@ workbookMaths/
 │       └── figures/
 ├── checkpoints/partie_0 … partie_6/   examen blanc, synthèse
 ├── projets/projet_synthese/  le projet de fin
-├── annexes/                  glossaire FR↔EN, symboles, formulaire, index des notions, erreurs de calcul fréquentes,
+├── annexes/                  glossaire FR↔EN (sa colonne « Chapitre » sert d'index), symboles, formulaire, erreurs de calcul fréquentes,
 │                             correspondances (workbookIA ↔ ce dépôt ↔ MML), cheatsheets (NumPy linalg, SymPy, matplotlib), Anki, ressources
 ├── src/wbm/                  outils : setup, check, datasets, figures, nbtools
 ├── templates/mymath_stubs/   squelettes de la librairie (figés)
@@ -366,7 +369,7 @@ Comme workbookIA : `suivi/PROGRESS.md` (tenu par Claude), modèles du tableau de
 - [ ] `answers.json` régénéré ; chaque vérification passe avec la bonne valeur et échoue avec une mauvaise.
 - [ ] ✏️, ∂ et 🧮 re-résolus à l'aveugle par un vérificateur indépendant (sous-agent) ; un second joue l'apprenant sur le notebook.
 - [ ] Aucun passage recopié de MML ni d'un autre livre.
-- [ ] Glossaire, symboles, formulaire, correspondances, tableau de bord et `PROGRESS.md` à jour ; commit « <id>: … ».
+- [ ] Glossaire, symboles, formulaire, correspondances, tableau de bord, auto-évaluation et `PROGRESS.md` à jour ; formules des `.md` vérifiées par `tools/mdmath.py --check` ; commit « <id>: … ».
 
 ## 21. Sources externes
 
@@ -374,7 +377,7 @@ Documentation officielle (NumPy, SciPy, SymPy), livres libres du §3, cours reco
 
 ## 22. Versions figées
 
-*Vérifiées le 2026-11-06 (session 1). Source : dépôt officiel [googlecolab/backend-info](https://github.com/googlecolab/backend-info), dernier runtime publié (commit du 2026-11-04, `pip-freeze.txt`). Revérifiées le 2026-11-11 (CP3, session 47) sur le commit du 2026-11-09 : inchangées, et workbookIA fige toujours NumPy 2.1.3. Revérifiées le 2026-11-12 (CP4, session 54) : même commit, inchangées.*
+*Vérifiées le 2026-11-06 (session 1). Revérifiées le 2026-11-21 (finalisation, session 79) sur le commit du 2026-11-20 de `googlecolab/backend-info` (0cadcd7) : inchangées (Python 3.13.18, NumPy 2.4.6 sur Colab) ; le dépôt passe ses 6 022 tests sur la référence et ses notebooks avec NumPy 2.4.6 comme avec 2.1.3. Source : dépôt officiel [googlecolab/backend-info](https://github.com/googlecolab/backend-info), dernier runtime publié (commit du 2026-11-04, `pip-freeze.txt`). Revérifiées le 2026-11-11 (CP3, session 47) sur le commit du 2026-11-09 : inchangées, et workbookIA fige toujours NumPy 2.1.3. Revérifiées le 2026-11-12 (CP4, session 54) : même commit, inchangées.*
 
 **Politique** : les versions préinstallées sur Colab ; pour les paquets communs avec workbookIA, **exactement les mêmes versions que workbookIA**, pour que les deux dépôts partagent un seul environnement local. Le runtime de Colab du 2026-11-04 est passé à NumPy 2.4.6, alors que workbookIA fige 2.1.3 : `requirements.txt` garde 2.1.3 (environnement commun), et le dépôt est testé avec les deux. On revérifie à chaque examen blanc.
 
@@ -397,7 +400,7 @@ Pas de PyTorch : `wbm.setup()` ne l'importe jamais (il le graine seulement s'il 
 
 - workbookIA n'est **jamais modifié** par les sessions de ce dépôt : il est seulement lu, pour connaître les notions requises par chacun de ses chapitres et pour éviter les doublons et les fuites.
 - En session 1, l'outillage de workbookIA (`wb`, `start_chapter.py`, `build_answers.py`, `run_all_notebooks.py`, `export_flashcards.py`, `syllabus.py`, `nbbuild.py`, kit des constructeurs de chapitres, tests d'infrastructure) est **copié puis adapté** : renommage `wb` → `wbm` et `mylearn` → `mymath`, ID du §8, deux parcours, ordre de travail commun, extensions de `wbm.check` (§14). Les décisions d'outillage de la BIBLE de workbookIA (son §22) qui s'appliquent ici sont recopiées dans le §24, pour que ce dépôt se suffise à lui-même.
-- **Déroulé** (≈ 75 sessions) : session 1, mise en place (outillage, versions, ressources vérifiées, `CLAUDE.md`) ; session 2, syllabus à relire (partie 0 détaillée, plan du reste) ; une session de syllabus avant chaque partie I à VII ; puis les chapitres **dans l'ordre de travail commun** (la partie 0 d'abord, pour que l'apprentissage commence vite), une ou deux sessions chacun, l'examen blanc à la fin de chaque partie, le test de positionnement juste après R0, des audits après les parties 0, II et IV, et une session de finalisation. La génération garde une avance sur l'étude.
+- **Déroulé** (≈ 75 sessions prévues, 79 faites) : session 1, mise en place (outillage, versions, ressources vérifiées, `CLAUDE.md`) ; session 2, syllabus à relire (partie 0 détaillée, plan du reste) ; une session de syllabus avant chaque partie I à VII ; puis les chapitres **dans l'ordre de travail commun** (la partie 0 d'abord, pour que l'apprentissage commence vite), une ou deux sessions chacun, l'examen blanc à la fin de chaque partie, le test de positionnement juste après R0, des audits après les parties 0, II et IV, et une session de finalisation. La génération garde une avance sur l'étude.
 
 ## 24. Journal des décisions et dérogations
 
