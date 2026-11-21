@@ -2048,7 +2048,7 @@ CHAPTERS = [
                     "variables de contrôle (control variates) : f − c(h − E[h]) sans biais, c* = Cov(f, h)/Var(h), "
                     "variance (1 − ρ²)Var(f) ; pour l'estimateur score, toute constante b donne (f − b)s sans biais (E[s] "
                     "= 0) ; baseline optimale b* = E[f s²]/E[s²] (une moyenne de f pondérée par s²), différente de E[f] en "
-                    "général ; Var((f − b)s) est un trinôme en b, minimal en b* (à la génération, session 75 : « une mauvaise baseline augmente la variance » n'est pas écrit, c'est l'erreur fréquente du corrigé de ∂ B8.7 ; la figure du trinôme suffit)",
+                    "général ; Var((f − b)s) est un trinôme en b, minimal en b* (à la génération, session 76 : « une mauvaise baseline augmente la variance » n'est pas écrit, c'est l'erreur fréquente du corrigé de ∂ B8.7 ; la figure du trinôme suffit)",
                     "baselines de groupe : sur n tirages i.i.d., la moyenne des n − 1 autres f est une baseline sans biais "
                     "; la moyenne des n, tirage compris, multiplie l'estimateur par (n − 1)/n ; diviser par l'écart-type "
                     "du groupe garde le signe de chaque terme, mais l'espérance n'est plus exactement proportionnelle à la "
