@@ -75,7 +75,7 @@ Une propriété utile répond à une question qu'un utilisateur de l'algorithme 
 </details>
 <details><summary>Indice 2</summary>
 
-Quelques outils, selon la propriété. Une convexité : la hessienne et ses valeurs propres (M12c §7, M19 §2), ou la convexité en une variable le long de chaque droite (M05a §1). Une convergence : écris l'erreur à l'itération $k + 1$ en fonction de celle à l'itération $k$, puis majore (M19 §3, M22 §3 et §4). Une espérance : la linéarité, puis l'espérance conditionnelle (M02b, M26 §3). Un coût : compte les opérations de chaque produit (M18 §5). Rédige comme en R4 §8 : hypothèses, étapes justifiées, conclusion ; puis relis en barrant une hypothèse à la fois : quelle étape casse ?
+Quelques outils, selon la propriété. Une convexité : la hessienne et ses valeurs propres (M12c §7, M19 §2), ou la convexité en une variable le long de chaque droite (M05a §1). Une convergence : écris l'erreur à l'itération $k + 1$ en fonction de celle à l'itération $k$, puis majore (M19 §3, M22 §3 et §4), ou majore la baisse de l'objectif en un pas par Taylor avec reste de Lagrange le long du pas (M05a §3, M19 §1). Une espérance : la linéarité, puis l'espérance conditionnelle (M02b, M26 §3). Un coût : compte les opérations de chaque produit (M18 §5). Rédige comme en R4 §8 : hypothèses, étapes justifiées, conclusion ; puis relis en barrant une hypothèse à la fois : quelle étape casse ?
 
 </details>
 <details><summary>Indice 3</summary>
@@ -153,7 +153,7 @@ def test_matches_oracle(algo, size, seed):
     assert_close(got, expected, rtol=..., atol=..., what="my_function against <oracle>")
 ```
 
-Pour la mutation, choisis l'erreur que tu as le plus failli faire en écrivant §3. Si aucun test ne l'attrape, un test manque : souvent, les tailles sont toutes égales (une transposée passe inaperçue), les données sont trop symétriques, ou une seule graine est essayée.
+Garde un `max_iter` modeste dans les tests : une mutation qui empêche la convergence ferait sinon tourner chaque test jusqu'au bout. Pour la mutation, choisis l'erreur que tu as le plus failli faire en écrivant §3. Si aucun test ne l'attrape, un test manque : souvent, les tailles sont toutes égales (une transposée passe inaperçue), les données sont trop symétriques, ou une seule graine est essayée.
 
 </details>
 

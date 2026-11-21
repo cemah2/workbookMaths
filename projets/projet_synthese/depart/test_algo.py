@@ -22,8 +22,12 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
+# scikit-learn 1.6.1 with SciPy 1.16.3: each LogisticRegression(solver="lbfgs").fit raises a harmless DeprecationWarning
+# of SciPy (the `disp` and `iprint` options of L-BFGS-B). To silence it in this file, uncomment the next line:
+# pytestmark = pytest.mark.filterwarnings("ignore:scipy.optimize. The `disp`:DeprecationWarning")
+
 SEEDS = [0, 1, 2]                      # TODO PS.7: your seeds
-SIZES = [(4, 2), (30, 3), (200, 5)]    # TODO PS.7: what a size means for your algorithm (here (n, p))
+SIZES = [(20, 2), (60, 3), (200, 5)]    # TODO PS.7: what a size means for your algorithm (here (n, p)); a classifier needs n large enough for the classes to overlap
 
 
 def todo(what: str) -> None:

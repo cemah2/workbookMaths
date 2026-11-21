@@ -1,6 +1,6 @@
 # Cadrage · 📝 le nom de ton algorithme
 
-> **PS.1**, une page au plus (600 mots). Remplace chaque 📝. Écris une première version avant de lire l'exemple (`projets/projet_synthese/exemple/`), puis reprends-la. Les critères sont ceux de PS.1 dans ta grille (`grille.md`).
+> **PS.1**, une page au plus (600 mots, sans compter ce gabarit). Remplace chaque 📝. Écris une première version avant de lire l'exemple (`projets/projet_synthese/exemple/`), puis reprends-la. Les critères sont ceux de PS.1 dans ta grille (`grille.md`).
 
 **Auteur** : 📝 · **Date** : 📝
 

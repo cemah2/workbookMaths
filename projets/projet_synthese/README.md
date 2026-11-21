@@ -1,6 +1,6 @@
 # Projet de synthèse · Les maths d'un algorithme, de A à Z
 
-> Le projet qui clôt workbookMaths : environ **25 h**, lecture de ce cahier des charges et de l'exemple comprise, réparties sur **quatre semaines** pendant que tu fais le projet final de workbookIA. Tu prends un algorithme de workbookIA et tu en écris un **notebook-article** : tu le dérives de bout en bout, tu démontres deux de ses propriétés, tu le calcules à la main sur un petit exemple, tu l'implémentes avec **ta** librairie `mymath`, tu le vérifies contre une bibliothèque indépendante et tu illustres une propriété par une expérience. Pour finir, tu le présentes en cinq minutes, comme en entretien. Aucun corrigé n'existe : le projet t'appartient. Pour t'aider : une grille, des indices, et un exemple complet sur un algorithme hors liste.
+> Le projet qui clôt workbookMaths : environ **27 h**, lecture de ce cahier des charges et de l'exemple comprise, réparties sur **quatre semaines** pendant que tu fais le projet final de workbookIA. Tu prends un algorithme de workbookIA et tu en écris un **notebook-article** : tu le dérives de bout en bout, tu démontres deux de ses propriétés, tu le calcules à la main sur un petit exemple, tu l'implémentes avec **ta** librairie `mymath`, tu le vérifies contre une bibliothèque indépendante et tu illustres une propriété par une expérience. Pour finir, tu le présentes en cinq minutes, comme en entretien. Aucun corrigé n'existe : le projet t'appartient. Pour t'aider : une grille, des indices, et un exemple complet sur un algorithme hors liste.
 
 | | |
 |---|---|
@@ -9,7 +9,7 @@
 | **Méthode imposée** | une dérivation où chaque étape cite le résultat qui la justifie ; trois fonctions de `mymath` écrites par toi ; des tests contre un oracle indépendant ; une erreur introduite exprès que les tests attrapent |
 | **Prérequis** | tout le parcours, en particulier les chapitres de maths de ton algorithme (colonne « Préparé par » de la liste) et le chapitre de workbookIA qui l'utilise |
 | **Évaluation** | une note sur 20 : tu te notes d'abord avec [`GRILLE.md`](GRILLE.md), puis Claude te corrige si tu le lui demandes ([La correction](#correction)) |
-| **Durée** | 25 h, dont 60 min de lecture : jusqu'à « Le kit » (≈ 25 min), la grille survolée (≈ 10 min) et l'exemple survolé (≈ 25 min) ; la section de chaque étape se lit au début de l'étape, dans sa durée ; [les jalons](#jalons) sur quatre semaines |
+| **Durée** | 27,3 h, dont 90 min de lecture : ce cahier des charges jusqu'à « Le kit » (≈ 25 min), la grille survolée (≈ 15 min) et l'exemple survolé (≈ 50 min : le cadrage, les titres et le premier paragraphe de chaque section, la grille remplie) ; la section de chaque étape, et celle de l'exemple qui lui correspond, se lisent en détail au début de l'étape, dans sa durée ; 2 à 4 h de plus par module de `mymath` qui te manque ; [les jalons](#jalons) sur quatre semaines |
 
 **En bref.** D'abord [le contexte](#contexte), [la liste](#algorithmes) et [les règles](#regles) ; ensuite le kit ([Démarrer](#demarrer)) ; enfin PS.1. Tu rendras ton dossier `mon_travail/projet_synthese/` : chaque étape dit, à sa ligne « Livrable », le fichier ou la section qu'elle y ajoute ([les dix étapes](#etapes)). La note vient de [la grille](#grille) : des critères observables, deux pénalités, trois seuils.
 
@@ -33,7 +33,7 @@ Chaque ligne est un algorithme de workbookIA dont la dérivation tient sur plusi
 
 | N° | Algorithme | workbookIA | Préparé par | `mymath` utile | Oracle conseillé | Difficulté |
 |---|---|---|---|---|---|---|
-| 1 | Régression logistique : log-loss, gradient, descente de gradient | ch. 13 | M13a, M05b, M17, M19, R6, M05a | `explog.sigmoid`, `likelihood.logistic_loss`, `likelihood.bernoulli_log_likelihood`, `approx.logsumexp`, `iterative.critical_step_size` | scikit-learn `LogisticRegression(penalty=None)` | ★★ |
+| 1 | Régression logistique : log-loss, gradient, descente de gradient | ch. 13 | M13a, M05b, M17, M19, R6, M05a, M07, M12c | `likelihood.logistic_loss`, `iterative.critical_step_size`, `eigen.power_iteration`, `vectors.norm_p`, `vectors.side_of_hyperplane` (et, sur un seul exemple, `explog.sigmoid`, `approx.logsumexp`) | scikit-learn `LogisticRegression(penalty=None)`, sur des données non séparables | ★★ |
 | 2 | Ridge et lasso : forme fermée de ridge, lasso par descente de coordonnées et seuillage doux | ch. 9 | M09b, M10, M12b, M12c | `linreg.normal_equations`, `orthogonal.qr`, `orthogonal.least_squares_qr`, `eigen.cholesky`, `vectors.norm_p` | scikit-learn `Ridge`, `Lasso` (lis dans leur documentation la loss exacte qu'ils minimisent) | ★★ |
 | 3 | ACP : axes principaux, projection, reconstruction, variance expliquée | ch. 12 | M12c, M12d, M02c, M12b | `eigen.power_iteration`, `eigen.rayleigh_quotient`, `svd_pca.svd`, `svd_pca.explained_variance_ratio`, `orthogonal.gram_schmidt` | scikit-learn `PCA` (axes définis au signe près) | ★★ |
 | 4 | k-means : l'algorithme de Lloyd et l'initialisation k-means++ | ch. 7 | M07, M02b, M20 | `vectors.centroid`, `vectors.sum_sq_distances_to`, `tensors.einsum_pair`, `tensors.moments_along_axes`, `distributions.inverse_transform_sample` | scikit-learn `KMeans` (mêmes centres de départ, `n_init=1`) | ★★ |
@@ -49,19 +49,19 @@ Chaque ligne est un algorithme de workbookIA dont la dérivation tient sur plusi
 | 14 | Batchnorm : passe avant et gradient, dans une petite couche | ch. 20 | M20, M18, M16 | `tensors.moments_along_axes`, `tensors.einsum_pair`, `affine.homogeneous_matrix`, `explog.tanh`, `approx.logsumexp` | `torch.nn.BatchNorm1d` (mode entraînement) et autograd | ★★★★ |
 | 15 | RNN et rétropropagation dans le temps | ch. 22 | M22, M17, M18, M20, M05a | `recurrence.linear_system_states`, `recurrence.product_norms`, `recurrence.operator_norm`, `tensors.einsum_pair`, `approx.logsumexp` | `torch.nn.RNN` et autograd | ★★★★ |
 
-**Un autre algorithme de workbookIA** est accepté si sa dérivation tient sur au moins une page et s'il a un oracle indépendant : ton cadrage le justifie. **Ne sont pas acceptés** : la régression de Poisson (c'est [l'exemple](#exemple)) ; un algorithme sans dérivation (un arbre de décision seul, le vote d'un ensemble). La méthode de Newton appliquée à la régression logistique suit le schéma de l'exemple : elle n'est permise qu'en complément de la descente de gradient (dans l'expérience, par exemple), pas comme algorithme principal.
+**Un autre algorithme de workbookIA** est accepté si sa dérivation tient sur au moins une page et s'il a un oracle indépendant : ton cadrage le justifie. **Ne sont pas acceptés** : la régression de Poisson (c'est [l'exemple](#exemple)) ; un algorithme sans dérivation (un arbre de décision seul, le vote d'un ensemble). La méthode de Newton appliquée à la régression logistique suit le schéma de l'exemple : elle n'est pas acceptée comme algorithme principal ; en complément de la descente de gradient, ne la compare pas à la descente comme le fait §8.1 de l'exemple, choisis une autre question (l'effet du pas au-delà de la garantie, les données séparables, le conditionnement).
 
 **Les fonctions de `mymath` qui comptent** (PS.6) sont des briques du calcul : une factorisation, un produit d'Einstein, des moments le long d'un axe, un pas critique, une loi stationnaire. Ne comptent pas : une fonction qui fait tout l'algorithme à ta place (`linreg.solve_least_squares` avec `ridge` n'est pas ton ridge, `svd_pca.principal_axes` n'est pas ton ACP), ni `svd_pca.low_rank_approximation` pour la reconstruction d'une ACP (elle sert à la vérifier), ni une dérivée numérique (`jacobian.numerical_jacobian`, `iterative.numerical_hessian`, `multivar.partial_derivative`) qui remplacerait une formule de ta dérivation.
 
-**Des fonctions qui prennent un nombre.** `explog.sigmoid`, `explog.tanh` (partie 0), `approx.logsumexp` (M05a) et `sequences.exponential_moving_average` (R5) prennent un nombre ou une suite de nombres et rendent un nombre ; `sigmoid` et `tanh` ne sont testées que pour $\lvert x \rvert \le 30$. Sur un batch, elles demandent une boucle Python : réserve-les à un calcul sur un seul exemple ou une seule séquence (l'exemple à la main, un test de stabilité), ou choisis des briques qui prennent un tableau (`tensors.einsum_pair`, `tensors.moments_along_axes`, `gaussian.mvn_logpdf`…).
+**Des fonctions qui prennent un nombre.** `explog.sigmoid`, `explog.tanh` (partie 0), `approx.logsumexp` (M05a) et `sequences.exponential_moving_average` (R5) prennent un nombre ou une suite de nombres et rendent un nombre ; `sigmoid` et `tanh` ne sont testées que pour $\lvert x \rvert \le 30$. Sur un batch, elles demandent une boucle Python : réserve-les à un calcul sur un seul exemple ou une seule séquence (l'exemple à la main, un test de stabilité), ou choisis des briques qui prennent un tableau (`tensors.einsum_pair`, `tensors.moments_along_axes`, `gaussian.mvn_logpdf`…). Pour la régression logistique (n° 1), `likelihood.bernoulli_log_likelihood` ferait double emploi avec `likelihood.logistic_loss` ; une norme qui sert au critère d'arrêt (`vectors.norm_p`), le côté d'un hyperplan qui donne les classes (`vectors.side_of_hyperplane`) ou une plus grande valeur propre qui fixe le pas (`eigen.power_iteration`) comptent comme des briques utiles.
 
 <a id="regles"></a>
 
 ## Les règles
 
-1. **La dérivation est la tienne.** Tu as fait (ou tu feras) dans workbookIA les démonstrations qui dérivent ces algorithmes (∂ 7.7, 9.2, 9.3, 9.6, 12.8, 13.8, 17.7, 18.6 à 18.8, 19.7, 19.8, 20.8, 21.7, 22.6, 22.7, 25.5, 25.7, 26.7, 26.8, B2.7, B3.6, B3.7, B5.6, B5.7, B8.7). Ici, tu les reprends entièrement, avec tes mots, plus complètes (formes, conventions, cas limites), et ce dépôt ne les donne nulle part : ni ce cahier des charges, ni la grille, ni les indices, ni l'exemple. Si tu t'appuies sur un corrigé, un livre ou une page web, cite-le à l'endroit où il sert. Un passage recopié ou paraphrasé de près sans être cité coûte 3 points.
+1. **La dérivation est la tienne.** Tu as fait (ou tu feras) dans workbookIA les démonstrations qui dérivent ces algorithmes (∂ 7.7, 9.2, 9.3, 9.6, 12.8, 13.8, 17.7, 18.6 à 18.8, 19.7, 19.8, 20.8, 21.7, 22.6, 22.7, 25.5, 25.7, 26.7, 26.8, B2.7, B3.6, B3.7, B5.6, B5.7, B8.7). Ici, tu les reprends entièrement, avec tes mots, plus complètes (formes, conventions, cas limites), et ce dépôt ne les donne nulle part : ni ce cahier des charges, ni la grille, ni les indices, ni l'exemple (qui porte sur un autre modèle, mais dont la structure est proche de la régression logistique : lis la consigne de [l'exemple](#exemple) si c'est ton algorithme). Si tu t'appuies sur un corrigé, un livre ou une page web, cite-le à l'endroit où il sert. Un passage recopié ou paraphrasé de près sans être cité coûte 3 points.
 2. **MML** se cite par sections (« MML §5.5 »), jamais par pages, et ne se recopie pas.
-3. **Le module** (`algo.py`) n'importe que NumPy, la bibliothèque standard et `mymath`. Il appelle au moins trois fonctions de `mymath` **écrites par toi** : leurs modules sont dans `mon_travail/mymath/` (ni un repli sur la référence, ni une copie de la référence) et leurs tests passent avec ton code. Si tu as sauté un chapitre, écris d'abord ses fonctions.
+3. **Le module** (`algo.py`) n'importe que NumPy, la bibliothèque standard et `mymath`. Il appelle au moins trois fonctions de `mymath` **écrites par toi** : leurs modules sont dans `mon_travail/mymath/` (ni un repli sur la référence, ni une copie de la référence) et leurs tests passent avec ton code. Si tu as sauté un chapitre, écris d'abord ses fonctions : compte 2 à 4 h par module qui te manque (l'écrire et passer ses tests), en plus de la durée du projet.
 4. **Les oracles** : NumPy, SciPy, SymPy, scikit-learn, et PyTorch, que tu as installé pour workbookIA et que Colab fournit (ce dépôt, lui, ne l'importe jamais). Jamais une autre fonction de ton module ni de `mymath`, ni une formule de ta dérivation recopiée dans un test : un test qui compare ton code à lui-même passe toujours, même quand le code est faux. Ces bibliothèques servent dans `test_algo.py`, dans §4 et dans l'expérience, jamais dans `algo.py`.
 5. **Les données** sont synthétiques, tirées avec une graine, assez petites pour que « Run all » tienne en **moins de 5 minutes** sur CPU (aucune cellule de plus d'une minute).
 6. **L'aide reçue** (une relecture, un forum, un assistant comme Claude) se dit dans les références. Ce que tu rends reste ta dérivation et ton code : tu dois pouvoir en refaire chaque ligne au tableau.
@@ -70,14 +70,14 @@ Chaque ligne est un algorithme de workbookIA dont la dérivation tient sur plusi
 
 ## Les jalons (quatre semaines)
 
-Ils tiennent dans les quatre premières semaines du projet final de workbookIA (qui en compte quatre à six) : environ six heures par semaine, une journée ou deux demi-journées, en plus de lui. Choisis de préférence l'algorithme du modèle ou de la baseline de ton projet final (une régression logistique, un CNN, un RNN…) : les deux projets s'éclairent l'un l'autre, sans que ce soit une obligation.
+Ils tiennent dans les quatre premières semaines du projet final de workbookIA (qui en compte quatre à six) : environ sept heures par semaine, une journée ou deux demi-journées, en plus de lui. Choisis de préférence l'algorithme du modèle ou de la baseline de ton projet final (une régression logistique, un CNN, un RNN…) : les deux projets s'éclairent l'un l'autre, sans que ce soit une obligation.
 
 | Semaine | Étapes | Ce qui existe en fin de semaine | ⏱️ |
 |---|---|---|---|
-| 1 | lecture, PS.1, PS.2, début de PS.3 | `cadrage.md` (relu après l'exemple), §2 de l'article, les premières étapes de la dérivation | 6 h |
-| 2 | fin de PS.3, PS.4, PS.5 | la dérivation complète, les deux propriétés et le cas limite, l'exemple à la main | 7 h |
-| 3 | PS.6, PS.7 | `algo.py`, `test_algo.py` vert, la mutation attrapée | 6 h 30 |
-| 4 | PS.8, PS.9, PS.E1 | l'expérience, l'article relu et exécuté, la répétition chronométrée, `grille.md` remplie | 5 h 30 |
+| 1 | lecture, PS.1, PS.2, début de PS.3 | `cadrage.md` (relu après l'exemple), §2 de l'article, les premières étapes de la dérivation | 7 h |
+| 2 | fin de PS.3, PS.4, PS.5 | la dérivation complète, les deux propriétés et le cas limite, l'exemple à la main | 7 h 30 |
+| 3 | PS.6, PS.7 | `algo.py`, `test_algo.py` vert, la mutation attrapée | 7 h |
+| 4 | PS.8, PS.9, PS.E1 | l'expérience, l'article relu et exécuté, la répétition chronométrée, `grille.md` remplie | 5 h 50 |
 
 Tout repose sur la dérivation, à finir en semaine 2 : le code et les tests en partent. Si une étape de la dérivation résiste, écris le code d'abord sur un petit exemple, vérifie-le par différences finies, puis reviens à la dérivation : le chiffre juste te dit ce que la formule doit donner.
 
@@ -117,7 +117,7 @@ installe le kit dans `mon_travail/projet_synthese/` ; un fichier déjà là n'es
 
 Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dériver (PS.2 à PS.5), Implémenter et vérifier (PS.5 à PS.8), Rédiger et présenter (PS.9, PS.E1). Dans ce cahier des charges, « §n » désigne toujours une section de ton article (`synthese.ipynb`). La grille ([`GRILLE.md`](GRILLE.md)) découpe chaque étape en critères ; [`04_indices.md`](04_indices.md) donne trois indices par étape.
 
-### PS.1 — Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions de maths et leurs chapitres, l'oracle de la vérification et le plan de l'article 🗣️ ★★ ⏱️ 60 min
+### PS.1 — Cadrer : l'algorithme choisi, ce qu'il calcule, ses entrées et sorties, les notions de maths et leurs chapitres, l'oracle de la vérification et le plan de l'article 🗣️ ★★ ⏱️ 75 min
 **Objectif :** fixer sur une page l'algorithme, les outils de sa dérivation et l'oracle qui jugera ton code.
 **Prérequis :** la liste ci-dessus · le chapitre de workbookIA de ton algorithme · **Points :** 1
 
@@ -126,14 +126,14 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 **Livrable** : `cadrage.md`.
 
 **Critères de réussite**
-- une page au plus : l'algorithme et sa ligne de la liste (ou, hors liste, pourquoi il convient), ce qu'il calcule, ses entrées et ses sorties avec leurs formes ;
+- une page au plus (600 mots, sans compter le gabarit) : l'algorithme et sa ligne de la liste (ou, hors liste, pourquoi il convient), ce qu'il calcule, ses entrées et ses sorties avec leurs formes ;
 - les notions de maths de la dérivation, chacune avec son chapitre et sa section dans ce dépôt, et sa section de MML s'il y en a une ;
 - l'oracle : la bibliothèque, la fonction, les réglages qui la rendent comparable, et ce qu'elle ne vérifie pas ;
 - le plan de l'article, avec les deux propriétés visées, le cas limite pressenti et l'expérience visée.
 
-**Erreurs à éviter** : viser trop grand (un Transformer entier ne tient pas en 25 h : prends l'attention) ; un oracle qui ne calcule pas la même chose que toi (une régularisation par défaut, une autre normalisation de la loss, une autre initialisation) ; un plan sans propriétés ; lire l'exemple avant d'avoir écrit une première version.
+**Erreurs à éviter** : viser trop grand (un Transformer entier ne tient pas en 27 h : prends l'attention) ; un oracle qui ne calcule pas la même chose que toi (une régularisation par défaut, une autre normalisation de la loss, une autre initialisation) ; un plan sans propriétés ; lire l'exemple avant d'avoir écrit une première version.
 
-### PS.2 — Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, tableau des notations et conventions ✏️ ★★ ⏱️ 90 min
+### PS.2 — Poser le problème : données, paramètres et leurs formes, objectif, hypothèses, tableau des notations et conventions ✏️ ★★ ⏱️ 105 min
 **Objectif :** fixer, avant tout calcul, chaque objet de l'article, sa forme et ce qu'on suppose de lui.
 **Prérequis :** PS.1 · **Points :** 1,5
 
@@ -168,7 +168,7 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 
 **Erreurs à éviter** : sauter de l'objectif à la formule finale ; dériver « comme dans le cas scalaire » sans vérifier l'ordre des facteurs d'un produit de matrices ; changer de convention en route ; une formule finale qui n'est pas celle que le code calcule (un facteur, une moyenne, une transposée) ; citer un chapitre entier au lieu de la section qui sert.
 
-### PS.4 — Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, espérance, borne, coût), et un cas où une hypothèse tombe ∂ ★★★ ⏱️ 180 min
+### PS.4 — Deux propriétés démontrées avec leurs hypothèses (convexité, unicité, invariance, espérance, borne, coût), et un cas où une hypothèse tombe ∂ ★★★ ⏱️ 210 min
 **Objectif :** dire ce que l'algorithme garantit, sous quelles hypothèses, et montrer ce qui casse quand l'une d'elles manque.
 **Prérequis :** PS.3 · **Points :** 2,5
 
@@ -178,9 +178,11 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 
 **Critères de réussite**
 - pour chacune des deux propriétés : un énoncé complet (les hypothèses de §2 citées, la conclusion) et une démonstration rédigée où chaque hypothèse sert ;
-- des propriétés de l'algorithme, pas d'un outil seul, et ce que chacune garantit en pratique ;
+- des propriétés de l'algorithme, pas d'un outil seul, et ce que chacune garantit en pratique ; pour la régression logistique (n° 1), au moins une des deux n'est l'analogue d'aucune propriété de l'exemple ;
 - le cas où une hypothèse tombe, montré par un contre-exemple chiffré ou une expérience, calculé dans la cellule « cas limite » ;
 - chaque propriété aussi vérifiée numériquement (un test de propriété de PS.7 ou l'expérience de PS.8), avec le renvoi.
+
+**Pour la régression logistique (n° 1).** L'exemple démontre, pour la régression de Poisson, la concavité et l'unicité, l'égalité de la somme des valeurs ajustées et de celle des observations quand il y a une colonne de 1, et une condition d'existence du maximum. Au moins une de tes deux propriétés n'est l'analogue d'aucune d'elles : par exemple une constante de Lipschitz du gradient et le pas de descente qu'elle garantit, une invariance par un changement d'échelle des features, un lien avec un modèle génératif. Si tu démontres aussi une propriété analogue, rédige-la sans rouvrir §4 de l'exemple.
 
 **Erreurs à éviter** : démontrer sur un exemple ; un énoncé sans hypothèses ; une hypothèse jamais utilisée (elle est inutile, ou une étape manque) ; un contre-exemple qui ne viole pas l'hypothèse annoncée ; confondre « converge » et « converge vers le bon point ».
 
@@ -216,9 +218,9 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 - une entrée invalide lève l'erreur annoncée, avec un message qui dit ce qui était attendu ;
 - un code qui se lit à côté des équations, sans boucle Python sur les exemples ou les coordonnées quand NumPy le fait (une boucle sur un petit nombre d'exemples autour d'une fonction de `mymath` qui ne prend qu'un nombre est permise, si §6 le dit).
 
-**Erreurs à éviter** : un appel à `mymath` décoratif, dont le résultat ne sert pas ; un module de `mymath` absent, que la référence remplace sans que tu le voies (la cellule « Contrôle du module » le marque « référence ») ; des noms de variables qui ne sont pas ceux des équations ; une docstring sans formes ; un calcul instable qu'un log-sum-exp ou une factorisation éviteraient.
+**Erreurs à éviter** : un appel à `mymath` décoratif, dont le résultat ne sert pas ; un module de `mymath` absent, que la référence remplace sans que tu le voies (la cellule « Contrôle du module » le marque « référence ») ; des noms de variables qui ne sont pas ceux des équations ; une docstring sans formes ; un calcul instable qu'un log-sum-exp ou une factorisation éviteraient ; une hypothèse de rang vérifiée par le refus d'une fonction qui lit le signe d'une valeur propre (en flottants, la plus petite valeur propre d'une matrice singulière sort à $\pm 10^{-16}$) : une hypothèse de rang se vérifie par le rang (`np.linalg.matrix_rank`).
 
-### PS.7 — La vérification : des tests contre une bibliothèque indépendante sur des cas tirés au hasard, les dérivées contre des différences finies, une propriété, et une erreur introduite exprès que les tests attrapent 📦 ★★★★ ⏱️ 180 min
+### PS.7 — La vérification : des tests contre une bibliothèque indépendante sur des cas tirés au hasard, les dérivées contre des différences finies, une propriété, et une erreur introduite exprès que les tests attrapent 📦 ★★★★ ⏱️ 210 min
 **Objectif :** prouver que ton code calcule ce que l'article dit, par des tests qui attraperaient une vraie erreur.
 **Prérequis :** PS.6 · **Points :** 3
 
@@ -234,7 +236,9 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 - une mutation plausible dans `mutants.py`, qui fait échouer au moins un test (un échec, pas une erreur), montrée dans §7 ;
 - des messages d'échec qui disent d'abord ce qui était attendu ; tout passe, rien n'est sauté.
 
-**Erreurs à éviter** : un test qui compare le code à lui-même ; une tolérance si large qu'elle passe toujours, ou si serrée qu'elle échoue sur des arrondis ; un pas de différences finies trop petit (l'arrondi domine) ou trop grand (la troncature domine) ; une seule graine ; un oracle mal réglé dont on a « corrigé » l'écart en élargissant la tolérance ; une mutation que rien n'attrape, gardée telle quelle (ajoute le test qui manque).
+**Erreurs à éviter** : un test qui compare le code à lui-même ; une tolérance si large qu'elle passe toujours, ou si serrée qu'elle échoue sur des arrondis ; un pas de différences finies trop petit (l'arrondi domine) ou trop grand (la troncature domine) ; une seule graine ; pour un classifieur (régression logistique), des données tirées séparables : le minimum n'existe pas, et ni l'oracle ni ta descente ne convergent (vérifie-le, par exemple avec `scipy.optimize.linprog`, M10 §3) ; un oracle mal réglé dont on a « corrigé » l'écart en élargissant la tolérance ; une mutation que rien n'attrape, gardée telle quelle (ajoute le test qui manque).
+
+Avec les versions figées (scikit-learn 1.6.1, SciPy 1.16.3), chaque ajustement de `LogisticRegression(solver="lbfgs")` émet un `DeprecationWarning` de SciPy, sans conséquence : l'en-tête de `test_algo.py` dit comment le faire taire.
 
 ### PS.8 — Une expérience numérique qui illustre une propriété démontrée (convergence, conditionnement, stabilité, effet d'un hyperparamètre) : une figure légendée et sa conclusion 🔬 ★★★ ⏱️ 150 min
 **Objectif :** voir une propriété de l'article sur une figure, après avoir prédit ce qu'elle montrerait.
@@ -249,9 +253,9 @@ Les étapes suivent les quatre parties du projet : Choisir et cadrer (PS.1), Dé
 - une figure lisible (axes nommés avec leurs unités, légende, titre, échelle adaptée), enregistrée dans `figures/` ;
 - une conclusion qui dit si la prédiction tient, avec la valeur lue, et ce qui expliquerait un écart ; plusieurs graines quand le hasard intervient.
 
-**Erreurs à éviter** : une prédiction écrite après coup ; une échelle linéaire pour une erreur qui décroît exponentiellement ; conclure sur une seule graine ; une expérience trop longue pour le budget de 5 minutes (réduis les tailles, garde le phénomène).
+**Erreurs à éviter** : pour la régression logistique (n° 1), comparer Newton à la descente de gradient (c'est §8.1 de l'exemple) ; une prédiction écrite après coup ; une échelle linéaire pour une erreur qui décroît exponentiellement ; conclure sur une seule graine ; une expérience trop longue pour le budget de 5 minutes (réduis les tailles, garde le phénomène).
 
-### PS.9 — Rédiger l'article : introduction, plan, conclusion et limites, références par sections, LaTeX propre, notebook exécuté de bout en bout en moins de 5 minutes 🛠️ ★★★ ⏱️ 120 min
+### PS.9 — Rédiger l'article : introduction, plan, conclusion et limites, références par sections, LaTeX propre, notebook exécuté de bout en bout en moins de 5 minutes 🛠️ ★★★ ⏱️ 140 min
 **Objectif :** un article qui se suffit : on le lit sans toi, on le réexécute sans surprise.
 **Prérequis :** PS.8 · **Points :** 1
 
@@ -364,7 +368,7 @@ Une banque générique, sans réponses : choisis-en cinq pour PS.E1 (ou écris l
 
 ## L'exemple
 
-[`exemple/`](exemple/) est un projet complet, rédigé de bout en bout, sur un algorithme qui n'est ni dans la liste ni dans workbookIA : **la régression de Poisson ajustée par la méthode de Newton** (moindres carrés repondérés), sur des données synthétiques, vérifiée contre scikit-learn et SciPy. Il a son cadrage, son article exécuté, son module, ses tests et sa grille remplie, avec une preuve par critère. Il ne corrige rien de ton projet et ne se recopie pas : il te montre le niveau de détail visé. Ouvre-le une fois écrite une première version de ton cadrage, jamais avant ; [`exemple/README.md`](exemple/README.md) dit quoi y regarder. L'exemple n'est jamais copié dans ton dossier.
+[`exemple/`](exemple/) est un projet complet, rédigé de bout en bout, sur un algorithme qui n'est ni dans la liste ni dans workbookIA : **la régression de Poisson ajustée par la méthode de Newton** (moindres carrés repondérés), sur des données synthétiques, vérifiée contre scikit-learn et SciPy. Il a son cadrage, son article exécuté, son module, ses tests et sa grille remplie, avec une preuve par critère. Il ne corrige rien de ton projet et ne se recopie pas : il te montre le niveau de détail visé. Ouvre-le une fois écrite une première version de ton cadrage, jamais avant ; [`exemple/README.md`](exemple/README.md) dit quoi y regarder. Si tu as choisi la régression logistique, lis d'abord sa consigne propre (« En quoi ton projet en diffère ») : c'est l'algorithme de la liste le plus proche de l'exemple. Pour elle, ne lis de l'exemple, avant d'avoir rédigé tes §3 et §4, que le cadrage, §1, §2 et §5 à §9. L'exemple n'est jamais copié dans ton dossier.
 
 <a id="hors-champ"></a>
 

@@ -135,6 +135,21 @@ def test_the_readme_follows_the_contract_of_the_syllabus():
     assert "```text" in readme.split('<a id="correction">', 1)[1], "expected the correction prompt, ready to copy"
 
 
+def test_the_durations_of_the_readme_add_up_to_those_of_the_syllabus():
+    fin = _fin()
+    readme = (PROJECT / "README.md").read_text(encoding="utf-8")
+    reading = fin["reading_minutes"]
+    total = sum(ex[3] for ex in fin["exercises"]) + reading
+    hours = str(fin["hours"]).replace(".", ",")
+    assert f"| **Durée** | {hours} h, dont {reading} min de lecture" in readme, \
+        f"expected the header table to give {hours} h, with {reading} min of reading (fin.py)"
+    milestones = readme.split('<a id="jalons"></a>', 1)[1].split('<a id="demarrer"></a>', 1)[0]
+    cells = re.findall(r"^\| \d \|.*\| (\d+) h(?: (\d+))? \|$", milestones, re.M)
+    minutes = sum(60 * int(h) + int(m or 0) for h, m in cells)
+    assert len(cells) == 4 and minutes == total, (f"expected four weeks of milestones adding up to {total} min (the steps "
+                                                  f"and the reading of fin.py), got {minutes} min over {len(cells)} rows")
+
+
 def test_the_list_of_algorithms_cites_existing_chapters_and_mymath_functions():
     from wbm.chapters import CHAPTER_ORDER
 

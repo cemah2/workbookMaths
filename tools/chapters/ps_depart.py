@@ -207,7 +207,7 @@ IMPLEMENTATION = r"""
 
 📝 **PS.6** (3 points) · Présente `algo.py` : ses fonctions publiques, la formule de §3 que chacune calcule, les fonctions de `mymath` qu'il appelle et ce qu'elles font dans le calcul, et le coût d'un appel (en fonction de $n$ et $p$, M18 §5 si c'est une rétropropagation).
 
-La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si ce module est la référence recopiée (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
+La cellule « Contrôle du module » lit `algo.py` sans l'exécuter : ses fonctions publiques et leurs docstrings (**API**), les fonctions de `mymath` qu'il appelle, marquées « à toi » si leur module est dans `mon_travail/mymath/`, « référence » sinon, et « copie de la référence » si ce module est la référence recopiée, aux commentaires et aux espaces près (**mymath**), et ses imports (**imports**). La cellule suivante lance, avec ton code, les tests de ces modules de `mymath`.
 """
 
 CONTROL_CODE = r'''
@@ -249,11 +249,15 @@ if tree is not None:
     for node in tree.body:
         if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and not node.name.startswith("_"):
             doc = ast.get_docstring(node) or ""
-            missing = [part for part in ("Parameters", "Returns") if part not in doc]
-            missing += [] if re.search(r"\(3\.\d+\)", doc) else ["numéro d'équation (3.k)"]
+            needed = ("Parameters", "Returns") if isinstance(node, ast.FunctionDef) else ()
+            missing = [part for part in needed if part not in doc]
+            equation = bool(re.search(r"\((?:2|3|4)\.\d+\)", doc))
             mark = "⏳" if node.name == "example_function" else ("✅" if doc and not missing else "⚠️")
             note = (" (l'exemple du kit : remplace-la par tes fonctions)" if node.name == "example_function" else
                     "" if doc and not missing else f" (docstring {'absente' if not doc else 'sans ' + ', '.join(missing)})")
+            note += ("" if equation or isinstance(node, ast.ClassDef) or node.name == "example_function" else
+                     " ℹ️ aucune équation citée : normal seulement pour une fonction qui ne calcule pas une formule de §3 "
+                     "(vérification des données)")
             print(f"  {mark} {node.name} : {doc.splitlines()[0] if doc else '—'}{note}")
     print("mymath :")
     calls = mymath_calls(tree)
@@ -261,7 +265,8 @@ if tree is not None:
         mine_path = ROOT / "mon_travail" / "mymath" / f"{module}.py"
         ref_path = ROOT / "solutions" / "mymath_ref" / f"{module}.py"
         mine = mine_path.exists()
-        copied = mine and ref_path.exists() and mine_path.read_bytes() == ref_path.read_bytes()
+        same_code = lambda a, b: ast.dump(ast.parse(a.read_text(encoding="utf-8"))) == ast.dump(ast.parse(b.read_text(encoding="utf-8")))  # noqa: E731,E501
+        copied = mine and ref_path.exists() and same_code(mine_path, ref_path)
         chapter = OWNER.get(module, "?")
         MYMATH_MODULES[module] = f"tests/test_{chapter.lower()}_{module}.py"
         label = "⚠️ copie de la référence" if copied else ("✅ à toi    " if mine else "⚠️ référence")
